@@ -1,58 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020606;
-	b=3nBmtFvrb5c5MYgcOhqxzfIfemQE8tncwXferNQz2CLP6qFoEPxT0VREGaYnW19Hi7Fz
-	 TcYIFraTMwXFK47eda98JRYdbaDpfACnVBL99ORKumP0lzborKwqlT4Hz1gVzNPYskPJh
-	 FWp0c4Se7A5A8Ivc8rEDTW/XFO7kiaueiLT8VmBQnrdZGxuPcEJFB2A5+RsJm7rb5YDJk
-	 77PaI7e0UJxDngBTS/tbmTOaWvxb99SSwAq+h9nF0JDTkmaLtnucSf/YarV0YrOf4gnC3
-	 rdJKTVrYeCbHlKmZNa0raHXFyzdYn4vebhY7wKgM8HuAKIiRudL0Nfzrjq3KIlFQTLw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020606;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=CyjKDjy9c46o/HWa56BDlf4pykp2gQLkYqhUcMj3WmQ=;
-	b=qqAEqkIh4trTyIbDHlS1dCjhmPE+vMWTetensN1t77v/TReije6CPW8SgI3z8jZ8qVeR
-	 clK5edabGiYhYCz+02QIfgG1W6uwYfNdxUPTXJUiH6cLPrpX7ilKXB+EuBERZPoikBh3s
-	 oHmLUV7wSRGP9PDSGjGjIM0nj9WTZN49n/xIN2JNVxeYwmcCp/E11HalTCzKMSAIj4+k0
-	 Nk4V3vudelQY3O8/IDnIAJ25EXeeZme40e+atugz/kW33q82F/Wj2Hsl3o5qcOXQav2p2
-	 92SJP22phSemIjPatz0eBLK57He2dNILn6om9ar43wd5xyb/QK8Q9/1FlEfepEPstxw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZUGoGX5b;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.38
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795020597;
+	b=NKAtj9pbHQHnLDKB8mq49WtI7gqqdtt/6MDysEQrQU3rCOJVyNzheGup5PeCwdHuiOIj
+	 OtgaVa3Wtah3gEAgozYzHysER6hOXxiWX/Jlpim6Va307K0cmUHbdseg8rNFdIh4VP5jE
+	 i2tIOtAAYEBTqCQodPfLQs1PhxEj48742+cj2tI6m00022qh+QLLzZ+NqqxAGy/q8ZjKZ
+	 9WWfBaDUfIHlO3Nnhesm4SQXlqyEdNZqrpbRhnVlNNx6pv74r1WG5R1ge+4UETrDagaFv
+	 m1y5LzG7alcQxgCm7gtoAd/TIoCUokvAckRmmRBHj172oQs66u8oz2GJRktPK2XAXZw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020597;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=jHUl6FUSkft0rSAC9VeAIqHIT3NWJxeRdLBgncTeK+8=;
+	b=pds9kWtqkksE6O11cRaYvN4LmXeIISZe9AZhdfHMI9KQofl3CnxYfLGerFcE2ZTPmGwD
+	 mu8famg83TnPMazDiGtth+3WlT1GWFH0u2g0I4h5WA7Rnjm5JDANO0F4xa4s8BgSUCUIM
+	 rGTog4KW/HQQRvRhdUjD7scQ8jzatcZD4t+YbZpddfM/6KfGOcisvc5W//dDpVTXGzILN
+	 bOJOAitzOCEvjolGnfc5qbdgkkMcGP4oTcMbsYoFnMyvhpCQg8khh+Sjh2eYfOXCdqiQl
+	 JOtT4KG+S6x3sZ2GaEGAJSJRHScPRG+AWETWPMSzD+giGjIuge8W8zrFtuUAKlrexPg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=ntairt51;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.38
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013038.outbound.protection.outlook.com [40.107.159.38])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E452606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:50:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E452606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 944F2606A320;
+	Wed, 18 Nov 2026 16:49:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 944F2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ZUGoGX5b
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8E1624E40546;
-	Wed, 18 Nov 2026 16:50:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 51DA25FE9B;
-	Wed, 18 Nov 2026 16:50:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B73EC11BC288E;
-	Wed, 18 Nov 2026 17:49:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020600; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=CyjKDjy9c46o/HWa56BDlf4pykp2gQLkYqhUcMj3WmQ=;
-	b=ZUGoGX5bBxznGuj2njy1KOPSgGFIOjUlp8TNOOXoCntty8WmdVCpyfs4sYguwawSwOav8a
-	4LJNI6/NlRMXiURLOqu0IQyqoA1O7731csdWZ6ExGtQf1E3k1/goi1gS7mPkYSS2NANZBk
-	6N4vxmmbuB49N2WFZ3B51Vr3/daAxw2TpKsb35IUPX2isGt/Fdf9+vM5xGusg5GT4/NlKl
-	7+2yvEVbnS2qrUUp2XQ6aP0OaKlGdpb03kcO/pZYjtanjTUlNHOstypjXlB3ddOU42NEIi
-	UYcZGVrIcfn7XLhtMmUjOT+rdprQolwtMzqoOmq49JiZbJ66OqbwN2kL4cGqGg==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: [PATCH RFC v3 00/31] drm bridge hotplug
-Date: Wed, 18 Nov 2026 17:49:43 +0100
-Message-Id: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=ntairt51
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DEYxCgzFrVKlIK/PGtNDQWRy9PkUSVuQGPIGRhyNNOOmELQEDtWpPy7yISgkOIJM1qUPWhTfRm/TK1KZqdHYo7K4vxg4rk5RDXzpqUO1sjn+7wGWL2NSYGsMswIIm4Jg7YeAqPEIi+R5RvMMK6AEbHCZYpjUVaW2RjYzrNc+g2Yrro2eKptf8Puzed1VVii4Pb6x1B/BKiW+JgZmRSdYgSjRYr4pw/RjhUwWlzXxQ8/w4DCaHvptgQOSXXGiYfGXXdAxINYoR8MhDzsn5wqqcnWmA3R/6VhSE9IRtiXBC9sXEISZbiOxOicQUr8L/IgX4+t1fSNaLD5blhUX6abh9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jHUl6FUSkft0rSAC9VeAIqHIT3NWJxeRdLBgncTeK+8=;
+ b=wu+aYqPKSbCN8wOCIaTTIYmMldRA6LFfMMpp0FmOxK4NMq34SmAmBYZVVVMAlfGpBClI88PjVSWMAjHHO5uoCKPzyZRw84l+Clq9iYB/4lm7s4cy9FcLzuhbRYpSc8iT7Tjyf6z6MxrJPC3RB/veVnYoGg6K9X63BSE8m/AggJUPoBzrJjjJx2Uya6g8Cz3cS/FzWSP2u0kqiTvSjuri30ZqfxSrH+NtpDjlywz0WGGbSx4daicUTH2+EkGiNjD6Xs4fSlWV9i/fYmrGLs8ANHic7BB+sjm4+hVAkYbLFfyq0aZ88GH1K2sZ0tD7OZJeZar6fl9JpTntPaC+s+TMVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jHUl6FUSkft0rSAC9VeAIqHIT3NWJxeRdLBgncTeK+8=;
+ b=ntairt51yOJMHSaYkdSmvCZT+Doyy4tphSb9gQlYl08Kq0+HhrRZpw5TL7QMr+qB8O0QBnyHuMgxwt4Ps28jkztHf8yrsHSt+v0oHAmPso6tlKYIQJGCuaAYkwdM7fC0tfsmPNouF/vTwd1cT3JzAjtxjGDHQfLko6AbKByUKJRvC30S3CVsBVKbSvAvu0JgGBQ6L4KytYd9XDCxtbJ6MlWWchPP1BEjkdWxMtTrPSpjX0sjlRMJTv+SAFpa8CPACHGUADOsmoox6azEoIUYRm2+bEn6jCpUGo5W3KXRBvbzP12uPlF41AXCxUwYy3NimEdyuDHMCrtfIMr5xeUn2Q==
+Received: from GV2PR04MB11740.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cd::13) by ZR6PR04MB344437.eurprd04.prod.outlook.com
+ (2603:10a6:910:dc::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 16:49:52 +0000
+Received: from GV2PR04MB11740.eurprd04.prod.outlook.com
+ ([fe80::ca5f:7e1c:a67a:a490]) by GV2PR04MB11740.eurprd04.prod.outlook.com
+ ([fe80::ca5f:7e1c:a67a:a490%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 16:49:51 +0000
+From: Claudiu Manoil <claudiu.manoil@nxp.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, dl-S32 <S32@nxp.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "kuba@kernel.org" <kuba@kernel.org>
+Subject: RE: [PATCH net-next v4 6/6] PCI: Create OF node for NXP ENETC
+ pseudo-MAC functions
+Thread-Topic: [PATCH net-next v4 6/6] PCI: Create OF node for NXP ENETC
+ pseudo-MAC functions
+Thread-Index: AQHdc4l1W45hXljdaUi0k3W3Brgb6rcycPsAgAGgTiA=
+Date: Wed, 18 Nov 2026 16:49:51 +0000
+Message-ID:
+ <GV2PR04MB117403B25990A8A4E558DB0B4967A2@GV2PR04MB11740.eurprd04.prod.outlook.com>
+References:
+ <e256f380f2f1bc88752ee261101cc83ad84ebedd.1794581338.git.claudiu.manoil@nxp.com>
+ <179493091275.3136.9482657927785539194@kernel.org>
+In-Reply-To: <179493091275.3136.9482657927785539194@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV2PR04MB11740:EE_|ZR6PR04MB344437:EE_
+x-ms-office365-filtering-correlation-id: 1b604409-8520-407b-128c-08df4593f70c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|376014|261009223027099003|6133799003|22082099003|18002099003|11063799006|4143699003|56012099006|261026140227099003|5023799004|261102123227099003|261022075727099003|261028144727099003|261026121527099003|261021121427099003|261022105027099003|38070700021|10067099003;
+x-microsoft-antispam-message-info:
+ 7WBmA2uxn72xzldadXeEpiIa+K9JOxeHLYsYU3U5yjgCsZ4jwOIPu2CpVH1Tf2fqOEhfdPiIYMNqoLAlMlRRj7eR4Tvjdfk2U5xbKYzxh5AXboI4JiRv2cYfFqouI/PCuOU70UgXJOmJc9p4eYpqH5ngy3T5lBZPAS+9YQBAKSKwaz18uMXUXPG2iZ4SKZkeNcUoGXWS/9ZdIL+ULfOTV0VzKEuZIZL7zy2ps1Kp784LIu3p63Ob44RYlnvkZnwrHQCTbR57eh2qiYy6SsF1Gix1JEtjrnDOsmdMfVQxuGqGZ2kRPYEWFv/7NNMBbOUZ/7+0zTwgrLLgIgYAh+zExydpedCjqW1ujbXIiq+C6KPAOlUnfso9bMsNhyKon64bN5MJXcMNVzhh3RvlCAUVCLcMDi8nO045Z65iIwnlA2H1+AiOCqe//qEIke5jtM+b2eQkFqoPfN+I5vH0ojnKL91YxXbWCWuRXY9ypO7jJYOkxakIh9nEtd2xa2h31kGpAv1YD01Br5VHt0fIjKuoSmUoR5365SKpSx63sfjIMayTnVusnWxlWYS8aqlx3FPfX+uZqQbqU1PwPd6G4YmemUPfwtBdjuQKbllDHxJ0pANqIg7GvFznDThcLPYvL01RMhuaUb44Jv+Fah3WQdxGTs2HOpap+fAkBKiTe3oyo13HyCg50XaEkffjyDJGnhrq
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11740.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(376014)(261009223027099003)(6133799003)(22082099003)(18002099003)(11063799006)(4143699003)(56012099006)(261026140227099003)(5023799004)(261102123227099003)(261022075727099003)(261028144727099003)(261026121527099003)(261021121427099003)(261022105027099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?BE2S1TW1RMnex7qIHaYjdtyLAt84itVjWejaHFkrohImbQQCjLVd86/wWBoq?=
+ =?us-ascii?Q?sS9eDVMHKXHGvV6B+o8K+Cd6+p9z8ooIT8plmv25uDGnKhN/gMftHYcBBmz3?=
+ =?us-ascii?Q?OhXZjxTOHNlPQJgpuaj7QIT2L99qNagQyN3YyCrQyoiRH7JN+cAJ9nV1JpVe?=
+ =?us-ascii?Q?3/RTUjmW1DyU2lO5mIoXGvltYVAT4BvswkPUGYLSFULxAXFr3PvLsrsjBnmZ?=
+ =?us-ascii?Q?WRd2COWp5/b3iNFcQ1sAwdEPJOrxebzVADBygpI+174ldz3t93WzML3OaTQo?=
+ =?us-ascii?Q?Uaz+cMCPAeN1j6RuMwS5KDgUuLdjnMNGhpPIaFSd1Ws93XLSIndbsrR4ZKRN?=
+ =?us-ascii?Q?uPBrHKKos+lnGpEc8iX9l51bJg4TDEJxIU0dJEQMLO/1yDJ86uCX53N1w07l?=
+ =?us-ascii?Q?A/wd79PvyH2U01/ym7RieicJ/PIG7rH7HVw4bfD7pa4wcpbuPXbR4KVhTyCG?=
+ =?us-ascii?Q?8tqeflSg8QlUD6M2eVITXryzUBx0nWmcVU1FObzrXnKwlyDnCFxZqlAlVKlY?=
+ =?us-ascii?Q?M0oPtZnfszs6MMQ/aplZHHbs8OjHLPTOtHC9XRWrf/Iz/qk+znnKJCKUV60w?=
+ =?us-ascii?Q?Wd6DRiVZGQpTQ8+7ls481D10nUS31qrZJDnZ5KudUmd6eb3lUh2APwmbgdvj?=
+ =?us-ascii?Q?w4GkYoIBxaoB5iVA9LFDz+ToCzbtbYoqTWZ5kU99mEbnhq4aojJl+HRuF93/?=
+ =?us-ascii?Q?ddbz4IPoroSAByLAm5d4SgMJYt2NLhpsMuZz7OJ06TRTbn9O3llPfosFMhm2?=
+ =?us-ascii?Q?NrwGZ8mL0GZa515yOkU38jUtcq6Og+Po/uK8gxSrfCIGPYt2U9xA7s0VOsZB?=
+ =?us-ascii?Q?iXroP3YvmMhMGnIuHNDEF3llowuBYIHuIfA5Hehhx20diJ7ypqSV04Ivzg//?=
+ =?us-ascii?Q?SsTo2pUPki7nCcdK0/1QvQ4YzdPWJ++2oeQOjPP3x9kgUJWjl9o1/FjsZjcL?=
+ =?us-ascii?Q?2bKCfDMGWyOnjlhqmEy4BaIrc8w3sTdMaceDly+cjWc5qRiM25jbrdRU5zK0?=
+ =?us-ascii?Q?AudH8vHKQZiQK8YmbAGq1hd/V04uYikrGZvVgvbjNl+tvbgw4t7RWkBNBlNO?=
+ =?us-ascii?Q?ZcEWGK5ulHBnrMCW7Hsz0IDiNRD0+AUXKm/rWUhLIxVVzbtBfABSN7uoMa3l?=
+ =?us-ascii?Q?ECxsJLfBDTgbLEh3SE+hd8uWm+btIVlV0r/TaAvkfwGfNjH7RlE6KGi0BLXl?=
+ =?us-ascii?Q?QxrTGmgOAGcDCFz+Q0WsKoJLRy3HhKixYc3prdlnuY+vnRyGJgb2BwJGB34k?=
+ =?us-ascii?Q?IbPPQat/xjazY5MlY+ch1IyuyLfV2SyuGNFyRkk5xyEl44vXUzGmEp4wEj0a?=
+ =?us-ascii?Q?Z0BdKahb83y/O371o5bwZ8fH0CjwaYhrsdO+iEbzwHc0OiBtFeEjfvnNZZxG?=
+ =?us-ascii?Q?CHN0E6dVzUGWA//Bu52AY9kvvqGdpHK5PweMQK+INS1BrhgEdQqpdIAmk/CB?=
+ =?us-ascii?Q?rtBY9ngWFFEtp89hZ7wo7Tc7sFmslD7hhdxfOBmrJCcFFS5GQF5044xm3OPs?=
+ =?us-ascii?Q?Upovn8NVYqylCD6BsV/VwxlfjM3nzKQYyZrQF9qeI8lepKkluxJUm4XnkGuC?=
+ =?us-ascii?Q?zHjUXomzo8Dw8GdpQoWxtxKdkllxK73QoKSYNh1yHz74EPldFnFoKJ4cZezY?=
+ =?us-ascii?Q?UZ1EOs5gBi6YYZcQySKz2LgsWwyttZUQdgWHey15rlC6kXtB1kR8vDziv29G?=
+ =?us-ascii?Q?gEZpT1wO1lLcL07I/4DMD90DrEKWmj84M0FWlftZ8rbG7qo8kwaLZ8eX3gpx?=
+ =?us-ascii?Q?0418ClZuqg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,275 +149,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22OywrCMBBFf6VkbSSPJrSuBMEPcCsuTDO1EW00S
- YNS+u+mDwTB5Z25c870yIMz4NEm65GDaLyxbQp8laGqObcXwEanjBhhkggqsHZ3rJzRadPY8Lh
- 1F5xLJoXmZ1YXAqXDh4PavCboER32O3Sah75TV6jCiFtqDp5dUoa5O9Ya44N17+mfSCfCoi7/q
- SPFBOcCmNKK61rlW2VtuJl2Xdn75I3sC6GE0L8QliAF8LwspK6ULH4hwzB8AGftJr8nAQAA
-X-Change-ID: 20260515-drm-bridge-hotplug-46265d3a2f85
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11740.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b604409-8520-407b-128c-08df4593f70c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 16:49:51.6755
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: v5LOSoi3hPe5mlp776ecIU6TyDwN9yBS3Y1I0v677AzjUR3cJPvu96l8sulf+UJK4ZvenqoZxTTNXC9/OWGGdw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB344437
 
-Hello,
+From: netdev-bot+sashiko@kernel.org <netdev-bot+sashiko@kernel.org>
+Sent: Tuesday, November 17, 2026 5:55 PM
+> To: Claudiu Manoil <claudiu.manoil@nxp.com>
+> Cc: netdev@vger.kernel.org; dl-S32 <S32@nxp.com>; bhelgaas@google.com;
+> linux-pci@vger.kernel.org; linux-kernel@vger.kernel.org; kuba@kernel.org
+> Subject: Re: [PATCH net-next v4 6/6] PCI: Create OF node for NXP ENETC
+> pseudo-MAC functions
+>=20
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 * High: 0 * Medium: 1 * Low: 1
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>=20
+> - [Medium] The two new fixups for 0xe101 and 0xe110 in
+>   drivers/pci/quirks.c only do something when...
+> - [Low] The comment above the of_pci_make_dev_node() fixup block in
+>   drivers/pci/quirks.c (lines 6553-6560) gives one reason for the...
+>=20
+> --
+>=20
+> PCI: Create OF node for NXP ENETC pseudo-MAC functions
+>=20
+> This commit registers of_pci_make_dev_node() as a final fixup for the NXP
+> ENETC4 PCI device IDs 0xe101 and 0xe110. The new per-function OF node let=
+s
+> the ENETC4 driver attach a fixed-link child to pseudo-MAC ports that have
+> no static DT node. The fixup only does anything when
+> CONFIG_PCI_DYNAMIC_OF_NODES is enabled.
+>=20
+> > diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+> > index 7f1f47ea2ee41..71f272d8a2965 100644
+> > --- a/drivers/pci/quirks.c
+> > +++ b/drivers/pci/quirks.c
+> > @@ -6563,6 +6563,8 @@
+> DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5021,
+> of_pci_make_dev_node);
+> >  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_REDHAT, 0x0005,
+> of_pci_make_dev_node);
+> >  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_EFAR, 0x9660,
+> of_pci_make_dev_node);
+> >  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_TOSHIBA, 0x0220,
+> of_pci_make_dev_node);
+> > +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_PHILIPS, 0xe101,
+> of_pci_make_dev_node);
+> > +DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_PHILIPS, 0xe110,
+> of_pci_make_dev_node);
+>=20
+> [Severity: Medium]
+> With the default arm64 config, will these fixups do anything on the
+> S32N79 platform this series targets?
+>=20
+> If CONFIG_PCI_DYNAMIC_OF_NODES is not set, of_pci_make_dev_node() is
+> an
+> empty stub:
+>=20
+> drivers/pci/pci.h:
+> #else
+> static inline void of_pci_make_dev_node(struct pci_dev *pdev) { }
+>=20
+> PCI_DYNAMIC_OF_NODES is a user-visible bool, and nothing in the tree
+> selects it. NXP_ENETC4 selects OF_DYNAMIC, so there is no build problem.
+> However, it does not select or imply PCI_DYNAMIC_OF_NODES.
+>=20
+> arch/arm64/configs/defconfig sets CONFIG_ARCH_S32=3Dy and
+> CONFIG_NXP_ENETC4=3Dm, but it does not set PCI_DYNAMIC_OF_NODES.
+>=20
+> The s32n79.dtsi change in this series adds netc_iep18 without child nodes
+> for the PCI functions. So dev->of_node stays NULL for the pseudo-MAC PF,
+> and enetc4_link_init() fails the probe:
+>=20
+> drivers/net/ethernet/freescale/enetc/enetc4_pf.c:enetc4_link_init() {
+>     ...
+> 		if (!node) {
+> 			dev_err(dev, "Missing of_node for Pseudo-MAC
+> port\n");
+> 			return -ENODEV;
+> 		}
+>     ...
+> }
+>=20
+> This error message does not mention the missing config option.
+>=20
+> So with the default arm64 config, "arm64: dts: s32n79-rdb: enable NETC
+> IEP18" does not get the PPM PF/VF instances probed, which is what it sets
+> out to do.
+>=20
+> The commit messages say this dependency is intentional, because the
+> driver also handles ports described by static DT. That is a reason not to
+> add a hard "depends on". Would an "imply PCI_DYNAMIC_OF_NODES" on
+> NXP_ENETC4, or a defconfig update, work instead? The Kconfig help text
+> notes that turning the option on also creates OF nodes for all PCI
+> bridges.
 
-this series adds support for devices with a DRM pipeline whose final
-components, including one or more bridges, can be hot-plugged and
-hot-unplugged.
+Same reply as here, for v2:
+https://lore.kernel.org/all/GV2PR04MB117408067A4647C476FAD617596692@GV2PR04=
+MB11740.eurprd04.prod.outlook.com/
 
-For more about the use case see the v1 cover letter:
-https://lore.kernel.org/lkml/20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com/
-
-Design
-======
-
-The drm_bridge_connector is nowadays the recommended way to implement DRM
-connectors when a chain of bridges is used.
-
-This series proposes a small helper (drm_hotplug_helper) which drivers can
-use to make their encoder able to:
-
- * receive hotplug-relevant events
- * add a drm_bridge_connector when a new bridge is added making the
-   pipeline complete in the hardware
- * remove the drm_bridge_connector when a bridge is removed
- * start/stop HPD polling when the connector is added/removed
-   (despite the name, HPD is pretty much orthogonal to bridge hotplug)
- 
-Series layout
-=============
-
-There are various preparation steps before the last patches introduce
-bridge hotplug itself.
-
- A. Add a dynamic variant of drmm_connector_hdmi_init() and non-drmm
-    hdmi-cec API
-    (needed for the bridge-connector to allocate the connector dynamically)
-
-     1	drm/display: hdmi-cec-helper: use drmm_ prefix for drmm action
-     2	drm/display: hdmi-cec-helper: add non-drmm API variant
-     3	drm/display: hdmi-cec-notifier-helper: use drmm_ prefix for drmm action
-     4	drm/display: hdmi-cec-notifier-helper: add non-drmm API variant
-     5	drm/connector: split drmm_connector_hdmi_init() in 3 parts
-     6	drm/connector: add drm_connector_hdmi_dynamic_init()
-
- B. bridge-connector: use a dynamic drm_connector
-
-     7	drm/display: bridge-connector: split allocation code from initialization code
-     8	drm/display: bridge-connector: hoist error management to common code
-     9	drm/display: bridge-connector: use a dynamic connector
-    10	drm/display: bridge-connector: add APIs to add/remove the connector dynamically
-
- C. Misc preparation work
-
-    11	drm/bridge: constify of_drm_find_and_get_bridge() device_node parameter
-    12	drm/bridge: initialize chain_node list head on allocation
-    13	drm/bridge: initialize chain_node list head on detach and attach errors
-    14	drm/bridge: ti-sn65dsi86: protect device resources on unplug
-    15	drm/atomic: drm_atomic_private_obj_fini: protect private_obj removal from list
-
- D. Add notifier mechanism to let common code (the bridge-connector)
-    take actions on hotplug events
-
-    16	drm: event-notifier: add mechanism to notify about hotplug events
-    17	drm/bridge: notify about added and detached bridges
-    18	drm/mipi-dsi: notify about DSI attach
-
- E. Let bridges return their next bridge
-    (allows to know when the pipeline is complete)
-
-    19	drm/bridge: add drm_bridge_get_next() and supporting func
-    20	drm/panel: implement .get_next_bridge
-    21	drm/bridge: display-connector: implement .get_next_bridge
-    22	drm/bridge: ti-sn65dsi83: implement .get_next_bridge
-    23	drm/bridge: ti-sn65dsi86: implement .get_next_bridge
-    24	drm/bridge: samsung-dsim: implement .get_next_bridge
-
- F. drm_bridge: stop pipeline when a bridge is removed
-
-    25	drm/bridge: add drm_bridge_detach_from()
-    26	drm/atomic: add drm_atomic_shutdown_encoder()
-    27	drm/tests: atomic: add tests for drm_atomic_shutdown_encoder()
-    28	drm/bridge: clear bridge->encoder on detach
-    29	drm/bridge: shutdown encoder and detach downstream bridges on bridge unplug
-
- G. Implement bridge hotplug in bridge-connector, enable it in a driver
-
-    30	drm: drm_hotplug_helper: new helper to implement bridge hotplug
-    31	drm/mxsfb/lcdif: enable bridge hotplug
-
-== Grand plan
-
-This is part of the work to support hotplug of DRM bridges.
-
-Here's the work breakdown (➜ marks the current series):
-
-1. … add refcounting to DRM bridges struct drm_bridge,
-      based on devm_drm_bridge_alloc()
-    A. ✔ add new alloc API and refcounting (v6.16)
-    B. ✔ convert all bridge drivers to new API (v6.17)
-    C. ✔ kunit tests (v6.17)
-    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
-         and warn on old allocation pattern (v6.17)
-    E. … add get/put on drm_bridge accessors
-       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
-       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
-       3. ✔ drm_bridge_get_next_bridge() (v6.19)
-       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
-       5. ✔ drm_bridge_connector_init (v6.19)
-       6. ✔ protect encoder bridge chain with a mutex (v7.2)
-       7. ✔ of_drm_find_bridge
-          a. ✔ add of_drm_get_bridge() (v7.0),
-               convert basic direct users (v7.0-v7.1)
-          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
-          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
-          d. ✔ convert direct of_drm_get_bridge() users, part 4 (v7.1-v7.2)
-          e. ✔ bridge-only drm_of_find_panel_or_bridge() users (v7.2)
-       8. … panel_bridge lifetime
-          a. ✔ cleanup DRM_PANEL in bridge drivers (v7.4)
-	  b. ✔ embed a drm_bridge in every drm_panel (v7.4)
-	  c. ✔ remove *_of_get_bridge(): non-OF drivers (v7.5)
-	  d. … remove drmm_of_get_bridge()
-	  e. … remove devm_drm_of_get_bridge(), part 1
-	  f.   remove devm_drm_of_get_bridge(), part 2
-       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
-    F. ✔ debugfs improvements
-       1. ✔ add top-level 'bridges' file (v6.16)
-       2. ✔ show refcount and list lingering bridges (v6.19)
- 2. ✔ handle gracefully atomic updates during bridge removal
-    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
-    B. ✔ Add drm_bridge_clear_and_put() (v7.1)
- 3. ✕ DSI host-device driver interaction
- 4. ✔ removing the need for the "always-disconnected" connector
- 5. ✔ Migrate i.MX LCDIF driver to bridge-connector (v7.2)
- 6. ➜ DRM bridge hotplug
-    A. ➜ Bridge hotplug management in the DRM core
-       1. ✔ bridge-connector: attach encoder to the connector (v7.2)
-       2. ➜ drm bridge hotplug
-    B.   Device tree description
-   
-
----
-Changes in v3:
-- Handle use cases where the first bridge after the encoder is hotpluggable
-  (in v1 and v2 the first bridge was required to be always present)
-  as well as all cases where the first bridge is a DSI host
-   - Removed "samsung-dsim: move drm_bridge_add() call to probe", not
-     needed anymore
-- Handle hot-pluggable bridges supporting HPD, add TI SN65DSI86 DSI-to-DP
-- Fully implement dynamic connector in drm_bridge_connector (CEC helpers
-  were missing in v2)
-- Fixed shutdown to not shutdown the whole card
-   - as a consequence, removed (not needed anymore)
-     "drm/atomic: move [...] from drm_atomic_helper to drm_atomic"
-- Many smaller fixes and improvements
-- Link to v2: https://patch.msgid.link/20261001-drm-bridge-hotplug-v2-0-8e34986dcb68@bootlin.com
-
-Changes in v2:
-- Rewrote: added new drm_hotplug_helper, dropped most changes to
-  drm_bridge_connector
-- Added get_next_bridge func, dropped is_tail func, and stop
-  using -EPROBE_DEFER to mean a next bridge is needed but currently absent
-- Rebased on drm-misc-next, which required a few reworks
-- Fix dynconn mutex locking
-- Fix sashiko-reported bugs
-- Drop "drm/display: bridge-connector: store the drm_device pointer", not
-  strongly needed, and adapt the remaining patches
-- Simplify handle_hpd code types
-- Lots of other smaller improvements
-- Link to v1: https://patch.msgid.link/20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com
-
----
-Luca Ceresoli (31):
-      drm/display: hdmi-cec-helper: use drmm_ prefix for drmm action
-      drm/display: hdmi-cec-helper: add non-drmm API variant
-      drm/display: hdmi-cec-notifier-helper: use drmm_ prefix for drmm action
-      drm/display: hdmi-cec-notifier-helper: add non-drmm API variant
-      drm/connector: split drmm_connector_hdmi_init() in 3 parts
-      drm/connector: add drm_connector_hdmi_dynamic_init()
-      drm/display: bridge-connector: split allocation code from initialization code
-      drm/display: bridge-connector: hoist error management to common code
-      drm/display: bridge-connector: use a dynamic connector
-      drm/display: bridge-connector: add APIs to add/remove the connector dynamically
-      drm/bridge: constify of_drm_find_and_get_bridge() device_node parameter
-      drm/bridge: initialize chain_node list head on allocation
-      drm/bridge: initialize chain_node list head on detach and attach errors
-      drm/bridge: ti-sn65dsi86: protect device resources on unplug
-      drm/atomic: drm_atomic_private_obj_fini: protect private_obj removal from list
-      drm: event-notifier: add mechanism to notify about hotplug events
-      drm/bridge: notify about added and detached bridges
-      drm/mipi-dsi: notify about DSI attach
-      drm/bridge: add drm_bridge_get_next() and supporting func
-      drm/panel: implement .get_next_bridge
-      drm/bridge: display-connector: implement .get_next_bridge
-      drm/bridge: ti-sn65dsi83: implement .get_next_bridge
-      drm/bridge: ti-sn65dsi86: implement .get_next_bridge
-      drm/bridge: samsung-dsim: implement .get_next_bridge
-      drm/bridge: add drm_bridge_detach_from()
-      drm/atomic: add drm_atomic_shutdown_encoder()
-      drm/tests: atomic: add tests for drm_atomic_shutdown_encoder()
-      drm/bridge: clear bridge->encoder on detach
-      drm/bridge: shutdown encoder and detach downstream bridges on bridge unplug
-      drm: drm_hotplug_helper: new helper to implement bridge hotplug
-      drm/mxsfb/lcdif: enable bridge hotplug
-
- MAINTAINERS                                        |  16 +
- drivers/gpu/drm/Kconfig                            |   5 +
- drivers/gpu/drm/Makefile                           |   2 +
- drivers/gpu/drm/bridge/display-connector.c         |   7 +
- drivers/gpu/drm/bridge/samsung-dsim.c              |   9 +
- drivers/gpu/drm/bridge/ti-sn65dsi83.c              |   9 +
- drivers/gpu/drm/bridge/ti-sn65dsi86.c              |  61 +++-
- drivers/gpu/drm/display/Kconfig                    |   7 +
- drivers/gpu/drm/display/Makefile                   |   2 +
- drivers/gpu/drm/display/drm_bridge_connector.c     | 225 ++++++++++----
- drivers/gpu/drm/display/drm_hdmi_cec_helper.c      |  62 ++--
- .../gpu/drm/display/drm_hdmi_cec_notifier_helper.c |  34 ++-
- drivers/gpu/drm/display/drm_hotplug_helper.c       | 325 +++++++++++++++++++++
- drivers/gpu/drm/drm_atomic.c                       | 151 ++++++++++
- drivers/gpu/drm/drm_bridge.c                       |  87 +++++-
- drivers/gpu/drm/drm_connector.c                    | 131 ++++++---
- drivers/gpu/drm/drm_hotplug_event_notifier.c       |  62 ++++
- drivers/gpu/drm/drm_mipi_dsi.c                     |   3 +
- drivers/gpu/drm/drm_panel.c                        |   8 +-
- drivers/gpu/drm/mxsfb/Kconfig                      |   2 +-
- drivers/gpu/drm/mxsfb/lcdif_drv.c                  |  40 ++-
- drivers/gpu/drm/tests/drm_bridge_test.c            | 209 +++++++++++++
- include/drm/display/drm_hdmi_cec_helper.h          |  21 ++
- include/drm/drm_atomic.h                           |   1 +
- include/drm/drm_bridge.h                           |  27 +-
- include/drm/drm_bridge_connector.h                 |   4 +
- include/drm/drm_connector.h                        |   6 +
- include/drm/drm_hotplug_event_notifier.h           |  52 ++++
- include/drm/drm_hotplug_helper.h                   |  30 ++
- 29 files changed, 1442 insertions(+), 156 deletions(-)
----
-base-commit: 9c327dceb627a7947de3e82da6363fa508fd619b
-change-id: 20260515-drm-bridge-hotplug-46265d3a2f85
-
-Best regards,
---  
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+CONFIG_PCI_DYNAMIC_OF_NODES is not a hard Kconfig dependency
+because only the newly introduced S32N79 chip makes use of this feature
+currently. This is intentional. So, this config will be enabled only for S3=
+2N79
+platforms, for now, separately.
