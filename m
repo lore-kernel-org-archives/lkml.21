@@ -1,113 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989766;
-	b=dj03br6Vq1KHjOm01njK+yQdmXCrrVqXVNl9yBz88kVvgtl8c0jNryTwVI1kuC7XuZmx
-	 gH9JEUfntyWrMwUscDD02/6nPthMHudTvTXShtsXwbPRJl7tMIP9lHSr9sOCx2sPgGbvw
-	 61qyZuUwxqpL9xoUqRcVy3kmpJs5kFgRSIYZiaxqZ4ffVpkWy4S5/XRXI8rknKnRyepo1
-	 q+MvLaoChegdcU53y5dD3zEjzgSFJtlKbpDpPIwGOkX36XBOSqqbyIJvqXzfcHQ4dNm7o
-	 uAvkdVcK/RWWbWCRdgpM5OqBJXcXz0FleAgksYm2C8vSwsS3eeYXkId5pAzwa4dvO2w==
+	t=1794989768;
+	b=PA/aXmCG1KWMN2+O/NjyocZk8KwZ2g96NYQdR326kOiyhayPJ55JQoJQqa9prK9/ihk5
+	 BoOgZvCGJEw+xkZbHOQzs9EakJUWnXHyZBlgPo0Eh9UxqFY1Mm/b1jI25dsNn7sei2erA
+	 Lesx8/k/1lQ/vnrDIPbdtQnPNPoROd8w8KcQFFqTXHJC8eUz4DgW8JjsQ3FSsEKBBcRcb
+	 cbEYpEPOo6dJv6Fj5cO4sYmY0U+vvf56ePMJbTW1Md/TQVMxATHWCP92Xq92KOfcvnFi1
+	 5vwuL3SZrfBpgZi1vBDT3PTjbmvyi9k1z6abY7cp8g7ev3wTOr25rPyIB0qIV5DTu4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989766;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=yD8B0DYzRE1TNWdjML1LXifT4FyY8gR4hOyIQw75JeY=;
-	b=TStztTPY+v+pNob0khan8Afe8pW7oH2HM6KDMZ4WAV0Q4gMvrR0EoTiADoLY8DH9NQo1
-	 vnbo8atbGqOJ7AC0em4W23/074Wcv113w72eSy90ZcCmdciHQ9p5m5s4JRMVhHodNMeeD
-	 GScASVtCk2YElQHOSkVlZPY0hA649kbjYwvrSmvQb0DTYMmY37ea7njbFEQ6/29FReB54
-	 MNWWkdes8DE5t6b8p36PqrQKggeG7kq1qP+yHKRnEwDMOtoL5pjcOGFIEOmdL4A/OUPko
-	 XOpA8/6Uq0Z5zzcDXl2FYHmXZXm8cT/QQ6T+3+YANtoXE6GOhCJ1BMuJnAYuP8cuT8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989768;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=NYSvF3w4fJZaH+dCoDovCFBy1OSTg48d7tJNsIEBVo8=;
+	b=f9QlNGwmBzhK/bbVkt2r14120PK0ulx4HtkkKGDOVpXHXrgcGsJ1nOaXe6mJSowxMip0
+	 TyARo9up1OKik/beHoFlGn9XoJR+GgYbLLWypBzfa4KdtXILx4VadaWWtkL3QwXos4poy
+	 bSOx+RLIV/n17Z3hI7zTXeTEeYGk8CHu9cgN+ZPk1YPpUG84a2lQU7PgS5Ob53PH/6vjh
+	 GOZ0/pBI2ADykOX+nhh5d5nFAU2MmbWwk7P+GN0bJ4kLZ4vcCzVwCrROiNwm8jUbJvNDY
+	 l0iAfuoMFuYOctRNiYmKXK4bknN3ZtAVUenKOPxqHACF1qQcPvyWpF/dhIzuqV7wezA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="gd/+fv9J";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Teugbj7w;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c06OloGD;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0A5F606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0A5F606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62460606A331;
+	Wed, 18 Nov 2026 08:16:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62460606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gd/+fv9J;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Teugbj7w
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2UtPl3371421
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yD8B0DYzRE1TNWdjML1LXifT4FyY8gR4hOyIQw75JeY=; b=gd/+fv9Je/WDy+wf
-	mc6jOJedFBF/SPzhIsNWDj0hxEvzxOlojOXK26/p/uwQo/TfE2jkuUIJ/im07ezO
-	rrFdFrMlLKPpVZrXzs3CXPbHz9K7+T5YMlaQpgJGivNyJCl0I3a3lfc/fn4eXy2l
-	/NIqeudzIgpQ/+xE6UH2hAqMJwyGDNrwqHqlmNw8dbENwEUlLhKQFsnYsYrbZb/l
-	37aMreWx3dhuK9lVdt/LY6sixcnKmwZ0n+ctonHL5Oge98K3NJaFawD3A5m1DG9l
-	oro5GY9g+4Q57I+s2W5WmnnmkuotIWo83HgyIbz0lJnX1JacibKCDdl7UrCQmFo7
-	tdrajg==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8syh3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:04 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b3b74351a4so766728a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794989763; x=1795594563; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yD8B0DYzRE1TNWdjML1LXifT4FyY8gR4hOyIQw75JeY=;
-        b=Teugbj7w89dUbyQ8jEV+eg38hpyD0daCJoh57aqJDDW4domYPazviUImPBz4o4bsGX
-         wt9d58NQljjDxJ4s/zsw+eRkSQVs4bHlos8fEdkb+jjk5nrFkIN6FKZQa0plnH0FklDp
-         wnzLUN5bBSgOhVdarEH0b63wkb397Kw0XVO+gDLQIPqEPSpl4mN8yxW0HZ5JwkLsLBZ7
-         kcyvvKkQK/ntfFwAyXcmnOs177WBGPyMdgYFVPyM37jX4XLMa1RHdBNNhduVhtZ+929q
-         7DD+Pa4iMKt0c/4irNyJgBw2cabk5TV8xerEqP+VofEOgsUWcXQl0bvZU78sH1/al4sV
-         tZ4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794989763; x=1795594563;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yD8B0DYzRE1TNWdjML1LXifT4FyY8gR4hOyIQw75JeY=;
-        b=SEohbWJy0dqxS5NAn2VNiECj1ziZKSAVfYt3LY5JEKre8EH5ro2yDxqqUxiPGbWfVy
-         NLg/ncQX0XEhd9gYTVe1G67Dlp7I2xLgD6Ge5ZuO7kZ2Uw9FRLUahlcT3Jnhy09e6mPO
-         OIGDDX2p8X57L1UoqscSewd6oHZBvAk6U5WvXbcJVULoUtPW4xx+dQD1S1lWGff02ifq
-         Wr7gCjNCe/YSHJmiAWlcITF0TmBpwJB63X/X+D+aCCdAUEG3QzyOGlsLouWzjPOj/7xc
-         BFcQZa8bTNKRCtio/DxXu5tqU7sO6NctMCqvAk2MPTyVHbI5TkcssfYTDJCcW4pQl2MP
-         v8Fw==
-X-Forwarded-Encrypted: i=1; AL+hErH9c7e+ILRKJXXQTnD2wYBA2gGpqqkU1tgK+rbzg5Ykkt8yeTHiLOZhpv7P0CKWUkXNHyxnQcu+ZfXga2Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WnLh6V85GhrVqB3iv2+3t6hH5QRgiYwyP6Wrk8HypCqCEOjlG
-	mO1p+D9WSzZLbObyChx+veo9GakCNT9ojR5DihCl4FNyTnNPFiUeWXJeCS0AMZi0bLYJpjKV8eo
-	fgX/laFbxX0LDg8OI1BJ6CXzMwPj2U4ijfzfXsaq8Grg3vrih026+Nk7KyR6j0BnOi9g=
-X-Gm-Gg: AZFdTZcBfxtw1Qed8U6agpToZh25eDYmMHbv6VjIi2tnh8KDdaYEI9BGezlR8mlWYQy
-	FAcffQtJUyR6oOPRfc/IuZSxNbbSCXthdoB4pmZJa+dzOtYMaDcW0QQbLx7cuWe/Ki9hwsfWm/H
-	cGsKF6JxyFDo+OCt080b0ygtvIYqnA9IDRWT/nUBOS7WuVfVfXKtbz09eE58cdZA2j1+7qn+3ae
-	xs59C2AiHqUaM8C3jGopq3stYmS+9fROSH1LBEhEtOw6re84YHPuz1iawRkRexR26/1HfIRCNUJ
-	LSQloaGaokoKi83iRzAMP6TdL8AmQpTChHmLe52b8fgEPPjL0z0mhWvhSagJdGDMjNSv9Rrnho7
-	xekkHwqCp3WXUj/eOHLlmVPhHJnzTPp9sV3iMMQkyR4Z/elEqPN+a8dAaXVKmURcsw34hffjD0P
-	58ccCjjltOxNXahBN4920/IXQ+M06w0I/dsNWAKL4snb42hoARlCgSNLMmAiqeNVTT5CgWracjB
-	Q==
-X-Received: by 2002:a17:90b:4cc8:b0:3ac:7f4c:a68c with SMTP id 98e67ed59e1d1-3b3d07b0690mr2233233a91.49.1794989763296;
-        Wed, 18 Nov 2026 00:16:03 -0800 (PST)
-X-Received: by 2002:a17:90b:4cc8:b0:3ac:7f4c:a68c with SMTP id 98e67ed59e1d1-3b3d07b0690mr2233211a91.49.1794989762661;
-        Wed, 18 Nov 2026 00:16:02 -0800 (PST)
-Received: from hu-madhgane-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b5e8asm3369181a91.8.2026.11.18.00.15.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:16:02 -0800 (PST)
-From: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 13:45:29 +0530
-Subject: [PATCH ath-next v3 06/15] wifi: ath12k: add initial Wi-Fi 8 hw
- params and init helper for QCN9575
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c06OloGD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794989768; x=1826525768;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ZFy8lElfDcfVXCFI7XDvMs7NAlQEj6nfUntxpIvbV20=;
+  b=c06OloGDvHnhr0jao3bMeskewyMGxsvACBb4iOPqiFdjQiCXYiDKC5/h
+   pT+outmUo/dKMo3X5RtCsc/jzjWxDkgJ+O4FK1pbaVst2IRRI9r1i1Sgo
+   HxKn/4pzHiWec52ts2lj38OUg0Dwnv65fI9/qiirpCyP4shHIm4jrFPs6
+   tMves9GaaxAtFfY4ecoPMYr9qDmxa62G5ZxpwR9x2sc608CI+AkYq34WX
+   RFgVn4VdocrdVIix02nCBkda9R4hYa3Hq5Z7FBpGPOiKo1Px9JAqIa1yq
+   qisP39SdEip0kMhFRw2gAUJJ7NPb7IKAar7O+Rv/sDUmtUQKhqBQh5Cm/
+   w==;
+X-CSE-ConnectionGUID: MliC4XESSuiLDBfgEkteuw==
+X-CSE-MsgGUID: kNy5jwxxTeGnnbDZAsCsTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3813907"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3813907"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 00:16:08 -0800
+X-CSE-ConnectionGUID: XZPja6g9QN2b6kHbI7v8+A==
+X-CSE-MsgGUID: 6Fn4JIDyRpCOlLmivOUtoA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10340996"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 18 Nov 2026 00:16:04 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTapm-00000001DEU-1BVi;
+	Wed, 18 Nov 2026 08:16:02 +0000
+Date: Wed, 18 Nov 2026 16:15:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org,
+	kuba@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net-next v2 1/2] netdevsim: add TLS device offload
+ emulation
+Message-ID: <202611181558.YOFWJh8M-lkp@intel.com>
+References: <20261117140642.4008-2-jiayuan.chen@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,277 +90,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-wifi8_qcn9575_bringup-v3-6-9875d2a3953f@oss.qualcomm.com>
-References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
-In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
-To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Bill Wendling <morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>
-Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
-        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
-        llvm@lists.linux.dev,
-        Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Authority-Analysis: v=2.4 cv=Eu1HPicA c=1 sm=1 tr=0 ts=6afd5ec4 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=QEtot920D9eH50UxTSEA:9 a=QEXdDO2ut3YA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22
-X-Proofpoint-GUID: w20NgCCS2x4Q-BU9UdlWG-V7o9fjk64K
-X-Proofpoint-ORIG-GUID: w20NgCCS2x4Q-BU9UdlWG-V7o9fjk64K
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX1d6yPP89ZP3L
- F+/2ZSnKKJr7x/VbH9CWwQx6/p80kIKkkpZFQR5WdvxtOvrzu29d427rNAA+AJrwfdR3g8joEPW
- rhLKzj5j8sqYoYqcSjvwzCgT0HVx65gAPXj5D/SRrpdHuAoAtGgN3sbXFYooALCim5vkVWVEt6l
- bjqt7NZZqbamQbpOoxpuV0mm0awJ8fYa1z50VAuvnaabvMZ6AlY6e1XxAmur2eQKCgpC4gOqPV7
- OtydhXI0klueR+0FHOSXqOkRB0JNYPgPlXmQTOdaDNOf/HIITXLLwbS747+khHs8aP0PhzjD4J3
- DmOSFVs9N20h1w1J874D1kOViXxkcMCulgtuB+C32utMpio/dOYTekMhZGybXZ2O4NT+kRbeqbb
- ZLU00NrG4GgOId7x75PheXcY06JZwDaokZmJ2Zn4t8H+EHhDzcggoP9HnzmSTM3HJGK1WtLTCne
- avOqKaNT8rRR7MjMecw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX5VDZLyaC4XvX
- jqNxwIbAk+A1mgFs1wA10yq7vwavEYKs5IBmW2SwcdxnSkeMWPwG9cEck3f6U9km0CNukvzvGly
- RnyhTSIEMo7z0+x6taXpkfZR5d8MD0g=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 spamscore=0 suspectscore=0 bulkscore=0
- lowpriorityscore=0 malwarescore=0 priorityscore=1501 adultscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611180032
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117140642.4008-2-jiayuan.chen@linux.dev>
 
-QCN9575 is a Wi-Fi 8 target that requires its own hardware-params entry
-to be matched at probe time. Add ATH12K_HW_QCN9575_HW20 to ath12k_hw_rev
-and populate the initial parameter set in wifi8/hw.c. Introduce
-ath12k_wifi8_hw_init() to walk the Wi-Fi 8 hw_params table and select the
-matching entry at runtime. Hardware-specific operation pointers (hw_ops,
-wmi_init, mhi_config) and CE config tables are left as NULL placeholders
-until the corresponding subsystem support is added. Explicitly initialize
-every top-level member of the hw_params entry, including zero/NULL/false
-defaults, rather than relying on implicit designated-initializer
-zero-fill, so the full set of fields is visible and easy to audit as
-later patches replace individual placeholders with real values. Add
-wifi8/hw.h and wire wifi8/hw.c into the wifi8/Makefile.
+Hi Jiayuan,
 
-Define QCN9575_QFPROM_RAW_RFA_PDET_ROW13_LSB with the correct OTP
-register address 0x1F90070 and set it as the otp_board_id_register in the
-QCN9575 hw_params.
+kernel test robot noticed the following build errors:
 
-Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
-Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+[auto build test ERROR on net-next/main]
 
-Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
----
- drivers/net/wireless/ath/ath12k/core.h         |   1 +
- drivers/net/wireless/ath/ath12k/qmi.h          |   1 +
- drivers/net/wireless/ath/ath12k/wifi8/Makefile |   1 +
- drivers/net/wireless/ath/ath12k/wifi8/hw.c     | 135 +++++++++++++++++++++++++
- drivers/net/wireless/ath/ath12k/wifi8/hw.h     |  14 +++
- 5 files changed, 152 insertions(+)
+url:    https://github.com/intel-lab-lkp/linux/commits/Jiayuan-Chen/netdevsim-add-TLS-device-offload-emulation/20261117-220630
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20261117140642.4008-2-jiayuan.chen%40linux.dev
+patch subject: [PATCH net-next v2 1/2] netdevsim: add TLS device offload emulation
+config: x86_64-randconfig-1004-20261118 (https://download.01.org/0day-ci/archive/20261118/202611181558.YOFWJh8M-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261118/202611181558.YOFWJh8M-lkp@intel.com/reproduce)
 
-diff --git a/drivers/net/wireless/ath/ath12k/core.h b/drivers/net/wireless/ath/ath12k/core.h
-index 2a4b5e5e1af3..56b509841126 100644
---- a/drivers/net/wireless/ath/ath12k/core.h
-+++ b/drivers/net/wireless/ath/ath12k/core.h
-@@ -159,6 +159,7 @@ enum ath12k_hw_rev {
- 	ATH12K_HW_QCC2072_HW10,
- 	ATH12K_HW_IPQ5424_HW10,
- 	ATH12K_HW_QCN6432_HW10,
-+	ATH12K_HW_QCN9575_HW20,
- };
- 
- #define ATH12K_IRQ_NUM_MAX 57
-diff --git a/drivers/net/wireless/ath/ath12k/qmi.h b/drivers/net/wireless/ath/ath12k/qmi.h
-index fc68ff649352..438ab92802bf 100644
---- a/drivers/net/wireless/ath/ath12k/qmi.h
-+++ b/drivers/net/wireless/ath/ath12k/qmi.h
-@@ -19,6 +19,7 @@
- #define ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_WCN7850 0x1
- 
- #define ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN9274	0x07
-+#define ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN9575	0x07
- #define ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_IPQ5332	0x2
- #define ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN6432	0x60
- #define ATH12K_QMI_WLANFW_MAX_TIMESTAMP_LEN_V01	32
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/Makefile b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
-index b8c5b6d3a7bd..277b5f13754d 100644
---- a/drivers/net/wireless/ath/ath12k/wifi8/Makefile
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: BSD-3-Clause-Clear
- obj-$(CONFIG_ATH12K) += ath12k_wifi8.o
- ath12k_wifi8-y += core.o \
-+		  hw.o \
- 		  pci.o
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.c b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-new file mode 100644
-index 000000000000..6e89a42111b6
---- /dev/null
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: BSD-3-Clause-Clear
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/bitops.h>
-+#include <linux/types.h>
-+
-+#include "../core.h"
-+#include "../debug.h"
-+#include "../hw.h"
-+#include "../mhi.h"
-+#include "hw.h"
-+
-+static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
-+	{
-+		.name = "qcn9575 hw2.0",
-+		.hw_rev = ATH12K_HW_QCN9575_HW20,
-+		.fw = {
-+			.dir = "QCN9575/hw2.0",
-+			.board_size = 256 * 1024,
-+			.cal_offset = 128 * 1024,
-+			.m3_loader = ath12k_m3_fw_loader_driver,
-+			.download_aux_ucode = false,
-+		},
-+		.max_radios = 2,
-+		.single_pdev_only = false,
-+		.qmi_service_ins_id = ATH12K_QMI_WLFW_SERVICE_INS_ID_V01_QCN9575,
-+		.qmi_max_chunk_size = SZ_2M,
-+		.internal_sleep_clock = false,
-+
-+		.hw_ops = NULL,
-+		.ring_mask = NULL,
-+
-+		.host_ce_config = NULL,
-+		.ce_count = 16,
-+		.target_ce_config = NULL,
-+		.target_ce_count = 0,
-+		.svc_to_ce_map = NULL,
-+		.svc_to_ce_map_len = 0,
-+
-+		.rxdma1_enable = false,
-+		.num_rxdma_per_pdev = 0,
-+		.num_rxdma_dst_ring = 0,
-+		.rx_mac_buf_ring = false,
-+		.vdev_start_delay = false,
-+
-+		.interface_modes = BIT(NL80211_IFTYPE_STATION) |
-+					BIT(NL80211_IFTYPE_AP) |
-+					BIT(NL80211_IFTYPE_MESH_POINT),
-+		.supports_monitor = false,
-+		.supports_cong_ctrl_max_msdus = false,
-+
-+		.idle_ps = false,
-+		.download_calib = true,
-+		.supports_suspend = false,
-+		.tcl_ring_retry = false,
-+		.reoq_lut_support = false,
-+		.supports_shadow_regs = false,
-+
-+		.num_tcl_banks = 0,
-+		.max_tx_ring = 0,
-+
-+		.mhi_config = NULL,
-+
-+		.wmi_init = NULL,
-+
-+		.qmi_cnss_feature_bitmap = BIT(CNSS_QDSS_CFG_MISS_V01),
-+
-+		.rfkill_pin = 0,
-+		.rfkill_cfg = 0,
-+		.rfkill_on_level = 0,
-+
-+		.rddm_size = 0x600000,
-+
-+		.def_num_link = 0,
-+		.max_mlo_peer = 256,
-+
-+		.otp_board_id_register = QCN9575_QFPROM_RAW_RFA_PDET_ROW13_LSB,
-+
-+		.supports_sta_ps = false,
-+
-+		.acpi_guid = NULL,
-+		.supports_dynamic_smps_6ghz = true,
-+
-+		.iova_mask = 0,
-+
-+		.supports_aspm = true,
-+
-+		.ce_ie_addr = NULL,
-+		.ce_remap = NULL,
-+		.bdf_addr_offset = 0,
-+
-+		.current_cc_support = false,
-+
-+		.dp_primary_link_only = false,
-+		.client = {
-+			.max_client_single = 0,
-+			.max_client_dbs = 0,
-+			.max_client_dbs_sbs = 0,
-+		},
-+
-+		.host_alloc_ml_id = false,
-+		.advertise_iface_mac_pool = false,
-+		.hybrid_bus_type = false,
-+
-+		.support_hw_link_id = true,
-+	},
-+};
-+
-+int ath12k_wifi8_hw_init(struct ath12k_base *ab)
-+{
-+	const struct ath12k_hw_params *hw_params = NULL;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(ath12k_wifi8_hw_params); i++) {
-+		hw_params = &ath12k_wifi8_hw_params[i];
-+
-+		if (hw_params->hw_rev == ab->hw_rev)
-+			break;
-+	}
-+
-+	if (i == ARRAY_SIZE(ath12k_wifi8_hw_params)) {
-+		ath12k_err(ab, "Unsupported Wi-Fi 8 hardware version: 0x%x\n",
-+			   ab->hw_rev);
-+		return -EINVAL;
-+	}
-+
-+	ab->hw_params = hw_params;
-+
-+	ath12k_info(ab, "Wi-Fi 8 Hardware name: %s\n", ab->hw_params->name);
-+
-+	return 0;
-+}
-diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.h b/drivers/net/wireless/ath/ath12k/wifi8/hw.h
-new file mode 100644
-index 000000000000..ad11370f9752
---- /dev/null
-+++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: BSD-3-Clause-Clear */
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#ifndef ATH12K_WIFI8_HW_H
-+#define ATH12K_WIFI8_HW_H
-+
-+#define QCN9575_QFPROM_RAW_RFA_PDET_ROW13_LSB	0x1F90070
-+
-+struct ath12k_base;
-+int ath12k_wifi8_hw_init(struct ath12k_base *ab);
-+
-+#endif /* ATH12K_WIFI8_HW_H */
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611181558.YOFWJh8M-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/net/netdevsim/tls.c:298:21: error: no member named 'skc_v6_rcv_saddr' in 'struct sock_common'
+     298 |                 conn->laddr = sk->sk_v6_rcv_saddr;
+         |                               ~~~~^~~~~~~~~~~~~~~
+   include/net/sock.h:404:37: note: expanded from macro 'sk_v6_rcv_saddr'
+     404 | #define sk_v6_rcv_saddr __sk_common.skc_v6_rcv_saddr
+         |                                     ^
+>> drivers/net/netdevsim/tls.c:299:21: error: no member named 'skc_v6_daddr' in 'struct sock_common'
+     299 |                 conn->raddr = sk->sk_v6_daddr;
+         |                               ~~~~^~~~~~~~~~~
+   include/net/sock.h:403:34: note: expanded from macro 'sk_v6_daddr'
+     403 | #define sk_v6_daddr             __sk_common.skc_v6_daddr
+         |                                             ^
+   2 errors generated.
+
+
+vim +298 drivers/net/netdevsim/tls.c
+
+   274	
+   275	static int nsim_tls_dev_add(struct net_device *netdev, struct sock *sk,
+   276				    enum tls_offload_ctx_dir direction,
+   277				    struct tls_crypto_info *crypto_info,
+   278				    u32 start_offload_tcp_sn)
+   279	{
+   280		struct netdevsim *ns = netdev_priv(netdev);
+   281		struct nsim_tls_conn *conn;
+   282		int ret = 0;
+   283	
+   284		/* Mirror the cipher support of a typical offload capable NIC. */
+   285		switch (crypto_info->cipher_type) {
+   286		case TLS_CIPHER_AES_GCM_128:
+   287		case TLS_CIPHER_AES_GCM_256:
+   288			break;
+   289		default:
+   290			return -EOPNOTSUPP;
+   291		}
+   292	
+   293		conn = kzalloc_obj(*conn);
+   294		if (!conn)
+   295			return -ENOMEM;
+   296	
+   297		if (sk->sk_family == AF_INET6) {
+ > 298			conn->laddr = sk->sk_v6_rcv_saddr;
+ > 299			conn->raddr = sk->sk_v6_daddr;
+   300		} else {
+   301			ipv6_addr_set_v4mapped(sk->sk_rcv_saddr, &conn->laddr);
+   302			ipv6_addr_set_v4mapped(sk->sk_daddr, &conn->raddr);
+   303		}
+   304		conn->family = sk->sk_family;
+   305		conn->lport = htons(inet_sk(sk)->inet_num);
+   306		conn->rport = sk->sk_dport;
+   307		conn->dir = direction;
+   308		conn->start_sn = start_offload_tcp_sn;
+   309		conn->cipher_type = crypto_info->cipher_type;
+   310		conn->tls_ctx = tls_get_ctx(sk);
+   311	
+   312		spin_lock_bh(&ns->tls.lock);
+   313		if (ns->tls.count >= NSIM_TLS_MAX_CONN) {
+   314			ret = -ENOSPC;
+   315			goto out_unlock;
+   316		}
+   317		list_add_tail_rcu(&conn->list, &ns->tls.conns);
+   318		WRITE_ONCE(ns->tls.count, ns->tls.count + 1);
+   319		if (direction == TLS_OFFLOAD_CTX_DIR_TX)
+   320			ns->tls.tx_conn++;
+   321		else
+   322			ns->tls.rx_conn++;
+   323	out_unlock:
+   324		spin_unlock_bh(&ns->tls.lock);
+   325	
+   326		if (ret)
+   327			kfree(conn);
+   328	
+   329		return ret;
+   330	}
+   331	
 
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
