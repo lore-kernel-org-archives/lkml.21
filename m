@@ -1,61 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963101;
-	b=JIfjMfqTOQteLeR2LpVuAX1eJuZrsF1u012Slvi9+1217pZpQgdbzzfLeL9HYNg9DHcN
-	 n8ATKSc3QbiUprMAYr01Ko6RWMo3qfXiT0YptyGrHYWV3B/qOyDAJ5pzAnlnloTZAxi4y
-	 dqk4VPcgOEwCuSE3XvXvo5crK3JmFrDdGxjJO/JbxmFZbArVy8GgdxeQZsUGAIeDCSilM
-	 vMkQQ0ty7G2Vx3sqwCeZL2gAAqAGmtjQU9rTf2/1fUOY9RtEmlWcYEnJCcXd53Kg9c/Y8
-	 atz+Y2mPb31rSsBTX4S9AIbJiceHykR0wDSL5TYNEWTWIvRT4bXhQNNOcpu0DaE5c0w==
+	t=1794963123;
+	b=Pj/sueAyjFCYsvnuq2o3NJlNXIWLyTkGbDWeoEUkJqhSlNBaqDNk2vokdhYj7bncEEmV
+	 JDuYUgZ2fs9IA00/wpU5jNLIb4P99RH1leB3ZQehBx+soWuuy29fcUjCAlaJEO8iFLdgk
+	 6+FXKXA6H5O8U1eRrrF75oXbd6Z5dxcKrwdZvJCBSpwRrzCFOBmHGOWLXXFgMdeRRU0/w
+	 iGw2yK8WNdvMqqsBUsTLwucxfHDJOIa1x0X1J7CHIN3XpoFneTyc54EK/HBudpHmBZOcs
+	 c6FNYQZYlpVdbrykN4hPxvSCeoXD10dnvm6259ktQvOHUsifilLKcAFFYGVU5aP/3ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963101;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-Originating-IP:X-CM-SenderInfo;
-	bh=E+RsS1tq+kLfqFUPfdWPYkZYK/Z9niwBH23LyHoXUfs=;
-	b=CcptQ7kQqshaUzdAfJfASr/QJG0Y+WUj5RYv2RV3HHwBqN/Pb06E6c3qSq7s1ndHV83N
-	 9OCXqJqeGu4h1xPpjTWyD17H4p9M2NM2EAZ6/TUTwJAgwYgGRY0OoiejCr4+bbR6qF+Ir
-	 uka60IEHjygMrMiPSs72FyOd4MekHXWouT/TTrCX0gndb5uFJvrDSUMeZJ/6/UHjfP910
-	 UL+TNViITrM6KqzZhvJXHoujuWwLaUMNdRiisRQpopSfpXs0S/y9+AwG47chw+hYxIjeE
-	 XvL9QfvWOniM3BN5az1RMUb7GlsGcAWYLBo4mdmRiomKKlf8bK1fkmIq/G6dKG7SnAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963123;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=jaj7OajQPP9czD3Pu8YrDb6TaIPd6DjRWNs1CxrTyXc=;
+	b=JWIK27S/hRlfVty1WkEguMvm/FMaRfruFMJgeIkJ518pxO8e0DSHa6nOtPRW6JT/ysgy
+	 UXH/0d2RXP/kgyBskSw7/+/pzzklWpjaLJwtM4oVAPvVmCA25t5hEL6MQ5MLkBsLFic7W
+	 pGoKJbL+AE9Qp000e51dBt9GFh1JQ/Ms1eEzrTaVzlYn58gADrSQCeqBYIYE7TLk6NKYy
+	 qe9t2Ii+oWvmFh7QBRt7dNMJ5Fn55yBwDZpmwUSZ8wGv0tAEJVRrMYAeu7i8ghFhIZKRV
+	 3qPvhuXsTT8vBLO2LL9+NgUrQN7loDOnLTzcOXMDcEOu6YSAtKpo0TIQBGRUL5iBRMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="bG+Ue8f/";
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaFsU0hL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED86606A884;
-	Wed, 18 Nov 2026 00:51:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ED86606A884
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8D9E606A32A;
+	Wed, 18 Nov 2026 00:52:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=bG+Ue8f/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=E+
-	RsS1tq+kLfqFUPfdWPYkZYK/Z9niwBH23LyHoXUfs=; b=bG+Ue8f/UZ5gtZAA+S
-	Cfs1vGehNw0RAcWGiRrj0YkI3g4WPMgDuC44WvS4aFS+swNndP7XBUxl0N2m8fln
-	CeP8a5WqncCJDI+hrMhqhK+dr0ugt0/PVQOgWmcHzzQTMXt+ETvqFzJgmfol3sxy
-	pAtwybU1J3AVMga+Yh7MMQavU=
-Received: from SYPC (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgBHsYd49vxqwTllGg--.46287S2;
-	Wed, 18 Nov 2026 08:51:05 +0800 (CST)
-From: Yang Siyuan <hsyysy@163.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: linux-watchdog@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] watchdog: sunxi_wdt: stop the watchdog across system suspend
-Date: Wed, 18 Nov 2026 08:50:48 +0800
-Message-ID: <20261118005048.385059-1-hsyysy@163.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <ece4aa08-fb86-4f76-b4b8-a9351a71df14@roeck-us.net>
-References: <ece4aa08-fb86-4f76-b4b8-a9351a71df14@roeck-us.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DaFsU0hL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C62B1F000C4;
+	Wed, 18 Nov 2026 00:52:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794963122;
+	bh=jaj7OajQPP9czD3Pu8YrDb6TaIPd6DjRWNs1CxrTyXc=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=DaFsU0hLycoZtzlPRcG80glb7nswhl2NxS+wNz5lx4hMPs80ZihY0rcffwppw9/zV
+	 LjnF0cG7h+ILGRVo7db+WqLhZriVJM5X10n0xC8pFO7g2eY1nw0cwgg5VXSwt6/wl3
+	 74/YFMe+nPKJFBwtlg1kNS7hgbO3dEyZZMoGIZAI6vaiq8mY+9uRfC66NnPUVGULuu
+	 fyyHLZcjUMlzmLACi1R7NL7w4C5tqN6G0EgBNbluWbWb8CQDl/qDnkXnLg/M1ml5na
+	 +az9B3JgUb1lGnSXut8wd+why2/hmlyOiJI2kPqcKQ4Su8fTC2r1YQSW6vkqJRXv6F
+	 j3Yzh8JRgdFgg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 3576ECE089A; Tue, 17 Nov 2026 16:52:02 -0800 (PST)
+Date: Tue, 17 Nov 2026 16:52:02 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Boqun Feng <boqun.feng@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Joel Fernandes <jfern@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Uladzislau Rezki <urezki@gmail.com>
+Subject: Re: linux-next: manual merge of the paulmck tree with the rcu tree
+Message-ID: <79d23a21-b91f-4709-b956-019288f62f10@paulmck-laptop>
+Reply-To: paulmck@kernel.org
+References: <avzYzJYQGafi4gGL@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,115 +65,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PygvCgBHsYd49vxqwTllGg--.46287S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCr1rury5ZF1ktF1UXF1UZFb_yoWrGr43pF
-	4Yya4FkrW0qr4avr4aywnrAFn5G3ZYg34UAryxG34fA3Z8Gr1rGFy0qr1UAwsxGrWrGF1r
-	uF1Ut3yxGayq9a7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jVYLkUUUUU=
-X-CM-SenderInfo: 5kv152r16rljoofrz/xtbC7Rm16Wr89nkdMgAA3e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <avzYzJYQGafi4gGL@sirena.org.uk>
 
-The H616 watchdog has a maximum timeout of 16 seconds.  systemd keeps
-/dev/watchdog0 open with RuntimeWatchdogSec=16s, but during system
-suspend all userspace is frozen and the watchdog core does not stop the
-hardware.  A suspend longer than the timeout therefore resets the board
-before it can resume.
+On Tue, Nov 17, 2026 at 10:44:28PM +0000, Mark Brown wrote:
+> Hi all,
+> 
+> Today's linux-next merge of the paulmck tree got a conflict in:
+> 
+>   tools/testing/selftests/rcutorture/bin/torture.sh
+> 
+> between commit:
+> 
+>   7ada0a57267ab ("torture: Use ${:+} to save a few lines in torture.sh's torture_one()")
+> 
+> from the rcu tree and commit:
+> 
+>   436f3c6b27de8 ("torture.sh: Add hazptr torturing")
+> 
+> from the paulmck tree.  AFAICT the change in the hazptr commit is adding
+> quoting that is also covered by the other commit and should have been
+> redundant anyway but you really want to double check here.
 
-Add system sleep PM ops to stop the watchdog before suspend and restart
-it after resume if it was running.  The driver did not store its private
-data in the platform device, so add platform_set_drvdata() for the PM
-callbacks.
+I confess, I am confused.  If you said that the commit from the rcu
+tree was instead this one:
 
-Use DEFINE_SIMPLE_DEV_PM_OPS() and pm_sleep_ptr(), and use
-watchdog_hw_running() instead of a private flag to decide whether the
-hardware needs to be stopped and restarted.
+ccabfbe01ca5 ("torture: Avoid duplicate identify_qemu_vcpus calls in torture.sh")
 
-Tested on an Anbernic RG35XX-SP: a 30-second s2idle suspend resumes
-without the 16-second watchdog reset, and /dev/watchdog0 keeps working
-afterwards.
+I would be less confused.
 
-Signed-off-by: Yang Siyuan <hsyysy@163.com>
----
-Changes in v4:
-- Drop __maybe_unused again.  The W=1 report was against v1, which used
-  SET_SYSTEM_SLEEP_PM_OPS(); that macro expands to nothing when
-  CONFIG_PM_SLEEP=n, so the callbacks were unused.  v2 already replaced it
-  with DEFINE_SIMPLE_DEV_PM_OPS(), whose SYSTEM_SLEEP_PM_OPS() takes the
-  callback addresses through pm_sleep_ptr() even with CONFIG_PM_SLEEP=n,
-  so the functions are never unused.  The v3 change is reverted in v4.
+Either way, your resolution looks good and thank you!
 
-Changes in v3:
-- Mark the PM callbacks __maybe_unused, in response to a W=1 report that
-  turned out to be against v1.  Reverted in v4.
+							Thanx, Paul
 
-Changes in v2:
-- Use DEFINE_SIMPLE_DEV_PM_OPS()/pm_sleep_ptr() to avoid unused-function
-  warnings with CONFIG_PM_SLEEP=n.
-- Use watchdog_hw_running() instead of tracking running_at_suspend.
-- Drop the inaccurate ping-worker reference from the comment.
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
+> 
+> diff --combined tools/testing/selftests/rcutorture/bin/torture.sh
+> index 1b7ad2c15e1ed,90b5e113a0b03..0000000000000
+> --- a/tools/testing/selftests/rcutorture/bin/torture.sh
+> +++ b/tools/testing/selftests/rcutorture/bin/torture.sh
+> @@@ -43,10 -43,11 +43,11 @@@ f
+>   configs_rcutorture=
+>   configs_locktorture=
+>   configs_scftorture=
+> + configs_hazptr=
+>   kcsan_kmake_args=
+>   
+>   # Default compression, duration, and apportionment.
+>  -compress_concurrency="`identify_qemu_vcpus`"
+>  +compress_concurrency="${TORTURE_ALLOTED_CPUS}"
+>   duration_base=10
+>   duration_rcutorture_frac=7
+>   duration_locktorture_frac=1
+> @@@ -70,6 -71,7 +71,7 @@@ do_rcutasksflavors="${ifnotaarch64}" # 
+>   do_srcu_lockdep=yes
+>   do_atomic_srcu=yes
+>   do_rcu_rust=no
+> + do_hazptr=yes
+>   
+>   # doyesno - Helper function for yes/no arguments
+>   function doyesno () {
+> @@@ -90,6 -92,7 +92,7 @@@ usage () 
+>   	echo "       --do-all"
+>   	echo "       --do-allmodconfig / --do-no-allmodconfig / --no-allmodconfig"
+>   	echo "       --do-clocksourcewd / --do-no-clocksourcewd / --no-clocksourcewd"
+> + 	echo "       --do-hazptr / --do-no-hazptr / --no-hazptr"
+>   	echo "       --do-kasan / --do-no-kasan / --no-kasan"
+>   	echo "       --do-kcsan / --do-no-kcsan / --no-kcsan"
+>   	echo "       --do-kvfree / --do-no-kvfree / --no-kvfree"
+> @@@ -119,6 -122,11 +122,11 @@@ d
+>   		compress_concurrency=$2
+>   		shift
+>   		;;
+> + 	--config-hazptr|--configs-hazptr)
+> + 		checkarg --configs-hazptr "(list of config files)" "$#" "$2" '^[^/]\+$' '^--'
+> + 		configs_hazptr="$configs_hazptr $2"
+> + 		shift
+> + 		;;
+>   	--config-rcutorture|--configs-rcutorture)
+>   		checkarg --configs-rcutorture "(list of config files)" "$#" "$2" '^[^/]\+$' '^--'
+>   		configs_rcutorture="$configs_rcutorture $2"
+> @@@ -149,6 -157,7 +157,7 @@@
+>   		do_kasan=yes
+>   		do_kcsan=yes
+>   		do_clocksourcewd="${ifnotaarch64}"
+> + 		do_hazptr=yes
+>   		do_srcu_lockdep=yes
+>   		do_atomic_srcu=yes
+>   		;;
+> @@@ -158,6 -167,9 +167,9 @@@
+>   	--do-clocksourcewd|--do-no-clocksourcewd|--no-clocksourcewd)
+>   		do_clocksourcewd=`doyesno "$1" --do-clocksourcewd`
+>   		;;
+> + 	--do-hazptr|--do-no-hazptr|--no-hazptr)
+> + 		do_hazptr=`doyesno "$1" --do-hazptr`
+> + 		;;
+>   	--do-kasan|--do-no-kasan|--no-kasan)
+>   		do_kasan=`doyesno "$1" --do-kasan`
+>   		;;
+> @@@ -185,6 -197,7 +197,7 @@@
+>   		do_kasan=no
+>   		do_kcsan=no
+>   		do_clocksourcewd=no
+> + 		do_hazptr=no
+>   		do_srcu_lockdep=no
+>   		do_atomic_srcu=no
+>   		;;
+> @@@ -341,8 -354,16 +354,8 @@@ touch $T/successe
+>   # Note that quoting is problematic.  So on the command line, pass multiple
+>   # values with multiple kvm.sh argument instances.
+>   function torture_one {
+>  -	local cur_bootargs=
+>  -	local boottag=
+>  -
+>   	echo " --- $curflavor:" Start `date` | tee -a $T/log
+>  -	if test -n "$torture_bootargs"
+>  -	then
+>  -		boottag="--bootargs"
+>  -		cur_bootargs="$torture_bootargs"
+>  -	fi
+>  -	"$@" "${boottag}" "$cur_bootargs" --datestamp "$ds/results-$curflavor" > $T/$curflavor.out 2>&1
+>  +	"$@" ${torture_bootargs:+--bootargs "$torture_bootargs"} --datestamp "$ds/results-$curflavor" > $T/$curflavor.out 2>&1
+>   	retcode=$?
+>   	resdir="`grep '^Results directory: ' $T/$curflavor.out | tail -1 | sed -e 's/^Results directory: //'`"
+>   	if test -z "$resdir"
+> @@@ -720,6 -741,17 +733,17 @@@ the
+>   	fi
+>   fi
+>   
+> + # Calculate hazptr defaults and apportion time
+> + if test -z "$configs_hazptr"
+> + then
+> + 	configs_hazptr=CFLIST
+> + fi
+> + if test "$do_hazptr" = "yes"
+> + then
+> + 	torture_bootargs=""
+> + 	torture_set "hazptr" tools/testing/selftests/rcutorture/bin/kvm.sh --torture hazptr --allcpus --duration "$duration_rcutorture" --configs "$configs_hazptr" --trust-make
+> + fi
+> + 
+>   echo " --- " $scriptname $args
+>   echo " --- " Done `date` | tee -a $T/log
+>   ret=0
 
- drivers/watchdog/sunxi_wdt.c | 32 ++++++++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
-
-diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
-index a6500eb..3fdc7bf 100644
---- a/drivers/watchdog/sunxi_wdt.c
-+++ b/drivers/watchdog/sunxi_wdt.c
-@@ -225,6 +225,35 @@ static int sunxi_wdt_start(struct watchdog_device *wdt_dev)
- 	return 0;
- }
- 
-+/*
-+ * The hardware watchdog has a maximum timeout of 16 seconds.  A system
-+ * suspend easily lasts longer than that, and the watchdog core does not
-+ * stop the hardware during system sleep.  Stop the watchdog explicitly
-+ * while suspended and re-arm it on resume if it was running.
-+ */
-+static int sunxi_wdt_suspend(struct device *dev)
-+{
-+	struct sunxi_wdt_dev *sunxi_wdt = dev_get_drvdata(dev);
-+
-+	if (watchdog_hw_running(&sunxi_wdt->wdt_dev))
-+		sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
-+
-+	return 0;
-+}
-+
-+static int sunxi_wdt_resume(struct device *dev)
-+{
-+	struct sunxi_wdt_dev *sunxi_wdt = dev_get_drvdata(dev);
-+
-+	if (watchdog_hw_running(&sunxi_wdt->wdt_dev))
-+		sunxi_wdt_start(&sunxi_wdt->wdt_dev);
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(sunxi_wdt_pm_ops,
-+				sunxi_wdt_suspend, sunxi_wdt_resume);
-+
- static const struct watchdog_info sunxi_wdt_info = {
- 	.identity	= DRV_NAME,
- 	.options	= WDIOF_SETTIMEOUT |
-@@ -307,6 +336,8 @@ static int sunxi_wdt_probe(struct platform_device *pdev)
- 	if (IS_ERR(sunxi_wdt->wdt_base))
- 		return PTR_ERR(sunxi_wdt->wdt_base);
- 
-+	platform_set_drvdata(pdev, sunxi_wdt);
-+
- 	sunxi_wdt->wdt_dev.info = &sunxi_wdt_info;
- 	sunxi_wdt->wdt_dev.ops = &sunxi_wdt_ops;
- 	sunxi_wdt->wdt_dev.timeout = WDT_MAX_TIMEOUT;
-@@ -348,6 +379,7 @@ static struct platform_driver sunxi_wdt_driver = {
- 	.driver		= {
- 		.name		= DRV_NAME,
- 		.of_match_table	= sunxi_wdt_dt_ids,
-+		.pm		= pm_sleep_ptr(&sunxi_wdt_pm_ops),
- 	},
- };
- 
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.56.1
 
