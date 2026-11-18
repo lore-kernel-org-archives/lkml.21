@@ -1,73 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794995253;
-	b=Hq+/MYJ/3cP25DMBhIPUYwq7J5fsFL0vhlOaisXcjsqxEVqdtlQsLWemaWcdeZRN3MqA
-	 3MNhhoWbXLsYU6k3VuryCRrMYko6w9ZBUHRsLmh0mh6S30I7qO1yg5W1sNrE63zTQR58y
-	 sPMekOStabHX/JBEizPGUIqap7l7R56X2xq1QE35d+XrmAJjDwnLFt56OW+yVHCoZVDvz
-	 qrH4hegDJMN20jEkjvv7yHEyfl7tFRJz2dW6yXL6hN0/x43bgpWh4igpo11NOx2TbP5xm
-	 UExaaxvRLyh38I8gNB13osM+ZJukJffzdwN3dziv4Fpe244WYPj4AGj8Cda6Mdn2whQ==
+	t=1794995279;
+	b=2qclZZcTh2FZfYNJnh/l7jEyBBtbX5DiOowLodqYuuTY2O9y82BDviiXEtk9KWxYc9ms
+	 04CvB/A2LumQLbddLZiGnU1mXxPpcHW23v+71zWrF2WlAfmYETjPvgXXOugsNE3GUCTyS
+	 sgsjAdlljA75iY38AGR62etDzBLSt3yujpldphFx0rx5Ityc8UQnDvOZMkyIojm28BDsG
+	 sQzT5vaB9aaeoxVBzon9RifgZmLitUutpvzCXLdGNucr6d6RFajLk5qG5CBGvUKNVFY62
+	 hII9RkWlscB78U4VnsuYFuBRmvz5gRpMrO8M9/c/RFMmlGGte9aK3r30x8JABc+kaxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995253;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=XLt3LNagC3p3W1cQVzPcPQlpUU8JjJOhvQQAMn7LWL0=;
-	b=w9razx2XufB2PNQjBoRy8j1dWeM9BvPKNBxFuuMLJQqn1ZF2xTDk/5KDwOZgI8h2dSzb
-	 OwTWd7bK/FKpqynrCmKGL+Nsmny2tNJxftap0pKOhxiYj0gNtMvExj+kD8EoocrhY556H
-	 jWGwy06TQ0KXq9J7OV2QELhNHGg4yqb2h7LDs6VhO1WIXPKWJQi+8Vvzy6DL2T5mRvr6X
-	 584i7xBd9eZs9aLvyfp45easl4VjIbbwWFySXoKPwffNwLt5lLaIDNH05svfJiSNsdcKG
-	 DeHYUCuMH+bwhRonvmaXFc28PBL7ei6tQhN5KegEUofRAOQo5+XrBSY0vab+zIlp6Rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995279;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=s0Wz2n57vdZUokFSxrkbmaCxtfmXfbqv1U3m9lAxLV8=;
+	b=qMB9ZQXsC9CrBhW+CqbdGFB7fAtJ1xNj3ugsx6TKa6j389fUtGYwY3MzcZPchYFmL9fV
+	 GEekybhS+Mkq6fn4VnN9T2Mr3ukfqpm8mDUsVDtGWfymPqa9oep+V2q9v24IMVVECGVBS
+	 w5BVkMd1Ql2LeBgSq2HT+9EnYJQ8XD2dxZ4JqmLtenrnkO0wYSdRktnbK9cXSO7BoP/mT
+	 dWMK62z85aXG2/YNK+RYfxn8N2VWyA8Va2Ga50aVVD4iSUCoMvULx2wb/guVFL+xB3QAZ
+	 3DrOHF+1hFJqjmbTps6ijpSia78sYUc4mmnyeHwNtF2SfxSdY9cy0L+oEwQce4co6Fw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=jU2lFV2S;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iYQFQ2yU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15617606A31C;
-	Wed, 18 Nov 2026 09:47:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15617606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE0D5606A31C;
+	Wed, 18 Nov 2026 09:47:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=jU2lFV2S
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=XLt3LNagC3p3W1cQVzPcPQlpUU8JjJOhvQQAMn7LWL0=; b=jU2lFV2S+o7g2QF1SeTqfT7QMA
-	W+1H37jOi0sd+4guZE/2eKqnmkF6yjD2VUUHdD3zw3SSCct4MoH89Dspp5tZbeDKTlLOd4+JVXVHO
-	TFlHRq7SzXMpbNOFEMpj5nQUZN9Vs3R2Tf1jdrSAnosYnUGNs/LR1hNVBTuSWD5rJpXkppO1X+Jky
-	OCve/jxF/itYuaFjrueijIjyPIJAkHxCb54IlSIgn7a7dbC09pCoDbnLJztbOcyL8lx7DYh6hDPXF
-	2cX3gPrh/yfpI5h29WAIRoJkYw3lIigoEHu8JVI757Ila/Lk6xSNx+cMBTskDZ2tuuhFkA3wUKL/f
-	lKotaS4Q==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTcGF-0000000Bwcy-25c3;
-	Wed, 18 Nov 2026 09:47:27 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6D3CF3004C9; Wed, 18 Nov 2026 10:47:26 +0100 (CET)
-Date: Wed, 18 Nov 2026 10:47:26 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] sched/topology: Avoid unsequenced accesses to jiffies
- in sd_init()
-Message-ID: <20261118094726.GM1813469@noisy.programming.kicks-ass.net>
-References: <20261116-topology-wunsequenced-v2-1-54611119172b@kernel.org>
- <20261117183043.GK1813469@noisy.programming.kicks-ass.net>
- <CAKwvOd=9pjhCnreMvoAH_0PegYg60ouaZL=BAjB242bE48J23g@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iYQFQ2yU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D05261F000C5;
+	Wed, 18 Nov 2026 09:47:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794995279;
+	bh=s0Wz2n57vdZUokFSxrkbmaCxtfmXfbqv1U3m9lAxLV8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=iYQFQ2yUPPHHAygrFTQLmV9BIcvsWBPutdR6UKne64hmmls4FrhwNuCdhGchWH9BE
+	 fxBJKKIoXw2SDtqD8bf6CoC6AgqfRYmwbnrY0nFpgQKfvVaBTumkOVSpheFYai/zYY
+	 pL5vyXvxNFCknv5Y9otK+p1L7dCAohmoxFyOvyo635m7v1o3eChpz+YRXPn3qDTW3J
+	 EXPWqO22znVOX5FG46X0l/ylJJuX5lIY/VqEh+SdT6p+0J4cgmeFf3ElCKCrWfUoCF
+	 JC3+FQbyupECjWTpRpgD+Kjd4a83vLvp2JURAhPMO0Ssx4Jw1Gi4sB8io+lR2fd4ei
+	 hV67Rbwa7irOA==
+Message-ID: <d7edeec8-d9c8-4516-8426-de2d8854ae06@kernel.org>
+Date: Wed, 18 Nov 2026 10:47:48 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,43 +51,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKwvOd=9pjhCnreMvoAH_0PegYg60ouaZL=BAjB242bE48J23g@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] mm: fix races between huge and non-huge faults in
+ PFN mappings
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>,
+ Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>,
+ Roman Kisel <romank@linux.microsoft.com>,
+ Saurabh Sengar <ssengar@linux.microsoft.com>,
+ Naman Jain <namjain@linux.microsoft.com>,
+ Michael Kelley <mhklinux@outlook.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Eliav Farber <farbere@amazon.com>,
+ "Jose A. Perez de Azpillaga" <azpijr@gmail.com>,
+ "Gregory Price (Meta)" <gourry@gourry.net>
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 10:39:15AM -0800, Nick Desaulniers wrote:
-> On Tue, Nov 17, 2026 at 10:30 AM Peter Zijlstra <peterz@infradead.org> wrote:
-> >
-> > I don't speak enough C legal to actually understand the Changelog, but
-> > the actual change seems daft. Is this really needed?
+On 11/17/26 19:31, Lorenzo Stoakes (ARM) wrote:
+> A driver that implements both ->fault and ->huge_fault must anticipate
+> concurrent use of both.
 > 
-> I would imagine a delta of the disassembly here before/after the
-> change would make it more obvious (one less volatile access, which be
-> have arbitrary ordering between initializing other members).
+> This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
+> concurrent with faulting, as that only holds the mmap write lock and thus
+> does not exclude faulting threads stabilised by VMA lock.
+> 
+> A number of places in the code that implements huge PFN support fail to
+> take this into account correctly, which this series aims to address.
+> 
+> Generally the shape of the issue is that faulting the same empty page table
+> entry can result in the ->fault and ->huge_fault handlers racing and the
+> loser finding something they didn't expect.
+> 
+> The fault code must tolerate this, but fails to in 3 places:
+> 
+> 1. walk_to_pmd() asserts, without the PMD lock, that the PMD entry is not
+>    huge, so a VM_BUG_ON() triggers. [ vfio-pci, nvgrace-gpu ]
+> 
+> 2. insert_pfn() treats a failure to map the PTE table as an allocation
+>    failure and reports OOM, causing kernel accesses to the range to
+>    spuriously fail with -EFAULT. [ vfio-pci, nvgrace-gpu ]
+> 
+> 3. insert_pmd() and insert_pud() assume a populated entry is huge and
+>    compare its PFN on write fault, warning when that of a page table does
+>    not match. [ mshv_vtl, drm_gem_shmem, panthor ]
+> 
+> This was originally reported and fixed by Eliav Farber in [0], this series
+> reworks patches 1-3 of that one.
+> 
+> Patch 4 of that series (x86 PAT encoding of huge PFN mappings) is dropped -
+> it is unrelated to the above, no in-tree driver is affected by it, and it
+> needs a different approach which is better pursued separately with the x86
+> maintainers.
+> 
+> All three issues were reproduced on x86-64 under QEMU using vfio-pci in
+> no-IOMMU mode on an ivshmem BAR, with 6 threads faulting the same address
+> in each PMD or PUD aligned range of the mapping while another toggles
+> PR_SET_THP_DISABLE (note that vfio-pci had to be modified to pass the write
+> flag to reproduce the third issue).
+> 
+> Without this series the BUG is hit immediately, with only patches 1 and 2
+> applied tens of thousands of -EFAULTs are observed within seconds, and with
+> patches 1-3 (and the vfio-pci modification) both warnings fire immediately.
+> 
+> With the series applied 30 second runs at each of PMD and PUD size complete
+> with none of the above, with or without the vfio-pci modification.
+> 
+> [0]: https://lore.kernel.org/all/20261112051440.16140-1-farbere@amazon.com/
+> 
 
-Could it be fixed by adding an explicit cast? Say:
+Lorenzo,
 
-	.last_balance = (unsigned long)jiffies,
+all of these are not super urgent and can wait for the next merge window, right?
 
-> But I guess I'm also curious why jiffies is defined as volatile
-> anyway? I thought the usual guidance was to use
-> cast-to-volatile-qualified pointer during access, rather than declare
-> as volatile?
+-- 
+Cheers,
 
-jiffies is ancient; it stems from before we had READ_ONCE() and friends.
-It used to be that task_struct::state was also declared volatile, but
-I've since fixed that.
-
-Mostly, you want to always read time, and not have time optimized
-'away'. Like lift a jiffies read out of a loop and break the timeout
-condition and all that.
-
-Also, the C people are daft and want to get rid of volatile,
-irrespective of its many uses, so perhaps this is a subtle act of
-sabotage or something and we should get clang to revert this weirdness.
-
-I think the thinking was that with _Atomic there is no further need of
-volatile and its fine to break the many billions of lines of
-pre-existing C code or something stupid like that :/
-
+David
