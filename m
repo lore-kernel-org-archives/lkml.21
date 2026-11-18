@@ -1,68 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=167.104.49.167
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025081;
-	b=iD/Irou0B6jE5nwbi4WS24VUeu8zSnDHpiWBdGfpZTYvZxdX8RiHFEE7C6kAUedqhpOU
-	 dPFQ3+dRLA/4P4NdKLEwuMJTxmt/6xwSe5skundt+v3j2G+X/x37C8AdLGyT0c3ge94My
-	 POQuajzlR/c8kQ8EiP0BLOTuYZnaPnVdF9Gpl4dbEh+5ggv72DthsyXAD5SEvVcNBCgNl
-	 +AmGZzGmWypopoQOT1fpERKsKNwDgO1SoXjWbfPGybNCI8AtiFuVto/J95PZMwPP1IsxX
-	 a1lb6lg2Jwm7SPL2EXxUPJNNh0n/Q2YQx+JfPWkfHfwMCjCJht9rNzF80Ae+dZPJQuw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025081;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:
-	 X-Pm-Original-To:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=9HNLhAXOgbRNf2ky8rheK6IxntgF9p+aCnutm+Ne68s=;
-	b=T3kTnu7pZmQbwu7r9FUhkABLLtuU8lLFaBKmOI22xoqK7bSgkzqzLYmF2aL5DOfN9Eb1
-	 0PlDvOTqcII6/sfRTtp09j+OjSXvg8HlJ80PnNmPXD1ETDV+duf9LZ5firrGwtYFYl1ev
-	 /m4A2oEEzXQIm2lAS7oyq4suzIjruK2xUBv0EiMH07HG5yGXdYqdJmnzL3Qtd8frOAWH7
-	 k/9WusoVHu3ovL/hMbVl4UQ1uYWQ8HtUqGBnP2BW5J5vg1RMSBjPwbKw+ITAks/OZpvlW
-	 tbRAepVfH1+bTjZBJJweigTgOmtYqN+wjwPLz6xAm+YP2Ych8QObMEr/q2Le5nT7iMw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sverdlin.org;
-	spf=pass smtp.mailfrom=sverdlin.org;
-	dkim=pass header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=O1Tujep7;
-	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=ZEibGolm;
-	arc=none smtp.remote-ip=167.104.49.167
-Received: from sendmail-50.purelymail.com (sendmail-50.purelymail.com [167.104.49.167])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795025111;
+	b=AjEQMrJl+wP5EiZdgWA3Pd2ddJoXQ00V7M3QqqqOQ0MphKS2pAoPL/IVra47M1ZIMDIb
+	 wG036af+8vhUO9NAJ4cYUWvPzTi26kI1g/0V+wHEjskczboar+bj3DhrqiwFO7KZLaAr2
+	 LAdLuoVG5A8NjzBL0jS2ulYMe3HFA2HS4qELzHAQUcmhjeVfCOLlLO3sxqhYthOAUWq2E
+	 u7vegV3N4DWUW7bjFDSLgMVOcjVftcm9ByWwQosizJkPYjEN9zANzPYYcw5qZDIgKfoX0
+	 Cik8/+tNyncaSovL0r57icsheIA+CbfYEICURkI+c2DKu6h0Q/FHVygagYISP1n6Eiw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025111;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-ZohoMailClient;
+	bh=VbhavZ6ya0lhbQ6KFedIWVlMpZ+gKGv/IqcKLAaKCsM=;
+	b=tODq5bakiogYGXH190kYeAa3sIcjDanPB98dywTe9r6nlRiZ3P7cxcQxQo22rBohyG/c
+	 Xerr9bBksRaAGMxMPzKPRpOTO9YCzfFhcrWIxOboZ0UdE/zWrOk82Tpypt1aO1f1u7WFn
+	 W93jTwmoFbACWBQRqGVvockgQ77rjmJOSHJst22yrFUfIUFLOZrKVW2HX6/+cYpQI3J+G
+	 j+8JSXcDeLdfx+jqhG6Euwch8pyc+rvEfdMQbFlO9UY+scIopvEmWyHPsAG6/q7kgCzvb
+	 D+kUEcZagJIRS6gtTtCyK6XeRgN/8NuREeSL0fMtsyklWP4tmS1w1vJpT52TIugTJtA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=nogriRmK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C21CA606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:04:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C21CA606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=sverdlin.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sverdlin.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5683F606A325;
+	Wed, 18 Nov 2026 18:05:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5683F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sverdlin.org header.i=@sverdlin.org header.a=rsa-sha256 header.s=purelymail1 header.b=O1Tujep7;
-	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail1 header.b=ZEibGolm
-DKIM-Signature: a=rsa-sha256; b=O1Tujep7e/1XVyvKYvTvEuu+aRkA7UNavJ0Laxf/KlP8djM4XIeOB+IYuo0oCjhxzv/VERgrW4Rwq1dfHoiz95+sFAUvRNah1B8ZgPith9FRCTlreZdOzGmxFIJi/bpYgi9ENkPebJYvwPPifbkDGzorUw334gKlnLHWciWXqYoGvCRnFk8omXt3le4IEnBgZaAPCdDJVUOmFKGYSLSHoBPNQoLY46/GjfcFBPqy+61dAcS0gYaW39X197+uWiq/SHklcSOWJo1g2R1p2/cE9u8OIs/c5LiFPA5bcF0Ldc1whuH/vdyp2d9c6P/LN6TgZ/wweYsjpGvUScml45+74Q==; s=purelymail1; d=sverdlin.org; v=1; bh=9HNLhAXOgbRNf2ky8rheK6IxntgF9p+aCnutm+Ne68s=; h=Received:Message-ID:Subject:From:To:Date;
-DKIM-Signature: a=rsa-sha256; b=ZEibGolmRRT+fr6f7AFEfGyKtqG19THS+PjvG3QEhx8l67hnzTGs8/PX85sejIBukIfMd0qZawhR4/CB9cgp6IO6tLCpV01mwUWW3znGa08ZqAzcB09ikcOLs9gs3TqUacJPUsjvYTMEVHBEqeoIGieS/CfnGFK6pBJOcUnTWNrV84fFZGPoRpB3g7W5pDMMj7ZaPN1m/mQYxWu/OT4m6SjET5Ye6nBlYo0sClkGdkqp8b9qdcY1DkGFOKX00zVm6BGMuFzpbJIgxhMO3xz1CzviNayuXuJyBg0Sx7hh2GOYAafRUi/FuOHuRsmDv2doqhqfzpP1NvagqNo/0hjJyQ==; s=purelymail1; d=purelymail.com; v=1; bh=9HNLhAXOgbRNf2ky8rheK6IxntgF9p+aCnutm+Ne68s=; h=Feedback-ID:Received:Message-ID:Subject:From:To:Date;
-Feedback-ID: 815097:39668:null:purelymail
-X-Pm-Original-To: linux-kernel@vger.kernel.org
-Authentication-Results: purelymail.com; auth=pass
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 2014938321;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Wed, 18 Nov 2026 18:04:06 +0000 (UTC)
-Message-ID: <2105df7b92b20c5268a9a32c202e1cd6c24a6b27.camel@sverdlin.org>
-Subject: Re: [PATCH v3 3/3] arm64: dts: allwinner: add Radxa Cubie A7S board
-From: Alexander Sverdlin <alex@sverdlin.org>
-To: Enzo Adriano <enzo.adriano.code@gmail.com>, andre.przywara@arm.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, 
-	jernej.skrabec@gmail.com, samuel@sholland.org
-Cc: Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Junhui Liu <junhui.liu@pigmoral.tech>, Jerome
- Brunet <jbrunet@baylibre.com>, Pablo Mazzini <pmazzini@gmail.com>, Vinicius
- Pedrosa	 <vinicius.eduardo.pedrosa@gmail.com>, Jun Yan
- <jerrysteve1101@gmail.com>,  Lukas Schmid <lukas.schmid@netcube.li>
-Date: Wed, 18 Nov 2026 19:03:59 +0100
-In-Reply-To: <0fe5938e04cc8a5af3825a0e01bd07b626a15b46.1794227241.git.enzo.adriano.code@gmail.com>
-References: <cover.1794227241.git.enzo.adriano.code@gmail.com>
-	 <0fe5938e04cc8a5af3825a0e01bd07b626a15b46.1794227241.git.enzo.adriano.code@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 
+	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=nogriRmK
+ARC-Seal: i=1; a=rsa-sha256; t=1795025080; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=UADL+Q/fhE6k4fFScn2F3l9x8srIM9gc7RNkuntrTHpbxHAdcbDQBPUyovvHmybK3YlgLGOG0lbjZ7apvp7BOWTBsB38LOFZBeV3wL1QXM1dNaRpyG6NDy42QVvQ7RD4Wd9Mz7R37/45bMQnQX61Dqx9w25Wj4ybf77fLxj0K5g=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795025080; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=VbhavZ6ya0lhbQ6KFedIWVlMpZ+gKGv/IqcKLAaKCsM=; 
+	b=SqknkZqa2TIYLZpbfrUgqSAszMmgPYThIWwe3/z9JaGsytxqw3l4/SYTFvCbnuYwgyvQEcs+F8Nb8vCeOa2G6796pu4pFarpTdzDQI1PRY3cvxKBnkJVGZaOOLUHPEca6uzNU5MM0VdaOKG9MWC419r47nlBCaMUfHbei36PZ2w=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=nogriRmKcfCW3+lcwQ5i+N62Eg0OnEgYQx/CXWvOGxu1EIzESrizd6c9cBA7OFTtvm67BT05cPzp13WD4fcGxlEm2ISoFRrZOcJh733O423kOGdP7YpQ/Swc7uARd+osj4csUWNdtT6BqXz5Evh/33etfG7+abKtLXmg8cz+s2VOndcbvtRK4kTq81lRkcEFpD6zc1dBd3mNQFWquCXDtNqPczERUc+qCYvbioHN99wqEEoFKILwo0tB54W4i8LuGrMa14YpRL6afM1nn3XAEo1NVy1uIWY5LyGPIE2I7UmmtlYYdlkVxCFsQuk9lP0zLbV30JtAltd5FJLfqlGlOA==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=VbhavZ6ya0lhbQ6KFedIWVlMpZ+gKGv/IqcKLAaKCsM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795025079103791.9502455280252;
+	Wed, 18 Nov 2026 10:04:39 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Ping-Ke Shih <pkshih@realtek.com>
+Cc: Zong-Zhe Yang <kevin_yang@realtek.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Enver Ikromov <owner@ph4ntom-rev.uz>
+Subject: [PATCH rtw-next v7 0/5] wifi: rtw89: monitor mode and raw frame injection fixes
+Date: Wed, 18 Nov 2026 23:04:30 +0500
+Message-ID: <20261118180435.904-1-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,360 +66,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 
-Hi Enzo,
+This series fixes a NULL vif dereference and a negative radiotap rate
+index bug on the TX path, restores the operating channel after monitor
+down/up on non-chanctx devices, and fixes control-frame seq_ctrl reads,
+sequence preservation, NO_ACK, and retry limits for raw 802.11 frame
+injection.
 
-On Mon, 2026-11-09 at 23:45 -0500, Enzo Adriano wrote:
-> Enable the Cubie A7S serial console, PMIC and microSD slot to provide
-> an initial usable board configuration. Supply the 26 MHz crystal and
-> 32768 Hz RTC input, enable UART0 and the AXP318W on R-I2C0, and describe
-> the PMIC input/output and CPU supply connections from the Radxa Cubie
-> A7S schematic v1.10. Preserve firmware settings on rails whose working
-> voltage is not established. BLDO2 has no programmed voltage constraint:
-> its software 3.3 V selector does not establish its physical output with
-> the schematic's nominal 2.4 V input.
->=20
-> Describe the card's SWOUT2 supply and PF6 active-high detect with an
-> internal pull-down. Enable MMC0 at up to 50 MHz using 3.3 V signaling
-> only. Its high-voltage path uses VCCIO; CLDO5 also feeds PC and the PF
-> 1.8 V input and must not be raised for SD signaling. Firmware must
-> select the 3.3 V PF path; dynamic voltage switching is not provided.
-> Keep other storage off.
->=20
-> Connect the documented bank supplies. PL's self-supply phandle is
-> omitted to avoid the PMIC/I2C/pinctrl bootstrap cycle, as on the
-> upstream Cubie A5E; ALDO1 is retained always-on. The separate pinctrl
-> voltage-mode fix is required for these bank-supply connections.
->=20
-> These board DTS bytes were RAM-booted on a Cubie A7S with vendor
-> firmware on November 4: UART0, PMIC registration and MMC0 read-only
-> transfers worked. Card writes, physical hotplug, 1.8 V signaling and
-> physical BLDO2 voltage were not tested.
+Tested on RTL8852AE (10ec:8852, firmware 0.13.36.2) across 2.4 GHz and
+5 GHz.
 
-Should the history be moved below "---"?
+Changes in v7:
+- Patch 3: drop the local no_chanctx variable and check
+  IEEE80211_CONF_MONITOR in rtw89_ops_config() so the channel flag is
+  not set for non-monitor first interfaces in ieee80211_hw_conf_init().
+- Rebase onto latest rtw-next.
 
-> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
-> ---
-> =C2=A0arch/arm64/boot/dts/allwinner/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
-> =C2=A0.../dts/allwinner/sun60i-a733-cubie-a7s.dts=C2=A0=C2=A0 | 284 +++++=
-+++++++++++++
-> =C2=A02 files changed, 285 insertions(+)
-> =C2=A0create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-=
-a7s.dts
->=20
-> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
-/allwinner/Makefile
-> index d1f768dd6461..792152525b43 100644
-> --- a/arch/arm64/boot/dts/allwinner/Makefile
-> +++ b/arch/arm64/boot/dts/allwinner/Makefile
-> @@ -68,3 +68,4 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-a527-cubie-a5e.dtb
-> =C2=A0dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-h728-x96qpro+.dtb
-> =C2=A0dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-avaota-a1.dtb
-> =C2=A0dtb-$(CONFIG_ARCH_SUNXI) +=3D sun55i-t527-orangepi-4a.dtb
-> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun60i-a733-cubie-a7s.dtb
-> diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts b/ar=
-ch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
-> new file mode 100644
-> index 000000000000..341c24360ce2
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
-> @@ -0,0 +1,284 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-> +/dts-v1/;
-> +
-> +#include "sun60i-a733.dtsi"
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +/ {
-> +=09model =3D "Radxa Cubie A7S";
-> +=09compatible =3D "radxa,cubie-a7s", "allwinner,sun60i-a733";
-> +
-> +=09aliases {
-> +=09=09mmc0 =3D &mmc0;
-> +=09=09serial0 =3D &uart0;
-> +=09};
-> +
-> +=09chosen {
-> +=09=09stdout-path =3D "serial0:115200n8";
-> +=09};
-> +
-> +=09reg_ps: regulator-system-power {
-> +=09=09compatible =3D "regulator-fixed";
-> +=09=09regulator-name =3D "ps";
-> +=09=09regulator-min-microvolt =3D <5000000>;
-> +=09=09regulator-max-microvolt =3D <5000000>;
-> +=09=09regulator-always-on;
-> +=09};
-> +
-> +=09reg_ldo_input: regulator-ldo-input {
-> +=09=09compatible =3D "regulator-fixed";
-> +=09=09regulator-name =3D "ldo-input";
-> +=09=09/* ETA3521: 0.6 V * (1 + RP298 / RP299), 30k / 10k. */
-> +=09=09regulator-min-microvolt =3D <2400000>;
-> +=09=09regulator-max-microvolt =3D <2400000>;
-> +=09=09regulator-always-on;
-> +=09=09vin-supply =3D <&reg_ps>;
-> +=09};
-> +
-> +=09osc32k: osc32k-clk {
+Changes in v6:
+- Focus the series strictly on the standalone monitor interface case
+  (plus the concurrent NULL-vif crash guard in patch 1), dropping former
+  patches 3, 4, 5, 6, and 8.
+- Shorten commit messages and rebase onto rtw-next.
+- Patch 1: use vif_to_rtwvif_safe().
+- Patch 2: clamp negative rate indices to 0 with max_t().
+- Patch 3 (was 10): move before injection changes, add
+  rtwdev->support_chanctx, and reuse IEEE80211_CONF_CHANGE_CHANNEL in
+  rtw89_ops_config().
+- Patch 4 (was 7): keep control frames on the AC queue and only set
+  seq = 0 for control frames.
+- Patch 5 (was 9): simplify ASSIGN_SEQ handling and drop dead code.
 
-Should two regulators and the clock have been sorted in the reverse order?
+Changes in v5:
+- Split the NULL vif fix and negative rate index fix out as standalone
+  patches 1-2 with Fixes: and Cc: stable tags.
+- Split monitor injection into focused patches.
+- Honor ASSIGN_SEQ, retries, and NO_ACK for injected frames.
+- Restore channel on leaving idle for non-chanctx devices.
 
-> +=09=09compatible =3D "fixed-clock";
-> +=09=09#clock-cells =3D <0>;
-> +=09=09clock-frequency =3D <32768>;
-> +=09};
-> +};
-> +
-> +&cpu0 {
-> +=09cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu1 {
-> +=09cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu2 {
-> +=09cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu3 {
-> +=09cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu4 {
-> +=09cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu5 {
-> +=09cpu-supply =3D <&reg_dcdc5>;
-> +};
-> +
-> +&cpu6 {
-> +=09cpu-supply =3D <&reg_dcdc3>;
-> +};
-> +
-> +&cpu7 {
-> +=09cpu-supply =3D <&reg_dcdc3>;
-> +};
-> +
-> +&mmc0 {
-> +=09bus-width =3D <4>;
-> +=09cap-sd-highspeed;
-> +=09cd-gpios =3D <&pio 5 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-> +=09disable-wp;
-> +=09max-frequency =3D <50000000>;
-> +=09no-1-8-v;
-> +=09vmmc-supply =3D <&reg_swout2>;
-> +=09/* The 3.3 V path uses VCC-IO; no Port F voltage switching yet. */
-> +=09vqmmc-supply =3D <&reg_swout2>;
-> +=09status =3D "okay";
+Changes in v3:
+- Split into a patch series and use driver abstractions instead of
+  direct register writes.
 
-see below...
+v6: https://lore.kernel.org/linux-wireless/20261117094135.1772-1-owner@ph4ntom-rev.uz/
+v5: https://lore.kernel.org/linux-wireless/20261113235211.1911-1-owner@ph4ntom-rev.uz/
+v3: https://lore.kernel.org/linux-wireless/20261104203051.564-1-owner@ph4ntom-rev.uz/
+v2: https://lore.kernel.org/linux-wireless/179371849554.20972.16232816164394690660@ph4ntom-rev.uz/
+v1 (RFC): https://lore.kernel.org/linux-wireless/1a196d6dfbc.35537d221913104450.3720060455831933789@zoho.com/
 
-> +};
-> +
-> +&osc {
-> +=09clock-frequency =3D <26000000>;
-> +};
-> +
-> +&pio {
-> +=09vcc-pb-supply =3D <&reg_swout2>;
-> +=09vcc-pc-supply =3D <&reg_cldo5>;
-> +=09vcc-pd-supply =3D <&reg_swout1>;
-> +=09vcc-pe-supply =3D <&reg_bldo1>;
-> +=09vcc-pf-supply =3D <&reg_cldo5>;
-> +=09vcc-pg-supply =3D <&reg_aldo1>;
-> +=09vcc-ph-supply =3D <&reg_swout2>;
-> +=09vcc-pj-supply =3D <&reg_swout1>;
-> +=09vcc-pk-supply =3D <&reg_bldo1>;
-> +};
-> +
-> +&r_i2c0 {
-> +=09status =3D "okay";
+Enver Ikromov (5):
+  wifi: rtw89: avoid NULL vif dereference in rtw89_ops_tx()
+  wifi: rtw89: handle negative rate index for injected frames
+  wifi: rtw89: restore channel when leaving idle on non-chanctx devices
+  wifi: rtw89: avoid reading seq_ctrl on control frames
+  wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for injected frames
 
-Should "status" have been last (preceded by a blank line)? (dts-coding-styl=
-e.rst)
+ drivers/net/wireless/realtek/rtw89/core.c     | 27 ++++++++++++++++---
+ drivers/net/wireless/realtek/rtw89/core.h     |  3 +++
+ drivers/net/wireless/realtek/rtw89/mac.h      |  2 ++
+ drivers/net/wireless/realtek/rtw89/mac80211.c | 14 +++++++++-
+ 4 files changed, 42 insertions(+), 4 deletions(-)
 
-> +=09pinctrl-names =3D "default";
-> +=09pinctrl-0 =3D <&r_i2c0_pl_pins>;
-> +
-> +=09axp318w: pmic@36 {
-> +=09=09compatible =3D "x-powers,axp318w";
-> +=09=09reg =3D <0x36>;
-> +=09=09interrupt-parent =3D <&nmi_intc>;
-> +=09=09interrupts =3D <0 IRQ_TYPE_LEVEL_LOW>;
-> +=09=09interrupt-controller;
-> +=09=09#interrupt-cells =3D <1>;
-> +
-> +=09=09aldo156in-supply =3D <&reg_ps>;
-> +=09=09aldo234in-supply =3D <&reg_aldo1>;
-> +=09=09bldoin-supply =3D <&reg_ldo_input>;
-> +=09=09cldoin-supply =3D <&reg_ldo_input>;
-> +=09=09dldoin-supply =3D <&reg_ps>;
-> +=09=09eldoin-supply =3D <&reg_dcdc9>;
-> +=09=09ips-supply =3D <&reg_ps>;
-> +=09=09vin19-supply =3D <&reg_ps>;
-> +=09=09vin23-supply =3D <&reg_ps>;
-> +=09=09vin45-supply =3D <&reg_ps>;
-> +=09=09vin678-supply =3D <&reg_ps>;
-> +
-> +=09=09regulators {
-> +=09=09=09reg_dcdc1: dcdc1 {
-> +=09=09=09=09regulator-name =3D "vcc-3v3";
-> +=09=09=09=09regulator-min-microvolt =3D <3300000>;
-> +=09=09=09=09regulator-max-microvolt =3D <3300000>;
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc2: dcdc2 {
-> +=09=09=09=09regulator-name =3D "vdd-sys";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc3: dcdc3 {
-> +=09=09=09=09regulator-name =3D "vdd-cpub";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc4: dcdc4 {
-> +=09=09=09=09regulator-name =3D "vdd-gpu";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc5: dcdc5 {
-> +=09=09=09=09regulator-name =3D "vdd-cpul";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc6: dcdc6 {
-> +=09=09=09=09regulator-name =3D "vcc-draml";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc7: dcdc7 {
-> +=09=09=09=09regulator-name =3D "vcc-dram";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc8: dcdc8 {
-> +=09=09=09=09regulator-name =3D "vcc-ufs-io";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dcdc9: dcdc9 {
-> +=09=09=09=09regulator-name =3D "eldo-input";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_swout1: swout1 {
-> +=09=09=09=09regulator-name =3D "vcc33-lcd";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_swout2: swout2 {
-> +=09=09=09=09regulator-name =3D "vcc-io-card";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_aldo1: aldo1 {
-> +=09=09=09=09regulator-name =3D "vcc-pl";
-> +=09=09=09=09regulator-min-microvolt =3D <3300000>;
-> +=09=09=09=09regulator-max-microvolt =3D <3300000>;
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_bldo1: bldo1 {
-> +=09=09=09=09regulator-name =3D "vcc-pe-pk-mcsi";
-> +=09=09=09};
-> +
-> +=09=09=09reg_bldo2: bldo2 {
-> +=09=09=09=09regulator-name =3D "vcc-lvds0";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_bldo4: bldo4 {
-> +=09=09=09=09regulator-name =3D "vcc18-codec";
-> +=09=09=09=09regulator-min-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-max-microvolt =3D <1800000>;
-> +=09=09=09};
-> +
-> +=09=09=09reg_cldo1: cldo1 {
-> +=09=09=09=09regulator-name =3D "vcc33-18-usb";
-> +=09=09=09=09regulator-min-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-max-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_cldo2: cldo2 {
-> +=09=09=09=09regulator-name =3D "vcc18-hdmi";
-> +=09=09=09=09regulator-min-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-max-microvolt =3D <1800000>;
-> +=09=09=09};
-> +
-> +=09=09=09reg_cldo3: cldo3 {
-> +=09=09=09=09regulator-name =3D "vcc-pll-dram";
-> +=09=09=09=09regulator-min-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-max-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_cldo5: cldo5 {
-> +=09=09=09=09regulator-name =3D "vcc18-pf-pc";
-> +=09=09=09=09regulator-min-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-max-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dldo1: dldo1 {
-> +=09=09=09=09regulator-name =3D "vcc-efuse";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_dldo6: dldo6 {
-> +=09=09=09=09regulator-name =3D "vcc-ufs";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_eldo1: eldo1 {
-> +=09=09=09=09regulator-name =3D "vcc09-vdd2l";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_eldo6: eldo6 {
-> +=09=09=09=09regulator-name =3D "vdd-cpus";
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +
-> +=09=09=09reg_rtc_ldo: rtc-ldo {
-> +=09=09=09=09regulator-name =3D "vcc-rtc";
-> +=09=09=09=09regulator-min-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-max-microvolt =3D <1800000>;
-> +=09=09=09=09regulator-always-on;
-> +=09=09=09};
-> +=09=09};
-> +=09};
-> +};
-> +
-> +&r_pio {
-> +=09/* PL powers the PMIC bus itself; firmware must keep ALDO1 enabled. *=
-/
-> +=09vcc-pm-supply =3D <&reg_aldo1>;
-> +};
-> +
-> +&rtc {
-> +=09clocks =3D <&r_ccu CLK_BUS_R_RTC>, <&osc>, <&r_ccu CLK_R_AHB>,
-> +=09=09 <&osc32k>;
-> +=09clock-names =3D "bus", "hosc", "ahb", "ext-osc32k";
-> +};
-> +
-> +&uart0 {
-> +=09pinctrl-names =3D "default";
-> +=09pinctrl-0 =3D <&uart0_pb_pins>;
-> +=09status =3D "okay";
 
-see above...
+base-commit: 0bdc579dbfc251a6b6838ee9459b6771b948c617
+-- 
+2.56.0.windows.4
 
-> +};
