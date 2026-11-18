@@ -1,44 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.79.60.93
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968981;
-	b=3NVinRor1E6lw2Ej0bA0CfWMR6R+5yPYHOFGoPKQj/nO7qgIxaEbeS8+FiwDmADcEQEV
-	 xs6toqq8+qtwvOCeDURiTxt6ru2mGb7zeq0u2mHrgdH/fw5svl030gdZ+PP6LICCvwyqe
-	 tylNqG/A3PAbCFKnwn9e6SgXrHPB0IzAEJiEtdh+iDZuwO4HxJZZT/B8qvUufhobXxII0
-	 qIoe4xOc3WAdHG0xyuqQkZ5PgZo+LsaPB3qE7vNn5eYe3yzLqPGx7Jl8cqJsjdZNMry/g
-	 xNoxNEwFaFRHkUeM+4WkfIRCmOSZGm4M3ZWo01aLR4/JMRjN7MC72tTW77/KXOnhZgA==
+	t=1794968998;
+	b=NcLlagqNpar0zEeuPWQWFQ6cd9P7ht1taDPQZAlyOMcMc01FBBIUIwndxZeUIotMcJnD
+	 KLbJ3FDIblWo2XEd+Z9RxSkvK4viD+HQU3FMMaq0jtd1MKKNVbt0ztBlvtQ2SrDPj85UJ
+	 P+4SPRhxXVo0+HQIesdzdh88ligfCt2ApS0/nEiG1MMBjBDR9il6r5YZO69N7E6mVsKST
+	 XtbBCVpSOca3OojmyURNSSBv94p2NwU3xud2fvMBTPmnD+fepJXG6BrAA1kBsHv8OvFh0
+	 0n23bHW55JB0JA3G3Z1f45WdJMfLctSMRNKVvoOoqgQOsoIeHpEID3lV447v1t2ArcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968981;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=YqKHThxqhV+Nx5LE0AW1AJg3y+A6AtDJSvDAZKmD6X0=;
-	b=nhLla5aozBNYZt3PbPGhK5m8UIa9c+pl+CitgMVRwT9ZuHhr8UQrggNlDI9S10IkY8iu
-	 udBHa2dpolucqcLgrsGo/SO4Tiy6IqCqhTL4+1iEMOFIacqRg9+AKPpWjko7+yucexvy2
-	 21PlvoJecqIfx8OrJAPD6E9VstxV78Hzzbsp1JDmi9VnzP/rfUIl6A8nRf1oQqGKdbvrR
-	 GWO2Lak0kKKf7Sr2usxEW/vWELKdoYMI8I7sF9XCAM2lizJ2Q2Oi0aNg+LbP3WqYD6hvW
-	 8+rGUGc7E9xdxBPdn9J4LcI7C2XoFxtD8THLfIYmryhEK/7GGhdexGrf3yKRtqnbKjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968998;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:Cc:
+	 Subject:To:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WwSqz9XCDJDsYvwx2pp3LvjG+xOgTavj+Zea0JWrFWQ=;
+	b=kj/CLnGPqdqMH2LZc+TPfVoTHr5J2QFhRYY/729hHc/0yNAqbVD2r2ICa83jtyJHxSDm
+	 5CTQsdqxXs9ccZHydtDjSCOcfZo0dqS2rREPIwvwqfqTYRf+FZhdIADaQ4ZpKbajNXEuf
+	 KWDaJCkqCzytK/AL6Ir3rFspm3Ee8nFIVikx0VE8+RkP0yB6sL3+p32PXiOkFcPEW9xf3
+	 UwQW1UdZA0R/9xheIlzZvpSb+i6tMNlY27wwiuNoubsj9GgeaD/M5Z466UHZ0RItM2Wlc
+	 vKrCAB/CAqqYWxlDhBRRZvJBztUX/jBRkUM1q+Gchi1zQgpKEW0erGBhZqLqsGnC4Qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="ef/WcXmR";
-	arc=none smtp.remote-ip=210.79.60.93
-Received: from mail-m6093.netease.com (mail-m6093.netease.com [210.79.60.93])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lvuIIucM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A809B606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:29:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A809B606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03CD9606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:29:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=ef/WcXmR
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 551083689;
-	Wed, 18 Nov 2026 10:29:28 +0800 (GMT+08:00)
-Message-ID: <72957827-fde8-4f4b-80a9-050d2f112316@rock-chips.com>
-Date: Wed, 18 Nov 2026 10:29:26 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lvuIIucM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AD881F000C5;
+	Wed, 18 Nov 2026 02:29:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794968997;
+	bh=WwSqz9XCDJDsYvwx2pp3LvjG+xOgTavj+Zea0JWrFWQ=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To;
+	b=lvuIIucMMta+cj9/8B0eEqlNwskqETWuTEoa0S+H3gVSEa1mdrg4gIqH+/09sKMuf
+	 rahbmBKfK5hc5igo+detbF3B3Qyva6LY/yHmx9CoHHz+uIMG/2UJuSrwDe/8x8jVVm
+	 sde6Q0spbDaVHY9iH9h6bEQ1fZ6TVFXxvXT9cOMVfRh3qb08niP/7melOEFaOvGzUx
+	 zYISJf5HOFQyIxRu9sfcDlnay/YHY7zUdsIuM1Xy8o9z1fwjqS9wkD/z5l9dIdSlgE
+	 KZ6aJmkpTB8vvR320+oJpYp7l5i0LQlQ7QDcyFCtPuj7KqB0S6jqnR9sYG+nFn+8N1
+	 ttowENQe8volA==
+Message-ID: <00565d3e-c508-4764-8587-327c874adcc7@kernel.org>
+Date: Wed, 18 Nov 2026 10:29:54 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,67 +52,114 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] accel/rocket: Fix the extra iommu_group_get call in
- rocket_job_handle_irq
-To: Daniel Drake <ddrake@baylibre.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>,
- Oded Gabbay <ogabbay@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260814022453.437-1-kernel@airkyi.com>
- <20260814022453.437-4-kernel@airkyi.com>
- <0e722f43-f08c-4636-bf3e-0dbe991bf6a0@baylibre.com>
+Cc: chao@kernel.org, Daeho Jeong <daehojeong@google.com>
+Subject: Re: [f2fs-dev] [PATCH v2 18/20] f2fs: support subpage blocks in
+ compression
+To: Daeho Jeong <daeho43@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, kernel-team@android.com
+References: <20261116040851.2849696-1-daeho43@gmail.com>
+ <20261116040851.2849696-19-daeho43@gmail.com>
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <0e722f43-f08c-4636-bf3e-0dbe991bf6a0@baylibre.com>
+From: Chao Yu <chao@kernel.org>
+In-Reply-To: <20261116040851.2849696-19-daeho43@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa1ec7cde4b03a7kunm8a7c13a3602732
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZH0lCVh4YGUseSkwZSEoeTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=ef/WcXmRp3/JbdOl57cgcDsCjcrruOWIRVodPFUgqkBMQqGs1kxCk0jmzFrzuctBz/6RlanWo3XJ1Cv0IwLohI21kkIj7ZIDhYhpR0KgqQxS4A6eoDGr/XCwY6y1812V19zHiluIVZLBRYmffrSRlcepE1R4QcMPncOQLR5Fd4o=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=YqKHThxqhV+Nx5LE0AW1AJg3y+A6AtDJSvDAZKmD6X0=;
-	h=date:mime-version:subject:message-id:from;
 
-Hi Daniel,
-
-On 11/18/2026 5:53 AM, Daniel Drake wrote:
-> On 14/08/2026 03:24, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> The rocket attaches the IOMMU group in rocket_job_run() and detaches it
->> in rocket_job_handle_irq(). Calling  iommu_group_get() in
->> rocket_job_handle_irq() causes the reference count to increase
->> unexpectedly. And this causes rocket_core_fini() to fail to release the
->> IOMMU group, leading to a resource leak.
+On 11/16/26 12:08, Daeho Jeong wrote:
+> From: Daeho Jeong <daehojeong@google.com>
 > 
+> With subpage blocks, a cluster spans fewer folios than blocks, and
+> several compressed blocks share a bounce folio.
 > 
-> While there is a leak here, I think sashiko correct in saying this change would introduce a crash because core->iommu_group can be set to NULL before this codepath is reached.  That might be a simple fix.
+> - Require a cluster to cover at least one page. This raises the minimum
+>   compress_log_size only when a page has more than four blocks, e.g. to
+>   64KB for 4KB blocks on a 64KB page kernel, where the mount option and
+>   F2FS_IOC_SET_COMPRESS_OPTION reject a smaller one. A file that already
+>   has a smaller cluster is handled like one with an unsupported
+>   compression algorithm: it can be looked up and removed, but opening it
+>   fails with -EOPNOTSUPP.
+> - Use block offsets and sizes for compressed data, keep each compressed
+>   block at its block offset within the cluster, and count pending
+>   compressed I/O in blocks so that a shared bounce folio is not
+>   decompressed or freed early.
+> - Submit only the written block of a shared bounce folio in
+>   f2fs_submit_page_write(), at its offset in the folio.
+> - Keep compressed files on the page based read and write paths, and
+>   compress a cluster only when all of its blocks are dirty and below
+>   EOF.
+> - A folio with per-block state may hold uptodate blocks newer than the
+>   on-disk cluster, so decompress into a bounce page and copy back only
+>   the blocks that are not uptodate.
+> - Cache compressed blocks one block at a time in the compress cache.
+> - Lock only the unlocked pages in cancel_cluster_writeback() to avoid a
+>   self-deadlock.
+> - Attach a folio state to the multi-block folios of a rewritten cluster
+>   before they are dirtied, as the other write paths do.
+> - Attach a folio state to multi-block folios that have none when
+>   compressed writeback starts, as the raw write path does. Otherwise the
+>   write completion, which does not hold the folio lock, can detach the
+>   page private flags while a task is moving them into a new folio state.
+> - Take sbi from the dic to count the blocks of a compressed page in
+>   f2fs_finish_read_bio().
+> - Write the blocks of a multi-block folio in
+>   f2fs_write_single_data_page() as f2fs_write_cache_folios() does,
+>   taking the write_blocks_pending bias with a new helper shared by the
+>   two and dropping it with f2fs_ffs_put_write_pending().
+> - Count a read folio of a compressed file once in the iostat:
+>   f2fs_mpage_readpages() counts the folios that go through its loop,
+>   and f2fs_read_data_large_folio() counts the others.
+> - Remove the -EOPNOTSUPP checks.
+> - Remove inode_inc_dirty_block() and inode_dec_dirty_block(), which
+>   have no caller left.
 > 
->> Fixes: 658ebeac3351 ("accel/rocket: Add IOCTL for BO creation")
+> The bounce folios are now freed when the last block of a cluster
+> completes, also when the block size equals PAGE_SIZE.
 > 
-> 
-> Wrong commit mentioned here.
+> Signed-off-by: Daeho Jeong <daehojeong@google.com>
 
-Thanks for you review. This is indeed a problem.
+Reviewed-by: Chao Yu <chao@kernel.org>
 
-And it has been a long time since I sent this series. :)
+One minor comment below:
 
-During this time, I have seen a lot of similar work. For example, work
-similar to patch1 is here[0]. And some of the issues mentioned by 
-Sashikoare also being fixed by in-flight patches like[1].
+> @@ -4277,6 +4354,46 @@ int f2fs_write_single_data_page(struct folio *folio, int *submitted,
+>  
+>  	folio_zero_segment(folio, offset, folio_size(folio));
+>  write:
+> +	if (f2fs_is_multiblock_folio(sbi, folio)) {
+> +		struct f2fs_lock_context lc;
+> +		unsigned int to_blk = f2fs_blocks_per_folio(sbi, folio);
+> +		u64 pos = folio_pos(folio);
+> +
+> +		if (!compr_blocks && !f2fs_verity_in_progress(inode))
+> +			to_blk = min_t(unsigned int,
+> +					F2FS_BLK_ALIGN(sbi, i_size - pos),
+> +					to_blk);
+> +
+> +		/* Deadlock due to between page->lock and f2fs_lock_op */
+> +		if (!compr_blocks && !f2fs_trylock_op(sbi, &lc)) {
+> +			err = -EAGAIN;
+> +			goto redirty_out;
+> +		}
+> +
+> +		folio_start_writeback(folio);
+> +		f2fs_folio_get_write_bias(folio, F2FS_BLK_TO_BYTES(sbi, to_blk));
+> +
+> +		err = f2fs_write_folio_dirty_range(folio, &local_submitted,
+> +					wbc, io_type, pos,
+> +					pos + F2FS_BLK_TO_BYTES(sbi, to_blk),
+> +					compr_blocks);
+> +
+> +		if (!compr_blocks)
+> +			f2fs_unlock_op(sbi, &lc);
+> +
+> +		/* The callers drop the submitted count on error. */
+> +		if (err && local_submitted)
+> +			f2fs_submit_merged_write_cond(sbi, NULL, folio);
 
-I'm not sure whether I should slow down the submission, since it seems
-Tomeu is quite busy and hasn't gotten to some of the backlogged patches.
+We'd better clean up this if this is not a bug fix.
 
-[0]: https://lore.kernel.org/all/20260915041152.1725014-1-vulab@iscas.ac.cn/
-[1]: https://lore.kernel.org/all/18667b2afdcaae217fa1038f5348ab23ed756bdc.1794615323.git.gahing@gahingwoo.com/
+I think we can pass local_submitted to @submitted_p in f2fs_write_raw_pages() before
+its error handling, so that its caller (f2fs_write_cache_pages()) can flush the bio
+cache.
 
--- 
-Best, 
-Chaoyi
+Thanks,
