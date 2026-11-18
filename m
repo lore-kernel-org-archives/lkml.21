@@ -1,58 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025468;
-	b=Fko3oEhm4CmCEXe2K4NnIqh2e6Qh71aVOzHsJEDz4ASPnySJDtPgRB/6oLZWmNhY8RDw
-	 l9peyspQ4lPYsShLUCHc4KWjIwexEOi4zwG1ziHuT6o8fWfbO0rS+2OwgJx4oCHQGdaDi
-	 TERaFfw/gOOlqOpGrJsEIJwNSTqvvCwjhK7QQejwxOHLM2o0pP19752WPxL5tOWp5QPnP
-	 dZtikovEL1vpURVz1fRUzmpD7uDu8QRAZ9XJPPqJ7YJXGQj4t4P1z6geBljWcdFXr2JqJ
-	 j6vt+/rjNEkYtUvhyTqf7bl1WZ94Pkw93M1kNi6grVHYb4ztL2hOPJK4cCXXD4k+yGw==
+	t=1795025502;
+	b=G5IC8w+sYUK068TDrXXn8Dyf7Ip0UM1t66hhCf42BrnwVzp25NIdE1vBSyD/LG2qzsYN
+	 0gAr2KR3pdyNa+3EvaMdwAqiwBGZ+7I1QM8Xtbn3rkCEiry9+jZr72Yylob7urj8BzUbt
+	 9WNvRDkO9ygM9qsg7/b+QXFAFkoiz4p7gYb2qJxdfEOUC1tQ+ReQ+dGOnnxYismbezQtd
+	 KA2vqsoQ/NYMfdrt767uzBKnlAWK/D50ZL0+LIMQnDCrY21ObvWBDquXypW2slNWUeL+x
+	 9wU4ah0HQW57KUTW2HkmeB7eP47LWCvcfxID+UDLWT+JABZK8zcmwsjzNP7PbblaWkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025468;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=U/9XfZET71DYWQeWdXA9lUIqEGmTY7QUPfBxbI9EKdk=;
-	b=aIYVXX37clyHSKMb2rmF7oo3CRQUP9X3N9vjtGv/ENvXerZQjdCWx+708UYRSay7D/Hz
-	 MTprLGRkOQUcysEUtKqoyG2SNiHq6jWPI2t1nJ6T8X2GdgF2TSEfBtTC/AqtgV6X6QYOB
-	 sa8kkAIywmmlAzCqQmSTP90KuQ0voNvCyFeDVmRopz1mXzcuHCNgBseKh7ZzRkgILMl3Q
-	 bxHjdUGSzTW9MWt+Tn6vU7vELRkpjpihu4oXiuE5BccTSO2HzDgUgmr37g9unay/KcTEG
-	 qinl6boWMD8+o3TPA3PFoCoSx2IXwXbbdfeCPUWseVkNJLOFCcxJ9Cw0KdcVtdilTBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025502;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=uRkdK0D1Evn9yPGULWEQBwZUI3TEJ1+/UYjutxpisho=;
+	b=D5GEZO9c3Su9JfdwTxHJVwc18U6FSUH4Ky5uszMmB6YdYbodNBOZ7boOPTpBBo94XLvX
+	 y1xmPYRYeF9cAKEgIaBIhXnGFCZxosSk/ke2uQI4ED110e+jjcrQQ1L0aUpYu1Lo+9GNi
+	 0P/BPmbIydV0rUilzrrLVK6IksY/GbKmDGJnTW40dKM7dz74RoeuYOwWFHx4AqVkwQSkX
+	 TpEAsVvtIYmDf1RGWxDGreNpj51sTqEhGCqIxSzo/OMFY4DX8jGfTDPsu6kKzP+CM5ZG9
+	 Ci2DcchsELuXL+YURLvVlWjphm35jNgcnNjvUHA6cP5dTqisIzZgM+jwtMMjVUaTpFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=apgUEkAi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=sEqgIa6T;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C22D660A2613;
-	Wed, 18 Nov 2026 18:11:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED51D606A320;
+	Wed, 18 Nov 2026 18:11:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED51D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=apgUEkAi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68DE81F000C5;
-	Wed, 18 Nov 2026 18:11:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795025468;
-	bh=U/9XfZET71DYWQeWdXA9lUIqEGmTY7QUPfBxbI9EKdk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=apgUEkAiZPvVpdEM7GH9/yAFQi/8J5gRWc4RR+NW8kEhmStiSxiWmOGsxhdwpp7/M
-	 3fwfguvTcpI92FG06OC4fSmIqrfn1GauHvfaVA7H2eBzHk9ROlvE/ys0m9e8mDBd60
-	 Ydu5LXHfXAN0k55J/nddQiURXHyu6nVF06ku/O9jn8UtLP6AuDisImNhqZvk+tOCCK
-	 egtNaYm23SsqwuH8scMrKv3YwBLNsEOPxZl1RR9c02D8C+1kv/zTeekWHKTAG0eu9K
-	 nLPOgWd1XSc7mcRbWsZfmR9v0O4tDNOjOKeDi/VYd7ZQ0icXdaOyVs6XOFs5Exdq91
-	 GztAgoVI5TfCA==
-Date: Wed, 18 Nov 2026 18:11:04 +0000
-From: Conor Dooley <conor@kernel.org>
-To: rva333@protonmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: iio: light: stk33xx: add stk3337
-Message-ID: <20261118-brussels-spearhead-2bf5e247829b@spud>
-References: <20261117-6768-stk3337-v2-0-92f4c7be3bc6@protonmail.com>
- <20261117-6768-stk3337-v2-2-92f4c7be3bc6@protonmail.com>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=sEqgIa6T
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=uRkdK0D1Evn9yPGULWEQBwZUI3TEJ1+/UYjutxpisho=; b=sEqgIa6TdSV5J3WITaCpQ2DfXB
+	UNk1u+f+qqtx9BvBF6d5mBEMgLQaBHtVYCYte6C4XkAFuO/n3ExRN392lJZtn7+/LPRvq1zz75Xnl
+	FzIBncTDn/HkIBMocnTTHRu/RZ5omO55BJtftPzZ4uCk4vynx9sIfYwVQI+aAG1z4DqE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTk7v-00HU79-27; Wed, 18 Nov 2026 19:11:23 +0100
+Date: Wed, 18 Nov 2026 19:11:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: github@bumblecito.com
+Cc: Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 2/2] net: sfp: sort OEM and Turris SFP quirks
+Message-ID: <fcc50c7d-f55a-4946-bdba-260b89fba889@lunn.ch>
+References: <20261118162323.436219-1-github@bumblecito.com>
+ <20261118162323.436219-3-github@bumblecito.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,27 +66,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="p/pHSUQxsDxL9i3n"
-Content-Disposition: inline
-In-Reply-To: <20261117-6768-stk3337-v2-2-92f4c7be3bc6@protonmail.com>
-
---p/pHSUQxsDxL9i3n
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20261118162323.436219-3-github@bumblecito.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+On Wed, Nov 18, 2026 at 04:23:23PM +0000, github@bumblecito.com wrote:
+> From: Israel Cueto <github@bumblecito.com>
+> 
+> Keep OEM entries together in the vendor table's alphabetical order
+> and sort the OEM and Turris entries by part number.
+> 
+> This is a table-ordering cleanup only; preserve all existing quirk
+> matches and fixup functions.
+> 
+> Signed-off-by: Israel Cueto <github@bumblecito.com>
 
---p/pHSUQxsDxL9i3n
-Content-Type: application/pgp-signature; name=signature.asc
+Thanks for spending the extra time to do this.
 
------BEGIN PGP SIGNATURE-----
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3qOAAKCRB4tDGHoIJi
-0kS7AQD7ciZuSuQjv8RdPyxOz2SjkhTFr6fgZB21sc01XdaY4wEAqkB+YzLJEJLx
-LFHemNSQh3XOoOPCpVa+/lcB/c7RVA0=
-=J1Y3
------END PGP SIGNATURE-----
-
---p/pHSUQxsDxL9i3n--
+    Andrew
