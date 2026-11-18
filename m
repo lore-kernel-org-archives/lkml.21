@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033846;
-	b=dSer2A+dX83mpS7OPPWpGFwrq969pN/h1jwObyNavBIij1vzze6tIxV+8rYQNwDSFRw4
-	 QbFYQNZ493vg6hQs0jv20980eIskF1lDhyqHizTEL2UbkStLibNX/6WahI224+SxPstDg
-	 Gwe/z+fcTccf3QzOyQ5lUvwwwW1EcetZ6tKEYFqNNbJAXolDFu+hpjON6TZEJOYLxu2xL
-	 fXtH6OooB8dZilT8HN56w2c4GQAeCfGmTrqpULWroebc4IQ5b5zq5G4t6/q516czOLnv1
-	 kRYydf7JrNdyElwJJJnngVHqGDhyMEs7SYnEL8Z5KSnRhlW/UNqMQZNqooSA26papgA==
+	t=1795033847;
+	b=ulCprx3qlQVgJw1ultDIypDeW1q6z2+i4mLHnXuL4mAXBixkrbllfEtsRKoCU+DGHQek
+	 f/ylDckYB+jUqyvKirvF546yIYJLJ5zBeLyqN7A7kjCt/nXzMkYOq6bRP2aQc9S+/2JYl
+	 epNVfpbJreNgLgLveFCgQIPPkJygGYjUFMxoN4gSOeIJO+EatAhvIaEpHZo32x2HsI7M3
+	 JWrWzH0hVuu76Uy6tvxa9wS6WKkfiXignyAYUqcPGe8O79i2H5ECiSuMabXGB4zqyMtVK
+	 ZZL0sU6oDzmar9UtRL1Fe2liARVR1PIw+Z1hIr9EvcR8M2Rl7+VpxCFd+EFnCRKcC1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033846;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=EmMKr6gSHoH2dKRP5qeeryr94SYQSSVn/xmvtlztII0=;
-	b=06wHtaZ4blEUwQ3sz6pvw4dq86pZyBnJZMFwwPXZzOFUmje9LDOC0WsZqhjGnEahRZcr
-	 DvDbZYdTmKM9lSX5wQNLJ65S1rtClx1W9UZ8kgVzPV5S4eUbpjyKk/SYtwzyreEr8g6Xb
-	 myyNrlC4NqA4QVDoVUUBRgGMjxiL2snfDCH+Hts2085Ij806Mp0CQSLB5qMzx1qiahzx/
-	 8EDJh/+GPQtuLUMseXPa07v3vPYZxGqzIQgWRpC8ss81htdx8nQjUd/UE6aF02VCGl0u7
-	 RpXRDH+hhFJV8Q++6qNs/qlWtdknBC2+4a9H7js1PjA9PFFopAyvcXnYgfETeSbW4rg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033847;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=FB+aIq8L1fmrLNyEt2DjQ8jj7Py87jZZnAJlxx914mE=;
+	b=BkFdeVriaR+CTx5CZOMEvY2Y4mQ9dadM+gXR7L3RHMbx7ZcO5ZimVvn6LXmYyPjUlaiq
+	 rnOJ850Vva1SvoeuplTl4w6SF14a2IEIYFGMxgWjrpDl9un9quvz+iZt1DJGtynIfoKzL
+	 5i0dCuak8dDTfkenZqs7agBP3iPWDx1DwjvZdkEf3VQg5uUlckZ2FsU6xDeRuIJoJEqYy
+	 2GWhBI+xKJ3VbGbA0y1+YVRMIsPkdS9BXYrAW4sIDIBFGgyfsprkCdpS7FxV70JcruCUe
+	 n71TtDzCRyksFRGudcPUKrBt+aa3u/gruvN03JnlkZZMxR8sm6Wtarp1wsqUrqiROAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="r/4UGTfV";
-	arc=none smtp.remote-ip=95.215.58.70
-Received: from mta1.migadu.com (out-70.mta1.migadu.com [95.215.58.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSsG6kSH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C82E8606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:30:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C82E8606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62F99606A336;
+	Wed, 18 Nov 2026 20:30:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=r/4UGTfV
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=AsyjQJaO+QbLQmBFS9Ydf8nttCyuw8mAVUIvRm2Y66o=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795033842; v=1; x=1795638642;
- b=r/4UGTfVpgnLp5bgcuF487KDCDTFkFp4oHBZamZRqB1sFp5kSp8MrHkQIXV3ScGC5Kee+pFO
- nEpSrHSS4mZBaskS08GH9oO1NqmwiAvnV0nFXnRLkjRGzzxRA6GcUWR06vsFRcxVEn33yp7iVuy
- VbdgbyusWRhTnPgPqSLjxSi4=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 9e06d7d80b8442fc;
-	Wed, 18 Nov 2026 20:30:42 +0000
-X-Mizu-Trace-ID: 9e06d7d80b8442fc
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 18 Nov 2026 20:30:38 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: a.kazinsky@ideco.ru
-CC: danielt@kernel.org, dianders@chromium.org, gregkh@linuxfoundation.org,
- kgdb-bugreport@lists.sourceforge.net, linux-kernel@vger.kernel.org,
- lvc-project@linuxtesting.org, mort@sgi.com, naveen.osdev@gmail.com,
- stable@vger.kernel.org, tim.bird@sony.com
-Subject: Re: [PATCH v2] kdb: Reject non-positive BYTESPERWORD before division
-In-Reply-To: <20261118072853.1578323-1-a.kazinsky@ideco.ru>
-Message-ID: <D82C97F0-F6CF-4D7D-BD47-4C1870A7E1FA@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSsG6kSH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22D3B1F000C6;
+	Wed, 18 Nov 2026 20:30:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795033847;
+	bh=FB+aIq8L1fmrLNyEt2DjQ8jj7Py87jZZnAJlxx914mE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eSsG6kSHVdjL8VGjI52bmfsguH1k2D2tE8rUPZsEuc5sMWFXlBtNyx31kZAxhaRgh
+	 lMCjLKSDN14yjKGfI3a7LY4dEro6QJ/BzlYS51phOWn9DIxhyQEiw904CoxpKzT5JF
+	 ciFPUxDLypaelxzj9y+J2d2bb1SzTtnzuT2TpMfusCa8Enf9MMLXpdcM/nniZvPNGJ
+	 BrJpS9aavLZylCZrCY6uMUfmmnRmZwu310tGxh5NLNzZiAtKPwsV27Pkr6ToYy9nJ8
+	 7iuQXm4DGKMf/0bqs2K2N7hr6v9tEYPbwjYdfZYw1v56BYedLAXvRXcGqnSB2Z1uJr
+	 x5vto8RcdZ3Mw==
+Date: Wed, 18 Nov 2026 20:30:42 +0000
+From: Simon Horman <horms@kernel.org>
+To: lirongqing <lirongqing@baidu.com>
+Cc: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-afs@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] rxrpc: rxgk: Fix uninitialised stack byte leaked via
+ RXRPC_CHALLENGED
+Message-ID: <20261118203042.GR860048@horms.kernel.org>
+References: <20261112114305.2340-1-lirongqing@baidu.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,60 +62,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112114305.2340-1-lirongqing@baidu.com>
 
-On 18 November 2026 07:28:52 GMT, Alex Kazinsky <a.kazinsky@ideco.ru>
-wrote:
->kdb_md() uses BYTESPERWORD as a divisor when calculating the initial
->repeat count, before validating the word width. A zero width causes a
->division by zero. kdbgetintenv() also casts an unsigned long to int,
->so the resulting width can be negative. If the width is -1 and the
->scaled count is INT_MIN, the quotient overflows and raises a divide
->error on x86.
->
->Return KDB_BADWIDTH for non-positive widths before calculating the
->repeat count.
->
->Found by Linux Verification Center (linuxtesting.org) with SVACE static
->analysis tool.
->
->Fixes: 5d5314d6795f ("kdb: core for kgdb back end (1 of 2)")
->Cc: stable@vger.kernel.org
->Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
-
-Nice!
-
-Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
-
-
->---
->v1: https://lore.kernel.org/all/20261113111152.4190309-1-a.kazinsky@ideco.ru/
->
->Changes in v2:
->- Reject negative BYTESPERWORD values as well as zero.
->- Explain the signed division overflow in the commit message.
->
-> kernel/debug/kdb/kdb_main.c | 3 +++
-> 1 file changed, 3 insertions(+)
->
->diff --git a/kernel/debug/kdb/kdb_main.c b/kernel/debug/kdb/kdb_main.c
->index 40c332d2179d..b1719382144b 100644
->--- a/kernel/debug/kdb/kdb_main.c
->+++ b/kernel/debug/kdb/kdb_main.c
->@@ -1527,6 +1527,9 @@ static int kdb_md(int argc, const char **argv)
-> 	kdbgetintenv("RADIX", &radix);
-> 	kdbgetintenv("BYTESPERWORD", &bytesperword);
+On Thu, Nov 12, 2026 at 07:43:05PM +0800, lirongqing wrote:
+> From: Li RongQing <lirongqing@baidu.com>
 > 
->+	if (bytesperword <= 0)
->+		return KDB_BADWIDTH;
->+
-> 	/* Assume 'md <addr>' and start with environment values */
-> 	repeat = mdcount * 16 / bytesperword;
+> rxgk_challenge_to_recvmsg() builds struct rxgk_challenge on the stack
+> and passes all 8 bytes to put_cmsg() via RXRPC_CHALLENGED, but never
+> initialises base.pad at offset 3. The struct has no implicit padding,
+> so this byte contain leftover kernel stack data and be exposed to
+> userspace. This issue was identified by code inspection.
 > 
->
->
->
+> Zero-initialise the structure to prevent the potential information leak.
+> 
+> Fixes: 9d1d2b59341f ("rxrpc: rxgk: Implement the yfs-rxgk security class (GSSAPI)")
+> Signed-off-by: Li RongQing <lirongqing@baidu.com>
 
---- Thanks!
+Reviewed-by: Simon Horman <horms@kernel.org>
