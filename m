@@ -1,101 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795036962;
-	b=ms1cliaI7O/Wd8jyKz6TgvLTLaCn4V8mAMVC5ZW8EOJfxNhdZXXizu78c1xK/R2ImZPd
-	 CeCB0/Abi9KbmLqx6Bbdk3PAOfkqF19EswT8Bly/p9/qEbyHLz+bjCZIy5GOCNS+ibipj
-	 WwhtFmcDJh+k/7bTxepRwtihUWzq+duJmSuPCuLnOQ0WcUprn6xBlaVj6bJ3gXXw43r+J
-	 bUyxJepOgUx5upKGAnCUYyjpp0oYPmzJsU4npT+RYf21dUWLvYL9F4/XvpPwYLjb+KH55
-	 4iP4BAXbJTDbwZv4Gh2p9wokAHspZSY0VyCcM8Bi3UuWHGxST3VRpjmagP++o6w9KJA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036962;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=77XdCFnBpPZUcglChSxtYPfey28T7un7NOTqJBqY+Ew=;
-	b=xgdpa6uwkLSeK+ahParCKVzhfNS4h/OI6hdQNK0wWEvWMAep60yEEea2VC94QvTZ07Vc
-	 LNW6shCs7GBKORtysNEqFlI741H8MAzeTDAl+lI/mAAnV/1H4lxies8zI78KnbwNLBJPt
-	 Tsk6nlp2HsU9mx3Wb2olQV0xAHyrBV9Uo+/4lRlYndwhdaBR5mi671yM+DluJo9+mOooE
-	 zDEeHtVR3fH+pZzZzMuCMPC5Ln7Ka/Kntlwe4lKCcgL/iTLf+LVPwabZsCVo8Qu3Vp+wa
-	 jqRRIOlSz5z4qnj3wBTsjA+fkiv6rxPaatjYeXIGtGvlDAknpEb7wkKDv8tqoW3Tl9Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TwVBLYr3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795036976;
+	b=oGBveMXfn70MndCAI/lHJuZCKHt1ZmUAXf9nlcWWjPnG7F/wNdK0a4w38icKZ40tGN4H
+	 jIAWSUeTFKfCH53x9pfSCUthaFrAytY3MGmNTkrdJeOHwX7QmCCAqMEB79fmooZDOGy+s
+	 bmZZzxeTEy8/uR1C9xbylhig5gDGvDroLjImackE36Twd/uaKxUxY5uoZvvrBeWStyzYh
+	 Vr28NghNyDo72EV8tVOHGoV8MTrUlGDm/eYBhqOtlGPoRLdSUNEJvPlMbl8qVaJ/Ywcqa
+	 eyFG2aeHVnwGFh6Lgi+wfYmCJvz8cUmFMy78yh54fP0Yid+OJfryjIpX0g6E9XDLKcw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036976;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=vqtZas3t5wXmBF7qeLP24ETZ+NnHhg0AAw7WUrgO5/M=;
+	b=leWOvHPL7P3/S0xaO7i4oBhePMp6+uRPAKM47EHD1CeAyIMyfvqJ5UKBdNCg6j8Uh1wg
+	 KVHH2+UjoQoXKMsVkrXPmzrd1EqktsCNU/6aE6ep24xb+E4LRvG8y/lq4edxsVyBh9M3u
+	 z+iowanOGQKq7I+hGQ6m/skkV8XICqhq5H8lq9TfJWhW/ck4NmD14kwefGIjxm+gsiKek
+	 jjFY7j1RpgQJcTONEodFb4kR+PhbV0FNJt4SfmAgj6w+IPI5dr2kSlHJ5p+827mlsN6vH
+	 NEP8MSTGQ5OIBljS15i/+UD83Ow4dHwEbPZGG3CxHCUErAH4x6KX78ZOCU5F+aA1/Xw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ml+aVGKv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD711606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:22:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD711606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 5DE5B606A31C;
+	Wed, 18 Nov 2026 21:22:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TwVBLYr3
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ae25dcbd81so14439091fa.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:22:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795036960; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sjfbDhwmnUAtdeqxuc/+/d3lT+MFLdeDjk0iEeyiL3gx0scjRWAb9xDMppffrsBhwQ
-         Fj2G+qdpvw8RUoRHznoLWCt/nfb9drVuX5JMRDN4PTh/c6SudNm6zfwZdhBVvGqd5Wkg
-         pvWuoRjBZ8KT+VWyAABsYcN+E22U3fG/JwydI/80ThqQEFqALNxIgUEtN8i7bRTWgBTU
-         hgIpJs62XSkLAGMQCLysj2hjw4y9VehE99ma7xu71EPFY6Sunv8m6E21aMoX1bN2F+GR
-         ahh/FjesOZ9TAuG3g79txFm/kC6n6BEVNu/UxDgnS7DplIociWHupRQhhRlYm8GODt7l
-         4OFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=77XdCFnBpPZUcglChSxtYPfey28T7un7NOTqJBqY+Ew=;
-        fh=+Jzgt3/4MrIMAPAS8vBJP30UUj1MDbdeep9Ffl9FUAU=;
-        b=dhTzzwFK41LFGs2jNLUKnuwXAptxGbYutHrPOM7fj8592vjBq8MxDE6tb89+gb1BOn
-         8nRZOOibasEix1HAT9Klu9r7hSdekLxkRtUhHzLodPA4uv04QvzC6JFW8PAp+gUS0LVJ
-         5knn1mr1DhTB3YDTAXCBuyEMHQULJ3i5eq2WTNKvCA6UhprDNE2v6yQuCA/fDuGWoFmy
-         Nl/W2piEeQxSw7qOzLVwdQehMdVp+qpips59SYz++oh/cQ46LxoutmZ0MjiLn26ibvpz
-         NBrk3Moztc5nW+lbmQmTvIOIfJ4/OMQ6Z9v7SLb304tUyHdDT6bZffKzzZjPGTUIC+ER
-         HCFw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795036960; x=1795641760; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=77XdCFnBpPZUcglChSxtYPfey28T7un7NOTqJBqY+Ew=;
-        b=TwVBLYr3foPwQ60U/t+biVaJU2fvwxKBOh14pJ+AhMGdhyO34J3Kx0jMypZkA1PDRc
-         cVAQRdH8Bd3arTzs93vypezRQiFTZpIp58OTMnzo/cBwq+dSUTeSt44AjfvPpSTzrV2R
-         PtaNbqHoD0ec9Rg72fdFgBlgKgxR3TlmKYkoLaT9L/9gf14TtpidpNZnmp8UMq/APc6m
-         XQv9nlkuL0rZqEwAhSUceByiWQGGilCuEzQqyDvD7QLWpDUxJQB3REDMLvYWu0hQ27DG
-         nunLHT1rxglRwBU1QTMkudlYKrJ2+Y8Hc9KD5jHTVr6luSspdKN+rvKihnaUM4IQxOCg
-         dgfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795036960; x=1795641760;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=77XdCFnBpPZUcglChSxtYPfey28T7un7NOTqJBqY+Ew=;
-        b=lCjhpBmH0IDgOczr/3ewoCkZ5L2uB8Q9BsWoHGf9FdtymioGTwBEYzKLA7RsjkxWen
-         aNmmmgL3CqgKhKihS5XO5mnafO9cOoAVuvum0ZqOfAT+AkA+E9UiSOfXZfrV3Gnc1UaI
-         GrS2J7y3OKFbgKmi1x9Ds7rnfRSa4dakMUfonPCO2ySURfdUruL9AE8nYZIDU2+hCzEi
-         vZAj/PAfr6qbfxS/ixSlc5y4LX1XrKPsZAfzG1vQxi1f1jBKSKzqaR1VFoqk3mD3sZCl
-         xhAGnQ3gb6yiQF1eGm9SJrDy990OwE32lOodTuZ5naC0iuIl14aqcodi4IbCFZ4/W71o
-         yLzg==
-X-Forwarded-Encrypted: i=1; AL+hErG4LityESaKaqC/7LUTawmAPovjmQenosM9LIoPZTRQFMNacJyoT+bNvrmnHWZPuXgnH3ox97BORyXe68c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z895vst17ILyCsRvNQvdB2P26FNiWI+7e/qUQ2+dz6mdtctM00o
-	fvh+CKZqb4wh/T7HVWUN1/uksPgCuCztP1fSIN4fzF5pV1z6gbj4bYCSxo55O23czew6pb9219z
-	YMKVhnRARoKUs4qPZKziJVRXSy4WspI0=
-X-Gm-Gg: AYBFou2E+Ng94LezDFzZcoyiNt76JnnFllm3F9lLyF/YOsOykfxXB+NEReF+UTQPqlp
-	nH+ZsfwhSITxh7tgBx/WY4St5cTbf6XLquycaG41GEIhQzKgfUU+7BLQB7VnPVimm/Fx9R/hnAC
-	OKNsW4oxuU8nIK5LfR4NSabuT2vrsIsI13Hx3yycyinY7Ic7fVhL5tq7bwu1Nf9IGl+rQvLV7TN
-	Q3YynM3GI9bcG7spZaCHuwPxoqP8t3OUuTXQADwJNGo+q3fSNjosn1ztthANX2PlJFNRQjFYCGH
-	XEM2KdwYFpfCYLRMqlF3VtNxwCquZSNm9hTIoVqkXrwURPw37eKDk3JJiQPpQjWIpxFi4FizyzW
-	nBDNNIoZzgOhJMbXT3ZZs4ZRGlte+q/dccRXdLfVYyDaw76weVIEm/r1xbjb2aXS3xhbEB2qTSL
-	KD6+gJxVjLtF0tfsc7vNWUi5+f
-X-Received: by 2002:a05:651c:e18:b0:3ac:e304:65 with SMTP id
- 38308e7fff4ca-3ae67323879mr13145831fa.29.1795036959773; Wed, 18 Nov 2026
- 13:22:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ml+aVGKv
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 733A41F000C4;
+	Wed, 18 Nov 2026 21:22:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795036976;
+	bh=vqtZas3t5wXmBF7qeLP24ETZ+NnHhg0AAw7WUrgO5/M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ml+aVGKvvIC5pcrzx9ZzwGHLtrNZnut1ESXjSEU2HVNx6KxFl13Zr+qffUFbbPCwW
+	 V83mH7Py3EnQBPKdeQ6gpt7TyHQQlg5bEPLKqrq2wu1xjOrLWufishv37LqIoW8BFs
+	 YQp1QvRsDrJQWGENlrzay8K370ntnq0LSRLNiftl+fd7XrzLs8QDVSKZwPJ3ElX+vi
+	 OjP/miHHrlWI0I0NTP6aPNfvZ2Uz7sgVwWjL+HOqy7hVzjmWfdLN31G6Jok2wePmbd
+	 RziLHmPCbpggAo4Y/HUC9dK4Gjc1b5IRHx6l3+MHzVFmMxy1ndqJ3CxDspiyEHOVVd
+	 1GWZ+a/AyLQMA==
+Date: Wed, 18 Nov 2026 23:22:52 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: David Howells <dhowells@redhat.com>
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
+	John Johansen <john.johansen@canonical.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v3 00/13] Namespace for namespace roots
+Message-ID: <av4XLJcO0y8CbGT-@kernel.org>
+References: <20261118193539.240065-1-jarkko@kernel.org>
+ <av4CdM-eW73oO4wB@kernel.org>
+ <av4NonrcCxzMoDyz@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,35 +94,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116111802.2442456-1-lukma@nabladev.com> <20261116111802.2442456-3-lukma@nabladev.com>
-In-Reply-To: <20261116111802.2442456-3-lukma@nabladev.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 18 Nov 2026 18:22:28 -0300
-X-Gm-Features: AclHuK-Y6IDFt9qpjrJDNGTsfQL4BjSsgswFvwywajIkisS3KGgYyNt_017jMzc
-Message-ID: <CAOMZO5AiGRHNijfDcCXhsrQDwcWDwHNsxVEoHuEaGdVaR6JBWw@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] arm64: dts: freescale: Add device tree definition
- for Cloos CBASE with i.MX8MM
-To: Lukasz Majewski <lukma@nabladev.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, 
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av4NonrcCxzMoDyz@kernel.org>
 
-Hi Lukasz,
+On Wed, Nov 18, 2026 at 10:42:15PM +0200, Jarkko Sakkinen wrote:
+> On Wed, Nov 18, 2026 at 09:54:32PM +0200, Jarkko Sakkinen wrote:
+> > On Wed, Nov 18, 2026 at 09:35:26PM +0200, Jarkko Sakkinen wrote:
+> > > OVERVIEW
+> > > ========
+> > > 
+> > > A root namespace (rootns) is a kernel object backed by a file descriptor
+> > > that binds together:
+> > > 
+> > > 1. A full set of detached namespaces owned by a fresh user namespace.
+> > > 2. A dedicated PID namespace for spawning processes into, signaling
+> > >    members, and polling or waiting on PID 1 exit.
+> > > 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) populated
+> > >    directly in its target user namespace before going live, without
+> > >    inheriting host mounts or cloning staged trees, while still allowing
+> > >    new mounts to be attached at runtime.
+> > > 
+> > > Work on this feature started in 2025 from David Howells' container object
+> > > patch set [1], which I turned into a namespace for namespace roots and
+> > > rebuilt around that premise.
+> > > 
+> > > While the patch set is manually written, the original motivation came
+> > > from isolating LLM agents. Running untrusted agent workloads made it
+> > > clear that OCI runtimes need to minimize their live configuration
+> > > surface.
+> > > 
+> > > Assembling mounts, credentials, and namespaces inside helper processes
+> > > with a half-configured container is what I see as the main challenge,
+> > > and the existential debate around namespaces and container objects is an
+> > > unfocused discussion topic.
+> > > 
+> > > [1] https://lore.kernel.org/all/155059610368.17079.2220554006494174417.stgit@warthog.procyon.org.uk/
+> > > 
+> > > IMPLEMENTATION
+> > > ==============
+> > > 
+> > > rootns_create() allocates a rootns instance backed by a pollable
+> > > anonymous inode fd, creating a fresh owning user namespace and a full set
+> > > of detached namespaces: empty mount (CLONE_EMPTY_MNTNS), PID, UTS, IPC,
+> > > network, cgroup, and time. ioctl(rootnsfd, ROOTNS_GET_NSFD, nstype)
+> > > returns nsfs file descriptors for individual member namespaces when
+> > > standalone namespace operations are needed.
+> > > 
+> > > Superblocks are configured directly in the target user namespace via
+> > > fsopen(), FSCONFIG_SET_ROOTNS, and fsmount(), allowing unprivileged
+> > > callers to assemble FS_USERNS_MOUNT filesystems without holding
+> > > CAP_SYS_ADMIN in their own user namespace or entering the target user
+> > > namespace first. move_mount(..., MOVE_MOUNT_T_MNTNS) operates on any
+> > > non-anonymous mount namespace fd: on an empty mount namespace it installs
+> > > "/" onto the nullfs root once, and it attaches relative submounts both
+> > > before entry and into live mount namespaces.
+> > > 
+> > > Once "/" is installed, processes are spawned into the rootns via clone3()
+> > > with CLONE_INTO_ROOTNS and struct clone_args.rootns, without mutating the
+> > > caller in place. Pairing CLONE_INTO_ROOTNS with CLONE_VM | CLONE_VFORK
+> > > and opening the target binary via openat2(..., RESOLVE_IN_ROOT) on the
+> > > retained "/" mount fd allows spawning with execveat() without copying
+> > > page tables.
+> > > 
+> > > The first entrant becomes PID 1; once it exits and
+> > > zap_pid_ns_processes() reaps all members, poll() reports EPOLLHUP and
+> > > rootns_wait() returns init's exit status and rusage. rootns_kill() walks
+> > > pid_ns->idr under tasklist_lock to signal member thread groups.
+> > > 
+> > > CHANGES
+> > > =======
+> > > 
+> > > v3:
+> > > - The patch set size increased predominantly because the coverage of
+> > >   kselftest had to widened to cover the introduced changes.
+> > > - Replace MOVE_MOUNT_T_ROOTNS_ROOT with MOVE_MOUNT_T_MNTNS targeting
+> > >   mnt_ns nsfs fds, and add ioctl(ROOTNS_GET_NSFD) to open member
+> > >   namespace fds (Andy Lutomirski).
+> > > - Allow unprivileged fsopen(), FSCONFIG_SET_ROOTNS, and fsmount() to
+> > >   configure and mount FS_USERNS_MOUNT filesystems directly in the target
+> > >   user namespace without entering it first (Andy Lutomirski).
+> > > - Fix locking, refcounting, credential/dumpability/timens setup,
+> > >   pivot_root() lookup, and cross-userns mount checks across copy_rootns(),
+> > >   CLONE_INTO_ROOTNS, rootns_kill(), FSCONFIG_SET_ROOTNS, and move_mount()
+> > >   (Sashiko).
+> > > - Mark PowerPC rootns syscalls nospu (Sashiko).
+> > > - Update documentation and kselftests.
+> > 
+> > I.e. before PID 1 and /proc/<pid>/ns/* existss, nsfd for namespace other
+> > than root nsfd can be acquired as follows:
+> > 
+> > 	int mnts_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
+> 
+> 
+> Unprivileged caller becomes the owner of rootns->user_ns. Each mount
+> syscall then just checks CAP_SYS_ADMIN against rootns->user_ns.
+> 
+> The user space wiring goes along the lines of:
+> 
+>         int root_fd = rootns_create(ROOTNS_KILL_ON_CLOSE | ROOTNS_CLOSE_ON_EXEC);
+>         int mntns_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
+> 
+>         int tmpfs_fd = fsopen("tmpfs", 0);
+>         fsconfig(tmpfs_fd, FSCONFIG_SET_ROOTNS, NULL, NULL, root_fd);
+>         fsconfig(tmpfs_fd, FSCONFIG_CMD_CREATE, NULL, NULL, 0);
+>         int rootfs_fd = fsmount(tmpfs_fd, 0, 0);
+> 
+>         move_mount(rootfs_fd, "", mntns_fd, "/", MOVE_MOUNT_F_EMPTY_PATH | MOVE_MOUNT_T_MNTNS);
+> 
+>         struct clone_args args = {
+>                 .flags  = CLONE_INTO_ROOTNS,
+>                 .rootns = root_fd,
+>         };
+>         pid_t pid = clone3(&args, sizeof(args));
+> 
+> Note that example is uncompiled :-)
+> 
+> This example makes me feel that perhaps RootNS is not the best possible
+> name for this but this rather should be e.g., NullNS?
 
-On Mon, Nov 16, 2026 at 8:18=E2=80=AFAM Lukasz Majewski <lukma@nabladev.com=
-> wrote:
->
-> This commit adds support for CBASE board, which incorporates the TQMa8MQM=
-L
-> module.
+Before judging this, keep in mind that I've not just suddenly invented
+this. I first encountered the topic when David posted his patches, and
+felt that they were a bit unfairly judged.
 
-You missed addressing Frank's earlier suggestion.
+Somewhere at 2025 David rebased his branch when I asked, and slow-cooked
+the result that we're seeing during a period of 1.5 years. It has not
+been a priority topic at work so this has been more like a spare time
+sudoku.
 
-Please use the imperative mood: "Add support for CBASE..."
+So if you count the David's original patch set version, this has
+history spanning since 2017.
+
+Br, Jarkko
