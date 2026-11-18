@@ -1,107 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.21.61.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029033;
-	b=F0rVcX/rlX32d58eNPC3d5D8C7G//nNEL3Un5OT7NH5o4JtIrwPoLXH4XR0u2Arbmy1Q
-	 GSgRyiSOLATqfbHultoO0tvihmlcATj74zz3Oz7WhlyXAorg+oCfAIIWTzlgtu4kNA0Dv
-	 PaExcYtWC56iMMLIYKM0i5FVNYGczxDsCAW9z86gFurt6xU6Qfmx4SsS/gjv8H2FmpxMC
-	 xqpOj24oLzOueqNGB7guuFEgV+6i7W0/FJJZK8XrLOuivh68CMHd9S3NjGP5rcx0vgHVF
-	 AqT/eM2HrGnX5vyc0J6vh3F81pG0+n7/xLoogc+xPyDGUEbfox0UaH8gIE7clEoyC3A==
+	t=1795029053;
+	b=jW+EPXmoLnfgqfHdULwyTsvxPiA/Pt/7lthpp1YclXp3pXq9A+3wYvNhipqUNlfFQpxC
+	 CwGdq12sPTy8rTWuH06dPjiYzzw7eGaiBd+ZgzDyZb7GxrT38NEcyxvIW2fJMae7CuYrF
+	 RLTBvPxWmAU1BWFOolrH7EQkZ8z3ml/wh+XAgx4yuS6yll42h+M5438ThBBRiZXhPBu3U
+	 CBQ8yfYby32hkzRcZjruTmAjmtQZDiUdFFtOsBrk1zuHzmKhIwx1TwpAoReFapImftOVj
+	 Z1RI57yjaYO9n4GPK6yR0HpkgCTu6AoyhI9Hj2/7JRAwbWTp/pWImOchIpOxZNgxUWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029033;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iVQ48tYQcgbZ0/KEDLqaISGszEZvhwKB3BC0TwvqE4M=;
-	b=5btosBwNGH5QzoINk+J07bUELR2VpTwahdmCAQSOGmdMmR5Sfa9EbPl48VZEiPxePzAg
-	 3SIdSECCsl/mHfpRTkRbWIW495z0eoMRbdwD8fnxndjVZm87mGjv/UxzX8ZLsbpF14SZJ
-	 nvYRxIIYfgucjt/Xv5SpxfuQzOWfGL7iNumClJBv4UUiWEPkASJ+GzTW81ZwvGcXzO4Y9
-	 qXbJcuWGgr4UV3vyVqR7WopePF4xn1jPi9jJE6gC23lUwU5lQFP+9CE0+gIYQrDDxPD+9
-	 D9VXTZmcoWef37Lmc9pTJq+sSP2OvACEd6sDo8mdufl0qonAcZ4adZf6nDNJhSW+3rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029053;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=2tvf2EcWGz18wBidfXOpH3XHWyYitQnho/idJ3+zHjw=;
+	b=JimScs6yKcj6TnJ4WWdM9hM0R4M7W88s2uzyAMM5y9+orhZRs3NLgDbrbu/ekGpAhFYg
+	 azgyEWxQC87K2nlcC5LzwD3wEabQBqBfj2h2JIr27REP6PK6nT4daQlYrm3hhB9pTSVrK
+	 pvqR7BpMZNNeEEV6z+KvDT21lSSi1m3Sc4PHMyKTHn07kxCt8EHYdlqStXKE2k2Ie1vV9
+	 YzTV9MSTOZqVfw+xpJD3e1nDH+ONtGK81vD5iz5HK2fh6vXnSU8oqp+eoQKJRlSINow9v
+	 36HzW61FWoOygjLRLXkwxtHGkWN80cYnwPD2GLwAPrja+ad14a0exMoe9elGK2G8oPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xZL7zUDf;
-	arc=none smtp.remote-ip=209.85.208.41
-Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=aliel.fr;
+	spf=pass smtp.mailfrom=aliel.fr;
+	dkim=pass header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=DZPLUL18;
+	arc=none smtp.remote-ip=65.21.61.41
+Received: from courrier.aliel.fr (courrier.aliel.fr [65.21.61.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4566E606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:10:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4566E606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6718A606A334;
+	Wed, 18 Nov 2026 19:10:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6718A606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aliel.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aliel.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xZL7zUDf
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6a642495d81so2526196a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:10:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795029031; x=1795633831; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iVQ48tYQcgbZ0/KEDLqaISGszEZvhwKB3BC0TwvqE4M=;
-        b=xZL7zUDfbIFzDWI/sXPrHwkRH2Pzzf+jcGBJ/WiqqQUZ89MMw6eV78LOkyVNyKQT1B
-         919+HvLfjo3coRTrm7CmZUxiOjd91R1ocP0w3uLkrcraww7VjdXEXBVJdkmRzjQmeYyc
-         VXDIukR2K2Gg5BuZVZMoErDp5DOeW/sdJbzGZcChWu5Y1twgPoCaBNCvfftBrUgUBtMg
-         8/K2WfXXWENJU0wSK/0M+s4d5Wh6GonnKGhOrak8i99pgfl7XMSFUQmYyOL4SPENen42
-         XmSXuY319Jp4iyAFskF/H5QIqO1K2vCCtgCDGxSXHi3Mo23E4Y0cyOplh603a+uB2Lkk
-         5H4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795029031; x=1795633831;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iVQ48tYQcgbZ0/KEDLqaISGszEZvhwKB3BC0TwvqE4M=;
-        b=IYac9Bi1dLmXvjsDxc2SDuksieKNhq80pBGUCdxX+KdM2tIHdkantEh8pp8WMOTHV3
-         Gq7hqYklCw0Lu47JALShQ4zF2ag9ywRUL+64AywwN1Jz6rVLhg/6hYqdYApc8iyyfSLf
-         V7c8MF1d4KkTy6aFxq/e9DgraeiYSN8cwtP9PYum6IL9wZ3OwRFEIXHV/ftVl8xA5mmE
-         I5FxyKsNNLybtzHS2DV7cRAiLqVq4MuAiEJNppil+DNdyHRZ132PFBhvI6VUYKbFyrCP
-         VwqEj2yYvPf00IB9k+C1C3nPSKijAkdYS+fXH3UCm8QoMtYGdPLtVGFAR0Ldx+LyCVxH
-         ohwA==
-X-Forwarded-Encrypted: i=1; AL+hErG8hoGpIyB5vlb5n2rNO4UhgKSOMBRKbaZLkYKs4zU3zYQ70zOVm4Atg5bfOafCfEjxo5HSeJjyjegk2eg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/5K4QekFWIZs6ummBqMrmecILRk4zbiwAdVpBeuBW3f2X/nPrk
-	y/DIia/oqz8DIvbHWSp3AEzX1Hp6YyZ8UYdNS5gFPWBPmZrBaez/V0wr
-X-Gm-Gg: AYBFou1jJI6fdeq400gnE6/OPPp6HcGVmoZZUch7mthVBJr6Qg8kEdNDYLvGQtj/50h
-	EgoUcizF+SpCXpqvpn7BSb76AkI0MbBc+HNpTZ0WEjP2Z3+auiseOvCccbuk/GStV9gtlMIzM3h
-	3gCUX+iEHDM/Z/JDQvQXqsSq7L46x1agnCCjY1bES+eDwEi4/1RcfEqUOsnQKNNJR4uavs32KtE
-	BD1js7N90wwoALhhNTzE2YqqgxoFMNWRYTq5n0ucIPX0klsi99yOo0fGHrfBcocJpgxc52y8GI/
-	jWSF+awcGECavHecOWzsV3Tw4bYtuktv0kYt+ZScyz1k3Shwc8Llu7tYxe86m1f3d0DR2pObLQQ
-	QstObey+hLZXRQKoBsvhC0r/mMVK7ppvEuZ5v1HbJRxSPOPAKK6X8zyMpNa7zHOxpiUc7ZcuiBN
-	W6sxPde8jFUaOw2Y1b9iC9BS/H5SklojrD6n1k05CTffg3PLXsk5vDyQYnvj1eNqJoxM4QAZBa/
-	DZd8EbWScH2gFcbTHfBzE1yEWULBQo0pgcph9yIh80JM3A1F5BOemzaopxQGKvBQMLrnw==
-X-Received: by 2002:a05:6402:1d4b:b0:6b8:80e3:d58a with SMTP id 4fb4d7f45d1cf-6b887eb1272mr2966644a12.23.1795029031397;
-        Wed, 18 Nov 2026 11:10:31 -0800 (PST)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b888ef9423sm1460511a12.3.2026.11.18.11.10.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 11:10:30 -0800 (PST)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Wed, 18 Nov 2026 20:10:28 +0100
-To: Hao Ge <hao.ge@linux.dev>
-Cc: Suren Baghdasaryan <surenb@google.com>,
-	Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v5 03/11] mm/vmalloc: reject an unaligned range in
- vmap_page_range()
-Message-ID: <av34JPIcIOVdF0kL@milan>
-References: <20261116071325.263682-1-hao.ge@linux.dev>
- <20261116071325.263682-4-hao.ge@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=aliel.fr header.i=@aliel.fr header.a=rsa-sha256 header.s=courrier-s1 header.b=DZPLUL18
+Message-ID: <f0c5f3ae-5a37-4f38-bd32-6191a6a98485@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1795029044;
+	bh=y9UgIWQynPgPoVUM6/yn261u+b/dkSIroE44iaL3T2g=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=DZPLUL186iJM63saUsDmf+QkaMlJDFQ0b3i6Pn4Ivn7rDVbd+CdgMfNGuJ5E61TgN
+	 4nqWYMEs0NZYMTWbpqLapborXRKZ7R0tLvAAFshU3+Irce7MP/AlT4f3tisXyihh+g
+	 56re9lp/cNYBe2c8rEQimJQQU13wKmVciZzaOq40=
+Date: Wed, 18 Nov 2026 20:10:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,63 +51,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116071325.263682-4-hao.ge@linux.dev>
+User-Agent: Mozilla Thunderbird
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH 05/10] dt-bindings: display: amlogic,meson-dw-hdmi: Add
+ phys and phy-names
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+References: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
+ <20261117-meson-drm-create-hdmitx-phy-v1-5-9e0ac931381c@aliel.fr>
+ <3e82658f-1152-4c98-b996-242abc203f74@linaro.org>
+Content-Language: en-US
+In-Reply-To: <3e82658f-1152-4c98-b996-242abc203f74@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 03:13:17PM +0800, Hao Ge wrote:
-> commit a739e6b557af ("mm: vmalloc: WARN_ON if mapping size is not
-> PAGE_SIZE aligned") put the check in vmap_pte_range(), which is too
-> late, because the upper levels may already have installed page tables
-> for a range that is rejected anyway.
+On 11/18/26 13:34, Neil Armstrong wrote:
+> On 11/17/26 20:33, Ronald Claveau via B4 Relay wrote:
+>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> The HDMI TX PHY now has its own binding and driver. Describe the link
+>> between the HDMI TX controller and its PHY with a "phys" property
+>> holding a single phandle, named "hdmi" through "phy-names", and update
+>> the example accordingly.
+>>
+>> The properties are optional so that existing DT, which do not describe
+>> the PHY, keep validating; the driver falls back to creating the PHY
+>> itself in that case.
+>>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>   .../devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml        |
+>> 8 ++++++++
+>>   1 file changed, 8 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/amlogic,meson-
+>> dw-hdmi.yaml b/Documentation/devicetree/bindings/display/
+>> amlogic,meson-dw-hdmi.yaml
+>> index 416fe263ac92..5a033fec21b0 100644
+>> --- a/Documentation/devicetree/bindings/display/amlogic,meson-dw-
+>> hdmi.yaml
+>> +++ b/Documentation/devicetree/bindings/display/amlogic,meson-dw-
+>> hdmi.yaml
+>> @@ -108,6 +108,12 @@ properties:
+>>       sound-name-prefix: true
+>>   +  phys:
+>> +    maxItems: 1
+>> +
+>> +  phy-names:
+>> +    const: hdmi
 > 
-> The pte loop maps whole pages and stops only when addr lands exactly
-> on end. An unaligned end lets addr jump over it and the loop keeps
-> mapping past the range. An unaligned start maps the page below the
-> range and usually misses end too. Such a range is never a legitimate
-> request.
-> 
-> vmap_range_noflush() has a single caller, vmap_page_range(). Warn on
-> addr and end there and bail out with -EINVAL before any page table is
-> installed, and drop the check from vmap_pte_range().
-> 
-> Suggested-by: Suren Baghdasaryan <surenb@google.com>
-> Suggested-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Hao Ge <hao.ge@linux.dev>
-> ---
->  mm/vmalloc.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 3c0d9e69b886..a168f6f20f4f 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -125,9 +125,6 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->  	unsigned long size;
->  	unsigned int nr_pages;
->  
-> -	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
-> -		return -EINVAL;
-> -
->  	pfn = phys_addr >> PAGE_SHIFT;
->  	pte = pte_alloc_kernel_track(pmd, addr, mask);
->  	if (!pte)
-> @@ -369,6 +366,9 @@ int vmap_page_range(unsigned long addr, unsigned long end,
->  {
->  	int err;
->  
-> +	if (WARN_ON_ONCE(!PAGE_ALIGNED(addr) || !PAGE_ALIGNED(end)))
-> +		return -EINVAL;
-> +
->  	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
->  				 ioremap_max_page_shift);
->  	flush_cache_vmap(addr, end);
-> -- 
-> 2.25.1
-> 
-LGTM,
+> I don't think phys-name is necessary here.
 
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+Ok, I will drop phy-names and use NULL as name in the driver instead.
 
---
-Uladzislau Rezki
+> 
+>> +
+>>   required:
+>>     - compatible
+>>     - reg
+>> @@ -136,6 +142,8 @@ examples:
+>>           power-domains = <&pd_vpu>;
+>>           #address-cells = <1>;
+>>           #size-cells = <0>;
+>> +        phys = <&hdmi_tx_phy>;
+>> +        phy-names = "hdmi";
+>>             /* VPU VENC Input */
+>>           hdmi_tx_venc_port: port@0 {
+>>
+> 
+
+
+-- 
+Best regards,
+Ronald
