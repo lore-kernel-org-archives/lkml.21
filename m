@@ -1,22 +1,22 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016116;
-	b=VzhMqYos3P3de8gT41jukhyCyPRCBsvs2mSbTMJ8zD1eDO1Q0Jo3T0843z91yFVjU+F8
-	 J5tXajt1Q8ie/R7ySwW6Fpzf49cHhbwWvN4B8htmfmAV/DCpgiEdBV8TAns26R6YZPYVN
-	 ZeIHaBgGDKkVQ00cBpqmxjhQcANoXUudf+1xVAOP1VV6sBjsAAueZpChuc4oD8E9OG+uP
-	 VisdY/7vumJWogvNsaKTPvSFAHglS7DQhIAS/4XDrAOkbt2pHPMa1W3z0oPNKCext2dau
-	 5KGggX5VMHC4wL5RbJjJy/jaQ7o2y8DENICyx/Y4M9/qR5DSKGZgW2wZfoDW3RazEFQ==
+	t=1795016112;
+	b=zKncaLLN69m1hSmWKTrZ9+agn6MHRWc2VVOPCRS2A5TFT3UyCvJmU7N6fkDYT0X01s9c
+	 SFTgP7I6qYdASORy2WS2kVIeZoTXOHEO3PkZMFDqp4A8Kej8ITXEBVyxex+rE1exrJgx1
+	 cp+uZnTBuxV8liWaAiyrTfUm1dFXddjcK2OXcDSDXZsH8QSJVm9oX4R4OTdgcmF61HL+L
+	 IoViSdnR5K136R2ou6CwE/Wl1fwtaHGno1cfW5QEIwvoz4jcPT8s2XrFr1wiNPcQmvLis
+	 lc5wYGoFut7gpW4C1Onv/NCW6SFLFsQzEq5tuLz2SiJRG6vhdGa/Y0nFbHxAk5hfeaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016116;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016112;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=8K431PxJ33P3d+cItq6p3xzxNbXTPwXnNhI30G6nKBo=;
-	b=pEa/72LKlM8dVixJvroQwfJHAiiJJYWaG/ArHmc/pK+A+xyUfLvs6uqEhUYN3bmAKdsd
-	 LK6nj7GtAozPNxcEWkEXF3W4JLI370jKL2AqB3jjKIRWAVfcadsQRNyUKlOFHH8eOXNeO
-	 xv/eediYI6vYVg+jdrERWeqLi9cep/nYVmbRRnZp0bQxyObghmefQ9cXSvMoRTW4H+xfc
-	 PV4dEj0rkeHDtww+tJKCKTFPM6KCe4bg4tThdbf9J6jSd3VeiOuOw1QZavLYSBNri9eSa
-	 +A5ZVICRjzIj1IPfsjbEEVHezY6w59AadIl/OVct6milBSGawzbhhuPBL8MbYkW/Ghw==
+	bh=lNjdkZvjIUxDtp/K3Gl1QC3YaKGTYA0HwrzGFVxBplQ=;
+	b=zVB3hwQ8L4HjuIu51JYF591KtP6WUkjxpbLXoKLnw1LE6ghLOFheptaQ+pOC9cMrgwg8
+	 IU5X9CGJIZzzraXN0d+Md+WyiPaPlQrDzaHKj8HkZeEAdcSBgbr/cNf7bn9w7Org/NrV8
+	 48hgxOkhylD+IA6Vcntrv1z53wcmnR8EbsQmlXd+GVBQfPcafsVyDy+tq7tXBzXV0nNv5
+	 ojj3X5adSXB+pa4jhckQ72a5YomJHVMcMkFv5dtI9Ke8UVwPeCuwb2GPR0IV6Dwhrb1Tj
+	 b2nl080QoFOYa7lp8/XWHb2R8p0NzCTTITIso8VPUrCqLNj5+rlQ2yGUSq6LOlOVP2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=iscas.ac.cn;
 	spf=pass smtp.mailfrom=iscas.ac.cn;
@@ -25,14 +25,14 @@ Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61F01606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61F01606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93E59606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93E59606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
 Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
-	by APP-05 (Coremail) with SMTP id zQCowAB31bqdxf1qc3xpAQ--.6681S7;
-	Wed, 18 Nov 2026 23:35:03 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowAB31bqdxf1qc3xpAQ--.6681S4;
+	Wed, 18 Nov 2026 23:34:57 +0800 (CST)
 From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
@@ -46,9 +46,9 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Icenowy Zheng <uwu@icenowy.me>
 Cc: David Airlie <airlied@gmail.com>,
 	Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Subject: [PATCH v3 5/5] drm/verisilicon: nuke planes' atomic_disable hooks
-Date: Wed, 18 Nov 2026 23:34:48 +0800
-Message-ID: <20261118153448.375639-6-zhengxingda@iscas.ac.cn>
+Subject: [PATCH v3 2/5] drm/verisilicon: fix DC8200 primary plane disable clearing FB_EN
+Date: Wed, 18 Nov 2026 23:34:45 +0800
+Message-ID: <20261118153448.375639-3-zhengxingda@iscas.ac.cn>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261118153448.375639-1-zhengxingda@iscas.ac.cn>
 References: <20261118153448.375639-1-zhengxingda@iscas.ac.cn>
@@ -62,105 +62,56 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:zQCowAB31bqdxf1qc3xpAQ--.6681S7
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw4kGr45GFyxur1Utr4UXFb_yoW5Kw18pw
-	45AFyDKr4Fqayqqa4DJr4qyay3ua1Fk34Igrs5GwnIqr13Kr47u3W8tF97uF4UJry8Gw4f
-	JF12kr1DCr10yF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUm214x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr
-	1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0D
-	M2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjx
-	v20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1l
-	F7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2
-	IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
-	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
-	CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r4UMIIF
-	0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMI
-	IF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVF
-	xhVjvjDU0xZFpf9x0JUQFxUUUUUU=
+X-CM-TRANSID:zQCowAB31bqdxf1qc3xpAQ--.6681S4
+X-Coremail-Antispam: 1UD129KBjvJXoW7tw15uFWfGryxXrykZFW5KFg_yoW8GF15pr
+	4ayFW8Kr4rJ3yUtFyUtrWvqayak3W7J34Igr47Cws0vrnxtw1Uuay8KF9rGFyDXrZ7G3yS
+	gFsayF4ayr1xA3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPE14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+	ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s1le2I2
+	62IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcV
+	AFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG
+	0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI
+	1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
+	Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17
+	CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0
+	I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I
+	8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73
+	UjIFyTuYvjfUOdgAUUUUU
 X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-As the plane disable routine is called in atomic_update hooks and the
-atomic_enable hooks doesn't exit any longer, having atomic_disable hooks
-seems to be meaningless and misleading.
+From: Joey Lu <a0987203069@gmail.com>
 
-Nuke the hooks and leave the disabling routines as subroutines of
-atomic_update hooks.
+vs_primary_plane_atomic_disable() calls regmap_set_bits() on
+VSDC_FB_CONFIG_EX_FB_EN instead of regmap_clear_bits(), so disabling
+the primary plane on DC8200-family hardware actually leaves the
+framebuffer enable bit instead of clearing it.
 
 Fixes: dbf21777caa8 ("drm: verisilicon: add a driver for Verisilicon display controllers")
-Fixes: 8c4ae2189125 ("drm: verisilicon: add support for cursor planes")
+Signed-off-by: Joey Lu <a0987203069@gmail.com>
+[Icenowy: rebased and reworked the commit message]
 Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
 ---
- drivers/gpu/drm/verisilicon/vs_cursor_plane.c  | 7 +++----
- drivers/gpu/drm/verisilicon/vs_primary_plane.c | 7 +++----
- 2 files changed, 6 insertions(+), 8 deletions(-)
+ drivers/gpu/drm/verisilicon/vs_primary_plane.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/verisilicon/vs_cursor_plane.c b/drivers/gpu/drm/verisilicon/vs_cursor_plane.c
-index a58e4a47cf286..8bb26b9e23f6b 100644
---- a/drivers/gpu/drm/verisilicon/vs_cursor_plane.c
-+++ b/drivers/gpu/drm/verisilicon/vs_cursor_plane.c
-@@ -99,8 +99,8 @@ static void vs_cursor_plane_commit(struct vs_dc *dc, unsigned int output)
- 			VSDC_CURSOR_CONFIG_IMG_UPDATE);
- }
- 
--static void vs_cursor_plane_atomic_disable(struct drm_plane *plane,
--					    struct drm_atomic_commit *atomic_state)
-+static void vs_cursor_plane_disable(struct drm_plane *plane,
-+				    struct drm_atomic_commit *atomic_state)
- {
- 	struct drm_plane_state *state = drm_atomic_get_old_plane_state(atomic_state,
- 								       plane);
-@@ -136,7 +136,7 @@ static void vs_cursor_plane_atomic_update(struct drm_plane *plane,
- 	dma_addr_t dma_addr;
- 
- 	if (!state->visible) {
--		vs_cursor_plane_atomic_disable(plane, atomic_state);
-+		vs_cursor_plane_disable(plane, atomic_state);
- 		return;
- 	}
- 
-@@ -221,7 +221,6 @@ static void vs_cursor_plane_atomic_update(struct drm_plane *plane,
- static const struct drm_plane_helper_funcs vs_cursor_plane_helper_funcs = {
- 	.atomic_check	= vs_cursor_plane_atomic_check,
- 	.atomic_update	= vs_cursor_plane_atomic_update,
--	.atomic_disable	= vs_cursor_plane_atomic_disable,
- };
- 
- static const struct drm_plane_funcs vs_cursor_plane_funcs = {
 diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane.c b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-index 730dab6204e98..397e95bd6de3f 100644
+index 95f4a06039e76..c12fe54096c33 100644
 --- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
 +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
-@@ -60,8 +60,8 @@ static void vs_primary_plane_commit(struct vs_dc *dc, unsigned int output)
- 			VSDC_FB_CONFIG_EX_COMMIT);
+@@ -89,8 +89,8 @@ static void vs_primary_plane_atomic_disable(struct drm_plane *plane,
+ 	unsigned int output = vcrtc->id;
+ 	struct vs_dc *dc = vcrtc->dc;
+ 
+-	regmap_set_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
+-			VSDC_FB_CONFIG_EX_FB_EN);
++	regmap_clear_bits(dc->regs, VSDC_FB_CONFIG_EX(output),
++			  VSDC_FB_CONFIG_EX_FB_EN);
+ 
+ 	vs_primary_plane_commit(dc, output);
  }
- 
--static void vs_primary_plane_atomic_disable(struct drm_plane *plane,
--					    struct drm_atomic_commit *atomic_state)
-+static void vs_primary_plane_disable(struct drm_plane *plane,
-+				     struct drm_atomic_commit *atomic_state)
- {
- 	struct drm_plane_state *state = drm_atomic_get_old_plane_state(atomic_state,
- 								       plane);
-@@ -97,7 +97,7 @@ static void vs_primary_plane_atomic_update(struct drm_plane *plane,
- 	dma_addr_t dma_addr;
- 
- 	if (!state->visible) {
--		vs_primary_plane_atomic_disable(plane, atomic_state);
-+		vs_primary_plane_disable(plane, atomic_state);
- 		return;
- 	}
- 
-@@ -149,7 +149,6 @@ static void vs_primary_plane_atomic_update(struct drm_plane *plane,
- static const struct drm_plane_helper_funcs vs_primary_plane_helper_funcs = {
- 	.atomic_check	= vs_primary_plane_atomic_check,
- 	.atomic_update	= vs_primary_plane_atomic_update,
--	.atomic_disable	= vs_primary_plane_atomic_disable,
- };
- 
- static const struct drm_plane_funcs vs_primary_plane_funcs = {
 -- 
 2.56.0
 
