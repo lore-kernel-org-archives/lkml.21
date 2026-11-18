@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795024021;
-	b=3rSBDpJoBooO92WUfSOQUU1g4+da/hcpGB0g9MFRTfpQLt5CbV+F/PQeOp2T2rf7R6K9
-	 ET0jkuhjLM23SAjGPAMk38Gsz9IqJHKL2Nn9Cb5n57NOzNX5rx4TJWua/2wvvO2WPfH6V
-	 vy6wcaDBIW5YbYDmhLX+tNVeLQfIHxH2tH/DUeq5jEN7gLwCWcjFgaRUelMMv1c/PQNMF
-	 VxKIuZJHaVD8sgKYGNXcTyDePPNhef7DPWtBjqfwl70kjxtSEn57MGg+xYrBmk4mFYq4B
-	 LHTAU7XaUm/L82CMcnCtW2mMh0OtbXrbY32rRY/8prR+0uh5bAcJ91BS+FVIzMRhsmg==
+	t=1795024088;
+	b=u7kOgBLhDVyg6VR4+af4Uczz4NevZeCI8zlxyqcZu1eoYscLuBonp/nxI6VpCBj3Tzpn
+	 kBKei+AzvhmV66bd6bkveHLohrnJQZp2w8AvPGn8Fiojl9BcoUbMG8pKBBqIEF1YbBWUt
+	 JEbpooabHnMXWFec6EwF3lybpFxOFhqJVXsx0734Ihu95CE903umtdWDJD+eWxjGuVwI4
+	 FZFLVbVuosOcfR4CAF1rhGAlQivy/h2NEL0DjxXN71JXi7ChmgRrqyYGiDKAEOIS2pjen
+	 oPbHWLRR/qk8Vus16XPD4ay+X5WbaNwA83uBZze6uDMj+ZVtV1bh1jiyXOoQEgXPREg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024021;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wSHGtw/aKGvewYnq0uEOj9CkZTKDscYMPxssMGVdAi8=;
-	b=UwB4qqIXv/lxetPHzOcLSDqVWrkK+nxNTYEWS9fqKTcA5DJMDmegzVd4fIh+vCIIfTn6
-	 BQyFQzKggafJ2yrEHIfcp98RLqm54N81Nx/1mBj9v3+3YLDAUo/OOzB6J+nZ+vDNJGUYK
-	 VJRAzfcbLzwhxtjwyW4bZpZ+8Qwtgv6pP2eG7hgAabcmPCZuRIpIzpwxIOKUIfF8MI3bG
-	 WLhyy8prC+e2F6VZjhu2mfDbSyJjvwBkyOSqk+iv7zrAXbIqaiXdPwsRUUs8JIrnOSuJz
-	 +mjnSJAF/JCr96R1GVUhy0nc+fJBXhGatXE6XOVJjJ8qAxETkoKlj1itmpSkxoprgHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024088;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=66NJ1jW/AhT9CM4XoK4Ic0dDVfwzyueai+pMZOAeK9c=;
+	b=k4KCAm7cBOR/C87vG32JLbK7HGZcT5b719oiN913YsFJfadaG4DqBhKvZs/1LNqB5Lqw
+	 5VUAx7ZG5RAbtBQzlL66tPCsZdhQ61vwChMFq/aLMoUF5TehC8sXmfLMe2v2roPmpEoI3
+	 RX9qHLfI7L1KR7SnaGmE5c8ome7jpZi84cfhd6BJFuX7r+beDV2Cp/ua+ZI8CBHNZztpv
+	 vNWe9gwPh42OIlC0P00a6r9qxeTZVjzMk/BYGCztRQkGeOqpLpGa6XpngIdDC7EsJP37z
+	 diNuQ7+i/2o9u97Ty1UgpCEdT9d1qLO1bjrCOprcVzPHwrG2dQNfM8ua1QBsNPG2uMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BAAB/r4g";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bvpsbg3G;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F3D4606A31C;
-	Wed, 18 Nov 2026 17:47:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F657606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:48:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BAAB/r4g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 766E71F000C4;
-	Wed, 18 Nov 2026 17:46:59 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bvpsbg3G
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98CEB1F000CE
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795024021;
-	bh=wSHGtw/aKGvewYnq0uEOj9CkZTKDscYMPxssMGVdAi8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BAAB/r4g7SbK9wGRfRJif4tI1sNCle78CfWYKHiw9MQqlqwOY7HVtmoWj2w7j2+oj
-	 XDX5WWl0gTNIjOlp5cHGQXaorpbXH3hRv2hGDT10OOh/kCRy/AdDcJ4ojI/4+ZwzVj
-	 UEJIeLc2CZAAI+z3CKqp33GmxC/vYE0a1K/eEQqmMGw/xlropYbyXvSosmt/Dt7p2l
-	 dJGDurfIR7OY1gCrEMIh9/+2BRUtpXsoXFu78aqRQDBX/oRpKW5HucyAydY0VswU5x
-	 5Qz7jicBCGYSM+qEND6ia5YyAsF0bI524ptQ295yUxJIUqXnQoEJLNBjRG6xHkkW+t
-	 WhFz2zgqW/fHA==
-Date: Wed, 18 Nov 2026 17:46:56 +0000
-From: Lee Jones <lee@kernel.org>
-To: shao.mingyin@zte.com.cn
-Cc: mfd@lists.linux.dev, tony@atomide.com, linux-omap@vger.kernel.org,
-	tharvey@gateworks.com, support.opensource@diasemi.com,
-	patches@opensource.cirrus.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] mfd: tps65219: Fix out-of-bounds access in tps65214
- IRQ map
-Message-ID: <20261118174656.GF98456@joneslee-macbookpro.roam.internal>
-References: <202611071607376342uPiYA9rHRC7ZI9Ix-8xh@zte.com.cn>
- <20261107160743097R9VvfD_5S5vK286ZLzPhG@zte.com.cn>
+	s=k20260515; t=1795024087;
+	bh=66NJ1jW/AhT9CM4XoK4Ic0dDVfwzyueai+pMZOAeK9c=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=bvpsbg3GiW1pL8DyyHaOkGWHI2MsTtXml1taM+wyqMPv2bBL1taFK32mp9IvdHpQA
+	 rUhY9zZIbyCMDTsXV7LZ25mVtzsUMGXWCQREnlzGN+VcR2BhjVZTCfs2QHmxZlLUqc
+	 US04f7XiPqKXNUevOCbJjTcCsCE59IEMkLnkihW7t2oD+EV8StcdTNZec5qtcuRE1D
+	 3hBR52OUEm+TW1DePcflZ54oBk0mh2g+mpGVcjRBefOm4bc/3reh21Gk8E6LqLiZQX
+	 w2BMAl6b9BEyC1cHGtMt7vMUqUPTdwWyz7kt3x8c4Ggz+27RTZGTOsif0mVio4zgXX
+	 gLk3giaHtlMOQ==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5c1a3374400so910941e87.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:48:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE4X6PR/p3BbJom7CWCbi4ILZkigWK64eV1GBb6MIYmfPe9Ov4sjzsj0CfxAijzUYZVS1W+cWa06PLRdtw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8AmCOAyTY6H+uQW4Y7wUe4dP49vbQWiV67M85dbXmksclaR77K
+	7qsoL40+AcXxNHfP8EOW3YkINZrjBkMxLkGCOrX5ldsUgCXj6tZoYJHmL+AU7WNdjhWQMjRT9Jh
+	DOldfOdAcmSZhzEvMrhBcWwQFQQK4AME=
+X-Received: by 2002:a05:6512:400e:b0:5c1:4a64:ca14 with SMTP id
+ 2adb3069b0e04-5c1a9c09cfdmr1191859e87.13.1795024086348; Wed, 18 Nov 2026
+ 09:48:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,51 +59,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261107160743097R9VvfD_5S5vK286ZLzPhG@zte.com.cn>
+References: <20261118134445.2909283-1-arnd@kernel.org>
+In-Reply-To: <20261118134445.2909283-1-arnd@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 18 Nov 2026 18:47:53 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnMxxtrtDMm6rYxB1_5jn-FpnrO3Jrb0=SmBmFWFkCTdA@mail.gmail.com>
+X-Gm-Features: Aa3M54pa9MgsIMovWMIksxVnRuIk4Bq2FMKGcXAedLzc5oUdkJpdhUzMnswjYZ8
+Message-ID: <CAD++jLnMxxtrtDMm6rYxB1_5jn-FpnrO3Jrb0=SmBmFWFkCTdA@mail.gmail.com>
+Subject: Re: [PATCH] mmc: sh_mmcif: rework sg_miter handling
+To: Arnd Bergmann <arnd@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sat, 07 Nov 2026, shao.mingyin@zte.com.cn wrote:
+Hi Arnd,
 
-> From: Shao Mingyin <shao.mingyin@zte.com.cn>
-> 
-> The tps65214_sub_irq_offsets[] array has only seven entries (bits 0-5
-> and 7; INT_SOURCE bit 6 is reserved) while the corresponding IRQ chip
-> advertises num_main_status_bits = 8.  regmap-irq's read_irq_data()
-> indexes sub_reg_offsets with the main-status bit number, so whenever
-> bit 7 of INT_SOURCE is set (the power-button interrupt) it reads past
-> the end of the seven-element array and uses garbage offset/num_regs
-> values to compute status_buf indices, which can also lead to an
-> out-of-bounds status_buf access.
-> 
-> Add an empty placeholder entry for the reserved bit 6 so that the array
-> lines up with the bit numbering and bit 7 hits the power-button entry.
-> 
-> Fixes: 7947219ab1a2 ("mfd: tps65219: Add support for TI TPS65214 PMIC")
-> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-> ---
-> diff --git a/drivers/mfd/tps65219.c b/drivers/mfd/tps65219.c
-> index f8c08dd86618..4f4bfc49542c 100644
-> --- a/drivers/mfd/tps65219.c
-> +++ b/drivers/mfd/tps65219.c
-> @@ -268,6 +268,7 @@ static const struct regmap_irq_sub_irq_map tps65214_sub_irq_offsets[] = {
->  	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit3_offsets),
->  	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit4_offsets),
->  	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit5_offsets),
-> +	{ .num_regs = 0 },	/* INT_SOURCE bit 6 is reserved */
->  	REGMAP_IRQ_MAIN_REG_OFFSET(tps65214_bit7_offsets),
+On Wed, Nov 18, 2026 at 2:45=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
+te:
 
-This is fragile and `num_regs` is already zero, so it's also pointless.
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> This driver is the only one that uses sg_miter_next() to get a persistent
+> mapping across interrupts, which prevents us from converting the internal
+> kmap() to a local mapping using SG_MITER_LOCAL flag.
+>
+> Linus previously attempted to use atomic mappings here, which failed
+> for the same reason. I gave it another try, with a mapping that is only
+> active during a single sh_mmcif_mread_block()/sh_mmcif_mwrite_block() cal=
+l.
+>
+> This is mainly a revert of the patch that fixed the command 18 timeout,
+> but tries to solve the problem by updating and checking data->bytes_xfere=
+d
+> to keep track of when the transfer is finished.
+>
+> Instead of calling sg_miter_stop() on error or completion, this now
+> always stops the iterator after the data transfer and restarts it during
+> the following interrupt.
+>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Fixes: 4d4a2c71b862 ("mmc: sh_mmcif: Advance sg_miter before reading bloc=
+ks")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-A better solution would be to specify each element.
+FWIW:
+Acked-by: Linus Walleij <linusw@kernel.org>
 
-Why not use REGMAP_IRQ_REG(), which lets you do this?
+> Hi Wolfram and Linus,
+>
+> Could you have a look at this? I'm not familiar with this driver,
+> so there is a chance I got this completely wrong. If the change
+> does make sense, maybe you can try testing it on one of the
+> highmem-enabled boards.
 
-Or, add a new, cleaner one:
+I don't have this hardware, but Geert does (he helped me with the
+previous patches to this driver), so it'd be great if he
+could give it a spin!
 
-  #define REGMAP_IRQ_MAIN_BIT_OFFSET(bit, arr)        \
-  	[bit] = REGMAP_IRQ_MAIN_REG_OFFSET(arr)
-
-
--- 
-Lee Jones
+Yours,
+Linus Walleij
