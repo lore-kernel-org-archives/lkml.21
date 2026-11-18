@@ -1,79 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794994399;
-	b=VxoxGTGZDu5qwcdJ/ejG6iPZRfWmw29qUk4Reh+VbLhQvDYe538DBnv+45tnR57w/BRE
-	 P+EWJYyzPQkoSmXjkCcEGLGucs+K3WKDHW7sG4/hn+O/tO9Az5UXOhwQepp5oeEk2yBMH
-	 MFI0MRl4Cwgegf+wgEN7TIQbFh5O3KmfvdIDjHNY+qK+Nyki+94KV9w5yfdGZCtfuNWHl
-	 A86lOkNm/PqfCGbvK4u7NoV27UlMn+SL00xXcwvGSl43FxogWlnl+vqOeG3PjRGALcun9
-	 mTquxLbcUKB+K6BJD+uFuAEd9VNJrDs960uScUmrAh/D15EyV/zFe7dMHNdOD7Uo4Xg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994399;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kCnXMyre11QD19JOwanEa/37YHMkLU6RdrlXI8oh2j4=;
-	b=Y0AVgeKCxupMikfFqNcsNckXxL7xkRDkJKlr1uj1Pt2d8cVU0IkjftuHJ1wpxk3aJrkD
-	 miimYB6O1AdFLvqEXq9JVSjurMcMaU5/zxm9zmitVxI/OKnph9o0YK94cR5+mthXrlO6l
-	 7taY0XxZ33wX0zWsxvmgVu0IRecWFs8z17KIDRx1O0sZ2vTpK7rAeH0CRDjgN4FTMseS2
-	 Z8jQMZyNtP/hmjjLsUflUlOIEDCYOBCQJZ3OM2jdyGTBK5T0SYwrqaxvUueW6PPTZezs2
-	 8UiyiuRwlTVqn9X/8VYKmzRSsgTyeoe31uJjoHatmO8g5YaOsr+k3DbCZLuxCo5oUXg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bk5aCbO9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95F35606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:33:19 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bk5aCbO9
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794994399;
-	b=J14tAz5si/UN+C1jQ8txpIXsEyOov/CN4ui3P3zmS/P5O3YFTac7A1Moiv0gfk+fLWaO
-	 hjpr4R82TceH5pLv8CDonQr6u2RYQq62HuDbzWwkaHcQJ5VZbucWA9NKWyfnidBaukeU5
-	 i6c1aJzPbZkrDTg2KuRep31lHYR3MUhz/9BCzghqCyI5iXfEy3lOw4goqLiWiQviOjkCT
-	 rAeiYAU9Dpeo38lGGP8ka78/zn017n0x6vtu7kXUNZEhBhrcxSv9B+RfMgxP7lTAG0p1W
-	 6F8YJZ0iT//UAHHVkA+KK9TC9RmX3PlnGrSA7JKl8ZfQpxxHVz5wPl4tI0lYQA+7/wQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794994399;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kCnXMyre11QD19JOwanEa/37YHMkLU6RdrlXI8oh2j4=;
-	b=qLqKsVFJuUGRrY2Xr0JhhAMy7O5jaVEhTEFm8GM7kowYQnWCCC2ZVBvIayQVKr7Woqlf
-	 +zD8645Zubdzyw7/eL5LF9Hf0LK/uggFq+eWjq890j7xhjSJnyQzgspqWGFmi9K09Ezsh
-	 G6m5Dl8ryGRY49RduSE/ggJw12QEa1seRz2PZ92fKpHx1e0Ncf9GHF4EIG4+NDeyVWT1g
-	 yykEXKUx6xYM9dFnSbr+Ctma3sXNyvsK5oyGH3qFORDL1kOIBoQyxueX2S7B5YoBSC1+x
-	 r8A4LXlg27MZ7gyZG5LIbHfrseebpsRSp1TmDHP8Q/sF62lxviYObwvhzKH7CbX5ZKQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794994421;
+	b=d00soJkhUJ7FN9mn0l4Ppi5mdnd6JcyFtY7Tqx+Rm2RdnhHm6Z0B8Pc88D4YpzZEvPo6
+	 WP04Sj4Jq3sDrkyoSfNWpnk4sCMDvYKUz69oHcjVEnyol19qFYtgoApqictQJTGJVW7jM
+	 CU93SlWOgoFq253G2CJg3JMlhbm1XW7LbhSGl77A+HfpOUj6fCJPfCLBEvPzAApNcrqAd
+	 Jfhg71g9zBrJyMWOCByD4QMPeP4ZUPEl5f02O2j10LfSSZMUzn8TMnHEoKWp+qQJg4kDT
+	 V+Axp1EXwxYJisEWp3rGvLJ4uKZnjUEz3JLSQls3IyOoUW7pKoCsFvSGl85z9oCyFHQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994421;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=S7DdyuEWBTTp0gSP5Jm9vE08IR3fBT6lZlQ2grkGRj8=;
+	b=2gbhMD25rN0QwYUzssiNbk0WMlxLgu0FgaSVvP0CNfcJ+tD6q7AX3jpuToGMFP8pcYi/
+	 glPt3lbV1wO+nrFzHolBYFy0jceRYECFEgcFfweCuuWDPo/Nfs2jeAL5S9UwygsdZMBSE
+	 xG8YBGFHRlPyHYwF5xxiruJvEJh+id8iMbPEubLnAxLn+Ud4RMXjCetnGlrH0cXmoxUhb
+	 gs4nr+Z9JsTH7gF55h099WpvfYjwOfajxSGj16J5a0Z59BbdFDy0jZpXBiqLF3Vd6uVzN
+	 e2ZlEp1yUmlXoLIBQv727jvyfWGXasYuPQndul1AdqhtnUKmwS0MLpC/4/0a3+U1wMg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GcdabHdV;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9DCA11F000C4;
-	Wed, 18 Nov 2026 09:33:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794994399;
-	bh=kCnXMyre11QD19JOwanEa/37YHMkLU6RdrlXI8oh2j4=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Bk5aCbO9TlBq4/G/hAOK93lKLYBC/DeiS6T4Wm4RJb9t1jdlV6Iu1Q8Z3li2nsMB2
-	 NgfBq5dYoNy/T8Bw8i2fN8XNg38cVRHklBZVH4k/ASxY3d0/xMJ/hkyxb6PJPuXtEH
-	 QvQqCS+Jmg28i4VrC/ZGmgJ/EqJrpvi3uSjAU70PDv6U7j0IprMmdDReqdQxOcI8HY
-	 vE4l/wte2ZHp0klPVwyknldmEXdSgYgHYCV0lNAObpRPXIEPU+xK9N83Ho2dNT3cUD
-	 HaFnj8NukBumTsGfk42oq0A1hO0Qov8VAP1uV8U4L3sAFVCElmIjR1vBeBD+6Qk2Oy
-	 Ekkbu28hB8VTg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F1FCE4ACC4;
-	Wed, 18 Nov 2026 09:33:17 +0000 (UTC)
-From: Zi-Hao Huang via B4 Relay <devnull+zi-hao.huang.mediatek.com@kernel.org>
-Date: Wed, 18 Nov 2026 17:33:11 +0800
-Subject: [PATCH v2] drm/mediatek: dsi: Don't let a signal cut the IRQ wait
- short
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9101606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:33:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9101606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GcdabHdV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=S7DdyuEWBTTp0gSP5Jm9vE08IR3fBT6lZlQ2grkGRj8=;
+	b=GcdabHdVtFxvvWdN9fgYC6S5/Fv5i/UWknRY52sulpXWqk/88zevcgnF/t1yB8
+	/b75G8fcAP8mNIgY3GsbnwsgijBURtKv5I/20Osyb6JkDDtodnobEjEkSE+03GvX
+	paIqJfC1kTPxWBzXGe122Wedz/zEFwqeIRJuMzWiKuq/Q=
+Received: from [IPV6:2409:8900:1fc4:b5fb:fbe8:c5b8:cdd0:2ec2] (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDXtiPZcP1qve7aIQ--.13858S2;
+	Wed, 18 Nov 2026 17:33:15 +0800 (CST)
+Message-ID: <e9710bc0-24ca-4afc-b00b-dd22e50a073e@163.com>
+Date: Wed, 18 Nov 2026 17:33:13 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,105 +54,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-mtk-dsi-irq-wait-v2-1-8bda52993c6f@mediatek.com>
-X-B4-Tracking: v=1; b=H4sIANZw/WoC/32NTQ6CQAxGr0K6toY28hNX3sOwqEyRhgA6M0EN4
- e6OHMDle8n3vhWCetMA52wFr4sFm6cEfMig7WW6K5pLDJxzSUQ1jnFAFwzNP/ElFlH4VBGLk5I
- rSLOH187ee/LaJO4txNl/9oeFfvZPbCEk5LzouOikrW98GdWZRB2O7TxCs23bF6MjLaazAAAA
-X-Change-ID: 20261118-mtk-dsi-irq-wait-a24712ada627
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- shaoming chen <shaoming.chen@mediatek.com>, dri-devel@lists.freedesktop.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Zi-Hao Huang <zi-hao.huang@mediatek.com>, CK Hu <ck.hu@mediatek.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794994396; l=2849;
- i=zi-hao.huang@mediatek.com; s=20261112; h=from:subject:message-id;
- bh=oSiLiwqCKkPp3lIKuiL5raZFKV28BSNXcVhbBi3SzXg=;
- b=vxu/8VdPlOJ1xHqEyJ64lB/7rEWbl4aMOvpjVViVoUm+YA7qopHYx1fIM4QO8RL6XUuWtY4CL
- sdTUiA0sJc2DCUsoRmyP0GpmHJ3PFqKaZ1F679Y91eWjGk/LZvKulA+
-X-Developer-Key: i=zi-hao.huang@mediatek.com; a=ed25519;
- pk=tbMIVegYSSBtz5MaQSUCX9RJO88MA/AI5cbmQKbaoIc=
-X-Endpoint-Received: by B4 Relay for zi-hao.huang@mediatek.com/20261112
- with auth_id=1493
-X-Original-From: Zi-Hao Huang <zi-hao.huang@mediatek.com>
-Reply-To: zi-hao.huang@mediatek.com
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/37] Report NTFS metadata errors and shutdown through
+ FAN_FS_ERROR
+To: Xuewen Wang <wangxuewen_ky@163.com>, linkinjeon@kernel.org,
+ hyc.lee@gmail.com
+Cc: ntfs@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Xuewen Wang <wangxuewen@kylinos.cn>
+References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+Content-Language: en-US
+From: liubaolin <liubaolin12138@163.com>
+In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDXtiPZcP1qve7aIQ--.13858S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxKFykJw43GrykWw47tF4kCrg_yoWfWF43pF
+	Z3G395t3s2yFyIg39rt3y2qa4F93s5Gay5twnxG342grs8Kr1jqayrKa409rWrurWFg3yD
+	Xw4UKa9rCry5AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUwdbUUUUUU=
+X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6htsN2r9cNtMrQAA33
 
-From: Zi-Hao Huang <zi-hao.huang@mediatek.com>
 
-mtk_dsi_wait_for_irq_done() waits for the DSI IRQ with
-wait_event_interruptible_timeout(). If it returns early, for example
-with -ERESTARTSYS when a signal is pending, both callers still treat the
-command as done, because they only handle a return value of 0 as a
-failure.
 
-On an MT8196 board this led to a hard lockup during shutdown. The wait
-returned before the IRQ arrived, the panel disable sequence went on and
-restarted video mode, and the late CMD_DONE interrupt was then handled
-by mtk_dsi_irq(). The handler writes RACK and loops until DSI_BUSY
-clears, but DSI_BUSY stays set while video mode is running, so the CPU
-never leaves the handler until the watchdog fires. Forcing the wait to
-return early reproduces the lockup every time, and it no longer
-happens once the wait cannot return early.
+在 2026/11/18 17:06, Xuewen Wang 写道:
+> From: Xuewen Wang <wangxuewen@kylinos.cn>
+> 
+> Report NTFS metadata corruption, failed recovery and shutdown through
+> FAN_FS_ERROR. File events identify the affected base file; volume events
+> cover errors without a safe file reference. Preserve the volume error bit
+> and errors= policy. Before SB_ACTIVE, metadata reporting helpers record
+> the volume error state without queuing an event.
+> 
+> Use -EFSCORRUPTED (-EUCLEAN) for confirmed corruption in the updated error
+> paths, both in reports and in failing NTFS operations. Preserve genuine
+> I/O, allocation and unsupported-format errors. Ordinary EOF and missing
+> names or streams are not corruption. Partial-I/O and best-effort
+> operations retain their return semantics; an independent recovery failure
+> can report a different errno from the initiating operation.
+> 
+> Based on ntfs-next commit b028412297e6
+> ("ntfs: convert a named $DATA stream safely when making room in a record").
+> 
+> Changes in v6:
+> - Address the v5 review of the Fixes-tagged attribute-move patch. Put the
+>    source-removal fix before the reporting infrastructure, using the
+>    existing NVolSetErrors() and diagnostics. Add FAN_FS_ERROR reporting at
+>    those sites in the final patch. The fix no longer depends on the new
+>    reporting helpers.
+> - Check the other fixes for the same dependency. Keep mapping-pairs
+>    writeback and cluster-count fixes first, and move search-context error
+>    propagation before the helpers. Separate buffered-read and compressed
+>    I/O errno propagation, readdir retry state, buffered fallback writeback
+>    errors and export-parent locking from the reporting changes.
+> - Rebase onto the updated ntfs-next. Retain its uninterruptible metadata
+>    reads, current iomap callback interface, named-stream conversion
+>    safeguards and index validation.
+> - Adapt the new ntfs_icx_ia_ensure() caller to error-pointer returns from
+>    ntfs_ia_open(). Clear the failed pointer before cleanup and preserve the
+>    original errno. Report a missing required INDEX_ALLOCATION attribute as
+>    corruption without repeating errors already reported while opening it.
+> - Classify the new index-entry VCN validation failures as EFSCORRUPTED.
+>    Report the new directory child-VCN bounds failure through the common
+>    cleanup exit, with the same errno returned to the caller.
+> - Report attribute-move source-removal and destination-cleanup failures
+>    after releasing the destination search context. Keep an independent
+>    cleanup failure distinct from the original removal failure.
+> - Avoid counting a propagated MFT mapping corruption again in the inode
+>    loader. Keep the report from MFT/runlist validation and preserve
+>    reports for unreported I/O errors and inode-local corruption.
+> 
+> The earlier review fixes remain:
+> - Cover the directory lookup, index-block read and nonresident iomap
+>    corruption paths identified in v3. Use ntfs_inode_base() for base-file
+>    attribution and test_and_set_bit() for one shutdown report per
+>    clear-to-set transition.
+> - Preserve search-context failures in ntfs_attr_exist() and its callers;
+>    preserve the inner ntfs_read_inode_mount() error instead of returning -1.
+> - Consolidate local reports at cleanup exits in the affected paths and
+>    avoid repeating propagated reports, while retaining independent
+>    recovery failures.
+> - Distinguish malformed or missing required EA metadata from lower-level
+>    read failures, and recheck HasEA under mrec_lock in listxattr().
+> 
+> The series now has 37 patches. The extra patches separate existing fixes
+> from reporting, so they can be reviewed and backported without pulling in
+> the new helpers.
+> 
+> Series organization:
+> - 1-9: fixes and error propagation without the new reporting helpers.
+> - 10: file and volume metadata reporting helpers.
+> - 11-16: boot/system metadata, logfile, runlists, iomap and compression.
+> - 17-23: attribute metadata, failed updates and inode cleanup.
+> - 24-29: index/directory operations, namespace recovery and exportfs.
+> - 30-35: MFT, EA/ACL, named-stream and reparse/ObjectID reporting.
+> - 36: atomic shutdown reporting.
+> - 37: reporting integration for the standalone attribute-move fix.
+> 
+> Validation:
+> - Built NTFS with W=1 and checked all 31 NTFS translation units with
+>    Sparse C=2, with no NTFS compiler or Sparse diagnostics.
+> - Passed 15 QEMU guest runs with NTFS built in. These cover normal file
+>    and namespace operations, named streams, inode/index/runlist/EA
+>    corruption, readdir, shutdown, filesystem ustat selftests and
+>    fsync/remount/data verification.
+> - The index cases include invalid INDX entries_offset and child VCNs
+>    outside INDEX_ALLOCATION. Lookup and readdir returned EUCLEAN and
+>    generated EUCLEAN events after the listener was ready.
+> - Passed 403 controlled scenarios using extracted functions with
+>    controlled dependencies and ASan/UBSan. These include the existing
+>    error-path regressions, the new index-allocation guard and VCN checks,
+>    and source-removal/destination-cleanup failures both before and after
+>    reporting integration.
+> - Added two exact-count QEMU checks: an invalid MFT FILE magic and an
+>    inode-local zero link count each return EUCLEAN and report one error.
+>    The old kernel fails the same MFT check with error_count=2.
+> - The guest runs enabled non-strict KCSAN and lockdep. All three KCSAN
+>    selftests passed, with no KCSAN or lockdep diagnostics in the test logs.
+> 
+> Thanks to Hyunchul and Namjae for reviewing the earlier versions.
+> 
+> Baolin Liu (11):
+>    ntfs: preserve cluster-free counts in attribute cleanup
+>    ntfs: add filesystem metadata error reporting helpers
+>    ntfs: report runlist and cluster allocation metadata errors
+>    ntfs: report attribute lookup and validation errors
+>    ntfs: report attribute list update and recovery failures
+>    ntfs: report attribute conversion and mapping update failures
+>    ntfs: report inode metadata and eviction cleanup errors
+>    ntfs: report MFT record validation and lifecycle errors
+>    ntfs: report MFT bitmap and data growth recovery failures
+>    ntfs: report MFT writeback errors to fsnotify
+>    ntfs: report each shutdown transition once
+> 
+> Dandan Wu (11):
+>    ntfs: report required system file and volume metadata errors
+>    ntfs: report logfile metadata and emptying errors
+>    ntfs: report iomap metadata corruption
+>    ntfs: report LZNT1 and WOF compressed stream errors
+>    ntfs: report attribute resize and relocation recovery failures
+>    ntfs: report incomplete attribute range updates
+>    ntfs: report index validation and block I/O errors
+>    ntfs: preserve and report index traversal errors
+>    ntfs: report directory lookup and metadata corruption
+>    ntfs: report index update and recovery failures
+>    ntfs: report namespace and file recovery errors
+> 
+> Xuewen Wang (15):
+>    ntfs: propagate mapping-pairs update errors from inode writeback
+>    ntfs: handle source record removal failure during attribute moves
+>    ntfs: preserve attribute search context initialization errors
+>    ntfs: preserve synchronous buffered read errors
+>    ntfs: preserve compressed I/O preparation errors
+>    ntfs: retain directory iteration state after errors
+>    ntfs: preserve buffered fallback writeback errors
+>    ntfs: serialize export parent reconstruction
+>    ntfs: report boot geometry and MFT bootstrap errors
+>    ntfs: report attribute record update and cleanup failures
+>    ntfs: report export parent reconstruction errors
+>    ntfs: report EA metadata and restoration errors
+>    ntfs: report named stream metadata and recovery errors
+>    ntfs: report reparse and object ID metadata errors
+>    ntfs: report attribute move removal and cleanup failures
+> 
+>   fs/ntfs/aops.c         |  20 +-
+>   fs/ntfs/attrib.c       | 898 ++++++++++++++++++++++++++++++-----------
+>   fs/ntfs/attrib.h       |   8 +-
+>   fs/ntfs/attrlist.c     |  61 ++-
+>   fs/ntfs/attrlist.h     |   4 +-
+>   fs/ntfs/bitmap.c       |   2 +-
+>   fs/ntfs/compress.c     |  35 +-
+>   fs/ntfs/dir.c          | 115 ++++--
+>   fs/ntfs/ea.c           | 173 +++++---
+>   fs/ntfs/file.c         |  30 +-
+>   fs/ntfs/index.c        | 370 +++++++++++------
+>   fs/ntfs/inode.c        | 269 ++++++++----
+>   fs/ntfs/inode.h        |  10 +-
+>   fs/ntfs/iomap.c        |  66 ++-
+>   fs/ntfs/lcnalloc.c     |  17 +-
+>   fs/ntfs/logfile.c      |  58 +--
+>   fs/ntfs/mft.c          | 353 ++++++++++------
+>   fs/ntfs/named_stream.c |  61 ++-
+>   fs/ntfs/namei.c        | 144 +++++--
+>   fs/ntfs/object_id.c    |  50 ++-
+>   fs/ntfs/reparse.c      | 109 ++++-
+>   fs/ntfs/reparse.h      |   2 +-
+>   fs/ntfs/runlist.c      |  23 +-
+>   fs/ntfs/runlist.h      |   4 +-
+>   fs/ntfs/stream.h       |   2 +-
+>   fs/ntfs/super.c        | 310 ++++++++++----
+>   fs/ntfs/volume.h       |   4 +
+>   fs/ntfs/wof.c          |  49 ++-
+>   28 files changed, 2311 insertions(+), 936 deletions(-)
+> 
+> 
+> base-commit: b028412297e640db52195df2649368c1910e8e4b
 
-The wait synchronises the driver with the hardware, and it is bounded by
-its timeout. Use wait_event_timeout() so that it only ends on the IRQ or
-the timeout.
+The series looks good to me.
 
-wake_up_interruptible() cannot wake a task in uninterruptible sleep, so
-switch mtk_dsi_irq() to wake_up(). Without it every wait would last
-until its timeout.
-
-Fixes: dd5080a54df8 ("drm/mediatek: add dsi interrupt control")
-Signed-off-by: Zi-Hao Huang <zi-hao.huang@mediatek.com>
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
----
-Changes in v2:
-- Drop the remark that the wait is not made on behalf of userspace, since
-  a userspace backlight change can reach it (CK)
-- Collect Reviewed-by
-- Link to v1: https://lore.kernel.org/r/20261118-mtk-dsi-irq-wait-v1-1-205f25fac8b2@mediatek.com
----
- drivers/gpu/drm/mediatek/mtk_dsi.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index f82506e10fd5..1315dd31a834 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -627,9 +627,8 @@ static s32 mtk_dsi_wait_for_irq_done(struct mtk_dsi *dsi, u32 irq_flag,
- 	unsigned long jiffies = msecs_to_jiffies(timeout);
- 	struct drm_device *drm = dsi->bridge.dev;
- 
--	ret = wait_event_interruptible_timeout(dsi->irq_wait_queue,
--					       dsi->irq_data & irq_flag,
--					       jiffies);
-+	ret = wait_event_timeout(dsi->irq_wait_queue,
-+				 dsi->irq_data & irq_flag, jiffies);
- 	if (ret == 0) {
- 		drm_warn(drm, "Wait DSI IRQ(0x%08x) Timeout\n", irq_flag);
- 
-@@ -656,7 +655,7 @@ static irqreturn_t mtk_dsi_irq(int irq, void *dev_id)
- 
- 		mtk_dsi_mask(dsi, DSI_INTSTA, status, 0);
- 		mtk_dsi_irq_data_set(dsi, status);
--		wake_up_interruptible(&dsi->irq_wait_queue);
-+		wake_up(&dsi->irq_wait_queue);
- 	}
- 
- 	return IRQ_HANDLED;
-
----
-base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
-change-id: 20261118-mtk-dsi-irq-wait-a24712ada627
-
-Best regards,
--- 
-Zi-Hao Huang <zi-hao.huang@mediatek.com>
-
+Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 
