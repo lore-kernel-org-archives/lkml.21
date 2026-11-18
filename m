@@ -1,60 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993961;
-	b=3EoRhs4Oed9DT8u30tJaEeTh1ivKnSoaVB9Bba9KQo0ws/4y+ymh1vG3SX2lO+AFZ05Y
-	 UcshtpadVa/7l8hMo+a47J0CWFz4ctFSios6ihg1JN2IxUQj5WMW7B1N9acy67yUp2UdD
-	 nWspTJbMylYhGZdwrREizqB1xjsoXDq0texigX4sR2Copc33FzDLYtRbl4RMMZea+3R1L
-	 lO3S4G6InICbq1/YWcc0Z+rIQ3GndUGwqOiz4rgVPutic0M5HL2221cnrXX2hJY0uyUCZ
-	 nAJdQQWHJqHbO0ul9h8+13Cxak8/xkqe80wK3hDb2oHIv3NSqQgXnh8UWtRA0lCNPJA==
+	t=1794993975;
+	b=gjNbiu/lp+jIYlodQ82RGty9sRVPVIaEDo82h3Ext9F1+wPVDTvz2XPUNQWf13Q5FHPE
+	 beD7zJm+cD+FTOwFKlHUnUmds5kYOJPaOpdfgoxRb661p5N4mqlwHFbYfHyfa9pXHxqCd
+	 4/E0YPsPJusAA/Ft/vXJg8AjSvXc2fiXAgWI4Ro1YRfZEK44lbPDR0FcusevNxRLq/Ln8
+	 SMje5lEYV3vJER3TO3yPVIdQaCImT0xCVE5T9uhnBV7xRWRsGovI6olVyVkRAWnH1C9lv
+	 MSZtv2GcMf9/FGLl8XsCfUXcgJVgWvUQZ0zowXRa3NYK4GZkGl8xTnCCnTDkidWU4aw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993961;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993975;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=Q66aCCscU5Yksj+Gr2Pi64F85rArI19ScQvw2zYlBHs=;
-	b=ermdcC4pp8Ds5ewTTauOg+uLAIFwh2jpkPp9FGbm1zKd1C1pe2+cxArkGb+WL9zLNyf/
-	 WzTuh4gO8jPuuhDImaX+MNbOAF4FAQ6EBFkfxRkujGF0p1BlWJvakYvipK3WHmMY5GYJP
-	 cXTlKzxfQUncjan2tpifB+vrombPvAFti7YV0qSrslkY3/R6002uO280vdfodrhHAXFlq
-	 bke4H7bQIMonRQxZXwKaU6d0WSXAS6yefAH9oKay7pG9xjoQqjb93QLf7M+YOHk1Hjq2+
-	 h0S6DgLkLfJYSNVClJmV6jAHRSGwSJ/LFrll8MUBKtfkxK6NDFGpp0eKQeoOaX4D7/A==
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=GaMlISYuqBRz58Q42qtm8oVBsqSnGT8qAf9wEXA5LCY=;
+	b=V+6Sv16BoHmP3y962aMvh0aiI6tt2J6SL6mceg8aElU8A8QxsW4geFs8dd39ZIn4FyBX
+	 RPS4PDI4kURnwx+FCqURj0mzZf9G/l0ct2PBwrrb5cWFnyltd7LYBQxUcR2r0bY/7LK59
+	 KFb71hwcH/4dGLIxuye0++0cToxl4GBrtFtZOq11n+pbJflQczin6QdGHTZOYnRQpTgyK
+	 ieojrJ32NXsFURAmTjpr5bHDdI6TrxQzdw6X+w/MQpkHn8OzOe1milJDKfTHivEWPxEhp
+	 Z/WpHUWA/Q/Rgyc1aZ7RzFU6N04P0+GHG5ayz4e74Anvz+neahsiHMPuZ75Pc9d7EIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ERZi93EE;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A283606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:25:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A283606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	dmarc=pass header.from=eswincomputing.com;
+	spf=pass smtp.mailfrom=eswincomputing.com;
+	dkim=pass header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=RLjGci7b;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9E8F0606A31C;
+	Wed, 18 Nov 2026 09:26:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E8F0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=eswincomputing.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=eswincomputing.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ERZi93EE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Q6
-	6aCCscU5Yksj+Gr2Pi64F85rArI19ScQvw2zYlBHs=; b=ERZi93EEr2Qhe3LF5W
-	tAxY+BpQqrfLErwK7Oa+WakT4Kh4zRG24kUyCTYnZOKhWpLZDbcB1Pqz5+5lDy0r
-	EYaxsPIxbhfPU6QGvaFVoQo2Lb10O/7lprGsA+rNKWEECZyBPC8yTYuUpG+TQPFA
-	6HzZ8oWxDz2ZvNIFlpDP0Cmak=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgDXlI0Gb_1qJaCyGg--.56752S2;
-	Wed, 18 Nov 2026 17:25:28 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: ojeda@kernel.org,
-	andy@kernel.org,
-	geert@linux-m68k.org,
-	maxextreme@gmail.com,
-	pmarques@grupopie.com,
-	akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>
-Subject: [PATCH v2] auxdisplay: cfag12864bfb: Fix init cleanup and simplify error paths
-Date: Wed, 18 Nov 2026 17:25:26 +0800
-Message-Id: <20261118092526.2210410-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (1024-bit key, unprotected) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=RLjGci7b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=eswincomputing.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=GaMlISYuqB
+	Rz58Q42qtm8oVBsqSnGT8qAf9wEXA5LCY=; b=RLjGci7bIZwWBrbTR1DxSw01Gc
+	ynxarXAmLXhbr0QSgP9Wq3KCppXWteJD2/MHRfUciRVKoH3Fla+PsQglAClMqurF
+	JcZoZOWcqvM1AJMqIZSpA6KbsMCDOBkgdL8bpfIvbFGPhrV+woM6pKjBAXEeYq52
+	QYuuPmCaAfJDlZsdw=
+Received: from E0007865LT.eswin.cn (unknown [10.64.112.9])
+	by app1 (Coremail) with SMTP id TAJkCgA3JuUsb_1qFR8AAA--.206S2;
+	Wed, 18 Nov 2026 17:26:05 +0800 (CST)
+From: Donghui Zhao <zhaodonghui@eswincomputing.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	zhengyu@eswincomputing.com
+Subject: [PATCH] MAINTAINERS: update PCIE DRIVER FOR ESWIN maintainer
+Date: Wed, 18 Nov 2026 17:26:03 +0800
+Message-ID: <20261118092603.1331-1-zhaodonghui@eswincomputing.com>
+X-Mailer: git-send-email 2.55.0.windows.4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,101 +63,46 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PygvCgDXlI0Gb_1qJaCyGg--.56752S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJFW8tryxtF4UKryfCw4UArb_yoW5GFyUpa
-	nxta45ArW5GF47KrWSyr12vFy5GryIgayFkFyDGw109w4IkF48WayrtF15XrnrJrWrG3W3
-	tFy3Gr48CFWUZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEJPE7UUUUU=
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7gj3Zmr9bwi62wAA3m
+X-CM-TRANSID:TAJkCgA3JuUsb_1qFR8AAA--.206S2
+X-Coremail-Antispam: 1UD129KBjvdXoWruF17ur1kCFyxJry7AF4UCFg_yoW3Grb_Ca
+	18Jan7XFWrJF1Iy3y0vFZakryYvw4rAr1Yy3WkK3WqyayFqFn0qF1qqa92ya10kF4fWr9F
+	qas3GFZrGF17XjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbIkFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
+	6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
+	tVW8ZwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
+	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
+	6r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
+	IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
+	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf
+	9x0JUd-B_UUUUU=
+X-CM-SenderInfo: p2kd0vxrqjx33l6h245lqf0zpsxwx03jof0z/
 
-If initialization fails after cfag12864b_enable() succeeds, LCD
-refreshing remains enabled. A subsequent attempt to load the
-framebuffer module can fail because refreshing is still marked
-as in use.
+Senchuan Zhang has left ESWIN Computing, so replace him with Donghui
+Zhao as the maintainer of the ESWIN PCIe controller driver.
 
-Use platform_device_register_full() to simplify device registration
-and its error handling. Unregister the platform driver if device
-registration fails, and call cfag12864b_disable() on all failure
-paths after refreshing has been enabled.
-
-Fixes: 70e840499aae ("[PATCH] drivers: add LCD support")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+Signed-off-by: Donghui Zhao <zhaodonghui@eswincomputing.com>
 ---
-Changes in v2:
- - Use platform_device_register_full() to simplify code. Thanks, Andy!
- - Modify the commit message.
----
- drivers/auxdisplay/cfag12864bfb.c | 34 +++++++++++++++++--------------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/auxdisplay/cfag12864bfb.c b/drivers/auxdisplay/cfag12864bfb.c
-index 24baf6b2c587..b1fe462715d6 100644
---- a/drivers/auxdisplay/cfag12864bfb.c
-+++ b/drivers/auxdisplay/cfag12864bfb.c
-@@ -13,6 +13,7 @@
- #include <linux/module.h>
- #include <linux/kernel.h>
- #include <linux/errno.h>
-+#include <linux/err.h>
- #include <linux/fb.h>
- #include <linux/mm.h>
- #include <linux/platform_device.h>
-@@ -118,13 +119,17 @@ static struct platform_device *cfag12864bfb_device;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d738990161bd..879a51fe36b0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21767,7 +21767,7 @@ S:	Odd Fixes
+ F:	drivers/pci/controller/pci-thunder-*
  
- static int __init cfag12864bfb_init(void)
- {
--	int ret = -EINVAL;
-+	const struct platform_device_info pdevinfo = {
-+		.name = CFAG12864BFB_NAME,
-+		.id = 0,
-+	};
-+	int ret;
- 
- 	/* cfag12864b_init() must be called first */
- 	if (!cfag12864b_isinited()) {
- 		printk(KERN_ERR CFAG12864BFB_NAME ": ERROR: "
- 			"cfag12864b is not initialized\n");
--		goto none;
-+		return -EINVAL;
- 	}
- 
- 	if (cfag12864b_enable()) {
-@@ -134,23 +139,22 @@ static int __init cfag12864bfb_init(void)
- 	}
- 
- 	ret = platform_driver_register(&cfag12864bfb_driver);
-+	if (ret)
-+		goto err_disable;
- 
--	if (!ret) {
--		cfag12864bfb_device =
--			platform_device_alloc(CFAG12864BFB_NAME, 0);
-+	cfag12864bfb_device = platform_device_register_full(&pdevinfo);
-+	if (IS_ERR(cfag12864bfb_device)) {
-+		ret = PTR_ERR(cfag12864bfb_device);
-+		goto err_unregister_driver;
-+	}
- 
--		if (cfag12864bfb_device)
--			ret = platform_device_add(cfag12864bfb_device);
--		else
--			ret = -ENOMEM;
-+	return 0;
- 
--		if (ret) {
--			platform_device_put(cfag12864bfb_device);
--			platform_driver_unregister(&cfag12864bfb_driver);
--		}
--	}
-+err_unregister_driver:
-+	platform_driver_unregister(&cfag12864bfb_driver);
- 
--none:
-+err_disable:
-+	cfag12864b_disable();
- 	return ret;
- }
- 
+ PCIE DRIVER FOR ESWIN
+-M:	Senchuan Zhang <zhangsenchuan@eswincomputing.com>
++M:	Donghui Zhao <zhaodonghui@eswincomputing.com>
+ L:	linux-pci@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/pci/eswin,pcie.yaml
 -- 
-2.25.1
+2.34.1
 
