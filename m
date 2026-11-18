@@ -1,73 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001016;
-	b=oDCDvniEBFCVEXjaHjE14/+QXVqD4kIRaQ5PdnWsCHBqfnIgZr2DmfBMcDIf/wsM+JKk
-	 29VhojTSOuoL4v7J3Lk9+HEDvNB3J2eoNwrfA41Guv908PnILs4qXFIVIt5ooDkYV49QL
-	 pDg6J/65QFe+pR4Qn1Co6azZTNZ8OrT4rFmNUtz0s26mqAK2YQNm2qFPF3YjIbWGfvKhx
-	 x42W7GUe5fpGhhZmB8Ge7Hz5vIC6+dgTBFyD1PjuyX6dPKQuCXEIGfOYOC7lOer90xE/T
-	 dSJocMkFqVF+rY95FuToQJCOtMSs/Cw7sHELOqiqB5FxMXyuq0nsEAQ0ZtNv+4ikqdw==
+	t=1795001049;
+	b=PUJ/I4NJOSpv8ni3Bh+hzDhIHqHvxb/j60+fq0nhFQFdMZItVd+Yvsxo01gSN1W9skrs
+	 cb9r9quYujQacRdVR9O0+9NlpnQntmcroVnP+9nI23sKpm1BK/RnBBj8v1YGFaanR6/1u
+	 odRqU2A8d1py5mNHV5ijRtTuvzPKPRWTd7dDFvb0R19f4tJ/7gw6AHOs1kzErmLMScnwa
+	 hXynKfRs9S7iK9w6DJqH0hx4HlQXsz+sdpu9AP9+oly8cv8CCPu/CQ8sLX4TBWGb9GMUG
+	 Vu69SLNnt6xV59B4/t7Z+E7hzX2mruzVmY8ZlGoeE229sdHzYjhsosL208ZV6XbtjlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001016;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=h6c56GT5dZlNnGdRFZuOaR/Ayh1c+jZksN9Ebs1SvYQ=;
-	b=rFxHXE9h6e78RoFVmYavnzwwCIdLjZWBg7XZddDGUQ5g0fOXGdG5PsnVZ5tpfosU/Bpl
-	 DVoQqZWnhhHRjlWSO4ByxlrhMtbFL/twS6/dEoIsW2vlndJj7NnVm8mX/9PKrS9DT7OyS
-	 nx6qL2UVeEcEkOLksbfgvNbIbRcMurr1Ohs00wyIDnu+0qWEVJSFBxmet2sFQdydYuLor
-	 pFFT4B+MRhbRgbBuLxJ9THYfDacWYleCeA5dpA8gOCigmkzaTgILqt8/T+t6lqiWSWALB
-	 uop9cNMtrD9WBLJV45kuAsDfRc0dL8j3NPiCXonQrHC9vIHQIPL0acg0t/QeclyY7hA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001049;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=kGbil/6uybiLL1poJa3GteC+l0GAriycnTYZK5gcfN4=;
+	b=rkKU9dt41G/063hYcl4lQmmKBFj2JAFQTwMAKN9iTtk4rj6w5vQba42Ux9OSHiKWYaTz
+	 /t/XiQxj7d+BwUydjV9YDvOKTaZMgGqj7OMqxEIW1CCYSrwXg0jUYcRHIoDLTsR/82eN8
+	 Kdb1gAdBVVDS74wBK5kg57Kw4M6mXqtsjQQItWbJRMc3DF2J49oF5HzqMvLK0oaj+hb7z
+	 iduTPlCaJ9ug3fgrF9VHfsYvxq8ThrtNxO/qt3AFkICcwJhtdNBFQW8MYFj8f9skEgOfG
+	 jdsbP5QOEIYKHsAZRbsMpMjxx1Z0B0QLO1UD4YrWRhdE4n9yAZmT8+YwoKSfy6M4aPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UvR5lEin;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lVyk9HkT;
+	arc=none smtp.remote-ip=91.218.175.18
+Received: from mta0.migadu.com (out-18.mta0.migadu.com [91.218.175.18])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87A2F606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:23:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8A11606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:24:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8A11606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UvR5lEin
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE1D1F000C5;
-	Wed, 18 Nov 2026 11:23:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795001016;
-	bh=h6c56GT5dZlNnGdRFZuOaR/Ayh1c+jZksN9Ebs1SvYQ=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=UvR5lEinR/ZxBKNvTMqyeIca9oIRlRYm74h0Q+eHeK2wH0g0ZGbw9NlrUiDBDuXRa
-	 UqLbuJVjxYoOetryJCXTVgr6u1UjHth1GXq9Z7yRsxxrXWP4dEzNfCcOCPOCTbty7H
-	 L2cFA6nBFDVxkU8sJpfVun9/bNbA+g/9bgFYTBTUGNv/kaF86vDzU2G672xs0r8XoJ
-	 ebk6cHmf8McidA2XEJ+OAhf86R99NkOvPvr1k9yxqIPZiCC2eR//EVa3M7HPhJGEAT
-	 1MJsAvzYo2ujhMQrFzBHYMDWLazQ8gbFgOrEKO3g+JnjxAVTQ2fm0vX7TH+B80+Y6g
-	 GHNwrTbJz1rDQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 1B7F4198003A;
-	Wed, 18 Nov 2026 06:23:34 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Wed, 18 Nov 2026 06:23:34 -0500
-X-ME-Sender: <xms:tIr9ahZq1ocmpwxIXhf-F80q3Uqxpfl_nFNfgz_Fky-D8gIOqkC8SA>
-    <xme:tIr9ajPDcTWR7KOSvCXjEwIlgFgnKqkA1FyuWOro1lgXSPZHYIxQiMKCjFD9fuQ66
-    coK_Rs9DxYGrPH8Eyyvlza9o6XW9bGZDs64K7ycYcFeMDe7pwsblQM>
-X-ME-Proxy-Cause: dmFkZTGQ3AIt8NkRlhwKOE2eLriF3euVo9ccg3+yQhNtzKQQDQ+5Y3+pVP1WbG+Z1/jm/m
-    OdOoypG7G2yzbPAnAmvhBZVk8MexoB6VPdpuUc94cvmZ4OUYCqrg/nTCbYWhsGiKU29yLu
-    ZTjc8AxSoKJ2+rnXmW2kfu6GTB5ccVobPoBfmn/zj6p5tp/uKeLn8f06SThNTSxBptz9Tu
-    h3NY/5+5Gl3cyD4mZWe+byhNpgaSKxYCUlVcFRFoUHN9g/RN4lN6t4TcsJQvTjRG/tt9c1
-    e0lTTBn99Fgy5hB8/NrRerA4AwqUoON9QpWPlpOxpa7feHUvFvmtL7TSqPDef9MH7sb8V6
-    CTDFCKAdCwCiCkWcTT0JDFFm2zN9JJmX4pT9bBh+jvVXUkNAdHjpjjaGX5YmgCrMDYWzNM
-    YMY7TMRH/K7PRr5zxW5YjiTu0KrklU2/Bp3G8vTbexb7rBNnW/uTtnX1VQPjD1ula48yP5
-    M1iVExLoD58Sm9RFIVv35757JSzf9rjS+XNVAZ6wxmIAWf8WpYrtHSkBxX2UwCJI2ijSiS
-    KraXsoNvCeK2auoRyrm2LVqvbTE5LIVAd5WY+FSHQ98IbKfPZ0SxMC/xIo9hHF6YWiUWhx
-    KyyV7V4IqBnPkmVJrEB2BFdAL+Z+n0AKDbgUEWjDDUJMlb7Xs0P/mW1GGlYg
-X-ME-Proxy: <xmx:tor9aumJ4c57iawxLzY_XPZWkNUNz59dudMW98kvKLuACKHX5gegdw>
-    <xmx:tor9auxnt-ziUJMO5RtwehssH3ehYOed5lhUYdNWDrevxGe2yvzAdw>
-    <xmx:tor9aoOPPl1KyXkXsTlPgS-my2KkEOJ8m8hxWGFcYWSBcUeMCCVp3Q>
-    <xmx:tor9aioOyMYsWqlWpcEvVR065RjIEMlVn-sphs6kYQq5l8EmEuETTQ>
-    <xmx:tor9apEeYyNfzzLEPqzMCMNAdHsRvKmOOGj2I_38veWoLSsgUk4HrGF1>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 9FF41F8008E; Wed, 18 Nov 2026 06:23:32 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lVyk9HkT
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ceQJf4xOqkkLiYn2mCtm+HSzCEGYSqHZfwzWPUGAHIY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795001046; v=1; x=1795605846;
+ b=lVyk9HkTrctueEmt15F1jiyRMHgiqX1V/tFI4EpAMcVHYh46SloY/QfA3at1qJWfn7PKz/g0
+ 2tTrnNfvhel7ZiHjtNcUCPSRfl9aWDWk1a5zYGftGKiTrkCl0cRkjAwzlmYZSR4gxpya4KkeFrp
+ 8i4iROYxx/hnh2OtTDZG1+5U=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 35a978f1a9a4df4f;
+	Wed, 18 Nov 2026 11:24:06 +0000
+X-Mizu-Trace-ID: 35a978f1a9a4df4f
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <e8ee4599-5006-43da-88c9-5aeaf2306c6e@linux.dev>
+Date: Wed, 18 Nov 2026 19:23:56 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,47 +58,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 18 Nov 2026 12:23:12 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Ard Biesheuvel" <ardb+git@google.com>, x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>
-Message-Id: <f15c5920-a624-4758-bd69-221d658d1ffe@app.fastmail.com>
-In-Reply-To: <20261111091843.3621782-2-ardb+git@google.com>
-References: <20261111091843.3621782-2-ardb+git@google.com>
-Subject: Re: [PATCH] x86: Make the 64-bit bzImage always physically relocatable
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 06/16] mm/mglru: return for unavailable anon reclaim
+ earlier
+To: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
+ baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
+ kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
+ lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
+ liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
+ mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com,
+ shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
+ weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
+ zhuhui@kylinos.cn, sidchintamaneni@gmail.com
+References: <20261114200803.23129-1-baohua@kernel.org>
+ <20261114200803.23129-7-baohua@kernel.org>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261114200803.23129-7-baohua@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
 
-On Wed, 11 Nov 2026, at 10:18, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> On x86_64, the physical placement of the kernel is independent from its
-> mapping in the 'High Kernel Mapping' range. This means that even a
-> position dependent kernel built without boot-time relocation support can
-> run from any suitably aligned physical address, and there is no need to
-> make this behavior dependent on whether or not the kernel is virtually
-> relocatable.
->
-> On i386, the situation is different, given that the physical and virtual
-> load offsets must be equal, and so only a relocatable kernel can be
-> loaded at a physical address that deviates from its build-time default.
->
-> Clarify this in Kconfig and in the code, and advertise the 64-bit
-> bzImage as loadable at any physical offset regardless of whether
-> CONFIG_RELOCATABLE is set. In practice, this makes little difference,
-> given that it defaults to 'y' and is a prerequisite for EFI_STUB and
-> RANDOMIZE_BASE, but it will help with some future refactoring of the
-> relocation code.
->
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/x86/Kconfig                   | 40 ++++++++++++++++++------------
->  arch/x86/boot/compressed/head_64.S |  4 ---
->  arch/x86/boot/compressed/misc.c    |  8 +++---
->  arch/x86/boot/header.S             |  8 ++----
->  4 files changed, 29 insertions(+), 31 deletions(-)
->
 
-Ping?
+On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> No feature change, just shuffle some code, prepare for later commits.
+> 
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> ---
+>   mm/vmscan.c | 27 +++++++++++++--------------
+>   1 file changed, 13 insertions(+), 14 deletions(-)
+> 
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index b3ce4a550a62..f7fbe91fedf3 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -5060,20 +5060,6 @@ static long get_nr_to_scan(struct lruvec *lruvec, struct scan_control *sc,
+>   			   struct mem_cgroup *memcg, int swappiness)
+>   {
+>   	unsigned long nr_to_scan, evictable, sizes[ANON_AND_FILE];
+> -	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
+> -
+> -	/*
+> -	 * Proactive reclaim initiated by userspace for anonymous memory only.
+> -	 * SWAPPINESS_ANON_ONLY is set only on the proactive reclaim path, so
+> -	 * warn if it shows up elsewhere. When anon cannot be reclaimed (e.g.
+> -	 * no swap), return 0 to skip the scan entirely, avoiding useless scan
+> -	 * work when there is nothing eligible to reclaim.
+> -	 */
+> -	if (swappiness == SWAPPINESS_ANON_ONLY) {
+> -		WARN_ON_ONCE(!sc->proactive);
+> -		if (!can_reclaim_anon_pages(memcg, pgdat->node_id, sc))
+> -			return 0;
+> -	}
+>   
+>   	lruvec_evictable_size(lruvec, swappiness, sizes);
+>   	evictable = sizes[LRU_GEN_ANON] + sizes[LRU_GEN_FILE];
+> @@ -5126,6 +5112,19 @@ static bool try_to_shrink_lruvec(struct lruvec *lruvec, struct scan_control *sc)
+>   	int swappiness = get_swappiness(lruvec, sc);
+>   	struct mem_cgroup *memcg = lruvec_memcg(lruvec);
+>   
+> +	/*
+> +	 * Proactive reclaim initiated by userspace for anonymous memory only.
+> +	 * SWAPPINESS_ANON_ONLY is set only on the proactive reclaim path, so
+> +	 * warn if it shows up elsewhere. When anon cannot be reclaimed (e.g.
+> +	 * no swap), return 0 to skip the scan entirely, avoiding useless scan
+> +	 * work when there is nothing eligible to reclaim.
+> +	 */
+> +	if (swappiness == SWAPPINESS_ANON_ONLY) {
+> +		WARN_ON_ONCE(!sc->proactive);
+> +		if (!can_reclaim_anon_pages(memcg, lruvec_pgdat(lruvec)->node_id, sc))
+> +			return false;
+> +	}
+> +
+>   	nr_to_scan = get_nr_to_scan(lruvec, sc, memcg, swappiness);
+>   	while (nr_to_scan > 0) {
+>   		int delta;
+
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
+
+-- 
+Best regards
+Ridong
+
