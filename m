@@ -1,94 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.2.82.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.157
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795040558;
-	b=OBE9KU5xEJz52Vo3lwTSU+jd8PsW+/3PUx40A63UqEC7zwr5EZzC/ROZwS5MMzKD2nN5
-	 /kIGqEjdeFdeZwpQMNjW4/7ww+6xwTXrz+Au2SvfMQcl+cFAcxDUKaprv8/TBOaJBTxsP
-	 BAZQAESflQfjVqu1a8IImLsw6y0aghohgJDmf4ZXWo7BWKq+NkSWfp+RGiWUF+XeXyE+E
-	 +08V6WcJnmk7V4rdBpxVWHWzonbScieJW+YsoTsGRtBB7v50SD1weCO0l4P2Kwp3nIyc7
-	 C8M8MYESCq3JZmf/r3t/HEInkB2k9vyUIaVbQvcDd3/0vfzWKLBCoalaxfku/B4c6fA==
+	t=1795040615;
+	b=V+aeJCDhLJXQxwm2jJbtvIBYT+KFlP/pSd7lV/yS9e6XawALjwCrQjJunTxwx+Lq7bBo
+	 DTbeQtIQJYxq2XVMfmBKkvz/V6Oan2vGU1gM8/ibf0RleYBdPgBmV5dDVaIOc7mdqY/dZ
+	 Soz4nFQlSRMpZMnW2g3HkYhN1SxrC9Hdjyz4xFrGfBLGvbnYaU9nwYMAylW22AO4ioVso
+	 o2P7I/tngojMkeweClYl/2gdGRD4LbtHOcEJpsfn0LN64g1qFTTGUkfpES8OUgZymPN9e
+	 WbBoU08j5hkWZXOfD2X1cecRWzeN4JpuhbQou5D14HRHCs2AB8qnHEutraxaZhy0EyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795040558;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=07Hk40Tpzd0exU21rqFe2WaV4XF0cHbqrd9OCHEx29s=;
-	b=psLqw/kPiKsxgag4qvEMY1tvkzH/dpDs4CZ5iWaURuO39a6pSiTKAbenUljg2dftJOGK
-	 bYY0nn7jSPLaGqWtcfm5lyohPGldvPevxZGhn1OSdD1izv4AR6W01L7mI73mlyNYMlm5p
-	 +B0epsAdF0kfwlNRSm5TALtX6aigtOgg/SV94Dm8vRZQ15Ign9u1YR1nL/AkQTI4/9Le3
-	 EBuS8SoSTnuKvQFqsFAy9YMb+gJNIkiar6BjGN+B2ro8EGsG4D0hqUmnMJgfb7X8OmjOg
-	 TAjgpwrydGaPewlnIvr7rSD5D5rNC2Z8zWmUqOGQFaO1HXDk/PQ0RwMJIuUxat7x/QQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795040615;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=GeOWSIs+WFAlcLOlvyJg3ui9WYpfBC2HNmmLSnk4aYw=;
+	b=rzzXQT2m0cnyFjrwc87S1jzIpw6SIi0hy807bPs0j4aDUAQyhwq3zNAJkC7fY9c4qRDI
+	 35Q4pdjC+QUDcZNHAQoONPo+zc7FOZfrJ8rb1eNO77ZVjY2Hi6lgUNQBD10BmGOv2yAwK
+	 V4akqfKHKztTZwsJbvn2Lvxi+a7DCB+VhzsKjWTTisMxtScZ463mjpUj91BkMJ/sYtECP
+	 3vFo9N9mAQYbbkm0ymYfyOMteWCTbqMxzCcFneWQyqZ11Wu+ujrUBk/+SA2j8+LYEq1AN
+	 tXn+chcvhj/9EdmMt4Qz65szf41VK+x9oXfsTD18MH0EVhORNMSyc8N/snz9Wb2mlZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.pl;
-	spf=pass smtp.mailfrom=yahoo.pl;
-	dkim=pass header.d=yahoo.pl header.i=@yahoo.pl header.a=rsa-sha256 header.s=s2048 header.b=A0PNf8EG;
-	arc=none smtp.remote-ip=34.2.82.16
-Received: from sonic.asd.mail.yahoo.com (sonic-euwe1-0017.asd.mail.yahoo.com [34.2.82.16])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=squebb.ca;
+	spf=pass smtp.mailfrom=squebb.ca;
+	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=NzNMmabJ;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=AhMW1DUd;
+	arc=none smtp.remote-ip=103.168.172.157
+Received: from fhigh-a6-smtp.messagingengine.com (fhigh-a6-smtp.messagingengine.com [103.168.172.157])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B8DD606A33A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:22:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B8DD606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.pl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAA94606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:23:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAA94606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=yahoo.pl header.i=@yahoo.pl header.a=rsa-sha256 header.s=s2048 header.b=A0PNf8EG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.pl; s=s2048; t=1795040555; bh=07Hk40Tpzd0exU21rqFe2WaV4XF0cHbqrd9OCHEx29s=; h=From:To:Cc:Subject:Date:In-Reply-To:References:From:Subject:Reply-To:Content-Type; b=A0PNf8EGpsyGv55j6FXHvQ+iIdclsGLckSUqutiiajr6W29ucpTLWPZJM3bfgwH54QvJc6P0xPeFuwdqGuXSdy7Gsrh2eAcAfZ57Ge9GzPxMAri1mYalZtCF3krgYR10UUityK0ZZ9wuD9NbMG3whKgIqSPuqpJth+QOkbf1RfVuBWQZMdcO9fOB6I6aF/rVpkoXJ2cHzWdl2RdE/2snu526QIBpQfl0I+l9+VCZMpEgqSlZn/Gu7wD8YUnUjGn82T1bdU7Qn2krsa9sHtouXWV5Ix73QigfQBwhXAM6zE8yYyhkENEcr0Sf6sFVJomBwAqHk3jpZmOcmAcrPHM4mQ==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795040555; bh=ccBSLLeMHNMCOjiTq3s1KL5ikKwzDgI3u7O26Fa7zeO=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=L/YNxzC5q/QkFHR6rTeMKVTXhP0uaRsloQw/f9BcmGA5innpu+CMjBNJhuXE0UQJ+7L735lylKRZnu3ICIkRzV+akRIHvJo4gZTidccNF354eR7IQAKSd8Mee1aKVIlx370jXWpbiAABXmgXrE9os0kiK3GaVaL9Gy9tSBgM9XwOdCTComaULdHPIekmaMq8KAoKxJjhKv08qoTl2xvfnHdeL3zDzag3XzkP/Zk/IMOOeywPw0yZFEggGMlUZ5BiMCaUzMv14DddbtAeCQEk03MMP8IEXNeHUjI+FeWCXQzrsQZSfsmhiD4j4RmYPZDkkg5Et0mz2mjj33bvbzjSYg==
-X-YMail-OSG: E2zfUyEVM1liH8nrgR03BY6MMlnSLxTZiL4_OBke00d8BKt1HdeSS03_GrfkSqr
- r9GCOc9.sBOLMNOXYZjK4nMOtJmWBHU1ME5YheUvKyHBHSwtGUEgWtG7zaq1c6FNdezLuaLxA.Xp
- Yw3zGp2ZcmWE4pntiPfB6ZobFOYDCIMqSUP4wUrtDIgNZk__QG2cydAdDYWhYr3T4PlPg3Auk7dX
- PecEbRNaDLxXPcSVG3zd6HUWMVCzccr3IJayk6WXtYO9o3dHn_tdKDR5Gp80D3RmuoU.K8bVCkmZ
- 78PrrACxbiDFQopx_yZZ_GrMiwfNCeeFyTitneeZB2YBc9WMCfR5bcWhResYxcknauhnxQnCLtdw
- 4.b2pZG60ZC7cqM7.z0O.xDbZ4oeaz5hlAUHR2PRCvs.W7K5dAxfv4lJ2XB7QSZxLo3.ozCdRnjv
- K4bVWwWp0PrW.AZizoSKL6OF.i38BScvBNMWv2QZgB0hDqaxfZEuSuvJrRL6LEu8stZk4xvnR9xU
- Q.9EwD2P2eEYILkCucgbeVopluAfte2JWDyuxpgcIJybhhW4JhlH5NY4YGjG.HkheBQq_3ZV23Y2
- A16Tdhu6KTPxT8vtErjJh2d_SGkLehTL53Kd7NMJiw_MugeZgabadCiXUjTn1.b__kzvOnb5.aq0
- Cy3I.lWLr5u5Ob4iWd2_Gj2Fqq6QGHtdUh1JribzK548K7rJO4gjY.kX54bSO4Kr1m7hWIP6OpKy
- GwVJ27xsMtZZzmlS9KOZruP_xpiFx6wh0_7pjrHeaV16YG2qzixnVhV5Yvg4QhoVdRITSLJfA0_6
- YYpCgkPchhWoDVJqNI.tjOmklhaUpp2rDHVvFPIDqqG_HcmpHFJKRp1XN3xbjNwgLbdYWYyF9xGn
- 2ZGy1QMoP7XH3rw1ZckxsavCPbkZKCvdGPe2bLAB.IEFM43KKzWD5ch76SobnEFv_4IeAWyPPINe
- 2EAy9zNwOoCXDbSVZAw9_hQMreoHCy5ZUXA3pRnNB588xuYx4tDhJIbqqNz.IVEeKS18LvmEU4qd
- bbewjsO2fmBaOaslcOcwG_GJk9jDoG.UxwgiXWgrCtXU88jEOWbdEuMfca6V6bCoejBVS2Qi09bm
- rlFixmrRHH6OLx.5HCbFROnaKTn5qHCtptwJcjKYnBBbIzBxCfbH.pO5eoqg4tPz3t_yiA3u7gRA
- M9.G.KZIgAjOVBb8k0ILs3iTAKp_whkGcQOZDQDWSwQudtq2RjBpaKZzI1sMZwSYpE5lCTsw1F5R
- wmNe9qhYhdL2CpxU5rMOOraG8PEXtnV6wIoT7KbytqlOEG_67J5dIx5oZ_QRYVHAcShuFedKcSSn
- ihZjrob147ay12HRfKgNfv30Lje81TP0woEB0tgAjQQV0rxESgXgjYbuYrx0zD9e9uWKPiaPk1uU
- 7e1jIM6SD_W9gmdesHdAgAw2RJ4TnmPBbtSkF8aTdJALodEYNU8hHzSrQ5jjvOYCeVStEiBy_L6W
- maJzYNVU2o_kk1YzXLINJT3Rq3Eo_4AbqI4.v.zHdvJHRtUU.xHbML1f2tOPsa_DK0bn0LeOhYHS
- _dvNJ20Oa6r3BZMAYnrd2ixmV3WaMEIhq9d13prdNmSvBd.By5jTkQ8Gne6ZmWX2WPg_A0fdNcNE
- hVP.Z0PTICyR6z_FxO0FJOsIFguVfYLOWzQNNW.why79tm6W4YQbzC3U1QsnFGV1LSoqGJaVwVY.
- daNdATXaSqglCV4N5f1JIXiWdJmd.XCK61e8yw1arqBmLSksiipY9b0PwC.6LWENZyzksqglRIi5
- dy8buFOCLAMXaULCIBKvBeYc3qbCEEImHI2h2Vd83cOTh7y0GFNhra93jRr9v2dkWoKDw2nEkfFa
- TghEdCMf8BLthrv7BBsVLj9.7Ca.iXaaNDNnQfRDnqf39ZPBhMg.fxfIrDQhIam9Yx2disLL84So
- MPGJ1fAZnFOPI3yf66YMaHDnUHu6mhqjLaom3AnJI23fN1yhruKj2QWazVjAy9bdqiE0AYhB8dHF
- dbeTLLDW6XjqRkM6uaIAJ7m9vOQ--
-X-Sonic-MF: <tomasz.unger@yahoo.pl>
-X-Sonic-ID: 0eafbce0-69f4-485d-810c-5d0ee321b30c
-Received: from sonic.gate.mail.ne1.yahoo.com by mail-asdoutdeli-p-cin-euwe1-prod-sonicconsumer-svc-104 with HTTP; Wed, 18 Nov 2026 22:22:35 +0000
-Received: from dip120.lsn.ir2.yahoo.com ([87.248.99.129])
-          by hello (SMTP) with SMTP ID 97eb8e7d0ce49dbbcc92550550a7216e;
-          Wed, 18 Nov 2026 22:22:33 +0000 (UTC)
-From: Tomasz Unger <tomasz.unger@yahoo.pl>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Frank Li <Frank.Li@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	dmaengine@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: bcm2835-dma: Add missing of_dma_controller_free()
-Date: Wed, 18 Nov 2026 23:22:30 +0100
-Message-ID: <20261118222230.123431-1-tomasz.unger@yahoo.pl>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <av3_yVSq9CKqix6o@SMW015318>
-References: <av3_yVSq9CKqix6o@SMW015318>
+	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=NzNMmabJ;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=AhMW1DUd
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id CD64A1400112
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:23:33 -0500 (EST)
+Received: from stl-imap-02 ([10.204.2.93])
+  by stl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 17:23:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795040612;
+	 x=1795127012; bh=GeOWSIs+WFAlcLOlvyJg3ui9WYpfBC2HNmmLSnk4aYw=; b=
+	NzNMmabJk/ngtInIeTXWV8Jg+14YQjXAtEmKU8mrIQPQRS/L8nWjzDpE4fcbOnNv
+	aLfIpwVNMThxaVj8Yo2Ky8YegVGGmCunevYS8JLJs25DoDoXFXtw9a+KzvJdvpG4
+	jssHMKR/PiL1HYeX4HIc9nFOzO991rgLP3nvJNWZIP/XXaHx1zg/CnPzcJBGEiJO
+	/66s0LsVJIj6Ok2Sn6ENwgNjK4qPNu5mYYvZX4ovWUug/nFgbkONJBYZCAJd5XU5
+	a1NXRsVbx5gS02rctjj8SGZ42LKqXagvveP0UlJojpiCw/YbGOID2QjrTp0vhFrD
+	GwD6W+z4Mm/NgFe012EwNw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795040612; x=
+	1795127012; bh=GeOWSIs+WFAlcLOlvyJg3ui9WYpfBC2HNmmLSnk4aYw=; b=A
+	hMW1DUdAgKPzMr3IKxvg6UNwzQKJK1SJb5ZdCzw2Us9EINDg9RItzkPsIy0cAqGh
+	icbSv9EJyjTzuW2q7goJECycS3gZQpquPKhN39VEdGbMegXdLboJivqp9vfnPNYj
+	q5HglaxIKFBNiY8tuxjo2cORbQnOuy0kZLv6/WB1AG30fsvsXG1fDf3NJxKAn0Wm
+	XCnFiW8N8NgixGDrvSJvnfNi2quzdQXnx+Q8DABXzAjcJrMmOphoXvhjrAKLuzB2
+	84Qg+PAVusHhnmsmG/NGUxXUVQ/Sa84zo0VEZGJ+Jc8iXQBzSidqjc2gTKqFlaUF
+	K8iF2SUn7ONVVrQLPBDTA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=squebb.ca a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795040612; d=squebb.ca;
+	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:lXiIzRUErs4wLt+LzbzOSkt+uXS7rTdBQtkIobg83DPtlZf
+	LuREXEzd+29Tl2e3R2QXFbbs9oajdki1q1HBWkpAjtd7qLk4QCdB+/PF73cdnEjV
+	CnZA2gRxUDtkYaNRxW2i/LWMunuGUwZtSe6B9ae+CrYynuwOWMXedSxigI9TScNz
+	dzSTq40sX7mkdGIumiE8zvRkE0jEpHKJUJU+AxmsWmebsWxKPD2FUq91aFlKN7Zb
+	hsh1hDqnwVVZBzovQdBJmnNuzB2WUGAvvPnqN+IKjhSOCbByQYGjkH8h8YCLWs/Y
+	/ktlBfcnIKyYQYrrqBKr7iQ2xClgm6E5DppqvVA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:uU1iodwr6PmmULaF+oq5irniuJYvXoQIAFVapHITAJE=:Z7mrX53OrQAu+XKuXoorHJKvWJJ8bKrvMHehMh87jtI=;
+X-ME-Sender: <xms:ZCX-aqicS3TRuFJYAjoxabZ8clbu2VA9XiJoBdEpEjtkDpO1tfas3A>
+    <xme:ZCX-al13X2nwV-29V0gAP9KNqtj24Ol7o4VjcYGMBQGGMQfOAVVaAS0e2VDxr1di6
+    Ek2O47zuwf94CwdfDHadyZOTQqzu-gyZtw1B8Imcl3VjjJJX2YYUCcs>
+X-ME-Proxy-Cause: dmFkZTF9S1+LeZt01p4KO4e+fLkt041wT1zZ2J+9UjqUIyYmpCwWhYcPdGGRV6bKhrdATc
+    yJOUBsVt3HQuVWCNRmQ3ONILB5XOYHxX5AZjze8rHJEUNV3Q+TP9k3yVRY9MtdNwv1Uj8S
+    CzbT/moL9tTlAjO+b+HvJkGlmZjQ/ny3j4mgdKfZhtR+lENqOdKPaeTg+rC0I7o5IN5TzJ
+    XwIOc5kwFuaNHENgT1IJ21FasPi13q0ZTvnjkgU2RbAbOSEuZJCNtrz7hRh0V481pGStlb
+    dkdEQm6tDae1Hd1UMgIadLTjz+I17AhBFvXV/Xf2/O4fljKEtlrw4AjIQooZ145kci0jnp
+    5seo2GpjVqvvKQ5brhx1bLfWsrJZ0AfBcS53/2KA1JFKEZtTmUlQTEBY/3dVti1wyyn8wK
+    EboIwP+S/MpVuczQzmq3NzW9VSwVHZCAOp8GXK7lZJFhVWCpAmcy90VbvgHwN+74VraFn3
+    hlcG6XL+m3L2dbj+d/34+077AlLzdy4Cworl1ew5NicmHA6BgwA4h5wpIG4iAxNv7xztEk
+    7P9S3zgQ1C4eeF3GTtr11vquKj4jjyVGi6pKJuy2y3j3kSHNYf2cnYRRQSWO7NshRGaL5k
+    dm92B8yYt0LyPgd0Y4MJ81evooTcsk4m62th62ZAwbMh41JD/aavuHT/9uHw
+X-ME-Proxy: <xmx:ZCX-alRQOHTbm7vZq8oxOo8YmgpGX4r4ZmukTPD6liwEftrDnQo-8A>
+    <xmx:ZCX-ahWMSSyjcLh6h-HnWdp_E8CK6w-XTSjBH86roN-ZO9dYSs_u0Q>
+    <xmx:ZCX-audXpc8k258D_8JnNnFyNuRQhzM3-1kxigoePFEbcs8DJJWPzQ>
+    <xmx:ZCX-atKs4F5tzCafYJR_rCQ8r68WrL4T0KLCahlqOnXNZF5X2CZz5A>
+    <xmx:ZCX-atmsdUIZtV7y3EwhWkR9OF0k_YPbqYC3W-dyGRWyAPgdCNX2Wh-k>
+Feedback-ID: ibe194615:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id 004152C00085; Wed, 18 Nov 2026 17:23:31 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,44 +115,261 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AieRt5HShkzB
+Date: Wed, 18 Nov 2026 17:23:11 -0500
+From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
+To: "Rong Zhang" <i@rong.moe>, "Derek J . Clark" <derekjohn.clark@gmail.com>,
+ "Hans de Goede" <hansg@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ "Alok Tiwari" <alok.a.tiwari@oracle.com>, "Armin Wolf" <W_Armin@gmx.de>
+Cc: 
+ "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
+ linux-kernel@vger.kernel.org
+Message-Id: <b6f3d294-6be4-4d01-99a3-9d41c3c010a0@app.fastmail.com>
+In-Reply-To: <20261119-lwmi-no-singleton-v1-5-6b06fcfb5126@rong.moe>
+References: <20261119-lwmi-no-singleton-v1-0-6b06fcfb5126@rong.moe>
+ <20261119-lwmi-no-singleton-v1-5-6b06fcfb5126@rong.moe>
+Subject: Re: [PATCH 5/5] platform/x86: lenovo-wmi-other: Hide unsupported attributes
+ using is_visible() callback
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 01:43:05PM -0600, Frank Li wrote:
-> On Sun, Nov 15, 2026 at 11:15:15PM +0100, Tomasz Unger wrote:
->> @@ -1027,6 +1029,7 @@ static void bcm2835_dma_remove(struct platform_device *pdev)
->>  {
->>        struct bcm2835_dmadev *od = platform_get_drvdata(pdev);
->>
->> +      of_dma_controller_free(pdev->dev.of_node);
+
+
+On Wed, Nov 18, 2026, at 1:58 PM, Rong Zhang wrote:
+> Currently, all attribute groups are created individually with support
+> check beforehand. This is unnecessary as unsupported attributes can be
+> hidden by returning SYSFS_GROUP_INVISIBLE in the is_visible() callback of
+> the attribute group.
 >
-> use devm_of_dma_controller_register() to fix this problem
-
-Hi Frank,
-
-Thanks for the review. I tried that, but with only the OF registration
-moved to devres, the controller entry is removed after
-bcm2835_dma_remove() has returned, i.e. after
-dma_async_device_unregister() and bcm2835_dma_free().
-
-In that window bcm2835_dma_xlate() can still be reached through the
-node. dma_async_device_unregister() has already freed chan->local and
-dropped the last device reference (dma_device_release() does
-list_del_rcu(&device->global_node)), while the channels stay on
-od->ddev.channels until bcm2835_dma_free(). A client requesting a
-channel at that point goes through find_candidate(), dma_chan_get()
-fails with -ENODEV and global_node is deleted a second time. The same
-applies to the dma_async_device_register() error path in probe.
-
-Doing it right with devres would mean converting the whole teardown:
-a devm action for bcm2835_dma_free(), dmaenginem_async_device_register(),
-and devm_of_dma_controller_register() last, so that the OF entry is
-removed first. That is a larger change, and
-devm_of_dma_controller_register() only exists since v7.1, while this
-fixes a bug from the original driver and is tagged for stable.
-
-So I would prefer to keep this patch as a minimal fix that backports
-cleanly, and send the devres conversion as a separate follow-up.
-Would that work for you?
-
-Thanks,
-Tomasz
+> Refactor the lwmi_attr_01_is_supported() function, and wrap it with
+> lwmi_attr_01_is_visible(). In this manner, the capdata01_attr_group
+> array is now replaced by a standard attribute_group array, which can be
+> created and removed at once using sysfs_create_groups() and
+> sysfs_remove_groups().
+>
+> A new field `initialized' is added to tunable_attr_01_ctx to prevent it
+> from being initialized twice, as lwmi_attr_01_is_visible() is called
+> twice with n == 0, in which once is against the group and the other is
+> against the first attribute. The field is cleared on unbind to make sure
+> the next rebind caused by userspace writing to the sysfs bind file won't
+> get leaked data.
+>
+> Signed-off-by: Rong Zhang <i@rong.moe>
+> ---
+>  drivers/platform/x86/lenovo/wmi-other.c | 118 +++++++++++++++++++-------------
+>  1 file changed, 72 insertions(+), 46 deletions(-)
+>
+> diff --git a/drivers/platform/x86/lenovo/wmi-other.c 
+> b/drivers/platform/x86/lenovo/wmi-other.c
+> index f37dca7db034..6df6669e426e 100644
+> --- a/drivers/platform/x86/lenovo/wmi-other.c
+> +++ b/drivers/platform/x86/lenovo/wmi-other.c
+> @@ -140,6 +140,8 @@ struct tunable_attr_01 {
+>  struct tunable_attr_01_ctx {
+>  	u8 cd_mode_id; /* mode arg for searching capdata */
+>  	u8 cv_mode_id; /* mode arg for set/get current_value */
+> +
+> +	bool initialized;
+>  };
+> 
+>  enum { TUNABLE_ATTR_01_COUNTER_BASE = __COUNTER__ + 1 };
+> @@ -1039,11 +1041,6 @@ struct capdata01_attr {
+>  	};
+>  };
+> 
+> -struct capdata01_attr_group {
+> -	const struct attribute_group *attr_group;
+> -	const struct tunable_attr_01 *tunable_attr;
+> -};
+> -
+>  static inline struct lwmi_om_priv *kobj_to_om_priv(const struct 
+> kobject *kobj)
+>  {
+>  	return dev_get_drvdata(kobj_to_dev(kobj->parent));
+> @@ -1055,6 +1052,13 @@ kobj_attr_to_cd01_attr(const struct 
+> kobj_attribute *kattr)
+>  	return container_of_const(kattr, struct capdata01_attr, kobj_attr);
+>  }
+> 
+> +static inline const struct capdata01_attr *attr_to_cd01_attr(const 
+> struct attribute *attr)
+> +{
+> +	const struct kobj_attribute *kattr = container_of_const(attr, struct 
+> kobj_attribute, attr);
+> +
+> +	return kobj_attr_to_cd01_attr(kattr);
+> +}
+> +
+>  static inline struct tunable_attr_01_ctx *tunable_to_ctx(struct 
+> lwmi_om_priv *priv,
+>  							 const struct tunable_attr_01 *tunable_attr)
+>  {
+> @@ -1289,6 +1293,9 @@ static bool lwmi_attr_01_is_supported(struct 
+> lwmi_om_priv *priv,
+>  	struct capdata01 capdata;
+>  	int retval, ret, i;
+> 
+> +	if (ctx->initialized)
+> +		return true;
+> +
+>  	/* Determine cd_mode_id  */
+>  	for (i = 0; i < ARRAY_SIZE(modes); i++) {
+>  		args.arg0 = tunable_attr_01_id(tunable_attr, modes[i]);
+> @@ -1328,7 +1335,32 @@ static bool lwmi_attr_01_is_supported(struct 
+> lwmi_om_priv *priv,
+>  	dev_dbg(&priv->wdev->dev, "cv_mode_id: %#010x, attribute support 
+> level: %#010x\n",
+>  		args.arg0, capdata.supported);
+> 
+> -	return capdata.supported > 0;
+> +	ctx->initialized = true;
+> +	return true;
+> +}
+> +
+> +/**
+> + * lwmi_attr_01_is_visible() - Determine if the given attribute is 
+> visible.
+> + * @kobj: Pointer to the driver object.
+> + * @attr: Pointer to the attribute calling this function.
+> + * @n: @attr is the N-th attribute.
+> + *
+> + * Return: umode_t or SYSFS_GROUP_INVISIBLE.
+> + */
+> +static umode_t lwmi_attr_01_is_visible(struct kobject *kobj, const 
+> struct attribute *attr, int n)
+> +{
+> +	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
+> +
+> +	/* Only grab tunable_attr here as not all attributes are cd01_attr. */
+> +	if (n == 0) {
+> +		const struct capdata01_attr *cd01_attr = attr_to_cd01_attr(attr);
+> +		const struct tunable_attr_01 *tunable_attr = cd01_attr->tunable_attr;
+> +
+> +		if (!lwmi_attr_01_is_supported(priv, tunable_attr))
+> +			return SYSFS_GROUP_INVISIBLE;
+> +	}
+> +
+> +	return attr->mode;
+>  }
+> 
+>  /* Lenovo WMI Other Mode Attribute macros */
+> @@ -1377,6 +1409,7 @@ static bool lwmi_attr_01_is_supported(struct 
+> lwmi_om_priv *priv,
+>  	static const struct attribute_group _attrname##_attr_group = {    \
+>  		.name = #_attrname,                                       \
+>  		.attrs_const = _attrname##_attrs,                         \
+> +		.is_visible_const = lwmi_attr_01_is_visible,              \
+>  	}
+> 
+>  /* CPU tunable attributes */
+> @@ -1427,30 +1460,30 @@ LWMI_ATTR_GROUP_TUNABLE_CAP01(gpu_nv_ppab,
+>  LWMI_ATTR_GROUP_TUNABLE_CAP01(gpu_temp,
+>  			      "Set the GPU thermal load limit");
+> 
+> -static struct capdata01_attr_group cd01_attr_groups[] = {
+> -	{ &cpu_temp_attr_group, &cpu_temp },
+> -	{ &dgpu_boost_clk_attr_group, &dgpu_boost_clk },
+> -	{ &dgpu_didvid_attr_group, &dgpu_didvid },
+> -	{ &dgpu_enable_attr_group, &dgpu_enable },
+> -	{ &gpu_mode_attr_group, &gpu_mode },
+> -	{ &gpu_nv_ac_offset_attr_group, &gpu_nv_ac_offset },
+> -	{ &gpu_nv_bpl_attr_group, &gpu_nv_bpl },
+> -	{ &gpu_nv_cpu_boost_attr_group, &gpu_nv_cpu_boost },
+> -	{ &gpu_nv_ctgp_attr_group, &gpu_nv_ctgp },
+> -	{ &gpu_nv_ppab_attr_group, &gpu_nv_ppab },
+> -	{ &gpu_temp_attr_group, &gpu_temp },
+> -	{ &ppt_cpu_cl_attr_group, &ppt_cpu_cl },
+> -	{ &ppt_pl1_apu_spl_attr_group, &ppt_pl1_apu_spl },
+> -	{ &ppt_pl1_spl_attr_group, &ppt_pl1_spl },
+> -	{ &ppt_pl1_spl_cl_attr_group, &ppt_pl1_spl_cl },
+> -	{ &ppt_pl1_tau_attr_group, &ppt_pl1_tau },
+> -	{ &ppt_pl2_sppt_attr_group, &ppt_pl2_sppt },
+> -	{ &ppt_pl2_sppt_cl_attr_group, &ppt_pl2_sppt_cl },
+> -	{ &ppt_pl3_fppt_attr_group, &ppt_pl3_fppt },
+> -	{ &ppt_pl3_fppt_cl_attr_group, &ppt_pl3_fppt_cl },
+> -	{ &ppt_pl4_ipl_attr_group, &ppt_pl4_ipl },
+> -	{ &ppt_pl4_ipl_cl_attr_group, &ppt_pl4_ipl_cl },
+> -	{},
+> +static const struct attribute_group *const cd01_attr_groups[] = {
+> +	&cpu_temp_attr_group,
+> +	&dgpu_boost_clk_attr_group,
+> +	&dgpu_didvid_attr_group,
+> +	&dgpu_enable_attr_group,
+> +	&gpu_mode_attr_group,
+> +	&gpu_nv_ac_offset_attr_group,
+> +	&gpu_nv_bpl_attr_group,
+> +	&gpu_nv_cpu_boost_attr_group,
+> +	&gpu_nv_ctgp_attr_group,
+> +	&gpu_nv_ppab_attr_group,
+> +	&gpu_temp_attr_group,
+> +	&ppt_cpu_cl_attr_group,
+> +	&ppt_pl1_apu_spl_attr_group,
+> +	&ppt_pl1_spl_attr_group,
+> +	&ppt_pl1_spl_cl_attr_group,
+> +	&ppt_pl1_tau_attr_group,
+> +	&ppt_pl2_sppt_attr_group,
+> +	&ppt_pl2_sppt_cl_attr_group,
+> +	&ppt_pl3_fppt_attr_group,
+> +	&ppt_pl3_fppt_cl_attr_group,
+> +	&ppt_pl4_ipl_attr_group,
+> +	&ppt_pl4_ipl_cl_attr_group,
+> +	NULL
+>  };
+> 
+>  /**
+> @@ -1459,7 +1492,6 @@ static struct capdata01_attr_group cd01_attr_groups[] = {
+>   */
+>  static void lwmi_om_fw_attr_add(struct lwmi_om_priv *priv)
+>  {
+> -	unsigned int i;
+>  	int err;
+> 
+>  	err = ida_alloc(&lwmi_om_ida, GFP_KERNEL);
+> @@ -1485,21 +1517,14 @@ static void lwmi_om_fw_attr_add(struct 
+> lwmi_om_priv *priv)
+> 
+>  	dev_set_drvdata(priv->fw_attr_dev, priv);
+> 
+> -	for (i = 0; i < ARRAY_SIZE(cd01_attr_groups) - 1; i++) {
+> -		if (!lwmi_attr_01_is_supported(priv, cd01_attr_groups[i].tunable_attr))
+> -			continue;
+> +	err = sysfs_create_groups(&priv->fw_attr_kset->kobj, cd01_attr_groups);
+> +	if (err)
+> +		goto err_remove_kset;
+> 
+> -		err = sysfs_create_group(&priv->fw_attr_kset->kobj,
+> -					 cd01_attr_groups[i].attr_group);
+> -		if (err)
+> -			goto err_remove_groups;
+> -	}
+>  	return;
+> 
+> -err_remove_groups:
+> -	while (i--)
+> -		sysfs_remove_group(&priv->fw_attr_kset->kobj,
+> -				   cd01_attr_groups[i].attr_group);
+> +err_remove_kset:
+> +	memset(priv->tunable_attr_ctx, 0, sizeof(priv->tunable_attr_ctx));
+> 
+>  	kset_unregister(priv->fw_attr_kset);
+> 
+> @@ -1525,9 +1550,10 @@ static void lwmi_om_fw_attr_remove(struct 
+> lwmi_om_priv *priv)
+>  	if (priv->ida_id < 0)
+>  		return;
+> 
+> -	for (unsigned int i = 0; i < ARRAY_SIZE(cd01_attr_groups) - 1; i++)
+> -		sysfs_remove_group(&priv->fw_attr_kset->kobj,
+> -				   cd01_attr_groups[i].attr_group);
+> +	sysfs_remove_groups(&priv->fw_attr_kset->kobj, cd01_attr_groups);
+> +
+> +	/* Don't leak ctx->initialized to the next rebind from userspace. */
+> +	memset(priv->tunable_attr_ctx, 0, sizeof(priv->tunable_attr_ctx));
+> 
+>  	kset_unregister(priv->fw_attr_kset);
+>  	device_unregister(priv->fw_attr_dev);
+>
+Looks good to me
+Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+Mark
