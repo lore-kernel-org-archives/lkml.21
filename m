@@ -1,94 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019986;
-	b=x/P7lSXsb1YQh/t5lmmyhtbSjk+TwOK+983trt5Gns/YtQ1SWiHmp+IWnU/dHdsJCwN5
-	 1XdIVRK2ZLtrqLdD/ok4/2uZxxblnjXI2otdjgAWuw2KuOlOciO/l4Ln0yzxhHPreojcs
-	 dZSmTE910jA17bsowaghS9sQEy1b4M7sF0BhCNjAexjfT1WD1U4mmxnA9inDsru+wmXJn
-	 Glczs0qsqkkPp6bcmsWy0J0JMVGtNGoIRbYtPaF2RiWIygtJg65thVplCtsomVaTsY0JX
-	 GeRMcxvqE/xRAXYWw97btwQt+HBDGMocJu5zUyGDGdQbDHc3DU8CekeCrmUQ0pSyOiQ==
+	t=1795019989;
+	b=wwkQ3a7Net3aGwAW/AdBJVWVC693EBfMGbXoKPPErnvdXj/s81+wRSWTzln04rrjo9vz
+	 LkxPynhoTSoW77SrbFENJY+DIbXncLKomdlbQaR8jn6Fn4/cFSBcgCyrzWiB0cfWrALip
+	 Xsd4r9B33xBP9WflcZwy65QMBo5bgV2GsB4Fr9cLLo4uJpgOOtFdPDADywJRXCkUk+Gju
+	 V4x3zL2daQLjGesNFJ+NE0RqKUTENfcNpivJTgMBgZRp9ixFrGiu3pKn+op8bw+qXUnvW
+	 v54I/2bStaNiI2223iRrxy5s9JrIAytJG/x2UU58zH264Z+stUlAp31rs6T6mY8FaoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019986;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019989;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=bh8psZOmC4bOFeg8VRYosIGA8CEyLOtfgzV/XgfIDhQ=;
-	b=MOnub1apIOERuf/FyQ5RAVR0Hm3eJDqNjiBZ7VlcULFAKUigpLZ8qwj1HwhvjaH3gOqa
-	 SMpFnSDypLSpED/DO1dJu+38IDnyvIvivKcXFhYb/TWhcNuGtsSc3hI2wEdWM1Xoj9AIg
-	 BdoazweAWLkrJSO2E2oqBHq6P5qrs3LFrZUTS/oeEUmUIVYPjnOR9A/xV2EMn0fyKVcCy
-	 ZfiOS4HMIIm3vyMSUEuH3s4j6hW1k7ukgExU48UQH/UQxv13wvjIMzrmJzWilsaBs2+14
-	 BTnGPrSzBofWG00vbvXc74ZDeG393HEQ1+25xWaOReCRikAeEcqil+0M32x+f18nzbQ==
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=y0TMrCzbGMAXa1cTU4qckddvOIHma2PxgVYHTYEMX2w=;
+	b=fidFeE1WKr64v4E7etRGZ4bCqB3jLutoj9IhRbWS/1vBBEkz4k2bVigaYEr4nqgRFlT6
+	 bT3630pcT/Ns5DyuK0yfG+vxdYkgiHZPz1w4zV7rqqeLj57MQezN2Y9vtQ3svgqNGqDaz
+	 imnUEqhF4rGAAYP8cR4VXcUEbWkr6VNnI3Uakr2acRpTWkbYiX6iDbMzhFf9mCnVvIQvt
+	 gulTeM/d7/0rfx0VHdJUgtwx4DBpgLMFZfupl91bZItwZWyjEqxHTxJrIQr7zM//tMnqv
+	 +GpvN1AGY3tvWsPkggr+s98uM3h4xg24aaLhoKc5L0d+gL36XFAq11iQgQ5UWEIV1MA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u1GXwBK+;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=E2MyY97I;
+	arc=none smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41468606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:39:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41468606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C130606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:39:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C130606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u1GXwBK+
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-380b40312e2so3379158eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:39:46 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=E2MyY97I
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b86fcbd647so2188199a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:39:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795019985; x=1795624785; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bh8psZOmC4bOFeg8VRYosIGA8CEyLOtfgzV/XgfIDhQ=;
-        b=u1GXwBK+2acPTtV3x6/dWKjQkAEYAj1fKtbbBZ8NUywmLbBY7ZZWJKYNrC1R41exYM
-         awNcOavT/cIbWqZIJ76ueUn7gOufU8nBekNpWjoIlDKKL0rtww7CUEapAMvFsS8Bx3nr
-         zebHWBxsta1UOuQoPtDfNN4lBZ3vFVHCRZ4FNTqzTKGkkJGQEGuiNBxdGOgVSDSOZzf0
-         EhcySgEdLqdzX2BSwjG3WCcCqOSgwlZUGSzO4q6FjuF3WjmfSPiUGWa3g4KRdmQEPHO7
-         SUSOhwfABG3uyCNDLwacpcnEZzdi9DLlfTJsVGipDvJyyKYxXZ9yLPyS0nXNdPGPtyPR
-         fmZA==
+        d=linux-foundation.org; s=google; t=1795019982; x=1795624782; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y0TMrCzbGMAXa1cTU4qckddvOIHma2PxgVYHTYEMX2w=;
+        b=E2MyY97IaK7EIbtBNaVLxa+z7XuY4/4AGso9YjgYYgpjkuOqR5LhFecy9cjZu0OGtF
+         Mk6hujlebYW/uKXKjpxKKJrwIQf0fZyUZRa0/RRi4MbhF9bQaCHHcJ3rtmqp7P/yE16T
+         5TZTuc7weUhgz++UFJKOF1s0z922xbloa8JTQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019985; x=1795624785;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bh8psZOmC4bOFeg8VRYosIGA8CEyLOtfgzV/XgfIDhQ=;
-        b=g0vn+YOs4Si+FlaxxR7wbRKnZl6XuDztOFjA34aXSirnt/bc65FOIZL1tCXAOEbqQE
-         yxDkfT7KMVNLA0AOfUeBqQO62dR0RbxkKF8R3xBMsVGOK9vV8000aSeIx9fMFvocVlf0
-         jmU0T7TJQb5hjfGEoeOwEROe0KIFI6gehfhWfMjDy0BpGNBwCpRXx96qwRUEX7ET2p48
-         u3prArf7bknGRNNecKIxmPLEBH0KAIvl27TlHbWdPPEvbugZTrLPNWZAoRh5nQ8WpGNa
-         53zsjwOP9jt7V2+FakPwx3Axa5Ub5OJpBYiE/eEkkWRfrvkOc1M5WvtBT8mxCssYOm3u
-         K4uA==
-X-Forwarded-Encrypted: i=1; AL+hErGsJdnn9LcTfA576doLW4AcQ1iIIVIvOOvYK1V5HbToAgGOkud5avki4adMJlEwWNqHB7P8m0W8XIwo9AY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XmUAXwb7Y5UZ8i8AgpY3nLK/MJCba+3gPDLLst/CkthVFzHRO
-	l2s5XxsSzJ3ebMhQVWWUPcfvPpo6cAHWDjqVNy5fYSVyaJXL7q8KjU6V
-X-Gm-Gg: AZFdTZdMCEYHhMGeQa6pvXurDpjVksLJtgfpmHcB9DeILLK/+IcB8SKNrqEUas4SZxK
-	gux5nyF7AcoFtWcM56b0baIg0boNv9SfVL/Yi7+GvbZhR3VyYQrGP+WMXEfiMPkwVj/ppcZG5h8
-	QYRLPtqzD7krUZ8Heh55AamYW9Gw3BKsiqe6HoHehoImyFiKLf5Bn8kncClexydt4fWuMU6aN1H
-	KDtNwn6jD3OO76SmSbTtTCkCoh8LqLywAd4pXatrZJXluw1fJtOy1i8BQkedWGqzxX3IT0IQMCs
-	mQ1C30E+saG0v3spjC8Fx8lOlabxnszXwnZ/L3+K0qu29p82AebSL2rE3fOkUo42+T8OBucvKyT
-	xDn89JHe+aqPTp49Eev56lbcfOok2Nuse5k+1Uqkgscb9ItEGUq+zb2bbVpASGRtV84qviRSAuj
-	C57nZ8PR1i0v4XXk68tQ+OnM4rdG4ezvc0SpJ92YnRr5agcM0nsGsWJ/7zNBpPsNeyWn5omDvWi
-	pA1KyivV7pa1lrSl723pbGdKQ0UK7OfaMjVihdIrgh4gJT3laRsGMcivjWPqurdhDObOECZQxou
-	tn3F3KuAcVsDByklCCHcp1ZAM1+lN5SoV0XkKsKf6Gzgen17kWtl
-X-Received: by 2002:a05:7300:6da2:b0:380:d99d:ce1d with SMTP id 5a478bee46e88-3828016fed0mr4014426eec.15.1795019985119;
-        Wed, 18 Nov 2026 08:39:45 -0800 (PST)
-Received: from ubuntu ([110.9.142.4])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6df02adsm10232008eec.14.2026.11.18.08.39.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:39:44 -0800 (PST)
-From: Sang-Heon Jeon <ekffu200098@gmail.com>
-To: Yazen Ghannam <yazen.ghannam@amd.com>
-Cc: linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bhelgaas@google.com
-Subject: Re: [PATCH 3/4] PCI/AER: Report the ratelimit interval in milliseconds
-Date: Thu, 19 Nov 2026 01:39:32 +0900
-Message-ID: <20261118163934.96979-1-ekffu200098@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261110215614.3931232-4-yazen.ghannam@amd.com>
-References: <20261110215614.3931232-1-yazen.ghannam@amd.com> <20261110215614.3931232-4-yazen.ghannam@amd.com>
+        d=1e100.net; s=20260707; t=1795019982; x=1795624782;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=y0TMrCzbGMAXa1cTU4qckddvOIHma2PxgVYHTYEMX2w=;
+        b=RY8jgLC4p0zVKIVgVtGSsD1wPGU77ToDiETFA5adyAoqm66pZ50+vxvlJ7VKmTRDpC
+         4l+kuzHn2caTkDDgDfxHYSNPsvBFOX9W2tnA3zqaWGWduYK+x7LCEyUIqT2C/lACBwH9
+         vvOmpepUy19IefZJGLCfi/kgehjdE6BfFAVlo2EcDhg92KN60VD5mkx2fuSMHoNfpG/2
+         zuaU3igmuDwmxIg3mWObYMFvTQbth477Evnlw0+ECLffSjdhTjIlBlhD5phhv0F+b5Qm
+         Jcco5erTSVlo+Bo1Nz09JoPkGeNy5Eo8omYyYLPLNCq/xeuiZFPJj9I2HvGq655X+fbc
+         6y6g==
+X-Forwarded-Encrypted: i=1; AL+hErGNYNIG/5oVR6w6EUafFLC3yda81byiVf3m+8I2aczwN1vmqMejzyPVkg2EY7vF5o/GoOFrgsvwGd8zfUA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fAY3E2TZY9fC+mgeTumnOfd2mh1VbqcqELqXQvD8/IoH8eikF
+	HqnVMtu0yjtFmDZnNhUwFbIIbySxoZw8YcbkRE8mEDeai3xSjGnwwrHAWEVafFHtgP5PCUNL8WF
+	LP/utKh9HPQ==
+X-Gm-Gg: AYBFou2REbRsTPHf61ZOHTXNmak74Sz2Bmt8pZ7uUOFsx2zoPafBA2KdYK8J02zroBy
+	Ofxs95AmTBvzvkWwgE5ro24QQAN2b5UcR9QC8tmjSbIbR1pBnw6zX44kpERMfZq4GoFKCKgf/aD
+	/VrAZX8Dk1RnDmIUlG6oAozQD4ioArHika91nU2ikJfzkgaDLu41vUZmyFdAZy4/Oj0B3zQBe6M
+	mwxLI511pxWiM0bB2NO4cVUsgnP9TOKZJI/jWH1XKElZHlTQMzrunOnF4fafGLr/arGmMb07Itf
+	P5/fc1GYMXAVlAFwuy33UhlMDEXPFev8pyCjAVEhHKNsvC9BNXxt1jrn6px2SqKwnyy6bLtMMkO
+	vG4BS1IeUkWE/DN5huGfHKrYmZhIrNNB39b8aOz+Cwmx1wL6oiZQ9F10d9XrauXQwt6wuEcnl7I
+	ZEa9LsX4Rd2eJkNBAEwhZ6vyjxY4peCEsNxpm/U5kVlGyQNqLjn4MZdk+3HBuJ2wMPrdyu1ERqU
+	sO7v6OiT4pNBn4E8LFIQKfXEnObR5SoLWedmXxST7BKlndU2F5E62nnAF60CcbXmYlCPmuJX0W3
+	WO5TH21BkgxUwYIbAcOiU8stYZhbeMMYNJfh1iX0tkUUp57eZniJcfHipX57ki/FZMq1v/G3gpa
+	GBwU=
+X-Received: by 2002:a05:6402:4546:b0:6b7:8b02:726e with SMTP id 4fb4d7f45d1cf-6b859b7994cmr4057589a12.18.1795019981475;
+        Wed, 18 Nov 2026 08:39:41 -0800 (PST)
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com. [209.85.218.44])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b889c2379asm1349484a12.17.2026.11.18.08.39.40
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:39:40 -0800 (PST)
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c50d3ac6b51so471715066b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:39:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGfafmmK9VQQp16+FKILNBZrPXkViGIPoUDdZTsTclGFip6irEMQyvw16W2NiM45BhD3poDF66Tt90y4D8=@vger.kernel.org
+X-Received: by 2002:a17:907:1c9b:b0:c4d:31be:1f27 with SMTP id
+ a640c23a62f3a-c51260bf92amr3511966b.9.1795019980203; Wed, 18 Nov 2026
+ 08:39:40 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,41 +94,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
+ <avxWKI795DthE8Sb@redhat.com> <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
+ <avyODoFhZ_M7YDU5@redhat.com> <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
+ <avyVwg-5ef-pXZkG@redhat.com> <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
+ <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com>
+ <av2juQijIISJAgyf@redhat.com> <CAHk-=wg4RgBYZcUU+c16XxdZ4UbAaazJkUS=R6=tpN4xUBdDRw@mail.gmail.com>
+ <av3SmRMGDLVAwMzK@redhat.com>
+In-Reply-To: <av3SmRMGDLVAwMzK@redhat.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 18 Nov 2026 08:39:22 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wifUn5X6LeT+-A3mW9JtDcfx2x-5xsWpTxXzThibsK6Ww@mail.gmail.com>
+X-Gm-Features: AclHuK8yADyTYfgQF-cxDlxPVAPrNzQpmw9eeowiVPqEa19tx8pNj1uFwz9vJyA
+Message-ID: <CAHk-=wifUn5X6LeT+-A3mW9JtDcfx2x-5xsWpTxXzThibsK6Ww@mail.gmail.com>
+Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>, 
+	Breno Leitao <leitao@debian.org>, Christian Brauner <brauner@kernel.org>, 
+	Mateusz Guzik <mjguzik@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tz2294@columbia.edu, stable@vger.kernel.org, 
+	Mani Tofigh <mt4022@columbia.edu>
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 10, 2026 at 03:56:13PM -0600, Yazen Ghannam wrote:
-> The "*_ratelimit_interval_ms" attributes convert milliseconds to jiffies
-> when storing. But they don't convert jiffies to milliseconds when
-> showing. So the user is presented with the raw jiffies value.
+On Wed, 18 Nov 2026 at 08:30, Oleg Nesterov <oleg@redhat.com> wrote:
 >
-> Do the jiffies to milliseconds conversion when showing the value.
+> On 11/18, Linus Torvalds wrote:
+> >
+> > Some duplication - with explicit naming of the locking status for the
+> > special cases that are called with the lock already held - is much
+> > preferable to dynamically doing the locking
 >
-> Fixes: b4fe7398def6 ("PCI/AER: Add sysfs attributes for log ratelimits")
-> Signed-off-by: Yazen Ghannam <yazen.ghannam@amd.com>
-> ---
->  drivers/pci/pcie/aer.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pci/pcie/aer.c b/drivers/pci/pcie/aer.c
-> index 401cd3a1b3d0..32a4c9101946 100644
-> --- a/drivers/pci/pcie/aer.c
-> +++ b/drivers/pci/pcie/aer.c
-> @@ -699,9 +699,9 @@ const struct attribute_group aer_stats_attr_group = {
->  					 char *buf)			\
->  	{								\
->  		struct pci_dev *pdev = to_pci_dev(dev);			\
-> +		unsigned long iv = pdev->aer_info->ratelimit.interval;	\
->  									\
-> -		return sysfs_emit(buf, "%d\n",				\
-> -				  pdev->aer_info->ratelimit.interval);	\
-> +		return sysfs_emit(buf, "%u\n", jiffies_to_msecs(iv));	\
->  	}								\
->  									\
->  	static ssize_t							\
+> OK, this was my plan B ;) I'll try to make a patch this week.
 
-I found a similar issue in other subsystems, and this looks good to me.
+I've applied my cleanup patch in the meantime, it was obvious cleanup
+and I didn't want it to cause unnecessary conflicts with anything you
+do in this area.
 
-Reviewed-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+I haven't pushed it out yet, I have a few pull requests pending that
+I'll go through first.
 
-Best Regards,
-Sang-Heon Jeon
+          Linus
