@@ -1,113 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994914;
-	b=oAQz8po6k1Hom3zfLyONoL1D4kyTlCm5/iEQFp1vnj1QMLRLRtUIH6rxchczMfdQoLo6
-	 2dFdxauwlD5YeJsjNK5a4m5a1NZfHujHxEbYd/bhhlR/0Pd0WbB5hWuzbnlV7zrRWUceK
-	 ysu59SvPgrU975NCrV5FqaF8OyOOy2oezsVSvLuaUbIVIMJUTO2tpWwckUDa0AEhN/805
-	 25Sa9Xb2MJAUpXcG4iENcWgfmqQJQNHyGjzul/qPI74509kqwei6MMle1qL8Hrcx2uJwP
-	 7fe7/Z7c2BngGPWd6EOXELHvnVliqCqJcV3q1KrciSIdWA4bvJPWWFHR0Gxyg/W2SPg==
+	t=1794994919;
+	b=CfPmyqf+0bk4U4SiWc+ARsUzVpToCKkhPgT5n0nBm4QT3FWt/N8Pqv6iE2u+obUzgE9h
+	 R8/YQztl8CS9uJx3yapvc1gA8voH9ytHypH5QtRkLm2Sak0dXdhh2pJitg7TN/SCsL0gh
+	 CaLbbMiFwHZHA5x7eZrlzTkbNjLzIbYmQMljsQy71gh//WTxaCOUTFvaPSI6vN37Ifpen
+	 qT6I3IGxUqjmnYNiYyRx7WioQQqth7Y+Tb4rDBPoCDSJ0uVlIALMvJQNfO4/d27lu85ft
+	 9CxmnxlRx7DFRZn75KaGAlxjk2gFpcFD/XF722gsbPrTozkto2vsdL+ozU+q8SUqcVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994914;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994919;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
 	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=+whxw5wwivtSoHM2QX2azu39PmWANgcrBKwtDEotNtE=;
-	b=YaQNwAlJVi11b6D5V4ZxKOhzWdaWtR/BDdZSHzUMwcVjNn+nH4xR2jAW4nKD36Y8nS+5
-	 wtkqbnhGOgu2QUd+/3X+uEdTlTVbh6iyYKMDLrdgnmpXWL4rkHj5IREKMLf0W4y/gFwXP
-	 wk6FtX5m43iViEZBaTr7gNNCoeH86rPpa6wX0cGQ4uhxHp7431WzWeWeglSccpC5QkWpE
-	 SlBUdYEhHfTSY9JCttSHZ9cNVVS9bi21TInjE/JdqukBm06OYwBLjgKEmohaPS/X+fJ3y
-	 20dIPztFDqheI81oUrGtAjELbNPveMyn6a8bo/SAPiINoWlL+RUCeLIB3MjKBLIRLDA==
+	bh=7R/MG8MVxCDIVhRXob2kwGouNany+NyhkdChngQaRbc=;
+	b=GbpGrWEmxDJyyzRqrrWhQCyDKmkoUuITi5M5jQLke0mzQ0IkqR5kdmqdVCXtdwUNPAS1
+	 ZuJybR86shs00+daeX/ZKQbTTgA/57ZJLXEHmk1GdqnmsVaZIfbhJh/4gHGiBzCFOeUIy
+	 vfeFCFQ3nPyv+lHXCpHzkaTZcsW4I+EiVPFjcBJFVwW9fgzen1ZivDY6YLU1DoPngPsCN
+	 MKGzNY155QtXWveJleG1j/NK0kabfMz9HxHmuG9yOfxBnV7GbdJehPSULzH4r13F6vKOe
+	 aBPi9uZllAsQbC4tZMbbEpnoWZjcFBSz5+FyrHAISvQGMZL1ioQILscs0CqBvsHOePA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="aSL1H5/1";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WnPq2rVv;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=mfyCYF8u;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LXH37jeu;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1518606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1518606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01BD6606A339
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01BD6606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=aSL1H5/1;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WnPq2rVv
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8BRT42602449
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:53 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=mfyCYF8u;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LXH37jeu
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8cA9l2106321
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+whxw5wwivtSoHM2QX2azu39PmWANgcrBKwtDEotNtE=; b=aSL1H5/13XqAb7cH
-	P07xUO7IwvObR2201yHKcFoxrTGHWb6OAxyQeProZ1Fh9rYlVVDOKlcV/djmU/tq
-	Qgt6LcUlewD48YuxGxOiS2lGGr7FgKRaH8ka6a34DGJNrSZ2DwaoY23TtlmL9y27
-	v40MWA1P8kWATYo5i30irCzOhqO/LQewA8IG61soZyuYH03ZnjqiulwjM+Y+CBYI
-	6jAv+RmYsQyj+SJ60YQ4yU+18NcxfGeoOTJqUnB4rqrL2+Mth3p9Laq99tbBEM4O
-	ayuKs+MOZnSWL8OCfj7y38ZE0wJomrOitSWFN6k9I37wS8PtCj8CPeLuUnWjNzJl
-	MxIWYg==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv72e0b-1
+	7R/MG8MVxCDIVhRXob2kwGouNany+NyhkdChngQaRbc=; b=mfyCYF8uW6nruTZE
+	E/UakfA00SYE3X/Yyc2Y3DuafOQB1IApTZsrnccTt07SKlgJzDgI29fmedAa5p/Y
+	sDyuWYFIyDCC6ZSe6lcjJ9a/3GxVnGLwdr+QZ2mD5uDluygadjefQbx8SVEAihpg
+	wY8ACEXyNt688C5WCk2CEolCDaw4eghkegzY/B4Fzv0VjNigYAA5pHVHuBFlSNRB
+	I8bx0RvTHDwEdH+VYISyUXGx9XVtNN3qxg8PH2SlkIIVemJPu9IUH82o9iGCQ4yV
+	FiCWCf2L+J7L3E7EM9QZP8iPTJySue2IcGC+3qRdLPUauxekMjuVZ7cIjZF5JBVa
+	jurheQ==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8task-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:52 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2eb5375cd68so8581385ad.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:41:52 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:57 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cd66551e02cso979865a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:41:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794994912; x=1795599712; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1794994917; x=1795599717; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+whxw5wwivtSoHM2QX2azu39PmWANgcrBKwtDEotNtE=;
-        b=WnPq2rVv3xCFbm+HgOn/MSxskzK21qHRdOVEBTdKaYnMyln8+D/JzuKkp1VKaQabl7
-         Ho3uEjIlqHSZPqW3byDauLUSe63OnYfCKXmcDlpXVwuVd4U2qZg863Z7c3YmiO25iAOz
-         eWJERbFhHauOtsKWchK1d9hah9TGP4dYSk3MshgaF/ZX8/XaG8MZ3sm30DXZj9pqE0/k
-         F/Hl9qh6ZTa3vpwLlc3imvnIfhLMSD5kiaI+nNlHCOEaheNSaq4YhOll9FeYvEiSm2T9
-         Aw9C61iLoxKfMBb3RIlRxenZIAos2o5FIG58oLz8SMyBMUkFYZrte27STI+1au+8XPuS
-         azKA==
+        bh=7R/MG8MVxCDIVhRXob2kwGouNany+NyhkdChngQaRbc=;
+        b=LXH37jeuVGkBzqHyQ5QEi/WX2UVvELuyXUOu9Nv9ejRqVoGXVbjctOz87j1cabeYfR
+         /YWH12lxZSDHzAn5Bif7WdSmPRtImLCalJaTanKyI64Ss5tI0eAlrE4Tvzm8tzoOvQ9J
+         W+skIdMHnCMYpKqtjcj8ulxa7+BL0tFQgXE6BtLP6nTyrAZLktfyQ9oMdd+aak1YnthA
+         TdPC6kFfXy4k5YZxO8txu5oJCFRNx9aJtlG3nOwqdikG5YmPXm5DD1lD75Zd8wWvFLer
+         ls/fvrJLPFKZMtuK88SEG1ViC7wQYqjNt/Gih3xPZ3SdlptXJeqQWCsP8rBviV2RHD6W
+         oWlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794994912; x=1795599712;
+        d=1e100.net; s=20260707; t=1794994917; x=1795599717;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+whxw5wwivtSoHM2QX2azu39PmWANgcrBKwtDEotNtE=;
-        b=BNVtHS0PlmsFUJL58Fwmug7Ido+ooit9bsRTbx1yPnpnu6y+1R/jeWX0/yphnqQeoZ
-         yFAqAvyLZCobxeRkycOE6Uy7Kvu/gsB4QiNpXRg48IbHVS3HizoW/HrdGhbSoRElCp6i
-         kNKUzp3ah6hInevyXGFyHzWYlaggfqab0TB5bs5pOdlqogA3JtyzWDir2J1iu4ajSAap
-         rVfsaXb4YAzwchcR8uhqYB1UKv54aqSFfTrA/mVstMVfNMDZlLqWPWwhTefScAa6xxWe
-         6TqY0E3WO3gKZ2ShvlVHYZSP28/mc8BjSfI1eAJ4Aa+E7N/LYTfbF45YN95+XudNKhML
-         WggA==
-X-Forwarded-Encrypted: i=1; AL+hErEk2iGDUNu0p20Nzjvy30dwFrKpG2xheRfDLBWH6s3xs/fAd0J2Fq7O6LtU6QgfTnaJm4hpwnBJjpLYhpI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Zp19ur7v+1EdA65JQIeqjiFdi+l25xYkIBO2W6xpAV5k7W3ta
-	bXIBGyWk+56qtouao+kj4Xr04YqdnZp9KqE8NFNIQ7eNUQmCpEWbRbeYDGG9oKLZY6sLxSQeJ8f
-	2famb4IDOMegWFvnAYhw36uT1fh5TZqAxz7lII9ehX/KaLpOl2wrhDEOnW70x9KOKAJ0=
-X-Gm-Gg: AZFdTZdweE0KQa/Ihi4hbQXRDJDZfripmWaY4eB+4HF6y1eeMaMIafjpL39QeV2rAEF
-	w+rrhrOdfttwNCwtMsdvn01EDEKj/QmAb1h/fceR0hFmzBsKareSeV82EuDTRKQWDPNSrzmBIqg
-	cxghMvExYW7o7d9dmLnMvV4p95qyGw8oYKedrIzefwnI3zu4w9X/KhkVxXY/KlOxma2AoujMepj
-	v5aCHDNFMbpNC/55uscvVug5GvFpHsS6Dw2qxohG0EVgbN7lRhnc79TJcrCY5SU8V5HVYntryV0
-	Ra5INQVetm8ov9wOHDqmMvs+L3A+SOYpqru0AmzC+yn2/9/E3q2due1QD3eN1gMWMaR7UU5qe4d
-	9GV5vOXOFyHPIn6bxHxAJI5t7kXvuKObIjy49SAxDIrh6/0h71CW2nmXQBGVCWWVjKBRD5CPSQM
-	NSsy77G8Q70SjxAhkyrwiRsN1qV9sHJoV7AovnbTu4oC+3wJCM
-X-Received: by 2002:a17:903:9cc:b0:2e8:e17d:c8b8 with SMTP id d9443c01a7336-2eff7557702mr19509885ad.63.1794994912323;
-        Wed, 18 Nov 2026 01:41:52 -0800 (PST)
-X-Received: by 2002:a17:903:9cc:b0:2e8:e17d:c8b8 with SMTP id d9443c01a7336-2eff7557702mr19509525ad.63.1794994911831;
-        Wed, 18 Nov 2026 01:41:51 -0800 (PST)
+        bh=7R/MG8MVxCDIVhRXob2kwGouNany+NyhkdChngQaRbc=;
+        b=2QnMUBdsydmHLNz0FFii7ajC4jCEdEYi+PeOjnuyqn3NKRG9ICXO94kxCxn/JFdHSX
+         mM+yb1xCJ7tBj1jdnBLSsbrLezPprFcp5e2aAUxKKSlePuPQkwCkX4eVttU50BrW6e2I
+         15ESiu3WMZpOvU59qjyj9xrENKfT22l4FCYR7DXrMK6/EXrkuqOrMAuirGarxdi0rnqd
+         WNHCGsO1//NI8V39pAZn4ct2EHatFSFGqZ11v1G1G7WluQHbhN8aV8kbvuA1cS7/ST79
+         mvtlIzkZtFmZYQt/1GhBdLUs2PKKT8EnoDmXlLcPP5vrGvyoHe2QzgMjrpNEbROFvthb
+         zbWw==
+X-Forwarded-Encrypted: i=1; AL+hErG+MO0pW9kuRLlfn9FC8yI9dOIGKEIUDGMp1dejILIhJUJ5gHPzLw5WgUVlUQkj2C4a0/lGtHxBvzawVMQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9k74SyZOEPaVVY+wuQMGgaNDMDt4/OkVu82+BOEaBB6W1n8oVq
+	Eaq6H3DteDyVgm5Qk9OhsFDH72+EEJ/4G6Z/73eaC6AjkVW46wRr+Wr9yaxVJI6RGnQpOtSpz70
+	+k3tE65swtU/+aS0e7xJl8ljsid8Rf1mPZ2qaV7F2JON1DsmCWL7OlDfCKQPKQYM01KQ=
+X-Gm-Gg: AZFdTZcDMxbiMrYphAvdKyR95I79Gbf5xlzYORJgKyLQ/LrQhSp2Pe3Fp0CVYV/Juev
+	74d3rEF4O2N93WzXPl537W6q1CIh3D0leZhFhrWeR0lJFXBPYfKYSa5t6DekNno7ABs0AVBQM2V
+	l4SJwcx/jttU0CypKr3ISDWz+vpQdkV1eXl9YwyEpdJioPav1I6djxJbqoSXB3jBvoCI6iqn4EI
+	X/VPRqJbRz8JiDaM+6pUhEpdxPKz/41JKsEYKdxFNJaJoMkX+hjzRghwBPhHo5w05hbveDNj0GX
+	H91Ppr6wJ2E/Uql6J8+KdSOJsg5f027tEogWvnnX8w5qXfPqhCostjDICzjTRrCIhPrHj/7drG4
+	hd8c3MM5l/mRyzC5O4k0p3OIzs1oaPwz7SFvmrCxAr+W+hENMb8QBRCidOXO2515Ca7KYPDA/Mu
+	SwY82FHIZ5pv6uKovMVr/0Wa8m6dY9chNPFP1vNf/okTAvcZvi
+X-Received: by 2002:a17:902:e74d:b0:2ed:21fb:e764 with SMTP id d9443c01a7336-2eff73f208cmr21227775ad.16.1794994916650;
+        Wed, 18 Nov 2026 01:41:56 -0800 (PST)
+X-Received: by 2002:a17:902:e74d:b0:2ed:21fb:e764 with SMTP id d9443c01a7336-2eff73f208cmr21227425ad.16.1794994916095;
+        Wed, 18 Nov 2026 01:41:56 -0800 (PST)
 Received: from WANGAOW-LAB01.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f008044f26sm2947575ad.70.2026.11.18.01.41.48
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f008044f26sm2947575ad.70.2026.11.18.01.41.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 01:41:51 -0800 (PST)
+        Wed, 18 Nov 2026 01:41:55 -0800 (PST)
 From: Wangao Wang <wangao.wang@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 17:41:40 +0800
-Subject: [PATCH v3 1/8] media: iris: add AV1 decode buffer size support for
- vpu4x
+Date: Wed, 18 Nov 2026 17:41:41 +0800
+Subject: [PATCH v3 2/8] media: iris: move shared APV PM helpers to
+ iris_vpu_common
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,7 +119,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-add_iris_for_hawi-v3-1-51786f6d4057@oss.qualcomm.com>
+Message-Id: <20261118-add_iris_for_hawi-v3-2-51786f6d4057@oss.qualcomm.com>
 References: <20261118-add_iris_for_hawi-v3-0-51786f6d4057@oss.qualcomm.com>
 In-Reply-To: <20261118-add_iris_for_hawi-v3-0-51786f6d4057@oss.qualcomm.com>
 To: Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
@@ -136,171 +136,346 @@ Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         Wangao Wang <wangao.wang@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794994903; l=5133;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794994903; l=12138;
  i=wangao.wang@oss.qualcomm.com; s=20251021; h=from:subject:message-id;
- bh=eyuhm7FCBJ1UyL2VDJkCTIlCbf4hEj3HIpXeoc6A3bA=;
- b=a5lTvwFg9C+VDweYDA24XOf+yfXQCWSpTwF5kNAwv+7ssKsc/HW3pEvs5+V3ZDQLp9MkFOkHX
- d85LMysu7J/AGLFnnR7YC7PiNeDGxwsCSISpukFbplvRUGNUiG7I4VX
+ bh=3IhCXwVThfWldjsctcBzj2ctgAql8P+hgt1hBo96odI=;
+ b=gttu+KshVed7AZtQpMq0ZKv3lD2jXSpaigE2W+RHFoz/SNFlaJ7Duu8lGOvmHlWOx0s/BzTcZ
+ BKNnoh5oF/BA9jpYktbG4JWRlg0Yt3dDcZf0MpeClKSftAWzdrYO+Ad
 X-Developer-Key: i=wangao.wang@oss.qualcomm.com; a=ed25519;
  pk=bUPgYblBUAsoPyGfssbNR7ZXUSGF8v1VF4FJzSO6/aA=
-X-Proofpoint-GUID: SBa6FuN5HH5VqtGG3RHfwbBLjKk3dm0l
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfX+YY/9ndoaGML
- 1nIT6ZAmpXyceCYZOVUvEs1zqgPOFMID4W1dxCcwOvmsGRcVDL0YbdT69k6u/oVjMr7cEXYWqdt
- 4hBI/MUlysGLKm6zciqNyO2u2LPm7lKqVrv5dwRjX6zNc+bcdt3PfToy6j9IoXbGiIxAwDO0mni
- pRMil7ZNVfoCjqpXO6WiU1CvuctW6iJ/KCfwHPvBD9dzSlor7SO/k9z+MynRuDPuBucmSle3dLj
- CZ8De4DbHDG+fjdM5k0MqGoz9r3cVkqLmKVSYwv8seoVNCE/rTPVwH9UE3f2GSJEEBAobmFfhEE
- hwi9e8r3G/ktSDZ2gw+K1HxUS8kk5cv8aJ7SOq9mACjHWAQCu4mjdS6IEketJMxrv1D0SckgMLP
- SfsCon45/OUT+4lEp2fjDeNN3fXOqVLKo0S8yi9NsrrkTGnHfdkgrMcaXkBD7usU2U2s3Qx+a36
- IXq6zyJkRb75U8nhBmA==
-X-Proofpoint-ORIG-GUID: SBa6FuN5HH5VqtGG3RHfwbBLjKk3dm0l
-X-Authority-Analysis: v=2.4 cv=H8xOUOYi c=1 sm=1 tr=0 ts=6afd72e1 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-ORIG-GUID: RXlUs0g1Cvchc-krXHBquOcZZZTA7xPX
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfX+jNe+uDpBBEX
+ 3XUTIhTtE4HFcZwDis93xRFjw08J/gz2VE+y0Nah0jLMDnqoMuVNIXbJkIAhptA424qqp1VsugR
+ Qby90wVMZnM1Ka92jVbTTqssqB3LGuU=
+X-Proofpoint-GUID: RXlUs0g1Cvchc-krXHBquOcZZZTA7xPX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfXw8bNcZa9V+pu
+ y02u7JUymcWNnJnZeBlJ/N8y0SWCfLQEkuqhLm1TISr/rZsIoHSCiPE44v4TGWh7J4d6pDnyQA1
+ A+75k6581vw/ROFHEyMn1l7pkKkO8yVG9CO5pEkhwxX+9DIWOTA2vqyHugWN5Jqh4toiVC8Xz0I
+ VXlImZ9fc7qD2Y3nfmpJbWs1WlcPrGPj38WXNpHYwVI4GfvrMQiJWFId1QNMaM9aWyWIY4J6o1a
+ rDMg1fzI/FVMPo2fXMrOM7ENEvMUcLogPmsiWNQiz7vREt0ZHXNIh6WL0Lu8oWRyICwGGYg41Hp
+ Y/XM209p9FESWtl5aF6mHTyisNe+z4VsQFBwCPRuOqEaVvgPK22k1ZExliuit9LP+Iq/z00JP9y
+ DopzHEkUhYlKwGnVh8k9EixVuBKAlo8DK6p5V2R8Kf7BeSLz9A4AVExsZLz4O0g9IRuflyt2m0c
+ K3r2SfoNP1U4tH5SJAw==
+X-Authority-Analysis: v=2.4 cv=NNVAaE6g c=1 sm=1 tr=0 ts=6afd72e5 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=KAqM0-_hLyDR7Zr9OkkA:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfXw+LY0QunS/FF
- 3gjFTz+Mx6R81c7rHFd+KH6CxJEIzaj6K0hJ2k0DXZsXxrw242rnZ7L98cUS/d2IAhTzTQ5vwPD
- SVF/qc4aUmzgG5Anby+dRAC7Jjcqpoo=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=kuoUquXy40ERufgRhccA:9 a=QEXdDO2ut3YA:10
+ a=3WC7DwWrALyhR5TkjVHa:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 suspectscore=0 impostorscore=0 spamscore=0
- bulkscore=0 clxscore=1015 adultscore=0 lowpriorityscore=0 malwarescore=0
+ bulkscore=0 priorityscore=1501 malwarescore=0 phishscore=0 adultscore=0
+ suspectscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180038
 
-Add necessary buffer size calculation to support AV1 decode for vpu4x
+The APV power on/off sequences and AHB bridge sync reset helpers are
+currently local to iris_vpu4x.c. VPU5x uses the same sequences, so keeping
+them in the VPU4x implementation would either prevent reuse or require
+duplicating the code.
 
-- wire AV1 into iris_vpu4x_dec_line_size() via hfi_buffer_line_av1d()
-- add hfi_vpu4x_buffer_persist_av1d() for the vpu4x's persist buffer
-  size calculation
-- add BUF_PARTIAL to the vpu4x decoder dispatch table, which AV1D
-  requires
+Move the helpers to iris_vpu_common.c and rename them with a vpu4x_vpu5x
+prefix to reflect their shared usage.
+
+Move the associated register constants, including APV_CLK_HALT, the efuse
+control bits, CPU_CS_APV_BRIDGE_SYNC_RESET, WRAPPER_EFUSE_MONITOR, and
+AON_WRAPPER_MVP_NOC_RESET_SYNCRST, to iris_vpu_register_defines.h so both
+implementations can use them.
 
 Signed-off-by: Wangao Wang <wangao.wang@oss.qualcomm.com>
 ---
- drivers/media/platform/qcom/iris/iris_vpu_buffer.c | 67 +++++++++++++++++++++-
- drivers/media/platform/qcom/iris/iris_vpu_buffer.h |  1 +
- 2 files changed, 65 insertions(+), 3 deletions(-)
+ drivers/media/platform/qcom/iris/iris_vpu4x.c      | 92 +---------------------
+ drivers/media/platform/qcom/iris/iris_vpu_common.c | 74 +++++++++++++++++
+ drivers/media/platform/qcom/iris/iris_vpu_common.h |  4 +
+ .../platform/qcom/iris/iris_vpu_register_defines.h | 14 ++++
+ 4 files changed, 96 insertions(+), 88 deletions(-)
 
-diff --git a/drivers/media/platform/qcom/iris/iris_vpu_buffer.c b/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
-index a8170e5fa9e600a3897b87ae55b5f413666185f5..f322dee4ec56c89d163deab068df98c1125724e4 100644
---- a/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
-+++ b/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
-@@ -2134,6 +2134,39 @@ static u32 hfi_vpu4x_buffer_line_vp9d(u32 frame_width, u32 frame_height, u32 _yu
- 	return lb_size + dpb_obp_size;
+diff --git a/drivers/media/platform/qcom/iris/iris_vpu4x.c b/drivers/media/platform/qcom/iris/iris_vpu4x.c
+index 9d89d3f00acf7a3a5e1061477c4be5d085ff1a20..616da013a4503086040bddd942e1207e8a10069e 100644
+--- a/drivers/media/platform/qcom/iris/iris_vpu4x.c
++++ b/drivers/media/platform/qcom/iris/iris_vpu4x.c
+@@ -10,18 +10,7 @@
+ #include "iris_vpu_common.h"
+ #include "iris_vpu_register_defines.h"
+ 
+-#define AON_WRAPPER_MVP_NOC_RESET_SYNCRST	(AON_MVP_NOC_RESET + 0x08)
+-#define CPU_CS_APV_BRIDGE_SYNC_RESET		(CPU_BASE_OFFS + 0x174)
+ #define MVP_NOC_RESET_REQ_MASK			0x70103
+-#define VPU_IDLE_BITS				0x7103
+-#define WRAPPER_EFUSE_MONITOR			(WRAPPER_BASE_OFFS + 0x08)
+-
+-#define APV_CLK_HALT		BIT(1)
+-#define CORE_CLK_HALT		BIT(0)
+-#define CORE_PWR_ON		BIT(1)
+-#define DISABLE_VIDEO_APV_BIT	BIT(27)
+-#define DISABLE_VIDEO_VPP1_BIT	BIT(28)
+-#define DISABLE_VIDEO_VPP0_BIT	BIT(29)
+ 
+ static int iris_vpu4x_genpd_set_hwmode(struct iris_core *core, bool hw_mode, u32 efuse_value)
+ {
+@@ -63,79 +52,6 @@ static int iris_vpu4x_genpd_set_hwmode(struct iris_core *core, bool hw_mode, u32
+ 	return ret;
  }
  
-+/* iris4/5 AV1 line buffer uses hardware-specific LUT values indexed by resolution bucket */
-+static u32 hfi_vpu4x_buffer_line_av1(u32 width, u32 height, bool is_opb, u32 num_vpp_pipes)
+-static int iris_vpu4x_power_on_apv(struct iris_core *core)
+-{
+-	return iris_enable_power_domain_and_clocks(core, core->apv);
+-}
+-
+-static void iris_vpu4x_power_off_apv(struct iris_core *core)
+-{
+-	bool handshake_done, handshake_busy;
+-	u32 value, count = 0;
+-	int ret;
+-
+-	value = readl(core->reg_base + WRAPPER_CORE_CLOCK_CONFIG);
+-
+-	if (value & APV_CLK_HALT)
+-		writel(0x0, core->reg_base + WRAPPER_CORE_CLOCK_CONFIG);
+-
+-	do {
+-		writel(REQ_POWER_DOWN_PREP, core->reg_base + AON_WRAPPER_MVP_NOC_LPI_CONTROL);
+-		usleep_range(10, 20);
+-		value = readl(core->reg_base + AON_WRAPPER_MVP_NOC_LPI_STATUS);
+-
+-		handshake_done = value & NOC_LPI_STATUS_DONE;
+-		handshake_busy = value & (NOC_LPI_STATUS_DENY | NOC_LPI_STATUS_ACTIVE);
+-
+-		if (handshake_done || !handshake_busy)
+-			break;
+-
+-		writel(0x0, core->reg_base + AON_WRAPPER_MVP_NOC_LPI_CONTROL);
+-		usleep_range(10, 20);
+-
+-	} while (++count < 1000);
+-
+-	if (!handshake_done && handshake_busy)
+-		dev_err(core->dev, "LPI handshake timeout\n");
+-
+-	writel(0x080200, core->reg_base + AON_WRAPPER_MVP_NOC_RESET_REQ);
+-	ret = readl_poll_timeout(core->reg_base + AON_WRAPPER_MVP_NOC_RESET_ACK,
+-				 value, value & 0x080200, 200, 2000);
+-	if (ret)
+-		goto disable_clocks_and_power;
+-
+-	writel(0x0, core->reg_base + AON_WRAPPER_MVP_NOC_RESET_SYNCRST);
+-	writel(0x0, core->reg_base + AON_WRAPPER_MVP_NOC_RESET_REQ);
+-	ret = readl_poll_timeout(core->reg_base + AON_WRAPPER_MVP_NOC_RESET_ACK,
+-				 value, value == 0x0, 200, 2000);
+-	if (ret)
+-		goto disable_clocks_and_power;
+-
+-	writel(CORE_BRIDGE_SW_RESET | CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base +
+-	       CPU_CS_APV_BRIDGE_SYNC_RESET);
+-	writel(CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
+-	writel(0x0, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
+-
+-disable_clocks_and_power:
+-	iris_disable_power_domain_and_clocks(core, core->apv);
+-}
+-
+-static void iris_vpu4x_ahb_sync_reset_apv(struct iris_core *core)
+-{
+-	writel(CORE_BRIDGE_SW_RESET | CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base +
+-	       CPU_CS_APV_BRIDGE_SYNC_RESET);
+-	writel(CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
+-	writel(0x0, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
+-}
+-
+-static void iris_vpu4x_ahb_sync_reset_hardware(struct iris_core *core)
+-{
+-	writel(CORE_BRIDGE_SW_RESET | CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base +
+-	       CPU_CS_AHB_BRIDGE_SYNC_RESET);
+-	writel(CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base + CPU_CS_AHB_BRIDGE_SYNC_RESET);
+-	writel(0x0, core->reg_base + CPU_CS_AHB_BRIDGE_SYNC_RESET);
+-}
+-
+ static int iris_vpu4x_power_on_hardware(struct iris_core *core)
+ {
+ 	u32 efuse_value = readl(core->reg_base + WRAPPER_EFUSE_MONITOR);
+@@ -158,7 +74,7 @@ static int iris_vpu4x_power_on_hardware(struct iris_core *core)
+ 	}
+ 
+ 	if (!(efuse_value & DISABLE_VIDEO_APV_BIT)) {
+-		ret = iris_vpu4x_power_on_apv(core);
++		ret = iris_vpu_power_on_apv(core);
+ 		if (ret)
+ 			goto disable_vpp1_power_domain;
+ 	}
+@@ -187,7 +103,7 @@ static void iris_vpu4x_power_off_hardware(struct iris_core *core)
+ 	iris_vpu4x_genpd_set_hwmode(core, false, efuse_value);
+ 
+ 	if (!(efuse_value & DISABLE_VIDEO_APV_BIT))
+-		iris_vpu4x_power_off_apv(core);
++		iris_vpu_power_off_apv(core);
+ 
+ 	value = readl(core->reg_base + WRAPPER_CORE_POWER_STATUS);
+ 
+@@ -254,9 +170,9 @@ static int iris_vpu4x_set_hwmode(struct iris_core *core)
+ 	u32 efuse_value = readl(core->reg_base + WRAPPER_EFUSE_MONITOR);
+ 
+ 	if (!(efuse_value & DISABLE_VIDEO_APV_BIT))
+-		iris_vpu4x_ahb_sync_reset_apv(core);
++		iris_vpu_ahb_sync_reset_apv(core);
+ 
+-	iris_vpu4x_ahb_sync_reset_hardware(core);
++	iris_vpu_ahb_sync_reset_hardware(core);
+ 
+ 	return iris_vpu4x_genpd_set_hwmode(core, true, efuse_value);
+ }
+diff --git a/drivers/media/platform/qcom/iris/iris_vpu_common.c b/drivers/media/platform/qcom/iris/iris_vpu_common.c
+index 4ea7bfd204df01da65c2c05e3337f1caf1326844..9a32e95b95db844df8298533f875fb0a1dc5c728 100644
+--- a/drivers/media/platform/qcom/iris/iris_vpu_common.c
++++ b/drivers/media/platform/qcom/iris/iris_vpu_common.c
+@@ -21,6 +21,7 @@
+ #define CTRL_INIT_IDLE_MSG_BMSK			0x40000000
+ #define CTRL_ERROR_STATUS__M			0xfe
+ #define CTRL_STATUS_PC_READY			0x100
++#define NOC_RESET_APV				0x080200
+ 
+ #define QTBL_INFO				(CPU_CS_BASE_OFFS + 0x50)
+ #define QTBL_ENABLE				BIT(0)
+@@ -455,6 +456,79 @@ int iris_vpu_power_on(struct iris_core *core)
+ 	return ret;
+ }
+ 
++int iris_vpu_power_on_apv(struct iris_core *core)
 +{
-+	static const u32 lut_left[4] = { 905472, 1356800, 2890752, 5778432 };
-+	static const u32 lut_top[4][2] = {
-+		{ 307200,  450048  },	/* HD  */
-+		{ 499200,  713472  },	/* FHD */
-+		{ 1343488, 1800192 },	/* 4K  */
-+		{ 3735552, 4648960 },	/* 8K  */
-+	};
-+	u32 h_idx, w_idx;
-+
-+	if (height <= 1280)
-+		h_idx = 0;
-+	else if (height <= 1920)
-+		h_idx = 1;
-+	else if (height <= 4096)
-+		h_idx = 2;
-+	else
-+		h_idx = 3;
-+
-+	if (width <= 1280)
-+		w_idx = 0;
-+	else if (width <= 1920)
-+		w_idx = 1;
-+	else if (width <= 4096)
-+		w_idx = 2;
-+	else
-+		w_idx = 3;
-+
-+	return lut_left[h_idx] * num_vpp_pipes + lut_top[w_idx][is_opb];
++	return iris_enable_power_domain_and_clocks(core, core->apv);
 +}
 +
- static u32 iris_vpu4x_dec_line_size(struct iris_inst *inst)
- {
- 	u32 num_vpp_pipes = inst->core->iris_platform_data->num_vpp_pipe;
-@@ -2153,6 +2186,8 @@ static u32 iris_vpu4x_dec_line_size(struct iris_inst *inst)
- 	else if (inst->codec == V4L2_PIX_FMT_VP9)
- 		return hfi_vpu4x_buffer_line_vp9d(width, height, out_min_count, is_opb,
- 						  num_vpp_pipes);
-+	else if (inst->codec == V4L2_PIX_FMT_AV1)
-+		return hfi_vpu4x_buffer_line_av1(width, height, is_opb, num_vpp_pipes);
- 
- 	return 0;
- }
-@@ -2176,14 +2211,39 @@ static u32 hfi_vpu4x_buffer_persist_vp9d(void)
- 		HDR10_HIST_EXTRADATA_SIZE;
- }
- 
-+static u32 hfi_vpu4x_buffer_persist_av1d(u32 max_width, u32 max_height,
-+					 u32 total_ref_count, u32 rpu_enabled)
++void iris_vpu_power_off_apv(struct iris_core *core)
 +{
-+	u32 comv_size = hfi_buffer_comv_av1d(max_width, max_height, total_ref_count);
-+	u32 seq_hdr = SIZE_AV1D_SEQUENCE_HEADER * 2 + SIZE_AV1D_METADATA;
-+	u32 per_pic = AV1D_NUM_HW_PIC_BUF *
-+		      (SIZE_AV1D_TILE_OFFSET + SIZE_AV1D_QM + SIZE_AV1D_ARP + SIZE_AV1D_METADATA);
-+	u32 frame_hdr = AV1D_NUM_FRAME_HEADERS *
-+			(SIZE_AV1D_FRAME_HEADER + 2 * SIZE_AV1D_PROB_TABLE);
-+	u32 extradata = HDR10_HIST_EXTRADATA_SIZE +
-+			rpu_enabled * NUM_HW_PIC_BUF * SIZE_DOLBY_RPU_METADATA;
++	bool handshake_done, handshake_busy;
++	u32 value, count = 0;
++	int ret;
 +
-+	return ALIGN(seq_hdr + per_pic + frame_hdr + comv_size + extradata, DMA_ALIGNMENT);
++	value = readl(core->reg_base + WRAPPER_CORE_CLOCK_CONFIG);
++
++	if (value & APV_CLK_HALT)
++		writel(0x0, core->reg_base + WRAPPER_CORE_CLOCK_CONFIG);
++
++	do {
++		writel(REQ_POWER_DOWN_PREP, core->reg_base + AON_WRAPPER_MVP_NOC_LPI_CONTROL);
++		usleep_range(10, 20);
++		value = readl(core->reg_base + AON_WRAPPER_MVP_NOC_LPI_STATUS);
++
++		handshake_done = value & NOC_LPI_STATUS_DONE;
++		handshake_busy = value & (NOC_LPI_STATUS_DENY | NOC_LPI_STATUS_ACTIVE);
++
++		if (handshake_done || !handshake_busy)
++			break;
++
++		writel(0x0, core->reg_base + AON_WRAPPER_MVP_NOC_LPI_CONTROL);
++		usleep_range(10, 20);
++
++	} while (++count < 1000);
++
++	if (!handshake_done && handshake_busy)
++		dev_err(core->dev, "LPI handshake timeout\n");
++
++	writel(0x080200, core->reg_base + AON_WRAPPER_MVP_NOC_RESET_REQ);
++	ret = readl_poll_timeout(core->reg_base + AON_WRAPPER_MVP_NOC_RESET_ACK,
++				 value, value & 0x080200, 200, 2000);
++	if (ret)
++		goto disable_clocks_and_power;
++
++	writel(0x0, core->reg_base + AON_WRAPPER_MVP_NOC_RESET_SYNCRST);
++	writel(0x0, core->reg_base + AON_WRAPPER_MVP_NOC_RESET_REQ);
++	ret = readl_poll_timeout(core->reg_base + AON_WRAPPER_MVP_NOC_RESET_ACK,
++				 value, value == 0x0, 200, 2000);
++	if (ret)
++		goto disable_clocks_and_power;
++
++	writel(CORE_BRIDGE_SW_RESET | CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base +
++	       CPU_CS_APV_BRIDGE_SYNC_RESET);
++	writel(CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
++	writel(0x0, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
++
++disable_clocks_and_power:
++	iris_disable_power_domain_and_clocks(core, core->apv);
 +}
 +
- static u32 iris_vpu4x_dec_persist_size(struct iris_inst *inst)
- {
--	if (inst->codec == V4L2_PIX_FMT_H264)
-+	struct platform_inst_caps *caps;
++void iris_vpu_ahb_sync_reset_apv(struct iris_core *core)
++{
++	writel(CORE_BRIDGE_SW_RESET | CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base +
++	       CPU_CS_APV_BRIDGE_SYNC_RESET);
++	writel(CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
++	writel(0x0, core->reg_base + CPU_CS_APV_BRIDGE_SYNC_RESET);
++}
 +
-+	if (inst->codec == V4L2_PIX_FMT_H264) {
- 		return hfi_buffer_persist_h264d();
--	else if (inst->codec == V4L2_PIX_FMT_HEVC)
-+	} else if (inst->codec == V4L2_PIX_FMT_HEVC) {
- 		return hfi_vpu4x_buffer_persist_h265d(0);
--	else if (inst->codec == V4L2_PIX_FMT_VP9)
-+	} else if (inst->codec == V4L2_PIX_FMT_VP9) {
- 		return hfi_vpu4x_buffer_persist_vp9d();
-+	} else if (inst->codec == V4L2_PIX_FMT_AV1) {
-+		caps = inst->core->iris_platform_data->inst_caps;
-+		if (inst->fw_caps[DRAP].value)
-+			return hfi_vpu4x_buffer_persist_av1d(caps->max_frame_width,
-+			caps->max_frame_height, 16, 0);
-+		else
-+			return hfi_vpu4x_buffer_persist_av1d(0, 0, 0, 0);
-+	}
++void iris_vpu_ahb_sync_reset_hardware(struct iris_core *core)
++{
++	writel(CORE_BRIDGE_SW_RESET | CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base +
++	       CPU_CS_AHB_BRIDGE_SYNC_RESET);
++	writel(CORE_BRIDGE_HW_RESET_DISABLE, core->reg_base + CPU_CS_AHB_BRIDGE_SYNC_RESET);
++	writel(0x0, core->reg_base + CPU_CS_AHB_BRIDGE_SYNC_RESET);
++}
++
+ void iris_vpu_set_preset_registers(struct iris_core *core)
+ {
+ 	writel(0x0, core->reg_base + 0xb0088);
+diff --git a/drivers/media/platform/qcom/iris/iris_vpu_common.h b/drivers/media/platform/qcom/iris/iris_vpu_common.h
+index a62b6184bde7e07bf50b001b8c95e1ffd2b29fca..126555877561e3a9bbaef7fa4da329bbe6645d46 100644
+--- a/drivers/media/platform/qcom/iris/iris_vpu_common.h
++++ b/drivers/media/platform/qcom/iris/iris_vpu_common.h
+@@ -46,6 +46,10 @@ int iris_vpu35_vpu4x_power_off_controller(struct iris_core *core);
+ int iris_vpu35_vpu4x_power_on_controller(struct iris_core *core);
+ void iris_vpu35_vpu4x_program_bootup_registers(struct iris_core *core);
+ u64 iris_vpu3x_vpu4x_calculate_frequency(struct iris_inst *inst, size_t data_size);
++int iris_vpu_power_on_apv(struct iris_core *core);
++void iris_vpu_power_off_apv(struct iris_core *core);
++void iris_vpu_ahb_sync_reset_apv(struct iris_core *core);
++void iris_vpu_ahb_sync_reset_hardware(struct iris_core *core);
  
- 	return 0;
- }
-@@ -2483,6 +2543,7 @@ u32 iris_vpu4x_buf_size(struct iris_inst *inst, enum iris_buffer_type buffer_typ
- 		{BUF_PERSIST,     iris_vpu4x_dec_persist_size   },
- 		{BUF_DPB,         iris_vpu_dec_dpb_size         },
- 		{BUF_SCRATCH_1,   iris_vpu_dec_scratch1_size    },
-+		{BUF_PARTIAL,     iris_vpu_dec_partial_size     },
- 	};
+ void iris_vpu_set_preset_registers(struct iris_core *core);
+ void iris_vpu_interrupt_init(struct iris_core *core);
+diff --git a/drivers/media/platform/qcom/iris/iris_vpu_register_defines.h b/drivers/media/platform/qcom/iris/iris_vpu_register_defines.h
+index 4fffa094c52fe4d05d5e5d52f8c6bf891318320a..60101fdcdb92e7a9f74921e297d17d76faf5620a 100644
+--- a/drivers/media/platform/qcom/iris/iris_vpu_register_defines.h
++++ b/drivers/media/platform/qcom/iris/iris_vpu_register_defines.h
+@@ -19,6 +19,7 @@
+ #define VIDEO_NOC_RESET_REQ			(BIT(0) | BIT(1))
  
- 	static const struct iris_vpu_buf_type_handle enc_internal_buf_type_handle[] = {
-diff --git a/drivers/media/platform/qcom/iris/iris_vpu_buffer.h b/drivers/media/platform/qcom/iris/iris_vpu_buffer.h
-index 2085e316a6bd862f0cb8c474ebea6b53947fcb27..9a1011a91cb6da0e8e7c53425b88f7e7069c4c3b 100644
---- a/drivers/media/platform/qcom/iris/iris_vpu_buffer.h
-+++ b/drivers/media/platform/qcom/iris/iris_vpu_buffer.h
-@@ -127,6 +127,7 @@ struct iris_inst;
- #define SIZE_AV1D_TILE_OFFSET     65536
- #define SIZE_AV1D_QM              3328
- #define SIZE_AV1D_PROB_TABLE      22784
-+#define SIZE_AV1D_ARP             9728
+ #define AON_WRAPPER_MVP_NOC_RESET_ACK		(AON_MVP_NOC_RESET + 0x004)
++#define AON_WRAPPER_MVP_NOC_RESET_SYNCRST	(AON_MVP_NOC_RESET + 0x08)
  
- #define SIZE_SLICE_CMD_BUFFER (ALIGN(20480, 256))
- #define SIZE_SPS_PPS_SLICE_HDR (2048 + 4096)
+ #define CPU_CS_BASE_OFFS			(CPU_BASE_OFFS)
+ #define CPU_IC_BASE_OFFS			(CPU_BASE_OFFS)
+@@ -40,6 +41,14 @@
+ #define MSK_SIGNAL_FROM_TENSILICA		BIT(0)
+ #define MSK_CORE_POWER_ON			BIT(1)
+ 
++#define CPU_CS_APV_BRIDGE_SYNC_RESET		(CPU_CS_BASE_OFFS + 0x174)
++
++/* Efuse bits controlling optional hardware blocks */
++#define WRAPPER_EFUSE_MONITOR			(WRAPPER_BASE_OFFS + 0x08)
++#define DISABLE_VIDEO_APV_BIT			BIT(27)
++#define DISABLE_VIDEO_VPP1_BIT			BIT(28)
++#define DISABLE_VIDEO_VPP0_BIT			BIT(29)
++
+ #define WRAPPER_INTR_STATUS			(WRAPPER_BASE_OFFS + 0x0C)
+ #define WRAPPER_INTR_STATUS_A2H_BMSK		BIT(2)
+ 
+@@ -61,6 +70,7 @@
+ #define WRAPPER_CORE_POWER_STATUS		(WRAPPER_BASE_OFFS + 0x80)
+ #define WRAPPER_CORE_CLOCK_CONFIG		(WRAPPER_BASE_OFFS + 0x88)
+ #define CORE_CLK_RUN				0x0
++#define APV_CLK_HALT				BIT(1)
+ 
+ #define WRAPPER_TZ_CPU_STATUS			(WRAPPER_TZ_BASE_OFFS + 0x10)
+ 
+@@ -74,4 +84,8 @@
+ #define AON_WRAPPER_MVP_NOC_LPI_CONTROL		(AON_BASE_OFFS)
+ #define AON_WRAPPER_MVP_NOC_LPI_STATUS		(AON_BASE_OFFS + 0x4)
+ 
++#define VPU_IDLE_BITS				0x7103
++#define CORE_CLK_HALT				BIT(0)
++#define CORE_PWR_ON				BIT(1)
++
+ #endif
 
 -- 
 2.43.0
