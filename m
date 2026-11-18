@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795043837;
-	b=KciLb7Fe2mwhyPXZLmYmfg1qeueWQhdb+SaNw6qlTPiUkdwa/YohB7U9s5j3LxAIVMMS
-	 0HtXg97PaSozT1UP4pvWTwbvAUzVYYZ4KiviZIuaao4r/sw3c7U9VoYZuswiSMSKEhhyr
-	 2xET0FunszERg1wpWAZSnbxoDaoXUgc+wOAy1BYZnO9qVtZO+PZmpTQZBfqFDByqnVWuS
-	 sgxnHAczWqtkfDqH/e/TJnCOLmrSivA6/dol7nKNywFcGXmSMBuO6JPUvBWriBkOwXAUF
-	 CfTblzrsO6yKnIUx8cbvzaWk2r5WDuIUJtDFIWV2mHOui+03x00HrML2MSYcDxfO/qQ==
+	t=1795043885;
+	b=Cn/Ey2CRUS341wKI3WBM+7wWH8/DUAxCY0jIbMs56KN0kOzGrTGdZMircr0HKjau6sWd
+	 +oFfZ67wAagDlIz30GtLyKnP/gVbHlIpx77frPqBKUrQLRK6fz28KFAV0N8dVSZOkWVtV
+	 qX/2UUKb5VXkePqidTxMjLmKGgCMRgRz688WMh4yWc/XBiWKbwjkBGJGPsGiSaO8sQCVF
+	 ws9JWW/yhX2VbVE1lOc6Ff/LXCmkLBsu0T4nvYpFPmLZbpGmssjp/X0tsBeFN18+ehaBD
+	 rf639T7H0aUuhvEQq/8wpyCZaQQ3YTfj21db23ey1knm+/Oe/ncGd0wbCBog1HnXLtQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043837;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=5dQ4JQj6AUa0iFblGEmenrbjQYznIq7haN0cV2XTtU0=;
-	b=zx8F9dO6YwLBSKcM5PzVlOP0UXyfjKZJQOzBW/6Cz6GZezBDfJawHmLQk8gW9qEjWHld
-	 w4h73IUvJnVnyPGoK+3VV/nDBX5Hii5OBMm6adt4KwIcG8uBuGQaFdzT9CJPBYuJUcoip
-	 LmHQjFm6gcwNB0AQtkKIysORm8y6HgGvSf1Hlyay3DaxubDO5nyBOusIz0EtS4XOE0eu7
-	 D3VPv1bx5aLDKPP2pkLVLmGvw8J3VPBjySxpunQ22d9qOD8PsjkTBO3XNFGs0WCKklRuN
-	 RZ9yOBiOgdtHwKvjKf/WVNzmJ2JbOiyHGEKrj45KjT2j/iXTe5u7PmkI5rv6jrtK37g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043885;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=JPC1RAeyqbYuGOqMmGUi58uvgG+tJSEuOdphvL+a1Uw=;
+	b=oackWBXpBvsxpBNU8nV9tf634z6Bz9U9HAN6DYnS0l9BkyLzPxEyZvxAmiYk+2hasHRa
+	 YUhb9nklltVoSmTLz9iOqTBqvMtNa9Pa9fTQCz+/cfn3SV1vqTnoiYQnNxJ5hM9yKt/je
+	 2PIdFrkzfEHVWEv5BgJLEqv78gw6hq0YIeA4mqY6X/st1nabqbE+3WukbZWfKaX9WoAl6
+	 bfQ5e0xLXv7GFWiVyqM1VlZkrzQZQtCqeedfoK+H3ZXfHx7q4ZZxZEZC0Ebwdq5PjD8kp
+	 lrRlmaIDYmSZeC5RJUnhvO/EuHXDLdRmSRcgcg5Qs6srvr2swNWXoZr4VNlS3hBpZjg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L1TS4pNj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B29DF60A2614;
-	Wed, 18 Nov 2026 23:17:17 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L1TS4pNj
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795043837;
-	b=OS5bZbstqsAzZgYMyvbhpSfAlrfBBu2q5djxtebwVrwYTlt13MLo+MOvnWAr/rzJ65RC
-	 tZYU9m0S3q7Xlp0AFFck4bem/c+B7qGh4hyioD9C7wTjAcpgaZfBpRYgg3+kTtiYAdmqk
-	 ppBvWDIC8oDK3pxS4goEqLalz5LV5lg4YMjj7BVFvXNpoTnzm2Fk8bXCBgDet5HksibdY
-	 dGOhZ6Owh/dM4V2K8ldIzxOBUBeMefPzkqmjgsoBN/xcjbjNL8BPJ0v/nBvvjUkImzJqx
-	 8Gy1ahq2EJk572D89qp0LQZ3qO0zvGNWpZXoMyDTtAzOoaklL5fMlU6nFiNkrzTT7+w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795043837;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=5dQ4JQj6AUa0iFblGEmenrbjQYznIq7haN0cV2XTtU0=;
-	b=0XTY8mRyjBsX9ZrSFROBQmUAx4Nc4NSJDUzTng0t9I6gSJ36Z5ZF2qMKLO9+TLDqOJ3k
-	 VkOk64PDQCVQruQcSCW3WIx/B/I7EjK5xZ5rQD2+o+vRMxFjoNbbQcARBCOoiaK8DGFwh
-	 qqmFSqxPyan44y8eDVE9KwYBFA0zzN3frW+u8J0KLhBo4ueuaZakgJY1/wz6V502fY3VR
-	 NnmmGXTeIgFWVH9FcZCKu7o3vqQsGBjUINBu5tj+53LNH67e/QkKF7SMBN2KQ/Nj3zKNA
-	 uAVSGg4jiEdRHToaCc02gyKy5UEh2KQHry9i9lX3MEhVItJsP0RKbTZiuefjdfe2QWQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gMqYmTxx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CF1281F000C6;
-	Wed, 18 Nov 2026 23:17:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043837;
-	bh=5dQ4JQj6AUa0iFblGEmenrbjQYznIq7haN0cV2XTtU0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=L1TS4pNjinTHQUPNzblK7H6rftDiSIGBZHMRJk9MnP+1Whjuhb1hNXEKv/dH9IwHm
-	 +QIhfG+7ujPJ0z33rU+AURixQD7chABxZyLUgGpkegK37ZUAWWE4Tl3ORhRvCLfd0W
-	 b5K4AZH+2tPJENb6KWFymE2tByLWeItAsHRfKSLDK1iIZ22bnLdHSL9MjQ2SO/43w0
-	 UGq5Bu48mB7na5XX1ILdhn6H3Clgrbe+h4HCBvdCGKXTK/ibdeoAACJ09cpHMIA3Zr
-	 xdZ/c83dKuYy2JxYDoL09whTWQ3TPxgHVe7i1xK24sDJR1fHH0NfWYyUwJrJGaBLqW
-	 j3DwuOZvXH8Vw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 60B314B01F;
-	Wed, 18 Nov 2026 23:17:15 +0000 (UTC)
-From: =?utf-8?q?Alexandru_Andrie=C8=99_via_B4_Relay?= <devnull+alex.andries.aa.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 00:16:52 +0100
-Subject: [PATCH 3/3] power: supply: qcom_battmgr: fix negative temperature
- values
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52CFC606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:18:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52CFC606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gMqYmTxx
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c40e30c26a4so78789166b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:18:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795043884; cv=none;
+        d=google.com; s=arc-20260327;
+        b=n7PcLW7NYBNMZAGo5hgXFkGR9xNuvpimHJ5tRUYHAPnVz91WKncsnTsfBpQ7019p00
+         AmKJmabYmvRl5uIgZLTDEZXfs8IuKf7P0zkJlAZFKL+OaBfuV77S3QganGj4lay0O04T
+         /QPZZ/I7reuukiU2M3yal2lAuJdyinbAmNIske1rIwbqD7lBGziKqd9vH0PYNtgpKmBB
+         dikEoHizDRTsLarU8JXD4K0NYbLzZ8Rtw0iDAfnah5Rwm33dAEypVaxguuYE9IItCcId
+         d3eyqJEh4QVSQNir8g2MpUfjxPJIYOLt8qHHC/mKwIQYxicQIkMxbxgGc5wIH6EtAGka
+         kjyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=JPC1RAeyqbYuGOqMmGUi58uvgG+tJSEuOdphvL+a1Uw=;
+        fh=KDSoim5j26uFpCpF1kCevJhHNr3BnjTR7ovnetPKsPw=;
+        b=H3Z5jpJc7QaWcpyXvSCFuCAbD/dZQmE+yxgbQeF3O75eJj0KWAc6ebxG0wQxxEpTj+
+         yMPSEVD2m1U6lmmisHD8p4y/BmYfVKteYqetGv0TOhZutpAnfHZ/VDwG2jtapD9XZVAL
+         A1/aCqGVtM1C4xH4ffu7CehUk7q9ViCAs42IL61Nvq9YA8WSZClIvisyJGXzJlBrivli
+         R68WwmyZAN/QZSdlymVwlt7EOIx2LDF8XsHb1EODEzQ1tphOU/z+XQpXOILzUkB9LFDm
+         CW8KZ3YvC73m0X2mGysP3Sa41V7N7UWB0zjrbBt+alsr0kqunVuqd1UqvV2w5Ivq4wnB
+         c4kg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795043884; x=1795648684; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JPC1RAeyqbYuGOqMmGUi58uvgG+tJSEuOdphvL+a1Uw=;
+        b=gMqYmTxxxzZ9HGz8ByNTixIytfLUOljdot+AsdWACnOc4M6nV+P2CuwwqQ+cFhNySD
+         ijUZb8IlBLZwar+L2LfAd8K6Lc2JaG44BnYfdyrp0ZEw5i2YrtuT+y3Ga+iN5VsmqHtE
+         qyoUk0lptnivIulrEftIYMo6ZiuXlYLkptY9ccthmYaTbCeBL7SkmfuaD6QjEr0ryUbt
+         THS0hL0+MidksYMQZ6nowTIvqB5VQcrFDyAhpflVFZXq4KnuIP0ibiZW6l3HNh27vBxt
+         ksMs9Nl88jZNneuABg8MrBigv+AOj/rUtxtFz1WxIbhdYar3e/9BQ41X/Hd0/41ozmMo
+         xCXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795043884; x=1795648684;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JPC1RAeyqbYuGOqMmGUi58uvgG+tJSEuOdphvL+a1Uw=;
+        b=Em6vKiA96Ry12YdFCGQZuvpnwD6AAySoB1AAPLq+MVYgj/G0sVH17ivrHmV5DG3dFC
+         5z2XyiS9mRcrIZIUc+3Fhbh2nveleTCBb+IUo3Dbxc1T1sruWMQsBqCwnAqjyjfMHsDE
+         M4bQ8CT41T87AxV7MZdyYO9nkeNqeZkdbSin1Fa0mi1QpN5ErVaS0qJQoYE+Nkcd/1ky
+         yDfip4yts6WYoVLXV7vsLNzDFI4OJwFnjbrGCrr3wlET6Mqg9QS/fWZ2JSUV1Vo3DtaX
+         D9OjtaXVtj72RZnlICQEHBepPrgmHOW+YRxX9fN6HUi3P0cvcwWUgGRd0tuR+OI+w7qk
+         uhdA==
+X-Forwarded-Encrypted: i=1; AL+hErEkLHGr6ChnQSEnR3J3ANful1W42v/aBjMKI7B2JVuyvF3iaOwkyi6x0vIn+FnGZu4EGdbZF17qpn9UsCc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9GNdHFoy9vGSXNgNEq90mO8DzMs48xMXdLpadbaC+utvQ85IMv
+	aCsZF+NoPZ2JeuaabTIY5tic2NGQic984wfXu08B1/8MgYl6WAMvHMu3zAETfzj3UmuhXUL8VjW
+	PQUwmEBetkR8bgNLPkcsEhxo4eyYPojDqHMNjXQOx
+X-Gm-Gg: AYBFou3VhHYD8wbnA3oSNsNbXRBNySsSaryjyDdfuUPGDcwqWbVlR9+eZx/71whO6oa
+	VQeKzTlrv8r0mJs27D+MVTi/ABQeF5BdOiL117qnYuYehTvhZl6V76G2BsrmzPvPWkCiZIDRb2Z
+	l1uNXcFyY4SF7QDP+D+oiMpgdMoAQPRJx3GNgSKlEWrfC+bP2cgNt1jZDz87H1+7Tnked/WmsZ5
+	l2qdsDLTzvZtcUNFzoOHb9hgmSok3f4UFYdjwVebsChjgJP5B+xldOd97qbYCjg3J3v6Ouvc+1s
+	lDd1vQ9V/PCkNPeBfbnO9aRQUmUepag4XL2WOZnsWsTu/W92hF3wVXiDVu4FT5CQa9WrV6PgJr8
+	ZGxTmx8cGK5uhQr2jwr3/q2c0ENUP5b3jU0pGUQ==
+X-Received: by 2002:a17:906:f58f:b0:c51:2e3:f426 with SMTP id
+ a640c23a62f3a-c512b79e2demr9058066b.18.1795043883126; Wed, 18 Nov 2026
+ 15:18:03 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,88 +104,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-upstream-qcom-battmgr-fixes-v1-v1-3-ca83700c08c1@gmail.com>
-References: <20261119-upstream-qcom-battmgr-fixes-v1-v1-0-ca83700c08c1@gmail.com>
-In-Reply-To: <20261119-upstream-qcom-battmgr-fixes-v1-v1-0-ca83700c08c1@gmail.com>
-To: Sebastian Reichel <sre@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, stable@vger.kernel.org, 
- =?utf-8?q?Alexandru_Andrie=C8=99?= <alex.andries.aa@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795043834; l=2126;
- i=alex.andries.aa@gmail.com; s=20261118; h=from:subject:message-id;
- bh=rbeD9/hqy2iLa1zbMjhzXGTU00ckT0RtHpgBQ16AH5I=;
- b=JsoY8sFr/LIOpNR9zSCmVSlbAT0y8+na0ABBLTwEaUCcTDISlTl8LFCGx31mJICe5nVIy0Qtu
- UutV5/Wakh1DN2wEzee4AH33SDAS4fJv78X+dVsfRO+4EeM1fQs9uu1
-X-Developer-Key: i=alex.andries.aa@gmail.com; a=ed25519;
- pk=kNAqgavfB7uUd1mA8o8TszhGxzyqBwY71PGO/oK4v84=
-X-Endpoint-Received: by B4 Relay for alex.andries.aa@gmail.com/20261118
- with auth_id=1564
-X-Original-From: =?utf-8?q?Alexandru_Andrie=C8=99?= <alex.andries.aa@gmail.com>
-Reply-To: alex.andries.aa@gmail.com
-Content-Transfer-Encoding: 8bit
+References: <20261013162529.1928093-1-dmatlack@google.com> <autxCZPJ9yiE2ucq@google.com>
+ <aut0H65XKAHUqPR9@google.com> <CALzav=dp8HvdK=9cAkGfbsJAeckyU3_y7rCRM22R7+AmTTtxMQ@mail.gmail.com>
+In-Reply-To: <CALzav=dp8HvdK=9cAkGfbsJAeckyU3_y7rCRM22R7+AmTTtxMQ@mail.gmail.com>
+From: David Matlack <dmatlack@google.com>
+Date: Wed, 18 Nov 2026 15:17:35 -0800
+X-Gm-Features: AclHuK_BmYZZLmsTICieOxQ9QtDw0U6EdYtEs__fOCufTHy2p7TcHAXRToh2pGA
+Message-ID: <CALzav=cj3GuYU3wmW5GPSy8Rp+4xYjm3vonDBdi8TTyWSgxPCw@mail.gmail.com>
+Subject: Re: [PATCH v10 00/13] PCI: liveupdate: PCI core support for Live Update
+To: Pasha Tatashin <pasha.tatashin@soleen.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, kexec@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-pci@vger.kernel.org, Adithya Jayachandran <ajayachandra@nvidia.com>, 
+	Alexander Graf <graf@amazon.com>, Alex Williamson <alex@shazbot.org>, Chris Li <chrisl@kernel.org>, 
+	David Rientjes <rientjes@google.com>, Jacob Pan <jacob.pan@linux.microsoft.com>, 
+	Jason Gunthorpe <jgg@nvidia.com>, Jonathan Corbet <corbet@lwn.net>, Josh Hilke <jrhilke@google.com>, 
+	Leon Romanovsky <leonro@nvidia.com>, Lukas Wunner <lukas@wunner.de>, Mike Rapoport <rppt@kernel.org>, 
+	Parav Pandit <parav@nvidia.com>, Pranjal Shrivastava <praan@google.com>, 
+	Pratyush Yadav <pratyush@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Saeed Mahameed <saeedm@nvidia.com>, Samiullah Khawaja <skhawaja@google.com>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Vipin Sharma <vipinsh@google.com>, 
+	William Tu <witu@nvidia.com>, Yi Liu <yi.l.liu@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Alexandru Andrieș <alex.andries.aa@gmail.com>
+On Mon, Nov 16, 2026 at 8:45=E2=80=AFAM David Matlack <dmatlack@google.com>=
+ wrote:
+>
+> On Wed, Nov 4, 2026 at 10:06=E2=80=AFAM David Matlack <dmatlack@google.co=
+m> wrote:
+> >
+> > On 2026-11-04 01:00 PM, Pasha Tatashin wrote:
+> > > On 10-13 16:25, David Matlack wrote:
+> > > > v10:
+> > > >  - Save and restore the ACS Egress Control Vector along with the AC=
+S
+> > > >    Control register, sizing the save buffer from the HwInit Egress
+> > > >    Control Vector Size field (Alex) and drop Bjorn's R-b tag
+> > > >  - Make CONFIG_PCI_LIVEUPDATE depend on 64BIT from the first patch
+> > > >    rather than adding the dependency later in the series (Pratyush,
+> > > >    Mike)
+> > > >  - Reword kernel-doc comments to read better in the HTML docs and
+> > > >    spell out "reference count" (Mike)
+> > > >  - Replace the version number at the start of struct pci_ser with
+> > > >    required_flags and optional_flags, and record the size of struct
+> > > >    pci_dev_ser, so that the PCI FLB ABI can be extended (LPC BoF)
+> > >
+> > > Hi Bjorn,
+> > >
+> > > I am planning to target this series for the 7.5 merge window through =
+the
+> > > liveupdate tree, as we previously agreed. However, there are still 6
+> > > patches that lack an Acked-by from you. I believe you might have
+> > > reviewed some of them before, but the tags were lost during subsequen=
+t
+> > > refactoring. Could you please take another look at the following to m=
+ake
+> > > sure everything is in order for us to merge the series:
+> > >
+> > > PCI: liveupdate: Set up FLB handler for the PCI core
+> > > PCI: liveupdate: Track incoming preserved PCI devices
+> > > PCI: liveupdate: Document driver binding responsibilities
+> > > PCI: liveupdate: Auto-preserve upstream bridges across Live Update
+> > > PCI: Save and restore the ACS Control register and Egress Control Vec=
+tor
+> > > PCI: liveupdate: Adopt ACS controls in incoming preserved devices
+> >
+> > Thanks Pasha. One more for Bjorn's list:
+> >
+> >   [06/13] PCI: liveupdate: Preserve bus numbers during Live Update
+> >           https://lore.kernel.org/linux-pci/20261013162529.1928093-7-dm=
+atlack@google.com/
+> >
+> > Bjorn's Reviewed-by on it was dropped in v9 when it changed materially
+> > (albeit based on his feedback).
+> >
+> > Alex, could you also take a look at the two ACS patches? 08 includes th=
+e
+> > Egress Control Vector save/restore you asked for in v9.
+> >
+> >   [08/13] PCI: Save and restore the ACS Control register and Egress Con=
+trol Vector
+> >           https://lore.kernel.org/linux-pci/20261013162529.1928093-9-dm=
+atlack@google.com/
+> >   [09/13] PCI: liveupdate: Adopt ACS controls in incoming preserved dev=
+ices
+> >           https://lore.kernel.org/linux-pci/20261013162529.1928093-10-d=
+matlack@google.com/
+>
+> Bjorn and Alex, these 2 patches still need your R-b or A-b tags, and
+> then this series will be all ready for 7.5.
 
-Firmware reports battery temperature in signed hundredths of a degree
-Celsius, scaled to tenths of a degree for POWER_SUPPLY_PROP_TEMP.
-Passing it as unsigned int to DIV_ROUND_CLOSEST(..., 10) in both
-qcom_battmgr_sc8280xp_convert_temp() and qcom_battmgr_sm8350_callback()
-turns sub-zero values (e.g. -5.00 C, 0xfffffe0c) into 429496680 instead
-of -50.
+Thanks for the reviews on v10, Alex. I've pushed v11 addressing your
+feedback. Patch 09 on v11 is now the last commit that needs a tag.
 
-Change status.temperature and qcom_battmgr_sc8280xp_convert_temp() to
-int, and cast the SM8350 BATT_TEMP payload to s32 before dividing.
-
-Tested at 35.0 C on a Xiaomi MIX 4 (SM8350); the SC8280XP path and
-sub-zero temperatures were not hardware-tested.
-
-Fixes: 29e8142b5623 ("power: supply: Introduce Qualcomm PMIC GLINK power supply")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexandru Andrieș <alex.andries.aa@gmail.com>
----
- drivers/power/supply/qcom_battmgr.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/power/supply/qcom_battmgr.c b/drivers/power/supply/qcom_battmgr.c
-index 83e67d22c432..98b658ff6beb 100644
---- a/drivers/power/supply/qcom_battmgr.c
-+++ b/drivers/power/supply/qcom_battmgr.c
-@@ -278,7 +278,7 @@ struct qcom_battmgr_status {
- 	int power_now;
- 	unsigned int voltage_now;
- 	unsigned int voltage_ocv;
--	unsigned int temperature;
-+	int temperature;
- 	unsigned int resistance;
- 	unsigned int soh_percent;
- 
-@@ -1250,7 +1250,7 @@ static unsigned int qcom_battmgr_sc8280xp_parse_technology(const char *chemistry
- 	return POWER_SUPPLY_TECHNOLOGY_UNKNOWN;
- }
- 
--static unsigned int qcom_battmgr_sc8280xp_convert_temp(unsigned int temperature)
-+static int qcom_battmgr_sc8280xp_convert_temp(int temperature)
- {
- 	return DIV_ROUND_CLOSEST(temperature, 10);
- }
-@@ -1467,7 +1467,7 @@ static void qcom_battmgr_sm8350_callback(struct qcom_battmgr *battmgr,
- 			break;
- 		case BATT_TEMP:
- 			val = le32_to_cpu(resp->intval.value);
--			battmgr->status.temperature = DIV_ROUND_CLOSEST(val, 10);
-+			battmgr->status.temperature = DIV_ROUND_CLOSEST((s32)val, 10);
- 			break;
- 		case BATT_TECHNOLOGY:
- 			battmgr->info.technology = le32_to_cpu(resp->intval.value);
-
--- 
-2.56.1
-
-
+  https://lore.kernel.org/linux-pci/20261118223704.3286085-10-dmatlack@goog=
+le.com/
