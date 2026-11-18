@@ -1,59 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.161
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032449;
-	b=gtmJmkPufCGSph6tb1esFq/iVZPe6N11O5JqnvkJmYl2vFQE+oB1MukI33PrcyZQp5SQ
-	 J8dxIC74jJ43UHGXxt5w2ihXNFRwPsvJhHwhYaCjfFfTmbQpPYAylaG+LccDle5X4lZ1n
-	 kUbU0WzaCJ5Lx0NjrpsNJcZWHjrdSZxg4fMI6C0zpO2NC6jaudEaq8BlPDEkp1zkihV8C
-	 wQlPcsu0UcaW6EyjHL98J/5N/rcXe0g1pA/Hoh76mHn985z+vyVWR4vEIkFaUJ5Z882cV
-	 2C+eJa9D1xF286fDZCTM+ikRTdDu7vS2UKaOp8ihlvrRFrPcmXFuBHopaP1iPgxFBsA==
+	t=1795032533;
+	b=4CgF2e7dfIYTzvc1f3THbCGi70PILrmm8DSxrhQlwmYti+N+SJ3xq/NHX0Qm1fyAP0P8
+	 ywSkAgMctUoBIwvBAw1Far9PzL1x8Wqf3LqHtW/Y9P3cKdE9DDvpO5CT52j+1BVtqiEHz
+	 SZadnCtdKrg630eNF888yCzdcsY1eHrd6OUHYGX3qtRg/k9ivPuqwYyIFIbeEPko4+2s8
+	 1D1TWFrj1sNiT5dQyY+wIHb3tgusZ9JZGG68MwmdvIkJPF5NWv6qHsJU8u72HTqgqIRaT
+	 OyLlR0f0S/JOJ6e3cTpaxlBWjV61SSlVg7tbLIHEVzPjGJZ4KNMqNsVDHF9jHMJdkVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032449;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-MBO-RS-ID:X-MBO-RS-META;
-	bh=grrGjUVJwV0CXcLKlYEe48Qw43rd0brUV0hYKxU47Xk=;
-	b=B5qS5lrdHx40wiPuciyQQLtlXSbM4fEmVxWT3oLvklokskfjJjbJzw8VJlMMHoVcTDth
-	 Bebf2mcyQatQgebx4HhYAMcthIYdczzDKD/DtzxwkXlF16LQfJOgMcdifh0YBkcneqf07
-	 5y2icYEUI6hHqbWQH0jv6IFIli9PFCaiIfqv9dfU4Keka1beTwEHdGXXqVM0xzoGPpD7Y
-	 mzbFvTRgNxP8Y9vQVSG62MLv7v4PoGOAJzmnPnPRny3qI5nvamhfgbDaNXvfCiIbPJAP2
-	 VnZ6u9dqa9SWCN0Bni41HvN1R/f4I3ufcX8ovz6wAhCbPfZf8iVdCOoWSlVq1wS81rg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032533;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=sdZwJGrljf/aq3KiOPvW8pwdl5/t+4Q9gbycn487dlw=;
+	b=GxXK3JSoadMDKmIH4NJR5in3pAqHygjh0lGDCFwQFxXg2vuIsIEulp7n88+Nn+V/xxQa
+	 /gW9pC+ZH96OctC1mOAlt1tAvqoCIN1ne3bXdxupZoOaqk5rRncxturkzDeiIR59pYmRC
+	 Jg3rP3hSGv4X5Dq4TKCgjceu1drm2UKAcIXgGuNQQD+N1eFxcmua+snutkkqBhEawQCF9
+	 h4JxGjwodPdUm/JhNuYRKNnojCpp7pyG7hWG7rzplyuz1W+Bf0jb3UIl+P2JoGcde+zxQ
+	 YKStzQ0RkCqmUtm9OoX6eEai7r1ET7L6F/DtOrbCpXe1Qn+X3EFzRMyk0dTRXCTC/Ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=jUj2cQi1;
-	arc=none smtp.remote-ip=80.241.56.161
-Received: from mout-p-103.mailbox.org (mout-p-103.mailbox.org [80.241.56.161])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=YQ8hoMWV;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB56606CB2C;
-	Wed, 18 Nov 2026 20:07:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEB56606CB2C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C19F6606A31C;
+	Wed, 18 Nov 2026 20:08:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C19F6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=jUj2cQi1
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4jVCLZ5YDLzKnTb;
-	Wed, 18 Nov 2026 21:07:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795032438;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=grrGjUVJwV0CXcLKlYEe48Qw43rd0brUV0hYKxU47Xk=;
-	b=jUj2cQi1TjvAlAigsWByFQtLeRYFuCgFzYQW71NHtfFhDAr9MppM/OKgIIiiZOhntd72Da
-	MxBvYFDQ9XSaLsYHNMiZlA6EOMNTMYWTqNxfRUQfX6IDpbpdzyB9eqYlFpF0Ke0P1XtyFX
-	AXVpG1p+HmpZjPqGVVcLUB1VcbvLX459NRjxOTQKvyYGhxyIc5F7x+qpCkgKNYCa3n7YF6
-	OsV50NQAAVhsv3r3bKCC2fxTP97ADE2jKxBTWBaMK5bHbwvQ4cXzpxQPgSkd5nMJYwNsCJ
-	EjuMYO5jZpx8vHPMzIlYrnjnPGoZtejgyHafUM99n7mdqC//P3dFMMZU4CTEBQ==
-From: Lukas Beckmann <lbckmnn@mailbox.org>
-Date: Wed, 18 Nov 2026 21:06:42 +0100
-Subject: [PATCH v3] cpupower: fix use-after-free and stale limits in
- frequency-set
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=YQ8hoMWV
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIJQ9Vw755960;
+	Wed, 18 Nov 2026 20:08:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=sdZwJG
+	rljf/aq3KiOPvW8pwdl5/t+4Q9gbycn487dlw=; b=YQ8hoMWVFmrIikkdFNeW5W
+	KiJk40+P1pR4rOOWfLE3HviqqDOwuGUhqSg6QF1nJqkfTSpuO47xmotHa8w7bKYr
+	nuKK+cAp48TRppLSg1TLoSo29P6qLLVCUBJM2Vs51UvRBORta428Zew0LPtDdVB4
+	+tX1VhvkDG5grFhnsDhvuYnqrIT0Olz9uSUNKy10GLluEkyFaCzjGEzso54sUe4i
+	yhYYJ+AjvsJD0H52UKZDBECyNxmKGSCX2pJqcupRiGDHNuKzkH/Hw0VuZ1tZs9b/
+	YDBinqj6+klOwDqDv3iiufO53xYnan2XxfUJwYlImjk5BCIoWLPEO/1iEJNRZi7w
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vvaus-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 20:08:23 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIJKGrc1356271;
+	Wed, 18 Nov 2026 20:08:22 GMT
+Received: from smtprelay04.dal12v.mail.ibm.com ([172.16.1.6])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j067nhay9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 20:08:22 +0000 (GMT)
+Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
+	by smtprelay04.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIK8MSK24249052
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 20:08:22 GMT
+Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E79DE5805D;
+	Wed, 18 Nov 2026 20:08:21 +0000 (GMT)
+Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8E83758059;
+	Wed, 18 Nov 2026 20:08:20 +0000 (GMT)
+Received: from [9.47.158.153] (unknown [9.47.158.153])
+	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 18 Nov 2026 20:08:20 +0000 (GMT)
+Message-ID: <f38f6d32-16d3-4986-8d6a-9d65517f5317@linux.ibm.com>
+Date: Wed, 18 Nov 2026 15:08:19 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,121 +86,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] KEYS: fix signature length passed to
+ KEYCTL_PKEY_VERIFY
+To: florian.bauckholt@cispa.de, David Howells <dhowells@redhat.com>,
+        Jarkko Sakkinen <jarkko@kernel.org>, Lukas Wunner <lukas@wunner.de>,
+        Ignat Korchagin <ignat@linux.win>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>
+Cc: Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+        "Serge E. Hallyn" <serge@hallyn.com>, Hui Peng <benquike@gmail.com>,
+        keyrings@vger.kernel.org, linux-crypto@vger.kernel.org,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        stable@vger.kernel.org
+References: <20261111-keyctl-pkey-fixes-v1-0-934ebaa267a7@cispa.de>
+ <20261111-keyctl-pkey-fixes-v1-1-934ebaa267a7@cispa.de>
+Content-Language: en-US
+From: Stefan Berger <stefanb@linux.ibm.com>
+In-Reply-To: <20261111-keyctl-pkey-fixes-v1-1-934ebaa267a7@cispa.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-cpupower-freq-set-use-after-free-v3-1-3e021315b579@mailbox.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42Oyw6CMBBFf4V07ZhOyyO48j+MCwpTqFGKLSCG8
- O/yiImudHkmN+fMyDw5Q54dgpE56o03tp5B7gKWV1ldEphiZia4iBGRQ950jX2QA+3oDp5a6Dx
- BptvtRCA5SZnorMiVZrOmcaTNsCZO5419py6Ut4t3WVTGt9Y91x96XHbvnPid6xEQQuJchqlIl
- NTHW2auyg5760q2BHvxqYz+UIpZGasUNcaSYxx9K6dpegHVDValNwEAAA==
-X-Change-ID: 20261110-cpupower-freq-set-use-after-free-30e337fadcbf
-To: Thomas Renninger <trenn@suse.com>, Shuah Khan <shuah@kernel.org>, 
- "John B. Wyatt IV" <jwyatt@redhat.com>, John Kacur <jkacur@redhat.com>, 
- Dominik Brodowski <linux@dominikbrodowski.net>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Lukas Beckmann <lbckmnn@mailbox.org>
-X-Mailer: b4 0.15.2
-X-MBO-RS-ID: 4a0eb06593f6e9ff584
-X-MBO-RS-META: ftnuf1a7g68bqj75hgs7idewd41dkfb5
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: HKXXmG-UC4fI07WkkUIKC_mzZd1qDZ8L
+X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afe05b7 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8 a=fjpi1DcuFi9e4zuLaT0A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: tqJB5qfQ6hOs4knfl_yxa9eK_24yXY4i
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3NyBTYWx0ZWRfXzX4OhltihA4R
+ UjGEpAfYLdZIsa4xf1+UXd1ahOexugaiV5mO99pHy2W4TiwIPCp2DOYNENk8CDKrF/LCaB9IzYW
+ cHXHofYmbkjF6QtfAEFlf6+qbc8C8vA=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3NyBTYWx0ZWRfXwCwSUwf0dsZa
+ 1nFeFGeo7vv/dnyEuuRVK6u4Hpuw3TtvSCtaN4wjakjj82yChlWHzk0xR9+K9vQQF0f02iWF21i
+ WqnUQXWsFwkTMuueCwCzOxqsW2vJTUpfaALf1O1CHw92uxXRc5nXCMcCIFPYoARtKaOw1xzP/0Q
+ eNcRThOMpS59MOPl6v7OVbjaDnnLuvj9lli/RArQy/EfsbeOqoKzuKmJ6gw4A+vDrPPYWD39nb5
+ 2xE/+0+wz2DKrBWT8OGat/lJT4pR6RupSbmaueYIuUIkU+QuA05RndKt3bWm/pvuO6eFMRmun0b
+ 9Sv9oQH2zrBXOyUWYTnIF5HOLfxvBx0niMlD4TNaBplrGzi7eL0EyAPCqWWkVki5l7cTEyWx9Sl
+ dX8GoqGH7sT5zFageKRgRQyvwwQBXFMpTQ955Qrto9viPavPscL7Ty7jNrlYDgf5XagQcqw412D
+ r4IuG8dt35wtodx5kSA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_06,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 clxscore=1011 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180077
 
-do_new_policy() directly fills the unset fields of new_pol from the
-current CPU's policy. This is problematic because do_new_policy() is
-called with the same new_pol for multiple CPUs by do_one_cpu() in the
-slow path. This results in stale values in new_pol being applied
-(starting from the second CPU that should be changed), and even a
-use-after-free (for the governor string).
 
-Fix this by building the target policy from new_pol and the current
-policy in do_new_policy() instead of filling the missing values into
-new_pol.
 
-Fixes: 7fe2f6399a84 ("cpupowerutils - cpufrequtils extended with quite some features")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lukas Beckmann <lbckmnn@mailbox.org>
----
-Testing and minimal reproducer:
+On 11/11/26 10:56 AM, Florian Bauckholt via B4 Relay wrote:
+> From: Florian Bauckholt <florian.bauckholt@cispa.de>
+> 
+> Commit cb481e59ea6c ("KEYS: fix overflow in keyctl_pkey_params_get_2()")
+> made keyctl_pkey_params_get_2() set params->out_len to the maximum
+> output size of the operation instead of the size provided by the caller.
+> It does so for KEYCTL_PKEY_VERIFY as well, but verify has no output
+> buffer: out_len shares a union with in2_len, the length of the
+> signature.
+> 
+> As a result keyctl_pkey_verify() ignores the signature length passed by
+> the caller. It copies max_sig_size bytes from the signature pointer and
+> passes max_sig_size as the signature size to the verification.
+> 
+> This makes no difference for signatures that are always max_sig_size
+> bytes long, such as RSA. A shorter signature, e.g. a DER-encoded ECDSA
+> signature, is followed by whatever is behind it in the caller's memory,
+> or the call fails with -EFAULT if that memory is not readable. The
+> x962 ECDSA template currently ignores data following the signature,
+> which hides the problem.
+> 
+> Use the length provided by the caller, which has already been checked
+> against max_sig_size.
+> 
+> Fixes: cb481e59ea6c ("KEYS: fix overflow in keyctl_pkey_params_get_2()")
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/all/20260919221742.3709658-1-benquike@gmail.com/
+> Signed-off-by: Florian Bauckholt <florian.bauckholt@cispa.de>
 
-Running the command
+Tested-by: Stefan Berger <stefanb@linux.ibm.com>
 
-    ./cpupower frequency-set --max 2500MHz --min 2500MHz
-
-with ASAN reports the use-after-free before, but not after the patch.
-
-Run the following commands:
-
-    # set CPU 0 to a different maximum than CPU 1
-    echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    echo 3000000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-
-    # Change min and governor (but not max) of CPU 0 and 1
-    ./cpupower -c 0,1 frequency-set --min 1GHz -g performance
-
-    # See if max got changed
-    cat /sys/devices/system/cpu/cpu[0,1]/cpufreq/scaling_max_freq
-
-This shows that the stale maximum of CPU0 is used for CPU1 before the
-patch, but not after the patch.
----
-Changes in v3:
-- Keep the original if conditions (no functional change)
-- Link to v2: https://patch.msgid.link/20261115-cpupower-freq-set-use-after-free-v2-1-6b91f1630165@mailbox.org
-
-Changes in v2:
-- use a shorter changelog and testing section
-- build temp_pol from new_pol and cur_pol instead of copying new_pol
-- Link to v1: https://patch.msgid.link/20261112-cpupower-freq-set-use-after-free-v1-1-4e0034927b3f@mailbox.org
----
- tools/power/cpupower/utils/cpufreq-set.c | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
-
-diff --git a/tools/power/cpupower/utils/cpufreq-set.c b/tools/power/cpupower/utils/cpufreq-set.c
-index 06cd4b280132..0bbf303d3317 100644
---- a/tools/power/cpupower/utils/cpufreq-set.c
-+++ b/tools/power/cpupower/utils/cpufreq-set.c
-@@ -141,9 +141,10 @@ static unsigned long string_to_frequency(const char *str)
- 	}
- }
- 
--static int do_new_policy(unsigned int cpu, struct cpufreq_policy *new_pol)
-+static int do_new_policy(unsigned int cpu, const struct cpufreq_policy *new_pol)
- {
- 	struct cpufreq_policy *cur_pol = cpufreq_get_policy(cpu);
-+	struct cpufreq_policy temp_pol;
- 	int ret;
- 
- 	if (!cur_pol) {
-@@ -152,15 +153,21 @@ static int do_new_policy(unsigned int cpu, struct cpufreq_policy *new_pol)
- 	}
- 
- 	if (!new_pol->min)
--		new_pol->min = cur_pol->min;
-+		temp_pol.min = cur_pol->min;
-+	else
-+		temp_pol.min = new_pol->min;
- 
- 	if (!new_pol->max)
--		new_pol->max = cur_pol->max;
-+		temp_pol.max = cur_pol->max;
-+	else
-+		temp_pol.max = new_pol->max;
- 
- 	if (!new_pol->governor)
--		new_pol->governor = cur_pol->governor;
-+		temp_pol.governor = cur_pol->governor;
-+	else
-+		temp_pol.governor = new_pol->governor;
- 
--	ret = cpufreq_set_policy(cpu, new_pol);
-+	ret = cpufreq_set_policy(cpu, &temp_pol);
- 
- 	cpufreq_put_policy(cur_pol);
- 
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261110-cpupower-freq-set-use-after-free-30e337fadcbf
-
-Best regards,
---  
-Lukas Beckmann <lbckmnn@mailbox.org>
+> ---
+>   security/keys/keyctl_pkey.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/security/keys/keyctl_pkey.c b/security/keys/keyctl_pkey.c
+> index 15b6bf6399b5..794fa3d01911 100644
+> --- a/security/keys/keyctl_pkey.c
+> +++ b/security/keys/keyctl_pkey.c
+> @@ -160,7 +160,7 @@ static int keyctl_pkey_params_get_2(const struct keyctl_pkey_params __user *_par
+>   		    uparams.in2_len > info.max_sig_size)
+>   			return -EINVAL;
+>   
+> -		params->out_len = info.max_sig_size;
+> +		params->in2_len = uparams.in2_len;
+>   		break;
+>   	default:
+>   		return -EOPNOTSUPP;
+> 
 
