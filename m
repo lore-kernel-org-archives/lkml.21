@@ -1,55 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795004800;
-	b=iYzZe0305Q/kZ3yNI8MEuAyehOafIJdQQ00c6u/BYbS7UQdoBUP0Dw0mT8RDnBoqP940
-	 YdKSY9TJvoDbbd2yVxDGlonaJsPUS+gxkVL39xZa4xsbMhj0x9b0LUWu+bPSs5VyKgaom
-	 C3AZgfzG4ZZSKrwucvKFAgf4c7HsYXcrQOZs4uoWUnJD6DEdK5lGrgjGb9eJBWjjCrx0c
-	 hWlaLgw0p41Csf/0kUk8JRaeUOrL7hxSUWxYRBlWoLjQh5vPbGc4y5AyElPeijtmbAVUD
-	 oj1UaFo//6jQ/cF5oAR/ol5zLK1SPaimmsUScRFjK0mCTguBnrDK1HWoTPOgYfVq+3w==
+	t=1795004866;
+	b=adeK/JNbj/qL7gXibKJuVPmoGbpihGfixfW+zEtMtVBVQbJARvcDBy6Eni2uc/ekzb+5
+	 XXQ7kmjn/MfylaP5R0rkXbCOGnywL7/DssJ6/T0HmV5K7LzJNygqIMS2GyxrnkTP7TMPl
+	 SleKWZVGAIA9gSpPjzBjb4O2+3IVh+gkNsOQ1xwrcos293jjCd0UHYEs+E5Tm0Zua+G0v
+	 P4naFLxXGkkTl2iDklICdaySaHKXqWvDgLfl0b+qFPs+Xw0l0X0y3TiZt3MWYchs55HQv
+	 d3C9Eb8GCEmHa9K0nJ0iL+nbv8UgqH0F5cqUKiVn2GbWiOCVYy0GzV0PA5A605U2OBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795004800;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=bIHva9RvFKScdk+UZiCWNwsiHguCUsvhrhFyja4QYrc=;
-	b=eMMCiZ7MnG4bmPG83RzWiWkU3uhSc8LonklLjCH3MkxxOYDkUSXgrtknK1Eh7U+Eezp4
-	 2gUKzqI9ULJtveiKDqj7hJvM1dhBsYYWNA/LCwqi92Gt3wIfUp6hqDt+pMWjlisbrwgxJ
-	 3WTVL90C9Lh+DgEPxNY7ijVqcJk+uKImLi3BAsrGeHG3CpG5N6He6Ot2Rn5vxwbJoNTGQ
-	 LTKs7pJvrUCtHjVMZhvGIpVDtO7R9MeoTc0gFSrdPtZLGGrTwEqon9vMpy45Qd2PS3hL6
-	 t/yWxOGkq8T1gy8vEQNYAjeFwuOnB8QhhlydBliRH2MMdECH+ig/egyN7bhYR0D2qpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795004866;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Q5C/iHN7Lmzj8RXtCSxUA965C7B7NlmPdCiPikMVO9w=;
+	b=EeDmaNC7uz3/xjxb3zyQ3zpuCMZOfsqmvWf2C2OEcRHlt6g5m9VqTK1uK+VKh0FDvZKL
+	 94HrEniqUN8sa0iVYbOJnq7L8xn83lY/jPquXbs19wfUyODPa77N7Lri0hHGv/qtTHp2a
+	 NDN2ASz4aQn3UjeAYvLYZr1YaahYtXFRyloYnjAycvtFb8oiePUJZGQG67ruEMm8pz0yJ
+	 kqWrB5n+6oJXRad+bG5QWsHhPwGlLRgN67OYuO9hyh0Imw4HiKlcnlIXe3MtC9A2k+Fj7
+	 AuLdP1bouLLJOtMv1DkFhQ8QUm1HGEDjbbyn0zFH/Z6fU4NVdyxOxFyoXKXqJCfpPvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a57daUlW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=HBHVTF4b;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6ACD606A31C;
-	Wed, 18 Nov 2026 12:26:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D5BC606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:27:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D5BC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a57daUlW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF9501F000C5;
-	Wed, 18 Nov 2026 12:26:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795004800;
-	bh=bIHva9RvFKScdk+UZiCWNwsiHguCUsvhrhFyja4QYrc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=a57daUlWQxw9mUiTkE2WOsCbfJQSGmeEKvjSo9wj2P5r/7mMj42Hu6p+CZXDeo0Ia
-	 CPfIWBt9HIn+6Tg7SlsZOUugGm8qGqDYMPrNjWzxC1utzudc3+feoJxvO2PsqFLN4r
-	 jwVMBQ1hWrRNHaB7geSZyAq2/hhzIZcp0B9IcuyZGTwcS+Q+oN8qXaOFHHoFe9fhsV
-	 pQPeg/IccsOiqz3vtEuWuAhGy71500bgF3+Fx9jQEklfRWU30wvaYIVtPzeU8mBgSS
-	 p52xjg94moRa8nayBHYZgUYa6TtraKCwN+QK1jY6kbd/vzAtHXubC51vYjL7eU5kAf
-	 CT5HxMFJNG81g==
-From: Christian Brauner <brauner@kernel.org>
-To: Alexander Viro <viro@zeniv.linux.org.uk>, 
- Avi Weiss <thnkslprpt@gmail.com>
-Cc: Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261108125617.2383285-2-thnkslprpt@gmail.com>
-References: <20261108125617.2383285-2-thnkslprpt@gmail.com>
-Subject: Re: [PATCH v2] fs/stat: reject invalid flags for empty paths
-Message-Id: <20261118-mathematik-unrecht-hirnzellen-8bd719fcb1f7@brauner>
-Date: Wed, 18 Nov 2026 13:26:35 +0100
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=HBHVTF4b
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a5506f09f5so545606f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:27:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795004864; x=1795609664; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Q5C/iHN7Lmzj8RXtCSxUA965C7B7NlmPdCiPikMVO9w=;
+        b=HBHVTF4bbapmpKhd2cG4j0/WIyzz76YZgospn+F8ZhfA019r5hF0mzXdmMgw5XmcYi
+         iIghQouW8+9DpAGnD28wwSHCEKCHmumJJ7Dgj3B29p7C59GHHID0JVDwPfGCPxdkiFMw
+         YroY1fXJNUGl6lAlBbhycxfusl/wd7NXBDxeSaunfJO5+rcQGS6BB3cqEZn/3l5o+E6D
+         rs29dvDD5gIl/YdTcATmYbuqEgFqcNo3Xqhu0RjjI2WQNk9vOWEiTAlolM23mU6hSdv1
+         l5zVpegNpwBb1P89cuSv/AElopPaytHKcNANPzV8kFMVI0bd9Zs0i2ItsxPfwpOxX+d3
+         uS8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795004864; x=1795609664;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:subject:from:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Q5C/iHN7Lmzj8RXtCSxUA965C7B7NlmPdCiPikMVO9w=;
+        b=m6N8qcJMmb23VkZU1XGm6UlTMM3gkQtIIlB10r7nso04lP4Sou2/Kyp9KIkmc2w7+m
+         byr+mgH9c+M+yqUMxozJSfhIlHu8BCflKdhvl0KWCZZ/Feq/Wynm0/LGrLPEt+W9wXnR
+         puAawFUJ7vnbHaLjdM6GyGuY/w67TYeJQ8JWdgel2M/PPCOItbU2RXIngqyrgdVMzjm1
+         NbQ0AoCg5P4VxBSZjtv1hj3VoDprmgDijlwd8HrKAFH2GgiZxuMvfqmGGAbTxMuatKJy
+         zCkuHnPEYyMLyrHhWZRKAd6PaVav4bTbsGaY/inNrS1dUW+kG7JSEK3dQmlpAThjQEOO
+         hpgw==
+X-Forwarded-Encrypted: i=1; AL+hErG96MAGK0+fWY3KdBbZ7UJ1z4JqwIQWX86pd6azQRVrZn/M9tRW5uPv5fZ99i78fG0Pw/i/9jx0gJ2M0x4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/crOJ9mFybiUcygguc5mN5JtNdOE6kvzMI7kIQhQDT0Tr2o70W
+	fA5+K+ARP2UCbKg0+PysVpUxprquUmBEp0DuhioM+tIQ/GMej8rjZPhsmsUpwY7gyYI=
+X-Gm-Gg: AZFdTZc1UOLoCJ2WtlXPQrj8GWQd3q9GYKjrszt8LUniO96qT8fqxI8K8XPLlSlt3Re
+	7G0xdNvkWHpNBHxULl6SILIrd5njJH1QWKvoqqyeE2f2fCMC4QunRSG2zJFlY2oZ/Nukj1PuG36
+	a3p1ciAmaROcxV63OX58Dk0nyMfF6VhpArCRrUbrjwSJP3REugwT7527AdMsPtyS0ULHkMP1bE2
+	FCalVUr6pyKyuuWjrfjV80fBwbo39JaUbTk96/ycxxYaGj4TGBPi7t+jVKJ1hgEuBWpszPBl8Et
+	yIAUC9DUdQr6qRdr8DG4xdHpp21Mdlxs0lCUXek7XCDayZgqB2tcEjMvPojnU4rxZWPbiaiGZ/K
+	ij9m1AvAuU0N0XIxjZWchtx6dGSGHR68Nlwh2UdwkriKQmYRL2ISs3pATQxgUwxi2JbEUTzkkR9
+	V1tM4I6J341mtKV+U1zQQeJCcYmPjKtTxyCrdu4Hq1Q/hG7AOSHfTgiufQCeTuysUuz0ekI3OQY
+	bw0Sqi3UkIeT0mRUQKpgC4oVt1Cz2HFLqlYkW+2t2sMgMO1egkoHCSP9O429y3M79ecS94/jxTZ
+	jolwXoyGa6uwlMEYJ82oJaUBLly/eu8Vz7b2Ig/22771CLK17MgIYQeQa2hLd7W1mzwz0wr4sx7
+	vMA==
+X-Received: by 2002:a5d:4f10:0:b0:49c:fde4:1af5 with SMTP id ffacd0b85a97d-4a63bbc41c8mr4416511f8f.54.1795004864445;
+        Wed, 18 Nov 2026 04:27:44 -0800 (PST)
+Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c3a7sm4875705f8f.9.2026.11.18.04.27.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 04:27:43 -0800 (PST)
+Message-ID: <f91804a6-39bc-4a86-b24e-9588327e092e@baylibre.com>
+Date: Wed, 18 Nov 2026 12:27:41 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,36 +91,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+From: Daniel Drake <ddrake@baylibre.com>
+Subject: Re: [PATCH v17 04/12] accel/rocket: let the core suspend after a
+ reset
+To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
+ heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ p.zabel@pengutronix.de, ogabbay@kernel.org, zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com, ulf.hansson@oss.qualcomm.com,
+ abel.vesa@oss.qualcomm.com, sebastian.reichel@collabora.com,
+ sidong.yang@furiosa.ai, u.kleine-koenig@baylibre.com,
+ chaoyi.chen@rock-chips.com, shawn.lin@rock-chips.com,
+ finley.xiao@rock-chips.com, diederik@cknow-tech.com, alchark@flipper.net,
+ leonard@lausen.nl, vlwwwwww@gmail.com, jeff.hugo@oss.qualcomm.com,
+ rfoss@kernel.org, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1794615324.git.gahing@gahingwoo.com>
+ <2afd051e37b8dd4f10e347a3537b0086973d554c.1794615323.git.gahing@gahingwoo.com>
+Content-Language: en-US
+In-Reply-To: <2afd051e37b8dd4f10e347a3537b0086973d554c.1794615323.git.gahing@gahingwoo.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
 
-On Sun, 08 Nov 2026 14:56:18 +0200, Avi Weiss wrote:
-> vfs_fstatat() and statx() take the file descriptor fast path for empty
-> paths when AT_EMPTY_PATH is set. These paths bypass the flag validation
-> in vfs_statx(), allowing unsupported flags such as AT_RECURSIVE to
-> succeed.
+Hi,
+
+On 14/11/2026 03:05, Jiaxing Hu wrote:
+> The earlier test on the ROCK 4D was done on the v15 code: the job after a
+> timeout went from all 128 channels wrong to all 128 correct.
 > 
-> Return -EINVAL for unsupported flags in the vfs_fstatat() fast path,
-> and validate flags in vfs_statx_fd() as is already done in vfs_statx().
+> Repeated resets were triggered with a 2 ms job timeout.
 > 
-> [...]
+> v15 (put, then reset): tested twice; both times the board hung within the
+> same second as the first batch of job timeouts, with nothing printed.
+> 
+> v16 (reset, then put): tested four times; the board never hung.
+> 
+> So moving pm_runtime_put_autosuspend() after rocket_core_reset() avoids
+> the board hanging during a reset.
 
-Applied to the vfs.fixes branch of the vfs/vfs.git tree.
-Patches in the vfs.fixes branch should appear in linux-next soon.
+These sentences (history of the patch series) are commentary rather than
+commit message material, they should go after the ---.
+See Commentary section in submitting-patches.rst
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs.fixes
-
-[1/1] fs/stat: reject invalid flags for empty paths
-      https://git.kernel.org/vfs/vfs/c/9a74699d0073
 
