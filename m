@@ -1,99 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975268;
-	b=wt+LSpldieo4A36elp+9fMQN6o2cYUnGu3HiYBZNnjRXuZrJkRMpI3qn5omXwK7FIb10
-	 QQS9iQVqWpWm3+qMuzgwXp++a2YF07eyVg7AJxaZaY09rg6MTDD9Tpy83FBcuMzDxRc06
-	 yffO3pMNVbgbfmonfuy+kzU24O5EYtSekd02WYH8fF+PBvDta7thyis/wpZRZG5gw9iiW
-	 m2/Pyn++of9bNO9IHrSYNiRC+KQenMgCn9n280rZQbxxO85GIxyfvW7UDIJyj0XMAaFru
-	 1sM5GKoL8X6sbxjARbjER1K18gOw/c3Fba0iI0FXjxE3HRFijRNp1APUGOAfJwFoYgg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975268;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794975282;
+	b=1UUXmT64IxTcMwmVh8LH7faGqe8hELpf99i7ltjKIzr1w+7uibB8+kjGA+OmQsM5TA3P
+	 clVOLwt+tc4M4WUcOE1ZZ2fxIek7Sds2alQK/r9+2AzO9WTQ2OwCGTgIfs3M0g4SjI2/9
+	 3MC2j9qlyWjS6yzFqQCZ2uZY85RtEhIRwLxO8NLCaT6QlETVOsicTw77QLS3ac9fJYU/l
+	 sMU1P8MWNBVnDDtNMM2PF684LgxBSV0mgn+/pk4JHgJ4f2IeuTAOBUZNAFCVOMqDOoyRN
+	 pDn1aC1ldtkFF2LoskkJPBUc2goX+jyHfLLz4fVpdxjd4ZkJoZPVOl2cG7Mv9313jzQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975282;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=S7V7zZ843cUu9IT4B0WCibyEP2k6ABel5P+47hk3Njc=;
-	b=oQSYLXMKjxMtq6KBKnZBAoiDeE0Mqyok1bqgnNQUfYDWNm18LN3GMnvhCOUmB9AG5yOO
-	 NVjcTcQbwHQ9VS2rF+wzofNHPE4v2/JU4E0cTiHbW11cMnMjq6vasZs/muJZmYGlT24FK
-	 tvLLPTKaLaUyiT5zl5ot1xATX0QeTWn/kA1Xs/8rZ4LgYpcYzdiCtDY72oiKunV/sfaIu
-	 lhC5uWw0iLXMleN/cRl9gggxQFwNrqDlE0GQPCdh0gxWKMho7rGFCYHXdQhVME50PCr8y
-	 ZpZ/D8ypY/kI/2/HzoJeFkg/JTq3PdZtFYGJ20s/iY6uGMzrUHcxUUM8d2fAosQfY6g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iMYVw0pn;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=78OEmd4BnQnAIL+/edXoWjTbrJ8v+9Ag3/ei+zWF0bs=;
+	b=40/mHu8FYMQjSCcx9r/YWZ0qSq5DlrNiToV/j6R1PHao+O+ZLpLu1BwopOF9q9PJtCcv
+	 IxhlngLJq1Oro6OudOXbCdKl4U5C3qcY7c0gvcLDutfZHBcCCN3xkcGWVnWs+J3PlUxBf
+	 6n1JsUlkPQnwnk5tMpt2PG0CbGtot5ovXqkItKGCd+rmvBxd4NeWRmD+g3erySHjc+UR9
+	 uQcsNsfRcSMFoDUekINA06Cv5y0phaXfiGBLz4zwyFhraw7bGj7wq8uLVSE1Hz34eApdk
+	 9jWmt2FahnspNpWp+Q3DxvB589FLUPKyM6r/nMyh1SUMNCDt/L27/ieikccMKm90L6Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZwrGQdVO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C8DD606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:14:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C8DD606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2B1F606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:14:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2B1F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iMYVw0pn
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2e9eb579c0eso3106295ad.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:14:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZwrGQdVO
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b869ea8224so8153a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:14:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794975280; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GpUA+G+ivehg7sB6MVqOY4STBE1yF+ErdrRxEKD+68XMs0jRMC3BWmbtItHg4s0Bnk
+         8G3e7bll9FMmc8Xk2rRv15elKid94iV8+8Lj/KPUqHXMxplyNklYiAPFDs6WW8ssXTyW
+         7s1bpHYL86N6DfKvi/Da26WMd/u35yfpuZBun673htwmauRMIaSrXEBxczbgykvQP8Lm
+         3q2Ue8GCJZKnd0g/SRdq8UDOFXilSFKK+3jMvXeSdmGnEcx4GmgEGoiH9TyH8j+BnbFF
+         zAerTxVHcKjJ343hRBh64KvjEUEk1hDLpk4gut4zwDI9nt7Mrd52ESZpXpRLvXY4GKzW
+         sLtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=78OEmd4BnQnAIL+/edXoWjTbrJ8v+9Ag3/ei+zWF0bs=;
+        fh=qgqYWzBn9P1miDiCzkbiuNWxKUqGk7NJZnQP7RyxBOc=;
+        b=Gk+ryO3bl/4bVcWWCWG20SkcQHS3nuTnD8jgsVYRW6Ydw/3KDXAQY78gypwCC4tb3c
+         5spIpivSelwZ2PoJT3PCIfSFcxZymtwySmMw25SDfjCClGpPqPWsPz8LaEgH1zR3+pvl
+         X9CxjiB6F0Y8+CO9Rcnyr0IzEwuFSwo4ACD+E7WLU4LmcYpu2XCOpJ1ulOmtxU5slJam
+         Iq4BinsYxsOxF9j6g/kJssZ63FyBLdYKCc3THaz+Mne4+jqiyenu4HPkGR5gVZHfHAPm
+         HFDLeXd+iGJjge5cr2jjhsLJH//tnoPp4bZQr3wTLcdvlZ2ABWWJ8Q2JhqyLMSjeRlzV
+         2/iA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794975267; x=1795580067; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S7V7zZ843cUu9IT4B0WCibyEP2k6ABel5P+47hk3Njc=;
-        b=iMYVw0pnpSGisBf9wt5mkp6dAmIfmEHqMVV3f2qKfO2D1MSkKjpCBpziCF7r7QU5dl
-         R6IGkbU7HL3qgXhVAUilaShupESFUptektESp60qwiClRhPYZPoyu/cPs5/6gLnbOeRN
-         lwCUrhXC2LAf4GSgyqUrdtJAT9spLBT15FupYCkmE9z6PAwK99T3qswWJjiWErHdeD+n
-         IMCExIlvORPXX+IenIgKFlXQCnv0pBzncAXrcQu9RD8Jy7xScTWKmdviJ+IQy/5VEUkJ
-         M2+UGv5eadFh7WZG/oWWg7XDQqgUKER5qu53eHzppuv9kMuHyKnH6yu6dao3SIHDApEr
-         r3BA==
+        d=google.com; s=20260707; t=1794975280; x=1795580080; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=78OEmd4BnQnAIL+/edXoWjTbrJ8v+9Ag3/ei+zWF0bs=;
+        b=ZwrGQdVOZx99x9RiTFvQPYbMjUPCrWIWA5Vpv9CZuZFyezfx2BLCYZgI+4cIN1MuiX
+         5fNq2X2flwYccLr6+ItVVqcxy1XskrnHVvEXCxRqjjy39SG4kZV9pnYyY14TBUpTSe5j
+         lvG/+7+SKDT5RD4A1h4l+Ty9QKiofbp6hfPxVWNfDtRj4/IiwJoomhyfnAEODpB8uCS0
+         3KWQFeXbJ1S4uRBiCSYnxgyhNHA88L7CxTj/puziZjKIGAXkMqLqO3Tj9uqi34UcsnYl
+         ZczhDx8NyrdPzopRHr/mntTZ0kiJaZzNXAj5bvh5vucvXoHOCR+4z36pH8i1II5/KQVb
+         Z8ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794975267; x=1795580067;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S7V7zZ843cUu9IT4B0WCibyEP2k6ABel5P+47hk3Njc=;
-        b=L1Fo2c+I9mrzYeyjUyuKEU9FM5JzK1kABgvsHgukBhRbvl3CsBVdsUnL/CDv+NUO1/
-         soKRZQIKePL8VccPLgG7CGtjkLHUTvRwRiKu4WFdjossYOBYaAQwjtMxH5mcAb4W86g5
-         8dQhvVew/eTfZOGkGo4XQnav0AnaBINoyDi2FEHPG7M0BuLcKhrn65+N6iDLzsX9JvMQ
-         wZeFL6zKVH/EhBqniO7NyiVeauLVG6lv1c7Eeor/XkiJP6lCeVCbMZ4HOk629wv/gzJk
-         xWT1OHGGsl5JXc4tYk64a1dofDqLJWSjQqoK3ixQg9vGeVv235ceGeUA9ANfudpO2Hx9
-         WQ0Q==
-X-Forwarded-Encrypted: i=1; AL+hErH5cbENb0IrzOKr9zs5ODhLj1e2fHB++bBQCzF93SR+rDpzoDzzAQDIi3PNw53h9r3Dj7Nb2fufhgkJfSM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YsOj9tzcgJBb7SH4P6+OdM25h0SfZ9chzBmcGv5wUepvsAI5F
-	xuztYKiuIb6kWyUaAqOtZT1K5uMFupgr7WJUmBMUZ0qSBJyIuSLj05XP
-X-Gm-Gg: AZFdTZdQrJV60y39bCdTHjW7QHyf02waVYt4uht/nvJbLq8qq3rF3TEIw2gmyQBjRTy
-	PsMIqax8EEB/Z5v9Y8Ll5Ul71LvdGqMR/lF5yiEmqc7iDiLTBvAkF1LcOM+VHBf8xA0HxXvHhcY
-	KaXhzZP9P0L6lWWOoGH79okYuJZffRf4uCX7S4tNcfTJ7ulcKHZzhfg3ZN5VFNvPfBcbmrbzVmj
-	9sD05BoBOwWtoKVsAm1mAmmd2PWxrvCf3kSm1/kYgc1YZeprZXuMcau0hRJBiJMIRXot2C8PIqw
-	i9pFzy2xN7Bji1jh6xW8yio+6zj3WkydqSx4whkLUqGAdcSQ0XmJn3JTqLyNAC30bf1qMCtQBjp
-	y74pCfvsymYA6NrTDMImQHlei9ufviCP6ZDLRFSxQISbNxzCsC1MN2d0Ov/YAT51Romfzg7txma
-	p+HMbgEaC0VdWT52t3lIxzhgrePWU5Ci8Q/Y3XaR8CAbgJJFe+omypHHkycdep7KG6oGwQpb1IN
-	I8cm9AZsAhYlmc7bE9v/zjpnRN1MpvIROu3PtPnTpvRclCxZbPaQYzjv2qdr6t3Ut7p4mEhuCq0
-	ZwlUYhjBBPhbSN7SET3b8cExaqSdpf0YLOud0PSa7GU=
-X-Received: by 2002:a17:902:c952:b0:2e8:1c7b:3b6e with SMTP id d9443c01a7336-2eff7403b8dmr13500835ad.26.1794975267252;
-        Tue, 17 Nov 2026 20:14:27 -0800 (PST)
-Received: from gmail.com ([2407:cdc0:d002:0:188:253:12:32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6214f4dsm5728685ad.43.2026.11.17.20.14.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 20:14:26 -0800 (PST)
-From: Jia Jia <physicalmtea@gmail.com>
-To: "Martin K . Petersen" <mkp@kernel.org>,
-	Jan Engelhardt <jengelh@inai.de>,
-	Hannes Reinecke <hare@suse.de>,
-	James Bottomley <James.Bottomley@suse.de>,
-	Akinobu Mita <akinobu.mita@gmail.com>
-Cc: linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jia Jia <physicalmtea@gmail.com>
-Subject: [PATCH v2 8/8] scsi: target: advance past escaped DIF blocks across data sgs
-Date: Wed, 18 Nov 2026 12:13:11 +0800
-Message-Id: <20261118041311.19011-9-physicalmtea@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261118041311.19011-1-physicalmtea@gmail.com>
-References: <20261118041311.19011-1-physicalmtea@gmail.com>
+        d=1e100.net; s=20260707; t=1794975280; x=1795580080;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=78OEmd4BnQnAIL+/edXoWjTbrJ8v+9Ag3/ei+zWF0bs=;
+        b=KXN49SR0uEv8uXJqks23eIip2hdbzotRIYyVUnTFLKU+e6HIsStZudMOWV9D+Zwtd6
+         u7oY3dJnP0L2e8yRCp74uKFWGBRTMTuN3qjiriV6PYpHzrK7mctLkKGr3Sut+64+gWFn
+         teTmJW4RHIixOQOEFJYq6tI95NLQrWAXTaM5TQfz4Ws4rXzsK8sjo6C5tOkCAdSnvvuI
+         MopuQr08HRI7bTIgCDsrJLMW3yqTj0Ma7p48kRQxllzAR77BtQ0AQ+10H2DRECV8jCaf
+         fisRs6a3WkxJQnN7wplTRJXxa7vbwLFzCLFo8ANDk7fCuEuA4X8ncgL7QQm4UYazH9ld
+         UY9g==
+X-Forwarded-Encrypted: i=1; AL+hErHWf96n8gE/LaUkuw48NktbZX94V24h2jZ8qpe/u4byZ4IfQ/WHXrHzAw+Y60CxRMJBp4G0RYffgVgmlPI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9JT7z6IhMXejv2YQvNCTRDzJtbC+dzq4P9dy25KQTn+z7Rh//7
+	xSH/ozInx8QsQ5haFpUTiqq6LnhQm5AJ6FQ6iI3E33wygRKqVd56GMG4s2uV3KgRAHT1aZeQnwA
+	SHhHB3FZBYGq7q1vEtZFuEyhg+2Mkgj2PqYOx3Ii+
+X-Gm-Gg: AYBFou3ZgZ6lQLjhALmMqqRi6vY4Ic7hIuiSDjT9fcmYLncyZJeqrmUuA6nMCTdXP9j
+	If8Wm28BU3o+RUZeTc2wkKB2vKRbTdWHLFB2c7eXl6mekp1ovLo1USDw7vmaI7BSMTuB7czC54A
+	hb/9+xhwPl9WkWQg9Sz7heE2D1RwGnKWfonKKz52igqp1LVdSLPp6poxfrT9itn5Agpj/BesLNT
+	3ecttms80mL9yXWMHCqi5Edblroe3yU62RMNtFGlTQ1QRT/LCU8Z+Pv3xM+i2x/MgrvYGEAP2WU
+	RbVlkDJvhRg8o3mU8X7/aT0SaWHIdH+8/kOORuVEjf6OmuuGsHfeW2ci/9mOWPMTJKsWzwQPYiI
+	nUQ62aCOdhL5PCjySMwQutlSVgAyP0ss82m4puw7wahd6Jg2UBr7lqLB9HUTvPpszdte5wUfJyV
+	WgBVOXhbYugP2O9LEqcFF1hURfcUlYOmBw3W2izDChstT8cah4kHjY/w==
+X-Received: by 2002:aa7:d687:0:b0:6af:afce:184f with SMTP id
+ 4fb4d7f45d1cf-6b88848206emr52162a12.3.1794975279739; Tue, 17 Nov 2026
+ 20:14:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,44 +105,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261117180310.921701-1-chang.seok.bae@intel.com> <20261117180310.921701-11-chang.seok.bae@intel.com>
+In-Reply-To: <20261117180310.921701-11-chang.seok.bae@intel.com>
+From: Jim Mattson <jmattson@google.com>
+Date: Tue, 17 Nov 2026 20:14:27 -0800
+X-Gm-Features: AclHuK_6K2MkOrWw3JfAYerdh8WpXc2mA1P1Hxo8frcP4N9bk608N201LA8GG4I
+Message-ID: <CALMp9eSw=ZBxMaHRc1iAXZaRi5Do+eDrd2O_YBWGFK5==3X1Eg@mail.gmail.com>
+Subject: Re: [PATCH v9 10/20] KVM: nVMX: Propagate extended instruction information
+To: "Chang S. Bae" <chang.seok.bae@intel.com>
+Cc: seanjc@google.com, pbonzini@redhat.com, kvm@vger.kernel.org, 
+	x86@kernel.org, linux-kernel@vger.kernel.org, zhao1.liu@intel.com, 
+	Chao Gao <chao.gao@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-An escaped protection tuple advances dsg_off by one logical block.
-sbc_dif_verify() adjusts the cursor across only one data sg on the next
-iteration. When the skipped block spans several short entries, the
-offset can still exceed the next sg's length and the following CRC
-reads beyond that entry.
-
-Advance through data sgs until the offset is within the current entry
-before checking the next block.
-
-KASAN reports:
-
-  BUG: KASAN: use-after-free in crc_t10dif_update+0x91/0xf0
-  Read of size 1
-
-  crc_t10dif_update
-  sbc_dif_verify
-  target_execute_cmd
-  vhost_scsi_write_pending
-  transport_generic_new_cmd
-
-Fixes: 18213afbd8ce ("target: handle odd SG mapping for data transfer memory")
-Signed-off-by: Jia Jia <physicalmtea@gmail.com>
----
- drivers/target/target_core_sbc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/target/target_core_sbc.c b/drivers/target/target_core_sbc.c
-index e752b23b1bef7..671427d9ae74a 100644
---- a/drivers/target/target_core_sbc.c
-+++ b/drivers/target/target_core_sbc.c
-@@ -1553,7 +1553,7 @@ sbc_dif_verify(struct se_cmd *cmd, sector_t start, unsigned int sectors,
- 			return TCM_LOGICAL_BLOCK_GUARD_CHECK_FAILED;
- 		}
- 
--		if (dsg_off >= dsg->length) {
-+		while (dsg_off >= dsg->length) {
- 			dsg_off -= dsg->length;
- 			kunmap_atomic(daddr - dsg->offset);
- 			dsg = sg_next(dsg);
+On Tue, Nov 17, 2026 at 10:32=E2=80=AFAM Chang S. Bae <chang.seok.bae@intel=
+.com> wrote:
+>
+> Define the new extended_instruction_info field in struct vmcs12 and
+> propagate it to nested VMX. Gate the propagation on the guest APX
+> enumeration, which aligns with bare metal behavior. Thus, define the
+> CPUID bit here too.
+>
+> Suggested-by: Chao Gao <chao.gao@intel.com>
+> Tested-by: Zhao Liu <zhao1.liu@intel.com>
+> Signed-off-by: Chang S. Bae <chang.seok.bae@intel.com>
+> Link: https://lore.kernel.org/aRvOSnaUt1E+%2FpkC@intel.com
+Reviewed-by: Jim Mattson <jmattson@google.com>
