@@ -1,44 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008828;
-	b=BpsIy3vB6PvVrGmq1S0RbkEXruFeTd5AiYFaYuY7DVbQEkQDx5ZSl9j0htrR4Ry3CUbl
-	 2hGtCJoME1E0zoYtbNddC/vEwzQSIvZKhXJCHyNCnoNPr++fOG+xOlj0HzsfvzLKUIF9R
-	 zAVbp+jU9DCstj1C8ZkXS3EdbztV+cg+gdJloTvQ02eEM92Fj5EV877mgCP8ZUKVySa9j
-	 UVotR3ZvR5d/CY9ajOBA8ZECrSJ7GPOFlZcJpAVSViP/aw1/FlxoHsWgzk2MUY1UrL71F
-	 y4xQ+gtDbjV3hGjptkPnqEM9GrzHxW7PjGzF9yubrCDt2NN/QgiQNcumt4eV42dhbXQ==
+	t=1795008840;
+	b=K1RcYLrSOfuhCnkckJd2RILNHYJmQ1ZEJoYedF3UwvXWOybjnEvPBeOlXG46ItWZE7JK
+	 aB8jANxC9Eou2wfSp4nFrJtgdM+/yvPsOSBXTDnYT7LC4srgV8PfPIPeGDU38ND/Png42
+	 tGd4lNpk7G6MfF5EbaH5IJJePIcID7wNSx0XoI5DE63Qe7N0eFCj57i3/1J+mIbq7uM6q
+	 JhoVIJfiX7fT28ASkxYYDvYtoIQxVxfN48qBCa1I0jPYcAW4PAySnIKYfC1EipibQmONB
+	 IJxU7i+lDxGrS4n1Gv4VyMKEI62oXha9Sayvqy04Cxur4TyaAvavVUK5LNeBBJPLkqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008828;
-	h=Received:DKIM-Signature:Mime-Version:Content-Type:Date:Message-Id:
-	 Subject:Cc:From:To:X-Mailer:References:In-Reply-To;
-	bh=XV7sbxNgaRZfJYvF96xgpKxkblconb2brXYMaR7KHAQ=;
-	b=nn0545lYu2y3GMYnAufIReAYy7/CFHDesZaJxwk+Uyp6Tj464wBCiutJ642ejmsPeqAy
-	 kr2wJe/Ro/J4UCaoJGfllnNB+78PxXDl1dpXJnWb8qEGV3eE/cfg6+EJCvU58kBHxfznk
-	 Q9JBSb9gYbdnY24T+rzs7XWCjKYozB58VWtaqIcOFbzCyGdX5AnDJT+2HcIWHQVlWMplW
-	 NCKRh14qZuIwYpOgtI+ETQ21elMVLqaXvXATwHh/e7Z8IHXiJVEnz5Tij7vxP7im/UhVf
-	 SVP9u8kMlfIQIRpa8o7sW6v3YuMYcupe1scF5LXoC6oa5pd65CvqthTV2mLqdOxQQGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008840;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Spamd-Result:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id;
+	bh=x3kW6IHZ/0RLy2LARDOC9HiEbdlANu6Ii4B8shzCZQU=;
+	b=zyvEZY3QllRneJ0JgvTvRfvRpCowMyMY1L5TNBcJGbblmkr33xtGxVA0sc9TGqQPyvgw
+	 XbL0UZX+P6tSJlpuIddEFjAQiC3WREo6ASz7av5Iu3ITzPV9DoUomRxPSg4UxhOwAET3I
+	 6rxU2LZ2JNQfNX8X/BFXUT6F1+s9KIzBxblyNNfsgEQx+dZsBj+VZO9w3jSUeplONhryA
+	 BmgG6Oob+d/N3fQj1jOzePZiU1Z6jyMc7S42wdpsirI+4XsXi7RHG5j+z5Y44leu6in68
+	 eJMdRtirDp+iUT1EuWH8FAhaOVLjUHl85abDtEiWnYmQRbdIDWWJw5/NXuIgntF9CXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LpWafA0R;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="JDx/rGU0";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=TEdd3r0n;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="JDx/rGU0";
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=TEdd3r0n;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4B7F4606A333;
-	Wed, 18 Nov 2026 13:33:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65B5E606A320;
+	Wed, 18 Nov 2026 13:33:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65B5E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LpWafA0R
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 67B0B1F000C4;
-	Wed, 18 Nov 2026 13:33:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795008827;
-	bh=XV7sbxNgaRZfJYvF96xgpKxkblconb2brXYMaR7KHAQ=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=LpWafA0RwY/n/9v45H1EHR4XucbTQoWJQ3NJbtGitL2gASLcRRiYUZF08XL9eO2Kp
-	 ltJ2gH4tg81TDp1WYRzC9GhfYjda2M5HfEhocfrdXsO2w3H/nekhPABrOL5ISOBCmh
-	 AAxmhTI/UcnTsZlExtIpJROqieAd0S+mmtOJm2s+w1+dFUs8j9V/oRNifUrVH5uBdI
-	 B3WvHGVujbwNvzyUKL4yyTCE+opEkTC58JXaOzAPhlplaHOXwi7yiSrkCQG14ZJaR4
-	 SCVvibrhJ3ekLr6Bc70Twi0TyKmfP0zm1ukVWOJe/7XA7+XKMmRXlZIHVWTc3v3+Oa
-	 M8xYFpDpUifRQ==
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=JDx/rGU0;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=TEdd3r0n;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=JDx/rGU0;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=TEdd3r0n
+Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 2D37C1F76B;
+	Wed, 18 Nov 2026 13:33:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795008837; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=x3kW6IHZ/0RLy2LARDOC9HiEbdlANu6Ii4B8shzCZQU=;
+	b=JDx/rGU0HCc6Ed7gNE8IdTlpVzFAkXIp6dQOuhaLkI4aMqIeZLdi9NuqD6TWvANeQ2yCKK
+	B8dN8XDfVBaOzO/CRhgJtQwBigE5LoTdDj+YGomQSUFoJ2iqej0avIAAIiMIPndkaqXi57
+	cWNqwc0h27kfVcYcK/V1MDi2E7amH4U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795008837;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=x3kW6IHZ/0RLy2LARDOC9HiEbdlANu6Ii4B8shzCZQU=;
+	b=TEdd3r0nHiekiQs2TDHnWWl2Ub5x6e0ph8fykDPRx0Bc83uNWG+VbMJmhVD/RluGPR4cOH
+	8xCFIYgDT7aEtHAg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="JDx/rGU0";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=TEdd3r0n
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795008837; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=x3kW6IHZ/0RLy2LARDOC9HiEbdlANu6Ii4B8shzCZQU=;
+	b=JDx/rGU0HCc6Ed7gNE8IdTlpVzFAkXIp6dQOuhaLkI4aMqIeZLdi9NuqD6TWvANeQ2yCKK
+	B8dN8XDfVBaOzO/CRhgJtQwBigE5LoTdDj+YGomQSUFoJ2iqej0avIAAIiMIPndkaqXi57
+	cWNqwc0h27kfVcYcK/V1MDi2E7amH4U=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795008837;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=x3kW6IHZ/0RLy2LARDOC9HiEbdlANu6Ii4B8shzCZQU=;
+	b=TEdd3r0nHiekiQs2TDHnWWl2Ub5x6e0ph8fykDPRx0Bc83uNWG+VbMJmhVD/RluGPR4cOH
+	8xCFIYgDT7aEtHAg==
+Date: Wed, 18 Nov 2026 14:33:56 +0100
+From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
+To: Renzo Davoli <renzo@cs.unibo.it>
+Cc: linux-kernel@vger.kernel.org, Oleg Nesterov <oleg@redhat.com>,
+	Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@amacapital.net>,
+	Will Drewry <wad@chromium.org>, Thomas Gleixner <tglx@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <shuah@kernel.org>, "Dmitry V . Levin" <ldv@strace.io>,
+	Alexey Gladkov <legion@kernel.org>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, strace-devel@lists.strace.io
+Subject: Re: [PATCH v11 0/3] PTRACE_SET_SYSCALL_INFO: add support for seccomp
+ syscall skipping
+Message-ID: <av2pRG1JT9te8IiM@kunlun.suse.cz>
+References: <20261114181923.370930-1-renzo@cs.unibo.it>
+ <av2PKIf8YsEPro8O@kunlun.suse.cz>
+ <av2i9kbZyMRJE9D6@cs.unibo.it>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -47,337 +118,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=65b67eaa2390905bd19cb271d8b7bafb464b182aa8cf20a1b34dc82aee08;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Wed, 18 Nov 2026 14:33:44 +0100
-Message-Id: <DMYDITU0H48Z.2LA5KF2TFNUY2@kernel.org>
-Subject: Re: [PATCH v5] mtd: spi-nor: take the flash lock around
- spi_nor_restore()
-Cc: <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
- <takahiro.kuwano@infineon.com>, <tudor.ambarus@linaro.org>,
- <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <stable@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Itai Handler" <itai.handler@gmail.com>, <pratyush@kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20261029210153.3986211-1-itai.handler@gmail.com>
-In-Reply-To: <20261029210153.3986211-1-itai.handler@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <av2i9kbZyMRJE9D6@cs.unibo.it>
+X-Spamd-Result: default: False [-6.00 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
+	SUSPICIOUS_RECIPS(1.50)[];
+	ONCE_RECEIVED(1.20)[];
+	RDNS_NONE(1.00)[];
+	HFILTER_HELO_IP_A(1.00)[kunlun.suse.cz];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	HFILTER_HELO_NORES_A_OR_MX(0.30)[kunlun.suse.cz];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.19)[-0.958];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[vger.kernel.org,redhat.com,kernel.org,amacapital.net,chromium.org,linux-foundation.org,strace.io,gmail.com,alpha.franken.de,linux.ibm.com,lists.ozlabs.org,lists.strace.io];
+	RCVD_COUNT_ZERO(0.00)[0];
+	MISSING_XM_UA(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -6.00
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 2D37C1F76B
 
---65b67eaa2390905bd19cb271d8b7bafb464b182aa8cf20a1b34dc82aee08
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On Wed, Nov 18, 2026 at 02:07:02PM +0100, Renzo Davoli wrote:
+> On Wed, Nov 18, 2026 at 12:42:32PM +0100, Michal Suchánek wrote:
+> > from a user point of view it is not clear to me why this would be done
+> > at the seccomp event when seccomp is not used.
+>  
+> Hi Michal,
+>  
+> thank you for the review.
+>  
+> You are right, and the cover letter does not explain it (only patch 2
+> does, briefly). The series is limited to the PTRACE_EVENT_SECCOMP stop
+> because that is the only stop where a syscall can currently be skipped
+> with a preset return value in an architecture independent way: the
+> tracer's request goes through the same path as SECCOMP_RET_ERRNO,
+> which every architecture already handles.
+> 
+> At the syscall entry stop this depends on the architecture's entry
+> code. On some architectures (e.g. MIPS) the entry path overwrites the
+> return value with -ENOSYS when the syscall is skipped, so the value set
+> by the tracer is lost. A tracer that does not otherwise use seccomp
+> has to install a SECCOMP_RET_TRACE filter to use this feature.
+> 
+> > On s390 the removal of such architecture-specific flag is proposed here:
+> > [...]
+> > While that shows a way to address this problem not all affected
+> > architectures implement it.
+> 
+> Thanks for the pointer. With 05c033db7e9a ("entry, treewide: Make
+> syscall_enter_from_user_mode[_work]() indicate syscall execution") and
+> Heiko's s390 fix, the architectures using the generic entry code
+> preset -ENOSYS and leave the return value alone when the syscall is
+> skipped, so skipping at the entry stop could be supported there. As
+> in patch 1, a per-task flag checked right after the ptrace entry
+> report could be used, so that it does not depend on the syscall
+> number.
 
-On Thu Oct 29, 2026 at 10:01 PM CET, Itai Handler wrote:
-> spi_nor_restore() runs on reboot, kexec and unbind to hand the flash
-> over in its power-on state. It runs without nor->lock while the MTD
-> device is still registered. Tasks are not frozen on reboot or kexec,
-> and kexec -e does not even stop user space, so the restore can run in
-> the middle of a program or erase. This causes two problems:
->
-> 1. The flash can be left in the wrong state. On boards that do not
->    reset the flash (broken-flash-reset), the restore exits 4-byte
->    address mode, but a busy flash typically ignores the command, so
->    the flash stays in 4-byte mode after the reboot or kexec. After a
->    reboot, a boot ROM that reads the flash in the power-on 3-byte mode
->    gets the wrong data, and the board fails to boot. For example, the
->    GnuBee PC1 (MT7621) has a Winbond W25Q256FV, which ignores the exit
->    command while busy, and the board needs the restore to reboot, see
->    commit 90dedc973b86 ("staging: mt7621-dts: allow gnubee to reboot
->    cleanly."). A busy flash also ignores READ ID, so if it is still
->    busy when the secondary kernel probes it after a kexec, the probe
->    fails ("unrecognized JEDEC id bytes"), and that kernel cannot use
->    the flash.
->
-> 2. Data can be corrupted. The restore also soft resets flashes that
->    support it, which can abort a program or erase. For example, the
->    Micron MT25QU512ABB8ESF-0SIT QSPI NOR flash advertises the soft
->    reset in its SFDP, and its data sheet says that a reset aborts a
->    program or erase in progress and may corrupt data. If an application
->    is writing data to the device when the system kexecs into a secondary
->    kernel, or restarts, a sector can be left partly erased or programmed.
->
-> Take the lock, so that the restore waits for the operation in flight.
-> That alone is not enough: the next operation would then start right
-> after the restore, and could still be running at the kexec or be cut
-> short by the reboot. And after an exit from 4-byte mode, it would still
-> use 4-byte addresses, so a page program would write to the wrong place.
-> So mark the flash shut down before releasing the lock, and fail later
-> operations with -ESHUTDOWN. The CFI drivers also refuse operations once
-> they have reset the flash for a reboot (see cfi_intelext_reset()). If
-> the SPI controller removes itself on shutdown, spi_nor_remove() runs
-> after spi_nor_shutdown(), finds the flash shut down, and does not
-> restore it a second time.
->
-> The wait is usually short, as applications and flash file systems
-> typically submit small requests, such as a single sector erase. It can
-> be long, though: spi_nor_erase() holds the lock for the whole request,
-> so shutdown or unbind may wait for a full chip erase, which can take
-> minutes. If the lock cannot be taken, warn and restore without it, as
-> before.
->
-> Backport note: before v6.4, the lock helper is spi_nor_lock_and_prep(),
-> and it has no _pe and _rd variants. From v6.4 on, apply this on top of
-> commit f594a33f9721 ("mtd: spi-nor: Unprepare legacy controllers upon
-> RWW wait interruption"), which is also tagged for stable.
->
-> Fixes: 59b356ffd0b0 ("mtd: m25p80: restore the status of SPI flash when e=
-xiting")
-> Cc: stable@vger.kernel.org # see patch description, needs adjustments for=
- <=3D 6.3
-> Assisted-by: LLM
-> Signed-off-by: Itai Handler <itai.handler@gmail.com>
-> ---
-> Changes in v5:
-> - Fail operations after the restore with -ESHUTDOWN, so that none can
->   reach the flash between the restore and the reboot or kexec.
-> - Warn and restore anyway when the lock cannot be taken, instead of
->   skipping the restore, as I offered in my reply on v3 [1].
-> - Use a helper around spi_nor_restore() again, as in v3, and the v3
->   subject.
-> - Say that the wait can last for a full chip erase; v4 understated it.
-> - Drop the long code comment, and rewrite the commit message, with
->   examples and a backport note.
-> - Use the v3 form of Assisted-by.
-> - Rebase on mainline.
->
-> Why the lock is not just kept after the restore, which would also stop
-> later operations: it hangs the reboot or kexec on boards whose SPI
-> controller removes itself on shutdown (spi-fsl-dspi, spi-bcm2835,
-> spi-ath79). spi_nor_remove() then runs after spi_nor_shutdown(), in the
-> same task, and waits for the lock that spi_nor_shutdown() kept. With
-> this patch, spi_nor_remove() gets the lock and skips the restore.
->
-> Testing:
-> - Built with W=3D1 for arm64, on mainline and, cherry-picked on top of
->   f594a33f9721, on 6.6, 6.12, 6.18, 7.2 and 7.3. The backports to 5.10,
->   5.15 and 6.1 build cleanly too; I will send them when the stable team
->   asks.
-> - In QEMU (v7.3, ZynqMP GQSPI, n25q512a11 with broken-flash-reset, and
->   the flash model patched to stay busy during an erase), with an
->   application erasing and programming the flash during a kexec:
->   - Without this patch, the flash ignores WREN, EX4B and WRDI, and stays
->     in 4-byte mode.
->   - With a draft that released the lock after the restore, the next
->     erase went out with a 4-byte address. With a 10 s erase, it was
->     still running when the secondary kernel probed the flash, and the
->     probe failed.
->   - With this patch, the flash obeys EX4B, nothing reaches it after the
->     restore, and the secondary kernel finds the flash, with both a 3 s
->     and a 10 s erase.
-> - With the GQSPI driver changed to remove itself on shutdown, as
->   spi-fsl-dspi does, a kexec with a draft that kept the lock hung, as
->   spi_nor_remove() waited for it. With this patch, it completes, and the
->   flash is restored once.
->
-> v4: https://lore.kernel.org/r/20261004104311.2196527-1-itai.handler@gmail=
-.com
-> v3: https://lore.kernel.org/r/20260915113811.2429311-1-itai.handler@gmail=
-.com
-> [1] https://lore.kernel.org/r/CAFpOueRGN2TSNo+m3319qn00p-BYn8w7OQ6OPt4XTc=
-VG63-uUA@mail.gmail.com
->
->  drivers/mtd/spi-nor/core.c  | 43 +++++++++++++++++++++++++++++++++++--
->  include/linux/mtd/spi-nor.h |  2 ++
->  2 files changed, 43 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-> index 90524c58602e..3109f89b35f3 100644
-> --- a/drivers/mtd/spi-nor/core.c
-> +++ b/drivers/mtd/spi-nor/core.c
-> @@ -1230,6 +1230,11 @@ int spi_nor_prep_and_lock(struct spi_nor *nor)
->  		ret =3D wait_event_killable(nor->rww.wait,
->  					  spi_nor_rww_start_exclusive(nor));
-> =20
-> +	if (!ret && nor->shutdown) {
-> +		spi_nor_unlock_and_unprep(nor);
-> +		return -ESHUTDOWN;
+As I understand it the new s390 code resolves the problem by storing the
+syscall number outside of the registers. Then the return value can be
+set directly. It does not depend on using the generic entry but on the
+architecture adding storage for the syscall number in struct pt_regs,
+and implementing the code to determine where to get/set the syscall
+value depending on the syscall stage.
 
-This will be propagated to userspace, correct? Not sure this is a
-valid error code outside of sockets. Maybe EIO?
+However, it seems that extending struct pt_regs breaks userspace ABI
+(probably because kernel refuses to transfer partial pt_regs to/fom
+userspace) which makes it unclear how the int_code that is used by this
+new code could be added to the s390 struct pt_regs in the first place.
 
-> +	}
-> +
->  	if (ret)
->  		spi_nor_unprep(nor);
-> =20
-> @@ -1290,6 +1295,8 @@ static void spi_nor_rww_end_pe(struct spi_nor *nor,=
- loff_t start, size_t len)
->  	rww->ongoing_pe =3D false;
->  }
-> =20
-> +static void spi_nor_unlock_and_unprep_pe(struct spi_nor *nor, loff_t sta=
-rt, size_t len);
-> +
+Thanks
 
-Please avoid forward declarations and move the functions.
-
->  static int spi_nor_prep_and_lock_pe(struct spi_nor *nor, loff_t start, s=
-ize_t len)
->  {
->  	int ret;
-> @@ -1304,6 +1311,11 @@ static int spi_nor_prep_and_lock_pe(struct spi_nor=
- *nor, loff_t start, size_t le
->  		ret =3D wait_event_killable(nor->rww.wait,
->  					  spi_nor_rww_start_pe(nor, start, len));
-> =20
-> +	if (!ret && nor->shutdown) {
-> +		spi_nor_unlock_and_unprep_pe(nor, start, len);
-> +		return -ESHUTDOWN;
-> +	}
-> +
->  	if (ret)
->  		spi_nor_unprep(nor);
-> =20
-> @@ -1366,6 +1378,8 @@ static void spi_nor_rww_end_rd(struct spi_nor *nor,=
- loff_t start, size_t len)
->  	rww->ongoing_rd =3D false;
->  }
-> =20
-> +static void spi_nor_unlock_and_unprep_rd(struct spi_nor *nor, loff_t sta=
-rt, size_t len);
-> +
->  static int spi_nor_prep_and_lock_rd(struct spi_nor *nor, loff_t start, s=
-ize_t len)
->  {
->  	int ret;
-> @@ -1380,6 +1394,11 @@ static int spi_nor_prep_and_lock_rd(struct spi_nor=
- *nor, loff_t start, size_t le
->  		ret =3D wait_event_killable(nor->rww.wait,
->  					  spi_nor_rww_start_rd(nor, start, len));
-> =20
-> +	if (!ret && nor->shutdown) {
-> +		spi_nor_unlock_and_unprep_rd(nor, start, len);
-> +		return -ESHUTDOWN;
-> +	}
-> +
->  	if (ret)
->  		spi_nor_unprep(nor);
-> =20
-> @@ -3250,6 +3269,26 @@ static void spi_nor_restore(struct spi_nor *nor)
->  		spi_nor_soft_reset(nor);
->  }
-> =20
-> +static void spi_nor_lock_and_restore(struct spi_nor *nor)
-> +{
-> +	int ret;
-> +
-> +	ret =3D spi_nor_prep_and_lock(nor);
-> +	if (ret =3D=3D -ESHUTDOWN)
-
-This is actually really hard to follow. It's tested for even before
-it is set down below. Also probably wont work with an EIO return
-code. See more below
-
-> +		return;
-> +	if (ret)
-> +		dev_warn(nor->dev,
-> +			 "Failed to lock flash, restoring its power-on state anyway, err =3D =
-%d\n",
-> +			 ret);
-> +
-> +	spi_nor_restore(nor);
-> +
-> +	if (!ret) {
-> +		nor->shutdown =3D true;
-
-Why don't you set the flag unconditionally?
-
-> +		spi_nor_unlock_and_unprep(nor);
-> +	}
-> +}
-> +
->  static const struct flash_info *spi_nor_match_name(struct spi_nor *nor,
->  						   const char *name)
->  {
-> @@ -3632,7 +3671,7 @@ static int spi_nor_remove(struct spi_mem *spimem)
->  {
->  	struct spi_nor *nor =3D spi_mem_get_drvdata(spimem);
-> =20
-> -	spi_nor_restore(nor);
-> +	spi_nor_lock_and_restore(nor);
-
-So why don't you just keep spi_nor_restore() and just add the
-locking there?
-
-What about the following:
-
-static void spi_nor_restore(struct spi_nor *nor)
-{
-	struct spi_nor_flash_parameter *params =3D nor->params;
-	int lock_ret, ret;
-
-	lock_ret =3D spi_nor_prep_and_lock(nor);
-	/* already restored, e.g. remove() after shutdown(). */
-	if (nor->restored)
-		return;
-	if (lock_ret)
-		dev_warn(nor->dev, "...", lock_ret);
-
-	/* former body .. */
-
-	/* refuse any further operations */
-	nor->restored =3D true;
-
-	if (!lock_ret) {
-		spi_nor_unlock_and_unprep(nor);
-	}
-}
-
-> =20
->  	/* Clean up MTD stuff. */
->  	return mtd_device_unregister(&nor->mtd);
-> @@ -3642,7 +3681,7 @@ static void spi_nor_shutdown(struct spi_mem *spimem=
-)
->  {
->  	struct spi_nor *nor =3D spi_mem_get_drvdata(spimem);
-> =20
-> -	spi_nor_restore(nor);
-> +	spi_nor_lock_and_restore(nor);
->  }
-> =20
->  /*
-> diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-> index b3e3c6b10186..6f5d2e5c2118 100644
-> --- a/include/linux/mtd/spi-nor.h
-> +++ b/include/linux/mtd/spi-nor.h
-> @@ -361,6 +361,7 @@ struct spi_nor_flash_parameter;
->   * @read_opcode:	the read opcode
->   * @read_dummy:		the dummy needed by the read operation
->   * @program_opcode:	the program opcode
-> + * @shutdown:		the flash was restored, refuse further operations
-
-shutdown only covers some of its meaning, it might also just get
-unbinded etc. So what about 'restored'?
-
--michael
-
->   * @sst_write_second:	used by the SST write operation
->   * @read_proto:		the SPI protocol for read operations
->   * @write_proto:	the SPI protocol for write operations
-> @@ -402,6 +403,7 @@ struct spi_nor {
->  	enum spi_nor_protocol	read_proto;
->  	enum spi_nor_protocol	write_proto;
->  	enum spi_nor_protocol	reg_proto;
-> +	bool			shutdown;
->  	bool			sst_write_second;
->  	struct sfdp		*sfdp;
->  	struct dentry		*debugfs_root;
->
-> base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
-
-
---65b67eaa2390905bd19cb271d8b7bafb464b182aa8cf20a1b34dc82aee08
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCav2pOBIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/iSKAF8CjZ0K4y3yJPfFmLZVIV6ajtPbzWce0hR
-/ZmGWAHOvBPHE4XfE0TJQPFWmIoaGgqzAX9liK5bTl4ufe3m3vAN1eRNAZrHxvm5
-iLWUpX4RLO2ARPVq0AS0XAv4rvsyQVJCoVk=
-=TEHg
------END PGP SIGNATURE-----
-
---65b67eaa2390905bd19cb271d8b7bafb464b182aa8cf20a1b34dc82aee08--
+Michal
