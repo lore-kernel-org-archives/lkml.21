@@ -1,75 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795034190;
-	b=h5JWSdhA1IvRnAc5EHiC6xI6A9HseOkr5NHUD0Elopvoaruf91aA3uZ3KEXwxRIDQKgq
-	 UjXspmbt/oSqLYW73w6fl9VQDRrTMqW1j1kQf+zUbRe6qCdU+ZOO6xKcY79Zzcly6qMqA
-	 ibtFwVAIA67HrO7JYhk0hO49fatdN3rfjUy1YtWORtXACRsbk8P+40yqtNOu4MCNJ1mTN
-	 iMCupM0VKKWNZgNlXsdy3NROVvLcYno/hvvIA3zHFn6YCZOSEFNap0ywc2aBeDZ8r2ehU
-	 vZwecr5oZ65btPPOP0Iz3RrLGZbmQFF/qoXW72hPq4ELRZJvHuRC0Cdr3DayXPBh8IA==
+	t=1795034234;
+	b=AmCSOBTdigPX/y3g45vRI9qr6IqkvPvT7jSEzGOCtuU8xiwy6BTE7JSA5RxQMZOqCBKz
+	 zWjb56jknsbR2BBLcJety8DqEbjY5RbReK7BG4W03E4XR3S2iKMV8r7szOS0V0wO2BAAr
+	 1aVW7YzT1hNFw6XDXC3aAyocBy8DEvP+8tJrnRysBm0pwy4l0uo5j7CnvEC7GfcagqwT+
+	 ObNYmfeHnvubtuBLY3w23mPPv8p0wuy61fI9BBTLbLvzHtgKccV5rrEFkXAxrIOmFAA2B
+	 wLxvLaH7BtGfn99DOIk2ZM4IX1Zh5tOa+LzvyZvOLkmB1Z2IswdrOlzOXnTPTUySOXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795034190;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795034234;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=7xlWmwrLiTN9oWrbWWc4bJ9ER2WNpvMfBsQ0dHA4HLk=;
-	b=1xeOA95svmMM26/CAWxQNYXLX+PiW8RyHnRF3K6OkG7IWjmtdSMnl2fXJX7bAsJD9Kyp
-	 DLQ0Bq5R54LL0xD450vI8MezaLluW7mA9VIu/M9TcHNM4O3B/DwmAjOzdnJjtSuUxvk8O
-	 joy0poz5D41i51K7vF2V1FCB9oaaTtl2zmb+7GqnXzUUmEK3Tesg3UhKsGuWoPZxCMmlv
-	 mtt4VasKNazjrNJBst4eDGCbVn+vQ7eNBBH4zjNDawNK/mU/ZWlZbPnvjeT/6KINFhzD9
-	 8oNeZA5SPH7DWqpQ38wTTWeGdwvzVfSA3O9I1a2bj41YQXBHIjV0PKCwIjQT+JJXM0A==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=AXj5XAIXyOPZnH0h1yeuXtufzs9FJkS5FqXFYfO/IRM=;
+	b=NS5qA/9h4xaHUScxKLPeynKL6Chh7vOjzJXw6T6PsItpkf85osD8bpWTRjKsm3gLPYcO
+	 KBscdbReDzS3ZJKaR30eaRy5kLwcJAcHC93yn5oHK7hz/O3LZnUzx+89B3BXSSQGqD9B1
+	 j7Jb04ikJD9eFdLSODBOC16CZf3TyHNkLLLuIkmFJ4LY+1+8jzVt9uj3O5jjPQeBCTY78
+	 mawwcgmrzOdFY9WBrORyaHk/zn+O9uAWe14hxqcTysCuYXhU8oA8ehIKTdYnNdQTFCso4
+	 DrSy4vjj7fujI1cOkg6mIFi7Bhfle+OXeH2olzhgQRZbecRvKYd7Ts7cFkoacnGLjlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FV7UdWLa;
-	arc=none smtp.remote-ip=209.85.167.200
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=dsAQiv1E;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B05BA60A3810
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:36:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B05BA60A3810
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD67C606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:37:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD67C606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FV7UdWLa
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-574f8578e48so1508512b6e.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:36:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=dsAQiv1E
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c50abd5b4fcso197306166b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:37:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795034189; x=1795638989; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+        d=suse.com; s=google; t=1795034231; x=1795639031; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7xlWmwrLiTN9oWrbWWc4bJ9ER2WNpvMfBsQ0dHA4HLk=;
-        b=FV7UdWLaf240FsTMl26jhmqRWWzmP0NMj+LS0a9o7myvwKstfwaeO+Ufh29us4wafV
-         +fRyfZ+zcin46W4jRbsJM0F1I26wVwcnhc3oXjmNucJXG27V24tAY9MRL1p7v+gXIR+7
-         3tZ9q41K7yzzZeFO7kOkefrjF8V/mGOiMcCFB6Et9SPkEjoW0Ylwi89p/takEZvOpnrP
-         bIstiwKuD1g+agJK69XKDTSmj/k/OFd5E4L9CzQOj+Qmof40lN1qUuRqPX359PjrcUGi
-         94HmRwOJym1ztes/cTSq8b/UKruvHFN2ntB/PULSV8YBc2eUo7FK3Wuzq/9sXCoLIiQf
-         dNpg==
+        bh=AXj5XAIXyOPZnH0h1yeuXtufzs9FJkS5FqXFYfO/IRM=;
+        b=dsAQiv1Eftk7IJH1p/el8h1FglAzkeKj832z7mjHYk7TVaUsh6k9F9zDbW7kDbgpHm
+         NhoIMwsEHAtIPBFLrxhC2KeFQRsRihSRB17MEEkxyuUzbiOMZyIFDU8R7AEx9u0Xx2+0
+         8/LlxgHDt+2Xbqm53FbJbukv5V0bv1ovDNPKWvTVFJJQGnp4J4WfayEJAVtFhANvyv6N
+         KKV9XT0RKxiRux42ZyBRt9c/stQ0CwiJsZWdQ9qyPFD2L8bcwnZuWeIDdVa+kqddBzo+
+         92UWyjwhmPb/eAO2Avjz0I5C/go7CFtqIbf8mRDGt/e0/Boboz+YZwXxYgrF2LecnGoD
+         Q/Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795034189; x=1795638989;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795034231; x=1795639031;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7xlWmwrLiTN9oWrbWWc4bJ9ER2WNpvMfBsQ0dHA4HLk=;
-        b=Yb3rdO58PEsznRT8nKECXY7ms4NBFHdQYC0CJxUAKpEDRxKOPmWvZx8CGHOVDAIsNN
-         FGcQx/p5K8VxHk+bqpZyXEQFujXmFF6Ul1JK/GALnY1fRK/0ebgQYb+GeS4fLsUP8lh9
-         eV0aaFGj75AFcCVcV6b/oENx8rT5QZgzVWxp7a8tXuB/TNTBWC85e4xjak8zgPvXhRGX
-         Njh09rId4V7oT8XE0QbvcflFsw9JKGg5AvXWTV351st7hsoXg5S0MW4CtWPdQVu9zGIH
-         Zi8GRyGrSc9pA9kzhSBl1Q4FtGS3Jcor4g9a35a3jsjKtR0FqEAuNXNL5eRfw6t4cyI8
-         7oOQ==
-X-Forwarded-Encrypted: i=1; AL+hErGX3GcSyDnJxVGMutatpohcWNaiSZm247y8ndO/sC1h1zSZgb2v1w+0+g8LgdLir1bQa7RcX9K9JanwmD0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nlP6Fcx3TWwKcJtbq7ZyA8OIHwnftdVuCVbTN+PZkPwAz2lZt
-	mPlaLqdcKysM2g+fieopNwUDtw9+OT6YWrD4ewP9vsq4eB23Bt1HyRaLzgZaMytp+UzMBzwW+JH
-	9KTBjwkH+Fq5IXzXi2GGdaWd6Jg==
-X-Received: from iobn34-n2.prod.google.com ([2002:a05:6602:c6e2:20b0:9c4:bd6e:a838])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1927:b0:4af:5d69:1cb4 with SMTP id 5614622812f47-5773cd2176emr4714167b6e.15.1795034188500;
- Wed, 18 Nov 2026 12:36:28 -0800 (PST)
-Date: Wed, 18 Nov 2026 20:36:25 +0000
-In-Reply-To: <20261118203625.743428-1-coltonlewis@google.com>
+        bh=AXj5XAIXyOPZnH0h1yeuXtufzs9FJkS5FqXFYfO/IRM=;
+        b=e2qzTAkaRUmcjNN7zrGEd3egaCTHDjKRbOL/k1K+35kB/dWjQLKeLhn6+9MlhMs6sx
+         /UEcK9cnS+F1Qa/lKoxyoHQENQ5sGWF7Lez3+YvOVMy802jjGyhVMb5kFYneKOGBk/QA
+         icl2bNPBTiM1xLoClvMEzjWFb/0jc4Frbq9yON7wXCyLCAg3h2nHDDA4VA7d6AlyZLTr
+         G/j7hQhIo79uLE//aNtzajLZUljLXz6/fNYzNKxQoMpHaKlkWjomrEpN36WvezJb8Ubl
+         kA45mGaN4JOEc5QrimV909/9XuqTqSs+E6s0F7+3ndqinbGi889fTFkdtVRvKDuxks8T
+         ur0w==
+X-Forwarded-Encrypted: i=1; AL+hErFaZ7WBGPUPbELhJ+NShRzCqWufytRuzhJod3ucCsvzCEJVBBecIM6gWODon413uXcclOandKLiZ9ufuUw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8a8uNCzf4wcJnhs38zcd/OgdE0gex9j6bQYKY7Z9urLgaSnumK
+	piWdWzMn9ydVK14p4OF1RX5YaLfvS1hC+l6RGtH1wliQ7r/BpZuSSdmeHDJOBQgVgGw=
+X-Gm-Gg: AYBFou3yfM4RD/IfmNgHpttHSbC3qvQa9kDj9INc6f5fsm+8/+RQnA1NJJ+ZJAgRQbz
+	Y4q874KchuIFWi6iS2Le7jddb7XRISOaR3VSV356NoRF3djyiVemmbRr7q8R3lMIeM5/m4OTVmh
+	13LLMlvj0tEjhppo6z1PGPEZ3zM6bp+oO2fLTQ20rEZlMvDPSnydmXBvYmsepmPgmAhCHBrCVjn
+	loNLFLe4K+84vzfwDMmQxXZI6HG2YX4O603L8s4Yxiw9lpgoWlt9cKy521srL/bFd5X+HPLTy5P
+	puiUyLnXN4qdbqu8PGFRQK4s/P8X8M7klbiY8MvfA9DUaoCU7gUFpqKfHsfQ1uEfxWuW1uR+mmk
+	36DKASL7SGTIDMFNLsxr5pqvAtvaGuBsw7QOUZywsCoNqLy6VLIdkBcfag8byNlVdKMeIXDs7gx
+	JMya5YhQepm0SRHTLGrGH3+uVUxr/R4wsEnRG1MUeiJRHdIULyF4NyR/pFYyy7jFLtlgA31tMA7
+	G7FdtzBHkFcFdNxNmw7CVz4r7JpMciZ8dR5JMtBuM0teEcSUUDBvyb3EQoeyG6XqLHgp5bxqOE3
+	KI3cB3zzPHypzu/xwONxzg==
+X-Received: by 2002:a17:907:7b93:b0:c46:a5bb:5740 with SMTP id a640c23a62f3a-c510deb706emr381419266b.5.1795034231032;
+        Wed, 18 Nov 2026 12:37:11 -0800 (PST)
+Received: from [172.16.0.229] ([159.196.52.54])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d56ec725sm2566470a91.4.2026.11.18.12.37.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 12:37:09 -0800 (PST)
+Message-ID: <ee3cc2d0-6991-4d7a-bbd6-a84972d44b37@suse.com>
+Date: Thu, 19 Nov 2026 07:07:04 +1030
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,68 +91,151 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118203625.743428-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261118203625.743428-3-coltonlewis@google.com>
-Subject: [PATCH v3 2/2] KVM: arm64: selftests: Verify HCR_EL2.NV1 is RES0 when
- E2H0 is NI_NV1
-From: Colton Lewis <coltonlewis@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] btrfs: scrub: don't count zoned repairs as corrected on a
+ degraded mount
+To: Miroslav Cimerman <mc@raidlab.org>, linux-btrfs@vger.kernel.org
+Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>,
+ Naohiro Aota <naohiro.aota@wdc.com>,
+ Johannes Thumshirn <johannes.thumshirn@wdc.com>, linux-kernel@vger.kernel.org
+References: <20261118175637.60283-1-mc@raidlab.org>
+Content-Language: en-US
+From: Qu Wenruo <wqu@suse.com>
+Autocrypt: addr=wqu@suse.com; keydata=
+ xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
+ 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
+ 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
+ 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
+ gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
+ AAHNGFF1IFdlbnJ1byA8d3F1QHN1c2UuY29tPsLAlAQTAQgAPgIbAwULCQgHAgYVCAkKCwIE
+ FgIDAQIeAQIXgBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJq3ujyBQkUpLw5AAoJEMI9kfOh
+ Jf6o8OIH/0mqW+TQM4m2x3hCsnK+oB4yJH1qnGvIhFF/Lhs48wI02sGh6/4aA0hkCDfd9LHQ
+ +ci4FUepZ9y4VS01+oIExbg/8ytzGYTzLtb44jK2GBOBVSJkMiha6jp22XFt7WUkT/tvbreu
+ WWdGsaJIRQaZChy7xsMI8lqQ2WdmluZJ4LT0wD3l/l6QU1ZseMGySebdY9sVOQEOJNV7Qj92
+ /KOAFNmeZshV/qDI8Iw1RTs6TvLqCcqmlZLCmJkYSVhT1RonWRren8xIRcFEgMe004IDnt7V
+ qdQhk/nhTS9x9MBAhMRl0TTE1VKDLvVALsud3iZLrmmtYvwPApzGJk052f0m28vOwE0EWdWB
+ rwEIAKpT62HgSzL9zwGe+WIUCMB+nOEjXAfvoUPUwk+YCEDcOdfkkM5FyBoJs8TCEuPXGXBO
+ Cl5P5B8OYYnkHkGWutAVlUTV8KESOIm/KJIA7jJA+Ss9VhMjtePfgWexw+P8itFRSRrrwyUf
+ E+0WcAevblUi45LjWWZgpg3A80tHP0iToOZ5MbdYk7YFBE29cDSleskfV80ZKxFv6koQocq0
+ vXzTfHvXNDELAuH7Ms/WJcdUzmPyBf3Oq6mKBBH8J6XZc9LjjNZwNbyvsHSrV5bgmu/THX2n
+ g/3be+iqf6OggCiy3I1NSMJ5KtR0q2H2Nx2Vqb1fYPOID8McMV9Ll6rh8S8AEQEAAcLAfAQY
+ AQgAJgIbDBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJq3ukKBQkUzDspAAoJEMI9kfOhJf6o
+ SNsH/1ysUWOKmzY0rGS3ZdS61QgqMGhSWD/EJ4UiPw+xO4l4+GtX0fOAqxqsmBKqje3vyhBa
+ Z5o/1Y+gNiN+E6RBcSz4b1TAd78sQ2bvT5DWOvBjeeVxHdiuQMIn4S8xk5ZpySBw5ifjoiuL
+ 0M33UVtJOzM8yfAeL+d/Rp4leJw72SutjkLyZTG/gJIp4pJGD/kFHn24OLL0IxEcO0gOekNZ
+ os5e1R6jAJ2ILk7+MDnvU8wXHcCiVzuDhJLI1tih1uUIE50muHQJWbYuVBbdJeu8WlIDDssx
+ UOCxLylNG3gDXV5MhLubPTOpp9OiFc/XC37nvkgEcrlmlOFBv4/NJCbECpo=
+In-Reply-To: <20261118175637.60283-1-mc@raidlab.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-In a VHE-only EL2 guest (KVM_ARM_VCPU_HAS_EL2 without
-KVM_ARM_VCPU_HAS_EL2_E2H0), KVM advertises ID_AA64MMFR4_EL1.E2H0 as
-NI_NV1, making HCR_EL2.E2H RES1 and HCR_EL2.NV1 RES0.
 
-Extend hello_el2 to attempt clearing HCR_EL2.E2H and setting HCR_EL2.NV1
-from userspace via KVM_SET_ONE_REG, verifying that HCR_EL2.E2H remains
-RES1 and HCR_EL2.NV1 is masked to RES0. Add a comment explaining why the
-check is performed from userspace rather than inside the guest.
 
-Signed-off-by: Colton Lewis <coltonlewis@google.com>
----
- tools/testing/selftests/kvm/arm64/hello_el2.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+在 2026/11/19 04:26, Miroslav Cimerman 写道:
+> On zoned devices scrub can't rewrite a bad copy in place. It calls
+> btrfs_repair_one_zone() to relocate the block group instead, and counts
+> the repaired blocks as corrected.
+> 
+> On a degraded mount btrfs_repair_one_zone() relocates nothing ("Do not
+> attempt to repair in degraded state"),
 
-diff --git a/tools/testing/selftests/kvm/arm64/hello_el2.c b/tools/testing/selftests/kvm/arm64/hello_el2.c
-index bbe6862c6ab16..3bd3596f5fb1e 100644
---- a/tools/testing/selftests/kvm/arm64/hello_el2.c
-+++ b/tools/testing/selftests/kvm/arm64/hello_el2.c
-@@ -45,6 +45,7 @@ int main(void)
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
- 	struct ucall uc;
-+	u64 hcr;
- 
- 	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
- 
-@@ -66,6 +67,20 @@ int main(void)
- 		TEST_FAIL("Unhandled ucall: %ld\n", uc.cmd);
- 	}
- 
-+	/*
-+	 * Verify RES0/RES1 enforcement from userspace rather than inside
-+	 * the guest. From the guest's perspective RESx bits may be
-+	 * stateful (reading back as written) even though their value is
-+	 * ignored, whereas KVM_SET_ONE_REG applies the effective masks
-+	 * directly.
-+	 */
-+	hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2),
-+		     (hcr & ~HCR_EL2_E2H) | HCR_EL2_NV1);
-+	hcr = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_HCR_EL2));
-+	TEST_ASSERT(hcr & HCR_EL2_E2H, "HCR_EL2.E2H should be RES1");
-+	TEST_ASSERT(!(hcr & HCR_EL2_NV1), "HCR_EL2.NV1 should be RES0");
-+
- 	kvm_vm_free(vm);
- 	return 0;
- }
--- 
-2.56.1.750.gf70dc682cf-goog
+I think this is a little weird, any special reason for this in the first 
+place?
+
+> but scrub still counts the
+> blocks as corrected and logs "fixed up error" for each. The bad copies
+> stay, and the next scrub finds and "fixes" the same errors again. With
+> zoned RAID1 mounted -o degraded with both devices present and read
+> errors in one device's metadata zone, two scrubs in a row both report:
+> 
+>    Error summary:    read=96
+>      Corrected:      36
+>      Uncorrectable:  60
+> 
+> Count such errors as uncorrectable, which the uapi header defines as
+> "no intact copy was found or the writeback failed". Dev-replace, which
+> writes the repaired blocks to the target device, and read-only scrub
+> are not changed.
+> 
+> Fixes: 54765392a1b9 ("btrfs: scrub: introduce helper to queue a stripe for scrub")
+
+I do not think this is the correct fixes tag, that commit is just 
+calling btrfs_repair_one_zone(), and btrfs is already calling that before.
+
+> Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
+> ---
+> Keeping these errors as corrected and only logging that the repair was
+> skipped would leave a false positive: the counters would still report
+> the bad copies as fixed, and the next scrub finds them again. A new
+> counter for errors with an intact copy that were not written back would
+> be another option, but it changes the uapi. A read-only scrub, which
+> also counts errors with an intact copy as corrected without writing
+> anything, is not changed here.
+> 
+> Found with FuzzyRAID, a fault-injection tester for RAID that is not
+> public at the moment. The analysis, the fix and the commit message
+> were prepared with the help of an LLM, which also tested it. I reviewed
+> everything.
+> 
+> It also applies on top of "btrfs: scrub: fix several races which can
+> lead to UAF" (v2), with offsets.
+> 
+>   fs/btrfs/scrub.c | 22 +++++++++++++++++++++-
+>   1 file changed, 21 insertions(+), 1 deletion(-)
+> 
+> diff --git a/fs/btrfs/scrub.c b/fs/btrfs/scrub.c
+> index 98362c91bce4..9dcb0e7e3d0b 100644
+> --- a/fs/btrfs/scrub.c
+> +++ b/fs/btrfs/scrub.c
+> @@ -323,6 +323,12 @@ struct scrub_error_records {
+>   	 */
+>   	unsigned long init_error_bitmap;
+>   
+> +	/*
+> +	 * Set if the repaired blocks could not be written back, thus all the
+> +	 * initial errors are still on disk.
+> +	 */
+> +	bool repair_skipped;
+> +
+>   	unsigned int nr_io_errors;
+>   	unsigned int nr_csum_errors;
+>   	unsigned int nr_meta_errors;
+> @@ -992,7 +998,7 @@ static void scrub_stripe_report_errors(struct scrub_ctx *sctx,
+>   	struct btrfs_fs_info *fs_info = sctx->fs_info;
+>   	struct btrfs_device *dev = NULL;
+>   	const unsigned long extent_bitmap = scrub_bitmap_read_has_extent(stripe);
+> -	const unsigned long error_bitmap = scrub_bitmap_read_error(stripe);
+> +	unsigned long error_bitmap = scrub_bitmap_read_error(stripe);
+>   	u64 physical = 0;
+>   	int nr_data_sectors = 0;
+>   	int nr_meta_sectors = 0;
+> @@ -1003,6 +1009,11 @@ static void scrub_stripe_report_errors(struct scrub_ctx *sctx,
+>   	if (test_bit(SCRUB_STRIPE_FLAG_NO_REPORT, &stripe->state))
+>   		return;
+>   
+> +	/* Not written back, the repaired blocks are still bad on disk. */
+> +	if (errors->repair_skipped)
+> +		bitmap_or(&error_bitmap, &error_bitmap,
+> +			  &errors->init_error_bitmap, stripe->nr_sectors);
+> +
+>   	/*
+>   	 * Init needed infos for error reporting.
+>   	 *
+> @@ -1227,6 +1238,15 @@ static void scrub_stripe_read_repair_worker(struct work_struct *work)
+>   	if (!sctx->readonly && !bitmap_empty(&repaired, stripe->nr_sectors)) {
+>   		if (btrfs_is_zoned(fs_info)) {
+>   			btrfs_repair_one_zone(fs_info, sctx->stripes[0].bg->start);
+> +			/*
+> +			 * On a degraded mount btrfs_repair_one_zone() does not
+> +			 * relocate the block group and the bad copies stay,
+> +			 * unless dev-replace writes the repaired blocks to the
+> +			 * target device.
+> +			 */
+> +			if (btrfs_test_opt(fs_info, DEGRADED) &&
+> +			    !sctx->is_dev_replace)
+> +				errors.repair_skipped = true;
+>   		} else {
+>   			scrub_write_sectors(sctx, stripe, repaired, false);
+>   			wait_scrub_stripe_io(stripe);
 
