@@ -1,59 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.113
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795004303;
-	b=Xa96XP66i+I9iAzMzvpg3+m1G1owblNw8f878VJsPmxx7zFN1XqOxX6tyFA/XbK0OleP
-	 3Ugu/0Uyli04T+zTLdHH66a4iFHoAMpVM+d0pvCsr1W3hGrnpPQ53jUOJKvPJq6mCjYv4
-	 VFuS9AKF0rXCO12FMpwWA43ML/vdUZOtrZJpUMX9EUkJkd5665xBYPSK1uBwWXkAqHWAm
-	 JCOkkdxC+31A2QZSZNbQnHJ8PAFjltIKJpFg7krnawbr6tta0iHfIypmrNOk/qh2TTqzq
-	 qfKl/pCRgzitvVd+70Q3XQenbpb3Al2unR7sIIveRtIze6rsL51GZK2JX+gKGuYQpTg==
+	t=1795004363;
+	b=5IzYlZy2JLhmYyhJ8HQE1sY6nomWR19ARj+oO7QpXWsvXsCfoG8R1YJC3pa/c7EIgYGk
+	 SVMdP8TppnoTJg9oeUsNYkiV3Sz72d0G57fj2+MSdNmFuKNknuSx7mMxSVPFWgW0PL/hj
+	 BF/InHzfDjtJOyBlFsc+bolz4LAnH9DzWr21C3o82R+TD15rajSfzkzqx+QY89J7zk3sn
+	 vSt7YjrG4HAi7AS60oHSGXB2CZaznKhOmG466AlqF0BGtPtIM0lyf0yhyaqukncl6y/QK
+	 TiM+yxggOrE8Hnq9R7h8Q91YCFXSEUV1nooCHxJUXBVAbr5K6pRakWk/adxi3DNHTTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795004303;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=V7BiP0CcGi8LITyg8W5iWi77jq5+Sz2IYuWjTO1UXbU=;
-	b=da1NQ16+/Dz3KJyqw2D8V3iHf/5qk7/p2qalprd555YH6FGJNVlpkE5L2Kqz3bK+I0W4
-	 3B8FRNzIK1S06zsc8A8Bq4wZf29bu98He880yqcOoEUW3DnlQhXBa0ll7xETs/6stb5s0
-	 FGr8ipdrd4Sox7rb+TXVpNaB9JPe4D8NUC2rFMybzu+0wXYrIGoAegL060cogvUGO06yG
-	 hdLyMso9u1AHU6wHNP/bugfnqCOwp/6TKxSgZ2PqP5S4ByNH5ERmRgQbfd8JxnkZ5fBhd
-	 28c9UqlMGHNWLsV92BDGyQ/x9IEmXQhFH9IulvCwgpCh0PJeXWaQBVOCOXiXOAlrELA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795004363;
+	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=yuZG6CdJuD9vtqpA/QJDHc8bAea3N5SCYAeWRtouXhc=;
+	b=zewc9T8mSIo7ktr7+nSXs6PDNww3yXUHulGhGsvFm00qZL2HM5yYpj0aPfzvpZ3wBa1L
+	 gtBn2CQ8DN/3GH39aq6QZ0JQVRqtzTkjaV9GBO9TpSAjLq3DaUJW5RXKpbGZ9XLdkMQEh
+	 eI4v/n4HYj2UaRPGng8nEoA8/4qJaB/8n72kzt4/rp/tPCQA4RxrM99w2WxAAZ0oq3QOh
+	 Lv2WyHEbnegwhc+VGxcyYntheFsHW0RPllyfpETEaWOzmrPOBJNws4/m86kirIThWgCGq
+	 9bBjhS+H0tgaimiAiwQXUwnT808pm5CY4HslmUnh+U+7xcyw5iU5J7wuQsauGlZQQ/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YQEfm1mD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=raidlab.org;
+	spf=pass smtp.mailfrom=raidlab.org;
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=eBegDgwO;
+	arc=none smtp.remote-ip=79.135.106.113
+Received: from mail-106113.protonmail.ch (mail-106113.protonmail.ch [79.135.106.113])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43EFE606A320;
-	Wed, 18 Nov 2026 12:18:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F7B1606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:19:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F7B1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YQEfm1mD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BDFB1F000C4;
-	Wed, 18 Nov 2026 12:18:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795004302;
-	bh=V7BiP0CcGi8LITyg8W5iWi77jq5+Sz2IYuWjTO1UXbU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YQEfm1mD5gqTK+heHD2m/ZlWsXYQSb+a/cnLFKDAyLYcikSVJxhHLLF32k1UiRbFY
-	 ql1YILnuEz3jdM9CvuH1H0pNpggGJhjKL28fvgXNb1XJv+/56nTOkUk2+rRHZeFN90
-	 s2Klwyv0VLrG1Tq96a1nNnAp0HIaC7HRTaDnooBVLjH5fcDim9y5JAffNEJqJiNy/J
-	 fNLrj7BA4G2rH7JommHkHfIlrJp/ZLIy6L8YEug4F+Kwu52umJHnNFAlsedMpo0K7B
-	 8ffZbEmODGP8wj9tkfqPU9bKoK8xE4AnhJ9frUNo8Wjg20lAprKSC6MvmTHUXn+SAq
-	 EAotqyJUtvYbw==
-Subject: Re: [PATCH net] net/sched: sch_qfq: bound backward slot rotation
-From: netdev-bot+sashiko@kernel.org
-To: ljp1205831794@gmail.com
-Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- paolo.valente@unimore.it, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, jiapenglin@tencent.com, corvus@tencent.com
-Date: Wed, 18 Nov 2026 12:18:21 +0000
-Message-ID: <179500430179.3136.14921789097403556118@kernel.org>
-In-Reply-To: <20261116121710.77403-1-ljp1205831794@gmail.com>
-References: <20261116121710.77403-1-ljp1205831794@gmail.com>
-X-sashiko-severity: Critical
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=eBegDgwO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
+	s=protonmail; t=1795004357; x=1795263557;
+	bh=yuZG6CdJuD9vtqpA/QJDHc8bAea3N5SCYAeWRtouXhc=;
+	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
+	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=eBegDgwO1w3M9BOhBV3y7lNkN8z6z+gW2asAO7dbzMnbyA+GNtWgoSGxPzvYdORJo
+	 Ih/v9/eqnJcdu6Qljllyb6f4QKZZvgf1khcKrtFyVP0XocOLd44TkcMWruzQzG+yCd
+	 HGwBdETOpaBUkChJXPjhgMEpA5K2cFzeSA35/BD8MaIu2XKabWkmAlCXBTVc7nSHWI
+	 9pLFN2bzsZ+KX3KHeVMInvAC8rvYQV++7/WSoJWSyruuttFYAXQ2RGvxUYsR1LaQ1x
+	 6/vvULv7ypPKnYGcfwhaBWb7rub0xpPb5C0NX5Xxx7DUPRatBrTL3C4VK94cP47E3V
+	 fl2+6aFvlB3eA==
+X-Pm-Submission-Id: 4jV0yX0XLQz1DDr2
+From: Miroslav Cimerman <mc@raidlab.org>
+To: linux-btrfs@vger.kernel.org
+Cc: David Sterba <dsterba@suse.com>,
+	Chris Mason <mason@kernel.org>,
+	Naohiro Aota <naohiro.aota@wdc.com>,
+	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] btrfs: start writeback of relocated data before dirty throttling
+Date: Wed, 18 Nov 2026 12:16:31 +0000
+Message-ID: <20261118121631.6644-1-mc@raidlab.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,191 +64,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+When over the dirty limit, relocate_one_folio() waits in
+balance_dirty_pages() for the flusher to write back enough. The flusher
+skips a filesystem whose s_umount is held for writing, but an unmount
+and a remount read-only hold it while they wait for a relocation by the
+reclaim work to finish: close_ctree() in cancel_work_sync(), and
+btrfs_remount_ro() in btrfs_commit_super() for the cleaner_mutex the
+relocation holds. Nothing else is sure to write back the relocated
+data, and both hang:
 
-Critical: 1 · High: 1 · Medium: 0 · Low: 1
+  task:kworker/u16:1   state:D
+  Workqueue: events_unbound btrfs_reclaim_bgs_work
+   balance_dirty_pages
+   relocate_file_extent_cluster
+   relocate_data_extent.constprop.0
+   relocate_block_group
+   btrfs_relocate_block_group
+   btrfs_relocate_chunk
+   btrfs_reclaim_block_groups
+  task:umount          state:D
+   cancel_work_sync
+   close_ctree
+   generic_shutdown_super
+   kill_anon_super
+   btrfs_kill_super
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The same goes for a resumed balance, which both wait for in
+btrfs_pause_balance(), and for the relocation of the zoned
+RECLAIM_ZONES space flushing, whose work both cancel.
 
-- [Critical] The clamp added to qfq_schedule_agg() is a fixed constant
-  (33 on 64-bit, 1 on 32-bit).
-- [High] On 64-bit, the new clamp in qfq_schedule_agg()
-  (net/sched/sch_qfq.c:1321-1333) allows a backward rotation of…
-- [Low] Two existing comments in net/sched/sch_qfq.c now contradict the
-  new code in qfq_schedule_agg().
+When balance_dirty_pages() would make us wait, start writeback of the
+data relocation inode first, then wait as before. Writeback errors are
+still reported by btrfs_wait_ordered_range() at the end of the stage.
 
---
+Fixes: 18bb8bbf13c1 ("btrfs: zoned: automatically reclaim zones")
+CC: stable@vger.kernel.org # 6.1+
+Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
+---
+Found by an LLM while testing "btrfs: wait for block group relocation
+on remount read-only" with a low dirty limit. The fix and the commit
+message were prepared with the help of an LLM, which also ran the tests
+below. I reviewed everything.
 
-net/sched: sch_qfq: bound backward slot rotation
+Tested on btrfs for-next (6f4bbde7e036) in QEMU with KASAN, one zoned
+null_blk device mounted with commit=1, the reclaim thresholds lowered
+and vm.dirty_bytes at 2 MiB. An unmount while the reclaim work
+relocates hangs as above without the patch (5 of 5) and takes 0.2 s
+with it (8 of 8, 3 of them with the default commit interval instead).
+A remount read-only retried in a loop hangs without it (3 of 3) and
+goes through with it (3 of 3); the relocation then still writes after
+the remount, which "btrfs: wait for block group relocation on remount
+read-only" fixes. With both patches, remount, remount with an
+immediate unmount, and unmount are clean (9 of 9).
 
-This patch caps the backward slot rotation in qfq_schedule_agg() at
-BITS_PER_LONG - QFQ_MAX_SLOTS + 1 slots. If the start-time decrease is
-larger than that, it first moves the activating aggregate's S, F and
-roundedS forward by the excess and then calls qfq_slot_rotate(). The
-goal is to stop qfq_slot_remove() from clearing bits beyond full_slots,
-in the slot-list pointers that follow it.
+A balance of 200 MiB with a slow writer on another filesystem at the
+dirty limit takes 3.4 to 4.2 s with the patch (4 runs) and 3.0 to
+4.3 s without it (12 runs), 2.2 to 2.3 s without the writer either
+way. Writing back each folio and waiting for it, instead of throttling,
+also fixes the hang, but made that balance take 22.7 s.
 
-> diff --git a/net/sched/sch_qfq.c b/net/sched/sch_qfq.c
-> index e900890e9c544..e83105ce90156 100644
-> --- a/net/sched/sch_qfq.c
-> +++ b/net/sched/sch_qfq.c
+The resumed balance and RECLAIM_ZONES cases are from reading the code:
+a resumed balance can hang this way since 837d5b6e46d1 ("Btrfs: allow
+for pausing restriper"), and the Fixes tag names the reclaim work,
+which the reproducer uses. balance_dirty_pages_ratelimited_flags() is
+exported since 6.1, hence the stable tag. The cleaner's autodefrag
+throttles the same way in btrfs_defrag_file() and is not changed here.
 
-[ ... ]
+ fs/btrfs/relocation.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-> @@ -1318,6 +1318,17 @@ static void qfq_schedule_agg(struct qfq_sched *q, struct qfq_aggregate *agg)
->  		if (!qfq_gt(grp->S, agg->S))
->  			goto skip_update;
->  
-> +		slot = (grp->S - roundedS) >> grp->slot_shift;
-> +		if (unlikely(slot > BITS_PER_LONG - QFQ_MAX_SLOTS + 1)) {
-
-[Severity: High]
-
-On 64-bit this allows a rotation of 33 slots. Is that bound safe when
-grp->slots[] has only QFQ_MAX_SLOTS (32) entries?
-
-Every user indexes the lists modulo 32. For example, in qfq_slot_insert():
-
-	i = (grp->front + slot) % QFQ_MAX_SLOTS;
-
-	hlist_add_head(&agg->next, &grp->slots[i]);
-	__set_bit(slot, &grp->full_slots);
-
-After a 33-slot rotation the existing members sit at logical offsets
-33..63. These share physical hlists with offsets 1..31.
-
-Suppose a later skip_update insertion lands at offset j (1..30). It joins
-the list that already holds the member tracked by bit j+32, so two
-full_slots bits now describe one list.
-
-A possible sequence:
-
-  X at bit 0, physical slot f
-  stale B is capped and rotated by 33:
-      X moves to bit 33 (still physical f)
-      B goes to bit 0 (physical f-1)
-  Y is inserted at offset 1, which is physical f, the list X is on
-  B is served, then Y, then X
-
-That leaves full_slots == {32} over an empty list. When the shared list
-empties, qfq_front_slot_remove() clears only bit 0, so the aliased bit
-stays set. qfq_slot_scan() then shifts by 32 and returns qfq_slot_head()
-of the empty slots[f], which is NULL.
-
->From there, qfq_choose_next_agg() takes the NULL as "group is now
-inactive" and clears the ER bit, even though grp->full_slots is still
-nonzero:
-
-	new_front_agg = qfq_slot_scan(grp);
-
-	if (new_front_agg == NULL) /* group is now inactive, remove from ER */
-		__clear_bit(grp->index, &q->bitmaps[ER]);
-
-Any later activation of this group with S >= grp->S takes skip_update
-and is orphaned. Once the other aggregates drain, can qfq_dequeue() call
-qfq_peek_skb() with a NULL in_serv_agg?
-
-If the stale bit is reached from qfq_deactivate_agg() instead, this
-dereferences NULL directly:
-
-	agg = qfq_slot_scan(grp);
-	roundedS = qfq_round_down(agg->S, grp->slot_shift);
-
-If it is reached from qfq_front_slot_remove(), BUG_ON(!agg) fires.
-Aliased lists also serve aggregates out of timestamp order.
-
-The commit message says:
-
-  "This preserves the timestamp and physical-slot mapping, keeps every
-  removal offset inside full_slots"
-
-Does that still hold once the bitmap and the physical lists no longer map
-1:1? Should the bound keep every occupied offset below QFQ_MAX_SLOTS
-rather than below BITS_PER_LONG?
-
-> +			u64 deltaS = grp->S - roundedS -
-> +				((u64)(BITS_PER_LONG - QFQ_MAX_SLOTS + 1) <<
-> +				 grp->slot_shift);
-> +
-> +			agg->S += deltaS;
-> +			agg->F += deltaS;
-> +			roundedS += deltaS;
-> +		}
-
-[Severity: Critical]
-
-The clamp is a fixed constant (33 on 64-bit, 1 on 32-bit) and never
-reads grp->full_slots. It is only safe if the highest set bit of
-grp->full_slots is at most QFQ_MAX_SLOTS - 2 at rotation time. Can that
-assumption be broken?
-
-Two sequences seem to break it:
-
-(a) qfq_slot_insert() puts a member at the capped offset 30, and an
-ordinary 1-slot backward rotation moves it to bit 31. A later capped
-33-slot rotation moves it to bit 64. On 32-bit, any further 1-slot
-rotation does the same.
-
-(b) A capped rotation leaves old members at bits 33..63. A second stale
-aggregate in the same group triggers another capped 33-slot rotation,
-and bit 33 becomes bit 66.
-
-In both cases qfq_slot_rotate() silently drops the bit:
-
-	grp->full_slots <<= i;
-
-The aggregate stays linked on its slots[] hlist, though. When it is later
-removed through qfq_deactivate_agg()->qfq_slot_remove():
-
-	offset = (roundedS - grp->S) >> grp->slot_shift;
-	...
-	if (hlist_empty(&grp->slots[i]))
-		__clear_bit(offset, &grp->full_slots);
-
-offset is >= BITS_PER_LONG here. Doesn't __clear_bit() then write into
-the grp->slots[] hlist_head pointers that follow full_slots in struct
-qfq_group? Offsets of 71 and above would flip real pointer bits.
-
-That looks like the same corruption the commit message describes:
-
-  "a later qfq_slot_remove() clears a bit in the following slot-list
-  pointers"
-
-Even when the stray clear hits a bit that is already zero, the aggregate
-no longer has a bit in full_slots, so qfq_slot_scan() never reaches it.
-Once the other aggregates drain, qfq_choose_next_agg() returns NULL while
-sch->q.qlen > 0, and qfq_dequeue() calls qfq_peek_skb(NULL, ...).
-
-Should the bound use the highest occupied bit, for example
-__fls(grp->full_slots), instead of assuming it is QFQ_MAX_SLOTS - 2?
-
-> +
->  		/* create a slot for this agg->S */
->  		qfq_slot_rotate(grp, roundedS);
-
-[Severity: Low]
-
-This isn't a bug, but two existing comments in sch_qfq.c now contradict
-this rotation bound. The comment above qfq_slot_insert() says:
-
- * and not a '-1' because the start time of the group may be moved
- * backward by one slot after the aggregate has been inserted, and
-
-The comment above qfq_slot_rotate() says:
-
- * Here too we should make sure that i is less than 32
-
-With this change, qfq_slot_rotate() can run with i == 33 on 64-bit, and
-neither comment is updated. Since slots[] really has 32 entries, the
-comments seem to state the correct constraint.
-
-[ ... ]
-
+diff --git a/fs/btrfs/relocation.c b/fs/btrfs/relocation.c
+index 072bc943d62e..6252608b0983 100644
+--- a/fs/btrfs/relocation.c
++++ b/fs/btrfs/relocation.c
+@@ -3045,7 +3045,19 @@ static int relocate_one_folio(struct reloc_control *rc,
+ 	folio_unlock(folio);
+ 	folio_put(folio);
+ 
+-	balance_dirty_pages_ratelimited(inode->i_mapping);
++	/*
++	 * Start writeback of our pages ourselves before balance_dirty_pages()
++	 * makes us wait for the flusher. The flusher skips the filesystem
++	 * while s_umount is held, and both a remount read-only and an unmount
++	 * hold it while they wait for a relocation by the reclaim work to
++	 * finish. Writeback errors are found by btrfs_wait_ordered_range()
++	 * at the end of the stage, as with the flusher.
++	 */
++	if (balance_dirty_pages_ratelimited_flags(inode->i_mapping,
++						  BDP_ASYNC) == -EAGAIN) {
++		filemap_flush(inode->i_mapping);
++		balance_dirty_pages_ratelimited(inode->i_mapping);
++	}
+ 	btrfs_throttle(fs_info);
+ 	if (btrfs_should_cancel_balance(fs_info))
+ 		ret = -ECANCELED;
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116121710.77403-1-ljp1205831794%40gmail.com
+2.53.0
+
