@@ -1,60 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963549;
-	b=4mFhThKPC/IWqXTIdC9h8Tpx97zRz+dNB0ujibRSUWj+3AcXM2/Z1VwfdgHikjrblGBi
-	 BQKR9Y8H3eigMkDxpJ5pYb11bEEIYcO3e6O+QgsuDbLqMeGaJu6l+4avuiyb7+8bUTPra
-	 xr1wyGFzV38bBHaUk2UiyWnhNC1wznsQZPovnloO8N5uo7FBRO7ZqCbDdA5e38Hz1FpMp
-	 rde5ekEVCABDb/OMHGTll7J1jd8ggMr5jT9DsMOB9sk2izWDn7dNuYSYYawCyL2VXhaWt
-	 xPrfarAHi8Jj2mdYSzITg8tDMP7Y5AFowFJ7Rrv3aNedba0o18ncvlBJhuZoZUDJkLQ==
+	t=1794963675;
+	b=rI+mP9H0X8uVTYBESVeJaE+S1ipMEhkyzNyEaJ0JJyIQPXKyvXV7cM9fssMTLk1QgXaA
+	 3uRk0yWU7eyehOiN/pfHqJrV6b0cqjOdcvNjC3xZyg8fSOvmbOok8Sx04ej6BmxFMyfQ3
+	 b4i0Qe+UcBmsKcdONhitxp7PKxNl5FSKJP/U494yQa4chNW7j+xq7rNhw0QEqU2M06r29
+	 dRYs015sQMc8216LC50gGo/W10FNezejnXQFsOyKA67cowVHb/L/Y/cQ58oQU697qTErf
+	 aHilHIJUArcuYW90ub0I/pi0kmtsBLYZifOfkg34V7a2jPJdNr2JKDEw8RmZq6cMCjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963549;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=b08D7Z/QJlyiger4HOgkC1C66KOTyyBg7hQbqrfAMRc=;
-	b=Gz1s9oo+9P4y0RHKWhoRWfV6iYg4BxgOEjZ3bZ75T7BsIPaukff9DfSoZSJ+QhY7qgHh
-	 pAd9mAF9898alDyx+smBzsQsPkW1WGM9/qzVx6mF02LeRl/bMdkirsmKYnE+R/vIbZStf
-	 qit61+4V5yo//IFmt3H0d+wyObuP0oXwe1WWYX38SHsaplHAhvYOyBV2tiTz0l0t+jGJw
-	 M9H8sLV4wp/3H/E9l7VExoP3WZUzRgRDiIiEDn17iJM2Fu92VRXwszLZi52/JLNMrXyuE
-	 ALWIaCFSz1SMJ9YDxqdqgGtdkT3rIam6H6yJF9qz2p0Wlpre5MrMCnkMynhBy2m6IrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963675;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id:X-Rspamd-Server:X-Stat-Signature:X-Spam-Status:
+	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=z8kxQvUj5zwDtnCB080k4EdHPlhtNHftETeHTO27jgg=;
+	b=BmyvqnQa0k55CrVOnQk++hkDDi8eQBGPjNAoclvmfu7eclRcOM/MaGYbsH2PF3z3mgwp
+	 MOviK9LNkcbf57nDT9FqbYzo+ODlIU7HMzx5iYbFhzfKEcJJDoyvXg4kOAnABG3o26JkI
+	 W6F5UXVWrPGxUQqRuBVytX9kC4IwpMxV//2/OZNvBIMUBg7AGOG0INstIjJAIMzIimzvM
+	 yR4dw+KqIyu18cMBpGovMN2zDPplfmByLKMP9ArRG2X9qnPuF2qAd7aJGam4FsOEpFSoU
+	 9foq1iLGJJEkazq9AXm1JWZaf04W2ifTB/sn7yYPMI+T++J1A0FWaG/YwVOO1iOjZLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bEBRoiyI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=CI16MtWb;
+	arc=none smtp.remote-ip=216.40.44.17
+Received: from relay.hostedemail.com (smtprelay0017.hostedemail.com [216.40.44.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C393606A31C;
-	Wed, 18 Nov 2026 00:59:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA03B606A31C;
+	Wed, 18 Nov 2026 01:01:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA03B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bEBRoiyI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 581671F000C4;
-	Wed, 18 Nov 2026 00:59:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794963548;
-	bh=b08D7Z/QJlyiger4HOgkC1C66KOTyyBg7hQbqrfAMRc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bEBRoiyIJTS0soBaV/sxsEVKUL/UrreqrFToJKCF0VDIJh4HGdKx98jfb7Au1NFC/
-	 SnfZJ7fCIq8SDEJ+s/8+o8e9Dhb9PORicR0T8LfjhfZPkzyc1VmEsgLP6vdKH6bHPI
-	 8x8210NEXMJ8LwcJxOL7aHKtQUzcuOvh6oLsR06cLfi62JtxTEgX+5hS8uxbfyghNi
-	 xXqDwikA1sTKiYUwY9aADaHunk0aWIX4xojjhWaN0dxYzOihRn7h3gcolqElVtjwHS
-	 6glsCrcXqpw+xSmY2DIJK3XvVO/gfKrUVGMW7Y1bIg5ostylrZKtIOEBLN5BqVfGdu
-	 GZeWUFubnKn1w==
-Date: Wed, 18 Nov 2026 00:59:07 +0000
-From: Yosry Ahmed <yosry@kernel.org>
-To: "Chen, Zide" <zide.chen@intel.com>
-Cc: Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, kvm@vger.kernel.org, 
-	Jim Mattson <jmattson@google.com>, Andi Kleen <ak@linux.intel.com>, 
-	Stephane Eranian <eranian@google.com>, linux-kernel@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
-	Das Sandipan <Sandipan.Das@amd.com>, Shukla Manali <Manali.Shukla@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
-Subject: Re: [PATCH v4 06/21] KVM: x86/pmu: Drop nr_arch_{gp,fixed}_counters
- from kvm_pmu
-Message-ID: <avz4LTEOcubVykim@google.com>
-References: <20261112203227.289379-1-zide.chen@intel.com>
- <20261112203227.289379-7-zide.chen@intel.com>
- <CAO9r8zPD_i2aWc3jaKRr-=1Pz0td=6nqBpgBfVVaV3jfzVTAjw@mail.gmail.com>
- <e090723f-cc02-40c2-af57-ab5dfda91dcc@intel.com>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=CI16MtWb
+Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id DB4B8A8058;
+	Wed, 18 Nov 2026 01:01:11 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 0CB3D2002F;
+	Wed, 18 Nov 2026 01:01:09 +0000 (UTC)
+Date: Tue, 17 Nov 2026 20:01:08 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Vineet Gupta <vineet.gupta@linux.dev>,
+ Peter Zijlstra <peterz@infradead.org>, Andrii Nakryiko 
+ <andrii.nakryiko@gmail.com>
+Subject: [PATCH v2] fgraph: Read the task->ret_stack with a
+ smp_load_acquire()
+Message-ID: <20261117200108.35179ae8@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,57 +60,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e090723f-cc02-40c2-af57-ab5dfda91dcc@intel.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 0CB3D2002F
+X-Rspamd-Server: rspamout08
+X-Stat-Signature: n6iuqb1tzp4ny67jk6j6hud3x97jo6hk
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1839B2/p1aN0UnNhIQkPtxSQFvvLWrh3eM=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=z8kxQvUj5zwDtnCB080k4EdHPlhtNHftETeHTO27jgg=; b=CI16MtWbHnegZMt01qa5m39wM8MKVSowXY1aH5mDJ7gXXZOITzY9JBaB4/6kQMeewdZ5R264k6q76zp/yJuz8OD7Bal0QBkAK4hoDmZWIs9CvCiE64gjrCN4k4XeEJL/SWm8Y1n3yPI5KLK5VhBK1izreHR3wTpUiqCFB5M9LtE=
+X-HE-Tag: 1794963669-680933
+X-HE-Meta: U2FsdGVkX1+KXaERXqylp9ckUPVn5GZt89lqUWwsRuHxzdEf+6+XK/NY6UF5kDmVSlFHvYQmfg2wBMJCGrYhT2rqLw/a4zuTr1iTWemLXSgUKGpcblnmuYxa2BrluHFEuA2LqLWCVMwMhthP7lODrEP+GHYm1saY9G21RN1niMMQRKca2JNgHvecF3Ri2J450jXHh0REkDx5SQocUzWcX/EYAR9djI+WKTniT/YcoP7BjiVAqOK49Pv2vBgKH8OXhWdArxO9EIZOfW4ZkvVXlFblYZfFDmApZbRpkQx5uBNltXwUl9BZg+BP8CRyCOSxg8cosYCr2iSejErgTZRwgFgw85IKDQiI4aslNjXvFZ+fGRat+wh0iTBb4EQ3T+OO3a6lFxEezdXtYf0Cqtn1aEXMuHFSgMDqTeycQp3+fxmtV0SVuQaPVTtql93vtv2A3q9pxJ50wPudJ89VmKL61nqHdzjxYkp6IUunneFa4Qk=
 
-On Tue, Nov 17, 2026 at 02:02:08PM -0600, Chen, Zide wrote:
-> 
-> 
-> On 11/17/2026 11:23 AM, Yosry Ahmed wrote:
-> >>  static void amd_pmu_init(struct kvm_vcpu *vcpu)
-> >> diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-> >> index 136069dfcd44..e21abcedea70 100644
-> >> --- a/arch/x86/kvm/svm/svm.c
-> >> +++ b/arch/x86/kvm/svm/svm.c
-> >> @@ -761,24 +761,21 @@ static void svm_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
-> >>  {
-> >>         bool intercept = !kvm_vcpu_has_mediated_pmu(vcpu);
-> >>         struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
-> >> +       unsigned long gp_mask = kvm_gp_pmc_mask(pmu);
-> >>         int i;
-> >>
-> >>         if (!enable_mediated_pmu)
-> >>                 return;
-> >>
-> >>         /* Legacy counters are always available for AMD CPUs with a PMU. */
-> >> -       for (i = 0; i < min(pmu->nr_arch_gp_counters, AMD64_NUM_COUNTERS); i++)
-> >> +       for (i = 0; i < AMD64_NUM_COUNTERS; i++)
-> >>                 svm_set_intercept_for_msr(vcpu, MSR_K7_PERFCTR0 + i,
-> >> -                                         MSR_TYPE_RW, intercept);
-> >> +                                         MSR_TYPE_RW, intercept || !test_bit(i, &gp_mask));
-> > 
-> > This fixes a pre-existing bug that was reported internally, that can
-> > happen if a malicious VMM reduces the number of counters after
-> > initiating KVM_RUN but before VM-entry. The current code would fail to
-> > re-enable the intercept on the counters that become unsupported.
-> > 
-> > Might be worth splitting this out into a standalone fix.
-> 
-> My hesitation on a separate patch was to avoid throwaway code churn.
-> A standalone patch would add:
-> 
->         for ( ; i < AMD64_NUM_COUNTERS; i++)
->                 svm_enable_intercept_for_msr(vcpu, MSR_K7_PERFCTR0 + i,
->                                              MSR_TYPE_RW);
-> 
-> and then it will be immediately overwritten and collapsed into a single
-> loop in this patch.
-> 
-> So basically cleaner logic vs. avoiding immediate churn. I'm happy to
-> split it out if you prefer.
+From: Steven Rostedt <rostedt@goodmis.org>
 
-I think it's fine. You can also fix it by using the same loop struct we
-end up with instead of adding another loop? i.e. loop until
-AMD64_NUM_COUNTERS and intercept based on i < nr_arch_gp_counters
-instead of testing the GP mask?
+The setting of task->ret_stack was switched from a smp_wmb() and the
+update to the variable with a smp_store_release(). Match the reading of
+the task->ret_stack with a smp_load_acquire() to replace the read and
+smp_rmb().
+
+Also update graph_init_task() to use smp_store_release().
+
+Link: https://lore.kernel.org/all/20261021174406.2891598-2-vineet.gupta@linux.dev/
+
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+---
+Changse since v1: https://patch.msgid.link/20261117193007.6ee9f605@gandalf.local.home
+
+- Updated graph_init_task() to use smp_store_release() (Sashiko)
+
+ kernel/trace/fgraph.c | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
+
+diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
+index bbf6e4e2da2d..0748eb67dea7 100644
+--- a/kernel/trace/fgraph.c
++++ b/kernel/trace/fgraph.c
+@@ -568,7 +568,11 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
+ 	if (unlikely(ftrace_graph_is_dead()))
+ 		return -EBUSY;
+ 
+-	if (!current->ret_stack)
++	/*
++	 * We must make sure the ret_stack is tested before we read
++	 * anything else (See alloc_retstack_tasklist()).
++	 */
++	if (!smp_load_acquire(&current->ret_stack))
+ 		return -EBUSY;
+ 
+ 	BUILD_BUG_ON(SHADOW_STACK_SIZE % sizeof(long));
+@@ -576,12 +580,6 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
+ 	/* Set val to "reserved" with the delta to the new fgraph frame */
+ 	val = (FGRAPH_TYPE_RESERVED << FGRAPH_TYPE_SHIFT) | FGRAPH_FRAME_OFFSET;
+ 
+-	/*
+-	 * We must make sure the ret_stack is tested before we read
+-	 * anything else.
+-	 */
+-	smp_rmb();
+-
+ 	/*
+ 	 * Check if there's room on the shadow stack to fit a fraph frame
+ 	 * and a bitmap word.
+@@ -1125,8 +1123,7 @@ graph_init_task(struct task_struct *t, unsigned long *ret_stack)
+ 	t->curr_ret_stack = 0;
+ 	t->curr_ret_depth = -1;
+ 	/* make curr_ret_stack visible before we add the ret_stack */
+-	smp_wmb();
+-	t->ret_stack = ret_stack;
++	smp_store_release(&t->ret_stack, ret_stack);
+ }
+ 
+ /*
+-- 
+2.53.0
+
