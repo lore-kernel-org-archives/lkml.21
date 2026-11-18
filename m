@@ -1,96 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.92
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795009168;
-	b=o4BJtzjJqLSRMtMhglz0F7PoHVw3YYtmGQAPOoNLIA2vSLTVn/eGCEmXi36X4r7himxQ
-	 UjytVtJc1uDe2nQ4Xhll3S0OKOp3d5bbagSRNq6Z+McEft3nItcHF+HQOPzHDL5rH6ElS
-	 lTCoclTcYVMQkYJxDp2rCVuGlNvO4KtaqR/k9wudPPWdG4liz6l/1avmvX91svBBkKOaP
-	 92O5M9gIS37p3cZXKBQnDgAR1BOU6OzXEWHmJPPEGc/yA/WQEwIH2oqN1whliBCWpdQPW
-	 u0eE71XDJAMqChwXr5s+M17CCJreCmO+tViQ0c31nqBonWLyG1m/BUxV2oypiHr5RQQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009168;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=p2WnK3lhlJZo1qamgl71f8A1iqUbHuKOgEtr1nZH/3k=;
-	b=d3RTbeu1VoFSBl/XcB8iegi04LvcuKpJXMxbh7cpIkO/2697RMajewo3CmTtE13ONY2k
-	 zTsqWyWQvH8uo/+UwR73kDCZMPy/N9y9LzPbkvj62SiRDfPbBQl4Yw+qgxSPxZQXsB8Yk
-	 HnRpl0YFVTDcjSrSlNApdAkAgBH/Ik2U4ke2MU5HAKugEUp/4tl9XMkWHfLSmqqe80/tZ
-	 59ig/ySDE5I+E4VR8AV4nDXh25dZwydC6+kHBRp6KOpY3bA66yzZpoWfEFCX1ZHMLwGDD
-	 5TGIn/zx8vAUAwdq7yhLUEYwYOGh8brP954q+foGXk/DL7Dz+3f6dYt3mjHbLSwBeyg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=pwFjCVFE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.92
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022092.outbound.protection.outlook.com [40.107.193.92])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795009183;
+	b=TvEKmcxk0rsIXiJJt8AoSWMOtbr5ofosw+Xz0+qa11Jfxugx4XTgm4vyVzqkki2IvRsm
+	 0afzDXamShCrGQwgVlkmWzN8eOSTS7jKrHICiVUu7ItcUb7zUk9sgaJjjmdNqaC1QuCsT
+	 wRSb1hl/iLDu9OLD9lJ4IZj5DAHyKQNjS/3X9sgk8pJ4V2dyddemgcq880w0a6k07DF+1
+	 LB4WhgtfZ+czjUz+hRRN3BjshA4mVe+oMToujbpxH3NJJ1duM7g28ZSqafveofYj25z5j
+	 jsGrGPu12CrJ5Jmq6DVXLcWq5UZ8tok3LwvDhstfE+SuV3YzhGtprAz93e9L2sqhy4g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009183;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=H16wPM7V43qGhOUqYIC9Lq66inZTiW4pkuJdkCDBv0k=;
+	b=JLiCgxr69oUpUvX8l7PnGLWHLUiFMu02aS1qkU8RHaxiCfW8GK36TeWXFdvNLd63gqWg
+	 USWsVucNBJgq68d08pGIdyCGpjMAzDqo/UNMPwLfmlow/UI+Vqjp/0aQMrqQXa74vEO+3
+	 B6ktH4Wm3KcHK8eGo10IYUhf58PJ6+4whCFhJdEdL4mk3XU2z4VNQ2lzMuDRYMLE0ySs/
+	 sFNUDZaxmTKU2oelKM30/2wAhy3eAvlMlo+1WPt12phZkPzuXEKB7UrUih07SJcCo8ib+
+	 DLJ6J47HS8UHzEfMcpGOegdHmbVRZvixDtlQ0WgJc3sn0BS++pTsWWWv/bAPxZKYiVw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QnXDe1Br;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D20D60A2631
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:39:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D20D60A2631
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADF5B606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:39:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=pwFjCVFE
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tuIKSs5tWHQumjKwegp533GElmr+bzDdLkhhFpShtYdB5/R5g2wfujUMWQyAj4eOjwhJDCJ9jYURID0u+DMNl9c3AcFJBoYii9MWvo2swBTCDuPSvU5RnzJKmJpx9GTWg/I2N7t2mn2NSEOePLt6ua7PDy2NY5wfjNTRq33Xa7f4P+g8ImLq1wBjy3sVL6OuTEvRGht/4vbOuPuRuTpnsU8DoFWNwMjsCMR34pl8CKXhnzTK1GrkounqVARbDFnS9e5vbReHqaLn82WGoMKvexVD2DAklPOjgvLSGbLl7wOs6sZa/5e+DpBVo6+acxVrwyao7ffv9BxioiTZywDI6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p2WnK3lhlJZo1qamgl71f8A1iqUbHuKOgEtr1nZH/3k=;
- b=A7/NMI9OayK5Zt1n5yuPtrnsgrETZ1CWM9JLPeGGpaoxODtLXBSbXsbjyulhrQ9eNCulK7hG4YtObl1b/WPV46VNrNXpk8kZ0D7auX48HYJSmMN34oWDyGoaYjmcwu22FvvqCu7ecgUofIUjVySd517/y5CRU1ZyloYg8kqTgAKTCbwe+/81SoD5khMtDqBnOrnIR14dn7BNE+4eUXhMTImp3Nx5usCv7O5zDNKa5UXB14plVRo2FbNZjyHnCjpFVD1RuPOLMOVXW2mAJeecqergdnzD1EFSr3u8ECn6RaBRl7cY2xy692rAjig3PRjQ6/51G0+pgtKC0lfVyzo9Mg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p2WnK3lhlJZo1qamgl71f8A1iqUbHuKOgEtr1nZH/3k=;
- b=pwFjCVFEGSabKEj3a+zWtTUU2nN+tY8yjbA2LH5Gh964Q/QYlhr6bxZSHSjZvDEBSVGS2cKB28GUSjmFUWjp/svKJfGuccpukVz0dKXNw+ICUPD9ug9gCWxb69b1W3LuG2KbxgbpmnO6by7RwcGGjzbyFhcxgeXHntMNPag6HiSQGU5lWSP7EgyCdF3Ar4BOvylMB0P4t7dMXFSYAzLKwaxvqXHNw5jBui6hrG43RGs13mYAGBpAWOoTXzTDTcCXISCuAW/5CqPpvQn2WSAEs5KtGTPxidDmpw5he8TbsFy7zer5S91gMIEtVGnP1Mohb6jNaTi/RfpEG27G1yCWnA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT4PR01MB842743.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:188::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 13:39:26 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 13:39:26 +0000
-Message-ID: <ee22dfeb-9c99-43aa-8836-e49aa81638b1@efficios.com>
-Date: Wed, 18 Nov 2026 08:39:26 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 26/40] sched/deadline: Make a rebuild count a task in
- the root domain it runs in
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <d956394fd7c5d85d9cd92489b0abf5c709c4545d.1794922146.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-219082@kernel.org>
-Content-Language: en-US
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-In-Reply-To: <sashiko-outbox-219082@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQZPR01CA0031.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:86::29) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QnXDe1Br
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B57A61F000C4;
+	Wed, 18 Nov 2026 13:39:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795009183;
+	bh=H16wPM7V43qGhOUqYIC9Lq66inZTiW4pkuJdkCDBv0k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QnXDe1Brr0lrrc+WoVXWDQAuB6mqEFMBO+0+D9laEIhooYb5UkBJwdxFGdNoFKZ8o
+	 WsN/4VSJX8Ukxv40UAWQeosgaBpENKCEoKAhEJU/n0HJDVG7RFGt5Tf+O6Qqk0oOjB
+	 tUWVsP80MgMO5zLwbQe5JOvapb4ltLtoalyxyxnqfxQKI2Ncsk0gfqz5wwMgWAyR0R
+	 wSEiN0O+h+OsCr45zE/AVP0h9V7vjw+iklvGxntQ/cwEjQ668fX+q7ZNvsAWAuCnbX
+	 ByuKEzWtSQ71KctGcmmul6ypubbhZDF4k5uirUtO+pJuonoIRG+0CxaBJLCwoUTHn7
+	 9DPdbMnx3vQEw==
+Date: Wed, 18 Nov 2026 15:39:36 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Shivank Garg <shivankg@amd.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>, Luiz Capitulino <luizcap@redhat.com>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] mm/page_ext: remove unused page_ext_iter_get()
+Message-ID: <av2qmOfuu9QMny5o@kernel.org>
+References: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
+ <e745f91b-3312-47b9-965c-510bf0a0b7f7@kernel.org>
+ <20261117111336.ee49c0d4722a042c071c68b0@linux-foundation.org>
+ <5541ef01-f9c0-4ce1-b77a-5bb81c6cfdd4@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,109 +68,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT4PR01MB842743:EE_
-X-MS-Office365-Filtering-Correlation-Id: 28ada090-0ef2-4d0e-f064-08df45795d2d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|261022075727099003|4143699003|56012099006|261026140227099003|261028144727099003|10067099003|261022105027099003|261026121527099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	rXfQA8qfiYtkXdqHLDkhcB6IAfPxUHieENt0oNYaC9SagkPxiLZLnte3YmG2AvDfGa3TPFFqEfJ4jm9Ux+fF0oovNoJ1o1pr0D+w5FzXaJD6sZgoge6AFH2ZFx2TawY8jYLeYZBRYkTl/Teox5ibPRNlfXoP3FTqPy/rc4H7ZLmqAlaNTB+G5U/92aSYBTS3Z57UIiSubuz4R7zpZUDC7+pAn2TN3g7JkyRH8p0pu962s7nV8/+3PcjCDDcvwjmOgl0X2jgAc8ndBIJ714Z+l0nWHvw2O4ibKIjISLK3rs0jtMfl5s6l5JrTpvTDq39MoPQc5YhjlrNoq43NH9i1InS50ZZsyAE/MgUfuEqj/aE4K0D8KZoUAj9B9L9d93sZEF1AVbHZLZjSA2moE1CIqk3AAcu8neh8Oo1C9vB9nwMfOwVPkKtiO/J6esysIe5cBP16O9fSzJvp54dkqZ8Kh0mn59pw8OJ3TqESTL0Ubfk0LTYnXNxtmeelkKQXkUvh6KlpchwlWIncvZn8PGXFkoQl2opLo/WTpmT8ZY1OfotlQxByQ5i2dKmRwijuKYiyUHZiuhwX6mI90BW9A2RsiJQgqzBW9zYMVhwpBWQqOSU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(261022075727099003)(4143699003)(56012099006)(261026140227099003)(261028144727099003)(10067099003)(261022105027099003)(261026121527099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Sml4QmFGaituSTVIeFA5cS91K1NnamJDa2NqQUJVeGJnTGZyY3kzRGtuYTdN?=
- =?utf-8?B?aTFHZHpISW5vcy9xTnhLNS9jTTBFRjMwSU9NNkFsUGFScG1vQUN3emlSQU9l?=
- =?utf-8?B?WjBwVWFqemh0L3czRlZEOEk3RG8wTytVbkRHN01MZEc2SzFUUndaeGp2QUp5?=
- =?utf-8?B?NUR5TzFJdThLQmF2eXhFdUl4bW1VT0haZ0ZqNmE0V0FNemQvdDAyY25pYU93?=
- =?utf-8?B?NFh1MndEZTc1dzVkYlJBYit4QnQ2N3VBelJKa2JZZnpOazRRWnRzVG9RWkxm?=
- =?utf-8?B?V21OUUVaK3YzWG5iNVVwcXQxZFRxL2poQUFyektDN1ZqOFFHcENaaVJQT1dn?=
- =?utf-8?B?Z3BlRXlXZ0QwRkk0b2JHMnp3aW1mdFdLdGJKa1FmUnlvazNtTjZFTEVnT2Nn?=
- =?utf-8?B?c3NwR2dBR3FpQXhreFdVME1xZkhMMStaZ1hOeHZOZDZXc0FleU14c2ZNcnhn?=
- =?utf-8?B?bVdRN2ZCRnVXQXltSlpGTFR1ZXN4SUxqMHRyZE1nRDJWdVFOQjQzVlY3dHE5?=
- =?utf-8?B?WDBGS3pXckN4TlNJUTRmY0c1MllJVWw0OXNEc25UR2l6VFJrVGNJeDQ3Wnhy?=
- =?utf-8?B?alBJTTZ0YS9zYTFxanR6bUg4a09FNkEwamFwd000UEpkYjdWS1Z6RlQreTRC?=
- =?utf-8?B?R2J6dThqY3gvQWV4MXFrdHJZUnBKUDkxTFRWQ2IwMmdlVHhMdVJYU3lycmdH?=
- =?utf-8?B?aTBqNFVEaHNtK0lHQ2xYY0g3RzZ2TDdvMWt6Q05vL3l3c1JzdjJuSEpmT3lC?=
- =?utf-8?B?TjFyaFIvcWtrTGdHUGF0NWh2Sk1MemRSV2NKVWs0VXBLRHJpdHJnQ0NWRkw4?=
- =?utf-8?B?RE5DY2k4b0JwVmt0TDF4M01WOVJvTDVsMW04aXk5MmJCWVZnc25XQW4rczBl?=
- =?utf-8?B?Wmg5UjV0aVFLUWZIZWFoU1ZPVHJjemZMZUhsSnEwRDlOc2xrNk1wVlFPVHR6?=
- =?utf-8?B?T1Y0TDRzWStKczRYaHJvSXo3ZkZUYytMUDBPR3ZNNkd1d3BjS1pYeWo1NnUx?=
- =?utf-8?B?SlZyTGpGc2NCS2VWWkUySGVkZHhBWFRvbUFaelNraGxMY3R1aDBlNjVrcEI5?=
- =?utf-8?B?VTlnUDlMRXBVRmc2a1BtSjRHbzNyY1RIK3k1Mmtld0NvdkFyOHRBTzRCQXZO?=
- =?utf-8?B?ZzJPM2JVbU5VK0dseHU4Zkp5ZFJtWlZxdHBWQWd2enVUNHZsYm5yYUVRc2c1?=
- =?utf-8?B?VXNJNDBqQmpiY09tQWY2TUFWRFB3REd4Q0Z2QVFCck5HZmo0S3AxNFc4UWF4?=
- =?utf-8?B?VW5EeXo2RXBINk01TXdrcnNPR0NpWDhyUTYxRURZQlBiRytRaVppRHB6V3lz?=
- =?utf-8?B?b2srZk1PZC92cWpZenRReS9iNW9KTlNxUmpuTmJzL2VZZW1lamw0WmUyOEs4?=
- =?utf-8?B?TVg3aExSN2ZVd28zazBOSnEwaTg5Mm5sT0lnam1jVU50ZGEwTThZeXI4SGV3?=
- =?utf-8?B?Qkh3WkVXejA3ZEZCWVRyai9vVG91TVB5RkNZc0ptVnd3U3ZOVmlYalhENmY3?=
- =?utf-8?B?U0lEWG9xNUhpZEgreTRxUmVObFhka042VElRaE9XSnpqNmp3UnFuSkxVMVBq?=
- =?utf-8?B?cTBNSFFNeHFLY1BlTUJWUmtuc25mTDRYVkQzRHpHK3Z0eThXQ2JFRjFvb0VS?=
- =?utf-8?B?NTNxdkxoZVJ3NVFuR1VISWVjL0FuS0NZUkF1eVM4UlNKZVdvcE83OHUvUTIz?=
- =?utf-8?B?WkpyY2FWSWhVU3B3Slh6cVRvRExFZ21tUlY1TG5VaFdBNUpDV29wSllJcXAv?=
- =?utf-8?B?MDBUaUJXaEk4OGpvVkloUU05Y29YZGNwd0xXRFdpRlNzRWNFWkdjRWgybXJP?=
- =?utf-8?B?NXlWTE5ZbzgxQ0RTSnAxTHdYS2gwMmYrb0JBUzNOVzVNRkJZOXlCb09GZ0da?=
- =?utf-8?B?Wi96NVNPVnQ3N0xMSzB6Z2htelU4MkpWemM3bE5WRXZEWXBwdUlOTFo3clNF?=
- =?utf-8?B?ekZmN0k4MmYwQ1lEOHNQa0ZLeXZLeXpEK3dsNnFzbjFYendVUHRuUXNSaVRj?=
- =?utf-8?B?N0lyZkJRcllZQjdUM1pid3lNd3RkR0J4NVlKMjVjZGdSaWE4RVJvYldPYVNt?=
- =?utf-8?B?SWp5anFlMytyMFZSdGgweWhGMm4yY3hVZFhMdjhrT2x1eDdjNUszVnhNVU1x?=
- =?utf-8?B?OXYzL0JwZzdnNEMweDc2UFIxdzJqNHlJUXVIc0ZaYWpiVDRLQzZacDFoMVZo?=
- =?utf-8?B?YVltK01HOFppZnQ5OCtSUXdhaG52dE03c3JIN1VqSXYrOWNCeXZReDJad0h2?=
- =?utf-8?B?TG92eXdyUUplRVZrWERjRXUvQlM1TEo3bTJoYVNiV0g4YWxSY1pSVUdoNzRw?=
- =?utf-8?B?SHkrLzZ5djlrTTdSVTVaTEh1bGhTM2s1VkdxZXc0Rnhyem8yc2kvdTZZY2xw?=
- =?utf-8?Q?GBBfegb8RbjlY5ptIS8Ykg3r6KgyCri362b6x?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 28ada090-0ef2-4d0e-f064-08df45795d2d
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:39:26.7250
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9i8rpy4q8tip7olENDoCJLkwTFxYW78RQJDpXd8aTF6cebV2Un51+PwAmzJvvVP4VSSEUiZjloJSF/kxdmgXsJoenbN1XZCbTPIwWPmXTOg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT4PR01MB842743
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5541ef01-f9c0-4ce1-b77a-5bb81c6cfdd4@kernel.org>
 
-> Can returning recorded here without checking the task's cpuset charge
-> the bandwidth to a newly created partition that no longer contains
-> the task?
+On Wed, Nov 18, 2026 at 11:10:45AM +0100, Vlastimil Babka (SUSE) wrote:
+> On 11/17/26 20:13, Andrew Morton wrote:
+> > On Tue, 17 Nov 2026 19:50:09 +0100 "Vlastimil Babka (SUSE)" <vbabka@kernel.org> wrote:
+> > 
+> >> On 11/17/26 17:26, Shivank Garg wrote:
+> >> > It was added in commit 9039b9096ea2 ("mm: page_ext: add an iteration API
+> >> > for page extensions") but has never had a caller.
+> >> > 
+> >> > Signed-off-by: Shivank Garg <shivankg@amd.com>
+> >> 
+> >> Added to page_alloc.git for-next, thanks!
+> > 
+> > Thanks.  Helps.
+> > 
+> >> Hm page_ext.h should be added to the PAGE ALLOCATOR section. Wonder if
+> >> Andrew's patches adding various missing bits included that too.
+> > 
+> > Nope.  I'll add the below.
+> > 
+> > A few things under mm/ include page_ext.h so perhaps more mentions are
+> > needed.
+> 
+> Thanks! Stuff that includes it are its users and not necessarily page
+> allocator itself. Nothing jumped at me.
 
-Yes, thanks. The record can name a CPU that a partition root took since.
-With no active CPU in the mask, the next version asks the cpuset first.
-It keeps the CPU recorded only if the cpuset holds it.
-
-The early return covered two cases. A task that
-dl_task_offline_migration() moved to that CPU is queued there. The test
-before it already catches that task. A task that an earlier rebuild
-counted there keeps the record if its cpuset holds the CPU. A task
-asleep wakes up through select_fallback_rq(), on a CPU of its cpuset. So
-the cpuset is where it runs.
-
-This was found by reading. A new test case, rebuild_record_taken,
-shows it. A partition root takes the CPU recorded with a sleeping task.
-On v7 the partition counts the task, which then wakes up outside it.
-With the next version the task is counted where it wakes up. That held
-in each of 7 runs on both.
-
-> Does calling dl_get_task_effective_cpus() here read a stale
-> HK_TYPE_DOMAIN mask during cpuset partition transitions?
-
-Yes. Upstream reads it there too, for every task. This patch only
-reaches it for a task with no active CPU in its mask. With admission
-control on, patch 29 refuses the offline that leads there. The next
-version reads HK_TYPE_DOMAIN_BOOT in dl_get_task_effective_cpus(), as
-the rest of the series does. A task whose mask holds only CPUs isolated
-at boot runs in def_root_domain, whatever the partitions do.
-
-This was checked by reading, not reproduced.
-
-Thanks,
-
-Mathieu
+The whole initialization part is in a way mm_init ;-)
+ 
+> > I'm presently carrying no patches which alter page_ext.h or page_ext.c
+> > 
+> > 
+> > 
+> > From: Andrew Morton <akpm@linux-foundation.org>
+> > Subject: MAINTAINERS: add page_ext.h to MEMORY MANAGEMENT - PAGE ALLOCATOR
+> > Date: Tue Nov 17 11:05:44 AM PST 2026
+> > 
+> > Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+> > Cc: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+> 
+> Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+> 
+> > 
+> >  MAINTAINERS |    1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > --- a/MAINTAINERS~a
+> > +++ a/MAINTAINERS
+> > @@ -17779,6 +17779,7 @@ F:	include/linux/compaction.h
+> >  F:	include/linux/gfp.h
+> >  F:	include/linux/page-isolation.h
+> >  F:	include/linux/pageblock-flags.h
+> > +F:	include/linux/page_ext.h
+> >  F:	include/trace/events/compaction.h
+> >  F:	include/trace/events/page_isolation.h
+> >  F:	include/trace/events/page_ref.h
+> > _
+> > 
+> 
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Sincerely yours,
+Mike.
