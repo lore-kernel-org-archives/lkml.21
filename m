@@ -1,47 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.62
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999028;
-	b=ONMzY2Tsdo+r+674ACBd/8jgbrWq+Y853wn++j0SWxIpYuJxJko9KILMFNpDWtD6GS+l
-	 ai1SDAPKMb8+does7e6flFOK/uqWTVn6K/XsSY1CquVnhnjaRfz70+YzBuendW1BXYdOI
-	 f+SRDOeR+piPRDkc4i2TVMRxIc8qcWTsOF1DTEFirx+yoszKZv2jABq3bpssjHOv0uc2M
-	 mv1yRdf2mmFkRcF2zsAYZDnPjjf2CA8Hcf7IvYdbr97GkRk5mosIOnEB6ePPtlKbwY0Lq
-	 ZsCw92fN1c3pihObxZQdIIKVLFk1NaGgFs9qU+2juNC3d1vv00U4woGIOJ+luuSKWbg==
+	t=1794999059;
+	b=RVLw04271I3VTF89V6h1mDKFNSkEYspdhf3o1FvrybG485pTs2jzyd3QomuKAZkIuFGH
+	 KpCU4NC1awxwMCLVVXrM7Z/xlF7OlrU6flbt/fh9HmcqEPD3KZgp8hbpD/K0q9M5fs0pV
+	 h5AVRGknkjva4YKwuFcHROjlkssSQbJNPLzMNzAwEP/PZmjo8i3TVoZNrViHBTKz5vOXG
+	 9DxtVMwLVOP/vkE+YxXqFWiZ7ygKvAXCto1JSpoPc9s0GPClHD8YiizYKAf1UQoRSl1wX
+	 F3BJesblcLHtbmRkXGMVAUc/uveVyduYlFxfxKoATcKTiXjQ1khiHfFGlarkj6u0yIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999028;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=2tyJQEQnFeWwomXQ5IRkBcHcwvd362+cG6pq/T5Bwi4=;
-	b=QU+yJIIvXQV/elyx2dUWg7yLpPk08YeGVf8zfcMDKa/yFYCJmEJGNriLdAICIKo1KZVk
-	 aZQImw1nX1eFKRA4CIJdYGPorSQXYmYdptOb6ycG5bi+nkXLEb91i8QbJUpBNGnzgKsSH
-	 iFAJzzswYNDXhctf3Qu0+tW26oDbxo3y4nPb3jCeCWJmUNLPv6oPDgBRmT4rUgh4y0g7H
-	 0r2wEDP6HSYx6o4xCK9z+b+A5RllK/zRri2nvNT/xelBLmyuV3O5sSiFLtTcid/BPZ5Ld
-	 uGw7fj6QvMYl3WiQlAqzLu4+mQIUQzKMD0t/I5/cNzi/9JWUm7J48W+pMzrhJXqzFpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999059;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Itlfx11zXnBZntjOPS/51jfyw6vtkyZLDdFLWbHwde4=;
+	b=Vh28y5y9w7W2mDAgfR75XuaUI04P+PBgGOjMTec+nLiKhae0kKN5wlTZIViVpEaB6IFr
+	 a4NXK3HkMD1uivkuY9Oxf4xA0/g66F/AdwjN3LfLHVbo5QH4xWmDp83XoKRSTyeOw/lTm
+	 ffIf8fTthmtJgqICXKAYABtnZg/rxBZoYp4wywG+QgSv5PqS+6R1JAJoP6AMyQQMaEqL8
+	 DkhVvUUyNonmwR94rY7Uc70i/7Ag2ESC0hLFI5ehYqFR/UB2TORo217sXHxX4TbwAiIJP
+	 auW0KF8dwlC/7zAFCp03m8J/oS7N+dUomnUOh6Wdb68aD3lP9Kcrabg3KWeekuGteQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Pr//q/Y8";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eYAFlMAt;
+	arc=none smtp.remote-ip=95.215.58.62
+Received: from mta1.migadu.com (out-62.mta1.migadu.com [95.215.58.62])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78383606A31C;
-	Wed, 18 Nov 2026 10:50:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 861A9606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:50:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 861A9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pr//q/Y8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03ABB1F000C5;
-	Wed, 18 Nov 2026 10:50:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794999028;
-	bh=2tyJQEQnFeWwomXQ5IRkBcHcwvd362+cG6pq/T5Bwi4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Pr//q/Y8OiVPLDdAT5oOmIcmCL8xXTs8vFj8sUFKQYdCvGikTJ0MxLgfNrOxR0Ta7
-	 AvTRZmLuVgJcBFYzqHm6BJF+z8/n8NgYxsuIdIhK3XrCehTmx4m77tW024J0HY7NaN
-	 TCsXb/wtvXkZ97WVBVrd5ZNfmeNPReiJukadaoCOGcU0xmTOwygDw8RetcGwRI83bA
-	 EZDxFtJH54PQVrXoaFNElTjvs939KZH+QAnzmgH2xqETia+5LNJUHTvcsosMOdFE3J
-	 NPf/f7/QyQoOlw81m8LAQrJSKwq5Z1SVPncq6MUyzIBgRZRfIv3KsUzMGyCy4bVghB
-	 bBpHjPargRbJg==
-Message-ID: <aa9a2189-71e5-409e-b89d-c14441bccb72@kernel.org>
-Date: Wed, 18 Nov 2026 11:50:20 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eYAFlMAt
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jURBODj3t0kFMsYUQPyoSVho8qNObWqngSiKtSuGKU8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794999056; v=1; x=1795603856;
+ b=eYAFlMAtxY29YXjIMdemdCWgpIyxjvRqjYRTnDmDeAKezT3UY0Yg7uJ1+ea+xuePWWgnZnez
+ VGJiDS7G5FrSgoL2hc3d6T/K1qYz4IQLfI618qiiQYsr+ZnPTj64yPLzWdpWYxuDT/1oDnyGp0j
+ QiqUyayCJge2Y5pwsaR6m1jQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a7c0abf208a54be0;
+	Wed, 18 Nov 2026 10:50:56 +0000
+X-Mizu-Trace-ID: a7c0abf208a54be0
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <923bb35e-df40-4c67-923d-f518290ccce3@linux.dev>
+Date: Wed, 18 Nov 2026 18:50:38 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,99 +58,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net v5 0/3] mptcp token hash ordering and token 0 lookups
-Content-Language: fr
-To: Hang Nan <2122295973@qq.com>
-Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, martineau@kernel.org,
- geliang@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuniyu@google.com,
- willemb@google.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <tencent_50E9A78F95855D54DA67136F3D8520017F0A@qq.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <tencent_50E9A78F95855D54DA67136F3D8520017F0A@qq.com>
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 04/16] mm/mglru: lift the forced protection of
+ reclaimer
+To: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
+ baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
+ kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
+ lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
+ liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
+ mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com,
+ shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
+ weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
+ zhuhui@kylinos.cn, sidchintamaneni@gmail.com
+References: <20261114200803.23129-1-baohua@kernel.org>
+ <20261114200803.23129-5-baohua@kernel.org>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261114200803.23129-5-baohua@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Hi Hang Nan,
 
-On 16/11/2026 15:58, Hang Nan wrote:
-> This series restores acquire ordering for the mptcp token lookup and fixes
-> two pre-existing defects in that hash table which ordering alone cannot
-> cover.
 
-I didn't do a full review of this series because of the build failures,
-but here are just a couple of quick notes:
+On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> When a type is drained down to MIN_NR_GENS gens, the reclaimer will
+> fail to make any progress on that type without aging.
+> 
+> However aging comes with a cost, and it will take time to finish. Even
+> if we do aging more proactively, when under great pressure, gens will
+> still be drained very fast so the new gens produced by aging can't catch
+> up with the consumption. With MIN_NR_GENS setting blocking the reclaim,
+> we will run into OOM. This OOM can be reproduced by the previous test
+> program [1] used for fixing another aging problem [2]. When running in
+> great pressure, certain workloads will keep seeing premature OOM with
+> MGLRU, and never see any OOM with classical LRU.
+> 
+> This might get worse if we implement async aging, or avoid hotness
+> inversion in aging, as they will slow down the aging process even more.
+> 
+> To fix this, let's first drop the get_nr_gens() == MIN_NR_GENS early
+> return and let the raised-priority scan bound cover max_seq itself.
+> 
+> Mapped folios will still survive as the rmap PTE check will keep them.
+> Unmapped cache folios may thrash more under heavy memory pressure.
+> This should instead be addressed through refault-distance and
+> frequency-aware promotion [3].
+> 
+> Link: https://github.com/ryncsn/emm-test-project/tree/master/file-anon-mix-pressure [1]
+> Link: https://lore.kernel.org/linux-mm/20260428-mglru-reclaim-v7-0-02fabb92dc43@tencent.com/ [2]
+> Link: https://lore.kernel.org/linux-mm/20260502-mglru-fg-v1-0-913619b014d9@tencent.com/ [3]
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> ---
+>   mm/vmscan.c | 34 +++++++++++++++++++++++++---------
+>   1 file changed, 25 insertions(+), 9 deletions(-)
+> 
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index 1197e15065fe..603fb7c73f94 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -4677,7 +4677,7 @@ void lru_gen_reparent_memcg(struct mem_cgroup *memcg, struct mem_cgroup *parent,
+>    ******************************************************************************/
+>   
+>   static bool sort_folio(struct lruvec *lruvec, struct folio *folio, struct scan_control *sc,
+> -		       int min_gen, int tier_idx)
+> +		       int min_gen, int max_gen, int tier_idx)
+>   {
+>   	int gen = folio_lru_gen(folio);
+>   	int type = folio_is_file_lru(folio);
+> @@ -4694,12 +4694,22 @@ static bool sort_folio(struct lruvec *lruvec, struct folio *folio, struct scan_c
+>   	if (!folio_evictable(folio))
+>   		return false;
+>   
+> -	/* promoted */
+> +	/* promoted, or moved due to reparenting. */
+>   	if (gen != min_gen) {
+>   		list_move(&folio->lru, &lrugen->folios[gen][type][zone]);
+>   		return true;
+>   	}
+>   
+> +	/*
+> +	 * We are reclaiming the last gen left. Folios in this gen can no
+> +	 * longer be promoted or protected, so just isolate them. The one
+> +	 * exception is lru_gen_reparent_memcg(), which is handled above.
+> +	 */
+> +	if (min_gen == max_gen) {
+> +		VM_WARN_ON_ONCE(zone > sc->reclaim_idx);
+> +		return false;
+> +	}
+> +
+>   	/* protected */
+>   	if (tier > tier_idx || refs + workingset == BIT(LRU_REFS_WIDTH) + 1) {
+>   		gen = folio_inc_gen(lruvec, folio, min_gen);
+> @@ -4754,15 +4764,16 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
+>   		       struct list_head *list, int *isolatedp)
+>   {
+>   	int i;
+> -	int gen;
+>   	enum node_stat_item item;
+>   	int sorted = 0;
+>   	int scanned = 0;
+>   	int isolated = 0;
+>   	int skipped = 0;
+> +	int gen, max_gen;
+>   	unsigned long min_seq;
+>   	unsigned long remaining = nr_to_scan;
+>   	struct lru_gen_folio *lrugen = &lruvec->lrugen;
+> +	DEFINE_MAX_SEQ(lruvec);
+>   
+>   	VM_WARN_ON_ONCE(nr_to_scan > MAX_LRU_BATCH);
+>   	VM_WARN_ON_ONCE(!list_empty(list));
+> @@ -4775,18 +4786,24 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
+>   	if (sc->priority == DEF_PRIORITY)
+>   		min_seq = lrugen->min_seq[type];
+>   	else
+> -		min_seq = lruvec_populated_min_seq(lruvec, type, lrugen->max_seq - MIN_NR_GENS + 1);
+> -
+> -	if (get_nr_gens(lruvec, type) == MIN_NR_GENS)
+> -		return 0;
+> +		min_seq = lruvec_populated_min_seq(lruvec, type, lrugen->max_seq);
+>   
+>   	gen = lru_gen_from_seq(min_seq);
+> +	max_gen = lru_gen_from_seq(max_seq);
+> +
+>   	for (i = MAX_NR_ZONES; i > 0; i--) {
+>   		LIST_HEAD(moved);
+>   		int skipped_zone = 0;
+>   		int zone = (sc->reclaim_idx + i) % MAX_NR_ZONES;
+>   		struct list_head *head = &lrugen->folios[gen][type][zone];
+>   
+> +		/*
+> +		 * If there is only one gen left, rotating the unreclaimable
+> +		 * zone become meaningless, just skip them.
+> +		 */
+> +		if (gen == max_gen && zone > sc->reclaim_idx)
+> +			continue;
+> +
+>   		while (!list_empty(head)) {
+>   			struct folio *folio = lru_to_folio(head);
+>   			int delta = folio_nr_pages(folio);
+> @@ -4797,8 +4814,7 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
+>   			VM_WARN_ON_ONCE_FOLIO(folio_zonenum(folio) != zone, folio);
+>   
+>   			scanned += delta;
+> -
+> -			if (sort_folio(lruvec, folio, sc, gen, tier))
+> +			if (sort_folio(lruvec, folio, sc, gen, max_gen, tier))
+>   				sorted += delta;
+>   			else if (isolate_folio(lruvec, folio, sc)) {
+>   				list_add(&folio->lru, list);
 
-- The patches you send are not linked to the cover-letter, see the
-  In-Reply-To [1] pointing to a different Message-ID than the
-  cover-letter [2]. Your messages ID are probably modified when sent.
+LGTM.
 
-- Please wait for Netdev Sashiko [3] before sending new versions.
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
 
-- Use 'mptcp:' prefix instead of 'net: mptcp:'
-
-- Split the new kunit tests from the modification in the code to ease
-  backports.
-
-- (Honestly, a test for a !token guard is probably not worth 50 lines.
-   The first KUNIT_EXPECT_PTR_EQ on the empty table, or no new test at
-   all seems more reasonable.)
-
-- (I agree that the Token 0 is never assigned... in Linux: the RFC8684
-   accepts it, but the Linux implementation don't. Maybe mention that in
-   the commit message to avoid confusions.)
-
-[1] https://lore.kernel.org/tencent_BB8DA72524E32FD374B8B2950B247B62E207@qq.com
-[2] https://lore.kernel.org/tencent_50E9A78F95855D54DA67136F3D8520017F0A@qq.com
-[3] https://netdev-ai.bots.linux.dev/sashiko/
-
-Cheers,
-Matt
 -- 
-Sponsored by the NGI0 Core fund.
+Best regards
+Ridong
 
