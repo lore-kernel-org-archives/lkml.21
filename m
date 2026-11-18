@@ -1,102 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795036349;
-	b=ZQ2QbhZS69exXrjDsi24opvsVM7kbnGSNmyB13CTQw8Hg21E0Ihn+uYlne+7W8R2O0DC
-	 1kbvAWB/kqdAsKl0TF98RlM9rfmJ5gqNoxJAkQdNDd0M/cLkkFGVeWGYalKatw+ygDzUb
-	 VnjX3BjEEEeVj7ak3or3SkpvjF2s4Mf/D82f07tPamjDGjmtTk5rrCVTnti/joQgi8zGK
-	 oSmwKmXtbC85mzX7M1u4QiWrq8hxc49efDc/opeZxABpw5HVr7jBN7iQsPGov4S1KQt/4
-	 RRzzFjouk/hXrhm61o89on24ttHlWE6j7IbEbtkuK5S9WUwPAoHmdR7B029yf7QTZ8A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036349;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795036369;
+	b=3xgQgvsDdOs28OkJUAPR1QDP5EFaij5eeDTK2IfYyk8ynxNQImc8o7RbMMnb4e9ITbOe
+	 pyrrRC1ZP51qyvwOXu7tApaivkg6Gv9zhaDU+aqQM4wxJEh58ev1ZRLzbc0V584J1GUb9
+	 SafiRmwtrnm2GT8wIqIF4gTpwe/Rg12BzbAjKlRiTXikCjic2Bd7k5U32aXMQCMABnt51
+	 OPgj3veFDOZkP8Jp9z3J+9nBXo2V362N7OWtE5p8r9E38yRIgjI9quHy++OfH7HuhePuk
+	 qjBG35Xy4PLzb9ew2oWXsJK8SaU8a6262NSBPLADo6tCoKOJ9gL8074YZPhJ4FWIg1Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036369;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
-	b=TdCQE7WNQjY1lFjUtvrhDu0OPUakPCCOdJjeCKv9vhRefpj6VG3IG83IaOPWk2LrrA3Y
-	 SX6z45xoAkQydMa4mXOESwvFSVln2tN+A2dZwSbvWXcu/hwfohK/xWs0gkmXEwg4D6wFH
-	 RcAAzcm4owWtes7JUgJ0anb8Xxbu96x89zbYQjVxvihOCM6vIn43stjnTBLC3yHTyfJp/
-	 oxWD3Mg1H8N6b9Rsg2lohpj9POZ4yAkYz4TNixdKJxM1i4zrs34zy6Rab4SXAN6WVcF0c
-	 J/ydCO0QqzaqN5q0fmEwNoTOCOxIKpN0W4xIhLDmAEYrGcO8n63JeJFx+DhdaTBWgdA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Dmlfi5TX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=1e/TvLg+e+Z3bp3zIHk3TfdEQA+k1gn8aVFItKGNB84=;
+	b=cpM7F3SYjPE3c1bqo0BQ4PKZKvEk/gy2jw1gvbrjMC4GivWyTZ2tgprx0ZKknArVsYCM
+	 4bOYohBJ6BxMd0M0Yw73HZ3EEDI1ZXNwhR3WSh/1X5LiXo/MqvvNq+gNASiqdb9Ae1ipA
+	 Ep9BuldB78u2neVLrAh3TUF/Pxc5ioA9ikpwnEh6VcLehdKr+N2NMKOMBAi4c2yY6VUuR
+	 3wMiYapxBENaMsRPuySw3EckDy4PXNT5DF5DnWVwVPYgbJtopkNtbM5j0q0zbtUu8IkRJ
+	 LsvMJr2ed21B/ytVe6680Ry3TueFaTiBVKTK/NYNal95QVYCJ+D+e/4SNG4e6rHbXZA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C2zY5yEh;
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 568A8606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:12:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 568A8606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6530606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:12:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6530606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Dmlfi5TX
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso11942515e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:12:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795036348; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qKa2nT9QqL4OQKePEKW58W6y/WDNNBUyfT6JNc3IikmSYdVqigLMg/nDvWdrc6qlCb
-         TTCL7u1nVI3M/2Gcemxbq6JMeVy1yC1t2qavZCWbwsoFCeV4hVhUVOCM0JSPD/p732j5
-         PSOKsvsIVXW0BX0RBjZVJnALEqG/+/wkLbN3epv277MQ2YXiNmvRA6NgCHAjlYynOA9p
-         vEjlPlFuljZTAHU8yug6r4IrcSDe1enWtgJICrdMYH4MMAS0QgtFwn1azE4cXHo0a7Ez
-         pWsnZf8y0Yy/4+LArwJ+2ZrKUZVAb2XnXUm1oetrfTfGAQs/uXmOfW8agqiHpYVuVRcE
-         bfzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
-        fh=/TgSKRcvgyuLMoB/22U3ho3+oQbcd5T8XqlLhwjR/sw=;
-        b=YJv5ONmP4Sdp7vtHng0mJ8j5Q8UD0Ut08syvhxqcBR9hKuONSmcX65ufe2xSlINpN7
-         Tzb6p0m9IIlj81dzAsl6Y03E4IxIDr1SHL3ZCxstJ9ffqXjQDSieidEi6MwZBhhaW46+
-         tkOeV6yJRoL2E8PRN89aqQKF7vMRkKo1NZ3S3vJm9eNXJqFPnG6Hh0qJR1nzZyeT/Vz0
-         e1KS1J7xxIy86hJ9K4EQEHHOVm7q6IlvUFgQe458WtybYRblV2+SDGSM6u21WVYOFIej
-         0MNo5uNsA472LpiWw7Sxlxlsb0NmfXJkXC1cMRIkKJrQ2usXzERY9O98rHHUIA1iiI0b
-         unTg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C2zY5yEh
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8a05b210703so918881b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:12:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795036348; x=1795641148; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
-        b=Dmlfi5TXCpgDfmBFbH12jFEe+eCqYa9u6tv4aC1RqtyZ/ewYF1YnHznurBJhjQI/DQ
-         u/dcKvXcZeaJqWBCeOn7NVywvmG42klldHAPVRQFasYnZXYwdzbYpEhTu6F8vm03+Ta4
-         SxNefPrMhaJ8G3t+vmrdMY42SH5aPl3kgAzRl9bPNzKhx+qwkjBv6piDBvcFUyEdbGLW
-         deLwCvXb5Y+o7OEwFLA/O1yyR95FRCCyxncKkMnMxivGphWF+NZRspdK5GnRPdB5zrT6
-         GDBJ7tmEVuQ8DA/aMMdu622h11nPCWWWgOKjTKEZtGPSw+0PORvcGF2feFgXpu8WHpec
-         IH3Q==
+        d=gmail.com; s=20260707; t=1795036368; x=1795641168; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=1e/TvLg+e+Z3bp3zIHk3TfdEQA+k1gn8aVFItKGNB84=;
+        b=C2zY5yEhV0jVQa5Es4QLgNKBGwQt5BR94udPyNfmkDm+V05flNM8YhTf+QIt2XRj6B
+         56Q8j7JOInZWEyEwyEL7G7G1ZsUnrujxZri83UvI4dVnpWiNLyhE8LdNEJpLjh6W0TrC
+         DyA1/cgmArj4XvejyCEaLIzYYS6E1fwWAMjtJH7mMbgFud/TBleVSKCDZpMwVI0ZU9pv
+         p3Y0ebhVSbhT8awd0Wdg8gqgE8CIXSwB9Pi3x1UzuJBzh00WgqIHd53gtT+ZCDwP55Zm
+         v2uGfUDvrBoGCNBNk1RZ5ZywB4goCyfEsKvsxMVVuPdDQ1kLq9C34JWblm19J/p/ktHw
+         LCuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795036348; x=1795641148;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795036368; x=1795641168;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
-        b=w7ePP/jXw7eUURmcS+If/eF38EnjERPoHj4dxGE5H8JI1ctw8msU2p2rmpnMFGvPU8
-         /2GWKUmg+IBsDzrgqYjkL9p3X6hc7os4yTa2LC6rXPENq54SLPjy/nk9b7fOHvCbEDga
-         GNE3+2ybgPHScq0hie3LyRFJq3bjT7iWSAW2ep6iBpde8yrvmQDhnn/09MB2ETaAR6nQ
-         2KV/QkaVSsOhE1JMbGKtKD6infpT9mAjBsh1zeKpX9VRoPnGHdMV/gD7V0aP78MLPrPN
-         x6Pz3tYUXwrCEUOZ8YXOT6QMNS1Cqd95cbSAOMaww+KE2LnrACFgAK8axt5y2eoKXcjp
-         cW9w==
-X-Forwarded-Encrypted: i=1; AL+hErFxThR8EdA5MQ1JDk9yJ3uMPJ0mPZ5VizCELS0FzR8OqHm9oswgfjy+/vVOr686vzmXyFPcT3VgQSxIEwQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KxaJpl/aZQYe2OwAi4NFcSbJj2Ow3sxoga0MhZ4xHvzUKf9IP
-	IyY/ygGWWTV2H6I9gc4icfBYjUTKWKTuZmJYrJDYlBV23dBBadnxEmCib13MXgHjbn3mSOYsP1O
-	FcaZjsJWF7UDFFUdGudzrloacsZqWrQir1R06/hSf
-X-Gm-Gg: AYBFou1ka097KwXh3mNKFWA3eD4+yyR1ANmEVqdHwhDu+Tw67xa544fOx80wEwFt3Cw
-	gM4tnGGx3inEzBx3yL4VX8j2LRqfGVOlTuZJQo1DUYtMm/+QmWbt6CcqQ4fSIFdDsC1KvSf7Vqg
-	dUkKt8LE2InsSSXJi/G9MlT8vyrWcB44+baRfMTEyFYEE06+l7Kydp9moEx3kuUIBAR0I36CPew
-	zrBAHl68EI1CK9GzUz9cLGRohwBm30Sr/qOumfQMCEOBc4TJB2uVLXz6m2fNeBfus3it8WiilwR
-	NhR7zVSyNuYcKHXthRr0LC9eWbR2ienzuII5zgBfdONu7BxVlamkDY3hH3YpoiLrQwyKcLlrgOa
-	OBGcpwcLjktGBoq2+gSBmD2ULwFihKB8K36kT7qS8YKdFqMjpJfoBT+4i7ebi6TqIWDolD3pPVN
-	AeOUMfpu/tT33/sRSPP0dXGJX3za/sLr8HMeq3yL5Ny4nVfM74qQUfrAZOJN5H7WgP2dav4K95I
-	NfAoYsk2h7//u7c16qFz1UjnKU+GKd/5xub3A==
-X-Received: by 2002:a05:600c:c8f:b0:4bb:69b2:d3b3 with SMTP id
- 5b1f17b1804b1-4bb7da3f50amr85274465e9.27.1795036347018; Wed, 18 Nov 2026
- 13:12:27 -0800 (PST)
+        bh=1e/TvLg+e+Z3bp3zIHk3TfdEQA+k1gn8aVFItKGNB84=;
+        b=P9f7ZBY8CC5t8nkMGR5eoYo+aAEe6h5w64Am1IMHfwS7Mz1qtJ+21WD+h6xUf6lhc9
+         EkueV+aa1R9wraExlDqyDm9MYvBRFpI0Ufjxyny70gvQ8mTbl8cC05mtdQo5AnkUZ6PA
+         dmvQxUcMFwRPFuzrpIF2CghMKZcOOBkmygGSAx7exYuiN1US3BTK3YWq1v1YWrdzTtjz
+         M9xEWD7DTWnuXiwmJXkqItyaV6DpDaHQd8Bl+iuDIdQehjbCJtEjKwqou5YBaXvLR/lK
+         JceYmk9pXTxTWzShC5QWcroY0w6Eu+Zsm8jU+YD/h9BDENzOY0T9RGtoiD5R2IcG8qhh
+         W2RA==
+X-Forwarded-Encrypted: i=1; AL+hErGx4WucZeGIghbVy2yIaIVsWz2uBVtQsRPVhWaRQ2SugdVMAgZ5eTay1UxzIlVBtvVxKavwqae4a7dgYII=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/K/8dZlIA1e/qub4EpB4T2hJuoc/v/ngRVj7Pk2N9xzEF3W3Ek
+	mtd3nCZfJDFEMWZUymqZqdsSb7gcUCRlVOCyHVWJTNa7jtor50cnaLlU
+X-Gm-Gg: AYBFou0kbMLYfKAQT0O1I1diaSS56e4tYO/xhNp3y/AS2p5ClVyDLTlztrLMaAlrdTl
+	9HgfpU5DAl9LsFHGkRkbqrf2n2Uxqh4SoSDlvWDKvp7iTvl+aWvhT+ptVpatMN/Y+ei/zBD3pAc
+	A4BNtRRoqH8Wt8+llVhmiJpGovHg4yvj9Gn+JXRsLDD0R9MziLa0Tv7SS6brckdfT2V1wNBHZNL
+	WM8HqNfYHvvHcRGvI5MqKVhcESrmgJ+QZyej6O3niu/tBHURzChKE+ZN+hWAkD18cMyCuMRnFrS
+	q6vgFfU+ycUikJy+E24Z377QTsLu0gET+4tq3b6BoIZbDzJ85545cy0BlDYrXZe93HZKi8YArrh
+	Fwz+kp4lRIyWxF2MBTqSdBuuZLv22WyR+VdwvwaZrIAT+94KPMm57UrxfJ5mRx5xtrCeo4s+Q7H
+	k/T+37Qfg2eLXRePZcxNyeNskWorgZiK6oCQr3r8wz3ih+GEV0hOdVjzR4NKGToPR+vZ0ERkwey
+	0+OGGurzwSp3sFo4fxkiH+L2G3OG3hFrI/G6Ce71vQbve6TIcmpzHW/Azx3FUJksW1b6goy8XPO
+	GNNXwYDoSx34IqsVPHG/JFOsm2IRcdKf6U0vGUWMGrjUk/nJPs8tyROy
+X-Received: by 2002:a05:6a21:880a:b0:3f9:9114:8045 with SMTP id adf61e73a8af0-3fe980f701emr3110108637.43.1795036367942;
+        Wed, 18 Nov 2026 13:12:47 -0800 (PST)
+Received: from [192.168.0.13] ([38.34.87.7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb35da49sm1732055b3a.38.2026.11.18.13.12.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 13:12:47 -0800 (PST)
+Message-ID: <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
+Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc
+ flavors
+From: Eduard Zingerman <eddyz87@gmail.com>
+To: Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov
+ <ast@kernel.org>,  Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi	 <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>, Emil Tsalapatis	
+ <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>, Song Liu
+ <song@kernel.org>,  Tejun Heo <tj@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
+Date: Wed, 18 Nov 2026 14:12:45 -0700
+In-Reply-To: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-10+b1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,91 +106,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
- <CAKwvOd=iOXmF9DS8iopFZEgsqORe6eHokpF_-3-jEfD7yPuDFA@mail.gmail.com> <CAH5fLgidhnPbP=xXQ3162w6q0U6rWHPZ9Mu6-E5va4_CXyanOg@mail.gmail.com>
-In-Reply-To: <CAH5fLgidhnPbP=xXQ3162w6q0U6rWHPZ9Mu6-E5va4_CXyanOg@mail.gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Wed, 18 Nov 2026 13:12:15 -0800
-X-Gm-Features: Aa3M54rwqBnTNo9s7KzOH39H6ui7-iQszvNlrDcPs70i2RE6J983km-iNd7m9tM
-Message-ID: <CAKwvOdkNWp4us-zNPw8Pp3J6TVev3nTRsjPrjd9w9M66w2Qbzg@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: rust: disable function merging unconditionally
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Matthew Maurer <mmaurer@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 12:11=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> =
-wrote:
->
-> On Wed, Nov 18, 2026 at 7:48=E2=80=AFPM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > On Wed, Nov 18, 2026 at 5:09=E2=80=AFAM Alice Ryhl <aliceryhl@google.co=
-m> wrote:
-> > >
-> > > Function merging causes various different issues:
-> > >
-> > > * For CONFIG_CFI there's an LLVM bug causing functions with different
-> > >   CFI hashes to get merged. This can lead to crashes at runtime.
-> >
-> > Do you have a link to a bug filed against llvm?
->
-> https://github.com/llvm/llvm-project/issues/217629
->
-> > > * For gendwarfksyms it causes functions with different CRCs to get
-> > >   merged. This leads to broken MODVERSIONS information if the functio=
-n
-> > >   changes in the future so that it can no longer be merged.
-> > > * Wrong backtraces when a crash occurs in a merged function.
-> > > * Possibly also issues with pahole/BTF as the merged function's debug
-> > >   info is lost.
-> > >
-> > > These issues are new to Rust because in clang, function merging is of=
-f
-> > > by default, so these things have never come up before. Because of thi=
-s,
-> >
-> > I've never heard of function merging (in clang). I've heard of
-> > -Wl,--icf=3D{none,safe,all), a linker flag.  Is rustc setting that by
-> > default, implicitly?
-> > https://github.com/ClangBuiltLinux/linux/issues/1598
->
-> No, this isn't linker ICF. rustc doesn't pass --icf, and in any case
-> kbuild invokes rustc with --emit=3Dobj and does the final link itself, so
-> rustc's linker arguments never come into play.
->
-> What I'm referring to is LLVM's MergeFunctions IR pass
-> (llvm/lib/Transforms/IPO/MergeFunctions.cpp). It runs as part of the
-> optimization pipeline, within a single codegen unit, before any object
-> file is emitted. Clang only enables it with the cc1-only flag
-> -fmerge-functions, which the kernel never passes, so C code in the
-> kernel never sees it.
+On Tue, 2026-11-17 at 12:21 -0700, Ihor Solodrai wrote:
+> An incompatible change to a kfunc's prototype, such as an added
+> parameter, breaks BPF programs built against the old one. libbpf
+> ignores the ___<flavor> suffix of a kfunc declared in a BPF program,
+> but makes an exact name look up on the kernel side, so the kernel
+> can't keep the old prototype available under the kfunc's name.
+>=20
+> sched_ext ran into this. cded46d97159 ("sched_ext: Make
+> scx_bpf_dsq_insert*() return bool") kept the old prototype as
+> scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
+> it, and broke them. 2dbbdeda77a6 ("sched_ext: Fix scx_bpf_dsq_insert()
+> backward binary compatibility") reversed the naming. A ___v2 kfunc
+> declared as vmlinux.h spells it doesn't bind: 56bbc91219c0
+> ("sched_ext: Fix scx_bpf_dsq_move_to_local___v2 compat detection")
+> fixed a compat macro that silently dropped enq_flags because of this.
 
-Thanks, consider amending these relevant links and details into your
-commit message.
+Please prefer examples to prose in cover letters.
+Also, please de-Claude the included prose.
 
->
-> rustc, however, enables it by default whenever optimizing for speed or
-> size (opt-level 2, 3, s or z), which covers both kernel configurations.
-> It uses the "aliases" mode: when two functions have identical bodies,
-> one is deleted and its symbol becomes a GlobalAlias to the other. You
-> can turn it off with -Zmerge-functions=3Ddisabled.
->
-> Alice
+> With this series, if the kernel's bpf_foo kfunc is missing or its
+> prototype is incompatible with the declaration, libbpf binds the
+> bpf_foo___<flavor> that has a compatible prototype. So a changed kfunc
+> can keep its name, and the old prototype stays available as foo___v1.
+>=20
+> resolve_btfids fails the build if two of bpf_foo and its flavors have
+> compatible prototypes, unless both have foo's exact prototype
+> (aliases), so the fallback finds at most one match.=C2=A0 This ensures at
 
+Why is an exception for kfuncs with identical prototypes necessary?
 
+> kernel / module build time that no ambigous kfunc flavors exist.
+> Documentation/bpf/kfuncs.rst describes the rules.
+>=20
+> Compatibility is determined by bpf_core_types_are_compat(), the check
+> libbpf already applies to kfuncs. Of the 70 same-name kfunc prototype
+> changes between v6.6 and bpf-next, it finds 8 incompatible (arity,
+> return kind, callback prototype). The other 62 (const, typedefs,
+> parameter names, integer widths, pointee struct names, annotation
+> suffixes) were made in place without breaking old callers.
 
---=20
-Thanks,
-~Nick Desaulniers
+Do you mean that without this series programs referring old prototypes
+are broken?
+
+...
