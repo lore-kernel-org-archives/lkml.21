@@ -1,88 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795044627;
-	b=IlG6aJ3Rg8kMWyHzdpsAHR8rGco3pZgdwffz0XL6NjnUEAsGb0DCO5gNS+sHagb5qf99
-	 LLt4MqGTsw0sHM9ctYo+OWARUP5YMnYmg/Gtc8m0z51M3LGXJtAPDUXWODSv9EseCUPT7
-	 fkuYcf/n5V0gt9whD4EmVCx3Nv9FZJEBiVCHzyxQJLPNw1iIjJfl3tqp6ShPhS0vJFMIJ
-	 ATp3643siNNQjhbjxxREHCHDMTu6x9esTggi2cSfcqVt9jwg5ysCnay6AgN5cGjkI1cF2
-	 sVCrBtMW2OEyVJceBZ1JjEIRBcxXldQ8qJta52y3DJ8xhBrByQOMJqHXVEjShQkDWmg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044627;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=5k/Nx254skplKaHZfy+hhUKCjKjMi13IPnfogdi4XtM=;
-	b=DIx9DcQqWK+nEaieQlL0Hfr9WDADk3BOLiIj0S8+w2Rb6dUxHE0gJCX7n0h8SAg2+Coo
-	 nHf2nmK6LSFWstjbbvaeWCt3JU0jUIka+jMYUrsv7kWl94eMIKIzf3IynpUuKi3ARIFU8
-	 oWpJil83mxb7wVTwXMsHqwziYZkde01C06wS+L2/CY4u3PR95s5JD9mTpmJAaxNqnMUhW
-	 a/RL8Tbexoe8i0XTDaWptPWaJGSaLLx9niG68zlR1o4rhBadleOWG/sX3hdJtJBwueUtN
-	 asQLE4iwt0RO7iOFLiTknk5XLpO+YMrhZ8v/seQY712QhsInVHdz7/tYbZ8dAx6I9Tw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fQHte7tw;
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.5
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795044741;
+	b=bq99WkU3cs9aDdVcQSGQJQJZhx4nBghXYkSYPMeifbFULKk8MwApJ8dmBLPrHC5zxrrP
+	 mIRijl5grceIl3tJy6aFkp2rucVBhSfnLBNqZs+fucOXQ10p9EYVrJTI1p1k3wuwcNSx3
+	 r/2xYe496wW97mdE293xgfNIuDL77JSHh35yF5LTjLvzm/kgGO4SwyWAyqNEnzJbzuVkP
+	 o5wKdnwzCVDTaz6l1JTSpsJGN8r8gULAf82xSag+q075I0mn6aWxCJkRq0hZt8oAwf6t2
+	 tV4ESGG4Ux8n6MngnMl7gbaLNwe8jP9J7pnJfaSeGoR1ftHfKB853h38V7kgZIoJ+9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044741;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=6LfuT88PV6xJev1MTBRf+xgrNQnm7N0fKmbDA8qNmjA=;
+	b=sr/N1CtdBWKZs9SGe/tSdk4OlxSfZt7KOJCBq3CmCAfHA4B/X5kjlBsEEsI2dDN78XKY
+	 jugAK11x79uw8cROUjgtSlrE53+YZlK13hRhkkQjIEwRumLrY8sqVJrprGd7dRiwCa0fU
+	 NDh5q99woloik2vO5z0/g9swV/Cmoiwhpn2D5u2V4bt8NP7sSC6DkSyMk1E4Ta1GFhaLC
+	 T07JurLcT8IiyMJqt1QstsstjLwghPP+rojLkvQ0gxPUetAH8prk6ZIHvS33FjeQ6OWro
+	 EebRmN+LLPHSWYxguOJrticgKCSwh/6s76MBeL/1aOZCXEJ/F7HqWh6M/OpUs48Uf/A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=pHawinzM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.5
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012005.outbound.protection.outlook.com [52.101.53.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B83C60A262B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:30:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B83C60A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED20606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:32:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ED20606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fQHte7tw
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso92519266b.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:30:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795044626; x=1795649426; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5k/Nx254skplKaHZfy+hhUKCjKjMi13IPnfogdi4XtM=;
-        b=fQHte7twvVa4ti4AxeR3ITcPPyA21U0F3oX5LUSp6ezZXwCo8Ey7OWJob3LF0UVAAr
-         I2hSfFTBtO6ahErE4Sa7nZkKv2B06BtkHuN7bMEOGpwxaiRIUZSDlJ8IgxL6rfAPQFnf
-         FdfXVYD/bFQO2hVWPOd6BboDk8yn3XxgCJQkn3LdMBTMl28FeDtWuO74QQqNRgp8dGqa
-         /b0NPin21kI/JlfjlHPl6HNpyQx2X7DNsvGxhyllbGHYhwsx/KEfpnnP/uMNscEajQUD
-         A59I2/T9EcWbLLwL5wsZFVqG6uZ1OJVERuMb98S9coSUcftQL18qWAwSEfw2sprW5DPW
-         bnTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795044626; x=1795649426;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5k/Nx254skplKaHZfy+hhUKCjKjMi13IPnfogdi4XtM=;
-        b=fM0o4VJBER0AVRaQ0WfEYc7OEC4yzM/orBFeSBSSIFSOUPrGGRF+d0hDIfBuk22Dgh
-         ALP6fK5i8p5yWkkSHp9fzEZQjjA28Z8KGT86skEpdfR9eANfSyIwVNg0QGc/O+iG/Iwy
-         qlJG/Esq5FiaZqZZUgNXSdZUKm/clM1mXUxXep1LZad4iY3n/t+QKhOFxgTfE7M0ynlz
-         J8y44YFS1Le4YHgWaZpA38t1zHVgIojT1L5SnIJtxP1AUoHFV+20j+Qr0GoRiazo0uzK
-         QyNCeUEB5iibZeyIETCLn55YbTBQvdFNRdhTd+EWthw4yDrwyeLps4mzIF256d+ODoPe
-         /v8Q==
-X-Forwarded-Encrypted: i=1; AL+hErFqvFjHjEfC+Hq447g0rzjmrMoDTugbOAnxyTqfXdXHDduYVDfzCeLUa/x/x6o0Y2TtzS7BOOtTDS/UMrg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+LOZWq/eCIW9KpQOTjig/0Tjwust1ucd/gsRU9dpelnT4qzvNp
-	btgIy23DLHZnI1op+kTLzOgvisy+thwL4Ic0XXcLxLnJ1ER4PPhsBjeHlO8nFw==
-X-Gm-Gg: AYBFou0XC2wIhPpMzVMp5Y6pDoSLwscB6Qh7RzKaK+EVCVaWeztuvCOK8LVvUxGMr36
-	cNcWCGa+IrZeG6Q/04GT07G955NGXzQa2GEuoZ4azHAs+OTInYIpTb8O/375l4Lvx1Xz+PgC2lU
-	+DiAfSCcQJQ2XJfp8H+NhepJ31HaoJrUK/PaSwoZ2I60MRTNeP2Dq5nMzof6KW9ToT0GCiGfuIb
-	gDcfKlVdXxE6bNBOKyApBDy9gPbxaql8t7MS3hCUY1CfZOIaKK1mU2nLCWE+uwlfqBGg5mkXnEh
-	HXSU/k/fYgHo3kbOVjf9iYDt7/1e+k1uUyLHCbwkGYSjh99vYTfG73ZffORJrp83o04oj8zIDyR
-	EqplnO73sPZwdy7g4T7H+K8dD0OlokF/WK5Uex2L9Q+2547VYUITlF9SptPBTFYnFv+dBkoD7tN
-	/sX9FCV+2+1g6inobCYZlLSuTBvI+sk1x2izAE6WQ+Gc5XsIQ1SIp8Vk1fKgoLv0RAjeOXEvuSw
-	pj6T0lCBaY1qxYZY+vJbJV7D+HLz525fJFDdQNzEstCDdhC1Hx4AT0uHfs4xmSSIt5rOolLJsBU
-	xIn1XF9qjY6y1bo8t8BVrLBjYPit0wlbjgo9SK5L0Gk=
-X-Received: by 2002:a17:906:4fcb:b0:c51:249f:7215 with SMTP id a640c23a62f3a-c512b8a55f1mr7876266b.7.1795044625877;
-        Wed, 18 Nov 2026 15:30:25 -0800 (PST)
-Received: from localhost.localdomain ([193.107.16.241])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51234d2159sm47809166b.78.2026.11.18.15.30.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 15:30:24 -0800 (PST)
-From: Dmitry Yashin <dmt.yashin@gmail.com>
-Date: Thu, 19 Nov 2026 04:29:42 +0500
-Subject: [PATCH v3 4/4] arm64: dts: rockchip: add FIT-PCIE-SATA overlay
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=pHawinzM
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mIUZeX7Xe4uQ7+mr4YSTXMUX+p/HUxpQgOdTQ/39xNVzPUh0pPe744hksceHEuWrYBaBSmqPUM8Cb9ulukjC0HG0Y+DYxDWDDHC188EALcVOFZM2TBmpnRceJcIBu/WWZX8FTgHMnyjf++wr08xO+Fu3hegw9FpSOLF5WZdYO67kKgxHjnKik6M+90ZkPZ8aaoc+HbOPaxV/asT86AmYyoCNE9Jlufy2ZT7f999660wMHjrAYJzlTFUu1oS5TwyXK4oRo6tOY5AVAa535+JfXpP2zuf6g4jFOSnSfutwL+WjVXk6ww2WM4aFVYHj09O3wV0FKdBPvXEXd3G1xs+X9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6LfuT88PV6xJev1MTBRf+xgrNQnm7N0fKmbDA8qNmjA=;
+ b=V+ynCHOodGSUbX2dVvmdAu4Af1MQ+2ocsfKZXKWMsPB5DCyG+KOibYocePCIVz/P3ayxXz1BlB54Co18UFUElot5OI/cfHtZnofzO4dw7EQB1IEu9yGeoSuKZynvBb7AFfrOV2L2UkTVHGtXjrW2ugXL7jz20PORwsTv1mCjuJ8vSuzWtUnRh1Zx+oS+CKMpqnXjBTDS7ww3PibRDFjPplbpJ58sJc/qaKGLgYN2qWMDcNdSWVNbmYNggNxi+kC62mZ7fl2eqVngQSh0Uz6ZCpENDe10aI96VySO+Ohc1WTGt6bluR9aDDf9vZNrw/6ixmCJRajGXj8Dir/MzHMVgw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6LfuT88PV6xJev1MTBRf+xgrNQnm7N0fKmbDA8qNmjA=;
+ b=pHawinzMTUSkcpFNRjaZ4I8ya+fSw1Ap2Ozu5GbKIDnHmfqPVYp4RlLjWFmSt+qnIzkfYnYUCH2BWTFIuwMRyjwhuJLujCb3Mzb8KiQceOxATKpz4iPmdof3zcoknA2s9+Uu8L7rBtAfUuqwNowvN8OSu5hXcwin1TC1S4CX+Hk=
+Received: from MN0PR02CA0010.namprd02.prod.outlook.com (2603:10b6:208:530::8)
+ by MW4PR12MB5626.namprd12.prod.outlook.com (2603:10b6:303:169::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 23:32:17 +0000
+Received: from IA0PEPF00000039.namprd03.prod.outlook.com
+ (2603:10b6:208:530:cafe::9d) by MN0PR02CA0010.outlook.office365.com
+ (2603:10b6:208:530::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
+ 18 Nov 2026 23:32:16 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ IA0PEPF00000039.mail.protection.outlook.com (10.167.249.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:16 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 17:32:14 -0600
+Received: from xsjgregoryw50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Wed, 18 Nov 2026 17:32:14 -0600
+From: Gregory Williams <gregory.williams@amd.com>
+To: Michal Simek <michal.simek@amd.com>
+CC: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 01/15] firmware: xilinx: Separate TF-A checking
+Date: Wed, 18 Nov 2026 15:31:57 -0800
+Message-ID: <20261118233211.4121361-2-gregory.williams@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261118233211.4121361-1-gregory.williams@amd.com>
+References: <20261118233211.4121361-1-gregory.williams@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,82 +109,190 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-ok3568-c-v3-4-071840643591@gmail.com>
-References: <20261119-ok3568-c-v3-0-071840643591@gmail.com>
-In-Reply-To: <20261119-ok3568-c-v3-0-071840643591@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Dmitry Yashin <dmt.yashin@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795044612; l=2276;
- i=dmt.yashin@gmail.com; s=20260930; h=from:subject:message-id;
- bh=BU4GHjU/addW49Fi5owY8SmKZGnqIixi6vq82uwwdHk=;
- b=/neaR05ZN3d8VDseWD4vUUFnzqAFmowQBx0qURgqWIMzl0ozaAIRHvzg4a0boh3p323u7e21t
- FjwCaP2NmMlCftIXe3BWOgr3mCScXHJSAZQuCsYw4a8uF5wZTDs6Ok7
-X-Developer-Key: i=dmt.yashin@gmail.com; a=ed25519;
- pk=vBe9jaaOEH5bQEvfzb1tWOlz3AMIcXCu/GL/CdlwJco=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PEPF00000039:EE_|MW4PR12MB5626:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4ed7e302-7bdb-4a08-26ed-08df45cc2e68
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|36860700016|376014|82310400026|261022113327099003|261022075727099003|261021123027099003|10067099003|56012099006|11063799006|261022115727099003|261026140227099003|261028144727099003|261021130227099003|261021121427099003|261022105027099003|261026130827099003|261026121527099003|261102123227099003|261021135927099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	LxFfmSi8lh2Eak/fqPO7H1ZUccJtoaecIazK7oS3p73zo9D4invhfvkMsZI/5jcbzStXVVf7/QqnonMHoy8R3SAbtvb9LMfzesbFaXwc6UY4uvBTHbjtHzJKGtR4bxa83hJ6kPpZ/5KVvwpx8LqOJYitkfWhA4n+0b1d5D9Tvmtb13y3a/CupB/129xP7ilA1pwhyST9MP0ZRY3xHn684yuVBLmrS3Dsl7hQ0HXgi+VqUYI8OC9uW1Dki1sBnt/QAbIz71hL3wd8am015u0gFBY0uguYNtqyJZhj71XHxduOnKUKCJyZ2sslAz/0AoKtFIR7zDw8SvfYiJ2VS98+OMAx29P+VKudkZkbejcFIN2HJbyMh6jNmsRAgzmWHfB6WwWlCnO3le3SYSp6DnweTMpbi1M9rNlQhDVmHdHuA6cTff2C03t6f3iwAeYNfx+m2lF7m9ewFWCpdUeivvJXfqILZXhxGe/3FdCgofqYSqvqOGNW3z6owm6ToTiqEInYC4MF3P93wxfhu5JoAYGt0bOkxyGgSwCAAg1t8u+XK5brNd7Jf84FL0Ng3scNpg+/Y87eBJ6GKeiSsr41c9Xs+CLVojf+tqcI5VILxERuliZI1vrH2OKNehYsY4HuDawuctexqtJ2Nglc1U4Z0hvh7k54o02q9vE5oIUX5M5gCzDaCtVHR1Kzs7gv5I0/VIX8PsfkXTJoEWUE67v6TcWQNg==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(376014)(82310400026)(261022113327099003)(261022075727099003)(261021123027099003)(10067099003)(56012099006)(11063799006)(261022115727099003)(261026140227099003)(261028144727099003)(261021130227099003)(261021121427099003)(261022105027099003)(261026130827099003)(261026121527099003)(261102123227099003)(261021135927099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	teuFRJnFIWBRSNez8X/xfQ9TF4ipDlwXT0WWYdiBM9wADrdydz6X0vNZ59PMcGwL16ZmDPQtdK/d1+xjOBu5AdfoEHwLzHw3STwbSnhqwDzk/38urGUYOjgmWnvxk9p7jGx/PDCp3JrwsG7e3iWWNbDoZ4YzkRFuMFLu4r/zGvXIY3RvIqOs0YNBU+X+c6dOOqdunNfaE882ZCJ/dwYb/GM6ldM1pNfm4qGWWXeZYyafgk0XUXjNKK00eTlYRP18zI4E6O0LbKyomIZCZeAuLKxRcZeqYlA4Q90ZQDV5ZvvrKhWnJQ6wpgICKminCBxddIeBPGBr80Z2Cl8wliB8JAgiGzVZ3wDaLxrcX28MLdXaubFydWilhsGWq12Vem8VlCX8SbliuG1SB/I8bF+CaFxgQ6XqgTFX0VGpafkiCBlR9vk7D8K7VCDX2Fly8g/0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:16.3692
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ed7e302-7bdb-4a08-26ed-08df45cc2e68
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	IA0PEPF00000039.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB5626
 
-FIT-PCIE-SATA V1.0 is an adapter that included with OK3568-C board
-and allows to connect SATA drives to the device.
+From: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
 
-Add overlay to use combphy2 in SATA mode.
+Feature check of TF-A APIs has special requirement to fill in specific
+module/id and API ID based on the platform requirement.
 
-Signed-off-by: Dmitry Yashin <dmt.yashin@gmail.com>
+This separation of TF-A feature checking facilitates a smoother transition
+to extended SMCCC format.
+
+Co-developed-by: Michal Simek <michal.simek@amd.com>
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+Signed-off-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile                    |  5 +++++
- .../boot/dts/rockchip/rk3568-ok3568-c-fit-pcie-sata.dtso | 16 ++++++++++++++++
- 2 files changed, 21 insertions(+)
+ drivers/firmware/xilinx/zynqmp.c | 105 +++++++++++++++++++++++++------
+ 1 file changed, 85 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 48c83f79f83b..45e94a44107e 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -155,6 +155,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-mecsbc.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-nanopi-r5c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-nanopi-r5s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-odroid-m1.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-ok3568-c-fit-pcie-sata.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-ok3568-c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-photonicat.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-qnap-ts233.dtb
-@@ -275,6 +276,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3368-lion-haikou-haikou-video-demo.dtb
- rk3368-lion-haikou-haikou-video-demo-dtbs := rk3368-lion-haikou.dtb \
- 	rk3368-lion-haikou-video-demo.dtbo
+diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+index 727a9888a933..940306079a78 100644
+--- a/drivers/firmware/xilinx/zynqmp.c
++++ b/drivers/firmware/xilinx/zynqmp.c
+@@ -214,12 +214,65 @@ static noinline int do_fw_call_hvc(u32 *ret_payload, u32 num_args, ...)
+ 	return zynqmp_pm_ret_code((enum pm_ret_status)res.a0);
+ }
  
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-ok3568-c-fit-pcie-sata.dtb
-+rk3568-ok3568-c-fit-pcie-sata-dtbs := rk3568-ok3568-c.dtb \
-+	rk3568-ok3568-c-fit-pcie-sata.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-puma-haikou-haikou-video-demo.dtb
- rk3399-puma-haikou-haikou-video-demo-dtbs := rk3399-puma-haikou.dtb \
- 	rk3399-puma-haikou-video-demo.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-ok3568-c-fit-pcie-sata.dtso b/arch/arm64/boot/dts/rockchip/rk3568-ok3568-c-fit-pcie-sata.dtso
-new file mode 100644
-index 000000000000..474488ea994b
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-ok3568-c-fit-pcie-sata.dtso
-@@ -0,0 +1,16 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * FIT-PCIE-SATA V1.0 is an adapter that included with OK3568-C
-+ * board and allows to connect SATA drives to the device.
+-static int __do_feature_check_call(const u32 api_id, u32 *ret_payload)
++/**
++ * prep_pm_hdr_feature_check - Prepare SMC header for PM_FEATURE_CHECK.
++ *
++ * TF-A expects the module field of arg[0] to be PM_MODULE_ID for its feature
++ * check, independent of the queried API's module; hence no module_id arg.
++ *
++ * Return: SMC arg[0] header value.
 + */
++static u64 prep_pm_hdr_feature_check(void)
++{
++	return PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, PM_MODULE_ID) | PM_FEATURE_CHECK;
++}
 +
-+/dts-v1/;
-+/plugin/;
++/**
++ * do_feature_check_for_tfa_apis - Perform feature check for TF-A APIs.
++ * @api_id: API ID to be checked.
++ * @ret_payload: Pointer to store the firmware's response payload.
++ *
++ * Prepares the command header and payload for TF-A APIs and makes the FW call.
++ *
++ * Return:
++ * - Feature status word from ret_payload[1] on success
++ * - -EOPNOTSUPP if the firmware call fails
++ */
++static int do_feature_check_for_tfa_apis(const u32 api_id, u32 *ret_payload)
+ {
++	u64 smc_arg[2];
+ 	int ret;
 +
-+&pcie2x1 {
-+	status = "disabled";
-+};
++	smc_arg[0] = prep_pm_hdr_feature_check();
++	smc_arg[1] = api_id;
 +
-+&sata2 {
-+	status = "okay";
-+};
-
++	ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
++
++	if (ret)
++		return -EOPNOTSUPP;
++
++	return ret_payload[1];
++}
++
++/**
++ * do_feature_check_basic - Perform feature check for an API ID with
++ *			    basic SMC format.
++ * @api_id: API ID to be checked.
++ * @ret_payload: Pointer to store the firmware's response payload.
++ *
++ * Determines the appropriate API (PM_FEATURE_CHECK or PM_API_FEATURES) based on
++ * the module ID in the given API ID. Frames the SMC call arguments in the basic
++ * format, executes the firmware call, and processes the result.
++ *
++ * Return: Feature status word from ret_payload[1] on success; -EOPNOTSUPP if
++ * the firmware call fails.
++ */
++static int do_feature_check_basic(const u32 api_id, u32 *ret_payload)
++{
++	u32 feature_check_api_id;
+ 	u64 smc_arg[2];
+ 	u32 module_id;
+-	u32 feature_check_api_id;
++	int ret;
+ 
+ 	module_id = FIELD_GET(MODULE_ID_MASK, api_id);
+ 
+@@ -232,29 +285,41 @@ static int __do_feature_check_call(const u32 api_id, u32 *ret_payload)
+ 	else
+ 		feature_check_api_id = PM_API_FEATURES;
+ 
+-	if (module_id == TF_A_MODULE_ID)
+-		smc_arg[1] = api_id;
+-	else
+-		smc_arg[1] = (api_id & API_ID_MASK);
+-
+ 	smc_arg[0] = PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, module_id) | feature_check_api_id;
++	smc_arg[1] = (api_id & API_ID_MASK);
+ 
+ 	ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
++	if (ret)
++		ret = -EOPNOTSUPP;
++	else
++		ret = ret_payload[1];
+ 
+-	/*
+-	 * For TF-A APIs, if the feature check with PM_API_FEATURES fails,
+-	 * retry with the legacy PM_FEATURE_CHECK for backward compatibility.
+-	 */
+-	if (module_id == TF_A_MODULE_ID && ret) {
+-		smc_arg[0] = PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, PM_MODULE_ID) |
+-			     PM_FEATURE_CHECK;
+-		ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
+-	}
++	return ret;
++}
+ 
+-	if (ret)
+-		return ret;
++/**
++ * dispatch_feature_check - Dispatch feature check based on module ID.
++ * @api_id: API ID to be checked.
++ * @ret_payload: Pointer to store the firmware's response payload.
++ *
++ * Determines the appropriate feature check function to call based on the
++ * module ID extracted from the API ID. If the module ID corresponds to
++ * TF-A, it calls do_feature_check_for_tfa_apis(); otherwise, it calls
++ * do_feature_check_basic() which uses basic SMCCC format.
++ *
++ * Return: Feature status word from ret_payload[1] on success; negative error
++ * code on failure.
++ */
++static int dispatch_feature_check(const u32 api_id, u32 *ret_payload)
++{
++	u32 module_id;
+ 
+-	return ret_payload[1];
++	module_id = FIELD_GET(MODULE_ID_MASK, api_id);
++
++	if (module_id == TF_A_MODULE_ID)
++		return do_feature_check_for_tfa_apis(api_id, ret_payload);
++
++	return do_feature_check_basic(api_id, ret_payload);
+ }
+ 
+ static int do_feature_check_call(const u32 api_id)
+@@ -276,7 +341,7 @@ static int do_feature_check_call(const u32 api_id)
+ 		return -ENOMEM;
+ 
+ 	feature_data->pm_api_id = api_id;
+-	ret = __do_feature_check_call(api_id, ret_payload);
++	ret = dispatch_feature_check(api_id, ret_payload);
+ 
+ 	feature_data->feature_status = ret;
+ 	hash_add(pm_api_features_map, &feature_data->hentry, api_id);
 -- 
-2.56.0
+2.34.1
 
