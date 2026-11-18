@@ -1,58 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795004762;
-	b=XgWRC5F6cgPzRMKLJX7ZpSHY0vVjHs+5ZP0XDXL+3e4FEAZemu0dzlIkGmCIUuMW/nxr
-	 Qxq7M/Q7hmkV1wWPOmYcCYYVOAm6AoTXpITtJSplFba9i7Z6f4iSknrqQpJOvu2+W7OY3
-	 5ws3vGC7/u+j6PzlKbv0NAYhnpX8yKNJNUzEGFr9dWgrXCb71sJMarVewVhfsuwBn9HEy
-	 MHJYo6fepJxH6cTx1AculSJd7r0P+CbzEOA3vP19cQyP3bsf41+V675JwSgtM3mrlYhxR
-	 /fKDgYRH5FDNBPnIIAtTEfxt8jPH/g0RfH/jLLvM5YhrH5VFrraieIaZVoi1vLpVCng==
+	t=1795004800;
+	b=iYzZe0305Q/kZ3yNI8MEuAyehOafIJdQQ00c6u/BYbS7UQdoBUP0Dw0mT8RDnBoqP940
+	 YdKSY9TJvoDbbd2yVxDGlonaJsPUS+gxkVL39xZa4xsbMhj0x9b0LUWu+bPSs5VyKgaom
+	 C3AZgfzG4ZZSKrwucvKFAgf4c7HsYXcrQOZs4uoWUnJD6DEdK5lGrgjGb9eJBWjjCrx0c
+	 hWlaLgw0p41Csf/0kUk8JRaeUOrL7hxSUWxYRBlWoLjQh5vPbGc4y5AyElPeijtmbAVUD
+	 oj1UaFo//6jQ/cF5oAR/ol5zLK1SPaimmsUScRFjK0mCTguBnrDK1HWoTPOgYfVq+3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795004762;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=1AqeN0M33Tu74PsxiXUzK3ZXWPpnVIcOQcPutPsP0EE=;
-	b=U9sKfJkVVQZbM8mT1e4dRt/tu/hD42+omAfM+Fpuk0R6BkLJLGFaAiga+DkZ58iwaOqe
-	 L9ykoSr/lK9ZggkKQMnaJG6SXDaGWe+HWGsfzHmX2VXlOoc9sL4ghUZOQ6nRpCIH5yand
-	 qeFXaCPdWpD/Ag3EAXz/M4gr5Vn9wUGcp4n1WT5jBs1ORYmGCLfBN7OwzzG247qFCs2ek
-	 FUOVvw6gdLj0HU6NILFzbAGmMD1wAK1li+hIRPq/skNbPTa6Kp8WqTcmizJlqhEaXWEfz
-	 D7rJT9OdqsTqOvANGG2fQ2f9WmJaRBiaZEMazwShzUxwxtSJI8vvuPr2u8/puxCVfmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795004800;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=bIHva9RvFKScdk+UZiCWNwsiHguCUsvhrhFyja4QYrc=;
+	b=eMMCiZ7MnG4bmPG83RzWiWkU3uhSc8LonklLjCH3MkxxOYDkUSXgrtknK1Eh7U+Eezp4
+	 2gUKzqI9ULJtveiKDqj7hJvM1dhBsYYWNA/LCwqi92Gt3wIfUp6hqDt+pMWjlisbrwgxJ
+	 3WTVL90C9Lh+DgEPxNY7ijVqcJk+uKImLi3BAsrGeHG3CpG5N6He6Ot2Rn5vxwbJoNTGQ
+	 LTKs7pJvrUCtHjVMZhvGIpVDtO7R9MeoTc0gFSrdPtZLGGrTwEqon9vMpy45Qd2PS3hL6
+	 t/yWxOGkq8T1gy8vEQNYAjeFwuOnB8QhhlydBliRH2MMdECH+ig/egyN7bhYR0D2qpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fGEJjeoH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a57daUlW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99926606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:26:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6ACD606A31C;
+	Wed, 18 Nov 2026 12:26:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fGEJjeoH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA4801F000C4;
-	Wed, 18 Nov 2026 12:25:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a57daUlW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF9501F000C5;
+	Wed, 18 Nov 2026 12:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795004762;
-	bh=1AqeN0M33Tu74PsxiXUzK3ZXWPpnVIcOQcPutPsP0EE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fGEJjeoH7ThK5cRxOIXKZPJJmrnFKqGHTZyuP5od2uJ32grmkYyfwDJ8tI7YhVHEQ
-	 savzOKmvPii9oiAiSFb5doU6fXs651q+NEfkgALqX6Gu+fcxDCllrJjTaSKI+FLRmf
-	 4XFXitmIycldLs67nQcaC8VlC3TlKva/TUnSE76uDqeZ0ncCCLNcoXmP19BQGULBVT
-	 nebQIfTy5Ey0CV8WG4vj+YANaZ+Ot3HuP116ixcZOnYNF4ciA/qqu37pPBED8KfGyc
-	 TM8zRkHTnBMIz+KZr/17L0BPjGAGdKATajcAsmlKFJDmLA1MQBhbiY/PL8347blUs0
-	 fYIj44xqtCW/A==
-Date: Wed, 18 Nov 2026 12:25:55 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	akpm@linux-foundation.org, riel@surriel.com, liam@infradead.org, vbabka@kernel.org, 
-	harry@kernel.org, jannh@google.com, lance.yang@linux.dev, rppt@kernel.org, 
-	surenb@google.com, mhocko@suse.com, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] mm: use memory barriers for non PMD-sized folios to
- sync
-Message-ID: <av2Y7v-PQ0vVZLSP@gremlin>
-References: <6274e62645b9f176dd10d7a79e86b900a39cec5f.1794898535.git.baolin.wang@linux.alibaba.com>
- <c254a38b-d5e5-40d0-8d70-c6baa850cf2a@kernel.org>
- <430c6b67-76a2-4f67-abb6-e28d07a84bd4@linux.alibaba.com>
+	s=k20260515; t=1795004800;
+	bh=bIHva9RvFKScdk+UZiCWNwsiHguCUsvhrhFyja4QYrc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=a57daUlWQxw9mUiTkE2WOsCbfJQSGmeEKvjSo9wj2P5r/7mMj42Hu6p+CZXDeo0Ia
+	 CPfIWBt9HIn+6Tg7SlsZOUugGm8qGqDYMPrNjWzxC1utzudc3+feoJxvO2PsqFLN4r
+	 jwVMBQ1hWrRNHaB7geSZyAq2/hhzIZcp0B9IcuyZGTwcS+Q+oN8qXaOFHHoFe9fhsV
+	 pQPeg/IccsOiqz3vtEuWuAhGy71500bgF3+Fx9jQEklfRWU30wvaYIVtPzeU8mBgSS
+	 p52xjg94moRa8nayBHYZgUYa6TtraKCwN+QK1jY6kbd/vzAtHXubC51vYjL7eU5kAf
+	 CT5HxMFJNG81g==
+From: Christian Brauner <brauner@kernel.org>
+To: Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Avi Weiss <thnkslprpt@gmail.com>
+Cc: Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261108125617.2383285-2-thnkslprpt@gmail.com>
+References: <20261108125617.2383285-2-thnkslprpt@gmail.com>
+Subject: Re: [PATCH v2] fs/stat: reject invalid flags for empty paths
+Message-Id: <20261118-mathematik-unrecht-hirnzellen-8bd719fcb1f7@brauner>
+Date: Wed, 18 Nov 2026 13:26:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,23 +59,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <430c6b67-76a2-4f67-abb6-e28d07a84bd4@linux.alibaba.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev-04696
 
-On Wed, Nov 18, 2026 at 02:19:56PM +0800, Baolin Wang wrote:
-> > Do we have any way to measure the benefit of this? I think we'll need that to
-> > convince reviewers (like Lorenzo :) )
->
-> As I replied to Lorenzo, I will try, though it is hard to measure the
-> performance for this uncommon race case.
+On Sun, 08 Nov 2026 14:56:18 +0200, Avi Weiss wrote:
+> vfs_fstatat() and statx() take the file descriptor fast path for empty
+> paths when AT_EMPTY_PATH is set. These paths bypass the flag validation
+> in vfs_statx(), allowing unsupported flags such as AT_RECURSIVE to
+> succeed.
+> 
+> Return -EINVAL for unsupported flags in the vfs_fstatat() fast path,
+> and validate flags in vfs_statx_fd() as is already done in vfs_statx().
+> 
+> [...]
 
-I mean it's not a race unless you stop taking the PMD lock (I think the commit
-message has to be a lot clearer about that), and I'm not really happy to move
-from easy-to-reason-about PMD lock to hard-to-reason-about and fragile memory
-barriers unless we have a _really_ good reason.
+Applied to the vfs.fixes branch of the vfs/vfs.git tree.
+Patches in the vfs.fixes branch should appear in linux-next soon.
 
-I'd say given what you've said that we don't have a really good reason :)
+Please report any outstanding bugs that were missed during review in a
+new review to the original patch series allowing us to drop it.
 
---
-Cheers, Lorenzo
+It's encouraged to provide Acked-bys and Reviewed-bys even though the
+patch has now been applied. If possible patch trailers will be updated.
+
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. If in doubt, please check the listed branch.
+
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
+branch: vfs.fixes
+
+[1/1] fs/stat: reject invalid flags for empty paths
+      https://git.kernel.org/vfs/vfs/c/9a74699d0073
+
