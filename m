@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027222;
-	b=nsYpt3JFbfAsvUtVmbX0s5dANWf52jTDxBmlyu2Ta/YYHAbsJr1ew9leQxqLOfkij/uW
-	 uDSc29IeTd2ENNi6WTY3mW7hBX11zt+4KStj5b8i4LyStHDz2mSijhx2sJhURJZWYwi8S
-	 js7v5h4MNKyHuICNJMb5l7yPHX44+BNorQ2H7+hurGzk0bxB+VO1LJ+zLg7cV2sfjtRh4
-	 l4089IpcRWLI2G/hb6RxPkQFE1dWdTFb+tFG9CmvgexIXGVfa/7YhmSnU875UPpngQBGY
-	 qsTDd8gQIfnDR8iz5SjX0UOzGM7ZNZxjYBtuPnLKRvRp7A39k0J98/wEvkuHRIHhzzg==
+	t=1795027223;
+	b=T443KpPh1ox6NDAD3vriuOkgwBNEGlpDTOagOGUpBOr0hZsSC7624qJBhEIs8juuf7L8
+	 GvcLsb8B0zSX3bIi0gyMOzemgBoG7aIhfeh559ngSyy8GbxuPoaqpT9NgqHPcHxzGYppL
+	 oGoWq/xre7dKrclRAszy1oyQJ/z7SjnAEOgv3cH0gfFAjCy7wauy8jNhb+prA/B1JBBK5
+	 yCwEL665rl8y+8wBniOtSlHfe0Qmba7pFD4dhVgYHa6cHpghS4OA3PS0CyvJSiwBGxMJt
+	 6PVxHvmIufTNnw4sWV5smSNSCNdLHO1Lp8RFMTeYk9CMc3Nie1eLLqNq1MwZ0UKxFXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027222;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027223;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=gROTN1zvCOF4nJyz6SbDu9FhtzlOzM8TGq7x9iKfDwE=;
-	b=wjBfifLmgSCJICRXrqTzffpqsnW4Al6GjZj2Tz7rfBEhtkb/8LJEoB6aH6j8vSVCUxJW
-	 XM9/llU/Ln33tPLLoGNnGCIOb/BZLyLe5j9QVGHg0EZGkllsTird6unYpCaHX6FYIp2ub
-	 ogMiDbD8torKVjgkBfamezGzBzJn3py8ApHhXHL6gBMWexKuXaYpseDQS8H74iPDYlQpm
-	 i2IPYGH9aVe6oEYyLTbtRLiJXl7msVTA+FgvVMN43P+8obKbNMZ9Q5DJNQNWKHpOPDCw4
-	 UomGzmee293WHDrIyl2gb+nApMpKShWT35I7you7Dn7StdVcaOcCp041H/LO+UsZHHQ==
+	bh=LtCw/ZW/hQklWgrHf5mCigN6UvP6Ash2Qg4Zaav75PQ=;
+	b=Aifg1NzxLTUpkC5/udUjfAVVnN/OdmKS4sKKD0NP0mibnhtaAypuoLMSAPmMt/v0mW2n
+	 ATKwrJEumUnKFCzc7dQAIiV198qE16Ax3SgCcgXuvKXNHBa4atrVXo8vK1BebbWCbPwzS
+	 hRRMhyt8rZYdzAec5UqF4LO6QCQjEwGGQd3q41JRmOuk5b0DeZ/4jDR7gcKgEeQct3W7d
+	 zyOT1RjTQLyJhVibupVC5IiCYi4A9EApdKwj8HefDHPsUm84iP0sHBAyvPVs8GVM31NGb
+	 xM/RLugqRaVfKZ50aSkE1JwWUOXIZYJDlNmOnCoR3bhQBdLbwdrD4KQDVJz7n/cX5EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=AADRGOS4;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=VGNgcyFN;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F3760A260D;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FC9160A2602;
 	Wed, 18 Nov 2026 18:40:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F3760A260D
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FC9160A2602
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=AADRGOS4
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=VGNgcyFN
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id EBA05E83AAF;
+	by szelinsky.de (Postfix) with ESMTP id 999AFE83AA7;
 	Wed, 18 Nov 2026 19:40:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795027215;
+	s=mail; t=1795027214;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gROTN1zvCOF4nJyz6SbDu9FhtzlOzM8TGq7x9iKfDwE=;
-	b=AADRGOS4iT+qi5xNZjEh+9IPMVVz8ud0ecf1tWPrOOGlqfLly0r+JzhhVhv1xIOziUIBlB
-	5Qn9YUqdb2XYhLoRsFtLSaFbXSmB+QAQiv+B8BsAT93EQ4VLTIWCln2t2klRy/dTxpT/ap
-	Bp3vr6udHFT/+boTnKAHO4j1rvWsvXsf34wtpIUCjY+Sd1YMnpAXsZN9BkydlSE0VlPAGM
-	/sEMjNRn4gwEkTUld6/En0+4uhi3bIWm8Tw3p82+x4PdIadU6yq00DY6rYvKlu3ZVNU1Iz
-	x121L5xMeems0vscIGbgoH9v6Vm21oiSPHODqee7SVLxgtOc7EmsQZavqH9IMA==
+	bh=LtCw/ZW/hQklWgrHf5mCigN6UvP6Ash2Qg4Zaav75PQ=;
+	b=VGNgcyFN33aGqcRr16md8vtrLz3zo79G4daJQD1shPBpXdghTtu6GIGoY+4kyE1QVUGHq9
+	LgVYizZLjEHzjXoe1Ul/PV49cQ0m41Kg9xSAGZ6e4mw1elXfL8qvVzDoo05VNPtN3DaW+O
+	rq+kNSX6PIr5nbikIdgvfBoBRAltH6aMe+wDSgsbMUmt8juapesVTSWXhQtHPmx2Hvpp4c
+	uNXdYvGDkdP7s1JjeQVZGtMQjCdAjrhnvySxGu2nOvskFRfdQb9P8W5unJvDyMXXl4vg19
+	IDhlLiSmw6c6/Jlc8nqX5a5FyRkbuqSq5lzVfjh41fU4PYTs5Im/RPWwFdW3sQ==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id 1lsc_SxrpgzT; Wed, 18 Nov 2026 19:40:14 +0100 (CET)
+ id PKxMTAybAEo2; Wed, 18 Nov 2026 19:40:14 +0100 (CET)
 Received: from p14sgen5.. (unknown [91.25.97.186])
 	by szelinsky.de (Postfix) with ESMTPSA;
 	Wed, 18 Nov 2026 19:40:14 +0100 (CET)
@@ -73,9 +73,9 @@ Cc: Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Carlo Szelinsky <github@szelinsky.de>
-Subject: [PATCH net v5 04/14] net: pse-pd: do not keep a failed IRQ in pcdev->irq
-Date: Wed, 18 Nov 2026 19:39:47 +0100
-Message-ID: <20261118183957.2031311-5-github@szelinsky.de>
+Subject: [PATCH net v5 03/14] net: pse-pd: fix module refcount leak in pse_control_get_internal()
+Date: Wed, 18 Nov 2026 19:39:46 +0100
+Message-ID: <20261118183957.2031311-4-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118183957.2031311-1-github@szelinsky.de>
 References: <20261118183957.2031311-1-github@szelinsky.de>
@@ -90,14 +90,13 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-devm_pse_irq_helper() keeps the IRQ number in pcdev->irq even when the
-IRQ request failed. The failed probe then runs
-pse_controller_unregister(), which calls disable_irq() on that line. If
-another device owns it, that device stops getting interrupts.
+pse_control_get_internal() takes a module reference, but when
+pse_pi_is_hw_enabled() fails, it skips module_put(). This happens on
+any I2C or UART error. Each time, one more reference leaks, and the
+PSE driver can no longer be unloaded.
 
-Clear pcdev->irq when the request fails. It is now set before the
-request, because pse_isr() can run as soon as the IRQ is enabled and
-pse_pw_d_is_sw_pw_control() reads it.
+Send this error path to put_module, like the regulator_get_exclusive()
+error path.
 
 Found by code inspection. Not reproduced.
 
@@ -106,37 +105,22 @@ Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
 Signed-off-by: Carlo Szelinsky <github@szelinsky.de>
 ---
- drivers/net/pse-pd/pse_core.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ drivers/net/pse-pd/pse_core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-index 0cce17670d0b..0894613515e0 100644
+index 309adec93679..0cce17670d0b 100644
 --- a/drivers/net/pse-pd/pse_core.c
 +++ b/drivers/net/pse-pd/pse_core.c
-@@ -1341,14 +1341,20 @@ int devm_pse_irq_helper(struct pse_controller_dev *pcdev, int irq,
- 	if (!h->notifs_mask)
- 		return -ENOMEM;
+@@ -1424,7 +1424,7 @@ pse_control_get_internal(struct pse_controller_dev *pcdev, unsigned int index,
+ 	 */
+ 	ret = pse_pi_is_hw_enabled(pcdev, index);
+ 	if (ret < 0)
+-		goto free_psec;
++		goto put_module;
  
-+	/* pse_isr() can run as soon as the IRQ is enabled, and
-+	 * pse_pw_d_is_sw_pw_control() reads pcdev->irq.
-+	 */
-+	pcdev->irq = irq;
- 	ret = devm_request_threaded_irq(dev, irq, NULL, pse_isr,
- 					IRQF_ONESHOT | irq_flags,
- 					irq_name, h);
--	if (ret)
-+	if (ret) {
-+		pcdev->irq = 0;
- 		dev_err(pcdev->dev, "Failed to request IRQ %d\n", irq);
-+		return ret;
-+	}
- 
--	pcdev->irq = irq;
--	return ret;
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(devm_pse_irq_helper);
- 
+ 	pcdev->pi[index].admin_state_enabled = ret;
+ 	psec->ps = regulator_get_exclusive(pcdev->dev,
 -- 
 2.43.0
 
