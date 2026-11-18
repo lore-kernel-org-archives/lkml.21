@@ -1,75 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963069;
-	b=IcCd6yir7SxwFX7kkAF60vYQMAs/z5KJk6NuyhrrcKcplXiT9TswKzRSa/KQTqMp6q4W
-	 RmfyZ+N59yn+d2oxb257lPkF5y7fYcv3+bDGhZboEp/yvQ8HNmhVMRZ+lfD4258+JMLje
-	 /3zfIDory8r+yzvN8Q3aDpMAHGITeMg+uvdMaLiVEMajrLzAVTOreCzm/Cxxwc+F+fpw8
-	 orTc1lv/LqwF/pF6tDrqzVgzn8cb7HDWZtwzysyZVCB5brtuzexvRdELBBL+2zyl7E/+T
-	 XaVz94MjsATNHrr0UaJADb79VNdW5+yeEA6Dnqe1oXrDXZYqyt3lbD+MzLv0b4ZIi9Q==
+	t=1794963092;
+	b=hj9ncVXdGCNv9Ms9UVVKe6fXA0M2FP4yxeNQWCLDhEMLQreV802gc7RkzhuOfNZnjmSW
+	 dEVYk2XYBvdN+YiLwEAu2L8MQoNcZUIaVEtWuNLAFcX8D49mstmrapRZL5MR349Unk68O
+	 LJWZmrftYJfHnoVrZYir/Idszt0aTJk0SbZX4+hHvlgMQ1cpLCqC6QI1L1/Vgw0vluNGz
+	 eKkywWcT3vwvxcba2LiHlOM4CNKmrNGJKa4ccTnxFfS5jQ0hCPzvYdHgBzozckMO2+99L
+	 2byxc573kMJPpLvQO5ghIbqRikHIYLnC9NwCoaewkMg6NYZnwG2Jflesn2dr2QpZyIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963069;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=1UbMEHB0WKx0u4dst6bzVbW5BKGdyKKbsda1yqu6+p8=;
-	b=POBiRUzik8wfC4dKYWB69+522w/q7zN39KiMsz/Rtf3oX29W5bmN5YkwUbZqrhjxWZgo
-	 eQLILUGosZb6fKysf1MkEdGnfuVcA+HaMsc2skH3dt7MCOdobbmDnRcZggrWNxvWN7Sa8
-	 VPhLeZc4xdr5ju+P1KW4EPOKfhMQvOiF6g7n/iivIhvOxigIg57B0fhHm2OOOr6ZAeOmf
-	 yxwJrSOnEu8twAULD4gjftqR5Vm1hFApV4YYz+196N21qoqa0abNpf3m79+Mh9gs9DQhB
-	 vb2/aQF1ImVE/wmS1BvbeXHKP+M99DyzOzqUj0wg76El9NaRfTj3HkuCg+IJMe8cCTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963092;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=+h9Sc4b2ra6u3kHXZEe7fr/dhg1Q14nueP4OB65HOrs=;
+	b=h+/jkSFCnDXl22N962VWq9xSAc5Aht+viukb+X58x4lM36fbfuotNFrv/IpCF+8VmuVp
+	 HOV1UfBLb9oXcciu5Lj/ioLNmdF6fXeDTje2udu1jV+vuD1gEK4K9cKD7DW+xAzigKc83
+	 XA0PK5Sdtk8kLaREo3BL7red79E7+Yx3k0jioqe9CHJfIKk2NPKlgGnNur7p5IPWje76S
+	 SqGe/yHe08ATifYDKudlZlHw3Tf3XyYrTEK6hbLsLWTLtQaKVVr7Cr1kwM2b3rINPBinq
+	 BnHcP+rFaqQx8RA20hwb44+O4X7b8LrTsxxwRKNIdCwZxYiMkWG8xaifdXqX3YlfygQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vix5oa89;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DRaub8EV;
+	arc=none smtp.remote-ip=91.218.175.219
+Received: from mta0.migadu.com (out-219.mta0.migadu.com [91.218.175.219])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00C98606A31C;
-	Wed, 18 Nov 2026 00:51:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19C82606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:51:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19C82606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vix5oa89
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 874611F000C4;
-	Wed, 18 Nov 2026 00:51:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794963068;
-	bh=1UbMEHB0WKx0u4dst6bzVbW5BKGdyKKbsda1yqu6+p8=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Vix5oa89sYVH+p/PIq4YrS+tl+Q2d4GuSof4iYPr1Jes1ukCV07Ax1mT31gYyRuBk
-	 KDVy1Xc7YkJFjBGk5YUHJzXhopjFDdL078g//rtk1yAnqg319z95CNtPuGG0OYycRO
-	 8Wa4KGYOH0uIUrNnDpu51YSb5byQaABCxt57BX04GkSmivdOSX53foyLpW6Hir1D/2
-	 Ojjfm7+wHiSWS3iuLZLjwaicqWHiDLEhCM8IKXgCSRYPXKRQo8/HxBpYGfmGkUl7uh
-	 +vbQm41d1rp042Qx55pJ1nSLVSkIsdEJ9zElVuG66GwEr7i5ZiJxXGuq6KYhnQeAcp
-	 dwuP02Th8yGRQ==
-Date: Tue, 17 Nov 2026 17:51:05 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: Han Gao <gaohan@iscas.ac.cn>
-cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-    Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Guo Ren <guoren@kernel.org>, 
-    Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
-    Samuel Holland <samuel.holland@sifive.com>, 
-    Daniel Lezcano <daniel.lezcano@kernel.org>, 
-    Anup Patel <anup@brainfault.org>, Stephen Boyd <sboyd@kernel.org>, 
-    Brian Masney <bmasney+clk@redhat.com>, 
-    Jerome Brunet <jbrunet+clk@baylibre.com>, Chen-Yu Tsai <wens@kernel.org>, 
-    Jernej Skrabec <jernej.skrabec@gmail.com>, 
-    Samuel Holland <samuel@sholland.org>, 
-    Philipp Zabel <p.zabel@pengutronix.de>, 
-    Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-    Maxime Ripard <mripard@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-    Andre Przywara <andre.przywara@arm.com>, Han Gao <rabenda.cn@gmail.com>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Paul Walmsley <paul.walmsley@sifive.com>, 
-    Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
-    devicetree@vger.kernel.org, linux-csky@vger.kernel.org, 
-    linux-sunxi@lists.linux.dev, linux-clk@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
-    linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 01/19] riscv: sunxi: describe the wider Allwinner SoC
- family
-In-Reply-To: <20261114-v861-v1-1-eb71ec3ee523@iscas.ac.cn>
-Message-ID: <fc63c0c4-5b79-87f9-aa42-7ed541361052@kernel.org>
-References: <20261114-v861-v1-0-eb71ec3ee523@iscas.ac.cn> <20261114-v861-v1-1-eb71ec3ee523@iscas.ac.cn>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DRaub8EV
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=35j3KAfDSmKSKABohtx1cPJcLRuq+RzcWD81Hn4b4RQ=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794963089; v=1; x=1795567889;
+ b=DRaub8EVxyz+fRnfzet//xzx3JvxSjKRGDwmj8Pub2pD0PIIyBaaS9lLF2KDctG53VsfsH5s
+ p/7KieQMj1TNXTyCEIF/t+ShEmzSPXqmWNZjh+rH/8VUirds/MTpnGWdllg9gKQm1UdjjHdEMbv
+ 1ChiNauMGzApRwJuLtcMSVyk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 1f790bf25116b760;
+	Wed, 18 Nov 2026 00:51:29 +0000
+X-Mizu-Trace-ID: 1f790bf25116b760
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 08:51:16 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Hangbin Liu <liuhangbin@kylinos.cn>,
+	Stefano Salsano <stefano.salsano@uniroma2.it>,
+	Justin Iurman <justin.iurman@gmail.com>,
+	Andrea Mayer <andrea@common-net.org>
+Subject: Re: [PATCH net-next v3 5/5] selftests: seg6: add PSP flavor testing
+ for SRv6 End.X
+Message-ID: <avz2hH9T_5OOuHbi@fedora>
+References: <20261112-srv6_flavors_endx-v3-0-c9177bbbd965@kylinos.cn>
+ <20261112-srv6_flavors_endx-v3-5-c9177bbbd965@kylinos.cn>
+ <20261117035021.e724668d726ecce54e091288@uniroma2.it>
+ <avwUzLyWxZl9cBIX@fedora>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,20 +75,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <avwUzLyWxZl9cBIX@fedora>
 
-On Sat, 14 Nov 2026, Han Gao via B4 Relay wrote:
-
-> From: Han Gao <gaohan@iscas.ac.cn>
+On Tue, Nov 17, 2026 at 04:48:12PM +0800, Hangbin Liu wrote:
+> > > I didn't add `host_srv6_end_flv_consumed_srh_tests()` for End.X because
+> > > the extra policy insertion does not work with the End.X policy. The packet
+> > > resolves the destination via the next hop directly, rather than doing a
+> > > re-lookup in table 90.
+> > 
+> > The ingress router can insert the extra SRH instead, on the first SID
+> > of the Policy. As in the End tests, an End SID of the base setup can
+> > then consume it. This way, we can add these tests for End.X too. What
+> > do you think?
 > 
-> ARCH_SUNXI is about to cover the V861 as well. Update its prompt and
-> help text instead of adding another option.
+> For the End.X Policy (i.a) testing, we have SID List=fcff:3::a,fcff:4::af1,fcff:2::af1,cafe::2.
+> And we configured the next hop policy for the SID on each rt. e.g
 > 
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> On rt3: fcff:3::000a table 90 encap seg6local action End.X nh6 fcf0:0:3:4::4
+> On rt4: fcff:4::0af1 table 90 encap seg6local action End.X nh6 fcf0:0:2:4::2 flavors psp
+> on rt2: fcff:2::0af1 table 90 encap seg6local action End.X nh6 cafe::2 flavors psp
+> 
+> When the packet arrive on rt4, it's dst is set to fcff:2::af1. And the new
+> insert policy (fcff:2::0af1 table 90 encap seg6 mode inline segs fcff:3::000e dev dum0)
+> doesn't works as the End.X policy will goto next hop fcf0:0:2:4::2 directly
+> instead of looking at fcff:2::af1 on table 90.
+> 
 
-Assuming this series is going to go up through arm-soc -
+hmm, Not sure if you mean to add a ip rule for the ingress route? e.g.
+  # ip rule add from cafe::1 to fcff:4::af1 lookup 100
+  # ip route add fcff:4::af1 table 100 encap seg6 mode inline segs fcff:3::000e, dev dum0
 
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
+Then on rt3, we got
+   IPv6 DA=fcff:3::e | extra SRH, SL=1 | Policy's SRH, SL=2 | Payload
+after action End, rt3 send
+   IPv6 DA=fcff:4::af1 | extra SRH, SL=0 | Policy's SRH, SL=2 | Payload
 
+But here the fcff:4::af1 will hit the ip rule and do encap again, which will
+be a loop.
 
-- Paulk
+Do I missed something?
+
+Hangbin
