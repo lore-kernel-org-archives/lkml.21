@@ -1,76 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009162;
-	b=DWCCD9Vt/1iYXG2HIRLCgmRo3hMl4tVkvL+Qrv/Sdy71W6RrdzUvt3BumSmPArZrsoQj
-	 Si7ZqzHRHONF+jWe/3i0SN/q7qRSZLbz53fWv7E3Kx2fBAlVBj9HQSXCusQ0vrLbwgdn1
-	 uvfOtj9RtEN/yVkQhz59VPh/pOETGr/itNWFY/aKg3WHgMPneBKR4vn0LC5pOqGNFTu4c
-	 G4Cp91guBlY7bWieTnso7MqH3Vncu7dNdbcEIywclXw8br85mTswJnbkl+HWxARQQQTFj
-	 YIH9yHBrdPReRYg6bFmcWRsNvv/V/4cG9ugmL01U8YQ8ddfBYTa0n8u7cJ5RADw9Ojg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009162;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=yA10u3FYCxFuwbRyLBA5LQ+MCTRlEZ7qDazhRZvOPgk=;
-	b=bDiLVj5NV0AmUKOwiHRX87JBByiVuAArSK+uaC2DipO2nEqYa+H8fomFS5Vu8Oa0Yl4s
-	 YCHTxRIc2Ww0L+D+d9ZEzkX1wIV4wH1qwYMPrjwtRo5Y2sTEBOIrWjevkelJdhKmna3N+
-	 wcqQST/7SVr3GvNQfJZSKRDqIr2ee9eRC3AHh4rFBd95jMSD+HeTGGWCzpRM9duZOwnQq
-	 lgxYsQlUEpWXXnlXenQhrCS/3mpwZBd0Ob+pwQWrRMrISu1LoEIopOjjcHdjgrV8WdCOc
-	 OwRSkI8Z2yF4tThQDNH+YmicABsp6+gcJvbcz5hwFaluDughHYRpMKlQM+88YB5iTxQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="3/PisEFZ";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=pW2dCpF7;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.92
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795009168;
+	b=o4BJtzjJqLSRMtMhglz0F7PoHVw3YYtmGQAPOoNLIA2vSLTVn/eGCEmXi36X4r7himxQ
+	 UjytVtJc1uDe2nQ4Xhll3S0OKOp3d5bbagSRNq6Z+McEft3nItcHF+HQOPzHDL5rH6ElS
+	 lTCoclTcYVMQkYJxDp2rCVuGlNvO4KtaqR/k9wudPPWdG4liz6l/1avmvX91svBBkKOaP
+	 92O5M9gIS37p3cZXKBQnDgAR1BOU6OzXEWHmJPPEGc/yA/WQEwIH2oqN1whliBCWpdQPW
+	 u0eE71XDJAMqChwXr5s+M17CCJreCmO+tViQ0c31nqBonWLyG1m/BUxV2oypiHr5RQQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009168;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=p2WnK3lhlJZo1qamgl71f8A1iqUbHuKOgEtr1nZH/3k=;
+	b=d3RTbeu1VoFSBl/XcB8iegi04LvcuKpJXMxbh7cpIkO/2697RMajewo3CmTtE13ONY2k
+	 zTsqWyWQvH8uo/+UwR73kDCZMPy/N9y9LzPbkvj62SiRDfPbBQl4Yw+qgxSPxZQXsB8Yk
+	 HnRpl0YFVTDcjSrSlNApdAkAgBH/Ik2U4ke2MU5HAKugEUp/4tl9XMkWHfLSmqqe80/tZ
+	 59ig/ySDE5I+E4VR8AV4nDXh25dZwydC6+kHBRp6KOpY3bA66yzZpoWfEFCX1ZHMLwGDD
+	 5TGIn/zx8vAUAwdq7yhLUEYwYOGh8brP954q+foGXk/DL7Dz+3f6dYt3mjHbLSwBeyg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=pwFjCVFE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.92
+Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022092.outbound.protection.outlook.com [40.107.193.92])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4666F606A320;
-	Wed, 18 Nov 2026 13:39:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4666F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D20D60A2631
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:39:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D20D60A2631
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=3/PisEFZ;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=pW2dCpF7
-Date: Wed, 18 Nov 2026 13:39:18 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795009160;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yA10u3FYCxFuwbRyLBA5LQ+MCTRlEZ7qDazhRZvOPgk=;
-	b=3/PisEFZWPT3LuqdkwSVlxLhkVmFJyuobvoXtAP0jrtnGFZurVe4eEHL3a8PeGpQ+tgH7P
-	05o16NCpSxWTBi71MPBWBxheno17dcehnwYA2nciaU/KAmzbgCrEU4OH067zVT9C6gZI/M
-	z4uTHoiy1/6BZtPces8uuhznRIrva+ZvN8DHJfEHBKsJtiHeEOsYo8/3pEqlZzr1rVIr3a
-	7+dPYIB4SBdPSmPHsP+SnvSeatjH//N3MIWOnEAwENbW6MMRFGIgsHcL9//kqtrJieYoLo
-	b6NhaiGqmUl8afBoieRA8FtNYBSEctOXuJhCd2Hfs0/GagYaT6ajELFJY0MtSQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795009160;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yA10u3FYCxFuwbRyLBA5LQ+MCTRlEZ7qDazhRZvOPgk=;
-	b=pW2dCpF75B1vTyuC6ojSeI5GPvtFmTW7ew6H99uQPp1a/UCllyzWMpFV3ToYKQbTSu+Pdv
-	3RAsSwWCC5qij/Ag==
-From: "tip-bot2 for Michal Blaszczyk" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/urgent] sched: Lift cgroup update locking to core to
- prevent CFS/SCX divergence
-Cc: Michal Blaszczyk <michalblk@google.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Andrea Righi <arighi@nvidia.com>, Tejun Heo <tj@kernel.org>, x86@kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261110151857.1864222-1-michalblk@google.com>
-References: <20261110151857.1864222-1-michalblk@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=pwFjCVFE
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tuIKSs5tWHQumjKwegp533GElmr+bzDdLkhhFpShtYdB5/R5g2wfujUMWQyAj4eOjwhJDCJ9jYURID0u+DMNl9c3AcFJBoYii9MWvo2swBTCDuPSvU5RnzJKmJpx9GTWg/I2N7t2mn2NSEOePLt6ua7PDy2NY5wfjNTRq33Xa7f4P+g8ImLq1wBjy3sVL6OuTEvRGht/4vbOuPuRuTpnsU8DoFWNwMjsCMR34pl8CKXhnzTK1GrkounqVARbDFnS9e5vbReHqaLn82WGoMKvexVD2DAklPOjgvLSGbLl7wOs6sZa/5e+DpBVo6+acxVrwyao7ffv9BxioiTZywDI6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p2WnK3lhlJZo1qamgl71f8A1iqUbHuKOgEtr1nZH/3k=;
+ b=A7/NMI9OayK5Zt1n5yuPtrnsgrETZ1CWM9JLPeGGpaoxODtLXBSbXsbjyulhrQ9eNCulK7hG4YtObl1b/WPV46VNrNXpk8kZ0D7auX48HYJSmMN34oWDyGoaYjmcwu22FvvqCu7ecgUofIUjVySd517/y5CRU1ZyloYg8kqTgAKTCbwe+/81SoD5khMtDqBnOrnIR14dn7BNE+4eUXhMTImp3Nx5usCv7O5zDNKa5UXB14plVRo2FbNZjyHnCjpFVD1RuPOLMOVXW2mAJeecqergdnzD1EFSr3u8ECn6RaBRl7cY2xy692rAjig3PRjQ6/51G0+pgtKC0lfVyzo9Mg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p2WnK3lhlJZo1qamgl71f8A1iqUbHuKOgEtr1nZH/3k=;
+ b=pwFjCVFEGSabKEj3a+zWtTUU2nN+tY8yjbA2LH5Gh964Q/QYlhr6bxZSHSjZvDEBSVGS2cKB28GUSjmFUWjp/svKJfGuccpukVz0dKXNw+ICUPD9ug9gCWxb69b1W3LuG2KbxgbpmnO6by7RwcGGjzbyFhcxgeXHntMNPag6HiSQGU5lWSP7EgyCdF3Ar4BOvylMB0P4t7dMXFSYAzLKwaxvqXHNw5jBui6hrG43RGs13mYAGBpAWOoTXzTDTcCXISCuAW/5CqPpvQn2WSAEs5KtGTPxidDmpw5he8TbsFy7zer5S91gMIEtVGnP1Mohb6jNaTi/RfpEG27G1yCWnA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT4PR01MB842743.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:188::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 13:39:26 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 13:39:26 +0000
+Message-ID: <ee22dfeb-9c99-43aa-8836-e49aa81638b1@efficios.com>
+Date: Wed, 18 Nov 2026 08:39:26 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 26/40] sched/deadline: Make a rebuild count a task in
+ the root domain it runs in
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
+ <d956394fd7c5d85d9cd92489b0abf5c709c4545d.1794922146.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-219082@kernel.org>
+Content-Language: en-US
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <sashiko-outbox-219082@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQZPR01CA0031.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:86::29) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,267 +100,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179500915858.3191731.4377750348123892955.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT4PR01MB842743:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28ada090-0ef2-4d0e-f064-08df45795d2d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|261022075727099003|4143699003|56012099006|261026140227099003|261028144727099003|10067099003|261022105027099003|261026121527099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	rXfQA8qfiYtkXdqHLDkhcB6IAfPxUHieENt0oNYaC9SagkPxiLZLnte3YmG2AvDfGa3TPFFqEfJ4jm9Ux+fF0oovNoJ1o1pr0D+w5FzXaJD6sZgoge6AFH2ZFx2TawY8jYLeYZBRYkTl/Teox5ibPRNlfXoP3FTqPy/rc4H7ZLmqAlaNTB+G5U/92aSYBTS3Z57UIiSubuz4R7zpZUDC7+pAn2TN3g7JkyRH8p0pu962s7nV8/+3PcjCDDcvwjmOgl0X2jgAc8ndBIJ714Z+l0nWHvw2O4ibKIjISLK3rs0jtMfl5s6l5JrTpvTDq39MoPQc5YhjlrNoq43NH9i1InS50ZZsyAE/MgUfuEqj/aE4K0D8KZoUAj9B9L9d93sZEF1AVbHZLZjSA2moE1CIqk3AAcu8neh8Oo1C9vB9nwMfOwVPkKtiO/J6esysIe5cBP16O9fSzJvp54dkqZ8Kh0mn59pw8OJ3TqESTL0Ubfk0LTYnXNxtmeelkKQXkUvh6KlpchwlWIncvZn8PGXFkoQl2opLo/WTpmT8ZY1OfotlQxByQ5i2dKmRwijuKYiyUHZiuhwX6mI90BW9A2RsiJQgqzBW9zYMVhwpBWQqOSU=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(261022075727099003)(4143699003)(56012099006)(261026140227099003)(261028144727099003)(10067099003)(261022105027099003)(261026121527099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Sml4QmFGaituSTVIeFA5cS91K1NnamJDa2NqQUJVeGJnTGZyY3kzRGtuYTdN?=
+ =?utf-8?B?aTFHZHpISW5vcy9xTnhLNS9jTTBFRjMwSU9NNkFsUGFScG1vQUN3emlSQU9l?=
+ =?utf-8?B?WjBwVWFqemh0L3czRlZEOEk3RG8wTytVbkRHN01MZEc2SzFUUndaeGp2QUp5?=
+ =?utf-8?B?NUR5TzFJdThLQmF2eXhFdUl4bW1VT0haZ0ZqNmE0V0FNemQvdDAyY25pYU93?=
+ =?utf-8?B?NFh1MndEZTc1dzVkYlJBYit4QnQ2N3VBelJKa2JZZnpOazRRWnRzVG9RWkxm?=
+ =?utf-8?B?V21OUUVaK3YzWG5iNVVwcXQxZFRxL2poQUFyektDN1ZqOFFHcENaaVJQT1dn?=
+ =?utf-8?B?Z3BlRXlXZ0QwRkk0b2JHMnp3aW1mdFdLdGJKa1FmUnlvazNtTjZFTEVnT2Nn?=
+ =?utf-8?B?c3NwR2dBR3FpQXhreFdVME1xZkhMMStaZ1hOeHZOZDZXc0FleU14c2ZNcnhn?=
+ =?utf-8?B?bVdRN2ZCRnVXQXltSlpGTFR1ZXN4SUxqMHRyZE1nRDJWdVFOQjQzVlY3dHE5?=
+ =?utf-8?B?WDBGS3pXckN4TlNJUTRmY0c1MllJVWw0OXNEc25UR2l6VFJrVGNJeDQ3Wnhy?=
+ =?utf-8?B?alBJTTZ0YS9zYTFxanR6bUg4a09FNkEwamFwd000UEpkYjdWS1Z6RlQreTRC?=
+ =?utf-8?B?R2J6dThqY3gvQWV4MXFrdHJZUnBKUDkxTFRWQ2IwMmdlVHhMdVJYU3lycmdH?=
+ =?utf-8?B?aTBqNFVEaHNtK0lHQ2xYY0g3RzZ2TDdvMWt6Q05vL3l3c1JzdjJuSEpmT3lC?=
+ =?utf-8?B?TjFyaFIvcWtrTGdHUGF0NWh2Sk1MemRSV2NKVWs0VXBLRHJpdHJnQ0NWRkw4?=
+ =?utf-8?B?RE5DY2k4b0JwVmt0TDF4M01WOVJvTDVsMW04aXk5MmJCWVZnc25XQW4rczBl?=
+ =?utf-8?B?Wmg5UjV0aVFLUWZIZWFoU1ZPVHJjemZMZUhsSnEwRDlOc2xrNk1wVlFPVHR6?=
+ =?utf-8?B?T1Y0TDRzWStKczRYaHJvSXo3ZkZUYytMUDBPR3ZNNkd1d3BjS1pYeWo1NnUx?=
+ =?utf-8?B?SlZyTGpGc2NCS2VWWkUySGVkZHhBWFRvbUFaelNraGxMY3R1aDBlNjVrcEI5?=
+ =?utf-8?B?VTlnUDlMRXBVRmc2a1BtSjRHbzNyY1RIK3k1Mmtld0NvdkFyOHRBTzRCQXZO?=
+ =?utf-8?B?ZzJPM2JVbU5VK0dseHU4Zkp5ZFJtWlZxdHBWQWd2enVUNHZsYm5yYUVRc2c1?=
+ =?utf-8?B?VXNJNDBqQmpiY09tQWY2TUFWRFB3REd4Q0Z2QVFCck5HZmo0S3AxNFc4UWF4?=
+ =?utf-8?B?VW5EeXo2RXBINk01TXdrcnNPR0NpWDhyUTYxRURZQlBiRytRaVppRHB6V3lz?=
+ =?utf-8?B?b2srZk1PZC92cWpZenRReS9iNW9KTlNxUmpuTmJzL2VZZW1lamw0WmUyOEs4?=
+ =?utf-8?B?TVg3aExSN2ZVd28zazBOSnEwaTg5Mm5sT0lnam1jVU50ZGEwTThZeXI4SGV3?=
+ =?utf-8?B?Qkh3WkVXejA3ZEZCWVRyai9vVG91TVB5RkNZc0ptVnd3U3ZOVmlYalhENmY3?=
+ =?utf-8?B?U0lEWG9xNUhpZEgreTRxUmVObFhka042VElRaE9XSnpqNmp3UnFuSkxVMVBq?=
+ =?utf-8?B?cTBNSFFNeHFLY1BlTUJWUmtuc25mTDRYVkQzRHpHK3Z0eThXQ2JFRjFvb0VS?=
+ =?utf-8?B?NTNxdkxoZVJ3NVFuR1VISWVjL0FuS0NZUkF1eVM4UlNKZVdvcE83OHUvUTIz?=
+ =?utf-8?B?WkpyY2FWSWhVU3B3Slh6cVRvRExFZ21tUlY1TG5VaFdBNUpDV29wSllJcXAv?=
+ =?utf-8?B?MDBUaUJXaEk4OGpvVkloUU05Y29YZGNwd0xXRFdpRlNzRWNFWkdjRWgybXJP?=
+ =?utf-8?B?NXlWTE5ZbzgxQ0RTSnAxTHdYS2gwMmYrb0JBUzNOVzVNRkJZOXlCb09GZ0da?=
+ =?utf-8?B?Wi96NVNPVnQ3N0xMSzB6Z2htelU4MkpWemM3bE5WRXZEWXBwdUlOTFo3clNF?=
+ =?utf-8?B?ekZmN0k4MmYwQ1lEOHNQa0ZLeXZLeXpEK3dsNnFzbjFYendVUHRuUXNSaVRj?=
+ =?utf-8?B?N0lyZkJRcllZQjdUM1pid3lNd3RkR0J4NVlKMjVjZGdSaWE4RVJvYldPYVNt?=
+ =?utf-8?B?SWp5anFlMytyMFZSdGgweWhGMm4yY3hVZFhMdjhrT2x1eDdjNUszVnhNVU1x?=
+ =?utf-8?B?OXYzL0JwZzdnNEMweDc2UFIxdzJqNHlJUXVIc0ZaYWpiVDRLQzZacDFoMVZo?=
+ =?utf-8?B?YVltK01HOFppZnQ5OCtSUXdhaG52dE03c3JIN1VqSXYrOWNCeXZReDJad0h2?=
+ =?utf-8?B?TG92eXdyUUplRVZrWERjRXUvQlM1TEo3bTJoYVNiV0g4YWxSY1pSVUdoNzRw?=
+ =?utf-8?B?SHkrLzZ5djlrTTdSVTVaTEh1bGhTM2s1VkdxZXc0Rnhyem8yc2kvdTZZY2xw?=
+ =?utf-8?Q?GBBfegb8RbjlY5ptIS8Ykg3r6KgyCri362b6x?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28ada090-0ef2-4d0e-f064-08df45795d2d
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:39:26.7250
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9i8rpy4q8tip7olENDoCJLkwTFxYW78RQJDpXd8aTF6cebV2Un51+PwAmzJvvVP4VSSEUiZjloJSF/kxdmgXsJoenbN1XZCbTPIwWPmXTOg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT4PR01MB842743
 
-The following commit has been merged into the sched/urgent branch of tip:
+> Can returning recorded here without checking the task's cpuset charge
+> the bandwidth to a newly created partition that no longer contains
+> the task?
 
-Commit-ID:     342fe98c34311969950fa58a840fd0b95a16c9dd
-Gitweb:        https://git.kernel.org/tip/342fe98c34311969950fa58a840fd0b95a1=
-6c9dd
-Author:        Michal Blaszczyk <michalblk@google.com>
-AuthorDate:    Tue, 10 Nov 2026 15:18:57=20
-Committer:     Peter Zijlstra <peterz@infradead.org>
-CommitterDate: Wed, 18 Nov 2026 14:32:17 +01:00
+Yes, thanks. The record can name a CPU that a partition root took since.
+With no active CPU in the mask, the next version asks the cpuset first.
+It keeps the CPU recorded only if the cpuset holds it.
 
-sched: Lift cgroup update locking to core to prevent CFS/SCX divergence
+The early return covered two cases. A task that
+dl_task_offline_migration() moved to that CPU is queued there. The test
+before it already catches that task. A task that an earlier rebuild
+counted there keeps the record if its cpuset holds the CPU. A task
+asleep wakes up through select_fallback_rq(), on a CPU of its cpuset. So
+the cpuset is where it runs.
 
-Concurrent writes to cgroup control files (such as cpu.shares or
-cpu.weight) can lead to state divergence between CFS and SCX.
+This was found by reading. A new test case, rebuild_record_taken,
+shows it. A partition root takes the CPU recorded with a sleeping task.
+On v7 the partition counts the task, which then wakes up outside it.
+With the next version the task is counted where it wakes up. That held
+in each of 7 runs on both.
 
-For instance, in cpu_shares_write_u64(), the CFS update is serialized
-by shares_mutex (internal to fair.c), but this lock is dropped before
-scx_group_set_weight() is called. The latter only acquires a read
-semaphore (scx_cgroup_ops_rwsem), allowing multiple threads to evaluate
-and act on the sched_ext update concurrently.
+> Does calling dl_get_task_effective_cpus() here read a stale
+> HK_TYPE_DOMAIN mask during cpuset partition transitions?
 
-This serialization gap allows concurrent writes to interleave.
-As a result, the recorded state in CFS, the SCX internal bookkeeping
-(e.g., tg->scx.weight), and the BPF scheduler itself can end up operating
-on completely distinct parameters (pairwise distinct values).
+Yes. Upstream reads it there too, for every task. This patch only
+reaches it for a task with no active CPU in its mask. With admission
+control on, patch 29 refuses the offline that leads there. The next
+version reads HK_TYPE_DOMAIN_BOOT in dl_get_task_effective_cpus(), as
+the rest of the series does. A task whose mask holds only CPUs isolated
+at boot runs in def_root_domain, whatever the partitions do.
 
-Similar races are present in tg_set_bandwidth(), cpu_idle_write_s64(),
-cpu_weight_write_u64(), and cpu_weight_nice_write_s64().
+This was checked by reading, not reproduced.
 
-Fix this by moving the CFS locking up into the core layer in
-`kernel/sched/core.c`. By acquiring these locks directly in the core
-write handlers, both the CFS and SCX callbacks are executed atomically
-under the same lock.
+Thanks,
 
-Fixes: 819513666966 ("sched_ext: Add cgroup support")
-Signed-off-by: Michal Blaszczyk <michalblk@google.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Andrea Righi <arighi@nvidia.com>
-Acked-by: Tejun Heo <tj@kernel.org>
-Link: https://patch.msgid.link/20261110151857.1864222-1-michalblk@google.com
----
- kernel/sched/core.c  | 35 +++++++++++++++++++++++------------
- kernel/sched/fair.c  | 19 ++++++++++++-------
- kernel/sched/sched.h |  7 +++++++
- 3 files changed, 42 insertions(+), 19 deletions(-)
+Mathieu
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 5ed660f..515b9d0 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -9776,6 +9776,8 @@ static int cpu_uclamp_max_show(struct seq_file *sf, voi=
-d *v)
- }
- #endif /* CONFIG_UCLAMP_TASK_GROUP */
-=20
-+DEFINE_MUTEX(cpu_weight_mutex);
-+
- #ifdef CONFIG_GROUP_SCHED_WEIGHT
- static unsigned long tg_weight(struct task_group *tg)
- {
-@@ -9793,7 +9795,10 @@ static int cpu_shares_write_u64(struct cgroup_subsys_s=
-tate *css,
-=20
- 	if (shareval > scale_load_down(ULONG_MAX))
- 		shareval =3D MAX_SHARES;
--	ret =3D sched_group_set_shares(css_tg(css), scale_load(shareval));
-+
-+	guard(mutex)(&cpu_weight_mutex);
-+
-+	ret =3D sched_group_set_shares_locked(css_tg(css), scale_load(shareval));
- 	if (!ret)
- 		scx_group_set_weight(css_tg(css),
- 				     sched_weight_to_cgroup(shareval));
-@@ -9808,8 +9813,6 @@ static u64 cpu_shares_read_u64(struct cgroup_subsys_sta=
-te *css,
- #endif /* CONFIG_GROUP_SCHED_WEIGHT */
-=20
- #ifdef CONFIG_CFS_BANDWIDTH
--static DEFINE_MUTEX(cfs_constraints_mutex);
--
- static int __cfs_schedulable(struct task_group *tg, u64 period, u64 runtime);
-=20
- static int tg_set_cfs_bandwidth(struct task_group *tg,
-@@ -9828,13 +9831,6 @@ static int tg_set_cfs_bandwidth(struct task_group *tg,
-=20
- 	burst =3D (u64)burst_us * NSEC_PER_USEC;
-=20
--	/*
--	 * Prevent race between setting of cfs_rq->runtime_enabled and
--	 * unthrottle_offline_cfs_rqs().
--	 */
--	guard(cpus_read_lock)();
--	guard(mutex)(&cfs_constraints_mutex);
--
- 	ret =3D __cfs_schedulable(tg, period, quota);
- 	if (ret)
- 		return ret;
-@@ -10086,6 +10082,8 @@ static u64 cpu_period_read_u64(struct cgroup_subsys_s=
-tate *css,
- 	return period_us;
- }
-=20
-+static DEFINE_MUTEX(cpu_max_mutex);
-+
- static int tg_set_bandwidth(struct task_group *tg,
- 			    u64 period_us, u64 quota_us, u64 burst_us)
- {
-@@ -10128,6 +10126,13 @@ static int tg_set_bandwidth(struct task_group *tg,
- 					burst_us + quota_us > max_bw_runtime_us))
- 		return -EINVAL;
-=20
-+	/*
-+	 * Prevent race between setting of cfs_rq->runtime_enabled and
-+	 * unthrottle_offline_cfs_rqs().
-+	 */
-+	guard(cpus_read_lock)();
-+	guard(mutex)(&cpu_max_mutex);
-+
- #ifdef CONFIG_CFS_BANDWIDTH
- 	ret =3D tg_set_cfs_bandwidth(tg, period_us, quota_us, burst_us);
- #endif /* CONFIG_CFS_BANDWIDTH */
-@@ -10226,6 +10231,8 @@ static int cpu_idle_write_s64(struct cgroup_subsys_st=
-ate *css,
- {
- 	int ret;
-=20
-+	guard(mutex)(&cpu_weight_mutex);
-+
- 	ret =3D sched_group_set_idle(css_tg(css), idle);
- 	if (!ret)
- 		scx_group_set_idle(css_tg(css), idle);
-@@ -10402,7 +10409,9 @@ static int cpu_weight_write_u64(struct cgroup_subsys_=
-state *css,
-=20
- 	weight =3D sched_weight_from_cgroup(cgrp_weight);
-=20
--	ret =3D sched_group_set_shares(css_tg(css), scale_load(weight));
-+	guard(mutex)(&cpu_weight_mutex);
-+
-+	ret =3D sched_group_set_shares_locked(css_tg(css), scale_load(weight));
- 	if (!ret)
- 		scx_group_set_weight(css_tg(css), cgrp_weight);
- 	return ret;
-@@ -10439,7 +10448,9 @@ static int cpu_weight_nice_write_s64(struct cgroup_su=
-bsys_state *css,
- 	idx =3D array_index_nospec(idx, 40);
- 	weight =3D sched_prio_to_weight[idx];
-=20
--	ret =3D sched_group_set_shares(css_tg(css), scale_load(weight));
-+	guard(mutex)(&cpu_weight_mutex);
-+
-+	ret =3D sched_group_set_shares_locked(css_tg(css), scale_load(weight));
- 	if (!ret)
- 		scx_group_set_weight(css_tg(css),
- 				     sched_weight_to_cgroup(weight));
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 3b0b0eb..da0d9e1 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -15737,13 +15737,11 @@ void init_tg_cfs_entry(struct task_group *tg, struc=
-t cfs_rq *cfs_rq,
- 	se->parent =3D parent;
- }
-=20
--static DEFINE_MUTEX(shares_mutex);
--
- static int __sched_group_set_shares(struct task_group *tg, unsigned long sha=
-res)
- {
- 	int i;
-=20
--	lockdep_assert_held(&shares_mutex);
-+	lockdep_assert_held(&cpu_weight_mutex);
-=20
- 	/*
- 	 * We can't change the weight of the root cgroup.
-@@ -15775,16 +15773,16 @@ static int __sched_group_set_shares(struct task_gro=
-up *tg, unsigned long shares)
- 	return 0;
- }
-=20
--int sched_group_set_shares(struct task_group *tg, unsigned long shares)
-+int sched_group_set_shares_locked(struct task_group *tg, unsigned long share=
-s)
- {
- 	int ret;
-=20
--	mutex_lock(&shares_mutex);
-+	lockdep_assert_held(&cpu_weight_mutex);
-+
- 	if (tg_is_idle(tg))
- 		ret =3D -EINVAL;
- 	else
- 		ret =3D __sched_group_set_shares(tg, shares);
--	mutex_unlock(&shares_mutex);
-=20
- 	return ret;
- }
-@@ -15826,17 +15824,24 @@ static int tg_set_idle_up(struct task_group *tg, vo=
-id *data)
- 	return 0;
- }
-=20
-+int sched_group_set_shares(struct task_group *tg, unsigned long shares)
-+{
-+	guard(mutex)(&cpu_weight_mutex);
-+	return sched_group_set_shares_locked(tg, shares);
-+}
-+
- int sched_group_set_idle(struct task_group *tg, long idle)
- {
- 	int i;
-=20
-+	lockdep_assert_held(&cpu_weight_mutex);
-+
- 	if (tg =3D=3D &root_task_group)
- 		return -EINVAL;
-=20
- 	if (idle < 0 || idle > 1)
- 		return -EINVAL;
-=20
--	guard(mutex)(&shares_mutex);
- 	if (tg->idle =3D=3D idle)
- 		return 0;
-=20
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 36a9492..a4e6696 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -599,7 +599,10 @@ extern void sched_release_group(struct task_group *tg);
- extern void sched_move_task(struct task_struct *tsk, bool for_autogroup);
-=20
- #ifdef CONFIG_FAIR_GROUP_SCHED
-+extern struct mutex cpu_weight_mutex;
-+
- extern int sched_group_set_shares(struct task_group *tg, unsigned long share=
-s);
-+extern int sched_group_set_shares_locked(struct task_group *tg, unsigned lon=
-g shares);
-=20
- extern int sched_group_set_idle(struct task_group *tg, long idle);
-=20
-@@ -607,6 +610,10 @@ extern void set_task_rq_fair(struct sched_entity *se,
- 			     struct cfs_rq *prev, struct cfs_rq *next);
- #else /* !CONFIG_FAIR_GROUP_SCHED: */
- static inline int sched_group_set_shares(struct task_group *tg, unsigned lon=
-g shares) { return 0; }
-+static inline int sched_group_set_shares_locked(struct task_group *tg, unsig=
-ned long shares)
-+{
-+	return 0;
-+}
- static inline int sched_group_set_idle(struct task_group *tg, long idle) { r=
-eturn 0; }
- #endif /* !CONFIG_FAIR_GROUP_SCHED */
-=20
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
