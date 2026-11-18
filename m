@@ -1,102 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.149
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994225;
-	b=MORnyUxyZjgVfa4EOtzsjlwglek+e497Zl7p51wHJsao6iGMI/FmvOFhsHZsPUXOXpPq
-	 wZDJ4T3LtgEJNQyJ2teygKBOaVO4IZyB2VGZcl0HMjLQzfMvoTC9uUx4mJCgBkxsuLG+T
-	 SCeqqMxlZG9hJLkvtgTH3SYy/YNmfdetJTd/E6jPYs8m1Yo7AyrO5yOi9bQF55XmmB20j
-	 wPv3SeB4phKKEuWWRe5mZQ/R0PYNfhtFPwkDeboaotGqkaupgwXCEiYWYBZNvmoMSfj8l
-	 GgZ+XitpweayrzIsmMhkn764vvmfSVmjcpmG1N8pvtyaQCYyLJG/sJNJBjA8zEG3wTQ==
+	t=1794994271;
+	b=RJMHpQa9adik7sd7dP19njuzm52vs9GpuVqWh4U+c/268oB0PGNebwPW09yWMUcWWeFQ
+	 5kWPUGSCjc37A533ehNxdRPQNFYEOt5SSH+Tndv/ZvN1J+cNxNOP+upJufLwdmtddYAsw
+	 8mx9PWgmQrRc+JRMMkibOB9UnNdfSR99GxFiFe5++E+XLb1slR+RqeLP+QYuL508u0whe
+	 cN4RtooItlGZb9818BAysWKAToAV/hG3gv/ybSHfNaIB8Pm4a39cOCoP3p6lNvJbPmWLt
+	 y+ptC4AxjVkVh5znFQtneK1xue/xvmxXrULKDDKd0sPY9+/erjvWuf4tdp7wXqcZczQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994225;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=uD1tBuYOug83rEirqNXlPEIbnE3sowo0Gmaf/KHGZnI=;
-	b=sO59vhHSvE0D7pLn/jBYqXrPmVvl6o0vfVz8Bixozs7PptLeMtaq3UGugYEPKm/3kiJc
-	 ji3Ak4FafYTzx3gPdIHYedx/FZfZkIcE68ydhAMS/E00Lj25JMnfmkPWTej6ffjUFuakN
-	 WU2aXmq89T/aomDF1R1O9osynVE+kQ5eguSc4bzLnngKaBxP3qSaowF65zUJ41cfoT5nL
-	 5mc7uTpcsHJITrGSHbLE6ul4h+zgCoRFU9FKMP3cLCkqG9zFUzxjNDPR4aigRo1ZsA2sW
-	 ykEB/IKpBCF3YY6Bm3lO3ucjIkvRHlLcgOr59d+9SgyMujyDQzHXTb96J8Zo8MelRXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994271;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=FYEMQL7D8ekblNOegLonV+3XnFkGP5/QdJvz54jKYXw=;
+	b=qS8pfHyxXMN6BrhetJRPMAXg8a5kqOATCooxZ7rCtUiA6yoFr5M5mNPTzpk+GtA9knaI
+	 ch111ralGmhf3fwhWk68S73y2G9oN9+WzaqldnJOf9o4Q5dlOs8Wp/sLSLc2O8eVySANX
+	 3lexabvWxX5Xhtco42ojkpH7GexnTOpOfYL6dNziiwYS6lIwU12xl3AldNPITbzYySzhZ
+	 6d+QFZrf1q652VB87Dx6gjpXZv+gqZWQH0qiym0SqqejupF6zg8x5CSi7hIqUqntAAvX+
+	 B5Ct8VQX5E2SPx8z7DZRa78xpXvjoBx59CSkp6tgOW7l9WUPdWI6xd+dhlSCj+POj5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fYGhSDO9;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=QZrKC83z;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=cVndpGNf;
+	arc=none smtp.remote-ip=103.168.172.149
+Received: from fout-a6-smtp.messagingengine.com (fout-a6-smtp.messagingengine.com [103.168.172.149])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F6FE606A8BB
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:30:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F6FE606A8BB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44AB3606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:31:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44AB3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fYGhSDO9
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-491d1f66968so26194f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:30:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794994224; x=1795599024; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uD1tBuYOug83rEirqNXlPEIbnE3sowo0Gmaf/KHGZnI=;
-        b=fYGhSDO9+nroHFZCNfRmxsl96MZLuAiQ1ScC+SsvjLLVYxAvcIEwQdHGTl6XY7AF5e
-         hwBpE9x/gNgFTYsYQbJtRIiwTxohhxS6WcKdskS6v5SkwFwHHqXoLvKIM9D5FGVvF+KK
-         G5PKa2xm9ICuVP4RtRMx1DZuwKeQ32CqzBIgVhWgUFdpqgRd7EvsMZSIjvtFdVDcgpko
-         6GH3kcuDV2SwxpVbLcBgtMYRLg0zD0M3/hWa4mzJ8KLje1yPLHGAibX56N2jOgXPVOj7
-         Bg82LappZVU5yBe3t7pSKSPJBOq0rp7WbPxfzkatYZLmQ/yg6NDcQ3dtNezP76EHsXJH
-         1mwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794994224; x=1795599024;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uD1tBuYOug83rEirqNXlPEIbnE3sowo0Gmaf/KHGZnI=;
-        b=j2EyH2Q/PDW+gPBmhFX+cfpQ2c3CN6Nr1Uy2h6WeqEPPE/GOyc8XPZk/ZjwLWw3t2D
-         hBkIIQefSr2xwljvzoiXGmDQ1Jwwef32biAMzXbkrP20seZChBSpgZOgxyBiPE9okGVt
-         daUedNCDbepsrMd85W4Gs/c22+d4Db3kuF5E49tIOtYmI2Q9qhX9+bS+KS7WWqohJUHb
-         qeasUraPWW9Mu4/tSA0YlXim+m8NXTmeZLAUEN/u1TcmplzFg4YD1Btm9w4NvtUNrOHI
-         aUKlJpKNLcdQQFUwtF3g4lQ2MtxYr7svRalXCezOWBSXo9zWkxh3FaYoQRuIYExlADI0
-         8yLA==
-X-Forwarded-Encrypted: i=1; AL+hErESku3osSG9g72Vn3ySX63jKLULYT+GhIXgeUa3UAOKaLuVBhCSj0Fg9z926iD/t4aigRO3378eZbAa550=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ITIaF7N346MVEi22jaXvPU+NOrMgAZ/6GDUQX0csC7DryKS3J
-	dovMfnB47xdJeiPy5JeSUHTZkVlVG3pJHXVH+qVcXxDg6cL4sODdeOQ2
-X-Gm-Gg: AZFdTZfqnoRxjx3KhfIjz0uk8WNyNBohmutBtmWPQGCBhxkiC0GI3DiO8TtEw84jJKO
-	Bi/Ndulf6deO2Uh5QWGIgxMEZlP7f6JVr0AR26M3wVUSn6m6DMPQvloZpW5YpBCLTtsU/vPTepI
-	eyiPMqlc/R0VFpzIpNzFZ9DWUc0nHXF9Vls9Kj5pYC/f1LBjibmLp4UbKSqgP8IKvVxW5FS0SYL
-	nB/QgGnksTnAiDKIYMJyr8CdBDZbWo+6TD9nzRDuFBR3zdz0oSoY6R7jVrjETUtkTy5yRAz2doA
-	BvH6GXlfLyoniD5odWl1sWvxbVq1qyyxeu1/Y9WIlTonBSBwBUXOfJDJcs+qiuiuuqNCHqZGnAM
-	JxVG2BzrVZxDOSsHZucUeRfhCafQxAk8DQ8T2vX7W+n+SSihcTa4Enmbcz0VAk40seBpzI+/FMe
-	33hmeClQi+0ySscmdtQqNlLcKosw+/x603kJ9q0h4P0n4b4jRJOyXh81/majTLluUE1+Gy7qu2O
-	hpHJf6YSIiSwsYsiFSrGXQswmJpAQEjG7qa1BBus7JmApkYoWrXSRQNRSZ5q+p8wYuiy7moPLY8
-	vz4Qv+bj+aBSybKOgaSvMaVKn4bb3AbVhzJTg7DpbaVD6bj2lf2tfropBl9I7Jk0Et5xOmA3UOb
-	R+wURBrxdS2eXnHhYXz0Ih4Q2X47T/D168YSkQqAurL1Ed8GT0t+66iOlQzGENbSwBsaFzvfUpP
-	OyYSiVLKgixd+poNnuLj4N/m3dWd3emx3cENj75RHMMIi3hyM2+OXD
-X-Received: by 2002:a05:6000:46c3:b0:48d:ee35:b3fe with SMTP id ffacd0b85a97d-4a6333b29bcmr2724653f8f.8.1794994223763;
-        Wed, 18 Nov 2026 01:30:23 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-c049-d359-3a47-0198.ipv6.o2.cz. [2a00:1028:8388:a84e:c049:d359:3a47:198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 01:30:23 -0800 (PST)
-From: Josef Schlehofer <pepe.schlehofer@gmail.com>
-To: netdev@vger.kernel.org
-Cc: marcin.s.wojtas@gmail.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	maxime.chevallier@bootlin.com,
-	w@1wt.eu,
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=QZrKC83z;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=cVndpGNf
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id 8AAE0EC086E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:31:08 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Wed, 18 Nov 2026 04:31:08 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1794994268;
+	 x=1795080668; bh=FYEMQL7D8ekblNOegLonV+3XnFkGP5/QdJvz54jKYXw=; b=
+	QZrKC83z2FpDVnSp9EjKacNXubNDWu/JA67DtL66tFql9QwJoQb3ttL7QkE3qyeA
+	UZPG04Fw0ryUWUfciC27jtzj95hFM0PivZ0pBdqkinPFk7BknvjDgDLStL0GpQdL
+	bfXUf1tXnw7cmGU7HFrQlIHm1UipI0mEq3c19TH8MuQcHg8+daLdZNywgCHIZETU
+	E9hnhFynHILmV+yNCw+R4bakNshnwMiL+Vf6x3KgDEEGFUd932f3iiBbWoDOf/ZO
+	G6BP31pfb/PbcLLpwZ0C7pT08J6tY/TZhOQ0bMrUp0pDDy48+RMGcKGjo7w3pKmI
+	TNo1kCryCpvSrnOsg0PsPQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794994268; x=
+	1795080668; bh=FYEMQL7D8ekblNOegLonV+3XnFkGP5/QdJvz54jKYXw=; b=c
+	VndpGNfIEs4ansqOxdPm/EA22hHz4yEB93BQhcK39kLA8y6bMJkkHgRtcRUsaLbD
+	U6Ty9XCWEO+1/fFeXqU9zYa5qsnb83eKONIymb7RCMFOcG9JY/YSufuqQdBLpg20
+	fdVAGW5d5pahFvEqKywFVA3yagD1CiVBKPR++JD9uDTq84c9gef7ZglnQiLdDFlb
+	iY/Sn9Q5T9G4dOiR32ARXnDKGi1qNNAPJXj11rpT04KrD1zfw4s2+uTKJdqFWiWp
+	AceMyMabG/KQBzXLDXBq5nWDdHlcIVY7GO9sr4/jYuZjoqYsZMisyVVpB+5IHi9n
+	kwfymmC3bVPHZw4MHnP8Q==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794994268; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:OTqLcHDJDGlO18TulN43EcBlU8YRwak+id/mwF/TnrvOO2E
+	5YZcJ9tEylEIT10TiT6963qZFgdI7DF+9cRDV6XQfzbmKlrkVBdccG5ig5vLQIWH
+	oA8GRghfUTfkbRjDq0d3Nflsx8R3UjI2xUHVn8osk5vq8OX47HCX+e78ZSKeOpJf
+	JpRueIk/VKPWoOeH4oZxHFyn97/6HRVnaONM+DnnbAo8oPBPs9w8YznugDrq5DOI
+	CoEX/e1YZgOUqOZ+ELPttDXDBd75aFKU+2PCQ+Uzg2pheTjjVy0W6g8kcw7SXULK
+	HoGovrkNj3aoyLbgcTqqjxNHyjGdztfpqixRLjg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:7NTa3zNk24Dn5DDudjdq6sX3jIAvJDBGhOy+LMZpnPg=:hpm+LCmifHtf1PHuC4LPNLY/W1wuc2v/aTBiusw+BFE=;
+X-ME-Sender: <xms:XHD9alLLhG03lRu7r5_a0axdf-xgjp9czVnRnWrJ6q56WhGu1NE1wQ>
+    <xme:XHD9auimjg_7RcE0e7iSsg2OdUw2B14dgR8CUaaB5jJu8dOucBeE-7ZPhQZlR0Q3B
+    -Sym5aHZInKzcARQA18rqUGuiBLhvqKj_YcLmRXJwRkDcfCdvx74n7xhA>
+X-ME-Received: <xmr:XHD9anORA5r6Z6OQPeMsra98IyLBY06w1JhqRrY5upPVGo3R9MqSabEJOPxteaKPLTXsK8mGqLQOz1yWAmMumiehyxq8EIo>
+X-ME-Proxy-Cause: dmFkZTEF2qGdxk7mJg4/ZMq8GPpSmYQEk3ceRSu6WvK5sPCzYYTmpIsMkynA90lJJ3Hh/M
+    TjTk9wNG4sUQmRmxJ+cd2Ntso6liWsdywsLdhU6KDk2tEqsYHoAlqYhnjCBwv+HDA1xOz7
+    eq+EfvaJIOBFKb4B0S70fybXlTeoNDRjg8ZK/DYm0EqmNdQRoeNZ3kKp3FmCy9qMIlJ8++
+    4in42Bj/MAONqgwG0c/3niOu/v2nrBEjEnPhCcVixd/HgrfJtIGZZGIJdrasmI79EBVBYt
+    07O8xQjPKhxEfjSPg5coYbfT3xmpQGjhNJu4VbWV9qVPax3tz0U+mJIrxW8etL0Kykokof
+    b6lXCHUDY2J/pmhvsddOjzTeB3fw/oFQThWVBem0zsauSxP3Ogm/w86OGxLOkspTLdxE0B
+    kFBcir9mbs1PAGNhBsiq0T7/P74BbHD7YUvtOqxlIL3SAPrVO+2SfxupU6iPUhPGe+R8FN
+    AVV9VU5hNffwRhl9NxPFez39nsW7Xa67Ja8u0Z9NDRp6WZew23Ed2R171IzHchdpUwIjaE
+    XwnHLZJO5iOW97t1kEuJTuM9JwaOUE5KR6cGE0Wyb6F6eB1UbzZYkupcXPS0u1wJtELyjU
+    CyzbbfzraHvyirxN0MrtACGExvKAhZWfSsRT7IgFoPSicQi0uMlwOB++r3OA
+X-ME-Proxy: <xmx:XHD9ahoCsSHlQec7RXdpsjf3amZbViWdbWCM2Qaq84tiI8ngOiO0Kg>
+    <xmx:XHD9ah7HsT77umj1lScvIdbT7RhDRUIXj9A1UsntXjXwZ8jWAa-5hg>
+    <xmx:XHD9anj_jPX8IOQvQcstDOf-YWsjhcIZvfyoDHixYkkf6WbtjOOO-A>
+    <xmx:XHD9av5oE8RS84TmtToVE9PEyNMRyT9N0JHUledaKRikJ8QJMT1vGw>
+    <xmx:XHD9avRDpZVYy3dJ3L6U4C9WpP4ez3t99e8JdZX9JxqRo_KVLqXEPkVZ>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 04:31:07 -0500 (EST)
+Date: Wed, 18 Nov 2026 10:31:04 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com,
+	lukasz.luba@arm.com, geert+renesas@glider.be, magnus.damm@gmail.com,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 6/6] net: mvneta: serve the TX queues in weighted round robin
-Date: Wed, 18 Nov 2026 10:30:12 +0100
-Message-ID: <20261118093012.90121-7-pepe.schlehofer@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
-References: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
+Subject: Re: [PATCH] thermal: rcar_gen3: quiesce the interrupt source before
+ releasing it
+Message-ID: <20261118093104.GA2548353@ragnatech.se>
+References: <20261117145348.1092528-1-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,169 +128,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117145348.1092528-1-shunsheng1218@gmail.com>
 
-Under load, some TX queues get no service at all. With four TCP
-streams on a 100 Mbit/s link, up to three streams sent nothing for 20
-seconds. The TX queue arbiter is left at its reset default, which
-serves all queues in fixed priority, and the stack spreads the flows
-over the queues.
+Hi Yaohan,
 
-Give the TX queues the same WRR weight, the smallest one that is
-larger than the largest packet, and clear the fixed priority. The
-Armada 370 and XP manuals list separate registers for the version 1
-arbiter, which the driver runs unless a shaper is set, so write both
-register sets. On the Armada 385 they are the same registers, as
-writing one set and reading the other shows.
+Thanks for your work.
 
-Keep the fixed priority while an mqprio offload is set up, as its
-traffic classes may rely on it, and clear it when the offload is
-removed. A rejected setup leaves it as it was, and after a rejected
-replace it applies to all flows until the qdisc is deleted. A class
-that fills the link starves the lower classes, and as the fixed
-priority is set per queue, the queues of one class still starve each
-other.
+On 2026-11-17 22:53:48 +0800, Yaohan Li wrote:
+> rcar_gen3_thermal_remove() only drops the runtime PM reference.  The two
+> threaded interrupts are left to devres, which releases them after the
+> TSC objects and the thermal zones have already been freed, and the
+> device keeps raising interrupts because nothing clears REG_GEN3_IRQEN.
+> 
+> rcar_gen3_thermal_irq() walks priv->tscs[i], reads REG_GEN3_IRQSTR
+> through tsc->base and calls thermal_zone_device_update(tsc->zone), so a
+> handler that the hardirq has already woken can run after those objects
+> are gone.
+> 
+> Disable the interrupt source for every TSC first, then release the
+> interrupt handlers, and only then drop the runtime PM reference.
+> REG_GEN3_IRQEN is only ever written by rcar_gen3_thermal_init(); a
+> concurrent set_trips() writes REG_GEN3_IRQMSK alone, so it cannot undo
+> the disable.
+> 
+> Remember the interrupt numbers that were successfully requested, so that
+> the partial-probe path, which also ends in .remove(), only releases what
+> was actually registered.
 
-Observed on machines in real use. OpenWrt users reported it as a
-multi-flow lockout on a Linksys WRT1200AC, and OpenWrt has worked
-around it since 2017 by sending all TX traffic of its 32-bit boards
-through queue 0. Reproduced on a Turris Omnia (Armada 385). With this
-patch each busy TX queue gets the same share and no stream stalls,
-4 x 23.5 Mbit/s on a 100 Mbit/s link and 4 x 232 Mbit/s on a 1 Gbit/s
-link. With an mqprio offload a higher queue still has priority over a
-lower one. Only the Armada 385 was tested. No kernel selftest covers
-the TX queue arbiter.
+Could this be re-written by a human to describe they "why" and not the 
+"how"?
 
-Fixes: ee40a116ebf1 ("net: mvneta: fix improper tx queue usage in mvneta_tx()")
-Link: https://github.com/openwrt/openwrt/issues/5411
-Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
----
-v4: The fixed priority and the weights are also written to the version
-1 registers. A setup that the driver rejects no longer clears the fixed
-priority. Discovery statement added.
----
- drivers/net/ethernet/marvell/mvneta.c | 56 ++++++++++++++++++++++++++-
- 1 file changed, 55 insertions(+), 1 deletion(-)
+> 
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> ---
+> Prepared against v7.4-rc1-1969-g666539eecdf4.
+> 
+> AI assistance: the analysis, the change and its review notes were
+> prepared with Claude (Anthropic) as a coding assistant.  The author
+> reviewed the reasoning and takes responsibility for the content.
+> 
+> This revision also clears REG_GEN3_IRQEN for every TSC before the
+> handlers are released.  rcar_gen3_thermal_init() is the only writer of
+> IRQEN; set_trips() writes IRQMSK only, so a concurrent trip update
+> cannot re-enable the interrupt source.
+> 
+> Testing: compile tested only (arm64, gcc 11.4).  No R-Car hardware was
+> available.  The partial-probe path that also ends in .remove() was not
+> exercised.
+> ---
+>  drivers/thermal/renesas/rcar_gen3_thermal.c | 25 +++++++++++++++++++++
+>  1 file changed, 25 insertions(+)
+> 
+> diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> index 9c64cbc2ee67..35bb49915a75 100644
+> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
+> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> @@ -110,6 +110,8 @@ struct rcar_gen3_thermal_priv {
+>  	int ptat[3];
+>  	int tj_t;
+>  	const struct rcar_thermal_info *info;
+> +	int irqs[2];
+> +	unsigned int num_irqs;
+>  };
+>  
+>  static inline u32 rcar_gen3_thermal_read(struct rcar_gen3_thermal_tsc *tsc,
+> @@ -468,7 +470,28 @@ MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
+>  
+>  static void rcar_gen3_thermal_remove(struct platform_device *pdev)
+>  {
+> +	struct rcar_gen3_thermal_priv *priv = platform_get_drvdata(pdev);
+>  	struct device *dev = &pdev->dev;
+> +	unsigned int i;
+> +
+> +	/*
+> +	 * Disable the interrupt source while the device is still runtime
+> +	 * resumed.  REG_GEN3_IRQEN is only ever written by
+> +	 * rcar_gen3_thermal_init(); a concurrent set_trips() writes
+> +	 * REG_GEN3_IRQMSK alone, so it cannot re-enable the source here.
+> +	 */
+> +	for (i = 0; i < priv->num_tscs; i++) {
 
-diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-index 89ade2ed7ce4..35409695d3d7 100644
---- a/drivers/net/ethernet/marvell/mvneta.c
-+++ b/drivers/net/ethernet/marvell/mvneta.c
-@@ -118,6 +118,7 @@
- #define      MVNETA_HSGMII_SERDES_PROTO		 0x1107
- #define MVNETA_TYPE_PRIO                         0x24bc
- #define      MVNETA_FORCE_UNI                    BIT(21)
-+#define MVETH_TXQ_FIXED_PRIO_REG                 0x24dc
- #define MVNETA_TXQ_CMD_1                         0x24e4
- #define MVNETA_TXQ_CMD                           0x2448
- #define      MVNETA_TXQ_DISABLE_SHIFT            8
-@@ -196,6 +197,7 @@
- #define      MVNETA_RXQ_ENABLE_MASK              0x000000ff
- #define MVETH_TXQ_TOKEN_COUNT_REG(q)             (0x2700 + ((q) << 4))
- #define MVETH_TXQ_TOKEN_CFG_REG(q)               (0x2704 + ((q) << 4))
-+#define MVETH_TXQ_WRR_ARB_REG(q)                 (0x2708 + ((q) << 4))
- #define MVNETA_GMAC_CTRL_0                       0x2c00
- #define      MVNETA_GMAC_MAX_RX_SIZE_SHIFT       2
- #define      MVNETA_GMAC_MAX_RX_SIZE_MASK        0x7ffc
-@@ -253,6 +255,8 @@
- #define MVNETA_TXQ_CMD1_REG			 0x3e00
- #define      MVNETA_TXQ_CMD1_BW_LIM_SEL_V1	 BIT(3)
- #define      MVNETA_TXQ_CMD1_BW_LIM_EN		 BIT(0)
-+#define MVNETA_TXQ_FIXED_PRIO_REG		 0x3e04
-+#define      MVNETA_TXQ_FIXED_PRIO_ALL		 0xff
- #define MVNETA_REFILL_NUM_CLK_REG		 0x3e08
- #define      MVNETA_REFILL_MAX_NUM_CLK		 0x0000ffff
- #define MVNETA_TX_MTU                            0x3e0c
-@@ -264,6 +268,8 @@
- #define      MVNETA_TXQ_BUCKET_REFILL_VALUE_MAX	 0x0007ffff
- #define MVNETA_TXQ_TOKEN_SIZE_REG(q)             (0x3e40 + ((q) << 2))
- #define      MVNETA_TXQ_TOKEN_SIZE_MAX           0x7fffffff
-+#define MVNETA_TXQ_WRR_ARB_REG(q)		 (0x3e80 + ((q) << 2))
-+#define      MVNETA_TXQ_WRR_WEIGHT_MASK		 0xff
- 
- /* The values of the bucket refill base period and refill period are taken from
-  * the reference manual, and adds up to a base resolution of 10Kbps. This allows
-@@ -518,6 +524,8 @@ struct mvneta_port {
- 	 */
- 	spinlock_t lock;
- 	bool is_stopped;
-+	/* An mqprio offload keeps the TX queues in fixed priority */
-+	bool txq_fixed_prio;
- 
- 	u32 cause_rx_tx;
- 	struct napi_struct napi;
-@@ -1632,6 +1640,39 @@ static void mvneta_txq_max_tx_size_set(struct mvneta_port *pp, int max_tx_size)
- 	}
- }
- 
-+static void mvneta_txq_wrr_weight(struct mvneta_port *pp, u32 reg, u32 weight)
-+{
-+	u32 val = mvreg_read(pp, reg);
-+
-+	val &= ~MVNETA_TXQ_WRR_WEIGHT_MASK;
-+	mvreg_write(pp, reg, val | weight);
-+}
-+
-+/* With the default fixed priority, a busy queue starves the others.
-+ * The Armada 370 and XP manuals list separate registers for the
-+ * version 1 arbiter, which runs without a shaper, so set both.
-+ */
-+static void mvneta_txq_wrr_set(struct mvneta_port *pp, int max_tx_size)
-+{
-+	/* In units of 256 bytes, must exceed the largest packet */
-+	u32 weight = max_tx_size / 256 + 1;
-+	int queue;
-+
-+	for (queue = 0; queue < txq_number; queue++) {
-+		mvneta_txq_wrr_weight(pp, MVNETA_TXQ_WRR_ARB_REG(queue), weight);
-+		mvneta_txq_wrr_weight(pp, MVETH_TXQ_WRR_ARB_REG(queue), weight);
-+	}
-+}
-+
-+/* Only the traffic classes of an mqprio offload keep the fixed priority */
-+static void mvneta_txq_fixed_prio_set(struct mvneta_port *pp)
-+{
-+	u32 val = pp->txq_fixed_prio ? MVNETA_TXQ_FIXED_PRIO_ALL : 0;
-+
-+	mvreg_write(pp, MVNETA_TXQ_FIXED_PRIO_REG, val);
-+	mvreg_write(pp, MVETH_TXQ_FIXED_PRIO_REG, val);
-+}
-+
- /* Set unicast address */
- static void mvneta_set_ucast_addr(struct mvneta_port *pp, u8 last_nibble,
- 				  int queue)
-@@ -3765,6 +3806,8 @@ static void mvneta_start_dev(struct mvneta_port *pp)
- 
- 	mvneta_max_rx_size_set(pp, pp->pkt_size);
- 	mvneta_txq_max_tx_size_set(pp, pp->pkt_size);
-+	mvneta_txq_wrr_set(pp, pp->pkt_size);
-+	mvneta_txq_fixed_prio_set(pp);
- 	mvneta_restore_per_queue_rate_limit(pp);
- 
- 	/* start the Rx/Tx activity */
-@@ -5345,9 +5388,20 @@ static int mvneta_setup_mqprio(struct net_device *dev,
- static int mvneta_setup_tc(struct net_device *dev, enum tc_setup_type type,
- 			   void *type_data)
- {
-+	struct mvneta_port *pp = netdev_priv(dev);
-+	struct tc_mqprio_qopt_offload *mqprio;
-+	int ret;
-+
- 	switch (type) {
- 	case TC_SETUP_QDISC_MQPRIO:
--		return mvneta_setup_mqprio(dev, type_data);
-+		mqprio = type_data;
-+		ret = mvneta_setup_mqprio(dev, mqprio);
-+		if (ret)
-+			return ret;
-+
-+		pp->txq_fixed_prio = mqprio->qopt.num_tc;
-+		mvneta_txq_fixed_prio_set(pp);
-+		return 0;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
+Move the loop variable declaration here.
+
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
+> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
+> +	}
+> +
+> +	/*
+> +	 * Release the interrupts before the TSCs and zones are freed:
+> +	 * free_irq() waits for an executing threaded handler, and the handler
+> +	 * dereferences both priv->tscs[i] and priv->tscs[i]->zone.
+> +	 */
+> +	for (i = 0; i < priv->num_irqs; i++)
+
+Can't you store a negative error code in riv->irqs[] to indicate no IRQ 
+and avoid adding the booking variable num_irqs? One variable can never 
+go out of sync.
+
+While at it you could create a new define for the maximum number of 
+IRQ's and replace the loop limit in rcar_gen3_thermal_request_irqs() and 
+the number of elements in irqs[].
+
+> +		devm_free_irq(dev, priv->irqs[i], priv);
+
+Why free it and just not sync the interrupt?
+
+>  
+>  	pm_runtime_put(dev);
+>  	pm_runtime_disable(dev);
+> @@ -504,6 +527,8 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
+>  						IRQF_ONESHOT, irqname, priv);
+>  		if (ret)
+>  			return ret;
+> +
+> +		priv->irqs[priv->num_irqs++] = irq;
+>  	}
+>  
+>  	return 0;
+> -- 
+> 2.34.1
+> 
+
 -- 
-2.54.0 (Apple Git-157)
-
+Kind Regards,
+Niklas Söderlund
