@@ -1,78 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794993112;
-	b=gGcN2xIG/f+M/40q3jNPdks8QFw0WxUuw8vmRkdYy83HZgkDg52zFgYXs3FGu0J1bio8
-	 MbjIykb62ijKeKsJ3iwWzb1YnJklzlYvArmsbyGVMU1WVHfwpS3yQ5rbE4XrMkmOxffEq
-	 rCTyrT1UPZuoUOjBL/Egv858JhYATmpiXTi3/Y8EwrlPJFV9KpbmdWzqh7WWkDol+U71A
-	 7We/BZWjoICNG6f29Qvu0QZ6ZSoi6Y45/0vRN/XFn4p0EtT0o9Z9TCzetd7l8bRnj8uVa
-	 3uMWEpVh5kyTKv21UWZnRAcj4gF5XEozi0ycDj/83T273/qdFj4PIzOcqeSJ3VMv8Dg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993112;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=qyGFGbMYGJsey2exwzU7zhNAjVyEJpG/PvPNhYFK6zU=;
-	b=rTwy4VPX1jhudbb9Uhvdm+dC2aWQFlb7RgXt/UklnVUyNAAsbbon6ZRco52tNq6Dcjl6
-	 KCeEmx/Udr41d4xP42vdxCrM9eEM1xNW4+t0Jx4xZXH6B6D6H0TAjDZmzzlDS3ptOk4m2
-	 HrZKih3WY1Z1nvZMY9Frxng+THgIkL7oIUueX1O2d17dIr5fmXuf0MnYYBB2vPtUEoXZL
-	 NFxIe/F9THxNhmyMCDqiYlFwqPU59XF/roz7zWNiXDbWzENmkHZbU/c09DoeguFR+ZJPa
-	 yWd9vxI5kTMfpMhnxximBPc8Hx8xFSk9BXr57OsK5P3vvKqbAFY42EE2ORizBHGbXew==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ALdW4v7W;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13248606A880;
-	Wed, 18 Nov 2026 09:11:52 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ALdW4v7W
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794993111;
-	b=gxv8sOiwiTxGhIU/0HeUKhWy35azxTUjRJmgVBDvYUD044tbBc7JgVAaoANFCNanYCPk
-	 p0xI2YXU1nSqxtWIiVU9EjfY0zVudcywitS1H/VLXovdy2U/+m5wIy2hnKk73UuHgB/AK
-	 17sL7QvPOzcuG0TnHtqssOtox3//oyyeGQB+lpTlj3GoBYb2uusaJ6IvbrYOR/pJhLSRV
-	 xw1cVDes1s4HRQ0R25U4VwofpcB0QNOKInQduM0FljBIc1KuACXm8YZkyyNxVF3aORqYw
-	 hrF3seK8Td7lgXN0Q3JV/2vVP4P8gAftI/T/jB6LOMlKWaPyfV9Yb4z8pY3yk4y3iBA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794993111;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=qyGFGbMYGJsey2exwzU7zhNAjVyEJpG/PvPNhYFK6zU=;
-	b=coS5vrjKdgynrrIUFTDMzqju4W6fMhOrZYzCDD3Tu365j8RTZ+OurkjZ4W26M2Rb91qW
-	 pmQmpi97ODiP3P5lwAkMsHhOfbklJZLR61pAZhdvjzmALpJ4w9reexevfCYcEVXZTVsow
-	 7g/IV1QS/I+sTaPkre3ioSVIriqtVkn8F0uvIQAsWiusvUbG3WttTcc+99N0PmniRnbcD
-	 Wh0Du9J4GjH8Pk2S9pA/qej1K7dTNyFxvUTfvU39uGkEOkmmNW0XHZr+4L+21BVf7QJsP
-	 SOW0QFN82J6P5TJqa+dNhfM0Gd20onj263inwV4O6MLOUULNUy3fvwloG5voXCuFj0Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794993124;
+	b=vAWvPajvq2pe/tzi6TVdeeS4lk2ORApL1CwEAmAwVudDl4pxTx3emZ3/CPPbQcunR+xr
+	 CeNnlFLm1ottAQvaUKyHtC4CBCLSMhujK76OYXlmaBCKxALEoW2lnFYvGyeprhPb4iwZf
+	 JWA8OyralA7JywyuVpuUqVgduKa4wOhLNgWj+7L0cyEnsIg3aTpvOU5xquEvtK5SYU73l
+	 v+rr3DiItRkTinCnuu/Piq/KTPwtJbbgtuc+Vuzaj+x4wMc6MAnd+AwBPr0SA5dOCNYaB
+	 q3vG0NBkc3a506TA+wD7EfF+oDzM6cZihZ00mBcBntG0kO5Vsjg0+IMObDqS5OVUcKA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993124;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=UHDkxn2msSfp62gJZEjez69Jd03Lj80/6aHBB9PIr9I=;
+	b=5Dv66Spl0UQJd7URlSgL3qfu+ng2s2P0K1lPa5ddja47N3TJId88aVozfY6xF0P41cqf
+	 o+62kYO2Keq7oJ6Q9T5K0vMHNTCCiYq1y6EV7MHcj469qejKvh2w/kCe6tdYdRftCOfdk
+	 lzQXg4GA4R5njnu/gZpBClMmRu1mNr36EZJsLo8AwGSh8luLsZKC3qgxZHuQiN6ZV0Drc
+	 eczqqX9suKF0F2rwYlqOf0N/DKKZGRidOuoyYt3Srm/A1K/zmXo3p9ensf1BRpVqubcJc
+	 EtAyMKFv95Yj+DUHa/k9XuikGvTK5ZGgrhubZ3wAAX0eLkF+BPaqZLnBRHOkB6ux7aw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OXh9LcBP;
+	arc=none smtp.remote-ip=220.197.31.5
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 48EB41F000C7;
-	Wed, 18 Nov 2026 09:11:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794993111;
-	bh=qyGFGbMYGJsey2exwzU7zhNAjVyEJpG/PvPNhYFK6zU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=ALdW4v7W8lQxxL81rPNshR5mZf8/nPa9r4vKWSt/At0Jtk6gaj2IgR1ojJrT0UjYM
-	 FzlHek6wH2u5dI/urcHKD51DRi+jJ6haHAvytT7W1nRAp7PvHsEpFTbGON9bKg6pq3
-	 oFBpl7fXXw5p5UVs+4AuPJj5g059Ze4ODuMGyjo0BCalXmy1kGAkKRaJOqKxCR4MIm
-	 hhgD5CZoYhR2AkoCZDNoZe5E8lNvBzTIzbQ11r+Hct9DLMMJbqJ0aPccNO7YzIjlqr
-	 tSSdulLhbRNDg4H9714CX7qBTxkKUVJPRVqlQkENBt+BJrEbFrxK85MdDbrauhp6J6
-	 FdL+yC9gUfxRA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CA00E4ACBC;
-	Wed, 18 Nov 2026 09:11:49 +0000 (UTC)
-From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Date: Wed, 18 Nov 2026 17:11:40 +0800
-Subject: [PATCH v5 2/2] pmdomain: rockchip: Add RK3572 power domains
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A314C606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:12:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A314C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OXh9LcBP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=UH
+	Dkxn2msSfp62gJZEjez69Jd03Lj80/6aHBB9PIr9I=; b=OXh9LcBPV/cLT3Xkdc
+	7/9Fj1PCtLmIUTFKvgrr3EIbEjyslYFvIrJ8nAI9uF258KRqpSOW4Jlxum4w2DoF
+	mjQ1+RtcN/DDjxuY98BMHDeYxuRfP2J0MDAEtLOIcAzFtPjZeHyyf61L9FePtRc7
+	L7mdZBaouCKaXjJnO+zeHCVh0=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3v0nSa_1qVwxBIg--.34758S2;
+	Wed, 18 Nov 2026 17:11:47 +0800 (CST)
+From: Xuewen Wang <wangxuewen_ky@163.com>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com,
+	liubaolin12138@163.com
+Cc: ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Baolin Liu <liubaolin@kylinos.cn>
+Subject: [PATCH v6 32/37] ntfs: report MFT writeback errors to fsnotify
+Date: Wed, 18 Nov 2026 17:06:56 +0800
+Message-Id: <20261118090701.1858849-33-wangxuewen_ky@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,469 +65,206 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-add-board-ok3572-c-pmdomain-v5-2-f1af919dd434@qq.com>
-References: <20261118-add-board-ok3572-c-pmdomain-v5-0-f1af919dd434@qq.com>
-In-Reply-To: <20261118-add-board-ok3572-c-pmdomain-v5-0-f1af919dd434@qq.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Elaine Zhang <zhangqing@rock-chips.com>, Ulf Hansson <ulfh@kernel.org>
-Cc: Cunhao Lu <1579567540@qq.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794993108; l=17503;
- i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=N43sbueW1lbIw+1i9mGHM2pKOJ20oo2kxGnFzq43wkU=;
- b=5ZalW0FO53SFAgQ9FmCJqkrWROH10E4hENXkj1rhZFdqM4aI7K6hTFDBBcdWq9s0LU8WIt7nz
- 3LXFLVXkinFBpAYsBn6pzPpSq7XDsq5LIICDqlgOawYjGZI8DGtyGRb
-X-Developer-Key: i=1579567540@qq.com; a=ed25519;
- pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
-X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
- auth_id=1177
-X-Original-From: Cunhao Lu <1579567540@qq.com>
-Reply-To: 1579567540@qq.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3v0nSa_1qVwxBIg--.34758S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtFW8tFyDuF45Xry8WF4xCrg_yoW7tF13pF
+	9xG393JrWktr42qwn7tF4jva4ak34xK3yUCrWxG3Wxuws5tr1jqF4DtrZYgFyrKr93Gw4r
+	Jw4DKrZ8uF1UZr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U8wIgUUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzhMpEmr9a9MNZQAA3h
 
-From: Cunhao Lu <1579567540@qq.com>
+From: Baolin Liu <liubaolin@kylinos.cn>
 
-Add the RK3572 PMU register layout and all 14 power domains, including
-bus idle requests, memory power controls and firmware shift-ready checks.
-Control the NPU voltage domain around power transitions. Keep boot-enabled
-IMG, VOP, VOP_PRE and VO domains powered until genpd releases startup
-protection after their consumers have probed.
+MFT write failures mark the volume without notifying error listeners.
+Report device failures from the existing BIO completion callback for
+both synchronous and asynchronous writes. Use blk_status_to_errno(),
+matching the error recorded in the address_space.
 
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
+Also report mirror and write-preparation failures. Use EFSCORRUPTED for
+invalid record geometry, mappings and MST preparation, preserving the
+errno through the affected error exits and mapping_set_error(). Keep
+ENOMEM redirty and retry behavior.
+
+Use the generic deferred reporter for completion-context notifications.
+
+Signed-off-by: Baolin Liu <liubaolin@kylinos.cn>
 ---
-Changes in v4:
-- Drop generic pending-state tracking and power-off recovery; reuse the
-  separate power-on rollback fix for firmware readiness errors.
-- Support all 14 domains, including NPU voltage-domain control and
-  cleanup after failed transitions.
-- Retain boot-enabled IMG, VOP, VOP_PRE and VO domains until sync_state.
-- Use firmware shift-ready naming for the GRF status.
-- Build ungate write masks with unsigned arithmetic.
+Changes in v6:
+Retain the upstream metadata-folio reader for MFT mirror I/O.
 
-Changes in v3:
-- Track incomplete shutdowns to preserve QoS and complete firmware updates.
-- Preserve pending memory resets across shutdown and cancel unfinished
-  power-on requests.
-- Attempt to restore the domain after power-off errors, while preserving
-  the original error returned to genpd.
+Validation:
+- Compiled and linked the NTFS module object with W=1 at this stage.
 
-Changes in v2:
-- Record low-level power-on and restoration stages before hardware
-  operations, so a retry cannot skip unfinished low-level work.
-- Retain pending memory resets even if memory is off on retry, and
-  avoid repeating completed resets during restoration.
-- Preserve QoS snapshots across failed power-on and shutdown; clear
-  progress after successful power-on or shutdown.
+ fs/ntfs/mft.c | 56 ++++++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 37 insertions(+), 19 deletions(-)
 
----
-
-References:
-
-Finley Xiao: RK3572 power-domain support
-https://github.com/rockchip-linux/kernel/commit/ac06def92d0abb61f5262b9c099831802cd90ef2
-
-Finley Xiao: IMG startup protection
-https://github.com/rockchip-linux/kernel/commit/71cc8905484f2a3a9fae4562fbd5f2d1fa31fa4c
-
-Finley Xiao: delayed release of startup protection
-https://github.com/rockchip-linux/kernel/commit/c7709ff2668a4ce3813f4df838743af562568150
-
----
-
-FAQ:
-
-Q: Can a failed power-off still overwrite saved QoS or leave the NIU idle?
-
-A: A shutdown retry while the domain still reads ON saves QoS again and
-   can replace the earlier snapshot with unrestored values. After failed
-   power-off, genpd retains its ON state and normally skips the driver's
-   power-on callback on resume, so the NIU can remain idle. These failures
-   predate this series. Changing the driver's early-return condition alone
-   cannot repair a callback that genpd does not invoke; shared shutdown
-   recovery needs a separate design.
-
-Q: Can a delayed power-off still miss the firmware notification?
-
-A: If polling times out before the OFF SMC and hardware completes the
-   request later, a retry can observe OFF and return without notifying
-   firmware. Rollback can also time out before its OFF notification.
-   The shared path has no record of this unfinished notification. Handling
-   it requires completion tracking independent of the sampled power state;
-   the RK3572 support patch does not provide that shared recovery mechanism.
-
-Q: What remains after a low-level power-on or memory-reset timeout?
-
-A: A PMU ON request can still complete after its polling timeout, and an
-   interrupted memory reset can leave the memory force-off bit set. A
-   retry that observes the domain ON returns before idle exit, firmware
-   readiness polling and QoS restore. genpd records OFF after failed
-   power-on and normally does not issue the direct OFF callback assumed
-   in the v2 review. Removing the pending-state fields removes that
-   bookkeeping failure, but does not fix these underlying failures.
-   Recovery needs to account for unfinished requests and memory resets;
-   a sampled power-state bit does not establish their completion. The
-   shared low-level error handling is retained pending that recovery work.
-
-Q: Can failed rollback still leave hardware ON while genpd records OFF?
-
-A: If rollback cannot idle or power off the domain, the original error is
-   returned and transition clocks are released. The power-on wrapper also
-   drops the supply reference where configured, and genpd may undo parent
-   power-on while the child remains powered. The new firmware wait can
-   reach this failure path too. NPU VD is retained while the domain reads
-   ON, but this does not protect its external supply or parent.
-   RK3572's domain table does not set need_regulator; the supply-reference
-   case applies to domains configured to use that shared path. Persistent
-   fault isolation and safe retry require a shared resource-lifetime and
-   genpd recovery policy, which this series does not implement.
-
-Link: https://sashiko.dev/#/patchset/20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com?part=10
-Link: https://sashiko.dev/#/patchset/20261023-add-board-ok3572-c-pmdomain-v2-0-79ddd42e92c1@qq.com?part=2
-Link: https://sashiko.dev/#/patchset/20261026-add-board-ok3572-c-pmdomain-v3-0-70d614d3d921@qq.com?part=2
----
- drivers/pmdomain/rockchip/pm-domains.c | 168 ++++++++++++++++++++++++++++++---
- 1 file changed, 157 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index 2c021784316a..d1f474347008 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -39,6 +39,7 @@
- #include <dt-bindings/power/rockchip,rk3528-power.h>
- #include <dt-bindings/power/rockchip,rk3562-power.h>
- #include <dt-bindings/power/rk3568-power.h>
-+#include <dt-bindings/power/rockchip,rk3572-power-controller.h>
- #include <dt-bindings/power/rockchip,rk3576-power.h>
- #include <dt-bindings/power/rk3588-power.h>
+diff --git a/fs/ntfs/mft.c b/fs/ntfs/mft.c
+index 0f33ecd1fc30..8c58f5e0314f 100644
+--- a/fs/ntfs/mft.c
++++ b/fs/ntfs/mft.c
+@@ -479,9 +479,11 @@ static void ntfs_mft_end_io(struct bio *bio)
+ 		err = blk_status_to_errno(bio->bi_status);
+ 	else
+ 		err = ctx->error;
++	/* Report device errors from both synchronous and asynchronous writes. */
++	if (bio->bi_status)
++		ntfs_report_file_metadata_error(ctx->mapping->host, err);
+ 	if (err) {
+ 		mapping_set_error(ctx->mapping, err);
+-		NVolSetErrors(ctx->vol);
+ 		ntfs_error(ctx->vol->sb, "I/O error while writing MFT: %d",
+ 			   err);
+ 	}
+@@ -542,29 +544,31 @@ static int ntfs_sync_mft_mirror_unit(struct ntfs_volume *vol,
+ 	u64 mirror_size;
+ 	unsigned int mirror_ofs;
+ 	u8 *src, *dst;
+-	int err;
++	int err = -EFSCORRUPTED;
  
-@@ -49,25 +50,34 @@ struct rockchip_domain_info {
- 	int req_mask;
- 	int idle_mask;
- 	int ack_mask;
-+	bool vd_en;
- 	bool active_wakeup;
-+	bool keepon_startup;
- 	bool need_regulator;
- 	int pwr_w_mask;
- 	int req_w_mask;
- 	int clk_ungate_mask;
- 	int mem_status_mask;
- 	int repair_status_mask;
-+	u32 fw_mask;
- 	u32 pwr_offset;
- 	u32 mem_offset;
- 	u32 req_offset;
-+	u32 status_offset;
-+	u32 clk_ungate_offset;
- };
+ 	if (unlikely(!vol->mftmirr_ino))
+-		return -EIO;
++		goto out_report;
  
- struct rockchip_pmu_info {
-+	bool chain_status_inverted;
-+
-+	u32 vd_offset;
- 	u32 pwr_offset;
- 	u32 status_offset;
- 	u32 req_offset;
- 	u32 idle_offset;
- 	u32 ack_offset;
- 	u32 mem_pwr_offset;
-+	u32 fw_status_offset;
- 	u32 chain_status_offset;
- 	u32 mem_status_offset;
- 	u32 repair_status_offset;
-@@ -105,6 +115,7 @@ struct rockchip_pm_domain {
+ 	mirror_size = (u64)vol->mftmirr_size * vol->mft_record_size;
+ 	if (mirror_file_ofs >= mirror_size ||
+ 	    unit->len > mirror_size - mirror_file_ofs)
+-		return -EIO;
++		goto out_report;
+ 	if (unit->folio_ofs + unit->len > folio_size(source))
+-		return -EIO;
++		goto out_report;
  
- struct rockchip_pmu {
- 	struct device *dev;
-+	struct regmap *grf;
- 	struct regmap *regmap;
- 	const struct rockchip_pmu_info *info;
- 	struct mutex mutex; /* mutex lock for pmu */
-@@ -259,6 +270,35 @@ struct rockchip_pmu {
- #define DOMAIN_RK3568(name, pwr, req, wakeup, regulator)		\
- 	DOMAIN_M_R(name, pwr, pwr, req, req, req, wakeup, regulator)
- 
-+#define DOMAIN_RK3572_FLAGS(_name, p_offset, pwr, status, repair, r_offset, req, vd, fw, keepon) \
-+{							\
-+	.name = _name,					\
-+	.pwr_offset = p_offset,				\
-+	.pwr_mask = (pwr),				\
-+	.pwr_w_mask = (pwr) << 16,			\
-+	.status_mask = (status),				\
-+	.mem_offset = p_offset,				\
-+	.mem_status_mask = (pwr),				\
-+	.repair_status_mask = (repair),			\
-+	.req_offset = r_offset,				\
-+	.req_mask = (req),				\
-+	.req_w_mask = (req) << 16,			\
-+	.status_offset = r_offset,			\
-+	.idle_mask = (req),				\
-+	.ack_mask = (req),				\
-+	.clk_ungate_offset = r_offset,			\
-+	.clk_ungate_mask = (req),				\
-+	.vd_en = vd,					\
-+	.fw_mask = (fw),					\
-+	.keepon_startup = keepon,				\
-+}
-+
-+#define DOMAIN_RK3572(name, p_offset, pwr, status, repair, r_offset, req, vd, fw) \
-+	DOMAIN_RK3572_FLAGS(name, p_offset, pwr, status, repair, r_offset, req, vd, fw, false)
-+
-+#define DOMAIN_RK3572_P(name, p_offset, pwr, status, repair, r_offset, req, vd, fw) \
-+	DOMAIN_RK3572_FLAGS(name, p_offset, pwr, status, repair, r_offset, req, vd, fw, true)
-+
- #define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, req, idle, g_mask, wakeup)	\
- 	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_offset, req, idle, idle, g_mask, wakeup, false)
- 
-@@ -377,15 +417,16 @@ static bool rockchip_pmu_domain_is_idle(struct rockchip_pm_domain *pd)
- 	const struct rockchip_domain_info *pd_info = pd->info;
- 	unsigned int val;
- 
--	regmap_read(pmu->regmap, pmu->info->idle_offset, &val);
-+	regmap_read(pmu->regmap, pmu->info->idle_offset + pd_info->status_offset, &val);
- 	return (val & pd_info->idle_mask) == pd_info->idle_mask;
- }
- 
--static unsigned int rockchip_pmu_read_ack(struct rockchip_pmu *pmu)
-+static unsigned int rockchip_pmu_read_ack(struct rockchip_pm_domain *pd)
- {
-+	struct rockchip_pmu *pmu = pd->pmu;
- 	unsigned int val;
- 
--	regmap_read(pmu->regmap, pmu->info->ack_offset, &val);
-+	regmap_read(pmu->regmap, pmu->info->ack_offset + pd->info->status_offset, &val);
- 	return val;
- }
- 
-@@ -394,7 +435,7 @@ static int rockchip_pmu_ungate_clk(struct rockchip_pm_domain *pd, bool ungate)
- 	const struct rockchip_domain_info *pd_info = pd->info;
- 	struct rockchip_pmu *pmu = pd->pmu;
- 	unsigned int val;
--	int clk_ungate_w_mask = pd_info->clk_ungate_mask << 16;
-+	u32 clk_ungate_w_mask = (u32)pd_info->clk_ungate_mask << 16;
- 
- 	if (!pd_info->clk_ungate_mask)
- 		return 0;
-@@ -404,7 +445,8 @@ static int rockchip_pmu_ungate_clk(struct rockchip_pm_domain *pd, bool ungate)
- 
- 	val = ungate ? (pd_info->clk_ungate_mask | clk_ungate_w_mask) :
- 			clk_ungate_w_mask;
--	regmap_write(pmu->regmap, pmu->info->clk_ungate_offset, val);
-+	regmap_write(pmu->regmap,
-+		     pmu->info->clk_ungate_offset + pd_info->clk_ungate_offset, val);
- 
- 	return 0;
- }
-@@ -433,9 +475,8 @@ static int rockchip_pmu_set_idle_request(struct rockchip_pm_domain *pd,
- 
- 	wmb();
- 
--	/* Wait util idle_ack = 1 */
- 	target_ack = idle ? pd_info->ack_mask : 0;
--	ret = readx_poll_timeout_atomic(rockchip_pmu_read_ack, pmu, val,
-+	ret = readx_poll_timeout_atomic(rockchip_pmu_read_ack, pd, val,
- 					(val & pd_info->ack_mask) == target_ack,
- 					0, 10000);
- 	if (ret) {
-@@ -547,6 +588,9 @@ static bool rockchip_pmu_domain_is_chain_on(struct rockchip_pm_domain *pd)
- 	regmap_read(pmu->regmap,
- 		    pmu->info->chain_status_offset + pd->info->mem_offset, &val);
- 
-+	if (pmu->info->chain_status_inverted)
-+		return !(val & pd->info->mem_status_mask);
-+
- 	/* 1'b1: power on, 1'b0: power off */
- 	return val & pd->info->mem_status_mask;
- }
-@@ -671,9 +715,37 @@ static void rockchip_pd_power_on_rollback(struct rockchip_pm_domain *pd)
- 			pd->genpd.name, ret);
- }
- 
-+static void rockchip_pmu_vd_on(struct rockchip_pm_domain *pd, bool on)
-+{
-+	const struct rockchip_domain_info *pd_info = pd->info;
-+	struct rockchip_pmu *pmu = pd->pmu;
-+	unsigned int val;
-+
-+	if (!pd_info->vd_en)
-+		return;
-+
-+	val = on ? pd_info->pwr_w_mask : pd_info->pwr_mask | pd_info->pwr_w_mask;
-+	regmap_write(pmu->regmap, pmu->info->vd_offset + pd_info->pwr_offset, val);
-+}
-+
-+static int rockchip_pmu_wait_fw_shift_ready(struct rockchip_pm_domain *pd)
-+{
-+	struct rockchip_pmu *pmu = pd->pmu;
-+	u32 mask = pd->info->fw_mask;
-+	unsigned int val;
-+
-+	if (!mask)
-+		return 0;
-+
-+	return regmap_read_poll_timeout(pmu->grf, pmu->info->fw_status_offset,
-+				       val, (val & mask) == mask, 0, 10000);
-+}
-+
- static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
- {
- 	struct rockchip_pmu *pmu = pd->pmu;
-+	bool vd_was_on = false;
-+	unsigned int val;
- 	int ret;
- 
- 	guard(mutex)(&pmu->mutex);
-@@ -681,9 +753,21 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
- 	if (rockchip_pmu_domain_is_on(pd) == power_on)
- 		return 0;
- 
-+	if (power_on && pd->info->vd_en) {
-+		ret = regmap_read(pmu->regmap,
-+				  pmu->info->vd_offset + pd->info->pwr_offset, &val);
-+		if (ret)
-+			return ret;
-+		vd_was_on = !(val & pd->info->pwr_mask);
-+		rockchip_pmu_vd_on(pd, true);
+ 	mirror = ntfs_read_metadata_folio(vol->mftmirr_ino->i_mapping,
+-					  mirror_file_ofs >> PAGE_SHIFT);
+-	if (IS_ERR(mirror))
+-		return PTR_ERR(mirror);
++				    mirror_file_ofs >> PAGE_SHIFT);
++	if (IS_ERR(mirror)) {
++		err = PTR_ERR(mirror);
++		goto out_report;
 +	}
-+
- 	ret = clk_bulk_enable(pd->num_clks, pd->clks);
- 	if (ret < 0) {
- 		dev_err(pmu->dev, "failed to enable clocks\n");
-+		/* Preserve a VD request retained by an earlier failed attempt. */
-+		if (power_on && !vd_was_on)
-+			rockchip_pmu_vd_on(pd, false);
- 		return ret;
+ 
+ 	folio_lock(mirror);
+ 	if (folio_test_writeback(mirror))
+ 		folio_wait_writeback(mirror);
+ 	mirror_ofs = mirror_file_ofs - folio_pos(mirror);
+ 	if (mirror_ofs + unit->len > folio_size(mirror)) {
+-		err = -EIO;
++		err = -EFSCORRUPTED;
+ 		goto out_unlock;
  	}
  
-@@ -698,6 +782,7 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
- 			goto out;
+@@ -596,6 +600,9 @@ static int ntfs_sync_mft_mirror_unit(struct ntfs_volume *vol,
+ out_unlock:
+ 	folio_unlock(mirror);
+ 	folio_put(mirror);
++out_report:
++	if (err)
++		ntfs_report_metadata_error(vol, err);
+ 	return err;
+ }
+ 
+@@ -627,10 +634,10 @@ static int ntfs_prepare_mft_record_io_units(struct ntfs_inode *ni,
+ 	unsigned int i;
+ 
+ 	if (!nr_units || nr_units > ARRAY_SIZE(ni->mft_lcn))
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	for (i = 0; i < nr_units; i++)
+ 		if (ni->mft_lcn[i] < 0)
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 
+ 	cluster_ofs = ntfs_bytes_to_cluster_off(vol, record_byte);
+ 	if (vol->mft_io_unit_size > vol->mft_record_size) {
+@@ -715,8 +722,10 @@ int write_mft_record_nolock(struct ntfs_inode *ni, struct mft_record *m, int syn
+ 		goto done;
+ 
+ 	err = ntfs_prepare_mft_record_io_units(ni, units);
+-	if (err < 0)
++	if (err < 0) {
++		err = -EFSCORRUPTED;
+ 		goto err_out;
++	}
+ 	nr_units = err;
+ 
+ 	kaddr = kmap_local_folio(folio, 0);
+@@ -727,6 +736,7 @@ int write_mft_record_nolock(struct ntfs_inode *ni, struct mft_record *m, int syn
+ 	err = pre_write_mst_fixup((struct ntfs_record *)fixup_m, vol->mft_record_size);
+ 	if (err) {
+ 		ntfs_error(vol->sb, "Failed to apply mst fixups!");
++		err = -EFSCORRUPTED;
+ 		goto unmap_err_out;
  	}
  
-+	/* A timed-out power-on request may still complete, so keep VD on. */
- 	ret = rockchip_do_pmu_set_power_domain(pd, power_on);
- 	if (ret < 0)
- 		goto out;
-@@ -705,13 +790,26 @@ static int rockchip_pd_power(struct rockchip_pm_domain *pd, bool power_on)
- 	if (power_on) {
- 		/* if powering up, leave idle mode */
- 		ret = rockchip_pmu_set_idle_request(pd, false);
--		if (ret < 0) {
--			rockchip_pd_power_on_rollback(pd);
--			goto out;
-+		if (ret < 0)
-+			goto rollback;
-+
-+		ret = rockchip_pmu_wait_fw_shift_ready(pd);
-+		if (ret) {
-+			dev_err(pmu->dev, "failed to get firmware ready for domain '%s': %d\n",
-+				pd->genpd.name, ret);
-+			goto rollback;
- 		}
- 
- 		rockchip_pmu_restore_qos(pd);
+@@ -813,8 +823,13 @@ int write_mft_record_nolock(struct ntfs_inode *ni, struct mft_record *m, int syn
+ 		mark_mft_record_dirty(ni);
+ 		if (!sync)
+ 			err = 0;
+-	} else
+-		NVolSetErrors(vol);
 +	} else {
-+		rockchip_pmu_vd_on(pd, false);
- 	}
-+	goto out;
++		struct ntfs_inode *base_ni = ntfs_inode_base(ni);
 +
-+rollback:
-+	rockchip_pd_power_on_rollback(pd);
-+	if (pd->info->vd_en && !rockchip_pmu_domain_is_on(pd))
-+		rockchip_pmu_vd_on(pd, false);
- 
- out:
- 	rockchip_pmu_ungate_clk(pd, false);
-@@ -943,7 +1041,9 @@ static int rockchip_pm_add_one_domain(struct rockchip_pmu *pmu,
- 	pd->genpd.power_on = rockchip_pd_power_on;
- 	pd->genpd.attach_dev = rockchip_pd_attach_dev;
- 	pd->genpd.detach_dev = rockchip_pd_detach_dev;
--	pd->genpd.flags = GENPD_FLAG_PM_CLK | GENPD_FLAG_NO_STAY_ON;
-+	pd->genpd.flags = GENPD_FLAG_PM_CLK;
-+	if (!pd_info->keepon_startup)
-+		pd->genpd.flags |= GENPD_FLAG_NO_STAY_ON;
- 	if (pd_info->active_wakeup)
- 		pd->genpd.flags |= GENPD_FLAG_ACTIVE_WAKEUP;
- 	pm_genpd_init(&pd->genpd, NULL,
-@@ -1089,6 +1189,12 @@ static int rockchip_pm_domain_probe(struct platform_device *pdev)
- 	mutex_init(&pmu->mutex);
- 
- 	pmu->info = pmu_info;
-+	if (pmu_info->fw_status_offset) {
-+		pmu->grf = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
-+		if (IS_ERR(pmu->grf))
-+			return dev_err_probe(dev, PTR_ERR(pmu->grf),
-+					     "failed to get system GRF\n");
++		mapping_set_error(folio->mapping, err);
++		ntfs_report_file_metadata_error(VFS_I(base_ni),
++						err);
 +	}
+ 	return err;
+ }
  
- 	pmu->genpd_data.domains = pmu->domains;
- 	pmu->genpd_data.num_domains = pmu_info->num_domains;
-@@ -1340,6 +1446,23 @@ static const struct rockchip_domain_info rk3568_pm_domains[] = {
- 	[RK3568_PD_PIPE]	= DOMAIN_RK3568("pipe", BIT(8), BIT(11), true, false),
- };
+@@ -3180,7 +3195,7 @@ static int ntfs_map_mft_io_locked(struct ntfs_inode *ni, u64 folio_byte,
  
-+static const struct rockchip_domain_info rk3572_pm_domains[] = {
-+	[RK3572_PD_NVM1]	= DOMAIN_RK3572("nvm1",      0x0, BIT(4),  0,      BIT(3),  0x0, BIT(6),  false, 0),
-+	[RK3572_PD_DSMC]	= DOMAIN_RK3572("dsmc",      0x0, BIT(5),  BIT(5), 0,       0x0, BIT(7),  false, 0),
-+	[RK3572_PD_AUDIO]	= DOMAIN_RK3572("audio",     0x0, BIT(6),  0,      BIT(4),  0x0, BIT(8),  false, 0),
-+	[RK3572_PD_PHP]		= DOMAIN_RK3572("php",       0x0, BIT(7),  0,      BIT(5),  0x0, BIT(9),  false, BIT(28)),
-+	[RK3572_PD_VDEC]	= DOMAIN_RK3572("vdec",      0x0, BIT(8),  0,      BIT(6),  0x0, BIT(10), false, 0),
-+	[RK3572_PD_IMG]		= DOMAIN_RK3572_P("img",     0x0, BIT(9),  0,      BIT(7),  0x0, BIT(11), false, 0),
-+	[RK3572_PD_VI]		= DOMAIN_RK3572("vi",        0x0, BIT(10), 0,      BIT(8),  0x0, BIT(12), false, 0),
-+	[RK3572_PD_VENC]	= DOMAIN_RK3572("venc",      0x0, BIT(11), 0,      BIT(9),  0x0, BIT(13), false, 0),
-+	[RK3572_PD_VOP]		= DOMAIN_RK3572_P("vop",     0x0, BIT(12), 0,      BIT(10), 0x0, BIT(14), false, BIT(23)),
-+	[RK3572_PD_VOP_PRE]	= DOMAIN_RK3572_P("vop_pre", 0x0, BIT(13), 0,      BIT(11), 0x0, 0,       false, 0),
-+	[RK3572_PD_VO]		= DOMAIN_RK3572_P("vo",      0x0, BIT(14), 0,      BIT(12), 0x0, BIT(15), false, 0),
-+	[RK3572_PD_NVM0]	= DOMAIN_RK3572("nvm0",      0x0, BIT(15), 0,      BIT(13), 0x4, BIT(0),  false, 0),
-+	[RK3572_PD_NPU]		= DOMAIN_RK3572("npu",       0x4, BIT(1),  0,      BIT(14), 0x4, BIT(2),  true,  BIT(27)),
-+	[RK3572_PD_GPU]		= DOMAIN_RK3572("gpu",       0x4, BIT(2),  0,      BIT(15), 0x4, BIT(3),  false, BIT(29)),
-+};
-+
- static const struct rockchip_domain_info rk3576_pm_domains[] = {
- 	[RK3576_PD_NPU]		= DOMAIN_RK3576("npu",    0x0, BIT(0),  BIT(0), 0,       0x0, 0,       0,       0,       false),
- 	[RK3576_PD_NVM]		= DOMAIN_RK3576("nvm",    0x0, BIT(6),  0,      BIT(6),  0x4, BIT(2),  BIT(18), BIT(2),  false),
-@@ -1563,6 +1686,25 @@ static const struct rockchip_pmu_info rk3568_pmu = {
- 	.domain_info = rk3568_pm_domains,
- };
+ 	lockdep_assert_held(&ni->runlist.lock);
+ 	if (!ni->runlist.rl)
+-		return -EIO;
++		return -EFSCORRUPTED;
  
-+static const struct rockchip_pmu_info rk3572_pmu = {
-+	.pwr_offset = 0x210,
-+	.status_offset = 0x230,
-+	.chain_status_offset = 0x250,
-+	.chain_status_inverted = true,
-+	.mem_status_offset = 0x260,
-+	.mem_pwr_offset = 0x300,
-+	.req_offset = 0x110,
-+	.idle_offset = 0x130,
-+	.ack_offset = 0x120,
-+	.repair_status_offset = 0x570,
-+	.clk_ungate_offset = 0x150,
-+	.vd_offset = 0x220,
-+	.fw_status_offset = 0x140,
-+
-+	.num_domains = ARRAY_SIZE(rk3572_pm_domains),
-+	.domain_info = rk3572_pm_domains,
-+};
-+
- static const struct rockchip_pmu_info rk3576_pmu = {
- 	.pwr_offset = 0x210,
- 	.status_offset = 0x230,
-@@ -1674,6 +1816,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
- 		.compatible = "rockchip,rk3568-power-controller",
- 		.data = (void *)&rk3568_pmu,
- 	},
-+	{
-+		.compatible = "rockchip,rk3572-power-controller",
-+		.data = (void *)&rk3572_pmu,
-+	},
- 	{
- 		.compatible = "rockchip,rk3576-power-controller",
- 		.data = (void *)&rk3576_pmu,
-
+ 	vcn = ntfs_bytes_to_cluster(vol, file_ofs);
+ 	/*
+@@ -3192,10 +3207,10 @@ static int ntfs_map_mft_io_locked(struct ntfs_inode *ni, u64 folio_byte,
+ 	if (lcn == LCN_RL_NOT_MAPPED)
+ 		return -EAGAIN;
+ 	if (lcn < 0)
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	if (ntfs_bytes_to_cluster_off(vol, file_ofs) + unit->len >
+ 	    vol->cluster_size)
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 
+ 	unit->sector = ntfs_bytes_to_bio_sector(
+ 		NTFS_CLU_TO_B(vol, lcn) +
+@@ -3286,7 +3301,7 @@ static void ntfs_mft_write_error(struct ntfs_volume *vol,
+ 				 struct address_space *mapping, int err)
+ {
+ 	mapping_set_error(mapping, err);
+-	NVolSetErrors(vol);
++	ntfs_report_file_metadata_error(mapping->host, err);
+ 	ntfs_error(vol->sb, "Error while writing MFT folio: %d", err);
+ }
+ 
+@@ -3390,8 +3405,10 @@ static int ntfs_write_mft_block(struct folio *folio, struct writeback_control *w
+ 	err = ntfs_prepare_mft_folio_units(ni, folio_byte, file_limit,
+ 					   record_selected, units, &nr_units,
+ 					   max_units, &defer);
+-	if (err)
++	if (err) {
++		err = -EFSCORRUPTED;
+ 		goto out_noio;
++	}
+ 	if (!nr_units) {
+ 		if (defer)
+ 			goto out_noio;
+@@ -3444,6 +3461,7 @@ static int ntfs_write_mft_block(struct folio *folio, struct writeback_control *w
+ 						ctx->error = -EIO;
+ 					redirty = true;
+ 					err = -EIO;
++					ntfs_mft_write_error(vol, mapping, err);
+ 					break;
+ 				}
+ 			}
 -- 
-2.34.1
-
+2.51.0
 
