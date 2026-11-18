@@ -1,107 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021048;
-	b=X9UMh7mLvHrt+OEuXnki4bBcaqLjBZNdikr6FN067koPqVVHHSHSjJ4XrZE9IZltMsf8
-	 fLEbaaIlVcqWMFW4NkB45tDQkEvskznk+USUrcpClIVnXAUgRAnp3fpKAHYgoa9INeS2k
-	 jj7O9bKV8FJfYKS6xpPzpqyo6ZwcHxmj7U2JFe4Ur+GdCP2mU/t10d281vkHsW9xtV/ts
-	 eyZ6BoEBs8KQN3xzFIWtURndk4IQ7D26APuhcXjz44SC3WCvZGajneJzhSGuhv2Y+FtdE
-	 0LnbFbGIVSpuvfyvqRPMCMAxH5wlHYGg2OUyAxUUgj2drupsgnlC6v6fD7QgGvWFJZA==
+	t=1795021095;
+	b=lXxsYu77hLU1OT0cB5QjHrY47RDCvyTTr0pJ/o1fQLiKh6MqJ6fhWAiklO9VkaFlpEOQ
+	 wIdRgHBNvJK1tyiqB0cf4KKBGoV0ZttU4zmjKKkjC2/8lAvweOoMz0QxYttMWFXq2nRt2
+	 yeEsWVm1KhrudLE5JwxUDNqA4Iy9hvqoIrAalDzQeysIMu2CztUZiZS2qN1wRqSKt9uOE
+	 RMEdGUYkN+vRU5TKayaC/jLJPed0O3aKO4duJIX5+xufXN9n39ySpXI60MZ1xnjRaBv5v
+	 H00jabwK2+LeRqQPsEEpa06uY+wOLSBADwY5iLvHj8vgb9kqDc19j59SwAP/03Zo4FQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021048;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021095;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=q4KDOTPdWsAvn5fnJD2QpV13fNXrFnBH5XSZbqxlxTc=;
-	b=T6h7W/BXwGBxNeYhRvNL9LpjTeFW1nx5iv7Nm4HLKaaHmr7+fdBEX3ntvFDcyRRHH61+
-	 5sALCz8EiBt8/x/a0fi4okBxukqOwDTvosT5C/ip8KEmm/Km3dpwpW9Ca3yqr4FSssfl5
-	 iroCQYVqsJ2No4ryxq26QSCjtWsN7KY2Efb1zORTE9RZMnrSL/ZPMg3vIlre0Pv9BnCYf
-	 a4VLEYNTxQnqv7JgFS6DQutzMVZy/OD0Jx+0SQBtsKLRT1R/90Gn2yqbOzGliYJbfWa5n
-	 pZpvlnAgdxUBpeKXrYgrBNWVWhfpjAoPue5TJXWnnVZDM3/X9hDLDtnQU97LSYLdJRA==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=km9GD978uRX5/nYQ4zVMWd8Czd4GQb3wZwOd+NOixeM=;
+	b=P+dcHMs0G6LwB+SIImSP6eJ+6/7w1pbU/xhBMiX12x7E4tuPdQtqDsEPux2cZi/MgIw0
+	 G9VY5SQQ/uJv6+ijkaVTl642IsZ+x5nqomnnPgFNn1mzzizX6quiWtCFhVmLrk7s7L11h
+	 CGSaQlUPrdaQKxj0GhM6jAL/xmZ7COOQZi2ZAdnRvV/lX9qk6CSbHAywpcgZ8QxDYj3oV
+	 VXm5EdHTXcNL0uLvND3BtAUu8uzbmg6aIC5f5hYAbz8TEueZ3AAH3wFEi4iRGCiYG3APd
+	 ZIEUrDSqAdq9wPGb3SMcq7aciikZWFhJqALEVG2EmQ6VgF7vzpn+ifvPGjjpgM05hug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gDbaeCUk;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fgg5oEHb;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA45160A260F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:57:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA45160A260F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B31BD606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:58:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B31BD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gDbaeCUk
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a42b34e930so988133f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:57:27 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fgg5oEHb
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so12086675e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:58:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795021046; x=1795625846; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=q4KDOTPdWsAvn5fnJD2QpV13fNXrFnBH5XSZbqxlxTc=;
-        b=gDbaeCUk4GIRuxDdeulzhOU84d7EBOgDmBW3pOzJDe3LLdN1nTHx/eqr38pjPOmtPU
-         ZZiSrhlKPjhHiIeMLGGoVnBZj7UvbiTbgmzaEW4zDTAm4UQove74zVlNSNaj/DIY1Eh8
-         65MATJR6ts2TkdIZsG7eDeqh8gICNdODo4FzYaj6iZEFhCLNZmqGG4swtcESCxRFzH2i
-         7A+vuoQFVCuN8NyMeEZdXnLDyXBSNx9mFjLFf//TTfB78DE3YIZTp2vZGzbpN3QZw8bs
-         vIFDglROm6lHh6pLIlRQEoSRIGdrelE//UvVbtHMUAtyCQCtm61WNdYJR92PJPwJhQwf
-         ijzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795021046; x=1795625846;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1795021093; x=1795625893; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=q4KDOTPdWsAvn5fnJD2QpV13fNXrFnBH5XSZbqxlxTc=;
-        b=FspehrzSu+GstN6XGeJ7PNXo1fGvGh/2H6ErOYEF/HmVODCkpu09GtQVcKnXYJe9D2
-         xaTtPWnTjVq+w8x7xeYJuand5Is0cTIHpeLFbP+ucL7xYqumu4jXt+0xZEbkRUhFzBBu
-         /sJbnoY90E60wcCaeFJdJjtAu+AkPyhvN6Wfht4CY4CTqmBrAIUS7qeN7CSSzz8ahnTQ
-         8/JaJxLtutH06SDOMe+tcHGRe0BG7R5CtHA/i3sS4Wqrck3wWaNCQ4B0Zc9gOKhMSgzx
-         yETElLtN5c+drX/+mxSKp+4VnSb8oxKMw4Yvoyf/CknJo1DRtI3p0Yy8KoLHmmQWx2IM
-         3x1Q==
-X-Forwarded-Encrypted: i=1; AL+hErHcN2gAcSAfOO9SC/TTGU0bCgQ8MLBcxyBQv5EcNe7ZozdhHgTmZNyv7hgB0Lv+a42QJQjb3aoYwP9F6AY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VcwPaHQcvBT9YpRvGYKqI/5Cg+vf7CFqMpWjuqa55yck5wRgh
-	av+IDGGycy1L4OCeZiXwwQ97fa9EwUgHocdberxBaK+8HK9oxpcQfcSN
-X-Gm-Gg: AZFdTZczYoGyn7/dvfEaeCmkuBoOvC1838H79X9kiGEhBjFNEDCb0IqWk8lSZHZTqmA
-	e9TB0gr9CsuHAHHPciwzyi67EENiTpBYyHKz3mlA9o1ejC0HCzg3Er+f7NdzbbepREVYlM8BN5n
-	9of3wMWvaXG+3CEn1OUO/3+BFrx+TyyQ8OjzqN59QYO3Squ16RaxhxG9Kn1TukwI1OgGb2ABwhE
-	zC+x0j3Mw0tNkZNtRY2ciSpthJZdwfdHHoi4q3VP9WWS2/0DdNjwEZFCJxCv7HIK1U5Ci71lhdd
-	jbfoG+CuWwFUELPOaDN5KlxpAMLSCdNhKrFGB3b3JHwDHorJVbNQLXADnu9W0LsZpimRjeW+lAG
-	MQyouvbbvP1n1pCgwgFoBIYXpVZdB8Gh9S+kZIJ3NuswcvPbdPfjuXBA3lrDqDIEq1x0sMWKP/q
-	zvM2cR4XsAJNb3IMoSJSrjnp+BLTbFAa6jSaCKd/fYcp+sMFe87O+bC9KvobiKvFogrG1EghC2N
-	jLmDndxEcSqEaxU992oJaBElzhgk4vxBbW6aFAKL+xxdv5uS8M09KXGi5uGlt9pCMOVVgcBrzGE
-	Ny6ESxE3Y1N8RfEKlGtKDUJ0XjIpjCSEqajW7T5vjDNTdijFYC1qKOCbnu4dJ+YosvhdZYdTjhm
-	D8q6zgjmjXDsBWSSjj85itz+h+uhx2ejRi2eXl1g07M3PxPC2G2H5DjGG/c7+bSrRkiZxr2qIWb
-	y+
-X-Received: by 2002:a05:6000:608:b0:493:28c4:331e with SMTP id ffacd0b85a97d-4a63ac6b509mr6786601f8f.28.1795021045786;
-        Wed, 18 Nov 2026 08:57:25 -0800 (PST)
-Received: from C422HJQPQG-Fractile (cmbg-18-b2-v4wan-168328-cust3701.vm17.cable.virginm.net. [80.5.206.118])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656b1cfdfsm6052676f8f.47.2026.11.18.08.57.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:57:25 -0800 (PST)
-Date: Wed, 18 Nov 2026 16:57:22 +0000
-From: "Vishal Moola (Fractile)" <vishal.moola@gmail.com>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Asahi Lina <lina+kernel@asahilina.net>,
-	Lyude Paul <lyude@redhat.com>, dri-devel@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rust: drm: ioctl: fix call to unsafe function
-Message-ID: <av3Y8mTaRi7l-5iy@C422HJQPQG-Fractile>
-References: <20261118133232.48603-1-vishal.moola@gmail.com>
- <DMYH0CXPUTMP.J3AKN619TL34@kernel.org>
+        bh=km9GD978uRX5/nYQ4zVMWd8Czd4GQb3wZwOd+NOixeM=;
+        b=fgg5oEHbQteCLHBjs8y8bjfuTOdBPDekfVS1nPHxm3IIDAA7nRIwboP3j19dmk7oSv
+         BpzwQtolBDUsqXKFSG0URKNb+1+0Trh4lAhDwFXIpPg1rkzB2F0GXGlmDVkUU8DZBaYB
+         CWs85V5tWAKxcXJnpwNK1MMOzdj6A65HpJipuVBwiqM0R21DokAo4Iqp0t5gjCy6Q/dG
+         lZENBAQvSADE2rdiKdE98iVs4EdqjnchQWmBg1XiGzjzpYdVzQ16cav9UoVhb0YyX7T0
+         QYAVthuFx2IgFFrIUy+uJHuqaioNtGiFW8UDGjPYSnLaE5Ox9drBAVJbnqAMLJvO2/5S
+         uCdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795021093; x=1795625893;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=km9GD978uRX5/nYQ4zVMWd8Czd4GQb3wZwOd+NOixeM=;
+        b=I1aOXB7v9vE9i+NDyQyjqZ9825ufanegW9KohZbFVYzgtwapfLUrELdjuB6Dw8d1YQ
+         VxtmEYOJzk9rH9JZuG3zEBQ7JlcTMNguUoD2TcKSgVgOojqcJWClrTjI7g1lNiMxJHJY
+         ckidKgoAED2cdgbNNtjL52Kp9Q+cIabIpKtCL2mPeeCjzx1fg5PEdoUD8i/osdCEurpM
+         ubj3qvkXtC/Fiwr631MV7sfiZ+QhSOXoH0WCJR92J6JAV1x1Ma87bNCWE9tfW+za2qKl
+         RIUXqw+xmwhZlvhPjBSNH5TxOG38D79fPYuo+9nT+pED91xy8Vu7zC6K4BV60YKTHWbJ
+         x/7g==
+X-Forwarded-Encrypted: i=1; AL+hErExNu48qtnKrz3n6WtDfhYo99NzAKMJ6Cn0W/STPnq1RaPn/WLvvnXEUAXgkZakjT1lYW+YClE4hHZo2T4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AuikPwG6fenoGhgOF4Xf2LsSJpjubg19nPPpkwbfxHpgDyBsu
+	grYd2JCMaYnfNAt+qkX56XB/tKKqwd80ehYNvRYJvcHP/+PAPvM/yTkLp4VjqofoOgkNPyftfeG
+	ig92h0wg=
+X-Gm-Gg: AYBFou1RJAFefvmQiK+GXz+YwFd1LSi3tUo9FqurlZ/OIdKNlyw777vevyfQSITZ7sP
+	W/cU51Q8y9BmuxzZoKqE+MdtuZYlQIbt8m69tWM39S3l2xVn1yhR5cRH8kUsx/GRF34poK0rtd+
+	Il7MyF6TxUuP8BqoqjS3DfotXoDHewklWcUUIKqCOkpkA6XnUS83DgiS3kBSbHqWuAMYJkEbvje
+	aYAbbnaAklI4ohwOi8vucAszBRfZcxUi8NI7BWeE1BeOpMCz7Doy2dYy/QqjvxL8AMaZuUWUUER
+	+Om6TWdynyiWrFHmUsxMSEtfCbXtqLpnx/YKf/Jg8zBUP9vZSZBQ9FsMKeF3R92w1r++EM2xm1L
+	DDd8izmwVLevq4Jvysjcn6BNy9AYQOpJ0bHTdQ6J7CYqwJVK8Dh4jSFpD21I9sN3bPoV7I5l1YH
+	7/kZcmTi3BxMBBMWLR1kSUqK+CeBEwqaxgXgerabyAaXhATrOZEJr7X48dMomo75Ursak2iX1Gz
+	VOhz3BNlFUa1LmfYDtrC9BiwW0Z3+aeDfAff2X2sl9kMT00TESRWpstBL+GQmbJ0d2XYk11Mf0q
+	WXumi4qNFPlIASsNmvePAcQ8C3p4PYvvvg==
+X-Received: by 2002:a05:600c:4fc6:b0:4a1:83f0:7c91 with SMTP id 5b1f17b1804b1-4bb7da26333mr64023955e9.18.1795021093075;
+        Wed, 18 Nov 2026 08:58:13 -0800 (PST)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8327c2e8sm1881025e9.3.2026.11.18.08.58.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:58:12 -0800 (PST)
+Message-ID: <43e1d316-bed5-4ec0-8287-44663b359e11@linaro.org>
+Date: Wed, 18 Nov 2026 16:58:11 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,34 +93,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DMYH0CXPUTMP.J3AKN619TL34@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/10] coresight: configfs: Don't assume active until
+ cscfg_mgr is set
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Qi Liu
+ <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
+References: <20261016-james-cs-multiple-per-threads-v4-0-dedf961aca0e@linaro.org>
+ <20261016-james-cs-multiple-per-threads-v4-1-dedf961aca0e@linaro.org>
+ <20261112171043.GK9176@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20261112171043.GK9176@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 05:17:41PM +0100, Danilo Krummrich wrote:
-> On Wed Nov 18, 2026 at 2:32 PM CET, Vishal Moola (Fractile) wrote:
-> > diff --git a/rust/kernel/drm/ioctl.rs b/rust/kernel/drm/ioctl.rs
-> > index 64af9eacc306..5a2e2f4f0e91 100644
-> > --- a/rust/kernel/drm/ioctl.rs
-> > +++ b/rust/kernel/drm/ioctl.rs
-> > @@ -152,7 +152,7 @@ macro_rules! declare_drm_ioctls {
-> >                              // dev/file match the current driver these ioctls are being declared
-> >                              // for, and it's not clear how to enforce this within the type system.
-> >                              let dev: &$crate::drm::device::Device<_, $crate::drm::Ioctl> =
-> > -                                $crate::drm::device::Device::from_raw(raw_dev);
-> > +                                unsafe { $crate::drm::device::Device::from_raw(raw_dev) };
+
+
+On 12/11/2026 17:10, Leo Yan wrote:
+> On Fri, Oct 16, 2026 at 11:46:11AM +0100, James Clark wrote:
 > 
-> I remember there has been at least one compiler version in the supported range
-> that complained when the safety comment isn't directly above the unsafe block.
-> Has this been fixed in the meantime?
+>> +static enum cscfg_load_ops cscfg_get_state(void)
+>> +{
+>> +	return cscfg_mgr ? cscfg_mgr->load_state : CSCFG_UNLOAD;
+>> +}
+> 
+> Could we check !cscfg_mgr explicitly in the three functions instead?
+> 
 
-I'm not sure? I'm compiling with rustc 1.98.1 (48a229cea 2026-09-01) (Fedora 1.98.1-1.fc44)
-which gives me no errors like this.
+Didn't I do that in the original version and you said to add a helper? 
+Maybe I misunderstood your comment?
 
-Hopefully the build-bots catch it if there's a specific compiler version
-that still dislikes it.
+> Using CSCFG_UNLOAD to represent both "not initialized" and
+> "cfg unloading" is a bit confusing.
 
-The following command shows a few other occurences in the kernel like this,
-so if its still an issue I imagine it'd likely be caught somewhere:
+Is that not just a naming issue now? It could be CSCFG_BUSY or something?
 
-	grep -rn -B1 '^\s*unsafe {' rust/kernel | grep '=$'
+Problem is one of the users looks for == CSCFG_UNLOAD and another looks 
+for != CSCFG_NONE so I don't think adding a third value is straightforward.
+
+> 
+> Thanks,
+> Leo
+
