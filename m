@@ -1,99 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017613;
-	b=RNuZhtiEIGJNhROmSj1bfIKsw5mg9b3TVJxGBvNgb5UR/YoNSyQ6WSzIQg5JEZf33nDR
-	 jS9cGelss7PzI377+KsR0Dd3W8tDl7fmN2dQsClwfAWylPmgWE88Pn5phwwYt915soPGm
-	 DjUL9uDpnTxf/gOktSJe1AOwX5E03dETR3YgRgwVVWnXzaMOPQiJXQaO6egjYgz/10oGX
-	 p2Gr6rFP6FmPitPnarnHQnWK5XtLy4ZN6efdjN4JYOJ0R/siKBLwFH0CEsvcWLMm2DQQs
-	 p/dWOFGCIYdiOznjz30/Vy6NgUTC6yzlb+LF7h42XPVskS8solDqD2cL5soFLNqp/sQ==
+	t=1795017638;
+	b=YLFQoQdDnfKgzbGWMBC5WAMc32mMJUtKigRbTj9OalUjRKNTJ5VUOTpodJqZNE5S27eX
+	 GBDfEgod2iHuNM8euXgSgGa6bKTAcGDP25ueSDTyTFY54FDpBtXOEOTQlgswDHlMLeGOS
+	 o23mYba0SHV7dzefwh1uGxxcmXupboME1haUUuaTVaMl+g/i/Neejc6GrK1Zmtb+3p7CO
+	 5+adcs/LJ7dHXX4VJAGqhLERho3qnAlCf2gr2rGRwPbBOm3LY6Fwa20MacY/QIco8ASN5
+	 cYs+lQ3KrMn1EootVTruJ8gpHQlQzaT5NA8bGaSTRSwcvVAEMIEQzN+5551hj/mf9nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017613;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=gN7nvCApkpNJjBBl+gdS00SQSe9taX0A7DICocon5Uk=;
-	b=ewask2U0IAuGRpR+0mddqxWwtcJzgEIPYULaWVKhZ1qNQiWuXIPMQD//V8lx63YuADJb
-	 sPCEKBuyBsHv1KUcB8A1JF/ESicq8kPGV0RLAxTfpxYiBfCHK0JpOTghNOBUW3MmkF4fl
-	 Qaj+dT6XeYcYJ7EbSIzAmiu0PXbxtBW9ay500M51DrhsiUREVO5PMlnynX6bYpxmB/sES
-	 nxUnTUChB6KFQeUwlbfZqF+tcBfb4jPS1QpefHfec9UK/rt6ufb68dMJrwwKWH/R0s+Q+
-	 f0QQ4PnPYQWwHijjwp5TFAcFejzwfZKLB5H8chqwRVuIPrgiZNbq4x11jZILGvXoBHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017638;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=cSzRCJe203nG3DjmKreWNmifbqQ6eZroTgaCVpedgq8=;
+	b=wsug/zJTNDxUwXHiQiTiIGC0D1A7cIeo3yPL5aSnTb/fYkAoFKnEVBWhubr787RiQB9m
+	 RTxHj6ivko7SpS0eGE1Gyopi7nllkoVfWEVzIFLbTvG7SAzGT6F8MQbm8/NC8PXhKIvDc
+	 8zV3rMZJLESJ166HV7D5lVJbnP77ULOh1uGLdjhg04KzP0ZCTOJNNrLDFUsfzdU9E5FDM
+	 VNK62Xgd6Y9C01uGNR/R5YLafEeMc2UuIKMExrVU4zccU06969Vlfk72H5VJ4+fJrEK3j
+	 lNF8CQj+Qpl679N33XET+RwCb6DFtXfGDN7C+gfDty+U8Em7q1eK7dOzvGszHnXOFqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=soleen.com;
-	spf=pass smtp.mailfrom=soleen.com;
-	dkim=pass header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=NsaoKX6E;
-	arc=none smtp.remote-ip=209.85.221.180
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com [209.85.221.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIQpdHT4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA32B606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:00:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA32B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=soleen.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=soleen.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82613606A325;
+	Wed, 18 Nov 2026 16:00:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=soleen.com header.i=@soleen.com header.a=rsa-sha256 header.s=google header.b=NsaoKX6E
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5eadadf23e5so823755e0c.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:00:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soleen.com; s=google; t=1795017611; x=1795622411; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gN7nvCApkpNJjBBl+gdS00SQSe9taX0A7DICocon5Uk=;
-        b=NsaoKX6EAyelKGC7l/g5UCQwSZxT96lYF7VFxnW5gSG2311qNRFlOqNKdjyxXJKTqR
-         35qBeVSVK9m+dZiXVDJiEshyPwANzNbvsSbLVHjyQRJpEr99F+JM6h7XhzWzI4D1wHe6
-         /Iss+aCOeivtGBs6O2ef/O4ssse4QU60KE+KBhlHL66dvHloRnS8CDdDDyzR0ZNrGVSe
-         OzrOqDkYGUAgn+f0n1btObMOFOB5Ep7+bjDAiVsVnkDNAU4xi/Fn5HLCpXxmSmSbS4Mq
-         2ypX/3wo7vOIxcHZPc16/J1ASVucuZPlGKn7YuIREhosIdqy/jmzbv9DdnHLiWCmIKeY
-         J7Qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795017611; x=1795622411;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gN7nvCApkpNJjBBl+gdS00SQSe9taX0A7DICocon5Uk=;
-        b=YfgatLzNBnKALuDSbzmb/GV196iFLRAw8/Hu7G6fffPWd0GgmPL9O0Gdx8dg18VJ4e
-         zQo+/4AVaOzmUKgTuvuxhsUl8UQCfKe11P76MHIKlVLi/pb0Wfad6IrziA6iRvmEyHRe
-         Qq0Dn1UwaUg5YieXpyyMMm2aOvRYyZkPCWXbS9j2963368wTFd1/IvxwwcRtUikMx54k
-         ZIDIWmsn8ysqU7URcH2L0aqM1FfxQUObIwBBjZVL3B7WGskZPYYjaUb7wvyoHMnZCvX+
-         5XGGtYIkowDcR0PngpZnrAJpVGEvxl5qvz6WMiwyQ+CopSSwwd/WrLLRVo7ojOEd6fFx
-         amig==
-X-Forwarded-Encrypted: i=1; AL+hErFxMViYDIO4cXrTZGuJI3np3uAFmln5tE7bZspscu+fUrGwiLKcjiEWIDmdJ+3ujD2mEHJkBD0UQZwe0wg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KRpwrD6yO9fTIgKQ9GU8bLAjmRb49qI686AKqsplGaWa4yQ8A
-	sUVj2Vi1MCteXpoEDgpIwTpumfsSdG/5wv9OCiRikMIaIcehMdTWVjKXwZI+RlsFEZ+wzZ4CgdC
-	VDmTt
-X-Gm-Gg: AYBFou1aoEjxkuSFezv/iouUCXcLQZalXERRRYQztnNLzMTqtDHujGF+ZOzLyc72SvZ
-	6rhXuCU18T6qpixvvkZwu4dYeqiFGB26StSZesYbrXrh4ZO2+FFR80y9XEyDIKFq0nMvA4weyz9
-	3BWxCeFfWn+ter+/MKnQLF7a1IvfPDcg/vfcoECnvNKtGy/gIskkU2sk8Ho7YcczE7iFlH9O381
-	2spGii6zExRvs+9qsItSMcQWMxhTLa4wssj5xEZyzhshIlFeAiqrmpU81C62TPUBPk/twVjF5qK
-	xaFn2EkKIkZ9QZN3igxJ+zRJR4709D8Uc4Wv9FXASYubUTeDj6ZTvJQUvMHzajzcsLzeym2Akwz
-	PreFornuUMA5iEW/yDdyl2adbXyaVTFf8pM/PzGFFNnwfCNF+TvD8D9zXNAUzrsF1o+QwYbDg1u
-	rKdREjHbFOcJO4LnFHkd+F3imcK1D3C6yIA7KhpOyhEHc3ANYe1MidRAIjk3s3Wl3+hMrWYXWlh
-	03TtqylDTwmwjow2nXLkH/r23F09htMKqTujwEcnp/p3x+PhQHMQ9mEEvFbzkMARnrvbRsN3p6V
-	3dHy44fhu4YXy8QMcxDH87lCLGv2z3uX8cg8BeACEVQo9gg/KF7BTiRuhBPLzb+2UJ2HsMirv7V
-	b19nGMchAbhmN0OhavgTlkMb5c1uWMATTDF6mDJ/PsQKZ7Ls+s1gc5emNT9xYpm03NvCc
-X-Received: by 2002:a05:6122:3a15:b0:5ea:389c:51e4 with SMTP id 71dfb90a1353d-5ee645faa03mr1663031e0c.2.1795017611348;
-        Wed, 18 Nov 2026 08:00:11 -0800 (PST)
-Received: from soleen.c.googlers.com (57.233.150.34.bc.googleusercontent.com. [34.150.233.57])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee64ec2730sm2002506e0c.14.2026.11.18.08.00.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:00:10 -0800 (PST)
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-To: pjw@kernel.org, palmer@dabbelt.com, alex@ghiti.fr, rppt@kernel.org, 
- pratyush@kernel.org, graf@amazon.com, shuah@kernel.org, 
- Chen Pei <cp0613@linux.alibaba.com>
-Cc: guoren@kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
- linux-kselftest@vger.kernel.org, kexec@lists.infradead.org
-In-Reply-To: <20261118091603.979-1-cp0613@linux.alibaba.com>
-References: <20261118091603.979-1-cp0613@linux.alibaba.com>
-Subject: Re: [PATCH v4 0/4] riscv: Enable kexec handover and live update
-Message-Id: <179501759947.250261.1712117569683645423.b4-ty@b4>
-Date: Wed, 18 Nov 2026 10:59:59 -0500
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIQpdHT4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B931F000CE;
+	Wed, 18 Nov 2026 16:00:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795017638;
+	bh=cSzRCJe203nG3DjmKreWNmifbqQ6eZroTgaCVpedgq8=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=AIQpdHT4afUI2Yr6DBMBJ538B2Jh9xZElqzRV/cOj/VYB8cAtgJzCBK7UrCXioIsF
+	 H47ULU079HX6F41g/CHSqfaIv7Bwuj32R85uJLGeEV2/13wNkoZNMCkVR/AKLPKXyz
+	 wuq1IvVsdSV/QSKDgDvQxyV6Uk1SzF5k517NUksbxr27HYvIa6x8dMOaVBJSbYh3dI
+	 Tc96qzyeszI7j6l/SY/2msWk+N0GWdRfzByWS63Jscgh4selyjVN8xNHBFct5iF+6v
+	 u2tgJXx/Kap7Zt2vMuriPDYSmo9gZE/H+2RNaNXsFOLfRe6DUi4n0LLU0WtO6p7MUn
+	 ZEEdKptvA1njQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,52 +51,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1086;
- i=pasha.tatashin@soleen.com; h=from:subject:message-id;
- bh=yx/6YU4ftdolIH+TM3tFCIqxwpFna+tV5pnuszpTgAM=;
- b=owEBbQKS/ZANAwAKAbt3KEzbc3reAcsmYgBq/cuKW1Ven/TsYWcH9R9JVtNZvIr/Wrzbj9eUF
- VZnu673CJ2JAjMEAAEKAB0WIQRBMaqT7LRvGvB/NmK7dyhM23N63gUCav3LigAKCRC7dyhM23N6
- 3l0zD/9GkT2xiw3xOPo4dtrl50v/Zo+28SEOr65ml35aBi52o28TK4homX8OAljUtDYygGhutpM
- WxnvBmRGuzLI5PV5A7/SV+WgkIZ52fXibj+mPS9LI2vYsbaTB7qWpXD/tPjUXOLL3sp8s0nWgA/
- xzgDZjJbri0YhMen/qMzef3v9u09p3Wn4uVIdtlK0LLcBqgYpEtW1xCFKqg8Plgdmm8VzBkMBqm
- 201gts8eO1QmJ87giSN1+mgcvDTecZXC7TLBmWsfh6zueYb2h7iy18luOHRy2FcgK/fG6x6oK+/
- q5kb3mOX9vuWeOn4JfkYG9JvRemmTyttU4mvzXS7wc56lZd8ObMBpcWCRJaliTNo4Fwky6rrbSU
- ubyyFqvQGzUjfL2/Rp3rc+Cie1RnXgh0XXw4RSGXf6YrqAi8dVFfXKbWikrk5D9dqJ+2t6zEbFK
- +GHKpssJeeElG+UOr2KEGjpeWljj+Alhh73XBEVezYA9oWQYDth78nJKELwFtPq8Xcfc4Br9O1V
- Iu1DpxwaZOV4fUHtQpY9XdoUQSLklPkalqeaaIppy2vDIKY2IMWWeLNhVX7XrCsNIO3L/BO4EIS
- BjJYaBZ3qqGAfTeisqH8//T8U/uQq7h8rHx7J2zXA1bXqN+ErinqAopKFwtALn0trP8D1sYJivX
- Ntme4+UlYo8oAIg==
-X-Developer-Key: i=pasha.tatashin@soleen.com; a=openpgp;
- fpr=CAAAB722DD22A081F0D49F35633A6A993D43B569
+Subject: Re: [PATCH 3/3] media: iris: Use firmware reported count for
+ output buffers
+From: bod@kernel.org
+To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+Cc: Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
+ Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Vedang Nagar <quic_vnagar@quicinc.com>, Hans Verkuil <hverkuil@kernel.org>, 
+ Stefan Schmidt <stefan.schmidt@linaro.org>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, 
+ Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>, 
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261031-fix_dec_seek-v1-3-cfedf0c267ee@oss.qualcomm.com>
+References: <20261031-fix_dec_seek-v1-0-cfedf0c267ee@oss.qualcomm.com>
+ <20261031-fix_dec_seek-v1-3-cfedf0c267ee@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 16:00:32 +0000
+Message-Id: <179501763210.2846709.2834027862962422789.b4-reply@b4>
+X-Mailer: b4 0.17-dev-e3fc9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1806; i=bod@kernel.org;
+ h=from:subject:message-id; bh=/AP0CoAgLohhW5HLCcUNA+EpSWZFnT0y2EdkIXNbETE=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/cugn7uvdcNTuOfP9Xbb1suR9FMivnTjAW0KV
+ QwoeoYaKgSJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav3LoAAKCRAicTuzoY3I
+ OpV2EACQ/TsC5dkjOhP0DBcih24tqd5YR4mkMNv2fqwOCG2fzstzwL3xRzS8zguIjtMrDbrhYOo
+ ASQxvbyQUl0lrgpefu4w49HWLJe3on1oScY3IE4wSo0Gm90JVfB+EL1uCYSiSgZES/b6jOhulsc
+ TnmFfq9OG/UAF6M1Dp78Olg9AdAxwQgfBwutI2C8XSf53BTG/ah/jpFQHDdz/IgsXWScaggYQHI
+ dfHugOSWWUUkI8vahNzNw1NzOA5yGzUGZ8x0iTeKP3vj+8ozDkKOBd56ZAreZ7n/Yq95O0+sDtz
+ JymFLEArHN5WJR1uA7CJu9GIzBytDWs1YyB9ECicSaWH4+HdfiwxnDVXK92tIUP+cvxu79dl7vB
+ 3CqIaat2NH/aXk/3iDMI59ZORZGhKs2uyAjm1kI28niCxaI57QUrPKKRnBXZjuNvJns3D2tJeRN
+ q5ldR1+C/y3huHapXc/7zy6/TlSZYg5quu511C7Ofyk9ZZOHlv0nQvC1SAM1DN4Eyp/CE9K14Kb
+ FBK8BU1t9biOsj6MOCopt8kax2kouw55EEX7kXfURj8qywRnubbOdcgEgwf3aLqWMYGeCmIhcE0
+ 8R3npHC9p254L7f3ouIOBMzx5v/TyDVUh217J9zJf8lsWAr+9sCN1AVpn8rTDV69Ii3jIDZ45Wn
+ ltM/Y5fxOt7Jmng==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-On Wed, 18 Nov 2026 17:15:59 +0800, Chen Pei wrote:
-> riscv: Enable kexec handover and live update
+On 2026-10-31 01:49 +0530, Vishnu Reddy wrote:
+> Once the firmware reports its minimum output buffer count, the driver
+> still caps it to 4 for VP9 and AV1 when split mode is enabled. After a
+> seek, the output buffer count can be lower than the minimum required by
+> the firmware for VP9 streams. This causes the firmware to report
+> insufficient output buffers and the seek operation can fail.
 > 
-> Host kernel updates in the cloud should not require draining the
-> machine: next to live migration to another host, replacing the kernel in
-> place while preserving selected workload state ("live update") is what
-> KHO/LUO were built for, and LUO's documentation names hypervisor hosts as
-> its primary use case. This series closes the gap for riscv64 and
-> validates it with both upstream test runners.
+> Use the firmware reported minimum count as is. The driver calculated
+> count is only used until the firmware reports its own requirement.
 > 
-> [...]
+> Fixes: e1f5d32608ec ("media: iris: Add internal buffer calculation for HEVC and VP9 decoders")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+> ---
+>  drivers/media/platform/qcom/iris/iris_vpu_buffer.c | 10 ++--------
+>  1 file changed, 2 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/media/platform/qcom/iris/iris_vpu_buffer.c b/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
+> index a8170e5fa9e6..57467c952f42 100644
+> --- a/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
+> +++ b/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
+> @@ -2375,14 +2375,8 @@ static int output_min_count(struct iris_inst *inst)
+>  	int output_min_count = 4;
+>  
+>  	/* fw_min_count > 0 indicates reconfig event has already arrived */
+> -	if (inst->fw_min_count) {
+> -		if (iris_split_mode_enabled(inst) &&
+> -		    (inst->codec == V4L2_PIX_FMT_VP9 ||
+> -		     inst->codec == V4L2_PIX_FMT_AV1))
+> -			return min_t(u32, 4, inst->fw_min_count);
+> -		else
+> -			return inst->fw_min_count;
+> -	}
 
-Applied, thanks!
-
-https://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git/log/?h=liveupdate-7.5
-
-[1/4] riscv: Call early_ioremap_setup() before parsing the DTB
-      commit: dc821c9badf7b2558e206804c2adaae28d25477d
-[2/4] riscv: Add support for KHO
-      commit: 48ea610913a6d6fc513d082afad04ff342120931
-[3/4] selftests: kho: Add riscv support
-      commit: 30c6fc85b4fb89fc867bdea413403bf169e7e194
-[4/4] selftests: liveupdate: Add riscv support
-      commit: 9615c5074cdccb651684e61cd8872ca8b0b30e52
-
-Best regards,
--- 
-Pasha
-
+Quite a few questions here. Why is the minimum count currently set to four
+? Why do we use a hard-coded value of four more than once, why not define a
+different minimum count ?
+---
+bod
 
