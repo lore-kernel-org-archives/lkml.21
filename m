@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.42
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795025358;
-	b=Dh/VR/37bSUHvkaQqy/JCnHwfTrLvcyUbzrv4uwG8om3xGXymG/fXJO1mFsI5pdQS/YS
-	 qQFG9wx+jFQ25656pHF/Dntxr/j/S5Ah+Q37PEyucQnn5j8FG6euwpVNnSSEri98PuEIH
-	 aOP5DqFNCYROoW6liyQ/hDntjqPoCi5sSfAPd0gaJXhl3FXaCy4pOBLpJjcYQVXWHUkAS
-	 +ybN8VsAWodvE+oqXFfWEt0oyCRTSQF07NRDeTT3FYPhiV6EWbvGs+/UJ4F2j35aP8j/R
-	 N9cDxU8eFK0ebwxPt2jcsQgAmfuU+DFIM0aYxPwzA0p/LoGYjaqIkEdj98A+utUHi+w==
+	t=1795025437;
+	b=BL51+0OUKgybEwf2G8aDB8JysZbK5Gfcor8M0VDnsZW5UqmYEkCuhRMWCaNOk1ua/plk
+	 n/CW01Kd1Kqzp8kf2eyKZh8FcYaAtq2wAWRoJRU7yDDs1izj9CwgxmH6SJh/asVZkGZY5
+	 5Juo/aT5HXw0FlzMeXioxzAoHzPoB8LnDUvv0IQpUgBuLbt1Q8PDtx2NY08g0lWNJb01R
+	 EgIU9C97pz1sjGvXerDYzvdMxv6YnKJzunpbKjEeJwA8vAh3L1Id8SeZynr+Fl+3AEh2K
+	 h01jJTwW6JUcgNH8O0hBE6y15A0OISD/k3prTvfdrzi6qPZW2iJjRb7dz7caEuPxHwQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025358;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025437;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
-	b=OW+2szxkIOswLOXbr1Xj0owBKl8YY8KU/eeV6BLqo85exMhCEf6BxK+6j4QsmWUsZ/Ff
-	 LK60rZjSzWCU1EmApVMaPwv01eiAV7vdDEMKqrVSuNEF9MjXP4T6THcEmwobBR7+PC+7j
-	 DXpg/l1dSBIxWM0CfrHBUzItmwerHikIbcRLEpvs4Zcmu7DTFPrNBa2OLlarQBRmJ3/Yh
-	 pS0KWfq1rGx28R/H9xOdNxwCjoRXUCZHkf/a75516VhI8WXlbykxbVOde1bN3GrJU/9ZR
-	 9YyIj17alDgncZXekL9JWsp4MwMwT+KS0DCuv0/rdOO3uM2cTNv8QcR9CT0tQ+yB5VA==
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=uolXzpBiYugNP3qN288JOAr4dwNEE10S3HaS//txyFE=;
+	b=K4lXotHCzlrZobJ3aR6ClEHzTHiVNWHEpNwlGzHsBFXkNikn4Il0UbBH456yqJDpLQa8
+	 Jr2i6cLYP3dzjOx3I1yTOP/sqdx8f1fX/5V7hU21r/CD0PUlcVOueL7wWVqMHXhvxXkom
+	 wtiLObzJNsrwK/YcQhcgKQ7bR8Vr1vOL7B3c4DiF98I6I7ZKQe0sF1oHhUwokERtev3+P
+	 lqandfbSPFzaUqlcYeS5XqQZ3TcQj+DJdzZKTLw9oID3lCiNN8CWa8hiqjnFW7ITPQCqd
+	 F2c5mc9QSNXWcgwIfJxWavSBKmQzqPlhhsvZZUR4CvoxnruTr9oy2s93SXvCyQyKMtQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FaCjoIxd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	dmarc=pass header.from=raspberrypi.com;
+	spf=pass smtp.mailfrom=raspberrypi.com;
+	dkim=pass header.d=raspberrypi.com header.i=@raspberrypi.com header.a=rsa-sha256 header.s=google header.b=QKU81Qe6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.42
+Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0680B60A2613
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:09:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0680B60A2613
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7F3606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:10:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC7F3606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=raspberrypi.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raspberrypi.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FaCjoIxd
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b6f42095bcso2117591a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:09:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795025356; cv=none;
+	dkim=pass (2048-bit key, unprotected) header.d=raspberrypi.com header.i=@raspberrypi.com header.a=rsa-sha256 header.s=google header.b=QKU81Qe6
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-717080a2d50so1159653eaf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:10:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795025435; cv=none;
         d=google.com; s=arc-20260327;
-        b=p+ibavs/76+TyNKO7ZLokYu+2sS0JV88icwIHOFD33yutWnE7up6W3wQ1BidmnjHCz
-         Vwq9Jd8aAZ9l5Y+5BJpQg2xgVU+meiqbTMMXzgw1Co45tbOL2UtmKbgeTuKYsD7OLVex
-         xQ/u0oIv7XYjN5KAMYUxh+s9RInv9lAmSNNgB58cYT5oBCOGCkcBATL3TIlEo36SN3GF
-         WBnEyS7XN3BCyTeUxCmOkBtqJ6xqcpz5k8g9SxzRMQySfwBDsrIpvKYJKk0MxsxiHr3E
-         niAiLZ8/6i61q0IoPlZA9uvsSBpMzJeMSHP+8uNrkrJRlMviJWNtJo6fbszsedDJUzIu
-         L5ew==
+        b=fdHr9/JSHuSiofVPOEmabsNuqmV+rt10zUTeSB2niHGtbfELtmk8tce9iyRCPDIJrp
+         4h40UvNIDHlb6Nxa10B3zy2wAz9CrxkNSCPSawC6CAGPcOmhqXl3SoFoRNu8+0VT/gm3
+         RMBECL4Em0lnJNEwtFpfQKJGG/ZoDOGZFl3w7A1HSY9n9H56LkvfKUcs5U8WBoaP+eXp
+         ZtBrYluUyv6FcWLDSih/kNvnXX3IT/UNpl38ObWUGnCHhGnxpkgADW7aJHoM3uu/A3fb
+         g6wgL6sj849zAEEDTluSj8VpqmIcNR7LtB31eBnmHHSs/z5oJhRPLrO2sKSlfJ/uqjO/
+         Vo6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
-        fh=YZIP1jYvfYlmzQFaLA1AX9zjPbh+l4ujinebQKr2BeA=;
-        b=FNRYyQ2CAgzl3f2JeEfm29Bbi7VRMvdhDALO1N38hDYjsOmPKjxJGbbqTQCx6EfiNn
-         0PTi39Mir2+SQ06LyXJOFXeJyCUS1cxoPOPxztaSoiTBvDSifXOwDVuCdM/HWWCwlySi
-         1yUPlTHBwwq/0JdY63YG4YrH+L2x40Py+8VWIHaVuCRp1fssIC5gpB/D9P2btVQj/IMo
-         nE/bLQf+CioOrz7EJmL/mJqV7033tBaC6RSTx5RwsccYS3yJa6SQT9GAZK98re/zXfoE
-         LP2yB8vfDhOU196X+cdB/OeGADBS95kM7JZqUQBVEYoeW5Bte2WIoE8sK1wJKbtpaTUp
-         Hv0w==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=uolXzpBiYugNP3qN288JOAr4dwNEE10S3HaS//txyFE=;
+        fh=bKghhIQp+SsOWcpbkQgfOq8sEEiTELUk1cLs9ke8kmU=;
+        b=WUFkU8k25pvjdXFq0BJCvdHaw1UoXEiKF7f2QB2Wm8SeoEC9MXzU6GTuO8uGDHFJTS
+         fQG11zwQHyZWfZZLOfhaHqNlg0leY8zBMv9ym1CIRtTYOgRZ5gPTdwWDXi0oKs8lM4mq
+         cxVpAyfL2HcPmHvsubxKdcdLHeSlACR2c+vNlU7MBeTEcfJ94SLWrY4uqNMzYhgiP/RY
+         fAM7IubsGikiGncnMZZydQs8y0gF3O7rkG9WWIiXFj7OW7Pm5oM++H2eZd6VqoF0KfJn
+         P4H6Wv12gX8BW+5rWXhdd1q1KqFs7tS3HkCq4xahf9r1S43rUo3tibkuCj84JgiwZP1R
+         SvrQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795025356; x=1795630156; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
-        b=FaCjoIxduW+OQqqM1HY+h2AatdrxA8mvHHYzo/xdr5ctytG8VhpPyqRKZKMRhE7iVv
-         7FgmUAafV1rRzfmFxPFRFw3/BiHts/CNWjIbRJHB2j3xXPmy5weVodlesnbV0UkSas/2
-         04rG+3UIa8LffuqU1uXJ9bDdgIwXauiQh4WsLgN4RYqIqTp1/ywOah9cXAKi6V+tM6wb
-         /PMdlxMBGsA/QMbgsYo7AO/hF9BST1V0cVWyNmm27iBtzdykIEmrdjR/cVPK2ZzRoM6I
-         WtiX51ayzxrUg9vwzy5WadGWFEyQicy72O2ouN3fpFqg9K6FEkOJIh/l5xbnNTQ+JvAG
-         CxFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795025356; x=1795630156;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=raspberrypi.com; s=google; t=1795025435; x=1795630235; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kwy4Hj1zovxLuT7JhwbmIP+fCBASCZe33N49zoGI9m8=;
-        b=QquNARd7KAy9wCm9hrxJ5h1TatFDk9qT5Uc2bRnFcTRR4NF8Gbc28O9Q8buXKgXuPs
-         tzi9IAxAyNkKtQoC5xLfA7cazEi5WlP9U8operYjLMqmdE4QEXL52Zlk4LsbmhnhkX6u
-         Kxv/ZjmY2Hoo4z3cXipeMExeFJKoOpvcOhlTRR//bKlQYAlE3FuHHzVvr0F02acgSeC9
-         8d/eIU1s1m7bU0TEvXxAz/GziLOd3CqLRdDNApS0okKiIQ1z08ikpgsKLEqqZT1mG38N
-         mpMzXyIm8LKxda8ztC3iVxo8RPY7DnHo35Guwc5blJ+jvFdy05szzoAsKIHXdkhIEOE3
-         qsxw==
-X-Forwarded-Encrypted: i=1; AL+hErHntc4B7QYOHPeKvCZ7oEDea8Tjde4GSjZKu1JrZzbmpseZke2hii/626JnJQHjIVaFbZt6QK1NfBALJyU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/x1z7tsU6O4YsYj1iaYNtfQ2Kgo5+ct397LFyY/FNXMeifRfdm
-	pL16eBNesrYxyICb0Q2jLcGF5h/A1HoNLHjXhRwfmjUE5NsHpBXHKiR2CquP+8w84yrGP/aROQ/
-	pHms6fEaBeAZkMj6ro0XjaUuSyKVIq2E=
-X-Gm-Gg: AYBFou1glVh/eW50t0lbrfGxhQQeaR6jGO/xhFRBFMALWtUgaOKN8hw2jOLkMVoOdrj
-	FaUXk8yk3r43SOWmvknGv2a4lwGNPPjqZiVs/1aBQds4brHk4oqTQJ8YKRZvStcKcmwVa6mQhkn
-	uU+hLFA/Vqj5dX14wHp0A3/X1nRqOpOzpZ9zhrb40Ps24nncJicl/tl/6FFYWCSKbaPeESUxYLP
-	m8mp+kbWvSRVSIwSkWupXr9Q2SWahtraPSImnAOm8lpojSMnhI8j7h58WS2AlZ+I/S3rGzp9lyL
-	5KBG+h1pRxm/A1eGEZ7G81Bt5m2k/U+0iGqt6hcLc/+ChUDdhFZUPDnM5UEOa9QpceAoUthoDAJ
-	HaBHfc4IHndxpE84Rz5dFVat0OMRbXX4erqLu1ab0OVCxnLCdgPffOYY=
-X-Received: by 2002:a05:6402:1d4b:b0:6b7:f9e0:a5bd with SMTP id
- 4fb4d7f45d1cf-6b887eb273amr2779728a12.23.1795025356010; Wed, 18 Nov 2026
- 10:09:16 -0800 (PST)
+        bh=uolXzpBiYugNP3qN288JOAr4dwNEE10S3HaS//txyFE=;
+        b=QKU81Qe6/7cpn0cmLk3La8OKAp9n2wJ/kH3DHoBmbmF1qEtns+p5lGSHbicYebwaBQ
+         kTkYQtdf/lexPWi1jv5oSRFvqWpxZXQOhLWxFS6npr9vOGOWWzRNgbAQRb5MekaZxEnx
+         9CDD5CGmlwn/7qB4vchZ1nZJmAVtGZYfKrrTnCmG578kbMfU1GZfgzDlcDp8dzVTlbF5
+         95nU/431p2sHY2TIVj50FTvTSIRxHYko5p0VzI01bl0tHY7R2pbvCjoyyPiO7laiXAaT
+         MaLT4BCgWAjyTnQhLyDjO3NDUGKv+JOSJ0pXpeuphK2p8jBy5yYd0Cyf8tZMcdScZURf
+         PLjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795025435; x=1795630235;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=uolXzpBiYugNP3qN288JOAr4dwNEE10S3HaS//txyFE=;
+        b=pkFfA5XxHoWIl+cLRHqpeSX3Y2MqYV3AbU3/6Cj+gNVy/Brm18BA/qLTDJOhXVWeyB
+         yhLBn9/7MT5/axXIuczcweiAd3+mRyOrwAfRxIDuBgUIg3ia6odh9qVre0OkQ1hmdnhK
+         UxySp3akch9qqMkxP+rL9PYXzSUA7Q7Jtnq2JCAsGMpwgIJsO/yBWU1f5Tmt4iWBBIZQ
+         sWu35g1UvJeNermxcx0NWkjWVbifXozsU51zYnCzMUGF/EWZyogm9rxdo/2l+cChPvCH
+         PYdpgJvSHzK3lRoROGCr1PxpOfMqE/rCXmbvqlIfH8UzGW6MVgRCT9wM2QbhUiK9NKdh
+         RrZA==
+X-Forwarded-Encrypted: i=1; AL+hErEPhwzrhYHXQzYJL83X4jBxzC36fyWH4gMfi2llnj/QfuQq+uExFTtX3u0vb/6RD7cVrwpR7Wk4FnmBgRM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+xqV3mQaD0cyDjvor5ungcD3khV5fKq+xnwg93UMPxs9ws3LEA
+	vmUBlCQWq//nSQzvsOnkmy37Lf5nJXdjhE9Qi9nBja9srDQ2C9NeaQ3AwdUK2dZ3NDT/eh9cAD3
+	8Ct+IowZ3JGspHH8lkOXIhhj/osBQR3LSmqV27+/RaQ==
+X-Gm-Gg: AYBFou2Mt5pGpdhFR+dqDPjkVbn56Ura5DE7xv3vTfgUWoxGAsM/lLV4EvAqedNffni
+	z27gWOz+M8ZPDX22/k54q9tLnHhvCJhBELWPM45SbbFkHmFP7OtbfZdELS9QWuO8vRX3ktrnhck
+	RKvCpYtVhXHRUSJVrLIkC8OmlTKJZlJc4n8iads80lHGK5iI6cHBTgu7JhkgwiWpplFcTxa7DN0
+	olrKvDmwHVH06RpZD2zNXfFzk3DkCHSKaaAJ2QPXmSaNe31fOhvJ5KbflCl++j1J6wcfFhz3NWL
+	X80tiIZRwRCBBZeHnzMoq2JDT3tKmSX9r3w5pEsT8OiE0if8dcn0sU6ljWP6hURZo96cpZs8Tpz
+	TFQOCxVq+JScpn2SmTg/fdAII2psXzmKBMWxTPSzi+u6FOThGSNVeV748mNvlUIaa/Xk95cHTi1
+	BXhWSv4OzS2ED6HkIdszJU5K/dH9C+0YDbqs8EtKg8qUcrV8Uclhx+tQ==
+X-Received: by 2002:a05:6820:16a0:b0:71b:187f:1d05 with SMTP id
+ 006d021491bc7-71b187f2097mr2537838eaf.68.1795025435512; Wed, 18 Nov 2026
+ 10:10:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,201 +104,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
- <20261118-b4-ovl-containerized-sync-v7-7-54f45743fe55@toxicpanda.com>
-In-Reply-To: <20261118-b4-ovl-containerized-sync-v7-7-54f45743fe55@toxicpanda.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Wed, 18 Nov 2026 19:09:04 +0100
-X-Gm-Features: AclHuK8VtQI7kbgQWNsYTQs5zinc50rhvyv9MuCfqsFP8jTSp9pRJGJQpVNgjmU
-Message-ID: <CAOQ4uxiexeX-Mu3eTOUTnOknb7BrYw3vSsSxqA3+oQVVYVh9oQ@mail.gmail.com>
-Subject: Re: [PATCH v7 7/7] ovl: implement containerized syncfs for overlayfs
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: Miklos Szeredi <miklos@szeredi.hu>, Christian Brauner <brauner@kernel.org>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
-	Christoph Hellwig <hch@infradead.org>, Chris Mason <mason@kernel.org>, 
-	Chengguang Xu <cgxu519@mykernel.net>, linux-unionfs@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Chengguang Xu <charliecgxu@tencent.com>
+References: <20261028164539.3471833-1-henryzhang62@gmail.com> <20261028164539.3471833-2-henryzhang62@gmail.com>
+In-Reply-To: <20261028164539.3471833-2-henryzhang62@gmail.com>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Wed, 18 Nov 2026 18:10:18 +0000
+X-Gm-Features: AclHuK-V5dWIJh-3U7G0PyQp4ktkynFwmoHaphdoRy6ojuMQSX3jJwE03wIEwh8
+Message-ID: <CAPY8ntA1CtSqtDzW-eziAzmLPZPbtWGpxBtYv0gCGMPNobcZWQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/5] drm/vc4: dsi: Set the transfer result before
+ completing the transfer
+To: Henry Zhang <henryzhang62@gmail.com>
+Cc: Maxime Ripard <mripard@kernel.org>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 6:03=E2=80=AFPM Josef Bacik <josef@toxicpanda.com> =
-wrote:
+On Wed, 28 Oct 2026 at 16:46, Henry Zhang <henryzhang62@gmail.com> wrote:
 >
-> From: Chengguang Xu <charliecgxu@tencent.com>
+> On an HSTX timeout the interrupt handler completes the transfer and
+> only then sets xfer_result to -ETIMEDOUT. The waiter, which may run on
+> another CPU, can wake up and read xfer_result in between, still 0 from
+> the start of the transfer, and report the timed-out transfer as a
+> success.
 >
-> Now overlayfs can only sync own dirty inodes during syncfs,
-> so remove unnecessary sync_filesystem() on upper file system.
+> Set xfer_result first. complete() orders the store before the wake-up.
 >
-> Do that with fsync=3Drelaxed only, which is what the default, fsync=3Daut=
-o,
-> selects on most filesystems.  fsync=3Don brings the old behaviour back.
->
-> Take the steps of sync_filesystem() for the upper filesystem, but only fo=
-r
-> the tracked inodes, and go about it like the page cache does.
->
-> Without wait, ->sync_fs() gives every inode that is marked dirty the
-> towrite mark.  That is what this sync has to write.  Then it starts
-> writeback of the upper inode of each of them, and replaces dirty and
-> towrite by the writeback mark.
->
-> With wait, for every inode with the writeback mark, it calls
-> write_inode_for_sync(), which also hands over the timestamps that lazytim=
-e
-> has deferred, and waits for the data, whoever has started to write it.
->
-> Both end with sync_fs_and_bdev(), which is what sync_filesystem() does
-> after the inodes.  Do the same for unmount and for a read-only remount.
->
-> A sync tags once, so tasks that modify files do not keep it going.  The
-> marks are shared by all syncs that are running, so it also writes and wai=
-ts
-> for what another one tags ahead of it.  A walk only goes up, so it ends.
->
-> In the page cache the completion of the I/O clears the writeback mark.
-> Here whoever has waited does, and another sync may have started the inode
-> again meanwhile.  So the mark only goes if the upper inode is seen clean.
-> Until then every sync sees the inode and waits for it as well, so they do
-> not have to wait for each other.  Otherwise the inode is marked dirty
-> again, which also covers an upper inode that is open for writing: stores
-> through a shared mapping do not call into overlayfs.
->
-> That does not cover pages that are pinned through such a mapping.  A dire=
-ct
-> read into it that completes after the last munmap() and close() dirties
-> them when the inode may have left the set, and the next syncfs() does not
-> write them.
->
-> syncfs() now also returns the error of writeback that the flusher of the
-> upper filesystem has done before, which it did not do so far.  It compare=
-s
-> the wb_err of the upper mapping with what it was when the inode entered t=
-he
-> set.  Unlike the error flags of the mapping, nobody can take that away, a=
-n
-> fsync() for one.  The error is recorded in the superblock of the overlay
-> under the lock that protects the cursor, so another syncfs() that runs at
-> the same time gets it as well.
->
-> A read-only remount of the overlay syncs it the same way, so it now fails
-> with such an error, once.
->
-> Keep a freeze and a read-only remount of the upper filesystem out while a=
-n
-> inode is handed over.  If one has already begun when ->sync_fs() is to
-> wait, sync the whole upper filesystem, like before.  If one kept it from
-> starting an inode and has gone away since, start that inode then.
->
-> Upper inodes that have no overlay inode, like whiteouts and the work
-> directories, are not tracked.  It is up to ->sync_fs() and the block devi=
-ce
-> to get them to disk.  ext4, xfs and btrfs log all metadata, and ext4
-> without a journal keeps it in the buffers of the block device.
->
-> With many containers on one upper filesystem, stopping one of them no
-> longer writes out the dirty data of all the others.
->
-> Signed-off-by: Chengguang Xu <charliecgxu@tencent.com>
-> [josef: everything after the first paragraph]
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+> Fixes: 4078f5757144 ("drm/vc4: Add DSI driver")
+> Signed-off-by: Henry Zhang <henryzhang62@gmail.com>
+
+Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+
 > ---
->  Documentation/filesystems/overlayfs.rst |   7 +-
->  fs/overlayfs/overlayfs.h                |   1 +
->  fs/overlayfs/params.c                   |  14 +--
->  fs/overlayfs/super.c                    |   3 +
->  fs/overlayfs/sync.c                     | 217 ++++++++++++++++++++++++++=
-++++++
->  5 files changed, 230 insertions(+), 12 deletions(-)
+>  drivers/gpu/drm/vc4/vc4_dsi.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/Documentation/filesystems/overlayfs.rst b/Documentation/file=
-systems/overlayfs.rst
-> index 8a007fbc5257..00e2cba65e2c 100644
-> --- a/Documentation/filesystems/overlayfs.rst
-> +++ b/Documentation/filesystems/overlayfs.rst
-> @@ -830,7 +830,12 @@ Traditionally, syncfs(2) and unmount of an overlay s=
-ync the entire upper
->  filesystem, including the dirty data of other overlays that share it.
->  Overlayfs can be told to only write back the files that were modified
->  through the overlay, and then ask the upper filesystem to commit its
-> -metadata.
-> +metadata and write its block device.
-> +
-> +In that mode syncfs(2) also returns the error of writeback of such a fil=
-e
-> +that has failed earlier, like fsync(2) on the file does.  As after fsync=
-(2),
-> +a file that is opened on the upper filesystem later does not get that er=
-ror
-> +any more.  A read-only remount of the overlay fails with such an error o=
-nce.
+> diff --git a/drivers/gpu/drm/vc4/vc4_dsi.c b/drivers/gpu/drm/vc4/vc4_dsi.c
+> index 5ed3c35ee..aa2b46fb0 100644
+> --- a/drivers/gpu/drm/vc4/vc4_dsi.c
+> +++ b/drivers/gpu/drm/vc4/vc4_dsi.c
+> @@ -1526,8 +1526,8 @@ static irqreturn_t vc4_dsi_irq_handler(int irq, void *data)
+>                 complete(&dsi->xfer_completion);
+>                 ret = IRQ_HANDLED;
+>         } else if (stat & DSI_PORT_BIT(INT_HSTX_TO)) {
+> -               complete(&dsi->xfer_completion);
+>                 dsi->xfer_result = -ETIMEDOUT;
+> +               complete(&dsi->xfer_completion);
+>                 ret = IRQ_HANDLED;
+>         }
 >
->  On traditional local filesystems with a single journal (e.g. ext4, xfs),
->  fsync on a file also persists the parent directory changes, because they
-> diff --git a/fs/overlayfs/overlayfs.h b/fs/overlayfs/overlayfs.h
-> index f4770b4c0222..63200551a7d0 100644
-> --- a/fs/overlayfs/overlayfs.h
-> +++ b/fs/overlayfs/overlayfs.h
-> @@ -899,6 +899,7 @@ void ovl_forget_inode(struct inode *inode);
->  void ovl_drop_tracked(struct ovl_fs *ofs);
->  long ovl_nr_cached_objects(struct super_block *sb, struct shrink_control=
- *sc);
->  long ovl_free_cached_objects(struct super_block *sb, struct shrink_contr=
-ol *sc);
-> +int ovl_sync_tracked(struct super_block *sb, int wait);
+> --
+> 2.47.3
 >
->  /* vfs fileattr flags read from overlay.protattr xattr to ovl inode */
->  #define OVL_PROT_I_FLAGS_MASK  (S_APPEND | S_IMMUTABLE)
-> diff --git a/fs/overlayfs/params.c b/fs/overlayfs/params.c
-> index 370dd6341392..90111c480440 100644
-> --- a/fs/overlayfs/params.c
-> +++ b/fs/overlayfs/params.c
-> @@ -774,22 +774,14 @@ static int ovl_reconfigure(struct fs_context *fc)
->  {
->         struct super_block *sb =3D fc->root->d_sb;
->         struct ovl_fs *ofs =3D OVL_FS(sb);
-> -       struct super_block *upper_sb;
-> -       int ret =3D 0;
->
->         if (!(fc->sb_flags & SB_RDONLY) && ovl_force_readonly(ofs))
->                 return -EROFS;
->
-> -       if (fc->sb_flags & SB_RDONLY && !sb_rdonly(sb)) {
-> -               upper_sb =3D ovl_upper_mnt(ofs)->mnt_sb;
-> -               if (ovl_should_sync(ofs)) {
-> -                       down_read(&upper_sb->s_umount);
-> -                       ret =3D sync_filesystem(upper_sb);
-> -                       up_read(&upper_sb->s_umount);
-> -               }
-> -       }
-> +       if (fc->sb_flags & SB_RDONLY && !sb_rdonly(sb) && ovl_should_sync=
-(ofs))
-> +               return sync_filesystem(sb);
->
-> -       return ret;
-> +       return 0;
->  }
->
->  static const struct fs_context_operations ovl_context_ops =3D {
-> diff --git a/fs/overlayfs/super.c b/fs/overlayfs/super.c
-> index 7f7d3993bc7a..a2d527f62d75 100644
-> --- a/fs/overlayfs/super.c
-> +++ b/fs/overlayfs/super.c
-> @@ -287,6 +287,9 @@ static int ovl_sync_fs(struct super_block *sb, int wa=
-it)
->         if (!ret)
->                 return ret;
->
-> +       if (!ovl_should_sync_upper_fs(ofs))
-> +               return ovl_sync_tracked(sb, wait);
-> +
->         /*
->          * Not called for sync(2) call or an emergency sync (SB_I_SKIP_SY=
-NC).
->          * All the super blocks will be iterated, including upper_sb.
-
-Maybe also move ovl_sync_fs() to sync.c makes this
-a very nice finale ;)
-
-Thanks,
-Amir.
