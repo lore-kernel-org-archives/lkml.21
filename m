@@ -1,47 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.99
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998968;
-	b=zKeGN/cWl5FZ91TKgJps9rF5YLu9BDMtqTfFa1THyQ2BJncnZC9qNIIJn6EJRaT+DzMR
-	 PmNFfN0w9p8AjTz0qCBY+LVqTMtENo40FXocE3GJ56lwKe/Vclcw9g2ezFqyYfqji++VD
-	 5uYyhzk2D42/yWKrgulEOTthBSYgP70Et/SuqvBRFqK5mRd8nyZd5B7vEkxYCJZnBs0uE
-	 +HzIhUY/yGgfTvuErE8Tm7AV80lr7M1ZcWTmZWfM7/vXmMAnv4aoFk80GSZgAsXDDoVx9
-	 b8XulWkrcM74YRo3bLzqtOVKK8j+oxrQyheHVZsi3Hiu1mV8Rb/PNTFS3+1cRPabb+w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998968;
-	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=yjddwcwOXL4YWgrbreUffyhglJyEjmO2zwDmfBYX+v8=;
-	b=ETcBv43sOZAIWcA5X8MpUixJGCwn3jYT1ABFk/QvJQbJeBWYH0gCHuAO6UTNDJooZAsm
-	 3Se1WoXkotDAuN5JpNxjfzydG5WB9Np8tl84SEZus6aKAuOJMDk6iyNXlDjPp9Dj6uEZi
-	 l+KLYE+fmw0FnayTKn47ZFxF7FTZvR03uFwGOHrd33eCi/S34M8+51QtwXPRVH2Q+vQxO
-	 QsFrcf0+x0JL901dxyAUE2XOdAeQ24Wkszke3sdUeROXfynao9YVWNRChLygboMVNS6Xo
-	 iwFzzIT+WUuRUztlAtiq4CCClOoL71n27XCVsffT6O7dGdsDCP3GfwcN8sYMtEjpoVg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=pass smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.99
-Received: from dggmsgout11.his.huawei.com (dggmsgout11.his.huawei.com [124.71.93.99])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.98
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794998984;
+	b=t8P5S0SdSvgkNHwA++mGSrZj5AE5EQL2IqUzHlROy0fgh3PwSCrjM7/oP1Ua0UC+7x4w
+	 xL66nG9vvd0ZBMaAh0ZOfg28ScYPP3AUhP+YlCZG+XhFL4biq9M3eqpX9r7Z9zYW9RXxg
+	 tm4EB8hYdeai+cYtal0Amc83Wd3zzQ9BvPEcQ+22EHnzcGIZvedoZ9dZK08kqnlybNjZG
+	 L7VfIecdtynSnTcwIHS3dzjwmWUaQdRcsJe/MNWtREWVlL0Uu+lQI4VydS5IiNyyQV1au
+	 9dVjHButDgvAgZ7+QncqH8kkPXb3eN02ldddboUEM3LrlA6NvQ68RA+WUzjfIHY3wIg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998984;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=0N0VCk6qGseQDYOD1nFyF4R8YC8T03HFFPgyQHBAtgU=;
+	b=R4FHj8akwK5RAdaTLJ13qBl9cWz/b3TjMMGoN1yNEhx+arfnOyK5F2rvy3mJRkT6lfvo
+	 +11gu7hEwHwIiMIN+Zu8a/5ebTwcsYxz6qCXYYe6X3sBxW03B4KJtKiAt6IyCX1szl6iM
+	 ggr41+kjYquS52kPJL5bWSGbBvahE/8EJoUMD5z3iX7oGeDbmqs7ZwyY3GQhxh8d9/eRm
+	 CRY/bKcRy/aSxq04jwh72ORH+lkrjvLTqjmJG5a+hSjvEIDk2TrAVi0zqzcXXZRjaHUm9
+	 BtXFfSKqZ/O503ByfC4nkcpvRWzuqkdQy7RKklDocEb+13PlakodqtIr+w4fPdfwQgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=YM5nRmQo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.98
+Received: from CWXP265CU009.outbound.protection.outlook.com (mail-ukwestazon11021098.outbound.protection.outlook.com [52.101.100.98])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C245606A33D;
-	Wed, 18 Nov 2026 10:49:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C245606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggmsgout11.his.huawei.com (SkyGuard) with ESMTP id 4jTyxn1Nw6z1c1lw;
-	Wed, 18 Nov 2026 18:48:29 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id E841040574;
-	Wed, 18 Nov 2026 18:49:21 +0800 (CST)
-Received: from [10.174.179.19] (unknown [10.174.179.19])
-	by APP4 (Coremail) with UTF8SMTPSA id gCh0CgAnZPOTgv1q3vJQEw--.21239S3;
-	Wed, 18 Nov 2026 18:49:21 +0800 (CST)
-Message-ID: <1102a630-de07-4494-aea2-207e5b84e2a0@huaweicloud.com>
-Date: Wed, 18 Nov 2026 18:48:50 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 507AA606A31C;
+	Wed, 18 Nov 2026 10:49:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 507AA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=YM5nRmQo
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fVjeXIRRGgoa122cTohl75Rc+GVaUpqrYiKak3e0QHPpK3ZzeiMyWJMkWot/MsIqBKBewN3wAObkt4UJgnKucl/lebHiLgGrS9vDFYcjiJ+uSqT5G8Fa2ZtWQBRE12mosgzPbjRiUPiD48YE1HcSq8LQQjjanBbww/sFcpwgRMvZqe60sdIY/YqN2rbheNuxhUGM3tfg1439Y/jrM2wlwfDVXSd5CmXLRMwWiAVK/b+kToczKMWeHGB2vqZiBsVRtaR5Fs+h+7snExe6HLpuNzZBeBuJp13tCtJg14YT7ozrdzF4EsnmZlkfNIOFuFNib7dWkefRByCXDL4FeCN8WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0N0VCk6qGseQDYOD1nFyF4R8YC8T03HFFPgyQHBAtgU=;
+ b=GeRuuiOWEvFTpD1pHEQ9lBsxpZGx/zKbTt2rjv6stKJbit8rhjgcjBeJhp1sOPt4TZARrayToaWtp7wN5zoY/0JfReDQJcMtMSDz90LEHMqz7GYv1XsJ32RTTXJOL0mko0uVlYkV+dXGamQhXKEtVwUALZjSTXvstdMtVg4cIIXomOgmHW3O0R89YdSuSPdP3MaQeOl7bPNuJNozl4UIJFXUibCSpp7jJpJLxHTndZLR5+5ZAdTrKy5dhrE+xn0dISpVCangmuk/IeeVrtf8f0nScAsOlGfcmG/WIM7x/PjmxAytGSpj9yyZkZRsbXJWr25o/BNN8zcIVtBWcjaPdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0N0VCk6qGseQDYOD1nFyF4R8YC8T03HFFPgyQHBAtgU=;
+ b=YM5nRmQoOADo0gqBdKK2Dag6W33wSMVp4grWByO/yIo3oo8rfNQyhrXHPmw9VW1ceNSSthXpWpFHfigzHANebT9buQKakSmVok81C6Ix5fQDSTxakvCg7VZds2gTK+Jsdcyk9nbyW3B3uqzExYR3rdvJmf1uM2lRpQH/WS0Y3d4=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by LO0P265MB9132.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:49f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 10:49:41 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 10:49:41 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 10:49:41 +0000
+Message-Id: <DMYA181VNBAH.MD09J2MY28RP@garyguo.net>
+Cc: <linux-kernel@vger.kernel.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>
+Subject: Re: [PATCH v3 5/5] rust: sync: condvar: add non-exclusive freezable
+ waiting
+From: "Gary Guo" <gary@garyguo.net>
+To: "Danilo Krummrich" <dakr@kernel.org>, <boqun@kernel.org>,
+ <gary@garyguo.net>, <aliceryhl@google.com>, <lyude@redhat.com>,
+ <daniel.almeida@collabora.com>, <work@onurozkan.dev>, <ojeda@kernel.org>,
+ <bjorn3_gh@protonmail.com>, <lossin@kernel.org>, <a.hindborg@kernel.org>,
+ <tmgross@umich.edu>, <tamird@kernel.org>, <acourbot@nvidia.com>,
+ <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>
+X-Mailer: aerc 0.22.0
+References: <20261117001507.1611984-1-dakr@kernel.org>
+ <20261117001507.1611984-6-dakr@kernel.org>
+In-Reply-To: <20261117001507.1611984-6-dakr@kernel.org>
+X-ClientProxiedBy: LO3P265CA0020.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:387::14) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,136 +103,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] ext4: silent data loss when a split at I/O
- completion gets ENOSPC
-To: Ojaswin Mujoo <ojaswin@linux.ibm.com>
-Cc: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>,
- Theodore Ts'o <tytso@mit.edu>, Jan Kara <jack@suse.cz>,
- Baokun Li <libaokun@linux.alibaba.com>,
- Andreas Dilger <adilger.kernel@dilger.ca>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- guolingxing <guolingxing@tju.edu.cn>, Josef Bacik <josef@toxicpanda.com>,
- Chris Mason <mason@kernel.org>, linux-ext4@vger.kernel.org,
- linux-kernel@vger.kernel.org, regressions@lists.linux.dev
-References: <d400205a-0d3d-4ec3-a916-6c0a085841b4@linux.dev>
- <d8ac3185-44c8-41e7-9cbf-3d1baa27f272@huaweicloud.com>
- <av1Z_RLuH4vd0Wyi@li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com>
-Content-Language: en-US
-From: Zhang Yi <yi.zhang@huaweicloud.com>
-In-Reply-To: <av1Z_RLuH4vd0Wyi@li-dc0c254c-257c-11b2-a85c-98b6c1322444.ibm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID:gCh0CgAnZPOTgv1q3vJQEw--.21239S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxGF15ZryxJrW5Cry5Aw1xuFg_yoWrZr15pF
-	WF9a4Syr4qkr1v9r1xZa1UXFyFqayftrW3Krn5WrZaka98uFn7KrWfKa1YkFyDCrs7Gw4j
-	vrWF9ry3W3Z0yrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkEb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2
-	j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7x
-	kEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AK
-	xVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFyl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UAwI
-	DUUUUU=
-X-CM-SenderInfo: d1lo6xhdqjqx5xdzvxpfor3voofrz/
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO0P265MB9132:EE_
+X-MS-Office365-Filtering-Correlation-Id: 489991c3-e535-47b1-ec86-08df4561a686
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|10070799003|261009223027099003|18002099003|22082099003|261026121527099003|261021123027099003|261021121427099003|921020|261022105027099003|261028144727099003|261102123227099003|56012099006|4143699003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	4zRwqBIf18I3Pq18A1c6wqHXbJNQiWfMnvhsiqYJUnbf7088gpvuwahJirkMgw7lS+nyNe5J3vWLeHCAXe7FBQbQaA1fSld5WMZf0mlQbtYUEYohd3ThWed3kj0oBrdILXUJ24z8HvOxYj4IHfzO7pHtxiTvsb3PZlHDjVt3auq7ekaN+YGv9O1lK3qbVrGIrAydN7gT/cAHN4LTCVzqXxAitftjr2dZZjJDsNBgfTKDXdvDDpsGQrXT3sw8VCF66te/Wzu5ABmAzFNlm5W24tk77ESvuU8jAFBzZOlcHU3oAS+OHs1lkdJV4p8zbs9QNBVlTzVEK6afJgB/iaN8lxdly0S7dyi2J9K6efel3CHSYPm4HZ2VM6uWRKd5TSeYctYEn4vfYbSQGjyl2OctoIKMq7ZdvRWovo8adyVgGaXsh0V9A7Oh9X6rjMwX3O8bcROW7hkovg/5Yc1MBYKZMvRVRGQghp6hEK8JztS65XOM/RPfxH2X5c6Qdc8A2y/sCzhFi6d2Fw6cFZNfDSHPuI+5+COKITB1jz2J0f+faqgPC7bRGl56jt6rLlorz5chsaJ82lPV0oYfzITnuv4NGeu1XlJAe8D76AMrb9Db2n0T/MfQsL4EhXlvyEUXjl7DkIaj+ucBSfUECA2BuQBDsVKlORrtJKofmuvueRgO00GXQm+ybqP7YzkQKSYQ3JqgGvyGbGyQOcEk/jVhR35y2Q==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(10070799003)(261009223027099003)(18002099003)(22082099003)(261026121527099003)(261021123027099003)(261021121427099003)(921020)(261022105027099003)(261028144727099003)(261102123227099003)(56012099006)(4143699003)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ZVJmbmxtRFkrWUV0aTQ1T0U0WU1NZEJoZHZtYVovcmRlS1BDQkJSNi8yaCt2?=
+ =?utf-8?B?Q3VZSWtmODNnNndwZjNkMHk3cHIxNHNUWndvUmpRUGM0WjUreCtYSUZ2R2Jq?=
+ =?utf-8?B?N3R3OGR4eTJ3WjhFQTZneXkrTERzSnNWQnBqMFlubnZ0c1VRR2VkRFROa0pq?=
+ =?utf-8?B?Wk9PSldLUjl4VUdNVC9NZGNGU09URnp3eHRQNXVOTUplQ1phNGtwSEs5QTND?=
+ =?utf-8?B?RVVFRDlyUEhjKzVBWXVNSjBKSkRSSkZldzQvL3VDUVVyVkZRYU4rRWdLRTdq?=
+ =?utf-8?B?NjVWdXhNNXRUQVBEclZJekVhejJ0RThQYnh1VUdrUllXMkgzUGptWUhEaVh1?=
+ =?utf-8?B?cHE0U1ZNTERFbHVmOXh0cXhmR1E5YnJyeDV5VERkNXBTU2c5Uk5FNG1XSytz?=
+ =?utf-8?B?b0QvOTZ6SFp1QitBajFLTEg4WWtDenVpTklnRE8rWmo3RlNxSCt1RlVkYnAy?=
+ =?utf-8?B?dS8vbFg0QVNGOUpVL2krTmJwVWRKOVkybGRHVWNBaGx2ZCsxdjllL1VhMTlU?=
+ =?utf-8?B?bVNSd0ZlRnhkaVMrQ2RpVjcyT1EvUEhBQVdQZXJ3NDNwMG5udXJ3VlExMktT?=
+ =?utf-8?B?MnQxa2dwNjhIUkkrT3VYZ2hhazBURzdVcmVuaUtJWU1SVllMeXNMZ096RmpC?=
+ =?utf-8?B?UFdHaW15ckpCZWRiUVZKcHdDSFNCZzNMRHJweGZQWFo5eXFlOWFGWktjRC9v?=
+ =?utf-8?B?NkV4UE1FR2Y0VnAwVW9KSENOWnRPQStwclkvV2k4V2xPWmdLMkJHU1V0clhp?=
+ =?utf-8?B?YmlzQzlWSGc0bGxKK2RkZTNpWHB2QUNOUmVrRnlBK29ra2p6eFI5M1dXWWZk?=
+ =?utf-8?B?ZnlYRnN4VTcxdFhCcDBQTUZGVGd5cFpiVU5ZZ2tjSHlwaVVUbHhxdkQrN09J?=
+ =?utf-8?B?TDEzZFQ3ZE9pV1BSWFo1QkprTkVIT3RKUEJiUXpPcHlON2U2RFU4YVZhdDJC?=
+ =?utf-8?B?b0hoeXVtVzBMdXRWQ3d1ZklMMnNzUGpZTWFBQWJ1aVJoMTZTanJBZW9nYmdm?=
+ =?utf-8?B?ZWZmcy9GSVFoVmtSQ2l1dldNaFMrSW9wYzkzeUREV3c4WWsxZGpXeVhRanM5?=
+ =?utf-8?B?RVRQckRHaHk1U0tBRDhISi8xc3M0Wlc0V3JaYWM1YlVwRlFNRVNDT1pHUlFZ?=
+ =?utf-8?B?NE5WWnk1MllGZ3dDbmRMTU9pbHJrdFFtQWR2UXREMlI5ZGtVVHg1cjRlU0hD?=
+ =?utf-8?B?N0wyZEg5SDBsTDdMQzRaK0FHeFlicUlOV1llTHFOVmc0OGYvNExtR2tNWXpN?=
+ =?utf-8?B?T0R6SUFWdWN3MjJPMlg4UlIrWjQ5eXlvZGk4cGgydXhaN3pPbjZNRlRQUTJi?=
+ =?utf-8?B?bUE2K1lEMjZnclBzeTRQR1FVM3MyT1JHZkUwTEZKWWVkNlJXdmw2djYzemZG?=
+ =?utf-8?B?VDE3b0NCU3BhcUo2ZlNQaDZQQk1YOTlyeEcvRlY4Q3hSUlJBMEZ4NWgwWmRO?=
+ =?utf-8?B?ZFgyb0lScFVybTBSQjZJamQrUGVpWEZNdnBRNHJPc3dTSERZc2tVWk0yMlFz?=
+ =?utf-8?B?Q0RYclAvMitvR2V0L1NXdHcralJOc1RuWGlZem9MMHZFbW1qY3Nmd2NoY3Av?=
+ =?utf-8?B?cVdqMUNkaG1rNmpicGJNOGhlaGpYUjFFckJEQk90OG90V1Y2cnZOMmZsN01k?=
+ =?utf-8?B?dnhOS3FmRytCcW5KWTE2VGlBOG1hM2RzNElmM0hqWTFJelRIRlRyS3BXWUpE?=
+ =?utf-8?B?c2FJcjJyN2tnSHVoSUtRNWNQVTkrV1NsZ3JSaC9zT0lieGJUUVp0WGhYdWFB?=
+ =?utf-8?B?SEtTb1lZa2g3UnJPbFdhUk1kSFI4N2NweC9GRnZZNHMyeWl3ZWVMczNMVXRt?=
+ =?utf-8?B?TUJISjdBNnAvRTcyajlCdTZISitPQUZnbllVUVl0andhVlFNRDJLMlJ5Vllp?=
+ =?utf-8?B?MmxxNWNzT0NtSE4zR1hFVG42MnRkcTNNU3Y4bm44VktOYnJhSGRjMkRDS2dY?=
+ =?utf-8?B?bnh1T3c5dXM3R3NaY2dNcTVKK1lIV2tQOVUzcVdHZGVNUkM4akV4YUlGckQ0?=
+ =?utf-8?B?ckhuMVNIZ040YmVETkRhVSsyZlZDWFNoWUUvTmxad2dSQXp6RndIM3R4S1hY?=
+ =?utf-8?B?REFnOWgzaGxwZmR4Y3V0RjRxUFpadUVaTHo5ZHUyaDFXT1NsYnFRSmhHeGFu?=
+ =?utf-8?B?c3VlbFBnTjh3c3IyM09Db0xMMDl2SlIvR2xsbS9obVJKS1hyZU5teGgrTmxz?=
+ =?utf-8?B?QVBQckNZN0NuM055cXo5TVVXemNQTjhZS1NBSk1KZGtNeVMzV1hFWVYwVkZ6?=
+ =?utf-8?B?MllZbkZMejBKUE93U3pmUXRJdU9YQnAxOVJnVW9pOXY4d29rcW5PaEFtZ1Bp?=
+ =?utf-8?B?OURsdzc3Yjg5OFI2VTBaL0hGcHRodTR0ZHdNYVQxV1JwL2l5d0U0UT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 489991c3-e535-47b1-ec86-08df4561a686
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:49:41.8969
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WrXfBNvAXQZxf97qiEvYdJVQ+EAVXU9poyB61gjQ4EM3muZWi2T9ppAtdOYl8X+EfWfv6UNJbet1Mqfqrs9vMQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB9132
 
-On 11/18/2026 3:55 PM, Ojaswin Mujoo wrote:
-> On Tue, Nov 17, 2026 at 07:37:10PM +0800, Zhang Yi wrote:
->> On 11/16/2026 10:27 AM, Jose Fernandez (Anthropic) wrote:
->>> Ojaswin's cover letter [1] explains how, since commit ea96cb5c4ae3
->>> ("ext4: don't split extent before submitting I/O"), the split of an
->>> unwritten extent at I/O completion can get ENOSPC. [1] stops the zeroout
->>> from hitting other writes in flight, and [2] reports the failed
->>> conversion to fsync(). Neither gives the split its block, so data is
->>> still lost.
->>>
->>> LLM agents working with me found that it happens with default options
->>> on a filesystem that is not full, and ran the tests. write() and fsync()
->>> return success, and after the pages are evicted part of the file reads
->>> back as zeros.
->>>
->>> Under a load built to run the allocator dry (QEMU without KVM), 42 of
->>> 72 files lost data at ea96cb5c4ae3, none of 72 at its parent and none
->>> of 48 on v6.18.63. On mainline at 23c62304dde2 32 of 72 did. With [1]
->>> rebased on it 42 of 72 still did, now as failed conversions in dmesg.
->>> With [1] and [2] fsync() failed with ENOSPC on 47 of 72, and the other
->>> 25 read back intact.
->>>
->>
->> Hi Jose!
->>
->> I'm sorry for causing this regression. The cause of this problem is that
->> the transaction freeing the file's space has not yet been committed and
->> thus cannot be returned to the mb allocator, so the extent cannot be
->> split at endio time to allocate space for metadata. This is easily
->> reproduced in scenarios with frequent file creation and deletion, even
->> though there is still plenty of free space on disk.
->>
->> I think the solution should be based on Ojaswin's counting approach in
->> [1] or the PENDING_CONVERSION solution we discussed, and then, after
->> extent splitting fails, try to flush the journal and retry. My idea is
->> roughly as follows:
->>
->> 1. For the iomap buffered I/O path and the DIO path, this is relatively
->>    simple. We just need to add journal flush and retry logic in
->>    ext4_iomap_finish_ioend() and ext4_dio_write_end_io().
->>
->> 2. For the traditional bh buffered I/O path, we cannot flush the journal
->>    in ext4_convert_unwritten_io_end_vec(), because this may lead to an
->>    ABBA deadlock with data=ordered mode. The journal process needs to
->>    wait for ordered folio writeback, but this folio may contain some
->>    ranges that need to be converted, and if we flush the journal after
->>    the conversion fails, it will form a mutual dependency with journal
->>    flushing. Therefore, we have to fall back to splitting before issuing
->>    I/O, and when splitting fails, flush the journal and retry via
->>    jbd2_journal_force_commit_nested() in ext4_do_writepages().
->>
->> 3. Split the workqueues used at the end of iomap and bh writeback to
->>    avoid deadlocks. Because the filesystem may simultaneously have
->>    different inodes going through the bh path and the iomap path, if the
->>    iomap completion worker is flushing the journal, it may need to wait
->>    for the folio of another inode going through the bh path to finish
->>    conversion, and that conversion worker still needs to be handled on
->>    the same wq, thus causing a deadlock.
->>
->> The current bh buffered I/O handling flow cannot be unified with the
->> other two, which is indeed not ideal. However, once data=ordered mode is
->> sunset in the future, we should be able to unify them. What do you all
->> think of this solution? Any better ideas?
->>
->> Thanks,
->> Yi.
-> 
-> Hey Zhang, thanks for the poc, it looks largely okay. I agree that this
-> seems to be the right way forward although its unfortunate to have to
-> revert back the unwrit to unwrit split. Hopefully we can move completely
-> switch to iomap soon enough. 
-> 
-> On the extent status cache for zeroout approach, i'm currently fixing a
-> few bs < ps bugs I'm seeing in it and would clean it up and post it as
-> v2. My idea is to keep the first patch disabling zeroout and rest of
-> them implementing the es changes and renabling it. 
+On Tue Nov 17, 2026 at 12:14 AM GMT, Danilo Krummrich wrote:
+> CondVar currently registers all sleeping tasks as exclusive waiters.
+> Add wait_interruptible_freezable_nonexclusive() for callers that need
+> non-exclusive waits, using WaitQueue::wait_once().
+>=20
+> Document that notify_one() and notify_sync() also wake all non-exclusive
+> waiters.
+>=20
+> This provides non-exclusive waiting support for a subsequent Binder
+> conversion.
+>=20
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 
-Hi Ojaswin,
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-Yeah, this makes sense to me. Looking forward to your v2. I'll re-adapt
-this POC based on your patch afterwards. :)
-
-> We can just backport
-> the first patch. Along with your poc fixes here also backported to 7.0
-> i believe we should be good to go.
-> 
-
-Sorry, I don't quite understand. As far as I know, 7.0 is already EOL, so
-why does this still need to be backported to this version?
-
-Thanks,
-Yi.
-
+> ---
+>  rust/kernel/sync/condvar.rs | 29 +++++++++++++++++++++++++++--
+>  rust/kernel/sync/wait.rs    |  1 -
+>  2 files changed, 27 insertions(+), 3 deletions(-)
 
