@@ -1,18 +1,18 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.62
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.26
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795044756;
-	b=mqpqA6j3G/U2/CXzCFuh+DAY2scmZSRT1OkMphn2tfE6SGOfX5bnHgFq8yvvfobp5c/C
-	 KKNz6Cjy5FhG2mdzxTycLugzbdQGxJx5yjjGqrRRaQFNCMoYBPFE72eawlA58VoIr1WcD
-	 GW31ykS2/Zoz7r6X869VBtK3a5oMTDl/exr0HtJSBjV/2vC15+oiyGEKRt+ilkK6/TXdZ
-	 3Z+YUya7N+H6COFDMxdg59YzvlRvKfJrB4SDNg8TzmePDkY8oQrxH3wSle0zSUkqSqHQN
-	 0rLEvIGChxxn4+LVOVa4t1KK9adfKOHxB2Pfd1gaUMgDSsiO5Qu9HWn+NNqyGCvjWAQ==
+	t=1795044757;
+	b=CzJHhAPKdTDabzNKAHnbp/pVgFvNuBJGJGjOlQSMxVK2tZh8QiH+AUm7uJ4ItlnFyYd6
+	 9AfBx0MsDzZf9I2ZA3jRCN2W16Hbb9epAU2SkF+afNuxJ/Vt5NKSjPY26un8iXcTfkxzm
+	 iXFnJ9k8aBH+XEWVjiGdmYvwaXe2SsElu5D/OW24Vyg8k1YhVXbD0MgQHbCbCxFDxzTxR
+	 J45TgFeMy4sP6+1PM9eR/GEnFZOlj4Rgi7emaOYSe7WPV4QBaohlUJ2aIFRlArgQM6yn8
+	 Grna1rpdL9dS8lM6V78KcVdmKXwlwI8r6o7/GskVvPA0SSfxqKFMiGPlNROJYyn8Z2Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044756;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044757;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
 	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
 	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
@@ -26,53 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=63m/7o1O8LPb1Ef3SLMh71fdRN6m9po1cxf6iscNjeg=;
-	b=RG/UVgWfGg+ABboms3Y3alPWuJPyUGJnb9gyFJsy5R5eyJpTP2ps7p8vilFN9mQjwMsJ
-	 +NXpIdOUbHS8TMwVrhazh/1IZOVVXjL+0oSBxiZ2h1Rr6+IAxLgkxXF+s1C6R4lMzjiEJ
-	 2Opb4qOqeivciUmMiMW+H/aG2ONXJWDe8TzNac7r7heQTE9N7WK/eszSZHFE/oaL8RBNK
-	 kq5GZAGWKKhLHno3BsVTx80rWuYXeKh3i68wOhNs2XxUdMV9Et2fApDpctH0rL5NoFSIZ
-	 8S0HpSW2v9BB1H+KzHg3DL1oQDZK10PrIPXLsuADjo1Jr45WS22AhxKMoHnNsNeIV8w==
+	bh=t7lRKi81jotThQ4nAMzqZzLylswWMXvcbKHPOtLo4Gw=;
+	b=G5gFLiPIROUO8YvrWffyHBipA7auwLJk0XO6UimInDlyrzr5207GTI1+XXdaf6KG1NtY
+	 JRYtIk0PgsKFFsmSBqrM895O+agdpSJlpJxP+m3dg+Dkx/r9FvU6cSZ2nhO/3My00rWna
+	 rqA4vDbl8DSm32722cPfSge/Zaet3i97IreEyuoJhUPAD6wWI1iBdgNeL4/TiSgt6xwpA
+	 CtohJMDY57y1QS5lpdiljRoHi95iZ3xllskYII0D1gFrtnjrTyV3rOu8qDyRswUHSD72S
+	 cyuZArerJfTGYR8NdJr2hKc5+86nyXnIdG12It4mDLNrjQebk2gqoVSeD9wgqOSQkQg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F63El211;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.62
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012062.outbound.protection.outlook.com [52.101.53.62])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5Z9lWqLz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.26
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010026.outbound.protection.outlook.com [40.93.198.26])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4994660A2616
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9A5B60A261B
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:32:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4994660A2616
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9A5B60A261B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=F63El211
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5Z9lWqLz
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P1E0XDPyMr0wuLDKmHwEXQLNOG92QsJ7U5OBb/DtGNprx+T8vrTvOR1+1/DYCc5xy4Kvo+0aob07Vy39FnT1HpA+ZC9yFQnrLPLl9/bEiUqYOUFiwqSzJk4sQMJscYZspkWztAVumu/ZnW8rQtP4ZhAxpol46k6ggMx8djIIwPakC5z2llESxFrgX75riQ6zVVUfUOSZSLPv2FyrrlT45JwZi1PEXZM415oHGAiZrv5h0jkQ/eQRBihlojl01ssABxrKl0/pFwwj4mirsUcavxzcQK+K/8Oof+xvl38ipeEAIAHLcwBhxqAybwvFJsRq/Ue3oBaEosIdrIl57X4dbg==
+ b=jpfj9453pa+fHPlTfckoiWaomo16hJ3mJBHObBphYsJ/hewmB1+KokQuNTnba34AJlkEOqehlf5HLr/eP+mEuJgdUDk2KBLR3pMQpcQW0EqYY5CS3KySON+FYFYEg/TZ7/e5E1EEjudd6beDsLLmcCPuK8xQ9nCkbGph9eTguIw6X4gyzPmvRhKBQWU0SwYCJC9gUdN5n0N7JiR99ChIVmwWVqEmVrOEc/dA0jyhKoHLygxFGoh7STmSjrJdgO0YNNJO2G6F4016810V5XJgL3ssHUe27TyWBi6ERnDl2zXvKTgLz/w6yYFtMye8Lyc5dhwpzONcYp6EzrdOgU1OEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=63m/7o1O8LPb1Ef3SLMh71fdRN6m9po1cxf6iscNjeg=;
- b=oYKid/mm8V7EXzY80OJY+4AnbW99Zf+kRtqgHvViXipU+Ya09vkGhS/N0YATZTmYQU1XDg6aQ0yxDXpoKE7hsnURT0eWQYj3z5SlLk1Csb529yzpF5OYKOCvuGJV6opj5nn+w9OIaZHLA7r2lXQRGudxbEj2DesiLorLt/80gtuWvrWGHdmBSHpNcPIN5ZPesN6NNtJWAK1VOjwmzBZga3w37s9j+Ojix4Mo25L0gt7EKEuLKi6ZdViCravX5XxHreXSo90UrhSsWsUmBpLBmTOvXCR4lU0guZcW8HJLP8E474IiVwfYAvDnm3X63ICGDyhIaDWCDYEQr3/zqt130g==
+ bh=t7lRKi81jotThQ4nAMzqZzLylswWMXvcbKHPOtLo4Gw=;
+ b=oEsKtkC8LQl8dyQPDvMAl5B4FKCISe1tuJsxc/IqcjWGD7NJk0LxI0kPz25UPb2XSPO2YVrUlyLtcbwzZtP3je2tspLNxASzhhF4nsSR+keGF5SYQPNU3y0QYcP5RDCpb+cEUoomyKG6oaLy3F1A7Toh2bgDfZysZa7rqrzptw1yAHfO7j80GOhDDBEridRm0rOD7OlFBSdXXoSaD0Q2+rSoII/A7LlFYxx7JHLx/+3qQvDqt7JKD1Ji0uTJO6KixZtPrb5AKK3pky43WLyhk1AX6sMbsEV5B/H8pvzyBqTHdHfA9+1xb3sQ2OwijdEBTf6IUqAJQJ/jirr81T0WxQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=63m/7o1O8LPb1Ef3SLMh71fdRN6m9po1cxf6iscNjeg=;
- b=F63El2114QaYobYQK3sgSOXDluIYk8Z8bL+jQgZRNdTrbea4w6XDaemD366DbubkhLRfP2hixekUPq0gKlwxAuln/MB1Bwfbr4ThxW00tPgG+GJHXyC9zWNtiV4+0Lvv5Pp/U0WIw7r3BurBVdxBUnSfMtPBvoSO/K/wlFMIckg=
-Received: from BLAPR05CA0006.namprd05.prod.outlook.com (2603:10b6:208:36e::9)
- by BY5PR12MB4179.namprd12.prod.outlook.com (2603:10b6:a03:211::8) with
+ bh=t7lRKi81jotThQ4nAMzqZzLylswWMXvcbKHPOtLo4Gw=;
+ b=5Z9lWqLzRfOs6lA271tiJwlzScyWEKQa5LKc2jUEaomEbv7LTlvO7h0BuBAG2L7P1nOMB9f/Nhq2R5NunRzZSAgNbRik//ziJBNs72OPOYHh9bJnLp60A0Yo/uiZA+tbfWTaUy6J0y5WSHZTyc8oPu3sx58rptyeux9GeyVSNt4=
+Received: from BLAPR05CA0009.namprd05.prod.outlook.com (2603:10b6:208:36e::16)
+ by SA1PR12MB8987.namprd12.prod.outlook.com (2603:10b6:806:386::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 23:32:30 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.13; Wed, 18 Nov
+ 2026 23:32:28 +0000
 Received: from IA0PEPF00000038.namprd03.prod.outlook.com
- (2603:10b6:208:36e:cafe::2d) by BLAPR05CA0006.outlook.office365.com
- (2603:10b6:208:36e::9) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:208:36e:cafe::14) by BLAPR05CA0009.outlook.office365.com
+ (2603:10b6:208:36e::16) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Wed,
- 18 Nov 2026 23:32:29 +0000
+ 18 Nov 2026 23:32:25 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -82,23 +82,25 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb08.amd.com (165.204.84.17) by
  IA0PEPF00000038.mail.protection.outlook.com (10.167.249.69) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:29 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:24 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 17:32:27 -0600
+ 2026 17:32:23 -0600
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 17:32:23 -0600
 Received: from xsjgregoryw50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 18 Nov 2026 17:32:27 -0600
+ Transport; Wed, 18 Nov 2026 17:32:22 -0600
 From: Gregory Williams <gregory.williams@amd.com>
 To: Michal Simek <michal.simek@amd.com>
-CC: Abhyuday Godhasara <abhyuday.godhasara@xilinx.com>, Naman Trivedi
-	<naman.trivedimanojbhai@amd.com>, Senthil Nathan Thangaraj
-	<senthilnathan.thangaraj@amd.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 10/15] drivers: firmware: xilinx: Add IOCTL support for the AIE run time operations
-Date: Wed, 18 Nov 2026 15:32:06 -0800
-Message-ID: <20261118233211.4121361-11-gregory.williams@amd.com>
+CC: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 07/15] firmware: xilinx: Add support for Versal Gen 2
+Date: Wed, 18 Nov 2026 15:32:03 -0800
+Message-ID: <20261118233211.4121361-8-gregory.williams@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261118233211.4121361-1-gregory.williams@amd.com>
 References: <20261118233211.4121361-1-gregory.williams@amd.com>
@@ -115,172 +117,264 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000038:EE_|BY5PR12MB4179:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8176662d-ceaa-499a-901c-08df45cc365e
+X-MS-TrafficTypeDiagnostic: IA0PEPF00000038:EE_|SA1PR12MB8987:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac2eddbd-cf4f-45f0-eee2-08df45cc336a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|261102123227099003|56012099006|261026121527099003|11063799006|261102130727099003|5023799004|261026140227099003|10067099003|261022105027099003|261022075727099003|261021121427099003|261028144727099003|261009223027099003|6133799003|22082099003|18002099003;
+	BCL:0;ARA:13230040|23010399003|376014|36860700016|82310400026|1800799024|22082099003|18002099003|6133799003|10067099003|261028144727099003|261021123027099003|261026130827099003|261021121427099003|261026140227099003|5023799004|261021130227099003|11063799006|261026121527099003|261022075727099003|261021135927099003|261022105027099003|261009223027099003|261022115727099003|56012099006|261022113327099003|261102130727099003|261102123227099003;
 X-Microsoft-Antispam-Message-Info:
-	KAllQuRrpBzN4ECxQWYGntS915uG/N7S0n/vGexNvxQsLYKAHp6cl5rsuqm42Ywt13P+5Qy9AOgpwHbJbPyHwruPwmo3r/pOBNldbqyok+IVvjdhR1FdEqvdvz4F+Az8o2Xeab6YYyFxE9bWE8e2aU2bfHdI/FIcG6QsaQbXcgePKP6yR1rMHOi5Fklmm8TK53qVR1w6pkJdDwnuES16lZ2QsBlntL9QZvJdiaSFSk9VQo18CxQSn9FpiHDvdEdP9KhN/3MUvtD2tFgc7qUTIfOPka7FXC4WFF0F/6QOxqwahGT4ZK5X1vJqG/oKa1JlIldwAnaTseC/8t66QtAD9ImuXWdptIWkXijHVngbg82LP/JZNuAVoxWz+cvki5jVnlG8pu9DP2APVpe+Av5y7LSGwwgYuA11KJ9k1n7uYdG49Z4EMVE8hpHj+TbepGgGgFPXAc6IJJEQQ7G0/AmO7aWPcYX1KVNkovcPPMrtLq2CCdgLIPPUMUHaywzUb6Yy5zMJ4LcJ35mpciqSZn6+ZRhjaphVaI8amgPpmFEVJw+dBX/82BZBcrwPeMMNL44C+gD8lXuZmvIPCah1IWV4g7TFzjEg83CzHdnrsumvEVC6ImTgKQVYshFHCXBqrZGw8CwSrFIbCcsHF4TBGosm29oNOWUqdNP/5/Jplph8tIBmtYKsAUemfodWsBIgTYdwJuowXHWhmoWHZIGaBMcV6Q==
+	5vev1zyBQtvMuNFFi3jvnO9lN+ziNAJKoQvjJPU0iW+cp/boIH7FQ/AAdvBB6yQf3449lIs5xdNzzHhz4HHN3/HkBaKubptyB0pU3MlH2EXsPiP/fvpEP765VHJkRlYxfrccfjsMA92PIbCLJyMrrb5+2XkAeZsGW22iDrasl9yYSzoNc/EHnpIIoaA6isFtpF7SWnOx8OsoSri5d127fEBA/yz5YHzdAT5vGSc/twKLhdhFefTT3WQRsPvHePpKsA+ka2Rd5ZN0HrmVLe2D3r6z/TV6fq5MbpOXWZ7Ykt+/qa866zBg4Zj43Nq8GEgxAzHr3mtBtkkRAv0PiuZbpr9YgWXsi9midiTa1+BIE15WvkEiYWYjWcExuPoXdAt1Rs3u6dXrmP8qwdY8iS+zt6+cIlVe8jnKLwFVlOQjm78DVdFGfRzqqQP+kuKRgE11V07ztjNyHE4FlqPpVMLGptUIZ79Sn0OpUJsJ6JIeG85aBYW5ydhX92mKRe1E+J4R0i7tVq4PmXpPXJ6hZ6ptRcZ0RXvyQRW0aE3Q7nBAaqwcn/HoiKEv47AHCI7y2O0xNLLXts19peQS+o21IgC/vQjqnaJ7ROJpzxl6pNK1ModS+wUhvt1D9z1Opj737QlTvWfc3zfc+r5/Nm/SmGZBs3CvPBd7rxcwAo2NtJB3DMRA5ifQKqIdbhdN2o8KW7DW2/Oc7C25S1G+tOu8Q5/9TA==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(261102123227099003)(56012099006)(261026121527099003)(11063799006)(261102130727099003)(5023799004)(261026140227099003)(10067099003)(261022105027099003)(261022075727099003)(261021121427099003)(261028144727099003)(261009223027099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(82310400026)(1800799024)(22082099003)(18002099003)(6133799003)(10067099003)(261028144727099003)(261021123027099003)(261026130827099003)(261021121427099003)(261026140227099003)(5023799004)(261021130227099003)(11063799006)(261026121527099003)(261022075727099003)(261021135927099003)(261022105027099003)(261009223027099003)(261022115727099003)(56012099006)(261022113327099003)(261102130727099003)(261102123227099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	L/Gx/DOi7Wo3atgwzVvj4Dblf2ycfj0Q8YAOQ4LYF5mXqaRq+c5TX18RybtcFgTm1254vaDUF9iqncAMt/f3pILuna5fGBIu7Eq5JZJd5yH4AOfPXpQygi4HCdedb7ty+wIqyHVKddlXKu2O94NBfj5V/KZPWlWGm6N6i/ZYPeweZp/bo44UmsH9uDWGqyyCXtdJKYFGm+fW5YBuEHdC+90Lkp1KoaGdISm/+pT5jQIh/vPzN7jzQlgxAi4ky9/3DOtbMyNxeL4ntkVeYyoZdNUPbV8tT1Dq9meJunV0l+0+zR2yIKqyDL8NkO6+4M+vbHk6VMHb6SEQf3DnLczsABY07DWsNgCCl7l992PeIVgcgGqHAitRhoAIPKarne8GM1cBVulPbPM0Wmx8IlcxSjMl2Au61yegFmmHI+wSHRr1Ro97+4Ay5L/jpAFw6ZiN
+	VFdbTOCCJbu1Wplsr9tQEZMRmZlEDkLNsr5Zi/YJuo6JKjKvURdLUmVS4ZNWRtpi03srsXIWr6R3eYhEjq95z7v65KJlKT12DGcNZLmHaCXZ5qLJHQpwRChL9Yb4Xy6QacTejvCilosbff7YbyvppY4S7eyE5m2yqWmF4pKj+iKKHlwAJUlf/sYCLfca5aosBmp8q3z2mFurWaAJ0vd7HYq9hXCyGqZSAf00v8DyGOwxS11/Ju52HJwpPQy2qM/lYQ9weET6WEQOpjfah3NlrfmObARUkwb46xaC80TK8MV4QWUfP0bTzrkkLGDqJix1nG7KCHn6SspfjNCYo2WPVrbZlER/9AG7o6ueWM67wKu2VkLT0m6xxbFJBB52XaXInj4+Rq2Ufu+K6YhdlQ5xO7TeMJGzeEwHLxt+cdTBZnlRbUj8z5Jsc3LDhIW5hl3J
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:29.7372
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:24.7824
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8176662d-ceaa-499a-901c-08df45cc365e
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac2eddbd-cf4f-45f0-eee2-08df45cc336a
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
 	IA0PEPF00000038.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4179
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8987
 
-From: Abhyuday Godhasara <abhyuday.godhasara@xilinx.com>
+From: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
 
-Add IOCTL support for the Versal 2 AIE run time operations listed as below
-- Column Reset
-- Shim Reset
-- Enabling of column clock buffer
-- Zeroisation of Program and data memories
-- Disabling of column clock buffer
-- Enabling AXI-MM error event
-- Set L2 controller NPI INTR
+Until Versal, the extended SMCCC payload was supported only for QUERY_DATA,
+while other APIs used the basic SMCCC format.
 
-Signed-off-by: Abhyuday Godhasara <abhyuday.godhasara@xilinx.com>
-Co-developed-by: Gregory Williams <gregory.williams@amd.com>
-Signed-off-by: Gregory Williams <gregory.williams@amd.com>
-Signed-off-by: Naman Trivedi <naman.trivedimanojbhai@amd.com>
+In Versal Gen 2, all EEMI APIs are supported with extended SMCCC payload
+only, enabling a simplified and efficient pass-through implementation.
+
+The TF-A feature check now tries PM_API_FEATURES first and falls back to
+PM_FEATURE_CHECK so the same code path works on Versal Gen 2 (where TF-A
+only exposes PM_API_FEATURES on the SiP service) and on the older
+ZynqMP/Versal/Versal NET platforms (where TF-A exposes PM_FEATURE_CHECK).
+
+Signed-off-by: Michal Simek <michal.simek@amd.com>
 Signed-off-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
 ---
- drivers/firmware/xilinx/zynqmp.c     | 16 +++++++++
- include/linux/firmware/xlnx-zynqmp.h | 52 ++++++++++++++++++++++++++++
- 2 files changed, 68 insertions(+)
+ drivers/firmware/xilinx/zynqmp.c     | 117 ++++++++++++++++++++++++---
+ include/linux/firmware/xlnx-zynqmp.h |   1 +
+ 2 files changed, 109 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index a8c70e775ae3..995db401519c 100644
+index 709370933741..a8c70e775ae3 100644
 --- a/drivers/firmware/xilinx/zynqmp.c
 +++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -1268,6 +1268,22 @@ int zynqmp_pm_set_boot_health_status(u32 value)
- 	return zynqmp_pm_invoke_fn(PM_IOCTL, NULL, 3, 0, IOCTL_SET_BOOT_HEALTH_STATUS, value);
+@@ -242,12 +242,24 @@ static u64 prep_pm_hdr_feature_check(void)
+ 	return PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, PM_MODULE_ID) | PM_FEATURE_CHECK;
  }
  
 +/**
-+ * versal2_pm_aie2ps_operation - AIE2PS run time operations
-+ * @node:	AI engine node id
-+ * @size:	Size of the DMA addr
-+ * @addr_high:	higher 32 bits of DMA addr
-+ * @addr_low:	lower 32 bits of DMA addr
++ * prep_pm_hdr_api_features - Prepare SMC header for PM_API_FEATURES.
++ * @module_id: Module ID of the API to be checked.
 + *
-+ * Return: Returns status, either success or error+reason
++ * Return: SMC arg[0] header value.
 + */
-+int versal2_pm_aie2ps_operation(u32 node, u32 size, u32 addr_high, u32 addr_low)
++static u64 prep_pm_hdr_api_features(u32 module_id)
 +{
-+	return zynqmp_pm_invoke_fn(PM_IOCTL, NULL, 5, node, IOCTL_AIE2PS_OPS,
-+				   size, addr_high, addr_low);
++	return PM_SIP_SVC | FIELD_PREP(MODULE_ID_MASK, module_id) | PM_API_FEATURES;
 +}
-+EXPORT_SYMBOL_GPL(versal2_pm_aie2ps_operation);
 +
  /**
-  * zynqmp_pm_reset_assert - Request setting of reset (1 - assert, 0 - release)
-  * @reset:		Reset to be configured
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index effa1a2445b3..042dcb164fc3 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -141,6 +141,16 @@
- #define SD_ITAPDLY	0xFF180314
- #define SD_OTAPDLYSEL	0xFF180318
+  * do_feature_check_for_tfa_apis - Perform feature check for TF-A APIs.
+  * @api_id: API ID to be checked.
+  * @ret_payload: Pointer to store the firmware's response payload.
+  *
+  * Prepares the command header and payload for TF-A APIs and makes the FW call.
++ * Tries PM_API_FEATURES first, then falls back to PM_FEATURE_CHECK.
+  *
+  * Return:
+  * - Feature status word from ret_payload[1] on success
+@@ -256,13 +268,68 @@ static u64 prep_pm_hdr_feature_check(void)
+ static int do_feature_check_for_tfa_apis(const u32 api_id, u32 *ret_payload)
+ {
+ 	u64 smc_arg[2];
++	u32 module_id;
+ 	int ret;
  
-+/**
-+ * XPM_VERSAL_EVENT_ERROR_MASK_AIE_CR: Error event mask for ME Correctable Error.
-+ */
-+#define XPM_VERSAL_EVENT_ERROR_MASK_AIE_CR	BIT(16)
+-	smc_arg[0] = prep_pm_hdr_feature_check();
++	module_id = FIELD_GET(MODULE_ID_MASK, api_id);
++
++	smc_arg[0] = prep_pm_hdr_api_features(module_id);
+ 	smc_arg[1] = api_id;
+ 
+ 	ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
+ 
++	if (ret) {
++		smc_arg[0] = prep_pm_hdr_feature_check();
++		ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
++		if (ret)
++			return -EOPNOTSUPP;
++	}
++
++	return ret_payload[1];
++}
 +
 +/**
-+ * XPM_VERSAL_EVENT_ERROR_MASK_AIE_NCR: Error event mask for ME Non-Correctable Error.
++ * do_feature_check_extended - Perform feature check for an API ID
++ *				 using extended SMCCC format.
++ * @api_id: API ID to be checked.
++ * @ret_payload: Pointer to store the firmware's response payload.
++ *
++ * Determines the appropriate API (PM_FEATURE_CHECK or PM_API_FEATURES) based on
++ * the module ID in the given API ID. Frames the arguments in the extended
++ * SMCCC format, executes the firmware call, and processes the result.
++ *
++ * Return:
++ * - 0 on success
++ * - -EOPNOTSUPP if the firmware call fails.
 + */
-+#define XPM_VERSAL_EVENT_ERROR_MASK_AIE_NCR	BIT(17)
++static int do_feature_check_extended(const u32 api_id, u32 *ret_payload)
++{
++	u32 feature_check_api_id;
++	u64 smc_arg[2];
++	u32 module_id;
++	int ret;
 +
++	module_id = FIELD_GET(MODULE_ID_MASK, api_id);
++
++	/*
++	 * Feature check of APIs belonging to PM and XSEM are handled by calling
++	 * PM_FEATURE_CHECK API. For other modules, call PM_API_FEATURES API.
++	 */
++	if (module_id == PM_MODULE_ID || module_id == XSEM_MODULE_ID)
++		feature_check_api_id = PM_FEATURE_CHECK;
++	else
++		feature_check_api_id = PM_API_FEATURES;
++
++	if (module_id == PM_MODULE_ID)
++		module_id = XPM_MODULE_ID;
++
++	/* Frame extended SMC format */
++	smc_arg[0] = PM_SIP_SVC | PASS_THROUGH_FW_CMD_ID;
++	smc_arg[1] = ((u64)(api_id & API_ID_MASK) << 32) |
++		      FIELD_PREP(MODULE_ID_MASK, module_id) |
++		      feature_check_api_id;
++
++	ret = do_fw_call(ret_payload, 2, smc_arg[0], smc_arg[1]);
+ 	if (ret)
+ 		return -EOPNOTSUPP;
+ 
+@@ -440,11 +507,13 @@ int zynqmp_pm_is_function_supported(const u32 api_id, const u32 id)
+ EXPORT_SYMBOL_GPL(zynqmp_pm_is_function_supported);
+ 
  /**
-  * XPM_EVENT_ERROR_MASK_DDRMC_CR: Error event mask for DDRMC MC Correctable ECC Error.
+- * zynqmp_pm_fw_call_extended() - Invoke the system-level platform management layer
++ * __zynqmp_pm_fw_call_extended() - Invoke the system-level platform management layer
+  *			caller function depending on the configuration
+  * @pm_api_id:		Requested PM-API call
+  * @ret_payload:	Returned value array
+  * @num_args:		Number of arguments to requested PM-API call
++ * @arg_list:		va_list initialized with va_start, containing arguments passed
++ *			to the firmware.
+  *
+  * Invoke platform management function for SMC or HVC call, depending on
+  * configuration.
+@@ -461,7 +530,8 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_is_function_supported);
+  *
+  * Return: Returns status, either success or error+reason
   */
-@@ -166,6 +176,37 @@ enum pm_module_id {
- 	TF_A_MODULE_ID = 0xa,
- };
+-int zynqmp_pm_fw_call_extended(u32 pm_api_id, u32 *ret_payload, u32 num_args, ...)
++static int __zynqmp_pm_fw_call_extended(u32 pm_api_id, u32 *ret_payload,
++					u32 num_args, va_list *arg_list)
+ {
+ 	/*
+ 	 * Added SIP service call Function Identifier
+@@ -469,7 +539,6 @@ int zynqmp_pm_fw_call_extended(u32 pm_api_id, u32 *ret_payload, u32 num_args, ..
+ 	 */
+ 	u64 smc_arg[SMC_ARG_CNT_64];
+ 	int ret, i;
+-	va_list arg_list;
+ 	u32 args[SMC_ARG_CNT_32] = {0};
+ 	u32 module_id;
  
-+/* AIE Operation */
-+enum pm_aie_operations {
-+	XILINX_AIE_OPS_MIN = 0U,
-+	XILINX_AIE_OPS_COL_RST = 1U,
-+	XILINX_AIE_OPS_SHIM_RST = 2U,
-+	XILINX_AIE_OPS_UC_ZEROIZATION = 3U,
-+	XILINX_AIE_OPS_ENB_COL_CLK_BUFF = 4U,
-+	XILINX_AIE_OPS_HANDSHAKE = 5U,
-+	XILINX_AIE_OPS_CLR_HW_ERR_STS = 6U,
-+	XILINX_AIE_OPS_START_NUM_COL = 7U,
-+	XILINX_AIE_OPS_ZEROISATION = 8U,
-+	XILINX_AIE_OPS_AXIMM_ISOLATION = 9U,
-+	XILINX_AIE_OPS_NMU_CONFIG = 10U,
-+	XILINX_AIE_OPS_DIS_MEM_PRIV = 11U,
-+	XILINX_AIE_OPS_DIS_MEM_INTERLEAVE = 12U,
-+	XILINX_AIE_OPS_ENB_UC_DMA_PAUSE = 13U,
-+	XILINX_AIE_OPS_ENB_NOC_DMA_PAUSE = 14U,
-+	XILINX_AIE_OPS_SET_ECC_SCRUB_PERIOD = 15U,
-+	XILINX_AIE_OPS_DIS_COL_CLK_BUFF = 16U,
-+	XILINX_AIE_OPS_HW_ERR_INT = 17U,
-+	XILINX_AIE_OPS_HW_ERR_MASK = 18U,
-+	XILINX_AIE_OPS_ENB_MEM_PRIV = 19U,
-+	XILINX_AIE_OPS_CTRL_PKT_TLAST_ERR = 20U,
-+	XILINX_AIE_OPS_ENB_AXI_MM_ERR_EVENT = 32U,     /* Backward compatibility for AIE1/AIE2 */
-+	XILINX_AIE_OPS_SET_L2_CTRL_NPI_INTR = 64U,     /* Backward compatibility for AIE1/AIE2 */
-+	XILINX_AIE_OPS_PROG_MEM_ZEROIZATION = 128U,    /* Backward compatibility for AIE1/AIE2 */
-+	XILINX_AIE_OPS_DATA_MEM_ZEROIZATION = 256U,    /* Backward compatibility for AIE1/AIE2 */
-+	XILINX_AIE_OPS_MEM_TILE_ZEROIZATION = 512U,    /* Backward compatibility for AIE1/AIE2 */
-+	XILINX_AIE_OPS_MAX = 1023U,                    /* Backward compatibility for AIE1/AIE2 */
+@@ -485,12 +554,8 @@ int zynqmp_pm_fw_call_extended(u32 pm_api_id, u32 *ret_payload, u32 num_args, ..
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	va_start(arg_list, num_args);
+-
+ 	for (i = 0; i < num_args; i++)
+-		args[i] = va_arg(arg_list, u32);
+-
+-	va_end(arg_list);
++		args[i] = va_arg(*arg_list, u32);
+ 
+ 	module_id = FIELD_GET(PLM_MODULE_ID_MASK, pm_api_id);
+ 
+@@ -507,6 +572,33 @@ int zynqmp_pm_fw_call_extended(u32 pm_api_id, u32 *ret_payload, u32 num_args, ..
+ 			  smc_arg[4], smc_arg[5], smc_arg[6], smc_arg[7]);
+ }
+ 
++/**
++ * zynqmp_pm_fw_call_extended - Invoke a PM function with variable arguments
++ * @pm_api_id: ID of the PM API to be called
++ * @ret_payload: Pointer to the buffer for storing the return payload
++ * @num_args: Number of arguments to pass to the PM API function
++ *
++ * This function serves as a wrapper around __zynqmp_pm_fw_call_extended(),
++ * facilitating the invocation of platform management (PM) functions that
++ * require an extended SMC (Secure Monitor Call) format with variable
++ * arguments. Specifically, the PM_QUERY_DATA API necessitates this extended
++ * payload format, making it essential to retain zynqmp_pm_fw_call_extended
++ * with variable arguments.
++ *
++ * Return: 0 on success; a negative error code on failure.
++ */
++int zynqmp_pm_fw_call_extended(u32 pm_api_id, u32 *ret_payload, u32 num_args, ...)
++{
++	va_list arg_list;
++	int ret;
++
++	va_start(arg_list, num_args);
++	ret = __zynqmp_pm_fw_call_extended(pm_api_id, ret_payload,
++					   num_args, &arg_list);
++	va_end(arg_list);
++	return ret;
++}
++
+ /**
+  * __zynqmp_pm_fw_call_basic() - Invoke the system-level platform management layer
+  *				 supporting basic SMC format.
+@@ -2522,6 +2614,12 @@ static void zynqmp_firmware_sync_state(struct device *dev)
+ 		dev_warn(dev, "failed to release power management to firmware\n");
+ }
+ 
++static const struct platform_fw_data platform_fw_data_versal2 = {
++	.do_feature_check = do_feature_check_extended,
++	.zynqmp_pm_fw_call = __zynqmp_pm_fw_call_extended,
++	.family_code = PM_VERSAL2_FAMILY_CODE,
 +};
 +
- enum pm_api_cb_id {
- 	PM_INIT_SUSPEND_CB = 30,
- 	PM_ACKNOWLEDGE_CB = 31,
-@@ -257,8 +298,12 @@ enum pm_ioctl_id {
- 	/* Dynamic SD/GEM configuration */
- 	IOCTL_SET_SD_CONFIG = 30,
- 	IOCTL_SET_GEM_CONFIG = 31,
-+	/* AIE/AIEML Operations */
-+	IOCTL_AIE_OPS = 33,
- 	/* IOCTL to get default/current QoS */
- 	IOCTL_GET_QOS = 34,
-+	/* AIE2PS Operations */
-+	IOCTL_AIE2PS_OPS = 39,
+ static const struct platform_fw_data platform_fw_data_versal = {
+ 	.do_feature_check = do_feature_check_basic,
+ 	.zynqmp_pm_fw_call = __zynqmp_pm_fw_call_basic,
+@@ -2544,6 +2642,7 @@ static const struct of_device_id zynqmp_firmware_of_match[] = {
+ 	{.compatible = "xlnx,zynqmp-firmware", .data = &platform_fw_data_zynqmp},
+ 	{.compatible = "xlnx,versal-firmware", .data = &platform_fw_data_versal},
+ 	{.compatible = "xlnx,versal-net-firmware", .data = &platform_fw_data_versal_net},
++	{.compatible = "xlnx,versal2-firmware",	.data = &platform_fw_data_versal2},
+ 	{},
  };
+ MODULE_DEVICE_TABLE(of, zynqmp_firmware_of_match);
+diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+index 58f2e3fddfaf..effa1a2445b3 100644
+--- a/include/linux/firmware/xlnx-zynqmp.h
++++ b/include/linux/firmware/xlnx-zynqmp.h
+@@ -58,6 +58,7 @@
+ #define PM_ZYNQMP_FAMILY_CODE 0x1 /* ZynqMP family code */
+ #define PM_VERSAL_FAMILY_CODE 0x2 /* Versal family code */
+ #define PM_VERSAL_NET_FAMILY_CODE 0x3 /* Versal NET family code */
++#define PM_VERSAL2_FAMILY_CODE 0x4 /* Versal Gen 2 family code */
  
- enum pm_query_id {
-@@ -659,6 +704,7 @@ int zynqmp_pm_stop_rpu(const u32 node);
- int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
- int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
- 			     u32 value);
-+int versal2_pm_aie2ps_operation(u32 node, u32 size, u32 addr_high, u32 addr_low);
- #else
- static inline int zynqmp_pm_get_api_version(u32 *version)
- {
-@@ -996,6 +1042,12 @@ static inline int zynqmp_pm_set_gem_config(u32 node,
- 	return -ENODEV;
- }
- 
-+static inline int versal2_pm_aie2ps_operation(u32 node, u32 size, u32 addr_high,
-+					      u32 addr_low)
-+{
-+	return -ENODEV;
-+}
-+
- #endif
- 
- #endif /* __FIRMWARE_ZYNQMP_H__ */
+ #define API_ID_MASK		GENMASK(7, 0)
+ #define MODULE_ID_MASK		GENMASK(11, 8)
 -- 
 2.34.1
 
