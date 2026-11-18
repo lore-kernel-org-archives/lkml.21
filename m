@@ -1,80 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011977;
-	b=bwxFM1x1CuAfPTWzWFT1C5cLVgner/CdNAezvlOpx2yH/wAvtOuRhXmkLuo3eAhGtoaJ
-	 wiXDSHpizXUEqAO97rDQKeP4CWFpxpTw3uvjg4ztUX9YN1sSrhc7n1mfeJ55ISEVC/D+q
-	 g9bCDULQ1LXk+F40sx7ZTbnSTFesrh10TWMLzSo5MJWhnt1VOrHhe4eRF96pencDAeNNy
-	 Dly5XjEzL4p93pM73G6GuJtclr3lxHsK8oAJhfzpKSvO0lC4iA4FJOXc9xj3rOhbr5lnJ
-	 fcZ/avfq7He73A8In/5alSv+OOPQ0ZoWoEFzK2uIKzSmis2AuwLnQoVFpkU5QpNUkRA==
+	t=1795011994;
+	b=dmucA3TUjj3ptVxIaBZaXh5zo9Jj+W+6FvWznpTiJ6WVCmA5y4uoL4FnXq7z5MJmn1KT
+	 7hbNEC5tBYTrCjL23ihptow2wvGhNmrzgtW3K5XmOv+E97JqcwniD7gx64Mvi+4qDQoqQ
+	 H+lNxoeVyEemQeRErp7R+AiqsejkWOmHjVk9ydJhQyyGxbl7q6IS0CdNpTJCJN57qjqMB
+	 bCBwhjm129N22SlnhaMmhbta7y2VdgK1s6iTD8G1RENikaHKRUMj4XqQ7BdV77wTQJEn/
+	 PT81Fo3mmN5CFUNpk3otDtfnfM3XGFEGtq4cyR0ZaWqXzVL/VrCRkpZFCxR3MxofgyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011977;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 User-Agent;
-	bh=+HQPOu2vVrOracN1upWEQlhyegdam6XoIVCNFPCqT8g=;
-	b=yrKDgQasZW6X7lQofEIF1SqM7XBqCrWPBXiGVh98+7ah484k2n+jN6L/VLbmlc7v+2PQ
-	 W1dsltsSEhExXmOmYirI5rc7916At1aCZNJ1XEKyCfh7CCaBR4wxvcnlNHOJNwn+/Gc2t
-	 prYYxU+BtJQEIdpSoyw6iFv1cDjjPbZBrSAwT4SlcUfYeHCAtmFPOLVsGupZceZ1ihE//
-	 x1Dcr8fgOzWCmrnMqV0Cui7FUzq6aIWdenLwQZu5BUVSdIo3c0iTcfU7Wme4Ebcw8/jEQ
-	 Ixv9Fl5+J9GriIrIsyFs8P+b4VJ7cksoOjKLxhJGrbNQp+sNvCsFiYEDaKQhSikLoSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011994;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=nETXuTUZePoLw4pXYNvsDz7unqCWR2e+XYj5vtu6Xbw=;
+	b=vg1AndPri5savjyic/R7wC/nJsrC0rAQ5iLsU041dnQTwrxyVqaESYKupAvJD/Ykiz52
+	 OY/gtziMVydvLdvmWpsLx1SUp8yR7W6e1yZqA+h4uPSen0I/v4urjBfg7N3xZb2H/2Y4L
+	 N6DYI4XHdz4+OHh9OdQ8XKOXhhrk6/7kezZRW3w0gP4Huty3NNFyv3gCFKj83OhHvRsIB
+	 c9Ek9nsiaYPdP/GcDKLfbKti60ieb2ckopnD1aQQwShIWrrkVZfKaenS0JJl2VqRotV+O
+	 TOTbw9T7ztWLgCdo8BYYZM3rOaZZ5h0DGTuahXY202jtx0fyUcMDyE18Sz+bd2MbzrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b1YAsdmC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=b7nkb+ji;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D990460A2617;
-	Wed, 18 Nov 2026 14:26:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 343BD60A2601;
+	Wed, 18 Nov 2026 14:26:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 343BD60A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b1YAsdmC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FDA81F000C5;
-	Wed, 18 Nov 2026 14:26:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795011977;
-	bh=+HQPOu2vVrOracN1upWEQlhyegdam6XoIVCNFPCqT8g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b1YAsdmC7his1/Eu4Z6hbYoA6zyoZmPZFr5zP19iQ+Qklq+pmJ+V3geLGfrvYWBND
-	 92J5R9k1/53CBIk2/n3w0gSEu1PXrQeYlTE2b8x43kkQt6x5BdeGlTBHwCQg4qdelJ
-	 rqwF53kW9bkQqbOLeQQ+KThU2o3F5NPIIJvp2GA5vYYUn/wn9X6YRyy9SusGvu+MxJ
-	 ggNx2X/Z2afeJZZ7rPbJ1ulx8lIy8gOS0oKXOwXS+v7ekcnxA6kl2OKIPVtbs1YmxU
-	 nUbJWhCUQkC833PQr2/g8xv+xfdUNSfcNuguKGgUs+FNnvHaHAsNvHkuLELWIOspR+
-	 V41lNv7tgef/A==
-Received: by pali.im (Postfix)
-	id DB216846; Wed, 18 Nov 2026 15:26:13 +0100 (CET)
-Date: Wed, 18 Nov 2026 15:26:13 +0100
-From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-To: koraynilay <koray.fra@gmail.com>
-Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>,
-	Sungjong Seo <sj1557.seo@samsung.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Trond Myklebust <trondmy@kernel.org>,
-	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>,
-	Jeff Layton <jlayton@kernel.org>,
-	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>,
-	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>,
-	Yuezhang Mo <yuezhang.mo@sony.com>, Jan Kara <jack@suse.cz>,
-	NeilBrown <neil@brown.name>,
-	Olga Kornievskaia <okorniev@redhat.com>,
-	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>,
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
-	Shyam Prasad N <sprasad@microsoft.com>,
-	Bharath SM <bharathsm@microsoft.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
-	"Darrick J . Wong" <djwong@kernel.org>,
-	Sean Smith <defendthedisabled@gmail.com>,
-	Andrey Albershteyn <aalbersh@kernel.org>,
-	Pedro Falcato <pfalcato@suse.de>,
-	Amir Goldstein <amir73il@gmail.com>, linux-btrfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	exfat@lists.linux.dev, ntfs3@lists.linux.dev,
-	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org,
-	linux-api@vger.kernel.org
-Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
-Message-ID: <20261118142613.be3r3s6kobkkxnz4@pali>
-References: <20261115180343.576773-1-koray.fra@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=b7nkb+ji
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDQfZb1374452;
+	Wed, 18 Nov 2026 14:26:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=nETXuTUZePoLw4pXYNvsDz7unqCWR2
+	e+XYj5vtu6Xbw=; b=b7nkb+ji0sAeZT+2Zi1PGSCXTbjkReHpVOLQieE/xWBB/X
+	RyH01Gdbxor1wSF5iL0pYYAdyXtz+56AGUR/vj+BHprjnq7NmsyZY4pjZQrtcBo9
+	pSNiYzu6hkbD9NZeTH2233UGObBdBG6doumOYcZ5VkzoKksdTiBEAqjqL6LYiyj7
+	HFzsJYasMpWuJ67dpmq5b395JOr78Zn1L2NZ1k7UQGBNWvLS7DKVASWXTsawgaVe
+	gZ13INipP5whutNZGT59rZC6+nIP+SI28oRaCeu0g/33cTRWbcVUjaJjGADqCfC7
+	/yrX9zZldynyjP5SIz0GnyI0qM8iJULbZ0an2xuw==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105naubs-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 14:26:28 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDYtAW3470648;
+	Wed, 18 Nov 2026 14:26:27 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hyxwt8r1x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 14:26:27 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIEQNni53019016
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 14:26:23 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8EBE720043;
+	Wed, 18 Nov 2026 14:26:23 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 58D8120040;
+	Wed, 18 Nov 2026 14:26:23 +0000 (GMT)
+Received: from osiris (unknown [9.68.31.201])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 18 Nov 2026 14:26:23 +0000 (GMT)
+Date: Wed, 18 Nov 2026 15:26:21 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Vlastimil Babka <vbabka@kernel.org>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 5/5] s390/hmcdrv: Replace page allocator calls with
+ k[mz]alloc()
+Message-ID: <20261118142621.14542C9f-hca@linux.ibm.com>
+References: <20261108-s390-char-ready-v1-0-3db507722530@kernel.org>
+ <20261108-s390-char-ready-v1-5-3db507722530@kernel.org>
+ <20261116134656.125125Fdc-hca@linux.ibm.com>
+ <avxMOsbgkaC_kQA_@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,33 +103,83 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261115180343.576773-1-koray.fra@gmail.com>
-User-Agent: NeoMutt/20180716
+In-Reply-To: <avxMOsbgkaC_kQA_@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA1NyBTYWx0ZWRfX2Qs/rg4vM0I3
+ 4PYu/gEpES4RTiIuLHfARi8JW9C5camfvf2hLMAnZdwmNHhLG28liLJbcex7zeNvxCm9FsCtKLC
+ 9z1qdqWXjQws6YvkhkcjdQeW6+w1WGVrMftAYvW+pLARBJTa3VFocqHP0UHcqjKCwS5+nY5IT3u
+ yu/lqXFEfjR24l4G9I38/erDiFnT7sqjIDDesw3oDYDdqc2yO37u1LRO/NEbKTvmo1s4aTZ0uWy
+ O4WBxL/u7ZwRM8DRAFxCTPyFA8U5dPVPdUM1KWjlNr2zyyiWNzv4vSdM0DRrVg/MPAGH2Xxdc2J
+ dtl7Mro5Y5TSdAc1nnSfKIWYrImtjgWQlYoDq6ehuVDTmqc7MuL07fH0LlyCppVO+BjDyDwjjYg
+ 0h/kdR5CVOY5PnJLmLNVpzcdI9I21rUu27OsrrZ1tWHeQHSwTCVy86JVvcbXAKXVLR9pYhHg6B5
+ U8oAJEcIeSZ5yM1L8tw==
+X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6afdb594 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=HvbnBzd4vKlcUxMVZJ8A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: ycwvVJyxzljRnT1qnHyPKQkasI4iuNM5
+X-Proofpoint-ORIG-GUID: ycwvVJyxzljRnT1qnHyPKQkasI4iuNM5
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA1NyBTYWx0ZWRfXwZ0e+uBJ6A1e
+ /b/WamLh66iGO+8atRWLyWoHFy8H894CPhOC52WaqUaeufRign61EoRz5LTz2ct20Va6rF9qUwV
+ tuzb2DdOrTjInEHBoNmPKEn1rMIaSGw=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
+ adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180057
 
-Hello,
+On Tue, Nov 17, 2026 at 02:44:42PM +0200, Mike Rapoport wrote:
+> > >  int hmcdrv_cache_startup(size_t cachesize)
+> > >  {
+> > > +	if (cachesize > KMALLOC_MAX_SIZE)
+> > > +		return -ENOMEM;
+> > 
+> > What is the reason for this check? I can see that this seems to be a
+> > common pattern, however the buddy allocator would warn as well for
+> > allocations larger than MAX_PAGE_ORDER if I'm not mistaken.
+> 
+> Since cachesize is a module parameter there's a very corner case when it
+> could have value within a page of ULONG_MAX. Then round_up() wraps to 0 and
+> kmalloc(0) returns ZERO_SIZE_PTR rather than NULL and does not warn.
+> 
+> The module would load with a bogus cache instead of failing as it does now.
+> 
+> While it's really unlikely to happen in practice I'm sure Sashiko will be
+> unhappy without this check :)
 
-I have just one issue with the userspace API. It does not allow me to
-figure out what is the source of statx btime field. If it is fs ptime or
-fs btime because this RFC implementation is mixing both fs ptime and
-fs btime into the statx btime field.
+Ok, then let's keep that.
 
-I have feeling that this is quite a mess in API and I would like to see
-a clear distinguish between btime and ptime in the API, like there is a
-difference in the fs storage.
+> > > +	if (!ftp.len || ftp.len > KMALLOC_MAX_SIZE)
+> > > +		return -ENOMEM;
+> > 
+> > Same here, and as far as I can tell the Sashiko finding seems to be
+> > valid as well, even though it looks to me as if this worked only by
+> > accident. Also, as far as I can see, the reported "delete" command is
+> > currently not used at all from the only existing user space
+> > application that I'm aware of. But let's not change this, please.
+> 
+> Sashiko is wrong about get_order(0) returning 0, it actually returns 52, so
+> __get_free_pages() returns NULL and we end up with -ENOMEM anyway :)
 
-If the btime is used for forensic analysis then somehow I would expect
-that the statx would not report / not fill changeable ptime value into
-the statx btime.
+Yes, indeed.
 
-It would be really helpful if the statx API on inode can differ between:
+> So it's either keep if (!ftp.len) and let it fail for "delete" like it does
+> today or have
+> 
+> 	size = round_up(ftp.len, PAGE_SIZE) ? : PAGE_SIZE;
+> 
+> and allocate at least a page for ftp.len == 0.
+> 
+> What's your preference?
 
-1. btime is present and its value is ..., ptime is not supported
-2. btime is not supported, ptime is set to value ...
-3. btime is present and its value is ..., ptime is set to value ...
-4. both btime and ptime are not supported
+Then let's keep the code as it is.
 
-This should cover all cases of different filesystems and also allows
-userspace to do proper backup of both ptime and btime fields (if it want
-to do forensic analysis or anything else).
+> The ftp.len > KMALLOC_MAX_SIZE check seems bogus indeed.
 
-Pali
+This can be removed when applying - no need to send a new version.
+
+Reviewed-by: Heiko Carstens <hca@linux.ibm.com>
