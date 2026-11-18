@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.241
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963127;
-	b=lR9Xe5B3mxiOH2Jep4XUjAePsX9EThSi11zgzzIwzf+rsJSNKSscToM89q1BCpWMG4sb
-	 jHf4v9FKl0uk8RU8E0wx0R/97GDzhMIe39S5nyPTJ9p6xLvoyXzaJw2DgNc3aARsiohze
-	 il4ZvbWDkicJJoeft/QFffS8+UWcDEPTJ6PQsiS+qikBfHa41UiTnUa4cwPhQRANrs8s7
-	 GdtjESyd9N4GmRw7IO7D+MUcuZ4p+mL+q2u1Q/U/EgTT8vJGpVVAKAqudn0Pyb6YlEDMI
-	 7WYvdOovyiRpmfAh5DPv8OkRVuhWK9db53SKO4wAvCCiteL3dnuzQJAwc9BbFBaLAqg==
+	t=1794963165;
+	b=gOgteLb9mtOprxg7dD+9pNG9xqnvfM3plNqo3fz3lp8xSu9Vhwfxm70PVygzoyPYv9D3
+	 IJ9LYIVazbNteE1clqwZ1z9ExSAWGmnsn00xDmQetKlI5IknDlO7o7fMI6uThVKeaK7d1
+	 0QB269NNSQ7Dc7tkgSfs31ntnxXrXJ+uQuZKijZcHQW4d/jjDLBzyEPkDQT6JbcBgPOcB
+	 /Or+lpRXMuT86O5bBc8yDkj7McVOWuE2CDlUpE10J86asUjmi6iCVYf9o1EOZJo6POxdL
+	 rMLUha8BOsO4nqA/i7X5PGa53tJYrfkEePUy6Lg9Bp4GQyh+I/6xvRh8iJHg4cu+RfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963127;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=5YEjBS6xE1eBk+mrimGlFTFMZhAtwJy1TMR+gCWx7jI=;
-	b=keGIbFmJgBpf2WGjEi8HPk3IoFQs1KD4ZU8UI+ApkWsZpZFnj0J+qKB544LwkH5Jusve
-	 UCjs11A0g738g9BVKfMXKFm10n2pJDckAv2R5wTnA8HhgFEdat077ik2VMHzUlDZWnykf
-	 WxlgbqFFc0M77D9XcKZew0Mk6D8Mw09mOg2oeMBijg941R8gogqCETWfzut4a3vTO4KdT
-	 go9zvblxreUZw1PxclGyMZTdxKT9+i8ejCMkbMEL4B7tAHFFv1TpAq2z+F+cUmBT7t86C
-	 LFribiP0peDpK1lrrSojVRZd9f/9WVt6vTZ8nQTwkN6WnJIReqb2eooxajZeodoiF+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963165;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=u4E0fQhmGCeFsbiKHI/HoTeHZ7lq7KvgeuRTX4/oJSY=;
+	b=1eI0fXrElaRrE6zYIyNEZniQka6Mik96eB3XASSkSRXL7dBf4fLISgDg8ZfMa6hh5tua
+	 kj5+wUwL5d2BpVNBoF1ypbhmG2OX7jP5nkMcBJl84/dy1lgsZ/4d0PalNPSYsfUvPDg/4
+	 L8z3V29H9H58ZI3CIeF71eC1zGSdasyZ0lguK/oWb7CRjmQvwaTPPWf1R8xsl9YS0+XcL
+	 beJDyRvrXJalMPBVvUxNdI8VZXnjAK7Xx35u3bCDVDjhTn7k8fU6Ikvdq4tFFcJ9ccWmc
+	 X1DQhHYU3PSNwFvs2cA88E2NtyiRz3/oX9e3fIkGhWMi23jLpaIfSheqkkQRIU5/2aA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G3qRHQMA;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tOC4QT1z;
+	arc=none smtp.remote-ip=91.218.175.241
+Received: from mta0.migadu.com (out-241.mta0.migadu.com [91.218.175.241])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B16F606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B16F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9257606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9257606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G3qRHQMA
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1a8cc11ac42so645315c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:52:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794963126; x=1795567926; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5YEjBS6xE1eBk+mrimGlFTFMZhAtwJy1TMR+gCWx7jI=;
-        b=G3qRHQMA8OBSG/SeK4THNh0KKALKpLDgZLISJzsrYrx7B6qYQ9uVos8KxghIFRCZEc
-         f/XQclwG1h8FsqZ4X5TtVNFvRxHaRXIR6IlDpaVFcMU4uToIiBMV23KjCRAQTjRTvCxE
-         tAToPFscVe9C8b1xAv2izulKy6qFb5kVH7tFvh0zvhqBypxKkO779hh6t5Osbd755Dwg
-         wVBhUWg7S9CxCuMkalfzJvWXfygt0lbMl3iI06DF7Shf+e+z+iJcLkOzlDna/qafRP4S
-         FAMh2wlEsRAaD0ScJ7f1e5u5lCzyGTJE5OmpoVimu8vfKJtdKfbHSruDIwMvSuJAgFJ9
-         8Zpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794963126; x=1795567926;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5YEjBS6xE1eBk+mrimGlFTFMZhAtwJy1TMR+gCWx7jI=;
-        b=igVoGUDhtcFvdOv0U2Bk6d1naikmHOXb/JfVsPAfXF9eOlN5iDZZCGQ5UbxNM+L9/9
-         rxukkwL5FnYsYDKZ+m8aJA92FK4SKgGee0Qbx/not5G111sx791ThasfjoZpKWzagH7w
-         pmBMJwYNRBUgE7uUhjZ9cD0lEED1cfI/UgVgjZu/5iS8vIwlEoSyOqepq8jR9H5xtP1L
-         n3fJS8kiZXZHS5snb1nnZrNsuuQQbBDY1PO3bRW2qxq46nnQb0nClnm1deKqjFFSatQW
-         FLeudDRSr/uzyFMcnv0lEdv3e6KjqkSGv0++qq8WpnFt0rwhY6BRxktiVphDwf3sQKxU
-         Q8IA==
-X-Forwarded-Encrypted: i=1; AL+hErGb2z8lCnUR9M6/bKArNzfBoRDpscd3zomyc+rbpMBkX5A7UF7Sa6Ys2+xXOehml7dRGBfHh8vbyxZyss4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ClAJ6rCCyDFmgI/8ksUI+8qXTZJj/KsVMIuBclrsaCEonGjmN
-	XiE4pT2EskzgAv/821gA3OEjlDJwoY0KPla6jOIjlAzjJMYiIV2Gbt5B
-X-Gm-Gg: AYBFou3bsGibFEZeqZ9Dd5TcUZUB1ED2XE7X2MirzdukUZu1+5x2xpkI0i8cAm1Y20i
-	Jxy7zoyTSJuWHSnL6oO2Mn5BSDjSHQEX/pk6QxUI0fIwzrA6HsxrlttqcXTNJwKPN4Y+VoRqqTh
-	w2y1qVSBoITyVJv+Hz//R1mZpZnyA0hYU6L1KtyX6rpxXI0ZApZBr8WB7zcz4QOjNJQpbHiv2Jc
-	DYnF1BpbbRm525x0Qlu9NziOQdeLo9qDD6u9dJqTgsQVf17YhbnObykMwjV9wJxE1TQ0S3jYWka
-	xIP8IRQYWuyRa1vmH64svYaMfR4OKYu+qhF7cUdDMpK2WBmMU50vcEEpDul7PAlSsnLSCc3c78L
-	AakApLTOnpoTwEzYD7k8JUz4Q3X1dXcZvwCZyJb+BpB6ip4JHM2477ufcz8Ckq3fNrNyi6TqpYW
-	VsDXTpOcXkr6mnN62e0D0Rq3clutJabXPr2nz2x68Kd8PiXGLv/bfGpPkIS2qo8CD6l+av1ULIC
-	wFybRlfL2MoQjpt6szkYPU/uqRbsJLoq8kwzb8wBd6GzoOfwFZJSOV69VOLIhyDv9GdiqcO6iyE
-	qFJnXVjp1sgfRTqq73gbOv5YYh/WNcfXSMwrX5/z1OCdsHcg5l1OUQ+FRV1N+A==
-X-Received: by 2002:a05:701b:4642:b0:1ae:b906:7733 with SMTP id a92af1059eb24-1b543ceba98mr1015904c88.23.1794963125640;
-        Tue, 17 Nov 2026 16:52:05 -0800 (PST)
-Received: from ?IPV6:2620:10d:c085:21d6::11c9? ([2620:10d:c090:400::5:bd16])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544830c99sm3017616c88.15.2026.11.17.16.52.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 16:52:05 -0800 (PST)
-Message-ID: <acd93d7c-1e91-45f4-b178-07c6afea7fe5@gmail.com>
-Date: Tue, 17 Nov 2026 16:52:03 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tOC4QT1z
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jAcKC7XNRVh0GKcOuxn1Fu7bTvbspwLeOY4x6dh/4d4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794963163; v=1; x=1795567963;
+ b=tOC4QT1z8jK2RG9eRb9Ibc70UQ38UNsYD2ncTafZVocMYFKDQVVZNcRrCtZZKGBpBINLUGu7
+ sxYkJz9l3DHtZCWCh21VQCm8Li49LLHKQyfcMt4DdyxpbyjW+1m4WR33PNKshm6SKBAermUeaF7
+ hMX6Akw9TjYfKdGzJwO20LPo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c0217c32623d0320;
+	Wed, 18 Nov 2026 00:52:42 +0000
+X-Mizu-Trace-ID: c0217c32623d0320
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <9695ec3d-7b81-488d-989f-0bd411d673f2@linux.dev>
+Date: Tue, 17 Nov 2026 17:52:38 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,179 +59,175 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
- TC rule
-To: Mark Bloch <mbloch@nvidia.com>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
- cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
-References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
- <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
- <09ae2064-38ff-4d25-83e5-0ac4c3eb1658@gmail.com>
- <194e1103-0d28-45d4-986a-819955e11268@nvidia.com>
+Subject: Re: [BUG] bpf, lsm: new first argument in 7.4 inode hooks silently
+ breaks BPF LSMs
+To: roblabla <linux@roblab.la>, Andrii Nakryiko <andrii.nakryiko@gmail.com>,
+ Paul Moore <paul@paul-moore.com>, Daan De Meyer <daan@amutable.com>
+Cc: bpf@vger.kernel.org, linux-security-module@vger.kernel.org,
+ paul.mabileau@harfanglab.fr, linux-kernel@vger.kernel.org,
+ Andrii Nakryiko <andrii@kernel.org>
+References: <d85ece6e-27f9-4d9f-83af-4101bc76fef6@app.fastmail.com>
+ <356db94e-f5d6-4fb2-839a-b97aef72256b@app.fastmail.com>
+ <CAHC9VhR9sjunJRnM9gy-BkBZkapQTrr8a8FtmaK7JkAmUqTrLA@mail.gmail.com>
+ <CAEf4BzZKmn6g0SK8OddjKFj_vAmZFvpZv32Hs_S+GHgT7VNfrg@mail.gmail.com>
+ <9d6bdc31-e57c-4187-be78-29d82471f710@app.fastmail.com>
 Content-Language: en-US
-From: Mohsin Bashir <mohsin.bashr@gmail.com>
-In-Reply-To: <194e1103-0d28-45d4-986a-819955e11268@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+In-Reply-To: <9d6bdc31-e57c-4187-be78-29d82471f710@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+On 11/9/26 8:07 AM, roblabla wrote:
+> Hi,
+> 
+> Thanks for the replies!
+> 
+>> [...]
+> 
+> So what would be really nice is a way to make eBPF code robust against
+> kernel changes such that it either works, or fails to load, but doesn't
+> do the halfway "loads but silently misbehaves". Here are two ideas that
+> have been in the back of my mind that could help solve this issue (though
+> I understand that they may be rather large changes, I'm putting them out
+> there mostly as a conversation starter):
+> 
+> 1. Could libbpf/the kernel have a mismatch check on hook arguments? I
+>    understand that libbpf and the verifier don't know the types a
+>    program expects, since BPF_PROG() only casts u64s. But the macro
+>    does know the types at compile time. Could it (or an opt-in variant)
+>    record the expected prototype in the program's BTF, so that libbpf
+>    can compare it against the LSM hook's prototype in vmlinux BTF and
+>    refuse to load on a mismatch?
+> 
+> 2. Since kernel BTF has parameter names for the bpf_lsm_* functions,
+>    could we maybe have CO-RE-style relocation to resolve "the argument
+>    named dentry" to the argument index at load time? This way, adding a
+>    new argument could happen anywhere in the argument list without
+>    breaking eBPFs, and removing an argument will (correctly) cause our
+>    eBPF to stop loading. It does mean the eBPF programs must provide the
+>    same argument names, but maybe that's an acceptable tradeoff?
+
+Hi everyone.
+
+roblabla's comments got me curious, and I spent some time with my
+helpful assistants poking at the problem.
+
+There is another workaround in addition to what Andrii suggested.
+A program can already make itself fail to load on a signature
+mismatch:
+
+	union security_list_options___mine {
+		int (*inode_create)(struct inode *dir,
+				    struct dentry *dentry, umode_t mode);
+	};
+
+	extern void lsm_proto_mismatch__inode_create(void) __ksym __weak;
+
+	SEC("lsm/inode_create")
+	int BPF_PROG(deny_create, struct inode *dir, struct dentry *dentry)
+	{
+		if (!bpf_core_type_matches(union security_list_options___mine))
+			lsm_proto_mismatch__inode_create();
+		...
+	}
+
+bpf_core_type_matches() checks the expected prototype against the
+hook's member of union security_list_options in kernel BTF.
+On a mismatch the call to the unresolved weak kfunc stays reachable,
+so the verifier rejects the program, and libbpf reports:
+
+  kfunc 'lsm_proto_mismatch__inode_create' is referenced but wasn't resolved
+
+It's positional and needs the exact argument count, but it turns
+silent misbehavior into a load failure. The same should work for
+tp_btf with the btf_trace_<tp> typedefs.
+
+But of course it's just a workaround..
+
+A bit more generally, expanding on roblabla's second idea, I think libbpf
+could resolve hook arguments by name with the existing CO-RE machinery,
+without kernel, verifier or LSM changes.
+
+The BPF side could look like this:
+
+	SEC("lsm/inode_create")
+	int BPF_PROG_ARGS(deny_create, struct inode *, dir,
+			  struct dentry *, dentry)
+	{ ... }
+
+BPF_PROG_ARGS() (name TBD) takes (type, name) pairs like BPF_PROG2(),
+but instead of casting ctx[0], ctx[1], ... it reads each argument
+through a local preserve_access_index-marked struct, so every argument
+access is a regular CO-RE field relocation:
+
+	struct bpf_func_args___deny_create {
+		const struct mnt_idmap *idmap;	/* 7.4+ */
+		struct inode *dir;
+		struct dentry *dentry;
+	} __attribute__((preserve_access_index));
+
+	SEC("lsm/inode_create")
+	int deny_create(u64 *ctx)
+	{
+		struct bpf_func_args___deny_create *args = (void *)ctx;
+
+		if (bpf_core_field_exists(args->idmap))
+			/* use args->idmap */;
+
+		return check(args->dir, args->dentry);
+	}
+
+Nothing changes on the loader side:
+
+	skel = deny_create__open_and_load();
+	if (!skel)	/* mismatch: load fails, libbpf logs why */
+		return -errno;
+	err = deny_create__attach(skel);
+
+To achieve this libbpf would need to do the following at load time:
+
+  - treat bpf_func_args___* as a reserved type in CO-RE relocations;
+  - find the program's attach target in kernel (or module) BTF:
+    bpf_lsm_<hook>, the fentry/fexit target, or the tracepoint stub for
+    tp_btf;
+  - build a struct from the target's prototype: one member per
+    parameter, named after it, at the parameter's ctx offset, plus 'ret'
+    for fexit, fmod_ret and LSM;
+  - resolve the relocations against it by name, with a strict type check
+    (pointee types must match, qualifiers ignored), since CO-RE normally
+    treats any two pointers as compatible.
+
+A missing argument or a type mismatch is a normal CO-RE relocation
+failure: the program fails to load with an error naming the argument,
+unless the access is guarded by bpf_core_field_exists().
+
+And this is not LSM specific, fentry/fexit/fmod_ret and tp_btf would
+work the same way.
+
+It doesn't help if a hook keeps its signature but changes semantics,
+or if the attach point goes away (that already fails to attach).
+
+Here is a vibe-coded prototype of the above:
+https://github.com/kernel-patches/bpf/compare/bpf-next_base...theihor:bpf:bpf-named-args
+
+It's an entirely new libbpf feature though.
+
+Andrii, what do you think of it?
+
+---
+
+And just my 2c re argument ordering:
+
+Paul, with all due respect, prioritizing code style and personal
+preferences over backwards compatibility is unreasonable even for
+unimportant applications. And here we are talking about apps
+implementing security policies, which many organizations (not just
+companies) in the world rely on. Given the recent flood of
+cybersecurity issues (in Linux and beyond), I don't see why would we,
+as in kernel devs, intentionally make the defenders' job harder.
 
 
-
-On 11/17/26 2:14 PM, Mark Bloch wrote:
 > 
-> 
-> On 17/11/2026 23:52, Mohsin Bashir wrote:
->>
->>
->> On 11/17/26 11:18 AM, Mark Bloch wrote:
->>> On 17/11/2026 5:13, Mohsin Bashir wrote:
->>>> From: Mohsin Bashir <hmohsin@meta.com>
->>>>
->>>> In switchdev mode, mlx5 offloads police only when other actions follow
->>>> it. TC needs no extra action for a police-only rule to work. The mlx5
->>>> driver makes every police rule forward to the post meter table, but for
->>>> a rate police it adds that forward only after verify_attr_actions() has
->>>> checked the rule, so the check rejects it. The ok result of police is
->>>> also handled as pipe. In TC, ok accepts the packet and ends the action
->>>> list, whereas mlx5 goes on with the actions after police.
->>>>
->>>> Support police as the only action of a rule. Set the forward while
->>>> parsing police, as is already done for police with mtu, and forward
->>>> an ok result to the end of the TC chains, as the driver does when it
->>>> offloads the gact ok action. The upcoming selftest series also relies on
->>>> such rules for TC offload validation.
->>>>
->>>> The patch was tested on a ConnectX-7 in switchdev mode with the command
->>>> below, and it was verified that the rule is offloaded and limits the
->>>> matching traffic to the configured rate, using the hardware drop counter.
->>>>
->>>>     tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->>>>       ip_proto udp dst_port 5201 \
->>>>       action police rate 100mbit burst 1m conform-exceed drop/ok
->>>>
->>>> Cc: Carolina Jubran <cjubran@nvidia.com>
->>>> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
->>>> ---
->>>>    drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
->>>>    drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
->>>>    2 files changed, 5 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->>>> index 1bd1c94fb977..52295f5d644c 100644
->>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->>>> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
->>>>                  MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
->>>>                return -EOPNOTSUPP;
->>>>    -        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>>>            attr->flags |= MLX5_ATTR_FLAG_MTU;
->>>>        } else {
->>>>            attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
->>>>            attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
->>>>        }
->>>>    +    attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>>
->>> This makes every police that is the lact action pass verify_attr_actions()
->>> not only ok case described.
->>>
->>> what happens with:
->>> "police ... conform-exceed drop/pipe"
->>> with this not writes to FTEID_TO_REG so what happens once a packet
->>> reaches the port action table?
->>>
->>> also what about:
->>> tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->>>       ip_proto udp dst_port 5201 \
->>>       action police rate 100mbit burst 1m conform-exceed drop/pipe \
->>>       action police rate 100mbit burst 1m conform-exceed drop/pipe
->>>
->>> won't this create a loop?
->>>
->>
->> Thanks for reviewing Mark.
->>
->> Ahh! I missed the loop case. I had a patch to handle pipe on the last police but I dropped it, since my testing showed the post_act table still passed the packets up. Let me respin and send pipe and jump on the last police to the end of the TC chains. Would that work in your opinion?
-> 
-> Yes for PIPE.
-> 
-> For JUMP, we need to check the target. tcf_action_exec() counts from
-> the start of the action list, so even the last police can jump back
-> to itself or an earlier action. If we can't offload that, we should
-> probably reject it.
-> 
-> That's how I read tcf_action_exec(), but please correct me if I'm
-> missing something as I'm not really a tc expert.
-> 
->>
-
-Yeah, jump restarts the list. Before this patch police as the last 
-action was rejected anyway, so I believe rejecting jump there in the 
-respin should be okay?
-
->>>> +
->>>>        return 0;
->>>>    }
->>>>    diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->>>> index 1d35c97aea0b..8685e41487f3 100644
->>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->>>> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
->>>>            attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
->>>>            break;
->>>>        case FLOW_ACTION_ACCEPT:
->>>> +        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>>> +        attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
->>>> +        break;
->>>>        case FLOW_ACTION_PIPE:
->>>>            err = set_branch_dest_ft(flow->priv, attr);
->>>>            if (err)
->>>
->>> This also changes rules where police is not the last action.
->>> The conform result defaults to ok when it is not given.
->>>
->>> action police rate 100mbit burst 1m conform-exceed drop \
->>>           action mirred egress redirect dev eth2
->>>
->>>
->>> won't with this change the conforming packets go to the tc end table
->>> and not to the redirect dev?
->>> The rule is still reported as offloaded and installs the redirect
->>> which can't reached now.
->>>
->>
->> Maybe I am missing something here, but when the conform action is not given, doesn't it default to ok? For example, if we have
->>    action police rate 100mbit burst 1m conform-exceed drop action drop
->> shouldn't conforming packets still be pushed up rather than dropped by the following action, making the action drop (or the action mirred) dead code?
->>
-> 
-> Yes, agreed, the following action is dead code in software too,
-> a separated cleanup patch maybe?
-> 
-
-Yeah probably.
-
-> What about packets that reach the rep? I don't see anything in
-> the ACCEPT path that tells software TC the packet has already been
-> processed. For example:
-> 
-> tc filter add dev eth2 ingress pref 100 protocol ipv6 flower skip_sw \
->      ip_proto udp dst_port 5201 \
->      action police rate 100mbit burst 1m conform-exceed drop/ok
-> 
-> tc filter add dev eth2 ingress pref 200 protocol ipv6 flower skip_hw \
->      ip_proto udp dst_port 5201 \
->      action drop
-> 
-> Wouldn't a conforming packet reach software, skip the first rule and
-> get dropped by the second, despite already being accepted in hardware?
-> 
-> Can you test this? The existing gact ok path might have the same issue.
-
-Yeah, in both cases (police and gact ok) the conforming packets are 
-pushed up, where they get dropped by the skip_hw rule. My understanding 
-is that with existing behavior the restore doesn't happen on accept 
-path, so sw tc takes the packet through classification again.
-
-> Mark
+> Thanks,
+> roblabla
 
