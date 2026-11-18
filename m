@@ -1,97 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996738;
-	b=mC10HAyBSciq3CgpZ9HYmLM+OHxJWTKS0yL2Ro9DyU9pVyzyjz6revr1xSA43/XQ7X05
-	 5A3UX82uzZa4TU6EKReJ+tapESwVRjtuIgpbaYLqK9X4Su2cuj/EBgG4TTg7Rey5ZYNvE
-	 /FstvfxSMPWo+xzYtjmFSHbR8tJvCsQioOX7IeYbMgLPz3OvgUTktzShhkuV3yxAcrAck
-	 nQHkMJE+8Aqv8NwXx2CLrrtoTXedknqkbISWAHA3s7CIPw4Uv+3q3VYe0OhWW90eglP45
-	 Ox+NKu/6WOpW1neZX7rVuYzGA4ioxGBKF8Q2zst6M7m5Y6VSBxx2hz87oRAb03Lyy/g==
+	t=1794996739;
+	b=O/bKR2QEDrVGfYwZ9lnu2kaUztZ5PLdx4N6EJWB/srQxafdPnCtyJ/H4jodtI/DpX0e0
+	 d+cAkP5SFjVbKXYGmanFk7CcdQ0T7sAZmEEG3OYVnBzjOBR95hwmuskD2SG8t3a/fl8WM
+	 a1McDl8RR0jg1jfwO0kgRrZo8K3kH+9DYXVtNuHcUnqhUSoex/TMU0nwnyuIKeF/HYtWm
+	 K8AJ6lfCiJeJSZoUjwVdkvuVJDqWwmv82EPzlLPWmi+kSpyyEht9e4GZ8Hb/4BbhCF9D6
+	 Jhy8g2wkoYE+/gJUmzWp5lMujftUSjrpGN5mbRzCvbfXAZFQDwsK0RcM2oM8br44Dmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996738;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=eX+gYgE+oCqAhhfCHZGXtaEXZcvdSf5VXn9A/wbFEZ0=;
-	b=RaWfzViFtAw0DvJ3spHid0KsOO7HaOLMUmKoBEjzJqc7C6Ov4CTZB8qr4WJBkDBsOK0V
-	 QgVdDW15ibivgw3RzQeGWdA1IsnIghnIhoZy49/QOy/9g95ZXJdWBP8O8qt0BLs0m9EI8
-	 GJ3SReJCWGwdPYC/9wFkYK9NVC1Ml1ESiLEFq8dAX+vMqZYc9dS6Npy/xGHrSNZFr5YrO
-	 +lAD+/l8c+1r15i7NBbYCnh56hSZG2r83lhvBLpqxQaDZ/F/6jbiI48nTRODLg5D+0fdP
-	 NH9IYRVKnZAiM7KnDOcrRHUJdT0BZIfCzxzwpOhK1IH+qs0rqK2pPmfBiRO29hWNRkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996739;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=wOvZstlG0NBbv/dzQM6xwLtQ/0sPGNaMMnmH8lqZPgo=;
+	b=XHdUU9VERNnOwBTqFahW7lzMUmtXgxCj/Slh1WGx5r/ha1CKWefXgh6b8+KVjB7GfmfR
+	 +8Tg5RqmQ/LFTv3FVA46agH3YvUL40EA8MZzSufRTAQLtpF6RJSaGJmWWcoq4blXrN/fQ
+	 dK31Qsl959JAuCDqNdtvyfLMQqMlfqLaYBWoV0EY59UaLgM1uRtmmISva2S5E+OVYxSdw
+	 XzdX7CBkXCWjOH3vN8b8yfoWw0NUYpZHu3t4Gsth4/TDy1wdqcEzXBXbkDezVVvCglIVQ
+	 qmm0Ka6LSnrQAyXLRlH5iye+guePXNqK9Qa/4oq9vOOiNOIuVkuUnzBdCXRs0oZOyCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wAmvKmgc;
-	arc=none smtp.remote-ip=74.125.228.71
-Received: from mail-ed2-f7.google.com (mail-ed2-f7.google.com [74.125.228.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=G7ViuwWa;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECA5C606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F467606A885
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:12:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECA5C606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F467606A885
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wAmvKmgc
-Received: by mail-ed2-f7.google.com with SMTP id 4fb4d7f45d1cf-6b86889efa7so414882a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:12:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794996736; x=1795601536; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eX+gYgE+oCqAhhfCHZGXtaEXZcvdSf5VXn9A/wbFEZ0=;
-        b=wAmvKmgcySfA1/6DZJLDxhW3fn61N1O/dX1OSSFhxKQfcArXR7Fg7+74pdtKc8+tOH
-         cGhzn5eqKIolmDUnaRbHZTC4jKq0NuYg6dBKujlrZYSsDcl91gMGcRlVDLrU+1Ahsu/5
-         zaJzROR2qS31KdMQdohlECSGcH9GBkLjxaIpD3JBmvxY3MqNEG0TmieYc8rs11vNZaqW
-         XgeU98Z5c2kVlOxvsFIb60KzKCtb9muNDFLLJ80p7IEIvmbFwkJqsLD+H+R2/lBAfcLQ
-         icFOPhqWd7HiWuBmfgmAzIn/3siu5/889YRPC1su2uDn+Ib6mZPVf0VfVCcr4pYAoVPz
-         A9Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996736; x=1795601536;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eX+gYgE+oCqAhhfCHZGXtaEXZcvdSf5VXn9A/wbFEZ0=;
-        b=CY861VWod9L709JfAa9VjtAk1erPnt5UtIjsSM/MSfdxqHDPZPEWn8N5VlEMjXHZgC
-         AOptFiRwgB0RJilNGYv2T1EpLb6cvdxlsz9p1KuRg8yLbn3G2Q/FWJ02yGxlqGJ7BlcW
-         WGzbAgMVc/AKrIzDY0Qdd2O6HGbCN/T/5AlffzYpKFiq4/t9E8zog4dCzVKaaHKfWNpB
-         Q/ovMwDOUUqBcBgc0dUJsE8mGUjCamrJsZcx4Hoo4pCZiRFQFSuJ0nKustIb1LPR5NSQ
-         c+6/EVH/83fFrSKvP2d4RRkfS18oAT5SyfNQHLEub59yVk9qEbGj9TrxsBWO3ADWeC5J
-         kYMA==
-X-Forwarded-Encrypted: i=1; AL+hErHLffGOjCm506fwfdJEgOlE2oE4cCSIzTVpOVr42SOLBe1ZP37vZ52PGLIpp+QJIEptMEZx/TI09tqtbOg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8j8FHAeyYRHt4Se77nWiLLqUi6ZAcixi54muw63T+0VdZD50V0
-	HJS5PMWtZrklLuBvCruY+0knj0pEXR2LSQ94zU3s7tYY40Rdo98hb0/o
-X-Gm-Gg: AYBFou0mchVNN+HU/vWo1iXZv/xLvzHpnhdIzSCfvMhd+T0pFtiY4nG+sCJ7k4eSuGP
-	hlyYOcpuJm9shcviQ8o0JAu856W6T1JbGYvaq5VAPXP5GXmZP5V1kmjZzDaZykwC4qPGkiJKjdi
-	PAvFKkN79+khypzPU4augbglenUxrYF7FFbAU1IsXVQcQNd+QBMyIGYaQYMRaYvit1sCw6OgPuj
-	OWoqoxjNsJjpA1sKzgNXwBJGwEp9oJWAhpoXy/avXhkY2tQ71SG6mXwVJrRVGoszd9URCQ5H4L8
-	NLX4y4hzHuqZXoOa9zT0lLGqZifDNafafbI4RWfY7toiHFlHBGa2s/IlVdeD/AzQeKNJ1yuzOr/
-	77jwcDTw0IHHgJVkrRvmjOfJt+OEtSTQW2Pj3xWHcKBekcRClzYY7jFqoMF76R15hATZxh6HIwg
-	gsjRNebPangz8mf/wZRhGazZEU9RzY6gYwnbU8ZRmzxi5Nwor5yJDVusVXOxLyd8X/qpBdnYA2K
-	eQn/3sRmU+AujR2L3XrF22rb6lqi0o5xqcKdxs/kBpFbEL0zqu9xxlAYramehCXwVO1hTJz+Bf4
-	hWzCBwf8Hn4EztyO3oPknOgaWCcS/8P1G+xP1SNpwX4L5zLaihCgH2KJ9DOutDMa28VV2zMyTTS
-	jTtZ5fdaUMc9jp69joCvrXUKZT8e8YDW1KcVhYc+KsAV6JDzbkb/bsgtU
-X-Received: by 2002:a17:906:f5a5:b0:c46:6a50:40c2 with SMTP id a640c23a62f3a-c510e5024c3mr167941566b.39.1794996736224;
-        Wed, 18 Nov 2026 02:12:16 -0800 (PST)
-Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f332sm78436366b.7.2026.11.18.02.12.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:12:15 -0800 (PST)
-From: Thilo Zirnstein <thi.zirnstein@gmail.com>
-To: michal.simek@amd.com,
-	andi.shyti@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=G7ViuwWa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794996739; x=1826532739;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=FF5B0ph4nYkrwjb1C6748DuKV0yiQO0WYfTjj9OFyQw=;
+  b=G7ViuwWajQav9rOyEN7Dz3bgI7Q1V4bXUGSxQed/cSOx6vzau3ugq1md
+   qd7W6s7PBQjHJHLWH9NZdoNuJh7FePxxnOQMn564PKfVLLxl2jeYU5V8e
+   0/sAsfeGYZZ47cetnihH40P+TiwpMJ0Q+Jy1bpRQPh1SQPbW9tABCZV6J
+   3iWol6PLgYYD9gz0d/9nSFSNLyFlZTEvFGGX+ciJ4IOGF4K6XDo/HyUCt
+   vHZmsv5f+6zjXYUEvYB7ZzQvJhGbZXHATjAVb4sahnJ8pjoSFXvmkPYQt
+   zUVWoL7tQcZFYVWazzBBdpoQA1Ifv0KbeBznaJZdqztkmqY9+W6ybInjN
+   g==;
+X-CSE-ConnectionGUID: VLGyuMxlTwmLPEzBoRnkyA==
+X-CSE-MsgGUID: o11NAvVCSVeNEikrwP17fQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3682647"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3682647"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 02:12:18 -0800
+X-CSE-ConnectionGUID: D/5dg/T/T7egAVJfdbIJDg==
+X-CSE-MsgGUID: 7vyP09MJSo22wc5qpMf9JA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10052164"
+Received: from linux-pnp-gnr-1.sh.intel.com ([10.239.83.186])
+  by orviesa007.jf.intel.com with ESMTP; 18 Nov 2026 02:12:15 -0800
+From: Jiebin Sun <jiebin.sun@intel.com>
+To: akpm@linux-foundation.org,
+	bigeasy@linutronix.de
+Cc: dennis@kernel.org,
+	tj@kernel.org,
+	cl@gentwo.org,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	Thilo Zirnstein <thi.zirnstein@gmail.com>
-Subject: [PATCH v4 2/2] i2c: i2c-xiic: fix waiting/clearing while atomic
-Date: Wed, 18 Nov 2026 11:11:47 +0100
-Message-ID: <20261118101147.3350796-3-thi.zirnstein@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118101147.3350796-1-thi.zirnstein@gmail.com>
-References: <20261118101147.3350796-1-thi.zirnstein@gmail.com>
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	linux-rt-devel@lists.linux.dev,
+	tim.c.chen@linux.intel.com,
+	tianyou.li@intel.com,
+	wangyang.guo@intel.com,
+	jiebin.sun@intel.com
+Subject: Re: [PATCH] lib/percpu_counter: allow concurrent sums with an rwlock
+Date: Wed, 18 Nov 2026 18:16:46 +0800
+Message-ID: <20261118101646.3192636-1-jiebin.sun@intel.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20261115191636.f18859e4dd5f58b9a33e7814@linux-foundation.org>
+References: <20261115191636.f18859e4dd5f58b9a33e7814@linux-foundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,75 +93,42 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Use non jiffies based waiting functions,
-if in atomic context.
+Hi Andrew and Sebastian,
 
-Suggested-by: Andi Shyti <andi.shyti@kernel.org>
-Signed-off-by: Thilo Zirnstein <thi.zirnstein@gmail.com>
----
- drivers/i2c/busses/i2c-xiic.c | 30 +++++++++++++++++++++++++-----
- 1 file changed, 25 insertions(+), 5 deletions(-)
+Thanks for the comments and the RT review.
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index e68e17bdf0ba..6bb8d66e8969 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -237,6 +237,8 @@ static const struct timing_regs timing_reg_values[] = {
- #define XIIC_BB_TIMEOUT_US	1000
- /* timeout waiting for the controller to respond */
- #define XIIC_I2C_TIMEOUT	(msecs_to_jiffies(1000))
-+/* timeout waiting for the controller to respond in micro seconds */
-+#define XIIC_I2C_TIMEOUT_US	1000000
- /* timeout waiting for the controller finish transfers */
- #define XIIC_XFER_TIMEOUT	(msecs_to_jiffies(10000))
- /* timeout waiting for the controller finish transfers in micro seconds */
-@@ -359,16 +361,28 @@ static inline void xiic_irq_clr_en(struct xiic_i2c *i2c, u32 mask)
- 	xiic_irq_en(i2c, mask);
- }
+I'll replace the macros with static inline helpers, add the RT comment,
+and clarify the practical callers, including percpu_counter_sum_positive(),
+in v2.
 
-+static int xiic_poll_rx_empty(struct xiic_i2c *i2c)
-+{
-+	if (xiic_getreg8(i2c, XIIC_SR_REG_OFFSET) &
-+	    XIIC_SR_RX_FIFO_EMPTY_MASK)
-+		return 1;
-+
-+	xiic_getreg8(i2c, XIIC_DRR_REG_OFFSET);
-+	return 0;
-+}
-+
- static int xiic_clear_rx_fifo(struct xiic_i2c *i2c)
- {
--	u8 sr;
-+	int rx_empty;
- 	unsigned long timeout;
+Interrupt readers can bypass a WAITING writer and delay it if they keep
+overlapping. I'm considering the impact this could have on counter
+updates. If this needs addressing, we might take the write lock in
+__percpu_counter_sum() when called from interrupt context, while keeping
+the read lock for ordinary sums.
 
-+	if (i2c->atomic)
-+		return read_poll_timeout_atomic(xiic_poll_rx_empty,
-+				rx_empty, rx_empty, 10, XIIC_I2C_TIMEOUT_US,
-+				0, i2c);
-+
- 	timeout = jiffies + XIIC_I2C_TIMEOUT;
--	for (sr = xiic_getreg8(i2c, XIIC_SR_REG_OFFSET);
--		!(sr & XIIC_SR_RX_FIFO_EMPTY_MASK);
--		sr = xiic_getreg8(i2c, XIIC_SR_REG_OFFSET)) {
--		xiic_getreg8(i2c, XIIC_DRR_REG_OFFSET);
-+	while (!xiic_poll_rx_empty(i2c)) {
- 		if (time_after(jiffies, timeout)) {
- 			dev_err(i2c->dev, "Failed to clear rx fifo\n");
- 			return -ETIMEDOUT;
-@@ -383,6 +397,12 @@ static int xiic_wait_tx_empty(struct xiic_i2c *i2c)
- 	u8 isr;
- 	unsigned long timeout;
+I also tested buffered writes with fio.
 
-+	if (i2c->atomic)
-+		return read_poll_timeout_atomic(xiic_getreg32, isr,
-+				isr & XIIC_INTR_TX_EMPTY_MASK, 10,
-+				XIIC_I2C_TIMEOUT_US, 0, i2c,
-+				XIIC_IISR_OFFSET);
-+
- 	timeout = jiffies + XIIC_I2C_TIMEOUT;
- 	for (isr = xiic_getreg32(i2c, XIIC_IISR_OFFSET);
- 		!(isr & XIIC_INTR_TX_EMPTY_MASK);
---
-2.43.0
+Fio (64 jobs, 3 iterations, 60s each):
 
+  +------+------------+-----------------+---------+
+  | Test | Throughput | CPU utilization | Cycles  |
+  +------+------------+-----------------+---------+
+  | Fio  |     +6.91% |         -40.41% | -40.80% |
+  +------+------------+-----------------+---------+
+
+Test configuration: ext4, 32 GiB cgroup memory limit.
+
+Commands:
+
+  sysctl -w vm.dirty_bytes=67108864 \
+             vm.dirty_background_bytes=33554432
+
+  fio --name=buffered-write --directory="$TEST_DIR" \
+      --ioengine=sync --rw=write --bs=64k --size=256m --numjobs=64 \
+      --direct=0 --fallocate=none --time_based=1 --runtime=60 \
+      --cpus_allowed=0-31,86-117 --cpus_allowed_policy=split \
+      --group_reporting --output-format=json
+
+Thanks,
+Jiebin
