@@ -1,83 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794989168;
-	b=WxLaaeZdT9hnyFqEpc2Ace7+6SPZL7XQU/lByD2PXcrPgy9r1Fig/HMwOZYpInRTRmx0
-	 g3E0CJPK9P/Hh+5dbW9KOrIu7jSrHy135gD6dKdKFg/nwuhX88IxK7h6qluTmOkTPuUe9
-	 Jr10b1K7yc5986/9E6nTKD65ye+7QrSBN1mmMX+BUEgB56793aYaJ2RG7dGxNQM7GYqxN
-	 t8mTYkwLRTkiDysRbrs6SKO0sSQUFS2gQgXYInoCqySLFuRZ1jhIFK5unIViVt9gzj/Wu
-	 G0RmBk9YLvdd7+KAOgdp2Te82cgdHmTu4x7Y/sgVlJFaWeZYf/A/gbQIHz94YpQaFnw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989168;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=GenKSHxC1MEchwaGwaotaBU/VZbPmxb7mMna98PjhTM=;
-	b=P08rnijqrjCQbVLFXdRsNcv6whsnVIK76P7oeVmGE8suM4dJy9V5jvAadMJKpnQ7heWF
-	 +8BqkAh4pdwW2w9w3n6F7+chsoqHClMsegfU4Z+wF83w1mPLHWie9j93w01ByMvSeQWFd
-	 54IDWIsfNS+9pxAy2QuYJiMHbWB5J8N0GgkmFT742BWCaxM/1JatUyk7WbcOHb1r9uMu8
-	 gmVXUFeFR8K0o+lPztcS2NNJm+08sHfHxN0JnoGkuULel/Pz5XhecYK4b1RZ47V5Q9IIK
-	 c1HloQNK9Mmzhid1tUOfd3DaRRM51oanbdePe+kJAtMfgrK9DgLVsyh7aa6hItk3BIw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=NSKhnFp0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794989194;
+	b=gvUbVUTTEoNuvGEKWKw3ULllWtGBhhrPhpctY9P3ObOgx4DJP/eBNLZ6s3ICqw1nSC7K
+	 4JK3pqvnxakE+1F7xtbysfQVy2K170CJKYfftsyb8bzylUsGVFFXkmeAaxetAHO7kbyB6
+	 QyFr82tc6NOMZbJvyR8ccKSXf0j2LiCmJueln6FOP34nQw7eGvTX3OhyN5hIRl+04eEPi
+	 MPATQQEEKCe5AzEgIMApA3CcntBrUuJtEqImaXAkv8vx2xXC7LX1OuFRYbnnCh87eUs/q
+	 jYnaiG8Cfidj/2p9zLLSNhieQgB2KMIsc4kinTYZi90eU0ox9GGodU+bT1/0qjtnczA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989194;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=wTwgFeI7gQ6N9RjdGtOM+dkxnAdtOrsW2Q+npaN7whU=;
+	b=ny+QMlxqfpqnKDXrwkmLrdMfXnseEKb+f28SZik+PUSWOWsBz2a4ViD6wV8BvJd+FDPZ
+	 bT7A1qlJYjwLGXPH+v6cqJxwbt3UE117QwkpttucDRD1uwoho7lD3PXac8+PKhtgCZ+A4
+	 mqaOvpS/tnyJL0FcoMu7ZwNejOB7QHDHlCAW01bUKmqrl9lwTKRwx/YHYn5yLmgLJ7hww
+	 gC7TeXwrSdDABK4Ukgrbaq8KaWduBpC7IKR+kkakA4X44bD2805bbPwqdnRxAA+vu/O2t
+	 OhsnzjWn6CtgGKkfvjWYcUglydXJVmR8Wg1y+iGiOzZXL/S2zknT6TiNRzthbE0il/A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JVsrIND0;
+	arc=none smtp.remote-ip=209.85.128.70
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4DF3606A325;
-	Wed, 18 Nov 2026 08:06:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4DF3606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40DBC606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:06:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40DBC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=NSKhnFp0
-Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A1FE1205A67;
-	Wed, 18 Nov 2026 09:06:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794989164;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GenKSHxC1MEchwaGwaotaBU/VZbPmxb7mMna98PjhTM=;
-	b=NSKhnFp0VJlsLaqr3UXe4KDvN8PLVHoCdutIHSH1Py7+A+l3h6o5Pl4QFFDXojsWBE6XZM
-	tZtU0ugs2XFXz+Gey4igUryJpXEnrkyZZMhvelf1hw4PTRQdLTgz/hiBAflRR0tf+tBzGG
-	UUWIbsCBTGr31x8A9Mvsg4oiXSNmNSf7KXTH5oib8MQBMw0tXo1UHsgIPXtxwryrz1jv6i
-	F8CrIitBypL5U6gmkbvnldgFEgjmlR+oDfQYkWm8P+0UW39dt4qcKn6myC3MYGyfQLDFKh
-	PIghlnBua4J2Zb0bGlZJX+O8js3Vzk5epdYL91dCDyuxdQhIG4rUmRn4D8eUXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794989164;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GenKSHxC1MEchwaGwaotaBU/VZbPmxb7mMna98PjhTM=;
-	b=WDAHGSdSNMOgVv3fa263YShUabz3uPMfQpMpLhnwtV6o9TPcEpTwI3siZn3ZSUPnpo/vA5
-	Y1SVtsC8evm9WjKfXgzqbvsNM0sQRbrESDzRQT9Bl7zChh73/JEU6EuvZ3l2x0pdnOhEFH
-	/PYm/b3gL5P2r29vtllTOrJFkOxUcCjTD8cnK8mvcVOPpF4LIkRAhuhwDM6hqdUBl1qwTJ
-	KxYIwfZA63mNVJ/naweMmUJpB3Yu4Va9gHuIBKB0reuMsjzDm4/2a2HBj/Gse8f3X/CJid
-	D/YxrR0xkDxe+2iBXtk955qZIH6pBAhdtlZ5gql1+dAywZXbzy2leAwsaR2eBA==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794989164; a=rsa-sha256;
-	cv=none;
-	b=PBep9h1E0QHvnJ9nSzkX3g3Gd+ATB6OOIHVLt9c8VtVpbN83TSiE6q8CbGb1SCw700yrRf
-	4nmxxGzi5l9G2qcvFlNnYpMGdb+uU0bsylMieT0NKCoFXQka1HqGpFiR6ZnilOXDnxClVK
-	f8uxUu6LFCOsPyrojeDaIw2efzhL0Neu8YxZb9JFQAwWwsIKcm9WEDi3ZyZ3YWavTbOj2p
-	Ct3K6RtELRYqXDxRy+c5v3bxBdWbZaMoNvNetpkg/jvXXmTlJefC+UrWkC0xN1gjhmzyB9
-	bpN5YIjBF2fDVxC6azmi+sckVhHFpwHmRiPyCNUWNQ30ZedkvqHs7kvche+7nQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Date: Wed, 18 Nov 2026 09:06:02 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Jiale Yao <yaojiale02@163.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, 
-	Thomas Kopp <thomas.kopp@microchip.com>, Vincent Mailhol <mailhol@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-can@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] can: mcp251xfd: reject devices without match data
-Message-ID: <20261118-chicken-of-unreal-progress-07585b-mkl@pengutronix.de>
-References: <20260925133716.2230252-1-yaojiale02@163.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JVsrIND0
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4b764ffc014so5236125e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:06:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794989192; x=1795593992; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wTwgFeI7gQ6N9RjdGtOM+dkxnAdtOrsW2Q+npaN7whU=;
+        b=JVsrIND080oRpPZXlP5D1BFddSwOo5gdJSabFFzvRCGyT//1U3vzHDzAAHuvogCrib
+         KdsQ6cVBbZkLUbfCA8bGSiCK3T/NYs4/ab2xVB3Xbwf90Ngqj1DtIvkpz4b9c0ne4FTK
+         bp9GEkBAKMAXlKgnQWPzlodnAiId7JQkVYH0vTtQQZz1hYVVvb5zPl/VgybJ0NlAG7Y4
+         f+hJGwed7Ry3ASvSpr2lxjaz2/ygb8GgzsyEqQi9yt5/SGo8raxKdh3GanrrDDRPGuRh
+         gCMWqoNuR5xhC6nxH7ya2gxy2P8Mi6g8QQ2bquZGv1QlnUcoS+8WQusgbNFOtBFVfjC8
+         50pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794989192; x=1795593992;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wTwgFeI7gQ6N9RjdGtOM+dkxnAdtOrsW2Q+npaN7whU=;
+        b=zvKORPBddYerSNY+HH/wxQEKrcFYx/1m29EZKrO4Wpddd9rzQSZN3pVGXvsgDubWjG
+         qCOvBjPyKi7mZXoUh2IS/+GBycu8rRl5bBZcunWLV1V8Tb/xHyaVwiTSncth87jjGWtM
+         gLJrNkx/yFBnR6IvihavCOfylBuBC3lQF/CshmmGR3os7OhIXEmqFncHCaqRqj52kCix
+         EC/OYp/xxVwfGahHqhPLd7WErfsDOI/DqavgCKC9TCXVMJWeR4rsWmjXsctrg6sMmHpn
+         24keOj7wfOurziC85py6ugs5Sr4M0YxLAteg5wAi2URXWNc8Td4snJURuldwlxO0mWnk
+         lRFg==
+X-Forwarded-Encrypted: i=1; AL+hErGBJF5lRSR7y9Jsl5YGn5ifu4bqRe9ibeFeKCxGtsmwY1RuIY3P8IqXXE5cOkkDSUXJ811RZBOlvroxbUk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RkhbgNp/j21eTSMElsBvAeh6XWd73q1rQTyyZlgAW6TZNBAMZ
+	CgSXPlqlzsUp0cnICOOZyFmgpj+EIf1tymg4xTSJc7r6ZZIm3WP0U4zh3b/1RKsczxhsDWmdY8Z
+	GWyLN58c7xTxl4EtHHg==
+X-Received: from wmcq4.prod.google.com ([2002:a05:600c:c104:b0:4bb:52ec:7054])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4583:b0:4a7:9025:5c3b with SMTP id 5b1f17b1804b1-4bb7da2633emr32108295e9.19.1794989192307;
+ Wed, 18 Nov 2026 00:06:32 -0800 (PST)
+Date: Wed, 18 Nov 2026 08:06:31 +0000
+In-Reply-To: <20261117233901.2212899-1-cmllamas@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,54 +78,29 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ahs4mkuzz6i5yngn"
-Content-Disposition: inline
-In-Reply-To: <20260925133716.2230252-1-yaojiale02@163.com>
+Mime-Version: 1.0
+References: <20261117233901.2212899-1-cmllamas@google.com>
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261118080631.4094963-1-aliceryhl@google.com>
+Subject: Re: [PATCH] MAINTAINERS: add rust-for-linux list to binder
+From: Alice Ryhl <aliceryhl@google.com>
+To: Carlos Llamas <cmllamas@google.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	"=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>
+Content-Type: text/plain; charset="UTF-8"
 
+On Tue, Nov 17, 2026 at 11:39:00PM +0000, Carlos Llamas wrote:
+> Now that the legacy C binder driver has been dropped in commit
+> fd2bc059ed46 ("binder: rm -f binder.c"), drivers/android/ consists
+> of only the rust binder so add rust-for-linux@vger.kernel.org to the
+> ANDROID DRIVERS entry.
+> 
+> Signed-off-by: Carlos Llamas <cmllamas@google.com>
 
---ahs4mkuzz6i5yngn
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] can: mcp251xfd: reject devices without match data
-MIME-Version: 1.0
-
-On 25.09.2026 21:37:16, Jiale Yao wrote:
-> A device bound through driver_override need not match an entry in the
-> driver tables. In that case spi_get_device_match_data() returns NULL,
-> but mcp251xfd_probe() dereferences the result while copying the device
-> type data.
->
-> Reject devices without match data before continuing probe.
->
-> Fixes: 9cdae370c4ec ("can: mcp251xfd: simplify with spi_get_device_match_=
-data()")
-> Signed-off-by: Jiale Yao <yaojiale02@163.com>
-
-This problem will be solved by Uwe's patch:
-
-https://lore.kernel.org/all/20261116110853.3418077-2-u.kleine-koenig@baylib=
-re.com/
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---ahs4mkuzz6i5yngn
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCav1caAAKCRDMOmT6rpmt
-0s/nAP9bWQSlIHO6y2wS/kSEUBcTVofQvdHms5he8lovLi607AD/eyi1+aKIKMcV
-QQhqx2NxuLYeV3+ZxCv9iuMnhVYANg8=
-=gwHx
------END PGP SIGNATURE-----
-
---ahs4mkuzz6i5yngn--
+Acked-by: Alice Ryhl <aliceryhl@google.com>
