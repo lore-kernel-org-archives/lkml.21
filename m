@@ -1,54 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016295;
-	b=t8fhmFVkgf5tIxYFkigGfxyyzrNSKgB7hdhbhy5ABxR5+v1mzZHI6qpBmbDtx0HA7Q6D
-	 TtyklmnmgPcGOIcOvaFZHSjCDJJ91zhWVpprV4eW3R758IapM7xV4dzlNjcy8RJ3oFtxj
-	 eliEu0cr0oeIarPOzjLGfXfYfEgxreVvCxAV2nvaoeI6lLHDlnjxLpvD0Wgcptu84Arxd
-	 ueQGKLSwdDBiBd12n5fV+KyhVgO4VzMQ/+MOYWAkSEFFmi2v4xZMFPlWLBZV6LGEVece/
-	 ghL3pDyQX2DmAnA8aIlJUxKT+ADuv6RzeNjkKLXfuY8CnUQwqMFs9PVO0I2vK8J/Tew==
+	t=1795016299;
+	b=D8h0B5IgCFKzskOtenxeR8Gr+fxOzrpbdWN+Bdhtgfqz50N7n6W2CKZ0g5wZKtqONy0U
+	 tiC7K/mFW1rV4SK20EYpW07Ebt6ZvNMjcnJHV6TjBJA4ZLfCqScB32Ne9i/C5jeqr2htl
+	 hMlSSZeQwj1aJAa+P2vK8iNukmgDrRvmnC6tNHxkrswam1+M5Q28+/aCzID947kOfz2J3
+	 tV9H8XgBPHKg16xyyyt5p8dpEPq3M6nIwzWVTc5cfByRlxX0/CtEU9OJtSo5MhiZ4ydU+
+	 n0LkURZDmFu7i+nljTasx/pjaYKXiAuumgseCpKz8qCzRlFfiC39T2cZVq/l0DBX4hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016295;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016299;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=RMWtXfOrBMUlXo3JAA8nnmiVWIJTNT38o6/ayrisqnY=;
-	b=ly8PMoRi9QS0W2Da+FDHoRzgy1+JxwZKcJZ2T3qpqDzSGZCLKf+5+8ZNZjR3P7+GyKxg
-	 ANmjoQIavspocHuQ9L1LhUcG8J7pwYGN8wCe+am+n6AUDNy+PjvHe6bfOH/m1LV8BbehL
-	 je9UBTv4/xcQ67HSyWRB00jZvI89ssyCDYC3mWUYRDz/c7nVRhlIpGhFzRW5NYepf3DAt
-	 bN4RjuEQWxfjqwZKJ2RRL6QFtQ9jCL7R0xiy+h+zc4dxxAkU6ehQjvJF6rEZ1bALcgo6g
-	 avhc0x5ZMAeSe9fr/VOt81vHL9wv+dIbtFfYvymgEvP0kj4iFIJHfpnNzDEKWVPp+ag==
+	bh=r5CGEVAkf2MMq2Xy68c1srFZ145fIMmiNbBIi1wTp/U=;
+	b=DHjkFDq7VWQ4Bt/Glue+opHhm1y9BUY5yHMW7KPGV6gxKrZLTsyJgf/rA2kcSUrUymaO
+	 X53vl1f1hQhDoekQglhJ1Dhya3Z7Kh/W+JzXuWUK6yh/Bc6fsUB8i5sUoFAPZMzXkMCb1
+	 tvRLLIQLB2mpjPjVzO0wN8JJl/8NOLwb4e9roXJEVQuuEKLFCLBFhWMsN627Bc9joPR/x
+	 hNATflQo2bYGh0dhe3yZtpkU4eJ7xY2VSy80NavZfJ2KF/WyZ1zE6J4udLnz1O4VFZilO
+	 fdlOTXFfw1d2sXnc+YRV2FbnF2CzQGcjmAl+n8Gc5eQZdP/+5r3GobkS3WqykadlKZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=juZk+Boh;
-	arc=none smtp.remote-ip=95.215.58.54
-Received: from mta1.migadu.com (out-54.mta1.migadu.com [95.215.58.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gSgr+4+n;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42B5C60A2621
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:38:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42B5C60A2621
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9E5460A3812;
+	Wed, 18 Nov 2026 15:38:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=juZk+Boh
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=tf0h0de4cYP6cKKbFkMbewM2Fg/9uzvPBvnWQQYHpdg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795016291; v=1; x=1795621091;
- b=juZk+BohpBKtZxmXEqY9oZSjFzYWzOUsKub/zu36mdnJ5CdFfAhwRmSemFjcYqd23Hkgp850
- 80MfpW9+CzlGXe55dimQGW3ZEurB0gtvPtXxY8s9Nt9I4OOURjh2dRhVwdwQH+nnG/CNgzSkn37
- YpUS+z5h932+VR58utuYRec0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id dbede086751ede28;
-	Wed, 18 Nov 2026 15:38:11 +0000
-X-Mizu-Trace-ID: dbede086751ede28
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <2e9faec6-9152-40ec-8c63-f262dc26e059@linux.dev>
-Date: Wed, 18 Nov 2026 23:37:57 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gSgr+4+n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF1F61F000CC;
+	Wed, 18 Nov 2026 15:38:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795016299;
+	bh=r5CGEVAkf2MMq2Xy68c1srFZ145fIMmiNbBIi1wTp/U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=gSgr+4+nnxQjPIiEFrAUk+riDwqGodfuwjoDFEhg7ykT2yO+0QRfSj5XYZ/hctiko
+	 qbqKfdDQ3QOXDyyy+lT4PPQYaPYlFMVggIDwzMoZXrzsQwSjg71DxlobK8Fp2rvpwA
+	 tv7mGzTnJj64dq0v9jx9lbT/UrJzooXA3FvJtQVshZGs0OifS6/0x5M3urB+6vSD6r
+	 p4914adKzIDXtNTYsVuX8uUijHYGgx5dgSYkezWjFXO3PDuQHLwrLN4LGfvRY/Foqb
+	 ekdRuPrMhBmeTreTHC9Njijbty7fVMhgIITOgCawn7KR7Akkrv7RLnCldUTdWZafFJ
+	 tWtZICU2HgFlA==
+Message-ID: <fa625e27-a1bd-4a22-8611-cca13fc9d11a@kernel.org>
+Date: Wed, 18 Nov 2026 09:38:14 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,100 +52,186 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/7] mm/page_ext: allocate page extensions early for
- SPARSEMEM
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Muchun Song <songmuchun@bytedance.com>,
- Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, David Hildenbrand <david@kernel.org>,
- "Liam R . Howlett" <liam@infradead.org>, Vlastimil Babka
- <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Joerg Roedel <joerg.roedel@amd.com>, Lu Baolu <baolu.lu@linux.intel.com>,
- Pranjal Shrivastava <praan@google.com>,
- Ketan <ketan.kishore@oss.qualcomm.com>, Mostafa Saleh <smostafa@google.com>,
- Sang-Heon Jeon <ekffu200098@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Sashiko <sashiko-bot@kernel.org>,
- kasan-dev@googlegroups.com, workflows@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Chris Down <chris@chrisdown.name>
-References: <20261117120627.50601-1-songmuchun@bytedance.com>
- <20261117120627.50601-6-songmuchun@bytedance.com>
- <avzsFxVqO27Vf4Db@chrisdown.name>
- <3C50E682-848F-4788-9238-923D5E292DEE@linux.dev>
- <av1M9itGiTF1Akqi@chrisdown.name> <av2zkUpYGmGWPx8T@kernel.org>
+Subject: Re: [PATCH v2] platform/x86/amd: send WBRF DSM payload as buffer
 Content-Language: en-US
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <av2zkUpYGmGWPx8T@kernel.org>
+To: Mario Limonciello <superm1@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: Hans de Goede <hansg@kernel.org>, Ma Jun <Jun.Ma2@amd.com>,
+ Evan Quan <quanliangl@hotmail.com>, platform-driver-x86@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261102-superm1-wbrf-v2-1-28b02bb4ce61@kernel.org>
+From: Mario Limonciello <superm1@kernel.org>
+In-Reply-To: <20261102-superm1-wbrf-v2-1-28b02bb4ce61@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
 
 
-On 2026/11/18 22:17, Mike Rapoport wrote:
-> On Tue, Nov 17, 2026 at 11:00:06PM -0800, Chris Down wrote:
->> Hi Muchun,
->>
->> Muchun Song writes:
->>> Mike's suggestion considerably simplifies the code, and early page_ext is
->>> only needed by optional debugging and instrumentation users. I would prefer
->>> to keep this approach.
->> You're probably right.
-> I think so :)
-> The memap_alloc() that essentially allocates the memory map does
->
-> 	memblock_alloc_try_nid_raw(size, align, min_addr,
-> 				   MEMBLOCK_ALLOC_NOLEAKTRACE, nid);
->
-> so we anyway may end up with reserved memory in ZONE_MOVABLE.
->
-> Until recently we had memory map allocation before the zones were setup, so
-> there wasn't much we could do about it, but ...
->
->> But can I cheekily suggest something in the middle perhaps? :-)
->>
->> Given the zones are already set up before page_ext_alloc() runs, perhaps
->> you can pass the start of the node's ZONE_MOVABLE as max_addr to
->> memblock_alloc_try_nid() when the node has one. The general idea is:
->>
->>      struct zone *movable = &NODE_DATA(nid)->node_zones[ZONE_MOVABLE];
->>      phys_addr_t max_addr = MEMBLOCK_ALLOC_ACCESSIBLE;
->>
->>      if (!zone_is_empty(movable))
->>              max_addr = PFN_PHYS(movable->zone_start_pfn);
->>      addr = memblock_alloc_try_nid(size, PAGE_SIZE, __pa(MAX_DMA_ADDRESS),
->>                                    max_addr, nid);
->>      if (!addr && max_addr != MEMBLOCK_ALLOC_ACCESSIBLE)
->>              addr = memblock_alloc_try_nid(size, PAGE_SIZE,
->>                                            __pa(MAX_DMA_ADDRESS),
->>                                            MEMBLOCK_ALLOC_ACCESSIBLE, nid);
-> ... with zone extents known we could take it even further :)
->
-> page_ext is treated as the memory map in many ways, so we can allocate the
-> early page_ext sections with memmap_alloc().
-> And since the latter always runs after zones are set up it could include
-> this change.
->
-> But I think this should come as a separate series that also could move
-> memmap_boot_pages_add to memmap_alloc().
+On 11/2/26 14:58, Mario Limonciello wrote:
+> Spec defines the WBRF record _DSM argument as a single buffer that packs
+> the header and frequency ranges. The driver instead built a package of
+> integers, so firmware on some systems abort \WBRF with AE_AML_OPERAND_TYPE
+> when dereferencing Arg2[0].
+> 
+> Encode the payload into a little-endian buffer and hand it as the lone
+> package element.
+> 
+> Fixes: 58e82a62669d ("platform/x86/amd: Add support for AMD ACPI based Wifi band RFI mitigation feature")
+> Signed-off-by: Mario Limonciello <superm1@kernel.org>
+> ---
+> Changes in v2:
+> - Declare payload with __free(kfree) at the kzalloc() site, after input
+>    validation, instead of initializing it to NULL at the top of
+>    wbrf_record() (Sashiko)
+> - Compute payload length with struct_size_t() so it no longer depends on
+>    payload being declared earlier (Sashiko)
+> - Link to v1: https://patch.msgid.link/20261102-superm1-wbrf-v1-1-b58d8d85277c@kernel.org
 
-Agreed. Using memmap_alloc() for early page_ext allocations and
-teaching it to avoid ZONE_MOVABLE sounds cleaner. I'll keep this
-series as is and handle that in a separate series.
+Ilpo,
 
-Thanks!
+FYI - this was found on some existing systems in the wild so I would 
+prefer if it could go to -fixes.
 
+I sent right after the merge window so just wanted to make sure it's 
+still in your queue.
+
+Thanks,
+
+> ---
+>   drivers/platform/x86/amd/wbrf.c | 75 +++++++++++++++++++++++------------------
+>   1 file changed, 43 insertions(+), 32 deletions(-)
+> 
+> diff --git a/drivers/platform/x86/amd/wbrf.c b/drivers/platform/x86/amd/wbrf.c
+> index 3281357185d1f..2afb574e4327d 100644
+> --- a/drivers/platform/x86/amd/wbrf.c
+> +++ b/drivers/platform/x86/amd/wbrf.c
+> @@ -6,6 +6,8 @@
 >   
->> I briefly tried that and it seems to work quite nicely.
->>
->> But I don't object to it even without that, so feel free to add either way:
->>
->> Reviewed-by: Chris Down <chris@chrisdown.name>
->>
->> Thanks!
->>
->> Chris
+>   #include <linux/acpi.h>
+>   #include <linux/acpi_amd_wbrf.h>
+> +#include <asm/byteorder.h>
+> +#include <linux/slab.h>
+>   
+>   /*
+>    * Functions bit vector for WBRF method
+> @@ -29,6 +31,17 @@ struct amd_wbrf_ranges_out {
+>   	struct freq_band_range	band_list[MAX_NUM_OF_WBRF_RANGES];
+>   } __packed;
+>   
+> +struct wbrf_record_entry {
+> +	__le64		start;
+> +	__le64		end;
+> +} __packed;
+> +
+> +struct wbrf_record_payload {
+> +	__le32			num_of_ranges;
+> +	__le32			action;
+> +	struct wbrf_record_entry	ranges[];
+> +} __packed;
+> +
+>   static const guid_t wifi_acpi_dsm_guid =
+>   	GUID_INIT(0x7b7656cf, 0xdc3d, 0x4c1c,
+>   		  0x83, 0xe9, 0x66, 0xe7, 0x21, 0xde, 0x30, 0x70);
+> @@ -42,8 +55,9 @@ static BLOCKING_NOTIFIER_HEAD(wbrf_chain_head);
+>   static int wbrf_record(struct acpi_device *adev, uint8_t action, struct wbrf_ranges_in_out *in)
+>   {
+>   	union acpi_object argv4;
+> +	union acpi_object args[1];
+>   	u32 num_of_ranges = 0;
+> -	u32 num_of_elements;
+> +	size_t payload_len;
+>   	u32 arg_idx = 0;
+>   	int ret;
+>   	u32 i;
+> @@ -64,45 +78,39 @@ static int wbrf_record(struct acpi_device *adev, uint8_t action, struct wbrf_ran
+>   	if (num_of_ranges != in->num_of_ranges)
+>   		return -EINVAL;
+>   
+> -	/*
+> -	 * Every input frequency band comes with two end points(start/end)
+> -	 * and each is accounted as an element. Meanwhile the range count
+> -	 * and action type are accounted as an element each.
+> -	 * So, the total element count = 2 * num_of_ranges + 1 + 1.
+> -	 */
+> -	num_of_elements = 2 * num_of_ranges + 2;
+> -
+> -	union acpi_object *tmp __free(kfree) = kzalloc_objs(*tmp,
+> -							    num_of_elements);
+> -	if (!tmp)
+> +	payload_len = struct_size_t(struct wbrf_record_payload, ranges, num_of_ranges);
+> +	struct wbrf_record_payload *payload __free(kfree) =
+> +		kzalloc(payload_len, GFP_KERNEL);
+> +	if (!payload)
+>   		return -ENOMEM;
+>   
+> -	argv4.package.type = ACPI_TYPE_PACKAGE;
+> -	argv4.package.count = num_of_elements;
+> -	argv4.package.elements = tmp;
+> -
+> -	/* save the number of ranges*/
+> -	tmp[0].integer.type = ACPI_TYPE_INTEGER;
+> -	tmp[0].integer.value = num_of_ranges;
+> -
+> -	/* save the action(WBRF_RECORD_ADD/REMOVE/RETRIEVE) */
+> -	tmp[1].integer.type = ACPI_TYPE_INTEGER;
+> -	tmp[1].integer.value = action;
+> +	payload->num_of_ranges = cpu_to_le32(num_of_ranges);
+> +	payload->action = cpu_to_le32(action);
+>   
+> -	arg_idx = 2;
+> +	arg_idx = 0;
+>   	for (i = 0; i < ARRAY_SIZE(in->band_list); i++) {
+>   		if (!in->band_list[i].start || !in->band_list[i].end)
+>   			continue;
+>   
+> -		tmp[arg_idx].integer.type = ACPI_TYPE_INTEGER;
+> -		tmp[arg_idx++].integer.value = in->band_list[i].start;
+> -		tmp[arg_idx].integer.type = ACPI_TYPE_INTEGER;
+> -		tmp[arg_idx++].integer.value = in->band_list[i].end;
+> +		payload->ranges[arg_idx].start = cpu_to_le64(in->band_list[i].start);
+> +		payload->ranges[arg_idx].end = cpu_to_le64(in->band_list[i].end);
+> +		arg_idx++;
+>   	}
+>   
+> +	argv4.package.type = ACPI_TYPE_PACKAGE;
+> +	argv4.package.count = ARRAY_SIZE(args);
+> +	argv4.package.elements = args;
+> +
+> +	args[0].type = ACPI_TYPE_BUFFER;
+> +	args[0].buffer.length = payload_len;
+> +	args[0].buffer.pointer = (u8 *)payload;
+> +
+>   	union acpi_object *obj __free(kfree) =
+> -		acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
+> -				  WBRF_REVISION, WBRF_RECORD, &argv4);
+> +		acpi_evaluate_dsm(adev->handle,
+> +				  &wifi_acpi_dsm_guid,
+> +				  WBRF_REVISION,
+> +				  WBRF_RECORD,
+> +				  &argv4);
+>   
+>   	if (!obj)
+>   		return -EINVAL;
+> @@ -236,8 +244,11 @@ int amd_wbrf_retrieve_freq_band(struct device *dev, struct wbrf_ranges_in_out *o
+>   	param.string.length = 0;
+>   	param.string.pointer = NULL;
+>   
+> -	obj = acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
+> -							WBRF_REVISION, WBRF_RETRIEVE, &param);
+> +	obj = acpi_evaluate_dsm(adev->handle,
+> +				&wifi_acpi_dsm_guid,
+> +				WBRF_REVISION,
+> +				WBRF_RETRIEVE,
+> +				&param);
+>   	if (!obj)
+>   		return -EINVAL;
+>   
+> 
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261029-superm1-wbrf-d94050a28212
+> 
+> Best regards,
+> --
+> Mario Limonciello <superm1@kernel.org>
 
