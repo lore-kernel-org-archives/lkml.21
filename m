@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795021732;
-	b=muo1+CgVRjDwju/erRbOqtQVKp3di5XXdNajgska6tLBAgWpbeMrFvxYdD8gsrNPHCR/
-	 IVKuuognYyb9m6AKYWQ8A0CMa/U0aJVRe8HfNJ45bC/CN1jnOm2/iOnnpDlFnknZ6mXUm
-	 BRIt1lq9/1pzyqEOZv4m40t5oza9uRgB+FDDBdckbiZF5E4cfOPZXZ9N1upnS20hNMto3
-	 Nb2OZxY8QaGIxCxrLalfAuOj2htLkHo8X95+sCWZoOuRZ6000r/+zcuvJ3VClWOybOY6B
-	 bANAWMZF+OnL+PaD8qHrAfNVw0wwAaQKZfdxTRW/afWKyKCzHkG7PmnZDlXn1wFcmVw==
+	b=2OKXNY9FP+FcvV2meKmplEzVF0fKFYfyOmzjI9C96bmbTsf1A0Z1a9lqqdwL96qpRs+M
+	 mK4yHCtQwynP2j1RmdO0Ic0o2F9xyow255yBO33EcB8MYPdNtiV590UcV4Ub7LOeAE4uj
+	 RhzDlll3eOrdSdDukyyh4bRBLd9NRxuScl9m5mkpdFy2rfjMWum0DtAsMsTXgT+uOW/Pb
+	 HchJC4zotR+wphUyb3bSPMwhdPXlktuIapKRU2nfW8GCAWsWs6tGVs3p7BSsFU5mP82ZD
+	 Z61chE3YC1fEVn+Xd/8PmsT9Xd0KnpyvLhvXnqq8T6m9d+KqtK84fsgwEDG5vZebAhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795021732;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=kbZvxEQTLb3YU1ecR2Xm0WW6ueRaIVM1hk43jde/uHs=;
-	b=llRVVDulP4qbDTFLPHIz5LWomazzBSYZHX1FsDkVe3JCgdHpTl530L+fiVlC3jwNkKEO
-	 PyR0bBM1KgTczZXf1UfmBqd9jyGphDH5CUj20G572DSqiqReIRIaGDexfN6BagaXBfHjX
-	 kVYL2xHp4Zj04IDotbd6lSUPcXFECXa+htp9fFVXVyjR+9oUo7KdLqLxBirt4bX/sC56c
-	 7srsEOw+BNg2xCArLZSEcwE0b55Brjl5NxSoxQCuI89DZ0eB27T5+8esOpju5x7riiLYh
-	 A7qIwdsJF2rFIbx2a/z4S7o3oDlH722uFGfLnH2p7h0dHotaOu2QuRWe9+f85I8lQlQ==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=bx+7bUQnz6I2D7Oz7SpSebRvvPf2hSBNvXrgjF2Tezo=;
+	b=PaM1mKKgWD7KbbXQGAQ6DfajYAnGV3USOJ6/6JTPqOCNUwyO9ndcIFkKX70+uOkAmd0U
+	 8/cGsyTslcHcmTHYSyaHZj4GgicUsrm9A/PqxhtvZcwRch39Cp6fPjCl0EZbPruY6pGcg
+	 forLiKOXvCiKK0gS70v1L/7RmNec546D+V2ahqkSQKdhy3/KzlbnNXkGse4KkxLhtxrXR
+	 9BKSXZkEJ/8yZs8ga6kIbyR3U4QYARsjo/yez6y5NuPfoXzQOQQwYUjy5tLT08+CjE6l2
+	 H45hip4W+iW/nAqK90wA8iDWrP4q65sC14ZZaJrkZgx3bscwy1iAkv9tr8/oij74/mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=wmOyO1OA;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D2BE60A3808
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=iEQsK1xR;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 712B160A380A
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:08:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D2BE60A3808
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 712B160A380A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=wmOyO1OA
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id DC4DE4E41636
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:08:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AD2945FE9B;
-	Wed, 18 Nov 2026 17:08:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8FD2811BC2A08;
-	Wed, 18 Nov 2026 18:08:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795021729; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=kbZvxEQTLb3YU1ecR2Xm0WW6ueRaIVM1hk43jde/uHs=;
-	b=wmOyO1OAjJfO/RrrLdhE4/Vwd4d+WwwrQAvtxBnbjHO8z/Zya7A6ZMzjuXnvbA+iAhCCY3
-	Lf6DZ9EZrfylmyWUlKr+ICCqoGB7Ox/lJBWarI7k0/KwNXw/mYsigS722dae2QhsGHXKu2
-	DIJaZpQxMMQ2wAedFXZi02TYUX4tv4lj31+BtGtMp1ESv1/RfdyY5zJaIwNCEqlJBQD+pR
-	ooz81NU0X94fSLtGzU8qf2wjP+KdpedyB9stb44bbup0ocgp+4NDCY6a3Hk/j6Gd6tqmEy
-	Sb0O3YtHeTuahH8GTbd0h8eoCS7ez6g4+r6f/3zAG2WmE9BX0MqvsJn+r3n7vw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 18 Nov 2026 18:08:23 +0100
-Subject: [PATCH v2 06/13] mtd: spinand: winbond: Add 1S_1S_1S continuous
- read variant
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=iEQsK1xR
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF4E91477;
+	Wed, 18 Nov 2026 09:08:48 -0800 (PST)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E55293F632;
+	Wed, 18 Nov 2026 09:08:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795021731; bh=yLwLKFyJIs3jWgTDF+dUIQs6dCjE/lLvFSox/OcEPFw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iEQsK1xRMyJvG0cJx5aLiW6PSSUsAAvaqlVOYeoXMaKt2v0sRi6/Dey2cmSiBrfeb
+	 ib4zWPVS1HS+VEvRQkfXFXoWJHm66qW0c2gcRIA/hVTJ++4yiQVTe6i9HZg1shtYQS
+	 RUd+S808Y5+XqbgXFx1vrSLw5i5MV75L2b3NjoJY=
+Message-ID: <4245d7c1-1607-41d4-98f8-2dceaf33593f@arm.com>
+Date: Wed, 18 Nov 2026 17:08:48 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,88 +53,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/8] arm_mpam: resctrl: Split control and monitoring
+ domain setup into helpers
+To: Reinette Chatre <reinette.chatre@intel.com>, james.morse@arm.com,
+ Dave.Martin@arm.com, fenghuay@nvidia.com, ruanjinjie@huawei.com
+Cc: tony.luck@intel.com, yu.c.chen@intel.com, babu.moger@amd.com,
+ fustini@kernel.org, tan.shaopeng@fujitsu.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev
+References: <cover.1794283825.git.reinette.chatre@intel.com>
+ <3d67a3dddd76cdb9981d4d7e78d657c930eb2cb6.1794283825.git.reinette.chatre@intel.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <3d67a3dddd76cdb9981d4d7e78d657c930eb2cb6.1794283825.git.reinette.chatre@intel.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-winbond-master-w25nxxlvw-v2-6-55956313d6cb@bootlin.com>
-References: <20261118-winbond-master-w25nxxlvw-v2-0-55956313d6cb@bootlin.com>
-In-Reply-To: <20261118-winbond-master-w25nxxlvw-v2-0-55956313d6cb@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, 
- Daisuke Mizobuchi <mizo@atmark-techno.com>, 
- Dominique Martinet <dominique.martinet@atmark-techno.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Steam Lin <stlin2@winbond.com>, linux-mtd@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
 
-The speed jump is not amazing, yet the feature exists and brings a few %
-of extra speed.
+Hi Reinette,
 
-$ flash_speed /dev/mtd0 -C
-...
-page read speed is 966 KiB/s
-testing multiple pages read speed
-2 page read speed is 977 KiB/s
-3 page read speed is 984 KiB/s
-4 page read speed is 984 KiB/s
-5 page read speed is 987 KiB/s
-6 page read speed is 991 KiB/s
-7 page read speed is 992 KiB/s
-8 page read speed is 988 KiB/s
-9 page read speed is 992 KiB/s
-10 page read speed is 991 KiB/s
-11 page read speed is 995 KiB/s
-12 page read speed is 991 KiB/s
-13 page read speed is 995 KiB/s
-14 page read speed is 995 KiB/s
-15 page read speed is 995 KiB/s
-16 page read speed is 996 KiB/s
-32 page read speed is 992 KiB/s
-64 page read speed is 996 KiB/s
-...
+On 10/11/2026 04:19, Reinette Chatre wrote:
+> mpam_resctrl_alloc_domain() allocates one structure that holds both the
+> control domain and the monitoring domain of a resource. It sets up
+> whichever of the two domains the resource supports, with the setup of
+> both open coded in the function, and undoes the control domain if
+> setting up the monitoring domain fails.
+> 
+> Apart from the code that manages domains, every user of the structure
+> accesses only one of its two domains, so the monitoring domain can be
+> given a structure of its own. Doing so starts with separating its setup
+> from that of the control domain.
+> 
+> Move the setup of each domain into its own helper in preparation for
+> giving the monitoring domain its own structure as part of supporting
+> multiple controls per resource. Keep the allocation and the error
+> handling in mpam_resctrl_alloc_domain() so that a failure to set up the
+> monitoring domain still undoes the control domain.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
+> Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Data integrity can be checked with the new mtd-utils tool:
+Looks good to me.
 
-$ nandcontreadtest /dev/mtd0
-testing 2 blocks from 0 to 1 (2 good), seed 37
-success: verified 524288 bytes read in 517.787 ms (988.82 KiB/s)
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
-Link: https://lore.kernel.org/linux-mtd/20261030144108.2211604-1-miquel.raynal@bootlin.com
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/nand/spi/winbond.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/mtd/nand/spi/winbond.c b/drivers/mtd/nand/spi/winbond.c
-index e3cd6950e61e..6beda45366c8 100644
---- a/drivers/mtd/nand/spi/winbond.c
-+++ b/drivers/mtd/nand/spi/winbond.c
-@@ -39,6 +39,13 @@
-  * always at least provide the column. Keep using address cycles, but
-  * reduce the number of dummy cycles accordingly.
-  */
-+#define WINBOND_CONT_READ_FROM_CACHE_1S_1S_1S_OP(ndummy, buf, len, freq) \
-+	SPI_MEM_OP(SPI_MEM_OP_CMD(0x03, 1),				\
-+		   SPI_MEM_OP_ADDR(1, 0, 1),				\
-+		   SPI_MEM_OP_DUMMY(ndummy - 1, 1),			\
-+		   SPI_MEM_OP_DATA_IN(len, buf, 1),			\
-+		   SPI_MEM_OP_MAX_FREQ(freq))
-+
- #define WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(ndummy, buf, len, freq) \
- 	SPI_MEM_OP(SPI_MEM_OP_CMD(0x0b, 1),				\
- 		   SPI_MEM_OP_ADDR(1, 0, 1),				\
-@@ -216,7 +223,8 @@ static SPINAND_OP_VARIANTS(cont_read_cache_variants,
- 		WINBOND_CONT_READ_FROM_CACHE_1S_1S_4S_OP(4, NULL, 0, 0),
- 		WINBOND_CONT_READ_FROM_CACHE_1S_2S_2S_OP(4, NULL, 0, 0),
- 		WINBOND_CONT_READ_FROM_CACHE_1S_1S_2S_OP(4, NULL, 0, 0),
--		WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(4, NULL, 0, 0));
-+		WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(4, NULL, 0, 0),
-+		WINBOND_CONT_READ_FROM_CACHE_1S_1S_1S_OP(3, NULL, 0, 0));
- 
- static SPINAND_OP_VARIANTS(write_cache_variants,
- 		SPINAND_PROG_LOAD_1S_1S_4S_OP(true, 0, NULL, 0),
-
--- 
-2.56.0
+> ---
+> Changes since RFC v2:
+> - Add Jinjie's Reviewed-by tag.
+> - Add Jinjie's Tested-by tag.
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 112 ++++++++++++++++++++-------------
+>  1 file changed, 68 insertions(+), 44 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index ec39f3909388..db1df6e8d8c0 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -1640,13 +1640,75 @@ static struct mpam_component *find_component(struct mpam_class *class, int cpu)
+>  	return NULL;
+>  }
+>  
+> +static int mpam_resctrl_setup_ctrl_domain(unsigned int cpu,
+> +					  struct rdt_resource *r,
+> +					  struct mpam_component *comp,
+> +					  struct mpam_resctrl_dom *dom)
+> +{
+> +	struct rdt_ctrl_domain *ctrl_d = &dom->resctrl_ctrl_dom;
+> +	int err;
+> +
+> +	dom->ctrl_comp = comp;
+> +
+> +	mpam_resctrl_domain_hdr_init(cpu, comp, r->rid, &ctrl_d->hdr);
+> +	ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+> +	err = resctrl_online_ctrl_domain(r, ctrl_d);
+> +	if (err)
+> +		return err;
+> +
+> +	mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_resctrl_setup_mon_domain(unsigned int cpu,
+> +					 struct rdt_resource *r,
+> +					 struct mpam_resctrl_dom *dom)
+> +{
+> +	struct rdt_l3_mon_domain *mon_d = &dom->resctrl_mon_dom;
+> +	struct mpam_component *any_mon_comp = NULL;
+> +	enum resctrl_event_id eventid;
+> +	struct mpam_resctrl_mon *mon;
+> +	int err;
+> +
+> +	/*
+> +	 * Even if the monitor domain is backed by a different
+> +	 * component, the L3 component IDs need to be used... only
+> +	 * there may be no ctrl_comp for the L3.
+> +	 * Search each event's class list for a component with
+> +	 * overlapping CPUs and set up the dom->mon_comp array.
+> +	 */
+> +
+> +	for_each_mpam_resctrl_mon(mon, eventid) {
+> +		struct mpam_component *mon_comp;
+> +
+> +		if (!mon->class)
+> +			continue;       // dummy resource
+> +
+> +		mon_comp = find_component(mon->class, cpu);
+> +		dom->mon_comp[eventid] = mon_comp;
+> +		if (mon_comp)
+> +			any_mon_comp = mon_comp;
+> +	}
+> +	if (WARN_ON_ONCE(!any_mon_comp))
+> +		return -EFAULT;
+> +
+> +	mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
+> +	mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+> +	err = resctrl_online_mon_domain(r, &mon_d->hdr);
+> +	if (err)
+> +		return err;
+> +
+> +	mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+> +
+> +	return 0;
+> +}
+> +
+>  static void mpam_resctrl_alloc_domain(unsigned int cpu,
+>  				      struct mpam_resctrl_res *res)
+>  {
+>  	int err;
+>  	struct mpam_resctrl_dom *dom;
+> -	struct rdt_l3_mon_domain *mon_d;
+> -	struct rdt_ctrl_domain *ctrl_d;
+>  	struct mpam_class *class = res->class;
+>  	struct mpam_component *comp;
+>  	struct rdt_resource *r = &res->resctrl_res;
+> @@ -1663,55 +1725,17 @@ static void mpam_resctrl_alloc_domain(unsigned int cpu,
+>  		return;
+>  
+>  	if (r->alloc_capable) {
+> -		dom->ctrl_comp = comp;
+> -
+> -		ctrl_d = &dom->resctrl_ctrl_dom;
+> -		mpam_resctrl_domain_hdr_init(cpu, comp, r->rid, &ctrl_d->hdr);
+> -		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+> -		err = resctrl_online_ctrl_domain(r, ctrl_d);
+> +		err = mpam_resctrl_setup_ctrl_domain(cpu, r, comp, dom);
+>  		if (err)
+>  			goto free_domain;
+> -
+> -		mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+>  	} else {
+>  		pr_debug("Skipped control domain online - no controls\n");
+>  	}
+>  
+>  	if (r->mon_capable) {
+> -		struct mpam_component *any_mon_comp = NULL;
+> -		struct mpam_resctrl_mon *mon;
+> -		enum resctrl_event_id eventid;
+> -
+> -		/*
+> -		 * Even if the monitor domain is backed by a different
+> -		 * component, the L3 component IDs need to be used... only
+> -		 * there may be no ctrl_comp for the L3.
+> -		 * Search each event's class list for a component with
+> -		 * overlapping CPUs and set up the dom->mon_comp array.
+> -		 */
+> -
+> -		for_each_mpam_resctrl_mon(mon, eventid) {
+> -			struct mpam_component *mon_comp;
+> -
+> -			if (!mon->class)
+> -				continue;       // dummy resource
+> -
+> -			mon_comp = find_component(mon->class, cpu);
+> -			dom->mon_comp[eventid] = mon_comp;
+> -			if (mon_comp)
+> -				any_mon_comp = mon_comp;
+> -		}
+> -		if (WARN_ON_ONCE(!any_mon_comp))
+> -			goto offline_ctrl_domain;
+> -
+> -		mon_d = &dom->resctrl_mon_dom;
+> -		mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, r->rid, &mon_d->hdr);
+> -		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+> -		err = resctrl_online_mon_domain(r, &mon_d->hdr);
+> +		err = mpam_resctrl_setup_mon_domain(cpu, r, dom);
+>  		if (err)
+>  			goto offline_ctrl_domain;
+> -
+> -		mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+>  	} else {
+>  		pr_debug("Skipped monitor domain online - no monitors\n");
+>  	}
+> @@ -1720,8 +1744,8 @@ static void mpam_resctrl_alloc_domain(unsigned int cpu,
+>  
+>  offline_ctrl_domain:
+>  	if (r->alloc_capable) {
+> -		mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
+> -		resctrl_offline_ctrl_domain(r, ctrl_d);
+> +		mpam_resctrl_offline_domain_hdr(cpu, &dom->resctrl_ctrl_dom.hdr);
+> +		resctrl_offline_ctrl_domain(r, &dom->resctrl_ctrl_dom);
+>  	}
+>  free_domain:
+>  	kfree(dom);
 
