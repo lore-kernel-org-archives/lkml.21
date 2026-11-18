@@ -1,124 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012077;
-	b=sDC3zsHOlcxtDJmQjd5o8aQMJz76Fi76f/bfjSeazhUAWDZOZw5dk1EcN3zQSM+07BBx
-	 Zof+eOYaoKJAISxUjiAFTSJUh+W3d93MvykubW+LHxRnUSdprhzlODCmuQkg4XjbREnw4
-	 3z8KHkI2HZ3jEuaw03SP6jUk2GAiqpPfqg/8xNfemJe6UqbE7/viD7jsayiaD8yMrKxce
-	 p2Wba5atNMhc4NGR4BFb5GJEda7TFp5Olap3whEclm03Ta1N1nQJ/FHvo4EPV4NyevywB
-	 s7wuQwgsPchMihY8znovExK6CXSywvzqz8Hsnc7rUhm86pcOCz7oayyvjGEMFfh3IFQ==
+	t=1795012091;
+	b=4tEhF7WYSUXWLER/rAAAZpStaCRB4CvDTlgkKPaFHcAkXMx6u17ROsirLmPjjK+Ua/O7
+	 gt07d6AmQMwtzsbBJWaob7hQDLu9tqeOk+UP2yd0VZ8gk/Kys3GHzs5kUZhwFMhJ4NxBQ
+	 cSS+7c8cHR/6YZXGHFS0o3ANpb3qHENy2Ioo5JWziXWCzCPELzWxYPMZYlEE0gkIFR2cO
+	 dJ5CFi0/4Kh5qOdfOV7EC9XHVOIJBZqIMddWak9M2w5jb7OZnW2x9kXZ9AFNzU5Nrl2SN
+	 5AqL07wUTGRN1qx9NEbLN+DxSRewqSjO9hB0+6F7LqX6JgDSSLvJW+kd9wrG9Twp6cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012077;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
-	b=Y9ceElVxzU2paHEznrt27zpU3+COlGVkfSfuMUd2328vOy31T/9+zqwNTivCxvopmDSM
-	 Itj27Y4QD0gY/Z7KJJt4C7WbA+SbCeAH5eqKlK1oJMa+tAGWzn3AMpGMAX9C++Ao3Y6vo
-	 2XBg9oLsCcw0IJTjE/+zYVwrsswSmuFpTiqm01bg6CYeQICS3JGUSd3TrjXYVGdoAsjzr
-	 RdttahI+nxUW938U/6GG986cX/2N5rUsTkTFBdUWAN4B+OVRTqhA3ugDssqK2XLo7xNDi
-	 ax1iR7bhFUaD7bM/RGPXZf1brm8JUO7BxefqlXx7lnAs3kmYzykgmCX4x+lRPF81BQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012091;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=z0NfzSuMNJzMm6fJy91Mlbzb6nrsdQGraeKpktuDd20=;
+	b=t946TOM66vD4MreCuo/hqCHROVARmc6NxlzjQ00L6kGQApSFDU9gfM/PuV/DI3DAJf5k
+	 5q5jF5JcOibGjjnlIiZe2iCuDJEhBGPFmb/xdisLDnsJD8tOOSnE7qTa+l0A3K+5G31j8
+	 5CX1/tH9dnUiLtrOqDa3mRcBupWT/sbSGuyu2KmOUT7WQy7XqafLeQ87S1fzgaEZG5xlK
+	 vzVW6isPj9del52i2KSM7BrjhDuwEO5keulK4QzJv9x26jQA/A2BirQMmnD75MAl04RPJ
+	 h/zA5gkW31v++UXJQzAnLWNfMAO90OGa4Ia4AqivHKNESdQB5+Gzb+ACf4QM/fMvVrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QkYNVbFy;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ovW6qsQm;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=zvpMq2so;
+	arc=none smtp.remote-ip=162.62.57.137
+Received: from out162-62-57-137.mail.qq.com (out162-62-57-137.mail.qq.com [162.62.57.137])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4493960A2602
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:27:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4493960A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62E7E606A33D;
+	Wed, 18 Nov 2026 14:28:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62E7E606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QkYNVbFy;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ovW6qsQm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795012075;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
-	b=QkYNVbFysbtyTo4AxL9B0KwDuvSpfKKsbLodLqm+JE17yhpqM0Uc1uPV54vOxQ2dt2R8Mp
-	DR5gWNMiUB1X7iZeh1X3GFSnqhRQITCHNkf1td9SMRIMjElUawN3/Z15TV4NKlFp/cpIEF
-	H5TGVjuYC28MEq+4aildZ7y8A8b27uc=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-683-JZwUMDlQNeeDOU-D0YIrBg-1; Wed, 18 Nov 2026 09:27:54 -0500
-X-MC-Unique: JZwUMDlQNeeDOU-D0YIrBg-1
-X-Mimecast-MFC-AGG-ID: JZwUMDlQNeeDOU-D0YIrBg_1795012073
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4a3052225cbso1017239f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795012073; x=1795616873; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
-        b=ovW6qsQmxXVAihs5E/C0Up2koWSJwl97J3RlT0gDjxNl/3ewPaKcGrXV6X/pbbBTw2
-         xi9g//5llwdtKmaJLelowcrxl6y2x+sSq/SIaGXuPrGIx7XotPDQPhf3iy6TPJp63kL4
-         z3BSDoag6uBYVTcj7pKhffpS/T6Nx38DFBhbvGqc6b472iaOq7TrkQ4AqGzbrwYncE6F
-         24mDqAPo/P1px0V9gCwDqrbihj3uE9zsWEh4eM7S8K66PxOvWYx6UwR6BnOD5nLDovKG
-         ZgBLNUOY7akxZNQFRg8u9y4rWNLBdBE+JiRdlM+VlZqGrz+8T5aX1b4vTxhG8aQYZkGP
-         G7bQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795012073; x=1795616873;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
-        b=pgCt5TYBVF3GWPXtc1liPQ3jftOpGHorRZnDvaq0M+i8vmguEIx6hhEoGi2mV0ZQXG
-         68C8ECqvoBaJ2c6Cpvo4+2zkBaAIxPpoSN4U8HH2xIF7XVL5lI8CdEfeGNwAYJvWzy6w
-         Hxfwt4miijBs4bYLAtYqfkEhGluFR5bLSq6jm6JYRBcn0gh1y/dfplf5n9roXH3hXzKz
-         d5HfJgoujC8urw2LoyPcDQdAbvSYR716Eb2D1fKYh+dTQABZxwkWq6Bz1dXFFcqtXFpU
-         pI87Z5r35ovFHBThzP8WMrwFBt7IIrbRoFfdnkePBQGPf5KhRinv6UJqY2j/wP/XVCIM
-         0xHw==
-X-Forwarded-Encrypted: i=1; AL+hErE+S4b4S/MU+SO8MmrtqIU53txTm4SeCvPko6SvblB+LJ92BSAPxiCR2giPLTgqDvlj391tuDIavX8462c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Oa/1tkspUW3BuvpujFZkNbqHQEf0vsLnyXCWZqzYgPReGfBfS
-	B6qWuEqHQsWGVsfEjfNXIe8aGGGOQPKime0oo8vVBobblOepJBCXXTwz4mjnxI+NC9814XkWBLR
-	xP3Hd0zx2dAQ1wbKBOiaymom3w74j3VZSv3zk+Glqsw4axve7joct/1BP7+xawqXryQ==
-X-Gm-Gg: AZFdTZfbF6dWt79DkYTGPA8/2WjpYGKx9wrLYvV85dKoNvsfdlL7Saclbtg7xDboRZ0
-	GPlJgfKPxpyrFR2XymVwkf7JvMNPeSH4UAEi54jbnjCZUqSp+Pdt3o8s9z0ROG4CjADXMiTLXEc
-	UzX5CyHUKBV2sxGTriMGahNX6FtTvh8uXs5EX/uyEZgXdTeGGDxG7IvI6keZ4bxv7Ey0hX+Vbpn
-	vjsEzm/xpi1FGMVVunkndVZDcwueAJsTGbSaBts0yMVcZu/GBaEIYzaiPk++hCktoj5zH1WGFtH
-	IioCBRdcJGc3GgxcKX9BFE8qagTc37uj+wCAUlS8r4O1BnrHOt/iYULKDw9GlQzwC5RS/qOJWa2
-	cS6TRNukqcxA1vjklTJYijpPDCHyAzsBgzC94M7etxkrcDcj3Tzp5HTfX1JSqryjJxlcE6dh26/
-	+a4HU=
-X-Received: by 2002:a5d:5888:0:b0:48d:ff71:dd87 with SMTP id ffacd0b85a97d-4a639475750mr5574858f8f.17.1795012072827;
-        Wed, 18 Nov 2026 06:27:52 -0800 (PST)
-X-Received: by 2002:a5d:5888:0:b0:48d:ff71:dd87 with SMTP id ffacd0b85a97d-4a639475750mr5574789f8f.17.1795012072412;
-        Wed, 18 Nov 2026 06:27:52 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656933961sm5275395f8f.46.2026.11.18.06.27.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:27:51 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:27:49 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
-	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
-	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
-	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
-	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org, longman@redhat.com,
-	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
-	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, parri.andrea@gmail.com,
-	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v7 09/40] rtmutex: Continue the chain walk when a
- waiter's deadline donor changes
-Message-ID: <av215SnBF5GShg0J@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <c8b228501d8981454f63843b394019fefd4002f3.1794922146.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=zvpMq2so
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795012075; bh=z0NfzSuMNJzMm6fJy91Mlbzb6nrsdQGraeKpktuDd20=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=zvpMq2solct51FVeXtCFHrRDV7Jo6JVx/XLacR4DiPbYPev79Vs6p4lslTa50Uc4Y
+	 QrQIWYtYxV6iEnZ6f7jK6aMnrSJF0Rofh+FjxfQFjjjXbrPm0VhT49N9cuFecwp/Em
+	 mLq+onLKLBGp7ke+T99aejk+T6SMcoeBx0UOi5dc=
+Received: from [172.18.4.77] ([202.113.185.209])
+	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
+	id 6F50AE93; Wed, 18 Nov 2026 22:27:53 +0800
+X-QQ-mid: xmsmtpt1795012073txy70oh01
+Message-ID: <tencent_C7873BAA3F35E59B7F44D209D13426EADE05@qq.com>
+X-QQ-XMAILINFO: M1rD3f8svNznSnpmPMr/e898YafaFf89GlSLFFqeBJIEIPjY0LJM8VdvZy0P8+
+	 9pyMgPSb4tXGdUjUbraqUWU9Ocqm5kEXGbWvQB3Yythtm4GBEXMEypMS4QqHtcaCJWlewcR6s1/H
+	 i114qSgPdk4pm/+chnauC3EzNlYBgoybU1gJHsVCJX5voq5yRcvVYbnAxuS70sTPfI1m7aigKJSz
+	 sTOF5bPYlF9b/0YEnX94Zl0Sh2D3eDhEyGTBUyTHI1lT5l8ycXBa2Nb7hlMIWYRZWp/jfCxUhl+e
+	 teev0Yquptgvx2t+iy2AJleuWnhsLkaTFTHI0yt8QTYqVZtq5Y2l4AiQOaHCaTTNya7t9FNikbPC
+	 iqSmRsxiEKQiW/5X1eMfisAylVVulzy/sCoROqjyX5PUwZIcqB4+CkFqOfTkj6ECmRbuDZskcwXe
+	 BVuycL102oq+fcz6RbrPiOyrw8n1XnwBeCqq+M/uYXnG8FMGaWF1xUQC3SVhi6QK7zzV5am4LZms
+	 1Nwz+xzED4END7CjeHqHJmcb0fwgQQaI7OJLHCjey4nT8iynSVSVxf1vh7RUSytp1ZrgPY9iAJp3
+	 qr3vK6eBtto8EIlW5B53MjWND5ZOye8yuQt0um7cZtP4h+Wi4yzZT8fMet+ZF/qzqZfiQGVoYNmn
+	 xA+ZZcrAmeLIPw+tLcbrjPVQTVvSB1qgrbcvOpNSVw6Wkw4KkECxgla0SMLCgyvEbpVhLkzDnp6L
+	 D4Ix3gGFHKibQwYonHKkAkR0+cmnT10/XJeRs0Ovb3B93CJm2vlEb7u2PvgtOTrZfMM9E9/SG+0P
+	 M2qt1RsXc1NyrxBUFKZnyDEsqL1Nz//O2JcISbc6c4c4ALboN3OoFQDDs1YQJE81PFyCgDEludnm
+	 scMCTAY/z8+0BVIwGkFXp9d9bqVjg0aLo7JmymVbiSgrKLXhINpuTf3khh1KasrNEfoItVjEPAX9
+	 bmyOqQkvJKbYOKyf/8o0kCU95KWDsfjF0FCtIAar0wHJCe9C9wLdIC3n6fdQYs6px6H6DPyyre3c
+	 vlwx9c8U5Z1yJmvRpBaperT6snzPRqTXcwL7eIF9EvAyvFlTDJWOzENZuFnCqO9UgiGLDiK5kiiI
+	 eR/B+hN/7sX/a3gXM=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+From: Guikun Yang <yangguikun19@qq.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3] ufs: validate cluster accounting layout when reading
+ cylinder groups
+Date: Wed, 18 Nov 2026 17:00:00 +0800
+X-OQ-MSGID: <patch-ufs-contigsumsize-v3-20261118@qq.com>
+In-Reply-To: <20261118-besungen-fingiert-festnageln-9233af206caa@brauner>
+References: <patch-ufs-contigsumsize-20261118@qq.com>
+ <20261118-besungen-fingiert-festnageln-9233af206caa@brauner>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,50 +80,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c8b228501d8981454f63843b394019fefd4002f3.1794922146.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-Hello,
+Thanks for the review, and for pointing out both bypasses.
 
-On 17/11/26 09:10, Mathieu Desnoyers wrote:
+You are right that a point-of-use check is insufficient: c_clusteroff
+is itself on-disk, bailing after ubh_setbit() desynchronizes the bitmap
+and the summary, and a negative back with c_nclusterblks < start writes
+at c_clustersumoff - 4.  This v3 drops the balloc.c guard entirely and
+validates the whole cluster layout in ufs_read_cylinder() where the
+fields are read, against s_cgsize (a trusted, mount-time-bounded value).
 
-...
+ groups
+ufs_clusteracct() derives bh[] indices from three on-disk fields:
 
-> Fix this by recording the donor in the waiter with the sort keys, in
-> waiter_update_prio(). rt_waiter_up_to_date() compares both. The walk and
-> rt_mutex_adjust_pi() use it. A new donor then takes the walk on to the
+	c_clustersumoff + (i << 2)     with i <= s_contigsumsize
+	c_clustersumoff + (back << 2)  with back possibly negative
+	c_clusteroff + (block >> 3)
 
-...
+and ubh_get_addr() expands the result to ubh->bh[index >> s_fshift].
+None of these fields is validated when read, so a crafted cylinder
+group header can index past the 8-entry bh[] array in the 136-byte
+ufs_cg_private_info:
 
->  kernel/locking/rtmutex.c        | 22 ++++++++++++++++++++--
->  kernel/locking/rtmutex_api.c    |  2 +-
->  kernel/locking/rtmutex_common.h |  3 +++
->  3 files changed, 24 insertions(+), 3 deletions(-)
+	UBSAN: array-index-out-of-bounds in fs/ufs/balloc.c:892
+	KASAN: slab-out-of-bounds Read of size 8
 
-Thanks for confirming the Sashiko finding and for the plan in your reply
-[1]. As you note there, a window remains however the walk is changed,
-because the donor pointer holds no reference on the donor. So I have to
-wonder (and ask for Peter, Thomas, etc opinion) if we'd rather not keep
-extending the chain walk for DEADLINE PI, which is known broken and
-proxy execution is going to replace anyway, and leave rtmutex.c alone.
+A fix at the point of use is insufficient: bounding the index by
+c_clusteroff merely plugs one hole, since c_clusteroff is itself
+on-disk, and returning from ufs_clusteracct() after ubh_setbit()
+leaves the bitmap and summary out of sync.  A negative back with
+c_nclusterblks < start also writes at c_clustersumoff - 4, which a
+one-sided bound misses.
 
-It looks like what we lack is memory safety, apart from accurate PI.
-It's an hack after another, but how about having the owner pin its donor
-instead: take a reference on the task behind dl.pi_se whenever it is set
-to another task's entity, and drop it when pi_se changes
-(rt_mutex_setprio() and __setscheduler_dl_pi() are the only writers).
-The donor then stays allocated at most for the owner's critical section;
-its parameters may be stale or cleared meanwhile, which
-replenish_dl_entity() already copes with after patch 8; and the owner
-may keep running on a stale donor, which is no worse than today's
-DEADLINE PI. Thoughts?
+Validate the layout where the fields are read in ufs_read_cylinder()
+instead: the summary array (including the negative-back slot), the
+cluster bitmap and the block count must all fit within s_cgsize, the
+summary must end before the bitmap, and the offsets must have a sane
+lower bound.  Reject the whole cylinder group on failure.  s_cgsize
+is a trusted superblock value already bounded at mount time, unlike
+any of the on-disk offsets being checked.
 
-Not against doing "the more right thing" of course. Just evaluating
-alternatives.
+Reported-by: Guikun Yang <yangguikun19@qq.com>
+Signed-off-by: Guikun Yang <yangguikun19@qq.com>
+---
+ fs/ufs/cylinder.c | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
-Thanks,
-Juri
-
-[1] https://lore.kernel.org/all/f535fbbd-2247-4d0d-9771-a67116fda1a2@efficios.com/
+diff --git a/fs/ufs/cylinder.c b/fs/ufs/cylinder.c
+index b930ee1cf..b6b3a7547 100644
+--- a/fs/ufs/cylinder.c
++++ b/fs/ufs/cylinder.c
+@@ -69,6 +69,44 @@ static bool ufs_read_cylinder(struct super_block *sb,
+ 	ucpi->c_clusteroff = fs32_to_cpu(sb, ucg->cg_u.cg_44.cg_clusteroff);
+ 	ucpi->c_nclusterblks = fs32_to_cpu(sb, ucg->cg_u.cg_44.cg_nclusterblks);
+ 
++	/*
++	 * cluster accounting derives indices from on-disk fields:
++	 *
++	 *   c_clustersumoff + (i << 2)   with i <= s_contigsumsize
++	 *   c_clustersumoff + (back << 2) with back possibly negative
++	 *   c_clusteroff + (block >> 3)
++	 *
++	 * and ubh_get_addr() turns the result into ubh->bh[index >>
++	 * s_fshift].  Bound every one of these against the CG block size
++	 * here, where the fields are read, so no later consumer can index
++	 * past ucpi->c_ubh.bh[].  Using a trusted bound (s_cgsize) rather
++	 * than another on-disk offset is essential.
++	 */
++	if ((sbi->s_flags & UFS_CG_MASK) == UFS_CG_44BSD) {
++		u64 cgsize = uspi->s_cgsize;
++		u64 cssz = uspi->s_contigsumsize > 0 ?
++			   (u64)uspi->s_contigsumsize : 0;
++		u64 sum_end = (u64)ucpi->c_clustersumoff +
++			      (cssz + 1) * sizeof(__fs32);
++
++		/* summary array (incl. the negative-back slot) and the
++		 * cluster bitmap must both fit inside the CG block, and
++		 * the summary must end before the bitmap starts */
++		u64 bitmap_end = (u64)ucpi->c_clusteroff +
++				 DIV_ROUND_UP(ucpi->c_nclusterblks, 8);
++
++		if (sum_end > cgsize || bitmap_end > cgsize ||
++		    sum_end > ucpi->c_clusteroff ||
++		    ucpi->c_clusteroff < 1 ||
++		    ucpi->c_clustersumoff < sizeof(__fs32) ||
++		    ucpi->c_nclusterblks > uspi->s_fpg) {
++			ufs_error(sb, __func__,
++				  "invalid cluster layout in cylinder group %u\n",
++				  cgno);
++			goto failed;
++		}
++	}
++
+ 	/* these on-disk values become array and bitmap indices */
+ 	if (ucpi->c_cgx != cgno ||
+ 	    ucpi->c_rotor >= uspi->s_fpg ||
+-- 
+2.53.0.windows.1
 
