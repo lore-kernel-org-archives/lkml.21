@@ -1,100 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.71
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795004624;
-	b=vYM/L+5aMbHxglIcfbM2wJIJSPIWEUgge8aHSyBQB8GMjXVvMc+Brg4L9PodYefx3/bJ
-	 MxC/XCYmSGQNmaGqG/K1EvyZzGCyxpJr2gfAfzrIpwfDEo9TeYxSn5lbfecvO+f+FR3qT
-	 tO0GELJe6qey0GSmAeDc+rJmL3bjUaf0S9/2Z4nWTEpjHiNVsCSNeEs/BS5GT7eo1yI39
-	 7W4E56SmKF9BvKuSUKTezf91ku5Ws3vq2TDJY83I5TXTisi3niz8SDK2QbkoffuJ1tJ2I
-	 5V2XxDCr4Bf4WOaWQJY56NqPX79gmTASBWeQG4GyiH4uE62ODM6icOUDInD7Xpaw6KQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795004624;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=wOn/pGEezpQoBd9mjToSeDVf7ZtMRTL7JcTDuGSTQWA=;
-	b=AhzPQKQ9JeYSAPWoKFduHTGc68tcha+yqPruYTT8IwbmCYDDbQQrSaqblmKqKXmkHVdk
-	 495HXVCozYwyNZv5XKjO6g06C9oTpn/h6CZCL1VCG9hxvVreVv5bpcJocP3jERQI/6pZ5
-	 asYHay9hKl8AElgPZMcxedvEmEaTWUTNDSKPcwzz4Vi9SJ3OYZNUhaX5BA3gSp1vK4yPS
-	 kxMcPhYqvnqLKJbp7CzbO1hj50KED2yFutqIxvWSkIFywxP0IqLSmnBKFRv6oK7qQzJh6
-	 y560+3YeHWNbkuOHSqRBSkA4uc7FJ1oAnwAMsX4fSImIerh8RYAEgNR4LwOjWkejvng==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=A+IbsQLr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.71
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011071.outbound.protection.outlook.com [40.107.130.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795004678;
+	b=AsbRP5TaKEUNKyekfpyAi+GYN1Mgo7fcjKSZasvV22Lxrv/jLadDu3iVManBf7ARDHhb
+	 G+RJbvUD1e7cYcO9es2iu2n5yTwZlxZlRM3j94lxWYUS4NUWkFjFOMfBgKD15taJ/vydM
+	 xvGKrlpEaUE86hNl0JIRn112gyGqwR23jAlK2HYVnPpP1ac7OJ9+W4yJ0QydjcwKAGeuv
+	 o6xun/DzPB6J7tvGbJ3Ft9DuRvfLSl3wRslnS1xTQ5k6s1LGkPF/kcTyvuaVXOLUr79yw
+	 wchXbkbNG/yUz5W61f+fD0OI7Hg8Dt2DjQoXniUNObuInjbbV61DUwtqLizn1GlNylQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795004678;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
+	bh=sxAPhPpblMYuGiIE5HmExOQjkl33NWQhdKGLsuMd3Yc=;
+	b=M9AlEXCrAUmCCe7gGW8jgLXVZCvfLsy9xbRd6iN6BMRNdgwUUWyi11BiC5iU2zSjcZob
+	 k5whf+N3ZT2RwNuFPA89RYjUiqlBooXQegwCkYOFmtL5wI/IHKpPqsysrGNLtV6wn0EoY
+	 xVqKmZTympRxKrhgUSeuVcPzMb5DirfGBRv9ba044HRbtsbc9nDnDlnVjHCnwzsxFiyEU
+	 q6h2LwZPLdTNXNmVvV+Q5P2CX8Kn5pMTyqKOr/CMIijF0Gp/FHrUNxk+RKRN+x35xOZe/
+	 oPnDso9RKyVVNILsvl7DKE9V3EglKyAVLUCujqPB6pwQMAARkqdcC12ERRswNn50mQA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=JquEAd8E;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88833606A31C;
-	Wed, 18 Nov 2026 12:23:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88833606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69145606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:24:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69145606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=A+IbsQLr
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bV4qge6wZO/HXpxyuKa10u63zisSSlrEV1zbRCB+78/LvHb6/zyZaA2kIUqvI+5iTmwjtE/q+6rbrSOMKrQumhd7jGUBdPuaQlPIU4ORioEwQT2SjX0yOgDAVa5IgKpavseV3RgwGbB4BlCkhBORHAt3CeXgNcTATz401sIfT+LHBMcfNnsAfHFVkTxDgBaYSHePRxKhB9AfbDlIo6Dx5DAeEWXKrCH8FtmcrKstYaNzQza22z4w70SmZCz1Q+NqwWMja4BeGdNJ3V5Z4q7YG7mWdUF4aEWEMOzBkzPaXGy/XL2b3ALhNhh8t/ytGkr+7gfKuKknqudFXYHU2nl/Sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wOn/pGEezpQoBd9mjToSeDVf7ZtMRTL7JcTDuGSTQWA=;
- b=ekTXkJ8vvAlwj71frP/cPro0F3kbkDNwPp/Sh8nrzHv42/v3w1IGX8+/3DKYD3FQD7yWTXp4M987hljtPQGQ5b7+P0jgT589AwIK59/z9wZ/YdgU55utDGAveFwwDweIA8wSokFO4CVj3kV5o0YaaxhbN6IqiHxvILmj+MxllwUmbKVs9DgsRYANnbbkIwzFqZlBt0r7M/kovczy74mFOHm31WcJwIk1CNzXtfegoSIACJPE3AFZ0ayU8joOBNdiaZNhw1L0y8RnW8mwSXftox6gECsV8df8E1fa1M6R5FjNo5bjqjMPTdmwt7N5gtkWc0ekJDLUspsBrE/jwWMMww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wOn/pGEezpQoBd9mjToSeDVf7ZtMRTL7JcTDuGSTQWA=;
- b=A+IbsQLrBILIXSHwbvWeutY6LknaPOQ2EU+jR7PFiZtImm9AzqLAcpUZpfNGxzIW2dA2Kz7xhJb8ZQ1VtAV7beifNQzSdHM3/REbaHC5q/tD+AyNl8C8IfujzpO7OpETAYM5BL7DxOY2KRE/2UNAV/8vK91bP77Vwc1kWKR0Zn2jGoXbNusoDIAoMfDfHIIFkm6l/8ofFPurSwe2ZpqjDE/cleZMR3IILdnTz+95qvurJuYCEWl1lVg5r//qXpD9cU9WAW7xSl0WasIk4x0NwX2NtFpTIX9zmpedEt6VoDHVtuQt9N2b9ikVAuFmABujh29Qr1pBIVmUW1dOgspzLw==
-Received: from AS4P192CA0051.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:658::10)
- by PA2PR10MB8603.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:426::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Wed, 18 Nov
- 2026 12:23:36 +0000
-Received: from CPH1EPF0000051F.eurprd04.prod.outlook.com
- (2603:10a6:20b:658:cafe::95) by AS4P192CA0051.outlook.office365.com
- (2603:10a6:20b:658::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
- 18 Nov 2026 12:23:34 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- CPH1EPF0000051F.mail.protection.outlook.com (10.167.241.234) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 12:23:34 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 18 Nov
- 2026 13:24:18 +0100
-Received: from [10.252.6.76] (10.252.6.76) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 18 Nov
- 2026 13:23:32 +0100
-Message-ID: <67ff81c6-fba3-4357-b297-079c2ea2ebc0@foss.st.com>
-Date: Wed, 18 Nov 2026 13:23:31 +0100
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=JquEAd8E
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso197122466b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:24:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795004676; x=1795609476; darn=vger.kernel.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=sxAPhPpblMYuGiIE5HmExOQjkl33NWQhdKGLsuMd3Yc=;
+        b=JquEAd8EBG5lbV7O+y+9MRlsQQWgGZrGx0013GzuMWlysAPW/IUeoP3yTatR1ugyZB
+         igfd8lXaEoNcOd0vsKEc5bvoCnekewP+m8xcba3oyZU/r9O/3Fa6PbMWFQGiyC7nde3w
+         kipr+48x+3c5BpyCXFfEuzxVlwSQ0QPCMqprqsk3Lma1MlHTykvtYWI5kYmXdgt2ZjZt
+         P/NaO+ZxOKaJdpuSzLfTRiuxAmYyOAUF5xLU6Fik09GGSEL0KMW6dh7jBDim1+NP7JFU
+         x35g3I5gX2b6VC3YgYSiFlEn99uvgdstQFbhKPvPK8Ii4UM4lf0qoqPqCNS+upACZ/EI
+         3JYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795004676; x=1795609476;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sxAPhPpblMYuGiIE5HmExOQjkl33NWQhdKGLsuMd3Yc=;
+        b=UiA+/eaaYEOTL6AGQV+yEMXXp2r/ffTM2zCyNB4X0z+ey7Gj+XO/crD5HzhZ4vxY9F
+         D+p8y0vLwC5bodRc2tBYi3m+vwRELnSCPdgSFevbRLPMQbpiKA3NU0vRHfGBySQI/8Br
+         CHiQHhhDUmJKltthWQAW2kaXF9NZ2Ag7DaRlvoh2Do7utJOi2RQ6pmQbnIGNADjyKERj
+         yyLEq9Ca3n/JSUDRg1YNM4bQGw3i0v9qqrJRd2YzOaIBHfhVBT0Lc+FSTyPNFxFP4bau
+         HH1jyCSL8JStjPXsQ9eYtZDtkTJDVAMZJK6QOdiVFwNsERuUtX3Z/UFOs3VDlaSwBwVE
+         oulA==
+X-Forwarded-Encrypted: i=1; AL+hErFWoeRdrn8nrKiopbCLAQHQdWqlyHc+TnH4GPcffEe26ELA5sjPBpYqEinVDhA3Sh6SoeZcoQO45fyhkNY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+gMo3iU8wqNhWwiCOQwmpFZu7YaaK0MyzY13IQrlxXI7yFNMOO
+	yaTUuqniTlvESvMNHA1B968kfyE+upx4j6FU8/Gqv4nGeZQVjNSHYDozNBv59TsbFn4=
+X-Gm-Gg: AYBFou2WvuJDj/GNmMiTKQDXABXYJd/wXL9lBr81PMQC2t6KxgC7OHhUmUjzSEyxHcV
+	543yOFD4tTsh7w+sm/75XsLx1Bv21Cj9HXn+hQhSrANXwVMpxxSdzssbPlKQ+zmYYLSVTPAWPah
+	5IvFFUIt2tYzi/1aXLfRLKuomLdctzw67iHOKQPvCkzaj9Hssrhi7owDITcZW2/WZ9XSHBMdczN
+	M4cB8jvYhMTNdMUfH3yiOql8VlAymkcUTisvocNdh+2/hhTG72uUSpSOXF1bqUO/xwiEswCqi3h
+	FsoZ2Oi0SYQzE5fKJ21hM0s9N9YLxQZ6sP2DwcUghP+f/mZdM+JLx7LgQL3YH7KfifHsHtcWYvm
+	OU76v3GCqYbkzbEQBNFMRxjPgrQ2NYOHaWOuwSAYCmRvOwJ6xAxi8U2be5vndr3kY/BGFej3LtV
+	w6WqQOYj3qNpolcMauXOOqHoZoHgZcS8Cod0P4kNDM4j6XeG/mq8BqPGIiI18d7v4D44ny0NIfB
+	CnfrACnJiV8/u+vw5w2ypbNjiqseULh/24UY6c5DoIUdAM1PMVhWdYRexWDbaF6SY/dEoPPVwwe
+	wF8o7MlyLO73UeKcQ8NlG6GsbFbPa/W5n4+ZRlsyocUA4heMSD1MBdvCjmqTMudRX9g+7oAm0X9
+	PUszMAeqdEC231pWV+ct5WqgKKGFxpXLcdGuNI/snnaGBTtZgsB0=
+X-Received: by 2002:a17:907:3d0e:b0:c46:7de7:e41d with SMTP id a640c23a62f3a-c50f36fbc1dmr497045766b.18.1795004675682;
+        Wed, 18 Nov 2026 04:24:35 -0800 (PST)
+Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510ca631d5sm88726366b.39.2026.11.18.04.24.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 04:24:35 -0800 (PST)
+Message-ID: <8a57f3f6-c649-4be0-8e14-2cc16dd41f8f@suse.com>
+Date: Wed, 18 Nov 2026 13:24:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,176 +92,171 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: arm: stm32: Add clock-controller
- sub-node to STM32MP2 SYSCFG
-To: Conor Dooley <conor@kernel.org>
-CC: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Christophe Roullier
-	<christophe.roullier@foss.st.com>, Dario Binacchi
-	<dario.binacchi@amarulasolutions.com>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261110-ups_mp25_clk_syscfg-v1-0-667829cd290a@foss.st.com>
- <20261110-ups_mp25_clk_syscfg-v1-2-667829cd290a@foss.st.com>
- <20261110-confidant-bundle-08385b99bd78@spud>
- <c4f08bb7-cea5-4f79-8a11-4045220f3b89@foss.st.com>
- <20261112-worsening-yahoo-323ef21dc921@spud>
+Subject: Re: [PATCH] xen/swiotlb: Check the segment boundary in
+ range_straddles_page_boundary()
+To: Ross Lagerwall <ross.lagerwall@citrix.com>, Lin Liu
+ <lin.liu01@citrix.com>, sstabellini@kernel.org
+Cc: oleksandr_tyshchenko@epam.com, andrew.cooper3@citrix.com,
+ xen-devel@lists.xenproject.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+ <75f37608-f3ef-48db-8e7b-4a1ba13a9ee0@citrix.com>
 Content-Language: en-US
-From: Gabriel FERNANDEZ <gabriel.fernandez@foss.st.com>
-In-Reply-To: <20261112-worsening-yahoo-323ef21dc921@spud>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CPH1EPF0000051F:EE_|PA2PR10MB8603:EE_
-X-MS-Office365-Filtering-Correlation-Id: a39c2c03-8806-4dfe-b353-08df456ec3bb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|36860700016|82310400026|4143699003|11063799006|56012099006|261102123227099003|261026140227099003|261026121527099003|10067099003|261028144727099003|261022105027099003|261021121427099003|261022075727099003|261102124527099003|261009223027099003|18002099003|22082099003|13003099007|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	UyX5g47/B4ZUEvMXQYORjct/949TyySHPWJ3hz7JHUsUpQ1Z66cBRfmt0/+BQNb6nA2JPQWjAJpUKDreCqcbigtqat6VEJ2sw/nKeDM2d2GuNDWIvlJd6hiast1/Xa7+CO23r7oA0lZRnUG0m7qZWRRC0gBsSRij7V+OnGynm6fnr2jACxmNXAzEdYutgyz2Mfiv8CXrqe+hW31O07Ol0X0OIZMf/KBWCxp90CA/oY8LtpjxRt/X+LJeGMr2gVA2ZBR3hWBuMz+mSEvDg73Sz56xFQH6icplHyt7c6vC+jWXQ2aMMasvcsxc/GNtS1Kxm/lAGxukTBZSzhd+tbIMam2qpuKT+08hH4qbwzxI880F3Y8+EcKvKos4YQGDRJOQY+NemtP7SEx8STtamyJMe7Mq9ixgzm/k+vJkb4PXrlpLb3l18DKKaiZo9yaohOFoUedQtSU47yPl8pCqUwE72ikoO1aJrpHe8VRXOpSBQQW9ESIsrghZV4pvnLAOdcihTmJQMBxE/fFlI903k3WegFWtlzUc5Xcd6lI8EOaHfgpXAoYKlUd+Kwt4rRAXir+9sU/vjAGdmzwx9kXQSnB0oWPXHTyc7FCAC9QSV9AAAs3euNXZ29mcggiGIA6R/8mb2DhH2H2BoHRp3L9M/wzhtSDY9KcUm6y9fMZZMY3J9dU=
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(36860700016)(82310400026)(4143699003)(11063799006)(56012099006)(261102123227099003)(261026140227099003)(261026121527099003)(10067099003)(261028144727099003)(261022105027099003)(261021121427099003)(261022075727099003)(261102124527099003)(261009223027099003)(18002099003)(22082099003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	MMXbBTi3FpxtQj+51xKZh3CgtpmXbQuKPpQsrjhnhvW5mjVrD2OqOD/L1gwyahGKfuQGXM2gNAkdi0kYT/CJMzuMS0DmrUEWDUQ1yePPItdNCd2gfrfjrxuSPQ6OJe9oOtb3HAU+8QC/qp4QaHUNiQ2GCbiEUepVtVQ9SBxjEx5q7oBRrDvxZodivjkmS3mrVK/GWaAZjIOhrMoaWYeP8nfuQM3RRIkU4QeIV88PxC3V++EhjAo1+KPvF8C8KWnWbSPWW7NPjgdDDu01oR8eoLINtt7qCszXznDImtuzhsWeDEIGlL0ekKUo6LObeTJDFjIfdwvfWWdAs/SG8fVQV1OTPU+kAdhnaD0H0XqoMR+/1i49Wir/8SsPfRXDav/Uz62/v8J6l0isPWxlIfWZpa1bze3n0sZOcQr+Qpms6EDCFlbMktxXMST9yemjv5wu
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 12:23:34.1595
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a39c2c03-8806-4dfe-b353-08df456ec3bb
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CPH1EPF0000051F.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR10MB8603
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <75f37608-f3ef-48db-8e7b-4a1ba13a9ee0@citrix.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------mFBiewhFkmSoI2gAAM0qpuu3"
 
-Hi Conor,
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------mFBiewhFkmSoI2gAAM0qpuu3
+Content-Type: multipart/mixed; boundary="------------ElzD91B9Cefb9wGUNnQcsAy1";
+ protected-headers="v1"; hp="clear"
+Message-ID: <8a57f3f6-c649-4be0-8e14-2cc16dd41f8f@suse.com>
+Date: Wed, 18 Nov 2026 13:24:34 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] xen/swiotlb: Check the segment boundary in
+ range_straddles_page_boundary()
+To: Ross Lagerwall <ross.lagerwall@citrix.com>, Lin Liu
+ <lin.liu01@citrix.com>, sstabellini@kernel.org
+Cc: oleksandr_tyshchenko@epam.com, andrew.cooper3@citrix.com,
+ xen-devel@lists.xenproject.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+ <75f37608-f3ef-48db-8e7b-4a1ba13a9ee0@citrix.com>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <75f37608-f3ef-48db-8e7b-4a1ba13a9ee0@citrix.com>
 
-On 11/12/26 19:38, Conor Dooley wrote:
-> On Thu, Nov 12, 2026 at 09:36:59AM +0100, Gabriel FERNANDEZ wrote:
->> Hi Conor,
->>
->> Thanks for review
->>
->> On 11/10/26 19:54, Conor Dooley wrote:
->>> On Tue, Nov 10, 2026 at 11:42:17AM +0100, Gabriel Fernandez wrote:
->>>> The LTDC pixel clock multiplexer of the STM32MP23x and STM32MP25x
->>>> SYSCFG is described by a clock-controller sub-node of the SYSCFG node.
->>>>
->>>> Add this sub-node to the SYSCFG binding. It is required on STM32MP23x
->>>> and STM32MP25x and not allowed on the other SoCs.
->>>>
->>>> Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
->>> Why does this need a child node at all, can't the clock controller
->>> properties go straight into this syscon node?
->>>
->>> Cheers,
->>> Conor.
->> I sent a v2 [1] shortly before your reply, which explains this in the
->> commit message, but the question still applies to it, so let me answer
->> here.
->>
->>  From a hardware point of view, the mux inputs could indeed be described
->> in the SYSCFG node. The problem is that this node is a "syscon": when
->> the syscon core creates the regmap of the node (syscon_node_to_regmap()
->> or syscon_regmap_lookup_by_*()), it takes the first clock of the node as
->> the clock of the registers, keeps it prepared and enables/disables it
->> around each register access.
->>
->> The SYSCFG has no clock gate in the RCC, so this first clock would be
->> the LTDC kernel clock, i.e. the first input of the mux. It would then be
->> enabled on every SYSCFG access by all the users of this syscon (PCIe,
->> ComboPHY, Ethernet, OMM...).
-> Why are any of these things getting probed before the clock controller?
-> I had it in my head that clock initialisation was done super early on,
-> before smp even begins, so the clock driver would probe and generate the
-> regmap before this can happen?
-Only the clock providers declared with CLK_OF_DECLARE() are initialised
-that early. Here the SYSCFG node isn't bound to a clock driver but to
-the STM32MP2 SYSCFG driver (drivers/soc/st), a platform driver which
-populates the USB2 PHY sub-nodes. The mux parents come from the RCC,
-which is also a platform driver, with SCMI parents.
+--------------ElzD91B9Cefb9wGUNnQcsAy1
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
-That said, your suggestion was the right direction, and Krzysztof asked
-for the same on v2. v3 [1] drops the child node and puts the clock
-properties in the SYSCFG node. The SYSCFG driver now creates the regmap
-itself and registers it with of_syscon_register_regmap() before
+T24gMTguMTEuMjYgMTI6MjUsIFJvc3MgTGFnZXJ3YWxsIHdyb3RlOg0KPiBPbiAxMS8xMy8y
+NiAxMjo0NyBQTSwgTGluIExpdSB3cm90ZToNCj4+IFRoZSBibG9jayBsYXllciBhcHBsaWVz
+IGEgZGV2aWNlJ3MgRE1BIHNlZ21lbnQgYm91bmRhcnkgdG8NCj4+IHBzZXVkby1waHlzaWNh
+bCBhZGRyZXNzZXMsIGJ1dCBpbiBhIFhlbiBQViBkb21haW4gdGhlIGJ1cyBhZGRyZXNzIGlz
+IHRoZQ0KPj4gbWFjaGluZSBhZGRyZXNzLsKgIEEgcmFuZ2UgdGhhdCBpcyBjb250aWd1b3Vz
+IGluIGJvdGggc3BhY2VzIGNhbiBzdGlsbA0KPj4gY3Jvc3MgdGhlIGJvdW5kYXJ5IGluIG1h
+Y2hpbmUgc3BhY2UgYW5kIHJlYWNoIHRoZSBkZXZpY2UuwqAgQUhDSSBkZWNsYXJlcw0KPj4g
+YSA0IEdpQiBib3VuZGFyeSwgYW5kIGNvbnRyb2xsZXJzIHRoYXQgZG8gbm90IGNhcnJ5IGFj
+cm9zcyBpdCAoZS5nLg0KPj4gTWFydmVsbCA4OFNFOTIzMCkgdGhlbiBETUEgdGhlIHRhaWwg
+b2YgdGhlIHRyYW5zZmVyIDQgR2lCIHRvbyBsb3cuDQo+Pg0KPj4gTWFrZSByYW5nZV9zdHJh
+ZGRsZXNfcGFnZV9ib3VuZGFyeSgpIGFsc28gcmVqZWN0IGEgY29udGlndW91cyByYW5nZSB0
+aGF0DQo+PiBjcm9zc2VzIHRoZSBkZXZpY2UncyBzZWdtZW50IGJvdW5kYXJ5IGluIGJ1cyBz
+cGFjZSwgc28gYWxsIGl0cyBjYWxsZXJzDQo+PiBjb3ZlciBpdC7CoCBTdHJlYW1pbmcgbWFw
+cGluZ3MgYXJlIGJvdW5jZWQ7IGNvaGVyZW50IGFsbG9jYXRpb25zIGFyZQ0KPj4gYWxyZWFk
+eSBuYXR1cmFsbHkgYWxpZ25lZCB2aWEgcmFuZ2VfcmVxdWlyZXNfYWxpZ25tZW50KCkuDQo+
+Pg0KPj4gU2lnbmVkLW9mZi1ieTogTGluIExpdSA8bGluLmxpdTAxQGNpdHJpeC5jb20+DQo+
+PiAtLS0NCj4+IMKgIGRyaXZlcnMveGVuL3N3aW90bGIteGVuLmMgfCAxNiArKysrKysrKysr
+Ky0tLS0tDQo+PiDCoCAxIGZpbGUgY2hhbmdlZCwgMTEgaW5zZXJ0aW9ucygrKSwgNSBkZWxl
+dGlvbnMoLSkNCj4+DQo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy94ZW4vc3dpb3RsYi14ZW4u
+YyBiL2RyaXZlcnMveGVuL3N3aW90bGIteGVuLmMNCj4+IGluZGV4IGUyNTM4ODI0ZS4uMTgx
+ZjhjZWYyIDEwMDY0NA0KPj4gLS0tIGEvZHJpdmVycy94ZW4vc3dpb3RsYi14ZW4uYw0KPj4g
+KysrIGIvZHJpdmVycy94ZW4vc3dpb3RsYi14ZW4uYw0KPj4gQEAgLTgyLDEwICs4MiwxMyBA
+QCBzdGF0aWMgaW5saW5lIGJvb2wgcmFuZ2VfcmVxdWlyZXNfYWxpZ25tZW50KHBoeXNfYWRk
+cl90IHAsIA0KPj4gc2l6ZV90IHNpemUpDQo+PiDCoMKgwqDCoMKgIHJldHVybiBJU19BTElH
+TkVEKHAsIGFsZ24pICYmICFJU19BTElHTkVEKGJ1c19hZGRyLCBhbGduKTsNCj4+IMKgIH0N
+Cj4+IC1zdGF0aWMgaW5saW5lIGludCByYW5nZV9zdHJhZGRsZXNfcGFnZV9ib3VuZGFyeShw
+aHlzX2FkZHJfdCBwLCBzaXplX3Qgc2l6ZSkNCj4+ICtzdGF0aWMgaW5saW5lIGludCByYW5n
+ZV9zdHJhZGRsZXNfcGFnZV9ib3VuZGFyeShzdHJ1Y3QgZGV2aWNlICpkZXYsDQo+PiArwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBwaHlzX2FkZHJf
+dCBwLCBzaXplX3Qgc2l6ZSkNCj4+IMKgIHsNCj4+IMKgwqDCoMKgwqAgdW5zaWduZWQgbG9u
+ZyBuZXh0X2JmbiwgeGVuX3BmbiA9IFhFTl9QRk5fRE9XTihwKTsNCj4+IMKgwqDCoMKgwqAg
+dW5zaWduZWQgaW50IGksIG5yX3BhZ2VzID0gWEVOX1BGTl9VUCh4ZW5fb2Zmc2V0X2luX3Bh
+Z2UocCkgKyBzaXplKTsNCj4+ICvCoMKgwqAgdW5zaWduZWQgbG9uZyBtYXNrOw0KPj4gK8Kg
+wqDCoCBkbWFfYWRkcl90IGRtYTsNCj4+IMKgwqDCoMKgwqAgbmV4dF9iZm4gPSBwZm5fdG9f
+YmZuKHhlbl9wZm4pOw0KPj4gQEAgLTkzLDcgKzk2LDEwIEBAIHN0YXRpYyBpbmxpbmUgaW50
+IHJhbmdlX3N0cmFkZGxlc19wYWdlX2JvdW5kYXJ5KHBoeXNfYWRkcl90IA0KPj4gcCwgc2l6
+ZV90IHNpemUpDQo+PiDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKHBmbl90b19iZm4oKyt4ZW5f
+cGZuKSAhPSArK25leHRfYmZuKQ0KPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0
+dXJuIDE7DQo+PiAtwqDCoMKgIHJldHVybiAwOw0KPj4gK8KgwqDCoCAvKiBDb250aWd1b3Vz
+LCBidXQgbWF5IGNyb3NzIHRoZSBzZWdtZW50IGJvdW5kYXJ5IGluIGJ1cyBzcGFjZSAqLw0K
+Pj4gK8KgwqDCoCBtYXNrID0gZG1hX2dldF9zZWdfYm91bmRhcnkoZGV2KTsNCj4+ICvCoMKg
+wqAgZG1hID0geGVuX3BoeXNfdG9fZG1hKGRldiwgcCk7DQo+PiArwqDCoMKgIHJldHVybiBz
+aXplIC0gMSA8PSBtYXNrICYmICgoZG1hIF4gKGRtYSArIHNpemUgLSAxKSkgJiB+bWFzayk7
+DQo+PiDCoCB9DQo+PiDCoCBzdGF0aWMgc3RydWN0IGlvX3RsYl9wb29sICp4ZW5fc3dpb3Rs
+Yl9maW5kX3Bvb2woc3RydWN0IGRldmljZSAqZGV2LA0KPj4gQEAgLTE1OCw3ICsxNjQsNyBA
+QCB4ZW5fc3dpb3RsYl9hbGxvY19jb2hlcmVudChzdHJ1Y3QgZGV2aWNlICpkZXYsIHNpemVf
+dCBzaXplLA0KPj4gwqDCoMKgwqDCoCAqZG1hX2hhbmRsZSA9IHhlbl9waHlzX3RvX2RtYShk
+ZXYsIHBoeXMpOw0KPj4gwqDCoMKgwqDCoCBpZiAoKmRtYV9oYW5kbGUgKyBzaXplIC0gMSA+
+IGRtYV9tYXNrIHx8DQo+PiAtwqDCoMKgwqDCoMKgwqAgcmFuZ2Vfc3RyYWRkbGVzX3BhZ2Vf
+Ym91bmRhcnkocGh5cywgc2l6ZSkgfHwNCj4+ICvCoMKgwqDCoMKgwqDCoCByYW5nZV9zdHJh
+ZGRsZXNfcGFnZV9ib3VuZGFyeShkZXYsIHBoeXMsIHNpemUpIHx8DQo+PiDCoMKgwqDCoMKg
+wqDCoMKgwqAgcmFuZ2VfcmVxdWlyZXNfYWxpZ25tZW50KHBoeXMsIHNpemUpKSB7DQo+PiDC
+oMKgwqDCoMKgwqDCoMKgwqAgaWYgKHhlbl9jcmVhdGVfY29udGlndW91c19yZWdpb24ocGh5
+cywgb3JkZXIsIGZsczY0KGRtYV9tYXNrKSwNCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgZG1hX2hhbmRsZSkgIT0gMCkNCj4gDQo+IElzIHRoZSBjaGFuZ2UgYWN0
+dWFsbHkgbmVlZGVkIGZvciBhbGxvY19jb2hlcmVudCAvIGZyZWVfY29oZXJlbnQ/DQo+IFRo
+ZSBhbGxvY2F0aW9uIGZyb20gX19nZXRfZnJlZV9wYWdlcygpIGlzIG5hdHVyYWxseSBhbGln
+bmVkIGFuZA0KPiByYW5nZV9yZXF1aXJlc19hbGlnbm1lbnQoKSByZXF1aXJlcyBpdCBoYXMg
+dGhlIHNhbWUgYWxpZ25tZW50IHNvIGl0IGlzDQo+IG5hdHVyYWxseSBhbGlnbmVkIGluIGJ1
+cyBzcGFjZS4gSSBkb24ndCB0aGluayB0aGF0IGl0IGNhbiBjcm9zcyBhDQo+IHNlZ21lbnQg
+Ym91bmRhcnkgdGhlbi4NCkhtbSwgYWdyZWVkLg0KDQoNCkp1ZXJnZW4NCg==
 
-populating its sub-nodes and creating the clock device, so the syscon
+--------------ElzD91B9Cefb9wGUNnQcsAy1--
 
-core doesn't attach the LTDC kernel clock to it.
+--------------mFBiewhFkmSoI2gAAM0qpuu3
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-Best regards,
-Gabriel
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmr9mQIFAwAAAAAACgkQsN6d1ii/Ey8B
+4Af9FK3RYkOO68kG4fOP5gKfIDvMD+bgZygGlFFECSs6KwOMCBfjMeA0VeVoQhF9TYgvPniNQ6S8
+UM3VIdMqY4H8F1SxEgX/m+uWWbi7G/YUSo+VXfbk+pN2mhVyChLivuAdSJjChgEU31d1j/69Mpjj
+Gc0EyKD+9ZpmehZV8hJT/RAlmMVGrO6QJEIOyAosWrHJNHFP//PFlYXYcQS+UI727plLx/M3tQx8
+jvLbuFidC0OCOALAFXTWdNEaUd4PHD32wfJJ1vv3i/SrpYBWUu9WZ3Kwy4YdhIvYGlduTUrZMnsq
+W2K9Zy6yjJPkQi2wEzTdSsLUCYUtY5omj7GrQgmMFA==
+=6/Cq
+-----END PGP SIGNATURE-----
 
->
->> Registering our own regmap with of_syscon_register_regmap() from the
->> SYSCFG driver doesn't solve it either: these users reach the SYSCFG
->> through vendor phandles (st,syscon, st,syscfg-amcr) or by compatible,
->> which are not tracked by fw_devlink, so one of them can create the
->> syscon regmap, with the clock, before the SYSCFG driver probes.
->>
->> Apart from adding a dummy clock in first position, which would describe
->> something which doesn't exist in the hardware, I didn't find a way to
->> keep these properties in the SYSCFG node. So the mux is described by a
->> sub-node with its own clock inputs, like the USB2 PHYs of the SYSCFG
->> which are already described as sub-nodes.
->>
->> In v2, the '#clock-cells' property of the SYSCFG node is deprecated, so
->> that the sub-node is the only provider of this clock. No driver ever
->> registered a clock on the SYSCFG node, so this doesn't change anything
->> for existing devicetrees.
->>
->> [1] https://lore.kernel.org/r/20261110-ups_mp25_clk_syscfg-v2-0-624559bb8ec7@foss.st.com
->>
->> Best regards,
->>
->> Gabriel
->>
->>
->>>> ---
->>>>    Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml | 6 ++++++
->>>>    1 file changed, 6 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
->>>> index a559f8b03b84..38c844e8f19d 100644
->>>> --- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
->>>> +++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
->>>> @@ -45,6 +45,10 @@ properties:
->>>>      "#size-cells":
->>>>        const: 1
->>>> +  clock-controller:
->>>> +    type: object
->>>> +    $ref: /schemas/clock/st,stm32mp25-syscfg-clk.yaml#
->>>> +
->>>>    patternProperties:
->>>>      "^phy@2[48]00$":
->>>>        type: object
->>>> @@ -80,6 +84,7 @@ allOf:
->>>>            - "#address-cells"
->>>>            - "#clock-cells"
->>>>            - "#size-cells"
->>>> +        - clock-controller
->>>>            - phy@2400
->>>>            - phy@2800
->>>>        else:
->>>> @@ -87,6 +92,7 @@ allOf:
->>>>            '#address-cells': false
->>>>            '#clock-cells': false
->>>>            '#size-cells': false
->>>> +        clock-controller: false
->>>>            phy@2400: false
->>>>            phy@2800: false
->>>>
->>>> -- 
->>>> 2.43.0
->>>>
+--------------mFBiewhFkmSoI2gAAM0qpuu3--
