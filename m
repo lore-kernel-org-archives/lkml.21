@@ -1,78 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.240
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794969937;
-	b=aLZR3KWO7TDuA+ff1ufGRtkAnOG3UZTPUfjtMleT9dF5pZi3rj//C+L89C2YteuAKRtZ
-	 E7Xd7y7uLf/n71uLJYg4UCYj7kwQyJKSeEJDhpMDTm+B/a/5vbSqB6nFHq3NYu3dN+vLI
-	 B++dSs3PonOgk7YKX2ij7rhGnlzgok6W3bhS037Dx2nkxKXqj5rmcmaTjcjxwLKQKIzkd
-	 rYu0BrdLFlao3qVGnlUW6K2YVVqCTBEfpftG4O3dL9o9JkeXf/JFPhrvu6Jd5u9Xcb3wj
-	 A3l7k/AADlgygUqCDbYSM3wYnDseo+M3x5mnavyujFGMyh7P8MnCn4pyi+AlbMyePNw==
+	t=1794970035;
+	b=4r8/ORa1wdnuHXhowwgmzE4uz46ECyqfxi3EpDkicMk27v/l6yVNeTuJFG99Ey+9Q82S
+	 CLzO5LE3TLrGvQH71vtRxJY3RnM+fuD/4Nx1xFtmzDHQl/xAQZ6uZrM5bQDQ1T/9wnbGE
+	 npvRyi2VGuh8+zqtCnnugRW51tZA4dU9J5d4rhuuYNhMax64DtW8iNudxWKkl1vr0bXwd
+	 A4OEmEY/46tVwSpVRb+f6A9aQV2mc+su2KQ0+A6J1o2pFHjHou7kFSIG01cy6nMWUrjNk
+	 EKoUBmKcaJZLm2f3ak6A3oBqC/AlpbBl6xxzEyVnJTbMJ5SH9wueIx6CaLvefe6WU/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794969937;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=aWUwZ4yOXRgwWXdv9mQMt4h2IPiJ7i2CqyiC71rxZrQ=;
-	b=qXVXFR7w180nftMMkb/p5pes1oixTMRxEUGEYMr1n7GVlnVuzPCUAgNf9JVbPnaoisEn
-	 SR5os0bZvYNJikWUrb5uX6sCP5BQ0rlynh53CL8NHeXEM8W0zFfWHl251V0R0lfz6MUAh
-	 ljojZiI+OGJo3HD+6AOEu7GAFpq3+Nc/8Ey2EqXIYGiAaaciU7UkxdRUqGHf5X/O0OUj7
-	 jfxN4JlaInGiNhNEYmS5Jla1DSXdPAl9YTgBVeVjQj8Ntz9F4SeYJK+ZqD5wh5O2Wyx0g
-	 TL99NoIIEvLAIHquOeuCQTpwBjQwVIyiWvqqP1W4D23cxhWursx9fnkfGkBNrbd3ZJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794970035;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent;
+	bh=UeoDPoEUiCk3ZfbvHj7TK+CmAIbTDwO73lZ5hpUkjlQ=;
+	b=lu6mQeiSa2Xam0lut+kUS7pHK+t4xHBcsOSDotFltF+q//5b0TlTjose3voq4Xd1najn
+	 PSw3uBzwZD/iXs0/PryAn5N+72bzcrGQ6L5oHPMZW9fPLE4PMbmJSgDFBYIMw4HbL6SKr
+	 zabd8vHHDTsIF6pC0g/EESfa6ULxga0z3JbhcEMLow+7NUriKHPNnrfQWF8ScB8qtp0Tn
+	 8fQ0jIP52eAEyfdOH0avYOsHQMBZATsY7L2Z8gICBex/y4TQ71uQ1OQm7qnHpdzSWSN+L
+	 D/yi/Jpx9TrW9TKSPz4cP469mCsNEKbiTEj1Rk43Fsxh6jU3PgSsyhqG4a30D7DuNUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=z0VBrlBM;
-	arc=none smtp.remote-ip=203.205.221.240
-Received: from out203-205-221-240.mail.qq.com (out203-205-221-240.mail.qq.com [203.205.221.240])
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XrYKxD5s;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A60606A32C;
-	Wed, 18 Nov 2026 02:45:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9A60606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2432E606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:47:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2432E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=z0VBrlBM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794969932; bh=aWUwZ4yOXRgwWXdv9mQMt4h2IPiJ7i2CqyiC71rxZrQ=;
-	h=From:To:Cc:Subject:Date;
-	b=z0VBrlBMafE7ALto0Ev5yQCq+FJXCnvTMM68deyryMtglChsnmIgVz1QsNL0a5Hcc
-	 mer4VE0JIrRtCVBFXXZG4PCs0z74fz+iiUOv5TmCOzHxL2xKPQIUr0H3UaOn9ImGlb
-	 U4EcKEvo+U1P5ZE+yZChcs02A30/C/T9W4hYI+as=
-Received: from DESKTOP-6LNKCJL.localdomain ([111.199.66.152])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id B5183EE3; Wed, 18 Nov 2026 10:45:17 +0800
-X-QQ-mid: xmsmtpt1794969917thdjdrz3a
-Message-ID: <tencent_FCBAE9157D42FFF00E681A2D5EA72CEEDF08@qq.com>
-X-QQ-XMAILINFO: OKkKo7I1HxIeqyjo+PW2szCQuXozTViUajm53Bq7Ru891VqoHDVA9qJCiyO/sF
-	 O1+YZvw4FBJoeqGKqN0aKu9q39w/5FCaZ3zHdzLEH5hqXN9H2scLaF+k0XmF2Ix+jBqLbfj37XpN
-	 O799si6nUvJjcZElalzNg2mAmHZczvqgtQVLR4NVheTEzXn9DHgtZFC322qBHfSyJlDuK4H7XRtD
-	 xVXHeMxsKq6Z9Gdml7a/RBeC/eJTqog0LCFIg/dnJeddeduoNbpRxQWvKlo6eJu0cN9IfUMo76cW
-	 uwMHqUs3Aki2JW94EQLQC93EpZJYwdGJCeWFOdU+vdj6GhTasgvAha8NJR68gGxnV8PqPeFkVGl6
-	 vaBOa20bNfRSDnTSa2xSskuI28Rpwcm/0bC8sxOqUQPXzgVBBkOExxeq/IvvY6IABupXayWA2Lq6
-	 Gi4IQSx7FLzbeh/ZMEj1408IixWDOvvrDiNtU8YGAyzRjjIWsq+denB6wjCgdRns2imSp7VACXri
-	 ffAhyb7VipEqrYieYfNeB56tfXkil2lmIDF2+zYxQF8sNtbLXrGo4WWQwxjImKpLep32iHU//e2f
-	 62HSxrE01/EnRwCqHIERzjoNnJpdmjU33grJJvwyJ6aJGMS0491pwJbIbxsp8Ocd+tijUZWQ3vBR
-	 25hOfiByEU0CHPaAscN6MA3TlB9Mo0yH6hFyxLt8INiMIDojsDlIGNXJF8LXfwMrTlsZJvK/jRJk
-	 C8ZcNcY8OFkqACpa/kAtVkCa7fysvNJyOgmUnWxxF+S0XhFVUeHMidb/sRHhLQpXgy+XrMa7iLsP
-	 ig6a+6ZZBnTa9BHkLhPt5Jh3PZUSuFG1njp+kuwaO8J7LXJ21BSodIVZqJWT6XJAgFaS3WUwf5Y2
-	 YJCXbh1g6a3yG+Uf9qc9R5h/wIs9lj1Ui2Z3ZyKGbScI8CYdf9G2ftbJfgZuYcbNyqTeRDeDkqeh
-	 Xd/1sz0JSjYn5PJV8VyUQu8HCcj3+Jk4/naDHHnjP9OO0Ru4ryjNPFhJewnTwHANtexRlTXkAFbo
-	 Yq2Q8gOG21Mn/ddleyWcavb4WjDBsuYYjWy/rosLpqEn4TijLgWjbrJlACpRk+gTGHCckdZraRp4
-	 JVVJp6uK518SIfsobLW5QrIkHbGA==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-From: Jingyi Sun <1045704958@qq.com>
-To: Hugh Dickins <hughd@google.com>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Luiz Capitulino <luizcap@redhat.com>
-Subject: [PATCH v2] mm: shmem: limit forced anonymous shmem huge orders to MAX_PAGECACHE_ORDER
-Date: Wed, 18 Nov 2026 10:45:17 +0800
-X-OQ-MSGID: <20261118024517.21812-1-1045704958@qq.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XrYKxD5s
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794970035; x=1826506035;
+  h=date:from:to:cc:subject:message-id;
+  bh=GdJOdEaOVAJpoIkP+7W2ptMRa40g/9AGeAGv5C+/WZU=;
+  b=XrYKxD5sRWA8GRTTeIYAa2oOzzjCtr+4a3E9lyQpk8ybGzaFbl/2p9cQ
+   x/JOq0uIGaDNe8g31Cihn7ql6Bbimnoced3QKAMyp6AA4w3+SriHoGO2D
+   81M+cjY3k7NvMz81uJvnCks/2W9XocXGnpm2oEJU4QGXOBlIY2kvL8fN8
+   KowFuO5kLVRtUq1nTjWJvMb4GFrp6a7xt6FFFFCg0kQHsRUFYZUwklgue
+   vDWvhlyytHcHe0CaHDdm/eE/lVwfMQJdaTO2dr4vdjUqxvS/UMHw4/SYG
+   IvvKfqQhV+qtwb5Zzdzx/2le8hQtLzKVqDG2C4IK1WLWd51EuezasCJ+x
+   w==;
+X-CSE-ConnectionGUID: nU0GDDRkTeKHmQr1sfnJnw==
+X-CSE-MsgGUID: /ObGazsiRcaUSE3A3h1H1g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3649262"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3649262"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 18:47:14 -0800
+X-CSE-ConnectionGUID: ydjY00hVTeCZ4oxMVwEFFw==
+X-CSE-MsgGUID: dDZyYY8zStqILFKjZuFwdA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10345922"
+Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
+  by fmviesa009.fm.intel.com with ESMTP; 17 Nov 2026 18:47:12 -0800
+Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTVhU-000000003Iy-0r5u;
+	Wed, 18 Nov 2026 02:47:08 +0000
+Date: Wed, 18 Nov 2026 03:46:23 +0100
+From: kernel test robot <lkp@intel.com>
+To: Peter Wang <peter.wang@mediatek.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Bart Van Assche <bvanassche@acm.org>
+Subject: drivers/ufs/host/ufs-mediatek.c:1351:32-33: WARNING: Use
+ ARRAY_SIZE
+Message-ID: <20261118034428.45oknqbt-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,77 +81,57 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-When the top-level shmem_enabled knob is set to "force",
-shmem_allowable_huge_orders() returns huge_shmem_orders_inherit for
-anonymous shmem without masking it with THP_ORDERS_ALL_FILE_DEFAULT,
-unlike the other return path at the end of the same function.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   63fdb511c27afcebce797e3db580b3534ddfa639
+commit: 1fd05367d5b1a5edd3d14c966a5f510e5b8a0c5e scsi: ufs: host: mediatek: Adjust sync length for FASTAUTO mode
+date:   1 year, 1 month ago
+config: arm64-randconfig-r2107-20261115 (https://download.01.org/0day-ci/archive/20261118/20261118034428.45oknqbt-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project c0693becb96c1610aeb87445a50df00d58a823cd)
 
-huge_shmem_orders_inherit defaults to BIT(HPAGE_PMD_ORDER). On arm64
-with 64K base pages HPAGE_PMD_ORDER is 13, while MAX_PAGECACHE_ORDER
-is 11 because of the xarray split limit. With shmem_enabled=force, an
-anonymous MAP_SHARED mapping can therefore get a 512M (order-13) folio
-in the page cache. Splitting it later, e.g. on swap-out from
-shmem_writeout(), triggers
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: 1fd05367d5b1 ("scsi: ufs: host: mediatek: Adjust sync length for FASTAUTO mode")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261118034428.45oknqbt-lkp@intel.com/
 
-  WARNING: lib/xarray.c:1051 at xas_split_alloc
+cocci warnings: (new ones prefixed by >>)
+>> drivers/ufs/host/ufs-mediatek.c:1351:32-33: WARNING: Use ARRAY_SIZE
 
-and the split fails, so the folio can never be swapped out.
+vim +1351 drivers/ufs/host/ufs-mediatek.c
 
-This is the same problem that commit 9fd154ba926b ("mm/shmem: disable
-PMD-sized page cache if needed") and commit b66b1b71d7ff ("mm: shmem:
-avoid allocating huge pages larger than MAX_PAGECACHE_ORDER for shmem")
-fixed for the other paths; the force branch was left out. Mask it with
-THP_ORDERS_ALL_FILE_DEFAULT as well.
+  1334	
+  1335	static void ufs_mtk_adjust_sync_length(struct ufs_hba *hba)
+  1336	{
+  1337		int i;
+  1338		u32 value;
+  1339		u32 cnt, att, min;
+  1340		struct attr_min {
+  1341			u32 attr;
+  1342			u32 min_value;
+  1343		} pa_min_sync_length[] = {
+  1344			{PA_TXHSG1SYNCLENGTH, 0x48},
+  1345			{PA_TXHSG2SYNCLENGTH, 0x48},
+  1346			{PA_TXHSG3SYNCLENGTH, 0x48},
+  1347			{PA_TXHSG4SYNCLENGTH, 0x48},
+  1348			{PA_TXHSG5SYNCLENGTH, 0x48}
+  1349		};
+  1350	
+> 1351		cnt = sizeof(pa_min_sync_length) / sizeof(struct attr_min);
+  1352		for (i = 0; i < cnt; i++) {
+  1353			att = pa_min_sync_length[i].attr;
+  1354			min = pa_min_sync_length[i].min_value;
+  1355			ufshcd_dme_get(hba, UIC_ARG_MIB(att), &value);
+  1356			if (value < min)
+  1357				ufshcd_dme_set(hba, UIC_ARG_MIB(att), min);
+  1358	
+  1359			ufshcd_dme_peer_get(hba, UIC_ARG_MIB(att), &value);
+  1360			if (value < min)
+  1361				ufshcd_dme_peer_set(hba, UIC_ARG_MIB(att), min);
+  1362		}
+  1363	}
+  1364	
 
-Reproduced on v7.3-rc2 in QEMU (arm64, 64K pages, -cpu cortex-a72,
-4G RAM, zram swap): with shmem_enabled=force, a PMD-aligned
-MAP_SHARED|MAP_ANONYMOUS mapping of one PMD size got a single
-PMD-mapped folio (ShmemPmdMapped: 524288 kB) and MADV_PAGEOUT
-triggered the warning above in 3/3 runs. With this change: 0/3.
-shmem_enabled=always and 4K pages did not show the warning. The code is
-unchanged in v7.4-rc3 and in mm-unstable, but the test has not been
-re-run on those trees.
-
-The issue was found with a research static analyzer for
-cross-architecture dependency bugs and confirmed with the QEMU
-reproducer described above.
-
-Fixes: e7a2ab7b3bb5 ("mm: shmem: add mTHP support for anonymous shmem")
-Cc: stable@vger.kernel.org
-Cc: Luiz Capitulino <luizcap@redhat.com>
-Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-Signed-off-by: Jingyi Sun <1045704958@qq.com>
----
-Changes in v2:
-- Dropped the Assisted-by tag (Baolin).
-- Collected Reviewed-by from Baolin.
-- Dropped the note about the overlap with Luiz's mTHP series; Luiz
-  confirmed his series will land after this patch.
-
-v1: https://lore.kernel.org/all/20261117121626.1058-1-1045704958@qq.com/
-
- mm/shmem.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/mm/shmem.c b/mm/shmem.c
-index 10cef89b00b0..41bb3f2c6b63 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -2114,7 +2114,8 @@ unsigned long shmem_allowable_huge_orders(struct inode *inode,
- 	 * means non-PMD sized THP can not override 'huge' mount option now.
- 	 */
- 	if (shmem_huge == SHMEM_HUGE_FORCE)
--		return READ_ONCE(huge_shmem_orders_inherit);
-+		return THP_ORDERS_ALL_FILE_DEFAULT &
-+		       READ_ONCE(huge_shmem_orders_inherit);
- 
- 	/* Allow mTHP that will be fully within i_size. */
- 	mask |= shmem_get_orders_within_size(inode, within_size_orders, index, 0);
-
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
