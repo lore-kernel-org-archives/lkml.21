@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.241
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005659;
-	b=vMGj22EMu9Z20PnB0Hfl8pO3a4w7tsquQuTdMiHPLh2wVtZ63uxozJDNL9Wm8IWE/0e8
-	 G3Q3AXwtcdbedHks3/qgAil6zE7Nl4FKjJerju76/ATxqqaTiCzeX2ZEb+g87ZuEHIj/C
-	 nGTfrx0OHkXuyA/3ombVMFHBhY2HazQbWudr2abWdZXcYIcx7A/Jyd+9peaWjnXpqphVP
-	 cPZbnvtQAXk64uan81R3IPye7jBfTwu9OWJ/i7XR76NFuApzf2J/Rv9YiZ5pTo1KpNKfl
-	 zKWMKSjOB40KeBCZ7GbG5wormhf8ACtSYx34Azk3/TLfIf/FRRqj4kzQOgcuBJWJcDw==
+	t=1795005654;
+	b=ZcP1iDZn3TWB+HhjuPikd/dl4zqWftFTlNC8RYZWdOOByRfTELaaZERVgBQ2lqjkH9vU
+	 R/hi4s04MVPxwxONzjA96nKmQq1gP++c9WdP7NmO+xxkGQktUZmPP3r4etTp+trZ+1Il4
+	 ehKcgaX0R/7CLkVM4FdBzwwlhStcID+O0WrIZprWs3azT5kq7n1sRij+CJ5hkanEdWkmt
+	 1NBiQ5PzJefGRa8QQ47a1wlE/VEkEbQyEnz/NLC8aRw1yDtACsDRGGi0EE50QZF2VJUvd
+	 8ra5P+FjjVfp3Me+NerACKLa/nVNQIT/x7IPkKrFnjgFqpCFgrU0oeKEgi+HV0N8sZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005659;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=VZ51au4RonPigHEfbkNsWVqDM0KTWvC8Bkvcgfsi/r0=;
-	b=clsD18tApKSbxnlXCnjeYRQhHhN0v8HyADgiFSsZA/dWQoHKLK+yZs595GvOOjrvUZDr
-	 V4dsc3afkWRbu162h0demvlGoOQNDwMNjVziW1qTQg1PKWR6MnaTWL6SqqbpDwA0G9i78
-	 xAHYFSOsSNc0P2j+2DP3swM3Q2eEpMLK5cDHSkIKkmtRPnZJro+ROEG5s4JcLpAzNeXSu
-	 b18TJFq0+NZPwkzTkMRjUiXMmGDYlJUFHgeUj/UTgdfyS1A2O3+N+ERt/0uuvi41cshWA
-	 PUrsiKkBg+9yOs+jCiO7W2rtH24Ph8XimrpYYc1kLN90e69RjWvalfuzfqpgh/AO3YA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005654;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=+DLN0JMXOURk9LMg8DghKgivG2ddXrTqZRTmBWRD2Jw=;
+	b=3+M7VoyuthM52zCTQEXzFkPkqawtF3mEIYqQdjcPa6QNvqrwFs+F3aQ3s9ErPqfspYJ6
+	 o9MKX30YwOQDybCvosQOd14I43dQJZiW/EEEcii2hmw60uo41WbTHSRLEj7U8mdOQn1Vi
+	 imuFYNRbg5R5su0S8N8271g/3QGvWqajK2JckVT+WPqBhbAN5DV5hEbkTth/zTj66nJyr
+	 /fob5T5Rx02Pjvjh7PE+eywbEKbFL19C4TsIdCF86KSBpJGRhJsccpiBY6QL7TlmO/DYQ
+	 +5VX4Rjm7bcS/wWE/86deEDBT8b5IFhPdqHQZBYW5gnyyCMd5r9I2bah/On3qKZ4/lA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ex/cmMe5";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uI+UrJyX;
+	arc=none smtp.remote-ip=95.215.58.241
+Received: from mta1.migadu.com (out-241.mta1.migadu.com [95.215.58.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 056DA606A320;
-	Wed, 18 Nov 2026 12:40:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 710B7606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:40:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 710B7606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ex/cmMe5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 814C31F000C9;
-	Wed, 18 Nov 2026 12:40:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005658;
-	bh=VZ51au4RonPigHEfbkNsWVqDM0KTWvC8Bkvcgfsi/r0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ex/cmMe5bYC5eWxfcXVWKFzUvQ2k36gWLlFLC48Ih3lpzVF5Ayu9dEH49FU0xpudu
-	 Tn0tK2Z1zqowhfaQUWqEN9dc9ah01Y0LqldcJJl3hyq4v4MMrN1Crr+FTdN57Rx3Lj
-	 Ku5kaZ2V/QpI20q4HTqUMqKeWvLM+9HJWlCDlsD1nz3T6cKz8+nNYXhtRF8qS2XnmW
-	 w2SHyoo/J7v7i977B9NqcFIk/mA98C5Z/8nvlo5QnLEs6WJEfCA4nmshFIz2zEX2tf
-	 GXqbsXkS0aMEdM/gvSITQa2L1u9JqOQ1bQXhBqCYnsVD0V/mRXfAIr917xWR23pLPI
-	 5X863xrPlShsw==
-From: Christian Brauner <brauner@kernel.org>
-To: Jan Kara <jack@suse.cz>, Joseph Qi <joseph.qi@linux.alibaba.com>
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261112064009.2313455-1-joseph.qi@linux.alibaba.com>
-References: <20261112064009.2313455-1-joseph.qi@linux.alibaba.com>
-Subject: Re: [PATCH v2] ufs: free cylinder group structures on late mount
- failure
-Message-Id: <20261118-pfeifen-reift-heimfahren-8a2f3de7729c@brauner>
-Date: Wed, 18 Nov 2026 13:40:55 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uI+UrJyX
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=+DLN0JMXOURk9LMg8DghKgivG2ddXrTqZRTmBWRD2Jw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795005651; v=1; x=1795610451;
+ b=uI+UrJyXttLNS1sYG+bob3FLC3DmK3e754C0htpYNGq37gWu4SqvlQO9d/qdn3UyYaxFxSN3
+ +Ntit0vhyZ20cOpL5hR3w55I7xbr64OTekpHjX74L7/SSAwfQheCSz7NwFMvesxoH9J5gXGsZ4O
+ YbaGUlYWOY59oH8UwXL35cGE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 715f28141b795e02;
+	Wed, 18 Nov 2026 12:40:48 +0000
+X-Mizu-Trace-ID: 715f28141b795e02
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <8b1622a7-3494-4a0d-8913-c8cf4eae43fc@linux.dev>
+Date: Wed, 18 Nov 2026 20:40:41 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,39 +58,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
+User-Agent: Mozilla Thunderbird
+Subject: Re: [BUG] tcp: shift-out-of-bounds in inet_csk_rto_backoff() for an
+ orphaned zero-window probe
+To: Eric Dumazet <edumazet@kernel.org>, Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: Neal Cardwell <ncardwell@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>, "David S. Miller"
+ <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Cambda Zhu <cambda@linux.alibaba.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <179499954853.1440581.6627074959099619480@gmail.com>
+ <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+In-Reply-To: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Thu, 12 Nov 2026 14:40:09 +0800, Joseph Qi wrote:
-> ufs_fill_super() reads the cylinder group structures before it creates
-> the root dentry, and the two failures that remain after the read, a
-> failed ufs_iget() and a failed d_make_root(), jump to a label that only
-> frees the in-core superblock information.  generic_shutdown_super()
-> calls put_super only inside its if (sb->s_root) block, so with s_root
-> left NULL the s_csp allocation, the s_ncg buffer heads behind s_ucg[]
-> and the UFS_MAX_GROUP_LOADED s_ucpi[] entries are leaked, once per
-> mount attempt.  Neither failure needs an I/O error: ufs_iget() rejects
-> a root inode number outside the s_ncg * s_ipg range the image claims,
-> and s_ipg is not validated.
-> 
-> [...]
 
-Applied to the vfs-7.5.misc branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.misc branch should appear in linux-next soon.
+On 11/18/26 8:12 PM, Eric Dumazet wrote:
+> Le mer. 18 nov. 2026 à 11:59, Kyuwon Cho <kyuwoncho18@gmail.com> a écrit :
+>> Hi Eric, Neal,
+>>
+>> While testing v7.4-rc3 with an LLM-guided test generator that we are
+>> developing as a research prototype, we found that an orphaned socket
+>> that keeps sending zero-window probes makes inet_csk_rto_backoff()
+>> shift by 64 or more. An unprivileged user can set this up in its own
+>> user and network namespace:
+> Thanks for the report and the reproducer.
+>
+> This is a known issue, a fix is under review:
+>
+> [PATCH net v2 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
+> https://lore.kernel.org/netdev/20261026123244.239766-2-jiayuan.chen@linux.dev/
+>
+> It limits the shift to 32 in inet_csk_rto_backoff() itself, so it
+> covers both callers: tcp_ld_RTO_revert(), which is where Jiayuan hit
+> the splat, and the orphan check in tcp_probe_timer() from your report.
+>
+>> We found no earlier report of this call site.
+> Searching lore for the function name would have found it:
+>
+> https://lore.kernel.org/netdev/?q=inet_csk_rto_backoff
+>
+> Please do this before sending a report, especially for findings
+> coming from automated tools.
+>
+> Note that the netns sysctls are not needed. tcp_retransmit_timer()
+> increments icsk_backoff without any limit, so TCP_USER_TIMEOUT and
+> TCP_RTO_MAX_MS on a socket with a silent peer are enough to get
+> icsk_backoff above 63, then an ICMP unreachable reaches the shift
+> from tcp_ld_RTO_revert().
+>
+>> On x86 the shift count is masked, so from 64 on alive can come out true
+>> again and the orphan keeps probing instead of being aborted.
+> Right, and this starts before 64: with icsk_rto == 200, the u64
+> is already zero when icsk_backoff reaches 61.
+>
+> Jiayuan, I have not seen a v3 addressing Neal's feedback.
+>
+> When you send it, could you please add:
+>
+> Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> Closes: https://lore.kernel.org/netdev/179499954853.1440581.6627074959099619480@gmail.com/
+>
+> and mention the zero window probe path in the changelog ?
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
+Sure I can do that.
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.misc
-
-[1/1] ufs: free cylinder group structures on late mount failure
-      https://git.kernel.org/vfs/vfs/c/0f97da93e617
-
+>
+> Kyuwon, it would be nice if you could test Jiayuan's patch with your
+> reproducer and send a Tested-by: tag in that thread.
+>
+> Thanks.
