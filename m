@@ -1,66 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968278;
-	b=0QV3ibNyPgYmeVDOA9MV5thjlxUdYtcRjxScT4OpaJiv95OM9P/MwRPppdNtDJoEeJGG
-	 04PbcOUfWb5yNAUZAjlWB+2kpd3o02pZmG5o1dCfnckrOAPmHDNBcQq3ymz6lzg0uhaI+
-	 yfCbvOp625a7ZmOCJmiaHT9fluLK9+XweyztHdgGGf4KEIRMkFX6rrWDr/rra1IFVosfd
-	 MBkTmEoOEQvboWpohFiAxknmETd1/ZKkshCKkNQ3QrOEfRd68HY3omzC+YMd0gwrYlxa4
-	 VUVs8/P/N7InOM+03cBCD8XJtJ2vkneydESHIH7PShS/1kaXB65r7+MbDxNnesq4i9w==
+	t=1794968270;
+	b=dZPocrc8kUJaJQDgkYQtikJnQ2CxzJ/+klp/0MGFjHt1L8uCYd4NT/Xj2qoTOtjYKLq2
+	 sZ8e1sRHmKDlKqfJRoKjjBxhJXPuP3DWlzcrs/4nw6EbrugTkg1OsNJHTt36FHLNx3Z8j
+	 c2uQ8Wf3PDCVHiQ5CPFqBapTGKL48de5XFPCnRzIqufhs9LbyvUr9DjvjGkxxVJ/Hnszh
+	 +URoLC75gHZ9/PUK5C2A9r2AFWAURlbFH8/XNOSWX/jBPp5PDj35KSMy6xz2jjHKRDK+x
+	 s1e4H2w8/YceQF5zOUeOLrRGCk8O/XI/IR/14QiysYrhx7p+M3i9RUnkuj0cyiBimdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968278;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=b6as2o+a/L5+mnNCeEf+dbLzkZciiy5XpXL9GQtNX0c=;
-	b=gS3NRDCbMJB9eZYG+899SRM5JSSnvqaTvMLb5SgBrfQO2vj1/e6KTQqbHQ0DTmaHD2YM
-	 sXv8Ldz8Pbai5wLq+ajc88e839w6F+8z1g3Hr10sdPvGFSh6DYy5YN5N42/RtutGjB8iY
-	 3W9SwYX4e+T+stJDbXYuhaGfEOCi/b3hTSt/72PX0fS8SzJX31ti/GKzO+paB9tyEAcc/
-	 QzZrlUVyGgcyFr73IwfBF5lvuvCNxw9SHWNhMUwp675QLOKj1xDpSVxMUzlGVeOENNAmF
-	 vaHkxJI1xiXXRULzEKmFOPZTsJwUfATq0By6IzjEgzQy2yvloFXQ4S+sFX0rXElHt9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968270;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=za7hVhqCXuZnylgObAS3b8lRUZxmuRElCIY9CGv7ZSI=;
+	b=JXCEComsByTE1u0fixlJCY5UGKkBvH+TB20mqb/GuRhbjGADeG3klY1QQNZo58niO9gl
+	 IngEnr97ql5GQgSo1sGHw87My9EeJNGG6yeo86VYcQSj2Tvfb3kL/8e80aFXHSXHQTcW1
+	 Lve57cuN5B4TS2Tyl8jNyZVNSgS/e3KeB+5nC5JyL48+s/Tq4T0BzIOx8L5rcZbXj/aim
+	 ebEnLw30Vbioi5UPEBCFGhRRj2C+fZdqVXa8/Eq8PHqlr06oJg8ipJHCk03+KcoZHlj5G
+	 s092WIrLaEVxQ9sb+Nx5FgbvELGA8uju6YIu+FJF09zRVUrIyJlmflyGwBw61izBQHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=OronLHZ1;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id D0B09606A883
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:17:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0B09606A883
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=UPbv3cR+;
+	arc=none smtp.remote-ip=74.125.82.45
+Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1757B606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:17:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1757B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=OronLHZ1
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=UPbv3cR+
+Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1a8cc11ac42so713251c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:17:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=OronLHZ1mpBoLQeEsZ1jlmQKH8MTGWP2+rWOP9FJQtGhIzvv1WW/oYcq6BwCzDJ4APzQUtq8iGRbJ
-	 E0Vhr8GF5uYzL9S0Rbo8Aj1tYctaqohP+Jb7UWLs53SQX9RMjJNJQBuXbfmAPQ5z3E3rvOUQI6GUh8
-	 l4yppVDRqqhnUCcA=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66afd0aced4a-daf1c;
-	Wed, 18 Nov 2026 10:17:51 +0800 (CST)
-X-RM-TRANSID:2ee66afd0aced4a-daf1c
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56afd0acc8ce-c5466;
-	Wed, 18 Nov 2026 10:17:50 +0800 (CST)
-X-RM-TRANSID:2ee56afd0acc8ce-c5466
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: syzbot+03fdf84c0915fd48f361@syzkaller.appspotmail.com
-Cc: Phillip Lougher <phillip@squashfs.org.uk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [syzbot] [squashfs?] general protection fault in lookup_one_qstr_excl
-Date: Wed, 18 Nov 2026 10:17:48 +0800
-Message-ID: <20261118021749.420-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <6af937c0.094600b6.347106.0007.GAE@google.com>
-References: <6af937c0.094600b6.347106.0007.GAE@google.com>
+        d=chromium.org; s=google; t=1794968269; x=1795573069; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=za7hVhqCXuZnylgObAS3b8lRUZxmuRElCIY9CGv7ZSI=;
+        b=UPbv3cR+Ya0LSc709IdS01uNUtZaJppByTyo/zCLDyTAPttY8OMT69q/oU0XZ7DyND
+         z0VldnxPQ3FW7vmuDgBCgaq4sD3185+dnx1bLLLT0RkeHWR+UuARHSGtInhv8ux5ueKh
+         ypA2xzMl5O9yUmLDHJboINTRIY8tcHfpDt4J0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794968269; x=1795573069;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=za7hVhqCXuZnylgObAS3b8lRUZxmuRElCIY9CGv7ZSI=;
+        b=QhIq0m1oCh2/n1hWo9vp1JPnPOYrXWQUTVZjytShclwT5OXIV9NZT9UdjoW0JBXUAi
+         D0eqNlcWcIrwjlIsMm3/kiYeRxdC2qXQkP2a1LGFybw7hcU5PCntZxxc/LamRdT6GVzZ
+         mSvBrrHwa/mFW03m9PwMHmk2x618Yuc6o8jiiaxk/GjlN6Htd/Xf5FcJA9gc8yC0Jlpr
+         kwyRMISXt2HZJKOk5pzZkVS9DP4WY+UVF/TG2zJb1ODO4Y8+ecbQOj3ZWZPnm00z08cx
+         z/o1qU5oKyWnQ81LxTAFaZhLOr6yWf3ssVLgQ3bYFYRyB4sLRawy3pV6tKAhmA4Crn0V
+         ZY/Q==
+X-Forwarded-Encrypted: i=1; AL+hErGSpD0B2jaYH9XK5619mhghQ7WsKL3hUVfk2Tz69Il0n3OM1KXWgodLSa8s6ZNzMPO2hDOfsS61aCdE4ss=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8UUlQHl9qIrpJaQLYO62XIRMpi716wnY3IvJPZv7G6SQhzLzLV
+	kql98/rB4yXgJnACtL6LG4lBUKtSpSLt65bztqy1z1jx8gnTFbzEgjIqvMqiOVlpZA==
+X-Gm-Gg: AYBFou0jMC/DzuZoSfeZa86zRNW6yjpYbAVBX/0wgvjURbkMA4NUfVWNR6C3Jt5zL1+
+	TUXUG336mTvZSvctN56OBmRJp1Sm4yiEgu/Z+1TkcnCD88L5nQdlJYQzB28FAfooSdu2T2vGgT5
+	9Zr9KH9pjKQ+VjtVx45K++R6lp+ws1DRCtI1ymoOuZneI6kIgwsheCBo0/vWXNMqf40TDb+Cw/T
+	mTGmLM3bzikwuNE2cwO4lQY3lEhLwHcjINb82RhxUOBX13stzBz3gWgeFhttFp7xuPH1Ro3NUid
+	jYeOmUZX46bFUgfh29OtFp+nxFqa8N0ZDfBJk41w42pwOrIv8/I/K9b3FIRmnpyqByH1/rljtej
+	UnNAWHhUnkN8JWq7L5HUPCNgoBl30Oe3SkFvKysVmHrN7LG3VSvnLLSsGVLg5NS6/w9VNeTOSmV
+	T+Oa4PnvHRGkwjalhIhUmNhYprA2+Yh2j6q9+7bTAML3rw/HVW5HWcwF8DXio4xxKtSy2YZYdiJ
+	4PnV3l7KZwUCcwLWge+QAUXifWMIZbCY/5uVOSYakwviLJ91LpEzC1Qq1GIf0NasHcua8zekBhU
+	Jn0L74UdptfTHF1Jcbc8SVDlETYQX5P+eR5FAKj7ltYS84w2XlxokEqfBnGfMUypB5GcsQ==
+X-Received: by 2002:a05:701b:2097:10b0:1b5:281e:1702 with SMTP id a92af1059eb24-1b543d270d7mr1285759c88.41.1794968269079;
+        Tue, 17 Nov 2026 18:17:49 -0800 (PST)
+Received: from google.com ([2a00:79e0:2031:6:cdce:1079:e29c:bb93])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7eaf3b3sm2155994eec.27.2026.11.17.18.17.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 18:17:48 -0800 (PST)
+Date: Wed, 18 Nov 2026 11:17:43 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Shivank Garg <shivankg@amd.com>
+Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Jan Kara <jack@suse.cz>, Andrew Morton <akpm@linux-foundation.org>, 
+	Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>, 
+	Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, 
+	Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>, 
+	Minchan Kim <minchan@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH mm-new v2 4/5] mm/zsmalloc: remove unused zpdesc_lock()
+Message-ID: <av0KlWcq9TgxiSoT@google.com>
+References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com>
+ <20261117-unused-sym-mm-v2-4-2f845e94dd50@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,26 +101,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-unused-sym-mm-v2-4-2f845e94dd50@amd.com>
 
-The same bug is already fixed by the patch below, which is in review
-together with the change that introduced the checks it repairs:
+On (26/11/17 07:16), Shivank Garg wrote:
+> It was added in commit c1b3bb73d55e ("mm/zsmalloc: use zpdesc in
+> trylock_zspage()/lock_zspage()") but has never had a caller.
+> 
+> Signed-off-by: Shivank Garg <shivankg@amd.com>
 
-  squashfs: return -EIO on out-of-bounds directory entry in lookup
-  https://lore.kernel.org/all/20261114145128.625-2-chenaibing@cmss.chinamobile.com/
-
-squashfs_lookup() leaves the error variable holding the positive byte count
-returned by squashfs_read_metadata(), and jumps straight to read_failure
-when a squashfs_dir_space() boundary check fails.  ERR_PTR() then hands the
-VFS a small positive value that IS_ERR() does not catch, and the first
-dentry flag access crashes.  The patch routes those checks through
-data_error so err is -EIO.
-
-The report below describes the same defect through a different caller:
-
-  https://lore.kernel.org/all/6afa2ac9.920b2b3a.148c65.003f.GAE@google.com/
-
-Thanks,
-Aibing Chen
-
-
+Reviewed-by: Sergey Senozhatsky <senozhatsky@chromium.org>
