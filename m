@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.91
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966669;
-	b=udbuMG/+7g+CJeftAzcKt5pXo/c+gSQeOuBegufGDjQ2lqHBTW6578Jx94ShgLqLor8D
-	 nkofuEvtmaCqZZj2XvZ6fP6N7ozkRfi0M1k29d1+vG0Vkcpnwl+fDwCDCf51vdJgXpyxK
-	 QNxGMSCrtLh0Pdh3Iu2xw9EXx2pOGq/FXaYL5VvG6A+KbGMWdZ+oLzFUxGGzjTkD4aBGQ
-	 8oaybHndWJgZ0KrYmphj/QSH8tg0rtMJrc1US8i2qfbJG+370+mS8CON8kE2FbLhB6fPk
-	 IfQSPj26rFh8lMp8JkJPHNQgq8PN7cd5NeyNETKdSlj8VyRQQKDULsz/K5tzchRyPvg==
+	t=1794966670;
+	b=XWK2abaaxuYiIQyW82mMlzoKkPyy4NZ5HfZohEeZCzXeW63NqtIL2EXfgklv3dyBgywv
+	 zW4YIna2J/aaUmUZePJabVbJtoB+jnPpv40PozCIUFkzFz5Z7uNFM/pYM2fnyX2XGOhAh
+	 WSc+RwXcTNBlkzrko06gSuZznhAUU/CVsh1JXoi3iQoOc7KlhYoMWsgtWwgIG9P9X1gZg
+	 xNoEG+u0ONtebe7+7O/3CaItrPwERisnNwNTBLdrKkAE8r6casbGxSgpW8nTJ+YK1BYlp
+	 Z07rT+J9sO2jRCBTAncvxz+VRLHfqEEYuiVyZTyfP+9wDVNXTmv44ArjrOsH/n3Kj0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966669;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=OszsEJToNze6tnzlcvPsV51oFOJRwGBjy9Ri823e+68=;
-	b=Tx8Gy25RJIJ2lh0GUk+h16/Rv1P/OHHxkoNn2Wx3i6QfnOf4VeCoRRav7hGWGCRrCt70
-	 ifgkwXrVsK3G20IrqX8veuoOqaqvNwVnHBy2ymk/Fwy6DLNEZP+ZFrQGVFXMykaWfj3j1
-	 X3U+73V4e5dLNPXkQkXyMKuLAN9mBE7/N6oXj9cV5az2lGLeIfoTxLhK8K1vNV0RG56fa
-	 a4IcKFk62TkO7xE/2XSRQhuqOj8mtCJisNmHsQqpjt1OPM9iGrHA3xO6XmZi2xU7BmOYr
-	 SkANA1XblnDnXowj4eF9TJQcbJHQC09sodfN2Z3Pjx8P5CmEF1S4E0xdxCoMVwrS1cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966670;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=xui+L1Kl8YV8BY/zkHbqr+YzjXk4VH0pkRVVyFr69gk=;
+	b=d6KlVWDkwsIzT+T4/zM3rJetPJbRD3/YLrw000U8lG59k9QRpZ+V++NYBhV8zNqGYcsp
+	 DY/Dk1imQI9sCJmliHKLv4mYOmk+Msa5ecYSPdo9NqhfM2+qF6nvWoZ+ccZUzuwa9jxRU
+	 iAW72/ptuliBSodYufIAAyNOW/WSZt1T6z3vY013ePwhNNPszK3O05DcluwXedw10BMF1
+	 vIbpGsQWD/kFKJg9o9ILXn/idz1qfDduqS+15IUPDfIX0nFVadQaNJDn+OjWE5a1+0sxe
+	 3vvVMXX+fb/HateMW3fBk4FH76TjS1JIauyUMMMXhdElL5EPeizqGlCewWgM9+Wse8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ThrwtBHp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ln3yavLO;
+	arc=none smtp.remote-ip=95.215.58.91
+Received: from mta1.migadu.com (out-91.mta1.migadu.com [95.215.58.91])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99211606A32A;
-	Wed, 18 Nov 2026 01:51:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E6D1606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:51:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E6D1606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ThrwtBHp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BAB61F000C4;
-	Wed, 18 Nov 2026 01:51:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794966668;
-	bh=OszsEJToNze6tnzlcvPsV51oFOJRwGBjy9Ri823e+68=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ThrwtBHpTaXzf7hassKaKBcUyzwDmGgefOFtf6hJdkgZJjnMXGIbtvBZXQKoyZCtt
-	 +MJdcR5DkVpwEGdqNthqxNFo2bYfiMBufYpH5otviGB5eMPoBtMjfBjl+ujAR8Q6pK
-	 FWfnPfqU4c7QakERFWloJeY+amgH+ep80Y7wd8DBEfvSKmAXBLfeDNXVCcohp/5nWT
-	 z+aTBNVIkh3dCQnbkh1sCSuEnFv3HkTIic3D6yUyw0ifyHcuMsXFEVzmhu2oVVQyKd
-	 CJbjQ+p2Lz50jjITHtZyV3EKFBgn7EsdQ33RUrpoqGrd++kbjzVGUOlt/WxQHe0a6/
-	 0tdEykQIgFjRw==
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-To: Christian Brauner <brauner@kernel.org>
-Cc: Amir Goldstein <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org, Chris Down <chris@chrisdown.name>, Miklos Szeredi <mszeredi@redhat.com>, linux-unionfs@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v2 12/13] selftests/ftrace: add uprobe tests on overlayfs
-Date: Wed, 18 Nov 2026 10:51:04 +0900
-Message-ID: <undine-1794966664951744079-93786e4e480023ea@undined.local>
-X-Mailer: UndineD 0.1
-In-Reply-To: <20261116-work-ovl-d_real-v2-12-90564c4ae347@kernel.org>
-References: <20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org> <20261116-work-ovl-d_real-v2-12-90564c4ae347@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ln3yavLO
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=rm+AxKqTEOXCpk9Th0qeoefjY+08yAH5hlAEglN9Rgk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794966667; v=1; x=1795571467;
+ b=Ln3yavLOPytuKHfZPe5QYObzrdgPsQkepZJE4WVOafWZy3hLA3nYTZc3C/7QztuWz6kuOLNl
+ o/OteqBnBpLONtPkSKfIWAr5wKLl04XXL4upWSW0YFmqQQkiY2GoW/PFGrkXw8z5Hb9jK6uAKGd
+ EPYm5u2j9OaxUhESxsoQscF8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id f9f5a1b8f39bf639;
+	Wed, 18 Nov 2026 01:51:06 +0000
+X-Mizu-Trace-ID: f9f5a1b8f39bf639
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 09:50:55 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Hyunjung Ko <hj351016@gmail.com>
+Cc: James Chapman <jchapman@katalix.com>, Jakub Kicinski <kuba@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Chris Elston <celston@katalix.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net] l2tp: reject short IPv6 address attributes
+Message-ID: <av0EfxJlYXo2XbU-@fedora>
+References: <20261117092157.85513-1-hj351016@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,48 +67,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117092157.85513-1-hj351016@gmail.com>
 
-On Mon, 16 Nov 2026 10:44:09 +0100, Christian Brauner <brauner@kernel.org> wrote:
+On Tue, Nov 17, 2026 at 06:21:57PM +0900, Hyunjung Ko wrote:
+> L2TP_ATTR_IP6_SADDR and L2TP_ATTR_IP6_DADDR are NLA_BINARY with .len set
+> to sizeof(struct in6_addr), which only bounds the attribute from above.
+> l2tp_tunnel_sock_create() then copies a full in6_addr out of each one,
+> so a shorter attribute makes it read past the payload. If the attribute
+> is the last one in the message this picks up whatever lies behind the
+> skb tail (stale heap data unless init_on_alloc is set), which ends up
+> in the socket address and can be read back with L2TP_CMD_TUNNEL_GET.
+> 
+> The commands are GENL_UNS_ADMIN_PERM, so this is reachable from a user
+> namespace.
+> 
+> Require the exact length.
+> 
+> Fixes: f9bac8df908d ("l2tp: netlink api for l2tpv3 ipv6 unmanaged tunnels")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
+> ---
+>  net/l2tp/l2tp_netlink.c | 10 ++--------
+>  1 file changed, 2 insertions(+), 8 deletions(-)
+> 
+> diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
+> index 89ef04c78787..a07009d4cb00 100644
+> --- a/net/l2tp/l2tp_netlink.c
+> +++ b/net/l2tp/l2tp_netlink.c
+> @@ -910,14 +910,8 @@ static const struct nla_policy l2tp_nl_policy[L2TP_ATTR_MAX + 1] = {
+>  	[L2TP_ATTR_MTU]			= { .type = NLA_U16, },
+>  	[L2TP_ATTR_MRU]			= { .type = NLA_U16, },
+>  	[L2TP_ATTR_STATS]		= { .type = NLA_NESTED, },
+> -	[L2TP_ATTR_IP6_SADDR] = {
+> -		.type = NLA_BINARY,
+> -		.len = sizeof(struct in6_addr),
+> -	},
+> -	[L2TP_ATTR_IP6_DADDR] = {
+> -		.type = NLA_BINARY,
+> -		.len = sizeof(struct in6_addr),
+> -	},
+> +	[L2TP_ATTR_IP6_SADDR] = NLA_POLICY_EXACT_LEN(sizeof(struct in6_addr)),
+> +	[L2TP_ATTR_IP6_DADDR] = NLA_POLICY_EXACT_LEN(sizeof(struct in6_addr)),
+>  	[L2TP_ATTR_IFNAME] = {
+>  		.type = NLA_NUL_STRING,
+>  		.len = IFNAMSIZ - 1,
+> -- 
+> 2.43.0
+> 
 
-> diff --git a/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc b/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc
-> --- a/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc
-> +++ b/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc
-> @@ -0,0 +1,96 @@
-> +
-> +OVL=$TMPDIR/ovl
-> +mkdir $OVL
-> +mount -t tmpfs tmpfs $OVL
-
-nit: If `CONFIG_TMPFS` is not enabled in the running kernel, `mount -t
-tmpfs` will fail under `set -e` and report `[FAIL]` instead of
-`[UNSUPPORTED]`.
-
-Maybe you need to check tmpfs support in /proc/filesystems too?
-
-> +
-> +cleanup() {
-> +  echo 0 > events/enable
-> [...]
-> +setfattr -n trusted.overlay.metacopy $OVL/lower/broken
-> +setfattr -n trusted.overlay.redirect -v /missing $OVL/lower/broken
-> +
-> +mount -t overlay overlay -o lowerdir=$OVL/lower::$OVL/data $OVL/merged
-
-Similarly to `test_attach_api_fails_ovl_no_data()` in patch 13/13, if
-mounting overlayfs with data-only lower layers
-(`lowerdir=$OVL/lower::$OVL/data`) fails (e.g., on an older kernel that
-lacks data-only layer support), it would be better to skip with
-`exit_unsupported` rather than failing the test.
-
-(Note that this selftest can be ran on older stable kernels.)
-
-Thank you,
-
-> +
-> +TAINT_WARN=512
-> +TAINTED=`cat /proc/sys/kernel/tainted`
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
