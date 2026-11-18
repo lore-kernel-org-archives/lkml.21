@@ -1,11 +1,11 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795025843;
-	b=KFeOlBCVF9z+GtjwGNuQ24ArX35pN7TAviKcXvecl7/xf4dZTNEgcuRAx72OmvdMQzHa
-	 yir4UNMxuVIloW4i3Y4/bAtgo/ZgwbjXVplS+C023syMsJ7qs0SMsxWD7ZdRmjdw6I/z8
-	 xC5oWr/kE4wnfq8ui6no0wh6OHMePjyU/1rFpKNQxsTrcpxTy4iU+h3oR1iP/2BYqClak
-	 bz76v7T8hzT9/8x5k5BvyLbdwrwUnOSC8IoqX3gIen7BhCUG3sJittbQ5j53vmeIm+hzU
-	 pFnTzSK7jFozazwAjTduTJ0IEwUlsvtmrjLBJzvUGVJ0mEMa22CwW0DwaOA/2UZNTCg==
+	b=t3htkcgC+sHC6jxBsyHAhd0ybkPX7u6SCTyiGq5QsHmJErxiN9/BpcXq6fwII6WgkB3Z
+	 bN7ScYp5CfCqh46vbPuh0/ZcLA1d90EyWCMiu+fCXdcf31p25sDC2a0Q/eDWZ0Szc7V17
+	 bK8OHshCrq8bs29yQuWX28RgyCsnsJ8+zaXvpgYgbY91I4Mmtv/9egbK/+g0gyagkaYga
+	 EpOHY2BtpM3uvqhplKaBLq8HKPZnOhow6LCyECK6hYfshdvhnAq4cq/Xm8Bv0bcvdjNyN
+	 K3bLFho0ALuIAyLIuoAOivyGqYWJZUUeJ7FY/Wk4h5ELfM62wXv386+8fZ50C/UAe1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795025843;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
@@ -13,54 +13,54 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=sIBydllVXTOaZO8LtnBhWlkRhFDalbS5d/0Cj4yaZO4=;
-	b=QHjYKZ2YaZD1kaVXbFkyFnyJmSzalZBAvXt7S/45OAvfFckuOaA2rGMtSfOgC5FdxsLY
-	 frhSqqym+/1ihfarBVPtYGUpcnsWtO7RJ/d7ZSXDjAzWPl7oxGt4oh77sJKTIe1i9Doru
-	 wG551EQgnJGS2FOTEKYHHtFf55IX/jCy7e7sm7REVLG4qx6QPbLgFgcAlX4zeV+qBG6UU
-	 Vx3YSSKddBsivYUt7dheRhG5D2Wf6Q8Gqsed07KSskamey9GpeY4i8hgwBHqOFsdNdblq
-	 Bf0vEwlv7DeuCvtMG6ljc3eFIRrKqwAgtgzwcL1T+WfvjI/C9BaeLvphFsaBoS62YIg==
+	bh=ngG38jkftsJfyMk8I3/xh7WzNpvt70r47s1WK17J9nc=;
+	b=3BHSHhOv8jmGiyJoefNbvBXfFYN0RgzV6QwjloACRIi74AvOc2/oVXfIz5UzcRxPEIKQ
+	 FfXFBhOq1/5sa9q8jyQm0PWmw8BzjBP1uzLuTTnZin/xP5OefUsaunOwltQJKlLTmLZS8
+	 oM9edLIHpFSsoy6iSi/RllgkTNyjEReHhOZJIxhx8I6jd1IIlpe7q/baDWrr6J5XfwpSM
+	 BysFJxAr3ae9ew5EjME6+xxae7QfKclLBMoWBmYOr7T/1flZjFmwwvmaHuSnIHgvGuoPo
+	 ptxlsWv/gKzE6pK1SCtoJFrNDX+5/7JOmpBCOUPxkYVLn+vzR3vet6pgVBWvOQJcEuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OGwAB5xm;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=W5CyToh7;
 	arc=none smtp.remote-ip=192.198.163.10
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6A72606A331;
-	Wed, 18 Nov 2026 18:17:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6A72606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C75D60A2600;
+	Wed, 18 Nov 2026 18:17:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C75D60A2600
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OGwAB5xm
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=W5CyToh7
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1795025843; x=1826561843;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=4hu5NvPT1eCSivKxdWkSohtzRGftFnOE7Bb7+2XAb6g=;
-  b=OGwAB5xm7k5UsPMurYIhY9tzyXErxuWjT6vrUHSfhKR36yZAEz5bpt+t
-   1FhcKiFQiIKec7chZfk8U70/WXaLWVqMOQIsqx2aZC5hvNxnLexRCDAzA
-   YWi6ihRFSJGh7DDjjvVebTdR/orjT3tRKRjIBGkTJYD+5caF/owhHONcF
-   ChIQdoCRNZ2deo+ZSKdXfjA3HU3k8hoRni0PHiE1iQltd+UYLMKlz3YwQ
-   TF2w7QSGpINYQuTMcOwCWKIb34Q9Kn+ZpkVxHZN5rzsy+Kq2x/29PxZas
-   rXFyEGOMFXX3fED5KvxIAfH0F/tGzXASFM4YZPJehKuwnXCb4TPEK8wWZ
-   g==;
-X-CSE-ConnectionGUID: AU6trsv7Su+ex+SUMgmDAw==
-X-CSE-MsgGUID: rqXs2m/3TTmgtwml4t/gOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3744941"
+  bh=dph6fob5dCknQ0JUlC9TiW2dOS3Wc6wVs7UBEIxddXs=;
+  b=W5CyToh7RtTZecB3uQebcdKYcy00AhV+MUEZgosDe+EDvZdd1tZipPMG
+   Fwe4e86oidcV91JLZXPCh4IlISmakVqrVKhVOYkqpChozT/L/j827iXT7
+   rP7rQira/Y29ItqW5Zoq4OsyQpcJK255vpOeWZnvenqloxy0t6isK1iNT
+   z/6D7E4K23/I7dJs+1mBd1RHJAMfHrDsDolCUUJBQsWJbjmwKxAMGo/lJ
+   y+oamSGxC8sPlgcM0rzbtbut/BNGZHIK5igq6suJVpn5axV8Sjga0gVbg
+   /fVTNiOfIlb92GEe0duPyt4X5FBZGnVEgfIbJYSStFpo1lO0N/hFPkvrI
+   A==;
+X-CSE-ConnectionGUID: r4tN9jnkTle540xosHr65g==
+X-CSE-MsgGUID: t3s7/yD1SQeo3Cj/I25r9g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3744958"
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3744941"
+   d="scan'208";a="3744958"
 Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 10:17:20 -0800
-X-CSE-ConnectionGUID: L4xIKs+PSReBR+ps/xXBlg==
-X-CSE-MsgGUID: ZQSHiP3JTXuU7BJbTDtpsQ==
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 10:17:21 -0800
+X-CSE-ConnectionGUID: OlL6QJW2QWmV+C5I0bn7+A==
+X-CSE-MsgGUID: 9WyY9J63T6mWAnK00y+U1g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10087020"
+   d="scan'208";a="10087024"
 Received: from skuppusw-desk2.jf.intel.com ([10.165.154.101])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 10:17:20 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 10:17:21 -0800
 From: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
 To: Bjorn Helgaas <bhelgaas@google.com>
 Cc: Lukas Wunner <lukas@wunner.de>,
@@ -72,9 +72,9 @@ Cc: Lukas Wunner <lukas@wunner.de>,
 	linux-pci@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/6] PCI/DPC: Avoid access to non-existent AER capability
-Date: Wed, 18 Nov 2026 10:17:13 -0800
-Message-ID: <20261118181718.3907441-2-sathyanarayanan.kuppuswamy@linux.intel.com>
+Subject: [PATCH v3 3/6] PCI/EDR: Build EDR whenever DPC is enabled on ACPI
+Date: Wed, 18 Nov 2026 10:17:15 -0800
+Message-ID: <20261118181718.3907441-4-sathyanarayanan.kuppuswamy@linux.intel.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com>
 References: <20261118181718.3907441-1-sathyanarayanan.kuppuswamy@linux.intel.com>
@@ -89,125 +89,74 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Lukas Wunner <lukas@wunner.de>
+Error Disconnect Recover (EDR) is the ACPI half of the hybrid DPC model,
+where firmware owns DPC and notifies the OS of containment events.
 
-Downstream Port Containment does not mandate presence of an Advanced Error
-Reporting capability, so a Downstream Port may support DPC, but not AER
-(PCIe r7.1 sec 6.2.11.2).
+CONFIG_PCIE_EDR made EDR optional on top of CONFIG_PCIE_DPC.  This adds
+another knob to the decision to request DPC control in _OSC.  The OS
+requests DPC control only if it also supports EDR, so with
+CONFIG_PCIE_EDR=n it never requests DPC control.  There is little reason
+to build DPC without EDR on ACPI systems.
 
-In February 2019, commit 9f08a5d896ce ("PCI/DPC: Fix print AER status in
-DPC event handling") amended the DPC driver to access the AER capability
-without checking for its presence.
+Make CONFIG_PCIE_EDR a hidden option that is enabled whenever
+CONFIG_PCIE_DPC and CONFIG_ACPI are both enabled, like CONFIG_PCIE_PME.
 
-This did not cause actual problems because in March 2018, commit
-4e5fad429bd1 ("PCI/DPC: Do not enable DPC if AER control is not allowed by
-the BIOS") had seemingly inadvertently prevented instantiation of a DPC
-port service on AER-incapable ports.
+pci_dpc_recovered() gave up if firmware owned DPC and EDR was not
+enabled.  EDR is now always enabled with DPC on ACPI, and native_dpc is
+only cleared by the _OSC negotiation, so remove that check.
 
-However in October 2019, commit 35a0b2378c19 ("PCI/DPC: Add
-"pcie_ports=dpc-native" to allow DPC without AER control") made it
-possible to override this:  The DPC driver may access a non-existent AER
-capability if "pcie_ports=dpc-native" is passed on the command line.
-
-Fix it by making the DPC driver cope with AER-unsupporting Downstream
-Ports.
-
-There are two places where the AER capability is accessed:
-
-- dpc_get_aer_uncorrect_severity() uses it to discern whether a Fatal or
-  Non-Fatal Error triggered DPC.  Access the Device Status Register
-  instead, in accordance with PCIe r7.1 sec 6.2.5.
-
-- dpc_is_surprise_removal() uses it to detect whether a Surprise Down
-  Error triggered DPC.  Return false on AER-unsupporting devices.  The
-  function works around an AMD-specific quirk and it seems reasonable to
-  assume that all affected products are AER-supporting.  In any case the
-  detection is not possible without AER capability.
-
-Insert a temporary check for an AER capability after the call to
-aer_get_device_error_info() because the function currently returns false
-for AER-unsupporting devices.  The check will become obsolete and will be
-removed with the imminent baseline capability error reporting.
-
-Fixes: 35a0b2378c19 ("PCI/DPC: Add "pcie_ports=dpc-native" to allow DPC without AER control")
-Signed-off-by: Lukas Wunner <lukas@wunner.de>
-Cc: stable@vger.kernel.org # v5.5+
-Reviewed-by: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
+Signed-off-by: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
 ---
- drivers/pci/pcie/dpc.c | 45 ++++++++++++++++++++++++++++++------------
- 1 file changed, 32 insertions(+), 13 deletions(-)
+Changes since v2:
+ - Keep CONFIG_PCIE_EDR as a hidden option instead of removing it (Yazen)
+ - Remove the pci_dpc_recovered() check that becomes dead (Yazen)
+ - New subject, was "PCI/EDR: Remove CONFIG_PCIE_EDR"
 
+ drivers/pci/pcie/Kconfig |  8 +-------
+ drivers/pci/pcie/dpc.c   | 10 ----------
+ 2 files changed, 1 insertion(+), 17 deletions(-)
+
+diff --git a/drivers/pci/pcie/Kconfig b/drivers/pci/pcie/Kconfig
+index 207c2deae35f..4d097c53f140 100644
+--- a/drivers/pci/pcie/Kconfig
++++ b/drivers/pci/pcie/Kconfig
+@@ -138,11 +138,5 @@ config PCIE_PTM
+ 	  is safe to enable even if you don't.
+ 
+ config PCIE_EDR
+-	bool "PCI Express Error Disconnect Recover support"
++	def_bool y
+ 	depends on PCIE_DPC && ACPI
+-	help
+-	  This option adds Error Disconnect Recover support as specified
+-	  in the Downstream Port Containment Related Enhancements ECN to
+-	  the PCI Firmware Specification r3.2.  Enable this if you want to
+-	  support hybrid DPC model which uses both firmware and OS to
+-	  implement DPC.
 diff --git a/drivers/pci/pcie/dpc.c b/drivers/pci/pcie/dpc.c
-index 2b779bd1d861..d02cbbbe3143 100644
+index a0880e3cd68c..1e917febcbf3 100644
 --- a/drivers/pci/pcie/dpc.c
 +++ b/drivers/pci/pcie/dpc.c
-@@ -238,19 +238,35 @@ static int dpc_get_aer_uncorrect_severity(struct pci_dev *dev,
+@@ -102,19 +102,9 @@ static bool dpc_completed(struct pci_dev *pdev)
+  */
+ bool pci_dpc_recovered(struct pci_dev *pdev)
  {
- 	int pos = dev->aer_cap;
- 	u32 status, mask, sev;
-+	u16 devsta;
- 
--	pci_read_config_dword(dev, pos + PCI_ERR_UNCOR_STATUS, &status);
--	pci_read_config_dword(dev, pos + PCI_ERR_UNCOR_MASK, &mask);
--	status &= ~mask;
--	if (!status)
--		return 0;
+-	struct pci_host_bridge *host;
 -
--	pci_read_config_dword(dev, pos + PCI_ERR_UNCOR_SEVER, &sev);
--	status &= sev;
--	if (status)
--		info->severity = AER_FATAL;
--	else
--		info->severity = AER_NONFATAL;
-+	/*
-+	 * Infer severity from AER Extended Capability if present, else from
-+	 * Device Status register.  The latter cannot be used on AER-capable
-+	 * ports because it also logs masked errors (PCIe r7.1 sec 7.5.3.5).
-+	 */
-+	if (pos) {
-+		pci_read_config_dword(dev, pos + PCI_ERR_UNCOR_STATUS, &status);
-+		pci_read_config_dword(dev, pos + PCI_ERR_UNCOR_MASK, &mask);
-+		status &= ~mask;
-+		if (!status)
-+			return 0;
-+
-+		pci_read_config_dword(dev, pos + PCI_ERR_UNCOR_SEVER, &sev);
-+		status &= sev;
-+		if (status)
-+			info->severity = AER_FATAL;
-+		else
-+			info->severity = AER_NONFATAL;
-+	} else {
-+		pcie_capability_read_word(dev, PCI_EXP_DEVSTA, &devsta);
-+		if (devsta & PCI_EXP_DEVSTA_FED)
-+			info->severity = AER_FATAL;
-+		else if (devsta & PCI_EXP_DEVSTA_NFED)
-+			info->severity = AER_NONFATAL;
-+		else
-+			return 0;
-+	}
- 
- 	info->level = KERN_ERR;
- 
-@@ -275,7 +291,7 @@ void dpc_process_error(struct pci_dev *pdev)
- 		pci_warn(pdev, "containment event, status:%#06x: unmasked uncorrectable error detected\n",
- 			 status);
- 		if (dpc_get_aer_uncorrect_severity(pdev, &info) &&
--		    aer_get_device_error_info(&info, 0)) {
-+		    (aer_get_device_error_info(&info, 0) || !pdev->aer_cap)) {
- 			aer_print_error(&info, 0);
- 			pci_aer_clear_nonfatal_status(pdev);
- 			pci_aer_clear_fatal_status(pdev);
-@@ -353,6 +369,9 @@ static bool dpc_is_surprise_removal(struct pci_dev *pdev)
- 	if (!pdev->is_hotplug_bridge)
+ 	if (!pdev->dpc_cap)
  		return false;
  
-+	if (!pdev->aer_cap)
-+		return false;
-+
- 	if (pci_read_config_word(pdev, pdev->aer_cap + PCI_ERR_UNCOR_STATUS,
- 				 &status))
- 		return false;
+-	/*
+-	 * Synchronization between hotplug and DPC is not supported
+-	 * if DPC is owned by firmware and EDR is not enabled.
+-	 */
+-	host = pci_find_host_bridge(pdev->bus);
+-	if (!host->native_dpc && !IS_ENABLED(CONFIG_PCIE_EDR))
+-		return false;
+-
+ 	/*
+ 	 * Need a timeout in case DPC never completes due to failure of
+ 	 * dpc_wait_rp_inactive().  The spec doesn't mandate a time limit,
 -- 
 2.43.0
 
