@@ -1,81 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795055415;
-	b=j7R2iEWOj1Mp2o0EJFeXCD8cUtO3K1Qur4ycTjEHHNMYbuonun0moDHyoPOicPRHU1OJ
-	 72hL94VIBsE5CtD0goa8NH7G40TOE4+qRdhuhKH3aNS3o8qY7ZUuHFbTXK7WMDIhfMKAq
-	 1zvUcPFXzC+tJsxmhMSYpt6I1ZhMx641I2yNHWXHYHX9y+6E+9tXxRN15wJZNiWuoYU+5
-	 IJSsTENogXdVxCBFLEYt+DQFqzztYFRfsh/4U6/Gx9u+fH1ThCXSWut/eMCG5YI3FMbiN
-	 QOB0e1ZkHqn4K2utn+DqeVKeefz88xUFYDULz/L0crOaB1PIxxIMkoLpd1KLZiqf0AQ==
+	t=1795055551;
+	b=wf8mfy+GYBvRN/ataqiWtoOxbPr0oR90RaWOAZhOdw8Fizz6p8ZN/1f0LZgojAnZJw/G
+	 yVcbJnnMZRolihu7hnukf8i45QGy9nAaWID37NmG18HRmH35A/QnGXLF4M+wiMHV/3FFc
+	 sfPUCYcqsUGiC8aN0qzAL1+eN2jX5VskoPU+XznZBpi/6pXrotq4n6+4NjUeTrJ+M/pyg
+	 xtXDIs2zmNMnZvxjNAOLHwKsOYLXowX+P3TeTnrdhrYPMHmxwODZhzHrIEreM7xLm9LFv
+	 8XzYsCEdCmccfmWpE6Gfdxi1oZUChAO8HshdMJO9zdHVWKKvooKuueZjIF/h1UIWfdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795055415;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=9fAbtoyPi3c3+kicDgJNOEHhcPYnrZ8MUupquQq/pxk=;
-	b=kOOXehURE9IXd6LtuHY9nxae74o1871gFd8us6mRlFv+qVO5sDshXtDIRa4P23sK76rl
-	 2dBPRJgoFjbMc4/QlLbqjySpkZ6TyhVIv3814bd90bUgI0nxvtn7IJTO5n9GheFW2eWF6
-	 CQD+w4SD3LBR5MLK/R/C8FjBo+cC8DZg7RAhV8TXPIjAd9SI8Qu0uVuK5DIOwkzvIzcuB
-	 yfJ4e8Wj2dkktObSJ6rhPxtrxKfHuoVdALNt0nfIJ/uhYH1W1rgtPJ9Xk3TGe0pcoC0Ie
-	 vqCnLn44X+AyOJYA2jHg/PuW1D0/+QkQe/BqDAA4PBsK8TIcRt/3S1cvbclbCgQjAKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795055551;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=dUTbeAqAaxTuM0VMwjdSnWt5sh+rSDLf8Abkyx7bI7U=;
+	b=NtJ+oMKumiLH82uux0fL2hxfgaAxNpTHaI+MbtPUo01eBKHLwnzEFfyVRDgoNdeL3X7I
+	 kRCrfoHxRBOs0IJew43eL96CnbhkiPNzL/M4m4Z1pSiT5fMOqpv95ifgyRcK9EEQ1/pGA
+	 7oXoHf6qXt/SM+yE159ysWbzZv4/KKcoUNiZAVe2eDP8VsI9fqOpcVCGQ7xQOOCsIr7os
+	 +aUeuJlBxUovrwglIxhlcJqS7AjqZJFrEse4pcHmc4czhD9lHtObwDzvu1AL5UZShN+rl
+	 7E4J0w8Er7f0kIBOJyiU95GpYf7ZbkxueuSoC0vE9zJms3pZMbpd6/seBPTAKDNxgHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=SPX0cA+a;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=pass header.from=codewreck.org;
+	spf=pass smtp.mailfrom=codewreck.org;
+	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=THluwZ9J;
+	arc=none smtp.remote-ip=62.210.214.84
+Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BFE4606A31C;
-	Thu, 19 Nov 2026 02:30:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BFE4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8039B60A2604
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:32:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8039B60A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=SPX0cA+a
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ2TsU421947007, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795055394; bh=9fAbtoyPi3c3+kicDgJNOEHhcPYnrZ8MUupquQq/pxk=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=SPX0cA+ahNcSvS5+Ax5Nh1EW3Q6qjClRQEexZ476kDdHRJ0ZEKTF8sg6ZxVkexAES
-	 oILgUeX0Sfof5daHOhX5JjKDBko9WHer4IujmiwPLaij+ON7tONg6gEcYjpzvwFZe+
-	 ceGRn52oPQIw2E0EoYzlEv37BdTfvifOIcRJJS/q+1Zb39AFfxB6S0i5AsOQwAU6/O
-	 a9ZR539l7RlNwlEV0O0e1MwjAYzm8Ry1icIC3OYItw5/ehUZp1f1C6Gp2UmTP5WWr3
-	 5iNaIPt80wpNRgSE0XMx1XvkfpCaerWagP88FH8+CHrFC+QXKRD9KsfpddCbB+h+5S
-	 lp92w/Iem6Mtg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ2TsU421947007
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Nov 2026 10:29:54 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 10:29:54 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 10:29:54 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Thu, 19 Nov 2026 10:29:54 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Shirong Zhao <shxzhaosr@163.com>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] wifi: rtw89: read the beacon header from the frame data
-Thread-Topic: [PATCH] wifi: rtw89: read the beacon header from the frame data
-Thread-Index: AQHddyAr0Znqcf5uMkiTIyGfdYmn2rc0oOOg
-Date: Thu, 19 Nov 2026 02:29:54 +0000
-Message-ID: <18e2bb0a73414b528db9741eb2e2e1e3@realtek.com>
-References: <20261118134625.801221-1-shxzhaosr@163.com>
-In-Reply-To: <20261118134625.801221-1-shxzhaosr@163.com>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=THluwZ9J
+Received: from gaia.codewreck.org (localhost [127.0.0.1])
+	by submarine.notk.org (Postfix) with ESMTPS id 47EC714C2D6;
+	Thu, 19 Nov 2026 03:32:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
+	s=2; t=1795055547;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dUTbeAqAaxTuM0VMwjdSnWt5sh+rSDLf8Abkyx7bI7U=;
+	b=THluwZ9Jb3QnCaD5M7NYO6mEgwewv5ZOoUprA/fbAwiKi3NJbkPLBOAP3sAA6tgu5G2WlT
+	nmtgfawb1EZtJlQkcjFFWh79ZZ3ly+R+KoY9zyLxve+W4HL7/+aD+EimqY5L582OKqM62Y
+	kRLumdcfvWWg5/exsTiCA1SM2UsUgjXYnLb0QkEqpoFYE95ZfXALOPjrWqyNy2sjaHQIEO
+	wUwe2PEUHNYYFhDdNVRHmzSE1Y7Fdf4XUncoYyir1Dpe83tryp2SP2bxYIOgWVdorWMBR2
+	GoV3KZ1WqL6JdFCyL6hEvXCvXXnPLWyp+FSTGOdyBIwBrT71QgZY5Bev53GSsQ==
+Received: from localhost (gaia.codewreck.org [local])
+	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id bbd5e468;
+	Wed, 18 Nov 2026 13:45:36 +0000 (UTC)
+Date: Wed, 18 Nov 2026 22:45:21 +0900
+From: Dominique Martinet <asmadeus@codewreck.org>
+To: Michael Mulqueen <mike@method-b.uk>
+Cc: David Howells <dhowells@redhat.com>, Pierre Barre <pierre@barre.sh>,
+	ericvh@kernel.org, lucho@ionkov.net, linux_oss@crudebyte.com,
+	v9fs@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] 9p: fix data corruption with writeback caching during
+ concurrent stat
+Message-ID: <av2r8RSBGsPlDPPG@codewreck.org>
+References: <20251227083751.715152-1-pierre@barre.sh>
+ <1667424.1771432276@warthog.procyon.org.uk>
+ <e2c960ca-7b29-45e1-b650-849fc357f8b0@method-b.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,52 +71,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <e2c960ca-7b29-45e1-b650-849fc357f8b0@method-b.uk>
 
-Shirong Zhao <shxzhaosr@163.com> wrote:
-> rtw89_fw_h2c_update_beacon() and rtw89_fw_h2c_update_beacon_be()
-> cast the sk_buff pointer itself to struct ieee80211_hdr to compute the
-> TIM offset:
->=20
->         hdr =3D (struct ieee80211_hdr *)skb_beacon;
->=20
-> The 802.11 header lives in the frame data returned by
-> ieee80211_beacon_get_tim(), not at the start of struct sk_buff, so the
-> cast reads sk_buff metadata instead of frame_control.
->=20
-> For a freshly allocated skb skb->next is NULL, the value read is 0 and
-> ieee80211_hdrlen() happens to return the same 24 bytes as a real beacon
-> header, which masks the bug.  As soon as the skb is on a list the
-> computed header length is garbage and the Group IE offset passed to the
-> firmware is wrong.
->=20
-> Point hdr at skb_beacon->data instead.
+Michael Mulqueen wrote on Wed, Nov 18, 2026 at 12:22:00PM +0000:
+> I've bisected it with my reproducer script and found it was introduced
+> in v6.4, specifically commit d9bc0d11e33b. I wasn't sure about the
+> etiquette of jumping straight into a discussion and tagging regzbot, so
+> I haven't, but I'm pretty confident that this is where the regression
+> was introduced.
 
-This is key point, so I'd rephrase subject and commit message as:
-
-subject: wifi: rtw89: read the beacon header from the skb data
-
-message:
-Point hdr at skb_beacon->data instead of skb_beacon pointer itself, to
-get correct header length for TIM offset for firmware.
-
-Fortunately, original (wrong) header fc is 0x0000, so header length is
-recognized as 24 bytes, which is almost the same as AP mode application.
-
->=20
-> Found by code inspection; not observed at runtime.
-
-I tested with real hardware.
-
-Tested-by: Ping-Ke Shih <pkshih@realtek.com>
-
-Fixes: 69466b979a72 ("wifi: rtw89: use struct to fill H2C command to downlo=
-ad beacon frame")
-Fixes: a880b9283009 ("wifi: rtw89: add H2C command to download beacon frame=
- for WiFi 7 chips")
-
-> Signed-off-by: Shirong Zhao <shxzhaosr@163.com>
-
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+Bleh... Given how old it is I'm not sure regzbot is appropriate (as
+Thorsten pointed out), but it is a bad bug and the lack of follow-up /
+time on my part hasn't helped, having reminders would have helped and
+can still help if nobody feeds the machine so on my side tagging regzbot
+even now is welcome, even if I'd like to hope we can finally get this
+fixed in a timely manner - the third time's the charm?
 
 
+> That is the commit that adds the writeback path -
+> before it, cache=mmap did not buffer writes through the page cache, so
+> a stale getattr had no unsent data to zero.
 
+Right, I wasn't much part of the cache rewrite, but cache=mmap not going
+through the page cache meant that concurrent writes + modifying mmap
+would corrupt the file, so I think enabling write cache makes sense --
+even if it's a side effect that probably ought to have been commented
+better.
+
+The problem is that this bug happens with cache=writeback in the first
+place; I expect this isn't making more noise because applications
+generally don't stat what they're doing but also that cache modes aren't
+default so probably aren't used all that much...
+
+> I have tried the fixes (Pierre Barre's v1 and v2, 27 December 2025, and
+> David Howells' sketch, 18 February 2026) discussed in this thread
+
+For reference:
+Pierre's v1 https://lore.kernel.org/v9fs/20251227083751.715152-1-pierre@barre.sh/
+Pierre's v2 https://lore.kernel.org/v9fs/20251227180137.730385-1-pierre@barre.sh/
+David's sketch https://lore.kernel.org/v9fs/1667424.1771432276@warthog.procyon.org.uk/
+
+There also was another simple shell repro here:
+https://lore.kernel.org/v9fs/2025543.PYKUYFuaPT@weasel/
+
+
+As for the way forward, I'm a bit stuck: David pretty much NACK'd
+Pierre's patch and sent only a draft that I wasn't able to process
+(given my chronic lack of time for 9p)...
+
+For starters since you've already rebased the patch, could you resend it
+as a v2 as a proper patch? just looking at the diff I expect the
+conflict to be around the size update in v9fs_issue_write() and easy to
+fix but I'd like to at least get the patch sent properly so sashiko has
+a look.
+
+Given the commit message I also wanted David to split the patch at the
+time, but now I've actually read the diff it's all intertangled and I
+don't really care anymore so let's go on with it.
+
+Thanks again,
+-- 
+Dominique Martinet | Asmadeus
