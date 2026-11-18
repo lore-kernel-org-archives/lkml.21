@@ -1,47 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041037;
-	b=HGX/OcZs79e/8qzVhwFkGhfyVq0ik7J+XaJIYq6SjaB5QnfaxMxEi6eaSbUpJssv87Tx
-	 +eJK1qNF+sAk+9ubTd+2evBPSmGICYkCpSU4MQNerZFmR6BWsGTmhSEmjfQabYJv1cI8x
-	 JQNPS8A6NqLr5ARGaV0a8lukgNGfPpfflFnq3ppl/dpMf4FfN5FRYDyfbf6kmHNPlkhnU
-	 ZPHBe0ETDXUbeNgkYCpyeNvMRgEd/xDtNW+twjHwFwjf260/D7zk6EPsltym4Ej4cUM+O
-	 7U5EC0PX2CpfW5BOh9cfxE4oH3PzX7sRZo31KkO3gOsWXJp19rEDNpPERrLPNNVMo2A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041037;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=5HiEgnJ4vXkw0UUO+Qmnim5ib/OYOiSX2+Q+cBS3EWI=;
-	b=kO3ZwtOl2al1NLAIWys8d6MZvDbWZKKyw6FdviM3WJctJ713IV4NVnkx9gldV8PDPeGi
-	 ZhGhiARHEz39j7doGHZlXF6mW/W5telA2VzBjb4Jm6y+Uy9TORsUkcbDssOHXQ9zOq/Fr
-	 /ZpjLSn2jwrSFvou5H3X46zaiftphaO0C63oTb/ucubLdIFbUcF5NzZpZ1iqVu0c+1i6e
-	 GlhwQcfcgAPNgv89R1P3jmebe1EnHA+0TU6t16ESiiCwwUTauIDh88qHJ1eDve6hCSabh
-	 ER8dpYAtXt2+sIWqwGo010elyXcSIP5+xwqG6FHFRnDue0YLvQp6O7XqcvQsfRr4zTw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=byCLO5TS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795041051;
+	b=Yi3PohrJGKKqL7iG29JufViK1lk2b+ZlzwkrM+hRpsVIzFT000vM5z3Xp4BCtlopFgEB
+	 QI1Cr9ONvI8FhLMSxS3EDx0TPHsDPMDzGXvLjgSlXIL+aXvkvlRkTWwTiFBZ17YrZW5wE
+	 VrXwhCzA/gr3xRNC/VfCpitRnjj39dQfS731sBCWirfHvpDcF0DJiKCAjKM+XoeGhSxxV
+	 qKJxYGrlBYJ008HeFdvdUxoJIZhaDKIDFR50tTyrN/8P/lYuF0Jx0IeCL5bPIXp61NXHN
+	 CUsiL2BUYDQ0iXjBqIoB4VgAfZiWq+bLYzjg54Rm7i3TiwmW0kWGryZmIVm0miiP+zg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041051;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=yqnC38uWfwKQrsdALtzn7RtsAAUyiJIP1ETaKtJsGh4=;
+	b=qKp3COSowU0JJMh8JTePzrdb036Vz2M9D44OmBH9HuMVbvGlPLJKHgn/2fyzZF+izKEK
+	 UTAiiZHX2ZDxaxt0Bk49zYOgPs+Yn/vZDjuHIJDXbuRpVeDDUk2pI2CWFQYz/+AHHmG3Z
+	 RJKUogbukYW6GS5HSTF/3JvHMaN9oJpxnOlT7vcB2tnAjuWdFesl5zn3e1vKIELrla5E9
+	 WEpHrtOnAQw2qt988OXEuje2Pb/ZgGpvDWtkUWBgSHIiCJKbSWWWPEIJl88YGclnCPrf4
+	 c0+L8cZS4tth8e9HEfIMJVN7910p+8si89xbVPVT6LXjyaduN8nuYAx3G+Y48C7OAPA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=futuring-girl.com;
+	spf=pass smtp.mailfrom=futuring-girl.com;
+	dkim=pass header.d=futuring-girl.com header.i=@futuring-girl.com header.a=rsa-sha256 header.s=google header.b="j720/APk";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7224606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75432606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75432606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=futuring-girl.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=futuring-girl.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=byCLO5TS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14C361F000C4;
-	Wed, 18 Nov 2026 22:30:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795041037;
-	bh=5HiEgnJ4vXkw0UUO+Qmnim5ib/OYOiSX2+Q+cBS3EWI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=byCLO5TSgk5MX23zS3L3eJl3Y8OffgcGLhmZBmk83SFsqgpsUc+/h4Cz7A0xBeiEj
-	 5WA32cYDUaDG9vw2NczJuXXxY/GMuDUAyHHLDzahXS9IlG6v+R52XnF3F7xohh24s/
-	 +amuX3K99aIi9CKsQhUupBL5urpZOuotoxpVZJ1/kLhyWKXvp+uCr78EY/rDFt1bFG
-	 hcahzk0chCmhuHN10pHAP2ajfruvC9VX0woMFAhgFxE/JGBDjH5B5KiZ8MdqiwphAC
-	 FQqo023lFQf2rCpuBE9+839cVyQt4bzE6lDnz5Kbk4KCM8daKc5tLmNK7jQjLvfLE6
-	 p5ft4dppSbjuA==
-Message-ID: <92f7177a-a48d-4824-9b63-4ff5b9b3b47d@kernel.org>
-Date: Wed, 18 Nov 2026 23:30:33 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=futuring-girl.com header.i=@futuring-girl.com header.a=rsa-sha256 header.s=google header.b=j720/APk
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b88b74e54eso1733707a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:30:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795041050; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Cj3yZBc2OMf2HQTGy2Ue49GhLi9qeN53ZdvU/ejIRynxmC2QDiYid2HvhtKU7m1mOd
+         MVfiSnnw5NaAyZGN4u2bOv0F9ks8ffRxSCS7BAdHFDi/bj+4SNXA6tFVniDsrjlPj+vq
+         5nLKHD1YBxzWX//fV0/SdfCKlFmvMc2HahtaGLYuVHxTRk5n3PSHpOaJYgEj2/u5omcW
+         l3wR2aX1SFQJ/goMdNrYi/it5vZ9aNNFVnU4j5C6pFRd5hdWlMwDY/RJCEwhDWHwLAW0
+         EXNKAouDPM12/oLxhapUAY4W+7yFH4+cGpxSXDSVkmHMEukfRYAVs0q2hgzt52UXlbg5
+         CCUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=yqnC38uWfwKQrsdALtzn7RtsAAUyiJIP1ETaKtJsGh4=;
+        fh=TmdqbIftPqfOurmAlJAD5OW7tyVuQYAoMg62hqKW1IQ=;
+        b=sKjFgV46Ysxz82InhIGgNOAbIoNZsZrIBRwlkVuy2r2A7h4RipsxCU5fYgjhRJ1bZ3
+         BO+uKYKSF8ZvwE6RsydmEZ062vZOIA3nmSqD59JwrWFO5ilksbLVVYy0RfbqYRWd+pzq
+         Fcw/3MbSelkbAytbXHScV9BXw3PicoCzqR8zxXp+OwYB9ZCWlVo5ZIKcnb3CseYdh3pb
+         Ui0e0ewmuveXlGGBq70I9q5LWRJjAmrzPLlhR21ehQ3kavrHONBtQjgsV5f/YPf/MRNY
+         j10lX12UGlaApXzu85rdrgh27n1BLbojxfheBzlys2x5aSpJ/ZLgRR/No6pjtgxveQFJ
+         QlNQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=futuring-girl.com; s=google; t=1795041050; x=1795645850; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=yqnC38uWfwKQrsdALtzn7RtsAAUyiJIP1ETaKtJsGh4=;
+        b=j720/APkNMB4KlTPuSGtbxUcf/iLf2ONTwKmWwt8QoG1MMewhomk0jJwJojhXPKZyP
+         jJ2IWad1RnF9Pd1LpMcy6XrPqwFPXtU+UKbqveYKpxsMyG0JNeMt5a2TtTz33TBs932k
+         YabJLIpbp72FaP/dBJzLjcG40rFglJ+prpmhDXFCtEm9UyzqytW1vsPQlzf9P4NMSjpm
+         Y7IUDZpgJzswHMNlR7YOUaEYE2QRuHiWSMBbUcfiiVORCVOGb34+tv4V3Vqgtg0jqlFa
+         agSaBIj8Toy1JRwb5EczwR+xtY/WVPgp4PpuW/ZiXQhc8pjSnhjqRjT140ZheX6KHGSP
+         ZVjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795041050; x=1795645850;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yqnC38uWfwKQrsdALtzn7RtsAAUyiJIP1ETaKtJsGh4=;
+        b=I4VOUFYXCuy+rrm0OiGJ3JiqLZABoXmxS7w91C0pKrE5kdnrMIZtGYe1yehUrDz64F
+         mkyvzBUwPQNRVZu9i8oXthb1Aw1YfgSrLbVj0roGnmjsA0vkvbCA3M17lNzbvtqLt188
+         4vH6PVApwOWv/JCJLdZaZKPxPUbJHMgDysmp1DKdH/MxDFngsFnsvUxFWCC+PfVNLl88
+         028NMmtVC55GVrPraaNrV3/SFV84gZidRSYGHG4u3YyvmEPUNB9pl1JrDByPgNuDi2fV
+         IPY/wIL7x649Fku7za/DsEfFYI8LQN+MqAU2xJ5S0+Bl2HctQuOjIkl6ib9PpNJywvk+
+         QUVg==
+X-Forwarded-Encrypted: i=1; AL+hErEVPJXga6iy1EYPaABjo2e00+vNZT7c5nwOuVzomI9zvB2dpubRrVIptpkIG2grfLeE9qr8iE8oPC0q48o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8eI5X9ZcktZYv6/R2O9fJ7Ue6dopZgJaLHdrbalcqGwNvD7SlA
+	9UCo0ywt4oqF9ipaqZE856PZmIU5fA6GFnM5mg7ShUgk5QgUG5s6FotUPctG92k1/RBG0sDY9An
+	kIzkNHbJsFdNPqhrhnZUehKfPLiTbZd9Q0Ep1ySyRyQ==
+X-Gm-Gg: AYBFou1RJeqMHMRdY1uoHFt/HeHtJhjfre+LZeUyIzIw36VyUQd3tzJxn9dnxVLDIoZ
+	nPsPKxsRER/XZzOmS0+104F5PhdL2J5ajTAmTrCHVLFjcwIgS/mGyZuJ0VV/pJyMHPJkpYTDd5i
+	1qWGEanBhTkEdz3uM8zjgTEuma1peUcafw6zs61fO+52j2gg327z7M0lxENbaQWa59FIh4AovmD
+	iZrA2e0or7fyyVJQKpyAOAdXPm+IOofpyJaW30i/nmp/VW8sPZSfWuka8pY7zqqphs7ruOeDbwL
+	K5PJWXOw6gE+5Mq1pQpop6RJZ0+sGvJNuBqDeLSLZ/4s9bYezDmJ8j3BbOAKHiI3wGtgLUT7Wjk
+	gIz9m8dwBdoCJkMzZP2/pimvPoexwIOTqTD7y5iyEx2+VR8SjQIQUsYK6uA==
+X-Received: by 2002:a17:907:3da5:b0:c41:26b8:c49c with SMTP id
+ a640c23a62f3a-c510e169389mr367702866b.10.1795041049337; Wed, 18 Nov 2026
+ 14:30:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,210 +104,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: consolidate the memory mapping entries into
- a VMA entry
-Content-Language: en-US
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- "David Hildenbrand (Arm)" <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <liam@infradead.org>,
- Suren Baghdasaryan <surenb@google.com>, Shakeel Butt
- <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>,
- Jann Horn <jannh@google.com>, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Autocrypt: addr=vbabka@kernel.org; keydata=
- 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
-In-Reply-To: <20261118-maintainers-consolidate-vma-entry-v1-1-8019b0e9928f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20261118150247.972732815@linuxfoundation.org>
+In-Reply-To: <20261118150247.972732815@linuxfoundation.org>
+From: Takeshi Ogasawara <takeshi.ogasawara@futuring-girl.com>
+Date: Thu, 19 Nov 2026 07:30:30 +0900
+X-Gm-Features: AclHuK-6KSFdeiMC8z3chBPKy6DS0Q8xZ1fgA_xjvJB7kCL4tYoOxjNdA9E-2fQ
+Message-ID: <CAKL4bV78Ze=q5THC2pbgfczSEH37KbaYKBerS3eXwadJGpx+hw@mail.gmail.com>
+Subject: Re: [PATCH 7.3 0000/2651] 7.3.6-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
+	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, 
+	jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
+	rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, 
+	achill@achill.org, sr@sladewatkins.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/18/26 19:22, Lorenzo Stoakes (ARM) wrote:
-> Memory mapping entries were kept in three different sections in order that
-> those maintaining/reviewing each distinct part would be made responsible
-> for/cc'd on only those parts.
-> 
-> However this creates confusion as to what files belong to which component,
-> so simplify things by consolidating them into one.
-> 
-> Expand Suren's maintainership to the entire component, as he is a trusted
-> and valued member of the VMA kernel team and very much deserving of the
-> position.
+Hi Greg
 
-Nice!
+On Thu, Nov 19, 2026 at 12:08=E2=80=AFAM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> This is the start of the stable review cycle for the 7.3.6 release.
+> There are 2651 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>
+> Responses should be made by Fri, 20 Nov 2026 14:55:47 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+>         https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-=
+7.3.6-rc1.gz
+> or in the git tree and branch at:
+>         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable=
+-rc.git linux-7.3.y
+> and the diffstat can be found below.
+>
+> thanks,
+>
+> greg k-h
+>
 
-> Additionally, drop Suren's core and misc reviewerships in order to focus
-> upon VMA.
-> 
-> As David is receiving pull requests directly, make him a reviewer, purely
-> as an administrative change.
-> 
-> Also specify the new tree location in preparation for the tree being
-> established for next cycle, and remove the link to the not so regularly
-> updated linux-mm website.
-> 
-> Given that, from next cycle, the tree will sit outside of Andrew's current
-> process, remove his entry, also purely as an administrative change.
-> 
-> With that said, I'd like to take the opportunity to express gratitude for
-> Andrew's huge contribution to mm, and for his being both generous and
-> gracious throughout this period of change in the subsystem.
-> 
-> Co-developed-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Linux version 7.3.6-rc1 tested.
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+Build successfully completed.
+Boot successfully completed.
+No dmesg regressions.
+Video output normal.
+Sound output normal.
 
-> ---
->  MAINTAINERS | 51 +++++++++++++--------------------------------------
->  1 file changed, 13 insertions(+), 38 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 222b7fc2c3aa..59496dd1d11e 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -17509,7 +17509,6 @@ R:	Lorenzo Stoakes <ljs@kernel.org>
->  R:	Liam R. Howlett <liam@infradead.org>
->  R:	Vlastimil Babka <vbabka@kernel.org>
->  R:	Mike Rapoport <rppt@kernel.org>
-> -R:	Suren Baghdasaryan <surenb@google.com>
->  R:	Michal Hocko <mhocko@suse.com>
->  L:	linux-mm@kvack.org
->  S:	Maintained
-> @@ -17680,7 +17679,6 @@ R:	Lorenzo Stoakes <ljs@kernel.org>
->  R:	Liam R. Howlett <liam@infradead.org>
->  R:	Vlastimil Babka <vbabka@kernel.org>
->  R:	Mike Rapoport <rppt@kernel.org>
-> -R:	Suren Baghdasaryan <surenb@google.com>
->  R:	Michal Hocko <mhocko@suse.com>
->  L:	linux-mm@kvack.org
->  S:	Maintained
-> @@ -17974,30 +17972,37 @@ F:	rust/kernel/mm.rs
->  F:	rust/kernel/mm/
->  F:	rust/kernel/page.rs
->  
-> -MEMORY MAPPING
-> -M:	Andrew Morton <akpm@linux-foundation.org>
-> -M:	Liam R. Howlett <liam@infradead.org>
-> +MEMORY MANAGEMENT - VMA
->  M:	Lorenzo Stoakes <ljs@kernel.org>
-> +M:	Liam R. Howlett <liam@infradead.org>
-> +M:	Suren Baghdasaryan <surenb@google.com>
->  R:	Vlastimil Babka <vbabka@kernel.org>
-> -R:	Jann Horn <jannh@google.com>
-> +R:	Shakeel Butt <shakeel.butt@linux.dev>
->  R:	Pedro Falcato <pfalcato@suse.de>
-> +R:	David Hildenbrand <david@kernel.org>
-> +R:	Jann Horn <jannh@google.com>
->  L:	linux-mm@kvack.org
->  S:	Maintained
-> -W:	http://www.linux-mm.org
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/mm/vma.git for-next
->  F:	Documentation/core-api/protection-keys.rst
->  F:	Documentation/filesystems/mmap_prepare.rst
-> +F:	Documentation/mm/process_addrs.rst
->  F:	Documentation/userspace-api/mseal.rst
->  F:	fs/proc/task_mmu.c
->  F:	fs/proc/task_nommu.c
->  F:	include/linux/mman.h
-> +F:	include/linux/mmap_lock.h
->  F:	include/linux/pkeys.h
->  F:	include/trace/events/mmap.h
-> +F:	include/trace/events/mmap_lock.h
-> +F:	include/uapi/asm-generic/mman-common.h
->  F:	include/uapi/linux/mman.h
->  F:	mm/char-mem.c
-> +F:	mm/madvise.c
->  F:	mm/mincore.c
->  F:	mm/mlock.c
->  F:	mm/mmap.c
-> +F:	mm/mmap_lock.c
->  F:	mm/mprotect.c
->  F:	mm/mremap.c
->  F:	mm/mseal.c
-> @@ -18011,36 +18016,6 @@ F:	mm/vma_internal.h
->  F:	tools/testing/selftests/mm/merge.c
->  F:	tools/testing/vma/
->  
-> -MEMORY MAPPING - LOCKING
-> -M:	Andrew Morton <akpm@linux-foundation.org>
-> -M:	Suren Baghdasaryan <surenb@google.com>
-> -M:	Liam R. Howlett <liam@infradead.org>
-> -M:	Lorenzo Stoakes <ljs@kernel.org>
-> -R:	Vlastimil Babka <vbabka@kernel.org>
-> -R:	Shakeel Butt <shakeel.butt@linux.dev>
-> -L:	linux-mm@kvack.org
-> -S:	Maintained
-> -W:	http://www.linux-mm.org
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> -F:	Documentation/mm/process_addrs.rst
-> -F:	include/linux/mmap_lock.h
-> -F:	include/trace/events/mmap_lock.h
-> -F:	mm/mmap_lock.c
-> -
-> -MEMORY MAPPING - MADVISE (MEMORY ADVICE)
-> -M:	Andrew Morton <akpm@linux-foundation.org>
-> -M:	Liam R. Howlett <liam@infradead.org>
-> -M:	Lorenzo Stoakes <ljs@kernel.org>
-> -M:	David Hildenbrand <david@kernel.org>
-> -R:	Vlastimil Babka <vbabka@kernel.org>
-> -R:	Jann Horn <jannh@google.com>
-> -L:	linux-mm@kvack.org
-> -S:	Maintained
-> -W:	http://www.linux-mm.org
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> -F:	include/uapi/asm-generic/mman-common.h
-> -F:	mm/madvise.c
-> -
->  MEMORY TECHNOLOGY DEVICES (MTD)
->  M:	Miquel Raynal <miquel.raynal@bootlin.com>
->  M:	Richard Weinberger <richard@nod.at>
-> 
-> ---
-> base-commit: 0c524518413094607a6178c53a65815762bc9c45
-> change-id: 20261118-maintainers-consolidate-vma-entry-ff6a360ab069
-> 
-> Cheers,
+Lenovo ThinkPad X1 Carbon Gen10(Intel i7-1260P(x86_64) arch linux)
 
+[    0.000000] Linux version 7.3.6-rc1rv-g62eba995b019
+(takeshi@ThinkPadX1Gen10J0764) (gcc (GCC) 16.2.1 20260810, GNU ld (GNU
+Binutils) 2.47) #1 SMP PREEMPT_DYNAMIC Thu Nov 19 06:29:24 JST 2026
+
+Tested-by: Takeshi Ogasawara <takeshi.ogasawara@futuring-girl.com>
