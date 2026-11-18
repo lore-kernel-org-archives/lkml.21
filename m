@@ -1,85 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795040136;
-	b=XmXoE/YoXUBMkM1R7sJWxcSVlRNQ4cmmvm7zfNOcvEPgyO0oBHi82Z10LwPXq8SCqBNn
-	 7vsux2dHdzCJMZA8rLfW2x+1jubheZJ0Sji6S5Llo6lvJW5EHgw491MGDcUKXUyA5YzKW
-	 /Ze+e16yupfnBAugdnIGGPDN2UspKNvKm8Q4uYDkDoGGf6Gj8CT9yFGXd4B03dwf2/fLe
-	 P14/mrQ6r9knm8hr6SEVLBKQNWysCFEWYk6fD3KYe5amXcb5BWsD2AjHMs0c8TC7pnqpG
-	 kqifK65T1gZXJJwyp5bwKWBIspEFyL/Lg1ysXtWOqF2sF71I3RoWiWZnGagLqoz4s1A==
+	t=1795040142;
+	b=UYrXjP35FYC9iyFohYPsk3D6dX5vzrRjhImeg81zzmHardj8j5yJ8g+nz09iJSkq3KVH
+	 vEMLCheUwlKV8F7WxchpVnmT9fBeA6hdJDaq3uKRR1qkup530a4HY84KHZAdm+lo4QOeK
+	 pKJca4yTMR6wGNk7d4mVCtYNs4braeb6ts9yRLDqQMKCn0UO042E23FkGlWkKRRqMXme/
+	 /4lo51YR4vGjYlKlJGsBuGnTmORcbx/UcSrxH+eDxRraE2BL5sH9V88otfye5Y3m5Azfe
+	 xZc8+lmj6zXqVn+BxLZgqGT2WRduuBJctpbs/nosv3g1T5fQfJejF2s8gh0C9BeyunQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795040136;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=e0puxu11uw6EkDOS3QsOBhNMDjZor1AmTioNsCPSIoU=;
-	b=TnYoE3hq8kldi2d9Vd7AycVbNJTvvaqRr++Va9KLwPbrG+CoQZZj8eQtv022KhfcakaZ
-	 rmGj8CkPys/LA+Ro43zAOEVDO/crzZ66QnH8URgqtvqMSh9z6BBRcCIEJ4Eev3aOqveRx
-	 xwEJGa/HnPMSZjDs+NAluThOjCPNDnL2nTrsIh35jeSLNK6z4Z08RgEBuIKvCok9Ll6fW
-	 1SbtHLrZeUmOL9wmeCO6Ip9Sj4LT1PcGpDxsqrSnCWaJfytsT8tAGvVoL4ue1P+vmcaOF
-	 qeizVEaJ2e0qIVblpjbbmnD15tGkU+k5l7NxX4GwuzfI97p/mUNoeQzBPHEFFbPTcjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795040142;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=brabdTB6uyaPfA3qh+/IR51oM3YAfNAZhWDysuFIjeU=;
+	b=FBXg61xPzVjo5s+YmxhbvVOApA3l49R9VVlsrbUzPEv0V9m7I5zcE46lZc+qx//6opfY
+	 F7y3HkscEOOI+IYR+gIkGGUZURfKrHY030Pca+3O3xGMfWWzpB2QVqBIc1+K2B4B+QByb
+	 wNSBg4swpb5OOfbtoQG/T2LB+kH7/m4RBjLGOX9lLDjWtrIN7gbZRgJ+cdrVAk/AdODYA
+	 3nAqb+ltOGDqU8RPOZUs3oBdBfBSHP/RG19Ob97aIiq3o2iwwOxfhclupuGUTOyNVwWWh
+	 o+XZRWpmx0U20rhpL/JDaVnmtKMfH6TrzMvd0sQwcLvwiD08Lrt/4tGcpdjOdydFAbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Vmip2v4f;
-	arc=none smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qkbwk5NL;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E955606A31C;
-	Wed, 18 Nov 2026 22:15:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E955606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F08B3606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:15:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F08B3606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Vmip2v4f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795040135; x=1826576135;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=kMuBiIFxltAIjikpl7vK3di7IS3jrzFLHdvUlAWFAtM=;
-  b=Vmip2v4fPQX9tNZgylnvpJTnUAauRD6HYma/5elA2noIrSCnv4y9pVek
-   nm6pSTPeTaCl55c+J56Sd0bkeOaSr4051P7ToZ02S0ObgDBoAmgsa5CyG
-   +EV4Z08iPfPxHz+peUh4q/F2n4EYqKLNfewU5FM/3Pa/RbzC65cJF8jip
-   5RIQpUhkxWfKJl6Pio7jQmB83IwEfLhzDSwQXK0RzGSXm90lUAxKKmSKg
-   EsyqohmYdfNPvvvrDwmHgBos/2rwX2j/RM89dUMhEu4DbQq7u5LO1h65n
-   Pi3jsGwj0fBaTOgAuV5yJ2pJwpzEMVZufzmmiT3m85yC5+teJNyuESL0s
-   w==;
-X-CSE-ConnectionGUID: AUf4m39jRtqEjbUFI6oqJg==
-X-CSE-MsgGUID: Xq6IgimUTvSc4zoGeitcDg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3919412"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3919412"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 14:15:33 -0800
-X-CSE-ConnectionGUID: oVdWhmTXTcGBnFFPqzvCiQ==
-X-CSE-MsgGUID: PORxCRw+TimmA918XZfGcg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10651745"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 18 Nov 2026 14:15:30 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTnw6-00000001ETm-2tJG;
-	Wed, 18 Nov 2026 22:15:26 +0000
-Date: Thu, 19 Nov 2026 06:15:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org,
-	kuba@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/2] netdevsim: add TLS device offload
- emulation
-Message-ID: <202611190536.FTvmv1cW-lkp@intel.com>
-References: <20261117140642.4008-2-jiayuan.chen@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qkbwk5NL
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso15489725e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:15:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795040140; x=1795644940; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=brabdTB6uyaPfA3qh+/IR51oM3YAfNAZhWDysuFIjeU=;
+        b=Qkbwk5NLdsnVZPxeSelNtIgeJrVqy7r5PhORC9tZD8MOHsCcSNldQIgMus8uRtusHF
+         vwXviZ/iuCeZYD+oxtKIk8WigYKP2DMjsYKuXOzlYGAjGO3z8JptkEIgzxMnW2BQRION
+         hrKV7VEVJkxxWWfRiQx6ngwd9kR+GXUqWGkYMuUybMDVOvSVyMLFcbZFG9Wuh7yaIxzI
+         9e7+pSZjmhtdLpUfi5FpDJoEnD+AHyzNId+CwCw5EZj/tAFIjl0qNkiG1HLcP6pmMoIq
+         UJwYCCDYfoEvU2kG7eYe5lL46fOE35flqGctaFR6kOIKvZnWxi5z8c6s2KRjpapYsCA+
+         re0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795040140; x=1795644940;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=brabdTB6uyaPfA3qh+/IR51oM3YAfNAZhWDysuFIjeU=;
+        b=sK2b3+3IKRiXL9gzM9BjBXrz356/Bu9/IyH8GtqNn15t5WcV/fNbJ1VSX4SwBtMkPR
+         eD4lLG5os82GuhqUp6DWks88QQ28fHs8ycvyqCpcUnUiRNevDjL+fo9neIQX6wQAy75K
+         hwQyDkTT7sjFP9IP3gv7Dd3WuJPVSzb7mZ/eynbwGDxETn82T96sncZukwnwKxNmGBMM
+         eBwk7e3pYUmENOuP8izk5VX2zCk4MZi5M+A4TDKVh5Qb4LgG4tI2id0of6Dubw9REmZa
+         g6OeVR5p4EabCypYy75QJ73c9vNz1y33jSGlKRkv0ce37cKX5TrRFk1QxuExWhH+/ZBp
+         Ftxw==
+X-Forwarded-Encrypted: i=1; AL+hErFNGYFj4A/3YP9yluaJfzBgi9+gzzFAqLH1VUyrWNB9pkLH221Hrh2HqmcUnQEIQPPs7KKjak6lryMgiZk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9mjbW7lHY33G0eRUAu/kNiw3h+63LoNZQJJilsAe95/aLc8+Kn
+	rv7zMKlF9NO+TdVopERR5s7+byMSEe1Q4lA/AA5VPbFOpX9BOSU0j1f1
+X-Gm-Gg: AYBFou0x2ig1JjbAeFrp2hChy1VgRSZTrgzDthwkKVT/N/AWJttklEtPEwbzzqeAF3G
+	TCCk+YOdU2idkA4Cz3zEQnSaKt7Qf6Myj082Z56G5saKEIDFkDLXpNm7b3Wr3Yip4MP8L7yuAXu
+	1+H+qYmANE5eYUmAYb0nT/U0SUjppaulbV3LkybaF6JkPBs1/vYQjP4pS6m0tkVtl0Ghf+2kWeE
+	9s2HCPjK9zHC974kE/rPr5WzKASDzd9nwaE5TY8Y2B5UxR/fGcHs4lDLNaEeABz1mtqQ1pjHR7E
+	AwHEwgoNZxOn1VrQQqrxV7T6/HIFHV68q2mjlinRA4b4K0C8Ewg+ReF+no83BWj9rbzgNk6fUQR
+	xvEzS8FrGWGOO0QZ9bkQPGymq9kW9T2MxELLA+be1jppWojUjBNIYOWBwW3y7CHICFsqxQTGAjP
+	fTh6esLEO5hwNEdtuQMHcYgeyLf6yZve+fcUKBhGQK7YsEUT4tZWyavQigglYIHNASZeTbM4w98
+	r9kuCfzgpAdZSexj8YFFWgWDsQu+47BqKKInpS8j7ovXsl3Xl5w3qC8nS5acXNyzq0IYxISyTDO
+	B2wqqNkxXF4giAtAA/lhGAzP/ee6xv93PyumSyijnpMcE2/G66SxuS7dh1F321HeWw==
+X-Received: by 2002:a05:600c:3b8c:b0:4b7:6942:39bf with SMTP id 5b1f17b1804b1-4bb7da3a68bmr83410585e9.28.1795040140133;
+        Wed, 18 Nov 2026 14:15:40 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560ab70sm7710131f8f.30.2026.11.18.14.15.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 14:15:39 -0800 (PST)
+Date: Wed, 18 Nov 2026 22:15:38 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+ Devicetree@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Chen-Yu Tsai <wenst@chromium.org>, Saravana Kannan <saravanak@kernel.org>,
+ David Gibson <david@gibson.dropbear.id.au>, =?UTF-8?B?QW5kcsOp?= Draszik
+ <andre.draszik@linaro.org>, Simon Glass <sjg@chromium.org>,
+ linux-kernel@vger.kernel.org, Brian Norris <briannorris@chromium.org>,
+ Peter Griffin <peter.griffin@linaro.org>, Julius Werner
+ <jwerner@chromium.org>
+Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with
+ memchr()
+Message-ID: <20261118221538.4de223fd@pumpkin>
+In-Reply-To: <CAD=FV=U+KX9-XMK0xAzeciAapjFecfTS_DjyVDMGwypVmEE7vg@mail.gmail.com>
+References: <20261116205320.1621386-1-dianders@chromium.org>
+	<20261116205320.1621386-9-dianders@chromium.org>
+	<20261118095418.51d30ee8@pumpkin>
+	<CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
+	<20261118191559.7a39c37f@pumpkin>
+	<CAD=FV=U+KX9-XMK0xAzeciAapjFecfTS_DjyVDMGwypVmEE7vg@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,110 +112,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117140642.4008-2-jiayuan.chen@linux.dev>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Jiayuan,
+On Wed, 18 Nov 2026 12:39:59 -0800
+Doug Anderson <dianders@chromium.org> wrote:
 
-kernel test robot noticed the following build errors:
+> Hi David,
+> 
+> On Wed, Nov 18, 2026 at 11:15 AM David Laight
+> <david.laight.linux@gmail.com> wrote:
+> >  
+> > > 2. Every stored string ends with `'\0'`, whereas `s[0]` only appears in
+> > >    a smaller fraction of bytes. On a real upstream Qualcomm base DTB's
+> > >    `dt_strings` block (855 strings in 11,259 bytes, average 13.2 bytes
+> > >    per string), `'\0'` occurs on 7.6% of bytes while `s[0]` averages
+> > >    3.9%. Replaying those 855 insertions makes 362k `memchr()` calls when
+> > >    scanning for `'\0'` vs. 187k `memchr()` calls when scanning for
+> > >    `s[0]`.  
+> >
+> > You need to count the number of times that a letter that is the first
+> > character of a string you are going to lookup appears in the entire buffer.
+> > There might only be one 'j' in the entire buffer - but you never look for it.
+> > (But I might still be wrong)  
+> 
+> That 3.9% (`187,315` `memchr()` calls across ~4.77M scanned bytes) was
+> actually measured directly by replaying those 855 real lookups (`s[0]`
+> of each string being inserted), not an unweighted 1/26 average across
+> the alphabet. Even though common prefixes like `'p'`, `'u'`, `'q'`, and
+> `'s'` get looked up a lot, 26.6% of the `dt_strings` block (`2,139`
+> bytes of `'_'`, `'-'`, `'0'-'9'`, and `'#'`, plus `855` NUL bytes) are
+> characters that almost never appear as `s[0]`, which pulls the
+> lookup-weighted hit rate back down to 3.9%.
+> 
+> Intuitively, `'\0'` hits once per string (`1 / L`), so `s[0]` wins as
+> long as average string length `L` stays below the ~22-26 byte crossover
+> -- and even on plain non-`-@` DTBs without `/__symbols__`, property
+> names average ~12-14 bytes (`'\0'` still made 1.6x-2.2x more `memchr()`
+> calls than `s[0]` across plain DTB `fdt_sw` builds, `/chosen` fixups,
+> and `.dtbo` overlay application).
+> 
+> > Have you tried an open coded scans instead of calling memchr() and memcmp()?
+> > With an average of 13 bytes per string (26 for your memchr()) the code loop
+> > might be faster.
+> > But beware, gcc is likely to convert the code back to a call to memcmp()
+> > - it certainly does for strlen and memcpy.
+> >
+> > Oh - and if this code runs in kernel the timings will be significantly
+> > different to glibc - it uses some magic avx instructions for strlen()
+> > and memchr() is effectively the same.
+> > The kernel functions are likely to be out of line byte loops.  
+> 
+> Out of curiosity I timed all of those across 200 replays of the same
+> 855-string (11,259-byte) Qualcomm `dt_strings` block with `gcc 15.2` on
+> x86_64 (`gcc -O2` kept the open-coded loops inline and didn't turn them
+> back into `memcmp()`):
 
-[auto build test ERROR on net-next/main]
+Once you are doing timings, adding a few more doesn't take long.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jiayuan-Chen/netdevsim-add-TLS-device-offload-emulation/20261117-220630
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20261117140642.4008-2-jiayuan.chen%40linux.dev
-patch subject: [PATCH net-next v2 1/2] netdevsim: add TLS device offload emulation
-config: i386-buildonly-randconfig-1004-20261119 (https://download.01.org/0day-ci/archive/20261119/202611190536.FTvmv1cW-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611190536.FTvmv1cW-lkp@intel.com/reproduce)
+> * glibc `memchr` + `!p[slen]` + glibc `memcmp`:
+>   0.25 s (`-O0`), 0.23 s (`-Os`), 0.22 s (`-O2`)
+> * glibc `memchr` + `!p[slen]` + open-coded inner compare:
+>   0.23 s (`-O0`), 0.21 s (`-Os`), 0.21 s (`-O2`)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611190536.FTvmv1cW-lkp@intel.com/
+So that one is a marginal win.
 
-All errors (new ones prefixed by >>):
+> * Fully open-coded (`p[0] == s[0] && !p[slen]` + inner byte loop):
+>   0.91 s (`-O0`), 0.62 s (`-Os`), 0.40 s (`-O2`)
+> * Out-of-line byte-loop `memchr` + `!p[slen]` + byte-loop `memcmp`:
+>   0.86 s (`-O0`), 0.90 s (`-Os`), 0.50 s (`-O2`)
+> * Original per-byte out-of-line byte-loop `memcmp`:
+>   3.31 s (`-O0`), 1.87 s (`-Os`), 1.86 s (`-O2`)
+> 
+> Even with a ~25-byte average stride, glibc's AVX2 `memchr()` handles
+> almost an entire stride in a single 32-byte vector load + compare, so it
+> beats the open-coded scalar loop by ~1.9x at `-O2` (and ~2.7x at `-Os`).
 
-   In file included from include/linux/tcp.h:19,
-                    from include/linux/ipv6.h:103,
-                    from drivers/net/netdevsim/tls.c:3:
-   drivers/net/netdevsim/tls.c: In function 'nsim_tls_dev_add':
->> include/net/sock.h:404:37: error: 'struct sock_common' has no member named 'skc_v6_rcv_saddr'; did you mean 'skc_rcv_saddr'?
-     404 | #define sk_v6_rcv_saddr __sk_common.skc_v6_rcv_saddr
-         |                                     ^~~~~~~~~~~~~~~~
-   drivers/net/netdevsim/tls.c:298:35: note: in expansion of macro 'sk_v6_rcv_saddr'
-     298 |                 conn->laddr = sk->sk_v6_rcv_saddr;
-         |                                   ^~~~~~~~~~~~~~~
->> include/net/sock.h:403:45: error: 'struct sock_common' has no member named 'skc_v6_daddr'; did you mean 'skc_daddr'?
-     403 | #define sk_v6_daddr             __sk_common.skc_v6_daddr
-         |                                             ^~~~~~~~~~~~
-   drivers/net/netdevsim/tls.c:299:35: note: in expansion of macro 'sk_v6_daddr'
-     299 |                 conn->raddr = sk->sk_v6_daddr;
-         |                                   ^~~~~~~~~~~
+Using avx2 is 'cheating' ...
+Someone at Intel realised that strlen() does matter and threw some silicon at it.
+They finally did the same for integer divide (but I think AMD did it first)
+and did a divide that generates move than one bit per clock. 
 
+> Open-coding just the inner compare barely moves the needle since
+> `!p[slen]` already cut `memcmp()` down to 14.3k calls across the 855
+> insertions.
+> 
+> On the kernel / bootloader side, `fdt_find_string_len_()` is only called
+> by `fdt_sw` and `fdt_rw` when adding new property names to `dt_strings`
+> -- normal read-only DTB parsing (`fdt_ro.c`) never calls it. And even
+> with a naive out-of-line byte-loop `memchr()`, `memchr()` + `!p[slen]` +
+> `memcmp()` is still 3.7x faster at `-O2` (`1.86 s -> 0.50 s`) and 2.1x
+> faster at `-Os` (`1.87 s -> 0.90 s`) than the old code, so keeping the
+> simpler `memchr()` + `!p[slen]` + `memcmp()` seems like the right
+> tradeoff.
 
-vim +404 include/net/sock.h
+Seems reasonable.
 
-4dc6dc7162c08b9 Eric Dumazet             2009-07-15  382  
-68835aba4d9b74e Eric Dumazet             2010-11-30  383  #define sk_dontcopy_begin	__sk_common.skc_dontcopy_begin
-68835aba4d9b74e Eric Dumazet             2010-11-30  384  #define sk_dontcopy_end		__sk_common.skc_dontcopy_end
-4dc6dc7162c08b9 Eric Dumazet             2009-07-15  385  #define sk_hash			__sk_common.skc_hash
-5080546682bae3d Eric Dumazet             2013-10-02  386  #define sk_portpair		__sk_common.skc_portpair
-05dbc7b59481ca8 Eric Dumazet             2013-10-03  387  #define sk_num			__sk_common.skc_num
-05dbc7b59481ca8 Eric Dumazet             2013-10-03  388  #define sk_dport		__sk_common.skc_dport
-5080546682bae3d Eric Dumazet             2013-10-02  389  #define sk_addrpair		__sk_common.skc_addrpair
-5080546682bae3d Eric Dumazet             2013-10-02  390  #define sk_daddr		__sk_common.skc_daddr
-5080546682bae3d Eric Dumazet             2013-10-02  391  #define sk_rcv_saddr		__sk_common.skc_rcv_saddr
-^1da177e4c3f415 Linus Torvalds           2005-04-16  392  #define sk_family		__sk_common.skc_family
-^1da177e4c3f415 Linus Torvalds           2005-04-16  393  #define sk_state		__sk_common.skc_state
-^1da177e4c3f415 Linus Torvalds           2005-04-16  394  #define sk_reuse		__sk_common.skc_reuse
-055dc21a1d1d219 Tom Herbert              2013-01-22  395  #define sk_reuseport		__sk_common.skc_reuseport
-9fe516ba3fb29b6 Eric Dumazet             2014-06-27  396  #define sk_ipv6only		__sk_common.skc_ipv6only
-26abe14379f8e2f Eric W. Biederman        2015-05-08  397  #define sk_net_refcnt		__sk_common.skc_net_refcnt
-7c268eaeec6388b Kuniyuki Iwashima        2025-10-14  398  #define sk_bypass_prot_mem	__sk_common.skc_bypass_prot_mem
-^1da177e4c3f415 Linus Torvalds           2005-04-16  399  #define sk_bound_dev_if		__sk_common.skc_bound_dev_if
-^1da177e4c3f415 Linus Torvalds           2005-04-16  400  #define sk_bind_node		__sk_common.skc_bind_node
-8feaf0c0a5488b3 Arnaldo Carvalho de Melo 2005-08-09  401  #define sk_prot			__sk_common.skc_prot
-07feaebfcc10cd3 Eric W. Biederman        2007-09-12  402  #define sk_net			__sk_common.skc_net
-efe4208f47f907b Eric Dumazet             2013-10-03 @403  #define sk_v6_daddr		__sk_common.skc_v6_daddr
-efe4208f47f907b Eric Dumazet             2013-10-03 @404  #define sk_v6_rcv_saddr	__sk_common.skc_v6_rcv_saddr
-33cf7c90fe2f97a Eric Dumazet             2015-03-11  405  #define sk_cookie		__sk_common.skc_cookie
-70da268b569d32a Eric Dumazet             2015-10-08  406  #define sk_incoming_cpu		__sk_common.skc_incoming_cpu
-8e5eb54d303b7cb Eric Dumazet             2015-10-08  407  #define sk_flags		__sk_common.skc_flags
-ed53d0ab761f5c7 Eric Dumazet             2015-10-08  408  #define sk_rxhash		__sk_common.skc_rxhash
-efe4208f47f907b Eric Dumazet             2013-10-03  409  
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  410  	__cacheline_group_begin(sock_write_rx);
-43f51df41729559 Eric Dumazet             2021-11-15  411  
-9115e8cd2a0c6ea Eric Dumazet             2016-12-03  412  	atomic_t		sk_drops;
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  413  	__s32			sk_peek_off;
-7d452516b67add4 Eric Dumazet             2025-09-29  414  	struct sk_buff_head	sk_error_queue;
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  415  	struct sk_buff_head	sk_receive_queue;
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  416  	/*
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  417  	 * The backlog queue is special, it is always used with
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  418  	 * the per-socket spinlock held and requires low latency
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  419  	 * access. Therefore we special case it's implementation.
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  420  	 * Note : rmem_alloc is in this structure to fill a hole
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  421  	 * on 64bit arches, not because its logically part of
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  422  	 * backlog.
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  423  	 */
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  424  	struct {
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  425  		atomic_t	rmem_alloc;
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  426  		int		len;
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  427  		struct sk_buff	*head;
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  428  		struct sk_buff	*tail;
-fa438ccfdfd3f6d Eric Dumazet             2007-03-04  429  	} sk_backlog;
-b178bb3dfc30d95 Eric Dumazet             2010-11-16  430  #define sk_rmem_alloc sk_backlog.rmem_alloc
-2c8c56e15df3d4c Eric Dumazet             2014-11-11  431  
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  432  	__cacheline_group_end(sock_write_rx);
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  433  
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  434  	__cacheline_group_begin(sock_read_rx);
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  435  	/* early demux fields */
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  436  	struct dst_entry __rcu	*sk_rx_dst;
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  437  	int			sk_rx_dst_ifindex;
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  438  	u32			sk_rx_dst_cookie;
-5d4cc87414c5d11 Eric Dumazet             2024-02-16  439  
+David
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> -Doug
+
