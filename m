@@ -1,58 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794961370;
-	b=Sqas0gzT1tMP9GIybHO+85fzpAoPX2+eSsGikyhQE+sQWzu3zejLo6cV9lsu/mk8CGQb
-	 ENrv27SxjC+8e7f84nz25SRYcz5WSeQrZyzOr9rh83k8B/eAqWWPoTigT14yDhEtB7udi
-	 iddCUmHKNZW+cGa73+h3s/Huizo42O1MsoBM7tJkD1Z3IhKemKMRM1Eu2REdqG5fIWEJb
-	 5m12fWjk0Shmv1mhIOseYBPwV4kDxA3jBRyzL7iulrZoMPf3NIFJGpcae+AhHy8zs8YHH
-	 xBtdbh0clbub9quyi2h3AzvVXc2NOvNiNB/rPTQtoBj2y2VMHajJfsmPQT7+z0aE7/g==
+	t=1794961382;
+	b=uFP58sTFC7istJ6Fhtg5msNfwaoZ9PiqT7K2b2CP5a4InCcA7JOIqLr/QnyeKGA1Cugf
+	 quVlxXrgp7575pc4VvLnEVFYWHAVV/1o0FmtccBYA2NF9m4IhcTyoFDmgDC9Mc3Aj90LM
+	 fgHWdXZR8AQsx3p2rOLuqlTP+XtTENKaA6XrsnkDBogOrvWq6IWuXB98xYwZF+i+iiLFx
+	 a9q2iTxOszr6twMqmnQlbeu0XHznY7Jt2CFrX6Wq5Dkj2kCvfuFRS4R62UDEPZaY+eYnz
+	 QdWJqtghdQOyFpPxY3134fQvuBLy2B/6u5O4IXD1HLLwzssPCIYHdPPYBMEnigmHjLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794961370;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794961382;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=Yyp9htXtlrZQtTO2sEMjINZ4vkcpiCK5cmehF31nALA=;
-	b=UqRvEVHRGw4zO2cztHTomYIVj0tfGmELL4uQC0yvxZnWXvJTBs8xbikMMVBjWIyyHCqr
-	 ZlIXvT5ku87L2x40u9O9SaIY9DGEcLmhVXz5l0yLv+9R26bowB05I2puqb2iw3GPFbzVN
-	 eHxJeW7rEWV8GA6+55zrU17cqP0Z0DXe8Kv/PDtr2QXviOX3/6j0mskikWoCVgU+MPGLO
-	 vb1SfsLH8srnmzL1kwSDFolW0RyAwWSHZ5yVF7oEOLG7FqF1LMSfNBMJSU54iM0tbwAkz
-	 25sClfTt/kY3L5BubUA3RMnnijFiznRR41cBE2lT0OIrBZqVkg80yUI6HwYMHmv07IA==
+	bh=oy0tZArTQ8iY4s0PSPsEHwXzkcjVeEK/EWogk8QKuFE=;
+	b=AH1CfGUP2InEZXhcto9rP14myKryyFJVMDrFQ29l/jD3dJRbVZDhY+dmBJ/HkBI1//bf
+	 ryb9PUe3UIX4YfxCia95+z2uaNKoQmEW259d4rKg+qb+57c/bjXEZNEwcO3ZSjekgg1kG
+	 E+j9N9Ogkd3BSLpJHkPyO4t/V1qZMAX2hrntmeSI5KMnEQ00UVQ7HdFMj3X34PtQ+FWTJ
+	 LJ8ZI2HHb6INqlStluwL/McelrD0WagDcnWpWlF9J/PHbMZcY++mwkGLsfpn71KpdOr7a
+	 0iiRoMcPgtUsjd2GxjGjONgrv8tLUt1W4iN0eYYkCUsXjIFAZj9PKJyX64jfUhJZB9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cqBKZAkM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N6Kadfqw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0CC9606A31C;
-	Wed, 18 Nov 2026 00:22:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75AC8606A31C;
+	Wed, 18 Nov 2026 00:23:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cqBKZAkM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C73B81F000C4;
-	Wed, 18 Nov 2026 00:22:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N6Kadfqw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DA821F000C7;
+	Wed, 18 Nov 2026 00:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794961370;
-	bh=Yyp9htXtlrZQtTO2sEMjINZ4vkcpiCK5cmehF31nALA=;
+	s=k20260515; t=1794961382;
+	bh=oy0tZArTQ8iY4s0PSPsEHwXzkcjVeEK/EWogk8QKuFE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cqBKZAkM4ZnJNd67kl1NTTRyMQr44qicC5vzQ+/sWcidrWU2DfEM8cgRRTjuWBEvh
-	 +iBIgsnCkWo74WOBoEfBbzAWNy1hzdlvyTDF1XPHDg4wTzwX8KO5xe8gtrj4Q14CzX
-	 DtnwACOnI8S8xko3HcInWVZwYmjikuKOTpDd2+blISTHsLErgMp3dYagVrhnhW09nd
-	 biDRcn7TqfCv3Utittx5ayxVRDlxab6agY1KwQHS/y3bAUUWWLauOf/vttA3RJ1vR6
-	 8ZgYzqDIt9nGVGUm7g2n1xQ1GzCi9E7/U1K7N/Tgx2c3B3fYW9R7rxPG/C0O38KIB/
-	 wp5GDc6Up8low==
+	b=N6Kadfqwpfv/pGQ0wbQSrHki8QAA64Obzd0jDazYYcjyw3uObaNDeGJZ8ROsf/nsP
+	 Hpciy6rJer6vdiu4lHcMEIuI80nSElpixOVVuWs5ZnCXASv50e1esRo8TqIv6ASzzX
+	 J0NS/reN/W1//y0rkWMm39Cxzf2zNhx6IUa82lH8oOU3XxW41Y8+F6Zr6+PCljEdpD
+	 fJIWZGXa4WUnim/G2nyYrqjKfd/4faIsmEm+aAIL3uwFGzKI8nz77SFJPs2e3UcUbX
+	 rCXUuUDGZmshyVMIlwLyE6mxXPL4uhj7BL4sGzwF1r8MSIipjQpTsxn0s4aSKysA5Q
+	 s1YYIGy501r0g==
 From: Sasha Levin <sashal@kernel.org>
-To: stable@vger.kernel.org
-Cc: linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	leon@kernel.org,
-	jgg@ziepe.ca,
-	kaishen@linux.alibaba.com,
-	Cheng Xu <chengyou@linux.alibaba.com>
-Subject: Re: [PATCH 6.6.y] RDMA/erdma: Use IRQ-safe XArray helpers for QP and CQ tables
-Date: Tue, 17 Nov 2026 19:22:48 -0500
-Message-ID: <2026-11-17-1-daily-reply-0002@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Tejun Heo <tj@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	reinette.chatre@intel.com,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	rafael@kernel.org,
+	dakr@kernel.org,
+	hannes@cmpxchg.org,
+	mkoutny@suse.com,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	eddyz87@gmail.com,
+	shuah@kernel.org,
+	jolsa@kernel.org,
+	alan.maguire@oracle.com,
+	cgroups@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Christian Loehle <christian.loehle@arm.com>
+Subject: Re: [PATCH AUTOSEL 6.12 486/486] kernfs: Use RCU to access kernfs_node::parent.
+Date: Tue, 17 Nov 2026 19:22:57 -0500
+Message-ID: <2026-11-17-1-daily-reply-0006@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117022839.23186-1-chengyou@linux.alibaba.com>
-References: <20261117022839.23186-1-chengyou@linux.alibaba.com>
+In-Reply-To: <c6918c4e-060a-4968-a43a-1b1cbdafd27b@arm.com>
+References: <c6918c4e-060a-4968-a43a-1b1cbdafd27b@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,15 +83,20 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Message-ID: <20261118002248.wu4HjsFdDot26oHEK0Mwbq8yEcqH9lsR8E2s7HSq8Hc@z>
+Message-ID: <20261118002257.8J0Hx6m5tGzALTBeIGOqKbPOrAmprGTL6yIh9GottK4@z>
 
-> Use IRQ-safe XArray helpers for all QP and CQ create-path updates,
-> including the GSI QP store and error paths.
+> Sorry, my bad, this should've been to ::name, later in the series.
+> Here's a lockdep:
 
-Queued for 6.12 and 6.6, thanks.
+Thanks for the splat. The fix for it is not one patch but the whole kernfs RCU
+series, from 400188ae361a ("kernfs: Acquire kernfs_rwsem in
+kernfs_notify_workfn().") through 741c10b096bc ("kernfs: Use RCU to access
+kernfs_node::name."), plus its follow-ups. None of it is tagged for stable, and
+one follow-up, 6034974e3aec ("kernfs: take kernfs_rename_lock for same-parent
+renames too"), is not in 7.3 or 6.18 yet.
 
-6.1 has the same bug and is not covered. If you want it there, please send a
-6.1.y backport.
+That is too invasive for 6.12 for a lockdep report, so I'm not queueing it. A
+tested backport of the series would be considered.
 
 -- 
 Thanks,
