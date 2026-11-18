@@ -1,68 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794972789;
-	b=bppM2A/EVtePY81JimJ1w2YlfhrLzOuhKWNUxxVg8mzG4jnI0tDK/d1dIf+sdtQI6B4D
-	 874CW6T5jFeyQsBueanKhcRpUg6dUKxJ6nhjGfKo9uv0HsoWtp7NRT7tlR3YssD9vM8IO
-	 FL0FBRpGWeWlo8xpyNjxO5o5tnbQqGrmzK7iR1EmwzRF35EEO/b3LYrG0HtfxfU0I+MsA
-	 Ufk18I6VQ9ggD3FU54/IZm0AcW2XFgTkkMvDGGbutVtiQZ7N/ZsMqwrDJwLZ8Bgqzn+/N
-	 t+7I2ovAVaUaWHTYpBLTVexTzU7cO+ePc4MciNXOPY1S94El2XuusQiWknvfWE7yAzw==
+	t=1794972979;
+	b=c6nmYX3PY1hZa0W0AdkF3Zb/uJAxKogqz8X5OBvZl8KG058R1KdAX27hDYkaS04RFyu+
+	 I686kHxHrq3HgCyHUGldxGquEFAw5jQeHMI44s9hydopvPAPVI/Wr4M5axrCzs5V22NSF
+	 W/koits4/vyY34Ck74vKc9EH9HsuiSENG2tg8R1Taz27Z4CqluUH1nDMLmghsWVp8owh1
+	 0stx292GaMUBCRnmtQIzYJU6PGSjCQZe6AeZypADnFVZMBi98g9du64D6C/Ilr2wSivtp
+	 sWyqL/vc6dhDg2qQapoG4PV270C66jYz9Z34300w2lP3ZrjwQEMkhm+yO3XCymlUGOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794972789;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=kZ4Qj45/nVhw+wEM+ObjY6ynwG6t9Cb17VAEzM7ECRs=;
-	b=lMbbHMtEVpc2SbZMhAR427pVmQch+MiWIo3qEIyZlT+bWM9tMJsIGvRiFotSOdBTYm2v
-	 o3WDL4In6F70jLtlu/+/+93LuOWih6odSE1xdGOavFIf9ukqj1tX0fSFIA4anotZOyQOM
-	 m4/WWvSb/A/aZ8ociq/FCbag2SUSmUrtMeyIga0Z3oIVbCGq0AvyRp09tZTAAe8Qom+Ic
-	 OJqssplyDURG5VTEohz7gBOk41SaFghxzI1bYFRTil7ZHqYWlczsF8oJ+FxpsVSDjxLDV
-	 yezlzaPvTPEISMZESo7n+fTu2tbgY8E+9U21dosuw+0dACeLQjrXyUfIVcn2LXTZ3lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794972979;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-version:Content-type:Content-Transfer-Encoding;
+	bh=11RTZk9ANOdZGuwayk1pIL4zWdN4kr7W2Yo5uEDiGwk=;
+	b=RYpXmJULxocMtYdjsL2wEha2OVF0sEE5+1r+agdMCdEAkrp3zJY7Ih2C1bK1c6ZR3WF0
+	 q/zzLYoX1PqHmHOzmbT5Rc8fm4m+FW5BZjI8fDUrrNAa8mM8rEffGjmkoYYMHNwW8rlvN
+	 Cf700e1/0+mlV/ybZlJFSsr1celXWlHxfrGj9jKlqMyf19+ozmhVP4O0uw8K6QS957gZ7
+	 KVbcapX4yiiHgK41EZenSFnZHdUNKiEonVvyIXTMPB9DJQg2I2g1KgPaFZVkFSBIM9w3H
+	 bP7tKIZjKtr0N2opFL44ExFYUXyLb1v7x+7I0uk4rU56/HlU+bOrOni8SaNjYoDsXoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=EvrG5hEB;
-	arc=none smtp.remote-ip=54.243.244.52
-Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aMFFC3se;
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3762606A31C;
-	Wed, 18 Nov 2026 03:33:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3762606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97C1B606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:36:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97C1B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=EvrG5hEB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1794972736;
-	bh=kZ4Qj45/nVhw+wEM+ObjY6ynwG6t9Cb17VAEzM7ECRs=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=EvrG5hEBm7nyHplPFHKkRNi9Is9MA1A10r7VixEaXzmvH22wvQF7UW1wilJ9El1UB
-	 NihiLqRmJ11Q//zyTXyxa6XTUlKnFQvui9RP7kyIG72zEjHWdUA011EqEIrBqkC8q3
-	 4P1z/6LTjsGOaS8DYhv/KrWSePpxxZIYsGxZfXYs=
-X-QQ-mid: esmtpgz10t1794972720t90f23719
-X-QQ-Originating-IP: qbeV1AKGN9RpP899OZoSsXcI9sL6Pb84dNgTbM8l/hs=
-Received: from PEC004119 ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 18 Nov 2026 11:31:58 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 14367264520237322865
-EX-QQ-RecipientCnt: 8
-From: Haowen Tu <tuhaowen@uniontech.com>
-To: broonie@kernel.org
-Cc: peda@lysator.liu.se,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Haowen Tu <tuhaowen@uniontech.com>
-Subject: [PATCH] ASoC: max9860: Register the supply notifier after initializing regmap
-Date: Wed, 18 Nov 2026 11:31:56 +0800
-Message-ID: <BF435C6BC6FC2868+20261118033156.3845276-1-tuhaowen@uniontech.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aMFFC3se
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso710969c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 19:36:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794972977; x=1795577777; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=11RTZk9ANOdZGuwayk1pIL4zWdN4kr7W2Yo5uEDiGwk=;
+        b=aMFFC3sec5IgSpqPbJppU4xZtV0uS9sBmq6dVF5Cz0RQbak+Xx6Nnmy9e+3o2M73La
+         Sy5VQBToAkF10Ri9+BMrzkso5HE/XWpyldvsWOR4wumlCmFupLKOzTCao1sqWpyHCRE4
+         1V59zoVooLZaLXqxX3wyF1QCMTOoTplRhFMJFsiybr1SfYrEUNV3DyFZu3emdiPZpzpJ
+         cnaIdlr4st/QNSo2poPMFiwykUjetQgEmWWExK9VTgP7Dt4l1EIvQDJO0nauhVgvdCyE
+         8FMkQyHIGsCD0PW+lFjZ9A109Q9IdITqaVeDeQuGNgPVuf1sy6kcxBZz54dIEvgHhodd
+         avNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794972977; x=1795577777;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=11RTZk9ANOdZGuwayk1pIL4zWdN4kr7W2Yo5uEDiGwk=;
+        b=HPZBGD0A3TcxDD+fgiQ1cj+cYSI9fIgGK/+tmp+fD665UtLKA54meilUDlGkpDA2ch
+         zbvYd75UXY3JgHTt1cF2m57kAqHCfzVsWo/gnvci5dv6zOdiDDUNuVLpagsZvDNO3URd
+         9mg9aF7+dKqWoHf41JCqRgeb/XU7LQfz8sBSGSSzg3AoI8+9W4gQ9e02k2Wf5dLBbBZU
+         LuszWJW2dNWvaPvsKNd2ABsXQKvO0VRhMufte8lMlovkqczU4ZC76Dwx16OsaLrKMdO0
+         z3Twzm4IL/jRf5BolX7rAKnJJNy2mH8+2XKNES4NdCIYxS9Henk4FykD74154l4ItH+r
+         XM7Q==
+X-Forwarded-Encrypted: i=1; AL+hErEtfOIgzlGQMglhMQYiR6AUE+huX4o9w5L+4MzAzUPJL9h4zkPV0BbZGISwsBt9LLqDkikc93DPxeXC3Wg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8q5IfT8zO3U8WCeBTpT/j2dp20VscmDVkg2T2dCCoYJsFV5At2
+	YYBEwouXJ1rLdNUe/IKtqFKfZzgmhigvAY9Cmno8qI23eHzm5P11Ghuy
+X-Gm-Gg: AZFdTZcHE6sb3KFQlts2LfNO2us40cIKnMmB1HktcPChzkAdg+XU+DGIvuBR2pk1KWl
+	aNpnRPj5aMfdcguVOToG4gZh5a4aye2UXed40dk2qXNrsel5EJNAGMWnUdwfvE3uL/4TdxgeVDG
+	nitmNw0+cQrp/JXsJa53XE1Syq2BM57bt1onEw2P3VMQCkPpLixrTTSIC4M6zDYf/aEKz2PiC/f
+	bknowDi3NaMnUpsEIPWb8zm2hrx2hfm/6EQffV5vLrmli8kfcCLsJNmZHKEIag+DqHBwZLhd10L
+	4d3Yvu/IeNM+QlJ+SWEwpl5/Nv5O8yAt4M7s/W7vwCTOrLWYN45e2pFjpv0MA3g/U+eCXxgHRNm
+	PvbMOn7jOqAs5uKicaq7rzdTAdowWR45jM4Ds3K8mMJbL2PHCXwHgZFDX/pL07pFQkmnmrSeWaP
+	iIHqGVH0Ul8NMMZUTj+639SoffwPH1ImpEtBvzRMp5qPALO11fla/bYO/DlK6wkBgwyPS/9tRhW
+	nC1NE4thmtVwpICm6TslJMnXdC3FZUWAVjFYsqSd2KJ50feWfKGKyIlntpN/ZAAz0SJ/iRHyT9Z
+	BgQHx/QfWH1GID2JgDXTofCRJvY=
+X-Received: by 2002:a05:7300:7314:b0:381:1580:cb4c with SMTP id 5a478bee46e88-38281023cfemr1749374eec.24.1794972977304;
+        Tue, 17 Nov 2026 19:36:17 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a76d70fasm2677074eec.22.2026.11.17.19.36.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 19:36:16 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linuxppc-dev@lists.ozlabs.org, Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, stable@vger.kernel.org
+Subject: Re: [PATCHv2 1/4] powerpc/64: Leave lockdep hardirq context around replayed interrupts
+In-Reply-To: <07b9bd2b-19da-4e3c-9b01-552364a82269@kernel.org>
+Date: Wed, 18 Nov 2026 08:39:23 +0530
+Message-ID: <se0y7s4c.ritesh.list@gmail.com>
+References: <cover.1794924821.git.ritesh.list@gmail.com> <cfdac7c3508cf0eb1cbf063e7f6331dccb128796.1794924821.git.ritesh.list@gmail.com> <07b9bd2b-19da-4e3c-9b01-552364a82269@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,77 +95,176 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+MIME-version: 1.0
+Content-type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: NIUeOSCg5F579AqUo6IpBoajuRETgnAzykTAdbg0yqVdDJGeW3Z/PVdV
-	P1j/JgA4PFAC0dW0GyygZMLBOz2gax7zG2xemXdJlRA8C+oBnlOEnqINPMFvIxm2A9oEWAn
-	WjzjclSrv2tz0iA+SHDRBpUV7difXPuy/o+rx5vcAJEUuFGHeDDiuvP97Qw4TCtxTQ9o3cS
-	0fHOtwCOThmKS/6Xy8ymAKLtBB2Sibm/UubSTTltHIzvLD1IKp53v301Ke0b6k8havwRdrk
-	yssNlVi8Xye42OkuEsj6n+8WS4SZZ+YXqP6uwpJHG6cooKglyUVz4qpAkYFHVkBYSJbq5Sx
-	obceK6Mj/Dmhkr/bfXffVQJJVuNbenVzRpEWkdCLS0Pt2I9UQUQwpO9lp685yk9GcapRYDN
-	Xv0cPoNAgROeorcOAKYGtzY0fXfdeT5i5MWnE5TbC0nSPhNP3yiXyuYFyKqHxiyPj9sGzfO
-	mbKx8t7P5fU84R7xzQvKkkoeju5AAMIlbDhoWYkcUIHssikNZeNO6x0/Ez670OAmmHTQXTO
-	EgjeQWOM6y7eejMRK2ZxLUXOm7iQQicr465ZO5NXpWmourvvHiOER1HOIe1idWoeGjBLGwO
-	fvdJy6+wLRp2w6UBUUuH2rus72Hbe5CaAM6Q81AkkbUfmC8p0RlVEdYItnELs+q6sOt/R+/
-	mPHKsqqTmtoic64o7RWH32W5r0m+q2iODFjW6KSuqBag6gladZ4/4XTaH327BGz2f7XyKvn
-	wHnI8idw9HH/J3Uabjb5/7VFzfWjOnVqrHCAL0h9Omo5oW6ydRCE1hUIsqi/k1JqknUNLLN
-	bwwvgSaP2U0DabvGk0HwP6uz9Nle3ojZ8XG++Iks3th7fXB6qOk/t6wHx1aD99uvpaW26AL
-	VlUntPe/pE1vTNA2+cehph5pnzHrXaW1Og+rJ6gvxVE5vkW5yxNIMaXtwWmTTP1IYYeMzYH
-	PQuTenQegYtMZRjCO6flS0c1GGebuHCa6sSkdkuVhE5PIg+AmYLF7ipsJ+Tvq4gWnvXflob
-	ldTPGMviKUy7V5v6Zc18b0cxRtTls=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
 
-The DVDDIO notifier accesses max9860->regmap when the supply is disabled,
-but probe registers it before initializing the regmap. If
-devm_regmap_init_i2c() fails, the error path disables DVDDIO with an error
-pointer stored in max9860->regmap. When the supply is switched off, the
-notifier passes this pointer to the regcache helpers.
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> writes:
 
-Register the notifier only after regmap initialization has succeeded.
-This also makes devres unregister the notifier before releasing the
-regmap, so the callback cannot outlive the resource it accesses.
+> Le 17/11/2026 à 15:25, Ritesh Harjani (IBM) a écrit :
+>> With PROVE_LOCKING, boot warns once and lockdep turns itself off:
+>>    DEBUG_LOCKS_WARN_ON(lockdep_hardirq_context())
+>>    WARNING: kernel/locking/lockdep.c:4448 at lockdep_hardirqs_on_prepare+0x22c/0x2d4, CPU#0: swapper/0/0
+>>    CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.4.0-rc2-00027-g074831f06e18-dirty #123 PREEMPT
+>>    NIP:  c0000000002b2f2c LR: c0000000002b2f28 CTR: c000000002426f90
+>>    REGS: c000000004f075c0 TRAP: 0700   Not tainted  (7.4.0-rc2-00027-g074831f06e18-dirty)
+>>    MSR:  8000000002021033 <SF,VEC,ME,IR,DR,RI,LE>  CR: 48022221  XER: 20040000
+>>    NIP [c0000000002b2f2c] lockdep_hardirqs_on_prepare+0x22c/0x2d4
+>>    LR [c0000000002b2f28] lockdep_hardirqs_on_prepare+0x228/0x2d4
+>>    Call Trace:
+>>      lockdep_hardirqs_on_prepare+0x228/0x2d4 (unreliable)
+>>      trace_hardirqs_on+0x98/0x11c
+>>      irqentry_exit+0x64c/0x1064
+>>      timer_interrupt+0x274/0x6bc
+>>      __replay_soft_interrupts+0x158/0x380
+>>      arch_local_irq_restore+0x1cc/0x244
+>>      console_flush_one_record+0x438/0x654
+>>      console_unlock+0xb8/0x1e0
+>>      vprintk_emit+0x300/0x56c
+>>      vprintk+0x20/0x34
+>>      _printk+0x40/0x54
+>>      lockdep_init+0xdc/0x104
+>>      start_kernel+0xa24/0xc68
+>>      start_here_common+0x1c/0x20
+>> 
+>> Since commit bee25f97ad24 ("powerpc: Enable GENERIC_ENTRY feature") a
+>> replayed handler always returns via irqentry_exit(), which traces hardirqs
+>> on while the replay is still inside irq_enter():
+>>    arch_local_irq_restore()
+>>      irq_enter()                        hardirq_context = 1
+>>      __replay_soft_interrupts()
+>>        timer_interrupt(&regs)
+>>          irq_enter_rcu()                hardirq_context = 2
+>>          irq_exit_rcu()                 hardirq_context = 1
+>>          irqentry_exit()
+>>            trace_hardirqs_on()          hardirq_context != 0 -> WARN
+>>        next_interrupt()
+>>          lockdep_hardirq_exit()         too late
+>> 
+>> Leave the hardirq context before each replayed handler instead of
+>> after it:
+>>    arch_local_irq_restore()
+>>      irq_enter()                        hardirq_context = 1
+>>      __replay_soft_interrupts()
+>>        lockdep_hardirq_exit()           hardirq_context = 0 // fix
+>>        timer_interrupt(&regs)
+>>          irq_enter_rcu()                hardirq_context = 1
+>>          irq_exit_rcu()                 hardirq_context = 0
+>>          irqentry_exit()
+>>            trace_hardirqs_on()          ok
+>>        next_interrupt()
+>>          trace_hardirqs_off()
+>>          lockdep_hardirq_enter()        hardirq_context = 1
+>>      irq_exit()                         hardirq_context = 0
+>> 
+>> Fixes: bee25f97ad24 ("powerpc: Enable GENERIC_ENTRY feature")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+>> ---
+>>   arch/powerpc/kernel/irq_64.c | 11 +++++------
+>>   1 file changed, 5 insertions(+), 6 deletions(-)
+>> 
+>> diff --git a/arch/powerpc/kernel/irq_64.c b/arch/powerpc/kernel/irq_64.c
+>> index d5c48d1b0a31..b189e796eb34 100644
+>> --- a/arch/powerpc/kernel/irq_64.c
+>> +++ b/arch/powerpc/kernel/irq_64.c
+>> @@ -75,12 +75,6 @@ static inline void next_interrupt(struct pt_regs *regs)
+>>   		WARN_ON(irq_soft_mask_return() != IRQS_ALL_DISABLED);
+>>   	}
+>> 
+>> -	/*
+>> -	 * We are responding to the next interrupt, so interrupt-off
+>> -	 * latencies should be reset here.
+>> -	 */
+>> -	lockdep_hardirq_exit();
+>> -	trace_hardirqs_on();
+>>   	trace_hardirqs_off();
+>>   	lockdep_hardirq_enter();
+>>   }
+>> @@ -137,18 +131,21 @@ static __no_kcsan void __replay_soft_interrupts(void)
+>>   	if (IS_ENABLED(CONFIG_PPC_BOOK3S) &&
+>>   	    irq_happened_test_and_clear(PACA_IRQ_HMI)) {
+>>   		regs.trap = INTERRUPT_HMI;
+>> +		lockdep_hardirq_exit();
+>
+> Can we include that in irq_happened_test_and_clear() instead of 
+> duplicating it 5 times ?
+>
 
-Fixes: 3b2af7f79968 ("ASoC: max9860: new driver")
-Signed-off-by: Haowen Tu <tuhaowen@uniontech.com>
----
- sound/soc/codecs/max9860.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+Thanks for the suggestion. We can actually simplify this if we move this
+into the caller itself i.e. __replay_soft_interrupts(). I think we could
+change it to this diff then:
 
-diff --git a/sound/soc/codecs/max9860.c b/sound/soc/codecs/max9860.c
-index a25f6891fe2f..f05f26d477c7 100644
---- a/sound/soc/codecs/max9860.c
-+++ b/sound/soc/codecs/max9860.c
-@@ -630,13 +630,6 @@ static int max9860_probe(struct i2c_client *i2c)
- 		return dev_err_probe(dev, PTR_ERR(max9860->dvddio),
- 				     "Failed to get DVDDIO supply\n");
- 
--	max9860->dvddio_nb.notifier_call = max9860_dvddio_event;
--
--	ret = devm_regulator_register_notifier(max9860->dvddio,
--					       &max9860->dvddio_nb);
--	if (ret)
--		dev_err(dev, "Failed to register DVDDIO notifier: %d\n", ret);
--
- 	ret = regulator_enable(max9860->dvddio);
- 	if (ret != 0) {
- 		dev_err(dev, "Failed to enable DVDDIO: %d\n", ret);
-@@ -649,6 +642,13 @@ static int max9860_probe(struct i2c_client *i2c)
- 		goto err_regulator;
- 	}
- 
-+	max9860->dvddio_nb.notifier_call = max9860_dvddio_event;
+diff --git a/arch/powerpc/kernel/irq_64.c b/arch/powerpc/kernel/irq_64.c
+index d5c48d1b0a31..e2f1e5b7a3a7 100644
+--- a/arch/powerpc/kernel/irq_64.c
++++ b/arch/powerpc/kernel/irq_64.c
+@@ -76,13 +76,11 @@ static inline void next_interrupt(struct pt_regs *regs)
+        }
+
+        /*
+-        * We are responding to the next interrupt, so interrupt-off
+-        * latencies should be reset here.
++        * We are responding to the next interrupt. The irqentry_exit() of the
++        * replayed handler has traced hardirqs on, which also reset the
++        * interrupt-off latencies. Trace them off again.
+         */
+-       lockdep_hardirq_exit();
+-       trace_hardirqs_on();
+        trace_hardirqs_off();
+-       lockdep_hardirq_enter();
+ }
+
+ static inline bool irq_happened_test_and_clear(u8 irq)
+@@ -116,6 +114,15 @@ static __no_kcsan void __replay_soft_interrupts(void)
+         */
+        local_paca->irq_happened |= PACA_IRQ_REPLAYING;
+
++       /*
++        * The irq_enter() of our callers is there to hold off softirqs. Each
++        * replayed handler enters and leaves the hardirq context itself and
++        * returns through irqentry_exit(), which again traces hardirqs on.
++        * Since lockdep only allows that outside of hardirq context, so leave
++        * it for the duration of the replay.
++        */
++       lockdep_hardirq_exit();
 +
-+	ret = devm_regulator_register_notifier(max9860->dvddio,
-+					       &max9860->dvddio_nb);
-+	if (ret)
-+		dev_err(dev, "Failed to register DVDDIO notifier: %d\n", ret);
+        ppc_save_regs(&regs);
+        regs.softe = IRQS_ENABLED;
+        regs.msr |= MSR_EE;
+@@ -168,6 +175,8 @@ static __no_kcsan void __replay_soft_interrupts(void)
+                next_interrupt(&regs);
+        }
+
++       lockdep_hardirq_enter();
 +
- 	dev_set_drvdata(dev, max9860);
- 
- 	/*
--- 
-2.50.1
+        local_paca->irq_happened &= ~PACA_IRQ_REPLAYING;
+ }
+
+The above simplifies it a lot, and the new state machine with
+hardirq_context and hardirqs_enabled which lockdep cares about, will
+look like this:
+                                           hardirq_context  hardirqs_enabled
+arch_local_irq_restore()
+  trace_hardirqs_off()                     0             1 -> 0
+  irq_enter()                           0 -> 1           0          (softirqs held off)
+  __replay_soft_interrupts()
+    lockdep_hardirq_exit()              1 -> 0           0          patch: the loop is not a handler
+    timer_interrupt(&regs)
+      irq_enter_rcu()                   0 -> 1           0          handler starts
+      irq_exit_rcu()                    1 -> 0           0          handler done
+      irqentry_exit()
+        trace_hardirqs_on()                0             0 -> 1     legal: context is 0
+    next_interrupt()
+      trace_hardirqs_off()                 0             1 -> 0     still replaying: back to off
+    ...                                 same for each pending interrupt
+    lockdep_hardirq_enter()             0 -> 1           0          patch: restore for the caller
+  irq_exit()                            1 -> 0           0          softirqs may run now
+  trace_hardirqs_on()                      0             0 -> 1     IRQs really enabled
+
+
+Let me know if this looks good, then I can re-spin the next revision
+with the above changes.
+
+-ritesh
 
