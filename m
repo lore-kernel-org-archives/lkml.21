@@ -1,100 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.112
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795009203;
-	b=IaqoanrOl0HfEqTwZIz4RT728N8XewCPqOT/HfqWmLqBYcpDVPpuaENEXxQ4yhoNUUsh
-	 LisT3WlNiqrgU5LWJiSm0qJHv0yO2Okq6cRne6AG7LIc7/IM52MNbgGr1s1QTt8EsD0VN
-	 qhjFC66mhoC1mgbcJ8OWjuFtNdO4C785jS1nT6Ix1JZsArmMh1QC8BjDZ2WHU1DOqdZ9P
-	 UYL/CkM+DdmjUzGoSiMM1nLKKWLzbKIfqd2YS8BEDPpgCs7CoiuiTkSu+TT4h5PUA2YC6
-	 sUoS3S/8/8Na5mnwrT5oRiXP3HOmbJpou0xH4gIQqOkjWkcdReUYs9uFGbGyCq7zfMw==
+	t=1795009212;
+	b=obVw2puD55LiiXqzUHKJlMnvXQC6BBCxHT2Ji2+XyNDf1Vk5UdyVQVaO2kDcFFd4yrtg
+	 axyp1PGYluk8Hmyjfs9+iY4oa3Pr5QlSdK3CoDFblHcsRxnZU6bgd8CI7pheMDkF3rNqu
+	 Hp2rVsQeHtI2nRJ3u82KwPRO40lGwZImsdz4tQq1/oQJ7JERKU4Ny0IFFKRjaKlAQ5YN5
+	 PTi2Is0n/cHsvmMFjRW96AKixXemqpRl30oG4QPFcAn1hiCy23mqFk7diBl0/+odyYJed
+	 guoF2JB+RgqT/cNLOf0EU2B6sSscUJ96uhLbaN7hqewCxfQQRTNDmMOeidiFqo+ooZw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009203;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=J+YV0mmYZx9G//aLGJ1IlI5Lul1dS/KQcWNo4O8Rh58=;
-	b=G4rO3wJATQq45TduZAwwimtS3APpJQ3vch2rvazpA0JgigF5TeeL4vFU6HZOpTpVhHeE
-	 T+jVBsh2hm78l5l3P7dWOCXapmARk6zVz1v4Onr8qHSQ1gC0NhydPJf3cIaMIyyKtK079
-	 DSEtg9DC0IjceiHcBlEuigCrhG6G8ROICQ93hQJvRgO4vSqlYTcxE/ybLHga2y9UqBLbm
-	 vsOwhBQmbKrq/frrwumdbrMv8EpDNJzsqCgCVGTvHKbmPwNY/i7PKbNOfCqA101moC9LR
-	 Ub0E/CNH0hf9H/dyi7DH8h8auTvsZfbuy95AOeiZL5xMbH4HzaGXl70L9OSB2gb9mZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009212;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=aH9g6ul7kNFgsEOg3fP1RgYAMNBi1jT5hjE9AQ1Q5/M=;
+	b=nDzvmNeLtbpDwyWD6ZcdCf6rngP+YCdoPkGb48fcmYL6cTG3wEU4/VC+VcCHiAJgQInU
+	 pjDQ0gWNB/6sx1F60ERx0V+/WNo+nVQLFer4w/NRMcOWNG+munvzBH3bALA3vX1ruudZS
+	 9yz9OWr775dDIogwIggwY9ylOwtjsyNfmJD0CGzjGUhEUJm3nFbrm6PXDCdtNPo7W1Ku2
+	 5kZvXt6DAfmfGCelmHpoygM4l3ciUKuIuNTZq8t8n6yHWkccYRQnHutl98b9NDVbzxliA
+	 lJLQHsqgwlc5tEy3mZot6tpXpAIIKIOvPfwWta6l2q0qqTSlCxCmJ05GZjHeKwImC4A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oyALHGpQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=hpRi269r;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.112
+Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020112.outbound.protection.outlook.com [52.101.189.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 307BB606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:40:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 307BB606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE92B606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:40:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE92B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oyALHGpQ
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb61185057so8172535e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:40:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795009200; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gGrmBhn3gG+u50JdTdmw3DDhQf1Yh8jWstVK5L1mEHBZ77JVvzzUI0N7mfilaOuRYR
-         9Gnqj9RbhTA5gjhjo6i8bTugqP8XYYZos8fJxUkA37GSR5OSpXANPuvH+zvBmzT0OpMR
-         l/DtQjt3W+Emz+wgTxYYkiP1M0FWmLKNygoDhYPt4OgvKTX//u3o4EtnK9UA+IWxdRMx
-         GswFQoMyaRR68sMJj7Lie0a5fl6r1PS3dKSmdeEQTkmL39JSF50msVneP2zjpaONls54
-         qKBpTmsTkmfwaV1tHzGRR+UC5Afrt3ZfMsA0SDhCWkrJC+mBY2lleJ65B3289ZkplUjC
-         awMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=J+YV0mmYZx9G//aLGJ1IlI5Lul1dS/KQcWNo4O8Rh58=;
-        fh=GmnUhnz0IK1Hrf7FmNLu/CVVt4BfVrYZu2DWW+ZPDn8=;
-        b=AofoFZlY4Xnz3+glZIGVB95f7KLzMHzWd1aREPOH0tgLEWdNWBIlnhDst9AFqBBaXt
-         Id1tTIkfGPT9oBfGcDsZKLfIXAOn6DAwhAfhVATB/Y+C2FWNkr42v66dyAXPcT7tvBNk
-         fYeS5/tdEG9AFpAY8sdve2AwZjgOOCAcgDP4z0a79PS1JvdC/r5UlEFEIAVUQjitbemk
-         zagMgiMbyEVopU94K9BcIWba0l4mC1JpEVjNpY546HTP9FOXY4Vu/xA/En5lZCYYCUGF
-         Y0RqW8ddjuNRsIzuuGpoOF6HOWMXJkMHHw81sUIH8QDZj9Lc3QbsiiGqv4iDYNfq7BRO
-         UrdQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795009200; x=1795614000; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J+YV0mmYZx9G//aLGJ1IlI5Lul1dS/KQcWNo4O8Rh58=;
-        b=oyALHGpQY7rJfZAtQ1TZxNHP31SO2DkyGTxSJSg/J2YS7HKKDl8XFiMDBcCztfI+xp
-         ty2lT8/0EXiFlaMg5gML/hmA87R3LS0OPY/nWGaXI6RhNutbyhVWp1x6WuBdwluf/s+5
-         V7l/JWWJEdxXKZTO3qWkCddEb4KZXK7yhWKM3MjxoRECs3uiw3lgRSe0N4l8YxCgZP8y
-         MkXTgRjcnqChggDcycvNUX0o6849hnW6pvh6Entd3K79kvZhVNW2A99zW8VryVz/pQXz
-         FcctfcaDqz24QT6IBfzzrvTekUIA7plAfCCm3uTUbeEg2M3Xp8O31rCo+nW+1kmD/3Jg
-         JemA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009200; x=1795614000;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J+YV0mmYZx9G//aLGJ1IlI5Lul1dS/KQcWNo4O8Rh58=;
-        b=sKyNVLrBQTU/gEp//cjA3wCyrkAp2NXwTNEdl/6ogAOBrMDlsEsrcQZAkW4mQMGKAy
-         mIdIGT5/M8/2wF4Q3o6bSkrm122mExKF5iwASD1W5/VjTeUnpYC3PJBJudd6UaEmhwya
-         pp7ylnPgWMrVnbcdTKuyvQeCItPqkrl0qoTnrf7RpNmLk06X04OLChzxaYoFnzB5j5GQ
-         lk6OpYIOdhwkOB/fHCOIRhPR5gjwUtkU1hzrrlSk5wOsdLjYINtdZb4SMY1oA+RD7Dxw
-         XQRbZ9SVF4PD3YR81o5jRDmbKLOMK707pC0STQzAPox5yTKFuYzJlFWncHbC+MwHG/WJ
-         0fOw==
-X-Forwarded-Encrypted: i=1; AL+hErEbqb6TfR2z8TcKHbLgk8XyyTveBIj8piomgV7id5hKFHgzf0qgokZt/wpVR+CzGgH81xHMfQ12x9Uu+NY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84KktgLKGw7q3avygVjOPyyziWcaKxXPbjpWvY8lG2rDlYVZbw
-	NanxEY4VJFPqS4k3zdmQXLUzdIxmb7od1/mJT8UG9/QCNTJbAoRvfFVkaknc7HeiHuPf4UQ0NYX
-	stGkhHBxDN/7/r/DM8EJPgMaI5Ah3OCQ=
-X-Gm-Gg: AYBFou1RkiA6C8JS7gur48AMs5kno75xikhl3LnP6pMmBmuCQl1u6qzfQow7OyqKCMb
-	nJ59+ZUZAec9xutvxaxbxypxUAVw3yJL9tAualVOuy6sLcJtD7nTLW4cvbWLN2sRED/fp8+cWfK
-	a5diCmf6o5WpTzQN9I2eK5X7V/SzKQBr6JOGkzDbDs+9Ft8RVeRse3LaYF7ModUyOm0AMZ12NHZ
-	Z/Ptm2Qh2p+nR/saydUXNq1LuVAoWOczsOlJQATtqdoXFaRdVMsOaapKNxxFikOLs8blkwxykvz
-	oh8/3xScguOVjKAa4/rjc3uStL7zuWuD82LeTMahYSt1DdjX3EJcmNEA+5CB7WWQWZ3UmVVY/gU
-	NlOV6XI1O+WK9x0NeMnQVlaxgXgQlhjlWuRlKb6+u/OeHD42ajoq4zNd8cit7hc3mH1rYFg==
-X-Received: by 2002:a05:600c:4e02:b0:4bb:6994:abf0 with SMTP id
- 5b1f17b1804b1-4bb7da4b889mr53005205e9.23.1795009200139; Wed, 18 Nov 2026
- 05:40:00 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=hpRi269r
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uVcCANJKynyuPyHsWc+orm0UF9deYkKKvmf3jaa7USrZ7OL3s0JE+ghfgF21O5SMgWIkfsGd2hAKCwG82h7fWXEOjEHFiEWpgBFMBRR0d4S/QZXEO0XINkCp1VGl/cwVGAc4wCD+OEXlZCbMOITzQ+FRNoODtVro1CGHnkOT+kvgE5YW8RRFKl9WMNdDiXBbnB3uRESdYACefzLxcqngvpoQ3/kZ4HbnmKZPfJwXMFxj2HFechMJ8EackxXgoCK0wNVJZibVoQMCTCopCCqS4jx2IsD4PqZCApAGXd/aqvfgJsjOylPTK4J8UZXCnItmGKWodktCTSaRMkIm3tOEng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aH9g6ul7kNFgsEOg3fP1RgYAMNBi1jT5hjE9AQ1Q5/M=;
+ b=zRFO5gheRPgxu5Ru/glOv5aFEApJdA2IQvhjl8zgppxoGQi8pMPFLnXWvhJlaOqkV+0LSckXVe8ee91Jp6krjF7IYGRPvMN8PxHRBAkGUesC6IC6urZJJ22YpqBW4NhobtY4cFf6mTk8PI5Nn8pChbG+NNtMVWZgE4nB+DZE7QPgxKrSp3j9zP8+IHcKyhgIAg7UJJs4Sq0bUJN5bavfFsv9vdliWY1BxZeXAY2fw18vGTtfGN5+iFSRhsPufhfCwTC9w6fV28zdues82/+6sm3T0gSPnBZkbGM5Zob/wzftF/lAJZamSrcv6VLlIO9/wvodX/xZk6U8GMKrSjP5aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aH9g6ul7kNFgsEOg3fP1RgYAMNBi1jT5hjE9AQ1Q5/M=;
+ b=hpRi269r9dgLm390fiFtWDOdxED6L0mlichFKBb3q3cFYEI0Eir8UDzXwxxsYDmJiFRDT36pMooLCu+CzrDDtzUEtubr17+Rx05zqUKTyKdL4TF3R2XA3IczI6fKKhdsRwZOIC+cn6dcbUpi4Rmv60HYc81Wu3tQOfdeaH0PJRxTK3Pc0XCy6rga8YHqw6Lrf2T4uNt3eN3iFtYHow6EtkcYq84wIERXpwYIQEzqZVqSd/7auiLdnfPuiBR1ldCD8pOWvIEUr++A+0Z1OuCFHL/iQBijmZxMF6QAZlIhp+GwTC9/HNAOQ6tggiN4ZznpfgybeKIK0o5CP/F59cOsMg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT4PR01MB842743.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:188::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 13:40:10 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 13:40:10 +0000
+Message-ID: <239ea541-da99-4fb3-b144-b145640152ef@efficios.com>
+Date: Wed, 18 Nov 2026 08:40:09 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 27/40] sched/deadline: Move a task's bandwidth to the
+ root domain it runs in
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
+ <3292905cac4b511f515b4d353f02a41d747b8015.1794922146.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-219077@kernel.org>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <sashiko-outbox-219077@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQZPR01CA0036.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:86::11) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,331 +100,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115180343.576773-1-koray.fra@gmail.com> <fc53ec55d315a4b96ec1e6f250ad3763f2189755.camel@kernel.org>
- <DMXXOPD9UDNP.2YP9ROMHFLM9E@gmail.com> <CAOQ4uxjcvAKTaGXO0=BpbtgoEPmN7GKieVbX1ZpZR38H1Z3j9g@mail.gmail.com>
- <DMY8FEXBRS0L.2X0W5NIFG56C7@gmail.com>
-In-Reply-To: <DMY8FEXBRS0L.2X0W5NIFG56C7@gmail.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Wed, 18 Nov 2026 14:39:48 +0100
-X-Gm-Features: Aa3M54rNL1UDtaF4EobdVjCZzK8MF2MoGwTblV1X_B8RR3donvGpdQjZ8_PUMVo
-Message-ID: <CAOQ4uxhTBm5bQ9eYdeRCr0MJjugLdBU7X_Y26ADWhG6HSEgKMg@mail.gmail.com>
-Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
-To: koraynilay <koray.fra@gmail.com>
-Cc: Jeff Layton <jlayton@kernel.org>, David Sterba <dsterba@suse.com>, 
-	Namjae Jeon <linkinjeon@kernel.org>, Sungjong Seo <sj1557.seo@samsung.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	Trond Myklebust <trondmy@kernel.org>, Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>, 
-	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
-	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
-	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
-	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
-	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong" <djwong@kernel.org>, 
-	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
-	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
-	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
-	linux-api@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT4PR01MB842743:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf2145e4-8d7c-40ca-5fe0-08df45797751
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|261022075727099003|4143699003|56012099006|261026140227099003|261028144727099003|10067099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	MxvIoIOk2gz9x37t7q3VUvs0an/y47VjBNGEXJ+DxWP1PTZlsXUQnU1JKHTn98y5w4P0CeKJI7YZnRPgMl8mfEqlu40t8/BwCu8KYribbx2Sct9PoHBjwN8udXQS8Dcbz8WP/mnAtckzkpKGGD8BIjf41cA6JbnlC6Z+phsWeACK8d+lHD0bDFcR4oksB+qcCLR1Z+AP3EJKIQfGzYjyGqUemBXYFkcN+RNsA2CckclZtIeMSI2QTVcQdmsaOqRtlELiZQQfQKKZR5vPwF1gF7H12HAnLuo0K0/tMuCMKI1vV1YRpcU67BJ3/hnVUm9UNF0PiLDz0AnUAaAddXyCMS5pfTJmrXhCaWjrEBoCgkjnT1lQc+E/+2Mb/GnttwhmYbpbPpqQFnPTXwy0nm4lb+qlCVlld1CezsZ4i3HigG1fXOrgmroSdtU2Y1XQTLCyMPGXPEDPdA/nbxbBRY7Hg76ck0ix/ULSx7n4ZP1aHuNt4QnVffxSoghWZc439mn44uSAZ2JoxzBlG8z0uWhtn0C0tJAwfwmbQP4VDIyUtUTHEyRmE2bRQSVCitJ3QQv4tHly0QUSO6JjVmBki3qhmvSMfp6YtBzvHEvg66rNShw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(261022075727099003)(4143699003)(56012099006)(261026140227099003)(261028144727099003)(10067099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?QUpCY3podUJhai8zUThDL0NndFljVGtndWw1N21SM2JWWFpkNWNkNEJvOUl1?=
+ =?utf-8?B?OEtrTi9SMXQxWU8xbEg1ZElHUURlQllsWDFtamQxOVdTek5FdEpSdzBnZU05?=
+ =?utf-8?B?cHAycmJDM2xYVVloMDFwL0tPOTJnWkV4U2xkZ3U1SXFEWmpocXdPdzkvOVFR?=
+ =?utf-8?B?TkFGT2ZYZU5PK3l4Y2dLMVRmaU4vZDIwRWhHT2dPOWFDUS8vYkxFbCt6VW50?=
+ =?utf-8?B?RGdFcUU4NXVDT05KZW1TMTc3UlI4c2JVaFpYYXVwTXR2d2Y1anBmTW8yT2N2?=
+ =?utf-8?B?YlpWL1lJOUhtRU1tcFZIRHBFUmZMZjdHRTZSZGFpdnFGSHZ4TUUrQ2thdHNv?=
+ =?utf-8?B?U3FoOXhVcDI1V0Q3U3JscUI4cVhZSkFFNFF2ZmNsMW5FclhOc3VzM0JXUHQ3?=
+ =?utf-8?B?RFhtRERPdHlRaEFCYzBuVDQxb2tSdk1aejFZZUZ6NUI0UG4ySlJFdXVpeXMr?=
+ =?utf-8?B?endwOGx2UDZDanVIUmE2VENmajlCeGh5WEN3SjNPOWI4TnBYWEgxcFBqb202?=
+ =?utf-8?B?SFM1eDFqSkdOUDhPcTMveStkWVlma0hyam9idFIvMVE2dUhzQWFhaGRLRE9D?=
+ =?utf-8?B?TkZWbTRUVnZTWnBiTXBPSytoTVhoOFl0SXp0NHNBNFM0d2MrU08vM3NObit1?=
+ =?utf-8?B?SWFPU3lqZDh4SmRjbU5veDJtK29FUE1ONFh2WE9HZkt3VUd6a2dlWWdkb2Rp?=
+ =?utf-8?B?cnN3MW4wb0xJZ2F1WVFBblFrRmdvM2xIVm1NMnNuTTRJdnQyZndaZlhxTjdi?=
+ =?utf-8?B?dmd2eEJ6UFYzTEZvZ3VvcUU5VlVjRzhvMnN1YXAwTktrL1E5K2thQXBGRU9T?=
+ =?utf-8?B?YTBzZW9wV0dhRHRidXp2eWU5Z2I2NmlDemIwZ2dWakxFS2tMTWxaclFZSm5r?=
+ =?utf-8?B?Z05JZzZPR2VqQ1Rhd001WWRCTEFUMnhFMFlsUGhRTHpjOWZuVHBpMzlVdkU3?=
+ =?utf-8?B?S0NRYjI5aGhnYlFad3JKZWlyNHVjQTZFR0xHN1RuS2I3bGVtcHhmbkJNM242?=
+ =?utf-8?B?ZzFDQ29uYVBqaVBxb1JKMnhhb3JrenZSN0FFVnh5Y0N5bmFNVXk1NVFvdkZC?=
+ =?utf-8?B?akpBTSttcGhPVEU1dFNWZDRqd0JnWU9lRkNUc0FBNkxuc0dBbDJCVXpLNDVP?=
+ =?utf-8?B?STM4WDIzR3ZVY2lYN1A4TUM4SS8xcXNETmtvUUlWWUxtUmdmSFp2eWRCZmZs?=
+ =?utf-8?B?bU1nV1FIeUlmc1g5M2xac056eWk1Y0JuQStyYmExOW9JWVJycDBWUWdWK1dP?=
+ =?utf-8?B?SWF4UjhZVjh6N1Q5SU1ib1VpNy92Zys5YzNPQkNvV3ZpaHRDemtJZy9CZFcv?=
+ =?utf-8?B?VmJDRVdHb1hGN2lGY0grM1VDWXFLbnhHZ1RQS3AzYVJvMDFUcTE3S200WlNN?=
+ =?utf-8?B?VUhZcDg0WTRwTE94QXIvR0FnaVZIdGMyUk9sMzNYV2o3WWpaeGRaWFFPOGV6?=
+ =?utf-8?B?eHl1TVJkOGM2OXRLbzJmWElCcmZ1WGhSdXQveE9uMmFQRThsMjJKenh6NDVN?=
+ =?utf-8?B?WFhEZnJBbUR3QnBkZFpwUW1LbmNFWS9EdzNnbmRrdHoxcXFnc0ZKdmlGK25U?=
+ =?utf-8?B?amhXUVZvWWk3MEJGWkd3NzlOM0dDWG1FaURjcmVzMFN3U0VsRSt0dXdscW0y?=
+ =?utf-8?B?VVdTMmlQYjlhL1Q0UEplRzZYV0VLQkNYS0NZSnAySUk1NUF2TnQ5Mmo4U1lk?=
+ =?utf-8?B?MzBwOEdNclFxK3hYUjRwQm1RUzZTcHRzQjJEdkpqUFZoakcvNkY4OW1QWDF1?=
+ =?utf-8?B?Sk8zNU1WVU5BU1JhQnpYbHBQRWxiMW12bUMySmtTNU4wVmE1cVFqb0VJcXk5?=
+ =?utf-8?B?WEZVRkNwSk9rcGExeHFHSDVybmJEdm1sSU9yVXQ3SkVoeTdtb0lrOGoyL3hJ?=
+ =?utf-8?B?d2lEOVFmTmFkMUpHVWJ3ekxNVXpyeVkyek1ISGtDYXBnQk0xV0JiZEsyOFVB?=
+ =?utf-8?B?bFQ4RzgyT2JJTmUrMlhhTSt6MGZNbjZDUlFXeE1UMHNhLzJsSG9VOFdRTW5T?=
+ =?utf-8?B?WGJwZk5ZQWlZNGRodUtjTk41b2owbTliVjVlcCtQV3RyWkJnVU1BSUthbjY2?=
+ =?utf-8?B?eUhaRUxOV01sNWlFMzQ2OFdHZEQvMU5FYjZKMWZtdU4zdFVXOU13QisrUmUr?=
+ =?utf-8?B?eVJwSGx5TkVkWFByS1poUE1kZGN0bWxTQ3JjcDdNeklKVW16RG9zK0ZhaWVr?=
+ =?utf-8?B?L1h5N2pJejZzTFhCbnNTaTVzV0ZCakR1dk9McG5PUEhKNmN2NHhvRFpyb0pv?=
+ =?utf-8?B?bW91QUVrY1ZWYXg2NTU0RTRDR1NIOFptWHJnOFltYVlTbnVqR0lNUVkzRU1P?=
+ =?utf-8?B?N2xBUjBDbFVTR2xnaytVMzRHdTJPVkFXVTNwNmJLQm5hQmV2dzkxVjZEQ3VM?=
+ =?utf-8?Q?3SHczWcjTx+IANHiQ83aRyXX42zy4EcoyUWwP?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf2145e4-8d7c-40ca-5fe0-08df45797751
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:40:10.6002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HNIWHfDLR+0KrssHbyKSs0Qu6t/JIIj5BUYqFvDyGezkZJDF3ZVlaW5LzLRXIntWPk8fczaijKFe2bprIl0O1c4G73tJ57df3Ek5QowTxNk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT4PR01MB842743
 
-On Wed, Nov 18, 2026 at 10:34=E2=80=AFAM koraynilay <koray.fra@gmail.com> w=
-rote:
->
-> On Wed Nov 18, 2026 at 9:14 AM CET, Amir Goldstein wrote:
-> > On Wed, Nov 18, 2026 at 2:09=E2=80=AFAM koraynilay <koray.fra@gmail.com=
-> wrote:
-> >>
-> >> Hello and thanks for replying,
-> >>
-> >> On Wed Nov 18, 2026 at 12:53 AM CET, Jeff Layton wrote:
-> >> > On Sun, 2026-11-15 at 19:03 +0100, koraynilay wrote:
-> >> >> This is an initial implementation of a new timestamp to indicate th=
-e
-> >> >> time when a file/directory was initially created.
-> >> >>
-> >> >> This patch series takes inspiration from the one by Sean Smith
-> >> >> <defendthedisabled@gmail.com> [1], but using
-> >> >> file_setattr()/file_getattr() as suggested by Darrick J. Wong
-> >> >> <djwong@kernel.org> in [2].
-> >> >>
-> >> >> The semantics of this new timestamp should be at least these:
-> >> >> - it should be the same as btime on a newly created file
-> >> >> - it's user-settable, so it can be preserved for backups, filesyste=
-m
-> >> >>   conversions, archives and any similar operation
-> >> >> - it should be preserved every time mtime gets preserved
-> >> >>
-> >> >> and the correspondence with the other timestamps is as follows:
-> >> >>
-> >> >> ctime <-> btime
-> >> >> mtime <-> ptime
-> >> >>
-> >> >
-> >> > I'm not sure how to interpret the correspondence above.
-> >>
-> >>   |-----\_-----------------|-----------|
-> >>   |       \_      change/  |   birth/  |
-> >>   |         \_ modification|  creation |
-> >>   |           \------------|-----------|
-> >>   | inode time |   ctime   |   btime   |
-> >>   |------------|-----------|-----------|
-> >>   | file time  |   mtime   |   ptime   |
-> >>   |------------|-----------|-----------|
-> >>
-> >> ("file" as in "the concept of this file", I'd say "file content" but
-> >> that would be incorrect for symlinks)
-> >>
-> >> so ctime is "inode change time", btime is "inode birth/creation time",
-> >> while mtime is "file content change/modification time" and ptime would
-> >> be "file content creation time" (same as Window's or MacOS's creation
-> >> time).
-> >>
-> >> Does this make more sense?
-> >>
-> >> >
-> >> >> Examples:
-> >> >> 1) a .zsh_history file created in 2019, then after a few years the =
-user
-> >> >>    decides to switch to another filesystem, copying the .zsh_histor=
-y to
-> >> >>    the new home, in that case btime would have the timestamp of the=
- copy
-> >> >>    and ptime would have the 2019 timestamp (just like mtime would h=
-ave
-> >> >>    been preserved)
-> >> >> 2) a symlink created in 2020 from the home directory to a /path goi=
-ng
-> >> >>    through the same process as the .zsh_history, in this case it wo=
-uld
-> >> >>    also make sense to sync the ptime to the 2020 timestamp instead =
-of
-> >> >>    keeping only the btime (so the inode creation time).
-> >> >>
-> >> >> The proof-of-concept code (for testing) for stat(1) and cp(1) is
-> >> >> available at https://github.com/koraynilay/coreutils (master branch=
-)
-> >> >> (Note: these coreutils code changes are a prototype and won't be
-> >> >> submitted upstream as-is, but they work as expected in simple stat =
-and
-> >> >> cp -a/--preserve=3Dptime tests)
-> >> >>
-> >> >> Lastly, the name "provenance" and "ptime" are not final, I personal=
-ly
-> >> >> don't have a strong opinion on any name, but while testing with sta=
-t(1)
-> >> >> I noticed that "Provenance" is definitely too long for the normal
-> >> >> output, so another option which would fit well is "Origin time",
-> >> >> abbreviated as "ntime" (OrigiN time) and not as "otime", as that wo=
-uld
-> >> >> conflict with btrfs' internal naming and create confusion.
-> >> >>
-> >> >> v2 changes:
-> >> >> - fix permission bypass leading to ptime update on immutable and
-> >> >>   append-only files (found by sashiko[3])
-> >> >> - normalize ptime timestamp as done in fs/attr.c:notify_change() (f=
-ound
-> >> >>   by sashiko[3])
-> >> >> - fix wording in vfs patch to be like the cover-letter
-> >> >>
-> >> >> v3 changes:
-> >> >> - vfs: reject setting ptime with -EOPNOTSUPP on filesystems that do=
- not
-> >> >>   support it instead of silently ignoring it (found by sashiko[4])
-> >> >> - vfs: fix not being able to clear immutable and append-only on fil=
-es
-> >> >>   with ptime, and allow updating immutable/append-only atomically a=
-long
-> >> >>   with ptime (found by sashiko[4])
-> >> >> - btrfs: validate on-disk ptime nanoseconds and reset to otime if
-> >> >>   invalid (found by sashiko[4])
-> >> >> - btrfs: avoid re-assigning ptime on unrelated chattr calls (found =
-by
-> >> >>   sashiko[4])
-> >> >> - add ntfs3 and exfat support as suggested by Amir Goldstein[5], bu=
-t no
-> >> >>   vfat, smb, or nfs4 yet as they are a bit more complex
-> >> >> - move the introduction of fileattr_has_fsx_mask() from the btrfs p=
-atch
-> >> >>   to a standalone patch in the series
-> >> >> - btrfs: add fileattr_[gs]et to symlink and special file operations
-> >> >>
-> >> >> v4 changes:
-> >> >> - vfs: implement fsx_xflags_mask as suggested by Amir Goldstein[6];
-> >> >> - add SMB (ksmbd/cifs) and nfs (nfsd/nfs) support as requested in
-> >> >>   previous threads;
-> >> >>
-> >> >> Note:
-> >> >> to apply this patch 2 previous patches[7][8] from the ksmbd/cifs
-> >> >> subsystem are needed.
-> >> >>
-> >> >> New Question:
-> >> >> should I rename fileattr_has_fsx_mask() to something like
-> >> >> fileattr_has_unsupported_fsx() and keep its code as-is, or should I=
- add
-> >> >> the fsx_xflags_mask & ~allowed check in it and keep the name as-is?=
- (or
-> >> >> both?)
-> >> >>
-> >> >> Thanks.
-> >> >>
-> >> >> [1]: https://lore.kernel.org/20260405195007.1306-2-DefendTheDisable=
-d@gmail.com
-> >> >> [2]: https://lore.kernel.org/20260407014129.GC6192@frogsfrogsfrogs
-> >> >> [3]: https://sashiko.dev/#/patchset/20261027220532.736352-1-koray.f=
-ra%40gmail.com
-> >> >> [4]: https://sashiko.dev/#/patchset/20261028134728.294127-1-koray.f=
-ra%40gmail.com
-> >> >> [5]: https://lore.kernel.org/CAOQ4uxiuy0VwZj+3M-zRqQ49WTpHZpiaQ+6MZ=
-8z8WdLjyQM_zA@mail.gmail.com/
-> >> >> [6]: https://lore.kernel.org/CAOQ4uxjtuTDT63vJdYaq+RHQEQFLTksp66e46=
-OMN99WhJz3SbA@mail.gmail.com/
-> >> >> [7]: https://lore.kernel.org/linux-cifs/20261112111637.184045-2-kor=
-ay.fra@gmail.com/
-> >> >> [8]: https://lore.kernel.org/linux-cifs/20261115155308.415734-1-kor=
-ay.fra@gmail.com/
-> >> >>
-> >> >>
-> >> >> koraynilay (10):
-> >> >>   vfs: add provenance time (ptime)
-> >> >>   vfs: add fileattr_has_fsx_mask()
-> >> >>   ntfs3: make crtime user-settable using ptime
-> >> >>   exfat: make crtime user-settable using ptime
-> >> >>   btrfs: add provenance time (ptime)
-> >> >>   vfs: add __vfs_fileattr_set_locked() for inode_lock()'d callers
-> >> >>   nfsd: add provenance time (ptime) via FATTR4_TIME_CREATE
-> >> >>   nfs: add provenance time (ptime) via FATTR4_TIME_CREATE
-> >> >>   ksmbd: add provenance time (ptime) and map it to CreationTime
-> >> >>   cifs: add provenance time (ptime) and map it to SMB's CreationTim=
-e
-> >> >>
-> >> >>  fs/btrfs/btrfs_inode.h          |   4 +
-> >> >>  fs/btrfs/delayed-inode.c        |   6 ++
-> >> >>  fs/btrfs/inode.c                |  29 +++++-
-> >> >>  fs/btrfs/ioctl.c                |  24 ++++-
-> >> >>  fs/btrfs/print-tree.c           |   1 +
-> >> >>  fs/btrfs/tree-log.c             |   3 +
-> >> >>  fs/exfat/exfat_fs.h             |   2 +
-> >> >>  fs/exfat/file.c                 |  42 ++++++++-
-> >> >>  fs/exfat/namei.c                |   1 +
-> >> >>  fs/file_attr.c                  | 156 ++++++++++++++++++++++++++--=
-----
-> >> >>  fs/nfs/inode.c                  |  27 +++++-
-> >> >>  fs/nfs/internal.h               |   2 +
-> >> >>  fs/nfs/nfs4proc.c               |  56 +++++++++++-
-> >> >>  fs/nfs/nfs4xdr.c                |  19 ++--
-> >> >>  fs/nfs/symlink.c                |   1 +
-> >> >>  fs/nfsd/nfs4proc.c              |   9 ++
-> >> >>  fs/nfsd/nfs4xdr.c               |  40 +++++---
-> >> >>  fs/nfsd/vfs.c                   |  17 ++++
-> >> >>  fs/nfsd/vfs.h                   |   4 +-
-> >> >>  fs/nfsd/xdr4.h                  |   3 +
-> >> >>  fs/ntfs3/file.c                 |  20 +++-
-> >> >>  fs/ntfs3/frecord.c              |   8 +-
-> >> >>  fs/smb/client/cifsfs.c          |   8 ++
-> >> >>  fs/smb/client/inode.c           |   7 +-
-> >> >>  fs/smb/client/ioctl.c           | 109 ++++++++++++++++------
-> >> >>  fs/smb/server/smb2pdu.c         |  37 +++++---
-> >> >>  fs/smb/server/vfs.c             |  43 ++++++++-
-> >> >>  fs/smb/server/vfs.h             |   1 +
-> >> >>  fs/stat.c                       |   2 +
-> >> >>  include/linux/fileattr.h        |  29 +++++-
-> >> >>  include/linux/nfs_xdr.h         |   3 +
-> >> >>  include/linux/stat.h            |   1 +
-> >> >>  include/uapi/linux/btrfs_tree.h |   3 +-
-> >> >>  include/uapi/linux/fs.h         |   9 +-
-> >> >>  include/uapi/linux/stat.h       |   7 +-
-> >> >>  35 files changed, 614 insertions(+), 119 deletions(-)
-> >> >>
-> >> >>
-> >> >> base-commit: 3bc1fb9c3b20cd478c83496ab16addecb401770d
-> >> >> prerequisite-patch-id: 049ae0eba275b5be35a238833107e0b251a55aa2
-> >> >> prerequisite-patch-id: 614f0bc9411391403d4e9702bafeb31b0ec04ec1
-> >> >> prerequisite-patch-id: ddf636b9d33d82ea206ce265d817371350bf8858
-> >> >
-> >> > I think this is going to be very hard to do properly, because the
-> >> > kernel can't really manage this on its own. Something in userland is
-> >> > going to have to set this value if you want to update it to somethin=
-g
-> >> > other than the original inode instantiation time (aka btime).
-> >> >
-> >> > It really sounds like what you want is the ability to make the btime
-> >> > settable. Personally I think the decision to forbid that was wrong-
-> >> > headed and that it should have been settable from userland from the
-> >> > beginning. Maybe we should just revisit that decision.
-> >>
-> >
-> > Frankly, I don't think this decision was made at all.
-> >
-> > There are only 2 types of filesystems in Linux today:
-> > 1. btime is constant (xfs, etx4, btrfs,...)
-> > 2. crtime is settable in principle but not via a standardized Linux
-> > API (ntfs, cifs, ...)
-> >
-> > AFAIK, btrfs in this series is the only filesystem which is going to
-> > have two deviated copies of btime and ptime.
-> > For all the rest, the deviation is artificial in statx.
->
-> Well, my objective with this series would be having ptime just as
-> supported as a/c/m/btime, especially from userspace in the 90% of
-> setups,
->
+> Can dl_task_move_bw() move the departing bandwidth of a non-deadline
+> task that was PI-boosted back into the deadline class?
 
-This is not a realistic objective for the mid term IMO.
-Even if you did go through all the cruciating steps on adding on-disk
-ptime support for ext4/xfs/... old formatted filesystems may or may
-not be allowed to set the new inode field (per maintainer's decision)
-and the stable kernels will take a long time to get those changes,
-so userspace tools will not be able to assume support for ptime exists
-for a long while.
+Yes, and this is intended. A departed task boosted back is in the class.
+A rebuild counts it where it runs, like any deadline task (see
+switched_to_dl()). The move does the same thing at the wakeup.
 
-Maybe 90% support is a realistic objective, depending on the
-time windows you set for this objective to manifest...
+The bandwidth is moved, not released. One root domain counts it at any
+time. If the boost ends before the 0-lag time, the task goes back on the
+departed list with the new record. Its inactive timer then releases the
+bandwidth there. The move has no check for room. That is a known limit,
+which the cover letter lists for this patch. This was checked by
+reading.
 
-IMO the more realistic goal is to allow rsync/etc between the
-fs that already support ptime, for example between two smb mounts
-or within the same smb mount.
+> Does skipping dl_task_move_bw() when p->is_blocked &&
+> task_on_rq_migrating(p) also drop the bandwidth move for normal
+> queued migrations of mutex-blocked tasks under
+> CONFIG_SCHED_PROXY_EXEC? 
 
-> > So the questions to ask are:
-> > 1. Do btrfs developers prefer to store a new settable ptime or
-> >     making otime/btime settable with this new API?
-> > 2. Will any other fs in the future want to store settable ptime along
-> >     side the legacy immutable btime?
-> >
-> > My take on these question is:
-> > - Personally I would love to see ptime support in xfs in the future and=
- would
-> >   willing to contribute to this work, because I have hard evidence from=
- the
-> >   performance benefits that it brings to smb server workloads
-> > - Judging by past experience with i_version bump interpretation on xfs,
-> >   I find it hard to believe that xfs developer would agree to making th=
-e
-> >   legacy btime settable
->
-> so I guess for v5 or v6 I'll also draft a patch for at least ext4 and
-> xfs.
+Yes, thanks. On this base, proxy_set_task_cpu() does not call
+migrate_task_rq_dl(). So the check guarded no proxy migration. It only
+skipped the ordinary migrations of a blocked task.
 
-I strongly advise you against this.
+With admission control on, I found no such migration that crosses root
+domains. sched_setaffinity() must keep the span, patch 28 keeps the task
+in it, and a cpuset attach moves the bandwidth itself. With admission
+control off, sched_setaffinity() can cross. The bandwidth then stays
+behind until the task sleeps and wakes, or migrates again.
 
-That's a great way to block your own patch set indefinitely.
+The next version removes the check. It stays in the proxy execution RFC,
+in the patch that makes a proxy migration call migrate_task_rq(). That
+series also wakes a blocked deadline task through the full path, which
+moves the bandwidth. This was checked by reading, not reproduced.
 
-Implementing ptime for ext4/xfs requires working with each of the
-maintainers not only on kernel but also on the userspace progs
-and has backward compat implications, which makes testing
-ever so much harder.
+> Can keeping dl_bw_rebuilding() true until the end of the tasklist
+> walk drop bandwidth moves for tasks that dl_add_task_root_domain()
+> has already visited?
 
-You start with defining an API and implement it for the
-filesystems that already have storage for ptime.
+Yes. The message says the rebuild that follows counts the task. That
+holds only for a task the walk has not reached yet.
 
-You could include a new fs that didn't have storage for
-ptime (btrfs) if you are on the same page with the btrfs maintainers
-and have the userspace tools patches lined up for review as well.
+The root domains are final once the walk starts. So the next version
+ends the rebuild window in dl_clear_root_domains(). A flag,
+dl_bw_walking, then covers the walk of the task list. A helper,
+dl_bw_move_blocked(p), blocks a move in two cases:
+ - the sched domains are being rebuilt;
+ - the walk runs and has not counted p yet (p has an old dl_bw_gen).
+The walk then counts p where it is. A task the walk already counted
+moves its bandwidth again. The walk and a wakeup both hold the pi_lock
+of the task, so they are ordered.
 
-Otherwise, you will just be blocking your own patch set
-creating dependencies with other user space tools.
+This moves the boundary of the known limit of patch 28. A wakeup can
+pick its CPU before the walk reaches the task, and be queued after the
+walk counted it. Its bandwidth then moves with no check for room. The
+cover letter and the message of patch 28 state this.
+
+> In addition, when dl_task_bw_elsewhere() runs under rq->__lock
+> without p->pi_lock, it reads bw_cpu = READ_ONCE(p->dl.dl_bw_cpu)
+> before checking dl_bw_rebuilding() and READ_ONCE(dl_bw_gen)
+
+That lockless test is only a hint. dl_task_move_bw() reads the record
+again under dl_departed_lock. A stale read can only skip a move. The
+next wakeup or migration tests again. I left it.
+
+Both points were checked by reading. Neither was reproduced.
 
 Thanks,
-Amir.
+
+Mathieu
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
