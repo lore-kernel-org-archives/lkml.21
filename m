@@ -1,79 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795016379;
-	b=jP0aG/KkQ+YJrT7leoze7fy82rjmcbFk0ddr6FirCvLP/YOnI4/hnHW3MgADobvRBfRT
-	 HiOiy97uWLQQhFj9Yo5dfF5/f2llXqpXFKijIAYNMDbELw5YnxJCWsMcwRkFWExJD1rqN
-	 5Jbqg4GaJWsMHwfsjbGZwC6SIOIdkQ1yG2BKsAyO1rQZw2Q9d+ZeiGOhSCtxn83Fd2xdk
-	 k6pmPjGnYKI5PZviq4eelMWvRmjjqZTm5aNGaIimF9rSRml6HZyQfqYuIp6oHpb7rXW9t
-	 nr4gyh3D8qBxEc/aTI+3LwBUuwoWYf2NruTJ2Aa5HJewXQOBv60pXZ0tuOW3Qgyi9zw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016379;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ypJ08Z/cH9sdI6bgD8/7yWENIXEqxl6euoBHXQWcshE=;
-	b=Xg7lpMcbROP+wi6/biwx5X10J6jlzDxzdRDfyoqp3xbYU39qL07lc1Ug+YICaV6jQqIv
-	 HLa8DvoMJhwcW0Ux9dTzkL5i98T8i5eQXxuEjcnbLQKiTahvlAxZwE9r3W6bCobf+/6MJ
-	 XlT1UQbtUBYrM00zY1DKv3MNH0N8UBD0NOSI6qxDRpCzOQ3/wludEPW3CkLTrlGog5mix
-	 mrOodfHsPCxql0InYixIyV/rqrokn+M87ALvarDjWZWIrY9nb8H7nzn1kOXhPLu85s8tC
-	 Hag0qWlcFxA0QYIC1bvjdxzNYZjLCmQ3vrr6BlbofB681iVzFx8xcdNygwUErQbvIRg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Szd48X2e;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 885FF60A2621;
-	Wed, 18 Nov 2026 15:39:39 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Szd48X2e
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795016379;
-	b=ZLWnXGDgZ8+uAIvPzM6FYaLwFJjmW2U3RUn4lNg51mpsgtumpwnHzAV6URKbzasV69aL
-	 f5JvHzHj79aaIkk+ESEhSgzENj1dtwPAsE1EV2NfF2fJpWh+pZyIpOnmVrslxhS9+Mp9S
-	 a1WEbM+Ky5b+yZ8uF6bhc+2AczzF1ItWx5YaHbrzDARJbLh1ksIXSDov12KhTIQ99VDkK
-	 XVm+3V1VGsiCozwQ4ONlYmoXTW9OILU2FBwHOBGhlIDaNAUuoRdTJSZj7pjq0OjSAGrkP
-	 dwgp08raTP+xX0SvvnN+oGigkYTpCdJI1F4kgpwFca55zWJvHsPklOuRExfbtUsIebg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795016379;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ypJ08Z/cH9sdI6bgD8/7yWENIXEqxl6euoBHXQWcshE=;
-	b=wfXQaWJ7mCqNkyAwyJt2xns+mxhs1IM8vCKVPoHCOE41hqxhpOgvSH1npoyqAzTibANE
-	 XDGPSJdYdOdfyAtPMUUSI/S9jPMvomgIYkR1+h1ELdrXGnAB0ROmOwg7q3UdbYXRACIv0
-	 0HOvbk5sYc4edfYcaMAJJJAbzFyPoDI3E4PfnUPDvf4kNdwQRrmXPzG7hDKMoe3Io11Cj
-	 xfXCixbg0ZPggxuRpvSZQvNl6KN6U/TjMkzk3Zsbzjs/x/RICD/vL88VSb5LBX1YErqAP
-	 pK7jzaW4C3AhAhBPdkWcEtLniVbTtgZtRhL72DYYF7UDHF7stgOOGkWnSfA6QeNe7aQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.100
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795016383;
+	b=rzkaPkxes52cOvO78gZxB74qmr/+f/4aTuRzHtBoyZeiMy0kCKgFwkI2CL1WKu2+1L5p
+	 JEGxo8DuMXnw9nR1I2Q0gWAschm4jTaW+IhjR/cKGk6yKBS8Me+MKaJUIcKxrw2VL/xsM
+	 v3tBbAxNiLwLlTHMbXN2hilOfa9lOAKWQhZINkSiNl7WgwAtrx8fOir6MlC7yQDIh+V6P
+	 BIysSoScEfgPU5MKuCk1CxRBag5KKq/GiFO7nRqf+MtT2Jwl64qy337ZIjj7IJqZwUV3z
+	 Ec/tUAH3RbMprstkaabGs3QEHNVEdmKOUPT03ZjgA9jgEfNFY4Sa8ENpK4bWZAqcZBw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016383;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer;
+	bh=BeT8o9zwSlnLtq9j9DgF6ViDJeKsLDw/+4F73EMjHGA=;
+	b=fnVW8PPoX7L50LJ4cdAqlW5YxY6JIUkkP7FJnIK9wyKg04yuWW8URXnZr44j38Yvp/G9
+	 RUyFR1dE1ij+LI61/i3gRFSbxN7i5fYxOZQwhpmHCgPcfzBgJ88M8ag8sbc15dTe1sEf7
+	 SkrqRl67ogZRz/EnQKP0Xu2F/AhvJzcdXB4Qb/KI36H30SujUrXqGiolT/yRa+z97Pb00
+	 NvIZhrRv2vrd1Xm//RZIrBOs8lGzEeJ8Hsc6jjkDoXv3JcbgOj6bU6oFCMxuSDNTffUoz
+	 nv5Mwmh4T0aaMAlVnsiG/+gNrs53ZpwReUF4LFeLzM8cxgaXJ1YiDyAWe8MLKB13uzg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oiFcQIdk;
+	arc=none smtp.remote-ip=91.218.175.100
+Received: from mta0.migadu.com (out-100.mta0.migadu.com [91.218.175.100])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 9D59E1F000C8;
-	Wed, 18 Nov 2026 15:39:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795016379;
-	bh=ypJ08Z/cH9sdI6bgD8/7yWENIXEqxl6euoBHXQWcshE=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Szd48X2epr/W7NQHXko7KLD7VBhdpWF7W8bMakDo30m+Ll4ypAFlbQKkLJlOAmcJn
-	 9g8BNXs6NmzdwiDaJsIgRWh4Sb9oxbBqTR8bqsfgGvxvffJ+BcEbe2UzpDSHodlnzJ
-	 8XQIuhPjB6R3b48ZiU4VG8Sqw9WJoBdvLVSGB6Cyff2lFwZNUkf61GC1lR9ydTeBuI
-	 GqZG/w8pFl+2MtLdQdwk1n0zvtxfY0h4n07X0qYGbeMFcSC9rqm/qsxw3YdDtF0R6J
-	 97QFvFOyhW2N5xeVmb4on1Ke17IymCef26r0yAknhosgiWSzsh5fU+Y1CtGA47RXsO
-	 4dYKobYxHC+vQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2D7FE4AE12;
-	Wed, 18 Nov 2026 15:39:38 +0000 (UTC)
-From: Ryan Leung via B4 Relay <devnull+untilscour.protonmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 15:39:31 +0000
-Subject: [PATCH RESEND v4] wifi: mt76: mt7996: add thermal zone device
- registration
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5499D60A2604
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:39:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5499D60A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oiFcQIdk
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=wMdnxRH2CVpTLTzKpSfG28VPEZAexl+z8B0TSAsADZI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795016379; v=1; x=1795621179;
+ b=oiFcQIdk8MIaMrcy8hisTYwWCPpR+XYmAub/rzoMtm2BbUK4xHq1MVkrNJOV4TnuVOH6V4SC
+ dcma58JceBAIByClpLjHXRxqKIt4xpnx74P1G6KKxAdXg+KL4IOcGz7Q/Wyd+IE7Af950uyLgPO
+ UK893Se9BOIxYHTxeM9gFAVQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id cff401f8981e3de6;
+	Wed, 18 Nov 2026 15:39:39 +0000
+X-Mizu-Trace-ID: cff401f8981e3de6
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+Date: Wed, 18 Nov 2026 10:39:19 -0500
+Subject: [PATCH v4 2/2] nvme-multipath: don't wait for a grace period in
+ nvme_mpath_set_live()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,168 +61,105 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-mt7996-thermal-zone-v4-1-fd26d2a55b0c@protonmail.com>
-X-B4-Tracking: v=1; b=H4sIALLG/WoC/yWNwQ7CIBBEf6XZsyQtaYr1bK892KPxQGGVNRYMo
- FEb/l3Q45vMvFkhoCcMsKtW8PikQM5maDcVKCPtBRnpzMBr3tWCc7ZE0fcdiwb9Im/s4ywy2Wg
- Uam604FvIy7vHM71+1iMchmkY93D65+ExX1HFoixNQyE6/y73KaUvkSbj744AAAA=
-X-Change-ID: 20260722-mt7996-thermal-zone-a1de7cb1d728
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ryan Leung <untilscour@protonmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795016378; l=4995;
- i=untilscour@protonmail.com; s=20260906; h=from:subject:message-id;
- bh=uvdd8eEFkrwV4Xyy+ziwLkkjmUbgGSFn3bMaGJTPF3w=;
- b=J0I2IvqJvGrgPUC4nnU+/Ex13oHDnooV/SeIF9rb5QhfKwF7JxDZBWJZkZrvpY0lOXZKmcPd9
- 4pSRuLmT6h9Ayyrvc33h2Kb5Omxi9Z9MTGSrZeEXH7b8cKeHTHjdzCm
-X-Developer-Key: i=untilscour@protonmail.com; a=ed25519;
- pk=eCaNcoQNRWYKZ9D7KbOGKvQVK2YFguJXZxglTtAR7Xk=
-X-Endpoint-Received: by B4 Relay for untilscour@protonmail.com/20260906
- with auth_id=1011
-X-Original-From: Ryan Leung <untilscour@protonmail.com>
-Reply-To: untilscour@protonmail.com
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-bug-nvme-mpath-set-live-srcu-v4-2-21f368376c8c@linux.dev>
+References: <20261118-bug-nvme-mpath-set-live-srcu-v4-0-21f368376c8c@linux.dev>
+In-Reply-To: <20261118-bug-nvme-mpath-set-live-srcu-v4-0-21f368376c8c@linux.dev>
+To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+ Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+ Nilay Shroff <nilay@linux.ibm.com>, Hannes Reinecke <hare@suse.de>
+Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Qiliang Yuan <qiliang.yuan@linux.dev>, Hannes Reinecke <hare@kernel.org>
+X-Mailer: b4 0.13.0
 
-From: Ryan Leung <untilscour@protonmail.com>
+When a path goes live, nvme_mpath_set_live() waits for an SRCU grace
+period of the namespace head before kicking the requeue work, so that
+bios which found no usable path are on the requeue list by the time it
+runs.
 
-Register the mt7996 phy as a thermal zone sensor using
-devm_thermal_of_zone_register() so that device tree thermal-zones
-nodes can reference the Wi-Fi chip as a temperature source. This
-allows the kernel thermal governor to control external cooling
-devices such as PWM fans based on Wi-Fi chip temperature.
+The ANA work calls nvme_mpath_set_live() for every namespace that
+becomes optimized or non-optimized, one after another, so an ANA change
+waits for one grace period per namespace.
 
-Registration is non-fatal: -ENODEV is returned when no
-thermal-sensors DT property references this device, which is the
-expected case on platforms without a thermal zone configured.
+Start the grace period with start_poll_synchronize_srcu() instead and
+have nvme_requeue_work() wait for it only if it has not completed yet.
+Take the cookie under head->lock, so that concurrent callers store
+their cookies in order and the requeue work never sees an older one.
+The grace periods of all namespaces then run in parallel, and requeue
+work kicked for other reasons finds the cookie completed and does not
+wait.
 
-Unregister the thermal zone together with the existing cooling device
-when the phy is torn down, and on the hwmon registration failure path
-in the same init routine, so neither is left registered against a phy
-that is about to be freed. Clear both pointers after unregistering,
-since this init-time failure path can now run before the normal
-teardown path also unregisters the same phy, and without clearing them,
-that second call would unregister already-freed objects.
+Flipping an ANA group from inaccessible to optimized ten times on each
+of two boots over nvme-tcp loopback, nvme_read_ana_log() takes (median,
+min-max in parentheses):
 
-Signed-off-by: Ryan Leung <untilscour@protonmail.com>
+  namespaces  before (ms)          after (ms)        change
+         256  52.0 (35.4-74.7)     8.7 (2.5-19.6)      -83%
+        1024  154.3 (123.9-193.8)  43.1 (18.2-58.3)    -72%
+
+Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+Reviewed-by: Hannes Reinecke <hare@kernel.org>
+Reviewed-by: Nilay Shroff <nilay@linux.ibm.com>
 ---
-Changes in v4:
-- Clear phy->tzone/phy->cdev in mt7996_unregister_thermal() after
-  unregistering, making it idempotent.
-- Link to v3: https://patch.msgid.link/20260810-mt7996-thermal-zone-v3-1-ae9d7cd6cde1@protonmail.com
+ drivers/nvme/host/multipath.c | 15 ++++++++++++++-
+ drivers/nvme/host/nvme.h      |  1 +
+ 2 files changed, 15 insertions(+), 1 deletion(-)
 
-Changes in v3:
-- Unwind cdev/tzone registration in mt7996_thermal_init() on hwmon registration failure.
-- Link to v2: https://patch.msgid.link/20260810-mt7996-thermal-zone-v2-1-563dfbbf9175@protonmail.com
-
-Changes in v2:
-- Take phy->dev->mt76.mutex around mt7996_mcu_get_temperature()
-- Unregister phy->tzone explicitly in mt7996_unregister_thermal() before the phy is freed
-- Link to v1: https://patch.msgid.link/20260722-mt7996-thermal-zone-v1-1-88896e6e9985@protonmail.com
----
- drivers/net/wireless/mediatek/mt76/mt7996/init.c   | 40 +++++++++++++++++++++-
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  1 +
- 2 files changed, 40 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index cc94eade9950..e28fe357c9d7 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -234,17 +234,42 @@ static const struct thermal_cooling_device_ops mt7996_thermal_ops = {
- 	.set_cur_state = mt7996_thermal_set_cur_throttle_state,
- };
+diff --git a/drivers/nvme/host/multipath.c b/drivers/nvme/host/multipath.c
+index 881d8a0145255..cf12d76796453 100644
+--- a/drivers/nvme/host/multipath.c
++++ b/drivers/nvme/host/multipath.c
+@@ -712,6 +712,11 @@ static void nvme_requeue_work(struct work_struct *work)
+ 		container_of(work, struct nvme_ns_head, requeue_work);
+ 	struct bio *bio, *next;
  
-+static int mt7996_thermal_get_temp(struct thermal_zone_device *tz, int *temp)
-+{
-+	struct mt7996_phy *phy = thermal_zone_device_priv(tz);
-+	int val;
++	/* Let bios that found no usable path reach the requeue list first. */
++	if (!poll_state_synchronize_srcu(&head->srcu,
++					 READ_ONCE(head->requeue_srcu_cookie)))
++		synchronize_srcu(&head->srcu);
 +
-+	mutex_lock(&phy->dev->mt76.mutex);
-+	val = mt7996_mcu_get_temperature(phy);
-+	mutex_unlock(&phy->dev->mt76.mutex);
-+	if (val < 0)
-+		return val;
-+
-+	*temp = val * 1000;
-+	return 0;
-+}
-+
-+static const struct thermal_zone_device_ops mt7996_tz_ops = {
-+	.get_temp = mt7996_thermal_get_temp,
-+};
-+
- static void mt7996_unregister_thermal(struct mt7996_phy *phy)
- {
- 	struct wiphy *wiphy = phy->mt76->hw->wiphy;
- 	char name[sizeof("cooling_deviceXXX")];
+ 	spin_lock_irq(&head->requeue_lock);
+ 	next = bio_list_get(&head->requeue_list);
+ 	spin_unlock_irq(&head->requeue_lock);
+@@ -767,6 +772,7 @@ int nvme_mpath_alloc_disk(struct nvme_ctrl *ctrl, struct nvme_ns_head *head)
+ 	mutex_init(&head->lock);
+ 	spin_lock_init(&head->requeue_lock);
+ 	INIT_WORK(&head->requeue_work, nvme_requeue_work);
++	head->requeue_srcu_cookie = get_completed_synchronize_srcu();
+ 	INIT_WORK(&head->partition_scan_work, nvme_partition_scan_work);
+ 	INIT_DELAYED_WORK(&head->remove_work, nvme_remove_head_work);
  
-+	if (phy->tzone) {
-+		devm_thermal_of_zone_unregister(phy->dev->mt76.dev, phy->tzone);
-+		phy->tzone = NULL;
-+	}
-+
- 	if (!phy->cdev)
- 		return;
+@@ -849,9 +855,16 @@ static void nvme_mpath_set_live(struct nvme_ns *ns)
+ 			__nvme_find_path(head, node);
+ 		srcu_read_unlock(&head->srcu, srcu_idx);
+ 	}
++	/*
++	 * Have nvme_requeue_work() wait for the grace period instead of
++	 * blocking here, so that namespaces going live together, e.g. on
++	 * an ANA change, do not wait for one grace period each. Start it
++	 * under head->lock so that the newest cookie is stored last.
++	 */
++	WRITE_ONCE(head->requeue_srcu_cookie,
++		   start_poll_synchronize_srcu(&head->srcu));
+ 	mutex_unlock(&head->lock);
  
- 	snprintf(name, sizeof(name), "cooling_device%d", phy->mt76->band_idx);
- 	sysfs_remove_link(&wiphy->dev.kobj, name);
- 	thermal_cooling_device_unregister(phy->cdev);
-+	phy->cdev = NULL;
+-	synchronize_srcu(&head->srcu);
+ 	nvme_mpath_revalidate_zones(head);
+ 	kblockd_schedule_work(&head->requeue_work);
  }
- 
- static int mt7996_thermal_init(struct mt7996_phy *phy)
-@@ -275,14 +300,27 @@ static int mt7996_thermal_init(struct mt7996_phy *phy)
- 	phy->throttle_temp[MT7996_CRIT_TEMP_IDX] = MT7996_CRIT_TEMP;
- 	phy->throttle_temp[MT7996_MAX_TEMP_IDX] = MT7996_MAX_TEMP;
- 
-+	phy->tzone = devm_thermal_of_zone_register(phy->dev->mt76.dev,
-+						   phy->mt76->band_idx, phy,
-+						   &mt7996_tz_ops);
-+	if (IS_ERR(phy->tzone)) {
-+		if (PTR_ERR(phy->tzone) != -ENODEV)
-+			dev_warn(phy->dev->mt76.dev,
-+				 "failed to register thermal zone %d: %ld\n",
-+				 phy->mt76->band_idx, PTR_ERR(phy->tzone));
-+		phy->tzone = NULL;
-+	}
-+
- 	if (!IS_REACHABLE(CONFIG_HWMON))
- 		return 0;
- 
- 	hwmon = devm_hwmon_device_register_with_groups(&wiphy->dev, name, phy,
- 						       mt7996_hwmon_groups);
- 
--	if (IS_ERR(hwmon))
-+	if (IS_ERR(hwmon)) {
-+		mt7996_unregister_thermal(phy);
- 		return PTR_ERR(hwmon);
-+	}
- 
- 	return 0;
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index da9958647b54..63154c338362 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -388,6 +388,7 @@ struct mt7996_phy {
- 
- 	struct ieee80211_sband_iftype_data iftype[NUM_NL80211_BANDS][NUM_NL80211_IFTYPES];
- 
-+	struct thermal_zone_device *tzone;
- 	struct thermal_cooling_device *cdev;
- 	u8 cdev_state;
- 	u8 throttle_state;
+diff --git a/drivers/nvme/host/nvme.h b/drivers/nvme/host/nvme.h
+index 8833a463f1c84..3fff9b394b1cd 100644
+--- a/drivers/nvme/host/nvme.h
++++ b/drivers/nvme/host/nvme.h
+@@ -587,6 +587,7 @@ struct nvme_ns_head {
+ 		__guarded_by(&requeue_lock);
+ 	spinlock_t		requeue_lock;
+ 	struct work_struct	requeue_work;
++	unsigned long		requeue_srcu_cookie;
+ 	struct work_struct	partition_scan_work;
+ 	struct mutex		lock;
+ 	unsigned long		flags;
 
----
-base-commit: e1dd8486807c1acf9551250b7f81e116a21e6ad6
-change-id: 20260722-mt7996-thermal-zone-a1de7cb1d728
-
-Best regards,
---  
-Ryan Leung <untilscour@protonmail.com>
-
+-- 
+2.43.0
 
