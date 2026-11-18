@@ -1,49 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018324;
-	b=VYGdM4iHmdqtu92KRcCuv7MozU9QdaCiHDo3MuPBO0rP5ATeYICnMk+1W2xT4VrGoCv1
-	 7v1lnWti6wB/tySVGQSw5wv2ytrQO8V21bQXM1f4/qJ/+osFRxMF/H3K9S0RIpQIvlbgM
-	 9NRw94LjVyC0AHfxnqnRVG8XFKKta9S/2l3HEwdohlZ0Lx+FgxFE5bjKhAIKdU2ZbsTyU
-	 iCqKWHGqm2CyENmGLuZ6aTDOb8bnV9cZXQ6Hhrsfw3YBoejeHEZt+hdmICBLdrcOwDvpW
-	 oeMNtVgWXvt6GnGNr9yEnpogAH/yj1v4K82IGh+rapGLiNTeYrOdowKM3fkUUKJ9Ihg==
+	t=1795018373;
+	b=w9Rqd0iaSoKdchBHlN0ktHfMP5k0CCqotHiXDDwwExHpkkR7FVMDyp0Gt7avH359lBI0
+	 vNxUfjHO+8iVCeBEW+SUAZfv2ArjddTFgOUIuz9855Y8qjx8JFxKcO9XgmDqt9brNzn74
+	 WGlErMYnx6JP50PTDPX53eJM0EjPO5YFNW8Mkx2x4ZaowmFTdUcwgsQBhhuSZaKUagkBj
+	 SUoYkV8T8mHFvEK+eL95PnuImuh2zjGytIQRFBCwtHIqVnQYOj8kTZa0LrsvGso5cQY/Q
+	 sv1Ul234JqRi9n+OhZeEecxX7B9qdNA4VH9TQ7nIONQwnJSfDZLtydfZS2dDyyT9Sxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018324;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=LtOK71mgWL1hJ57ziMdV5/lpR6OIlsIMpvQ29Ztn9ic=;
-	b=c/xkB9Zg0HJsHpj9FCvHfuH60BzxKzIf6vfKy43/o/yHaON5wXLJNbNg7Yv2OSpIMj+K
-	 bEeP+uwLpZPt5+47D8BDss5MiHuGwYweZoLUZv+JZ2uY0+HSnJlWFYOrTaHsS7sAlsRUD
-	 x9AKzADxcpE3QIDNQHz/YmZUtrql30yY5U9g9dJIWj9Qg5sOL/y+BucwYNlhME//hWwmi
-	 74FzOGcZeDUGiKQ97tqvlBsxqKXimeqCVnMPT2AJ/jvY7wfVYZQVc/T8/Z2SF3Wh7YHTr
-	 RBZ/47hrWUMvf1m8hu2/9ZoTfEaootgcwYhfB4L0c9AoMKiTJ/bCXwH7M7yyJuXo18A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018373;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=y9WaZRfIR6gID15FeZtBIwQrLK8oAcd6vPRViQo7VQo=;
+	b=ZPcypy3Fdc3jeFCCsi/0Uf4O+Q8AAx2piQ0rZStlZYAPyZo+Xrmwv6p/I9dZEYwd7mgh
+	 j80c5HPBMqWUj/LK7tMaVhk7EkViefS5KP2d0G+OSIUj3GaXca+28bSMT/5R9NmF+Rm62
+	 e6etvKLNFZBtFlvChDXQ2hweAb1fl01ozfl/PxNvBNz41kBJ3EMtKn4kHT3dXWPsPUP/R
+	 YhN76CWaV5mT6PdPM6Vynz9RHS5YQ1pKCBsu/o+J6cZHsyYmeVqUbXzO4/s9WFqZpzBPE
+	 G8MRZVoUqf/+9vYPml1FO9V3KglNMifE+E5gVI8F6IkJU1AgSbJEgd2eGWd4c5sfBug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=YbCqZfuq;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DF251606A31C;
-	Wed, 18 Nov 2026 16:12:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF251606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=If1HgjTx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82F56606A325;
+	Wed, 18 Nov 2026 16:12:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=YbCqZfuq
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C574C339;
-	Wed, 18 Nov 2026 08:11:59 -0800 (PST)
-Received: from [10.163.128.4] (unknown [10.163.128.4])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 35E633F673;
-	Wed, 18 Nov 2026 08:11:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795018322; bh=aYQ0HCEYlkn9BeS1THLapsztaFWJtc0g6BUkMATS0GA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YbCqZfuq9vsdroMTMmDXNL46nZtVMm9VNmLHTjEGcy2irM8ufBsCnBnRV/fVYl15N
-	 4A8TlkUJeyswfIKtt74NSDt5rlzv/pIYVVWT98EMm8puIWg5sekv6yzmy/+A0dD3h+
-	 1UzoLtCEDx4y9eRTDQ8enHNrj8UvtuZ9G8ANdCuc=
-Message-ID: <15d75748-9baa-43d9-96e0-0e49c8e27be3@arm.com>
-Date: Wed, 18 Nov 2026 21:41:52 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=If1HgjTx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 903B31F000C4;
+	Wed, 18 Nov 2026 16:12:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795018373;
+	bh=y9WaZRfIR6gID15FeZtBIwQrLK8oAcd6vPRViQo7VQo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=If1HgjTx8uKjn28zc7DD0NUJoDOiD/fNxiQwrO+qLWKOqzr+rUfr0fVcwBKATI0fB
+	 W/KWTnpqL2ckH1lrFTP2riEenzWZYRQY82/gpGrdF5gWk3MhYjUwgpuzuWZwyZsEr/
+	 NTpJXY3hKIHBmAoAfrpmMM3wjhc4igmIH+SbzGifJjv1sOcE5I+Zelb/ENJk/o0aR5
+	 +1A0j/b3KuDLV2Cn1sQIVF/D/idOXh0evQIMuV66hP1YQHeZcDMp/JXkRW8W19CNju
+	 wHBX/zDdxP8Acl0zaDgXcJe+vL0PR3GZ8ylW6qh0SY+4SllVMLTpDCs/nCzJ2rlNcW
+	 ELx62dyTSm4vw==
+Date: Wed, 18 Nov 2026 16:12:51 +0000
+From: Yosry Ahmed <yosry@kernel.org>
+To: Zide Chen <zide.chen@intel.com>
+Cc: Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, kvm@vger.kernel.org, 
+	Jim Mattson <jmattson@google.com>, Andi Kleen <ak@linux.intel.com>, 
+	Stephane Eranian <eranian@google.com>, linux-kernel@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
+	Das Sandipan <Sandipan.Das@amd.com>, Shukla Manali <Manali.Shukla@amd.com>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
+Subject: Re: [PATCH v4 13/21] KVM: x86/pmu: Emulate
+ IA32_PERF_GLOBAL_STATUS_SET MSR
+Message-ID: <av3OV2p5xvGS8Mqe@google.com>
+References: <20261112203227.289379-1-zide.chen@intel.com>
+ <20261112203227.289379-14-zide.chen@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,76 +62,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-new v2 1/5] mm: remove unused helpers from pagemap.h
-To: Shivank Garg <shivankg@amd.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
- Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
- Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
- Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
- Minchan Kim <minchan@kernel.org>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>
-Cc: linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com>
- <20261117-unused-sym-mm-v2-1-2f845e94dd50@amd.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20261117-unused-sym-mm-v2-1-2f845e94dd50@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112203227.289379-14-zide.chen@intel.com>
 
-
-
-On 17/11/26 12:46 pm, Shivank Garg wrote:
-> invalidate_remote_inode() lost its last user in commit d73065e60dcc
-> ("afs: Use alternative invalidation to using launder_folio").
-> mapping_clear_release_always() has no callers.
-
-That was added in b4fa966f03b7401ceacd4ffd7227197afb2b8376.
-
+On Thu, Nov 12, 2026 at 01:32:19PM -0700, Zide Chen wrote:
+> Intel PerfMon v4 introduces IA32_PERF_GLOBAL_STATUS_SET (0x391) to
+> allow software to set individual bits in the global status MSR. Reads
+> of IA32_PERF_GLOBAL_STATUS_SET always return zero.
 > 
-> Signed-off-by: Shivank Garg <shivankg@amd.com>
+> IA32_PERF_GLOBAL_STATUS_SET is not part of the VM state, so it doesn't
+> need to be advertised to userspace, nor saved and restored during live
+> migration.
+> 
+> Always intercept IA32_PERF_GLOBAL_STATUS_SET to prevent the guest from
+> modifying status bits that are not virtualized by KVM.
+> 
+> Bit 63 (CondChgd) is architecturally reserved in STATUS_SET per the SDM.
+> Reject writes to bit 63, injecting #GP for guest writes. While older
+> processors had silicon errata that accepted writes without #GP (e.g.
+> SKX95), strictly enforce the architectural specification for
+> deterministic behavior across migrations.
+> 
+> Originally-by: Yang Weijiang <weijiang.yang@intel.com>
+> Signed-off-by: Zide Chen <zide.chen@intel.com>
 > ---
-
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-
-
->  include/linux/pagemap.h | 11 -----------
->  1 file changed, 11 deletions(-)
+> v4:
+> - Split out CondChgd specific handling into a separate patch since it
+>   impacts MSR 0x38e and 0x390 as well.
+> - Move the defensive filtering code in pmu load to the new patch.
+> - Do not carry over Jim's Reviewed-by due to above changes.
 > 
-> diff --git a/include/linux/pagemap.h b/include/linux/pagemap.h
-> index 73af18a37367..e681a7ba6642 100644
-> --- a/include/linux/pagemap.h
-> +++ b/include/linux/pagemap.h
-> @@ -20,12 +20,6 @@ struct folio_batch;
->  unsigned long invalidate_mapping_pages(struct address_space *mapping,
->  					pgoff_t start, pgoff_t end);
->  
-> -static inline void invalidate_remote_inode(struct inode *inode)
-> -{
-> -	if (S_ISREG(inode->i_mode) || S_ISDIR(inode->i_mode) ||
-> -	    S_ISLNK(inode->i_mode))
-> -		invalidate_mapping_pages(inode->i_mapping, 0, -1);
-> -}
->  int invalidate_inode_pages2(struct address_space *mapping);
->  int invalidate_inode_pages2_range(struct address_space *mapping,
->  		pgoff_t start, pgoff_t end);
-> @@ -298,11 +292,6 @@ static inline void mapping_set_release_always(struct address_space *mapping)
->  	set_bit(AS_RELEASE_ALWAYS, &mapping->flags);
->  }
->  
-> -static inline void mapping_clear_release_always(struct address_space *mapping)
-> -{
-> -	clear_bit(AS_RELEASE_ALWAYS, &mapping->flags);
-> -}
-> -
->  static inline bool mapping_stable_writes(const struct address_space *mapping)
->  {
->  	return test_bit(AS_STABLE_WRITES, &mapping->flags);
+> v3:
+> - Split from combined v2 patch into standalone GLOBAL_STATUS_SET patch.
+> - Always intercept IA32_PERF_GLOBAL_STATUS_SET to prevent passthrough of
+>   unvirtualized status bits. (Jim)
+> - Reject writing bit 63 (CondChgd) to IA32_PERF_GLOBAL_STATUS_SET. (Jim)
+> - Filter out bit 63 before writing to hardware in
+>   intel_mediated_pmu_load().
+> - Store status set bits in a local variable in
+>   intel_mediated_pmu_load(). (Yosry)
+> - Move validation for MSR_CORE_PERF_GLOBAL_STATUS_SET to pmu_intel.c
+>   rather than common pmu.c to avoid exposing the Intel MSR on AMD.
+> ---
+>  arch/x86/kvm/pmu.c           | 7 +++++++
+>  arch/x86/kvm/vmx/pmu_intel.c | 2 ++
+>  2 files changed, 9 insertions(+)
 > 
+> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+> index 7ba1a3b38184..bd5954e62080 100644
+> --- a/arch/x86/kvm/pmu.c
+> +++ b/arch/x86/kvm/pmu.c
+> @@ -855,6 +855,7 @@ int kvm_pmu_get_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+>  	case MSR_AMD64_PERF_CNTR_GLOBAL_STATUS_CLR:
+>  	case MSR_AMD64_PERF_CNTR_GLOBAL_STATUS_SET:
+>  	case MSR_CORE_PERF_GLOBAL_OVF_CTRL:
+> +	case MSR_CORE_PERF_GLOBAL_STATUS_SET:
+>  		msr_info->data = 0;
+>  		break;
+>  	default:
+> @@ -923,6 +924,12 @@ int kvm_pmu_set_msr(struct kvm_vcpu *vcpu, struct msr_data *msr_info)
+>  		if (!msr_info->host_initiated)
+>  			pmu->global_status &= ~data;
+>  		break;
+> +	case MSR_CORE_PERF_GLOBAL_STATUS_SET:
+> +		if (data & pmu->global_status_rsvd)
+> +			return 1;
+> +		if (!msr_info->host_initiated)
+> +			pmu->global_status |= data;
+> +		break;
 
+Nit: Perhaps we should follow what MSR_CORE_PERF_GLOBAL_OVF_CTRL does
+and fallthrough, leaving the pmu->global_status update shared with
+MSR_AMD64_PERF_CNTR_GLOBAL_STATUS_SET.
+
+>  	case MSR_AMD64_PERF_CNTR_GLOBAL_STATUS_SET:
+>  		if (!msr_info->host_initiated)
+>  			pmu->global_status |= data & ~pmu->global_status_rsvd;
+> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+> index 4d05ec50f24f..c18d24b5c385 100644
+> --- a/arch/x86/kvm/vmx/pmu_intel.c
+> +++ b/arch/x86/kvm/vmx/pmu_intel.c
+> @@ -196,6 +196,8 @@ static bool intel_is_valid_msr(struct kvm_vcpu *vcpu, u32 msr)
+>  	case MSR_CORE_PERF_GLOBAL_OVF_CTRL:
+>  	case MSR_CORE_PERF_FIXED_CTR_CTRL:
+>  		return kvm_pmu_has_perf_global_ctrl(pmu);
+> +	case MSR_CORE_PERF_GLOBAL_STATUS_SET:
+> +		return pmu->version >= 4;
+>  	case MSR_IA32_PEBS_ENABLE:
+>  		ret = vcpu_get_perf_capabilities(vcpu) & PERF_CAP_PEBS_FORMAT;
+>  		break;
+> -- 
+> 2.56.1
+> 
