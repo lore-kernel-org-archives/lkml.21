@@ -1,141 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.97
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794982141;
-	b=cB7oG7LqSkVOX+i+BYzep3XCVEFQAl5ZfUB8x/LU6Hs0t0Nh/b+bGkiBaNpAmrIYp5aZ
-	 hBZUdDIH9AA6koe/nGKI/S6GP8Y+asPir2H3o4poOmhR+FwvHFlVipDeyuZi03v0K7P0Q
-	 v8wM58RJSIE9/erMcL8ap+esKIG/trbszlXagp8gE8pYqENDxPsskodIWQu0zFrGRwasF
-	 4/eE6NCTgM3M9muerXhpxPAq3VuXZ6NHvBxbqXnyTjsuMvEcSt09ibTCJL+VknE539SPY
-	 MqMFWnI9UyVWUZIwmBLwHp1Go0DazFFEtHHA2c/VKpK8UILTl/IFOfYgBuNlYAMF5NQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794982141;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=hDAVKUxd5qtHRxyEIWChofvlPqSC6zajAOsizwKxViY=;
-	b=JbGKT7v8cuvYtNJVvOXD59rkdc4Ao4vPcdsaTj60js7DnQ0/rQ7SiqxfW5H2RyatmJl8
-	 erntY2Jr3k09PEw+//aJjaocbT3hnII7H/DMw0fZpg0/9LpzhJ6ziJsx3a3l4C2iGp9d/
-	 B6hFrtuotsw9oso0QoLhJrL+BjkF9b2dX1SL9rmgKw6d22+GVE8HoZ6cdsTKhYL7JirsM
-	 7b2dITrT+RJto9qv365K5mmnbfPDqF6fokIgXwhdgo+cLEmhEqOkReNykSJo15JBiSbME
-	 4Q8a/bvxfEYnwf7Iv6W5Afohs5bFrW5ooqHRVfFPG9zNb0eIeZDLB6XYo4q5fYllpMQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=eAiMI8iA;
-	arc=none smtp.remote-ip=209.85.216.97
-Received: from mail-pj1-f97.google.com (mail-pj1-f97.google.com [209.85.216.97])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794982285;
+	b=O8M327mVn3YfR2xXxGxyO6PjbrXbwJyVXdAevXPc5efuXph3hIT07sjoe5hRoO7196xA
+	 ODpeZx0LYsC3RLgVoutZNNs3L1vydVMsu/tiMhE1htL5RR9Z7TzdU+JFPg90B0mUFnGir
+	 C4JG6UHS26o4kbUFbG/1o7Q7utatHrRuYrJS0lacPHODDYt9C8CKrUQZbppHcF8TiG2U8
+	 NKy/spIlMvZXLMhr53HP8AXXWS/aWnYFVXyMFwCeVOuX39B6LWNPWWPVyLkwyUy2KMaje
+	 nIfEkNQQtB5VNTCIxDwtacHg1/eZmKRaoUiiEIzhlwAZeT9oQQpvCbIyEUNEalCbqtA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794982285;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=vvXu5svusV3V51iO+VarbqiRaueEbhflQW7B5JcJNCM=;
+	b=OSxxUMMGuiXMWyQxKjiXEvduYTFy3rrMbirWaI1Js7Lbjr0AQv7ZeB2ZvsIqjqGBPdC2
+	 MAoBJCTEHdLBzAKvRhtjXpd4rVEvnilKNYvQQgISmhKY5Kyaaqvge/03G8/h9YL4Z1jX7
+	 PW14OIaKZsLN7T9cXhMYYMII4Mt4QcfCqhN/Wdvzv4y7+RczPxK2t5UvLFm25xJcT05oJ
+	 8EbYfPgSCJ9kxandhNf2JMftaJYpv1Wj3tXClCrZ5LpC2LbBApwDIyu030DEFaknrbTiV
+	 uCud60mjIZdHne/NEzIX3XV6sLtgHxk7jjqxaBNOUdReMdnlgs9VPl1zji7ZAczDzAQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FW314NYg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B52F606A32F;
+	Wed, 18 Nov 2026 06:11:24 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FW314NYg
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794982284;
+	b=NjfSyQa5+2CFsydDZRwrGdjbg9Z4ADjoNMRE/a/0rDKGsnAB+VTdV3ycSs4L7Y2TBPUO
+	 8i6OMoWMM7mY1wxS5YYEZr7xeIyKRHpSiT70s4dVMy/idPL2sruaqeoGBVlblKrCb3Fk7
+	 rVEQtU6mze9qQt2j5Cb+RWlswcdEQhmiYQSMsMNccWm5qxx8MUB+KHwEZz9MIhRFd64T8
+	 nH1EarzXYbkpwyjDl67z8/PEMQgvfMXuGntsxYKEceiThd3LDOFYnfZ95xgkytcuSsGoP
+	 gJvhA4sRrw4joGeSGnZiCXLq6YY78Dt2coP7xKTqOsXQhfgSkAH81zfpsEDXipyL8Ww==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794982284;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=vvXu5svusV3V51iO+VarbqiRaueEbhflQW7B5JcJNCM=;
+	b=M/3y3nwDHi1rCEHmN15oGXvIWdH6XHvhGEbftt2VLwngjy8prPcQ1JULVISzaDAZU35i
+	 GVuB6XXpjyKUOWmidonFMuufTDYcL4QIaB4+vG9udM74CvwPxE3HAXYdcNXONAeh+FeZc
+	 YrjojNIPDsokYaHKuk3DlX5Oe68qYFN8B04wJiT2sVM4RpfHa1x8I5hLLdGwS6qzBYotz
+	 UTctjH0uSEBZ9EfoHqeY5mPDq/efR1J/BBVHXE0qfNEQfPBgkFuDK48JxbV8C/Tdc5D52
+	 hsJK0CYFAf+Ytf5H1aSeXr7MzX1IDWlYi4Jo11agE8f3+OPaOKlPi2Kr7r4StPFL1wA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46165606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:09:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46165606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=eAiMI8iA
-Received: by mail-pj1-f97.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso303106a91.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:09:01 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794982140; x=1795586940;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hDAVKUxd5qtHRxyEIWChofvlPqSC6zajAOsizwKxViY=;
-        b=U7sbfI4H7CWiPwX71/2V0uvGP55a6wmKT0JFsHQrEURJcKHmOrBwfma2F7Z0HifjSS
-         hTHGmLAHldU5g6rWMbLPaBgECJeR0R0LApcWA+dv8LXSPxT64LP6LhFsRWvSFUXJaLnP
-         NC7LQGbQH8J2DM6AT8fI3xWAb54ANxSCknyUc6Ed+VPq+8+Vssmr85+kjVVdTsmQtQSC
-         f7OkcBn32NbGxEO8Sv/uEQiqBPGc11YjtjwXgEWSyfWeOXuwLxVHVDSXJDVp+/yBCNHd
-         uZWfyMbMw0aivf73BwFM+oeR/1AdKFQZl5U42FhXM06x2kA/bNOeWi46N1805EwrRPRe
-         fA1g==
-X-Forwarded-Encrypted: i=1; AL+hErGK/o8k6uofzMZNDYqDz8PYwdwMw6rSH+KHzme0akNd1R/mD1ggagMO45bhyyF6ffjMhVDUbWzNBN5xMWs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9SQm+0LMzxC7kduAu8frz7r2L1YKuSDmTvJudcOKrZ4ljHHAKs
-	2mv0j9VzOTcM7wgfVttD12jZIUCoEYdg3FsvfXzPRkUA3cnA8c/9Ukwrfd+bc30df3jFsvvQ1S8
-	nQlYeZ7X1Ep26H1Gv1/622LQn+ADYODq/q4FIsM6DS/yDolo0DfD2bLHMQuYgvnyIPv47iEDMSK
-	L3vq3qTIhBkcz0LUuvQO97DgLxoV8WBliwQWzW8DhKafA6YxTkFDRDprr+K5yx+21YJNQ5shmQw
-	6SyM2bcXe13OKWD
-X-Gm-Gg: AZFdTZdnpZMAZj9iH8xMoNHkBSiGB9WxjO4soQQk5ktvW8RTbSySn88wc4fXbp3AGP/
-	7YQ5DQ4/ylDOmY0OHTm6t7FDdbjkZrrdHlPdiEJ8aMIvufOcNj/zlPI5vXvBeDwX85u36UFmzUx
-	PJl5Dvmc3sUXHt1jv8Kw3Bb1t6YnOECn3OuIsoOFggtbr25WAbXaXMR97Qppo/tmF9/bQSS5lS/
-	34XIcRfuLlCW6gEkTHdqvSop+jmyOKDlMImEgQL2GN1iS8LTiN9k+ypVcCLNmryWwWlBWA+Y8Cu
-	tgPxvkrjUcbWEoiQHH6g8G0laptvjaFTb3mBVcbaXDNy/HpLRXb+fUjcBZiSAFC9WpbV9kv6Ew6
-	kDPtuEhhw9FmJ/StqdTXQ1Lp8y8ZW+zYwj+cNYxTezr/tFyE7tUAhQCNzn3xK07FbZUTnMJcZT5
-	Chl00JQSvwazbYOdseZnrzxtPwewyok/9i1+k=
-X-Received: by 2002:a17:90b:558e:b0:3b3:c2bf:de33 with SMTP id 98e67ed59e1d1-3b3d07c9e9bmr1785199a91.40.1794982140470;
-        Tue, 17 Nov 2026 22:09:00 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3ab9f98bdsm3640542a91.0.2026.11.17.22.08.58
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2026 22:09:00 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f2c0e6653so116352085a.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:08:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794982138; x=1795586938; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hDAVKUxd5qtHRxyEIWChofvlPqSC6zajAOsizwKxViY=;
-        b=eAiMI8iAufMdo67Q0z8JB2gSIAB5Kjwp+foAcjwgVU6OxQ7c8qb6WaH1DtOD0wQPJp
-         5YHCShmu3bpPegTIfALQ0xPaD47OvMnhaH9RoLr33X7YwiSJSQRzKN4l5JEm+QcvlJqy
-         Wfl306ULKKgsS60h5GaaIXWmRkbcWyoRDOz18=
-X-Forwarded-Encrypted: i=1; AL+hErFg82HnvPRViqRCkMoKWSTfuPMhmX6Vm+wbErVv9Xiq6o+zjlGsWTYyDyMsHAmOknEffxjRWI5gIZBa71U=@vger.kernel.org
-X-Received: by 2002:a05:622a:50e:b0:55b:8632:6d42 with SMTP id d75a77b69052e-55d5a539184mr26035611cf.23.1794981730252;
-        Tue, 17 Nov 2026 22:02:10 -0800 (PST)
-X-Received: by 2002:a05:622a:50e:b0:55b:8632:6d42 with SMTP id d75a77b69052e-55d5a539184mr26035081cf.23.1794981729786;
-        Tue, 17 Nov 2026 22:02:09 -0800 (PST)
-Received: from vertex.localdomain (pool-173-49-113-140.phlapa.fios.verizon.net. [173.49.113.140])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d58ff0065sm14886841cf.5.2026.11.17.22.02.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:02:05 -0800 (PST)
-From: Zack Rusin <zack.rusin@broadcom.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Mike Rapoport <rppt@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Dave Young <ruirui.yang@linux.dev>
-Cc: Borislav Petkov <bp@alien8.de>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	x86@kernel.org,
-	Joel Granados <joel.granados@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	virtualization@lists.linux.dev,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-kernel@vger.kernel.org,
-	John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Bo Gan <bo.gan@broadcom.com>,
-	Brennan Lamoreaux <brennan.lamoreaux@broadcom.com>,
-	kexec@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Maaz Mombasawala <maaz.mombasawala@broadcom.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Stephen Brennan <stephen.s.brennan@oracle.com>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Ian Forbes <ian.forbes@broadcom.com>,
-	Bradley Morgan <brads@mainlining.org>
-Subject: [PATCH v4 3/4] x86/vmware: Add the vmware_record_panic_msg sysctl
-Date: Wed, 18 Nov 2026 01:01:50 -0500
-Message-ID: <4c5de34b10f579368b890eaa9333a2755886bad3.1794980455.git.zack.rusin@broadcom.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1794980455.git.zack.rusin@broadcom.com>
-References: <cover.1794980455.git.zack.rusin@broadcom.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id F18411F000C4;
+	Wed, 18 Nov 2026 06:11:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794982284;
+	bh=vvXu5svusV3V51iO+VarbqiRaueEbhflQW7B5JcJNCM=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=FW314NYgxCx05BtOxX7po1Rcm9pKFouQ4Url6pmIBdGWQSWiSlQHm34ePmknVgv60
+	 v6Qus76/I+HfYEQmvEgC4uWVPQ5Swuo0C7Ucrbw76lUVaDEnIg6xfxEpL/izeX/ibz
+	 WZoNp+OKCsBa83PWLCZYbEpmkOWO2Lp759r5WctL+b9CQzRhi3rYj9Xu6xrn5EAIpn
+	 VWxv3J6duwygIe/xZrjQ9fTHNuQDvtFbgZfV/CkOhcgxRWLNeS78AgB4k456sms00p
+	 p54LImhfxbDwx9pLMd+kAkF3Hm6Qmwpc6Kgong6YsUY5gY1QCeLtbrAaI2O0aLAoCt
+	 8LONZnIiHCuOw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 52B114AC15;
+	Wed, 18 Nov 2026 06:11:23 +0000 (UTC)
+From: Christopher Griffin via B4 Relay <devnull+christophergriffin05.gmail.com@kernel.org>
+Date: Tue, 17 Nov 2026 22:11:21 -0800
+Subject: [PATCH wireless-next] wifi: mac80211: don't limit the fq memory of
+ HE radios to 4 MB
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -145,101 +83,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-mac80211-fq-he-v1-1-9d5e4985677e@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAIhB/WoC/yWMwQ6CMBAFf4Xs2U3Y0iD6K8YD1oes0SpdVBLCv
+ 1P1OJnMzGRICqN9MVPCW00fMYNsCgp9Gy9gPWcmV7paRDzf29CUToS7gXvwrmoqJz4EbD3l6Jn
+ Q6fQbHuijCTeYccQ00vGv7XW6IozfKS3LCrZ/NaiBAAAA
+X-Change-ID: 20261114-mac80211-fq-he-9383214cce74
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Christopher Griffin <christophergriffin05@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794982280; l=3461;
+ i=christophergriffin05@gmail.com; s=20261024; h=from:subject:message-id;
+ bh=A5chuA+mk1Jxt5uqOsj5kFLbFwFtNAbJvoydU9CX6F0=;
+ b=tsEpH85/SLJp598QuL1nEUfdtqycq0j4cazPHc5I1xOD0xsnkVhH7JoHezTvc7yFswSCaRAIf
+ aiD6jPMP7QuBxsXz2qYOmPhX3FGHgtonyVz5gXtdiT4phO4iSuImbdC
+X-Developer-Key: i=christophergriffin05@gmail.com; a=ed25519;
+ pk=oa9tkTNpiGoFWdGvpDHXLSobApmsh9BfrJRJrRJAvWA=
+X-Endpoint-Received: by B4 Relay for
+ christophergriffin05@gmail.com/20261024 with auth_id=1309
+X-Original-From: Christopher Griffin <christophergriffin05@gmail.com>
+Reply-To: christophergriffin05@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Allow administrators to disable host log transfer on ordinary guests or
-opt in on encrypted guests. Expose the boolean recording policy through
-kernel.vmware_record_panic_msg using proc_dobool(), as Joel suggested.
-Zero disables recording, nonzero integers enable it, and reads return
-0 or 1.
+From: Christopher Griffin <christophergriffin05@gmail.com>
 
-Register the sysctl only after the logger is ready. A registration failure
-leaves the internal default in force. Document that the log is sent
-before kdump, and that disable_panic_notifiers_platform_list also skips
-it.
+ieee80211_txq_setup_flows() lowers the fq memory limit from 16 MB to
+4 MB when no band of the wiphy supports VHT, since 4 MB is 64 max-size
+802.11n aggregates. A radio that supports HE but not VHT falls under
+that limit too: a 6 GHz only radio, where VHT does not exist, and a
+2.4 GHz only HE radio. Such a radio aggregates far more than 802.11n
+allows; HE alone raises the block ack window to 256 MPDUs.
 
-Link: https://lore.kernel.org/r/4e73yd2ofpdzl6rptzvd74no3hnyfblknoq7wzxlw7f3zjbz7c@srfabx6lsusj
-Signed-off-by: Zack Rusin <zack.rusin@broadcom.com>
+The limit binds once the driver leaves frames in the mac80211 queues,
+as it does with airtime queue limits. On an ath11k QCN9074 6 GHz only
+radio (HE160, 2x2) running the pending ath11k airtime queue limit
+series [1], a TCP download to one station ran at 1314 Mbit/s with
+11968 retransmits while fq_overmemory rose by 374. With the limit set
+to 16 MB through debugfs it ran at 1446 Mbit/s with 2721.
+
+Count HE like VHT. An EHT radio supports HE, so it is covered as well.
+
+This change and message were written with Claude, an AI coding assistant.
+
+Link: https://lore.kernel.org/all/20261018174904.1757161-1-julius@bairaktaris.de/ [1]
+Signed-off-by: Christopher Griffin <christophergriffin05@gmail.com>
 ---
-v4: No change.
+Found while testing the pending ath11k airtime queue limit series on an
+Arista C-360 (IPQ8074 plus a QCN9074 6 GHz radio) running OpenWrt. The
+6 GHz radio is its own wiphy, so it has no VHT and got the 4 MB limit;
+the same holds for the board's 2.4 GHz radio.
 
-v3: Document the platform list ordering and the disable switch, and fix
-the short section-title underline reported by Sashiko. No code change
-from v2.
+Compile-tested on wireless-next. On that board (OpenWrt, kernel 6.18,
+backports 7.2 with this change applied), the 6 GHz only and 2.4 GHz only
+radios come up with a 16 MB limit instead of 4 MB, and the two radios
+with VHT keep 16 MB. The throughput numbers in the changelog were
+measured with the limit changed through debugfs, not with this patch
+loaded.
+---
+ net/mac80211/tx.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
- Documentation/admin-guide/sysctl/kernel.rst | 20 ++++++++++++++++++++
- arch/x86/kernel/cpu/vmware.c                | 15 +++++++++++++++
- 2 files changed, 35 insertions(+)
-
-diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
-index 608055d7ccc4..be2d5aa52362 100644
---- a/Documentation/admin-guide/sysctl/kernel.rst
-+++ b/Documentation/admin-guide/sysctl/kernel.rst
-@@ -1680,6 +1680,26 @@ entry will default to 2 instead of 0.
- = =============================================================
+diff --git a/net/mac80211/tx.c b/net/mac80211/tx.c
+index 14885c2ce..a3a3ed370 100644
+--- a/net/mac80211/tx.c
++++ b/net/mac80211/tx.c
+@@ -1647,6 +1647,7 @@ int ieee80211_txq_setup_flows(struct ieee80211_local *local)
+ 	int ret;
+ 	int i;
+ 	bool supp_vht = false;
++	bool supp_he = false;
+ 	enum nl80211_band band;
  
+ 	ret = fq_init(fq, 4096);
+@@ -1654,10 +1655,12 @@ int ieee80211_txq_setup_flows(struct ieee80211_local *local)
+ 		return ret;
  
-+vmware_record_panic_msg
-+=======================
-+
-+Controls whether kmsg data is written to the host's ``vmware.log`` on
-+panic. This setting does not control the separate VMware guest-crash
-+event. Writing zero disables recording; writing a nonzero integer
-+enables it. Reads return 0 or 1.
-+
-+= ==============================================================
-+0 Do not write kmsg data to ``vmware.log``. This is the default
-+  for encrypted guests.
-+1 Write kmsg data to ``vmware.log``. This is the default for
-+  ordinary guests.
-+= ==============================================================
-+
-+The data is written by a platform panic notifier: early in panic,
-+before kdump, and also when a fatal oops enters kdump without a panic.
-+Setting ``disable_panic_notifiers_platform_list`` skips it as well.
-+
-+
- warn_limit
- ==========
+ 	/*
+-	 * If the hardware doesn't support VHT, it is safe to limit the maximum
+-	 * queue size. 4 Mbytes is 64 max-size aggregates in 802.11n.
++	 * If the hardware supports neither VHT nor HE, it is safe to limit the
++	 * maximum queue size. 4 Mbytes is 64 max-size aggregates in 802.11n.
++	 * HE counts as well, since a 6 GHz only radio has no VHT.
+ 	 */
+ 	for (band = 0; band < NUM_NL80211_BANDS; band++) {
++		const struct ieee80211_sband_iftype_data *iftd;
+ 		struct ieee80211_supported_band *sband;
  
-diff --git a/arch/x86/kernel/cpu/vmware.c b/arch/x86/kernel/cpu/vmware.c
-index 0c6f7248a665..8c8b6dd7c3e8 100644
---- a/arch/x86/kernel/cpu/vmware.c
-+++ b/arch/x86/kernel/cpu/vmware.c
-@@ -33,6 +33,7 @@
- #include <linux/reboot.h>
- #include <linux/sizes.h>
- #include <linux/static_call.h>
-+#include <linux/sysctl.h>
- #include <linux/wordpart.h>
- #include <linux/sched/cputime.h>
- #include <asm/div64.h>
-@@ -260,6 +261,16 @@ static int vmware_log_rpc(const char *buffer, size_t length)
- static struct page *vmware_panic_page;
- static bool vmware_record_panic_msg;
+ 		sband = local->hw.wiphy->bands[band];
+@@ -1665,9 +1668,12 @@ int ieee80211_txq_setup_flows(struct ieee80211_local *local)
+ 			continue;
  
-+static const struct ctl_table vmware_panic_sysctls[] = {
-+	{
-+		.procname	= "vmware_record_panic_msg",
-+		.data		= &vmware_record_panic_msg,
-+		.maxlen		= sizeof(vmware_record_panic_msg),
-+		.mode		= 0644,
-+		.proc_handler	= proc_dobool,
-+	},
-+};
+ 		supp_vht = supp_vht || sband->vht_cap.vht_supported;
 +
- static int vmware_panic_log_notify(struct notifier_block *nb,
- 				   unsigned long action, void *data)
- {
-@@ -311,6 +322,10 @@ static int __init vmware_panic_log_init(void)
- 		vmware_panic_page = NULL;
++		for_each_sband_iftype_data(sband, i, iftd)
++			supp_he = supp_he || iftd->he_cap.has_he;
  	}
  
-+	if (vmware_panic_page && IS_ENABLED(CONFIG_SYSCTL) &&
-+	    !register_sysctl("kernel", vmware_panic_sysctls))
-+		pr_err("failed to register panic log sysctl\n");
-+
- 	return 0;
- }
- early_initcall(vmware_panic_log_init);
+-	if (!supp_vht)
++	if (!supp_vht && !supp_he)
+ 		fq->memory_limit = 4 << 20; /* 4 Mbytes */
+ 
+ 	codel_params_init(&local->cparams);
+
+---
+base-commit: 5dbf2415ca9821a611d09308e3b29d2c37e7cd77
+change-id: 20261114-mac80211-fq-he-9383214cce74
+
+Best regards,
+--  
+Christopher Griffin <christophergriffin05@gmail.com>
+
+
