@@ -1,75 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011726;
-	b=yBwUwL6YFtnC+nkmSri2wSdt8Vky0OKL13PMZ3fMXl1RXeRc11byxwTii2P72evgt7OI
-	 os+Ht9/PbTApY5/sKPx+ao58sCuI3vHxQUOgxsrBZHJMKuZgL7jSRcaK1tE8g6TSysW8V
-	 nJ9nCXNoyCdGiWKYnfqYjBkfyiyeaJoLQqMw0GBoxnFQHRfSocC6Tgsp3z+0s0kxkRFVQ
-	 gI50eALkdQ/QLEDh1BRZt+5orOg8veCWURSv2Dpa/onnH4rPhqcHS/bPkmXG39wHdt3Ko
-	 uKefizVUCjcMytyARzBFOOnaP7D8bKlTKowwVLfpPTuS6IOZCw8+VKtP2/dmVTIjZ7A==
+	t=1795011738;
+	b=yI65bp19TiXFDfCoy8ARDJrFhUs4rhAJOEkQnQbQvgJorlxqeFGhwIeV1EAHAzO3VGS8
+	 /qzi6DUIsdy3ADvxGkVguTDfwTW6vnY4n4UL4iSLKEN3WoF/gY8UNeapYhDM15r32oQLx
+	 yiuTPcICWz3B4crx4PQto7pD4fBIWLm4g8wjI+wjfZ+anfoqOvQIKi0vcU7F+fT6lyFGh
+	 y+u80s1HQ9um0RCGthLfWbTGLVw3xyhK2JqxjIpfxvVY4r7ZocF3G4q76SqNpaLLyciUO
+	 78Aw6qiDMBSPvbmgNbqwqyPwurHLhDoRNJr2ZZZ3xWktbPoAd4JtEHXQTZUDDXZHF0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011726;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=2X2NffGsec/PeOgMoOFFc2QFkD6CeBxkedqmF186r8s=;
-	b=2bKezi3DQ9xkVB2bBddmE0D2g49xJ9u4COgsfYLRtFtxZ+nuuFvKTFGx3PbADfuYp7W+
-	 7kIN+kE1Ae8yo8/6PxOhaZUv0IXUc3Uztz4w3zXHkahAXj3OiJeY8xKS4DE5LUOpdjcto
-	 cMQ7RSqC57KqcoaxZ3jWlX2L6ohc9cZrJLk23tXr1CozAHLqEKYzFdxxZA6jTVo38wmES
-	 2ZIHIttD9Vtaxpckv23hjC7CBTZyuOoe4IhIe7zMPwFqRPQRUMaXiNeNhH4hJvPmZhUVw
-	 AOnu51mfDZD9Z2vENhC5QT4CVVp5XG0JIqKxwuSESscV3+CcpNBvDmwGaw1V+BdhEvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011738;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wQ/P0S/BIwLbAm3SwXm7MlYVraP/+sqEwKu2qG1M6g4=;
+	b=LK2Qlaj5DIUl/y78wkBY5ORQWFAozuVhsr32jWsrxaKKj2kHzDvqeYQQXm37tt+1gE1f
+	 l1IBPP+weGTL+rqxDVUurFTeKS3TA6xFlteYqCAfvRm1n2oXvyE9o7rZzvaHtVSCLYsiE
+	 BW8S76QRaCCZjbWYroaiVcCTVRvGCHBIaMAoKVB9x+0fujKuhfwz0hyfcr3pUNlBZJbk/
+	 2IVT/wwNVzsH/tmYw0oo6hWSHCvLLysYP9zpTU8Hr4lx53gDF5RqtluAFbXm6eK6P/L++
+	 hPJEGZ+inL+6HDSBdSns7XzM6xQUDqqA/tjufSKZlSurETNZLx3dbpFm8F0Jj1nKFKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="i4/obGMU";
-	arc=none smtp.remote-ip=209.85.128.72
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnizEqc3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A00606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:22:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90A00606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4DA7606A31C;
+	Wed, 18 Nov 2026 14:22:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=i4/obGMU
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a70b42bab0so8285145e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:22:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795011725; x=1795616525; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2X2NffGsec/PeOgMoOFFc2QFkD6CeBxkedqmF186r8s=;
-        b=i4/obGMUduCfgnSMu8WY+Vr6YRUaAUb1ZMdoGa2hdIZG9KcEoXPIRWcRTd6tCIbpKA
-         ZXMbQxd9sUWAN1G7QRw1Lb1WHNiql9zhHxs/gO61gU4oIUaTNACP+fKGvdCwcKAaRSjK
-         lpUkpKUbw7RPubisZzPdo1XOnFHRwe/MNzEr1YGFY0GEzJWd9VlxLmmgEeWANWkRPefo
-         WNgK0c+5nCA5TrhcJXpHU4oAg/Os0SqV5XhtRloiDNjdIErJtB/MBgjYUGS2Yd3WH6LJ
-         98C9i5M9ZVb4cw6wQhscgaaWdfbdIOAKZpmqWshTmmFU3l6EXufjKUVCe/JNxbWyzwKq
-         EVBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795011725; x=1795616525;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2X2NffGsec/PeOgMoOFFc2QFkD6CeBxkedqmF186r8s=;
-        b=rMSeQYgaRTSKE7DNaiGTMjCC32K8vw/7b+WntC+kp3V/BQxy5dGgZlfJYF7Y8mWymd
-         oxf4iUSoDJbI0l2wGyWkk/glTDv9U7bfM1ado94MYO+XbQI6afnaaWPT4HSaZ2lwZ0Ze
-         2j4Q1pm+V3ui7qAmNPG8/5uFaYn+ylbCFGJd2BOSfXB92PRrDyjYKWsmZk0O1NG51y0m
-         vVRWNZzke8+Vv/ATO7TAxYHyld6rJNapH7v+Coc/xoXnLjgIcAqSvOBpfGOqbJ91ta4q
-         yhle1tzEfPfpSuFpgaClDO2/NrjfNvX3ZM9+pWQThix9relFI2TTbRA0wcb68rHhSeaC
-         5ZeA==
-X-Forwarded-Encrypted: i=1; AL+hErHCcM0bUb3FaptbFEvA1GpQTafcczfoY1tv/w725pUM9J5fP2ut8AQ7H4Wwz9dQIEf0tzjeBJwvQQ3IBOM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8h416Hm7C4uj32IcDbbj8BukMKiEcvAVNfHqNWwHgHw9xgSKhp
-	l+ly8s88Ye2mJtZQdKDx43zWQY3gRdy0TYfRqgmi/z3cnCuLKGyeeVr12n6xAYcubgAfzEySrm9
-	TMVtQOs+JYhDwSiAkzw==
-X-Received: from wmfu2.prod.google.com ([2002:a05:600c:1382:b0:4bb:6a03:8800])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:37c3:b0:49e:6581:7baf with SMTP id 5b1f17b1804b1-4bb7d6cd4ffmr49219565e9.2.1795011724035;
- Wed, 18 Nov 2026 06:22:04 -0800 (PST)
-Date: Wed, 18 Nov 2026 14:22:03 +0000
-In-Reply-To: <20261019-rust-shmem-fixes-v1-1-3f7f6de5b5e7@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnizEqc3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8FF1F000CC;
+	Wed, 18 Nov 2026 14:22:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795011738;
+	bh=wQ/P0S/BIwLbAm3SwXm7MlYVraP/+sqEwKu2qG1M6g4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PnizEqc3duk8cYNxG5qGYHzwEoF+La9oGAi8pJGK9qXZcAv3wu/S8lvPf3PlCLFNX
+	 //mLiYaJ5aV1BWHge/nKYmGK+aCkhIbb5oU9XMvP4IFkSOORivHfYnAt9bGZyXpeKh
+	 Y858N4ekCEGW6tAiolhdqT4gMpWa1yltL+Kz8VN1ujdXnukHxAmxtgs/7xzW7e4bvx
+	 VXFOM1e7HjLm7XniR+DbNVU6dhqAaXV8djy+yP7OvAcNIo+8kp41tilnabUC2fNmlk
+	 l6G37fDwn1RJTgTT2PL4qy061Tr0IgTS6fz0aV832Uv9+RPpoEi/L4bVZIWv3EcEDQ
+	 Y6KdCOczQMvbg==
+Date: Wed, 18 Nov 2026 16:22:06 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Muchun Song <songmuchun@bytedance.com>
+Cc: Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Chris Down <chris@chrisdown.name>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>, Muchun Song <muchun.song@linux.dev>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Ketan <ketan.kishore@oss.qualcomm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sashiko <sashiko-bot@kernel.org>, kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 5/7] mm/page_ext: allocate page extensions early for
+ SPARSEMEM
+Message-ID: <av20jiGZH5uYV6LT@kernel.org>
+References: <20261117120627.50601-1-songmuchun@bytedance.com>
+ <20261117120627.50601-6-songmuchun@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,34 +79,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261019-rust-shmem-fixes-v1-1-3f7f6de5b5e7@google.com>
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118142203.711097-1-aliceryhl@google.com>
-Subject: Re: [PATCH] rust: drm: gem: shmem: do not leak pages when sg_table() fails
-From: Alice Ryhl <aliceryhl@google.com>
-To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, Lyude Paul <lyude@redhat.com>, 
-	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117120627.50601-6-songmuchun@bytedance.com>
 
-On Mon, Oct 19, 2026 at 08:21:52PM +0000, Sami Tolvanen wrote:
-> `SGTableMap::new()` takes a pages reference and maps the table before
-> `Devres::new()` allocates. If the allocation fails, dropping the map
-> frees the table but keeps the reference, and the next `sg_table()`
-> takes another one. `drm_gem_shmem_release()` puts only one, so the
-> pages leak.
+On Tue, Nov 17, 2026 at 08:06:25PM +0800, Muchun Song wrote:
+> KMSAN needs page extensions when kmsan_init_shadow() installs per-page
+> metadata, before memblock_free_all() releases memory to the buddy
+> allocator.  FLATMEM makes page extensions available by this point,
+> whereas SPARSEMEM initializes them later in boot.
 > 
-> Take the pages in the initializer, after the allocation.
+> Allocate boot-time SPARSEMEM page extensions from memblock to match
+> FLATMEM's initialization timing.  This gives early clients the same
+> page_ext availability guarantee across both memory models, while runtime
+> memory hotplug continues to use vmalloc.
 > 
-> Fixes: 616c229ab010 ("rust: drm: gem: Introduce shmem::Object::sg_table()")
-> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 
-Applied to drm-rust-next. Thanks!
+Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+with a nit below
+
+> ---
+> v2:
+> - Allocate all boot-time SPARSEMEM page extensions from memblock
+>   (suggested by Mike Rapoport)
+> - Keep memblock allocations above DMA and suppress per-section free
+>   messages (suggested by Chris Down)
+> ---
+>  include/linux/page_ext.h |   9 +--
+>  mm/mm_init.c             |   4 --
+>  mm/page_ext.c            | 119 +++++++++++++++++++--------------------
+>  3 files changed, 60 insertions(+), 72 deletions(-)
+>
+> +static __ref void *alloc_page_ext(size_t size, int nid)
+>  {
+>  	void *addr;
+>  
+> +	if (!slab_is_available()) {
+> +		addr = memblock_alloc_try_nid(size, PAGE_SIZE, __pa(MAX_DMA_ADDRESS),
+> +					      MEMBLOCK_ALLOC_ACCESSIBLE, nid);
+> +		if (addr)
+> +			memmap_boot_pages_add(size / PAGE_SIZE);
+
+I think it should be DIV_ROUND_UP().
+
+> +		return addr;
+> +	}
+> +
+>  	addr = vzalloc_node(size, nid);
+>  	if (addr)
+> -		memmap_pages_add(DIV_ROUND_UP(size, PAGE_SIZE));
+> +		memmap_pages_add(size / PAGE_SIZE);
+
+And here too.
+
+>  
+>  	return addr;
+>  }
+> @@ -304,7 +300,7 @@ static int __meminit init_section_page_ext(unsigned long pfn, int nid)
+>  	if (section->page_ext)
+>  		return 0;
+>  
+> -	table_size = page_ext_size * PAGES_PER_SECTION;
+> +	table_size = PAGE_ALIGN(page_ext_size * PAGES_PER_SECTION);
+>  	base = alloc_page_ext(table_size, nid);
+>  
+>  	/*
+
+-- 
+Sincerely yours,
+Mike.
