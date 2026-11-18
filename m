@@ -1,124 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994271;
-	b=RJMHpQa9adik7sd7dP19njuzm52vs9GpuVqWh4U+c/268oB0PGNebwPW09yWMUcWWeFQ
-	 5kWPUGSCjc37A533ehNxdRPQNFYEOt5SSH+Tndv/ZvN1J+cNxNOP+upJufLwdmtddYAsw
-	 8mx9PWgmQrRc+JRMMkibOB9UnNdfSR99GxFiFe5++E+XLb1slR+RqeLP+QYuL508u0whe
-	 cN4RtooItlGZb9818BAysWKAToAV/hG3gv/ybSHfNaIB8Pm4a39cOCoP3p6lNvJbPmWLt
-	 y+ptC4AxjVkVh5znFQtneK1xue/xvmxXrULKDDKd0sPY9+/erjvWuf4tdp7wXqcZczQ==
+	t=1794994270;
+	b=MZKH75TJmBA9XFpSRUcY9piWpAwjlaCKMPrX0bn35zxmyezHIOcvQn0fOvJDXSyb6ESB
+	 dlRWxjXhVKhFmVo+ew/UqmIW2wpocMLISPcIJAtPMwfPakoCktX6gCHFJ8PofmH9HDQ6K
+	 YwNjf7uma4n0b6jdsw6U1W7zoaP7+COQL2XWBQPkDV9/njjE0CmlYSeJAPp4jjfYqW6KT
+	 X+qkYSbm0VqZQDKewWNmIvWIXtt2ZED9qZge6lg//bDSx3f+mpYDrIBowiJsL4V0AEzZE
+	 8y7lwwHtd0IP1LW5Dl7asT7m1Ngzdh7jId73YDrV/2pSyEeALtTNyRbm/YK9dr106tQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994271;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=FYEMQL7D8ekblNOegLonV+3XnFkGP5/QdJvz54jKYXw=;
-	b=qS8pfHyxXMN6BrhetJRPMAXg8a5kqOATCooxZ7rCtUiA6yoFr5M5mNPTzpk+GtA9knaI
-	 ch111ralGmhf3fwhWk68S73y2G9oN9+WzaqldnJOf9o4Q5dlOs8Wp/sLSLc2O8eVySANX
-	 3lexabvWxX5Xhtco42ojkpH7GexnTOpOfYL6dNziiwYS6lIwU12xl3AldNPITbzYySzhZ
-	 6d+QFZrf1q652VB87Dx6gjpXZv+gqZWQH0qiym0SqqejupF6zg8x5CSi7hIqUqntAAvX+
-	 B5Ct8VQX5E2SPx8z7DZRa78xpXvjoBx59CSkp6tgOW7l9WUPdWI6xd+dhlSCj+POj5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994270;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=0kn55mCijCWjeMsJaup/RZVejRphJIP7oArtyJYdwus=;
+	b=dEW8fO2XfqLw1YbpGRPQwPfMgW0mm3oaSC5H6PX5LcDzEtJpfm6ijZztk1Hs3E7it5Mb
+	 +tJGfc8QEbnj+dY42GO6U9KHmZ5wyKkPpMFLXrlqkGpt1VfukNsO5wXyjl3+ZaQLw7PFJ
+	 e1e2MIzKj/OAXt2n3HN5gMiUg8nN3BAd7eFLrcp4srsil5lCBvGNfK2TE9tl3WGMvPTY1
+	 FfWPUsKb2Mjy7LjcDugeDdE2XD5gZcdGjxV7XLL/4Rk5chbBkPRHB5+20+ll4WW+kOXTh
+	 fSpufPNmuud1SivdFbzKWpKAJRWhZd9KGMlUMRxnGog09Ag/obAxp7Wi6/4E7TsXnmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=QZrKC83z;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=cVndpGNf;
-	arc=none smtp.remote-ip=103.168.172.149
-Received: from fout-a6-smtp.messagingengine.com (fout-a6-smtp.messagingengine.com [103.168.172.149])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BaSkeN5e;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44AB3606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FCD3606A31C
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:31:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44AB3606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=QZrKC83z;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=cVndpGNf
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8AAE0EC086E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:31:08 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Wed, 18 Nov 2026 04:31:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1794994268;
-	 x=1795080668; bh=FYEMQL7D8ekblNOegLonV+3XnFkGP5/QdJvz54jKYXw=; b=
-	QZrKC83z2FpDVnSp9EjKacNXubNDWu/JA67DtL66tFql9QwJoQb3ttL7QkE3qyeA
-	UZPG04Fw0ryUWUfciC27jtzj95hFM0PivZ0pBdqkinPFk7BknvjDgDLStL0GpQdL
-	bfXUf1tXnw7cmGU7HFrQlIHm1UipI0mEq3c19TH8MuQcHg8+daLdZNywgCHIZETU
-	E9hnhFynHILmV+yNCw+R4bakNshnwMiL+Vf6x3KgDEEGFUd932f3iiBbWoDOf/ZO
-	G6BP31pfb/PbcLLpwZ0C7pT08J6tY/TZhOQ0bMrUp0pDDy48+RMGcKGjo7w3pKmI
-	TNo1kCryCpvSrnOsg0PsPQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794994268; x=
-	1795080668; bh=FYEMQL7D8ekblNOegLonV+3XnFkGP5/QdJvz54jKYXw=; b=c
-	VndpGNfIEs4ansqOxdPm/EA22hHz4yEB93BQhcK39kLA8y6bMJkkHgRtcRUsaLbD
-	U6Ty9XCWEO+1/fFeXqU9zYa5qsnb83eKONIymb7RCMFOcG9JY/YSufuqQdBLpg20
-	fdVAGW5d5pahFvEqKywFVA3yagD1CiVBKPR++JD9uDTq84c9gef7ZglnQiLdDFlb
-	iY/Sn9Q5T9G4dOiR32ARXnDKGi1qNNAPJXj11rpT04KrD1zfw4s2+uTKJdqFWiWp
-	AceMyMabG/KQBzXLDXBq5nWDdHlcIVY7GO9sr4/jYuZjoqYsZMisyVVpB+5IHi9n
-	kwfymmC3bVPHZw4MHnP8Q==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794994268; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:OTqLcHDJDGlO18TulN43EcBlU8YRwak+id/mwF/TnrvOO2E
-	5YZcJ9tEylEIT10TiT6963qZFgdI7DF+9cRDV6XQfzbmKlrkVBdccG5ig5vLQIWH
-	oA8GRghfUTfkbRjDq0d3Nflsx8R3UjI2xUHVn8osk5vq8OX47HCX+e78ZSKeOpJf
-	JpRueIk/VKPWoOeH4oZxHFyn97/6HRVnaONM+DnnbAo8oPBPs9w8YznugDrq5DOI
-	CoEX/e1YZgOUqOZ+ELPttDXDBd75aFKU+2PCQ+Uzg2pheTjjVy0W6g8kcw7SXULK
-	HoGovrkNj3aoyLbgcTqqjxNHyjGdztfpqixRLjg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:7NTa3zNk24Dn5DDudjdq6sX3jIAvJDBGhOy+LMZpnPg=:hpm+LCmifHtf1PHuC4LPNLY/W1wuc2v/aTBiusw+BFE=;
-X-ME-Sender: <xms:XHD9alLLhG03lRu7r5_a0axdf-xgjp9czVnRnWrJ6q56WhGu1NE1wQ>
-    <xme:XHD9auimjg_7RcE0e7iSsg2OdUw2B14dgR8CUaaB5jJu8dOucBeE-7ZPhQZlR0Q3B
-    -Sym5aHZInKzcARQA18rqUGuiBLhvqKj_YcLmRXJwRkDcfCdvx74n7xhA>
-X-ME-Received: <xmr:XHD9anORA5r6Z6OQPeMsra98IyLBY06w1JhqRrY5upPVGo3R9MqSabEJOPxteaKPLTXsK8mGqLQOz1yWAmMumiehyxq8EIo>
-X-ME-Proxy-Cause: dmFkZTEF2qGdxk7mJg4/ZMq8GPpSmYQEk3ceRSu6WvK5sPCzYYTmpIsMkynA90lJJ3Hh/M
-    TjTk9wNG4sUQmRmxJ+cd2Ntso6liWsdywsLdhU6KDk2tEqsYHoAlqYhnjCBwv+HDA1xOz7
-    eq+EfvaJIOBFKb4B0S70fybXlTeoNDRjg8ZK/DYm0EqmNdQRoeNZ3kKp3FmCy9qMIlJ8++
-    4in42Bj/MAONqgwG0c/3niOu/v2nrBEjEnPhCcVixd/HgrfJtIGZZGIJdrasmI79EBVBYt
-    07O8xQjPKhxEfjSPg5coYbfT3xmpQGjhNJu4VbWV9qVPax3tz0U+mJIrxW8etL0Kykokof
-    b6lXCHUDY2J/pmhvsddOjzTeB3fw/oFQThWVBem0zsauSxP3Ogm/w86OGxLOkspTLdxE0B
-    kFBcir9mbs1PAGNhBsiq0T7/P74BbHD7YUvtOqxlIL3SAPrVO+2SfxupU6iPUhPGe+R8FN
-    AVV9VU5hNffwRhl9NxPFez39nsW7Xa67Ja8u0Z9NDRp6WZew23Ed2R171IzHchdpUwIjaE
-    XwnHLZJO5iOW97t1kEuJTuM9JwaOUE5KR6cGE0Wyb6F6eB1UbzZYkupcXPS0u1wJtELyjU
-    CyzbbfzraHvyirxN0MrtACGExvKAhZWfSsRT7IgFoPSicQi0uMlwOB++r3OA
-X-ME-Proxy: <xmx:XHD9ahoCsSHlQec7RXdpsjf3amZbViWdbWCM2Qaq84tiI8ngOiO0Kg>
-    <xmx:XHD9ah7HsT77umj1lScvIdbT7RhDRUIXj9A1UsntXjXwZ8jWAa-5hg>
-    <xmx:XHD9anj_jPX8IOQvQcstDOf-YWsjhcIZvfyoDHixYkkf6WbtjOOO-A>
-    <xmx:XHD9av5oE8RS84TmtToVE9PEyNMRyT9N0JHUledaKRikJ8QJMT1vGw>
-    <xmx:XHD9avRDpZVYy3dJ3L6U4C9WpP4ez3t99e8JdZX9JxqRo_KVLqXEPkVZ>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 04:31:07 -0500 (EST)
-Date: Wed, 18 Nov 2026 10:31:04 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Yaohan Li <shunsheng1218@gmail.com>
-Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com,
-	lukasz.luba@arm.com, geert+renesas@glider.be, magnus.damm@gmail.com,
-	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] thermal: rcar_gen3: quiesce the interrupt source before
- releasing it
-Message-ID: <20261118093104.GA2548353@ragnatech.se>
-References: <20261117145348.1092528-1-shunsheng1218@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BaSkeN5e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D07021F000C6
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:31:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794994269;
+	bh=0kn55mCijCWjeMsJaup/RZVejRphJIP7oArtyJYdwus=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=BaSkeN5exeFzGTBeQp9xWBiyjJ7dvHLMT2y5T3wuJFg7VXNEgjuKyHRNqdtd82HeX
+	 OdemxYtLVjYXgBH7KTnOzq96sjvElSGxLpulqE+pqj/q71aXrKcu+xzFDUEWWL6RaW
+	 VEbD6GFrMJwhby1yPzq6jzCzQgxOG1AhL8syTYs9adEEITk8rx6W673qs0DOlCOfua
+	 hXexpwU4UFwoRUAq51WiZUCSswOWmppqfG3HIUM0eBwsmUjeoR7YOVaZxFDk7YC2TY
+	 HwmHAT4ER+akdZ4CTJyZ2Q7xYz9trBHirX+F5zDtbbbD30iLcTEPisweBBLbH3nAQb
+	 FNcyZ8akuFOpg==
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-70bf1671c21so491919eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:31:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGscRmqiEaCXDejnevrS0Pdq6xc3bub0b7L8FIkJbV959o5cf0SCPz1Mp/HvpBEGvt+pfSm1ut16WgqWro=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/QZngi66jgWMAHSuLj7WAdimQQpTAnXFEa6pPnPZpsclB0jrJ0
+	MC+8GTpWOXX4glwh5x+bGF91G9UflAIEJKRRcGEj9l0DqFzHfP5WTb6CJx6XSmBSnxYdk7ZuFM1
+	LKI0tJ06+UQiT0DNN/duoR/+GVE38zGE=
+X-Received: by 2002:a05:6820:2ad8:b0:717:da:ba40 with SMTP id
+ 006d021491bc7-71b185657acmr1225893eaf.26.1794994269186; Wed, 18 Nov 2026
+ 01:31:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,130 +59,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261117145348.1092528-1-shunsheng1218@gmail.com>
+References: <20261116023709.132684-1-thaisonphan@google.com> <20261116023709.132684-3-thaisonphan@google.com>
+In-Reply-To: <20261116023709.132684-3-thaisonphan@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 10:30:58 +0100
+X-Gmail-Original-Message-ID: <CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com>
+X-Gm-Features: AclHuK9ptD7cBCsGNuyfU56eSbPiR5wyO28Z8shsRDEFiiGlM5HRM9FXIjfx3vE
+Message-ID: <CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com>
+Subject: Re: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in
+ syncookie path
+To: Thaison Phan <thaisonphan@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S . Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ij@kernel.org>, 
+	Olivier Tilmans <olivier.tilmans@nokia.com>, 
+	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Yaohan,
-
-Thanks for your work.
-
-On 2026-11-17 22:53:48 +0800, Yaohan Li wrote:
-> rcar_gen3_thermal_remove() only drops the runtime PM reference.  The two
-> threaded interrupts are left to devres, which releases them after the
-> TSC objects and the thermal zones have already been freed, and the
-> device keeps raising interrupts because nothing clears REG_GEN3_IRQEN.
-> 
-> rcar_gen3_thermal_irq() walks priv->tscs[i], reads REG_GEN3_IRQSTR
-> through tsc->base and calls thermal_zone_device_update(tsc->zone), so a
-> handler that the hardirq has already woken can run after those objects
-> are gone.
-> 
-> Disable the interrupt source for every TSC first, then release the
-> interrupt handlers, and only then drop the runtime PM reference.
-> REG_GEN3_IRQEN is only ever written by rcar_gen3_thermal_init(); a
-> concurrent set_trips() writes REG_GEN3_IRQMSK alone, so it cannot undo
-> the disable.
-> 
-> Remember the interrupt numbers that were successfully requested, so that
-> the partial-probe path, which also ends in .remove(), only releases what
-> was actually registered.
-
-Could this be re-written by a human to describe they "why" and not the 
-"how"?
-
-> 
-> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+Le lun. 16 nov. 2026 =C3=A0 03:37, Thaison Phan <thaisonphan@google.com> a =
+=C3=A9crit :
+>
+> cookie_tcp_reqsk_alloc() and bpf_sk_assign_tcp_reqsk() allocate struct
+> request_sock without __GFP_ZERO, leaving saw_accecn_opt,
+> accecn_fail_mode, syn_ect_rcv, and syn_ect_snt uninitialized. When
+> accecn_ok is negotiated in cookie_{v4,v6}_check(),
+> tcp_ecn_openreq_child() reads all four fields to initialize the child
+> socket's AccECN state.
+>
+> In addition, because the temporary request_sock used to send a cookie
+> SYN-ACK is immediately freed, treq->syn_ect_snt is lost. If the listener
+> marks ECT (e.g. DCTCP), failing to record syn_ect_snt causes
+> tcp_accecn_third_ack() to flag TCP_ACCECN_ACE_FAIL_RECV when the peer
+> reflects ECT, disabling ECT for the rest of the connection.
+>
+> Initialize saw_accecn_opt, accecn_fail_mode, and syn_ect_rcv in
+> cookie_tcp_reqsk_init() to match tcp_openreq_init(), and set syn_ect_snt
+> from the listener's TOS/tclass in cookie_{v4,v6}_check() to match
+> tcp_{v4,v6}_send_synack().
+>
+> Found by AI-assisted code inspection comparing tcp_openreq_init() and
+> cookie_tcp_reqsk_init() while investigating the cookie_v6_check()
+> LOOPBACK4_IPV6 bug. Reproduced in a QEMU VM with tcp_syncookies=3D2,
+> tcp_ecn=3D3, SLUB_RCU_DEBUG=3Dy, and slub_debug=3DP, observing bogus
+> tcpi_accecn_fail_mode and tcpi_accecn_opt_seen values in TCP_INFO on the
+> accepted child socket (and tcpi_accecn_fail_mode=3D0x2 on ECT(0)
+> listeners), and tested with packetdrill AccECN and syncookie selftests.
+>
+> Fixes: 3cae34274c79 ("tcp: accecn: AccECN negotiation")
+> Fixes: b40671b5ee58 ("tcp: accecn: AccECN option failure handling")
+> Signed-off-by: Thaison Phan <thaisonphan@google.com>
+> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 > ---
-> Prepared against v7.4-rc1-1969-g666539eecdf4.
-> 
-> AI assistance: the analysis, the change and its review notes were
-> prepared with Claude (Anthropic) as a coding assistant.  The author
-> reviewed the reasoning and takes responsibility for the content.
-> 
-> This revision also clears REG_GEN3_IRQEN for every TSC before the
-> handlers are released.  rcar_gen3_thermal_init() is the only writer of
-> IRQEN; set_trips() writes IRQMSK only, so a concurrent trip update
-> cannot re-enable the interrupt source.
-> 
-> Testing: compile tested only (arm64, gcc 11.4).  No R-Car hardware was
-> available.  The partial-probe path that also ends in .remove() was not
-> exercised.
-> ---
->  drivers/thermal/renesas/rcar_gen3_thermal.c | 25 +++++++++++++++++++++
->  1 file changed, 25 insertions(+)
-> 
-> diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
-> index 9c64cbc2ee67..35bb49915a75 100644
-> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
-> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
-> @@ -110,6 +110,8 @@ struct rcar_gen3_thermal_priv {
->  	int ptat[3];
->  	int tj_t;
->  	const struct rcar_thermal_info *info;
-> +	int irqs[2];
-> +	unsigned int num_irqs;
->  };
->  
->  static inline u32 rcar_gen3_thermal_read(struct rcar_gen3_thermal_tsc *tsc,
-> @@ -468,7 +470,28 @@ MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
->  
->  static void rcar_gen3_thermal_remove(struct platform_device *pdev)
->  {
-> +	struct rcar_gen3_thermal_priv *priv = platform_get_drvdata(pdev);
->  	struct device *dev = &pdev->dev;
-> +	unsigned int i;
-> +
-> +	/*
-> +	 * Disable the interrupt source while the device is still runtime
-> +	 * resumed.  REG_GEN3_IRQEN is only ever written by
-> +	 * rcar_gen3_thermal_init(); a concurrent set_trips() writes
-> +	 * REG_GEN3_IRQMSK alone, so it cannot re-enable the source here.
-> +	 */
-> +	for (i = 0; i < priv->num_tscs; i++) {
+> v2:
+>   - drop redundant treq->syn_ect_snt =3D 0 in cookie_tcp_reqsk_init()
+>     (Eric Dumazet)
+>   - clarify how the bug was discovered and observed via TCP_INFO
+>     (Eric Dumazet)
+>   - add Reviewed-by tag from Eric Dumazet
+> v1: https://lore.kernel.org/netdev/20261114161248.3428695-3-thaisonphan@g=
+oogle.com/
+>
+>  net/ipv4/syncookies.c | 4 ++++
+>  net/ipv6/syncookies.c | 1 +
+>  2 files changed, 5 insertions(+)
+>
+> diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
+> index 4e0ff3b82062..1a837ed6efa0 100644
+> --- a/net/ipv4/syncookies.c
+> +++ b/net/ipv4/syncookies.c
+> @@ -290,6 +290,9 @@ static int cookie_tcp_reqsk_init(struct sock *sk, str=
+uct sk_buff *skb,
+>          */
+>         treq->txhash =3D treq->snt_isn;
+>         treq->syn_tos =3D TCP_SKB_CB(skb)->ip_dsfield;
+> +       treq->saw_accecn_opt =3D TCP_ACCECN_OPT_NOT_SEEN;
+> +       treq->accecn_fail_mode =3D 0;
+> +       treq->syn_ect_rcv =3D 0;
+>
+>  #if IS_ENABLED(CONFIG_MPTCP)
+>         treq->is_mptcp =3D sk_is_mptcp(sk);
+> @@ -502,6 +505,7 @@ struct sock *cookie_v4_check(struct sock *sk, struct =
+sk_buff *skb)
+>                 ireq->rcv_wscale =3D rcv_wscale;
+>         ireq->ecn_ok &=3D cookie_ecn_ok(net, &rt->dst);
+>         treq->accecn_ok =3D ireq->ecn_ok && cookie_accecn_ok(th);
+> +       treq->syn_ect_snt =3D READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK=
+;
 
-Move the loop variable declaration here.
+Sashiko has a point about the BPF custom syncookie case.
 
-> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
-> +		rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
-> +	}
-> +
-> +	/*
-> +	 * Release the interrupts before the TSCs and zones are freed:
-> +	 * free_irq() waits for an executing threaded handler, and the handler
-> +	 * dereferences both priv->tscs[i] and priv->tscs[i]->zone.
-> +	 */
-> +	for (i = 0; i < priv->num_irqs; i++)
+Requests coming from cookie_bpf_check() also reach this line, but the
+kernel did not send that SYN-ACK, a TC/XDP program did. The listener's
+tos/tclass says nothing about the ECN codepoint the program used, and
+struct bpf_tcp_req_attrs has no way to report it.
 
-Can't you store a negative error code in riv->irqs[] to indicate no IRQ 
-and avoid adding the booking variable num_irqs? One variable can never 
-go out of sync.
+test_tcp_custom_syncookie.c sends its SYN-ACK as Not-ECT (tos =3D 0,
+flow info 0x60000000) and only clears CWR, so an AccECN SYN gets
+AE=3D1,ECE=3D1 back and the client should stay in AccECN mode. It then
+reflects Not-ECT in the third ACK. With a listener that has ECT in
+inet->tos (DCTCP for instance), we would get:
 
-While at it you could create a new define for the maximum number of 
-IRQ's and replace the loop limit in rcar_gen3_thermal_request_irqs() and 
-the number of elements in irqs[].
+  tcp_ecn_openreq_child()
+    tcp_accecn_third_ack(sk, skb, treq->syn_ect_snt)   // ECT(0)
+      tcp_accecn_validate_syn_feedback()
+        tcp_ect_transition_valid(ECT(0), Not-ECT) -> false
+        tcp_accecn_fail_mode_set(tp, TCP_ACCECN_ACE_FAIL_RECV);
 
-> +		devm_free_irq(dev, priv->irqs[i], priv);
+This is the failure your patch fixes for kernel generated cookies.
 
-Why free it and just not sync the interrupt?
+I asked you to drop the syn_ect_snt =3D 0 in v1 because it looked
+redundant, sorry about that, it is needed for the BPF path.
 
->  
->  	pm_runtime_put(dev);
->  	pm_runtime_disable(dev);
-> @@ -504,6 +527,8 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
->  						IRQF_ONESHOT, irqname, priv);
->  		if (ret)
->  			return ret;
-> +
-> +		priv->irqs[priv->num_irqs++] = irq;
->  	}
->  
->  	return 0;
-> -- 
-> 2.34.1
-> 
+Could you send a v3 doing something like this (untested)?
 
--- 
-Kind Regards,
-Niklas Söderlund
+In cookie_tcp_reqsk_init():
+
+        treq->saw_accecn_opt =3D TCP_ACCECN_OPT_NOT_SEEN;
+        treq->accecn_fail_mode =3D 0;
+        treq->syn_ect_rcv =3D 0;
+        treq->syn_ect_snt =3D 0;
+
+In cookie_v4_check():
+
+        /* SYN-ACK was not sent by the kernel if req->syncookie is set. */
+        if (!req->syncookie)
+                treq->syn_ect_snt =3D READ_ONCE(inet_sk(sk)->tos) & INET_EC=
+N_MASK;
+
+And the same in cookie_v6_check() with np->tclass.
+
+Letting the BPF program report the codepoint it used (a new field in
+struct bpf_tcp_req_attrs) would be net-next material.
+
+The other Sashiko remark (AccECN option carried by the third ACK is not
+processed in the syncookie path, unlike tcp_check_req()) looks correct,
+but this is not something added by this patch. It can be handled
+separately, no need to grow this series.
+
+Please mention the BPF case in the changelog. You can keep the
+Reviewed-by tags on both patches.
+
+Thanks.
+
+pw-bot: cr
