@@ -1,58 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794990058;
-	b=S1jrmXkpRdc47C2a+SdRz4XYMW+uhzPX1rqsxb8sID2EOwP4Io+3+orvgxtSTSZeXoG/
-	 /bulT6zwrH6X4ZkuqhyVp7sPDFELt+a50QG5yKKbr7s0x8l6jOa7eR79rShSnmvFii9cH
-	 dP0rDS0BZ/8fAJiOH1Oo1Ljh/83UBck03NYGIt/Yy1Djd4/1v8qJ9Nsofix5s7Hcq2KeM
-	 qyDQb063Unk2pZftPv/OO1op6hXrbWU3Rm+wBotKK+CJhzrv0x9uGBSbxjX+NqIcNpjBi
-	 JuiZgH3+inrXVASfswVlYPESj8L1+FyauEJC6vCKk5SLK5BoBAzHog8EXRWChPyiMWw==
+	t=1794990103;
+	b=xuA801NTUYIkGoV90kXh17Jsa4vgV+DeYVPh/dRz13Tvb5GNkB7+3A6C/vSyOBpdaW5W
+	 sHxtqsNSPZQLOAI8Clm6K3PgyhbG31bbIc/9leG/6UeFp8y+WB+DLgMg6NejQ0OtPe7xW
+	 nHQHvod0sYqM6xaNkwa0Hmn3N/dljI1iNfU221BQpVS5xQrGh722QiYFXIfOq8QGe4RjW
+	 R1gjxT5ujz1/5XR+dflcPxJVj9iIedQKQGZ6tebIpQqTeZzHOR9CgBnllYapy85bLIyKX
+	 dhFI7YGPOo6rRigX2GOPuMSMyVfw0C470St7Wyh6yecD6vbrFQy7gJRlU5ei8x+GdvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990058;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=PxUuAs6hF9FFnuFm7OwY4l9jBpo4nI/baW8NihC/UI0=;
-	b=SNOxhwOhrJg37xnQJmMlvfC/fKot6O0TNX8OHDbP1R7TilRzT+/eXvv3yYjej8DaJJkP
-	 xp6Y37rpNbgwIAY4OgwSUvKY0BEgLO87Fp1IIrvBSPmvyIMkAqaPRNE3KxsMBAYW7ovAV
-	 1rJ6BTVLfgpkWS1OTdhcnyEKpr47fv5tj4np8rq9g33XIdR4O/oUbiX/no0/8smmSxWOE
-	 OfgQt/x1ktngIMH9ihixdJdEUDrf/aqDfVl+Z0EFhcc04PqA2qx9EYHmxuFwtjtHXq+rL
-	 Ophk1bYtnf11jRRgqBdu+NnF4fFX3mG3euzrL/wcQ9cMw8Ps7ne1t2DnJPql1snVb+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990103;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=fDgvd2bO7Xp9qpMeR7EvFEr4dO1CNV2TCx7+94vVafk=;
+	b=PObEag7ZWWTe8x5/+NMdgXXyrUofZfiwySOU604HdDh4vhhyVhcj0VEv8y1Glx7ojbTf
+	 IzcyQcPZlQT3mjgScDfpLE+aBmdpJ6LCYEL+jxGxIiEwlnwtnCwHfPma5/cSkEJd5+D6w
+	 YQKLdjdMcf8YAvPB0OStxZ4tooHburH3fQvKWfie9o9PPPdF5/2jgIQRFXbyPnFnT2VWQ
+	 zMUDsvdW+2QjaLd6s2sT41vbh+Hx5h8KcNFeH86xRCu3nZbvj+thG1vSToU9p+so23hwl
+	 r1L7i4bWG3+T9dJsNHaCi5y6RD9Pu7/A/7rE0qfBRSGXiSuGdgFk9+nEDdnFNxqI7Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=uXSkMD8S;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+cY+lTo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A145F606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:20:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A145F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBA3B606A31C;
+	Wed, 18 Nov 2026 08:21:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=uXSkMD8S
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 41AAB4E4160A;
-	Wed, 18 Nov 2026 08:20:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 151F95FE9B;
-	Wed, 18 Nov 2026 08:20:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B55C211BC0901;
-	Wed, 18 Nov 2026 09:20:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794990055; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=PxUuAs6hF9FFnuFm7OwY4l9jBpo4nI/baW8NihC/UI0=;
-	b=uXSkMD8SP7cFPwjkl1zPm3Nlck69h4eMxCwkoMwpLE9Vddbk+TRWnmVFdUjPGJOKDwHEy5
-	PDBgW3YbVKb9Ex4A3Ko2apuXGcgWFdc3GV3NqzIR22lmUwGVOOf5uO/F1q41qIHwbTRjkg
-	o6F5RNQMaETQus1lf5KE46i5ild8ESgVQpw14dGar1qROupVGHHvkbBLbbpbTyMUgm/2Sv
-	sIfU27RyxBkkVJdamv3D6D5p2q2lHS6veGM1Z11iJ1Y3bBt8vTYxCW5HOzmLvR2qUcOCYh
-	4oKJscimMKNKnM8a3iWBEMxOmf8YKfxuNwNXkkINc4aGdpPOW1FH/BSxcHJkag==
-Message-ID: <560d269c-f537-47ea-8df1-b6c29d67518e@bootlin.com>
-Date: Wed, 18 Nov 2026 09:20:48 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+cY+lTo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40F7B1F000C4;
+	Wed, 18 Nov 2026 08:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794990103;
+	bh=fDgvd2bO7Xp9qpMeR7EvFEr4dO1CNV2TCx7+94vVafk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=P+cY+lToslaZalIsnJyT7cQJ8dOg6T2eNMw0sOcPi6FeVR7PRVeEvNFxCw0cgjsCg
+	 9x3ImY10mVKVdPd8QS/H7WO4AjwhFa7XlTCvUNBg4H/ZSmFIlXd8k9WQby9UewHwwx
+	 ojbFmmc7GBMw/dIEINlxzuzkbIN5j124FDP0DCXmH3EnG6DWNWiqLCcWS498AGCVPv
+	 8claF5gHCGrv8mt4lfBYmWmJo0nBDKRya1YH6MuzwIz6ZTqwiaBNPQSsyGJZ//J/JM
+	 lkzR25nqdlS4LcSG2r4+hnr+tao56xp1I4HbLvr16FBbufyc/ulsJUikhd/wx8lvQv
+	 AldS6b0GSC3vQ==
+Message-ID: <cd8934e9-8feb-43fb-92b6-9033fef92af7@kernel.org>
+Date: Wed, 18 Nov 2026 09:21:37 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,44 +52,74 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 4/4] net: phy: marvell: add RGMII-to-Copper
- mode configuration
-To: Paul Louvel <paul.louvel@bootlin.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Herve Codina <herve.codina@bootlin.com>
-References: <20261116-marvell-phy-rgmii-v2-0-e04dca67e89a@bootlin.com>
- <20261116-marvell-phy-rgmii-v2-4-e04dca67e89a@bootlin.com>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: samsung: Document greatlte board
+ binding
+To: nhansp <nhan.094.vn@gmail.com>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+References: <20261116-upstream-greatlte-dts-v1-0-768d49fb7d85@gmail.com>
+ <20261116-upstream-greatlte-dts-v1-1-768d49fb7d85@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261116-marvell-phy-rgmii-v2-4-e04dca67e89a@bootlin.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261116-upstream-greatlte-dts-v1-1-768d49fb7d85@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Paul,
-
-On 11/16/26 16:27, Paul Louvel wrote:
-> The driver currently programs the mode only for SGMII-to-Copper, based
-> on the PHY interface mode.
+On 16/11/2026 15:50, nhansp wrote:
+> Add a compatible for the Samsung Galaxy Note8 (SM-N950N), codenamed
+> greatlte, which is based on the Exynos 8895 SoC.
 > 
-> Some MACs connect to the PHY via RGMII. Add code in
-> m88e1510_config_init() to configure the device.
-> 
-> Do not overwrite the media interface mode configured via
-> m88e1510_port_configure_serdes().
-> 
-> Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
+> Signed-off-by: nhansp <nhan.094.vn@gmail.com>
 
-FWIW I've tested that on a SGMII-to-Copper 88e1512 PHY, and no regressions
-found. I can't test on RGMII though :)
+Please read submitting patches and understand what you are signing off.
+We don't take anonymous contributions.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
+Best regards,
+Krzysztof
