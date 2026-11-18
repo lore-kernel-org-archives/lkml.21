@@ -1,89 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795024322;
-	b=4WHO9Ac7K9Ln+VYBDKQWmii+KFN6rgJCNQkHNbtVmTrckhsz5fCfRhTVBngM9DvBy3+Q
-	 tD1wCuJ+a6BqPA9BctBmFPPWMG+8f/k4OXVanRNZ1lPrQjT95vbWq1p6tIQl6DAHyPfHo
-	 wp9EN928ZI23mYIY0CSmf5oSibtGtyPGuFwG4LL2eyfUzNqu9duRrO5yGEKt/kr6KMpZQ
-	 iyLFJnSivdxd1xiCND2qNfZQLzUxNpz6/AXZMZ9r4scM0Xx/UCz+dzS2/XEHZga9bPSbZ
-	 DAEOnVpOHiFpN3MIGDaHCp+zCeCq4A6e6x3+pEEqyJVsFkFYIW5c4gaUS8LifL4TQYw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024322;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=lrYP1FavFeNWo91iBiZFr6F+xFd7OUXt7KDpgSm32fY=;
-	b=Xrz8HF+r5d4tquNdtl2sf783gmo3nN4lGS576xyJQpYaYiBSVVm+1n6g6i+ryGspS7zV
-	 OFrTqbR+ntUrlKW8W8DUkHyDAosHvEMs9W+j+nz+rFSdP62Bfp0mznk1rScghCJNVwiIC
-	 9RE/CdXOEv+ZBwMOID22k28oIG3w53yczXX3R24Dxg9JUHLLpYaTNS9+Q58leRJvpMUCV
-	 30OhQoka+yPzYN7XiL9DNsNLSPMu2LeesQ927xscX7AEPc9o2KbXvirKqWDRqRNgfD6K3
-	 2+hFKLezLyzjktXdw1l/wTcdB+3+mny7+IPBQTCe7BeVfRg4n6mkdLC+cv4m1f5GhUA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wEI207PT;
-	arc=none smtp.remote-ip=209.85.210.54
-Received: from mail-ot1-f54.google.com (mail-ot1-f54.google.com [209.85.210.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795024323;
+	b=wYO+H7l+du+uYJnC/yosSeDtDdmAka5XsYOvnmex0Z4izqrY8f8XXO3n1iNFAbtaZKg7
+	 +Sr6ffGUU20tvIUnYXpY0/trbDODaTA0E78jqq53G66i67Eq6JbN/D8wGfygFcMVO6izW
+	 g0RyPPXCfR/86lW5QyiYKc873E3fEhjIvxWXAAwYwgaRN1HEX9gSxzKSvu22o1/Sikuge
+	 qRsTe4/MieCbLAjxIMb/5pitL4sE/CmprcwILr1Ad6f/+it3QJM6MncKfwSNPCu/ut6ch
+	 BxjOZY5ZxjtMS2srbcW9gD9Y/QfbKz5yOiPjL8r74HBtlJ/13p6ze27Yn+wTZUgbCgg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024323;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=OroAK432n9SEOGbiOwoUtoMX373xF8irWJtttVpaPKE=;
+	b=tJ1/czJadjPxd8rCu47TY+7C5JWkLHorddtuZTILaDGG8qoXUWdBlGORFCHCsIzvkHHS
+	 qvG1qe1AXyCMpdwirT1PsgbrC7Gab1dSrTGPsV81iy1+2PVLsT//Uy5/iuR43qy9z63A1
+	 n1QodcvHHEH1iQiKVcBOYESAVTrhFtfGA9tn5803cvoSepM2F9JXaMfurM9ds/9CcrmSS
+	 /fowvncE0rV23Mzd6FUpJ7HWrTI3AwsYV3Y85nZVsAM/NajQ0bQdwWBLkmQeaQnl0aGcT
+	 b6qM17GlsHv0EQgP96joQEvOlVKN0lo9dOnGjoZccNZY+5sk5zcLYqEj/0gOWdmlmbg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i7rBclsd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DED6860A2601;
+	Wed, 18 Nov 2026 17:52:03 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i7rBclsd
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795024323;
+	b=YsZzPSVUUrDs3MUpcXIvZzDFFwo57Z4tCQFube7PT1lplnBillp6TGN5UDgZHVTujUDs
+	 yE4J60R5UM6IP3nZURRaFrhO54/NX7PuHFxcDKUrTCsNLEag1TO6CL0g0s+Sl06Ae3wfi
+	 qeqdUjXqqDTen/XO5VC/4IylMG1WpSuG6ghcBzbZTUgAE56e2//S97qCT7QR8dWblC1Oy
+	 Rq17oeCkO9otw/TEn1vydlWiBOn+BScBmE1aAISEcZmAQy54tEbu57utx5P8/Wh79tb5v
+	 nF6lO79IKMmJVxAfv7KBXAa7vDy6uC8ScIAMKiAUtP/TdVSZmVKmH8U+TG8ZriWsujQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795024323;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=OroAK432n9SEOGbiOwoUtoMX373xF8irWJtttVpaPKE=;
+	b=ZqhdMeN6nIpX5GRZ2aQoiEVFRlWUyp8GANC80zDAuPOGi8p70QZtSOC7aCbAKmCxk+cy
+	 ILucwwidl2Qx8Jutm7NZnJKZAPXf4cAVZXzRRwKx+UK0N1IjZ8mTQYQxxWu87VJZqg/Tz
+	 GkUEBFN8hLdM1KWKTP3pV+MHtENduHa0e+WwuppyiIL5fQXoibYLeGDM/uz+VrVJu60wt
+	 Pa6pQ4DoYs7sGaCsT/gYEnDnsrWCuaS7jmBn+Oebn0T+mHY96kOBSg1kGROl5MYyHjSQM
+	 1wt0224/Q4XK57LY4ILssWDzEmh36Yl06SffU4/Ur+SvOAvjt5pD2OifPGjV5+nQxQQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63637606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:52:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63637606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wEI207PT
-Received: by mail-ot1-f54.google.com with SMTP id 46e09a7af769-7f84a55e31aso829421a34.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:52:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795024321; x=1795629121; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=lrYP1FavFeNWo91iBiZFr6F+xFd7OUXt7KDpgSm32fY=;
-        b=wEI207PTtU1MAzA/d9lCHXEz2O8MdAATq9Gz3VJgZNROuviqRJPmlrOZGAIvtcX+5G
-         JZsoIB+euVrd/1RhzmrfmC38LB5fQNAUHbDwn0G+33LjI6qARk+x4pYMmWKcRNrlx3d8
-         KvDhACYW1DGEc43emWkd4fpcjGFGt/Y6ugMYOcQqhJ56ySRyyqAkOTmHri/mc6wOKnc0
-         aiIY+Y/U01E5Zwvy7linP5cqKFzwgqAFrGCphYyrhYOwIC0M3ktBQz5KB9joTvGPyKNr
-         MghIj8mniWQ8TNIX3JQkvi6VBUDvqokdBjQTpmvXjFbxMfTw9LKXUKSnOC9ejXT1PnXo
-         Vklw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795024321; x=1795629121;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=lrYP1FavFeNWo91iBiZFr6F+xFd7OUXt7KDpgSm32fY=;
-        b=eYlboZzfK0z4yVFrSU3IgZ8eIVHcyuyhYliWrASbRuQezhpJdGSqLmwdYcp6YGsAAe
-         zirzcP9Gojn/i3BE2EUrLASCShmGl5a1ypuoKGb6tAHjyfoXJSm9y901TU2idYdQp6Be
-         +bcosLKtB0YrEmlYrKtj9S6q7G2mBi5A3nsNTTOnf9msQE+ptDDjknzL8vqJnXKvHnhP
-         JZwJkm4pIE9j40IdbWBZYVFOuV/xtpfKBM0sBOIE7TyAMr22PelwlZEtqBC/U2Z2FTZU
-         AZlE4EhZr3rucrO10tFsCC6e4+HNDAUSKNbA+N5ujZOjN6+SgaW3rGVRCP+fKon7gWyc
-         LMeQ==
-X-Forwarded-Encrypted: i=1; AL+hErH54fTXuccZn9gQsbF9zJIkUcYl4H5dHbdbCkF/SE+tx/sUTd+KrTMSecNnTCYiYTkRudBT0wI6YwF+AJI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9trrJkX7sh1heifn68W9Xot166k9OIOr97hf8uzYANUT4NyVtZ
-	82nE8o0cuiuxIXBlRlnq30DANxcCnfhZ9/xvzuE6OjIxyLlTn4frI90w
-X-Gm-Gg: AYBFou3L3L0EChRo3VkYYxhmVsA1jMUzhyTnGhg2l5cjoqXKv7xr+rRyVwA0yROJnfF
-	/GMtRsVYPqNN96jWWgh9umGDasqGNHZRltKlhgL6PJHgYAgc7m5M97/RIG+I6rcUzKtA0O3ZpvN
-	HkwRM/9f7b4I+d5FJdCW2P9H6860AtzfL0ZAkCmAoKByv6UcQM7iVeWn2X3RCUoz/vkPEIi+bCz
-	7LXaV+xLDdrSg9O5P89BZlRHwSp2hFwrV/+4Qw5HOjwi7iHKj68u3OA2lFpi54hS7S8jHmod4sz
-	dXsJPGKBwSAfBycyLPOcSPIc0BQ38D34B9XCWCwAghTEwtr6FyNp8EVUh2EPhSYxKZHPXXwXNMW
-	iFbLm/9mdS01vEUmULcxdE3ZUJSn/JSIJ3ir3E62AYWU/j/wkXzPOXh/On/UoCO0jwBJD86GT7h
-	k9/e7+2mdAXzQK5QLwSCks1FZDJ6ZALO+cTOvL/HGbheW4SQBGF3zZ5/kzzpCAbmPY2x40xgJNx
-	LwFF9/LYLA4ZHXhYI4fruM07/YhAz9dBx53ISi+d8+b+gd+Xh4SHBKT4WEjG3mhz5Xb5orEgRlm
-	5VGuyuB7nMj+zCiffA3pKFvwghCkaHQlmymVHN87hk+9WN3RndlcNcIq5QtKW30BEYHassDvA97
-	vdA4DgLq0JBmf7qiuDQMscjnzqiiuz6e456cB+fs4fYexk5Jp2Tjv18zYFy2AUxE6k26A0KsMrT
-	6HxkcVBfI++BhnlLLNl7qJR3KsHHamfupYfH8U4XKIRZO3rPNh8zug
-X-Received: by 2002:a05:6830:2695:b0:862:c3b7:c2b0 with SMTP id 46e09a7af769-862f08ed656mr3149683a34.9.1795024321103;
-        Wed, 18 Nov 2026 09:52:01 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01d4759sm2476806a34.8.2026.11.18.09.52.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 09:52:00 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 18 Nov 2026 10:51:15 -0700
-Subject: [PATCH v2] mtd: rawnand: propagate non-ECC errors when reading the
- BBT
+	by smtp.kernel.org (Postfix) with ESMTPS id 34FD11F000C8;
+	Wed, 18 Nov 2026 17:52:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795024323;
+	bh=OroAK432n9SEOGbiOwoUtoMX373xF8irWJtttVpaPKE=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=i7rBclsdAjWundfy//Wjt44/CoSgdtk+Bhhoiun9mN2D2bKpgVmoqsHPjp3blFLIZ
+	 SZyHO0essHtkDf8tm+t1gtRjEhnqG9IR9EeI2bqcsqyAoQNOZNqIN308OZ2pf1Kplo
+	 GrgfkX9nF42PyLMXUsHWAObiB2FJDaSHOVWLJBOR59WwXcLiHuxqhMNPZU/cgvkgU9
+	 8YLBOfaAz3FuAbydUTZ/rfr/5x8HvAn2KvF0D3ZD/G5NJSVv2LvhCARtob8cKzPTwK
+	 Nl1IPq4bVG5l9Zg7g8FhPmqkX5MXP+8ZDkn9qoshOQYvr6i7JhbA42GXxBnYS348oV
+	 +gpsTfIoZ6e3Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 82E2B4AEF9;
+	Wed, 18 Nov 2026 17:52:01 +0000 (UTC)
+From: Alex Ousherovitch via B4 Relay <devnull+aousherovitch.rambus.com@kernel.org>
+Subject: [PATCH v9 0/5] crypto: cmh - add Rambus CryptoManager Hub core
+ driver and AES
+Date: Wed, 18 Nov 2026 09:51:44 -0800
+Message-Id: <20261118-cmh-b4-a-v9-v9-0-70385613fd50@rambus.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,63 +86,275 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-submit-rawnand-bbt-read-error-v1-v2-1-1a3f5d121c5f@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQrCMBBFr1KydiSJYNGV95AuJsmkHbGpTGpVS
- u9uWk8gzOI/+Lw/s8okTFmdq1kJTZx5SAXsrlK+w9QScCisrLZHY/QB8tP1PILgK2EK4FzJhAF
- IZBCYDBB6F4Kh+lRrVTQPocjvbeLa/Lg4buTH1bs2Os7jIJ/th8msvT/myhmwMWp0MWK0dGl75
- PveD71qlmX5Ahcd63riAAAA
-X-Change-ID: 20261103-submit-rawnand-bbt-read-error-v1-eacbdd1e7970
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.17-dev
+X-B4-Tracking: v=1; b=H4sIALDl/WoC/yXMTQ5AMBBA4avIrE3SESRcRSzamjISP2kRibi7Y
+ vkt3rsgsBcOUCcXeD4kyDJHVGkCdtBzzyhdNGQqK4moRDsNaHLUeFRIjoxyShWF0xCL1bOT87s
+ 17e+wm5Ht9i7gvh/8qt4YbwAAAA==
+X-Change-ID: 20261116-cmh-b4-a-v9-1f1b0f0055fa
+To: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>, 
+ Joel Wittenauer <Joel.Wittenauer@cryptography.com>, 
+ Thi Nguyen <thin@rambus.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Alex Ousherovitch <aousherovitch@rambus.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795024320; l=14011;
+ i=aousherovitch@rambus.com; s=20261026; h=from:subject:message-id;
+ bh=KbfzosJ3C3ZLBJvmLddH1ikGsbPON3i/y3vfx0Y3EAk=;
+ b=+Y7xg7fJK9Aed/J/qDm1DE8M6LWddNtKDOHTAqt4JVIdE/YDXzC4LU8aTQ265cxOMCXxP2u3R
+ 4NRPcwnLj3sDA4eL9v3jP/wSKrxqSm2rE76ax/5fDpuDJLZvrAweTzd
+X-Developer-Key: i=aousherovitch@rambus.com; a=ed25519;
+ pk=ECFtTdQUPAolK+qGZ6v7Xm3sRf7rnM7wxpTeFzbqpmA=
+X-Endpoint-Received: by B4 Relay for aousherovitch@rambus.com/20261026 with
+ auth_id=1330
+X-Original-From: Alex Ousherovitch <aousherovitch@rambus.com>
+Reply-To: aousherovitch@rambus.com
 
-When loading a bad block table from flash, check_create() invalidates a
-copy on -EBADMSG and schedules a scrub on -EUCLEAN. It ignores other
-read errors, so it can report success with an incomplete table in RAM.
+The Rambus CryptoManager Hub (CMH) is a hardware cryptographic
+accelerator accessed through a mailbox-based VCQ (Virtual Command Queue)
+interface.  This part, the first of the split posting (lineage and
+changelog below), adds the core platform driver, the shared
+key/datastore layer and the AES transforms, plus the device-tree binding
+and the MAINTAINERS entry.  AES is the first and least-problematic
+algorithm family, so the core has a user and the VCQ/DMA/completion data
+path is reviewable end to end.  Later parts add the remaining symmetric
+ciphers (SM4, ChaCha20-Poly1305) and the hwrng, the hashes and MACs,
+and finally the asymmetric and post-quantum algorithms together with the
+/dev/cmh_mgmt management interface.
 
-Propagate those errors when reading either copy.
+The core driver binds the device, parses its device-tree description,
+sets up DMA, the mailbox queue interface and the transaction manager,
+and exposes sysfs/debugfs instrumentation.  The key/datastore patch adds
+the raw-key handling and the datastore (SYS) command helpers that the AES
+driver in this series, and the algorithm drivers in the following series,
+build on.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
+The transaction manager runs as a kthread that packs VCQ entries and
+submits each request to the mailbox its core is bound to; completion is
+handled by per-mailbox threaded IRQs, or a watchdog poll without them.
+The data path is asynchronous: requests return -EINPROGRESS, and on a
+full queue a CRYPTO_TFM_REQ_MAY_BACKLOG request is backlogged (-EBUSY)
+while any other gets -ENOSPC.
+The CMH eSW is loaded independently by the hardware before probe; the
+driver loads no firmware.
+
+The CMH is a platform device matched via device tree (compatible
+"rambus,cmh-v1030").  Following the inside-secure,eip93 binding model
+and the DT maintainer's guidance, the schema requires a SoC-specific
+compatible ahead of the IP fallback and therefore carries no example.
+
+Public hardware documentation:
+  Product overview: https://www.rambus.com/security/crypto-hub/
+  No public datasheets or downloadable briefs are currently available.
+  The driver was developed against the Rambus CryptoManager Hub Hardware
+  Reference Manual (Rambus Inc. confidential).  Detailed hardware
+  reference is available under NDA from Rambus Inc.; contact the
+  maintainers listed in MAINTAINERS for access during review.
+
+Developed against Herbert Xu's cryptodev tree.  checkpatch.pl --strict,
+sparse (C=2) and a W=1 -Werror build are clean, and dtschema's
+dt-doc-validate accepts the binding.  Exercised on riscv64 and arm64 --
+QEMU with the CMH hardware model and a Xilinx VMK180 FPGA with the CMH
+IP -- under lockdep/PROVE_LOCKING, DEBUG_OBJECTS,
+KASAN/UBSAN/KMEMLEAK/KFENCE and (arm64) KCSAN with no findings;
+worst-case stack stays under 1 KB.
+
+Changes in v9:
+ - dt-bindings: add Rob Herring's Reviewed-by (binding unchanged).
+ - crypto: cmh: mailbox recovery: reissue a FLUSH, RESTART or ABORT the
+   device cleared before taking it, FLUSH rather than RESTART an error seen
+   with an empty queue, give each timed-out request at HEAD its own
+   ABORT, and leave a retired mailbox alone.
+ - crypto: cmh: synchronous commands: a timed-out command still held by
+   the transaction manager is cancelled instead of dispatched later; one
+   on the device carries its timeout, so the watchdog escalates it, and
+   the caller waits for the drain.  An undrained command counts as
+   possibly live until it completes, and a full command queue is waited
+   on within the timeout instead of failing with -EAGAIN.
+ - crypto: cmh: record possibly-live DMA on every mailbox retirement.
+ - crypto: cmh: a refused suspend keeps the queued requests instead of
+   cancelling them.
+ - crypto: cmh: probe and teardown FLUSHes clear the mailbox interrupt
+   and write TAIL, as recovery does.
+ - crypto: cmh: AES: the ccm(aes) fallback masks CRYPTO_ALG_ASYNC, so it
+   cannot be built on the driver's own ctr(aes).
+ - crypto: cmh: AES: setkey rejects a 384-bit XTS key (-EINVAL); the
+   device supports only XTS-AES-128/256.
+ - crypto: cmh: debugfs: add config/inject_tm_hold_ms; recovery actions
+   are refused while suspended.
+ - crypto: cmh: assorted small fixes and comment corrections.
+
+Changes in v8:
+ - dt-bindings: rambus,slot-stride-bytes is 512 or 1024; reword
+   rambus,cores for cores that no mailbox lists.
+ - crypto: cmh: harden mailbox error recovery against concurrent
+   interrupt and watchdog activity.
+ - crypto: cmh: close transaction-manager races in timeout arming,
+   doorbell ringing and backlog promotion, and wake the manager for a
+   backlogged request.
+ - crypto: cmh: never free memory the device may still write: DMA memory
+   is freed or allocated only behind an acknowledged mailbox FLUSH, a
+   mailbox that never acknowledges is retired with its buffers kept, and
+   suspend is refused with -EBUSY instead of cancelling in-flight work.
+ - crypto: cmh: crypto API conformance: MAY_BACKLOG requests are never
+   refused (unbounded backlog), others get -ENOSPC on a full queue, final
+   completions run with BH disabled, CRYPTO_ALG_ALLOCATES_MEMORY is set,
+   and sysfs bind/unbind is disabled.
+ - crypto: cmh: error codes: -EIO only for a device failure, -ECANCELED
+   after recovery, -ENODEV on a retired mailbox, -EBADMSG for an AEAD tag
+   mismatch.
+ - crypto: cmh: AES: drop cfb(aes); zero-length xts(aes) returns -EINVAL;
+   out-of-place AEAD no longer writes the destination AAD; an oversized
+   CCM payload returns -EOVERFLOW; the empty CCM tag uses the AES
+   library; the second leg of a counter-wrap CTR request is backlogged.
+ - crypto: cmh: assorted small fixes and comment corrections.
+ - Documentation and patch split: each patch documents and adds only
+   what it needs; the PQC command sizes moved to the PQC series.
+ - Rebased onto cryptodev-2.6 (7.4.0-rc1).
+
+Changes in v7:
+ - Corrected the DCO sign-off chain so the co-developer attribution is
+   immediately followed by that author's own sign-off and the submitting
+   author signs last (the DCO point first raised on v3).
+ - crypto: cmh: close a debugfs force-drain vs teardown use-after-free --
+   the response-handler lock now also covers freeing the per-mailbox state
+   on teardown, so a force-drain can no longer race it.
+ - crypto: cmh: reclaim abandoned mailbox scratch with a non-destructive
+   flush ordered in the host command stream instead of a destructive
+   per-mailbox MBX_COMMAND_FLUSH -- removing the cmh_tm_flush_mbx helper
+   and its drain-wait -- so reclaiming scratch no longer cancels a crypto
+   VCQ that shares the mailbox.
+ - Added the per-revision changelog and the prior-posting links below.
+   The previous posting was sent untagged as "[PATCH 0/5]" and was the
+   sixth revision (v6), so this is v7.
+
+Changes in v6:
+ - Restructured the single v1-v5 series into smaller, independently
+   reviewable per-maintainer chunks.  This first series is the core
+   driver, the shared key/datastore layer and AES; later series add the
+   remaining algorithms and the management ioctl interface.
+ - dt-bindings: simplified the clock-names schema -- the oneOf collapses
+   to a single items list (core, an optional core-div2 or rt, then rt,
+   minItems: 1) -- and bounded the per-mailbox queue reg to the hardware
+   range (maximum: 63), following the v5 DT review.
+ - crypto: cmh: the response handler accumulates the IRQ status bits
+   before clearing the pending flag and releases its mailbox IRQs on
+   teardown even after a suspend; a wedged pinned mailbox now fails with
+   -EIO instead of head-of-line blocking; a second probe is rejected; and
+   debugfs ABORT injection and force-drain take the response-handler lock.
+ - crypto: cmh: AES-CMAC hardware-accelerates the one-shot .digest()
+   only and forwards the incremental and virtual-address paths to a
+   generic cmac(aes) transform the driver allocates in .init_tfm()
+   (CRYPTO_ALG_NO_FALLBACK + CRYPTO_ALG_REQ_VIRT, as the generic
+   cmac(aes) shash has no export_core and cannot back crypto_ahash_fb()).
+ - crypto: cmh: moved the datastore-type-to-core-id mapping into the
+   management layer so the key/datastore code no longer depends on the
+   management UAPI header; that header now lands with the ioctl
+   implementation in a later series.
+
+Changes in v5:
+ - dt-bindings: reworked the compatible and rambus,cores per DT review --
+   require a SoC-specific compatible ahead of the "rambus,cmh-v1030" IP
+   fallback via the inside-secure,eip93 "not: {}" idiom (no example can
+   validate until a real SoC is upstreamed), switch rambus,cores to a
+   string-array of core names, and replace the positional clocks list with
+   a count-bounded description.
+ - crypto: cmh: transaction-manager / response-handler race fixes -- FLUSH
+   and drain instead of restarting the eSW into freed slots, serialise the
+   mailbox TAIL doorbell, ABORT a sync timeout only at the mailbox HEAD,
+   and reject an over-large num_vcqs.
+
+Changes in v4:
+ - dt-bindings: renamed the per-mailbox child to queue@N and described its
+   ring geometry as plain counts (rambus,num-slots / rambus,slot-stride-
+   bytes) rather than log2; renamed the binding to rambus,cmh-v1030.yaml.
+ - crypto: cmh: convert to module_platform_driver() + dev_err_probe() and
+   drop the single-instance guard; remove informational probe logging; and
+   drop the production module parameters (built-in constants, with
+   debug-only knobs under debugfs).
+
+Changes in v3:
+ - dt-bindings: reworked the mailbox topology per DT review -- mailbox@N
+   child nodes, with cores discovered from CORE_ENABLE rather than the DT
+   -- and adopted the "rambus" vendor prefix with a device-specific
+   "rambus,cmh-v1030" compatible (the IP revision).
+
 Changes in v2:
-- Explain how a failed BBT read differs from the ECC recovery cases.
-- Link to v1: https://patch.msgid.link/20261103-submit-rawnand-bbt-read-error-v1-v1-1-2ff0abffaf2e@gmail.com
----
- drivers/mtd/nand/raw/nand_bbt.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ - crypto: cmh: gate probe on both eSW readiness bits (MISSION and
+   MISSION2) so an operation offloaded to the sidecar engine cannot race an
+   engine that is not yet up.
 
-diff --git a/drivers/mtd/nand/raw/nand_bbt.c b/drivers/mtd/nand/raw/nand_bbt.c
-index 93f162805f31..f3a1fd31ca03 100644
---- a/drivers/mtd/nand/raw/nand_bbt.c
-+++ b/drivers/mtd/nand/raw/nand_bbt.c
-@@ -1024,6 +1024,8 @@ static int check_create(struct nand_chip *this, uint8_t *buf,
- 				i--;
- 				continue;
- 			}
-+			if (res < 0 && !mtd_is_bitflip(res))
-+				return res;
- 		}
- 		/* If they weren't versioned, read both */
- 		if (rd2) {
-@@ -1035,6 +1037,8 @@ static int check_create(struct nand_chip *this, uint8_t *buf,
- 				i--;
- 				continue;
- 			}
-+			if (res2 < 0 && !mtd_is_bitflip(res2))
-+				return res2;
- 		}
- 
- 		/* Scrub the flash table(s)? */
+The CMH driver was first posted as a single series; following
+maintainer feedback it is now split into smaller, independently reviewable
+parts, numbered continuously across the split.  Earlier postings:
+  v1: https://lore.kernel.org/linux-crypto/20260625173328.1140487-1-skrishnamoorthy@rambus.com/
+  v2: https://lore.kernel.org/linux-crypto/20260709203037.1884436-1-skrishnamoorthy@rambus.com/
+  v3: https://lore.kernel.org/linux-crypto/20260806195519.2703224-1-skrishnamoorthy@rambus.com/
+  v4: https://lore.kernel.org/linux-crypto/20260825221539.255951-1-aousherovitch@rambus.com/
+  v5: https://lore.kernel.org/linux-crypto/20260917225929.2494111-1-aousherovitch@rambus.com/
+  v6: https://lore.kernel.org/linux-crypto/20261013174847.2192609-1-aousherovitch@rambus.com/
+  v7: https://lore.kernel.org/linux-crypto/20261026-cmh-b4-a-v7-v7-0-500a83faf500@rambus.com/
+  v8: https://lore.kernel.org/linux-crypto/20261110-cmh-b4-a-v8-v8-0-4cea8ebc1d40@rambus.com/
 
+Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
 ---
-base-commit: 292f737382d3913d0d9addf220b7170fedd7a04f
-base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next
-change-id: 20261103-submit-rawnand-bbt-read-error-v1-eacbdd1e7970
+Alex Ousherovitch (5):
+      dt-bindings: crypto: add Rambus CryptoManager Hub
+      crypto: cmh - add core platform driver
+      crypto: cmh - add key/datastore infrastructure
+      crypto: cmh - add AES skcipher/aead/cmac
+      MAINTAINERS: add Rambus CryptoManager Hub (CMH)
+
+ Documentation/ABI/testing/debugfs-driver-cmh       |  161 ++
+ Documentation/ABI/testing/sysfs-driver-cmh         |   62 +
+ Documentation/crypto/device_drivers/cmh.rst        |  326 +++
+ Documentation/crypto/device_drivers/index.rst      |    1 +
+ .../bindings/crypto/rambus,cmh-v1030.yaml          |  145 ++
+ .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
+ MAINTAINERS                                        |   13 +
+ drivers/crypto/Kconfig                             |    1 +
+ drivers/crypto/Makefile                            |    1 +
+ drivers/crypto/cmh/Kconfig                         |   48 +
+ drivers/crypto/cmh/Makefile                        |   30 +
+ drivers/crypto/cmh/cmh_aes.c                       |  709 +++++
+ drivers/crypto/cmh/cmh_aes_aead.c                  |  935 +++++++
+ drivers/crypto/cmh/cmh_aes_cmac.c                  |  460 ++++
+ drivers/crypto/cmh/cmh_config.c                    |  625 +++++
+ drivers/crypto/cmh/cmh_debugfs.c                   |  309 +++
+ drivers/crypto/cmh/cmh_dma.c                       |  332 +++
+ drivers/crypto/cmh/cmh_key.c                       |  152 ++
+ drivers/crypto/cmh/cmh_main.c                      |  413 +++
+ drivers/crypto/cmh/cmh_mqi.c                       |  471 ++++
+ drivers/crypto/cmh/cmh_rh.c                        | 1497 +++++++++++
+ drivers/crypto/cmh/cmh_sys.c                       |   58 +
+ drivers/crypto/cmh/cmh_sysfs.c                     |  108 +
+ drivers/crypto/cmh/cmh_txn.c                       | 2712 ++++++++++++++++++++
+ drivers/crypto/cmh/include/cmh.h                   |   24 +
+ drivers/crypto/cmh/include/cmh_aes.h               |   24 +
+ drivers/crypto/cmh/include/cmh_aes_abi.h           |   98 +
+ drivers/crypto/cmh/include/cmh_config.h            |  110 +
+ drivers/crypto/cmh/include/cmh_debugfs.h           |   94 +
+ drivers/crypto/cmh/include/cmh_dma.h               |  195 ++
+ drivers/crypto/cmh/include/cmh_key.h               |   76 +
+ drivers/crypto/cmh/include/cmh_mqi.h               |   59 +
+ drivers/crypto/cmh/include/cmh_registers.h         |  147 ++
+ drivers/crypto/cmh/include/cmh_rh.h                |   99 +
+ drivers/crypto/cmh/include/cmh_sys.h               |   23 +
+ drivers/crypto/cmh/include/cmh_sys_abi.h           |  148 ++
+ drivers/crypto/cmh/include/cmh_sysfs.h             |   14 +
+ drivers/crypto/cmh/include/cmh_txn.h               |  655 +++++
+ drivers/crypto/cmh/include/cmh_vcq.h               |  203 ++
+ 39 files changed, 11540 insertions(+)
+---
+base-commit: 82e91fe19fb838f235f7c8829afc1eb389c93bdf
+change-id: 20261116-cmh-b4-a-v9-1f1b0f0055fa
 
 Best regards,
 --  
-James Hilliard <james.hilliard1@gmail.com>
+Alex Ousherovitch <aousherovitch@rambus.com>
+
 
