@@ -1,99 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999767;
-	b=MUZnHt/lXTaJ3LjNOAftgjWblZ0gp8s+Y/29mjp+rmAficV1p60BYFRv/WfILhPCLcio
-	 arsI0doRxJqklLHGNauZRyaLi1J5U1SUe+BvwVun+zp+v8B/po0lT3wOjBameID7826Fp
-	 /O7UOvY0p1lPCZLjVtbC3RqL7KGC1IhURISJVzYys7ST/oQBeaoO1sBEm29JBDPf2Ohoc
-	 x4CE7BzaIyJyloXd6zCRPEmQXGCxB/HfoFWX3cKLAGazfnK+n8/HUpMHVjujcVTTb8Bsd
-	 K+oHvczX1UeQYoJzDHV+omEK4f3y45tdZaX561HnGbLwZIpR3mZTB5VaqfmnoaAmL7g==
+	t=1794999797;
+	b=NQEVJ/HyF8vGMIj7wLcsZMAAPQVXw7hLhwMrsKIg/hxfyszG7yW03rlI9chZFH/O9NrO
+	 wIehKbDT/hgthT789+GJ+/kP1IdyiM8ba3BpqLFEFkF86rF6mx+0zyq5O6/UXnRMXFHh+
+	 icjlHB+bMfTJwfbxoXe6E7uhSXIPkUKQMAzyf9Xk6ejJBaG3lJewcHIIukzFuTLl0wTUE
+	 WuFKuWIHdXh5ucDh29dOs1T+FeyPblGUf0IL7wVkyfvV1bk3fcIyK6kR56syNPMPeFm47
+	 ierQ8OLJMt3Je4js1XnygrjvpIrs+/ihQTonGqQYoxA0yU5wNe3mq5yHOG+d33fqmEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999767;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=aaVCz9shF8ZFyzO5/5N6GKpW3bexM2Ih05SHuYmSwNk=;
-	b=oa1e0jnl8JPfVRvgQ86DJ9wiU3oC1r7EN1qWn1sG+h3OCg9wojqMjII60/6gsuRhDVhZ
-	 FlTE9whKScBzD7pmHI0OAs92/0jfzlmHww8oAJQuuLWnN6oKCaBYeH3Yw8b4DqYym0JPh
-	 77ZX7Qhg2SJLMsQyP/YpYy3Eb9XqgmXJQKBP4h6q0APyOiW0207qIK4lPI5F5Qo3bE8du
-	 lek6oguS+uhIhLAlRxUTttyBS2FC0sVTt/2ha6LhbNeNDnKO/yEWui7+Bc6JOoW4jsCce
-	 wZYnRQwUDVjPVgttZ1UeRmGYIPTwLrfPHFjEgb/ttNi3w+Tfh9vvR5QM1Ed+GJhc0RA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999797;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=+K2pYzrSzwUxMMnkY7CTMkYgFs7aME1tmW9XHAvfhTk=;
+	b=G4f4wyN2TDeNzSxzS58M0ctB1ys3U0URIbY+PDdwdTR2r2C7wZiGeALFsS77coFbsI9d
+	 hhu45bKa5PKaZTH1mY4NoJzFrGq7MOb+Pxd2tN0IdHD4v6hl3rcwPueMhvmf94OOg5Jff
+	 Jr9kuNppqNXfkrm0L7ug443nVIN5vBhQmj/WW2tDXKtHd2AJYqIKP6zfldansZmYQkpw0
+	 q0w5FKnCwB8hPFaxtah222qYw4PkiQ0akQEnetWLjOYRc4yT+ti7DJP+mSxpWi8GbckqG
+	 tGH7N/hNc58JqswcXoKjAKpTWi4gvEdslx/iisWnylwHHIg61sgBrY2qiNnNOMfrYBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openvz.org;
-	spf=pass smtp.mailfrom=openvz.org;
-	dkim=pass header.d=openvz.org header.i=@openvz.org header.a=rsa-sha256 header.s=google header.b=n219RArY;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZHyOSZ+E;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=husmlsNz;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 850A460A2604
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:02:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 850A460A2604
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=openvz.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openvz.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CD26606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:03:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CD26606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=openvz.org header.i=@openvz.org header.a=rsa-sha256 header.s=google header.b=n219RArY
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a357b1c649so444178f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:02:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ZHyOSZ+E;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=husmlsNz
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kJtZ3420213
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:03:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=+K2pYzrSzwUxMMnkY7CTMkYgFs7aME1tmW9
+	XHAvfhTk=; b=ZHyOSZ+E9guZ8WWQUq2afeQVkrJWBGrHZllCFTau3S3uYOAMn2K
+	DORIyzqXYBTpNGF0FHX4xkVznIs2MksGJq3qzyMCema9fCNxed6TFf9aRpQcWeiG
+	BTh0I64wgaX+jZSCfS/RIQBo4HTJ1vRKGdmNDAiICjt827S3PcctFrvu/tzolytz
+	Pg9itfdNfKdZiIWDE+XNUR/At0rnsisVF+cJLNcRC8+n+D9/+IkKl37H09VwWHfF
+	W6CPF9SXiX4Yzu3FOYWpvSF2JMgsTElU4Exz1VvEM8alRfpqAAMbU6RJZSH7XIBQ
+	ldyemaH+ztZv2UKIYDnsFYl5186oxxjLvsQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9apgs-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:03:14 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93cb7f9bb86so182749985a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:03:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openvz.org; s=google; t=1794999766; x=1795604566; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aaVCz9shF8ZFyzO5/5N6GKpW3bexM2Ih05SHuYmSwNk=;
-        b=n219RArYjaYdvkIMwO9ir3M3eWTlY0YtYTxXjc0cqfUMh5PydaRebzWDnFAhRA1xEg
-         4vBuLRpcbhklUVXM0RpBGXT2IFnZI7oiu+3c0j1/JKIEzJ8aOelpykadn7HDCLqescXV
-         5I82zgZQO6UKKFmspRCUvQYMeGeRnlwgZx79dSNJZF4L41/nrxTRt0ZmlgTS8tj/97E7
-         QqMIZBAKLnaIDFfYN0ssze5vBs2ONVuUThN0JIAb5huBu0Qc2KcEsfGIXGYY7+0Z6VzS
-         3HE3sEmEsj3aKjr7T6DTbvn+hkEI2Y/lpVf3oC1QZCdrp8Y25vY2hb01mJPELcfB1EBi
-         w8KQ==
+        d=oss.qualcomm.com; s=google; t=1794999793; x=1795604593; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+K2pYzrSzwUxMMnkY7CTMkYgFs7aME1tmW9XHAvfhTk=;
+        b=husmlsNzENkNQymmpfyKIUxs+ikcMsqdE8ZNNvaxfY8YpDgG27peeDxFi2zB1kgkV3
+         klzAMFHeAqMBF6mG05QtckqrQWKoIsl/FdoZZ9HnE6Uwt6vh84Xpd2Maga2EKCA9jspz
+         4ewraW2F5ey50h8lCiqaZYjRujlosLjLmEdPXrfc5Zgmc4rMegsBCD2gKBSDTZcVQQrQ
+         uXxYbRXmPHUa4rvXSQh3ZKfOIjKo1g97xAyRsyOktBV1WTu9CVq1uNloLKfs/IJDwDUJ
+         owksh5Ria7hd6PBAF+saa6iDdSXBiK37lWCyWTqeqWf8qzLCN+V4tiAYe3dHf+YmnvDH
+         iBMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794999766; x=1795604566;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aaVCz9shF8ZFyzO5/5N6GKpW3bexM2Ih05SHuYmSwNk=;
-        b=cxFuvx3lNZ91Wg62TlgZDDOv+gTmDctJIX9htDsGG+d/IAsrpvwQ4MaZ7VL4twy1Ll
-         0jP6yeGUwKAbquWJHZ38IHFUW4vgo/oH7OiwX9xmCWApQ7nXqtpKtqWbrKW9laoDIotF
-         K4GEX0oN7s0Gz9kyC4QIIan6ZMR5nFWDoQPzb5qF5wWhZVT8ZFT+qjpGG1IOMW3HrBBQ
-         ZJ6UaphKaMz7mtUYavRbGNDEbJ0f1LT6X6wZNVUE5WBkqhvHG+qQitBpe4nTyUu+sAQh
-         4mN6saOcruk6tm5YHM/Wrnv5WikLM57R0WcfmRR5O1u+COffAfWmOxKVjCFr/hqAFEZM
-         G1iQ==
-X-Forwarded-Encrypted: i=1; AL+hErFJkA28ncEGlaQEpC4OK5HsPKr14+Jhtm9/LiETXb6fooOio2L0IqfDaXZyjExxLWbpWisgNM7rvJqfbOQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Kwx8llNNPyjXchG31cq3kJ5Jf6hDU27/Nc/qHdbxKPbrf048V
-	kOtIEOp+H0lqHxhkmQ38e7ukFPQ5ICRKvRIlHHLaqcUTX0X2aUALXbxnGIRXfunYHJk=
-X-Gm-Gg: AZFdTZdC36Rv+k5wpwagJtqsLEsHxZixxJIMJUvSP2QlJFQHY40uMF+Sgz5Xn+5k6zr
-	+aO9SiZQIGEg3+JNxeGX1bGUlfjPUmQR2YOfGU3EKumUa/eASzYpW+/Wet9naQwIQvGytpeDH+v
-	EgDk/T/MVb+2BI89oOksk6Kk41XfDKCYrQrXP/XRQuZ5e+tzMEApk5R/yvpDISQEZRgRxt8p7RL
-	7SwjUsr7YUY2TtpxmPcXj2MeflKBcVzXp1F6s4mvt5A2JrrXCg/e+Tlr/GnIigliocrHa2hCn1u
-	ho/oe9js/doMiCWxvYH2fGLyfsjga8211oQn04hGB2JOfXyl7+80S9Tw9KenUNyyCrNo3ugAXKy
-	ubteh/bJgiwBJ6P3NDQewKF/uVkcLSjJ0f3fKflj0pjZ4mV0l+toJ8sxrfJ872jlE/VZzdEtafA
-	D+joFHFhC1x6Z8iW+wjCS1k2/lD6Vqne6ag3i2lXk6Iq6Zn3OMR9bFo7ZJDjqpXcH6EIiCQnZ9J
-	VyoSNZ+q3n8Crxo50p1PyuB/K9lrql8K1CTf7TzMdFEiXwqP+ahR7fSHSEcLuzY5YdrlZRZTAeO
-	hmONY/0toJclN2pPHheKvVHNV3k=
-X-Received: by 2002:a05:6000:40ce:b0:4a4:6669:7f9 with SMTP id ffacd0b85a97d-4a63cd0f053mr5455559f8f.49.1794999765938;
-        Wed, 18 Nov 2026 03:02:45 -0800 (PST)
-Received: from artemis.sw.ru ([2a06:5b06:b600:300:8c09:3cc3:6efa:ac1f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c1145esm3943277f8f.52.2026.11.18.03.02.45
+        d=1e100.net; s=20260707; t=1794999793; x=1795604593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+K2pYzrSzwUxMMnkY7CTMkYgFs7aME1tmW9XHAvfhTk=;
+        b=RfeLXA9E+esP3o24IdFUluvyuMaocOUUcH+0wJ3Fqlfhyr3eM3vEUrM4zWUlDIU5SR
+         ysm9soUUirDtSjcIqNyYOGXm8ejaieVg1lSC/NHb3nWmeHUxmKCvW34QrDQ+JxIVO4Pi
+         n3+jYfqiUm25zMK9LQwYe3ZhcDWSvwFxicsOTKJTFkdXyVeVJn2tYNvBFq3m6HTMON1g
+         LyGOesy2oeXZG1vFJvk/ZEKrxQ44kfyEMVLnJtLOSF4w3XTITL84jnG6Kwq7j6Qf+rtD
+         z7rVb7srWmNXX56cIM5dq2dkyL7KMrRnY3kHHmIEDLM401FUAXb+fwgazdEaVjHOPojo
+         r0LQ==
+X-Forwarded-Encrypted: i=1; AL+hErGKvrCDy+w1PK5KyxVdKkDrQ8cbCnR151Y3pgMRuB/PwQ6pbN2cj8waEfeYtJ9QO/w7Ib9e6MNdsnoDzl8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hJdFFrxtzX8dqFOhAhgozw1BH/jS8XuoyN6mNRRjJ5B7vtPGx
+	vvxk1YGr7R/bLuUeytHZsiUNc4GOybyqDw4Qi1usGbfbjYufOg4cGl6fF3Y28qGdz9d/polDOGM
+	f0nSTdBffOJHy7nFFhoFOHMPDI7rgJL7gFzbvJ285brEmK2errNbOYPGRBiJRUe5ny/U=
+X-Gm-Gg: AYBFou0qGMok2pM8Id60traLwzClLmcJSq5I0o9HESrOZoaTBJwH3fMI8vG9pQHvaTQ
+	8UZBk6zuo1bzTqs3eb83q2LNZsYKLp6C7wP0YWeXzX0dpDY71WMpvDU7O4e/VxGc8gu/LAy3wGX
+	yBlC5u7f+ByNgWYsbUklhnYibYBMz9yBUezvBVCE6MyBayQFcDa2OHzmxgUnY7lVHDDV0aye5iz
+	k/loqPh8Bii1giXuC9gpOEjHAsLJ7FsWYELUXQoNnL1mQjxhUr24t6GVT9L5tiEkc6m9KOu94h0
+	5qmah+qWDwbLKUFb/toIY9rykHUCwQgqR7lgvMy5LKdO1nfNmOI3h1Yk5M9zgU5s/kPariMQjqm
+	WRXjANriiQQKtF8dF0F/WyMgFYwPHoieJ7zlZhc2FYLwwi9shJVw4zP8FyZ0XLr6kdwvJD+Ml3f
+	t/
+X-Received: by 2002:a05:620a:4623:b0:945:d7a8:c5f4 with SMTP id af79cd13be357-949995f9546mr417394985a.62.1794999793494;
+        Wed, 18 Nov 2026 03:03:13 -0800 (PST)
+X-Received: by 2002:a05:620a:4623:b0:945:d7a8:c5f4 with SMTP id af79cd13be357-949995f9546mr417391685a.62.1794999793061;
+        Wed, 18 Nov 2026 03:03:13 -0800 (PST)
+Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:d355:fe70:14a0:ac8d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2b74d6sm57852995e9.9.2026.11.18.03.03.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:02:45 -0800 (PST)
-From: "Denis V. Lunev" <den@openvz.org>
-To: agk@redhat.com,
-	snitzer@kernel.org,
-	mpatocka@redhat.com,
-	dm-devel@lists.linux.dev
-Cc: bmarzins@redhat.com,
-	thornber@redhat.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	den@openvz.org
-Subject: [PATCH 3/3] dm era: construct the target suspended
-Date: Wed, 18 Nov 2026 12:02:39 +0100
-Message-ID: <20261118110239.2910290-4-den@openvz.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261118110239.2910290-1-den@openvz.org>
-References: <20261118110239.2910290-1-den@openvz.org>
+        Wed, 18 Nov 2026 03:03:12 -0800 (PST)
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+To: rafael@kernel.org
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+        Mark Pearson <mpearson-lenovo@squebb.ca>,
+        "Mario Limonciello (AMD)" <superm1@kernel.org>,
+        linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] platform profile: Restrict the core prompt to COMPILE_TEST
+Date: Wed, 18 Nov 2026 12:02:54 +0100
+Message-ID: <20261118110255.2946563-1-daniel.lezcano@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,54 +121,58 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0MyBTYWx0ZWRfX/6/HBIFE/Cup
+ M/yQQZpMY5BwH4QaHflXl61pHv8I2QITt55P4Qvj7LwDJbzTF1hUPuDkY9oQ+5F0Vfx1J7RTndX
+ dVl8RaTdDgWiTqOoAECEeF6dX4cgpv0=
+X-Authority-Analysis: v=2.4 cv=acT0Dhot c=1 sm=1 tr=0 ts=6afd85f2 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=gowsoOTTUOVcmtlkKump:22 a=tBb2bbeoAAAA:8 a=EUspDBNiAAAA:8
+ a=eSez5piW9hGb_tCy0SwA:9 a=NFOGd7dJGGMPyQGDc5-O:22 a=Oj-tNtZlA1e06AYgeCfH:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0MyBTYWx0ZWRfX1ui1SQ4/5rer
+ ZXEAMATUthifqzV/FKokrDI7mcqHqmURwj4xIAHnechD7NQQti16+o5PTwR5l5VXsjnf49mOJfa
+ vsRthRCeaqgpC69dAJL6YPJtHvx3eD7FWMAOKf7MuhuLzQ3+ymChkpECvyLY4BGad0RoJzq7V/6
+ PrTiY2XTzcsfrjteprVSWZHtPUr5skGWK/6KS16vBeB+dUx3PfWRMnH/Ja9dVwrqiduYYfEamkF
+ qjHyxBekyRnHUunlmJdK8RjVmHfs58lzogjUpOLmLxSDdSuyjl+ZEO6gYvYG0C+1N87gDn5Ijpt
+ g8BfJXSFX6hs1QzdyYyi8sVO+bN/brfceCuqAZVo0FNB4JdBNrII+kCCapoU9+wCmyqDa8TFUHC
+ VIys1jo+8mc35yXFNdFkjXVDpDlBtukr3r4lO7vmlIYkXw6uUI8GOqUZT8xi771NqsoyTLtNIbK
+ FLcmI4ZQsTtQJOmpDOQ==
+X-Proofpoint-ORIG-GUID: pnE5uXCAQJ5dPBBzHUwnTMFvu2fdX0L_
+X-Proofpoint-GUID: pnE5uXCAQJ5dPBBzHUwnTMFvu2fdX0L_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 phishscore=0 impostorscore=0 bulkscore=0
+ malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180043
 
-From: Denis V. Lunev <den@openvz.org>
+All platform profile providers select PLATFORM_PROFILE, so users do not
+need to enable the core explicitly.
 
-era_preresume() resizes the era array and commits the metadata in the
-thread that resumes the device, and starts the worker only once that is
-done. That is safe only while the worker cannot run, and nothing makes
-it so: struct era is zeroed, so era->suspended reads as running from
-the moment the target is constructed, and an rpc arriving before the
-resume wakes the worker alongside the resize. Both allocate from the
-same space map and take the same metadata block, which corrupts it:
+Only show its prompt when COMPILE_TEST is enabled. This avoids exposing
+the option in normal configurations while allowing the architecture-independent
+core to be build-tested without a provider.
 
- device-mapper: block manager: validator mismatch (old=array vs new=index)
- device-mapper: space map common: unable to decrement block
- device-mapper: era: metadata_commit: pre commit failed
-
-Every commit after that fails the same way, the target reports "era
-Error", and the writes it tracks fail, which takes the workload's
-filesystem read-only.
-
-Userspace gets there without trying. multipathd asks every
-device-mapper target appearing on the node for its status, over its own
-uevent socket, to learn whether the target is a multipath map, so a
-target is asked exactly while it resumes.
-
-Mark the target suspended when it is constructed, which is the state
-start_worker() already assumes it is leaving. The resize and the commit
-then run with the worker held back, as they must, and a status query in
-that window is refused rather than served beside them.
-
-Fixes: cca2c6aebe86 ("dm era: only resize metadata in preresume")
-Cc: stable@vger.kernel.org # v5.12+
-Signed-off-by: Denis V. Lunev <den@openvz.org>
+Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 ---
- drivers/md/dm-era-target.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/platform/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/md/dm-era-target.c b/drivers/md/dm-era-target.c
-index 29b0602e7849..d40a98169b04 100644
---- a/drivers/md/dm-era-target.c
-+++ b/drivers/md/dm-era-target.c
-@@ -1557,6 +1557,7 @@ static int era_ctr(struct dm_target *ti, unsigned int argc, char **argv)
- 
- 	spin_lock_init(&era->rpc_lock);
- 	INIT_LIST_HEAD(&era->rpc_calls);
-+	atomic_set(&era->suspended, 1);
- 
- 	ti->private = era;
- 	ti->num_flush_bios = 1;
+diff --git a/drivers/platform/Kconfig b/drivers/platform/Kconfig
+index 7270f24a3b6e..1cf87904afc3 100644
+--- a/drivers/platform/Kconfig
++++ b/drivers/platform/Kconfig
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ config PLATFORM_PROFILE
+-	tristate "Platform profile support"
++	tristate "Platform profile support" if COMPILE_TEST
+ 	help
+ 	  Provide a common sysfs interface for selecting platform power,
+ 	  performance and cooling profiles. Platform-specific provider drivers
 -- 
-2.55.0
+2.43.0
 
