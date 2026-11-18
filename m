@@ -1,62 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988264;
-	b=ahlRStQaz58MJhwR+T0/cJr9APTEHHJKEG9WY/RTyKWJ7mVTi19v89WoOjMBypiusSv6
-	 aWt2iZ7vh8MPj4V+oPCbsEHbiko7KlQNPkiuEzxzC++GmXV4OZywiLcx12Bi4+PgWKvJP
-	 wa7RQ8jKf1CPdEYtYbUGBvbSn0hy0lgaRRh3ySLl5fCB6POYJ9IG4v7Dd77WIP/+ylwud
-	 KBwq4qroRQY2XdOyGS2u6mBQMcxMBUrAFszPSnuTIkyFwsRd8NQdjlpUUGAHtcPoMpKup
-	 /0M7VnuJKRayoLvzX3zyz8vDnv7rktp1j0B5pP9XYdws5JLx0D7okAbak8lCKyNXlMA==
+	t=1794988293;
+	b=ilbbYldorhJHmn8Mh1yv3JG0d9o06IR7wnbApThQHdZBpvclGRks69HsXahADo7PtZCT
+	 404dDzWIeU611VacIw0eeSF1AeberNBV7ADOmGy11oaFIDozlCkxNO4yMiFRLoF6dXnBw
+	 cUfd2h5xF5XG9SmmQA2hWP5xVp80da9h3ddyfehLoqNLcuA02HNk2CzF/60K5zq3X1BVi
+	 9zmgvqJOauJ4lZ+weHzCisKoOc/k2+wRt97f7QimunzPQSDGhCZgu7Nn5oe+tkvrt+RON
+	 0OnLGefc659h56PvqqqRamuWlrbVAXh8Wf7+79oZy6aU2kwNMD4FUZiC0wHh92uz2Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988264;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=9Gz9IBeSccjjCHOtf0va00995nWsD5fHKwWB7RAq70w=;
-	b=AZ2cP0AYW+1mJLTzHWbfKcmsVsjbSyIqIYP1Flz3et6ErVcpKQeCmaWunrXSiRqTmeSv
-	 R6uze/DOSKx222AJEn6t+ELftYlyOSMk2c4WHu8BotK/QFsaro3Ihdh6J9ud8tW5hjHvj
-	 hsBmdw4ho/hqIw1NasB+8bLqRObCmzXi9z2Wn0sQRzE1kaxA8012Up6IBdOrwPoIYYLHS
-	 fOzMit/KPrBiGsUQTGyWgvRjtUTdtKh09WJ4AIXw7A7U2R+wx+ph2cAkmlFpLAHLWa1OM
-	 yNJcggiIkahg+eYoOMbhWilf54DkTemYGE9OLb6JONkYx/Zl3q4sGZpF5VVjq2gM+OA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988293;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=r1RbWjqFm7axK1WA6d2qj68hL+HcVofiqBMMK2TnnVw=;
+	b=sZ1k8rwjUkFC7ApXM0Z78LYRt+2asSdmLRoxI+sgbHh5R3Zpna3M4XAdoTarf3IgHa9E
+	 NElZQrSveH5Z1yAidNK1i2q5xdShAORuwgmFT6O7bI8etCQ3/5qkU25UtryeqPMSN4RHW
+	 oEQrPhi6iBUughWepFt4nwGqh+1rpEr2Wbi4prn5y124Ynrc6ShA6pq3xUHyre8q56+d9
+	 VHYPfjmHyYeah03xm4Bpkfa/RJ/G9uaUt0ViR3RKD98UucqcDnzaXAvMt6MVWLCkJQukM
+	 nAwp14nozxN3wlw8xtWv6BI6NUmJWyd6Ig7AYcjkq30CXE9Pnra9H4VQDXZ30JDkveg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="EZOl1dB/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LUoPGOVC;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59A87606A31C;
-	Wed, 18 Nov 2026 07:51:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8AA4606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:51:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8AA4606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZOl1dB/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 017641F000CA;
-	Wed, 18 Nov 2026 07:51:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794988263;
-	bh=9Gz9IBeSccjjCHOtf0va00995nWsD5fHKwWB7RAq70w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EZOl1dB/r549l0Cjg4hv5vm3frN1mJhwKzcv8N+U0AfAdGRph2GCf+cfu9tPRWU9a
-	 +iCkKFQvCFAKu4hmxbhrZ1HBbCOvZn7HvTKwXBL6rJINM1HKL5Lpj1P+5AmplPMrit
-	 ndP3VQ6rNSZPsZzMnnGQHEeuQ+wKq26psutOxsBQSkJW4fcb8OeKdBBdUgcYSrDR40
-	 rcrTsLIIO9bzklbHVpRok+xnIID2lDMGcagJVlnxq5brnkZPK8NAYnbnaSWx7IIPv7
-	 YyXivQtxkN2o03cJUEz5It4N0IMH7IYyAVPbddcS0pHGBvIO6HEqxd6Zt2zEr+X9Ve
-	 66RS8xK5egR3g==
-Subject:
- Re: [PATCH v2] net: stmmac: Disable checksum insertion for XDP frame TX
-From: netdev-bot+sashiko@kernel.org
-To: jszhang@kernel.org
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Date: Wed, 18 Nov 2026 07:51:02 +0000
-Message-ID: <179498826255.3136.11066531883770287407@kernel.org>
-In-Reply-To: <20261116134848.4793-1-jszhang@kernel.org>
-References: <20261116134848.4793-1-jszhang@kernel.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LUoPGOVC
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2ee254f6eefso50655ad.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:51:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794988292; x=1795593092; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=r1RbWjqFm7axK1WA6d2qj68hL+HcVofiqBMMK2TnnVw=;
+        b=LUoPGOVCxwIAV8eWwoj8F3n1uK5UqmtzFRao+C0cCZUHq9IsJxO9vTwDbY2zSYPI8p
+         1qfumvCJfVUCN5vKDO1spF1y7T91lMRReIpLQbHWsxPfGc/nbjXdqXvs2CQUZLMzNBj1
+         aBFV1zfO2nYpMyw6C7gOvO9658HCrQbGItVnradArYhcMNZoTKTZ7QcGuKxMwyE4Bb+7
+         V4gS2B6y5+UoHy28L9hMkvKhoYBVR1FS3LZ1S/Ut9d5YoLGHmEwTuoPwPJ4bqAArFBGs
+         vHIkUJrjVYAoPkaNmVt9+FCPEOvYIHehWIWX3F+AosUqz6qs8XVD1oxRPHrsGj44E7gx
+         Y5NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794988292; x=1795593092;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=r1RbWjqFm7axK1WA6d2qj68hL+HcVofiqBMMK2TnnVw=;
+        b=I9PiOW0xdxbYxO5o9svemot4P59KsHF/vW+NAVO0BEj7GaFfWtI7iJQbx/tjvbg0qa
+         mpcJBjxfc/fd48viMRq1MuIPPn1BQrtG0Y6mhAkKnJy+bkf6RodYaGD2uWL+dz1G7siR
+         bFKY11HhZIii67zIPoLmGesZHfBbiE/VKHOMMY4nMa/ZR9AwOMvMn2NbGXNQ9ev9csyt
+         vd9TAu1Dsv2scrt4LSJVkhxmvXWjD0lgLgC5o/vUQ52Z79Xfpb89G+Rz2BAvbnKB3Ocm
+         DYlBd6pULGe0gyFuFByBhFQK/Qfvgbwm6lL3FqasHgdwUjYhGRCDX0eCyFHKtVZS494v
+         mOrA==
+X-Forwarded-Encrypted: i=1; AL+hErF6QFNxePdtx0q7qePwqqyGgYEZn+FGGqfJ+anwYLBHAGTmTQ6FVjfik8wgxEY6by8jC75SPOnp5NGLu6Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8UD6P6+FNw5IcxKvjQ43lc1BMjakJwh4V/gC+LRuGGbc6udmxs
+	67XLnTfs7ythdFkoxozJOsuZQ40/gxME8dYI79UfyGm6GdY8aqzzPRFDX3bhQy4b6w==
+X-Gm-Gg: AZFdTZeo4uYaw0MY5b4wjPdxxzIZ7ZBuetG5Nr3uSLzHD1JWSgtpyonrZn2u52xhUkF
+	8hqtaty8MylfwBAlUc8LbikjhPZWjdW8JHCsjDJjCcOySqvR1oS6yITlQMH7uPRS3yLsEFKEZpI
+	2CXTjjC2xQkB1w9CSoC3JvkxGrmmdu40C9GYTLXKnIco3QTF5CnKenvSrAsFP+/rLF1WIbNCbpT
+	rnfw4cPTp/XET84nZOfFwVtDUIvnmQ5t3WZFTJmXZI9Zp2gJWCKGyDLAteAQnaB1XC46KTwy+3d
+	UTqgm0sOhvV+rnKsGmRI2MZqEWgD9njEyS1NepLXjY9ckrCCSYTT7wUDnlvZlRgwJOCVICzQ9Ne
+	s3N2Ex/KE0WHdfgVHpwdxmbEJTImUCAqgSsoPXVjkLyehtrGQm0Xp6r9IlX2Akwg0k6BTh1zwHS
+	cA/RVaLckbgChN3+qW+fM0fkSm3u/V4VwHZL7YRzCEeTo+b6KtNstPsHaveGAo4CqQgFh1Xn50h
+	SJUM8CK9rezzzMESknXlsUmvrCTYQG6jd3H86fY9n4+BXsP3SJU4PWcp2ifQK4uPAqacGrbMqlV
+	5Kryvn8091tCquTHUfsrIdATBIIs9HWV/GkxmDtXjyqgdW9xjaStI2IDyServuHTDA==
+X-Received: by 2002:a17:902:d544:b0:2e6:d25:d874 with SMTP id d9443c01a7336-2eff98d30f9mr2984215ad.10.1794988291451;
+        Tue, 17 Nov 2026 23:51:31 -0800 (PST)
+Received: from google.com (60.89.247.35.bc.googleusercontent.com. [35.247.89.60])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d56ab352sm1000229a91.2.2026.11.17.23.51.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 23:51:30 -0800 (PST)
+Date: Tue, 17 Nov 2026 23:51:26 -0800
+From: Vipin Sharma <vipinsh@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: kexec@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, kvm@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kselftest@vger.kernel.org, linux-pci@vger.kernel.org, ajayachandra@nvidia.com, 
+	alex@shazbot.org, amastro@fb.com, ankita@nvidia.com, apopple@nvidia.com, 
+	bhelgaas@google.com, chrisl@kernel.org, christian.koenig@amd.com, corbet@lwn.net, 
+	graf@amazon.com, jacob.pan@linux.microsoft.com, jgg@nvidia.com, jgg@ziepe.ca, 
+	jrhilke@google.com, julianr@linux.ibm.com, kees@kernel.org, kevin.tian@intel.com, 
+	leon@kernel.org, leonro@nvidia.com, lukas@wunner.de, mattev@meta.com, 
+	michal.winiarski@intel.com, parav@nvidia.com, pasha.tatashin@soleen.com, praan@google.com, 
+	pratyush@kernel.org, rananta@google.com, rdunlap@infradead.org, rientjes@google.com, 
+	rodrigo.vivi@intel.com, rppt@kernel.org, saeedm@nvidia.com, schnelle@linux.ibm.com, 
+	skhan@linuxfoundation.org, skhawaja@google.com, vivek.kasireddy@intel.com, witu@nvidia.com, 
+	yanjun.zhu@linux.dev, yi.l.liu@intel.com
+Subject: Re: [PATCH v6 11/27] vfio/pci: Retrieve preserved device files after
+ Live Update
+Message-ID: <20261118065653.GE2250529.vipinsh@google.com>
+References: <20261102153656.1431701-1-vipinsh@google.com>
+ <20261102153656.1431701-12-vipinsh@google.com>
+ <DMOAT4VV939P.2DI8CEOMMSKMY@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,89 +110,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DMOAT4VV939P.2DI8CEOMMSKMY@google.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Fri, Nov 06, 2026 at 05:19:28PM +0000, David Matlack wrote:
+> On Mon Nov 2, 2026 at 3:36 PM UTC, Vipin Sharma wrote:
+> > During retrieve():
+> >  * Validate the handed-over struct vfio_pci_core_device_ser header,
+> >    sizes, and flags.
+> >  * Locate the registered vfio-pci device matching the serialized domain
+> >    and BDF (requiring device->ops == &vfio_pci_ops) under the device
+> >    lock. vfio-pci registers the vfio device before its probe completes,
+> >    and the probe holds that lock, so a device that is still being probed
+> >    is not returned.
+> [...]
+> >  * Open and return an anonymous VFIO cdev file via
+> >    vfio_device_liveupdate_cdev_open().
+> 
+> Here's an idea for how the device file could be created on retrieve,
+> which I'd like to hear your thoughts on.
+> 
+> The patches from Pasha at [1] lets userspace pass a
+> file-handler-specific argument to LIVEUPDATE_SESSION_RETRIEVE_FD. In the
+> next version of the tmpfs series, I'm planning to use that to have
+> userspace create the file and pass it in the argument, and the kernel
+> then restores the preserved file into it.
+> 
+> I wonder if VFIO should work the same way, e.g.:
+> 
+>   struct liveupdate_vfio_retrieve_arg {
+>           __u32 size;
+>           __s32 fd;
+>   };
+> 
+> Userspace would open /dev/vfio/devices/noiommu-vfioX itself and pass
+> the fd. retrieve() would check that it's an unbound vfio-pci cdev file
+> for the preserved device (domain/BDF, noiommu, incoming, cfg_size),
+> attach the incoming state to that file, and LUO would track that file
+> as the retrieved file. VFIO_DEVICE_BIND_IOMMUFD would then take over the
+> device as it does now. Since VFIO preservation is new, the argument
+> could simply be required.
+> 
+> I think this could get rid of some of the special handling:
+> 
+>  - There'd be no need to fake a cdev open with an anonymous inode, so
+>    PATCH 09 and PATCH 10 could probably be dropped.
+> 
+>  - retrieve() wouldn't need to look up the device by BDF, or reason
+>    about racing with probe under the device lock. If userspace was able
+>    to open the cdev, the device is registered and probed.
+> 
+>  - The device file would be opened through the normal cdev path, so the
+>    usual permission and LSM checks on the device node would apply.
+> 
+>  - It would be the same model across file types.
+> 
+> A few things I think would need care if you go this way. The file check
+> and the attach would need to happen under dev_set->lock so they can't
+> race with a concurrent VFIO_DEVICE_BIND_IOMMUFD on the same fd. And the
+> incoming state should probably be tied to that specific
+> vfio_device_file rather than just the vdev, so only the file passed to
+> RETRIEVE_FD can take over the device.
+> 
+> It would also change PATCH 12. Opening the cdev of an incoming device
+> would have to succeed, so the check would move to the first open of the
+> device instead: fail with -EBUSY if the device is incoming and the file
+> being bound doesn't have the incoming state attached. That one check in
+> vfio-pci would also cover VFIO_GROUP_GET_DEVICE_FD, which opens the
+> device right away, so vfio_liveupdate_incoming_is_preserved() and its
+> dev_is_pci() special case could be dropped from the VFIO core.
+> 
+> The next tmpfs version will also add a way for a file handler to say a
+> failed retrieve can be retried, and a helper to claim an existing file
+> before restoring into it (so a file LUO already manages, e.g. one that
+> is preserved in an outgoing session, is rejected). Both seem useful
+> here too, e.g. so that a mistake in the argument (wrong fd, an fd for
+> another device, an already bound fd) doesn't make the device
+> unretrievable. I'll Cc you when I send it, and I'm happy to share the
+> branch before then.
+> 
+> What do you think?
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Overall, I agree with the strategy. I think VFIO cdev retrieval should
+happen as the flow you mentioned above. I want to hightlight two things:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+1. This will lead to lot of code changes happening in vfio core. This
+   means VFIO PCI live update code change will spill in vfio core.
+   Should I create a config VFIO_LIVEUPDATE for VFIO core code. It will
+   not be visible menuconfig option but selected when
+   VFIO_PCI_LIVEUPDATE is enabled.
+2. List of other inflight series that this series will depend on is
+   increasing. It will be 3 (reset function, pci saved state, and
+   restore into fd).
 
-- [Medium] The patch hard-codes csum=false in stmmac_xdp_xmit_xdpf()
-  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c).
-
---
-
-net: stmmac: Disable checksum insertion for XDP frame TX
-
-This commit stops stmmac from requesting hardware checksum insertion for
-frames sent through XDP_TX and ndo_xdp_xmit. It does this by passing false
-as the csum argument to stmmac_prepare_tx_desc() in stmmac_xdp_xmit_xdpf().
-The bugged_jumbo special case is removed because it is no longer needed.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 25894771e9e9f..aa73801119be8 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5284,7 +5284,6 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
->  {
->  	struct skb_shared_info *sinfo = xdp_get_shared_info_from_frame(xdpf);
->  	struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
-> -	bool csum = !priv->plat->tx_queues_cfg[queue].coe_unsupported;
-
-[ ... ]
-
-> @@ -5353,7 +5344,7 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
->  		stmmac_set_tx_dma_entry(tx_q, entry, buf_type, dma_addr, len,
->  					dma_map && frag);
->  		stmmac_set_desc_addr(priv, desc, dma_addr);
-> -		stmmac_prepare_tx_desc(priv, desc, !i, len, csum,
-> +		stmmac_prepare_tx_desc(priv, desc, !i, len, false,
->  				       priv->descriptor_mode, !!i, last_frame,
->  				       xdp_get_frame_len(xdpf));
-
-[Severity: Medium]
-Could this break existing XDP setups that rely on the MAC to fix up
-checksums?
-
-Since be8b38a722e6 and 8b278a5b69a2, stmmac_xdp_xmit_xdpf() has asked for
-hardware checksum insertion on every XDP_TX and redirected frame. At first
-it passed true, and since b1eded580ab2 it has passed:
-
-    !priv->plat->tx_queues_cfg[queue].coe_unsupported
-
-Some XDP programs rewrite L3/L4 headers without updating the checksums,
-for example NAT, L4 load balancers that rewrite addresses or ports, and
-encapsulation. On COE-capable dwmac queues these have worked because the
-hardware recomputed the checksums. With csum hard-coded to false, it looks
-like those frames would go out with stale checksums and receivers would
-drop them.
-
-The code change itself seems reasonable, given the stmmac_has_ip_ethertype()
-limitation and the lack of checksum metadata on XDP frames. The concern is
-how the change is labelled.
-
-The commit carries two Fixes: tags pointing at 2021 commits and has no
-stable annotation, so it is likely to be picked up for stable backports.
-The commit message says the packet is sent "with its checksum fields
-unchanged", but it doesn't mention that this changes on-wire behaviour for
-existing users.
-
-For comparison, the earlier commit ecf5985006dd ("net: stmmac: Disable
-unsolicited checksum insertion for AF_XDP TX") made the same kind of change
-on the AF_XDP zero-copy path. That commit included:
-
-    Cc: stable+noautosel@kernel.org # high regression risk
-
-and the note "Applications must supply complete checksums".
-
-Would it make sense to add a similar noautosel annotation here? Should the
-commit message also say that XDP programs must now supply complete
-checksums?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116134848.4793-1-jszhang%40kernel.org
+For '2', should I send v7 without changes you are recommending in this
+patch and future version of this series can transition to the approach
+you are suggesting after LUO changes are landed. VFIO liveupdate series
+will go through more iterations, so we will have opportunity to make the
+change. WDYT?
+> 
+> [1] https://lore.kernel.org/kexec/20261103010216.3447716-1-dmatlack@google.com/
