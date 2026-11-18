@@ -1,96 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.123
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795036350;
-	b=T/CqKUjHBWkm3MXQJRCNCI0Jck7Wz4/cNqoqROe2Tp42BI5kPOj1NLyWyq2d7G3r5RLs
-	 ZQ+xEVLsQteMIt8I2NA21j19gz7y+wcI+GzIDTGXkUh8aTQEB9EZTwcIbcFeYowVZkiv9
-	 kzaGcpMX4PzlsE2gbWze41c0IwRo39kIY+F3sd/F+G0AgigdGtZ7CeF41MDvrNMWCBc34
-	 W6jLgN0xDelQ8wm4YordBxXiiyw9r+5+zIFZXSZ7mQN6yLo1yydq+QOpDC4e0QmoDgt/Z
-	 Rvc+KOeMprFfu2XEfic7oKRa7HE8tMEmhvOBVFinjoRxIYoH7YFGAPvvJULMAvf8wTw==
+	t=1795036349;
+	b=ZQ2QbhZS69exXrjDsi24opvsVM7kbnGSNmyB13CTQw8Hg21E0Ihn+uYlne+7W8R2O0DC
+	 1kbvAWB/kqdAsKl0TF98RlM9rfmJ5gqNoxJAkQdNDd0M/cLkkFGVeWGYalKatw+ygDzUb
+	 VnjX3BjEEEeVj7ak3or3SkpvjF2s4Mf/D82f07tPamjDGjmtTk5rrCVTnti/joQgi8zGK
+	 oSmwKmXtbC85mzX7M1u4QiWrq8hxc49efDc/opeZxABpw5HVr7jBN7iQsPGov4S1KQt/4
+	 RRzzFjouk/hXrhm61o89on24ttHlWE6j7IbEbtkuK5S9WUwPAoHmdR7B029yf7QTZ8A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036350;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=KDMbhx6hGhGJx9MQCzuhBDYg+LqMnV3yxux4XrkPzz8=;
-	b=g6RTfGh/EklEwrHF/2B8SC4Fo/0KJq2ryB4d03iwJzWsIe4+vAy1dqRzgBdSQpdz2Ej1
-	 MBKJTs1eNLCscjbWLKqZMCweqBK3b547xJA0AFbivvq2mk2j1LvbMQj1wYuwU8L87sdyu
-	 SPzrVvmOPyiZHj9wzbTXtjDjbiLcoRmq4MVzwwjWDSoPh5xQxxmIe2ou+70MvKzNiD9MC
-	 u4UjdvM3GB/pU/vsWv4+Ce0i99OKnvYg3va55gi6otzgDDt+VqIGuaZdEdlTl7igYuKMP
-	 EDjaR3YSiQh1mavhZhpbdDsRqEq1w0wAtZlCVFtidhaNzXwrnxs7jk1D2eFEES9+sRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036349;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
+	b=TdCQE7WNQjY1lFjUtvrhDu0OPUakPCCOdJjeCKv9vhRefpj6VG3IG83IaOPWk2LrrA3Y
+	 SX6z45xoAkQydMa4mXOESwvFSVln2tN+A2dZwSbvWXcu/hwfohK/xWs0gkmXEwg4D6wFH
+	 RcAAzcm4owWtes7JUgJ0anb8Xxbu96x89zbYQjVxvihOCM6vIn43stjnTBLC3yHTyfJp/
+	 oxWD3Mg1H8N6b9Rsg2lohpj9POZ4yAkYz4TNixdKJxM1i4zrs34zy6Rab4SXAN6WVcF0c
+	 J/ydCO0QqzaqN5q0fmEwNoTOCOxIKpN0W4xIhLDmAEYrGcO8n63JeJFx+DhdaTBWgdA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=dXPm9qqL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.123
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020123.outbound.protection.outlook.com [52.101.189.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Dmlfi5TX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C29B460A2603
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 568A8606A331
 	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:12:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C29B460A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 568A8606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=dXPm9qqL
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hTdDmD2Pc1vE2YkZaijQZ9LzCSyLvOJCaXFtKicz/FFZbea9HWA3g8TSZNx4Fh1CaA7Iyb7JzAKRDcB3Yz0UtWHNqP4efLsVDw91ERUA0PdSQUBm0Eihp/BnyUsc2emmqDTZc9chin0BK/Fxaag7nstgMSjuDHm1bV8x0vzLLV0RrI8gBOKjsrt/bzktuHaPM0CyeDPp7ouIVkyQ1/r73WIwBm6+53QoD6YV406x1eSqZuVW7jbqTnCos0v0R1648wdOPHUsTWd2mSU6DOVlU9bB9+rGVaBUTz63+xjqvPLTPT4gS7cVSna7+NzyemVJCo+KiZOT2tGdID+GjZkhaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KDMbhx6hGhGJx9MQCzuhBDYg+LqMnV3yxux4XrkPzz8=;
- b=lGO2LWg1reUCQvHfBGwqHP3+/MaIAKv3dH7Poiz2HlRrYUZsaOdvaNJ55kfe1gnlik+vR5Ttg4EhH6dGjnbenMnPbbEEdFWLLqC2PZSlLMcHVl1BRlCIIK/sQuCh9FuRY4oAlZwGgB05+hr5n+u/GyqtX3xt41D/RUexlMI+NKlNfBTuHtaNgPKU569RY2gCbVv93iFWFkxu8gYCXh7/xKx2GJ9RIPGhCjk5BThKKhW5poyzBZGicbcooSKNIK5wD/47yf9qtvPPkRVJNinn/Kw9HOPc3VuzI23dMGauByQD7PldAmQ+bmqdItAA+/hvJ7wfkgXb4tS707gdviJ7mQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KDMbhx6hGhGJx9MQCzuhBDYg+LqMnV3yxux4XrkPzz8=;
- b=dXPm9qqLPKM2VtDK4l3r7GUZoNjRexhj3DQzPUNpo+uiTkuvCOKZe3u8K6Tz3HD+5OPcVGdkGQayVEpUVyRRfoUofkMHg7BmwlDxsWZ9NqHSKPZs+WwzPAc3+OTHWu9PGBac6OAgFf2Voewn1CQOZH0hFHAtoBn9n3JwG4LinNOJfoiXvcWXzcx9G6KSxDebL/R+sH1jGV9877PCKR0Ru2kYzDYXP8PfnbDe5FgKQIfpddmSY0UJgYM53vm8HchxYyEz0g4mrYcGn1a4uf2YLVxAADxtYr7ozkHtIQFeK9FN0HBC6FXiGMO2LC1EcZl9IjIggMGjYzh92+sVHGqeGQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT3PR01MB572210.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1c5::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 21:12:25 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 21:12:25 +0000
-Message-ID: <eb414b6f-ea8f-4dd5-94ca-0915490ff37b@efficios.com>
-Date: Wed, 18 Nov 2026 16:12:24 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/16] selftests/sched: Add a test of SCHED_DEADLINE
- bandwidth accounting
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795031605.git.mathieu.desnoyers@efficios.com>
- <92d746027d4034afb4e9c55bd1b686312a2401ab.1795031605.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-221967@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-221967@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0340.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:6b::17) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Dmlfi5TX
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso11942515e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:12:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795036348; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qKa2nT9QqL4OQKePEKW58W6y/WDNNBUyfT6JNc3IikmSYdVqigLMg/nDvWdrc6qlCb
+         TTCL7u1nVI3M/2Gcemxbq6JMeVy1yC1t2qavZCWbwsoFCeV4hVhUVOCM0JSPD/p732j5
+         PSOKsvsIVXW0BX0RBjZVJnALEqG/+/wkLbN3epv277MQ2YXiNmvRA6NgCHAjlYynOA9p
+         vEjlPlFuljZTAHU8yug6r4IrcSDe1enWtgJICrdMYH4MMAS0QgtFwn1azE4cXHo0a7Ez
+         pWsnZf8y0Yy/4+LArwJ+2ZrKUZVAb2XnXUm1oetrfTfGAQs/uXmOfW8agqiHpYVuVRcE
+         bfzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
+        fh=/TgSKRcvgyuLMoB/22U3ho3+oQbcd5T8XqlLhwjR/sw=;
+        b=YJv5ONmP4Sdp7vtHng0mJ8j5Q8UD0Ut08syvhxqcBR9hKuONSmcX65ufe2xSlINpN7
+         Tzb6p0m9IIlj81dzAsl6Y03E4IxIDr1SHL3ZCxstJ9ffqXjQDSieidEi6MwZBhhaW46+
+         tkOeV6yJRoL2E8PRN89aqQKF7vMRkKo1NZ3S3vJm9eNXJqFPnG6Hh0qJR1nzZyeT/Vz0
+         e1KS1J7xxIy86hJ9K4EQEHHOVm7q6IlvUFgQe458WtybYRblV2+SDGSM6u21WVYOFIej
+         0MNo5uNsA472LpiWw7Sxlxlsb0NmfXJkXC1cMRIkKJrQ2usXzERY9O98rHHUIA1iiI0b
+         unTg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795036348; x=1795641148; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
+        b=Dmlfi5TXCpgDfmBFbH12jFEe+eCqYa9u6tv4aC1RqtyZ/ewYF1YnHznurBJhjQI/DQ
+         u/dcKvXcZeaJqWBCeOn7NVywvmG42klldHAPVRQFasYnZXYwdzbYpEhTu6F8vm03+Ta4
+         SxNefPrMhaJ8G3t+vmrdMY42SH5aPl3kgAzRl9bPNzKhx+qwkjBv6piDBvcFUyEdbGLW
+         deLwCvXb5Y+o7OEwFLA/O1yyR95FRCCyxncKkMnMxivGphWF+NZRspdK5GnRPdB5zrT6
+         GDBJ7tmEVuQ8DA/aMMdu622h11nPCWWWgOKjTKEZtGPSw+0PORvcGF2feFgXpu8WHpec
+         IH3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795036348; x=1795641148;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iyuJEUSnhfZBYucVp4eRtPGdLz1TIibG6v1tSdR3rQU=;
+        b=w7ePP/jXw7eUURmcS+If/eF38EnjERPoHj4dxGE5H8JI1ctw8msU2p2rmpnMFGvPU8
+         /2GWKUmg+IBsDzrgqYjkL9p3X6hc7os4yTa2LC6rXPENq54SLPjy/nk9b7fOHvCbEDga
+         GNE3+2ybgPHScq0hie3LyRFJq3bjT7iWSAW2ep6iBpde8yrvmQDhnn/09MB2ETaAR6nQ
+         2KV/QkaVSsOhE1JMbGKtKD6infpT9mAjBsh1zeKpX9VRoPnGHdMV/gD7V0aP78MLPrPN
+         x6Pz3tYUXwrCEUOZ8YXOT6QMNS1Cqd95cbSAOMaww+KE2LnrACFgAK8axt5y2eoKXcjp
+         cW9w==
+X-Forwarded-Encrypted: i=1; AL+hErFxThR8EdA5MQ1JDk9yJ3uMPJ0mPZ5VizCELS0FzR8OqHm9oswgfjy+/vVOr686vzmXyFPcT3VgQSxIEwQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8KxaJpl/aZQYe2OwAi4NFcSbJj2Ow3sxoga0MhZ4xHvzUKf9IP
+	IyY/ygGWWTV2H6I9gc4icfBYjUTKWKTuZmJYrJDYlBV23dBBadnxEmCib13MXgHjbn3mSOYsP1O
+	FcaZjsJWF7UDFFUdGudzrloacsZqWrQir1R06/hSf
+X-Gm-Gg: AYBFou1ka097KwXh3mNKFWA3eD4+yyR1ANmEVqdHwhDu+Tw67xa544fOx80wEwFt3Cw
+	gM4tnGGx3inEzBx3yL4VX8j2LRqfGVOlTuZJQo1DUYtMm/+QmWbt6CcqQ4fSIFdDsC1KvSf7Vqg
+	dUkKt8LE2InsSSXJi/G9MlT8vyrWcB44+baRfMTEyFYEE06+l7Kydp9moEx3kuUIBAR0I36CPew
+	zrBAHl68EI1CK9GzUz9cLGRohwBm30Sr/qOumfQMCEOBc4TJB2uVLXz6m2fNeBfus3it8WiilwR
+	NhR7zVSyNuYcKHXthRr0LC9eWbR2ienzuII5zgBfdONu7BxVlamkDY3hH3YpoiLrQwyKcLlrgOa
+	OBGcpwcLjktGBoq2+gSBmD2ULwFihKB8K36kT7qS8YKdFqMjpJfoBT+4i7ebi6TqIWDolD3pPVN
+	AeOUMfpu/tT33/sRSPP0dXGJX3za/sLr8HMeq3yL5Ny4nVfM74qQUfrAZOJN5H7WgP2dav4K95I
+	NfAoYsk2h7//u7c16qFz1UjnKU+GKd/5xub3A==
+X-Received: by 2002:a05:600c:c8f:b0:4bb:69b2:d3b3 with SMTP id
+ 5b1f17b1804b1-4bb7da3f50amr85274465e9.27.1795036347018; Wed, 18 Nov 2026
+ 13:12:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,135 +106,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT3PR01MB572210:EE_
-X-MS-Office365-Filtering-Correlation-Id: 069e1f4a-a68b-4438-e63b-08df45b8a4fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|23010399003|366016|6133799003|22082099003|18002099003|261009223027099003|3023799007|56012099006|4143699003|261026121527099003|261102123227099003|10067099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	MZAkrqwdPgSXkMvVKSU9KOn8s2ov+aiyQ4o36w/SaBGiRZT6jQ9G7R5cOWn7y+V+v131Wjfkpp0nRLcC5A7dEtY74r9P8rD12oSgv+ep5jGfMCVhEO9Ph+VHRtbdKCoC9SK8AvZfRK4LD3VkKGFGiHRN6U4msOldicNC7rG0JGfr6yj4c79OFZfeZ3FwFNmMy5hdLvf8G5FghKFImR+ts13oIcL6bIsFd3boc7IWVkvUxvJ9x7RfM3y15gkLSRzS9GLPNj1xydiTyPNlKBF9IVtlTJCWrchRTExWsx0r1y03UWxc0ZV04mTa5dWCaHSgIILNdP1WLXJ4wDqVS1EHh9DztfmSBTiaDnnXnENN/G/rWz+hdAbpkUbsQ3wOzC3yuXx6XZgehX8tdrBmM5Qp/62YcJJWBDOkhQiV5I0+UOpOhvUnOKYhzA0jA60N81npLz/Z642o4Vxr7RQSD1HCDx/o3WbERC/y3OBeWwjAer3Yg9xy/ZJ5uUreQRprC6+GKgl0YXUYjWDjgpfYT3UzwvM6qakdHdn3gE+AWvOkJ3C/iHrXZ9Gee0Bzz/DvkOhefDsPveaKl/n2euqyWu90+/gPY1AJ7oP/cUjfvKVHXhM=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(261009223027099003)(3023799007)(56012099006)(4143699003)(261026121527099003)(261102123227099003)(10067099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?bTRaazFpV2lRUTgwMGRJam1EbDVkSFV0enZDei9NTkxqTHJoazlmSEJWb1dt?=
- =?utf-8?B?Um9IZldnak9YY0l2eWJ5TCs3RjdLRFZHWmh3NDBpK2VYejZzMTVhSmY0TGlo?=
- =?utf-8?B?aWIyU0JyWkEzSVk2bklwZmlIWVQrUmhsSXZVZXpIdUwzQWxTWGJuckJST2tj?=
- =?utf-8?B?MmJEaGNCYTJHU0hnTVlsSFlBZHpIMmxpVFhxcXlnM3ZBcXdUVUhFdEQrajl1?=
- =?utf-8?B?WERLK1dzZWpHRlczK2tDMEdlbFNPMXFkQ3hJZHJpZThjOE8xTVYxRUVLSjFU?=
- =?utf-8?B?bGFGYS9XdFlKUGxwUU9UNGoyS1NHSEROQVZ1amVXTHZaVDdSaFRKSHNhWEpl?=
- =?utf-8?B?UnFuQ0pPdE8vc1hjZ0pDMUdyeHFlbTNOeGIzSndQSDJoT2c2OHdHWkFtSFJH?=
- =?utf-8?B?UlBjRmFCdktSbFBVQW11NWdwdTBBTjJzeFdDNy81aDJGMGpQc01FNXM2Qmdk?=
- =?utf-8?B?TFlnelZJSFFyNWlnWi9rZ0JwaklTSzBSazNOYXpvL3didVlrcEJqV0hxM2xp?=
- =?utf-8?B?aUducFNObjBUWDlYZzY0Wjl4NENGV2RSdndabTRtSXV0RjBYSEh5VHZtY1dt?=
- =?utf-8?B?dG1VRFJyYitGNWFuYkxvRHd0bFdwdFV1YlpXUTY2WnJhcWx6NjRCZjBmMnZR?=
- =?utf-8?B?dVlRSUtmVUpORDZxS0J1SkRld1Y1T1RtNU1ndndtalp6c2RGNmo1ek5YOEIw?=
- =?utf-8?B?VW93SVV1MkRwME0xRnhkcFlXMGlKMVZmelkxT0JjcG9DYjZJVUxSbk83bHdM?=
- =?utf-8?B?UTY1bS9qK2NwbmtVTWdzWWdLd3hRYmJ1VUQyU1R3Sm94eVhEQVBZWWRxbTZz?=
- =?utf-8?B?VkQ5MGFTOEw1N2hiWER1RFRxZFRkSTVMeDh6NmwxR2YyaC92WGNYekVXZG1G?=
- =?utf-8?B?RUgxSnc3aGtzc2hNMEF4dVp0WGtKSWlmSlp2MjRCak96eFdYalNBcTdZVk9h?=
- =?utf-8?B?Vlp0dVA4Y1RTQ0c3ZHlPOVJnLzUxK29qb3pLd3BXQXpDQkE1RHVBWmZKRUtV?=
- =?utf-8?B?ZVJCUWhVb2lUS1BHNzY5bUdGSXloeVJkQUFTRVQ0NlpGVVY0UG12bkFLajN4?=
- =?utf-8?B?Q3U4N0p4L1BhYlIrR2lMY0hJRENJdDB3aU96Z0NWWVUzTmtnMUZCcVZIU2tE?=
- =?utf-8?B?QjFIRkNvQm5LeEo4bEtXTkZQMStFazVQT0lKcUZoeGxZUHlJV1AzTnFKaWhT?=
- =?utf-8?B?Sm5CbXBDSnJzam9tNUxoUXdGTVFkK280MFpNODh1TVFLQlRXVDlGQXJaSGpm?=
- =?utf-8?B?VTBuVGxoTzhkcmIzSHN3U0UwUEJxYnJpbTdWQVVibEZ3dXFCRHV3UDJ6NWNt?=
- =?utf-8?B?SDBXbklYTTVzSVFnbTlxdkNhaHZydzd2OTcraU5wMHhxTDArWmZlTDBPaVU1?=
- =?utf-8?B?bjZEVVMwRWFmeGNkTVdubTZXZ3ZuWmN5c1l2ejdoSzlsYUJEdFU1aEx6a05y?=
- =?utf-8?B?b3dzcVhFWjB6UGFsUVg4eGZoTUNjVm9zSHRaMkJyUHh1NkV2Sy9Za295Y2dv?=
- =?utf-8?B?K0U5V2FkRjd3bkVDNFp3d1A3Z2pCcEk5L3l0azFtV2lsT2V6a3VrWFRhcm0x?=
- =?utf-8?B?S0UwTm5IZ3FiYlNIY3puVi9YNWcyVG1qUTluLzF5U0RKTndiQzhmam93enRt?=
- =?utf-8?B?Z3ZYQ1hRQms0Mk9Eek96MmhjZjV5YVVIbkRwUEpSMHR1eERyUlVFWlNwTkxX?=
- =?utf-8?B?SVpDalBMN0g1OVAwdjl3RlMrUXYwN1lqaTBlbTIxK0NlZnUwUGNqVllLQXp3?=
- =?utf-8?B?RlVVQVlob0FqMVlaTTJ6aE5kVithbmY4QmlUbHU2YkliNk1NYnRFTXFGa0lN?=
- =?utf-8?B?RnV6Y1FFQU1YT1l5YUlNU3NkOThGN3Z1WmRlMHNKY0Y1UW1YZkpFZmx0TzZJ?=
- =?utf-8?B?YXNRQXhNdnlON1QwK0VPZGE4T0tmdGppMzJzcHN1R1hKTTdVVHlXZ0dhSjlh?=
- =?utf-8?B?YWFWRHY5RFV5NTFrK1BjTWlNMTVzZlUyVzVDUXFxbExVZzdjajFrbk9RQXkz?=
- =?utf-8?B?Mk1kaXhTdWlkQ0FoM2tnRDgydWJxZHBJTkwvNTB5WHhhN0lQbEFsRFdYdDBy?=
- =?utf-8?B?UVNnNEF2SE5Pcld6OERDYzVjSDNlUys4bGp1NTBsSVVWYUhiTXFwZWxUdnZq?=
- =?utf-8?B?SUdUNUgzUU1xWnQweVR4Z0J2ekh3SzdablV2OUlvdGd5Y2h2RDRVMkZPM0NC?=
- =?utf-8?B?L3EwT2UyZWVoWWtQbXAzWWFwRFVrai9HQTVFNFFaUWoxMHhQWVpZRGpFa0FJ?=
- =?utf-8?B?bjhUUmFOMktZREZkUk1ZejlvcVZQdkNLQTVseWJEV2Jsc1RLUkJaRTFNcGla?=
- =?utf-8?B?a0xwWnpOLzJmZW4yVEd3VG90M2RzWmVUYnJ2RlRtb2hPeWVlTEpMMGg5Tkpx?=
- =?utf-8?Q?dMoMpd8x5Q6rewS4XnOzTAhay1kheKXar0Qc8?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 069e1f4a-a68b-4438-e63b-08df45b8a4fd
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 21:12:25.5087
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FXs9CUEFr+VJnA4rZYCD3Cnvhe2DbJ1yQvswU+2J7EgzixFyr4igk9ICRWdjggpFZ7gmZlUbsPh9Q/H52hmvZYXrR47y1jMUN8i42osDVdE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB572210
+References: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
+ <CAKwvOd=iOXmF9DS8iopFZEgsqORe6eHokpF_-3-jEfD7yPuDFA@mail.gmail.com> <CAH5fLgidhnPbP=xXQ3162w6q0U6rWHPZ9Mu6-E5va4_CXyanOg@mail.gmail.com>
+In-Reply-To: <CAH5fLgidhnPbP=xXQ3162w6q0U6rWHPZ9Mu6-E5va4_CXyanOg@mail.gmail.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 18 Nov 2026 13:12:15 -0800
+X-Gm-Features: Aa3M54rwqBnTNo9s7KzOH39H6ui7-iQszvNlrDcPs70i2RE6J983km-iNd7m9tM
+Message-ID: <CAKwvOdkNWp4us-zNPw8Pp3J6TVev3nTRsjPrjd9w9M66w2Qbzg@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: rust: disable function merging unconditionally
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Matthew Maurer <mmaurer@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> Does deboost_new_params_reboost() exercise reboosting after a deboost as
-> its comment describes?
+On Wed, Nov 18, 2026 at 12:11=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> =
+wrote:
+>
+> On Wed, Nov 18, 2026 at 7:48=E2=80=AFPM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+> >
+> > On Wed, Nov 18, 2026 at 5:09=E2=80=AFAM Alice Ryhl <aliceryhl@google.co=
+m> wrote:
+> > >
+> > > Function merging causes various different issues:
+> > >
+> > > * For CONFIG_CFI there's an LLVM bug causing functions with different
+> > >   CFI hashes to get merged. This can lead to crashes at runtime.
+> >
+> > Do you have a link to a bug filed against llvm?
+>
+> https://github.com/llvm/llvm-project/issues/217629
+>
+> > > * For gendwarfksyms it causes functions with different CRCs to get
+> > >   merged. This leads to broken MODVERSIONS information if the functio=
+n
+> > >   changes in the future so that it can no longer be merged.
+> > > * Wrong backtraces when a crash occurs in a merged function.
+> > > * Possibly also issues with pahole/BTF as the merged function's debug
+> > >   info is lost.
+> > >
+> > > These issues are new to Rust because in clang, function merging is of=
+f
+> > > by default, so these things have never come up before. Because of thi=
+s,
+> >
+> > I've never heard of function merging (in clang). I've heard of
+> > -Wl,--icf=3D{none,safe,all), a linker flag.  Is rustc setting that by
+> > default, implicitly?
+> > https://github.com/ClangBuiltLinux/linux/issues/1598
+>
+> No, this isn't linker ICF. rustc doesn't pass --icf, and in any case
+> kbuild invokes rustc with --emit=3Dobj and does the final link itself, so
+> rustc's linker arguments never come into play.
+>
+> What I'm referring to is LLVM's MergeFunctions IR pass
+> (llvm/lib/Transforms/IPO/MergeFunctions.cpp). It runs as part of the
+> optimization pipeline, within a single codegen unit, before any object
+> file is emitted. Clang only enables it with the cc1-only flag
+> -fmerge-functions, which the kernel never passes, so C code in the
+> kernel never sees it.
 
-It reaches the check it was written for. It failed on v7, before the
-split, with the bug that "sched/deadline: Check the runtime of a task
-whose parameters change" fixes. I have not checked your
-point on the deadline of 0 in the waiter node.
+Thanks, consider amending these relevant links and details into your
+commit message.
 
-> fair_tid is set in pi_init_lock2() but never read, which triggers a
-> -Wunused-but-set-variable warning under -Wall.
+>
+> rustc, however, enables it by default whenever optimizing for speed or
+> size (opt-level 2, 3, s or z), which covers both kernel configurations.
+> It uses the "aliases" mode: when two functions have identical bodies,
+> one is deleted and its symbol becomes a GlobalAlias to the other. You
+> can turn it off with -Zmerge-functions=3Ddisabled.
+>
+> Alice
 
-These come from splitting the test. They serve the cases that the second
-series adds back. The test builds with no warning, as fair_tid is a
-global.
 
-> Does pi_chain_donor_leaves() fail because Z is never propagated past M to
-> O as O's donor?
 
-No. It passes in every run, in 25 guests with this series. The missed
-propagation is what pi_chain_top_moves tests. That case comes with the
-two rtmutex fixes, in the second series.
-
-> What happens in move_cancelled() when deadline_bw_test is started from a
-> non-root cgroup (such as a systemd session or service cgroup)?
-
-Right. The case assumes the root cgroup, and it turns the cpu controller
-off even if it was on before. I will fix both.
-
-> In the same loop, late.done is a plain uint64_t written by late_setter()
-> while move_cancelled() polls it in wait_for(5000, late.done), which is a
-> data race.
-
-Right. I will make it atomic, and join the thread after the reap.
-
-> Does shm_lock_init() re-initialize shm_lock without destroying it across
-> death_pi_waiter, death_pi_owner, and death_pi_deadline_owner?
-
-Yes. I will destroy the mutex and its attributes.
-
-> Can hotplug_server() pass when probe(NULL) fails and returns -1?
-
-Yes. I will check the probes in the three cases.
-
-> Should rebuild_record_taken() return KSFT_SKIP instead of KSFT_FAIL when
-> total_bw_of(a) returns -1 because /sys/kernel/debug/sched/debug is not
-> available?
-
-Yes.
-
-> Does rebuild_record_taken() fail when CPU 0 is isolated with
-> isolcpus=domain,0,1?
-
-Yes. With 7 CPUs and isolcpus=domain,0,1, it fails in 3 runs of 3:
-the task wakes on CPU 0. With the second series, it passes in 3 of 3.
-The case tests "sched/deadline: Make a rebuild count a task in the root
-domain it runs in", of the second series. It belongs there. It passed
-in our runs only because the guests with isolated CPUs had too few
-CPUs to run it. I will move it to the second series.
-
+--=20
 Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+~Nick Desaulniers
