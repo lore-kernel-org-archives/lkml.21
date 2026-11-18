@@ -1,113 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035193;
-	b=HPtxuiE5kbnVDcnHRgLArwsZ0/hJTDlBgQbMryocnpWIVEFP04mXyEf8a2yjC1Cg+4T2
-	 cGRCaGs7TW1qTexRUI3LGTu4dOvmWWIOi2+Mo/bIi2fo+C1oII5qZ/umolvQisRZk7hQO
-	 nTPRl3Zj9EoHo+vckyD6bNVvmZlok+yPfxSihN4napwPzsh85+s5uPpRkDBw9iOdWhGNX
-	 OETd7uZU4z9Je26xRIOE4gp1lG6PVOe2/6LU3Fl9AXkSEnD3Ft3PDTqClx6nlKH91igK6
-	 UNJDZui4xkuaUB+gbdRzbBGJ3ed3GfU5cbYQYw0qTmkDxmrDUYu7IChITgq9h1j3c9w==
+	t=1795035211;
+	b=1NUXqRIvGEFy4Odenqc41GKtG8C39pNLzA7FAHpCnAVCuvQOFAG0h3whB6QFLOCYFLR8
+	 JAiXgkeapm5mvV/wQ+w7elA1rstBc8WyAmLC08KB5gQCPcEj+ZlstOOfGy4Zn8b0h/Y6L
+	 y2lSLu3fRr46oB36csEH0G1CSEaop5Z8hvdjoKp6qOuaaqKWd7ComU8Cw1ZnyUbtGrmrh
+	 lYjf/congwdD6yG2YMJaxm1a1jjhS+Q3r/pKcnbvFQIMaUtAKG0/eLJA0bezQcAswEUfA
+	 QhdrWUcaYGLe/2+OuFTAC0kJnCGhZlndoPfQ/03rXoRRUrlSyktEyKtAzlwG1+tLS8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035193;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=SDIa388RBwKSfuFWFqgDltJxqFIdRtR/01m98Q2l+Ps=;
-	b=aXBRzVLSzSmv7HeIgMV7ERyq/q7RgBa0aT2pyocEA/xt/06Fdr5TLfg5+pCMdSl6EEiz
-	 2zo9VNwBhyUxcXR2U1ldKPGT3B88gf2HZvLnEGR7SiuaJZFT6Igf88jPfX3Hg0tJ5N0Gi
-	 NOaY6Zk2IUtQYUvpL/+LyGypYDRHzh3YG4g8OYsZqFT1AfgDpGA0xfWpzKDXH6fJHXJ84
-	 SASncLFFNv01NoJc5YrLGPiNLk3ZP9N/KcPHP6LERIxBCzo2USxcawOYcCuPeCTVUA7yS
-	 8+UdVhLQcGtQ9+e2jB361wn8CObS4MxYkig6SFQmGw39QVTB1ciNJ+x0wSCsZo9ojVA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035211;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=BUa2xGmozg4c12vLWCRNsA8GK6QkWn4SmUNIxnLaH5A=;
+	b=hTyrYXmn5wHbCu+lLvf6VIMrzUHQ5BV/8TEd3d2IGrchFUVoNR8UGv/3AYkDXfsGRwjD
+	 ZDHdkegPDJq/eE1TenbJcvNuA3RHqWkfxVK6qbT6nOE+9TD/AFzvlpgfyNAiy1TfeRdhE
+	 ZNguRkZpaAEurGXiGMUGA0Tg2JZfH4wc5ofP18B0OfoMG5pOjZ3ys5t6w0v4g02bflTAI
+	 QVZpByPfeQn4lSPQkm9KpiXGWlStWsIdgWtCMhXOFCUs1lvHQnVEpPOc4BZH3DJ0HvkeO
+	 z6wUisABTUMEZob2ZMWQoBdf9S/NmfW56aIm+kYWBw/H6y7PZE2BMWpFTHWp+USyuEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gzi4XBZl;
-	arc=none smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XTog0jrY;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7A7A60A260E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:53:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7A7A60A260E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C8A3606A333;
+	Wed, 18 Nov 2026 20:53:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C8A3606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gzi4XBZl
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c50e26763a4so229259966b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:53:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795035191; x=1795639991; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=SDIa388RBwKSfuFWFqgDltJxqFIdRtR/01m98Q2l+Ps=;
-        b=gzi4XBZlenwN8F1El3pEKkih4oLEi/Gn5mueC0TLkdWsSFQ+LMkRmoPkBT8U8VlHf9
-         yAjU2V0IWz/g3i30NPxAIrS1nBDvYeoh1FMblFcuMrr9eH1wKfl6bCpZRSL6Q4vs4mp0
-         go46hVpPab6abWedKAIHjzUDJI8ASqg26dG3+j7a/ZaJV5CoK1Ppv8tWJxcCTPNlr5t+
-         b1wOYUQmrWb+TUqMT8JY/I0lrBt5cbZkswdttp+UlRl/AfqnHKEHXsUdOm9JLfYL83Zd
-         g/gXM8t4tiRbjXnS7AtdtAAd2LQOyKrg8tRmbamYAxjyPI4cQf7qKztcNxW/ztCMZkn9
-         wW0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795035191; x=1795639991;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SDIa388RBwKSfuFWFqgDltJxqFIdRtR/01m98Q2l+Ps=;
-        b=aE0hsrgaI3VPTvSVSuKu2iT3DNZgVfLWP/6HQOA0CP1f8HQCxxdIFqe5G2XLcBw6tO
-         JsUOjscu5yQpdILt1N96Z5D1j0lovyDEn65SyxoRJ26zwRsg+ShgSPOO1RrcP4NTpXBS
-         KyUHxcfhKfpaNzJxyjz6VBR4JP9E+klxnxW7w50Jemgqd+ezi9SErqcksv0OC5o7u1qt
-         +jB1fScxDrx3RvH/OGTVyy8CdUDMTRtJmCoh84DBN6YA0jDaJY67dLo4MhwdOllHLYQO
-         LZctCR6zq8R27aPx5ZQNK6qKKPDgqKsc41HulXcDU54cswvoWWo9kN3o8K/J/ajQLgGM
-         utAg==
-X-Forwarded-Encrypted: i=1; AL+hErF3cbb7jCoLsQaKTLb/Pr4tRNIK8SNAZNavts0pnuyOXJLoIy7QpKLvLpOQJHQiTQGfkTB+SPTnu/pzHmU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RYYltPelvX7flM5vygoI68NhhxiMCuXrijoxsvzPto2cXn3+W
-	JkwnZFLvx/2reJHucMYQBeN1hhvCHk3MqN7mIrKUQxNeZfnJIhYZ+DIA
-X-Gm-Gg: AYBFou3pm7QKUNgCItdJ4cUJoEjPXfeVGBZYGQ/Q/iaQ+HHwKPSt+j9JOhTBbDxJ3dI
-	Uc88ntYjJKi9Ao2fM6MxE5Omy4lJIFXoH3BkmSiAcwkWz2++0D5iP+dhs30hd6IwQysxLJEuvOm
-	NKHuc3erNGwj7Q4TvVskPyBRmplBeA+7+UWUX7zBIM83DMnjmVxoNRaYCQwUGF+NovXIb1RUvyK
-	fuW//tWZ+t+Z9APaFVD4FkZwttSS9lQFqvGEcCC/AUjd2pIBECmpJvjECadD0stgZ+E5K2DNsqJ
-	yDyQwTkMPw3DiU4FLYpE5YalRDcIHoy8qjdmjPMopfTYgM7dgWnMss1gTJaw6LIZdTD98PwLFfC
-	5jlX8R8m3vi0RmqwvoQSVKD6WL+dZIChbqhzQ+ME8rZLMYCfkhYfX/pJLXAd84IjexZh26ADQyU
-	gU0m4nyOutVVVf/woG1i5uaG0ZVp/uvPwxFOGWaD6qrV0Zl8O/ySzKVMA39iMtyLL5iLYma7AWk
-	iUQIGrRr6TjDg8R4Rd22nOcS0v+HTBYn2eX3BHK/hAmp7vy/Pgl3Y06lOxC3OQ/kowpZWQ+OEuc
-	bRywL/zGE7BkVGXOPUV2vHlxvnFsL5rvJqTLS23bjRR9xrDEr4ZQZGDreG4L2g==
-X-Received: by 2002:a17:907:160f:b0:c46:8913:d89d with SMTP id a640c23a62f3a-c510e2a8791mr384550766b.14.1795035190956;
-        Wed, 18 Nov 2026 12:53:10 -0800 (PST)
-Received: from antoniarch (84-40-238-230.cgnat.inetia.pl. [84.40.238.230])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5123421612sm35303166b.41.2026.11.18.12.53.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 12:53:10 -0800 (PST)
-From: Antoni Pokusinski <apokusinski01@gmail.com>
-To: vigneshr@ti.com,
-	andi.shyti@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	aaro.koskinen@iki.fi,
-	andreas@kemnade.info,
-	khilman@baylibre.com,
-	rogerq@kernel.org,
-	tony@atomide.com,
-	jmkrzyszt@gmail.com,
-	sumit.semwal@linaro.org,
-	christian.koenig@amd.com,
-	phasta@kernel.org
-Cc: linux-omap@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	Antoni Pokusinski <apokusinski01@gmail.com>
-Subject: [PATCH v2 4/4] i2c: omap: add DMA support
-Date: Wed, 18 Nov 2026 21:52:07 +0100
-Message-ID: <20261118205213.88778-5-apokusinski01@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118205213.88778-1-apokusinski01@gmail.com>
-References: <20261118205213.88778-1-apokusinski01@gmail.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=XTog0jrY
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B5D5CC4F76D;
+	Wed, 18 Nov 2026 20:53:34 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B84C65FE9B;
+	Wed, 18 Nov 2026 20:53:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8C3C611BC3098;
+	Wed, 18 Nov 2026 21:53:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795035208; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=BUa2xGmozg4c12vLWCRNsA8GK6QkWn4SmUNIxnLaH5A=;
+	b=XTog0jrYx7TKBQFMHVHjCAbW1KRObh/c8m7wQCKA53zj5eN5aRjyBrfszzzzovpKs17gV2
+	JyvMQxeOdrcdpPLKMilOh/JbUXxYhDjZk0fpV8kabSEAC7MnIj9qSF4Cq692e6lV9TQuXm
+	kxO9EpAJ38zVWJNTXPEqGIi358Sb6YoVU2UZUBrkmb1SPRDKHZwGXdGV1Lw4lpsr+8Eg7Z
+	iz48d1sxD8SyUoDw1JazZAjWcMwO0+YA6Hdl1A5M5KjSqMNB6qPYWkwwiFfLGCNZ8HxDUt
+	nl5ChW51TP9+PBgTD6HnKKnjBoAx8pJe67DSke50UWKSCKdn/duzs/GofADCRA==
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: [PATCH net-next v7 0/3] net: macb: implement ethtool set channels
+ count operation
+Date: Wed, 18 Nov 2026 21:53:22 +0100
+Message-Id: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,536 +63,188 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAEIQ/moC/33Py07DMBAF0F+pvMZobMePsOI/EAs/xtRSa6M4i
+ oqq/DtuFhAUi+XozpzRvZOKU8JKXk53MuGSaiq5DfrpRPzZ5g+kKbSZcOAKBEh6td7RijN9xBk
+ vlUoXFYKOgmsg7e5zwphum/lGctvMeJvJe0vOqc5l+tqeLWzL/3EXRoFyg8KOyorgxasrZb6k/
+ OzLdfMWvjMY6xm8GaPhahSWRRn90RB7Q/QM0QyvlNPasBCcORrD3tA9Y2gGc2GIQ4w+ens05I/
+ BgKmeIR9dwCN4cAa1PBrq12D9LqoZMqAcw4g6Av9rrOv6DQ9vXdMSAgAA
+X-Change-ID: 20260305-macb-set-channels-5bf6e07f3270
+To: Conor Dooley <conor.dooley@microchip.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Nicolai Buchwitz <nb@tipi-net.de>, Paolo Valerio <pvalerio@redhat.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Add support for the TX and RX DMA requests of the OMAP I2C controller.
-The DMA transactions are dispatched only if the I2C message size is
-a multiple of the configured FIFO threshold and is greater than a
-predefined threshold of 8 bytes.
+Add support for changing the active number of queues.
+Tested on Mobileye EyeQ5.
 
-Support for DMA transactions that are not a multiple of the FIFO
-threshold can be added in the future using the draining feature.
+If the interface is running, use context swapping to realloc rings on
+the fly. To avoid introducing bugs with stale ENST config, we start by
+fixing how ENST config gets applied in the first patch.
 
-Signed-off-by: Antoni Pokusinski <apokusinski01@gmail.com>
+One pretty significant change to our context swapping implementation:
+the set_channels callback needs to be able to fail in the context
+swapping window. If it failed, then we keep using the old context and
+don't reconfigure HW. From its standpoint, it got disabled then
+re-enabled with no change to its rings.
+
+I tried *not fixing* TAPRIO/ENST but that was hard, so instead I preface
+this series with a commit reworking how ENST works. We now handle
+close/open and refuse set_channels if a queue-to-be-disabled had an
+ENST schedule attached.
+
+Have a nice day,
+Thanks,
+Théo
+
 ---
- drivers/i2c/busses/i2c-omap.c | 349 ++++++++++++++++++++++++++++++++--
- 1 file changed, 328 insertions(+), 21 deletions(-)
+Changes in v7:
+- Patch 1 (new ENST patch):
+   - Preface the series by a patch fixing TAPRIO ENST config across
+     interface flap and context swap operations.
+   - It does so by storing a cached ENST config in bp and restoring it
+     on context swap and link-up. Previously we could only write the
+     ENST registers on TAPRIO callbacks.
+- Patch 2 (ethtool set_channels implementation):
+   - Fix context swap rollback: if the window failed (set_channels is the
+     first context swap that can fail), then we need to *not* write HW
+     ring cursors and *not* reset DQL.
+   - macb_interrupt(): avoid NULL ptr deref when reading bp->ctx fields.
+   - macb_poll_controller(): avoid bp->ctx NULL ptr deref by using
+     bp->configured_num_queues rather than bp->ctx->num_queues.
+   - gem_get_rx_ring_count(): use bp->configured_num_queues rather than
+     bp->max_num_queues.
+   - at91ether_open(): assign `bp->ctx->num_queues = 1` to avoid breaking
+     shared code that iterates on queues (suspend PM ops mostly).
+- Patch 3 (Tx SRAM segment distribution):
+   - DCFG6 register has 4 bits to tell us the # of segments, not 3.
+   - The config of the # of segments per queue is 3 bits (not 2): fix
+     distribution algorithm to allow going up to the limit. I don't
+     know of any hardware on which this could have an incidence.
+   - SRAM segment distribution is also done at context swap end, for
+     this new set_channels callback.
+- Rebase onto latest net-next/main (d6816d9a93b6); tiny conflict inside
+  macb_config caps.
+- Link to v6: https://patch.msgid.link/20261113-macb-set-channels-v6-0-5de59d9e7f02@bootlin.com
 
-diff --git a/drivers/i2c/busses/i2c-omap.c b/drivers/i2c/busses/i2c-omap.c
-index 3f7060d57a86..acff27f3f438 100644
---- a/drivers/i2c/busses/i2c-omap.c
-+++ b/drivers/i2c/busses/i2c-omap.c
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2003 MontaVista Software, Inc.
-  * Copyright (C) 2005 Nokia Corporation
-  * Copyright (C) 2004 - 2007 Texas Instruments.
-+ * Copyright (C) 2026 Antoni Pokusiński
-  *
-  * Originally written by MontaVista Software, Inc.
-  * Additional contributions by:
-@@ -13,10 +14,13 @@
-  *	Juha Yrjölä <juha.yrjola@solidboot.com>
-  *	Syed Khasim <x0khasim@ti.com>
-  *	Nishant Menon <nm@ti.com>
-+ *	Antoni Pokusiński <apokusinski01@gmail.com>
-  */
- 
- #include <linux/module.h>
- #include <linux/delay.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/dmaengine.h>
- #include <linux/i2c.h>
- #include <linux/err.h>
- #include <linux/interrupt.h>
-@@ -50,6 +54,8 @@
- /* timeout for making decision on bus free status */
- #define OMAP_I2C_BUS_FREE_TIMEOUT (msecs_to_jiffies(10))
- 
-+#define OMAP_I2C_DMA_THRESHOLD	8
-+
- /* For OMAP3 I2C_IV has changed to I2C_WE (wakeup enable) */
- enum {
- 	OMAP_I2C_REV_REG = 0,
-@@ -57,6 +63,10 @@ enum {
- 	OMAP_I2C_STAT_REG,
- 	OMAP_I2C_IV_REG,
- 	OMAP_I2C_WE_REG,
-+	OMAP_I2C_DMARXENABLE_SET,
-+	OMAP_I2C_DMATXENABLE_SET,
-+	OMAP_I2C_DMARXENABLE_CLR,
-+	OMAP_I2C_DMATXENABLE_CLR,
- 	OMAP_I2C_SYSS_REG,
- 	OMAP_I2C_BUF_REG,
- 	OMAP_I2C_CNT_REG,
-@@ -176,12 +186,37 @@ enum {
- 
- #define OMAP_I2C_IP_V2_INTERRUPTS_MASK	0x6FFF
- 
-+#define OMAP_I2C_SCHEME(rev)		((rev & 0xc000) >> 14)
-+
-+#define OMAP_I2C_REV_SCHEME_0_MAJOR(rev) (rev >> 4)
-+#define OMAP_I2C_REV_SCHEME_0_MINOR(rev) (rev & 0xf)
-+
-+#define OMAP_I2C_REV_SCHEME_1_MAJOR(rev) ((rev & 0x0700) >> 7)
-+#define OMAP_I2C_REV_SCHEME_1_MINOR(rev) (rev & 0x1f)
-+#define OMAP_I2C_SCHEME_0		0
-+#define OMAP_I2C_SCHEME_1		1
-+
-+struct omap_i2c_dma {
-+	struct dma_chan		*chan_rx;
-+	struct dma_chan		*chan_tx;
-+	struct dma_chan		*chan_using;
-+	struct device		*dma_dev;
-+	u8			*curr_msg_buf;
-+	struct i2c_msg		*curr_msg;
-+	dma_addr_t		dma_buf;
-+	unsigned int		dma_len;
-+	enum dma_data_direction dma_data_dir;
-+	struct completion	complete;
-+	dma_addr_t		phy_addr;
-+};
-+
- struct omap_i2c_dev {
- 	struct device		*dev;
- 	void __iomem		*base;		/* virtual */
- 	int			irq;
- 	int			reg_shift;      /* bit shift for I2C register addresses */
- 	struct completion	cmd_complete;
-+	struct omap_i2c_dma	*dma;
- 	struct resource		*ioarea;
- 	u32			latency;	/* maximum mpu wkup latency */
- 	void			(*set_mpu_wkup_lat)(struct device *dev,
-@@ -242,6 +277,10 @@ static const u8 reg_map_ip_v2[] = {
- 	[OMAP_I2C_STAT_REG] = 0x28,
- 	[OMAP_I2C_IV_REG] = 0x34,
- 	[OMAP_I2C_WE_REG] = 0x34,
-+	[OMAP_I2C_DMARXENABLE_SET] = 0x38,
-+	[OMAP_I2C_DMATXENABLE_SET] = 0x3c,
-+	[OMAP_I2C_DMARXENABLE_CLR] = 0x40,
-+	[OMAP_I2C_DMATXENABLE_CLR] = 0x44,
- 	[OMAP_I2C_SYSS_REG] = 0x90,
- 	[OMAP_I2C_BUF_REG] = 0x94,
- 	[OMAP_I2C_CNT_REG] = 0x98,
-@@ -462,10 +501,7 @@ static int omap_i2c_init(struct omap_i2c_dev *omap)
- 		sclh = fclk_rate / (omap->speed * 2) - 7 + psc;
- 	}
- 
--	omap->iestate = (OMAP_I2C_IE_XRDY | OMAP_I2C_IE_RRDY |
--			OMAP_I2C_IE_ARDY | OMAP_I2C_IE_NACK |
--			OMAP_I2C_IE_AL)  | ((omap->fifo_size) ?
--				(OMAP_I2C_IE_RDR | OMAP_I2C_IE_XDR) : 0);
-+	omap->iestate = OMAP_I2C_IE_ARDY | OMAP_I2C_IE_NACK | OMAP_I2C_IE_AL;
- 
- 	omap->pscstate = psc;
- 	omap->scllstate = scll;
-@@ -655,6 +691,144 @@ static void omap_i2c_wait(struct omap_i2c_dev *omap)
- 	} while (!(stat & mask) && count < 5);
- }
- 
-+static void omap_i2c_dma_callback(void *arg)
-+{
-+	struct omap_i2c_dev *omap = (struct omap_i2c_dev *)arg;
-+
-+	complete(&omap->dma->complete);
-+}
-+
-+static int omap_i2c_dma_xfer(struct omap_i2c_dev *omap, struct i2c_msg *msg)
-+{
-+	int ret;
-+	struct dma_slave_config dma_sconfig = {0};
-+	struct omap_i2c_dma *dma = omap->dma;
-+	struct dma_async_tx_descriptor *txdesc;
-+	struct device *dev = &omap->adapter.dev;
-+
-+	dma->curr_msg = msg;
-+
-+	dma->curr_msg_buf = i2c_get_dma_safe_msg_buf(msg, 1);
-+	if (!dma->curr_msg_buf)
-+		return -ENOMEM;
-+
-+	if (omap->receiver) {
-+		dma->chan_using = dma->chan_rx;
-+
-+		dma_sconfig.src_addr = dma->phy_addr +
-+				(omap->regs[OMAP_I2C_DATA_REG]
-+					<< omap->reg_shift);
-+		dma_sconfig.src_addr_width = DMA_SLAVE_BUSWIDTH_1_BYTE;
-+		dma_sconfig.src_maxburst = omap->threshold;
-+		dma_sconfig.direction = DMA_DEV_TO_MEM;
-+	} else {
-+		dma->chan_using = dma->chan_tx;
-+
-+		dma_sconfig.dst_addr = dma->phy_addr +
-+				(omap->regs[OMAP_I2C_DATA_REG]
-+					<< omap->reg_shift);
-+		dma_sconfig.dst_addr_width = DMA_SLAVE_BUSWIDTH_1_BYTE;
-+		dma_sconfig.dst_maxburst = omap->threshold;
-+		dma_sconfig.direction = DMA_MEM_TO_DEV;
-+	}
-+
-+	ret = dmaengine_slave_config(dma->chan_using, &dma_sconfig);
-+	if (ret < 0) {
-+		dev_err(dev, "DMA channel config failed: %d\n", ret);
-+		goto err_map;
-+	}
-+
-+	dma->dma_len = msg->len;
-+	dma->dma_data_dir = omap->receiver ? DMA_FROM_DEVICE : DMA_TO_DEVICE;
-+
-+	dma->dma_dev = dmaengine_get_dma_device(dma->chan_using);
-+
-+	dma->dma_buf = dma_map_single(dma->dma_dev, dma->curr_msg_buf,
-+				      dma->dma_len, dma->dma_data_dir);
-+	if (dma_mapping_error(dma->dma_dev, dma->dma_buf)) {
-+		dev_err(dev, "DMA mapping failed\n");
-+		ret = -EINVAL;
-+		goto err_map;
-+	}
-+
-+	txdesc = dmaengine_prep_slave_single(dma->chan_using, dma->dma_buf,
-+					     dma->dma_len,
-+					     omap->receiver ? DMA_DEV_TO_MEM :
-+							      DMA_MEM_TO_DEV,
-+					     DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-+	if (!txdesc) {
-+		dev_err(dev, "Not able to get desc for DMA xfer\n");
-+		ret = -EINVAL;
-+		goto err_desc;
-+	}
-+
-+	reinit_completion(&dma->complete);
-+
-+	dmaengine_desc_set_callback(txdesc, omap_i2c_dma_callback, NULL, omap);
-+	ret = dma_submit_error(dmaengine_submit(txdesc));
-+	if (ret < 0) {
-+		dev_err(dev, "DMA submit failed\n");
-+		goto err_submit;
-+	}
-+
-+	dma_async_issue_pending(dma->chan_using);
-+	return 0;
-+
-+err_submit:
-+	dmaengine_terminate_sync(dma->chan_using);
-+err_desc:
-+	dma_unmap_single(dma->dma_dev, dma->dma_buf, dma->dma_len,
-+			 dma->dma_data_dir);
-+err_map:
-+	i2c_put_dma_safe_msg_buf(dma->curr_msg_buf, msg, false);
-+	return ret;
-+}
-+
-+static void omap_i2c_dma_cleanup(struct omap_i2c_dev *omap, bool xferred)
-+{
-+	struct omap_i2c_dma *dma = omap->dma;
-+
-+	dma_unmap_single(dma->dma_dev, dma->dma_buf, dma->dma_len,
-+			 dma->dma_data_dir);
-+	i2c_put_dma_safe_msg_buf(dma->curr_msg_buf, dma->curr_msg, xferred);
-+}
-+
-+static void omap_i2c_dma_enable_req(struct omap_i2c_dev *omap)
-+{
-+	u16 w;
-+
-+	w = omap_i2c_read_reg(omap, OMAP_I2C_BUF_REG);
-+	if (omap->receiver) {
-+		w |= OMAP_I2C_BUF_RDMA_EN;
-+		omap_i2c_write_reg(omap, OMAP_I2C_BUF_REG, w);
-+
-+		omap_i2c_write_reg(omap, OMAP_I2C_DMARXENABLE_SET, 1);
-+	} else {
-+		w |= OMAP_I2C_BUF_XDMA_EN;
-+		omap_i2c_write_reg(omap, OMAP_I2C_BUF_REG, w);
-+
-+		omap_i2c_write_reg(omap, OMAP_I2C_DMATXENABLE_SET, 1);
-+	}
-+}
-+
-+static void omap_i2c_dma_disable_req(struct omap_i2c_dev *omap)
-+{
-+	u16 w;
-+
-+	w = omap_i2c_read_reg(omap, OMAP_I2C_BUF_REG);
-+	if (omap->receiver) {
-+		w &= ~OMAP_I2C_BUF_RDMA_EN;
-+		omap_i2c_write_reg(omap, OMAP_I2C_BUF_REG, w);
-+
-+		omap_i2c_write_reg(omap, OMAP_I2C_DMARXENABLE_CLR, 1);
-+	} else {
-+		w &= ~OMAP_I2C_BUF_XDMA_EN;
-+		omap_i2c_write_reg(omap, OMAP_I2C_BUF_REG, w);
-+
-+		omap_i2c_write_reg(omap, OMAP_I2C_DMATXENABLE_CLR, 1);
-+	}
-+}
-+
- /*
-  * Low level master read/write transaction.
-  */
-@@ -663,8 +837,8 @@ static int omap_i2c_xfer_msg(struct i2c_adapter *adap,
- {
- 	struct omap_i2c_dev *omap = i2c_get_adapdata(adap);
- 	unsigned long time_left;
--	u16 w;
--	int ret;
-+	u16 w, pio_irq_mask;
-+	int ret, use_dma;
- 
- 	dev_dbg(omap->dev, "addr: 0x%04x, len: %d, flags: 0x%x, stop: %d\n",
- 		msg->addr, msg->len, msg->flags, stop);
-@@ -672,6 +846,14 @@ static int omap_i2c_xfer_msg(struct i2c_adapter *adap,
- 	omap->receiver = !!(msg->flags & I2C_M_RD);
- 	omap_i2c_resize_fifo(omap, msg->len, omap->receiver);
- 
-+	/**
-+	 * REVISIT: If the message size is not a multiple of the threshold,
-+	 * the draining feature must be used.
-+	 */
-+	use_dma = !polling && omap->dma && msg->len >= OMAP_I2C_DMA_THRESHOLD &&
-+		  !(omap->flags & OMAP_I2C_FLAG_NO_FIFO) &&
-+		  msg->len % omap->threshold == 0;
-+
- 	omap_i2c_write_reg(omap, OMAP_I2C_SA_REG, msg->addr);
- 
- 	/* REVISIT: Could the STB bit of I2C_CON be used with probing? */
-@@ -692,6 +874,27 @@ static int omap_i2c_xfer_msg(struct i2c_adapter *adap,
- 		reinit_completion(&omap->cmd_complete);
- 	omap->cmd_err = 0;
- 
-+	if (use_dma) {
-+		ret = omap_i2c_dma_xfer(omap, msg);
-+		if (ret) {
-+			omap_i2c_reset(omap);
-+			__omap_i2c_init(omap);
-+			return ret;
-+		}
-+
-+		omap_i2c_dma_enable_req(omap);
-+	} else {
-+		pio_irq_mask = OMAP_I2C_IE_XRDY | OMAP_I2C_IE_RRDY |
-+			       ((omap->fifo_size) ? (OMAP_I2C_IE_RDR |
-+						    OMAP_I2C_IE_XDR) : 0);
-+
-+		if (omap->scheme == OMAP_I2C_SCHEME_0)
-+			omap_i2c_write_reg(omap, OMAP_I2C_IE_REG,
-+					   omap->iestate | pio_irq_mask);
-+		else
-+			omap_i2c_write_reg(omap, OMAP_I2C_IE_REG, pio_irq_mask);
-+	}
-+
- 	w = OMAP_I2C_CON_EN | OMAP_I2C_CON_MST | OMAP_I2C_CON_STT;
- 
- 	/* High speed configuration */
-@@ -727,6 +930,16 @@ static int omap_i2c_xfer_msg(struct i2c_adapter *adap,
- 			if (time_after(jiffies, delay)) {
- 				dev_err(omap->dev, "controller timed out "
- 				"waiting for start condition to finish\n");
-+
-+				if (omap->scheme == OMAP_I2C_SCHEME_0)
-+					omap_i2c_write_reg(omap,
-+							   OMAP_I2C_IE_REG,
-+							   omap->iestate);
-+				else
-+					omap_i2c_write_reg(omap,
-+							   OMAP_I2C_IP_V2_IRQENABLE_CLR,
-+							   pio_irq_mask);
-+
- 				return -ETIMEDOUT;
- 			}
- 			cpu_relax();
-@@ -742,8 +955,15 @@ static int omap_i2c_xfer_msg(struct i2c_adapter *adap,
- 	 * into arbitration and we're currently unable to recover from it.
- 	 */
- 	if (!polling) {
--		time_left = wait_for_completion_timeout(&omap->cmd_complete,
--							OMAP_I2C_TIMEOUT);
-+		time_left = OMAP_I2C_TIMEOUT;
-+
-+		if (use_dma)
-+			time_left = wait_for_completion_timeout(&omap->dma->complete,
-+								time_left);
-+
-+		if (time_left && !omap->cmd_err)
-+			time_left = wait_for_completion_timeout(&omap->cmd_complete,
-+								time_left);
- 	} else {
- 		do {
- 			omap_i2c_wait(omap);
-@@ -753,7 +973,23 @@ static int omap_i2c_xfer_msg(struct i2c_adapter *adap,
- 		time_left = !ret;
- 	}
- 
--	if (time_left == 0) {
-+	if (use_dma) {
-+		if (!time_left || omap->cmd_err)
-+			dmaengine_terminate_sync(omap->dma->chan_using);
-+
-+		omap_i2c_dma_cleanup(omap, time_left && !omap->cmd_err);
-+
-+		omap_i2c_dma_disable_req(omap);
-+	} else {
-+		if (omap->scheme == OMAP_I2C_SCHEME_0)
-+			omap_i2c_write_reg(omap, OMAP_I2C_IE_REG,
-+					   omap->iestate);
-+		else
-+			omap_i2c_write_reg(omap, OMAP_I2C_IP_V2_IRQENABLE_CLR,
-+					   pio_irq_mask);
-+	}
-+
-+	if (!time_left && likely(!omap->cmd_err)) {
- 		omap_i2c_reset(omap);
- 		__omap_i2c_init(omap);
- 		return -ETIMEDOUT;
-@@ -1253,16 +1489,6 @@ static const struct of_device_id omap_i2c_of_match[] = {
- MODULE_DEVICE_TABLE(of, omap_i2c_of_match);
- #endif
- 
--#define OMAP_I2C_SCHEME(rev)		((rev & 0xc000) >> 14)
--
--#define OMAP_I2C_REV_SCHEME_0_MAJOR(rev) (rev >> 4)
--#define OMAP_I2C_REV_SCHEME_0_MINOR(rev) (rev & 0xf)
--
--#define OMAP_I2C_REV_SCHEME_1_MAJOR(rev) ((rev & 0x0700) >> 7)
--#define OMAP_I2C_REV_SCHEME_1_MINOR(rev) (rev & 0x1f)
--#define OMAP_I2C_SCHEME_0		0
--#define OMAP_I2C_SCHEME_1		1
--
- static int omap_i2c_get_scl(struct i2c_adapter *adap)
- {
- 	struct omap_i2c_dev *dev = i2c_get_adapdata(adap);
-@@ -1336,10 +1562,70 @@ static struct i2c_bus_recovery_info omap_i2c_bus_recovery_info = {
- 	.recover_bus		= i2c_generic_scl_recovery,
- };
- 
-+static struct omap_i2c_dma *omap_i2c_dma_init(struct omap_i2c_dev *omap,
-+					      dma_addr_t phy_addr)
-+{
-+	struct device *dev = omap->dev;
-+	struct omap_i2c_dma *dma;
-+	int ret;
-+
-+	dma = devm_kzalloc(dev, sizeof(*dma), GFP_KERNEL);
-+	if (!dma)
-+		return ERR_PTR(-ENOMEM);
-+
-+	dma->phy_addr = phy_addr;
-+
-+	init_completion(&dma->complete);
-+
-+	dma->chan_tx = dma_request_chan(dev, "tx");
-+	if (IS_ERR(dma->chan_tx)) {
-+		ret = PTR_ERR(dma->chan_tx);
-+		if (ret != -ENODEV)
-+			dev_err_probe(dev, ret,
-+				      "can't request DMA tx channel\n");
-+		goto dma_free;
-+	}
-+
-+	dma->chan_rx = dma_request_chan(dev, "rx");
-+	if (IS_ERR(dma->chan_rx)) {
-+		ret = PTR_ERR(dma->chan_rx);
-+		if (ret != -ENODEV)
-+			dev_err_probe(dev, ret,
-+				      "can't request DMA rx channel\n");
-+		goto dma_tx_fail;
-+	}
-+
-+	return dma;
-+
-+dma_tx_fail:
-+	dma_release_channel(dma->chan_tx);
-+dma_free:
-+	devm_kfree(dev, dma);
-+
-+	return ERR_PTR(ret);
-+}
-+
-+static void omap_i2c_dma_free(struct omap_i2c_dev *omap)
-+{
-+	struct omap_i2c_dma *dma = omap->dma;
-+
-+	dma->dma_buf = 0;
-+	dma->dma_len = 0;
-+
-+	dma_release_channel(dma->chan_tx);
-+	dma->chan_tx = NULL;
-+
-+	dma_release_channel(dma->chan_rx);
-+	dma->chan_rx = NULL;
-+
-+	dma->chan_using = NULL;
-+}
-+
- static int
- omap_i2c_probe(struct platform_device *pdev)
- {
- 	struct omap_i2c_dev	*omap;
-+	struct resource		*res;
- 	struct i2c_adapter	*adap;
- 	const struct omap_i2c_bus_platform_data *pdata =
- 		dev_get_platdata(&pdev->dev);
-@@ -1357,7 +1643,7 @@ omap_i2c_probe(struct platform_device *pdev)
- 	if (!omap)
- 		return -ENOMEM;
- 
--	omap->base = devm_platform_ioremap_resource(pdev, 0);
-+	omap->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
- 	if (IS_ERR(omap->base))
- 		return PTR_ERR(omap->base);
- 
-@@ -1476,6 +1762,22 @@ omap_i2c_probe(struct platform_device *pdev)
- 		goto err_unuse_clocks;
- 	}
- 
-+	if (omap->scheme != OMAP_I2C_SCHEME_0) {
-+		omap->dma = omap_i2c_dma_init(omap, (dma_addr_t)res->start);
-+		if (PTR_ERR(omap->dma) == -EPROBE_DEFER) {
-+			r = -EPROBE_DEFER;
-+			dev_err_probe(&pdev->dev, r,
-+				      "can't get DMA channels\n");
-+			goto err_unuse_clocks;
-+		} else if (PTR_ERR(omap->dma) == -ENODEV) {
-+			dev_dbg(omap->dev, "DMA setup failed\n");
-+			omap->dma = NULL;
-+		} else if (IS_ERR(omap->dma)) {
-+			r = PTR_ERR(omap->dma);
-+			goto err_unuse_clocks;
-+		}
-+	}
-+
- 	adap = &omap->adapter;
- 	i2c_set_adapdata(adap, omap);
- 	adap->owner = THIS_MODULE;
-@@ -1491,7 +1793,7 @@ omap_i2c_probe(struct platform_device *pdev)
- 	adap->nr = pdev->id;
- 	r = i2c_add_numbered_adapter(adap);
- 	if (r)
--		goto err_unuse_clocks;
-+		goto err_dma_free;
- 
- 	dev_info(omap->dev, "bus %d rev%d.%d at %d kHz\n", adap->nr,
- 		 major, minor, omap->speed);
-@@ -1500,6 +1802,8 @@ omap_i2c_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
-+err_dma_free:
-+	omap_i2c_dma_free(omap);
- err_unuse_clocks:
- 	omap_i2c_write_reg(omap, OMAP_I2C_CON_REG, 0);
- err_put_pm:
-@@ -1521,6 +1825,9 @@ static void omap_i2c_remove(struct platform_device *pdev)
- 	if (omap->mux_state)
- 		mux_state_deselect(omap->mux_state);
- 
-+	if (omap->dma)
-+		omap_i2c_dma_free(omap);
-+
- 	ret = pm_runtime_get_sync(&pdev->dev);
- 	if (ret < 0)
- 		dev_err(omap->dev, "Failed to resume hardware, skip disable\n");
--- 
-2.56.1
+Changes in v6:
+- Rebase onto latest net-next/main (573af8015529). This means rebasing
+  onto context swapping, which is now used on set_channels requests.
+- Move the QUEUE_DISABLE caps patch out into a separate series.
+  https://lore.kernel.org/netdev/20261113-macb-caps-v1-0-42e0984b2f09@bootlin.com/
+- Drop kunit tests. Thanks Jakub.
+- Fix the TAPRIO gate test if qdisc is destroyed while the interface is
+  down (because bp->taprio_gated_queues was stall in that case).
+  Thanks Nicolai.
+- Link to v5: https://patch.msgid.link/20261016-macb-set-channels-v5-0-90ce0c0b8e75@bootlin.com
+
+Changes in v5:
+- New patch: add missing MACB_CAPS_QUEUE_DISABLE to 3 compatibles based
+  on publicly available datasheets. That means they can benefit from
+  the set_channels implementation.
+- set_channels patch:
+  - Refuse set_channels if it disables a queue with active TAPRIO.
+  - Use TBQP.QUEUE_DISABLE bit to also disable transmit; previously we
+    only disabled the receive engine.
+  - Migrate code to newly introduced macb_queue_isr_clear() helper.
+  - Adapt to newly introduced macb_quiesce_start(), where we want to
+    synchronize_irq() on all queues, even the disabled ones.
+  - IRQ handler now self-disarms on disabled queues.
+  - Drop `old_count` unused stack variable.
+  - Only allow TAPRIO rules on active queues.
+  - Fix comments style and text in macb_set_channels(); in particular
+    mention we'll use context-swapping once it is available.
+- Distribute SRAM segments patch:
+  - Introduce GEM_TXQSEGALLOC_MASK(q) and use field_prep|get() macros.
+  - Introduce capability for this feature, as many publicly available
+    GEM datasheets don't document the registers.
+  - Remove upper register support. Lower register is enough to handle 8
+    queues, which is the max we support.
+  - Add edge case kunit for num_segments=128.
+  - Introduce static_assert(MACB_MAX_QUEUES == 8) in
+    gem_sram_distribute_segments() to signal that code will need
+    updating if/when the constant changes.
+- Update To/Cc list: drop Nicolas and Claudiu, add Conor and Nicolai.
+- Rebase onto latest net-next/main (6b3e73774815).
+- Link to v4: https://patch.msgid.link/20260317-macb-set-channels-v4-0-1bd4f4ffcfca@bootlin.com
+
+Changes in v4:
+- macb_set_channels(): drop `count == old_count` check, it is redundant
+  with both netlink and ioctl codepaths. See early returns in
+  ethnl_set_channels() and ethtool_set_channels(). Discussion @ V2.
+- Rebase to latest net-next (8737d7194d6d); nothing to report.
+- Link to v3: https://patch.msgid.link/20260313-macb-set-channels-v3-0-c66b7781ddb8@bootlin.com
+
+Changes in v3:
+- Makefile: fix compilation of kunit tests. This bug was hidden before
+  because everything was builtin so it ended up linked together anyway.
+  Now macb.o is the amalgation of macb_{main,ptp,utils}.o and
+  macb_test.o is the amalgation of macb_{kunit,utils}.o.
+- Kconfig CONFIG_MACB_KUNIT_TEST entry:
+  - Turn into tristate; no good reason to restrict to bool.
+  - Drop "depends on MACB". We do not need to compile the full MACB
+    driver to test gem_sram_distribute_segments().
+- Add usual MODULE_*() macros to macb_kunit.c.
+- Drop unused init value of `ret` in macb_set_channels().
+- Rebase to latest net-next; nothing to report.
+- Link to v2: https://patch.msgid.link/20260311-macb-set-channels-v2-0-982693a1f5fc@bootlin.com
+
+Changes in v2:
+- Move gem_sram_distribute_segments() from macb_main.c to macb_utils.c
+  and kunit tests from macb_main.c to macb_kunit.c.
+- macb_set_channels():
+  - Add comment about MACB_CAPS_QUEUE_DISABLE.
+  - Refuse operation if netif_running(), with code comment.
+  - Drop useless sanity checks on ch->{combined,rx,tx}_count.
+- Add help text to CONFIG_MACB_KUNIT_TEST.
+- Fix `checkpatch --max-line-length=80` warnings.
+- Rebase onto latest net-next; nothing to report.
+- Link to v1: https://lore.kernel.org/r/20260305-macb-set-channels-v1-0-28e3a96a3dc3@bootlin.com
+
+To: Conor Dooley <conor.dooley@microchip.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Paolo Valerio <pvalerio@redhat.com>
+Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>
+Cc: Benoît Monin <benoit.monin@bootlin.com>
+Cc: Tawfik Bayouk <tawfik.bayouk@mobileye.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
+
+---
+Théo Lebrun (3):
+      net: macb: cache ENST config across link down/up
+      net: macb: implement ethtool_ops.get|set_channels()
+      net: macb: distribute evenly Tx SRAM segments
+
+ drivers/net/ethernet/cadence/macb.h      |  66 +++-
+ drivers/net/ethernet/cadence/macb_main.c | 512 +++++++++++++++++++++----------
+ 2 files changed, 397 insertions(+), 181 deletions(-)
+---
+base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
+change-id: 20260305-macb-set-channels-5bf6e07f3270
+
+Best regards,
+--  
+Théo Lebrun <theo.lebrun@bootlin.com>
 
