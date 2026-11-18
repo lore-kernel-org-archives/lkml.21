@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993016;
-	b=5iYhIiGBpEW+QTBaccscFL0s/wLfouR4ylykrikiVU8YqdjAuiDG9Z3Esewe7g/ohW6H
-	 UruUkvna9uoDaTS1KT6WHsdGIyC/LfHa0xx8Nribjx9CRWQQD3YiO60NR99MFVSDW37oG
-	 3jg8An0ee5cqmYM4eOoE/JnY91D5XNAYrfcKNPLbpZUJh/hFh687G9H73FGsbsULFzM1W
-	 wR1vnByrImRjgrGmb1BNKzrdhdMc256n8NB7qk6zNTjOVlhp480R0gNFXuxBh0xVQwBn9
-	 SZEiugyMqoQse86eOs11FpQpwIHTCbfMktwtb5IyL3sx9hRwtG2qp/c4rwLnBqnxuYA==
+	t=1794993057;
+	b=S1nTKewhtAKQKNmwxkfNjjtSDATW+Ps/DxJZURM9ZOScdfbyTuadkurDgg7wgU9F/tGC
+	 AIqqYlFxXpEn7ML5dO/FGccp8G2LTZWPZoJR3fbQPH61853QQ05jNXlnaujGze3OYtiRA
+	 /yF9CPrs4uXh3EIOaLoUMlNum5x5aibpFnRVYl9ffeF1maZ2PXlE8QvRAzxjbUHnA3PrM
+	 qlWrZ6Y0GTzlI71yjrb1yMlsNdO6kVGkamG1tq5s7NYnVPP143JzmArPGMr3NJRs3W8SX
+	 hfxSoiMPPxZJAG+YHnlhLygoIupAbUEfUkDM47XtrhZkCzQdA8/uatcKJkDzd7ixtYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993016;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993057;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=ut1WDZh357VcgryaWJdugg8z31Tg8OQNngjP5rygcbQ=;
-	b=naArMxJl0Rj1Yy2YBslhsEG5Nu/c5yNxsWa6NhE4R07Mm6uw8lpLEdgDJE3IwRbJSXma
-	 HjPNfH2YtZJCybvPt554aHACezbovRVSZYce3hSwSPNU7RMiDUYGcflGsAOZ3tDylbXSu
-	 QsCYN6GzeL5tHIcYOm4sU5r/VNChNi2Tn6EyJCecrYcfMKFcei12IYFX1h7UHeMe0+uKC
-	 CHpVeAGQRGgrNqGhRyTRIP8b3gzK+loVuRkvbRnadQ1lxkT3JppBtMUyp/GuSPCgEV++I
-	 EFkqDB/2xSjbBy0ruEYvXG7UK2TmQ1NswMqpRN+JCMwWQwpWuK9HYOzCl6w2WCvGP0Q==
+	bh=02LIbFuw/HWS4TexzWx0+oek9+lkTnMXsK6lOglTeCM=;
+	b=i4WxOrDCjKJBWM0VRb0k9Y/iqNS1WTv8OTeNvBVjlR2e3SVI9onF4rkPL6Y7kvIf/s52
+	 ZCp5cLZbwvcj4cwku0HUPcvb5bEWW4wNv9yFZky3rhU7ws6V69y8nAumx6wGziLOX5nVG
+	 YxpF4OyqIZeJuvpXyGcgGSza1ATanmQ8xISPW+rqcBHxc8PyAvQs/ZDUt0Q5K8ByEvhWs
+	 kSBRGt+4QbknOyCOY+Dz4b+t3KRiNF5QTevxaUUrn5jv5jUqpbiHQ4L6n9uUIdXp6KRwV
+	 XsSetET3r3kCgxpo/czCMhleMn1k1j37sJpZk9gnmstNowuMeghfK0+C7MoEemVf9ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ezlpkpzI;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=aiq9YH6M;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15936606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:10:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15936606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92B8D606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:10:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92B8D606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ezlpkpzI
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=aiq9YH6M
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ut
-	1WDZh357VcgryaWJdugg8z31Tg8OQNngjP5rygcbQ=; b=ezlpkpzIRTariYMQrQ
-	CIXtEq8lu6FVD+FdsNXS8QMpp6fGmRj6Mu7dhx7NaSrMEeaKJDjDtWkbI6wghb4u
-	jk+HIr1JQ7OJg8tv8LF8sHg9duWxxLbC8Cla45KOa/ZPWHcafK/OxgP3ROP6md6V
-	HkudxcEXauMrIhPqRupml2NRc=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=02
+	LIbFuw/HWS4TexzWx0+oek9+lkTnMXsK6lOglTeCM=; b=aiq9YH6MCUDpmMxXIb
+	wEmK8PPdLRmlbu/z4Dv8a11QCedbUysdz1hwlkE3w8scHlZN/eldvFJeLiXc/J9n
+	FTyQl8Zss+9ABHl9DhAKH64Dx5PT2FwRXX5B8k7rWq0KdC+8B0uJu1Es1BMaPzmh
+	iGeCQ19rYwQSLToBNQtziQAd4=
 Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgC3xC1Pa_1qPhPuGg--.62323S2;
-	Wed, 18 Nov 2026 17:09:36 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgD3UiuQa_1qEjvuGg--.61000S2;
+	Wed, 18 Nov 2026 17:10:41 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
 	hyc.lee@gmail.com,
@@ -51,9 +51,9 @@ Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Dandan Wu <wudandan@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 16/37] ntfs: report LZNT1 and WOF compressed stream errors
-Date: Wed, 18 Nov 2026 17:06:40 +0800
-Message-Id: <20261118090701.1858849-17-wangxuewen_ky@163.com>
+Subject: [PATCH v6 24/37] ntfs: report index validation and block I/O errors
+Date: Wed, 18 Nov 2026 17:06:48 +0800
+Message-Id: <20261118090701.1858849-25-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -67,215 +67,422 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgC3xC1Pa_1qPhPuGg--.62323S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3JFyrKFy8Xw43Cr1fGFy8Zrb_yoWxXFyUpF
-	93Gr93trWkXr9rWrnxtrs0va1a9340g3yUGrWxG3W7Xa15twn5tFWqqwnYgrWrKr95J3sr
-	JayDCrWUGF1UXF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRIoGQUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzRAJ8Wr9a1AoOgAA3b
+X-CM-TRANSID:PigvCgD3UiuQa_1qEjvuGg--.61000S2
+X-Coremail-Antispam: 1Uf129KBjvAXoW3KFW5Xw15Wr4rWry8tw13urg_yoW8JryDAo
+	W2vrs0kan3Jw15ua4j9w1aqryUZaykCw4ktw1rJrn7CF9xCa1DG3W7J3WUZay5uw4rKF15
+	Zr1xJ3yrJFW8JryDn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUbiiSDUUUU
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzREZAmr9a5EuyAAA3M
 
 From: Dandan Wu <wudandan@kylinos.cn>
 
-Compressed I/O can detect malformed LZNT1 data or WOF metadata and
-compressed data without reporting it. Report corruption as EFSCORRUPTED
-and retain underlying read, mapping and allocation errors.
+Index validation and block I/O can detect corrupt entries, MST
+failures and short reads without reporting them. Use EFSCORRUPTED for
+corruption and report failures against the index owner.
 
-Also report EIO from LZNT1 block reads and direct reads of nonresident
-WOF tables and chunks. Avoid repeating metadata reports from resident
-WOF mapping and lookup failures.
+Preserve block-read errors through index lookup and update its handling
+of corrupt search results. Keep underlying I/O errors distinct and
+normalize short index-block writes to EIO.
 
-Report failed mapping updates after compressed writes and failed
-cluster release separately from the initiating error.
+Report locally detected block corruption at the common exit, without
+repeating corruption already reported by the attribute-read path.
 
 Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 Signed-off-by: Dandan Wu <wudandan@kylinos.cn>
 ---
 Changes in v6:
-Keep compressed-stream reporting here; errno preservation is now a
-preceding patch.
+Use EFSCORRUPTED for the upstream child-VCN validation and missing
+required INDEX_ALLOCATION checks.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
 
- fs/ntfs/compress.c | 25 ++++++++++++++++++++++---
- fs/ntfs/wof.c      | 39 ++++++++++++++++++++++++++++++++++-----
- 2 files changed, 56 insertions(+), 8 deletions(-)
+ fs/ntfs/index.c | 125 +++++++++++++++++++++++++++++-------------------
+ 1 file changed, 77 insertions(+), 48 deletions(-)
 
-diff --git a/fs/ntfs/compress.c b/fs/ntfs/compress.c
-index 6a393e7fc1dd..dfb3215531d4 100644
---- a/fs/ntfs/compress.c
-+++ b/fs/ntfs/compress.c
-@@ -790,6 +790,8 @@ int ntfs_read_compressed_block(struct folio *folio)
- 			ntfs_error(vol->sb,
- 				"ntfs_decompress() failed in inode 0x%llx with error code %i. Skipping this compression block.",
- 				ni->mft_no, -err);
-+			err = -EFSCORRUPTED;
-+			ntfs_report_file_metadata_error(VFS_I(ni), err);
- 			/* Release the unfinished pages. */
- 			for (; prev_cur_page < cur_page; prev_cur_page++) {
- 				page = pages[prev_cur_page];
-@@ -842,13 +844,16 @@ int ntfs_read_compressed_block(struct folio *folio)
- 	goto err_out;
+diff --git a/fs/ntfs/index.c b/fs/ntfs/index.c
+index 42e15ae2686f..596fece97532 100644
+--- a/fs/ntfs/index.c
++++ b/fs/ntfs/index.c
+@@ -39,7 +39,7 @@ static int ntfs_index_entry_inconsistent(const struct ntfs_volume *vol,
+ 	     le16_to_cpu(ie->length))) {
+ 		ntfs_error(vol->sb, "Overflow from index entry in inode %lld\n",
+ 				(long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
  
- rl_err:
--	err = -EIO;
-+	err = -EFSCORRUPTED;
- 	up_read(&ni->runlist.lock);
-+	ntfs_report_file_metadata_error(VFS_I(ni), -EFSCORRUPTED);
- 	ntfs_error(vol->sb, "ntfs_rl_vcn_to_lcn() failed. Cannot read compression block.");
- 	goto err_out;
- 
- read_err:
- 	up_read(&ni->runlist.lock);
-+	if (err == -EIO)
-+		ntfs_report_file_metadata_error(VFS_I(ni), err);
- 	ntfs_error(vol->sb, "IO error while reading compressed data.");
- 
- err_out:
-@@ -1319,6 +1324,7 @@ static int ntfs_write_cb(struct ntfs_inode *ni, loff_t pos, struct page **pages,
- 		int pages_per_cb, unsigned int page_offset,
- 		struct compress_context *ctx, struct ntfs_compress_workspace *ws)
- {
-+	int report_err = 0;
- 	struct ntfs_volume *vol = ni->vol;
- 	char *outbuf = ws->outbuf, *pbuf;
- 	u32 compsz, p, insz = ni->itype.compressed.block_size;
-@@ -1447,6 +1453,9 @@ static int ntfs_write_cb(struct ntfs_inode *ni, loff_t pos, struct page **pages,
- 		up_write(&ni->runlist.lock);
- 		ntfs_error(vol->sb, "Failed to merge runlists");
- 		err = PTR_ERR(rl);
-+		if (err != -ENOMEM)
-+			err = -EFSCORRUPTED;
-+		report_err = err;
- 		goto free_rlc;
- 	}
- 
-@@ -1456,16 +1465,26 @@ static int ntfs_write_cb(struct ntfs_inode *ni, loff_t pos, struct page **pages,
- 
- 	err = ntfs_attr_update_mapping_pairs_locked(ni, 0, ni);
- 	up_write(&ni->runlist.lock);
-+	if (err)
-+		report_err = err;
- 	goto out;
- 
- free_rlc:
--	if (ntfs_cluster_free_from_rl(vol, rlc))
--		ntfs_error(vol->sb, "Failed to free hot clusters.");
-+	{
-+		int free_err = ntfs_cluster_free_from_rl(vol, rlc);
-+
-+		if (free_err) {
-+			ntfs_report_file_metadata_error(VFS_I(ni), free_err);
-+			ntfs_error(vol->sb, "Failed to free hot clusters.");
-+		}
-+	}
- 	kvfree(rlc);
- out:
- 	NInoSetFileNameDirty(ni);
- 	mark_mft_record_dirty(ni);
- 
-+	if (report_err)
-+		ntfs_report_file_metadata_error(VFS_I(ni), report_err);
- 	return err;
- }
- 
-diff --git a/fs/ntfs/wof.c b/fs/ntfs/wof.c
-index e64f40835957..25b9a87956da 100644
---- a/fs/ntfs/wof.c
-+++ b/fs/ntfs/wof.c
-@@ -294,7 +294,7 @@ static int parse_wof_chunk_table(struct ntfs_inode *base_ni,
- 		ret = ntfs_bdev_read_from_rl(ni->vol, &ni->runlist,
- 					     start_sector, sectors, buf);
- 		if (ret)
--			return -EIO;
-+			return ret;
- 		buf += sector_off;
  	} else {
- 		struct ntfs_attr_search_ctx *ctx;
-@@ -655,6 +655,7 @@ static int ntfs_wof_decompress_chunk(struct ntfs_wof_workspace *ws,
+ 		if (collation_rule == COLLATION_FILE_NAME) {
+@@ -51,7 +51,7 @@ static int ntfs_index_entry_inconsistent(const struct ntfs_volume *vol,
+ 				ntfs_error(vol->sb,
+ 					"File name overflow from index entry in inode %lld\n",
+ 					(long long)inum);
+-				return -EIO;
++				return -EFSCORRUPTED;
+ 			}
+ 		} else {
+ 			if (ie->data.vi.data_length &&
+@@ -61,7 +61,7 @@ static int ntfs_index_entry_inconsistent(const struct ntfs_volume *vol,
+ 				ntfs_error(vol->sb,
+ 					"Data overflow from index entry in inode %lld\n",
+ 					(long long)inum);
+-				return -EIO;
++				return -EFSCORRUPTED;
+ 			}
+ 		}
+ 	}
+@@ -110,8 +110,11 @@ static int ntfs_icx_ia_ensure(struct ntfs_index_context *icx)
+ 			return -EIO;
+ 	}
+ 	/* Without $INDEX_ALLOCATION the index inode is an empty resident stub. */
+-	if (!NInoNonResident(icx->ia_ni))
+-		return -EIO;
++	if (!NInoNonResident(icx->ia_ni)) {
++		ntfs_report_file_metadata_error(VFS_I(icx->idx_ni),
++						-EFSCORRUPTED);
++		return -EFSCORRUPTED;
++	}
+ 	return 0;
+ }
  
- int ntfs_read_wof_compressed_block(struct folio *folio)
+@@ -126,8 +129,10 @@ static int ntfs_ib_write(struct ntfs_index_context *icx, struct index_block *ib)
+ 		return ret;
+ 
+ 	ret = pre_write_mst_fixup((struct ntfs_record *)ib, icx->block_size);
+-	if (ret)
+-		return -EIO;
++	if (ret) {
++		ret = -EFSCORRUPTED;
++		goto out;
++	}
+ 
+ 	ret = ntfs_inode_attr_pwrite(VFS_I(icx->ia_ni),
+ 			ntfs_ib_vcn_to_pos(icx, vcn), icx->block_size,
+@@ -137,12 +142,18 @@ static int ntfs_ib_write(struct ntfs_index_context *icx, struct index_block *ib)
+ 	post_write_mst_fixup((struct ntfs_record *)ib);
+ 
+ 	if (ret != icx->block_size) {
++		if (ret >= 0)
++			ret = -EIO;
+ 		ntfs_debug("Failed to write index block %lld, inode %llu",
+ 				vcn, (unsigned long long)icx->idx_ni->mft_no);
+-		return ret;
++		goto out;
+ 	}
+ 
+-	return 0;
++	ret = 0;
++out:
++	if (ret)
++		ntfs_report_file_metadata_error(VFS_I(icx->idx_ni), ret);
++	return ret;
+ }
+ 
+ static int ntfs_icx_ib_write(struct ntfs_index_context *icx)
+@@ -288,7 +299,7 @@ static int ntfs_index_entry_vcn_inconsistent(const struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			   "Index entry with node flag has no VCN in inode %llu.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	vcn = ntfs_ie_get_vcn(ie);
+@@ -297,7 +308,7 @@ static int ntfs_index_entry_vcn_inconsistent(const struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			   "Invalid index entry VCN %lld in inode %llu.",
+ 			   vcn, (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	return 0;
+@@ -333,7 +344,7 @@ static int ntfs_index_header_inconsistent(struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			   "index block in inode %llu is smaller than an index header.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	entries_offset = le32_to_cpu(ih->entries_offset);
+@@ -345,28 +356,28 @@ static int ntfs_index_header_inconsistent(struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			   "Invalid index entry offset in inode %llu.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (index_length <= entries_offset) {
+ 		ntfs_error(vol->sb,
+ 			   "No space for index entries in inode %llu.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (allocated_size < index_length) {
+ 		ntfs_error(vol->sb,
+ 			   "Index entries overflow in inode %llu.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (allocated_size > bytes_available || index_length > bytes_available) {
+ 		ntfs_error(vol->sb,
+ 			   "Index entries in inode %llu exceed the available buffer.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	return 0;
+@@ -389,30 +400,30 @@ int ntfs_index_entries_inconsistent(const struct ntfs_volume *vol,
+ 			ntfs_error(vol->sb,
+ 				   "Index entry out of bounds in inode %llu.",
+ 				   (unsigned long long)inum);
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 		}
+ 
+ 		if (le16_to_cpu(ie->length) < sizeof(struct index_entry_header)) {
+ 			ntfs_error(vol->sb,
+ 				   "Index entry too small in inode %llu.",
+ 				   inum);
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 		}
+ 
+ 		if ((ie->flags & INDEX_ENTRY_NODE) &&
+ 		    ntfs_index_entry_vcn_inconsistent(vol, ie,
+ 						      vcn_size_bits, inum))
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 
+ 		if (ntfs_ie_end(ie))
+ 			break;
+ 
+ 		if (!ie->key_length)
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 
+ 		if (ntfs_index_entry_inconsistent(vol, ie,
+ 						  collation_rule, inum))
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 	}
+ 
+ 	return 0;
+@@ -560,7 +571,7 @@ static u32 ntfs_ib_canonical_entries_offset(u32 block_size)
+  * The size of block is assumed to have been checked to be what is
+  * defined in the index root.
+  *
+- * Returns 0 if no error was found, -EIO otherwise
++ * Returns 0 if no error was found, -EFSCORRUPTED otherwise
+  *
+  * |<--->|  offsetof(struct index_block, index)
+  * |     |<--->|  sizeof(struct index_header)
+@@ -589,7 +600,7 @@ int ntfs_index_block_inconsistent(struct ntfs_volume *vol,
+ 	if (!ntfs_is_indx_record(ib->magic)) {
+ 		ntfs_error(sb, "Corrupt index block signature: vcn %lld inode %llu\n",
+ 			   vcn, (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (le64_to_cpu(ib->index_block_vcn) != vcn) {
+@@ -597,21 +608,21 @@ int ntfs_index_block_inconsistent(struct ntfs_volume *vol,
+ 			"Corrupt index block: s64 (%lld) is different from expected s64 (%lld) in inode %llu\n",
+ 			(long long)le64_to_cpu(ib->index_block_vcn),
+ 			vcn, inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (ib_size != block_size) {
+ 		ntfs_error(sb,
+ 			   "Corrupt index block : s64 (%lld) of inode %llu has a size (%u) differing from the index specified size (%u)\n",
+ 			   vcn, inum, ib_size, block_size);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (ntfs_index_header_inconsistent(vol, &ib->index,
+ 					   block_size -
+ 					   offsetof(struct index_block, index),
+ 					   inum))
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 
+ 	if (le32_to_cpu(ib->index.entries_offset) <
+ 	    ntfs_ib_canonical_entries_offset(block_size)) {
+@@ -619,12 +630,12 @@ int ntfs_index_block_inconsistent(struct ntfs_volume *vol,
+ 			   "Index block: entries offset %u is below the minimum for a %u-byte block: vcn %lld inode %llu\n",
+ 			   le32_to_cpu(ib->index.entries_offset), block_size,
+ 			   vcn, inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (ntfs_index_entries_inconsistent(vol, &ib->index, block_size,
+ 					    cr, inum))
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	return 0;
+ }
+ 
+@@ -637,7 +648,7 @@ int ntfs_index_root_inconsistent(struct ntfs_volume *vol,
+ 	if (value_length < offsetof(struct index_root, index)) {
+ 		ntfs_error(vol->sb, "$INDEX_ROOT in inode %llu is too small.",
+ 			   (unsigned long long)inum);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	return ntfs_index_header_inconsistent(vol, &ir->index,
+@@ -743,7 +754,7 @@ static int ntfs_ie_lookup(const void *key, const u32 key_len,
+ 			ntfs_error(icx->idx_ni->vol->sb,
+ 					"Index entry out of bounds in inode %llu.\n",
+ 					(unsigned long long)icx->idx_ni->mft_no);
+-			return -ERANGE;
++			goto corrupt;
+ 		}
+ 
+ 		/*
+@@ -762,7 +773,7 @@ static int ntfs_ie_lookup(const void *key, const u32 key_len,
+ 		if (rc == -EINVAL) {
+ 			ntfs_error(icx->idx_ni->vol->sb,
+ 				"Collation error. Perhaps a filename contains invalid characters?\n");
+-			return -ERANGE;
++			goto corrupt;
+ 		}
+ 		/*
+ 		 * If @key collates before the key of the current entry, there
+@@ -796,13 +807,17 @@ static int ntfs_ie_lookup(const void *key, const u32 key_len,
+ 	if (*vcn < 0) {
+ 		ntfs_error(icx->idx_ni->vol->sb, "Negative vcn in inode %llu\n",
+ 				(unsigned long long)icx->idx_ni->mft_no);
+-		return -EINVAL;
++		goto corrupt;
+ 	}
+ 
+ 	ntfs_debug("Parent entry number %d\n", item);
+ 	icx->parent_pos[icx->pindex] = item;
+ 
+ 	return -EAGAIN;
++
++corrupt:
++	ntfs_report_file_metadata_error(VFS_I(icx->idx_ni), -EFSCORRUPTED);
++	return -EFSCORRUPTED;
+ }
+ 
+ struct ntfs_inode *ntfs_ia_open(struct ntfs_index_context *icx, struct ntfs_inode *ni)
+@@ -822,6 +837,7 @@ struct ntfs_inode *ntfs_ia_open(struct ntfs_index_context *icx, struct ntfs_inod
+ 
+ static int ntfs_ib_read(struct ntfs_index_context *icx, s64 vcn, struct index_block *dst)
  {
 +	int report_err = 0;
- 	struct address_space *mapping = folio->mapping;
- 	struct ntfs_inode *ni = NTFS_I(mapping->host), *wof_ni;
- 	struct inode *wof_inode;
-@@ -685,15 +686,20 @@ int ntfs_read_wof_compressed_block(struct folio *folio)
- 				   WOF_NAME_LEN);
- 	if (IS_ERR(wof_inode)) {
- 		err = PTR_ERR(wof_inode);
-+		if (err == -ENOENT) {
-+			err = -EFSCORRUPTED;
-+			report_err = -EFSCORRUPTED;
+ 	s64 pos, ret;
+ 
+ 	ntfs_debug("vcn: %lld\n", vcn);
+@@ -834,20 +850,31 @@ static int ntfs_ib_read(struct ntfs_index_context *icx, s64 vcn, struct index_bl
+ 
+ 	ret = ntfs_inode_attr_pread(VFS_I(icx->ia_ni), pos, icx->block_size, (u8 *)dst);
+ 	if (ret != icx->block_size) {
++		if (ret >= 0 || ret == -EINVAL) {
++			ret = -EFSCORRUPTED;
++			report_err = ret;
++		} else if (ret == -EIO) {
++			report_err = ret;
 +		}
- 		goto out;
+ 		if (ret == -1)
+ 			ntfs_error(icx->idx_ni->vol->sb, "Failed to read index block");
+ 		else
+ 			ntfs_error(icx->idx_ni->vol->sb,
+ 				"Failed to read full index block at %lld\n", pos);
+-		return -EIO;
++		goto out;
  	}
  
- 	wof_ni = NTFS_I(wof_inode);
- 	if (wof_ni->initialized_size != wof_ni->data_size) {
-+		report_err = -EFSCORRUPTED;
- 		ntfs_error(vol->sb,
- 			   "WOF compressed stream is not fully initialized (init %lld, data %lld).",
- 			   wof_ni->initialized_size, wof_ni->data_size);
--		err = -EIO;
-+		err = -EFSCORRUPTED;
- 		goto out_iput;
- 	}
- 	if (NInoNonResident(wof_ni) && !NInoFullyMapped(wof_ni)) {
-@@ -725,21 +731,42 @@ int ntfs_read_wof_compressed_block(struct folio *folio)
- 		err = parse_wof_chunk_table(ni, wof_ni, chunk_idx, chunk_count,
- 					    decomp_size, &chunk_offset,
- 					    &chunk_size, input, input_size);
--		if (err)
-+		if (err) {
-+			if (err == -EINVAL || err == -EOVERFLOW || err == -ENOENT) {
-+				err = -EFSCORRUPTED;
-+				report_err = err;
-+			} else if (err == -EIO && NInoNonResident(wof_ni)) {
-+				/* Resident reads already report errors below. */
-+				report_err = err;
-+			}
- 			goto out_free_input;
-+		}
- 
- 		err = ntfs_read_wof_chunk(vol, wof_ni, chunk_offset, chunk_size,
- 					  input, input_size, &chunk_mem);
--		if (err)
-+		if (err) {
-+			if (err == -EINVAL || err == -EOVERFLOW || err == -ENOENT) {
-+				err = -EFSCORRUPTED;
-+				report_err = err;
-+			} else if (err == -EIO && NInoNonResident(wof_ni)) {
-+				/* Direct block reads do not report metadata errors. */
-+				report_err = err;
-+			}
- 			goto out_free_input;
-+		}
- 
- 		err = ntfs_wof_decompress_chunk(ws, vol, mapping, folio,
- 						folio_start, folio_end,
- 						chunk_idx * ws->comp_unit,
- 						chunk_mem, chunk_size,
- 						decomp_size);
--		if (err)
-+		if (err) {
-+			if (err != -ENOMEM) {
-+				err = -EFSCORRUPTED;
-+				report_err = err;
-+			}
- 			goto out_free_input;
-+		}
- 	}
- 
- 	if (folio_end > i_size)
-@@ -757,5 +784,7 @@ int ntfs_read_wof_compressed_block(struct folio *folio)
- 		folio_clear_uptodate(folio);
- 	}
- 	folio_unlock(folio);
+-	post_read_mst_fixup((struct ntfs_record *)((u8 *)dst), icx->block_size);
+-	if (ntfs_index_block_inconsistent(icx->idx_ni->vol, dst,
+-					  icx->block_size, vcn, icx->cr,
+-					  icx->idx_ni->mft_no))
+-		return -EIO;
+-	return 0;
++	ret = post_read_mst_fixup((struct ntfs_record *)dst, icx->block_size);
++	if (ret || ntfs_index_block_inconsistent(icx->idx_ni->vol, dst,
++						 icx->block_size, vcn, icx->cr,
++						 icx->idx_ni->mft_no)) {
++		ret = -EFSCORRUPTED;
++		report_err = ret;
++	}
++out:
 +	if (report_err)
-+		ntfs_report_file_metadata_error(VFS_I(ni), report_err);
- 	return err;
++		ntfs_report_file_metadata_error(VFS_I(icx->idx_ni), report_err);
++	return ret;
  }
+ 
+ static int ntfs_icx_parent_inc(struct ntfs_index_context *icx)
+@@ -864,8 +891,10 @@ static int ntfs_icx_parent_dec(struct ntfs_index_context *icx)
+ {
+ 	icx->pindex--;
+ 	if (icx->pindex < 0) {
++		ntfs_report_file_metadata_error(VFS_I(icx->idx_ni),
++						-EFSCORRUPTED);
+ 		ntfs_error(icx->idx_ni->vol->sb, "Corrupt index pointer (%d)", icx->pindex);
+-		return -EINVAL;
++		return -EFSCORRUPTED;
+ 	}
+ 	return 0;
+ }
+@@ -947,7 +976,7 @@ int ntfs_index_lookup(const void *key, const u32 key_len, struct ntfs_index_cont
+ 
+ 	old_vcn = VCN_INDEX_ROOT_PARENT;
+ 	err = ntfs_ie_lookup(key, key_len, icx, &ir->index, &vcn, &ie);
+-	if (err == -ERANGE || err == -EINVAL)
++	if (err == -EFSCORRUPTED)
+ 		goto err_out;
+ 
+ 	icx->ir = ir;
+@@ -972,21 +1001,19 @@ int ntfs_index_lookup(const void *key, const u32 key_len, struct ntfs_index_cont
+ 
+ descend_into_child_node:
+ 	icx->parent_vcn[icx->pindex] = old_vcn;
+-	if (ntfs_icx_parent_inc(icx)) {
+-		err = -EIO;
++	err = ntfs_icx_parent_inc(icx);
++	if (err)
+ 		goto err_out;
+-	}
+ 	old_vcn = vcn;
+ 
+ 	ntfs_debug("Descend into node with s64 %lld.\n", vcn);
+ 
+-	if (ntfs_ib_read(icx, vcn, ib)) {
+-		err = -EIO;
++	err = ntfs_ib_read(icx, vcn, ib);
++	if (err)
+ 		goto err_out;
+-	}
+ 	err = ntfs_ie_lookup(key, key_len, icx, &ib->index, &vcn, &ie);
+ 	if (err != -EAGAIN) {
+-		if (err == -EINVAL || err == -ERANGE)
++		if (err == -EFSCORRUPTED)
+ 			goto err_out;
+ 
+ 		icx->is_in_root = false;
+@@ -996,6 +1023,8 @@ int ntfs_index_lookup(const void *key, const u32 key_len, struct ntfs_index_cont
+ 	}
+ 
+ 	if ((ib->index.flags & NODE_MASK) == LEAF_NODE) {
++		err = -EFSCORRUPTED;
++		ntfs_report_file_metadata_error(VFS_I(ni), -EFSCORRUPTED);
+ 		ntfs_error(icx->idx_ni->vol->sb,
+ 			"Index entry with child node found in a leaf node in inode 0x%llx.\n",
+ 			(unsigned long long)ni->mft_no);
 -- 
 2.51.0
 
