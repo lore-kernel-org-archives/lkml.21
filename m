@@ -1,96 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991198;
-	b=rFyalbDiIPNL1xIedAZQ0Rf8G7u8DuLMn1VZGDP3sT1hxL53VNJiTZ44E5I6uyuc18TS
-	 szseBy3S9GOf1fkISnp8b7orshmshoAhR/Xc8DhcdLJ6myzT8gQ4uL1dfx10Tm3zSbobT
-	 7bYfePa0hFuCNE8hrPNyCYDKNy2euDPL/zc6PkEBJ9dVuWoZidYlm8lteXLtRxQVbwUjP
-	 vqTfQx7EE6DLl1WNyLUzbJEe7qyjELXL77kbjSeWTk6uoPNbecUOT1SIzkt4D6JK/3x9e
-	 Cqx+/xWMkG9kMAGWrYjXJhrpcs989Y/BxmlqfquN3TvkJrkQDa78CzaDmuKlYKgIuXg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991198;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=i/O8Gfo5odi9UcNdwjls24AvA6bu54eZjND9yU050Nc=;
-	b=WZMhZuNW0jq3t99gN59VUBX2FsveZ74VnPcodn2kwrDuRG54dUSeqdJToJViUquM35zO
-	 +1KsY8Q1fdiCmXmPebV5I60nGrkuiuyHWVMDVr1pX4N8ozypRU1webByR9Kb/Q7x4h0vu
-	 M41IvvEn91yhgBy6PfsXqjt9Ek8EFvAjf2DAG+m3IP7ALgGbGHFtD06oZRAeEM/25j1nM
-	 a3lN/R4EAqkuSsfv/V4GvYNSBSP8f56Plz5dHaRFs+XEAAnJGrYPc5j+NAZ9LnmmswID6
-	 w9fmDNw2Yfjy+E5p0MH64bNIDatdSabZcm6vmVBzdFfOws57QgqIr0hn67c23aOOW9g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="dsMdSp/F";
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.30
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794991231;
+	b=ErXFvvueNG7wF74R6HfKcy0W3YirkIN448iS1uLpnvVkg2FkGQJpo5h5NjqQkN7D1Pt0
+	 Ut40DVhxD+KQ8Rq46hRkOA3/KOF2RucyFzPMoJ5hwSh61M0+7AKM46MgUGCBG5sEIa9b8
+	 QRdLC4iChQ7JjU7NSdTAbroFfth2TAhpmqM5GrJKOa1CnqJzPm9cMouVz9quVPN/nhVkp
+	 Ia6o3Ryoau91igeLh2IFSQV9FpcrylNpfl0pEiUuwTVOfcnXWLxZTykh79aJkehbxal0e
+	 BdtAxogORjfGbLi/3hN+MRl5MjXnfmJNpGB6iD5eTexdX85XYZOf4+34XVucBxSzurg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991231;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=hXofRKU80HobS0eEy0BLJ+bXjd3BZ1obLil78HUAOCc=;
+	b=IPnrX3W102o9HrYhsHAqG0UZoJlioEdvuW6oAG1M2CIeJ/ivae/Frm8x6+Uehwd128MA
+	 iijwPonY161aSWl7k9TbV9wePBWoX1JwsfJt/flJXiq68TMJRjx+0mTv1rR2odjyibd5q
+	 i7kJ+Hv1XhCxC8yyCNYRfwdcX01VdnCx/n1wico64T1FIy0r4g+C4HV95BHhV++mBVQh/
+	 YUOtNArfcjE1EVNx+sFvS9NiLViXxHfhS8+ZlRF6EReFIAqW3yBz3zy4Ry8z66DJbhXKA
+	 CqdvLpvHqeMnyo4jSm1NQ+QapHwm/OigJOEtplRO4swKawSUZy/qi/DwVX/lYewIbVg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=1mnv6mBb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.30
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012030.outbound.protection.outlook.com [40.107.200.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79DCE606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:39:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79DCE606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 661AD606A32A;
+	Wed, 18 Nov 2026 08:40:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 661AD606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dsMdSp/F
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cc147d86bebso429233a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:39:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991198; x=1795595998; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i/O8Gfo5odi9UcNdwjls24AvA6bu54eZjND9yU050Nc=;
-        b=dsMdSp/FkmaXTSVXQAg8mc8lzjUFUbNLN6Wlq/a38QnhcF1UprNPPRBQ0h6Aq4vzwR
-         hha0+4g4Gcz1VApfbqJx+e6YbgXcrKV3tvpI6kDOpCEvov78i0d2iWLQd9X0eXFII097
-         xeOo12K946vLIUqXOFYRlD6N6TDUVcpo0qOlN2UZcS/AsiSTA4nOF+z6zmxdQU+GbhKE
-         rR0eD2drxSYMVbpCT4JFxnBFKwr6f8trewBlS3j0jgAuIrF0gl7mzSwnW0bhVna1fWf6
-         izKgepke02V+bDm2+K3A2C9qmtbWFg9QqeQyb/OttYTeUyhnZs3a+m2qYuXgE6b36R6C
-         o0xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991198; x=1795595998;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i/O8Gfo5odi9UcNdwjls24AvA6bu54eZjND9yU050Nc=;
-        b=GFJd3P2NPIT2D6XxyZuHLR9lzzJGnEH3NmJbrsITsQlGJQiFHxKc1zNdLTcY/SeiQC
-         uoq5H1nvmAGEIiCehBfO7rmuY3J0VkOisvIRghpi840m/ZMhd8Eoahyvv2cHy/T5gXU6
-         jgSWSpISNCWIstMXhcforVmdPtL8ka2QJQTwEvsVDfB3xZyfRevDZg/QJBTkNr6qSJAJ
-         DxaHXDn9GVGjqbLcSd18gcD+FLukuDIY4HgBsPjZ6JLOp4REblu786KWY77tDkqOLy/r
-         wKxkofQV7eppuLJGx7vDGdHJLmi6mNHWEE9fkbdsMw6jz9fA+2NyLlR9RLg/hLoW7ysO
-         FtuQ==
-X-Forwarded-Encrypted: i=1; AL+hErGJj+OX4pXSF+4ZtfIOFYuo24pXCA+jl3TW4qHJ3T+Hb28DrCH+ufZW9jDIhWZcgp4KX/YjSKI5dgx+skc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/e0demP2u2h9y6EN5n/EUgYVXwF5TrFx/AafLlHI0hXdfkd5Lv
-	izqAhcAFW2jA4C0lIhhJcTj+jZAX0HGrm7MN18C7/hoEEqOSgkajtJR+
-X-Gm-Gg: AYBFou0Eq/fc8DQmKOzv51J6r1bC3mTaJXkHh+WrKibxiD2NZAuhmwDkFPaTLRzjfvR
-	mpdqtJBVlHWV1ODWJzIzJa5adg84aOuWmtyDY6Q5vFTJjmoCJCkUSfePwdymDo/V9uTL3F6IRwO
-	mL/hAYMlkxxxEXTT98vvFGmRwhlxnHANgJ3j+2Br6wgsnFN0dPL7wN78NjCOoTc69YINGyJILcM
-	o2e7ZwHc0kthb3fXNN1b7oiJ0KyMLk3OAyDAu/cJy/cPP+t4V/RBjlpJhzWCcDHVyJ3fZPFcHmI
-	B/voW3iv+PBrMwRDFZ8ZWw+zDd8ItKoRGTKY7s9ESmZOMVPBxH2vjBockDqxPHSGfmY+Bd2WjX+
-	uMqPGUFHQrx31XQ/2Ec5BWgywGGMX8dmdDWhFag2tcSaTfWFUy0B4g6qeag8nvawLDcqrrXP1pd
-	nFHGPQApLJsCMlcNc61u6ETfWNMTC6YiWiM6GS6cEDSWC1rRPlT5yjRTT6xCrPysKch0v10iG+i
-	osnV6pcszV25d7AJ4A8UCslaEKoQ/ZGpG1qc9Kzj21o+CqzY9Ax8fcwjjy03pPgMAevN+TN0jyY
-	xNRZHKtXV4kfLsXlCgl3RSKyHvdYSkxOIlPq+XH3z0FrDvQ/fpee
-X-Received: by 2002:a05:6a20:6a04:b0:3e1:e6b1:fc25 with SMTP id adf61e73a8af0-3fd2d7d0d18mr4004715637.9.1794991197552;
-        Wed, 18 Nov 2026 00:39:57 -0800 (PST)
-Received: from localhost.localdomain ([152.136.45.109])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde3af26c35sm783971a12.2.2026.11.18.00.39.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:39:57 -0800 (PST)
-From: Qing Zhang <diasyzhangqing@gmail.com>
-X-Google-Original-From: Qing Zhang <diasyzhang@tencent.com>
-To: viro@zeniv.linux.org.uk
-Cc: brauner@kernel.org,
-	jack@suse.cz,
-	raven@themaw.net,
-	djwong@kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-xfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] namei: revalidate the symlink dentry before invoking get_link in RCU-walk
-Date: Wed, 18 Nov 2026 16:39:45 +0800
-Message-ID: <20261118083945.1449264-1-diasyzhang@tencent.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=1mnv6mBb
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ylmUT5bZfDxB2qz/q2ZzLjHu5uCWoSQgUuu15cwHEDzf7BlzFLqy+sCvNHbrf0IR7Hk8i9jDB3IK3ZmiRk1VscNZbRlL047qec254BFjHE9JKedOuoe6GA57b6DlmhqzVeIGroFidLQawlICeOLw86OXsyOHcHQLsYStO5aK1HvlkTyL9t8Neb+ySp8gxPzSGb0Hhu4MM+wzePwPEd9w5/dtfwtuUHUhXFKhk61bE5uyuWd8HZ1VTKp/iDhWJYC/s9nv9qezH1fT3g5IVeWZcc+HMl/YxHfiGhCdy/O++SZ2ZF+OA+eQzCat7i8tBOCE78xbfxnnjURQxrkVU9nsuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hXofRKU80HobS0eEy0BLJ+bXjd3BZ1obLil78HUAOCc=;
+ b=SLoFIcAgEpUs8J2eZDzMsStehdH2UrOB57+NOQTAGKZgJNTjh8/WghJuJ1AFGJjC/1wqpX89t9US9DbjhRyhiPp6Du3MF4LY/7xlRCJb7CnXCstp8KJyK/06fUn69CQxWjsk2D5jmWaCPvMbeQpMCg4rftEXZv3vSXrml6Rl1vr6zncWsPbzO0iHcRDW++7QmdZBTyONp7NSO/EQh2x7lJF4JR8+y+RofQFLWZ9pq8CcshoPNroDrb8+weGapWru70kYAj2/+xwsexy/fIDp7bzuwZyrksbeH56d6nj+jsnam1gAWdvkzB0ooODcGvhfCpBtgO4NZe8NFQ2uHUMrbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hXofRKU80HobS0eEy0BLJ+bXjd3BZ1obLil78HUAOCc=;
+ b=1mnv6mBbp4b1DGGSepdPXBBRpUziwF8r7pbeBMtEV2cxldV8D+zDDemC2OdbTKpFJLrSre667Lt8grZGSnPJdYFNarUV1xImHh5anvEqBDYwCBdoSrdWWPSwFf7DDFfLEcqBOJIWaSyqsY8/ujogWqhD6YDYCZSSgf60GFU7nvo=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com (2603:10b6:8:c4::12) by
+ SA3PR12MB7783.namprd12.prod.outlook.com (2603:10b6:806:314::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Wed, 18 Nov
+ 2026 08:38:22 +0000
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f]) by DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 08:38:22 +0000
+Message-ID: <85ff5be0-4fad-4d92-b9f3-2553c7c4365b@amd.com>
+Date: Wed, 18 Nov 2026 14:08:16 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: zynqmp: Ensure function names are NUL terminated
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, saikrishna12468@gmail.com, git@amd.com
+References: <20261117073947.1100444-1-sai.krishna.potthuri@amd.com>
+ <20261117131616.0a631d5c@pumpkin>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <20261117131616.0a631d5c@pumpkin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0074.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ad::7) To DS0PR12MB9060.namprd12.prod.outlook.com
+ (2603:10b6:8:c4::12)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,212 +99,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB9060:EE_|SA3PR12MB7783:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44271f06-7127-4522-db4b-08df454f4ddd
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|22082099003|18002099003|6133799003|3023799007|11063799006|4143699003|56012099006|261022115727099003|261026135527099003|261022075727099003|261028144727099003|261022113327099003|261021121427099003|10067099003|261009221227099003|261021123027099003|261009223327099003|261009221727099003|261009223027099003|261021135927099003|261102123227099003|261021130227099003|261009220027099003|261021133027099003|261026140227099003|261026130827099003|261022105027099003|261026121527099003;
+X-Microsoft-Antispam-Message-Info:
+	M02bDW2vX/UFPgDlNMzKUcnnMejPN8yeQVCQ36C7ysCQ2vYsELALi0vbyMCbSUCDPxiC4ieMOUswRFFEwpWPyYBZgNSYa+vQyRKKkAdE32Ziv5fFx4q3rKyCSUN8pSNNutxyHdH2ATViciUsKgDjNqy/u34spUCTHrYgVZvyW+31ACRmup/VdmjXLQ7yj1MRhJbNAYzMbKFSiZPUG9UpA+460UUbE2iwBzRedIjmlIkyYAVmy1Tb4ODD/5GIYEihM2oGofvsDrkK08yGxomSrDAoMnVZXPLA61xgkN/AgRiAr+EGH0Z+fQO5RpHsUeqxZ0e2pFlfVGAYHDv7yqMMl7s0/zI/3DrYbNHT5bD87vj/sI17IRx0Qlc0edLgswLUmEb3i7xXLgpx2TOPMNzyGWiX8UPIqhumvOofBisiRinqkYwOe+CQeYzSLhSU7K5wnBFJkjVmq9aVomg6F1uwRMuUgLbBGTbGItx8qpNQ+JMO5JTNv1c47o+XCWGRFlmSSh+IVW+fx1FzoHfln4qg2KVzyPppXCY9ErHtzKYWp34DFwP9nq5numaZ/uSYh0jPouBLzsJG58m7NMQd+iuu8gzau67lOLAfManqLD3Z8OwUIpWX9KZ6nqBHbBRFJDD+fEAzj+aXizV089s61jR/djjZXjREEoi8fLOs5PbXPh0=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9060.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(22082099003)(18002099003)(6133799003)(3023799007)(11063799006)(4143699003)(56012099006)(261022115727099003)(261026135527099003)(261022075727099003)(261028144727099003)(261022113327099003)(261021121427099003)(10067099003)(261009221227099003)(261021123027099003)(261009223327099003)(261009221727099003)(261009223027099003)(261021135927099003)(261102123227099003)(261021130227099003)(261009220027099003)(261021133027099003)(261026140227099003)(261026130827099003)(261022105027099003)(261026121527099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Q0hxK1Y0NHRCR2pna1BIUEY4NjErdDVWT25PTllIZlFmMms0aUoyczhqZWtL?=
+ =?utf-8?B?TWF4Vlplbnc3ckRzbENoRTl0cWIySDRZYncwdXRLVUhCUGNOQmdmVkJwNmlw?=
+ =?utf-8?B?cDRNbEJCSUx6ci9HQjl1UE5JY0tWUXFPMnQ0MXhXdG5UZDB5R21uWmROb3ZU?=
+ =?utf-8?B?dlhNYmJ5WkZhalFZYnVpcXZpK2R2T1pqSnFVSVNWQ25WRVNEMzRaMlIvQnBI?=
+ =?utf-8?B?UGFOYk1lMWE5ZklvSzcxRVpxeDRPQVZwb3NoajlFSWRoRlQ3eSt0Ly92R28z?=
+ =?utf-8?B?eXM5VVJtT2xSWEdUbUJQa3kxTXh2R3RLVzRsQzFBd1hNY0ZkRlBPTkIyVDRZ?=
+ =?utf-8?B?aWhaMlVsY25JNGdXdldmc0dxdzl6MEw1S0Q2dWNlc3BUaVFoTmk4ZHJ6VHIx?=
+ =?utf-8?B?QW9DbWpCamtqOEZuNkZ3dE5nb3RRWGlQaWdVNDI4bjlwVjNQeUlvZnZ5ZzRw?=
+ =?utf-8?B?Z3Brd28xM2lRdHlzelB5Z0xDKzhTN2hkR1ZoMDBudXhDOVRiUnF6TS9TdlhK?=
+ =?utf-8?B?b1A1eURHK20zZlBBa0xDNkQwNjhDeDJkdDZodW52MUE5OUdjRGJMMXR0VE9i?=
+ =?utf-8?B?NXJsNFRmbkkvWVB3TXFyZVFOSHZpV2FRcnF4ZThWZFkzUjh5dkRXRnVuWkhn?=
+ =?utf-8?B?SW9nczhZY0Q5Wm01UkhQT1BKWUN3YmJZTldnd0k1bnVTaDJQQm1CSnBEaTlL?=
+ =?utf-8?B?eHp2dXhCS0dZc255SmVGNW5oNUs5Y1h4NjhkUEsyZWduVXo3MnFJZWIxOURE?=
+ =?utf-8?B?S1RNQmVMNlRNVmMrMU1EekZ0bEtLVXhSblBLakdOQ2lhYWFPazFmRzNWNDlX?=
+ =?utf-8?B?RG9MY0N2ZzYyc0lUWEVFRlV1Yml1c2RiaXI0SkJtODFDeUhYVXQ3S1VuSW9v?=
+ =?utf-8?B?ditLWmgveTgvQ2k3Wkdwb0FiK0xZaHYzeldyRm1Fd1E5aUxDZmx5SUp4b3JF?=
+ =?utf-8?B?Ukd5a25WWjFnV2FwbmZ5TkhRdTNDQ2lSb29wYVRMdWQ3aVM5U0xHYzE2TDN2?=
+ =?utf-8?B?QjAwU290RVZoT0RwZ0d3bWR5ZnhUYTBZejNkSHE3OFlXdFdqZjZickhhOXpF?=
+ =?utf-8?B?b0psanJVNWh0czhiNzN0SDUxRlNVWk1GSXdWRHdWbS9VQ2htVWhpeEJuTDN0?=
+ =?utf-8?B?SUhtOTNiRTltSzZCbVlCbTNZYjBNSzE2UmZRUkRjdTlDUVhib0tJNHVLRXlY?=
+ =?utf-8?B?LzZ6enBJS1UrSGlEaGg3Wk5tV1JHaHRoSGl4ZGxKT0RGVHZIenM1RStKZmta?=
+ =?utf-8?B?L3NzNFB6N0dxbzlrUDA2dXZYZW5oOW5HbzVqOGlSZGJHTWJTdnJSVU9RZW5y?=
+ =?utf-8?B?SWRvbDNXWjVpMTNmY2JOTmVKV1A2YTVkWHFDbnF5dmhEcDM1dzNGTnRoU3Aw?=
+ =?utf-8?B?VVBLMDA3TWhFV2hTNi9XazczT29ZQjk1ekN6ZVpFSVpiT0JuTjEvNVVEQllS?=
+ =?utf-8?B?eThBZ1Q5b1BLYSsvRUVIVXhJbm1xd3o0dldxdXJCUXE2S3d0bzFUbFNTdy94?=
+ =?utf-8?B?cmZXV2FKMFVRaTBWLzJldE5QQXIwUlh0eDQ5ajBwdTZFMndVdGc1UGtOT1R5?=
+ =?utf-8?B?aFZZa01YN2Jib1FOK1BzVERWYnkxbEkyQWJac1VWaVMvaXJyd0dzYmhvREpN?=
+ =?utf-8?B?Ri92M29wS3JYSFFqQWQremYwY2JPOXh5TzBtZk5wVzNwenpnREpJeXhPZmlh?=
+ =?utf-8?B?SWlvNE9GZXQwK3JvOURscmpsSW9JalhlTEkrQjlERmc5OXhiRndHQ2NJMXMy?=
+ =?utf-8?B?MTRnWnJmM0VVWVVPQ1VZMHNJKzZtK3Z1ZzR1cmVTNGViekVLNno3TktaWCt2?=
+ =?utf-8?B?ZHo1TzJBajREN3h5RVB4cEJ6d1d2MFFrYU9uNXk0SHByVUNrdWg0YXdiaUQz?=
+ =?utf-8?B?dnFwUjJYUW93M3J6U2NhMUIyTHFGZjZsK2pEc2x5dDRyWVNZMnNFZzRFNFBv?=
+ =?utf-8?B?UmxpMzJwODlVK0lYSUdEalZvb2M2OHlsbFl5bG03S0ZNWkpVY1JoekhvV3dH?=
+ =?utf-8?B?a0FsTldEQ1ZRb3ZkZmdEOWZGVm8zRzBKVkRleU5LbHFwUlVYdHBGeVhKbEpv?=
+ =?utf-8?B?YWdkVk5LL1BxdWx6V1JPalhCK0VxRHZCUFIyWS9DV0ZWbDZsZUFmZFpHSTJm?=
+ =?utf-8?B?SFVuMysxeDY2aEwwUGV6bU56NjlvcU1oYURXWEVoWGc4dG16dWhwV3NXblpm?=
+ =?utf-8?B?dXBRdE4vM29VbXdRaXRkR0IyeWRqZGZ4UVRvTkRzdWZsMG9lREhpT0Y5L0Vw?=
+ =?utf-8?B?QTVQZ3JBTytvL01GYmlka1VGbndTc0dJVXNqMHp2VTU3YUY2TVpLUG5RUVY0?=
+ =?utf-8?B?K0RqT0l1SHY3b090YnRLblloRVUyUVBVUGxLT0JtWkUvZGpGSll5QT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44271f06-7127-4522-db4b-08df454f4ddd
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9060.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 08:38:22.5265
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ICZ+PW1Xc+NXtbGo4MJNQ3/XvDzDgs47U4UjmkaxL74TIAU5oTcieItUJiMYTJQ9cFAVhc3p9I8wHqJP9kAlrg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7783
 
-RCU pathwalk validates the symlink dentry before following it, but
-additional work separates that validation from sampling and invoking
-the get_link callback.
+Hi David,
 
-XFS can recycle a reclaimable inode in place without waiting for
-pre-existing RCU readers to complete. The recycle path calls
-xfs_reinit_inode(), which calls inode_init_always() and resets i_op
-to empty_iops. A reader retaining an inode pointer from the previous
-VFS lifetime can therefore sample a NULL get_link callback.
+On 11/17/2026 6:46 PM, David Laight wrote:
+> On Tue, 17 Nov 2026 13:09:47 +0530
+> Sai Krishna Potthuri <sai.krishna.potthuri@amd.com> wrote:
+> 
+>> PM_QID_PINCTRL_GET_FUNCTION_NAME returns the function name in a fixed
+>> 16-byte field and does not guarantee NUL termination. A 16-character
+>> name fills the entire field.
+>> The driver copies this field into a 16-byte buffer and subsequently
+>> uses it as a C string. For a non-NUL-terminated name, string operations
+>> can read past the end of the buffer into the adjacent groups pointer.
+>>
+>> Reserve an extra byte for the NUL terminator and explicitly terminate
+>> the copied function name.
+>>
+>> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+>> ---
+>>   drivers/pinctrl/pinctrl-zynqmp.c | 7 ++++++-
+>>   1 file changed, 6 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pinctrl/pinctrl-zynqmp.c b/drivers/pinctrl/pinctrl-zynqmp.c
+>> index aba129ead04c..c778133fadc2 100644
+>> --- a/drivers/pinctrl/pinctrl-zynqmp.c
+>> +++ b/drivers/pinctrl/pinctrl-zynqmp.c
+>> @@ -29,7 +29,11 @@
+>>   
+>>   #define ZYNQMP_PIN_PREFIX			"MIO"
+>>   #define PINCTRL_GET_FUNC_NAME_RESP_LEN		16
+>> -#define MAX_FUNC_NAME_LEN			16
+>> +/*
+>> + * Firmware returns the name in a fixed-size field and does not guarantee a
+>> + * NUL terminator. Keep one extra byte for the NUL terminator.
+>> + */
+>> +#define MAX_FUNC_NAME_LEN			(PINCTRL_GET_FUNC_NAME_RESP_LEN + 1)
+>>   #define MAX_GROUP_PIN				50
+>>   #define MAX_PIN_GROUPS				50
+>>   #define END_OF_FUNCTIONS			"END_OF_FUNCTIONS"
+>> @@ -650,6 +654,7 @@ static void zynqmp_pinctrl_get_function_name(u32 fid, char *name)
+>>   	 */
+>>   	zynqmp_pm_query_data(qdata, payload);
+>>   	memcpy(name, payload, PINCTRL_GET_FUNC_NAME_RESP_LEN);
+>> +	name[PINCTRL_GET_FUNC_NAME_RESP_LEN] = '\0';
+> 
+> Too many constants....
+> You might want to try embedding 'name' in a structure.
+> 
+> Then, at least, you can use sizeof().
+Ok, i will define the below structure
 
-We observed this failure on an XFS filesystem running
-5.4.119-19.0009.44 while codebuddy was following
-/root/.codebuddy/debug/latest through access().
+struct zynqmp_func_name {
+        char name[ZYNQMP_FUNC_NAME_LEN];
+        char nul;
+};
 
-The complete Oops below has only its timestamps omitted:
+and initialize them as below.
 
-BUG: kernel NULL pointer dereference, address: 0000000000000000
-#PF: supervisor instruction fetch in kernel mode
-#PF: error_code(0x0010) - not-present page
-PGD 14fcb5067 P4D 14fcb5067 PUD 1f2c9c7067 PMD 0
-Oops: 0010 [#1] SMP NOPTI
-CPU: 32 PID: 852915 Comm: codebuddy Kdump: loaded Tainted: G           O      5.4.119-19.0009.44 #1
-Hardware name: Tencent Cloud CVM, BIOS seabios-1.9.1-qemu-project.org 04/01/2014
-RIP: 0010:0x0
-Code: Bad RIP value.
-RSP: 0018:ffffc9001905bcd8 EFLAGS: 00010246
-RAX: ffffffff8227fe80 RBX: ffffc9001905bd80 RCX: 0000000000000000
-RDX: ffffc9001905bde8 RSI: ffff888654eb2798 RDI: 0000000000000000
-RBP: ffffc9001905bd10 R08: 0000000000000001 R09: ffff888214aa28c0
-R10: 330074736574616c R11: 0000000000000006 R12: 0000000000000000
-R13: ffff888654eb2798 R14: ffff888214aa28c0 R15: ffffc9001905bde8
-FS:  00007f28e6deef00(0000) GS:ffff889f41800000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: ffffffffffffffd6 CR3: 0000000214f6a002 CR4: 0000000000370ee0
-DR0: 0000000001e188ba DR1: 0000000002d86940 DR2: 0000000000000000
-DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000600
-Call Trace:
- trailing_symlink+0x1da/0x260
- path_lookupat.isra.47+0x79/0x220
- filename_lookup.part.63+0xa0/0x170
- ? kmem_cache_alloc+0xfc/0x250
- ? getname_flags+0x4f/0x1e0
- user_path_at_empty+0x3e/0x50
- do_faccessat+0xb3/0x250
- __x64_sys_access+0x1b/0x20
- do_syscall_64+0x4d/0x150
- entry_SYSCALL_64_after_hwframe+0x44/0xa9
-RIP: 0033:0x7f28e6fbcb4b
-Code: f8 ff 74 d8 8b 44 24 04 e9 77 ff ff ff e8 cd 2a 02 00 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 f3 0f 1e fa b8 15 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 05 c3 0f 1f 40 00 48 8b 15 99 72 10 00 f7 d8
-RSP: 002b:00007fff69e37768 EFLAGS: 00000246 ORIG_RAX: 0000000000000015
-RAX: ffffffffffffffda RBX: 00007fff69e37910 RCX: 00007f28e6fbcb4b
-RDX: 000000000000001d RSI: 0000000000000000 RDI: 0000024989890000
-RBP: 00007fff69e377c0 R08: 0000000000000031 R09: 00007fff69e37410
-R10: 000002498c0a5000 R11: 0000000000000246 R12: 0000000000000002
-R13: 0000000000000001 R14: 0000024989612860 R15: 00007fff69e37938
-Modules linked in: iptable_filter udp_diag ib_core(O) mlx_compat(O) fuse ipt_REJECT nf_reject_ipv4 nfsv3 nfs_acl rpcsec_gss_krb5 auth_rpcgss nfsv4 nfs lockd grace fscache veth tcp_diag inet_diag nf_conntrack_netlink xt_statistic xt_nat ip_set ip_vs_sh ip_vs_wrr ip_vs_rr ip_vs xt_addrtype xt_MASQUERADE xt_conntrack xt_comment xt_mark nft_chain_nat overlay nft_counter nft_compat nf_tables nfnetlink sunrpc edac_core crc32_pclmul ghash_clmulni_intel aesni_intel crypto_simd cryptd glue_helper virtio_balloon xfs sch_fq_codel iptable_nat nf_nat binfmt_misc nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 ip_tables cirrus drm_kms_helper syscopyarea sysfillrect sysimgblt fb_sys_fops drm crc32c_intel virtio_net sr_mod i2c_core cdrom net_failover failover floppy autofs4
-CR2: 0000000000000000
+memcpy(fname->name, payload, sizeof(fname->name));
+fname->nul = '\0';
 
-Disassembly of the faulting kernel identifies the indirect call in
-get_link(), inlined into trailing_symlink():
+Regards
+Sai Krishna
 
-  trailing_symlink+0x1a3: mov    0x8(%rax),%rcx
-  trailing_symlink+0x1a7: testb  $0x40,0x38(%rbx)
-  trailing_symlink+0x1ab: jne    trailing_symlink+0x1cf
-  trailing_symlink+0x1cf: xor    %edi,%edi
-  trailing_symlink+0x1d1: mov    %rcx,-0x30(%rbp)
-  trailing_symlink+0x1d5: call   __x86_indirect_thunk_rcx
-
-The return address is trailing_symlink+0x1da. RAX resolves to
-empty_iops.55072, and its get_link member at offset 8 is NULL.
-RCX is zero and RDI is NULL, identifying the RCU-walk invocation.
-The failure occurs before entering an XFS get_link handler.
-
-RBX identifies the walker's nameidata at 0xffffc9001905bd80.
-The vmcore contains:
-
-  nd->flags               = 81 (0x51, including LOOKUP_RCU)
-  nd->depth               = 1
-  nd->stack               = 0xffffc9001905bdd8
-  nd->link_inode          = 0xffff888654eb2798
-
-The saved link entry contains:
-
-  saved.link.dentry       = 0xffff888214aa28c0
-  &saved.done             = 0xffffc9001905bde8
-  saved.seq               = 6154122
-
-Thus nd->link_inode matches RSI, and &saved.done matches RDX.
-The saved dentry is named "latest". In the later vmcore snapshot:
-
-  dentry->d_inode         = NULL
-  dentry->d_seq.sequence  = 6157892
-
-The sequence to compare is the saved link's sequence, not nd->seq.
-The difference establishes that the saved snapshot is stale relative
-to the dump state; it does not identify a count of unlink or create
-operations.
-
-On CPU22, codebuddy PID 1034866 is executing do_unlinkat() followed
-by XFS inactivation for the same objects:
-
-  do_unlinkat:
-    name                  = "/root/.codebuddy/debug/latest"
-    dentry                = 0xffff888214aa28c0
-    inode                 = 0xffff888654eb2798
-
-  xfs_inactive_ifree:
-    ip                    = 0xffff888654eb2640
-    &ip->i_vnode           = 0xffff888654eb2798
-    i_ino                 = 7522958322
-
-The saved register state and the later inode contents must be
-distinguished. At the fault, the sampled operations-table pointer
-in RAX is empty_iops and the callback in RCX is NULL. By the time
-the vmcore is captured, inode->i_op instead points to
-xfs_inline_symlink_inode_operations, whose get_link callback is
-xfs_vn_get_link_inline.
-
-The XFS recycle path explains how this intermediate table can become
-visible to an old reader:
-
-  xfs_iget_cache_hit()
-    -> xfs_reinit_inode()
-      -> inode_init_always()
-        -> inode->i_op = &empty_iops
-
-Exiting the recycling task's own RCU read-side critical section does
-not wait for the walker's critical section to finish. Eventual
-call_rcu() freeing protects object memory, but does not prevent
-in-place reinitialisation of the retained object.
-
-These observations support recycling across the old reader's inode
-snapshot. They do not identify the reinitialising task: PID 1034866
-is the unlinker observed at dump time, not an established writer of
-empty_iops. No scheduling delay responsible for widening the race
-window was captured.
-
-Sample the operations-table pointer and callback once, then recheck
-the saved dentry sequence before invoking the callback in RCU mode.
-Return -ECHILD if the sequence changed or the sampled callback is
-NULL, allowing lookup to retry without invoking that callback.
-
-This revisits Ian Kent's January 2022 proposal with additional crash
-evidence identifying empty_iops as the sampled operations table.
-Rejecting RCU-walk inside a filesystem get_link handler cannot
-protect this pre-callback failure, since the handler is never entered.
-
-This check targets the observed stale-snapshot callback invocation.
-It does not replace filesystem guarantees about inode identity or
-symlink-body lifetime, and does not protect against changes after
-the revalidation.
-
-Link: https://lore.kernel.org/all/164180589176.86426.501271559065590169.stgit@mickey.themaw.net/
-Signed-off-by: Qing Zhang <diasyzhang@tencent.com>
----
-
-RFC notes:
-
-The crash was observed on 5.4.119-19.0009.44. The patch targets
-current mainline; a mainline reproduction has not yet been obtained.
-
-This is additional evidence for the previously discussed failure
-mode, not a claim that the NULL-callback race is new.
-
-The diff is derived from Ian Kent's original fs/namei.c proposal,
-extended to sample i_op once and to reject a NULL callback.
-
-Would this defensive check be acceptable independently of a broader
-XFS inode-lifetime change? If not, what companion change would be
-required before reconsidering it?
-
-Base:
-141b164bbe186423e295b139e40e8e2d11cf1341
-
-Testing:
-Build-tested: make fs/namei.o with the change applied (rc=0, no new
-warnings). The reported crash kernel is 5.4.119-19.0009.44; a
-mainline reproduction has not yet been obtained, so no runtime
-testing of the fix itself has been performed.
- fs/namei.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/fs/namei.c b/fs/namei.c
-index 925aeb63bfa1..20c2c06ec3e9 100644
---- a/fs/namei.c
-+++ b/fs/namei.c
-@@ -2063,10 +2063,16 @@ static noinline const char *pick_link(struct nameidata *nd, struct path *link,
- 
- 	res = READ_ONCE(inode->i_link);
- 	if (!res) {
-+		const struct inode_operations *i_op;
- 		const char * (*get)(struct dentry *, struct inode *,
- 				struct delayed_call *);
--		get = inode->i_op->get_link;
-+		i_op = READ_ONCE(inode->i_op);
-+		get = READ_ONCE(i_op->get_link);
- 		if (nd->flags & LOOKUP_RCU) {
-+			/* Reject a stale snapshot before invoking the callback. */
-+			if (unlikely(read_seqcount_retry(&link->dentry->d_seq,
-+							last->seq) || !get))
-+				return ERR_PTR(-ECHILD);
- 			res = get(NULL, inode, &last->done);
- 			if (res == ERR_PTR(-ECHILD) && try_to_unlazy(nd))
- 				res = get(link->dentry, inode, &last->done);
--- 
-2.43.7
+> 
+> David
+> 
+> 
+>>   }
+>>   
+>>   static int zynqmp_pinctrl_get_num_functions(unsigned int *nfuncs)
+> 
 
