@@ -1,79 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795010262;
-	b=qE49Ds2AWFQnPLZ/7lesAss0wxgOgB2OB82tfzPyQj/c443Oz1tusBVG5Uryw10PZbJr
-	 oe1PpZ1DIZgFtEC+6oq+5MuHly7Dhzqu/Df++jVx70fzf2lTtYDVJHYcmYmoBPcGMQt2E
-	 E58Yg5opB8cD6onXRJiMSt0R8tlSxXq6kkecpyvgivCrbvTYJn2/C2TkV+ZGZ2VaMT8+m
-	 NllB01KNmImBPr4Bv5pzXyGUkVHWJ+MbDNs6OEdmC6EAz6w0WFCZtvIiIilOTW5ZzbjyU
-	 E5UqVAfYnC6hH7/L56pl08W2+JZoeq8n5FOYRS5CYpCta4S/zk+kGoJ5nFH5nS5DliA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010262;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=9k6xkSgoU4/ycdA73IPAUpz2zxduvWOoGVm9HO78QCk=;
-	b=KZbl4M3PGzRtlI3BRluU3TXaJWCizp5pXuC7jHXN98fhfHtuqE+cWbjR12mHXEy3F+Jz
-	 rpJXsxYzuSThYU/we77GvJq+hulsQggfSL4LuNHGBLwtpa9aD0MUFocS9G+hdDNR6UngF
-	 ALIB5IpY1rYFJ917kptAt7b08TgFWzBRHsBVCDZsG+fSS6g0m5xFwqanVUTTVbwMVzdq0
-	 uIfUBnmel1+AB46T7juqt4SrVzoABe6T+7l83WrJLG/WrkGSDhDU03UQymn2VwKD8UzS4
-	 fpascg7Q1G1vy3GxyrxGXabtFwULT7vTWIUsXbON4BKgvST3dlBLC140qZW9qAQKpkA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FpKN4xwd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4819606A32A;
-	Wed, 18 Nov 2026 13:57:42 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FpKN4xwd
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795010262;
-	b=wC3Eumy5vUzYEP/VaAEcCYXT3+aXje/fyymTBdOWstG3ZU8qqZODVcmYwQ7mr+5Rtd//
-	 Yhqmx6qe0tt3n+4UyS0ugI3z8vlOmZC0xjLmmUxhBjkiPo5DVrazBejVhyfk25pP6PvPh
-	 m0qJTUVId0QbnlMTi/bKGN9KaZjJWfnKRGgWfPcUZFhCvaBgqd5db6VNP1vRehPINVKmj
-	 n/LOAuJ6TxqCSAGUoElsVGyiQxOlYA+rBVFgh2agAwD5iXpTEHxGPmzSM53QP5oIsNF2o
-	 91actz0Rd8OEYvr8TPjlrXgciq4G72LAS163PszzW+SwuTjtdtMEb7wCuZIFIGWapTA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795010262;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=9k6xkSgoU4/ycdA73IPAUpz2zxduvWOoGVm9HO78QCk=;
-	b=NfAUb8JHhzha+q4ZbEzKmEFIKEcIwC62iPAS/ca6o1cxQwf9TXulJmNbHDQ/9YgFCekm
-	 BvwjykVJmS64rl6qBFV6LjIz2kcsDyzmNGGU/626J+OtfUNSiPl6pQbza+VurK1KtJj4v
-	 ekbecQU0i8VSX4kb3SDRCKnKxYpoWpbvxzAqSjsPuY3CiKahDwjs2Gq9RFMqbToRnPxeu
-	 S6fG3hkqssLEx0kWOgRUK+LerHeTTHF3a6Qi5YuKYClXBb8+TU1QOBjib+gpsfJTG28r8
-	 NKBMJWotSqTDUXrt53DbYvE0QZLy3cvTF08M/w9hBx8AGYyjQOqpNVgNh4QSTvZsaCQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795010300;
+	b=jarb9raM0RWJqnL5BGu5rakY5H9jsqx+jALese7EBJughDVrC1drtJJvndYVcIn56VFa
+	 anR5iZS8vkN5IunFwKonuqdFsGWZH/VsMtnwKwe6GrKb9EooWmLcoHJBgmYY6UIMn2ZvT
+	 SKwz/XDw9Q+eW0JMXIlbVvM1MOEoCKt8DqjdTiagkN6HFkCadh8fXUFZQz14GUrAbFjkq
+	 NnN5qt67Y5nqJypUDMOsvcWm1gTQv3G7X6jTYNdJR5AKF3FOPV7tpDHjcgxhFzkf9pcWu
+	 fIJYV+8gmzrMHKpGk5jQCk45zeyX8aUMOpIsev98H7EEP3PKVZgmmIE502pBg//sFRw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010300;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=0JwJoz4LcUivf40lFKNJ0/cjI0AXnlShSPS7cDM6TIU=;
+	b=PHbYfCWGMqGAKDj/2iVZE39D704xBfLnE9XRy6R+8RSKewjO5h95O4H/Gz+siJUlh5Ij
+	 QXqtQS2VD8A2J4BnvOLRi+GJHkOj3EuxLYMAdYib/1zx8LnGbl2L3Y7fnbmIcX/SB7MAT
+	 3KoP3c6W9ahABr6++9SLUsP2ZsZu+BsiqQw8TjyUVL56o0z1MVf8p2YEO1mfLL0srPdiA
+	 hPuJ589Q9BUb7BWVJHiki2TedaDqq76aPi6uFImsHRyf5Q7br1eU0MQZ9RgKwn5pfeB7j
+	 cUMGE+iWMiCnF+dHprFonN/0XkqLPfKgzpEJSnu1lWmIM1p421+kTvmCd0hhYEml8tg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=vx6CJ53t;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id ED4121F000C5;
-	Wed, 18 Nov 2026 13:57:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795010262;
-	bh=9k6xkSgoU4/ycdA73IPAUpz2zxduvWOoGVm9HO78QCk=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=FpKN4xwdcjqxMJpZCwWr5aPFqtlgYWe8ZwIpl8mL7/d6S1cJWgxdzw0jTsiNEvYnc
-	 Ix5HJV7le25bBF1NAoP7yOqaJdQ/R9psBslIyZ0HUQDJbREnQ8fL/vpdkPmhqcoJKH
-	 Hnmnpt3D1nyRet7AdjbRZrEfxHaO+daYTDEcq91nOKCAhOX91FOLcsJZGk+EHaZY0d
-	 lFUMNPowM/XeaxW6lELexH0ek3RRuQXHI/asThfxrweuodNGzWKUe3XKirO2Z05pIo
-	 84dQa1VkDdGT658EqVWUq3gs/Ot9CeaAgiCCkcPUFw2Iyoyd7XjW+8CMyhqgHQ/txt
-	 lBbW08DGUikww==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4B4D44ADC0;
-	Wed, 18 Nov 2026 13:57:41 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 13:57:41 +0000
-Subject: [PATCH] scsi: ibmvfc: Unmap scatterlists before completing BSG
- jobs
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA2B1606A320;
+	Wed, 18 Nov 2026 13:58:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA2B1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=vx6CJ53t
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=0JwJoz4LcUivf40lFKNJ0/cjI0AXnlShSPS7cDM6TIU=; b=vx6CJ53t48wJdVJEabFV04OMvk
+	knxDXh22+3L3UWHbZqLiCctDPNv/yUStMk/se9OgK3uCphx0PoQ/ySPFHbsjaeyvwhWOs/XpQR2eC
+	JcyADdEQrn2uDxp0JYLeEMaES1xX5zrUIgao5sojXWeTegJ/cLRptLMexoZlYMbFp4pthSijZQc0f
+	vMYW9JYQ6ocFNk6TJRAfYHh6sozRmfXiSDt1BVro77SmFxPKYHB4OivRDnxtzSqMVjMeKj0hyEy53
+	Mt5KsZjnbB0AJWrJFOXEI+QgJotdKnkhzpMwd2PrfqtmsvitsMzy3aoJ6aM2ETfchbzZkbcmaL5Nk
+	dYZdywUw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTgAv-0000000DyNa-01zg;
+	Wed, 18 Nov 2026 13:58:13 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 882963002FC; Wed, 18 Nov 2026 14:58:12 +0100 (CET)
+Date: Wed, 18 Nov 2026 14:58:12 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Fernand Sieber <sieberf@amazon.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Daniel Bristot de Oliveira <bristot@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Don <joshdon@google.com>, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, nh-open-source@amazon.com,
+	Fahad Mubeen <fmubeen@amazon.de>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Misha Karataiev <karataev@amazon.com>,
+	Hendrik Borghorst <hborghor@amazon.de>,
+	Ibrahim Elshahed <lshahed@amazon.de>
+Subject: Re: [PATCH 2/5] sched/core: Keep a sibling's DL server link in the
+ core-wide pick
+Message-ID: <20261118135812.GI1922751@noisy.programming.kicks-ass.net>
+References: <20261112161548.78189-1-sieberf@amazon.com>
+ <20261112161548.78189-3-sieberf@amazon.com>
+ <20261118135052.GX1779021@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,81 +84,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-ibmvfc-v1-1-3115f5901130@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANSu/WoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0ML3cyk3LK0ZF1TU9OkRItk4+Sk5DQloOKCotS0zAqwQdGxEH5xaVJ
- WanIJSLdSbS0Ax0wl/2oAAAA=
-X-Change-ID: 20261118-ibmvfc-555ba8c3cbcf
-To: tyreld@linux.ibm.com
-Cc: linux-kernel@vger.kernel.org, linux-scsi@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795010260; l=2020;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=N0Tx4tKvk+IGw2iXqqTkUq8ZEOCSQRNuciGKIswz/Gg=;
- b=gfulJ5sTCNkCHuEG89KYs141VHVOJihg1jGg25SYidOMf4HKeizUjAnBk4ijAwqXuQBi+EnWy
- EG8irAzLWPhAgwj5bHaoFp5FuwKcgOpmAAtUB5Qtne6wavXO8KaJRNI
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118135052.GX1779021@noisy.programming.kicks-ass.net>
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+On Wed, Nov 18, 2026 at 02:50:52PM +0100, Peter Zijlstra wrote:
+> On Thu, Nov 12, 2026 at 06:15:45PM +0200, Fernand Sieber wrote:
+> > The core-wide selection records in rq_i->core_dl_server the DL server
+> > each sibling's pick came through, then clears it for every sibling in
+> > the cookie matching loop, including when the pick is kept. The sibling
+> > takes the fast path, which sets rq->dl_server from rq->core_dl_server,
+> > and runs the task its server picked with p->dl_server NULL. Only the
+> > selecting CPU keeps the link, as its pick goes through rq->dl_server.
+> > 
+> > A running task is ranked for core scheduling by p->dl_server. While
+> > such a task runs on a sibling, each following core-wide selection
+> > ranks it as a plain fair or ext task rather than by its server's
+> > deadline, so a higher class task on another sibling takes the core
+> > back before the server's runtime is used. The RV nomiss monitor, which
+> > follows the server through next->dl_server at sched_switch, does not
+> > see the server run either.
+> > 
+> > Keep the server that pick_task() left in rq_i->dl_server. With the
+> > previous patch it is NULL when the class pick was replaced. Drop the
+> > assignment in the first loop, which the matching loop always
+> > overwrites.
+> > 
+> > Fixes: bd9bbc96e835 ("sched: Rework dl_server")
+> > Signed-off-by: Fernand Sieber <sieberf@amazon.com>
+> > ---
+> >  kernel/sched/core.c | 3 +--
+> >  1 file changed, 1 insertion(+), 2 deletions(-)
+> > 
+> > diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> > index f7ac13186ee59..61d4e6e990bba 100644
+> > --- a/kernel/sched/core.c
+> > +++ b/kernel/sched/core.c
+> > @@ -6431,7 +6431,6 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+> >  		}
+> >  
+> >  		rq_i->core_pick = p;
+> > -		rq_i->core_dl_server = rq_i->dl_server;
+> >  
+> >  		if (!max || prio_less(max, p, fi_before))
+> >  			max = p;
+> > @@ -6462,7 +6461,7 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+> >  		}
+> >  
+> >  		rq_i->core_pick = p;
+> > -		rq_i->core_dl_server = NULL;
+> > +		rq_i->core_dl_server = rq_i->dl_server;
+> >  
+> >  		if (p == rq_i->idle) {
+> >  			if (rq_i->nr_running) {
+> 
+> Isn't this broken in the face of a rq->lock drop through pick_task() ?
+> 
+> Consider this does:
+> 
+>   SMT0: pick_task()
+>   SMT1: pick_task()
+>           drop rq->lock
+> 	    newidle
+> 
+>   SMT0: rq_0->core_dl_server = rq_0->dl_server;
+> 
+> 
+> I am reworking all of that somewhere, but delaying saving rq->dl_server
+> like this feels fragile.
+> 
+> Can't we fold the first two patches into something like so?
+> 
+> ---
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 175b52a7ea79..68b980ddf88f 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -6453,10 +6453,16 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+>  				p = sched_core_find(rq_i, cookie);
+>  			if (!p)
+>  				p = idle_sched_class.pick_task(rq_i, rf);
+> +
+> +			/*
+> +			 * Neither a core tree pick nor idle comes through a
+> +			 * DL server; drop the one the replaced pick left.
+> +			 */
+> +			rq_i->dl_server = NULL;
+>  		}
+>  
+>  		rq_i->core_pick = p;
+> -		rq_i->core_dl_server = NULL;
+> +		rq_i->core_dl_server = rq_i->dl_server;
 
-ibmvfc_bsg_request() calls bsg_job_done() before unmapping the request
-and reply scatterlists.
+No that isn't quite right either, perhaps just make it:
 
-bsg_job_done() starts block request completion, which can run
-bsg_teardown_job() and free both scatterlists before the following
-dma_unmap_sg() calls. The unmaps can then read freed memory.
-
-Complete the job after the common DMA cleanup instead. The completion
-path has already saved the operation result in bsg_reply and set rc to
-zero; paths that return an error keep their existing cleanup and leave
-completion to the FC transport. passthru_mutex stays held until after
-the completion call.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: d31429e1517c ("[SCSI] ibmvfc: Add FC Passthru support")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Compile tested on powerpc with clang (W=1, no new warnings). I don't
-have IBM Power virtual FC hardware.
----
- drivers/scsi/ibmvscsi/ibmvfc-core.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/scsi/ibmvscsi/ibmvfc-core.c b/drivers/scsi/ibmvscsi/ibmvfc-core.c
-index aa7ae81df41b..6dce72cb80b5 100644
---- a/drivers/scsi/ibmvscsi/ibmvfc-core.c
-+++ b/drivers/scsi/ibmvscsi/ibmvfc-core.c
-@@ -2392,14 +2392,15 @@ static int ibmvfc_bsg_request(struct bsg_job *job)
- 	ibmvfc_free_event(evt);
- 	spin_unlock_irqrestore(&vhost->host->host_lock, flags);
- 	bsg_reply->result = rc;
--	bsg_job_done(job, bsg_reply->result,
--		       bsg_reply->reply_payload_rcv_len);
- 	rc = 0;
- out:
- 	dma_unmap_sg(vhost->dev, job->request_payload.sg_list,
- 		     job->request_payload.sg_cnt, DMA_TO_DEVICE);
- 	dma_unmap_sg(vhost->dev, job->reply_payload.sg_list,
- 		     job->reply_payload.sg_cnt, DMA_FROM_DEVICE);
-+	if (!rc)
-+		bsg_job_done(job, bsg_reply->result,
-+			     bsg_reply->reply_payload_rcv_len);
- 	mutex_unlock(&vhost->passthru_mutex);
- 	LEAVE;
- 	return rc;
-
-
-
+			rq_i->core_dl_server = rq_i->dl_server = NULL;
 
