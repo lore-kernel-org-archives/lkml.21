@@ -1,96 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016135;
-	b=sP3GDknzANZETeHMIym9IW1fF/hvAfFglMYrP2DqE+P1uiOmnX5h6EQ9rpDxbmZDE+sN
-	 RWo67lpXe4hzoLz5t2zVO5Vk/Z7s35bZ5HZnL+C2jta8eajVGkMX451zz8mNdZJxMFMGk
-	 xjkRhPA7lWvvN5J9HKqaN/4zg3GZ1D/rKZ/EFFgL3vCGRpY7vs9DiBrKF8FkKjbvMPgi5
-	 AgHPBWayr5AyhOJO6kC4dci0hcUEq0KEkx6/RfMBr5EMPyIo89LuCBONKsuVtBcN0Az3q
-	 6Q5ORsZrYBIMAu/MtoU3GhX7WgcSskysSkZB3+yL01MMc57wkOknScAqYYZlUeyX5Dg==
+	t=1795016138;
+	b=D3T7SUtLt3uar8KRNgslQOcQ4RIP9LcApLOXR1HqP/TV/0a4UQSc7RsPl4mBldyN2Gkj
+	 sbRjN6hg+9nR2nHSv5oBsTdQfONi3kTbct7qt4pIpESL41u8LPLY394NQYajjzfqk1daX
+	 e0AP8MHOqIGaYRW1K/XAupSIM2vDJzIOkMtaqgsrXKTpB1OWIEHRfJHVtmyS8GBQC3sEU
+	 IK6NK83aLOjH1FZ1NNtlRk0m233BMcjLXf8BmhTHQsjPwO29XsBubjPNY3CxJdk8cAnBz
+	 2XZmWmDyTxYO8YQJthWornvInFspYO+8MlzpYvtHEo+aHWcqw8Y1z/me9FaC5keMdpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016135;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016138;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=hHbDnBNXsMrfYdPN6XIU4dlwFEIvntxiBuLc1xN7+Vw=;
-	b=RohiIJiO94laTvkFEOcE8NYn2TPzYhECCv+NdesyrLaeGnR0Qq8EgE80w7o/FyXVjVjC
-	 vW9dVheP6N74lkVQol4suXSC71YqBm7kzfb9dY4JLJUcSG0xrsHxyBQkGKkY9knbBuzb4
-	 aHtdZXsNyvKCDttNGFJnHiAVnjrm5DG/zsuBB+OhmSab1oiSA45kBKveJ/baPXrkXCQhg
-	 1LUcdiYAfHzFv/A5ifdHxzzox2QKDBpZiB+OFqrn+VY+8k1+aWbvjJSdCoEx3QgYq74Yq
-	 YyOef3/N2AtAsKgtpiA39v34LIzvOHbrjVZEcbYaBk38VwiALddsPGE0YIAPMiVmu3A==
+	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Disposition:X-Mailer;
+	bh=I38LaCNb2hWbpAi7aqstQLKMG4G4TLfyKK4eAQEVhf4=;
+	b=eqYZk95xC2adeayUoVMJCeeGRPeDzumQKDPH8J4q5OgLqFj7XxXyAnDjirKsHSFmlF2i
+	 giePJDOHoBKeC1Fjp+ChR4OwH/f6S+wh9Y16+iMYHNJZTLppDIBM7/q74r/o9WIOylUtl
+	 HnA9Z3QaaFF7uDFcmC9rDFqzZQZM79+bs4+ymTbVJs1P3iYoFHzUv64Y/vC9wXt+Gv3KT
+	 1fasLi+SygA1U/ZcaPgbHvvSIpdYT4pa+D8+whynWQwjzd6s1VtMt794vXf4K6SG+AcX6
+	 oNSX/X4kcJRMPluMaal4nou7eaUka7KQv8L9cz+tRDsvjI+OoLX6VdDW5TG84L4jmVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yVsQdrqY;
-	arc=none smtp.remote-ip=209.85.219.53
-Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com [209.85.219.53])
+	dmarc=pass header.from=pereq.eu;
+	spf=pass smtp.mailfrom=cryspen.com;
+	dkim=pass header.d=pereq.eu header.i=@pereq.eu header.a=rsa-sha256 header.s=google header.b=MTsFx2sg;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58AD0606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58AD0606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29FA0606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:35:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29FA0606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pereq.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cryspen.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yVsQdrqY
-Received: by mail-qv1-f53.google.com with SMTP id 6a1803df08f44-91ebf4cd218so4185686d6.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:35:35 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=pereq.eu header.i=@pereq.eu header.a=rsa-sha256 header.s=google header.b=MTsFx2sg
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48e10a70540so678557f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:35:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795016134; x=1795620934; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hHbDnBNXsMrfYdPN6XIU4dlwFEIvntxiBuLc1xN7+Vw=;
-        b=yVsQdrqYH0XxAxVWlxbiF/J5ajV38u5gfxDHPmjnyExLC584nFtzAsyWxOYf6uj2YP
-         hEqZb7NW3c0FzKUag7210xnrqp9J1gqEe+RnfqX4TSgpIgTvg3IsqscrTel+CLcWExbo
-         si5Pi7A3oUUQlU18E4T3Bafax0tRwb+YCFSCwr1nEvQTwXuX6/VKOfvLDzL9uOIB4hDg
-         +QtT6358St+kMyaciaG/+oEWAeredZsB4v0cw4wl4bPz6dnrc5vy6/0FDi6RJ9StFUZb
-         /47E27O4v1+B/YoefJBTGpKmuoy+RP8+aSXi3D8eyvHf1IjvQfHYfBm4TN5K4rigbQv7
-         wNtA==
+        d=pereq.eu; s=google; t=1795016136; x=1795620936; darn=vger.kernel.org;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=I38LaCNb2hWbpAi7aqstQLKMG4G4TLfyKK4eAQEVhf4=;
+        b=MTsFx2sgMd0Z4WbUsoLOaDhO5xlXrQNfdC/3++xk6BwyI8gy2QdPz9iv0aFbS2bgtf
+         6nRajQixwfLm+qI0DVqjHsRp9OKoV1JPX7zBkqpthR9yGJ5K2/jDdpNmL0sTGhUN+yCW
+         oHpGEo9EO4uGdokbxY4C+3v1hCvcdUHCbIzLqrWc4rqiXQMAK3Hf0k/MDEUPR0UAO5RP
+         gaKsFzGJxh/WFuJ5wVyFBVFJmGD8H/UXhIjwvcdiWY+GJkByarbgTSiMzHWl8SH3WVQT
+         3EbbW7DU+hCB+bivyfRciVkkOCyoGcwslj3o6YTxesN2SP79gQ2t+ipFiFOMrIVs6I6O
+         xKfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795016134; x=1795620934;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795016136; x=1795620936;
+        h=content-disposition:content-type:mime-version:message-id:subject:cc
+         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hHbDnBNXsMrfYdPN6XIU4dlwFEIvntxiBuLc1xN7+Vw=;
-        b=Q03qnTf2CUuv6F+sO933HSE6hWIMAWzBrxP+25F0hO41MOt2z+0Sbc7hygQL3f1eat
-         jpFRHyQ12hFiOOfmvMg7okXi8SH6Uiip0iWGEhpv64iEnlijHgdS5xpzAwQXw4sn0766
-         T6QuaLvlz/w4gweaUzVXkDKtVrCpGWWJbf6onf0BXuFxvJnO9Nn2dCCJKKgiiqQ/8NvZ
-         fIgdPW+F2b1+mjwt6tsIlUzTLEY2HaWHTcqDp5M1YBFObJDFEts95HCcHEol+MgnfOHk
-         XQQhNbFmwdl5c58U/D+dRiit/d1BszZMY1JgnpoN/XAJ11d1Hd2Pl0BjlBNf0M+6P2i9
-         3frA==
-X-Forwarded-Encrypted: i=1; AL+hErElEJY+jvLy85D+0qbbgqunLtaV7vFADvjvF2uwwkzkmVOB8hB63x/azMsRL0rmLwnd4aB1wuNQTqrdUFU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/GTCMjqfK4UsU+eUs88aH7MbS8msLoy3ijumWjAb9tk0YUQseh
-	0Pyuhs8vtUWKAUWIydVIWNPPELSw03HaW+ewy3UYkGrGV4l/IPlGZMsH
-X-Gm-Gg: AZFdTZeD0E058KgPd40KCpuB4QWrsBeqsFTVxUejqbO8j11rYuRaS0A6lSfrq+92NVr
-	Syr8EinOp+sNXp/Wb656dba7bDC076zfYQB/j1vjAPpV6poaZqR3m2k1OfU8mnE1BxQTQlgMw6t
-	oRtwiFjWfvpex0RXOU3ox0bf7Wp0Mnf+iSF5Kyor4wHekm2IrW5gwDCIaFqBT9V3ujqYuEWQXoK
-	ZhGrh285/up4pT8v2fJ0pLXuzKVhvMHjnrqSrZZJL+1AaMKUuz9DFtOEIyFG+L7GuP+mc0Fg+eJ
-	r+CaVvaNhDHMs2OWn4rn+pRBvaxkcdoxh+G/aue640JlWshD65/itGHBcvvp3O1NGVMfqk9KwdQ
-	3dRFXlZ5r1zZcXNV84HAmcrX+kNtIQSQjCNrQJ8UANbUrG+dT3ulKTBM0mAB4t5/taS633OQM7+
-	oxiVfTsPybnca2LYQGM5mSKw8TQ7EiboIcfw5kcuqQqxTHl/I+0c1PTo4/KJfMYGw40Q51S54ys
-	rQvyDVbWIbVwmreLAEYHjpAMEnD7FpIF80TKU8WgaP6drLwhwP1mfmYk6lHTcpVj9KSm/qk63cC
-	OD9/YHIzAmnOrHqWZmUYC+eq9kju82f75huUkkyzT9ZS1bLl6hCSomeSHYn16lGbrI1ve10cRz6
-	VkAQI432l4h5gZoxdD29XHQBcbuGxKRK/GxRAHXQNwa8OZ6PjA88QvLm12VYIbfKZDy8pE7ED8q
-	5AzasKVmaZzH9rKzZaBcmxH7E9cJiPqZq3La4AAqwOvIZc+Zr0XMSAqGtwCRoJ356lTfYkcW+Al
-	ww8Xb5a3vnnB0r8h0d8iRbz5pM9eSEWwmIISXk=
-X-Received: by 2002:a05:6214:623:b0:921:47e:e053 with SMTP id 6a1803df08f44-92114edca2emr43364966d6.53.1795016134019;
-        Wed, 18 Nov 2026 07:35:34 -0800 (PST)
-Received: from coder-gsekar-hip-hyg-new-659c88f9fd-hs8wm.coder.svc.cluster.local (ec2-13-205-193-176.ap-south-1.compute.amazonaws.com. [13.205.193.176])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921148c261bsm24707266d6.0.2026.11.18.07.35.30
+        bh=I38LaCNb2hWbpAi7aqstQLKMG4G4TLfyKK4eAQEVhf4=;
+        b=nU700sTsGvwAcRx65rdN+CuFzowuVsMhJKJemQrhDDj3+2n2hZIR/nrRfmscZpvliW
+         QrvG6wzX+757L9ivUJPlj9Nsv2QZ1yUPOddBEP0u+zhORfQbXD0/wwyd/67qlG63MFuN
+         /ZvUyGVX8v0r58B9BxZcFhj/s132UH2uiWT0xMnkyHmcmqTRrBWoBxvqdo0+GBJlYGhZ
+         0F+2N3B6ca2huG/m1OhIlbamng0PZKQ0i8ze53ig4Pawmy5XCh00/sOpzMLEbQt1vh1R
+         dWorZgmnNeKPBMFhmt0j/y4BYATsY+mAcG4+VWSqRZW4kdnoJ88sYXVdsyRiyili2biJ
+         V5jA==
+X-Forwarded-Encrypted: i=1; AL+hErH9Bgzt1O/TAd1xgGwV69Xdwl4Xd47//vffpgUnHbHTnJl0dp3HfqKxKmy+svFT0YknLAjAc7XERPem76E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uiT2dF8jhe/YpRrYvl6odAMxNOVJH0cgkega9KBrQbvlxEAx4
+	GyzLbbW+/Ml8Mhdo1p0e1y7P2nztnuQM4vpAaX4Te0EiYQFWOXvoi/20p0K9Ncha6Ew=
+X-Gm-Gg: AZFdTZe5QHY0y+Euu3PE/KLu8fXU3i+3hC34PDL+jGp+seY1EEeDaT8QZjHe03MOWxb
+	y4xAzVpqTL9kj93dLU13IqQ6CL8iNIE12j78JQd6DS8Bwi4ZavssuRYffSMAkfDyV8qL4DhCeXV
+	GEgxirIjHozAPjxCMY+YZh5wObKmLGqxcX9S/1d0YdS5br2wfZh4wYiB7kWhV4mYdk4/5/ULLx6
+	oc91/4Sh7hi8a+QqSMTOwKKcMnaS6TMPhlPnuWP8MGRuszTzffx3CXyqFRV1oOssdg+rgTiTc/e
+	u/4KQ4ffl/bB/BGnPz9VzSUydX494azBUe2z5TyKxrBwUpZNV8r7ZWh2tPDVMZtWLZ5ljfeswj2
+	TYXW1biyjx8haFLeAtDLejGfxucWMRYR5Vp68cFOAQQ+QaboKBwzYLx63+1A7gFC+VGbS19zrF+
+	0lnjtKDtbt2h9aHR6UjJ1cbwQyewp7KIc7EI/RsDCfin9ZKq97UiZWR2BQjUYmjoNSfbbavjBX/
+	IJDPsxd5FGHGhagTe3hrttAhJynk/zn0aarYkwx5mWyaYA6RTdgR+GlyWYWbIPm8Dcuod18+HIW
+	qEl7liIRzejWaASbn+Y=
+X-Received: by 2002:a05:6000:144c:b0:4a6:bc53:246d with SMTP id ffacd0b85a97d-4a6bc6269b6mr5843166f8f.45.1795016136152;
+        Wed, 18 Nov 2026 07:35:36 -0800 (PST)
+Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c11643sm5196571f8f.49.2026.11.18.07.35.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:35:33 -0800 (PST)
-From: Gokulkrishna Sekar <gokulkrishnasr@gmail.com>
-X-Google-Original-From: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
-To: linux-pci@vger.kernel.org
-Cc: bhelgaas@google.com,
-	mika.westerberg@linux.intel.com,
-	linux-kernel@vger.kernel.org,
-	Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
-Subject: [PATCH] PCI: Encode corrected PCIe port type with FIELD_PREP()
-Date: Wed, 18 Nov 2026 15:35:05 +0000
-Message-ID: <20261118153505.95686-1-Gokulkrishna.Sekar@harman.com>
-X-Mailer: git-send-email 2.56.1
+        Wed, 18 Nov 2026 07:35:35 -0800 (PST)
+Date: Wed, 18 Nov 2026 18:35:32 +0300
+From: Dan Carpenter <dan@pereq.eu>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Jintack Lim <jintack.lim@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+	Karthik Bhargavan <karthik@pereq.eu>,
+	=?iso-8859-1?Q?Cl=E9ment?= Blaudeau <clement@cryspen.com>
+Subject: [PATCH] KVM: arm64: nv: Ignore TLBI IPAS2E1 above the IPA limit
+Message-ID: <av3FxJpUvpb_8qMC@stanley.mountain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,57 +105,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 
-set_pcie_port_type() validates PCIe port topology and corrects
-invalid upstream/downstream port type information in the cached
-pcie_flags_reg value.
+In theory, an L1 hypervisor could issue a TLBI IPAS2E1 for an IPA
+above the host's IPA limit.  The s2_mmu_unmap_ipa() function would
+pass it to kvm_stage2_unmap_range(), the page table walk would fail
+with -ERANGE, and that would trigger the WARN_ON() in
+kvm_vm_stage2_unmap_range():
 
-When performing these corrections, the code clears the
-PCI_EXP_FLAGS_TYPE field but writes PCI_EXP_TYPE_UPSTREAM or
-PCI_EXP_TYPE_DOWNSTREAM directly into pcie_flags_reg. The
-PCI_EXP_TYPE_* values are decoded port type numbers, not values
-encoded for the PCI_EXP_FLAGS_TYPE bitfield, so the corrected type
-is stored in the wrong bit position.
+	WARN_ON(stage2_apply_range(mmu, start, start + size, fn, may_block));
 
-As a result, the cached port type may not match the corrected
-topology and subsequent users of pcie_flags_reg can observe an
-incorrect PCIe device type.
+The TLBI's IPA field goes up to 48 bits, so this needs a host whose IPA
+limit (its PARange) is below 48 bits, and it would also need to support
+nested virtualization.  There are very few CPUs which meet both these
+requirements.
 
-Use FIELD_PREP(PCI_EXP_FLAGS_TYPE, ...) when updating the cached
-field so the corrected port type is encoded consistently with the
-format used in the PCI Express Capabilities Register.
+The fix for this is to return early.  Since there is nothing mapped above
+the limit, there is nothing to do.  This matches how handle_ripas2e1is()
+also ignores TLBIs that start outside the PA_bits range.
 
-Fixes: ca78410403dd ("PCI: Get rid of dev->has_secondary_link flag")
-Signed-off-by: Gokulkrishna Sekar <Gokulkrishna.Sekar@harman.com>
+Fixes: 70109bcd701e ("KVM: arm64: nv: Handle TLBI IPAS2E1{,IS} operations")
+Signed-off-by: Dan Carpenter <dan@pereq.eu>
 ---
- drivers/pci/probe.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+This bug was identified as part of our formal analysis work at Pereq.  I
+have not been able to reproduce it on real hardware.  The only CPU Claude
+can think of where you might be able to trigger it is possibly the Apple
+M2?  Not 100% sure about that.
 
-diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 9a178e0e5f7f..7b09a4463097 100644
---- a/drivers/pci/probe.c
-+++ b/drivers/pci/probe.c
-@@ -1674,7 +1674,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
- 		if (pcie_downstream_port(parent)) {
- 			pci_info(pdev, "claims to be downstream port but is acting as upstream port, correcting type\n");
- 			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
--			pdev->pcie_flags_reg |= PCI_EXP_TYPE_UPSTREAM;
-+			pdev->pcie_flags_reg |= FIELD_PREP(PCI_EXP_FLAGS_TYPE,
-+							   PCI_EXP_TYPE_UPSTREAM);
- 		}
- 	} else if (type == PCI_EXP_TYPE_UPSTREAM) {
- 		/*
-@@ -1685,7 +1686,8 @@ void set_pcie_port_type(struct pci_dev *pdev)
- 		if (pci_pcie_type(parent) == PCI_EXP_TYPE_UPSTREAM) {
- 			pci_info(pdev, "claims to be upstream port but is acting as downstream port, correcting type\n");
- 			pdev->pcie_flags_reg &= ~PCI_EXP_FLAGS_TYPE;
--			pdev->pcie_flags_reg |= PCI_EXP_TYPE_DOWNSTREAM;
-+			pdev->pcie_flags_reg |= FIELD_PREP(PCI_EXP_FLAGS_TYPE,
-+							   PCI_EXP_TYPE_DOWNSTREAM);
- 		}
- 	}
- }
+ arch/arm64/kvm/sys_regs.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ef4554656ddf..19a914941aff 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -4236,6 +4236,9 @@ static void s2_mmu_unmap_ipa(struct kvm_s2_mmu *mmu,
+ 	max_size = compute_tlb_inval_range(mmu, info->ipa.addr);
+ 	base_addr &= ~(max_size - 1);
+ 
++	if (base_addr >= kvm_phys_size(mmu))
++		return;
++
+ 	/*
+ 	 * See comment in s2_mmu_unmap_range() for why this is allowed to
+ 	 * reschedule.
 -- 
-2.56.1
+2.53.0
 
