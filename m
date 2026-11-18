@@ -1,75 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009506;
-	b=WcLd8/6/gX9obz5fJrcdaSUEz9QcI7QL9Mois9IB+tBEN04iFJ+DAR8gm2cYlNDvcbOo
-	 32qL70UffmK2sv5NAQenX3uNgaCpNtGSu4J/EFagn9aVefT2uC5AQdbo9RuvDADsg9ArS
-	 Rc4STt/O08nr0Ej0hkH+Pg/v1mF+cMWC7kZKioMQ+1+Mi6m5zAvvynDbASZlDY4OGQWei
-	 OGN3+02MI+79w5BAnNwsD5doZrHNJKoJcK0k34D1LIUSQPwN15t28YR+ZoSitra+vb2uz
-	 mY0K/b+mQRSwAIi2RSxmgpnWUu91omNsLYzeBJ1XqLQB98z9QL7RIyMsrqQsu5AUZ+g==
+	t=1795009518;
+	b=0lhwm+yok8iuMaVFtksdrL2sudkDfSvfjNhF/3rMGeLpVO5iYhz17cmMhJxMEHYRJiEI
+	 PWWziHr11yKpwwfelSkGqf/Ks+d3AkfjzGZSSWllaVu1cUzLODl2tU8KsK4B71Nf5fpC4
+	 8EJPsIHo9raxGV6iT1lwCl5U9CR7W4dl9v7DnmpFs+ukv4trY5DdZ7wkiP75GgQZh/3jN
+	 /8EBWZDZZWZVpGNpEkpXVEW/kdkLGbvQ2mTq3P1bO2fHPsgKLVAI0fw+QHetcSWNnDpS2
+	 dSTpuLFsyDOhE3Dk3SHmnZyxOtCMVhvdnEjuE2Se84NXCKWrL9tgF1R3YF4bxw4leiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009506;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=K9jqOFJoo5a08c4c6QWaedBiY3m5I13A6hFf3I1/tbg=;
-	b=CC3TUp2mN0L8kW1H0eeWnEdQMdSiiX0pLvvUcxUryhtuwRp/IX3RpxOZ84iQp51COLcP
-	 2ngYDdJ66CB/uMJk9+EO4rObYotEm2WIxx8TGlgm7qbKSsB6phzkOM1lq08l/dKS2I/fJ
-	 4xNAe/ADouGbIFRD3fsnLoVOFLKT/+w2JeYkVaorldLVux1ir8Kpl3Eo8kRAORFRdeMnw
-	 UHwszq9kCuoSlT9juLOTo8N2vyOlnx+6OwQbDaZSBpisnc4mnUa9NzGhAsOLX1PUWxF9J
-	 k5b9nipbVg16dOSE3LhVKSrF4sQSPp06Io8obpn4QvnndX2/k+woyG11dO1Ddxz3wag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009518;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=zbYI8uP1li72NzJh/wjWDJ72bmhe8G4M88p9Kdrkgp4=;
+	b=YAnH1XWRNZojORSqsjxfMYmEUNBqlfSxDhDL9ck6+O8ljnyp71QW5zriI1IlaolABDce
+	 PGTwPaKIROMCCPVI/1j/H7p3DahkZJ4rp5a+XQ7nd8xXvGuqRR+mzhrWPb7fTI/EUEUmy
+	 CG50ZZIQ/Q4McEKJAOeANqQ0ar3v2lQHAq1/Lyza8cisYi+lGZJPNSdMm1HhUgNWak5Il
+	 foXZX1tllULAzP5WTVCKpLmcVJjWax5cA9bcAcj8XCKodoaEsL5Q+qgkhqpGng6rfc/Q2
+	 vYsBIlS1kFjqHgq6j+Vlc8b+9BV1LAbZyj8GoQzOvgaEpGWpTvwQ3c2SMS5/q0GZv/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=uhCvTWUS;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=fgfiOUBX;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RxwDW1Jg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24ABA60A2602;
-	Wed, 18 Nov 2026 13:45:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24ABA60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C7F1606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:45:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=uhCvTWUS;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=fgfiOUBX
-Date: Wed, 18 Nov 2026 13:45:02 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795009504;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K9jqOFJoo5a08c4c6QWaedBiY3m5I13A6hFf3I1/tbg=;
-	b=uhCvTWUSx59Y5rKzdDp7ymsz4OmsBmeMECOA7/NiNbHMJfSLMUHpsoUm5xhrR+dSVzK+qd
-	UpfMhbL1N8jzpcdFgappHt4WsbTllNiN/1sRw4FNBi39A0Fa3FvINODreygx9yCNmOOCcq
-	agcSXFDI4ZaKbgZp9nNuXcg35sVjt7yDU5lWcJl2Ut/RZLiq1cigjEjzZbs96yHvuRglwb
-	MVHmZvL87lOlaJPMlpbRJIMX1YmkfiiRYSJZywlPFDD9G+bSoUw0+MePmcQlddLsUF2Tst
-	80mOjR+3PDky/cgiR9eySsVfWUhNmcXUgWupRcPq7LEJ2bWd8xhg06ZuflMPXw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795009504;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K9jqOFJoo5a08c4c6QWaedBiY3m5I13A6hFf3I1/tbg=;
-	b=fgfiOUBX7bqwrlSBiYVh/qdo8f2WWMbMloXSTXjNSdvhcH5/tX/eYJX3VW75XrSuhD+WP3
-	wZh5xyNF1BeJLECg==
-From: "tip-bot2 for Shrikanth Hegde" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/core] sched/rt: cpupri_find: Use cpumask_intersects where
- applicable
-Cc: Shrikanth Hegde <sshegde@linux.ibm.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>, x86@kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261111075945.3930230-2-sshegde@linux.ibm.com>
-References: <20261111075945.3930230-2-sshegde@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RxwDW1Jg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 192DB1F000CE
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:45:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795009518;
+	bh=zbYI8uP1li72NzJh/wjWDJ72bmhe8G4M88p9Kdrkgp4=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=RxwDW1JguCDucDNsShayzwrpopd1ZL9Qf2ZCAagnmVvg0zW+stUUkU79tiVnQB/Zo
+	 Pmp7J5O40OKniL5gftISQKy3xeMQgqfUbNtMIYx/OgRyH5+WyU2VySZ2IsBbRbmLyD
+	 Lcv2pp9ib1bXBYNArl1iETwXLKN6wdgElDCYFpz/BMJc+rZuNQ37QytMx+d2WMCe0H
+	 FOrOeLU8pFP47A4NCAla2ZZdXV5MbYDeQMlL1zoWCPwvU6TpWK/+ZlW3NnD/6hU3zj
+	 TjvzFKfPvmXqp86SHZoCLdg9t9YdEaZ5DJG81/QUfM4q8+rzPhOD6DXr9sxVvO3l1m
+	 hi3EWHj5PIRRg==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3acd239776cso10201841fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:45:17 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFBwfUh7ivOfq8P99HU9wfpFnB57AOOQVxuvV8YIfqTF4rdMtjQLNpSqZhcgPzJ7kCdgCe1Xa3Z51LKXIg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+B07nHN18sVpkJkEo2ApXkqV+cLhruNpuPLDLeBiCjHNhwTd4B
+	Wv3wGnkg14zqmIUZj5Q7BCfy+QcxyPgfxETa78wIUrZpD9/Wq5D1mkvSesL3tWQL3kGHxsZL/wk
+	lXQ4CPrASh61inC2DTGUoefhMkpMCayo=
+X-Received: by 2002:a05:651c:b27:b0:3ab:3b73:4560 with SMTP id
+ 38308e7fff4ca-3ae670b2ef1mr8658421fa.11.1795009516447; Wed, 18 Nov 2026
+ 05:45:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,54 +59,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179500950295.3191731.4435852013005415307.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
+References: <20261114-irqchip-cleanup-api-v1-1-4a9d598b0bdb@nxp.com>
+In-Reply-To: <20261114-irqchip-cleanup-api-v1-1-4a9d598b0bdb@nxp.com>
+Reply-To: wens@kernel.org
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 18 Nov 2026 21:45:03 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65uyYnE-sryit44oXBwstxkG7HRtYWip5nyuHeZ034TbQ@mail.gmail.com>
+X-Gm-Features: AclHuK_Ko1utGgb-Cp6pja7wJidoLs_raftCWPKZ3OajYizpg1rSK6L9ElxDv8s
+Message-ID: <CAGb2v65uyYnE-sryit44oXBwstxkG7HRtYWip5nyuHeZ034TbQ@mail.gmail.com>
+Subject: Re: [PATCH] irqchip: Convert chained handlers to guard_chained_irq()
+To: Peng Fan <peng.fan@linux.dev>
+Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Ryan Chen <ryan_chen@aspeedtech.com>, 
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	Tan Siewert <tan.siewert@9elements.com>, Eddie James <eajames@linux.ibm.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Caleb James DeLisle <cjd@cjdns.fr>, 
+	Marc Zyngier <maz@kernel.org>, Miodrag Dinic <miodrag.dinic@mips.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Herve Codina <herve.codina@bootlin.com>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Jiaxun Yang <jiaxun.yang@flygoat.com>, Vladimir Zapolskiy <vz@mleia.com>, 
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel.holland@sifive.com>, 
+	Qin Jian <qinjian@cqplus1.com>, Changhuang Liang <changhuang.liang@starfivetech.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+	Santosh Shilimkar <ssantosh@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+	Michal Simek <michal.simek@amd.com>, Anirudha Sarangi <anirudha.sarangi@amd.com>, 
+	Tushar Nimkar <tushar.nimkar@amd.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org, 
+	linux-aspeed@lists.ozlabs.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-mips@vger.kernel.org, imx@lists.linux.dev, loongarch@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-sunxi@lists.linux.dev, git@amd.com, linux-arm-msm@vger.kernel.org, 
+	Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-The following commit has been merged into the sched/core branch of tip:
+On Sat, Nov 14, 2026 at 11:06=E2=80=AFPM Peng Fan <peng.fan@linux.dev> wrot=
+e:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Use the scope-based guard_chained_irq() helper in all chained handlers
+> under drivers/irqchip/ so that chained_irq_exit() is always invoked when
+> the handler returns. Handlers that duplicated the exit call on an error
+> path or jumped to a common exit label simply return now and rely on the
+> guard.
+>
+> No functional changes.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> With [1] now merged in irq/drivers, convert the chained IRQ handlers in
+> drivers/irqchip/ to use guard_chained_irq(). This removes the explicit
+> chained_irq_exit() calls and the gotos that only existed to reach them,
+> reducing boilerplate.
+>
+> I use a script to do the job, and after that, do mannual checking.
+>
+> No functional changes.
+>
+> [1] https://lore.kernel.org/all/179417458323.2093942.14330197609841896598=
+.tip-bot2@tip-bot2/#t
+> ---
+>  drivers/irqchip/exynos-combiner.c          | 7 ++-----
+>  drivers/irqchip/irq-aclint-sswi.c          | 4 +---
+>  drivers/irqchip/irq-armada-370-xp.c        | 4 +---
+>  drivers/irqchip/irq-aspeed-i2c-ic.c        | 4 +---
+>  drivers/irqchip/irq-aspeed-scu-ic.c        | 8 ++------
+>  drivers/irqchip/irq-ast2700-intc1.c        | 4 +---
+>  drivers/irqchip/irq-ath79-misc.c           | 5 +----
+>  drivers/irqchip/irq-bcm2836.c              | 4 +---
+>  drivers/irqchip/irq-bcm6345-l1.c           | 4 +---
+>  drivers/irqchip/irq-bcm7038-l1.c           | 4 +---
+>  drivers/irqchip/irq-bcm7120-l2.c           | 4 +---
+>  drivers/irqchip/irq-brcmstb-l2.c           | 4 +---
+>  drivers/irqchip/irq-dw-apb-ictl.c          | 4 +---
+>  drivers/irqchip/irq-econet-en751221.c      | 4 +---
+>  drivers/irqchip/irq-gic.c                  | 6 ++----
+>  drivers/irqchip/irq-goldfish-pic.c         | 4 +---
+>  drivers/irqchip/irq-idt3243x.c             | 4 +---
+>  drivers/irqchip/irq-imx-intmux.c           | 4 +---
+>  drivers/irqchip/irq-imx-irqsteer.c         | 7 ++-----
+>  drivers/irqchip/irq-imx-mu-msi.c           | 3 +--
+>  drivers/irqchip/irq-ingenic-tcu.c          | 4 +---
+>  drivers/irqchip/irq-lan966x-oic.c          | 3 +--
+>  drivers/irqchip/irq-loongarch-avec.c       | 4 +---
+>  drivers/irqchip/irq-loongson-eiointc.c     | 4 +---
+>  drivers/irqchip/irq-loongson-htpic.c       | 3 +--
+>  drivers/irqchip/irq-loongson-htvec.c       | 4 +---
+>  drivers/irqchip/irq-loongson-liointc.c     | 4 +---
+>  drivers/irqchip/irq-loongson-pch-lpc.c     | 3 +--
+>  drivers/irqchip/irq-lpc32xx.c              | 4 +---
+>  drivers/irqchip/irq-ls-scfg-msi.c          | 4 +---
+>  drivers/irqchip/irq-ls1x.c                 | 4 +---
+>  drivers/irqchip/irq-mmp.c                  | 7 ++-----
+>  drivers/irqchip/irq-mscc-ocelot.c          | 4 +---
+>  drivers/irqchip/irq-mvebu-pic.c            | 4 +---
+>  drivers/irqchip/irq-mvebu-sei.c            | 4 +---
+>  drivers/irqchip/irq-pruss-intc.c           | 4 +---
+>  drivers/irqchip/irq-realtek-rtl.c          | 7 ++-----
+>  drivers/irqchip/irq-riscv-aplic-direct.c   | 4 +---
+>  drivers/irqchip/irq-riscv-imsic-early.c    | 4 +---
+>  drivers/irqchip/irq-sifive-plic.c          | 8 ++------
+>  drivers/irqchip/irq-sp7021-intc.c          | 4 +---
+>  drivers/irqchip/irq-starfive-jhb100-intc.c | 4 +---
+>  drivers/irqchip/irq-stm32-exti.c           | 4 +---
 
-Commit-ID:     fda7fb5adda6c71be96f5836498d4b207c0811fc
-Gitweb:        https://git.kernel.org/tip/fda7fb5adda6c71be96f5836498d4b207c0=
-811fc
-Author:        Shrikanth Hegde <sshegde@linux.ibm.com>
-AuthorDate:    Wed, 11 Nov 2026 13:29:41 +05:30
-Committer:     Peter Zijlstra <peterz@infradead.org>
-CommitterDate: Wed, 18 Nov 2026 14:32:20 +01:00
+>  drivers/irqchip/irq-sunxi-nmi.c            | 3 +--
 
-sched/rt: cpupri_find: Use cpumask_intersects where applicable
-
-cpumask_any_and returns, usually the first cpu in the intersection
-of the two cpumasks. However, if the returned value is not used or
-only to check it against nr_cpu_ids, that implies whether the two
-cpumask have a bit in common. I.e cpumask_intersects.
-
-cpumask_any_and uses ffs on (addr1[idx] & addr2[idx]) whereas
-cpumask_intersects checks only (addr1[idx] & addr2[idx]).
-
-So replace such occurrences.
-
-Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Link: https://patch.msgid.link/20261111075945.3930230-2-sshegde@linux.ibm.com
----
- kernel/sched/cpupri.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/kernel/sched/cpupri.c b/kernel/sched/cpupri.c
-index 8f2237e..44d67fb 100644
---- a/kernel/sched/cpupri.c
-+++ b/kernel/sched/cpupri.c
-@@ -97,7 +97,7 @@ static inline int __cpupri_find(struct cpupri *cp, struct t=
-ask_struct *p,
- 	if (skip)
- 		return 0;
-=20
--	if (cpumask_any_and(&p->cpus_mask, vec->mask) >=3D nr_cpu_ids)
-+	if (!cpumask_intersects(&p->cpus_mask, vec->mask))
- 		return 0;
-=20
- 	if (lowest_mask) {
+Acked-by: Chen-Yu Tsai <wens@kernel.org> # sunxi-nmi
