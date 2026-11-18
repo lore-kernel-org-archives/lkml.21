@@ -1,73 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007365;
-	b=3r9fMvtLj0hSEFeGmHqqrIS/+qDbKnjEXKIUpCwnYwqAR8jYXXIKgX5LNoDU/3t1L5E8
-	 Ohubn09EjsCvY2psHKiHBPqhCN6SuL50EEURUXEn80DatM5uqtKpWhdfHzepXUsXH9rp5
-	 u0aKyvZWxsH7f0V++Ccvyv0OFVoqf4fAfSeCpJlzn2MaxHQp2qy1/dn1mIBYvN/Km4Xz0
-	 /+zhnISdsL8L8gNEEF8zW3UArXLQtQjAi9iiBr8Vpnz3QbTna9CU7WT9KtVLuca/3T3J3
-	 f++Tn13KsgWJaSAchRWVuhWl9BCzBSYNB16bUrE6WbgkiU/A5ze6htnmkRooP47iSXQ==
+	t=1795007379;
+	b=pIKL+boEtBW1KAioI2Q6jcii88xtX42RTmzduL2bVOzx5I5rvdPZtEAXu/3iXXi/6Jet
+	 qAu5xVJueKqSqzxgtMA4DqSQNNf2RgYPkf8KQRbFAsj4UyJ70M4Nt0jPpzcnVQBMNfYP/
+	 pNUrjhklAkSRSnjSHUUum7R/DrjXH/T8u5AH3eYBhN0WisIwzZ4Ep/HJ9NEHRyJ6YQYei
+	 ZeB44kk5JB0H5GhMk5yGvR2fplYTXC8Zeh9ajcWzT9mrJgEDfctv37uudX6FYQXwfRnF0
+	 EuL0rXbPn1fNvjhktgXUOii+iaUgpJI1zeXGzhjAi5cmjPXk1Nbf9dPZGQakZy6CV/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007365;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-B4-Tracking:X-Change-Id:X-Developer-Key:X-Developer-Signature:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=8XqsJBCy3LgGuVcdZnn1AgUSdezItKIAUZq3HUhg82k=;
-	b=Mr0pShhnRPQGcY0QwYS/rYn7Fv8F/CgRH3/PtKE1Z03izLwZ6sNajtQDsGXdSPc0IsNr
-	 IqPDL5XgRexPxWh43/MDGar6873LRTajisIGVuJ6Zfjg3ZqeTTepYF1nzEQF/jlHktPjN
-	 fH0Ktb0U8LfQI5OxJpGO+OBjDtrc+lIakJVP/JGIEwNjVyT0BdvWsT8UwjujqDaoACoCa
-	 ecgSOA9JOh09brEbB1a0GZ65XEJI83BBb1w+WfxJc6ux6XkMtdbOOz1o03PXo//gh8wJB
-	 oVec1AEvOE6zIuAIz1IZfBd6zZmS9WUJHOLLNcWJjoBtA0NSlyy7gZKwnpw4DWw5vSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007379;
+	h=Received:DKIM-Signature:Date:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version:From:Cc:To:In-Reply-To:References:Message-Id:Subject;
+	bh=Jv7xiOwj7vNDJYc94swhTjLaxDuF+oYg+FR9gK6fY2k=;
+	b=B/vYij58ms++tTqOcbVC8A80gmeee7fjil4lJ/QjLMSQRroEzrScWteNMM3OcDtLgiP2
+	 4h4lncQ3WIaQkf7L+dXtEVcvYVzNDhoSD25Sr1l33t4e8N8v+ZYAGg6216xlRYp6zwa6Q
+	 fNReEMadWq2XogFYoFUFNe2Q/IbIHwdkLNM144jzyG9xGSz67WCtZjwH85/awoQ1pWrJy
+	 9YoPAKVTwvpFwiekcSumwYQQdq73Rs506YU0jHVAME1KI8lg5KZ2fCAadPhaaUXFH3EOJ
+	 4GOpBgGhVl7xXwb08l5t4ZrXdBABWdH8WKUm6MKHK8X7k4zZpOo6K2KMuuCisaaRU7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=K9knS71g;
-	arc=none smtp.remote-ip=209.85.221.70
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UIFRxVfh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A85D9606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:09:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A85D9606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7682E606A320;
+	Wed, 18 Nov 2026 13:09:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=K9knS71g
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-492b5408dedso652461f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:09:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795007362; x=1795612162; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8XqsJBCy3LgGuVcdZnn1AgUSdezItKIAUZq3HUhg82k=;
-        b=K9knS71gIAMXGfb8HE8EJWYhyVAhycTbcfYajWQwdg6DmdmPgzWVtheCHAnYwEN/fJ
-         ZBAmBiiXVUL6tEMefslp99r8WkRBzck0YGDt1A/6QYtubtdvA0D6zmx2emnrJwkePzpO
-         phE3mXSa/5CoCTv1fgT2XkwUOPVU7gKnCJXCjejIz71bWAA3TxLdH6TXlfz4GOUz1B7c
-         toxcFCGIV+7kGA4QEan0eYLBQmyv7H19CuiEMhjeJ7CWNlXw77DVji0+kP3/e2zKOLQr
-         iAJ4RCVJ7vWyGNcDqDBzoHu7OVKRArjieVdBAlRxqGe0ec2wKuA5IeCG+6hSDgs5CX/r
-         Y/xQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795007362; x=1795612162;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8XqsJBCy3LgGuVcdZnn1AgUSdezItKIAUZq3HUhg82k=;
-        b=1m6gAVgrgCI3DapKDXF673Isapho2cUuYqHYvVEP4+ZHPLwTchXTS39BPUbme7F8yJ
-         OFLT+fZa6Z7ylUow2Po8Auudi4LpBBbU+0vIhaY5RAEha0f8uzFFJGqru0AND171bSb1
-         Z2AvP430o2wIubYTM0/NChTEWNEVaypnfhuSFa+iWtB83E87xhP+r2tuGVfZX4SJzrIg
-         ruSg5ATK/bLNc831G60ZnKlBBdnTXu9eEgmQNyV/1MP+/LVMJTHsFYCKfG+JFa4IMNqt
-         sYUSFYwkMi+P1yLCxJqeKPvbS8LMib4ZKBrPVKZuDWC9kL7tijAiMPgAJUdo8OIDD8qq
-         leug==
-X-Forwarded-Encrypted: i=1; AL+hErGUGi8ibF94qrNDaxKoK9QFO9KCEQBH8PehKNiEDwuSQFtZiH09iDn5tQRlSIeZMik7dRMw8cusLzYdSsQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DSVOyrLN0VfT6fXacyrs7yTw6sYyuh6+Nnw9Rerhu6bBEtaNd
-	bPSv1UBEW4dNQHy/SrLHi4yxupjVy4/1vsPtABE8ktFrBHMxj/uFXmOC8ow723lnOZZHrp8CAm/
-	ZO5Agj43KzQ7/oNuHVQ==
-X-Received: from wmcq6.prod.google.com ([2002:a05:600c:c106:b0:4a1:b721:2a42])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:8b8a:b0:4bb:6687:5394 with SMTP id 5b1f17b1804b1-4bb7da13abemr52303665e9.9.1795007361512;
- Wed, 18 Nov 2026 05:09:21 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:09:18 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UIFRxVfh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B17311F000C4;
+	Wed, 18 Nov 2026 13:09:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795007379;
+	bh=Jv7xiOwj7vNDJYc94swhTjLaxDuF+oYg+FR9gK6fY2k=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=UIFRxVfhZOBpR58i+xWgwvJgi6ckSkf4VwBHNoJ3oGbBDCcSsuXkCOfPMo4zrzi3e
+	 BfE+/OETp17fb1q6nTdCw8/NFY9jPBp5etRRCTPBfhPM5lgZI5otxcQtzM1TOLy0rq
+	 FgZF5Zul7iQw3weqflU0XlPuIrhdbodrWdIBEJ5dT2wuTjUlHDYsGThmQOtlkG7RNh
+	 csA/Fd/GsKvMRZ2QK8cLgpNzMUKxDVTxZZXrgrSXr5afa6TpDblOzW+G3nuflrU0HK
+	 J/V8m8RCEbki+pCvMVlkUPH7RGxR4eBYXnsw8N6RhaToUrfDdkOYA3wy9AzVDxma7c
+	 jUGaDT3OmqMuA==
+Date: Wed, 18 Nov 2026 07:09:36 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,93 +50,67 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAH2j/WoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0Nz3aLS4hLd3NQioExaaV5yCVB9sa5lcnJSsoGpoVlKmqkSUGtBUWp aZgXY2OjY2loAQj74VGYAAAA=
-X-Change-Id: 20261117-rust-merge-functions-9ccbc0516df5
-X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2098; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=tVfSyhjcztmSSxfmenaNsWCKesbHq9usuWxfMF/g4mA=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/aOAN7wTksfRJhYvTT7pqJDf338iJai21scbg
- 0vUYym7VCWJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCav2jgAAKCRAEWL7uWMY5
- RlzaD/91J+a8g8dl/Kov07Q3+d3A1sHPlOTB0kLyl3AX27lULux87Km19pgAMPxxJNKxEQ5J4vv
- XGKJqC+UOAo9dMl2o29NCqagkTejsVLitDYxUL5o7uTvMeqqT+iQlAf9r6Qrdb2Ycw8ElgYkRo2
- T2g8FFeZ/vieOEtEHM83c5P4IIvzZW2zSgGjqo6P8w5az+m5/MKxeQvRFsH+hL1H6CNN2E34agf
- /FyrgFdn02PbRTK0Ec0ZaAD/m5F+zTjKvndBMxK/ghN9ptnt2uT4eeOoLt9aLBSr2q9PKLbWWuZ
- Q4BxuEJUC1rG9FbMHhpbpRyn3NPcpZQMlus5eD8VfyBm5udnLb2y0WqoQfRB6CT15UQGfHjZgt3
- ypLAFsmtpWpKbFE6tE6QGwkNKVr6yYHjPojXZdccwCc7VkcKES5eqHzAdslkXNrphBB2Q8Npiak
- hp5isyKL+UE49dnz9bYz++A2jts662hku2eAcU+IcIQY7KhEHOniA2yfdxmonm+p+U/eDLwuLb0
- OJjm9z1jelpQhg7aAiams/2FLFAM7ani7LFCX9Sb5nMcxxY5VEpktsFcBIF3ja30ZysHON0/OMa
- ZFDLJapU9iirToguu9KJ3eUizTI7W4jB973AsTBKQp2tF6ojmbnnbzfdAD+Y2OAVVZfZXAP+qUO jVVTivH5vuaRU9A==
-X-Mailer: b4 0.14.3
-Message-ID: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
-Subject: [PATCH] kbuild: rust: disable function merging unconditionally
-From: Alice Ryhl <aliceryhl@google.com>
-To: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	"=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Matthew Maurer <mmaurer@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev, 
-	Alice Ryhl <aliceryhl@google.com>
-Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, linux-pm@vger.kernel.org, 
+ Chanwoo Choi <cw00.choi@samsung.com>, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com, Heiko Stuebner <heiko@sntech.de>, 
+ devicetree@vger.kernel.org, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-rockchip@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+In-Reply-To: <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-1-32ff1546b0e4@collabora.com>
+References: <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-0-32ff1546b0e4@collabora.com>
+ <20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-1-32ff1546b0e4@collabora.com>
+Message-Id: <179500707079.165885.1994428844573235279.robh@kernel.org>
+Subject: Re: [PATCH v3 1/9] dt-bindings: devfreq: event: rockchip,dfi: add
+ clocks to rk3588
 
-Function merging causes various different issues:
 
-* For CONFIG_CFI there's an LLVM bug causing functions with different
-  CFI hashes to get merged. This can lead to crashes at runtime.
-* For gendwarfksyms it causes functions with different CRCs to get
-  merged. This leads to broken MODVERSIONS information if the function
-  changes in the future so that it can no longer be merged.
-* Wrong backtraces when a crash occurs in a merged function.
-* Possibly also issues with pahole/BTF as the merged function's debug
-  info is lost.
+On Tue, 17 Nov 2026 16:35:37 +0100, Sebastian Reichel wrote:
+> From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> RK3588's DFI has pclks for each channel. They just weren't noticed as
+> missing until now because nothing ever gates them, and they're ungated
+> by default on power-on.
+> 
+> The RK3399 clock situation needs no changes, as there the hardware
+> really just has one monitoring unit for both channels.
+> 
+> Add these clocks to the binding, so that drivers for this device can
+> properly know about their existence.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> ---
+>  .../bindings/devfreq/event/rockchip,dfi.yaml       | 84 ++++++++++++++++++----
+>  1 file changed, 72 insertions(+), 12 deletions(-)
+> 
 
-These issues are new to Rust because in clang, function merging is off
-by default, so these things have never come up before. Because of this,
-turn this option off for all configurations.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Link: https://lore.kernel.org/all/avy_9SPRaPSKD8b4@google.com/
-Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for CONFIG_MODVERSIONS")
-Signed-off-by: Alice Ryhl <aliceryhl@google.com>
----
- Makefile | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+yamllint warnings/errors:
 
-diff --git a/Makefile b/Makefile
-index 5aac6f1b011e..17b7ac3afbc4 100644
---- a/Makefile
-+++ b/Makefile
-@@ -622,6 +622,7 @@ KBUILD_RUSTFLAGS := $(rust_common_flags) \
- 		    -Csymbol-mangling-version=v0 \
- 		    -Crelocation-model=static \
- 		    -Zfunction-sections=n \
-+		    -Zmerge-functions=disabled \
- 		    -Wclippy::float_arithmetic
- KBUILD_RUSTFLAGS_OPTION_CHKS :=
- 
-@@ -1136,8 +1137,7 @@ endif
- ifdef CONFIG_RUST
- 	# Always pass -Zsanitizer-cfi-normalize-integers as CONFIG_RUST selects
- 	# CONFIG_CFI_ICALL_NORMALIZE_INTEGERS.
--	# Disable function merging as LLVM incorrectly merges functions with different KCFI types.
--	RUSTC_FLAGS_CFI   := -Zsanitizer=kcfi -Zsanitizer-cfi-normalize-integers -Zmerge-functions=disabled
-+	RUSTC_FLAGS_CFI   := -Zsanitizer=kcfi -Zsanitizer-cfi-normalize-integers
- 	KBUILD_RUSTFLAGS += $(RUSTC_FLAGS_CFI)
- 	export RUSTC_FLAGS_CFI
- endif
+dtschema/dtc warnings/errors:
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/devfreq/event/rockchip,dfi.yaml: properties:clock-names: {"required":["maxItems"]} is not allowed for {"minItems":1,"maxItems":4,"items":[{"enum":["pclk_ddr_mon","pclk_ddr_mon_ch0"]},{"const":"pclk_ddr_mon_ch1"},{"const":"pclk_ddr_mon_ch2"},{"const":"pclk_ddr_mon_ch3"}]}
 
----
-base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
-change-id: 20261117-rust-merge-functions-9ccbc0516df5
+doc reference errors (make refcheckdocs):
 
-Best regards,
--- 
-Alice Ryhl <aliceryhl@google.com>
+See https://patchwork.kernel.org/project/devicetree/patch/20261117-rockchip-dfi-rk3588-cleanups-and-rk3576-support-v3-1-32ff1546b0e4@collabora.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
