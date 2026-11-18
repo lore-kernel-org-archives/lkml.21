@@ -1,55 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035175;
-	b=kEnyD6iAAAf4sXeNO7GKUha9gZQoDrw70utURm1mGyuq6HVc0UFQBkYNsHvH70SBsWcJ
-	 fRD4h01RagCjfNudkPG4EVUvhgMo5LewFicyt698HwY3PKHlVWKGAW8PVU8UePimoDbGn
-	 4AKjeHlUmIaMU1Z5RAvRT4YE8L32eXOFwkuKedSghsA0MZCqbFSfWgLrXLZJk2oQ+TJMo
-	 Y1oU1APCLYASJmFgbWtsWFCOxCPMwVJlDsMX5hqHln5VKvOaFh+qXPTFo1gbjW2/FMv8I
-	 iHMP/bGTKbTKMV+6/vR+eA6/kxxVglHE03GYLd3ShDl+dXi7bhMP3TLp3XiY5XKfCgg==
+	t=1795035171;
+	b=tYzcLFqhgA14NiM5SF7U2uxHhJWp7U3iscAMflQ5twPgF8NYLGYKjy+BxTtA68h5Ka/G
+	 X3T3bma+u7zMVujLXOvDwplbWuhYKLhnGvmiFSlJwQH0rkc7mDpl+I2D2NnrDuxiLfkFq
+	 GQQM8un3CgZU0/U93BEBNxfi8SmUf7VdzP+HTtSyayv2yr5QD13XHenxd7PTVijHBYleQ
+	 MIzkGYiJ9AtGXgqsmBktQz8GSDSEMrwNAmyBp+58kDQx26Hzii3Jb8nZCUqyHAW8wK8CX
+	 Jau6ofcpWE3pmJTMplYEYydM0c5V0L4mb/+mrM8E+Pgbuno7pziN2yuh7qsTRfLVI/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035175;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=yhKCHOzNyTpfTfx7SAd3IcKFHof/Jwv+3/T1yvn88u4=;
-	b=dmZIXWjWgMnKD9z9Ltn5oRQfFmThRaBSHnNsk4QWKUnYPEhV5KqJHhityUTcYii+uKQa
-	 KfVkDVjD+ExLmXLZgP3m+CJO4Y+yCsWFGEY5zd4QMmGFBlWN/r2t1o8PhVtaiRpQgM86t
-	 RhF66l49Nici9vOevqcgq0qQKtD1wBnQ5+g5axJU3bxZVYP/TPBew50jlsCNn7UcnAA4h
-	 8Z7vaIi3CckVR9gLJLpfSIz3z84cBA02ByKBSagPdSv3V/0tcXlLEXueIqsj7IpXdrm4B
-	 ZdJJQ9Dkx6PefubQmJxZBzABf3dpw27Yp9lnSFKq0gWigzX9t1I2t0gQDWQVCTCZsyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035171;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=a5MhG98OmxdXqTOc5Xluyx99XKwhYZJ2KKliQ9c2OkM=;
+	b=P0ee3RkGqa03VofJ+E9v5BOfYgYHHP3uVTYvDFWR2sjyxDtoTRWepPNBEiTs11I19rqF
+	 o7i6ZmHW8ySyvDN1J1/fcuACP8yRU/g4KGpGoEbI/+/TZC3nf+xl+jboK2WkT18qMdqFp
+	 v2JdGZvfPAGR3wf86+YfCQj2NpV4wYgeZ2W8UHYRjpA/vaB0a8xPkBm3DbtsPeYcajkIl
+	 g5ouSOs2MqvDEX7drbge2094KzRk1z/n7ZQg1GDaxpk57hx9yrc2F7ElIHLWR+2InRROB
+	 mVMPbPhu6azFklfky8EP+IAzOe8N71+kd5qk+uxjfYVl+R//tEVU3xbZp5FuDJ8Oahw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=D9QUesAP;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jlxGHW+k;
+	arc=none smtp.remote-ip=209.85.218.44
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 643E0606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:52:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 643E0606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AE0E606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:52:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AE0E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=D9QUesAP
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 6867BC4F76D;
-	Wed, 18 Nov 2026 20:52:58 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5092C5FE9B;
-	Wed, 18 Nov 2026 20:52:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 415D111BC308E;
-	Wed, 18 Nov 2026 21:52:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795035167; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=yhKCHOzNyTpfTfx7SAd3IcKFHof/Jwv+3/T1yvn88u4=;
-	b=D9QUesAPwYl9H7mE2wYqrqrYPZp9eltcYzDlZ0aktBrXsJgb9IbDuBmzzLY+MbGCcF/rg9
-	MNZRrm8JgctksVYhj4mbfrsRjooUJUGO7DFTvCVp4VsQDzC5+2ZSBjae023fKiv6Kidcjh
-	QQIW2LdexlOFXaAaJ38DEu1/GeamqgpU485nD0dX88CldCKcWcGg0kLhJDT0+VbIILAMEI
-	v6UvrLnf+CwxjDDR3OH2zeM8TOJf0mMY8Ov6Lq/l34WomcMPB2YRKlnqhd06/ABVHnJGJI
-	a/+g8Rnhhy27Pkt/cUYQJxY5mO/fEduyeRf1vFCM08kebTNIrR06jAoyGfgRfQ==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jlxGHW+k
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c4395d31228so232736266b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:52:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795035169; x=1795639969; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=a5MhG98OmxdXqTOc5Xluyx99XKwhYZJ2KKliQ9c2OkM=;
+        b=jlxGHW+kRyHFaEMpeXR4BNALXPsNplbIhzII6rNliHUbcX6NmABOnQ8XTqgppKQz/0
+         jnpx4OD9SPT6Kr4gK+6e7zltezYlXyxXT2NfU5Odo31hxeQDHI1/oRoHWTSOtpxIboeQ
+         FH3N84C6KLj2Igb3KbWBC2z49+iRGJvp0vB6BJ0/VWt5XCdgR97RAz5PXJN+PoywAORY
+         xte54o9ByrMsQ2uilazjjngyPJdALuFEoOaJiHVqDv/lnXYuJF66BDqjNusCCR1GMXJe
+         eOgd9Vlih01Qr/4o+siFo0v2a4oF4APKzmmYHrhLbqFeAgDBI043ZSqUkY6x4nruS+yR
+         J75w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795035169; x=1795639969;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=a5MhG98OmxdXqTOc5Xluyx99XKwhYZJ2KKliQ9c2OkM=;
+        b=Mvfuv2/5Q5es3BwnkpvK5RV9/k7wa6UDf3B4iEtcB9u8mqgmepOkAlTGkhzK1OAoM/
+         GueVaTovZiP8UboNFZSNaIC+nFUfH3vgGuzGyjKXgAwost//Zn7QttcQw1MJQhS78mNn
+         HoF0KWPeAIENFCJJIdHU5Ux1biyfbcgJiKxjNYGHyxhI7mBUiodyiZBBIcDx4PjyXtOk
+         GPbnAJv82XEJb494YZhZR3fgqpIOinP/cP+iSEDry47mQ7wBTVBIZZCQFLApm2Xcsgkw
+         Wo1m6rpSxiL6Tt9a/y39PVzyyo7426PH24uRhu1pUSx4k6E92xqbi+SxmA76woFpgOKY
+         4YFA==
+X-Forwarded-Encrypted: i=1; AL+hErF6N88/lgZZMMGZVHbS1njm+MSYh/9ztv2eh21zMKq1EULcLkjpbLdKZR/NhvIb1RuDAyE8b0xIlsCOALM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+F7pCLCOxadugUYavU22jMdu5tW6eXsrSfyhXc0aS420lLbxxo
+	/EZ638Ee3Nc9SQWWsLTnYwBMmEctx7DhdkbJkWBqvhV2fsXFh/ABiAnu
+X-Gm-Gg: AYBFou3y5EPsxtfLrykZ7D356j0GcN5pQyKdghORvEWmu/nzmM1lzPPavpOBogOnxns
+	6c23pvOycW7B7vRuMGuz9JwHwQ+bRqFGbEO5lnvbti+Z0Lr1g356ErQ1WgnwxmcZI4w4ejXAch/
+	ofXiPBlgTVaEXHbg8KlJ+JTAh6FFzq2Bf9SN84aPGoWhvzZ6Iha2yOzXBq3NwekYckX/JZ9dns3
+	VxMqQGYmqFmAIoTJAI3RdXWgTKIr4LVWg9f0ASl89vvKp8MRAfMaC3KJ4Vvt3PquYuCiKfBKnC8
+	SJhH1TLpPIZhRN0Y0ez3/0a3apdc0icwT6TRM1Ek52pPlKet4A8kWzwWzUNf7zx8M2XSxTGutbK
+	6GbZVWZKiXKzDuGh/QaucXbps8QE+FpAM4RRZgX3tIR5USsK4GrqA9zWQpwXFf/aykbsPkeZN8j
+	KL+2KC52h5kz1v/py3klVKJ65JcOgerHXTb4lpHm1q7w0/tFtJ21q+ohi+Vk3rtJcIqyHPfWwyN
+	lPcY9sLnisSZdem9HiTegbVu/D00jQn42aUeS1FfL1pHLcVlJQc9+sVMAYtJzqyfM1/v8qpuzU1
+	KX0qZWe2h+TzQH7C32tKp+UmK9wABQabW9X7EnTkCc6szeUYhJ/Gu6d2kz+e6ts3D793Dpw8t00
+	RFZJUwCs=
+X-Received: by 2002:a17:907:1ca6:b0:c50:ac4e:3770 with SMTP id a640c23a62f3a-c510e516a2dmr391250066b.34.1795035168876;
+        Wed, 18 Nov 2026 12:52:48 -0800 (PST)
+Received: from antoniarch (84-40-238-230.cgnat.inetia.pl. [84.40.238.230])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5123421612sm35303166b.41.2026.11.18.12.52.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 12:52:48 -0800 (PST)
+From: Antoni Pokusinski <apokusinski01@gmail.com>
+To: vigneshr@ti.com,
+	andi.shyti@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	aaro.koskinen@iki.fi,
+	andreas@kemnade.info,
+	khilman@baylibre.com,
+	rogerq@kernel.org,
+	tony@atomide.com,
+	jmkrzyszt@gmail.com,
+	sumit.semwal@linaro.org,
+	christian.koenig@amd.com,
+	phasta@kernel.org
+Cc: linux-omap@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	Antoni Pokusinski <apokusinski01@gmail.com>
+Subject: [PATCH v2 0/4] i2c: omap: add support for DMA
+Date: Wed, 18 Nov 2026 21:52:03 +0100
+Message-ID: <20261118205213.88778-1-apokusinski01@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,189 +113,42 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 21:52:43 +0100
-Message-Id: <DMYMUY659YDR.2FPDXVGJWJAU6@bootlin.com>
-Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
- <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
- <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
- <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
- <thomas.petazzoni@bootlin.com>
-To: <netdev-bot+sashiko@kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next v6 2/2] net: macb: distribute evenly Tx SRAM
- segments
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261113-macb-set-channels-v6-2-5de59d9e7f02@bootlin.com>
- <179494461057.3136.14140856412630551606@kernel.org>
-In-Reply-To: <179494461057.3136.14140856412630551606@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hello netdev-bot+sashiko,
+Hello,
+This patchset introduces support for the TX & RX DMA transfers in the
+am335x/omap I2C controller. I tested this implementation on AM335x 
+(Beaglebone Black) and things seem to work fine.
+Also, I noticed some unused arguments in the receive/transmit_data()
+functions, so I added a small cleanup patch.
 
-On Tue Nov 17, 2026 at 8:43 PM CET,  wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [High] The commit message says TXQSEGALLOC must be re-applied "if/when
->   number of active queues is modified", but the patch only programs it=E2=
-=80=A6
-> - [Medium] gem_sram_distribute_segments() can build a TXQSEGALLOC value
->   whose total segment count is larger than the num_segments that=E2=80=A6
->
-> --
->
-> net: macb: distribute evenly Tx SRAM segments
->
-> This patch programs the GEM TXQSEGALLOC register from macb_init_hw(). It
-> spreads the Tx SRAM segments advertised in DCFG6 across the active
-> queues, with each queue's share encoded as a power of two. The new
-> MACB_CAPS_TXQSEGALLOC capability is enabled for ZynqMP, Versal and EyeQ5.
->
->> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
-rnet/cadence/macb_main.c
->> index e7325af4b399c..dc1624815f71e 100644
->> --- a/drivers/net/ethernet/cadence/macb_main.c
->> +++ b/drivers/net/ethernet/cadence/macb_main.c
->> @@ -3432,6 +3432,63 @@ static void macb_context_swap_end(struct macb *bp=
-,
->
-> [ ... ]
->
->> +static u32 gem_sram_distribute_segments(unsigned int num_queues,
->> +					unsigned int num_segments)
->> +{
->
-> [ ... ]
->
->> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
->> +	if (num_queues >=3D num_segments)
->> +		return 0;
->
-> [ ... ]
->
->> +	for (i =3D 0; i < num_advantaged_queues; i++)
->> +		val |=3D field_prep(GEM_TXQSEGALLOC_MASK(i), pow + 1);
->> +	for (i =3D num_advantaged_queues; i < num_queues; i++)
->> +		val |=3D field_prep(GEM_TXQSEGALLOC_MASK(i), pow);
->> +
->> +	return val;
->> +}
->
-> [Severity: Medium]
-> Can the value built by gem_sram_distribute_segments() add up to more
-> segments than the num_segments read from DCFG6?
->
-> A field value of 0 still means 2^0 =3D 1 segment. There seem to be two wa=
-ys
-> to over-allocate.
->
-> First, when num_queues > num_segments, the early return gives every
-> active queue 1 segment. The comment above uses num_queues=3D4 and
-> num_segments=3D2 as an example, which claims 4 segments out of 2.
->
-> Second, the loops only fill fields for i < num_queues. macb_init_hw()
-> passes bp->ctx->num_queues, not the hardware queue count. The fields for
-> hardware queues from ctx->num_queues up to bp->max_num_queues stay at 0.
-> Each of those still claims 1 segment, on top of an active split that
-> already uses every segment. With 4 hardware queues and 16 segments:
->
->   num_queues=3D2: 8 + 8 + 1 + 1 =3D 18
->   num_queues=3D3: 8 + 4 + 4 + 1 =3D 17
->
-> On Versal and EyeQ5 (MACB_CAPS_QUEUE_DISABLE), this happens after
-> ethtool -L while the interface is down, followed by an open. The reset
-> value is an even split over all hardware queues, so it adds up to the
-> available segments.
->
-> If the GEM requires the total to stay within the DCFG6 count, could this
-> give queues overlapping or out-of-range Tx SRAM regions?
+Kind regards,
+Antoni Pokusinski
+---
+Changes since v1:
+* new patch "i2c: omap: remove unused is_rdr and is_xdr ..."
+* probe: added `goto err_dma_free` instead of `return`
+         in the case of failed `i2c_add_numbered_adapter()`
+* changes in XRDY/RRDY, XDR/RDR interrupts management:
+  - init: do not enable the above-mentioned intrerupts
+  - xfer_msg: enable the interrupts before any non-DMA transfer
+  - xfer_msg: disable the interrupts after any non-DMA transfer
+* xfer_msg: added checks on `omap->cmd_err` to catch
+            NACK or AL error occured during DMA transfers
+* general: moved scheme-related macros to the top of the file
 
-The manual mentions explicitly that only active queues are taken into
-account. This means writing 0 in the field for a disabled queue won't
-allocate (1<<0) segments for it. Added a paragraph in the commit
-message.
+Antoni Pokusinski (4):
+  dt-bindings: i2c: ti,omap4-i2c: Add DMA properties
+  ARM: dts: am33xx-l4: Add missing DMAs for I2C controllers
+  i2c: omap: remove unused is_rdr and is_xdr function arguments
+  i2c: omap: add DMA support
 
-As for the `num_queues > num_segments` case, there is nothing better to
-do than to allocate one segment per queue, which is what we already do.
-We won't add code to handle that unreachable edge case. If it happens,
-edit your verilog!
+ .../devicetree/bindings/i2c/ti,omap4-i2c.yaml |  12 +
+ arch/arm/boot/dts/ti/omap/am33xx-l4.dtsi      |   4 +
+ drivers/i2c/busses/i2c-omap.c                 | 363 ++++++++++++++++--
+ 3 files changed, 350 insertions(+), 29 deletions(-)
 
->
->> @@ -3465,6 +3522,20 @@ static void macb_init_hw(struct macb *bp)
->>  	if (bp->caps & MACB_CAPS_JUMBO)
->>  		bp->rx_frm_len_mask =3D MACB_RX_JFRMLEN_MASK;
->> =20
->> +	/* Distribute Tx SRAM segments evenly based on active number of queues=
-.
->> +	 * TXQSEGALLOC is only documented for some GEM integrations.
->> +	 */
->> +	if (bp->caps & MACB_CAPS_TXQSEGALLOC) {
->> +		unsigned int num_segments;
->> +		u32 val;
->> +
->> +		num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE,
->> +					       gem_readl(bp, DCFG6));
->> +		val =3D gem_sram_distribute_segments(bp->ctx->num_queues,
->> +						   num_segments);
->> +		gem_writel(bp, TXQSEGALLOC_LOWER, val);
->> +	}
->
-> [Severity: High]
-> The commit message says the distribution needs care "if/when number of
-> active queues is modified". Is that case covered when the queue count
-> changes on a running interface?
->
-> Only macb_open() and the resume path call macb_init_hw(). Running
-> ethtool -L ethX combined N while the interface is up goes through:
->
-> macb_set_channels()
->   macb_context_swap_start()
->   macb_context_swap_end(bp, new_ctx)
->     macb_init_buffers()
->     macb_configure_dma()
->
-> macb_context_swap_end() installs a context with the new num_queues and
-> turns RE/TE back on. Nothing on this path rewrites GEM_TXQSEGALLOC_LOWER.
-> The Tx SRAM split stays sized for the old queue count until the next
-> down/up or suspend/resume.
->
-> Two examples:
->
-> Open with 1 queue. q0 gets 8 segments and the other fields stay at 0
-> (1 segment each). If the interface then grows to N queues while up, each
-> new queue runs with a single segment while TXPBMS is set in DMACFG.
->
-> Going from 2 queues to 1 while up leaves half of the SRAM assigned to
-> the disabled queue.
->
-> Versal and EyeQ5 set both MACB_CAPS_QUEUE_DISABLE and
-> MACB_CAPS_TXQSEGALLOC, so this path is reachable there.
->
-> Could the write be moved into a helper and also called from
-> macb_context_swap_end() under bp->lock, next to macb_configure_dma()?
-
-Mentioned by Nicolai as well. The fix is to make our distribute function
-standalone and call it once from open and once from context swap end.
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+2.56.1
 
