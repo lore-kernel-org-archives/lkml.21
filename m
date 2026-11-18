@@ -1,49 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021457;
-	b=j7k5JKgB7p40KfuZFrQfpd/qDOa6Q6mvMa95aDZ/9MXRQKGLFulDoyqRd+Ia5L/pxxgu
-	 N9xvrYQZ1T2nbZ7JOMAxs/UL3aPgOsA6IuVtu7vCevIKGZVje7J0xHaARg9CF0lQEayJd
-	 uI924K9xnv4pfWtm6Nldm7U8Qexa+ot032Boao6IsHv+Jo6Q25ClGg2itcMPCdAmwHxLv
-	 5xOuS6EBMZrDQqxpyJdgwl0NoYuPLx4EnqekU2lSYuTRRlQcKVj1vg1BvfzLd423/0C+Y
-	 evdEeKtKcxuS7pfHnJWQlWH9IDyu8XoyfTbQmRLp6Q6tGkBKEwY9XHUv233fDsrGbdQ==
+	t=1795021461;
+	b=cz2P0/Txlf2GfPtGl39+CsdCpR4Z6oo4XZwVS+jhUiDcvkbeAe0y5bMFiHxXTAiPoc5f
+	 chr88ewhMcfy96KoAOcRvX4mNgHNlqZCqlgH5Fii7ZdPHNBJFsOQ04soikUMp9AKzN/oI
+	 hBbrGmS6J8je+BvFWMVp3amTCq7y9jrIsdVBPaP+86k4bIpNKC6mZRMXIJtrUL1FA4ZJs
+	 Jct7qUD5w4UjvI+xb0GZAlMzk5J01Hpu5Hw+0yYAXkAPwk7A3nVEV4il6hXjBWdmToGqy
+	 FKMnggfz2bVDFq9fRNu3mmT6/hRW49/xYgqWHoIeBOI6yUBGkSkY0fQXWcz17Uhd0zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021457;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=nqa+nFQZC5Ig4zRO5uaG7pBGb9F4eWw8/n9HDHKsVu8=;
-	b=L8QiF6SPNPn0YlydryE/guF5JACteMYlkLBVjAyi0FuIJb8uVW0vXy0kO5eZ1xhDagop
-	 MMaXfqQWokyfmmDOB3kVLCwgrkBp7Aqm9YIr7qEvxEuBdHoGMb5GhnZaAVnPRyaDwkD7q
-	 nWgzGRy+rZGxwhweAmtyaW+d5Ed0SzrL6vlNQskpH0kHVwDaxP3QERjm2T4pnv7wg0tcu
-	 Be1Xxw980w69nukIBtvVmt2GyauB3moBjcXcUdWH18yGCiiJPm+X8ezAGHUDQGlE6BAfq
-	 YsdoEgh9lEpOWMpeOUeBYF42ZRiTXv9qMrs8cl1Ba0vwki2QKJw4JBmyaJXicYOuaag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021461;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=Hn/h1bRzbBm5D3N53UiS46oHXc8DeYJZVEs6ylWsGuM=;
+	b=ZkIwi4PkGGKU/smnwiVCfRiVsfFtnTcGRPGUoV2vT0brBOH/YHsSrvlBMLsbDiNXrTf1
+	 mOr2rMCWU9mRxX29MWt9rn41fs42e5M2PR32VqKfCyVVrYDMB1Rks/exvy18OwByRiaSB
+	 cWDwUoINMrHikiq7vRboVQakmv+Umlbkmh8/+c36TneG0w7zeR2QR4UHqq46vriRWk3N3
+	 /gQSERmRmIpbo2gKck+n1joTeqE5ieAG2PhZG2m/fuoJzYHskRnmD1Z1kUSR4R7uw+rY6
+	 EEceZHyOXrPUBTWuwriqA/Yvtn8fVfS+a8ukcY1yQFPXWHkwCtfKUao8n7NwRAJ0bhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=exJ4ph+D;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 224B560A2612;
-	Wed, 18 Nov 2026 17:04:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 224B560A2612
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gRdhtVPR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A20DA60A3811;
+	Wed, 18 Nov 2026 17:04:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=exJ4ph+D
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 857D01477;
-	Wed, 18 Nov 2026 09:04:13 -0800 (PST)
-Received: from [10.57.62.206] (unknown [10.57.62.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0B0093F632;
-	Wed, 18 Nov 2026 09:04:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795021456; bh=I2MvshInrGGMMQbQbyG1/Vaqm9Vs7/yev/tVH+ZkcRw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=exJ4ph+DI9p6YDddw/RbEaCWCdBiESakD24KDZaQ9BBVT5dMmLGeq0fitTFmMPs2F
-	 YoJjhaCe+bldPIcJxHpqXATiIEHCRSVXyL092X7TKi/C/oYh8mvYTHEw8h8PUmqSNF
-	 Mk8VyCfh1DGh8TNeIvdNpnHRUslG0h5hp2BhC6RA=
-Message-ID: <8b90d6fc-8ddb-4173-9d05-3c8977b4ed5d@arm.com>
-Date: Wed, 18 Nov 2026 17:04:11 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gRdhtVPR
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B9B401F000C6;
+	Wed, 18 Nov 2026 17:04:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795021461;
+	bh=Hn/h1bRzbBm5D3N53UiS46oHXc8DeYJZVEs6ylWsGuM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gRdhtVPRVGpWi7iegmc9niJiev9/dezHn8c46qqykKLiB9HRwZZzGoHpH1vyXv2KW
+	 WFMn4B83h6Gbp8NrCYOounPjZeu44Vsk90yF7oCuvfSeoxCz+waTCkalOLGF+SWHWW
+	 PiZ/vuDcyF2asBN+6a0Zoq9n6AenEf1JpvjbIDqdtDcITPLZ0ntxQARKal2cwpCd8M
+	 uWfRzMzyXcBAErCbYnj7156qfhH4uPAv5yDtMjXycJxYWAAtl2wkCzmORf+I4Fb1v0
+	 F9yGOFTnVyWDiF1irHNxmq0Znq85hxojQ1sH1hokHi8fYRnupxH1MmQt6M7ItYPqb6
+	 g0SKocHpDEQ/w==
+Date: Wed, 18 Nov 2026 19:04:17 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Andy Lutomirski <luto@amacapital.net>
+Cc: josef@toxicpanda.com, linux-fsdevel@vger.kernel.org,
+	linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	John Johansen <john.johansen@canonical.com>,
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+Message-ID: <av3akYFOYaeQZauZ@kernel.org>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
+ <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,60 +90,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 10/11] KVM: arm64: Dispatch stage-2 destruction by VM
- flavor
-To: Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-11-steven.price@arm.com>
- <CA+EHjTy-0k08Ukyo+4mmzqVn9UjRnvhy=BQT9kxSj7CBzzwO_Q@mail.gmail.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CA+EHjTy-0k08Ukyo+4mmzqVn9UjRnvhy=BQT9kxSj7CBzzwO_Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
 
-On 17/11/2026 15:02, Fuad Tabba wrote:
-> Hi Steven,
+On Wed, Nov 18, 2026 at 08:59:39AM -0800, Andy Lutomirski wrote:
+> On Tue, Nov 17, 2026 at 3:14 PM Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> >
+> > OVERVIEW
+> > ========
+> >
+> > A root namespace (rootns) is a kernel object backed by a file descriptor
+> > that binds together:
+> >
+> > 1. A full or partial set of detached namespaces.
+> > 2. A dedicated PID namespace for spawning processes into, signaling
+> >    members, and polling or waiting on PID 1 exit.
+> > 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) that must be
+> >    populated before going live, without inheriting host mount-tree
+> >    ancestors.
+> >
+> > Work on this feature started in 2025 from David Howells' container object
+> > patch set [1], which I turned into a namespace for namespace roots and
+> > rebuilt around that premise.
+> >
+> > While the patch set is manually written, the original motivation came
+> > from isolating LLM agents. Running untrusted agent workloads made it
+> > clear that OCI runtimes need to minimize their live configuration
+> > surface.
+> >
+> > Assembling mounts, credentials, and namespaces inside helper processes
+> > with a half-configured container is what I see as the main challenge,
+> > and the existential debate around namespaces and container objects is an
+> > unfocused discussion topic.
 > 
-> On Mon, 16 Nov 2026 16:43:56 +0000, Steven Price <steven.price@arm.com> wrote:
-> [...]
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> [...]
->>  static void kvm_stage2_destroy(struct kvm_pgtable *pgt)
->>  {
->>          struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
->> -        unsigned int ia_bits = VTCR_EL2_IPA(pgt->mmu->vtcr);
->> -
->> -        /*
->> -         * Realm RTTs are inaccessible to the host and may contain stale data
->> -         * after the RMM has released them. The non-root RTTs are explicitly
->> -         * destroyed through RMI before the RD is destroyed; only the root PGD
->> -         * pages remain to be freed here.
->> -         */
->> -        if (!kvm_vm_is_realm(kvm))
->> -                stage2_destroy_range(pgt, 0, BIT(ia_bits));
 > 
-> Could this patch go before patch 4? Then patch 4 wouldn't need to add
-> this check.
+> I've skimmed some of the series, and I see a bunch of good ideas that
+> involve using an fd to manage a thing.  But I'm wondering how much of
+> the value is added by that and how much is added by having a new
+> *type* of thing: the "rootns".
+> 
+> How much of the value comes from the rootns vs the new APIs to
+> configure namespaces without entering them first?
+> 
+> For that matter, the cells series also seems to contain a (possibly
+> very similar) variant of the same thing.
+> 
+> Would it make sense to come up with a patchset that does *just* the
+> configure-a-namespace-by-fd part?  It seems to me that this should be
+> an easier thing to agree on, and it's a big part of the complexity of
+> all of this, and it solves a real problem even without
+> cells/rootnses/jails/whatever.
 
-Yes, that's a good idea - I'll make that change.
+Is it  more accurately scope the part that is "just the fd-part" and
+what you consider as "extra cruft"?
 
-Thanks,
-Steve
+I.e., where do you draw the border?
+
+> 
+> --Andy
+
+Br, Jarkko
