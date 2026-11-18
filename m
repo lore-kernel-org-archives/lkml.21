@@ -1,111 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.157
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795040875;
-	b=FBcJIrsVYZmxankTU03CFLf5r0uZyP7haFO0XPXSMfQsSkWFbCluOZrXgI9Clj4d4K2W
-	 hj3n49Fhf2OZYeh4pK6io93adUImq0wB0TtHUOdGmZEbuqfxhsYhCA7Rw+xDDe2sgeB4G
-	 /UDu22Fk8bJFAG0uQmDY8lyaxF+yI9GyDYGDNMNwtlRL9AoUuDVLoHB6SkJybowRTGm6x
-	 WbJzzePdqgewUcL+vAof7yQkjzIJeRXA+qIUrJku8rH7I+Xwb7L6lsLfp2p5btWAgcE9v
-	 SNRI5mFIAAJxBb6lk2mPBsYNODEIrDpdTmY2AJrVgoAql2r5W0SeOEwjJGau1g2OfcQ==
+	t=1795041007;
+	b=o5K4tCpoj1Y0j1XTI2wbDyG5K3UamSZBTdAXCBnf8oosCx+MXb9j5/UXN1KHKRBDU9qp
+	 GayV++UXZ+WjKAtpEsIPp1G2heC1d2YHuqVl0ddy/ukgij3Em3Zq0T7T/cdFfteyGQlAc
+	 ccu6aJm0T0BcCbupNIHyALRbkb2Y/wUxuHHlcP9wt3jHQV91YcniEMdD4oRbd/cTboyX9
+	 CCQplJQvl1ihudTLydUm2ibwp8wkN/QoUgFy2nXtZcWLVrIy4ip/yZ+xLu5L+XFLpV1r4
+	 LAKFNxcLQmQFlSn/H4SpNoQ6pOk9hZ3LTvGoXM1yH27+wK1DIKb20fiCy5FVFEFEUeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795040875;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=vvUWFa2J5qwS6mcHcRJdQ/F9mm7gUHOHWpHh3iiQ2xw=;
-	b=iJEGsC5F6CH9WLNwq8+b0Juo9Y0U3sq4UVOF8YD/Yddg/UwA+85VuleDwe+swJFwdI9/
-	 NKWdaZz2QhGm1Fky+LADCT53Byl4OiEDb7qJETiC4WGEmoBizCHtdNWXX0OEpSvmYPjS6
-	 h5Rf8K+Hwd13+is3bTf5pK+s6frfPB9gka/k8SU8GciycUoL3ylPHCRUeGbVn2DZc+jFf
-	 joymQNYvtrzl2driKTJMVUOz5C1NM0AuPCbhg7MqGRswa4KlrLl1aUjgoMqSTGgVViSFg
-	 y3s1FuMNXJrP666yyMHLWrya2yG7aMerlnvnN2bIkTbutXMntb0pilmyRYkgsqY952w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041007;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=;
+	b=1l3APBBWm0GURb1XOmbyn1ZEBqR8M+KRe2PpmMGhdSVxSN+tuXgjqkg0D4HugS6vXOEU
+	 g6PE4v6nd8M2GUA062466ctvZhKDbS9tSfV5hWANedqxNoZm9XZEaac0bN4unTBlVKnTf
+	 3/B1Qr0xfRaCgyNDtbuJXAk+GdKk/GJqhJ+n8/NJwVuHEr7Qp7G7xr+fquNsWi5CI/17c
+	 cEnTg+sz32McrMgMyN8+WnMa4ThbhnIL7ThzoxdfE1uxPTAPWAzREhAW28/Q029jIninc
+	 YbXX+BPUxMGjJHjAt0diCGeSBLnZ+DN5/T6dFxATHdHsL7hTo4hvzCpIjMIH6Mxvwgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=squebb.ca;
-	spf=pass smtp.mailfrom=squebb.ca;
-	dkim=pass header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=RE1cA7xC;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=a2g1hfrO;
-	arc=none smtp.remote-ip=103.168.172.157
-Received: from fhigh-a6-smtp.messagingengine.com (fhigh-a6-smtp.messagingengine.com [103.168.172.157])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MfyK9ayF;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etK5QvD2;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07581606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:27:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07581606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=squebb.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=squebb.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2EE5606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2EE5606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=squebb.ca header.i=@squebb.ca header.a=rsa-sha256 header.s=fm1 header.b=RE1cA7xC;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=a2g1hfrO
-Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 200721400170
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:27:53 -0500 (EST)
-Received: from stl-imap-02 ([10.204.2.93])
-  by stl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 17:27:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=squebb.ca; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795040871;
-	 x=1795127271; bh=vvUWFa2J5qwS6mcHcRJdQ/F9mm7gUHOHWpHh3iiQ2xw=; b=
-	RE1cA7xCgYutzGbEp6Bb1IUVKloxan0DJoFfiN89WZ/pGidhNEVXd1kxbvLcBciu
-	6Zb/AysRBEeQz2oT14CQRKcody3kQQCLd4G1XwhauGvsRGMHuKqoShVnQHA+nIDG
-	5we4Y4zxK/p3WKt8i1S9RPg2jGIzJFTMQwrHcYR8bQN5p8JrmzolU8Y7tLaSQh7Y
-	kLZk+kGS2wgrds+R8BQmIjv53YLxyvlgtUxlw9Q7W7rPE0SFOuykDjqcPUbr2wWZ
-	bMJUqXhwyVP6U6gInm2vFY41l4DGt4qUU4C6cXniye0XZvOp3/PvYvEboEVXPLE5
-	LkFnTvVgfMkQ8UaGer59Vw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795040871; x=
-	1795127271; bh=vvUWFa2J5qwS6mcHcRJdQ/F9mm7gUHOHWpHh3iiQ2xw=; b=a
-	2g1hfrOMhJDJLPJaQVEdLRxnsO15fPmc9BcQZoutHLuAOca1wx4fqePljoh5Ji1z
-	5v48kwolF0uNYGz8zjjeDWBYh1jTx/67a1CV7LQ0uxX50a0wRNKz46dLaHNzmZSl
-	tIzQQKHYZnZrOTnpfR6k2IUEuzdKE9DtcNLL/VHUy+1WCqswd6Xiz4xT788tpmT6
-	EbGaFFladVsrCtrKTx3VR0CJ1WUvBcuTZmuvWa102fwLFPhrDmbSb9Sho4gC4lGk
-	7adqWl8TPjz9viOpzjhzO3mLIT+spiEt78IuRWwnOTXTAYoogOpVmauOdjCJnBfy
-	GwXdA+eMTOMU0CEmHYMuA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=squebb.ca a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795040871; d=squebb.ca;
-	mf=PG1wZWFyc29uLWxlbm92b0BzcXVlYmIuY2E+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:bkXk2ThYxRnD5sFNcBb657t5PnmrZpnF5eFPnU4UjjOXgvd
-	HbFXr/V4sSEAzxFzOv/4ZDqJSBtJBl9awVNud7bZZRqDKgD3MavjCBkvyft87J1o
-	nscp4TzbZcGdCO+/Zb+0eSGFxXbcExVfPK3r25mfUIaAdUpiQToiZ9oHcgPetUhK
-	pTRUs7STvpBkJDsX5FAz5V2wWH50fLStIJWYMt+F6H2vrMC7ukjw5U7mQWWcBqtM
-	scB8aFGqcIm/d+iPr+OI+D/EQuBmknE2cEMiDUYQnZftGqPDz3u2S/NU1BDjWwom
-	zKkWd9HRTGvQ5lswd4+WWAdV4lwNvIuPrgK12xA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:MUsAw1YOO/Jc34zhcpWUedVkkBFVFNY5nkM583bm844=:bx8zVtb0Od4YS0PY6USmneqZC91uKX/sxFlODAf8Q18=;
-X-ME-Sender: <xms:Zyb-aoYBeT4G62sAxtE7RghTbU9yaU-1zGwW3iSOWU9YcHnH_KtK3g>
-    <xme:Zyb-auPd-sfT6Wlt6GkXocgOHFIvyL4CM7hNtWTMA5ukH01fCHWSvUkMI96nDYZS0
-    b5Th5WvyLsWxFImYGCv6l5dfabs8ze15_rofZ2gK-56E-ih0CG-FTl3>
-X-ME-Proxy-Cause: dmFkZTF8OUZ9i8qFX0RiyrICzzEuZfYiQXUZAUEXTHtf/KJZtLd9Y9f4a8ySJucb9HLGcE
-    fLO4zFy+38fXQ11QasQ2zZkTMp3bvEbDajy2rkbQikIGHPY2QAo+3+mrWJkbv9Qj7C0Thc
-    kFSpmwew5oR9E0xBSBzcHxXfO07DgP7wcQqj8Y98RxwiqCoC/7yTrzZzH3E7ox6V+qoYdx
-    Sxe73JYYYhKGOYJKTl+IVdrKAkPfPmHnwNa/3yXUS/Yjgoek5jr2ghZQQPIfxmxSaUI0Ku
-    e4iWTJSvzh2W8VI67jhovf12/v8DoBlcDB8vaoI6Mm3mM90vj7G9+WKiAJ7Amz1WAXzace
-    UIZCQRxj8aa2wtvFEPHe0npF3weZTHf8entOkPdKIxck71rOGAsEZW3ZAM9v37VnlJWhOV
-    vDHfpRs4KrUkEtmc64J74AzuQS/3IaZyIpAp+nCn5hgvpVR5sa1baAOQMJ6zlvyINYzI7J
-    EtjZzaai00bByd63SqEJTGtxDAfW4SfKWnziPyXG+oJ9s5CxdLeqBU7z0Xz9gTMawdjuVH
-    +fY6HYZeqwGEORiKD6qhkZIowsfbASYDdz4bkxeIcD1Ltdt58IfeDaStwhmgshtmTYJWcu
-    a+8HxHSVSTiuORrTTaUhUMTdZYvCo/+A4X79BwUs6mpqc/xR5WeedACv2tCg
-X-ME-Proxy: <xmx:Zyb-anJ9x-PG4t1BTDt0NcoODZtAKJhx4XsuRa-iJVzYQSDZlhfzvg>
-    <xmx:Zyb-atu1cOrUg1uNgwDN-dJ3UTZwuih_VpRfSYQsKAdmhtjO7xrE6g>
-    <xmx:Zyb-ajUFYizwW__Sme6fRbWU-MTtStRxm5XKxZxjqKrinv8gGJf2DA>
-    <xmx:Zyb-agiL0sbBhSKNtNBWABYoddZt5ThxYzWoUnP2VimFaG_prNSGdg>
-    <xmx:Zyb-aoBG9dP4I_djWglODDaaEWm4Isy3BuABeNHcn1uEkEYIoZtoP7n6>
-Feedback-ID: ibe194615:Fastmail
-Received: by mailuser.stl.internal (Postfix, from userid 501)
-	id 720A42C00085; Wed, 18 Nov 2026 17:27:51 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MfyK9ayF;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=etK5QvD2
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AILDARK273862
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=; b=MfyK9ayFDB4tVk9F
+	9aV70tTVs37YAqlLn/b9MWH2GPEFsbk4uPIlcM85RxFQbMSiUvlZsYwLdQNOOJ+C
+	ZAhUie0BZqi8vFwgX6Aw/fsMNGCTI1DC5ZVN6j/mjIRX7fymvHXpwgqjfMwHkZOf
+	r1OovTlzgZ/lnULD9RV3JFEAePu+RLOHUfYg4EJ8KpL81nLoI5aMDRj1vkMYjckH
+	XENBMAATbeST5eu+UkvxoGTh8ow8zjYJDp6POjaFLMfzxNQNK+BeQXXbw6XjG9mp
+	1H9d6+O8KyRZwvirndwIZJSrghHR6aKsRaeFFyD+XZ9QDd9Xr0Zrhdmldaq77ZCD
+	LgtOLQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1dpca2gb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:30:05 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso1927182eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:30:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795041005; x=1795645805; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=;
+        b=etK5QvD2ikQUkhNM9NX8Z3CtQ1MDWiTNqoo7Ht9+F5s2IW+SPIOWWabXXOilmhtD1l
+         62SI1oWUldMWLVg3k9CFybeeRrjeoLa71rJX7Zp7LKvVwquSRzz7b0Whjw7bBs/lLZTi
+         decTLdBzzQmxvwtFhgyOugVjmvol1LkWKNM4tXQTEIFvXnJZPQGl0Pa2gjidRKMSP69K
+         2c+BHdNWmQyk6s/Wtik4rtV5E4cG/hnyZHcqxhWqNhlkWs4OrpBEZyk3RofUB5n9RpoQ
+         Knuqbut0f0ISR2vQku4Fz1DOzII8vnkaBmzqsIjL2buaUhZK2pPxIAxLf4vdT06y8+sc
+         2ZIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795041005; x=1795645805;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mwG2VB2Wght2+kRDBqQxxN0X/372ypCy9eDDgyMvCTo=;
+        b=E/OvXUtNQk18CUBNzWiMTInaAEI2RaE0aPQiL6KOINQ3GUn3UI4stg5f4h0tLVf9OC
+         QjxlYd4iucgbcwoe1bf+GtY9gc7/gXtNGoi/1R6dmbJm1Bv+7SAvyqo85MeHb0Gd7QdL
+         kXt0QRPmD8kiqo1kfU3k6WVW0tqdNLpuPrOKDwvTJpMrsTpKm4aNT4YT8+Mo08qzRBYm
+         D87WACgNoQIFicz/gW5jsazZNTMDS7AJPADoWe8bytszz+3VNM5JRsJfEsRERQSNeuYG
+         rO4l9PXyDq8zgNQOJHEamNDdr5lHwgIe1uaVShJyrHkqIwZ3wBwVyNEqVz241lnqllo2
+         yHfg==
+X-Forwarded-Encrypted: i=1; AL+hErH5MFqQqXjKdtoYX2gK6GTwrbUcmyJYQhcEvjUVBlXL2EOspFgHHnO3MYwg0t38SAzjYfNLXCijcbSOigg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9GVGDkLf5EdLneKCnrv28K3oqW1WXFm6dMiZREzV5S3+eLyOc1
+	fZBlgEfCIUPvvISP2TzopH/Zzdr0Uzd3K50Vq6WI2aOt/ru4AjDTJgBEzm/QC3BhLlB4Tls7Hb+
+	GX5FIGCiOHyamW5UmOVC2sexh7lFppxPWXsn62/cuHVygUzKepXj1ukGwAZfirvv50UU=
+X-Gm-Gg: AZFdTZf05fCCXhqUJe2yknGDaMSRIUptaeJz9k2MGLTXFhdBpTCKdkIXRz4F6G5BmN0
+	Fa+RwI0ZDysIyiaB8xg/pgQn87DAw075q8NFQj0rGC5taez2gHdLBWqdUNChojF4khoxuNs3BtQ
+	VZEgmtponbXr71E4ajGztMliXdS8EEY43d8qPL5g7DSEXOKYDeB8Tf8uchV0+3QJs37JlpmOW/5
+	u+BwkObuI6WrHnMJ0lFc4oi5r2ZA4anIVBO6iONbGnjvGGC4o9HAJY0UtlwYLylCfqWcYisq+so
+	fr97xEUmkk5L11UrsxA4UWV/lUzoTR0+JaYh7S0nufdFBq3J3O9VIULS31VDmeiKWQKpc4lzYGO
+	b1YQGfXs0/aOCZgd/Olx7tuJjMQtK9lRg6Gcp4vkA8u1zjFjAG4Yh0bCD6DosR1cJkwXlt7bV0h
+	FElZNzHq3JMn44lPwn+4mU
+X-Received: by 2002:a05:7300:824a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3827da13cdemr3842403eec.4.1795041005015;
+        Wed, 18 Nov 2026 14:30:05 -0800 (PST)
+X-Received: by 2002:a05:7300:824a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3827da13cdemr3842374eec.4.1795041004286;
+        Wed, 18 Nov 2026 14:30:04 -0800 (PST)
+Received: from [10.73.198.203] (pat_11.qualcomm.com. [192.35.156.11])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7fbceffsm11315249eec.28.2026.11.18.14.30.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 14:30:03 -0800 (PST)
+Message-ID: <82a57df7-a3c5-4986-a724-44f00b22a532@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 14:30:03 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,288 +116,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AWoTwGnPVW4R
-Date: Wed, 18 Nov 2026 17:27:31 -0500
-From: "Mark Pearson" <mpearson-lenovo@squebb.ca>
-To: "Rong Zhang" <i@rong.moe>, "Derek J . Clark" <derekjohn.clark@gmail.com>,
- "Hans de Goede" <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- "Alok Tiwari" <alok.a.tiwari@oracle.com>, "Armin Wolf" <W_Armin@gmx.de>
-Cc: 
- "platform-driver-x86@vger.kernel.org" <platform-driver-x86@vger.kernel.org>,
- linux-kernel@vger.kernel.org
-Message-Id: <b5c81884-73b0-4d43-98e5-cd2fedcf583f@app.fastmail.com>
-In-Reply-To: <20261119-lwmi-no-singleton-v1-4-6b06fcfb5126@rong.moe>
-References: <20261119-lwmi-no-singleton-v1-0-6b06fcfb5126@rong.moe>
- <20261119-lwmi-no-singleton-v1-4-6b06fcfb5126@rong.moe>
-Subject: Re: [PATCH 4/5] platform/x86: lenovo-wmi-other: Properly implement
- no_singleton driver
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/4] Add larger page size support for USB audio offload
+ path
+To: Mathias Nyman <mathias.nyman@linux.intel.com>,
+        Mathias Nyman <mathias.nyman@intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+        Michal Pecio <michal.pecio@gmail.com>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-sound@vger.kernel.org
+References: <20261109-16k_offload_v1_b4-v6-0-858c6e0e007d@oss.qualcomm.com>
+ <a38e874c-4685-4892-81b4-a6aeeaaeddb4@oss.qualcomm.com>
+ <54beec96-2221-4109-ab7a-74502969b369@linux.intel.com>
+Content-Language: en-US
+From: Wesley Cheng <wesley.cheng@oss.qualcomm.com>
+In-Reply-To: <54beec96-2221-4109-ab7a-74502969b369@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=YJ0KWhGx c=1 sm=1 tr=0 ts=6afe26ed cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ZdW6uxA9NKXbfdqeeS2OGA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=QyXUC8HyAAAA:8 a=smeftMHU5e7__JqdOnoA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA4MiBTYWx0ZWRfX2fEjUbKoEY2D
+ cd9mzUx65pNFfq4cvwmQGixvT0GCIFH17m//3ki8JlKxUeuB91vf0qbfuDpehDiO8QgkhlrRiR3
+ +9zz30khY8yeEt2S2aZsH+w/USlxKUfQSe8x2Xz5HEhtBxAV8gfoNoeTLrA2GlrNmFlpGQSKAtx
+ ubomsU1l1AmBGYPsbVkq/STneg2VtAh5N4u5A6R9hIwI5lY85ryC+y1dwsXVLGyrC2sj1KW2Z3G
+ WKNFfS6gzELtH95HQxbFaAH9cF6gtXRO5ded5zo3JHf85EhRz83nmPLidDp/ezHjdpT5QpBMUTt
+ goSyFlvzV5p3FJ9mUql0zU48/M1a81Rx5vefeNdcjVnOBjQwRJwfktTI/aa+vNCk0XY+Mo0GMs7
+ yNY4nOrQjL78Bf7NyTIsfS6iu8ol5RgaZBR4GTydWhvAe1MFLDHLzjSmxxiuijJZav10CbfF9si
+ w1/U8HJNmwEKqnjmUtw==
+X-Proofpoint-ORIG-GUID: pkcd-tL0TjuqmRYMhf0ljC1r6oGvF1iF
+X-Proofpoint-GUID: pkcd-tL0TjuqmRYMhf0ljC1r6oGvF1iF
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA4MiBTYWx0ZWRfX7IhmVF8FZani
+ 6WAsf7YKgk95GI66EMRPOe/dQ5rY92fI+nFzW++NhS5yOmUjxl7dDL20gHfi96P4acLt7ovvpH6
+ dwtKvpDxhIrg47CFUsEYN6D/LlokKaA=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_07,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 malwarescore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0 adultscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180082
 
 
 
-On Wed, Nov 18, 2026, at 1:58 PM, Rong Zhang wrote:
-> The driver declares `.no_singleton = true' but stores device-specific
-> data to statically allocated tunable_attr_01 variables. This makes the
-> driver depend on the frigile fact that no device in wild has more than
+On 11/17/2026 1:59 AM, Mathias Nyman wrote:
+> Hi
+> 
+>>>
+>>
+>> Hi Mathias,
+>>
+>> Was wondering if this design looked a bit more acceptable?  Was able to 
+>> figure out a way to achieve what you had suggested earlier mitigating the 
+>> dma free problem I mentioned in my previous email.  If there are any 
+>> issues w/ this please let me know.
+>>
+>> Thanks
+>> Wesley Cheng
+> 
+> Big picture looks good
+> I got stuck on the "no_pool_rings[EP_CTX_PER_DEV]" solution in [PATCH v6 2/4].
+> 
+> It reveals and reminds me of how poorly designed existing xhci_free_dev() is.
+> 
+> I tried to quickly fix that fist by 'unlinking' vdev from xhci->devs[]
+> inside the lock, preventing it from being dereferenced based on slot_id
+> somewhere else, and then free it without the lock.
+> 
+> I ended up with a huge mess that rewrites vdev free/allocation,
+> slot enable/disable, xhci_discover_or_reset_device() and xhci_resume().
+> 
+> Seems like best solution for now is to add "no_pool_rings[]" to support the
+> larger page size, and then later rework the vdev allocation/free and
+> slot enabling/disabling. I'll take a look at the details of the series.
+> 
+> I also have another sideband change attempting to fix the use-after-free
+> stale vdev pointer in sideband. It basically swaps vdev to udev.
+> I'll post it on the list. Let me know your thoughts on it.
+> 
+Sure, I assume you're talking about:
+https://lore.kernel.org/all/20261118125109.1429538-1-mathias.nyman@linux.intel.com/
 
-Minor typo - frigile/fragile
+If so, let me look it over, pull it into my branch and test it out if it 
+looks good.  I wasn't able to reliably reproduce the issue that Lianqin 
+initially reported, so I'll see if I can figure out a way to exercise that 
+call path.
 
-> one LENOVO_OTHER_MODE WMI devices.
->
-
-As an aside - is this really fragile? I mean realistically it's never going to happen is it?
-
-> Add unique indexes to all statically allocated tunable_attr_01 variables
-> with some __COUNTER__ tricks, and use them to access lwmi_om_priv's
-> newly-introduced tunable_attr_01_ctx array. In this manner, move all
-> device-specific data to the tunable_attr_01_ctx array, and constify all
-> statically allocated tunable_attr_01 variables to make the driver a
-> truly no_singleton driver.
->
-> Fixes: 03bb5147da08 ("platform/x86: lenovo-wmi-other: Limit adding 
-> attributes to supported devices")
-> Signed-off-by: Rong Zhang <i@rong.moe>
-> ---
->  drivers/platform/x86/lenovo/wmi-other.c | 54 
-> ++++++++++++++++++++++++---------
->  1 file changed, 39 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/platform/x86/lenovo/wmi-other.c 
-> b/drivers/platform/x86/lenovo/wmi-other.c
-> index 252ef775f300..f37dca7db034 100644
-> --- a/drivers/platform/x86/lenovo/wmi-other.c
-> +++ b/drivers/platform/x86/lenovo/wmi-other.c
-> @@ -134,15 +134,23 @@ struct tunable_attr_01 {
->  	u8 feature_id;
->  	u8 device_id;
->  	u8 type_id;
-> +	u8 ctx_id; /* Index to tunable_attr_01_ctx[] */
-> +};
-> +
-> +struct tunable_attr_01_ctx {
->  	u8 cd_mode_id; /* mode arg for searching capdata */
->  	u8 cv_mode_id; /* mode arg for set/get current_value */
->  };
-> 
-> +enum { TUNABLE_ATTR_01_COUNTER_BASE = __COUNTER__ + 1 };
-> +#define TUNABLE_ATTR_01_COUNTER (__COUNTER__ - TUNABLE_ATTR_01_COUNTER_BASE)
-> +
->  #define DEFINE_TUNABLE_ATTR_01(_name, _device, _feature, _type)	\
-> -	static struct tunable_attr_01 _name = {			\
-> +	static const struct tunable_attr_01 _name = {		\
->  		.device_id = LWMI_DEVICE_ID_##_device,		\
->  		.feature_id = LWMI_FEATURE_ID_##_feature,	\
->  		.type_id = LWMI_TYPE_ID_##_type,		\
-> +		.ctx_id = TUNABLE_ATTR_01_COUNTER,		\
->  	}
-> 
->  DEFINE_TUNABLE_ATTR_01(ppt_pl1_spl, CPU, CPU_SPL, NONE);
-> @@ -168,6 +176,10 @@ DEFINE_TUNABLE_ATTR_01(dgpu_didvid, GPU, 
-> DGPU_DIDVID, NONE);
->  DEFINE_TUNABLE_ATTR_01(gpu_nv_bpl, GPU, GPU_NV_BPL, NONE);
->  DEFINE_TUNABLE_ATTR_01(gpu_nv_cpu_boost, GPU, GPU_NV_CPU_BOOST, NONE);
-> 
-> +enum { TUNABLE_ATTR_01_NR = TUNABLE_ATTR_01_COUNTER };
-> +
-> +static_assert(TUNABLE_ATTR_01_NR > 0 && TUNABLE_ATTR_01_NR < U8_MAX);
-> +
->  struct lwmi_om_priv {
->  	struct component_master_ops *ops;
-> 
-> @@ -183,6 +195,8 @@ struct lwmi_om_priv {
-> 
->  	struct lwmi_fan_info fan_info[LWMI_FAN_NR];
-> 
-> +	struct tunable_attr_01_ctx tunable_attr_ctx[TUNABLE_ATTR_01_NR];
-> +
->  	struct {
->  		bool capdata00_collected : 1;
->  		bool capdata_fan_collected : 1;
-> @@ -1018,7 +1032,7 @@ static u32 tunable_attr_01_id(const struct 
-> tunable_attr_01 *attr, u8 mode)
-> 
->  struct capdata01_attr {
->  	struct kobj_attribute kobj_attr;
-> -	struct tunable_attr_01 *tunable_attr;
-> +	const struct tunable_attr_01 *tunable_attr;
->  	union {
->  		enum attribute_property prop;
->  		const char *display_name;
-> @@ -1027,7 +1041,7 @@ struct capdata01_attr {
-> 
->  struct capdata01_attr_group {
->  	const struct attribute_group *attr_group;
-> -	struct tunable_attr_01 *tunable_attr;
-> +	const struct tunable_attr_01 *tunable_attr;
->  };
-> 
->  static inline struct lwmi_om_priv *kobj_to_om_priv(const struct 
-> kobject *kobj)
-> @@ -1041,6 +1055,12 @@ kobj_attr_to_cd01_attr(const struct 
-> kobj_attribute *kattr)
->  	return container_of_const(kattr, struct capdata01_attr, kobj_attr);
->  }
-> 
-> +static inline struct tunable_attr_01_ctx *tunable_to_ctx(struct 
-> lwmi_om_priv *priv,
-> +							 const struct tunable_attr_01 *tunable_attr)
-> +{
-> +	return &priv->tunable_attr_ctx[tunable_attr->ctx_id];
-> +}
-> +
->  /* Attribute Methods */
-> 
->  /**
-> @@ -1098,12 +1118,13 @@ static ssize_t attr_capdata01_show(struct kobject *kobj,
->  	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
->  	const struct capdata01_attr *cd01_attr = kobj_attr_to_cd01_attr(kattr);
->  	const struct tunable_attr_01 *tunable_attr = cd01_attr->tunable_attr;
-> +	struct tunable_attr_01_ctx *ctx = tunable_to_ctx(priv, tunable_attr);
->  	enum attribute_property prop = cd01_attr->prop;
->  	struct capdata01 capdata;
->  	u32 attribute_id;
->  	int value, ret;
-> 
-> -	attribute_id = tunable_attr_01_id(tunable_attr, tunable_attr->cd_mode_id);
-> +	attribute_id = tunable_attr_01_id(tunable_attr, ctx->cd_mode_id);
-> 
->  	ret = lwmi_cd01_get_data(priv->cd01_list, attribute_id, &capdata);
->  	if (ret)
-> @@ -1152,6 +1173,7 @@ static ssize_t attr_current_value_store(struct 
-> kobject *kobj,
->  	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
->  	const struct capdata01_attr *cd01_attr = 
-> kobj_attr_to_cd01_attr(kattr);
->  	const struct tunable_attr_01 *tunable_attr = cd01_attr->tunable_attr;
-> +	struct tunable_attr_01_ctx *ctx = tunable_to_ctx(priv, tunable_attr);
->  	struct wmi_method_args_32 args = {};
->  	struct capdata01 capdata;
->  	enum thermal_mode mode;
-> @@ -1165,7 +1187,7 @@ static ssize_t attr_current_value_store(struct 
-> kobject *kobj,
->  	if (mode != LWMI_GZ_THERMAL_MODE_CUSTOM)
->  		return -EBUSY;
-> 
-> -	args.arg0 = tunable_attr_01_id(tunable_attr, tunable_attr->cd_mode_id);
-> +	args.arg0 = tunable_attr_01_id(tunable_attr, ctx->cd_mode_id);
-> 
->  	ret = lwmi_cd01_get_data(priv->cd01_list, args.arg0, &capdata);
->  	if (ret)
-> @@ -1178,7 +1200,7 @@ static ssize_t attr_current_value_store(struct 
-> kobject *kobj,
->  	if (value < capdata.min_value || value > capdata.max_value)
->  		return -EINVAL;
-> 
-> -	args.arg0 = tunable_attr_01_id(tunable_attr, tunable_attr->cv_mode_id);
-> +	args.arg0 = tunable_attr_01_id(tunable_attr, ctx->cv_mode_id);
->  	args.arg1 = value;
-> 
->  	ret = lwmi_dev_evaluate_int(priv->wdev, 0x0, LWMI_FEATURE_VALUE_SET,
-> @@ -1208,6 +1230,7 @@ static ssize_t attr_current_value_show(struct 
-> kobject *kobj,
->  	struct lwmi_om_priv *priv = kobj_to_om_priv(kobj);
->  	const struct capdata01_attr *cd01_attr = 
-> kobj_attr_to_cd01_attr(kattr);
->  	const struct tunable_attr_01 *tunable_attr = cd01_attr->tunable_attr;
-> +	struct tunable_attr_01_ctx *ctx = tunable_to_ctx(priv, tunable_attr);
->  	struct wmi_method_args_32 args = {};
->  	enum thermal_mode mode;
->  	int retval;
-> @@ -1218,8 +1241,8 @@ static ssize_t attr_current_value_show(struct 
-> kobject *kobj,
->  		return ret;
-> 
->  	/* If "no-mode" is the supported mode, ensure we never send current mode */
-> -	if (tunable_attr->cv_mode_id == LWMI_GZ_THERMAL_MODE_NONE)
-> -		mode = tunable_attr->cv_mode_id;
-> +	if (ctx->cv_mode_id == LWMI_GZ_THERMAL_MODE_NONE)
-> +		mode = ctx->cv_mode_id;
-> 
->  	args.arg0 = tunable_attr_01_id(tunable_attr, mode);
-> 
-> @@ -1243,21 +1266,22 @@ static ssize_t attr_current_value_show(struct 
-> kobject *kobj,
->   * First check if the attribute has a corresponding data table under 
-> custom mode
->   * (0xff), then under no mode (0x00). If either of those passes, check 
-> if the
->   * supported field of the capdata struct is > 0. If it is supported, 
-> store the
-> - * successful mode in the cd_mode_id field of tunable_attr.
-> + * successful mode in the cd_mode_id field of tunable_attr_01_ctx.
->   *
->   * If the attribute capdata shows it is supported, attempt to 
-> determine the mode
->   * for the current value property get/set methods using a similar 
-> pattern to the
->   * capdata table check. If the value returned by either mode is 0 or 
-> an error,
->   * assume that mode is not supported. Otherwise, store the successful 
-> mode in the
-> - * cv_mode_id field of tunable_attr.
-> + * cv_mode_id field of tunable_attr_01_ctx.
->   *
->   * If any of the above checks fail then the attribute is not fully 
-> supported.
->   *
->   * Return: true if capdata and set/get modes are found, otherwise 
-> false.
->   */
->  static bool lwmi_attr_01_is_supported(struct lwmi_om_priv *priv,
-> -				      struct tunable_attr_01 *tunable_attr)
-> +				      const struct tunable_attr_01 *tunable_attr)
->  {
-> +	struct tunable_attr_01_ctx *ctx = tunable_to_ctx(priv, tunable_attr);
->  	u8 modes[2] = { LWMI_GZ_THERMAL_MODE_CUSTOM, 
-> LWMI_GZ_THERMAL_MODE_NONE };
->  	struct wmi_method_args_32 args = {};
->  	bool cd_mode_found = false;
-> @@ -1265,7 +1289,7 @@ static bool lwmi_attr_01_is_supported(struct 
-> lwmi_om_priv *priv,
->  	struct capdata01 capdata;
->  	int retval, ret, i;
-> 
-> -	/* Determine tunable_attr->cd_mode_id */
-> +	/* Determine cd_mode_id  */
->  	for (i = 0; i < ARRAY_SIZE(modes); i++) {
->  		args.arg0 = tunable_attr_01_id(tunable_attr, modes[i]);
-> 
-> @@ -1273,7 +1297,7 @@ static bool lwmi_attr_01_is_supported(struct 
-> lwmi_om_priv *priv,
->  		if (ret || !capdata.supported)
->  			continue;
-> 
-> -		tunable_attr->cd_mode_id = modes[i];
-> +		ctx->cd_mode_id = modes[i];
->  		cd_mode_found = true;
->  		break;
->  	}
-> @@ -1283,7 +1307,7 @@ static bool lwmi_attr_01_is_supported(struct 
-> lwmi_om_priv *priv,
-> 
->  	dev_dbg(&priv->wdev->dev, "cd_mode_id: %#010x\n", args.arg0);
-> 
-> -	/* Determine tunable_attr->cv_mode_id, returns 1 if supported */
-> +	/* Determine cv_mode_id, returns 1 if supported  */
->  	for (i = 0; i < ARRAY_SIZE(modes); i++) {
->  		args.arg0 = tunable_attr_01_id(tunable_attr, modes[i]);
-> 
-> @@ -1293,7 +1317,7 @@ static bool lwmi_attr_01_is_supported(struct 
-> lwmi_om_priv *priv,
->  		if (ret || !retval)
->  			continue;
-> 
-> -		tunable_attr->cv_mode_id = modes[i];
-> +		ctx->cv_mode_id = modes[i];
->  		cv_mode_found = true;
->  		break;
->  	}
->
-> -- 
-> 2.55.0
-
-This one defeated me I'm afraid (the counter bits in particular) - I need to look at it with fresh eyes as my brain has packed up for the day.
-
-Mark
+Thanks
+Wesley Cheng
