@@ -1,54 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795029151;
-	b=Hbp0EC2VxQbFnYfSIHHKIfFIrcyARf2GuOusW0B+blJ0wLUbKufJKal4RUzP4LQlLUE/
-	 rjm9jMbyAvuWMaWRsnEUeBGv52ptbC4o4T2X04VJMdScORwyf4GUFmXGaQZV+LaqmlvNh
-	 fHUa5NBqEtUxAGZ6LP2ohJYK03A1QUuQ3R/K5byGMC8MRpjwiiAZpY03A3CfOhztOwHdX
-	 rkv/UcHtRywCtA35u2ep9ecz1yIVKWAgVp7lVNDz1/JxQ5ssfCjxG4sK1Fjdz1FSOaXTS
-	 e3Pn0u3Ep5fMPbcrPnm39KktBGzWly7hVeEMQRKlWYXTnQ3dE+ajQU9iJ8ipsT3DO6g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029151;
-	h=DMARC-Filter:DKIM-Signature:Received:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-ZohoMailClient;
-	bh=ItEIAqfkh9HYjyYLYFlHdsVmiv2JFV6DaAPAUqusY5E=;
-	b=nvwUwZG2en6QIMqiA3f+uGskVPRIx2zxSV4zlQ7cm1ARV5AcY7ZLKA8U3uIi10XTWwm4
-	 IDBPE4EpqE0zltUQb9df/T9U+JNVAw1EG8Q3IXLZyYXXcPzvhOAoGclKPgW3E2ngWdU76
-	 3WGO3fSwb9GZRON8fJxi5EYRpfB5Obt4wR3t1KHPTk5/Lt54R8m6yt0Hk2HpP9OshxXmD
-	 FxyKWzJ565kzQAFVnb372ggGzWTNpEGQR5g8ZlPcKbm5dA4uCrZFShLnvhOnmIgqIechW
-	 o+POTzZYHmK3xgYJvnP7bha1jJzcrvIkkttqT8erF6BI+AYPk17zIBEl2AFgKizBOnQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="CHZhBR/n";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.11
-Received: from sender5-op-o11.zoho.com (sender5-op-o11.zoho.com [165.173.182.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795029259;
+	b=q+V/7Lmvj2dT77K23c+M3T39ChYoyQLH+FW3SyMqNihfFrL+KbkU9jDQgUFumyZZO04l
+	 QYKrqhpsVnHXoKfBObQXP+lruBJhnUtyDWurdfiVERIzJvwAF2fnPVzmPGzyajJn3jPVM
+	 MAvWsdz+6nF/zT5M0nBXZXtIuE/CyBBK6uVRSXCbrJ31/JOHc8oNGUDQvcOSp8rLlv/ET
+	 o4xW88466ENVvcfvu4A3EyWMWz2xmf2lQLWwAm7T/P+pYQyCsmbnUcqHnsn0Vj8y5OmlU
+	 kZTeghyn0Ido1b9HG/hOU3Hx0HG/ggYhjdEz3Q0W3Aq9hSlBKG+qUp1XERKQ45G4K7A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029259;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=d9SMOsxwAFQZaUBngPgxh+BWRFva5JtsprMZmImAyMc=;
+	b=H/CctYTdGOiJP+/Pg5lb4jfvNfP8yQI7Uj3GbNK56i5jiGlsuSzWzVsc5oQp65g5DpOD
+	 519YAzmu8jYpBBnMSteJm8Ow70xCeTJNTaihvBuORipd6aX4J9eWGsgOjchZmRQ/arScC
+	 RE3E4eeF+LiYUVoybnLm9Fvkd/wLfgztPwlGyzvLaxxGoHkX9gjZLe30eVkCDIpyA6Ff6
+	 6KOK5S0o/crljwVvyvDsz7PUs5enm/NgKu+1tKtyE+ehOXhjVBuFijn20SB2zq3EeQbBU
+	 u05Fxh1F0QOrK3g9+jUhv+NMQJ2QMHu0ib+rVCXWnhh9xEavH8NVlJqlu49NrzfOWyw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VxoeVWsw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E283F606A31C;
-	Wed, 18 Nov 2026 19:12:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E283F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE3B606A31C;
+	Wed, 18 Nov 2026 19:14:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=CHZhBR/n
-ARC-Seal: i=1; a=rsa-sha256; t=1795029121; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SbUtX7o2tXBdzJcUrHgGFvCZiVPQwSCavGNMjLhqtxToc6mdjCvF+hY/uPLUH2Mx1jfBd/rZkEtEkDX2CHdC+Y933U3oYvzFo930HGLwRY+EdK4HGlq1LtGLCg8gOGKQ2vwnkwbrGN2NANOMos24CInJQgSNNcKYHvkTao3ccqk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795029121; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ItEIAqfkh9HYjyYLYFlHdsVmiv2JFV6DaAPAUqusY5E=; 
-	b=SgvkozKZMm+eC8E7ZpbY1jl+DgRg1zV1PC9TvY/pe2RTAzGRnYkiViYXSyY+EYBvC9RWrGDYNdxNXbfap2awXCl9iN3PuSvUH63HW7mvcFT4izNqr8BymTA0mfC4HmXzOABcANtHeBwZ74Pn+Q12a5yUKnjLta8Vs9S06gSZL8A=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=CHZhBR/nRwVGvB1bfY3yg+ACd+YE2U6+4nmCDwab8WHPj96FJoWDV4E3sUxOOTd2TbqWhzEVljBHkJVZEXY9l6BQNBFZSybslFRSBhTuCCXhF4PHiY3cN0pD+xwwIfctvrj+4WZ5f/Qau/rzIXzESI9av3/cRYNGKhskUdXY9eY=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=ItEIAqfkh9HYjyYLYFlHdsVmiv2JFV6DaAPAUqusY5E=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795029119789199.42815469236405;
-	Wed, 18 Nov 2026 11:11:59 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VxoeVWsw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0AF51F000C4;
+	Wed, 18 Nov 2026 19:14:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795029259;
+	bh=d9SMOsxwAFQZaUBngPgxh+BWRFva5JtsprMZmImAyMc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VxoeVWswVKJ9uEK5QYTOLpSc/fG1ejiOdRS9ttIaxvwDjkbx+fjATQoIvZarZK5Cr
+	 30BaMKHJoZpLs0TqJQ4KjckA9GnwiI96q2cSEqA85pWEgY/3QBJhLZb0Hn1X1vicLX
+	 aDOcOvlF6cn6ceiorWrs31apZUXj7aELEInkTtjYkp3l6ZtIzCZqJJ82TM9yllYjg2
+	 KGokbS+cmhTz2BxpxZj5B1KPuHCJi74n908Uz8seXJfpXOOR+67Rtimd+mBJzJZZnv
+	 uzXK52FpqEtPGxEmJEKo5kD9xygQ852Tw0g8oaUipdAbx8Y3bJ5AqunBoOvaLt3xe4
+	 MkCUysXXoCmAw==
+Date: Wed, 18 Nov 2026 19:14:08 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
+ James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>, Thomas
+ Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>, Hanjun Guo
+ <guohanjun@huawei.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai
+ Xue <xueshuai@linux.alibaba.com>, Mahesh J Salgaonkar
+ <mahesh@linux.ibm.com>, "Oliver O'Halloran" <oohall@gmail.com>, Bjorn
+ Helgaas <bhelgaas@google.com>, Maciej Wieczor-Retman
+ <maciej.wieczor-retman@intel.com>, Pawel Chmielewski
+ <pawel.chmielewski@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>, Qiuxu
+ Zhuo <qiuxu.zhuo@intel.com>, Radu Rendec <radu@rendec.net>, Avadhut Naik
+ <avadhut.naik@amd.com>, Dave Jiang <dave.jiang@intel.com>, Kai-Heng Feng
+ <kaihengf@nvidia.com>, "Fabio M. De Francesco"
+ <fabio.m.de.francesco@linux.intel.com>, Breno Leitao <leitao@debian.org>,
+ Dan Williams <djbw@kernel.org>, Terry Bowman <terry.bowman@amd.com>,
+ linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+ acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v1 06/19] ACPI: APEI: Remove aer allocation in
+ ghes_handle_aer()
+Message-ID: <20261118191408.2005b091@jic23-hlaptop>
+In-Reply-To: <20261117111444.4185512-7-pierre.gondois@arm.com>
+References: <20261117111444.4185512-1-pierre.gondois@arm.com>
+	<20261117111444.4185512-7-pierre.gondois@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,208 +78,51 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-From: Daniel Almeida <daniel.almeida@collabora.com>
-In-Reply-To: <20261117202055.GA3115493@ziepe.ca>
-Date: Wed, 18 Nov 2026 16:11:40 -0300
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>,
- Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>,
- Miguel Ojeda <ojeda@kernel.org>,
- Boqun Feng <boqun@kernel.org>,
- Gary Guo <gary@garyguo.net>,
- =?utf-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>,
- Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>,
- =?utf-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
- Abdiel Janulgue <abdiel.janulgue@gmail.com>,
- iommu@lists.linux.dev,
- rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <615C3DA2-4C02-4A8B-AEC4-70D498672559@collabora.com>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
+On Tue, 17 Nov 2026 12:10:16 +0100
+Pierre Gondois <pierre.gondois@arm.com> wrote:
 
-> On 17 Nov 2026, at 17:20, Jason Gunthorpe <jgg@ziepe.ca> wrote:
->=20
-> On Tue, Nov 17, 2026 at 05:09:11PM -0300, Daniel Almeida wrote:
->> Hi Jason,
->>=20
->>> On 16 Nov 2026, at 16:38, Jason Gunthorpe <jgg@ziepe.ca> wrote:
->>>=20
->>> On Thu, Nov 12, 2026 at 02:00:07PM -0300, Daniel Almeida wrote:
->>>> This series adds a Rust abstraction for IOMMU paging domains. A =
-driver
->>>> can allocate a domain, attach it to its device, map pages into it, =
-and
->>>> install a handler for its faults.
->>>>=20
->>>> This will be used by the upcoming rkvenc driver that my colleagues
->>>> Detlev Casanova, Nicolas Dufresne and I are working on. More =
-details on
->>>> this driver can be found by watching Nicolas Dufresne's talk at LPC =
-2026
->>>> [0].
->>>>=20
->>>> As part of the security model, each client will have its own IOMMU
->>>> domain. This is needed as the submission model will let userspace =
-set
->>>> most of the encoder's registers directly, so the kernel cannot =
-check
->>>> every memory access that a job makes the encoder do. With a single
->>>> domain, one client could make the encoder read or write the memory =
-of
->>>> another client.
->>>=20
->>> How do you plan to get the paging domain in the first place?
->>=20
->> We plan to alloc a paging domain when a video encoder session is =
-created. Then
->> we call iommu_attach_device() before a job runs, and detach back to =
-the default
->> domain after it finishes so the next job can attach its own session's =
-domain.
->> This is so each session is isolated from each other.
->=20
-> If you do that you can't use the DMA API at all in your driver as you
-> have to set 'driver_managed =3D true'. Is it OK? If it is why not just
-> use VFIO?
+> aer_recover_queue() now copies the input aer_regs instead of
+> storing a pointer to the struct. Use a local variable to pass
+> aer_regs in ghes_handle_aer() and remove the memory allocation
+> introduced by:
+> commit e2abc47a5a1a ("ACPI: APEI: Fix AER info corruption when error
+> status data has multiple sections")
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+Just one trivial thing.
 
-No, not OK :/ We want to use GEM shmem, which calls into the DMA API =
-internally
-through drm_gem_shmem_get_pages_sgt() -> dma_map_sgtable().
+I didn't bother figuring out impact of the change discussed on previous
+patch on this one, so no tags for this version.
 
->=20
-> Or are you planning DT horrors to get yourself a DT created "DMA
-> struct" ?
+> diff --git a/drivers/pci/pcie/aer.c b/drivers/pci/pcie/aer.c
+> index 57406494ec1f7..d7ef84e3b988e 100644
+> --- a/drivers/pci/pcie/aer.c
+> +++ b/drivers/pci/pcie/aer.c
+> @@ -32,7 +32,6 @@
+>  #include <linux/slab.h>
+>  #include <linux/vmcore_info.h>
+>  #include <acpi/apei.h>
+> -#include <acpi/ghes.h>
+>  #include <ras/ras_event.h>
+>  
+>  #include "../pci.h"
+> @@ -1413,18 +1412,15 @@ static DECLARE_WORK(aer_recover_work, aer_recover_work_func);
+>   * @severity: AER_CORRECTABLE, AER_NONFATAL or AER_FATAL
+>   * @aer_regs: snapshot of the device's AER Capability registers
+>   *
+> - * Queue an error record received from firmware through APEI GHES.  The
+> - * record is processed later from a workqueue, which logs the error and,
+> + * Queue an error record received from firmware. The record is processed
+> + * later from a workqueue, which logs the error and,
+>   * for uncorrectable errors, attempts recovery of the device.
 
-I wasn't even aware such hacks existed. In any case, I am not proposing =
-more
-hacks, no.
+Whilst noisier, you should probably still rewrap that last line.
 
->=20
->>> Using paging domains directly is very complicated, I'm not excite d =
-to
->>> see DRM trying to do this at all. IMHO there are many unanswered
->>> questions how it could even do this safely.
->>=20
->> In a very simplified way, this is not unlike how GPU drivers =
-currently work. In
->> fact, from a cursory look, this seems to be how rocket (the NPU =
-driver) works
->> too. Since we are merely porting the same ideas to video codec =
-hardware, I am a bit
->> surprised by your discontentment.
->=20
-> In my experiance any place I see DRM touching the iommu it is
-> immediately suspect. We keep uncovering horrors that people buried in
-> there. Yes, you can point to some DRM places doing something like
-> this, with a convoluted struct device scheme and DT hacks to make it
-> functional, no you should not copy it and certainly not entomb it in
-> rust. :(
-
-Sounds reasonable.
-
->=20
->> In any case, we need this isolation due to the submission model used.
->> Most Vulkan drivers know their hardware pretty well, so a level of =
-abstraction
->> on top of it like V4L2 is unnecessary. Therefore, in order to achieve =
-a leaner
->> kernel driver, userspace programs most of the encoder's registers =
-directly, so
->> the kernel cannot validate every address a job makes the encoder =
-access.
->=20
-> Sure, but you haven't explained what the iommu gets attached to (ie
-> where does the SID come from), how cache flushing works, who programs
-> the mappings, who is managing page pinning, etc.
-
-The SID comes from the platform_device backing the encoder, as far as I =
-am
-aware. Pinning is handled by the GEM shmem layer.
-
-The CPU mappings are write-combined, so the only cache maintenance is =
-the clean
-of newly allocated pages, which dma_map_sgtable() does in
-drm_gem_shmem_get_pages_sgt(). The mappings themselves are chosen by the =
-kernel
-driver. We don't care about what the actual IOVA is. All we care about =
-is that a
-given GEM object is mapped to a given domain, and that we have some IOVA
-representing the start of the allocation, such that we can pass that to =
-the
-device.
-
->=20
-> Are you sure you shouldn't be using iommufd for this, tied into your
-> driver? It was intended for exactly this use case, to allow drivers to
-> delegate their translation to userspace. Though that doesn't relly
-> solve the questions about what it is even being attached to..
-
-I had a cursory look at iommufd, but it seems like:
-
-a) it requires IOMMU_CAP_CACHE_COHERENCY, which is not offered by the =
-rk_iommu
-backing the RK3588 SoC we are currently targeting. In fact, IIUC, this =
-does not
-seem to be possible, since the encoder is not cache coherent with the =
-CPU?
-I.e., does iommufd expect hardware cache coherency/snooping?
-
-b) there is no way to do what I said above about GEM, i.e.: there is no
-connection between iommufd and GEM.
-
->=20
->> The fault handler is used in the same way it is used in GPU drivers: =
-to kill
->> sessions if they fault. This way the driver can simply refuse further =
-work from
->> a misbehaving client, for example. It is also the natural place to =
-enqueue a
->> reset if the codec hardware is frozen as a result of the fault.
->=20
-> IIRC no GPU driver does that, they hook the obsolete fault handler not
-> supported in new iommu drivers not the new PRI based one... IDK we
-> have even wired this up to work this way.
->=20
-> It is nicer if the HW can tell you it faulted rather than expect the
-> iommu to do it.
-
-See my reply in another part of this thread about how handlers work in =
-Mali,
-just as a comparison point.
-
->=20
-> Jason
-
-You seem to be saying that what I'm proposing here has a few pitfalls =
-that have
-come up over the years. Perhaps we can massage iommufd to make our use =
-case
-work? I can volunteer to do whatever work is needed, of course.
-
-Same caveat as before: feel free to correct me at any point above, as I =
-have no
-previous experience with the iommu internals.
-
-=E2=80=94 Daniel
-
-
+>   *
 
