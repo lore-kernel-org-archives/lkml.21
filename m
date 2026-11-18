@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026940;
-	b=Trh8XfiLuaDat0GN9Rm/vCoVwyGMGWYD50nppuX9u/TlD9kITZdjp0Jf6PXRGgfsRE4Z
-	 ojDREZwqtWa5HizNH5ZOzfbB+JXnytvObGE+rjseJdrR2i6UQ4Xt63dneCmUVUI4ZlVTH
-	 cFfZ7zM7/Mz9QOfDbbhdY5gQQUbx4PSdK3KXSIGxA8kgpxcHLy92IiXwwwTBXdAfvLVgc
-	 w3tA91gH9j2H7KhskhYL1aRbKskz4ULHItSKiYzC7dFvXB/fudZO2TNvCF4vIxhdMk0qM
-	 NqENJ2yT5t0OQ52mKxMJBoJs/q6guUtli4unPAPQT7wkOXlQp5lDmfdQsTevpozMM7w==
+	t=1795026948;
+	b=rQ2x7IIpxRfH3SAZ+QYt30RmSYNpPhpiE5jtHII2gN1tPgi2iFjwuAUlSiLPa2A676Ul
+	 ltYOIW1cSFj74XhaernrKSlbAxHZKkWSvsg2j4gpTl/pdW43vs/6dYLCHTE9zKsLLmsFJ
+	 +gZn+mK4rcigrVuRdukULLgb0/jvBHXAqsCzvGqsSK/pFfallQB6TkJO2dmACV0kiW6Ai
+	 GW+FOtyK8S7EEDnxQs/g4CI7aNLKOTMdPFtwEsMyCWkjqc+Torc5nD33kbfPC8IkdJx8S
+	 0dLx0y0b8KeeZsuFwhoVEkRoJFOa1Rw1swYB7/HNHxIBDZGuq+vwMv4j5I6RAI6yudQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026940;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026948;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=L5wbkUZYtMNXPJXdaccMgVd27DQ+KICM3eePhOc5nqU=;
-	b=isHK+qtH0Nlfdk1V5LClLGw9244tduzdFwNx7ZOuw9W9lr99IRUw8MhCaSHNIaL3PWcK
-	 OUeqNvQ84wgoE9SqaSsM0W7i41Tfz12Ekn1ghFbapqiV6vTx9o4yOE/QPfGbgXwOJKBLD
-	 Y5uvIBH1zC7mpPtqx2MNOl9aAs0tRn1S6bXcPNLK5Kusr5y/tgwskNSHq1ABmpH8fhQcY
-	 KR6VaVsfhR7z/UZbHerzFBbZBUtlT/Q7+Zz7mm16nh5+9IHKEn7j1wOExY7Iq62CKeBpu
-	 BqMeLNlRvgds3LUtge8SK954HtQ/5gNGgPA4xw5fslShRDtxZoYmUVFmXbinsd/ggVg==
+	bh=AMr/kZW4+kvAE0nS8oXztOJCwRpyD037PL8XekrkuT0=;
+	b=GMjoiBIc0UsWQHhEAIsY7VDQBdqXDM5vXhHIEXA2hXDFPIni9L6aifXAwV2OHKv1PYYE
+	 DbwecTZNb9buOLDJkwRPR+veyZ91Sl+tG4aYNbsyV9o1ybR2R1nfS8ONm+45xrnHl9bEr
+	 fJPu5/rv7ILWPRBQDoieNOLbdsnX/ga8rm1narqLQV8mNuDVPnQ8Cv4cpO6aCPjt9Qn4x
+	 dBqnUNdrU8Ssr7Bmof0nJ7wHm1jJHrsp7YU3b6KftON2ALZ7i1ZpaUAt4EmganMKT3sN8
+	 teuGGI2f7bS7Jz+HBwXF/UKxtASX922DEF3mmbYrruwEunGlZCmLu85i6GMo58Uk1Hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owPzAo5C;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iOXXHkg+;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F20D6606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F20D6606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 767C2606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:35:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 767C2606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=owPzAo5C
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-36e99cf7bb3so1965021eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:35:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iOXXHkg+
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-36f8cdd30beso1297605eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:35:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795026939; x=1795631739; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795026948; x=1795631748; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=L5wbkUZYtMNXPJXdaccMgVd27DQ+KICM3eePhOc5nqU=;
-        b=owPzAo5Cg0da6pCBa733ICnomz11iMfsff7eGNc8Eisr8s6IdYXTrGUM3bfW+dZ4lM
-         UqXDChlXfUlvUtAf62HTR+6ncUKr/qBFoBYP0nkdHXjXjEZMbZlVfT5+T9AcRrODbjG9
-         EoUNb9yqsDIFLHJTFByntpYJ8xTknG+QjnU3Z1L2NW+9ROpqVKZ5J9RKiF/ypswAO3u3
-         rgb9641P84uBfjfbHb0ZQ9wsaFY/qNo8gUq4taChL/Gd5lUae9LylZeL7IorzcvEkrhH
-         ZSIdOMqn624WMxXwxlkSGvAi5WHzVkY6Ks8Q+q7xMRcWsUxDd+nX5CarADj2HMOHpxVM
-         eNDQ==
+        bh=AMr/kZW4+kvAE0nS8oXztOJCwRpyD037PL8XekrkuT0=;
+        b=iOXXHkg+n/ce/O717VOf0Xpv9u+HmYUoznTml1fkw1ailXngV+JSSmjuiecNPvXkYI
+         +kwzAjzb1lwmb9b61E/RI3iJTyrP45yIPuMI5j8hZ5FaLrM8KAAYH2BFhha89xo6K2B7
+         O+prREh2tD8Nos7PPpAqytEVof0geSzpzC+9QKUXy7d7rUJaPX0/cCrHkNtr2p5eAaTl
+         8xUwdPwm+iok4h8tAqKD5uUEO2rUD1EaNGaIxJAFFgAj8N41PgxbOgYJAmZuKo0/ZK+F
+         InGKJfSFI8/PY2LwRsby7+zz1bpIWOL2ubwiMiaHQZ3Id3lIKc+R1ohAvxqSAob2xVVr
+         IP2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795026939; x=1795631739;
+        d=1e100.net; s=20260707; t=1795026948; x=1795631748;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=L5wbkUZYtMNXPJXdaccMgVd27DQ+KICM3eePhOc5nqU=;
-        b=Om9CId98A72hav1xdNvpiK3PTs75vo8XyEsHwS8vVvKxXBF5IeWrNlTf5GDRE6dRSA
-         6aueyHo+q6a0ucJ2zauMikKZ4pOo69FwIIIdIrHLNPeahK23QT78J4UO0/SKVTHze4OR
-         xTNFhhyZ33oVu0U+gTMczZMvL+LYhiCSOsUTe/p8r1w2A+3WFUMnGmn4NwaRsH+JxzUW
-         Xed/nSaNOUoSC5iTtnZJpNX6UZZKQKkd+4h0gWcCXRFWsvNvanI2nPTcvyVM3TT0E3Yq
-         QMA/oJNEblCIlAwgL2aifPnYg1HrC/vyERCikgJlGTa6pxssgrjs33Q5uZzrqz98JO2W
-         4P7g==
-X-Forwarded-Encrypted: i=1; AL+hErETLy0r+H2DbfYNlUqgXLIIv/mhkG6C5tHge2A2J3b/ah33taNWeBUVpCPOoYQQjXXJnMtYR3grlj83I4U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PTPyHFOsqufZf/lR9QXAWf+adKmbZ8uvP1fznpp0bLWctb6br
-	oWEJlyuoOfwVeAZ5fHnildHLZlQAsoBhWn7Fasg487Y56M1RL+Ft+8sg
-X-Gm-Gg: AYBFou2CbyZEz3iANsAMTXk3p0mGyrD7CE1rMxRzZT/TGD/oATwUHFdZ0m2ZASogZfJ
-	c8JgLQNWDzff0M9auC4OJzJE4Fmb/gxFwP+gu3B9BkQJSnAT7ZXNNUBuogeVM3ynLZkKXAqR2J9
-	zOOyZ6ZW7A+7Qy8yvDruUakVkSCGbxsoPwyDCrRE63/tzua3taKnh+6divmu0bHGjH74icrXjTV
-	VD38fbh7WAn5rLgo0AbklXx25k6DkuyW95FqgCN02DAxh6luyLrMWaMdE8qqN5Ns4eaCH/P/hFu
-	3xN/BvJK+OhN/NgxXeOwj6pU2sVU2QrOAW3nCBrCK5EqulU/mWhotyWLPA81W2P793IOEUjUUoO
-	bhIj4i2VPxxo213qRTHqB7n23/k6mdv8uKeGxWZLVRwbl7HnwDU2MicjJyPZSneAssDdk7LXbW1
-	QGkClXuGuXFaaQkBbFolENpfq81wrCXqf0KglqtsPCwgcw3Rx8OEAyM7RUgE4eErPb1iE83yhlr
-	Me9ORDlofIUICXPyAMSiUTBAI6lQOot6+rYar/EajkLnScpYBeT3yGPf5PLRmcXArzqqAHbj3mB
-	N9pwq2EqTyQoI2Shl8ak6Klhh7ju0ohtWdRPD7oOYI8VBioM5w==
-X-Received: by 2002:a05:7301:d816:10b0:380:fd90:e660 with SMTP id 5a478bee46e88-382815240efmr3105334eec.14.1795026938437;
-        Wed, 18 Nov 2026 10:35:38 -0800 (PST)
+        bh=AMr/kZW4+kvAE0nS8oXztOJCwRpyD037PL8XekrkuT0=;
+        b=KhtRTp2/mDJhNrPpp/VzuiVLmi5IYSK85AXSKSP3UXGlZGB/GB/4KAuPXhT/iZBOzu
+         7aRheijT4nUzyV1RjZX1eq5IPI81FIbeshAALb5K3B4CAEyDjxJqwheQVvguTBivAOGM
+         ZC0TxrPTTKQIvDYMEpME4C1X7MQ3YB4MB1uA0dJNTWA8NAM7PlRDlTpuF5/FvtJ7diVs
+         JvbZDaPWah4lb59QqY06quVx1T9pPgjjN/d7EPyIUw/YvfwcEvy/ua3JOH97NxZFc4wD
+         bBcX6mRTY2ukBMMurbqQT0zytjyhkokL/RHlvFyKh4yY3O/M9TwDFamHaxPMjEwHq5/v
+         IqEQ==
+X-Forwarded-Encrypted: i=1; AL+hErGxkZlDj5td0aZO1PnhEgRgULvPnT0JP52Ec3MUp+KfM+w9B/tbtXIgLF3OsBRwPHqduSMPJ9eGRoJanm8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vmJBc4/QElaw2Ha5PWXvi/lu0Dq4WZnJetKg0pNSABu3+JTzr
+	X+C6Ej/7FACoDGNBBLOUd5xI19ls1GGvibXD04xtqWbuc2aNjX2M2c+d
+X-Gm-Gg: AYBFou0QQGuwrpiTFPGVopnZIWeNWh+ZUPe4oSsTl2JotalzhsTKZeBZyIiMLITn3ZQ
+	MQmwXCSc7K8koeXb5bALaKQce1RPMCRDUUWYXV60iNu8SsASgZvG3/Zk/wri9RkoGEYDItyXbwj
+	c9e3OAfFaBuSChDMj/y/glbIuu3Em6e4Ap3I25Xzwjj7s/82+BGYuaJzNwRljKUPhFWfIKv6yLq
+	uo/tL5NKjOfoZprrXARFjzyDi9d742RyJg8Rott+bmuRNoynntxny4LGQlW0KTU7SdsG9qFHGlH
+	8gfWVTHKK/rqNLp5IHohzN1YSnfWyEJujf9Urv9VmKgyuuziRVXKJhrh1gRQHIR6y3V81uCGoY9
+	3bDTmhefVU62IdMycGyHFxNCvCrwuVZaUVMYifIG+jp/gmMphHLDI8g64GIKAv6zJA2pPz+cK4Z
+	dFmIO49lgnVicwrWtmpoVWpZJUndhnj9ux8g5hUC88TWS/67xu2zRo54A6e6e3A9B4hOYd6Gs49
+	+TNTinJRTYEKGRtJyxKZatKVTj+wH5Xxr0+0pjx3QHw6rV07ouraiNj5sACi4PIX1bjp23hatxL
+	VKGd56cocrtzwsMX1b+FR1Ludeho2SFx66Fdd3uvJBRvh4XXOQ==
+X-Received: by 2002:a05:7300:c7c4:b0:36a:1d6a:596b with SMTP id 5a478bee46e88-382818137a5mr3475399eec.29.1795026947011;
+        Wed, 18 Nov 2026 10:35:47 -0800 (PST)
 Received: from G7XWH7K1F3 ([139.177.225.245])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45274aesm10450189eec.2.2026.11.18.10.35.32
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45274aesm10450189eec.2.2026.11.18.10.35.40
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 10:35:37 -0800 (PST)
+        Wed, 18 Nov 2026 10:35:46 -0800 (PST)
 From: Zhao Li <enderaoelyther@gmail.com>
 To: Jeff Chen <jeff.chen_1@nxp.com>
 Cc: Jeff Chen <jeff.chen_1@oss.nxp.com>,
@@ -93,9 +93,9 @@ Cc: Jeff Chen <jeff.chen_1@oss.nxp.com>,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	Zhao Li <enderaoelyther@gmail.com>
-Subject: [PATCH wireless v2 1/4] wifi: nxpwifi: cancel channel switch work on teardown
-Date: Thu, 19 Nov 2026 02:35:03 +0800
-Message-ID: <20261118183506.45749-2-enderaoelyther@gmail.com>
+Subject: [PATCH wireless v2 2/4] wifi: nxpwifi: stop AP TX after preparing channel switch
+Date: Thu, 19 Nov 2026 02:35:04 +0800
+Message-ID: <20261118183506.45749-3-enderaoelyther@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261118183506.45749-1-enderaoelyther@gmail.com>
 References: <20261118183506.45749-1-enderaoelyther@gmail.com>
@@ -110,13 +110,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Stopping an AP while channel-switch work is pending leaves the delayed
-work armed, and the callback later runs on an AP that is gone, or on
-freed driver state after removal.
+A channel switch with block_tx set disables the carrier and TX queues
+before the CSA management IEs are installed. If installing them fails,
+the request is rejected but TX stays stopped.
 
-Cancel the work when the AP stops, and clear uap_stop_tx, which a
-pending switch with block_tx has set. Interface deletion, type changes
-and driver removal all stop a running AP first.
+Stop TX only after the IEs are installed.
 
 Found by code review. Compile-tested with W=1.
 
@@ -128,22 +126,39 @@ No new W=1, sparse or smatch warnings.
 
 AI assistance was used.
 
- drivers/net/wireless/nxp/nxpwifi/cfg80211.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/wireless/nxp/nxpwifi/cfg80211.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/net/wireless/nxp/nxpwifi/cfg80211.c b/drivers/net/wireless/nxp/nxpwifi/cfg80211.c
-index ba54078b082c..5b8fb37c3f3d 100644
+index 5b8fb37c3f3d..a9cee7e602f0 100644
 --- a/drivers/net/wireless/nxp/nxpwifi/cfg80211.c
 +++ b/drivers/net/wireless/nxp/nxpwifi/cfg80211.c
-@@ -1639,6 +1639,8 @@ static int nxpwifi_cfg80211_stop_ap(struct wiphy *wiphy, struct net_device *dev,
- 	struct nxpwifi_private *priv = nxpwifi_netdev_get_priv(dev);
- 	int ret;
+@@ -3117,12 +3117,6 @@ nxpwifi_cfg80211_channel_switch(struct wiphy *wiphy, struct net_device *dev,
+ 				       &priv->dfs_chandef))
+ 		return -EINVAL;
  
-+	wiphy_delayed_work_cancel(wiphy, &priv->dfs_chan_sw_work);
-+	priv->uap_stop_tx = false;
- 	nxpwifi_abort_cac(priv);
+-	if (params->block_tx) {
+-		netif_carrier_off(priv->netdev);
+-		nxpwifi_stop_net_dev_queue(priv->netdev, priv->adapter);
+-		priv->uap_stop_tx = true;
+-	}
+-
+ 	ret = nxpwifi_del_mgmt_ies(priv);
+ 	if (ret)
+ 		nxpwifi_dbg(priv->adapter, ERROR,
+@@ -3139,6 +3133,12 @@ nxpwifi_cfg80211_channel_switch(struct wiphy *wiphy, struct net_device *dev,
+ 	memcpy(&priv->ap_update_info.beacon, &params->beacon_after,
+ 	       sizeof(priv->ap_update_info.beacon));
  
- 	if (nxpwifi_del_mgmt_ies(priv))
++	if (params->block_tx) {
++		netif_carrier_off(priv->netdev);
++		nxpwifi_stop_net_dev_queue(priv->netdev, priv->adapter);
++		priv->uap_stop_tx = true;
++	}
++
+ 	chsw_msec = max(params->count * priv->bss_cfg.beacon_period, 100);
+ 
+ 	nxpwifi_queue_delayed_wiphy_work(priv->adapter,
 -- 
 2.56.1
 
