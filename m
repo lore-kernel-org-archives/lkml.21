@@ -1,90 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017701;
-	b=u+shE9e3mWfIjB2X4z0mUQN8ZDLSwTwolP51bXBN+HxaGZl8I0OqIEskFGmrDkv+I0lK
-	 Aekq4xnUmOGH2YzElu5i99znJ4TX6FmhetxpYTy9bcMCFfQo7pJ4mAdjUhuE2Wr2RG4N9
-	 NnWAVcN+Yv6BwEMVeI7E1oeDEUh/nFV4fgJYeAMi2rOxwTCIwv3yPxhC0a4DahSU4QrAe
-	 //hMwpZXmnZgHvrjF439IpKtODgAQHWIa1n8srftnuypl/L8txIiGXu1nes4QDcID/EHY
-	 b7QUzFBsTR6wg5Uj41NtEYoSV7zT7Fjd+ASvpxdIsXmb4JHqjXnF3YiE21Skup77ROw==
+	t=1795017702;
+	b=VgUip/u2ifK5rtlr+npRQNJwd11gwf+6OtS9233ogC0ju0EpDIHN4Dyhhgy1MOWqPGCS
+	 HaWthpe07pUV0ocAvGk4qtTsotGyAvScMuy7IKiaRrxMmsCL8eMa65jbY+r/W6C8h+L3d
+	 7cCpdjHsRHeZBWhxcWHQOt3WnNSVsvP8Rhn+EwoBECrpXuQvPCoKcpEFV+ejk/100VR65
+	 uRpOuYGGfddRLoIHCTj7FHbYTtyNRrf2LjD+LX/tcfFjYnBBGaXLSlQjg0NiwZqhlRM3S
+	 N8onXosVkpy/gV0XTHiqaWow+1DlvL8kN5nJ0TSDfhz3oV9ofNbxGz7Tka5kkCQmyag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017701;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=+2RLaCA+CTvvhLn9hoYoWmbd8XvuHHvjif/znAEqg5I=;
-	b=GYeLnos2XXjPO58xc3M/wudz8N58pZ5QotbvLKQHVCZqZJRLg7U0Vz8TdiZcLJjGzZSi
-	 iowYz2DHF2hPryNOukbSMM0edwYQ2dEJ/ClLYNIXHtaHUUe4hpCMTiSiKii6aYYQqxuwk
-	 WpSwK7UH7gfde5U2ACarc7V1UXjOeX6nsiWLdVlFKEx9tutNsW2jRQcAucADSSi9zFVKz
-	 NM2eyInWNB/++yqfH2E/6D5/ob7UNWydsX9WmkWxjSk8dupzoWvNIeaJrm5LeVL2J7qqr
-	 BMxql9io8wgDa6iRChCMo7hiLR6Lnt4e9E4vjIAuDuUUFbTbYfEsUyH5tP3Ycv/DwDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017702;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=LY5KnYEg62Pp1LvL2umBEQ+TtbgoJI72sal+2fBuBKo=;
+	b=WiYIpHkiB81S5N7xOmRrUbiK7p00ktJD4czZ6A0K4rBSzbJhQ2MfMO9JzTLlxoi1PYCp
+	 vGITP7VttS6OTEPLBDjybqPio9CPL/SM1DlWgSgEFGjg5hEmyIm7osp5XJ/BmuPpi1vJM
+	 4wM314Yr4ejAG7nNdztyuKci2vAKP3PUXe8iuQ+lwfUSNO1ET2Y/KACQYT++lUUiy633i
+	 0cv8/v9mb1AMvV8ahO5jHsblkxIuTiFkpRbfJnvsiWs0ciGqLaKP5Bop+JJ5McYnFVmSD
+	 FEDWp6PLQKxMftZX2XNuQqf6RGYgASgJ5AONI1YVUdbzD354CA4TK45h5AVOf8RUMRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=FkUyYAAh;
-	arc=none smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED9B7606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED9B7606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OzEu8UrK;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 965B1606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 965B1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=FkUyYAAh
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so1614925a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:01:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1795017699; x=1795622499; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+2RLaCA+CTvvhLn9hoYoWmbd8XvuHHvjif/znAEqg5I=;
-        b=FkUyYAAhaw7xBnz3AIlHyO40fGm4JohW3nNn6SQ164hbyqNEjCtyEdZjRcoYshIbGQ
-         4vutcmfeu1fM18Iob62km67g4ywxGW/xTL5fiMusIhTiY13m4fxBndoVffqTT4wP07JT
-         wtFBIvrluo3EyJ3Is9wBLVNvX4Ycr5t2h7OAA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795017699; x=1795622499;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+2RLaCA+CTvvhLn9hoYoWmbd8XvuHHvjif/znAEqg5I=;
-        b=zF+qOfrSQKhTM1vIr4onnnBsBNXfx3dPINv4TgLscGaUrC9kfNI54kCSjv1jdHZnAz
-         25E8i++CQNvh1QZgKpdUVeab99wgS3V3BRQT1ISLwk+5WZhrDmASPRMit14o2jGgC+vD
-         NEmza2HM/7ZwR2IWa3Ke8AiSA5XgCAap84+rmytmztnrCflzAxQau8xMbjHFdWi5zO10
-         mygdevoz33CA2AKo5mXE709SvwbYpboO/l+DLVvWn3/dVM2BPyf/qXeD+aRecBADG/Mp
-         Vm4KR3VPN9nqunw3Bbbel5AwtzC89bNQu5JKOqLjhE5KaOo77QTlr5F11kwOssVMKL03
-         4tzA==
-X-Forwarded-Encrypted: i=1; AL+hErGay2DYwbNz/c6w7zmT1N+eRTfOwNmZsmNOjI2nKo0Q14pefR4vqDfyNNdiD+pF6NGM37xnPj9958ydX/4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87jM5ykiGDWv3pKNpS5bkKrNy/D8JzqIyiX7I9bLKVmbR1eyE+
-	4eOnwimgL4QjoMmDFJtIv0vPu2DVINl/EEhkZdTKcfMKETa0Khi8EJMQxg7w2TOd2HXatm0BoqX
-	sfuGr6Lg=
-X-Gm-Gg: AYBFou2826pNEfD8qtBU3n0+TEZq03EHALb7AjedJrT2F2ckmoY4j2di1z70yD/UHcF
-	iUaE6d2BoFjl50PrNP7Usitx6gbd/tIHPRUNZXveEXLWUXp78bcxk5PwG2Z7DdgmhtHQ3XsAx2a
-	iWnjPm6/QrkCQICCyolGxRtiek9jf3Z8IrdsDskmGkRjxYSJGFid4Om77+kogxZrDU7RScKoyQB
-	dkhVKYSTlgNKzzv70vvDY5NQjfZOBj7KwmKwQriApAYqvhYtan90Fs1yrWtzxvasc1Udp6qie2+
-	bLcu4zbcK6fSdJWVMzcj5G1FWtofyhPhDFDwOyUqzSz7iWavx63RrRP624SDM21Ku30PNaNMZS8
-	8ByX7PFhwCKpBW8IMarmm7aDKlsanxwS6FLLsmU63zcutLpkXCc6gtz84bQtkQ3suZlieDgyVtS
-	OAy1N3NkjAQVzWMCZXcj9k2xK+mqevKHmbZF7cEP1KK06mZ/Fxfg3rAPac9EPG0LXkSkKIV5qCp
-	JO2NYkW384fjss0Mr7METqLx2pOmq1PJr9uOGjx7kaHIWPgIZEMURyF6hY7X7m+PNJPM0K/f7UC
-	dO8s08WkicZ6cmNsV35pIuKUI9cF+5hkNkW8h9AGfAXWDiS0OsKtXBQRpX5kHe7ASFxnqmJZGNF
-	/2fc=
-X-Received: by 2002:a17:907:968b:b0:c49:cdc8:10cf with SMTP id a640c23a62f3a-c510e3a717dmr290282166b.40.1795017699084;
-        Wed, 18 Nov 2026 08:01:39 -0800 (PST)
-Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com. [209.85.218.54])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51234d4726sm15487166b.80.2026.11.18.08.01.18
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 08:01:19 -0800 (PST)
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c4d581da0aaso137105966b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:01:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFYsrFOOR5WSf9I8bPo9nKC7OoUgHOdr+bmi3JiTuLvm/QeYLRn4kXFtAES0bnzbZJQHVW+uv5wNhiMn8M=@vger.kernel.org
-X-Received: by 2002:a17:907:cd14:b0:c51:24e9:c474 with SMTP id
- a640c23a62f3a-c5124e9ca9emr12311066b.16.1795017678422; Wed, 18 Nov 2026
- 08:01:18 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OzEu8UrK
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C135339;
+	Wed, 18 Nov 2026 08:01:38 -0800 (PST)
+Received: from [10.163.128.4] (unknown [10.163.128.4])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 214843F632;
+	Wed, 18 Nov 2026 08:01:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795017701; bh=hkXZYgY3e5AOogVCwFiSPcIssJ7tU5GIgVmY2/vcSPw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OzEu8UrKkTwbKYrQaFm5nAwdhmP5LhADhtVLtftu+FWwlL+6u/SoOj/j2smR5D+qY
+	 Hm6S3yq97wLpReP+9UdpiZXJtzV/jJrmpfIL7OgwVDEA7it3Ox58btH8isXP0rCtIR
+	 ptUOeqN8o0c9d5YHL/MQuUOz20H8BVhdms3QcOuQ=
+Message-ID: <8cc96362-462e-4033-8e37-f9fc9128f6b0@arm.com>
+Date: Wed, 18 Nov 2026 21:31:32 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,52 +53,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111-pipe-epollexclusive-wakeup-v1-1-0af6283e9fda@columbia.edu>
- <avxWKI795DthE8Sb@redhat.com> <CAHk-=wjOq+G=6gte4vX_YxOD_VfE1uZh7=+KHs8N0wU75xyHEg@mail.gmail.com>
- <avyODoFhZ_M7YDU5@redhat.com> <CAHk-=wgcBSBtHE+3ceKGjq1jyF64OyoEqf5JPpixowAa80GqNQ@mail.gmail.com>
- <avyVwg-5ef-pXZkG@redhat.com> <CAHk-=wjJF8uZLfVbbqei9-fhs9K70i2OnVreCV-rQF9EGKAxJg@mail.gmail.com>
- <CAHk-=wjqParwoB8wb9KfGVpbwUwvKvObpLOo=XPM0GGfkn3ibw@mail.gmail.com> <av2juQijIISJAgyf@redhat.com>
-In-Reply-To: <av2juQijIISJAgyf@redhat.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 18 Nov 2026 08:01:01 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wg4RgBYZcUU+c16XxdZ4UbAaazJkUS=R6=tpN4xUBdDRw@mail.gmail.com>
-X-Gm-Features: AclHuK-jO2btqFqtri5NH0SNA66TSaufpqFn40OH8HLtU3lTATNZK-kccXjyNlw
-Message-ID: <CAHk-=wg4RgBYZcUU+c16XxdZ4UbAaazJkUS=R6=tpN4xUBdDRw@mail.gmail.com>
-Subject: Re: [PATCH] pipe: keep per-write wakeups for EPOLLEXCLUSIVE consumers
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: Mani Tofigh via B4 Relay <devnull+mt4022.columbia.edu@kernel.org>, 
-	Breno Leitao <leitao@debian.org>, Christian Brauner <brauner@kernel.org>, 
-	Mateusz Guzik <mjguzik@gmail.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tz2294@columbia.edu, stable@vger.kernel.org, 
-	Mani Tofigh <mt4022@columbia.edu>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mm/page_ext: remove unused page_ext_iter_get()
+To: Shivank Garg <shivankg@amd.com>, Andrew Morton
+ <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Johannes Weiner <hannes@cmpxchg.org>,
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
+ Luiz Capitulino <luizcap@redhat.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Wed, 18 Nov 2026 at 05:10, Oleg Nesterov <oleg@redhat.com> wrote:
->
-> What if we add, say, WQ_FLAG_LOCKED and change prepare_to_wait_event()
 
-No, I absolutely detest conditional locking. It *will* cause problems.
-Particularly when based on something like this where the locking
-depends on not an argument and a call chain, but on a (potentially)
-long-lived flag.
 
-> Then we can trivially redefine all users of __wait_event_interruptible_locked()
-> on top of ___wait_event/etc.
+On 17/11/26 9:56 pm, Shivank Garg wrote:
+> It was added in commit 9039b9096ea2 ("mm: page_ext: add an iteration API
+> for page extensions") but has never had a caller.
+> 
+> Signed-off-by: Shivank Garg <shivankg@amd.com>
+> ---
+> I found this with the kunused scripts [1], which I wrote with LLM's
+> help. The v1 cover letter [2] has more details on the scripts and
+> how LLM was used.
+> 
+> Changes in v2:
+> - Split out of v1 [1], as David suggested, and based on
+>   page_alloc/for-next. No changes to the patch itself.
+> 
+> [1] https://github.com/AMDESE/linux-mm/tree/shivank/kunused
+> [2] https://lore.kernel.org/r/20261026-unused-sym-v1-0-82ca2dceabe1@amd.com
+> ---
 
-.. *if* it was passed down as just the argument, I might be open to
-it, but honestly, even then it's just nasty. I *much* prefer to have
-statically visible locking, and have the pattern of one single helper
-that does the core work, and another helper that just does the lock
-and then calls the first one.
+Reviewed-by: Dev Jain <dev.jain@arm.com>
 
-Some duplication - with explicit naming of the locking status for the
-special cases that are called with the lock already held - is much
-preferable to dynamically doing the locking (even if the compiler may
-be able to then turn it into a static choice at build time, if it's
-not obvious from the source code it's still "dynamic")
 
-No locking hacks. Locking - along with memory ordering - is special.
-Locking is *not* a flag.
 
-           Linus
+>  include/linux/page_ext.h | 11 -----------
+>  1 file changed, 11 deletions(-)
+> 
+> diff --git a/include/linux/page_ext.h b/include/linux/page_ext.h
+> index 79c53ec45dfa..52a8b70c525a 100644
+> --- a/include/linux/page_ext.h
+> +++ b/include/linux/page_ext.h
+> @@ -167,17 +167,6 @@ static inline struct page_ext *page_ext_iter_next(struct page_ext_iter *iter,
+>  	return iter->page_ext;
+>  }
+>  
+> -/**
+> - * page_ext_iter_get() - Get current page extension
+> - * @iter: page extension iterator.
+> - *
+> - * Return: NULL if no page_ext exists for this iterator.
+> - */
+> -static inline struct page_ext *page_ext_iter_get(const struct page_ext_iter *iter)
+> -{
+> -	return iter->page_ext;
+> -}
+> -
+>  /**
+>   * for_each_page_ext(): iterate through page_ext objects.
+>   * @__page: the page we're interested in
+> 
+> ---
+> base-commit: 3a99594e62fce8c646e8aac01d38af16d6833a40
+> change-id: 20261109-unused-sym-page-ext-3fb8316ac777
+> 
+> Best regards,
+
