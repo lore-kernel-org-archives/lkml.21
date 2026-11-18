@@ -1,60 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020644;
-	b=wXNyVfK3bfrP9c47AXk+DhqOgmY2NJyWR6vy3wsN0bZpCndAp3Hc1WK7hzFHlxIuLoRn
-	 gfAkXlTELSgMIkb9vJ+t+eXHUK4gbEvJk2xvpkFvbhB4jNd6oPUZFCpXUlmLWrrUIFQun
-	 IFyYTNobLEx45wutekzGreeEgKopVKNF6DTXh2TnAYpm4dxRFtHl5larUg51N+y0yGfOC
-	 lQ8Mfzr31NpfvzfresffKVDCPRPMqI6wMTvNpNxsUbafQdC/apEkzVnWkfON3IIwh7hBW
-	 UebwBoa2FzDs7k8o0rs6YVWWzuznjkG8vUfbN0r8qXqbJ8+RKSn1625E9BtNex0wjjA==
+	t=1795020651;
+	b=LZPKNrb+s/VeSD6mN58/co4RHdLmgR5dR1Y1B9kbKgcp9h5K9tvAq0viO/Ao3FCGo8uK
+	 I5DugIZI59mh3yGi4rA7vGrJU2rwcJWF/NlHisTM1ZOxlZrqtzrb3u2KoWJGniSRuzZGN
+	 WzcwD6i3Ae5/I1VDMVgpuznkv/I22o7Ma03cr+kRAmTo5MR/tkKmtypvCq4hMGJWZZlid
+	 CbCmmN5LNhsELyn5H0E4HQVyIYYY4dUuRORWX9bF1fly9bVPntgNk1PGsUx4/FApiBVDs
+	 TZBgtAQBqY8WH/CoSOgGoV08ddaCsnOZE8U55cgcDr1nZTgeCUJmE0Uhr5nbVGs/YKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020644;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=DomKAZah0eNhI098eAShLZdloqTw6X9onjOwyu3TQpk=;
-	b=AtJGjbQm3KtHfBQtJuvPY2qFBTExVsF4AmVLQZaxyDuA4KO8VWC8NxDqPz9fXBIEYOp0
-	 ye3oKAS+QwVnHSS6YeDicjY4KJWIU4tyoP2Y4tZJX4kIfE0RIjhYdNwmG2UqYkGKIrO+z
-	 VXERhKkuCA6gNivxTiKZmjiqXIc48dzHIBo3zuxXuZz8/8wcbqg8SyZwF+mizzYd6kBYo
-	 /i8XViqyQBYL79JsqvHkC6+S091s4mQ7WAng+5LYbNE4HPPGlnwMsI7o168z0bTpbT8M8
-	 4zHtqFa1ZMH3665JcK9B8m3V7KfWlF9675HEgHScWdIHWcoVNu1w+syZV0OoJlP4FLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020651;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=m3pvNF133wcwSGy+HdLA8hjMu+z12FMemfmO2dtjbkM=;
+	b=jRDq/WGcheAXhmjNAPx5soI06E6xCqHo4d53LDp5VRKuG56D533fbZ6smQA8cwbnfVmO
+	 1FolZggXFYpSRIJ1jbYhg/UtQOGWM7GoaWUwukVK6wrKOD5ZpYrF+2fy4sFkM5rZrK+x/
+	 XLYhnGbf2SzaGNl/l1mBT47Mu+2Jgx/v6k+t0GWAATuAohrrtFaAIukK1loJyTelP+/OH
+	 wpilKhuqQguilvJ4grFNS/0ZZtplxczxFGHr4C6LVIuuXbo8xEo6/lxqYV2+gSgqwI4rG
+	 fgk3XoYau24BCMucXslkfZbDTktlF1R26QGmWoNJGu9bZIKQCzPyyFu2EysYP313TDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=rPQJseuB;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pAt6ghYd;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14CBE60A2600
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:50:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14CBE60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35DAE60A2610
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:50:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35DAE60A2610
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=rPQJseuB
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 77D87C4F77B;
-	Wed, 18 Nov 2026 16:50:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 92E335FE9B;
-	Wed, 18 Nov 2026 16:50:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E3CFC11BC28A6;
-	Wed, 18 Nov 2026 17:50:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020639; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=DomKAZah0eNhI098eAShLZdloqTw6X9onjOwyu3TQpk=;
-	b=rPQJseuBimuYbMsVFZwYBpdH25+EgCGQGdbZxfauCn8QqexKNJ4b95ZoPwFi6VdZhyyOA/
-	w9kiPsqIF3YVxzHDJWK1TmPFh+YOBqUiIgRTBFVXB/wSVzSqJcQo9mfta3VW8dhQ+0k3iy
-	UNtHDoCdHGJRqMXKsRIvqgWL0BxOv9AeIAWI+wrjVdMcqnFtLRBNLwcYV02uZKvTbrJM1o
-	beZ92+EGGuD4Gt962LY93ZbqaVWtaYutH80ah5/AyzwDDkv8tgDgxBGlcDjU3IyYU2/zqd
-	cW1fw+Xm/swFj3+/DwMC7vbwxuVdidFf48qkM+jPzgJCfvKH1P7cLzkrTnvb3w==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 18 Nov 2026 17:49:48 +0100
-Subject: [PATCH RFC v3 05/31] drm/connector: split
- drmm_connector_hdmi_init() in 3 parts
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pAt6ghYd
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-49d64a88222so1522186f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:50:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795020650; x=1795625450; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=m3pvNF133wcwSGy+HdLA8hjMu+z12FMemfmO2dtjbkM=;
+        b=pAt6ghYdJ/7/HTIaJO6x4Wuc0RCUjEjzeD/MJj4QrpUWOv7saFOFm6foATaUxUurqB
+         jLBwoBDZMtIzTdKmn/s+HJmfNDwmN/jYWy2a8oG74Il8wPXklVF/ZALAxDgIuYdkd+D3
+         ceh/NpyqW0XTixDdf0q68XM66B36EaX3cfRpDmysDDCy+PuExDokiO/xVmOO5KkQ751V
+         8T9fpnnH4mSXT2zNUaHg8bPeCyqwwqKWzAz0XEK2rh3bUBTZZx6PKMIrdK1DwOxDdF6S
+         Xc4S+6zeDuayTBdb5OEXpV+Fk9gb/KN6tk4sQGu5caOPWrDhh17g11G2ZrDpE+FrCkaX
+         S8eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795020650; x=1795625450;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=m3pvNF133wcwSGy+HdLA8hjMu+z12FMemfmO2dtjbkM=;
+        b=Uwqh5fEgZXwpInbU3J1DOxeiFpkRjAAkxW+Ai01kfWm+z3LzZIQz7A4jH8m/zbUtk3
+         X7dCNAKF3keeHRIc2dwF+I+MQ2DwP+V1czPc3NNY0ycetBIdY03ZYOTMhTj+5hq/jzVH
+         p5T9q5xM4/q+wAcQyo3fLRUy1QUJ2ILRrxqF4jTXJvxSgSHeqR1Bkp8CrENIHOTtSCoo
+         BQoucWHq1gXSZWIbvGAV4vckkOI8npn3csjLYF59g7nJyopjwFcW++2ZLJBUhDvZ94QM
+         Kbwres3oWYgPfHWAxqSid6P/Y+LGFV3nBh0JCaC9z567I4pJpqmlJgC5vsCjrfcG246C
+         1JjQ==
+X-Forwarded-Encrypted: i=1; AL+hErE47iXqahqauikOmroxUhFwumjKSNQYhOxS0vfHTxIofrxiq5Is7c8/m2XOJ7Lr3xYG4EXUDkphvwNDQ2A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4WZSNsxKd6lMHyMNWAfo87pEGCqyn/2HVRMHhtFsIpbp5AQP3
+	WgPtr7DkVnS2w1ZgyY+IBaJebinevVdHrqTxovxx6i6eAnJPdKT/ApAM
+X-Gm-Gg: AZFdTZcIDRNtjhQLFmqqnZFXKkyaQU5FTx4Wo61141jQQbGOCbRBZeLJiWwk114hkmX
+	i0GkubJAqBCP04Q17sb2Cc7GuroFgfB/yWEaw+MJCwXZlNkhPuHpnEv+C64vwLfOzHFBfoFAHUA
+	XDKUQZr7/f/Xn3SJm1ukYuJ8lPVzkIHERFAwx58ZgA/NmljEw5qCAxzOFv/MewOCzmyWq9/GRME
+	8+tO34njx0IaNeFxMKNEdaTV6i++HxKAThzV0t47uz/2wyWDe/pAjkZic9IxB7vOk3dqfin5VBt
+	8yUCiSWfG/lp0KE2QxPE98nCVLU7oRpDIznWgKPQ3UeEqu90PZzfVIozldudDz8gBTRkan9oxfX
+	QIxZ1bhIe6Dyia0nFFa+0VcDJhVIqle0scVqejP9d+bo+sVvcam/ASwjRbvKWHR/fjHSjxyDNYJ
+	7XXHThYfAh1rfaS4bwSdeSMTXCFFqpTGITnGMdA/eaoA0aQu8OWyA/gZB+QVba9l6WHcSEkaSDg
+	1mKNLI/cGA49DTqKMhQoMrkInVcKvR/GbdeAIc2jFz5YZyh/oF+MYaPKq65SssDTrpLY1ESI3bT
+	L6i7Sty0RXMzBu2TqWLY/a0rEAY=
+X-Received: by 2002:a05:6000:29d6:b0:48c:585b:8825 with SMTP id ffacd0b85a97d-4a8e60ff7eamr118137f8f.18.1795020649313;
+        Wed, 18 Nov 2026 08:50:49 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:de3b:51f3:e461:c0df])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2ecd0sm6451582f8f.8.2026.11.18.08.50.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:50:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,188 +86,172 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-drm-bridge-hotplug-v3-5-44bb3b4a828f@bootlin.com>
-References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
-In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=e68d7a3c08e03032b674b625d495d35f9a655e5ba7e0e8c8006911574197;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 18 Nov 2026 17:50:39 +0100
+Message-Id: <DMYHPLWKPSH3.MUM1IIZZIWNR@gmail.com>
+Cc: "David Sterba" <dsterba@suse.com>, "Namjae Jeon"
+ <linkinjeon@kernel.org>, "Sungjong Seo" <sj1557.seo@samsung.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
+ <brauner@kernel.org>, "Trond Myklebust" <trondmy@kernel.org>, "Anna
+ Schumaker" <anna@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff Layton"
+ <jlayton@kernel.org>, "Konstantin Komarov"
+ <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
+ <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
+ <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
+ <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
+ <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
+ <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
+ "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
+ <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
+ "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
+ <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ "Pedro Falcato" <pfalcato@suse.de>, "Amir Goldstein" <amir73il@gmail.com>,
+ <linux-btrfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <exfat@lists.linux.dev>,
+ <ntfs3@lists.linux.dev>, <linux-cifs@vger.kernel.org>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
+From: "koraynilay" <koray.fra@gmail.com>
+To: =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261118142613.be3r3s6kobkkxnz4@pali>
+ <DMYFBDIV4Y08.35ZKR5G86U1H7@gmail.com>
+ <20261118151605.lqtn5fz423kuswk5@pali>
+In-Reply-To: <20261118151605.lqtn5fz423kuswk5@pali>
 
-In preparation for adding hotpluggable bridges we need connectors to be
-created dynamically, both regular connectors and HDMI ones.
+--e68d7a3c08e03032b674b625d495d35f9a655e5ba7e0e8c8006911574197
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-For non-HDMI connectors drm_connector_init() already has a dynamic
-variant, but there is none for HDMI. Creating one would be easy by creating
-a mostly-identical copy of drmm_connector_hdmi_init(), but it is a long
-function so there would be a lot of duplicated code.
+On Wed Nov 18, 2026 at 4:16 PM CET, Pali Roh=C3=A1r wrote:
+> On Wednesday 18 November 2026 15:58:02 koraynilay wrote:
+>> On Wed Nov 18, 2026 at 3:26 PM CET, Pali Roh=C3=A1r wrote:
+>> > Hello,
+>> >
+>> > I have just one issue with the userspace API. It does not allow me to
+>> > figure out what is the source of statx btime field. If it is fs ptime =
+or
+>> > fs btime because this RFC implementation is mixing both fs ptime and
+>> > fs btime into the statx btime field.
+>> >
+>> > I have feeling that this is quite a mess in API and I would like to se=
+e
+>> > a clear distinguish between btime and ptime in the API, like there is =
+a
+>> > difference in the fs storage.
+>> >
+>> > If the btime is used for forensic analysis then somehow I would expect
+>> > that the statx would not report / not fill changeable ptime value into
+>> > the statx btime.
+>>=20
+>> Hi, for native linux filesystems it will report ptime as PTIME and btime
+>> as BTIME (also semnatically).
+>
+> That is fine.
+>
+>> for the windows-like ones that only have
+>> ptime (semantically) I think it's reasonable to not expect btime to be
+>> immutable, since they are meant to be used with other OSs who lack btime
+>> semantics.
+>
+> The problem is here that the RFC statx API does not provide this
+> information that the fs lacks btime semantics and instead it fills
+> non-immutable ptime value there.
+>
+> I'm pointing only about this inconsistency.
+>
+>> > It would be really helpful if the statx API on inode can differ betwee=
+n:
+>> >
+>> > 1. btime is present and its value is ..., ptime is not supported
+>> > 2. btime is not supported, ptime is set to value ...
+>> > 3. btime is present and its value is ..., ptime is set to value ...
+>> > 4. both btime and ptime are not supported
+>> >
+>> > This should cover all cases of different filesystems and also allows
+>> > userspace to do proper backup of both ptime and btime fields (if it wa=
+nt
+>> > to do forensic analysis or anything else).
+>>=20
+>> These should already all be covered by STATX_BTIME/PTIME and their
+>> fields in struct statx, the only problems are windows-like filesystems,
+>> which IMO shuold be handled as mentioned above.
+>
+> Exactly, I pointed out about these problems. I somehow expect that the
+> new API would be generic and uniform across filesystem. IMHO it does not
+> matter if the filesystem is windows-like or not (there are also FreeBSD
+> fs and also others which allows to modify that time). So better
+> description is fs belongs to category 2. from my above description.
 
-drmm_connector_hdmi_init() currently has 3 sections:
+Ah yes, I used windows-like to mean "only have ptime semantics", so same
+as your category 2.
 
- 1. sanity checks
- 2. call drmm_connector_init()
- 3. initialize HDMI-specific fields not initialized at step 2
+>> Of course, as in the other discussion, I'm open to changing ptime
+>> NTFS/exFAT/... support to remove btime altogether and only use ptime for
+>> their own crtime if that's what wanted (I'm fairly impartial on this
+>> specific issue).
+>
+> I'm giving some ideas how to possible handle this situation:
+>
+> 1. do not fill btime it at all when it is not available (remove btime
+>    altogether - the case like you wrote above)
 
-For the dynamic variant, sectons 1 and 3 would be an exact copy, while
-section 2 needs to be different.
+This would be the most semantically correct option, but would break at
+least 1 script/program/use case.
 
-To avoid code duplication, split parts 1 and 3 to subfunctions. The next
-commit will introduce the dynamic variant.
+> 2. when userspace ask both ptime and btime, then do not fill btime
+>    (remove btime altogether - but only for that new case)
 
-No functional changes. Just moving code around.
+This probably is the best compromise.
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> 3. fill btime with ptime value, but add a new output flag indicating that
+>    the btime is not present at all and instead kernel filled ptime value
+>    into the statx btime field
 
----
+I don't really like this, it adds complexity and uses memory/1 flag big
+for a single specific field, IMO it's not worth it.
 
-Changes in v2:
-- expanded commit message to clarify rationale
-- rebased on current drm-misc-next, which required a full rewrite after
-  the signature of drmm_connector_hdmi_init() changed in commit
-  400c9ede1ea4 ("drm/connector: Add drmm_connector_hdmi_init() with new
-  signature")
-- renamed drm_connector_hdmi_init() to drm_connector_hdmi_initialize() as
-  or it would look like an HDMI version of drm_connector_init()
----
- drivers/gpu/drm/drm_connector.c | 88 +++++++++++++++++++++++++----------------
- 1 file changed, 55 insertions(+), 33 deletions(-)
+> 4. let statx btime as currently is, and add two new statx fields:
+>    immutable_btime and ptime. immutable_btime would be filled only if the
+>    fs supports real btime (so not for ntfs/extfat crtime) and ptime would
+>    be what is currently in RFC
 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index d66188521881..877c12b75090 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -542,37 +542,11 @@ int drmm_connector_init(struct drm_device *dev,
- }
- EXPORT_SYMBOL(drmm_connector_init);
- 
--/**
-- * drmm_connector_hdmi_init - Init a preallocated HDMI connector
-- * @dev: DRM device
-- * @connector: A pointer to the HDMI connector to init
-- * @funcs: callbacks for this connector
-- * @hdmi_funcs: HDMI-related callbacks and capabilities for this connector
-- * @connector_type: user visible type of the connector
-- * @ddc: optional pointer to the associated ddc adapter
-- *
-- * Initialises a preallocated HDMI connector. Connectors can be
-- * subclassed as part of driver connector objects.
-- *
-- * Cleanup is automatically handled with a call to
-- * drm_connector_cleanup() in a DRM-managed action.
-- *
-- * The connector structure should be allocated with drmm_kzalloc().
-- *
-- * The @drm_connector_funcs.destroy hook must be NULL.
-- *
-- * Returns:
-- * Zero on success, error code on failure.
-- */
--int drmm_connector_hdmi_init(struct drm_device *dev,
--			     struct drm_connector *connector,
--			     const struct drm_connector_funcs *funcs,
--			     const struct drm_connector_hdmi_funcs *hdmi_funcs,
--			     int connector_type,
--			     struct i2c_adapter *ddc)
-+static int drm_connector_hdmi_sanity_checks(struct drm_device *dev,
-+					    struct drm_connector *connector,
-+					    const struct drm_connector_hdmi_funcs *hdmi_funcs,
-+					    int connector_type)
- {
--	int ret;
--
- 	if (!hdmi_funcs)
- 		return -EINVAL;
- 
-@@ -613,9 +587,15 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
- 		return -EINVAL;
- 
--	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
--	if (ret)
--		return ret;
-+	return 0;
-+}
-+
-+/* Initialize HDMI-specific resources of a connector */
-+static int drm_connector_hdmi_initialize(struct drm_device *dev,
-+					 struct drm_connector *connector,
-+					 const struct drm_connector_hdmi_funcs *hdmi_funcs)
-+{
-+	int ret;
- 
- 	/* TODO: remove after conversion to new drmm_connector_hdmi_init() */
- 	connector->hdmi.supported_formats = hdmi_funcs->supported_formats;
-@@ -680,6 +660,48 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 
- 	return 0;
- }
-+
-+/**
-+ * drmm_connector_hdmi_init - Init a preallocated HDMI connector
-+ * @dev: DRM device
-+ * @connector: A pointer to the HDMI connector to init
-+ * @funcs: callbacks for this connector
-+ * @hdmi_funcs: HDMI-related callbacks and capabilities for this connector
-+ * @connector_type: user visible type of the connector
-+ * @ddc: optional pointer to the associated ddc adapter
-+ *
-+ * Initialises a preallocated HDMI connector. Connectors can be
-+ * subclassed as part of driver connector objects.
-+ *
-+ * Cleanup is automatically handled with a call to
-+ * drm_connector_cleanup() in a DRM-managed action.
-+ *
-+ * The connector structure should be allocated with drmm_kzalloc().
-+ *
-+ * The @drm_connector_funcs.destroy hook must be NULL.
-+ *
-+ * Returns:
-+ * Zero on success, error code on failure.
-+ */
-+int drmm_connector_hdmi_init(struct drm_device *dev,
-+			     struct drm_connector *connector,
-+			     const struct drm_connector_funcs *funcs,
-+			     const struct drm_connector_hdmi_funcs *hdmi_funcs,
-+			     int connector_type,
-+			     struct i2c_adapter *ddc)
-+{
-+	int ret;
-+
-+	ret = drm_connector_hdmi_sanity_checks(dev, connector, hdmi_funcs, connector_type);
-+	if (ret)
-+		return ret;
-+
-+	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
-+	if (ret)
-+		return ret;
-+
-+	return drm_connector_hdmi_initialize(dev, connector, hdmi_funcs);
-+}
- EXPORT_SYMBOL(drmm_connector_hdmi_init);
- 
- /**
+I think this is also too complex.
 
--- 
-2.56.1
+> Ideas 2. 3. and 4. should be fully backward compatible as it would
+> affect statx output only when called with new flags.
 
+Then 2. is probably the best way to go forward (maybe I'll include it in
+some way in v5), but I think we should let each filesystem maintainer
+decide if they think their users want to have statx report their own
+crtime as btime, ptime or both (native linux ones would of course
+report btime as btime and ptime as ptime).
+
+Thanks,
+koraynilay
+
+>> Thanks,
+>> koraynilay
+>>=20
+>> >
+>> > Pali
+
+
+
+--e68d7a3c08e03032b674b625d495d35f9a655e5ba7e0e8c8006911574197
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCav3XXwAKCRA0bnTtJTDo
+OHCeAQCEIeCKM23PngeIMoBXCQU9k+fpxVE5Iim2Z6kczs7U7QD/QrQdNXwKde9D
+5NVqKpZ3hIlgyN/x854bwe3ySGv/rQc=
+=h4y9
+-----END PGP SIGNATURE-----
+
+--e68d7a3c08e03032b674b625d495d35f9a655e5ba7e0e8c8006911574197--
