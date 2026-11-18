@@ -1,73 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022846;
-	b=0m5JQ96mMoEgnYIxfTnihIxNglq4bL7dwIyG7+cJZqSy0oMYRW2ObS2kyWHlQac/QbZ3
-	 GxHRAVb+UqqWgjFsqNNDAuCZ77am5qWVvW2ORu2tf6r1gBxsswNCvPguG8ogcTERcjGHo
-	 VAO4/frrhMjtyf6fUQjWgsDbEe83O9pfPLk4pQZNCPhjve5XNBAop/aVPXisaospwTEs2
-	 DngxG0XlKu7PDPBDvqGVjV4+m+YKivrXcnTvL5ddBAcOAAlTkUBi+t00dW1IrHbqgDeoH
-	 CWISFyroP5bvPbFrpaGSaQiR3DwXIWHfIdHaa94QN0bpkL3G6Y7pV+02tXseGPVExIA==
+	t=1795022863;
+	b=qE92bxyXaEAUdPFQvL9hAY6fIAyaT+8jSQ2bNUAWiqP2oLh5umUgaq8DkEHzdmVkh4mA
+	 ouPjptXlzNMOUrBnQvVhD26aoiH2URZU0snzGm6nRCgV4c+xg4k4FMjyklFZzIiY6II7e
+	 AVRAy36lBPZ1qeJ5a6R66/EvLw3CfhEOkE9lbvaA+O7YOHSf9ihVWC1RoLTaiFar3EH39
+	 aEMKKPEkCEyBquOaI8AY9RbSywYn+8Fu6ImFYfYRsWdbvocYhKxk2gvB2GG4hL8rpfhaN
+	 GxHu7DAY6TyhsQvQdKeAsPLxCzLz4qakEz4gEwp0v7aQA/+UVRbRNvgwIf6/Y8RgX4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022846;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=acayD4eA9QXjK1btYfC0a6QQYYh1dspOe0k0FO3qiKE=;
-	b=AoDHK3NSrG0kaEPm9MI+jSeBn5nF9g4h9PT7DKn3cblAcqtvvtrDptnyHZYArsYFmpyd
-	 zBQKEW/d7wFP9OqjT4Z3aYVt2HyVDxdf2uDzO74/Ap5IWYl0ZHHMxCXDUs+aOZy6bZHxp
-	 UjwBZvcAUhxKRwNgdUvpzDqU04WrSJEdY0X/HkDscMDpj60FSwvsuBgOBTysIhsFODegS
-	 X8JZbuyiHs72gBjjmvmJxHq0AjdZ7fd8vuUXjYUtVMG0oK85NF6XwRpex8uIGb927HRST
-	 dmA0FF7Lz69Xgxm0pWW2OuOvgFLt5Wa63/1dicmAF7iLkbwOjIxourU/yC1Gg90hjkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022863;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:Received:From:In-Reply-To:
+	 References:MIME-Version:Date:X-Gmail-Original-Message-ID:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=rRrf3KcQFrCLRq5t5mKhDUjcnT08CBiE+i3+0nrJuh0=;
+	b=TuBTb4JMPLwKLxI5FWseehRjBf31lQ5LboytRDN95gJdPXjRVV1vx0ss0Pt4RPCFE8+Y
+	 qzTQT3+/b6FLbumOjQEbqxC0gaw2v3zR1QUrh6cwvHsZAMEQ73cz+uEphM/QSqKGq55U9
+	 J8i/NLqq8oVfNALANe2GAAIF1zEZ4YZbrbJMjffyK258M4Ottg98E9DL+iKF9RFcmGW8u
+	 qkuhxr2+EHpykUPF86IharbgEDibw3IsU8x3dB/0nEW+2yJV1OVCjVzVCiyUoIpxx3mSA
+	 QTglncrYV5ZbtCOVEEv1CccHA9IpOWwXlQshr5h0t87BrN1teP6oS5lTXVLFDqoKP8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C8uHZ8uA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=hcQBcxfx;
+	arc=none smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDBF0606A33D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:27:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DEDB606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:27:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DEDB606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C8uHZ8uA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B54D31F000D3;
-	Wed, 18 Nov 2026 17:27:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022846;
-	bh=acayD4eA9QXjK1btYfC0a6QQYYh1dspOe0k0FO3qiKE=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=C8uHZ8uAUw824fLRd7K7/rfchN8t6tKdMtOjQub5qpvwwQaPljmBHtPj3Yh34Cg+E
-	 iAYnL24FylaTm/RJggi08Hte+7SaWthQ8Fnn00qhUp4GmVt32rmhFrLeV/k2Vf2DK1
-	 FfCPWoLcOfEULUTRj84/H6iSH392ZEEYI+fquwp5sF7l+TN0++aRCDqZ0hTXXnFBV5
-	 D9MI1EFWxfXQ54Py2D/eH4gWMZdaduT9arZn89bXTyPRD64EVCA7gO3Ct6l+y8x4UM
-	 o8XR7Hrf7Bm9e6IFx9djt7w4vhYu60w1VPmVHyjjaeYKf7FHd5eE5zmD3eyIwY+85p
-	 a1WKqnhVhO3Hw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 12D541980066;
-	Wed, 18 Nov 2026 12:27:24 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Wed, 18 Nov 2026 12:27:24 -0500
-X-ME-Sender: <xms:-t_9avPPRruetExUby2EW5K3Px9CCq9870v_6jPvmrnXTFAemwufdg>
-    <xme:-t_9akywjaWSTvKLt7sDyHQZW7OpOZkJxm6M2_Dfn7kkMvbvFN_Fbe4YdzuOK9wxk
-    rvoJiO3MIwT7cVhNXM-jAjBAcqrptfPKD1nXf93BKMBajkK3dHeVZCF>
-X-ME-Proxy-Cause: dmFkZTFAuYDLuiPadRyT58CtafKhETAH7m8A0s737VBf6FaFIqyDnrRV68dZG+P2aHINxh
-    GV9Yt3gyHtOG6fJ0HHvcOFDe+iz6ttE4lgRmvGi9Wjtab6d2Pb8/S8ZLHZ/hb76A8koykN
-    Q7LtI+0XJ+dX2AB+LBfhAgbKwZLklzZ31HJ/uSYZ00gSZ1Ns215xDkmjrRliuj2+TW+FSc
-    IYdhHrgV0KLFGjdCeoP7l2rYN0U/nOt3ywN8L6FerKBXo3qUS8sni3g0YO4A6S07g1Y75J
-    VYxk7lVBGWKfNCWFTST+UEvyH1VnsvdNc0ONd5EfieGpFu1qFctXaPPDD2vUwwzAE7D0O8
-    DZKDyESH3cm9whQ5gkO1ZT0BER6GV/c5w8evVdGbcYwuLnxI/vonJY+QSAfXJNUgetRK+I
-    HUQ6xRHjVYoeaN4AnJV7B0wkHJoF5iwmMg75wXI78GIoFRn7kGJY6E4deTjWcSGwRg6cB6
-    cX2AygbQo2z2dkV9OJA1eVCkOqcC1MQDthfTsEVVqY0+3zPTKoq1K5Zj3ucLh5x+DZ7fiQ
-    vOT5XyMm7PRQHQ/Ncirg16Q6Sz0i3GOx5nxtXyUYpiSU0CSZmaU5lX0Rp2VfmonCt/zMPD
-    SLGIo76kWPSNuqympI22eyIUioOHPQ9Y/JWuTGQ4zuD5VuX8LusmbDUbzpuA
-X-ME-Proxy: <xmx:_N_9ahYrszeB9iWm62ebWCkvU81ct2gjqmMteAspl0ZIwb5qE4xRVw>
-    <xmx:_N_9ahV2Q4Afmmf3QE-4jFGy4-gC5TPYWRZ7UpGzXCrffdj8T40gZA>
-    <xmx:_N_9avhsZaB8p5mH1LJ_pBINHRw7VPMWocJ6hI6EwpaMUwY6s3lWhg>
-    <xmx:_N_9avt2J-etCkvIcR3bSrkRVo0XGMUBYOYeR54V8ZO_u12LLQ4ekA>
-    <xmx:_N_9ao6F2oKHA_xSF-hap7QqpoCj2-ZVXZLY01cZIqhgKBMK7xRM_Dpk>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 96DCFF8008E; Wed, 18 Nov 2026 12:27:22 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=hcQBcxfx
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c445c95d553so180785866b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:27:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795022861; x=1795627661; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rRrf3KcQFrCLRq5t5mKhDUjcnT08CBiE+i3+0nrJuh0=;
+        b=hcQBcxfx1OKjBqbFnxWCQKmDdylZYHC5MoIB4dd1RUV0ucGyi7jX0oM94AOL3JkAa1
+         0IEAkjUSFHkwvTS2IxV0/6NYrFfiThuLnPM8NXVZAW6ehh3xOX9MUVPylSAPtIiXode/
+         gaTAt8W0wP8B034pwy2WysNvMn2VVucQMZApk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795022861; x=1795627661;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rRrf3KcQFrCLRq5t5mKhDUjcnT08CBiE+i3+0nrJuh0=;
+        b=25RwNFSKwQ0xvg9Y82HFOHSQcCtsAwqjLZDZ5rcgg+tucu8jIVetXtob/BXXD8s9Dd
+         xNdKcRRDBQMdUrqiKJNW2rGlKIGu/x/cTD8HsevrP977L8usadYqmSbCmLzUNON4IRte
+         Uy97YWunSqjGl36KLyL2S0c5taRbT0bMAxMvE/A8rV8nQr9vPRqQ0VyEXDEz6Ozefsy5
+         0HaVU69oBrI/fQXzYoTQ2c/xqarf0cAk1Poj9ivEM/FJCSqhlG8QAw9X6T7N4xjyafNm
+         aYdez3RQTjW14VAJxhyz7nwhx79qrYEmjlDmLAk3cGD6zQ8VZd229IOb4xJwk/jeQKpO
+         W+wA==
+X-Forwarded-Encrypted: i=1; AL+hErEbZnLWyzRTZPUTBJpqLk4PV9kQAOWnYl6t8rSee9brnSX9hRTDGfDRfiTDqSQfLEJV6NJrF2zDdViUpms=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FWNmDnsAji+2c4qKXnnngj7Awz7sjmmc4eQ39tXkbGFebTEC9
+	qHkTQiC5JjATWL+GMc4D7GsGAAhCPVKtCAkBkJlDRu1fnpZQ/F5EQ3iKxSOMykfEl4T4q0uLmce
+	Xn98QKLjlyA==
+X-Gm-Gg: AYBFou0I4wGrXu6WJFiYyLlxIz93qY9iUjdv8GpJbuHsOQCiUonLK51PAnL9upGOExS
+	gIRelmA6386DoDklqvvw9Gjdt2HdeP9136hJPxOjbNAf7WoX03KsfO4seYIUW62jpdJ+ltOtNSp
+	+QgtgaT65yYj5ixGtvfBGo9TNX2r8KTBubdFlZ2zCtZ7vjsmLkg3HFXzUFxjONwLvgEBSma6P9K
+	nmqxH9dK9KI7yC13YPVHc8zVzb10pGz+afPdAf0Oad7nTBP/ddC+EMY47crO5tSC07SK9NcdnE2
+	Tqiw3fMdbyYw+WXTvJyeY4UanPGoaaP/bX8rpuF+VVNWGMgkM+9Dd0bXntj9ftehRkjr4ml2jPc
+	nv082CcXrcQIesZ49kBNvgtnmKZ099V//ixhci4FoWEbDrR1c9M1jbE8X2ZrBp4S6aLJ72Z4h0Y
+	tCeRxi7jdg5+43MO9aqdMJbZb+W1LdcOc3YhHJEjh33Xozr+QozxdgvLej57wvckf66i6r1XpoQ
+	dhETzPfh7/MGvCnQxTjrHDGaIlz9mAMcQVXole5yTXn8VpIYEi/kkL72F6fz53CFHidsVY9ZbGp
+	cLIzaDHEZ2Y5Ltw5B+U//GUvbcNyRP8JXGv9cI1YtmCIWU6MH1bPFI1A+ZMXftX7p+OXxkOXfSH
+	gA3grGuJrDDTvaVjObz1dZ2Ng
+X-Received: by 2002:a17:907:9488:b0:c2e:40a0:7978 with SMTP id a640c23a62f3a-c510e22a329mr308578166b.9.1795022860852;
+        Wed, 18 Nov 2026 09:27:40 -0800 (PST)
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com. [209.85.218.53])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a22f098sm1376081a12.35.2026.11.18.09.27.40
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 09:27:40 -0800 (PST)
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c4d28f75d62so213323266b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:27:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHqyy/xLk74gLC7SE80BISzmqvoDMWHyAdVywW9ALd8oOKvpl8idDmzSEzEJvzy995PeOYwXnI2yvDskLc=@vger.kernel.org
+X-Received: by 2002:a17:907:6d1f:b0:c46:8b87:c1f4 with SMTP id
+ a640c23a62f3a-c510e2d4ee1mr308959066b.20.1795022860207; Wed, 18 Nov 2026
+ 09:27:40 -0800 (PST)
+Received: from 425495914135 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 18 Nov 2026 11:27:38 -0600
+From: Linus Torvalds <torvalds@linux-foundation.org>
+In-Reply-To: <CAHk-=wg+MO19H7KVgA+SaZvvt5O+3Tp8AxHVhpN23JtaSq=G4g@mail.gmail.com>
+References: <fb224bad9baf5f44cf17e1d664776a4e@kernel.org> <CAHk-=wg4jAWZvxWo0OZ+fFTU=SBtQ7dnsUCV7hx+UAifkwPUwQ@mail.gmail.com>
+ <avs4uWg9ch-Bqobj@slm.duckdns.org> <CAHk-=wg+MO19H7KVgA+SaZvvt5O+3Tp8AxHVhpN23JtaSq=G4g@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,102 +100,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 18 Nov 2026 18:26:57 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "H . Peter Anvin" <hpa@zytor.com>, "Ard Biesheuvel" <ardb+git@google.com>,
- x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org
-Message-Id: <16b3f916-41cf-4ad6-bd54-45384051d4dc@app.fastmail.com>
-In-Reply-To: <5E2684EC-0F34-4008-B043-F912FA1AAE6C@zytor.com>
-References: <20261111091843.3621782-2-ardb+git@google.com>
- <FD1A5979-1504-4A96-B26C-D89BD362170A@zytor.com>
- <3522588c-9d7a-454b-afe8-c16c6788265a@app.fastmail.com>
- <F6E708AE-0476-4E9A-A39D-3DF15E91EB80@zytor.com>
- <ab8628ec-9476-4f3c-80fc-b68556803002@app.fastmail.com>
- <5E2684EC-0F34-4008-B043-F912FA1AAE6C@zytor.com>
-Subject: Re: [PATCH] x86: Make the 64-bit bzImage always physically relocatable
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Date: Wed, 18 Nov 2026 11:27:38 -0600
+X-Gmail-Original-Message-ID: <CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com>
+X-Gm-Features: AclHuK9l1x40DSLpNq-I7HaYL6AQJrAYmZ1Ozr1ZbK6LtbeABCuMZDcK7IhnVs0
+Message-ID: <CAHk-=wjm3vbiNYsR+aHxmM3KCEgsSWb379ZQbCuZEsN1dhvbKg@mail.gmail.com>
+Subject: Re: [GIT PULL] workqueue: Fixes for v7.4-rc2
+To: Tejun Heo <tj@kernel.org>
+Cc: Lai Jiangshan <jiangshanlai@gmail.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-
-
-On Wed, 18 Nov 2026, at 18:04, H. Peter Anvin wrote:
-> On November 18, 2026 8:55:11 AM PST, Ard Biesheuvel <ardb@kernel.org> wrote:
->>
->>
->>On Wed, 18 Nov 2026, at 17:29, H. Peter Anvin wrote:
->>> On November 18, 2026 8:18:44 AM PST, Ard Biesheuvel <ardb@kernel.org> wrote:
->>>>
->>>>
->>>>On Wed, 18 Nov 2026, at 16:51, H. Peter Anvin wrote:
->>>>> On November 11, 2026 1:18:44 AM PST, Ard Biesheuvel <ardb+git@google.com> wrote:
->>>>>>From: Ard Biesheuvel <ardb@kernel.org>
->>>>>>
->>>>>>On x86_64, the physical placement of the kernel is independent from its
->>>>>>mapping in the 'High Kernel Mapping' range. This means that even a
->>>>>>position dependent kernel built without boot-time relocation support can
->>>>>>run from any suitably aligned physical address, and there is no need to
->>>>>>make this behavior dependent on whether or not the kernel is virtually
->>>>>>relocatable.
->>>>>>
->>>>>>On i386, the situation is different, given that the physical and virtual
->>>>>>load offsets must be equal, and so only a relocatable kernel can be
->>>>>>loaded at a physical address that deviates from its build-time default.
->>>>>>
->>>>>>Clarify this in Kconfig and in the code, and advertise the 64-bit
->>>>>>bzImage as loadable at any physical offset regardless of whether
->>>>>>CONFIG_RELOCATABLE is set. In practice, this makes little difference,
->>>>>>given that it defaults to 'y' and is a prerequisite for EFI_STUB and
->>>>>>RANDOMIZE_BASE, but it will help with some future refactoring of the
->>>>>>relocation code.
->>>>>>
->>>>>>Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->>>>>>---
->>>>>> arch/x86/Kconfig                   | 40 ++++++++++++++++++------------
->>>>>> arch/x86/boot/compressed/head_64.S |  4 ---
->>>>>> arch/x86/boot/compressed/misc.c    |  8 +++---
->>>>>> arch/x86/boot/header.S             |  8 ++----
->>>>>> 4 files changed, 29 insertions(+), 31 deletions(-)
->>>>>>
->>...
->>> I'm going to vote NAK on this one... I was already thinking that it 
->>> would mess up low-level debugging too much,
->>
->>How so? The last time I proposed this, you replied that you were
->>planning to do this yourself.
->>
->>https://lore.kernel.org/all/3f2e8d7c-6029-49ef-8e31-a3eb5efb385b@zytor.com/
->>
+On Mon, 16 Nov 2026 at 09:29, Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
 >
-> If we are going to get rid of it, we should get rid of it properly as 
-> in removing the conditional machinery,
+> But I'll freely admit that I really only looked at the "shape" of the
+> code, and it all felt wrong to me. This was not some deep-dive
+> understanding, it was a "this doesn't feel right".
 
-Which conditional machinery is that? All the code that reasons about the
-physical load address needs to stay, the only thing I am changing here
-is that you can no longer disable it on x86_64, as there is no upside to
-forcing the 64-bit kernel to run from a fixed physical address. This
-means the EFI stub no longer needs to depend on CONFIG_RELOCATABLE
-(which also controls the generation for relocation data for virtual
-displacement) for x86_64.
+I think your original patch worked, and the memory barriers were what I
+really ended up hating.  But that's solvable by just doing the counter
+inside the pool lock instead.
 
-The i386 situation is different, but I left that alone on purpose.
-Would you prefer it if that always became relocatable as well?
+And that means that my suggestion of using the generic seqcount code was
+barking up the wrong tree too: I reacted to the ad-hoc memory barriers
+and the fact that you used a sequence counter, not to the actual code
+and problem.
 
-> not use it as a backdoor for 
-> doing something explicitly NAKed (forcing PIC compilation.)
->
+And then the drain_workqueue() logic can just be changed a bit: after
+draining, go back and do kind of what you used to do, except don't look
+at just whether the pwq is empty, but also at whether new work was
+started?
 
-I know PIC compilation is a sensitive subject for some people, but
-would you mind not framing this as some backhanded action on my part?
+A *UNTESTED* patch like this, in other words...
 
-Once I get to resending that series, you will have ample opportunity
-to voice your concerns and suggest workloads that will prove that
-it is infeasible. Or even provide one now so that I won't have to
-bother resending it in the first place.
+              Linus
 
-> What you are proposing is literally the exact opposite.
+---
 
-I don't think so, but I'm still not sure what you meant by "it 
-would mess up low-level debugging too much", so maybe you could
-clarify that?
+ kernel/workqueue.c | 47 ++++++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 36 insertions(+), 11 deletions(-)
 
+diff --git a/kernel/workqueue.c b/kernel/workqueue.c
+index af845214e78b..31d376656504 100644
+--- a/kernel/workqueue.c
++++ b/kernel/workqueue.c
+@@ -281,6 +281,7 @@ struct pool_workqueue {
+ 	int			total_in_flight; /* L: sum of nr_in_flight[] */
+ 	int			nr_in_flight[WORK_NR_COLORS];
+ 						/* L: nr of in_flight works */
++	unsigned long		nr_started;	/* L: see drain_workqueue() */
+ 	struct list_head	flush_node;	/* FN: node on wq_flush_pnode->pwqs */
+ 	bool			plugged;	/* L: execution suspended */
+
+@@ -3455,6 +3456,7 @@ __acquires(&pool->lock)
+ 	 */
+ 	set_work_pool_and_clear_pending(work, pool->id, pool_offq_flags(pool));
+
++	pwq->nr_started++;
+ 	pwq->stats[PWQ_STAT_STARTED]++;
+
+ 	rcu_read_lock();
+@@ -4449,6 +4451,29 @@ void __flush_workqueue(struct workqueue_struct *wq)
+ }
+ EXPORT_SYMBOL(__flush_workqueue);
+
++/* 0 if any pwq is busy, otherwise 2 * sum of nr_started + 1 */
++static unsigned long pwqs_nr_started(struct workqueue_struct *wq)
++{
++	struct pool_workqueue *pwq;
++	unsigned long sum = 0;
++
++	lockdep_assert_held(&wq->mutex);
++
++	for_each_pwq(pwq, wq) {
++		bool empty;
++
++		raw_spin_lock_irq(&pwq->pool->lock);
++		empty = pwq_is_empty(pwq);
++		sum += pwq->nr_started;
++		raw_spin_unlock_irq(&pwq->pool->lock);
++
++		if (!empty)
++			return 0;
++	}
++
++	return 2 * sum + 1;
++}
++
+ /**
+  * drain_workqueue - drain a workqueue
+  * @wq: workqueue to drain
+@@ -4462,8 +4487,8 @@ EXPORT_SYMBOL(__flush_workqueue);
+  */
+ void drain_workqueue(struct workqueue_struct *wq)
+ {
++	unsigned long started;
+ 	unsigned int flush_cnt = 0;
+-	struct pool_workqueue *pwq;
+
+ 	/*
+ 	 * __queue_work() needs to test whether there are drainers, is much
+@@ -4479,16 +4504,16 @@ void drain_workqueue(struct workqueue_struct *wq)
+
+ 	mutex_lock(&wq->mutex);
+
+-	for_each_pwq(pwq, wq) {
+-		bool drained;
+-
+-		raw_spin_lock_irq(&pwq->pool->lock);
+-		drained = pwq_is_empty(pwq);
+-		raw_spin_unlock_irq(&pwq->pool->lock);
+-
+-		if (drained)
+-			continue;
+-
++	/*
++	 * A pass isn't atomic across pwqs, so a chained work item can land on
++	 * a pwq it already found empty. Anything slipping past the second pass
++	 * needs a work item that was in flight at its pwq's first check, or
++	 * that started between its pwq's two checks. The first makes the first
++	 * pass fail, the second changes nr_started. wq->mutex keeps the set of
++	 * pwqs stable across both passes.
++	 */
++	started = pwqs_nr_started(wq);
++	if (!started || pwqs_nr_started(wq) != started) {
+ 		if (++flush_cnt == 10 ||
+ 		    (flush_cnt % 100 == 0 && flush_cnt <= 1000))
+ 			pr_warn("workqueue %s: %s() isn't complete after %u tries\n",
