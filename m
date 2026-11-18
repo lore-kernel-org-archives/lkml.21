@@ -1,49 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003500;
-	b=GTF1ocEHhNqA+HKuXMAkZRn6jASie0rch89Lf3Xv5qLLihDkhVO/rRxZmu3zCsCSw5RT
-	 QmLfYEMyVLqWilXwNwhTimWC7o8G6BX/1CLC330CvRWIilvDHKtEHXOzO11LDdttg+8fv
-	 uqQrwfQY35oQQJEKP38W2EiSUSj6VXebTdr/Ioog6bpoBaW0ZhsBWo5CbouYkZDQJLYKi
-	 WLwlOjuKNMO8ftmSlszWsLolJmhWma/s+hrGuuUVaMVEB4Z4rJ7LKRysHFHg6LqrlKgVH
-	 drYKv5wrl5vjDZrzTcsLuUxXb/1/YHD9Z7f1QoWwaBoD3yQT1+I4eGR+Y9zrvPGph7Q==
+	t=1795003507;
+	b=h9iqb2uNO4Qf1BIyZPzOJT4syQxuqVPi0ssDzNcuER2LlPPQnlaPuoBwojOe8J4s0hRV
+	 jnZhcRcGjjZucquxwtJQ5LNqRm3JugPduTGXoSxyc2piYnmRe5aiLJZUTH2UVQKtEgI0k
+	 ZjhpZcETn0kEEeknhWbp4V4x7z18y/RhvOVtgbh/Eb9byN94Lr0JNo6YaCUy2RdBcEYIg
+	 YST7XftU2E9UV+iVl4MVqBuz2xIZ3UzMasROXa80qfGM/GjXLdh/W69tuGEIwJhYRoTZQ
+	 nlhxcPF72i516lvewJZXZxZ5KjhfJQDVt/NDHcqlxMVcZMdW7AkcgT7p8n4V1wDKdvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003500;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=GjX5dn8YpgvZsZ/ABHgbZazrxQHsHlF3Djrqer5Cp/g=;
-	b=aIZsC/KnM8hKh4LCjpfT8uXh6MJYovfhLlvrEHQ5BLo7eO/ohPAb7WxRMO8Bxfo86lm9
-	 2+QTgmZXEkb2gK8zfsh2xBZHxXz6g/hFsdrlhtzATlvlt+xDc56lspAb/pqr3rckNMagE
-	 RXwX7AGFT6BywIk2q80srblIAVyJEfVewvwi9EZPwkaYIlJAT337kj8M1DkBJAMGbUB8l
-	 +YX1kbkd8UVXN1k/kZqfW8bSPtUxCQaqeFnJsd6Ro4fkG2pyE82wxqwDCHSxuvGymxlG4
-	 rs535IHFWPC1USyXlcxOrKTZzf4kUI8UID4ddIeUcDafU69Y+BPsj7mJGpjEUFNESzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003507;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=bFIUq3+e1/w1vGrkXQTPm9Z9hnS231jDKYMfaEh99Jw=;
+	b=QNhAD7Wq+Uu1jhe6S7zHbQ8l1dZn2b9sv3x0QLr0rqK6bDTf/194oEbGreRYmlJUX9XY
+	 KdoH8nd+sLzJG/bDJI/XtrE9SOKNjXTXFrQExe5yXW20DWHm55Y4Ew1aaSwGb6IfQ29Ug
+	 W58YB6GViy3U0Y4vmOqWeuJF4Rjy2+MxZSfO0yyzdIt/3E974eyqFnBlJfb9VLOaHIs7H
+	 r0lXxNzFoKuX3irBiXTq2a4oaKqYS7s8P3Ae9pidbG+1skj8c0ciNW2mXAkkhV2ghebx8
+	 gc1RcV+doIIBh6kJ1v6fTXkKBCKDn66J2D2ALcrf6/cdlfh9fTimKru3t/jg9dKh9QQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TdJ23J5H;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 11BDB606A31C;
-	Wed, 18 Nov 2026 12:04:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11BDB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mAvFNLHE;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AhTV5laT;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mAvFNLHE;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AhTV5laT;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BFF7606A31C;
+	Wed, 18 Nov 2026 12:05:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BFF7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=TdJ23J5H
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48EC61596;
-	Wed, 18 Nov 2026 04:04:55 -0800 (PST)
-Received: from [10.57.70.68] (unknown [10.57.70.68])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F22A3F632;
-	Wed, 18 Nov 2026 04:04:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795003498; bh=SIPpZoSZA3ybF9zdso+NVRICnQ4r/7VsBMwmu7R20j0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TdJ23J5HAp0e6F1wKGMcZcPfGZh5dJ+bBvB6GZi6bwhQwGbVR4N9r8ODtXvfnvSe8
-	 d6+rO1GpcHjaT7sQA9mPB+X0/5maRbPRWiK8bAXFymFKFU/1WCvulutHG7fP6pGB1q
-	 9XcoU5WUtTax9beMwbIgTHdiauENtEKPcKg4/18I=
-Message-ID: <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
-Date: Wed, 18 Nov 2026 12:04:52 +0000
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mAvFNLHE;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AhTV5laT;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mAvFNLHE;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=AhTV5laT
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5FF712224B;
+	Wed, 18 Nov 2026 12:05:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795003505; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bFIUq3+e1/w1vGrkXQTPm9Z9hnS231jDKYMfaEh99Jw=;
+	b=mAvFNLHETlFOlGZZ8+/8AyO2v0ETZG+/AvDq7rr35GdKo5o3hnxhcmKTLW066vhbVJGerd
+	XBMrrWTkXKMsxbHgkLeHzUjUsoDcmzzh9gszKShJeS05POpE3gPhFc1D6gSqBqnN654vWI
+	1YzxXOA8Z3bjrDHZJ/kN5huChuLzYOM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795003505;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bFIUq3+e1/w1vGrkXQTPm9Z9hnS231jDKYMfaEh99Jw=;
+	b=AhTV5laTAvmzMLHv5pfi1zW3ZjVANE0RsQg9ctRteGrhfcsgrePaVYTxGkUchXdtb9eHkf
+	Sb4oxdB2VXCwCDCQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795003505; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bFIUq3+e1/w1vGrkXQTPm9Z9hnS231jDKYMfaEh99Jw=;
+	b=mAvFNLHETlFOlGZZ8+/8AyO2v0ETZG+/AvDq7rr35GdKo5o3hnxhcmKTLW066vhbVJGerd
+	XBMrrWTkXKMsxbHgkLeHzUjUsoDcmzzh9gszKShJeS05POpE3gPhFc1D6gSqBqnN654vWI
+	1YzxXOA8Z3bjrDHZJ/kN5huChuLzYOM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795003505;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bFIUq3+e1/w1vGrkXQTPm9Z9hnS231jDKYMfaEh99Jw=;
+	b=AhTV5laTAvmzMLHv5pfi1zW3ZjVANE0RsQg9ctRteGrhfcsgrePaVYTxGkUchXdtb9eHkf
+	Sb4oxdB2VXCwCDCQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 36BDF134E9;
+	Wed, 18 Nov 2026 12:05:05 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id iVbOAnGU/WovJgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 12:05:05 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id C45382502C; Wed, 18 Nov 2026 13:05:00 +0100 (CET)
+Date: Wed, 18 Nov 2026 13:05:00 +0100
+From: Jan Kara <jack@suse.cz>
+To: William Chuang <founder@logarcheon.com>
+Cc: Theodore Ts'o <tytso@mit.edu>, 
+	Andreas Dilger <adilger.kernel@dilger.ca>, Jan Kara <jack@suse.cz>, Ojaswin Mujoo <ojaswin@linux.ibm.com>, 
+	Ritesh Harjani <ritesh.list@gmail.com>, linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	syzbot+e8180f5590685cbc9037@syzkaller.appspotmail.com, syzkaller-bugs@googlegroups.com
+Subject: Re: [PATCH 2/2] ext4: reserve an orphan credit for inline data writes
+Message-ID: <ko53oxbh4jdnp5rqxhavjen2phwv2bliqeqfuvip5c6n7lfwjc@qnknqdhu7jor>
+References: <20261117052750.2955-1-founder@logarcheon.com>
+ <20261117052750.2955-3-founder@logarcheon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,76 +112,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
- preparing memslot
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-2-steven.price@arm.com>
- <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
- <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
- <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117052750.2955-3-founder@logarcheon.com>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-11.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[mit.edu,dilger.ca,suse.cz,linux.ibm.com,gmail.com,vger.kernel.org,syzkaller.appspotmail.com,googlegroups.com];
+	MISSING_XM_UA(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[e8180f5590685cbc9037];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:email,suse.com:email]
+X-Spam-Score: -11.30
 
-On 18/11/2026 11:14, Steven Price wrote:
-> On 18/11/2026 10:34, Suzuki K Poulose wrote:
->> Hi Steven
->>
->> On 17/11/2026 14:05, Fuad Tabba wrote:
->>> Hi Steven,
->>>
->>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
->>> <steven.price@arm.com> wrote:
->>>> Check the guest_memfd backing file when deciding whether an arm64
->>>> memslot has mappable memory rather than checking whether the slot is
->>>> gmem only. A public helper function is added to be able to reuse the
->>>> static kvm_gmem_supports_mmap() function.
->>>
->>> nit: could the message say why this is needed? It's a no-op until
->>> patch 8 defines kvm_arch_has_private_mem(), which makes every
->>> guest_memfd slot gmem-only.
->>
->> I still don't understand why this is needed. For arm64 we have always
->> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
+On Tue 17-11-26 05:28:11, William Chuang wrote:
+> ext4_generic_write_inline_data() starts its handle with one credit.
+> ext4_prepare_inline_data() uses it when it creates or grows the inline
+> data xattr and dirties the inode table block.
 > 
-> Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
-> kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
-> becomes true (see include/linux/kvm_host.h). That in turn means that
-
-> every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
-> by a file without mmap support.
-
-But we dont support slots without MMAP anyways even without this series.
-  So, does it really matter for arm64 ?
-
-Suzuki
-
+> If the copy from user space then comes up short, write_end calls
+> ext4_write_inline_data_end(), which sees pos + len > i_size and calls
+> ext4_orphan_add() under the same handle.  That dirties a second block,
+> the orphan file block or the superblock, and the handle has no credit
+> left for it:
 > 
-> But regardless the check for kvm_memslot_is_gmem_only() isn't really
-> what the code is trying to do. The fact that the memslot is "gmem only"
-> isn't really relevant. The thing we care about is the mappability.
+>   WARNING: fs/jbd2/transaction.c:1598 at jbd2_journal_dirty_metadata
+>   Call Trace:
+>    __ext4_handle_dirty_metadata
+>    ext4_orphan_file_add
+>    ext4_orphan_add
+>    ext4_write_inline_data_end
+>    generic_perform_write
+>    ext4_buffered_write_iter
+>    ext4_file_write_iter
 > 
-> But I agree the commit message could do with improving. I'll expand that.
+> jbd2 returns -ENOSPC, the journal is aborted and write() fails with
+> ENOSPC.  An unprivileged user who can write to a file on such a
+> filesystem can trigger this.  The inode table block must not already
+> be dirty in the running transaction, which is the case with lazytime,
+> or when the write is the first change to that block since the last
+> commit.  The block write path already reserves an extra credit for
+> this case in ext4_write_begin().
 > 
-> Thanks,
-> Steve
+> Start the inline handle with two credits.
+> 
+> Tested on UML with filesystems made by "mke2fs -O inline_data", with
+> and without orphan_file, mounted with lazytime: a write to a new file
+> whose user buffer runs into an unmapped page after 10 of 21 bytes.
+> Without this patch the WARN fires ("credits 2/0") and write() fails
+> with ENOSPC, also when run as uid 65534; with it there is no warning,
+> write() returns 10, and e2fsck -fn is clean.
+> 
+> Fixes: f19d5870cbf7 ("ext4: add normal write support for inline data")
+> Reported-by: syzbot+e8180f5590685cbc9037@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=e8180f5590685cbc9037
+> Signed-off-by: William Chuang <founder@logarcheon.com>
 
+Looks good. Feel free to add:
+
+Reviewed-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
+> ---
+>  fs/ext4/inline.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> diff --git a/fs/ext4/inline.c b/fs/ext4/inline.c
+> index ceee69a66..a1ae23888 100644
+> --- a/fs/ext4/inline.c
+> +++ b/fs/ext4/inline.c
+> @@ -709,7 +709,12 @@ int ext4_generic_write_inline_data(struct address_space *mapping,
+>  		return ret;
+>  
+>  retry_journal:
+> -	handle = ext4_journal_start(inode, EXT4_HT_INODE, 1);
+> +	/*
+> +	 * One credit for the inode table block, plus one for the orphan
+> +	 * file block or superblock that ext4_write_inline_data_end() may
+> +	 * dirty via ext4_orphan_add() after a short copy.
+> +	 */
+> +	handle = ext4_journal_start(inode, EXT4_HT_INODE, 2);
+>  	if (IS_ERR(handle)) {
+>  		ret = PTR_ERR(handle);
+>  		goto out_release_bh;
+> -- 
+> 2.43.0
+> 
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
