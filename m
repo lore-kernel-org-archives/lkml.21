@@ -1,88 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013134;
-	b=S5i9+D/gdiGo11IfDt5VwrVjzdii85VUBW/e4UuYVR7l6LXTXv1KtLlWl2R7m8tJTZJB
-	 eUXuOiiNeqNHoITdGXDrMVaVTH0kcYbqIhi5IHtos3H10/S2VXFoF+iTGbOgXL+pt2ejB
-	 s7zjwVs/kmZxBZEFEd9u2lY9nZaIByEuJIWDfi9efnA9Z0Df9zeGw5467d8D1x3a1yVfA
-	 h94DL2SXSClJz6KDtd+ViHzTH6hS3vmyjmf13m8k+kmNxjgrAMChu7e6vE+CFuXLqccuX
-	 1YK/yoEYGS3QbBWdtuSWZZbVdKFO6nMHsa8E1MRQc6ytrRrj1Mx73P+Qz6d864kf7kw==
+	t=1795013145;
+	b=a+Ha173eNiiNbFV5PBUjZMdjDfAJQ/bbqJch336LSVUhU8pSl4hHco6iROXNL+gNKkGA
+	 DYBNDpsYxpvq77TpvjsDjgwZ+jQKZ8xojYD78wGGyc3VdeuN6SOFvXKsTRREalIzxMK6F
+	 EJ6v1qJ8mtBKO9p6vGlqSRngUS/YXv5SJHfst/cy9WxX4mql+noYT+5vik8jWqe7+dmlw
+	 Aa20AELi+IJoHl1ZsRs2jUqA/ebH3nC02QLgnZbxaT68WX2TZdbM0hSdTNXpq/T0LxaNq
+	 8pcuC5Y4pJxI6Yw4pZs07UDkk81OD09iWR1iFE0nhuKGAjOdEcu5CwGMuOhler4JloQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013134;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=dW8jz8AGPYPy5zw3TfeSNEgxlfsTPgtxmP0tja/c/ok=;
-	b=Sy+tcce/Xi43uXq9CX7qHs83DobgcF9JZO2G/FUWK4jlSBV/iXTNyKPsyfgz8525jAcu
-	 oK0ZOqmvqp8y5nyEkT4TyqGTiSVRNMb0w/G6Vb1CT/sLW6XetOBuvtrpr7u7QM6Nz0tvu
-	 m3Nb2OpEQSedaU5k0uF6FlfgpCaBE22tpFebPeVSvN+wpncaEc3Kpmi4mGqPrci5HxnYa
-	 J/DsVNWVjalarbRVJRXnZRnxC7H/8H9DvYMj2rxHmMbaIsFfbWDmGJDX3UI8PYZXqf37Y
-	 e1xz+khiaNDbeOHTUAE4ZFDqC+VE+i7p8Kch2fxgJBZm9sTpwb+9oQkfb6p/aG8PVWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013145;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=H+t6Gd5bomKS909lh+zZ1F3vPRIjFwGS1W/nocK0gok=;
+	b=yv5HdTCDbIZD0qVyCDXq4plU+nVPY3kfiw8np+De6V24reMXhtxrTTh/1Wm5a1nuk2gg
+	 YoQsudSn/kfBstdAgOTnH6ihGyKXhtVC1Wzk7pMboupdTB5SDivTOoTpfYc7wK0X83gHa
+	 qe/39dqErZHp/fK8FmmkdRHBVv6x3g8sZbYPB8Alkby4hXDA59H8v0eHvQxwE8udrwfoe
+	 sLu+sf+GKC9XfJr4fE3bLY5caNFW3KvdFhPaatBW3J5tzRKzYxqEOwJq0vyAMxgzXEuI0
+	 NWKPizPG4WPiQyZkUgr72yK6ntDzztCNDeM30soWmDYThZ53WyhFBvuPLHV3jlGGVrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="h/V3GnQq";
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMPDfHgm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F5F2606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:45:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F5F2606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC26B606A31C;
+	Wed, 18 Nov 2026 14:45:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=h/V3GnQq
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-49d05d51553so7328725e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:45:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795013132; x=1795617932; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dW8jz8AGPYPy5zw3TfeSNEgxlfsTPgtxmP0tja/c/ok=;
-        b=h/V3GnQqzDYq2+Ocl+djVXBVuyWbqmvHG+OGYyfMN89qcxr7EWLd11cyani+5hjlv1
-         WLNecqE7293/zllCuLdsKFoIFMM8fcNJhcpMs9c+7mypY5kOnCv1FIDJ+YaUg1Xmxldp
-         xTrQX5ZC55Zklzxax1U7EhQWJSm+Yroo0mTyRZqMN29tezP9MUxPsKYS4KpzSHzOm8yX
-         6pn/YAWEWzVXbVG2bLDqsqQxO8aZammeB8kymZOGTipwM1P7qrkPXfJBGBeXaJ7kSOL4
-         upQU6siI/bA+SESuz/5YB89xWVFNdnooK7OWh86cdfYljPk/Pxoe1NRaJDHI9bGm3I5u
-         JPuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795013132; x=1795617932;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dW8jz8AGPYPy5zw3TfeSNEgxlfsTPgtxmP0tja/c/ok=;
-        b=2QSYArZsmL3YWTan2/Yt+6Qs5VVIVzzL+DDAWjLnS2FEGZN3ZAwdEcW633zdZL3eet
-         5uapYlTog+K6g3De7Ab8UqZv++ilZJpOk1lcJz3V1yFoLDybCEvfNYHW5/LUlfCMwRy5
-         tXPT0LweotVF5B07S3YokxJa8PvpXX5+QOzMt38Jn0OsiYPO/sskufaeqRs2RX5yaEVJ
-         xqvYUVdBXMiwcz6VA7QcJAlTjyJgJL3cADCna07CHUYypC21PVmH3jhGICmpqHziuJi4
-         QIuMJF6Jq3c7vS3pk5tdIKpQ3jpnBG+mSqA9BhT9GRPvEoWgWLGZT4iH38+NSSr84YD9
-         dAnQ==
-X-Forwarded-Encrypted: i=1; AL+hErHPFRWfdmBp4Ts+LbTO4AVcEiIkoD3NTMSVoiLq0oZfPYfNbMSeNDLM8GTxjhOK6mG8tflNBqLWks1t+OA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84YenVBckBsTvHJnBUI/hGjuAP1f+sPD6YqnVS/uUmVHgYKyZZ
-	s2+XhPiebKVNipKDhW1lNoQW5lVf+I8PVTCrbRrU0lTa9qtNHbnGmKUDtfBpHTGz+y8=
-X-Gm-Gg: AYBFou2meq2l7D/4nm5J4XrugejY8dp4A34eG8/m/XJNY9unOfr2Soi1JTHcDq6D2Na
-	v21g8DJnqSh+/piFZmTJ4cVU1IXZwizO1WZ6CPGHBxAMMo8KTuR1LTMtUZcIkqpSM/3/Nvnb7LJ
-	spiCH1vbRgW0nkNABDn3nvIakRa7RWiQV8ZNEZAOD8b6upudiQaPh7i0aJHufMH5BBi9UcUX5Ic
-	DUV3mCRFSlG6BzAN9MkYgzUnkdmD/mx1K30/oeayLFKLB5EfZHkjEZeiWB95IMknpaba1DEqbwy
-	r3SR3xWCFCnjNiw0Y1z+ED9LM7XSAjhHlfrgCzWS/1vohjhbWoRcnS+3+voB9qRGFBuzQ+6N9U8
-	D3Rcu4w3ZfB2jAiN/B9HCnSnyUmPqIqcO26fzc+k+J4Pp+URJqIbVIao0qwaGFwCiekVIu0g+SP
-	9l0WCzYreutvzTxSJLpeJN0DAVxc2O+nVQj9EIHMOPOrRfVCkBQrFoiSNl3nYTOcIk8LZI1akaN
-	UCf6e+h44n3bGz6oItQI+DvKYhF/gVUt7OmKcVzhC+ckg6NwWvu9x0m+jFaMm4eEwtn31odxF6r
-	f0breQlbzY+t8AihTwJNtzDwcWanRqpz7egL5/Q=
-X-Received: by 2002:a05:600c:8b51:b0:4a4:fc8c:cfd9 with SMTP id 5b1f17b1804b1-4bb7da3a65fmr52309385e9.25.1795013132472;
-        Wed, 18 Nov 2026 06:45:32 -0800 (PST)
-Received: from [192.168.0.252] ([82.76.204.26])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm5382230f8f.41.2026.11.18.06.45.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 06:45:32 -0800 (PST)
-Message-ID: <ee73f5ce-906f-4411-9449-d17c3abfa11d@linaro.org>
-Date: Wed, 18 Nov 2026 16:45:30 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NMPDfHgm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D50511F000C4;
+	Wed, 18 Nov 2026 14:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795013145;
+	bh=H+t6Gd5bomKS909lh+zZ1F3vPRIjFwGS1W/nocK0gok=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NMPDfHgmY+uSMczQKD1BE6YA9AbocjbU4ogaeEvRQE6W55j2x45eDUe8jrDaoo8+7
+	 RIf4F88dsxmKoRbaCzGAFRnxzWBPyCO2cHg9x9UwglLfqJmmAh3dN//zbCTUeGo432
+	 W3eT9rO5d71EVoBuqstHISg9lhxD3Q/OFW+sDGiGn8rMZbdEvIasuz6IKnhJ1/CgEe
+	 QujN7uCwwbD4CJXkhO8WtDK7taVJQmtltCXvZ8rQ5xE5germZg4iGTJ6tjum8f3TW1
+	 k8lPrZmefm+/OwW/UujjlV8d7FdhQKtP8f7vkaaQp/ieEqUIvneL3FpjBnBuoSFPab
+	 L7ex+YoAV2hnA==
+Date: Wed, 18 Nov 2026 16:45:29 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Tal Zussman <tz2294@columbia.edu>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Peter Xu <peterx@redhat.com>,
+	James Houghton <jthoughton@google.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Balbir Singh <balbirs@nvidia.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
+	Pedro Falcato <pfalcato@suse.de>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@suse.com>,
+	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
+	Andrei Vagin <avagin@gmail.com>,
+	Muhammad Usama Anjum <usama.anjum@arm.com>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Arnd Bergmann <arnd@arndb.de>, Zi Yan <ziy@nvidia.com>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Joshua Hahn <joshua.hahnjy@gmail.com>,
+	Byungchul Park <byungchul@sk.com>,
+	Gregory Price <gourry@gourry.net>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Nico Pache <nico.pache@linux.dev>,
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v3 7/9] mm/mremap: resolve uffd state when the context is
+ dropped, not during the move
+Message-ID: <av26CdCIWuexSi90@kernel.org>
+References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
+ <20261117-uffd-state-fixes-v3-7-b617009d1a4a@columbia.edu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,90 +88,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: thermal: gs101-tmu: add Exynos850
- compatible
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Juan Yescas <jyescas@google.com>
-Cc: Mateusz Majewski <m.majewski2@samsung.com>,
- Thomas Turner <tturner@lineageos.org>,
- Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118-acpm-tmu-e850-support-v2-0-19848c0d97e5@linaro.org>
- <20261118-acpm-tmu-e850-support-v2-1-19848c0d97e5@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20261118-acpm-tmu-e850-support-v2-1-19848c0d97e5@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-uffd-state-fixes-v3-7-b617009d1a4a@columbia.edu>
 
-
-
-On 11/18/26 3:51 PM, Alexey Klimov wrote:
-> Document the `samsung,exynos850-tmu-top` compatible string for the
-> Exynos850 SoC.
+On Tue, Nov 17, 2026 at 11:28:47PM -0500, Tal Zussman wrote:
+> Without UFFD_FEATURE_EVENT_REMAP, the new VMA of an mremap() is not
+> registered with userfaultfd, so the uffd state of its entries is cleared
+> while they are moved. If the move fails halfway, the entries are moved
+> back into the old VMA, which is still registered, without their uffd
+> state. Writes and accesses to them are then no longer reported.
 > 
-> Unlike the GS101, where the ACPM firmware handles most of the TMU
-> initialization and threshold configuration, the Exynos850 firmware
-> implements a significantly smaller subset of TMU IPC commands.
-> Consequently, the Application Processor requires broader direct
-> MMIO access to initialize the thermal unit, configure thresholds,
-> clear interrupts and collect calibration data.
+> To fix it, leave the entries alone during the move and clear the uffd
+> state of the new VMA in mremap_userfaultfd_prep(), right before dropping
+> the context, like unregistering does. This walks the page tables of the
+> new VMA a second time.
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> This is done with userfaultfd_clear_ptes(), which also makes the PTEs
+> writable again where that is safe. That removes a spurious write fault
+> per protected page on private anonymous memory, but adds spurious write
+> faults on shmem and hugetlb, as change_protection() makes writable pages
+> that were never protected read-only. UFFDIO_UNREGISTER and
+> UFFDIO_WRITEPROTECT already behave this way. This will be fixed in
+> change_protection() separately.
+> 
+> The entries no longer need per-entry handling during the move, so drop
+> uffd_supports_page_table_move() and clear_uffd_wp_pmd(). Whole page
+> tables of these VMAs can be moved again.
+> 
+> Fixes: 0cef0bb836e3 ("mm: clear uffd-wp PTE/PMD state on mremap()")
+> Fixes: 763f43865fc4 ("mm: preserve RWP marker across PTE rewrites")
+> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
 > ---
->  .../bindings/thermal/google,gs101-tmu-top.yaml     | 26 +++++++++++++++-------
->  1 file changed, 18 insertions(+), 8 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
-> index 75560ebca48d..bea208cd4619 100644
-> --- a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
-> @@ -15,17 +15,27 @@ description:
->    both direct register-level access and firmware-mediated management
->    via the ACPM (Alive Clock and Power Manager) firmware.
->  
-> -  On these platforms, the hardware is managed in a hybrid fashion. The
-> -  Application Processor (AP) maintains direct memory-mapped access
-> -  exclusively to the interrupt pending registers to identify thermal
-> -  events. All other functional aspects - including sensor
-> -  initialization, threshold configuration, and temperature acquisition
-> -  - are handled by the ACPM firmware. The AP coordinates these
-> -  operations through the ACPM IPC protocol.
-> +  On these platforms, the hardware is managed in a hybrid fashion, though
-> +  the distribution of responsibilities between the Application Processor
-> +  (AP) and the ACPM firmware varies by SoC.
-> +
-> +  On the GS101, the AP maintains direct memory-mapped access exclusively
-> +  to the interrupt pending registers to identify thermal events. All other
-> +  functional aspects - including sensor initialization, threshold
-> +  configuration, and temperature acquisition - are handled by the ACPM
-> +  firmware. The AP coordinates these operations through the ACPM IPC protocol.
-> +
-> +  On the Exynos850, the ACPM firmware implements a smaller subset of TMU IPC
-> +  commands (mainly temperature querying, basic TMU initialization, and power
-> +  state management). Consequently, the AP is responsible for register-level
-> +  access to initialize the thermal unit, configure thresholds and handle
-> +  interrupts via MMIO.
->  
->  properties:
->    compatible:
-> -    const: google,gs101-tmu-top
-> +    enum:
-> +      - google,gs101-tmu-top
-> +      - samsung,exynos850-tmu-top
->  
->    reg:
->      maxItems: 1
-> 
+>  mm/huge_memory.c | 25 -------------------------
+>  mm/hugetlb.c     | 27 +--------------------------
+>  mm/mremap.c      | 46 +---------------------------------------------
+>  mm/userfaultfd.c |  1 +
+>  4 files changed, 3 insertions(+), 96 deletions(-)
 
+-- 
+Sincerely yours,
+Mike.
