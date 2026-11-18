@@ -1,102 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022534;
-	b=ubu/pK5JE++pWc5T5WycJgQ2u7F4FiPHY1O8J6NTeuGK3mH4KTbmhvAdvbpnFvq2OW8S
-	 y4tdOjhk7vfjq3DRfb6Ltt2hEM0z68JsMb2Dde4y3+ZMF6TeCLgqxOiXjsbSscKEM/v4o
-	 ZV/pjgju5hUq8vSh7rTFTxpM5nhl5bFFQLjGN4qAI/VUxdUZVCNitYtNu7kxbPno6SNvL
-	 xtsUHfIdYMer5fV8A82fCuY5zD30x5VeFeWf19bPzU//alDa9jaPjyWw5nYQAt/yzhd6E
-	 9movXuLKVAPufJWd6dm+z904ZS48Yf97b0MGY0RBOze7fswrfWMVR9zjRl+70a/I+ew==
+	t=1795022559;
+	b=xTGArVEHpKqE3sR36GFt9CQalGu0sDEzf4TBAhnq3L13eykV58Ohw9/Xj/Of00qAKade
+	 8SoC6dHy9oniDwqW96sA/wV1PIDldingAoW4AGH/xS1FqW/Ip3Ht1Kygoqxe0ozVUd2Ax
+	 Cp9+oNGNEev0CDABQ8IKodET17pABGGWUcBXjqoYtfzxhlfasxQKHjwX2v4kKeZ5WDrHy
+	 WOy/vYe0kHLFxTKlg3qA13C6+uMzAl8D9aNMeIXVf5FEawzalSwHnm7snqk+zcQuFOFNY
+	 K9ldZvoQ2EXwsJpEl1r90YYdBNBtm9U7eCgacri9eRXeODIsM59Of01XGfAy+XdXK1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022534;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=mY/FNLYTzlT6/9iFOU+8LtK9dRUupasMtXWg1lgUwjY=;
-	b=SRFIweFPpHDTueFankATfFPAKmWXZq0HtOjS81xjqNjfEpRKGivMRGvLr+65TIhwaF7C
-	 ak55DV11bo08wHjSyYtQ/jBYkpkZyHO3tlDuB3wJyNlk8AAl52s93kRbrUXcgK3Doidhx
-	 AUTC6CXmNzZIjimfrVr4drmFAtcoCIKaO4BmA2vRwd4bReaLFmnudrjVnkr8VhTP5/tHd
-	 N4wnsOmk0TP/qBmPLUyzz2zI5Gw/NRx2LQB9kxeonLMUJpO2HPp7im1BoqfFTreJ7lmqx
-	 yLKgmaie1WpR6P+UiyKtOt1FBYKtaRwEmfXGngl20t1osraH/GnIZFZIpi4vFtNgZJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022559;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:User-Agent;
+	bh=VotAYrBtciufD00EQtINMlP1oNamOH3kYvCTKgTHmis=;
+	b=1DO/hIui2ujgyOAtRd5RJiu/Slm2qX0E64a5DQ79lHAr92WzKxEmKFAW4As4GJqQVJK/
+	 iUzSMaefHzx6pkbwXT1M6F0dLENq5wiY1gcmCYQgmswQZt7u4pEXhZcTUAj9a7ldXZAt5
+	 +VkRGbrwVLeNQFkytNvMbykl9DIfdEpqq18jKyCvLbRV1iTGs8+/T63nEeVV7dWXvTHab
+	 UssMloahLsGr7pv3ndrotUIitEbN1EMV/qkIWmb45gtJPGn3BA6cIrSjJaRKyqNVzcCSa
+	 elMTCcHe5hv1W2/dA2oOdBMGRSVhlNs/nHI/TKublmYOC20d8+0PaKWrwPG8rD2yLVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C9kdWEpC;
-	arc=none smtp.remote-ip=209.85.215.225
-Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BUA2NnkU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30227606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:22:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30227606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB0AB606A331;
+	Wed, 18 Nov 2026 17:22:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=C9kdWEpC
-Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cc147d86bebso47533a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:22:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795022533; x=1795627333;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=mY/FNLYTzlT6/9iFOU+8LtK9dRUupasMtXWg1lgUwjY=;
-        b=Ws0QuP4dbVWgXMnxuHEJeHElWR9J+ii955rTtjWeT4qn2quqxX0VTrQ8I2Bh5EymE0
-         iAmU05TZ5nITUR+f8eVaTFd+iTNj1p7cHDYJdZ6hzY7KUjj9kqdVs0ynl14BHagTqmfy
-         hX7mgKyfujZ5TO9X6Ibg/MGzhaUfpbl+/JLcAQcRA5WL+1LZVWUYkxQzvbNydiVg/GON
-         Ep9VbF+Ras9IWHepJKHsA0hMQwHHf0LJ4rTVORADrBGblXQr8t0LhpOW56UYTQ6b1hZi
-         /b9HsVHGFbvO30itmGuKu/Ta+6HjunDeUAzddpFncPVJ4B3iEG1wDdNX68M/j2mYTitm
-         O1oA==
-X-Forwarded-Encrypted: i=1; AL+hErF2UcF3fZf0jBAKqkiK5FOay/oOQPMPQjax3MKr4a5DEBa+IQvGL2175RAgXKpQFtswHT2+6B3ImK9lmsE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Lk3DiahMWcC9sSw5fqWFUQbxt9sF0A/Drlzyvyaq0r+E1BZUA
-	SzUbMtVxKAxQZTyT5uunoCv6eS2Ig96toBMG1xHzJN4zXjBUdRxEYa0puW2woCG6FLDyIA9NKc8
-	PdLLVL8GUWeHo/2GrDsYV9Tgwu1yqPMZt+c4v5j8HW073HppQEiS3nHdHE7puvjVljs2vxKukq2
-	dQxL6iBdAvvo3BmE4hlAvaB3h6puJaj5PoQEzjEBQDTjoeVj/mgyQYeszIkTj7H6uFX48moJ0OJ
-	Vp66LrUR7jDg+hCr2MGrjfQ
-X-Gm-Gg: AZFdTZeYRr7Def0SgRFYEWFE80yObqGysvnuVrdJfJQ/67gCtCvGRowkr8Tv0uFYqTD
-	K0dBSKsZPYoahasI5vBt9ZhGZYlrkUx+EoTOv8PLtfIuVZlR+HqCcYA3smPRwxI7i2bV0lEP0e0
-	Qz7gAOZo1Cjntar7UCqKFpI4ExMyVpL9NKDT/EEGS8eAqVedB+nWCMPvDSSMSjcY+5BVH0yhIQV
-	dpipNn9SHFbrYNLi/HzY7o86OYTTIE6sVkrNfKQKIIp/KtUYS7NFA2D7zNgTLVwBghERiIAQF2o
-	FQf05/IP3yqg0SeBCkAlUadAnqGeZxZAuENWDnne/3dSQeXSJSuUHUsHI/wwiTBfJl+/ejWsobm
-	gnrRqg5A10nO+IsuIGQ7KZMsDK+/7cu5UX4RoqW1jMNW8BywWdq82c7cFWvVEPDWjwwsiVbh7QA
-	WhffgJDZUAYrk8cK1sXiO+7oettk8U/r9+iiGvNT2x
-X-Received: by 2002:a17:90b:52d0:b0:3ac:b6eb:e0de with SMTP id 98e67ed59e1d1-3b3f590c8d1mr100553a91.4.1795022533371;
-        Wed, 18 Nov 2026 09:22:13 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d49e6cb4sm669818a91.4.2026.11.18.09.22.12
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 09:22:13 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cd65070d3feso21994a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:22:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795022531; x=1795627331; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mY/FNLYTzlT6/9iFOU+8LtK9dRUupasMtXWg1lgUwjY=;
-        b=C9kdWEpCneaRSUOMIuoXzNbe4DITWCKPnVY2pSxYXRVK17qwHTVa91J24AafW55FH/
-         bl1kPd81fPn/HcaCtsaV91w5pkcBHeWycO+gF63wxwoKHSRFR5t2k0dBYVKdX1H8sy7B
-         RC/qib6/Vkbmbe+/K1g7LMS4uRMbJT3+vZsmo=
-X-Forwarded-Encrypted: i=1; AL+hErE5h8z8E3rHb6WOGNortcjNIBoTXT2VnGXhMz1MTzaR+hUVsDe0965ndrSph3nHj2UH8Mnr31wF2BoklU4=@vger.kernel.org
-X-Received: by 2002:a05:6a20:1611:b0:3e2:28f0:b360 with SMTP id adf61e73a8af0-3fff0101ffemr132527637.0.1795022530119;
-        Wed, 18 Nov 2026 09:22:10 -0800 (PST)
-X-Received: by 2002:a05:6a20:1611:b0:3e2:28f0:b360 with SMTP id adf61e73a8af0-3fff0101ffemr132501637.0.1795022529163;
-        Wed, 18 Nov 2026 09:22:09 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde53506b98sm312451a12.30.2026.11.18.09.22.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 09:22:08 -0800 (PST)
-Message-ID: <e8714dba-f51a-40a2-9bda-be49fb3b16ff@broadcom.com>
-Date: Wed, 18 Nov 2026 09:22:05 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BUA2NnkU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30A2E1F000C6;
+	Wed, 18 Nov 2026 17:22:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795022559;
+	bh=VotAYrBtciufD00EQtINMlP1oNamOH3kYvCTKgTHmis=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BUA2NnkUtEhAhDoFcOydn+vYU6Gy11rI6zu0ZctN8zT5MsWTYcceGQH2zQKxT467B
+	 MqO9i4BJkGrg7RMW7whc4n2wzW5KfvNJUrkFRM2ryxFatYQiVQW2rwr2YNs9ije56d
+	 GdyFNtlZGcLUVxyyZ2/ejye7oP6DshENT/1GdUEt3v57nIoXBt2lLhfO6sxhhph/0n
+	 4MkX2qwnMYHvLwdIZIBM/3Hh3Wyll2hpYgtCzIJsXs39Iz2Lq++vw3pvLzdPSS+/Mq
+	 pXlnxQ2G2+LFYaMUOi2UA5hJAAOiID700DXLNd522hrfS2vcC5IqtJ3z9aQgdF+m8i
+	 SUK7KFtHmsZ7A==
+Received: by pali.im (Postfix)
+	id 3AC89846; Wed, 18 Nov 2026 18:22:36 +0100 (CET)
+Date: Wed, 18 Nov 2026 18:22:36 +0100
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: koraynilay <koray.fra@gmail.com>
+Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>,
+	Sungjong Seo <sj1557.seo@samsung.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Trond Myklebust <trondmy@kernel.org>,
+	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>,
+	Jeff Layton <jlayton@kernel.org>,
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>,
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>,
+	Yuezhang Mo <yuezhang.mo@sony.com>, Jan Kara <jack@suse.cz>,
+	NeilBrown <neil@brown.name>,
+	Olga Kornievskaia <okorniev@redhat.com>,
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>,
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
+	Shyam Prasad N <sprasad@microsoft.com>,
+	Bharath SM <bharathsm@microsoft.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
+	"Darrick J . Wong" <djwong@kernel.org>,
+	Sean Smith <defendthedisabled@gmail.com>,
+	Andrey Albershteyn <aalbersh@kernel.org>,
+	Pedro Falcato <pfalcato@suse.de>,
+	Amir Goldstein <amir73il@gmail.com>, linux-btrfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	exfat@lists.linux.dev, ntfs3@lists.linux.dev,
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org,
+	linux-api@vger.kernel.org
+Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
+Message-ID: <20261118172236.t65ytycs7ruxjrhg@pali>
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261118142613.be3r3s6kobkkxnz4@pali>
+ <DMYFBDIV4Y08.35ZKR5G86U1H7@gmail.com>
+ <20261118151605.lqtn5fz423kuswk5@pali>
+ <DMYHPLWKPSH3.MUM1IIZZIWNR@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,255 +88,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 4/9] dt-bindings: net: describe the Northstar
- flow accelerator
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, rafal@milecki.pl,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- horms@kernel.org, corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
- pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org
-References: <20261116222519.1416501-5-florian.fainelli@broadcom.com>
- <179495816151.3136.14110323389854628043@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179495816151.3136.14110323389854628043@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+In-Reply-To: <DMYHPLWKPSH3.MUM1IIZZIWNR@gmail.com>
+User-Agent: NeoMutt/20180716
 
-On 11/17/26 15:29, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
+On Wednesday 18 November 2026 17:50:39 koraynilay wrote:
+> On Wed Nov 18, 2026 at 4:16 PM CET, Pali Rohár wrote:
+> > On Wednesday 18 November 2026 15:58:02 koraynilay wrote:
+> >> On Wed Nov 18, 2026 at 3:26 PM CET, Pali Rohár wrote:
+> >> > Hello,
+> >> >
+> >> > I have just one issue with the userspace API. It does not allow me to
+> >> > figure out what is the source of statx btime field. If it is fs ptime or
+> >> > fs btime because this RFC implementation is mixing both fs ptime and
+> >> > fs btime into the statx btime field.
+> >> >
+> >> > I have feeling that this is quite a mess in API and I would like to see
+> >> > a clear distinguish between btime and ptime in the API, like there is a
+> >> > difference in the fs storage.
+> >> >
+> >> > If the btime is used for forensic analysis then somehow I would expect
+> >> > that the statx would not report / not fill changeable ptime value into
+> >> > the statx btime.
+> >> 
+> >> Hi, for native linux filesystems it will report ptime as PTIME and btime
+> >> as BTIME (also semnatically).
+> >
+> > That is fine.
+> >
+> >> for the windows-like ones that only have
+> >> ptime (semantically) I think it's reasonable to not expect btime to be
+> >> immutable, since they are meant to be used with other OSs who lack btime
+> >> semantics.
+> >
+> > The problem is here that the RFC statx API does not provide this
+> > information that the fs lacks btime semantics and instead it fills
+> > non-immutable ptime value there.
+> >
+> > I'm pointing only about this inconsistency.
+> >
+> >> > It would be really helpful if the statx API on inode can differ between:
+> >> >
+> >> > 1. btime is present and its value is ..., ptime is not supported
+> >> > 2. btime is not supported, ptime is set to value ...
+> >> > 3. btime is present and its value is ..., ptime is set to value ...
+> >> > 4. both btime and ptime are not supported
+> >> >
+> >> > This should cover all cases of different filesystems and also allows
+> >> > userspace to do proper backup of both ptime and btime fields (if it want
+> >> > to do forensic analysis or anything else).
+> >> 
+> >> These should already all be covered by STATX_BTIME/PTIME and their
+> >> fields in struct statx, the only problems are windows-like filesystems,
+> >> which IMO shuold be handled as mentioned above.
+> >
+> > Exactly, I pointed out about these problems. I somehow expect that the
+> > new API would be generic and uniform across filesystem. IMHO it does not
+> > matter if the filesystem is windows-like or not (there are also FreeBSD
+> > fs and also others which allows to modify that time). So better
+> > description is fs belongs to category 2. from my above description.
 > 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 2
+> Ah yes, I used windows-like to mean "only have ptime semantics", so same
+> as your category 2.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> >> Of course, as in the other discussion, I'm open to changing ptime
+> >> NTFS/exFAT/... support to remove btime altogether and only use ptime for
+> >> their own crtime if that's what wanted (I'm fairly impartial on this
+> >> specific issue).
+> >
+> > I'm giving some ideas how to possible handle this situation:
+> >
+> > 1. do not fill btime it at all when it is not available (remove btime
+> >    altogether - the case like you wrote above)
 > 
-> - [Medium] The flow-accelerator register resource in brcm,bcm4708-fa.yaml
->    is modelled as a standalone MMIO block with only `compatible` and…
-> - [Low] The new brcm,bcm5301x-gmac.yaml schema is selected only when the
->    `brcm,flow-accelerator` property is present (`select: required:…
-> - [Low] The FA binding description calls switch port 5 'IMP5' ('Switch
->    port 5 (IMP5), connected to GMAC0, ...').
+> This would be the most semantically correct option, but would break at
+> least 1 script/program/use case.
 > 
-> --
+> > 2. when userspace ask both ptime and btime, then do not fill btime
+> >    (remove btime altogether - but only for that new case)
 > 
-> dt-bindings: net: describe the Northstar flow accelerator
+> This probably is the best compromise.
 > 
-> This commit adds a binding for the register block of the
-> BCM4708/BCM53011/BCM53012 flow accelerator. It also adds a schema for the
-> brcm,flow-accelerator phandle on the GMAC2 BCMA Ethernet node. The
-> description covers the second CPU path, port 5 to GMAC0, for exceptions
-> that bypass the accelerator.
+> > 3. fill btime with ptime value, but add a new output flag indicating that
+> >    the btime is not present at all and instead kernel filled ptime value
+> >    into the statx btime field
 > 
->> diff --git a/Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml b/Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml
->> new file mode 100644
->> index 0000000000000..f744b23433c46
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml
->> @@ -0,0 +1,45 @@
+> I don't really like this, it adds complexity and uses memory/1 flag big
+> for a single specific field, IMO it's not worth it.
 > 
-> [ ... ]
+> > 4. let statx btime as currently is, and add two new statx fields:
+> >    immutable_btime and ptime. immutable_btime would be filled only if the
+> >    fs supports real btime (so not for ntfs/extfat crtime) and ptime would
+> >    be what is currently in RFC
 > 
->> +description: |
->> +  The flow accelerator is inline between GMAC2 and switch port 8 (IMP0).
->> +  GMAC0 and GMAC1 bypass it. The GMAC2 BCMA Ethernet node references this
->> +  register block through a brcm,flow-accelerator phandle. Miss packets carry
->> +  a prepended accelerator descriptor in place of the embedded switch tag.
->> +
->> +  Switch port 5 (IMP5), connected to GMAC0, provides a second CPU path for
+> I think this is also too complex.
 > 
-> [Severity: Low]
-> Should this say IMP1 instead of IMP5? The b53 SRAB code calls the two IMP
-> ports IMP0 (port 8) and IMP1 (port 5):
+> > Ideas 2. 3. and 4. should be fully backward compatible as it would
+> > affect statx output only when called with new flags.
 > 
-> drivers/net/dsa/b53/b53_srab.c:
-> #define  B53_SRAB_IMP1_SLEEP_TIMER	BIT(10)
-> #define  B53_SRAB_P7_SLEEP_TIMER	BIT(11)
-> #define  B53_SRAB_IMP0_SLEEP_TIMER	BIT(12)
-> 
-> This description already uses IMP0 for port 8.
-> 
->> +  exceptions that must bypass the accelerator, including TCP control,
->> +  low-TTL and oversized packets. Describe that CPU port with an ethernet
->> +  phandle to GMAC0 and an internal, 1 Gbps full-duplex fixed link in the
->> +  switch's ports node. Port 8 remains the data connection to GMAC2.
-> 
-> [ ... ]
-> 
->> +  reg:
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    flow-accelerator@18027c00 {
->> +        compatible = "brcm,bcm53011-fa";
->> +        reg = <0x18027c00 0xc0>;
->> +    };
-> 
-> [Severity: Medium]
-> Can the flow accelerator be treated as a standalone MMIO block? The example
-> address 0x18027c00 falls inside the 4 KiB BCMA window of GMAC core unit 3.
-> bcm-ns.dtsi already describes that core under the 0x18000000 axi bus:
-> 
-> arch/arm/boot/dts/broadcom/bcm-ns.dtsi:
-> 		gmac3: ethernet@27000 {
-> 			reg = <0x27000 0x800>;
-> 		};
-> 
-> The binding allows only compatible and reg. It has no clocks or resets
-> and no link to the GMAC3 core. It also does not say that the hosting core
-> must be out of reset and clocked.
-> 
-> Later in the series, bcm_ns_fa_init() in
-> drivers/net/ethernet/broadcom/bcm-ns-fa.c maps this node and writes to it
-> straight away:
-> 
-> 	np = of_parse_phandle(parent->of_node, "brcm,flow-accelerator", 0);
-> 	...
-> 	fa->regs = devm_ioremap_resource(parent, &res);
-> 	...
-> 	writel(0, fa->regs + FA_STATUS_MASK);
-> 
-> Nothing in bgmac or bcm-ns-fa calls bcma_core_enable() on core unit 3.
-> bgmac_probe() also rejects core_unit 3 when that core has no MAC address,
-> so it never gets enabled there.
-> 
-> Suppose the bootloader leaves the GMAC3 wrapper in reset or clock-gated.
-> Could bgmac_probe() for GMAC2 -> bcm_ns_fa_init() -> writel() then take
-> an imprecise external abort or hang the bus? And if something later resets
-> the GMAC3 wrapper, would that wipe the programmed FA state?
-> 
-> This is inferred from how AI wrappers usually behave. I have not checked
-> it against the Northstar register map, so I can't confirm that GMAC3
-> hosts the FA. On BCM53012 boards where CFE leaves core 3 enabled, it may
-> work as is.
-> 
-> Should the binding describe how the FA relates to its hosting core, or
-> the clocks and resets it depends on?
-> 
->> diff --git a/Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml b/Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml
->> new file mode 100644
->> index 0000000000000..76fbe2abf5152
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml
->> @@ -0,0 +1,27 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/net/brcm,bcm5301x-gmac.yaml#
-> 
-> [ ... ]
-> 
->> +select:
->> +  required:
->> +    - brcm,flow-accelerator
->> +
->> +properties:
->> +  brcm,flow-accelerator:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description: |
->> +      Phandle to the BCM4708, BCM53011 or BCM53012 inline flow accelerator.
->> +      Only GMAC2 (BCMA Ethernet core unit 2) has this connection.
->> +
->> +additionalProperties: true
-> 
-> [Severity: Low]
-> The "Only GMAC2" restriction exists only in the description text. The
-> schema is selected purely by the presence of the property, and it sets
-> additionalProperties: true. Wouldn't a DT that puts brcm,flow-accelerator
-> on gmac0 (ethernet@24000), gmac1 or gmac3 still pass dt_binding_check and
-> dtbs_check?
-> 
-> Nothing checks that the phandle points to a brcm,*-fa node either.
-> 
-> Later in the series, bgmac_probe() in bgmac-bcma.c enforces the rule at
-> runtime:
-> 
-> 	if (of_property_present(core->dev.of_node, "brcm,flow-accelerator") &&
-> 	    core->core_unit != 2)
-> 		return -EINVAL;
-> 
-> So a misplaced phandle makes that GMAC fail to probe, and dtbs_check gives
-> no warning beforehand.
-> 
-> Separately, the file name and $id suggest a brcm,bcm5301x-gmac compatible,
-> but the BCMA GMAC nodes have no compatible. Is that naming intended?
-> 
+> Then 2. is probably the best way to go forward (maybe I'll include it in
+> some way in v5),
 
-[Medium] FA modeled as a standalone MMIO block
+My preference is 1. or 2. Just wanted to give more alternative
+solutions.
 
-The register block does not overlap the GMAC3 node: 0x18027c00 is in the
-GMAC3 BCMA window but outside the 0x800 bytes described by 
-ethernet@27000. Per the data sheets, the FA is part of the AXI MAC + FA 
-block together with the four GMAC cores (GMAC3 being the block's 
-loopback port), not a separate peripheral. It has no clock or reset 
-input of its own in the DT, and BCMA wrappers are not modeled as DT 
-clocks/resets.
+> but I think we should let each filesystem maintainer
+> decide if they think their users want to have statx report their own
+> crtime as btime, ptime or both (native linux ones would of course
+> report btime as btime and ptime as ptime).
 
-I cannot tell from the documentation how the GMAC3 BCMA wrapper state
-affects access to these registers, so I am checking this on hardware and 
-will add the core enable to bcm_ns_fa_init() if it turns out to be 
-needed. v2 documents where the registers live in the binding description.
+statx syscall API is or rather should not be filesystem specific.
+If every filesystem decides to fill members differently then how could
+somebody write reasonable userspasce application? It would contain lot
+of spaghetti code like this:
 
-[Low] IMP5 vs IMP1
+  statx(...buf...);
+  if (fs == fs_type1) {
+    process_buf_for_type1(buf);
+  } else if (fs == fs_type2) {
+    process_buf_for_type2(buf);
+  } else if ...
 
-Agreed, port 5 is IMP1. Fixed in v2.
+And such thing is not API anymore.
 
-[Low] GMAC2-only restriction / naming
+If every filesystem decides on its own how it fills, then it would not
+be able to write "rsync"-like backup or forensic tool to copy data to
+some other storage (does not have to be fs) or even to different
+filesystem on linux.
 
-v2 restricts the consumer schema to ethernet@26000 with a $nodename
-pattern. BCMA GMAC nodes have no compatible, which is why the schema is
-selected by the property; the description now says so. dt-schema cannot
-check what the phandle points to, the driver validates the compatible.
+Things for which filesystems could decide how to handle are private fs
+ioctl calls which are specific for individual filesystems.
 
-pw-bot: cr
--- 
-Florian
+> Thanks,
+> koraynilay
+> 
+> >> Thanks,
+> >> koraynilay
+> >> 
+> >> >
+> >> > Pali
+> 
+> 
