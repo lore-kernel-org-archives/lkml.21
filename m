@@ -1,53 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795034256;
-	b=D5Ox0oiwwsvm+I+58r4BqpnR1Pls4pmvSwBzYs8XW9pCUDwxTQEOj3N55fhmfnzfsaNj
-	 080wyvPme/YRRfmRrAAt8O2c/IcETVNA6MLXxbshewUt/a7hTPxbnuM3rytE2wQs98eUw
-	 IPv4s15oxWiZNEuL3EwK+WZWJECNK628GqoB2pnrcmmait6AVbFRGj9hisHtJadDpc9ZQ
-	 yOlsE/V2wr1l9zwWrIs7FZ8QGqrek5ggjWfIRXOQ42LvASJEDN+PzFWG+Z50eSRi5N277
-	 A5wCX9cDYpjiqcNich8B3Q41c4yRU3ZTT/iXAYvKYvTqjeRR9/gNDqEObPn1/4JRAGg==
+	t=1795034266;
+	b=N2wZ3+ZxCOt7uBfC0NmPbdF/gTpGHYbGb8i29QKG9swQlNmwAHSYTQ+Q6rTl1cXELfpI
+	 HbTSNTQkh8zXDTibGZejKAoF94A8qSitouPIQFDEFb3xARn6OW0TWsCJyjsA2iNp1yU+i
+	 8Dv5K++7oi3D77076ZIANGEsbbQiDRxFmgA+Huk/g6RRFEaUgiB1CjVCjoNpG74q+fXWU
+	 QJFIBy5Rb2dwXnNwBwPteTALsvalCEisBhww/8KdzIaMxwgy/I9/8MK+rPG/zEHVFuI3H
+	 Xh11G+tjlutCPZLVjdMkjG5U2/uw7zE70vKZbdZp7ErVe0crd1e7zPsXjNyVoNAOMOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795034256;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-AI-Review-Draft;
-	bh=PWpsvCUXip1i7rOauGAcv+trD2oASaN/jyJ5WLgGFpI=;
-	b=L8J6jxyNBOjaY/uP155/O4cDxBkSYylU6kjtAGqtj4frjQ8UE6SUdpyPFb2yrAiSGu2y
-	 PNIZ+eGVRLQ4ZYt5VN/PQ6/iwvbgnmLlD1ixtHynMsMvW5WKZgUrpG0sMYblagn7keCpM
-	 xhTVJrtwwG0JMev7l43CEhtJST5EdEuwuKpqYqAnQ2FRWj+zzQ2Ksng/0r7HiF11hDewP
-	 PwH/ZnDJ8X+0bb4SunvVuWRwuRytujcZ9M0dL8lOY6CwXo7UdySMEr+OdQ3IswRyPeCnP
-	 HX+xQO3oymwjk9BDmTFTBMOnydGyDkx0fGNJtzkHN3/8fFUGdQqMeBDeIGgxdzElMkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795034266;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=NP9MdhxeGHGArR9vL9Mt1yif1925+jhMGTONFGDTnqM=;
+	b=dcQ0fUHcNLSSR456C6X0Z7WVBnYPrYjTWCM4SEDvZAj1VZXJ6/UrsN1fY+QT2ruVdgT7
+	 rwzJwppvsZph81Jod4as1OUYWJwxEn8aIcZIRrrHTROBG9tMLL+ATYNOxYLAQc0b6018f
+	 lU8Il+OROok4PbPHpcYs5NPFJdOiC4Ck+/egoE76T5JwE/Gi/zvevcgQBLuh0Q+2WeFJ4
+	 jsbai29D7jijNGp/gnrSHX8e6Kgyzf+rvgzf6gwLbssT4lPRpvy4aex8EVVb6+YcbWnFR
+	 vmrbjqLBjY8hyqHU8NZUkC4qmadpOCrf8qzM3BwOFD47jNy6bPYrW3WSAkgrfDySvfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CYrVXwAS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O3fAVGZW;
+	arc=none smtp.remote-ip=209.85.210.197
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B615606A325;
-	Wed, 18 Nov 2026 20:37:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B10F0606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:37:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B10F0606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CYrVXwAS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE941F000C4;
-	Wed, 18 Nov 2026 20:37:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795034256;
-	bh=PWpsvCUXip1i7rOauGAcv+trD2oASaN/jyJ5WLgGFpI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CYrVXwASYcM3Mv9qg26gjZOaVK97z+ZRJcWmQfTaDMhvw1S5s22X/y1GeicizsOwj
-	 q+6ZzQVZcM+pfBo8Ek9As/p3AZvy+qQRfMTclKbAQMcUr9GErvk9x/3eLziA9L4xas
-	 aAgizqTFQpO5146iBWPHaMubnotEMcaLExsF05sgQtf2w9KiiGiJ0xIyVWXRbEapIc
-	 /a8nN4q8FAIfNOMcIA2NgOQ5dyTYXew3xcK/B5CcVNsd4jKZejBYS5+VJjx+pnLRZP
-	 42kK8mQhyr56u2/Fqr07IeqZuyk0O0ikgNVlHk/qywM0oV25QiV7wK7DFattepsJEu
-	 ZNPeVykBFolHg==
-Date: Wed, 18 Nov 2026 20:37:32 +0000
-From: Lee Jones <lee@kernel.org>
-To: shao.mingyin@zte.com.cn
-Cc: mfd@lists.linux.dev, tharvey@gateworks.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] mfd: gateworks-gsc: Propagate I2C read errors
-Message-ID: <179442103029.44545.1262285836401934201@kernel.org>
-References: <202611091914028089L4I88l9WGcWziY8r3qZb@zte.com.cn>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=O3fAVGZW
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b6463f95a4so1107936b3a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:37:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795034265; x=1795639065; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NP9MdhxeGHGArR9vL9Mt1yif1925+jhMGTONFGDTnqM=;
+        b=O3fAVGZW5GSWcR94MlQk7II4ZeROs0Moys3uH7ZZUPkp+c3jhUSfRUXQHymuefy/KX
+         Gw1cXCpUckYqQV1CsaqIOvN3PFMFeoeIgMfQvCOO63fpBkNV395jgBxrfdPAU/iivg+q
+         Io2Bk9MQ2rXK1n2st05Ku7993imfqvyDPJD95xfOqZ5sGu1p6DrBj/nBYj2DGWp0uUaf
+         iTYjbGQ7KwGgj8nJy37lxyAaVEQ3tV7o3OE8ndxsqiSWJIbID1Ml1oYRC+1nTadxa0uZ
+         rJFWzK7KZat1dSverTONkN3+enXSLcvIDY83YUabTsdrbRUpIgRdt3+Ag37vZ9HSw0Wo
+         8iNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795034265; x=1795639065;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NP9MdhxeGHGArR9vL9Mt1yif1925+jhMGTONFGDTnqM=;
+        b=uWcgsXRtPWK5sxm6gqQM01oMmJoxVxddk6g+XCqYVRVRCM1y0EfLSTe8T+egeLXt1C
+         78DAfeqZbdpDVe9XGUNRnXNDYRN0Lm6W3a0nRdFIqAkUuWBgx1GPlvE15vveukosyTed
+         Q3wecZ44s2DyEEFPSwoheF0fQGDJibao9Xg8iscTS/JuTJ5C+Kga5mI3zP1h0ynxFZj2
+         bClHN/WSqQSJOeeoNVjPeZtMxNAaadM6TXA7kOZZRhov4XBNdDEVkDHPcZGC8uErQFuC
+         oKtaGUekDAVh+lSl5yA0phzvwzLsYhCBu/FSIgkV7IKIykUaKM01d/HHMkRCiyt73uQC
+         bcHg==
+X-Forwarded-Encrypted: i=1; AL+hErEI7He2uB/aHFBLVt+595eKkajrWwXmAw0+YBExin08CFDPME/9rBqGQgR6s0SYn2ODo/d/CJNi96Y5DyY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92d3UNcx5D5pAdDRvEVlcx3ujBd+vf9N/OjqG3vfbsRFry+lr0
+	LMPKsV8hM8ikH25W6YMsJ6JgUl/D+amNVE5F0wpWbVd5bNXnnyDuGAFaVYLHD/kAAV0a0WjK8Vd
+	irEgvPw==
+X-Received: from pfx48.prod.google.com ([2002:a05:6a00:a470:b0:8a0:8283:82bb])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:2e26:b0:8a0:7140:7fbb
+ with SMTP id d2e1a72fcca58-8c5d558e278mr3054253b3a.51.1795034264755; Wed, 18
+ Nov 2026 12:37:44 -0800 (PST)
+Date: Wed, 18 Nov 2026 12:37:43 -0800
+In-Reply-To: <20261118203408.98649-1-streetster@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,75 +77,34 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <202611091914028089L4I88l9WGcWziY8r3qZb@zte.com.cn>
-X-AI-Review-Draft: <202611091914028089L4I88l9WGcWziY8r3qZb@zte.com.cn>
+Mime-Version: 1.0
+References: <20261118203408.98649-1-streetster@gmail.com>
+Message-ID: <av4Mlz7fOP-EeFA5@seanjc-mac.roam.internal>
+Subject: Re: [PATCH] KVM: x86/mmu: Defer TDP MMU RCU callback barrier
+From: Sean Christopherson <seanjc@google.com>
+To: Mark Street <streetster@gmail.com>
+Cc: pbonzini@redhat.com, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, seiden@linux.ibm.com
+Content-Type: text/plain; charset="us-ascii"
 
-On Mon, 09 Nov 2026, shao.mingyin@zte.com.cn wrote:
+On Wed, Nov 18, 2026, Mark Street wrote:
+> TDP MMU pages are freed from RCU callbacks, which return their headers to MMU
+> slab caches. Waiting for an rcu_barrier() during every VM teardown makes each
+> VM wait for all pending RCU callbacks, including callbacks queued by
+> unrelated VMs.
 
-> From: Shao Mingyin <shao.mingyin@zte.com.cn>
->
-> gsc_read() retries the I2C transfer but then stores "ret & 0xff" in *val
-> and returns 0 even when the transfer failed.  regmap_read() therefore
-> never reports an error, so the FW_VER check in gsc_probe() and the two
-> GSC_FW_CRC checks that this patch adds are dead code, and on a failed
-> read the firmware revision is built from the low byte of the negative
-> errno.
->
-> Return the error from gsc_read() before touching *val, so regmap_read()
-> and its callers see the failure; the FW_VER check and the two CRC checks
-> then work as intended.
->
-> Fixes: d85234994b2f ("mfd: Add Gateworks System Controller core driver")
-> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-> ---
-> This supersedes 5/5 of the RESEND series; 1/5-4/5 are unchanged.
->
-> v3:
->   - reword the commit message: the two GSC_FW_CRC checks are added by this
->     patch, so say that instead of referring to "the previous version"; the
->     second paragraph no longer calls them pre-existing.  No code change
-> v2: https://lore.kernel.org/all/20261108151125513PyebyF3QC3r_DTxS9ZMf6@zte.com.cn/
-> v1: https://lore.kernel.org/all/20261107162125044ldKkwYPQxZOTWg6IDe_LX@zte.com.cn/
->
-> diff --git a/drivers/mfd/gateworks-gsc.c b/drivers/mfd/gateworks-gsc.c
-> --- a/drivers/mfd/gateworks-gsc.c
-> +++ b/drivers/mfd/gateworks-gsc.c
-> @@ -62,7 +62,10 @@ int gsc_read(void *context, unsigned int reg, unsigned int *val)
->  		if (ret != -EAGAIN && ret != -EIO)
->  			break;
->  	}
-> -	*val = ret & 0xff;
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	*val = ret;
->
->  	return 0;
->  }
-> @@ -219,9 +222,11 @@ static int gsc_probe(struct i2c_client *client)
->  		return -EIO;
->  	gsc->fwver = reg;
->
-> -	regmap_read(gsc->regmap, GSC_FW_CRC, &reg);
-> +	if (regmap_read(gsc->regmap, GSC_FW_CRC, &reg))
-> +		return -EIO;
+Wrap your changelogs.
 
-Should we propagate the return value of regmap_read()?
+> Move the barrier to kvm_mmu_vendor_module_exit(), immediately before the MMU
+> caches are destroyed.
 
-Also, really not a fan of functions in if()s.
+This was *just* posted.
 
->  	gsc->fwcrc = reg;
-> -	regmap_read(gsc->regmap, GSC_FW_CRC + 1, &reg);
-> +	if (regmap_read(gsc->regmap, GSC_FW_CRC + 1, &reg))
-> +		return -EIO;
->  	gsc->fwcrc |= reg << 8;
->
->  	gsc->i2c_hwmon = devm_i2c_new_dummy_device(dev, client->adapter,
-> -- 
-> 2.47.0
+https://lore.kernel.org/all/20261118-feat-kvm-tdp-mmu-rcu-barrier-v1-1-24106947c616@linux.dev
 
--- 
-Lee Jones
+> Set the owner of KVM stats and per-VM debugfs files to the vendor module so
+> open files pin the module and prevent its exit while those files are active.
+
+What does this have to do with anything?  AFAICT, this is a completely unrelated
+bug fix.
