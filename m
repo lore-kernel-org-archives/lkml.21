@@ -1,68 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022407;
-	b=DAPxZZn1z0d4DU5pFohNKyjn24b6/ovYoIWIAsIhfK9xjG0hb/9MNXodH1KXPGdQNCDb
-	 hOo4EGVBbMgOo/Bqdqey5ic32fXn8KTRwOinWntV19TN84NObQkYaHkLixbpq3thZCiI/
-	 U3LMtPQ91h/dPwvS90yMB8rAzjGbFUJ6V4stBj7TNwQhJgP3j4qO+ZNo+KM4zCtxwsHI4
-	 EdlD1JhCTqNK5M4Ux9Wcct+bOEBsiEj/6PgiLp98Aqpiq69fXPb/ZkCpLZdLtUrpqEttO
-	 UXm8iBcXBWFohLkvZDyqrbN/+FhxOptbdx1Vh4jA5yyuHfPSATtF45wEreMrmzCU3oQ==
+	t=1795022420;
+	b=S3+kZxU9CD56jCUlEwjuVv9W8Wbs7c+tDKZYQNcfZp4AmF/lrrfC9PXEddKulL/7uBC0
+	 sj9g1LalTufxCIA2JDokiSoFuhHC2dlDGp1tEtky6r30lz+o10ijCQPSYsgZft63cU9TM
+	 ME95gpib+4gsar9URrrT0sUXXf+LkAfrcJUBOIlCYTIIQyW04QBSVgFQzAyQSCJTCgvKV
+	 auGimu+7bQL14OoBxg7hIECNNGda6N3aLtBUP3HgQFrQqIinDWHkCPMsObhpbwGhHAYSw
+	 yRUWO8YsxJaSACdv2oW5QCoUS9wVotE45sjcDLOxBv9VCdSVZIRWSj/jp2ijylRwikQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022407;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=C/3wjl6fCG2L5aBuDBQtitmDyI0wLilqwEumq3Ter0c=;
-	b=l6MlFWTCj/4rldHCgm4iAt4A9GN8evXL002XKZXVDiDOCdHNckrDScDwl2UsNcUQir33
-	 1g4nNFQFrUuXshL33PHBkAVEWwA4SG9ni81U/BzZHjRd0gskHZxtaojwXoXLt/UXJ/AGA
-	 QLyUeqi+KKAcATO25qsMJPiq1r08Bit9qMIw3XPJqhQq9XSsX5B3Wf3kMpOQqsb5Wga14
-	 +m73hZgwnjov6Fo6XGXXegZQD8wrmdUx9/2JjvzaJYQ5aqmNenlWGv7JlHdddJb0jx6FF
-	 3nSMKkvtR8BYMEfpOXUzmn8SWljQr2g68wrwKlSHK0qCsEwR7IGoM98cx1xYKM3I3Dw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022420;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GNSgVc/BtfH4kx3pq6fmT3aOO7rA3luHHP210jnBneY=;
+	b=ZmxXcZRsQ4uWZKWoZdVC2IrYeQrbpCScXne3OnAVsokEEQsqliSt84r3kvAzlXXwep8O
+	 +oWDfABec0GxPEzrGlV+dRiYxa0rWSntpkdqvC8orjUgpYxKlJEHbB9LfV+wUSRXrOm1h
+	 kflrg8fyw9vchI9GUqouP+hxWpostvigKbHGq1DrZdcPacCmKjVNQIrAtJc0CX6ht6jQ+
+	 rokvNvxkc45cDj4qkN3044LHnhZtj12rUQACptMZw4D+5rV6u3QTKaaFCOpyIcVVAL7V5
+	 O4qCDOK8/yu7cngG/hHM6Cg2YHEQGJSJRUH2o29d9siiBc41LdyLhDWh50Nq5kd10Ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HW87yscd;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A9SLqBRA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09454606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:20:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD2B3606A320;
+	Wed, 18 Nov 2026 17:20:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HW87yscd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC3B11F000C4;
-	Wed, 18 Nov 2026 17:20:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A9SLqBRA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DDA21F000C6;
+	Wed, 18 Nov 2026 17:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022406;
-	bh=C/3wjl6fCG2L5aBuDBQtitmDyI0wLilqwEumq3Ter0c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HW87yscdcuN4vnAlyxlzUKgtD2YYe+cwtk2Lo84P1XZ0/JkyMbT+BboAqgDtZNaI6
-	 mJRTfdJVd7vDF83DNgoX/tNpnTvosuqWQON5Z2PdmRNqGN9B4DYutFLkIw69I39xGi
-	 t8WODwJWBpgI8hupY27/Vn68MOLKGOh8GK+iz9e+YbnlYSfWK3QPx2GS5Shh9Bvl0y
-	 Rg+/9lqXDsegi47vvUCyAxeayH698guLu2hwVPQOBASrXJ55rG2V0TQGxz+5aA4h12
-	 8Lf0Y0jicqhQhNB7945LSKRzOV8S4ZqaI+y02VUXlVaEXMxIMpwHIhsnnAJch7tgYO
-	 BcIxas1TC6rCQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xTjKG-000000003n8-2pNs;
-	Wed, 18 Nov 2026 17:20:04 +0000
-Date: Wed, 18 Nov 2026 17:20:04 +0000
-Message-ID: <861p8i12gr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Zenghui Yu <zenghui.yu@linux.dev>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>,
-	tglx@kernel.org,
-	radu@rendec.net,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] irqchip/gic-v3-its: Size the collection table for all possible CPUs
-In-Reply-To: <9751bd2c-897c-433c-a4da-5ec420ced322@linux.dev>
-References: <20261118025106.623070-1-ruanjinjie@huawei.com>
-	<9751bd2c-897c-433c-a4da-5ec420ced322@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	s=k20260515; t=1795022420;
+	bh=GNSgVc/BtfH4kx3pq6fmT3aOO7rA3luHHP210jnBneY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=A9SLqBRAcu+7ALHB9PkuS+vgG0JPFf/+lfVDdaL2rR+DW/XvEbpKH9dPaJ6day5iB
+	 p/ggtp9MF36xjWUS+7vbt9eKGOenioorvyf62TcNxysVplfACSmyLI+lVC3OXLGUGC
+	 yfcop1htUS+eIlodqqXjis9xgQNlaleumDUn0wKqvI5VNrcsl0EkL045+uHQ7tQh2C
+	 Y7WY2I8LzSWXmwQ/qlgcq2gwwZJhxmkYf73pVtEbx1vgTuLxZF7npIVIDGvqsaVfNN
+	 6qg+k2jTh5FHNJHvmMpZX9xrRBk3OX9f5MyT12x0/ArDCHSOcICT+QnzhpAUbh9H3a
+	 IDIoqyeq383Mg==
+Date: Wed, 18 Nov 2026 17:20:16 +0000
+From: Lee Jones <lee@kernel.org>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: linusw@kernel.org, linux-kernel@vger.kernel.org,
+	linux-leds@vger.kernel.org, pavel@kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] leds: netxbig: Fix platform device reference leak on
+ successful probe
+Message-ID: <20261118172016.GE98456@joneslee-macbookpro.roam.internal>
+References: <20260922160323.GB3438784@google.com>
+ <20261107042737.708109-1-vulab@iscas.ac.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,43 +58,38 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: zenghui.yu@linux.dev, ruanjinjie@huawei.com, tglx@kernel.org, radu@rendec.net, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261107042737.708109-1-vulab@iscas.ac.cn>
 
-On Wed, 18 Nov 2026 16:44:11 +0000,
-Zenghui Yu <zenghui.yu@linux.dev> wrote:
+On Sat, 07 Nov 2026, Wentao Liang wrote:
+
+> of_find_device_by_node() returns the GPIO extension device with an
+> elevated reference count.  The error paths release it through the
+> put_device label, but the success path returns directly, so the
+> reference is leaked whenever the LED driver probes successfully.
 > 
-> On 11/18/26 10:51 AM, Jinjie Ruan wrote:
-> > The collection table is currently sized at a single ITS page size,
-> > and the driver's allocation policy is to allocate a single collection
-> > per CPU. On systems with more CPUs that the ITS can fit in a single
-> > page, no LPI can be routed to the CPUs that don't have an allocated
-> > collection, and the system grinds to a halt.
+> Release the reference right after its last use and remove the put_device
+> label and the gotos leading to it.
 > 
-> The issue on the reported hardware ("384-CPU HiSilicon HIP12 system", as
-> described in v1) is fixed by allocating 2 pages for the flat collection
-> table. That is fine.
-> 
-> > 
-> > Change the allocation policy to allow two-level tables, similarly to
-> > the other tables.
-> 
-> But I'm afraid that the two-level CT is still not supported: nothing in the
-> driver allocates the level-2 CTs.
+> Fixes: 9af512e81964 ("leds: netxbig: Convert to use GPIO descriptors")
+> Suggested-by: Lee Jones <lee@kernel.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+> Changes in v2:
+>  - Release the reference right after its last use and remove the put_device
+>    label and the gotos, as suggested.
+>  - Apologies for the very late reply. 
+>  drivers/leds/leds-netxbig.c | 74 ++++++++++++++-----------------------
+>  1 file changed, 27 insertions(+), 47 deletions(-)
 
-Hmmm. You're are absolutely right.
+Much nicer, thanks.
 
-It should only be a matter of plugging its_alloc_table_entry() in
-its_alloc_collections() and getting the error handling right (which
-is, I reckon, the hardest part).
+In future, please submit versions on their own.
 
-Thanks,
-
-	M.
+Attaching them to previous submissions gets real confusing, real quick.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Lee Jones
