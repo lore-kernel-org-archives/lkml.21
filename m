@@ -1,66 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=63.250.43.81
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031083;
-	b=FRmitOtfZVpMkjMfVZ0MhKa1oJUu/2RWxGCJvyPjCtO/5wpuG4XLf3c4J23h+VUG2eW3
-	 aW8ZBKGMyVIfuCL75/2TYqe9pNL97nsmHWGHxr6SiqKc8Wn3jyLINkjqiK2mdeihozLeM
-	 UZ/ZBzCDz262+ZCJYPd6Z2kJDKsnR2yKFsaw8T2Ks5DPtGPKfAJnNZHJXH4W5I2zUr6FJ
-	 N1VCSj38pT03YmBJYNQYYbPqbrqmTgEX2B1u/+QCp1l6dIbPYupQFP74a4FI1naEE34n/
-	 YRvEsUSRG2WeqkyaM4XkyFQxArmfWHSIAaZAyX0DhjF+/sA7lW67bX3KrIt0PLRpz5Q==
+	t=1795031113;
+	b=vY0jEFSobpBeA7RPli2V38pslQANbR1tudr1BRrhP+HtEP+TE846ZODJnhvbszNjUjhG
+	 00kKNAnyuJxGS6PPXwWBF6FMjp4YZhE88R8OREYKRtlL79Bid3GLifl+YFwK5oa7tjnfP
+	 VPthSzcXfvR3kOQgjPR6T1h98wX3c579Ak6l7dZy1tioKcFvH9gXrgb6RE+i0tgxPNP9t
+	 TLxBlD5A/Bbbk0UFq3PRL2HcL5+1FJSI0yfHbRqFDEJkY3VyysK3HmA601FTnixz8y6k5
+	 1j0ohuEetm9Qy3tQ4yh6lOW3hquJ1lxBxzk0CPlXOgYT+5a2M3VXhAv9eOrKyZ19HhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031083;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Envelope-From;
-	bh=dPq5I2kWqkyVKQOoqhjq3o0Q9Q3aeu5CCOQhhDDWVWk=;
-	b=bX3TyYHvkGvUDmw54Cd3/PzPw7Iy2NtjTQ5NIdU2uVV3pNLXNki+iFFiR9LzsprbzBaN
-	 PFdEtmX3MPSKszzjmrk0zDCmiG5cwCGbqyAYf2PXws2ypIe6N0piqxXnjx/ph/vacfTzD
-	 az3HWVpOUFKLVUeb2cME15PFDDhR0CmgMoMQPAnYdv9GhZ+zJB3w8CCdE0THfnwl8EvCY
-	 ZRxdX5BDh9yF/bAEVbYD8s4fsD5PWs5d51M9Tc/AhR5Ken2fQ/m9/fn2kqa4gLTpC6SWN
-	 1MZuEXhJ58X3EFuoeNrOS2eSKl4ICQJ+9ozl4X9pxeeKXYtj1CNq556u6/l+tOCB6yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031113;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=na5w5nNR+vMQdY7egGSiK+WyNzzJugfy513I7z+3ojw=;
+	b=1HI8SWH1g4cB5BxzNcZeDszBf/Ki22t0KbfxUUbBf+aC6Bfvpz/2DOKjqSxsfuWelWhb
+	 IAcJ0p/DJEOwIMwdnpzAqrLajCClTMglVKCQlyddqL0c1JoPIOoYHWNkoHjzOlXI/jDJp
+	 CDjUbKhn0X8nZAyAahrz7ts9S+yiVQ7rYE5oa90vYv2bULKuBN9zF0wVBcP2Ua4nFmPmi
+	 W69dGubCHv5zVG7i+aDNDZC2ziGMYYz2NfdOOJmkMxLBhru4stHvk6cXVABgwaHBeLrR8
+	 BICGg9klWMwd42CJ3r5OnKCnX1nCGrBbwu3c8S6YcnUj4TVt6RlTwaC0hu5qBWnoA6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chrispinetinega.com;
-	spf=pass smtp.mailfrom=chrispinetinega.com;
-	dkim=pass header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=xFvfE7dV;
-	arc=none smtp.remote-ip=63.250.43.81
-Received: from out-2uec-a81.jellyfish.systems (out-2uec-a81.jellyfish.systems [63.250.43.81])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L6dt6FME;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2E63606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:44:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2E63606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chrispinetinega.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chrispinetinega.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 857E6606A330;
+	Wed, 18 Nov 2026 19:45:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=chrispinetinega.com header.i=@chrispinetinega.com header.a=rsa-sha256 header.s=default header.b=xFvfE7dV
-Received: from mail.privateemail.com (unknown [62.8.90.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.privateemail.com (Postfix) with ESMTPSA id 4jVBr82YC7z2x9H;
-	Wed, 18 Nov 2026 19:44:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chrispinetinega.com;
-	s=default; t=1795031068;
-	bh=dPq5I2kWqkyVKQOoqhjq3o0Q9Q3aeu5CCOQhhDDWVWk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=xFvfE7dVwhqbLZyqvCErJq469wrtZKJoayb+anUCJRRFXFHGwt0rQXX5WRwtQY83e
-	 8mcpWj8kH0clfDW6CO0RBoGAbke1kyjf66RrRI48jLqEHnktbNgrNir95MWDxmxi4t
-	 ewqGm/Wi9geswwLWEjBeMic2Xi7zSSr0iKw/mfsVkFum39Ey7uYis0Cyw+233MVU0F
-	 ZAUGMH8FbTCu3rXv3c+H/6d6Ot4dK4zTQayk+wUg/0CluEtXRRzRs/kgjrdJDBvun0
-	 TyYpQXb7PiPxDz8pIR9WfP4laJmawjjzZm05pnGtFclzL1UBu/a8wR3Cn8XiFUljnT
-	 tTbjYyuXw3LzA==
-From: Chrispine Tinega <dev@chrispinetinega.com>
-To: Francesco Valla <francesco@valla.it>
-Cc: andersson@kernel.org,
-	mathieu.poirier@linaro.org,
-	linux-remoteproc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] remoteproc: k3: Report a remote crash to the remoteproc core
-Date: Wed, 18 Nov 2026 22:44:03 +0300
-Message-ID: <20261118194415.1757945-1-dev@chrispinetinega.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <av3YQ1tKSABEha9o@bywater>
-References: <20261116184146.1897281-1-dev@chrispinetinega.com> <20261116184146.1897281-2-dev@chrispinetinega.com> <av3YQ1tKSABEha9o@bywater>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L6dt6FME
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A0221F000C4;
+	Wed, 18 Nov 2026 19:45:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795031113;
+	bh=na5w5nNR+vMQdY7egGSiK+WyNzzJugfy513I7z+3ojw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=L6dt6FMEOP1zQQVYmvm4CWgf23sQN8hCZAeCPpJLUWYgTvFf7gXRCmY8q9oe8FB89
+	 mFwKA3cTtvdAfFZFl9F4ioYJcVEsMKWTCue8zDVaHf+I205Vj88up8tmRM8/QJNPNo
+	 vEQFVc++El8isjgs4ePvndtd+czHKU8rEk60UDeg/yTC1yvwG7kGmcolbdJL7mtuh4
+	 TDuR2OHULNcxBLOrwg2XKiNuq/Wsl91E7uHihCnXYbc5Q2INuNk3OP0ridc8bmnQBi
+	 e6EQvW9xW8L5Lje24dTZqRGEKPige77kZlY9Gtz4XcL4NGvfXo27DslnJIgUouq6sl
+	 vJ13TA7NrXqog==
+Date: Wed, 18 Nov 2026 19:45:08 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
+ James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>, Thomas
+ Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>, Hanjun Guo
+ <guohanjun@huawei.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai
+ Xue <xueshuai@linux.alibaba.com>, Mahesh J Salgaonkar
+ <mahesh@linux.ibm.com>, "Oliver O'Halloran" <oohall@gmail.com>, Bjorn
+ Helgaas <bhelgaas@google.com>, Maciej Wieczor-Retman
+ <maciej.wieczor-retman@intel.com>, Pawel Chmielewski
+ <pawel.chmielewski@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>,
+ Avadhut Naik <avadhut.naik@amd.com>, Qiuxu Zhuo <qiuxu.zhuo@intel.com>,
+ "Fabio M. De Francesco" <fabio.m.de.francesco@linux.intel.com>, Dave Jiang
+ <dave.jiang@intel.com>, Kai-Heng Feng <kaihengf@nvidia.com>, Breno Leitao
+ <leitao@debian.org>, Terry Bowman <terry.bowman@amd.com>, Dan Williams
+ <djbw@kernel.org>, linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+ acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v1 09/19] ACPI: extlog: Report errors independently of
+ RAS consumers
+Message-ID: <20261118194508.150029b4@jic23-hlaptop>
+In-Reply-To: <20261117111444.4185512-10-pierre.gondois@arm.com>
+References: <20261117111444.4185512-1-pierre.gondois@arm.com>
+	<20261117111444.4185512-10-pierre.gondois@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,58 +78,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Envelope-From: dev@chrispinetinega.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Francesco,
+On Tue, 17 Nov 2026 12:10:19 +0100
+Pierre Gondois <pierre.gondois@arm.com> wrote:
 
-On Wed, Nov 18, 2026 at 05:57:10PM +0100, Francesco Valla wrote:
-> Did you have the chance to take a look at the review sashiko did?
-> I think the points about the leaks in IPC mode make sense and are worth
-> an investigation, both for the M4 and R5F cases.
+> The RAS consumer check removes:
+> - trace events when no daemon is registered
+> - CPER console report when one is registered
+> This ties tracing, PCIe recovery and CXL protocol delivery to daemon
+> registration, and can hide a fatal record when userspace cannot process
+> its trace event before a reset.
+> 
+> Remove the RAS consumer registration condition and:
+> - always emit trace events
+> - print the CPER record only for CPER_SEV_FATAL
+> 
+> [1] additionally suggested to have a cmdline parameter to dynamically
+> update the above policy. Keep a simple hard coded policy for now.
+> 
+> [1]
+> https://lore.kernel.org/lkml/20240521183913.GGZkzqUSN1hdE-_OEY@fat_crate.local/
 
-I had not, thanks. Both of its points on patch 1 hold, and they have
-one cause: v2 reports a crash for a core that Linux did not boot.
+Use a link tag probably.
 
-1. IPC-only mode. Once a DETACHED or ATTACHED core is RPROC_CRASHED,
-   rproc_detach() refuses it with -EINVAL. The DSP and R5F remove paths
-   only detach an RPROC_ATTACHED core, so they skip it and leak its
-   carveouts and subdevices. The R5F also has no start or stop ops in
-   this mode. On the M4F and DSP, a shutdown would reset a core that
-   Linux never started.
+Link: https://lore.kernel.org/lkml/20240521183913.GGZkzqUSN1hdE-_OEY@fat_crate.local/ #1
 
-2. Probe. All three drivers request the mailbox before
-   devm_rproc_add(), so a crash queued during probe is never cancelled
-   if probe then fails. In IPC-only mode the crash work can itself
-   cause the failure, by setting RPROC_CRASHED before rproc_validate()
-   runs. A crash the core sent before Linux probed is enough, since it
-   waits in the mailbox until the channel is opened.
+I'm not entirely convinced this is a good idea without the policy aspect.
+Still let us see what others think.
 
-For v3 I report the crash only when the core is RPROC_RUNNING, and keep
-the log line otherwise:
+> 
+> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
+> ---
+>  drivers/acpi/acpi_extlog.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/acpi/acpi_extlog.c b/drivers/acpi/acpi_extlog.c
+> index e09ea571c32f5..16a16b12d8ccf 100644
+> --- a/drivers/acpi/acpi_extlog.c
+> +++ b/drivers/acpi/acpi_extlog.c
+> @@ -208,10 +208,9 @@ static int extlog_print(struct notifier_block *nb, unsigned long val,
+>  	if (cper_estatus_len(tmp) > ELOG_ENTRY_LEN || cper_estatus_check(tmp))
+>  		return NOTIFY_DONE;
+>  
+> -	if (!ras_userspace_consumers()) {
+> +	/* Print fatal records regardless of RAS consumer registration. */
+> +	if (tmp->error_severity == CPER_SEV_FATAL)
+>  		print_extlog_rcd(NULL, tmp, cpu);
+> -		goto out;
+> -	}
+>  
+>  	/* log event via trace */
+>  	err_seq++;
+> @@ -255,7 +254,6 @@ static int extlog_print(struct notifier_block *nb, unsigned long val,
+>  		}
+>  	}
+>  
+> -out:
+>  	mce->kflags |= MCE_HANDLED_EXTLOG;
+>  	return NOTIFY_OK;
+>  }
 
-	case RP_MBOX_CRASH:
-		if (rproc->state == RPROC_RUNNING)
-			rproc_report_crash(rproc, RPROC_FATAL_ERROR);
-		else
-			dev_err(dev, "K3 rproc %s crashed\n", rproc->name);
-		break;
-
-An IPC-only core is never RPROC_RUNNING, and no core is before
-devm_rproc_add(). A core that Linux booted takes the same path as in
-v2, so your stress test still covers it. Patch 2 is unchanged.
-
-Recovering an IPC-only core needs the core to handle a crashed attached
-core, for instance as RPROC_FEAT_ATTACH_ON_RECOVERY does. I would leave
-that for a separate series.
-
-The review also points at an unbalanced put_device() in
-k3_rproc_unprepare(). I think that one is older than this series:
-stopping an attached M4F or DSP through sysfs reaches it with no crash
-at all. I will check it on a board and send it separately.
-
-v3 builds with W=1 and checkpatch is clean. I will post it once your
-stress test is done, unless you would rather have it now.
-
-Regards,
-Chrispine
