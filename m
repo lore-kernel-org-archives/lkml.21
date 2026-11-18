@@ -1,100 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794988020;
-	b=RUuR7t7PpBl7vqHoZOwiLVEMFdzykuHMPzBOkH7jWrPSLrcX3K34n3evYWV5bN/anHFb
-	 GKFIkYXjeM92Y1VMNtU0zF2PjFQqeDEa2RJWjxFVcSnB2/X9pEpkvpXZ7Pw6ryhZbpLDc
-	 kQ95epIgFPWhJANpgvhDn2SpXtwEslhwvDOiJSNAr4QnIF80vbsy6FGnW/Ry1plCDsu0O
-	 rTfLmx7FkFSLLJDK2TsPA/l29E/beSsCVlTMmvFWbND2zRzg0zHwYoyw+t2742Dn5T8Pf
-	 c/68lJW4yvDcGmW6/yegOk3g1wp+KsYo7eW/6RyZWFweJ5Zdl3kzwgGof74Sb/Si0aQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988020;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794988107;
+	b=Yo6FYC2iCXZ+1vs0fp3YpduCo4/uX0P/IqKzxDCk4J9wuLj+fmCHx/lMhDBGcpEVcrZ3
+	 H/UE+qLar3JfLc4Mvl2sLjf2xLSYHtD7jaXbHZSuWT15fJr3w9w2gt1Ms0glyPGBx7mjk
+	 Mg73I1UzhDagQRs1ozTvX97bBfHuLMBfx+lgOHrJlGAqqJhXTbf8DBZ0z83KxEcjVJGbw
+	 jaGYeryJGQLMnDveocFZdWBzZfp13OUBAtQb/TSwz+SNXFosu0x2bSsQlAF3slgb7WBUr
+	 YwVtjRJms8coaiswAgA+pTDwIX9mOamOv99lWHoIAUYqB0ok5Lray6uAtzTv5+ZhbKg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988107;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Pnx/XKeGh94aieoFZrCY2NwwXx3i4N4YVNZK0i3sHOs=;
-	b=IdQ1Dr7s0mT8tzqaD9ZDdT/G4deO4dkWYlAme5fTYkoglgi33nhVMT5crJGsLcmkTpQA
-	 oeuL568Anvzh6Ju9foUOMZmpj+C06RCvFb3bmlnTvkELJjHK3Lwkpo3e44epFWaWhWIyZ
-	 lHXWSk1FNc+Q9eoNcQwSaLrQebK1XBhLVK22QVxpX0k1/TI5fqEr48OwX76W0NTk5DAVe
-	 13+t7fbNAwpdSwKLWjDvsEa7FVK/LpAc51tMz/lkiGeONTy2pvLLLj3XgQ/Bf758PDlbq
-	 Qc0tsE5jI2Fd64w+J5PDMowX0rNCXOS1DJcp0Qxk9dXQMJTevdu5mxVVeBo5MI1kB2w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=flipper.net;
-	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=KwxIBuS9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
-Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=rfa2Ndd+oOG8KQIoHfUwwZJYDQDCRfNRCZHUN7HT2WM=;
+	b=TC4kwbLhIGuQWQPDrPGKnqEbyLuJrpi1sBXVCgFmeu5oULTLd2tjzN3vNdAS36d9RpuO
+	 C8WpdL2FWe2Uc3r70YA8EJPegd2zs+SiCSBvMOs5SRJc/+2zHu58sOV5C5NUKDLfhn12M
+	 3fX3u4ie1bC5LspEprJsgHN5yEXcTMynwrZIML2v1qo+XP1bCMfdum19o1OCcIsl2RpwZ
+	 mVSvsK8yefeQTX9XBqu02hbHvT6RVNZfdn3Hpz7OrcLR9zF7WfT0VuDHs1olAZvU4dSQg
+	 Yz9aklY3VZghenneRD1L39VIRTlp4VJH8q9kg4LfsGAlF4Pq2LKCCCrMCWGzlmUkPhg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=lVOkRoXE;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3926B606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:46:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3926B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 399C3606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:48:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 399C3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=KwxIBuS9
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c506a231b88so78346466b.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:46:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794988017; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XXH0XSLQ3hiaL7qwhZ37EOhfCUuQ/03Vphl6Uu99GODFL2sNRAUWdxP0qNK5hkVi1R
-         w4YdBlPtI1vu2kDW7b+v4CmjbIxYkw0CjMGo5m2iscfUo3o4bX4kVYfD7vdOZTfvCU6E
-         Gj0AMgOWp3ETxXgwISGmSbVkLJNoBXPBq6ftaHmWugtqgDlXMKgmokVHw8wZB2RlvP7x
-         5KTvAd+3MRngrV/rwy/eXQ1Tg5isvHG/RSyswIIswgVfxbMzTdf929XWfYUPhsy3sl3E
-         W391VXLGc3/OG86iDvLTQ95BxvylLvi9bmF2MGU471RX6LSLcIovwDOiqBH8dB04Z0gv
-         YM+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Pnx/XKeGh94aieoFZrCY2NwwXx3i4N4YVNZK0i3sHOs=;
-        fh=CQsbYztR7n5B2Qjz04N1VD8n0NsX2eNm39/MrtNoQOs=;
-        b=UfVYQmoMJzZ6Z5lZb9u6BOifw7qzAnD3RB1xsY+ccqCSQMutCpXEsYlEco6KFT0Mbv
-         3gMON0jDiSryQ6earxWsGePq6DOBoWXuDvO9E1yav8jlvxcnpRoT1c0JBJD+32EGHzx+
-         3L614kfz0oUyZd+QFFdg8i00XQKp0LJ6JmpqopG8d/3vH/pIomNGn8Nn2Z4gOCdwDXM1
-         rAj4ur6vIeHehEP6YugAv7BmeGItHa2WFYlUqyHD7oZktEhuIFyRIV55Gx5sGTvoQpUO
-         In6KXfDzAEQudybdyKN43OGbkVgT/6PK9tyHfyt8qcCvwGI48teZhy3bRizUdPNxKJ4/
-         6iwQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=lVOkRoXE
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso4541485e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:48:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1794988017; x=1795592817; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=baylibre.com; s=google; t=1794988105; x=1795592905; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Pnx/XKeGh94aieoFZrCY2NwwXx3i4N4YVNZK0i3sHOs=;
-        b=KwxIBuS92KiVES7EPspJTIkt+Vyfny/uZgiUrllnoPC8h5ws2iqgOx6IGqU3bdxpJF
-         dTh+jwl6pe/Mg2vFUsOi2NsXr//POfNQZwoZGHxLw8YE2AypIZN05YQ++EvnjV5+l1NT
-         +NATB2riwpwfALaIqHaZQcMqilv4NY7h7Kd93KIg1VEqkvhv9rwn/bFvmZomybfh0gk0
-         dxSxiw2IovXsuFbv+f5Qhxzv2Q5O4vL3W/pYQc9KJe02/JYqpLW7h7bxxzji6Z2SsDLR
-         Ul+uqGPAIPJHrYy7FkTC4ddPTvtIgQQ6nMTZCUHj0DGq1S9fjp9CUECwLscDn+TXP/oJ
-         8b1Q==
+        bh=rfa2Ndd+oOG8KQIoHfUwwZJYDQDCRfNRCZHUN7HT2WM=;
+        b=lVOkRoXEQv03jFeLFmgGaDFhyaUWdtHCGz9SJdE1T0pcYuPc3Xv6qZ419qMYrIoPe1
+         OZR8t/NNRoG9/FOAgXcvzu1eBy/bUm/V7LaAGjPyWnnPwnpNFkSBEQHMlpHqQUdxpe20
+         DMfAobKzMwZkhZcZhN37ybCSCqnDIBkeg1pHw1qH3PwV1q788E71DPL4yHonAfWjOJ4P
+         1KlWbP2/sxrPXrAXlfrQdCM3IF1g42GoUjwfyDtEojrJrAcuFbMhW0A53CXIbS7AKC2V
+         +tcxBvBShBfC0OY6OAs46d9ceTKbYBUaxI/inJOX8b2GkpT7je5hAizsTnLa9CYHVF1r
+         ztdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794988017; x=1795592817;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794988105; x=1795592905;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Pnx/XKeGh94aieoFZrCY2NwwXx3i4N4YVNZK0i3sHOs=;
-        b=CMcT+JfJEIbalE6K5LiH1oqOBTtk2ma0YADJQU21g4hzz8rl99jpKS+tayNCME5Jtr
-         Mf+Cqyz4+mKMaR/kx+a9Tzo8ugshDEXz+4D8jHw5AC6pTSR77U41gUcfjcWfY5KBSJ/0
-         kN9nteQEeTXnbLpNijvIQC6vBG03B2wHbmJK2iKsDnq8ITXI1VhPE9s17aPS8sHKgWyG
-         x9gSUgxB4IdRxJJNvh29Q2YPHS8npVJhwfWe3deTh9NH6qRhMIl7n3+Neu39zD0l2Alx
-         jMXgIjJaiF8L/b695DGdP1XY73bWWd1/yUzUFu18/pqMdVatUKd8nlDl3XMqRkth6yqJ
-         6e4w==
-X-Forwarded-Encrypted: i=1; AL+hErEvVemyOlnapl+lECI1fjM/dpajTVceN1lO7KZ1prXe8Hkfc6thYVdOHdT2L/3MMARrggW78++y47NWRo4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pbNQSjmqM/zsbGUGCGmCkMOUK7NhNYKx3YNQRy9Qa52XdCbI0
-	lanok+J7sEM3qyVgf/SvtlITSIhKHx0t9NL7FPKQ8Jk70/2snNtrezcVuHjKCxcg71tv2INbecM
-	XCwgdGbfAJnA0PXQGJRSus9ghM1crnD1NpOHQ5Ob36g==
-X-Gm-Gg: AYBFou14RWPJ5I8tvhqQQPMXux0R+zPKPfNuQkkjiPbn+ocR7icfXnLAelMie3+N67J
-	w4eX3zmWEDmG/J48DSx/4CUHbFlLdKZTVZsIkGNuRhmXTUuL5IXPdEg5SLsZX0iV9cbXqOLrQ2o
-	cSe3wmbO18DmX536eYJq7eXP4X8wlL7ICa1Eu5Zygs03AArgjYTw49uyqWVfIoEvBXitzx1DR46
-	+AA0ar4On/UHXxpsiXdpCHZf4RqB8WkkIbCOUGtbaC4H4niEvqmGvLRZ3riEZ9Hop2gpHXyhgHs
-	w7AjMnZFMmZJpkXuRMRjJ8uuHoguu2D9LwY1o3k0zgnIpaOtXLjM7/gVx7xAfQz9i46swf280vv
-	nJtSA7/uSsglh6Trj5FVSFRT/wBOumgPkRqHVj8fTsWuMysLBiybTSNtCEbQfpyhu5+wrPQ==
-X-Received: by 2002:a17:907:9446:b0:c4d:456c:4a29 with SMTP id
- a640c23a62f3a-c510e16a720mr128985866b.14.1794988017524; Tue, 17 Nov 2026
- 23:46:57 -0800 (PST)
+        bh=rfa2Ndd+oOG8KQIoHfUwwZJYDQDCRfNRCZHUN7HT2WM=;
+        b=b4W+0Df1cZqfmJ9spwYAulo9n3++CftM2HJE4dWJu5QwG0qRqkgDdSjVB7P7SsPKJh
+         GIccQjzQ2tVrSvgLMkXgxU9zaHC7tvBCv2mdSi37M3SzcdF3tf04mPysbgBbXfK7jvxv
+         MTL9trsDC9+rurfzJdgpzoPKbOZI1afIRa0pi6wRuQo5yqbL5VCJE3WTKhA32FTX3z9H
+         zNuToV+wDGQuMbgykW162VF8xLB9qqi9GhTGd8pCrfK2wWKXfzLMftHc2+A4/Ce/UTet
+         kREtxan3BjljJjJ7P6cqHw2jL8Few+oRm4ECmsvYr5YZce5AQS4fuZdI11XFkG4eDXUh
+         nqwg==
+X-Forwarded-Encrypted: i=1; AL+hErG5NIeVb+JnZrI+zXorp2x92i+URTulyYbLYLv0R7wqkV9/LsGY9GulhC2N13kZjMEpnj6pjdUD5pl0Wz4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mJgqBRpDo18jQky6sBbkeOWsk34Rwcmt+mTdOzS8dZBIYa+zz
+	A/AiXEnlQL5sJlefwGkrUr2GYwy2AOjeSSKTuC+SxN2j0jzSz4w+YAZgxBgt3ruBDuU=
+X-Gm-Gg: AYBFou2PnpN1dsLkFwbnOYVOnkwcVEMZl1YAf2o2W7epvvDlSPoDiMjHCBrj4fEuCi6
+	2fXNUQt12yYIFualqWn0e2Jo0049Bi+kEPS4+MAhy+sDTMKiidUC5BWz+rvvzndeTMviP5ZRmlC
+	0muBxEFTe8rj43dCJS9wBlH75uuXCltLx0IVq/9sNNDJhOCuNvi32plhpDeJgJj0PLu9GHI6mdi
+	WSATbzLCA9bvzwMmXvSmUshb1aMAXsBAVQUylWLaoYcyPSI034ySlkDMVgtGTKD6tSqtB1TkDAB
+	pSBMgqFE7D5fMpiCPmdHQJ2BX3XXnYSB/asGqEseXm9+5VNrE3ndac713+Au4YKxw3iOJ3eIT5m
+	zLHDSFw9NuJWaQwZZGoSK7KRmXDzcbnW+wNdwslI7P9tSivTgDgrBpsV8uKWUv3Xcxb8lNXEKjd
+	XtfeUkjj6bc/Nk9B/maV7uevVHNezg634YJebzZQGm2wKZueFWKyG+xMAykeO7s5vXBK5aVkWvD
+	ys6T+I3XoBRfzbSIMA0elUMolH1sHfIQXOq2wbc1U+MO9p3f0q0wIFsZCxKIKyaDBVErF8+o7ML
+	FFc7kR0q6oUf+jEGpNFbodnakue7F56czVds/S5DdyqSI2eBO6xJglDWf2j/zYTz+tvMlUX8Nfr
+	igWAyEVtI1eCeqauOEMWPXqE7II+H2WxXsFSv
+X-Received: by 2002:a05:600c:501f:b0:4bb:6f67:ca0b with SMTP id 5b1f17b1804b1-4bb7da462b2mr31427555e9.29.1794988105583;
+        Tue, 17 Nov 2026 23:48:25 -0800 (PST)
+Received: from localhost (p200300f65f19a904dea20c2220232395.dip0.t-ipconnect.de. [2003:f6:5f19:a904:dea2:c22:2023:2395])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb7d001a64sm47962885e9.0.2026.11.17.23.48.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 23:48:24 -0800 (PST)
+Date: Wed, 18 Nov 2026 08:48:23 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Adil =?utf-8?Q?H=C3=BCsrev?= Tepe <tadilhusrev@gmail.com>
+Cc: neil.armstrong@linaro.org, jesszhan0024@gmail.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] drm/panel: add Novatek NT36525 panel driver
+Message-ID: <av1XyXE9VsmDQuyo@monoceros>
+References: <20261116070212.314228-1-tadilhusrev@gmail.com>
+ <20261117173319.1852638-1-tadilhusrev@gmail.com>
+ <20261117173319.1852638-3-tadilhusrev@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,215 +101,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261021-pcie6_fix-v1-0-ad37134c35a3@oss.qualcomm.com>
- <20261021-pcie6_fix-v1-1-ad37134c35a3@oss.qualcomm.com> <CAKTNdwG5XA_chr2ZM9qTnr2RaDMzOjdb85bRdCr4aJCr1EGy7Q@mail.gmail.com>
- <398a1d12-c28b-418c-bbcc-170d781223d6@oss.qualcomm.com> <CAKTNdwEzbYAqM5ABxU+tfh4juU=wgYp=QXyjvdA1haanU0e8tQ@mail.gmail.com>
- <861b48b3-32e2-459a-a6e1-75d93f10e1c9@oss.qualcomm.com>
-In-Reply-To: <861b48b3-32e2-459a-a6e1-75d93f10e1c9@oss.qualcomm.com>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 18 Nov 2026 11:46:46 +0400
-X-Gm-Features: AclHuK-mzUUyPR_nvHlWIkQreDiwLH9wtGyUE6yWiokuHebhGdjJ_j61S1Ijpdw
-Message-ID: <CAKTNdwEOiPzvziW5VsNrHcFXEr1E7YjbabMfC3fsG6q+5-TnzA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: connector: Add PCIe M.2 Mechanical Key B connector
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="a4po6jazqfpixeh4"
+Content-Disposition: inline
+In-Reply-To: <20261117173319.1852638-3-tadilhusrev@gmail.com>
+
+
+--a4po6jazqfpixeh4
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 2/2] drm/panel: add Novatek NT36525 panel driver
+MIME-Version: 1.0
 
-Hi Krishna,
+Hello,
 
-On Sat, Nov 14, 2026 at 5:45=E2=80=AFAM Krishna Chaitanya Chundru
-<krishna.chundru@oss.qualcomm.com> wrote:
-> On 10/22/2026 2:56 PM, Alexey Charkov wrote:
-> > On Thu, Oct 22, 2026 at 8:27=E2=80=AFAM Krishna Chaitanya Chundru
-> > <krishna.chundru@oss.qualcomm.com> wrote:
-> >>
-> >>
-> >> On 10/21/2026 9:14 PM, Alexey Charkov wrote:
-> >>> Hi Krishna,
-> >> Hi Alexey,
-> >>
-> >> Thanks for the thorough review, this is helpful.
-> >>> On Wed, Oct 21, 2026 at 5:51=E2=80=AFPM Krishna Chaitanya Chundru
-> >>> <krishna.chundru@oss.qualcomm.com> wrote:
-> >>>> Add the devicetree binding for PCIe M.2 Mechanical Key B connector
-> >>>> defined in the PCI Express M.2 Specification, r4.2, sec 3.2.19.1. Th=
-is
-> >>>> connector is used to attach WWAN Adapters to the host machine over
-> >>>> interfaces such as PCIe, USB3.1 Gen1, SSIC, or USB 2.0, selected by =
-the
-> >>>> Adapter's configuration pins.
-> >>>>
-> >>>> The connector provides a primary power supply of 3.3V/VBAT, along wi=
-th
-> >>>> optional GPIO signals for WWAN-specific power/radio control:
-> >>>> FULL_CARD_POWER_OFF#, RESET#, W_DISABLE1#/2#, WAKE_OQN_WWAN#, and DP=
-R.
-> >>>>
-> >>>> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualco=
-mm.com>
-> >>>> ---
-> >>>>  .../bindings/connector/pcie-m2-b-connector.yaml    | 146 ++++++++++=
-+++++++++++
-> >>>>  MAINTAINERS                                        |   1 +
-> >>>>  2 files changed, 147 insertions(+)
-> >>>>
-> >>>> diff --git a/Documentation/devicetree/bindings/connector/pcie-m2-b-c=
-onnector.yaml b/Documentation/devicetree/bindings/connector/pcie-m2-b-conne=
-ctor.yaml
-> >>>> new file mode 100644
-> >>>> index 000000000000..a7f4bcbc5119
-> >>>> --- /dev/null
-> >>>> +++ b/Documentation/devicetree/bindings/connector/pcie-m2-b-connecto=
-r.yaml
-> >>>> @@ -0,0 +1,146 @@
-> >>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >>>> +%YAML 1.2
-> >>>> +---
-> >>>> +$id: http://devicetree.org/schemas/connector/pcie-m2-b-connector.ya=
-ml#
-> >>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>>> +
-> >>>> +title: PCIe M.2 Mechanical Key B Connector
-> >>>> +
-> >>>> +maintainers:
-> >>>> +  - Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> >>>> +
-> >>>> +description:
-> >>>> +  A PCIe M.2 B connector node represents a physical PCIe M.2 Mechan=
-ical Key B
-> >>>> +  connector. Mechanical Key B connectors are used to connect WWAN d=
-evices to
-> >>>> +  the host machine over interfaces like PCIe, USB3.1 Gen1, SSIC, or=
- USB 2.0,
-> >>>> +  selected by the Adapter's configuration pins.
-> >>>> +
-> >>>> +properties:
-> >>>> +  compatible:
-> >>>> +    const: pcie-m2-b-connector
-> >>>> +
-> >>>> +  vpcie3v3-supply:
-> >>>> +    description: A phandle to the regulator for the 3.3v/VBAT suppl=
-y.
-> >>>> +
-> >>>> +  full-card-power-off-gpios:
-> >>>> +    description: GPIO output to FULL_CARD_POWER_OFF# signal. This s=
-ignal is
-> >>>> +      used by the host system to turn off the entire Adapter. Refer=
-, PCI
-> >>>> +      Express M.2 Specification r4.0, sec 3.2.13.1 for more details=
-.
-> >>>> +    maxItems: 1
-> >>>> +
-> >>>> +  reset-gpios:
-> >>>> +    description: GPIO output to RESET# signal. This signal is used =
-by the
-> >>>> +      host system to place the WWAN Adapter into a power-on reset c=
-ondition.
-> >>>> +      Refer, PCI Express M.2 Specification r4.0, sec 3.2.13.2 for m=
-ore
-> >>>> +      details.
-> >>>> +    maxItems: 1
-> >>>> +
-> >>>> +  w-disable1-gpios:
-> >>>> +    description: GPIO output to W_DISABLE1# signal. This signal is =
-used by
-> >>>> +      the host system to disable the WWAN radio on the Adapter. Ref=
-er, PCI
-> >>>> +      Express M.2 Specification r4.0, sec 3.1.12.3 for more details=
-.
-> >>>> +    maxItems: 1
-> >>>> +
-> >>>> +  w-disable2-gpios:
-> >>>> +    description: GPIO output to W_DISABLE2# signal (default functio=
-n of
-> >>>> +      GPIO_10). This signal is used by the host system to disable a=
- second
-> >>>> +      radio on the Adapter. Refer, PCI Express M.2 Specification r4=
-.0,
-> >>>> +      sec 3.1.12.3 for more details.
-> >>>> +    maxItems: 1
-> >>>> +
-> >>>> +  wowwan-gpios:
-> >>>> +    description: GPIO input to WAKE_ON_WWAN# (WoWWAN#) signal. The =
-Adapter
-> >>>> +      asserts this signal to wake up the host system. Refer, PCI Ex=
-press M.2
-> >>>> +      Specification r4.0, sec 3.2.13.3.6 for more details.
-> >>>> +    maxItems: 1
-> >>>> +
-> >>>> +  dpr-gpios:
-> >>>> +    description: GPIO output to the Dynamic Power Reduction (DPR) s=
-ignal.
-> >>>> +      This signal is provided by a host system proximity sensor to =
-the
-> >>>> +      Adapter to trigger a reduction in the radio transmit output p=
-ower to
-> >>>> +      meet regulatory SAR requirements. Refer, PCI Express M.2 Spec=
-ification
-> >>>> +      r4.0, sec 3.2.13.4 for more details.
-> >>>> +    maxItems: 1
-> >>> This seems to be missing the four CONFIG_* pins, which are quite
-> >>> crucial in these connectors, as they define which interfaces the
-> >>> module asks the host to provide on the respective pins. Without those
-> >>> module type detection is impossible.
-> >> Agreed, thanks for catching this. I will add a config-gpios property  =
-(4 GPIO
-> >> inputs, one per CONFIG_0..3 pin) to v2. It's optional, not required - =
-a board
-> >> that always has a known, fixed card type in a given socket (e.g. QCOM
-> >> glymur-crd's WWAN-only slot) can just describe that fixed wiring via t=
-he ports
-> >> property and skip CONFIG decode entirely; config-gpios is only needed =
-when the
-> >> host wants to detect the card type/host-interface at runtime. Kept it =
-as plain
-> >> sensed GPIOs with no decode semantics imposed by the schema - the prop=
-erty
-> >> description documents the full Table 3-18 state table inline (all 16 s=
-tates)
-> >> so the binding is self-contained, but turning the sensed 4-bit pattern=
- into
-> >> "this is a WWAN-PCIe Adapter in port config 0" is left to driver code,
-> >> consistent with how the rest of the connector's sensed straps (e.g.
-> >> viocfg-gpios on the E-connector) are already handled.
-> > Agreed that the logic of turning the 4-bit pattern into
-> > enabling/disabling interfaces sounds like a driver realm, although we
-> > probably need to consider if the connector should accept pinctrl-0
-> > through pinctrl-15 to hint the host about which pin muxes should
-> > follow from each of the 16 4-bit CONFIG_* pin states. This mapping is
-> > hard to recover outside the connector's context.
->  I'd put the pinctrl states on the connector, one per CONFIG_0..3 value (=
-Table
-> 3-18), selected after the driver reads config-gpios. The CONFIG-to-mux ma=
-pping
-> can't be recovered from the interface providers, as you said. Providers w=
-ould
-> keep only their own default pinctrl. What I'm unsure about is how much is
-> SoC-muxed in practice. The high-speed pairs are often fixed by PHY or lan=
-e
-> routing, so the states may mostly matter for GPIO_0..11. Do you know of a=
- case
-> where they cover more than that?
+On Tue, Nov 17, 2026 at 08:33:19PM +0300, Adil H=FCsrev Tepe wrote:
+> +#include <linux/delay.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/regulator/consumer.h>
+> +
+> +#include <video/mipi_display.h>
+> +
+> +#include <drm/drm_mipi_dsi.h>
+> +#include <drm/drm_modes.h>
+> +#include <drm/drm_panel.h>
+> +#include <drm/drm_probe_helper.h>
 
-Thanks, that makes sense.
+<linux/mod_devicetable.h> doens't only give you a definition of
+of_device_id, but also pulls in a lot of unneeded stuff and thus
+introduces useless build dependencies.
 
-Regarding the high-speed pairs, the Rockchip based boards that I know
-about route one PCIe lane muxed with SATA to the connector, with the
-SoC combo-PHY managing the interface muxing (including the polarity
-swap for the SATA-B pair). I don't know how people deal with the
-second PCIe lane vs. USB SS muxing though, or if such devices have
-been made available at all. Either way, it sounds like those could be
-modeled as one port per muxed pin group - i.e., port@0 for SATA+PCIe
-lane 0 (as two endpoints), port@1 for PCIe lane 1+USB SS+SSIC (as
-three endpoints), etc. A PHY driver for a dual-lane PCIe interface
-would then have to figure out whether its OF graph has one or two
-links and configure the PHY and the controller accordingly.
+<drm/drm_mipi_dsi.h> already provides of_device_id, so just drop
+<linux/mod_devicetable.h>.
 
-Best regards,
-Alexey
+
+--a4po6jazqfpixeh4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmr9WEQACgkQj4D7WH0S
+/k40FAf/TncjaPwzM6TMWHC0aVkQVFbPwvWHgOtKsJALddK9tvV9iUEX/t3z4OYC
+2Pw0xd4BFpl2wkMQ75SUIuvye7326vcAZeDzEtQlPBth9JhC33iVimAMK0FpSsvE
+0/AXXkTDUE/GAKaEvDsQ3bZNimMNNhB5LADAei5yAPmVh4TbBc4QHOP1cH+EtYXq
+8q8BiItYRchUZoLNDWHmjHW4oTYTDLFfPMMmp7hTATYVDcwtjD1RLvwMLpIHqlQY
+NJ50k0zz0HuXn8C//vtaTKTnNgur9aBJzePKuKDs4u6cYqMHewZS7a7MYuj9wTJk
+uitb980Rg5LMsiRY96UDrtZKYIYheg==
+=WQ9s
+-----END PGP SIGNATURE-----
+
+--a4po6jazqfpixeh4--
