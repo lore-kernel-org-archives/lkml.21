@@ -1,58 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966622;
-	b=ou3mVAEfU5ZiF8YIFKwn7UuCoUeZGfRAf5PUOB5E8oTBvJclXlJLsF2FoZ1DgIhZHLUR
-	 7Hp4fsylkvmgGL1GdJdehxJpUSFoDJwzng6rLjUv2Rq+A1VtiV7WxiYguu3Cu39h+3MeM
-	 0ELpLX2qqlEN0N8kQSVEyaml5nSMIKX0Y893fG1GrTMSZodgiasskqlY91rMYhpVXTYgz
-	 PM2mEKYLGjuuEqsr08uymgh98cZXlpuhKqIHsxQwT4eVL5WjAoPTzs+Sw8GX8c45n4mKt
-	 dWjvXrpLyd4KTv9pUT048QcfGnt6cYCdtrJYF2wHdRjHQyEXoZUGpIK5Vukhm6OeE4w==
+	t=1794966669;
+	b=udbuMG/+7g+CJeftAzcKt5pXo/c+gSQeOuBegufGDjQ2lqHBTW6578Jx94ShgLqLor8D
+	 nkofuEvtmaCqZZj2XvZ6fP6N7ozkRfi0M1k29d1+vG0Vkcpnwl+fDwCDCf51vdJgXpyxK
+	 QNxGMSCrtLh0Pdh3Iu2xw9EXx2pOGq/FXaYL5VvG6A+KbGMWdZ+oLzFUxGGzjTkD4aBGQ
+	 8oaybHndWJgZ0KrYmphj/QSH8tg0rtMJrc1US8i2qfbJG+370+mS8CON8kE2FbLhB6fPk
+	 IfQSPj26rFh8lMp8JkJPHNQgq8PN7cd5NeyNETKdSlj8VyRQQKDULsz/K5tzchRyPvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966622;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=cQguqHcFqbJjXdDBuagz/NFuuGbr9y9vn96617/mc4g=;
-	b=kp4DHA7qO/phW26QUi6Ev7YHBBsUNoBcbEOEdMlgEeev9gVjeE1LumfiBQKJI4s2pfAV
-	 nayH1G5yy2TaTR5frHbF2ttG9fMN8aN8DMrredjLo2/KNjIYs1vZ2cmZvKELyJcZ9VP0o
-	 vZQ0VID6Dtm1FnIo3ioxJr7axzMU/RHZNIvRVoYl5frZBJYt+6rD2hmkrJKxX8fTt0vRX
-	 XOFnQ+omvCEiFVfTp4/cTH9TAw/wYY5WsYyBhEQMqT6jRLqgVyn4tKb/f1f4ewBZYnmr/
-	 IxMZq7i65U7OjAJaOynVrt/5o+/CsYlD4NssuKcXY4jmgva24jpQj3oBqBFpqdAVHHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966669;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OszsEJToNze6tnzlcvPsV51oFOJRwGBjy9Ri823e+68=;
+	b=Tx8Gy25RJIJ2lh0GUk+h16/Rv1P/OHHxkoNn2Wx3i6QfnOf4VeCoRRav7hGWGCRrCt70
+	 ifgkwXrVsK3G20IrqX8veuoOqaqvNwVnHBy2ymk/Fwy6DLNEZP+ZFrQGVFXMykaWfj3j1
+	 X3U+73V4e5dLNPXkQkXyMKuLAN9mBE7/N6oXj9cV5az2lGLeIfoTxLhK8K1vNV0RG56fa
+	 a4IcKFk62TkO7xE/2XSRQhuqOj8mtCJisNmHsQqpjt1OPM9iGrHA3xO6XmZi2xU7BmOYr
+	 SkANA1XblnDnXowj4eF9TJQcbJHQC09sodfN2Z3Pjx8P5CmEF1S4E0xdxCoMVwrS1cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b="u/7ACChE";
-	arc=none smtp.remote-ip=113.46.200.225
-Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ThrwtBHp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4224D606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:50:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4224D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99211606A32A;
+	Wed, 18 Nov 2026 01:51:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=u/7ACChE
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=cQguqHcFqbJjXdDBuagz/NFuuGbr9y9vn96617/mc4g=;
-	b=u/7ACChETRGwAhDf2FaS4Izh8qCH4Un+7b2fW9WWOAut94XYhiWrCqfi5cLPosztCmTRpU79w
-	fyQKkTyaaBwZ4LzmK2koByCCdD23Jul/qkQKh55PQ5kgTjKCJH3IalRqZ8OiKkhT4Gv6n6aPf+d
-	pKOTHebOJwPueXpErlbDZGY=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jTl0W0qSpz1K97r;
-	Wed, 18 Nov 2026 09:50:03 +0800 (CST)
-Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8EFB64055B;
-	Wed, 18 Nov 2026 09:50:16 +0800 (CST)
-Received: from [10.67.110.68] (10.67.110.68) by kwepemk200008.china.huawei.com
- (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 18 Nov
- 2026 09:50:16 +0800
-Message-ID: <f3ccfbc9-c84b-4eb0-b8d3-e281ebceafe9@huawei.com>
-Date: Wed, 18 Nov 2026 09:50:15 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ThrwtBHp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BAB61F000C4;
+	Wed, 18 Nov 2026 01:51:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794966668;
+	bh=OszsEJToNze6tnzlcvPsV51oFOJRwGBjy9Ri823e+68=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ThrwtBHpTaXzf7hassKaKBcUyzwDmGgefOFtf6hJdkgZJjnMXGIbtvBZXQKoyZCtt
+	 +MJdcR5DkVpwEGdqNthqxNFo2bYfiMBufYpH5otviGB5eMPoBtMjfBjl+ujAR8Q6pK
+	 FWfnPfqU4c7QakERFWloJeY+amgH+ep80Y7wd8DBEfvSKmAXBLfeDNXVCcohp/5nWT
+	 z+aTBNVIkh3dCQnbkh1sCSuEnFv3HkTIic3D6yUyw0ifyHcuMsXFEVzmhu2oVVQyKd
+	 CJbjQ+p2Lz50jjITHtZyV3EKFBgn7EsdQ33RUrpoqGrd++kbjzVGUOlt/WxQHe0a6/
+	 0tdEykQIgFjRw==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Amir Goldstein <amir73il@gmail.com>, linux-fsdevel@vger.kernel.org, Chris Down <chris@chrisdown.name>, Miklos Szeredi <mszeredi@redhat.com>, linux-unionfs@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-trace-kernel@vger.kernel.org, linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 12/13] selftests/ftrace: add uprobe tests on overlayfs
+Date: Wed, 18 Nov 2026 10:51:04 +0900
+Message-ID: <undine-1794966664951744079-93786e4e480023ea@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <20261116-work-ovl-d_real-v2-12-90564c4ae347@kernel.org>
+References: <20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org> <20261116-work-ovl-d_real-v2-12-90564c4ae347@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,110 +58,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] irqchip/gic-v3-its: Size the collection table for all
- possible CPUs
-To: Marc Zyngier <maz@kernel.org>
-CC: <tglx@kernel.org>, <radu@rendec.net>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20261117123116.591621-1-ruanjinjie@huawei.com>
- <87fqwz8amh.wl-maz@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <87fqwz8amh.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemk200008.china.huawei.com (7.202.194.74)
 
-Hi Marc,
+On Mon, 16 Nov 2026 10:44:09 +0100, Christian Brauner <brauner@kernel.org> wrote:
 
-在 2026/11/18 4:29, Marc Zyngier 写道:
-> On Tue, 17 Nov 2026 12:31:16 +0000,
-> Jinjie Ruan <ruanjinjie@huawei.com> wrote:
->>
->> The collection table is currently sized at a single ITS page size,
->> and the driver's allocation policy is to allocate a single collection
->> per CPU. On systems with more CPUs that the ITS can fit in a single
->> page, no LPI can be routed to the CPUs that don't have an allocated
->> collection, and the system grinds to a halt.
->>
->> Change the allocation policy to allow two-level tables, similarly to
->> the other tables.
->>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->> v1 -> v2:
->> - Cleanup the similar calls of its_parse_indirect_baser() (Marc).
->> - Simplfy the commit message (Marc).
->> - Drop fix tag and comment (Marc).
->> - Give nr_ids a default for unrecognised BASER types.
-> 
-> At this stage, and given that this is my commit message and my code
-> (plus an additional bug of your own doing), you may as well put:
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
+> diff --git a/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc b/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc
+> --- a/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc
+> +++ b/tools/testing/selftests/ftrace/test.d/dynevent/add_remove_uprobe_overlayfs.tc
+> @@ -0,0 +1,96 @@
+> +
+> +OVL=$TMPDIR/ovl
+> +mkdir $OVL
+> +mount -t tmpfs tmpfs $OVL
 
-Very happy to do so.
+nit: If `CONFIG_TMPFS` is not enabled in the running kernel, `mount -t
+tmpfs` will fail under `set -e` and report `[FAIL]` instead of
+`[UNSUPPORTED]`.
 
-> 
->> ---
->>  drivers/irqchip/irq-gic-v3-its.c | 17 ++++++++++++-----
->>  1 file changed, 12 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
->> index c952c069f937..41cd359e52a7 100644
->> --- a/drivers/irqchip/irq-gic-v3-its.c
->> +++ b/drivers/irqchip/irq-gic-v3-its.c
->> @@ -2682,7 +2682,7 @@ static int its_alloc_tables(struct its_node *its)
->>  		u64 val = its_read_baser(its, baser);
->>  		u64 type = GITS_BASER_TYPE(val);
->>  		bool indirect = false;
->> -		u32 order;
->> +		u32 order, nr_ids;
->>  
->>  		if (type == GITS_BASER_TYPE_NONE)
->>  			continue;
->> @@ -2696,8 +2696,7 @@ static int its_alloc_tables(struct its_node *its)
->>  
->>  		switch (type) {
->>  		case GITS_BASER_TYPE_DEVICE:
->> -			indirect = its_parse_indirect_baser(its, baser, &order,
->> -							    device_ids(its));
->> +			nr_ids = device_ids(its);
->>  			break;
->>  
->>  		case GITS_BASER_TYPE_VCPU:
->> @@ -2713,11 +2712,19 @@ static int its_alloc_tables(struct its_node *its)
->>  				}
->>  			}
->>  
->> -			indirect = its_parse_indirect_baser(its, baser, &order,
->> -							    ITS_MAX_VPEID_BITS);
->> +			nr_ids = ITS_MAX_VPEID_BITS;
->> +			break;
->> +
->> +		case GITS_BASER_TYPE_COLLECTION:
->> +			nr_ids = order_base_2(num_possible_cpus());
->> +			break;
->> +
->> +		default:
->> +			nr_ids = 0;
-> 
-> Absolutely not. The above four BASER types are the only ones that are
-> allowed by the architecture. Anything else is a HW bug. So no, we're
+Maybe you need to check tmpfs support in /proc/filesystems too?
 
-Yes, according to the GIC architecture specification, a value of 0
-indicates Unimplemented, and other values are reserved.
+> +
+> +cleanup() {
+> +  echo 0 > events/enable
+> [...]
+> +setfattr -n trusted.overlay.metacopy $OVL/lower/broken
+> +setfattr -n trusted.overlay.redirect -v /missing $OVL/lower/broken
+> +
+> +mount -t overlay overlay -o lowerdir=$OVL/lower::$OVL/data $OVL/merged
 
-> not silently accepting this. We scream and *abort*.
+Similarly to `test_attach_api_fails_ovl_no_data()` in patch 13/13, if
+mounting overlayfs with data-only lower layers
+(`lowerdir=$OVL/lower::$OVL/data`) fails (e.g., on an older kernel that
+lacks data-only layer support), it would be better to skip with
+`exit_unsupported` rather than failing the test.
 
-Thank you for the suggestion, will add an appropriate pr_err info and
-then return the error directly.
+(Note that this selftest can be ran on older stable kernels.)
 
-Best regards,
-Jinjie
+Thank you,
 
-> 
-> 	M.
-> 
+> +
+> +TAINT_WARN=512
+> +TAINTED=`cat /proc/sys/kernel/tainted`
 
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
