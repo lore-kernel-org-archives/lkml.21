@@ -1,50 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015811;
-	b=UkbXuhuunHiJnCPFnLxOPop7K4URBT1x4T0LGUewjpLnRXuUp7Pltu3ejTtlTNt5coAF
-	 QDMH7PsCJG9898MnZ22ADgHnIRm/fYp0Ep+coEOo5xfr7dUZ6i8d1ljWwqlOj9phxDd6t
-	 XefY99A97lpPo+1jIVscatc8LQhPzo0VGJ03Hya034X8MgKysmXDvGig/pFmdA/hxImXw
-	 Tf3cORLo7FwGj80kL0sPoJ5CXKGN5Kljoq3adb60j7L5JamsZ+izSJW9Ct0j8RPuWNvKm
-	 /LSJQAyY8aa1YUFoes+53CJQ6dutqYUp9Jo5/AFBnaYIbfGopEIqSObmhiW3eBWE71A==
+	t=1795015812;
+	b=fnMWfexBMaPUK7V664hLQuMduI2jZuTi3RsaODPUGkN/dE/XVB9Fmgj0Eq8ngALWDHmt
+	 Eo4q2ImIJks9BSGBP+zChHvEANZpEyUdDK+mzNmhdSzdsd+0+OQIn8Dj3/3YTbCCDCfiC
+	 kJzh4OL+gTFwEuE4C2JfqmvWoD7ondQYUzkY9X0YVs/SyHxKmTst+YZR1MGglkWkliJNm
+	 amrGvqlfw6xWSMm5rUKKYMkMoJ0Z3o6+XIZGocys9gM8eHMgNeOvycYb5GY79dfo1RDmt
+	 xuSd587wyyiw3gTgDhm69mwiXDoc1BHlCUKCyGgZ8ls0MZ8HcK+h7OFpm71GguuoyRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015811;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:Organization:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015812;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=pb2DkYgnWmb9+bw97jIJiTPdWJPNRHPP0cb+PUXqyRQ=;
-	b=Cuswle3ojG8WOoDXIKBQM+ct682hynXz89fbUWocVCXHmnhB87nBBQjg/YNM+VP1LRrS
-	 s1m0StGzAes1dnMdfH1VXKn8ZZTF29l71uo5BaZDJ0xmHpMarV9GGSlDyXw7Noux5pTE3
-	 yKs994JkedJaHXyYX313LNb9uPbWBYqx3do4BxigbGKUGngQ9dJPP+47kWKcnADObobQ/
-	 IBMHRP+QHGIIGcyfMhHspB7tqf+kOlDKgJQCtUDqMaA1L3qrjVbM0pnqts7tvF1hc8R1i
-	 Jyu4zGdlnlvBxSHChaCSca2AOgxAzSo5SoAm+Y71JtatgPL3QLZWPXFsxB/O1f8M+9w==
+	bh=rHS9B+0BHde2X4jb3Xb3RONvqSby0IcB+XScTmz0upM=;
+	b=2OMRZYHZydOSspKt/WPIpJzpWzq0ClHmhHg+y/bmxQaUqoxQLG/DTO4wb48RlGlx71xl
+	 Rcwp+nEaUfOSaZ9J4qUniNUOQh0UOZmkGIFCjLUQ0Lda6WJE8LtuZuz4/kGX0qxT6oTA+
+	 DII1ARc/3VTx/5RGFQ+RpOXjTJItctvy709Tw5XUTJ2c99viMtP9pkXkeYgyiDVaQcBZb
+	 f2SuoIEXSupIYbfNzqzhwl7JEycic1Tm33BzofLuv5Jmb1ITUiWoVpZRklMUVn6QEWFJW
+	 uAbu2YMN9vLX4/4yrTNTF3zt57/fRupLToBA9w0CVOnkwCM5+sH0l4auJrXfW1+T7nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BcWNdAZP;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5ED7E606A31C;
-	Wed, 18 Nov 2026 15:30:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5ED7E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VBBtvYWC;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A0CF606A33A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:30:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A0CF606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BcWNdAZP
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CF641477;
-	Wed, 18 Nov 2026 07:30:07 -0800 (PST)
-Received: from [10.2.213.11] (unknown [10.2.213.11])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2FB03F632;
-	Wed, 18 Nov 2026 07:30:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795015810; bh=pe0bYMQLHpKIt4goswPEy6JNKEehOuA2ys1dJsrtcB4=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=BcWNdAZPfIauVt3J95yHNQoW8WzeY7FQl0Rfy0Uzx7/YOqT2Fx2uKi70Mps5DtHbo
-	 CKhVXiqqZfeCtl0LJfbCVuT3h2T8LErJ7edGpFIw4zyblTlMUKofqkahLtDrn+wcr8
-	 No4tvr3RE7FbS+OwdcyDTJnmrR326HP4z1/xPvXM=
-Message-ID: <2ce350f9-4dc4-480f-8a53-07ef9586d49b@arm.com>
-Date: Wed, 18 Nov 2026 15:30:06 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VBBtvYWC
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3282db206d3so3064063eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:30:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795015811; x=1795620611; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rHS9B+0BHde2X4jb3Xb3RONvqSby0IcB+XScTmz0upM=;
+        b=VBBtvYWCkQ+uwNlm145G4Om9lraJpse8fcze2caHbJrErClBJ7lIqbagIsExxitUxs
+         biyUa8H1QMmqgmqHN46h04VxX6i32F1KHOj++0arLGH60Ok8y7K5nrGWS6Jlvm4km23z
+         ukUrlm86ZPPRm/+pFbCvJ5WLNkRA+DnTF4fi46n4bQtiyRK2GqtGb6LWuMChmV1MPTrh
+         Niw7yUPlqOGIElI9h57hz0Thv2myX+EFzOEvlb+vgj7XHBEUL2/Q0QbkA9scRE/Jup2n
+         OhoWqIGdd0CcRQDYG1MrYiEtklNeq4662N0c/qHoJRJrF9tnK6W3U7MnslV7BDiy6owF
+         LzxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795015811; x=1795620611;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rHS9B+0BHde2X4jb3Xb3RONvqSby0IcB+XScTmz0upM=;
+        b=jBuO7Izp8A5Rul3S69dVCMQXaW4NrwXTUnfaok8HrRWskhM88Lg8BxerISHUtr17nP
+         K7RYyly6D7/Y0fvDe6VCr0HABoCAYikjTMYXaeBjyxrpczKM4jKRXP6tiojxVAH+lExd
+         +6kBb+qN+3E7AlpjUXT2zw3SPiC4ryifoxp+ihG59HADE6InreOhI2sh/JmdVFDVJw3+
+         c68kkDoJ7ryH2ipSfJ1XKKCLqxbfihW6/Cw2gC777Xei3I6y0hZGlQgRUsmLWE5EYjTf
+         lK6ce79jb7lgmxPFlGKUh+jViDi49KZYhpCylGJx9itp6vsdv7SVevyRMw/TjMdj9n5j
+         oKbg==
+X-Forwarded-Encrypted: i=1; AL+hErFYs/pH7APUXkCbbR3jBM22BhQvIxbs1wU3m9jsziJdpdgGOCeQ43HesYK7ONs+PvvqlFtaGgEgeKqm4PU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8C5UgiY2uSlCxWBb1rK5+NT9XDHQ0fPnPoVRaEEZrKcC6uGM7J
+	byPlhk7be/vP/EJf4ATfmrzaTgy/yHdVu7pcSB4FBprZi3Z241u8FA+L
+X-Gm-Gg: AZFdTZf5cd4gCAGBHjn2P59ynJFLu+t31zIzI8iedKCeM2472nIUaQDbBToH2mlpaxO
+	fswekskLKgykGZMGdNQZlz2lufUGFN3qhopcgU4PReCv4piVyuOFB4QlvZkRS3/TRd67zOhWOvg
+	uFIawaeTOsmBNJ8rCJgIIlSqHwOKNBWWz/epd3VVtRoYromTJI8TuMPjQ6u2Hf7jGNrqvBBVzcX
+	/J6fhdT6Ro3OmU/mUoNLw8LLeHM1Nhlgwjk43cflmp2tazpzltrDjyvhwz/63yB0ZkgJ84BsMwz
+	VhUsUNMgqrW7Z7sASAyKuxqo+EaQTS5ZqzB3QKHFOQZC3FzSZo1JfP1/d3qUnFh7YcVH4IhCCdP
+	qINAdoBfggK/emno3MYwFoquDUvfinrNVDx0/fq0aHUYjjMm3Hg8T3mNLFARWuaMIw5wbuFdFNL
+	cc4h7kwU+4pAwE/XQNbdAVhRm0VNWjblG6Quyhurnlb3zi01v4vpeOjZYCgXlM8y5tnIzKLhUqD
+	hTcKPzCO09J017MMg4dzTP7Abj8RCpJkbgxbmycdHsgwv8L4WUcYgZyPO4d6LwnvBbhWiHEueGT
+	RS27Ma6IETYiMtF+6qVIdPf2n3bP6vKU6bJyKdowS/DEu7adppaIfaEQNm8=
+X-Received: by 2002:a05:7300:50ca:b0:381:7f3b:3c13 with SMTP id 5a478bee46e88-382803787demr2845493eec.23.1795015810729;
+        Wed, 18 Nov 2026 07:30:10 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:2c16:ada8:2d24:d03])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a630517asm8922616eec.8.2026.11.18.07.30.03
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 07:30:10 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Jeff Johnson <jjohnson@kernel.org>
+Cc: Kalle Valo <kvalo@kernel.org>,
+	Wen Gong <quic_wgong@quicinc.com>,
+	Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
+	Anilkumar Kolli <quic_akolli@quicinc.com>,
+	linux-wireless@vger.kernel.org,
+	ath11k@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH ath-current 0/3] wifi: ath11k: give the regulatory state the lifetime of the device
+Date: Wed, 18 Nov 2026 23:29:39 +0800
+Message-ID: <20261118152942.62838-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,90 +99,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Subject: Re: [PATCH 3/3] arm64: head: set __entry_task along with task setup
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
- linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
- Breno Leitao <leitao@debian.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
- Doug Anderson <dianders@chromium.org>, Linus Walleij <linusw@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, Thomas Huth <thuth@redhat.com>,
- Dawei Li <dawei.li@linux.dev>, mrigendrachaubey
- <mrigendra.chaubey@gmail.com>, kernel-team@meta.com,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261117174814.95936-1-ada.coupriediaz@arm.com>
- <20261117174814.95936-4-ada.coupriediaz@arm.com>
- <f232d0ff-3286-4d85-b9e3-cad8c6bc7178@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <f232d0ff-3286-4d85-b9e3-cad8c6bc7178@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-[Resending for the lists, as I forgot to disable sending HTML,
-  sorry for the noise !]
+ab->reg_info_store, with the rules it holds, and the default_regd[] and
+new_regd[] domains live as long as struct ath11k_base, but their
+teardown does not follow that lifetime. The SERVICE_READY_EXT error
+path frees the store from a transient event handler, and the remove
+paths that follow a failed start never call ath11k_reg_free().
 
-Hi Vladimir,
+Patch 1 lets ath11k_reg_free() cope with a store that was never
+allocated. Patch 2 moves ath11k_reg_free() into ath11k_core_free(), so
+that every teardown path frees the regulatory state. Patch 3 then drops
+the free from the SERVICE_READY_EXT error path. In this order no step
+adds a crash or a leak.
 
-On 18/11/2026 11:01, Vladimir Murzin wrote:
-> Hi Ada,
->
-> On 11/17/26 17:48, Ada Couprie Diaz wrote:
->> `__entry_task` is only set after the first `switch_to()`, despite
->> a proper task being set up in SP_EL0 as soon as CPUs go through
->> `__{primary,secondary}_switched()`.
->>
->> As SDEI can interrupt execution at any time, it can interrupt before
->> the first `switch_to()` and use a null `__entry_task` to set
->> its current task.
->>
-> TBH I do not know much about SDEI, but don't we need opt-in for
-> SDEI before we can get any SDEI events? If so, can we really
-> receive SDEI event before first switch_to()?
->
-> Cheers
-> Vladimir
+A separate patch, sent on its own, makes a failed SERVICE_READY_EXT
+fail the start instead of letting SERVICE_READY_EXT2 complete it.
 
-I honestly do not know much either !
-But, looking into the driver, we register the SDEI entrypoint
-as part of the driver init in `arch_initcall`, with a few notifiers
-(CPU hotplug among them).
-If using SDEI NMI, we register an SDEI event callback within in this
-driver init, in `device_initcall`.
+Zhao Li (3):
+  wifi: ath11k: don't walk an unallocated regulatory info store
+  wifi: ath11k: free the regulatory state when the device is freed
+  wifi: ath11k: keep the regulatory info store on a SERVICE_READY_EXT
+    error
 
-Both of those are done in "late" in the boot process, in
-	rest_init()
-	-> kernel_init()
-	   -> kernel_init_freeable()
-	      -> do_basic_setup()
-
-This is as part of the init task, before excve into userspace,
-but after kthreadd is set up and has switched to the init task.
-
-So, I think that it is not possible to be interrupted by SDEI
-on the boot CPU before the first `switch_to`, as we would have
-`switch_to()`'d the init task by immediately scheduling
-from the idle task.
-
-However, as far as I can tell this is not the case for secondaries :
-their first task on boot is set to the idle task, which they go to
-without switching until (and unless) something gets scheduled on the core.
-This would be the same path taken for CPU hotplug.
+ drivers/net/wireless/ath/ath11k/core.c | 2 +-
+ drivers/net/wireless/ath/ath11k/reg.c  | 6 ++++--
+ drivers/net/wireless/ath/ath11k/wmi.c  | 9 ---------
+ 3 files changed, 5 insertions(+), 12 deletions(-)
 
 
-
-Unless I am misunderstanding something, which would not surprise me
-given the amount of things happening before getting to init, I think
-that is is indeed impossible to get an SDEI interrupt before the first
-`switch_to()` on the boot CPU, but that it is on secondaries
-or after hotplug.
-
-
-Hopefully this makes sense and, more importantly, is correct !
-Thanks for bringing the question up.
-Kind regards,
-Ada
+base-commit: b1ed5a45b994a6473ca1cf34f35a1bf87f1d8e2a
+-- 
+2.56.1
 
