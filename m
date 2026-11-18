@@ -1,56 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016377;
-	b=uc6geI/9BAQBO17ch7ADkTN/9J1As5Hl2l0UewdDuW5Tyb9xVoe46D7BdPSjCGQ1V3Yx
-	 IkigFP2s69mtCxWQ6VtKQQt3TqZ7caY98KanU0xqXNHs2m1VSAh0YSEOUUs9PLHo7vEix
-	 65sVYDzePfNi/TwgjnUqLKZXGYQ3OvBR86IPpzUn8RM9NlOcP7bNpd5qhoEbKoS1TUyH5
-	 pCisW+qQn8T33oiFnmJBA60+4bC0MRlhXuIG4Gs3uGA1BTToCo+JDxAlPPjJE0kC+yfjj
-	 H27AOtcNr1JUsvhut+42yj7wE3P1NuPe0OBVOaExLS+Mq/ZTJW/uGE3BrpS8tNYSnsw==
+	t=1795016382;
+	b=IQdPjMMwLBMkWD88fbAH3yPkEeInc/2VjjgQ467dknmtFoCXpCrN+j/J8QrfJHxfMeEr
+	 PTvcx/oMjBYgE3Yl9qOQ0RYXVVxN9GxoR9fcQMnaZC81jp4ElKsq9jE5WEOJNVXjXFF3q
+	 jRlLuNS2uDsabO+7CCu1G0z2Gs75+yF4POwP4xifGd6hTyf1pOAeG3QrwcMYQeBH6k+re
+	 NhTt/4fGgDrSyzyYpPLn412cVV12CI+Pf8P8wzyJroChsmQbqvfdkzpY7V4eyTyssnibf
+	 ez/nhIyNJbYg8XXriHMzcH8ugfnIPKBa9WZm74PB2lv5WvlAPyn1c6IgbmWdVjiCKCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016377;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=EIG6neVhWP0oO2swpa/actjlZusAnOHzDTVPgCw3rRk=;
-	b=LssKk54pL/CV3v/aAiBTSBDIZ4M0JlatuhiipbklOjTLAbJUZ+1/J1/CZ0itj9aLzbeV
-	 kSyNAriP5h+4zYZ60+5vnxNi2Sa+aKqjDmN6imxpVeFca9PS/fcpBCAslUrncHYRCkR3t
-	 VpxdJEY0/pxI5jnD5mHHOeCs6lFTcTF2Vn/mTr1d8jcW5pcLk5PtGpbP8wdQ1imE1krej
-	 bKRlArzhOac/0BOsD6EebQCey2NPQ6sF9JNzpDlxxi7gqP9pOXUh+LqIqWzxLGOO0X+1W
-	 p4875QeaEP395EI4UN/WQlPnL728Lx2Ixfa6qnmIXNBh+kIozYSAaSUeeSmmwLOqItA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016382;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=5ax3Lipd+AcivWLlLBqoyKXnHoFVYuzVHK/u3oZQ3q8=;
+	b=NqdByrr0JNfDflT0JO3Yd0iitqzwu/JSV8LwNPlx3YD47VAl2oGhNYiGIprN+ILp5QtO
+	 t99mStRy2ymcMh4rC/Sd/+utg0rPpNZAg1M5UdYrJip9NOP7Nba8b3O03WUTSuSH11YYr
+	 AehbMaDHyTs2VAnwhAFvW3NJJMXio43uHHWt1IU00pwCM4pP8JRdPp5a1ToeznaxpxFNS
+	 cj1TuZ6YR3z4XV1IQ0l+WBw6LK4OpO6AOyyF5vSt1ewIxDRB+a+nY1PuVe/E2ilr1quKo
+	 S2ZL5ObdiYM/lZReLNPc+FlnU5HxkxNtFDLR737vTblpkBAMCOrsM0GchD3m4NItQIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xPp4lP5M;
-	arc=none smtp.remote-ip=95.215.58.123
-Received: from mta1.migadu.com (out-123.mta1.migadu.com [95.215.58.123])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ChN4RtDN;
+	arc=none smtp.remote-ip=209.85.160.45
+Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7922660A2603
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:39:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7922660A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D849560A2607
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:39:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D849560A2607
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xPp4lP5M
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=F2v4qu60TZjIPQx+nKg8sL3H6yfL4FsC13pDDbITfl8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795016374; v=1; x=1795621174;
- b=xPp4lP5MgHMJO7DyuSQ0GUIQkZg/gL/Z9MpkYGV2N+zRgRNKgobd4IZBvd/Dnvqb1Y/TA/0I
- ez9dEU2rYmEVcYFNBZNnCf3J2C4nwbJD2/+ZvNClOkPAXwK0ffS8YvQgCM9xcfPE0vDWnvGxQvd
- CsH4Cs7NVSbu22jvTuZc3HtM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 9a0a6b54ba0a1855;
-	Wed, 18 Nov 2026 15:39:34 +0000
-X-Mizu-Trace-ID: 9a0a6b54ba0a1855
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Wed, 18 Nov 2026 10:39:18 -0500
-Subject: [PATCH v4 1/2] nvme-multipath: apply delayed_removal_secs changes
- to a pending removal
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ChN4RtDN
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-475920b9ca2so418172fac.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:39:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795016381; x=1795621181; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5ax3Lipd+AcivWLlLBqoyKXnHoFVYuzVHK/u3oZQ3q8=;
+        b=ChN4RtDNL4FAZnfKWrkcqtZR9IwHiD412LxnId3JvdDhc10w9CNmIAgsuSll3tHp2S
+         w3KfmBSLf8edMN/+2ABaalGwez79ruoZ/SLHAW5f8PboytQDbTeWW3KMmtPzNVcAS1XL
+         LacFnrw01OSIW6IiBARxJfk2riKOsOXA2hPsu+tHeK7H8HqUZwqtrRDkUEh4+I3EVtAm
+         KlaNLYjxxtrM5ZeDXLOKDL37vL6bOMnswIdnJehE7PBi4+/Tg7d7t/Imgru0kNALnnUR
+         +pnmMFx/6a5ctuXYw9NsymB5Ipe0OBvr0807ptcZxoYCgpG623H5kq+8yLlmuu05TsF4
+         /j6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795016381; x=1795621181;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5ax3Lipd+AcivWLlLBqoyKXnHoFVYuzVHK/u3oZQ3q8=;
+        b=vkXFSutZOlOFLuo6MOIC57yUIu73lT6ehkB5CyfknFKaXwF1TUQRtf1z3VKwWpZ2O5
+         dM3HqxJnwzLUgY6983u+C1gCYCX52HjWqBPvhIHmXGlwDRm8F4mIQT4DzDQbIe9y6+kS
+         /EyoRM2drPZC1p7S6GCFytTgmPAH1xeF/q5w17Nnez+RdqCz48XkwQ/RXB40ogEHNnkc
+         wDZXOKf9WDxkrzjsiCGbTGtZUgWjo+LuUrDFzrOhBkCaFfODg5nCRqyrYF5WUjVJ+Ck2
+         WigsYvTpeKLa2xbuqLMHd56bhr+Q5JhaLyrKqANyoEnqJM4ExYG5lUz6yU6WSmBeTyRA
+         XAEA==
+X-Forwarded-Encrypted: i=1; AL+hErE6sD66uhHzt3ZZZ2x4sxTC81vbn5QGNEdxgcmPvdjjDwnIlSIOEkfp2jRbEXqT7lVSJRxfXe9YFZ7730A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/76JE0g+ApV7Ob6K1HGbo8FeSsS6KX/n+NJscWf9GG741jjCK+
+	mCuSzRSjkrgpTuZAW3D3cLMDjdV2meOcUIuBqm/BJKx1CUXubchFNVa0
+X-Gm-Gg: AYBFou3ywvP71qsyTA56jsy/jahICHdhrMB15aoMaYjIXADWD/fMl/YG1ZmjrqYbNcV
+	4TRieII9cgtn1AT5nXL+vrdIrHFHGFJ+ssatSNZaClWWyIQaOnvMZeszAUj94X4+FudBiMLt7Rn
+	qMJ4OPAS7nhQ9iAg5V2IKZwvsG5cG62c6PoUFejY3s8A+ynFOwQYsi+H5RHWsMW8f/UQRIWPj/j
+	+hitRbPTHYp49gmUEhX7APeyHPXAagBa4jQPjJB/RZEjeyeyh4xugjUU15bWQg9sBYT8P29Qtdq
+	rVkoUIEyPxGjFrMtFDjpgUA3XQJeW4o3/rdRPdQ0a1PAMPSz6r6n8Y2YniAJcA7f1hLnj4LngAm
+	o+g2rio36KI0Qv70F6GizFDCI+kBVjtvwhDS2SOBTGM/Be4hlaX5Pc1A2oDkuKVgs3WoK/XWcEP
+	Z7Jp/PWIIG2y+LJFpLsQk/3MrmLEAkxoIgganx3Y3KxwLo2yuStDu7OCBWNDsVl1/tQECScNTBB
+	FH1bA88HNk67JMtjIFmHHZ9tmvq3Bzb00084JRlb6bML+ESAYpgDMajtc9YHFTuYPpO/mUh6RRX
+	uwdfGzeKsxqiW0j5UuHtFHcTvdEL9C3731dCmCqm5Hd8WssM
+X-Received: by 2002:a05:6808:220e:b0:573:f2e:2bee with SMTP id 5614622812f47-57741723566mr3647243b6e.37.1795016380749;
+        Wed, 18 Nov 2026 07:39:40 -0800 (PST)
+Received: from rigel (106-68-220-184.tpgi.com.au. [106.68.220.184])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57775461e70sm1987291b6e.0.2026.11.18.07.39.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:39:39 -0800 (PST)
+Date: Wed, 18 Nov 2026 23:39:31 +0800
+From: Kent Gibson <warthog618@gmail.com>
+To: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Jia Jia <physicalmtea@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v6 3/8] gpiolib: cdev: do not free line IRQs again after
+ the chip is removed
+Message-ID: <20261118153931.GA46152@rigel>
+References: <20261116-gpiolib-chip-removal-v6-0-aambrozewicz@nvidia.com>
+ <20261116-gpiolib-chip-removal-v6-3-aambrozewicz@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,79 +105,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-bug-nvme-mpath-set-live-srcu-v4-1-21f368376c8c@linux.dev>
-References: <20261118-bug-nvme-mpath-set-live-srcu-v4-0-21f368376c8c@linux.dev>
-In-Reply-To: <20261118-bug-nvme-mpath-set-live-srcu-v4-0-21f368376c8c@linux.dev>
-To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
- Nilay Shroff <nilay@linux.ibm.com>, Hannes Reinecke <hare@suse.de>
-Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Qiliang Yuan <qiliang.yuan@linux.dev>
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-gpiolib-chip-removal-v6-3-aambrozewicz@nvidia.com>
 
-With delayed_removal_secs set, removing the last path of a namespace
-head doesn't delete the head right away. nvme_mpath_remove_disk()
-queues remove_work with the configured delay, and bios submitted in the
-meantime wait on head->requeue_list in case a path comes back.
+On Mon, Nov 16, 2026 at 03:47:06PM +0200, Adrian Ambrozewicz wrote:
+> Since commit ec8b6f55b981 ("gpio: free irqs that are still requested
+> when the chip is being removed"), gpiochip_remove() frees the IRQs
+> still installed on the chip's lines. A line request or v1 line event
+> kept open across the removal frees its IRQ again on release. If the
+> mapping is gone, that can touch freed memory, as reported with
+> virtio-gpio; if the number was reused, free_irq() warns:
+> 
+>   Trying to free already-free IRQ 28
+>   WARNING: kernel/irq/manage.c:1881 at free_irq+0x193/0x2d0, CPU#2: gpio-hold/111
+>   Call Trace:
+>    linereq_free
+>    linereq_release
+>    __fput
+> 
+> Stop edge detection from the device notifier that gpiochip_remove()
+> calls, under config_mutex so that it does not race a reconfiguration.
+> Free the IRQ there only if it still has an action, as gpiochip_remove()
+> frees only those on lines flagged as used for IRQs. The release path
+> then finds nothing left to free.
+> 
+> Reproduced with gpio-sim: remove the chip under an open request with
+> edge detection, set it up again and request the same line, then close
+> the first request. Every cycle warns; with this change, 100 cycles pass.
+> 
 
-A write to delayed_removal_secs only takes effect for removals that
-start later. A removal that is already pending keeps the old delay, so
-clearing the attribute leaves the queued bios waiting until that delay
-expires instead of failing them, and lowering or raising it doesn't
-move the pending removal either.
+Reviewed-by: Kent Gibson <warthog618@gmail.com>
 
-Requeue a pending remove_work with the new delay when the attribute is
-written. Cancel it first so that the module reference taken for it
-carries over, as nvme_init_ns_head() does when a path comes back. If a
-path is already back and nvme_init_ns_head() hasn't cancelled the work
-yet, drop that reference instead of requeueing the work.
-
-With delayed_removal_secs set and no path left, the attribute is
-changed two seconds later and the head is removed after (mean of two
-runs, min-max in parentheses):
-
-  delay (s)  before (ms)            after (ms)             change
-  30 -> 0    26877 (26327-27426)        9 (8-10)           -99.97%
-  30 -> 5    27987 (27464-28509)     5248 (5193-5302)      -81%
-  10 -> 30    8152 (8095-8209)      30106 (30080-30132)    +269%
-
-A direct read queued before the 30 -> 0 write fails after:
-
-  before (ms)            after (ms)   change
-  26801 (26243-27358)    6 (4-8)      -99.98%
-
-Fixes: 62188639ec160 ("nvme-multipath: introduce delayed removal of the multipath head node")
-Suggested-by: Nilay Shroff <nilay@linux.ibm.com>
-Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
----
- drivers/nvme/host/multipath.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/nvme/host/multipath.c b/drivers/nvme/host/multipath.c
-index ae8059366b57d..881d8a0145255 100644
---- a/drivers/nvme/host/multipath.c
-+++ b/drivers/nvme/host/multipath.c
-@@ -1242,6 +1242,17 @@ static ssize_t delayed_removal_secs_store(struct device *dev,
- 	mutex_lock(&head->subsys->lock);
- 	head->delayed_removal_secs = sec;
- 	assign_bit(NVME_NSHEAD_QUEUE_IF_NO_PATH, &head->flags, sec);
-+	/*
-+	 * Apply the new delay to a removal that is still pending. If a path
-+	 * came back and nvme_init_ns_head() hasn't cancelled the removal yet,
-+	 * cancel it here and drop the module reference it held.
-+	 */
-+	if (cancel_delayed_work(&head->remove_work)) {
-+		if (list_empty(&head->list))
-+			queue_delayed_work(nvme_wq, &head->remove_work, sec * HZ);
-+		else
-+			module_put(THIS_MODULE);
-+	}
- 	mutex_unlock(&head->subsys->lock);
- 	/*
- 	 * Ensure that update to NVME_NSHEAD_QUEUE_IF_NO_PATH is seen
-
--- 
-2.43.0
-
+Cheers,
+Kent.
