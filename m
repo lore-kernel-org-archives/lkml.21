@@ -1,75 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019568;
-	b=iO+EpbdQLnejQ/ZcdGiP/Ud5xuVtImtGQ/2fqZm4+XkOHJN4OvL80OEQKpfmprV0nTLa
-	 NvgOntlwgJB85/VrJAnzXztoDedlmdnEyBzwxmVKgB5HJOE+WKyTIe84+ISRTzpHcrMDB
-	 sKDZ4Hdv0agAy13RyFBnto7SVSP7U0/KUKGIFX7rlRBrc9TpYh3EoH/Z01Cwc6ENUCH5+
-	 OKfp0mdT5OgSfyDwlrn8doW4NWcOT6XkajdzNbhipkB7Dadu0T4rU9rakog+LY3JRE9kE
-	 lXNTqnNVEzM+tlk8qPdGNTFxiFupH+jUGaZokrGWt35cYa/H264LMj1YHmlUvQk2Mug==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019568;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=qjprmjLnJADtZjq7QSnG77c/aPX/nb6UvodhHcnyhRU=;
-	b=5m/2duJniQv4K3PuzeRC+uS4IcovO1idhBpdiXaHvkvfIQRFRg/VNF012EF993QPHVm9
-	 98qcRfTDn/Sx80wnQaEYYftI38wY2iYm50i6U3VbITm2HlyRNMYVma0MCDFSvUGGSf2JP
-	 LtZF3Z3IY00rga+77uaesV+x5jLfKzP+I8RlTR+zDk6plKSScvjlVmL46Uu7FMKL9v8cV
-	 BqW2PpmMIm/8D4AoCfK3Uy1eeloinRAIdUiLZl4EnPx0wLc6m2WItEueZ/jmDqr36fF7z
-	 IyryruWCpiOu+MHAH86zT+6rAx3rDXOOab2RN4OwsR2TuUQiGi6V3zn0FOOuIIA1PlQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T++fGsiM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.152.168
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795019576;
+	b=V6K4OmLVGUcqUGIFLKGsHSA8RrZNlDrfOeOtGTAE2PCa66cxqgT3N3f7sO2rheeKke+G
+	 Vj1Rj3KDLHE/oKuye+ZCrRiWKikyUwdloYcppC12DXEKnzUIVTHHu5kFaAciLptpaUeNJ
+	 axHpZ+4FQxsWlr4SGnke8qh2cMmzKD9T04o3BMNNJt/lYW6GOeLDxHRjIf2VHY+Tt74MK
+	 g0mZlZNNl/lRbgJaWtExxotK9UhL1ukM5YsEduhe1Bmdm/wHYGKuFNsZ6lX/EwXaEblmn
+	 Kx0ilIZBSy8p5vyKu1jEMlXLeo9QE59u4KJmwI63+d87uQ0/LVWJu6L1Ycu24VHFKLA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019576;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
+	 Received:Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Reason;
+	bh=qdetaVUKAzRV7T4F/oguVCvXt8lkwod+pc6aw0LH/48=;
+	b=wFFVbrLFj0reIByiQ5hB3Dus7w3c3kPrM6D2kAhqWgctd11cbs1zFlNSna5wDxs0usKd
+	 b3zE03beuCl7O9maw5MjEBfSz1HJByMcC+PfSOEuoi0rY76y6o9xDYHOkllfJYDMfGJlS
+	 z0g9IZkBwUbS/NPS7Gu+ToKVyPenCQ/LHKGQORM99Kx53CFljH77t+sko5pGW05HrQkmp
+	 /ZGZRTR5eT8+CxS02qsKYmBGazXOnj9nV61NBDKXXpGHNbiJ2Qr5argORMmeArz+gOA+A
+	 O0UIKLC268SwD9hzwAlH17KzAiJJAn1g+vZI75A4Ge8JiNNzu7AubYnZvjN4IpTgvZA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=opensource.cirrus.com;
+	spf=pass smtp.mailfrom=opensource.cirrus.com;
+	dkim=pass header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=jO83yg6y;
+	dkim=pass header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=BhvQUq9j;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.152.168
+Received: from mx0b-001ae601.pphosted.com (mx0b-001ae601.pphosted.com [67.231.152.168])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E019606A7C0;
-	Wed, 18 Nov 2026 16:32:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50060606A32C;
+	Wed, 18 Nov 2026 16:32:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50060606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=opensource.cirrus.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=opensource.cirrus.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T++fGsiM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DD511F000C9;
-	Wed, 18 Nov 2026 16:32:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795019568;
-	bh=qjprmjLnJADtZjq7QSnG77c/aPX/nb6UvodhHcnyhRU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=T++fGsiMjPU8suxy+QnFrhsfVUy79tO6tFjeQVHS9GZlx6omXi+QHDMcGBaR1CxgE
-	 BamOsWKQC9pdI2ru3ciMM6iIW3lfI3FPLB5Ya74TeemOnLZ4mv/SdF9DeGZhZaVIS2
-	 //5hHCZnC4iyqzRFVIK084oo8WXp+PepXZv4rELtbbv3RRySKTPq0YXAMpIShtWbYJ
-	 CE9Y3xTPNrSWuT8Pm9C7edlRV7UalR3E2Fx7K4lLB3Yy30EPi14+ArSjHcNpjQM9EW
-	 9feHXMJeyVTVCRCc3E+HU/kAlJwlw1oq76KeeaCIfdr54L7CHpVN10Fgvb8ObVOkO8
-	 /R2kty/TfD40w==
-From: Danilo Krummrich <dakr@kernel.org>
-To: dakr@kernel.org,
-	aliceryhl@google.com,
-	acourbot@nvidia.com,
-	daniel.almeida@collabora.com,
-	ojeda@kernel.org,
-	boqun@kernel.org,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	lossin@kernel.org,
-	a.hindborg@kernel.org,
-	tmgross@umich.edu,
-	tamird@kernel.org,
-	work@onurozkan.dev,
-	brauner@kernel.org,
-	lyude@redhat.com,
-	j@jananu.net,
-	alvin.sun@linux.dev,
-	deborah.brouwer@collabora.com,
-	laura.nao@collabora.com,
-	beata.michalska@arm.com
-Cc: nova-gpu@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 7/7] rust: drm: make Driver::File lifetime-parameterized
-Date: Wed, 18 Nov 2026 17:29:48 +0100
-Message-ID: <20261118163203.2483856-8-dakr@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118163203.2483856-1-dakr@kernel.org>
-References: <20261118163203.2483856-1-dakr@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=jO83yg6y;
+	dkim=pass (1024-bit key, unprotected) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=BhvQUq9j
+Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
+	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIGHBNW217490;
+	Wed, 18 Nov 2026 10:32:46 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=PODMain02222019; bh=qdetaVUKAzRV7T4F
+	/oguVCvXt8lkwod+pc6aw0LH/48=; b=jO83yg6yQewD9DB7xkWyte7nRaygge6f
+	Ag1v3MqDV6NYx+ZVbZenXDXCai7fPsNOOxNjaG/DZKZj2eR8QfBzeBch9kcy6qDj
+	Gq3Bp7oEK6eJMWQJ3wKh7SYCPA5Mi7SpN7gPMEc9HdmCiwlX6CUY5536ebUBRfjY
+	j3dL4SosdJ35oUe5pP/+iYV5piPu6iOvC0dM+U9LZxMKOGCx2xPAAqw47p8ExAKj
+	BcE9QtN2MmfI/NPOTTVOIOMCoDwIpsP6HWkzPgpgg630FQWg50t33zL9RoPKFMIe
+	YhtTSUoNF1kBYSnRaSCUobDXtcIiqFW14h8cFbqiCk76RyGclp35Ww==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11023122.outbound.protection.outlook.com [40.93.201.122])
+	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4j0ytshdky-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 10:32:45 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jN8uLLDIw3XnS06+yf8pXpnVGevjsOCTVQmG5j7QfCZkzl2AO9RJiMC6ydVi7OsDau+/UfPWWPjen+vhGYFhe2lpyt56gDUZMp++ayxNIZ9huEpe4S29cdxlC+9ZD5cEp3wBdHuFXli3MCdYEkT2FfS858wrcjBEdgqmEuocWLzAmKRANfDIXlFv4I4MFxQc3XPqFTT+iYfGHrPcQvcCqZ2iPwX5lhXdWa4N8Tt/3ITVRuJJSTZYzImnaF9QCn4DruhJL+8MfQFveCiv1CA3aCnk8A7RwVJjco0t2jBfBUxiPmh7VLCmdBYwwGzjJWaB7FLjyWBn+pVszarg1voH/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qdetaVUKAzRV7T4F/oguVCvXt8lkwod+pc6aw0LH/48=;
+ b=ZFTVAnReKCqi3USttZnY+XzLNT8K/fhToqreVprsFx60ybHc1tK6zmcgzr1eSvJAo/Xt8aDEJhdyghn2hw6zDKVkQ2vTUeLQEqiXw3pH6toMifLkwk0+S4O3bYs7KjhKIR2W94vBrjDM0wtAUqz6ihjoXOm6d0M6JCpSWyKYgqL1rc3z31TUHGBcGI7QBMWOQcXkAdBuzMu00QQWnQhxiaoPnj0LWArSl0obKdMzVo/OKmSo25Iwpi0cTJE4ySs1hdb93rqu2GnkAtRmHDuo83/4czByoqwBTX4M3vQPDayRsH3lcU/cw5nCEVT+eKLO9VYfKFKtscxMnfJnelWT7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=cirrus.com
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qdetaVUKAzRV7T4F/oguVCvXt8lkwod+pc6aw0LH/48=;
+ b=BhvQUq9jfdDzUipSpzC90nt1GjB4e7/VortRdEYqGzreuBCHziqDqQen4Zl1J5SNcZeVhYX0zJPd3zW65Kha2jO8IKOZt4mfG00neg0rw8FzcsGObAj7IXNBF3zfTUrMkGOqBrcrVU8vNipBVemdgSTjAOHjrvU+vj5bMsV9MpQ=
+Received: from CYZPR19CA0013.namprd19.prod.outlook.com (2603:10b6:930:8e::23)
+ by PH7PR19MB7145.namprd19.prod.outlook.com (2603:10b6:510:20c::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 16:32:39 +0000
+Received: from PH2PEPF00048916.namprd05.prod.outlook.com
+ (2603:10b6:930:8e:cafe::5d) by CYZPR19CA0013.outlook.office365.com
+ (2603:10b6:930:8e::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.9 via Frontend Transport; Wed, 18
+ Nov 2026 16:32:38 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
+ not signed) header.d=none;dmarc=fail action=oreject
+ header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ PH2PEPF00048916.mail.protection.outlook.com (10.167.243.72) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4
+ via Frontend Transport; Wed, 18 Nov 2026 16:32:37 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 3410E406545;
+	Wed, 18 Nov 2026 16:32:36 +0000 (UTC)
+Received: from [172.17.0.2] (unknown [141.131.156.155])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 549F482025A;
+	Wed, 18 Nov 2026 16:32:34 +0000 (UTC)
+From: Ricardo Rivera-Matos <rriveram@opensource.cirrus.com>
+Date: Wed, 18 Nov 2026 10:31:23 -0600
+Subject: [PATCH] ASoC: dt-bindings: cs35l45: Tidy up BPE changes
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,763 +123,393 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-bpe-dt-cleanup-v1-1-a242f0cd0e8f@opensource.cirrus.com>
+X-B4-Tracking: v=1; b=H4sIANrS/WoC/x3MQQqAIBBA0avErBtQg6iuEi1MxxoIE60IxLsnL
+ d/i/wyJIlOCqckQ6eHEp6+QbQNm134jZFsNSqheSjngGgjtheYg7e+Aq6KuF86aUTioUYjk+P2
+ H81LKB9WwMbZgAAAA
+To: David Rhodes <david.rhodes@cirrus.com>,
+        Richard Fitzgerald <rf@opensource.cirrus.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Ricardo Rivera-Matos <rriveram@opensource.cirrus.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795019554; l=12350;
+ i=rriveram@opensource.cirrus.com; s=20261106; h=from:subject:message-id;
+ bh=LxmQ6yz/441SM1TMu2ciKawvKnJPv2jLsRsXVBNCvpo=;
+ b=QDblS+ga8NoII18FnDpo0fZx6gXDm03Yd/s5jp0nJtyhfrLYezdGthh3UlKuebYeUPk+6d/j6
+ ZGHm4LMjzmGAxpK0xpOiPgWivyVFK828GYdQs7cdc70vIkZi1e+EZB+
+X-Developer-Key: i=rriveram@opensource.cirrus.com; a=ed25519;
+ pk=k/iAEAtSPXvaWRDFupudzm6His7B7iJP1uiZ578a7Y8=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH2PEPF00048916:EE_|PH7PR19MB7145:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58ddef98-a13f-4a47-62bd-08df45918ecf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|61400799027|376014|82310400026|36860700016|261021123027099003|261022075727099003|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261026121527099003|261102123227099003|261009220027099003|261009221227099003|261009223327099003|261009223027099003|18002099003|16102099003|261009221727099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	JIpF//3z9NsREYUzUM1Gk/8YqSUwvK3quCbUgXRoD0xSMrivmQX3F3ssAoMQXRb9NgapX9+HldnJyN2xfWB3AzasZHjmiX4HFSxZ7fgkt445Wgnqv+Oa5Mbd7onZu6UW4erhpK8Q9d8z/awF4J1WYVEYClo/3NvVdcVeeglwLiWnmcBxdWSEqdDaWgXAsYP4aLmcdDCaK+AAP51ex93XXmG9u+IJEKyL4nWA63ZUHQiIRH/0UjIMkx/PFoZZ/YJx8bOEexSwsbb0FldpnxDBeJXweYwjFn471wLY8GekaAx06PV5II1FCmNh9bkocNKLElt+6ARGypR6I3V2FU5ZZ9d/Yqrycws7sRAWueSYdx1tlYrfXLiwnsj+9gpVX9M6ku4KV2ukvYURAupLO/jG0ILO5xykBo4OMKWfkoc+/0T/rTdH/wlvkWLpy1r7HeRTBbphL19khngsV2cWYMxYQFneCp2zAvYBku+sgParxhFwP3Yj2hneBpmK1Ngjv/IuBGo0dKJVBpbT2MmY4hq9oUUU9KLMvnmbBN9MCGpfJJ7qsC0Z7/OElGNgQl1f3OZ8z64tlyDhaVc+0yKsY7VSBc8qqO1maN7jvWtIkboKPS4abSmImXhDWXde+NyuP5C9VM7oui+Rf3aH9kXRhaqvnN0bKhpGi6RZqzZN08BNSHPJ5GPXU9/w75gNf+ViJQDSSal4kPJH0yYb/9JGIPtP1g==
+X-Forefront-Antispam-Report:
+	CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(61400799027)(376014)(82310400026)(36860700016)(261021123027099003)(261022075727099003)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261026121527099003)(261102123227099003)(261009220027099003)(261009221227099003)(261009223327099003)(261009223027099003)(18002099003)(16102099003)(261009221727099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	vmoIttXoTPyqRTlsNLkhzfIRX7a9OS35qk3LKQsqIBvTLIzu0AVcTnMmW6RKPQCk5hfCITnchj2rJsrRZYSNMIzdlVniBzMxKgv9nLKG3KtByx2sWXa2YazaaE5FhpWNBy1GA+rKs8Ab5kZdFfypB1ElTYRLL86d4bd38OeFkbSEOs0Ihl8b0DeWtPOJcePfGCj6ShJgIWZu7ZqUX04tyqnMZZsv79WH+/ao/QY22JRSDEe+R8qUvcSSaJp0gUO25CJOqwTdLIrZzJUl1JDPWjdZlm9gkfd/3fjuX9EKpMhnLdvotyIfXJZENCu40bGNCZdMCQU7ensRjf4N5XB92qii4PBrNsYerU5mIQZ3TnerhaFaPv62lmcbXijWYKJa1F3tFcYZxAY/ozdNQXY7ynkFywG56YI/M4MbiXZytm5sU9HVpn+jfW6qYKssQGzW
+X-Exchange-RoutingPolicyChecked:
+	EsX3zyxiE6Anl8M+92WFt6RWmGwaCW04o7/8kSr+0KO96diyRdpqz6H61BMqovrdyc9ZcxOVhX7WjzaEd3N8SbtVTJgQ0D7gJJ8T4W0qhleMBceF1gFHO/H9zgsuDESeVMG2oWH6ANJJpbHNYEISLA5vSAYdILWISw5Id9GkGXnDio0woXlbS4xOD0hsXFghHEzMr/Dm29AM+XJwyvOUb7XinjvMKyTYaBWkMjQBZp7mrYKTGFISgQF6hpk7HesFsHd45ekqzLLM+4Dsw69zTEtAi0CihLtPUFD06gSoVQa6lKEQXAsrtWFMISfs8SLMep57Oc2y3LF2nxnfa8MS6A==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 16:32:37.5287
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58ddef98-a13f-4a47-62bd-08df45918ecf
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-PH2PEPF00048916.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR19MB7145
+X-Proofpoint-GUID: GQ1JkbCUltsphxCagrvJ6HwZSYp-sxtz
+X-Proofpoint-ORIG-GUID: GQ1JkbCUltsphxCagrvJ6HwZSYp-sxtz
+X-Authority-Analysis: v=2.4 cv=V4ToQuni c=1 sm=1 tr=0 ts=6afdd32d cx=c_pps
+ a=FNmKuShaFFLZE4HaRSHjWw==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
+ a=w1d2syhTAAAA:8 a=62YcbaBXX_YyWOaDptQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2NSBTYWx0ZWRfX1/Lt0zHJgFyn
+ elMAADsTBTFVTvcqNW52GFjHUVAdo0IBnvKt9L4U7kdFRYov1D+R3rSPTvF0uLnIU5n2nVWZcbo
+ GYTloJUubNpYtOeh/k7S01qDd4+7Nic=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2NSBTYWx0ZWRfX7raMQ5k8SzTy
+ mkdY81n65cSGIMluAaQmhSUnQnb11pwdpsYCLSRpKCQvtUp2ZaJ1XgcKCkBuunp1nDyoV+UcGEk
+ YqFVb/IaPBFA8khlCSFB3tHwYm+HReQGZIkFAmCxPKqAVZCN4n+3vEL+PyOMiWrR3vPSEad8QaE
+ BSyb32lxT/eV1ezcRphZL5cVeLuc4iCJxRcABdFYC3oPOXBmpEgt06ov9OG85jOR0hcP1d55iHu
+ +pefzKImFRKjUUHCU7D3CYWEGhltyeK6K3xiev1B8eAA8bIaNdygeRoSS24Zl+YD6T0aOvNO4f1
+ mgA9bafNSdKYYzzes4V99Nma79G0xMA0eRhwIZkS7g3X0RyquSfpFk2+5S/Ot81tyehpBtxCVRb
+ vSiWTlEgnvunsJmjYS6yQD2pw/mLzhWcjqor9DCgKJR7MnZYL2qS1mT+/volS9GFYTD6BrlL520
+ NDmHh2Io8AoUWlFZ/sw==
+X-Proofpoint-Spam-Reason: safe
 
-Make the DRM file private data lifetime-parameterized, allowing drivers
-to borrow from RegistrationData in their per-file data.
+Addresses two outstanding comments from the introduction of the BPE
+properties:
 
-Introduce DriverFile<'a> as a lifetime-parameterized trait that receives
-both the device and registration data in open(). Parametrize File<D> on
-the driver type rather than the file data type, deriving the concrete
-file type through Driver::File<'a>.
+- Moves allOf block to above additional/unevaluatedProps
+- Drops unneeded '|' from property descriptions
 
-Add inner_with() to access the driver file data from a File<D> reference.
+Fixes: b6dda4b7698e ("ASoC: cs35l45: Adds support for brownout prevention engines")
 
-Ensure file data is always dropped before registration data:
-
-  - In Registration::drop(), detach driver_priv for all open files under
-    filelist_mutex, then drop the detached data after releasing the mutex
-    and wait for file-data destruction in concurrent postclose_callback()
-    calls via an open_count / WaitQueue pair on drm::Device.
-
-  - In postclose_callback(), skip the drop if driver_priv has already
-    been NULLed by the filelist iteration. The NULL write is visible
-    through the filelist_mutex acquire/release chain in
-    drm_close_helper().
-
-Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
-Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+Signed-off-by: Ricardo Rivera-Matos <rriveram@opensource.cirrus.com>
 ---
- drivers/gpu/drm/nova/driver.rs |   2 +-
- drivers/gpu/drm/nova/file.rs   |  13 ++-
- drivers/gpu/drm/nova/gem.rs    |   8 +-
- drivers/gpu/drm/tyr/driver.rs  |   2 +-
- drivers/gpu/drm/tyr/file.rs    |  11 ++-
- rust/kernel/drm/device.rs      |  31 +++++-
- rust/kernel/drm/driver.rs      | 113 +++++++++++++++++++--
- rust/kernel/drm/file.rs        | 173 ++++++++++++++++++++++++---------
- rust/kernel/drm/gem/mod.rs     |  44 ++++++---
- rust/kernel/drm/gem/shmem.rs   |   9 +-
- rust/kernel/drm/ioctl.rs       |   6 +-
- 11 files changed, 322 insertions(+), 90 deletions(-)
+ .../devicetree/bindings/sound/cirrus,cs35l45.yaml  | 244 ++++++++++-----------
+ 1 file changed, 122 insertions(+), 122 deletions(-)
 
-diff --git a/drivers/gpu/drm/nova/driver.rs b/drivers/gpu/drm/nova/driver.rs
-index 44a52e60b3c7..f2d40e6fab21 100644
---- a/drivers/gpu/drm/nova/driver.rs
-+++ b/drivers/gpu/drm/nova/driver.rs
-@@ -90,7 +90,7 @@ fn probe<'bound>(
- impl drm::Driver for NovaDriver {
-     type Data = ();
-     type RegistrationData<'a> = DrmRegData<'a>;
--    type File = File;
-+    type File<'a> = File;
-     type Object = gem::Object<NovaObject>;
-     type ParentDevice<Ctx: DeviceContext> = auxiliary::Device<Ctx>;
+diff --git a/Documentation/devicetree/bindings/sound/cirrus,cs35l45.yaml b/Documentation/devicetree/bindings/sound/cirrus,cs35l45.yaml
+index 9373ce4bc3a8..b85fd1bfeac7 100644
+--- a/Documentation/devicetree/bindings/sound/cirrus,cs35l45.yaml
++++ b/Documentation/devicetree/bindings/sound/cirrus,cs35l45.yaml
+@@ -14,123 +14,6 @@ description: |
+   CS35L45 is a Boosted Mono Class D Amplifier with DSP
+   Speaker Protection and Adaptive Battery Management.
  
-diff --git a/drivers/gpu/drm/nova/file.rs b/drivers/gpu/drm/nova/file.rs
-index 13642f83289d..8b800f821e2c 100644
---- a/drivers/gpu/drm/nova/file.rs
-+++ b/drivers/gpu/drm/nova/file.rs
-@@ -99,10 +99,13 @@ fn write_info<T: AsBytes>(info: &mut uapi::drm_nova_info, value: T) -> Result {
-     Ok(())
- }
- 
--impl drm::file::DriverFile for File {
-+impl drm::file::DriverFile<'_> for File {
-     type Driver = NovaDriver;
- 
--    fn open(_dev: &NovaDevice) -> impl PinInit<Self, Error> {
-+    fn open(
-+        _device: &NovaDevice<Registered>,
-+        _reg_data: &DrmRegData<'_>,
-+    ) -> impl PinInit<Self, Error> {
-         Ok(Self)
-     }
- }
-@@ -113,7 +116,7 @@ pub(crate) fn gem_create(
-         dev: &NovaDevice<Registered>,
-         _reg_data: &DrmRegData<'_>,
-         req: &mut uapi::drm_nova_gem_create,
--        file: &drm::File<File>,
-+        file: &drm::File<NovaDriver>,
-     ) -> Result<u32> {
-         let obj = NovaObject::new(dev, req.size.try_into()?)?;
- 
-@@ -127,7 +130,7 @@ pub(crate) fn gem_info(
-         _dev: &NovaDevice<Registered>,
-         _reg_data: &DrmRegData<'_>,
-         req: &mut uapi::drm_nova_gem_info,
--        file: &drm::File<File>,
-+        file: &drm::File<NovaDriver>,
-     ) -> Result<u32> {
-         let bo = NovaObject::lookup_handle(file, req.handle)?;
- 
-@@ -141,7 +144,7 @@ pub(crate) fn info(
-         _dev: &NovaDevice<Registered>,
-         reg_data: &DrmRegData<'_>,
-         info: &mut uapi::drm_nova_info,
--        _file: &drm::File<File>,
-+        _file: &drm::File<NovaDriver>,
-     ) -> Result<u32> {
-         match info.id {
-             uapi::DRM_NOVA_INFO_GPU => write_info(info, GpuInfo::new(reg_data)?)?,
-diff --git a/drivers/gpu/drm/nova/gem.rs b/drivers/gpu/drm/nova/gem.rs
-index 2b6fe9dc0bfa..2a21ff8ba579 100644
---- a/drivers/gpu/drm/nova/gem.rs
-+++ b/drivers/gpu/drm/nova/gem.rs
-@@ -11,9 +11,9 @@
-     sync::aref::ARef,
- };
- 
--use crate::{
--    driver::{NovaDevice, NovaDriver},
--    file::File,
-+use crate::driver::{
-+    NovaDevice,
-+    NovaDriver, //
- };
- 
- /// GEM Object inner driver data
-@@ -43,7 +43,7 @@ pub(crate) fn new(dev: &NovaDevice, size: usize) -> Result<ARef<gem::Object<Self
-     /// Look up a GEM object handle for a `File` and return an `ObjectRef` for it.
-     #[inline]
-     pub(crate) fn lookup_handle(
--        file: &drm::File<File>,
-+        file: &drm::File<NovaDriver>,
-         handle: u32,
-     ) -> Result<ARef<gem::Object<Self>>> {
-         gem::Object::lookup_handle(file, handle)
-diff --git a/drivers/gpu/drm/tyr/driver.rs b/drivers/gpu/drm/tyr/driver.rs
-index c2b99d67369f..46caf7b336d9 100644
---- a/drivers/gpu/drm/tyr/driver.rs
-+++ b/drivers/gpu/drm/tyr/driver.rs
-@@ -209,7 +209,7 @@ fn drop(self: Pin<&mut Self>) {}
- impl drm::Driver for TyrDrmDriver {
-     type Data = ();
-     type RegistrationData<'drm> = TyrDrmRegistrationData<'drm>;
--    type File = TyrDrmFileData;
-+    type File<'a> = TyrDrmFileData;
-     type Object = Bo;
-     type ParentDevice<Ctx: DeviceContext> = platform::Device<Ctx>;
- 
-diff --git a/drivers/gpu/drm/tyr/file.rs b/drivers/gpu/drm/tyr/file.rs
-index 6850708cfcdd..933a365cb016 100644
---- a/drivers/gpu/drm/tyr/file.rs
-+++ b/drivers/gpu/drm/tyr/file.rs
-@@ -19,13 +19,16 @@
- #[pin_data]
- pub(crate) struct TyrDrmFileData {}
- 
--/// Convenience type alias for our DRM `File` type
--pub(crate) type TyrDrmFile = drm::file::File<TyrDrmFileData>;
-+/// Convenience type alias for our DRM `File` type.
-+pub(crate) type TyrDrmFile = drm::file::File<TyrDrmDriver>;
- 
--impl drm::file::DriverFile for TyrDrmFileData {
-+impl drm::file::DriverFile<'_> for TyrDrmFileData {
-     type Driver = TyrDrmDriver;
- 
--    fn open(_dev: &drm::Device<Self::Driver>) -> impl PinInit<Self, Error> {
-+    fn open(
-+        _device: &TyrDrmDevice<Registered>,
-+        _reg_data: &TyrDrmRegistrationData<'_>,
-+    ) -> impl PinInit<Self, Error> {
-         Ok(Self {})
-     }
- }
-diff --git a/rust/kernel/drm/device.rs b/rust/kernel/drm/device.rs
-index b8444499b39c..9dfb71cb2e69 100644
---- a/rust/kernel/drm/device.rs
-+++ b/rust/kernel/drm/device.rs
-@@ -15,9 +15,13 @@
-     },
-     error::from_err_ptr,
-     prelude::*,
--    sync::aref::{
--        ARef,
--        AlwaysRefCounted, //
-+    sync::{
-+        aref::{
-+            ARef,
-+            AlwaysRefCounted, //
-+        },
-+        atomic::Atomic,
-+        WaitQueue,
-     },
-     types::{
-         NotThreadSafe,
-@@ -203,8 +207,8 @@ const fn compute_features() -> u32 {
- 
-     const VTABLE: bindings::drm_driver = drm_legacy_fields! {
-         load: None,
--        open: Some(drm::File::<T::File>::open_callback),
--        postclose: Some(drm::File::<T::File>::postclose_callback),
-+        open: Some(drm::File::<T>::open_callback),
-+        postclose: Some(drm::File::<T>::postclose_callback),
-         unload: None,
-         release: Some(Device::<T>::release),
-         master_set: None,
-@@ -333,6 +337,21 @@ pub fn new(
-         // SAFETY: `raw_drm` is valid; no concurrent access before registration.
-         unsafe { (*raw_drm.as_ptr()).registration_data = UnsafeCell::new(NonNull::dangling()) };
- 
-+        // SAFETY: `raw_drm` is valid; no concurrent access before registration.
-+        unsafe { (*raw_drm.as_ptr()).open_count = Atomic::new(0) };
-+
-+        // SAFETY:
-+        // - `raw_drm` is valid and `open_count_wq` is uninitialized; no concurrent access
-+        //   before registration.
-+        // - The field is pinned because the Device is pinned (refcounted, allocated by
-+        //   `__drm_dev_alloc()`, never moved).
-+        unsafe {
-+            pin_init::raw_init(
-+                &raw mut (*raw_drm.as_ptr()).open_count_wq,
-+                crate::new_waitqueue!("drm_open_count"),
-+            )
-+        };
-+
-         // SAFETY: The reference count is one, and now we take ownership of that reference as a
-         // `drm::Device`.
-         // INVARIANT: We just created the device above, but have yet to call `drm_dev_register`.
-@@ -357,6 +376,8 @@ pub struct Device<T: drm::Driver, C: DeviceContext = Normal> {
-     dev: Opaque<bindings::drm_device>,
-     data: T::Data,
-     pub(super) registration_data: UnsafeCell<NonNull<T::RegistrationData<'static>>>,
-+    pub(super) open_count: Atomic<u64>,
-+    pub(super) open_count_wq: WaitQueue,
-     _ctx: PhantomData<C>,
- }
- 
-diff --git a/rust/kernel/drm/driver.rs b/rust/kernel/drm/driver.rs
-index f6db91e81e79..6e1cc72b3d89 100644
---- a/rust/kernel/drm/driver.rs
-+++ b/rust/kernel/drm/driver.rs
-@@ -7,10 +7,22 @@
- use crate::{
-     bindings,
-     device,
--    drm,
-+    drm::{
-+        self,
-+        file::FileData, //
-+    },
-     error::to_result,
-+    interop::list::clist_create,
-     prelude::*,
--    sync::aref::ARef, //
-+    sync::{
-+        aref::ARef,
-+        atomic::{
-+            Acquire,
-+            Release, //
-+        },
-+        Mutex, //
-+    },
-+    types::Opaque, //
- };
- use core::{
-     marker::PhantomPinned,
-@@ -120,8 +132,14 @@ pub trait Driver {
-     /// The type used to manage memory for this driver.
-     type Object: AllocImpl;
- 
--    /// The type used to represent a DRM File (client)
--    type File: drm::file::DriverFile;
-+    /// The type used to represent a DRM File (client).
-+    ///
-+    /// File data may borrow from [`RegistrationData`](Driver::RegistrationData). File data is
-+    /// guaranteed to be dropped before registration data, either when the file is closed or
-+    /// when the device is unregistered, whichever comes first.
-+    ///
-+    /// Drivers implement [`DriverFile`](drm::file::DriverFile) for their file data type.
-+    type File<'a>: drm::file::DriverFile<'a, Driver = Self> + 'a;
- 
-     /// The bus device type of the parent device that the DRM device is associated with.
-     type ParentDevice<Ctx: device::DeviceContext>: device::AsBusDevice<Ctx>;
-@@ -197,6 +215,13 @@ pub unsafe fn new<E>(
-                 // SAFETY: `drm` is a valid, initialized but not yet registered DRM device.
-                 let ret = unsafe { bindings::drm_dev_register(drm.as_raw(), 0) };
-                 to_result(ret).inspect_err(|_| {
-+                    // SAFETY:
-+                    // - Failed registration unplugs the device and drains registration guards.
-+                    // - `data` remains initialized until this closure returns.
-+                    // - Failed initialization does not run `Registration::drop()`, so this is
-+                    //   the only file-data cleanup for this device.
-+                    unsafe { Self::drop_file_data(drm) };
-+
-                     // SAFETY: `drm_dev_register()` synchronizes SRCU on failure, so no
-                     // concurrent access to `registration_data` is possible at this point.
-                     unsafe { *drm.registration_data.get() = NonNull::dangling() };
-@@ -209,6 +234,75 @@ pub unsafe fn new<E>(
-     pub fn device(&self) -> &drm::Device<T> {
-         &self.drm
-     }
-+
-+    /// Detaches and drops file data, then waits for concurrent postclose destruction.
-+    ///
-+    /// # Safety
-+    ///
-+    /// - `drm` must be unplugged with all `RegistrationGuard` sections drained.
-+    /// - Its registration data must remain alive until this function returns.
-+    /// - This must be the only call for this device.
-+    unsafe fn drop_file_data(drm: &drm::Device<T>) {
-+        let raw = drm.as_raw();
-+        let mut files = None;
-+
-+        // SAFETY: `filelist_mutex` is initialized by `drm_dev_init()` and remains valid for
-+        // the lifetime of the `struct drm_device`.
-+        let filelist_mutex = unsafe { Mutex::from_raw(&raw mut (*raw).filelist_mutex) };
-+        {
-+            let _guard = filelist_mutex.lock();
-+
-+            // SAFETY:
-+            // - `filelist` is initialized and protected by the held mutex.
-+            // - Its entries are `drm_file`s linked through `lhead`; `Opaque` has the same layout.
-+            let filelist = unsafe {
-+                clist_create!(
-+                    &raw mut (*raw).filelist,
-+                    Opaque<bindings::drm_file>,
-+                    bindings::drm_file,
-+                    lhead
-+                )
-+            };
-+
-+            // Detach the allocations so `postclose()` sees NULL and leaves their destruction to us.
-+            // After `postclose()` returns, the DRM core can free the C file, so the detached list
-+            // must not depend on it. All `RegistrationGuard` sections have already been drained.
-+            for file in filelist.iter() {
-+                // SAFETY: `file` is a valid `drm_file` on this device's filelist.
-+                let priv_ptr = unsafe { (*file.get()).driver_priv };
-+
-+                // SAFETY: Setting `driver_priv` to NULL is visible to `postclose_callback()`
-+                // through the `filelist_mutex` acquire/release chain in `drm_close_helper()`.
-+                unsafe { (*file.get()).driver_priv = core::ptr::null_mut() };
-+
-+                // SAFETY:
-+                // - `priv_ptr` comes from `KBox::into_raw()` in `open_callback()`.
-+                // - The file is still in the list, so `postclose_callback()` has not run. Clearing
-+                //   `driver_priv` transfers ownership here and makes a later postclose skip it.
-+                // - Only the owning pointer is moved; the pinned allocation is dropped in place.
-+                let mut data = unsafe {
-+                    Pin::new_unchecked(KBox::from_raw(
-+                        priv_ptr.cast::<FileData<T::File<'static>>>(),
-+                    ))
-+                };
-+                *data.as_mut().project().next = files.take();
-+                files = Some(data);
-+            }
-+        }
-+
-+        // Run driver destructors without `filelist_mutex`. Take each link before dropping its
-+        // allocation to avoid recursively dropping the entire chain.
-+        while let Some(mut data) = files {
-+            files = data.as_mut().project().next.take();
-+            drop(data);
-+            drm.open_count.fetch_sub(1, Release);
-+        }
-+
-+        // Wait for file-data destruction in concurrent `postclose_callback()` calls. No new opens
-+        // can succeed after unplug, so `open_count` is monotonically decreasing.
-+        drm.open_count_wq
-+            .wait_event(|| drm.open_count.load(Acquire) == 0);
-+    }
- }
- 
- // SAFETY: `Registration` doesn't offer any methods or access to fields when shared between
-@@ -230,8 +324,13 @@ fn drop(self: Pin<&mut Self>) {
-         // SAFETY: Safe by the invariant of `ARef<drm::Device<T>>`. The existence of this
-         // `Registration` also guarantees that this `drm::Device` is actually registered.
-         unsafe { bindings::drm_dev_unplug(self.drm.as_raw()) };
--        // After drm_dev_unplug(), the SRCU barrier guarantees that all RegistrationGuard critical
--        // sections have completed, so no one holds a reference to reg_data anymore.
--        // reg_data is dropped here automatically.
-+
-+        // SAFETY:
-+        // - `drm_dev_unplug()` has unplugged the device and drained registration guards.
-+        // - Registration data remains alive until this destructor returns.
-+        // - Registration succeeded, so this destructor performs the only file-data cleanup.
-+        unsafe { Self::drop_file_data(&self.drm) };
-+
-+        // Registration data is dropped here automatically, after all file data has been dropped.
-     }
- }
-diff --git a/rust/kernel/drm/file.rs b/rust/kernel/drm/file.rs
-index bd5e4ca2977f..c77b082a12b5 100644
---- a/rust/kernel/drm/file.rs
-+++ b/rust/kernel/drm/file.rs
-@@ -8,36 +8,66 @@
-     bindings,
-     drm,
-     prelude::*,
-+    sync::atomic::{
-+        Relaxed,
-+        Release, //
-+    },
-     types::Opaque, //
- };
- use core::marker::PhantomData;
- 
- /// Trait that must be implemented by DRM drivers to represent a DRM File (a client instance).
--pub trait DriverFile {
-+///
-+/// The lifetime `'a` allows the file data to borrow from
-+/// [`RegistrationData`](drm::Driver::RegistrationData).
-+pub trait DriverFile<'a>: Sized + Send + Sync {
-     /// The parent `Driver` implementation for this `DriverFile`.
-     type Driver: drm::Driver;
- 
--    /// Open a new file (called when a client opens the DRM device).
--    fn open(device: &drm::Device<Self::Driver>) -> impl PinInit<Self, Error>;
-+    /// Open a new DRM file, creating the per-file driver data.
-+    ///
-+    /// Called when a client opens the DRM device. The returned initializer may borrow from
-+    /// `reg_data` with lifetime `'a`.
-+    fn open(
-+        device: &drm::Device<Self::Driver, drm::Registered>,
-+        reg_data: &'a <Self::Driver as drm::Driver>::RegistrationData<'a>,
-+    ) -> impl PinInit<Self, Error>;
-+}
-+
-+/// File-private allocation, with a link for dropping detached data outside `filelist_mutex`.
-+#[pin_data]
-+pub(super) struct FileData<T> {
-+    /// Pinned per-file driver data, which may borrow from registration data.
-+    #[pin]
-+    data: T,
-+    /// Next detached allocation to drop during registration teardown; otherwise `None`.
-+    pub(super) next: Option<Pin<KBox<Self>>>,
- }
- 
- /// An open DRM File.
- ///
- /// # Invariants
- ///
--/// `self.0` is a valid instance of a `struct drm_file`.
-+/// - `self.0` is a valid instance of a `struct drm_file` opened on a device of driver `D`.
-+/// - A [`drm::RegistrationGuard`] for that device is held for the duration of any `&File<D>`
-+///   reference.
- #[repr(transparent)]
--pub struct File<T: DriverFile>(Opaque<bindings::drm_file>, PhantomData<T>);
-+pub struct File<D: drm::Driver>(Opaque<bindings::drm_file>, PhantomData<D>);
- 
--impl<T: DriverFile> File<T> {
-+impl<D: drm::Driver> File<D> {
-     #[doc(hidden)]
-     /// Not intended to be called externally, except via declare_drm_ioctls!()
-     ///
-     /// # Safety
-     ///
--    /// `raw_file` must be a valid pointer to an open `struct drm_file`, opened through `T::open`.
--    pub unsafe fn from_raw<'a>(ptr: *mut bindings::drm_file) -> &'a File<T> {
--        // SAFETY: `raw_file` is valid by the safety requirements of this function.
-+    /// - `ptr` must point to an open `struct drm_file` on a device of driver `D` and remain valid
-+    ///   for `'a`.
-+    /// - A [`drm::RegistrationGuard`] for that device must be held for all of `'a`.
-+    #[inline]
-+    pub unsafe fn from_raw<'a>(ptr: *mut bindings::drm_file) -> &'a File<D> {
-+        // SAFETY:
-+        // - The caller guarantees that `ptr` is valid for `'a`.
-+        // - The caller guarantees that the type invariants hold.
-         unsafe { &*ptr.cast() }
-     }
- 
-@@ -45,60 +75,109 @@ pub(super) fn as_raw(&self) -> *mut bindings::drm_file {
-         self.0.get()
-     }
- 
--    fn driver_priv(&self) -> *mut T {
--        // SAFETY: By the type invariants of `Self`, `self.as_raw()` is always valid.
--        unsafe { (*self.as_raw()).driver_priv }.cast()
-+    /// Returns the registered DRM device this file was opened on.
-+    #[inline]
-+    pub fn device(&self) -> &drm::Device<D, drm::Registered> {
-+        // SAFETY:
-+        // - The open file keeps its minor and device alive.
-+        // - By the type invariants, the device uses driver `D`.
-+        // - The type invariants require a `RegistrationGuard` for the device throughout this
-+        //   borrow, satisfying the `Registered` context.
-+        unsafe { drm::Device::from_raw((*(*self.as_raw()).minor).dev) }
-     }
- 
--    /// Return a pinned reference to the driver file structure.
--    pub fn inner(&self) -> Pin<&T> {
--        // SAFETY: By the type invariant the pointer `self.as_raw()` points to a valid and opened
--        // `struct drm_file`, hence `driver_priv` has been properly initialized by `open_callback`.
--        unsafe { Pin::new_unchecked(&*(self.driver_priv())) }
-+    /// Access the driver file data through a closure.
-+    ///
-+    /// The closure receives a pinned reference to the file data.
-+    ///
-+    /// The outer reference carries the `&self` lifetime while the inner type carries the HRTB
-+    /// lifetime `'a`, implying `'a` outlives `&self`. This allows the closure to coerce covariant
-+    /// sub-fields (e.g. `&'a T` to the caller's lifetime) and return them directly in `R`.
-+    #[inline]
-+    pub fn inner_with<'this, R, F>(&'this self, f: F) -> R
-+    where
-+        F: for<'a> FnOnce(Pin<&'this D::File<'a>>) -> R,
-+    {
-+        // SAFETY: By the type invariants, `self.as_raw()` points to a valid `drm_file`.
-+        let ptr: *const FileData<_> = unsafe { (*self.as_raw()).driver_priv.cast_const().cast() };
-+
-+        // SAFETY:
-+        // - The type invariants keep this file's pinned `FileData` allocation valid for `'this`.
-+        // - The `data` field is structurally pinned.
-+        // - The HRTB `for<'a>` prevents the caller from choosing a concrete lifetime, so shortening
-+        //   is sound regardless of variance.
-+        let data: Pin<&'this D::File<'this>> = unsafe { Pin::new_unchecked(&(*ptr).data) };
-+        f(data)
-     }
- 
-     /// The open callback of a `struct drm_file`.
-+    ///
-+    /// Called from `drm_open()`, which is itself called from `fops_open()`. The latter holds a
-+    /// `RegistrationGuard`, so the device is guaranteed to be registered for the duration of this
-+    /// callback.
-     pub(crate) extern "C" fn open_callback(
-         raw_dev: *mut bindings::drm_device,
-         raw_file: *mut bindings::drm_file,
-     ) -> core::ffi::c_int {
--        // SAFETY: A callback from `struct drm_driver::open` guarantees that
--        // - `raw_dev` is valid pointer to a `struct drm_device`,
--        // - the corresponding `struct drm_device` has been registered.
--        let drm = unsafe { drm::Device::from_raw(raw_dev) };
+-allOf:
+-  - $ref: dai-common.yaml#
+-  - if:
+-      required:
+-        - cirrus,amplifier-bpe-enable
+-    then:
+-      required:
+-        - cirrus,amplifier-bpe-response-mode
+-        - cirrus,amplifier-bpe-thresholds-microvolt
+-        - cirrus,amplifier-bpe-attack-rates
+-        - cirrus,amplifier-bpe-hold-times-us
+-        - cirrus,amplifier-bpe-release-rates
+-    else:
+-      properties:
+-        cirrus,amplifier-bpe-response-mode: false
+-        cirrus,amplifier-bpe-thresholds-microvolt: false
+-        cirrus,amplifier-bpe-attenuation-levels-db: false
+-        cirrus,amplifier-bpe-attenuation-levels-microvolt: false
+-        cirrus,amplifier-bpe-attenuation-levels-microwatt: false
+-        cirrus,amplifier-bpe-attack-rates: false
+-        cirrus,amplifier-bpe-hold-times-us: false
+-        cirrus,amplifier-bpe-release-rates: false
+-  - if:
+-      properties:
+-        cirrus,amplifier-bpe-response-mode:
+-          const: 0
+-      required:
+-        - cirrus,amplifier-bpe-response-mode
+-    then:
+-      required:
+-        - cirrus,amplifier-bpe-attenuation-levels-db
+-      properties:
+-        cirrus,amplifier-bpe-attenuation-levels-microvolt: false
+-        cirrus,amplifier-bpe-attenuation-levels-microwatt: false
+-  - if:
+-      properties:
+-        cirrus,amplifier-bpe-response-mode:
+-          const: 1
+-      required:
+-        - cirrus,amplifier-bpe-response-mode
+-    then:
+-      required:
+-        - cirrus,amplifier-bpe-attenuation-levels-microvolt
+-      properties:
+-        cirrus,amplifier-bpe-attenuation-levels-db: false
+-        cirrus,amplifier-bpe-attenuation-levels-microwatt: false
+-  - if:
+-      properties:
+-        cirrus,amplifier-bpe-response-mode:
+-          const: 2
+-      required:
+-        - cirrus,amplifier-bpe-response-mode
+-    then:
+-      required:
+-        - cirrus,amplifier-bpe-attenuation-levels-microwatt
+-      properties:
+-        cirrus,amplifier-bpe-attenuation-levels-db: false
+-        cirrus,amplifier-bpe-attenuation-levels-microvolt: false
 -
--        // SAFETY: `raw_file` is a valid pointer to a `struct drm_file`.
--        let file = unsafe { File::<T>::from_raw(raw_file) };
+-  - if:
+-      required:
+-        - cirrus,boost-bpe-enable
+-    then:
+-      required:
+-        - cirrus,boost-bpe-output-operating-mode
+-        - cirrus,boost-bpe-output-attack-rate
+-        - cirrus,boost-bpe-output-release-rate
+-        - cirrus,boost-bpe-battery-limits-microamp
+-        - cirrus,boost-bpe-battery-thresholds-microvolt
+-        - cirrus,boost-bpe-battery-attack-rates
+-        - cirrus,boost-bpe-battery-hold-times-us
+-        - cirrus,boost-bpe-battery-release-rates
+-    else:
+-      properties:
+-        cirrus,boost-bpe-output-operating-mode: false
+-        cirrus,boost-bpe-output-attack-rate: false
+-        cirrus,boost-bpe-output-release-rate: false
+-        cirrus,boost-bpe-battery-limits-microamp: false
+-        cirrus,boost-bpe-battery-thresholds-microvolt: false
+-        cirrus,boost-bpe-battery-attack-rates: false
+-        cirrus,boost-bpe-battery-hold-times-us: false
+-        cirrus,boost-bpe-battery-release-rates: false
+-        cirrus,boost-bpe-inductor-release-mode: false
+-        cirrus,boost-bpe-inductor-threshold-microamp: false
+-        cirrus,boost-bpe-inductor-threshold-deltas-microamp: false
+-        cirrus,boost-bpe-inductor-threshold-hysteresis-microamp: false
+-        cirrus,boost-bpe-inductor-delay-hysteresis-us: false
+-        cirrus,boost-bpe-inductor-delays-ms: false
+-        cirrus,boost-bpe-inductor-attack-rates: false
+-        cirrus,boost-bpe-inductor-release-rates: false
+-  - if:
+-      properties:
+-        cirrus,boost-bpe-output-operating-mode:
+-          const: 0
+-      required:
+-        - cirrus,boost-bpe-output-operating-mode
+-    then:
+-      required:
+-        - cirrus,boost-bpe-inductor-release-mode
+-        - cirrus,boost-bpe-inductor-threshold-microamp
+-        - cirrus,boost-bpe-inductor-threshold-deltas-microamp
+-        - cirrus,boost-bpe-inductor-threshold-hysteresis-microamp
+-        - cirrus,boost-bpe-inductor-delay-hysteresis-us
+-        - cirrus,boost-bpe-inductor-delays-ms
+-        - cirrus,boost-bpe-inductor-attack-rates
+-        - cirrus,boost-bpe-inductor-release-rates
+-    else:
+-      properties:
+-        cirrus,boost-bpe-inductor-release-mode: false
+-        cirrus,boost-bpe-inductor-threshold-microamp: false
+-        cirrus,boost-bpe-inductor-threshold-deltas-microamp: false
+-        cirrus,boost-bpe-inductor-threshold-hysteresis-microamp: false
+-        cirrus,boost-bpe-inductor-delay-hysteresis-us: false
+-        cirrus,boost-bpe-inductor-delays-ms: false
+-        cirrus,boost-bpe-inductor-attack-rates: false
+-        cirrus,boost-bpe-inductor-release-rates: false
 -
--        let init = T::open(drm);
--        let inner = match KBox::try_pin_init(init, GFP_KERNEL) {
--            Err(e) => {
--                return e.to_errno();
--            }
--            Ok(i) => i,
--        };
--
--        // SAFETY: This pointer is treated as pinned, and the Drop guarantee is upheld in
--        // `postclose_callback()`.
--        let driver_priv = KBox::into_raw(unsafe { Pin::into_inner_unchecked(inner) });
--
--        // SAFETY: By the type invariants of `Self`, `self.as_raw()` is always valid.
--        unsafe { (*file.as_raw()).driver_priv = driver_priv.cast() };
--
--        0
-+        // SAFETY:
-+        // - The DRM core guarantees that `raw_dev` is valid.
-+        // - `fops_open()` holds a `RegistrationGuard`, satisfying the `Registered` context.
-+        let dev: &drm::device::Device<D, drm::Registered> =
-+            unsafe { drm::device::Device::from_raw(raw_dev) };
+ properties:
+   compatible:
+     enum:
+@@ -434,7 +317,7 @@ properties:
+       maximum: 15
+ 
+   cirrus,amplifier-bpe-attenuation-levels-microvolt:
+-    description: |
++    description:
+       Amplifier BPE linear voltage audio output attenuation for levels L3,
+       L2, L1, L0.
+     minItems: 4
+@@ -445,7 +328,7 @@ properties:
+       multipleOf: 31250
+ 
+   cirrus,amplifier-bpe-attenuation-levels-microwatt:
+-    description: |
++    description:
+       Amplifier BPE linear power audio output attenuation for levels L3,
+       L2, L1, L0.
+     $ref: /schemas/types.yaml#/definitions/uint32-array
+@@ -457,7 +340,7 @@ properties:
+       multipleOf: 31250
+ 
+   cirrus,amplifier-bpe-attack-rates:
+-    description: |
++    description:
+       Amplifier BPE attack rate register codes for levels L3, L2, L1, L0.
+       Code 0 is instantaneous; codes 1 through 8 select progressively
+       slower rates. The physical rate depends on the response mode.
+@@ -471,7 +354,7 @@ properties:
+       maximum: 8
+ 
+   cirrus,amplifier-bpe-hold-times-us:
+-    description: |
++    description:
+       Amplifier BPE hold times for levels L3, L2, L1, L0. Infinite hold is
+       unsupported.
+     minItems: 4
+@@ -481,7 +364,7 @@ properties:
+              100000, 250000, 500000, 1000000, 2500000, 5000000, 10000000]
+ 
+   cirrus,amplifier-bpe-release-rates:
+-    description: |
++    description:
+       Amplifier BPE release rate register codes for levels L3, L2, L1, L0.
+       Code 0 is instantaneous; codes 1 through 14 select progressively
+       slower rates. The physical rate depends on the response mode.
+@@ -591,6 +474,123 @@ required:
+   - reg
+   - "#sound-dai-cells"
+ 
++allOf:
++  - $ref: dai-common.yaml#
++  - if:
++      required:
++        - cirrus,amplifier-bpe-enable
++    then:
++      required:
++        - cirrus,amplifier-bpe-response-mode
++        - cirrus,amplifier-bpe-thresholds-microvolt
++        - cirrus,amplifier-bpe-attack-rates
++        - cirrus,amplifier-bpe-hold-times-us
++        - cirrus,amplifier-bpe-release-rates
++    else:
++      properties:
++        cirrus,amplifier-bpe-response-mode: false
++        cirrus,amplifier-bpe-thresholds-microvolt: false
++        cirrus,amplifier-bpe-attenuation-levels-db: false
++        cirrus,amplifier-bpe-attenuation-levels-microvolt: false
++        cirrus,amplifier-bpe-attenuation-levels-microwatt: false
++        cirrus,amplifier-bpe-attack-rates: false
++        cirrus,amplifier-bpe-hold-times-us: false
++        cirrus,amplifier-bpe-release-rates: false
++  - if:
++      properties:
++        cirrus,amplifier-bpe-response-mode:
++          const: 0
++      required:
++        - cirrus,amplifier-bpe-response-mode
++    then:
++      required:
++        - cirrus,amplifier-bpe-attenuation-levels-db
++      properties:
++        cirrus,amplifier-bpe-attenuation-levels-microvolt: false
++        cirrus,amplifier-bpe-attenuation-levels-microwatt: false
++  - if:
++      properties:
++        cirrus,amplifier-bpe-response-mode:
++          const: 1
++      required:
++        - cirrus,amplifier-bpe-response-mode
++    then:
++      required:
++        - cirrus,amplifier-bpe-attenuation-levels-microvolt
++      properties:
++        cirrus,amplifier-bpe-attenuation-levels-db: false
++        cirrus,amplifier-bpe-attenuation-levels-microwatt: false
++  - if:
++      properties:
++        cirrus,amplifier-bpe-response-mode:
++          const: 2
++      required:
++        - cirrus,amplifier-bpe-response-mode
++    then:
++      required:
++        - cirrus,amplifier-bpe-attenuation-levels-microwatt
++      properties:
++        cirrus,amplifier-bpe-attenuation-levels-db: false
++        cirrus,amplifier-bpe-attenuation-levels-microvolt: false
 +
-+        dev.registration_data_with(|reg_data| {
-+            let init = try_pin_init!(FileData {
-+                next: None,
-+                data <- <D::File<'_> as DriverFile<'_>>::open(dev, reg_data),
-+            });
-+            let inner = match KBox::try_pin_init(init, GFP_KERNEL) {
-+                Err(e) => return e.to_errno(),
-+                Ok(i) => i,
-+            };
++  - if:
++      required:
++        - cirrus,boost-bpe-enable
++    then:
++      required:
++        - cirrus,boost-bpe-output-operating-mode
++        - cirrus,boost-bpe-output-attack-rate
++        - cirrus,boost-bpe-output-release-rate
++        - cirrus,boost-bpe-battery-limits-microamp
++        - cirrus,boost-bpe-battery-thresholds-microvolt
++        - cirrus,boost-bpe-battery-attack-rates
++        - cirrus,boost-bpe-battery-hold-times-us
++        - cirrus,boost-bpe-battery-release-rates
++    else:
++      properties:
++        cirrus,boost-bpe-output-operating-mode: false
++        cirrus,boost-bpe-output-attack-rate: false
++        cirrus,boost-bpe-output-release-rate: false
++        cirrus,boost-bpe-battery-limits-microamp: false
++        cirrus,boost-bpe-battery-thresholds-microvolt: false
++        cirrus,boost-bpe-battery-attack-rates: false
++        cirrus,boost-bpe-battery-hold-times-us: false
++        cirrus,boost-bpe-battery-release-rates: false
++        cirrus,boost-bpe-inductor-release-mode: false
++        cirrus,boost-bpe-inductor-threshold-microamp: false
++        cirrus,boost-bpe-inductor-threshold-deltas-microamp: false
++        cirrus,boost-bpe-inductor-threshold-hysteresis-microamp: false
++        cirrus,boost-bpe-inductor-delay-hysteresis-us: false
++        cirrus,boost-bpe-inductor-delays-ms: false
++        cirrus,boost-bpe-inductor-attack-rates: false
++        cirrus,boost-bpe-inductor-release-rates: false
++  - if:
++      properties:
++        cirrus,boost-bpe-output-operating-mode:
++          const: 0
++      required:
++        - cirrus,boost-bpe-output-operating-mode
++    then:
++      required:
++        - cirrus,boost-bpe-inductor-release-mode
++        - cirrus,boost-bpe-inductor-threshold-microamp
++        - cirrus,boost-bpe-inductor-threshold-deltas-microamp
++        - cirrus,boost-bpe-inductor-threshold-hysteresis-microamp
++        - cirrus,boost-bpe-inductor-delay-hysteresis-us
++        - cirrus,boost-bpe-inductor-delays-ms
++        - cirrus,boost-bpe-inductor-attack-rates
++        - cirrus,boost-bpe-inductor-release-rates
++    else:
++      properties:
++        cirrus,boost-bpe-inductor-release-mode: false
++        cirrus,boost-bpe-inductor-threshold-microamp: false
++        cirrus,boost-bpe-inductor-threshold-deltas-microamp: false
++        cirrus,boost-bpe-inductor-threshold-hysteresis-microamp: false
++        cirrus,boost-bpe-inductor-delay-hysteresis-us: false
++        cirrus,boost-bpe-inductor-delays-ms: false
++        cirrus,boost-bpe-inductor-attack-rates: false
++        cirrus,boost-bpe-inductor-release-rates: false
 +
-+            // SAFETY: The allocation stays pinned until `postclose_callback()` or
-+            // `Registration::drop_file_data()` drops it in place.
-+            let driver_priv = KBox::into_raw(unsafe { Pin::into_inner_unchecked(inner) });
-+
-+            dev.open_count.fetch_add(1, Relaxed);
-+
-+            // SAFETY: `raw_file` is a valid pointer to a `struct drm_file`.
-+            unsafe { (*raw_file).driver_priv = driver_priv.cast() };
-+
-+            0
-+        })
-     }
+ unevaluatedProperties: false
  
-     /// The postclose callback of a `struct drm_file`.
-     pub(crate) extern "C" fn postclose_callback(
--        _raw_dev: *mut bindings::drm_device,
-+        raw_dev: *mut bindings::drm_device,
-         raw_file: *mut bindings::drm_file,
-     ) {
--        // SAFETY: This reference won't escape this function
--        let file = unsafe { File::<T>::from_raw(raw_file) };
-+        // Registration cleanup may have taken ownership and cleared `driver_priv`. For files
-+        // that reached the filelist, `drm_close_helper()` removes them under `filelist_mutex`
-+        // before this callback, synchronizing with `Registration::drop_file_data()`.
- 
--        // SAFETY: `file.driver_priv` has been created in `open_callback` through `KBox::into_raw`.
--        let _ = unsafe { KBox::from_raw(file.driver_priv()) };
-+        // SAFETY: `raw_file` is a valid pointer to a `struct drm_file`.
-+        let driver_priv = unsafe { (*raw_file).driver_priv };
-+
-+        if driver_priv.is_null() {
-+            return;
-+        }
-+
-+        // SAFETY:
-+        // - `driver_priv` comes from `KBox::into_raw()` in `open_callback()`.
-+        // - The file is not on the filelist, and the NULL check rules out ownership having been
-+        //   transferred to `Registration::drop_file_data()`.
-+        // - The pinned data is dropped in place while registration data is still alive, since
-+        //   registration cleanup waits for `open_count` to reach zero.
-+        drop(unsafe { KBox::from_raw(driver_priv.cast::<FileData<D::File<'static>>>()) });
-+
-+        // SAFETY: `raw_dev` is valid for the lifetime of the `struct drm_file`.
-+        let dev: &drm::device::Device<D> = unsafe { drm::device::Device::from_raw(raw_dev) };
-+        if dev.open_count.fetch_sub(1, Release) == 1 {
-+            dev.open_count_wq.wake_up();
-+        }
-     }
- }
- 
--impl<T: DriverFile> super::private::Sealed for File<T> {}
-+impl<D: drm::Driver> super::private::Sealed for File<D> {}
-diff --git a/rust/kernel/drm/gem/mod.rs b/rust/kernel/drm/gem/mod.rs
-index 260f36817f96..123a3896f2a5 100644
---- a/rust/kernel/drm/gem/mod.rs
-+++ b/rust/kernel/drm/gem/mod.rs
-@@ -76,7 +76,7 @@ unsafe fn dec_ref(obj: core::ptr::NonNull<Self>) {
- ///
- /// [`Driver`]: drm::Driver
- /// [`DriverFile`]: drm::file::DriverFile
--pub type DriverFile<T> = drm::File<<<T as DriverObject>::Driver as drm::Driver>::File>;
-+pub type DriverFile<T> = drm::File<<T as DriverObject>::Driver>;
- 
- /// A type alias for retrieving the current [`AllocImpl`] for a given [`DriverObject`].
- ///
-@@ -136,7 +136,9 @@ extern "C" fn open_callback<T: DriverObject>(
-         return ENODEV.to_errno();
-     };
- 
--    // SAFETY: `open_callback` is only ever called with a valid pointer to a `struct drm_file`.
-+    // SAFETY:
-+    // - Handle creation ensures the valid file belongs to the object's device (`T::Driver`).
-+    // - `_guard` is held for the entire use of the file reference.
-     let file = unsafe { DriverFile::<T>::from_raw(raw_file) };
- 
-     // SAFETY:
-@@ -164,7 +166,9 @@ extern "C" fn close_callback<T: DriverObject>(
-         return;
-     };
- 
--    // SAFETY: `open_callback` is only ever called with a valid pointer to a `struct drm_file`.
-+    // SAFETY:
-+    // - Handle creation ensures the valid file belongs to the object's device (`T::Driver`).
-+    // - `_guard` is held for the entire use of the file reference.
-     let file = unsafe { DriverFile::<T>::from_raw(raw_file) };
- 
-     // SAFETY: `close_callback` is specified in the AllocOps structure for `Object<T>`, ensuring
-@@ -188,6 +192,18 @@ unsafe fn from_raw<'a>(self_ptr: *mut bindings::drm_gem_object) -> &'a Self {
- 
- /// Base operations shared by all GEM object classes
- pub trait BaseObject: IntoGEMObject {
-+    /// Returns the DRM device that owns this GEM object.
-+    #[inline]
-+    fn device(&self) -> &drm::Device<Self::Driver>
-+    where
-+        Self: AllocImpl,
-+    {
-+        // SAFETY:
-+        // - `self.as_raw()` points to a valid GEM object whose device is valid for this borrow.
-+        // - The sealed `AllocImpl` implementations identify the device's driver as `Self::Driver`.
-+        unsafe { drm::Device::from_raw((*self.as_raw()).dev) }
-+    }
-+
-     /// Returns the size of the object in bytes.
-     fn size(&self) -> usize {
-         // SAFETY: `self.as_raw()` is guaranteed to be a pointer to a valid `struct drm_gem_object`.
-@@ -196,26 +212,32 @@ fn size(&self) -> usize {
- 
-     /// Creates a new handle for the object associated with a given `File`
-     /// (or returns an existing one).
--    fn create_handle<D, F>(&self, file: &drm::File<F>) -> Result<u32>
-+    ///
-+    /// Returns [`EINVAL`] if the object and file belong to different DRM devices.
-+    fn create_handle<D>(&self, file: &drm::File<D>) -> Result<u32>
-     where
-         Self: AllocImpl<Driver = D>,
--        D: drm::Driver<Object = Self, File = F>,
--        F: drm::file::DriverFile<Driver = D>,
-+        D: drm::Driver<Object = Self>,
-     {
-+        if self.device().as_raw() != file.device().as_raw() {
-+            return Err(EINVAL);
-+        }
-+
-         let mut handle: u32 = 0;
--        // SAFETY: The arguments are all valid per the type invariants.
-+        // SAFETY:
-+        // - The pointers are valid per the type invariants.
-+        // - The object and file belong to the same DRM device.
-         to_result(unsafe {
--            bindings::drm_gem_handle_create(file.as_raw().cast(), self.as_raw(), &mut handle)
-+            bindings::drm_gem_handle_create(file.as_raw(), self.as_raw(), &mut handle)
-         })?;
-         Ok(handle)
-     }
- 
-     /// Looks up an object by its handle for a given `File`.
--    fn lookup_handle<D, F>(file: &drm::File<F>, handle: u32) -> Result<ARef<Self>>
-+    fn lookup_handle<D>(file: &drm::File<D>, handle: u32) -> Result<ARef<Self>>
-     where
-         Self: AllocImpl<Driver = D> + AlwaysRefCounted,
--        D: drm::Driver<Object = Self, File = F>,
--        F: drm::file::DriverFile<Driver = D>,
-+        D: drm::Driver<Object = Self>,
-     {
-         // SAFETY: The arguments are all valid per the type invariants.
-         let ptr = unsafe { bindings::drm_gem_object_lookup(file.as_raw().cast(), handle) };
-diff --git a/rust/kernel/drm/gem/shmem.rs b/rust/kernel/drm/gem/shmem.rs
-index 1a4f81e3b5b5..1558b6079edf 100644
---- a/rust/kernel/drm/gem/shmem.rs
-+++ b/rust/kernel/drm/gem/shmem.rs
-@@ -601,10 +601,13 @@ struct KunitObject {}
-         desc: c"Kunit",
-     };
- 
--    impl drm::file::DriverFile for KunitFile {
-+    impl drm::file::DriverFile<'_> for KunitFile {
-         type Driver = KunitDriver;
- 
--        fn open(_dev: &drm::Device<KunitDriver>) -> impl PinInit<Self, Error> {
-+        fn open(
-+            _device: &drm::Device<KunitDriver, drm::Registered>,
-+            _reg_data: &(),
-+        ) -> impl PinInit<Self, Error> {
-             Ok(Self)
-         }
-     }
-@@ -626,7 +629,7 @@ fn new(
-     impl drm::Driver for KunitDriver {
-         type Data = KunitData;
-         type RegistrationData<'a> = ();
--        type File = KunitFile;
-+        type File<'a> = KunitFile;
-         type Object = Object<KunitObject>;
-         type ParentDevice<Ctx: device::DeviceContext> = faux::Device<Ctx>;
- 
-diff --git a/rust/kernel/drm/ioctl.rs b/rust/kernel/drm/ioctl.rs
-index 9934b23c36eb..65c326348c64 100644
---- a/rust/kernel/drm/ioctl.rs
-+++ b/rust/kernel/drm/ioctl.rs
-@@ -97,7 +97,7 @@ pub const fn __dev_ctx_cast<T: crate::drm::Driver>(
- /// fn foo(device: &kernel::drm::Device<Self, kernel::drm::Registered>,
- ///        reg_data: &Self::RegistrationData<'_>,
- ///        data: &mut uapi::argument_type,
--///        file: &kernel::drm::File<Self::File>,
-+///        file: &kernel::drm::File<Self>,
- /// ) -> Result<u32>
- /// ```
- /// where `Self` is the drm::drv::Driver implementation these ioctls are being declared within.
-@@ -192,7 +192,9 @@ macro_rules! declare_drm_ioctls {
-                             // There is no concurrent access or aliasing; no other references
-                             // to this object exist during this call.
-                             let data = unsafe { &mut *(raw_data.cast::<$crate::uapi::$struct>()) };
--                            // SAFETY: This is just the DRM file structure
-+                            // SAFETY:
-+                            // - The DRM core provides a valid file for this device.
-+                            // - `guard` is held for the entire use of the file reference.
-                             let file = unsafe { $crate::drm::File::from_raw(raw_file) };
- 
-                             match guard.registration_data_with(|reg_data| {
+ examples:
+
+---
+base-commit: e2aee84df35aeadadfbcdb750a3921a0cab03e46
+change-id: 20261118-bpe-dt-cleanup-b2e360fdc90f
+
+Best regards,
 -- 
-2.56.1
+Ricardo Rivera-Matos <rriveram@opensource.cirrus.com>
 
