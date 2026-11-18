@@ -1,80 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794985392;
-	b=0HVs4VtHCujxwWKMz2xloaBWzN22rd8w66jR9XVNUIedWY1tpLq9MGJzhM7wtZQzY7oK
-	 5VC7iLQbZEA7gZXYOj4L/z34dwEO38KIPFpI+Tg5eiZ2M/8vFrFdkolLuVlOF96x8guNk
-	 ClGOQ1mt6andzxWEYiR1t42Be27ebHtCZXSqtzeOcdlMA1TQDz1jGXVb8kwvvcYbutgeT
-	 w0kv6duBdRj5PUydSPnSbFqkrPcIJZ7X1q+knPHE5MR/phnEB0k345muaknC1X6N53Fao
-	 WkuTjfh8Yd4nKo92zhbqwsvz3++drIJCghK1y9JEtlTZjzbX+JNklPKZt71o4z9wAKg==
+	t=1794985415;
+	b=L/xP2L8PB7XfQ9BaOkjzPBzlkc5wI1He+x3LSQHCK5PzEYT4KZq4InonOnfwZfCxu1FW
+	 paFTNr3jrRbkeeHalhOzhQkClCxBBrc7AaC92T9U9WptfHGK1i5lcb3jar0GVDeowjSJ5
+	 Pn4+sj9S4wdMlwy7pfcbhibvhcT9n82sVB3n5JOg4tx4kpGcsJP5Q/QKFwo8szEm6HiWw
+	 hb0ezrFxPORDeWCeZCBHNYbksKHnzVt6XqtutIgxfOH/K2C7LXCqScDpK4d70ksjTsHab
+	 E1F9DntYqQW9KX2daHbSNRC3YhxajeyTu76kPZ77orrW4yDlJrd4XIeuxoNOTRrsFHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985392;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985415;
 	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:
-	 X-Source-IP:X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=AmaWeU4MO6ngVRRD6vG/r7mzdb6FLOu0b+ksQyR6+To=;
-	b=jEqb4FK3LaVg26PnelElQbXPSYOqugE0BNDkmk3wdZ8NkolY3lWwXMK41PCyLgnShEHs
-	 dkqQRP+2TDD6eDmv2UdVs3xY+/9dENWZeROPxZ8+KB6vPJOtJjfYUdE4uhFSB19DZLuXZ
-	 r9Uhdz75wfCOkJnXoMMY3AqwENTgwXoSoarYemUTJYM+hPk4inWG+BiUWSiTeuwlZhg5U
-	 v2gfFgy/fc+7b0KeJiqBFFNWx76RQe3Ev+lew38zsKfk6HBPYcna6MukRa46e8oBaujL9
-	 rcj3eVJTvZV2vwwP1WoBzHV06JDzt36doq4BKgkHmGcVyEE/4KATTtUmLcDllruLC+w==
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=h1VBUKnemsO9XaRfaEdwM906RtF4ETg965AOGYzb7pM=;
+	b=0Ap0jKcDhIm326xSFjzlQ/Jry1m1h5rKrA8vjTmPvKu8ReQza94lD9W4p4BLw+ujGH2g
+	 bZQXO68xf/oHOFLy14uT5IcvIYLgRjeEU47h+OAued8qPAIVS2AgTJR7krV5XGB3OH6VF
+	 kIqRIOOUzWxwItE3u08YMnJHS+Chv0/VtqUqZ8io1f91buU2PpOlsdqaSIUfGqph009Eo
+	 eaAr0pur3uz9EFbObHK2firbQPhtqNOF6/jHsmgvPlauCtfu/DNan25m5Iz75iU7dFslx
+	 k7kkVw2PfLYfjHvRS7wYr/X+D0vofq3q4VkiwnBooFKFzYrhgGZNbZ8KwqSr/zpJ8Cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=sellers.id.au;
 	spf=fail smtp.mailfrom=sellers.id.au;
-	dkim=pass header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=GrS5LJ5X;
-	arc=none smtp.remote-ip=35.89.44.33
-Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
+	dkim=pass header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=hyg8TeeS;
+	arc=none smtp.remote-ip=35.89.44.35
+Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BF93606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:03:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BF93606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0474606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:03:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0474606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sellers.id.au
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=sellers.id.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=GrS5LJ5X
-Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
+	dkim=pass (2048-bit key) header.d=sellers.id.au header.i=@sellers.id.au header.a=rsa-sha256 header.s=default header.b=hyg8TeeS
+Received: from eig-obgw-5004b.ext.cloudfilter.net ([10.0.29.208])
 	by cmsmtp with ESMTPS
-	id TSHKx4bmrAR1iTZhIxrB5O; Wed, 18 Nov 2026 07:03:12 +0000
+	id TU1rxV3icRiNxTZhexfHPY; Wed, 18 Nov 2026 07:03:34 +0000
 Received: from just2044.justhost.com ([173.254.29.206])
 	by cmsmtp with ESMTPS
-	id TZhHx4PyalaNKTZhHx6KiN; Wed, 18 Nov 2026 07:03:11 +0000
-X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6afd4daf
+	id TZhYxYe3YuJrPTZhYx53qL; Wed, 18 Nov 2026 07:03:28 +0000
+X-Authority-Analysis: v=2.4 cv=WLZ/XmsR c=1 sm=1 tr=0 ts=6afd4dc6
  a=pynxHT4M0AVwz8ROpNtnNw==:117 a=tbVZtiplu92VKpH45hjydQ==:17
- a=zJRp6_cAMcgA:10 a=QzMiS2WfBm8A:10 a=IehRXGEb1GNWFAjnUyIA:9
+ a=zJRp6_cAMcgA:10 a=QzMiS2WfBm8A:10 a=VwQbUJbxAAAA:8 a=tjeQfB6RoHAyGUvcEiwA:9
  a=sW6rCsXrbcaOzks2YK80:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=sellers.id.au; s=default; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=AmaWeU4MO6ngVRRD6vG/r7mzdb6FLOu0b+ksQyR6+To=; b=GrS5LJ5XcUTY
-	n2g/MEjAXcU7Y3vqTsmUL3DBiGD0YKHKJ3BNJuehd0mMLdL3Zl2KEqMPmGBDdRXk6w2FDo9bst2Xh
-	V6QMZjaSfKgaDzTlrQVSslBIDmydOexw0ty75JtsWCkoIo1LAchw+JyZi2Raom7mziwhYZRl9cgB9
-	d6IO5ZU3TZDptwtQy+XrZ4YuLWKTmtrY6lqo/bBuWpitWrTcBSkT1satfc5motjJX8fo37jtBLJzo
-	JJqCexU5wHS58why2WrdYcch1x1LzZLpOYinWbh4OXi4YQAF0cRNQPSdLiIrcONP5Gjok+DWEN0Ck
-	aGqgU54vKXA+GFA1VY8UZw==;
-Received: from n110-32-20-158.rdl21.qld.optusnet.com.au ([110.32.20.158]:46974 helo=localhost.localdomain)
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=h1VBUKnemsO9XaRfaEdwM906RtF4ETg965AOGYzb7pM=; b=hyg8TeeSeHVlMc9tDvP9mzfRMU
+	XtpWm9AmiL0Ikqz3YfVJ+9dEYQCVAHwCJwCM437+ILMiFabokkWAlSaTlC1tfiuH4uG0ABTQbYDZP
+	afkGRs9Px0FlaiI0HEf2HIdwAEyaDavxs1y4vpDkYZqw+/bWw0onp1ughB6wUONVlJdEm0ukr9ild
+	qo7uBgYrBofTHdmLtDqUb/f6F29S0LiO6L/26SAflATF5aIU7//DCoJFX+nonpibPeKNATpMsXM/b
+	GdDJcIy+RjP36TWQw1ea8HfqNbzGrtD2KQCXNmCY+FeOCHX4M6jdZHU9tPQYW7JAVmFwaltHthMtG
+	bqgnLj8g==;
+Received: from n110-32-20-158.rdl21.qld.optusnet.com.au ([110.32.20.158]:44998 helo=localhost.localdomain)
 	by just2044.justhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <dean@sellers.id.au>)
-	id 1xTZhG-00000002TMc-0qX7;
-	Wed, 18 Nov 2026 00:03:10 -0700
+	id 1xTZhX-00000002U0j-16Iw;
+	Wed, 18 Nov 2026 00:03:27 -0700
 From: Dean Sellers <dean@sellers.id.au>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>,
+	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Dean Sellers <dean@sellers.id.au>
-Subject: [PATCH 2/2] pinctrl: sx150x: move wide registers in a single block transfer
-Date: Wed, 18 Nov 2026 18:02:59 +1100
-Message-ID: <20261118070259.2557570-3-dean@sellers.id.au>
+	Dean Sellers <dean@sellers.id.au>,
+	stable@vger.kernel.org
+Subject: [PATCH] gpio: pca953x: restore output registers before direction on resume
+Date: Wed, 18 Nov 2026 18:03:21 +1100
+Message-ID: <20261118070321.2557621-1-dean@sellers.id.au>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118070259.2557570-1-dean@sellers.id.au>
-References: <20261118070259.2557570-1-dean@sellers.id.au>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,134 +92,85 @@ X-AntiAbuse: Sender Address Domain - sellers.id.au
 X-BWhitelist: no
 X-Source-IP: 110.32.20.158
 X-Source-L: No
-X-Exim-ID: 1xTZhG-00000002TMc-0qX7
+X-Exim-ID: 1xTZhX-00000002U0j-16Iw
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-Source-Sender: n110-32-20-158.rdl21.qld.optusnet.com.au (localhost.localdomain) [110.32.20.158]:46974
+X-Source-Sender: n110-32-20-158.rdl21.qld.optusnet.com.au (localhost.localdomain) [110.32.20.158]:44998
 X-Source-Auth: dean@sellers.id.au
-X-Email-Count: 7
+X-Email-Count: 11
 X-Org: HG=bhshared_jh;ORG=bluehost;
 X-Source-Cap: cmVhbHN0cjE7cmVhbHN0cjE7anVzdDIwNDQuanVzdGhvc3QuY29t
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfLFBvKX722uEx7H0xSDo4g+ChryZ6dn/vPcVuFCvDdYhc/2fyoLut208Z55t50metm2jKGHSkEvbv0c8q4iC0MmU0A2fMOBTOB19TE9kL6F1LUwotsIT
- FzuJis+tqTVeO2su3AnnN8uKhVKI1IPS5ELgXq7QIa6V6Ua5iaSdLPxiw2ixOhIK8TtBWr1hnbdB/fC1+UpjjM8TpmW0fMoK8/o=
+X-CMAE-Envelope: MS4xfNa8384N+k16vn+oIsxPIz5lHiAhUYABmGS4xow3i3OT1OvCbEAnF+Cpxi6MR+X1gOLQ8HUaydS7s0TWq0tCHDm5KYprlLEvEYxb05alX1zFxX9WgI9r
+ QpCMsrFkQCNHoKykVYNFs5jIalroRi/dHVMechX8YArvRmUtec4Ax1gRB5wu4Hbmr1MS7G8d/s3WpPJu01hU4o2jovRPqmBHLlc=
 
-The regmap accessors build each logical register from one SMBus byte
-access per byte. On a 16-line part every register on the interrupt path
-is 16 bits wide, so servicing one interrupt costs six i2c transfers: two
-to read RegInterruptSource, two to ack it, and two more when gpiolib
-reads RegData back to report the line level.
+pca953x_regcache_sync() restores the direction registers before the
+output registers. If the chip lost power across suspend, it comes back
+with every line an input and its output registers at their power-on
+value, which is all-high on most of these parts. Restoring direction
+first turns the configured lines back into outputs while the output
+registers still hold that value. Every line programmed low is then
+driven high for the duration of the direction write and the output write
+that follows. Where those lines drive a load, there is potential for a
+spurious output.
 
-Measured on an SX1509Q on a 100 kHz bus, each transfer costs about
-0.6 ms, of which roughly 0.36 ms is time on the wire and the rest is
-fixed adapter overhead. The transfer count dominates interrupt latency,
-and it is well above the minimum hardware debounce period of 0.5 ms. The
-longer the latency, the wider the window in which a second edge merges
-into a latch bit that is already set and is lost.
+Restore output first, while the lines are still inputs, and direction
+second. This matches device_pca95xx_init(), which already writes
+output before direction when bringing the chip up at probe.
 
-The 789 parts auto-increment the register address across a multi-byte
-access unless that is disabled in RegMisc[1]. The bit is clear out of
-reset and sx150x_init_misc() leaves it clear, so a wide register can be
-moved in one transfer. That takes the interrupt path from six transfers
-to three.
-
-Enable this only on the 789 models, and only when the adapter advertises
-I2C_FUNC_SMBUS_I2C_BLOCK. The 123 and 456 parts stay on byte-at-a-time
-access, because their datasheets do not document the same
-auto-increment behaviour.
-
-A short block read is reported as -EIO, so a truncated transfer is
-never returned as a register value.
-
+Fixes: b76574300504 ("gpio: pca953x: Restore registers after suspend/resume cycle")
+Cc: stable@vger.kernel.org
 Signed-off-by: Dean Sellers <dean@sellers.id.au>
 ---
- drivers/pinctrl/pinctrl-sx150x.c | 44 ++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+Testing: developed and tested on a TCA6408 on a 5.15-based kernel; the
+reorder was exercised through a configuration-restore path there, not
+through suspend/resume itself. I no longer have that hardware, so this
+version, rebased onto gpio/for-next, is compile-tested only (x86_64
+allmodconfig, W=1).
 
-diff --git a/drivers/pinctrl/pinctrl-sx150x.c b/drivers/pinctrl/pinctrl-sx150x.c
-index c97e9bc3a33f..970f9d8bd809 100644
---- a/drivers/pinctrl/pinctrl-sx150x.c
-+++ b/drivers/pinctrl/pinctrl-sx150x.c
-@@ -38,6 +38,8 @@ enum {
- enum {
- 	SX150X_789_REG_MISC_AUTOCLEAR_OFF = 1 << 0,
- 	SX150X_MAX_REGISTER = 0xad,
-+	/* Widest logical register is the 32-bit RegSense quartet. */
-+	SX150X_MAX_REG_BYTES = 4,
- 	SX150X_IRQ_TYPE_EDGE_RISING = 0x1,
- 	SX150X_IRQ_TYPE_EDGE_FALLING = 0x2,
- 	SX150X_789_RESET_KEY1 = 0x12,
-@@ -105,6 +107,8 @@ struct sx150x_pinctrl {
- 	} irq;
- 	struct mutex lock;
- 	const struct sx150x_device_data *data;
-+	/* Wide registers can be moved in one i2c block transfer */
-+	bool block_xfer;
- };
+The rebase onto mainline and the changelog were prepared with help from
+Claude (Anthropic); the code change is my original work.
+
+ drivers/gpio/gpio-pca953x.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpio/gpio-pca953x.c b/drivers/gpio/gpio-pca953x.c
+index 3b2407690281..270cea8b4b49 100644
+--- a/drivers/gpio/gpio-pca953x.c
++++ b/drivers/gpio/gpio-pca953x.c
+@@ -1337,20 +1337,23 @@ static int pca953x_regcache_sync(struct pca953x_chip *chip)
+ 	u8 regaddr;
  
- static const struct pinctrl_pin_desc sx150x_4_pins[] = {
-@@ -1065,6 +1069,24 @@ static int sx150x_regmap_reg_read(void *context, unsigned int reg,
- 	 *		reg + 3 [ 3 3 2 2 1 1 0 0 ]
+ 	/*
+-	 * The ordering between direction and output is important,
+-	 * sync these registers first and only then sync the rest.
++	 * The ordering between output and direction is important: restore
++	 * the output levels while the lines are still inputs, and only then
++	 * turn them into outputs. Restoring direction first would drive
++	 * every output at the power-on output value until the output
++	 * registers are written. Sync these first, then the rest.
  	 */
+-	regaddr = chip->recalc_addr(chip, chip->regs->direction, 0);
++	regaddr = chip->recalc_addr(chip, chip->regs->output, 0);
+ 	ret = regcache_sync_region(chip->regmap, regaddr, regaddr + NBANK(chip) - 1);
+ 	if (ret) {
+-		dev_err(dev, "Failed to sync GPIO dir registers: %d\n", ret);
++		dev_err(dev, "Failed to sync GPIO out registers: %d\n", ret);
+ 		return ret;
+ 	}
  
-+	if (pctl->block_xfer && width > 8) {
-+		const int count = width / 8;
-+		u8 buf[SX150X_MAX_REG_BYTES];
-+
-+		ret = i2c_smbus_read_i2c_block_data(i2c, reg, count, buf);
-+		if (ret < 0)
-+			return ret;
-+		if (ret != count)
-+			return -EIO;
-+
-+		for (n = 0, val = 0; n < count; n++)
-+			val = (val << 8) | buf[n];
-+
-+		*result = sx150x_maybe_swizzle(pctl, reg, val);
-+
-+		return 0;
-+	}
-+
- 	for (n = width, val = 0, idx = reg; n > 0; n -= 8, idx++) {
- 		val <<= 8;
+-	regaddr = chip->recalc_addr(chip, chip->regs->output, 0);
++	regaddr = chip->recalc_addr(chip, chip->regs->direction, 0);
+ 	ret = regcache_sync_region(chip->regmap, regaddr, regaddr + NBANK(chip) - 1);
+ 	if (ret) {
+-		dev_err(dev, "Failed to sync GPIO out registers: %d\n", ret);
++		dev_err(dev, "Failed to sync GPIO dir registers: %d\n", ret);
+ 		return ret;
+ 	}
  
-@@ -1090,6 +1112,17 @@ static int sx150x_regmap_reg_write(void *context, unsigned int reg,
- 
- 	val = sx150x_maybe_swizzle(pctl, reg, val);
- 
-+	if (pctl->block_xfer && width > 8) {
-+		const int count = width / 8;
-+		u8 buf[SX150X_MAX_REG_BYTES];
-+		int i;
-+
-+		for (i = 0, n = (width - 1) & ~7; i < count; i++, n -= 8)
-+			buf[i] = (val >> n) & 0xff;
-+
-+		return i2c_smbus_write_i2c_block_data(i2c, reg, count, buf);
-+	}
-+
- 	n = (width - 1) & ~7;
- 	do {
- 		const u8 byte = (val >> n) & 0xff;
-@@ -1150,6 +1183,17 @@ static int sx150x_probe(struct i2c_client *client)
- 	if (!pctl->data)
- 		return -EINVAL;
- 
-+	/*
-+	 * The 789 parts auto-increment the register address across a
-+	 * multi-byte access unless that is disabled in RegMisc, which
-+	 * sx150x_init_misc() leaves enabled, so a wide register can be moved
-+	 * in one transfer. The 123 and 456 datasheets do not document the
-+	 * same behaviour, so those parts stay on byte-at-a-time access.
-+	 */
-+	pctl->block_xfer = pctl->data->model == SX150X_789 &&
-+			   i2c_check_functionality(client->adapter,
-+						   I2C_FUNC_SMBUS_I2C_BLOCK);
-+
- 	pctl->regmap = devm_regmap_init(dev, NULL, pctl,
- 					&sx150x_regmap_config);
- 	if (IS_ERR(pctl->regmap)) {
+
+base-commit: 90000c03a9f6c74759f773a5078088db81514347
 -- 
 2.43.0
 
