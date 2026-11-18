@@ -1,103 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005151;
-	b=mQxRDLFQI2omNVbCKeoKDrMbO3qyk4tKbh5LNOPtvEoeEagITkdSMtYqsLujF+42tFdV
-	 OwZIOzkZCDrRrilLfHEYyrvFMdHQaikoiYO6g+IftlmKq49cc2FRLDkRd0Y+d2auW3XJK
-	 6j8cd+BZtSQ1sDmUBivdXyHn3mEJA9HdOqsFL1yIks4pkaURq1Fl6n+QUKFAF531f2Pho
-	 vCrYj2lkf+kh+Nt/ANoMS/01TrfSlxJRAMFP+jIFQOahMyfvkgMXtaEKicKqsmZp1VaGL
-	 ubE14RhnBpDmxqVojpOgzk5Ra9J8v37N9RKw2hDcVptBZMLEG7aKC6B/N/+kqcx8q5g==
+	t=1795005165;
+	b=N/wycSfG2iIBCaZV1XK6JwbzXR7FMAqDyrgvuzsVWsY3GgJONM8zHGswL4RCo3u8auvB
+	 JELD+rPINO3hZ7j9lqfbRAVkwTjlepE/9GQSJ6BMtP7m2497x+EG37k2OW55Ahq0mj9M3
+	 8dGq/98hKbuUZH9X1Dt6I9nQiDGnDQ/YQ13JPxWGt5tt0uaUIFVzsjJqV1GLrMj2K94PW
+	 hofYptFeP3+kxDxWkTTGXXJ7/D9kr0azRqSLMdk6TRIH53x0hRuHnJVCaBOEKtZDVC1pk
+	 q2Ac0fi6iZmNdlXtisXctJDKYd4D7qBOAMpIWyCUh/KGrvcFG+d7MPONeMxacIDoCGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005151;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=MegKunIxbKJmWXfHvvLlyDz6eGlSNoNkyHutakVtL/4=;
-	b=g06mnHjgM6UkxbjUBi1FD232GE//+3wGejw1vjLEulBAkYPH6+MjIm6W5iYiB8CuBX/9
-	 cI3XfCV6Uhixrp2J2KqtgxwVJYU2lOGl8Y/Fwl/RoXNo0h+T7HcylysRAVTcYi/VT9qnw
-	 XG8juOsWaP+BRYgW9wNAflxRswbMXxt+JXt08hLmoyAPQobv03x9hhhCXEX/cQzLp4S4I
-	 MPgs/d9+zdYivIQnSixZoJ4EsCXwTxtFSzD1MnKIXKceIfAm9G1b+mKPJ+Qk8pkgPQr70
-	 YOXaz35QywYaC5DXE8mGGq0cHw/UEkP3p7hchIHQo/4mLIjaQL8fCRpmG3JeEytI5aQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005165;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=70t0JbsHuE8RJx7WH4ijKksCN6kWqlzaDl4vSA3sy3U=;
+	b=20wIIoWd4AGj4+JoLXNvhyy5i17jUYdL5WPTLem9Qm6+qYj0EvTq7Kbd7W3h+43pJ8h5
+	 SqMAmpd+FBakuoXNyAL/VQATY3zsUv463Q4zjD8UHty6cohTzaQZuM/Fi+XWHJCtv7VYD
+	 YAdDZuWWVb9iieNu8V1TF/c2aVY1thJOtHmU+cSXYAtrQC3DwNQIObwrtwKiWBIOMobSx
+	 /vBAMrXe24afxG34twslOB855ScWGEJGkiGJembnV7WZZZ0dxDpNmqJhLivFyVWogw470
+	 /2CW/Qlf0MV6WtAb5PJ9bNOinMUgk1/9shs3C9Tu8B2xQoSFAe29H/cfd+qnX+rNeNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tyfbf2Us;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SvDp+UP5;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51673606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:32:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51673606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E980D606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:32:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E980D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tyfbf2Us
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a511d8a394so117599f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:32:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795005150; x=1795609950; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MegKunIxbKJmWXfHvvLlyDz6eGlSNoNkyHutakVtL/4=;
-        b=tyfbf2UsPBVYYD26GeNTW+Qgmm0LMvV7VG/ikGF5XJoStTiPOglV/6gXZjSr/oWyJv
-         2vByeShRxa04SwSUmUyB70qEaHEczqGgZPt6BDVPNq2V9MLNzoakciG3XnaHY1anl2EK
-         7Pa/ECRBuBaoI5KxULPfvFt6Cm8cMVbO2/AWxWwW5RlGm2LtaECQtGUx3q36S+Anp96W
-         w7n24TllVuuVHCDcQUic1nxFl+vcm8A3e1DzpmsKngxhJbirihpjIVtsfYQKn8kTmJnU
-         GN0j/o9h8DEqlK4VCKNJgk+9ZOZx6bhHtdgf+9lG2RWJtgy3WV4DG2KRZSv+BTkln/aj
-         dcug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795005150; x=1795609950;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MegKunIxbKJmWXfHvvLlyDz6eGlSNoNkyHutakVtL/4=;
-        b=OD1XNfsRjf1QPlgybpu0is4xbdIX5COJIum+MCzecOSnfIrfRplp8Ex/gg3G50jjpi
-         KPaottRDbC4N6wE70bwM2Mk4NyL4c7HUCTt05cQLknDkGuX6DTGCIIYVj1T2mFgmx8JB
-         3Vltpx6vI584A7rgNwDVe/PBLBys8tj1H1dsVe0hp8DvtROkI+afY0rrm+EiiN82BG46
-         tye+bPxy5rJrxpfY67cGs/FbJaAA9z4eG2Nsp1jC4e4ti+N0CbaaKs34TfsKBNiyNxmf
-         S1xpQAwqYJqut2nmUD3hTgXUE5mR/gsd6IpgjwzXBzNtcDVXgw9PoYcv8FTtyRtONP1k
-         bb1A==
-X-Forwarded-Encrypted: i=1; AL+hErElDGPEVCtruSUaDovIEEyG1et5S6LgSzM4giOcsXc8D2Se3TtkhjSfb5gIz75NQxiRyYfDwqJrEChmBcw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+Skr6mdY6rhvVXgRnjbr+SeOyLJ/55lCc5/4ms8MPIkSN2xsv
-	nsQt4vpOS47JsUtXa5Q6eyGZas4cGBe1OaokOToBIYcR6ZMYdX2g1yqq
-X-Gm-Gg: AZFdTZf46E8NmGW7Su7gjnTEVa8ZdTddZVYmbb25OTRUuphLZ0FNOmJP9s7f4tRHd7l
-	7aAxhDQbr3bIURsVy3YIG6FaTclG+CWUhfn6u+dcUa6XKhplc1K7jAy/7u8exU4kHgp6yiz0BqV
-	ehheVGDhvnLtb4OeBtSfbrs6Xyruvl/lM5bmWtLdFAKyvd2x2uv1SaAfqW4Lz1Z/a00yMoV7jkE
-	xV+SH6Zc/JTKNLyUni3MjMIttflkCny/7F6G7gtTsLATl4xjb5pPZ+G+4JPIpdCfpyeiTWtqrGI
-	lCyVQLReiZ4GV9K4JasHGVP6tUkcsl0m1R1bbQj16W2HH6bSRUxOvH23WiMFSl5/Zs5lyD7kc2L
-	ZvgyGPu8BGXe5mZNfjwz60h44kh5ZFfa2WNds+kguFUqr9HOHAAf6rHVZKkoqz38M/vTF/58RMz
-	vSVc9WLVjBAHnLGRDhh4Pt94FqrirmzBlhZoGKIkk1c+TunwyC0svQhBkFvlSi49MJy6kCcozGl
-	0w2u0mtIH+BKsqFHB8HeHP0u49oKDChASkZrXesxDtTAnb+V4HKhiSBoiBlYurWWDAYHe63+eqp
-	LxUJXtvv2HTHyHX4zMyMSaSahgBikl/vYLQpgh4dojfd/i9EB600FcY=
-X-Received: by 2002:a5d:5f54:0:b0:4a6:bc53:246a with SMTP id ffacd0b85a97d-4a6bc626b7dmr4052393f8f.5.1795005149445;
-        Wed, 18 Nov 2026 04:32:29 -0800 (PST)
-Received: from scheduler.schedules ([85.100.69.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c11f4bsm4645746f8f.51.2026.11.18.04.32.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 04:32:28 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:32:25 +0300
-From: Kayra Cizmeci <kayracizmeci@gmail.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de, 
-	vschneid@redhat.com, kprateek.nayak@amd.com, linux-kernel@vger.kernel.org, 
-	lukasz.luba@arm.com, rafael@kernel.org, linux-pm@vger.kernel.org, tj@kernel.org, 
-	void@manifault.com, arighi@nvidia.com, changwoo@igalia.com, 
-	sched-ext@lists.linux.dev, qyousef@layalina.io, christian.loehle@arm.com, 
-	pierre.gondois@arm.com, sshegde@linux.ibm.com, tim.c.chen@linux.intel.com
-Subject: Re: [PATCH 01/20 v3] sched/eevdf: Decay positive lag of sleeping
- entities
-Message-ID: <av2KuYNx1A-rCz0R@scheduler.schedules>
-References: <20261106151947.3991524-1-vincent.guittot@linaro.org>
- <20261106151947.3991524-2-vincent.guittot@linaro.org>
- <avr4MsRsjGfGHKKk@scheduler.schedules>
- <CAKfTPtBZ=Dc_X48EQ0yXMym0JrS=pWvbviyVyFri0tv5VdR3Eg@mail.gmail.com>
- <av1uqTFI46wRb0ok@scheduler.schedules>
- <CAKfTPtC7AmoSE4iev5qf0MMYDBHPpLMduYhz5XMDsMGiMNpy0A@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SvDp+UP5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795005163;
+	bh=wteOM9b+zSffSygch8OIiG1KfgGZxZdoiAbmq3MuSjM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SvDp+UP5rJzMgno0Rw8XcbVnIR40+0cLIXqM7U1qt3IvoBBtX2CdwLMBnu/tYrLNF
+	 mx5GHSS/udI8UNablyDlmu6mItAYAmbSedTYSLBpA/3xLvOHir/ePh2i/u2SpEZrso
+	 BiEILgdKCWwBVfpFn6xxjHKd6kMNF7/g/h1ozrDySkW9C92m8gPa2piQMIR9Z2u1Vu
+	 qoKszQboTwJwp+VHzXt36VZQko34CAbrYXI7rcTJatRUlhlSRqqxJJywt6OBYOX4LH
+	 vBmyoA7V3UtpZ7sAvCkXduXSnEyDUeF9umKgxRLI6uYaYBF1wACIvN1+OLc4gRPK5y
+	 wnd4uOyXf6swA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ADE5E17E052F;
+	Wed, 18 Nov 2026 13:32:42 +0100 (CET)
+Message-ID: <675eb0c5-96a1-4254-844e-234fb972d824@collabora.com>
+Date: Wed, 18 Nov 2026 13:32:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,281 +61,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAKfTPtC7AmoSE4iev5qf0MMYDBHPpLMduYhz5XMDsMGiMNpy0A@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] drm/mediatek: dsi: Don't let a signal cut the IRQ wait
+ short
+To: zi-hao.huang@mediatek.com, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ shaoming chen <shaoming.chen@mediatek.com>, dri-devel@lists.freedesktop.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, CK Hu <ck.hu@mediatek.com>
+References: <20261118-mtk-dsi-irq-wait-v2-1-8bda52993c6f@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20261118-mtk-dsi-irq-wait-v2-1-8bda52993c6f@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 12:21:10PM +0100, Vincent Guittot wrote:
-> On Wed, 18 Nov 2026 at 11:58, Kayra Cizmeci <kayracizmeci@gmail.com> wrote:
-> >
-> > On Wed, Nov 18, 2026 at 10:20:14AM +0100, Vincent Guittot wrote:
-> > > On Mon, 16 Nov 2026 at 14:57, Kayra Cizmeci <kayracizmeci@gmail.com> wrote:
-> > > >
-> > > >
-> > > > Hi Vincent!
-> > > >
-> > > > On Fri, Nov 06, 2026 at 04:19:28PM +0100, Vincent Guittot wrote:
-> > > > > Similarly to delayed dequeue, which enables an entity to decay its negative
-> > > > > lag while sleeping, a task should not keep a positive lag forever.
-> > > > >
-> > > > > The sleep duration and the weight are used to decay the positive lag at
-> > > > > wakeup.
-> > > > >
-> > > > > Apply the decay when enqueueing on prev rq for which we hold the lock to
-> > > > > get rq_clock_task().
-> > > > >
-> > > > > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > > > > ---
-> > > > >  kernel/sched/fair.c | 124 ++++++++++++++++++++++++++++++++------------
-> > > > >  1 file changed, 90 insertions(+), 34 deletions(-)
-> > > > >
-> > > > > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> > > > > index 0feec172fd37..5cd171f830d8 100644
-> > > > > --- a/kernel/sched/fair.c
-> > > > > +++ b/kernel/sched/fair.c
-> > > > > @@ -897,6 +897,91 @@ bool update_entity_lag(struct cfs_rq *cfs_rq, struct sched_entity *se)
-> > > > >       return avruntime - vlag != se->vruntime;
-> > > > >  }
-> > > > >
-> > > > > +/*
-> > > > > + * Signed add and clamp on underflow.
-> > > > > + *
-> > > > > + * Explicitly do a load-store to ensure the intermediate value never hits
-> > > > > + * memory. This allows lockless observations without ever seeing the negative
-> > > > > + * values.
-> > > > > + */
-> > > > > +#define add_positive(_ptr, _val) do {                           \
-> > > > > +     typeof(_ptr) ptr = (_ptr);                              \
-> > > > > +     __signed_scalar_typeof(*ptr) val = (_val);              \
-> > > > > +     typeof(*ptr) res, var = READ_ONCE(*ptr);                \
-> > > > > +                                                             \
-> > > > > +     res = var + val;                                        \
-> > > > > +                                                             \
-> > > > > +     if (val < 0 && res > var)                               \
-> > > > > +             res = 0;                                        \
-> > > > > +                                                             \
-> > > > > +     WRITE_ONCE(*ptr, res);                                  \
-> > > > > +} while (0)
-> > > > > +
-> > > > > +/*
-> > > > > + * Remove and clamp on negative, from a local variable.
-> > > > > + *
-> > > > > + * A variant of sub_positive(), which does not use explicit load-store
-> > > > > + * and is thus optimized for local variable updates.
-> > > > > + */
-> > > > > +#define lsub_positive(_ptr, _val) do {                               \
-> > > > > +     typeof(_ptr) ptr = (_ptr);                              \
-> > > > > +     *ptr -= min_t(typeof(*ptr), *ptr, _val);                \
-> > > > > +} while (0)
-> > > > > +
-> > > > > +static inline unsigned long cfs_rq_load_avg(struct cfs_rq *cfs_rq);
-> > > > > +static unsigned long task_h_load(struct task_struct *p);
-> > > > > +
-> > > > > +static __always_inline
-> > > > > +void decay_entity_lag(struct cfs_rq *cfs_rq, struct task_struct *p, int flags)
-> > > > > +{
-> > > > > +     struct sched_entity *se = &p->se;
-> > > > > +     s64 delta_exec, vlag = se->vlag;
-> > > > > +     unsigned long cfs_load;
-> > > > > +     struct rq *rq;
-> > > > > +
-> > > > > +     WARN_ON_ONCE(se->on_rq);
-> > > > > +
-> > > > > +     /* Negative lag is managed by delayed dequeue path */
-> > > > > +     if (vlag <= 0)
-> > > > > +             return;
-> > > > > +
-> > > > > +     rq = rq_of(cfs_rq);
-> > > > > +
-> > > > > +     /* No fast access to prev rq task clock */
-> > > > > +     if (flags & ENQUEUE_MIGRATED)
-> > > > > +             return;
-> > > > > +
-> > > > > +     /* Compute sleep time */
-> > > > > +     delta_exec = rq_clock_task(rq) - se->exec_start;
-> > > > > +     if (unlikely(delta_exec <= 0))
-> > > > > +             return;
-> > > > > +
-> > > > > +     /* For anything above ~4 seconds, save computation and clear the lag */
-> > > > > +     if (unlikely(delta_exec >> 32)) {
-> > > > > +             se->vlag = 0;
-> > > > > +             return;
-> > > > > +     }
-> > > > > +
-> > > > > +     /*
-> > > > > +      * Use cfs' load and p's weight to estimate what would have been the
-> > > > > +      * share for p. task's load contribution to cfs' load is replaced by
-> > > > > +      * its weight.
-> > > > > +      */
-> > > > > +     cfs_load = cfs_rq_load_avg(cfs_rq);
-> > > > > +     lsub_positive(&cfs_load, task_h_load(p));
-> > > > > +     if (cfs_load) {
-> > > > > +             unsigned long weight = scale_load_down(se->h_load.weight);
-> > > > > +
-> > > > > +             delta_exec *= weight;
-> > > > > +             delta_exec = div64_long(delta_exec, cfs_load + weight);
-> > > > > +     }
-> > > > > +
-> > > > > +     vlag -= calc_delta_fair(delta_exec, se);
-> > > > > +
-> > > > > +     /* vlag can't become neg while sleeping */
-> > > > > +     se->vlag = max(0, vlag);
-> > > > > +}
-> > > >
-> > > > Look:
-> > > >
-> > > > Let's say we have 3 tasks named TA, TB and TC. They all have the same
-> > > > weight and the same slices. So TA gets picked, works for a while and then
-> > > > sleeps for less than the rest of its slice.
-> > > >
-> > > > So the part that I hate and love, math. For your diff, we do:
-> > > >
-> > > > (sleep_time * weight) / (3 * weight)
-> > > >
-> > > > 3 * weight here is TA + TB + TC, it equals to 3 * weight since they all
-> > > > have the same weight.
-> > > >
-> > > > So if sleep_time equals 2, weight equals 1, and slice equals 3 this equals
-> > > > 2/3. If the lag is 2, we do 2 - 2/3 resulting with 4/3.
-> > >
-> > > yes, we assume that TA would have run 1/3 of its sleep time
-> >
-> > But if sleep_time + working_time < slice for TA is true, there is no
-> > guarantee that it will run 1/3 of its sleep_time.
+On 11/18/26 10:33, Zi-Hao Huang via B4 Relay wrote:
+> From: Zi-Hao Huang <zi-hao.huang@mediatek.com>
 > 
-> Even if sleep_time + working_time > slice.
+> mtk_dsi_wait_for_irq_done() waits for the DSI IRQ with
+> wait_event_interruptible_timeout(). If it returns early, for example
+> with -ERESTARTSYS when a signal is pending, both callers still treat the
+> command as done, because they only handle a return value of 0 as a
+> failure.
 > 
-> >
-> > >
-> > > >
-> > > >
-> > > > Later, place_entity() uses this formula to do V - ((Sum(weight) + weight) * lag) / Sum(weight)
-> > > > So ((2 + 1) * 4/3) / 2 equals to 2. But this is wrong, no?
-> > >
-> > > why is this wrong ?
-> > >
-> > > Assuming TB and TC have the same vruntime before placing TA, the
-> > > average vruntime is avg == V(TB) == V(TC).
-> > > place_entity will do V(TA) = avg - 2
-> > > After placing TA, avg' = (V(TA) + V(TB) + V(TC)) / 3
-> > > avg' = (3*avg - 2) / 3 = avg - 2/3
-> > > TA's lag is : (avg - 2/3)  - (avg - 2) = 4/3 which is what we assumed above
-> > > TB's lag equals TC's lag : (avg - 2/3)  - avg = -2/3
-> > >
-> > > >
-> > > > If we didn't decayed lag: ((2 + 1) * 2) / 2 equals 3.
-> > > > So we would do V - 3.
-> > >
-> > > Which would end up once placed to
-> > > avg' = (3*avg - 3) / 3 = avg - 1
-> > > TA's lag is : (avg - 1)  - (avg - 3) = 2
-> > > TB's lag equals TC's lag : (avg - 1)  - avg = -1
-> > >
-> > > >
-> > > > Now our objective is to add the sleep_time of the task to -3.
-> > > > Because if the task didn't slept, in that time it would be working
-> > > > instead of sleeping.
-> > > >
-> > > > So, we should do V - 1. But we do V - 2.
-> > >
-> > > Why ?
-> > > You assume that the whole sleeping time would have been spent by TA
-> > > running on the CPU but we don't really know. We can assume that a task
-> > > with positive lag should run first, but this also depends on other
-> > > tasks enqueued.
-> >
-> > If TA didn't got preempted, and its sleeping_time + working_time is
-> > smaller than its slice, the whole sleeping time would have been spent by
+> On an MT8196 board this led to a hard lockup during shutdown. The wait
+> returned before the IRQ arrived, the panel disable sequence went on and
+> restarted video mode, and the late CMD_DONE interrupt was then handled
+> by mtk_dsi_irq().
+
+This happens because of the hacks that you have downstream.
+
+With the restructured mediatek-drm adding proper support for MT8196's Display
+Controller architecture, what you're describing does not happen, because the
+tear down path is correct.
+
+Regards,
+Angelo
+
+> The handler writes RACK and loops until DSI_BUSY
+> clears, but DSI_BUSY stays set while video mode is running, so the CPU
+> never leaves the handler until the watchdog fires. Forcing the wait to
+> return early reproduces the lockup every time, and it no longer
+> happens once the wait cannot return early.
 > 
-> You can't assume this to be always true, and we don't know how long it
-> was running. A positive lag of 2 as in your example doesn't mean that
-
-Can't we do deadline - vruntime? That would give us slice - work_time.
-We already know the sleep_time.
-
-> TA runs 1 ms in its slice and would have run 2 ms more if not sleeping
+> The wait synchronises the driver with the hardware, and it is bounded by
+> its timeout. Use wait_event_timeout() so that it only ends on the IRQ or
+> the timeout.
 > 
-> > TA. Even if it did get preempted, there is no guarantee that it would
-> > work 1/3 of its sleeping time.
-> >
-> > > My first version assumed the whole sleep time would have been used to
-> > > run which is optimistic. Peter suggested using the ratio of weight and
-> > > cfs loads instead which accounts more fairly for the running time.
-> > >
-> >
-> > IMO, for a task like TA assuming it will work in its sleeping time
-> > is better than assuming it will work as 1/3 of its sleeping time.
-> > Or atleast less-bad, no? :-).
+> wake_up_interruptible() cannot wake a task in uninterruptible sleep, so
+> switch mtk_dsi_irq() to wake_up(). Without it every wait would last
+> until its timeout.
 > 
-> That depends on the PoV you take. The reality is that TA could have
-> run from 0 up to its full sleeping time (even if the sleeping time is
-> longer than a slice). Assuming it will run for the entire sleeping
-> time is one extreme, while assuming it won't run at all is the other
-> extreme. The reality is probably in between. The longer the sleeping
-> time, the closer the expected run time would be close to 1/3.
+> Fixes: dd5080a54df8 ("drm/mediatek: add dsi interrupt control")
+> Signed-off-by: Zi-Hao Huang <zi-hao.huang@mediatek.com>
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> ---
+> Changes in v2:
+> - Drop the remark that the wait is not made on behalf of userspace, since
+>    a userspace backlight change can reach it (CK)
+> - Collect Reviewed-by
+> - Link to v1: https://lore.kernel.org/r/20261118-mtk-dsi-irq-wait-v1-1-205f25fac8b2@mediatek.com
+> ---
+>   drivers/gpu/drm/mediatek/mtk_dsi.c | 7 +++----
+>   1 file changed, 3 insertions(+), 4 deletions(-)
 > 
-
-Yeah :-(.
-
-1. If we assume that TA will get preempted, we can't know how much it would
-have run if it hadn't slept. And in that case 1/3 could be right or wrong.
-We can't know.
-
-2. If we assume that TA won't get preempted, we can know that it will run
-in its whole sleep time.
-
-
-In any case, we are doing a assumption in both of these.
-TBH, I don't think there is a big difference.
-
-I would still argue that assuming the 2nd one is better.
-Although, if there is not a big difference I can't see
-any reason to add a case for it.
-
-I'm gonna play around with the whole series. Testing and other stuff.
-Maybe I'll find something unexpected. While testing, I'll try to test
-the difference between 1st and 2nd too. I don't think there will be a
-big difference, but I'll still test it :-).
-
-> >
-> > > >
-> > > >
-> > > > AFAICT, we can't already know for sure how much will a task run even
-> > > > when the sleep_time is smaller than the slice. Because of preemption
-> > > > :-(.
-> > > >
-> > > > The cleanest, the simplest and maybe the worst or the best solution I can think of
-> > > > is just setting lag to 0 on every wakeup with positive lag TBH.
-> > >
-> > > Keeping eternal positive lag for a long sleeping task is unfair but on
-> > > the other end, clearing all positive lag for a micro sleeping or
-> > > because of waiting on a shared lock is also unfair
-> > >
-> > > >
-> > > > Or maybe, try to calculate when sleep_time is smaller than the slice,
-> > > > but just set the lag to 0 when sleep_time is bigger or equal to slice.
-> > >
-> > > There is a difference between sleep time and lag. Even with a sleep
-> > > time longer than the slice, the task can still have positive lag after
-> > > sleeping (this is also true for runtime). All this depends on how many
-> > > other tasks are running simultaneously and their weight
-> > >
-> >
-> > > >
-> > > > What you think?
-> > > >
-> > > > Sreehc,
-> > > >
-> > > > Kayra
-> >
-> > Ah, you didn't understand my joke, sad. :-(.
-> >
-> > Sknaht,
-> >
-> > Kayra
-
-hint: try to read it backwards :-(.
-
-Sreehc and Sknaht alot!
-
-Kayra
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> index f82506e10fd5..1315dd31a834 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -627,9 +627,8 @@ static s32 mtk_dsi_wait_for_irq_done(struct mtk_dsi *dsi, u32 irq_flag,
+>   	unsigned long jiffies = msecs_to_jiffies(timeout);
+>   	struct drm_device *drm = dsi->bridge.dev;
+>   
+> -	ret = wait_event_interruptible_timeout(dsi->irq_wait_queue,
+> -					       dsi->irq_data & irq_flag,
+> -					       jiffies);
+> +	ret = wait_event_timeout(dsi->irq_wait_queue,
+> +				 dsi->irq_data & irq_flag, jiffies);
+>   	if (ret == 0) {
+>   		drm_warn(drm, "Wait DSI IRQ(0x%08x) Timeout\n", irq_flag);
+>   
+> @@ -656,7 +655,7 @@ static irqreturn_t mtk_dsi_irq(int irq, void *dev_id)
+>   
+>   		mtk_dsi_mask(dsi, DSI_INTSTA, status, 0);
+>   		mtk_dsi_irq_data_set(dsi, status);
+> -		wake_up_interruptible(&dsi->irq_wait_queue);
+> +		wake_up(&dsi->irq_wait_queue);
+>   	}
+>   
+>   	return IRQ_HANDLED;
+> 
+> ---
+> base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
+> change-id: 20261118-mtk-dsi-irq-wait-a24712ada627
+> 
+> Best regards,
