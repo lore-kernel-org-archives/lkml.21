@@ -1,73 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.114
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029346;
-	b=vgUwph7gmEXwecPIrY+7332S55D3CB3crHxtDVzrPmMAFcRwtc6XhOsZarFAVqnc8Fkn
-	 Z37IRCh0N0IKmDObZd6MAs85vBPcsFEhKdAxhTIi4zZTNYoXLvITd9+FKtrPz32d2cAe8
-	 8MPkBtRhtwnFXD0/5k2gwRJo3KTTczeekrnCkktFtbYYBbnQGyF2zWViofprxBmN3NLHR
-	 K2eR34i+M3iLG8BWEPwHq7rQ0fnN3liJm+w+aR3nGLOAexOi0hGAZ9L7RIvPWA88O3WpF
-	 mbIP2QslBnq/rqB5/FAjx/NNWgO0CtGeBjBFUUUhkJqreA+H/yK9gFdUKVy4FiRGNTw==
+	t=1795029363;
+	b=dk0b48yFDa+J0L2x5WJ7EJ+RtrAoSJ+fHPlLyDPo16uIVh1Tyf6KsScL0cnjP42QzrH1
+	 KUEgt9Xv5joUqyRreQCrypGhBdaa5w6u9hnPi+cYgYL3hU9kCRfN3or0iOdA+b/jHpRBc
+	 tQeYUKbFkfIhWuWwREzMXM376NWliamZl18y/FR9ktrT1Wo/EU0zyE8YgBgBKtztvdzva
+	 plS+dW8gojCaN+jIjmu+ux1p8okv6jJDcQL8N0xEhlIrn67HGZsvs4TCjBIPRCD7Ro6jc
+	 aqWpSsmkdIa+03ClyBBa1AbFVtvQrD1TKUOU/N4l86lQRI+8qO45SO/Z1AT6vzIBR+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029346;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=svYEaYY+8OkF13We7tgo+l2UToXXzWxAP5wMZXoFZGI=;
-	b=NFFaEE9MEFmH1PMp2g+iOpF3g+9hlGzlCAKLUJuouYWJ1DEoSZcPXZ2y5WY0+DAgatTy
-	 B5kqPT//X/g7e0cJflfWw1QFz1x86i2zZJWBOUkSXjkF1ixjy10ST53lohUYK79U72D/d
-	 QuSl1voVuelJKQFi1AqhvK7o0PWCKSkoyMSu/rAoz5KHLAEf7YC9tSDb6IPy5iVd5i9p8
-	 SSkgDwtbsyiTipw0t2UHZMmaCbBC/EHYEbxWZGUVuz/7ReZ1OMXeI95kDTdgI3hSMIgGO
-	 u+jDDsUbsG6O0lZ6vuvheTv4T452uUpisIoqtDMFsqnIzu+UB8kdaPhgxOm/gcFTqgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029363;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=bStvPDV/J1vGilix5sAk+qt1tT2j9aOVdxdc6N/4kWM=;
+	b=BnBWTuPkNj0thNJLKlemw+SH2/o1XFFFazRm0GTnzWN5TQ3XVp1yRm/sK06qoayYEfwR
+	 tZV8lPX/5G6cwcTuqsp8gzltyF6XB30jahU3XiL3DIyHb3WKDyx/dvUz/yfSp1XNnB7RA
+	 fAFgxH1VScf5BSkJ9BK0m+nj5N2U9mB9IgD0O5p+eDF/53GaAnkofcJhHQOtwOocDEOji
+	 ID8hEhtSR/onKi1QedtPDpOCclhwiiwkcJ4qRnLnLw+RXzRtXuqAGZfkObndTaLm4jXSb
+	 2wJiNr1Rz4TZEsckTwZCBEUnktXl3ZslIP2q+kVWVOw4p+qaKeqok/cUYUD7HlOkkBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ca7enL61;
-	arc=none smtp.remote-ip=95.215.58.114
-Received: from mta1.migadu.com (out-114.mta1.migadu.com [95.215.58.114])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tcbH8uTP;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6B64606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:15:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6B64606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA2E1606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA2E1606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ca7enL61
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=fmcXfnQxb0qtqIl21TRZlE6o9ga9GKgYl2RPp4Wr9Aw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795029343; v=1; x=1795634143;
- b=Ca7enL613jQBDwC9oQyOIGSyAqMAE6wuFXL9oJ7zbFgab2j+GwegYyGJeiCTQNUXgb3qaF/4
- FF+CD8cAo7Z3qCSbfAlWlw/fkQd3cKsFiJejhMDcePLPAH3Edk407M7uDAbbe+OFLSRjkoeM84x
- sX2fa6UkiRhf13RvA0Pxt6Eo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d39edd8d2b425d4b;
-	Wed, 18 Nov 2026 19:15:43 +0000
-X-Mizu-Trace-ID: d39edd8d2b425d4b
-X-Migadu-Flow: FLOW_OUT
-From: Matthew Schwartz <matthew.schwartz@linux.dev>
-To: intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org
-Cc: uma.shankar@intel.com,
-	chaitanya.kumar.borah@intel.com,
-	Matthew Schwartz <matthew.schwartz@linux.dev>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Suraj Kandpal <suraj.kandpal@intel.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 2/2] drm/i915/color: load the 3D LUT in the order the hardware indexes it
-Date: Wed, 18 Nov 2026 11:15:13 -0800
-Message-ID: <20261118191514.2931270-3-matthew.schwartz@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118191514.2931270-1-matthew.schwartz@linux.dev>
-References: <20261118191514.2931270-1-matthew.schwartz@linux.dev>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tcbH8uTP
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a357b1c649so884338f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:16:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795029361; x=1795634161; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bStvPDV/J1vGilix5sAk+qt1tT2j9aOVdxdc6N/4kWM=;
+        b=tcbH8uTPPIacl2pUnV5ukIA+K9TumGFleoI7xLZ2Xn+ePxR1rMivlDRBkpDn8EW3rB
+         htVG+3pm4FG/lFIwYA/E8nk4rTAShbMZTrh/TQBkL4BHT/toPKtTOj2FwSz9FBz7pnK7
+         d+/ndS7FNaKLnb893geujjVcHVWtMy7aGdx2QHl/xTppWMSKxOWh9muHq74LzS4GIm1l
+         IeTjsNbK++tvogH5AzMHzQfzeQVVSjSQoq/bUm9/g92aL17xyZpfrPzh/XjlXE72UWm9
+         /7mVawSfF1Qs8POlwzGq+j63yK6ZP3DfguKnl2ocE0Ozfi+xM+3HRR5ja89G9Urs8RPO
+         t8Qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795029361; x=1795634161;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bStvPDV/J1vGilix5sAk+qt1tT2j9aOVdxdc6N/4kWM=;
+        b=nqkqDMcwMxXnVoaAxDgZE1JEoScMi7jK4C8ksC0PsnineNjKXEAoKw1pCYSHmAQPNz
+         6Fn3WVcJ6Is0yFv7RvxjE04w8xGwaDw+Hvk99WEP+ckRbxkx6Kc3Xl4oaLS6Va1dWPtK
+         3jQ+/NokjNJZCVok0ACfYJzEPjwatgUDPiXumo0i003MiPlTXGHmiB7//bgrEzYidqRJ
+         RvOb3w4g6YQDqGyMVRQvY2NKxBGDfvAJ9UNoZTqYYTrXiy51d+rrNMlMTvnYGri80J2H
+         zJZJY54LtJn6milXkBMDpmE9GBu7NFdW2wgYHSCTenWZTcIpdpUYgkN0QJ1S5hNqXO9/
+         NbPw==
+X-Forwarded-Encrypted: i=1; AL+hErFgck7la+k7qL40zeq25kQPsXv1s80NPcgGidlZ5fljPDjVHlmBumaA+UB4EywqxnSq8+x4HbzrTeRvo2Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9jG3dxLiAEp3HR0mx6jL5Iv8vWIbnR5ngYDoOSh2L5IuBaMJL1
+	XGGUj5wJmhIx6qHeCShd8Fjdy2Sg5+AnxW8Vvazm3hJE9AUO17j18dUf
+X-Gm-Gg: AZFdTZdtvhc2Mqilq0W4B/kknW3weKxc1Vp51jJPgAuy2SmsqeDOQYT+lFF8HOgnfvY
+	i3/XIieLeMejcqW55I/V48TTLT0j3TT/m2tqMMGvfahz/+GnT6g005eCN3836oOK136Ep9lH+nd
+	ZpZVf4XmxYrjuTjk1vYw18tK6rq9cuwCOBedOoOsXuBjnogCVuGc6H0eVeHKdqufEvwQIbLUwcf
+	cQTBJoeJoqfkFSxhK2qS/FpO7cQqdE/Dmt8etflIs5KsCfKoxFW0ZlMwQsNy8XtEsS6pIvNk8d6
+	iuFURiMIfPAQev13oIym036cYn1PtWEL+pAeTlXKmUjJYykyLjBPQlYSQjP2SQ9UCO7C5Sb5MHO
+	iul6pMmQmbFucxEZOFR3enJVnkVWttUgs3BUxqUax1on08jKlNqeiY1h9MN3FF9MLJ3fInKPxDJ
+	zzA45NRa7wo4iDGV+E3WZeJorModOpAooxtdiyGjsKI7tSm1ZfgiLUhRISoOK0YCgbiJ0TtQNaf
+	jRUXqPEMmnLxZpevHC/ULXtnrQAYYMO5fENTcJg/X4wscyIHsQBVm0hypyBnPHArVe7ReB4lzOB
+	qJOfIUuEoKVv3vEtIv4uuXacR4nXr2x9ru1nf7Zu+/b4OOGHazv6jj8vM0iUzRPYbRtby6XMhPk
+	tj2CQqeQF1KU=
+X-Received: by 2002:a5d:5d12:0:b0:4a7:14d0:9c4c with SMTP id ffacd0b85a97d-4a714d0b8b5mr6051587f8f.6.1795029361023;
+        Wed, 18 Nov 2026 11:16:01 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2f682sm6131023f8f.6.2026.11.18.11.16.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 11:16:00 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:15:59 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
+ Devicetree@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Chen-Yu Tsai <wenst@chromium.org>, Saravana Kannan <saravanak@kernel.org>,
+ David Gibson <david@gibson.dropbear.id.au>, =?UTF-8?B?QW5kcsOp?= Draszik
+ <andre.draszik@linaro.org>, Simon Glass <sjg@chromium.org>,
+ linux-kernel@vger.kernel.org, Brian Norris <briannorris@chromium.org>,
+ Peter Griffin <peter.griffin@linaro.org>, Julius Werner
+ <jwerner@chromium.org>
+Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with
+ memchr()
+Message-ID: <20261118191559.7a39c37f@pumpkin>
+In-Reply-To: <CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
+References: <20261116205320.1621386-1-dianders@chromium.org>
+	<20261116205320.1621386-9-dianders@chromium.org>
+	<20261118095418.51d30ee8@pumpkin>
+	<CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,94 +111,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-The 3D LUT colorop blob is laid out with red as the fastest axis,
-index = R + n * (G + n * B). glk_load_lut_3d() writes the blob to
-LUT_3D_DATA front to back, but the hardware walks its table with blue as
-the fastest axis and red as the slowest. Every entry whose red and blue
-coordinates differ lands at the node with the two exchanged.
+On Wed, 18 Nov 2026 09:24:38 -0800
+Doug Anderson <dianders@chromium.org> wrote:
 
-Measured on Lunar Lake by programming the pipe-bound LUT through
-LUT_3D_INDEX and LUT_3D_DATA directly and decoding the pipe CRC of solid
-color frames. A table holding each node's own stream position reads back
-position B + 17 * G + 289 * R, and an identity table written in that
-order reproduces all of 70 sampled colors exactly.
+> Hi David,
+> 
+> On Wed, Nov 18, 2026 at 1:54 AM David Laight
+> <david.laight.linux@gmail.com> wrote:
+> >
+> > On Mon, 16 Nov 2026 12:53:05 -0800
+> > Douglas Anderson <dianders@chromium.org> wrote:
+> >  
+> > > `fdt_find_string_len_()` currently calls `memcmp()` at every byte offset
+> > > across the string table (`for (p = strtab; p <= last; p++)`). When
+> > > building or modifying trees with large string tables (such as DTBs and
+> > > overlays with hundreds of `/__symbols__` or `/__fixups__` labels via
+> > > `fdt_sw` or `fdt_rw`), scanning multi-kilobyte string tables byte by
+> > > byte dominates serialization time.  
+> >
+> > Are those symbols just in a linear list with embedded '\0' ?
+> > That doesn't scale well at all :-)  
+> 
+> I'm assuming from your :-) that your "That doesn't scale well at all"
+> was intended to be wrapped in <sarcasm> tags? :-P
 
-Write the table in hardware order.
+Something like that...
 
-Fixes: 65db7a1f9cf7 ("drm/i915/color: Add 3D LUT to color pipeline")
-Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
----
- drivers/gpu/drm/i915/display/intel_color.c     | 18 +++++++++++++++---
- drivers/gpu/drm/i915/display/intel_color.h     |  2 ++
- .../drm/i915/display/intel_color_pipeline.c    |  2 +-
- 3 files changed, 18 insertions(+), 4 deletions(-)
+> > > Advance `p` between candidate first-byte matches using `memchr()` (with
+> > > an explicit `slen == 0` check for empty property names and a `tabsize <
+> > > slen + 1` bounds check before computing `last`), preserving identical
+> > > suffix-sharing behavior.  
+> >
+> > Might it be better to scan for the '\0' that terminated/separates the strings?
+> > Then you do one memcmp() for each string/symbol rather than for each time
+> > the first character appears in any string.  
+> 
+> Two things work against scanning for `'\0'` here:
+> 
+> 1. `fdt_find_string_len_()` intentionally supports suffix sharing (e.g.
+>    `"controller"` matching the tail of `"interrupt-controller\0"`), so
+>    scanning for `'\0'` can't check `nul + 1` (the start of the next
+>    string) -- it has to start at `strtab + slen` and test `p = nul -
+>    slen` before each `'\0'`.
 
-diff --git a/drivers/gpu/drm/i915/display/intel_color.c b/drivers/gpu/drm/i915/display/intel_color.c
-index 742ae471540d..ea4e6c9f0309 100644
---- a/drivers/gpu/drm/i915/display/intel_color.c
-+++ b/drivers/gpu/drm/i915/display/intel_color.c
-@@ -4112,8 +4112,8 @@ static void glk_load_lut_3d(struct intel_dsb *dsb,
- {
- 	struct intel_display *display = to_intel_display(crtc->base.dev);
- 	const struct drm_color_lut32 *lut = blob->data;
--	int i, lut_size = drm_color_lut32_size(blob);
- 	enum pipe pipe = crtc->pipe;
-+	int r, g, b;
- 
- 	if (!dsb && intel_de_read(display, LUT_3D_CTL(pipe)) & LUT_3D_READY) {
- 		drm_err(display->drm, "[CRTC:%d:%s] 3D LUT not ready, not loading LUTs\n",
-@@ -4121,9 +4121,21 @@ static void glk_load_lut_3d(struct intel_dsb *dsb,
- 		return;
- 	}
- 
-+	/*
-+	 * The hardware walks the table with blue as the fastest axis, the
-+	 * colorop blob with red.
-+	 */
- 	intel_de_write_dsb(display, dsb, LUT_3D_INDEX(pipe), LUT_3D_AUTO_INCREMENT);
--	for (i = 0; i < lut_size; i++)
--		intel_de_write_dsb(display, dsb, LUT_3D_DATA(pipe), glk_3dlut_10(&lut[i]));
-+	for (r = 0; r < LUT_3D_SIZE; r++) {
-+		for (g = 0; g < LUT_3D_SIZE; g++) {
-+			for (b = 0; b < LUT_3D_SIZE; b++) {
-+				int i = r + LUT_3D_SIZE * (g + LUT_3D_SIZE * b);
-+
-+				intel_de_write_dsb(display, dsb, LUT_3D_DATA(pipe),
-+						   glk_3dlut_10(&lut[i]));
-+			}
-+		}
-+	}
- 	intel_de_write_dsb(display, dsb, LUT_3D_INDEX(pipe), 0);
- }
- 
-diff --git a/drivers/gpu/drm/i915/display/intel_color.h b/drivers/gpu/drm/i915/display/intel_color.h
-index 9d11741423ef..02ef30390558 100644
---- a/drivers/gpu/drm/i915/display/intel_color.h
-+++ b/drivers/gpu/drm/i915/display/intel_color.h
-@@ -18,6 +18,8 @@ struct drm_property_blob;
- enum pipe;
- enum plane_id;
- 
-+#define LUT_3D_SIZE 17
-+
- void intel_color_init_hooks(struct intel_display *display);
- int intel_color_init(struct intel_display *display);
- void intel_color_crtc_init(struct intel_crtc *crtc);
-diff --git a/drivers/gpu/drm/i915/display/intel_color_pipeline.c b/drivers/gpu/drm/i915/display/intel_color_pipeline.c
-index 77f65182e3e3..0c73072819fb 100644
---- a/drivers/gpu/drm/i915/display/intel_color_pipeline.c
-+++ b/drivers/gpu/drm/i915/display/intel_color_pipeline.c
-@@ -88,7 +88,7 @@ struct intel_colorop *intel_color_pipeline_plane_add_colorop(struct drm_plane *p
- 		break;
- 	case INTEL_PLANE_CB_3DLUT:
- 		ret = drm_plane_colorop_3dlut_init(dev, &colorop->base, plane,
--						   &intel_colorop_funcs, 17,
-+						   &intel_colorop_funcs, LUT_3D_SIZE,
- 						   DRM_COLOROP_LUT3D_INTERPOLATION_TETRAHEDRAL,
- 						   true);
- 		break;
--- 
-2.56.1
+That isn't a real problem and doesn't make much difference.
+
+> 2. Every stored string ends with `'\0'`, whereas `s[0]` only appears in
+>    a smaller fraction of bytes. On a real upstream Qualcomm base DTB's
+>    `dt_strings` block (855 strings in 11,259 bytes, average 13.2 bytes
+>    per string), `'\0'` occurs on 7.6% of bytes while `s[0]` averages
+>    3.9%. Replaying those 855 insertions makes 362k `memchr()` calls when
+>    scanning for `'\0'` vs. 187k `memchr()` calls when scanning for
+>    `s[0]`.
+
+You need to count the number of times that a letter that is the first
+character of a string you are going to lookup appears in the entire buffer.
+There might only be one 'j' in the entire buffer - but you never look for it.
+(But I might still be wrong)
+
+> 
+> > Even with the code below you want to do the !p[slen] check before the memcmp().  
+> 
+> Agreed. Since `p <= last` (`strtab + tabsize - (slen + 1)`), `p[slen]`
+> is always in bounds, and checking `!p[slen]` (i.e. `p[slen] == '\0'`)
+> before `memcmp(p, s, slen) == 0` cuts the `memcmp()` call count across
+> that 855-string replay from 187k down to 14.3k (the exact same 14.3k
+> `memcmp()` calls you'd get from scanning for `'\0'` with a `*p == *s`
+> pre-check, just with half as many `memchr()` stops).
+> 
+> Timing 200 replays of that 855-string (11,259-byte) Qualcomm
+> `dt_strings` block with `gcc 15.2 -O2` on x86_64:
+> * Original (per-byte `memcmp`): 3.45 s
+> * Scan for `'\0'`, `memcmp(nul - slen, s, slen)`: 0.45 s
+> * Scan for `'\0'`, `*p == *s` then `memcmp`: 0.36 s
+> * Scan for `s[0]`, `memcmp` then `!p[slen]` (merged `c954f9dd8357`):
+>   0.27 s
+> * Scan for `s[0]`, `!p[slen]` then `memcmp`: 0.21 s (~20% faster)
+> 
+> Since you already applied this patch to `main` (`c954f9dd8357`), so
+> I'll include a 1-line follow-up patch swapping the check order (with
+> `Suggested-by:` you) in v5.
+
+Have you tried an open coded scans instead of calling memchr() and memcmp()?
+With an average of 13 bytes per string (26 for your memchr()) the code loop
+might be faster.
+But beware, gcc is likely to convert the code back to a call to memcmp()
+- it certainly does for strlen and memcpy.
+
+Oh - and if this code runs in kernel the timings will be significantly
+different to glibc - it uses some magic avx instructions for strlen()
+and memchr() is effectively the same.
+The kernel functions are likely to be out of line byte loops.
+
+David
+
+
+> 
+> -Doug
 
