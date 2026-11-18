@@ -1,47 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994857;
-	b=Ry9OWxzwsbgcozI4+WhvP+7IY+gWzHGwBCCmwFlmCFondy7v9LZLHnvYcUihWEXESvry
-	 1OqBDsoDnjss6jdnhG584B8UWBDPSIaQWM+qUQ+x+9IUBQdxiLm5EGQbdq/PZup2KSK0x
-	 tbcAb+B3clf2xfLU9ZrT3lO4dtdj/KcEWWCTtQbFSz18OlLWsW6Rs8XwcDvtk6e8iBI8X
-	 i7yEkzTmRkVHStHasfX5iz+wYuicpJXOYatORVqPOnQLWUWFoYMgk4NPWYFZpZxuyPrXf
-	 yKDabDBKx01SgHz23r4OK9Xmz7IT/goKRqm1Zp0TRZdkFK5Zl8KYK6bu3VuTFT3n8AQ==
+	t=1794994885;
+	b=JJFSVndx9U0OJBxrc4aui+ynIF0R1vSuVqv3NowNZ3gt1NxeL0DK0d4zHrcmhZl37Y9D
+	 9hiMn5V9x8dD0QVPdBQW4mD0L6FPQCLqOYEsZsIXQwhUUpJBA6CpxIJPLudUSDu52JdFe
+	 hE3nzBayCSwp4AAiJnsc58e5NNoh8wtYS6iUa9hkZ43U3dUaxITHg2te9q5Cc3f4j04GQ
+	 HOdyiiR4A3l5M87muA6BVqmDjyJoXItVS1s0/YXHJolwCfG9DGCUGEEphVl/P3bhsDOsV
+	 JvfUO/7wQh72uqDLK36/o66Yvmz/NRjDkHC78gv2jkCZHYZT4l9ir10O66kLBqYq5lQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994857;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Ec0U4HkUVJSX9L9MyZXzeYkA6/IHQ00seYG0+mz4u74=;
-	b=lKgHo02fMPVblAjo9pv0WORdKH0mpS43Y0P7ECmktWfC8SQRHvGj5TcEY60nOA9hkgWf
-	 xpvHno3Jjo0hkMcs7XcUvd4ms0f9XMfqSJpYxQMqKR0QOapjltexezSiLS8D/AFGBDXyw
-	 h1ECDe3BhPt78/GZlGe6JUnMY4KkH0wy3Kbz1YUO+MticieTeWbhF/AQA1WPazkioDSAI
-	 tpZ7z/d9VBsEXCMjvW4A691SJnIBlDNcSrtM0uZOHK3JMokWZm2ltYF3dvjFLEVkQCV0n
-	 jBrXKrZOEOHDCwDiyJqBTzls/Nvx6iJqcx7Zd5kkMXcf3GJFcVAtZOF7kuSVw5r0z1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994885;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=h1MaUzi4cdSoDZ2RrNp4EG1+iegSV9Ij1lRsB5KRzi4=;
+	b=Q5JFmt45LowDe4Tc2rQVlLz6OM3SV8mXjKXE1eH/3RBytTWSHGTFvHnXqD9jAntSns6o
+	 wER5fdwf7Q68H+efgGh7XyBrqDfUEA6RwYZaB7os2vRVCrTNNPptFf+TYJxPFkhq0c/ug
+	 KGZU4SZpPC+ohUoGp+sZtepM/C9RqwZULe/VhtDWRQ0B38po5IcSYtJwrWPd2bDLVvOUf
+	 9+YAAdsDz/SGZrIrdA1jrOylnP/wzAtpuwnvfPNL+DeamYKS5x094QPzxuJMXZhDE6N/F
+	 /07J6+sXYW4Y8xN7ANia2dQXIYOOzPHB5wjsIB5rA6q4M2cn+Tx3Gsuf2+5Uvvi8/nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KJ6PUV62;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=tCdd5TR6;
+	arc=none smtp.remote-ip=212.227.15.3
+Received: from mout.web.de (mout.web.de [212.227.15.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46F43606A320;
-	Wed, 18 Nov 2026 09:40:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9739606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:41:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9739606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KJ6PUV62
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1BB11F000C4;
-	Wed, 18 Nov 2026 09:40:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794994856;
-	bh=Ec0U4HkUVJSX9L9MyZXzeYkA6/IHQ00seYG0+mz4u74=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KJ6PUV621t2eK5Gd4c4EeynJ0kIbkgTVZK/76IYhM0+gtvO6/c0znmcSzDjyfNF8h
-	 pSKnG0Q0TbODfyVQnR1FlxNE0Ew1PAO3Awl1Z3CRIUvHYcERq8D1+P1eG6EQlrC8F7
-	 eDo2hb+vilHkKcmeA8D7ikXn1Xz7VOPZx6ta4Mys+YmQ0N+BqwNtxx0YnINJXRo1hu
-	 DCenhMOqjYuGs81iYBmB3Ik63Fc8ycNR9Lh8Mf1A2sirKs3eaVs2W3e+Ylu3MB2jdn
-	 4O+5mRQkH9z3XxseghRTfsYKz566j2CtOfIZCpQJZFGNGHgAWGA82LAcR8mL4MIez5
-	 fEyBMvUGcYYug==
-Message-ID: <d6692c11-df29-4ab6-a578-f86712abbdcf@kernel.org>
-Date: Wed, 18 Nov 2026 10:40:39 +0100
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=tCdd5TR6
+DKIM2-Signature:  i=1; m=1; t=1794994882;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:Ekj7KGZORjB9lqIofAcx6mZm+F9t
+   aqBTH6l2tX5m3W4+ljF3dUmZew2AO8rQPQKEHS/F+oWRRGO8CJS3m/xSTcZKIkpGgR/TWiY9sq6
+   /Q5Gozk+RhnQAzoJCrJBBltkHn7GmoQl/FXwQaQiOE3K52HLf9geICcw5nhdZS7Lr7UOdsAN/VJ
+   8XFPiRcTBPfaHqYL+YYeHb86PTjqRdQdnKIukY+Da4mLSYiNCW992t9iEf1giheT01FK589Cm/b
+   YnbK0rE61ULTeNfRnDh4cLikKLeW/pp/YZg1MKCcg0D99uQjIg+VU363pnT1LDuxPT3Jv58DWh6
+   z80GQr9KRohkfA==;
+Message-Instance:  m=1;
+ h=sha256:
+   ur+tpk/Tzc1sr28lSeW4kdUlhIO/W2IjC2FOrSHSr/Y=:
+   qDOYFe6HH3KN96z6UhHWrjJ3IOoAGuV1Br8H2PPMlwY=,
+  sha512:
+   9UIwWAFmRL0rO+NTy9LPqmOcfItrELoJ9ihZSGlXItuCZoiMz+wXvMyJVQ78fC/5JEExV/24V3TqWDFOkvpMmQ==:
+   QV1YwrOiTa/1OVIPC2d7t0idcTwYZpwVollsh96zpqOoSES0/uSCpZ9h4nfK03aFPVhNLzXKyGc/Vik5eEViEQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1794994870; x=1795599670; i=markus.elfring@web.de;
+	bh=h1MaUzi4cdSoDZ2RrNp4EG1+iegSV9Ij1lRsB5KRzi4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=tCdd5TR6Mwqk0sILeca70E5vMdJgyoSUdE4kseTOI8g1FoFlnItiIiKS3A1dZtnm
+	 ZKO1xMz34dg+dHcVWShDvAJpvzaY9qnAM0/wpK4m5dC7YGAPhewlatJ3pIQ6kiNgO
+	 MQq8gMvPvLxGBwmfO9ZiEsu/ikhHrqPKkhpjy6FV5h/c4Gp84zqdgmr7GMVM+9wlK
+	 P78x4DXWONnP7B9emh2DMpl+Is2E0cxEkhKWtWz/W9QqMUIgbzBj9QjZL9pIBHQqy
+	 muP7o2kVHQcVY3zNgj6mryOp3l6/zWqZrhqdsOJw4ukP9/snnKdKsKqL6BoyfvSsC
+	 U8k0i+nUZ7IjFjkIgg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N4621-1wTmKd0Vgv-00yXCS; Wed, 18
+ Nov 2026 10:41:10 +0100
+Message-ID: <1e02da75-0833-4a47-b190-cbc9f5346a86@web.de>
+Date: Wed, 18 Nov 2026 10:40:58 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,126 +82,149 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 8/9] mm/migrate_device: do not migrate a uffd-protected
- zero page
-To: Tal Zussman <tz2294@columbia.edu>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Peter Xu <peterx@redhat.com>, James Houghton <jthoughton@google.com>,
- Andrea Arcangeli <aarcange@redhat.com>,
- Suren Baghdasaryan <surenb@google.com>, Balbir Singh <balbirs@nvidia.com>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Michal Hocko <mhocko@suse.com>,
- =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
- Andrei Vagin <avagin@gmail.com>, Muhammad Usama Anjum <usama.anjum@arm.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- Oscar Salvador <osalvador@suse.de>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org,
- =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>,
- Felix Kuehling <Felix.Kuehling@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Leon Romanovsky <leon@kernel.org>, dri-devel@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org,
- amd-gfx@lists.freedesktop.org
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
- <20261117-uffd-state-fixes-v3-8-b617009d1a4a@columbia.edu>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261117-uffd-state-fixes-v3-8-b617009d1a4a@columbia.edu>
+Subject: Re: [PATCH v11 2/2] i2c: amlogic: Add Amlogic A9 I2C controller
+ driver
+To: Junyi Zhao <junyi.zhao@amlogic.com>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, linux-amlogic@lists.infradead.org,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ Andi Shyti <andi.shyti@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>
+References: <20261118-a9-i2c-v11-0-68a3e79ff43a@amlogic.com>
+ <20261118-a9-i2c-v11-2-68a3e79ff43a@amlogic.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20261118-a9-i2c-v11-2-68a3e79ff43a@amlogic.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:aRkDjOoclPJCzD59wLaeysLvOGzVQ8RiibpOM+JRMDo96Xkd7YH
+ l7yGFdyvaVwXqsNV2PSwdbKHbPYwJkQPscWwyeArF4daPC4TRSxn/JPUV5/jeig100EKRO8
+ F+zBT4ZaKbhh0GCsSSnOOA80XimzHAaY8F3EiX7BOePxncOYRvP4LyQSPtKgQ0ZwpBbC24o
+ mA6jegP9grT7dHUR+DU1g==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:nvfV6lCeulc=;WmgI0X2T+4PuUWSRPrUWMi4nwbT
+ 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
+ vp4ozGQH/+LIOM
 
-On 11/18/26 05:28, Tal Zussman wrote:
-> Device migration replaces a PTE that maps the zero page with a new PTE
-> that is built only from the VMA flags, so its userfaultfd WP or RWP
-> protection is lost. The same applies to the huge zero PMD. Writes and
-> accesses to the page are then no longer reported to userfaultfd.
-> 
-> To fix it, do not migrate a uffd-protected zero page. Skip it during
-> collection, and check again under the page table lock before inserting,
-> as another thread can protect the page after it was collected.
-> 
-> The alternative would be to carry the uffd state over to the new entry,
-> but a uffd-protected zero page in a range that a driver migrates should
-> be rare.
-> 
-> While at it, read the PMD once with pmdp_get() in
-> migrate_vma_collect_huge_pmd().
-> 
-> Fixes: 292924b26024 ("userfaultfd: wp: apply _PAGE_UFFD_WP bit")
-> Fixes: a30b48bf1b24 ("mm/migrate_device: implement THP migration of zone device pages")
-> Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> Cc: Lyude Paul <lyude@redhat.com>
-> Cc: Danilo Krummrich <dakr@kernel.org>
-> Cc: Felix Kuehling <Felix.Kuehling@amd.com>
-> Cc: Jason Gunthorpe <jgg@ziepe.ca>
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: intel-xe@lists.freedesktop.org
-> Cc: nouveau@lists.freedesktop.org
-> Cc: amd-gfx@lists.freedesktop.org
-> Reviewed-by: Alistair Popple <apopple@nvidia.com>
-> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
-> ---
+=E2=80=A6
+> +++ b/drivers/i2c/busses/i2c-amlogic-a9.c
+> @@ -0,0 +1,428 @@
+=E2=80=A6
+> +static int aml_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,=
+ int num)
+> +{
+> +	struct aml_i2c *i2c =3D adap->algo_data;
+> +	int i, ret =3D 0;
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+How do you think about to omit the initialisation for the variable =E2=80=
+=9Cret=E2=80=9D
+in such a function implementation?
 
--- 
-Cheers,
 
-David
+> +
+> +	for (i =3D 0; i < num; i++) {
+> +		ret =3D aml_i2c_xfer_msg(i2c, msgs + i, i =3D=3D num - 1);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return i;
+> +}
+=E2=80=A6
+
+Regards,
+Markus
