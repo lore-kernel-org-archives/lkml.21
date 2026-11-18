@@ -1,102 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996477;
-	b=kvpbQjYNgc7Sqz6e9c77BvXPPzmDz+NfecxihiDTXVhXcx/uGToUKY2Qwu42s3/U/uCF
-	 Fkcar/GxEM/yhi/Rr5+EKm8BZ6mjaTAo2K5rZ9ztcCFvXBgcHyMRnX8hl1J8aVx/KvfzG
-	 gpepONnZU/qcoB6CTw/GfA6LvoiKdgyx6KLxZBhT7tJddqkrcB47jFF/nQrVYegypOaya
-	 QKe4ldvfJxm/ESWhxzahfx0OLUDP32daUFIWn4nlID0fj7Mrhkzje1TCdPlHnS1BNWscz
-	 rC3dDwQm2+kFWnZQGyP7TaojN+zG9crhfDEwYP4xeDXEbzY1GEzrnN7j1WCG1dnol+Q==
+	t=1794996490;
+	b=uwCtn5C9ZaD729SbyFGZkzMCQmrssiPGRD3sUYxGHlYB6RivtEpk76D9nKGr54SpTmZX
+	 GVxja1m1iSsAvWOcBrjvZ5fuMIyKOFipYbf+AjlR3mN4MOxXYLC7SSKWBmwH4csd1lQzG
+	 C24je/GcRcXQsKHrDXcb9ZxoUmO2sUdj1eIQuY87iFwTGQcZ4UEh0otKs+2nZlMy5U4OO
+	 fUIfsYM97og4nbtHVSiMvjOvyx0pXsNW6NYjLkb+BufkWT4cKwa9nT1DW5OG/1amS5ks2
+	 PzRzG+r5p4Yes4UuyL7hiNgmpgAS3jgTNLXyoEEF9JryZC9QTYUIEY3f8mxWVshKzyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996477;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=4K6+J+FWfITr/tXSH3N65sGYtsLB/T4KBT20GPIXyQM=;
-	b=NCOfHsQHbxo9BgFjqD7NNiLTqMfHB5PVNPoz0Ry4dQpb2hGLEbOlLoamhipVRBQER3IO
-	 LQjRSas5EG1Xt1EZyte6slD39or177NKHHQI7jiCM9kzX4W9KBzuiH3E6HeilyM+c/vMS
-	 qrG+Sq78/MxXoO0OdXHxInTjq4Lg6ctDhepu0t3AOMv3jl79elRRvY5du0iXEFDdE5YiJ
-	 eOJF5//3rh5hO7lvJt6fQX97h0giMutmLUdgeEhmvjAb3Taamj4bJ6Q9cv/RFOZj/5bP/
-	 3KLc8WAf1eKm2XfSRTK+NwVMcu1/wPIRj7NROCY2jkrGdRJ6NU1QfS0pmsjLeWt4qeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996490;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
+	b=J14PZ5kXC7YeNTQZCIY9SRJta+9gQFi6PEOJkUE0dzqSHRaV/kWZeJ0z/JHw7eT3zX8z
+	 jRuDAM9xHo+i0kVS7inQtNzRL5TUOZxqCs+gRRHnUGivEo7zkDaXv9Se8nAkzM3/vBc9C
+	 ussqEuO7x/MZQBAkJNMfM6VSMNBwXSzRIoWrr31ecmDEX3AFzJfVhBe4HqcbIMjnG7HTP
+	 C0d5+EgqyTlVyNcMm1b8mr8uX0HC9O5L0tB9vAghpUskpBqjHeANtJHE5+xnupkpExGxV
+	 J7IPSWFa7oaca9dmjjqZOQKBDXUcT+XLyDv8VL7soFTicGTuanedI1e9dCGKAgOHfZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L41oRpCm;
-	arc=none smtp.remote-ip=209.85.214.172
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E891E606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:07:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E891E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 096D1606A320;
+	Wed, 18 Nov 2026 10:08:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 096D1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=L41oRpCm
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2efcf92af4fso2923765ad.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794996476; x=1795601276; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4K6+J+FWfITr/tXSH3N65sGYtsLB/T4KBT20GPIXyQM=;
-        b=L41oRpCmZZauvMi/GJY4qNMiQdcAwddGvTG0iJoCxkWBwGfSDCHcUGBC2kRdsNxrdY
-         6xQZ2PsiS6yQMVMPSj0Jv+vQz5eP2aGOeXv3TzuThyR9tLQY+vWecNgyT9QGel7dz7sG
-         2KUYgphMTMZCecGkpVpgd2rOWHvudnV+Kdc+PI2d0zCVAVlC+wzgLCRQrfhgZ39pIDEp
-         0RnsaMGGFbnn9bca3VCXrWWbr4etFY6RJuzDiVkCqrgC1lP5s3VBeSxjicJxUOc/uiHt
-         ML7Rj+ZpC1IT7pXmE60iJc/By4sdrtF8/xb0JVsddwr/p1DUR4Fz8YECXBC9BlsoFDIW
-         sGMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996476; x=1795601276;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4K6+J+FWfITr/tXSH3N65sGYtsLB/T4KBT20GPIXyQM=;
-        b=v8FaVh8FIPwdgwYLPeu2pmjsZdYk3pj4+0M7PgLIhFoKJ/tAm9az/ITPgPjXoMtc2x
-         1s9b69egJLAsb4SRZbzLu15a1Vgj5VaHktaU2qvmoYLQcNbXfvTY232Suoh07nMmoajq
-         Vvh3nXxgobYdYPB5cADud1t/w/uyxD/9Zi0DKw6Ih3Q2K7y3wkmOXuubCJeVxMjJN2rf
-         YKaoJef6WJ20tBcbr0ChMqdTuyErgU8sQ4QOfeWjWrjHeYsQLzEpzap5t8hmmwIcjvx4
-         qEwD/8sjDns4UwO9Gy+y6x8fsckJq9+lH+d5Jv8kKmGE1LGPEUMt/1K5N2BYJfmWh02u
-         XwOA==
-X-Forwarded-Encrypted: i=1; AL+hErFBO6PNBESsuW7Sq/VZVPjnlC2kf5H0hE3of2ym7ldCjmAjeZN+1w02DAfIlcHPEap6rj1WVWISDAJ9ToU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+d/DN/jiZ1F7UeRLqi0WYRJtgmbGm0vuAi/z5DUNmQDe6pnREw
-	mo1PaE4aSfpiYJa2Yo6kPENvPE6uIYgysyLYdVH2CYT+oV752hWRVmD5
-X-Gm-Gg: AZFdTZerUzsBFrbd4AKrYx/Mzfg5BOpguf8/Nld7l82zzbTIauTQbhR99BDqd6HS/xc
-	pwjQeQh7yko+qd2pcOvyNpdny6AqtJba1hcdEk5zk1a0y5S+6UnsK/WDJPK3Fgo6mT+JIlRH/vz
-	yEtMYzt8+ZdqM0ysA5eIWCMntDho1tWquAutqDx9KomdZqvkymiMfrrOAvCAv9eR9Ug62K6fJQ6
-	iiWDa9bmWP+79BRwOJWm0SgLb2jgOE6d+/DzfrGUGdsSlvdY6hDWfwoh+nMZAAyNrHEO5aeW7gL
-	qIEIpebAojVq/vMtNtWV/svGHoTOjbf+HlIItI6LaYvmPlLhAUHanzHoY8CiyhaFzUSH7I+QQnY
-	ElmIkRhWJL3rcJJ5SAw+4IGDr52gwa9TprTpoOMcupbnMdZXEK1VNRRViB9A+dlTuC54ynxgm+g
-	tvBPjNVGKEJ9rEP5PnuZ2Sf9vSb2GF55aovrv4R5Q/DvFRiEwCAMljvkKVFVQ0OaqialQvMFWxf
-	5Y2kzTseXVIF40NjGEuWTILGR4MgRmorm0BMuwZUwu4qIoMOt4iQhmy6IJ4Eq3HLyLQBM2PDeFy
-	Z56bGFe1Rx7a55SFmgx1tKzB6qniVqR8vI5axTNeuJeGUaJFh0iw6p8SE/NJhp6bcjTsvBXSlmJ
-	KUtEwYBh3X5bTlvnu5Y8pKuu9XXlAKIwgVdu6JW6QsCA4
-X-Received: by 2002:a17:903:1ae4:b0:2e9:d0fd:639c with SMTP id d9443c01a7336-2eff7569fd1mr19749265ad.55.1794996476359;
-        Wed, 18 Nov 2026 02:07:56 -0800 (PST)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6215025sm10634145ad.46.2026.11.18.02.07.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:07:56 -0800 (PST)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	jonathan.downing@nautel.com,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 2/2] ASoC: fsl: lpc3xxx-i2s: Fix DMA depth configuration
-Date: Wed, 18 Nov 2026 17:06:31 +0700
-Message-ID: <20261118100631.26658-3-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118100631.26658-1-phucduc.bui@gmail.com>
-References: <20261118100631.26658-1-phucduc.bui@gmail.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B82171A16CA;
+	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8287A5FE9B;
+	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2AF211BC0FB7;
+	Wed, 18 Nov 2026 11:08:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794996487; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
+	b=BB68AZtPrIn+wgtM1x0/qC7DyHiQUVWopQ1ssGA+Y1TOzd4KMKNB60b0LVYKPkFD9VcV76
+	ahMku5oXly3kXhg6nJkequfEi/o0utfR/TvUIWlGNImc3vP8BvMvUmRhApieN4/N8KCYwf
+	l/hrXd2gA3WjA1e7vKM9KeUyM2WBZtiXXEmgNKvH+TG1Oe06+7l9vFYVM5eu+iB6h5xHek
+	T6qgOu3gbAJO4lJ4ZPDdXG1UvhMV/ebWvbqw6X3eYH8AZJsdXGhjHefWqHouqaF3BjGsFe
+	WYmaBt3S9BMHRDLD3gqOU6/f4gY/nvcQfrmV9CiUUOFvB1zN3BEx8peLKIbNQQ==
+Message-ID: <2b82341c-be67-43ef-9a0c-0bf0394b627a@bootlin.com>
+Date: Wed, 18 Nov 2026 11:08:01 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,38 +62,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Betterbird (Linux)
+Subject: Re: [PATCH net v4 06/14] net: pse-pd: check the PI state under the
+ lock when setting a power limit
+To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <179477645553.3136.3930514306381646741@kernel.org>
+ <20261116182052.1262742-1-github@szelinsky.de>
+From: Kory Maincent <kory.maincent@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261116182052.1262742-1-github@szelinsky.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: bui duc phuc <phucduc.bui@gmail.com>
 
-The transmit and receive paths use the wrong DMA depth macros.
-Use the macros corresponding to the DMA registers being configured.
 
-Fixes: 0959de657a10 ("ASoC: fsl: Add i2s and pcm drivers for LPC32xx CPUs")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/fsl/lpc3xxx-i2s.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On 11/16/26 19:20, Carlo Szelinsky wrote:
+> On Sun, 15 Nov 2026 21:00:55 +0000, netdev-bot+sashiko@kernel.org wrote:
+>> Does this description understate what the old race did? It looks like
+>> the budget was leaked permanently, not just reserved for a while.
+> 
+> Right, the budget is lost until the controller is bound again.
+> v5 says that, and fixes the old "powered" comment.
+> 
+>> Is admin_state_enabled && isr_pd_detected enough to show that the port is
+>> actually powered?
+> 
+>> Does this still leave part of the race with pse_isr() open?
+> 
+> Both were there before this patch, which only moves the old check
+> under the lock. They need their own fixes, so I keep them out of
+> this series. The cover letter lists both.
+> 
+> Kory, are you OK with fixing the two older problems in a follow-up?
+> I am happy to work on them next, if you have a preferred approach.
 
-diff --git a/sound/soc/fsl/lpc3xxx-i2s.c b/sound/soc/fsl/lpc3xxx-i2s.c
-index 75bd148c1432..67bbc69dc2d2 100644
---- a/sound/soc/fsl/lpc3xxx-i2s.c
-+++ b/sound/soc/fsl/lpc3xxx-i2s.c
-@@ -198,12 +198,12 @@ static int lpc3xxx_i2s_hw_params(struct snd_pcm_substream *substream,
- 
- 	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
- 		regmap_write(regs, LPC3XXX_REG_I2S_DMA1,
--			     LPC3XXX_I2S_DMA1_TX_EN | LPC3XXX_I2S_DMA0_TX_DEPTH(4));
-+			     LPC3XXX_I2S_DMA1_TX_EN | LPC3XXX_I2S_DMA1_TX_DEPTH(4));
- 		regmap_write(regs, LPC3XXX_REG_I2S_TX_RATE, (clkx << 8) | clky);
- 		regmap_write(regs, LPC3XXX_REG_I2S_DAO, tmp);
- 	} else {
- 		regmap_write(regs, LPC3XXX_REG_I2S_DMA0,
--			     LPC3XXX_I2S_DMA0_RX_EN | LPC3XXX_I2S_DMA1_RX_DEPTH(4));
-+			     LPC3XXX_I2S_DMA0_RX_EN | LPC3XXX_I2S_DMA0_RX_DEPTH(4));
- 		regmap_write(regs, LPC3XXX_REG_I2S_RX_RATE, (clkx << 8) | clky);
- 		regmap_write(regs, LPC3XXX_REG_I2S_DAI, tmp);
- 	}
+Yes, I am ok with this.
+
+> Also, are you fine with the rest of v4? I kept your Reviewed-by on 8
+> after the small change there, so please tell me if that is not OK.
+
+Except for comment change or commit message change, I would prefer to 
+have my R-by removed if there is code change. Thanks for asking.
+
+For patch 8, I am ok with the changes, you can keep my R-by.
+
+Regards,
 -- 
-2.43.0
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
