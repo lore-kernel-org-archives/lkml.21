@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975725;
-	b=Dkm2XuaFI/5Lrx1LfJVavaIf7jYMqt+RQpijnBJEed2a8dlsl3209NKWrPLvk0MjdfzO
-	 fLhoyPY+wO80AOc1X9zpx0TzybPRUo5ZA/rruhRanm5g7UJmOzNtU4/7owduG7xi8hpzp
-	 gfJSyhLH828Q/Go39kgyU3tPdP5RNDf7SeFNWz/9SutzBctBQOyj0aWgRxN8Z0+lP/XFu
-	 usNWIQqRy7AqRrBSWuJomKUC77d2+HT//6og17mGC+3LVzB3kJj4qlA7h+tCERP61VGBc
-	 n4QA9a8Ols8+gvoAGV49HTq8DKt9BoHPF7JZhu+h2FQl5m2wfN1Eube7PiokvlKtKrg==
+	t=1794975729;
+	b=umo+YldmQx/By1ldKy9c9Wupysz1C5FxsOfPkfsExVznFlGcHmu1gOLka6S9ATbJJaGS
+	 4SCEFC3Hb1apFvcpg+c/axRdxdj5XeN2JOsBxYInek4ToyMwbM6Sh0dgwWX5NyD1pYQV5
+	 RAm345wqL38YaAqOUNRF6imLYw7oOXDWzkPwmU1CjpNIcCU3nk/aBD5lj+ltMZn3UHTJX
+	 outZC19E6Iuhiq6ys+H3CqVg0uKtqCR5pLhZZxmu4WwkWr0Wa9+YZxawUUA/cAEwg9HX8
+	 76TW7LQ8H6Ttqf/Vo7LIMaeibAKk88X0nIzyG62KvsD64JUJrxP/oFzYCFZgTXWCoxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975725;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975729;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=3ySKCiSWgBlwtkoa+bnMANotGsGSd06xoNSagHbZ3Ys=;
-	b=kTu0+J1yhBgQmg2xd+WyE8Njh48JM7gjHAQ6RdL5VetLRbQNcaVbDUGfRBAAat4MPoXU
-	 /BazmE1SwaZpKz7EIO3vATStd3xzztnc1isnBDhc2bdfA3YxZu12VdFd8BfZJFQNiipJH
-	 S7KYXRXGHI66WhGm1TPVCMKEnX9gsjM4j7sy+vXyRRIzcMSgCvN8OGzVyK7sXh2+bsPET
-	 TBRqRQ4suA0J0dzWsj/fKWeSEvfxNgAn+xlVAYgU9+J9c6kbpV/j+Hq0IBBm6Hu9KSVo8
-	 1znZGZ+W2pcdFsbXrnTNIy+wOePjMDsChnz1cTjEL+cYEmJrXhz1GBKYIfH3udl4+CQ==
+	bh=+acrRslSsIF0MpbuDFzo2Z4fIDWFTCZSzThtQ8e3lc0=;
+	b=1uS75hM0aJxV+ggqO2zxlz+GRijHL9GzOFWOb6IzPkqlNesk6S6n2BgNXqkQruubL5bF
+	 mfq3zb7jEU010U34h55I8CBtI+f+vXTY6DM0TgxU6c2AOl8+yQtygtdjyi3hcvIDWFBqx
+	 OQDg4zzdoUYT4JMx4/nXE7+GCIj40P3uDdsiP1/3BcgTrbmKBUi/YwjRRDGpGczn908yp
+	 wwQ2BMgr/mmkJyc2vNlAEVEFFaLeEQfYlmzUksgWKW4S360XibZZs9wlL48Fq5AOoSqzK
+	 CVhJNkKnbWQftkX3WbCD1k9ijUYA2G+dEooe5zvcV6cbN2HH6qsMkjPLULoCgZWO2gQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OGTHkrFj;
-	arc=none smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OH7QGoM6;
+	arc=none smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E7D2606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:22:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E7D2606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83A07606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:22:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83A07606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OGTHkrFj
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a058315c79so261776b3a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:22:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OH7QGoM6
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8b2382bf051so325498b3a.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:22:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794975725; x=1795580525; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794975729; x=1795580529; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3ySKCiSWgBlwtkoa+bnMANotGsGSd06xoNSagHbZ3Ys=;
-        b=OGTHkrFjJwfpKZzlmvBYulpQV071JZlDp+TC5aiofULsAiovcElnfYklWWnUucIuJ+
-         OZH0YHoGTt2nBfdpDzR1Bv9q2jrX89UzJTFNvoI2zMmY/aORykvFXvZpLJVA9BNb96oe
-         3PO4vJSX7XRpIpH2w4GPLVizoGC2SCJbpsrR7XCNtrqTTR0fhv+yn0j3p0jMAXdSDgyo
-         corC9PW35aSh/Dri2Q8b9yhEbQ11sx6mqhbN97vMRdfuHqqeo5+zagCTXsyFH4RwQKKx
-         ON3PIy6bcTDQut0eHm6OGyyCkvtSeGGCrmuqY59j7xr/d8bKeHyn97kpTuZk78puYLgN
-         zVeA==
+        bh=+acrRslSsIF0MpbuDFzo2Z4fIDWFTCZSzThtQ8e3lc0=;
+        b=OH7QGoM69fXi9UOEgXPX6gft9Uh+2hcrzUrbVTnZXeQVWZlzTew/LJ/fsJWGTUejLt
+         Rm1KY2YiDmzurN3sI4nyANLACAJ4wjn4auWUWnLZdHCRdyr3hoeAtaSzBlHg7m32E9LM
+         yzYL4ppo31L2NQ+DQliDO8xNNkqSKr0DIFA4JMOQhhP9UNinv8kglkTFKVIj6VOVNk2t
+         0un9T7A4ZPsX0ghNO3fgYGrndtqEZAgkAX+YxWNhVR2AHiSwUpQlK/sVb4CJjIvTCc+1
+         9M0Dwzhda/b9bTP4a9LR86dGI85Ony4qwkl0Lw/aiC0bMyWJWlP8o59eMd5m0rgXExkl
+         cZew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794975725; x=1795580525;
+        d=1e100.net; s=20260707; t=1794975729; x=1795580529;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3ySKCiSWgBlwtkoa+bnMANotGsGSd06xoNSagHbZ3Ys=;
-        b=a2tmLLKZXQsdDrmf8ni1atLoxq6zRvAD9msHCEWcJQQNTCBwSagNQfAJcCYWYL3Q6P
-         EWfDDR19862LzjG/0R8KlSFuPdVDc6mF4OCTnEyCU1M9Nc0VxjGf35RTXAGTLkDYiJiV
-         NaXo5HTW6B9zYQTQlV8uzn0T2HeTxb8TBXb73ARPnAtbJr2WFH9sQ65DdeqLP1BNHPMR
-         w60hcoLenvS2WRSXgFLtQSI5P7lIgDDC6RBzhxWmrnLZo32MVmvyYpYHy0I6cogl1dcr
-         bompHRRmuXqbgT5B2IcjbM2JpJqCjwCuyhGeTesUtpjZxK/0cn5ieI5tMRnpb9kse9oq
-         k7vw==
-X-Forwarded-Encrypted: i=1; AL+hErF6aDkcduOhAd6Bc0LFGNBEnIlg6WWzF7Z31FVvuqpuyWDOQdw7np2v/pD8JezLADNps9yowAgvUSb3qd4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8S7KxNum9IDztPWjCr0vr3/JjM5yBSvSsztWTnmvKlcLeTFMYI
-	TzlOh3uLF3Vyn9G1onJAoglTS/18dGhDTqt9pZShVOELiSW8/UIS8TQ36Whpq1P3GFc=
-X-Gm-Gg: AYBFou0pti7KSyZNbw+Mr6bToD18sXm2kbeOc2RfNnA3+aRIQlZlZ0LJJz1jwmGLsA/
-	NFTdJiko4ZWEB+YlTW9rVMhV6l/Gj5TM90L9h1QNMSiPD++EF+ToP6ROEB+U9eiQHWVNRcifWJe
-	rxcdlGika2V6aOdWqE60BnMKzF+44YUK+1cKnbpfbvwMOIyeWROtnR++RjX18+b5dV0xugRh+ph
-	Z7zRFuMTk0js/yfrTdAWpsIxKpJmziAFftrCG9dHjCu8TNclT4/shnKkDZNp3j1n6rsJYT/25dX
-	+p+R83ITVqYrdC/ApBJHcz9Li1jVqRcW94pnAGV+eGRpZeaJf3MS6joyFnn6a6hYbOQ/ElinlYL
-	VDPGH8ydvyJJDr6bTqk5DG47H7HmDdNqkDJ3svbsGrgjDWJ36IgKQBX69yio9L2rIC5DfahGcap
-	iPzoyJVIdxRagpn5BFPqbOUG7PMyWQO07hDVP7YKjovLXm1qoGtSiLjmE89bAS3+cZlKHNn9PYO
-	AW3LyKw3UXch/TDgnzxpL5W4PmDColqE6lu5Uj2cD2Hm36taFe/SmKo1cSQQlaiRfLe2yPyb2EC
-	16YILpmmwIg36aNlL742y5CW
-X-Received: by 2002:a05:6a00:1994:b0:873:5267:dfd0 with SMTP id d2e1a72fcca58-8c5d101b6a4mr1020103b3a.5.1794975724498;
-        Tue, 17 Nov 2026 20:22:04 -0800 (PST)
+        bh=+acrRslSsIF0MpbuDFzo2Z4fIDWFTCZSzThtQ8e3lc0=;
+        b=dJPZLZqGa5DaNh1ekqCNgypM3PtG57YZV/Ky4B8glkBljxa5Gw3H2negEzRBC/JrjZ
+         WaaxJTTBmagFfsU56vtWTD5mHg+E81AKbxKW3Yx1y0Loo2pkBdcs58R5E6hpKBOvhTLI
+         9fKwcZjQNcSpB5XXZ25sr6N9cq11H/eh0Tpwe/xKOjNfWSxqbPsKcIpTC2yuOXn7ubRp
+         SrFQeu74juj0qPTfpGqnEJ1ViOYjsxPd7RGihqVF6M1BxI2GSHQrVnPzGWiQNhnlJP3x
+         Cuw424BMmk9NIxB/uS9+iupf5ES28a+6Py6f4F1yDqjjRKhx0NMOd/R/k3Tzc3hT4zB1
+         Awfg==
+X-Forwarded-Encrypted: i=1; AL+hErEqp8NhYOmPgdXYffQseSkOd+O28WRXt6gj9mioSP9WJbZ5nl/SDPXMj47KmRm88tPr1s1nv8MUHr868lU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9nLdsIjAXNZKlf46jsHhyMzbR3KiP2uGANi3DjJFdcS9CwGfFW
+	5HdrcWIu4ccKSk1eMF/adHLHlWCHjbOqXWlKYgUuMwLXVv9yMxLU9vUJ0uMBNeJ3y/A=
+X-Gm-Gg: AYBFou04E6M8xBnQ5I74hqrJexu25L+0Ug/Ti/l4C2KiVCTfD0QFPg6W5BbDPRzVzL3
+	5mN9nQLxL9h7sQgkwYFNW4W4dR7GRyRhAB2nqGt40CiY8RNYmWPYu4PsTLj4deKttPI0uRmrSUN
+	qe8a28T3O/ESwht240FhQhaqba8L3vzKF5hZs7jjtcGPeCvnxtCgPcKqF/TC1/NoLBscrkKidqx
+	DRGSjxH7iLpvFmZClLsQqFEJgP+i+w+8rLoI88qo/zno75LK8Ns2MSQDFbyC/Pp46wc0SdgKamu
+	6Y0Qq0kf0CPxLTe72asWix4LVcNEwjPawcrgMin0kbf3WllNyEzflMJwWqe8hWWJ4G8ZLR0mwGp
+	/+V146IWJE6kiqSTeyNBzJcJBtt96nFcDreWXOOfF1YbwzuRtFhnaaQ5tvR+Ie56dDIJsaS4tDD
+	iK3Xt8GUcM9aVV1t7jk71siL3kb02ptE15v0ccMuPaYZ4sWTgSaz8Nn3gmGJq9kCFCV8kpkhaX0
+	y9hc/+w2RyJC5JlvRzS7hazjWZi83KtV/4Qkut51jJaeas48Z0opc6IZ3awB/iYRV4Uy0apcJqx
+	y1JC/cbCKXNQCCiHgyyIgvZe
+X-Received: by 2002:a05:6a00:3310:b0:878:3538:8f77 with SMTP id d2e1a72fcca58-8c5d4eba27dmr1264894b3a.37.1794975728759;
+        Tue, 17 Nov 2026 20:22:08 -0800 (PST)
 Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aaa8dsm455003b3a.10.2026.11.17.20.22.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aaa8dsm455003b3a.10.2026.11.17.20.22.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 20:22:03 -0800 (PST)
+        Tue, 17 Nov 2026 20:22:07 -0800 (PST)
 From: Cen Zhang <zzzccc427@gmail.com>
 To: marcel@holtmann.org,
 	luiz.dentz@gmail.com
@@ -86,9 +86,9 @@ Cc: linux-bluetooth@vger.kernel.org,
 	baijiaju1990@gmail.com,
 	jjzuming@gmail.com,
 	zzzccc427@gmail.com
-Subject: [PATCH v4 3/4] Bluetooth: hci_core: Hold the request lock for the power-on update
-Date: Wed, 18 Nov 2026 12:21:37 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-3@gmail.com>
+Subject: [PATCH v4 4/4] Bluetooth: SMP: Serialize root channel replacement
+Date: Wed, 18 Nov 2026 12:21:38 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-4@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-0@gmail.com>
 References: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-0@gmail.com>
@@ -103,62 +103,260 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When the controller is already up in the HCI_AUTO_OFF window, for
-example after set_public_address() or set_external_config() queued
-hdev->power_on, hci_power_on() runs hci_powered_update_sync() directly.
-The update registers the SMP channels and sends HCI commands through
-__hci_cmd_sync() and its variants, which require hdev->req_lock. Commit
-cf75ad8b41d2 ("Bluetooth: hci_sync: Convert MGMT_SET_POWERED") dropped
-the request lock that this path held around the update.
+smp_register() replaces the SMP root channels when they are still
+registered from an earlier power-on. This happens when management powers
+on a controller that is already up with HCI_AUTO_OFF set:
+hci_power_on_sync() clears the flag and runs hci_powered_update_sync()
+again, which registers SMP so that the channels use the identity address
+chosen for this power-on. The WARN_ON() in smp_register() fires on this
+path, and the old channels and their SMP data are freed while two kinds
+of users can still hold them.
 
-hdev->power_on runs on hdev->req_workqueue, which orders it with the
-other request works, but not with request lock users in process context
-such as the HCIDEVRESET ioctl or an rfkill block. Such a user can close
-the controller after the HCI_UP test or while the update runs, and the
-update then registers the SMP channels again after hci_dev_close_sync()
-unregistered them:
+HCI event handlers read hdev->smp_data under hdev->lock, for example
+smp_irk_matches() when resolving the target of a directed advertising
+report:
 
-  hdev->power_on                  HCIDEVRESET ioctl
-  test HCI_UP
-  clear HCI_AUTO_OFF
-                                  hci_req_sync_lock()
-                                  hci_dev_close_sync()
-                                    smp_unregister()
-  hci_powered_update_sync()
-    smp_register()
-    send HCI commands
+  HCI receive worker              Power-on request
+  hci_dev_lock(hdev)
+  smp_irk_matches()
+    chan = hdev->smp_data
+                                  hci_powered_update_sync()
+                                    smp_register()
+                                      smp_del_chan(chan), chan freed
+    reads chan->data
 
-Take the request lock again before testing that the controller is up, as
-hci_power_on_sync() runs the same update with the lock held when
-management powers on the controller through the cmd_sync queue.
+SMP receive callbacks run on hdev->workqueue without hdev->lock and use
+the ECDH transform of the root, for example smp_cmd_public_key():
 
-Fixes: cf75ad8b41d2 ("Bluetooth: hci_sync: Convert MGMT_SET_POWERED")
+  HCI receive worker (SMP)        Power-on request
+  smp_cmd_public_key()
+    tfm = root's tfm_ecdh
+                                  smp_register()
+                                    smp_del_chan()
+                                      crypto_free_kpp(tfm)
+    compute_ecdh_secret(tfm, ...)
+
+Before commit 2ff13894cfb8 ("Bluetooth: Perform HCI update for power on
+synchronously"), mgmt_powered() called smp_register() synchronously
+under hdev->lock, before submitting the HCI update. That excluded HCI
+event users, but did not exclude SMP receive callbacks. Those callbacks
+already used root-owned OOB data after commit 33d0c030717b ("Bluetooth:
+Use OOB key pair for LE SC pairing with OOB method"). The later commit
+4ba5175f2c10 ("Bluetooth: Use correct tfm to generate OOB data") made
+the ECDH calculation use the root's transform too.
+
+Queue registration on hdev->workqueue and hold hdev->lock while it
+replaces the channels. This adds exclusion from SMP receive callbacks
+and restores exclusion from HCI event users. smp_register() waits for
+the work and returns its result. Its callers hold the request lock but
+not hdev->lock, including hci_power_on() when it updates a controller in
+the HCI_AUTO_OFF window. No work on hdev->workqueue takes the request
+lock, and hci_dev_close_sync() drains this workqueue only with the
+request lock held, so the registration work cannot be queued while it
+drains. Users that run under the request lock, such as
+smp_generate_rpa(), stay serialized by that lock.
+
+The reports below come from test kernels with scheduling hooks that
+widen these windows. The WARN_ON() in smp_register() was printed before
+each of them.
+
+KASAN report as below:
+
+    ==================================================================
+    BUG: KASAN: slab-use-after-free in smp_irk_matches+0x2fb/0x310
+    Read of size 8 at addr ffff88810c35f4a0 by task kworker/u17:0/520
+
+    Workqueue: hci0 hci_rx_work
+    Call Trace:
+     <TASK>
+     dump_stack_lvl+0x93/0xd0
+     print_report+0xce/0x630
+     kasan_report+0xe0/0x110
+     smp_irk_matches+0x2fb/0x310
+     process_adv_report.part.0+0x2ce/0x1680
+     hci_le_direct_adv_report_evt+0x2f8/0x4c0
+     hci_le_meta_evt+0x30c/0x5c0
+     hci_event_packet+0x4e8/0xc70
+     hci_rx_work+0x367/0xf00
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+     </TASK>
+
+    Allocated by task 522:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     __kasan_kmalloc+0xaa/0xb0
+     __kmalloc_cache_noprof+0x251/0x610
+     l2cap_chan_create+0x47/0x930
+     smp_add_cid+0x120/0x4f0
+     smp_register+0xa7/0x400
+     hci_powered_update_sync+0x88/0x720
+     hci_dev_open_sync+0xae0/0x2060
+     hci_set_powered_sync+0x2a9/0x720
+     set_powered_sync+0xaa/0x150
+     hci_cmd_sync_work+0x1b3/0x450
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+
+    Freed by task 522:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     kasan_save_free_info+0x3b/0x60
+     __kasan_slab_free+0x5f/0x80
+     kfree+0x307/0x580
+     l2cap_chan_put+0x273/0x3a0
+     smp_del_chan+0x9f/0x170
+     smp_register+0x2e8/0x400
+     hci_powered_update_sync+0x88/0x720
+     hci_set_powered_sync+0x5e5/0x720
+     set_powered_sync+0xaa/0x150
+     hci_cmd_sync_work+0x1b3/0x450
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+
+    The buggy address belongs to the object at ffff88810c35f000
+     which belongs to the cache kmalloc-2k of size 2048
+    The buggy address is located 1184 bytes inside of
+     freed 2048-byte region [ffff88810c35f000, ffff88810c35f800)
+    ==================================================================
+
+KASAN report as below:
+
+    ==================================================================
+    BUG: KASAN: slab-use-after-free in compute_ecdh_secret+0x856/0xa50
+    Read of size 4 at addr ffff8881071f4f00 by task kworker/u17:2/500
+
+    Workqueue: hci1 hci_rx_work
+    Call Trace:
+     <TASK>
+     dump_stack_lvl+0x93/0xd0
+     print_report+0xce/0x630
+     kasan_report+0xe0/0x110
+     compute_ecdh_secret+0x856/0xa50
+     smp_recv_cb+0x3acf/0x93b0
+     l2cap_recv_frame+0x13cc/0x8830
+     l2cap_recv_acldata+0xe9f/0x10e0
+     hci_rx_work+0x5a6/0xf00
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+     </TASK>
+
+    Allocated by task 497:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     __kasan_kmalloc+0xaa/0xb0
+     __kmalloc_node_noprof+0x2f2/0x7b0
+     crypto_create_tfm_node+0x92/0x390
+     crypto_alloc_tfm_node+0xf5/0x220
+     smp_add_cid+0xc1/0x4f0
+     smp_register+0x9d/0x430
+     hci_powered_update_sync+0x82/0x680
+     hci_set_powered_sync+0x4f4/0x750
+     set_powered_sync+0xb8/0x210
+     hci_cmd_sync_work+0x1b3/0x450
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+
+    Freed by task 497:
+     kasan_save_stack+0x33/0x60
+     kasan_save_track+0x14/0x30
+     kasan_save_free_info+0x3b/0x60
+     __kasan_slab_free+0x5f/0x80
+     kfree+0x307/0x580
+     crypto_destroy_tfm+0xdd/0x230
+     smp_del_chan+0x8b/0x180
+     smp_register+0x29d/0x430
+     hci_powered_update_sync+0x82/0x680
+     hci_set_powered_sync+0x4f4/0x750
+     set_powered_sync+0xb8/0x210
+     hci_cmd_sync_work+0x1b3/0x450
+     process_one_work+0x908/0x19c0
+     worker_thread+0x65c/0xe40
+     kthread+0x34f/0x460
+     ret_from_fork+0x659/0x940
+     ret_from_fork_asm+0x1a/0x30
+
+    The buggy address belongs to the object at ffff8881071f4f00
+     which belongs to the cache kmalloc-128 of size 128
+    The buggy address is located 0 bytes inside of
+     freed 128-byte region [ffff8881071f4f00, ffff8881071f4f80)
+    ==================================================================
+
+Fixes: 33d0c030717b ("Bluetooth: Use OOB key pair for LE SC pairing with OOB method")
+Fixes: 2ff13894cfb8 ("Bluetooth: Perform HCI update for power on synchronously")
 Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
 ---
 Assisted-by: LLM
 
- net/bluetooth/hci_core.c | 3 +++
- 1 file changed, 3 insertions(+)
+ net/bluetooth/smp.c | 36 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 35 insertions(+), 1 deletion(-)
 
-diff --git a/net/bluetooth/hci_core.c b/net/bluetooth/hci_core.c
-index 0c0180a616d15..be087b9fcf3df 100644
---- a/net/bluetooth/hci_core.c
-+++ b/net/bluetooth/hci_core.c
-@@ -1006,14 +1006,17 @@ static void hci_power_on(struct work_struct *work)
+diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
+index e605ee8d20586..8df155566cea1 100644
+--- a/net/bluetooth/smp.c
++++ b/net/bluetooth/smp.c
+@@ -3459,7 +3459,8 @@ int smp_force_bredr(struct hci_dev *hdev, bool enable)
+ 	return 0;
+ }
  
- 	BT_DBG("%s", hdev->name);
+-int smp_register(struct hci_dev *hdev)
++static int __smp_register(struct hci_dev *hdev)
++	__must_hold(&hdev->lock)
+ {
+ 	struct l2cap_chan *chan;
  
-+	hci_req_sync_lock(hdev);
- 	if (test_bit(HCI_UP, &hdev->flags) &&
- 	    hci_dev_test_flag(hdev, HCI_MGMT) &&
- 	    hci_dev_test_and_clear_flag(hdev, HCI_AUTO_OFF)) {
- 		cancel_delayed_work(&hdev->power_off);
- 		err = hci_powered_update_sync(hdev);
-+		hci_req_sync_unlock(hdev);
- 		mgmt_power_on(hdev, err);
- 		return;
- 	}
-+	hci_req_sync_unlock(hdev);
+@@ -3509,6 +3510,39 @@ int smp_register(struct hci_dev *hdev)
+ 	return 0;
+ }
  
- 	err = hci_dev_do_open(hdev);
- 	if (err < 0) {
++struct smp_register_work {
++	struct work_struct work;
++	struct hci_dev *hdev;
++	int err;
++};
++
++static void smp_register_func(struct work_struct *work)
++{
++	struct smp_register_work *reg =
++		container_of(work, struct smp_register_work, work);
++	struct hci_dev *hdev = reg->hdev;
++
++	hci_dev_lock(hdev);
++	reg->err = __smp_register(hdev);
++	hci_dev_unlock(hdev);
++}
++
++int smp_register(struct hci_dev *hdev)
++{
++	struct smp_register_work reg = { .hdev = hdev };
++
++	/* HCI event handlers use the root channels under hdev->lock, and
++	 * SMP receive callbacks use them from hdev->workqueue. Replace the
++	 * channels from that workqueue while holding hdev->lock.
++	 */
++	INIT_WORK_ONSTACK(&reg.work, smp_register_func);
++	queue_work(hdev->workqueue, &reg.work);
++	flush_work(&reg.work);
++	destroy_work_on_stack(&reg.work);
++
++	return reg.err;
++}
++
+ void smp_unregister(struct hci_dev *hdev)
+ {
+ 	struct l2cap_chan *chan;
