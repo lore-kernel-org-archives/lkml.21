@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029745;
-	b=W3OIqYGOJUlkX2vlyljK7z3AyOActYHZiYD/03j+6toqitSYmxBaJSoDpByxqdFAWZvh
-	 YIlVAya2qM9VJ5Y7seqThXU4EuC9Nr3wjLwQrmgePB0J8Wxwr16rdq0KrdKM6TxY+DUbH
-	 Vp5HVaWiH083am1kElopGXypwwzVZeKze1VyQok4Mugg1Zn7amfTEotJx2YR1PkfeojVk
-	 Zk6Jpn4thctpMrJR1ARhRHhfG9Msod2nRD3/quy3gQ6OhrfPaqkfrtVIuFXMs1J9+JeU0
-	 7BYp356+ED8TvYCOKd14DloOALmYF2QBKMEWcNNyL9aq+N824/D2/+n464zX5U23FnA==
+	t=1795029753;
+	b=geruwABK7zHxEWDC0/hg0ViGfjGKJyLKHvk3+r0OQDL8t56xB5SLx+uDCwFQQRZQ+K9P
+	 CPhAMN82IF67+8iq5XYf4SWI4O60Xhw+vz9boax/FeuIgzIRZmG7Zk1ncUHXxo+EMDzR0
+	 Bnb+J2ODUNQ9H1B3XOrF48eCBhlmOQ9glEIYp3OhJdQK0pes2s6W6Y/bXBISy9J0kty/q
+	 d/EtLezlzLAINxxFjdwrG+QTGDtlBF8LtZdeDQQSTZGPYQVIyCVpke2H72PaMHw73J3tD
+	 5o/tjpjw87LlxYuhiZe2Psnr3KYn620NrRu+lt8YErAdd7A+BqQtckoL0+sVsClFmLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029745;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029753;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=n0YXGGo330R1yn4K8suGNVhNQKravXREW1JGSVmLJ9o=;
-	b=qGgBUx5/yizRfRuc5I92yKq4km2erEngG9MNlhCMe3UR67kDcn+7drMgzNiGV/+ZwzxW
-	 GCeQz3BwSIKZvk5oXu4se8pI+caCx3Xcpi1Lvt8FFChP65o5NfHDWziuV9Y8kuJn2BiHq
-	 m572ikloFN/5ACFZsOQLcsswqLaLyTk+zXwAHbD3DwkFrPpGXuVynL1r5/Jz3mIecZe19
-	 UZnCNaovp8K9GvjAKwD/j4fy4IfwlMGDsKDXuii8JCyc/ZyStoLnGFxHiurv+LxsJ2duN
-	 tZJNsUxOHbu9W3c8TfhJz9uQu98o/kImZE7wS5JD9i0XsrCG3wHfHhBHy/VSv21k4XA==
+	bh=zjHzIWrgVG2TS8hAbxzQ2URMRQPjCkfPaxd1co/07sI=;
+	b=MbV5ftooPBts439a8VLQC/tVViv66Q9cqMKlGsg6O1gbeiKt1rwE5aW3ne8ak0dSXh4D
+	 mM7pr8bnDFH+QZRsVZGIr1azUPRJs80LnpLbFgKu+fjZ7qgNDKfNSblzWSykUE+DJrhoY
+	 Pd1x3Ada5SdF8ptGW0iZ7U+l/60Ws5mzrpLxp1mTudah/cg0v2YuqHEzLCHAGlWYRjcAP
+	 ozkpPou2zQe1GSe47uWF4L/IpJwg2SNz7O+4uZOujKTaTkIs60nKLJcA7z4iWawZt8rV6
+	 dUjzQalKM2/r5UdkBYTiLHA4FAe3xW62C223a5x6ITMC/i3jqo3j0sUIWKIXyrd3Xlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jHAlfH3r;
-	arc=none smtp.remote-ip=209.85.161.42
-Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="jQOwmr/m";
+	arc=none smtp.remote-ip=209.85.161.50
+Received: from mail-oo1-f50.google.com (mail-oo1-f50.google.com [209.85.161.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00D16606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:22:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00D16606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00D1660A2603
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:22:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00D1660A2603
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jHAlfH3r
-Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-716b58a4365so822060eaf.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jQOwmr/m
+Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-71b0d330acfso110746eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795029744; x=1795634544; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795029752; x=1795634552; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=n0YXGGo330R1yn4K8suGNVhNQKravXREW1JGSVmLJ9o=;
-        b=jHAlfH3rXRENDJxsESVtTFc9i4LWeBULHIckHA1CdiobxlovAz/qR8Ypv1serhbH+N
-         5uy3OlhyEzGAVhwAcwJwwqCKepkH1Qkx50lkiErSfjOdjj1B/9uRf9ES0Ep/ov6nGi5w
-         hMEXUtdZDta/fuf+/afwGaq0cYeDmsuOQe0FdECSqDDrxVog3RlJSzn/4VdvBhDdkyzK
-         TsMGNUDuMFf3uJWkPYFB0myXmT8/ZNoBfH84CLEFKquTx9IyRKOdnn7EsjD7ZFJae1yQ
-         jBSgJl1hxV/4A330QnBWwSbsR7EHqlLAvpLKe3ki0YJiwAb4eNkDauwouBq4WRa3qsPu
-         051A==
+        bh=zjHzIWrgVG2TS8hAbxzQ2URMRQPjCkfPaxd1co/07sI=;
+        b=jQOwmr/m/b8+3xdmsnUgQTTnSKgv1Z/m/ZbB4/9qaCM4BI08CzObYhpvD8wkg9Bp7W
+         JS4+n5JcACnNllCGpmXgDVp+nixEzGC1O2V164qgKeVjMlo7SLXPmZJ82zyeI4GaK9wn
+         +QELfx2CWH1BsQ/dO2SJJYbqobsbMuY/vBs2V8twwiLN7Ibk2146RUTbJrvV/QCXGj/I
+         Id9EtdFBxTPFO+pxlrxX2e2y+7DNJZIMMOSsMp/H7X8oacRdH7DjBlJG8SnBSF+Z9Mfb
+         Tsg94s4h2jhCqeDEoYeUheD5jFTHc5jT/8qltpKAQMNPWE8vqGKZDbgftiKMcI3tymDY
+         /ZKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795029744; x=1795634544;
+        d=1e100.net; s=20260707; t=1795029752; x=1795634552;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n0YXGGo330R1yn4K8suGNVhNQKravXREW1JGSVmLJ9o=;
-        b=UYFTE+8WaalR5l0A8NytLcLPaUezMnnhyZbwa/deBhR3UH2PMJQoLVb/pSOB7H8RhU
-         1YyIHgDv4Usq26L+P7c4LuV01JC4vhsd3rAeeE+JVJNx+WWhnJuJu/CAd6o2yEogcx6L
-         zVhCQD+3ubWkLSQMHBaB6yIwcVUTzZQDV49gp95XhH+Vl6AvrzZnmhqBzA5r1IP/s8Hj
-         tgzw8fo4RbmogZ65HQKSr2GAHWC4MQkTV1mLDd1Qly4ms/svbO24Z/+b3L52YAk8pa08
-         Sf9/9Du77hAAdBDKpQh/ZXY6mye0DCgiSBJXjoWY9HkdX/WagR6OOO6mWgrXw2WByO0g
-         +2Lg==
-X-Gm-Message-State: APuU4Z/sOBqYlZNn+++9RnGsCRNViaT+SbMUOdam6t5IBVgKOq1SLb8v
-	0vLyD+RzZXFtftyIhDSBLCK02fHw6co3TejkSiet4D0ZdRN4gD3TPNIi9w5YhhBOnw==
-X-Gm-Gg: AYBFou0oZGxw9uxYDtsy4ULFyOMhSzvHZ+hLHU5G5DvD0JiLMiTQ202jx0Sqte7bK3p
-	ywOrgWL0fYADjEvuGM8aYnlZs8LdVQaJnlvx5oAPsLqdBv313wtqel3u0r5vP3ByyIyosYRjuKw
-	nDrrimnjJrUyKG4pfwa0EXIXkxVTboidri0pt7SO//Ulny0s1ZyP3k/tzjyMGtTcMqpPgXCyHWB
-	5vQlYAxbwZ7cMs6xtyE3IcOPxHeRV+D/mLNTyYkuRJ2GH1eaydtSnhfCUCMhNTLYQphSulosG/U
-	YX8JAco/LpBU2IwPtfvi6DsTsvad6Kw3oHs7ZRsZk2ACCHhkeo3K/JGVALZ+wiNBJPCcXWdMSA3
-	NGYbbpyPEmcbfSF8JBTqQfJJADQSHW4dM6/YAap48AHHrwC5s7eKxoKGvjTYYvuYEpDQyeSlJIy
-	BwxkQelaqYYh5+M931tYF934bjVz2wBv3f7xSfZnJZjinYvUYNGHCRGrFzQ7V95wzT9ZzNC44vD
-	fqSRAeOOnhqV4NsT69YzUHOhI4ff+9M6o+R9fbrSAfvOwGQnFDRtk3B/S1YRkVTgNXJ546CuObr
-	OcFR7CPt/9GXeg6tVA7WALlA7AvZoVvoVRUXfR9ju/kD6QryYzNZCkJ3BekQSAh2e5Wbe8NpgAO
-	zBdQ=
-X-Received: by 2002:a05:6820:c5c5:20b0:71a:d99b:e86c with SMTP id 006d021491bc7-71b1843fef8mr1875974eaf.21.1795029743752;
-        Wed, 18 Nov 2026 11:22:23 -0800 (PST)
+        bh=zjHzIWrgVG2TS8hAbxzQ2URMRQPjCkfPaxd1co/07sI=;
+        b=UymlyA92BvFA+T8hv0vkDec0vbM9DWrMpBxVoO0r4EDJBdjPsI6s4u4M/qh3xZJ0pR
+         bR5eGEOXoTKeVxUs3bI4hcMMpiI/Kqhy+SgysPg34iCLpdzQ1O8GlYjvTruj0B5Vije/
+         cFECzQ3/ApoQTC9jPDhFzfdvyfgSnoJ7dYhISSsJ7vJn1gyxB6S3M1Tgt1TeYR2/+MpZ
+         vwmY3JIejsucpW5w++WnpSCxrCRwOR/cbTOmf1SLVqz3BoNGl/JCVK1pfuMIab6t32U0
+         wEUQ2SwjT2JKWiXaShi8A+U9KxsVKOXgx1UkH1EGjIGaa6/CB6rwjeiN78i2K6WcZfCe
+         r0KA==
+X-Gm-Message-State: APuU4Z96npJLSBOePPtB40Pos+iuCQ0df+MDQe17MF/nXdpg096CLnJZ
+	34QuYdrMLEeb06RTOQcckmqv/7DrlkUIm1tc5HfslFrOs2txTDCcLFA=
+X-Gm-Gg: AYBFou0TfR/vfofhTTYfYiNo+KlSbZCkHBWgawqZDDfHq/7XQb+1deGoLujL3YMgtf9
+	nhQge7ijXCr/19/M7z9gVLgTKRUO/5coqOltYXNqm/xO0XzQ+iEya/FQ/SBHDGIAHwURJtIc828
+	vlA/jb7W+Lu/QKEbeUp16VYWkwLfZNX1Ln+AX99XBfFJ9iqGQg1VaWWgYzD3E8ngHLPxfOB1dqB
+	HkA+Qm3y2tsQUsBwLNwSDOh7RsOukbP61eymh1G2AwdX0ks6+cQcaoejOUr/H6SkDXEyyXXkSau
+	TXLiJONu16psRvOXKv+hlFK3fCQ95rCDit30oVMREl8ogXEQ2bbA5Dc0+xyeXe3PDrGGJ0T31ML
+	TM3tN+1wGUa/pE1nZkI7p9XJBW8iZn3mMZeGdZ/qLPpipU+rQHcIcZ9OoGlxYWj+qTRPZuDLudz
+	dA5ahIyD8OgfAZghN5aMF8s3tervRGC8B9pmmfzZzH843KgHFV7p/YZklpKBQsAY5vt8hcjjfjv
+	Igakz9gzvr9Cf74dPayDf6V98+Zj13S7c8M27ln8qWPIo8kBQGFLz1d9tUZjrzABc3h0RGC0fZZ
+	AfEXx0ZazF8DvPIN9bAxpeUQa+BtC1mER55gimcBUms3C9X0vSV7MzhT1RXvyVIRw8xzHw6nj/E
+	RhA==
+X-Received: by 2002:a05:6820:a75c:20b0:71b:1c49:5f1f with SMTP id 006d021491bc7-71b2a4208e9mr249303eaf.19.1795029751623;
+        Wed, 18 Nov 2026 11:22:31 -0800 (PST)
 Received: from miso.lan ([136.62.61.36])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b195c0bafsm2376912eaf.14.2026.11.18.11.22.22
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b195c0bafsm2376912eaf.14.2026.11.18.11.22.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 11:22:23 -0800 (PST)
+        Wed, 18 Nov 2026 11:22:31 -0800 (PST)
 From: Matthew Laux <matthew.laux@gmail.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Hans Verkuil <hverkuil@kernel.org>,
@@ -85,9 +85,9 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	Matthew Laux <matthew.laux@gmail.com>
-Subject: [PATCH v5 5/8] media: tw9900: allow board-specific register tables via platform data
-Date: Wed, 18 Nov 2026 13:21:21 -0600
-Message-ID: <20261118192124.23330-6-matthew.laux@gmail.com>
+Subject: [PATCH v5 7/8] media: Add subdevice driver for the Mstar MST3367 HDMI receiver
+Date: Wed, 18 Nov 2026 13:21:23 -0600
+Message-ID: <20261118192124.23330-8-matthew.laux@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118192124.23330-1-matthew.laux@gmail.com>
 References: <20261118192124.23330-1-matthew.laux@gmail.com>
@@ -102,196 +102,1198 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Allow bridge drivers to supply initial configuration data for the tw9900.
-Behavior for the original configuration supported by the driver is
-unchanged. Fall back to the existing initialization data if none is
-supplied by the bridge device.
+Implement a V4L2 subdevice driver for the MST3367. This was developed
+through reverse engineering the Windows driver, and capturing USB packets.
+The driver supports both HDMI and analog component inputs. YPbPr and RGB
+HDMI sources have been tested. I also added a couple custom DV timings
+for non-interlaced 240p and 288p over component, which are also tested and
+working with this chip.
 
 Signed-off-by: Matthew Laux <matthew.laux@gmail.com>
 ---
- MAINTAINERS                |  1 +
- drivers/media/i2c/tw9900.c | 49 ++++++++++++++++++++++++++------------
- include/media/i2c/tw9900.h | 34 ++++++++++++++++++++++++++
- 3 files changed, 69 insertions(+), 15 deletions(-)
- create mode 100644 include/media/i2c/tw9900.h
+ MAINTAINERS                 |    7 +
+ drivers/media/i2c/Kconfig   |   11 +
+ drivers/media/i2c/Makefile  |    1 +
+ drivers/media/i2c/mst3367.c | 1085 +++++++++++++++++++++++++++++++++++
+ include/media/i2c/mst3367.h |   27 +
+ 5 files changed, 1131 insertions(+)
+ create mode 100644 drivers/media/i2c/mst3367.c
+ create mode 100644 include/media/i2c/mst3367.h
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index c08aade46f61..102362c386fe 100644
+index 102362c386fe..6cbe402ee9da 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -27505,6 +27505,7 @@ M:	Mehdi Djait <mehdi.djait@bootlin.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	drivers/media/i2c/tw9900.c
-+F:	include/media/i2c/tw9900.h
+@@ -19039,6 +19039,13 @@ W:	https://linuxtv.org
+ Q:	http://patchwork.linuxtv.org/project/linux-media/list/
+ F:	drivers/media/usb/msi2500/
  
- TECHWELL TW9910 VIDEO DECODER
- L:	linux-media@vger.kernel.org
-diff --git a/drivers/media/i2c/tw9900.c b/drivers/media/i2c/tw9900.c
-index 4d0d437d02f3..95e8e306469f 100644
---- a/drivers/media/i2c/tw9900.c
-+++ b/drivers/media/i2c/tw9900.c
-@@ -16,6 +16,7 @@
- #include <linux/module.h>
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
-+#include <media/i2c/tw9900.h>
- #include <media/media-entity.h>
- #include <media/v4l2-async.h>
- #include <media/v4l2-ctrls.h>
-@@ -70,16 +71,11 @@
- #define TW9900_VIDEO_POLL_TRIES			20
- #define TW9900_AUTOSUSPEND_DELAY_MS		1000
++MSTAR MST3367 HDMI RECEIVER DRIVER
++M:	Matthew Laux <matthew.laux@gmail.com>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++F:	drivers/media/i2c/mst3367.c
++F:	include/media/i2c/mst3367.h
++
+ MSTAR INTERRUPT CONTROLLER DRIVER
+ M:	Mark-PK Tsai <mark-pk.tsai@mediatek.com>
+ M:	Daniel Palmer <daniel@thingy.jp>
+diff --git a/drivers/media/i2c/Kconfig b/drivers/media/i2c/Kconfig
+index 9e42b380e3f2..0b04f0a2a472 100644
+--- a/drivers/media/i2c/Kconfig
++++ b/drivers/media/i2c/Kconfig
+@@ -1456,6 +1456,17 @@ config VIDEO_ML86V7667
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called ml86v7667.
  
--struct regval {
--	u8 addr;
--	u8 val;
--};
--
- struct tw9900_mode {
- 	u32 width;
- 	u32 height;
- 	u32 std;
--	const struct regval *reg_list;
-+	const struct tw9900_regval *reg_list;
- 	int n_regs;
- };
- 
-@@ -97,11 +93,12 @@ struct tw9900 {
- 
- 	bool streaming;
- 	const struct tw9900_mode *cur_mode;
-+	const struct tw9900_platform_data *pdata;
- };
- 
- #define to_tw9900(sd) container_of(sd, struct tw9900, subdev)
- 
--static const struct regval tw9900_init_regs[] = {
-+static const struct tw9900_regval tw9900_init_regs[] = {
- 	{ TW9900_REG_MISC_CTL_II,	0xE6 },
- 	{ TW9900_REG_MISSCNT,		0x24 },
- 	{ TW9900_REG_OUT_FMT_CTL,	0xA7 },
-@@ -116,11 +113,11 @@ static const struct regval tw9900_init_regs[] = {
- 	{ TW9900_REG_OUT_CTRL_I,	0x98 },
- };
- 
--static const struct regval tw9900_pal_regs[] = {
-+static const struct tw9900_regval tw9900_pal_regs[] = {
- 	{ TW9900_REG_STD,		0x01 },
- };
- 
--static const struct regval tw9900_ntsc_regs[] = {
-+static const struct tw9900_regval tw9900_ntsc_regs[] = {
- 	{ TW9900_REG_OUT_FMT_CTL,	0xA4 },
- 	{ TW9900_REG_VDELAY_LO,		0x12 },
- 	{ TW9900_REG_VACTIVE_LO,	0xF0 },
-@@ -159,7 +156,7 @@ static int tw9900_write_reg(struct i2c_client *client, u8 reg, u8 val)
- }
- 
- static int tw9900_write_array(struct i2c_client *client,
--			      const struct regval *regs, int n_regs)
-+			      const struct tw9900_regval *regs, int n_regs)
- {
- 	int i, ret = 0;
- 
-@@ -183,6 +180,23 @@ static int tw9900_read_reg(struct i2c_client *client, u8 reg)
- 	return ret;
- }
- 
-+static int tw9900_write_mode(struct tw9900 *tw9900)
++config VIDEO_MST3367
++	tristate "MStar MST3367 HDMI receiver and component ADC"
++	depends on VIDEO_DEV && I2C
++	select MEDIA_CONTROLLER
++	help
++	  Support for the MStar MST3367 HDMI receiver, component video
++	  ADC and scaler.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called mst3367.
++
+ config VIDEO_SAA7110
+ 	tristate "Philips SAA7110 video decoder"
+ 	depends on VIDEO_DEV && I2C
+diff --git a/drivers/media/i2c/Makefile b/drivers/media/i2c/Makefile
+index 604b19dbc7b7..b9541ec3f823 100644
+--- a/drivers/media/i2c/Makefile
++++ b/drivers/media/i2c/Makefile
+@@ -81,6 +81,7 @@ obj-$(CONFIG_VIDEO_MIRA016) += mira016.o
+ obj-$(CONFIG_VIDEO_MIRA220) += mira220.o
+ obj-$(CONFIG_VIDEO_ML86V7667) += ml86v7667.o
+ obj-$(CONFIG_VIDEO_MSP3400) += msp3400.o
++obj-$(CONFIG_VIDEO_MST3367) += mst3367.o
+ obj-$(CONFIG_VIDEO_MT9M001) += mt9m001.o
+ obj-$(CONFIG_VIDEO_MT9M111) += mt9m111.o
+ obj-$(CONFIG_VIDEO_MT9M114) += mt9m114.o
+diff --git a/drivers/media/i2c/mst3367.c b/drivers/media/i2c/mst3367.c
+new file mode 100644
+index 000000000000..84391aa37392
+--- /dev/null
++++ b/drivers/media/i2c/mst3367.c
+@@ -0,0 +1,1085 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * MStar MST3367 HDMI receiver and component ADC
++ *
++ * Based on reverse engineering of CY3014.X64.SYS
++ *   (version 1.1.0.193 of Fri, 04 Jun 2021 09:37:45 UTC)
++ * HDMI path based on hdcapm by Steven Toth
++ */
++
++#include <linux/delay.h>
++#include <linux/i2c.h>
++#include <linux/kernel.h>
++#include <linux/math64.h>
++#include <linux/module.h>
++#include <linux/v4l2-dv-timings.h>
++#include <media/i2c/mst3367.h>
++#include <media/v4l2-device.h>
++#include <media/v4l2-dv-timings.h>
++#include <media/v4l2-subdev.h>
++
++struct mst3367 {
++	struct v4l2_subdev sd;
++	struct media_pad pads[MST3367_NUM_PADS];
++	struct device *dev;
++	struct i2c_client *client;
++
++	u32 input;
++	int current_bank;
++	bool bt601;
++	struct v4l2_dv_timings timings;
++};
++
++static inline struct mst3367 *to_mst3367(struct v4l2_subdev *sd)
 +{
-+	const struct tw9900_platform_data *pdata = tw9900->pdata;
-+	const struct tw9900_mode *mode = tw9900->cur_mode;
-+
-+	if (!pdata)
-+		return tw9900_write_array(tw9900->client, mode->reg_list,
-+					  mode->n_regs);
-+
-+	if (mode->std & V4L2_STD_NTSC)
-+		return tw9900_write_array(tw9900->client, pdata->ntsc_regs,
-+					  pdata->n_ntsc_regs);
-+
-+	return tw9900_write_array(tw9900->client, pdata->pal_regs,
-+				  pdata->n_pal_regs);
++	return container_of(sd, struct mst3367, sd);
 +}
 +
- static void tw9900_fill_fmt(const struct tw9900_mode *mode,
- 			    struct v4l2_mbus_framefmt *fmt)
- {
-@@ -316,9 +330,7 @@ static int tw9900_s_stream(struct v4l2_subdev *sd, int on)
- 		if (ret)
- 			goto err_unlock;
- 
--		ret = tw9900_write_array(tw9900->client,
--					 tw9900->cur_mode->reg_list,
--					 tw9900->cur_mode->n_regs);
-+		ret = tw9900_write_mode(tw9900);
- 		if (ret)
- 			goto err_unlock;
- 
-@@ -662,8 +674,14 @@ static int tw9900_runtime_resume(struct device *dev)
- 
- 	usleep_range(1000, 2000);
- 
--	ret = tw9900_write_array(tw9900->client, tw9900_init_regs,
--				 ARRAY_SIZE(tw9900_init_regs));
-+	if (tw9900->pdata)
-+		ret = tw9900_write_array(tw9900->client,
-+					 tw9900->pdata->init_regs,
-+					 tw9900->pdata->n_init_regs);
-+	else
-+		ret = tw9900_write_array(tw9900->client, tw9900_init_regs,
-+					 ARRAY_SIZE(tw9900_init_regs));
++static int mst3367_write(struct mst3367 *mst, u8 reg, u8 val)
++{
++	return i2c_smbus_write_byte_data(mst->client, reg, val);
++}
 +
- 	if (ret) {
- 		if (tw9900->reset_gpio)
- 			gpiod_set_value_cansleep(tw9900->reset_gpio, 1);
-@@ -727,6 +745,7 @@ static int tw9900_probe(struct i2c_client *client)
- 
- 	tw9900->client = client;
- 	tw9900->cur_mode = &supported_modes[0];
-+	tw9900->pdata = dev_get_platdata(dev);
- 
- 	tw9900->reset_gpio = devm_gpiod_get_optional(dev, "reset",
- 						     GPIOD_OUT_LOW);
-diff --git a/include/media/i2c/tw9900.h b/include/media/i2c/tw9900.h
++static int mst3367_read(struct mst3367 *mst, u8 reg)
++{
++	return i2c_smbus_read_byte_data(mst->client, reg);
++}
++
++static int mst3367_rmw(struct mst3367 *mst, u8 reg, u8 mask, u8 bits)
++{
++	int val = mst3367_read(mst, reg);
++
++	if (val < 0)
++		return val;
++	return mst3367_write(mst, reg, (val & mask) | bits);
++}
++
++static int mst3367_rmw_get_old(struct mst3367 *mst, u8 reg, u8 mask, u8 bits,
++			       u8 *old)
++{
++	int val = mst3367_read(mst, reg);
++
++	if (val < 0)
++		return val;
++	*old = val;
++	return mst3367_write(mst, reg, (val & mask) | bits);
++}
++
++static const struct v4l2_dv_timings_cap mst3367_hdmi_timings_cap = {
++	.type = V4L2_DV_BT_656_1120,
++	.bt = {
++		.min_width = 640,
++		.max_width = 1920,
++		.min_height = 480,
++		.max_height = 1080,
++		.min_pixelclock = 25175000, /* 640x480p60 */
++		.max_pixelclock = 148500000, /* 1080p60 */
++		.standards = V4L2_DV_BT_STD_CEA861 | V4L2_DV_BT_STD_DMT,
++		.capabilities = V4L2_DV_BT_CAP_PROGRESSIVE |
++				V4L2_DV_BT_CAP_INTERLACED,
++	},
++};
++
++/* ------------------------------------------------------------------ */
++/* Component scaler mode table                                        */
++/* ------------------------------------------------------------------ */
++
++struct component_mode {
++	int refresh_rate;
++	/* MST3367 bank 0 ADC/scaler registers (ref: SetADParameters) */
++	u8 pllgain, clpdly, clpdur, hsopw;
++	u8 adc_bw0, adc_bw1;
++	u16 scaler_htotal;
++	u16 hde_off;
++	u8 vde_off;
++	struct v4l2_dv_timings timings;
++};
++
++#define MST3367_DV_BT_CEA_720X240P59_94 { \
++	.type = V4L2_DV_BT_656_1120, \
++	V4L2_INIT_BT_TIMINGS(720, 240, 0, 0, \
++		13500000, 19, 62, 57, 4, 3, 15, 0, 0, 0, \
++		V4L2_DV_BT_STD_CEA861, \
++		V4L2_DV_FL_IS_CE_VIDEO | V4L2_DV_FL_HAS_PICTURE_ASPECT | \
++		V4L2_DV_FL_HAS_CEA861_VIC, { 4, 3 }, 8) \
++}
++
++#define MST3367_DV_BT_CEA_720X288P50 { \
++	.type = V4L2_DV_BT_656_1120, \
++	V4L2_INIT_BT_TIMINGS(720, 288, 0, 0, \
++		13500000, 12, 63, 69, 2, 3, 19, 0, 0, 0, \
++		V4L2_DV_BT_STD_CEA861, \
++		V4L2_DV_FL_IS_CE_VIDEO | V4L2_DV_FL_HAS_PICTURE_ASPECT | \
++		V4L2_DV_FL_HAS_CEA861_VIC, { 4, 3 }, 23) \
++}
++
++/*
++ * Values from Windows driver table $140303810 + 240p and 288p
++ */
++static const struct component_mode component_modes[] = {
++	/*    pll   clp   clp   hsop  adc   adc                     */
++	/*Hz  gain  dly   dur   w     bw0   bw1   sclht  hde    vde */
++	{ 60, 0x08, 0x08, 0x08, 0x18, 0x44, 0x04, 0x35a, 0x076, 0x12,
++	  V4L2_DV_BT_CEA_720X480I59_94 },
++	{ 60, 0x08, 0x08, 0x08, 0x18, 0x44, 0x04, 0x35a, 0x077, 0x13,
++	  MST3367_DV_BT_CEA_720X240P59_94 },
++	{ 50, 0x08, 0x08, 0x08, 0x18, 0x44, 0x04, 0x360, 0x083, 0x16,
++	  V4L2_DV_BT_CEA_720X576I50 },
++	{ 50, 0x08, 0x08, 0x08, 0x18, 0x44, 0x04, 0x360, 0x083, 0x17,
++	  MST3367_DV_BT_CEA_720X288P50 },
++	{ 60, 0x20, 0x08, 0x08, 0x18, 0x33, 0x03, 0x35a, 0x079, 0x24,
++	  V4L2_DV_BT_CEA_720X480P59_94 },
++	{ 50, 0x18, 0x08, 0x08, 0x18, 0x33, 0x03, 0x360, 0x083, 0x2c,
++	  V4L2_DV_BT_CEA_720X576P50 },
++	{ 24, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0xce4, 0x12b, 0x19,
++	  V4L2_DV_BT_CEA_1280X720P24 },
++	{ 25, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0xf78, 0x12b, 0x19,
++	  V4L2_DV_BT_CEA_1280X720P25 },
++	{ 30, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0xce4, 0x12b, 0x19,
++	  V4L2_DV_BT_CEA_1280X720P30 },
++	{ 50, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0x7bc, 0x12b, 0x19,
++	  V4L2_DV_BT_CEA_1280X720P50 },
++	{ 60, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0x672, 0x12b, 0x19,
++	  V4L2_DV_BT_CEA_1280X720P60 },
++	{ 50, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0xa50, 0x0eb, 0x14,
++	  V4L2_DV_BT_CEA_1920X1080I50 },
++	{ 60, 0x58, 0x38, 0x20, 0x30, 0x11, 0x01, 0x898, 0x0eb, 0x14,
++	  V4L2_DV_BT_CEA_1920X1080I60 },
++	{ 24, 0xe8, 0x38, 0x30, 0x60, 0x00, 0x00, 0xabe, 0x0eb, 0x29,
++	  V4L2_DV_BT_CEA_1920X1080P24 },
++	{ 25, 0xe8, 0x38, 0x30, 0x60, 0x00, 0x00, 0xa50, 0x0eb, 0x29,
++	  V4L2_DV_BT_CEA_1920X1080P25 },
++	{ 30, 0xe8, 0x38, 0x30, 0x60, 0x00, 0x00, 0x898, 0x0eb, 0x29,
++	  V4L2_DV_BT_CEA_1920X1080P30 },
++	{ 50, 0xe8, 0x38, 0x30, 0x60, 0x00, 0x00, 0xa50, 0x0eb, 0x29,
++	  V4L2_DV_BT_CEA_1920X1080P50 },
++	{ 60, 0xe8, 0x38, 0x30, 0x60, 0x00, 0x00, 0x898, 0x0eb, 0x29,
++	  V4L2_DV_BT_CEA_1920X1080P60 },
++};
++
++static const struct v4l2_dv_timings_cap mst3367_component_timings_cap = {
++	.type = V4L2_DV_BT_656_1120,
++	.bt = {
++		.min_width = 720,
++		.max_width = 1920,
++		.min_height = 240,
++		.max_height = 1080,
++		.min_pixelclock = 13500000, /* 480i */
++		.max_pixelclock = 148500000, /* 1080p60 */
++		.standards = V4L2_DV_BT_STD_CEA861,
++		.capabilities = V4L2_DV_BT_CAP_PROGRESSIVE |
++				V4L2_DV_BT_CAP_INTERLACED,
++	},
++};
++
++static int mst_bank(struct mst3367 *mst, int bank)
++{
++	if (mst->current_bank == bank)
++		return 0;
++	mst->current_bank = bank;
++	return mst3367_write(mst, 0x00, bank);
++}
++
++static void mst3367_config(struct mst3367 *mst)
++{
++	bool hotplug;
++
++	mst_bank(mst, 0x00);
++	mst3367_write(mst, 0x51, 0x80);
++	mst3367_write(mst, 0x13, 0x08);
++	/* RxTmdsHotPlug: all off */
++	mst3367_rmw(mst, 0xb7, 0xff, 0x02);
++	/* RxGeneralInit */
++	mst3367_write(mst, 0x41, 0x6f);
++	mst3367_write(mst, 0xb8, 0x00);
++	/* RxVideoInit */
++	mst3367_write(mst, 0xb0, 0x14);
++	mst3367_rmw(mst, 0xae, ~0x04, 0x04);
++	mst3367_write(mst, 0xad, 0x05); /* low-pass filter */
++	mst3367_write(mst, 0xb1, 0xc0);
++	mst3367_write(mst, 0xb2, 0x00);
++	mst3367_write(mst, 0xb3, 0x00);
++	mst3367_write(mst, 0xb4, 0x55);
++	/* RxAudioInit */
++	mst3367_rmw(mst, 0xb4, ~0x03, 0x00);
++
++	/* RxTmdsInit */
++	mst_bank(mst, 0x01);
++	mst3367_write(mst, 0x0f, 0x02);
++	mst3367_write(mst, 0x16, 0x30);
++	mst3367_write(mst, 0x17, 0x00);
++	mst3367_write(mst, 0x18, 0x00);
++	mst3367_write(mst, 0x19, 0x00);
++	mst3367_write(mst, 0x1a, 0x50);
++	mst3367_rmw(mst, 0x2a, ~0x07, 0x07);
++	/* RxHdcpInit */
++	mst3367_write(mst, 0x24, 0x40);
++	mst3367_write(mst, 0x25, 0x00);
++	mst3367_write(mst, 0x30, 0x80);
++	mst3367_write(mst, 0x31, 0x00);
++	mst3367_write(mst, 0x32, 0x00);
++
++	mst_bank(mst, 0x02);
++	mst3367_write(mst, 0x08, 0x03);
++	/* RxAudioInit (cont'd) */
++	mst3367_write(mst, 0x01, 0x61);
++	mst3367_write(mst, 0x02, 0xf5);
++	mst3367_rmw(mst, 0x03, ~0x02, 0x02);
++	mst3367_write(mst, 0x04, 0x01);
++	mst3367_write(mst, 0x05, 0x00);
++	mst3367_write(mst, 0x06, 0x08);
++	mst3367_write(mst, 0x1c, 0x1a);
++	mst3367_write(mst, 0x1d, 0x00);
++	mst3367_write(mst, 0x1e, 0x00);
++	mst3367_write(mst, 0x1f, 0x00);
++	mst3367_rmw(mst, 0x25, 0xff ^ 0xa2, 0xa2);
++	mst3367_rmw(mst, 0x02, 0x7f, 0x80);
++	mst3367_rmw(mst, 0x07, ~0x04, 0x04);
++	mst3367_write(mst, 0x17, 0xc0);
++	mst3367_write(mst, 0x19, 0xff);
++	mst3367_write(mst, 0x1a, 0xff);
++	mst3367_write(mst, 0x1b, 0xfc);
++	mst3367_write(mst, 0x20, 0x00);
++	mst3367_rmw(mst, 0x21, ~0x03, 0x00);
++	mst3367_write(mst, 0x22, 0x26);
++	mst3367_write(mst, 0x27, 0x00);
++	mst3367_rmw(mst, 0x2e, 0xff ^ 0xa1, 0xa1);
++
++	mst_bank(mst, 0x00);
++
++	hotplug = false;
++	v4l2_subdev_notify(&mst->sd, MST3367_HOTPLUG, &hotplug);
++
++	mst3367_rmw(mst, 0xb7, 0xff, 0x02);
++
++	mst3367_write(mst, 0xab, 0x15); /* COLOR.RANGE */
++	mst3367_write(mst, 0xac, 0x15); /* COLOR.RANGE */
++
++	/* RxHdcpReset */
++	mst3367_write(mst, 0xb8, 0x10);
++	mst3367_write(mst, 0xb8, 0x00);
++
++	/* RxHdmiReset */
++	mst_bank(mst, 0x02);
++	mst3367_write(mst, 0x07, 0xf4);
++	mst3367_write(mst, 0x07, 0x04);
++
++	/* RxSwitchSource: 0x81 = HDMI TMDS.A */
++	mst_bank(mst, 0x00);
++	mst3367_write(mst, 0x51, 0x81);
++
++	hotplug = true;
++	v4l2_subdev_notify(&mst->sd, MST3367_HOTPLUG, &hotplug);
++
++	mst3367_rmw(mst, 0xb7, 0xfd, 0x00);
++	msleep(200);
++
++	/* FUN_00016640: RxHdmiInit / BT.656 output enable */
++	mst_bank(mst, 0x02);
++	mst3367_rmw(mst, 0x01, 0x0f, 0x60);
++	mst3367_rmw(mst, 0x04, 0xff, 0x01);
++	mst3367_write(mst, 0x06, 0x08);
++	mst3367_rmw(mst, 0x09, 0xff, 0x20);
++
++	mst_bank(mst, 0x00);
++	mst3367_rmw(mst, 0x54, 0xef, 0x00);
++	mst3367_rmw(mst, 0xac, 0xff, 0x80);
++	mst3367_rmw(mst, 0xce, 0xff, 0x80);
++	mst3367_rmw(mst, 0xcf, 0xfa, 0x02);
++
++	mst3367_rmw(mst, 0x00, 0x7f, 0x00);
++	mst_bank(mst, 0x00);
++}
++
++/* Identity CSC for component YPbPr */
++static const u8 csc_identity_component[] = {
++	0x10, 0x00,  0x00, 0x00,  0x00, 0x00, /* M11, M12, M13 */
++	0x00, 0x00,  0x10, 0x00,  0x00, 0x00, /* M21, M22, M23 */
++	0x00, 0x00,  0x00, 0x00,  0x10, 0x00, /* M31, M32, M33 */
++	0x20, 0x00,  0x03, 0x80,  0x20, 0x00, /*  A1,  A2,  A3 */
++};
++
++/* Identity CSC for HDMI YCbCr */
++static const u8 csc_identity_hdmi[] = {
++	0x10, 0x00,  0x00, 0x00,  0x00, 0x00,
++	0x00, 0x00,  0x10, 0x00,  0x00, 0x00,
++	0x00, 0x00,  0x00, 0x00,  0x10, 0x00,
++	0x20, 0x00,  0x00, 0x00,  0x20, 0x00,
++};
++
++/* BT.601 for SD (width <= 720) */
++static const u8 csc_r2y_sd[] = {
++	0x08, 0x02,  0x04, 0xc5,  0xfd, 0x4d,
++	0xf9, 0x4a,  0x09, 0x5b,  0xfa, 0xb1,
++	0xfe, 0xb4,  0x01, 0xd2,  0x08, 0x02,
++	0x20, 0x00,  0x00, 0x00,  0x20, 0x00,
++};
++
++/* BT.709 for HD (width > 720) */
++static const u8 csc_r2y_hd[] = {
++	0x08, 0x02,  0x03, 0x65,  0xfe, 0x28,
++	0xf8, 0xb9,  0x0b, 0x65,  0xf9, 0xd6,
++	0xff, 0x45,  0x01, 0x27,  0x08, 0x02,
++	0x20, 0x00,  0x00, 0x00,  0x20, 0x00,
++};
++
++#define COLOR_RGB 0x00
++#define COLOR_YUV422 0x20
++#define COLOR_YUV444 0x40
++
++static void mst3367_write_csc(struct mst3367 *mst)
++{
++	bool comp = (mst->input == MST3367_INPUT_COMPONENT);
++	const u8 *csc;
++	u8 old_ab, reg_92;
++	bool limited = false;
++	/* this can be overridden by the source */
++	bool bt601 = mst->timings.bt.width <= 720;
++	int k;
++
++	if (comp) {
++		reg_92 = 0x66;
++		csc = csc_identity_component;
++	} else {
++		int pkt_status;
++		int color = 0;
++		int quant = 0;
++		int colorimetry = 0;
++
++		mst_bank(mst, 0x02);
++		pkt_status = (mst3367_read(mst, 0x0c) & 0x3f) << 8 |
++			     (mst3367_read(mst, 0x0b) & 0xff);
++		if (mst3367_read(mst, 0x0e) & 0x08)
++			pkt_status |= 0x8000;
++
++		/* ref: RxHdmiPacketColor */
++		if (pkt_status & 0x8) {
++			/* 0x00 = RGB, 0x20 = YUV422, 0x40 = YUV444 */
++			color = mst3367_read(mst, 0x48) & 0x60;
++			/* 0 = default, 1 = limited, 2 = full */
++			quant = mst3367_read(mst, 0x4a);
++			quant = quant < 0 ? 0 : (quant >> 2) & 0x03;
++			limited = quant == 1;
++			/* 0 = not stated, 1 = BT.601, 2 = BT.709 */
++			colorimetry = mst3367_read(mst, 0x49);
++			colorimetry = colorimetry < 0 ? 0 : colorimetry >> 6;
++		}
++
++		dev_info(mst->dev,
++			 "CSC: pkt_status=0x%04x color=0x%02x quant=%d colorimetry=%d\n",
++			 pkt_status, color, quant, colorimetry);
++
++		if (color == COLOR_RGB) {
++			reg_92 = limited ? 0x55 : 0x40;
++			csc = bt601 ? csc_r2y_sd : csc_r2y_hd;
++			dev_info(mst->dev, "CSC: HDMI RGB, %s R2Y\n",
++				 bt601 ? "BT.601" : "BT.709");
++		} else {
++			bt601 = colorimetry == 1;
++			reg_92 = limited ? 0x66 : 0x62;
++			csc = csc_identity_hdmi;
++			dev_info(mst->dev,
++				 "CSC: HDMI YCbCr (0x%02x), %s\n",
++				 color, bt601 ? "BT.601" : "BT.709");
++		}
++	}
++
++	mst->bt601 = bt601;
++
++	mst_bank(mst, 0x00);
++
++	/* BLANK.OUTPUT while changing CSC */
++	mst3367_rmw_get_old(mst, 0xab, 0x7f, 0x80, &old_ab);
++
++	/* COLOR.RANGE */
++	mst3367_write(mst, 0x90, 0x15);
++	mst3367_write(mst, 0x91, 0x15);
++	mst3367_write(mst, 0x92, reg_92);
++
++	mst3367_rmw(mst, 0xac, ~0x3f, 0x15);
++	mst3367_write(mst, 0xad, 0x05);
++	mst3367_write(mst, 0x1e, 0x11);
++	mst3367_write(mst, 0x1f, 0x01);
++
++	for (k = 0; k < 24; k++)
++		mst3367_write(mst, 0x93 + k, csc[k]);
++
++	if (!comp)
++		mst3367_write(mst, 0xa7, limited ? 0x04 : 0x00);
++
++	/* RX_OUTPUT_YUV422 / 08.BITS / EMBEDDED SYNC */
++	mst3367_rmw(mst, 0xb0, 0xc2, 0x21);
++	/* NORMAL.OUTPUT (un-blank) */
++	mst3367_write(mst, 0xab, old_ab & 0x7f);
++
++	mst3367_write(mst, 0xb3, 0x00);
++
++	mst_bank(mst, 0x02);
++	mst3367_write(mst, 0x27, 0x00);
++	mst3367_write(mst, 0x20, 0x00);
++}
++
++/* ------------------------------------------------------------------ */
++/* Signal detection polling                                           */
++/* ------------------------------------------------------------------ */
++
++#define HDMI_VTOTAL_TOLERANCE	5
++#define HDMI_VFREQ_TOLERANCE	5
++
++static int mst3367_read_vfreq(struct mst3367 *mst)
++{
++	int hi, lo, period;
++
++	mst_bank(mst, 0x00);
++	hi = mst3367_read(mst, 0x59);
++	lo = mst3367_read(mst, 0x5a);
++	if (hi < 0 || lo < 0)
++		return 0;
++
++	period = (hi & 0x3f) << 8 | lo;
++	/* units of 0.1 Hz, ref: RxHdmiModeDetect */
++	return period ? 1250000 / period : 0;
++}
++
++static const struct v4l2_dv_timings *match_hdmi_timing(int hactive, int vtotal,
++						       int vfreq)
++{
++	const struct v4l2_dv_timings *best = NULL;
++	int best_err = INT_MAX;
++	int k;
++
++	for (k = 0; v4l2_dv_timings_presets[k].bt.width; k++) {
++		const struct v4l2_dv_timings *t = &v4l2_dv_timings_presets[k];
++		const struct v4l2_bt_timings *bt = &t->bt;
++		u32 frame_width = V4L2_DV_BT_FRAME_WIDTH(bt);
++		u32 frame_height = V4L2_DV_BT_FRAME_HEIGHT(bt);
++		int fields = bt->interlaced ? 2 : 1;
++		int vtotal_err, vfreq_err, err;
++
++		if (bt->width != hactive)
++			continue;
++		if (!v4l2_valid_dv_timings(t, &mst3367_hdmi_timings_cap,
++					   NULL, NULL))
++			continue;
++
++		vtotal_err = abs(vtotal * fields - (int)frame_height);
++		if (vtotal_err > HDMI_VTOTAL_TOLERANCE)
++			continue;
++
++		vfreq_err = abs(vfreq -
++				(int)DIV_ROUND_CLOSEST_ULL(bt->pixelclock * 10 * fields,
++							   frame_width * frame_height));
++		if (vfreq_err > HDMI_VFREQ_TOLERANCE)
++			continue;
++
++		err = vtotal_err * 2 * HDMI_VFREQ_TOLERANCE + vfreq_err;
++		if (err < best_err) {
++			best_err = err;
++			best = t;
++		}
++	}
++	return best;
++}
++
++static void mst3367_enable_auto_position(struct mst3367 *mst)
++{
++	mst_bank(mst, 0x00);
++	mst3367_write(mst, 0xe2, 0x80);
++	/* report the digital DE window */
++	mst3367_write(mst, 0xe3, 0x08);
++	/* position threshold */
++	mst3367_write(mst, 0xe4, 0x00);
++}
++
++static int hdmi_poll_signal(struct mst3367 *mst,
++			    struct v4l2_dv_timings *timings)
++{
++	int k, status;
++	int prev_htotal = -1, prev_vtotal = -1, prev_hactive = -1;
++	int stable_count = 0;
++
++	mst3367_enable_auto_position(mst);
++	msleep(100);
++
++	for (k = 0; k < 100; k++) {
++		int htotal, vtotal, hactive, vfreq, tmds_ratio;
++		const struct v4l2_dv_timings *std;
++
++		msleep(100);
++
++		mst_bank(mst, 0x00);
++		status = mst3367_read(mst, 0x55);
++		if (status < 0)
++			continue;
++
++		if (!(status & 0x3c)) {
++			/* Not locked yet */
++			mst3367_enable_auto_position(mst);
++			if (k % 10 == 0)
++				dev_info(mst->dev,
++					 "HDMI signal poll[%d]: lock=0x%02x (no signal)\n",
++					 k, status);
++			stable_count = 0;
++			continue;
++		}
++
++		htotal = (mst3367_read(mst, 0x6a) << 8 |
++			  mst3367_read(mst, 0x6b)) & 0xfff;
++		vtotal = (mst3367_read(mst, 0x5b) << 8 |
++			  mst3367_read(mst, 0x5c)) & 0x7ff;
++
++		mst_bank(mst, 0x02);
++		hactive = (mst3367_read(mst, 0x29) << 8 |
++			   mst3367_read(mst, 0x28)) & 0x1fff;
++
++		if (k % 5 == 0)
++			dev_info(mst->dev,
++				 "HDMI poll[%d]: lock=0x%02x ht=%d vt=%d ha=%d stable=%d\n",
++				 k, status, htotal, vtotal, hactive, stable_count);
++
++		/*
++		 * Require non-zero timings and two consecutive identical
++		 * readings before accepting
++		 */
++		if (htotal == 0 || vtotal == 0 || hactive == 0 ||
++		    htotal != prev_htotal || vtotal != prev_vtotal ||
++		    hactive != prev_hactive) {
++			prev_htotal = htotal;
++			prev_vtotal = vtotal;
++			prev_hactive = hactive;
++			stable_count = 0;
++			continue;
++		}
++
++		if (++stable_count < 2)
++			continue;
++
++		vfreq = mst3367_read_vfreq(mst);
++
++		dev_info(mst->dev,
++			 "HDMI locked: htotal=%d vtotal=%d hactive=%d vfreq=%d.%d\n",
++			 htotal, vtotal, hactive, vfreq / 10, vfreq % 10);
++
++		std = match_hdmi_timing(hactive, vtotal, vfreq);
++		if (!std) {
++			dev_err(mst->dev,
++				"unsupported HDMI timing: htotal=%d vtotal=%d hactive=%d vfreq=%d.%d\n",
++				htotal, vtotal, hactive, vfreq / 10, vfreq % 10);
++			return -ERANGE;
++		}
++
++		/* 100 = 8 bit, 125 = 10 bit, 150 = 12 bit deep color */
++		tmds_ratio = htotal * 100 / V4L2_DV_BT_FRAME_WIDTH(&std->bt);
++		dev_info(mst->dev,
++			 "HDMI mode: %ux%u%s, TMDS clock = %d.%02dx pixel clock\n",
++			 std->bt.width, std->bt.height,
++			 std->bt.interlaced ? "i" : "p",
++			 tmds_ratio / 100, tmds_ratio % 100);
++
++		*timings = *std;
++
++		/* DISABLE AUTO POSITION */
++		mst_bank(mst, 0x00);
++		mst3367_write(mst, 0xe2, 0x00);
++
++		return 0;
++	}
++
++	dev_err(mst->dev, "No HDMI signal lock after 10s\n");
++	return -ETIMEDOUT;
++}
++
++/* ------------------------------------------------------------------ */
++/* ADC front-end config (component/VGA only)                          */
++/* ------------------------------------------------------------------ */
++
++static void mst3367_adc_config(struct mst3367 *mst)
++{
++	/* RxAdcInit */
++	mst_bank(mst, 0x00);
++	mst3367_write(mst, 0x00, 0x80);
++	mst3367_write(mst, 0x24, 0xc0);
++	mst3367_write(mst, 0x00, 0x00);
++	mst3367_rmw(mst, 0x21, ~0x07, 0x01);
++	mst3367_write(mst, 0x04, 0x00); /* ADC phase */
++	mst3367_rmw(mst, 0x10, 0x0f, 0xd0);
++	mst3367_write(mst, 0x11, 0x2d);
++	mst3367_write(mst, 0x20, 0xc0);
++	mst3367_write(mst, 0x21, 0x04);
++	/* bits 5:4 = sync source: 0x30 = SOG for component */
++	mst3367_rmw(mst, 0x0e, 0xcf, 0x30);
++}
++
++static const struct component_mode *
++find_component_mode(const struct v4l2_dv_timings *t)
++{
++	int k;
++
++	for (k = 0; k < ARRAY_SIZE(component_modes); k++)
++		if (v4l2_match_dv_timings(t, &component_modes[k].timings, 0, false))
++			return &component_modes[k];
++	return NULL;
++}
++
++#define COMPONENT_VTOTAL_TOLERANCE	25
++#define COMPONENT_HFREQ_TOLERANCE	8
++
++/* Picks the mode closest to the measured line count and line rate */
++static const struct component_mode *match_component_mode(int vtotal, int hfreq,
++							 bool interlaced)
++{
++	const struct component_mode *best = NULL;
++	int best_err = INT_MAX;
++	int k;
++
++	for (k = 0; k < ARRAY_SIZE(component_modes); k++) {
++		const struct component_mode *m = &component_modes[k];
++		const struct v4l2_bt_timings *bt = &m->timings.bt;
++		int std_vtotal = V4L2_DV_BT_FRAME_HEIGHT(bt) /
++				 (bt->interlaced ? 2 : 1);
++		int std_hfreq = (u32)bt->pixelclock /
++				(V4L2_DV_BT_FRAME_WIDTH(bt) * 100);
++		int vtotal_err = abs(vtotal - std_vtotal);
++		int hfreq_err = abs(hfreq - std_hfreq);
++		int err;
++
++		if (vtotal_err > COMPONENT_VTOTAL_TOLERANCE ||
++		    hfreq_err > COMPONENT_HFREQ_TOLERANCE)
++			continue;
++
++		err = vtotal_err + hfreq_err;
++		if (!bt->interlaced != !interlaced)
++			err += COMPONENT_VTOTAL_TOLERANCE +
++			       COMPONENT_HFREQ_TOLERANCE + 1;
++		if (err < best_err) {
++			best_err = err;
++			best = m;
++		}
++	}
++	return best;
++}
++
++/* ------------------------------------------------------------------ */
++/* Component scaler register write                                    */
++/* ------------------------------------------------------------------ */
++
++static void component_write_scaler(struct mst3367 *mst,
++				   const struct component_mode *m)
++{
++	const struct v4l2_bt_timings *bt = &m->timings.bt;
++	int width = bt->width;
++	int height = bt->interlaced ? bt->height / 2 : bt->height;
++	int ht = m->scaler_htotal - 1;
++	int is_720_low_rr = width == 1280 && height == 720 &&
++			(m->refresh_rate == 24 ||
++				m->refresh_rate == 25 ||
++				m->refresh_rate == 30);
++
++	mst_bank(mst, 0x00);
++
++	/*
++	 * edge case for low frame rate 720p:
++	 * if (((*(int *)(uVar30 + 0x30) == 0x500) && (*(int *)(uVar30 + 0x34) == 0x2d0)) &&
++	 *     ((*(int *)(uVar30 + 0x38) == 0x1e ||
++	 *     ((*(int *)(uVar30 + 0x38) == 0x19 || (*(int *)(uVar30 + 0x38) == 0x18)))))) {
++	 *   uVar37 = 0;
++	 * } else {
++	 *   uVar37 = 4;
++	 * }
++	 * send_mst(param_1,0,0x12,uVar37);
++	 */
++	mst3367_write(mst, 0x12, is_720_low_rr ? 0x00 : 0x04);
++
++	/* SetADParameters */
++	mst3367_write(mst, 0x03, m->pllgain);
++	mst3367_write(mst, 0x05, m->clpdly);
++	mst3367_write(mst, 0x06, m->clpdur);
++	mst3367_write(mst, 0x07, m->hsopw);
++
++	/* ADC gain: Y, Cb, Cr */
++	mst3367_write(mst, 0x08, 0xa0);
++	mst3367_write(mst, 0x09, 0xc0);
++	mst3367_write(mst, 0x0a, 0xa0);
++
++	/* grade scale (clamp level): Y, Cb, Cr */
++	mst3367_write(mst, 0x0b, 0x80);
++	mst3367_write(mst, 0x0c, 0x60);
++	mst3367_write(mst, 0x0d, 0x80);
++
++	/* clamp offset: Y, Cb, Cr */
++	mst3367_write(mst, 0x18, 0x10);
++	mst3367_write(mst, 0x19, 0x10);
++	mst3367_write(mst, 0x1a, 0x10);
++	mst3367_write(mst, 0x1b, 0x00);
++	mst3367_write(mst, 0x1c, 0x00);
++	mst3367_write(mst, 0x1d, 0x00);
++
++	/* ADCSetAutoDetectFormat: output htotal */
++	mst3367_write(mst, 0x01, ht >> 4);
++	mst3367_write(mst, 0x02, (ht & 0x0f) << 4);
++	mst3367_write(mst, 0x1e, m->adc_bw0);
++	mst3367_write(mst, 0x1f, m->adc_bw1);
++
++	/* output data enable start pos after sync */
++	mst3367_write(mst, 0x80, (m->hde_off >> 8) & 0x0f);
++	mst3367_write(mst, 0x81, m->hde_off & 0xff);
++	mst3367_write(mst, 0x82, (width >> 8) & 0xff);
++	mst3367_write(mst, 0x83, width & 0xff);
++	mst3367_write(mst, 0x84, m->vde_off);
++	mst3367_write(mst, 0x85,
++		      ((height >> 8) & 0x0f) | (bt->interlaced ? 0x20 : 0x00));
++	mst3367_write(mst, 0x86, height & 0xff);
++
++	mst3367_write(mst, 0x2d, 0x11);
++	mst3367_write(mst, 0x2e, 0x11);
++	mst3367_write(mst, 0x39, (u8)(m->clpdly + m->clpdur - 0x78));
++	mst3367_write(mst, 0x2c, 0x9d);
++	mst3367_write(mst, 0x3a, 0x0c);
++	mst3367_write(mst, 0x3b, 0x08);
++
++	mst3367_rmw(mst, 0x10, 0xfa, 0x05);
++	mst3367_rmw(mst, 0x0f, 0xff, 0x20);
++	mst3367_rmw(mst, 0x17, 0xff, 0x02);
++	mst3367_rmw(mst, 0x2f, 0xff, 0x02);
++	mst3367_rmw(mst, 0x60, 0xfb, 0x00);
++}
++
++/* ------------------------------------------------------------------ */
++/* Component ADC signal polling                                       */
++/* ------------------------------------------------------------------ */
++
++static int component_poll_signal(struct mst3367 *mst,
++				 const struct component_mode **detected)
++{
++	const struct component_mode *mode;
++	int k, status, vtotal, hperiod, hfreq, interlaced;
++	int signal_count = 0;
++
++	/*
++	 * RxAdcModeDetect()
++	 *   regs[0x14] & 0x90 == 0x90: H+V locked
++	 *   regs[0x14] & 0x90 == 0x80: H lock only
++	 *   regs[0x14] == 0x00 && regs[0x15] & 0x40: none
++	 */
++	for (k = 0; k < 100; k++) {
++		int signal_type;
++
++		mst_bank(mst, 0x00);
++
++		/* trigger timing measurement? */
++		mst3367_write(mst, 0x0e, 0x40);
++
++		status = mst3367_read(mst, 0x14);
++		mst3367_read(mst, 0x15);
++
++		/* Check signal presence from 0x14 bits 7,4 */
++		signal_type = status & 0x90;
++		if (signal_type == 0x90 || signal_type == 0x80 ||
++		    (signal_type == 0x00 && (status & 0x02)))
++			signal_count++;
++		else
++			signal_count = 0;
++
++		hperiod = ((mst3367_read(mst, 0x57) & 0x3f) << 8) |
++			   mst3367_read(mst, 0x58);
++
++		/* scale ADC sample rate to H period */
++		if (hperiod > 0)
++			mst3367_write(mst, 0x11,
++				      (hperiod < 0x401 ? 0x400 : hperiod) >> 7);
++
++		/* V period (timer counts) */
++		mst3367_read(mst, 0x59);
++		mst3367_read(mst, 0x5a);
++
++		/* V total (lines) */
++		mst3367_read(mst, 0x5b);
++		mst3367_read(mst, 0x5c);
++
++		/* H total (pixels), interlace flag */
++		mst3367_read(mst, 0x5d);
++		mst3367_read(mst, 0x5e);
++		interlaced = mst3367_read(mst, 0x5f);
++		interlaced = interlaced < 0 ? 0 : !!(interlaced & 0x02);
++
++		mst_bank(mst, 0x02);
++		mst3367_read(mst, 0x11);
++		mst3367_read(mst, 0x12);
++		mst3367_write(mst, 0x20, 0x00);
++
++		if (k % 10 == 0)
++			dev_info(mst->dev,
++				 "component poll[%d]: 0x14=0x%02x count=%d\n",
++				 k, status, signal_count);
++
++		if (signal_count < 3) {
++			msleep(100);
++			continue;
++		}
++
++		/* Signal stable - read vtotal and determine format */
++		mst_bank(mst, 0x00);
++		vtotal = ((mst3367_read(mst, 0x5b) & 0x07) << 8) |
++			  mst3367_read(mst, 0x5c);
++
++		/* units are 0.1 kHz, ref: RxAdcModeDetect */
++		hfreq = hperiod > 0 ? 1600000 / hperiod : 0;
++
++		dev_info(mst->dev,
++			 "component locked: vtotal=%d hfreq=%d.%d kHz %s 0x14=0x%02x\n",
++			 vtotal, hfreq / 10, hfreq % 10,
++			 interlaced ? "interlaced" : "progressive", status);
++
++		mode = match_component_mode(vtotal, hfreq, interlaced);
++		if (!mode) {
++			dev_err(mst->dev,
++				"unsupported component timing: vtotal=%d hfreq=%d.%d kHz\n",
++				vtotal, hfreq / 10, hfreq % 10);
++			return -ERANGE;
++		}
++		*detected = mode;
++		return 0;
++	}
++
++	dev_err(mst->dev, "No component signal lock after 10s\n");
++	return -ETIMEDOUT;
++}
++
++/* ------------------------------------------------------------------ */
++/* Subdev ops                                                         */
++/* ------------------------------------------------------------------ */
++
++static int mst3367_s_routing(struct v4l2_subdev *sd, u32 input, u32 output,
++			     u32 config)
++{
++	struct mst3367 *mst = to_mst3367(sd);
++
++	if (input > MST3367_INPUT_NONE)
++		return -EINVAL;
++
++	mst->current_bank = -1;
++	mst->input = input;
++	memset(&mst->timings, 0, sizeof(mst->timings));
++
++	if (input == MST3367_INPUT_NONE) {
++		mst_bank(mst, 0x00);
++		mst3367_write(mst, 0x51, 0x80);
++		return 0;
++	}
++
++	mst3367_config(mst);
++
++	if (input == MST3367_INPUT_COMPONENT) {
++		/* RxSwitchSource: 0x21 = component ADC (YPbPr) */
++		mst_bank(mst, 0x00);
++		mst3367_write(mst, 0x51, 0x21);
++
++		mst3367_adc_config(mst);
++	}
++
++	return 0;
++}
++
++static int mst3367_query_dv_timings(struct v4l2_subdev *sd, unsigned int pad,
++				    struct v4l2_dv_timings *timings)
++{
++	struct mst3367 *mst = to_mst3367(sd);
++	const struct component_mode *mode;
++	int ret;
++
++	switch (mst->input) {
++	case MST3367_INPUT_HDMI:
++		return hdmi_poll_signal(mst, timings);
++	case MST3367_INPUT_COMPONENT:
++		ret = component_poll_signal(mst, &mode);
++		if (ret < 0)
++			return ret;
++		*timings = mode->timings;
++		return 0;
++	default:
++		return -ENODATA;
++	}
++}
++
++static int mst3367_s_dv_timings(struct v4l2_subdev *sd, unsigned int pad,
++				struct v4l2_dv_timings *timings)
++{
++	struct mst3367 *mst = to_mst3367(sd);
++	const struct component_mode *mode;
++
++	switch (mst->input) {
++	case MST3367_INPUT_HDMI:
++		if (!v4l2_valid_dv_timings(timings, &mst3367_hdmi_timings_cap,
++					   NULL, NULL))
++			return -ERANGE;
++		mst->timings = *timings;
++		break;
++	case MST3367_INPUT_COMPONENT:
++		mode = find_component_mode(timings);
++		if (!mode)
++			return -ERANGE;
++		mst->timings = *timings;
++		component_write_scaler(mst, mode);
++		break;
++	default:
++		return -ENODATA;
++	}
++
++	mst3367_write_csc(mst);
++	return 0;
++}
++
++static int mst3367_g_dv_timings(struct v4l2_subdev *sd, unsigned int pad,
++				struct v4l2_dv_timings *timings)
++{
++	struct mst3367 *mst = to_mst3367(sd);
++
++	if (!mst->timings.bt.width)
++		return -ENODATA;
++
++	*timings = mst->timings;
++	return 0;
++}
++
++static int mst3367_enum_dv_timings(struct v4l2_subdev *sd,
++				   struct v4l2_enum_dv_timings *timings)
++{
++	switch (timings->pad) {
++	case MST3367_PAD_HDMI:
++		return v4l2_enum_dv_timings_cap(timings,
++						&mst3367_hdmi_timings_cap,
++						NULL, NULL);
++	case MST3367_PAD_COMPONENT:
++		if (timings->index >= ARRAY_SIZE(component_modes))
++			return -EINVAL;
++
++		timings->timings = component_modes[timings->index].timings;
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int mst3367_dv_timings_cap(struct v4l2_subdev *sd,
++				  struct v4l2_dv_timings_cap *cap)
++{
++	unsigned int pad = cap->pad;
++
++	switch (pad) {
++	case MST3367_PAD_HDMI:
++		*cap = mst3367_hdmi_timings_cap;
++		break;
++	case MST3367_PAD_COMPONENT:
++		*cap = mst3367_component_timings_cap;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	cap->pad = pad;
++	return 0;
++}
++
++static int mst3367_enum_mbus_code(struct v4l2_subdev *sd,
++				  struct v4l2_subdev_state *sd_state,
++				  struct v4l2_subdev_mbus_code_enum *code)
++{
++	if (code->index > 0)
++		return -EINVAL;
++
++	code->code = MEDIA_BUS_FMT_UYVY8_2X8;
++	return 0;
++}
++
++static int mst3367_get_fmt(struct v4l2_subdev *sd,
++			   struct v4l2_subdev_state *sd_state,
++			   struct v4l2_subdev_format *fmt)
++{
++	struct mst3367 *mst = to_mst3367(sd);
++	const struct v4l2_bt_timings *bt = &mst->timings.bt;
++
++	fmt->format.code = MEDIA_BUS_FMT_UYVY8_2X8;
++	fmt->format.width = bt->width;
++	fmt->format.height = bt->height;
++	fmt->format.field = bt->interlaced ?
++		V4L2_FIELD_ALTERNATE : V4L2_FIELD_NONE;
++	fmt->format.colorspace = mst->bt601 ?
++		V4L2_COLORSPACE_SMPTE170M : V4L2_COLORSPACE_REC709;
++	return 0;
++}
++
++static const struct v4l2_subdev_video_ops mst3367_video_ops = {
++	.s_routing = mst3367_s_routing,
++};
++
++static const struct v4l2_subdev_pad_ops mst3367_pad_ops = {
++	.enum_mbus_code = mst3367_enum_mbus_code,
++	.get_fmt = mst3367_get_fmt,
++	.s_dv_timings = mst3367_s_dv_timings,
++	.g_dv_timings = mst3367_g_dv_timings,
++	.query_dv_timings = mst3367_query_dv_timings,
++	.enum_dv_timings = mst3367_enum_dv_timings,
++	.dv_timings_cap = mst3367_dv_timings_cap,
++};
++
++static const struct v4l2_subdev_ops mst3367_ops = {
++	.video = &mst3367_video_ops,
++	.pad = &mst3367_pad_ops,
++};
++
++static int mst3367_probe(struct i2c_client *client)
++{
++	struct device *dev = &client->dev;
++	struct mst3367 *mst;
++
++	if (!i2c_check_functionality(client->adapter,
++				     I2C_FUNC_SMBUS_BYTE_DATA))
++		return -EIO;
++
++	mst = devm_kzalloc(dev, sizeof(*mst), GFP_KERNEL);
++	if (!mst)
++		return -ENOMEM;
++
++	mst->dev = dev;
++	mst->client = client;
++	mst->input = MST3367_INPUT_NONE;
++	mst->current_bank = -1;
++
++	v4l2_i2c_subdev_init(&mst->sd, client, &mst3367_ops);
++
++	mst->pads[MST3367_PAD_HDMI].flags = MEDIA_PAD_FL_SINK;
++	mst->pads[MST3367_PAD_COMPONENT].flags = MEDIA_PAD_FL_SINK;
++	mst->pads[MST3367_PAD_SOURCE].flags = MEDIA_PAD_FL_SOURCE;
++	mst->sd.entity.function = MEDIA_ENT_F_DV_DECODER;
++
++	return media_entity_pads_init(&mst->sd.entity, MST3367_NUM_PADS,
++				      mst->pads);
++}
++
++static void mst3367_remove(struct i2c_client *client)
++{
++	struct v4l2_subdev *sd = i2c_get_clientdata(client);
++
++	v4l2_device_unregister_subdev(sd);
++	media_entity_cleanup(&sd->entity);
++}
++
++static const struct i2c_device_id mst3367_id[] = {
++	{ .name = "mst3367" },
++	{ }
++};
++MODULE_DEVICE_TABLE(i2c, mst3367_id);
++
++static struct i2c_driver mst3367_driver = {
++	.driver = {
++		.name = "mst3367",
++	},
++	.probe = mst3367_probe,
++	.remove = mst3367_remove,
++	.id_table = mst3367_id,
++};
++module_i2c_driver(mst3367_driver);
++
++MODULE_AUTHOR("Matthew Laux <matthew.laux@gmail.com>");
++MODULE_DESCRIPTION("MStar MST3367 HDMI receiver and component ADC driver");
++MODULE_LICENSE("GPL");
+diff --git a/include/media/i2c/mst3367.h b/include/media/i2c/mst3367.h
 new file mode 100644
-index 000000000000..11e3bfe38e2b
+index 000000000000..88d4a4874a9d
 --- /dev/null
-+++ b/include/media/i2c/tw9900.h
-@@ -0,0 +1,34 @@
++++ b/include/media/i2c/mst3367.h
+@@ -0,0 +1,27 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * Techwell TW9900 multi-standard video decoder
++ * MStar MST3367 HDMI receiver and component ADC
 + */
 +
-+#ifndef _MEDIA_I2C_TW9900_H_
-+#define _MEDIA_I2C_TW9900_H_
++#ifndef _MEDIA_I2C_MST3367_H_
++#define _MEDIA_I2C_MST3367_H_
 +
-+#include <linux/types.h>
-+
-+struct tw9900_regval {
-+	u8 addr;
-+	u8 val;
++enum mst3367_pads {
++	MST3367_PAD_HDMI,
++	MST3367_PAD_COMPONENT,
++	MST3367_PAD_SOURCE,
++	MST3367_NUM_PADS,
 +};
 +
-+/**
-+ * struct tw9900_platform_data - board-specific register setup
-+ * @init_regs: written each time the decoder is powered up
-+ * @n_init_regs: number of entries in @init_regs
-+ * @ntsc_regs: written when streaming starts with a 525-line standard
-+ * @n_ntsc_regs: number of entries in @ntsc_regs
-+ * @pal_regs: written when streaming starts with a 625-line standard
-+ * @n_pal_regs: number of entries in @pal_regs
++/* Inputs for the s_routing video op */
++#define MST3367_INPUT_HDMI	MST3367_PAD_HDMI
++#define MST3367_INPUT_COMPONENT	MST3367_PAD_COMPONENT
++#define MST3367_INPUT_NONE	MST3367_NUM_PADS
++
++/*
++ * Notification sent with v4l2_subdev_notify() before the receiver changes its
++ * hotplug detect output, for bridge devices to use. The argument is a bool *
 + */
-+struct tw9900_platform_data {
-+	const struct tw9900_regval *init_regs;
-+	unsigned int n_init_regs;
-+	const struct tw9900_regval *ntsc_regs;
-+	unsigned int n_ntsc_regs;
-+	const struct tw9900_regval *pal_regs;
-+	unsigned int n_pal_regs;
-+};
++#define MST3367_HOTPLUG		1
 +
 +#endif
 -- 
