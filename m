@@ -1,62 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011375;
-	b=3ghwBQUnBARZFySntAKsXCTRZOvtVLqq8Y+uuJUELBObSZA1Zo2gHoBmEQAsG4Bg5Jed
-	 xONG+XQVN2g9qZFzrlxK+qbybWywrPO3LCCT84k1mDEkPpoCKwVPvxH1eRsOLuOrfa86u
-	 ytUQsSfk2480bOa+qUZNpsv5jfMokK++k2lJRGuUrnZg/MBqxthJIIPcxXY2CM8Xbu9nt
-	 EhJ+ywRgh8pfa3yd1i0ZKDhVIdGuWUJxQFHS2Pq0YBPtWyWpJP7QZNkBUtqUVS8LYpH+I
-	 Pq7bFxKJhOkJtO7cJKZv/55Vedi04/86CWmR5zEOeFjgT70rkG6XRoepDNNb85l1NRA==
+	t=1795011388;
+	b=AgpOH1AYRrbMbXBXoqXgm+SIM9b/6OVhlE5gcLKCRULdy6uV85XtF88rfK8Las96HHl/
+	 4X62ir85ZWJeMuEjWDxU9+17PYfb046/eKm6mZEhfdEvbgczLi8jS6N5xvhsMiatdCgwD
+	 8Y3KQQdUTAgRYp86SXKTssJNp38p9VMuAfiB538ztkvh50bdWlaZKnIYHHZM5SGIdkuL4
+	 HFqgagt9cKuSnAamVu+nNSSViPEqQHbR29xA0E3Bqe8lvnLuGEBmVAErD1Y/RfamBtm1a
+	 6X7PKFMwCgKl5iafON0L3TmLR/qMhgwEH32nJfNc89W/yRYejrDC7lGCIIRj7a0ZhDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011375;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:X-CID-META:
-	 X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NkRayhbqFtlPnHUvyhGbsBwanQgB2ADYmADCwUGi5uw=;
-	b=v9Qmbj62fRfZ2oJJaYQL7xZ/YluAuP5Q7j48lB+zcrF7dRaOkAdcviINZdryT0m0IUal
-	 UDVFiDXR8GijjUmegr8c+Pcgm0cSCOTnATjjh0EyBuvwmM9I0KbbCLzTJYeywEfOSRCDv
-	 Xgy4ZgHzZHY2yfHM0ArX5EQe7slmHI4dXWQ8eSmZ/paA9U6bFo4eYsTmWsIpiOPeri5B8
-	 ldUDh6WSxOUZ/jeFqg73m3qwPbA0OC2simvTkM2kGTbWGv22oxtP+GLCszflDDN0+xpnH
-	 m+qAzrg1w30mwjsjYGZOo5yc2utKosrj9Id7X5cPUdBlI9toDvG4xLVLDwJy4AXoThQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011388;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=PKEsbvmI/h2yNfkKYeLdhdyKF8D1G+AbgQ3dQC6oEvo=;
+	b=S1qokL/+6GU8IuR238usAhaPOMzfSAnVneaV0kLGp1T2tz86dtTTgulMkeshkS024UM6
+	 ZawKSKGsLXg1UFgF4PsMiQ/ofcKmunxcY5C3p05oGQrmksChBWiWA7BPujlrPO7/6IlE2
+	 +c937mqRo7SAKXKFAvZ1CGJJtBCq+Qo/oX7PvrfH+7y+1Z9ZCrkY+AAnR/HlDWeovhj8e
+	 oApjvGzCqBHK0f33fRvIgibDZuLFFcgKNgS31O3YItJ28x9mW7zAI10PttlsyKQ7TIWp2
+	 gtSzemamxjWTOm3AV9DES1RFDdc9aKYK9S70WeIKc8lID5vj5yFsqTQWSZKuRjeDbkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=tomeuvizoso.net;
+	spf=pass smtp.mailfrom=tomeuvizoso.net;
+	dkim=pass header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=FWN5qAQw;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81AA960A2600
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:16:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81AA960A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 97239286e35a11f19a56ed5b684f684d-20261118
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:3094af1f-aa7f-44f5-84ce-86c27277b13b,IP:10,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:10
-X-CID-INFO: VERSION:1.3.19,REQID:3094af1f-aa7f-44f5-84ce-86c27277b13b,IP:10,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:10
-X-CID-META: VersionHash:7db8b62,CLOUDID:d61cf93fb4fdaf745f8ccd974ca04727,BulkI
-	D:2611182216074FAVQI0Y,BulkQuantity:0,SF:17|19|38|64|66|78|80|81|82|83|102
-	|127|153|841|865|898,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,File:nil
-	,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,
-	DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 97239286e35a11f19a56ed5b684f684d-20261118
-X-User: lienze@kylinos.cn
-Received: from [192.168.3.106] [(111.193.136.161)] by mailgw.kylinos.cn
-	(envelope-from <lienze@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 821553608; Wed, 18 Nov 2026 22:16:04 +0800
-Message-ID: <bc48e456-5c1b-4479-a426-6639ef695914@kylinos.cn>
-Date: Wed, 18 Nov 2026 22:16:01 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B53060A2603
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B53060A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tomeuvizoso.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tomeuvizoso.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=tomeuvizoso-net.20260707.gappssmtp.com header.i=@tomeuvizoso-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=FWN5qAQw
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso448576f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:16:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tomeuvizoso-net.20260707.gappssmtp.com; s=20260707; t=1795011385; x=1795616185; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PKEsbvmI/h2yNfkKYeLdhdyKF8D1G+AbgQ3dQC6oEvo=;
+        b=FWN5qAQwKveUBEQJeHOr5C02WpeAM62kvCErITJxPeSJ2lIjjiN3De9AnHkqowlq6m
+         B6SSZKqWo85wuMzcOziwpIZaY0RiomOHT/jYiTD62z+RpcIMCDM8OlBDqZ5vTLEr/t9X
+         7DzR1PbY9poUpzTbfOGNcdoBczQwYfNobjN+pBAiYCy4Nk92VkQH4mRBkCd6r6QViMiA
+         USm8740Tow0UUgjufaoNY3//ceqnTdIjAjsLerZ/lQgmvMHDQNE+Cs8ud0RGpC5fP/cR
+         obNgBE1J/duB7aEizUC9Z4ZRJyDkbJWzwcXfbYAcdpHYSdrpciuJwV8WoLhlQFo/0eF/
+         Svvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795011385; x=1795616185;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PKEsbvmI/h2yNfkKYeLdhdyKF8D1G+AbgQ3dQC6oEvo=;
+        b=jE3LIIyWbp2b9/WRBFHyP3QhBaz0S7Im5FgNLCE9tMTNHPNbRoheZ9h5jFoiJIJu79
+         TtIb9bXA/pUpsjwOa2oV5NT8maY6PPLa1P6QPPXzAWzdygMz8dWVwEn44olca9XzSZKz
+         epWk7qvNKUTW76DizuLWp+43vnxup49dRs5APQrDzNASxcmjr+lrf9E+/oE9u6zqnTXF
+         xOJWWrjbmPqWsNjOQmQmdalMb48hbtlzX9EduGOI2cIBm+NNN/GFAAXfWFOpNOvLc1wh
+         mygyRs5llj/SKOYPj1TA9a76kVRuWQ9Putwk5NyQJSr5RgEDfnPC9ijam33g+GxYfoeG
+         jzfg==
+X-Forwarded-Encrypted: i=1; AL+hErHrpean9+PD3bvFn2LDkq954t7DcZWWsj9hheGNZ58+6hXMAo8YuQvST3qWtyyps1uB/80ZspSB2RCjTTc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9mWSyD34naHXlXmX2X1OxAojv6AXj8Jj8KmijXJRmyn9/4U7pD
+	USHsNOJh8MMzOoACdotoCiGw4iEeXY9p35JYPKJKfx5Hy6kLib68f9Rar3qjf/58zio=
+X-Gm-Gg: AYBFou1N+rYgW+vtOEhcBoqxxdw0qO+uJfLNQ9hzdA6qLOLObE1zbhA8k675l13wKou
+	uG6SMVMhM2Ruioeg66drIaia4VpodSDrBec0/kxm7EasuUEo6tkeI+6cjMuZMaFMNpeRrWBytp+
+	er0z0jfKm+SKGDogHtYMXOc/uT26xisejj6g70oXMboZp+uQlRtIyqYfDFvlGoe4skZ88lKW6Dg
+	W7DHVN/P+bf02o7lMEI5dtIsORe7wHQslvy/DgHb22pshmUwJSgwY00f92j3nzYaPDDNeCmH7m8
+	YmSklMWR2ishBirO8mnK3HwQj+6nDkkZMp16nYajQDYA0bzQ7qf+q5t64j0aLEMqlqDcRGpk30F
+	WQDuiMfCCZdBxX7aWyJOg3Y/7c4beDEtJ9CJHS5VT8MAvfZYZr4rZ5uFz+vTTvnkPBniXjdNfmM
+	FtTKAoejiQan4zqzfORCSmH57gsek9d2RtjSSOfaiYZhm0URPVsrKzSRbDJ+LmSUmoSw8CEez2I
+	aiAshacywUtO05YmS3OI7FfwvwL2xwZE9q3hswHqRTk9/vwePYuZCVV2qRfIGTt/rGS1VZdifvG
+	kMPCVpBOAjmoCclLBkkFvHyg44nx0gLZjU6ftnw3olBfWGLeM7eFAv5JkDnldTWxyM8mhEpNrJR
+	XwH4fkv8XwPT33dOPCfq8/rWZ3LFpXDlfKrKwrOjL3Dn0dJh8eLPee3eLmaDLopCsjbV7SjY=
+X-Received: by 2002:a05:600c:19d0:b0:4bb:5de1:e923 with SMTP id 5b1f17b1804b1-4bb7d6d1de3mr52112595e9.4.1795011385062;
+        Wed, 18 Nov 2026 06:16:25 -0800 (PST)
+Received: from alcachofa.home (cst-prg-52-235.cust.vodafone.cz. [46.135.52.235])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7843bd79sm146337145e9.14.2026.11.18.06.16.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:16:24 -0800 (PST)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+To: Oded Gabbay <ogabbay@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>,
+	Chaoyi Chen <kernel@airkyi.com>
+Cc: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: (subset) [PATCH 4/4] MAINTAINERS: accel/rocket: Add rockchip mail list for rocket
+Date: Wed, 18 Nov 2026 15:15:23 +0100
+Message-ID: <179501127061.337132.729815382590515286.b4-ty@b4>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260814022453.437-5-kernel@airkyi.com>
+References: <20260814022453.437-5-kernel@airkyi.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,79 +106,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mm/damon/paddr: skip non-LRU folios as a whole in
- pageout
-To: Aveline Noir <jm5905938@gmail.com>, SJ Park <sj@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, damon@lists.linux.dev,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, sashiko-bot@kernel.org,
- sashiko-reviews@lists.linux.dev
-References: <20261118-fix-damon-hugetlb-pageout-20261117-v2-1-547a65a3206e@gmail.com>
-Content-Language: en-US
-From: Enze Li <lienze@kylinos.cn>
-In-Reply-To: <20261118-fix-damon-hugetlb-pageout-20261117-v2-1-547a65a3206e@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On 2026/11/18 00:24, Aveline Noir wrote:
-> damon_pa_pageout() uses damon_get_folio(), which rejects folios that are
-> not on the LRU.  For a large non-LRU folio such as a hugetlb folio, the
-> loop then looks up the same folio once per base page even though
-> pageout cannot reclaim it.
-> 
-> Use damon_get_monitor_folio() and skip any returned non-LRU folio as a
-> whole by advancing to its end.  Do this before the filters, the
-> accounting and the last_applied check, so that adjacent regions within
-> the same non-LRU folio are not walked by base page either.
-> 
-> In an x86-64 KVM pageout microbenchmark, traversal time dropped by
-> about 99.7% for regions covering whole 2 MiB hugetlb folios. For
-> 4 KiB regions within hugetlb folios, traversal took about 1 ns more
-> per region.
 
-Good catch -- thanks for looking into this.
+On Fri, 14 Aug 2026 10:24:53 +0800, Chaoyi Chen wrote:
+> The rocket is a DRM accel driver for the Rockchip NPU. Add the Rockchip
+> mailing listso that changes can be tracked.
 
-> 
-> Signed-off-by: Aveline Noir <jm5905938@gmail.com>
+Applied, thanks!
 
-Reviewed-by: Enze Li <lienze@kylinos.cn>
+[4/4] MAINTAINERS: accel/rocket: Add rockchip mail list for rocket
+      commit: 20f0d3fdc8f51ff89d23f107bdb66db03e2dbdb5
 
-Thanks,
-Enze
-
-> ---
-> Tested in x86-64 KVM guests.  DAMON KUnit tests all passed.  Ordinary-page
-> and THP controls passed the 3% non-inferiority bound in the microbenchmark.
-> 
-> Changes in v2:
-> - Drop the redundant hugetlb check and update the subject and description
->   as suggested by SJ.
-> ---
->  mm/damon/paddr.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/damon/paddr.c b/mm/damon/paddr.c
-> index 5b773012a876..0a205fa8d468 100644
-> --- a/mm/damon/paddr.c
-> +++ b/mm/damon/paddr.c
-> @@ -268,7 +268,9 @@ static unsigned long damon_pa_pageout(struct damon_region *r,
->  
->  	addr = damon_pa_phys_addr(r->ar.start, addr_unit);
->  	while (addr < damon_pa_phys_addr(r->ar.end, addr_unit)) {
-> -		folio = damon_get_folio(PHYS_PFN(addr));
-> +		folio = damon_get_monitor_folio(PHYS_PFN(addr));
-> +		if (folio && !folio_test_lru(folio))
-> +			goto put_folio;
->  		if (damon_pa_invalid_damos_folio(folio, s)) {
->  			addr += PAGE_SIZE;
->  			continue;
-> 
-> ---
-> base-commit: 67f3b04b277373438f17300e056306adbd9edf7b
-> change-id: 20261117-fix-damon-hugetlb-pageout-20261117-a4e03d9d5a5b
-> 
-> Best regards,
-> --  
-> Aveline Noir <jm5905938@gmail.com>
-> 
-
+Best regards,
+-- 
+Tomeu Vizoso <tomeu@tomeuvizoso.net>
