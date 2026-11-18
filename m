@@ -1,75 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033380;
-	b=lwk+ctUzLXR7fHoE3XHlkmrOmSuD23Cf01N8hls4EF+tNPm2AKYFijsftq6ElHQqSL8N
-	 hgUXVMTwTYdiKtkZuVg3OHwpApCG7KU9mYqwJ2vgN7g/3TGMO9DsT5n+ECxKEeRD0iR05
-	 cwFBe9M24px2yKBypXMrSqLpckKE4yO3QdJl4S+btFWv1IG5jY5HZKDZV6euyhCGx7FDX
-	 zsEXxXT6r8HpeXA3IzSJgPT11Vl1BXTrMqbe329rJRNhi6tR+ksgAOVgA0yNnu5AM+avl
-	 xVIa794xUXANp3Fp6DSTtmH1XYMx2yycWM4AZ2XkuupxQTN0M/iI+29Sa5NgNG9pbmg==
+	t=1795033383;
+	b=1Yu7mIIZkVpVlecgrQzwwR+YQW0OLYjNh6UJ/x10+F2X2esvV149KkO0L+rH9F32kjHE
+	 5wEmem9nNG7TKwTuWLOJmkfyfkbFrIL1EGQPewfFKXFHQzg8TVFIGzxr46vB2/fp4+s9E
+	 rp6Vd70/g1MurQXwH7dyWJdT+0wE/lSYGZVlk4Vvih9C/yIORlJbLJmzUCyAfv0lQUaxr
+	 k0i9IiMIBGtpAbX11cQek2m63bkgQFazmnGuRmmVQJWTsbslKuuanIpxtHL18aTZrVnzk
+	 Yws0NEpuHnjAS3ezd77r+JYcCi1EIPfuZTsEASY7/mNY+BKdtauoziMGLKYsPU2gcVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033380;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=FkNN5wo0Am75uimk9STIjbiPLRC6EWagOnVoqK+PmwI=;
-	b=fJftw59WEHD8faTc45XufLWwGmGBDE4XBbtKOujw2XycP83EXKMBFSkD9DvFHwXsq52M
-	 j4ib+RjlQLskwmQgbtUTobDZOVDlGN2T66UGXHSvSXbHSDUUarCNT0FpyigO3lYdKUqLh
-	 uan7JydI0TbhRWRu3pW73BNPrFAIYNXiBjVlEdIkxUlHBM26W/X32pkA0iwzZ8wTzeoIY
-	 3guPSN9afam5aRzKYA6mk9Dz1nHEjqS/SzY1jYOTIMpqDTye+LXrxitgOLe3fCqibGOqJ
-	 KQzpJdEpnFDCwOF4G3SR6d3ZyDBzhYu8CsZvgUIUxy8TOAVweoCO2khyDGPLlShV1AA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033383;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=bN9i2RmrpWmNeLYeD3d20Nki5CIeURjyVzi7h5KnLXQ=;
+	b=EUj9jKOVQa+ntrhQ4rNqmd4gk+7CqiQZ/O3sGEiSt6B65m67ThaAFSQNBtwhuvCOD3ND
+	 M5WWV/Uv3e7m6reaIHG4eT5O3iP7xQJ8XEcUH0Vs9Me+yopIV/C5PJOTMtG/l5MoVhlM3
+	 ai3oES6XPUvjkbvVX3Z4XahBjd9wYXDNEtJzyLj7OHaI1tAXE3qSbBPuFjOdna9U4cPsZ
+	 mujiC3/D8QRWTwMnyUs00U+1wMRoF5hxwGHAetBvjyuntuqDifJZ1BZXv3v2ztJJiYc4l
+	 pUaM+KcqjZh+6HR8POEbY2MtmHZX6WUY5OXu5jEaEcB0bIxWmxDs4To/k8kK9gQ1s/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HO+kR9le;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hP5uuf5P;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80590606A31C;
-	Wed, 18 Nov 2026 20:23:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 204C260A260B;
+	Wed, 18 Nov 2026 20:23:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HO+kR9le
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EDA61F000C4;
-	Wed, 18 Nov 2026 20:22:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hP5uuf5P
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F68B1F000D3;
+	Wed, 18 Nov 2026 20:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795033380;
-	bh=FkNN5wo0Am75uimk9STIjbiPLRC6EWagOnVoqK+PmwI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HO+kR9le6tB0FawCiLsaWoSXs/8ddm9MKA7CskHLF837GeTsPeoB5lgFe3cWD67uV
-	 XsNRJE0ReBHK5Fd8No0uWvclkVoAFlM9KNkmbPkpOuQrR24u7zhn228ysy11LIU3i/
-	 6BHjzy+TbbZio27gMtSikd14LBTXHv/pdmbIoRZY98jSWsJ536966HH/Fiwblqi+3U
-	 8BT3a+HT4mOMLRFdS02BtqfnIX3gxvkBdJfEpUBfv0dmVPFGsBtAoNIBqJNCbK/VID
-	 q0EtuArQSHGboVZmAa9JYRLubflyz0MG3h+ou0Ri5wmaaRHWTxiYLv0MVqq+HI1I/5
-	 U+eOtWYOc3vIg==
-Date: Wed, 18 Nov 2026 20:22:49 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
- James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>, Hanjun Guo
- <guohanjun@huawei.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai
- Xue <xueshuai@linux.alibaba.com>, Mahesh J Salgaonkar
- <mahesh@linux.ibm.com>, "Oliver O'Halloran" <oohall@gmail.com>, Bjorn
- Helgaas <bhelgaas@google.com>, Maciej Wieczor-Retman
- <maciej.wieczor-retman@intel.com>, Pawel Chmielewski
- <pawel.chmielewski@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>, Radu
- Rendec <radu@rendec.net>, Avadhut Naik <avadhut.naik@amd.com>, Dave Jiang
- <dave.jiang@intel.com>, "Fabio M. De Francesco"
- <fabio.m.de.francesco@linux.intel.com>, Kai-Heng Feng
- <kaihengf@nvidia.com>, Breno Leitao <leitao@debian.org>, Dan Williams
- <djbw@kernel.org>, Terry Bowman <terry.bowman@amd.com>,
- linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
- acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v1 17/19] ACPI: APEI: Share the extlog PCIe handler with
- GHES
-Message-ID: <20261118202249.76b98c39@jic23-hlaptop>
-In-Reply-To: <20261117111444.4185512-18-pierre.gondois@arm.com>
-References: <20261117111444.4185512-1-pierre.gondois@arm.com>
-	<20261117111444.4185512-18-pierre.gondois@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795033383;
+	bh=bN9i2RmrpWmNeLYeD3d20Nki5CIeURjyVzi7h5KnLXQ=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=hP5uuf5PoG+QOOylvsP9BTFrOcaEoU11t+w3cR6QFieMwhG4pDillqF4sH4Nzzt4O
+	 WnE2Ciw2o3snKbYPpA/lB4YyIj9EqNSC6VAOlku6PYcfLOqYtTTFQWJ7fCR4of4GNE
+	 yGMT5IUxxCQyPmhzF4B6MAo1oUzp+tewqmLF4G+oWzo8O4t6gSi3kJGKVt5CPHS78Y
+	 3C/aX8HmVkgwt/OiY5TKql+xHQp8lg0ZYnKibRhyic4bvXSm0SVvroLEoK8baqHu1F
+	 MJrxUsZSxU3epn1s8UBNvkoei3um9jLl+mVwaQdAmTmaSH+hWIZy6pykWWxvniJanL
+	 kTwl1+FZnUJIQ==
+Message-ID: <sashiko-outbox-221930@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH 04/16] sched/deadline: Do not divide by zero active CPUs
+ of a root domain
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <46cf3d11435498c167e87c1e402c6ab2522f71ab.1795031605.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795031605.git.mathieu.desnoyers@efficios.com>
+ <46cf3d11435498c167e87c1e402c6ab2522f71ab.1795031605.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 18 Nov 2026 20:23:02 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,20 +60,66 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 12:10:27 +0100
-Pierre Gondois <pierre.gondois@arm.com> wrote:
+Thank you for your contribution! Sashiko AI review found no new issues
+in this patch, but noticed 1 related pre-existing issue it does not
+introduce:
+- [High] sched/deadline: integer overflow in __dl_sub() and __dl_add()
+  [1]
+--
 
-> Remove ghes_handle_aer() and re-use the existing extlog_print_pcie()
-> to have a common PCIe logging handler. Update the function
-> documentation.
-> 
-> Except for the warning ("PCIe error section too small"),
-> no functional change intended.
-> 
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-Fine if the earlier patch to add error handling flow
-to extlog is fine.  I'll wait for more input from others on that.
+commit 976d925f6742563bd97b6e12f465ca24230d49b8
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+
+sched/deadline: Do not divide by zero active CPUs of a root domain
+
+This commit guards the extra_bw updates in __dl_sub() and __dl_add()
+against a zero active CPU count in a root domain during CPU hotplug.
+
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index dfae08625342e..b614d5fc1a1ac 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+> @@ -189,18 +189,25 @@ void __dl_update(struct dl_bw *dl_b, s64 bw)
+>  	}
+>  }
+> =20
+> +/*
+> + * Spread a change of total_bw over the extra_bw of the active CPUs of t=
+he
+> + * root domain. @cpus is their number. With no active CPU, as can happen
+> + * during CPU hotplug, change total_bw alone.
+> + */
+>  static inline
+>  void __dl_sub(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
+>  {
+>  	dl_b->total_bw -=3D tsk_bw;
+> -	__dl_update(dl_b, (s32)tsk_bw / cpus);
+> +	if (cpus)
+> +		__dl_update(dl_b, (s32)tsk_bw / cpus);
+>  }
+> =20
+>  static inline
+>  void __dl_add(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
+>  {
+>  	dl_b->total_bw +=3D tsk_bw;
+> -	__dl_update(dl_b, -((s32)tsk_bw / cpus));
+> +	if (cpus)
+> +		__dl_update(dl_b, -((s32)tsk_bw / cpus));
+>  }
+
+[Severity: High]
+This problem wasn't introduced by this patch, but can casting tsk_bw to
+s32 in __dl_sub() and __dl_add() overflow and flip the sign [1]?
+
+During a large cpuset bandwidth migration (cpuset_reserve_dl_bw() ->
+dl_bw_alloc()), tsk_bw can exceed S32_MAX on systems with many CPUs.
+Truncating tsk_bw to a negative s32 before dividing by cpus reverses the
+sign of the delta passed to __dl_update(), corrupting per-runqueue
+extra_bw accounting and breaking SCHED_DEADLINE admission control.
+
+[1] https://sashiko.dev/#/bug/linux-ebf16093-b39b-4cd9-a580-85c7bb17302b
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795031605.gi=
+t.mathieu.desnoyers@efficios.com?part=3D4
