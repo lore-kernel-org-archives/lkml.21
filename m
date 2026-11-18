@@ -1,89 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795023970;
-	b=xlsQNYe5baM4d3X5BZ6fhuGC385wFqIIHPRsi3yLYbDsCl/vNgj3cTgKqmcRSqaj0QtZ
-	 eQ7KW78nlhR5EX0rOQUgqJImCYIAWnq7P1C8MCcVzqRcUgXsHWyedl5z8Ov5U/wxWkKGS
-	 SQm+yITnPb1BjqW4ahwK3gssUM0Jbpc8YPjO4tJYk4PR8/fe15WVuOPgDA072XTgQ+Wkp
-	 G11tWVo9+3DWjAdpJXV0qrN5VvaJtKbt1t5tc+w95C9kPZIQMnnji1Il3ngynkgp3WkLx
-	 2O1K77+RsMm527sYE6HBNOq8LGdZtvgVTMWuY5mHs+2HeWCuBhZJkjqnb/gERE3iIuA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023970;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795023977;
+	b=lv9L/4x2OazxIGHDeDZXT0lwKkcj6/ZJ5R5PrABu7vCD4KoTG5JTy2Uz2vhBxel9RIv+
+	 9d9Oi6nthQmv0hL/AQF42sNtogN65d4as3SosoQ5zfn9uyaIig3l3i/FxyHQcSyiaU9+4
+	 x5w0m+Y75JMQvNotegPGBARuGQhcn/FDnfXOUaD1cFUZPsFJdbW9bpA5+C0qxQiMCdvJW
+	 K6vvQPbhIDAeAylN1wbs+RHXeZjVaq6GLkC0eWk0N681hlnAd/94yIa0zswGafUszHnWR
+	 /L73eJBinIejV+HwE+bm4vmqmfZCuwmZw0bJkO0gzgDLQ9fY+rR8Vk/2EN2JdAmka6w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023977;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=L2XfYf4aRDhCK0D/8nP9CcpLQj+vmYB3RvSR5Daz0kU=;
-	b=CCqVM8VLGkjDOO3GmqWCEQ0MAPGkf/pNNY0IEsMjFENDzuiLXqT5Oh971lWuaWdxirMH
-	 BuDXNvzD5zd+bNpuwC1+/eR6CqoDT3YnxhdqsaD8bhEuiDTD6oCFv+zXEQ5yZAyJzGVgm
-	 OMUguMxlUbNocsmtzTEs2xzBgDWtHEvZdFl8xG51jZNzIRYFgDEDEM1iDX5YdLv+PX24r
-	 z/Gk73k+xnNiNrn4w/HYLN+tsw4HNWmx7MItUGrGqX66swVQIE4pV2V85Vvgzctjl6PcI
-	 8jGc/R+Yo6mh+KHz0s73Oeg6iUjCupMweTVXagWDH7UQuyI4aiRh3rGMTBzzHszyQhg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RR5r8KXh;
-	arc=none smtp.remote-ip=209.85.167.47
-Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=SIiWqHkbikiw9/PSo57TK7nq7ydcL7CNJ2g4TYGph1w=;
+	b=pOnbVLj1qy8ntOBxUIqG3Qf12UJkhW1gtt8XbAmiUIw3GHmH1VUvEE46HizsH+g30Hie
+	 zEfGHLri2/uyoalzEbbWBVCyNcxpdKdwzpWL08AFUypvrP6zXL+lNK7PlEA5rCP5g4Eal
+	 8vOAeuebL81e1ezuzk4I8EhkBsity/QYhsO0Nq9sZtaFL5D2rhHS9fNBbw9uegJS8FPuE
+	 cs8KDzVHXMwWxMaQcYBLqq7Y5MQKJa4UqO2NIwJXwMJKp/SowvxPl3YLS585gPVYrVuUw
+	 d++N0KXq1J+sua/qch7teJ6uHruhPoixeD1j8gV8xrZEGJBkrdeH1Aud4aTisuxxI8A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=amacapital.net;
+	spf=pass smtp.mailfrom=amacapital.net;
+	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="KSkreA/l";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.177
+Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com [209.85.208.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C2C8606A338
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:46:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C2C8606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E185A606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:46:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E185A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RR5r8KXh
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c1479a959aso962721e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:46:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KSkreA/l
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ab3b29a298so13790001fa.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:46:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795023975; cv=none;
+        d=google.com; s=arc-20260327;
+        b=S0gLBxD2lUsF9aQEKUHTlbCi5OYJtWrvs2GU6dUk26yYqaDEBxACbyrNtzRhUMZhzZ
+         hlHWsJhRQwLzhN/keIZKN4EuSh/qHqQeItYtsqDm4DTlu1utUGqd9dffWB5urNWAoZZ5
+         D1J7kjC1uMnu9GcUlkhlsS10pSxSUdpo7/gO3ShB/vRNEU6GNCzsCos6Db3szEHRRbzr
+         nFmWZFYSBm4+HihB6a9lO6FreyT1mz7rnRrx6M43LgTkzrB4PPJzBdQJH/kZVwGsFqQl
+         hrT7Bu1kcz+fxVszgsRqoU1qWtDnKHKkmuD09s3FHwxnT8MSqCjR24TvKXwQMGT1EUa+
+         jQRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SIiWqHkbikiw9/PSo57TK7nq7ydcL7CNJ2g4TYGph1w=;
+        fh=EPyEuF5xFtLjpnlqzgbdPtPJNoj9s8J54+HQIBoX+JM=;
+        b=JRTPJ9eSASlTeCQaIn80PvgcrDYwBcg/DkHXqvjOOfF/vvCqzlBCe9xhbvqNKM61Dh
+         WsKV/toiGIHix3H7XYhS71HUu1KbbYGbvWd1KPz92faGIw3LswFrbBZnnRsMPvrLH3DT
+         5pLVMQ8FjqhbAofuCzk7sKYy2nmEoD0Fs9SmaweAmnxmD4EoAjUdvQt01BKT/fWmaZiG
+         l6mEW6/jQiToBsoMcXOc83I5IiObB6s6WgnI2XHDXUEZ5fqxhMMflVMbSv1ZqjVwtHSl
+         Vl7+sdTMUSCXrJx/5uDwv8kKMym5LXFrPbAdFgPIfOeNjsbG4FVAy00doK1n5L6pi7Sf
+         EGSg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795023968; x=1795628768; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=L2XfYf4aRDhCK0D/8nP9CcpLQj+vmYB3RvSR5Daz0kU=;
-        b=RR5r8KXhSE2XnaTGcZnPEWVBdHkc57GSBO5iTEsChMbbGlpfjF/WLPYBeVqQvaqqJw
-         O1WdmlS3E96rF0JNVegFLsHZGhdGfsOb+Mlbq7rlnLyfpvcHfxOIkwDYKbhW6dvPraMw
-         8c/epJ7vKKAZMKs+1BjJLl7VXb2SRFpDov72E1MpGxICeQbwvqMEMZH7JA3BHWgpep5E
-         RGbQYO3BG8TtbCT1BuVK0BHweGGiEATVJXzOz+4VsGgKQDV3RvMg+WqNTT6StMtmsDKL
-         9hH0mv9yTVKQBD+uxWcsHdsSt8g189vyX97EmgYX8r9EM80faeIkk0ZwpP+YBQJ+djOW
-         AZWQ==
+        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1795023975; x=1795628775; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SIiWqHkbikiw9/PSo57TK7nq7ydcL7CNJ2g4TYGph1w=;
+        b=KSkreA/lv4ezsG6FIG+0z6ugqaPZfz/K227G/b9zqB4WbfNBD3XL8nHiuC3RHSDVop
+         r5WQO1yWZkBKMg+zBj6fpTWLOgpJt9bMFVDdhzBzxpnWtkhvlsv4/E5kXo+obO4szmr+
+         nFnhBGrEd0bPzAozYpmaEhgJtA45FnEzG5/HZEZEyKNuYbIbPoPWq9RPDZYH3gY4NHNi
+         I3IElP7vq/+9MvKb/InmOXdTWMpefUYfbAAhC3j8k1680QGt9U/5fB8JA17w2EOZ287i
+         CuVr1tTToajDP4e2jNTAGYhUjIUDF7CvDim1WkQKv5tAZUDy/kdf5WduxQLtE+TgPH5v
+         7k/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795023968; x=1795628768;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=L2XfYf4aRDhCK0D/8nP9CcpLQj+vmYB3RvSR5Daz0kU=;
-        b=HHnAFwvDIwedCD0Q9a66eXwqwjGkvBdxg3rU6j1trQp1ZSgTFe+ZPjPyrvhmXApxqb
-         79jF0KEt9n4KVPA6hsOWFwtntybaM6+Cp6YshrnepQyp32XeABzcoWA1X6gbJKBF2w4k
-         agzADD4nVBIN9Rt5iAHmL+U4xWj4SzQqpYCQA7nTPNVhE/+8mAlc4iLZvTcGdgo+RASL
-         3tyIi1qKXVNEWzlhvFZDYuvIMTjbh+JZFE9VEecj50HUozU+s7BHSnbrPy1JvLJ8JeZB
-         hQDsCKltHCTA+P5O5l1moqE0dXT8s1gQFif9hT+evm0wh93qjKaDHdqFVv9axMInt31m
-         ScQQ==
-X-Forwarded-Encrypted: i=1; AL+hErHfRX4ndlO5KfqZbEwKhNZpRA73x4GF/vMsO0UOnNuldo7Z/2roEZ5LrVfiaTT24YQuVbnDbQ9gBniAvWE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8jFSODe8MKKQ5bbUFlP1QRV4g/G8XEMFaaln3M9lYmUY+xztI+
-	FYBTiofAmxm0w5q4CEthvC6tWYGj8+naOq9mHC3GC1OSM5PK2sqyYuCv
-X-Gm-Gg: AYBFou3vsg/p6RGF3+sIBrl16oe2360G+AV11anbaWbUh6ImZ6NbW57jzTctX+9YMsz
-	lepYlv5HKnBBl8Qph893NttSO6X7NWHSV+KVOCxrd3NzFpQ9LWvA2oYKeqyF4Ex12HAZo9NQP7R
-	EccOct9QEvqdO/6da4wFTUoHIFFCHyno7YTdWv9T33oOS5nchbIszJZwYZt//8rrR/n07ED30ZR
-	Rh3ii+8VIlDQNwkmfETZz9YyaUBoIQt6JH9t/hcshg6PqQrqjL/pKSUilOUE/6ktBjoTCUpPvTi
-	f5BQvUBja4s+fsObV0wUZxsZl4IsGsP71VoNQiO4hWJYcglzzNvZ7NyhsX+d5zS1nfkUC53R37c
-	reAF1RDtn8cDVijC7Kzi13pbbGusIW27SaFKgI6pLXrq1h4jV42qNQQdx1+/dNzE6ZjDb41rG10
-	n4EoESjdbCCXEyI47eQ1hNY0DOnW4jxTUBhG0OyGyWToVhYMikOwqTjKIDOFciEEgAP+HY3Jm9r
-	w28jYiXx2hPK59+on4qGM1oVhxFJz8SToIVGsk3QNw8q2rrqB/we58FfolV1EJJNGXBu4qZm9xn
-	mWYxvcRQDFxTKiGgYhOk5gDNDYGH/zyrdGu09LCUu+9hbkGAh65+vw1JctqLCyuWCngOGdO8oQE
-	3CWeRoWHV7w==
-X-Received: by 2002:a05:6512:132a:b0:5c1:57d3:90f6 with SMTP id 2adb3069b0e04-5c1aa080adamr1181252e87.24.1795023968247;
-        Wed, 18 Nov 2026 09:46:08 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1aa78257csm707878e87.51.2026.11.18.09.46.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 09:46:07 -0800 (PST)
-Message-ID: <c6a7e6a8-42d5-4470-9206-1f8d4f1a3013@gmail.com>
-Date: Wed, 18 Nov 2026 19:46:06 +0200
+        d=1e100.net; s=20260707; t=1795023975; x=1795628775;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SIiWqHkbikiw9/PSo57TK7nq7ydcL7CNJ2g4TYGph1w=;
+        b=tc3Y7GrOEe1wnfMy3RKx6HzgV7VMzekfNIQdJgKyuH3CFerSudJhbF/nZBUrwk/QvH
+         r/mOJfm9ZcycfZumpBXvPJFpkgDCS9zHSKChfKAOgccdunIXDBlvABsO5KIu0O49RXit
+         ftTHiN9oPgNi7xKEkzLG6tkog1yxN/GaOhX0TjABfSqiNwqp5sEtT9iVjFIKCqCNN3Fh
+         RMPW8NdylyugSVbG3nrNBY5FerWdBNeO7X9aqA6odmxUa9CZ3SbQuT30zopY6rOK6BLj
+         40Bhj3c+no8na+9519FUIUCOrJbztv777Oi8c2mjaju1meyrvqMy28W8fphMFUTmGsMn
+         +LyQ==
+X-Forwarded-Encrypted: i=1; AL+hErGxmK9NpFmi5g65tbsQ0f2S7NCuezZVpdLchbCiDB1xua5COw2hmzQC4mLAXsm7rihIC74QAYCUbWgal3c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/XdGTyMo1WYYdGxdJCHpCQXNFFGNhL5LM1rT0yl/jAKgrI9AlG
+	m8Dys6COsqHSTOc41rMYgiFMBD9ZXVhz/X8UYlccrauvfboEIT4deTVoY7rfMViuvePRBX4/X0q
+	aPQJT0NHnRY1W/sQmWtgiOqO4z07UjHmv670pa0tM
+X-Gm-Gg: AYBFou32MrsDzz3EMbo4izRx/56O0zlKnnAG8jODnbgOuOImQx29JFDFdvIAbiGIkjY
+	CgWOnLNAJ7iwmHSrWvWitcOVDdHOpNmHRlnUwI0IZl8LJur2LgDxrkZAv1JMpcwpQOLhLtGiaOX
+	DvAtE4QAuLNJJYOmORMQ54RDo9qozdccM4aq32lGMrG5fjLfvrLti5UsONGWioqNikF4pam1Ucj
+	XY/lUm9WV1vqh0XILZHGcyBo3TnEgXVhQ8V4l6PzDeoeWlWt+GmO/BiDaRYYD5mrkufL5f4t/zO
+	bUSiVDWWhf5IqiMpEm4Qvyv+YpId0giMtoWpQ92mht57FZ1S52+4rJl8/ymBF/IRF7lZbFMcpS/
+	yiUN/kiSnGxnvZPgV4vnUdvNZJLf9+8wXog==
+X-Received: by 2002:a05:6512:8346:b0:5c1:ac84:c105 with SMTP id
+ 2adb3069b0e04-5c1ac84c2a0mr745576e87.57.1795023975125; Wed, 18 Nov 2026
+ 09:46:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,77 +104,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: iio: Support ROHM BD79111
-To: Conor Dooley <conor@kernel.org>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Matti Vaittinen <matti.vaittinen@linux.dev>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Marcelo Schmitt <marcelo.schmitt@analog.com>,
- Joshua Crofts <joshua.crofts1@gmail.com>, Radu Sabau
- <radu.sabau@analog.com>, Janani Sunil <janani.sunil@analog.com>,
- Salih Erim <salih.erim@amd.com>,
- Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
- Antoniu Miclaus <antoniu.miclaus@analog.com>,
- Jakub Szczudlo <jakubszczudlo40@gmail.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <cover.1795009599.git.mazziesaccount@gmail.com>
- <f69b996cc07fad1712871fb8b0436c71abd435b9.1795009599.git.mazziesaccount@gmail.com>
- <20261118-ancient-ominous-4f2a4a37369b@spud>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20261118-ancient-ominous-4f2a4a37369b@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261117231352.3816603-1-jarkko@kernel.org> <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
+ <av3akYFOYaeQZauZ@kernel.org> <av3bkDnwmjunTleX@kernel.org>
+In-Reply-To: <av3bkDnwmjunTleX@kernel.org>
+From: Andy Lutomirski <luto@amacapital.net>
+Date: Wed, 18 Nov 2026 09:46:02 -0800
+X-Gm-Features: Aa3M54rqJXQt69c6byOctTWRaXx3nXcFQskBrnHvxsTyM3qw4EOZDCkVbvK6iJk
+Message-ID: <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: josef@toxicpanda.com, linux-fsdevel@vger.kernel.org, 
+	linux-api@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Andrew Morton <akpm@linux-foundation.org>, 
+	Ben Segall <bsegall@google.com>, Christian Brauner <brauner@kernel.org>, 
+	David Hildenbrand <david@kernel.org>, David Howells <dhowells@redhat.com>, 
+	Davidlohr Bueso <dave@stgolabs.net>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>, Jonathan Corbet <corbet@lwn.net>, 
+	John Johansen <john.johansen@canonical.com>, Juri Lelli <juri.lelli@redhat.com>, 
+	Kees Cook <kees@kernel.org>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	"Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Manfred Spraul <manfred@colorfullife.com>, Mel Gorman <mgorman@suse.de>, 
+	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+	Paul Moore <paul@paul-moore.com>, Pavel Tikhomirov <ptikhomirov@virtuozzo.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Serge Hallyn <sergeh@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Valentin Schneider <vschneid@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 18/11/2026 19:37, Conor Dooley wrote:
-> On Wed, Nov 18, 2026 at 04:19:11PM +0200, Matti Vaittinen wrote:
->> From: Matti Vaittinen <mazziesaccount@gmail.com>
->>
->> ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO devices,
->> where pins can be configured to be either used as GPIO or ADC inputs.
->> ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being IRQ
->> sources.
->>
->> The main difference is amount of channels/GPIOs. The BD79112 has 32 pins
->> for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
->> promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  whereas
->> the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
->> clock.
->>
->> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
->>
->> ---
->>
->> Note, I had to change the 'root-level' additionalProperties: false to
->> unevaluatedProperties: false in order to allow the properties in the new
->> allOf:
->>    - if:
->>       ...
->>
->> section. It seems to me this is what a few other bindings in IIO do, but
->> I suppose it makes this "less strict". Well, since I am terrible with
->> writing bindings, I'd better point this out and ask if it's ok, or if
->> there are better way(s) to handle this?
-> 
-> I don't think you should have to do that though, since the children are
-> described in the same file.
-> If you instead retained the pattern properties section, and lowered the
-> restriction to channel@<any number> with reg with the max of 31 and in
-> the conditional section constrained reg to a max of 16 does it work
+On Wed, Nov 18, 2026 at 9:08=E2=80=AFAM Jarkko Sakkinen <jarkko@kernel.org>=
+ wrote:
+>
+> On Wed, Nov 18, 2026 at 07:04:21PM +0200, Jarkko Sakkinen wrote:
+> > On Wed, Nov 18, 2026 at 08:59:39AM -0800, Andy Lutomirski wrote:
+> > > On Tue, Nov 17, 2026 at 3:14=E2=80=AFPM Jarkko Sakkinen <jarkko@kerne=
+l.org> wrote:
+> > > >
+> > > > OVERVIEW
+> > > > =3D=3D=3D=3D=3D=3D=3D=3D
+> > > >
+> > > > A root namespace (rootns) is a kernel object backed by a file descr=
+iptor
+> > > > that binds together:
+> > > >
+> > > > 1. A full or partial set of detached namespaces.
+> > > > 2. A dedicated PID namespace for spawning processes into, signaling
+> > > >    members, and polling or waiting on PID 1 exit.
+> > > > 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) that must=
+ be
+> > > >    populated before going live, without inheriting host mount-tree
+> > > >    ancestors.
+> > > >
+> > > > Work on this feature started in 2025 from David Howells' container =
+object
+> > > > patch set [1], which I turned into a namespace for namespace roots =
+and
+> > > > rebuilt around that premise.
+> > > >
+> > > > While the patch set is manually written, the original motivation ca=
+me
+> > > > from isolating LLM agents. Running untrusted agent workloads made i=
+t
+> > > > clear that OCI runtimes need to minimize their live configuration
+> > > > surface.
+> > > >
+> > > > Assembling mounts, credentials, and namespaces inside helper proces=
+ses
+> > > > with a half-configured container is what I see as the main challeng=
+e,
+> > > > and the existential debate around namespaces and container objects =
+is an
+> > > > unfocused discussion topic.
+> > >
+> > >
+> > > I've skimmed some of the series, and I see a bunch of good ideas that
+> > > involve using an fd to manage a thing.  But I'm wondering how much of
+> > > the value is added by that and how much is added by having a new
+> > > *type* of thing: the "rootns".
+> > >
+> > > How much of the value comes from the rootns vs the new APIs to
+> > > configure namespaces without entering them first?
+> > >
+> > > For that matter, the cells series also seems to contain a (possibly
+> > > very similar) variant of the same thing.
+> > >
+> > > Would it make sense to come up with a patchset that does *just* the
+> > > configure-a-namespace-by-fd part?  It seems to me that this should be
+> > > an easier thing to agree on, and it's a big part of the complexity of
+> > > all of this, and it solves a real problem even without
+> > > cells/rootnses/jails/whatever.
+> >
+> > Is it  more accurately scope the part that is "just the fd-part" and
+> > what you consider as "extra cruft"?
 
-Ah. I think it will, thanks for the help! I'll do that in v2. I'll just 
-wait for a while to see what other comments I may collect :)
+I'm not actually trying to say that anything is "extra cruft".  What I
+mean is: there seems to be somewhat of a core that is pretty similar
+between the two patchsets, and that core seems independently useful.
 
-Yours,
-	-- Matti
+> >
+> > I.e., where do you draw the border?
+>
+> I'm asking this because I had similar thoughts when I started this back
+> in 2025. David had some good ideas but it did more than having a fd
+> that does not go live before everything is set up properly.
 
--- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+I don't know that I have a very clear border, but here's an example:
 
-~~ When things go utterly wrong vim users can always type :help! ~~
+rootns has MOVE_MOUNT_T_ROOTNS_ROOT.
+
+cells has:
+
++What else goes into the tree is mounted on it before it becomes a
+mount namespace.  A
++filesystem for the cell to write to is mapped in the same way:
++
++.. code-block:: c
++
++   fs =3D fsopen("tmpfs", 0);
++   fsconfig(fs, FSCONFIG_SET_STRING, "mode", "1777", 0);
++   fsconfig(fs, FSCONFIG_CMD_CREATE, NULL, NULL, 0);
++   mnt =3D fsmount(fs, 0, MOUNT_ATTR_NOSUID | MOUNT_ATTR_NODEV);
++   mount_setattr(mnt, "", AT_EMPTY_PATH, &attr, sizeof(attr));
++   move_mount(mnt, "", tree, "tmp", MOVE_MOUNT_F_EMPTY_PATH);
+
+(Source: https://lore.kernel.org/all/20261105-b4-cells-v3-2-bc9095937a84@to=
+xicpanda.com/)
+
+I feel like you are both *so close* to something that would stand
+alone and make perfect sense.  I also feel like, if that's a goal,
+then both series are slightly off from the bulls-eye.  (Keep in mind
+that I've spend a total of about ten minutes looking at the relevant
+parts of the series.)
+
+If I've understood the two series correctly, and if I'm thinking of
+these abilities as something that can stand alone, then I see the
+following things that I'd improve.
+
+rootns: Why can't I use a *mountns* fd to so the configuration?  Maybe
+I'm misunderstanding something.
+
+cells: The dance where I create an anonymous mountns, mount stuff into
+it, and then attach it to the cell is cute.  But I think the userns
+interaction is wrong: you are making me assemble all the mounts in
+*my* userns and then clone the entire tree into a fresh, non-anonymous
+mountns bound to the current userns.  And that clone operation is not
+free and serves no actual practical purpose.
+
+Why can't there be some variant of these where I can either create an
+anonymous mount tree that is genuinely unbound from a userns or that
+lives in *the target userns* or that *is already the final mountns*,
+using just mount-related APIs?  In pseudocode:
+
+int mountns_control_fd =3D create_mountns(either userns-free or with a
+userns_control_fd);
+fsopen, move_mount, , open_tree, etc;
+
+Finally:
+
+cells: I find it *incredibly annoying* that one generally cannot put
+new mounts into an existing container using most existing container
+managers.  I hit this on a surprisingly regular basis.  You seem to be
+baking this into the whole cells design.  Why?
+
+both of you: Can we please make it possible to do the parts of this
+that oughtn't require privilege without privilege?  If the cap_userns
+thing ever lands, cap_userns & CAP_SYS_ADMIN ought to be more than
+sufficient to permit creating fresh mounts even without creating a
+userns as long as we don't do anything that affects privileges within
+our own userns.  Or let us create a userns, *not enter it*, and do all
+the mounting without actually having CAP_SYS_ADMIN in the permitted
+set.
+
+
+--=20
+Andy Lutomirski
+AMA Capital Management, LLC
