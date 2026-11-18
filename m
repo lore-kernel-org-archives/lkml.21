@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795007866;
-	b=WZH9rYJ/A5geoQ7jWOV9QzkWVdhKdboTusD5mT+/MgstxoUu6d5UHkCY7/1io44/xfnK
-	 LjC+pZUYnMvuydKLkpNns2t/Djx6I3zm/2bJrzqCQU9cMPlhSXR3cslzld5uQ5ZAV0MNL
-	 YYYLQin4DvmqzgqDcmcDDRUUlb3KbH9o2cS6Mit3tPFDR/QPimQODm2CQmtPq8eKSl7lw
-	 TGBIoQwbLHxb5zrJyitLJ0+em2cKGJGzzUQ2vMKNNNTsFlGTfcORdB3hjauGnWwDFWv6M
-	 jNFZpZz3IWsJiroavXNl5L6nJh9EY4V8+icIUq7gxT2SPVvMc/dLXAQ8Ve3pm2iE8qw==
+	t=1795007868;
+	b=ZcT1LSVwPrtAF/1c8n2mR7pPDPWZ+lzRzgkhwpMkerZTcblLIOvwh581yie1dx+azsHf
+	 XKhUw7qjZVMIaXgSKEO0a8Fzr+VISBk2aWenskXe9OGpONliZYMW3wmPMFU2N4bcLwFzq
+	 gpSw4f+6a+hbGTu1OKtnLO9NsjjujH0PrSfTtfsTrt3HfK0nyCkOaP1zytHsyapc83IRJ
+	 Zc5dBQHPaJg+vwXl6NQT2kmcEUxi712q3Nzyn2Lng7uLDdrREFR+rhoYJYY9T8iiNdSMI
+	 YMGcMsYZZJQ0OALJ2iIib7N9xN/Yk9NVjmpgJSnDFuzfZCGPtJrfySCn+4PmcbL130g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007866;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007868;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=sKu4sajsaOiA59TaqrDTQKPw1T5k64p4/BcVcn5hHs4=;
-	b=eh1KPFtUp0YetXuJe2zTS34vjWxe0r8R3D8en80lUby4cWf5QG3RxeVurrgvUvCGNILf
-	 atD4SWasVqoLrKLmv+anwkYAFJD/IZbzZ+Vb7S3SswIy9QV94i4c5aYcJP+uMHH8Uy22i
-	 pgZT09GWITKqmJkKqiKJpVR+ZVoZQfyvefGCpht3ggtVlO84tp3mHmxBMXgUSSrBkFUm/
-	 R7WdcGU0H1VcuKfS7rpASQgziFJiZUG4yK0hGNu5iEWnRKThYyO6LKdAm09Yi98ilgBTb
-	 Me5VAWBM3j9mPJQBKoWmb14TdXbvFAXocH6q49xHiMHuzdCj4sAcHvqWQKBbVO5iW4g==
+	bh=viW8fyJXZPatv3FgOkRhLz/ynsQIkjkuIQq+DJX78NI=;
+	b=ZABYXc9iMNVGm493DYckTajIK6mGTrzW6dhDyjfhpOFk1Cf/qZ/T4UARuncllbNc18xV
+	 laD4frx9TWbxZQ9THSP1eeZxtEWNOg9VcCiLn7Bf9gxOVbBIuoVc4CtEWpdMffnWi7aQ/
+	 Igk2NIzyctD+5aJRZ72201LwlqlzuuqiwmP/qcYlvJHvJ1NKYPF7cBoOmTwdX+TOuGJO6
+	 Ul/yD84w4BKx9/YLicH5x6NtlM0n5iBQiDrMEf9+LF8XEN4j37KOeoYVmIk1qCG5zb+/8
+	 Kt6vjOAHTSsGE1DOB2/evKxn9QNrrGQLyelj3p8e2gkMXNoPhwixS430Yv+sh0/li/g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QbpNfYzf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=innhysYN;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C67C3606A320;
-	Wed, 18 Nov 2026 13:17:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF33E60A2623;
+	Wed, 18 Nov 2026 13:17:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QbpNfYzf
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=innhysYN
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795007866;
-	b=qFBiplP9IZy+MDvCgbjdNZTJqcPujvUWWaxoJycEr32ihyAHE7Dgi68tkOTuUxEau+6P
-	 kwW9gbuvsD10edblvANyMrJImJpqdPdQN4OBNGk2uuMe+741R1qXFL890vFmSNKH+AQ/5
-	 VxiCVxEKE5blz4ZDMGyzo9elt7z3jfjRS1jRblKbovC8G7wjYXMRmSHfMcH/FR8q1kv/q
-	 fbNsydHSz3RvKTHEEWyG082bAONAeHuEkBFFaQXsWTrclnLN+i0QCcp8Cj+prNXopM+ZC
-	 FTEULPyafTBjw59ZqTKg0S6LJNwYbQ5opYcLjTffkE5uiMi3A3BGHzt7ccvpyv9cJYg==
+	t=1795007868;
+	b=N2uL2LJC3kZnFDD/EFEafGqUwony3Bkc9NhfxxESGZAtmjeKbHOs+mHCsi4bRrgdnew8
+	 Jt3ay9Z4JAlrcoIAtTzoknfuD/EXzfeysWG+r+ky0HCPUS0rkSmF+TAJnCGmb2ovAj//8
+	 +eEEwulqqBcv1s4LQrAL2koK3uGcxzaxSizouu6B1vQnWkM0bjgwqQEdJPJ58QeSLSBmm
+	 ghPdlskpR6Oppc+X7O9WvKZr8rebOJBu49p4Jw7F9hm/RGSVYD3LAPyfj7dOWQqruN5TF
+	 ntiApqA5AaQ0DeYWcym6K+pA89me7HB1pXc65QElBsRtNkvYbopmWyV3yYY4tCXzBWQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795007866;
+	c=relaxed/relaxed; t=1795007868;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=sKu4sajsaOiA59TaqrDTQKPw1T5k64p4/BcVcn5hHs4=;
-	b=mrgzkdk3og5e+ArhIHyqjnhR755L5LcidBLVn/Vei9GODHxc7jQBzSEHxeVQtFIiMGbQ
-	 J2EMPNviby7Y9OKqJDpDcfby37KkWSDthW5tYeTrhAvjHom61sRRoxpwPIrLYsNkkQh+s
-	 cY42uEi6DOxklZtyJtR4q/ck67+v1QsXEpQl1p9MUu2jWxerLxIMxnmW8t/n++sw1Hoa1
-	 uGDF4e/8UUytwiPbknIdpWqzeauk0/fHLIINvJ40uLczNidL5YHOI28j/QX/peC3gT4rg
-	 q2Pf/qETuvAcPSYz61wHtXCmKGPEuCbtTZrjMo6A/IhldErbMhRonsSUV6sOjYRptZw==
+	bh=viW8fyJXZPatv3FgOkRhLz/ynsQIkjkuIQq+DJX78NI=;
+	b=EmRsNX485Bo9kvaY0eqCr6eZXJ8GCgOgIh453TOYRLwih0YKNfJs7j+1oR2g1gqiK79C
+	 NEWoxNgyjqa7dP/6rIM57v6ydZY9VL9AR+FWysTauLgUc4PInaVz0gJUBu2KpHgBLKegz
+	 l68hvk6l7irrn8U8u4ZP+fMxnEJWPJ66tQuGjREvnUUf7vH7k8qPWPRavAVE9As8+fOu3
+	 GvF07gLztX0kkitP3uNiOcGw6dkzRbifHCbj+K3hy7SwZIXs2nKV9Gw0JZ/tpSxdsAL/A
+	 D49l+YqEiFJeB8FDzpAsdqsnM4XNm/hTRI7i8+sMcADIL5dCppKCBzguBNMMis2jw9A==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id CB0D61F000CC;
-	Wed, 18 Nov 2026 13:17:45 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 131831F000CD;
+	Wed, 18 Nov 2026 13:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795007866;
-	bh=sKu4sajsaOiA59TaqrDTQKPw1T5k64p4/BcVcn5hHs4=;
+	s=k20260515; t=1795007868;
+	bh=viW8fyJXZPatv3FgOkRhLz/ynsQIkjkuIQq+DJX78NI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=QbpNfYzfIdfkvTyBU6bo9xc/0ven0ZqxCMe3C4USb+JrihvST3w4Bu5Zx4xtxAOxt
-	 Q+Bx3DZKLHWuIj43vgXzC5LMkVdETfF0Toi3Ti/kt0hU1kVy3KmMQ/TQeseD5otZqu
-	 uanu+Mk09WvYZIFWeKvTgc0yOzf0RCP6+thjHjilHZf28uLEQpxgkJDqItPkHqgKcR
-	 skZijf6C71uX+srf8y0Lu0J9FMvQlG2cyu1KETXf72H3/e8vKX2qgPW73+PPel/oUY
-	 3CjmFI68fvtQf/Uh0AgzedU1Gz7NhM4XwXO2QZfkmHN2H29nE+cOdqErluUcXnJOIY
-	 3P94wFNMNcrUw==
+	b=innhysYN5oI5Ql19UcCrQLW8EWUWT1CysXyd2RX/a9ND4S1/o61VaOUQteeLFaX3+
+	 W+ep+ys68wU3XpvDXgP462eSckqjXOeJAfccWXMFbDNZXzrooWP6d/l9sgljpBDJJR
+	 K7UiIUxI0wo74adPsiMRKXt/wK9FjxRcUVtgrKjy8hjpSVn7T7gF0hVhPOlFXLRlMG
+	 NOGuqt19+ehLzC2SYo6Tvbk136ooRGpJXB+s5j/4GlY7qV50dybOCzS5tDcLIxGvgr
+	 Z0y3zD37L9MJEDS4mTdOZO1nFbi24bFj8Flg7S0MUf8bjEMF+5unYuaY6ZQAfuKwEC
+	 +kKNAIqRrcRqQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 494F04AD80;
+	by lkml.kernel.org (Postfix) with ESMTP id C070E4ADAC;
 	Wed, 18 Nov 2026 13:17:45 +0000 (UTC)
 From: Radu Sabau via B4 Relay <devnull+radu.sabau.analog.com@kernel.org>
-Date: Wed, 18 Nov 2026 15:17:43 +0200
-Subject: [PATCH v7 1/7] iio: imu: adis: Fix custom reset dispatch in
- adislib
+Date: Wed, 18 Nov 2026 15:17:48 +0200
+Subject: [PATCH v7 6/7] iio: imu: adis16607: Add external clock sync
+ support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-adis16607-v7-1-707609737691@analog.com>
+Message-Id: <20261118-adis16607-v7-6-707609737691@analog.com>
 References: <20261118-adis16607-v7-0-707609737691@analog.com>
 In-Reply-To: <20261118-adis16607-v7-0-707609737691@analog.com>
 To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -101,105 +101,319 @@ Cc: linux-iio@vger.kernel.org, linux@analog.com,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Jonathan Cameron <jic23@kernel.org>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795007863; l=2714;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795007863; l=9337;
  i=radu.sabau@analog.com; s=20261001; h=from:subject:message-id;
- bh=2aOaWEQmm87V8mWHa6wanBq4j6mhu4yDD8PVM0G4y9A=;
- b=Sojl6PL8HfcWEbXCQ8TK2H89NVgInmhPsjc7bUHHSYzWiokPQIfTwrXtFb560gYcJFfZpNWaa
- JmLyM3Zt98vDrCP0KTGo0WqsDPanIoYreEN9kVdvBj52tcWV94EmhcN
+ bh=5qVI0G3o2MN7BZvrrZ/vbU7iOmFBM5+ZR0FoEUCi6xA=;
+ b=Wi/cGoux+rvZfJmUj4/6fmwDFfvQsbrTs6KIrE/pHJnMZd0HD39gIW7pquF9UsJWIGzhJ+Lom
+ nMlQ5P4cpEfBcky4oY6RjBUZSVWpr9wRIqB1izmEZ2xBq8F1QFqln2j
 X-Developer-Key: i=radu.sabau@analog.com; a=ed25519;
  pk=XOZSO/Ut8qfYw7khL8lUF65Pgl+VLihISyS+Iy9jY8c=
 X-Endpoint-Received: by B4 Relay for radu.sabau@analog.com/20261001 with
  auth_id=1094
 X-Original-From: Radu Sabau <radu.sabau@analog.com>
 Reply-To: radu.sabau@analog.com
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
 From: Radu Sabau <radu.sabau@analog.com>
 
-Commit 7f15d7a7d12d ("iio: imu: adis: Add reset to custom ops") added
-a reset callback to struct adis_ops, but __adis_initial_startup()'s
-no-reset-gpio path and the public adis_reset() wrapper kept calling
-__adis_reset() directly, so a driver's custom reset implementation is
-silently ignored there (adis16550 already provides one). Dispatch
-through adis->ops->reset() instead.
+Add support for an optional external clock (clocks property),
+selecting between SYNC_DIRECT (1 kHz to 8 kHz) and SYNC_SCALED (1 Hz
+to 400 Hz) depending on the supplied frequency, with the internal
+8 kHz clock used as the default when no clock is provided.
 
-__adis_reset() also did the settle-time sleep itself, which a custom op
-never reaches even though its kernel-doc says the library takes care of
-the delay. Move the sleep out of __adis_reset() and into both call
-sites so it follows whichever reset op is used.
+The clock rate is requested as exclusive since the sample period and
+the sync scale are derived from it. In scaled mode the sync scale is
+chosen when the sampling frequency is set, so that the requested rate
+is matched as closely as possible while keeping the clock multiplied
+at or below the internal rate.
 
-Fixes: 7f15d7a7d12d ("iio: imu: adis: Add reset to custom ops")
-Reviewed-by: Nuno Sá <nuno.sa@analog.com>
 Signed-off-by: Radu Sabau <radu.sabau@analog.com>
 ---
- drivers/iio/imu/adis.c       |  6 ++----
- include/linux/iio/imu/adis.h | 12 +++++++++++-
- 2 files changed, 13 insertions(+), 5 deletions(-)
+ drivers/iio/imu/adis16607.c | 187 ++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 181 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/iio/imu/adis.c b/drivers/iio/imu/adis.c
-index a2bc1d14ed91..793e3b6b0ea7 100644
---- a/drivers/iio/imu/adis.c
-+++ b/drivers/iio/imu/adis.c
-@@ -340,7 +340,6 @@ EXPORT_SYMBOL_NS_GPL(__adis_check_status, "IIO_ADISLIB");
- int __adis_reset(struct adis *adis)
- {
- 	int ret;
--	const struct adis_timeout *timeouts = adis->data->timeouts;
+diff --git a/drivers/iio/imu/adis16607.c b/drivers/iio/imu/adis16607.c
+index c53f3e62d3fc..f8f0edcb5d6b 100644
+--- a/drivers/iio/imu/adis16607.c
++++ b/drivers/iio/imu/adis16607.c
+@@ -8,6 +8,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/bitops.h>
+ #include <linux/build_bug.h>
++#include <linux/clk.h>
+ #include <linux/debugfs.h>
+ #include <linux/delay.h>
+ #include <linux/iio/iio.h>
+@@ -44,6 +45,7 @@
+ #define ADIS16607_REG_TEMP		0x20
+ #define ADIS16607_REG_USER_GPIO_CFG	0x2F
+ #define ADIS16607_REG_SPI_HALFDUPLEX	0x32
++#define ADIS16607_REG_USER_SYNC		0x33
+ #define ADIS16607_REG_SOFT_RESET	0x36
+ #define ADIS16607_REG_SELF_TEST		0x39
+ #define ADIS16607_REG_DEC_RATE		0x3A
+@@ -54,6 +56,8 @@
  
- 	ret = __adis_write_reg_8(adis, adis->data->glob_cmd_reg,
- 				 ADIS_GLOB_CMD_SW_RESET);
-@@ -349,8 +348,6 @@ int __adis_reset(struct adis *adis)
- 		return ret;
- 	}
+ /* Masks */
+ #define ADIS16607_RESET_GPIO_MASK	GENMASK(2, 0)
++#define ADIS16607_SYNC_GPIO_MASK	GENMASK(8, 6)
++#define ADIS16607_SYNC_MODE_MASK	BIT(15)
+ #define ADIS16607_BOOTLOADER_BUSY_MASK	BIT(0)
  
--	msleep(timeouts->sw_reset_ms);
--
+ /* Self-test registers and masks */
+@@ -66,8 +70,22 @@
+ #define ADIS16607_ACCEL_Z_DELTA_MAX	4000
+ #define ADIS16607_GYRO_DELTA_MAX	2600
+ 
++/* Sync modes */
++enum adis16607_sync_mode {
++	ADIS16607_SYNC_DEFAULT,
++	ADIS16607_SYNC_DIRECT,
++	ADIS16607_SYNC_SCALED,
++};
++
++struct adis16607_sync {
++	u16 sync_mode;
++	u16 min_rate;
++	u16 max_rate;
++};
++
+ struct adis16607_chip_info {
+ 	const struct iio_chan_spec *channels;
++	const struct adis16607_sync *sync_mode;
+ 	const char *name;
+ 	u32 num_channels;
+ 	u32 gyro_max_val;
+@@ -79,12 +97,16 @@ struct adis16607_chip_info {
+ 	u32 deltvel_max_val;
+ 	u32 int_clk_Hz;
+ 	u16 max_dec;
++	u8 num_sync;
+ };
+ 
+ struct adis16607 {
+ 	struct adis adis;
+ 	const struct adis16607_chip_info *info;
+ 	unsigned long clk_freq_mHz;
++	unsigned long ext_clk_Hz;
++	u32 sync_mode;
++	u16 sync_scale;
+ 	u16 dec;
+ };
+ 
+@@ -480,19 +502,60 @@ static int adis16607_get_freq(struct adis16607 *st, u32 *freq)
  	return 0;
  }
- EXPORT_SYMBOL_NS_GPL(__adis_reset, "IIO_ADIS_LIB");
-@@ -413,9 +410,10 @@ int __adis_initial_startup(struct adis *adis)
- 		gpiod_set_value_cansleep(gpio, 0);
- 		msleep(timeouts->reset_ms);
- 	} else {
--		ret = __adis_reset(adis);
-+		ret = adis->ops->reset(adis);
- 		if (ret)
- 			return ret;
-+		msleep(timeouts->sw_reset_ms);
- 	}
  
- 	ret = adis_self_test(adis);
-diff --git a/include/linux/iio/imu/adis.h b/include/linux/iio/imu/adis.h
-index bfb6df68e6c9..97323b8d1cb3 100644
---- a/include/linux/iio/imu/adis.h
-+++ b/include/linux/iio/imu/adis.h
-@@ -10,6 +10,7 @@
- #define __IIO_ADIS_H__
- 
- #include <linux/cleanup.h>
-+#include <linux/delay.h>
- #include <linux/spi/spi.h>
- #include <linux/interrupt.h>
- #include <linux/iio/iio.h>
-@@ -171,8 +172,17 @@ int __adis_reset(struct adis *adis);
-  */
- static inline int adis_reset(struct adis *adis)
++/*
++ * In scaled sync mode the output rate is ext_clk * scale / (dec + 1). Find the
++ * (scale, dec) pair closest to the requested rate (in mHz), keeping
++ * ext_clk * scale at or below the internal rate. On a tie the higher scale
++ * wins, so the decimation filter averages more samples.
++ */
++static void adis16607_scaled_params(struct adis16607 *st, u32 freq,
++				    u16 *scale, u32 *dec)
++{
++	u32 max_scale = st->info->int_clk_Hz / st->ext_clk_Hz;
++	u32 max_dec = st->info->max_dec + 1;
++	u64 best_err = U64_MAX;
++	u64 target = freq;
++
++	for (u32 k = 1; k <= max_scale; k++) {
++		u64 rate = st->ext_clk_Hz;
++		u64 div, odr, err;
++
++		rate *= k;
++		rate *= MILLIHZ_PER_HZ;
++
++		div = DIV_ROUND_CLOSEST_ULL(rate, freq);
++		div = clamp(div, 1, max_dec);
++		odr = DIV_ROUND_CLOSEST_ULL(rate, div);
++		err = abs_diff(odr, target);
++		if (err > best_err)
++			continue;
++
++		best_err = err;
++		*scale = k;
++		*dec = div - 1;
++	}
++}
++
+ static int adis16607_set_freq(struct adis16607 *st, u32 freq)
  {
++	unsigned long clk_freq_mHz = st->clk_freq_mHz;
++	u16 scale = st->sync_scale;
+ 	u32 dec;
+ 	int ret;
+ 
+ 	if (!freq)
+ 		return -EINVAL;
+ 
+-	dec = DIV_ROUND_CLOSEST(st->clk_freq_mHz, freq);
+-	if (dec)
+-		dec--;
++	if (st->sync_mode == ADIS16607_SYNC_SCALED) {
++		adis16607_scaled_params(st, freq, &scale, &dec);
++		clk_freq_mHz = st->ext_clk_Hz * scale * MILLIHZ_PER_HZ;
++	} else {
++		dec = DIV_ROUND_CLOSEST(clk_freq_mHz, freq);
++		if (dec)
++			dec--;
+ 
+-	dec = min(dec, st->info->max_dec);
++		dec = min(dec, st->info->max_dec);
++	}
+ 
+ 	adis_dev_auto_scoped_lock(&st->adis) {
+ 		/* Reset the decimation accumulator before the new value */
+@@ -502,6 +565,21 @@ static int adis16607_set_freq(struct adis16607 *st, u32 freq)
+ 
+ 		st->dec = 0;
+ 
++		/*
++		 * Writing USER_SYNC restarts the PLL lock, so only do it when
++		 * the scale actually changes.
++		 */
++		if (scale != st->sync_scale) {
++			ret = __adis_write_reg_16(&st->adis,
++						  ADIS16607_REG_USER_SYNC,
++						  ADIS16607_SYNC_MODE_MASK | scale);
++			if (ret)
++				return ret;
++
++			st->sync_scale = scale;
++			st->clk_freq_mHz = clk_freq_mHz;
++		}
++
+ 		if (dec) {
+ 			ret = __adis_write_reg_16(&st->adis,
+ 						  ADIS16607_REG_DEC_RATE, dec);
+@@ -681,6 +759,17 @@ static const struct iio_info adis16607_info = {
+ 	.debugfs_reg_access = adis_debugfs_reg_access,
+ };
+ 
++/*
++ * External sync clock ranges in Hz. The datasheet gives 0.8 Hz as the scaled
++ * mode minimum, but clk_get_rate() reports whole Hz so 1 Hz is the lowest
++ * rate we can match.
++ */
++static const struct adis16607_sync adis16607_sync_modes[] = {
++	{ ADIS16607_SYNC_DEFAULT, 0, 0 },
++	{ ADIS16607_SYNC_DIRECT, 1000, 8000 },
++	{ ADIS16607_SYNC_SCALED, 1, 400 },
++};
++
+ static const char * const adis16607_status_error_msgs[] = {
+ 	[9] = "Boot Memory Failure",
+ 	[11] = "Power Supply Failure",
+@@ -724,6 +813,8 @@ static const struct adis16607_chip_info adis16607_2_chip_info = {
+ 	.deltvel_max_val = IIO_G_TO_M_S_2(40),
+ 	.int_clk_Hz	= 8000,
+ 	.max_dec	= 65535,
++	.sync_mode	= adis16607_sync_modes,
++	.num_sync	= ARRAY_SIZE(adis16607_sync_modes),
+ };
+ 
+ static const struct adis16607_chip_info adis16607_3_chip_info = {
+@@ -739,12 +830,96 @@ static const struct adis16607_chip_info adis16607_3_chip_info = {
+ 	.deltvel_max_val = IIO_G_TO_M_S_2(40),
+ 	.int_clk_Hz	= 8000,
+ 	.max_dec	= 65535,
++	.sync_mode	= adis16607_sync_modes,
++	.num_sync	= ARRAY_SIZE(adis16607_sync_modes),
+ };
+ 
+-/* No external clock sync support yet: always run on the internal clock */
+ static int adis16607_config_clk(struct adis16607 *st)
+ {
+-	st->clk_freq_mHz = st->info->int_clk_Hz * MILLIHZ_PER_HZ;
++	const struct adis16607_sync *sync_mode_data = NULL;
++	struct device *dev = &st->adis.spi->dev;
++	struct clk *clk;
 +	int ret;
 +
- 	guard(mutex)(&adis->state_lock);
--	return __adis_reset(adis);
++	clk = devm_clk_get_optional_enabled(dev, NULL);
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
 +
-+	ret = adis->ops->reset(adis);
++	if (clk) {
++		/* The sync scale and sample period depend on this rate */
++		ret = devm_clk_rate_exclusive_get(dev, clk);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "Failed to get exclusive clk rate\n");
++
++		st->ext_clk_Hz = clk_get_rate(clk);
++
++		for (unsigned int i = 1; i < st->info->num_sync; i++) {
++			if (st->ext_clk_Hz >= st->info->sync_mode[i].min_rate &&
++			    st->ext_clk_Hz <= st->info->sync_mode[i].max_rate) {
++				sync_mode_data = &st->info->sync_mode[i];
++				break;
++			}
++		}
++
++		if (!sync_mode_data)
++			return dev_err_probe(dev, -EINVAL,
++					     "Clk rate: %lu not in a valid range\n",
++					     st->ext_clk_Hz);
++
++		st->sync_mode = sync_mode_data->sync_mode;
++	} else {
++		st->sync_mode = ADIS16607_SYNC_DEFAULT;
++	}
++
++	/*
++	 * Write the full desired sync state explicitly for every mode,
++	 * rather than only when enabling non-default sync: USER_SYNC's
++	 * documented reset default (0x0000, direct mode / scale 0) means
++	 * this isn't fixing a known reset-state issue, but each mode
++	 * establishing its own complete state here, instead of only
++	 * touching bits conditionally, is simpler to reason about and
++	 * doesn't depend on that default holding true.
++	 */
++	ret = adis_update_bits_base(&st->adis, ADIS16607_REG_USER_GPIO_CFG,
++				    ADIS16607_SYNC_GPIO_MASK,
++				    FIELD_PREP(ADIS16607_SYNC_GPIO_MASK,
++					       st->sync_mode != ADIS16607_SYNC_DEFAULT), 2);
 +	if (ret)
 +		return ret;
 +
-+	msleep(adis->data->timeouts->sw_reset_ms);
++	/*
++	 * Start at the highest scale that keeps ext_clk * scale at or below
++	 * the internal rate, which the datasheet says the part performs best
++	 * with. set_freq() picks the scale from then on.
++	 */
++	if (st->sync_mode == ADIS16607_SYNC_SCALED)
++		st->sync_scale = st->info->int_clk_Hz / st->ext_clk_Hz;
 +
-+	return 0;
- }
++	ret = adis_write_reg_16(&st->adis, ADIS16607_REG_USER_SYNC,
++				(st->sync_mode == ADIS16607_SYNC_SCALED) ?
++				ADIS16607_SYNC_MODE_MASK | st->sync_scale : 0);
++	if (ret)
++		return ret;
++
++	switch (st->sync_mode) {
++	case ADIS16607_SYNC_SCALED:
++		/*
++		 * The effective rate is ext_clk * sync_scale, not necessarily
++		 * int_clk_Hz - use the real value here so the sampling
++		 * frequency is derived from it.
++		 */
++		st->clk_freq_mHz = st->ext_clk_Hz * st->sync_scale *
++				   MILLIHZ_PER_HZ;
++		break;
++	case ADIS16607_SYNC_DIRECT:
++		/* DIRECT: external clock is the effective internal rate */
++		st->clk_freq_mHz = st->ext_clk_Hz * MILLIHZ_PER_HZ;
++		break;
++	default:
++		st->clk_freq_mHz = st->info->int_clk_Hz * MILLIHZ_PER_HZ;
++		break;
++	}
  
- int __adis_write_reg(struct adis *adis, unsigned int reg,
+ 	return adis_read_reg_16(&st->adis, ADIS16607_REG_DEC_RATE, &st->dec);
+ }
 
 -- 
 2.43.0
