@@ -1,113 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.125.188.123
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794983274;
-	b=eozF6GY/Onp7TpAjqdR4hss6dc4YLWh3hUgbD9uu7mMo25h3rKvnea1iPwC5vrjIIgED
-	 rHkkWL0PKRgr0zJ1cXiyouTXCffsmnJbGMjaCUJw5KLIomfLy80knY+NHdVnN0bsVvL5k
-	 U5rylALhPjxAPudx4+LWamCCWULRvO8xMUQS/Y8MuaERTo+R6UUy102N9zjJ1GN6tAdDU
-	 RlIARwZCF9A3Lh6M+89tT76GZSU5ccLSbEM2qlFlVvWYMCK9+CS2GIkMVuc24potWSvEp
-	 TWGJx5536/FAzKnoXE4lxRWXCCIzObgO0LAn+GUdALYOepDIEoRXrildL7JREDnaYJQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983274;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:
-	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ZYCK2Pu0V+U7jvnnJDNAiZFUh2/yzCMoxjajdOtv3Vk=;
-	b=U+VLP7a80NZ6wUBGqQV47n752ufFh1wCvqmY35QQUPwYU+tagQk5E4QkuCy1jAqSuzu9
-	 IpjrV74tjYOqqp+bCcAv8qBRbKmc/ODy4kMeNnrvZeSZdRUli4txZGYSTo8g3+kaoLE7P
-	 KmmTCgY41b0CUqaeHONt4G5ZxYd3z6l2xHSoiUnIal/19IGSaL+PLCxjT55S4y9Zgsn9x
-	 /6+cmYI2mp6ECVgm+++ON/+qn3UIcbjNUo6xdvorEqXLLOhIBepodwWKTFMK9hZEZfyuS
-	 06NNP5I3sntwD9xmWHwCQR6wv545/vYNRLOpOGur4hWTE4HhfFeX+flWUoy4rvFnxrA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=canonical.com;
-	spf=pass smtp.mailfrom=canonical.com;
-	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=IUB13+EG;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.125.188.123
-Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794983294;
+	b=d86ganZd+DiD+1hZiWbalDYWXaKcsDpGWATIUrC1pakcq6bwO7jquYiVG2tvK8UGHl3n
+	 GDBGoa+LGeCfkVP+a3nnL+mGE/Ymm8cnsbfXnJs7LNyJ5/ZJ9zAsOPlwsRZKs2wJlSEVl
+	 5TvQx2+8N1e+Y8gCgbH0EeQ+so7KvJS/uZE8FhqAGGykf2fMVLT19/SSjHEg9EStiTpah
+	 /HekFaqSUMiH69/7sEy0ueyFXRh+6bm9uy0KMYv2c0DSelwHWWhVeuysSxkIfFXUR2vy9
+	 BI07lcOsbxIxCgaJA1k3sWZ7vpu53KAiZ/lwY/2naybPsurNAymS2tD/n9uxZEdg7+Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983294;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=N9CFIJBdHwVx3xXGNsYHLdhqiQo8R0GnSgbOhcY14X4=;
+	b=Cd07bOQ4RaFrXc52wVnvpvT6xqdcsTRUYeCu0iQpleCcxCjg4Lu0pf9uYd2z6/ajdaq8
+	 UCqZOeaO99jeK9vkHMfVQ2+03q9T0jThPOfPZ8VT3j5FPSXIbXozb4BpKwZp/XZI0I7I/
+	 M5B2OEDp5Jhds5nEtXhjScNtPWgWrK2G1r5RcboVZbp+ka6/ZMjjfb8ZdA9SH0c0U7Rq6
+	 faAY6Rwz6g9K12X5QY+q8ra3WvOQdYZhydPONWbTFkmHup0eyB9KecHHN8Eb4ny0kBUOX
+	 s5n3qqHbM4z8t4LCmYGJabrRks8xmlfEHl9nsF/JRSCQQcRaJhaQLcqxDot0f9ffg6w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oaSixYbY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF5F6606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF5F6606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6DAD606A335;
+	Wed, 18 Nov 2026 06:28:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=IUB13+EG
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 74E133F60C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1794983265;
-	bh=ZYCK2Pu0V+U7jvnnJDNAiZFUh2/yzCMoxjajdOtv3Vk=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=IUB13+EGJcVYtOj724ymwMmLTcehCG5O4BbjM22+B0rGTZH8+a9O3REMueV6rCOnT
-	 eqgmCBXmLS5soKV2sm9yfwEz1nUUmuN43oT+xd0t/EqIoCsrlrfeEKwCH5s7FITgrX
-	 bTudTJbpfjqPpvsExqjIm6h74kNBXN3Hor2+kdoH9lkzHnxKdePdX56Kcv61kRQ1ds
-	 RYwpLIbQzz1wy0gQ1VEq4gl0nPKMubZ49Xy+S/+2p+NZ9bT9zT/a9yVx7KLz1d0HW9
-	 3f1i3m8aLp0l5NVS7TJO6RpVuFv8ksYNz9VcZjRST42ETQf1r27YwoF6b8W19QKcp8
-	 lYGDWyo3Sm2XGvpi4OKNhEo6pBj7yf/KGrZ4AlGqurAZG49j//KJCmwRUr0y0QrLPz
-	 6vVZYr2bQJajfPfgWgtAtO2ATjmauGXpb/zFYUn1kaMjwLRy60Ui6dUvZcLyag2iZP
-	 hxtQLe05iRaFcgJLiTs+6zGpq+d1F4ZDrZ46SAIGuUdDQXg4PvbLFgQI7fZ3XeLbb2
-	 AuYTfL7/j3UEGAXaLxnZJ4hF4LTOGF2kkfwCIR0r2Q9pIWdlso0LFQ5DvGM4TrltZA
-	 AKFtxVRuXsCxI2cwoyYUmC3ROlV5NxzPgMuSBujLFCywFf/P9kyr/ESGMZ9MCOkq9Z
-	 9YW7JHIIWwDUOUyGLqoEka9A=
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-139b62317d0so2017106c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:27:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794983263; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mBM9XInCev7Uer30nrrQzWN7nqn8JBsVuPMDWdz8U8pZw1wr7QVBMG9oIrOqA5TrES
-         J/Ve9JmsAqS0HqLiIb2V2UF5kWRNVA04LU56KBhP6wZ+1sz25FOj1hA5eD0SKJxfywFZ
-         ASr9yDPjQQq98ZyNCoU5CIvLXVhZA947DituHa+iDniLTosRO1u0pz8DK/EVCiTsXt+5
-         k5tm9A7T4j6JRawD1Kox/Jo7wu8h8OtfuaVMlLBD5F+MhNo7OYUfHi5QBNkEuj2nTAPl
-         rKSIWtggshzz1DmcKJqtp4bTzFf+KUgSxBjpFpFEahuBYEJ+3ilMYFQVai3aC6gKuduM
-         j2ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version;
-        bh=ZYCK2Pu0V+U7jvnnJDNAiZFUh2/yzCMoxjajdOtv3Vk=;
-        fh=dijyv/MSnLHZqoLrdg7KfLmzXuLai1P5YpojxRZYJxg=;
-        b=kA10ne+j6DKvR+zFsRnDCdJIQRNtb4IzX7xtOVVu5v/puW5IIS/Cpwb+VQTHSeDkxg
-         iFzy7SHcO2WAcUHF6E7OeI/DWhddrfkwur6VYNYoKh6O6iqOzoG6Emw9+JHKBCoiTRfQ
-         y1UotrdAKCXkpI6EEqeUKMyeDmIWeCpkCzxpHvgN8yRpyBGGZLaHnx6pzJ4udVkgIGG5
-         GSZyV9j1g4NrHMYx4IYXrvbsD4MGP94yjBm3nj8JGf751E86TwruqDQoNV1oYJvyeNz5
-         DJC9Iy31FEFFCK02s0Xm3bm4lYzdK8bWWPWeU9BuLIOAH18bBrctM3ByBf1gzwb7e+4X
-         O9bA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983263; x=1795588063;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZYCK2Pu0V+U7jvnnJDNAiZFUh2/yzCMoxjajdOtv3Vk=;
-        b=WHMwN+fsNYxHRqAQfcHUD+Eo8lebXbn9294ki8rm9UMXOlBNiCVGpaCqdaSq+n7JHX
-         1HWO/BbHERLrFt1aeV1f/IO+HHVcMw5xNuaRV4FvRMYWhdAQmjW6/bQiGNGsR2Cn6W2E
-         orFrM1ViCsKQjl08xThFDU7Il4QKnqkaaKDqMiHtB5zkParCUqg7rPR+1LWI9MAhOjlm
-         FbtSAyuROhi4IkGeNyT2nIeF7aJSh6sYP8Pd/gFITqAW6x35GaSOG6cf9+1RVLnmGhp3
-         LMP1HhGrZRbfX8PNwXf4uTId3kRvQ0elrw+db8P4ONJ3FMr5y2v980gyZWOi1A1keggB
-         mcKQ==
-X-Forwarded-Encrypted: i=1; AL+hErG08gdln2fTArymT50Q7e1opnLLtCkFHuF78QrnVJ8yL6IljVl8RZ5xRcy19bspnfr88Y/I747e8Y6OgN0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8hqvxK+cCeEjYywb2R7aSWbTCJL/Dze5L4CaUp/NGUgx8+ing8
-	SlS6mC4ry2D/c1OgVZdjbpoMzAwOnT8Agq+H3PyAPG4MiDxeFvoBLFrneQdQVioehXRFSlJTUox
-	mYLoUHmtXx0H01UOxjQ9xCTMbBN1iLhDPNBLvnGKMTbYy/zcrj1xMCDvTr3ZUMIU1bROmupX78+
-	whxPmDwPBNtA+T8flNVb/USq9CXZ+yooSvHtjPJAIA/R2MexrutTN4h/jSdWUQA2LK88wX/Meh
-X-Gm-Gg: AYBFou2mFVsbr4W8gXz4Cvarc/nZdQoPKkxBo42HrspiJjRVdNqMdKYNniw7tQNXMBr
-	zLe7BCiPuOdp2esnHzjV5Yvx/Ief+AN1exrNB5FekcPuytXMQEmQAfFdzoJMzBnJMI+aHTkabMw
-	fyLYOXBK+e1o/KN4+pB4ISB74oOXvfQ4LYcM7BNp5eluvXGjKs4iNJUW0+BExQQA06pvvlo3cQ/
-	65w/seS3LbyMJUw9H6XvkNqzh0b/xFaTWm3pBHd1gTaZc4/WrwdCP3DQkfaNsqlaaf6SfgbRiTh
-	/I5vpDRzp3enhTOwtqg/MO99qJwglNE6zbvZi6VD8KXhj3iQoghY9wuhxK9C8R6W7LwisTfv
-X-Received: by 2002:a05:7022:f90b:b0:18d:96e8:b913 with SMTP id a92af1059eb24-1b543c4a944mr1572601c88.47.1794983263143;
-        Tue, 17 Nov 2026 22:27:43 -0800 (PST)
-X-Received: by 2002:a05:7022:f90b:b0:18d:96e8:b913 with SMTP id
- a92af1059eb24-1b543c4a944mr1572580c88.47.1794983262609; Tue, 17 Nov 2026
- 22:27:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oaSixYbY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB4E1F000C5;
+	Wed, 18 Nov 2026 06:28:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794983293;
+	bh=N9CFIJBdHwVx3xXGNsYHLdhqiQo8R0GnSgbOhcY14X4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oaSixYbYhgSm5KIqLAQxkrWJZTvsuF22F5YYsGv7McuJywWsx1tfKJXgyhqHl5Zju
+	 12udwtHxz3ArSVSDJhw36ai2/amIAkaRUOmIjWw8I3wfE0TU/kzo8YdH4W4O6zSgiY
+	 XF4Y+Fi4no4HSKbymIZvv0OhPAshVFhsTuL3Y+y3uRzLdZSFMj1Kz/wVX6a7eUJk1k
+	 AY2nbhd/KxNT2i241H1mdIthjZVVI9lQ93ITTxiXnJGi3lNxOMVsfezvNbrEd8L6C9
+	 c7sNi3m2oLFIbR0fjlAi3ILoj8qmYjCtlTs4Nj1bU4hGRa/PJ8i6qO9KquN7olAz7x
+	 QKuxZOr82HmFA==
+Date: Tue, 17 Nov 2026 22:28:11 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Alireza Haghdoost <haghdoost@uber.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 5/9] perf symbol: Switch backing storage from rbtree
+ to struct symbols array
+Message-ID: <av1Fe0w4_oAEPDhB@google.com>
+References: <20261117185305.108003-1-irogers@google.com>
+ <20261117185305.108003-6-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,247 +63,256 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113055726.952551-1-aaron.ma@canonical.com> <b4feb4ce-d818-c6b0-a749-4e58b92c2573@linux.intel.com>
-In-Reply-To: <b4feb4ce-d818-c6b0-a749-4e58b92c2573@linux.intel.com>
-From: Aaron Ma <aaron.ma@canonical.com>
-Date: Wed, 18 Nov 2026 14:27:31 +0800
-X-Gm-Features: AclHuK8VgyeeoUXEKHXZd76ln6Mizm3zIiggFq-UHwvrPWqWaYx_3r4qTvsztGA
-Message-ID: <CAJ6xRxVLMmK6Vk8h8FYbeuDSKhd_hhN=HKEkF=E5CUisimKtZw@mail.gmail.com>
-Subject: Re: [PATCH v3] platform/x86: lenovo-wmi-other: Deconflict battery
- with thinkpad_acpi
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Mark Pearson <mpearson-lenovo@squebb.ca>, "Derek J. Clark" <derekjohn.clark@gmail.com>, 
-	Rong Zhang <i@rong.moe>, Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261117185305.108003-6-irogers@google.com>
 
-Hi,
+On Tue, Nov 17, 2026 at 10:53:01AM -0800, Ian Rogers wrote:
+> Previously, DSO symbols were stored in an unprotected rb_root_cached
+> with a 24-byte struct rb_node embedded inside every struct symbol. That
+> design had three drawbacks:
+> 1. Embedding struct rb_node (3 pointers, 24 bytes on 64-bit) accounted
+>    for nearly 40% of struct symbol's fixed header size and scattered
+>    symbol lookups across non-contiguous heap nodes.
+> 2. Unlike struct dsos and struct maps, the symbol rbtree had no lock
+>    protecting concurrent lookups, sorting, and insertions.
+> 3. Deduplicating symbols, splitting kallsyms, and trimming excess symbol
+>    container capacity under memory pressure benefit from operating on a
+>    compact array under a lock.
+> 
+> Replace struct rb_node in struct symbol with a locked, lazily-sorted
+> pointer array in struct symbols, matching the design of struct dsos and
+> struct maps:
+> 
+> - Introduce struct symbols containing a rw_semaphore lock, primary
+>   address-sorted symbols array, secondary name-sorted symbols_by_name
+>   array, counts, capacity, and sorted state flags.
+> - Lazily sort symbols by start address using qsort (symbols__sort_locked)
+>   and use binary search in symbols__find().
+> - Update symbols__fixup_duplicate(), symbols__fixup_end(),
+>   maps__split_kallsyms_for_kcore(), and maps__split_kallsyms() to
+>   operate on the sorted array and compact entries in place.
+> - Convert symbols__for_each_entry(), dso__for_each_symbol(), and
+>   map__for_each_symbol() to callback-based iteration under
+>   symbols->lock, matching dsos__for_each_dso() and maps__for_each_map().
+> - Remove the unsynchronized single-entry dso->last_find_result cache and
+>   dso__reset_find_symbol_cache() since binary search over a contiguous
+>   array is cache-friendly.
+> - Remove the direct rb_erase_cached() workaround in builtin-annotate.c's
+>   add_sample().
+> - Update the TUI map browser (ui/browsers/map.c) to snapshot the sorted
+>   symbol array into an entries array and use ui_browser__argv_refresh
+>   and ui_browser__argv_seek instead of ui_browser__rb_tree_refresh.
+> 
+> Using 'perf bench internals symbols':
+> 
+>   Before (perf binary):
+>     Average DSO load + sort: 7.041 msec (+- 0.051 msec)
+>     Average DSO memory usage: 1401 KB (+- 4 KB)
+>     Average bulk insert + lookup: 1453.950 usec (+- 10.895 usec)
+>   After (perf binary, -13.5% load, -14.6% memory, -7.7% bulk):
+>     Average DSO load + sort: 6.089 msec (+- 0.039 msec)
+>     Average DSO memory usage: 1197 KB (+- 3 KB)
+>     Average bulk insert + lookup: 1341.500 usec (+- 21.564 usec)
+> 
+>   Before (libLLVM.so.21.1):
+>     Average DSO load + sort: 78.599 msec (+- 0.857 msec)
+>     Average DSO memory usage: 9530 KB (+- 5 KB)
+>   After (libLLVM.so.21.1, -22.3% load, -8.1% memory):
+>     Average DSO load + sort: 61.074 msec (+- 0.236 msec)
+>     Average DSO memory usage: 8755 KB (+- 1 KB)
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/arch/powerpc/util/sym-handling.c |  34 +-
+>  tools/perf/builtin-annotate.c               |  11 -
+>  tools/perf/builtin-kmem.c                   |  51 +-
+>  tools/perf/tests/hists_common.c             |   5 +-
+>  tools/perf/tests/symbols.c                  |  62 +-
+>  tools/perf/tests/vmlinux-kallsyms.c         | 181 +++---
+>  tools/perf/ui/browser.c                     |   3 +
+>  tools/perf/ui/browsers/hists.c              |   3 +-
+>  tools/perf/ui/browsers/map.c                |  62 +-
+>  tools/perf/util/auxtrace.c                  | 109 ++--
+>  tools/perf/util/db-export.c                 |   4 +-
+>  tools/perf/util/dso.c                       |  50 +-
+>  tools/perf/util/dso.h                       |  68 +--
+>  tools/perf/util/intel-pt.c                  |  74 ++-
+>  tools/perf/util/libbfd.c                    |   3 +-
+>  tools/perf/util/machine.c                   |  30 +-
+>  tools/perf/util/map.c                       |  36 +-
+>  tools/perf/util/map.h                       |   8 +-
+>  tools/perf/util/probe-event.c               |  98 +--
+>  tools/perf/util/symbol-elf.c                |  12 +-
+>  tools/perf/util/symbol.c                    | 643 ++++++++++++++------
+>  tools/perf/util/symbol.h                    |  72 ++-
+>  tools/perf/util/symbol_fprintf.c            |  25 +-
+>  23 files changed, 1011 insertions(+), 633 deletions(-)
+> 
+> diff --git a/tools/perf/arch/powerpc/util/sym-handling.c b/tools/perf/arch/powerpc/util/sym-handling.c
+> index 947bfad7aa59..f87d77262c00 100644
+> --- a/tools/perf/arch/powerpc/util/sym-handling.c
+> +++ b/tools/perf/arch/powerpc/util/sym-handling.c
+> @@ -115,13 +115,27 @@ void arch__fix_tev_from_maps(struct perf_probe_event *pev,
+>  }
+>  
+>  #ifdef HAVE_LIBELF_SUPPORT
+> +struct post_process_probe_trace_events_args {
+> +	struct perf_probe_event *pev;
+> +	struct probe_trace_event *tev;
+> +	struct map *map;
+> +};
+> +
+> +static int post_process_probe_trace_events_cb(struct symbol *sym, void *data)
+> +{
+> +	struct post_process_probe_trace_events_args *args = data;
+> +
+> +	if (map__unmap_ip(args->map, sym->start) == args->tev->point.address) {
+> +		arch__fix_tev_from_maps(args->pev, args->tev, args->map, sym);
+> +		return 1;
+> +	}
+> +	return 0;
+> +}
+> +
+>  void arch__post_process_probe_trace_events(struct perf_probe_event *pev,
+>  					   int ntevs)
+>  {
+> -	struct probe_trace_event *tev;
+>  	struct map *map;
+> -	struct symbol *sym = NULL;
+> -	struct rb_node *tmp;
+>  	int i = 0;
+>  
+>  	map = get_target_map(pev->target, pev->nsi, pev->uprobes);
+> @@ -129,13 +143,13 @@ void arch__post_process_probe_trace_events(struct perf_probe_event *pev,
+>  		return;
+>  
+>  	for (i = 0; i < ntevs; i++) {
+> -		tev = &pev->tevs[i];
+> -		map__for_each_symbol(map, sym, tmp) {
+> -			if (map__unmap_ip(map, sym->start) == tev->point.address) {
+> -				arch__fix_tev_from_maps(pev, tev, map, sym);
+> -				break;
+> -			}
+> -		}
+> +		struct post_process_probe_trace_events_args args = {
+> +			.pev = pev,
+> +			.tev = &pev->tevs[i],
+> +			.map = map,
+> +		};
+> +
+> +		map__for_each_symbol(map, post_process_probe_trace_events_cb, &args);
 
-On Fri, Nov 13, 2026 at 7:04=E2=80=AFPM Ilpo J=C3=A4rvinen
-<ilpo.jarvinen@linux.intel.com> wrote:
->
-> On Fri, 13 Nov 2026, Aaron Ma wrote:
->
-> > ThinkPads expose battery charge thresholds and charge_behaviour through
-> > thinkpad_acpi's ACPI battery hook using raw sysfs attribute groups. The
-> > Lenovo WMI "Other Mode" driver also registers a power_supply_ext for
-> > charge_behaviour and charge_types on systems advertising those WMI
-> > capabilities.
-> >
-> > When lenovo-wmi-other registers first, thinkpad_acpi fails to create a
-> > duplicate charge_behaviour sysfs attribute and unregisters its battery
-> > extension. Conversely, registering or updating any power_supply_ext on
-> > the same battery runs sysfs_update_groups(), which removes standard
-> > power-supply attributes not owned by power_supply_core and wipes out
-> > thinkpad_acpi's charge_control_start_threshold,
-> > charge_control_end_threshold, and charge_behaviour files.
-> >
-> > Deconflict both ideapad_laptop (VPC2004 with GBMD and SBMC) and
-> > thinkpad_acpi (LEN0268, LEN0068, or IBM0068 with BDSG and BICG) via a
-> > per-driver table guarded by IS_ENABLED() in Kconfig, and update the
-> > force_load_psy_ext description accordingly.
-> >
-> > Fixes: 9ca8fc065b88b ("platform/x86: lenovo-wmi-other: Add WMI battery =
-charge limiting")
-> > Reviewed-by: Derek J. Clark <derekjohn.clark@gmail.com>
-> > Co-developed-by: Rong Zhang <i@rong.moe>
-> > Signed-off-by: Rong Zhang <i@rong.moe>
-> > Signed-off-by: Aaron Ma <aaron.ma@canonical.com>
-> > ---
-> > Changes in v3:
-> > - Wrap deconfliction table entries in #if IS_ENABLED(CONFIG_*) and drop
-> >   driver_enabled, as suggested by Rong Zhang.
-> > - Group deconfliction entries per driver (HIDs list + methods list).
-> >
-> > Changes in v2:
-> > - Consolidate IdeaPad and ThinkPad deconfliction into a table of ACPI
-> >   device IDs, method pairs, and driver configuration checks, as suggest=
-ed
-> >   by Derek J. Clark.
-> > - Check GBMD and SBMC for IdeaPads, and BDSG and BICG for ThinkPads,
-> >   instead of relying only on ThinkPad ACPI device presence.
-> > - Check whether the corresponding driver is enabled before looking up
-> >   its ACPI device, including for ideapad_laptop.
-> > - Update the force_load_psy_ext description to cover both drivers.
-> >
-> > v2: https://lore.kernel.org/platform-driver-x86/20261112074823.853819-1=
--aaron.ma@canonical.com/
-> > v1: https://lore.kernel.org/platform-driver-x86/20261111083529.727285-1=
--aaron.ma@canonical.com/
-> >
-> >  drivers/platform/x86/lenovo/wmi-other.c | 66 ++++++++++++++++++++-----
-> >  1 file changed, 53 insertions(+), 13 deletions(-)
-> >
-> > diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform=
-/x86/lenovo/wmi-other.c
-> > index bd64e7b44669d..340159df5f7cc 100644
-> > --- a/drivers/platform/x86/lenovo/wmi-other.c
-> > +++ b/drivers/platform/x86/lenovo/wmi-other.c
-> > @@ -189,10 +189,10 @@ MODULE_PARM_DESC(relax_fan_constraint,
-> >  static bool force_load_psy_ext;
-> >  module_param(force_load_psy_ext, bool, 0444);
-> >  MODULE_PARM_DESC(force_load_psy_ext,
-> > -     "This option will skip checking if the ideapad_laptop driver will=
- conflict "
-> > +     "This option will skip checking if the ideapad_laptop or thinkpad=
-_acpi driver will conflict "
-> >       "with adding an extension to set the battery charge behavior and =
-battery charge "
-> >       "control end threshold. It will also skip checking if the BIOS re=
-ports that "
-> > -     "those features are fully supported. It is recommended to blackli=
-st the ideapad "
-> > +     "those features are fully supported. It is recommended to blackli=
-st the conflicting "
-> >       "driver before using this option.");
-> >
-> >  /* =3D=3D=3D=3D=3D=3D=3D=3D HWMON (component: lenovo-wmi-capdata 00 & =
-fan) =3D=3D=3D=3D=3D=3D=3D=3D */
-> > @@ -905,17 +905,41 @@ static acpi_status lwmi_acpi_match(acpi_handle ha=
-ndle, u32 lvl,
-> >       return AE_CTRL_TERMINATE;
-> >  }
-> >
-> > +struct lwmi_psy_deconflict {
-> > +     char * const *hids;
->
-> Who is only the pointer const, not the char?
->
+Please separate the map__for_each_symbol() changes as it can be
+converted independently.  New users can be separate commits too.
 
-It only lacked const because it shared LWMI_PSY_DECONFLICT_STRS() with
-methods. I made hids const char * const * in v4.
 
-> > +     char * const *methods;
->
-> If acpi_has_method would input const char * (to me it seems convertable
-> as it only calls acpi_get_handle that takes const char *), this too could
-> be const char.
->
+>  	}
+>  }
+>  #endif /* HAVE_LIBELF_SUPPORT */
+> diff --git a/tools/perf/builtin-annotate.c b/tools/perf/builtin-annotate.c
+> index 7cb7e03d9a21..65846110c309 100644
+> --- a/tools/perf/builtin-annotate.c
+> +++ b/tools/perf/builtin-annotate.c
+> @@ -258,17 +258,6 @@ static int add_sample(struct perf_sample *sample,
+>  	    (al->sym == NULL ||
+>  	     strcmp(ann->sym_hist_filter, al->sym->name) != 0)) {
+>  		/* We're only interested in a symbol named sym_hist_filter */
+> -		/*
+> -		 * FIXME: why isn't this done in the symbol_filter when loading
+> -		 * the DSO?
+> -		 */
+> -		if (al->sym != NULL) {
+> -			struct dso *dso = map__dso(al->map);
+> -
+> -			rb_erase_cached(&al->sym->rb_node, dso__symbols(dso));
+> -			symbol__delete(al->sym);
+> -			dso__reset_find_symbol_cache(dso);
+> -		}
+>  		return 0;
+>  	}
+>  
+> diff --git a/tools/perf/builtin-kmem.c b/tools/perf/builtin-kmem.c
+> index 8693c6b135ca..87869c717266 100644
+> --- a/tools/perf/builtin-kmem.c
+> +++ b/tools/perf/builtin-kmem.c
+> @@ -341,13 +341,33 @@ static int callcmp(const void *a, const void *b)
+>  		return -1;
+>  }
+>  
+> +static int build_alloc_func_list_cb(struct symbol *sym, void *data)
+> +{
+> +	regex_t *alloc_func_regex = data;
+> +	struct alloc_func *func;
+> +
+> +	if (regexec(alloc_func_regex, sym->name, 0, NULL, 0))
+> +		return 0;
+> +
+> +	func = realloc(alloc_func_list,
+> +		       (nr_alloc_funcs + 1) * sizeof(*func));
+> +	if (func == NULL)
+> +		return -ENOMEM;
+> +
+> +	pr_debug("alloc func: %s\n", sym->name);
+> +	func[nr_alloc_funcs].start = sym->start;
+> +	func[nr_alloc_funcs].end   = sym->end;
+> +	func[nr_alloc_funcs].name  = sym->name;
+> +
+> +	alloc_func_list = func;
+> +	nr_alloc_funcs++;
+> +	return 0;
+> +}
+> +
+>  static int build_alloc_func_list(void)
+>  {
+>  	int ret;
+>  	struct map *kernel_map;
+> -	struct symbol *sym;
+> -	struct rb_node *node;
+> -	struct alloc_func *func;
+>  	struct machine *machine = &kmem_session->machines.host;
+>  	regex_t alloc_func_regex;
+>  	static const char pattern[] = "^_?_?(alloc|get_free|get_zeroed)_pages?";
+> @@ -364,30 +384,17 @@ static int build_alloc_func_list(void)
+>  	kernel_map = machine__kernel_map(machine);
+>  	if (map__load(kernel_map) < 0) {
+>  		pr_err("cannot load kernel map\n");
+> +		regfree(&alloc_func_regex);
 
-Agreed. acpi_has_method() still takes char *, so I kept methods as
-char * const * in v4.
-
-> > +};
-> > +
-> > +#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) || IS_ENABLED(CONFIG_THINKPAD_AC=
-PI)
-> > +#define LWMI_PSY_DECONFLICT_STRS(...) \
-> > +     ((char * const[]) { __VA_ARGS__, NULL })
-> > +#endif
->
-> What exactly does ifdef'ing this construct achieve? Does something hunt
-> unused macros?
->
-
-Yes, W=3D2 enables -Wunused-macros. The guard avoids the warning when
-both drivers are disabled.
-
-> > +
-> > +static const struct lwmi_psy_deconflict lwmi_psy_deconflict_list[] =3D=
- {
-> > +#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP)
-> > +     {
-> > +             .hids =3D LWMI_PSY_DECONFLICT_STRS("VPC2004"),
-> > +             .methods =3D LWMI_PSY_DECONFLICT_STRS("GBMD", "SBMC"),
-> > +     },
-> > +#endif /* IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) */
-> > +#if IS_ENABLED(CONFIG_THINKPAD_ACPI)
-> > +     {
-> > +             .hids =3D LWMI_PSY_DECONFLICT_STRS("LEN0268", "LEN0068", =
-"IBM0068"),
-> > +             .methods =3D LWMI_PSY_DECONFLICT_STRS("BDSG", "BICG"),
-> > +     },
-> > +#endif /* IS_ENABLED(CONFIG_THINKPAD_ACPI) */
-> > +};
-> > +
-> >  /**
-> >   * lwmi_om_psy_ext_init() - Hooks power supply extension to device bat=
-tery
-> >   * @priv: Pointer to the lwmi_om_priv drvdata.
-> >   *
-> > - * Checks if the ideapad_laptop driver is going to manage charge attri=
-butes first,
-> > - * then if not, hooks the battery to our WMI methods if they are suppo=
-rted.
-> > + * Checks if the ideapad_laptop or thinkpad_acpi driver is going to ma=
-nage
-> > + * charge attributes first, then if not, hooks the battery to our WMI =
-methods
-> > + * if they are supported.
-> >   */
-> >  static void lwmi_om_psy_ext_init(struct lwmi_om_priv *priv)
-> >  {
-> > -     static const char * const ideapad_hid =3D "VPC2004";
-> > -     acpi_handle handle =3D NULL;
-> >       unsigned int props =3D 0;
-> >       int ret;
-> >
-> > @@ -928,14 +952,30 @@ static void lwmi_om_psy_ext_init(struct lwmi_om_p=
-riv *priv)
-> >       if (force_load_psy_ext)
-> >               goto load_psy_ext;
-> >
-> > -     /* Deconflict ideapad_laptop driver */
-> > -     ret =3D acpi_get_devices(ideapad_hid, lwmi_acpi_match, &handle, N=
-ULL);
-> > -     if (ret)
-> > -             return;
-> > +     for (unsigned int i =3D 0; i < ARRAY_SIZE(lwmi_psy_deconflict_lis=
-t); i++) {
-> > +             const struct lwmi_psy_deconflict *entry =3D &lwmi_psy_dec=
-onflict_list[i];
-> >
-> > -     if (handle && acpi_has_method(handle, "GBMD") && acpi_has_method(=
-handle, "SBMC")) {
-> > -             dev_dbg(&priv->wdev->dev, "ideapad_laptop driver manages =
-battery for device\n");
-> > -             return;
-> > +             for (unsigned int j =3D 0; entry->hids[j]; j++) {
-> > +                     const char *hid =3D entry->hids[j];
-> > +                     acpi_handle handle =3D NULL;
-> > +                     bool has_methods =3D true;
-> > +
-> > +                     ret =3D acpi_get_devices(hid, lwmi_acpi_match, &h=
-andle, NULL);
-> > +                     if (ret || !handle)
-> > +                             continue;
-> > +
-> > +                     for (unsigned int k =3D 0; entry->methods[k]; k++=
-) {
-> > +                             has_methods =3D acpi_has_method(handle, e=
-ntry->methods[k]);
-> > +                             if (!has_methods)
-> > +                                     break;
->
-> So this goes to dev_dbg + return, why complicate the code flow with extra
-> break + check that is never true?
->
-> If indentation is the worry here, the innermost bodies don't seem to
-> require much from the outer ones so they could be moved to a function
-> (j body + k loop).
->
-
-When missing a method then try the next HID. In v4, I moved the lookup
-and method checks into a helper.
+Looks like an unrelated bug fix.
 
 Thanks,
-Aaron
+Namhyung
 
-> > +                     }
-> > +                     if (!has_methods)
-> > +                             continue;
-> > +
-> > +                     dev_dbg(&priv->wdev->dev, "ACPI device %s manages=
- battery for device\n",
-> > +                             hid);
-> > +                     return;
-> > +             }
-> >       }
-> >
-> >  load_psy_ext:
-> >
->
-> --
->  i.
->
+
+>  		return -ENOENT;
+>  	}
+>  
+> -	map__for_each_symbol(kernel_map, sym, node) {
+> -		if (regexec(&alloc_func_regex, sym->name, 0, NULL, 0))
+> -			continue;
+> -
+> -		func = realloc(alloc_func_list,
+> -			       (nr_alloc_funcs + 1) * sizeof(*func));
+> -		if (func == NULL)
+> -			return -ENOMEM;
+> -
+> -		pr_debug("alloc func: %s\n", sym->name);
+> -		func[nr_alloc_funcs].start = sym->start;
+> -		func[nr_alloc_funcs].end   = sym->end;
+> -		func[nr_alloc_funcs].name  = sym->name;
+> -
+> -		alloc_func_list = func;
+> -		nr_alloc_funcs++;
+> -	}
+> +	ret = map__for_each_symbol(kernel_map, build_alloc_func_list_cb, &alloc_func_regex);
+> +	regfree(&alloc_func_regex);
+> +	if (ret)
+> +		return ret;
+>  
+> -	qsort(alloc_func_list, nr_alloc_funcs, sizeof(*func), funcmp);
+> +	qsort(alloc_func_list, nr_alloc_funcs, sizeof(*alloc_func_list), funcmp);
+>  
+> -	regfree(&alloc_func_regex);
+>  	return 0;
+>  }
