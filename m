@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794981353;
-	b=etDNyATh93ZWG0Z6TVfak07Ab3F1j4P7Srj3OC6IkR9F6+UVYvlHhXKw70LVi/L3X/Vh
-	 L3cQmO7vgfd+QOLtD5CaZCsZ+QSZ8kIgRJbepodfUZa2FKUtL4TTUX5g7pSNECpL8+ILE
-	 TSQkhroNygQwsbXIiMiLxWQPrlxxW0p+u/ucUZAPPTbRpI1pSDRIIcLkkaau32J8mE/qK
-	 ljbmgFHlYTggULPm5oq4IW5H/GylnBygydM/Q7nmB0J/U6jhdEYC5qQLDrptTP0UwApm9
-	 zjp0NsOduIMRhvP3G1HeI8kcY3JS0gQuSkQA3ZICLFrhl/ZyGkVFEpprV9gw0V8h48w==
+	t=1794981357;
+	b=cHlCICvChcm+M5Uwo+zqqlz2rCzJuRTQU3x3mrJCOdZJZDAFog8wzAj8V6aHjtRWp3zh
+	 b0OMvjJ9Fwvdjy25gRSDIecqmp8+i1a2/O+TND3XDfO77IsGx2D7/j9ufP9Gd5r4KIugk
+	 drQ8A2ulb5fx78eE6ER2i+Mmo2zlyadEOAcorLLj76F2EfwXtXZISkoTzzo6J+s2tgSXt
+	 R+Eb5TxqGQDwrRXt+g60K3rIBm0CDocN0vw1MzZk/CBE3UG4XBGR5JrOMfjSNsiufV30b
+	 83tmhqzEu7jnH1Qiw/uqZt8/tSVHWjunqsv6rleuX4a2CVN90Pl3nviXGEqUbHx0CJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794981353;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794981357;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=3ObCFUaPSZTRyf028wzpjWfhsH1G2ASH7OVZC8zOIUE=;
-	b=usf9zM2GUDBkNbblHni5lZFxMikQY7BLb6QdRCp5LWVVm5FjwxnSJeHE8tOmxfEw7yYc
-	 Oc+0cDW4PQ0Seg5NjSiJ09WHV92Sk25NBaduj8/UX1gf+FEMlT4MyJ30Zy+QHMQXpBZ+0
-	 2tzizJrbNvRH4LRAF3N7s96Wa6Iv+bV1JL/DxZ0WL+RAQnk1Sf3Xyx1OV8UfZWjzH0D2e
-	 Z3rwBmASCY3RkkTfhr+qLh/RN1Do+maAXiWwfsGuJAH2yoHG5qKbCQSvf6Mg6wLPKJ4ye
-	 DnZ4v1GgenealEU5ZcnGhGGk+5FHQ043gfKaLqWeSJ2wVH2RUm/Bb3vWHpon5Z/4AVw==
+	bh=QV7/azGZskXYhWhh8bvjrBkzYwv/Uf2HoCpYkbr0EGk=;
+	b=HVp9WHxOKkDlwf9x6wxpMkOpeQQfRJBUG4P116h4t15/wVPkQPpvP26tjfMao2pilkBF
+	 0NSgoLofJoiw3TNfB8Vp6Oc7v0lQi1mIBzd6Vav8IkTwdNNYrsB5va27zQ0zrwHI6qSvw
+	 e7tyhXvmlFQidkrvJRilGVU2ecjfOh0YbChuZtTvgOeRuMpjcyTpP7O3upQQ1XySVR71V
+	 o1QEIA1d+jRhzZRhraPR/wpDyxEiqHwmRYoO8xNhHjxRpY1EuVIlm2rTtWf2E/k/8F/EY
+	 nc7HGGkQKz56SkajRtFK1zwniLflXzRBzGuLrzLw6Rlr1KbKfDNT5ojfNW7XaRDYM1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XgFYPzW4;
-	arc=none smtp.remote-ip=209.85.210.169
-Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WknVe8fK;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8E4D606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:55:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8E4D606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A90D1606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:55:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A90D1606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XgFYPzW4
-Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-89a837bf00eso5453b3a.2
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:55:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WknVe8fK
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b77e464208so54725b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:55:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794981352; x=1795586152; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794981356; x=1795586156; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3ObCFUaPSZTRyf028wzpjWfhsH1G2ASH7OVZC8zOIUE=;
-        b=XgFYPzW45fnWRS3o50AJ5vyDYd6X1usUpKtiWNBBuTGx8rw6o3FWzLY8vfPVFOfNIX
-         PrSgLm+kShEx5S5uGEPFn7rVFuXtI9bag1Tr0mHjalHnrM6fAgMymexxaZ3O26KSVFM/
-         nEVdzcSXHbC8On3SvviV2xjmu8EGbe/HH1lElypWf32NZ31wf12vHqq7JYzWfJnOPOOz
-         VWJ9uSsW5yEfOuvGcYhLUEVrCCWJKxO4m1hXunBqf4NTnSOWlgTX86jUtD/jBzH9yb1c
-         WB9JArjSbdQLzsAYJY6CQAsG53G7EUGMPmbHfy+4NI9NvEE78T05uquiCoIV4qPzNxK4
-         YvKA==
+        bh=QV7/azGZskXYhWhh8bvjrBkzYwv/Uf2HoCpYkbr0EGk=;
+        b=WknVe8fKi2zPpNBYRtbP1Qfwq+BSUMdWwyH29+Fqe3kCJour1GIIV69Qn1FI4oIWRU
+         amoY5C/Y8fZtOc/POuCunwbMmwW2nnPfjNblk5JipLnbINMR5NK3sTjM7EkkPPaCC1ip
+         sIBATU/3XG+LNczMlHMTUCIzE/maPwwuyjKm1aFwEqLMolUyJ0G1Ra/WVmqkC33vT8Wd
+         hteWX0N4Q60lADZcCz2EBX5s0eti7ALbfyMN4E6SzOlWxZ3qK3DAcda2PPgFd+unCtjo
+         4IgjqrA8vtz0dMMZ4/Odtq5Mguddq9ekorJDyqN6/dx7/pKK5jHwR/f76qsuAUdxIjbE
+         EtGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794981352; x=1795586152;
+        d=1e100.net; s=20260707; t=1794981356; x=1795586156;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3ObCFUaPSZTRyf028wzpjWfhsH1G2ASH7OVZC8zOIUE=;
-        b=U9U2vZT4Pze90vy5qlNihzkwL9XiCzMaq7m4Q2xT9QJczVpaZrA7PE2cnfBodloCM+
-         lRUldBJgMZszTBDN1NwPEsbd/jtX999zWNRlLsi3DQXsa6D1gcbGL3/WBEYOk+m7xXjN
-         DW9hmacnhwOwiDgt0/Zwb2xX0o6OcQEefTpaCk9vGUfr2iFgoOsZ1CMfCzRXzp4kjTvf
-         xHhZka2g6GJk7eadN1dCdyPlI18w/cJ4+tSMrUZ7hh7w3flViH0aFZTJGBJVvO2xz/81
-         kDAy+Q9R2NzYuIvY7cNm9AfM2Kod8qoMAkAVRgXW5MxU1G5pR/3kMlMOcBj3e5cbVQDj
-         VitA==
-X-Forwarded-Encrypted: i=1; AL+hErFiapN5FRucRLp7Q9qmxsA3QukxZnspKVfWjZuhyCWZxvlwPqBVDADAnuv0kQsxPfWM5n/Zv+lAV1oQ8FE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/uCUlexNGwhhWJqND9fWPjIyJpVNQISwBl+8c3wDQI8BbmlrmN
-	ZMpXBcQK7yrF+OQvjmvKLU0m81VGJxvdExxq8aJ92qE2atKnFlAKD/W3
-X-Gm-Gg: AYBFou3PICq5IcXlzmlmk16579xOlwUPZo7UVLPEGHsxIVfS7AdpYpcgIte1UIEfk0P
-	DaXwAf9h2X5wr7Vn92i8Hm06ONrzRVb4K1Gne4GHIIzz5jJSkm94uyEHCYMm/MjtyEJxG4l2Npq
-	s78bD7Y4iLC8sPRpg5JEwbTHRbfk8TNjGCnB+7F8hhzwhgzS+hBNJeVhKSozg53SNTn3hSsYoJf
-	mFOCAJ5pifKRmB0dUqoOKcvZSQzr98/i8qzRQxUTM3xc14GGq9gXdp9jW8jDYwr+6JJCbUFQo9K
-	MM0g4DEyWt3THpAQX8nWXL0Q6TiZteY2ybRm2ZULb/dHBkxtpJohwIe5CLNGfCugx1Z1qAWMkGT
-	iNOwxo6PPHhItpp+WSDkqJO/A3DFg8W5g7ehqyJ//y7Wp3/L5gRHpcrNS8qFLdUTYXhvshLEvqi
-	EZ8lclAljSpBR1gCJDJ17iiaZIUDm+yYh2ID0Z/GcnTpkuAVpEIgEjhsfKm1Tspz/1j3krEb1LQ
-	iqnDJ7rqS/GPzOS+aDmMl1BaMsDEEul/o7422iY7rm9EKI+BPlJObCPGcDGU1dgKvlTGTXw3LPX
-	xPmfWCd9QNH1dhrqL6Alk/NnGKyzIRbuUzyI0gJweiU2aO3NFVr74AWi9eYq2x2pEnDuM+t/quT
-	sMWRwc2hnNHNwHw4/WyK4KLvrnu7KrjVLX3fT8D1WxA==
-X-Received: by 2002:a05:6a00:a603:b0:8a0:8822:e6b1 with SMTP id d2e1a72fcca58-8c5d2e60c9fmr1601116b3a.3.1794981351549;
-        Tue, 17 Nov 2026 21:55:51 -0800 (PST)
+        bh=QV7/azGZskXYhWhh8bvjrBkzYwv/Uf2HoCpYkbr0EGk=;
+        b=RLkCg7+uhfgkNrNvYNyKiCIcg14viGmZhU/dR+TKMic5ze9KslF2J9N5/AoYJmtK/C
+         cggU+em11Dfq5gFxgp9GclMC8GNULgpJmNyPP83MgoU7IhJNC/6PZgEIS0lhTWh1UjRB
+         6iypoD8XULcwO3bVqdT8WfKWRL00+0TFuBnb9q4bAbVROl9YZp5m9o36gW/YPda5l4gL
+         oGbA+SnjnmCZLQX47bxmDka/d/udVHm3gheegrtClzW4nqxXl05ol/FdXZy0nLqQWoyP
+         sp97q8oOhxI8NjCpc1luKE82pKpi6NIoUBJUv0DdFHZ5hvSDmJge2H/ptbTFNFacOsZX
+         Pmjg==
+X-Forwarded-Encrypted: i=1; AL+hErEofaQ7KnVH4AzifZpq6ug0pgVW7K7FuGlGM86RWIHQrJuXE/Kb11ZTx2slZxBiy8FScFru9LUya4/aVQQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mUrDE2U3/TsK/rbx+eWcfCxRRIuQlER5Gdht3MVZG0k2GCVFU
+	x+qKWkaz8OuX7MmlJOUxa39RSrO6QaiBgGN4BbgJebWkbO8B4a3qloVg
+X-Gm-Gg: AYBFou0G+neovALhiwLyxsCIJOOd0j+Av9D3zHmEwwSh3OVWFvfa2ycXpwZ7gfVopix
+	TN2a49ctTnzeh+M6+dkOSa04j4lO/xx3Qci88D//eko4BxZ0SO5F0F3TSIRx8BjKUdKBG7QuYEf
+	Vv18NXUorSX5jCyngA/410sVx/Hl68FP/jzJWOsW0Ke3nTboywyWCV3TOrJux3mODnyM5CJsVp1
+	vUzueU749GVU5AdkGem8Hif1q5/MU2Wra3CnhvHoVK0wZnbeBWugs5DfFu0CQPFtDR1sS2yJrRP
+	1SBwRo5nBHxQLRnql8pH/n6JEcb1+3VeYTUhWNCa9qGCozPZufnfGYWr1GA8k+hG1Hy4d0v6ma3
+	GIK8182E3CGXPTP8gJZXg9EUPMrej/VOGDaul6vlrnlTejlI9nhb0x6biET49J03TfQve9T3lfp
+	d5CRt7sNVwO1UeJ1+O0WrJU2MVpjQc5ZvHgUENE3uymZK2hbcn/qsQJgoAGi9AXYGJVEGZwKytd
+	7X5HtEG4vkXNtPc6Nwa7LYdLTDslghnmRaT/RuvdFmWsb7l7NWvW7nGnrghmbwF4QPyZEZ7PNCb
+	S6PLQ1U4t8z4VVJTQhAHHZzri1N3MI0jv+EiH7YbvXP3IxVhrAsc8H08tOqQ4rIiTnpH8IT9qEg
+	y9Inq0raDp2inDBADAkCI
+X-Received: by 2002:a05:6a20:3815:b0:3f8:fc10:f77b with SMTP id adf61e73a8af0-3fe84102e03mr2033878637.0.1794981355696;
+        Tue, 17 Nov 2026 21:55:55 -0800 (PST)
 Received: from [127.0.1.1] (211-23-39-77.hinet-ip.hinet.net. [211.23.39.77])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca5bf959sm569563b3a.20.2026.11.17.21.55.47
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca5bf959sm569563b3a.20.2026.11.17.21.55.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 21:55:51 -0800 (PST)
+        Tue, 17 Nov 2026 21:55:55 -0800 (PST)
 From: Jason Yang <jason98166@gmail.com>
-Date: Wed, 18 Nov 2026 13:55:15 +0800
-Subject: [PATCH v7 2/9] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
- Select TX or RX, add phy-type
+Date: Wed, 18 Nov 2026 13:55:16 +0800
+Subject: [PATCH v7 3/9] phy: rockchip-samsung-dcphy: Unwind power-on on PLL
+ lock failure
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-dcphy-rx-v1-v7-2-8de1adac3a74@gmail.com>
+Message-Id: <20261118-dcphy-rx-v1-v7-3-8de1adac3a74@gmail.com>
 References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
 In-Reply-To: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -111,91 +111,55 @@ Cc: Michael Riesch <michael.riesch@collabora.com>,
  Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
  linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Jason Yang <jason98166@gmail.com>, 
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+ Jason Yang <jason98166@gmail.com>, 
  Quentin Schulz <quentin.schulz@cherry.de>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794981338; l=3151;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794981338; l=1650;
  i=jason98166@gmail.com; s=20260721; h=from:subject:message-id;
- bh=4LpfXZ3K6xdqCmT0IpRxZdhbTlUKsH209mqyN39qYpE=;
- b=lBTRLbvf8g7lFsWQAbxZKLjxuc/2yXGEWDu1UJGcBC5a/HMuX/Btm1Jo9VvetaGhtS3KECTo5
- ezqJngNtDq9Cd+GGb6mB2i2L89PSeZdSEkBXCM3f/ahZf6JJcL71/8y
+ bh=W4uqFjWfli07BWEGnXyu4qteuMVlaJHZHz3TMUadK50=;
+ b=m7mXviKej2/0soFdmjYmH/XiRdXYaK1GmHksA4I0n03fIHctRzeTS9lVuu4DW3Gbc47NJvzGM
+ 7LSU94kNnpNDWdZ3aC5c+qp1M/C+VWAcJCPLR81h+FNtfxK0ZNnu2+8
 X-Developer-Key: i=jason98166@gmail.com; a=ed25519;
  pk=xQmD001Q/ooHl39PxyQtusbUQmgbOsSfpFryRVWZ/k4=
 
-The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
-for DSI and a receiver for CSI-2, and the DSI host and the CSI-2 host
-can use the transmitter and the receiver at the same time. The single
-cell of this binding selects the mode and refers to the transmitter, so
-the receiver cannot be described.
+samsung_mipi_dphy_power_on() returns on a PLL lock timeout with PLL_EN
+set and m_phy_rst still asserted, and the PHY core does not call
+power_off after a failed power_on.
 
-Change the cell to select the transmitter or the receiver. The
-transmitter and the receiver cannot operate in different modes [1], so
-the optional phy-type property of the PHY node sets the mode for the
-whole block, D-PHY by default:
+Today the APB reset at the start of the next power_on cleans this up.
 
-	/* the MIPI DSI host, driving the transmitter */
-	phys = <&mipidcphy0 PHY_DIRECTION_TX>;
+A later change moves that reset to runtime resume, so the leftover
+PLL_EN would stay set, and regmap_update_bits() would not even write
+it again.
 
-	/* the MIPI CSI-2 host, driving the receiver */
-	phys = <&mipidcphy0 PHY_DIRECTION_RX>;
+Unwind the power-on before returning the error.
 
-For C-PHY the consumers stay the same and the PHY node gets:
-
-	phy-type = <PHY_TYPE_CPHY>;
-
-Existing DTs on a newer kernel: PHY_TYPE_DPHY and PHY_TYPE_CPHY remain
-valid as deprecated values. They select the transmitter and imply
-phy-type = <PHY_TYPE_DPHY> or <PHY_TYPE_CPHY> respectively, so nothing
-changes for them.
-
-New DTs on an older kernel: an ABI break. The older kernel ignores
-phy-type and takes any cell value as the mode of the block. A DSI node
-with PHY_DIRECTION_TX therefore gets no display, and a CSI-2 node with
-PHY_DIRECTION_RX gets no camera.
-
-[1] RK3588 TRM: section 22.1 (overview): "The TX and RX only support
-    operate in the same PHY mode."
-
-Suggested-by: Michael Riesch <michael.riesch@collabora.com>
-Link: https://lore.kernel.org/r/94d47cab-10c6-4ec3-84a0-3bddc9d67f5f@collabora.com
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/linux-phy/sashiko-outbox-174059@kernel.org/
 Signed-off-by: Jason Yang <jason98166@gmail.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
 Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger CSI1 2-lane IMX219, CSI0 2-lane OV5675+DSI
 ---
- .../bindings/phy/rockchip,rk3588-mipi-dcphy.yaml       | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-index c8ff5ba22a86..1ea21ab203ba 100644
---- a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-@@ -22,11 +22,23 @@ properties:
-   "#phy-cells":
-     const: 1
-     description: |
--      Argument is mode to operate in. Supported modes are:
--        - PHY_TYPE_DPHY
--        - PHY_TYPE_CPHY
-+      Argument defines whether receiver or transmitter PHY is used.
-+        - PHY_DIRECTION_TX
-+        - PHY_DIRECTION_RX
-+
-+      PHY_TYPE_DPHY and PHY_TYPE_CPHY are deprecated. They select the
-+      transmitter and imply phy-type = <PHY_TYPE_DPHY> or <PHY_TYPE_CPHY>
-+      respectively. Use PHY_DIRECTION_TX and phy-type instead.
-+
-       See include/dt-bindings/phy/phy.h for constants.
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
+index 7382043e1f31..ce1bc62497c5 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
+@@ -1343,8 +1343,11 @@ static int samsung_mipi_dphy_power_on(struct samsung_mipi_dcphy *samsung)
+ 	samsung_mipi_dphy_clk_lane_timing_init(samsung);
+ 	samsung_mipi_dphy_data_lane_timing_init(samsung);
+ 	ret = samsung_mipi_dcphy_pll_enable(samsung);
+-	if (ret < 0)
++	if (ret < 0) {
++		samsung_mipi_dcphy_pll_disable(samsung);
++		reset_control_deassert(samsung->m_phy_rst);
+ 		return ret;
++	}
  
-+  phy-type:
-+    description: D-PHY (default) or C-PHY mode
-+    enum:
-+      - 10 # PHY_TYPE_DPHY
-+      - 11 # PHY_TYPE_CPHY
-+    default: 10
-+
-   clocks:
-     maxItems: 2
+ 	samsung_mipi_dphy_lane_enable(samsung);
  
 
 -- 
