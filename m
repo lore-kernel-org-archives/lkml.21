@@ -1,72 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.164
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=143.54.11.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967325;
-	b=01KElIhUpDKRB4sM/Kvd+yT1guRhvmE+6UL0eB1CiLouu+j908cF1Ks/YXt08Vqg//Xk
-	 If/kHs2+LAWwAQ5dYAcR0L4arsZYFXI6ithJ6OeCpKGNE2q2sGXxCW0TdFEJyFiYeQIlw
-	 XqB8X27o04GunpcBQdtOzIjbWrF/QjeE7Dc9MaRwpuwHJXdlt9lxXk08xyzrct7B0WDro
-	 m0fU+mt95qN8asQR2nNvIqJAGcCRTLCddSIikicgnZ0lwP6r4Ss4GPYTSffuTKUtE8sqQ
-	 W5nQ2qJ2zzdvxhkQl7uteSMe0l1GuX9cFITYDVx4bDJmtLXo+QNzgxtZ0ExDnJejTKA==
+	t=1794967336;
+	b=En8PBwE/PqyQl/I9nLWQ8TzqyRysgcm2YDHV6Obcj7Jl2L57iMlYtNAmEtPS6tRyw9nq
+	 X4Ql/uBI+bCkCgd2496kVz5D+dVFLJRISzn5LW6ckoWzncW8otRiW9WoIk4CY32RaX16K
+	 ifM767U48eoNW7D6/pIJSAkC5W/kpEU08TA6EOGDUUFz2asoF5AifiVpuXp/E7axN7Nlq
+	 DNIpmtckhev6GRggZYmrWTHeVGeENUwGu3mf4nTVtLxgzsuqaETrsGOjU/VNLjLeVyhAO
+	 5Ef0DhzUNwBI85bcFLoQZtNMF+0qEtEpNBHiFhMcFNFlhDFsiWX9sydBfO4xvFOpGLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967325;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=fQj5g/lvk0EAaX6Co41L4LJ2o/AwPZge1e0aV/8cDx0=;
-	b=KdmDb9YzMlZxRnPK36nmbMxiMwx+bS+t3WyvnXNESFunPNY941vVRnI1FxJRAeikBoE2
-	 55/owjSX7E8R3rKkoxXgb82u+he72zLnK74WEgiZhgeMhBFDx3jFC+5JjSMuGqM1EQBiV
-	 IMs6InpZq5xlPjakMesQRDlerbOyVP+J+u8KwxQ5SdZFJcDp1LdzklCQQrMVAnRHCZQjU
-	 K9eEUaYUu14zzSiK9bGzmWXAkFvnDtoqYOWW1e/zG7C22W1IBE0y27lO2jt0EqQs+kD1M
-	 DNak22J31DACpuYf7b71Ii9QFCKrlSUwRl+Mhz5x7U5apnl1wyAbP6nTnJ2IUkv4F/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967336;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=y0NWDAivOYRVyR/9e5o6JnVJlwWtc2cqwg7ldNwWTZQ=;
+	b=1xZV/Sdnoaj8JtDIgJdDWQzqA1jVppDGJShPRLbEswSPgiM8wNPRZH4eNLlVIu380DHQ
+	 RjVM9SDJjewU9kie5K4Giq9To7OH11OAIeBP7nxSuUkP7pgFU9OBIS3S6o5/8wrimILk6
+	 rWrJg9EMM7fZdYAcwLAvVRzWNr7Lf19Sd6+VFYPijMl+osTDLS+EujNyuuTWHrh/2aai2
+	 p4hyLe6cWyXSDO6wKSqRMDDMLdopkeSkseEX894luWoJLTmXtaa1kTJy+INvSLyC4hVi2
+	 4TdLJNv6JVIeKTqxduUg3q7rGb5NIZyrhmCLDOTDihkpGmSlbyDalQwkpmXJq/KEuSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ohTpTWfv;
-	arc=none smtp.remote-ip=95.215.58.164
-Received: from mta1.migadu.com (out-164.mta1.migadu.com [95.215.58.164])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=inf.ufrgs.br;
+	spf=pass smtp.mailfrom=inf.ufrgs.br;
+	dkim=pass header.d=inf.ufrgs.br header.i=@inf.ufrgs.br header.a=rsa-sha256 header.s=dkim2026 header.b=WLeYu3+g;
+	arc=none smtp.remote-ip=143.54.11.23
+Received: from smtp.inf.ufrgs.br (smtp.inf.ufrgs.br [143.54.11.23])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19B99606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:02:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19B99606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBFC6606A31C;
+	Wed, 18 Nov 2026 02:02:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBFC6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inf.ufrgs.br
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inf.ufrgs.br
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ohTpTWfv
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=UB1RHYa2kLvTkXPuxKeUXS1UT2WJukR57HA+prhjOZE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794967323; v=1; x=1795572123;
- b=ohTpTWfvKgMMQAMA9nEGh409M/JMovk8/hBIXVa5S1JEijFjZl9mMCWWL0BO7XWdMXM0x9az
- 0r8QdtDa0ycudLZ6NuiQrS4llen50fKCp9DqGvYR21IEZSCk+YK80eBaY/c2yv+VP87K9U68n7E
- DAasMJPmt7Up5LoxznoS1e8A=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 897deb0b419e9f34;
-	Wed, 18 Nov 2026 02:02:02 +0000
-X-Mizu-Trace-ID: 897deb0b419e9f34
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 18 Nov 2026 10:01:52 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Stephen Hemminger <stephen@networkplumber.org>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Stanislav Fomichev <sdf.kernel@gmail.com>,
-	Nikolaos Gkarlis <nickgarlis@gmail.com>,
-	Willem de Bruijn <willemb@google.com>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first
- dump entry does not fit
-Message-ID: <av0HEABXXzKVNnoU@fedora>
-References: <20261117221538.184948-1-stephen@networkplumber.org>
- <20261117221538.184948-2-stephen@networkplumber.org>
+	dkim=pass (2048-bit key, unprotected) header.d=inf.ufrgs.br header.i=@inf.ufrgs.br header.a=rsa-sha256 header.s=dkim2026 header.b=WLeYu3+g
+Received: from LAPTOP-R01LEAQM.localdomain (unknown [189.6.233.4])
+	by smtp.inf.ufrgs.br (Postfix) with ESMTPSA id 47EEA1210E0;
+	Tue, 17 Nov 2026 23:02:04 -0300 (-03)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=inf.ufrgs.br;
+	s=dkim2026; t=1794967326;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=y0NWDAivOYRVyR/9e5o6JnVJlwWtc2cqwg7ldNwWTZQ=;
+	b=WLeYu3+g8nn5JQDkQtnpaJej719zrOmbgjnILY22dLJF24DI2kVUDdpbnmYMvEXbqebB6p
+	M87kgOsxiN7TO+bwcsBnakQdUMmblgHZFeh5HyQqJd5SQbP0gw8DxJu+SMxypYwNL7bhQ3
+	xh2YwL+if9cbTBeMq1J+T3UOK1HPaK4lqm6Yt55WsbVb9cnBtBDH3TrWsxdiWTaX1zwYVf
+	i33X6WVuRzHztgXm37NYOXTpUeMMw6/G9oKGuA4l3CjwnPQ0jejgGDnMKh8o7kZkzGG0nh
+	9BzhfdTJy5tTtiF/+2SgEHCgyVnxnfG8vjKUlqYJm6Ts+nwEmuPnjihkjiE3Cw==
+From: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>
+To: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+Cc: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>,
+	linux-fsdevel@vger.kernel.org,
+	brauner@kernel.org,
+	djwong@kernel.org,
+	hch@lst.de,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v2 0/8] fat: convert to iomap
+Date: Tue, 17 Nov 2026 23:01:40 -0300
+Message-ID: <20261118020150.1023865-1-matheus.aalmeida@inf.ufrgs.br>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,45 +66,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117221538.184948-2-stephen@networkplumber.org>
+Content-Transfer-Encoding: 8bit
 
-Hi Stephen,
-On Tue, Nov 17, 2026 at 02:13:42PM -0800, Stephen Hemminger wrote:
-> If a route entry is too large for the dump skb, the dump is silently
-> truncated and no error is returned.
-> 
-> For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
-> -EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
-> dump ends with NLMSG_DONE and status 0, and the remaining entries are
-> lost.
-> 
-> The first dump skb is allocated from __netlink_dump_start() while
-> max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
-> kernel that is under 4000 bytes, and a 500 way multipath route does not
-> fit:
-> 
->   ip link add dummy0 type dummy
->   ip link set dummy0 up
->   ip route add 198.51.100.0/24 table 100 \
->         $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
->   ip route show table 100
-> 
-> The dump prints nothing and exits 0
-> 
-> Only ignore -EMSGSIZE when the skb has data, so that an entry which
-> does not fit in an empty skb reports the error to user space.
-> 
-> This only covers handlers which report a too large entry with
-> -EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
-> a positive value when the first route does not fit, so the check added
-> here never fires for it; that case is fixed by the next patch in this
-> series.
-> 
-> Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
+Hi,
 
-Should we keep the Fixes tag or not for net-next?
+This series converts fat to use iomap. It follows roughly the direction
+suggested by https://docs.kernel.org/filesystems/iomap/porting.html,
+with the exfat conversion series and related fixes as a reference.
 
-Thanks
-Hangbin
+Overall, the largest performance improvements were seen for extending
+writes (~60%) and fallocate() (~30%).
+
+Changes in v2:
+- Rebase against latest linux-next.
+- Rework DIO, using direct_write_fallback() instead of a fat-specific DIO
+  fallback function.
+- Check for errors/short write before truncating on buffered writes.
+- Clean bdev aliases after unlocking fat.
+- Rework how fat_zero_and_extend() gets and zeroes its folios.
+- Rework cluster cache range lookups.
+- Return IOMAP_HOLE past EOF unless writing or reporting.
+- Drop i_rwsem from buffered reads.
+- Use iomap_folio_mark_uptodate() when zeroing folios past EOF in
+  fat_zero_and_extend().
+- Don't roll back allocations on ENOSPC in fat_cont_expand() and
+  fat_iomap_begin_write().
+
+Thanks,
+Matheus
+
+Matheus Alves de Almeida (8):
+  fat: support FIEMAP
+  fat: use iomap for ->bmap()
+  fat: add iomap direct I/O support
+  fat: clean stale bdev buffers of newly allocated clusters
+  fat: drop ->write_begin() and ->write_end() usage from
+    fat_cont_expand()
+  fat: add iomap buffered I/O support
+  fat: remove ->mmu_private
+  fat: add multi-cluster allocation for write
+
+ fs/fat/Kconfig  |   2 +-
+ fs/fat/Makefile |   2 +-
+ fs/fat/cache.c  | 100 +++++++++++-----
+ fs/fat/dir.c    |   1 -
+ fs/fat/fat.h    |  20 ++--
+ fs/fat/fatent.c |  67 ++++++++---
+ fs/fat/file.c   | 304 ++++++++++++++++++++++++++++++++++++++----------
+ fs/fat/inode.c  | 248 +++++----------------------------------
+ fs/fat/iomap.c  | 175 ++++++++++++++++++++++++++++
+ 9 files changed, 591 insertions(+), 328 deletions(-)
+ create mode 100644 fs/fat/iomap.c
+
+-- 
+2.43.0
+
