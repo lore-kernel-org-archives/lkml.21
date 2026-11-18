@@ -1,62 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.164
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967305;
-	b=3tKr40svfPRWuqAiMAd4xnn95mHTvTBT0sAU1asE7iSXs3ghcvDHY0cQN8FDWizRjQNw
-	 ErhcmaT0fRy4CU7+e9RWtKsBOXALnLfHhu9ZvH92+BsqXXkqJOd8az/JkdIpYsfH+n8Bm
-	 mcDCcyfsOONJKa/MpPWGA/CxBIu0PjIvWWD6ihgFKzpyHC1zPpqsigFWLwrzNU2bMYc7J
-	 bujJ8U3fslqAhZfPR3HjrCP/Bd/f0e1w7eREuYknbeQ1936YJdlQOwPN9KDAGNLQyXN9c
-	 WyiAD9mfRxqHpK+kSWZJjCi3W299rxuYDN3XT+mRy3S4kMTITsoxYLMCWI1RWiCc1CQ==
+	t=1794967325;
+	b=01KElIhUpDKRB4sM/Kvd+yT1guRhvmE+6UL0eB1CiLouu+j908cF1Ks/YXt08Vqg//Xk
+	 If/kHs2+LAWwAQ5dYAcR0L4arsZYFXI6ithJ6OeCpKGNE2q2sGXxCW0TdFEJyFiYeQIlw
+	 XqB8X27o04GunpcBQdtOzIjbWrF/QjeE7Dc9MaRwpuwHJXdlt9lxXk08xyzrct7B0WDro
+	 m0fU+mt95qN8asQR2nNvIqJAGcCRTLCddSIikicgnZ0lwP6r4Ss4GPYTSffuTKUtE8sqQ
+	 W5nQ2qJ2zzdvxhkQl7uteSMe0l1GuX9cFITYDVx4bDJmtLXo+QNzgxtZ0ExDnJejTKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967305;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=ModsJ7OTyhdOku5yOd06nJCLRPB8N1jTa1okgDkwSN4=;
-	b=vPs84m7YWLJsTnhVnaVm+Sep2nU0rzHJCJLCh/ILSjLG0YBwx5tLA5KTUkA0f0BiZz9l
-	 Z7Tzn6AWZ4tZkRyteriwTWKZlIhMSJbNDVCAVcAKpHayThFGHqXwlXZusx9dBIDDFw6X9
-	 GIHon8Mw8bdAazkN29RwWRi01MT+weRpD+/KSETiISDv1GOJQNWdWmsorqpsweSv1u+uG
-	 H62noJTmJ21PZxL0t3pehZUklRIbCKa4kNhtyu+QP+B51bRdnjpb8JDqQy4PNO34Tj0pC
-	 kRaqmLddGtn/M+POAtefs1mnSDoo1VH8cYqo7vMJZVdNJSgAoUJs0wHb1sTFkJvEP2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967325;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=fQj5g/lvk0EAaX6Co41L4LJ2o/AwPZge1e0aV/8cDx0=;
+	b=KdmDb9YzMlZxRnPK36nmbMxiMwx+bS+t3WyvnXNESFunPNY941vVRnI1FxJRAeikBoE2
+	 55/owjSX7E8R3rKkoxXgb82u+he72zLnK74WEgiZhgeMhBFDx3jFC+5JjSMuGqM1EQBiV
+	 IMs6InpZq5xlPjakMesQRDlerbOyVP+J+u8KwxQ5SdZFJcDp1LdzklCQQrMVAnRHCZQjU
+	 K9eEUaYUu14zzSiK9bGzmWXAkFvnDtoqYOWW1e/zG7C22W1IBE0y27lO2jt0EqQs+kD1M
+	 DNak22J31DACpuYf7b71Ii9QFCKrlSUwRl+Mhz5x7U5apnl1wyAbP6nTnJ2IUkv4F/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=If4uzVok;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ohTpTWfv;
+	arc=none smtp.remote-ip=95.215.58.164
+Received: from mta1.migadu.com (out-164.mta1.migadu.com [95.215.58.164])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6FD4606A31C;
-	Wed, 18 Nov 2026 02:01:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19B99606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:02:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19B99606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=If4uzVok
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2654D1F000C4;
-	Wed, 18 Nov 2026 02:01:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794967305;
-	bh=ModsJ7OTyhdOku5yOd06nJCLRPB8N1jTa1okgDkwSN4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=If4uzVokBwbpms+48xpd3nNrPBsWL0U0bZATRysvdLzjIo1qQNPjTb5hB8+Uv20dJ
-	 9UfArH1ORhOGOxA5y7BS+7YgYvBAse0P7e/K7cP6lkaLZAWxBe9Ij+c0JDp14yVtTx
-	 CEPEIxS9Ykc+5KMdhAcbIovwVNQjZ3BZoHoM+v6hmzoHxnfLtFd1dbjctHYjQHrV/3
-	 qesBkPaVVbkSl1NzDolU0qs1FOWnXQ47mM8rULpzvck5xgY8C/xU5e1yUeZEchT3to
-	 KPt2VVSSRveuEiWa3eDRTT+Ig8bdK1xQ5SKr87Nm3ugRYVX/uqMv2gqj5CmQdJ9xke
-	 MqUpKJJxnNPSA==
-From: SJ Park <sj@kernel.org>
-To: Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org>
-Cc: SJ Park <sj@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	damon@lists.linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	Mattathias Pinchover <mattathias.pinchover@uber.com>
-Subject: Re: [PATCH v2 5/6] Docs/admin-guide/mm/damon/usage: update for sz_ops_filter_passed_last
-Date: Tue, 17 Nov 2026 18:01:37 -0800
-Message-ID: <20261118020138.97260-1-sj@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261117-damon-sz-ops-b4-v2-5-439888fa04ac@uber.com>
-References: 
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ohTpTWfv
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=UB1RHYa2kLvTkXPuxKeUXS1UT2WJukR57HA+prhjOZE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794967323; v=1; x=1795572123;
+ b=ohTpTWfvKgMMQAMA9nEGh409M/JMovk8/hBIXVa5S1JEijFjZl9mMCWWL0BO7XWdMXM0x9az
+ 0r8QdtDa0ycudLZ6NuiQrS4llen50fKCp9DqGvYR21IEZSCk+YK80eBaY/c2yv+VP87K9U68n7E
+ DAasMJPmt7Up5LoxznoS1e8A=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 897deb0b419e9f34;
+	Wed, 18 Nov 2026 02:02:02 +0000
+X-Mizu-Trace-ID: 897deb0b419e9f34
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 10:01:52 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Stephen Hemminger <stephen@networkplumber.org>
+Cc: netdev@vger.kernel.org, dsahern@kernel.org,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Stanislav Fomichev <sdf.kernel@gmail.com>,
+	Nikolaos Gkarlis <nickgarlis@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first
+ dump entry does not fit
+Message-ID: <av0HEABXXzKVNnoU@fedora>
+References: <20261117221538.184948-1-stephen@networkplumber.org>
+ <20261117221538.184948-2-stephen@networkplumber.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,22 +76,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117221538.184948-2-stephen@networkplumber.org>
 
-On Tue, 17 Nov 2026 23:22:19 +0000 Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org> wrote:
-
-> From: Mattathias Pinchover <mattathias.pinchover@uber.com>
+Hi Stephen,
+On Tue, Nov 17, 2026 at 02:13:42PM -0800, Stephen Hemminger wrote:
+> If a route entry is too large for the dump skb, the dump is silently
+> truncated and no error is returned.
 > 
-> Update DAMON usage document for the newly added DAMOS stat file,
-> sz_ops_filter_passed_last.
+> For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
+> -EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
+> dump ends with NLMSG_DONE and status 0, and the remaining entries are
+> lost.
 > 
-> Assisted-by: Claude:claude-opus-5-5
-> Signed-off-by: Mattathias Pinchover <mattathias.pinchover@uber.com>
+> The first dump skb is allocated from __netlink_dump_start() while
+> max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
+> kernel that is under 4000 bytes, and a 500 way multipath route does not
+> fit:
+> 
+>   ip link add dummy0 type dummy
+>   ip link set dummy0 up
+>   ip route add 198.51.100.0/24 table 100 \
+>         $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
+>   ip route show table 100
+> 
+> The dump prints nothing and exits 0
+> 
+> Only ignore -EMSGSIZE when the skb has data, so that an entry which
+> does not fit in an empty skb reports the error to user space.
+> 
+> This only covers handlers which report a too large entry with
+> -EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
+> a positive value when the first route does not fit, so the check added
+> here never fires for it; that case is fixed by the next patch in this
+> series.
+> 
+> Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
 
-Reviewed-by: SJ Park <sj@kernel.org>
+Should we keep the Fixes tag or not for net-next?
 
-
-Thanks,
-SJ
-
-[...]
+Thanks
+Hangbin
