@@ -1,101 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.196.103
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795009746;
-	b=JDZDj/t287f2wivTlbD4FzZZo8ftswNUQT3WAZdr6gAnioeLHVcbTY+h4zQ2bSHoLu1u
-	 dE+bOMGIct/CAeVItQegzSydtAXI0kpCYJcpBaO6foyMZbjlQxcu5lJHGa95MjvHBJHmx
-	 TbetOm6cnxNT0fHNumY7wx/LQz9zqijirU8zJI/OKMIVjAV8Lh2l4CW+msYAP4M9wGn2m
-	 r2llB+EreoEImxnEkWq1ioP2/lMIaWBzUvgWkb8KloFuFcwGXZEpCirUzTyEiVD8Sq++s
-	 2yTVnKxslo70HE4yYoZzxD4shy9h1sFYZ8f505vClgISNLPy7zEVtUR7yZ/xf6K+t0w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009746;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:From:
-	 To:Cc:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=mozPZSQtN0QveURs63dtmDqitSS+mYtI9DEO83tr0VU=;
-	b=xu88HpXrp29Eu3MiwyhnjRvmp/iNK8Mv0txXg7PRVtk3EG4YM58iM6x90nBUkwkISeWY
-	 AvOIVoOxjNo/abt3nqo9gAF1H+azJrwg7DlMBabBlXmi19XGpaeIiQEPZBPzGqM7opJDE
-	 jdON3ZXqLc7R8hEkim/VicRmc6PiQINAlIjfR9x4EOINjdcWLnKjb76EvAjMXDEwiC8gZ
-	 xfJGs16wrFy3aizVXqhk+U2bcw4vhNiV+9C7OkszwVHcpJblPa6RBAHYUKwH3dS3rvLVu
-	 LqCl+SNDLVKQcKM0LXfTCexvjfh3KmdpRbB7D+it9KJJY2TFbpAUMn4Y2r7FFu2HSOg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=cnXh14SM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.196.103
-Received: from LO3P265CU004.outbound.protection.outlook.com (mail-uksouthazon11020103.outbound.protection.outlook.com [52.101.196.103])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.69
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795009840;
+	b=03skYJ+5QOIjkDGvitZzvJqTdFzs3gcb917T7g4FtF7aC9AfuHIpgVaodxNS/VEoQDmj
+	 1uW6CGy27nXg1lFFXEOIpbkRh1PnaDcXLoYs1swd96N3QNGLSsTKWjWtHAQhROF89mfTs
+	 F3za3CfltuArQ6CVm8LS260yTFK9W3XuCNIZvCwcWJWEPBr+OGk1rso8NKmRDcyACS0RM
+	 8Q4G50YndpCpwKRsf8BXu26olMS8N2LClzu9z3ylO4gyOh4JXGdNji4a7RgsupGYff6KF
+	 23tuaRWBb0vNqdeVq+PzOUcFSIbWdANStx0paUXCRoVBHi/aUKBu+op92rLASUjBlUg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009840;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=oe3qxDxEEBCgkMf3LaoAvV0Pg0/IXg79f/nMkFBr+bY=;
+	b=aTFY/bfbp3O7YO96FQc3+BsIu9LrsUzl5rukqejPRexvXYOYfOnTgEXulKwkWc1bGuSq
+	 xnKEmy9OEU182RZlCb6huoyCXE/9oFVN4vd7mUtqIOFru/H3N8p148hXzvosckx2ZCZcX
+	 Pdlm+nwZhXG6F7r2OQjdepBJsoZq9b8rBYRe5h7KoyxmH4t8mhZ0YI0yJbihMKc+pBVO9
+	 4O2Z4wtt57Vf0ddAjKdG82P4JKQaayNXvl4uiziqbauUC3p6VMnVNEXrD6LB8OaRwV86D
+	 WHmdfZdJDlXRaYocFHTSCV0piptkq3wiWqiA8HvWAw3zDBJ7e2qKgHsSwTVTuc2kAYw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.160.69
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D79C0606A320;
-	Wed, 18 Nov 2026 13:49:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D79C0606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=cnXh14SM
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QGr8dIWY2VnKgoJVNInU1wN1S7zUPWjFfRdkTaai/2iHagZUlLJ1DHU/xfXbnoKbqj+fqeT5/iaGzzpZjIpnRz8DQThbAn0RScuikTZQFYqDD/RBlnmSoHizQ8fUXesWWdGbG9hHqUOhUExojwlL9jujZl9C/DTPLIJxemgSETxINc2B24RdR9VaM0ip+mffKrZ5SJqvDW834cS74NEqlIcuUeCm9vItmbQnR+E/qzuLm/a3oRjvQOCCRD9d2NIhGeiSvHufv+2S2hx3MOUORCu8N7gaEWhHLsaHoCkKyOgl0JaXli6i3N3nAdld7tPCfprvAoZxVJFBC/yGI32Cbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mozPZSQtN0QveURs63dtmDqitSS+mYtI9DEO83tr0VU=;
- b=Xoe8cKiNrQ+7Yn9dBxvfqD3HY2qpZhlq7ek/aW9GFLUjCPWbdR2hbe8WVRxu5JXH3W3EX8Gel1m5GrdmiPAsjbU+lww382iJORfgsvogmdGVkBp5wy2eFiqLJSrHvqifxCOz64N6JAC1M018EbaSDuqnIxH4pwkpXQwiBLshS8FRCriec390TUHIs/S1P9lhln7mBheDeWgMYGlwiAJdFllgcatWtnjIlOeGW32CR1q0B9p0jxdqw+AeY7VwmcKVp5aDV+PTuYP4loVRRLu9Tc/95wsZo1rRS9ercdwkMY5tgl30clKRBSsS5iWIbdhlcS/kwLW6GIJbPAkSYplntw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mozPZSQtN0QveURs63dtmDqitSS+mYtI9DEO83tr0VU=;
- b=cnXh14SM6bqp3ERtmBl+opjARd0DRPPGMoWNBG+kxnr3nwj0zN2fLsDcwmwKVam5PqJs8nfw/silc8d0ChPvjzENsuzod5y5a/Tbm+8+XPr3+pg0Cglv5cdaRNcDBP0bxevFTCQXmKQbxcgK47l//wqgGPzl+iIpNZl6ezFu+24=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO0P265MB2761.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:14d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
- 2026 13:49:02 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 13:49:02 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 13:49:01 +0000
-Message-Id: <DMYDUJ95PGL5.1QXZ1EK86KC5R@garyguo.net>
-Subject: Re: [PATCH v2] dma-buf/dma-fence: Prevent misordering for error
- checks
-From: "Gary Guo" <gary@garyguo.net>
-To: <phasta@kernel.org>, "Gary Guo" <gary@garyguo.net>, "Sumit Semwal"
- <sumit.semwal@linaro.org>, =?utf-8?q?Christian_K=C3=B6nig?=
- <christian.koenig@amd.com>, "Simona Vetter" <simona.vetter@ffwll.ch>,
- "Chris Wilson" <chris@chris-wilson.co.uk>, "Danilo Krummrich"
- <dakr@kernel.org>, "Alice Ryhl" <aliceryhl@google.com>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tvrtko Ursulin"
- <tvrtko.ursulin@igalia.com>
-Cc: <linux-media@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
- <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-X-Mailer: aerc 0.22.0
-References: <20261118110914.1471416-2-phasta@kernel.org>
- <DMYCSXNA6VQ9.22FS1PMBBYWRO@garyguo.net>
- <3792b7f8f4729820a924e0d60d17c97489827732.camel@mailbox.org>
-In-Reply-To: <3792b7f8f4729820a924e0d60d17c97489827732.camel@mailbox.org>
-X-ClientProxiedBy: LO4P123CA0242.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a7::13) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89670606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:50:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89670606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-4ab90cdf747so2689264fac.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:50:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795009839; x=1795614639;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=oe3qxDxEEBCgkMf3LaoAvV0Pg0/IXg79f/nMkFBr+bY=;
+        b=Gz6Ff8tYr4e9LLGzV90uhSVVvEOI9uZvRmVmVnQDrGpj7/OlIMcr4PTBEjtcZD20xP
+         V5mb6uy/wzVX4HhSlYP4o+OsaBvAYFh1gmobmaYxPGwqaouwo9Y660Pp/ktlG8TzEFAu
+         xvd2VzdVulZ7LHRq0QnhD9AtFMlKelfoS4dCLDeJCteknfDfDi7x9mO1IEHmMF9yzLku
+         d0aJgYeisz1z5TXIPK0k1f/TJFcqLMlF8UhgqlbOinlKtmN/erUPZ8xrqudnkCA4Zyaz
+         e+vqhNtWvZWjojEBRJO2j8OKvdmCYGuLylOiBPwUZIm4+oe97P39N1CY0sQuGfFRvhML
+         exsQ==
+X-Forwarded-Encrypted: i=1; AL+hErEJ5WnvKC9lYi253eVSp0LaRLxSxguYw/A/lC6RlinHhs8vXruH90SMewo4GjZX3tpXjg3+QIpinJ0WRdI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pw0IsB5JbP4OiktlJ+vzbysnVKAY/MdleJQ2bMchPMZpRjegW
+	GECHQ/rCgMI5Nm+hySJ/u1C5zdg5pLmcNI2JcokGIMS/lYOwyCDC0X4I4UQy4Zd97UZXk+RfhAj
+	j6flStToKdHQa3EaZgTWLD/C2mk2QTUjKiXFy+mDdKndyfnF/CLlvuqcB7YE=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,184 +58,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO0P265MB2761:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7bb662f2-f9ee-4a9f-4648-08df457ab414
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|23010399003|1800799024|10070799003|376014|366016|921020|261009223027099003|261026140227099003|10067099003|4143699003|5023799004|261021121427099003|56012099006|261022105027099003|261022075727099003|261102123227099003|261028144727099003|261026121527099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	ZAHSCdg+Mw+hPgLMbaO3LlVq145hqpe9bQIgQMw+qBllh7g54TI/yx4XpxFb2z8EwpyeTl+C/48YF/kiNuO0IWhsfEGOgqhWMIXatL/lgLkPyJvaYRFwGSIca1QJ6gFZxbXTUpzEYyz8MWOakVi2Lze9S7H6AHcZr3gMWUhbqs9KQ5TQvADigKL3NP68TGZEh92rjXZ4bri4EHzsmB+yYVsu27jCsGKsh8vRwbdORfqxoWRaC/FG/dZM1/b9xOw5RsO9rJ7kSBww8qpNORVYSije++dBGenSw26BQvqwP7XGyD+292b7N3WCsm+yh30AlHzNRKPeRqMA0UBdtCe7+43X8Vw5AmOTF1N9BnyPyPW0u8Ec45adZoarWgPObcpbl7RdtSyaFTDod5M0lxJAu1j23dXkjhVuu9XtbtCqNL/kY7x0L0MIBt+tf5bFCiK/fLALEcxlGs+WaIbUgL+C6bcW3wJaoiJtRjXgIKKXeoDzzU3KgXPRzEIT4GksJHecOnTtrrnGCD2IdQtF/FDPUrzbANj1lTtJicrIz/+Nc7A8qXGCHsIr6JvJjrBULFdg3w92gzN8JGnO3fDYEsYrrMVyFhpbGqj/k09ij87UCNE5XYdCY6niG316Ja2oK3Nbz60Rig3fBaLOzT+EdCztxPGwxM+IYJKrLxUrZLBmsIUzAoogDW3WcNvJsUlV9dCFL1t/YL/Fm3TD0ney6LSZyw==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(1800799024)(10070799003)(376014)(366016)(921020)(261009223027099003)(261026140227099003)(10067099003)(4143699003)(5023799004)(261021121427099003)(56012099006)(261022105027099003)(261022075727099003)(261102123227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?R3h1TFNVQW0wREFoQVY0Qjlvbi9WMVdTOTJOUlBjcGYyVlBuSFVUcDEwdXV1?=
- =?utf-8?B?SVBiSXN4MnRueFl4ZUVMai9KV1BaNWVRaTdiY2hHUVF1R1lwcldJNUVDeXdQ?=
- =?utf-8?B?WTVydTBUdFFpTCtYT0JMR3VHODlIdWFMU2RKRFd0SG92Y0d1M0hJcFRMNUpw?=
- =?utf-8?B?ekRaS1d2dklxcTVSVlF2ZS9RcEttbUpuMDJnZVQxR2lNM1ZHWVJpMm5JU2RH?=
- =?utf-8?B?M1YraEVWS1ZVdFltQUFDRGFHMnpYQ0N0OFZRRmR3K0VTQjVlZVB5T0ozQ0ha?=
- =?utf-8?B?YUxhQkRqUkdqRU9VS3hRbU92b0pkUlBkMk1HV29ONFlXd2JKNHkzYUt2M0px?=
- =?utf-8?B?WHphQm5DZWlqeE5IZ2VBZ1h5ZGkvS1hCdVh0RWdxVDNZTDFaZjM0QjFSZ0dl?=
- =?utf-8?B?Q01LVEQza2YzcENsMndoWWhzaEhjY09EQVhPejUrTVZySnl4R242LzZkdXBD?=
- =?utf-8?B?NUFzVmRFQkVmVDYwMkU2UlFnRk1QZGg5c0hxa2c3Nlg4Sm1tclBWbTRlSis5?=
- =?utf-8?B?RG1zZW82bHNycitkZ2lseG1RSVQramJvdDNhNDVDaGthQTlrWlNCZDh4cmZa?=
- =?utf-8?B?TUl0emRVNlVYcHE0VkFPUUtXSUhhZitWc3lCWUo1ZVFaNWV4MGRCR0lxR256?=
- =?utf-8?B?T091L1V2bEZjS1ZsNTI2a3VUM2c0OTZnYytaTUxlLzA3UDQyeDBQQjNnT0Yx?=
- =?utf-8?B?SWhEOEorMDBNRXBBUmZjTGlzYjU5N1lkS1FkTnlheXRoR1lIU1RaVVIwZEJP?=
- =?utf-8?B?UDZaOXEwQTFCVFhvQUZ0dHREVjduMzgzbUpmSE5weFBuN3NDcWh2L0YwLy8r?=
- =?utf-8?B?blBOYUVyN25NS0JuczFxUTFyTWM0U216YkUyQmlLMzNhM1pUUC96SW5tRmtD?=
- =?utf-8?B?c0JWTTRBelJLRURVNStEdnkzeG85Q0NkNFdBYS9TeTh2MUpTMkJoUENLekZO?=
- =?utf-8?B?cUxsTElSMnpyQ3YzbGplbVlIY3RZTUdpakRVM1NtdFRITTdHWUlLNFRneUUr?=
- =?utf-8?B?dUpOaEErWVpicVJZUGlFME9hWjBoZThTSnJ6TnR1WTl2WkZxMWFHcjFuQkQw?=
- =?utf-8?B?Zm82OFRHME9nYzExUnZ1bUd4RVh4T1lCWTg1amYvdms4S2E1VkVtR01hdDZQ?=
- =?utf-8?B?VjFEWGw2V0gxdERJU0NnMDA5WjNXV0EzQ3JXTEtRWUJZaW55end1TzNhM3Bx?=
- =?utf-8?B?dG9mcWpablVzbTVBVW9MamZaQk9pZC9wdGtUaXNPV1FXVC9EZ21wN0xMbTR1?=
- =?utf-8?B?ZDArRkZ3SXRDcDR1ZXY2ZjZYSVo2eHRWK096MnFrcG5HdFhOZEVON0tLZ09j?=
- =?utf-8?B?RWI4citkbkh2dVpQc3huRUJITDJTZktIR2RsNjNEYmRRa0crd2ljL2ppcUx5?=
- =?utf-8?B?d2dkQ3VYTlZGLy8ya0NxOXpyOThORnFjYzZhVzBURWc1dVVjMWVXRE9uR0g5?=
- =?utf-8?B?WnhwUU5xWndzdlhPREhjYm1SSTZLNFEyODdPNDIwNkNyaEJSY0NxWGs3VmJK?=
- =?utf-8?B?aUM0NzFTaFlkTHIwSzNGYmhUU2FiZ1gyWGoxaUk1UFRwQWJyTGtDUW0xNGMx?=
- =?utf-8?B?WUxlcGpuY2ZwS2FUVTYvcnV6ellIdWlUa3BqZzZhQWJ6QXA0QVlEVkdOVUdE?=
- =?utf-8?B?bFQxZ1lIeGdYUERBVUhXRE5IS3RlQ2hENFJJeGU4N3FUNHRTa0dBZjFjR2Ra?=
- =?utf-8?B?WGIwNERMM21aM3N4L1dTLzFTejVjNE1tY0RVaHNBVWtqRlkxUTNYVWJZb0Ey?=
- =?utf-8?B?dXpienQ3V0tMamQ1bHk0RWNobVZ6R0pyQ1hBb1VuWFdDaUl4V0tsR2lVWWNy?=
- =?utf-8?B?a0ovUlczM1grZW5xOG5RMXQ2Z3Q4cGgvcS9iSTlleGFySW5IdWNNaHZvVzFl?=
- =?utf-8?B?amxFUFJlc01ZV2JVWUhJOFpucWRpa2ppWEMvdmVJakV0U2w0MVNSTmIxdVgy?=
- =?utf-8?B?eXZLRDNZeU5HcWgyMjB0M1VHRzRUcnpjd09ERVNDeG9vVzhEaVd1RmlJODQz?=
- =?utf-8?B?ZmJGcEN3djBzYXlQdDFFWWJKUnA4YnQrR1JlY1pHYmZVbDVpQWN1NUtuS1BU?=
- =?utf-8?B?cXhqQkptZVhnYnIvbnk3SzBiSGRad3Q3dWkvV3Z4Y2w4a3JaTWpRWk5ZYmNB?=
- =?utf-8?B?VFZKemM3dTJsVnk2dzFUU3J2ZGtmbWRnZ2FLd1c1OTFaMWxTS2JveFlUT3hx?=
- =?utf-8?B?eTZ2Rm9IcEhsa2dFZnJSZ2VnL25VeVFKOWt2bEJkSnJ4T3gxZjFBOUJNV09m?=
- =?utf-8?B?VEUvVGdzRlpMbnQ1OThZdDRvYmQ4NUw5WVVReXR1a1NyRVU3Y1hiV1kxSlc5?=
- =?utf-8?B?R1MrU2xyT2dJUWNzYlVDWWxpWlFudEtqVGlKNnZMQ00yanNYZTZFQT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7bb662f2-f9ee-4a9f-4648-08df457ab414
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:49:02.0710
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: R23sSVnizHrU6DRYTeGFc6GBYShRHowicgqwoyMaEAJV8xqg8jzIzn8eRhsCBvKe2QbJ95zWZWnoVMbMogFUKA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB2761
+X-Received: by 2002:a05:6808:c1d4:b0:4dd:f8bb:e1bd with SMTP id
+ 5614622812f47-575dd62583amr4190167b6e.13.1795009839590; Wed, 18 Nov 2026
+ 05:50:39 -0800 (PST)
+Date: Wed, 18 Nov 2026 05:50:39 -0800
+In-Reply-To: <6aec63fe.5f5735a5.290c1c.0004.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afdad2f.15a38f0c.5f8d.0009.GAE@google.com>
+Subject: Re: [syzbot] [raid?] BUG: unable to handle kernel paging request in remove_spares
+From: syzbot <syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com>
+To: agk@redhat.com, bmarzins@redhat.com, dayou5941@163.com, 
+	dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-raid@vger.kernel.org, liyouhong@kylinos.cn, magiclinan@didiglobal.com, 
+	mpatocka@redhat.com, sashiko-bot@kernel.org, snitzer@kernel.org, 
+	song@kernel.org, stable@vger.kernel.org, syzkaller-bugs@googlegroups.com, 
+	xiao@kernel.org, yukuai@fygo.io
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed Nov 18, 2026 at 1:15 PM GMT, Philipp Stanner wrote:
-> On Wed, 2026-11-18 at 12:59 +0000, Gary Guo wrote:
->> On Wed Nov 18, 2026 at 11:09 AM GMT, Philipp Stanner wrote:
->
-> [=E2=80=A6]
->
->> > =C2=A0static inline bool
->> > =C2=A0dma_fence_test_signaled_flag(struct dma_fence *fence)
->> > =C2=A0{
->> > -	return test_bit(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags);
->> > +	/*
->> > +	 * Best-effort ordering of the locklessly evaluated signaled-bit,
->> > +	 * especially so that reads of fence->error are not misordered.
->>=20
->> I am not sure if this should focus on the error, or it should just provi=
-de a
->> general guarantee that anything happens before dma_fence_signal is visib=
-le when
->> signal test returns true. I would lean on the latter?
->
-> See below.
->
->>=20
->> > +	 *
->> > +	 * The release counterpart is typically ensured like this:
->> > +	 *=C2=A0=C2=A0 a) Error codes must only be set before a fence signal=
-s and
->> > +	 *=C2=A0=C2=A0 b) The fence's spinlock's barriers effective in dma_f=
-ence_signal()
->> > +	 *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ensure ordering.
->>=20
->> Spinlock has nothing to do with this. The only thing that guarantees the
->> ordering is test_and_set_bit in (c).
->
-> Why not? A spinlock includes full barriers. If it were set_bit()
-> instead of test_and_set_bit(), it would still work.
+syzbot has found a reproducer for the following issue on:
 
-No. spin_lock is a marked acquire access and spin_unlock is a marked releas=
-e
-access. The order guarantee for these are restricted to the spinlock variab=
-le
-only (there is no acquire or release barriers in the kernel).
+HEAD commit:    20eef29b7c84 Merge tag 'arc-fixes-7.4' of git://git.kernel..
+git tree:       upstream
+console output: https://syzkaller.appspot.com/x/log.txt?x=1186ff3d580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
+dashboard link: https://syzkaller.appspot.com/bug?extid=a53c2918175b36cfd601
+compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=17f8f94d580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=173f9411580000
 
-If you need to establish order using spinlock, you can only establish it wi=
-th
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/d900f083ada3/non_bootable_disk-20eef29b.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/bb852a1ddb76/vmlinux-20eef29b.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/4c636c3f4242/bzImage-20eef29b.xz
 
-    CPU 0  A --> spin_unlock=20
-                            \
-                             \
-                              \
-    CPU 1                     spin_lock -> B
+AI-generated root cause summary:
+In the MD (Multiple Devices / RAID) subsystem, md_start_sync is scheduled as a
+work item on the md_misc workqueue to initiate resynchronization or manage spare
+devices. For read-only arrays (!md_is_rdwr(mddev)), md_start_sync executes
+remove_and_add_spares(), which invokes remove_spares(). However, md_start_sync
+fails to verify whether the array's personality (mddev->pers) is still valid
+before calling into personality operations, and array stop/detach sequences do
+not ensure that mddev->sync_work is completely halted or prevented from running
+after mddev->pers is cleared. When remove_spares() executes with mddev->pers ==
+NULL, it attempts to invoke mddev->pers->hot_remove_disk (located at offset
+0x50), triggering a NULL pointer dereference crash.
 
-You cannot establish relation just by putting some atomic operation inside
-spinlock critical sections.
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=a53c2918175b36cfd601
 
-You can make spin_lock a full barrier by using smp_mb__after_spinlock(), bu=
-t
-it's not there. I also think it's much easier to reason about test_bit_acqu=
-ire()
-pairing with test_and_set_bit() than "this code will only be executed after=
- a
-spin_lock".
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com
 
->>=20
->> So probably easier just to say something like
->>=20
->> =C2=A0=C2=A0=C2=A0 /* Pairs with test_and_set_bit() in dma_fence_signal_=
-timestamp_locked */
->
-> It is easier.
->
-> I am, however, unhappy with the unclear state of the API contract. It's
-> still unclear what the signaled-flag even is supposed to mean. So this
-> comment was also supposed to hint at the unclear state.
->
-> The desired meaning aimed for by Christian is that it's only meaning is
-> "hardware is done".
-
-Hmm, if the dma-fence doesn't provide ordering guarantee, then how would a
-consumer get ordering guarantee without knowing about the implementation de=
-tail on
-the producer side?
-
-To me it seems that providing ordering guarantee that "when a DMA fence is
-observed to be signaled, everything prior to dma_fence_signal is visible"
-wouldn't be that expensive to implement (practically just need to upgrade a=
- few
-test_bit to test_bit_acquire).
-
-Best,
-Gary
-
->
-> But as we see here it has implications for the entire semantic, too:
-> a) signaled =3D=3D true -> the error code is valid (what else?)
-> b) The fence has either signaled or "is still signaling", i.e. running
-> callbacks
->
-> I still maintain the position that it is inconsistent to run
-> test_and_set_bit() under lock protection and evaluate it without the
-> lock. Should be one or the other, not both.
->
-> Note that this patch intends just to hot-fix the error code evaluation,
-> not to make the fence API fully consistent. It's currently not even
-> clear whether manual flag evaluation is legal. It used to be legal. I'm
-> the one who added dma_fence_test_signaled_flag(), but mostly for
-> readability, not for semantic correctness.
->
-> It should be illegal to evaluate error codes with anything other than
-> dma_fence_get_status(). But there then the meaning of the spinlock is
-> currently also undefined. The lock there, with the current thinking,
-> would seem surplus with this patch here.
->
->
-> P.
-
-
+Oops: general protection fault, probably for non-canonical address 0xdffffc000000000a: 0000 [#1] SMP KASAN NOPTI
+KASAN: null-ptr-deref in range [0x0000000000000050-0x0000000000000057]
+CPU: 2 UID: 0 PID: 66 Comm: kworker/2:2 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+Workqueue: md_misc md_start_sync
+RIP: 0010:remove_spares+0x147/0x540 drivers/md/md.c:10182
+Code: 67 60 f9 45 84 ff 74 55 e8 e6 6c 60 f9 48 8b 44 24 10 80 38 00 0f 85 83 03 00 00 49 8b 45 08 48 8d 78 50 48 89 fa 48 c1 ea 03 <42> 80 3c 22 00 0f 85 78 03 00 00 48 89 de 4c 89 ef 48 8b 40 50 2e
+RSP: 0018:ffffc90000d47a10 EFLAGS: 00010206
+RAX: 0000000000000000 RBX: ffff888059649108 RCX: 0000000000000000
+RDX: 000000000000000a RSI: ffffffff88ae1bfa RDI: 0000000000000050
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000001
+R10: ffff8880596491cf R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888059648058 R14: ffff888059648070 R15: 0000000000000001
+FS:  0000000000000000(0000) GS:ffff8880d4669000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b30924008 CR3: 0000000051ca3000 CR4: 0000000000352ef0
+Call Trace:
+ <TASK>
+ remove_and_add_spares+0x6c7/0x7f0 drivers/md/md.c:10207
+ md_start_sync+0x736/0xea0 drivers/md/md.c:10323
+ process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
+ process_scheduled_works kernel/workqueue.c:3578 [inline]
+ worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
+ kthread+0x373/0x450 kernel/kthread.c:436
+ ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
+ ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:remove_spares+0x147/0x540 drivers/md/md.c:10182
+Code: 67 60 f9 45 84 ff 74 55 e8 e6 6c 60 f9 48 8b 44 24 10 80 38 00 0f 85 83 03 00 00 49 8b 45 08 48 8d 78 50 48 89 fa 48 c1 ea 03 <42> 80 3c 22 00 0f 85 78 03 00 00 48 89 de 4c 89 ef 48 8b 40 50 2e
+RSP: 0018:ffffc90000d47a10 EFLAGS: 00010206
+RAX: 0000000000000000 RBX: ffff888059649108 RCX: 0000000000000000
+RDX: 000000000000000a RSI: ffffffff88ae1bfa RDI: 0000000000000050
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000001
+R10: ffff8880596491cf R11: 0000000000000000 R12: dffffc0000000000
+R13: ffff888059648058 R14: ffff888059648070 R15: 0000000000000001
+FS:  0000000000000000(0000) GS:ffff8880d4669000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 0000001b30924008 CR3: 0000000051ca3000 CR4: 0000000000352ef0
+----------------
+Code disassembly (best guess):
+   0:	67 60                	addr32 (bad)
+   2:	f9                   	stc
+   3:	45 84 ff             	test   %r15b,%r15b
+   6:	74 55                	je     0x5d
+   8:	e8 e6 6c 60 f9       	call   0xf9606cf3
+   d:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+  12:	80 38 00             	cmpb   $0x0,(%rax)
+  15:	0f 85 83 03 00 00    	jne    0x39e
+  1b:	49 8b 45 08          	mov    0x8(%r13),%rax
+  1f:	48 8d 78 50          	lea    0x50(%rax),%rdi
+  23:	48 89 fa             	mov    %rdi,%rdx
+  26:	48 c1 ea 03          	shr    $0x3,%rdx
+* 2a:	42 80 3c 22 00       	cmpb   $0x0,(%rdx,%r12,1) <-- trapping instruction
+  2f:	0f 85 78 03 00 00    	jne    0x3ad
+  35:	48 89 de             	mov    %rbx,%rsi
+  38:	4c 89 ef             	mov    %r13,%rdi
+  3b:	48 8b 40 50          	mov    0x50(%rax),%rax
+  3f:	2e                   	cs
