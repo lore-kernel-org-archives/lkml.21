@@ -1,55 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794965868;
-	b=ELD6+ER/SSP/XR3MWPtKEesZwuk3AONbOCwjySDuLpusuGAgzwVJTqihVVN9J6nCltWP
-	 SJsS5Uhk2LP+1G1lNZSX6e5m+hL7XeXj/DjLaKqpO5Je6SEWjGAIgCdhCzYmKzHW9e+9n
-	 J5fTV92l1/MZHLEDbiFNEnXNjSUyrIkD+aagOgVwrvjpf+UeN1IWIm3inncqU8X032cdF
-	 1eXZ0EnhiobM5XRnl+EE85orX+hzupBt8PYhs9sBcVApYIqj5Xq7gXq0rqvUroDpX1+7N
-	 XexPDNrusVKmeuNfWplgSmqMzw2yl361ojmCwfCmj4uVn+DoPUFnwUtzqSqY0f7+2jQ==
+	t=1794965892;
+	b=otnPHOpW581FedsvkHMdD/sagUv+zApQq8IurUZC/gaElBGgkbZS+y61WnUe9HrYQ0hF
+	 JRYdcP9Nj5iICSIxmhUe14Jy6vFJpexpVaZ797f/8SARTlXkYm720CguMcQ4ju+/Ncwis
+	 Jdoo8C5ZTv3hCP7O2dSMccu/uYlpqWO7n5FDjbPN1DZ7c55Ig9EmY7XOA6Uw4fwiGROIU
+	 HLJxJxIC+G350knev4AR8Ox/BlUMX4kX2Ni3beuwU+tM0D6PhK4AUdWe71wXLcfhWl/is
+	 UA4h7vCPrJ+EewImg1/iKDncqGae5ZvqsYoTMxPljEq21YnN0E3KNyFrbog/UOVQVhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965868;
-	h=DMARC-Filter:Received:Received:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:X-HE-Tag:
-	 X-HE-Meta;
-	bh=v1KarP2iIs9tV6yL2HgYux1xhA64h29Df+lfc0Qc784=;
-	b=hhHmEhaywdNwvus8+KpWp/U+UPayykKse011YpD2yVr9wvb9z0d24p7ULSW0UrIz7w/I
-	 f8gI2c94t8HCxs3EEcQSCoXhwpAdQkviTu6g9Iu30MYnZRwZO8KUYdwFxk9fiMy7OPixd
-	 LI+QM/jcqHXGGdAiYslrK1m/88tAFtN84SnPkC4vaxSqgAhGXZA7W6cfipB/z9ypdleXk
-	 ft95M0RmkMozBVzvdrBxkAjznD2tFnJGgmEr5gz66pceCETEir3uN4mFDjNszW72HXM6b
-	 m22xhhyPld1xACHvzSDEcs30zBW9g7fgLZdfwt6nrq4nDApnFKPpEQiEVmb9Siu22MA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794965892;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=DgIC+LCfWRa+mXzrTrAuCo3rN7Px/xGkP0eV60iac3ZWrqEfD2bGm+3IGF0El307hftF
+	 7l21b5F6qeTKby2XVkQdHgkN9CQTJTu2IkG1c1oK2Udy3OMfBinf5YSVfJV75ZlNTBQmk
+	 cU2iFxBD4/M/ghdo06vOlfzjRCL4YBcfOri6yMXHGqAKTVWjiT3UTx3q3+7ezdVxOOwNl
+	 0jUlsFuDNopqEMNo2QyGAtR59I78M2ZlDkDUXCgaasjuOkKCVHKWPaSdY/WSp14JF6mLv
+	 OL4pbISwgt6k5ymXwbhiNGu0kJQFTk94AsR/WEq9HyHHDFCAyXrBFma1BeeIdEmA7RQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=perches.com;
-	spf=pass smtp.mailfrom=perches.com;
-	arc=none smtp.remote-ip=216.40.44.14
-Received: from relay.hostedemail.com (smtprelay0014.hostedemail.com [216.40.44.14])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GnXjqYEf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F2EE606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:37:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F2EE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=perches.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=perches.com
-Received: from omf04.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay08.hostedemail.com (Postfix) with ESMTP id 7CB27140262;
-	Wed, 18 Nov 2026 01:37:46 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf04.hostedemail.com (Postfix) with ESMTPA id 8AE1520024;
-	Wed, 18 Nov 2026 01:37:43 +0000 (UTC)
-Message-ID: <2c7b026955f5519faf7fc8672bf9ac4fd3c6c4fb.camel@perches.com>
-Subject: Re: [PATCH] checkpatch: recognize FIXTURE_DATA() and
- FIXTURE_VARIANT() as types
-From: Joe Perches <joe@perches.com>
-To: HONG Yifan <elsk@google.com>, Andy Whitcroft <apw@canonical.com>, Andrew
- Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, kernel-team@android.com
-Date: Tue, 17 Nov 2026 17:37:42 -0800
-In-Reply-To: <20261117220522.904290-1-elsk@google.com>
-References: <20261117220522.904290-1-elsk@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB808606A31C;
+	Wed, 18 Nov 2026 01:38:11 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GnXjqYEf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2EA51F000C4;
+	Wed, 18 Nov 2026 01:38:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794965891;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=GnXjqYEfkfvf2wRpV0ki6w+VZ4PFWUy/ssKslstK+7bHmcCyNHAJgH4BxYQVrxNlt
+	 e9+t3VLhwqPfX6CxyEXpMY/sc/Jcttra80iRwR11pU7Domupdvevkh0ZNURvCxhRXy
+	 72yIUjQNqb7j+oIzGk9pRjlCsN9ACQMmzKEUCPpZ2YH9quY2umVw/lhwXnKghoGMo7
+	 A+OxJC+iQXgOYJYNtuhYKsrybGCXOl5udXXAY3DpGJhf1NoB2Cr8YP//WH15A3rNRw
+	 ZkRlvTLUr7aOCMcS1c5LJIejqUnU4eAveEdJdJuAVQTbAi2ztcFecQ7yb7j6FpPGGp
+	 Au2yTaVGpIXHQ==
+From: netdev-bot+sinfo@kernel.org
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
+ Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
+ virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>,
+ Michal Luczaj <mhal@rbox.co>
+Subject: 
+ Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect() fails
+Date: Wed, 18 Nov 2026 01:38:10 +0000
+Message-ID: <179496589050.3291.8051739757077166191@kernel.org>
+In-Reply-To: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,18 +68,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Rspamd-Server: rspamout02
-X-Rspamd-Queue-Id: 8AE1520024
-X-Stat-Signature: cfgaiz7mt97jt9iunownabadyqkaisek
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Session-ID: U2FsdGVkX193gbGEHUrGYW6I4K9W6JzoGzRQs+ppfwI=
-X-HE-Tag: 1794965863-39128
-X-HE-Meta: U2FsdGVkX1+4FcPAqQh3Vvbe/apNAgyu3wlHzrq4iC73ZyaPPvirTQ0ZWWOpSNXS49MEjkH3lCsMvIpRqyj5tvQ9bH9XPDQod6bZKgPvvUOLZrOHS74sspeudQXUSaaQM/CXmj4qqWDKMNJT9Nl9sEdXWFUo30VqOpDsOd3KhwbjYBB63OPF3Cb96Zs0WdqM0Q5NIbbWtq6FXhW9yqU3iOhemS8wIKmnb9fJWiUi2rv0N+laNjLsdSznjJt3kFo34wzNiItUGHHROU5YODJ7ScomG0Je0P2fQ6tqjQ5dysa3Jo3zxp/NVxg6UWCkQYfI
 
-On Tue, 2026-11-17 at 22:05 +0000, HONG Yifan wrote:
-> tools/testing/selftests/kselftest_harness.h defines FIXTURE_DATA() and
-> FIXTURE_VARIANT() to expand to struct type specifiers
-> ("struct _test_data_##datatype_name" and
-> "struct _fixture_variant_##fixture_name").
+Hi!
 
-NAK.  This sort of stuff needs to be externalized.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
