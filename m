@@ -1,47 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007678;
-	b=sUk9EEGwv26whw2pBgmhxHqS/LK/77bDaksWeiFFyBQ7vF4UanBmmv7cSlUlN+cLf9wY
-	 knWiImNKvxHha9FFA3AXf/gZlxs41XSX7n4XhxDhw7kWpEaqdIH38ZwoleGwg26I8EVtS
-	 1H8M5enVUi7KnPJV+Ggbob7axDcy8NYTIfMSChvBPVZIRCh3nuqoyWZHGPI3YXg5TJ1Xh
-	 6tJC2s5wfHUWKD1yYeJmXsPWuBHHvpi8hghMAVff6BHCawZtbdg/xpxmmrIRWTntGQTkY
-	 WL6kBxcdG3+UeEFbrrNqnO4b9Xdg/7q5fM3NY37kMET+5ZsDQdZWw3YzeHdtY7IMkPg==
+	t=1795007732;
+	b=hPDn9TDNPJritgIg+VKvJwk1OOnLkddqx3REb0f2+UibI6kx/2oidHG5bNjAaGQli3v/
+	 /Sx+F1mjbLwbKjjqFv2VTKCgJMUSf3/1zkbWaYPMZeSIFQF1tneJE8wxGFzkqu3P8qlWL
+	 mUKCcViMSc5vfdHcVbTlNrqxHo4tKiXgfA3rNsWQ7qFpeL+xvZiucbd0TnWCytE9cdHKJ
+	 4nunN3V0GqtFAkrxTXt1FfZN7K+vrp8el2ulYo5qk0oEVJgAQS2cAc7c2YzQj+m3JIDJg
+	 8OBECbzW5zPHPmAxRk2Oqg/3NIGgiMRLulgxOaKZBrxARZPum15mSGfVatc6s0haDBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007678;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=cIo+/pZhC0FkwDazTxDF5zOGTthw1UsxmcnM4VdO7ms=;
-	b=OTAGzyNT7CmsPVA5ErQxoJTWpb4K0nfF/sjK2pLBalRxkQA3M+B3ldHX+e3qpNQxzs+O
-	 K6hFnV220BaO2kL6ohI5elGRIeLpj3+2paZNZZZvGGl62dJ2ScAAQOxJY5qj/NsED7GxN
-	 nStAyPxCXkfFIyNHWiywELF8IsYLpKrANRzuvhKWtJW4tm/jRFHQZW6D/jnR4IEjBDmvT
-	 IK5bDnIW4lLTwn7Pbr96VvhamRejPm8reSymVlXB31O65winvON06p5NohM8rOYhUuecZ
-	 15NZ5kw46ms+RrF5NOhZNZdYfsO7OHT+10HchJh2UgyxEOHbH1Fg7VT5wAGZbYtkI2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007732;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=/TyJXkm2vpWoT51loq346JyUhuDruv4LPJ1ahbEZXZ4=;
+	b=YiPsXyfKwWOl1At0M5LdHSRPXY2LpIclbt6yP5SF9iB/R2dtcu8jCekxvpRtBHAzB/fH
+	 NJH4zyIeRJIdIO2RKTB1oihDVlgXhMISDWJjF5TA6mLAkZp0G3xdFSNezHfGmNHUO/7PI
+	 7+WuwlEvMyifhlfo/yAjI7q9rU7uX3s/aDtf9bU340q76lXx365CE4UeOQzogLFjH0r7d
+	 CbAhKNuHnagGcZAF42YF7jAtsi6Bxut8FxL43DKZukt9I4kYfsl72F8iWHxRNOOSv4VFR
+	 E8jofpl0VmT1Du1fjuR8IDritMIOtuWM4x8THs8cGFNH6d2ATWj9b6FC9jaGyzwXU8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLnG5V6U;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=resnulli.us;
+	spf=pass smtp.mailfrom=resnulli.us;
+	dkim=pass header.d=resnulli.us header.i=@resnulli.us header.a=rsa-sha256 header.s=google header.b=hjycwbIO;
+	arc=none smtp.remote-ip=209.85.208.171
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8672F606A31C;
-	Wed, 18 Nov 2026 13:14:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6CB7606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:15:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6CB7606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=resnulli.us
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=resnulli.us
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLnG5V6U
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FE261F000C4;
-	Wed, 18 Nov 2026 13:14:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795007678;
-	bh=cIo+/pZhC0FkwDazTxDF5zOGTthw1UsxmcnM4VdO7ms=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=MLnG5V6Uh5YrgtUtPK5169lW0+axPJ6jjSoP5QeoQFxiqvPmHVGm3EEVxl6XLsrTs
-	 Ajclqy1R9w0jm/SFVF2af1KK094Ef/HPucuL59GAp1ofzHaupSWvFCPDNgBneMks3r
-	 dMM7qbidMD/9KgFenV5RFUG9SfSBokWgA99mqMGPdBLFF7y8b9NiLd0LGNJBubbEZ3
-	 IN3ewijnTTZ+2teb+E2Mbb1kjhlJaxNRquHlrGEP2V/YG6Qzw0dZ8QsTmFWwVX3Kiw
-	 sD/w36oMp0N8Xduglf1cYmcUI9AHr/Cruxz0dZhdqldrnuEIzXEfvbwuBv6rC+nUT5
-	 TYQwOlNU61p1w==
-Message-ID: <b6b12988-7d36-4cbb-bdaf-1deb7203b9ac@kernel.org>
-Date: Wed, 18 Nov 2026 14:14:30 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=resnulli.us header.i=@resnulli.us header.a=rsa-sha256 header.s=google header.b=hjycwbIO
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3ae25d9e2fdso10718391fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:15:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=resnulli.us; s=google; t=1795007730; x=1795612530; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/TyJXkm2vpWoT51loq346JyUhuDruv4LPJ1ahbEZXZ4=;
+        b=hjycwbIOyvQrtyBMWNnhVJEWJBwdjlEA5Rvyz1eNWYwmnxttiufHtMTo1C4mMepjlW
+         ieE3sgvVtGrErSqaWC2nOZxiaCHT0Ac9j89oPsu2nDct0nubQg13z64ZJnvNFVqibbhH
+         Bssl7Bekzs4AoVLMeule1aRmXk2lDI8Fck7HI628EQlIFVkq5YF9FQa+PdaTM4yCOvg2
+         8sSuNzh5wCxCMJS0g7BjKDKcxEDR7qdJsZUl+OpUo8HTzRzb7VPsUZb+gmrj0LqYMFCZ
+         fvSd8Cike1jGWLPP6cDliszDr2Y64nw3FRNzOC1FWZVjHDtSTgm33VNqwRaLAWUsmTlD
+         iH6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795007730; x=1795612530;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/TyJXkm2vpWoT51loq346JyUhuDruv4LPJ1ahbEZXZ4=;
+        b=eCMoMOuQUN25dqsmBIuhkVehTd4BhoxWUgOItIl/lZFSpINtpu6GgcBTnyZsgNg/TV
+         jzBm5yi1r5eVxE6HRj5YCOnR9XlfNpCw28ju27p3I2y4uazrfMHBWeJ7ftud79+M5Rg3
+         jfFZxHTgIWs+usxCTDceF+lZybpCvWthpGhtXXpXDw0AecXCnDeINc20Mdu7vVGcPxlp
+         /X6XxtyS7+DBtJGMX+wAHxDDOsdJWy8E0/xnFP4sJK3tJveB1ww3Zte237gwe6G9FC5B
+         TZZXgGXKadNgkkHgmOeIATenpBDTyBrNLMvmth7KRt/w9vkiM/zh0RHXmYmAg+xXA+O6
+         LGrA==
+X-Forwarded-Encrypted: i=1; AL+hErGWMqiJU44a2AqDh/Ja3n9popM5m2IILAVUrhmzWxpzYpXP0ZjEpNvSceWiLVoG500Ml1mq5sJ18yN7u/g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CPQVctN+7mYJ4Z708wxK5vlsHdJh6OQB4Jn9J/v4KeWKwIK0W
+	Ds72qW6XZ92lyc9gNX5TKU5cHJg3+Ccwi/+pRSf9FmLYoy/RFyJOkZnJgtwZsqiqX9Q=
+X-Gm-Gg: AYBFou3AwaKCBIqvFdUG3tWWwu1DLbqnvvzhPE8E1/pPvww8yTkHH4zoq0hWv9+UCEF
+	sC+bLwqepbNTuwEZD6d4suL4rzPcpXq9zyYa7VesvJUiyUpA38f7INtjRwHCbQebipRYL0lKWQX
+	/ItRKVV1AKyZpE8GQKQm6FhUAehru2/WiVXKmduytLpGR0QwbC2X2ayad5++MA+15iTHR7ajK6w
+	thoNEhiCd9H/a+pyQpb1sXMbzaOemsh52tagIm1So2pD90SpEEYEvNz1+nMLRrFjU5JC3i1CyDM
+	wL+ll95zygMxaP67YH52pEpbs78SBlFx9u62kSiHRoLuEDn77FVaLIB5EXf/8HsIBtrCPHV7Vr8
+	zvZoeCSSOP1WTfMgM0wNRDw/D0IkkGISuHlfMwGj7wkU9agqzLPh5F14GwWwgbtL4YMiAeZjU3T
+	Z6jLEx0wQqQpGMXkqCt9jwY9LfTZ1omNGXUH9XIkn7r+WoYGzap9lcxt/rMCoyB+LDCGcfzRAyj
+	HOA6bq11Sq7ffTIKwalfOhr1xvtYhK8593v8JtqUSG6LFunqsXBaKLyYU+dSkjZp7EikI03n2dZ
+	cUaW7rBNl6qiHGaMmaU0Fy9D0xOTK1wsVMaVWjeNaCEEZ6Tyh3zh1gA42zWecg==
+X-Received: by 2002:a05:651c:a148:b0:3ab:3607:df9e with SMTP id 38308e7fff4ca-3ae670d1664mr9301141fa.13.1795007729556;
+        Wed, 18 Nov 2026 05:15:29 -0800 (PST)
+Received: from localhost ([140.209.217.211])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae67a38db8sm5617761fa.4.2026.11.18.05.15.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 05:15:26 -0800 (PST)
+Date: Wed, 18 Nov 2026 14:15:21 +0100
+From: Jiri Pirko <jiri@resnulli.us>
+To: Ying Xiao <eagleshaw@google.com>
+Cc: Sumit Semwal <sumit.semwal@linaro.org>, 
+	"T . J . Mercier" <tjmercier@google.com>, Jiri Pirko <jiri@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Philipp Stanner <phasta@kernel.org>, 
+	Jacob Moroni <jmoroni@google.com>, Xuehao Hu <xuehaohu@google.com>, dri-devel@lists.freedesktop.org, 
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dma-buf: heaps: system: zero pages after
+ set_memory_decrypted()
+Message-ID: <av2jgIDyawKNS1BA@FV6GYCPJ69>
+References: <20261117155431.1654298-1-eagleshaw@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,102 +102,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] Semtech SX9xxx: add a reviewer entry and binding
- maintainer
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Gwendal Grignou <gwendal@chromium.org>,
- Daniel Campello <campello@chromium.org>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117172612.25535-1-kapoorarnav43@gmail.com>
- <bbdef966-c5dc-4101-9246-b668e00f62b7@kernel.org>
- <20261118125450.12512-1-kapoorarnav43@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261118125450.12512-1-kapoorarnav43@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117155431.1654298-1-eagleshaw@google.com>
 
-On 18/11/2026 13:54, Arnav Kapoor wrote:
-> On Wed, Nov 18, 2026 at 01:34:31PM +0100, Krzysztof Kozlowski wrote:
->> I think it is premature. You just started contributing and your early
->> submissions were clearly showing that you did not read kernel docs
->> before posting.
-> 
-> Hi Krzysztof,
-> 
-> In June I was still figuring out git send-email, and a problem with my
-> setup caused those repeated postings. It is also why I was not able to
-> reply to you at the time. I have since worked through the process
-> documentation and my setup.
-> 
-> Since then I have been working steadily on this subsystem, and 23 of
-> my commits are now in maintainer trees. I still make mistakes as I
-> learn: not grouping patches into a series, writing commit messages that
-> are too long, and sending new versions too early, as Andy pointed out
-> here. Changing MAINTAINERS is new to me as well, so there are mistakes
-> in this series too. I take those as part of the learning process.
-> 
-> I asked for this entry because I have become interested in these
-> drivers and want to keep working on them, and Jonathan agreed to an R:
-> entry. I understand your concern. If there is something specific you
-> would like to see before this entry is acceptable, please tell me and
-> I will work on it.
+Tue, Nov 17, 2026 at 04:54:31PM +0100, eagleshaw@google.com wrote:
+>system_heap_allocate() allocates pages via order_flags[] with __GFP_ZERO
+>while the direct map still has the memory encryption bit set. For the
+>system_cc_shared heap, set_memory_decrypted() subsequently clears the
+>encryption bit without re-zeroing, leaving ciphertext in DRAM on
+>confidential computing (CoCo) guests instead of plaintext zeros.
+>
+>Skip __GFP_ZERO during alloc_pages() for cc_shared allocations, and zero
+>the pages once in system_heap_set_page_decrypted() after
+>set_memory_decrypted() succeeds.
+>
+>Fixes: 78b30c50a7ac ("dma-buf: heaps: system: add system_cc_shared heap for explicitly shared memory")
+>Reviewed-by: Jacob Moroni <jmoroni@google.com>
+>Signed-off-by: Ying Xiao <eagleshaw@google.com>
 
-You can review patches and follow them easily with lei or korgalore. You
-do not have to be listed as maintainer to do that.
-
-I am sorry, but sending us LLM slop (so code which was never built) is
-very opposite to being a maintainer.
-
-Best regards,
-Krzysztof
+Reviewed-by: Jiri Pirko <jiri@nvidia.com>
