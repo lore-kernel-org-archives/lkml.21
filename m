@@ -1,57 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005165;
-	b=N/wycSfG2iIBCaZV1XK6JwbzXR7FMAqDyrgvuzsVWsY3GgJONM8zHGswL4RCo3u8auvB
-	 JELD+rPINO3hZ7j9lqfbRAVkwTjlepE/9GQSJ6BMtP7m2497x+EG37k2OW55Ahq0mj9M3
-	 8dGq/98hKbuUZH9X1Dt6I9nQiDGnDQ/YQ13JPxWGt5tt0uaUIFVzsjJqV1GLrMj2K94PW
-	 hofYptFeP3+kxDxWkTTGXXJ7/D9kr0azRqSLMdk6TRIH53x0hRuHnJVCaBOEKtZDVC1pk
-	 q2Ac0fi6iZmNdlXtisXctJDKYd4D7qBOAMpIWyCUh/KGrvcFG+d7MPONeMxacIDoCGw==
+	t=1795005238;
+	b=KnlR/h9jDJB/5AsP5TY4Qo25sGR0+BUpSwij3K+DMm8A1/PCRl8Vnrp4zONukWW8FYhx
+	 tUUbeFlidWO96xGaWSsk6CHj7OKKLBwHTWvAwKOWEIG741LrTFNCnq1uuP3a52GBseWeY
+	 LsJKcwQkqG6f+mcDVl4+1jVtcMHeY5k7YktM+K3lgha34mrChPPVv4yiap4cwpt0VHYk6
+	 kP/NG1IqSZFhaaSZRQPMzQky8I1WYK38zQ/Gqh0KBur+S7/kIxaiRXnrYyfOQRAnYKfCz
+	 lFyuEzDnUK+GYrfHdKSB/fXtLdM1uAZYGKau6bMHWPz3mgG1KtyAgpTgRSVyITnSuhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005165;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=70t0JbsHuE8RJx7WH4ijKksCN6kWqlzaDl4vSA3sy3U=;
-	b=20wIIoWd4AGj4+JoLXNvhyy5i17jUYdL5WPTLem9Qm6+qYj0EvTq7Kbd7W3h+43pJ8h5
-	 SqMAmpd+FBakuoXNyAL/VQATY3zsUv463Q4zjD8UHty6cohTzaQZuM/Fi+XWHJCtv7VYD
-	 YAdDZuWWVb9iieNu8V1TF/c2aVY1thJOtHmU+cSXYAtrQC3DwNQIObwrtwKiWBIOMobSx
-	 /vBAMrXe24afxG34twslOB855ScWGEJGkiGJembnV7WZZZ0dxDpNmqJhLivFyVWogw470
-	 /2CW/Qlf0MV6WtAb5PJ9bNOinMUgk1/9shs3C9Tu8B2xQoSFAe29H/cfd+qnX+rNeNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005238;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=7KqS7FUoP8+YKU7UrHzi7vh0N1UT3YTJh6Xu6F9Q1YE=;
+	b=g1ML/WRTwQq5QuvWqqcbOQtoy745cQjoMl/IKUfpYRs+L3U2bXORfAi/2VhG6PvBGBts
+	 xlLcGSN/6g6sOXay9XhrkdiVTveaHDvZV7ACkFUCJhCqnCDm/bGJ/m2Z2uIcDypAmgQj+
+	 aPJMoFJL1VECtf5oaUDgMtd2q9MYQ6TgMyWTFKw0iBCpWhcLfF/eQvxWzOZoQT73tUcuw
+	 wnK7Z2RY45tpboAOHN3HcZVy4f6P1CFhyJnrZ2Tra6LTDh0lXE2UxtJttleqtGOYob9GZ
+	 XwnMrNsGMN8+KohHefV91HENy1Z4Rdp5zt9hCSpSjJof54zbNsenzVxzkMsAyxAvSlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SvDp+UP5;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AqOxdMhE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E980D606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:32:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E980D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57830606A31C;
+	Wed, 18 Nov 2026 12:33:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=SvDp+UP5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795005163;
-	bh=wteOM9b+zSffSygch8OIiG1KfgGZxZdoiAbmq3MuSjM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SvDp+UP5rJzMgno0Rw8XcbVnIR40+0cLIXqM7U1qt3IvoBBtX2CdwLMBnu/tYrLNF
-	 mx5GHSS/udI8UNablyDlmu6mItAYAmbSedTYSLBpA/3xLvOHir/ePh2i/u2SpEZrso
-	 BiEILgdKCWwBVfpFn6xxjHKd6kMNF7/g/h1ozrDySkW9C92m8gPa2piQMIR9Z2u1Vu
-	 qoKszQboTwJwp+VHzXt36VZQko34CAbrYXI7rcTJatRUlhlSRqqxJJywt6OBYOX4LH
-	 vBmyoA7V3UtpZ7sAvCkXduXSnEyDUeF9umKgxRLI6uYaYBF1wACIvN1+OLc4gRPK5y
-	 wnd4uOyXf6swA==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ADE5E17E052F;
-	Wed, 18 Nov 2026 13:32:42 +0100 (CET)
-Message-ID: <675eb0c5-96a1-4254-844e-234fb972d824@collabora.com>
-Date: Wed, 18 Nov 2026 13:32:42 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AqOxdMhE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F871F000C4;
+	Wed, 18 Nov 2026 12:33:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795005238;
+	bh=7KqS7FUoP8+YKU7UrHzi7vh0N1UT3YTJh6Xu6F9Q1YE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AqOxdMhEs01XQBpejSIlq0G8D0FKi9lFXWJYsZrPjRaSggICn9tOqDlXl194k2MxS
+	 +QccRf2dtIxUxvYZtO4fb+129fQ/ICWKCpyvCZsLh062xtvLMdewbw1tTscUXSFz7A
+	 jlAlyD7vtNw4TAd4q2zQh3vbAqNfNVUIOpK4PfO7Gxcqfcjyxm5zBjWKD+n9UOthBF
+	 ZhFvnTYjiF4/Ythmu/vFvU+u7S6nge5eWbCMrF3l8hkv9K++rzIbd08bU9QGJ0gWpF
+	 YcHDAt9aKLBGcIc3yWqmZwm3xDKNyYsfe37quRpGJImD7NXS9QfE0oru22D3wOk7db
+	 rx6TEPM39+OIQ==
+Subject: Re: [PATCH net-next v4 2/2] net: dsa: mxl-gsw1xx: reset the switch
+ through reset-gpios
+From: netdev-bot+sashiko@kernel.org
+To: joseph@telaak.dev
+Cc: hauke@hauke-m.de, andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, daniel@makrotopia.org,
+ p.zabel@pengutronix.de, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 12:33:56 +0000
+Message-ID: <179500523674.3136.3797005435367758007@kernel.org>
+In-Reply-To: <20261115-mxl-gsw1xx-reset-v4-2-4ecd18c922e2@telaak.dev>
+References: <20261115-mxl-gsw1xx-reset-v4-2-4ecd18c922e2@telaak.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,101 +65,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/mediatek: dsi: Don't let a signal cut the IRQ wait
- short
-To: zi-hao.huang@mediatek.com, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- shaoming chen <shaoming.chen@mediatek.com>, dri-devel@lists.freedesktop.org,
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, CK Hu <ck.hu@mediatek.com>
-References: <20261118-mtk-dsi-irq-wait-v2-1-8bda52993c6f@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20261118-mtk-dsi-irq-wait-v2-1-8bda52993c6f@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/18/26 10:33, Zi-Hao Huang via B4 Relay wrote:
-> From: Zi-Hao Huang <zi-hao.huang@mediatek.com>
-> 
-> mtk_dsi_wait_for_irq_done() waits for the DSI IRQ with
-> wait_event_interruptible_timeout(). If it returns early, for example
-> with -ERESTARTSYS when a signal is pending, both callers still treat the
-> command as done, because they only handle a return value of 0 as a
-> failure.
-> 
-> On an MT8196 board this led to a hard lockup during shutdown. The wait
-> returned before the IRQ arrived, the panel disable sequence went on and
-> restarted video mode, and the late CMD_DONE interrupt was then handled
-> by mtk_dsi_irq().
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-This happens because of the hacks that you have downstream.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-With the restructured mediatek-drm adding proper support for MT8196's Display
-Controller architecture, what you're describing does not happen, because the
-tear down path is correct.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Regards,
-Angelo
+- [Medium] gsw1xx_probe() (drivers/net/dsa/lantiq/mxl-gsw1xx.c) can skip
+  the switch reset without logging anything.
+- [Low] gsw1xx_probe() pulses the hardware reset on every probe attempt:
+  assert, fsleep(250000), deassert, fsleep(1000000).
 
-> The handler writes RACK and loops until DSI_BUSY
-> clears, but DSI_BUSY stays set while video mode is running, so the CPU
-> never leaves the handler until the watchdog fires. Forcing the wait to
-> return early reproduces the lockup every time, and it no longer
-> happens once the wait cannot return early.
-> 
-> The wait synchronises the driver with the hardware, and it is bounded by
-> its timeout. Use wait_event_timeout() so that it only ends on the IRQ or
-> the timeout.
-> 
-> wake_up_interruptible() cannot wake a task in uninterruptible sleep, so
-> switch mtk_dsi_irq() to wake_up(). Without it every wait would last
-> until its timeout.
-> 
-> Fixes: dd5080a54df8 ("drm/mediatek: add dsi interrupt control")
-> Signed-off-by: Zi-Hao Huang <zi-hao.huang@mediatek.com>
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> ---
-> Changes in v2:
-> - Drop the remark that the wait is not made on behalf of userspace, since
->    a userspace backlight change can reach it (CK)
-> - Collect Reviewed-by
-> - Link to v1: https://lore.kernel.org/r/20261118-mtk-dsi-irq-wait-v1-1-205f25fac8b2@mediatek.com
-> ---
->   drivers/gpu/drm/mediatek/mtk_dsi.c | 7 +++----
->   1 file changed, 3 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> index f82506e10fd5..1315dd31a834 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> @@ -627,9 +627,8 @@ static s32 mtk_dsi_wait_for_irq_done(struct mtk_dsi *dsi, u32 irq_flag,
->   	unsigned long jiffies = msecs_to_jiffies(timeout);
->   	struct drm_device *drm = dsi->bridge.dev;
->   
-> -	ret = wait_event_interruptible_timeout(dsi->irq_wait_queue,
-> -					       dsi->irq_data & irq_flag,
-> -					       jiffies);
-> +	ret = wait_event_timeout(dsi->irq_wait_queue,
-> +				 dsi->irq_data & irq_flag, jiffies);
->   	if (ret == 0) {
->   		drm_warn(drm, "Wait DSI IRQ(0x%08x) Timeout\n", irq_flag);
->   
-> @@ -656,7 +655,7 @@ static irqreturn_t mtk_dsi_irq(int irq, void *dev_id)
->   
->   		mtk_dsi_mask(dsi, DSI_INTSTA, status, 0);
->   		mtk_dsi_irq_data_set(dsi, status);
-> -		wake_up_interruptible(&dsi->irq_wait_queue);
-> +		wake_up(&dsi->irq_wait_queue);
->   	}
->   
->   	return IRQ_HANDLED;
-> 
-> ---
-> base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
-> change-id: 20261118-mtk-dsi-irq-wait-a24712ada627
-> 
-> Best regards,
+--
+
+net: dsa: mxl-gsw1xx: reset the switch through reset-gpios
+
+This patch gets an optional reset control in gsw1xx_probe() and pulses it
+before the first register access. The pulse is 250 ms asserted, then 1 s
+before access, which is the timing from the vendor's GSW150 driver. It
+also adds imply RESET_GPIO to the Kconfig entry and extends the help text.
+
+> diff --git a/drivers/net/dsa/lantiq/mxl-gsw1xx.c b/drivers/net/dsa/lantiq/mxl-gsw1xx.c
+> index 0c7ea242a62c2..33b73b2ed5fe7 100644
+> --- a/drivers/net/dsa/lantiq/mxl-gsw1xx.c
+> +++ b/drivers/net/dsa/lantiq/mxl-gsw1xx.c
+
+[ ... ]
+
+> @@ -737,6 +739,30 @@ static int gsw1xx_probe(struct mdio_device *mdiodev)
+>  	if (!priv->gswip.hw_info)
+>  		return -EINVAL;
+>  
+> +	/* The MDIO core handles reset-gpios only for PHYs. Reset the switch
+> +	 * here, so it does not run with whatever the bootloader configured.
+> +	 */
+> +	reset = devm_reset_control_get_optional_exclusive(dev, NULL);
+> +	if (IS_ERR(reset))
+> +		return dev_err_probe(dev, PTR_ERR(reset),
+> +				     "failed to get reset control\n");
+> +
+> +	if (reset) {
+
+[Severity: Medium]
+If the switch node has reset-gpios, can the reset still be skipped here
+with no message at all?
+
+In two configurations, devm_reset_control_get_optional_exclusive()
+returns NULL even when reset-gpios is in the DT.
+
+With CONFIG_RESET_CONTROLLER=n, the stub in include/linux/reset.h does:
+
+    return optional ? NULL : ERR_PTR(-ENOTSUPP);
+
+With CONFIG_RESET_GPIO=n, __fwnode_reset_control_get() in
+drivers/reset/core.c returns before it tries the reset-gpios fallback:
+
+    if (!IS_ENABLED(CONFIG_RESET_GPIO))
+        return optional ? NULL : ERR_PTR(ret);
+
+In both cases the if (reset) branch is not taken. Probe then continues
+with the bootloader state. The commit message says this state makes port
+0 fail with "failed to connect to PHY: -ENODEV".
+
+The new help text in drivers/net/dsa/lantiq/Kconfig says:
+
+    A switch whose hardware reset is described with reset-gpios is
+    only reset when RESET_GPIO is enabled as well, which this option
+    does by default.
+
+Is this true for every config? RESET_GPIO is inside "if RESET_CONTROLLER"
+and depends on GPIOLIB. RESET_CONTROLLER is only default y if
+ARCH_HAS_RESET_CONTROLLER. NET_DSA_MXL_GSW1XX provides neither
+dependency, so on x86 or generic MIPS, for example, the imply has no
+effect.
+
+The reset-gpios binding added earlier in this series describes it as the
+switch's hardware reset input. It also says the slew rates return to
+their power-on defaults "after a reset through reset-gpios". A DT that
+follows the binding can silently get neither.
+
+Other DSA drivers with a switch-level reset-gpios call
+devm_gpiod_get_optional() directly, and that only needs GPIOLIB. Examples
+are qca8k-8xxx.c, realtek/rtl83xx.c, mv88e6xxx/chip.c, lan9303-core.c,
+vitesse-vsc73xx-core.c, mt7530-mdio.c and ksz_common.c.
+
+Would that approach work here? If not, could probe at least warn or fail
+when reset-gpios is present but no reset control was obtained? Could the
+help text also name the RESET_CONTROLLER and GPIOLIB dependency?
+
+> +		ret = reset_control_assert(reset);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to assert reset\n");
+> +
+> +		fsleep(GSW1XX_RESET_ASSERT_US);
+> +
+> +		ret = reset_control_deassert(reset);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to deassert reset\n");
+> +
+> +		fsleep(GSW1XX_RESET_DEASSERT_US);
+> +	}
+
+[Severity: Low]
+Does this pulse the reset again on every probe attempt after
+-EPROBE_DEFER?
+
+The reset runs before gswip_probe_common() reaches dsa_register_switch().
+dsa_register_switch() can return -EPROBE_DEFER, for example when the
+conduit is not registered yet:
+
+net/dsa/dsa.c:dsa_port_parse_of() {
+    ...
+		conduit = of_find_net_device_by_node(ethernet);
+		of_node_put(ethernet);
+		if (!conduit) {
+			rtnl_unlock();
+			return -EPROBE_DEFER;
+		}
+    ...
+}
+
+It also defers when the tagger module is not loaded yet.
+
+For MDIO-attached switches, the conduit is often missing on the first
+try. The MAC driver registers its MDIO bus, which probes the switch,
+before it calls register_netdev(). That first attempt usually runs inside
+the MAC driver's own probe.
+
+Each retry resets the chip again and blocks for another 1.25 s, because
+both fsleep() calls become msleep(). The commit message says this timing
+is only known for the GSW150. Nothing breaks, since the next attempt
+redoes the PCS init and the GPIO pin-mux, so the cost is boot time.
+
+Could the reset be pulsed only once, or could the line state be kept
+across probe attempts?
+
+>  	priv->gswip.gswip = gsw1xx_regmap_init(priv, "switch",
+>  					       GSW1XX_SWITCH_BASE, 0xfff);
+>  	if (IS_ERR(priv->gswip.gswip))
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115-mxl-gsw1xx-reset-v4-0-4ecd18c922e2%40telaak.dev
