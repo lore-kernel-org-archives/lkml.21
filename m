@@ -1,101 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.37.86.72
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795044764;
-	b=0aw+WJia958ftc1AETEraWsxTVjdWvF/g9qOIZQTqdiKinLndUcLVP8661WAh0LGG7xs
-	 jsyjPU8FP1Gc+kskvcZmHQsIxqXuw5Kf0An5D/wZtrYF/17154JFrhYFZG0ScZJH8exyC
-	 eswueSzuMv1q5Hgj0ecfcrLHxcPJ0RQ05TTnr6TATc9Wd0AKwr0rasn/88Ry7L5bY/aRq
-	 YYd/CncfIgIRlx7riQX/r9lr+tYkQV7r1Wq8qbbn3aT2gXBGsL9z+uSaF1qtFSHyEIZ/m
-	 HkP8a9JID+7lV3HFO/cV5LOs7I2jdNwhYvmwcouWoK1tqOV9MSIzFWIdZhcznL10Q/A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044764;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IPAS-Result:IronPort-Data:IronPort-HdrOrdr:X-Talos-CUID:
-	 X-Talos-MUID:X-IronPort-Anti-Spam-Filtered:X-IronPort-AV:Received:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Outbound-Client-TLS:
-	 X-Outbound-SMTP-Client:X-Outbound-Node;
-	bh=u1SsReMF5grGrYKcW10Y/ud0duv/TSaP+p538EWQjeA=;
-	b=i9KMNYTfYI5JVQad5YT+/O484rUDjQuo/oB4As6g79+zqppF9Yew0pzzR4Jr93IBtQ7z
-	 aYkdTbhCONBd9iy40Rt3Vv3J7Mgp5B1Go5cJ8KZ2xR6FjNcB3PxyYTZ01e6ob9Tv/tkUM
-	 hVjB6hx8XauPMR9c8paXh2wwW2KQmhiff8xCXJSlFsybpZV58ZpXY8Dpwr0d0jHa/vvV7
-	 JbxWveqEL87jawGbT2bCLBjxZT/hq0PIyqUiIOdDQ+ptSnNgXvCupKnngsvQ8ayKnBkfb
-	 CwnR3gpC+DBOadeHIzbtExmLNqPIhEjYaqHDdO06TqHVJ94c9GaUuMIwjCQniL8Y7MA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cisco.com;
-	spf=pass smtp.mailfrom=cisco.com;
-	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=kV3SLB0u;
-	arc=none smtp.remote-ip=173.37.86.72
-Received: from rcdn-iport-1.cisco.com (rcdn-iport-1.cisco.com [173.37.86.72])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.28
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795044769;
+	b=BVTwrR3pXgycn6Ad40m1sVixm4BkvdkP0NI1i7XEB9mhTLfvY7pgfpviDImtqpuIcKvW
+	 44Mfm1ez+40LoA9oUP818W/TsHAzXKwuk+2uZ7VDZmspPxPHFbiqNH2SuCqEl35Gl7XDm
+	 wZWC99VqhZwB0h4vO9dAyOTLR/A9Ve/a/CUsGwzmm+62DdYhesujxSs5V0lwfle0Mn31i
+	 3GA4PttD9BX864Je1YT1S/0n8DUD0umxvf5T2Dl4SmX+cfFxkuUvWJnNSQwu1mfEUOgLz
+	 AmNenqclTBYq00mOzoB32yKyhF5WLHgn98Q+fkFuOYiicsOTIS6FMD5f27cSpkqltlQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044769;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=NH99dfoG6hKdTlQnZB+tmXtdz76WkigJYBvld/rezs8=;
+	b=PAaR+llH1L5bcSaT5asSnLvKIRGsjEUKRYs5s0TQUQvlTU8YK+u/QJ2lmwTs5CXC3ODh
+	 ZflWcVZBNAFfNbxngj31mVc+fRWt9xW/xFMSWh4D+H+jqxrBRiLVsljJ8MOJ6Pq0v9aQw
+	 0RSIiNXFdtmdEuuhn2yD3IAMAOciZpGpzaSVemsyGGe2tnzCf8UauChfL2GdjXXmT2K9t
+	 ge229pHt9ERwYkYB1LEFUFml20waE/7EW8KwCUa6dA5hdBnAtCttGzMl4ZfH4kCJ6xlpj
+	 YCU6cb6KJRQz3ZrW5CGvv8m6z2QwBlxrXh2hZhLSJF1FkPWDpcyO4k22/QxFO68T/8A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TSnNu+2k;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.28
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010028.outbound.protection.outlook.com [52.101.201.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D6C060A5BDC;
-	Wed, 18 Nov 2026 23:32:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D6C060A5BDC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cisco.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cisco.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1BA4606A9D0
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1BA4606A9D0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=kV3SLB0u
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=cisco.com; i=@cisco.com; l=4856; q=dns/txt;
-  s=iport01; t=1795044763; x=1796254363;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=u1SsReMF5grGrYKcW10Y/ud0duv/TSaP+p538EWQjeA=;
-  b=kV3SLB0u6wcfbxfMMMdlyJBNoHL6hLLiz4uQ7Q/Bl13IRJl7Vw9SSYai
-   szcbiEPKSEiQmGpx/9Mx6qZSDcHAhfe0uYdKZ5WvSK85pRS6ExIl2r521
-   AMXM/eDaoYElAsjA8rEcqhGmvt2GZE3/sU0eoPuFw74u1JFyoNavXXpxO
-   QgH8ZU07teermfi6Dax5Zy82w73NttBCFIwZLm4BI+GA+J1mTgMzOtLHR
-   djyXkRRVQWsncWHDNvgT/2qhDGhGSxzxGDGYFnK92iNArXnS4COdAc9PS
-   MozqI04I0HiWw57VtqGygK/+007yG7hQAvAeUnq2HYe/BBEdtt72Sakvr
-   Q==;
-X-CSE-ConnectionGUID: pcdSTMeuRnSE31yr8VxFMg==
-X-CSE-MsgGUID: FxVK4bt3R8Gze5oJW+pZXQ==
-X-IPAS-Result: =?us-ascii?q?A0AaAABDNP5q/5L/Ja1aHAEBAQEBAQcBARIBAQQEAQGBf?=
- =?us-ascii?q?AcBAQsBglaBVUNJhFeIG4c4giGeK4F+DwEBAQ9RBAEBhQUCjiACJjQJDgECB?=
- =?us-ascii?q?AMCAwEBAQEBAQEBAQEBAQoBAQUBAQECAQcFgQ4ThlyQEwIBAyMEUhAlAiYCA?=
- =?us-ascii?q?kUBEAYBEoMCgnUDuV16fzOBAYR+2UuBaAELFAGBCi4BhXOCbgGBcYQIO4RCJ?=
- =?us-ascii?q?xuBSUSBFYNqgQUBgxmEAIJqBIIiehKYPwk/gQIcA1ksAVUTDQoLBwVjUjMDI?=
- =?us-ascii?q?AoLEhIYFQIUHRIPBBYyHXAMJxIpFy9YGwYFgRxzFAQTgRKBA12BKyhdASGBC?=
- =?us-ascii?q?IF2AoJRggACAUlBDgdFUwklQxJHJCIIEgkBExosCoEaNTwJJj8VDGcIAxoFQ?=
- =?us-ascii?q?AIfCAINDHQ5EDAeJC8FGiY+GwqBDCcfHhsOAgoYDUgRLBQjBg8ZBD0BbgeTS?=
- =?us-ascii?q?4MYgQQLJSZhAYEAMJcnjV5roRGEK4FooBAzl2qTCJkII6NoUIRqgWg8gVkzG?=
- =?us-ascii?q?ggbFYMiUxkPji4LC5MdAb0AJjI9AQEHAgcOAwuBaJARgW0BAQ?=
-IronPort-Data: A9a23:+rx+yqDHXJC2shVW//viw5YqxClBgxIJ4kV8jS/XYbTApDgn0TAGn
- DYbXm6PbKmNMGv0LYxxYIS0/ElS7JbSyNBqOVdlrnsFo1CmBibm6XV1Cm+qYkt+++WaFBoPA
- /02M4eGcYZsCC+G+39BC5C5xVFkz6aEW7HgP+DNPyF1VGdMRTwo4f5Zs7ZRbrVA357jXGthh
- fuo+5eBYQb8i2YvWo4pw/vrRC1H7ayaVAww5jTSVdgT1HfCmn8cCo4oJK3ZBxPQXolOE+emc
- P3Ixbe/83mx109F5gSNy+uTnuUiG9Y+DCDW4pZkc/HKbitq+kTe5p0G2M80Mi+7vdkmc+dZk
- 72hvbToIesg0zaldO41C3G0GAkmVUFKFSOuzXWX6aSuI0P6n3TE2/5iN30TMJAi/N1aWjhf7
- 6wmOB4oYUXW7w626OrTpuhEnM8vKozveYgYoHwllWCfBvc9SpeFSKLPjTNa9G5v3YYVQrCEO
- pdfMGYxBPjDS0Un1lM/E5sinfyohXnXeDxDo1XTrq0yi4TW5FEtgOiyaYOPILRmQ+17jni7+
- mjapF6pLQMXadu99nmdwEKV07qncSTTHdh6+KeD3vJjnlCW7mAaFhATUVy1vb+/h1LWc99TN
- kkd6Ccyhas/7kqmSp/6RRLQiH6DpBsHc9ldCes37EeK0KW8ywWEDGEsTTNbbtEi8sgsSlQC3
- 1mFhd72RjpirLGYV1qZ67GS6ziyUQANJGUPYy4sVwYJ49D/5oo0i3rnStdlDb7wjdDvHzz06
- y6FoTJ4hLgJi8MPkaKh8jjvhT+wqpXXZhA66x+RXW+/6A59Iom/aOSVBUPz9/1MKsOdC1KGp
- nVBw5nY5+EVBpbLnyuIKAkQIIyUCz++GGW0qTZS81MJrlxBJ1bLkVhs3QxD
-IronPort-HdrOrdr: A9a23:OV+OIK0+QuK/mJYfoEVf7wqjBGMkLtp133Aq2lEZdPU1SL38qy
- nKppkmPHDP5Ar5NEtOpTn4AtjnfZqEz+8T3WBzB8bBYOCFgguVxehZhOOJ/9SHIUPDH4VmpM
- RdmsZFaeEYOmIK6frS0U2bD9In+9WJmZrCuQ4H9QYRceixUdAa0+6lMHfjLqSrfng9OXPmLu
- vh2iIpzwDQAUgqUg==
-X-Talos-CUID: =?us-ascii?q?9a23=3AKX7Ismoag957vyH9Otfi8u/mUdgufkbh6XrNGUm?=
- =?us-ascii?q?DJD0wWafFd0++3awxxg=3D=3D?=
-X-Talos-MUID: 9a23:KkZItAQu7dIHIZHMRXTClA9BaM10uJ7+J1IAzJIkhIqcBxxJbmI=
-X-IronPort-Anti-Spam-Filtered: true
-X-IronPort-AV: E=Sophos;i="6.27,220,1787011200"; 
-   d="scan'208";a="548871122"
-Received: from rcdn-l-core-09.cisco.com ([173.37.255.146])
-  by rcdn-iport-1.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 18 Nov 2026 23:32:42 +0000
-Received: from [127.0.0.1] (unknown [10.25.129.52])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by rcdn-l-core-09.cisco.com (Postfix) with ESMTPS id A39E11800058D;
-	Wed, 18 Nov 2026 23:32:41 +0000 (GMT)
-From: Satish Kharat <satishkh@cisco.com>
-Date: Wed, 18 Nov 2026 15:32:28 -0800
-Subject: [PATCH net-next v3 2/6] enic: serialize V2 VF mailbox requests
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TSnNu+2k
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wcrf/JZ7y9vuPTqWqlO5sq1qIYU9VMvRbu48Y6RYuvp8oPEnYHo5+oqYpMbYWa7jnhUHafPsDF4MoIqcQs+5xlLWvzZr3x2aH7lOoJACYiewJXhsV+aZR8+MLIb0RRSSgQlfsPWuQ7dQrsliNDh/n9P+MS9wack1K/SFW0aRSztc2IEBqeTM8YxWraZvyzbK+gFtcvfRIaEFSRIv+uiroDrQM8z6HpJcUAvZnYXmU+LITcQHmm32oJXMGHqLRaJTjVuWDAlLr54jvb2x6qWS6NOPka1JmfhX3Da3jL6Zbaybl+VCxa4Fger5AzPVM7M7R1iz6psNeiz5gaqfkvlSLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NH99dfoG6hKdTlQnZB+tmXtdz76WkigJYBvld/rezs8=;
+ b=GZde3WWBhNWr4MRMiUAGHV7EHuxabGdNivxKKHFs9kqcOglCwfvJ+BOW4tlnveITIc37FmBRFF87DgJFgNk6O8oJ4gAZjtV8Jfrlp/HsM8+TJK4w8k/aHw++Yi7ftNMg+EAYSl8Ua6KAwzqaEPeB+g8Kbw+XB5U3cyeTlIRpwGZ09f2VBSqyot3JYB8hHb1DM3KtTqVartGgyjlAebY32/CN8cAFN/E0pKkzvm0fwb34oELY+2BSNHVgUmnvQPzIYEvpzvrWE/EOWZPTt1AfKLlz22vrkYfSptCre4Ag95b0b3+KMvg6i8UCYbhHQP8TxeNZoJiKfU92rEkhMpX4KQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NH99dfoG6hKdTlQnZB+tmXtdz76WkigJYBvld/rezs8=;
+ b=TSnNu+2kwkcLrWat3SxEaL/D6ml8OwMnRqwwB++H1JZBTrOtMQRnDbQwWydoB0Ew+QBQTtdIg1gmEEyi+2Lb/yXyMzMb0cOw1aRA5eFqLJI9SwUA7JMmnbUYPS9r4mdijAdTmNr+J7oE00gq1Ac0dqZhNrCaKaiO1Nor/2ZnR1I=
+Received: from CH5P220CA0012.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:1ef::24)
+ by MW4PR12MB7240.namprd12.prod.outlook.com (2603:10b6:303:226::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 23:32:43 +0000
+Received: from CH3PEPF00024580.namprd04.prod.outlook.com
+ (2603:10b6:610:1ef:cafe::c) by CH5P220CA0012.outlook.office365.com
+ (2603:10b6:610:1ef::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
+ 18 Nov 2026 23:32:42 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH3PEPF00024580.mail.protection.outlook.com (10.167.252.26) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:42 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 17:32:42 -0600
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 17:32:42 -0600
+Received: from xsjgregoryw50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Wed, 18 Nov 2026 17:32:41 -0600
+From: Gregory Williams <gregory.williams@amd.com>
+To: Oded Gabbay <ogabbay@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>
+Subject: [PATCH 15/15] accel/amd-ai-engine: Add reset operations
+Date: Wed, 18 Nov 2026 15:32:11 -0800
+Message-ID: <20261118233211.4121361-16-gregory.williams@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261118233211.4121361-1-gregory.williams@amd.com>
+References: <20261118233211.4121361-1-gregory.williams@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,180 +112,553 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-2-2cb25677aa8c@cisco.com>
-References: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com>
-In-Reply-To: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sesidhar Baddela <sebaddel@cisco.com>, 
- Aravind Dhanasekaran <aradhana@cisco.com>, 
- Reese Faucette <rfaucett@cisco.com>, Satish Kharat <satishkh@cisco.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795044758; l=4983;
- i=satishkh@cisco.com; h=from:subject:message-id;
- bh=Bhh39nQ+XKPYFCjwldn/uaiiPhrPCpAKC/twJCjBrg0=;
- b=EllvTNJjhXSP+phcHscJoPEk/yVopBjJdyJAH4WE3pd15m9sUauNJn+u75Ti13ysMx1xecoIa
- SEcVxI2LhNDAwayuNGPzq5rO1ItQ1gn9n5KHY7VZDrptSPpKdQtTrYh
-X-Developer-Key: i=satishkh@cisco.com; a=ed25519;
- pk=4BxbLoCGvHeIMH/PbpiNVx8/2IcTjFvqcr0AD8K6WLY=
-X-Outbound-Client-TLS: ANONYMOUS;unknown [10.25.129.52];TLSv1.3;TLS_AES_256_GCM_SHA384;256
-X-Outbound-SMTP-Client: 10.25.129.52, [10.25.129.52]
-X-Outbound-Node: rcdn-l-core-09.cisco.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00024580:EE_|MW4PR12MB7240:EE_
+X-MS-Office365-Filtering-Correlation-Id: 649d40e1-250f-4281-b404-08df45cc3e33
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|261102123227099003|10067099003|261021121427099003|56012099006|11063799006|261021123027099003|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261102130727099003|261022075727099003|261009223027099003|22082099003|6133799003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	GPsCY12bU7T+s9T1qmgZY+c6YaOBL2eoX/sUP6/EjIEChCSWew7nve7FJe1rD4jeIVNFChygitrvcP7mL89py4BkVNzIpMfpc507xFD2QCoSjPps3yLe2Kw3JsRMydD3lZy+tPkYlAL/0Rn/aYaQCpVXdTc1Ct6EuK3OXg/YIlflFEksvMfNhV0VL5I7PtT0eBmzGxFdHEln6gEXKw1Ze97ukicIcCDuO6F0EHHnblsUyAHIW3onJs2zN/RpUsWCzb9QhZAS9GusAflJFG78MsENGsOb4Sl1dSK6BQAKJzhPRpL86AuWSHaAogr5+wSN0uDjEm+u5YeKUnAB2FDBh5UE4zPUBElWvHoHQ5BkQVeCXoi5YJxsX5q5aXmW66VIfc5hPk5DcCs6WtXc0LsgcO2d6i4yqEpLH2+Vc7y5xfi/XDx460LZtSVaqL0Bi2SU9H6bmyoKQcu0Y6+GzOPS6TKuO9C5GdZtGI0DIXCe0HSw3Or5QxguFXZu2QT/drFdsgD4jraBWx8C4PtbkF+EHKARTDh0DVHpQDhTvqPJosuvlwbLuPM40v/SoiQpFslukCvhfIm2PiFlY2i1qu7ysFHjO7a4gNeUWCkaXPdWDoeJZ2bF3QTAVeqfhaK3p9t2zkmw3gtUzpABu+lE2U//nrzwBu0oNqHjGTDUyh4wzvAF/JWkeYCrpn0dsPkGC58w6oLnEkoOBAUuWejWCQGBWg==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(261102123227099003)(10067099003)(261021121427099003)(56012099006)(11063799006)(261021123027099003)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261102130727099003)(261022075727099003)(261009223027099003)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	hzsk1rzLQ6cfBm5uKkGLFv579idOVSme4GUWxB0gEBTXCiRM32RWtW102OO4YHOl/jEMvM0m6tFEpk+Xh05ZsmcIsS1tpQ5FvgJmqBasUqpwq6B2NKm3JJU5QsguTzvkdwx62TbGKtaPcrSg+DdjhKSGIyzIipNRnCC++nDeNsZvq75HAA1Aw2JLxF3HbbAjAzyiImVL1UioP6MtYb+q6rL2mtmuLHD4FxnJSlI7D+fwstBp9G+ndl/C9LEybQe2KELvhzW8t6fDHb7Jfofq2qml0B3N9PDqUOnqI4vnzA9iZZf6D4HKqyAoFsY/+QnnmW9eJyIM2gRYJ9SOik9vEX/OPOfIxES0/4qUxmhQs3buC5RiUQR5XUYHyygJoEMrLOzJvr2TOiDQl1fruyVYYf1kVKz1a0K98iADy2d7sqoskqXks/Qm+qr0dkx4c8Nl
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:42.8576
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 649d40e1-250f-4281-b404-08df45cc3e33
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH3PEPF00024580.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7240
 
-The VF stores one expected reply and uses one completion for mailbox
-requests. If two VF control paths issue requests at the same time, the
-second request can replace the reply state for the first.
+Add reset operations partition initialize/teardown.
+aie_partition_initialize should be called before application start,
+aie_partition_teardown should be called after application has finished.
 
-Add a request mutex used only by the VF. Hold it from before a request is
-armed until its reply or timeout has been consumed. Recheck VF registration
-after taking the mutex and clear pending state on send failure so a later
-request cannot inherit it.
+Initialize will reset the device configuration, clear memories, enable
+clocks of used tiles, configure hardware error reporting and NMUs, and
+will enable ECC scrubbing.
 
-PF-side request processing is unchanged. Unsolicited PF notifications and
-their acknowledgments remain asynchronous.
+Teardown will clear tile memories and disable tile clocks.
 
-Assisted-by: LLM
-
-Signed-off-by: Satish Kharat <satishkh@cisco.com>
+Signed-off-by: Gregory Williams <gregory.williams@amd.com>
 ---
- drivers/net/ethernet/cisco/enic/enic.h      |  1 +
- drivers/net/ethernet/cisco/enic/enic_mbox.c | 49 +++++++++++++++++++++++++++--
- 2 files changed, 47 insertions(+), 3 deletions(-)
+ drivers/accel/amd-ai-engine/Makefile          |   3 +-
+ .../accel/amd-ai-engine/ai-engine-aiemlv2.c   | 244 ++++++++++++++++++
+ .../accel/amd-ai-engine/ai-engine-internal.h  |   8 +
+ drivers/accel/amd-ai-engine/ai-engine-part.c  |  32 +++
+ drivers/accel/amd-ai-engine/ai-engine-res.c   |  16 ++
+ drivers/accel/amd-ai-engine/ai-engine-reset.c |  69 +++++
+ include/linux/amd-ai-engine.h                 |  16 ++
+ 7 files changed, 387 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/accel/amd-ai-engine/ai-engine-reset.c
 
-diff --git a/drivers/net/ethernet/cisco/enic/enic.h b/drivers/net/ethernet/cisco/enic/enic.h
-index a4f9f58c1adf..15f17019c076 100644
---- a/drivers/net/ethernet/cisco/enic/enic.h
-+++ b/drivers/net/ethernet/cisco/enic/enic.h
-@@ -344,6 +344,7 @@ struct enic {
- 	 * the requester.
- 	 */
- 	struct completion mbox_comp;
-+	struct mutex vf_mbox_request_lock; /* serializes VF request lifetimes */
- 	spinlock_t mbox_state_lock;	/* protects expected reply state */
- 	u64 mbox_expected_msg_num;
- 	u8 mbox_expected_reply;
-diff --git a/drivers/net/ethernet/cisco/enic/enic_mbox.c b/drivers/net/ethernet/cisco/enic/enic_mbox.c
-index a1f8138d0bbd..d1b6f13c8002 100644
---- a/drivers/net/ethernet/cisco/enic/enic_mbox.c
-+++ b/drivers/net/ethernet/cisco/enic/enic_mbox.c
-@@ -226,6 +226,32 @@ static int enic_mbox_wait_reply(struct enic *enic, unsigned long timeout_ms)
- 	return err;
+diff --git a/drivers/accel/amd-ai-engine/Makefile b/drivers/accel/amd-ai-engine/Makefile
+index c6d090257d6e..d5b6ccde0a35 100644
+--- a/drivers/accel/amd-ai-engine/Makefile
++++ b/drivers/accel/amd-ai-engine/Makefile
+@@ -10,4 +10,5 @@ amd-aie-$(CONFIG_DRM_ACCEL_AMDAIE) := \
+ 	ai-engine-clock.o	\
+ 	ai-engine-part.o	\
+ 	ai-engine-pm.o		\
+-	ai-engine-res.o
++	ai-engine-res.o		\
++	ai-engine-reset.o
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c b/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c
+index 26dd1d726bfa..910a9bda2305 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c
++++ b/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c
+@@ -16,12 +16,16 @@
+ /*
+  * Register offsets
+  */
++#define AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_REGOFF	0x00002120U
+ #define AIEMLV2_SHIMPL_COLCLOCK_CTRL_REGOFF		0x0007FF20U
++#define AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_REGOFF	0x000C0024U
+ 
+ /*
+  * Register masks
+  */
++#define AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_MASK		BIT(0)
+ #define AIEMLV2_SHIMPL_COLCLOCK_CTRL_MASK		GENMASK(1, 0)
++#define AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_MASK		GENMASK(1, 0)
+ 
+ static u32 aiemlv2_get_tile_type(struct aie_device *adev, struct aie_location *loc)
+ {
+@@ -173,10 +177,250 @@ static int aiemlv2_set_part_clocks(struct aie_partition *apart)
+ 	return aie_part_pm_ops_flush(apart);
  }
  
-+static void enic_mbox_vf_request_start(struct enic *enic)
++static int aiemlv2_maskpoll_uc_outstanding_aximm_txn(struct aie_partition *apart)
 +{
-+	mutex_lock(&enic->vf_mbox_request_lock);
-+	reinit_completion(&enic->mbox_comp);
-+	spin_lock_bh(&enic->mbox_state_lock);
-+	enic->mbox_expected_msg_num = 0;
-+	enic->mbox_expected_reply = 0;
-+	spin_unlock_bh(&enic->mbox_state_lock);
-+}
++	u32 end_col = apart->range.start.col + apart->range.size.col;
++	struct aie_location loc = {.row = 0};
++	int ret = 0;
++	u32 regoff;
 +
-+static void enic_mbox_vf_request_abort(struct enic *enic)
-+{
-+	lockdep_assert_held(&enic->vf_mbox_request_lock);
-+	spin_lock_bh(&enic->mbox_state_lock);
-+	enic->mbox_expected_reply = 0;
-+	enic->mbox_expected_msg_num = 0;
-+	spin_unlock_bh(&enic->mbox_state_lock);
-+	mutex_unlock(&enic->vf_mbox_request_lock);
-+}
-+
-+static void enic_mbox_vf_request_finish(struct enic *enic)
-+{
-+	lockdep_assert_held(&enic->vf_mbox_request_lock);
-+	mutex_unlock(&enic->vf_mbox_request_lock);
-+}
-+
- int enic_mbox_send_link_state(struct enic *enic, u16 vf_id, u32 link_state)
- {
- 	struct enic_mbox_pf_link_state_notif_msg notif = {};
-@@ -631,6 +657,7 @@ int enic_mbox_vf_capability_check(struct enic *enic)
- 	u32 version;
- 	int err;
- 
-+	enic_mbox_vf_request_start(enic);
- 	WRITE_ONCE(enic->pf_cap_version, 0);
- 	req.version = cpu_to_le32(ENIC_MBOX_CAP_VERSION_1);
- 
-@@ -638,11 +665,14 @@ int enic_mbox_vf_capability_check(struct enic *enic)
- 					ENIC_MBOX_VF_CAPABILITY_REQUEST,
- 					ENIC_MBOX_VF_CAPABILITY_REPLY,
- 					&req, sizeof(req));
--	if (err)
-+	if (err) {
-+		enic_mbox_vf_request_abort(enic);
- 		return err;
++	for (loc.col = apart->range.start.col; loc.col < end_col; loc.col++) {
++		regoff = aie_cal_regoff(apart->adev, loc,
++					AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_REGOFF);
++		ret = aie_part_maskpoll_register(apart, regoff, 0x0,
++						 AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_MASK,
++						 2000000);
++		if (ret < 0) {
++			dev_err(&apart->dev,
++				"failed due to outstanding UC AXIMM transactions!\n");
++			return ret;
++		}
 +	}
- 
- 	err = enic_mbox_wait_reply(enic, 3000);
- 	version = READ_ONCE(enic->pf_cap_version);
-+	enic_mbox_vf_request_finish(enic);
- 	if (err) {
- 		netdev_warn(enic->netdev,
- 			    "MBOX: no capability reply from PF\n");
-@@ -664,15 +694,19 @@ int enic_mbox_vf_register(struct enic *enic)
- 	bool registered;
- 	int err;
- 
-+	enic_mbox_vf_request_start(enic);
- 	WRITE_ONCE(enic->vf_registered, false);
- 
- 	err = enic_mbox_vf_send_request(enic, ENIC_MBOX_VF_REGISTER_REQUEST,
- 					ENIC_MBOX_VF_REGISTER_REPLY, NULL, 0);
--	if (err)
-+	if (err) {
-+		enic_mbox_vf_request_abort(enic);
- 		return err;
++
++	return 0;
++}
++
++static int aiemlv2_maskpoll_noc_outstanding_aximm_txn(struct aie_partition *apart)
++{
++	u32 end_col = apart->range.start.col + apart->range.size.col;
++	struct aie_location loc = {.row = 0};
++	int ret = 0;
++	u32 regoff;
++
++	for (loc.col = apart->range.start.col; loc.col < end_col; loc.col++) {
++		regoff = aie_cal_regoff(apart->adev, loc,
++					AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_REGOFF);
++		ret = aie_part_maskpoll_register(apart, regoff, 0x0,
++						 AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_MASK,
++						 2000000);
++		if (ret < 0) {
++			dev_err(&apart->dev,
++				"failed due to outstanding NoC AXIMM transactions!\n");
++			return ret;
++		}
 +	}
++
++	return 0;
++}
++
++static int aiemlv2_part_init(struct aie_partition *apart,
++			     struct aie_partition_init_args *args)
++{
++	u32 opts;
++	int ret;
++
++	mutex_lock(&apart->mlock);
++	opts = AIE_PART_INIT_OPT_ENB_UC_DMA_PAUSE | AIE_PART_INIT_OPT_ENB_NOC_DMA_PAUSE;
++	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 1);
++	if (ret)
++		goto out;
++
++	ret = aiemlv2_maskpoll_noc_outstanding_aximm_txn(apart);
++	if (ret)
++		goto out;
++
++	ret = aiemlv2_maskpoll_uc_outstanding_aximm_txn(apart);
++	if (ret)
++		goto out;
++
++	aie_resource_clear_all(&apart->tiles_inuse);
++	aie_resource_clear_all(&apart->cores_clk_state);
++
++	/* First lets send non-data aie_op_type_len ops */
++	opts = 0;
++	/* This operation will do first 4 steps of sequence */
++	opts |= (args->init_opts & AIE_PART_INIT_OPT_COLUMN_RST);
++	opts |= (args->init_opts & AIE_PART_INIT_OPT_SHIM_RST);
++	opts |= (args->init_opts & AIE_PART_INIT_OPT_BLOCK_NOCAXIMMERR);
++	opts |= (args->init_opts & AIE_PART_INIT_OPT_ENB_COLCLK_BUFF);
++
++	/*
++	 * push opts to pm and flush, these ops need to be completed before we
++	 * call the next ones
++	 */
++	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 1);
++	if (ret) {
++		dev_err(&apart->dev, "pm ops: 0x%x failed: %d\n", opts, ret);
++		goto out;
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_ZEROIZEMEM) {
++		opts |= AIE_PART_INIT_OPT_ZEROIZEMEM;
++		ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_ZEROIZEMEM,
++				      apart->range, 1);
++		if (ret)
++			goto out;
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_UC_ZEROIZATION) {
++		u16 data = 0x6;
++
++		opts |= AIE_PART_INIT_OPT_UC_ZEROIZATION;
++		ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_UC_ZEROIZATION,
++				      apart->range, 1);
++		if (ret)
++			goto out;
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_NMU_CONFIG) {
++		struct aie_range range = {0};
++
++		opts |= AIE_PART_INIT_OPT_NMU_CONFIG;
++		if (apart->range.start.col == 0) {
++			range.size.col = 2;
++			ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_NMU_CONFIG,
++					      range, 0);
++			if (ret)
++				goto out;
++		}
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_HW_ERR_INT) {
++		u16 data = 0;
++
++		opts |= AIE_PART_INIT_OPT_HW_ERR_INT;
++		ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_HW_ERR_INT,
++				      apart->range, 0);
++		if (ret)
++			goto out;
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_HW_ERR_MASK) {
++		u16 data = 0x2;
++
++		opts |= AIE_PART_INIT_OPT_HW_ERR_MASK;
++		ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_HW_ERR_MASK,
++				      apart->range, 0);
++		if (ret)
++			goto out;
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_SET_ECC_SCRUB_PERIOD) {
++		u16 data;
++
++		if (args->ecc_scrub > U16_MAX) {
++			ret = -EINVAL;
++			goto out;
++		}
++
++		data = args->ecc_scrub;
++		opts |= AIE_PART_INIT_OPT_SET_ECC_SCRUB_PERIOD;
++		ret = aie_part_pm_ops(apart, &data,
++				      AIE_PART_INIT_OPT_SET_ECC_SCRUB_PERIOD,
++				      apart->range, 0);
++		if (ret)
++			goto out;
++	}
++
++	if (args->init_opts & AIE_PART_INIT_OPT_UC_ENB_MEM_PRIV) {
++		opts |= AIE_PART_INIT_OPT_UC_ENB_MEM_PRIV;
++
++		ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_UC_ENB_MEM_PRIV,
++				      apart->range, 0);
++		if (ret)
++			goto out;
++	}
++
++	/* Request tile locations */
++	ret = aie_part_request_tiles(apart, args->num_tiles, args->locs);
++	if (ret)
++		goto out;
++
++	if (args->init_opts & AIE_PART_INIT_OPT_DIS_TLAST_ERROR) {
++		u16 data = 0;
++
++		opts |= AIE_PART_INIT_OPT_DIS_TLAST_ERROR;
++		ret = aie_part_pm_ops(apart, &data,
++				      AIE_PART_INIT_OPT_DIS_TLAST_ERROR,
++				      apart->range, 1);
++		if (ret)
++			goto out;
++	}
++
++	if (opts != args->init_opts)
++		dev_warn(&apart->dev, "Invalid init_opts: 0x%x\n", opts ^ args->init_opts);
++
++out:
++	mutex_unlock(&apart->mlock);
++	return ret;
++}
++
++static int aiemlv2_part_teardown(struct aie_partition *apart)
++{
++	u32 opts;
++	u16 data;
++	int ret;
++
++	mutex_lock(&apart->mlock);
++
++	opts = AIE_PART_INIT_OPT_ENB_UC_DMA_PAUSE | AIE_PART_INIT_OPT_ENB_NOC_DMA_PAUSE;
++	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 1);
++	if (ret)
++		goto out;
++
++	ret = aiemlv2_maskpoll_noc_outstanding_aximm_txn(apart);
++	if (ret)
++		goto out;
++
++	ret = aiemlv2_maskpoll_uc_outstanding_aximm_txn(apart);
++	if (ret)
++		goto out;
++
++	opts = AIE_PART_INIT_OPT_COLUMN_RST |
++	       AIE_PART_INIT_OPT_SHIM_RST |
++	       AIE_PART_INIT_OPT_ZEROIZEMEM;
++	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 0);
++	if (ret)
++		goto out;
++
++	/* Zeroizes the uc-DM and uc shared DM */
++	data = 0x6;
++	ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_UC_ZEROIZATION, apart->range, 1);
++	if (ret)
++		goto out;
++	ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_DIS_COLCLK_BUFF, apart->range, 0);
++	if (ret)
++		goto out;
++	ret = aie_part_pm_ops_flush(apart);
++	if (ret)
++		goto out;
++
++	/* Clear resources */
++	aie_resource_clear_all(&apart->tiles_inuse);
++	aie_resource_clear_all(&apart->cores_clk_state);
++
++out:
++	mutex_unlock(&apart->mlock);
++
++	return ret;
++}
++
+ static const struct aie_tile_operations aiemlv2_ops = {
+ 	.get_tile_type = aiemlv2_get_tile_type,
+ 	.scan_part_clocks = aiemlv2_scan_part_clocks,
+ 	.set_part_clocks = aiemlv2_set_part_clocks,
++	.part_init = aiemlv2_part_init,
++	.part_teardown = aiemlv2_part_teardown,
+ };
  
- 	err = enic_mbox_wait_reply(enic, 3000);
- 	registered = READ_ONCE(enic->vf_registered);
-+	enic_mbox_vf_request_finish(enic);
- 	if (err) {
- 		netdev_warn(enic->netdev,
- 			    "MBOX: VF registration with PF timed out\n");
-@@ -692,16 +726,24 @@ int enic_mbox_vf_unregister(struct enic *enic)
+ /**
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-internal.h b/drivers/accel/amd-ai-engine/ai-engine-internal.h
+index 572476c97aad..64691223ff9c 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-internal.h
++++ b/drivers/accel/amd-ai-engine/ai-engine-internal.h
+@@ -49,6 +49,8 @@ struct aie_partition;
+  *		     caller to apply partition lock before calling this
+  *		     function. The caller function will need to set the bitmap
+  *		     on which tiles are required to be clocked on.
++ * @part_init: initialize partition with user options.
++ * @part_teardown: teardown partition
+  * Different AI engine device version has its own device
+  * operation.
+  */
+@@ -56,6 +58,9 @@ struct aie_tile_operations {
+ 	u32 (*get_tile_type)(struct aie_device *adev, struct aie_location *loc);
+ 	int (*scan_part_clocks)(struct aie_partition *apart);
+ 	int (*set_part_clocks)(struct aie_partition *apart);
++	int (*part_init)(struct aie_partition *apart,
++			 struct aie_partition_init_args *args);
++	int (*part_teardown)(struct aie_partition *apart);
+ };
  
- 	if (!READ_ONCE(enic->vf_registered))
- 		return 0;
-+	enic_mbox_vf_request_start(enic);
-+	if (!READ_ONCE(enic->vf_registered)) {
-+		enic_mbox_vf_request_finish(enic);
+ /**
+@@ -360,10 +365,13 @@ int aie_resource_get_region(struct aie_resource *res, u32 start,
+ void aie_resource_put_region(struct aie_resource *res, int start, u32 count);
+ int aie_resource_set(struct aie_resource *res, u32 start, u32 count);
+ int aie_resource_clear(struct aie_resource *res, u32 start, u32 count);
++int aie_resource_clear_all(struct aie_resource *res);
+ bool aie_resource_testbit(struct aie_resource *res, u32 bit);
+ int aie_part_pm_ops_create(struct aie_partition *apart);
+ void aie_part_pm_ops_destroy(struct aie_partition *apart);
+ int aie_part_pm_ops_flush(struct aie_partition *apart);
+ int aie_part_pm_ops(struct aie_partition *apart, void *data, u32 type,
+ 		    struct aie_range range, bool flush);
++int aie_part_maskpoll_register(struct aie_partition *apart, u32 offset, u32 data,
++			       u32 mask, u32 timeout);
+ #endif /* AIE_INTERNAL_H */
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-part.c b/drivers/accel/amd-ai-engine/ai-engine-part.c
+index 35451d1ed88a..2cd93c02246e 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-part.c
++++ b/drivers/accel/amd-ai-engine/ai-engine-part.c
+@@ -6,6 +6,7 @@
+  */
+ 
+ #include <linux/amd-ai-engine.h>
++#include <linux/delay.h>
+ #include <linux/device.h>
+ #include <linux/list.h>
+ #include <linux/mutex.h>
+@@ -106,3 +107,34 @@ struct aie_partition *aie_part_create(struct aie_device *adev,
+ 	device_unregister(&apart->dev);
+ 	return ERR_PTR(ret);
+ }
++
++/**
++ * aie_part_maskpoll_register() - Mask polls an address for a data in a partition.
++ * @apart: AI engine partition.
++ * @offset: AI engine register offset.
++ * @data: data to poll.
++ * @mask: if it is non 0, it is mask read.
++ * @timeout: Timeout in microseconds.
++ *
++ * Return: zero for success, or -EBUSY for failure
++ */
++int aie_part_maskpoll_register(struct aie_partition *apart, u32 offset, u32 data,
++			       u32 mask, u32 timeout)
++{
++	u32 usleep_time = 10;
++	u32 value;
++	u32 i;
++
++	for (i = 0; i < timeout; i += usleep_time) {
++		value = readl(apart->adev->base + offset);
++		if ((value & mask) == data)
++			return 0;
++		usleep_range(usleep_time, usleep_time + 10);
++	}
++
++	value = readl(apart->adev->base + offset);
++	if ((value & mask) == data)
 +		return 0;
-+	}
++
++	return -EBUSY;
++}
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-res.c b/drivers/accel/amd-ai-engine/ai-engine-res.c
+index 45b9447d896f..d35c27141cdd 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-res.c
++++ b/drivers/accel/amd-ai-engine/ai-engine-res.c
+@@ -151,6 +151,22 @@ int aie_resource_clear(struct aie_resource *res, u32 start, u32 count)
+ 	return 0;
+ }
  
- 	err = enic_mbox_vf_send_request(enic,
- 					ENIC_MBOX_VF_UNREGISTER_REQUEST,
- 					ENIC_MBOX_VF_UNREGISTER_REPLY,
- 					NULL, 0);
--	if (err)
-+	if (err) {
-+		enic_mbox_vf_request_abort(enic);
- 		return err;
-+	}
++/**
++ * aie_resource_clear_all() - clear all the AI engine resource bits
++ * @res: pointer to AI engine resource
++ * @return: 0 for success and negative value for failure
++ *
++ * This function clears all the bits in the resource.
++ */
++int aie_resource_clear_all(struct aie_resource *res)
++{
++	if (!res || !res->bitmap)
++		return -EINVAL;
++
++	bitmap_clear(res->bitmap, 0, res->total);
++	return 0;
++}
++
+ /**
+  * aie_resource_testbit() - test if a bit is set in a AI engine resource
+  * @res: pointer to AI engine resource
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-reset.c b/drivers/accel/amd-ai-engine/ai-engine-reset.c
+new file mode 100644
+index 000000000000..f34d8d687d0e
+--- /dev/null
++++ b/drivers/accel/amd-ai-engine/ai-engine-reset.c
+@@ -0,0 +1,69 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * AMD AI Engine device driver reset implementation
++ *
++ * Copyright (C) 2025 Advanced Micro Devices, Inc.
++ */
++
++#include <linux/amd-ai-engine.h>
++#include <linux/firmware/xlnx-zynqmp.h>
++#include <linux/io.h>
++#include <linux/mutex.h>
++
++#include "ai-engine-internal.h"
++
++/**
++ * aie_partition_initialize() - AI engine partition initialization
++ * @dev: AI engine partition device
++ * @args: User initialization options
++ *
++ * Return: 0 for success and negative value for failure
++ *
++ * Based on user passed options this function will:
++ * - enable column and shim reset
++ * - ungate all columns
++ * - disable column reset
++ * - zeroize memories
++ * - setup NMU traffic and hardware error reporting
++ */
++int aie_partition_initialize(struct device *dev,
++			     struct aie_partition_init_args *args)
++{
++	struct aie_partition *apart;
++
++	if (!dev || !args)
++		return -EINVAL;
++
++	apart = dev_to_aiepart(dev);
++	if (apart->adev->ops->part_init)
++		return apart->adev->ops->part_init(apart, args);
++
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(aie_partition_initialize);
++
++/**
++ * aie_partition_teardown() - AI engine partition teardown
++ * @dev: AI engine partition device
++ *
++ * Return: 0 for success and negative value for failure
++ *
++ * This function will:
++ * - reset columns and shim
++ * - zeroize memories
++ * - gate all columns
++ */
++int aie_partition_teardown(struct device *dev)
++{
++	struct aie_partition *apart;
++
++	if (!dev)
++		return -EINVAL;
++
++	apart = dev_to_aiepart(dev);
++	if (apart->adev->ops->part_teardown)
++		return apart->adev->ops->part_teardown(apart);
++
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(aie_partition_teardown);
+diff --git a/include/linux/amd-ai-engine.h b/include/linux/amd-ai-engine.h
+index 229434372fc0..95884b782742 100644
+--- a/include/linux/amd-ai-engine.h
++++ b/include/linux/amd-ai-engine.h
+@@ -94,6 +94,22 @@ struct aie_op_handshake_data {
+ 	struct aie_location loc;
+ };
  
- 	err = enic_mbox_wait_reply(enic, 3000);
- 	registered = READ_ONCE(enic->vf_registered);
-+	enic_mbox_vf_request_finish(enic);
- 	if (err)
- 		return err;
- 	if (registered)
-@@ -719,6 +761,7 @@ void enic_mbox_init(struct enic *enic)
- 	 */
- 	if (!reinit) {
- 		mutex_init(&enic->mbox_lock);
-+		mutex_init(&enic->vf_mbox_request_lock);
- 		init_completion(&enic->mbox_comp);
- 		spin_lock_init(&enic->mbox_state_lock);
- 		enic->mbox_msg_num = 0;
-
++/*
++ * struct aie_partition_init_args - AIE partition initialization arguments
++ * @locs: Allocated array of tile locations that will be used
++ * @num_tiles: Number of tiles to use
++ * @init_opts: Partition initialization options
++ * @ecc_scrub: ecc_scrub period.
++ */
++struct aie_partition_init_args {
++	struct aie_location *locs;
++	u32 num_tiles;
++	u32 init_opts;
++	u32 ecc_scrub;
++};
++
+ struct device *aie_partition_request(struct device *dev, struct aie_partition_req *req);
+ void aie_partition_release(struct device *dev);
++int aie_partition_initialize(struct device *dev, struct aie_partition_init_args *args);
++int aie_partition_teardown(struct device *dev);
+ #endif
 -- 
-2.43.0
+2.34.1
 
