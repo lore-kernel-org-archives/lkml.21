@@ -1,103 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.56.165
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794987819;
-	b=bzu/XnlNJ8PcwebDPZbNto+dilcdYAp13rL7tkRBkpw85Gi1ZH5FQFF55QHAmQwXvpW+
-	 A1z8dHORntSKHgSZOmiFUVaASddh7F5vOGS65Xs2ucPmXVuNTZ3ZYq2V/rJ7GDedYljvs
-	 DaSoeZLfUzeY0EAGHGD9ueHWc31QTNZLrzM/g3IrfhtcAeRz/ORj3rx6Va034U4Jc+RS2
-	 81NFpNJU48ftRW929R8uEkFW9i6ing5Wy/8WovCJ8Seh790igRZnbdIcZ0mz/aiLEuSyZ
-	 7NI6Hy4g4WXQKoPzILCaRMio+B/483ceveYYG4fPds1pkGR17KUYr7EtPINBsbrqJ6A==
+	t=1794987820;
+	b=OMRFmRdZKjqUlUDvWx7zsOe1hBxmcnlVrTP8Fun89K8UdvEEFV8jwA3Os110RAABSmVL
+	 PnY7g9dGCuoBkpUgFbyFDK5HYpvXhDLb2qMb/o5bkMbfDlILzeF4PGoRfjyzH8W/jkny9
+	 rdngvZICwbPyAU0iXAPuXSdkfzCkBi7HrkRUuVnsnmYrmB0CZAYd5gGVAxfLODtVsVKeF
+	 9jNyYSxe8wyrDKECBdAaifH/tPu5qO8pz6TghrAVUatGf508OllkrnaRZ4vjHt/AhpeR6
+	 c0c1M/14v9IUizqoTvL6o2QHNeRCmTNPaZM+ri4BgLOhzdJ/aXCRWTD0ph/hbEcvLyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794987819;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
-	 Cc:Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=5tdOi87MUQVrh0lDnm0y5zaT0nPUT+qlg7v5xkEiqMk=;
-	b=Y77l071AeE0+HrJttYAqL7qxo7gbW9M2bhDp5FLh9ShYrAKiMxwwxuuHdM21jo4C5Ivj
-	 ZT8pnlMgzxIKdhgsAEmWDD6pNCqaAuTPOh1LZpZ6asvGtOcy0X6hH4MH8k2U9C5wx1jE8
-	 KyJ/pasQD/G2pJun0xjjU1OvUbu9ukhe4DSZ8WBv2NnHePZ3Rjru+ebvyI+6/GrfoWuY9
-	 l7q1SJqdIh7EsmBIel3OyOxASwbTcRbGUjTtY67E48oPwSbA3YgGpUCvbnMp4WZQSx3FM
-	 80L5Ob0dqaFjU9ke0oyJyCYUby779EGBC1GrV3MYhSOW2Wr7vRgMcKaQJdyBf1QgX2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794987820;
+	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=b737YrD1Vuqp1UqKoujfmzIBpXH+TGHVeB6r5nqOeC8=;
+	b=ZGrJv9uMiulx+my1VzJuAQN/1Mxf0/Zd2r/stJtek1uLOm7Du0mTb+6Adc4btqwMWMht
+	 C23o/3Oy7f9vlrzs09UnCqN7p7IlaOV+afR8Xmjc7pjEmrcBPTz1JnWv4MxQb2btp5CAD
+	 iUqPU+3cjoLuaawLLblSuflb2kIIW8OEJVUGHsD/4Rs79vYxMXWP8ntmK7FrIG8wefEDq
+	 jQb4zett2qJ3WQTNMZ05hy9bJXDNpw28RlAHtnhC0rKIDdppfZ+erC4rVGAqJ4dQojp1j
+	 rVYgZJ1jVv6H3CnJLH96lGTFGYG6cAu0ViBih5PMFE8acUZkqNthWaF4gjHp/6hGhSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lvlw2APD;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=pass header.from=ideco.ru;
+	spf=pass smtp.mailfrom=ideco.ru;
+	dkim=pass header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=OlGon56e;
+	arc=none smtp.remote-ip=51.250.56.165
+Received: from smtp.ideco.ru (smtp.ideco.ru [51.250.56.165])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 885C8606A337;
-	Wed, 18 Nov 2026 07:43:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 885C8606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C405606A32F;
+	Wed, 18 Nov 2026 07:43:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C405606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ideco.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideco.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lvlw2APD
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 0A448C4CBD9;
-	Wed, 18 Nov 2026 07:43:40 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2820E5FFAF;
-	Wed, 18 Nov 2026 07:43:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 77C8D11BC076C;
-	Wed, 18 Nov 2026 08:42:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794987811; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=5tdOi87MUQVrh0lDnm0y5zaT0nPUT+qlg7v5xkEiqMk=;
-	b=lvlw2APDkLOsWdPZXrcTGO0SBvJt5AeVKx0Z42miklOsc8vPctTcjUfLvtwVkHahSrHPLo
-	CGkq45BFyuEH8fedQgM6HJ/XMbau2Rz9aKP/PJ7PtvuBj2hMJXvtJKDgvO7p6Q3pjLfN6i
-	0Ut1+LTYYEyg77hZo16dxZxUGEgStz4MKBFw9hj/2Tiw4koxWXy5yQ8yIHNJQ0YwvKbt02
-	l/18CHS5c8YF9Wb/y9UNTxVZrOZMCPnkOtQCGZPI3/uD2p7Qv4dv6TVs+LHq5iTBVHSMvU
-	434h8Tsq1BRLh2Btis1Fush6eJ7xmbr9hxqVcPbs2tV0AeddsTbxh0K8Mz1lOg==
-Date: Wed, 18 Nov 2026 08:42:46 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Peng Fan <peng.fan@linux.dev>
-Cc: Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
- Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, Andrew
- Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Ryan Chen
- <ryan_chen@aspeedtech.com>, Benjamin Herrenschmidt
- <benh@kernel.crashing.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
- <andrew@codeconstruct.com.au>, Billy Tsai <billy_tsai@aspeedtech.com>, Tan
- Siewert <tan.siewert@9elements.com>, Eddie James <eajames@linux.ibm.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Caleb
- James DeLisle <cjd@cjdns.fr>, Marc Zyngier <maz@kernel.org>, Miodrag Dinic
- <miodrag.dinic@mips.com>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- Vladimir Zapolskiy <vz@mleia.com>, Piotr Wojtaszczyk
- <piotr.wojtaszczyk@timesys.com>, Anup Patel <anup@brainfault.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland
- <samuel.holland@sifive.com>, Qin Jian <qinjian@cqplus1.com>, Changhuang
- Liang <changhuang.liang@starfivetech.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Nishanth Menon <nm@ti.com>, Tero Kristo
- <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, Linus Walleij
- <linusw@kernel.org>, Michal Simek <michal.simek@amd.com>, Anirudha Sarangi
- <anirudha.sarangi@amd.com>, Tushar Nimkar <tushar.nimkar@amd.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-i2c@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-aspeed@lists.ozlabs.org,
- linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
- imx@lists.linux.dev, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-sunxi@lists.linux.dev, git@amd.com, linux-arm-msm@vger.kernel.org,
- Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] irqchip: Convert chained handlers to
- guard_chained_irq()
-Message-ID: <20261118084246.5b5bf203@bootlin.com>
-In-Reply-To: <20261114-irqchip-cleanup-api-v1-1-4a9d598b0bdb@nxp.com>
-References: <20261114-irqchip-cleanup-api-v1-1-4a9d598b0bdb@nxp.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (2048-bit key, unprotected) header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=OlGon56e
+Received: from [169.254.254.254] (localhost [127.0.0.1])
+	by smtp.ideco.ru (Postfix) with ESMTP id E6B1126BC2;
+	Wed, 18 Nov 2026 12:43:36 +0500 (+05)
+Received: from fedora (5cfcd9fa.dynamic.mv.ru [92.252.217.250])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.ideco.ru (Postfix) with ESMTPSA id 6D97826BC0;
+	Wed, 18 Nov 2026 12:43:34 +0500 (+05)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.ideco.ru 6D97826BC0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ideco.ru; s=ics;
+	t=1794987816; bh=b737YrD1Vuqp1UqKoujfmzIBpXH+TGHVeB6r5nqOeC8=;
+	h=From:To:Cc:Subject:Date;
+	b=OlGon56eLuA3hxxuXUg/EEofiMCJVx7s7td7yv5E5/fOSwI40q7kSKBS6mAuBk/Ym
+	 bzkIXrbTes/dmu2fefJvees6SgRgB8FivU+RMqg6tYpLE5vGp3BA0ReEBBwk+d1Ukg
+	 LO7U6FqVg7D92aUWqzu732a/jtuYJ8cN46AuRra6mwMGHmGgH4Qz9w8M9c+ECYT09d
+	 bB+mwT0jeo4BJSDlEFU+6Brc4uvUOiXvHxDfO+s49J6LI0uLt3sVwLpwGx3/BrspqC
+	 ZM2Zz6aJRrKVemyzHA60ZXbClukilCzbzDd+JCSkG70jnaH4MVYwnPB8/IwbHKkGN0
+	 iNQMCzcTUjuCw==
+From: Alex Kazinsky <a.kazinsky@ideco.ru>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>
+Cc: Alex Kazinsky <a.kazinsky@ideco.ru>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Wojciech Drewek <wojciech.drewek@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org,
+	stable@vger.kernel.org
+Subject: [PATCH net] ice: Avoid tracing bridge ports after initialization failure
+Date: Wed, 18 Nov 2026 11:42:59 +0400
+Message-ID: <20261118074324.1583964-1-a.kazinsky@ideco.ru>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,31 +81,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Peng,
+ice_eswitch_br_port_link() traces representor and uplink bridge ports
+before checking whether their initialization succeeded. If allocation
+fails, the port pointer remains NULL. If xa_insert() fails, the cleanup
+path clears the pointer and frees the port.
 
-On Sat, 14 Nov 2026 23:06:15 +0800
-Peng Fan <peng.fan@linux.dev> wrote:
+With the ice_eswitch_br_port_link trace event enabled, its handler
+dereferences the NULL pointer while reading the port fields.
 
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Use the scope-based guard_chained_irq() helper in all chained handlers
-> under drivers/irqchip/ so that chained_irq_exit() is always invoked when
-> the handler returns. Handlers that duplicated the exit call on an error
-> path or jumped to a common exit label simply return now and rely on the
-> guard.
-> 
-> No functional changes.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+Call the tracepoint only after successful port initialization.
 
-For the irq-lan966x-oic driver:
+Found by Linux Verification Center (linuxtesting.org) with SVACE static
+analysis tool.
 
-Reviewed-by: Herve Codina <herve.codina@bootlin.com> # irq-lan966x-oic.c
+Fixes: d129c2a245bf ("ice: add tracepoints for the switchdev bridge")
+Cc: stable@vger.kernel.org
+Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
+---
+ drivers/net/ethernet/intel/ice/ice_eswitch_br.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Best regards,
-Hervé
+diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch_br.c b/drivers/net/ethernet/intel/ice/ice_eswitch_br.c
+index 1d8a6b95ccda..6d07c15ba9d8 100644
+--- a/drivers/net/ethernet/intel/ice/ice_eswitch_br.c
++++ b/drivers/net/ethernet/intel/ice/ice_eswitch_br.c
+@@ -1118,7 +1118,8 @@ ice_eswitch_br_port_link(struct ice_esw_br_offloads *br_offloads,
+ 		struct ice_repr *repr = ice_netdev_to_repr(dev);
+ 
+ 		err = ice_eswitch_br_vf_repr_port_init(bridge, repr);
+-		trace_ice_eswitch_br_port_link(repr->br_port);
++		if (!err)
++			trace_ice_eswitch_br_port_link(repr->br_port);
+ 	} else {
+ 		struct net_device *ice_dev;
+ 		struct ice_pf *pf;
+@@ -1134,7 +1135,8 @@ ice_eswitch_br_port_link(struct ice_esw_br_offloads *br_offloads,
+ 		pf = ice_netdev_to_pf(ice_dev);
+ 
+ 		err = ice_eswitch_br_uplink_port_init(bridge, pf);
+-		trace_ice_eswitch_br_port_link(pf->br_port);
++		if (!err)
++			trace_ice_eswitch_br_port_link(pf->br_port);
+ 	}
+ 	if (err) {
+ 		NL_SET_ERR_MSG_MOD(extack, "Failed to init bridge port");
+-- 
+2.56.0
+
+
