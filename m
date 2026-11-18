@@ -1,57 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795024670;
-	b=cmvDHRkupdWixG6iAYIbkXgR/fBW/uhKpX5qnPhwJGFUI3/+u8LBha3heCNwftJixDe7
-	 eDm9z4sZ5WoziljIg4ZelbHDg4rsOu0JWziLYvYxzoFxW+DZzB6dHR8TAPEhCsOzP2VX8
-	 NLUa8a6CMFXt5lqOP+8Ng0vWQhFFnF5UhWLc/qDcLiuJwJdfVU4Xj7Lr99+iEi4ueRqWz
-	 3/fC9U0qlIwvI/7zV0EpoqZPNAAK7dPzxUN1Xyf/zWbTuQikHuk1wf0XKD9GqCExTrbZJ
-	 FKGcOUNvNL+j5B7h+9eC79xQxL8i9UUPMDnL0VqoIKTenpIU+1i7aBog8bqxD/nNmWQ==
+	t=1795024732;
+	b=3jToEKnLN57U1EkEy9DVli94bWy9Yt2uWvloDZpzyUCEkcaW+qFCSyqwyEOaUzNUbf68
+	 K2Namek3L9fved/UQIM0775+bpfXFBim7h5DzbeNCQTwZjQzIejWjnQsYGXB9uGuI+1Rb
+	 lNOMvPP7hTmgwuxZeFIk/1L2OVBrUVoLAcL/Hxs7e95WR77hlLF88s5jtVVmGJxpS/p7B
+	 O/ozxGSEJNW4AfmRd84iNDLByncZk5ablFsu/3zoHjSRVYDY8HviGuI71dEsAWYUd0VGp
+	 p8C8hhjmltqvxFs9Eg1QPTCSai+UtNSG7cRSTMqOtIbNfu+F2RR17PS2FDFUduI1kCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024670;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TjvxZBNLs4IAKs2sHgik/6GkI9qP0rOwgDWT4BQftP4=;
-	b=A0FGQquRV/Dh++Z7YqF92U5Wqg07ToPCuD7gKKi0bDvEESEehKqvGpO7PKmDbHnq9yTg
-	 5JjO+7Ua5i932G6///oMurqJRk4OY5/H0P3UecQFvG/Jbm0fBRLAIgfT7BbLbDX1hyQqp
-	 mjtwD3lpdmw6QpgLReX+gmiiz8fpQ/4rMTM0uotafCOd/YU5zadakdp6w6SgjDKJb3UU5
-	 o50aNKR9lvpGQ5+g3QGB/2W8xFIk13Tv76nmrhamdkStaZ8gQgyEF1/WIKpM+z26qvgTC
-	 b+waPUkTB67MF+9/If0qTI9NNtV84k29YSBJM9gMttzzaeikBLfYGtN99yKZQB4OjOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024732;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=/aEvVPN2vkIpoOGbqbjwslntOnXXcoUrCbDoxZ9fqIU=;
+	b=sYmGYq9y8zpKnMJFGVATuRNNcHtBL0BJ7Q2eRHqQ2nzCG9LHxsVGmTlYkOAWvoBaRv1u
+	 cXK2w2KSVxSBaxC7+dhVZevFDr/3sCHeBNpGxY9pIVgGkgjwn2V+U4mpUmFMPeOLOxmIR
+	 u8alcARryeU4bTNIM3KhsjdYW82KN3xEQhJlcEZRCeawjlZrAhVMIWYAB7gXfBBWUeNLB
+	 ZyRCJ7u0ZicJWGAMPXnExr8J19bNyrql862n0sTW0BaeqUwJe9OMJ9lUJU5u2YG6vyQ4y
+	 pkFgpW00dMmPk8XlJfn/weZOk2tzhfarCOcKhyidDFkY5lMuXL1c2n/d2q82XjGVJyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VSU/1CQp";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CRFNZv7C;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2605606A325;
-	Wed, 18 Nov 2026 17:57:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEFC0606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:58:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEFC0606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSU/1CQp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1904B1F000C4;
-	Wed, 18 Nov 2026 17:57:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795024670;
-	bh=TjvxZBNLs4IAKs2sHgik/6GkI9qP0rOwgDWT4BQftP4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VSU/1CQpVaae4WTDeso6akOnzqlOgbyXrIfoVx9VKJy6IYQAB6EqWoBKrWN8SfZip
-	 K6Piuj0K4wCXWapaoz5i+Qzr4H1B5vEOPWWK+0FPWB2L33x6BpXknzV7iigX239NoJ
-	 I1wHnXvNUvTPRP2lBG+I4wwuUZDTPTgZ0WKCrY3Ao3fr775dEWYGXcQKR3BXdkRBo5
-	 NjMPHhBq7FLVu/3Doqj9+XgyyhaVbsjc5G9CA3eu2mZdh3MTm/BilhZkhGVU8qB1ia
-	 3xtwpOt5rj2LsRIRl/EHa9MbyMnHwWi2JPic9eMnPFFSi7SC6WebX3pnwuAxB7iRhS
-	 o5/D/P+KOg8wQ==
-Date: Wed, 18 Nov 2026 17:57:46 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Mason Huo <mason.huo@starfivetech.com>
-Cc: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	openipmi-developer@lists.sourceforge.net
-Subject: Re: [PATCH vV 1/2] dt-bindings: ipmi: Convert starfive,kcs-bmc to DT
- schema
-Message-ID: <20261118-repackage-backlight-1bdc5955a8d2@spud>
-References: <20261118062526.1436893-1-mason.huo@starfivetech.com>
- <20261118062526.1436893-2-mason.huo@starfivetech.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CRFNZv7C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795024730;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=/aEvVPN2vkIpoOGbqbjwslntOnXXcoUrCbDoxZ9fqIU=;
+	b=CRFNZv7CxAET3nfMyvvDBROVxxtWrCrK8aamd4AIX+335Zh3J+4CTsplY4FEyfpdZdHoSr
+	b6tL788y24A68xeGBZIg2mrKU2WUhnqYbQKPy8FfGkeMBuQiu08/76x1d+n4ZlpPoCkAbC
+	6XuuY4iCS4yET3bYpYRgShFA2RJ+2YM=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-454-eKEYaacdP5iXcYIWe_UR6A-1; Wed,
+ 18 Nov 2026 12:58:49 -0500
+X-MC-Unique: eKEYaacdP5iXcYIWe_UR6A-1
+X-Mimecast-MFC-AGG-ID: eKEYaacdP5iXcYIWe_UR6A_1795024724
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A7C8C1954B09;
+	Wed, 18 Nov 2026 17:58:42 +0000 (UTC)
+Received: from [100.90.222.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id ED59A18004F5;
+	Wed, 18 Nov 2026 17:58:35 +0000 (UTC)
+Message-ID: <4e4fb011-9171-42c1-b499-27b0333a2fd6@redhat.com>
+Date: Wed, 18 Nov 2026 18:58:33 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,114 +71,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VDEPCKkUm+2GkwGn"
-Content-Disposition: inline
-In-Reply-To: <20261118062526.1436893-2-mason.huo@starfivetech.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/16] KVM: x86: Widen the plane vCPU fd ioctl allowlist
+To: David Woodhouse <dwmw2@infradead.org>, =?UTF-8?B?SsO2cmcgUsO2ZGVs?=
+ <joro@8bytes.org>
+Cc: Sean Christopherson <seanjc@google.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>, ashish.kalra@amd.com,
+ michael.roth@amd.com, nsaenz@amazon.com, anelkz@amazon.de,
+ James.Bottomley@HansenPartnership.com, Melody Wang <huibo.wang@amd.com>,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ x86@kernel.org, coconut-svsm@lists.linux.dev, joerg.roedel@amd.com,
+ Mushahid Hussain <hmushi@amazon.co.uk>,
+ Sriram Nambakam <snambakam@linux.microsoft.com>,
+ David Woodhouse <dwmw@amazon.co.uk>
+References: <20260608144252.351443-1-joro@8bytes.org>
+ <20261111222911.477-1-dwmw2@infradead.org>
+ <20261111222911.477-7-dwmw2@infradead.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Content-Language: en-US
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20261111222911.477-7-dwmw2@infradead.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
---VDEPCKkUm+2GkwGn
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 11/11/26 23:29, David Woodhouse wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
+> 
+> A VMM that puts an initial VTL context on a higher plane cannot finish
+> the job through the plane vCPU's fd. kvm_arch_is_vcpu_plane_ioctl()
+> refuses the ioctls it needs, while the one capability ioctl it does
+> admit, KVM_ENABLE_CAP, reaches *every* vCPU capability handler.
+> 
+>   - KVM_GET/SET_MP_STATE: a plane vCPU for an AP starts in
+>     wait-for-INIT like any non-boot x86 vCPU, and nothing ever sends
+>     INIT/SIPI to the higher plane of an AP. The VMM has to mark it
+>     runnable itself.
+>   - KVM_SET_GUEST_DEBUG: single-step and breakpoints on a non-zero
+>     plane. The debug exits surface through the plane-0 KVM_RUN loop
+>     like any other plane exit.
+>   - KVM_X86_SETUP_MCE: mcg_cap is per vCPU and every twin starts with
+>     the KVM_MAX_MCE_BANKS default, so programming plane 0 alone leaves
+>     the planes disagreeing. Hyper-V shares MCG state across VTLs.
+>   - KVM_ENABLE_CAP: accept only the audited capabilities on a plane fd,
+>     the SynIC pair and the two CPUID-enforcement toggles, which change
+>     state that each twin keeps separately. Anything else gets -EINVAL, as
+>     non-allowlisted ioctls already do. The nested paths behind
+>     enlightened VMCS and direct TLB flush have never been audited for
+>     plane_level > 0, and without the filter any future vCPU cap would
+>     work on planes without anyone having decided that it should.
 
-On Wed, Nov 18, 2026 at 02:25:25PM +0800, Mason Huo wrote:
-> Convert the starfive,kcs-bmc binding to DT schema format.
+Not sure about KVM_ENABLE_CAP, the other seem sane.
 
-This is not a conversion since you are not deleting anything?
+BTW at some point I'll rewrite these commit messages, they're infuriating...
 
->=20
-> Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
-> ---
->  .../bindings/ipmi/starfive,kcs-bmc.yaml       | 53 +++++++++++++++++++
->  1 file changed, 53 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ipmi/starfive,kcs-b=
-mc.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml=
- b/Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
-> new file mode 100644
-> index 000000000000..2cb91d321a32
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
-> @@ -0,0 +1,53 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ipmi/starfive,kcs-bmc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: StarFive BMC KCS Devices
-> +
-> +maintainers:
-> +  - Mason Huo <mason.huo@starfivetech.com>
-> +
-> +description:
-> +  The StarFive BMC SoCs use Keyboard-Controller-Style (KCS) interfaces on
-> +  the eSPI bus for in-band IPMI communication with their host. The KCS
-> +  channels are part of a Super I/O (SIO) block and each channel occupies=
- a
-> +  0x100 byte register window, starting at offset 0x200 of the SIO regist=
-er
-> +  space. A channel is identified by its register offset and the
-> +  "starfive,sio-id" of the parent SIO node.
+Paolo
 
-Where is the binding for the parent SIO node? Hard to review this
-without that I think.
-
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - starfive,jhb100-kcs-bmc
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    items:
-> +      - description: KCS channel interrupt
-> +      - description: eSPI bus reset de-assertion interrupt
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: kcs
-> +      - const: espi_rst
-
-No need to have "rst" since this is a reset by nature ;)
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - interrupt-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    kcs@200 {
-
-s/kcs/ipmi/?
-
-> +        compatible =3D "starfive,jhb100-kcs-bmc";
-> +        reg =3D <0x200 0x100>;
-> +        interrupts =3D <282>, <57>;
-> +        interrupt-names =3D "kcs", "espi_rst";
-> +    };
-> --=20
-> 2.50.1
->=20
-
---VDEPCKkUm+2GkwGn
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3nGgAKCRB4tDGHoIJi
-0lwoAP4oulQaLwNYWO5qXsDGleXSLonXEwJ9eMjq8RxSWj4jZQEA5YrftxDXSi0M
-KWixreLZ35a+s5+Siry/wls+W7trbww=
-=aFXt
------END PGP SIGNATURE-----
-
---VDEPCKkUm+2GkwGn--
