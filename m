@@ -1,47 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015805;
-	b=GIfzwdXuy4EApP4Un8fub/oDEA4gVdqTmU4mZztiRafY9bsYSxFcePE+e0fGNQSKT9bT
-	 lkFdlrcDxwGQ0vpIEIs2zQfcmAdopvOrffGtp7nY7jIYIHaXAaoE4AcMGs0ncP3iuUddB
-	 9JxXTHLGtLm2jUlbuu0KugIwBMgiVFzUzyyGDOhuBGrCLxFFmgwP/E66S4wB/A+WD0EiF
-	 hfTrIYkq1No8M6FkwGCPVKu2kGXPqK5ifAShyh/sAXFghWGBEDBtODMf3w5q3ErtXrSmS
-	 mBHbOU1mbcQUWgnWUpm8d/9BUXMnAA+Yz96R4aLgIznCESnaGO7ApOjWh8YVOG1xRSg==
+	t=1795015811;
+	b=UkbXuhuunHiJnCPFnLxOPop7K4URBT1x4T0LGUewjpLnRXuUp7Pltu3ejTtlTNt5coAF
+	 QDMH7PsCJG9898MnZ22ADgHnIRm/fYp0Ep+coEOo5xfr7dUZ6i8d1ljWwqlOj9phxDd6t
+	 XefY99A97lpPo+1jIVscatc8LQhPzo0VGJ03Hya034X8MgKysmXDvGig/pFmdA/hxImXw
+	 Tf3cORLo7FwGj80kL0sPoJ5CXKGN5Kljoq3adb60j7L5JamsZ+izSJW9Ct0j8RPuWNvKm
+	 /LSJQAyY8aa1YUFoes+53CJQ6dutqYUp9Jo5/AFBnaYIbfGopEIqSObmhiW3eBWE71A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015805;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=VEsG1ygQhHDKkltmP3Oxd/BhfWlhyyMtgVg9fXj6PcU=;
-	b=cZBaYunXRAUumV4SDNaTqjqD4AZog7fzzVnJGLWMTjjQHvYTl/W0XRvR9ZGMqS2/MkEc
-	 SP/j93knO9jkJBNHgcRBggVyfxrHF2A+TquU+S1ZlzNPerEXxUZ5d1acVTSkfeAVJeC8c
-	 qeXoaaVQbqhzaOCE/er0JNmnjM5jYfeDk9W7j4+LQzOZokSP7EMmVK0AXIFwFXvSnHNSL
-	 DQfABkG4oSjF/B4Csm/29CToJ7JsF7Y5zWrb5kKzZnr8TfESTO+RNikwvTrR0Nbhwb9Kk
-	 Ciex3JFVB0EAe0DbucrEVOqxr50wxdgdhAx3U6nJmHjJv/k1tjvGEwi+4DXdEY2Al4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015811;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:Organization:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=pb2DkYgnWmb9+bw97jIJiTPdWJPNRHPP0cb+PUXqyRQ=;
+	b=Cuswle3ojG8WOoDXIKBQM+ct682hynXz89fbUWocVCXHmnhB87nBBQjg/YNM+VP1LRrS
+	 s1m0StGzAes1dnMdfH1VXKn8ZZTF29l71uo5BaZDJ0xmHpMarV9GGSlDyXw7Noux5pTE3
+	 yKs994JkedJaHXyYX313LNb9uPbWBYqx3do4BxigbGKUGngQ9dJPP+47kWKcnADObobQ/
+	 IBMHRP+QHGIIGcyfMhHspB7tqf+kOlDKgJQCtUDqMaA1L3qrjVbM0pnqts7tvF1hc8R1i
+	 Jyu4zGdlnlvBxSHChaCSca2AOgxAzSo5SoAm+Y71JtatgPL3QLZWPXFsxB/O1f8M+9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MqKzVFaf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C68D9606A320;
-	Wed, 18 Nov 2026 15:30:05 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BcWNdAZP;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5ED7E606A31C;
+	Wed, 18 Nov 2026 15:30:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5ED7E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MqKzVFaf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CFD01F000C4;
-	Wed, 18 Nov 2026 15:29:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015805;
-	bh=VEsG1ygQhHDKkltmP3Oxd/BhfWlhyyMtgVg9fXj6PcU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=MqKzVFafR6OEDeMVbQsaqV1MheUR8J3CN38RRFTz32LiysIU0IqJusIZM9drzp9+I
-	 W2/9HdOSxOpNYNvRS7GHtF+HXw84WOGi4Bt24C+/4PSp6wQWNxgheTf1A5QtZhe0AL
-	 Ifg9UgBhse41HvzCQauNfKviiUSjQOV9vhDGKBOFmOM692Cz/UJNlVB6KiWiJj5Hb6
-	 ht7aN0GBe+pIqW3wt/v/dMP7eTyYsNdzur5Z2l8tszMlsaLeAhDwbtOFeOHWwKRihV
-	 n6KCHxT3hePSdmpZGT2H0t+z9+95XPguYFr4drNSS60u/x/X+zbXIUXfdOJKFP26NR
-	 mCenL5kieDxhA==
-Message-ID: <893568b3-1989-44e4-ad7f-65f92f26af2b@kernel.org>
-Date: Wed, 18 Nov 2026 16:29:49 +0100
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=BcWNdAZP
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CF641477;
+	Wed, 18 Nov 2026 07:30:07 -0800 (PST)
+Received: from [10.2.213.11] (unknown [10.2.213.11])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2FB03F632;
+	Wed, 18 Nov 2026 07:30:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795015810; bh=pe0bYMQLHpKIt4goswPEy6JNKEehOuA2ys1dJsrtcB4=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=BcWNdAZPfIauVt3J95yHNQoW8WzeY7FQl0Rfy0Uzx7/YOqT2Fx2uKi70Mps5DtHbo
+	 CKhVXiqqZfeCtl0LJfbCVuT3h2T8LErJ7edGpFIw4zyblTlMUKofqkahLtDrn+wcr8
+	 No4tvr3RE7FbS+OwdcyDTJnmrR326HP4z1/xPvXM=
+Message-ID: <2ce350f9-4dc4-480f-8a53-07ef9586d49b@arm.com>
+Date: Wed, 18 Nov 2026 15:30:06 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,144 +55,89 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/13] mm/migrate_device: don't collect a range twice
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
- Shakeel Butt <shakeel.butt@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Usama Arif <usama.arif@linux.dev>, Kairui Song <kasong@tencent.com>,
- Balbir Singh <balbirs@nvidia.com>, =?UTF-8?B?SsOpcsO0bWUgR2xpc3Nl?=
- <jglisse@redhat.com>, Kiryl Shutsemau <kas@kernel.org>,
- Yu-cheng Yu <yu-cheng.yu@intel.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>,
- Chris Mason <mason@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>,
- Mark Brown <broonie@kernel.org>,
- "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Josef Bacik <josef@toxicpanda.com>, stable@vger.kernel.org
-References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
- <20261113-mason-migrate-et-al-fixes-v2-5-50a2ed382b61@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-5-50a2ed382b61@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Subject: Re: [PATCH 3/3] arm64: head: set __entry_task along with task setup
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+ linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Kiryl Shutsemau <kas@kernel.org>,
+ Breno Leitao <leitao@debian.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ Doug Anderson <dianders@chromium.org>, Linus Walleij <linusw@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Thomas Huth <thuth@redhat.com>,
+ Dawei Li <dawei.li@linux.dev>, mrigendrachaubey
+ <mrigendra.chaubey@gmail.com>, kernel-team@meta.com,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261117174814.95936-1-ada.coupriediaz@arm.com>
+ <20261117174814.95936-4-ada.coupriediaz@arm.com>
+ <f232d0ff-3286-4d85-b9e3-cad8c6bc7178@arm.com>
+Content-Language: en-US, en-GB, fr
+Organization: Arm Ltd.
+In-Reply-To: <f232d0ff-3286-4d85-b9e3-cad8c6bc7178@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On 11/13/26 22:45, Lorenzo Stoakes (ARM) wrote:
-> From: Josef Bacik <josef@toxicpanda.com>
-> 
-> migrate_vma_collect_pmd() drops the page table lock to split a large folio
-> which it finds in the middle of a page table, and then starts over at the
-> "again" label. The entries for [start, addr) are in migrate->src[] and
-> migrate->dst[] by then.
-> 
-> While the page table lock is dropped the page table can go away, in which
-> case the restarted walk invokes migrate_vma_collect_huge_pmd(). However
-> this is passed start rather than addr, so [start, addr) is collected a
-> second time.
-> 
-> This can result in migrate->npages exceeding the number of pages the
-> caller asked for, and therefore in writes past the end of the
-> migrate->src[] and migrate->dst[] arrays.
-> 
-> Fix this by only handing over what has not yet been collected,
-> page-by-page, and flush the TLB for those entries which have been
-> previously replaced, similar to the other returns in the function.
-> 
-> Fixes: 022a12deda53 ("mm/migrate_device: handle partially mapped folios during collection")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> [ ljs: cleanup commit message ]
-> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
->  mm/migrate_device.c | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/migrate_device.c b/mm/migrate_device.c
-> index 9e5dab8e1b77..28ed706109da 100644
-> --- a/mm/migrate_device.c
-> +++ b/mm/migrate_device.c
-> @@ -257,13 +257,17 @@ static int migrate_vma_collect_pmd(pmd_t *pmdp,
->  	pte_t *ptep;
->  
->  again:
-> +	/* [start, addr) is collected if we get here after splitting a folio */
->  	if (pmd_trans_huge(*pmdp) || !pmd_present(*pmdp)) {
-> -		int ret = migrate_vma_collect_huge_pmd(pmdp, start, end, walk, fault_folio);
-> +		int ret = migrate_vma_collect_huge_pmd(pmdp, addr, end, walk, fault_folio);
->  
->  		if (ret == -EAGAIN)
->  			goto again;
-> -		if (ret == 0)
-> +		if (ret == 0) {
-> +			if (unmapped)
-> +				flush_tlb_range(walk->vma, start, end);
+[Resending for the lists, as I forgot to disable sending HTML,
+  sorry for the noise !]
 
-Flushing TLBs after dropping the PTL ... hmmm, that looks shaky. But just as
-shaky as the other stuff in this horrible, horrible abomination of a function.
+Hi Vladimir,
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+On 18/11/2026 11:01, Vladimir Murzin wrote:
+> Hi Ada,
+>
+> On 11/17/26 17:48, Ada Couprie Diaz wrote:
+>> `__entry_task` is only set after the first `switch_to()`, despite
+>> a proper task being set up in SP_EL0 as soon as CPUs go through
+>> `__{primary,secondary}_switched()`.
+>>
+>> As SDEI can interrupt execution at any time, it can interrupt before
+>> the first `switch_to()` and use a null `__entry_task` to set
+>> its current task.
+>>
+> TBH I do not know much about SDEI, but don't we need opt-in for
+> SDEI before we can get any SDEI events? If so, can we really
+> receive SDEI event before first switch_to()?
+>
+> Cheers
+> Vladimir
 
--- 
-Cheers,
+I honestly do not know much either !
+But, looking into the driver, we register the SDEI entrypoint
+as part of the driver init in `arch_initcall`, with a few notifiers
+(CPU hotplug among them).
+If using SDEI NMI, we register an SDEI event callback within in this
+driver init, in `device_initcall`.
 
-David
+Both of those are done in "late" in the boot process, in
+	rest_init()
+	-> kernel_init()
+	   -> kernel_init_freeable()
+	      -> do_basic_setup()
+
+This is as part of the init task, before excve into userspace,
+but after kthreadd is set up and has switched to the init task.
+
+So, I think that it is not possible to be interrupted by SDEI
+on the boot CPU before the first `switch_to`, as we would have
+`switch_to()`'d the init task by immediately scheduling
+from the idle task.
+
+However, as far as I can tell this is not the case for secondaries :
+their first task on boot is set to the idle task, which they go to
+without switching until (and unless) something gets scheduled on the core.
+This would be the same path taken for CPU hotplug.
+
+
+
+Unless I am misunderstanding something, which would not surprise me
+given the amount of things happening before getting to init, I think
+that is is indeed impossible to get an SDEI interrupt before the first
+`switch_to()` on the boot CPU, but that it is on secondaries
+or after hotplug.
+
+
+Hopefully this makes sense and, more importantly, is correct !
+Thanks for bringing the question up.
+Kind regards,
+Ada
+
