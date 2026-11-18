@@ -1,89 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011427;
-	b=QGaYQeCu/m+lVWJAvxrvurPk1gRu3Pt+key9OHRMqOOyP7UgIntCt1iVYRqTclNYR2lk
-	 zUQhGWg3BtSCjksQfHQ7pKUMrhs59LTdrHogxm5ttA79LezNl3I9Zz/GLx4FLGP5ryX2v
-	 pDmqZrrW/I0h3MO76g3fzgfqIEoHvQq1VkHD2+TpnOD2VeSxETL14+oMe05t/X9Rwww8K
-	 eU0jI6OJPjF+nsMoWH7JnzQH/bvp1hXJpm5qTDjZ4ODXa+EcHvLL+umhvSNZ8QHh9NSvW
-	 rIvChLogxj1oWXrGbYnBWS4/juObuVAZyn2gt6rMsE5Z7eZQM0cR+xxNgsp1Clq+nuQ==
+	t=1795011432;
+	b=NoruD1GZahLQXtg5WVAXQ6W0MWZ+ftnHbfcDTHHCOup6RqZfqDWm2Al/jRdjywcGmpv5
+	 E8WPgCpOerVyUU2uGP5BLniWUqkoXMG7uyA34pjTeLg4QTjdn676MMD565hw4OHvNiyo6
+	 m0QqL4bJXd/JctcMJ6KjZJSwL37hIvnddOmCBVCf+vnKrz7VzFLD7qORVsDn4V1HvpaUv
+	 QU9U/2m3vj1MsAKi7+VJtA0FBUMyZEPsMwYawgOSzM5EzpExI9bF7dGaN5cqz3kZegSTY
+	 bQCibF9dUrS2hic661FGeD/eqn28ST2QBLoi47sdgJYn2nP8EGtpBy6pBB1Rl8d/uSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011427;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=b34pYwhIMCotuo8i6v1F1rxLaKP3lXW4Z9fyRTfdjpA=;
-	b=n7Ee+GdI5vSf3xU6Lqowo4yhR7F0O6/LELM4tFks6uRpc3DJEsKU5Ri6wrIBk7yPW6Fs
-	 Jq3FNy6oyrO8/KfZLu3ALX4HYSOjrytVKEH4aaVsji1YkojMAv+vTl3kdHoI6C6RSHYVj
-	 L2+bdn/8tssXNp+8ALSrAy0cboPrlvLSjBu9uRjujWkhkA2qWBu6FcLF6VLV5mncOBkbM
-	 rm81C+T656HMEcRK4dIq5mWv2kvOMs14myfbY3djwFaU7L9OHln9ReWkQSa4f++0tHwwN
-	 ctULurOZG88fWbkrjKSlqXP1yCEkeS6BI2jdbIOfrSL2zHgPNPw1wOpKSZWIk+ZDDQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011432;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=JsAnA2fBtjg72iQS6X5KhwIX0MbqAnc4bq0cGrLJdtk=;
+	b=MUoV1GkrjY5cP14fiTbgfu1ZGDFbpmOZa2UEieetVJ11uKKK57ieAcAIq1Xt0DU8ILqy
+	 z0648e2Plw07xuoer4M6TVCEG1lpeICO4Hode/5cV4mL5zzPNjNzh1zNDdrgxuidnFJPX
+	 mqKHxVHnaCehrY66vvybZRtzlCSRUcbopRES2XIOWEHJX/SbN/fSzdhC6eaEeaytDHgp3
+	 1BdEXeqGyhpzRw1NGBi21X40kyT1SSwfTjwpoOJwO1GbPgD+qTlQknAFiSlOxnoSQa9K/
+	 jwnXCPLC57yCOuTWXiCKsja0lr36NZOlKydFF5/9ziKhcTENExTh09hYOVWwqVhSH9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nwpEQ2Bi;
-	arc=none smtp.remote-ip=209.85.167.43
-Received: from mail-lf1-f43.google.com (mail-lf1-f43.google.com [209.85.167.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0ACD60A260A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:17:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0ACD60A260A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VcQPnPwV;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1AA7C60A381A;
+	Wed, 18 Nov 2026 14:17:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AA7C60A381A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nwpEQ2Bi
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5be3d5927ceso1219765e87.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:17:05 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VcQPnPwV
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795011424; x=1795616224; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=b34pYwhIMCotuo8i6v1F1rxLaKP3lXW4Z9fyRTfdjpA=;
-        b=nwpEQ2BiyJzOgY/K6KL8CsKsUbtaIvzKrUXkCoyATGr0FA3sdNfjtAepVBzRgKdnzz
-         8P8bTm2Eij1xtGat/HJ7k6Uzv5XCBA79Mi2zxZFRdLdxSndLo8b9eRz3ID1OwezpqKf7
-         RRBO/k7C0kSFghrsE2yPx3VwRU+vWH+vZ6plAFbLHgMWtR0nE/f+JGDPn+IcAUNHHnf+
-         lyG4YQoGKUYiC9BV64aV3/qDdY1GhCKP1ghJRV1rtgGXqC7JrRwKN9tZUd3myDRsie3C
-         1i7gqOBjYTViooXM13NMXeW1OjX52710QfMEAJfbcjjm070/5fQtfbAg+AFdLgj60h0E
-         9dDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795011424; x=1795616224;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=b34pYwhIMCotuo8i6v1F1rxLaKP3lXW4Z9fyRTfdjpA=;
-        b=HB1IlPon4j0DVN/zWMzywTO3QXD79xcAUws5j3SsEliq8dbpXx2glV77J0VMxIGVdQ
-         I9tg6MFO/yiGMY7Ysij3oTxZn2T89+Gw7USKtUA2/2aFn5Ojlsb5jWS/PIluJJGdXe9g
-         GplCgzw882UHQRw+gvG2aZln8+U92Rgiq0UxZp6KYbX5zkgTghstFXRRfoVoMv4TUHCQ
-         pbucSH0l8fb/i+SS6LeE8kb4jEiwPGHe+mn19oqHfgNGt6zQ2KstANAMsr6IZkAHi940
-         YDhvVtD6833SJQZRlhLR2NQt0RVM6t4Xn4q8u/xAfdYV3w1tvxzbwfoK9mJdzkn929Zk
-         MZDg==
-X-Forwarded-Encrypted: i=1; AL+hErHzrvBwfrYjUB+0yDBJDqxBR+R3M19agEzsKyh4eIyip8mvrCUdXXVJWUp1lX2mbGsI0GItxT7adxlU4E4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9BXiStkK+864Vrbmqajv0tenyIaDuEZCEdGVr93vD4S6QNsw9/
-	FKVTChaigYwiXMOKB0HWn681mCjB3HE7V7Xp/p20UrYMKG2Fp1A8eHGD
-X-Gm-Gg: AYBFou3mVRjdweRJiKBYPJuWBUyeQtflo2xlCTzVE4U+4KMfR+5fapeI1csw+DIF5L2
-	7vhrj4L638OPTb+nUwuvTbCEVPOot/9q0VKFGE3qyzcHo5GRgiCo5EWDkARIrCKuT5QWNJXYzHo
-	hCPrXZvvdzJGYSyMGDEe2Je5a/EGsJCdStmafODGoRmIPp910yZBjZhkR0yAOAe5GnbIt0g7yvV
-	467WmgowNEQ2+GN0u1a3cOZsHoAFLmnyt3ftsiePIN0xHBZhJCj7fgPpzzGFKF51Csa9Bzc7hYg
-	WcbO17oyv+emBu6z4f+3MY82H1h+ecS5KxvhxxVCaGfe4h5uRsWCFf1SO4E1l5X1tGVxcDQRf85
-	zcCkIhrawxd9TTEBx3lhKd0/ww5PRcgF4YVOR14W629yFKJHgiiQYFcuDCUCKbWs9pbk2Dy++Xg
-	w90oZbDcnPGBTrclBeSdDbjcNP6JPzDl2UPgXkpfJ5GhwMNZ1wE8p4wVgR/DwI9pjlETpbGwz9N
-	R7Mj+2qTgkn36Rism+38Vv7TnCPaWBr7hHglNLh/Z/bODkbCrpnJLgrLPgNjrXr6f/Ebr0UJktP
-	yluI7VkdwazvRWpjvId6VyD+F65EjLPi9xDZ7JOmXcg5ybMX+J7JAA9QhohlcH7jctlxyZKO7Zd
-	SQV7/7oNY0g==
-X-Received: by 2002:a05:6512:3043:b0:5bf:ce24:b1a with SMTP id 2adb3069b0e04-5c1aa072bf8mr1080207e87.12.1795011423541;
-        Wed, 18 Nov 2026 06:17:03 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1aa7707b2sm553396e87.30.2026.11.18.06.17.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 06:17:02 -0800 (PST)
-Message-ID: <c1a68be0-36ed-4671-82a6-8aafb1855c4e@gmail.com>
-Date: Wed, 18 Nov 2026 16:17:00 +0200
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=VcQPnPwVvSwFFpJepw28Q4hRzd2wdzZrMsBxUgB9ym/nw0LelHCCPbUfj8j6HCFSgZXzHbDbxkRnd
+	 r7cQs1yutx9aA0NQmzJqeQCSOuSWTiTbN5ALhsaW41JjVMfTKO2bOEUgpm6AOTkN7isiur3EldOprL
+	 z9ZXvD3AwQzzBRgY=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96afdb35ba6f-1a345;
+	Wed, 18 Nov 2026 22:17:00 +0800 (CST)
+X-RM-TRANSID:2ee96afdb35ba6f-1a345
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66afdb35aa5d-d92ae;
+	Wed, 18 Nov 2026 22:17:00 +0800 (CST)
+X-RM-TRANSID:2ee66afdb35aa5d-d92ae
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v4] net: hso: fix stashed tx skb leak and replay race
+Date: Wed, 18 Nov 2026 22:16:58 +0800
+Message-ID: <20261118141658.1381-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20261117084732.297-1-chenaibing@cmss.chinamobile.com>
+References: <20261117084732.297-1-chenaibing@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,68 +74,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iio: light: bh1745: fix 16-bit register accesses
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Arnav Kapoor <kapoorarnav43@gmail.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Mudit Sharma <muditsharma.info@gmail.com>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261117110327.198084-1-kapoorarnav43@gmail.com>
- <avxi4BBJ_Ztg-aN7@ashevche-desk.local>
- <820865f9-2ef5-4316-abbe-5c44c7df55ce@gmail.com>
- <av2PPiin8mJiJD_q@ashevche-desk.local>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <av2PPiin8mJiJD_q@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 18/11/2026 13:42, Andy Shevchenko wrote:
-> On Wed, Nov 18, 2026 at 12:31:59PM +0200, Matti Vaittinen wrote:
->> On 17/11/2026 16:21, Andy Shevchenko wrote:
->>> + Cc: Matti (even he is not listed as maintainer) for possible another pair of
->>> eyes and/or having an answer why this was missed at the time of the driver
->>> submission (from my perspective this patch is correct).
->>
->> Thanks for the heads-up Andy. Unfortunately, I have never worked with this
->> IC, and I don't think we have it in the ROHM Finland office (but I'll check
->> this just in case. It'd be nice to have this covered in my test setup).
->>
->> What comes to missing this in reviews... Well, I suppose the reviewers are
->> just humans, or if they're not, then they might have concentrated on other
->> important things, like styling, instead of the real functionality.
->>
->> On my own behalf, I was away for 1.5 months when the series was applied, and
->> I only looked at the GTS-helpers usage when I did my shallow and badly
->> belated review. (Furthermore, I am 100% human, so I might have just missed
->> this even if I had all the time in the world to do the review).
-> 
-> Yeah, I don't know how ROHM is big, but in other companies usually there is
-> an internal mailing list is set for reviews. Maybe that helps?
+hso_net_start_xmit() stashes the skb in odev->skb_tx_buf and stops the
+queue when hso_get_activity() reports -EAGAIN, which happens when the
+USB device is suspended or no longer configured.  If the interface is
+then brought down, or the device is disconnected, that skb is simply
+left behind: hso_net_close() and hso_free_net_device() never release
+it, and hso_net_open() clears the pointer, so the skb and its data
+buffer are leaked.
 
-I took a look to the Wikipedia. ROHM isn't that big. 2017 it has been 
-around 21k
-people, and I have a feeling (no facts) that size is still about the same.
+hso_resume() loses a frame in the same way when the device is still not
+ready: it passes skb_tx_buf to hso_net_start_xmit() and then clears the
+pointer unconditionally, so a frame stashed again by that call is never
+freed.
 
-List might help, if we had more than 1 upstream Linux developers... :)
+Take the stashed skb with xchg() in both paths so that only one of them
+can obtain it, serialize the replay in hso_resume() against
+hso_net_close() with a per-interface mutex, and take the netdev TX lock
+around the replay so that it is also serialized with the stash in
+hso_net_start_xmit().  The state check uses test_bit(HSO_NET_RUNNING),
+the bit that hso_net_open() and hso_net_close() maintain.
 
-(I actually did request a list when I started at ROHM - and we had 
-something for a couple of years. Unfortunately, I was the only one ever 
-using that. After a company IT-change accidentally killed the list I 
-never requested a new one. Still, even when we had the list, the bd1745 
-patches wouldn't probably have emerged to it. The get_maintainers.pl 
-folks use to get relevant reviewers, wouldn't have known to add that 
-list for a new driver with no 'rohm' -prefix.)
+Reported-by: syzbot+bf62ca9997f43d2fa521@syzkaller.appspotmail.com
+Link: https://lore.kernel.org/all/6af74e31.fe96acdb.12252b.0009.GAE@google.com/
+Fixes: 72dc1c096c70 ("HSO: add option hso driver")
+Fixes: c213f286f2cf ("[netdrvr] hso: dev_kfree_skb crash fix")
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
+---
+v4:
+- take the netdev TX lock around the replay in hso_resume() so it is
+  serialized with the stash in hso_net_start_xmit().
 
-Yours,
-	-- Matti
+v3:
+- serialize the replay in hso_resume() against hso_net_close() with a
+  per-interface mutex.
+- check HSO_NET_RUNNING instead of the IFF_UP alias.
 
--- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+v2:
+- take the stashed skb with xchg() so that only one path can free it.
+- add the two Fixes tags.
 
-~~ When things go utterly wrong vim users can always type :help! ~~
+ drivers/net/usb/hso.c | 51 ++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 43 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/net/usb/hso.c b/drivers/net/usb/hso.c
+index 71caa3764..247c58cc7 100644
+--- a/drivers/net/usb/hso.c
++++ b/drivers/net/usb/hso.c
+@@ -142,6 +142,9 @@ struct hso_net {
+ 	struct sk_buff *skb_rx_buf;
+ 	struct sk_buff *skb_tx_buf;
+ 
++	/* serializes the hso_resume() replay with hso_net_close() */
++	struct mutex tx_replay_lock;
++
+ 	enum pkt_parse_state rx_parse_state;
+ 	spinlock_t net_lock;
+ 
+@@ -720,6 +723,14 @@ static int hso_net_open(struct net_device *net)
+ static int hso_net_close(struct net_device *net)
+ {
+ 	struct hso_net *odev = netdev_priv(net);
++	struct sk_buff *skb;
++
++	/*
++	 * Serialize with the replay in hso_resume(): either the frame is
++	 * replayed before we stop the device, or it is taken and dropped
++	 * here, never both and never after the queue is gone.
++	 */
++	mutex_lock(&odev->tx_replay_lock);
+ 
+ 	/* we don't need the queue anymore */
+ 	netif_stop_queue(net);
+@@ -728,6 +739,11 @@ static int hso_net_close(struct net_device *net)
+ 
+ 	hso_stop_net_device(odev->parent);
+ 
++	skb = xchg(&odev->skb_tx_buf, NULL);
++	dev_kfree_skb(skb);
++
++	mutex_unlock(&odev->tx_replay_lock);
++
+ 	/* done */
+ 	return 0;
+ }
+@@ -2398,6 +2414,7 @@ static void hso_net_init(struct net_device *net)
+ 
+ 	/* and initialize the semaphore */
+ 	spin_lock_init(&hso_net->net_lock);
++	mutex_init(&hso_net->tx_replay_lock);
+ }
+ 
+ /* Adds a network device in the network device table */
+@@ -3032,6 +3049,7 @@ static int hso_resume(struct usb_interface *iface)
+ {
+ 	int i, result = 0;
+ 	struct hso_net *hso_net;
++	struct sk_buff *skb;
+ 
+ 	/* Start all serial ports */
+ 	for (i = 0; i < HSO_SERIAL_TTY_MINORS; i++) {
+@@ -3051,21 +3069,38 @@ static int hso_resume(struct usb_interface *iface)
+ 		if (network_table[i] &&
+ 		    (network_table[i]->interface == iface)) {
+ 			hso_net = dev2net(network_table[i]);
+-			if (hso_net->flags & IFF_UP) {
+-				/* First transmit any lingering data,
+-				   then restart the device. */
+-				if (hso_net->skb_tx_buf) {
++			mutex_lock(&hso_net->tx_replay_lock);
++
++			/*
++			 * First transmit any lingering data, then restart
++			 * the device.
++			 */
++			if (test_bit(HSO_NET_RUNNING, &hso_net->flags)) {
++				/*
++				 * The frame is stashed by hso_net_start_xmit()
++				 * under the TX lock, so take the same lock here:
++				 * otherwise a concurrent transmit could store
++				 * after we took the pointer and leave the queue
++				 * stopped with the frame still stashed.
++				 */
++				netif_tx_lock_bh(hso_net->net);
++				skb = xchg(&hso_net->skb_tx_buf, NULL);
++				if (skb) {
+ 					dev_dbg(&iface->dev,
+ 						"Transmitting"
+ 						" lingering data\n");
+-					hso_net_start_xmit(hso_net->skb_tx_buf,
+-							   hso_net->net);
+-					hso_net->skb_tx_buf = NULL;
++					hso_net_start_xmit(skb, hso_net->net);
+ 				}
++				netif_tx_unlock_bh(hso_net->net);
++
+ 				result = hso_start_net_device(network_table[i]);
+-				if (result)
++				if (result) {
++					mutex_unlock(&hso_net->tx_replay_lock);
+ 					goto out;
++				}
+ 			}
++
++			mutex_unlock(&hso_net->tx_replay_lock);
+ 		}
+ 	}
+ 
+
+
