@@ -1,47 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994934;
-	b=Ld255b4iOD2MWx4fMZtE6asQ89m5OAXknNhDrFMq2JHQ7+fAj8QsNYs0+R2c6ZKrynCO
-	 1rZhc0l45dzLiyphdzVrhohxU7RGNpy9tbjoe828B2K7BSsmt2LpxQIcBSrYkK+EwkIv4
-	 3fvyfBgnnzq8l4LDPRSqjX/6boZPNGE7M5B1TAwqZ13NHdyphS/b/iJWSEOHR/QZd8X/m
-	 sTPxaH6BmmVapwLLnJ1JzAfFXRruQc1194woedAloK70Fdcjtalr4unijMirCjjwiVcei
-	 Xfi9mIuG3s+3MXQ0DbWWvfgUISFVxbp5q8sVsEYSWXbo6GhITKPKvpDcAX2ToRoELVg==
+	t=1794994940;
+	b=H9a/ls7lvO9hbHLnKLwopo07xlXSkV99xsv6b9VMi0vEcnvsbwstDS1ViXdxgb/RhFN3
+	 lIWOSD6+Lpg4tKKj3QB2ZF0gc/XoH2o/8+qmD149vB0W2oh7kiLQZ4K2zuJBiW8pgkmQP
+	 RBRTvASaCNOdFRGTh5xCdV3pKsGUOjsk3sPcBeNPYAvZjqoBqb7EK/sNl0xgQtdfYdLWB
+	 I/QEitviq2aIERA09KqTTLQoXKok23vlAx9EHrWIs52O2m7aLyNzqb7psf32I9JAuyQaO
+	 OGnedGpDnjiimvzzL/U2un6ucOopgZNSaKkGXNT/4PjI099Tl5FxXIYdebjueO7UFLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994934;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=9ATyR+9qHOct/xUnPH9mJnbBD7GZTG+HINgSyr3PxaI=;
-	b=ysiJOIgU1aT/p0T3EZs4i6kL55iRL+cOaxDQt1GqhlWM5G2cRYL1+3b63r4i8AJC3gcM
-	 gpcJNC/uoEEW/b8QKub1vT9ajd7/FzYwzvgbDydOswmKrN2tw7UC3X3+NyB/1tgyPuKwh
-	 h5O3yIeoCQByeRon2SEL4VAlE/vqzyT0bsATB12krd4vWNCE3R8BP8TPueme/Tt3Pn/CU
-	 6in1ZPBXZ8VmtSeedAClOarMwUFbTeI73UAXN/B+tVhgDHjT/zxMfNlv9581rngRJ1qqL
-	 glvKzzQMSc4kkhvN0uqaVD4miVJwks11+31zahKylAeRbV5esbcLco6P0Fg0ke2orbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994940;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=zQfoGYuMlpNQnUcQ4ehPn2hQgS8EdpBMUTzi33ES9xc=;
+	b=aYIhjUl3tX3lAmnmwvCKhAlPksZeq3WYzVe0ZQXqT7NFk0+1MYRM5DD0exw1NG/cKJl9
+	 /YBBkRU2vNEb+cP9lq+ZcQFeOyxKmJAtTsrRIWHZyLKk3s49Ghc19O/UHmZi3P8DCjHGt
+	 OxDkTtvaTvhs9FmzjEKN2bB/hKuSYK2HDbuhvBRIs7MH2bPC1Khv8kCehbn89tVeoWRYD
+	 aG8KGSlkj600/Pd+Y/hIvQT+zVkTZ0arpWDEYDY9EltGIwjqNe/dnSJgFlYnUdGMjemqq
+	 3mLGC3IbQ9zCbOdj6y0txuidAXg2rHJRYrw2kicgDayoBPoDS7FMfX8dKjUMAOVtRpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B64ocKDl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HHhu8p53;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HBpu1MoA;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DCA5606A330;
-	Wed, 18 Nov 2026 09:42:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0C62606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:42:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0C62606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B64ocKDl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0951F1F000C6;
-	Wed, 18 Nov 2026 09:41:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794994934;
-	bh=9ATyR+9qHOct/xUnPH9mJnbBD7GZTG+HINgSyr3PxaI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=B64ocKDlyHLo7JKiB71qN7xPUGSas5O496TWP1Vb9kTdaWOBu3xdB4W0dYEjMGJF6
-	 wg63AHZj+PtfQQoLIvdVK5b0Pn24hBYJyxfSpX6Pbdx7+0UD7pxzuycdP5058yMa2/
-	 ETsOGLXBxuNitQ/Kl8b79+0Jb6zJ/9tkNCkDoeOp1+TbzpuDHZ0n4zlZoqpl87gr1W
-	 pPJbvsAYwFFaxlR7b0zjG5AJvUmmyOwORf3q9TMKLI+0tgiC27CXTjuz/JPWS1M1Zv
-	 +10DRh/IigcridN5ngx3Cid6k5sD2VJJyvtymSBjTvvQczytGNBB7uRDQaOstIJFHh
-	 AG2gXV+iJZLJg==
-Message-ID: <4f23b0bc-b89a-46c1-b8cd-853e7815b7ac@kernel.org>
-Date: Wed, 18 Nov 2026 10:41:55 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HHhu8p53;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HBpu1MoA
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8ekK2472513
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:42:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zQfoGYuMlpNQnUcQ4ehPn2hQgS8EdpBMUTzi33ES9xc=; b=HHhu8p53OpsU45Ze
+	WDb1GBUYM+QMjc27xIUrYs3uvY4b3syQCfU1Hez9vaxuyRahxXh2HBRGwbTUlaNp
+	kxByh5ITk+qYIYeN0/jhCPw5rRWvVVXplq06S5XaxsfD/L3c7OgqW36nNRH6c4E0
+	S054e59CDizCbWVpn0evsYq2uOvaXIPop9QTRMmj7dzqlTKgWvmZaJLeryDkf/4h
+	209tPqnrDB+PRwHyvKdnYdih3d5UqL871NVjdlxaa/Jv9XKeGt0I0lLQybBsFfx+
+	VLRWHoYPAQWR7eflx6lBnmMbVhCMAaceUpiy5xAgIQsNrHtatnZ2kqH3TO9SHZqA
+	kDj6+g==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8aasg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:42:18 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ee04c49451so10596525ad.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:42:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794994937; x=1795599737; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zQfoGYuMlpNQnUcQ4ehPn2hQgS8EdpBMUTzi33ES9xc=;
+        b=HBpu1MoA7ywDYLlI78PzR/jxD4DABYzR/HI3jF4k1brN6j+I/d+fDs/TkFk6mIg/P/
+         Xlgaqg6QS5kPrPMVd9yFRUmK5pUPeS07fGKwQOjG6ofkkXtiytSAoZiJBN2O+DmpDcv0
+         qrVsOzuld7r4FfEvrUi0cEE9dnDQoa55oVGTsJlThr6WJUOzcXrtiHv6fAkPFUAOy79j
+         uAtnrZQGu8gwq4ElqfXUUwwNUvv8PTy0oB7yBT8oOV2pzi/XC0jEaIEw74oDSFQd/x0w
+         7ThyjK2749nFbZFptNrVjYpMuclXYuvdzABzAf2u8Oxe4auGj6EKcrGlA3ortt102xVw
+         c6vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794994937; x=1795599737;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zQfoGYuMlpNQnUcQ4ehPn2hQgS8EdpBMUTzi33ES9xc=;
+        b=A7eGR/NHcp5P8PIqlIhy7CiaObH9ISYzgm11+VGYwGX8oyYMvFsY1RPimAjsCjZKzH
+         Qd4HIgij4ktkoAhDFdFe2JWNUcCYtNZvKn5YLybeUcN7JYMNF/rHsYwxq5gpy6DT+HN+
+         AsbxlL95j4HvvMBg+mpJlSTjlcchiclKX//aT++/X2nEQem0n0j6my3geFL3YYiswWvW
+         hIxsBL96xcxZYaO6Dn+6I7eKWIaBS1lMiMlhaV3BlQ22m+FI4pkAmKajEdksWNpVsM+C
+         F6uoFArXuSLtzUbajwvZPfCg+dzumrdQTAgHNjwFdWd5erryVyBqVYWqiaEzBmTEW0dW
+         aDlA==
+X-Forwarded-Encrypted: i=1; AL+hErFZz1iaAD6jrmhjjFKzsEYtgrOfRPfeC0YCkvowFGAdGPdbmWDzMwGaBpyz0Pnl5yhBX6gGRQD80whxQsk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9KZcyoTe8MDINeOvlF/gkFnLGHHJ5I3E1oKfAYL1Hw+hCM+sW0
+	MRKslyh5nNBMoBINPAJ+21F8zbGnYs8Qobk+WHsBik/lgkcvY1opPo+pizhdSQ8JBS1r/a/AqEz
+	svJfbTd9pGvku3Sl/xI2KiMSkvWgzJ2+9kayblnXa5Bp4rWravyQH1foL87NWSrrMMN0=
+X-Gm-Gg: AZFdTZdpPL3C9g/czYqCfp6IhNBEgvVAde9WyjB3JG22i6ktMqipyKGlGI/7ElGD9MG
+	j9uORg47hgMnukJk7fQrW4X1nZkKmhQU8+gzs7qWphQaz+qISe3m3puptHw5aiKq9mq86ctB3F/
+	7pZtg4p86sCfrUudFPgX5cbJcqmaPzxNOffmqctvjg9RyOWXtJFuH1dr9raPTURoX2qI9mMzk8j
+	vUPkSGeE5uS6v2FiA4g/pbQfT/HZs0S74hqbghrmuANcwZK4pVmhcaEBnhTfnFGWQ/7Z283/gg1
+	ihhy1boY2qsMMCgAOVvqOsruRQE25VEklz8ZCDX/niQfa4hNGkJm/0jpRU71nYXi3SW2OlCA2Rr
+	tvMKhhcwepnVSq34VQZZ3btSs5by8M1upXPaBRrfVGZTjOEUSJdy0rDxWqjljc82Z1fqTY/mDcw
+	ewO3tgpVNZhZrDtFA2R3oHbuazEwuNSwSwiT/FST/RHwM6OSdk
+X-Received: by 2002:a17:903:1103:b0:2e9:77c0:c7ab with SMTP id d9443c01a7336-2eff75237cdmr22721265ad.29.1794994937164;
+        Wed, 18 Nov 2026 01:42:17 -0800 (PST)
+X-Received: by 2002:a17:903:1103:b0:2e9:77c0:c7ab with SMTP id d9443c01a7336-2eff75237cdmr22721065ad.29.1794994936701;
+        Wed, 18 Nov 2026 01:42:16 -0800 (PST)
+Received: from WANGAOW-LAB01.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f008044f26sm2947575ad.70.2026.11.18.01.42.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 01:42:16 -0800 (PST)
+From: Wangao Wang <wangao.wang@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 17:41:46 +0800
+Subject: [PATCH v3 7/8] arm64: dts: qcom: hawi: add iris video codec node
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,204 +116,242 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/9] userfaultfd: assorted fixes (part 1)
-To: Tal Zussman <tz2294@columbia.edu>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Peter Xu <peterx@redhat.com>, James Houghton <jthoughton@google.com>,
- Andrea Arcangeli <aarcange@redhat.com>,
- Suren Baghdasaryan <surenb@google.com>, Balbir Singh <balbirs@nvidia.com>,
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
- Pedro Falcato <pfalcato@suse.de>, Michal Hocko <mhocko@suse.com>,
- =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
- Andrei Vagin <avagin@gmail.com>, Muhammad Usama Anjum <usama.anjum@arm.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
- Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- Oscar Salvador <osalvador@suse.de>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
- Breno Leitao <leitao@debian.org>,
- =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>,
- Felix Kuehling <Felix.Kuehling@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Leon Romanovsky <leon@kernel.org>, dri-devel@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, nouveau@lists.freedesktop.org,
- amd-gfx@lists.freedesktop.org
-References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-add_iris_for_hawi-v3-7-51786f6d4057@oss.qualcomm.com>
+References: <20261118-add_iris_for_hawi-v3-0-51786f6d4057@oss.qualcomm.com>
+In-Reply-To: <20261118-add_iris_for_hawi-v3-0-51786f6d4057@oss.qualcomm.com>
+To: Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+        Bryan O'Donoghue <bod@kernel.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Stanimir Varbanov <stanimir.k.varbanov@gmail.com>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Wangao Wang <wangao.wang@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794994903; l=5591;
+ i=wangao.wang@oss.qualcomm.com; s=20251021; h=from:subject:message-id;
+ bh=/5TBRph59pKfD2h5WA8MEaXGCzAw8RfNm6eiz9WCDqs=;
+ b=5Q6Csze5qHNPJCLZINFtw3XjUN5Q9Rvvgz2IuWkxC0KU9OOy8LaWTPuRIwZ7tJjYJhF/K6nNS
+ CUowujj1AmAB6bg7gSRE+15l2SHNKXzPxVP+3frwmTEnAwGnmbhVKxJ
+X-Developer-Key: i=wangao.wang@oss.qualcomm.com; a=ed25519;
+ pk=bUPgYblBUAsoPyGfssbNR7ZXUSGF8v1VF4FJzSO6/aA=
+X-Proofpoint-ORIG-GUID: 9purFuSELN02nnqy4KtIdHDRtejhER1J
+X-Authority-Analysis: v=2.4 cv=N9u8hG9B c=1 sm=1 tr=0 ts=6afd72fa cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=qJL271BKxqclmSQN1U8A:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfX7OeB0CC+2aV7
+ zH7S2sEfZ4tfd8KYAnGQSus43Z3jeV6t8IrIC66ecx4VgCjI/4HG+8qwsQIbEM9uhSByAmCr6uJ
+ fb2yznRpUvXxKAn/H3Y1OC0V40OvK+CA14AX3JH8SNFrBMkgcfBR6p1jnj3mSjcUmT7U346AR0D
+ Cx5APpcShNL/rWy/1vVbVnE2J4vSS+5+RWdAtETfeCEMm+A4TCdcvZRwZ7Kf+Fb61WS9m3okTMi
+ NCKDHfefY9y3YFB7mew28qfnpY15DXukJSuQdgJBbh1MRohKYz6aPhhcu+t3yXDfZ+uGRXb8Pv7
+ SNSk1kUI5mPLhPBPCWtHLeQflSAayn6mGTgJbDG7DHEioKuj7e/lQ6xVOhKcZq3v8H5jlmvCVM7
+ 6vgowYft689y/ZX7zKIDmEi/tgTBsLnfzWKXg55eGQkOsgrAHGToBg4KU2SlqZRE0ra1yO4oRiX
+ 1E8AjmvYzTgWiuaC8KA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfX44hhTgzqj1ZA
+ iDIh1eFnqv8DRctcAWHRBnpllINatdHgkd0TihFiWEvTU/KONmY3gi4X63sTvt8Bw900oxopQ+d
+ mPW3QxAWZFdkoTnDq7nAVQdXFZf/DRg=
+X-Proofpoint-GUID: 9purFuSELN02nnqy4KtIdHDRtejhER1J
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 phishscore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 malwarescore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180038
 
-On 11/18/26 05:28, Tal Zussman wrote:
-> This is a first batch of userfaultfd fixes, with more to come.
-> 
-> These were found by a mix of regular old LLM review and by having an LLM
-> write a TLA+ model of uffd interactions with PTE bits and other state
-> and seeing what issues fell out.
-> 
-> Most of these fix places where mm code loses uffd-wp or RWP protection
-> while moving or migrating an entry. Userspace then either misses writes
-> and accesses, or gets pages reported that nobody touched.
-> There is also a hang in UFFDIO_MOVE, and UFFDIO_ZEROPAGE modifying a
-> file through a private mapping.
-> 
-> Patches 1-2:   UFFDIO_ZEROPAGE and UFFDIO_MOVE fixes, cc stable
-> Patch 3:       PAGEMAP_SCAN write-protect vs. writable migration
->                entries, cc stable
-> Patch 4:       warn on a writable migration entry with the uffd bit set
-> Patch 5:       PAGEMAP_SCAN write-protect vs. device-private THPs
-> Patch 6:       UFFDIO_MOVE of the huge zero page from an RWP source
-> Patch 7:       mremap() losing uffd state when a move fails halfway
-> Patch 8:       migrate_vma losing uffd state of a zero page
-> Patch 9:       hugetlb alignment checks in UFFDIO_REGISTER and
->                UFFDIO_UNREGISTER
-> 
-> A few of the fixes change what userspace sees:
-> 
->  - UFFDIO_ZEROPAGE on a private file mapping no longer fails with
->    -EEXIST where the file already has a page, on an mm that cannot use
->    the zero page (patch 1)
->  - UFFDIO_MOVE returns -EEXIST for any huge destination PMD, not only
->    for a present THP (patch 2)
->  - UFFDIO_UNREGISTER with a misaligned hugetlb end fails before
->    unregistering anything, also if that hugetlb VMA is not registered
->    (patch 9)
->  - UFFDIO_REGISTER and UFFDIO_UNREGISTER accept a misaligned start that
->    lies in a gap before the first hugetlb VMA of the range (patch 9)
->  - UFFDIO_REGISTER returns -EINVAL rather than -EPERM for a misaligned
->    end in a hugetlb VMA without VM_MAYWRITE (patch 9)
-> 
-> Patch 6 has little user impact on its own. It is included because,
-> together with patch 7, it allows removing clear_uffd_wp_pmd().
-> 
-> Patch 7 adds spurious write faults on shmem and hugetlb after mremap():
-> when dropping uffd protection there, change_protection() makes writable
-> pages that were never protected read-only. UFFDIO_UNREGISTER and
-> UFFDIO_WRITEPROTECT already behave this way and lead to the same
-> spurious faults. This will be fixed in change_protection() in a separate
-> series.
-> 
-> Based on mm-new.
-> 
-> ---
-> Changes in v3:
-> - Collect tags (Thanks David!)
-> - Patch 1: use vma_is_cow_mapping(), per David
-> - Patch 4: warn on a writable migration entry with the uffd bit set, and
->   make the PMD path match the PTE path, per David.
-> - Patch 4: Drop the Fixes: tag and the review tags due to changes
-> - Patch 8: add helpers and read the PMD once with pmdp_get(), per
->   David
-> - Patch 9: move the hugetlb alignment checks into a helper and use it in
->   both ioctls, per David
-> - Link to v2: https://patch.msgid.link/20261116-uffd-state-fixes-v2-0-4397a0196479@columbia.edu
-> 
-> Changes in v2:
-> - Collect tags (Thanks Kiryl, Lorenzo, Gregory, Alistair!)
-> - Patch 2: say "softleaf entry" in the commit message, per Lorenzo
-> - Patch 3: add softleaf_is_writable() and softleaf_mkreadable() to
->   leafops.h and rename the helpers to say softleaf, per Lorenzo
-> - Patch 3: add Reported-by and Closes for Breno's report, and cc stable
-> - Patch 4: explain in the commit message how PAGEMAP_SCAN set the uffd
->   bit on writable migration entries, per Lorenzo
-> - Patch 5: use pmd_is_valid_softleaf() rather than open-coding it, per
->   Lorenzo
-> - Patch 7: say "write faults" rather than "minor faults" in the commit
->   message, per Kiryl
-> - Patch 7: trim the commit message, per Lorenzo and Gregory
-> - Patch 8: trim the commit message, per Gregory
-> - Patch 8: Cc the GPU driver maintainers and lists, per Gregory and
->   Alistair
-> - Patch 9: use IS_ALIGNED() and a local variable for the VMA's ctx, and
->   shorten the comment, per Lorenzo
-> - Drop the three guard region patches, per Lorenzo
-> - Link to v1: https://patch.msgid.link/20261111-uffd-state-fixes-v1-0-00713d368976@columbia.edu
-> 
-> ---
+Add the iris video codec device node for the hawi SoC, describing the
+register space, interrupt, nine power domains (including the
+VPU5x-specific mm-int and cx-int domains), thirteen clocks, two
+interconnect paths for CPU config and video memory bandwidth, IOMMU
+mappings, and the operating point table covering 150 MHz through 1000 MHz.
 
-So, I would be picking up ...
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Wangao Wang <wangao.wang@oss.qualcomm.com>
+---
+ arch/arm64/boot/dts/qcom/hawi.dtsi | 155 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 155 insertions(+)
 
-> Tal Zussman (9):
->       userfaultfd: use anonymous memory for UFFDIO_ZEROPAGE on private file mappings
->       userfaultfd: refuse UFFDIO_MOVE into a non-present huge destination PMD
->       fs/proc/task_mmu: downgrade writable migration entries in PAGEMAP_SCAN write-protect
->       mm/migrate: warn on a writable migration entry with the uffd bit set
-
-This
-
->       fs/proc/task_mmu: write-protect device-private THPs in PAGEMAP_SCAN
->       mm/huge_memory: build the moved huge zero PMD from the destination VMA
-
-This
-
->       mm/mremap: resolve uffd state when the context is dropped, not during the move
->       mm/migrate_device: do not migrate a uffd-protected zero page
-
-This
-
->       mm/userfaultfd: check the hugetlb alignment of every VMA in the pre-scan
-
-
-After waiting a bit longer for more review. Andrew can take the rest.
-
+diff --git a/arch/arm64/boot/dts/qcom/hawi.dtsi b/arch/arm64/boot/dts/qcom/hawi.dtsi
+index 77d704fa6cf74a1471a8cd25102f777aeae32000..eb64d60b6fdd88381758ad5ff5b97fb5ab5d9dde 100644
+--- a/arch/arm64/boot/dts/qcom/hawi.dtsi
++++ b/arch/arm64/boot/dts/qcom/hawi.dtsi
+@@ -3427,6 +3427,161 @@ ice: crypto@1d88000 {
+ 			power-domains = <&gcc GCC_UFS_PHY_GDSC>;
+ 		};
+ 
++		iris: video-codec@2000000 {
++			compatible = "qcom,hawi-iris";
++			reg = <0x0 0x02000000 0x0 0xf0000>;
++
++			interrupts = <GIC_ESPI 238 IRQ_TYPE_LEVEL_HIGH>;
++
++			power-domains = <&videocc VIDEO_CC_MVS0C_GDSC>,
++					<&videocc VIDEO_CC_MVS0_GDSC>,
++					<&rpmhpd RPMHPD_MXC>,
++					<&rpmhpd RPMHPD_MMCX>,
++					<&videocc VIDEO_CC_MVS0_VPP0_GDSC>,
++					<&videocc VIDEO_CC_MVS0_VPP1_GDSC>,
++					<&videocc VIDEO_CC_MVS0A_GDSC>,
++					<&videocc VIDEO_CC_MM_INT_GDSC>,
++					<&videocc VIDEO_CC_AXI0_CX_INT_GDSC>;
++			power-domain-names = "venus",
++					     "vcodec0",
++					     "mxc",
++					     "mmcx",
++					     "vpp0",
++					     "vpp1",
++					     "apv",
++					     "mm-int",
++					     "cx-int";
++
++			clocks = <&gcc GCC_VIDEO_AXI0_CLK>,
++				 <&gcc GCC_VIDEO_AXI0C_CLK>,
++				 <&videocc VIDEO_CC_MVS0C_CLK>,
++				 <&videocc VIDEO_CC_MVS0C_FREERUN_CLK>,
++				 <&videocc VIDEO_CC_MVS0C_CTL_FREERUN_CLK>,
++				 <&videocc VIDEO_CC_MVS0C_DEBUG_CLK>,
++				 <&videocc VIDEO_CC_CX_AXI0_CLK>,
++				 <&videocc VIDEO_CC_MVS0_CLK>,
++				 <&videocc VIDEO_CC_MVS0_VPP0_CLK>,
++				 <&videocc VIDEO_CC_MVS0_VPP1_CLK>,
++				 <&videocc VIDEO_CC_MVS0_VPP0_VPP1_GATING_CLK>,
++				 <&videocc VIDEO_CC_MVS0A_CLK>,
++				 <&videocc VIDEO_CC_MVS0B_CLK>;
++			clock-names = "iface",
++				      "ifacec",
++				      "core",
++				      "core_freerun",
++				      "core_ctl_freerun",
++				      "core_debug",
++				      "cx_iface",
++				      "vcodec0_core",
++				      "vcodec_vpp0",
++				      "vcodec_vpp1",
++				      "vcodec_vpp0_vpp1_gating",
++				      "vcodec_apv",
++				      "vcodec_bse";
++
++			operating-points-v2 = <&iris_opp_table>;
++
++			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
++					 &config_noc SLAVE_IRIS_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
++					<&mmss_noc MASTER_VIDEO_MVP QCOM_ICC_TAG_ALWAYS
++					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
++			interconnect-names = "cpu-cfg",
++					     "video-mem";
++
++			memory-region = <&video_mem>;
++
++			resets = <&gcc GCC_VIDEO_AXI0C_CLK_ARES>,
++				 <&videocc VIDEO_CC_MVS0C_CTL_FREERUN_CLK_ARES>;
++			reset-names = "bus0",
++				      "core";
++
++			dma-coherent;
++
++			#address-cells = <1>;
++			#size-cells = <1>;
++			dma-ranges = <0x0 0x0 0x0 0xffc00000>;
++
++			status = "disabled";
++
++			iris_non_pixel: non-pixel {
++				iommus = <&apps_smmu 0x1540 0x0000>,
++					 <&apps_smmu 0x1620 0x0000>,
++					 <&apps_smmu 0x1544 0x0000>;
++				iommu-ranges = <0x32000000 0xcdc00000>;
++			};
++
++			iris_pixel: pixel {
++				iommus = <&apps_smmu 0x1543 0x0000>;
++			};
++
++			iris_opp_table: opp-table {
++				compatible = "operating-points-v2";
++
++				opp-150000000 {
++					opp-hz = /bits/ 64 <150000000 150000000
++							    150000000 225000000>;
++					required-opps = <&rpmhpd_opp_low_svs_d2>,
++							<&rpmhpd_opp_low_svs_d2>;
++				};
++
++				opp-285000000 {
++					opp-hz = /bits/ 64 <285000000 240000000
++							    240000000 360000000>;
++					required-opps = <&rpmhpd_opp_low_svs>,
++							<&rpmhpd_opp_low_svs_d0>;
++				};
++
++				opp-338000000 {
++					opp-hz = /bits/ 64 <338000000 338000000
++							    338000000 507000000>;
++					required-opps = <&rpmhpd_opp_low_svs>,
++							<&rpmhpd_opp_low_svs>;
++				};
++
++				opp-420000000 {
++					opp-hz = /bits/ 64 <420000000 420000000
++							    420000000 630000000>;
++					required-opps = <&rpmhpd_opp_svs_l1>,
++							<&rpmhpd_opp_svs>;
++				};
++
++				opp-444000000 {
++					opp-hz = /bits/ 64 <444000000 444000000
++							    444000000 666000000>;
++					required-opps = <&rpmhpd_opp_svs_l1>,
++							<&rpmhpd_opp_svs_l1>;
++				};
++
++				opp-560000000 {
++					opp-hz = /bits/ 64 <560000000 533000000
++							    533000000 800000000>;
++					required-opps = <&rpmhpd_opp_svs_l1>,
++							<&rpmhpd_opp_nom>;
++				};
++
++				opp-630000000 {
++					opp-hz = /bits/ 64 <630000000 630000000
++							    630000000 1104000000>;
++					required-opps = <&rpmhpd_opp_nom>,
++							<&rpmhpd_opp_turbo>;
++				};
++
++				opp-800000000 {
++					opp-hz = /bits/ 64 <800000000 710000000
++							    710000000 1260000000>;
++					required-opps = <&rpmhpd_opp_turbo>,
++							<&rpmhpd_opp_turbo_l1>;
++				};
++
++				opp-1000000000 {
++					opp-hz = /bits/ 64 <1000000000 710000000
++							    850000000 1260000000>;
++					required-opps = <&rpmhpd_opp_turbo>,
++							<&rpmhpd_opp_turbo_l3>;
++				};
++			};
++		};
++
+ 		videocc: clock-controller@20f0000 {
+ 			compatible = "qcom,hawi-videocc";
+ 			reg = <0x0 0x020f0000 0x0 0x10000>;
 
 -- 
-Cheers,
+2.43.0
 
-David
