@@ -1,56 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795023828;
-	b=TbubwfchgnpYiupwVA9xn7ODUOVlt7sZ8GfQPNA/R2Q05e2vASgXDfEA4Uj3IuJjRyCo
-	 nHQ2ZykoqE2VH8k3tGdrCogwSl0BTwBy9rbnY8wEvqSFaI2Pl3IEd1VDEYira/utAaCVK
-	 HjD03Y1stu4tTQktN01PTIOqTDeBsIWbq59nEUdbDgFVGgYR+YVK1MEtxNrlWpQrWgyrC
-	 dDWnexOSSJIOFaZvYxCfV0WDUbrROzIXFgie7RsVmyfKO9deF1ttLSkW2KfTvdkqAgQ6c
-	 Onq8CTUyoa3g0Qrpj5Yh63ZwFCvCxvDsUC0xePOvTHYv6iCI8njOT2nXG5bWko8rgSw==
+	t=1795023903;
+	b=G+HUbV9Ko3BZAZnDvz/bpknrLYvmbAOPVH6sNFOtz/VOaazVvbcmqluR7Nq4nfVLsOXT
+	 I1UsPmIsvfcYAD/LBXDOdZdaItjBDzFkQO9CjWudJA5OlzaySYJrTaC+kB69nIPyVOHlX
+	 VQdzRSb+KJHcUEd3HMZ67V0FB1iCfDTSJlDdQYQUfrLp36M8hHkXGOc+8nKE05+fMq7Qu
+	 PwLjTmm5VMYVWgjUGFh1yLeK454YN3um+hQ8zJQbzPBZVPUs5+tlvx9sbnLS8umArQEcI
+	 nWN9mGmL6yN1k3Jdn2uyGwQhnEWTn+vHXnB7wi5AP2P7V6t/VOh407kRFHyzwirYI+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023828;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=L/JG2kVIljtQt8JbbY2gIgeH7gzLpxrJG2728cL2kgU=;
-	b=AUffx9IqpNYX6h/Wlwk1onMRosOKk/zjMd2vAWqif0y+M39A+/r9HTDGQOcZA3S3qbAo
-	 V16sgcauWwAQuZ66Jav8HFTIkAEK1syfnlwoyY/0R6ZtOG5JL8MCf8WtrYkBumROwpXWT
-	 MfgqdNbZ48y/MFfq81z9pkEJYjG8/InK8VDprNdRSqdfbl1aebWlpJND1q44YILuFQ1be
-	 YXkYYQNy7GZCUwLPhy00OVxwbYZPcw5Iu/j8lBknbMyT2ovuxfV/idGHOrSssS9fJgkTT
-	 1zp602lsYU6/KXE0m2fMml7o69Ol9C2bckx4020dkuSp10VcQBVjh2EMWotNmhEHFLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023903;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ed4xVqmLqh0FhNmdYjMTT+rIzLH+xgbBgiWh55TzRDc=;
+	b=WnhN9xIgPvEgGjbxTQYvW9BjxSd5W5cjd97pt70l+ardPOSWot4zHczzrQW35aVtKPQk
+	 z+uXlVxbh6NB2VcgVJ27KdEZLXGpx08DuQLKeStyhAMCL/nOu9gGHYN6xq79eIC8MibAe
+	 uvIaUg0fignCVlhKThcDq2c5K+1Ey7acirEQTpt79jhac48u/MSZBrdZ6ga3wdCPmHaEk
+	 xFGGiX/I7aZP7mRpeuAK7mZP7Hd/DpgvDBUhoqp+PBfcv1sucbfEnS8/353JlxL14xnsv
+	 jkumj7j7/5N711uXdJQw5jmHn4gQLAmUdBFjZFrfGlaMYdazF8YAhyxMabD7Ddg9Xew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ln93A87G;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I9n4KuRX;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 580DD606A32A;
-	Wed, 18 Nov 2026 17:43:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71990606A31C;
+	Wed, 18 Nov 2026 17:45:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71990606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ln93A87G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD37A1F000C4;
-	Wed, 18 Nov 2026 17:43:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795023828;
-	bh=L/JG2kVIljtQt8JbbY2gIgeH7gzLpxrJG2728cL2kgU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ln93A87GjnCBTWrVNRokUdUeeCxDWSJDndnvASI9YG8Phxb2IMijf5GXzSJXR46M1
-	 0jHYl/xX/GPJJybdhZgvbgKFRetIPi9xVFDIWewy1yjBp/HFEeA8tHAC8Gc78kmVfc
-	 hQBtPy1lf39BvqwJSSSzm7szDRdCm9oXWVNpDqdKAr4glruJd88ctHgv/HvtT+we0v
-	 v9wm7eWLDsh/TFmZVTgrF2q8tZBIte7o96P0rHbvGlRUOg30EyE2bMO+vIaW07KUi+
-	 miuE2kU5fn4sgOK9VXFSQsVVEYHVUm3ELCegoChu7PR2jT3UtH877ZolVGZB17AAVO
-	 pch0aU6E1qGoA==
-Date: Wed, 18 Nov 2026 17:43:43 +0000
-From: Simon Horman <horms@kernel.org>
-To: Xia Yan <yanxia@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	maheshb@google.com, arnd@arndb.de, kaber@trash.net,
-	dskr99@gmail.com, linux-kernel@vger.kernel.org, yana06070@163.com
-Subject: Re: [PATCH net-next v2 2/2] macvlan: fix RX byte accounting for
- local broadcast and multicast
-Message-ID: <20261118174343.GN860048@horms.kernel.org>
-References: <20261112025619.563195-1-yanxia@cmss.chinamobile.com>
- <20261112025619.563195-3-yanxia@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I9n4KuRX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795023904; x=1826559904;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=R+fzyJKZWVfeM44fD4H0hSYVFYgiIpP7LrshqgBod9I=;
+  b=I9n4KuRX1q1gR/FPJ0m5aQyj8Vl6/Py+CST+EJi1EdtRuKrnjIlArdu/
+   hPth9fL7atlpS6GxrTR2pmrkPYAl629oOqkhJrlt9cUbIbC4VS0gTJv6L
+   1M5XPJ0HMyZ64B1fr4J2iLHUQ8yyEOB9OeHbJfdIxlygz4ZKNY/lqNWAU
+   weibIMc6/6nFY/IfnjutkZEX8elptEmvhSIEmtNLPeR2BnjNNVGv9oeF/
+   QbEp8DdbSUIb+MTnfP8/uuK8QKAVeTyT4OFZ7JwG4VYF1g2AADSSZgTpR
+   mO1Lig7xG//7wMAuJwUVAjLp2cDSAszH6Jw+M7r4/M2asRLOWfHMVbvHe
+   A==;
+X-CSE-ConnectionGUID: XGzB1xBZR4GEUNziw6Ydeg==
+X-CSE-MsgGUID: jXvDHd0fR7WCf6dDGKvHEw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3850019"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3850019"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 09:45:03 -0800
+X-CSE-ConnectionGUID: 5jV2dKe2Qka5LbwnLqtZ7Q==
+X-CSE-MsgGUID: 5UhYUNdlROmfbTV39yFvUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="12015076"
+Received: from soc-cp83kr3.clients.intel.com (HELO [10.122.184.228]) ([10.122.184.228])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 09:45:02 -0800
+Message-ID: <704f5a24-2880-4593-9c29-63eaffdaee29@intel.com>
+Date: Wed, 18 Nov 2026 11:45:01 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,37 +72,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112025619.563195-3-yanxia@cmss.chinamobile.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 09/21] KVM: x86/pmu: Switch to bitmask-based KVM PMU
+ capabilities
+To: Yosry Ahmed <yosry@kernel.org>
+Cc: Sean Christopherson <seanjc@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ kvm@vger.kernel.org, Jim Mattson <jmattson@google.com>,
+ Andi Kleen <ak@linux.intel.com>, Stephane Eranian <eranian@google.com>,
+ linux-kernel@vger.kernel.org, Mingwei Zhang <mizhang@google.com>,
+ Shukla Manali <Manali.Shukla@amd.com>, Dapeng Mi
+ <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
+References: <20261112203227.289379-1-zide.chen@intel.com>
+ <20261112203227.289379-10-zide.chen@intel.com> <av3MeWKmCRprVNWx@google.com>
+Content-Language: en-US
+From: "Chen, Zide" <zide.chen@intel.com>
+In-Reply-To: <av3MeWKmCRprVNWx@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 12, 2026 at 10:56:19AM +0800, Xia Yan wrote:
-> In bridge mode, broadcast and multicast packets sent by one macvlan
-> are delivered to the other bridge ports by macvlan_broadcast(),
-> called from macvlan_queue_xmit(). The skb still contains its
-> Ethernet header there, so adding ETH_HLEN again in the rx_bytes
-> accounting overcounts by 14 bytes per packet on every receiving
-> macvlan.
-> 
-> Packets flooded from the receive handler have had the Ethernet
-> header pulled by eth_type_trans(), so they still need ETH_HLEN.
-> 
-> Use the existing mode argument to skip the extra ETH_HLEN for the
-> local bridge-mode path.
-> 
-> Noticed in macvlan during review of the ipvlan fix, and confirmed
-> on a 6.6 distribution kernel: five IPv4 UDP packets with 32-byte
-> payloads increased rx_bytes by 440 instead of 370.
-> 
-> Tested before and after the change with custom IPv4 and IPv6 UDP
-> tests in UML. The corrected counters match the received Ethernet
-> frame lengths. Local unicast and external RX counts are unchanged
-> in these tests.
-> 
-> Fixes: 618e1b7482f7 ("macvlan: implement bridge, VEPA and private mode")
-> Signed-off-by: Xia Yan <yanxia@cmss.chinamobile.com>
 
-I agree that net-next is an appropriate target for this change.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+On 11/18/2026 10:05 AM, Yosry Ahmed wrote:
+> On Thu, Nov 12, 2026 at 01:32:15PM -0700, Zide Chen wrote:
+>> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+>>
+>> Intel platforms support non-contiguous fixed counters via CPUID.0AH:ECX
+>> starting with PerfMon v5, and support non-contiguous GP counters
+>> through the Architectural PerfMon Extension (CPUID leaf 23H).
+>>
+>> struct x86_pmu_capability now exposes {,fixed_}cntr_mask64 bitmaps,
+>> which may contain sparse bits representing non-contiguous counters.
+>> Switch KVM's kvm_host_pmu and kvm_pmu_cap consumers over to the new
+>> bitmask fields, including iterating kvm_host_pmu bitmasks directly in
+>> VMX and SVM PMU MSR intercept setup.
+>>
+>> CPUID.0AH:EAX[15:8] and CPUID.0AH:EDX[4:0] enumerate only contiguous
+>> counters. Derive these values from kvm_pmu_cap.{,fixed_}cntr_mask64 as
+>> the number of consecutive counters starting at index 0.
+>>
+>> Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+>> Co-developed-by: Zide Chen <zide.chen@intel.com>
+>> Signed-off-by: Zide Chen <zide.chen@intel.com>
+>> ---
+>> v4:
+>> - Cleanly substitute kvm_pmu_cap.num_counters_{gp,fixed} with
+>>   find_first_zero_bit() in intel_pmu_refresh() without throwaway
+>>   code churn.
+>> - Use find_first_zero_bit() instead of hweight64() for AMD CPUID
+>>   0x80000022 EBX[3:0] (NumCorePmc) and svm_set_cpu_caps() to enumerate
+>>   contiguous counters. (Yosry)
+>> - Do not carry over Jim's Reviewed-by from v3 due to reworking counter
+>>   clamping in intel_pmu_refresh().
+>>
+>> v3:
+>> - Iterate kvm_host_pmu bitmasks directly in VMX and SVM intercept loops.
+>> - Clamp nr_{gp,fixed}_counters to the number of contiguous counters
+>>   supported by KVM in intel_pmu_refresh(). (Jim, Sashiko)
+>> - Drop redundant !enable_mediated_pmu clamp on fixed_cntr_mask64.
+>>   (Sashiko)
+>> ---
+>>  arch/x86/kvm/cpuid.c         | 17 ++++++++++++++---
+>>  arch/x86/kvm/msrs.c          | 12 ++++++------
+>>  arch/x86/kvm/pmu.c           | 17 ++++++++---------
+>>  arch/x86/kvm/svm/pmu.c       |  2 +-
+>>  arch/x86/kvm/svm/svm.c       |  8 ++++----
+>>  arch/x86/kvm/vmx/pmu_intel.c | 18 +++++++++++++++---
+>>  arch/x86/kvm/vmx/vmx.c       |  4 ++--
+>>  7 files changed, 50 insertions(+), 28 deletions(-)
+>>
+>> diff --git a/arch/x86/kvm/cpuid.c b/arch/x86/kvm/cpuid.c
+>> index adafd6fa2c54..427871ec365f 100644
+>> --- a/arch/x86/kvm/cpuid.c
+>> +++ b/arch/x86/kvm/cpuid.c
+>> @@ -1535,10 +1535,18 @@ static inline int __do_cpuid_func(struct kvm_cpuid_array *array, u32 function)
+>>  		}
+>>  
+>>  		eax.split.version_id = kvm_pmu_cap.version;
+>> -		eax.split.num_counters = kvm_pmu_cap.num_counters_gp;
+>> +
+>> +		/* Contiguous GP counters only. */
+>> +		eax.split.num_counters =
+>> +			find_first_zero_bit(kvm_pmu_cap.cntr_mask,
+>> +					    KVM_MAX_NR_GP_COUNTERS);
+> 
+> Should we add helpers for the find_first_zero_bit() calls across?
+> Perhaps kvm_pmu_nr_contig_gp_counters() and
+> kvm_pmu_nr_contig_fixed_counters()?
 
+Agreed, encapsulating find_first_zero_bit() makes it more readable.
+
+static inline unsigned int kvm_pmu_nr_contig_gp_counters(void)
+{
+        return find_first_zero_bit(kvm_pmu_cap.cntr_mask,
+                                   KVM_MAX_NR_GP_COUNTERS);
+}
+
+static inline unsigned int kvm_pmu_nr_contig_fixed_counters(void)
+{
+        return find_first_zero_bit(kvm_pmu_cap.fixed_cntr_mask,
+                                   KVM_MAX_NR_FIXED_COUNTERS);
+}
