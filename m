@@ -1,103 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998887;
-	b=QPy+dKNp7hUNbqb0J84c7l+OM6k9Hel7ZncywwgzN5HgOIOCDGs8oIxSGYegLOAMtu8v
-	 kb66p6tr27sjgJfXv+R06r/K2buFcvbpuJokFEi51PLsVaEdjNfrwkK3/64EnuQGWbGc2
-	 P5M5wyzQl0VLO5bmuao/T+LMX9qj3F226d2/oWcKAV+PqOwuw+jAcCunQDNb1MB/FHuGZ
-	 2/qLtQaAzcpe2vjBp/A/OFsoVNVKdkOp6xgl2VqoifiqvgsyfVIF+CF8wzWGwRb4fVxJv
-	 g8d4+0P13mW16b1KJAoQZRiYlrVwpIjXCkcFbeHHOklBg59zmWrUo5isSt9z8AL+0WQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998887;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794998963;
+	b=kojijddFiixip1kcEOS6PB3b+Z3pqBoxUhNNmxsxmM2Oq4KoIvuM57urqlJP6OxTEYCy
+	 +oDtfmWcF+CcVZLH4vbD7phaOoMuk5eDN6f8YWPrr4EygpV8h5NPsPMY1Dt5hyaEsSJwg
+	 ctuEXFH0YV7GRFzii7SkK/r52oUU98qNHiaUBSl9mljF20+wR9i7FNvum9r2lA/skVC9t
+	 0nr2aBlRLbgwjpwOyS4TN7m7huNSInIBvDneTrvkGN5rugy30u7wiWEVEqCyb2D8/gAlf
+	 NQlkHpfgPl+UtoTcQv93jd+I1fwlXRRCLkPlrTgQyjm3L7uXJNzQTlkjzk+mZsZ4qdQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998963;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=T3M9PHT8VcodX9FFubZKxlabIlXO6c08/++71eKYdKI=;
-	b=M29cjSLS6qP9eYrcCXtzyTePpNO+Kkbiz99HXjSNtDjAA66YMJQeeJnhBnExH72ACLtk
-	 kxXe8EAzmspjDbvnFpzkAkYEXeL6OlvVht5iK6lNHBxRkHBSKKLsWefKlfWotyQ60F0ny
-	 aBXy8Dn++BPMi7KomHinSuw6AOKlWljlbcKf0pDNpcKOT1IW68ddcgWQrAV8R/2R1/7M3
-	 xJExqyywaOqWTYuiIjZORyB0NKVC71+zuiH7ZEeq2kKMmieXMu5n6+CAw3Hci2kexnLCN
-	 nM1Mbq4tPVffgMSypSRyFvczlJ9wHAOJHAMmsenpfbA6VBZCEf5mjBG+s7zX8QXqSXQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=NP7Egg2cK3GLjKZj5C+bpsjhrjuI4KFrET45ncq+pos=;
+	b=j/rs29FMeBArHzWkPmKrLgi8IZDwfIefeaJFvgUIhKlUDZZSeCoeTRWN5NQSKpHoEssK
+	 8+FzsuF2r0t1hW39YL/j3Psy83ab4EB2I1zLuEtrvOduSyFyEniNU8mBL1zO1Ui9TbkMj
+	 SHNmikuIoJCZuqcztrjVfC0ytGhY93D4gmg+5NGyftKJ3+0K1W4mswsYmjE5kHYX3qeDZ
+	 5b3K0BxKrRHrvzrW2URAievEtwyfDPVku55IyV1JA+wRzM5V22UHO/a8Xg6A+YVy1t1jD
+	 2bkRA4CK4UJq9Wd0+NcieLxvRuQtJ0ibzvNAb0TIdqBXW/HuEgjQ4BMND53xD+NuecQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="RS/JFt8K";
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nh9L+sZA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.169
+Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com [209.85.222.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2C9960A2606
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:48:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2C9960A2606
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4058F606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:49:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4058F606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RS/JFt8K
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-381d542bc29so1607979eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:48:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nh9L+sZA
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-94961d90b79so121592785a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:49:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794998962; cv=none;
+        d=google.com; s=arc-20260327;
+        b=inGxMvAObJnwZ+YOxahvaO93rpZ+PGNarMp8YlZpF3yARzTXjLE79Tl6eG+wMf/Nlf
+         whu+Y/HslMuVa8VFnp5sVIEZa0ECgWC9QRqvLXEswtUneUvz6Wb/D48lCVDB/IZYyuBb
+         7EClIjY6T3kJqkdnpb0kLc9Kv7sXsJSpfxCp8nvt9fn1oMZqHvHzwotuql2NaKau+nQQ
+         vYp588Nax550vv7X8DZ/WwBvgcQN0RUmhioDIcNOUDY+kgOrJuGLfyoP5+hNsjnufLmo
+         O7sQpF/o+Tec3UIKATyS59QVZ7KYJTC4OVW1GBr7YKwfF/Z96osVI4WekCCSkkk8dTOS
+         0mRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=NP7Egg2cK3GLjKZj5C+bpsjhrjuI4KFrET45ncq+pos=;
+        fh=fATAe60VXNLN5CKB9ldOixvdyWO81TjD+m+iWDPTmyc=;
+        b=p8JbrP370xIMA+9uNiE0WbYYSqSq+zoyUlOIehun+xcOsqKDwXMMvq/+HgbttZ4hMh
+         3WNdRlX+bEzx/vmgsRy2QC+jjRDzOz51Y0tuvEHLLnCuggsHr8h1hUJPD6RNaaWSzeVA
+         On2xXMQKpF+sJ+fzzkQ3GJhCyTMIHQ4Zuprn62UDWhswLGa2kg/y3F0MiDjhY3oD+pyq
+         GnMM+wodjxG4VQ1kt0spKwv3c0MhdUPrpv6PBEFlxRexBOLIv1d9f10RgqEZ4/w+hYIk
+         oE2c+WuAZ4yUr472FRGdwXWz9oIVrdTernUJhfC+4ClsQyxZLV2kX81CegRyQ/e0W7aA
+         +8Ig==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794998886; x=1795603686; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=T3M9PHT8VcodX9FFubZKxlabIlXO6c08/++71eKYdKI=;
-        b=RS/JFt8K59/zOdN6NCR0mfGRxKEH9aljpQYrzR2KEv3M9T2bdKrslF/LfKfU8DRxYd
-         Vugaxahjv9Y5ixoyo83phJy0ihiWqKsI7LhyQXpBqz8v9PD3/BJBWkN9mDdIPgU6wfgS
-         E/VEKocHxWGGfZCh0oL112cGtWZ6p7/LIL/WpIFjlwuYBTOlT+WaHxYskXuSrAyJGugt
-         655GPZK7bCXU/tn9YyCypyUxnUWQmsF2wxaoIXz/H2/MlNUt1XxJwX4N0MB4E4MaVTLb
-         5s5ZG9XACra3xfZvpaQwLMrJiwktT2np3tywRw22atOLU/P54+lTvZna3KviuXxKn33D
-         u5Wg==
+        d=gmail.com; s=20260707; t=1794998962; x=1795603762; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NP7Egg2cK3GLjKZj5C+bpsjhrjuI4KFrET45ncq+pos=;
+        b=nh9L+sZAKj6IQtN+LfWEmsirV1p1oEUtYfGLlqqw28edH4eq6yqTyFW3qjxIlyYFK/
+         4eOvtMPpVBVYoY1CIPaGCeFw4zpaONJ/JJLsR97ENjgDGmDH1pepKRX9ivdOLSLp+eZ+
+         CpRA1z95LV1DNsv2AVxCJTAwOsfbiDG6FBMgju0ap28Pe645QEtD9wO733jcodWGGnXE
+         IpEhpDo02xuoIvJ3pAdlvz0NMsn2Tg+V9hXNVjszc+14crYhtIvQyxAFsZhP9beFfESX
+         bRCzKFM78VqZ8uTSg8tzYrdCZ3qJnn+Uh/xJ0yeT+vo8En9qB/4xB1gSVu7ya7dML5wB
+         jnsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794998886; x=1795603686;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=T3M9PHT8VcodX9FFubZKxlabIlXO6c08/++71eKYdKI=;
-        b=v12QcyGkpDO5NEuskeNNQSfx7rAFx97j9hk1yjo9DOa/TXMIlUqw2YO3XOcz1kDgYF
-         rRcpIPulO1qf+Nbcklqa/abOyjP1elmqKtAY34DqTWJW8lvRTQZNwyL5jgoQGihqxsxU
-         XbUNMbEZ/LAp84Tjwu/xi2JZlTfpucI2jnCXWlPYeL/Od6xUzetGsiWo5Pd/C+4TgkGW
-         fGaY1SFi5oxmRt/tPbr+/1Kk2dYafvriSj0QdB23jSQh/U5qe6ulgrxJsiHwPAbgXp4x
-         M/O1WvoPz/kj7hiN1gc+NZYYW06fWh4FSey2JgJHq8vGNZBwpoWHJhKzlarSHSP4CWns
-         Z6xw==
-X-Forwarded-Encrypted: i=1; AL+hErHCm7AzBD+OjsQk8x61OCZPmxEHMNPVc3uNeloQ8PSx6lwIow0j9mZtMxMEc5JOjnAyZmV517wRBCtZZbU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WjXIdSV94W/dv5iidhV1VTCFQbdoLNxYULzWZRyK9814ztOE4
-	LepyX9a8NN4PEc62/reJeg0PHh3LV0aRkg+uPHlBIAbmGY9u+Yq7PMvg
-X-Gm-Gg: AZFdTZdSVVA5yQrkx0g0vzGbsi98PoQDmlixi3FENGJIJ725jbJm76cwOmh0D37PAh6
-	ir0JXiyOMvXqY6Sf8JW8Rpu9NxSextDsaMh6aIjWCO2NO+5AjHdj+s2CCLYjcv/gOxjuQFVgkn2
-	prYytYZJiSAfmmUWtyRvzvnX5iNdBcTevtalLKryoI0jO+9wY4+3BF2zTaatmLB2lvLPQFuyEBv
-	U3eo6EkAMA4Yz7DMwr2ivH9fU7m9Uoch93iAShaJe+75nrqXh9PrDrJUwe5XyjmVNqd2HEP4S5B
-	35KuaVlMKKlVD8mwsOoMi8zLn0JYQ2Bfhv31qoz4zObz3ufKPGTecEL6DaZPgXYVOOoM2DVlLiL
-	B3VHRbm+fBHrHlH2l6nUgRWd+FNjucQbNslwcLz6kqnSxQjnE1mYfiRnzQXi3V97uGB+mZEnTK7
-	VSiyZ3WsoibHKSLDwwu6CIVZ1XzcaDkk6fuFLDhmcQ4mW1u0AETb3N2FPneMMYM51oQ+Lk1lu3l
-	bqTHK8bUqWPF9CVvvbjFsMGsL2HNP0/OBSQzjFcMDARbvKQN+0ja8UHAhodUXB6ukd7j2cb+WoQ
-	1S++BJc6oG/3oUyBw7dOeQLxo2So2tQ3Bcoe27lnod7MIhF2xhc+HzC2kR5y06RK/eIl1TdV+dW
-	UfGzlIx196ym7hiIyRn/ZUuPSt5GQPeWJlTbGu1hyO9tVlGEkeioXVdd5kFYmPbW9hB0lrGcD36
-	mW+PmLp0EqReFHibRe8z9j+3ukRpWT+/3ipvpCepYlvoOSjR39Tx2IZ4uG2XqEC9bO6ymED3oBU
-	YDRQ5I=
-X-Received: by 2002:a05:7301:430c:b0:36a:1f8:a56e with SMTP id 5a478bee46e88-38280f1effemr2183532eec.23.1794998885835;
-        Wed, 18 Nov 2026 02:48:05 -0800 (PST)
-Received: from FT6N242TWK ([223.181.117.48])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6800366sm6783131eec.12.2026.11.18.02.48.01
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 02:48:05 -0800 (PST)
-From: Shashank Mohan Jain <jain.sm@gmail.com>
-To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2] rqspinlock: Keep claiming the lock while the queue head is still the tail
-Date: Wed, 18 Nov 2026 16:17:58 +0530
-Message-ID: <20261118104758.98620-1-jain.sm@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        d=1e100.net; s=20260707; t=1794998962; x=1795603762;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NP7Egg2cK3GLjKZj5C+bpsjhrjuI4KFrET45ncq+pos=;
+        b=eSxZLwBekNYSo4uDnrgBHeA/FY2QOal6IYEDq0JR32dJUOPyRcWnQuXM+s7sKpiyKU
+         Z8yxc7ClKwW98Zf6YllNLP2AwjYblHkU/y1GTz/jVg6o3RiDqOv3m2Z+PVD0BStb4ocT
+         YKx2wYupvumbl/+chWOlEFb5Neg2p88ZcMUbY1BNG0/m7eNP+Sf7lsr7LP6yYYQZ8jVC
+         vYr1KPjc5qsovRV5G951/GSj+xNJUy548pXOP4sw/dQigg+oW2tW+eTetXzUNaqo4DDz
+         o4AMnhBral0380PGM2r73+ImEYYmooXRHl6q/vh2Wfg4FPHFCH0ASNp08z6ItRpysPh1
+         Bf0g==
+X-Forwarded-Encrypted: i=1; AL+hErFXuI9VS0vPuHAqc+Re4d9uq4/6v1dpblLA6wkHhjWfdzBACAbTY+w97YJRQ7pihHPTHRDrLky6Gzfhk3Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zPl7ok74A1SHZPf3ivBuCUbI1BEEX0mfZov6oPrK+LXtQRik4
+	FVmJs04RlBJ4rimM4OSCQdhUTAaIMO+G35uWmoS6wINCqC1JQsAMkJlxI6JAAWZWyf9f0puo0ib
+	jfLWrGJusGR0rnVhk3o+JGaOSED6II1A=
+X-Gm-Gg: AYBFou2S0x1NZCHYM17ILO2Rhg7ql2tNs8B7s4QGB17sR+fU2scB1mhaSpc8irIkXW2
+	+v7/Np1RCojGlG30Hv5RSZQCI5QNtX0OOgR+OnOU1DFYKucM+QZKuom3YM8wI4DKffMa3wZpftC
+	8mxPX+YLxd6IHex36Gfc9NOtqLnMSjdx61LMLGSKKtNuKGpCFAjlXyynuVYAA+rmURx91yd8Kvf
+	2N9M9ldlhiF2KoPEmV3L3lni3sPugv8k8H64RrLKI8bhpOmgYM/zM4bNHyJo0vWOjCfdpubTFMJ
+	rI9Hq2D5HOLr+Ul6JzUs9lU+F63UaCJ3TJe6QX8cGHReukr9FmlPOP8CDVQO8vckwqSLI/oAZmP
+	LgSJFTgzK17RKi+OMxeiQqnYq3h7/LrZPl4bdKQTxYkspd6g51aGuVxRojf0C9WpcEcdHzVPA8I
+	1NJYY3ZrUWplsmUMBgaMM5oIjWAqmbv6bw+D733oiiYa1VT7Y1MNltUWI6Mg4gwb4i/YkHdRdb9
+	dwOozIL1cwkBZJzUSWR5ZiToVavjc495WrW3zIqSlGg61/Wfw2chdeUP8KliRS1M1wMkuJCkagc
+	l1RwbI9VZKo=
+X-Received: by 2002:a05:620a:4590:b0:93f:2ba5:1704 with SMTP id
+ af79cd13be357-9499957e2b7mr413791385a.18.1794998961991; Wed, 18 Nov 2026
+ 02:49:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,123 +107,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261117225023.36660-1-jain.sm@gmail.com> <DMY9Q4RMBKLM.2F6A6DVPXCTOH@gmail.com>
+In-Reply-To: <DMY9Q4RMBKLM.2F6A6DVPXCTOH@gmail.com>
+From: shashank Jain <jain.sm@gmail.com>
+Date: Wed, 18 Nov 2026 16:19:11 +0530
+X-Gm-Features: AclHuK9Fbf94bhZ0Ylf6POnlloUaZD5LKtE05H2BzWQ6S0Es351CCw68RVTKCWk
+Message-ID: <CA+FWx==oaq5LEOOkwSvvwVkSrfq5XHrHSjVapY78EtOd3OgpMA@mail.gmail.com>
+Subject: Re: [PATCH bpf] rqspinlock: Reset tail if no waiter queues behind the
+ queue head
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, bpf@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-When the head of the wait queue claims the lock and its cmpxchg from
-n,0,0 to 0,0,1 fails, it sets the locked bit and waits for node->next,
-with no timeout. The comment, taken from qspinlock, says the cmpxchg
-can only fail if somebody queued behind us, or if a waiter set PENDING,
-which will then see our tail and queue behind us.
+Thanks Kumar. Your version has no violation in the model (the NMI
+trylock and AA cases that hang without a fix), and the userspace
+replay of the interleaving completes with the lock word clean. v2 on
+bpf-next with your diff and no Cc: stable:
 
-In rqspinlock that waiter does not always queue. After clear_pending()
-it goes to queue:, and two paths return -EDEADLK there before
-xchg_tail():
+https://lore.kernel.org/all/20261118104758.98620-1-jain.sm@gmail.com/
 
- - the trylock fallback for an NMI waiter whose per-CPU node is busy
-   (in_nmi() && idx > 0), or when idx >= _Q_MAX_NODES;
- - check_deadlock_AA(), when this CPU already holds an entry for the
-   lock.
+Shashank
 
-For example, with the queue head H alone in the queue:
-
-  CPU 0 (H, head)                    CPU 1 (NMI, idx 1 on another lock)
-  reads lock->val == H,0,0
-                                     queued_fetch_set_pending_acquire()
-                                       sees tail H
-  try_cmpxchg(H,0,0 -> 0,0,1) fails
-  set_locked()          -> H,1,1
-                                     clear_pending()   -> H,0,1
-                                     in_nmi() && idx > 0, trylock fails
-                                     return -EDEADLK
-  waits for node->next ...
-
-H now owns the lock and spins until another context queues on the same
-lock. For a lock that is rarely taken, such as a hash map bucket lock,
-that can be a long time, with interrupts disabled. The same happens on
-v6.17 and v6.18 for any NMI waiter, as the trylock fallback was used
-for all of them. The AA path needs the interrupted context to have
-taken its entry for the lock and not to try the lock again, so it is
-much narrower.
-
-Only a different tail shows that a waiter did xchg_tail() and will
-link into our node. So while the tail is still ours, retry the claim
-and keep the PENDING bit of a waiter that may still be backing out,
-and set the locked bit and wait for node->next only once the tail has
-moved. The loop that waits for node->next is unchanged.
-
-Found with a TLA+ model of the slow path. With this change the model
-has no violation in the configurations where the head hangs without
-it (an NMI waiter using the trylock fallback, and the AA bail-out). A
-userspace port of the slow path, driven through the interleaving
-above, hangs without this change and completes with the lock word
-clean with it. I have not reproduced the hang on a running kernel.
-
-Fixes: 0d80e7f951be ("rqspinlock: Choose trylock fallback for NMI waiters")
-Fixes: 087849cca31d ("rqspinlock: Precede non-head waiter queueing with AA check")
-Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Assisted-by: LLM
-Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
----
-Changes in v2:
-- Use Kumar's approach: retry the claim while the tail is still ours,
-  keeping PENDING, instead of resetting the tail in the loop that waits
-  for node->next, so that loop is not slowed down for this rare case.
-  The diff is Kumar's from the v1 review.
-- Target bpf-next and drop Cc: stable (Kumar).
-- Checked the new approach in the TLA+ model (no violation in the NMI
-  trylock and AA configurations that hang without a fix) and in the
-  userspace replay of the interleaving (completes, lock word clean).
-
-v1: https://lore.kernel.org/all/20261117225023.36660-1-jain.sm@gmail.com/
-
-Prepared with Claude Code (Anthropic), model Claude Opus 5.5
-(claude-opus-5-5).
-
-Based on bpf-next 32b66b94c86f.
-
- kernel/bpf/rqspinlock.c | 23 +++++++++++++----------
- 1 file changed, 13 insertions(+), 10 deletions(-)
-
-diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
-index 111ec80..f6a938e 100644
---- a/kernel/bpf/rqspinlock.c
-+++ b/kernel/bpf/rqspinlock.c
-@@ -624,20 +624,23 @@ waitq_timeout:
- 	 * Otherwise, we only need to grab the lock.
- 	 */
- 
--	/*
--	 * Note: at this point: (val & _Q_PENDING_MASK) == 0, because of the
--	 *       above wait condition, therefore any concurrent setting of
--	 *       PENDING will make the uncontended transition fail.
--	 */
- 	if ((val & _Q_TAIL_MASK) == tail) {
--		if (atomic_try_cmpxchg_relaxed(&lock->val, &val, _Q_LOCKED_VAL))
--			goto release; /* No contention */
-+		u32 new = _Q_LOCKED_VAL;
-+
-+		for (;;) {
-+			if (atomic_try_cmpxchg_relaxed(&lock->val, &val, new))
-+				goto release; /* No queued successor */
-+			if ((val & _Q_TAIL_MASK) != tail)
-+				break;
-+			/* A pending claimant can abandon before publishing a tail. */
-+			new = _Q_LOCKED_VAL | (val & _Q_PENDING_MASK);
-+		}
- 	}
- 
- 	/*
--	 * Either somebody is queued behind us or _Q_PENDING_VAL got set
--	 * which will then detect the remaining tail and queue behind us
--	 * ensuring we'll see a @next.
-+	 * A different tail proves that a successor will publish node->next.
-+	 * Preserve pending while installing ownership; a racing claimant may
-+	 * still be undoing its speculative reservation against this queue.
- 	 */
- 	set_locked(lock);
- 
-
-base-commit: 32b66b94c86f009b49668de7340f2ed65aad2dc5
--- 
-2.54.0 (Apple Git-157)
-
+On Wed, Nov 18, 2026 at 4:05=E2=80=AFPM Kumar Kartikeya Dwivedi
+<memxor@gmail.com> wrote:
+>
+> On Tue Nov 17, 2026 at 11:50 PM CET, Shashank Mohan Jain wrote:
+> > When the head of the wait queue claims the lock and its cmpxchg from
+> > n,0,0 to 0,0,1 fails, it sets the locked bit and waits for node->next,
+> > with no timeout. The comment, taken from qspinlock, says the cmpxchg
+> > can only fail if somebody queued behind us, or if a waiter set PENDING,
+> > which will then see our tail and queue behind us.
+> >
+> > In rqspinlock that waiter does not always queue. After clear_pending()
+> > it goes to queue:, and two paths return -EDEADLK there before
+> > xchg_tail():
+> >
+> >  - the trylock fallback for an NMI waiter whose per-CPU node is busy
+> >    (in_nmi() && idx > 0), or when idx >=3D _Q_MAX_NODES;
+> >  - check_deadlock_AA(), when this CPU already holds an entry for the
+> >    lock.
+> >
+> > For example, with the queue head H alone in the queue:
+> >
+> >   CPU 0 (H, head)                    CPU 1 (NMI, idx 1 on another lock)
+> >   reads lock->val =3D=3D H,0,0
+> >                                      queued_fetch_set_pending_acquire()
+> >                                        sees tail H
+> >   try_cmpxchg(H,0,0 -> 0,0,1) fails
+> >   set_locked()          -> H,1,1
+> >                                      clear_pending()   -> H,0,1
+> >                                      in_nmi() && idx > 0, trylock fails
+> >                                      return -EDEADLK
+> >   waits for node->next ...
+> >
+> > H now owns the lock and spins until another context queues on the same
+> > lock. For a lock that is rarely taken, such as a hash map bucket lock,
+> > that can be a long time, with interrupts disabled, so it shows up as an
+> > RCU stall or a hard lockup. The same happens on v6.17 and v6.18 for any
+> > NMI waiter, as the trylock fallback was used for all of them.
+> >
+> > The AA path needs the interrupted context to have taken its entry for
+> > the lock and not to try the lock again, so it is much narrower.
+> >
+> > While waiting for the successor, reset the tail if it still points to
+> > us, as the deadlock and timeout exits already do, and keep the lock. If
+> > the tail has moved, a waiter has done xchg_tail() and will link into
+> > our node, so keep waiting for it. try_cmpxchg_tail() reads the lock
+> > word first, so the loop only adds a plain load while a successor
+> > finishes linking.
+> >
+> > Found with a TLA+ model of the slow path. A userspace port of the slow
+> > path, driven through the interleaving above, hangs without this change
+> > and completes with the lock word clean with it. I have not reproduced
+> > the hang on a running kernel.
+> >
+> > Fixes: 0d80e7f951be ("rqspinlock: Choose trylock fallback for NMI waite=
+rs")
+> > Fixes: 087849cca31d ("rqspinlock: Precede non-head waiter queueing with=
+ AA check")
+> > Cc: stable@vger.kernel.org
+> > Assisted-by: LLM
+> > Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
+> > ---
+>
+> I am aware of this one, but I don't think it's that serious (of course, n=
+eeds to
+> be fixed). I was going to send it in a couple weeks with some other chang=
+es for
+> rqspinlock. For the next version, let's drop Cc to stable and target bpf-=
+next.
+>
+> How about the approach below instead that I have? You could check whether=
+ the
+> violation in your TLA+ model goes away. The benefit is that we don't pena=
+lize
+> the loop that waits for next, for this very rare condition that is not li=
+kely to
+> be hit.
+>
+> diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
+> index 111ec80ea958..f6a938ee7ab4 100644
+> --- a/kernel/bpf/rqspinlock.c
+> +++ b/kernel/bpf/rqspinlock.c
+> @@ -624,20 +624,23 @@ int __lockfunc resilient_queued_spin_lock_slowpath(=
+rqspinlock_t *lock, u32 val)
+>          * Otherwise, we only need to grab the lock.
+>          */
+>
+> -       /*
+> -        * Note: at this point: (val & _Q_PENDING_MASK) =3D=3D 0, because=
+ of the
+> -        *       above wait condition, therefore any concurrent setting o=
+f
+> -        *       PENDING will make the uncontended transition fail.
+> -        */
+>         if ((val & _Q_TAIL_MASK) =3D=3D tail) {
+> -               if (atomic_try_cmpxchg_relaxed(&lock->val, &val, _Q_LOCKE=
+D_VAL))
+> -                       goto release; /* No contention */
+> +               u32 new =3D _Q_LOCKED_VAL;
+> +
+> +               for (;;) {
+> +                       if (atomic_try_cmpxchg_relaxed(&lock->val, &val, =
+new))
+> +                               goto release; /* No queued successor */
+> +                       if ((val & _Q_TAIL_MASK) !=3D tail)
+> +                               break;
+> +                       /* A pending claimant can abandon before publishi=
+ng a tail. */
+> +                       new =3D _Q_LOCKED_VAL | (val & _Q_PENDING_MASK);
+> +               }
+>         }
+>
+>         /*
+> -        * Either somebody is queued behind us or _Q_PENDING_VAL got set
+> -        * which will then detect the remaining tail and queue behind us
+> -        * ensuring we'll see a @next.
+> +        * A different tail proves that a successor will publish node->ne=
+xt.
+> +        * Preserve pending while installing ownership; a racing claimant=
+ may
+> +        * still be undoing its speculative reservation against this queu=
+e.
+>          */
+>         set_locked(lock);
