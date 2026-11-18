@@ -1,75 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041447;
-	b=G2vSIGWQjN7xYDKYvVahqcQKmFs9eUvoWah1DKtgNZxNVAfYNeb4EMJgP2sqhhUH7Oip
-	 RQGdIBU4bneKHkfA9fcJEerbIo6/lk2sBlb0z2TWi4HcOrt/mfo8b88203xoG4V330f8Z
-	 9/jYRo6oQBn5AJvqDX4ZILaTmAIawFrv2gIpbKEr3ZWp4U81O7H1UPjyQAi6rHV4yfH+j
-	 2lHqaQslKXNi/mkCFcoC2BsLCgcFdFprnDKdfr6zKzhn8UtwK8PWaHJZVt40zIsLHcewm
-	 arD0TmzadGIoDiK5ek33/8aMNkmhttLDftpZ5jQ6T+tcZxYDccxZ5g1hZDwVcbk/frQ==
+	t=1795041455;
+	b=zLzel50RS22jsi6jJ7czoD/nzwGKsIynmm+kJJGVMDIh/gjwHBTYRDh1iwYbiBlv7lwi
+	 Vo6GlC8CwpTIAkY2GFR5hA/zRr672FkNaVun93zK0705UtMknqGTLmrY9Jzz6KuOpp6hq
+	 TSbfyMYUtt/CN0nBpZby6kz508z3RPLtsPY4Spbvln5r4knP6TPNom14AdEE2W5YPhAL/
+	 siDLE+DHe2pnaA7wLwB+1MhKzcw/V12lw3PdcMsF29IZttJNVwYpABAGQigwHac+mgHBI
+	 O2QBM/0fbwFGx5ywNvLDqm2Y1C7z2MIi4DNWhbATSyiX49Yrr6eBHcAAKDFO1xoM2Fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041447;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=vtujdpaU40al4T5ZdD8VivFKSuVoB9aJ5CGlvJ4l578=;
-	b=lYmQ3kgwojXsAbhcp5TZ/ry3knqArabYvpLJH0oOVNPg1E/OfC8Ttx28g7/PhiS3+UV3
-	 XUtoQso3XDe+zkziPka+cUUdb6B10R6eDjniXPS1c05TuxzLAVfkdHm6gtrpxz4xpTj7C
-	 1l8sNXqIUby6DrOqVhjxkujPpJGyNDBlKXIZHXFlRK+DKGrb4EhW/BbCudJAyVp1n0rkQ
-	 rRhlcPIfc7FqRuCDr4QB0eNzlJBEL3B0WxfF7xza9UgTGxQj1wjEyZp29WHuBjQNz60jp
-	 njd2Dj9uMBN6IW0wSRDvqr11o44P7ZUjkwa0UPAANL91UYFN6hfJWyLQpv+eLCxqkJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041455;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=9LdRInN2V1y3ZPpg9EOa+HJr4dqqAI6ntkk/lYsjp5c=;
+	b=wLognpCHWuIMYnwOmw64kzbNs+1308jqsrbd6xjpOmpBW+LgyBCJrucm7y1RliGciYpg
+	 GxzzLdqkz6k7xoRNEy/19rl0GDBXN5Ori4NURY8GHu0WL/qg0gzjLHok8S/3FabCdybWw
+	 5N0fCjHQv/1TlRJTwrXmxkn/AJEvDbEMt9qsimfSDNPo6Vp3I7j5y9gPJJ1bKQGMwNd3U
+	 uxZ6cyTaGaKPjZog9dK2UM79Zwlhva+PdlTe6rMCHf17YCWiPIwcwCG+o0IKfqQ5ltbIU
+	 QjD8ANBN7wBqQXoSbUtG0PBsZDIE9e8+AAklVNdkZJhPhg6mEBTJrBihJxzgN/DdVzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UCkWdhmk;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dqv7dXML;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FB8606A999
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:37:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1FB8606A999
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC20A606A325;
+	Wed, 18 Nov 2026 22:37:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UCkWdhmk
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4e778acdbc6so1669385b6e.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:37:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795041446; x=1795646246; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vtujdpaU40al4T5ZdD8VivFKSuVoB9aJ5CGlvJ4l578=;
-        b=UCkWdhmkNToAqzBuAZIqNBHEJM7rm+H9Zh7cIkX7PfF0jiS26HDO0jUbwchxm1CuIr
-         uzEOwKxW8lyVkOBgQ5D5C2B4XszDmLGny78iQmPI24gMe22WfCjq1LDE9KJlYwGovg+A
-         MhXRUNpSi/9eD/h1uqojO+B9TsGJzkz5FjiG0q4aZbHDGvGXS/pL+DKc9n5U3K4l7cGa
-         pFOdUHV/czu4WqM7CSgbVcrauDXYJPeZSupdH28DmhKinlPsKZAvvoo2mGWlnwCtue15
-         rISFylo3OQHfQy4mRTEG+E7c33k7AZn9aAI2GYEriRQIHlON5jpWy7egX4k0mg4cRRO1
-         esCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795041446; x=1795646246;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vtujdpaU40al4T5ZdD8VivFKSuVoB9aJ5CGlvJ4l578=;
-        b=Zc2cDUB02kElpfH6/UfzbQCzNt9yu5PHtx9It7hTXzGmtMHFIOahEXs1Ldo6zkuwLS
-         6SX5K5dUy+Bx/EhI75XTwVJikYyZCM+GuJSEHiOSQtAYV4C+9SJSkDjWTl1+Swoha2ir
-         C+C6m3SxQUWefTvCcft8ZRK1rw+AFx0Ed6khClHOIEU024MIuzcsG9ajko7TYd1PNO1i
-         fBrX+Lb8/rN+xngW/FvDWubIX62W4z7RArLM6fhFX3E84TTfPWtsH8vGlJBmYluOrAb4
-         ZRu2C/p6aMSP4MRO+2WltHHcVuK8DmXelDibhnyfa6eQ1yOaWHt0q25+fMC7d8D7z7td
-         rMjw==
-X-Forwarded-Encrypted: i=1; AL+hErGGSkWKb1nGEhnLn1bcUiaol8q/r9rqc2+raw3XdkY3CgNA8gmIsz8p2oE7CjjWO2znsE4wOyqFsCb06+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8lxh6h0+IgM/EvhDDwks1BGgwvxr0HMONrcGzaegHBN353SdcR
-	FGJnx4FgiLZ2TSRmN9VQ257+of8OGnSe++7LYRMG1HaloplM28s6OxAegBfvHZYaMz4vIX01W/m
-	c8LQIkM7m1b+EBw==
-X-Received: from iocre7-n1.prod.google.com ([2002:a05:6602:87c7:10b0:9e8:de6c:a5a3])
- (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1925:b0:55c:888:30ff with SMTP id 5614622812f47-5774240c0a2mr4971244b6e.45.1795041445551;
- Wed, 18 Nov 2026 14:37:25 -0800 (PST)
-Date: Wed, 18 Nov 2026 22:37:04 +0000
-In-Reply-To: <20261118223704.3286085-1-dmatlack@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dqv7dXML
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B1191F000C5;
+	Wed, 18 Nov 2026 22:37:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795041455;
+	bh=9LdRInN2V1y3ZPpg9EOa+HJr4dqqAI6ntkk/lYsjp5c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Dqv7dXML1DRcPqzUMqO8A46q0Et90aEn4XQ5tMLrxoXrka5cYXQJJQGcHRqa98OEE
+	 My+yd9oogW5Sv34xLpSTooRL25tiZiljnepr+F41RKr8O/hWH8cVNh8OQ7wDMBeaUg
+	 Z9ZcWQXezEixTpW5sil8Tc502s8czhvSQ5dWdf459WgYWjZFePfq2XE+4H2iA/QYM7
+	 cKY2qKTOcNxk3RWMHxzG1voF/Nxav+/JTZTE07XUaTQMiPb6788mbcwF7xBeGXZP+4
+	 LmhmnXxMcqTxcX6S95p52C7rl+tyEQ3u6R/6yVoSxEUfiah9Bh+A0MI8Wo8nmTMD9G
+	 Q5ziCUthrZ9AQ==
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Clark Williams <williams@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>
+Subject: [PATCH v8 01/13] perf build: Link the jvmti agent and the GTK UI with EXTRA_CFLAGS
+Date: Wed, 18 Nov 2026 19:37:12 -0300
+Message-ID: <20261118223725.121500-2-acme@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118223725.121500-1-acme@kernel.org>
+References: <20261118223725.121500-1-acme@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,115 +65,46 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118223704.3286085-1-dmatlack@google.com>
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261118223704.3286085-14-dmatlack@google.com>
-Subject: [PATCH v11 13/13] Documentation: PCI: Add documentation for Live Update
-From: David Matlack <dmatlack@google.com>
-To: kexec@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org
-Cc: Adithya Jayachandran <ajayachandra@nvidia.com>, Alexander Graf <graf@amazon.com>, 
-	Alex Williamson <alex@shazbot.org>, Alex Williamson <alex.williamson@nvidia.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Chris Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>, 
-	David Matlack <dmatlack@google.com>, David Rientjes <rientjes@google.com>, 
-	Jacob Pan <jacob.pan@linux.microsoft.com>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Josh Hilke <jrhilke@google.com>, Leon Romanovsky <leonro@nvidia.com>, 
-	Lukas Wunner <lukas@wunner.de>, Mike Rapoport <rppt@kernel.org>, Parav Pandit <parav@nvidia.com>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Pranjal Shrivastava <praan@google.com>, 
-	Pratyush Yadav <pratyush@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Saeed Mahameed <saeedm@nvidia.com>, Samiullah Khawaja <skhawaja@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Vipin Sharma <vipinsh@google.com>, 
-	William Tu <witu@nvidia.com>, Yi Liu <yi.l.liu@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Add Documentation/PCI/liveupdate.rst, which pulls in the kernel-doc from
-drivers/pci/liveupdate.c and include/linux/kho/abi/pci.h, and link it
-from the PCI index and the Live Update Orchestrator documentation.
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-Signed-off-by: David Matlack <dmatlack@google.com>
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
-Reviewed-by: Bjorn Helgaas <bhelgaas@google.com>
+The jvmti and GTK objects are compiled with EXTRA_CFLAGS but their
+shared objects are linked with LDFLAGS only, so flags with link-time
+parts never reach them.  With -fprofile-instr-generate the jvmti
+agent's __profc counters had no __llvm_profile runtime to write them,
+and its files showed 0.00% in the coverage report.
+
+Pass EXTRA_CFLAGS at link time, as the dlfilter rule already does.
+
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- Documentation/PCI/index.rst           |  1 +
- Documentation/PCI/liveupdate.rst      | 35 +++++++++++++++++++++++++++
- Documentation/core-api/liveupdate.rst |  1 +
- MAINTAINERS                           |  1 +
- 4 files changed, 38 insertions(+)
- create mode 100644 Documentation/PCI/liveupdate.rst
+ tools/perf/Makefile.perf | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/PCI/index.rst b/Documentation/PCI/index.rst
-index 5d720d2a415e..23fb737ac969 100644
---- a/Documentation/PCI/index.rst
-+++ b/Documentation/PCI/index.rst
-@@ -20,3 +20,4 @@ PCI Bus Subsystem
-    controller/index
-    boot-interrupts
-    tph
-+   liveupdate
-diff --git a/Documentation/PCI/liveupdate.rst b/Documentation/PCI/liveupdate.rst
-new file mode 100644
-index 000000000000..96b1d7f5df3a
---- /dev/null
-+++ b/Documentation/PCI/liveupdate.rst
-@@ -0,0 +1,35 @@
-+.. SPDX-License-Identifier: GPL-2.0-or-later
-+
-+===========================
-+PCI Support for Live Update
-+===========================
-+
-+.. kernel-doc:: drivers/pci/liveupdate.c
-+   :doc: PCI Live Update
-+
-+Driver API
-+==========
-+
-+.. kernel-doc:: drivers/pci/liveupdate.c
-+   :export:
-+
-+Internal API
-+============
-+
-+.. kernel-doc:: drivers/pci/liveupdate.c
-+   :internal:
-+
-+Live Update ABI
-+===============
-+
-+.. kernel-doc:: include/linux/kho/abi/pci.h
-+   :doc: PCI File-Lifecycle Bound (FLB) Live Update ABI
-+
-+.. kernel-doc:: include/linux/kho/abi/pci.h
-+   :internal:
-+
-+See Also
-+========
-+
-+ * :doc:`/core-api/liveupdate`
-+ * :doc:`/core-api/kho/index`
-diff --git a/Documentation/core-api/liveupdate.rst b/Documentation/core-api/liveupdate.rst
-index b3c689e633c1..2bce2644eba2 100644
---- a/Documentation/core-api/liveupdate.rst
-+++ b/Documentation/core-api/liveupdate.rst
-@@ -74,3 +74,4 @@ See Also
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index b74b534e1153ffcb..e730f1a209cb44a4 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -640,7 +640,7 @@ $(GTK_IN): FORCE prepare
+ 	$(Q)$(MAKE) $(build)=gtk
  
- - :doc:`Live Update uAPI </userspace-api/liveupdate>`
- - :doc:`/core-api/kho/index`
-+- :doc:`PCI </PCI/liveupdate>`
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6b7c5f3a64d3..1572f6c905aa 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21554,6 +21554,7 @@ L:	kexec@lists.infradead.org
- L:	linux-pci@vger.kernel.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux.git
-+F:	Documentation/PCI/liveupdate.rst
- F:	drivers/pci/liveupdate.c
- F:	drivers/pci/liveupdate.h
- F:	include/linux/kho/abi/pci.h
+ $(OUTPUT)libperf-gtk.so: $(GTK_IN) $(PERFLIBS)
+-	$(QUIET_LINK)$(CC) -o $@ -shared $(LDFLAGS) $(filter %.o,$^) $(GTK_LIBS)
++	$(QUIET_LINK)$(CC) -o $@ -shared $(LDFLAGS) $(EXTRA_CFLAGS) $(filter %.o,$^) $(GTK_LIBS)
+ 
+ $(SCRIPTS) : $(OUTPUT)% : %.sh
+ 	$(QUIET_GEN)$(INSTALL) '$<' '$@'
+@@ -791,7 +791,7 @@ $(LIBJVMTI_IN): prepare FORCE
+ 	$(Q)$(MAKE) -f $(srctree)/tools/build/Makefile.build dir=jvmti obj=jvmti
+ 
+ $(OUTPUT)$(LIBJVMTI): $(LIBJVMTI_IN)
+-	$(QUIET_LINK)$(CC) $(LDFLAGS) -shared -Wl,-soname -Wl,$(LIBJVMTI) -o $@ $<
++	$(QUIET_LINK)$(CC) $(LDFLAGS) $(EXTRA_CFLAGS) -shared -Wl,-soname -Wl,$(LIBJVMTI) -o $@ $<
+ endif
+ 
+ $(patsubst perf-%,%.o,$(PROGRAMS)): $(wildcard */*.h)
 -- 
-2.56.1.703.gf848ed807c-goog
+2.56.1
 
