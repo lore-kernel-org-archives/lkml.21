@@ -1,67 +1,67 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015434;
-	b=AxGom84yK/umtKyI2Ycd+PxJTelBB+8j2GQ9ATgUibOB2j46MS4509uR1PoNhUTEWE+r
-	 hHUwtESGaFEV/rkPWEVGUm4BNLgTpwFPHATRCr4ghWPC9r/h+MloNSoldDWNRaet9I+jw
-	 aIpR5Eqi/LEumMvaI9aTQx/1UUogOXFjl0CdxOmjKXjBHkfG9cFhr2qaB+6ctSJv6X3CK
-	 zsVkKELOa9FXNK6EaTcsfttrGYpiQwBM9/DGXZB6fCM7qau0Zju1K5O75rZY32WuqLoyE
-	 gXVFMoAiLTE+tn0kncB9tNIpvWt5P5mGFq6x9nZLJ3ciyoL/BwL4WwMkKOq2VmNcsqw==
+	t=1795015436;
+	b=RaRpuE+g1mqQAbH/quDoWEuwMwyvsNlAKzJNgwHW2AfAlTEILKqsJlV7uhh4FzuJ4SDh
+	 IIb/EQf0GU4eTbgWIdjsYwc8qw5C1k7k2vpo35oqHden5zZRsPeGV4Pbk+ram4LuTPiuk
+	 11aIaRM9it28jCrtaL5RPinK3wLwCFnz755oNYA4viZfjYhKuVt7zPHN1RU5BCL8QB0TQ
+	 R7sGul4hzDPBcU6RcIk8DMfKpJoD0QqSRyae0VtrZOkS09iZOuOrKpstNruYBxJvE0ASu
+	 yGnyJi38fq5ZoYFKDA+28yA4ajfXUh3gQOQeMNNEqdZraovH9THJzMpJ1iMW5mVe8wg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015434;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=oKUUXTVJS/LFVlMihYz3ZWqF9UHg5n3wCBX0shTUj3s=;
-	b=3zMwLeL6b4WyZcZnAi8S4+BS6G4t7jGk4KsJU4o2dnIa3CNdsXgOJVPWfAWDmmwRBwfC
-	 iurJvVQQeYQDd0AwQ/2HiD1gcAnpz/nQ1+bNlbuvx06eNzLWI9uYLvbbp7ztp2c13obKQ
-	 ELYWFF0RHqm2ablo5mCvD73grSIjIYu52pmQScmN9ikarwCNkK048r999jO13HADlcfes
-	 oxcW9VyVV6V/NvXYPmmaCxnIT41kWpRlTk+bTHmAlCri3scZc8dP/SekfAvjFBdGAsoZo
-	 Nh0iO8l3sbfhLy6JkzgtNThbhHuLRoIXYvi2tk0F9KYF62r2gXfdcK+pSSOzOYSPB+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015436;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=/wWuoNoKhTnCurVf+R9Dm8cUyc6MlIAKk64n3z/RBEY=;
+	b=MxgHQHnbuupE9+AFd9kK90gW/qVM1uXfC3sxGuW9G6dVxijc7AAxei0JOmS+Mfx6XUdo
+	 KaapKDS9e8GSOBkEb4vyQ0DmAr9/TIiVc8/PnwwTnlE4aUpK+82c6fBY/yxAUnDhWHcZ7
+	 ruS//3ICbC5pHY2euiMSc8by9Xa9sQF5qs2qxbqq6KoTPBh6L2jyMI49dXIplbVtisfxR
+	 Z8Mkb8fkZ/fj14+9yYpUZn68/GupPvaYsAzUtHu5yIjRlZcrKt/+/XMqC+rw39fNnvraR
+	 JGYZe0Cp85cyku+JJLsmgjjla6S1Qsu02pofYyjcKPSNg+cdCt49X2MEPe/f8KveR5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UwezS82B;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpWF6okg;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BC94606A331;
-	Wed, 18 Nov 2026 15:23:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D65760A2611;
+	Wed, 18 Nov 2026 15:23:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UwezS82B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 474E81F000C4;
-	Wed, 18 Nov 2026 15:23:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpWF6okg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C03411F000C5;
+	Wed, 18 Nov 2026 15:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015434;
-	bh=oKUUXTVJS/LFVlMihYz3ZWqF9UHg5n3wCBX0shTUj3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UwezS82BdpUqMBy6fK1UgkbsZuFIzeYBAHayDD/gHgjNKwteAV2kDw6lP/s8WB/NS
-	 uFYMT3oyayM+8iacAsp3s09qOWnYngmh2Or5c2BtPU2iAPrb2Kq5YjwOv6X0LUlIG5
-	 QD2BI7vedjejC0Kcb1nFhR1YuVhV8YJ4hIPKCj2Bhgz0zR4YGP2iNdVB46kZ/B8naV
-	 gt66QUhOjmUbeK3Hqij0aZlR+oZWjXPajS9gXG8CUx808RdK0K6BmeSNbBTp9WmtWN
-	 ujAQqkV2RVk2jF/Ir/CFHuarhIT7ypMfUzRRpHQWdiw7mULKhlA67SBziSrWogtWO1
-	 s003oniKbOejw==
-Date: Wed, 18 Nov 2026 15:23:46 +0000
-From: Lee Jones <lee@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>,
-	Akari Tsuyukusa <akkun11.open@gmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, mfd@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v12 0/8] Add support for MT6392 PMIC
-Message-ID: <20261118152346.GC98456@joneslee-macbookpro.roam.internal>
-References: <20261105194426.1113050-1-l.scorcia@gmail.com>
+	s=k20260515; t=1795015436;
+	bh=/wWuoNoKhTnCurVf+R9Dm8cUyc6MlIAKk64n3z/RBEY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=VpWF6okg+6brufuDUnD/0rcm3ikR/TGcAO2b+kf1nmmezjf+ioumZyaJ/hW1XAXHc
+	 i8+zQr8ldIQD0EwrkfLPgRuItBcHyIZGOM9ZjDoPmyJ1lmnkSn4IWArch/xtz+If9D
+	 DG3rxW6pXD2Lxv1OKCtUjy80q7COvdcFrxOToK+yGr980IxJ1Q+I/s65bGLw80Gp98
+	 fgGv05L88j/j0lYcRWqAAwMUORJzu7XIZ7ttOGLTRaeCxIqA75DJOHItpxUN0JKiXG
+	 ilTvBNtJXKBxAAwlwwkJ6flU0YBv1XT+qIIumi2wFcjWs/rqbqqj1cif+sSDD0fUkB
+	 i1OiklgN/SJsg==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+To: Vitaly Wool <vitaly.wool@konsulko.se>, Jens Axboe <axboe@kernel.dk>,
+ Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>
+Cc: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+ =?utf-8?Q?Bj=C3=B6rn?= Roy
+ Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Trevor
+ Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Daniel
+ Almeida <daniel.almeida@collabora.com>, Tamir
+ Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>,
+ Onur =?utf-8?Q?=C3=96zkan?= <work@onurozkan.dev>, Lorenzo Stoakes
+ <ljs@kernel.org>, "Liam R
+ . Howlett" <liam@infradead.org>, linux-block@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Igor B <igor.b@beldev.am>, Vitaly Wool
+ <vitaly.wool@konsulko.se>
+Subject: Re: [PATCH 1/3] rust: block: add bio segment iteration and request
+ accessors
+In-Reply-To: <20261117233211.3137168-2-vitaly.wool@konsulko.se>
+References: <20261117233211.3137168-1-vitaly.wool@konsulko.se>
+ <3wemO2s0BrkamlAGBfPqORofFz9yCXPMZUZ0-dUQxmJmEhmz2T2yaCjcaTVXEB_gwLj8SdBNjkOR8r6aERjk9Q==@protonmail.internalid>
+ <20261117233211.3137168-2-vitaly.wool@konsulko.se>
+Date: Wed, 18 Nov 2026 16:19:13 +0100
+Message-ID: <87a4n6upzi.fsf@t14s.mail-host-address-is-not-set>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,48 +71,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261105194426.1113050-1-l.scorcia@gmail.com>
+Content-Type: text/plain
 
-On Thu, 05 Nov 2026, Luca Leonardo Scorcia wrote:
+Hi Vitaly,
 
-> The MediaTek MT6392 PMIC is usually found on devices powered by
-> the MT8516/MT8167 SoC and is yet another MT6323/MT6397 variant.
+"Vitaly Wool" <vitaly.wool@konsulko.se> writes:
 
-[...]
+> From: Igor B <igor.b@beldev.am>
+>
+> The Rust blk-mq abstractions only cover what the null block driver
+> needs: requests can be started and ended, but a driver cannot find out
+> what a request asks for or reach its data.
+>
+> For a driver that actually transfers data we need:
+>
+> - A `bio` module with a `Bio` wrapper, an iterator over the bios of a
+>   request and an iterator over the single-page segments of a bio, the
+>   equivalent of rq_for_each_segment(). Segments can be copied to and
+>   from a `Page` and zeroed, with bounds checks. Iteration goes through
+>   two new C helpers wrapping bio_iter_iovec() and
+>   bio_advance_iter_single(), so the multi-page bvec handling stays in
+>   C.
+>
+> - `Request::command()`, `Request::sector()`, `Request::bytes()` and
+>   `Request::bio_iter()`, exposing the operation, start sector, length
+>   and bios of a request. REQ_OP_MASK is added as a constant helper,
+>   since bindgen cannot evaluate it.
+>
+> - `GenDiskBuilder::max_hw_discard_sectors()` and
+>   `GenDiskBuilder::discard_granularity()`, so drivers can advertise
+>   discard support.
+>
+> These are used by the rbrd driver added in forthcoming patch.
+>
+> Signed-off-by: Igor Belousov <igor.b@beldev.am>
+> Signed-off-by: Vitaly Wool <vitaly.wool@konsulko.se>
 
->  .../bindings/input/mediatek,pmic-keys.yaml    |   1 +
->  .../bindings/mfd/mediatek,mt6397.yaml         |   6 +
->  .../regulator/mediatek,mt6392-regulator.yaml  | 112 +++
->  arch/arm64/boot/dts/mediatek/mt6392.dtsi      | 145 ++++
->  .../boot/dts/mediatek/pumpkin-common.dtsi     |  82 ++
->  drivers/input/keyboard/mtk-pmic-keys.c        |  18 +
->  drivers/mfd/mt6397-core.c                     |  97 ++-
->  drivers/mfd/mt6397-irq.c                      |   8 +
->  drivers/pinctrl/mediatek/pinctrl-mt6397.c     |  37 +-
->  drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h |  64 ++
->  drivers/regulator/Kconfig                     |   9 +
->  drivers/regulator/Makefile                    |   1 +
->  drivers/regulator/mt6392-regulator.c          | 764 ++++++++++++++++++
->  .../regulator/mediatek,mt6392-regulator.h     |  23 +
->  include/linux/mfd/mt6392/core.h               |  43 +
->  include/linux/mfd/mt6392/registers.h          | 488 +++++++++++
->  include/linux/mfd/mt6397/core.h               |   1 +
->  include/linux/regulator/mt6392-regulator.h    |  42 +
->  18 files changed, 1913 insertions(+), 28 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
->  create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
->  create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
->  create mode 100644 drivers/regulator/mt6392-regulator.c
->  create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
->  create mode 100644 include/linux/mfd/mt6392/core.h
->  create mode 100644 include/linux/mfd/mt6392/registers.h
->  create mode 100644 include/linux/regulator/mt6392-regulator.h
+I already submitted this [1]. I have a version rebased on v7.4 if you are
+interested.
 
-MFD looks okay now.  How many more Acks do you need?
 
-NB: This patch-set looks split in two in my inbox?
+Best regards,
+Andreas Hindborg
 
--- 
-Lee Jones
+
+[1] https://lore.kernel.org/all/20260216-rnull-v6-19-rc5-send-v1-0-de9a7af4b469@kernel.org/
+
