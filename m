@@ -1,131 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.150
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030658;
-	b=HqJn1PdSouRsKvKZkW41GGgPDklH1qf7YlNyefxu4CYyoWHwQpBog1Oi5djDsYko45kK
-	 1javsGpbjLurJMDL90gv5w5R/oSEP6nLFqHT71HdAGcTOcTwRA9W7iVVQboeAN+Hkb3l+
-	 TXfL5UruZ2v8pLwpnoEWNcJ1Bt1lYIRCz3I7tRvqWfQQRGLT3Ehq6Q/UoW5xh8rPt9Puv
-	 5UE1uaCeQ/iYGfndWzCa1nb3wBVArLXoxTFMiHlFLTa2m63L3n2jyvCmKr5M76381E7r5
-	 24143kCV7pcagW30fqyvtJ/hJP34VjCaaE4gYCKCQW288t0mFwcjkx2IIsUTnO+5F0A==
+	t=1795030687;
+	b=XPzRLIzO0Rvrs3+M6IRqP1579+ymuLwcfaoVb0augCQFTArPmvVEYb5Bg6fzIUj9f+G/
+	 7m59eXmyp3j6cG6CFf/0/w+mwchO6js6YnIWDqI254WHhCbrXvDpvaCZdf0nHef4ePfo8
+	 2FHbNMeLmNrgfL+55NDtTmJQE6yCztIdC8o+Qll9qiSxztvriJX4sV963awNbKgJr7hUQ
+	 k3bet06Ibdn/FD3K5sA1NFFU+/8kNx0oMEJ+4N8uWHjqOFykrAHBZUPUGZIZA9+SBj3Ps
+	 YiFazlOqeVaWDC860InDIfDlKMSHaR/y76KUPvlgh2CLK+DoVFXivP9E4Nekc9JafQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030658;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Received:Received:From:To:cc:Subject:In-reply-to:References:
-	 Comments:X-Mailer:MIME-Version:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:Date:Message-ID;
-	bh=yP5uIeHhWyufXwkEyp3q0ifamrjfDeCYoOCmrgIe0XI=;
-	b=jMoHU/NCOHWVWWxkgSwuM4xDdpk/qYJlD5btywK+iEEBM1RwRYVMbE1P0EmR6H/Uvnep
-	 yfjTwOU/4H5Al97yqoTU8KjsyYu4H5gM2PoOxczVuNlDfbQyIuS5TGd07PQuLa/dUczNW
-	 laKGWfnMX9Kn6nbs0he7PkAU4AhCdGrSJl+fGZWFNtx2e2/+LsKc7+/uFE9dkDRFzMJn1
-	 /VroA/wTJ5zYlRpjFUFh09aMgA+FugsKkyLfWiJ0cL0S6XjeIOuCDWl02UYepwm4G4zcM
-	 HGqu+KiaAQ7kReqafSPhlI6+oVwJNdtzGVggB4OQq6OZmMfz9QYGzRF9w9Pdn+tlMpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030687;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=c66EFlOJVYnnxUqxIZvQrJ/FVmfJ5lBMhar3bfkOCRs=;
+	b=LmDDr5r1d+mYhxVXSZKPl/w2Su8IDehbOvsMg6c9b/lADNwt3sVCLgWK7HwB0QRuGxVc
+	 ozPVK6nPRwP0Hnlly/a3a4gbrQby7QTeZ0yCFCzqQ641Geg0Lzm6BZB/kIrRoNg1zbI8N
+	 FsqgKF8bT69q5PQtLbZIuLasPKhpTk28u+R6T0srX8xKQGLQvngf/TNGwws0ORwl3dcDG
+	 PeIhcMi7NOWUPagzDWjRg/MDmYvvtsJvXnvHCcjEVZ+ztTI60E7k+BQTmLjuJH+dR6p+6
+	 ZYd7YiArlO7ERDQOFYGtzy8NDvb9kSxtrRx4Dlw80hGfUoAST+r4u5bxgTTJJaM6qgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jvosburgh.net;
-	spf=pass smtp.mailfrom=jvosburgh.net;
-	dkim=pass header.d=jvosburgh.net header.i=@jvosburgh.net header.a=rsa-sha256 header.s=fm1 header.b=X96MQCH7;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=ZpPPwmiD;
-	arc=none smtp.remote-ip=103.168.172.150
-Received: from fout-a7-smtp.messagingengine.com (fout-a7-smtp.messagingengine.com [103.168.172.150])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EnMdscv8;
+	arc=none smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 302DB606F51A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:37:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 302DB606F51A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jvosburgh.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jvosburgh.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46E11606A7D6
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:38:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46E11606A7D6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jvosburgh.net header.i=@jvosburgh.net header.a=rsa-sha256 header.s=fm1 header.b=X96MQCH7;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=ZpPPwmiD
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id 3A24FEC05AA
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:37:37 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Wed, 18 Nov 2026 14:37:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jvosburgh.net;
-	 h=cc:cc:content-id:content-transfer-encoding:content-type
-	:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to; s=fm1; t=1795030657; x=1795117057; bh=yP5uIeHhWyufXwkEyp3q0
-	ifamrjfDeCYoOCmrgIe0XI=; b=X96MQCH7Hrosf8O+PNoIj9xseRzOogJiGKe4d
-	M+hOH9TzlKeABKigEr/nP0LigcjT5ai2KSftWIExKNLOUP6WJuhO2RO8xZMt4pur
-	Q0Ar4/PcVVSn75uJ2jMUfYetFWLA/48v98k6TDrRpxUe/pU26Ye+eUdmSeD7W0JY
-	3uyc5o9qDz5u6xaRzao325OHsXW/YPkSZFMaASF8rP3GSJyyoMCG+rWwZjCrtDj9
-	Y7f4D4TH9jAMGKZOc/n3i1FPleaL83MM7YCPKfgE4eBFu6ptYCA6mDhT9QbqUh31
-	IEv4QIxEvUKkS6KvF7V7QqlMR/TeOBXg9S+1gcxHzX2G2itDA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-id
-	:content-transfer-encoding:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795030657; x=1795117057; bh=yP5uIeHhWyufXwkEyp3q0ifamrjfDeCYoOC
-	mrgIe0XI=; b=ZpPPwmiDEc8FSvzB5rHBp78/C65e+mBsMdF7VsF+DkzjK+2ArG1
-	26L7XqaXV5tzajJMbReIUuST/GIS0zax6Hno8M54r5LCm6Orra+mnjhyCkz/MUPc
-	A4pg/vWXnIdCl/KEmIrcbq5xPVSCPUnqEmlxuz7Z5/Rt3CRgly2AMwfXM13FaQ4M
-	gWqNHL7axiTb8DUKTBRqBQz4TnE1QgX3GVbZPk2LC7XGn2FA5qL0hm31W05y5ahY
-	yz8gejwUOvclptNBIjKYe6nNvFhVtk8/eRxEJIx1tcX0XDKwoqQ2rWfKKtkhGPzd
-	EXJqEUZpTrlI+K7oxCSIazC5XsM60f6h0wQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=jvosburgh.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795030657; d=jvosburgh.net;
-	mf=PGp2QGp2b3NidXJnaC5uZXQ+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:LpNRZ3s+OMwqQ7/4O/qyWCe7qChjZrJn5FyExDvXR3e6PHe
-	I/ZSJZsy5cSs9Cy9uv+yUusgG+AEOn22Vl/7QNniH4tcwlYO2D9GkKRFSUsCjnl8
-	rLAzJFhOH9i/u+K1qmi8VUnX0fp+3ihjmUG6/+cHyGHARoVzm6zPi/lg7fPrkM39
-	cXSppfOyfkQ0SKy/8s7owVvQRIV+lMHhtOyF2X7lyKTUGP1aseB1MtmUVrMCURZu
-	lP6AWmrzYkNeCQjFmD//sZsByldowjte94Yveg60rWnqbHzw7CyhVQ502gq65xik
-	KDHy/Revwaz1X7upuwES5P5+Mo563BFlYPiEQpg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,comments,content-id,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:6dJtZ2y5DCMaVJ40pwim3m9Jfdoq0BIn5WFiGzZeAEk=:R/FiLaTaFITAGo3KiRJd4Iy0sdHbt42m/62u+PR/gjM=;
-X-ME-Sender: <xms:gP79apZajHePvO0Nc-36sMhvxgAAxjCzy9nvesODRowNlUfjd4LpWw>
-    <xme:gP79aqZzVgs9biebTWJVuZWBremo_87PkZ6ye-k3uWFFVZWbQBaupCmHjtMwzE2QF
-    OoohWVw6kPdewMpUWruP2xR90PS13F1I0RXWcrb6adFRjZb3SIWOTbO>
-X-ME-Received: <xmr:gP79ainw_DgUKEwYMEsytGzDiE7rqWwQC-BAYHo-1sqa060QQqd0EeIvrjtT3jxHct9j8w>
-X-ME-Proxy-Cause: dmFkZTEV7QuZ27H+FBkpLjFfttmg+Bqb8FpUZfuHazUHWfT7uZiMQGOzHcji1JFpFNeprO
-    gfpFLOFAXQZmEnUjYqqO+4p/+04zoHQF/1esWPZO9xZINgViTo/jv+dA11FqOTbw9T2fih
-    He2rDvXhlmErJlDGoMCt6YaWBoBWeY/ZQ8+sZxv2tUCXKuqoSUK/oe+fmYgbxXeYiakpza
-    ASk2v5y2mrO1UWrRs92W8PA/dhfeXC6cMtTFl8PxDA/66czfWvm7M/Qht2lU5MB/t6D3Rp
-    mDBfhNjSC0TZRUbMBgDqJsLPk0noIF2eniRKPEnSwHlz/BDoTaA2ZCKpj3tTyAxgyx8/HW
-    G7GmMYF0iL3jTDjnmqkWr8AKCGxdMYFJkDQk2kSj+WWFKlO8E/GxE7urIP/NRXttEcWLT9
-    MwzMU9HDwyRHJ8Xr9n5Fo86XTnTi8T1D+FFbU4LB8bBTxRq3kfDwumLhczRZe9bVvwkJQX
-    hgkvC8ty43OwKHqob1l8OZQNj0KcmW2AZ1ZM6RkfdmeiPgBNhN17+7I8vyOi2WDh/hl/tn
-    nb8d+r8sSXxQIsOMv/bKG4+Ad5u/SQBoiX0dQA5Pg4EW1q65vxHkjEjx9pbpP8uuLHguUM
-    CO7I8V1WeL9v49KSH7sw8hp8rRUC5IvOVOCf7LEfV1TB0YpNrRHe1kGwpB4Q
-X-ME-Proxy: <xmx:gP79al0V-1dsLsoMWU7QMnw1Zek96VPry7ihNyM1-KZP7aGuS25SCg>
-    <xmx:gP79ai33mOXKVTdhpKVV2XsyTarX1AfvnMhDSnOwMwbapqnxSwbUXg>
-    <xmx:gP79anqMY0ZwuOnd5tlyNN8YUog3Y_UGHXDDgLKed7vwFMJZmWx1JA>
-    <xmx:gP79auhALjwuevkGhmiTCxyGd9ovOv0Ycn1_wKifh8UL7pbGW_bChQ>
-    <xmx:gf79ajI-Ps8nrKdAe1B490bGhBrsKDDzgRwU0xsG_KxtlrVPt_KkeYi->
-Feedback-ID: i53714940:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 14:37:36 -0500 (EST)
-Received: by famine.localdomain (Postfix, from userid 1000)
-	id 62AB39FC91; Wed, 18 Nov 2026 11:37:35 -0800 (PST)
-Received: from famine (localhost [127.0.0.1])
-	by famine.localdomain (Postfix) with ESMTP id 5F60C9FC4C;
-	Wed, 18 Nov 2026 11:37:35 -0800 (PST)
-From: Jay Vosburgh <jv@jvosburgh.net>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-    "David S. Miller" <davem@davemloft.net>,
-    Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-    Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] bonding: reject a non-Ethernet 802.3ad slave even
- when the type matches
-In-reply-to: <179500849159.1877154.14715369660816392826@gmail.com>
-References: <179500849159.1877154.14715369660816392826@gmail.com>
-Comments: In-reply-to Kyuwon Cho <kyuwoncho18@gmail.com>
-   message dated "Wed, 18 Nov 2026 05:38:10 -0800."
-X-Mailer: MH-E 8.6+git; nmh 1.8+dev; Emacs 29.3
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EnMdscv8
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1ae58d17cd9so1284807c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:38:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795030686; x=1795635486; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=c66EFlOJVYnnxUqxIZvQrJ/FVmfJ5lBMhar3bfkOCRs=;
+        b=EnMdscv8hwvfSOcoWdXoAholEjGvjRFy+uqBYbzeehG+zgiSKLV5jQBVF21THsEkbk
+         JvBDKg3vb/cWyyVEBxuPq6NIgy4dU3fXi3Veqd4xNFeqFVpxxn0WrD2KdfkiHUX/l4gH
+         8oEosYa8vmivrJsdKZva8DwajohPFW85WzgopMfivnR+xfdVz4rNsR1iv8Y+Pjfj0SBw
+         zOk1fauefMci0WlQhzmxvxT5NgfPbdGAS+bYBAR66oH4rsmVaYci1wiPR0xRakLUj+x6
+         u000t3LXlWBvXtAo5lbrK39CqhpOL5Ihy8d0CyCW9OmzfYjidAZwi5YkA1WeUHuUU+/Q
+         QQ3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795030686; x=1795635486;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=c66EFlOJVYnnxUqxIZvQrJ/FVmfJ5lBMhar3bfkOCRs=;
+        b=0t8g/krBIcpSp1Dya46VSXKM8k8Zih7HMqelKofXoWcfjMOVIHvlab0dgjazUZ47qY
+         8mK7dYLjsgNHRAMwUDOKPDd/OqjGgnYYhfOA4WVwunMAutIZZk0RGGp4MUFz88AEraCQ
+         hVAgoiuS0X7Q16yWGucAOJstpWSwInDb04/VMUWc2EE496efcCW4qNgn7djPKJ4PW90l
+         BsUJUaafBTrAAVDOOj9l993xxFs88Rl8tpQJaD9G4+Kg0lsGMysU1vId72KGWn8iYK3x
+         5Gtdo7HEiWVUq7pXA5U9aoeF+OeGw9GDHupwfoHx3vLc+p/JaHIvjEoHYXQzSlRkhbsR
+         LYww==
+X-Forwarded-Encrypted: i=1; AL+hErFbSvpLxUVo4yeIhEKjV2hsVanp2LgbEnnKlcdOHYCL8SWYEq/i+rg6wDBZQOuG0ciaCFeJPJq4737F+VE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3jMjGs74LdN2aOtwWqWqmaK+OqaySm6QXLEtQWamXtY+iV7i4
+	mTzqeiZn3ZLwuZhcrGMA48rhsU7NHQHNwX4OqwF73bUC3WfWkaQcDh7L
+X-Gm-Gg: AYBFou092Z+7dV5c70JPpnoPR3U008teUHdUOnxXyVMwT8c0lGLBpcIQQ3wTH4zU+Rk
+	Vf4yncBdOo0M56s/qIezmGV4HwEOCbN1kHoLjvWLsCfklkpTR4yhcLscIO3oeFC250meK7ts+9a
+	1GYPSJ/MBvtJyqYY0HeSsXyBqNwPzKJCpU/lv+xa8KUQVAsHrYjIM63DdsKEWpRE2KcVE7bneuz
+	CmNgenkRf6bkC7bki+8LeHTkoTIXGL3zu+1pQHWRbNoFGxafevaXX+dVWPdUn6dp75FhXgv7Sym
+	9P/YRanEG7/C851YtDtWKdrNNW1D1+YerYTlgq63ONRNA5Y2KewnNOGb07D8kEsdNqwxtGfMIEi
+	KiCKOXkH0dpPPhHZSHiHw3vnUhLVNT8CnFIyjbLBmLcPj51cwHCF3oK+1LrCW/5oVbvRwluPD/A
+	5Qtb0oWiuA5FTSOuW7V7ErXTiWnwm9X2DbK6cgRRxDq7LPbnanyuPtlZ8A0bDeuj8CZxwJFqnjL
+	fIQ2/MF1NHCk2QCnwYs+jWadMq5yJ2BuXY+WK+clntZXo07s2I/Q+TGyx0u3LRqGdYKB2U/xkuP
+	+UcrrA6VUghg0R07z0D91clVfSFnm7PsPu7iQdbkoWQ95306LcNAVKiZ
+X-Received: by 2002:a05:7022:7f15:b0:1b2:3448:840f with SMTP id a92af1059eb24-1b543cb4093mr3136249c88.7.1795030686140;
+        Wed, 18 Nov 2026 11:38:06 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544784017sm8261719c88.4.2026.11.18.11.38.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 11:38:05 -0800 (PST)
+Message-ID: <9bf135b3-455f-4463-bf6a-b80faa2e4606@gmail.com>
+Date: Wed, 18 Nov 2026 11:38:03 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -135,136 +92,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-ID: <527764.1795030655.1@famine>
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 18 Nov 2026 11:37:35 -0800
-Message-ID: <527765.1795030655@famine>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.6 0000/3318] 6.6.163-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+ hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+ sr@sladewatkins.com
+References: <20261118150313.527275416@linuxfoundation.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <20261118150313.527275416@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Kyuwon Cho <kyuwoncho18@gmail.com> wrote:
+On 11/18/26 06:10, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.6.163 release.
+> There are 3318 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Fri, 20 Nov 2026 14:55:42 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.6.163-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.6.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
->Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
->devices") rejects a non-Ethernet first slave in 802.3ad mode, but only
->when enslaving it changes the bond's type. A bond keeps the type of its
->last slave after that slave is released, so a bond that once had an
->ARPHRD_TUNNEL6 slave can be set to 802.3ad and take another TUNNEL6
->device, such as a second bond prepared the same way, without the check.
->bond_open() then adds the 8-byte lacpdu_mcast_addr to that slave with
->dev_mc_add(), which copies the slave's 16-byte addr_len:
->
->  BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex+0x26a/0x6d0
->  Read of size 16 at addr ffffffff878a1620 by task test/115
->  Call Trace:
->   <TASK>
->   __asan_memcpy+0x23/0x60
->   __hw_addr_add_ex+0x26a/0x6d0
->   dev_mc_add+0xb1/0xf0
->   bond_open+0xaa6/0xf90
->   __dev_open+0x2fd/0x7f0
->   __dev_change_flags+0x480/0x670
->   netif_change_flags+0x7b/0x160
->   do_setlink.isra.0+0x16f8/0x3960
->   rtnl_setlink+0x474/0x870
->
->An unprivileged user can set this up in its own user and network
->namespace.
->
->Do the 802.3ad check for every first slave, not only when the bond's
->type changes.
->
->Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices=
-")
->Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
->Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Same perf build failure as with 5.15 and 6.1:
 
-	This patch looks like it will work, but, since 802.3ad is only
-allowed for ARPHRD_ETHER, I think it would be clearer if the block were
-moved up a level, i.e., above the "set bonding device ether type by
-slave" commentary, something like (not tested):
+/local/users/fainelli/buildroot/output/arm/host/bin/arm-linux-ld: 
+warning: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/arch/perf-in.o: 
+requires executable stack (because the .note.GNU-stack section is 
+executable)
+   LINK 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
+in function `test_truncated_branch_stack':
+sample-parsing.c:(.text+0xaa774): undefined reference to 
+`__evsel__parse_sample'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+sample-parsing.c:(.text+0xaa784): undefined reference to `perf_sample__exit'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+sample-parsing.c:(.text+0xaa78c): undefined reference to `evsel__put'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
+in function `test_truncated_swapped_raw':
+sample-parsing.c:(.text+0xaa93c): undefined reference to 
+`__evsel__parse_sample'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+sample-parsing.c:(.text+0xaa94c): undefined reference to `perf_sample__exit'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+sample-parsing.c:(.text+0xaa954): undefined reference to `evsel__put'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
+in function `test__kallsyms_fixup_end':
+symbols.c:(.text+0xc189c): undefined reference to `dso__symbols'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+symbols.c:(.text+0xc18b4): undefined reference to `dso__symbols'
+collect2: error: ld returned 1 exit status
+make[4]: *** [Makefile.perf:697: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf] 
+Error 1
+make[3]: *** [Makefile.perf:267: sub-make] Error 2
+make[2]: *** [Makefile:70: all] Error 2
+make[1]: *** [package/pkg-generic.mk:286: 
+/local/users/fainelli/buildroot/output/arm/build/linux-tools/.stamp_built] 
+Error 2
+make: *** [Makefile:29: _all] Error 2
 
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_ma=
-in.c
-index 7019e5d8fdc8..b5d7e0ebaf21 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -1948,6 +1948,13 @@ int bond_enslave(struct net_device *bond_dev, struc=
-t net_device *slave_dev,
- 		return -EPERM;
- 	}
- =
-
-+	if (slave_dev->type !=3D ARPHRD_ETHER &&
-+	    BOND_MODE(bond) =3D=3D BOND_MODE_8023AD) {
-+		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+			     "8023AD mode requires Ethernet devices");
-+		return -EINVAL;
-+	}
-+
- 	/* set bonding device ether type by slave - bonding netdevices are
- 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
- 	 * there is a need to override some of the type dependent attribs/funcs.
-@@ -1957,12 +1964,6 @@ int bond_enslave(struct net_device *bond_dev, struc=
-t net_device *slave_dev,
- 	 */
- 	if (!bond_has_slaves(bond)) {
- 		if (bond_dev->type !=3D slave_dev->type) {
--			if (slave_dev->type !=3D ARPHRD_ETHER &&
--			    BOND_MODE(bond) =3D=3D BOND_MODE_8023AD) {
--				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--					     "8023AD mode requires Ethernet devices");
--				return -EINVAL;
--			}
- 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
- 				  bond_dev->type, slave_dev->type);
- =
-
-
-	In my opinion, this would be clearer to the reader, in that the
-802.3ad restriction has nothing to do with whether the bond is empty or
-not.
-
-	-J
-
->---
->This was first reported privately to security@kernel.org. Eric
->reviewed the patch there, judged that no embargo is needed, and asked
->for it to be posted here with his Reviewed-by.
->
->The patch was written with LLM assistance; we reviewed and tested it.
->With it our reproducer is clean in 6 of 6 runs on v7.4-rc3 and in 6 of
->6 runs on net (2a324a58a084).
->
-> drivers/net/bonding/bond_main.c | 12 ++++++------
-> 1 file changed, 6 insertions(+), 6 deletions(-)
->
->diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_m=
-ain.c
->index 042d7c75548f..f2e645f869b1 100644
->--- a/drivers/net/bonding/bond_main.c
->+++ b/drivers/net/bonding/bond_main.c
->@@ -1959,13 +1959,13 @@ int bond_enslave(struct net_device *bond_dev, str=
-uct net_device *slave_dev,
-> 	 * ether type (eg ARPHRD_ETHER and ARPHRD_INFINIBAND) share the same bo=
-nd
-> 	 */
-> 	if (!bond_has_slaves(bond)) {
->+		if (slave_dev->type !=3D ARPHRD_ETHER &&
->+		    BOND_MODE(bond) =3D=3D BOND_MODE_8023AD) {
->+			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
->+				     "8023AD mode requires Ethernet devices");
->+			return -EINVAL;
->+		}
-> 		if (bond_dev->type !=3D slave_dev->type) {
->-			if (slave_dev->type !=3D ARPHRD_ETHER &&
->-			    BOND_MODE(bond) =3D=3D BOND_MODE_8023AD) {
->-				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
->-					     "8023AD mode requires Ethernet devices");
->-				return -EINVAL;
->-			}
-> 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
-> 				  bond_dev->type, slave_dev->type);
-> =
-
-
----
-	-Jay Vosburgh, jv@jvosburgh.net
+-- 
+Florian
