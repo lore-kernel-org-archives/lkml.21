@@ -1,50 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015123;
-	b=S7TPGYCcTTq8h7SUnoVJKNcCt8pb2GiuUvQv5gm1lxXbmQSoYO0XSd+3QA/II4P0m/DA
-	 Ikoaloov9E2jh9VMJh0Nf37EszAtptI35pJQuxrqXT/r68ejvZi1kvcaA5az1WJgn2I9H
-	 Svc2x9UX352AjB8SL1b9GfkM4lh48Hp4WtH10I12NS3OK3VGFJnt3pt+JOC5vfLrcufee
-	 emnaukTmeIIfz3ead+Rc8jkOL/XA19F/mFwB47iQILrGYSR06/zQ+1mUciI1VMc9VHF34
-	 TiXqFGPhA/ug/5AUdZAWGLkPgyqP580XPhyJ9p7iGCk2MkvqwLa2Z+wQppKDCZxTGhA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015123;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Content-Type:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To;
-	bh=y2Daclv3pL9H+Z77v1N/YFpOGh7HbXy37WIqhvkcADA=;
-	b=ulp3YIB8y9s46hld5V4uWdnYAO6zkhMeR6nuOopVp79MIZuVcCo6o/Uv5W5CiOvSSe8U
-	 O7TQc57Ez5SwGslIpKiRjDGzvzFbeIXEBEbxSwigz453o9IY6L7w16GtjmK7JXAWe8Haa
-	 yMiy2dBUKN48b9KesZirGzCvGWlIiNYpyfwPv1MtjeI9mkZU11wYnV8UN3MuXyxjTSW2p
-	 YJCM7AT2OcydSOZGqT+jEeXbmzfjYMeT+10dB5CycsYna2Xgapv/AfyXtvF4GKcGSgMb0
-	 JN0YQ/IHbmJ77OIc2ktt3si04ahydABSWgHMW+841Sbdj7oRdDxCDHPv8GY6IxYaWXg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="a/CjEp/l";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3C3AC60A2602;
-	Wed, 18 Nov 2026 15:18:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C3AC60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795015145;
+	b=2/NMoqPkNKnHXe2R9GW1zIMowyycR/g6cUhN6Me3wMgSUvO+PwlbkCMUZ4vRW7nXfPra
+	 L4BbWUXCYkxGztoDcMCuVRgGKnZlqfZ5SbXUbl/f4+0Wxt0EAC6RJ828cHQKKllqQiiIe
+	 trE+RL5PvM8yzzzNkJP3egeDqj36ff4YvoREhwFPPvqSb6An34PcOrjOeOCEw+zhgfTXA
+	 c+Fvj3XrVtEVpVFdXC5w4n70ywFxvh0FBkLh8ha1ZBEOWFtgERb5+HObeP/LNsqPH4+Hg
+	 DKWedxJFV3fLA5LIqaUvyZB5NvS97wzb3ziEZTzptcOpAh3wIoaB3dyiu58nYSX6YIA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015145;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uVKfUnuxlP0ZUd00bHLHidOFf+FRQ5iH7ou1yFoCBxg=;
+	b=ZRM+nvTWarHZN4LjJy+cpyhAJX2qOpbcPO9ASJyJfvhz4DpEME1O8XEAXa1JS3/3rjtQ
+	 zA+UtajbkebRnS8ezV6EuK/gUboEs/dH6sff8ccReFKtYda7ik5BP2JdkcebvnQjyXmcS
+	 7j3q1WUESqlXWO4EWZf8Wru/Rh3tSV2K1J3EpucmaEdEtSmTj0BoLA1tFwFca5AaIpPFN
+	 JZ0hFIM7YPH2Zr8yYoDNvQ7hSrTowyqiLWGQ8ZjUpMFRPjgpn9JNqZUxsru5Nxf5NWAX8
+	 q0RnpzdDIps5WlKTAMpkrZpvy1hVHP2F4//JEarUSm8SsGJydCFf33zJfEx1WXi40xQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eFcbTFFd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A9B6606A330;
+	Wed, 18 Nov 2026 15:19:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=a/CjEp/l
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A28B21655;
-	Wed, 18 Nov 2026 07:18:39 -0800 (PST)
-Received: from [10.57.62.206] (unknown [10.57.62.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9A9D3F632;
-	Wed, 18 Nov 2026 07:18:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795015122; bh=w8XDtw7u6zTGcD/Dwtz8Nec/j+mFGkTq9Cwd9QWx4y0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a/CjEp/lWJU4QLjpelP/JTZv2ruOnbBbt+JLSbKpYAP4VCqrHHdtlgkcAWih3sdxj
-	 WYJKvmin5k2Qjivd13tyo7baEd5InyOwxPHvleh83xiTrhEYXBsYsilr0DlLJongQ1
-	 fQ7iiucy60FJx40w9DUaxvWafVfHMCNzI7k8LEzc=
-Content-Type: multipart/mixed; boundary="------------DUFNbHBbvPDY00EhsT6K87G7"
-Message-ID: <cc27e6a8-6bfa-4c82-92a7-33175baf6803@arm.com>
-Date: Wed, 18 Nov 2026 15:18:35 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eFcbTFFd
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=90.182.112.124
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795015145;
+	b=lfLIQ5Sxlv/AfE9wfKP/HSPuleJUdJ8lrE0GQz0x0VcR6xebMgPNhHicKxcKF7inVgOb
+	 /gLlUoL47cFFYiA40BRTmtyE/2mcBxyjA3G3EmzoCkTyJf8UK4JNcDu84c13r9RbSPenx
+	 ENZbDZMYRvwDPl5GGRQOt++ZaTe4RK4R6bIcH+U0wzeqMECVMjnr1z790R/hWoHrtuWbt
+	 DegzfvpM9JCccYsuJHxGkGyEcluDHIukdNKrnWsQtwHzyus8hRhpiRgfKAusolZ6c/Nxg
+	 O0CD5gpojCWEj73njPl9PXjq7efEalR8BvpaUL4sUQlbWMH5JQMGGBzC4aKhUMJI5pw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795015145;
+	h=DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
+	 References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uVKfUnuxlP0ZUd00bHLHidOFf+FRQ5iH7ou1yFoCBxg=;
+	b=YFSIkqVvcEFsK6YGfOMv7HsgYQFa3WZFVn7xyEYocqqMMfBC8nYmd5OAs20HzEpC2bHT
+	 gO0Jf2J8/rwNYy56IzU0XCJwYL6AM1QO+2rpacQylJS3zssFzpjwMTKfEVacClS5f17Cw
+	 c1E1pHkKXWqNl9BuC7nPV7ihBunF8zoiw2N4jB6+KpBO6Il4MqIOTLXLAE63KKjwDIRHw
+	 jUSF6r54qM8vugxuv+iV2yb3/P7i8PzKwJCcZUzGdZ7hQSij0pbY+rtvXujBtAD9EWPXF
+	 TqTxzLJyrlThBzbNUk6LvreyeN1TzamQIwJe45Gc0z85h+6zyPjJfYyKoeSPKUa8iEg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=90.182.112.124
+Received: from localhost (90-182-112-124.rcp.o2.cz [90.182.112.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPSA id ED65B1F000C4;
+	Wed, 18 Nov 2026 15:19:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795015145;
+	bh=uVKfUnuxlP0ZUd00bHLHidOFf+FRQ5iH7ou1yFoCBxg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=eFcbTFFdZ0rZNACWRmHD9B2iyOp+yeY4kCSWPcLfbY2ngiblEW+tgkOsnqdcre7sI
+	 6M1Z6yPngB8k7KMShH/A1nBiLFmkMmu6vJB5GaCYitFjxZPFQ/h0qTZwZt6owEoVBl
+	 alnXBp1RVmbwmsEoxM/K9PHGCZ1VcMttxNJmcCESTYW/J/E9BynYu4b99tUWUPubKx
+	 /KDNeC0NhTwFGFAV8b19bgn4YfaggznLywGvYYSZ2TpQepoCOJHaWSTi/NlwUdrbEt
+	 1bSQQK1B4+sGJyn3qjQhDxEWfRx7s/Gzjyr/6i7Dqf1M4J/HdlnSx1RtoiOWlWYo+X
+	 JwEej7SMSm0lg==
+Date: Wed, 18 Nov 2026 16:18:55 +0100
+From: Joshua Crofts <crofts@kernel.org>
+To: NanamiKite <nanami@yosoro.hk>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Hans de Goede <hansg@kernel.org>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: light: cm32181: Add support for CM32183
+Message-ID: <20261118161855.000017dd@kernel.org>
+In-Reply-To: <tencent_E90EB0AF3888FA057AA5F6008C16C610650A@qq.com>
+References: <tencent_E90EB0AF3888FA057AA5F6008C16C610650A@qq.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,117 +86,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
- preparing memslot
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-2-steven.price@arm.com>
- <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
- <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
- <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
- <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <8a095a42-662a-416d-a5d7-79e10161201c@arm.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-This is a multi-part message in MIME format.
---------------DUFNbHBbvPDY00EhsT6K87G7
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+On Wed, 18 Nov 2026 23:11:00 +0800
+NanamiKite <nanami@yosoro.hk> wrote:
 
-On 18/11/2026 12:04, Suzuki K Poulose wrote:
-> On 18/11/2026 11:14, Steven Price wrote:
->> On 18/11/2026 10:34, Suzuki K Poulose wrote:
->>> Hi Steven
->>>
->>> On 17/11/2026 14:05, Fuad Tabba wrote:
->>>> Hi Steven,
->>>>
->>>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
->>>> <steven.price@arm.com> wrote:
->>>>> Check the guest_memfd backing file when deciding whether an arm64
->>>>> memslot has mappable memory rather than checking whether the slot is
->>>>> gmem only. A public helper function is added to be able to reuse the
->>>>> static kvm_gmem_supports_mmap() function.
->>>>
->>>> nit: could the message say why this is needed? It's a no-op until
->>>> patch 8 defines kvm_arch_has_private_mem(), which makes every
->>>> guest_memfd slot gmem-only.
->>>
->>> I still don't understand why this is needed. For arm64 we have always
->>> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
->>
->> Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
->> kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
->> becomes true (see include/linux/kvm_host.h). That in turn means that
+> On the H3C MegaBook 14, the ACPI CPLM3218:00 node declares a Capella
+> CM32183 ambient light sensor (CPM0 device ID 0x7db7 / 32183) at I2C
+> address 0x29. Reading CM32181_REG_ADDR_ID (0x07) returns 0xc383, with
+> chip ID 0x83 in the lower byte, causing cm32181_reg_init() to fail with
+> -ENODEV.
 > 
->> every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
->> by a file without mmap support.
+> The CM32183 uses the same register layout and ACPI CPM0/CPM1 tables as
+> the CM32181 and CM32182. Add chip ID 0x83 to cm32181_reg_init().
 > 
-> But we dont support slots without MMAP anyways even without this series.
->  So, does it really matter for arm64 ?
+> Cc: stable@vger.kernel.org
+> Signed-off-by: NanamiKite <nanami@yosoro.hk>
+> ---
 
-So ChatGPT produced the attached test. It creates a non-mappable gmem
-and tries to add it to a normal (non-realm/non-pkvm) VM. With v7.4-rc1
-it is rejected. However without this patch it succeeds.
+LGTM.
 
-The issue is that gmem_in_place_conversion changes the behaviour for
-normal VMs.
+Reviewed-by: Joshua Crofts <crofts@kernel.org>
 
-Thanks,
-Steve
-
-
---------------DUFNbHBbvPDY00EhsT6K87G7
-Content-Type: text/x-csrc; charset=UTF-8; name="guest_memfd_nommap_repro.c"
-Content-Disposition: attachment; filename="guest_memfd_nommap_repro.c"
-Content-Transfer-Encoding: base64
-
-Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seQovKgogKiBSZXByb2R1
-Y2UgdGhlIG5vbi1SZWFsbSBndWVzdF9tZW1mZCBtZW1zbG90IHJlZ3Jlc3Npb24uCiAqIEJ1
-aWxkIGZyb20gdGhlIGtlcm5lbCByb290IHdpdGg6CiAqIGNjIC1XYWxsIC1XZXh0cmEgLU8y
-IC1JdG9vbHMvaW5jbHVkZSAtSXRvb2xzL2luY2x1ZGUvdWFwaSBcCiAqICAgIHRvb2xzL3Rl
-c3Rpbmcvc2VsZnRlc3RzL2t2bS9hcm02NC9ndWVzdF9tZW1mZF9ub21tYXBfcmVwcm8uYyAt
-byAvdG1wL2dtZW0tcmVwcm8KICovCiNpbmNsdWRlIDxlcnJuby5oPgojaW5jbHVkZSA8ZmNu
-dGwuaD4KI2luY2x1ZGUgPGxpbnV4L2t2bS5oPgojaW5jbHVkZSA8c3RkaW50Lmg+CiNpbmNs
-dWRlIDxzdGRpby5oPgojaW5jbHVkZSA8c3lzL2lvY3RsLmg+CiNpbmNsdWRlIDxzeXMvbW1h
-bi5oPgojaW5jbHVkZSA8dW5pc3RkLmg+CgppbnQgbWFpbih2b2lkKQp7Cglsb25nIHNpemUg
-PSBzeXNjb25mKF9TQ19QQUdFU0laRSk7CglzdHJ1Y3Qga3ZtX2NyZWF0ZV9ndWVzdF9tZW1m
-ZCBnbWVtID0geyAuc2l6ZSA9IHNpemUgfTsKCXN0cnVjdCBrdm1fdXNlcnNwYWNlX21lbW9y
-eV9yZWdpb24yIHJlZ2lvbiA9IHsKCQkuZmxhZ3MgPSBLVk1fTUVNX0dVRVNUX01FTUZELAoJ
-CS5tZW1vcnlfc2l6ZSA9IHNpemUsCgl9OwoJaW50IGt2bSwgdm0sIGZkLCByZXQsIGVycm9y
-OwoJdm9pZCAqaHZhOwoKCWlmIChzaXplIDw9IDApCgkJcmV0dXJuIDE7Cglrdm0gPSBvcGVu
-KCIvZGV2L2t2bSIsIE9fUkRXUiB8IE9fQ0xPRVhFQyk7CglpZiAoa3ZtIDwgMCkgewoJCXBl
-cnJvcigib3BlbiAvZGV2L2t2bSIpOwoJCXJldHVybiAxOwoJfQoJdm0gPSBpb2N0bChrdm0s
-IEtWTV9DUkVBVEVfVk0sIDApOwoJaWYgKHZtIDwgMCkgewoJCXBlcnJvcigiS1ZNX0NSRUFU
-RV9WTSIpOwoJCXJldHVybiAxOwoJfQoJZmQgPSBpb2N0bCh2bSwgS1ZNX0NSRUFURV9HVUVT
-VF9NRU1GRCwgJmdtZW0pOwoJaWYgKGZkIDwgMCkgewoJCXBlcnJvcigiS1ZNX0NSRUFURV9H
-VUVTVF9NRU1GRCIpOwoJCXJldHVybiAxOwoJfQoJaHZhID0gbW1hcChOVUxMLCBzaXplLCBQ
-Uk9UX1JFQUQgfCBQUk9UX1dSSVRFLAoJCSAgIE1BUF9QUklWQVRFIHwgTUFQX0FOT05ZTU9V
-UywgLTEsIDApOwoJaWYgKGh2YSA9PSBNQVBfRkFJTEVEKSB7CgkJcGVycm9yKCJtbWFwIik7
-CgkJcmV0dXJuIDE7Cgl9CglyZWdpb24udXNlcnNwYWNlX2FkZHIgPSAodWludHB0cl90KWh2
-YTsKCXJlZ2lvbi5ndWVzdF9tZW1mZCA9IGZkOwoJcmV0ID0gaW9jdGwodm0sIEtWTV9TRVRf
-VVNFUl9NRU1PUllfUkVHSU9OMiwgJnJlZ2lvbik7CgllcnJvciA9IGVycm5vOwoJaWYgKHJl
-dCA9PSAtMSAmJiBlcnJvciA9PSBFSU5WQUwpIHsKCQlwdXRzKCJQQVNTOiBub24tbWFwcGFi
-bGUgZ3Vlc3RfbWVtZmQgbWVtc2xvdCByZWplY3RlZCIpOwoJCXJldHVybiAwOwoJfQoJZnBy
-aW50ZihzdGRlcnIsICJGQUlMOiBLVk1fU0VUX1VTRVJfTUVNT1JZX1JFR0lPTjIgcmV0dXJu
-ZWQgJWQgKGVycm5vICVkKVxuIiwKCQlyZXQsIHJldCA8IDAgPyBlcnJvciA6IDApOwoJcmV0
-dXJuIDE7Cn0K
-
---------------DUFNbHBbvPDY00EhsT6K87G7--
+-- 
+Kind regards,
+Joshua Crofts
