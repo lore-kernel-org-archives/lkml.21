@@ -1,51 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795023358;
-	b=LBNawkD+SCLgdiehOdN8TScw9BbkDX4So/swYe5lhWxI1SJbGyCjQN41wJKSYFR7ipHI
-	 T5rKlzO0HwPhZ8EopGSnvj/TXp3wWxD9fSz1dBzvi+4ASc9KIFFmb27lKZ17u5C1f9IRC
-	 3jwMbhWDgJsI4N/xJ6mZII/66lmqHLy7NUFrMPTpyandc/+ZSzG0cGnyL0HiieoZEIT+x
-	 6ZGfgpbjKQmEl13/7Gx+bfUOfWnzZvMFT62XUN1xb3QCamiLdVo7oiuXMtFm/bTXfmNKK
-	 cpRoO+DC47+6Bu3e5lT4r1Bi7H5LlIgfbD0nYabAWOFpLd/K00GDLyoNSzdWRe2fK2Q==
+	t=1795023359;
+	b=hrPR3F2f6X9I+tVUghJjivrGvqhbB8QhbTpNEWkm6W4VmBiQNZxD8kBtjuchMCSN/rNv
+	 nBbeAqhBFY1WxFB8AZaKnzrEBK8z7kM3k0y+EPu3FBRDMiHynxXstTqjJMXho8hy1ddeX
+	 NL1sOi5i6yAog0gbubEBIyXHuNo3bSMDp/hbGmn9wV8W5yRmQSCrcMYf8nuFhV08POggN
+	 LR3GERmcIIllqZnIZg5OHq8nKzcBWDmVmMzgUDhVHpJLW1snVE5yz69+nbIcZRmZc2a5k
+	 /hMk1ZwcVIJqnDxty/y2yFfYpQbSNJ8Yhm80zIjj9Mq3qAXrDnMczrVNr5NfrcSg5/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023358;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023359;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=PXsX2Szqj0S/0jHIInP8OKgsOnASiL9LEwJEu1Zu26M=;
-	b=fUsF5GRAtpe5/Z3N0d68FRoFu/Pxg8cl85yZIE6GvIS7Cgl/ZAdjPTrL2dWbTwMVMrS3
-	 bTysWyidymsC5EiukBNs/cOEr/klAVQfudicEKXXc2Ci+uwC91csgvt1RT0vcSYjqGhwd
-	 XyUpfL0hYlMXWFRkZ2HUkKd2ZLW5J204weeUvQbvrt7WO41IWKFWDmbqTUZjpySDzwSGU
-	 RyQcLwo65cVcudOvvhV1OPgFlFeQNgHY/My6GOmsmUTHUGnfZY/WzCB1PLdueRWgJB/vf
-	 /zuc+z+pIVXHtY/+GWKhLzq7iPrt3BE6m86p2c1HXEWbsvXSFePZ9vpM2iRTdg1fT0Q==
+	bh=3AIyHRsd1qW7V0EBiPtk80pyzhX/mZ6IC8Fd8VS3nUU=;
+	b=SxGduP3lmFyU+KpTbhzWY0CjT//+8IU505BBYpLVM/mEDLOQ1HftR6GAOf2lC4EhvcyL
+	 WcpLR/kKHH4E3T4g0F0J9o7EoM2LndbnTejWgrfAoW9q+jakf5w0izA1IRY4oJOXbeq+m
+	 KfA2znwIkan9+8Q0yTfOT8RXNcvNkFBWOJO4nADLFNetfpdhuiTyAhroORFA202W1YlIl
+	 bN6oOZ1YKPrdB8YWNPHbw8431S8w8FSw/1lLQIOuBQYquvJxpgxBHZcKmIClG7i6XvccH
+	 dEUhm9LbBpKbw446oMU9RVUXWFhSN1Mtg54sJkFLz3PdCr2aLluXBRbN/7K6hzJNWLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Nl6BFD0a;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="D60Ul9v/";
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 14BE5606CA41
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:35:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14BE5606CA41
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E8A0B606A33A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:35:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8A0B606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Nl6BFD0a
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=D60Ul9v/
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A1BC1655;
-	Wed, 18 Nov 2026 09:35:54 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 749401596;
+	Wed, 18 Nov 2026 09:35:52 -0800 (PST)
 Received: from e133894.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7D5F3F632;
-	Wed, 18 Nov 2026 09:35:55 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1FA83F632;
+	Wed, 18 Nov 2026 09:35:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795023357; bh=3tepdP1KrkoQ3MGeLGjjywE9LDtjU2cFOY1rH+LrUiU=;
+	t=1795023355; bh=glaGG4QkQ9XYyzO/ge58zMCN1XmE2kVaO9OVuz69dzA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Nl6BFD0aI+mXWXA198CplDLOlseL8CZWXisQByoJOPp0UXB6Nbt4fBBcZNaGLL+Bz
-	 hWfeGRxOdKJyTtv4uXtfMgCK0TtoEaG9T2WIn/LZDrHV2errc0qNIQkbaIPK1G3ssi
-	 zFBkswatAQVc4wPk1ul2nJGOdprD1UuHPlsukvlc=
+	b=D60Ul9v/gkvjz/ypEeAptUbnZYaL4q6tk8/U7Y/tqN4Vz6rYcOBux8nuDTPIGGGjZ
+	 4qY9WT9ICSLZCu3n/sqVDNbqbdMBMdo9cEZyA9dWBhxfiNlqIb3OmhDVG8lGq1nWWg
+	 D5XzGZcNqxcQLvCT+eX4LlXd9NhHuMcg3WAgUaXo=
 From: Sascha Bischoff <sascha.bischoff@arm.com>
-Date: Wed, 18 Nov 2026 17:35:31 +0000
-Subject: [PATCH v3 02/14] irqchip/gic-v5: Only set IRS DPS when 1ofN
- routing is supported
+Date: Wed, 18 Nov 2026 17:35:30 +0000
+Subject: [PATCH v3 01/14] irqchip/gic-v5: Reject SPIs not backed by an IRS
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,7 +56,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-host_gicv5_fixes-v3-2-13c1859e8aa3@arm.com>
+Message-Id: <20261118-host_gicv5_fixes-v3-1-13c1859e8aa3@arm.com>
 References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
 In-Reply-To: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
 To: Marc Zyngier <maz@kernel.org>, 
@@ -72,63 +71,43 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Sascha Bischoff <sascha.bischoff@arm.com>
 X-Mailer: b4 0.15.2
 
-IRS_PE_CR0.DPS is RES0 when the IRS does not support 1ofN routing.
-Read the capability from IRS_IDR0 and skip programming DPS on systems
-without support for 1ofN routing, rather than blindly writing it.
+It is possible to build a multi-IRS GICv5 system where there are gaps
+in the global SPI range that are not backed by any IRS. In the current
+incarnation, this results in dereferencing a null pointer.
+
+Reject cases where the firmware attempts to use those SPIs during IRQ
+allocation by catching the case where there is no chip_data associated
+with the irq (meaning that there is no IRS to back it). Spit out a
+warning about broken firmware when this is encountered as it shouldn't
+be using non-existent SPIs in the first place.
 
 Fixes: 5cb1b6dab2def ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 ---
- drivers/irqchip/irq-gic-v5-irs.c   | 14 +++++++++-----
- include/linux/irqchip/arm-gic-v5.h |  1 +
- 2 files changed, 10 insertions(+), 5 deletions(-)
+ drivers/irqchip/irq-gic-v5.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index 9d60f474aa4f6..4edf787f3f97f 100644
---- a/drivers/irqchip/irq-gic-v5-irs.c
-+++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -541,12 +541,15 @@ int gicv5_irs_register_cpu(int cpuid)
- 		return -ENXIO;
- 	}
+diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+index 8c0303af71e7d..f3cce2bd28cc3 100644
+--- a/drivers/irqchip/irq-gic-v5.c
++++ b/drivers/irqchip/irq-gic-v5.c
+@@ -727,6 +727,15 @@ static int gicv5_irq_spi_domain_alloc(struct irq_domain *domain, unsigned int vi
  
--	cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
--	irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
-+	/* IRS_PE_CR0.DPS is RES0 when 1ofN routing is unsupported. */
-+	if (gicv5_global_data.one_of_n) {
-+		cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
-+		irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
- 
--	ret = gicv5_irs_wait_for_pe_cr0(irs_data);
--	if (ret)
--		return ret;
-+		ret = gicv5_irs_wait_for_pe_cr0(irs_data);
-+		if (ret)
-+			return ret;
+ 	irqd = irq_desc_get_irq_data(irq_to_desc(virq));
+ 	chip_data = gicv5_irs_lookup_by_spi_id(hwirq);
++	/*
++	 * The global SPI range may contain IDs not covered by any IRS, i.e., it
++	 * may have gaps, in which case there is no IRS to back the SPI. Catch
++	 * broken firmware trying to use any of those SPIs.
++	 */
++	if (!chip_data) {
++		pr_warn("Firmware bug! Unimplemented SPI (0x%lx)!\n", hwirq);
++		return -EINVAL;
 +	}
  
- 	pr_debug("CPU %d enabled PE IAFFID 0x%x\n", cpuid, iaffid);
- 
-@@ -725,6 +728,7 @@ static int __init gicv5_irs_init(struct gicv5_irs_chip_data *irs_data)
- 	if (list_empty(&irs_nodes)) {
- 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR0);
- 		gicv5_global_data.virt_capable = !!FIELD_GET(GICV5_IRS_IDR0_VIRT, idr);
-+		gicv5_global_data.one_of_n = !!FIELD_GET(GICV5_IRS_IDR0_ONE_N, idr);
- 
- 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
- 		irs_setup_pri_bits(idr);
-diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-index 299e75bc95255..34e22e7d4a4c7 100644
---- a/include/linux/irqchip/arm-gic-v5.h
-+++ b/include/linux/irqchip/arm-gic-v5.h
-@@ -532,6 +532,7 @@ struct gicv5_chip_data {
- 	u8			cpuif_id_bits;
- 	u8			irs_pri_bits;
- 	bool			virt_capable;
-+	bool			one_of_n;
- 	struct {
- 		__le64 *l1ist_addr;
- 		u32 l2_size;
+ 	irq_domain_set_info(domain, virq, hwirq, &gicv5_spi_irq_chip, chip_data,
+ 			    handle_fasteoi_irq, NULL, NULL);
 
 -- 
 2.34.1
