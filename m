@@ -1,80 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794990186;
-	b=gLxvw5TMQA1fWU+uDcyTQaHfn19v7GxDkRENB+D3j3EJXlou65AZ6HFBKmdZGcB5ENkL
-	 uefBCYr/HJqDneYRkbhhNU69fDgpX1ZdsxW3Qxh1XIEAoQ4TcU0K5jpgdtDqAjm/4+YP5
-	 Fh9jp2ebbDC29cBpD++Ly+IiKUypnfN2QxsUbpRoHklkY35xIEu8/M1ivvE3NlcG5YSnx
-	 H+NQ/hlm7Az7aj4xbNbaNnfpMA0wUuhnJgGChbDnp8rTKI65YG3X+HWgmoJXatOgfk9NR
-	 aNC6zLVG8yWtGYLc2YIlNUsDA26Zgb4qceg0aXhH0Qgo0Jp3/ECQWvd0Zny/3dGS1mQ==
+	t=1794990208;
+	b=341VhX33BTV6zdysJJsy07pLxHGGQUr1cf3K55bCVd2bfnNE2ar8x6AUXzn2R+QMf9zU
+	 /ztIzdEwdlWS2EQsb32uTzBtkOSPu72SDwexyLYB/4CHCumwhbqfuH4hZTqTg2eWRN7/c
+	 X/EYKfm5NJwwLjNsmsYncmcuePu8FcMtaTxGRcPwA977G8knX7o0ufHhTI8SMa/zhyHVW
+	 wzzhFFG8EPqGPiMPqNk/d+b1sW1szFTq6LX8rEOpGXmhQqRqPm5RNBTlq4d6LH1u4E6jW
+	 ymVdiKmRCk8VoxebQXqyuxc1UowdYO6oIBS6Vohuu7MwUkqX2qF++i5VlFFa5Kwqfeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990186;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:To:Cc:
-	 Message-ID:In-Reply-To:References:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=3BqdCJTGw47ZPbEBDmV2Sxr2xhOXRAA8TmzOR2G/4rE=;
-	b=KY1ysurNla4c6aHKHpl+IzpLFfTMMd3/IeiKGL5+77xX55JCJU0ica6x3SC+D8dj3XRG
-	 LWjXKbxSpAZJyDdwC7xHlomTjZJecgg+wAf4TMXxpqmw4Zqnqkr3CUohCMUYwAeZViu0w
-	 ZPZ/iDeMPS37oxmvmer0kd9Gnjbi0/oHYfo5kiqtAObV5rpE8z+heSn65PHimUovvrW+Y
-	 CeGnmU0W0kwczNnbLjjRkFZsBrDDRaPpVHS+Eu9GRRk9Wmp5BfzNktDeqIqrjccXQuNUV
-	 9Vr5yY/SkyQHw/f64F++BSBM1VmgsPLxpdaLC/b+oUhmrHitjErxQwSckGN41HXalow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990208;
+	h=DMARC-Filter:Received:Received:Subject:To:Cc:References:From:
+	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=UTphvKG1VkBAe4OOzHUaXPtgSB+EVymARbj1PARFnAY=;
+	b=nFCkON87B+QfvgJ5j67P776lzrgEflaZ1+Q/Kybf5nRK6nhrxRccTH9v++h8l9yjlpos
+	 6gowoUHQqWgyZazHL2Upu1u95YnTq4eJuD69RB+CircDh3R4TkqFEQuuMSWfzNjU1QK6a
+	 6FWOoL1i6+aJkX3iMd07xlWh+6euLBpuWhlMdksJwpP2LcR7bXoHNiHkjzEkJp3/4ekJx
+	 qsduLJxUJJfsXvZho4lKz7GClsL7rZ+OLG7pH70R+QzPWOWqjSgR54JrKaIrY7A4cj7mm
+	 1ECaQSxBoyf0OCtMFC84YL35DV+YgOwD9pZmUVdfVwqYpn8wR54Ew9XiipfIwzRANCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.zgclab.edu.cn;
-	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Y9snmjpX;
-	arc=none smtp.remote-ip=13.76.78.106
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0A360606A32A;
-	Wed, 18 Nov 2026 08:23:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A360606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Y9snmjpX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:Date:Subject:To:Cc:
-	Message-ID:In-Reply-To:References; bh=3BqdCJTGw47ZPbEBDmV2Sxr2xh
-	OXRAA8TmzOR2G/4rE=; b=Y9snmjpXX4TSOp6AdaL0bRsENdt8MEcgFeUQ4KQGht
-	bF6S85fofeH54j3maAQ1frcq3KF1ND88sEjrI2zOIQxqbooKK4YqjorM5A7gJRzS
-	tGsomYnEPiBUtlTLUYnerxFDl/KdcOoJEFq0UWeWA4sfSX1TI26KjNYxnp8pRGUC
-	8=
-Received: from v3_send.eml (unknown [58.206.202.11])
-	by web2 (Coremail) with SMTP id yQQGZQDXBGlIYP1qHSRHAQ--.37447S2;
-	Wed, 18 Nov 2026 16:22:32 +0800 (CST)
-From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
-Date: Wed, 18 Nov 2026 14:43:07 +0800
-Subject: [PATCH net-next v3] net: sparx5: check DT port reg against chip port count
-To: Daniel Machon <daniel.machon@microchip.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- UNGLinuxDriver@microchip.com
-Cc: netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>
-Message-ID: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
-In-Reply-To: <20261116210802.2718-1-haoranwangsec@gmail.com>
-References: <20261116210802.2718-1-haoranwangsec@gmail.com>
-X-CM-TRANSID:yQQGZQDXBGlIYP1qHSRHAQ--.37447S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCw4fXFyxuFWUXw47Gr1rJFb_yoW5Cr4xpF
-	Z8Aas8KrW8Gr43Ca4xJw48uas09a1DXFy5Wr1xCwsxWw45GFW0yryxKFs0vF1jkrWrJa97
-	JF4Yqa43Ca9FkFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
-	15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
-	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r43Mx
-	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
-	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
-	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5vPftUUUUU==
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYPD2r81Zf3kwAAs3
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7355B606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:23:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7355B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8BxLNB6YP1q6cAgAA--.875S3;
+	Wed, 18 Nov 2026 16:23:22 +0800 (CST)
+Received: from [127.0.0.1] (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJAxlMxwYP1q5o41AA--.14731S2;
+	Wed, 18 Nov 2026 16:23:13 +0800 (CST)
+Subject: Re: [PATCH] LoongArch: Fix off-by-one in bt_address() exception
+ vector check
+To: Huacai Chen <chenhuacai@kernel.org>, hanbings <hanbings@hanbings.io>
+Cc: loongarch@lists.linux.dev, WANG Xuerui <kernel@xen0n.name>,
+ linux-kernel@vger.kernel.org
+References: <20261115193107.571674-1-hanbings@hanbings.io>
+ <CAAhV-H6ww3dObKa3zNxj4jv7JWoB_fukX+b-HYnb_31_=sPbEw@mail.gmail.com>
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+Message-ID: <575cc834-aca1-a38d-3db9-deea93d0d2f6@loongson.cn>
+Date: Wed, 18 Nov 2026 16:23:12 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,71 +54,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+In-Reply-To: <CAAhV-H6ww3dObKa3zNxj4jv7JWoB_fukX+b-HYnb_31_=sPbEw@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:qMiowJAxlMxwYP1q5o41AA--.14731S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7
+	ZEXasCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29K
+	BjDU0xBIdaVrnRJUUU9Sb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26c
+	xKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vE
+	j48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxV
+	AFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x02
+	67AKxVW8Jr0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6x
+	ACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r126r1DMcIj6I8E
+	87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7I2V7IY0V
+	AS07AlzVAYIcxG8wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km
+	07C267AKxVWUXVWUAwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r
+	1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWU
+	CVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r
+	1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1U
+	YxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
 
-From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+On 11/18/26 3:36 PM, Huacai Chen wrote:
+> Hi, Tiezhu,
+> 
+> What's your opinion?
 
-mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
-portno, which sparx5_create_port() later uses to index the fixed-size
-sparx5->ports[] array:
+The code looks good to me, but how to reproduce this issue?
+Otherwise I cannot test whether the issue is fixed.
 
-    sparx5->ports[config->portno] = spx5_port;
-
-The value is never validated, so an out-of-range 'reg' (runtime overlay,
-corrupted or attacker-controlled DTB, kexec-supplied or bootloader
-fixed-up DT) turns probe into an out-of-bounds write.
-
-Skip port nodes with an out-of-range 'reg'.  lan966x_probe_port() has
-the same bounds check but fails probe with -EINVAL; skipping here keeps
-the remaining valid ports working.  The bound is the per-chip port count
-from the match data (sparx5->data->consts->n_ports), so lan969x, which
-shares this probe path and has only 30 ports, is bounded correctly as
-well.
-
-Found by a scripted scan of of_property_read_u32() call sites used to
-index fixed-size arrays, followed by manual review. Verified at runtime
-on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
-CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
-malicious DT overlay, the unmodified in-tree driver performs the store.
-reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
-write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
-with a later NULL oops. With this patch all three are skipped. The PoC
-and full logs are posted in the thread. Not tested on real hardware,
-QEMU virt (cortex-a57) and compile testing only.
-
-Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
-Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
----
-v2 -> v3:
-- Fix the diff paths (a/a/ -> a/, b/b/ -> b/) so the patch applies
-  (Daniel Machon).
-- Restore the in-body From: line so the author matches the Signed-off-by
-  (checkpatch author/Signed-off-by mismatch).
-- Clarify that lan966x fails probe instead of skipping (Daniel Machon).
-
-v1 -> v2:
-- Check against sparx5->data->consts->n_ports instead of SPX5_PORTS,
-  so that lan969x (30 ports), which goes through the same probe, is
-  bounded correctly as well (Daniel Machon).
-- Document how the issue was found, the runtime verification and the
-  test setup, as requested by the patch bot.
-
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 08a398adf..164706745 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 			dev_err(sparx5->dev, "port reg property error\n");
- 			continue;
- 		}
-+		if (portno >= sparx5->data->consts->n_ports) {
-+			dev_err(sparx5->dev, "port %u: reg out of range\n",
-+				portno);
-+			continue;
-+		}
- 		config = &configs[idx];
- 		conf = &config->conf;
- 		conf->speed = SPEED_UNKNOWN;
+Thanks,
+Tiezhu
 
