@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988524;
-	b=tVf/GyoTP8HPnippPV2AeanUCp0jvsJ/UO8XJWdj/eOmqiRC+wRdzmWc7x580p4bDi8l
-	 soYwnRm0IgjGik4lH35kZ3zhrisWX4JvOlHpzfltK1NnV3qjkzCm5lDsaSwtkVtwsUyBB
-	 /WzUSprFDgeJ/ZGdzL9ALtOg3RuhwGTUtOQq+TAe2nelsSJQwRE2bOE+XCuKVc2mhzm8N
-	 /sIlCK9DH7V7eaTIgGKZCCBmZHPJXjvQjFS+j9idNPnYhbQFtuqspFHfOMroYboFjSttP
-	 6WzG/iFGkfF/J0YX49islD6fiFlvwYlVVJmqv2Z9XCqkCFAR1uanWSXAUkd/grhrkpw==
+	t=1794988528;
+	b=HWkuligLdq8e1ply/ri7Wc9kg0Okjm5letMlR1mp7QmXpgL4zoJtP7Jcj+6uSQsKGyZ5
+	 bIIv4JZ21tWgTv831q54w1l3AKeOTekl4HdjFgEypBu9xNQXa+Ldx//GC7kgb0SeWElow
+	 Jm0Lsp5BxzRv/NhcUV6Z+Ky9KUpauncMkFloRXK8seC6gmGSa+hKZ1HcKnjYXRs/gomI7
+	 gmZnkMw8bMlX02Avk/QJhSoD3utOCyNWFWXreXBXZsCqDNw5WXbFyLSnaoG4fcFcp5wxm
+	 5AQy3vJ1bcdjbVqcDp4riIkLBUoQhRN9N/ZhQthvV5R7brwUaNdwCxu+OHS8F5GyI4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988524;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988528;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=NqBTWbYhrgJljwUx8WqJhkg4ihbk/Vv19VCK3zrjEUA=;
-	b=ELz7lIznncZwoDyPNR1dSnjhA6VZlFQlp09ZPR991WPb/VPusaEgW1rB1J9Lx6QAFUOb
-	 dNl3i8E7b5S2KiTfzdc5OemSz6aJJfEP+2OUzr5rCoPrV2yXdx6L3WLgwJp9HYXCHiL78
-	 I+hs/Un4gatBrLXKK+0mtc1t4dAyGhNSieoJvpWaMldeYg18oCX1LqI6DAiXAzUzMfMN5
-	 OGB2FN628OX0jfdArrb1G65+C5vCqzPbRHRWatkXX0BWMnYOgmsN44wXXT+v8+ze1+p6W
-	 Z2CM6isphkL5uzEv6nTuGnOL0PCMdaaxqqLSgj5ynMwxHye331H5oeCDMUGr7/R+Xow==
+	bh=ZOqOW53r1xMJrMe5oJFMrv6wgbQkRbuC6VFPZwStICs=;
+	b=AQtywWMUXaPjSIS4aR71XTpCYwTi9qdAKGbw7Gdj4Ux9YAOJ9/d+PTMYY+d3wr8s7dq4
+	 jnlTyRmfZ1FPty+QmpIbMKUsgF9nqy8NMUMR4tioGfz/HsiYDYcrSDtBRg/GFh0LdPLA/
+	 p6wIRyFaqR9wmKuLyNu713TvbNZhC7EXebu8Mxw7uwGgnfqZlBI3HtXl6LGY3PkSBmoTf
+	 X85VaQ2ecccoYH0tos92xBgHAES9Jooak1u5hTelUjXPjjMiSwUb86DPgRkpJ69tL67yH
+	 G3XVI1KXv44IKOfpLlNe1DdfaIUUn1W49QpgW7kUxRhr6BKLXM52zXIxsaLa8cP4H6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="d/7Io1VV";
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G8+jmleB;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3441606A88F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3441606A88F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E04B6606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:55:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E04B6606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d/7Io1VV
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-381dc4b8f40so918744eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G8+jmleB
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-36fa5673fccso2140000eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:55:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794988523; x=1795593323; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794988527; x=1795593327; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NqBTWbYhrgJljwUx8WqJhkg4ihbk/Vv19VCK3zrjEUA=;
-        b=d/7Io1VVBbIOEreAOJxktmHodlkVrpBDoA/cprL6W1ywaKOagFc8hIDgnAXixEbFvO
-         LQ91kuOgnuSlXwuFi5EKDccqoIS2LazfKOhFsO5RpOmUMoRKDPb+wWY/b4XexsgxeqiD
-         V2H5eWb6peY5dY923yYV+grX4rPKTWOHcjIQ9IykbUCJLRvNTXOUdKOuWsuS5r6LFzZU
-         FPXN2PGmjNrFP+usqXl+K3tpita1IB7JHUFPLcPzJGJZhwxzAfmdMRFOxV0dCOPQn4+w
-         /HnqCg2MQBcChFSXxqUj0o/3R7rpfjnK5VsFWbCcQXuqXUtbfcsieVHze9NApSS5zWQX
-         eBUw==
+        bh=ZOqOW53r1xMJrMe5oJFMrv6wgbQkRbuC6VFPZwStICs=;
+        b=G8+jmleBsZ3wv7TAOWc4vi6RuQt29LXTEi3Zgq9CTn1dBE+DEwSnEfMHE9ubUah+6K
+         uJkHPBLpdPcDtOHPwwiDaztYZFJWF/hgnRJxms5qliOkaxhvjFy0qZwll5C1Jge89TEx
+         pd9+Q3V68rcCgwkmyE2f45KnAyU+gPYC8IBBAOfZs0KgzNpwfsrNmscapwkfAFT4Euz7
+         Dx40ZUoXZD4Tq+cV/BTmfTkSra8i1HiL7cNKGAvq6V1Svbj+LofuDeDt+ZKur7VEsNRM
+         gqzU1BLUzwYmCHAOep6btAl0jLLmimKVYRfKR0Ap1gQT0K5//7RtzhlycJ3+Stv4vusF
+         hDEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794988523; x=1795593323;
+        d=1e100.net; s=20260707; t=1794988527; x=1795593327;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NqBTWbYhrgJljwUx8WqJhkg4ihbk/Vv19VCK3zrjEUA=;
-        b=kcVbkEcitU7sqn1KMbwMf5+33m/+nrBV5/gfbeLKNfXR7UFTIERssnjf1r8gD7E+SC
-         6wyW4AZ8950nQ8cRwXBZjlzGE7E6NyofVKgGMww4HohZr4VcXpjZMdJ+Ccmrjv4AEq6A
-         tsyvsYNyscHd9FhG4fS5auswU+o3Tt2g4WUoVN64oMXuK1us1aEKh+8N77CQe4VDAKxx
-         /MK1YYWVhpvOpdO3O0alHqknH9McjSD687fwxcO/rqMDv2nNhfPsNUvpfR4gUpczcVGm
-         L2y78Mapzca79wjI6jyIoCctFPUuUPVeNp+8iPR2YrnY74R1/E2KhZh0vj4LqmKH4o0l
-         DW5w==
-X-Forwarded-Encrypted: i=1; AL+hErFeqfZ1ThjbPrNHtaK0w7oI3XTqWJPHD65sBzGXMC75xEGlxuAMUumU9losV43v5lPRsoyaiUj23wwSHtA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VTxcYmLP+lkBjAcKQLOVpripwl86qnLGtyPcd5onMM/Qsz6Xt
-	JrjR9/p27FceI39yjOEun9hn5EalyO9Kdy3HAW2/ZdxctaWPh45aDaeidy2PllnQXuREjC+9dAE
-	dyxMB5z7ieA==
-X-Received: from dybmw7.prod.google.com ([2002:a05:7300:cd87:b0:382:7604:3dd8])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d08c:b0:381:edba:caba
- with SMTP id 5a478bee46e88-38280a385e5mr1870465eec.17.1794988522456; Tue, 17
- Nov 2026 23:55:22 -0800 (PST)
-Date: Tue, 17 Nov 2026 23:55:12 -0800
+        bh=ZOqOW53r1xMJrMe5oJFMrv6wgbQkRbuC6VFPZwStICs=;
+        b=NiZjO3bK7qALzpINdOFdP8CYRrUQ/KhHoGbhB0LLcKyMjWHj6m9ViLxwfX6t3edLfB
+         sLNF39l6idpJomT99jqDmeTFDXysezJ9ivx+V8TtCkHQsbYyCOfcgfbbGy2KX43BRbxh
+         aCWgPhKOur0G2cULt8LJg6n3QVHEj+6PuldMq+rmY/RRBc5p+vVroZORIEGjwHh5nKS5
+         FvXtkdCWuLFQXqo+yJrEVSV5EIr33ClJY+1k3Am0U/lrhZR7tZkijkvERTqoQomk65V+
+         pkfGphrg8WfhCuDX6Rb85J7ooEGa3UANq0z66gUYGRvrQwCekttcsP6GqoXhaAM236V6
+         W9tw==
+X-Forwarded-Encrypted: i=1; AL+hErHHcXJ6CkhkyDsKCdWCJO6AaxerbymPGD83ygkEIRyZR5JZzcjLVptIVDzuNxhFrDb+YBezTXN5a3eXjFs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BMNJAxSh0htDt4DLjFwQITKICI4NzjdxtWRQPbPrZr+wQBC0q
+	AjCvFC9eCxOX/GPT2URW2+fmRsR1LJm+9hqgOj8aSjhlRZ+pTANIFRcS0JAFgxJ/wKeNJwNXOrO
+	z7sekg1Z3Ww==
+X-Received: from dycpr12.prod.google.com ([2002:a05:7301:fd8c:b0:370:71c0:f285])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4304:b0:36e:1fbe:3571
+ with SMTP id 5a478bee46e88-3827dd04088mr1751455eec.3.1794988526706; Tue, 17
+ Nov 2026 23:55:26 -0800 (PST)
+Date: Tue, 17 Nov 2026 23:55:14 -0800
 In-Reply-To: <20261118075516.1278903-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261118075516.1278903-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118075516.1278903-2-irogers@google.com>
-Subject: [PATCH v1 1/4] perf threads: Don't resurrect removed threads in last_match
+Message-ID: <20261118075516.1278903-4-irogers@google.com>
+Subject: [PATCH v1 3/4] perf metricgroup: Fix realloc() leaks in
+ resolve_metric() and __add_metric()
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>
@@ -91,73 +92,73 @@ Cc: Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-threads__find() looks up the thread under down_read(&table->lock), drops
-the read lock, and then acquires down_write(&table->lock) inside
-threads_table_entry__set_last_match() to update table->last_match.
+In resolve_metric(), growing the pending array assigns the result of
+realloc() directly back to pending; if realloc() fails after earlier
+iterations succeeded, the existing pending allocation is overwritten
+with NULL and leaked.
 
-If threads__remove() (or threads__remove_all_threads()) runs in the
-window between up_read(&table->lock) and down_write(&table->lock), it
-clears table->last_match and deletes the thread from table->shard, only
-for threads__find() to overwrite table->last_match with the removed
-thread. Subsequent lookups for that tid then return the removed thread
-from table->last_match, causing stale event attribution and keeping a
-cached reference until another lookup evicts it. In addition,
-threads__find() unnecessarily took down_write(&table->lock) to re-set
-table->last_match even when last_match already hit.
+Similarly, in __add_metric(), assigning realloc() directly to
+root_metric->metric_refs overwrites the existing pointer with NULL on
+failure, preventing metric__free(root_metric) in the root caller from
+freeing the prior metric_refs array.
 
-Only update table->last_match on a cache miss, and recheck under
-down_write(&table->lock) that tid still maps to the same struct thread
-in table->shard before updating table->last_match.
+Use temporary pointers for both realloc() calls, freeing pending before
+returning -ENOMEM in resolve_metric() and preserving
+root_metric->metric_refs for metric__free() in __add_metric().
 
-Fixes: d436f90a64f3 ("perf machine: Move machine's threads into its own abstraction")
+Fixes: 80be6434c36f ("perf metric: Modify resolution and recursion check")
+Fixes: 46bdc0bf8d21 ("perf metric: Simplify metric_refs calculation")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/threads.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ tools/perf/util/metricgroup.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/tools/perf/util/threads.c b/tools/perf/util/threads.c
-index 5db81b9..736058e 100644
---- a/tools/perf/util/threads.c
-+++ b/tools/perf/util/threads.c
-@@ -85,10 +85,13 @@ static void __threads_table_entry__set_last_match(struct threads_table_entry *ta
- }
- 
- static void threads_table_entry__set_last_match(struct threads_table_entry *table,
--						struct thread *th)
-+						pid_t tid, struct thread *th)
- {
-+	struct thread *cur;
+diff --git a/tools/perf/util/metricgroup.c b/tools/perf/util/metricgroup.c
+index 779fe56..489f13b 100644
+--- a/tools/perf/util/metricgroup.c
++++ b/tools/perf/util/metricgroup.c
+@@ -771,10 +771,15 @@ static int resolve_metric(struct list_head *metric_list,
+ 		if (pmu_metrics_table__find_metric(table, pmu, cur->pkey,
+ 						   metricgroup__find_metric_callback,
+ 						   &pm) != PMU_METRICS__NOT_FOUND) {
+-			pending = realloc(pending,
+-					(pending_cnt + 1) * sizeof(struct to_resolve));
+-			if (!pending)
++			struct to_resolve *new_pending;
 +
- 	down_write(&table->lock);
--	__threads_table_entry__set_last_match(table, th);
-+	if (hashmap__find(&table->shard, tid, &cur) && RC_CHK_EQUAL(cur, th))
-+		__threads_table_entry__set_last_match(table, th);
- 	up_write(&table->lock);
- }
++			new_pending = realloc(pending,
++					      (pending_cnt + 1) * sizeof(struct to_resolve));
++			if (!new_pending) {
++				free(pending);
+ 				return -ENOMEM;
++			}
++			pending = new_pending;
  
-@@ -96,16 +99,19 @@ struct thread *threads__find(struct threads *threads, pid_t tid)
- {
- 	struct threads_table_entry *table  = threads__table(threads, tid);
- 	struct thread *res;
-+	bool update_last_match = false;
+ 			memcpy(&pending[pending_cnt].pm, &pm, sizeof(pm));
+ 			pending[pending_cnt].key = cur->pkey;
+@@ -863,6 +868,7 @@ static int __add_metric(struct list_head *metric_list,
+ 			return -ENOMEM;
  
- 	down_read(&table->lock);
- 	res = __threads_table_entry__get_last_match(table, tid);
- 	if (!res) {
--		if (hashmap__find(&table->shard, tid, &res))
-+		if (hashmap__find(&table->shard, tid, &res)) {
- 			res = thread__get(res);
-+			update_last_match = true;
-+		}
- 	}
- 	up_read(&table->lock);
--	if (res)
--		threads_table_entry__set_last_match(table, res);
-+	if (update_last_match)
-+		threads_table_entry__set_last_match(table, tid, res);
- 	return res;
- }
+ 	} else {
++		struct metric_ref *new_refs;
+ 		int cnt = 0;
  
+ 		/*
+@@ -879,10 +885,11 @@ static int __add_metric(struct list_head *metric_list,
+ 		}
+ 
+ 		/* Create reference. Need space for the entry and the terminator. */
+-		root_metric->metric_refs = realloc(root_metric->metric_refs,
+-						(cnt + 2) * sizeof(struct metric_ref));
+-		if (!root_metric->metric_refs)
++		new_refs = realloc(root_metric->metric_refs,
++				   (cnt + 2) * sizeof(struct metric_ref));
++		if (!new_refs)
+ 			return -ENOMEM;
++		root_metric->metric_refs = new_refs;
+ 
+ 		/*
+ 		 * Intentionally passing just const char pointers,
 -- 
 2.56.1.703.gf848ed807c-goog
 
