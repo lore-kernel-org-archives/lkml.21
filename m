@@ -1,111 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997905;
-	b=3SurZUx7G+uUOgO6nEx7SSWwuGpsuHH+3kjLzikLlkZ6m20PURaDIlOg+YBQ+BnEw+xw
-	 MJmAsynXa6cx9emMvnBY3UC9/S3ASF8eyWGYrXWVULO+RBL29dXzcZji+zo/lL/jVwCFN
-	 PMrVTiV4ddQktbsf+7GfAxTqO0SxRgSg3Hryz3rA+lJrsY6xHRITNgLqkrQ/X4VspXWOu
-	 qM0DubOCNqrI1SGlpxnds0F6cjOaxifDIXMqR03x3yxO8HxAnUAdvjXr3mg/Csv7JmSaq
-	 LzoyMTMVyb0e0p05Fh0my+Gu/IlBg0gwX3nPTcoW+NZCYQtnMUmSLmtudw2WZzRK2Lw==
+	t=1794997917;
+	b=O6OrxudKn4NbNpqrKry59V7wUV1kdgAacZVLEQlmFC18h+q/NYnHtrL5fyKJ0yHrOCG4
+	 4bNw723uxAKwXkqSlr836U2IyHQaxTsFm8xcr6Etc0eArtc0ygHbgmank0bkF8vXxjwHU
+	 NcOhD9dItqJfiPz5+vdzHQrauwKUa86003HoA5WHPr88ZzIEP69jTr9hLffve/uNbl3V6
+	 BPygFFK7OicMfeYNV77otrGsejmjcwT41RfkwKsXvfRpi8Zhd25w4e8dVNvkpAIjMXsqk
+	 6bRjKB0gY7bmVJGDOw3Nc1YMRUUqY240NDM9t07LCt0epF8eVeVP57z4GYRnqdm/Vxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997905;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=aZGTDqpFridklIZsangmuxmOWkw+3sKhlDUxn2E4ELg=;
-	b=PdjiZq5dffmRSBhB5iLBCnBfv4nha/HMgS2fEFQOkTghnjXfYOZvecXb2bxgPZr0ow2f
-	 acf5wirJk6zsCU5mKlzwtA+qCW6Y+fizCBghs9jydkG/9DDCYpI2ET79rm23jIMKAwBur
-	 3CnGkt3RT3Ys1bqYWl2WNeZOzYHl3aKor6KVW0WcIF4X+UNbGiYGbNbEDPGk374R6pCOz
-	 WmenbK9Z/i4Q2QMutWJzqlnAHF0PT9Ld7cI7/Om/rzhJHtNkVARJ1s3TsBfnXBDL9qvF+
-	 +2BgNl0vik2gBf9dY2aBVaZ3S3e+vCmuW+mDKwH0N8LrZ8Ezxn3xt/AZtPMGTdQAiFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997917;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=K+3qy+pdgU4poU7W343gIQ62KQAmGsAKUXW1vCEZTnM=;
+	b=3akZre7lzm4I5SrLTx2ajuVl93sEpwJ97Tn4apbpgJyC9Mwd8juq0g38yyCVvWxIoEmv
+	 Y3dDHW3DYHqD3SvP6QuSlCA+vHZGKXmAP9mz8oZCcKlTKzUdqtec28dk8aU9sC2T/1BVH
+	 IyQKkzi3s9Q2OFAi2QmUDutWLPscHkAFy979pLDCe0dhQR9rAZlt97tLj0OskS6ZkVZ3B
+	 pI/1Qhk7ZinL+TepClnc+Y9nIVas5rAwvEClpT+5FkIqFMFMenTq6TEhXVM/kr0iIb+Er
+	 PpPQKY+rD69VBHFoOJaNZgP46hiDpxvRPb6wq6IhSPGPtlIVYlcQZb7OjoHnIM2jKOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fTkAY3Yn;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OnEFKFRl;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e6snppa8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B365606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:31:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B365606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFF24606A33B;
+	Wed, 18 Nov 2026 10:31:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fTkAY3Yn;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OnEFKFRl
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kJXh3420218
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:31:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=aZGTDqpFridklIZsangmux
-	mOWkw+3sKhlDUxn2E4ELg=; b=fTkAY3YnQ3awDK6muIx/F+YY1fQiCU5VsrZjih
-	crlurRgx4f7Mq7CtywQG9yXrlRPHimukKtsReL8NS1evIhYpd21S63fWurpFajOx
-	hREiwfctgCtnS75H1lfhibPGK4U6Bh6datZ8zso1C8IR/mCJJhWH85fAZYzpxAl0
-	99hI52Hjkd5Lep6ZxPe7I3TckJ6Wed/CdWdwDarulPAmqQNzHmT9SO43HsQpSyQy
-	pf0cUEpGRwJHZ332waXFocWpPFGw7oR4o+AIskeUiCr8or/s6DDKlUk1d6nOA6CF
-	WyXh4BDbl6NtE0eytrszSj1gboB4uEMh+t5KTiire4GpyrPA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9aj8u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:31:42 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-94960131befso143028285a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:31:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794997902; x=1795602702; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=aZGTDqpFridklIZsangmuxmOWkw+3sKhlDUxn2E4ELg=;
-        b=OnEFKFRlWsZq+m11st3jt4gY1CK+nNg1nc283jWgzkRjqzmsEVAU+f/0RGaevrGi3+
-         ipOnXXH0jA4ocSBVqNS9by1Iuvuab1njGZL4sz2ZfTGk6tBvdh52sXxESnnh4x+KXL+3
-         mEVkuSvx3IAtDrd/SiZEIcaAuI3MXmeXOdZQ0HYhCabXyrLV7F2d0qfvafs5K3dwqivj
-         GNQlCaUjkvZ5f+5zip/3TF57G6nYvCSptjQ7qaNDTEAQScW2uZlC98ePv2a1Ekm3CyMy
-         OLgzh/vl6tkjIuTZwuMZ6yDuNZBsqSuc9ovXV9WmH2S1GlJvQn7rbn1p4S5a2QXnMIHb
-         jr/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997902; x=1795602702;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=aZGTDqpFridklIZsangmuxmOWkw+3sKhlDUxn2E4ELg=;
-        b=diQCJFXgcu0NFTbMoMPGp3ojGHTsyO7k0yHoZg0Pg1Dgl093P/QjOpLTsjFi8YEk2O
-         hZsViB4tEWr4wi2JotK7T4D+ukGO6D59u64fSDBgVC+VFvu1PSCvevObEmygifMgb9tk
-         2/10JgUdU4qhFLklONvm9gWb/wNQt7SNyyN7Qbz1A0XD3jeqxnADndchc9i6f5v6kKoY
-         FZSMn/nvu7IOlhzW11djSE+1k4tjKEBb6C8Mjs5O3AjM10o2otFiM9XqF1D9x6vgUhQL
-         Zz6kEdnXPr0NnfZiXcB4fPojwKpE7Zr3SCiT9Z61wbKskNc8B1ddkCekRWb5vJAVLgVH
-         CvEg==
-X-Forwarded-Encrypted: i=1; AL+hErGb8gTU+6ZKtfkRYzjP+YzfJCtsuONDpQrJHce+Z6p75FQ5iJFocjN2aXcVaxF7aXfHCL5UcMak0lsTRTw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9+vZBxbhDmpwgDJoMQ3HzXSGx+121/Wm8VBhNeRRNM6xkCVey6
-	j8wM+3DGM7I2VYj86WuDZe3j6pANcH3o/wFg/SBC7476JZ9c7CyBEsXaWvDVkBpDdznE9qKHvaQ
-	+qUDuhYYHHlfD6PkeJW21/lrm40mC99Puc+CJNhAcHsMsbHgQmBvnPAPXFDthvhG9bxk=
-X-Gm-Gg: AYBFou0irdoD2dD9E6P8AKWXObKrpUYgz1OvN/+XS6A0zQen0ckgg+VNs9yq/V8nMC/
-	3NMWh9ZD0cOjypVahfWg8AWEVNaVbJnxmLlFJtZoP17RFn3+lMj5uUxQN1hQ8DwdYvyqZReKIRr
-	ozVJzoImrSKWAIzj0Eu3Wf+Dvml+RIbknupW6OXUJQKZHs60N6FkEaMgjI7LJ6EaXFNqEDEGHRW
-	84cbXOCMM/YvDCeOGM9LIYEXqZYlgf7DbTza2gBxfoP4LJD2R/tVBR7ROVDrRiB58Rnbdq/qbke
-	XYG3RcobjzfhU4yMPNFoECOLVXj4CJNkzPmyDev9HAHhh79KlIZyoa6UBNPuHOibRhE5xL6RDf8
-	iaVK3YW+VH/2WCPMpOiGqY7vRyJ/ePeCSRFTP9q8VTrYTOu8zu9/TEHF/kZ85r1/fQKnbQYvElb
-	E=
-X-Received: by 2002:a05:620a:2985:b0:93e:8614:bbe7 with SMTP id af79cd13be357-949994a7263mr401652285a.12.1794997902433;
-        Wed, 18 Nov 2026 02:31:42 -0800 (PST)
-X-Received: by 2002:a05:620a:2985:b0:93e:8614:bbe7 with SMTP id af79cd13be357-949994a7263mr401649985a.12.1794997901975;
-        Wed, 18 Nov 2026 02:31:41 -0800 (PST)
-Received: from brgl-qcom.local ([195.50.164.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2ac6e0sm63071615e9.8.2026.11.18.02.31.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:31:41 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 11:31:39 +0100
-Subject: [PATCH] arm64: defconfig: enable the SerDes PHY for Qualcomm
- SA8255p
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e6snppa8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86D671F000C4;
+	Wed, 18 Nov 2026 10:31:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794997917;
+	bh=K+3qy+pdgU4poU7W343gIQ62KQAmGsAKUXW1vCEZTnM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=e6snppa8sNdz1tlYA+wd2PBupoE9ThejL/9S3UWwrfjcgK7N19Hi5ESDldbB4UTAi
+	 o112KloqmErLW/DcWkZtWBUTvHHsFamufQ1TeFPlmuqJV8FVjhunuayIWdH1ztSqq7
+	 A4+bfSyaSdudEfLBU9IJyA3qIFtoHNXnurBy067oLFmzJC5p6doFv7vzbadZoXTOCm
+	 +uoZVyIRFWxfkNkMkQV5B5ObdbONfIS5B38129fO36dr6Y3mFaSMaUaLUxYJ31wlk+
+	 TkVCrHrRmnanI3vbtn12M7i7Minb6Z9c+NhgduqOZ4H2wTCRVqL0E+ZVGFG5SRM+wS
+	 Ggyh98kwMbRwg==
+Subject: Re: [PATCH net-next V2 06/10] net/mlx5: LAG, rename PF naming to fn
+From: netdev-bot+sashiko@kernel.org
+To: tariqt@nvidia.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ cjubran@nvidia.com, cratiu@nvidia.com, gal@nvidia.com, leon@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
+ moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
+ shayd@nvidia.com, udar@nvidia.com
+Date: Wed, 18 Nov 2026 10:31:56 +0000
+Message-ID: <179499791613.3136.14627741130373185414@kernel.org>
+In-Reply-To: <20261116103010.1129666-7-tariqt@nvidia.com>
+References: <20261116103010.1129666-7-tariqt@nvidia.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,95 +65,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAIp+/WoC/x3MQQqDMBBG4avIrDvQScFIr1K6kDiJ/yKJzUCpi
- HdvcPPg27yDTBvU6Dkc1PQLQy0dchsorHNJyli6yd3dKCITf0LNbCGDLWWAt3XnRWOoJSLx7Me
- HiPeul/pjaxrxu/6v93n+AY3qSYZvAAAA
-X-Change-ID: 20261118-qcom-scmi-sgmii-phy-defconfig-a76311772311
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Shawn Guo <shengchao.guo@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1045;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=g4ldvwD2lHYcQfrhdeBPKA/Jx/3EuieX1Ckg+Z4/fNI=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBq/X6MEFpnLnIKv7aV9i6+XL/xnYfbKyXdqHFDs
- SAfwvIQ05OJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCav1+jAAKCRAFnS7L/zaE
- w5J6D/9lzMQZkW1NovEP1BD1j7EnpCtA5IAPzr96F+aCY0U3kE4+ZIjSBCyhk5qCF8GrldWAjUI
- zvzjyTNWgn7NO0SppuDO+hk0COtkra29xxvMp1fnDe7YNEbCkUBQW+o7NF9KkeWWmOLRyBj8p+n
- 5bPv1g6nO460acEAc5XJ5l/eESwWiOsBxwru8GChumTopVrybK0w6eOKI8kZEQmVBxbh03WD2gz
- fPg/v0cEWhOhRtXgrMrehBGGXmUsxr09fbqHDkurfjd+oBSru6JS1jfqq0VewzWppNfSkFWSLns
- YQmW1vNr3i5N1aWZ99J2omUDbGwlqWKOytOVY9rVAFuCjciP61Dpg0zx0AwgsN47QqmczEBaqfc
- CfVlyXwYgsTFU+r7okOzdHOuQLAUYn5MMg4jCY9fHbfv/eEjsW9JCO16JAPzSC3+z49y9PKW2He
- 8UlwbdOguYWhgCVciUXd6uBXlRsv9SJQlamdQu1U3o6xArgf9MOx4P5H3igXDFVOzliVbdInuI9
- Vk3LsETACBRtBr8TcTzBgEdtCc3Cj+SVeTsI92k2XyEteAvWUHELYcwWqunZWCts9mVT8aNwAgJ
- FE8hSzKGzPjm7M9QfZbqzkFAcWVEvrttfiB1CtlOky217iXgNPVbJr/zW1GPqD49JRsvg7WXCU8
- IS05Ij0jPj3FJXg==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0MSBTYWx0ZWRfX5PMgLqSHDq43
- oxtli5Z2MWeZhe67CbfygQRUPd15AZLnXN1jn84giwsoHyVhSXKfAIO2IcAWyu8qEjlaVdm6IUW
- jPuamtt0xPSxKoBgc1cTiIYpyjOsv1I=
-X-Authority-Analysis: v=2.4 cv=acT0Dhot c=1 sm=1 tr=0 ts=6afd7e8f cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=BpbMfEP1g1sSJNOxg3sA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0MSBTYWx0ZWRfX8Pdwih9neBfY
- Zubc1AXGwWA7w2G6FErOIdB5GDIc0O10pV2k8CKppZeMtNDbxXLi3H6PURD6QuiBL+iRQGyY3QW
- WjeOfGVo6sTPWINbGMdd0egFblwHMtQhRqu/b3bP6kpuYTsYnKqG8vXMiAd2Io/zL6tDRb4ONdH
- NvAzNvYD5PvMeHploHbmtRXv4eNUrhhh3meTS++ggtroN+MLeUMKHJAaG+av+HXowRx0/1GiguD
- 7Yyn2/sdRUsgmlcovw7jJUOo00i59zZLAcD+0LqGnzdKjmOkrj2gylr/Y/g3gyUJ271wF7sRblH
- dTvX81cE4wXDIn/4U1w2iM3LsS08CucfXBEZ7tKkKkHfm/9m6cNN8Wf9RVjSbGmwZoUsJZhPB8j
- 8+QetvpDxC9FyomAAiFddu1+J+MTePom4Z+rsOYFehitsM7+QiaeQh+1yjfRBP7jP02TwEVJxhz
- tBu5oWc5/ufySLv5bdQ==
-X-Proofpoint-ORIG-GUID: 7u0xi74SYb41GHjqEAXEtVsRUCXHkbra
-X-Proofpoint-GUID: 7u0xi74SYb41GHjqEAXEtVsRUCXHkbra
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 phishscore=0 impostorscore=0 bulkscore=0
- malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180041
 
-Enable the SGMII/SerDes PHY driver for the firmware-managed variant of
-the Lemans platform. This module is required for ethernet to work on
-sa8255p-ride.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Low priority / nit picks for your consideration:
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 52a4f0b45707976590d2b5ed09427737e4e5c644..213445d7e3cfafd678bb1f5974a8dac46b679df8 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1671,6 +1671,7 @@ CONFIG_PHY_QCOM_USB_SNPS_FEMTO_V2=m
- CONFIG_PHY_QCOM_USB_HS_28NM=m
- CONFIG_PHY_QCOM_USB_SS=m
- CONFIG_PHY_QCOM_SGMII_ETH=m
-+CONFIG_PHY_QCOM_SGMII_ETH_SCMI=m
- CONFIG_PHY_R8A779F0_ETHERNET_SERDES=y
- CONFIG_PHY_RCAR_GEN3_PCIE=y
- CONFIG_PHY_RCAR_GEN3_USB2=y
+- [Low] The commit message misstates what this patch renames.
 
----
-base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
-change-id: 20261118-qcom-scmi-sgmii-phy-defconfig-a76311772311
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is still
+  present at the end of the series.
 
-Best regards,
+--
+
+net/mlx5: LAG, rename PF naming to fn
+
+This commit renames the LAG member bookkeeping from PF naming to fn. The
+ldev->pfs xarray becomes ldev->fns, the mlx5_lag_pf*() helpers become
+mlx5_lag_fn*(), and the pf locals become fn. The rename prepares for virt
+LAG, where LAG members will not always be physical functions.
+
+> Rename the xarray to ldev->fns, the helpers to mlx5_lag_fn*(), and the
+> locals to fn, so the naming matches struct lag_fn.
+
+[Severity: Low]
+Is this description accurate? struct lag_fn doesn't exist before this
+patch. The patch creates it by renaming the struct in lag.h:
+
+-struct lag_func {
++struct lag_fn {
+
+It also renames a field of struct mlx5_lag:
+
+-	u8			  max_funcs;
++	u8			  max_fns;
+
+The commit message mentions neither rename.
+
+The patch also makes a few small changes that are not renames:
+
+  - a new esw local in mlx5_lag_drop_rule_cleanup()
+  - dev0/dev1 moved above the switch in mlx5_lag_set_port_affinity()
+  - new mdev/affinity locals in mlx5_lag_create_port_sel_table() and
+    __mlx5_lag_modify_definers_destinations()
+
+Could the commit message mention these as well?
+
+A few spots look like they were missed by the rename. The pf_idx and
+pf_mdev locals remain in mlx5_lag_get_devices_oper_speed(),
+mlx5_lag_get_devices_max_speed(), mlx5_lag_set_vports_agg_speed() and
+mlx5_lag_reset_vports_speed():
+
+	mlx5_ldev_for_each(pf_idx, 0, ldev) {
+		...
+		pf_mdev = fn->dev;
+
+mlx5_get_next_lag_func() and mlx5_get_pre_lag_func() walk the renamed fns
+xarray but keep their old names.
+
+In mlx5_lag_mpesw_port_change_event(), the local now has the same name as
+the struct tag. The container_of() continuation lines are still aligned for
+the old, longer name:
+
+	struct lag_fn *lag_fn = container_of(mlx5_nb,
+						 struct lag_fn,
+						 port_change_nb);
+
+Was that intended?
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+> index cbef6ab1e38a8..74e7e7161c95d 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+
+[ ... ]
+
+> @@ -2390,24 +2392,24 @@ int mlx5_ldev_add_mdev(struct mlx5_lag *ldev,
+>  void mlx5_ldev_remove_mdev(struct mlx5_lag *ldev,
+>  			   struct mlx5_core_dev *dev)
+>  {
+
+[ ... ]
+
+> -	pf->dev = NULL;
+> +	fn->dev = NULL;
+>  	dev->priv.lag = NULL;
+> -	xa_erase(&ldev->pfs, pf->idx);
+> -	kfree(pf);
+> +	xa_erase(&ldev->fns, fn->idx);
+> +	kfree(fn);
+>  }
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. Since
+this code is being touched: is it safe to free the lag_fn here while
+readers holding only lag_lock may still be using it?
+
+mlx5_ldev_remove_mdev() runs with only ldev->lock held. It is called from:
+
+  - mlx5_unload()->mlx5_lag_remove_mdev()
+  - sd_lag_cleanup()
+  - the error path of sd_lag_init()
+
+It erases the entry and frees it right away with kfree(). There is no RCU
+grace period, and lag_lock is not taken.
+
+Several exported helpers walk the same ldev->fns xarray while holding only
+lag_lock, without ldev->lock. For example:
+
+mlx5_lag_get_next_peer_mdev() {
+	spin_lock_irqsave(&lag_lock, flags);
+	...
+	mlx5_lag_for_each(idx, *i, ldev, mlx5_lag_get_filter(ldev, dev)) {
+		fn = mlx5_lag_fn(ldev, idx);
+		if (fn->dev != dev)
+			break;
+	}
+	...
+	fn = mlx5_lag_fn(ldev, idx);
+	peer_dev = fn->dev;
+	...
+}
+
+mlx5_lag_is_master(), mlx5_lag_is_shared_fdb() and mlx5_lag_is_sd() read
+fn->dev, fn->group_id and fn->sd_fdb_active through mlx5_lag_get_filter()
+and mlx5_lag_fn_by_dev(). mlx5_lag_get_slave_port() and
+mlx5_lag_active_backup_get_netdev() also dereference entries while holding
+only lag_lock.
+
+Can this interleaving happen between two devices in the same ldev?
+
+CPU0 (peer device A)             CPU1 (device B unload)
+mlx5_esw_is_owner()
+  mlx5_lag_is_master()
+    spin_lock_irqsave(&lag_lock)
+    mlx5_lag_get_filter()
+      mlx5_lag_fn_by_dev()
+        xa_for_each() loads fn
+                                 mlx5_lag_remove_mdev()
+                                   mutex_lock(&ldev->lock)
+                                   mlx5_ldev_remove_mdev()
+                                     xa_erase(&ldev->fns, fn->idx)
+                                     kfree(fn)
+        fn->dev == dev   <- reads freed memory
+
+If mlx5_lag_get_next_peer_mdev() hits the same window, it returns the stale
+fn->dev to its caller as a peer mlx5_core_dev pointer.
+
+The baseline already has the same xa_erase() and kfree() in
+mlx5_ldev_remove_mdev(), and nothing later in the series changes this.
+
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116103010.1129666-1-tariqt%40nvidia.com
