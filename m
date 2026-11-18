@@ -1,58 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.145.95.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088837;
-	b=euk0guu/2HqM70qIZvV/RC+Aigp4lfPH6Gb7gTI8NQRKxz/59W8U4tCsCNYS/542chxL
-	 qcYNc0HQQFwGScb2El9wczIGjZfuU1/vqDmLN6Tkt9HunEL/12XAEriXAhS0ny5gbpR6e
-	 1yFIZ8Gg1A/6xUaYTI2RjqZCv0xhwXII2In2F8+C24QiQppZDbnx/U0iVdp6BBXvLcst1
-	 bxuyspON5UICxMJLcmvNtD4sQBhFeTe+ttcHFAmL0qnJAzqoLO0RoyAG0RaoahaYp21cF
-	 /uFrRErd3Ihud+C8EaZU4VdTutJXr3I4Sdxl9r4Rc3GlC/ITx4QAhmN1AYo7T/2Iwgw==
+	t=1795088849;
+	b=vjrLMHlj9KRdKKO0rjTp2FuPi9ymWEsW+amuUUF70+1p68i9b0K8Uq/BkG7dixqK7+3g
+	 sv6xqOZXHTqMMFB3l+uiBH2Pbds0x7WMh6fgJ8XHSEWZFwlB5I1FNINuyay2uamwYwPK5
+	 LHAZFBkD+OtCSeYjFQTFUugo9V74JBGpe4YJgjW9Gr43uBoI0UXf8ugibwNxcEvh385s3
+	 sQaZhivyJRvPLjayta+HSeEh5simvwz5JxAqqUedXx5L//ci50cYHEq5scoM3Yz8cUokd
+	 xgwaXIzMcVHybK0GE/WZSo22zhIjByslVRZA8OiAcRhrlToTb8gqduT+XL9+gQY/f/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088837;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088849;
 	h=DMARC-Filter:DKIM-Signature:From:To:Cc:In-Reply-To:References:
 	 Subject:Message-Id:Date:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=f4yi7Fe1hv21Vrp66F9o/4KM8hDCSEezf1sLeZgEqr0=;
-	b=Lo42pJpOigxD/tDKpcYtyc1qkRGUHc1Ggbo9jpZ783eRndNpZMD4v5MDsvxatAyG8RXn
-	 cYcvPspcR73stn4t9vkZcHEAVj707nckjwptTRGndUycURcWK+aDcIOsMJr2CiwlpbwMN
-	 vcBr+w7UcNy1OjykbvAK/ofdvOVo9MndDa4CvqzBaAJXMHbUL1vJOWIOB1/PxSepqwwly
-	 dokvNgrzk1PEboQMDFlCSQ4KXt17JD+kDiFgibKi5zdF/72kJODVQeEDGkxhu06BTg1Jr
-	 rcBRqfz63A7rpTJmyPRpGReWfn25r5FooiXDL+gZFmAF9hrzxQaAJE1mrqtC7UeviRA==
+	bh=98SKtt0O8YAW/r5JqTl8gSe1Tfru2e5BqrZVYK5+M84=;
+	b=LGIi94sLnBhJImk/WKBU6lleKM+Q9xFnzyb+x+aKxSmfYusu/AS5XEfoRP635Ic7kNNj
+	 5Lpoa42hDgXryHLlm/RPu0n7JnsaZsFwRJio6F0ZAkB7XtFkSvIdw+jacN6cPiTy4p04X
+	 qZX0PWeNDKllIg4mggKgIiDlaoiD6g6M256aNR5xMWqPx8jXS1RpAgsy8jkBK2IQ1EfcN
+	 kPqEn1TBSs2jIc3Eb0kf12bfyU8YVm79nVLvomBdHPiVf5Odi9laYHcoJmxyr4dB2JVBc
+	 61VjSv44/HNhcAk48jGNRI2exfyTrO+9ZJ3RYIFmHRRDugNDj4pysku33YshBoKMyUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=toke.dk;
 	spf=pass smtp.mailfrom=toke.dk;
-	dkim=pass header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=E+N16mBl;
+	dkim=pass header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=qcFepCOs;
 	arc=none smtp.remote-ip=45.145.95.4
 Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E126606A33B;
-	Thu, 19 Nov 2026 11:47:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E126606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82FE60A3808;
+	Thu, 19 Nov 2026 11:47:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82FE60A3808
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=toke.dk
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toke.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=E+N16mBl
+	dkim=pass (2048-bit key) header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=qcFepCOs
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
-	t=1795088834; bh=ERVP7ojqfWPIgVp9z7FBj8ULKho9RTINT6TuDagxjb0=;
+	t=1795088847; bh=Qu6UPp+4lMhMx6ZN4zdAPjMEbnngDim5IZoh3sRHonc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=E+N16mBlqpL05elOCp8bCLYu8VuhtBEvWMAsYohKTtXrrY9hmjJe283X+t/isWlUq
-	 uprv3rx8ZOLWZbjllGaHxtqE+vvLOHus+VnHX/ly9RnRoWojAfT18ni8/D3JicxT84
-	 RSZlGHnBn2kNkSf/Vw/a8cbIpY9CTsH835TqRu1BjrF/IOgT4lbxD1hzipQK/mY8H8
-	 kM+fiq/RcYqteDpK57aZ2FDIFP0y8BFfrFLcqwznYYi6jAocvjwNmtm0vmV2KLYlTU
-	 iNpyPRMV7YdNZiOItcKv7LyeNvY6CYyXIvvwuFSj2ec1C3TorDEu5zhvvhaNiqOq8g
-	 TtEVWH2uZzFQg==
+	b=qcFepCOsINHHdANffQyAKT5Ymjn2yK7CVues+4HEOL6aQp+1sGGDvgiLGkHbXr9iN
+	 ZYzhlBNrCDuEiy2zolqaWmZ/QZSV2+OtBvD1NokTbG+I5nBII+r+I85RLeR4BaSgRC
+	 JrhfeX3lZOtgG5Ap/DIvZCHCqzKoRoo8bqQs/NSOdXvUexDh1GLrYcr02NZLpswpj6
+	 gpgxoVsWuAMayoOrZdlHBNSnuVD0JauPxC+XxMKacVzMO3+mV7F82QjlpnfRFSsn1y
+	 k51nEnAxSJJYihxKblehzG2uXXqPqKC0MV7c5DUqJA/eEoMuGLFJFzufgn77/8NZ3A
+	 W/4bUhoBg++YA==
 From: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
 To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Chun-Yeow Yeoh <yeohchunyeow@gmail.com>, Kalle Valo <kvalo@kernel.org>, 
+Cc: "John W . Linville" <linville@tuxdriver.com>, 
+ Sujith Manoharan <Sujith.Manoharan@atheros.com>, 
  linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
  mehmet.fide@screeningeagle.com
-In-Reply-To: <20261117151703.1802556-1-mehmet.fide@gmail.com>
-References: <20261117151703.1802556-1-mehmet.fide@gmail.com>
-Subject: Re: [PATCH ath-next v2] wifi: ath9k_htc: do not fetch the beacon
- of a finished countdown
-Message-Id: <179493501302.5082.4534148268828040555.b4-ty@b4>
-Date: Tue, 17 Nov 2026 18:03:33 +0100
+In-Reply-To: <20261118085205.1989547-1-mehmet.fide@gmail.com>
+References: <20261118085205.1989547-1-mehmet.fide@gmail.com>
+Subject: Re: [PATCH ath-next] wifi: ath9k_htc: free an unsent frame with
+ ieee80211_free_txskb()
+Message-Id: <179499513257.20227.841268565722172639.b4-ty@b4>
+Date: Wed, 18 Nov 2026 10:45:32 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,13 +66,13 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 16:17:03 +0100, Mehmet Fide wrote:
-> wifi: ath9k_htc: do not fetch the beacon of a finished countdown
+On Wed, 18 Nov 2026 09:52:05 +0100, Mehmet Fide wrote:
+> wifi: ath9k_htc: free an unsent frame with ieee80211_free_txskb()
 
 Applied to toke/ath9k-pending.git (main), thanks!
 
-[1/1] wifi: ath9k_htc: do not fetch the beacon of a finished countdown
-      https://git.kernel.org/toke/ath9k-pending/c/b8969092ae7b
+[1/1] wifi: ath9k_htc: free an unsent frame with ieee80211_free_txskb()
+      https://git.kernel.org/toke/ath9k-pending/c/df24f6812782
 
 -Toke
 
