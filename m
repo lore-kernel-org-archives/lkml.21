@@ -1,98 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.7
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795044373;
-	b=NKhsWqw3Hcr7g1bn/wAbysNS4k2s6mcu98lPwTRqUVzDY280CB6rZus/yyuFSWoXYLiX
-	 xp4IuNIaTZbEYKQXUmWJ57Udv2Xqz0Bh2+aivwWzAtSCZv1vhSFuArdLkpMY3AXs0kUt9
-	 KlYS2Ed8E7joDCcVWEeod807S0KDJ5Z3n8ujHnAwFefziXvBjb7qhndV3sK+TmCEgnPxR
-	 /Yncg1wYQlNh27v3eYhzSU3R0HcKl7NZTPTtK9g9jrwOqrcHAVVb4cXmEyJZ9jMCKmpiV
-	 c2lOYU51Eo/DjSbZlWvajHzph1HvaeLce3MumjjiYvr/doNOTAhnnoDd9libMBVydmg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044373;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-MS-Reactions:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Inlj0u00/R/puNIsf5+6YFVPEbJrhNmrfiHeOypdiRk=;
-	b=LoUXV3NLYaqjZDh2AGuAsqtFnVg0v28SMtwXOQI5zyv7wfxB7Gs5Gl0ZXYtbguQcZpoo
-	 ACwcTtr8lsNVu0G1bP7/wb/D5FQucOPlbS4TktW1I1veKawc9VE7SulDPosbpF+D1q3uH
-	 mUGrqy2WAZT++UYXZazMQS7sE0E/hpYDTmTcPrgZNCbe8ksykEknJlcslwAbgGy/fQAOH
-	 fFKAra7Ez50qkOMWoMUoNfcX9HnAZkWxxMgmvV8j7xaweG2Ugs1LGMHx1YzLMGBBHeSD+
-	 pO2RlHOBJrJqhei0hKiKr25w6QFoId4k7+lOhpA2V4qJfp0QrRwQj1APadoX/ywQOcA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=R50fXzvk;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.7
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011007.outbound.protection.outlook.com [52.101.57.7])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795044488;
+	b=m4pYkRLowFnG7dw+InNxhG0NTDC9gCBPmmt87AYva89+p8vj3gabrpFAU6AL6LHvipqp
+	 b8FkrSORHi7rtoJjGqY8J6RqEJaikjfF9Ma1FnxNmiImLOz2e3cjd9NB/KQOIoZ/g2i5L
+	 OnbkxaBwVpLam6KeK83m3ugZc4RRWt0XwE/BBlAY75JV4//fcJtIBMOJK+Oz8m9lvi5rI
+	 jzdBVWlomxUQkPV01MRaUp2W+Ah+fbkEACQ+PAD2vF1H5acWE+UMkadDm2pgjPGd5PLEH
+	 YO0GseayTLSeTK3cnNwzXcxrYSOobDibVDsJd6eKzsftVZnJvNXw2h2C/H7ckMmrXNw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044488;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=SK275y4VY/DrqFpnu9VZ7OOZ+0WJgDRv5haChjqDgDQ=;
+	b=KX8um9qYBKn/xYFNrbV7eHjXdRHsZUKwekhWgafIonYWa+zilWJX2INvqrjsE/hDoYIx
+	 q1FUTOmNqUhJC/Pat5HskiUynGXDG00wVuxbJEChexEtkAu08RVrLeva1HK8OYhxhKFDJ
+	 eTrDt1Rk1RREDi6lVbRZxziPo5oZnS4pjBVzc23rfCbzhzVoml21cqnhZjT6TIacsd70R
+	 OBM9OWAn86opfzbtKhXbcXG8X+vfJL+z3KTFaruiAoQtMAhc6kTKGZ+8/1PFMRqEjHUwe
+	 f1ap1LmUYobOZZfnulLfk8FApct1OlYgllPET4qgiFyOdsKvQEQdIVsW/G/E+klMlDQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OdCKsL2G;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95105606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:26:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95105606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99CF5606A32F;
+	Wed, 18 Nov 2026 23:28:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=R50fXzvk
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m1JuafkKWhdS96mUm9v0V6bbAcORgUoFfpRy8LfmQhmlZc7MEFwdFbNAvW472aZ+eayr7qY6Kxz2sKxTK8+/CI/0v+ilLDOvfP1tpA4vZVAq4boVeWE/uZPaXJekTJB3Ra84z+peqTE2b+JOgQacpLxzjoI+cE0KxEdYNuDiP3VXKtuT3k/Q6WV/D4MMudIQ860/0RZz/Nt/U38ee9aq4haI2i+iXUjwybY8xoEyB139sNpSeF7osOFHyKd0aR13Bc7EjOlxTXgMC8CD/BtB7v1pRbxDl0z4A1qnLQM2+1MnuTTVRNsnFNHMHtiWqwD22W7hNVwqlR5wR3zvtTktIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Inlj0u00/R/puNIsf5+6YFVPEbJrhNmrfiHeOypdiRk=;
- b=cBI8GK893b3+unqoffFiToOgm6ojHoGGsspQ+pFc3KoSTl08TVGTUmVtIfINpIiAuDwczl7dLlS07Uq+pjrR2odDiub4HzS1UfgQw/FFczhh14dh1L/p4JhmCyYFDdt1vlQwFSyzO/AbncHfhRf+NrWcpSD64GduY+Um39aQXbC06NUMRd1YtXjbOo+2PSLXB9nCtbmZ1Iwb5dvtGT7Pk6e8tz2ZhwFnZ9pFg+/ajCJSSI3cw8RyJAITJBNJAqg6Y6Y5DsqcFieFGzfrcyj76Wagmtg5iIIPSsWU9dGk6zQziwro4lpSagnr4yHWqlwms057s2cKbbsh/ZJKkHeOlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Inlj0u00/R/puNIsf5+6YFVPEbJrhNmrfiHeOypdiRk=;
- b=R50fXzvk+BNQB5vcAFEXxbDjVaLpKN9kRdO0ReUQtTqtWWyKIKApL9lmK3ZSPbgyWmorncINNm5NZ6v3G98cv0ANZHWsnC9mwc6ded4Fb8U/tzeOPy8FEmv1AdKMlMaaT6V7hW6hvrNDk6GAIRScNVl7P531U54urhnrPJKCVqkn28r44RAWVtYejDONbhyrax951+1a0537f9/6OH7zqPRWVAOSES0FGAxO9gbUgyZs1G4xZXW7QzCS90TRo2ZomZeBRCP/f86qNSxgX0vd5fAR2khD9/p2kIoUUaOc8wlD0EFKMO1NGCa8MqOXCgsc2dZbNDfpVDISft/NJ/R71A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
- by SAVPR12MB999144.namprd12.prod.outlook.com (2603:10b6:806:4e6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 23:24:06 +0000
-Received: from IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
- ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0615.009; Wed, 18 Nov 2026
- 23:24:06 +0000
-From: Zi Yan <ziy@nvidia.com>
-To: Nilay Vaish <nilayvaish@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Balbir Singh <balbirs@nvidia.com>, David Hildenbrand <david@kernel.org>,
- Zenghui Yu <zenghui.yu@linux.dev>, Jason Gunthorpe <jgg@ziepe.ca>,
- Leon Romanovsky <leon@kernel.org>, Alistair Popple <apopple@nvidia.com>,
- Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] lib/test_hmm: fix alloc tag leak when splitting
- device-private folios
-Date: Wed, 18 Nov 2026 18:24:04 -0500
-X-Mailer: MailMate (3.0r7038)
-Message-ID: <1CB074CC-E9E3-436D-8D04-8C203C825E82@nvidia.com>
-In-Reply-To: <20261118230044.683221-1-nilayvaish@google.com>
-References: <20261118230044.683221-1-nilayvaish@google.com>
-Content-Type: text/plain
-Content-Transfer-Encoding: quoted-printable
-X-MS-Reactions: disallow
-X-ClientProxiedBy: BL1PR13CA0386.namprd13.prod.outlook.com
- (2603:10b6:208:2c0::31) To IA0PR12MB8374.namprd12.prod.outlook.com
- (2603:10b6:208:40e::7)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OdCKsL2G
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8ECF1F000C5;
+	Wed, 18 Nov 2026 23:28:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795044488;
+	bh=SK275y4VY/DrqFpnu9VZ7OOZ+0WJgDRv5haChjqDgDQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=OdCKsL2GIIGNLJhbAxvjZSqp0wzeB9wQR8No3dX0tnUzdCU1i6cyAR1zjVhmsH1SM
+	 iIKSein6fRqoo1meqmjwFEUZXx+A2Tkb7yrmO5M42e4EgnNdDrXJJkdvTckyBt3dYI
+	 PcrXSKWOo4a/Dpd0TBc5RQwxfGruyGxaax5pGpIpdJJEhGZLl7ZETNcF9YBeYPwcKU
+	 BoWlaKody9kQUkgGtMmxwLgYWT4p5iOzm8UEVF3cd5X2hyxyeL2h/XUoMCox1kP7BN
+	 A1LVassi1bpToxgBdXjzyYTq+ljz1NtVcaB4C3t9VMiMQJw8dhVfDoHwQ6QJ76kEsJ
+	 GnVXlr48SNbBQ==
+Message-ID: <e9391a34-1135-4474-9ef1-a0e86afaebf1@kernel.org>
+Date: Thu, 19 Nov 2026 00:28:00 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,162 +51,221 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|SAVPR12MB999144:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7a7f1be-c7a0-4233-440f-08df45cb0a39
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|261028144727099003|10067099003|5023799004|56012099006|11063799006|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261009223027099003|261102123227099003|261026121527099003|261026140227099003|261102130727099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	GILW1LGigQv8Kcbvy+0JPcjGYbYBuAgsCU/G44huyhZBeDfayrPIypwZcHc+wbwjSO3tqROP/JI/bTH1cR35C3vlc9K+oVbVagI9sugyqCVBLk3mU4y4QQAunt6uw4flICI9MUrs4bHsFwVNO/yklELCm+fraohloWq2FGHFPj3rvjqvhRkfvCVx9lfn3Vts9c0Qw0Qpsm2ZNs26q3djsRsuADhM/hpgmNKFbJ+6nm+Gklc4KwsMidDSahEycjV5JpBlevXSXr0tQMvxdZ7lX3ZSvRKGqA1Qrzzz3hWo1CJYbJNuiOZzCRVAxtLzfd9iy+QndIhnYwUneERz9MegJv9gTN7H4caqfS8oA2iWoqUUW71nFKNpbC63hKGv3hWKqFPFwOGbzvgzlXQJsR6t2j6G5TGLqd2IY4mDD90zuIo7LYk7o9243tueBNVgTu4ngybixnwtiblHC/hmKZ7cGifXg/EZqklO9VCNvYUlt7jgr5hS7+LsH4pmhk21O5gHC/hYK+xAf56zDwfSzjwfXLimniOfG1D5rQOQYLFshWvzdMFxvoU3ecRBFMcveZ+COTBQVnWziGhhnwhYq3Fa6fxDQ634cdlngM0r3iTdmRGmaGx6qAi03fD3tWalNrhQsjdSDW53xA6qthkfVijDpfceVNZNNOVhxgBHM0OKggY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(261028144727099003)(10067099003)(5023799004)(56012099006)(11063799006)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261009223027099003)(261102123227099003)(261026121527099003)(261026140227099003)(261102130727099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?RBo/AX/WvpKcCEEoalMwxrZQPjQLLk2cyEzf6TBqariiMDFy1ThTB6aqrJAq?=
- =?us-ascii?Q?Cz685F7iN1W+E8hR3rT7hg4pITUlZfjL2nCOIsV4kqQ8PpWuT4WTWXOMxZJc?=
- =?us-ascii?Q?A2EGYHNI1sfL5R1ido5crKFoTphdpo8F+mDiLHJy5BAqiC8dhOPrrniBdH0E?=
- =?us-ascii?Q?+h3WYefQBr+abGwfvNkAlljL1966paMDSzP9zAj0Ycl3Ch/MWnWUNU/2nHw4?=
- =?us-ascii?Q?38tQhCvvHnmSywNtObGXm1h3QaAdwFR6foVPWZGDPeVu/+eXrUKhUZ/+NwHs?=
- =?us-ascii?Q?xsZmnxmYknLVfeFhmRhxi7L4l0JgFc6Ka69uBuARDf67a+fOZ0+FIiseF7wF?=
- =?us-ascii?Q?yreKGPM6O94BmRZ+HyiqU7bmxCW5yXNhv6ZZWoGZiGdgW49SDLlkUrfBXnRX?=
- =?us-ascii?Q?2uLmQuc1ROhVfmYx4QDlzAiPm9jpXlc9yO28g6/1T3Pd4xbQjRty4E1Mc6HA?=
- =?us-ascii?Q?PCAwiOaXUEArfwZy5vQHWlckvmVt9xRPSPbjXpvhkW9lxjrDn2LbAJz0+tBF?=
- =?us-ascii?Q?NX07IzLOcjncwnc3Gx7aY0EiU0b2ZVcaukSZdydCbkPDlLv1nxl3P5WAJS4i?=
- =?us-ascii?Q?Cl6m5OigDAoxK5jQC0DlbpsC1K4v9oHUX4PInl/e/QqdxwEQvkFfN8TUrivu?=
- =?us-ascii?Q?2U04UZSr2wZFOUGABqi07yAdIs2KoPP+nhgbd/Y0A8DvjcXw93VSxSAXxcXB?=
- =?us-ascii?Q?FfYvbjYaWuw+W6qOwKsJMRqA5C5vTjXkHAHiWO8X1Citwu+FzRya09WpLSFw?=
- =?us-ascii?Q?DvQAaTgbgkkBjrbxCebEmEWvfjluto5qWd4Jx/41cN2ImVh2lulAl835om5w?=
- =?us-ascii?Q?vO8B7U4xGgewyov/GGqe/Su6c+/Is8DCIk5WieRVRZS909DBmpuGMfEL6xHf?=
- =?us-ascii?Q?Ko7u0mYX0I0NpF/EW0AktvVLSm2M6hJyjZBQov+Q2AvJlfPtZnw5sJKO0LdP?=
- =?us-ascii?Q?xUMvOzMmduay+ARP7xKfvX1RNwAjgphiT48BJNWetIES5cctGseTGbn6T39i?=
- =?us-ascii?Q?H97Sc5cnuEK0++ucosspBwF5PHFc2OGLZUtbtNCoZeqUiRZV3p7b8tvCZtnP?=
- =?us-ascii?Q?WEa/jCeNIp3XZlupXIlIl385dTuDEP02x2IOsDkw6bzrQB+wc/DvuTgj9iBN?=
- =?us-ascii?Q?WzTwmUaD5vRLW6rZotu4YRx5FzvZFCD0qJNyC0gdlm2SeFT6j4XF09bWvORc?=
- =?us-ascii?Q?6hX7v9cCwQiNGtmsThvWNOwgX/G3/R0rvp+OOEEzF63n0N2J0UyqfH6WxoI0?=
- =?us-ascii?Q?qhO/aN6mvZkTA2xWEqJPZj3a67VBz7I3Ui6WxolYWByTm+psucxG3M/HSe/r?=
- =?us-ascii?Q?3cNcwO7zvEYzu12MDOCzoY1JrxS0ETj4Nm/+JO0TYdgRNrSeHVxnQIAXbY0t?=
- =?us-ascii?Q?RWyO/qf3IUD8I4uG6qf9aYGXJZzsEl0uTye+foGvrLgIO1ZUVBuy/PIEd3i9?=
- =?us-ascii?Q?n4U6WnO5waZsr+tNNyv8WqQTgz3uGujCKpQ9auK1K+VUBUVbvllrM9pKIAY1?=
- =?us-ascii?Q?buXxhycD6TpwcOcD/OzMbWRMvyr/h/VKVCE8utSKypwixa2B+H8iX+OlADpg?=
- =?us-ascii?Q?gYP9rGiUVnSpFtxoZPHPoyVjSr45hvME2nUDapE2XME4pPnwQI0DRxzkiq2o?=
- =?us-ascii?Q?ta+vRowwQkSktKAHTmsL4T0FiI/JY7n+wffErzvpbjOZ0TUFu3p6nKbE/Bth?=
- =?us-ascii?Q?qEUo+NZMUloAZYLNI+WE3obxkRJ1osBuO/X8oT+E1bL6sAE5?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7a7f1be-c7a0-4233-440f-08df45cb0a39
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:24:06.3626
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7vuCDFZJk98XE2RA4TP5k7S4BBBY34T8PMaT/tD0k4bXem4ylY3OMhsq98Zmvc78
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR12MB999144
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/5] gup: introduce folio-range interface for pinning
+ user memory
+To: Swarna Prabhu <sw.prabhu6@gmail.com>, akpm@linux-foundation.org,
+ jgg@ziepe.ca, jhubbard@nvidia.com, viro@zeniv.linux.org.uk
+Cc: linux-mm@kvack.org, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dave@stgolabs.net, riel@surriel.com,
+ yeoreum.yun@arm.com, hch@lst.de, Swarna Prabhu <s.prabhu@samsung.com>
+References: <20261118213458.377258-1-sw.prabhu6@gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261118213458.377258-1-sw.prabhu6@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 18 Nov 2026, at 18:00, Nilay Vaish wrote:
+On 11/18/26 22:34, Swarna Prabhu wrote:
+> From: Swarna Prabhu <s.prabhu@samsung.com>
+> 
+> This series is an RFC to gather design feedback to introduce a folio-range 
+> interface for pinning user memory in the GUP fast path. Pinned memory is 
+> returned as folio ranges instead of a page array: a run of consecutive PTEs 
+> mapping consecutive pages of one folio is pinned once and handed back as a single 
+> range. Block direct I/O converts each range into a single bvec, hence reducing the 
+> per-page pin and merge work.
+> 
+> Base and dependencies
+> =====================
+> 
+> This series is rebased on the following two series applied:
+> 
+>   - "mm: gup: batch PTE-mapped large folios in gup_fast_pte_range()"
+>     v4 (Yeoreum Yun; originally posted by Yuan-Hao Hsu [3]), applied to
+>     mm/core.git gup-7.5.ptebatch [4]. It batches the reference grabs for
+>     PTE-mapped large folios in GUP-fast.
+> 
+>   - "batch lookups in follow_page_mask()" v5 (Rik van Riel) [5]. It makes
+>     follow_page_mask() return a page count and record pages through
+>     gup_fill_pages().
+> 
+>     Note: "[PATCH v5 1/8] mm/gup: break out gup_fill_pages() helper" was
+>     posted just as testing for this RFC was done. To avoid delaying
+>     feedback on the overall design, this RFC retains the tested base
+>     linked in [5] and will be rebased onto the latest revision for next
+>     version.
+> 
+> This series builds on both: the run detection in gup_fast_pte_range() and
+> the batched slow-path lookup are reused, and this series changes how the
+> result of a run is recorded and returned.
+> 
+> Background
+> ==========
+> 
+> Kundan's LPC '24 talk "Transitioning get_user_pages to folio based mapping"
+> [1] proposed a struct folio_vec (based on bcachefs) passed in place of a
+> pages array. Building on that and on suggestions from the community [2], 
+> this series exposes folio + index + nr_pages, where each range spans a 
+> single folio:
+> 
+>         struct folio_range {
+>                 struct folio *folio;
+>                 unsigned int  idx;
+>                 unsigned int  nr_pages;
+>         };
+> 
+> Design
+> ======
+> 
+> A "struct gup_out" descriptor in mm/gup.c holds either the page array or
+> the folio-range array. The fast and slow page-table walkers append to the
+> descriptor instead of advancing a pages[] pointer, so a single walk
+> serves both interfaces without duplicating the walkers.
+> 
+> The PTE batching in gup_fast_pte_range() is provided by Yeoreum Yun's
+> series [4], which this RFC builds on. This series reuses that batching
+> and its page-table revalidation logic. For the folio-range interface,
+> each pinned run is recorded directly as a folio range instead of being
+> expanded into individual page pointers in the output array.
+> 
+> pin_user_folio_ranges_fast() stops once the caller's range array is
+> full, so callers size the array in ranges, independently of the number
+> of pages requested. A single GUP-fast walk is additionally capped at
+> EXTRACT_MAX_PAGES (1024 pages) to bound the time spent with interrupts
+> disabled when the buffer is backed by small pages.
+> 
+> unpin_user_folio_ranges() walks the range array and calls gup_put_folio()
+> once per range, releasing the references pin_user_folio_ranges_fast()
+> took for it.
+> 
+> In iov_iter_extract_bvecs(), the pinned folio ranges are stored into the 
+> free slot of the bvec array and converted in place, one bvec per range. 
+> Block direct I/O picks this up through bio_iov_iter_get_pages() without 
+> changes to the block layer.
+> 
+> Non-folio mappings
+> ==================
+> 
+> Memory that is not backed by folios, such as pages a driver inserted
+> into a VM_MIXEDMAP VMA, makes pin_user_folio_ranges_fast() fail with
+> -EOPNOTSUPP when no pages were pinned; such iterators fall back to the
+> page-array path.
+> 
+> For folio-range output, gup_fast_folio_allowed() additionally requires
+> a non-NULL folio->mapping, except for hugetlb folios. If the mapping is
+> NULL, it falls back to the slow path, where the VMA can be checked.
+> The existing file-backed and secretmem restrictions remain unchanged.
+> 
+> FOLL_LONGTERM is not supported yet and is rejected.
+> 
+> Testing
+> =======
+> 
+> Measured the time spent in bio_iov_iter_get_pages() per I/O with
+> function_graph, on the baseline and the baseline plus this series.
+> Both kernels ran with the performance governor, boost disabled, all
+> C-states except POLL disabled, and fio pinned to one CPU:
+> 
+>   trace-cmd record -p function_graph -g bio_iov_iter_get_pages \
+>     --max-graph-depth 8 -O funcgraph-overhead -O nofuncgraph-irqs -F -c \
+>     fio --name=io_uring_test --filename=/dev/nvme1n1 --ioengine=io_uring \
+>         --rw=randwrite --direct=1 --bs=<bs> --iodepth=8 --iomem=mmap \
+>         --iomem_align=2M --numjobs=1 --size=64M --cpus_allowed=23
+> 
+> Median of calls not interrupted during the walk:
+> 
+>   bs    buffer          baseline        patched          result
+>   128K  64 kB mTHP      13.08 us        13.09 us         neutral
+>   1M    64 kB mTHP      63.0 us         63.6 us          neutral
+>   4M    2 MB THP (PMD)  25.9 us         8.65 us          ~3.0x faster
+>   8M    2 MB THP (PMD)  49.4 us        ~17.0 us          ~2.9x faster
+> 
+> Note: the baseline is the upstream kernel with Yeoreum Yun's [4] and
+> Rik van Riel's [5] changes applied.
+> 
+> For larger I/O, the baseline's bio extraction path requests at max
+> 256 pages per GUP call, limited by the available bvec slots. This
+> series instead uses those slots for folio ranges, each of which can 
+> describe many pages, thereby allowing the series to request up to 1024 
+> pages per call which accounts for the speed up observed in 
+> 'bio_iov_iter_get_pages' for 4MB and 8MB DIRECT I/Os.
+> 
+> Testing: Ran selftests gup_test, gup_longterm and cow on the patched kernel
+> and no regressions were observed.
+> 
+> Link [1]: https://lpc.events/event/18/contributions/1773/
+> Link [2]: https://lore.kernel.org/all/f2b5189f-10de-4685-97f3-6ee08d159743@kernel.org/
+> Link [3]: https://lore.kernel.org/all/20260917083747.786-1-aa9736195201@gmail.com/
+> Link [4]: https://lore.kernel.org/all/20261110-refactor_gup_fast-v4-0-e779a7674274@arm.com/
+> Link [5]: https://lore.kernel.org/all/20261102193026.3860700-1-riel@surriel.com/
+> 
+> Swarna Prabhu (5):
+>   mm/gup: add struct gup_out output descriptor
+>   mm/gup: make the slow path walkers record into struct gup_out
+>   mm/gup: make the GUP-fast walkers record into struct gup_out
+>   mm/gup: return pinned memory as folio ranges
+>   iov_iter: extract bvecs of user-backed iters from folio ranges
+> 
+>  include/linux/mm.h       |  37 +++
+>  include/linux/mm_types.h |  23 ++
+>  lib/iov_iter.c           | 100 ++++++
+>  mm/gup.c                 | 695 +++++++++++++++++++++++++++++++--------
 
-> For device-private memory, test_hmm backs each fake device folio with
-> real system RAM of the same order, allocated with folio_alloc() in
-> dmirror_devmem_alloc_page().
->
-> When the core MM splits a large device-private folio, the driver's
-> ->folio_split() callback, dmirror_devmem_folio_split(), has to split
-> the backing memory as well. It does that by hand: clear_compound_head()=
+That's *a lot* of churn from someone new to MM. :)
 
-> on the tail pages, folio_reset_order() on the head page, and
-> folio_set_count() on each of them. dmirror_devmem_free() then frees
-> every backing page as an order-0 page.
->
-> This open-coded split does not split the allocator's metadata. The
-> allocation tag and the page_owner record still describe one high-order
-> allocation, and PG_head stays set on the head page. When the pages are
-> freed one by one, the tag is debited for only one page when the head is=
+This will need a lot of guidance from MM experts given that this is your first
+MM submission.
 
-> freed, and the tail pages carry no tag at all. With
-> CONFIG_MEM_ALLOC_PROFILING, running the HMM selftests and unloading the=
+Sorry, but we don't have capacity for this:
 
-> module reports the leak:
->
->   lib/test_hmm.c:808 module test_hmm func:dmirror_devmem_alloc_page has=
- 16744448 allocated at module unload
->
-> and with CONFIG_MEM_ALLOC_PROFILING_DEBUG freeing a tail page triggers:=
+https://lore.kernel.org/linux-mm/a2f584f6-e382-4876-aa6d-d5a34de6ee59@kernel.org/
 
->
->   alloc_tag was not set
->   WARNING: ./include/linux/alloc_tag.h:164 at ___free_pages+0x2a0/0x2d0=
+-- 
+Cheers,
 
->
-> The backing memory is a private buffer of the test driver and nothing
-> requires it to be a folio. Allocate it with alloc_pages() instead and
-> split it right away with split_page(), which splits the allocation tag,=
-
-> page_owner and memcg state and is already exported to modules. It is
-> still allocated as one high-order block rather than as individual
-> order-0 pages because the driver finds the backing page of the Nth page=
-
-> of a device folio by offsetting from the first backing page, so the
-> backing pages have to be physically contiguous. Every backing page is
-> then an independent order-0 page for its whole lifetime, so
-> dmirror_devmem_folio_split() only has to point the new device folio at
-> its backing page, and dmirror_devmem_free() frees the backing pages one=
-
-> at a time.
->
-> As the backing pages no longer form a folio, take the order from the
-> device folio rather than from the backing page, and index and copy the
-> backing pages individually instead of using folio_page() and
-> folio_copy().
->
-> With this patch the device-private HMM selftests pass and the module
-> unloads without the messages above.
->
-> Fixes: 56ef39899643 ("mm/memremap: add driver callback support for foli=
-o splitting")
-> Reported-by: Zenghui Yu <zenghui.yu@linux.dev>
-> Closes: https://lore.kernel.org/linux-mm/be9a8bae-9223-4966-bba9-2cbe39=
-c8f4de@linux.dev/
-> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-> Link: https://lore.kernel.org/linux-mm/8ef6e92d-4cb3-444e-857e-fdbf88c0=
-35ea@kernel.org/
-> Signed-off-by: Nilay Vaish <nilayvaish@google.com>
-> ---
->  lib/test_hmm.c | 41 +++++++++++++++++------------------------
->  1 file changed, 17 insertions(+), 24 deletions(-)
-
-
->
-> diff --git a/lib/test_hmm.c b/lib/test_hmm.c
-> index b409c42bfe6f..371ead009f8a 100644
-> --- a/lib/test_hmm.c
-> +++ b/lib/test_hmm.c
-> @@ -201,6 +201,7 @@ static void dmirror_device_evict_chunk(struct dmirr=
-or_chunk *chunk)
->  	migrate_device_range(src_pfns, start_pfn, npages);
->  	for (i =3D 0; i < npages; i++) {
->  		struct page *dpage, *spage;
-> +		unsigned int j;
->
->  		spage =3D migrate_pfn_to_page(src_pfns[i]);
->  		if (!spage || !(src_pfns[i] & MIGRATE_PFN_MIGRATE))
-> @@ -227,7 +228,9 @@ static void dmirror_device_evict_chunk(struct dmirr=
-or_chunk *chunk)
->  			dst_pfns[i] |=3D MIGRATE_PFN_WRITE;
->  		if (order)
->  			dst_pfns[i] |=3D MIGRATE_PFN_COMPOUND;
-> -		folio_copy(page_folio(dpage), page_folio(spage));
-> +		for (j =3D 0; j < (1U << order); j++)
-> +			copy_highpage(pfn_to_page(page_to_pfn(dpage) + j),
-> +				      pfn_to_page(page_to_pfn(spage) + j));
-
-struct page should be contiguous if their PFNs are contiguous.
-There is no need to do this conversion, right?
-
-In addition, dpage, based on the comment before BACKING_PAGE,
-is device memory, so it should also be allocated using alloc_pages()
-like rpage. Am I getting it wrong?
-
-Best Regards,
-Yan, Zi
+David
