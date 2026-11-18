@@ -1,76 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011738;
-	b=yI65bp19TiXFDfCoy8ARDJrFhUs4rhAJOEkQnQbQvgJorlxqeFGhwIeV1EAHAzO3VGS8
-	 /qzi6DUIsdy3ADvxGkVguTDfwTW6vnY4n4UL4iSLKEN3WoF/gY8UNeapYhDM15r32oQLx
-	 yiuTPcICWz3B4crx4PQto7pD4fBIWLm4g8wjI+wjfZ+anfoqOvQIKi0vcU7F+fT6lyFGh
-	 y+u80s1HQ9um0RCGthLfWbTGLVw3xyhK2JqxjIpfxvVY4r7ZocF3G4q76SqNpaLLyciUO
-	 78Aw6qiDMBSPvbmgNbqwqyPwurHLhDoRNJr2ZZZ3xWktbPoAd4JtEHXQTZUDDXZHF0A==
+	t=1795011757;
+	b=GyyTg6I7Eh2VZafY+cTPivxi6cCCoC51CxdliTq58jITl/VdZNeNtMn8RTKp0l0tLU+L
+	 lcOt0+HlsBFrgUvSF+GrfX7vncOGW3xWSeGUu0n0gosw48K3gpHemrkVLtadrhs3EndQ8
+	 kGxS6NPmSZp+TmtKhDpuM289VymL5Ai8mJyx0/MPUSVJm+6UCqzkla+fkMmXbwHt8YyVt
+	 8pGb/xrCmhd7GfC37FHZjjNr3/W6asxe82r/COCdC67Mj119Y+rkjqT6WDPl9TMAIGTFp
+	 OxLJ/InOj18j4hTxPiYO6c491ViAbUqRFd+ZJax+ff1+tDHUyf+BWJ3IVobAw7Qku8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011738;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wQ/P0S/BIwLbAm3SwXm7MlYVraP/+sqEwKu2qG1M6g4=;
-	b=LK2Qlaj5DIUl/y78wkBY5ORQWFAozuVhsr32jWsrxaKKj2kHzDvqeYQQXm37tt+1gE1f
-	 l1IBPP+weGTL+rqxDVUurFTeKS3TA6xFlteYqCAfvRm1n2oXvyE9o7rZzvaHtVSCLYsiE
-	 BW8S76QRaCCZjbWYroaiVcCTVRvGCHBIaMAoKVB9x+0fujKuhfwz0hyfcr3pUNlBZJbk/
-	 2IVT/wwNVzsH/tmYw0oo6hWSHCvLLysYP9zpTU8Hr4lx53gDF5RqtluAFbXm6eK6P/L++
-	 hPJEGZ+inL+6HDSBdSns7XzM6xQUDqqA/tjufSKZlSurETNZLx3dbpFm8F0Jj1nKFKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011757;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
+	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=haqNkHmYUBM8afAHWDurlnqO/foJXidzEpjadaLQhdY=;
+	b=USGqEafaaitfesoUlaUiWMVkus0eGSWM/NL0FucEDFEBHttLG9SeyxC1M0FO1a8MySEY
+	 4S6OhkHq3y1sz3etmp0M6ZzuCz/dA9lze3rwCuAQDSU1kRmgWsCuHwooZW0PrOYPfDuIt
+	 EEJXg6k1V+w3F+pdqCTxNeJPEz5wNZ9I3RacjKuvOS9NtIeCjPAtuMY3Z0wDyTlwW/+bf
+	 As+4qcGcUdeI0tU+kFyiKlKsdYOIFhgFtmoWNYV4FgyWcoK0pRyB1yA7R4TzbUab96CY2
+	 TzTjcCydgX4ELN30MSrXU1m69lUvJNrTL+kpT0MR1BvPmtiIvQQo9WJq97n7ebDuung==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnizEqc3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eJNYHRwI;
+	arc=none smtp.remote-ip=45.254.49.198
+Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4DA7606A31C;
-	Wed, 18 Nov 2026 14:22:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86A71606A31C;
+	Wed, 18 Nov 2026 14:22:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86A71606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnizEqc3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8FF1F000CC;
-	Wed, 18 Nov 2026 14:22:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795011738;
-	bh=wQ/P0S/BIwLbAm3SwXm7MlYVraP/+sqEwKu2qG1M6g4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PnizEqc3duk8cYNxG5qGYHzwEoF+La9oGAi8pJGK9qXZcAv3wu/S8lvPf3PlCLFNX
-	 //mLiYaJ5aV1BWHge/nKYmGK+aCkhIbb5oU9XMvP4IFkSOORivHfYnAt9bGZyXpeKh
-	 Y858N4ekCEGW6tAiolhdqT4gMpWa1yltL+Kz8VN1ujdXnukHxAmxtgs/7xzW7e4bvx
-	 VXFOM1e7HjLm7XniR+DbNVU6dhqAaXV8djy+yP7OvAcNIo+8kp41tilnabUC2fNmlk
-	 l6G37fDwn1RJTgTT2PL4qy061Tr0IgTS6fz0aV832Uv9+RPpoEi/L4bVZIWv3EcEDQ
-	 Y6KdCOczQMvbg==
-Date: Wed, 18 Nov 2026 16:22:06 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Muchun Song <songmuchun@bytedance.com>
-Cc: Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Chris Down <chris@chrisdown.name>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>, Muchun Song <muchun.song@linux.dev>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ketan <ketan.kishore@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sashiko <sashiko-bot@kernel.org>, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH v2 5/7] mm/page_ext: allocate page extensions early for
- SPARSEMEM
-Message-ID: <av20jiGZH5uYV6LT@kernel.org>
-References: <20261117120627.50601-1-songmuchun@bytedance.com>
- <20261117120627.50601-6-songmuchun@bytedance.com>
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eJNYHRwI
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5526d7972;
+	Wed, 18 Nov 2026 22:22:30 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: Jingoo Han <jingoohan1@gmail.com>,
+	Helge Deller <deller@gmx.de>
+Cc: linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] fbdev: s3c-fb: Fix potential registration corruption on probe failure
+Date: Wed, 18 Nov 2026 22:22:29 +0800
+Message-ID: <20261118-324f82bd41-fbdev-0@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,74 +56,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117120627.50601-6-songmuchun@bytedance.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1ef09abc403a1kunmfc88f5031a12ca
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSk9MVhgYSEkdTBlLTk5MQlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=eJNYHRwIFeniVMid2Oy+In7DqyaRyzjNcRq4bw24gImwksylgJsGXjQdQKsCqNdyYzWh9d+Yl7k+WxqEglV4Bad/cMs33UCs2u2/zzdDQdTa/C21pXtSEz6rYaZdNNZ1ACYC4WQwwu+7kTvoaEy2rdQW14pgDzofId/GxuUq9IU=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=haqNkHmYUBM8afAHWDurlnqO/foJXidzEpjadaLQhdY=;
+	h=date:mime-version:subject:message-id:from;
 
-On Tue, Nov 17, 2026 at 08:06:25PM +0800, Muchun Song wrote:
-> KMSAN needs page extensions when kmsan_init_shadow() installs per-page
-> metadata, before memblock_free_all() releases memory to the buddy
-> allocator.  FLATMEM makes page extensions available by this point,
-> whereas SPARSEMEM initializes them later in boot.
-> 
-> Allocate boot-time SPARSEMEM page extensions from memblock to match
-> FLATMEM's initialization timing.  This gives early clients the same
-> page_ext availability guarantee across both memory models, while runtime
-> memory hotplug continues to use vmalloc.
-> 
-> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+Probe failure cleanup calls unregister_framebuffer() even when the
+window has not been registered. Its zero-initialized node can then
+remove another framebuffer from registered_fb[0].
 
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Track successful registration and only unregister those framebuffers.
+Also skip empty window slots while unwinding a failed probe.
 
-with a nit below
+This issue was found by our static analysis tool under development.
 
-> ---
-> v2:
-> - Allocate all boot-time SPARSEMEM page extensions from memblock
->   (suggested by Mike Rapoport)
-> - Keep memblock allocations above DMA and suppress per-section free
->   messages (suggested by Chris Down)
-> ---
->  include/linux/page_ext.h |   9 +--
->  mm/mm_init.c             |   4 --
->  mm/page_ext.c            | 119 +++++++++++++++++++--------------------
->  3 files changed, 60 insertions(+), 72 deletions(-)
->
-> +static __ref void *alloc_page_ext(size_t size, int nid)
->  {
->  	void *addr;
->  
-> +	if (!slab_is_available()) {
-> +		addr = memblock_alloc_try_nid(size, PAGE_SIZE, __pa(MAX_DMA_ADDRESS),
-> +					      MEMBLOCK_ALLOC_ACCESSIBLE, nid);
-> +		if (addr)
-> +			memmap_boot_pages_add(size / PAGE_SIZE);
+Fixes: ec549a0fdc32 ("fb: add s3c-fb driver for newer Samsung SoC framebuffer devices")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+ drivers/video/fbdev/s3c-fb.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-I think it should be DIV_ROUND_UP().
+diff --git a/drivers/video/fbdev/s3c-fb.c b/drivers/video/fbdev/s3c-fb.c
+index 82a3bc9de433..c67ad47a49f0 100644
+--- a/drivers/video/fbdev/s3c-fb.c
++++ b/drivers/video/fbdev/s3c-fb.c
+@@ -161,6 +161,7 @@ struct s3c_fb_palette {
+  * @pseudo_palette: For use in TRUECOLOUR modes for entries 0..15/
+  * @index: The window number of this window.
+  * @palette: The bitfields for changing r/g/b into a hardware palette entry.
++ * @registered: Whether the framebuffer was successfully registered.
+  */
+ struct s3c_fb_win {
+ 	struct s3c_fb_pd_win	*windata;
+@@ -172,6 +173,7 @@ struct s3c_fb_win {
+ 	u32			*palette_buffer;
+ 	u32			 pseudo_palette[16];
+ 	unsigned int		 index;
++	bool			 registered;
+ };
+ 
+ /**
+@@ -1142,14 +1144,15 @@ static void s3c_fb_release_win(struct s3c_fb *sfb, struct s3c_fb_win *win)
+ {
+ 	u32 data;
+ 
+-	if (win->fbinfo) {
++	if (win && win->fbinfo) {
+ 		if (sfb->variant.has_shadowcon) {
+ 			data = readl(sfb->regs + SHADOWCON);
+ 			data &= ~SHADOWCON_CHx_ENABLE(win->index);
+ 			data &= ~SHADOWCON_CHx_LOCAL_ENABLE(win->index);
+ 			writel(data, sfb->regs + SHADOWCON);
+ 		}
+-		unregister_framebuffer(win->fbinfo);
++		if (win->registered)
++			unregister_framebuffer(win->fbinfo);
+ 		if (win->fbinfo->cmap.len)
+ 			fb_dealloc_cmap(&win->fbinfo->cmap);
+ 		s3c_fb_free_memory(sfb, win);
+@@ -1272,6 +1275,7 @@ static int s3c_fb_probe_win(struct s3c_fb *sfb, unsigned int win_no,
+ 		return ret;
+ 	}
+ 
++	win->registered = true;
+ 	dev_info(sfb->dev, "window %d: fb %s\n", win_no, fbinfo->fix.id);
+ 
+ 	return 0;
 
-> +		return addr;
-> +	}
-> +
->  	addr = vzalloc_node(size, nid);
->  	if (addr)
-> -		memmap_pages_add(DIV_ROUND_UP(size, PAGE_SIZE));
-> +		memmap_pages_add(size / PAGE_SIZE);
-
-And here too.
-
->  
->  	return addr;
->  }
-> @@ -304,7 +300,7 @@ static int __meminit init_section_page_ext(unsigned long pfn, int nid)
->  	if (section->page_ext)
->  		return 0;
->  
-> -	table_size = page_ext_size * PAGES_PER_SECTION;
-> +	table_size = PAGE_ALIGN(page_ext_size * PAGES_PER_SECTION);
->  	base = alloc_page_ext(table_size, nid);
->  
->  	/*
-
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-Sincerely yours,
-Mike.
+2.43.0
+
