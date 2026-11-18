@@ -1,106 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026241;
-	b=1NVilyWqmbBY3nmjIl0qK/Tb5Mmgd+YCUbkGpMotVZu5R+NL6tnRNwBJOvDjp8eNcvud
-	 m/WmdRtRZ+YgQ602ha6Hc/dPzzIpIoUGZXy35jAya0+vzJTSiCNsTb4X4dSEaEvD9jnCO
-	 H/zyueH6ShhrXXLcanDq75dZhKYBVzQ4zZTmrHjjlvmTNb/pdzyW4Tb/r8wHQa3Y6xiz0
-	 Gc3VTjsXooPXfnxKD8Uk5PrbqtIdbaBWlA3tBV5HX5QB4ghxDveo9nqI66lEWd4YP0Z9h
-	 b5h2zbkA3Je6k1ptJWWo0YuP9Gv9ylzUwOLAFyL4sXNd1jJ7kAhhdNtpxWuzLPbY7DQ==
+	t=1795026304;
+	b=Y2nR+y6uOG2ajtRXiZs+HT4Azn4SWXTkAUk4sARg7rd/8ojm9+bmIUjqwrvsyh3TJEMi
+	 TGETONKLAXhDPJPkW0HnsA7QPioYUMpDm4FR+OIU4fBBhXpgF4DHFi2xk1Nv5+/BKEgrD
+	 gZwzlucVj/8o9wLwipK95vA5j+vW8PGmo5BwFer2fh6xJlcxZZxrEvC5O8Ic6L7+yLtDQ
+	 aUxAMdNImUfGwQWEpelpWIdyTpexYkA9f2Ka9vUnYbcR/VTVS66N+US16v9C8Qu66mACh
+	 N3rql3UL7+z7XYwhz4Cw5yUmE/hsLtR4hn3L98PyK3EbrYoBuXTzv9KLz3TgEngQ/Rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026241;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=w7e84pTx1hFND/SqJPYWM+V16X6qXv0q0f3OXujMfRQ=;
-	b=qiW9Q+Ja/Xk80BoCryOfFMnhPtcv+c3XuZ3LJgWxUSHedJT4+3UMnTOkbW1XSygRb0Lr
-	 v3S/bZhbIhIZll6RUjXCcIKZw+LLkTtqRhgi3TSi3XKPchbZmcVMP9+bA5D47UDZ0zckB
-	 ZkqQsAZJVBippEfM162WN7kDQCXlpPxY/F4MGaCLaVgAMtsHoqf2ep4gmYvlAhNeSKjdc
-	 v7xJLZ0f9zsH/VYjivUX50jgEGXWuBaooDomCqWw4tAW6bFsSWC+KZUDVowzaF0f92lYz
-	 Sby6/LejLiK0E3iuOxBPic40WShXwZlALAlwbp02gBqP0ltloiAkNUn3YUdFcagHhXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026304;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=aPm8bMtN0XCic6a8OKv6xXRC+l+0XGJs8lRtJHx2mLw=;
+	b=5FYShrzjtiAlI3mYf7k0HB8jxZPvgVG79Vy9VG3Akw74uAs8+NDllQfeZR4PsLGVplEL
+	 BsSRz0zx/iTmnxt3rgN9PLfZwu3+Qph3+BgtYIuwN48begXuufItYp2EObINWhxET51fv
+	 XDkEapH6CSiF6/QBacGnttRc7G6FMoM+GmgSCh55sMtHzjyHzaI27/u/iUcwY/yXaG4Hf
+	 n7h5uycMAHlhNJXm5yxGJb/6OjoXB0rYQhFYrPliIr9rSx3+I0yglj/vpkc3N9aJBqBxP
+	 cPEKnZaSVxyPpgcRr68+qcDhxVXAilcDqm36wDx483jlXMUgO+cv9WFkE+aNRNgEuYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=bUmwaVe0;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aDukXne6;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14AA0606A320;
-	Wed, 18 Nov 2026 18:24:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14AA0606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75D11606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:25:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75D11606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=bUmwaVe0
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIHQD2O1730327;
-	Wed, 18 Nov 2026 18:23:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=w7e84p
-	Tx1hFND/SqJPYWM+V16X6qXv0q0f3OXujMfRQ=; b=bUmwaVe0vc+1u8ldD3hI2a
-	HjsSKqPibLmbLZ6QQYXLwzJLV2tci+Fd/Z7F6HDsapiyvWoZ6Y9SMszwzszAt0T+
-	S8MrCThxOzb1M7aSoJuLkFqP/pWgqU4820kPY4aVYZKf6yjuaUeBIoZ/JA5ogsaS
-	0rMOhD6Vbn+V3iFU4fY0JU2qWyT8pJQsBa8sskjxlcfREg6lCqv4VRhxKGlanRop
-	6Oz7lCYmL3nqjUJlyC6H6YGyjTTy5l3UAynKFLASq9y9KQzCPavLWOLLiUgZe5bY
-	xtOEBaPQRK+FKyVhLaXHdqXpCvqoDsCOA5erinypf1fq8TzRxKdfhfX1Kdam1BEg
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vkw3v-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 18:23:46 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIHJsLs2384122;
-	Wed, 18 Nov 2026 18:23:46 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1bb59ad2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 18:23:45 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIINgGB51708356
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 18:23:42 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1DE1B20049;
-	Wed, 18 Nov 2026 18:23:42 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3ECE820040;
-	Wed, 18 Nov 2026 18:23:39 +0000 (GMT)
-Received: from fedora (unknown [9.5.7.39])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 18 Nov 2026 18:23:39 +0000 (GMT)
-Date: Thu, 19 Nov 2026 00:02:08 +0530
-From: Amit Machhiwal <amachhiw@linux.ibm.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Amit Machhiwal <amachhiw@linux.ibm.com>,
-        Masami Hiramatsu <mhiramat@kernel.org>,
-        linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>,
-        Vincent Donnefort <vdonnefort@google.com>,
-        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-        Harsh Prateek Bora <harshpb@linux.ibm.com>,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-        kvm-ppc@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v4] ring-buffer: Do not check si_mem_available() before
- deferred init completes
-Message-ID: <20261118234433.5ff52f67-db-amachhiw@linux.ibm.com>
-Mail-Followup-To: Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, linux-trace-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, Michal =?utf-8?B?U3VjaMOhbmVr?= <msuchanek@suse.de>, 
-	Vincent Donnefort <vdonnefort@google.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
-	Harsh Prateek Bora <harshpb@linux.ibm.com>, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-ppc@vger.kernel.org, stable@vger.kernel.org
-References: <20261023145459.47516-1-amachhiw@linux.ibm.com>
- <20261117162842.5cb22a24@gandalf.local.home>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aDukXne6
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b67f25e6e1so904469b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:25:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795026304; x=1795631104; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=aPm8bMtN0XCic6a8OKv6xXRC+l+0XGJs8lRtJHx2mLw=;
+        b=aDukXne6qZLB4OGhduaO1ZScJ6sh787QT/POYB0Kof2Bza+lT4qRtqvmYVraMMR82f
+         2ullkMEbpOLOz4Ut2lnHlnuFATEz3nLbHMsG7enezp0W/zkZANczH+MT5CArnBUBCZ0J
+         gHA6SXt3R81BrFARYotuK8H7q40DRrajh/ILSQB5IwVhOl4lqFt5y3lukw2i0AXM5fgz
+         mVXGSFOQ9sxcSy3d2sIovYHGx2BvyXKIC1YUZ2iLIG1UweT21F2f+72VI9cu0yig8WO5
+         WSiE6SoKBgcYBWY9EoNclQz+Fp6pTHbsJPn5fVWjQjglPoxx01PtK0V58rKf+FGPh76+
+         LO6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795026304; x=1795631104;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aPm8bMtN0XCic6a8OKv6xXRC+l+0XGJs8lRtJHx2mLw=;
+        b=omeAcan5y3zRvEImBKapTsWAW1d9hGbB2+8LVfQ9FHvTBJSSLO5kkRxPr3g7XNRcpJ
+         GPsTQ/LTj3pIvFFwuScOYBpwJ2w6yKN8Q9jzFFUGreDZwWLrM4ku/CS2BLU7ZnLOLQUl
+         LBxPCOn7P2hrd1HoLsUWo7emDjK5wAdz2cD5duQ5q9tSNYTP5JtajQ843Bo4XvUrJ1v3
+         xig2wnXjUep+GtOXtIsKLLcOKQCNvys1rINjhIgPer4VcGNLKW85gfzv+6uNJxOUu9qO
+         m0L9MJnHJ5Y8MVhUti4McTzhHSRoOy5sttnA2yds5FI5qacilRaBn/2L1zw8y9IygJco
+         I7fA==
+X-Forwarded-Encrypted: i=1; AL+hErGJiFERGN6lOB6yymnZQpzj+m7rRq+cXbxpnb7gMgUwA3T0yB9XkZCvVWTId9hxLg/UZrjfwPkTZsbsuwA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zQk6D/YJeAw7KtvC4u8U3XYX69lZskH/pwA8lhB91zarVTlLt
+	oaXxbrf+SWVW7Yv7x9ye1RkLNT8HLHJ2aowiCx8rB8AGx/PelgknJz7q
+X-Gm-Gg: AYBFou35KoI+hAhp5kdxEkjaZ0bvWhBF37P8NVshvn8GsaohGW9kvFBRFr4f839oano
+	ZkFPlhuSMXmYWa2bA15DxJ4ShYDTH1wsk8OUSJbCgnmXSOjC1jFBt6//zRQDn+NHxZejF7CQ0b4
+	SlUCAsVoeKknJoW6p3A+9CT7Rp/GI+s02xt36x6Gi2Ca5WNr5ubw8B2sfm27VgCPqeXxkJiaEa8
+	r6L19oTiAaWNPd7Mhmd5zUDMUyEDqNjrK94EoxNk9US6FUqYqr8dH8u3W/K6PbFux8QA0HcC5r/
+	PceDPki0DTSclHnUPayqhMHiH3BShNNwwX4BjGT4jpLytxOX7zMbSBIQRHv+1HUOF8c2LcZT36C
+	8ijGlSdOGEuc1ahdXjJwpz3afFaF7vNtOnhSWHp4ggfo3fHQ3pkvtXghADp0TlBbnrTzwpopGXL
+	WATmE23fpVGieE3CG/XFOdjgl42jSTR3aB58WQVfm0JAryXOmSYRIlbPfJl/enOkRLKb3Ha3mSr
+	JaK6r801Cd1RWH1TeDA/q9OK3CWFJJLbGCPBqkwX36onXg9PDS+8jh3iJ3cG553LS9oHwlRgiGG
+	XcV8Vy55zl+Rk/lar/MudZ0hI6HeDGccQ8oMPj9NaAofrYaI/KqihOJrwj7xC4QdWKssAbRiCML
+	LcYzm
+X-Received: by 2002:a05:6a00:230c:b0:8ba:f51a:1bc1 with SMTP id d2e1a72fcca58-8c5d3639dadmr3086650b3a.24.1795026303092;
+        Wed, 18 Nov 2026 10:25:03 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:2c16:ada8:2d24:d03])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cac8ffe6sm1669954b3a.23.2026.11.18.10.24.53
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 10:25:02 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Eric Woudstra <ericwouds@gmail.com>,
+	=?UTF-8?q?Bj=C3=B8rn=20Mork?= <bjorn@mork.no>,
+	"Lucien . Jheng" <lucienzx159@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Zhao Li <enderaoelyther@gmail.com>
+Subject: [PATCH net] net: phy: air_en8811h: check PBUS register read errors
+Date: Thu, 19 Nov 2026 02:24:36 +0800
+Message-ID: <20261118182436.32455-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,122 +106,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261117162842.5cb22a24@gandalf.local.home>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: w8oT8vA_A5CLf9XQ-aSFOYIasGSAczcu
-X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afded33 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=Mm8Sogoet2vpDDTUGKUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: FSyKhUNZuQ6tU18BMC3aNlSbju3q4FZL
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3MSBTYWx0ZWRfX9kx9zYxG0MdU
- Xi8yFpec4HQO+pByXSpeRMKs16iU+nXxryJ3Uj4nko1Lug//s3rxtgii680Os0SVItyR109TFgo
- MlbuaUty3DfuVtpJukmdLdrA6ALFvELcsl8pVRr5cXzBI/HbHnShJ6on/VOZ6ytwUAw++dQDMez
- Co7vCtHx2pv1y17J8iKn8OZaCehnipDCBPRmehCcYivtoIt+8vZVuzsXwm5yZE8l3b3DJyGIUDd
- nPpFSVvLO4zzx9ggxqkwXLO0eTwAJHMSxWWGmCZ2f6AXl+lgWs3H6Lz7tVylUpKnn0Kg9xXHojg
- t2xADslZ3gxyUtFwDw+068ZTG+fCRi6JcwsyZUsPk19IWP5F3NlxYazvnBqJG/myWMsp0YgL/pA
- BWEkWUP2wNBIN4xTM3rtbwTv6qo8UjLX97CxsMJwsJFfR9s3z/0pWYz0iDKWIKSdXP4aP8pSSjg
- 3zoqo39RpcXe/xlsT2Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3MSBTYWx0ZWRfXybxPwmzHkpqT
- wmzfr8pAVR3L1cDr68BMVgOShhyjE4QX4nRzm0VnfC+ut7tQ8gC2JDt1d468KGWoQvyglZPV3yy
- du+uzlfAA6ee+MrKmjeQ0BP4rfbImVQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_05,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180071
 
-On 2026/11/17 04:28 PM, Steven Rostedt wrote:
-> On Fri, 23 Oct 2026 20:24:59 +0530
-> Amit Machhiwal <amachhiw@linux.ibm.com> wrote:
-> 
-> > During early boot (early_trace_init() called from start_kernel()),
-> > tracing allocates initial ring buffers (temp_buffer, array_buffer, and
-> > snapshot_buffer) for CPU 0.  Later, as secondary CPUs come online during
-> > smp_init(), each CPU's ring buffer is allocated via trace_rb_cpu_prepare().
-> > 
-> > Before attempting page allocation, __rb_allocate_pages() performs a
-> > heuristic check using si_mem_available() to return early with -ENOMEM if
-> > memory appears insufficient.
-> > 
-> > However, on kernels built with CONFIG_DEFERRED_STRUCT_PAGE_INIT=y,
-> > NR_FREE_PAGES only reflects the initial non-deferred pool across the entire
-> > period from early_trace_init() through smp_init().  defer_init() leaves
-> > only a single section per node (e.g.  16 MiB with 64 KB pages) initialized
-> > up-front, and on kernels with large static binary footprints (debug
-> > configurations enabling PAGE_OWNER, DEBUG_PAGEALLOC, KFENCE, or SLUB_DEBUG),
-> > early core initialisations (SLUB caches, vmalloc, static ftrace records)
-> > consume virtually all managed pages in this pool.
-> > 
-> > si_mem_available() therefore returns a false negative (often 0-1 pages)
-> > across both SYSTEM_BOOTING (for the initial CPU 0 buffers) and
-> > SYSTEM_SCHEDULING (for secondary CPU buffers via trace_rb_cpu_prepare()),
-> > causing __rb_allocate_pages() to prematurely abort with -ENOMEM.
-> > 
-> > This failure is false: the buddy allocator is designed to replenish
-> > ZONE_NORMAL on demand via deferred_grow_zone() when an actual allocation
-> > is attempted.  Checking si_mem_available() before calling alloc_pages_node()
-> > short-circuits this on-demand growth entirely.
-> > 
-> > deferred_grow_zone() is only permanently disabled after page_alloc_init_late()
-> > completes (it spawns per-node kthreads and blocks until done), which happens
-> > inside kernel_init_freeable() — before system_state is set to
-> > SYSTEM_FREEING_INITMEM.  Skip the si_mem_available() check until
-> > SYSTEM_FREEING_INITMEM, at which point all deferred pages are initialized
-> > and si_mem_available() is accurate.
-> > 
-> > Use IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT) to set i = LONG_MAX during
-> > this window, unconditionally bypassing the threshold check.  On kernels
-> > without deferred init IS_ENABLED() compiles the branch away and the original
-> > check is preserved unchanged.
-> 
-> As Vincent mentioned, the above is just word salad. Please make it human
-> readable. That is, state what the actual issue is and how it's fixed and
-> remove all the AI fluff.
-> 
-> Also note, just because we no longer require an "Assisted-by" tag, it
-> should still be mentioned how the patch was created. I want to know.
+an8811hb_check_crc() ignores the return value of its PBUS reads. When
+the status read fails, the loop tests a stale or uninitialized
+pbus_value and can stop waiting before the check has finished. When the
+result read fails, the PASS or FAIL message tests the status value.
 
-Hi Steven,
+en8811h_print_fw_version() also ignores a failed read, which leaves
+priv->firmware_version at 0 on the first firmware load.
+en8811h_read_status() then handles it as firmware older than 24011202
+and guesses the link partner's 2.5GBASE-T ability from the link speed.
 
-To answer how this was created: I investigated the issue, carried out the RCA
-and debug runs on a Power11 KVM setup, and authored the patch logic.  When
-writing the commit message, in a (clearly failed) attempt to explain the
-details thoroughly, I ended up introducing the wordiness and fluff.  Later I did
-use an LLM for a quick rewording and spell checking, which only made it worse I
-guess.
+Return the error from each of these reads. A failed version read now
+fails the firmware load or the probe, as the other PBUS errors there
+do.
 
-For v5, I have completely rewritten the commit message myself to be concise
-and to the point: stating the actual issue (deferred page init leaves
-NR_FREE_PAGES near zero, making si_mem_available() under-report), the
-spurious -ENOMEM failure during early_trace_init() and smp_init(), and the
-fix mechanism.
+Found by an AI code review agent; not triggered. Compile-tested with W=1.
 
-<snip>
+Fixes: 71e79430117d ("net: phy: air_en8811h: Add the Airoha EN8811H PHY driver")
+Fixes: 5afda1d734ed ("net: phy: air_en8811h: add Airoha AN8811HB support")
+Cc: stable@vger.kernel.org # needs adjustments for <= 7.1
+Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
+---
+No new W=1, sparse or smatch warnings.
 
-> >  		i = si_mem_available();
-> > +		if (IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT) &&
-> > +		    system_state < SYSTEM_FREEING_INITMEM)
-> > +			i = LONG_MAX;
-> 
-> Make the above an if/else statement.
-> 
-> 		if (IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT) &&
-> 		    unlikely(system_state < SYSTEM_FREEING_INITMEM))
-> 			i = LONG_MAX;
-> 		else
-> 	  		i = si_mem_available();
+ drivers/net/phy/air_en8811h.c | 31 +++++++++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 8 deletions(-)
 
-Sure, this makes more sense and avoids calling si_mem_available() when it is not
-reliable anyway.  I have incorporated this in v5.
+diff --git a/drivers/net/phy/air_en8811h.c b/drivers/net/phy/air_en8811h.c
+index 81aa9df08dee..da9a5deccdac 100644
+--- a/drivers/net/phy/air_en8811h.c
++++ b/drivers/net/phy/air_en8811h.c
+@@ -378,18 +378,25 @@ static int an8811hb_check_crc(struct phy_device *phydev, u32 set1,
+ 					  AN8811HB_CRC_RD_EN);
+ 	if (ret < 0)
+ 		return ret;
+-	air_phy_buckpbus_reg_read(phydev, set1, &pbus_value);
++	ret = air_phy_buckpbus_reg_read(phydev, set1, &pbus_value);
++	if (ret < 0)
++		return ret;
+ 
+ 	do {
+ 		msleep(300);
+-		air_phy_buckpbus_reg_read(phydev, mon2, &pbus_value);
++		ret = air_phy_buckpbus_reg_read(phydev, mon2, &pbus_value);
++		if (ret < 0)
++			return ret;
+ 
+ 		/* We do not know what errors this check is supposed
+ 		 * catch or what to do about a failure. So print the
+ 		 * result and continue like the vendor driver does.
+ 		 */
+ 		if (pbus_value & AN8811HB_CRC_ST) {
+-			air_phy_buckpbus_reg_read(phydev, mon3, &pbus_value);
++			ret = air_phy_buckpbus_reg_read(phydev, mon3,
++							&pbus_value);
++			if (ret < 0)
++				return ret;
+ 			phydev_dbg(phydev, "CRC Check %s!\n",
+ 				   pbus_value & AN8811HB_CRC_CHECK_PASS ?
+ 					"PASS" : "FAIL");
+@@ -403,14 +410,20 @@ static int an8811hb_check_crc(struct phy_device *phydev, u32 set1,
+ 	return -ENODEV;
+ }
+ 
+-static void en8811h_print_fw_version(struct phy_device *phydev)
++static int en8811h_print_fw_version(struct phy_device *phydev)
+ {
+ 	struct en8811h_priv *priv = phydev->priv;
++	int ret;
++
++	ret = air_phy_buckpbus_reg_read(phydev, EN8811H_FW_VERSION,
++					&priv->firmware_version);
++	if (ret < 0)
++		return ret;
+ 
+-	air_phy_buckpbus_reg_read(phydev, EN8811H_FW_VERSION,
+-				  &priv->firmware_version);
+ 	phydev_info(phydev, "MD32 firmware version: %08x\n",
+ 		    priv->firmware_version);
++
++	return 0;
+ }
+ 
+ static int an8811hb_load_file(struct phy_device *phydev, const char *name,
+@@ -560,7 +573,7 @@ static int en8811h_load_firmware(struct phy_device *phydev)
+ 	if (ret < 0)
+ 		goto en8811h_load_firmware_out;
+ 
+-	en8811h_print_fw_version(phydev);
++	ret = en8811h_print_fw_version(phydev);
+ 
+ en8811h_load_firmware_out:
+ 	release_firmware(fw2);
+@@ -1164,7 +1177,9 @@ static int an8811hb_probe(struct phy_device *phydev)
+ 		goto err_dev_create;
+ 	}
+ 
+-	en8811h_print_fw_version(phydev);
++	ret = en8811h_print_fw_version(phydev);
++	if (ret < 0)
++		goto err_dev_create;
+ 
+ 	/* mcu has just restarted after firmware load */
+ 	priv->mcu_needs_restart = false;
 
-Thanks,
-Amit
+base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+-- 
+2.56.1
+
