@@ -1,103 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009593;
-	b=hPBnVecDenFI80n7rMamO2w/6EvnZ23wPUkQRTJWm+ngZszzrMVa5Nkghjode3c+FmE6
-	 PWbtVUW8YFRoM579STQxCYZe4vhFt4x7yXw/jydzOqpTwnkeyoHF7Svd9TkxnklK9WsWa
-	 UYxB2DpZHa7cLYDTg3Fd/VLTC6k2QDpbl1Dok5x8jja+YNunZe2SRMaOydsHdtLiGpy0Y
-	 yIQJgUbfsgo428c9shmN4jtuOT6qtUmxfEIdJJs4+wGdftkuJfq8OWAX3/OLoh8XDIkpJ
-	 +pB/QA0RmK1LAzLitSa0+RrfTq00f9ArmUPZqrEX8atpKAfh1b76JtCsv1JLNNTsl6A==
+	t=1795009605;
+	b=b7L5fIIS1qPxZ0IGwzqWdf4DAyLMqj0sB22ApiWliQTTo8CTfAztf05wiNmCUHMuANKI
+	 +qeXFiGBNY9RQCnmy1jlK2DU9f019PpwrNHROKTB6IA5H26PfW8XAOIvRTRBoA0NSMb2l
+	 73lOEH5bwTZ8/O2jQPCiH69aygOH1duELAEGEYEON9WQndmkHPbyjNhqkyQwWuorOLpsM
+	 VLF1h+UHASWHgUY7M4u2Fk6op3KP0TdKIj3I8Z/4b3cMmf2fCpjF/yq3UEXRg2u01W5tZ
+	 kfx8/TthXJrEzP77QYjIzMGt8vZ94cIMAPtK1ACUCk4oCftqmB49SBypC7TwXPJMQDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009593;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=JxCBlWe9xidf5BljIoViI2yy2fuy4UwH/MuESKWLU9M=;
-	b=iK+hGXSd71Y8X8fFG5RyLupjiCI10PUornlnFl26uZ7CySg4z+OBXuDxgjJTLVD8y3xI
-	 LOY2TC6G8OE9kw5/Jg/nvUdu7uYwrnHGyNHqc/vvMVDAPWhvOjbGKYHCTx5NKbmINOjxL
-	 dPAym70IH59Cwn5bZJn+sUuF+Dyi854zqpSyozTRXkKsMOzRfIr3AUTAb9Xn4tbOll2zF
-	 h6bsyKXtLXSMQ0lQSD9yVa5SC7GoeLJ0fdpw3PFc23O6zrQwb9BnRvnoSGYRlC+XOwXSq
-	 YHlTDZW53jMlwXc2c6jU7UqJwDM7VEQ/Zu2HlwP3FlJev5Bkyd/5DeKy5LVpciK7xVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009605;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 In-Reply-To:Organization:References:Date:Message-ID:MIME-Version:
+	 Content-Type;
+	bh=RTRXrgUDRN4WllXEKGJkIuBrZihs7fSTHuNdUxMmeCM=;
+	b=eA0nQgAtzoYskLGXN1GaDjvCcELfpQ0tWgPqc8zHtd9fYMXVWxieKcMKLNN8xQLQF932
+	 HZRMwqKcz0/QoMRWABeIE6KwlUj2XvuNY3fgr/FgcaFCd0dn2q8ivnaZ5tJLPVrTYvvP/
+	 1NLlF6owMtVj0MdysEPRo/JPrAzFL3+28A80WPbzoO9TiZKIJHF0Vdd5OneYeBH8I/B0w
+	 IM9AlsXW16wZoAEZTgCySGzThLEx2zfkuWATlrdc5IXMkEVqhhQgMuO0L4+WGRBz3uTwr
+	 HzWiUie1+W8Flvc2RBDTAYJnetnIrTNoMU0XLZTLst51FJtkwkJJ8KPgnNsyoIzyEzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="CI3T//Am";
-	arc=none smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c+HPaTxE;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A82AC606A33D
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:46:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A82AC606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6C2606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:46:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6C2606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CI3T//Am
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c511cdd5a82so47407666b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:46:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795009591; x=1795614391; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JxCBlWe9xidf5BljIoViI2yy2fuy4UwH/MuESKWLU9M=;
-        b=CI3T//AmB4WgxqmDLK9GofxG/Bymhupg2aUet9eCacSlxYrNgnwA37/u0VMT3FY8qZ
-         u+AWDjn3gxLMDWCmuFKzKVxFOhm2K53C1Uzz4XoQ3HsPzNdvX9do+DWmoQ/F4W49APX4
-         CYrg01bmy/hHY448naEYetdYQ3lTB9PZxcwDofbxZnj6HXGI4uEL9H2PguSqPZjR5+Gp
-         IJ4cpdvM85isaIERTBArshTyzXpGxN46ZPlFNUigJceRK6Wdm6N+QE6P10GQVZMeF83/
-         ZKYjMKH39oQwKAJ99GhWgrQ+D2wuyQMQ9WafweZR0tM2yd3RPXVXW/yz5qLsAMiEgKm/
-         89xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009591; x=1795614391;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JxCBlWe9xidf5BljIoViI2yy2fuy4UwH/MuESKWLU9M=;
-        b=SAowSNsOgwahLZeqOXTTPFfNdnUbEt8ZNNZ7hDMeHKxMCV3PpQYJQsSg/Nc2JinRdc
-         +aSOwcfgp/9FQW3nGMenSjCpqb+/JTBOaxTsE7qZ9Uf8rZm/G/8+V+B84Ml0Zi2izTw+
-         opRbt+1ppSx3N0xFJNZycNgMiwfBVfBf74N7lfJ15hpS91fQ2R0Z5fx8s6X1cpt5ysg4
-         xQtdSreAv58TyvAWCcsRxLJCZJyty2vYs4x7NsWZjeg+nQAo6IfcK9A73HCkW+Z/Ey4g
-         KGJ3v2sYOYWCd7JsxNgEt9Ik/AKaYhKM8uawHtdAkOmdrkH684QxGx8bfe4UIIjDgZo+
-         V76A==
-X-Forwarded-Encrypted: i=1; AL+hErEIEMYFmvG6A7jWh3zo8Z84OkDsVZ/rzbmN9kScTRieORD7HCdiaWrHxjlSNGWPUJRLNYejNuRF/LfgwqY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ljs5DrdFnbXIdJd8G2arcmXjy3ChWlVb7yRZy31zR8KlqvxP9
-	TTwuuL84fZpBd9VCzOiYkSiXLSj5/xS9TZrMMrvsNj26C6/BOb5hvCZH45wYtQ==
-X-Gm-Gg: AYBFou0GmMQ3chSrnhAK8Q/fnkk7MCWL9thMX2MPu6eR5A8Nlznanilefavhva5bmhs
-	pM+o4e44JwCQXd8JQ+wpMOiOm3Gx8oObHimR6IOKdjcmh51Vw6p8NPcYDcSnTVZUnBofEacwu5N
-	BCYmyK5bLzvgVpZLByCxfBn2CVcAsK//ad3hAiv3CZSS7KN2naXdXs/ai/pVJ8eck72w7qU+afg
-	adoph41sWU1DyS88O/QZVsM74NU6HtQyLSeC0IOh6HMbfQ/M8KRI6zZincBw0DO0QtRweSAnvdy
-	pqLAU91TBggjS0fDBVO/YUAxr8LeNtdc/nZI+QsfYMBJ1uehiNLVp4+qB99TICoYfMsfKPGcSps
-	xD9nqGd11K7pzsWPV+6AgYC+Y0ynbRt3K93b4oTwiB010LRmduRhgbyjAvBpGu41NtkLDsPANfB
-	7nRSQSUI55S/ZXcREo+RQuJ1rTB95zVSatYImyrUw8QL6Ohc0fRj8TvNEAKFCNSaU4rBd+RkI8s
-	ETfFWtMZNn0FpclvOJARtNoCkt74u+luSf7XsvrJRLk5V/e3evaC7OPJR7MZe0mxGd4ytRIwAnX
-	DsNKewxaVsu54nupOZZ2OGwG0q7YMfjF25hwuOuIVd+DMxUdOW6kHCsG2Vy6K5NRwJEY1FqrTiR
-	DX29glWffLg==
-X-Received: by 2002:a17:907:3e0c:b0:c41:1e13:4ba9 with SMTP id a640c23a62f3a-c510df534a3mr224094366b.6.1795009590871;
-        Wed, 18 Nov 2026 05:46:30 -0800 (PST)
-Received: from xeon ([188.163.112.62])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510cab33aasm95461766b.52.2026.11.18.05.46.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:46:29 -0800 (PST)
-From: Svyatoslav Ryhel <clamor95@gmail.com>
-To: Hans de Goede <hansg@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Svyatoslav Ryhel <clamor95@gmail.com>,
-	=?UTF-8?q?Micha=C5=82=20Miros=C5=82aw?= <mirq-linux@rere.qmqm.pl>
-Cc: linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/2] dt-bindings: i2c: Document ASUS Transformer's Dock
-Date: Wed, 18 Nov 2026 15:45:46 +0200
-Message-ID: <20261118134555.195479-2-clamor95@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118134555.195479-1-clamor95@gmail.com>
-References: <20261118134555.195479-1-clamor95@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c+HPaTxE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795009604; x=1826545604;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=2nnrO4vW63S4GPqF/HfHgssdOyQWdoQo7DzmIusuWfA=;
+  b=c+HPaTxEsNoLs28n8g1ouM/f1382um3gFBDANvHcB4zVM7qe4kNp3Cwd
+   V0tz0jzY3eeSdpCwOs1EuK1d95B6V0cy7WVeeqMyh+gQOrXhJ5K+MpBoD
+   uFaoaoIap+75EytyNVsT8Y84+cwOu0sd1Uv/ZOwZKlKcLLQocIz6TvJeG
+   NsVEolmxbyFHgkdMCGf3IkeDcZeyOONJORpqcEduxWFtHb8I/XpwoLizV
+   ysLQs4vJpX3BniEkr5zTMxZpjsZ2A32NsW4EoIPDs0gHYd63kLQiBhJsV
+   NW9T2MQgOCgl6CzeSvMjC4fxH4C3ADZZB7C8m8Sd0WoqQzWlQgszxCI6g
+   A==;
+X-CSE-ConnectionGUID: Q0ootBL3TXKSSWD7VqDpGg==
+X-CSE-MsgGUID: 28w/G3MNQ4a9KuZ33pk+QA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3832561"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3832561"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 05:46:43 -0800
+X-CSE-ConnectionGUID: +4Irg2mMRy+xLgtdAm7AVg==
+X-CSE-MsgGUID: FTsun9RMTbO3UigHOLuUAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10287359"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.187])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 05:46:38 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Xin Ji <xji@analogixsemi.com>, Xin Ji
+ <anx-upstream@analogixsemi.com.cn>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: Bernie Liang <bliang@analogixsemi.com>, Qilin Wen
+ <qwen@analogixsemi.com>, "fshao@chromium.org" <fshao@chromium.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] drm/bridge: anx7625: switch to drm_edid_read_custom()
+In-Reply-To: <DM6PR04MB697059DAFCE167EB7CAE9B43C77C2@DM6PR04MB6970.namprd04.prod.outlook.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20261116023740.2257699-1-anx-upstream@analogixsemi.com.cn>
+ <d1553faf45c5651feefd667a3decb454fc596415@intel.com>
+ <DM6PR04MB697059DAFCE167EB7CAE9B43C77C2@DM6PR04MB6970.namprd04.prod.outlook.com>
+Date: Wed, 18 Nov 2026 15:46:36 +0200
+Message-ID: <6fab6bf1beef0c38b95f0b3e628237ef2142f5b8@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,82 +94,310 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-Document a hardware configuration that uses a GPIO signal to determine the
-presence and state of devices on the bus, allowing the system to
-dynamically configure a predetermined set of I2C devices as they are
-plugged in or removed used in Tegra based ASUS Transformers.
+On Mon, 16 Nov 2026, Xin Ji <xji@analogixsemi.com> wrote:
+>> > From: Xin Ji <xji@analogixsemi.com>
+>> >
+>> > Currently, sp_tx_get_edid_block() only reads the base block extension
+>> > count at 0x7e and ignores CTA-861 HF-EEODB overrides in block 1. On
+>> > displays using HF-EEODB, the driver only reads 2 blocks, which
+>> > drm_edid_valid() then rejects due to the size mismatch.
+>> > Switch to drm_edid_read_custom() with a per-block read callback so DRM
+>> > core handles block count discovery (including HF-EEODB and >4 blocks)
+>> > and validation automatically.
+>> 
+>> Yay!
+>> 
+>> It warms my heart that the work I put in drm_edid.c to handle HF-EEODB still
+>> keeps paying off, and people can enable the complexity of it by
+>> *simplifying* the driver code. :)
+>
+> Yes, thanks! The HF-EEODB handling in drm_edid.c has been very helpful.
+> It's great to see it paying off.
+>
+>> 
+>> > Signed-off-by: Xin Ji <xji@analogixsemi.com>
+>> > ---
+>> >  drivers/gpu/drm/bridge/analogix/anx7625.c | 172 +++++-----------------
+>> >  drivers/gpu/drm/bridge/analogix/anx7625.h |   4 -
+>> >  2 files changed, 33 insertions(+), 143 deletions(-)
+>> >
+>> > diff --git a/drivers/gpu/drm/bridge/analogix/anx7625.c
+>> > b/drivers/gpu/drm/bridge/analogix/anx7625.c
+>> > index c3af88e14f8b..eb503be005e0 100644
+>> > --- a/drivers/gpu/drm/bridge/analogix/anx7625.c
+>> > +++ b/drivers/gpu/drm/bridge/analogix/anx7625.c
+>> > @@ -1022,27 +1022,6 @@ static int sp_tx_aux_rd(struct anx7625_data *ctx,
+>> u8 len_cmd)
+>> >       return (ret | wait_aux_op_finish(ctx));  }
+>> >
+>> > -static int sp_tx_get_edid_block(struct anx7625_data *ctx) -{
+>> > -     int c = 0;
+>> > -     struct device *dev = ctx->dev;
+>> > -
+>> > -     sp_tx_aux_wr(ctx, 0x7e);
+>> > -     sp_tx_aux_rd(ctx, 0x01);
+>> > -     c = anx7625_reg_read(ctx, ctx->i2c.rx_p0_client, AP_AUX_BUFF_START);
+>> > -     if (c < 0) {
+>> > -             DRM_DEV_ERROR(dev, "IO error : access AUX BUFF.\n");
+>> > -             return -EIO;
+>> > -     }
+>> > -
+>> > -     DRM_DEV_DEBUG_DRIVER(dev, " EDID Block = %d\n", c + 1);
+>> > -
+>> > -     if (c > MAX_EDID_BLOCK)
+>> > -             c = 1;
+>> > -
+>> > -     return c;
+>> > -}
+>> > -
+>> >  static int edid_read(struct anx7625_data *ctx,
+>> >                    u8 offset, u8 *pblock_buf)  { @@ -1123,18 +1102,16
+>> > @@ static int segments_edid_read(struct anx7625_data *ctx,
+>> >       return ret;
+>> >  }
+>> >
+>> > -static int sp_tx_edid_read(struct anx7625_data *ctx,
+>> > -                        u8 *pedid_blocks_buf)
+>> > +static int anx7625_get_edid_block(void *data, u8 *buf, unsigned int
+>> > +block, size_t len)
+>> >  {
+>> > +     struct anx7625_data *ctx = data;
+>> >       u8 offset;
+>> > -     int edid_pos;
+>> > -     int count, blocks_num;
+>> > -     u8 pblock_buf[MAX_DPCD_BUFFER_SIZE];
+>> > -     u8 i, j;
+>> > -     int g_edid_break = 0;
+>> > -     int ret;
+>> > +     int ret, i;
+>> >       struct device *dev = ctx->dev;
+>> >
+>> > +     if (len != EDID_LENGTH || block > 255)
+>> > +             return -EINVAL;
+>> > +
+>> >       /* Address initial */
+>> >       ret = anx7625_reg_write(ctx, ctx->i2c.rx_p0_client,
+>> >                               AP_AUX_ADDR_7_0, 0x50); @@ -1147,85
+>> > +1124,18 @@ static int sp_tx_edid_read(struct anx7625_data *ctx,
+>> >               return -EIO;
+>> >       }
+>> >
+>> > -     blocks_num = sp_tx_get_edid_block(ctx);
+>> > -     if (blocks_num < 0)
+>> > -             return blocks_num;
+>> > -
+>> > -     count = 0;
+>> > -
+>> > -     do {
+>> > -             switch (count) {
+>> > -             case 0:
+>> > -             case 1:
+>> > -                     for (i = 0; i < 8; i++) {
+>> > -                             offset = (i + count * 8) * MAX_DPCD_BUFFER_SIZE;
+>> > -                             g_edid_break = edid_read(ctx, offset,
+>> > -                                                      pblock_buf);
+>> > -
+>> > -                             if (g_edid_break < 0)
+>> > -                                     break;
+>> > -
+>> > -                             memcpy(&pedid_blocks_buf[offset],
+>> > -                                    pblock_buf,
+>> > -                                    MAX_DPCD_BUFFER_SIZE);
+>> > -                     }
+>> > -
+>> > -                     break;
+>> > -             case 2:
+>> > -                     offset = 0x00;
+>> > -
+>> > -                     for (j = 0; j < 8; j++) {
+>> > -                             edid_pos = (j + count * 8) *
+>> > -                                     MAX_DPCD_BUFFER_SIZE;
+>> > -
+>> > -                             if (g_edid_break == 1)
+>> > -                                     break;
+>> > -
+>> > -                             ret = segments_edid_read(ctx, count / 2,
+>> > -                                                      pblock_buf, offset);
+>> > -                             if (ret < 0)
+>> > -                                     return ret;
+>> > -
+>> > -                             memcpy(&pedid_blocks_buf[edid_pos],
+>> > -                                    pblock_buf,
+>> > -                                    MAX_DPCD_BUFFER_SIZE);
+>> > -                             offset = offset + 0x10;
+>> > -                     }
+>> > -
+>> > -                     break;
+>> > -             case 3:
+>> > -                     offset = 0x80;
+>> > -
+>> > -                     for (j = 0; j < 8; j++) {
+>> > -                             edid_pos = (j + count * 8) *
+>> > -                                     MAX_DPCD_BUFFER_SIZE;
+>> > -                             if (g_edid_break == 1)
+>> > -                                     break;
+>> > -
+>> > -                             ret = segments_edid_read(ctx, count / 2,
+>> > -                                                      pblock_buf, offset);
+>> > -                             if (ret < 0)
+>> > -                                     return ret;
+>> > -
+>> > -                             memcpy(&pedid_blocks_buf[edid_pos],
+>> > -                                    pblock_buf,
+>> > -                                    MAX_DPCD_BUFFER_SIZE);
+>> > -                             offset = offset + 0x10;
+>> > -                     }
+>> > -
+>> > -                     break;
+>> > -             default:
+>> > -                     break;
+>> > -             }
+>> > -
+>> > -             count++;
+>> > +     DRM_DEV_DEBUG_DRIVER(dev, "Read EDID block %u, len %zu\n",
+>> > + block, len);
+>> >
+>> > -     } while (blocks_num >= count);
+>> > +     for (i = 0; i < len; i += MAX_DPCD_BUFFER_SIZE) {
+>> > +             offset = (block & 1) * EDID_LENGTH + i;
+>> > +             if (block < 2)
+>> > +                     ret = edid_read(ctx, offset, &buf[i]);
+>> > +             else
+>> > +                     ret = segments_edid_read(ctx, block / 2, &buf[i],
+>> > +                                              offset);
+>> >
+>> > -     /* Check edid data */
+>> > -     if (!drm_edid_is_valid((struct edid *)pedid_blocks_buf)) {
+>> > -             DRM_DEV_ERROR(dev, "WARNING! edid check fail!\n");
+>> > -             return -EINVAL;
+>> > +             if (ret < 0)
+>> > +                     return -EIO;
+>> >       }
+>> >
+>> >       /* Reset aux channel */
+>> > @@ -1235,7 +1145,7 @@ static int sp_tx_edid_read(struct anx7625_data
+>> *ctx,
+>> >               return ret;
+>> >       }
+>> >
+>> > -     return (blocks_num + 1);
+>> > +     return 0;
+>> >  }
+>> >
+>> >  static void anx7625_power_on(struct anx7625_data *ctx) @@ -1958,37
+>> > +1868,6 @@ static ssize_t anx7625_aux_transfer(struct drm_dp_aux *aux,
+>> >       return ret;
+>> >  }
+>> >
+>> > -static const struct drm_edid *anx7625_edid_read(struct anx7625_data
+>> > *ctx) -{
+>> > -     struct device *dev = ctx->dev;
+>> > -     u8 *edid_buf;
+>> > -     int edid_num;
+>> > -
+>> > -     if (ctx->cached_drm_edid)
+>> > -             goto out;
+>> > -
+>> > -     edid_buf = kmalloc(FOUR_BLOCK_SIZE, GFP_KERNEL);
+>> > -     if (!edid_buf)
+>> > -             return NULL;
+>> > -
+>> > -     pm_runtime_get_sync(dev);
+>> > -     _anx7625_hpd_polling(ctx, 5000 * 100);
+>> > -     edid_num = sp_tx_edid_read(ctx, edid_buf);
+>> > -     pm_runtime_put_sync(dev);
+>> > -
+>> > -     if (edid_num < 1) {
+>> > -             DRM_DEV_ERROR(dev, "Fail to read EDID: %d\n", edid_num);
+>> > -             kfree(edid_buf);
+>> > -             return NULL;
+>> > -     }
+>> > -
+>> > -     ctx->cached_drm_edid = drm_edid_alloc(edid_buf, edid_num *
+>> ONE_BLOCK_SIZE);
+>> > -     kfree(edid_buf);
+>> > -
+>> > -out:
+>> > -     return drm_edid_dup(ctx->cached_drm_edid);
+>> > -}
+>> > -
+>> >  static enum drm_connector_status anx7625_sink_detect(struct
+>> > anx7625_data *ctx)  {
+>> >       struct device *dev = ctx->dev;
+>> > @@ -2647,10 +2526,25 @@ static const struct drm_edid
+>> > *anx7625_bridge_edid_read(struct drm_bridge *bridge  {
+>> >       struct anx7625_data *ctx = bridge_to_anx7625(bridge);
+>> >       struct device *dev = ctx->dev;
+>> > +     const struct drm_edid *drm_edid;
+>> >
+>> >       DRM_DEV_DEBUG_DRIVER(dev, "drm bridge get edid\n");
+>> >
+>> > -     return anx7625_edid_read(ctx);
+>> > +     if (ctx->cached_drm_edid)
+>> > +             return drm_edid_dup(ctx->cached_drm_edid);
+>
+> The patch will return with drm_edid_dup() if ctx->cached_drm_edid is not null.
+>
+>> > +
+>> > +     pm_runtime_get_sync(dev);
+>> > +     _anx7625_hpd_polling(ctx, 5000 * 100);
+>> > +     ctx->cached_drm_edid = drm_edid_read_custom(connector,
+>> > +                                                 anx7625_get_edid_block,
+>> > +                                                 ctx);
+>> > +     drm_edid = drm_edid_dup(ctx->cached_drm_edid);
+>> 
+>> Consider deduplicating?
+>
+> No need to check it again as the patch checked it before.
 
-Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
----
- .../bindings/i2c/asus,transformer-dock.yaml   | 56 +++++++++++++++++++
- 1 file changed, 56 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/i2c/asus,transformer-dock.yaml
+Obviously you'd remove the check before. Point is, you'd only have *one*
+instance of drm_edid_dup(ctx->cached_drm_edid); and use it on both code
+paths.
 
-diff --git a/Documentation/devicetree/bindings/i2c/asus,transformer-dock.yaml b/Documentation/devicetree/bindings/i2c/asus,transformer-dock.yaml
-new file mode 100644
-index 0000000000000..5f4a40539c2b4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/i2c/asus,transformer-dock.yaml
-@@ -0,0 +1,56 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/asus,transformer-dock.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ASUS Transformer's Dock for Tegra based devices
-+
-+maintainers:
-+  - Michał Mirosław <mirq-linux@rere.qmqm.pl>
-+  - Svyatoslav Ryhel <clamor95@gmail.com>
-+
-+description: An I2C bus extension found in the ASUS Transformers, where
-+  certain devices are hot-pluggable, with their presence indicated by a
-+  GPIO line. The set of potential hot-pluggable devices must be predefined
-+  and fixed.
-+
-+allOf:
-+  - $ref: /schemas/i2c/i2c-controller.yaml
-+
-+properties:
-+  compatible:
-+    const: asus,transformer-dock
-+
-+  detect-gpios:
-+    description:
-+      A pin whose active state indicates that detachable devices are plugged in.
-+    maxItems: 1
-+
-+  i2c-parent:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      The phandle of the I2C bus that this multiplexer's master-side port is
-+      connected to.
-+
-+required:
-+  - compatible
-+  - detect-gpios
-+  - i2c-parent
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    i2c-dock {
-+        compatible = "asus,transformer-dock";
-+
-+        detect-gpios = <&gpio 164 GPIO_ACTIVE_LOW>;
-+        i2c-parent = <&gen2_i2c>;
-+
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+    };
-+...
+
+>
+>> 
+>>         if (!ctx->cached_drm_edid) {
+>>                 // ...
+>>                 ctx->cached_drm_edid = drm_edid_read_custom();
+>>                 // ...
+>>         }
+>> 
+>>         drm_edid = drm_edid_dup(ctx->cached_drm_edid);
+>> 
+>> 
+>> BR,
+>> Jani.
+>> 
+>> > +     pm_runtime_put_sync(dev);
+>> > +
+>> > +     if (!drm_edid)
+>> > +             DRM_DEV_ERROR(dev, "Fail to read EDID\n");
+>> > +
+>> > +     return drm_edid;
+>> >  }
+>> >
+>> >  static void anx7625_bridge_hpd_enable(struct drm_bridge *bridge) diff
+>> > --git a/drivers/gpu/drm/bridge/analogix/anx7625.h
+>> > b/drivers/gpu/drm/bridge/analogix/anx7625.h
+>> > index 957d234ec07c..55615ad274f2 100644
+>> > --- a/drivers/gpu/drm/bridge/analogix/anx7625.h
+>> > +++ b/drivers/gpu/drm/bridge/analogix/anx7625.h
+>> > @@ -424,10 +424,6 @@ enum audio_wd_len {
+>> >
+>> >  #define MAX_DPCD_BUFFER_SIZE 16
+>> >
+>> > -#define ONE_BLOCK_SIZE      128
+>> > -#define FOUR_BLOCK_SIZE     (128 * 4)
+>> > -
+>> > -#define MAX_EDID_BLOCK       3
+>> >  #define EDID_TRY_CNT 3
+>> >  #define SUPPORT_PIXEL_CLOCK  300000
+>> 
+>> --
+>> Jani Nikula, Intel
+
 -- 
-2.53.0
-
+Jani Nikula, Intel
