@@ -1,97 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794960420;
-	b=oa+MNGVbHgzbDb3yDdG4sXo60l/Of8dP/yXA9iOwLiN6oO+p0GO5qiHpsV4NtGecUIsU
-	 COBesY0LjmUbh9wXeDg4HVa4mvJuvlSSatqH30+RjigjDrlleolOx0fQtaic/5Ph6EcJF
-	 4uiQiRKL3JCELdCT1/nIzfvRZXlKcYFwLPsefGu7itBZJQz+5cMqMm4kfd186K06QE/rr
-	 RSouNlOxXHA6lhpjI9AjuRUmSpEz2TRlBfEd8sCq34SuZTCBoFopU/Fdd/Bw6/0o5hq8u
-	 8rM2EjB3UNlGpNCyN4ROTtLM2c4Vp+4sK9wuRxAOykounVAodfu0WDSl0hyH964xjAg==
+	t=1794960475;
+	b=kUaqyp8UCFm3x0+bOZApnb5Srd2tcQOY8OtkGWEElSUtX6N8Ebyy7C9Zv2uY53gZ9fP6
+	 cdZjfl5psfRML/JgR+KIo6SfNeybmeI1/UREVY+dXXoIgoPlqZP6bH7XnuOIYFGqr0FNp
+	 NBUU/wNY2G2PosuJ1W3yOmpGuldzZnMe7DXNZ+gZyJ24HwKjDs2kVy5hC1rJ+mk6OP1Vb
+	 wKfxvWlfnXivLQI18F7TtMFkTj1rym4L/Ytg/ZN5VvOJv9MtKYB1G7YmJQcVPdv4zBehq
+	 rO7uG/77+lPj2EGuIW0sJ0SXP3DVKFDB82ND9rlgtdupn4Ub01c04rC+0t95W7Xdjqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794960420;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794960475;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=N/B1sjXPM6N0bv9HvSYi6EQTNoI4RCAMfAyFSx2pQDs=;
-	b=STkBlIc0yaMC6nsZ3ZWMwKCUvEi1moQ+4Re0gFdIrr+l3kbCn6W4jKEXEHs9aKHIGIw1
-	 pdXvDJpY6iXc3+Cio9Opce57pmHOy+SqJ2NNV8BmDFP16vhvhL3Bt0aK0oWDC8DDcJyEQ
-	 oPQT8su+tk7t7g9eCY87LiYwbSPrT++t5l6jKrLhXQ6VVuo8NlYboldW8jQH1qAwIihRU
-	 WOAQEeR62ONjAtFFIwox9b+hk600s8T0zML59rrYnLfwivKBYWxWb9sXS7vK+L9AsuXTu
-	 Dan7wgsBD1zKa8MIwFOOUknzwAx38Qu+mhwCvRQTgibmLXUNSairgL4fsvzgPRJp4nw==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=Bl3W5aQMmq5HJBKFRVehRWJZkxZwzzcvP3FrIH0GS3o=;
+	b=ERSZlQa4mtmW3NZ/HNcvlvbML5u7BNn2gxT/w1K5oE41M8FMb5oEhChUFy86d3cK1Dty
+	 ona4vxdqAXXu7e2NJD0MfX6Z9l+Fo1Ra2V1gFPjWlEEKvrRCLGO8QrUnKun9TZ1LYxDYH
+	 7p7vaJ1GibH3+VY+pTlzcgo+gu2r+jw/hWpEswTS7wxUcO7tqpaEg53W9xJKQu/O7FkyO
+	 ZJQHAMU6j8rYAGZgvHO+rbJytv0src5COZITdBbs1FJoasvmZHdy1F1pZCmzIWtixXXzF
+	 wR5xsnwoeh7llWydfIyByS6xbALXj6tgblscs41X+oVMVKbDMa+wGot/hn2YMKixetw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="K/+DGL0Q";
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s7EKJyEN;
+	arc=none smtp.remote-ip=209.85.210.44
+Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com [209.85.210.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5B95606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:06:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5B95606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00CE7606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:07:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00CE7606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K/+DGL0Q
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso3852365e9.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:06:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s7EKJyEN
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-8629ef8613aso157900a34.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:07:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794960418; x=1795565218; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=N/B1sjXPM6N0bv9HvSYi6EQTNoI4RCAMfAyFSx2pQDs=;
-        b=K/+DGL0Qba3TT7jpZFmvmzggDrv5dKh1dmlASDsl0mz/EHL3sFMyk7TkN5oSuLvxi3
-         vT3LwFgE4bPCcWgx+Hg+gsp5uTV8YmfMyUGdFJKfmR6sOMufy5BpliExVRf1ch3feJTZ
-         /PUyrz4EFtxvZ4kVE1AK4L06Rx3issKxYRU3guk3Ol74p2Nh+okik4lRoJul4D3mPyXW
-         Jcvizh56ONQmYWUF6no0tBV2e7K0HEF0cWGIfI9S7ozNHCGQQ+CHUzrV8isZ7J/eiPeT
-         cR74ni7yrCpI5SDBRNUfjkONWzyat9/AvCK4ugrv4pZhtNQFByEVJwBwdeJHaAuDu869
-         2kxA==
+        d=gmail.com; s=20260707; t=1794960474; x=1795565274; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Bl3W5aQMmq5HJBKFRVehRWJZkxZwzzcvP3FrIH0GS3o=;
+        b=s7EKJyENJzabOd+ChQTSi9RCtCnBOVv2xhr2xygiKRvOXsM3E63Q99mem0WD7wsQu5
+         MyYvNZvLkcOAcUpbB6qEwCSa3QzH605tLKPdDafUr9vdhhP9d7HPiO1SwVjl3sf2Vr8i
+         ndb4aEPcwl0px777EuqfrGXkoss5/WrbEuAsdkQ5Px14qrnJJIpPylLR/Fwsiuc4of/d
+         Wfqq8n0Mda0eOor1SLvcYgwyGUBPYDlhSHvGDfymtX8JYM6qXqdUzX7opzJiG3xPWn5G
+         4Nen+EgVHC8K798bb7u145EOg9bPnBdk0ITGz0lb441/AP/jPv5l87PPi4A1u5lVBAm0
+         I8mQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794960418; x=1795565218;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=N/B1sjXPM6N0bv9HvSYi6EQTNoI4RCAMfAyFSx2pQDs=;
-        b=IXBFc8WfwFC5sSiw98a4QxVf+ZX1OhQIqpajl4vlkI0YHKslf3ag5rfVwd4bID/T5i
-         YfQiSXmnWRIbjpCGEPHmBFBdq/xJ1k7z4/oduLFtvXFf14Ys6pq0Yea0szJI+NQlsnDZ
-         01gszxybwzwEUbcrf8GmN8BW40F2ixbO9iZeneSkFj/XfEpqhN7SCz6UfwS0NNC1LWFe
-         ZQVMcLdfomkPXYaod2ayrl9XHAKqiQMHyMgtgcz2elfHhcnjk3dnmwUs4f4LowmS7YBQ
-         UjuiuW7az1jViA91wRNqPfi3S7Oz+IPXOGSCWZjJBX1du59t91gBeSh+WF52VK3owYA9
-         ancw==
-X-Forwarded-Encrypted: i=1; AL+hErGL94lhspUf/Cqw3AM2Rk4iwl70napaUicsM6/DfAsorj8/QYs12cAzDp0nSfnt/wsU/YtcCMlzFTuVPYU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ILz+qGKFvNHyrSeVCbyQJyjo1+g8adKxI8sCZQwaop/CjCrIQ
-	fu3OxeLno4nr7vLHvvS1wuycZAY4VEaYGJq+iTmQD4vMooaV6aGLfpsI
-X-Gm-Gg: AYBFou1tmMyVpQXsL+157ZTcIa8FvrLk48EXxP3vrfWZbJCcZRRkgzLTMlYtHfnYqDp
-	q0MpjLj/8t3ZhEwn/posPZi8tcJB8heIcZ3taStPzlX3zfLN4Z8oxh7AVF+3BlA0aeqlhG+oD0G
-	bs8ICgZsNVR8VCXsZNfufQdQp8642ITZwIpRToCj9EalUYzkG7g4Ij5i8sTpN0qg12UoNysc9Sc
-	J0kBXLwLmYL3+nGvdZWB4KEO+L6M17HuaIOKdHcQpVZjPGCOlchKnS3pscvHpuqRVQsRtAGfIYr
-	b56Ko9R1O62ZTcKyeyxNuNLB58c8jtxja4VJ0LW1rBLf3Uit6+4wjV/LR5OeiAtwKiUm5+BaoE+
-	QyjiEGZqJaqxRcVn6TxMbhHIAQ/vN/VPlXn1zmoF4DfQR1RAIhBXqYHeaeomoEZoD2/XrII5Sv9
-	m8ElCa+GXcTpQNcerS7VFoZ468fxVxy/1bL3tRisZqcf8wvFkZNGSnORLWnpdpKRDuGdjh9D6Ct
-	MWNBewDLea9BsocnwDHQR64nYqrHTYbr5SKHTsv0jGw0Knd0Ju3pnTGxs4LQcgMzmH7ZlKmDrEY
-	g69iABpJSftDSe69X4ivm+BuFOxaUjWKSSksleckzvMApJpaUJ/JK3G1V4JaAt8ChWzUvoGxGKJ
-	LnA==
-X-Received: by 2002:a05:600c:a41:b0:4a4:3a2d:15da with SMTP id 5b1f17b1804b1-4bb7da1c81emr15978925e9.15.1794960418021;
-        Tue, 17 Nov 2026 16:06:58 -0800 (PST)
-Received: from fedora.fritz.box ([93.93.22.191])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7defa59csm7563865e9.3.2026.11.17.16.06.53
+        d=1e100.net; s=20260707; t=1794960474; x=1795565274;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Bl3W5aQMmq5HJBKFRVehRWJZkxZwzzcvP3FrIH0GS3o=;
+        b=Y1OOlNYJcE/DGBlFEl1kSNjFmU2I0VGuBlHh9q7rDlYl4WDiNBqM6lW/nhL8p8jbhv
+         PuzP4qWjw/fw74DR0e9lugrKRWFLrEIWFEndSgfL0pCkqYD73A9UZ1j6kQLBgEVqtx6h
+         O/+em5OVDHI5vfIvghBmPB5KhT0xmNmPYe2/xYwAPXO24VszL9gj8Gg3ArzUhFxJBwCr
+         DQilrLjteKTqfVoTguBEDNDSnOGb+TvnZUgUHauhjY1SIxKq8MHlfnz1O+RReLZGZ8lw
+         fPJHIMDSXhJMZoehtdCyKnGkOl0hw645UWMwrDu0zocNBGXvHP0aLQ7gbDjWajmXjh5Z
+         BnyA==
+X-Forwarded-Encrypted: i=1; AL+hErFcmpibuzalO03PRhulUGX68CqAz35AfBmrHHj6cGubUAl3/Oq88Ig5fjX2XbCCbs5s9fMGhiDnBsBlBp0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JkhCXlyVXfJS6IZHgbvJps8NrC13q6fMVeCrOCK+DLnulUqEQ
+	WhvRWiMuoHrOCbfG4n8OY+lRefvi8TVrhZ7LGv3fXC7BP6cWs768EmPj
+X-Gm-Gg: AYBFou1Mm65uhdRoN5ajbXbCz4cgRzVbtVhhb/QwEoZiJRThXrI8VI3sxveQuIutfUX
+	A//Edg9PKHXpOb8Eei+fikYvN8wpZJtEWzDkEkg9gPq2DhpX/YQyJbs9BTQqIwfxwEWiJQazxbQ
+	kucDFPZ+8F38Kbp5MxCGQSC5w1akjKPxlC72KKjOh0y5dQmP3luvkiujORqSsrNDK0Qdk/voBXr
+	3WM8loO/9KJQtyrDlkZYYQm+CS9Ba+9gqZwVEOwSjU+je440cju72dYIQjmImgMgjAeyPF4QRSO
+	54DUU1/fBIK6GUKcCLAfwVKu064QfY9VbsmReOpHb/osKP38qWL1xIQu7VmC5u+pmd1wmEuQhyM
+	amVAixDxPs9URpsSV/3gJTpkjLpPdam4cGKm+Fk5Ywp4YDRdIf1PHFRiXm7STW2D2+pghkCuAwE
+	Oh9dQwAfWmIBVsxbuOjZUST/a4Noy7fNRi4lOURIU1TvYeeMHs7XnGx43HvGMxT+5SmJ0HBYigJ
+	H+mOczWYVgvnk2xIdq04j1EhB/1795gRWAHewtfHIaDfmd3ddhhqqau9p5c+MUuYfNN/BTJBzkE
+	VndFhIXdPRe2A06vjCGgL8euO1jxK//H/mw0vLRAtl8S3qZCkMWPhdFHWSnvvVF5mp9o2YU04hM
+	u79rCDEfRZ3mnQLRx4ndYQ164wrXRlp/X1gaWfBlu6dmWs0XIEY64/IaN4Nvuq6YpeDqelwf/hQ
+	e+jd76U5tq/dZokh8udwSM6NNiWqlcIvigYo9xwv6WXieNDr18yqE=
+X-Received: by 2002:a05:6808:1304:b0:4f5:eaac:5151 with SMTP id 5614622812f47-5774181a19dmr1349662b6e.39.1794960473879;
+        Tue, 17 Nov 2026 16:07:53 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777b393d40sm434954b6e.17.2026.11.17.16.07.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 16:06:57 -0800 (PST)
-From: Stefano Munari <stefanomunari.sm@gmail.com>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-Cc: nic_swsd@realtek.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v1] r8169: fix RTNL deadlock in runtime suspend
-Date: Wed, 18 Nov 2026 01:06:31 +0100
-Message-ID: <20261118000631.17771-1-stefanomunari.sm@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Tue, 17 Nov 2026 16:07:53 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH v7 0/8] dmaengine: dw-axi-dmac: fix termination and pause
+ acknowledgment
+Date: Tue, 17 Nov 2026 17:07:39 -0700
+Message-Id: <20261117-submit-dw-axi-dma-stop-pause-v1-v7-0-d5f2309afd72@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,119 +94,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43Sy2rDMBAF0F8JXketNXpn1f8oXegxilXqJLUdN
+ yXk3ztOKBhDccGb0ePogu+16rEr2Fe7zbXqcCx9OR5oMNtNFRt/2CMrieYKatCc15b159CWgaU
+ v5i+Fpdazfjie2Mmfe2QjZ9GJzNFow7WrSDl1mMvl/sLr22Mm4h3jMLHTieDpZuj8ITbTEh3o8
+ PP5jwf0dKMptNR930OPfJL/n4++mkVpMXKHDlG+7FtfPp7isa2mfCPMPbfuAXla+kRmysaJpSd
+ mHq/XPUGeUDnl4G3QPC09Ofdg3ZOThyGCDCBFCktPzT2x7inyrALhwQRlrF16eu6pdU+TF2IAk
+ ag2Nbi5d9v+9uFMzRweLXoUhvbJ3W20BosmyagDqGgTt5kLqZDy1Qm4Bec9GpT3LvohNlTo3SZ
+ HIYW0tRB18ipnp1CB4c6Z7A39JuOMiRAsRbj9AEzkafkkAwAA
+X-Change-ID: 20261108-submit-dw-axi-dma-stop-pause-v1-c93f1e767169
+To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Sergey Khimich <serghox@gmail.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Sia Jee Heng <jee.heng.sia@intel.com>
+Cc: Mitch Barnett <mitch@accuratesound.ca>, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
+ stable@vger.kernel.org, Wang YuWei <1973615295@qq.com>
+X-Mailer: b4 0.17-dev
 
-rtl8169_runtime_suspend() and the paths that resume the device under
-RTNL wait for each other in opposite order:
+Keep cyclic mode in each descriptor so failed preparation and queued
+work cannot change the completion handling of another transfer.
 
- - The runtime suspend callback runs with the device in RPM_SUSPENDING
-   and then calls rtnl_lock(): it owns the suspend in progress and waits
-   for RTNL.
+Use the layout-aware channel enable check during termination and retain
+transfer resources when the channel does not stop. Preserve suspension
+status for the pause and resume paths, including acknowledgments that
+arrive after a polling timeout or during another channel's interrupt.
 
- - rtl8169_close() and the ethtool ioctl/netlink paths run with RTNL
-   held and then call pm_runtime_get_sync(), which sleeps
-   uninterruptibly in rpm_resume() until the device leaves
-   RPM_SUSPENDING: they own RTNL and wait for the suspend to finish.
+Keep a pending pause across cyclic segment completion and resume the
+segment only after the client releases the pause. Track the active
+descriptor until completion so queued work cannot reissue it while its
+interrupt is pending.
 
-If the suspend starts after the other task has taken RTNL but before it
-reaches pm_runtime_get_sync(), neither can make progress:
+Retain terminated descriptors until their callbacks have drained, including
+cyclic descriptors that error handling has moved to the completed list.
+Serialize interrupt status collection with channel reuse so an old event
+cannot complete a replacement transfer.
 
-  ip link set down / ethtool              pm workqueue
-  --------------------------              ------------
-  rtnl_lock()
-                                          rpm_suspend()
-                                            status = RPM_SUSPENDING
-                                            rtl8169_runtime_suspend()
-  pm_runtime_get_sync()
-    rpm_resume()
-      wait for !RPM_SUSPENDING
-                                              rtnl_lock()
+Keep shared IRQ handlers out of uninitialized or suspended hardware, and
+drain them before disabling clocks or removing channel devices.
 
-RTNL is never released, so every later RTNL user blocks behind it.
+This series uses the shared virt-dma descriptor-retirement helper [0].
 
-The suspend is the delayed one scheduled by rtl8169_runtime_idle():
-the interface is up w/out link and runtime PM is enabled
-(power/control = auto).
+[0] https://lore.kernel.org/r/20261115-submit-sun4i-dma-callback-lifetime-v1-v2-1-fb7d258702f8@gmail.com/
 
-Blocked tasks, "ip link set down":
-
-  task:kworker/u66:4   state:D
-  Workqueue: pm pm_runtime_work
-   __mutex_lock
-   rtl8169_runtime_suspend+0x1a/0x70 [r8169]
-   pci_pm_runtime_suspend+0x78/0x230
-   __rpm_callback+0x56/0x1e0
-   rpm_callback+0x30/0x80
-   rpm_suspend+0xe7/0x630
-   pm_runtime_work+0x57/0xb0
-
-  task:python3         state:D
-   rpm_resume+0x1d0/0x750
-   __pm_runtime_resume+0x43/0x60
-   rtl8169_close+0x32/0x100 [r8169]
-   __dev_close_many+0xaf/0x1b0
-   __dev_change_flags+0xe2/0x1f0
-   netif_change_flags+0x27/0x70
-   do_setlink.isra.0+0x367/0xe70
-   rtnl_newlink+0x4c6/0xab0
-
-Use rtnl_trylock() and return -EBUSY if RTNL is contended. The PM core
-then sets the device back to RPM_ACTIVE and wakes up the waiters in
-rpm_resume(), without recording a runtime PM error. In the deadlock
-scenario the RTNL holder is the task holding runtime PM reference, so
-the suspend is rescheduled by rtl8169_runtime_idle() when it drops its
-usage count. If RTNL is held by an unrelated task, the device stays
-active until the next idle check (usage count drop or link down).
-
-This issue was found using an AI code review agent.
-
-Tested on RTL8168gu/8111gu (XID 509), net tree 7.4.0-rc2.
-Setup: interface up, cable unplugged, power/control = auto.
-
-It was reproduced with the unpatched driver by timing
-"ip link set down" to the expiry of the 10s runtime suspend timer.
-It was also reproduced deterministically with a debug-only msleep()
-before rtnl_lock() in rtl8169_runtime_suspend() to widen the race window
-and "ethtool -i" issued during the sleep.
-
-With the patch the timed reproducer completed 100 attempts, hitting
-the race window in 12 of them, without deadlock.
-The deterministic msleep() variant no longer hangs.
-Kernel selftests were not run.
-
-Fixes: abe5fc42f9ce ("r8169: use RTNL to protect critical sections")
-Signed-off-by: Stefano Munari <stefanomunari.sm@gmail.com>
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
-Race window (RTNL held before rtl8169_close() reaches
-pm_runtime_get_sync()) on the unpatched driver, measured with kprobes
-over 200 x "ip link set down":
+Changes in v7:
+- Guard shared interrupts until hardware and channel registration are ready,
+  following Sashiko's review, and hold an active runtime PM reference while
+  handling them.
+- Balance probe/removal power references and drain handlers before clock
+  shutdown, including forced system suspend.
+- Link to v6: https://patch.msgid.link/20261115-submit-dw-axi-dma-stop-pause-v1-v6-0-bcb23d1e7029@gmail.com
 
-  idle:           median ~175 us, 95% below 250 us, max 3.1 ms
-  moderate load:  median ~165 us, 95% below 2.1 ms, max 6.0 ms
+Changes in v6:
+- Retain descriptors through callback synchronization using the posted
+  virt-dma helper, covering pending, executing and error-completed cyclic
+  callbacks raised in Mitch's follow-up.
+- Serialize interrupt status collection with channel reuse and clear old
+  completion and error status after successful termination.
+- Link to v5: https://patch.msgid.link/20261113-submit-dw-axi-dma-stop-pause-v1-v5-0-8523a27b5788@gmail.com
+
+Changes in v5:
+- Use a positive enabled-channel condition in the suspend-status helper,
+  following Andy's review.
+- Initialize the resume result immediately before its first use.
+- Separate the lock-protected channel bitfields from the preceding fields.
+- Link to v4: https://patch.msgid.link/20261112-submit-dw-axi-dma-stop-pause-v1-v4-0-3ebc24b243db@gmail.com
+
+Changes in v4:
+- Add a preparatory fix for cyclic mode leaking between transfers,
+  following Sashiko's review. Store the mode in each descriptor so
+  failed preparation, error recovery and queued work cannot change
+  another transfer's completion handling.
+- Link to v3: https://patch.msgid.link/20261110-submit-dw-axi-dma-stop-pause-v1-v3-0-35fdfba8b61d@gmail.com
+
+Changes in v3:
+- Wrap the atomic polling calls by argument group and correct their
+  continuation indentation, following Andy's review.
+- Move the termination return-value check simplification into the
+  channel-enable polling patch.
+- Separate the pause-loop conversion to atomic polling from the
+  pending-request and cyclic-restart changes.
+- Annotate the suspend-wait helper with its channel-lock requirement.
+- Pack the lock-protected flags into existing padding while keeping
+  cyclic separately writable, following Andy's review.
+- Link to v2: https://patch.msgid.link/20261109-submit-dw-axi-dma-stop-pause-v1-v2-0-64adc48df793@gmail.com
+
+Changes in v2:
+- Use readx_poll_timeout_atomic() for the single-argument status helpers
+  and express the termination polling interval and timeout in milliseconds,
+  following Andy's review.
+- Track pending suspend requests separately from confirmed suspension so
+  resume can handle acknowledgments received after a pause timeout.
+- Use the atomic polling helper, including its final status check, and
+  report -EAGAIN if resume cannot yet cancel a pending suspend request.
+- Defer cyclic restart while paused and track the active descriptor until
+  completion, preventing resume or issue_pending from reissuing it.
+- Reset pause state on successful termination and channel allocation;
+  clear stale status when starting a new descriptor.
+- Link to v1: https://patch.msgid.link/20261108-submit-dw-axi-dma-stop-pause-v1-v1-0-c48ec19e9ee4@gmail.com
+
+To: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+To: Vinod Koul <vkoul@kernel.org>
+To: Frank Li <Frank.Li@kernel.org>
+To: Sergey Khimich <serghox@gmail.com>
+To: Sia Jee Heng <jee.heng.sia@intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: dmaengine@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
 ---
- drivers/net/ethernet/realtek/r8169_main.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+James Hilliard (8):
+      dmaengine: dw-axi-dmac: keep cyclic mode in the descriptor
+      dmaengine: dw-axi-dmac: poll the correct enable bit during termination
+      dmaengine: dw-axi-dmac: retain descriptors when termination times out
+      dmaengine: dw-axi-dmac: use atomic polling for suspend acknowledgment
+      dmaengine: dw-axi-dmac: preserve pending pause requests
+      dmaengine: dw-axi-dmac: retain descriptors until callbacks drain
+      dmaengine: dw-axi-dmac: serialize interrupt status with channel reuse
+      dmaengine: dw-axi-dmac: guard shared IRQs across the controller lifetime
 
-diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-index f151ab681393..c60d87015eb9 100644
---- a/drivers/net/ethernet/realtek/r8169_main.c
-+++ b/drivers/net/ethernet/realtek/r8169_main.c
-@@ -5975,7 +5975,14 @@ static int rtl8169_runtime_suspend(struct device *device)
- 		return 0;
- 	}
- 
--	rtnl_lock();
-+	/*
-+	 * Do not block on RTNL.
-+	 * Other callers holding RTNL may wait for suspend to complete
-+	 * in pm_runtime_get_sync(), which would deadlock.
-+	 */
-+	if (!rtnl_trylock())
-+		return -EBUSY;
-+
- 	__rtl8169_set_wol(tp, WAKE_PHY);
- 	rtl8169_net_suspend(tp);
- 	rtnl_unlock();
--- 
-2.55.0
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 260 +++++++++++++++++--------
+ drivers/dma/dw-axi-dmac/dw-axi-dmac.h          |  11 +-
+ 2 files changed, 190 insertions(+), 81 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git fixes
+change-id: 20261108-submit-dw-axi-dma-stop-pause-v1-c93f1e767169
+prerequisite-patch-id: fc343480330da5ff95e5271997fa71107977c2b8
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
