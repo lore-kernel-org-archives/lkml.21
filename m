@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003555;
-	b=woc+52obZAkAOSBFR6TcLgCapXxlYbmPB5zIS+KDK8OiPgHlxpUJ+osaVIvKUicNdZxA
-	 4Q9v7GCAm3GGRy8OZooXaTP3eDGx7brSBkZGt3l46RJozXvbaeFyTE/5+ykLXCxTOhEvj
-	 PbBYk5uQ+OTqc/aa7XVwtVp53sai/svQbfT4DieWvmh7mGTbmq6EtIdC8/P3S9IuGSqo7
-	 4Cau4Mbi0rcP0b1STSjV+dkPyyxKrv3RfySodbS8PYyREpClRxlEIvb7uGaKVpx3LUc/0
-	 EvErd+QElgbDoiBbdIxp7NbRQlT4uq085ZF1yCc7nYog+ituPnWuEKXV8NPf12/fH4A==
+	t=1795003607;
+	b=YQ4uzgbicW+EPdzEo0N1+hhVhWuPKBz6NlJw7VLVLaapN8pWdD/430YPfxatQjkxwgcI
+	 OvUgKormrwlr57kzA8oW8pT10UU6y9402zM2/PHdjdUwx++BuvAERwqWhP35hiUkMTp0X
+	 eCzLTKbbpRaQkMevOpCJQeHR/Ek4p6C/CMVT9X6FTyrDT5/ZL+x/2V+8/liRa5qL5VPsC
+	 /d9PAymihqtgDFX3osnDKJE8eMqJI12Q0MiXJZIrbr/9kWRqmDWUFkKOE5g7x61fghQ9d
+	 lT9LztlFU7oTjGKiTZ4C6r3ZsiCPiafj9bvrr7PtcbSiaDhIrUuxfsGWrT9FSASuOsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003555;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=0IHlYdsqTI5Vrn8R2+GHJnZCm0OJrTKPeh3UrUb0Leo=;
-	b=g8pgx3PTkkd3dabng4ZRFoZCUD1GPmTcFnBFYLj64EhVXd4j2JK4LAIFqlF9em0DQiDj
-	 ty3Dp9mC36FkiROU/KQNdlq4L62pmR1QGuOOLcCgL0/EkYUjgeeiIvYnXTGc0yxHnwE5P
-	 ALqVFDawB4F70EBAzgq2/KGucbMIXY//Y6WekSbrMnm78fosxeTZIWg1Cmc3nqj0OAU/V
-	 7km7dPnMyL3mpC/1msNZaq//gKLWhGur8uOPDQc1PcGhC42UNRvfgDZFilk/7udVze1GO
-	 c1/gWK1d81oln7xyOSRZsbWGrI5YywF9Ohu2FIrcd6/+Jhat5anTVzZzwzfLPaJNABA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003607;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:Message-ID:Subject:From:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=kp5w5RDq527SICD8D5Xw9eo93/nbQAeR3FOsszsY3AY=;
+	b=1MoJLPbVDOOitmfCXoj/74S2rE49Ob6tPH9u5bJi1bElzingW77LAK1qIKgg7W08dX6u
+	 Nrx+zUvNt759Pr3pFyp7HY2uqi2RRQGupi3B0My650KNpsXwFEzLhOdlCj4YHvGiUqFDV
+	 aHHdWgWu1A+4n0gvxuFaI7jzVMbcdrga+k41JRAavDzdwdTfjImc2b+c8C3tBx/7FoTen
+	 U6zLYR+ZhxWSAoBKa2z9A3x6i2psp0OlvzSOGc4EO4mbtefC1s3Cvcrov44DdGAhHLMAX
+	 jyRbhRCZYiFFn0bQaPavnF0BQX298ulOHbu1Pf94NCEbP3Am1n1RGOHBXNwmT8fHzAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=l1h30wly;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JKXd2vEC;
+	arc=none smtp.remote-ip=209.85.221.72
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC0B7606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:05:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC0B7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 910CF606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:06:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 910CF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=l1h30wly
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=0IHl
-	YdsqTI5Vrn8R2+GHJnZCm0OJrTKPeh3UrUb0Leo=; b=l1h30wlyh8A1A4Jhon00
-	hyCuaYzRncPsqgErLDMqr0ywnaaS3MZiCnHEsxlgSWezsjneZDTrB9g2ivRLcD5j
-	RTCbT26GHVsKqy1/IjCTVy9bmf0qCceMfGFh6g96KuexWuj7BPD7Bd+EnIGHmZxP
-	HholVtFSre9xDr2DuhP7DR/GulfupM/n0mNam4DlbOqsCAwVvm7utIUDBj5F3lDQ
-	ell2I7T4yjjJjyev5qXvXylFF2acYCqyHZrZTf+37WmZGShBphUvrnfMYtVLTHc8
-	sFyVJF32IjrM2lGGYg9AhFvKd0XGp7eLUxsTDmEdd6tOdzI7mMpY6wQUCdpVXGZl
-	gA==
-Received: (qmail 645122 invoked from network); 18 Nov 2026 13:05:52 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 18 Nov 2026 13:05:52 +0100
-X-UD-Smtp-Session: l3s3148p1@oesT1YtgnM8ujnsi
-Date: Wed, 18 Nov 2026 13:05:51 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Herve Codina <herve.codina@bootlin.com>, Rob Herring <robh@kernel.org>,
-	Luca Ceresoli <luca@lucaceresoli.net>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Peter Rosin <peda@axentia.se>,
-	=?utf-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
-	Jonas =?utf-8?B?U2Nod8O2YmVs?= <jonasschwoebel@yahoo.de>,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 0/2 RESEND] i2c: muxes: Add GPIO-detected hotplug I2C
-Message-ID: <av2Ummom57XArTHd@shikoro>
-References: <w3bn5bqxqjhf4uvxov47rwlvmnbic6xnlk25xbpnbmi2eyup7q@tjuiu7pl3mmo>
- <CAPVz0n1-jN5WLFq4e0CZrneExrN_A=GNeGTwGHTCj14NAta+jQ@mail.gmail.com>
- <aPCfiJxyKOXsgNJe@shikoro>
- <20251021132529.GA4133357-robh@kernel.org>
- <CAPVz0n3jt04xEwGr1aiDTJ7OonYYgOy3QneteLXgdGruXGMP_A@mail.gmail.com>
- <20261118091334.3d51a5f0@bootlin.com>
- <CAPVz0n3=rL9jVc7DtG9FmcH0zs11+LXg1+HRRf9aagUqZf=+_g@mail.gmail.com>
- <av2Nb_likDLz1u2c@shikoro>
- <CAPVz0n2rZSRAz2NJsPUXYncgEAi9cFGM0ApfarFq5uMoO9LqsQ@mail.gmail.com>
- <av2RdnZofdcdU_td@shikoro>
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JKXd2vEC
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-49337a224a8so627502f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:06:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795003606; x=1795608406; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=kp5w5RDq527SICD8D5Xw9eo93/nbQAeR3FOsszsY3AY=;
+        b=JKXd2vEC/2EgcPBcdZPiioMfmgmnXvAQtXNKU7KZj8KXVavvRTaWwERFzNxL/euf9A
+         wb9wdYJxkkK9pVMcFhfhYnOnWbBq0xbmGJZ51PuoHdYFz3Bb1sPT8t4zBd2FklxZWHWe
+         WEukuTJtJAZqL4SKF2Gk2VRBuLKE75Rn0DD8qbKQVSt8eb7ZIZozBpt17jUsHcLwOZMf
+         x43tBv6r9daMXqH7vbjRKE8H8X/qxvNlRWpOnciOxxTNrAxoPqOTe/mi8GC7hN/5JmO4
+         uyaZJXKoe33qCW1QnMOhshO+1rxFcWUSh+vhuPZSvJE9X6to1Tua6YJRysi7XntV5nVo
+         U03Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795003606; x=1795608406;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kp5w5RDq527SICD8D5Xw9eo93/nbQAeR3FOsszsY3AY=;
+        b=zj6FtMXQvRhK08pZ9u5S1z98B86SoYUepThW0u3xd8g3CUmZabVmSQylOG3fLYxZrF
+         s+Wka5TodMVTsmXPNPAVWLIjRGTeCdIZgu0ZDo/IWNxW/95QeGdjsQGtQ5dFDaLqKOuq
+         JD5cT2m6w7STjRykHcycXslpytKyi+0Jv7927ZmeJI0G0Es5rRs8q5AjqPxQiBYon2Cb
+         pEpLiZlkLMnVOG5yGLMgVBHxu/cdJEEt4zrxxVkhj8rpQ+0ldK4+Jhcvp8jS36RObSP+
+         Yu81PI+1KfeJSw8luNfpUylb+DQrfD9zcA/o69Or3mRZ0A+d+kRpfI+7rCXt/yBzZQYE
+         Pu0w==
+X-Gm-Message-State: APuU4Z9pW8DyXlKJuu/kzkBQ5MWAmN/7HkLhyJl6JjeZE/5KzZTydTwd
+	Wa766BpIq8FKV4XgeZduNPrLMcTrJq9SP1SvmpK4piSG9s7kOebiyglLAZjwVi18WQJeRD2ZE6F
+	smNQo/uz1y+3QIj2voQ==
+X-Received: from wmih2.prod.google.com ([2002:a05:600c:1442:b0:4ae:7292:22a7])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4513:b0:4bb:68e5:b952 with SMTP id 5b1f17b1804b1-4bb7da187c2mr43604775e9.16.1795003605603;
+ Wed, 18 Nov 2026 04:06:45 -0800 (PST)
+Date: Wed, 18 Nov 2026 12:06:44 +0000
+In-Reply-To: <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,46 +78,32 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="08h2Nl6XlzaOP5VJ"
-Content-Disposition: inline
-In-Reply-To: <av2RdnZofdcdU_td@shikoro>
-
---08h2Nl6XlzaOP5VJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Mime-Version: 1.0
+References: <20261113-tyr-reset-impl-v8-0-2ee298ac9808@onurozkan.dev> <20261113-tyr-reset-impl-v8-1-2ee298ac9808@onurozkan.dev>
+Message-ID: <av2U1FflKT1mEotg@google.com>
+Subject: Re: [PATCH v8 1/3] drm/tyr: clear stale IRQ state before soft reset
+From: Alice Ryhl <aliceryhl@google.com>
+To: "Onur =?utf-8?B?w5Z6a2Fu?=" <work@onurozkan.dev>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, dakr@kernel.org, 
+	daniel.almeida@collabora.com, airlied@gmail.com, simona@ffwll.ch, 
+	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
+	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
+	tmgross@umich.edu, boris.brezillon@collabora.com
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 12:52:22PM +0100, Wolfram Sang wrote:
+On Fri, Nov 13, 2026 at 05:32:26PM +0300, Onur =C3=96zkan wrote:
+> Previous reset may leave the reset completed IRQ set which can make the
+> poll return too early.
 >=20
-> > You are very "helpful".
+> Clear the IRQ first so the driver waits for the current reset to
+> complete.
 >=20
-> Yes, I am. And I am "honest" and "experienced".
+> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
+> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+> Signed-off-by: Onur =C3=96zkan <work@onurozkan.dev>
 
-You might try getting Hans de Goede <hansg@kernel.org> in the loop. He
-is way more experienced in getting support for broken / strangely
-designed HW into the Linux tree. Maybe he has an idea...
+Do you want me to merge this now, without waiting for the other patches?
 
-
---08h2Nl6XlzaOP5VJ
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmr9lJoACgkQFA3kzBSg
-KbYUPA/9GAtQMCMej5RYs9mVr7dGMYAObTKhA9H3axj/WMiuVqyx+DRvjAqQFXj2
-pCahYPdLRRIRFkxQfVnkYaNn97rAg9x4hydELiflOb8Xls0azptLht9nwhuELs4V
-NBgxXs/8IDdZ22CHsb9mUB0spQXJWaCuRnXLYy8cenUFwG95bi6A+i23VRVCJKqR
-rcwvkpmae40IX1AWGtqpoxaBh++s+qJ4FBJoWwH6Qli85OcrPUyBw3JbQXStPMTi
-9z/8EDypaj0eNGOoknMofmXR9w+OfzlIwJR90nyZR2c9e7I2fkSI3HMRPtl5Ier8
-scShqoIOZemgGwCgaOOxbLPI/L4xAS9vivvgGk7QPXqJpD6PN3+kzSaFhteew4mf
-QgW3Xn7maP8uPveelPI4Zl6g7Zzn5nBLa+vDViomRK0Y2A6UC+cQpgamLVoyZ2EZ
-T+BiBBg59MDfcyscEBBYKOPzK/d7I0P87sdN+xA90XWYWpgMhwj7u4xYo8+7HAhF
-sVnBUN/7L4ckoKEvHBxWJ2pLo8Svu8B05L67x8dRhb1dFpxp/9ILmeWaxUEnyYzQ
-OunwhsqUYctMwQNIPhAoEDNf1LGiHe+nqNKEyD8muw5+xVN/ND4UKAOaSfAhSvLv
-0xZdOogI/aiH3cPuAal1QIk06Kr5kjwl0ga7fi1N5dK/xEmZPIQ=
-=OuYR
------END PGP SIGNATURE-----
-
---08h2Nl6XlzaOP5VJ--
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
