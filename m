@@ -1,106 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994738;
-	b=rktiGbWNy3YEIDPKMYZHQQNrwhrCghV1nVX2M2x2B5s4zxhbSWv80cvUKn5Byx5vTwme
-	 TiY9/qsDOEfBA3LTnKbF6R9VSg1/Jt2fkv/Gyum9rIbLGWP5VYrGdLfJmh/04M31I+k8g
-	 1fdObJH7xIOViyxseoO/RjNNbc0mEP8pggh+1sLOJOkd/HHsaRkdYzfaV8gg/wdJ+g7Jc
-	 cI32aZjmGYc0DW3mAIZsDJ25pG118xgY8iFgXaTd/Hxi8WUGEi1f668v9E2QH9TmcAuHm
-	 ivgQzOD5d9L37/xLKs0VaGh1Z72uHAyiI+5S/Ihmn/s3naLbbiLCA7uyj1VdEk2m3Ew==
+	t=1794994741;
+	b=AkyB0d6qI0synk4yvDwQUZhbVnzk6TWpK9kVzFHgmQNQ9cSDXUf3Dx2joyYEcsaJhPcO
+	 cfgZ58hKXb8SNN+q73GxwD0ge0dpT7gciYzw01ldECDb78gerswOywadVmMcQmvZa86K+
+	 B5cAXtti4ekVy5MOpcja4HfGTwJC8VYRSdWULpPgfTFlBqH3MvVq+HYSU3ssjcaMUvkZ6
+	 YPXeaBmPjyW/dyxXoDxgmkF7PU1lb8FTRAzmrlotxqkE/yBdHbYxiQeEif+WNLfBmmaD+
+	 JpaMxAInmqhs7ni8qN0JK2Agdazwn59lJzmHqDBbyShSkltL+FW6Sz9Y52BWCaBRs8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994738;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=mvTmHdxE8OSRyatKP7vQR5jJ2csgl9itkqZ6bj8IuTM=;
-	b=AwP6J9KfGknLReiiNcT1rPBQj7w7eZA4olE/DxkVEHIYK8pWrSI4Hbo+2x8QAFwdMmMI
-	 AN3ajm4WfQrqM6a5o53QTqJyS5zhIJBqqR3QrXPE/TEIN0TXDyJArnv4KM/kfyqEjZ4hC
-	 RKUXeNPctGWp35v07hBoJxJXzuUwlazHSlRz4KAZDDTljSdqgjUvaDpiujkoZ5mDKJyJy
-	 20d21e7PsXRw9dYVY+dgSHwknksowet+jLk4EIwPo48OlW5GkppFnP+qSXOGJJBWYNgh2
-	 0l7S/UIvy7edIBnCw/kdlxlyMsC2DONlI04UelZuZlB7oUXuRLAOESqG31J1xwc0fdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994741;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=pFcykN8FbTzlkQb2QKEzQvmDwgjWoZpHj6xZz+E6k4M=;
+	b=FpmPpYsVK8JT8a9Amj7g19kHj07PC77GWqzKJTkPlb65sBCPSWHBn2Cnzo12owHIwIgb
+	 x5ylD5g8eyzxt+hI13FjsP0aFu7QuJMZXu2ugjRJUTsLIolWsvBPNxSphyGwKZ9feot4N
+	 p89KVKW4DJX6v7bzmUylfxCTh5lqpqPQtTJjtlIyXzDe5rc8Sl7fBGARh10nJ330ZFbHb
+	 P0Dz2O4CWoqvnVihP60qW4mqJtRssbnrH+7kulcAkziXvffliCNZWIW75D1yZAYKfXNOM
+	 lbEo49Xs1IKUP/a9iCy4nMTVo9cOUzIZJr23vZ8BFftoCgcfhWq1mcHyy+mCnrLyIDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0meq+bcp;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n82NdDEF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D28FD606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:38:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D28FD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ACC6606A337;
+	Wed, 18 Nov 2026 09:39:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0meq+bcp
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-36dbde64409so1490620eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:38:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794994737; x=1795599537; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mvTmHdxE8OSRyatKP7vQR5jJ2csgl9itkqZ6bj8IuTM=;
-        b=0meq+bcpbMUaOyJKi4v7OMIYhzh7dIzGJh7I1Ryp21c2d2Z7x7ar4ld8fh8p3XtlKQ
-         OaJuqGQ+w7hBpL/bifgJIQ49CCcIprQ/5FRtKsK0Zz3mG/YlOyt39stsglEZP/z+Tgln
-         +liPOGf2ampV77tAe9mZbq08/tPjNh0jHm0fEt1NW9edu6XHAQJwH6THhXenhItPpG4+
-         XmJX+BUpEaDbN4pzNDdNtPMUQLnaBEoq/qbzbDNdlrjEhSii29Y7o75PZWu1IFdaI6+w
-         58T5+lmm7gIefSl4T4AwEIvNFh80Ei0EJst5zg0oWcaAhjN7sxeD2W+exO34JcRoCvtE
-         966w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794994737; x=1795599537;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mvTmHdxE8OSRyatKP7vQR5jJ2csgl9itkqZ6bj8IuTM=;
-        b=ug0TvvuDDOnIXBiay30RkyJm7TkoY27RchoBB/Ju5FWHO50vhEMtBjovn14ukXgGhH
-         mPyi9gpdca6E8CR4ofnfrglbvi5h2NbUprQ+7wIyyLUbev8Ck5XhisVQCT5/Bwq7dZLh
-         cc8GAf+yAJOt0J0ZxSAeSMyjeah13X5241joN9jJ78IQmEoXnDuKdxzxnoA0SDAY9BX1
-         JzVhAH+ZnWZ5Phb1JtdsKMeS/BVd17oJeh1nWSkBXJuF/WC/BllQk28h+5vCInxgNnCz
-         un4eG2TNHFg3c2jH1EGnySnspm1jRfsACve6K9aUPPa/jif9lckM63z2mblctFPzI5R4
-         snNQ==
-X-Forwarded-Encrypted: i=1; AL+hErHjCW0k42i2V/Ig4KQJ19e+7GfAugEhYDmzu2pApv/wPPbb9Il5jpGDORIjb05gTUqWaoQRVPgltcIUqro=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WM66mrJtH8XdGL8ssjNvZ9obvogNEno0H3+s3ZLhT+LPVJ/6v
-	t4cARIa7I/8Ruxan6T4wCx8/2j6OICQdVMN+1hQ8bYfIdiYbsbZwZ1wd
-X-Gm-Gg: AZFdTZdljXjFZOBmB5utmM7brhcEcOCzsLub2pAUTX9RS7cC0eS1PPld5YfHhluQGCA
-	dmrSuM4CSUbJNwlWZd6JgpFRSXi0x145gMbfevvd9sh0QroEBGXUEZ6mvRisF8/Vd5LGA82ERHk
-	73lkC7JgAmjb9Buk86HXfKpGL2oVr2sEBLXjZHfg69NfbuRqJl2UmEySOTVeB7bbzvjy0qEpcqx
-	1uCEOfDjMvD0zEp6BNJRocjL0oGkHya9MhNqs7g1B6kcgW3IS7ON6d6bMi1fVI1J+fh/F2R76qV
-	EpnPgVUauf4alIegkvopb8PubGNkhop5oOVuVZBkQ4fIyczgcCO0bc1Buw11t0DwSf6DaHDjSmM
-	t2CxHWUFdpWKwvWkF+2Y8ptAUlfIczYz+QGslwjQ4NhXRlOEbAvloNt+rjU7Mcdtwr2K2tMNk1K
-	euq62AiabpdaE+OYOtnS/puqrjJl9fk7YqWhUubVsKpRfIlWvMiW4thZlIuh3YstivrvSZvjFY3
-	vkyO6fduljvKTPY2tnoLQ325RaStfFypTrC8kUTmb/cumfSn/W3wlTFeOR3s7XNmoGwrNeXYQZz
-	J0vclvDcjYhAaJNLx6GeX0tn4adXlig6PGdOdhBBjaB/L//6KjuBx6jpNxKaYtmVfIzkpsq0MUw
-	6UxncWzxJoiWgmUww9jIDhzmOcnc1cb6lyA1A62x2
-X-Received: by 2002:a05:693c:42d0:b0:381:c15:1b6f with SMTP id 5a478bee46e88-3827f98c04fmr2115427eec.6.1794994736992;
-        Wed, 18 Nov 2026 01:38:56 -0800 (PST)
-Received: from nugod-NUC15CRHU5.tail9f095a.ts.net ([218.237.104.87])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a76d70fasm6365704eec.22.2026.11.18.01.38.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 01:38:56 -0800 (PST)
-From: HyeongJun An <sammiee5311@gmail.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Vijendar Mukunda <Vijendar.Mukunda@amd.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Arnav Kapoor <kapoorarnav43@gmail.com>,
-	sound-open-firmware@alsa-project.org,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	HyeongJun An <sammiee5311@gmail.com>
-Subject: [PATCH v2 2/2] ASoC: SOF: control: Reject out of range volume and switch values
-Date: Wed, 18 Nov 2026 18:38:40 +0900
-Message-ID: <20261118093840.3514408-3-sammiee5311@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118093840.3514408-1-sammiee5311@gmail.com>
-References: <20261118093840.3514408-1-sammiee5311@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n82NdDEF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BF601F000C5;
+	Wed, 18 Nov 2026 09:38:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794994740;
+	bh=pFcykN8FbTzlkQb2QKEzQvmDwgjWoZpHj6xZz+E6k4M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=n82NdDEF2Y36movBI2landvuiWeoHOsmHhM0axpee/x9FcrkaT0e7kHegUZLC0CvF
+	 qSvYrAS1IbaeJgTOvIYTCMd6GgQYjC/tfTiJ8h00Q3mKJ7YS6pb9Q7i1/8jl3xVCyW
+	 QaL07DWQ/xNeUW9xMBJ2DHZOe2ctnISw2rNuK9eOpzWD4Nzm+/RHaXBoSiBEOaoo51
+	 plyeS3IfMN9yjUGHkaR8vM6lc6WeDANPUDcmhkd+abr6XWQALHYCyIl0x3BanWBsr8
+	 5ZnW5vVA6nyfhNIOmPbF1b9264K0HKSqoU67uP/QLdAuzAQ251KopKwjWu+lfYE/B1
+	 Mn+2t1rW1PM5w==
+Message-ID: <5b195d44-66f5-4d9b-bb79-259fa938cc59@kernel.org>
+Date: Wed, 18 Nov 2026 10:38:46 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,80 +51,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 9/9] mm/userfaultfd: check the hugetlb alignment of
+ every VMA in the pre-scan
+To: Tal Zussman <tz2294@columbia.edu>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Peter Xu <peterx@redhat.com>, James Houghton <jthoughton@google.com>,
+ Andrea Arcangeli <aarcange@redhat.com>,
+ Suren Baghdasaryan <surenb@google.com>, Balbir Singh <balbirs@nvidia.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>, Michal Hocko <mhocko@suse.com>,
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
+ Andrei Vagin <avagin@gmail.com>, Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ Oscar Salvador <osalvador@suse.de>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org
+References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
+ <20261117-uffd-state-fixes-v3-9-b617009d1a4a@columbia.edu>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261117-uffd-state-fixes-v3-9-b617009d1a4a@columbia.edu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The snd_sof_volume_put() and snd_sof_switch_put() pass the user values
-to the IPC put handlers without a range check. The switch handlers
-store any value and send it to the firmware, so on IPC3 writing 2 or -1
-to a switch reads back as 2 or 4294967295. The volume handlers convert
-the value to u32 and clamp it to the end of the volume table. Writing -1
-sets the maximum volume, and on 64-bit writing LONG_MIN sets the
-minimum, both without an error.
+On 11/18/26 05:28, Tal Zussman wrote:
+> UFFDIO_REGISTER and UFFDIO_UNREGISTER both scan the VMAs of the range
+> before changing anything. For a hugetlb VMA, userfaultfd_register()
+> rejects a range whose start or end is not huge page aligned there.
+> However, userfaultfd_unregister() only checks the start.
+> 
+> An unaligned end only fails later, when vma_modify_flags_uffd() cannot
+> split the VMA there. At that point, userfaultfd_clear_vma() already
+> cleared the WP or RWP protection. The ioctl returns -EINVAL and the VMA
+> stays registered, but accesses to its pages are no longer reported. This
+> requires a caller passing a misaligned range.
+> 
+> To fix it, move the alignment checks into vma_uffd_range_aligned() and
+> call it for every VMA in the pre-scan of both ioctls. UFFDIO_UNREGISTER
+> still returns -EINVAL for such a range, but no longer unregisters the
+> VMAs before the misaligned one first.
+> 
+> Checking every VMA the same way also changes the following:
+> 
+> - UFFDIO_UNREGISTER now returns -EINVAL if the end is not huge page
+>   aligned in a hugetlb VMA that is not registered. It used to skip that
+>   VMA and succeed.
+> 
+> - Both ioctls now accept a start that is not huge page aligned if it is
+>   not inside any VMA and the first VMA of the range is a hugetlb one.
+>   They used to return -EINVAL, although such a range covers that VMA
+>   from its start, which is always huge page aligned.
+> 
+> - UFFDIO_REGISTER now returns -EINVAL rather than -EPERM if the end is
+>   not huge page aligned in a hugetlb VMA without VM_MAYWRITE.
+> 
+> Fixes: cab350afcbc9 ("userfaultfd: hugetlbfs: allow registration of ranges containing huge pages")
+> Fixes: f369b07c8614 ("mm/uffd: reset write protection when unregister with wp-mode")
+> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+> ---
 
-Return -EINVAL for values outside the range the info callbacks report,
-as snd_soc_put_volsw() does. This fixes the write_invalid failures in
-mixer-test, and the event_spurious failures caused by the events those
-writes generated.
+Thanks!
 
-Fixes: c3078f539704 ("ASoC: SOF: Add Sound Open Firmware KControl support")
-Signed-off-by: HyeongJun An <sammiee5311@gmail.com>
----
- sound/soc/sof/control.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-diff --git a/sound/soc/sof/control.c b/sound/soc/sof/control.c
-index 136e2ce15201..dcf101f7e1d5 100644
---- a/sound/soc/sof/control.c
-+++ b/sound/soc/sof/control.c
-@@ -26,6 +26,24 @@ static int sof_mixer_max(const struct soc_mixer_control *sm)
- 	return max;
- }
- 
-+/* the IPC put handlers do not check the range */
-+static int sof_mixer_check_values(const struct soc_mixer_control *sm,
-+				  const struct snd_sof_control *scontrol,
-+				  const struct snd_ctl_elem_value *ucontrol)
-+{
-+	int max = sof_mixer_max(sm);
-+	unsigned int i;
-+
-+	for (i = 0; i < scontrol->num_channels; i++) {
-+		long val = ucontrol->value.integer.value[i];
-+
-+		if (val < 0 || val > max)
-+			return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- int snd_sof_volume_get(struct snd_kcontrol *kcontrol,
- 		       struct snd_ctl_elem_value *ucontrol)
- {
-@@ -49,6 +67,11 @@ int snd_sof_volume_put(struct snd_kcontrol *kcontrol,
- 	struct snd_soc_component *scomp = scontrol->scomp;
- 	struct snd_sof_dev *sdev = snd_soc_component_get_drvdata(scomp);
- 	const struct sof_ipc_tplg_ops *tplg_ops = sof_ipc_get_ops(sdev, tplg);
-+	int ret;
-+
-+	ret = sof_mixer_check_values(sm, scontrol, ucontrol);
-+	if (ret)
-+		return ret;
- 
- 	if (tplg_ops && tplg_ops->control && tplg_ops->control->volume_put)
- 		return tplg_ops->control->volume_put(scontrol, ucontrol);
-@@ -97,6 +120,11 @@ int snd_sof_switch_put(struct snd_kcontrol *kcontrol,
- 	struct snd_soc_component *scomp = scontrol->scomp;
- 	struct snd_sof_dev *sdev = snd_soc_component_get_drvdata(scomp);
- 	const struct sof_ipc_tplg_ops *tplg_ops = sof_ipc_get_ops(sdev, tplg);
-+	int ret;
-+
-+	ret = sof_mixer_check_values(sm, scontrol, ucontrol);
-+	if (ret)
-+		return ret;
- 
- 	if (tplg_ops && tplg_ops->control && tplg_ops->control->switch_put)
- 		return tplg_ops->control->switch_put(scontrol, ucontrol);
 -- 
-2.43.0
+Cheers,
 
+David
