@@ -1,56 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794972483;
-	b=AwHnJAGmtUJ0KmeO25g5NLSyjPdtkkoNbBn4nLAVng6rwJgJqlUc1EJ+SVp+vGb5Er3a
-	 uDJ2MkeLqz5kAW0Ycdd4rI4BQaH7jN4cXZjmjteCG3lr/eC8I5tgBQYHTJ9de57kqhwS7
-	 ze6F7CraAL3QVpuUnTuQwNoKYG8yBl4BMAuVtNO9iuHRJkKvu1XucHk+N0IsXEYyNLd8a
-	 VTGwXrJWsX6PBzJ6+Z4P5aEZWuYdfqudmU8ac0uQH6MpbD5QMAlxhT1ZfEQodZB0Qp28g
-	 fgXaIqLv5/4gtDT+w+6vTN5fwNYVyNeeMQa02QsRFxAgoUfJtos47NcEUyZuEsaGqLQ==
+	t=1794972512;
+	b=wudztFASswNIJdh9zatjeIWJBG6m4YAQxy4JhgYpUrxG0t4NJagfdAYzxhb4zxWMGKc3
+	 CrWj7A2+egI2ntKiiK4JJlQTM8tWyjLuA3CSvLbpP/VZV7jQh0riEadFojWEguJ/rRPNL
+	 IgSgpwf2JzBGBlfLqdokmJ7oCcq3YKXRW3OgUD8DlACtRS0NHee9Hja16DZ3ZSN1SK9DR
+	 MUounLUaJx5mymovb9AyJgcRY4nBXUytmNETWGBEvjOfWyyz+DDpSkidkLrN15scRflCt
+	 Wwj79ETrOCjO00/LUVyxDj198FGBqyre5V3J676ZSNOC1Guj9iGzfaGfbQCgaFGdfNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794972483;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Mke05ZHG8a1w+omTjMlurTe0VhLIpergvKWiQjIpor4=;
-	b=zvz3l1ZeSIngCHyl0XZNPyn6Jo0ApHdI0LgtXjh4AgDsc0c+vHtcIBGJ5gW/ZrolkQNG
-	 HTPAzXNhVmXXntQTbgGBwFlBlhD0zv2Fxv9zpNBAXFidN+b920J6YNLNC2A20qqDJji4M
-	 y2wLtzmkZqeNXfsFT7K0j9IVkYbqIdZLUziOvvkI+wOU03lAocnp7r6I/WIiA4KcEfvbd
-	 AG/lXJ5Aaldl+Uus9Qq4+KshKpjAERqVDIwyFkEhkf4+LH/qnk/ItKKdw3o3EnBZ7mqIu
-	 2RGaMEs/uq7tG2HxpxjaYPwyNp18plpBRTBpP0CbVvl8c6YHzx7vTKMakArlhRt+G2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794972512;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=OQurdBkKxkbhxtgp8myE5vmibpMYsIIamR+xgT7WLpQ=;
+	b=3gflgjenCnQYTGEYQ1q5fISwucbWNkG4LpPb4I7u8VD1LB+ALnjIC1WwOdXLKlp1JG/Q
+	 CysWb1cxqQiVtJRtepxlZuemFAarUNFxmgcxRFL+We51qVkdQp+lddDdAOYehN/MjTVT3
+	 Quf91EWDQbNCJf0Bek32tGPDdOWBM+ETp2FQMOQIKIVrshlOwL+f41oyB+qDcsC4tT7ie
+	 Vk5hB0jT+dE3znxwH2xPGgVjuWsR70cbd+1LnXy7fIPDxOtdEujY20jN0cR7zuLQPqNMU
+	 Dgj7Ja4bT632YQsOs3br0rHBbHCf2PqzZU+m+BIr64Rf5FbwfzxsS8M9mEn5Z3VUaXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aqHDmMAO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j8uuaBAl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E36DE606A31C;
-	Wed, 18 Nov 2026 03:28:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37631606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:28:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aqHDmMAO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11C3C1F000C5;
-	Wed, 18 Nov 2026 03:28:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j8uuaBAl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D7C31F000C4;
+	Wed, 18 Nov 2026 03:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794972482;
-	bh=Mke05ZHG8a1w+omTjMlurTe0VhLIpergvKWiQjIpor4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=aqHDmMAOrttJrsKNLHqHDJSQaGoLb3NVNAzWChOnoqr5oyncnUnUsGIgOQRUsyPti
-	 6A7s3/HDI1t0q8ASfkzpBItqvNTSHHCzUS5osZQhKP2wLZb4Xc4beE9yPTV/8OnQxL
-	 001tt4U2HxxS7CDkoDtKno2gwYi/NegcnD8dkYneMDpGiMIgXeqkCLTxWY1Pe8F+UJ
-	 uIxcMZLqKrmYqYqUYSc7i/y8njoi2OSM/74m0Or42qPH8h6gNAO5c2x9SeHRZ9KkCH
-	 x9ZX4GLXYMHBre73MUCmrxCDFnzaaS5KgGSCivn9U0hW5cfKolQf9mLhMQcU/ZV8db
-	 xxOOpCiLNk58g==
-Date: Tue, 17 Nov 2026 19:28:01 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: github@bumblecito.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com
-Subject: Re: [PATCH net-next] net: sfp: add 2500base-X quirk for ODI
- DFP-34X-2C3
-Message-ID: <20261117192801.0d76c865@kernel.org>
-In-Reply-To: <20261118025602.171615-1-github@bumblecito.com>
-References: <20261118025602.171615-1-github@bumblecito.com>
+	s=k20260515; t=1794972511;
+	bh=OQurdBkKxkbhxtgp8myE5vmibpMYsIIamR+xgT7WLpQ=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=j8uuaBAlBidKgVeIm7fyQUAg0OFmHPk4oc903Aif4DZYu44m3VZCoswmWs+x8eL6k
+	 +/OR+/nEIxmb7g5OfDxba5nCJlPdhttcF6uHyDMBoKB74XGqW/agX6+BdJGJwWj/uE
+	 lGGDrLa+XzZ3XgoP1frDyRQ+gHs2xbzhSIJ2+dVj7LihoesRNy8psQyDnvaBpksski
+	 NxSPSRfhOLkoW0eESMffJuz0MxvNFiwGqSSb7FT8Z/oNFUXjr8d/ime68FDxb0KU7x
+	 ZFTaoNGfhrpSGI8TjOvoaHVmwfxj0GvtusXmZn733uWM9nHJG5ahhk+WSAkog4TnU2
+	 Fbz15zcVLtSZQ==
+Date: Tue, 17 Nov 2026 20:28:30 -0700 (MST)
+From: Paul Walmsley <pjw@kernel.org>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+cc: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+    Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: unaligned: fix __setup handlers
+In-Reply-To: <20261111-fix-riscv-unaligned-v1-1-0722514fc1e4@mobileye.com>
+Message-ID: <2eee9e1a-83c2-90ca-a374-fd461c0a050c@kernel.org>
+References: <20261111-fix-riscv-unaligned-v1-1-0722514fc1e4@mobileye.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,16 +60,22 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Wed, 18 Nov 2026 02:56:02 +0000 github@bumblecito.com wrote:
-> @@ -606,6 +606,9 @@ static const struct sfp_quirk sfp_quirks[] = {
->  	SFP_QUIRK("HSGQ", "HSGQ-XPON-Stick", sfp_quirk_2500basex,
->  		  sfp_fixup_ignore_tx_fault_and_los),
->  
-> +	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
-> +	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
+On Wed, 11 Nov 2026, Vladimir Kondratiev wrote:
 
-please try to keep this alphabetically sorted
--- 
-pw-bot: cr
+> Returning -EINVAL from a __setup() callback cause invalid
+> unaligned_scalar_speed= and unaligned_vector_speed=
+> values to be treated as handled. obsolete_checksetup() treats any
+> non-zero return value from setup_func() as success, so an unrecognized
+> argument is silently accepted instead of being reported as an unknown
+> boot option.
+> 
+> __setup() handlers return 0 on failure.
+> 
+> Fixes: aecb09e091dc ("riscv: Add parameter for skipping access speed tests")
+> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+
+Thanks, queued for v7.4-rc with a stable@ cc.
+
+
+- Paul
