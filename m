@@ -1,87 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019392;
-	b=fumcLL4nfAAp5XvYznEtoS9k/9TCK4OpevN4xSuSuC0uOj6Lrc8jyTDuJYRvW6m05ZCg
-	 qpk0bSc2Dml3zn2lLdUOZJdTadHlu6G9ZPwilxNhuiVUXkJFczkM2IRbCwDge3J4JIQZ2
-	 Tb/eQvFXpqJ0Yvt867u84smPVWy4lN6y9kMcRzB91FM364G3Ms7BdoM4wAb6Zms8TsW8f
-	 YCeBPhecttGO/TZxFASkbBsTmhKfZocgfSpe38qE4rkfbohrtmkTWP7slYWM4hUVAnNJO
-	 cWz4QQa08SsXqqmzsgVWch77ilxBW7xT3utv8Qts4vO+hcKiL1vwT/QmJ252ggLZnzg==
+	t=1795019394;
+	b=fO8/eiCR3OYY3cPYAhR0gS0clOdVWV3SNfiEFQgOjiEumT6rdZ6nFMDvvplilentXGxO
+	 4eN101M3nwZ9XA6zGuvDLUuEAgq0q3LLK9m+DetxOuGDf8r+wwUpIX85thUwtgWsgO/CV
+	 4XyNOYy05duazB5bmQxaJU896Dpb5HF3T4AT4o5dvdvnD8XzcneX6ct/eurtQNzk6O5XE
+	 nPD7pKaV2tukYFj7rQDM44QML8Y/MHBJiWWD1+Qd7CEIo85Ut1pj4oNbqLobvHxMHBQRi
+	 JSWs+K+QA62LSkLzm0zXxQV5wTwj//lz9GEnCDaLLwyMljbedc74Wvun5FCZtCpAvQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019392;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=wtMhJwiFYRL4oBCDekIESBHFFArV6HDfCX3FWyhzvOs=;
-	b=CUAFC4+bLMdg37CJgv6/3h/BqFrnJo6PVij+6c5tXcNm6gpAmVy+aq8iPi1+H9PwfHYD
-	 Mh+rn1CJD2qqFrYkSqgR930xvjzWWJbl/FEuYzmaPmtF9VF+vJ9mqNJBLrL8+GW9AF8t/
-	 RjwPIFwRgarM1RTsoa8V43sFN7fMZGeo/HE8AKHAXj4jvWyO1F+lbEKfQnsodu4+i8dwY
-	 1XNNUVtn47/DxqLjpG0R41sA9BYiMvhTRloD/Y8gH421yeJbJyr3YX+I/Dtc/pUHiCZLL
-	 Lr588MRJRI43x/iezsrJT6jQG096Z8tz/2G+Q9uOTPALDA65aB2BmOjrzRVKBAobYxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019394;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=mpQ14+GdLtaXBs1vAiS/H/Eb+nDbMBoHEA7knBdij5w=;
+	b=d8fZQ7Gs1Od0+Ewf1gj1lSOkV23ATxMtlhd9QmiZtUKBeqABgEm7aiC3byxCREbMsJ58
+	 SrQiOIvp8JAQQzgO58n9+7ec7j8wXH5yCXakzhcSfE5OX/iSv6frP2e87i5hdAkFoSCDX
+	 zH0rgsNhDUcYf60zM2C/9t/U1z7Y7Q1inzQw+dJxK8JoGVNFi/AJ0850srRbjfsIHXas0
+	 bjZaJxiLYVu+sfgw16XhpVTH8Qvt60yhG8aN8fu+VEjF9YyU6pX3MRuilpoN353Is5wj1
+	 /KZhqkH6lF311a1Mvi+aDb7l7WPcnHDBN6ap1h3V6buCs49HFg2KLgUhcQbrShVietA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="GkZUz/E0";
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=itVYuwkl;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8C7D60A261F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8C7D60A261F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B614060A2624
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=GkZUz/E0
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a42b34e930so956921f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019390; x=1795624190; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wtMhJwiFYRL4oBCDekIESBHFFArV6HDfCX3FWyhzvOs=;
-        b=GkZUz/E0rfw4x1dR1T8HjsvXLNcQsWb22zSpOEyAxWXOqd+ORu8BrqWUkRxpfawdHH
-         Trz//46nEOV0KYF5X8zKR54L6xGsb1CkQ8iL/O1gJqFISPiyKN4oJLc/+Oc6Y3VN43Ru
-         UWSCstdL4PFaJHxmtI3YWIN6KwR7wbdopAxfO5BxK4czj+d9cVQXalCYr9ADsTimXt4v
-         ljtvr5FqtYDVqnj1bozQwggCaFD+5HaKDCwt9Xz3MFofhMVcdLIQSHusezpbVPB53FpS
-         v4KFFASEp5QciM7s3uefV5ljqBjFgkH60c2sW5+IH9kYjQNxRLAilaWEModlNItp0RoF
-         asoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019390; x=1795624190;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wtMhJwiFYRL4oBCDekIESBHFFArV6HDfCX3FWyhzvOs=;
-        b=VbsjuZMQkgyzZl4rwxVds8kr7pMQi9GLnHrr0YbQdhnDeHHt2DB2EnwN6ygSh0+aLt
-         UulBGi9l0WmMI8BmdswD8NYoFaAl8l3brib5jWUD1BAH6j4aFhl/o2Njy5u3eEtog3SE
-         4/rG9rcfhhaDiwxLjAnytvfNwDobDidSinn5/PHREKRNEYS2dB+ap+WHyNFlB9QI4I1C
-         IOa1Vt3YEi8cZC4NGq27PtwWeV5oJgEnx3QRukJhlq92rvDNT6WfdO/Cy9XA+XQ0i0pM
-         7N93FzzozG+yOHVL1xtbQsv2u4CBGK0LogUlc1qaVFhjm4ZYtz3UMix8aKuDMijKnrym
-         rXSA==
-X-Forwarded-Encrypted: i=1; AL+hErHy7QuldLzD4AsSpFpd+SwnQXx8ubNIXKkFaqccdk27Cdip6P+8y+JNOTHMmS4DuLJRvlsCER0cpL6Avjs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86AfR2/s7vWyd2BuJggh8gPWrhraAXxYmIhNID53fT54zXxmmw
-	NazogLVl6Bl8R82owufFazx9WC4+3z0erftU2ByEXtjgOlih7qSUSc8RtfOTavx+7l4=
-X-Gm-Gg: AZFdTZeGRDRRmpiYDVihB3aFk3fTiOC/L9L5M/XDPdttWVmF1IiW1d5CLcct117tlkd
-	mtBylVdwBVcaddGfMo07HPTApOJeLoMldx2Ydc4SeyMzGZuBXoUyxsK4RsoRvJuoTeP+exfOGo/
-	SmpFIKDodglfOn9EylNwf0CQNdtVPbGb7aumGqvNfPkojY+HqhKXSPJglaTE6Cew6ibXMZVeBSx
-	6p2AIWjJD6bIL/+8ao2uq+Sp1cbC3ZN9ws8t4BeMjbQv0qi6QKb07jHYQ9AMq+pFDjwZPb2uePA
-	cH283BWeb2oaFXeHy87Azpg5sQfwaRuGCfsdomhb0vO0FtnIgrY1YSzoxackFT4DNY90ISG5hwT
-	8NF691syYaPvAJMyfRbPEZAYu92+5PV34eAWloHfWqpyT056oOMayVk5uzUl+EqRtxNo9jh014c
-	j7NDzK+Uv2SgcUJogeL8vC2A9KL3dv0nAGxhCORS56YMcXridv88dOKd6sgqpnxcHXWD8M3hi8V
-	CRDBkuW8hK23ebkz8hOkdAQn0AvMxGqGPNRYUOWwiX1QR2vhULly+k0uDukzFeOkNcaBWrq2VWJ
-	ErdJwXvzYcc2QdKWjcTF5L56NRZB7WUb
-X-Received: by 2002:adf:e013:0:20b0:493:f3f2:2241 with SMTP id ffacd0b85a97d-4a63a1e0760mr4855589f8f.23.1795019389980;
-        Wed, 18 Nov 2026 08:29:49 -0800 (PST)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:29:49 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:24 +0000
-Subject: [PATCH 02/34] perf jit: Add name of clock in error message
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=itVYuwkl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BEC21F000C9
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795019394;
+	bh=mpQ14+GdLtaXBs1vAiS/H/Eb+nDbMBoHEA7knBdij5w=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=itVYuwklDspWlq8vJuLDAGA1BJFiROvjYjwtu00NPmaoNsGBI5pGaiAdYCY1cACQb
+	 4Q18QkeAg9JWB6kAb9BJTRYWmJu6TuGhElVXjyNRk/2FXq50BAKbQhWCo/Mw4/G7uA
+	 h2aMq/hHt8ZWXhgzm//Kl3bnIb4N/BjwXeNZfymnIS565TxpxZpX08OxXOfy2wvvnQ
+	 /rL8F6qCgjcNq7Ri58UZB5FN45K7tzPXg6AlU8WLPppmZTNhY9netCBkEWMuVZeXey
+	 vlXqRXY19PYz7uoAtqkFPfkx61Ls+RQJ7BAxD01bsi+gOafvtSGcqHdJVoo41K0Ydt
+	 IfAT6oASoNycA==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id A87E1198003A;
+	Wed, 18 Nov 2026 11:29:52 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Wed, 18 Nov 2026 11:29:52 -0500
+X-ME-Sender: <xms:f9L9apq19Ryr7KH_yz1NKM0WVlgkqCDGn_CUqRo_i2k_5FLZJCGvZA>
+    <xme:f9L9ameCTefFfKes1BM-R9tXrz_bgszNxMo5ZLiMSDewgbdcDNCX37euaSaRH3gmf
+    zS0xpvH8peQmc26kIKvnoZ7FGFuTrM0RvUKcZrVKv-Myv2ttp2zUT6j>
+X-ME-Proxy-Cause: dmFkZTFAAJmpZpKPLgk3sScaSkQC9ZGHxDZWVPj0UB744Jregi1PyrTsYpTk8DjlRmYKsP
+    xOAibSBE6NizBm1jUjeUnR/gwFgv84q4UZhl/va8bLULEPu1wpnSDNH91/ptYGybkwB0Dq
+    Ox4KpPg+B3XHmoADUyjj6eeVma37k6LJdCJcHy5+NTChCRa8M346xYL8KpAGQgupRw1wGo
+    8dRYUMFha8SEb7LhMQqsuR9j0EY3+2I0jvtF1tKSC0A90KJ5D+9OBB609tR5AI/7Y9uUhH
+    mb6g+leHAQJnW0pg5z7S8QEMsuSZidbg+hWP5LKuUOzm+GfxnEocEuJ0kavRDDTXLaFZis
+    UBxrdwr3mDp3JUwKd1My4ExGHTn1305j6DDGwsCLWu7BERhi19AWg6jR1kUpMJgGfceqnH
+    rKlzwttwcsn8AMvrToeHyk8GhLpei4aV88BwdWpcfGqv38TuGovCC80XGAJ4y3IA77r13Y
+    sctkSUjnBPLQZQyZvNwKrgaKjDBWdHudkBld/UeFMLtgSsFihLLUyXz4fCr0HCoPgphNAv
+    +EDMHFmSvak/PvsJ2Umd8kbKbfMzlhurPYTmk8p97dbs2uSwMu712R6CLYsppowJ00rhd5
+    /ybwCsRYphByL38iPr58OTcVGPE8+cNwPOdh4WCaoJmeLiHTiSo3xlz/t+fg
+X-ME-Proxy: <xmx:gNL9aq27Gkfmzrmg3I6nY_fQ-y2YnfpF_jmeU85DI41TCwERolgt6Q>
+    <xmx:gNL9amCwd1jJzdM9PyO__0YykA8zNeaiuTt0bG6daqVFR-OiKNXe0g>
+    <xmx:gNL9auegJWLbuu6AuBsd2oxi2u44fAhleastDa9sbIlBeXjATiTy1Q>
+    <xmx:gNL9ar5N-jaGZnSsAdScJ_btqRjM_7BugcLp442Q0ratAFWEGNjx9g>
+    <xmx:gNL9apUoVwK7fM7E_seOREoSGMCJFEDmhESFxB8hHtCgf9gsyQKibXxU>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 5AD05F80093; Wed, 18 Nov 2026 11:29:51 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,45 +77,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Wed, 18 Nov 2026 17:29:30 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Shreesh Adiga" <16567adigashreesh@gmail.com>,
+ "Eric Biggers" <ebiggers@kernel.org>, "Demian Shulhan" <demyansh@gmail.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <de1538b0-bb42-4a7f-af9d-f7311a452fe1@app.fastmail.com>
+In-Reply-To: <20261118160110.1662470-1-16567adigashreesh@gmail.com>
+References: <20261118160110.1662470-1-16567adigashreesh@gmail.com>
+Subject: Re: [PATCH] lib/crc: Add 4-way folding in NEON crc64_nvme implementation
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-2-dad4d90747f6@linaro.org>
-References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
-In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
- Leo Yan <leo.yan@arm.com>, Amir Ayupov <aaupov@fb.com>, 
- Suyash Mahar <smahar@meta.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.15.2
 
-Use the full name in the error message. This is also a valid form of -k
-argument and says exactly what clock is needed rather than having to
-work out how these numbers map to clock names.
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/util/jitdump.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Wed, 18 Nov 2026, at 17:01, Shreesh Adiga wrote:
+> Use 4-way folding in the shared NEON crc64_nvme for AArch64
+> as well as AArch32. This improves performance by about 2x for 512 byte
+> data size on Cortex-X925.
+>
+> Add similar optimizations from x86 implementation like reducing
+> the 4x to 2x and doing a tail (len >= 32) 2x fold as well as partial
+> block handling to process lengths which are not multiple of 16 bytes.
+>
+> The partial block stage is enabled only for AArch64 as it needs the
+> 128-bit TBL instruction not available in AArch32.
+> Modified the loop dispatch on AArch64 to allow any len >= 128 rather
+> than just multiple of 16 bytes.
+>
+> Modified the pmull intrinsics from crc64-neon.h to use inline
+> assembly as the intrinsic usage was causing the compiler to
+> generate the fold constants via mov+movk+fmov/dup which was about 10
+> instructions for 16-byte constant instead of expected adrp+ld1.
+>
 
-diff --git a/tools/perf/util/jitdump.c b/tools/perf/util/jitdump.c
-index 45a05316b3ca..4c1a71702f62 100644
---- a/tools/perf/util/jitdump.c
-+++ b/tools/perf/util/jitdump.c
-@@ -220,7 +220,7 @@ jit_open(struct jit_buf_desc *jd, const char *name)
- 	 * validate event is using the correct clockid
- 	 */
- 	if (!jd->use_arch_timestamp && jit_validate_events(jd->session)) {
--		pr_err("error, jitted code must be sampled with perf record -k 1\n");
-+		pr_err("error, jitted code must be sampled with perf record -k CLOCK_MONOTONIC\n");
- 		goto error;
- 	}
- 
-
--- 
-2.43.0
-
+Why is that better?
