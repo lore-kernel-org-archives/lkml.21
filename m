@@ -1,109 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983473;
-	b=zKhUEjk9Y9M0IYvc2FXOwejhOrsy18lvQPo94K67P9hAj5y6wUecy//i4HtQtEeTyMke
-	 6eubatZZe1zk9D7vk2NNZpqInkSnxyB4aZchlB1nvCE9xXMTsTF51vj8UU1Qdz5p2vr3p
-	 j62OalHuK5TuFgGtXZiORSfYBvl2rUeQOAct3S3qcW7oFJ3mvNPdKO+TXXk6yWgr3Vn1+
-	 l01TfEcqkuwhm35ck+Gl+nImdjKRvvaShQitNv45/LEus/92vYahHLSKjBjRDSgyZ0weq
-	 RocbOCiBz5NPjQcHqA1dCRq3hmFTs1YTqZMFHhbXRgLxrC6QJ4S4c5RJy7AeXHX02ww==
+	t=1794983615;
+	b=Y8fH4usWjYJvnKgj5lKZHgnUUq1QSf9p+x++ZczDDedqetcNCxjuSXYqdfqhMIv6ppfH
+	 bUM2SwD2ogMmkksE15meWCYdKONRRdXR5caHMNPo/1GnYd89F6m9GeBz/phV6duPoYNK9
+	 uDJQvNcNDUqrTXhEOYN7OBtFi52qAdzHy/BcSvERhxYjX15qJuad+THtJeWvt9a5Qhe8B
+	 /99sm9frXYlui6uQSbPqlQ4b3dzS/Ha3RibPA3C/QoIW0fF9OPEddgK6WjqigPyV1RqOY
+	 F/6q2HC0KrbDPjtuhNrgMSf7oqT10LijWLDchB/B2gFm1WiG0zsiKcQ7n/9xSekcZsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983473;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:
-	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xnwLzNpN41lZ2zslZu7EVyglG2sUIr9VKey9Lh0r/zw=;
-	b=xX6YrzY7BBvSSItyFtr6lnPhJIzSyCJW4rcPzpt66bz8nEJysDxZsUG2zfracEgqUJUd
-	 zjD7H0R7oSi3vINejmAnYVOH9kTReLcGvN8FAUFiti6jPpJSHmfLrJY9Xf16tw7rSzIBE
-	 XZCRMxIC2lSGeP1kEGn7QJrhkW4KARWDahaG7TfmZpdSd0oue8smBbJuu61eBekAc4YPl
-	 roVY8Q5XwaVmpdksLKwr+50hRJYhjYnJukcES2M0soV3jINi0+QoPyKGJMzrfJSHFvS21
-	 HcvecWMeIEQD7ED/xSdAuaRAumFt+1c1DGhPO9Dxwoay24rtA3fk7i2ShfzMpcBQClQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983615;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+	b=AqnffawiIb2FdJuR5NxLPLGxAk6LD5AmvvV1+BbUJrrUm7XRFlLVC9siSJQxokbCo0jz
+	 DKu6rlIb5mROETlcJXTW7kwMqLq8TJYvZAgXQQ87OJgQ8Z948dmS/C3JmtwolKaK177T7
+	 hUyXoMh37rgurlTyxbSk5hHIpeOjeQJjXlI//ti7CrNEeG5mfnLhCzbxxi2xqizauWgaT
+	 4VGthChbrLyrDTDyjUo/RhQotd0JO2oVsXuel0XQomN9R79aZbfWm5lnTZtnOK0rcwj8A
+	 4ghLlmWI5fI4FStnUC/59hO98+J1eSPfLuim0lL/tyzWvJeyVaT8ex7HuUlMvKvSI0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=canonical.com;
-	spf=pass smtp.mailfrom=canonical.com;
-	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=NSQx9laD;
-	arc=none smtp.remote-ip=185.125.188.123
-Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ivQghRHa;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Fp4fJ3jX;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 559D0606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:31:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 559D0606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80C04606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:33:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80C04606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=NSQx9laD
-Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com [209.85.208.197])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DF0C952ADD
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:31:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1794983471;
-	bh=xnwLzNpN41lZ2zslZu7EVyglG2sUIr9VKey9Lh0r/zw=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=NSQx9laDPeQU2PRHrya3CMcJmlFy4yG7ic8hz2tD6neDuhMzfyLrsr0Ems5BIxb21
-	 C1wqruVaZq9nNEzhJwJ2sn1jXYDxCrZ2WpDgOx16AfKQTgWqC2r1EuFn3aX2nge4kM
-	 4usmDuYb3oeAlELi5jJqmxukfvG5O62OTk7mbsJi+7DB2oWvoyc3c+IYfou9NvVS/k
-	 A8NXRjhMDy9Ulr1xiV0dloThQHet9Rmgt2W999xr5vc74Ml9ZZILZblPeTxxQALzR7
-	 9b6FmCV7CjUCFwG1hiORutOz6wglXzHxjkBFFIGBLasrIHVX/51L8qJUBkPgpUkqrG
-	 E5I1FaHtRjjhKXVdzQx920yvQZLhn4Fg7nt63Ll5WWgaOw3ZfcUXKgzPNpTsxo0Kbv
-	 MyDszFU8J/5XprCOqnp24smxNH6W4eZiZrcKglDUtdJkMhvPxau8uzkF7c+oC9T+GB
-	 9PPGrokX+bVGAu7GyGirLXbB0znKvSQRroYnTw5A39X1kmWNdXAUiRkVaRLYLd4iap
-	 cgZOlGQQMlz0wMi7KTTkM+MZVC4wtGMOcPsHnX1Wog7k6ssGIeRpyBydyZSSph22SU
-	 X6F1Z/sf+lA8VWtLTSGJlRxvAFOsJO0TW4+e1qXl8h2wVqce8XbhZFpzBsoZnN8y/2
-	 bYMFLDbqOIE+IX5xeLQH5nhI=
-Received: by mail-lj1-f197.google.com with SMTP id 38308e7fff4ca-3adfcaea19aso3974591fa.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:31:11 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ivQghRHa;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Fp4fJ3jX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794983613;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+	b=ivQghRHa7aHXycTCAk13nbpBx5z3W1dNgH+vQvlGMON2X+QF8CBPBJYbgBV97RbUwDRtir
+	exKvSiGE3g88NUClB4MN3HXn5hqkE0eHVgrayFvP8p0bUp39vPsN01tn3Pl+j+4cRTPjmT
+	esvnfSTamqwBk1Sndn3g4AOGQaE90ak=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-625-XTjLNstQPEa8JAzq4L6qRA-1; Wed, 18 Nov 2026 01:33:31 -0500
+X-MC-Unique: XTjLNstQPEa8JAzq4L6qRA-1
+X-Mimecast-MFC-AGG-ID: XTjLNstQPEa8JAzq4L6qRA_1794983610
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4901562b819so439939f8f.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:33:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1794983610; x=1795588410; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+        b=Fp4fJ3jX8fL3RkP2MYtSO/q5wVOjCaqut2mwdt3VSNCGIWBmalQYnQEsH/v/Wp7w36
+         ppoCCpu6jqoQWcmpIKe6gsQnZUMBvAzBMk+W71ojaWP9ncG6lGw10PhcK8nDDi9gcukU
+         8Xce9Ujz27J7Nr2MYnUTyRls4WOCxuIfejnwF+RLNtpsMWAjeDrWOXEfombtByHcmuAc
+         O52cL4ND9OMyLIYVc5jvbt1NjWIeAjHn2noPkhTb+vstAcWbNJypjGOPXDNkxhVCbL4I
+         /OU8BKWNVeCeLR44YJJsrBPcx7A7FoNv+frcRCsKviZfdVJBvdyooV1r7cUcUUNE/ycW
+         7zHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983471; x=1795588271;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xnwLzNpN41lZ2zslZu7EVyglG2sUIr9VKey9Lh0r/zw=;
-        b=FGem7vSYkVFArIGl01GuRsaOUGxxrGx05xLLBKuSsCnRF96soPuqaHT/li8/CgZWrL
-         HMC36hNccVSNiYyDocpWmTZ9ShAeI+EsQn1vtB1SGooMp5WDSxCkHWqqsezaNIlEJ1oq
-         6YalMZjJ2e58Ono4egaaxzptJH4bODgvcG9wpaF4mRhcgftqS0lTpb3OD0RzwkjV3J4n
-         58wxd1FZ1X9MEjLML1f7ztY0dgudnya/U9/rUSq1WHlBLJsPb8XuvdTMWifHsqqpylk/
-         oybhMNcMK5HJsTqv3ypIvRKZy1vIPbHCfKDbS8utWuWYTFW6aCxRulEH9Yq31s1cj8+E
-         fmLQ==
-X-Forwarded-Encrypted: i=1; AL+hErEYFSOgTzXR7O78i1eevO2eG51kQT/I0hcAZC2tt3MQx3pha2dilIeGVGlxGl0kKBuIZkYjFqr32e50EI4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z899DSsUrrrVV0BeYVcIBE3EleBZAUjtQSdGv079JAci1DzTXCJ
-	drl27CXwQGbrqJf6gIRLVKUBA/fLqDzTaoOue5xFLijuuiqfr5GoDbWU9APvjx7D+ImPsTgljUL
-	BvWATP2EPIVr42ctxiuzsNar1u4ytEU6y1JGjhvz8ua5Xut8I36NjYXUN5PdWIPiWXH9oMld3tD
-	bucuyHdxV5+zyhdWljoe0=
-X-Gm-Gg: AYBFou321RlKcRDF8SypLTrr96zfYIEllyJjaUCybsxKSczJ5L8JwnkmgJ4K8TygNb+
-	ko26XWYIafMPdhVo/pjQkLOepMKS1FofBjelbTNNOYT3wSiBBa/6kmAb4jiR56KolqrxQcjrVVK
-	joFSey5YEO6Idap50KINVANQWUa3wDpgz+QDIn5wpVBzfnJqljk+AWmer8mNhYxDvFLLc8sjyHn
-	yBZyXx0S6O3tFNXdFg0vObUJp4VRnTzsmsJc1FIkjvcz3aXXIMyJrX8kMwPR1qQRLrmgXr9xX7b
-	dDq3F1zTjD8PziPa/fefvTn578AsH2f2mI1lwqdCZaempMLKYX4iKLv9cwQfe/CVGt7+8BHq85f
-	CVMR28829BnyVIomf5lFpqzNq4FL72fxl72Jwix8Zy6i3KVesyPEaq2wSMn1eRYyZnzPMypP6aP
-	cvfmRPP7Pn51cZ56yWUOlO8vSuoiaxXpivML9H6BDH1tIEHynfynTrDEoHFR7+557QdBuu9g/+E
-	rvsIDPZuIiOmV4+3S2YeELsn3U6jMWxPJiFfK0FZRGV6zB4G+42KOoy7BW7PifD884s/WD7Tt7G
-	wdGCxY8bZomp0Q==
-X-Received: by 2002:a05:6512:31d4:b0:5c0:b5c:408d with SMTP id 2adb3069b0e04-5c1a9d25a9amr520393e87.6.1794983471125;
-        Tue, 17 Nov 2026 22:31:11 -0800 (PST)
-X-Received: by 2002:a05:6512:31d4:b0:5c0:b5c:408d with SMTP id 2adb3069b0e04-5c1a9d25a9amr520381e87.6.1794983470649;
-        Tue, 17 Nov 2026 22:31:10 -0800 (PST)
-Received: from u-ThinkPad-X1-Extreme-Gen-4i ([103.155.100.4])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1aa77e605sm311349e87.47.2026.11.17.22.31.06
+        d=1e100.net; s=20260707; t=1794983610; x=1795588410;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+        b=zPXQFXnYkcqvt/knxUhKI7SkSNV/IrBbQO60xB3xCCeupO3WgOvh9H4GegnpuawyZA
+         9zkcVkmWLthXHfoNAgxLNxSE41YU6mumtwv9TYE7djONIGYrHH50+m/QKJxZz79qcELB
+         0ZiSoqTU5FG72ml5Gzurojg/dNKxjyO/i/17gAOC1ptma1r3PdS4O1fdXMwh4IHjJlgA
+         ZIi0YJklbsIJ3L7RVrh7KgwFzpYCJB1hlvSe+sZ9i+aV6CmKzK6RJYvfJJUImyxm2VfY
+         RO5TRyZP/DtWtuHNFq9yOXfxpgQ2H1Y53WwGMFa6ioUoCYNCkUvtLnPSLvkG8gkGrg9T
+         kn6g==
+X-Forwarded-Encrypted: i=1; AL+hErGCtVjnWWPpLEGsEmUWc+qWLbdwt4H392vAogGYBsVn0KRUClH8I6v1LdK4PhgNH/G/HBKMAAlr6ybaWcQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4UtA5+cnfMU07XNgB/Cn+SbmnRdU88qa2/gTPs5VCksJgCSym
+	I/2WfsejhAq7mb/wIzyK4QC4eZclcbpcXkGVJUdZPbHZ2vMt7MSzS9ofexV5e/H+wHbaXi9Wg4L
+	M4pogwl1e08XOIfD21Vh4kjbsJ7pXiXDYsDbDuBj5XtF0OgccHIBxmK+7pwUzYWecZA==
+X-Gm-Gg: AZFdTZeZN7hupBcvBiAmd1ntUEsEYLdgkzr31yo7iu5iiyN4IVmoZaatKk370VZJG1C
+	61bdL/WR2KM0AGPfWiH0KoUU1v20fjHJLLyMcPiSVNaDQ1629uhBOYEeTI0i88+lfQM7oWISp1N
+	DFCNTE48KiGXVm2Et+lgbmFof8Nm58FZqS7Yn85owqGB+ccr8HGHbcWd9H3b9RxXczKCVxHVA/b
+	nNFCHYeEog9Qo5dtP0g+bFvfpq5OfE57t79cGCyU1zOfkBYEumUQGqWW6EU181G12fJczAF9fV6
+	YcZvGAQs6G4sxObDhpvbHG5CyuWvvNJiI7olH/OarZuhcW0qXsJaz4Grruj9/Z8jDVysVg6I3ek
+	7JpZlpTj7vyk4V9iUQc9iD8SqSvGQjXD6/iOs1U7vLw4=
+X-Received: by 2002:a5d:5d0d:0:b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4a7963080e7mr331956f8f.47.1794983610321;
+        Tue, 17 Nov 2026 22:33:30 -0800 (PST)
+X-Received: by 2002:a5d:5d0d:0:b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4a7963080e7mr331922f8f.47.1794983609777;
+        Tue, 17 Nov 2026 22:33:29 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1520:4400:d78d:7b2d:2f5d:e08f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b5f1sm2935743f8f.21.2026.11.17.22.33.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:31:09 -0800 (PST)
-From: Aaron Ma <aaron.ma@canonical.com>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>,
-	"Derek J. Clark" <derekjohn.clark@gmail.com>,
-	Rong Zhang <i@rong.moe>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	platform-driver-x86@vger.kernel.org,
+        Tue, 17 Nov 2026 22:33:28 -0800 (PST)
+Date: Wed, 18 Nov 2026 01:33:26 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Nguyen Dinh Phi <phind.uet@gmail.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Asias He <asias@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4] platform/x86: lenovo-wmi-other: Deconflict battery with thinkpad_acpi
-Date: Wed, 18 Nov 2026 14:30:52 +0800
-Message-ID: <20261118063058.157862-1-aaron.ma@canonical.com>
-X-Mailer: git-send-email 2.53.0
+Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
+Message-ID: <20261118012321-mutt-send-email-mst@kernel.org>
+References: <20261117164916.2332953-1-phind.uet@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,182 +120,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117164916.2332953-1-phind.uet@gmail.com>
 
-ThinkPads expose battery charge thresholds and charge_behaviour through
-thinkpad_acpi's ACPI battery hook using raw sysfs attribute groups. The
-Lenovo WMI "Other Mode" driver also registers a power_supply_ext for
-charge_behaviour and charge_types on systems advertising those WMI
-capabilities.
+On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
+> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
+> vhost_vsock_mutex, but It is also read without that mutex in
+> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+> 
+> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
+> ioctl while the device has TX traffic. For example:
+> 
+>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
+>    vhost_vsock_dev_ioctl+0x25f/0x720
+>    __x64_sys_ioctl+0xc2/0x110
+>    x64_sys_call+0x299/0x20a0
+>    do_syscall_64+0xc9/0x510
+>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> 
+>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
+>    vhost_vsock_handle_tx_kick+0x41b/0x740
+>    vhost_run_work_list+0x97/0xc0
+>    vhost_task_fn+0x98/0x1f0
+>    ret_from_fork+0x2e2/0x3c0
+>    ret_from_fork_asm+0x1a/0x30
+> 
+>   value changed: 0x0000004d -> 0x00000032
+> 
+> Both readers load the CID once and works correctly with either the
+> old or the new value.
+> 
+> Mark the store with WRITE_ONCE() and the two lockless loads with
+> READ_ONCE(), so KCSAN knows the race is intentional.
 
-When lenovo-wmi-other registers first, thinkpad_acpi fails to create a
-duplicate charge_behaviour sysfs attribute and unregisters its battery
-extension. Conversely, registering or updating any power_supply_ext on
-the same battery runs sysfs_update_groups(), which removes standard
-power-supply attributes not owned by power_supply_core and wipes out
-thinkpad_acpi's charge_control_start_threshold,
-charge_control_end_threshold, and charge_behaviour files.
+You make it sounds like it is just KCSAN false positive.
+Is it?
+if yes, this should be data_race. If no, document why.
 
-Deconflict both ideapad_laptop (VPC2004 with GBMD and SBMC) and
-thinkpad_acpi (LEN0268, LEN0068, or IBM0068 with BDSG and BICG) via a
-per-driver table guarded by IS_ENABLED() in Kconfig, and update the
-force_load_psy_ext description accordingly.
 
-Fixes: 9ca8fc065b88b ("platform/x86: lenovo-wmi-other: Add WMI battery charge limiting")
-Reviewed-by: Derek J. Clark <derekjohn.clark@gmail.com>
-Co-developed-by: Rong Zhang <i@rong.moe>
-Signed-off-by: Rong Zhang <i@rong.moe>
-Signed-off-by: Aaron Ma <aaron.ma@canonical.com>
----
-Changes in v4:
-- Make hids const char * const * with separate HIDs and methods macros,
-  as noted by Ilpo Järvinen.
-- Move HID lookup and method checks into lwmi_acpi_device_has_methods(),
-  as suggested by Ilpo Järvinen.
 
-Changes in v3:
-- Wrap deconfliction table entries in #if IS_ENABLED(CONFIG_*) and drop
-  driver_enabled, as suggested by Rong Zhang.
-- Group deconfliction entries per driver (HIDs list + methods list).
+> 
+> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
+> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+> ---
+>  drivers/vhost/vsock.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+> index 88a310390eb0..f26c59013075 100644
+> --- a/drivers/vhost/vsock.c
+> +++ b/drivers/vhost/vsock.c
+> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+>  
+>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
+>  				   lockdep_is_held(&vhost_vsock_mutex)) {
+> -		u32 other_cid = vsock->guest_cid;
+> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+>  
+>  		/* Skip instances that have no CID yet */
+>  		if (other_cid == 0)
+> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+>  		hdr = virtio_vsock_hdr(skb);
+>  
+>  		/* Only accept correctly addressed packets */
+> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
+> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
+>  		    le64_to_cpu(hdr->dst_cid) ==
+>  		    vhost_transport_get_local_cid())
+>  			virtio_transport_recv_pkt(&vhost_transport, skb,
 
-Changes in v2:
-- Consolidate IdeaPad and ThinkPad deconfliction into a table of ACPI
-  device IDs, method pairs, and driver configuration checks, as suggested
-  by Derek J. Clark.
-- Check GBMD and SBMC for IdeaPads, and BDSG and BICG for ThinkPads,
-  instead of relying only on ThinkPad ACPI device presence.
-- Check whether the corresponding driver is enabled before looking up
-  its ACPI device, including for ideapad_laptop.
-- Update the force_load_psy_ext description to cover both drivers.
+Will prevent compiler from hoisting the reads out of the loops.
+Does it matter?
 
-v3: https://lore.kernel.org/platform-driver-x86/20261113055726.952551-1-aaron.ma@canonical.com/
-v2: https://lore.kernel.org/platform-driver-x86/20261112074823.853819-1-aaron.ma@canonical.com/
-v1: https://lore.kernel.org/platform-driver-x86/20261111083529.727285-1-aaron.ma@canonical.com/
 
- drivers/platform/x86/lenovo/wmi-other.c | 84 ++++++++++++++++++++-----
- 1 file changed, 70 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platform/x86/lenovo/wmi-other.c
-index bd64e7b44669d..485e9a9e4afbd 100644
---- a/drivers/platform/x86/lenovo/wmi-other.c
-+++ b/drivers/platform/x86/lenovo/wmi-other.c
-@@ -189,10 +189,10 @@ MODULE_PARM_DESC(relax_fan_constraint,
- static bool force_load_psy_ext;
- module_param(force_load_psy_ext, bool, 0444);
- MODULE_PARM_DESC(force_load_psy_ext,
--	"This option will skip checking if the ideapad_laptop driver will conflict "
-+	"This option will skip checking if the ideapad_laptop or thinkpad_acpi driver will conflict "
- 	"with adding an extension to set the battery charge behavior and battery charge "
- 	"control end threshold. It will also skip checking if the BIOS reports that "
--	"those features are fully supported. It is recommended to blacklist the ideapad "
-+	"those features are fully supported. It is recommended to blacklist the conflicting "
- 	"driver before using this option.");
- 
- /* ======== HWMON (component: lenovo-wmi-capdata 00 & fan) ======== */
-@@ -905,19 +905,69 @@ static acpi_status lwmi_acpi_match(acpi_handle handle, u32 lvl,
- 	return AE_CTRL_TERMINATE;
- }
- 
-+struct lwmi_psy_deconflict {
-+	const char * const *hids;
-+	char * const *methods;
-+};
-+
-+#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) || IS_ENABLED(CONFIG_THINKPAD_ACPI)
-+#define LWMI_PSY_DECONFLICT_HIDS(...) \
-+	((const char * const[]) { __VA_ARGS__, NULL })
-+#define LWMI_PSY_DECONFLICT_METHODS(...) \
-+	((char * const[]) { __VA_ARGS__, NULL })
-+#endif
-+
-+static const struct lwmi_psy_deconflict lwmi_psy_deconflict_list[] = {
-+#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP)
-+	{
-+		.hids = LWMI_PSY_DECONFLICT_HIDS("VPC2004"),
-+		.methods = LWMI_PSY_DECONFLICT_METHODS("GBMD", "SBMC"),
-+	},
-+#endif /* IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) */
-+#if IS_ENABLED(CONFIG_THINKPAD_ACPI)
-+	{
-+		.hids = LWMI_PSY_DECONFLICT_HIDS("LEN0268", "LEN0068", "IBM0068"),
-+		.methods = LWMI_PSY_DECONFLICT_METHODS("BDSG", "BICG"),
-+	},
-+#endif /* IS_ENABLED(CONFIG_THINKPAD_ACPI) */
-+};
-+
-+/**
-+ * lwmi_acpi_device_has_methods() - Check if an ACPI device has all methods
-+ * @hid: ACPI hardware ID to match
-+ * @methods: NULL-terminated array of required ACPI method names
-+ *
-+ * Return: true if a matching ACPI device is present and exposes all @methods,
-+ * or false otherwise.
-+ */
-+static bool lwmi_acpi_device_has_methods(const char *hid, char * const *methods)
-+{
-+	acpi_handle handle = NULL;
-+	int ret;
-+
-+	ret = acpi_get_devices(hid, lwmi_acpi_match, &handle, NULL);
-+	if (ret || !handle)
-+		return false;
-+
-+	for (unsigned int i = 0; methods[i]; i++) {
-+		if (!acpi_has_method(handle, methods[i]))
-+			return false;
-+	}
-+
-+	return true;
-+}
-+
- /**
-  * lwmi_om_psy_ext_init() - Hooks power supply extension to device battery
-  * @priv: Pointer to the lwmi_om_priv drvdata.
-  *
-- * Checks if the ideapad_laptop driver is going to manage charge attributes first,
-- * then if not, hooks the battery to our WMI methods if they are supported.
-+ * Checks if the ideapad_laptop or thinkpad_acpi driver is going to manage
-+ * charge attributes first, then if not, hooks the battery to our WMI methods
-+ * if they are supported.
-  */
- static void lwmi_om_psy_ext_init(struct lwmi_om_priv *priv)
- {
--	static const char * const ideapad_hid = "VPC2004";
--	acpi_handle handle = NULL;
- 	unsigned int props = 0;
--	int ret;
- 
- 	if (lwmi_psy_prop_is_supported(priv, POWER_SUPPLY_PROP_CHARGE_BEHAVIOUR))
- 		props |= LWMI_PSY_PROP_BEHAVIOUR;
-@@ -928,14 +978,20 @@ static void lwmi_om_psy_ext_init(struct lwmi_om_priv *priv)
- 	if (force_load_psy_ext)
- 		goto load_psy_ext;
- 
--	/* Deconflict ideapad_laptop driver */
--	ret = acpi_get_devices(ideapad_hid, lwmi_acpi_match, &handle, NULL);
--	if (ret)
--		return;
-+	for (unsigned int i = 0; i < ARRAY_SIZE(lwmi_psy_deconflict_list); i++) {
-+		const struct lwmi_psy_deconflict *entry = &lwmi_psy_deconflict_list[i];
- 
--	if (handle && acpi_has_method(handle, "GBMD") && acpi_has_method(handle, "SBMC")) {
--		dev_dbg(&priv->wdev->dev, "ideapad_laptop driver manages battery for device\n");
--		return;
-+		for (unsigned int j = 0; entry->hids[j]; j++) {
-+			const char *hid = entry->hids[j];
-+
-+			if (!lwmi_acpi_device_has_methods(hid, entry->methods))
-+				continue;
-+
-+			dev_dbg(&priv->wdev->dev,
-+				"ACPI device %s manages battery for device\n",
-+				hid);
-+			return;
-+		}
- 	}
- 
- load_psy_ext:
--- 
-2.53.0
+> @@ -859,7 +859,7 @@ static int vhost_vsock_set_cid(struct vhost_vsock *vsock, u64 guest_cid)
+>  	if (vsock->guest_cid)
+>  		hash_del_rcu(&vsock->hash);
+>  
+> -	vsock->guest_cid = guest_cid;
+> +	WRITE_ONCE(vsock->guest_cid, guest_cid);
+>  	hash_add_rcu(vhost_vsock_hash, &vsock->hash, vsock->guest_cid);
+>  	mutex_unlock(&vhost_vsock_mutex);
+>  
+> -- 
+> 2.53.0
 
