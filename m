@@ -1,60 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020783;
-	b=nqWE0OcLoQy03+zUT4GBdiWnaYREEfgab60kGHqcZ9hq8IUCGJ/C1i/jFOP9hchXMUhA
-	 7gUfleUSsRKk18+z6wU22aXzueie+4Q6uKvDgK+nF56AIoLY0j5p28EGCk2jYrlBoPAlT
-	 K7Z5y9MC1HXNXm9W/1MaxgJHeDC4R+y90PZs8+LusIzXUKXUQqlnCdw2VLmjFzYTBnS1X
-	 S0hFaGT3Vd7QTxw2q+T0O83vioTOQLMSDi7QbdkTHsgHoXEyDblg6jfhmZltnsylM/zDW
-	 NTsX0tLz01wzl5JUjALm6CYhB34M+G+x80K7l41qxts03Yn7nxmFVPpJysxXEoF3n5Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020783;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=qEXY815K3czAZD0w1DbKowETMw8pki3I34kxi7YffyU=;
-	b=eg5DQu51Klvje1mHJXTgoJmY54BJY05LNY54fDqgFXEq1Kix5syw+XzUg3zKBLhblH2K
-	 6o5/iZKNtpfZ7fjvx+oVFPc1GpgoFKhW0/tcT05W3fs5s83Xl5RdMn5A4HHbsVnU/zLhB
-	 sfWFIBJ1K6RPENJnmY7J0BaI2KEb4DSDJ7pF93SNaPoaWh7cWjZKUTRBFbo8XEPtmPZji
-	 MYwTLOTRjYs4fQ2dWKO+tqmRp/gx4yK6p9wDgvamcTpNB+7/aFT9avXv9Lqx9oChZTZjB
-	 GYFq+q9OOiM355ssqB+AlcYBq+9Jd3p6TS8M0sasSpMzEbmvRdL5E9Tl/Sv1MlJjqLQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nlzPAAzK;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.55
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795020775;
+	b=WG8GhuXH9BbBnJHt2Ri9mUYVjM5OvxF8KvNyRI6XkRBHqyt2Oof/tKEddDqu98qvdnVS
+	 enEu/NVzvI+8ZqgNvHWOw/EJAFWr9jFv3tOmBwC2Sjg4StR5ACmQPVMkvCyWgY+JfUogo
+	 KqK3jg12SiY/JsI0DxI/3SO0CGj+rBJf3V/ltwTg6ieePMFGJL1jk1JFZfjfE96VVWfuP
+	 dHUr1hUwFrQ8zW4AthKlqxoH84nYguG+uZRxoy7u7jGZjhM/GkSqo31Nw5+0bCNU28Wos
+	 HYW0/3HmGNQTSUC5gen2IqbkEmnwH32BiHPwN053/Obgjf7nRS0xD/2lTam3rwyfrbg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020775;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=k6aKBs05qAIGo8eiNT4of11ZOAH6eFPWZ9+ESGI1HOs=;
+	b=zc2vzD3J8Vmz6Oswg06yS8KIM1Eg/ARuLKpoPvTyByazwpF/1I/dJ1YMrtbjll2Tp6Ud
+	 3ELT82DXp4rRzHdN5zqgwdjzp4pZjo04zHhiK4Rs4FClbOoyv448I0r9bXtSLZdfb1V4m
+	 eTjtvip4vl9uYBLh71kOOe+JF/hpapNaYWGNJ10TsjHqfCGZrDjXkNdR/sxkQfCKBHV9z
+	 X+XjXeS71TYjfmGwNeSAzVjw5Jj6mKkRinI/Xh0ATyciyW0NEwglszn5qZJyVdql2bMp5
+	 M9lLU94f5mjP9/onC0xK1ChjUKQA5w2XdW+8QiNh6qsO/C+ubWWQy/QMgiZtVIp4fAg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=N3zm5IyB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.55
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013055.outbound.protection.outlook.com [40.93.201.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DB1060A6F6B
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:53:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DB1060A6F6B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC0BE60A2631;
+	Wed, 18 Nov 2026 16:52:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC0BE60A2631
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nlzPAAzK
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1B43D4E40546;
-	Wed, 18 Nov 2026 16:53:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D843C5FE9B;
-	Wed, 18 Nov 2026 16:53:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D93A11BC28EE;
-	Wed, 18 Nov 2026 17:52:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020778; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=qEXY815K3czAZD0w1DbKowETMw8pki3I34kxi7YffyU=;
-	b=nlzPAAzKTeecGqjp3FQ5HbH5c98OKdqg+fGn5IHEMBYahN+cJJt34qGQMjXYuwQbBd/qIi
-	a0Bng8ScR1RpOXJBJhqWnK89KP1Wy4bcXeyqQzYdXmx8tLxaYt3XORS9yc8iR2h2RINOAk
-	inxbmJqLBV1jIMLXE0cRfjQmB2EPGe8GXE2DtdVvb4Esc1iplcqO317UOIPYF5OuLYBEWK
-	b7DDfdJO69OJlCQi4aMT2khhTbdKBp1I841R7CaRFXqBw8eQN18gpr29NAT+18gtPsnDCF
-	SFf5hyLM+5qojmx2TPYZmWmj2O5gsUq+VgBpDT2SYgRAS+I3Z0087k3AUiwPOA==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 18 Nov 2026 17:50:10 +0100
-Subject: [PATCH RFC v3 27/31] drm/tests: atomic: add tests for
- drm_atomic_shutdown_encoder()
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=N3zm5IyB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AdSjMR5rR+06mlqdzhiTi9dyCzKag2ylRbIzRbCpqlVuIN6eay5HPIrqovSwpk7cW8lr5y1qHz69nd6KimsJKxL8NF8HKTNR5Y23I4HhGf/FS6Sx0Ye9T4SbJ+5YMkXauRz0GFZSZqNvJzQ7YD4WpiXJjL68OyhBaCGfb5hNW43LKszK6VobiDewo3eX7v6SFIY29tD/HweDYWz9mPlATq9OTlMZ5gdPo0eXiUprcH/+ND1iq/s8t+62+Pa7G1nCgdJU9p+CTHLwHLcJch/fBzZ3jFL8nc4/hKYzFfWhdUUBiDAFU4IXRzHhJvhFiuV4rYUF7srpcrjv3bu0yfmwzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k6aKBs05qAIGo8eiNT4of11ZOAH6eFPWZ9+ESGI1HOs=;
+ b=JspJFD9UUfx8HXnR4HNPTelcJAi9qTJW6egCHI+LaGDEacwd2TUz6EDv5YqEsf+cM9eni9XHg7HFtLrbgx5+dyihcAsHUzk+n87OqjJRT4qUZcI/g6Urvh62bWd2p40W+fVAC7U2hHzmQusA/0wmMavMhaCuBs5znV2xeOlNtm59508GQkXvrjrvPxJbQSObxS7NCIZqeq5fvhTZHXbS1WnpQIsD5MjV0MC0X+ydDP1SVd8dBA8BKzkRUrJhs9XS8DsbaDNQU48pTv3CZRMYspBbrEyLaN6sxARS/BSi8Po0X0hC/pi2rIvehWeWF6A99BqUF5dyjcMzU4v1h+5GTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k6aKBs05qAIGo8eiNT4of11ZOAH6eFPWZ9+ESGI1HOs=;
+ b=N3zm5IyBFUjDT4gXrJjeRVVI1j+aadS8D6XMQdfj2A89lLWkeJbGFOkK3ofDVGnAopOpadfjKNHda0lKmoS+TYQEBIKxF67vl2x6SoGD3D/ii67Jb0/b3bhV137EjkhUleGxGRFc7BIOVue2AcQkz2cJh/i9UUSkWoyMgz3XJ7qGpPlUk/Nl8j0B4gYxrTq1jv5X/LzL5sCvWNwZmHP5gMQxExGPsVpJpMKHKkjVztLucoxTcSQj7T6ajejs11a9bX52ZX1Np1Wb8vCAS2nDWi3+5j6VOL5/cdVHIwysm52VA6/L/1umej/sawjlGYlDjJ1z1dcoDZOhQYhi1JyxJA==
+Received: from DS1PR06CA0026.namprd06.prod.outlook.com (2603:10b6:8:23e::18)
+ by IA1PR12MB8465.namprd12.prod.outlook.com (2603:10b6:208:457::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 16:52:41 +0000
+Received: from DS1PEPF00053452.namprd04.prod.outlook.com
+ (2603:10b6:8:23e:cafe::2f) by DS1PR06CA0026.outlook.office365.com
+ (2603:10b6:8:23e::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Wed,
+ 18 Nov 2026 16:52:41 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF00053452.mail.protection.outlook.com (10.167.23.234) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 16:52:40 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 08:52:18 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 18 Nov
+ 2026 08:52:18 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server id 15.2.2562.56 via Frontend Transport; Wed, 18
+ Nov 2026 08:52:13 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Gal Pressman <gal@nvidia.com>, Leon Romanovsky <leon@kernel.org>, "open
+ list" <linux-kernel@vger.kernel.org>, <linux-rdma@vger.kernel.org>, Mark
+ Bloch <mbloch@nvidia.com>, Parav Pandit <parav@nvidia.com>, Roi Dayan
+	<roid@nvidia.com>, Saeed Mahameed <saeedm@nvidia.com>, Shay Drory
+	<shayd@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Uri Dar
+	<udar@nvidia.com>, Vu Pham <vuhuong@nvidia.com>
+Subject: [PATCH net] net/mlx5: E-Switch, skip vport change work for disabled vports
+Date: Wed, 18 Nov 2026 18:51:55 +0200
+Message-ID: <20261118165155.1946097-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,281 +118,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-drm-bridge-hotplug-v3-27-44bb3b4a828f@bootlin.com>
-References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
-In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00053452:EE_|IA1PR12MB8465:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b93f958-68ec-403e-baa7-08df45945bc1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|18002099003|261009223027099003|11063799006|261026140227099003|5023799004|56012099006|10067099003|261021123027099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	bUpbX94N8QKKz0J/tnMjYmD3ZTf9h2vAffNKsZj/vgjwF1vUM7IopxbuvHLp+hn5XwWAjvGs2cHlVNlQ6cOMg9Yu5CI73m8znNWTRFS7L3t/LGa6+iBhDlQRsbKZe822+wiwKTkSFBsajAN7Sstbu7cEjTr1+jnsXQiC6mzJ9WXBDUT+jm9EaHED6PZb4vfZZntbT4Fybkf00N/eAV8P8pE+0NkTIrXOwt/NGjjIE+Z0cDFxeOSlehU5WgD2StwvQDvMFJ0l4Q4N0mHQW4uOJ2GaCRuIU6+H3XT7uUvCKxdivOby/FJrO6k7MR1tGwx9a8WnaydINWpSp5B7DaBk3kGrG7qQQJY68peLHriIBaH58fSi20boAk+Tpxzuw+EayjUTAS1IF5Vll0+98/nuuZJPs3ngh1VYnWZ3Atfm+iL2a5OBodPaJADzaLZ1jTp+0yi8hnwQaQSzDYZsfkbKfwXYrfDmgUoA1dDYcEzUVBah3brCqa8oNHvOW2d7Ujv88jxBdb6s1H7Gh7YoCM401OZ5/O2qoCIeGLKU49t5mvrEKSIiFBYpBAmJneTQKwAiiFQG4OD3K+EK4ZJRAogdnAEDtgeiT+B2T7X2cqnjo45NmVtIDVleiCtArs20TsEyX7DoI2Hh2m6Kd9BrywHnQDSyKnfZQc13ev4YFsiPR7Fb5JfNv5XdDiQ9NyECeeojLT+CrY/0Y9QGJ7L5NDSpsw==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(18002099003)(261009223027099003)(11063799006)(261026140227099003)(5023799004)(56012099006)(10067099003)(261021123027099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	jIlgKIonMW/azLtFETkthQcjD/IjQyFDOw1IsE32w+egwRZKLY7LqoFQ4xa8S56hYySpIfE1j+g+0b9BnyEGKvL+EwaQZO4ZlyPNHBqjf/eZDOJPH5y4w6uLkqosE/NWivGwBRFLfNO9mAMn1+AGvTd7tVVrl5frzdRyIdhuThY77FNXQl6bMr4JYFpvyWk3mkcqqybPR2kaNnfFaYFyAIaqTqY7gEbV9q3JKVv2wuuUwref3JIaS3RmIlQ43Ek0Fxsb+ZpXMadkTbtHdA3N6HK7BE+nF3nuXjATBIGJKjKzOgHq2NBW33KnATCiQHYyA7sgGbJPGM4MZoR9vB7+6Zy3RKFKM0lGZMnK37LZs+AU5hP8aQpcfDtzWaR5jYrGhcd1+TBIsqOct9nzYVKbqkMstyAGlla49IQdoZG9XkoT6QfRC+BZ0ZXiBjiZGPSi
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 16:52:40.5546
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b93f958-68ec-403e-baa7-08df45945bc1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DS1PEPF00053452.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8465
 
-Add KUnit tests to exercise the newly added drm_atomic_shutdown_encoder(),
-including in the case of a card with multiple CRTCs.
+From: Uri Dar <udar@nvidia.com>
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+A vport change work can still be pending when its vport is disabled.
+For an SF, the vport is then freed in FW and the work's query fails
+with syndrome 0x29d722. A disabled vport has nothing to sync, so skip
+the work.
 
+Fixes: d970812b91d0 ("net/mlx5: E-switch, Add eswitch helpers for SF vport")
+Signed-off-by: Uri Dar <udar@nvidia.com>
+Reviewed-by: Shay Drory <shayd@nvidia.com>
+Reviewed-by: Mark Bloch <mbloch@nvidia.com>
+Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
 ---
+ drivers/net/ethernet/mellanox/mlx5/core/eswitch.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-New patch in v3
----
- drivers/gpu/drm/tests/drm_bridge_test.c | 209 ++++++++++++++++++++++++++++++++
- 1 file changed, 209 insertions(+)
-
-diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/tests/drm_bridge_test.c
-index 15583ade8494..ee10c8801fb1 100644
---- a/drivers/gpu/drm/tests/drm_bridge_test.c
-+++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-@@ -5,6 +5,7 @@
- #include <linux/cleanup.h>
- #include <linux/media-bus-format.h>
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/eswitch.c b/drivers/net/ethernet/mellanox/mlx5/core/eswitch.c
+index 76f808e06a88..174197f69888 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/eswitch.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/eswitch.c
+@@ -758,7 +758,8 @@ static void esw_vport_change_handler(struct work_struct *work)
+ 	struct mlx5_eswitch *esw = vport->dev->priv.eswitch;
  
-+#include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_atomic_state_helper.h>
- #include <drm/drm_atomic_uapi.h>
-@@ -945,6 +946,213 @@ static struct kunit_suite drm_bridge_alloc_test_suite = {
- 	.test_cases = drm_bridge_alloc_tests,
- };
- 
-+/*
-+ * Two CRTC/encoder/bridge/connector pipelines on the same DRM device, to
-+ * check that drm_atomic_shutdown_encoder() only stops one.
-+ */
-+struct drm_bridge_two_priv {
-+	struct drm_device drm;
-+	struct drm_plane *plane[2];
-+	struct drm_crtc *crtc[2];
-+	struct drm_encoder encoder[2];
-+	struct drm_bridge_priv *bridge[2];
-+	struct drm_connector *connector[2];
-+};
-+
-+static const struct drm_bridge_funcs drm_test_bridge_atomic_no_destroy_funcs = {
-+	.atomic_enable		= drm_test_bridge_atomic_enable,
-+	.atomic_disable		= drm_test_bridge_atomic_disable,
-+	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-+	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_create_state	= drm_atomic_helper_bridge_create_state,
-+};
-+
-+static struct drm_bridge_two_priv *
-+drm_test_bridge_two_init(struct kunit *test)
-+{
-+	struct drm_bridge_two_priv *priv;
-+	struct drm_device *drm;
-+	struct device *dev;
-+	int i, ret;
-+
-+	dev = drm_kunit_helper_alloc_device(test);
-+	if (IS_ERR(dev))
-+		return ERR_CAST(dev);
-+
-+	priv = drm_kunit_helper_alloc_drm_device(test, dev, struct drm_bridge_two_priv,
-+						 drm, DRIVER_MODESET | DRIVER_ATOMIC);
-+	if (IS_ERR(priv))
-+		return priv;
-+
-+	drm = &priv->drm;
-+
-+	for (i = 0; i < 2; i++) {
-+		priv->bridge[i] = devm_drm_bridge_alloc(dev, struct drm_bridge_priv, bridge,
-+							&drm_test_bridge_atomic_no_destroy_funcs);
-+		if (IS_ERR(priv->bridge[i]))
-+			return ERR_CAST(priv->bridge[i]);
-+
-+		priv->plane[i] = drm_kunit_helper_create_primary_plane(test, drm,
-+								       NULL, NULL, NULL, 0, NULL);
-+		if (IS_ERR(priv->plane[i]))
-+			return ERR_CAST(priv->plane[i]);
-+
-+		priv->crtc[i] = drm_kunit_helper_create_crtc(test, drm,
-+							     priv->plane[i], NULL, NULL, NULL);
-+		if (IS_ERR(priv->crtc[i]))
-+			return ERR_CAST(priv->crtc[i]);
-+
-+		ret = drmm_encoder_init(drm, &priv->encoder[i], NULL, DRM_MODE_ENCODER_TMDS, NULL);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		priv->encoder[i].possible_crtcs = drm_crtc_mask(priv->crtc[i]);
-+
-+		priv->bridge[i]->bridge.type = DRM_MODE_CONNECTOR_VIRTUAL;
-+
-+		ret = drm_kunit_bridge_add(test, &priv->bridge[i]->bridge);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		ret = drm_bridge_attach(&priv->encoder[i], &priv->bridge[i]->bridge, NULL, 0);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		priv->connector[i] = drm_bridge_connector_init(drm, &priv->encoder[i]);
-+		if (IS_ERR(priv->connector[i]))
-+			return ERR_CAST(priv->connector[i]);
-+	}
-+
-+	drm_mode_config_reset(drm);
-+
-+	return priv;
-+}
-+
-+static int drm_test_enable_pipeline(struct kunit *test,
-+				    struct drm_device *drm,
-+				    struct drm_crtc *crtc,
-+				    struct drm_connector *connector,
-+				    const struct drm_display_mode *mode)
-+{
-+	struct drm_modeset_acquire_ctx ctx;
-+	int ret;
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+retry:
-+	ret = drm_kunit_helper_enable_crtc_connector(test, drm, crtc, connector, mode, &ctx);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry;
-+	}
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Test that drm_atomic_shutdown_encoder() disables the CRTC feeding the
-+ * encoder and detaches its connector.
-+ */
-+static void drm_test_drm_atomic_shutdown_encoder(struct kunit *test)
-+{
-+	struct drm_bridge_init_priv *priv;
-+	struct drm_display_mode *mode;
-+	struct drm_bridge_priv *bridge_priv;
-+	int ret;
-+
-+	priv = drm_test_bridge_init(test, &drm_test_bridge_atomic_funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	ret = drm_test_enable_pipeline(test, &priv->drm, priv->crtc, priv->connector, mode);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	bridge_priv = priv->test_bridge;
-+	KUNIT_ASSERT_EQ(test, bridge_priv->enable_count, 1);
-+	KUNIT_ASSERT_EQ(test, bridge_priv->disable_count, 0);
-+	KUNIT_ASSERT_PTR_EQ(test, priv->connector->state->crtc, priv->crtc);
-+
-+	drm_atomic_shutdown_encoder(&priv->encoder);
-+
-+	KUNIT_EXPECT_EQ(test, bridge_priv->disable_count, 1);
-+	KUNIT_EXPECT_NULL(test, priv->connector->state->crtc);
-+	KUNIT_EXPECT_FALSE(test, priv->crtc->state->active);
-+}
-+
-+/*
-+ * Test that drm_atomic_shutdown_encoder() is a no-op when the encoder is not
-+ * driving any output.
-+ */
-+static void drm_test_drm_atomic_shutdown_encoder_disabled(struct kunit *test)
-+{
-+	struct drm_bridge_init_priv *priv;
-+	struct drm_bridge_priv *bridge_priv;
-+
-+	priv = drm_test_bridge_init(test, &drm_test_bridge_atomic_funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	bridge_priv = priv->test_bridge;
-+
-+	drm_atomic_shutdown_encoder(&priv->encoder);
-+
-+	KUNIT_EXPECT_EQ(test, bridge_priv->enable_count, 0);
-+	KUNIT_EXPECT_EQ(test, bridge_priv->disable_count, 0);
-+	KUNIT_EXPECT_NULL(test, priv->connector->state->crtc);
-+}
-+
-+/*
-+ * Test that drm_atomic_shutdown_encoder() only stops the pipeline of the
-+ * given encoder and leaves the other CRTC untouched.
-+ */
-+static void drm_test_drm_atomic_shutdown_encoder_two_crtcs(struct kunit *test)
-+{
-+	struct drm_bridge_two_priv *priv;
-+	struct drm_display_mode *mode;
-+	int ret;
-+
-+	priv = drm_test_bridge_two_init(test);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	ret = drm_test_enable_pipeline(test, &priv->drm, priv->crtc[0], priv->connector[0], mode);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	ret = drm_test_enable_pipeline(test, &priv->drm, priv->crtc[1], priv->connector[1], mode);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	KUNIT_ASSERT_EQ(test, priv->bridge[0]->enable_count, 1);
-+	KUNIT_ASSERT_EQ(test, priv->bridge[1]->enable_count, 1);
-+
-+	drm_atomic_shutdown_encoder(&priv->encoder[0]);
-+
-+	KUNIT_EXPECT_EQ(test, priv->bridge[0]->disable_count, 1);
-+	KUNIT_EXPECT_NULL(test, priv->connector[0]->state->crtc);
-+	KUNIT_EXPECT_FALSE(test, priv->crtc[0]->state->active);
-+
-+	KUNIT_EXPECT_EQ(test, priv->bridge[1]->disable_count, 0);
-+	KUNIT_EXPECT_PTR_EQ(test, priv->connector[1]->state->crtc, priv->crtc[1]);
-+	KUNIT_EXPECT_TRUE(test, priv->crtc[1]->state->active);
-+}
-+
-+static struct kunit_case drm_atomic_shutdown_encoder_tests[] = {
-+	KUNIT_CASE(drm_test_drm_atomic_shutdown_encoder),
-+	KUNIT_CASE(drm_test_drm_atomic_shutdown_encoder_disabled),
-+	KUNIT_CASE(drm_test_drm_atomic_shutdown_encoder_two_crtcs),
-+	{ }
-+};
-+
-+static struct kunit_suite drm_atomic_shutdown_encoder_test_suite = {
-+	.name = "drm_atomic_shutdown_encoder",
-+	.test_cases = drm_atomic_shutdown_encoder_tests,
-+};
-+
- /**
-  * drm_test_bridge_chain_verify_fmt - Verify bridge chain format selection
-  * @test: pointer to KUnit test object
-@@ -1375,6 +1583,7 @@ kunit_test_suites(
- 	&drm_bridge_get_current_state_test_suite,
- 	&drm_bridge_helper_reset_crtc_test_suite,
- 	&drm_bridge_alloc_test_suite,
-+	&drm_atomic_shutdown_encoder_test_suite,
- 	&drm_bridge_bus_fmt_test_suite,
- );
+ 	mutex_lock(&esw->state_lock);
+-	esw_vport_change_handle_locked(vport);
++	if (vport->enabled)
++		esw_vport_change_handle_locked(vport);
+ 	mutex_unlock(&esw->state_lock);
+ }
  
 
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
 -- 
-2.56.1
+2.44.0
 
