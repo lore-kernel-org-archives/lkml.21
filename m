@@ -1,67 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015782;
-	b=EJeyGgYbc+ZdBNZKoPCsm8vFgorPr1noLIqX1bj0cZHztVn8JlwBNrN5/3S45nJUluFi
-	 3SJNnOD8ceq/Hqv9fAXW8nVJq0oGSK/vTA6AeIxgyOWoJFee5vXtkPdIY5G2Jv4SmJ2Ey
-	 WyUOhseE5mpHkv3b6M+S/gkUgak6YAwZrd/+tQPluXT38ngD4ANpcu0SlX4S3MNEU9siP
-	 JE55j6D4JBtJog/T6eXKqvyLIkRApNu+SlwvDGXD3mtekzqvSpkKRLNI90AB9nW9oeI7G
-	 zjqsw+ZhDCp7mbdySw/73WOMznl3+6ueajANCLGItAwKsNDR7SwGdjFMtvai3RVSxnQ==
+	t=1795015805;
+	b=GIfzwdXuy4EApP4Un8fub/oDEA4gVdqTmU4mZztiRafY9bsYSxFcePE+e0fGNQSKT9bT
+	 lkFdlrcDxwGQ0vpIEIs2zQfcmAdopvOrffGtp7nY7jIYIHaXAaoE4AcMGs0ncP3iuUddB
+	 9JxXTHLGtLm2jUlbuu0KugIwBMgiVFzUzyyGDOhuBGrCLxFFmgwP/E66S4wB/A+WD0EiF
+	 hfTrIYkq1No8M6FkwGCPVKu2kGXPqK5ifAShyh/sAXFghWGBEDBtODMf3w5q3ErtXrSmS
+	 mBHbOU1mbcQUWgnWUpm8d/9BUXMnAA+Yz96R4aLgIznCESnaGO7ApOjWh8YVOG1xRSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015782;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=NHqDOtS0lS6doahBqLnzZLX5z8l41ywkQe6VMKR5rK0=;
-	b=NaASRA2al41rF+rhQfrB2CN3/oX/z1owvD7K3qpzQ+2e+zvInUWBcTFMRl/hIA+OpWEJ
-	 gE8XKCw47HbvgjxXsggwICQGeAQGlEk1q0NNBmSne1ZyV5JX+oaho+18EQrserTHOWYiR
-	 WAsU1YX57SOBkr1rFgTyUuTc9xcLpdkPTThbNDjwHu4iuUwKdeFXopRpGnrBXgXWkS/BM
-	 kx4zfnFWgvi0o2aoQ6egUTQkeP75wsv50QFlELDW0dazKzI7r5k7sfCuDnT+mT+nF7iF6
-	 kYQtcbT4+veFPYLHUKTAhzfYZnTGfG3RFg/LDLqNwBeaxPNyWCy2YNlNc/0l464f2pg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015805;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=VEsG1ygQhHDKkltmP3Oxd/BhfWlhyyMtgVg9fXj6PcU=;
+	b=cZBaYunXRAUumV4SDNaTqjqD4AZog7fzzVnJGLWMTjjQHvYTl/W0XRvR9ZGMqS2/MkEc
+	 SP/j93knO9jkJBNHgcRBggVyfxrHF2A+TquU+S1ZlzNPerEXxUZ5d1acVTSkfeAVJeC8c
+	 qeXoaaVQbqhzaOCE/er0JNmnjM5jYfeDk9W7j4+LQzOZokSP7EMmVK0AXIFwFXvSnHNSL
+	 DQfABkG4oSjF/B4Csm/29CToJ7JsF7Y5zWrb5kKzZnr8TfESTO+RNikwvTrR0Nbhwb9Kk
+	 Ciex3JFVB0EAe0DbucrEVOqxr50wxdgdhAx3U6nJmHjJv/k1tjvGEwi+4DXdEY2Al4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=X8pHmdt+;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MqKzVFaf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43C36606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:29:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43C36606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C68D9606A320;
+	Wed, 18 Nov 2026 15:30:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=X8pHmdt+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795015781;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NHqDOtS0lS6doahBqLnzZLX5z8l41ywkQe6VMKR5rK0=;
-	b=X8pHmdt+77FLW4u4lVf9F8gipJBFPjjVqLDWrNzQoAL458x4Ws4F8E35g124sKDRllK1dS
-	YC2iVneyCik33mE3yF2mDCO+w9eFMiKf36WZBH4kC49d7Qwz53vpKkoBW49SPz1Jm6r7sg
-	I22ptSFFz5GvHqOA3yLuGPpbytZP4tI=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-102-5El8isIuN3W04t7EZyFtcQ-1; Wed,
- 18 Nov 2026 10:29:35 -0500
-X-MC-Unique: 5El8isIuN3W04t7EZyFtcQ-1
-X-Mimecast-MFC-AGG-ID: 5El8isIuN3W04t7EZyFtcQ_1795015772
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE0341800471;
-	Wed, 18 Nov 2026 15:29:31 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0E01218004FC;
-	Wed, 18 Nov 2026 15:29:24 +0000 (UTC)
-Message-ID: <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
-Date: Wed, 18 Nov 2026 16:29:23 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MqKzVFaf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CFD01F000C4;
+	Wed, 18 Nov 2026 15:29:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795015805;
+	bh=VEsG1ygQhHDKkltmP3Oxd/BhfWlhyyMtgVg9fXj6PcU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=MqKzVFafR6OEDeMVbQsaqV1MheUR8J3CN38RRFTz32LiysIU0IqJusIZM9drzp9+I
+	 W2/9HdOSxOpNYNvRS7GHtF+HXw84WOGi4Bt24C+/4PSp6wQWNxgheTf1A5QtZhe0AL
+	 Ifg9UgBhse41HvzCQauNfKviiUSjQOV9vhDGKBOFmOM692Cz/UJNlVB6KiWiJj5Hb6
+	 ht7aN0GBe+pIqW3wt/v/dMP7eTyYsNdzur5Z2l8tszMlsaLeAhDwbtOFeOHWwKRihV
+	 n6KCHxT3hePSdmpZGT2H0t+z9+95XPguYFr4drNSS60u/x/X+zbXIUXfdOJKFP26NR
+	 mCenL5kieDxhA==
+Message-ID: <893568b3-1989-44e4-ad7f-65f92f26af2b@kernel.org>
+Date: Wed, 18 Nov 2026 16:29:49 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,110 +52,144 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
+Subject: Re: [PATCH v2 05/13] mm/migrate_device: don't collect a range twice
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Usama Arif <usama.arif@linux.dev>, Kairui Song <kasong@tencent.com>,
+ Balbir Singh <balbirs@nvidia.com>, =?UTF-8?B?SsOpcsO0bWUgR2xpc3Nl?=
+ <jglisse@redhat.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Yu-cheng Yu <yu-cheng.yu@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>,
+ Chris Mason <mason@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>,
+ Mark Brown <broonie@kernel.org>,
+ "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Josef Bacik <josef@toxicpanda.com>, stable@vger.kernel.org
+References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
+ <20261113-mason-migrate-et-al-fixes-v2-5-50a2ed382b61@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <20261116181612.107a4b57@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-5-50a2ed382b61@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
-On 11/17/26 03:16, Jakub Kicinski wrote:
-> On Wed, 11 Nov 2026 17:40:11 +0100 Ivan Vecera wrote:
->> dpll_lock protects topology and object lifetime, but it also serializes
->> all driver callbacks in the system, so one slow device stalls every other
->> DPLL device, whichever driver it belongs to. mlx5 callbacks issue firmware
->> commands with a 60 s default timeout, and zl3073x callbacks can wait
->> seconds on a driver lock held across ToD writes and phase steps.
+On 11/13/26 22:45, Lorenzo Stoakes (ARM) wrote:
+> From: Josef Bacik <josef@toxicpanda.com>
 > 
-> Can you provide some real life data of how much this actually helps?
-> Real device topology + scenario you hit?
+> migrate_vma_collect_pmd() drops the page table lock to split a large folio
+> which it finds in the middle of a page table, and then starts over at the
+> "again" label. The entries for [start, addr) are in migrate->src[] and
+> migrate->dst[] by then.
+> 
+> While the page table lock is dropped the page table can go away, in which
+> case the restarted walk invokes migrate_vma_collect_huge_pmd(). However
+> this is passed start rather than addr, so [start, addr) is collected a
+> second time.
+> 
+> This can result in migrate->npages exceeding the number of pages the
+> caller asked for, and therefore in writes past the end of the
+> migrate->src[] and migrate->dst[] arrays.
+> 
+> Fix this by only handing over what has not yet been collected,
+> page-by-page, and flush the TLB for those entries which have been
+> previously replaced, similar to the other returns in the function.
+> 
+> Fixes: 022a12deda53 ("mm/migrate_device: handle partially mapped folios during collection")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+> [ ljs: cleanup commit message ]
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  mm/migrate_device.c | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/migrate_device.c b/mm/migrate_device.c
+> index 9e5dab8e1b77..28ed706109da 100644
+> --- a/mm/migrate_device.c
+> +++ b/mm/migrate_device.c
+> @@ -257,13 +257,17 @@ static int migrate_vma_collect_pmd(pmd_t *pmdp,
+>  	pte_t *ptep;
+>  
+>  again:
+> +	/* [start, addr) is collected if we get here after splitting a folio */
+>  	if (pmd_trans_huge(*pmdp) || !pmd_present(*pmdp)) {
+> -		int ret = migrate_vma_collect_huge_pmd(pmdp, start, end, walk, fault_folio);
+> +		int ret = migrate_vma_collect_huge_pmd(pmdp, addr, end, walk, fault_folio);
+>  
+>  		if (ret == -EAGAIN)
+>  			goto again;
+> -		if (ret == 0)
+> +		if (ret == 0) {
+> +			if (unmapped)
+> +				flush_tlb_range(walk->vma, start, end);
 
-The system is GNR-D with a dual complex E825 and a ZL30732 on the
-board. The zl3073x has its own PHC, takes the recovered clocks of the
-E825 ports and feeds the TX and time reference clocks of the E825. Each
-ice PF connects to the zl3073x like this:
+Flushing TLBs after dropping the PTL ... hmmm, that looks shaky. But just as
+shaky as the other stuff in this horrible, horrible abomination of a function.
 
-   +------------------------- zl3073x --------------------------+
-   |   EEC DPLL, PPS DPLL                                       |
-   |                                                            |
-   |   input pin                       output pin               |
-   |   (recovered clock of E825)       156M25_NAC0_CLKREF_SYNC  |
-   +-------^---------------------------------|------------------+
-           | parent pin                      | registered with
-           | dpll_pin_on_pin_register()      | dpll_pin_register()
-   +-------|---------------------------------v------------------+
-   |   RCLK pin                         TXC DPLL                |
-   +------------------------- ice PF ---------------------------+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-The PF owning the source timer also registers the zl3073x output pin
-156M25_NAC0_TIMEREF_SYNC with its TSPLL DPLL.
+-- 
+Cheers,
 
-A step of the zl3073x PHC, which ptp4l and ts2phc do at start and after
-a large offset, waits for the next 1 PPS edge, up to 1 s, with the
-channel lock held. A phase step can hold it for up to 3 s while it
-waits for the previous one. A dpll callback of that channel waits for
-the lock under dpll_lock, and every other DPLL request and notification
-in the system waits behind it. With ToD writes running, requests to an
-ice DPLL took 1448 ms in median and 3.9 s at most. With the series they
-took 0.2 ms and 0.3 ms, the same as idle.
-
-The bigger reason are zl3073x callbacks we are working on, which have
-to wait for the hardware themselves:
-
-- a device reset with resync waits for the fast lock, up to 1 s with a
-   1 PPS input
-- a glitchless stop or start of an output completes on an output edge,
-   so it takes up to one period, 1 s for a 1 PPS output
-
-Holding the global dpll_lock for that long would stall every DPLL
-device in the system. For the output state we tried an asynchronous
-implementation, but then the callback returns success before it knows
-the result. A failure can only be reported by a later notification, and
-the next request gets -EBUSY until the change completes. With a lock
-per chip the callback can simply wait, and one chip cannot do these
-operations in parallel anyway.
-
-> For the cross-domain pins - shouldn't we stretch the domain to cover
-> all interconnected objects on the system instead of hoping people get
-> lock ordering right? You documented some rules in the doc, admittedly,
-> but not sure how enforceable and practical they are.
-
-Stretching the domains would not improve anything here. The only
-in-tree registrations across domains are the ones in the diagram above,
-and every PF connects to the zl3073x, so the zl3073x and all ice PFs
-would end up in one domain. The system above would then stall the same
-way as with the global lock.
-
-There is no lock ordering to get right. Only one domain lock is ever
-held and all of them share one lockdep class, so any nesting is
-reported. __dpll_{device,pin}_change_ntf() assert the domain lock of
-the object, so a callback notifying an object of another domain is
-reported as well. The rule that a callback must not call functions
-taking dpll_lock holds on main already. What lockdep cannot check is
-that a driver registering a pin of another driver protects the state
-these callbacks share with its own ones. ice is the only such driver
-and uses pf->dplls.lock for it.
-
-Thanks,
-Ivan
-
+David
