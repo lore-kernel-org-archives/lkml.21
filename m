@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019404;
-	b=3hKCBj0xDumUHVyGkE5CPUm9Flh6t1jLkBu+EG/9JeHkbCof44ZsFiMQjwFlp1BXM7Bv
-	 0oEk1iwKgmyHfQw2OhC60hHCDT9uxmoAKtFTNV/AA31MhVzWYZrqosam0299A5EvyIZT+
-	 n1YmaZyAiU2ppsczP0F9E08H5VSSS/qKn58SWwIY5lk3KaRtTlwhEFQjMIWTPVBArok4q
-	 FE6vFo0CkGD060BxEwC3dZ3SNwu/xuN+oXcqdRpMx0d5HULIZHbeXq9Tc5Vh561YIt48W
-	 J9HbrwxEEN5fRy555Nw7/co7lifYf85l5rEN/1n2CEHKf6K8STAg93/ADcskPTDTp7g==
+	t=1795019400;
+	b=3F4iS/9FUKLehVqHysA4ZhUWQTd3Wdztwp1nZfo4Dw5Zin0RfXxVyLm8vKMV3QKzenIa
+	 pRcJSFG7+15NmaIaxKxK69cKZtoVjF7cF5zAm8SQ10Aww17h8wFwH38i4bbTsg1OzlEPT
+	 1pB1SAWEAVJajIiyLaNgthKqTRv9D+l4RnMALK93HOF9iCtrjRyB5jRFbTezLh2T6LRe2
+	 e93CfKIGc9euUOQ7JMJHMStfSrBceV0w0Wlc6QyxfW1ubA0NSMd3LtN8n9WTNlpG+avBf
+	 ysLgS7q8t16WWxQIJ+9bs4G/S/7U20sD7fUoI6DDLyZh26fYBKemhuNmLofv96L6YLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019404;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019400;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=XqjkmMfgNZGBMzqUNuESUkbxBno+SUpnXC2EkRATNvQ=;
-	b=GoB51N66SuW5mjoqRdHrFM7LO+vdqkas7Hu/KbSCkqy0XBN1oxazS60eUn5xOxkvhxtw
-	 RUIjir3y5azDJKkfAvD35c7wBr66Xaa/QLYDydBiWAo4vtGvLZvQi3psFhqJMKmNt3b+e
-	 /6JCVdLrbEX//zSuit1ROMOQd41BEjS1BqiRGhfgJXVKu8PVJ3ftI/LEQTE369Ewp9LJg
-	 RBPBRjmqtLriHrp3wrzMCc7kPLp0erYYZJ5fv9oCawQVKciSZCFEKZ5pRKIsBeTXFkJmb
-	 cU0RKHUe8xf4twe6fM0ThrU/CTMyxSgQXEJ0u6keUB7xzSq0TNj/c+GRgbPcR5/td6w==
+	bh=Rpi69KOE+RewZqGKWGe5fV1itNLcgLER2USO6GkvbTk=;
+	b=wb/1KGARgtc37qo61jPue+bW/DtTp9X6cZPouYvsKzAzht2yp7LODbwhppyt3d7KYCzp
+	 R9pDlgKFVChU4VGV1E6DrnfSQ2b5G304phTCAO3+GQDfGPHjIu4mdWh4rezqIHx+WQfKJ
+	 SvxvoemweI68yFLSpVA9iQA1l8lrI0Xpy6MRiHjNDJXIY6PPcPkeX6uk9Rf4z4eM8vLW1
+	 phInflPkqFN8EFArkn+j1lnXCkszdsHnasPdEpgR5G3A/ISiqm0GSSHT00Q1OHKQ+rWCX
+	 6xBWl27SfVlhNqYfsd6ORhm3TueA0qrXnDpVvbf1VjpYesx1l4Rs3lzsNlwJkhLsCiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Vy+e7XXW;
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=wkCip4Oz;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CECDC60A261F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CECDC60A261F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D153460A2639
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D153460A2639
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Vy+e7XXW
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48e09aa5264so691000f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=wkCip4Oz
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so546430f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019397; x=1795624197; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795019395; x=1795624195; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XqjkmMfgNZGBMzqUNuESUkbxBno+SUpnXC2EkRATNvQ=;
-        b=Vy+e7XXW0pN2gfvhsLmJ/6EuzVd4ve2EwwSC91+KhZzJzsm4PxbO/08l7QGjiF/2ao
-         ZocZMbuwmKdgRp6WoTdNkKI5AXIvoxUowMT1iINq2Jz1REUPrPls+vBGd+pOBxprRupr
-         CbbvlXvWFULM/HYU7uSAJ83oyGvA6ebgXFZ4aDRqlYlY1/9qrBmEyz3fBTGisfqSE0Bg
-         dHiIPNHtHLg9lE91uruGqAdUlGDVy5UIq4HwvzEK+aSn0RwdIRQG6auA+Blyf/2bYUpt
-         493T4nKuSB/xcwSc5g1vuWoO7s3+al3fR3ZHOja43O4nIQpUX9sI1ku0zFyOxjLgVGNC
-         MlFQ==
+        bh=Rpi69KOE+RewZqGKWGe5fV1itNLcgLER2USO6GkvbTk=;
+        b=wkCip4OzUWNZYLZ0v70NTtpvMUaclfhuWjrxWTLDEGCobEuISEM1r/1YXykE8OrNES
+         sSdavPDScTpLIcsD42OOVDB8cBA/7n3a0ejFiNtH6Ox0hcrp0r4VRC+t9RqaxxYg0Emq
+         jSqHByUX5gg+PCTLUQmXZp0Hcem1t/7WI5dAFC3KPqOUHPE6ZBUJ9AI3zLmVexSX3sYp
+         NzzpfGaM2pY6RMKpRjJAWC5d3ESM2Ozxv4Jo/p9EKA7lW81Zcu5FJDnvs2lhXYx0Bhq5
+         CLjSKrmZhexYRs8/Dk1HYu3cSv6M+uOSsWUfNMwBoOhQyE7UI0GZmke1n6O5v2HyLg5h
+         smhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019397; x=1795624197;
+        d=1e100.net; s=20260707; t=1795019395; x=1795624195;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XqjkmMfgNZGBMzqUNuESUkbxBno+SUpnXC2EkRATNvQ=;
-        b=OGBMEHLZiUUrERsrjmGi10d6dnKgooWDh3tkDOK3nBYqxyQTQjQoJi5vSf/qKkxeA+
-         0WmczVgHbzm83iRGXJTDrFWebHA515pbFsPSM9cMMGroJ/M8BadDxzEVEGYAZXi4zHRe
-         cbRLi5e/1j1MVOjW0XjTqpsYetzJoeqZcahN+sTin2ySy/SHYn+4V4teifJubxspypTs
-         Tin4ATe+OZfVPNkGkU3xdo/TDVY3R+wCEvT6ZKHAeS9RK70mmIFgPzRXycZN8mIyI3RJ
-         0F+H9xFmkfY9zmKfcE+FYDuGOfTQF4lMP/iZ0G4DN+FHJiFbLm7KQwSi2YmTr5DYvnUo
-         XCIQ==
-X-Forwarded-Encrypted: i=1; AL+hErE3e2KcjJiCaH3K3ML/N+FDNqQJzfW8AZD/r6NPQSfaXAldYjU1+bjUKT4n7+ybfUylPI9iq0iAfs4uHeA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Vu7SoEB1pCPzmiBkcVsZ9z5ayrNTz5L5IIvGfNqM/1hIThYyE
-	6XWGVt2Rr+s2baBDlv4E82PcfAluEKnYsXiDfPuE52KGZGzHMKXtCLs/j2u4aK6cFoQ=
-X-Gm-Gg: AYBFou0xXr7BMi1n2UiDgTl2q2cJxYNvu1g1uLRGpNObaypiv5q6Su2s7umN0LnLRRm
-	R8b0PLjrO1x/djtCe72MKnzjChozhjcv+28T1XLj3waZhqqyC462SFpPcnPMR6OM8j3OUlnNICB
-	ulnL4evIG9qsmA/o8d78oE+3giJHECHSnX5pkAORDBI2zsJOFqTv+rkMMfvp5lkOIRfHlVKX6DF
-	zyC1WBv5WVtu2lUV3ib/ZG3E8Hf5J07621wWN8OSCLAVNK4WP25OEMZ0FOgoqloTd07fM0KawVQ
-	1ztUef9DnzmnblmWZa/UE3OcNLzCKukeBYuW1YttgARSR2/Z1stQCb4XI59VWVZUe39/y49lRQR
-	J/pnJDsN5iq3/rznJhE4z74LTjfJ5K5Zl5jPd/XffE2IbYKU/DMWEvNFQAv+6mJXeoAqMH2iB9u
-	iGxR1y3JV+JCMi59CMPAdrgqUkWePFq7VAQMXg2yu41qCo2IaGRU2vm/vBpXaP0Rgsbx/AEF/ep
-	2LiHH/QerdfDCnTTmguA+S04oUmBcAUikUF9DmC2ujwd3ZrEiyU6yuXb626C+BKjV9E8H0UfgCn
-	MwrGYFdrFAp4bWdTBmfv2+M4EJn2DPxv
-X-Received: by 2002:a05:600c:83ca:b0:4bb:60b1:4409 with SMTP id 5b1f17b1804b1-4bb7da26fb7mr62550495e9.19.1795019397271;
-        Wed, 18 Nov 2026 08:29:57 -0800 (PST)
+        bh=Rpi69KOE+RewZqGKWGe5fV1itNLcgLER2USO6GkvbTk=;
+        b=DizRDXTiZb+LgUyAIPOeIa6230eB6JpOg9SK1oQUWLw/MBrcy+i+L94t/QdP3phVCk
+         FpNoBMMJwjHKDvQmNfks42ytjUkJ3jj1Zs16QF2WtOIWWDEnNkyOXZ9HjO0lue2pPOQp
+         jOctaLtpF70CUQblzsaaXh+gB6PKhunq0nwOyHD03zjaIY85lxSiUNwPrwgboNwDlZ3h
+         OiBcAQpIr9iS2l8PUldQy1cbfKl6v88qy/OMU2AsZInuiuyuhwc2hoBl5QQ81NadMIU1
+         u2LoQN8gPkoI9f1HB+fYlJyiZ4MAEN4/Aif2nrVCDBfpzKZ5550GrmYW0ZAd2cWjtA+t
+         FbXg==
+X-Forwarded-Encrypted: i=1; AL+hErH2osWLUkmAcBCAnPklgxfFaAbNPKSuKT0+ipXaT4bDcnFLbtaigje6tRsstPjeRwGS4KXxYVhwjdEIufw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+gaAWA234G5LXofBgdJxXqEVyJq4tbt5iaphLJ+WG4RQikNipz
+	y06GhaPWy+BwoYaOTFwQshquiqfel7SGjRMhjWtxo5woFNul/qsJiN66ZNZDcvjQZk4=
+X-Gm-Gg: AZFdTZf1bXMVxA0eTW/SvbKi/MAH0vMPB52wkBTvudIWjj2v9pcqQsYDlCysGfY8XT3
+	rHVmuyXDllE1pwluiHE5WqkEPqV3c2XRuv1/ZRJu+Q3nUVDRjeFe4/g2rVCu3ez9Xd+4ZhDgntu
+	78vaD4qqED/B/3vnUGfNs8lG+tHW7lxtMbzWtAgOKkrmjv4QQhuEEVTPq3+g2Ke76CNS9NR9eZ0
+	imXjw2r+/8Oy3RIZm0ODVbjwym+a7VguRdff2TFaTDV8uJa9hZx7hqVhzjs0umjiHCjl74aT1WQ
+	qgUxlcYMg4ejc+YL0ahR2eLGqpy5bh9UnENQtZFhc0cz2uqSvYgtUx0J1rbWvNIYfjflQn8Hfoc
+	pH8d5EBILCi4bYOlQBvancqmVwVYOhEJRvzXFa/mCQRej75ue//oCuwFNMBPFSsyFRrm/neE0Zl
+	6WWP+Zktdl8QSBgOw3Bq48dfBQ9OSlj0o8yINTpvSGoF+puHlRd5pxB543AlMAjIcrumivV8eeM
+	yJl4dUMgtYdIPaKNteqe9OxE90rt9FvTQYdW/4scxw/3S/qSFU6hrw+aamtVzlgXJbJ2CvFmlG0
+	sM96oNqhIqGUkRa79am7/4OPO6Z9St5Yaw==
+X-Received: by 2002:a05:6000:1a8d:b0:493:c0a:507d with SMTP id ffacd0b85a97d-4a63648e24fmr6898857f8f.1.1795019395221;
+        Wed, 18 Nov 2026 08:29:55 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:29:56 -0800 (PST)
+        Wed, 18 Nov 2026 08:29:54 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:31 +0000
-Subject: [PATCH 09/34] perf cs-etm: arm-spe: Report error if default clock
- isn't used
+Date: Wed, 18 Nov 2026 16:29:29 +0000
+Subject: [PATCH 07/34] perf build-id: Cache the vDSO in build ID mmap mode
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +93,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-9-dad4d90747f6@linaro.org>
+Message-Id: <20261118-james-coresight-jit-v1-7-dad4d90747f6@linaro.org>
 References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -108,44 +107,50 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 
-Coresight already reported an error if a different clock was used, but
-this also applies to SPE so add the same error there.
+Since --buildid-mmap became the default, perf record doesn't add the
+vDSO to the build ID cache. Caching a DSO requires its build ID, but the
+vDSO doesn't have a file so the kernel can't add one to its mmap event.
+Build IDs that are missing from mmap events were previously read when
+writing the build ID table to the header, but the table isn't written
+in build ID mmap mode.
 
+This breaks decoding of hardware trace through the vDSO after perf
+inject -b. Inject adds a build ID for the vDSO, so perf script looks it
+up in the build ID cache and can't find it:
+
+  CS ETM Trace: Debug data not found for address 0xffff95edb310 in [vdso]
+
+Fix it by reading the vDSO's build ID from perf's copy of the vDSO
+before caching it.
+
+Fixes: 53b00ff358dc ("perf record: Make --buildid-mmap the default")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm/util/cs-etm.c    | 2 +-
- tools/perf/arch/arm64/util/arm-spe.c | 6 ++++++
- 2 files changed, 7 insertions(+), 1 deletion(-)
+ tools/perf/util/build-id.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index 809da6f1a892..5a64c17cf254 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -365,7 +365,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
- 		return ret;
+diff --git a/tools/perf/util/build-id.c b/tools/perf/util/build-id.c
+index 02233ef0eaff..cc813f421c9b 100644
+--- a/tools/perf/util/build-id.c
++++ b/tools/perf/util/build-id.c
+@@ -886,6 +886,18 @@ static int dso__cache_build_id(struct dso *dso, struct machine *machine,
+ 	char *allocated_name = NULL;
+ 	int ret = 0;
  
- 	if (opts->use_clockid) {
--		pr_err("Cannot use clockid (-k option) with %s\n",
-+		pr_err("Cannot use clockid (-k option) with %s, can only correlate samples with the default clock.\n",
- 		       CORESIGHT_ETM_PMU_NAME);
- 		return -EINVAL;
- 	}
-diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-index 53899c7de846..834419f04617 100644
---- a/tools/perf/arch/arm64/util/arm-spe.c
-+++ b/tools/perf/arch/arm64/util/arm-spe.c
-@@ -416,6 +416,12 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
- 				       evsel->pmu->name);
- 				return -EINVAL;
- 			}
++	/*
++	 * The kernel can't add the vDSO's build ID to mmap events because it
++	 * doesn't have a file, so read it from the copy that perf made. That
++	 * copy is of the host's vDSO, so it can't be used for guests.
++	 */
++	if (is_vdso && machine__is_host(machine) && !dso__has_build_id(dso)) {
++		struct build_id bid = { .size = 0, };
 +
-+			if (opts->use_clockid) {
-+				pr_err("Cannot use clockid (-k option) with %s, can only correlate samples with the default clock.\n",
-+				       evsel->pmu->name);
-+				return -EINVAL;
-+			}
- 		}
- 	}
++		if (filename__read_build_id(name, &bid) > 0)
++			dso__set_build_id(dso, &bid);
++	}
++
+ 	if (!dso__has_build_id(dso) || !dso__hit(dso))
+ 		return 0;
  
 
 -- 
