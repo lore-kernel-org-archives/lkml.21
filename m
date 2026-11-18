@@ -1,133 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=59.120.207.196
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.240
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794969865;
-	b=wrla70JUpC2ZJKhROdr+bU8pSnuu2ewPXC4OonXPTW2E/m9PbNWKQMf1//U/p7mjHHtn
-	 BNasNP20hY/eqaIsr5uXvshp2ic3P7gfecSPFUfvepfCzA6HZa8tKcbwA5fU9rWVaa+bm
-	 6tEieY1XxLom5gLd1jqLDFqJLRDFjTcIdMwNWoREOt92fBYZHRWHqD2kBWOWKLR0mU/FV
-	 juaWbP7TJkmobn/VTRK4o6E03Lvc2Llq2LPrLpTKvlYhg900K1mOpVnSXqO00vRS0QRCJ
-	 WKI9AFuhsAY8BG8A15rmmFJibYR5uyn2YroEYcnLxxhDhp8u+dExzywQgCNWueIW10w==
+	t=1794969937;
+	b=aLZR3KWO7TDuA+ff1ufGRtkAnOG3UZTPUfjtMleT9dF5pZi3rj//C+L89C2YteuAKRtZ
+	 E7Xd7y7uLf/n71uLJYg4UCYj7kwQyJKSeEJDhpMDTm+B/a/5vbSqB6nFHq3NYu3dN+vLI
+	 B++dSs3PonOgk7YKX2ij7rhGnlzgok6W3bhS037Dx2nkxKXqj5rmcmaTjcjxwLKQKIzkd
+	 rYu0BrdLFlao3qVGnlUW6K2YVVqCTBEfpftG4O3dL9o9JkeXf/JFPhrvu6Jd5u9Xcb3wj
+	 A3l7k/AADlgygUqCDbYSM3wYnDseo+M3x5mnavyujFGMyh7P8MnCn4pyi+AlbMyePNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794969865;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:X-UUID:X-CID-P-RULE:
-	 X-CID-O-INFO:X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:
-	 X-UUID:Received:Received:Received:From:To:CC:Subject:Thread-Topic:
-	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
-	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-originating-ip:x-tm-as-product-ver:x-tm-as-result:
-	 x-tmase-matchedrid:x-tm-as-user-approved-sender:
-	 x-tm-as-user-blocked-sender:x-tmase-result:x-tmase-version:
-	 x-tm-snts-smtp:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=oMefaorIZiUogAbzrZGQsijpnbTZQvZuo03f8L5h/WU=;
-	b=ocSknWLtxQgcQN7/dSQfuS6/F6ZqQDSHKyppcN6AY4riyxN7Bb/vwiXWt0N7Lrkf1CO6
-	 DGDxH4QRpshOiCdDobhErt1i2/8/C+gdOW5DRv5au6iO0ZLx433FVeScaiGRAcN0aZUq4
-	 0XHHvNDlF1+mVoIFbTwEW4VzKD1D+Q74TYGszgejrEkUck6Acgo2rqr0vzbYlfhoCwXoG
-	 GNNWWrpKcf4H1ysC67aH1T9VqQjEJ/Duisswz3yqUdnNhdO7wiZ/bmXW4nhy0TseFuwur
-	 wybIuJADvj6CkbCQSeqIlugYwiLxkVQKdlqFe9L3U+VMt6fsIa96uUAJYzs/k+Pl63w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794969937;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=aWUwZ4yOXRgwWXdv9mQMt4h2IPiJ7i2CqyiC71rxZrQ=;
+	b=qXVXFR7w180nftMMkb/p5pes1oixTMRxEUGEYMr1n7GVlnVuzPCUAgNf9JVbPnaoisEn
+	 SR5os0bZvYNJikWUrb5uX6sCP5BQ0rlynh53CL8NHeXEM8W0zFfWHl251V0R0lfz6MUAh
+	 ljojZiI+OGJo3HD+6AOEu7GAFpq3+Nc/8Ey2EqXIYGiAaaciU7UkxdRUqGHf5X/O0OUj7
+	 jfxN4JlaInGiNhNEYmS5Jla1DSXdPAl9YTgBVeVjQj8Ntz9F4SeYJK+ZqD5wh5O2Wyx0g
+	 TL99NoIIEvLAIHquOeuCQTpwBjQwVIyiWvqqP1W4D23cxhWursx9fnkfGkBNrbd3ZJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=compal.com;
-	spf=pass smtp.mailfrom=compal.com;
-	arc=none smtp.remote-ip=59.120.207.196
-Received: from tpecef21.compal.com (exmail3.compal.com [59.120.207.196])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=z0VBrlBM;
+	arc=none smtp.remote-ip=203.205.221.240
+Received: from out203-205-221-240.mail.qq.com (out203-205-221-240.mail.qq.com [203.205.221.240])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B466E606A31C;
-	Wed, 18 Nov 2026 02:44:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B466E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=compal.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=compal.com
-X-UUID: f2983024e2f911f1b2470fb4f881575f-20261118
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.20,REQID:f170eca6-d699-4792-a78f-b5699100d9d9,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:291e20b,CLOUDID:99627166-4b51-4c95-bb1b-80ac6aad9c96,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f2983024e2f911f1b2470fb4f881575f-20261118
-Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 226442796; Wed, 18 Nov 2026 10:44:16 +0800
-X-UUID: eefb6b70e2f911f1907ca11d1ee29896-20261118
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:35fdb544-3d0e-4e3f-9b29-cc40f44af535,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e276073,CLOUDID:1f580031-f289-4656-bb36-27baf4489f11,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: eefb6b70e2f911f1907ca11d1ee29896-20261118
-Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg11.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 1439997463; Wed, 18 Nov 2026 10:44:10 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Wed, 18 Nov 2026 10:44:08 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::23a8:5ed2:f09e:3abf]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::23a8:5ed2:f09e:3abf%11]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 10:44:08 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-CC: Sergey Ryazanov <ryazanov.s.a@gmail.com>, Johannes Berg
-	<johannes@sipsolutions.net>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
-	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	"Yu. Robert (GSM)" <robert_yu@compal.com>, "Chang. Jeff (GSM)"
-	<Jeff_Chang@compal.com>, Eric Dumazet <edumazet@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH net-next v12 2/6] net: wwan: t9xx: Add control plane
- transaction layer framework
-Thread-Topic: [PATCH net-next v12 2/6] net: wwan: t9xx: Add control plane
- transaction layer framework
-Thread-Index: AQHddwavvOJ1mLklYEStYpskeCH+dw==
-Date: Wed, 18 Nov 2026 02:44:08 +0000
-Message-ID: <e415240553f24e198df67b0f7e0779f7@compal.com>
-References: <20261117-t9xx_driver_v1-v12-0-e181b616b820@compal.com>
- <20261117-t9xx_driver_v1-v12-2-e181b616b820@compal.com>,<CAFEp6-2Ru8=dMA=ra3r+ShvxWoLAa0i-xw0e8vhQ+QxRah3f3Q@mail.gmail.com>
-In-Reply-To: <CAFEp6-2Ru8=dMA=ra3r+ShvxWoLAa0i-xw0e8vhQ+QxRah3f3Q@mail.gmail.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30326.003
-x-tm-as-result: No-10--9.178900-8.000000
-x-tmase-matchedrid: tkB2VEODQ1cuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZuZd
-	NI5cmL7EqJ63gZLKrOBDdLXYWGnDb52vFMfvZjTGGG92L3YEEC4s49QZH9p6LPpmoO1x9E9p2Z8
-	68ZgqJNhpKrf9DoF7ZnlvhmQt/TMQLIEf+lIlZyG5kTI8BpRqcp7EkV3V/yv7YuYLFlhZK0K5Qh
-	5TcoREqjf8MHPNq3cEyrzRjZhtElOvngkjHjojpGwZG2qI2OBsWa6vTkKxwrLRSbyPS2HFdyJsZ
-	0L4JGotA5sjMuzcYBZ5MplrLPgz9xWgiVbWBq4sc6LF+MWe8KcoPxmxIqavtbN5EjB1voyEzdMI
-	eHnsyjs=
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--9.178900-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30326.003
-x-tm-snts-smtp: 6BEE0141DC73C40C042717AA9F8E2E6F52367E4909DBB822EF41C843FAF952AA2000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A60606A32C;
+	Wed, 18 Nov 2026 02:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9A60606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=z0VBrlBM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794969932; bh=aWUwZ4yOXRgwWXdv9mQMt4h2IPiJ7i2CqyiC71rxZrQ=;
+	h=From:To:Cc:Subject:Date;
+	b=z0VBrlBMafE7ALto0Ev5yQCq+FJXCnvTMM68deyryMtglChsnmIgVz1QsNL0a5Hcc
+	 mer4VE0JIrRtCVBFXXZG4PCs0z74fz+iiUOv5TmCOzHxL2xKPQIUr0H3UaOn9ImGlb
+	 U4EcKEvo+U1P5ZE+yZChcs02A30/C/T9W4hYI+as=
+Received: from DESKTOP-6LNKCJL.localdomain ([111.199.66.152])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id B5183EE3; Wed, 18 Nov 2026 10:45:17 +0800
+X-QQ-mid: xmsmtpt1794969917thdjdrz3a
+Message-ID: <tencent_FCBAE9157D42FFF00E681A2D5EA72CEEDF08@qq.com>
+X-QQ-XMAILINFO: OKkKo7I1HxIeqyjo+PW2szCQuXozTViUajm53Bq7Ru891VqoHDVA9qJCiyO/sF
+	 O1+YZvw4FBJoeqGKqN0aKu9q39w/5FCaZ3zHdzLEH5hqXN9H2scLaF+k0XmF2Ix+jBqLbfj37XpN
+	 O799si6nUvJjcZElalzNg2mAmHZczvqgtQVLR4NVheTEzXn9DHgtZFC322qBHfSyJlDuK4H7XRtD
+	 xVXHeMxsKq6Z9Gdml7a/RBeC/eJTqog0LCFIg/dnJeddeduoNbpRxQWvKlo6eJu0cN9IfUMo76cW
+	 uwMHqUs3Aki2JW94EQLQC93EpZJYwdGJCeWFOdU+vdj6GhTasgvAha8NJR68gGxnV8PqPeFkVGl6
+	 vaBOa20bNfRSDnTSa2xSskuI28Rpwcm/0bC8sxOqUQPXzgVBBkOExxeq/IvvY6IABupXayWA2Lq6
+	 Gi4IQSx7FLzbeh/ZMEj1408IixWDOvvrDiNtU8YGAyzRjjIWsq+denB6wjCgdRns2imSp7VACXri
+	 ffAhyb7VipEqrYieYfNeB56tfXkil2lmIDF2+zYxQF8sNtbLXrGo4WWQwxjImKpLep32iHU//e2f
+	 62HSxrE01/EnRwCqHIERzjoNnJpdmjU33grJJvwyJ6aJGMS0491pwJbIbxsp8Ocd+tijUZWQ3vBR
+	 25hOfiByEU0CHPaAscN6MA3TlB9Mo0yH6hFyxLt8INiMIDojsDlIGNXJF8LXfwMrTlsZJvK/jRJk
+	 C8ZcNcY8OFkqACpa/kAtVkCa7fysvNJyOgmUnWxxF+S0XhFVUeHMidb/sRHhLQpXgy+XrMa7iLsP
+	 ig6a+6ZZBnTa9BHkLhPt5Jh3PZUSuFG1njp+kuwaO8J7LXJ21BSodIVZqJWT6XJAgFaS3WUwf5Y2
+	 YJCXbh1g6a3yG+Uf9qc9R5h/wIs9lj1Ui2Z3ZyKGbScI8CYdf9G2ftbJfgZuYcbNyqTeRDeDkqeh
+	 Xd/1sz0JSjYn5PJV8VyUQu8HCcj3+Jk4/naDHHnjP9OO0Ru4ryjNPFhJewnTwHANtexRlTXkAFbo
+	 Yq2Q8gOG21Mn/ddleyWcavb4WjDBsuYYjWy/rosLpqEn4TijLgWjbrJlACpRk+gTGHCckdZraRp4
+	 JVVJp6uK518SIfsobLW5QrIkHbGA==
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+From: Jingyi Sun <1045704958@qq.com>
+To: Hugh Dickins <hughd@google.com>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Baolin Wang <baolin.wang@linux.alibaba.com>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Luiz Capitulino <luizcap@redhat.com>
+Subject: [PATCH v2] mm: shmem: limit forced anonymous shmem huge orders to MAX_PAGECACHE_ORDER
+Date: Wed, 18 Nov 2026 10:45:17 +0800
+X-OQ-MSGID: <20261118024517.21812-1-1045704958@qq.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -137,16 +82,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-SGkgTG9pYywNCg0KVGhhbmtzIGZvciB0aGUgcmV2aWV3Lg0KDQpPbiBUdWUsIE5vdiAxNywgMjAy
-NiBhdCAxMTozMSBQTSBMb2ljIFBvdWxhaW4gPGxvaWMucG91bGFpbkBvc3MucXVhbGNvbW0uY29t
-PiB3cm90ZToNCj4gPiArI2luY2x1ZGUgPGxpbnV4L3NrYnVmZi5oPg0KPg0KPiBJcyBpdCBhY3R1
-YWxseSB1bnVzZWQgaGVyZT8NCg0KWWVzLCBpdCBpcyB1bnVzZWQgaW4gdGhpcyBwYXRjaC4gIFdp
-bGwgZml4IGluIHYxMzogdGhlIGluY2x1ZGUgbW92ZXMgdG8NCnRoZSBjb250cm9sIERNQSBwYXRj
-aCwgd2hpY2ggYWRkcyB0aGUgZmlyc3Qgc2tfYnVmZiB1c2VyIHRvIHRoaXMgaGVhZGVyLg0KDQo+
-ID4gKyNpbmNsdWRlIDxsaW51eC9saXN0Lmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9za2J1ZmYu
-aD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L3R5cGVzLmg+DQo+DQo+IFNhbWUgcXVlc3Rpb24uDQpB
-bGwgdGhyZWUgYXJlIGZpcnN0IG5lZWRlZCBieSB0aGUgbmV4dCBwYXRjaCBhbmQgd2lsbCBtb3Zl
-DQp0aGVyZSBpbiB2MTMuICBJIHdlbnQgdGhyb3VnaCB0aGUgaW5jbHVkZXMgb2YgdGhlIHdob2xl
-IHNlcmllcyBmb3IgdGhlDQpzYW1lIHByb2JsZW0gYW5kIHYxMyB3aWxsIGFsc28gZHJvcCB0aGUg
-b25lcyBubyBwYXRjaCB1c2VzLg0KDQpUaGFua3MsDQpKYWNr
+When the top-level shmem_enabled knob is set to "force",
+shmem_allowable_huge_orders() returns huge_shmem_orders_inherit for
+anonymous shmem without masking it with THP_ORDERS_ALL_FILE_DEFAULT,
+unlike the other return path at the end of the same function.
+
+huge_shmem_orders_inherit defaults to BIT(HPAGE_PMD_ORDER). On arm64
+with 64K base pages HPAGE_PMD_ORDER is 13, while MAX_PAGECACHE_ORDER
+is 11 because of the xarray split limit. With shmem_enabled=force, an
+anonymous MAP_SHARED mapping can therefore get a 512M (order-13) folio
+in the page cache. Splitting it later, e.g. on swap-out from
+shmem_writeout(), triggers
+
+  WARNING: lib/xarray.c:1051 at xas_split_alloc
+
+and the split fails, so the folio can never be swapped out.
+
+This is the same problem that commit 9fd154ba926b ("mm/shmem: disable
+PMD-sized page cache if needed") and commit b66b1b71d7ff ("mm: shmem:
+avoid allocating huge pages larger than MAX_PAGECACHE_ORDER for shmem")
+fixed for the other paths; the force branch was left out. Mask it with
+THP_ORDERS_ALL_FILE_DEFAULT as well.
+
+Reproduced on v7.3-rc2 in QEMU (arm64, 64K pages, -cpu cortex-a72,
+4G RAM, zram swap): with shmem_enabled=force, a PMD-aligned
+MAP_SHARED|MAP_ANONYMOUS mapping of one PMD size got a single
+PMD-mapped folio (ShmemPmdMapped: 524288 kB) and MADV_PAGEOUT
+triggered the warning above in 3/3 runs. With this change: 0/3.
+shmem_enabled=always and 4K pages did not show the warning. The code is
+unchanged in v7.4-rc3 and in mm-unstable, but the test has not been
+re-run on those trees.
+
+The issue was found with a research static analyzer for
+cross-architecture dependency bugs and confirmed with the QEMU
+reproducer described above.
+
+Fixes: e7a2ab7b3bb5 ("mm: shmem: add mTHP support for anonymous shmem")
+Cc: stable@vger.kernel.org
+Cc: Luiz Capitulino <luizcap@redhat.com>
+Reviewed-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Signed-off-by: Jingyi Sun <1045704958@qq.com>
+---
+Changes in v2:
+- Dropped the Assisted-by tag (Baolin).
+- Collected Reviewed-by from Baolin.
+- Dropped the note about the overlap with Luiz's mTHP series; Luiz
+  confirmed his series will land after this patch.
+
+v1: https://lore.kernel.org/all/20261117121626.1058-1-1045704958@qq.com/
+
+ mm/shmem.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/mm/shmem.c b/mm/shmem.c
+index 10cef89b00b0..41bb3f2c6b63 100644
+--- a/mm/shmem.c
++++ b/mm/shmem.c
+@@ -2114,7 +2114,8 @@ unsigned long shmem_allowable_huge_orders(struct inode *inode,
+ 	 * means non-PMD sized THP can not override 'huge' mount option now.
+ 	 */
+ 	if (shmem_huge == SHMEM_HUGE_FORCE)
+-		return READ_ONCE(huge_shmem_orders_inherit);
++		return THP_ORDERS_ALL_FILE_DEFAULT &
++		       READ_ONCE(huge_shmem_orders_inherit);
+ 
+ 	/* Allow mTHP that will be fully within i_size. */
+ 	mask |= shmem_get_orders_within_size(inode, within_size_orders, index, 0);
+
+base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+-- 
+2.43.0
+
