@@ -1,83 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983417;
-	b=aUp9rlVs+ZpZy9IEJfh3oD/Yue+91kfJOzfZody+NHr1uBbYAM6LuR/HuLe+GS/TbNWD
-	 V4b6o2qhTRKRtScdwcObCHY3+p1bnX2+hA1AQLrVDXVABaLgZ/a2M4w8ymhstyNx4ef9c
-	 meKekdTqGbS58FkwrwlUevv/ezQOAcyS0gWsStqbXkzXoqEvzvvAA10x162n8Vn5FrrFp
-	 9MSEGdITH/QScwc71LdjNBO3xH3QHolctDc12LaY0xNiRGy9uLkmBBcVXRG5eKzOZv+Zy
-	 wL6MZQRrOihBHQWMixQahemH2fbgtI5K32kDjdTR/dkJq6FjuZWSArI/qXd9rMOxaQw==
+	t=1794983428;
+	b=uPDC8VnoNYdGvmCHvPwQ2ltck1FzBN2g76RK7+L5ryHmlw0FnvkavQuFU0xrhD6AmtEy
+	 luz1eze2PfJgwq09T6wGombKnsOkfUm2mltfM7thc55+mo/5Dnar3Y4kLH2qP4TJ19Rw5
+	 XBkoFjF4Jli2w0pQ40rmO9UMCUDX5OyJP0Lwwk+wVD1QZ/NlN5VorbpRrz4nEJk6unhCR
+	 acD+T1GjvjzHbDegzpYU47BfDnpGNvkC0fE2zcOv+l7zAYY0gR14YUFSO5yzxcsjglesp
+	 cBGgyG0hYReok78KWy+6O0yMVJbnoJVwIYpAW3u/VBSCo4LuXIFDAz9G3VNBpXesuww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983417;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=LQ2NaypxML8JTGTUBKzYR9CcHJ8rH4mpXEv1MaJJbmM=;
-	b=WC1Pe6Vvth29lNuY7CuqD7KlXRhvVOnvGN6CQ5B6rUrVkud8DVNa6nhmuhAeLRrHqsZg
-	 /UPPTDs48B54+kd+Iu95amp8J5dQcSIvlpTE6Ws3IaBcDUQnqNekmNO3VToq8Zn985yDz
-	 FvY0AGJy5UklDYgyPeS2DCFnLUCz1gAxb3T02Ez39RTUZ/L67l6qdcUiKBr4yLDoBHlli
-	 ESKx3bSRDQKhKGycqtfwDVCIw49KlM8aMYX/Vd86O/6vBC83XsiNGER7P6KGjHvDegbYh
-	 +ctDDaESl36Tt68f90RoRL4vZRAw8Oqb7mmhWXQK4L7k+VtUdIwL8K7yMfHl9jnqlkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983428;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=FkwpcJ9P5gfK4/EiFWTNomZOIkrMoDrhvqK6V1J/veQ=;
+	b=axgfvz0E60rAnDzXaZQ7XlOvF5GS/XBX7zXaeYTERGphXAZ7+jm54BJLdz88Rlpt7L0U
+	 i9+XpAXvAe5Tu7MvY4N1WBkZpue1ZLuiWtwukzMblR6isDiT2So/CA9f6NcsBkUvE0Keg
+	 IKg1BP7x3PBh9DysGgucbMTPQX+OD1gW22aYZTE2Bx7H/lG1nqwML2/Zd53MoY8tYJM+s
+	 4VO/edpbxFIIvXDEIOUQj7cLFm1dr4ZSGeSItT360nRHmBol8NZrLUDrUXEfr4UaRA2Vf
+	 huI7DHVPoJOJr1hiqH7S6SaoyuXrriLEOvzxPGPzogLsSoBHw2JvnHQJ7sJfVFXq/cQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="EJmV/FVP";
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D633E606A325;
-	Wed, 18 Nov 2026 06:30:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D633E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=aLJ3y8wR;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 42899606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:30:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42899606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=EJmV/FVP
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI6U1LH01114354, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794983402; bh=LQ2NaypxML8JTGTUBKzYR9CcHJ8rH4mpXEv1MaJJbmM=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=EJmV/FVPJmRMx3sRhKbSk/SLTlB/1yu5Gha+fV+1a2srKdkjYy3mFMsYAs312t3b1
-	 bXb9t+WGrpuswDPAJtLkWR9kqBsNyjfe6PFFOYO/K6XIBS4h2wpdYsJrrnWHWV/bJq
-	 flJnX/++LYvsyrHv/8mVkUsWqJ5yycFbr0Oba6mCQv1MKYhhYRZCy+urWKsCTEmJvq
-	 gQABXqBEd1mYyo9OgY0HTKSfnHWOGfHL13ymlndDXI5PsxC8ubPlfEFkpZ0DhMBd3n
-	 kCSqwRwNEabcT8TcugWumWqWgm8SUVt3p7TBSykVjcydQuDvkZ5+Avk+B4Kh/EAPo1
-	 FZzSHSqsYOxOg==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI6U1LH01114354
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 14:30:01 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 14:30:01 +0800
-Received: from RTKEXHMBS03.realtek.com.tw (10.21.1.53) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 14:30:01 +0800
-Received: from RTKEXHMBS03.realtek.com.tw ([fe80::d2b4:cd25:1a3e:aca8]) by
- RTKEXHMBS03.realtek.com.tw ([fe80::d2b4:cd25:1a3e:aca8%9]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 14:30:01 +0800
-From: Zong-Zhe Yang <kevin_yang@realtek.com>
-To: Enver Ikromov <owner@ph4ntom-rev.uz>, Ping-Ke Shih <pkshih@realtek.com>
-CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH rtw-next v6 3/5] wifi: rtw89: restore channel when leaving
- idle on non-chanctx devices
-Thread-Topic: [PATCH rtw-next v6 3/5] wifi: rtw89: restore channel when
- leaving idle on non-chanctx devices
-Thread-Index: AQHddnhiBoimoJECfEGMROYM00YmDrczVbIw
-Date: Wed, 18 Nov 2026 06:30:01 +0000
-Message-ID: <92ec08f2829441c78c7b2265d931326a@realtek.com>
-References: <20261117094135.1772-1-owner@ph4ntom-rev.uz>
- <20261117094135.1772-4-owner@ph4ntom-rev.uz>
-In-Reply-To: <20261117094135.1772-4-owner@ph4ntom-rev.uz>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=aLJ3y8wR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=aLJ3y8wR+0x5/NOCKPz7MR9gtxyGrXRJiG5k9fp1QkdZH/BjD9fBmZMTOlRiCXIkhMyzr6v8eEf+A
+	 1cuB0uHhGs+w87dt+zuReDb7arX6ddod6vGmOoPxFjbDQodoJrPu4AqLs5cBLD+e0o95UtBVAtllkB
+	 4td16ONCXo+72XJ4=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd4601247-0dd54;
+	Wed, 18 Nov 2026 14:30:25 +0800 (CST)
+X-RM-TRANSID:2ee56afd4601247-0dd54
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16afd4600c3a-cc2e3;
+	Wed, 18 Nov 2026 14:30:25 +0800 (CST)
+X-RM-TRANSID:2ee16afd4600c3a-cc2e3
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: bleung@chromium.org
+Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
+	lee@kernel.org,
+	tzungbi@kernel.org,
+	groeck@chromium.org,
+	jthies@google.com,
+	chrome-platform@lists.linux.dev,
+	mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mfd: cros_ec: Drop OF node reference in ec_device_probe()
+Date: Wed, 18 Nov 2026 14:30:23 +0800
+Message-ID: <20261118063023.723-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <av0gBCp63QZ2F8gy@google.com>
+References: <av0gBCp63QZ2F8gy@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,108 +75,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Enver Ikromov <owner@ph4ntom-rev.uz> wrote:
->=20
-> Fix the operating channel not being restored after bringing a monitor
-> interface down and back up on devices that do not use native chanctx
-> callbacks (such as RTL8852AE when firmware lacks beacon filtering).
->=20
-> Stopping the interface powers down the PHY while mac80211 retains the
-> previous chandef and omits IEEE80211_CONF_CHANGE_CHANNEL on restart.
-> Record support_chanctx in rtwdev and set
-> IEEE80211_CONF_CHANGE_CHANNEL
-> when re-entering monitor mode from idle on non-chanctx devices so the
-> channel is applied again.
->=20
-> Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
-> ---
->  drivers/net/wireless/realtek/rtw89/core.c     | 1 +
->  drivers/net/wireless/realtek/rtw89/core.h     | 1 +
->  drivers/net/wireless/realtek/rtw89/mac80211.c | 9 +++++++++
->  3 files changed, 11 insertions(+)
->=20
-> diff --git a/drivers/net/wireless/realtek/rtw89/core.c
-> b/drivers/net/wireless/realtek/rtw89/core.c
-> index 37ff745..8333b26 100644
-> --- a/drivers/net/wireless/realtek/rtw89/core.c
-> +++ b/drivers/net/wireless/realtek/rtw89/core.c
-> @@ -7761,6 +7761,7 @@ struct rtw89_dev
-> *rtw89_alloc_ieee80211_hw(struct device *device,
->         rtwdev->board =3D info->board;
->         rtwdev->fw.req.firmware =3D firmware;
->         rtwdev->fw.fw_format =3D fw_format;
-> +       rtwdev->support_chanctx =3D !no_chanctx;
->         rtwdev->support_mlo =3D support_mlo;
->=20
->         bitmap_copy(rtwdev->quirks, &chip->default_quirks,
-> NUM_OF_RTW89_QUIRKS);
-> diff --git a/drivers/net/wireless/realtek/rtw89/core.h
-> b/drivers/net/wireless/realtek/rtw89/core.h
-> index 8e93cf1..780ec47 100644
-> --- a/drivers/net/wireless/realtek/rtw89/core.h
-> +++ b/drivers/net/wireless/realtek/rtw89/core.h
-> @@ -7703,6 +7703,7 @@ struct rtw89_dev {
->         const struct rtw89_io_ops *io;
->=20
->         bool dbcc_en;
-> +       bool support_chanctx;
->         bool support_mlo;
->         enum rtw89_mlo_dbcc_mode mlo_dbcc_mode;
->         struct rtw89_hw_scan_info scan_info;
-> diff --git a/drivers/net/wireless/realtek/rtw89/mac80211.c
-> b/drivers/net/wireless/realtek/rtw89/mac80211.c
-> index 7a55fed..a385e57 100644
-> --- a/drivers/net/wireless/realtek/rtw89/mac80211.c
-> +++ b/drivers/net/wireless/realtek/rtw89/mac80211.c
-> @@ -89,6 +89,7 @@ static void rtw89_ops_stop(struct ieee80211_hw *hw,
-> bool suspend)
->  static int rtw89_ops_config(struct ieee80211_hw *hw, int radio_idx, u32
-> changed)
->  {
->         struct rtw89_dev *rtwdev =3D hw->priv;
-> +       bool no_chanctx =3D !rtwdev->support_chanctx;
->=20
->         lockdep_assert_wiphy(hw->wiphy);
->=20
-> @@ -97,6 +98,14 @@ static int rtw89_ops_config(struct ieee80211_hw *hw,
-> int radio_idx, u32 changed)
->=20
->         rtw89_leave_ps_mode(rtwdev);
->=20
-> +       if (no_chanctx &&
-> +           (changed & (IEEE80211_CONF_CHANGE_IDLE |
-> +                       IEEE80211_CONF_CHANGE_MONITOR)) =3D=3D
-> +           (IEEE80211_CONF_CHANGE_IDLE |
-> IEEE80211_CONF_CHANGE_MONITOR)) {
-> +               if (!(hw->conf.flags & IEEE80211_CONF_IDLE))
+Hi Benson,
 
-How about
+Thanks a lot for the review! You are right on all three points:
 
-    If (!rtwdev->support_chanctx &&
-      changed & IEEE80211_CONF_CHANGE_IDLE &&
-      changed & IEEE80211_CONF_CHANGE_ MONITOR &&
-      !(hw->conf.flags & IEEE80211_CONF_IDLE))
+- moving the of_find_compatible_node() call out of the condition broke
+  the short-circuit evaluation and made every probe (including the
+  secondary MCUs) walk the whole device tree for "google,cros-ec-ucsi";
+- testing !np after of_node_put() evaluated the pointer after its
+  reference had already been dropped;
+- and the extra declaration was redundant, given the existing
+  "struct device_node *node" in ec_device_probe().
 
-Additionally,
-    (changed & (IEEE80211_CONF_CHANGE_IDLE |
-              IEEE80211_CONF_CHANGE_MONITOR))
-seems to be true for any first iface (even if not a monitor) by
-ieee80211_hw_conf_init(). So, perhaps the condition should be
+I have sent v2 scoping the lookup to the UCSI block with
+__free(device_node) exactly as you suggested, which keeps the
+short-circuit evaluation and releases the reference automatically:
 
-    If (!rtwdev->support_chanctx &&
-      changed & IEEE80211_CONF_CHANGE_IDLE &&
-      changed & IEEE80211_CONF_CHANGE_ MONITOR &&
-      !(hw->conf.flags & IEEE80211_CONF_IDLE) &&
-      hw->conf.flags & IEEE80211_CONF_MONITOR)
+  [PATCH v2] mfd: cros_ec: Drop OF node reference in ec_device_probe()
+  https://lore.kernel.org/r/20261118062949.1250-1-laixiangwu@cmss.chinamobile.com
 
-> +                       changed |=3D
-> IEEE80211_CONF_CHANGE_CHANNEL;
-> +       }
-> +
->         if ((changed & IEEE80211_CONF_CHANGE_IDLE) &&
->             !(hw->conf.flags & IEEE80211_CONF_IDLE))
->                 rtw89_leave_ips(rtwdev);
-> --
-> 2.56.0.windows.4
+Best regards,
+Xiangwu Lai
+
 
