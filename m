@@ -1,47 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794981913;
-	b=Jf9EFPpUxvj/odugUZ3E3jKezgGd+NL44yvHn65E2eeLnr4fhmz3amRV2tKhRhUUnk3J
-	 eP67rZ2cAWiMU0x5U9S+foP8LrqjUAps7r45LJv48qh0zcyA06zHpydn9ObO1+qYHwyiE
-	 QX905D2OCXE/798VIEhVuTmZEcGNjw1CGX/UOC/s0c3DMBcF75Xffvn1kTwpXwUW861Vn
-	 1tTGuybBuzc5aN4Iio+WNftfyghCAeYNx8+R4dPk3wMWfxzyGPUaZj7JHH2mfnsptWOYO
-	 teuz2nig+eQXRydEW5bpwSdDWdmLyxLURYenjF7JQ/DEFvCFnkt9YZo3DRpeYugWqjg==
+	t=1794981909;
+	b=Kp3l4+zDjHSdP8O8BlZtQwKFzki15Z07xu4esXUGug820McVerMwnxwauOaqS/Zrfgu9
+	 tQVo1AvHbHjUijTRFK9D0tgIGmbpV29Hqptzgn0kII3+bBnUKGDf7W6AbgN2iZluoIEkj
+	 u+756vKh7o26rH0mV43nnhJ9+sqA6EsaL5pJ0CI3CCouJpf337N6QZEhnHuzlwzl+wfHO
+	 iLYSfSUUqAFSm8cjjFOE55BgvQR9tCHS840AGriCTUjh13xWLlb3aEc88R5+QXKaTgody
+	 L0su0cGT8rKhtauP2RFlV5jquRFmH+MnvTKCxUn9qYdy3StozZzrtFVqSz9mKk/SRzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794981913;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=k58+4VXumWGm9ydGG3fAL2iecNdWFj/ZkuOieURvByk=;
-	b=FGphQ462h1yYYZjFFgcTw4qKutjHa/Ska9HbNLUaapl8Bhub9gTTcxRgC8mx8jsn4Ss6
-	 GuWRVUAhyKYDaESNuBJ63jQeb+SQtSvO4wLeD6p2Y7mNFtph4dGWT3jxIPMtGGvSQ7RgC
-	 Xzgt4j+qn//G1l05WjRhV3Xq4wkver35fU3pmK/D3qfOdtSfFmg6owo1CU81DQUyUpZii
-	 AKgPvwpDuk/2fOGl/+z16919YSvTdASJvhWZOxlBDu6dQLbhNjAAOHUIiiVa+0/P0AQfc
-	 55VAIndKOZB2MlStKAmqG34UGO2H4cfv6/zUtRU7PF+ZbnBtYlEH60z89oA3E3SLHQQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794981909;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=lGFzuVMblmHWoaPkkq3H1BogaS0iZ4fIz8Y5I6dlU/E=;
+	b=MgN8icMJdS2hJzJcv3eTHGutXImwc9sbLNgo3OtGYFby96RtrxVXKtoSfyscmJyYg3i/
+	 ConNn35MWMvmnwRISVMGMBF2vBrywjCPAAo5hWm7pf+rK5+HYvLN34lqDMYTBhDOYjCzA
+	 W7K+yw5t+/qMWjitesBy/4wiqOwUoHXIoK9/6SAFDjM3bw/UN/yZWSa5Rt1Wc+XI5xOlf
+	 HCybkzHD67UviLqt3a03ixaNwPFTNWtt0lPVfn3eBHtS/YmX33GkuuFRyrpfrgLucp5KW
+	 HOeiCqeedCIsNyy7OsGvVvfMR65bfqh0TFYOyIa1S8Wdlprf8kMJraG4LBxjXAlHNVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h2oEGXOw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DB8KjKpT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF5FD606A32A;
-	Wed, 18 Nov 2026 06:05:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E596606A881;
+	Wed, 18 Nov 2026 06:05:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h2oEGXOw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BA161F000C5;
-	Wed, 18 Nov 2026 06:05:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DB8KjKpT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0783F1F000CB;
+	Wed, 18 Nov 2026 06:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794981913;
-	bh=k58+4VXumWGm9ydGG3fAL2iecNdWFj/ZkuOieURvByk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=h2oEGXOwQgCgElRbTyIldi8uLq96Kx+N96A5oJpT3BKf/gub7hZW+mICf2Vti9B2o
-	 Vnyecs3EHbpHYwXoLNVQooB1Yzgu3ViR7ZIClzS41FcJ5z7pEHPq6jtKr8HjzyezTI
-	 JItzc2qVG0reshFe8j+maCLTrqHpgaOcfCTdhegEJWAFEnAieaFplztc6r9ZI3Tef9
-	 4Ihn2v/6SugaziIaIV33JEh+AtB4mm2eaMisA1BDs1jlbkT5hQnCO37TL29V6VEThn
-	 g0J4ZHic40MRuFZBmNBCRPCsgTTkMkPHDMcU0u8ZGuq1jsNPkDzdKNGu/bqD16Q3PG
-	 42O3oKWphWotw==
-Message-ID: <86eea37d-632d-4c8a-b548-63907c7adee2@kernel.org>
-Date: Wed, 18 Nov 2026 07:05:09 +0100
+	s=k20260515; t=1794981908;
+	bh=lGFzuVMblmHWoaPkkq3H1BogaS0iZ4fIz8Y5I6dlU/E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=DB8KjKpTNQFjBNQDf87cb6e9y2kT2fpOzEV5Jq0WNGgGRLq8k5/6lmaNXDm3tJ5RR
+	 0an+eadBaBhmVE7jpb7NAvvygRg5X0BEzfanvXUVKgkjDA/8L+Vssni8gIUCiu/7Pu
+	 oUi+1irOxQEaM+G1W/3EWXshEymnPGipxaQGPzs2kbwn3PkSn/9MFOQXEHAyJ7RRBL
+	 92Gh6LoAV5d3N93n6VJgizkp3YDRriBP8Im8hRJH0T1rZyib/qjlsozG0NyTncjo/A
+	 sKV5fbCzeryfndB1ZTwhjQs2P9ekES6skUvLd2e9Pmng7m26PlI3QS34PavdQPq8ME
+	 aB/ikdaZlAF7A==
+Subject: Re: [PATCH net-next v4 5/5] selftests: drv-net: psp: add rekey tests
+From: netdev-bot+sashiko@kernel.org
+To: daniel.zahka@gmail.com
+Cc: kuba@kernel.org, willemdebruijn.kernel@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, donald.hunter@gmail.com,
+ andrew+netdev@lunn.ch, shuah@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, willemb@google.com
+Date: Wed, 18 Nov 2026 06:05:07 +0000
+Message-ID: <179498190761.3136.2442491896816949702@kernel.org>
+In-Reply-To: <20261116-psp-v4-5-1a599df2aefa@gmail.com>
+References: <20261116-psp-v4-5-1a599df2aefa@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,122 +65,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tty: vt: protect tty lifetime in keyboard path
-To: Haoli Zhang <26031212468@stu.xidian.edu.cn>, gregkh@linuxfoundation.org
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- syzbot+2932e8970a6398db95c3@syzkaller.appspotmail.com,
- 25031212117@stu.xidian.edu.cn, byu@xidian.edu.cn
-References: <20261117091207.3950936-1-26031212468@stu.xidian.edu.cn>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- xsFNBE6S54YBEACzzjLwDUbU5elY4GTg/NdotjA0jyyJtYI86wdKraekbNE0bC4zV+ryvH4j
- rrcDwGs6tFVrAHvdHeIdI07s1iIx5R/ndcHwt4fvI8CL5PzPmn5J+h0WERR5rFprRh6axhOk
- rSD5CwQl19fm4AJCS6A9GJtOoiLpWn2/IbogPc71jQVrupZYYx51rAaHZ0D2KYK/uhfc6neJ
- i0WqPlbtIlIrpvWxckucNu6ZwXjFY0f3qIRg3Vqh5QxPkojGsq9tXVFVLEkSVz6FoqCHrUTx
- wr+aw6qqQVgvT/McQtsI0S66uIkQjzPUrgAEtWUv76rM4ekqL9stHyvTGw0Fjsualwb0Gwdx
- ReTZzMgheAyoy/umIOKrSEpWouVoBt5FFSZUyjuDdlPPYyPav+hpI6ggmCTld3u2hyiHji2H
- cDpcLM2LMhlHBipu80s9anNeZhCANDhbC5E+NZmuwgzHBcan8WC7xsPXPaiZSIm7TKaVoOcL
- 9tE5aN3jQmIlrT7ZUX52Ff/hSdx/JKDP3YMNtt4B0cH6ejIjtqTd+Ge8sSttsnNM0CQUkXps
- w98jwz+Lxw/bKMr3NSnnFpUZaxwji3BC9vYyxKMAwNelBCHEgS/OAa3EJoTfuYOK6wT6nadm
- YqYjwYbZE5V/SwzMbpWu7Jwlvuwyfo5mh7w5iMfnZE+vHFwp/wARAQABzSFKaXJpIFNsYWJ5
- IDxqaXJpc2xhYnlAa2VybmVsLm9yZz7CwXcEEwEIACEFAlW3RUwCGwMFCwkIBwIGFQgJCgsC
- BBYCAwECHgECF4AACgkQvSWxBAa0cEnVTg//TQpdIAr8Tn0VAeUjdVIH9XCFw+cPSU+zMSCH
- eCZoA/N6gitEcnvHoFVVM7b3hK2HgoFUNbmYC0RdcSc80pOF5gCnACSP9XWHGWzeKCARRcQR
- 4s5YD8I4VV5hqXcKo2DFAtIOVbHDW+0okOzcecdasCakUTr7s2fXz97uuoc2gIBB7bmHUGAH
- XQXHvdnCLjDjR+eJN+zrtbqZKYSfj89s/ZHn5Slug6w8qOPT1sVNGG+eWPlc5s7XYhT9z66E
- l5C0rG35JE4PhC+tl7BaE5IwjJlBMHf/cMJxNHAYoQ1hWQCKOfMDQ6bsEr++kGUCbHkrEFwD
- UVA72iLnnnlZCMevwE4hc0zVhseWhPc/KMYObU1sDGqaCesRLkE3tiE7X2cikmj/qH0CoMWe
- gjnwnQ2qVJcaPSzJ4QITvchEQ+tbuVAyvn9H+9MkdT7b7b2OaqYsUP8rn/2k1Td5zknUz7iF
- oJ0Z9wPTl6tDfF8phaMIPISYrhceVOIoL+rWfaikhBulZTIT5ihieY9nQOw6vhOfWkYvv0Dl
- o4GRnb2ybPQpfEs7WtetOsUgiUbfljTgILFw3CsPW8JESOGQc0Pv8ieznIighqPPFz9g+zSu
- Ss/rpcsqag5n9rQp/H3WW5zKUpeYcKGaPDp/vSUovMcjp8USIhzBBrmI7UWAtuedG9prjqfO
- wU0ETpLnhgEQAM+cDWLL+Wvc9cLhA2OXZ/gMmu7NbYKjfth1UyOuBd5emIO+d4RfFM02XFTI
- t4MxwhAryhsKQQcA4iQNldkbyeviYrPKWjLTjRXT5cD2lpWzr+Jx7mX7InV5JOz1Qq+P+nJW
- YIBjUKhI03ux89p58CYil24Zpyn2F5cX7U+inY8lJIBwLPBnc9Z0An/DVnUOD+0wIcYVnZAK
- DiIXODkGqTg3fhZwbbi+KAhtHPFM2fGw2VTUf62IHzV+eBSnamzPOBc1XsJYKRo3FHNeLuS8
- f4wUe7bWb9O66PPFK/RkeqNX6akkFBf9VfrZ1rTEKAyJ2uqf1EI1olYnENk4+00IBa+BavGQ
- 8UW9dGW3nbPrfuOV5UUvbnsSQwj67pSdrBQqilr5N/5H9z7VCDQ0dhuJNtvDSlTf2iUFBqgk
- 3smln31PUYiVPrMP0V4ja0i9qtO/TB01rTfTyXTRtqz53qO5dGsYiliJO5aUmh8swVpotgK4
- /57h3zGsaXO9PGgnnAdqeKVITaFTLY1ISg+Ptb4KoliiOjrBMmQUSJVtkUXMrCMCeuPDGHo7
- 39Xc75lcHlGuM3yEB//htKjyprbLeLf1y4xPyTeeF5zg/0ztRZNKZicgEmxyUNBHHnBKHQxz
- 1j+mzH0HjZZtXjGu2KLJ18G07q0fpz2ZPk2D53Ww39VNI/J9ABEBAAHCwV8EGAECAAkFAk6S
- 54YCGwwACgkQvSWxBAa0cEk3tRAAgO+DFpbyIa4RlnfpcW17AfnpZi9VR5+zr496n2jH/1ld
- wRO/S+QNSA8qdABqMb9WI4BNaoANgcg0AS429Mq0taaWKkAjkkGAT7mD1Q5PiLr06Y/+Kzdr
- 90eUVneqM2TUQQbK+Kh7JwmGVrRGNqQrDk+gRNvKnGwFNeTkTKtJ0P8jYd7P1gZb9Fwj9YLx
- jhn/sVIhNmEBLBoI7PL+9fbILqJPHgAwW35rpnq4f/EYTykbk1sa13Tav6btJ+4QOgbcezWI
- wZ5w/JVfEJW9JXp3BFAVzRQ5nVrrLDAJZ8Y5ioWcm99JtSIIxXxt9FJaGc1Bgsi5K/+dyTKL
- wLMJgiBzbVx8G+fCJJ9YtlNOPWhbKPlrQ8+AY52Aagi9WNhe6XfJdh5g6ptiOILm330mkR4g
- W6nEgZVyIyTq3ekOuruftWL99qpP5zi+eNrMmLRQx9iecDNgFr342R9bTDlb1TLuRb+/tJ98
- f/bIWIr0cqQmqQ33FgRhrG1+Xml6UXyJ2jExmlO8JljuOGeXYh6ZkIEyzqzffzBLXZCujlYQ
- DFXpyMNVJ2ZwPmX2mWEoYuaBU0JN7wM+/zWgOf2zRwhEuD3A2cO2PxoiIfyUEfB9SSmffaK/
- S4xXoB6wvGENZ85Hg37C7WDNdaAt6Xh2uQIly5grkgvWppkNy4ZHxE+jeNsU7tg=
-In-Reply-To: <20261117091207.3950936-1-26031212468@stu.xidian.edu.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 17. 11. 26, 10:12, Haoli Zhang wrote:
-> The KASAN report reaches stop_tty() through fn_hold(). That handler
-> reads vc->port.tty and uses it without holding a tty reference. It runs
-> under kbd_event_lock, while con_shutdown() clears the port association
-> under console_lock; these locks do not protect the tty lifetime.
-> 
-> Use the tty_port_tty guard in fn_hold() and keep the reference until
-> start_tty() or stop_tty() returns. Keep kbd_keycode()'s existing tty
-> reference interval unchanged.
-> 
-> Use tty_port_tty_set() when installing and clearing the association so
-> that updates use the same port lock as guarded reads and the port holds a
-> tty reference while the association is active. A keyboard operation
-> that already obtained a reference can then finish safely after shutdown
-> clears the association.
-> 
-> Reported-by: syzbot+2932e8970a6398db95c3@syzkaller.appspotmail.com
-> Closes: https://syzbot.org/bug?extid=2932e8970a6398db95c3
-> Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
-> Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
-> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-> Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
-> 
-> ---
->   drivers/tty/vt/keyboard.c | 34 ++++++++++++++++++++--------------
->   drivers/tty/vt/vt.c       |  4 ++--
->   2 files changed, 22 insertions(+), 16 deletions(-)
-> 
-> --- a/drivers/tty/vt/keyboard.c
-> +++ b/drivers/tty/vt/keyboard.c
-> @@ -509,20 +509,26 @@
->   
->   static void fn_hold(struct vc_data *vc)
->   {
-> -	struct tty_struct *tty = vc->port.tty;
-> -
-> -	if (rep || !tty)
-> -		return;
-> -
-> -	/*
-> -	 * Note: SCROLLOCK will be set (cleared) by stop_tty (start_tty);
-> -	 * these routines are also activated by ^S/^Q.
-> -	 * (And SCROLLOCK can also be set by the ioctl KDSKBLED.)
-> -	 */
-> -	if (tty->flow.stopped)
-> -		start_tty(tty);
-> -	else
-> -		stop_tty(tty);
-> +	struct tty_struct *tty;
-> +
-> +	if (rep)
-> +		return;
-> +
-> +	scoped_guard(tty_port_tty, &vc->port) {
-> +		tty = scoped_tty();
-> +		if (!tty)
-> +			return;
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-I am not sure whether you are a bot, but this is obviously wrong.
+Low priority / nit picks for your consideration:
+
+- [Low] The patch changes the existing shared helper _recv_careful() in
+  tools/testing/selftests/drivers/net/psp.py, and the commit message…
+
+--
+
+selftests: drv-net: psp: add rekey tests
+
+This commit adds selftests for rekeying PSP connections. The tests cover
+rx-assoc and tx-assoc rejections caused by a PSP version mismatch or by
+the PSP state. It also adds rx-assoc, tx-assoc and key-rotate RPC
+endpoints to psp_responder.
+
+> diff --git a/tools/testing/selftests/drivers/net/psp.py b/tools/testing/selftests/drivers/net/psp.py
+> index ce0ab66666030..bd0283f9c9c02 100755
+> --- a/tools/testing/selftests/drivers/net/psp.py
+> +++ b/tools/testing/selftests/drivers/net/psp.py
+
+[ ... ]
+
+> @@ -126,7 +157,10 @@ def _recv_careful(s, target, timeout=2):
+>      end = time.monotonic() + timeout
+>      while time.monotonic() < end:
+>          try:
+> -            data += s.recv(target - len(data), socket.MSG_DONTWAIT)
+> +            chunk = s.recv(target - len(data), socket.MSG_DONTWAIT)
+> +            if not chunk:
+> +                raise KsftFailEx(f"peer closed after {len(data)} of {target} bytes")
+> +            data += chunk
+>              if len(data) == target:
+>                  return data
+>          except BlockingIOError:
+
+[Severity: Low]
+This isn't a bug, but this hunk changes _recv_careful(), a helper that
+existed before this patch. The commit message doesn't mention it.
+
+Existing tests reach it through _req_echo(), for example
+_data_basic_send(). So the change affects more than the new rekey tests:
+
+    _req_echo()
+        ksft_eq(_recv_careful(s, 5), b'echo\0')
+
+Before this patch, when the peer closed the socket, recv() returned b''.
+The loop then spun without sleeping until the 2 second timeout and
+failed with "short read, got N of M bytes".
+
+With this patch it fails at once with "peer closed after N of M bytes".
+
+The only place this is described is the v3 note "fail fast in
+_recv_careful() if the peer closes the connection". That note is below
+the --- line, so it won't be kept in git history.
+
+Could the commit message say that _recv_careful() now fails fast when
+the peer closes the connection? Alternatively, this could go in a
+separate patch.
 
 -- 
-js
-suse labs
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-psp-v4-0-1a599df2aefa%40gmail.com
