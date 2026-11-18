@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010986;
-	b=Y8V6iVqy09LOZPzjBYHN9KTIC9lbmeUCQkufD2fdgNxm+ioB7MvCDKVTJoI3pu0laXN6
-	 LXdpTeOGOG6yiEE/gMiOC5Y+7pqAVvQsH4TbUJs5WTy06C7QXxBfRrzMQsh3k2szyMAW4
-	 rpIuFIMGHhlXQusTCqGMguI+D/iK+7HH2OGDkUqi+qLXpj/najL9JbQ0cOxi5QdmWoEM3
-	 2F7dLTg6gd91SSRx//kp8TieSPQgYiR/avolUmVwRGFeBc3m6JAjkiAxbBttZLaf02hZj
-	 plZYrLne+QgTg8Uq9KcAwyicbG6mAjs9GIh96F2T0H78ZATy/0QfFg9j2rltApUEAQQ==
+	t=1795010991;
+	b=k0XoPDYXzuhj1YRYy7FktoEEkjaivuNeZ8B6HuSD/uP1Zh4bSsLco/Ir1JZHmQgSeFRt
+	 K8tqx5CS61enaQYEQZlutnV1FCPh9bD8ZeGJYWThH32yJ8ykcMgoEkWtLFVcJ6mQGLVvi
+	 RwhFbb2gb7JPX2RUaOyvVUmRb3dfWm3tIh5edGQXK1lcxGKiB75vZDvzKKW9d6xappTcw
+	 idDlw4DF6Da5AwO2aJQH6ikNa7SNjnmam68h8VGq61aOwK6Gojy42TpcV5Ikx7xNP4io+
+	 iFl1zLXZJPMur98EG9uairuLDMH7UZNs4blNSQLCFshGcaehi0/O4P7d8S9t0E1+Thg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010986;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010991;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=tcgPJyrG/tkBCFtIrUZsvk3sWZQyrMsvPzB+MTHh/GA=;
-	b=gMU3+ZG1qeb4uvSKsG9qji/tRCsDqeJkks8lN78uvAOm/5RsWsuD0NR2At8+zn5hm0G7
-	 AM09yfs/u2MuCifrI2BEOUL4e/NrXQV/hNfcxgs65gAzZu2YjwKgv++6RR+9VAThUWz9Y
-	 IluMNAjzlGrqk8mwmGD+PWoJoKgErdyVF1wGvRQcHPajLWQKZ5EeO+RM6NKUhp0IuQAfN
-	 ZGbfvh69QUguoWxR2a80M84WJg0cWpQ+tRh2B5EncyqgMb1KpgK4Z1zn5x5sAcxezUfLj
-	 xxoD9OKRB/NEpzXclibqY82myXSZjHIThZjJpdWEw/x+9EvOiGze47U7zcqAdUIfdPQ==
+	bh=XAheLrxIyzbdT9JPYIudMidPXsJvcTTt6MqGrybJiMo=;
+	b=quXjlctS3Xlwe3u17xu3aoqLo50kPRV27/KZQDb6nZh6BIEH3a9KEHgfiEoatiglBo87
+	 M1KH2sciBS2F3rKuyCqStinbChWuk/kN+e2hsghTW8T8tn5LXggqU+y3y6Ak5r/U0dT4r
+	 v/0G/2c1cMA5PFQQGjgqwrsgU4dD/SJZwBbY5c/1cWi6PTvnxiCc+Yb1PUN/r3vr1vDMw
+	 8t6ksiUQDGZJPQy2NWu5X24a6/sn4/3HHJHql8m/KtX5rYaYCVJic8iCwBe/TrCysh3aC
+	 fDxsQMjG3Kk67K97lsgrRZoY8d2DCqmYDYZpG4Tqac0qMuPhRL/xk43D3eNXkz6xjzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LAnecXSD;
-	arc=none smtp.remote-ip=209.85.161.43
-Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jT9z8ZUs;
+	arc=none smtp.remote-ip=209.85.161.41
+Received: from mail-oo1-f41.google.com (mail-oo1-f41.google.com [209.85.161.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C535560A262C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:09:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C535560A262C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9552960A381C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:09:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9552960A381C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LAnecXSD
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-71aed54d4c5so643781eaf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:09:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jT9z8ZUs
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-703be215729so488585eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:09:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795010985; x=1795615785; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795010989; x=1795615789; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tcgPJyrG/tkBCFtIrUZsvk3sWZQyrMsvPzB+MTHh/GA=;
-        b=LAnecXSDfxZKBC7lRKXezKA7kvBi80WIMW4p7syBsLb2sx99DS24F+9izV7rEHKh4S
-         uUDaCJTRi/Blg/8pyTYCFCnPvM6viGAohCKP/iLaIN4+hvlWWxJIFKrcrHJ0DGj1VCEJ
-         97hSq8VH09GnRuruyRZAKJHcn6hzf4r2gnfxEZIvU++MHl4EHk0pbdVQ6VpHv+wNV7B9
-         cgZijaS4+K2FrnG3Z93Pw7fQnwMKQFsmo8yqd4h0zgW6sAk9kN0WWH1C9ERMbjlbvjAy
-         u+adpm7CzPFKDzBomD4Jr8f8lGd+A5d3qtKpO29CPK+x+R6AL7R6f4HEaidVejdM7Kpi
-         GzYQ==
+        bh=XAheLrxIyzbdT9JPYIudMidPXsJvcTTt6MqGrybJiMo=;
+        b=jT9z8ZUsVYiBGxipChoWzCY5tmzAdRWCz0HJ5IWSPRXPhff3OUE3AEatyqayMpOLJU
+         RRiJkKJOdnxGRlt2G0k5oQTp71Amz2gjMnh4qxTstm/wN2zaUWOddOvNayM6Q+SNKJeE
+         QrZvpM1lQcEICLhxAY3C70lWW3DrbLS7dlTRoVXop8L+2EG6M5rlvzqkxzTeDwa1BZNW
+         FXIEkuIS8MiTISs0xlkpuM8zWg5Plh99tFe6dCX4Ie8fm0VKJuB5dg02y8xkNmUW4vC0
+         nXOHPRSdHB1o4tRteJBiv2MyOQhKVrQog/0Fn3aWEQZ4V3mGXrvUSZQ1dZKzjIp9X9zK
+         p5UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795010985; x=1795615785;
+        d=1e100.net; s=20260707; t=1795010989; x=1795615789;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tcgPJyrG/tkBCFtIrUZsvk3sWZQyrMsvPzB+MTHh/GA=;
-        b=fCMKClk3aIXBcXwHyRPtN6uO1VL/SH0CMAAyCxIM9ZG5Qwc2dClcz2tL+WLMVIAVER
-         +DE9weHgTdTnmMWMfdgzXsgdY2TRn52HnuRjRYEi00ks3ztq8o3ObVq0vFJiNK+zgXjh
-         ZoYgeDapX8qgf6W6Ep3UWTEPsAgQO7mFgTAKEjVIMHsQExazheoJlkXDSXxqaTUiHGDM
-         s5QyLQwIN46QYVEfUVPq42+ZP2etMeg9nyFi9wAA0Qw6i2MXFXbj7ukogJbnD137f94k
-         R3v4d5dD7r6cFdCJ+0ifKRLA2uXx+Hqzua5S4bclHaw43D/WMIkSK+09lzsR40Hj5v04
-         mIoA==
-X-Forwarded-Encrypted: i=1; AL+hErGXMDk8aVDjDZ12K9DWj3pR67i3n7rAJN3QCbSG2TYluHtyqen1R133gsXBoxeSMfRzIdSpWkQeOFVK5t8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YO2zz6UCEBSFatq/5D8TRDRHPpSRWll/hIAmSxpzQruQxZ1gp
-	f/EWtzcSdwDhiIIWz5VDQC3fE5Lphb68DGA0xnhwDU0a/k17xdnxoIzN
-X-Gm-Gg: AYBFou2Sd80vKaFRBfnP20M+K0rSjdojFjdZ9A67YBEn5+2n57Wh1emJQRmniHLC+ot
-	gwQGynnakfGFYku2mWvi0CSj8oT+w9iRi8hCo+qb31SygJiJnK0wRJ5MK18yNbnEJ7cN9XFEFhd
-	SKvzBx0tnXGp6MrCuCu5Owy1h5X4SGnQqTSDd+X7/l4DRSV3m/+Uf7pEkiR2DafuiBCCfbZL4YK
-	s06SEm10nBZmUsQ6DcVrBoeELTcL/ht+HGwZxVsG2skY1su5ygd4Y/SLeenmbMpCQl9WgMie0cu
-	0xy8meW00acMUteILFoADJZgCX7fvp919WROSRrtagf5/6Z1tTvv+qJvwu2EQ81Pe8NDzGdhoaL
-	7D1GxObvXjtOOE6MTcDPNGbVk3Jr9dxamcFbCFbaPxuncDYJla4Sj+doBLJcGutkZ5K2IUseIXJ
-	qfCPFCzyhG3+K/RjT8AqJrfLII5JO2zYxpEEr2eXirv3pJ3x+I9oqEn0beESOy0bzpg7JsZPI53
-	6WkLfq/fFpS6ylwvwPCosmsJ+/VgtFqcVgkMkJtJwr+qQhsUP4aoZ2s5P1SUiwfjX0GdwpdNRsP
-	RnDxnH037hVMEwdCCLXe507afpA=
-X-Received: by 2002:a05:6820:1355:b0:71a:ee31:7b87 with SMTP id 006d021491bc7-71b18460540mr1709015eaf.32.1795010984713;
-        Wed, 18 Nov 2026 06:09:44 -0800 (PST)
-Received: from localhost ([2a03:2880:30ff:42::])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b19516ea1sm1983557eaf.11.2026.11.18.06.09.44
+        bh=XAheLrxIyzbdT9JPYIudMidPXsJvcTTt6MqGrybJiMo=;
+        b=LoCIpAlg4n3lNws/uDiywSA0xpmkvd/rMiCWn31idoydJYQkGTNGrKcrpPybZfIJ5w
+         yaJhaUxvTXGjUawrROMabSz3RCmTJo9efKaMHVsWDjSF9JLDc+bfI9+CFH1V89WzoLtg
+         6J6aFHqynHUEqwLl3MgL2DgAlES9vSkC4PXvmgBqYiTTHMJBg0N0G1Xr8vkTHI3dyjoc
+         /V5SggL+ZOLBgVmQmjUAVoFVgbG3tphWXAWhRiSUsulgIqlFKic9z0MZndGrGLE+r2bX
+         mNHdeiDVo9sTM+4zI+O44j0MqNMkUE1WTrh0ZoUOPUS03eU0Y234iYUzs7wJ6LoLAwqH
+         kODQ==
+X-Forwarded-Encrypted: i=1; AL+hErFBcQ8kzzZQLux3cIK7GP5vreFliEJRX7c+hvNRRNounnpgDOXpcgb1cuvllsO5hicyZC8sQ8h+ohKNBZU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Z+B5L3KUmR7gMn5z4ofbx2wJ3v7zAUSr/k/+pq6V1T/EHSwE2
+	EN/dexzCjsQImCsq62YXR2+s3YM+yfjXkAsu2IyEBjNYdYOI/72mxcDt
+X-Gm-Gg: AYBFou0c6yQVJZjcUOpNlMC2Onz0QxbX/tDyOFpEB73YvtBKRJ4vmyQ3v6EisqiXcRg
+	7ammFx/kEW9cd7YP9nsO39DvpC6D4wTjMfTQ65CL5tR/8CSIQv8/Ch5ODtwDugdM+tlCLQtDYBM
+	GWvmcWzzdf6dFaaGYdi/lma4Zs3pDEVg0Tdc1A5B33ShUj8FdqOEOd3XIKmekFlP8ovuNM/6cu9
+	cqV9dEOQPIBfQ1An0ZGN+oWHZ2SG5wIF2ZR4n9o4gGNEoD7qkvldKNZt45FE1qmww4kJ7Jv69NE
+	fN5gr75ffJjFS7ZbkYpdkcV/gd60G7UfrPyuPe0pjkV2Mj8q+ocFig8JfZCWyGgHHUSaYrKP4Xi
+	4oE2gm8vwTC+JJQAlSEmT2lCVhPYvNfXv37q7IeT8gkqc49Qs4ytnfTtwa90GKWSDqNRsWjqkRf
+	B8AJC8im4HCLCiqM9hhVihmyh/LRwi7b0Zs/h+pQkFikIY3U1XDQuXYZv5XuId67HHLbwqXsBUf
+	ZvLdfcVBydecr0pxC+vLJRdSZOrOJI+vJ0XDfi/XgeZ7drFX4TO/KIqYMsLutMU11mPZdRWepsU
+	DvTDekbBkpWFjKLYoey1P63Dnw==
+X-Received: by 2002:a05:6820:55d6:20b0:6cd:3ffc:64cd with SMTP id 006d021491bc7-71b18600d04mr1037879eaf.72.1795010989519;
+        Wed, 18 Nov 2026 06:09:49 -0800 (PST)
+Received: from localhost ([2a03:2880:30ff:1::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b744126dfdsm2294761fac.10.2026.11.18.06.09.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:09:44 -0800 (PST)
+        Wed, 18 Nov 2026 06:09:49 -0800 (PST)
 From: Daniel Zahka <daniel.zahka@gmail.com>
-Date: Wed, 18 Nov 2026 06:08:05 -0800
-Subject: [PATCH net-next v5 3/6] psp: document lock ordering with the
- netdev instance lock
+Date: Wed, 18 Nov 2026 06:08:07 -0800
+Subject: [PATCH net-next v5 5/6] selftests: drv-net: psp: factor out psp
+ connection setup
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-psp-v5-3-b9ec840e0296@gmail.com>
+Message-Id: <20261118-psp-v5-5-b9ec840e0296@gmail.com>
 References: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
 In-Reply-To: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
 To: Jakub Kicinski <kuba@kernel.org>, 
@@ -107,75 +107,174 @@ To: Jakub Kicinski <kuba@kernel.org>,
  Andrew Lunn <andrew+netdev@lunn.ch>, Shuah Khan <shuah@kernel.org>
 Cc: Daniel Zahka <daniel.zahka@gmail.com>, netdev@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
+ linux-kselftest@vger.kernel.org, Willem de Bruijn <willemb@google.com>
 X-Mailer: b4 0.13.0
 
-PSP core calls driver ops with psp_dev::lock held, and drivers may take
-the netdev instance lock inside them. mlx5e_psp_set_config() has done so
-since commit 1e6e0cec0dab ("net/mlx5e: psp: Make PSP steering config
-dynamic"). That commit established a lock ordering that was not
-documented anywhere.
+Lift out connection setup and PSP assoc uapi code in psp.py and
+responder, so that the key exchange sequence can be used in other test
+cases that start with a key exchange, but might choose to perform
+additional tx/rx assoc calls afterwards.
 
-Document it. psp_dev_create() and psp_dev_unregister() take
-psp_devs_lock and psp_dev::lock, so assert that they are not called
-with the netdev instance lock held. The next patch adds a work item to
-PSP core which relies on this ordering.
-
+Reviewed-by: Willem de Bruijn <willemb@google.com>
 Signed-off-by: Daniel Zahka <daniel.zahka@gmail.com>
 ---
-v5:
-- new patch
----
- net/psp/psp_main.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+v4:
+- drop closing the data socket on conn_setup_psp() failure; preexisting
+  and not needed by the series
 
-diff --git a/net/psp/psp_main.c b/net/psp/psp_main.c
-index 273b010d2355..ba44154cf8dc 100644
---- a/net/psp/psp_main.c
-+++ b/net/psp/psp_main.c
-@@ -19,6 +19,8 @@ struct mutex psp_devs_lock;
-  *
-  * psp_devs_lock protects the psp_devs xarray.
-  * Ordering is take the psp_devs_lock and then the instance lock.
-+ * The PSP instance lock must be taken before its main netdev's instance
-+ * lock.
-  * Each instance is protected by RCU, and has a refcount.
-  * When driver unregisters the instance gets flushed, but struct sticks around.
-  */
-@@ -53,6 +55,7 @@ int psp_dev_check_access(struct psp_dev *psd, struct net *net, bool admin)
-  * @psd_caps:	device capabilities
-  * @priv_ptr:	back-pointer to driver private data
-  *
-+ * Context: Must not be called with the netdev instance lock held.
-  * Return: pointer to allocated PSP device, or ERR_PTR.
-  */
- struct psp_dev *
-@@ -64,6 +67,8 @@ psp_dev_create(struct net_device *netdev,
- 	static u32 last_id;
- 	int err;
+v3:
+- take key lengths from the kernel's rx-assoc reply instead of a
+  per-version table
+- close the data socket in psp_responder if conn_setup_psp() fails
+---
+ tools/testing/selftests/drivers/net/psp.py         | 14 ++++-
+ .../testing/selftests/drivers/net/psp_responder.c  | 73 ++++++++++++++--------
+ 2 files changed, 59 insertions(+), 28 deletions(-)
+
+diff --git a/tools/testing/selftests/drivers/net/psp.py b/tools/testing/selftests/drivers/net/psp.py
+index 7c8fb2200b39..a6b46acf6bf8 100755
+--- a/tools/testing/selftests/drivers/net/psp.py
++++ b/tools/testing/selftests/drivers/net/psp.py
+@@ -467,10 +467,11 @@ def assoc_twice(cfg):
+             ksft_eq(len(tx), 0)
  
-+	lockdep_assert_not_held(&netdev->lock);
+ 
+-def _data_basic_send(cfg, version, ipver):
+-    """ Test basic data send """
+-    _init_psp_dev(cfg)
++def _establish_psp_conn(cfg, version, ipver=None):
++    """Establish a PSP connection and return after key exchange
+ 
++    Requires _init_psp_dev() to have been called first.
++    """
+     # Version 0 is required by spec, don't let it skip
+     if version:
+         name = cfg.pspnl.consts["version"].entries_by_val[version].name
+@@ -495,7 +496,14 @@ def _data_basic_send(cfg, version, ipver):
+                         "version": version,
+                         "tx-key": tx,
+                         "sock-fd": s.fileno()})
++    return s
 +
- 	if (WARN_ON(!psd_caps->versions ||
- 		    !psd_ops->set_config ||
- 		    !psd_ops->key_rotate ||
-@@ -127,12 +132,16 @@ void psp_dev_free(struct psp_dev *psd)
- /**
-  * psp_dev_unregister() - unregister PSP device
-  * @psd:	PSP device structure
-+ *
-+ * Context: Must not be called with the netdev instance lock held.
-  */
- void psp_dev_unregister(struct psp_dev *psd)
++
++def _data_basic_send(cfg, version, ipver):
++    """ Test basic data send """
++    _init_psp_dev(cfg)
+ 
++    s = _establish_psp_conn(cfg, version, ipver)
+     data_len = _send_careful(cfg, s, 100)
+     _check_data_rx(cfg, data_len)
+     _req_echo(cfg, s)
+diff --git a/tools/testing/selftests/drivers/net/psp_responder.c b/tools/testing/selftests/drivers/net/psp_responder.c
+index a26e7628bbb1..411a23be78d5 100644
+--- a/tools/testing/selftests/drivers/net/psp_responder.c
++++ b/tools/testing/selftests/drivers/net/psp_responder.c
+@@ -37,20 +37,15 @@ static struct {
+ 	unsigned char rx;
+ } psp_vers;
+ 
+-static int conn_setup_psp(struct ynl_sock *ys, struct opts *opts, int data_sock)
++#define PSP_MAX_KEY_LEN		32
++
++static int
++rx_assoc(struct ynl_sock *ys, __u32 *spi, char *key, unsigned int *key_len,
++	 int data_sock)
  {
- 	struct psp_assoc_dev *entry, *entry_tmp;
- 	struct psp_assoc *pas, *next;
+ 	struct psp_rx_assoc_rsp *rsp;
+ 	struct psp_rx_assoc_req *req;
+-	struct psp_tx_assoc_rsp *tsp;
+-	struct psp_tx_assoc_req *teq;
+-	char info[300];
+-	int key_len;
+-	ssize_t sz;
+-	__u32 spi;
  
-+	lockdep_assert_not_held(&psd->main_netdev->lock);
+-	dbg("create PSP connection\n");
+-
+-	// Rx assoc alloc
+ 	req = psp_rx_assoc_req_alloc();
+ 
+ 	psp_rx_assoc_req_set_sock_fd(req, data_sock);
+@@ -64,29 +59,28 @@ static int conn_setup_psp(struct ynl_sock *ys, struct opts *opts, int data_sock)
+ 		return -1;
+ 	}
+ 
+-	// SPI exchange
+-	key_len = rsp->rx_key._len.key;
+-	memcpy(info, &rsp->rx_key.spi, sizeof(spi));
+-	memcpy(&info[sizeof(spi)], rsp->rx_key.key, key_len);
+-	sz = sizeof(spi) + key_len;
++	*key_len = rsp->rx_key._len.key;
++	memcpy(spi, &rsp->rx_key.spi, sizeof(*spi));
++	memcpy(key, rsp->rx_key.key, *key_len);
+ 
+-	send(data_sock, info, sz, MSG_WAITALL);
+ 	psp_rx_assoc_rsp_free(rsp);
+ 
+-	sz = recv(data_sock, info, sz, MSG_WAITALL);
+-	if (sz < 0) {
+-		perror("ERROR: failed to read PSP key from sock");
+-		return -1;
+-	}
+-	memcpy(&spi, info, sizeof(spi));
++	return 0;
++}
 +
- 	mutex_lock(&psp_devs_lock);
- 	mutex_lock(&psd->lock);
++static int
++tx_assoc(struct ynl_sock *ys, __u8 version, __u32 spi, char *key,
++	 unsigned int key_len, int data_sock)
++{
++	struct psp_tx_assoc_rsp *tsp;
++	struct psp_tx_assoc_req *teq;
  
+-	// Setup Tx assoc
+ 	teq = psp_tx_assoc_req_alloc();
+ 
+ 	psp_tx_assoc_req_set_sock_fd(teq, data_sock);
+-	psp_tx_assoc_req_set_version(teq, psp_vers.tx);
++	psp_tx_assoc_req_set_version(teq, version);
+ 	psp_tx_assoc_req_set_tx_key_spi(teq, spi);
+-	psp_tx_assoc_req_set_tx_key_key(teq, &info[sizeof(spi)], key_len);
++	psp_tx_assoc_req_set_tx_key_key(teq, key, key_len);
+ 
+ 	tsp = psp_tx_assoc(ys, teq);
+ 	psp_tx_assoc_req_free(teq);
+@@ -99,6 +93,35 @@ static int conn_setup_psp(struct ynl_sock *ys, struct opts *opts, int data_sock)
+ 	return 0;
+ }
+ 
++static int conn_setup_psp(struct ynl_sock *ys, struct opts *opts, int data_sock)
++{
++	char info[sizeof(__u32) + PSP_MAX_KEY_LEN];
++	unsigned int key_len;
++	ssize_t sz;
++	__u32 spi;
++
++	dbg("create PSP connection\n");
++
++	if (rx_assoc(ys, &spi, &info[sizeof(spi)], &key_len, data_sock))
++		return -1;
++
++	// SPI exchange
++	memcpy(info, &spi, sizeof(spi));
++	sz = sizeof(spi) + key_len;
++
++	send(data_sock, info, sz, MSG_WAITALL);
++
++	sz = recv(data_sock, info, sz, MSG_WAITALL);
++	if (sz < 0) {
++		perror("ERROR: failed to read PSP key from sock");
++		return -1;
++	}
++	memcpy(&spi, info, sizeof(spi));
++
++	return tx_assoc(ys, psp_vers.tx, spi, &info[sizeof(spi)], key_len,
++			data_sock);
++}
++
+ static void send_ack(int sock)
+ {
+ 	send(sock, "ack", 4, MSG_WAITALL);
 
 -- 
 2.52.1
