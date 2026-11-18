@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020677;
-	b=HONWz25a9xrZkJuUcI31HQeMX2AxYYtxwo2KbKA0lm/91BrlOcsRsXzG0/n0CsfIdyOP
-	 u9INsoKgE+ukF7P1xzbNkp0WiFuM0rtZEGMdW+T6cuG/yymRluX/io82aE5vUt3Br71mV
-	 +Z+ht3gc+tZpsymI8zERgaOqlJQcUrA2bwt+oBejcMKb9hGbI//WeXcJRGh1JbDGZjDPA
-	 7OYwlm9/xqcIB2yiAWg2BjbNmYuXFhj2zz2fubergN0ZRccs3sPo55VhTngZNOIax44oX
-	 NX/qeh83jc2/WU2wA5ZnBiDEJOvLvDLmPGY4QNGytsR9pZiDM8cwqKZ9C2wT7Dgar2w==
+	t=1795020682;
+	b=cuZt18R9T0tpV/pWumtsjMHDHRh3BKvW3Dq0OPuoR85xMi0Vsoag/DicCyImd43V2lPD
+	 J/7lptPwL2gIpRhfKrHoOzLYi0YP+dyZ4WxkDtWTD0G1K4s3rcuLCkoGILdH/isi25+3F
+	 Ty7xNEd2Z0SIxRo3/e93EnIFPU6H8vF5fD3dXWLe7zB0Xf7Q/UV+krqbFyUaWxpNsXO6h
+	 /cTAUST4oI8aPQsF0vvLbAs2/i67qTiwyAi0N+icaewvMTIGtqzFHuwj/jli9NJw3WnqJ
+	 gXzlB1vYcl5VkaF1VGSdSPLcjl9bYPufenF6Lo6IJPC7ycDAKq/ZKxAyTc8m9MbW6YA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020677;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020682;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=kfV/vPTlNu0kow2S0xdSta9ITU6sSETmynTVNkXocck=;
-	b=zwEZrjFkbRX83rKWr4PJtBioaRw037nPDTexnb/MKh8s81M2R66pMT4dy7XxlczNxwWs
-	 Z1d+tlGw6QFSrfagy936VZncundGfG53jnmWWQf66mu7IgxBull9wyeeuC9eafNImNf6V
-	 6VhGav+PsFLjxKNC+vurxGxNSH9GMUKs+wgsK4XVSFx/0X4fmTvxiWhvIg/mvIcCYaDoU
-	 Xk/KNd91PXF1aJf7DlVk+YH5r4wAHR+ueBF9q7kSvFGPFPhxV5BRxHHbgnxEPsa5aRGR2
-	 K1MErr9QW9kXFU/VwULh1NPpwK4aGr+KYpH8GqthsabG0JnMrqZoqAjrveumClVO68A==
+	bh=JJaj1pzguVVi4wrbJ2dUOb481zjC5mrMJwQIMmLcnGk=;
+	b=V9Q+kxCj2n45V+EsqR2D/58gImN11P+mc132Nt0JIlJv7WvlCbATXxB7CmybqEyLKxfP
+	 AkxbqSnEDDD4jI6ssNIasH2hKTpqkBiJSBpmxpB7gzLV7Wv1vmp0N8x55+slr7EH5K6zQ
+	 WOSg3SSIK7akO2LBUsJmKcDTSAppGIxH/2dkziygxKj+Sm1OUODV+C4wu+JE4P2SiDIRL
+	 VkWes7cRj0hHeN7M8YB9msPSI6Fyjbsv3yYt0Qx9lrbNkvWLOBSjki1t/I27aLzob7X5R
+	 PDX4MYv/cXVMV/td49H50iUGwJKr3eXBjPykixzHqIt8F5Fvnk1Q+z/zry7n9Mt9pRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=UbgJILgQ;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=runb4UUv;
 	arc=none smtp.remote-ip=185.171.202.116
 Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC196606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:51:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC196606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC29A60A2600
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:51:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC29A60A2600
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=UbgJILgQ
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=runb4UUv
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 68A30C4F77B;
-	Wed, 18 Nov 2026 16:51:20 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 886EEC4F77B;
+	Wed, 18 Nov 2026 16:51:25 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8242C5FE9B;
-	Wed, 18 Nov 2026 16:51:15 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D823F11BC28AA;
-	Wed, 18 Nov 2026 17:51:08 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A08E35FE9B;
+	Wed, 18 Nov 2026 16:51:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4424E11BC27C2;
+	Wed, 18 Nov 2026 17:51:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795020673; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795020678; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=kfV/vPTlNu0kow2S0xdSta9ITU6sSETmynTVNkXocck=;
-	b=UbgJILgQlMlkKJPgr+qGpTeBAohC79QYDlYAhcbPOsnSgeF/3ZWJuf6Gny3me3j0o7nsrO
-	GpsR0eO7NLHDg1y3oBcp5hhnI0B73FBfSdqTAS+A4btlJrhQyEFcPkJZxvuOQn2AEFL/yN
-	mdQCSC2NKV2wr4kU7jZn369ji3j37Rpx094eCPwQqwdVsVeZ+zJA467+0ObpKyy4rDX6hb
-	M8JLR3mWe4qJA3gVxFUkoatufAVRME7e3SKIYW7U+hKDzHvd0+F/sKnfDe/VCeolBFWy9X
-	ZzPxwDU8Zdz9AY7mTlrZ6xJKGWVqQ9eyl8UULl4NQka2osauY7sQiMuEhUrstQ==
+	bh=JJaj1pzguVVi4wrbJ2dUOb481zjC5mrMJwQIMmLcnGk=;
+	b=runb4UUvjNlVAxag3hTrCWwUr7Nn0+edq+cZ7iSkzlkYJlWKNZf+KlFIBXgUzmRz6t2rrQ
+	idcH7iMeoen8Dny11WTbRaz2yp22n1p6FVWWiOzMUvZq44kZmw7dAvUNNSf9WL0n8HcnW3
+	hSq+s0Xjd0z9uhc0s6W/RMaSz+2p+O7TaXGiQOxrTYYi5rB8mqP3muGhFbOT8yI7MskaR9
+	jzLuhjHjcDgxjxH/ThYypeUq3Nq1thYaFrP8xx+3Zd7JHhPZEsMqO/esnxT2O1qdukWGaz
+	s/F2ahm6yF77p6MGIzFfNkCq2RbFrwxiL/2mpp70inU1u3Ri3LXcVQx4CmTj5g==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 18 Nov 2026 17:49:53 +0100
-Subject: [PATCH RFC v3 10/31] drm/display: bridge-connector: add APIs to
- add/remove the connector dynamically
+Date: Wed, 18 Nov 2026 17:49:54 +0100
+Subject: [PATCH RFC v3 11/31] drm/bridge: constify
+ of_drm_find_and_get_bridge() device_node parameter
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-drm-bridge-hotplug-v3-10-44bb3b4a828f@bootlin.com>
+Message-Id: <20261118-drm-bridge-hotplug-v3-11-44bb3b4a828f@bootlin.com>
 References: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 In-Reply-To: <20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -92,98 +92,47 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-drm_bridge_connector_init() adds a drmm-allocated connector. For bridge
-hotplug drmm allocations are not suitable because a connector may have to
-be added and removed multiple times in the lifetime of a card.
-
-In preparation for bridge hotplug, add APIs to add and remove a connector
-using regular non-managed allocations.
-
-For the dynamic connector, this requires the kfree() the allocated struct
-drm_bridge_connector in the destroy func. However that func will be called
-even when using the pre-existing drmm API, leading to a double free
-(kfree() in the destroy callback + drmm).
-
-One option to avoid this issue is introducing two mostly identical
-drm_connector_funcs instances, one with .destroy and one without. But that
-would be an annoying code duplication. Instead take a different approach:
-always allocate using non-drmm kzalloc_obj(), so that deallocation always
-happen in destroy->kfree().
+The @np argument does not need to be modified. Similarly to what
+of_drm_get_bridge_by_endpoint() already does, make it const. This allows
+passing a const pointer.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Uhm, maybe the change from drmm_kzalloc to kzalloc_obj and addition of
-kfree to the destroy callback should eb a separate commit?
+New patch in v3, needed for the v3 code of "drm: drm_hotplug_helper: new
+helper to implement bridge hotplug"
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 24 +++++++++++++++++++++++-
- include/drm/drm_bridge_connector.h             |  4 ++++
- 2 files changed, 27 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/drm_bridge.c | 2 +-
+ include/drm/drm_bridge.h     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 015f6750b7f5..4bd34dce44ad 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -289,6 +289,7 @@ static void drm_bridge_connector_dynconn_destroy(struct drm_connector *connector
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 6272513316cd..92f47dd962fc 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -1648,7 +1648,7 @@ EXPORT_SYMBOL_GPL(drm_bridge_hpd_notify);
+  * RETURNS:
+  * drm_bridge control struct on success, NULL on failure
+  */
+-struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np)
++struct drm_bridge *of_drm_find_and_get_bridge(const struct device_node *np)
+ {
+ 	struct drm_bridge *bridge;
  
- 	drm_connector_cleanup(connector);
- 	drm_bridge_connector_put_bridges(bridge_connector);
-+	kfree(bridge_connector);
- }
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 1981d24a700d..c88532998aae 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -1272,7 +1272,7 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
+ 		      enum drm_bridge_attach_flags flags);
  
- static const struct drm_connector_funcs drm_bridge_connector_funcs = {
-@@ -1215,7 +1216,7 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 	struct drm_connector *connector;
- 	int ret;
- 
--	bridge_connector = drmm_kzalloc(drm, sizeof(*bridge_connector), GFP_KERNEL);
-+	bridge_connector = kzalloc_obj(*bridge_connector);
- 	if (!bridge_connector)
- 		return ERR_PTR(-ENOMEM);
- 
-@@ -1230,3 +1231,24 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 	return connector;
- }
- EXPORT_SYMBOL_GPL(drm_bridge_connector_init);
-+
-+struct drm_connector *drm_bridge_connector_dynamic_add(struct drm_device *drm,
-+						       struct drm_encoder *encoder)
-+{
-+	struct drm_bridge_connector *bridge_connector;
-+
-+	bridge_connector = kzalloc_obj(*bridge_connector);
-+	if (!bridge_connector)
-+		return ERR_PTR(-ENOMEM);
-+
-+	return drm_bridge_connector_initialize(bridge_connector, drm, encoder);
-+}
-+EXPORT_SYMBOL_GPL(drm_bridge_connector_dynamic_add);
-+
-+void drm_bridge_connector_dynamic_remove(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector = to_drm_bridge_connector(connector);
-+
-+	drm_bridge_connector_fini(bridge_connector);
-+}
-+EXPORT_SYMBOL_GPL(drm_bridge_connector_dynamic_remove);
-diff --git a/include/drm/drm_bridge_connector.h b/include/drm/drm_bridge_connector.h
-index 69630815fb09..de6ec91dbfab 100644
---- a/include/drm/drm_bridge_connector.h
-+++ b/include/drm/drm_bridge_connector.h
-@@ -9,8 +9,12 @@
- struct drm_connector;
- struct drm_device;
- struct drm_encoder;
-+struct drm_bridge_connector;
- 
- struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 						struct drm_encoder *encoder);
-+struct drm_connector *drm_bridge_connector_dynamic_add(struct drm_device *drm,
-+						       struct drm_encoder *encoder);
-+void drm_bridge_connector_dynamic_remove(struct drm_connector *connector);
- 
- #endif /* __DRM_BRIDGE_CONNECTOR_H__ */
+ #ifdef CONFIG_OF
+-struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np);
++struct drm_bridge *of_drm_find_and_get_bridge(const struct device_node *np);
+ struct drm_bridge *of_drm_find_bridge(struct device_node *np);
+ struct drm_bridge *of_drm_get_bridge_by_endpoint(const struct device_node *np,
+ 						 int port, int endpoint);
 
 -- 
 2.56.1
