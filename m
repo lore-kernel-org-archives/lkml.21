@@ -1,113 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996313;
-	b=ZMHUDCzyhPRbPJdpCOA0ssC1vmNrGy/zFewv8mOT2fvtepo+g4wheelQWksaDHRbKvLT
-	 HtZsXsid2MbMsj1IejkwT+OJO2iqbyYhFZA9AwajP68IqTvntu+e4a7sZmv8r16lP2Yd1
-	 jB7I5KPAFlt1UmAdnEKQcxVz24v0tMNy6M7lnU/csyMBQyoSHigBw5oxmdl3vyyfGJ2Xc
-	 EXbqqFzUs5iAeGAAsDLhELb89XIpNCs5xbBv0q0tJEuGeN0cXZ/JgflJi24xASl51cr56
-	 H0PsnvCbfPKFpJyXoiSJXNJL5R/SEmsRhqjs/MmxCBCwfmD4PJj2J9lpwXreOTyIMQA==
+	t=1794996327;
+	b=oupWphvNU1NvdvDFGtcsTCyEfMZb3s9OuGalDTuG9pHXtihU2lLzFmVh867nazaFMX29
+	 zLNEqHn2eM91CB3U4KQKADs/xg7t9737AW9QISPPklZ7or6x5x3Y2RPjvZG09tLfxCOOf
+	 bqZCpRvRdfzDpDsNYpsms5xjCZsnEIM1kbT7yXqXxqnHjNiP/Ax5EwZ2QXdkMeT9iu7vS
+	 gxYzNEhzWAHt5fDqFYB9LywU/Sm2DJzHeBj4VVWTi2vvstRxIYIVNoho6jNvFjdjf3epz
+	 nQMAPt1mtTP98KQrDeGH6pQ7AqRlVo9kxLjFh5B9r5yMaNDOgY6c+eK6IUceLEq2YUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996313;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=LDve/dz+oy8svKtS2MdOS1ixX/cP30Dbme7NV1o9tLY=;
-	b=TQ5r+T6GLkbWRGKIdp4fDxln/L5GuafaCNauSRnQyORUBkOAKbZz7UeBZthGSsaRuXg/
-	 PqVd0hXbgwd/A2TxvXxm0bAUrpIj/eBdUxWWRrJsI2tipgfX7V3p8njr0b//XldaOcg4F
-	 FYZ8EXiMUon4FOFTXsjpp5fZgnWnG3Ir3m1nZyff3JtcqKmp9WBmQ8myr/1Lv156WZZGg
-	 VYA3cwP5u5E1bPjpEWqgBBI+k1zsgje2fosBKaIbIWg5W5/FtLO7sFo7yAa3zauPFOqGr
-	 EDsSPp3zRncY1OvBYO1A5t0wS3A33t6i2y4i4+aOxVcnwigflS36CVNtRyVFvepF2Cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996327;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=OyDXF1a5PnZlSpt+KBvpQnzimcTAYF7v/9u7f8B0PNM=;
+	b=cmZKKaG+AWgn0ymm2L/JkAQxSlFd84IecCp+FaGmg4Lavvgsg4ghF1E09URvnxPU33Eh
+	 0MIyfUFCxkjgCdNQI1NVAd2qwV5R8qlbXzfDAGm/4B51cNbivjh646MUwLdjr1t/to89G
+	 0IZZQ7h4cpQY6cpoGRrz1l83CJvCWA+rLgv5jBVcT/lKztjTPjBl2vU7etHMzic1mblMQ
+	 K8sbgbbI36X6aNvt9tKXOOgc0bkaFJgMLj+tfnpEONgYFSmm8eYs2Iucvi6+HeL3yjHio
+	 l5jHPGHAL7a729kXS64LyepetPYoW6NWm58wKmjssAY8WuOlOnpLQhz0bJZJ3jWp0Yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ppvdOeZ+;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jbiCAEuJ;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EHtDBXZU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58601606A88F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58601606A88F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06A22606A32F;
+	Wed, 18 Nov 2026 10:05:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ppvdOeZ+;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jbiCAEuJ
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kKDj3420240
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LDve/dz+oy8svKtS2MdOS1ixX/cP30Dbme7NV1o9tLY=; b=ppvdOeZ+gCtRvLlk
-	VV/g+v5DCnJRgRrxbeeNfU7S3+9iFl6kU3+wxns0bNJ/MOhtz8uo4mLMUTQgLXJs
-	vo9avHIUZNc9nzpXu0l33euzcNIUxuIBC3S77BDVcdJCFM5LuCkPSIYpBWFvPPuv
-	DKDC8JJ/WvdZnwqbMKMO0+DWux1qmq3Koi1Tlb4nwkKCumbfzjRDYjwnde/EzO6k
-	ygziY5McD8zjtQiT8xq5b5e7a0Y8+ev6iz3qaXRxI9XLVWUVSIVpJdlq5Cz0pHsA
-	L7WwKfInupQqdtwcsiIFYJxJb50B8nn372IuT55/ZznJsa7UV66wfWWeB+esQ+VS
-	V2rf9Q==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9aesy-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:05:11 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f33438950so166238585a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:05:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794996310; x=1795601110; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LDve/dz+oy8svKtS2MdOS1ixX/cP30Dbme7NV1o9tLY=;
-        b=jbiCAEuJi2chkfG4xglXwKiHm+JgYMJOLWKW1pOS2ca/1pPWzkXsTrLMqnJE30sYQA
-         /QHLEZtGhc9PzOtlHrnXR3vGgSMXxEhCjiRG3xUjzRVtRXvFNHRMqPiyvtuGnlDVrUE6
-         1xX/chxy1y+JxXVEUHWM4o1cOHzN9nmQcNF72MheNexDDMsTKRXCPeH8mML/RX/QYgUp
-         OgN2ldins6Ca6tjNJm6TOFUjuoSLiVZIXvvCOshJmKtZ/Gn9xanJfpSh5xSVPg/BKpCa
-         CuR/Tyv8W2DLapXM4bXD0+Gs1kT7RiQmVEFmPmAFzjcyqcfE6p+LUvECtz4WH14Oc7Yw
-         UFzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996310; x=1795601110;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LDve/dz+oy8svKtS2MdOS1ixX/cP30Dbme7NV1o9tLY=;
-        b=eCPAiW3CjSd4I7gY1hZyytL3KYda3rVXoIrKuIz29tcRNHu/5ydgQyZWz0ijs6L/uZ
-         uD4GI1uKG+uFoZByn3oRWrD569H6Nwu6UQgfJaj9HWrbIVVZ89mX640q0n1fONERk+zB
-         CjYFM/kTQ8CWzqQltnANj37lz7jVRQuFpVFNcOqez0KEqImP3t0eUQjBrBSYQ2nld1At
-         x25Evwk9aG1FHBzGy6mWlbeBe8DZBNjgvobHkuvFmTzCAylmhkSchLo/SHxMEr1y3pGy
-         MTv7wXOEGIqz6+mt9neFypcAMzRvbRxL3HwJWsbibcy0IJYUrZtg/Mf9kRMkaB/RWCqB
-         eBnA==
-X-Forwarded-Encrypted: i=1; AL+hErG2CgsQMmHpHKWhUGXW7adNqqWw/cNPURnLtM00jSs143F7VVC21ZwP60XN1F/Mzy09ArWIoPXRsOuj5yY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84TN0Z+ot8FFz9YPGBWdfhamZ0wT6oW94aDqP86jra9pD9L2lP
-	szEoStaFA/um54gPfdeZ3mTMHygZW1Udd52M0DTfJ1d6fsUwG2mP9j4kuZW6tQkgmZG9rWDgYwU
-	HoiHf4v5viQFE1tigsNr6ScELH0NVTNFvf4r4ZYpCHDDDiq6YqZwVRC0xIZxfVUxQzI4=
-X-Gm-Gg: AYBFou179qqLKJ0S4xO9ZttyPFlsfJEBGH3X4P/tch9GnCxgmw7bzaDE2gnH8aZhey6
-	Je1V2hL/xezrFet/91WkTu//AHjwvyBBlJEhZ8usMx5m/BgHY+XNKmxXe6HuA/+qMPJ2CUfqU6c
-	2yKnabFfBwjm3P/0sbTToB1PRcyDHnc3sH5Eh+EKttTc7bK7kOJEIFh59JX9p4Qr69/bQJFr05X
-	cEgOotraL6O7+2RgtEF9xENF+BNPsXXfiMqX3VgQmBLZch/87OtlLbfDYaqT+UKxMHRE9qh3rrj
-	eh3kJnahDXsTbjSXYPYIIPWrp4xGPIXc/zI1Iv90W/MI12fmNJD8RWbqvpcrpzLq01JrQKh3cUK
-	hvNm90ZaSB5c4enNq9uuu9OySDzU6aIMLXIYLyU04zSXym0m1t+bmISvKNYc3/eWaSMEyTnSRD9
-	E=
-X-Received: by 2002:a05:620a:28d0:b0:949:6668:a8d8 with SMTP id af79cd13be357-9499961da5amr395484885a.66.1794996310506;
-        Wed, 18 Nov 2026 02:05:10 -0800 (PST)
-X-Received: by 2002:a05:620a:28d0:b0:949:6668:a8d8 with SMTP id af79cd13be357-9499961da5amr395480685a.66.1794996310050;
-        Wed, 18 Nov 2026 02:05:10 -0800 (PST)
-Received: from brgl-qcom.local ([195.50.164.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65609389dsm3735509f8f.37.2026.11.18.02.05.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:05:09 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 11:05:02 +0100
-Subject: [PATCH v3 1/2] arm64: dts: qcom: lemans: fix iommus SID mask for
- ethernet nodes
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EHtDBXZU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A99471F000C8;
+	Wed, 18 Nov 2026 10:05:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794996326;
+	bh=OyDXF1a5PnZlSpt+KBvpQnzimcTAYF7v/9u7f8B0PNM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EHtDBXZUba4cjORFIZhYfIeveTdtdy1Do587jMnwah18YY/dqoVbcea039Qf2nAP6
+	 Ta4LAc7Mz7aV9fGcLYYaJVzegIUGf376ImlmqjBaBhd/Bj0iIU9+eSho6EjF92jgfB
+	 iHk0KWh2vdQxwWOmWu5+9y0+DSBqe051B1JF95MrFm+ANOEyXhz12jDTumwvWxIPfC
+	 5QUJdD9/ckBwk2yDAF7/v7O8a/I4k/qYnXwTRW3cfLoL61ukLiQJwQI80MkTJLX0aM
+	 cDlEiyBDfvrdupclPcSyP2uh+2WW9ZbJwar/KfcaLDDZ2Qb5WyF+fTR3+vR7mHa3Lb
+	 6rZ28B4tcTlYA==
+Date: Wed, 18 Nov 2026 10:05:23 +0000
+From: Simon Horman <horms@kernel.org>
+To: joasantonio108@gmail.com
+Cc: david@ixit.cz, krzk@kernel.org, oe-linux-nfc@lists.linux.dev,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 2/2] nfc: st21nfca: prevent double completion of
+ SE APDU request
+Message-ID: <20261118100523.GC860048@horms.kernel.org>
+References: <20261112-st21nfca-v2-v3-0-c81702269e01@gmail.com>
+ <20261112-st21nfca-v2-v3-2-c81702269e01@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,106 +58,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-sa8255p-emac-dts-v3-1-e2c365d95a0b@oss.qualcomm.com>
-References: <20261118-sa8255p-emac-dts-v3-0-e2c365d95a0b@oss.qualcomm.com>
-In-Reply-To: <20261118-sa8255p-emac-dts-v3-0-e2c365d95a0b@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
-        Andrew Halaney <ahalaney@redhat.com>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1438;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=5XFVjff/QR80SQLKKFqKe3LuP6yj+0SGfsOuiR06Wa4=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBq/XhQA8eVIX3pTCurixAQxn815mh0VWbVJxt0R
- tcTRdf7qB6JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCav14UAAKCRAFnS7L/zaE
- w6zbD/9R2S+lyODnntE76ycbxB2bBSAhOzu8OC13RaurkdWxQns8YigP8q5HkjUeSiBjKiFENLE
- iNqwva+UxVy2eu2111uP7al/m88t3RBM9/batM9gawlaDHtXl0AXV4oBdRu3TG+NNtGtNcdsL42
- MzMl1yiq4tWebBTO3ErwBgdyeV+eKRW0bBUVuRx6LihNJmt4cFeJp8L1IXUneKXqolmbbFFLSwr
- DXvIpYjWQUhpXlQXXzfgR1p6RGGVtNvWdy5+HpYKXYQO3w/LkUFCmSn8gge6CE51c8+hgANm33g
- gqdHkB6q7RMWuM9ZAUSYAN9qCVq2qbMdy01OzUVIX+gRhufpWwHHmthcv//gs2bIHGrWZ4JIlcL
- 6SIn9fy1m/yuA9eUcSd1WWLjPFewhtMEnIM8rG6thulf+EPYBKrMzjWunNXoo5RfvJ8HsizfLUg
- qjq6biwthhF2nhimxhKwMhlQRrVgIcWFAWhoH3K6gTeGUjT66IlYZ4Tx+tljnh8+H5qWB99jp5u
- hQe/GNgTMsY7NYjcd5zr2TToVp0OwLZ58vtLKWjV0eFxpFX6mPeqMwDwO5Sd/Bwc0zqdtlDWdKj
- a91QmMs+6Ri70eG8qMF31wzSHxBHRH5vvXWd4vqQKTT0kB7JrSyexUWDdFBILINxEhY51Kaywol
- wPJgZlj8OsKs6mQ==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX+L5N4qYoz4ce
- PqDwSPFRr8wmTmOMfU10sI31s/TzteLEOWYoSeAKto1tiQ86yDWEKKsTTgWcpLtQUIomWpWtkxw
- qrlguppQLz+a1SX+SRdFYqOimQPW9hQ=
-X-Authority-Analysis: v=2.4 cv=acT0Dhot c=1 sm=1 tr=0 ts=6afd7857 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=jHMX-OgH2kBFWhD5V08A:9 a=QEXdDO2ut3YA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX7CrDDgQyztge
- guJsAth2ojVd1PqydR9RROKBKDstIXLhcvOU+VQR+6YEa75fu42fDvPeZ6fY5xc1uXOWDr1JqW/
- KFD4jp0K615jqT0x1ojL1U93QKgyxdZ8EJj+jR1wEzOSW3xbBv0yvpc1csNKt7IUKmtz0l3WfRd
- kwvb4cFLgZlvjiTK8YqqICkZbvAIg+UfwIeyeXJPMSG79sCHHmpLeMVYdMf++T5aXtfcRTE6QMy
- 3FHfVNfbQW6u4labnph8sosVOvtJTTuwRHrMy5UVl3Sfzp2KA9vy0J1DV4vHwb3d89M1C+xziJf
- IGhPgGZpfybEUrwwRCUVoFV48NRK4sMVwRPx5ITDFrdsZPLp4fOb6oEOjHiUC8yzX3OZBEtg5Hx
- oMQ+aTz33B0Y3vNd3ItiFlSParkGyvMy1zVbvxwJtX4GfmUgSzuKRHxABlnjESMZejT7u89YkW1
- 6e13GNvfkZPrC5hw+vg==
-X-Proofpoint-ORIG-GUID: 5xJZ5rlDZndKydb5zhwf7wR43LyuhAVJ
-X-Proofpoint-GUID: 5xJZ5rlDZndKydb5zhwf7wR43LyuhAVJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 phishscore=0 impostorscore=0 bulkscore=0
- malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180039
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112-st21nfca-v2-v3-2-c81702269e01@gmail.com>
 
-The iommus mask for ethernet nodes is wrong, it makes the SMMU mask 16
-stream IDs per MAC. We should actually only use 8 SIDs. This has
-triggered a crash on sa8255p after a boot firmware update. Use the
-correct value of 0x7.
+On Thu, Nov 12, 2026 at 01:39:30PM +0000, Joas Antonio dos Santos via B4 Relay wrote:
+> From: Joas Antonio dos Santos <joasantonio108@gmail.com>
+> 
+> Use the spinlock added in the previous commit to prevent completing an
+> SE APDU request more than once.  Without this, the timeout work handler
+> (st21nfca_se_wt_work) and the EVT_TRANSMIT_DATA event handler can both
+> invoke the callback for the same request.  The callback frees its
+> context, so the second call is a use-after-free followed by a double
+> free.
+> 
+> Check bwi_active under the lock in both completion paths and only
+> complete a request that is still pending.  A response that arrives
+> after the timeout still gets its EVT_SE_END_OF_APDU_TRANSFER, as
+> before, but no callback.
+> 
+> Also reject a new SE APDU request in st21nfca_hci_se_io() with -EBUSY
+> while one is in progress, instead of overwriting the callback and
+> context of the pending request.  The callback is not called in that
+> case, so free the context like the -ENODEV path does; nfc_se_io() does
+> not free it once the driver has been called.
+> 
+> Found by LLM-assisted manual code review.
+> 
+> Fixes: 2130fb97fecf ("NFC: st21nfca: Adding support for secure element")
+> Cc: Simon Horman <horms@kernel.org>
+> Signed-off-by: Joas Antonio dos Santos <joasantonio108@gmail.com>
 
-Fixes: e952348a7cc7 ("arm64: dts: qcom: sa8775p: add a node for EMAC1")
-Fixes: ff499a0fbb23 ("arm64: dts: qcom: sa8775p: add the first 1Gb ethernet interface")
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/lemans.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Hi Joas,
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index e298747c06bc4519d10f3f0765d0d6a54aac19b3..4e1755a7f2cdce07c454329760cf9a1a2b6b3977 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -4401,7 +4401,7 @@ ethernet1: ethernet@23000000 {
- 				     <GIC_SPI 781 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "sfty";
- 
--			iommus = <&apps_smmu 0x140 0xf>;
-+			iommus = <&apps_smmu 0x140 0x7>;
- 			dma-coherent;
- 
- 			snps,tso;
-@@ -4422,7 +4422,7 @@ ethernet0: ethernet@23040000 {
- 				     <GIC_SPI 782 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "sfty";
- 
--			iommus = <&apps_smmu 0x120 0xf>;
-+			iommus = <&apps_smmu 0x120 0x7>;
- 			dma-coherent;
- 
- 			snps,tso;
+Sashiko.dev has provided an AI-generated review of this patch at
+https://sashiko.dev/#/patchset/20261112-st21nfca-v2-v3-0-c81702269e01%40gmail.com?part=2
 
--- 
-2.47.3
+It raises two issues.
 
+Issue 1:
+
+  > diff --git a/drivers/nfc/st21nfca/se.c b/drivers/nfc/st21nfca/se.c
+  > index 03a30f797ff8f..63a88a61d310f 100644
+  > --- a/drivers/nfc/st21nfca/se.c
+  > +++ b/drivers/nfc/st21nfca/se.c
+  > @@ -228,6 +228,12 @@ int st21nfca_hci_se_io(struct nfc_hci_dev *hdev, u32 se_idx,
+  >  	switch (se_idx) {
+  >  	case ST21NFCA_ESE_HOST_ID:
+  >  		spin_lock(&info->se_info.se_lock);
+  > +		if (info->se_info.bwi_active) {
+  > +			spin_unlock(&info->se_info.se_lock);
+  > +			/* The callback is not called, see the comment below */
+  > +			kfree(cb_context);
+  > +			return -EBUSY;
+  > +		}
+  >  		info->se_info.cb = cb;
+  >  		info->se_info.cb_context = cb_context;
+  >  		info->se_info.bwi_active = true;
+
+  What happens if nfc_hci_send_event() fails at the end of this case?
+
+  drivers/nfc/st21nfca/se.c:st21nfca_hci_se_io() {
+      ...
+  		info->se_info.bwi_active = true;
+  		spin_unlock(&info->se_info.se_lock);
+  		mod_timer(&info->se_info.bwi_timer, jiffies +
+  			  msecs_to_jiffies(info->se_info.wt_timeout));
+  		return nfc_hci_send_event(hdev, ST21NFCA_APDU_READER_GATE,
+  					ST21NFCA_EVT_TRANSMIT_DATA,
+  					apdu, apdu_length);
+      ...
+  }
+
+  When nfc_hci_send_event() returns a synchronous error such as
+  -EADDRNOTAVAIL, info->se_info.bwi_active stays true and
+  info->se_info.bwi_timer remains armed.  With the new -EBUSY check, every
+  later st21nfca_hci_se_io() call is rejected until the timer expires, at
+  which point st21nfca_se_wt_work() sends a spurious reset to the secure
+  element and invokes cb(cb_context, NULL, 0, -ETIME) for a request that
+  already failed synchronously.
+
+It seems to me that while this is worth checking into, it may well
+be theoretical or unreachable. In which case I think any solution
+need not be included in this patch-set.
+
+Issue 2:
+
+  > @@ -269,6 +275,10 @@ static void st21nfca_se_wt_work(struct work_struct *work)
+  >  						se_info.timeout_work);
+  >
+  >  	spin_lock(&info->se_info.se_lock);
+  > +	if (!info->se_info.bwi_active) {
+  > +		spin_unlock(&info->se_info.se_lock);
+  > +		return;
+  > +	}
+  >  	info->se_info.bwi_active = false;
+  >  	cb = info->se_info.cb;
+  >  	cb_context = info->se_info.cb_context;
+  > @@ -383,6 +393,7 @@ int st21nfca_apdu_reader_event_received(struct nfc_hci_dev *hdev,
+  >  					u8 event, struct sk_buff *skb)
+  >  {
+  >  	int r = 0;
+  > +	bool active;
+  >  	se_io_cb_t cb;
+  >  	void *cb_context;
+  >  	struct st21nfca_hci_info *info = nfc_hci_get_clientdata(hdev);
+  > @@ -395,6 +406,7 @@ int st21nfca_apdu_reader_event_received(struct nfc_hci_dev *hdev,
+  >  		cancel_work_sync(&info->se_info.timeout_work);
+  >
+  >  		spin_lock(&info->se_info.se_lock);
+  > +		active = info->se_info.bwi_active;
+  >  		info->se_info.bwi_active = false;
+  >  		cb = info->se_info.cb;
+  >  		cb_context = info->se_info.cb_context;
+  > @@ -405,7 +417,9 @@ int st21nfca_apdu_reader_event_received(struct nfc_hci_dev *hdev,
+  >  		if (r < 0)
+  >  			goto exit;
+  >
+  > -		cb(cb_context, skb->data, skb->len, 0);
+  > +		/* The request may have been completed by the timeout already */
+  > +		if (active)
+  > +			cb(cb_context, skb->data, skb->len, 0);
+  >  		break;
+
+  Can a late ST21NFCA_EVT_TRANSMIT_DATA from a timed-out request complete a
+  newly submitted request instead?
+
+  CPU0 (timeout_work)       CPU1 (msg_rx_work)        CPU2 (syscall)
+  st21nfca_se_wt_work()     st21nfca_apdu_reader_event_received()
+    spin_lock(&se_lock)       timer_delete_sync()
+    bwi_active = false        cancel_work_sync()
+    spin_unlock(&se_lock)
+                                                      st21nfca_hci_se_io()
+                                                        spin_lock(&se_lock)
+                                                        cb = req2_cb
+                                                        cb_context = req2_ctx
+                                                        bwi_active = true
+                                                        spin_unlock(&se_lock)
+                                                        mod_timer(&bwi_timer)
+    nfc_hci_send_event(reset)
+    req1_cb(req1_ctx, -ETIME)
+                              spin_lock(&se_lock)
+                              active = bwi_active (true)
+                              bwi_active = false
+                              cb = req2_cb
+                              cb_context = req2_ctx
+                              spin_unlock(&se_lock)
+                              ...
+                              req2_cb(req2_ctx, req1_skb)  <-- wrong request
+
+  Once st21nfca_se_wt_work() clears info->se_info.bwi_active and drops
+  info->se_info.se_lock, a new st21nfca_hci_se_io() call can install a second
+  request before st21nfca_apdu_reader_event_received() acquires se_lock (or
+  before a late response from the first request arrives).  The first
+  request's response then completes and frees the second request's
+  cb_context with stale data, while st21nfca_se_wt_work() can also queue its
+  reset after the new request.
+
+  In addition, because both st21nfca_apdu_reader_event_received() above and
+  st21nfca_hci_se_io() call timer_delete_sync() / mod_timer() outside
+  se_lock, info->se_info.bwi_timer can remain armed after bwi_active is set
+  to false; st21nfca_se_deinit() only deletes bwi_timer when bwi_active is
+  true, so removing the device before the timer expires can then trigger a
+  use-after-free.
+
+This seems to be a problem, but it also seems to be related to the
+tear-down race flagged in patch 1/2. And as per my opinion there,
+I think this is likely out-of scope for this patch-set.
