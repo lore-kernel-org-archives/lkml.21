@@ -1,68 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011911;
-	b=iOp3jGMFzic3GRW2LnZWyOqEc7uBFbhuKIDqoZI4oNZMmzcvfdQgZDbpm42ULXDqj4mB
-	 HCn0y1fgqLa5IXV8wRlRKGZJ537icNsLZKBRLZpz7eJiHor3DElS49fNXBmFJYs5i4W+H
-	 ZAJRiN8Lpvf9eNUq1lOXF+P/ufaLrICQiJekpHzIY1rE4aNuIKRAdridRlaa/jX5w8tK1
-	 Q/2DIvhNVztvsP/KJS1+K/e4eSE0gcUylsyqPCGzItX/vcE2b2dMZvHrUk5qPYc52x2/C
-	 Tu/CrwRHTGbpnt4VxDgUWV8eMshMtr1rMgZl53/vZGdxeO0JEYZ/hsxo6yxbR4Vf6UA==
+	t=1795011915;
+	b=Fs19tJ4KBdh+V9wHj5PQj6OVmPtkPoSxYpcx6YbFJb6u6PBYqyLf+8vyV89BoRTzVngH
+	 ruq9V9p74/Lz6DCUgshfCSd2D+PNr1n3jd7CaL6TbLRzcH7TxVqYUfBuVO9cG/c4uhv2x
+	 T7mPZs2tSk1j2JX8oukYKYLKHMvMpSHnVEclN4UnalZUHRoxhSeT+XfCHe8m3kESG+Fcc
+	 TCp7m/tdUYst4NZB7IawSXWlieHefqXpOTCY+rAtjGQ5QTaCh40AgQwlSkNEb5ZWwxwYf
+	 Z+u+7sPL015oJ5/3PTDMJPhNMKM5uYiLCLRycH5meRV70jhaTiA/+m9JpImmiHeu8Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011911;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=nFJbK8/dNKLZ9Wci+tDCATwra1Lrr5nEu4JyZ/1PmU8=;
-	b=P9tvwVEkl+6837/km8OBJMD8D6OsZ+d7Y5DFJqgFfXttxv7IaWc8N9lvgLvUvpGvZUjW
-	 kZMbtLdo+NDlVnJKpD4s7WvYFOXj6+jflDVodcx4uakJI6bW53lO8Zbii9iuF0/9SBogA
-	 k5VKQuEd0jB7NwlMJPVwtOJQouGJQhOM54YyiKkB80wsBoTZ6yeN2XElGtbmz6bOjOZ20
-	 v3/fMunr6MMzA94f8XJoPtbrMpb2dYNxLzgGTE/0LENuHYOs1y9HwthlawTHSL5AbiU2J
-	 qooAeqr4DAfxpk6kQ9JFa7SozEC+PpOWpMnBQgEMUQAwvcPQI/dU37kv46haD5qE/hA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011915;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=LOaxTdk7bxxGSDn8LW/SZyhasTfS18Dof7TxoTx8zm0=;
+	b=q82Cbe3omhHaAO9Td5J2oye+C3iiZkI3JolEfJEUQwZx2KEkSY6+IHTeIXRj9VtrLhMY
+	 4QVFfokPoeYR3ChKPipMIAM0UW4+F+hPtHnHr1X4c4aqYFCAoDEq6tOkln+4VTJH31I1O
+	 1Rmm1VByrcgoBOk3TWTFiQ8sfX9EOW19jxGOyBaZ0R5iT01SwQo/SXLQrv6dGArnLFdjr
+	 O2r4wpWJ5amEhxfR/exQl8gaakoBllK20bo+iYc9NeIuKXF0mYm51j46/r/V8aUcomHAx
+	 llHjvo243burv8ug0VlOkKmLlhbS5FB18B57EjBYxEfUhxSEOoSuicGhKpJEDmtHHcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=eV7oY9Om;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Dc1niph0;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80A6060A2600
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:25:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80A6060A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED6760A2630
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:25:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ED6760A2630
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=eV7oY9Om
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=nF
-	JbK8/dNKLZ9Wci+tDCATwra1Lrr5nEu4JyZ/1PmU8=; b=eV7oY9OmDxaV1muuwA
-	ZCyZiRq4q2g17ZIj1bNvWAuk4UOpfpCfPwm8doX9vGKHE3ZcbkgeLY/dvf4vEqjh
-	5zE+MVxPT5dQ/b/MhQBSJgxr4u+gkjngZVC7T87h6nndxkiyavIm4Vky/+fsUjRE
-	7uevPiAJKsAzddGRKDs/O0jos=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD39ygTtf1qsV7rIQ--.20297S2;
-	Wed, 18 Nov 2026 22:24:21 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: alexander.deucher@amd.com,
-	christian.koenig@amd.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	tzimmermann@suse.de,
-	mripard@kernel.org,
-	linux@treblig.org,
-	aurabindo.pillai@amd.com,
-	nico.antinori.7@gmail.com,
-	superm1@kernel.org,
-	haoxiang_li2024@163.com,
-	pierre-eric.pelloux-prayer@amd.com,
-	Ryan.Taylor@amd.com
-Cc: amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/amdgpu: Fix VKMS plane memory leaks
-Date: Wed, 18 Nov 2026 22:24:19 +0800
-Message-Id: <20261118142419.2389009-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Dc1niph0
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id D23204E41626;
+	Wed, 18 Nov 2026 14:25:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9AA9E5FE9B;
+	Wed, 18 Nov 2026 14:25:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1FC8311BC2239;
+	Wed, 18 Nov 2026 15:25:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795011909; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=LOaxTdk7bxxGSDn8LW/SZyhasTfS18Dof7TxoTx8zm0=;
+	b=Dc1niph0ZFZ34oDPTdnK5z6fDSrSSc1vpQk9LQane7jtoPsFAmPTompMCfsyk9feYGDnl7
+	qOuDCeiCkhVGGv+hDmpfsrtK9pt4HbfnhJwNWmHOV5jXkD/EQnh5L7QB9IV4ccG+aTsgyA
+	Rb1qkIpHzGv0Tm331ajYM7/MdSKps61QdvXPWSYmDS0Rql6f5W4VUGR3BGhy1iiLbFtC0c
+	JEn4XpKzLYdnIlvhOGAuQ/9ldyIG3yRpywT6GpUFcR5MMOHv/zHUMdZze1W/kCGFeJmagS
+	e6iTlMd0U1CLLkwAujVA7Y5xXukPkFCCCpcxEsxn95vGmpwXJXQD998hsrm37Q==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Michael Walle" <mwalle@kernel.org>
+Cc: "Pratyush Yadav" <pratyush@kernel.org>,  "Takahiro Kuwano"
+ <takahiro.kuwano@infineon.com>,  "Richard Weinberger" <richard@nod.at>,
+  "Vignesh Raghavendra" <vigneshr@ti.com>,  "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>,  "Steam Lin" <STLin2@winbond.com>,
+  <linux-mtd@lists.infradead.org>,  <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 10/17] mtd: spi-nor: Fix SWP for octal DTR chips
+In-Reply-To: <DMYC2B7I8C13.2UQIDHJKGBSP6@kernel.org> (Michael Walle's message
+	of "Wed, 18 Nov 2026 13:25:08 +0100")
+References: <20261013-winbond-master-spi-nor-w35t-v3-0-6dde1d513df8@bootlin.com>
+	<20261013-winbond-master-spi-nor-w35t-v3-10-6dde1d513df8@bootlin.com>
+	<DMYC2B7I8C13.2UQIDHJKGBSP6@kernel.org>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 18 Nov 2026 15:25:05 +0100
+Message-ID: <875wxui5dq.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,59 +76,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD39ygTtf1qsV7rIQ--.20297S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Aw1kArW8GFW5AFykJF4DCFg_yoW8Cr4UpF
-	48Xa4jkw4UZaykGa47Ja48Ww4SgF48uFyxtrW8C3Zaq3WYyr93G3W8tr12ga9rGFW7Cw43
-	Ary2y3yDCF1YkF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUO6pkUUUUU=
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7RWM+mr9tRU0cAAA39
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-VKMS planes are allocated with kzalloc_obj(), but both the plane
-destroy callback and the output initialization error path only call
-drm_plane_cleanup().
+On 18/11/2026 at 13:25:08 +01, "Michael Walle" <mwalle@kernel.org> wrote:
 
-Add amdgpu_vkms_plane_fini() to clean up the DRM resources and free
-the plane structure. Use it as the plane destroy callback and in the
-output initialization error path.
+> On Tue Oct 13, 2026 at 6:34 PM CEST, Miquel Raynal wrote:
+>> During the recent rework of status registers handling, we mostly focused
+>> on quad capable devices, partially skipping ODTR devices in our mental
+>> model. It seems that many (if not all?) ODTR devices have no SR2 read
+>> opcode and have other control mechanisms. Because of that, the current
+>> support in swp.c is broken, because reading back the written value may
+>> or may not lead to the expected result.
+>
+> Is this still the case with the recent fix for the .read_sr2 opcode
+> from  Haibo Chen [1]?
 
-Fixes: 84ec374bd580 ("drm/amdgpu: create amdgpu_vkms (v4)")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+While I believe his fix will prevent my case from happening, I would
+still be in favour of keeping this patch. I should probably have wrote
+that in the first place?
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c
-index 5c5fdbec93c2..a511322c1c02 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c
-@@ -140,10 +140,16 @@ static const struct drm_connector_helper_funcs amdgpu_vkms_conn_helper_funcs = {
- 	.get_modes    = amdgpu_vkms_conn_get_modes,
- };
- 
-+static void amdgpu_vkms_plane_fini(struct drm_plane *plane)
-+{
-+	drm_plane_cleanup(plane);
-+	kfree(plane);
-+}
-+
- static const struct drm_plane_funcs amdgpu_vkms_plane_funcs = {
- 	.update_plane		= drm_atomic_helper_update_plane,
- 	.disable_plane		= drm_atomic_helper_disable_plane,
--	.destroy		= drm_plane_cleanup,
-+	.destroy		= amdgpu_vkms_plane_fini,
- 	.atomic_create_state = drm_atomic_helper_plane_create_state,
- 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
- 	.atomic_destroy_state	= drm_atomic_helper_plane_destroy_state,
-@@ -375,7 +381,7 @@ static int amdgpu_vkms_output_init(struct drm_device *dev, struct
- 	drm_crtc_cleanup(crtc);
- 
- err_crtc:
--	drm_plane_cleanup(primary);
-+	amdgpu_vkms_plane_fini(primary);
- 
- 	return ret;
- }
--- 
-2.25.1
-
+Miqu=C3=A8l
