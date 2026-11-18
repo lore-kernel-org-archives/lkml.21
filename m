@@ -1,73 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022071;
-	b=O/HsW+ACQdU4gHp/i5sDqurM4kQF9FL1pF5UBCaMg0AL7xymdFevL8Jl1WTAPc/xq39Z
-	 mbcnbxgQWfhre37nzLF3svBPSurTOk558hKejsHyitpPfnxTDTjIW0pL8WZQK22RE4P3S
-	 Wrp9uzwBzEa0YyuyBjWhYDQrAPcMYEnKQ4VgPyPb1lx7PBl8XVvjBfeIIyAUnk6QtYJlD
-	 FV0mJAxKttfIYFu5ts/kosdj8mrqb254GmqesooPMylIRa1KlsbQ5MtXdek+VgMnsnSBH
-	 8rnojvb9NbBO9vVwIWfBKuPBVOOtRBpEq3Cx2Tnc6VGnAzrMTQfBOhbHSzqQRwk561w==
+	t=1795022089;
+	b=n800Z8jqUShjve/nN1iliozJQ25N951WVXqRA1GFcZPfmEGZ4RCt7vg7arBCRMPtDw5u
+	 KyHPvbANWRLxhijXjeG2dm1gCMkidfaXI2mYSu/7rMo72YZun2hEyJGRINiBsmv2UD1C5
+	 NfjRt63TMI4z6VrZOJHTXwo0dnZ7gPcWq/DWpvR2rd0Lib4YxZYL8WsoHByBZSHCAuqYy
+	 RmI+GGB3W50RSmuSG4E5OEB8ZG9HYkrvP2+y2lEItRHsTF0iCanWozTdC/pHBiNkQc7FJ
+	 6oRIC5wkaqW5a9fVjWlGjw4cKORHnvD/yiW5GzVLETe4qQT5qpcbbNASAfL098SbHWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022071;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=iuxQ2ylSQRCwgbS64Cu4sTUpzf9Rv38mt2//czf1GWg=;
-	b=uZU7US5yU0u25bI3J5LE8TzV10TBSc8mhGLzLRcwG3U/A4y2urbYCchxh2BKt+4eRaY+
-	 Wlm7vP6XaPJLmU1cwT/25R2NiDGcXfEEIA40/SvD8vOFHsUSSdZcnIipKdoTtA+oPVFRu
-	 lasvlVmjO0XvhrjYCiUjz8DzAcmnqgdcLQheTw6ufl9F/IDJxApaGstFu9pD/zV/Y7v2X
-	 ZtfPBwiU/XPa2kXP6/NcX1xxWRkyprODOgxcoiNswmyZPAsQ2pqwifg7XybevpknjzukW
-	 t9SKrWt+xg3AuiK/dt9QxhdpYc5chQoHw6n6zvA8dlukJw9eXZySekmyepDwkIQ7pkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022089;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=veMOh1w+VgYOzxTfgQ657fK24oJmuF7rksxyyZSHFRg=;
+	b=MrFKKtmYiBdHDjkK3wEcaQg2r7EsETnIL4ZQ4Jl/3sxpwk2XLWUNf296MTZsPMCBscq/
+	 XVSerG9Qv7EKXVrWcpXBo9giGcO+po/tE5GmFllcqrLsAJTMRJn67MXgAS5B1Ew6BjKu7
+	 RFlYO5Hv7Ee6qEPkP8jvAZk5b/Mx/GlvF4W3507UQo/mI3UlCnpgLlqRqP25d/ojiJi2F
+	 6B28EmuDU6Lhq2wBKgSq/T0CAHa/2qzeFhBP7GRKhh1qunm/F/7RuBp/6jVq8ZuoSlFl2
+	 v2c1+r7pdZsYtHt7iFzgptoiCgcZjV1vM1uhPDuzTThJOyqGgNBi25MCUmpyRHdbR8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="J/6NenOl";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=buOcGVpk;
+	arc=none smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86FC1606A320;
-	Wed, 18 Nov 2026 17:14:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD65606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:14:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD65606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J/6NenOl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC03E1F000C6;
-	Wed, 18 Nov 2026 17:14:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022071;
-	bh=iuxQ2ylSQRCwgbS64Cu4sTUpzf9Rv38mt2//czf1GWg=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=J/6NenOl28dHs+OgqaN5e8kdFQ3IGgcR6pNocqMsJGddTpGSc33RiYlZP9K83HW/l
-	 DTka+b48iY0PwQXdUYFe6DPKbTXSy20OToFPVsNUUoa2nsuUMdguT4G1FVDI/x+sOo
-	 LsKwRJURf42NaPtzpKarfXJrnWsbj9z9IMalBEa/w2RBwuQBiw6LHqfdgWxwuOZNdC
-	 rBhQiFgTzKwlV8XO8cBc/g7wBx23WNIwtHmg7tFhP6RMSZTUzOowqLFJIdZp7Me3KY
-	 cFQhnQINc+4Nhx+JzF/nSVHAPj+j1oL+Zqvu1U4sxFhq7RRvzmHNA2FaB8zP+JyxYw
-	 nF1eLlZkn9PSQ==
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 02C49F4006D;
-	Wed, 18 Nov 2026 12:14:29 -0500 (EST)
-Received: from phl-imap-15 ([10.202.2.104])
-  by phl-compute-10.internal (MEProxy); Wed, 18 Nov 2026 12:14:29 -0500
-X-ME-Sender: <xms:9Nz9avLllcjjP2r1L1u4usU71qhGtsrlmuIl9tdqCXqqqfubn4KA_g>
-    <xme:9Nz9at8nEceuwTXRPUo_LKMt-B9V3Nx4vmE7J1C5eqO25yGwdFEbtLEPWfI9Qn9wq
-    iW5SWhX9NY1bKCtKpRi717HG0rnV9Hfl1jrUmOwewkC1d7jGjR1AirR>
-X-ME-Proxy-Cause: dmFkZTF68uhA34dUZFXhC1OhT9K6/PB+XWVL9PjXE0rZcEgn2eGQ7IlouPiwo4Ly20+mLP
-    /lurMllbg0WJrRpwvrpb1vE2rECGmLBzRBZ9KWzFfGeiPZ52nTSQ6tn+Zh2mdY9vmhOy1C
-    qi/DMg3X4vHJ7VmQVlNHJ/ns/Xge49Iui9yShuVNn/r6kphQj26ndVDXwSEI+eVyMeMFdJ
-    3MvV1pgbcf3/Hq/u6hab0FqIR8w60prJE8sQLSRDT1p73mXw/IECsYQ+F48C7GK54Qbaq2
-    IGIoyjKlKVxNJQLA3U5xqNaTu9NqEcSD5pqn2ePx+6GeXKwzL1Ys6kxFywoni2oyfmbJWU
-    E8HDlw81byIEQHf10k8KkiQQ4uYE59+WqrwGHJIxLsD88JVRS6TpVTc7xVXxIPGESvDzLW
-    iNTGakW80MNLSqU+KZPfeEUMN8yxop7Jjjjgh/UquDdCWeqtKRANFQiB0MAHBqgwHGhlWJ
-    ZmO0rXncZ/F5PVSdYu+vP225G02jg/2ViBpQ7BQA791tSopMMy9mXZYTrvSWq+b+uqqP5R
-    fXxqovRQHkVLCsGCP+YYWR3NT56jQbyp1RYaF5OfCQyzvBUlTCF3T0Y5sRYGIxHDw5NN12
-    ruY9v63wDM6kxJRYiYNvk3k6Gy9LcimQYksK8BWbEjzM/AGzvyYIZSLlsfKA
-X-ME-Proxy: <xmx:9Nz9asqqIkvOYmEKjUPhfmu1DaGLctcH9M8szVikza9FK3lzF0Y2pw>
-    <xmx:9Nz9al94RRYvfwA5oQ_NeqixjFhnaUKzt-GE7v422Qeqkqo5SLV2oA>
-    <xmx:9Nz9atCI3zWU_AXx1IUa89pq85TIatDvWtmW06hQ0ESev8BrOVR3RQ>
-    <xmx:9Nz9anHKD1OjQVsvBqVdcaen7Y77XNgNEAeKQ29o6vil0sI4X2eMZA>
-    <xmx:9Nz9av0BlmDTZ5ReVMqRV5cDqJenueU2dmUrZMLM8UUkMqtzAR2WCc9Z>
-Feedback-ID: ifa6e4810:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C5EE4780076; Wed, 18 Nov 2026 12:14:28 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=buOcGVpk
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b6f42095bcso2030049a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:14:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795022088; x=1795626888; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=veMOh1w+VgYOzxTfgQ657fK24oJmuF7rksxyyZSHFRg=;
+        b=buOcGVpkEmzRbWtrzBOA1SGV0qr7GkxfbSBniw935q1u82gs9S+OIMil7i6e04IPLA
+         KYQeIhDpzwmICGh2PBi9+F6n6b1djtV8QVs78t/T9+GfehNQFDjK4UmTBZhTrYrUiYC5
+         9YeM6rgBTYJWCTVzWx5TvRDNkyujMuPPFm2Pc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795022088; x=1795626888;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=veMOh1w+VgYOzxTfgQ657fK24oJmuF7rksxyyZSHFRg=;
+        b=OcnzRgiAm+4KvVHKGiL4yyPGqUlhhll3N2uiyPh9h5+poB2d7ymMVDbfXJRsuLZFTW
+         RdRuzDhiEhTfRk8Z8kHLjqIxhK8j133wb0PeY3e6XitIfkKxSdP1JNthj2nhvG3ZHeUN
+         CE9ZjVcvpzt/BstrPXcSB4p9vX3vSqGj/7X6XcdUuxlqLVtkSw26sZw+aX7qA+pt3FJY
+         MbR84IUX2J/qk7wnZ3VfJhnmrteTHoNMxVEgIQTNeO90qcgfmIqkv/I7bMNbIQQdawPK
+         3KtE5ZfhuU0uGzYXyS4JW13F7IzEnjcGr6X1kmklh8rIKfofSeA27EkdrkYwlxhgSNYt
+         uhqg==
+X-Forwarded-Encrypted: i=1; AL+hErGP5SSG8pd8tkeiX6pPOvjhmBeKeYByBwKi2um7UDP+rDr0pQvM78JZTnI8CNFMl+POdPXIBtuTQbX3Yj4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vm9ZC6Mx/idajqc8/RFZQtiaqd63jOB5JvNXaYfSH4GcBT7ly
+	XSAY0UC5uO/O9aYu9Ww52y+zABCpG68/CWnHy/vg2UYhHXxhop/dR9tPEWUnhR34R0F1HRcVvN/
+	1W76gR3h7
+X-Gm-Gg: AYBFou2XlN6n4sMIrEXwhgs7aLV9Xiu9eeNq0dL0jDu9nl7FNIi7VDeeXtvCeoUDQiL
+	lahrlPR/ordPqUCRxx/PgLzTK6FiioVTjnC+K4eSt8Taw81Akw1bz4yThIGzUs62oJX/o1DTxMg
+	8rHNTJNRzQGMEoSBw4pzzwRdo+rwrZMjYdQoJtOZeeq2t7rsebYS9mBW1AxM0CqvfLlW29MMBQQ
+	Fgr0CE9dmrpRxS5lfTsLnOMHTEj/fmEPSGldPYYbQI3OPU6oSmWbUYkKSNrlTGT69GAOGSD+l5l
+	qqUENSSWEx3OjkxieEs5YXep5YltyWBRlHEs4/wRax29X/ZZYAszYUnAm2lKYNAZ0KSbGd9nrbx
+	KuhIRyOpRbxNg7dkQZxcxKgNwpo6H5Loz8swN2VMXpY7zXX0SHaAF9WnexdN8puIED0o5tWjbjl
+	FJ7UsBHl7dPF8tOoJti5p2OST2omNTClgHmV9I0n8+7ClJOvjjF0fXGTFp/qQAO198E7TmYS8O/
+	oqRshbwB/i+lar2BqxUOSgsW+cyCt+fXShG+ED59/v0KQEdZ8T0pH08gf1b28AsDUu32mCvtWlV
+	+YPzAA5WR3B/FeKslI4MF9uAJx+NmFeiG6SCtNItfGRrYK8qC7I5m/F801A3gSfx+akdymO6qJJ
+	7frpyzId5fplRwQ==
+X-Received: by 2002:a05:6402:ea7:b0:6b7:8444:a456 with SMTP id 4fb4d7f45d1cf-6b8877ed544mr2673781a12.0.1795022087746;
+        Wed, 18 Nov 2026 09:14:47 -0800 (PST)
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com. [209.85.221.43])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a1eab52sm1345028a12.25.2026.11.18.09.14.45
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 09:14:47 -0800 (PST)
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a5506f09f5so814477f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:14:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHknAKpYOFwc9M0UWLoQYhogHnVG4walA6381O5nREVFB8/HGGYiTAshVtDOWw7UF0kVYSxaApzPprh57w=@vger.kernel.org
+X-Received: by 2002:a05:6000:4706:b0:48e:5df9:1ec9 with SMTP id
+ ffacd0b85a97d-4a6389ee18amr7563261f8f.24.1795022084796; Wed, 18 Nov 2026
+ 09:14:44 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,65 +95,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AgKvhXN-CN1w
-Date: Wed, 18 Nov 2026 12:14:08 -0500
-From: "Chuck Lever" <cel@kernel.org>
-To: "Amir Goldstein" <amir73il@gmail.com>
-Cc: koraynilay <koray.fra@gmail.com>, "David Sterba" <dsterba@suse.com>,
- "Namjae Jeon" <linkinjeon@kernel.org>,
- "Sungjong Seo" <sj1557.seo@samsung.com>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>,
- "Christian Brauner" <brauner@kernel.org>,
- "Trond Myklebust" <trondmy@kernel.org>, "Anna Schumaker" <anna@kernel.org>,
- "Jeff Layton" <jlayton@kernel.org>,
- "Konstantin Komarov" <almaz.alexandrovich@paragon-software.com>,
- "Paulo Alcantara" <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>,
- "Yuezhang Mo" <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>,
- NeilBrown <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>,
- "Dai Ngo" <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>,
- "Ronnie Sahlberg" <ronniesahlberg@gmail.com>,
- "Shyam Prasad N" <sprasad@microsoft.com>,
- "Bharath SM" <bharathsm@microsoft.com>,
- "Sergey Senozhatsky" <senozhatsky@chromium.org>,
- ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
- "Darrick J. Wong" <djwong@kernel.org>,
- "Sean Smith" <defendthedisabled@gmail.com>,
- "Andrey Albershteyn" <aalbersh@kernel.org>,
- "Pedro Falcato" <pfalcato@suse.de>,
- =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, linux-btrfs@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- exfat@lists.linux.dev, ntfs3@lists.linux.dev, linux-cifs@vger.kernel.org,
- linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
-Message-Id: <9c4a509c-b6af-4da1-8a64-9d5c26c74bff@app.fastmail.com>
-In-Reply-To: 
- <CAOQ4uxjme9sJ5LGNDnP6rEKZLTJzX_ZdcMohgu2iLULK96GPOA@mail.gmail.com>
-References: <20261115180343.576773-1-koray.fra@gmail.com>
- <20261115180343.576773-8-koray.fra@gmail.com>
- <f297d9ea-ebd7-47f4-ab7b-de5c45980000@app.fastmail.com>
- <CAOQ4uxhpMARO_ZMJDeoa044BwufLVnS0o4Fv0abBF=tjaZmtWQ@mail.gmail.com>
- <cd49ce48-58d7-4341-b4fc-34e63daf3c52@app.fastmail.com>
- <CAOQ4uxjme9sJ5LGNDnP6rEKZLTJzX_ZdcMohgu2iLULK96GPOA@mail.gmail.com>
-Subject: Re: [RFC PATCH v4 07/10] nfsd: add provenance time (ptime) via
- FATTR4_TIME_CREATE
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20260716132334.1565183-1-johan@kernel.org> <anx_MPm2Y0RVwZ9h@hovoldconsulting.com>
+ <avw_XKo3EzosfyIh@hovoldconsulting.com> <CAD=FV=X5DTqanxUBt9KoVh_93u9EUQm8_B2mnej=+-nxpA81gw@mail.gmail.com>
+ <av1Q8B27DkF8Iv2W@hovoldconsulting.com>
+In-Reply-To: <av1Q8B27DkF8Iv2W@hovoldconsulting.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Wed, 18 Nov 2026 09:14:33 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=U9Npdo3da+Hr8sb0DiSrrwbVocMVyyUnieJONoZ=Q7EQ@mail.gmail.com>
+X-Gm-Features: Aa3M54osESd_4l-ScPsWj48EQ0uAO7q3qxUcSdmQmSBrC9QG23r9DoJATcHJQCU
+Message-ID: <CAD=FV=U9Npdo3da+Hr8sb0DiSrrwbVocMVyyUnieJONoZ=Q7EQ@mail.gmail.com>
+Subject: Re: [PATCH] drm/panel-simple: take i2c adapter module reference
+To: Johan Hovold <johan@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Hi Johan,
 
-
-On Wed, Nov 18, 2026, at 11:36 AM, Amir Goldstein wrote:
-> Can't an NFS client be connected to another NFS server
-> implementation which does allow this?
+On Tue, Nov 17, 2026 at 11:17=E2=80=AFPM Johan Hovold <johan@kernel.org> wr=
+ote:
 >
-> I can't wrap my head around the problem.
+> On Tue, Nov 17, 2026 at 08:24:53PM -0800, Doug Anderson wrote:
+>
+> > I took a quick gander. One thing I notice is that earlier in the
+> > thread there is a Sashiko review [1]. It seems to point out a valid
+> > problem here. I'd imagine that if I land this patch, I'll get a
+> > nastygram from Arnd and his RANDCONFIG testing. Am I confused? Is
+> > Sashiko wrong in its analysis?
+>
+> Thanks, Doug.
+>
+> Yeah, I took a look at that at the time and I believe the LLM is
+> mistaken as DRM selects I2C since forever so the driver cannot be built
+> without CONFIG_I2C enabled (and you'd have the same situation with
+> the panel-edp change merged in July).
+>
+> I started cleaning up the I2C mess but got pre-empted. I don't think
+> that should block this change.
+>
+> Johan
+>
+> > [1] http://lore.kernel.org/r/20260716134901.05E221F00A3E@smtp.kernel.or=
+g
 
-You already named the problem in a previous email: What happens
-when the NFS server's kernel is upgraded from an NFSD that exposes
-only btime to one that picks either ptime or btime?
+Ah, got it! OK, then
 
-Clients will see a file's btime before the server restart, and
-afterwards, they will see a changed TIME_CREATE but the file's
-NFSv4 change attribute will be unchanged.
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
+...and pushed to drm-misc-next (not -fixes for the same reason I
+didn't send the panel-edp patch to -fixes).
 
--- 
-Chuck Lever (Come to NFS bake-a-thon! https://nfsv4bat.org)
+[1/1] drm/panel-simple: take i2c adapter module reference
+      commit: eb2d05056f5c65fae6e88f6d935f3f7089badf00
