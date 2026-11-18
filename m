@@ -1,84 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021194;
-	b=TVDPeywVYNC0c599EqVoEGMRrwwpcyFkbrb3mAjyk+PjJqcaCaTE3zh4IbUMNZ0MtgCe
-	 CbsRdJoD7n83k/oFPGbUPWQH6JlJEldrX3XKkk50f0haM3JujZjJpMYV6g/HNZMfcFTlf
-	 oNGUlarkkgCVxmJH7/x4x4cmbcNlHhyzwdzZIr55n+DKK0KP4Mi6HtMsm7t39D3RWJW4I
-	 Ln3oQVyynbWk7jTOjaTm5EKxLQf+fEUB3o1eUWSXSuC3aEyELaqSDBPl2fzV6F/H6dK44
-	 tualcs3IspDc4cMxzw2yInBefGChdPKBrPkPx5N0S9E7/Z5gVHsjrLNTpJHEoLDhjzA==
+	t=1795021207;
+	b=KPf7YmLACVmZT0fqIVmeXupprEE3QHoNs0pszB+rJITtOUwfjlzqGuSV436UndQweuEL
+	 yPEY9M2de09p5/CLNNkngsPyG7uP/bkjF5JGat43aLx+pE1M5SauZADNMkShHdfl2duBN
+	 37MAlzNr0ufqV8FjOqEWZO+nwwnPp57fo973gclSUxUddeqSBfOPMIYv/4Wo6tL5/eFJr
+	 6Mf/6cFtkBoIl0MKlAXbtcrX7UIkjsBR/m6DSrJlZd+ZVc0KiZaJ63B+dymOTzlSJUUiE
+	 pBTl/0xUSgapkzdQbd0eZXFvgrkhBf6qcAOhVduVmFec1sOYVMYBsims6omh1kpbNYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021194;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=SbTYA3WWftMVrKmwOoy/6f/vZwikSAfbNlm4H6PwnQU=;
-	b=APLWlIXn+4OyjOVDZhMuO6wiMfPkiMRv46J2W9zwQA9DNYDiwHJYu8or8T5Quv7Y3zpn
-	 wia3eFMWjXdk0rZO/QAwdrUOyMdgiKiLjjyD7+fmcdLqA1A4RrYT3owmqZ78sMubYdPRt
-	 vOOGzeKuIuV2ihFogT4mbhZHtWzQBfbzhVK1+D2CgSKOv2xtGAmYSSjb/pwuixndQjzc2
-	 dymyUxAqcFeCYOqwxDxUdGqm/rAI6mzVlr3tbz7GCCvCDFi6/sBBui0CP5nLmwMgHLt/S
-	 kjFtNtGhpJ9TD/lcmAkSVXigKTYWTh898OS2xRjBx2we3mkl9cT0GHOdEzWWTyJCXTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021207;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=SmykihLdEl417Yqq8+SUekklXJBePiqsz7TxF2IOgG8=;
+	b=o8VSuCjBZtWBckrVcgrrYOMVQfoKCSKZn1t7uectQoZAwftiOux5p+7kUkcwQK1Q7qRP
+	 4WQ7yqpPxA9rL3nk3nwpStru7s72eNwqtZBuDMjSI7xJSms+HSrB9S0/7qBZ8Gs9RvRe+
+	 5xKL5Nsg0G0QUFjIXI5nZ4Vq+84hPbXwIZDN4Kr4t2cH5KGtRYR9hui1LjehMxb9adL61
+	 DecwB5SqJCOvo8dsU0x+1AlBwqHgd+HonRr+kSpRqxTv63wl0kgWk+JD8dk+PB1dbOg/u
+	 y0R0OQ2mMGUojLGtkkA78a8XHXRjqAMik09RtbhjdbQOAVJrgZNydgnmjacTlaGRJOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kP1Zp4Fz;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=surriel.com;
+	spf=pass smtp.mailfrom=surriel.com;
+	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b="chBz4N/n";
+	arc=none smtp.remote-ip=96.67.55.147
+Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 031BB606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:59:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 031BB606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F27DC60A260B
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:00:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F27DC60A260B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kP1Zp4Fz
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso1596136c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:59:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795021193; x=1795625993; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=SbTYA3WWftMVrKmwOoy/6f/vZwikSAfbNlm4H6PwnQU=;
-        b=kP1Zp4Fza7LAQyUqypyaAhV6hvS9maeBk7Ez9UkDTkcZ6p2O/rTm6xKsVwXHm7wtIb
-         zEtJ0jOVT3ZAXliTLP9x6BrIYgPZCPkAzJxPaq8QHVEIhPbBwBFXkb8aXJcs24Z2VdlM
-         gh1iLAxLii1REJ6OZET4tUET9mX64x0PLboP/yTa7a8DlN6JQ3H07z2w3tYlNHcLimO1
-         cLLjMVXqxxxdZkD8NxRqLzrVL1POMyV6q34IRykX93wr1SDiEVUnwvcR/P/B0triLpiU
-         0C4PX/abCPLLNCC4Nj9zC2jBnBuxoyJbA657l0QdC5JuFqImVK/aGtuyMtLLNrUELBSh
-         sq5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795021193; x=1795625993;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SbTYA3WWftMVrKmwOoy/6f/vZwikSAfbNlm4H6PwnQU=;
-        b=Mdobyx3QKeKGOc+K2mwPKE7xEnNTSnFEHfjaYlhxVR78hPxTUvMSjb8o8gJcROFKf6
-         oiKkVfZbZVbKwMsePKvvp7zYYhRygWODDcUbrWJZWNLJ2/gKkORbcyVuyw8EEPY35q6/
-         /+JCY3uuf16ExOq6955V1mfcZCqa58hVqcCPQdCSAhaYXVqHITW1Or4njEvGZBR2Z+y6
-         FXNSFT3sSfoSzAFVlN77+bv0xmyKAyCDzfo+QZ3BBu2eyap5Y0mwgCdi92ptr/HYe5RS
-         88puGf10uP3VtUblzjSEtfpb3hyRX2xJCpNmJfGoxvg0qE+I+sisC6qOjFBgxwJyyCtL
-         2gBw==
-X-Forwarded-Encrypted: i=1; AL+hErFmQd2x7dDmOYw5qbvfIcKkOyZlhzcsmPq+IL6eEld0G37Vg2X2FQET5Sui0MsMoK2YFUl6PL/euKQ+/x4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rI97JJveX1LNrsvfu1CtyTnnKOtU251dlWi8QPcDkxgy+ms7H
-	7C68IQIdJl//or66PEb3vBiDVFWTrdFEXWqBLVpB6FSr3bykdDTMEZES
-X-Gm-Gg: AZFdTZc+ETQAOumVps2nn7A7jQF/nAMdnY70+Esr12wONQuFDwARJvrDWcUTrwp6Nel
-	YJycAYtpjjOQnKymb5Y0Shyrufj/SDQShbSNj5AghX1sr4aiDiYfCkp5tTP3WPpq0IR6H5AKFhl
-	rkc9gsIQJ3ZxL80QHAl0+4BO/E1HYakegZkC0GGCPEVVuqo+6cKezNIxPsOECVDtsMmjJDK/29k
-	tqPG7nPSSIXR05GB6HdIHbgSU4VkpPHOZoshQBzqrj8VChTVDKrERYkh35Zt5cgp/73+nGooPNB
-	W4Z6QEe9iPus0lcdii0BOTBxiuAn3TDt03GTCbcQUvyEquuSpPczZfxt9j8Z2gggydi3E07ruBY
-	O5ug1++unEPLXm2dy4Y/K3PH1hn5w2Jrjpg+FY45bQvFLFuuhmn+ctzzgVybQ8iGjR6zkPlIpPB
-	OY5V3M65Sr/h8+qkU+Xba2qyWwPgODIARMACNFH/RBcPHtCxdWl+gbJt8MX+KqEHnO3p7vvP8TW
-	7btRRKnhejvOB+IrYamXugcPN8JHeuVNeJkqzp1fQ15UAXMcf0/Gm3EEtpgceYylLy7N4hYwj9A
-	YLyxVB/NT7HnhHW8qkkvpPT/R/H9ydLsFCYMtow=
-X-Received: by 2002:a05:693c:26c7:b0:378:a35b:9e1c with SMTP id 5a478bee46e88-38281bfb0b6mr2545582eec.37.1795021192841;
-        Wed, 18 Nov 2026 08:59:52 -0800 (PST)
-Received: from [192.168.29.85] ([2405:201:8026:213e:d3ff:1383:d316:8b42])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a80bc19bsm9180943eec.29.2026.11.18.08.59.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:59:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=chBz4N/n
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=SmykihLdEl417Yqq8+SUekklXJBePiqsz7TxF2IOgG8=; b=chBz4N
+	/nOzcmyr3skH7cAiIL2It27iQWIht7GIM8+r+zsU8a4wbxSRHigyHABtqiuPxR3YpVihnDSwqmMkn
+	x5BJ36TGzuPRlrYfK4yg1T+buyyb58DYDqOpwPyASonZ9TdX5cFiRyrQZKPikDkeR9g+RiSPhIepB
+	EBuHRgompJdLIQqnhfYvkl2lKED83gWYX/ty7oCuSzqrnnMA+krkM2dCwV5/vEfynVd3NwXgEJntA
+	IU57h2f964WjBgTB+NnWFcdqz7wiRzcOfZ8DcLZ91ldpmKcUkg8Qa6aaWqBd3gzc9h8AbnNGlUuO/
+	mZ6brHmdem91j5DiDxCVVr+9bZsg==;
+Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708]
+	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <riel@surriel.com>)
+	id 1xTj0e-00000000Xb0-487f;
+	Wed, 18 Nov 2026 16:59:49 +0000
+Message-ID: <5f26a5a1e72fc999823bfac94f33b3c06465e519.camel@surriel.com>
+Subject: Re: [PATCH v4 3/6] mm: gup: move gup_must_unshare() and
+ INTERNAL_GUP_FLAGS to gup.c
+From: Rik van Riel <riel@surriel.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>, 
+ Peter Xu <peterx@redhat.com>, Lorenzo Stoakes <ljs@kernel.org>, "Liam R.
+ Howlett" <liam@infradead.org>,  Vlastimil Babka <vbabka@kernel.org>, Mike
+ Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,  Michal
+ Hocko <mhocko@suse.com>, Andrew Morton <akpm@linux-foundation.org>, David
+ Hildenbrand	 <david@kernel.org>, Yuan-Hao Hsu <aa9736195201@gmail.com>
+Date: Wed, 18 Nov 2026 11:59:48 -0500
+In-Reply-To: <20261110-refactor_gup_fast-v4-3-e779a7674274@arm.com>
+References: <20261110-refactor_gup_fast-v4-0-e779a7674274@arm.com>
+	 <20261110-refactor_gup_fast-v4-3-e779a7674274@arm.com>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,72 +101,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] fs: sync: fix overflow check in sync_file_range()
-From: mdshahid03@gmail.com
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: mdshahid03@gmail.com, brauner@kernel.org, jack@suse.cz, 
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261118062028.GS989762@ZenIV>
-References: <20261118023452.48090-1-mdshahid03@gmail.com>
- <20261118062028.GS989762@ZenIV>
-Date: Wed, 18 Nov 2026 22:29:34 +0530
-Message-Id: <179502117452.61665.3127081747764752166.b4-reply@b4>
-X-Mailer: b4 0.16.0
 
-Hi Al.
+On Tue, 2026-11-10 at 22:52 +0000, Yeoreum Yun wrote:
+>=20
+> +static inline bool gup_must_unshare(struct vm_area_struct *vma,
+> +				=C2=A0=C2=A0=C2=A0 unsigned int flags, struct page
+> *page)
+> +{
+> +	/*
+> +	 * FOLL_WRITE is implicitly handled correctly as the page
+> table entry
+> +	 * has to be writable -- and if it references (part of) an
+> anonymous
+> +	 * folio, that part is required to be marked exclusive.
+> +	 */
+> +	if ((flags & (FOLL_WRITE | FOLL_PIN)) !=3D FOLL_PIN)
+> +		return false;
 
-Thank you for review and feedback.
-You are right that endbyte < offset checks become redundant for
-non-negative operands when check_add_overflow() used.
+While I was playing around with some AI loop to
+automatically improve review-prompts, one of the
+AI engines (out of 6 different ones) spotted a
+bug with this code, as used in this series.
 
-However,I have also missed one aspect : It also rejects negative nbytes.
+I have a reproducer to verify it, and will send
+in the fix with v6 of my GUP series later this
+week.
 
-I will make that validation explicit by checking nbytes < 0 along with 
-offset < 0, and remove redundant endbyte < 0 and endbyte < offset checks.
-
-Thanks
-Shahid.
-
-On 2026-11-18 06:20 +0000, Al Viro wrote:
-> On Wed, Nov 18, 2026 at 08:04:52AM +0530, mdshahid03@gmail.com wrote:
-> > From: Mohammad Shahid <mdshahid03@gmail.com>
-> > 
-> > The addition of offset and nbytes can overflow before the result
-> > is checked.
-> > 
-> > Use check_add_overflow() to detect the overflow safely during
-> > addition.
-> 
-> "Safely" as in "doesn't rely upon the -fno-strict-overflow we
-> have in CFLAGS"?
-> 
-> > @@ -233,11 +234,13 @@ int sync_file_range(struct file *file, loff_t offset, loff_t nbytes,
-> >  	if (flags & ~VALID_FLAGS)
-> >  		goto out;
-> >  
-> > -	endbyte = offset + nbytes;
-> > +	if (offset < 0)
-> > +		goto out;
-> >  
-> > -	if ((s64)offset < 0)
-> > +	if (check_add_overflow(offset, nbytes, &endbyte))
-> >  		goto out;
-> > -	if ((s64)endbyte < 0)
-> > +
-> > +	if (endbyte < 0)
-> >  		goto out;
-> >  	if (endbyte < offset)
-> >  		goto out;
-> 
-> Why do you keep the old overflow check after having added that thing?
-> If sum of two non-negative long long values does *not* wrap around,
-> it will never be below either of summands; that's what the last check
-> had always been about.  I'm not saying that it's worse off with
-> the use of check_add_overflow(), but mixing it with the old overflow
-> check is very confusing...
-> 
-> 
-
-
+--=20
+All Rights Reversed.
