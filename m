@@ -1,92 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794986641;
-	b=TnwYENy1msqPROEaaf+xe+NNifX3kP9ZDdqAxt9Q4wEhRTWOb4KW+LWxiRufnHyupNje
-	 5rOypTgcCuE7EDWNzPUeG/8MQFF+hcixBVU0M4mX2z6S61woMzkleeBubcPwZj7KHxHdP
-	 SgkEYM3jnsfwHFR7OUKOLVSOU2s91v3cphXkGcCKWexWyvuERiXZE0j1w1c5hxfbNXJO+
-	 Eb61QjrQtxvs8XMuV3TzGUYEV7b8g/iQnR4STFnEfcntjlK6r+GEHt5GPCtvsiETcGS2I
-	 hp1pKbaZrXNPHw+RwLsP5lvT8rZxVREyPF0OuojqoLcyC30GeVeWHioHwyURqd2YLpg==
+	t=1794986654;
+	b=jyr7+w+Z62riPGA9J3GvKNC00gR/a+K5NF+amFA9h6CHSkVRba6D+yyQvbMjcglRctTY
+	 1ywEb80UgzTJEn1Cg+MepBZF0gVzNQf8gZPsx+nybl5Tl7z3zEi8DyuPEZ5c7HAnKTY6v
+	 V+j8S2nFAYWDLgqhXcXWaAWqvn3GNr1fhTGt06Jk2tf0FKNOu/8Ab8BCt6yLA8gWSnpL0
+	 MjDc1f17ILUFC6g3eG0X+SFVwpwGTc1G+ztaeu7+1Vzl/5QWdX/I1wOZ2Vs4/pGo7C+5r
+	 4L63t3gQU9N+MD3d05TuIJqDTsjNxU1v18/qTyKO1gN95BhCcD+jzBfWB9TLr8PpuGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794986641;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794986654;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=vSJzI8GBb8ZaTH+tAugZ/R1HgxYHhFd5lsw8P9UM59c=;
-	b=kA5PxZ8oGp5RG29iw0T6Ig4Z3ElZY5lDbeAVdbI0iEVPjUsJYuCfbiB8El5I9yPFWRyP
-	 deCWaxlwBfD88/DarlWWoIr6XYLQnjnv+gbIZImJDW2xd1Iq79TMFtcHVIN3YKHGoYva3
-	 OtHFdmdxVNdEXgAr4hGzIs0p5SPF8I5BxaFBFHcxKwsEIvge8ngdYpCXFsdpdNw/cpx3y
-	 ERgwjap2sarDl3GNrOsF9fBR9AOgFVHYz70oAXKY9sOmuxztIpjqwDAFrsYS5ALvMaRVh
-	 IQWoUNKDuY9o0Bdn1f6gXk/JQXKND37Cp6BKqRD9ucEWvXflnjddxWqtmS+WTwQB8dg==
+	bh=ASyBpmXHjPxODfoAaOAjUELu06FPP/hyvP9ugEGG5NU=;
+	b=qKc93EpNHrNCRuXaqul0GibNx+G/ZfOczGrs3uSjP4nBViqOoFXDivpwOEUuoCO1oyF9
+	 SgT95EvVrypxEY5CzQ2jm2PE4sJBBfLOID2zt62E8ELBgo2+iGtCtdMXKnZDI/TbbWREW
+	 HEZD6F9my8nNUde21TuhJTe29KLTGmvVG3ppr9hTOjBXGJ71c6z29WXRwd6Cnh7okbrDL
+	 rm5fLXs5SLvUdkaw97qZyK6/5emTt7GRPMznB9HOBjJdka8BtSN26YcjzXDAZceqkxOZj
+	 Jr64Vd0YL8eSWtAWFWNQ7U8NHqSAhM9ukkxRYRe8xeDzu0fv3NsNFqONh18NlWEBR0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zcR1nlVL;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lJC31m9T;
+	arc=none smtp.remote-ip=74.125.82.49
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B51BB606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:24:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B51BB606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05C11606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:24:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05C11606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zcR1nlVL
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3704d30b84fso1005013eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:24:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lJC31m9T
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1ae58d17cd9so598442c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:24:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794986640; x=1795591440; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794986653; x=1795591453; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vSJzI8GBb8ZaTH+tAugZ/R1HgxYHhFd5lsw8P9UM59c=;
-        b=zcR1nlVL3ZvmA2Wm7UMtZQVq6XfeYG6VFCmt6nMaThUGUOvyeBIn7QuPm4OQ0endMj
-         qNpJKc9A1oBr5YXXiMIX7kqPvGJnYkqTgViYcJ4XcZjd9JCgb5d+QrNpEjnf9khaR0G7
-         rxQ/8KVV6irgNMXXIM2ZQ75K6UiBEYHsCjIzBORZ43tesxfy8OYzKO2BQvDwPjq/3ZpT
-         XqbIu1BZw+ELuMdJeUWGxS4VGBqJlo8PIt9lNDk7t3gOU9A/YLO7y3/+bWI3MWf36A5Q
-         7u5cgJYDwi46c9JB0BjLAZnSueM2O5Dx+SyUIYXLWmHJvucfdckDRXdudrKp/Ejl6tV4
-         YP3A==
+        bh=ASyBpmXHjPxODfoAaOAjUELu06FPP/hyvP9ugEGG5NU=;
+        b=lJC31m9Trc2IWUKqGEi8e8nXTWJ25jo/yM3VBbFv4pkg12qo1fBHxwEFw+1o9jbAIQ
+         eIPe5Yxun23an7FI9p/10xrhpZDamtX1T5TGTTsyIRkq3TIXumiO00JsiYSNae2TxZCf
+         1wm63rJhPoKBMEhnXKVd8GFgW2/Fx0U8bPhfafW+XdJ/JQTVx7YMyRpDUOyBtSLKVWkF
+         AbK3lRqM0wGrRGXODpeTCmwfzD4E8sxbKfZ+cG9lRoPXrcDkgpY4RSTdOaMGbwqXdsEn
+         pSpqGBQX7N3T3CLGRJiRieXqMUGEQZyhclpedJuc/AkG1bGX1yq3U/Pi7g5ssads5rg6
+         mEtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794986640; x=1795591440;
+        d=1e100.net; s=20260707; t=1794986653; x=1795591453;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vSJzI8GBb8ZaTH+tAugZ/R1HgxYHhFd5lsw8P9UM59c=;
-        b=o3bzHr4dIA8Lz6kGbxSzmwN223lSlZJ+Y+Wqq2mXyVa6hvhsO5cWqu49AwXJybxFCl
-         d8HwktUduEbn7rZiV8CgeM80+h0HQYTliqmVwP7WLbFtLoSuTuaiGVieNqDusvpn+4Tb
-         c271FZdoqouxHSJ7/LC/K4whiKGR1Z9YuMSX+D4MFTuCjryH32s5zQqcuY57r5sHbcPX
-         6viTzlKzfioYYsDAZvc6K+mjGnetzxT5lpL7tUBlEJkZDv0xwGJGlRDQFG3hzxaHtBb6
-         5c40J9MLK54oKgMM6UAoqh3pUmecucvGILgeEFEkZ412HJ4i6RJVgUbT7JV/LO7Pzw7h
-         fKXw==
-X-Forwarded-Encrypted: i=1; AL+hErFj7uUwGnP6QPGucCTvq1fnlDnN2tECA4jSq2dRp+fZbLR7TMLVUznlLeF9XK30xmUJEAUtFyYk5CCNfB8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+hVNO3ptodt/dUVAKfhXwbAAjPUhup8zs3fkOignExQbRR9N+u
-	aJbmduLVsMbewPu0BwFx9lfKVujiFyiB1eKC3vGy4ReDFEF/qQ939ZQK
-X-Gm-Gg: AYBFou0aA6YHGuBoygJbQOJrbm84hKqTtZOaHP5sqigMU9EJGM/Ckpep8A4pq6hOcv/
-	xz8yQOlGpEmjxooXgi+6zFW4e/V5DgNKfvExI35m4frsNM3SAyXtG6/TOfpvZpiX5nBQGSOdKyJ
-	KbF48e2qaTy+NeIrVwOq9gZuklhvzcybBvjEOLI8OBxSSgsgnViZ5rHH/cafn1wso0ZplMc1LXJ
-	zJwDTBJ7tQxZ9n4H74lsKiieQBN13zWUiTBHWBEFkuuIhpBp2sHLOyFxaey5bz/je3Rmwf4lVtw
-	o4HlY3G0Mf3TURV/x1ypr3tQrDF666Rasm1SlqvzeqUdQRxCinDFrifxW8eXCo3bugbSIXPpMbY
-	HzlDZO+4w3Zf3KCheIOIV8ryrRwWIdSVbXKIxZzo5u7Cym2EGe2vxUUiCoOTSdJYYeC7+2N+C+H
-	4AnMYG8RFIC8joVPeqH/SvRoe59d+ZKvOZoOzn7MRBlnvacfHlKOJyQhNycAXENbeOFVlrri3rQ
-	lLJgPpRvoeycUWtRmZqa+tb0ejIuOMB/KlJmyLrQcuMW3KafxEvwRcR1Z5CwkOS+7uXT1gzx8c2
-	v/B2lmW9NWhvT3o2OaBbXAYrxcWXWmPQL5yKh97klW5QJPFrasekEt06xNXyCrrSscbNqeDYNOm
-	1CQeU8VDuq4fNmwSGfKFsdQlb1+8dJeRJHhKNqqtP
-X-Received: by 2002:a05:7023:d0d:b0:1b2:60b2:96ff with SMTP id a92af1059eb24-1b543d0ce1fmr1925170c88.38.1794986639490;
-        Tue, 17 Nov 2026 23:23:59 -0800 (PST)
+        bh=ASyBpmXHjPxODfoAaOAjUELu06FPP/hyvP9ugEGG5NU=;
+        b=hlmAlO8XzRdFnWV3QLp1TEXZTgclDIVI3Llva3hjBgyidqXlmT7mu+4k7OtMQb+hnN
+         QHQr0r9ObVYgX8IVEHjjvszdUOuMKJUicGZvo05AbGFg1JidprE9+FQHQMbUXsUcsICq
+         L3i7k9jUuuD+kcF9DMx1y3vXIGv3jpOpQ/tdNbndUviFYQShMqNkJl/gAEr2nyDmFilo
+         McGEuUxFrJJ+nwxxKdoKjr2nlJ75y+vYaHpPQydHMMjwYVtmPKvMvV+ArK2Xq/Nocc4V
+         peiGTKkLxIRQuP2UEsKbcpVbI1XQektSgLCFD1xtguz+0sDsnbAUSbxNYZ6tNcsfTTbg
+         roVg==
+X-Forwarded-Encrypted: i=1; AL+hErFexqiM0niLn/FsueX9K6FkiND28MBXe9CdlItqdltymS3kUZP4qDsDsIMIMTwFVSif9Pe2Vkvbu7BQWdg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z90Iogq3sLcQaqdZDREoJxqSAtQTZioP+y/m9gjqGfcFoCvsel0
+	A6rH/P843YPdePc0BJOmuLpKnI/vWF5aZroJic7cFit929gqQg+y+1ZcymvT6JLcvfo=
+X-Gm-Gg: AYBFou2sgqEAakqqE/y9X/a9llEG8YYSKR4tOXPbrWQJnASx6MH2sHlM5RB0mbn7zCq
+	Pg9HnZUQ/oG6XxiJOXoE19TkWElq+1Mtyz8hJH1E0LkwrUM9jh23K0HSJ/pHikAi827T/+ygXmK
+	NqWwqewkbOi9j4h4eM+bhoPe66StF2FoUZMyEDHW7ZUaITtHV2yM9kz3r4nwX6WgztVs9MDI0lO
+	A08n0fHofNXxksSnYQfJqW/qcfY2HIP+KmnJvGPBW6HOCDent1mfDHOEtHGgzP6vEh9M8Qtr+5u
+	Wng56W2FusgnMxD4zIYIvgdROHoTV1GHnMEfay3sZCH+Tjhects/q2r+YbLVq+lBfj6Dg+W6FX2
+	569fQVV5RX98+uD9ITcQDrMKwiVdGtO46oiuu/6DGQidZVUrqEXSh77JJ5rJPYR+626F14eStpS
+	/kfeYOjpK4TmpXNeS0T5bsNnzTepCkbccm7ZhPeWQVy6upo6vN34Rasqfchtij9x51JxQWk/A/x
+	lrQVhtu+1l4Y/UivDo4hgbL7e1CIIr4nOFVyuXKVrlJVspVrE9LK1qCqNZmrBqKmcOLMf4kUej+
+	adkk3mi9rSlxafDhqVYRl/T1dGztdkZ1c+n6JEqSnsssBFtyIPCTabVgXiDbPaBFgawhedJdzq5
+	sFl6G6G41AiG/loHQym1YXwm4OLn8xxgdrNl3AFXY
+X-Received: by 2002:a05:7022:3f01:b0:151:2e62:fe6d with SMTP id a92af1059eb24-1b543cd9699mr1846378c88.22.1794986652558;
+        Tue, 17 Nov 2026 23:24:12 -0800 (PST)
 Received: from lwq-System-Product-Name.. ([2602:feda:30:cafe:ec49:29ac:0:f6])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447da7e0sm6185847c88.9.2026.11.17.23.23.56
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc596sm4004103c88.10.2026.11.17.23.24.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 23:23:59 -0800 (PST)
+        Tue, 17 Nov 2026 23:24:12 -0800 (PST)
 From: Yaohan Li <shunsheng1218@gmail.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
+To: alexander.usyskin@intel.com,
+	gregkh@linuxfoundation.org
+Cc: arnd@arndb.de,
 	linux-kernel@vger.kernel.org,
-	sumit.semwal@linaro.org
-Subject: [PATCH] regulator: qcom-labibb: stop the recovery workers on teardown
-Date: Wed, 18 Nov 2026 15:23:53 +0800
-Message-Id: <20261118072353.1259751-1-shunsheng1218@gmail.com>
+	tomas.winkler@intel.com
+Subject: [PATCH] mei: bus: serialise the client callback lifecycle
+Date: Wed, 18 Nov 2026 15:24:06 +0800
+Message-Id: <20261118072406.1259798-1-shunsheng1218@gmail.com>
 X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -99,63 +99,67 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The driver never stops sc_recovery_work or ocp_recovery_work.  Both are
-queued from the interrupt handlers and reschedule themselves from their
-recovery paths, so they outlive the driver data that devres frees once
-the probe or the removal is over.  A short-circuit or over-current event
-followed by an unbind leaves a pending work item that runs against a
-freed labibb_regulator.
+mei_cldev_unregister_callbacks() cancels rx_work and notif_work but
+leaves both queueable.  mei_cl_bus_rx_event() tests cldev->rx_cb and
+then queues the work, and that test is not serialized against the
+unregister path: an event that read rx_cb just before it was cleared can
+call schedule_work() after cancel_work_sync() has returned.
 
-A ->remove() callback would cover the unbind but not a probe that fails
-after the interrupt was requested: the driver core does not call
-->remove() for a failed probe, while devres still releases the
-interrupts and the private data.
+That leaves a work item queued for a mei_cl_device whose driver has
+already been removed.  Once the last reference is dropped,
+mei_cl_bus_dev_release() frees the device and mei_cl_bus_rx_work() runs
+on freed memory.
 
-Register one devres action in ->probe() instead, after the short-circuit
-interrupt, and let that action own every resource that has no devres
-release of its own: it stops both workers and it releases the
-over-current interrupt.  disable_delayed_work_sync() is used rather than
-cancel_delayed_work_sync() because both workers reschedule themselves.
+disable_work_sync() cancels the work and marks it disabled, so a
+schedule_work() that races with the unregister is dropped by the
+workqueue.  A later registration reinitializes the work with
+INIT_WORK(), which clears the disabled state again.
 
-The over-current interrupt cannot be requested from
-->set_over_current_protection(): the regulator core calls that op from
-set_machine_constraints(), inside regulator_register(), so a devres node
-created there is released after the regulator itself and the recovery
-worker would still be runnable while vreg->rdev is gone.  That op now
-only programs the interrupt registers and records the request; ->probe()
-installs the interrupt once devm_regulator_register() has returned, and
-a runtime first enable goes through the same helper.  Both requests stay
-after the regulator node, so the teardown order becomes: stop the works,
-release the interrupts, unregister the regulator.
+Both producers run under bus->device_lock: mei_cl_complete() is reached
+from mei_me_irq_thread_handler(), which holds the lock for the whole
+interrupt thread, and mei_cl_notify() is documented to require it.
+mei_cldev_unregister_callbacks() runs without that lock, so the pointer
+tests above can still pass on a device that is going away, while
+mei_cl_bus_dev_release() flushes the client queues under the same lock
+before it frees the client.
 
-The interrupt is requested with request_threaded_irq() rather than with
-the devres helper so that the same action can release it; its name comes
-from vreg->desc.name, which outlives the interrupt, while a name
-allocated with devres would be released before the action runs.  This
-also keeps the cleanup to a single devres action: a second one
-registered from the helper would be released by devm_add_action_or_reset()
-from under ocp_lock on allocation failure, and would then re-enter
-itself through that lock.
+The registration side has the mirror image of the problem: the callback
+pointer was published and the work item reinitialized before the lock
+was taken, and a registration that is being rolled back clears whatever
+callback is published at that moment, which can destroy a registration
+that started in between.
 
-The op and the probe side share a per-device mutex, and the probe
-publishes the registration only after the deferred cleanup action
-exists, so a runtime enable cannot request an interrupt that has no
-teardown paired with it.  The hardware source is enabled only after the
-handler has been installed, and turned back off when that fails, so a
-retry can be attempted without leaving the source running on its own.
+Give each callback an explicit state that is protected by
+bus->device_lock, and serialise every transition with a per-device
+mutex.  The lock order is conn_lock -> cb_lock -> bus->device_lock, and
+device_lock is dropped before waiting for a callback work to finish: a
+registration moves the state from idle through registering to active, a
+failing one owns the callback it published until it has drained the work
+and reset the state, and an unregister or a disable waits for an
+in-progress registration before it stops anything.
 
-The teardown action publishes a shutdown flag before it drains anything:
-an over-current request that runs while devres is releasing the actions
-is refused instead of installing an interrupt whose cleanup action has
-already gone, and the hardware source is turned off once the handlers
-are stopped.  The interrupt may still be left disabled by a handler that
-called disable_irq_nosync(), with no recovery worker left to re-enable
-it; that depth is left alone on purpose, because free_irq() shuts the
-line down regardless of it while an enable_irq() racing with a handler
-that is still running would unmask a line whose thread has not
-finished.
+The work handlers read the callback pointer under device_lock as well
+and call it outside, so the pointer is never dereferenced while another
+thread can replace it.  None of the in-tree callbacks calls back into
+mei_cldev_enable(), mei_cldev_disable() or the registration helpers from
+the callback itself - mei_wdt schedules a work item instead - so a
+callback cannot wait for the lifecycle lock that its own drain holds.
 
-Fixes: 498ab2fdf855 ("regulator: qcom: Add labibb driver")
+mei_cldev_disable() keeps registrations out for the whole disconnect and
+leaves the gate set afterwards: it is cleared only by a successful
+mei_cldev_enable(), so a registration cannot slip in between the stop
+and the disconnect.  enable(), disable() and the driver binding are
+serialised by a second per-device mutex.
+
+The driver binding is gated as well, but it is a per-binding state and
+not a property of the device: mei_cl_device_remove() closes the gate
+before the driver's ->remove() runs and mei_cl_device_probe() reopens it
+for the next driver, so a rebind can register callbacks again.  The
+connection gate is not touched there - only a successful
+mei_cldev_enable() reopens that one - and a probe that fails closes both
+gates again after draining the callbacks it managed to register.
+
+Fixes: 57080e88240a ("mei: bus: unregister callbacks upon me client disable call")
 Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
 ---
 Prepared against v7.4-rc1-1969-g666539eecdf4.
@@ -164,279 +168,457 @@ AI assistance: the analysis, the change and its review notes were
 prepared with Claude (Anthropic) as a coding assistant.  The author
 reviewed the reasoning and takes responsibility for the content.
 
-Testing: compile tested only (arm64, gcc 11.4).  No PMI8998 hardware was
-available, so no over-current or short-circuit event was run.
- drivers/regulator/qcom-labibb-regulator.c | 195 ++++++++++++++++++++--
- 1 file changed, 177 insertions(+), 18 deletions(-)
+Testing: compile tested only (arm64, gcc 11.4).  No MEI hardware was
+available, so the removal race was not run.
+ drivers/misc/mei/bus.c     | 253 +++++++++++++++++++++++++++++++++----
+ include/linux/mei_cl_bus.h |  28 ++++
+ 2 files changed, 258 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/regulator/qcom-labibb-regulator.c b/drivers/regulator/qcom-labibb-regulator.c
-index 8641e69b55c3..49aaa31a539d 100644
---- a/drivers/regulator/qcom-labibb-regulator.c
-+++ b/drivers/regulator/qcom-labibb-regulator.c
-@@ -96,6 +96,12 @@ struct labibb_regulator {
- 	int				ocp_irq;
- 	int				ocp_irq_count;
- 	int				fatal_count;
-+	bool				registered;
-+	bool				ocp_requested;
-+	bool				ocp_irq_done;
-+	bool				shutting_down;
-+	/* serialises the over-current request between set_ocp() and probe */
-+	struct mutex			ocp_lock;
- };
- 
- struct labibb_regulator_data {
-@@ -307,12 +313,141 @@ static irqreturn_t qcom_labibb_ocp_isr(int irq, void *chip)
- 	return IRQ_HANDLED;
- }
- 
-+/*
-+ * Stop the recovery workers and release the over-current interrupt.  A
-+ * devres action is used instead of ->remove() so that a probe which fails
-+ * after the resources were set up goes through the same teardown: the
-+ * driver core does not call ->remove() for a failed probe, but devres
-+ * still releases what was registered.
-+ *
-+ * This is the only cleanup entry, and the over-current interrupt is
-+ * requested without devres so that it can be released here: registering a
-+ * second action from a path that runs under ocp_lock would also make
-+ * devm_add_action_or_reset() run this function from under that lock on
-+ * allocation failure.
-+ */
-+static void qcom_labibb_stop_works(void *data)
-+{
-+	struct labibb_regulator *vreg = data;
-+	int irq = 0;
-+
-+	/*
-+	 * Announce the shutdown before anything is drained: a set_ocp()
-+	 * that runs from here on must not request the over-current
-+	 * interrupt while devres is releasing the action that would stop
-+	 * its worker.
-+	 */
-+	mutex_lock(&vreg->ocp_lock);
-+	vreg->shutting_down = true;
-+	mutex_unlock(&vreg->ocp_lock);
-+
-+	/*
-+	 * Both recovery workers reschedule themselves, so a plain cancel
-+	 * would leave them queued again: disable_delayed_work_sync() also
-+	 * blocks the requeue.
-+	 */
-+	disable_delayed_work_sync(&vreg->sc_recovery_work);
-+	if (vreg->ocp_irq > 0) {
-+		disable_delayed_work_sync(&vreg->ocp_recovery_work);
-+
-+		/*
-+		 * The over-current handler turns the source off before it
-+		 * queues the worker, but a handler that was stopped above
-+		 * may have done so after the worker was drained: leave the
-+		 * source off now that nobody would turn it back on.
-+		 */
-+		qcom_labibb_ocp_hw_disable(vreg->rdev);
-+
-+		mutex_lock(&vreg->ocp_lock);
-+		if (vreg->ocp_irq_done) {
-+			vreg->ocp_irq_done = false;
-+			irq = vreg->ocp_irq;
-+		}
-+		mutex_unlock(&vreg->ocp_lock);
-+
-+		/*
-+		 * A stopped handler can also have left the interrupt
-+		 * disabled with disable_irq_nosync(), while the recovery
-+		 * worker - the only caller of enable_irq() - is gone.  The
-+		 * depth is deliberately not unwound here: free_irq() shuts
-+		 * the line down regardless of it, whereas an enable_irq()
-+		 * racing with a handler that is still running would unmask
-+		 * a line whose thread has not finished.
-+		 *
-+		 * free_irq() waits for a running handler, so it is called
-+		 * without ocp_lock held.
-+		 */
-+		if (irq)
-+			free_irq(irq, vreg);
-+	}
-+}
-+
-+/*
-+ * Request the over-current interrupt once the regulator is registered.
-+ * Requesting it from ->set_over_current_protection() is not possible: the
-+ * regulator core calls that op from set_machine_constraints(), inside
-+ * regulator_register(), and a devres node created there is released after
-+ * the regulator itself.  The recovery worker would then still be runnable
-+ * while vreg->rdev is already gone.
-+ */
-+static int qcom_labibb_setup_ocp_irq(struct labibb_regulator *vreg)
-+{
-+	u32 irq_flags = IRQF_ONESHOT;
-+	int ret;
-+
-+	lockdep_assert_held(&vreg->ocp_lock);
-+
-+	if (vreg->shutting_down)
-+		return -ESHUTDOWN;
-+
-+	if (!vreg->ocp_requested)
-+		return 0;
-+
-+	if (!vreg->ocp_irq_done) {
-+		/* IRQ polarities - LAB: trigger-low, IBB: trigger-high */
-+		switch (vreg->type) {
-+		case QCOM_LAB_TYPE:
-+			irq_flags |= IRQF_TRIGGER_LOW;
-+			break;
-+		case QCOM_IBB_TYPE:
-+			irq_flags |= IRQF_TRIGGER_HIGH;
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+
-+		/*
-+		 * The interrupt is owned and released by the cleanup
-+		 * action, so its name has to outlive the interrupt:
-+		 * devres would release a name allocated here before the
-+		 * action runs, while vreg->desc.name is owned by the
-+		 * driver data.
-+		 */
-+		ret = request_threaded_irq(vreg->ocp_irq, NULL,
-+					   qcom_labibb_ocp_isr, irq_flags,
-+					   vreg->desc.name, vreg);
-+		if (ret)
-+			return ret;
-+
-+		vreg->ocp_irq_done = true;
-+	}
-+
-+	/*
-+	 * Enable the hardware source only once a handler exists, and turn
-+	 * it back off if that failed, so that a later attempt can retry
-+	 * without leaving the source enabled on its own.
-+	 */
-+	ret = qcom_labibb_ocp_hw_enable(vreg->rdev);
-+	if (ret)
-+		qcom_labibb_ocp_hw_disable(vreg->rdev);
-+
-+	return ret;
-+}
-+
- static int qcom_labibb_set_ocp(struct regulator_dev *rdev, int lim,
- 			       int severity, bool enable)
+diff --git a/drivers/misc/mei/bus.c b/drivers/misc/mei/bus.c
+index cfb87ab8667f..277e21ac07ef 100644
+--- a/drivers/misc/mei/bus.c
++++ b/drivers/misc/mei/bus.c
+@@ -426,13 +426,18 @@ static void mei_cl_bus_rx_work(struct work_struct *work)
  {
- 	struct labibb_regulator *vreg = rdev_get_drvdata(rdev);
--	char *ocp_irq_name;
--	u32 irq_flags = IRQF_ONESHOT;
- 	int irq_trig_low, ret;
+ 	struct mei_cl_device *cldev;
+ 	struct mei_device *bus;
++	mei_cldev_cb_t rx_cb;
  
- 	/*
-@@ -326,52 +461,58 @@ static int qcom_labibb_set_ocp(struct regulator_dev *rdev, int lim,
- 	if (vreg->ocp_irq <= 0)
- 		return -EINVAL;
+ 	cldev = container_of(work, struct mei_cl_device, rx_work);
  
--	ocp_irq_name = devm_kasprintf(vreg->dev, GFP_KERNEL, "%s-over-current",
--				      vreg->desc.name);
--	if (!ocp_irq_name)
--		return -ENOMEM;
--
- 	/* IRQ polarities - LAB: trigger-low, IBB: trigger-high */
- 	switch (vreg->type) {
- 	case QCOM_LAB_TYPE:
--		irq_flags |= IRQF_TRIGGER_LOW;
- 		irq_trig_low = 1;
- 		break;
- 	case QCOM_IBB_TYPE:
--		irq_flags |= IRQF_TRIGGER_HIGH;
- 		irq_trig_low = 0;
- 		break;
- 	default:
- 		return -EINVAL;
- 	}
+ 	bus = cldev->bus;
  
-+	mutex_lock(&vreg->ocp_lock);
+-	if (cldev->rx_cb)
+-		cldev->rx_cb(cldev);
++	mutex_lock(&bus->device_lock);
++	rx_cb = cldev->rx_cb;
++	mutex_unlock(&bus->device_lock);
 +
-+	if (vreg->shutting_down) {
-+		ret = -ESHUTDOWN;
-+		goto unlock;
-+	}
++	if (rx_cb)
++		rx_cb(cldev);
+ 
+ 	mutex_lock(&bus->device_lock);
+ 	if (mei_cl_is_connected(cldev->cl))
+@@ -448,11 +453,19 @@ static void mei_cl_bus_rx_work(struct work_struct *work)
+ static void mei_cl_bus_notif_work(struct work_struct *work)
+ {
+ 	struct mei_cl_device *cldev;
++	struct mei_device *bus;
++	mei_cldev_cb_t notif_cb;
+ 
+ 	cldev = container_of(work, struct mei_cl_device, notif_work);
+ 
+-	if (cldev->notif_cb)
+-		cldev->notif_cb(cldev);
++	bus = cldev->bus;
 +
- 	/* Activate OCP HW level interrupt */
- 	ret = regmap_update_bits(rdev->regmap,
- 				 vreg->base + REG_LABIBB_INT_SET_TYPE,
- 				 LABIBB_INT_VREG_OK,
- 				 LABIBB_INT_VREG_TYPE_LEVEL);
- 	if (ret)
--		return ret;
-+		goto unlock;
- 
- 	/* Set OCP interrupt polarity */
- 	ret = regmap_update_bits(rdev->regmap,
- 				 vreg->base + REG_LABIBB_INT_POLARITY_HIGH,
- 				 LABIBB_INT_VREG_OK, !irq_trig_low);
- 	if (ret)
--		return ret;
-+		goto unlock;
- 	ret = regmap_update_bits(rdev->regmap,
- 				 vreg->base + REG_LABIBB_INT_POLARITY_LOW,
- 				 LABIBB_INT_VREG_OK, irq_trig_low);
- 	if (ret)
--		return ret;
-+		goto unlock;
- 
--	ret = qcom_labibb_ocp_hw_enable(rdev);
--	if (ret)
--		return ret;
-+	vreg->ocp_requested = true;
++	mutex_lock(&bus->device_lock);
++	notif_cb = cldev->notif_cb;
++	mutex_unlock(&bus->device_lock);
 +
-+	/*
-+	 * During regulator_register() there is no interrupt yet and no
-+	 * cleanup action to pair with it; the probe finishes the job once
-+	 * the regulator and its devres nodes exist.
-+	 */
-+	if (vreg->registered)
-+		ret = qcom_labibb_setup_ocp_irq(vreg);
- 
--	return devm_request_threaded_irq(vreg->dev, vreg->ocp_irq, NULL,
--					 qcom_labibb_ocp_isr, irq_flags,
--					 ocp_irq_name, vreg);
-+unlock:
-+	mutex_unlock(&vreg->ocp_lock);
-+	return ret;
++	if (notif_cb)
++		notif_cb(cldev);
  }
  
  /**
-@@ -836,6 +977,7 @@ static int qcom_labibb_regulator_probe(struct platform_device *pdev)
- 		vreg->dev = dev;
- 		vreg->base = reg_data->base;
- 		vreg->type = reg_data->type;
-+		mutex_init(&vreg->ocp_lock);
- 		INIT_DELAYED_WORK(&vreg->sc_recovery_work,
- 				  qcom_labibb_sc_recovery_worker);
+@@ -517,24 +530,63 @@ int mei_cldev_register_rx_cb(struct mei_cl_device *cldev, mei_cldev_cb_t rx_cb)
  
-@@ -884,6 +1026,23 @@ static int qcom_labibb_regulator_probe(struct platform_device *pdev)
- 						sc_irq_name, vreg);
- 		if (ret)
- 			return ret;
+ 	if (!rx_cb)
+ 		return -EINVAL;
+-	if (cldev->rx_cb)
+-		return -EALREADY;
+ 
+-	cldev->rx_cb = rx_cb;
+-	INIT_WORK(&cldev->rx_work, mei_cl_bus_rx_work);
++	/*
++	 * cb_lock serialises every transition of rx_state, so a
++	 * registration that fails unwinds only the callback it published
++	 * itself and never one that a later registration installed.
++	 */
++	mutex_lock(&cldev->cb_lock);
+ 
+ 	mutex_lock(&bus->device_lock);
++	if (cldev->disabling || cldev->unbinding) {
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
++		return -ENODEV;
++	}
++	if (cldev->rx_state != MEI_CB_IDLE) {
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
++		return -EALREADY;
++	}
 +
-+		ret = devm_add_action_or_reset(vreg->dev,
-+					       qcom_labibb_stop_works, vreg);
-+		if (ret)
-+			return ret;
++	/*
++	 * The callback pointer and the work item are published under
++	 * device_lock, which every producer of the work takes, so an event
++	 * cannot observe a callback that is not backed by an initialized
++	 * work item.
++	 */
++	cldev->rx_state = MEI_CB_REGISTERING;
++	INIT_WORK(&cldev->rx_work, mei_cl_bus_rx_work);
++	cldev->rx_cb = rx_cb;
+ 	if (mei_cl_is_connected(cldev->cl))
+ 		ret = mei_cl_read_start(cldev->cl, mei_cl_mtu(cldev->cl), NULL);
+ 	else
+ 		ret = -ENODEV;
 +
++	if (ret && ret != -EBUSY)
++		cldev->rx_state = MEI_CB_STOPPING;
++	else
++		cldev->rx_state = MEI_CB_ACTIVE;
+ 	mutex_unlock(&bus->device_lock);
++
+ 	if (ret && ret != -EBUSY) {
+-		cancel_work_sync(&cldev->rx_work);
 +		/*
-+		 * Publish the registration only now: a concurrent
-+		 * set_ocp() must not be able to request the over-current
-+		 * interrupt before the action that stops its worker exists.
++		 * cb_lock is held and rx_state is STOPPING, so neither a
++		 * stop nor a new registration can run here: the drain
++		 * below cannot disable or clear a newer callback.
 +		 */
-+		mutex_lock(&vreg->ocp_lock);
-+		vreg->registered = true;
-+		ret = qcom_labibb_setup_ocp_irq(vreg);
-+		mutex_unlock(&vreg->ocp_lock);
-+		if (ret)
-+			return ret;
++		disable_work_sync(&cldev->rx_work);
++
++		mutex_lock(&bus->device_lock);
+ 		cldev->rx_cb = NULL;
++		cldev->rx_state = MEI_CB_IDLE;
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
+ 		return ret;
  	}
  
++	mutex_unlock(&cldev->cb_lock);
  	return 0;
+ }
+ EXPORT_SYMBOL_GPL(mei_cldev_register_rx_cb);
+@@ -558,21 +610,47 @@ int mei_cldev_register_notif_cb(struct mei_cl_device *cldev,
+ 	if (!notif_cb)
+ 		return -EINVAL;
+ 
+-	if (cldev->notif_cb)
++	/* See mei_cldev_register_rx_cb() for the locking rules. */
++	mutex_lock(&cldev->cb_lock);
++
++	mutex_lock(&bus->device_lock);
++	if (cldev->disabling || cldev->unbinding) {
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
++		return -ENODEV;
++	}
++	if (cldev->notif_state != MEI_CB_IDLE) {
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
+ 		return -EALREADY;
++	}
+ 
+-	cldev->notif_cb = notif_cb;
++	cldev->notif_state = MEI_CB_REGISTERING;
+ 	INIT_WORK(&cldev->notif_work, mei_cl_bus_notif_work);
+-
+-	mutex_lock(&bus->device_lock);
++	cldev->notif_cb = notif_cb;
+ 	ret = mei_cl_notify_request(cldev->cl, NULL, 1);
++	if (ret)
++		cldev->notif_state = MEI_CB_STOPPING;
++	else
++		cldev->notif_state = MEI_CB_ACTIVE;
+ 	mutex_unlock(&bus->device_lock);
++
+ 	if (ret) {
+-		cancel_work_sync(&cldev->notif_work);
++		/*
++		 * See mei_cldev_register_rx_cb(): cb_lock keeps the unwind
++		 * private to this registration.
++		 */
++		disable_work_sync(&cldev->notif_work);
++
++		mutex_lock(&bus->device_lock);
+ 		cldev->notif_cb = NULL;
++		cldev->notif_state = MEI_CB_IDLE;
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
+ 		return ret;
+ 	}
+ 
++	mutex_unlock(&cldev->cb_lock);
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(mei_cldev_register_notif_cb);
+@@ -815,7 +893,14 @@ int mei_cldev_enable(struct mei_cl_device *cldev)
+ 
+ 	cl = cldev->cl;
+ 
++	mutex_lock(&cldev->conn_lock);
++
+ 	mutex_lock(&bus->device_lock);
++	if (cldev->unbinding) {
++		ret = -ENODEV;
++		goto notlinked;
++	}
++
+ 	if (cl->state == MEI_FILE_UNINITIALIZED) {
+ 		ret = mei_cl_link(cl);
+ 		if (ret)
+@@ -849,12 +934,79 @@ int mei_cldev_enable(struct mei_cl_device *cldev)
+ 	if (ret)
+ 		mei_cl_unlink(cl);
+ notlinked:
++	/* Reopen registrations only once the device is connected again. */
++	if (!ret)
++		cldev->disabling = false;
+ 	mutex_unlock(&bus->device_lock);
+ 
++	mutex_unlock(&cldev->conn_lock);
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(mei_cldev_enable);
+ 
++/*
++ * Stop one callback for good.  cb_lock serialises registration and
++ * stopping, so a second stop waits for the first one to finish.
++ *
++ * The lock order is cb_lock -> bus->device_lock.  device_lock is dropped
++ * before disable_work_sync(), because the work handler and its producers
++ * may acquire device_lock; neither takes cb_lock.
++ */
++static void mei_cldev_stop_rx(struct mei_cl_device *cldev)
++{
++	struct mei_device *bus = cldev->bus;
++
++	mutex_lock(&cldev->cb_lock);
++
++	mutex_lock(&bus->device_lock);
++	if (cldev->rx_state == MEI_CB_IDLE) {
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
++		return;
++	}
++	cldev->rx_state = MEI_CB_STOPPING;
++	mutex_unlock(&bus->device_lock);
++
++	/*
++	 * The producers take device_lock, so the drain must happen without
++	 * it or they would wait for us while we wait for the work.
++	 */
++	disable_work_sync(&cldev->rx_work);
++
++	mutex_lock(&bus->device_lock);
++	cldev->rx_cb = NULL;
++	cldev->rx_state = MEI_CB_IDLE;
++	mutex_unlock(&bus->device_lock);
++
++	mutex_unlock(&cldev->cb_lock);
++}
++
++/* See mei_cldev_stop_rx(). */
++static void mei_cldev_stop_notif(struct mei_cl_device *cldev)
++{
++	struct mei_device *bus = cldev->bus;
++
++	mutex_lock(&cldev->cb_lock);
++
++	mutex_lock(&bus->device_lock);
++	if (cldev->notif_state == MEI_CB_IDLE) {
++		mutex_unlock(&bus->device_lock);
++		mutex_unlock(&cldev->cb_lock);
++		return;
++	}
++	cldev->notif_state = MEI_CB_STOPPING;
++	mutex_unlock(&bus->device_lock);
++
++	disable_work_sync(&cldev->notif_work);
++
++	mutex_lock(&bus->device_lock);
++	cldev->notif_cb = NULL;
++	cldev->notif_state = MEI_CB_IDLE;
++	mutex_unlock(&bus->device_lock);
++
++	mutex_unlock(&cldev->cb_lock);
++}
++
+ /**
+  * mei_cldev_unregister_callbacks - internal wrapper for unregistering
+  *  callbacks.
+@@ -863,15 +1015,8 @@ EXPORT_SYMBOL_GPL(mei_cldev_enable);
+  */
+ static void mei_cldev_unregister_callbacks(struct mei_cl_device *cldev)
+ {
+-	if (cldev->rx_cb) {
+-		cancel_work_sync(&cldev->rx_work);
+-		cldev->rx_cb = NULL;
+-	}
+-
+-	if (cldev->notif_cb) {
+-		cancel_work_sync(&cldev->notif_work);
+-		cldev->notif_cb = NULL;
+-	}
++	mei_cldev_stop_rx(cldev);
++	mei_cldev_stop_notif(cldev);
+ }
+ 
+ /**
+@@ -895,6 +1040,24 @@ int mei_cldev_disable(struct mei_cl_device *cldev)
+ 
+ 	bus = cldev->bus;
+ 
++	/*
++	 * Serialise the connection lifecycle: enable(), disable() and the
++	 * removal all change the same state and only one of them may run
++	 * at a time, so the gate below is stable for the rest of this
++	 * function.
++	 */
++	mutex_lock(&cldev->conn_lock);
++
++	/*
++	 * Refuse new registrations for the whole disconnect: the callbacks
++	 * are stopped below, and one published after that would survive
++	 * the disconnect.  The gate stays set until a later
++	 * mei_cldev_enable() connects again.
++	 */
++	mutex_lock(&bus->device_lock);
++	cldev->disabling = true;
++	mutex_unlock(&bus->device_lock);
++
+ 	mei_cldev_unregister_callbacks(cldev);
+ 
+ 	mutex_lock(&bus->device_lock);
+@@ -919,6 +1082,8 @@ int mei_cldev_disable(struct mei_cl_device *cldev)
+ 	}
+ 
+ 	mutex_unlock(&bus->device_lock);
++
++	mutex_unlock(&cldev->conn_lock);
+ 	return err;
+ }
+ EXPORT_SYMBOL_GPL(mei_cldev_disable);
+@@ -1147,8 +1312,33 @@ static int mei_cl_device_probe(struct device *dev)
+ 		return -ENODEV;
+ 	}
+ 
++	/*
++	 * A driver is being bound again: reopen the gate that the previous
++	 * unbind closed.  Only the connection gate is left alone; a new
++	 * driver has to connect the device again with mei_cldev_enable()
++	 * before it may register callbacks.
++	 */
++	mutex_lock(&cldev->conn_lock);
++	mutex_lock(&cldev->bus->device_lock);
++	cldev->unbinding = false;
++	mutex_unlock(&cldev->bus->device_lock);
++	mutex_unlock(&cldev->conn_lock);
++
+ 	ret = cldrv->probe(cldev, id);
+ 	if (ret) {
++		/*
++		 * A failed probe must not leave an open gate or a callback
++		 * behind: close both again and drain what the probe
++		 * registered before handing the device over.
++		 */
++		mutex_lock(&cldev->conn_lock);
++		mutex_lock(&cldev->bus->device_lock);
++		cldev->unbinding = true;
++		cldev->disabling = true;
++		mutex_unlock(&cldev->bus->device_lock);
++		mutex_unlock(&cldev->conn_lock);
++
++		mei_cldev_unregister_callbacks(cldev);
+ 		mei_cl_bus_module_put(cldev);
+ 		return ret;
+ 	}
+@@ -1169,6 +1359,21 @@ static void mei_cl_device_remove(struct device *dev)
+ 	struct mei_cl_device *cldev = to_mei_cl_device(dev);
+ 	struct mei_cl_driver *cldrv = to_mei_cl_driver(dev->driver);
+ 
++	/*
++	 * Close the registration gate before the driver is asked to remove
++	 * the device: a registration that races with the unbind must fail
++	 * instead of installing a callback that nobody would stop.  The
++	 * flags are published and both locks dropped before the driver
++	 * callback runs, because it may still use the callbacks it
++	 * registered and may call mei_cldev_disable() itself.
++	 */
++	mutex_lock(&cldev->conn_lock);
++	mutex_lock(&cldev->bus->device_lock);
++	cldev->unbinding = true;
++	cldev->disabling = true;
++	mutex_unlock(&cldev->bus->device_lock);
++	mutex_unlock(&cldev->conn_lock);
++
+ 	if (cldrv->remove)
+ 		cldrv->remove(cldev);
+ 
+@@ -1397,6 +1602,8 @@ static struct mei_cl_device *mei_cl_bus_dev_alloc(struct mei_device *bus,
+ 	cldev->cl         = cl;
+ 	mei_cl_bus_set_name(cldev);
+ 	cldev->is_added   = 0;
++	mutex_init(&cldev->cb_lock);
++	mutex_init(&cldev->conn_lock);
+ 	INIT_LIST_HEAD(&cldev->bus_list);
+ 	device_enable_async_suspend(&cldev->dev);
+ 
+diff --git a/include/linux/mei_cl_bus.h b/include/linux/mei_cl_bus.h
+index d5d29451eabf..d3ddfcf2d4df 100644
+--- a/include/linux/mei_cl_bus.h
++++ b/include/linux/mei_cl_bus.h
+@@ -15,6 +15,20 @@ struct scatterlist;
+ 
+ typedef void (*mei_cldev_cb_t)(struct mei_cl_device *cldev);
+ 
++/**
++ * enum mei_cb_state - lifecycle state of an mei client callback
++ * @MEI_CB_IDLE: no callback registered
++ * @MEI_CB_REGISTERING: a registration is in progress
++ * @MEI_CB_ACTIVE: the callback is published
++ * @MEI_CB_STOPPING: the callback is being drained
++ */
++enum mei_cb_state {
++	MEI_CB_IDLE,
++	MEI_CB_REGISTERING,
++	MEI_CB_ACTIVE,
++	MEI_CB_STOPPING,
++};
++
+ /**
+  * struct mei_cl_device - MEI device handle
+  * An mei_cl_device pointer is returned from mei_add_device()
+@@ -31,12 +45,18 @@ typedef void (*mei_cldev_cb_t)(struct mei_cl_device *cldev);
+  * @rx_work: async work to execute Rx event callback
+  * @rx_cb: Drivers register this callback to get asynchronous ME
+  *	Rx buffer pending notifications.
++ * @rx_state: lifecycle state of @rx_cb
+  * @notif_work: async work to execute FW notify event callback
+  * @notif_cb: Drivers register this callback to get asynchronous ME
+  *	FW notification pending notifications.
++ * @notif_state: lifecycle state of @notif_cb
++ * @cb_lock: serialises the lifecycle of both callbacks
++ * @conn_lock: serialises enable/disable and the binding state
+  *
+  * @do_match: whether the device can be matched with a driver
+  * @is_added: device is already scanned
++ * @disabling: the device is disabled until the next successful enable
++ * @unbinding: the driver is being unbound from the device
+  * @priv_data: client private data
+  */
+ struct mei_cl_device {
+@@ -50,11 +70,19 @@ struct mei_cl_device {
+ 
+ 	struct work_struct rx_work;
+ 	mei_cldev_cb_t rx_cb;
++	enum mei_cb_state rx_state;
+ 	struct work_struct notif_work;
+ 	mei_cldev_cb_t notif_cb;
++	enum mei_cb_state notif_state;
++	/* serialises the lifecycle of both callbacks */
++	struct mutex cb_lock;
++	/* Serialises enable/disable and binding-state transitions. */
++	struct mutex conn_lock;
+ 
+ 	unsigned int do_match:1;
+ 	unsigned int is_added:1;
++	unsigned int disabling:1;
++	unsigned int unbinding:1;
+ 
+ 	void *priv_data;
+ };
 -- 
 2.34.1
 
