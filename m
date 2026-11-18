@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795019403;
-	b=AqZbZtJCrh2Rx7YUMoz4FJUyfEqjQTNO6EeYkR9wULv/wKScHMbmGb+DCB+xLR3OIeJl
-	 b00ds++ah6q+V7RZn4KIfi76rTbUuRCV6jB+8Iz9bU8DeserUxorwtx7QafSSWlOvYoCH
-	 kpB4Ux2czrULu18K8lOeeA9uyOmlNSlCpthsugr9V/4trCi7W1PKyptFuoydUYrKnt/Sl
-	 NUM7owQmv2dVqLn5eoVXNwvjNmrxrOmLe+TH9WIwkbdrOKGj9/a3NuAd6LK7Mvq0W+2/+
-	 dld0FFTQp1Qm2xSM+NvKyKTaR5v3Q2EphXAV76M/BNHiH7WJ06yV8ivAS0eyT4okZYA==
+	b=QyKO2UBCbe7pMKcj/Xq21BhnQarMmmZvcjAcAHXCInYRFjuYx9YtGT1aAX4fmFON5oou
+	 OlBiomQ2pIw07WidcKGdBM55zSgYH1uCaj7qnfaU3UrYd4lsyjdJHKFD6vD5zMpKSGKNZ
+	 x4FLGfWor+bZ2snsrx0PD83fBU7Pow/NUGyUbvbnImUFHiHMiSqsrAa/b6jUVJGXQDIcF
+	 eEkrh6Xgk60lMFLm+mLofwYOM3Lb8gekGxLmizp2AqVvZsqfYf9EvQrKs1dvR1/nsdkaR
+	 jEpqRIfky3x9XwdC90gehL4CCBKwSGz/xwJ01pPzd4+kW+YP6hDTvVqLY94EScJ652w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795019403;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=9TvI/tcWqsDiAaR0SImg0w5hNJWOXoXa6vuM34fV/cU=;
-	b=edejFsk6/h2Z7xXGvYWQcBnUEIl+Om9HEtTgbOPkSE7afIcH/M0cf7toKZk+gK1GeaWA
-	 nbGqWKurAdRE4nlClOUpHxxGOIRVVyuNEf4Xzxp7ziyzd05TxzIkdr8U8HfpD4iQ2IzSc
-	 laQIS6QMHw9uJwADIA8k+yeITnYkN42ms8gk1O9jo0vFOS/7DJtGZtTcTByes4gvaJDql
-	 1mJrd8crAcQ34vwtUXl4y+E6xgNIBcbys3OxFiQjOg9Wlu+IU7B9jB86eiTUjQEkuQfrA
-	 2kFObXBDv1PkQIJJI+4eUiH9wMGGly6xbwIED1oI25OvYTXgCwx6+nfXVHhH+CLjaqA==
+	bh=++mNA/ATFG+JHWKfnq2DLe8hXRW/WLweLbt37GPodEU=;
+	b=c7NXeoutWc86hBF6gaerO+rBCV8bxX1/PgSyknbqytPnIdwyUySwXriPzoDrif1+6mcF
+	 kgoczicTOksiDmUPT/4QzPi7qtyz1OY5V5tu5j5CfjfmS2xUN4S2tL1+Uv5uT0JMnZ0gD
+	 qE26PXL+ioDIjaVQsMaRqh8B84npLfLotzurGIi15C6GDC9LkO2QIN0g/olhbK8jzy87J
+	 IulQJ9qmE1quqn+yy0XwWdvrFpCAny8pCcBcYxkwMfq1IcUG8RVOrt78GxXDRNfPVuN9Y
+	 pVDUY6Zd0sqmJe+L8SmiqGv7jZtVXK3IT9UqfdTAirEfLOCQuF8MnHd+THCFJfXCV/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=cra1kaKs;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=tjZIAzXX;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3D5C60A2618
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3D5C60A2618
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8AFE60A263D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:30:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8AFE60A263D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=cra1kaKs
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso18083975e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=tjZIAzXX
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a42b34e930so957118f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:30:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019398; x=1795624198; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795019401; x=1795624201; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9TvI/tcWqsDiAaR0SImg0w5hNJWOXoXa6vuM34fV/cU=;
-        b=cra1kaKsyCsDSDCYmwefAdiIgXLO+xoK2UKY3tlZZsyrR+Jg3I1qSOtlqGu7vF97Ow
-         BT3Ym0uW/fpOEBRPF6vBGGhc8RrBFW5cIa1SEEveJ+xU4qVHObc9+rqZ8XUJiKNP0lKP
-         +eTF5O8XiP4xOJBEQgBEaJMx780sJJCitNqVRp24Cf6sulNsII10sOikSFMY37Oh7Vgf
-         mMzeIVRiqtf8Jg4EqyZSflr587Q34oc7krvjNLF2gGvjb+C8xM6UWqNACmaXDMrHGeZz
-         v/y7KicCNJa9QjSaZfnPcg0Kds6tCFqmlPupiHQ3j9VPdmfWWtpaWD909OrJ1CEMsSXR
-         hy/w==
+        bh=++mNA/ATFG+JHWKfnq2DLe8hXRW/WLweLbt37GPodEU=;
+        b=tjZIAzXXo7Qc2tcqNCatr32uUr50tnaCysbm4XPzAIEAOhwN5hLin/BEeoWWtp3i4z
+         r4uvMZPixtUY2Tx6ooeWULcsBL1mHcEHSMEPN8bX7qgciIgW/U2HPEVtGN3kmCwjdHDB
+         CMeLYpKhkaEumysZVLqdJ/fVi01BSoJ1Aelz8T2WdJCA0YJ8jb8JFqhv3wB2oI3N1NGs
+         34+nL43nmZIGSz4gGSgKQcqczcX2lR9fHzw2KNEkm/Er4bLmb6pg4kExkvY7qgx5I+7m
+         EoIoS4RDhY4DPuUv84BXLW4RfvMDHUG1SM7XnTnJHiGXUB+yYHIL9/JwulGVtTw3/R4G
+         B9JQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019398; x=1795624198;
+        d=1e100.net; s=20260707; t=1795019401; x=1795624201;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9TvI/tcWqsDiAaR0SImg0w5hNJWOXoXa6vuM34fV/cU=;
-        b=wiwTDIcOo34F8RBKIuoO3XkRmhjU4Lx1TkDODHgplZ8sFf7uGqOyLA412qAIcpAV1i
-         PxXjA1J66sGovBIRyppkiGM5jhTmjL7zC5Kr5dk5VJ4yXg9Q//2+qC9im1NSCjbC9WlQ
-         8GaL+DmBNThORy1GHdh3Sgwg6zK4jTUpALBHC0uO6y1poWaVz7hO2q+ejDXebPBH7xl5
-         9NjQiJUo7DhPhHoHxztKNEO9WCQWaQTrWlas2UM2a6j1wYpuziroi3e+jh6hIcYZkQEv
-         mPhs4tsCCrlDpTW1n5uuY/6hkbu4mCYjEo/S1zo8ohsJG0ayvoMD1u5PIpk658VgLC1X
-         Rddw==
-X-Forwarded-Encrypted: i=1; AL+hErG2Xchv6y9PyNIiiG4wMOenBuKnN3sNyJEpwQynGwAqXhKDSMsHyQ4+Z9At8LUK5XIEmz4/LUj6TUnob+0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/CG8S+5CAkGn1YP3mM+Q9lwdQY70RtiTXkjLA+d5XJ4WQx+fTP
-	14HhEwRMBqoYra7+MHMgeepCkULJBO4I0T/oSvOIL5xW6lZHGqJa6yO/t3lYcHQgIoc=
-X-Gm-Gg: AYBFou0WM2232cQQwc6/mD6+8N3AH8ENM5E03fYV/diffCNJVO+zpx6sGwT+Mv0xY9h
-	XhmnDOKoIMO++ptLf924cuNNux61u7p5N8r0CLrJuCkc5awo6hEWfbWVtxeadIGBxXBsxxkF63+
-	EX+5qKzi7zLNyEf3yCbXptdT8tRRVH9yCKkpzChkTd2FLghZKK0bw1u12NbFX0Q7Xucejh5e7l8
-	pxJDORUqfnOLOrcVFGDTkkNHJi0qHsaZLx+7c/yfj0cRgJQ5s85d4xkYF/n4bU9P1PZi5E/Dxev
-	goGc9m0QHjynJX0TbtlYJGP0T70cR7By1VxoMbHkiXy0fxd7hEvbOXwOk5xMqyc2gra+vp/2QfZ
-	vNRIBTTKhYt8TYsmZAMt1Qo0Yz51YyGbFIbVsvoa93t8RYB2Ux5ItWsARJ5aYJIU1OfYkS/8wMR
-	vq2KdfQlv0PlvBM/8tVtbs6hAQhXx3BTzWa6WnY0wEdD6rkbN/E5WxuYc23Jmt9Jj3n79ewRkkI
-	CQoZv0ziXfF20e0y4O6myZhbvyF1OYhS07WFfH+bDlwpy75pQRJbcyuh0RfWLxbTXxiPsi/buNe
-	98pkQqG5N7aFRAcwYZ0vsygGbeky1FmR
-X-Received: by 2002:a05:600c:8b8a:b0:4bb:52bd:a3c7 with SMTP id 5b1f17b1804b1-4bb7da2240amr67857325e9.6.1795019398311;
-        Wed, 18 Nov 2026 08:29:58 -0800 (PST)
+        bh=++mNA/ATFG+JHWKfnq2DLe8hXRW/WLweLbt37GPodEU=;
+        b=hwc9ALGi0u03FNXqtsu9ssue7XVpHTfS3TUujfPnmkyQ6Z9oSX3s57BQtc9y3KoPef
+         YlIMWi1fDXRIBMVd4mbh0PIP+3smkUwI8dZpQsoQUeWnK9QdTFOMaay29TSjuHDB6Nct
+         zMKeqkbAiypdFU2FWW3CIt6/mgXJWlSx9nUw7wKNjlGU+wgxTcajYXDFnY1Pc9b1aT7B
+         2CEf8tLwe0qJAjXw6JXqP4LI2r546K0PLpZYwm+tUJPJWodQsGwD4omtt4zD6M9c6Ybx
+         ReE/o+a9uyXXTjrQHjB7TTMG4TzJFPNqq62OMDmuPjW5NEZ7NiAC+8pmiSrhrsSNXg4+
+         8kyg==
+X-Forwarded-Encrypted: i=1; AL+hErHnQIHTqQi0EggKXy/a8bYuoCcq6S/H7ZvBpn9EAsGhvv6bcSsfgnvqRmOLBKlpHdjC5N65MtkTSC+yN2A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Pdr7JhRR7zIfYQcR2AshUuks3VXoBEdm40WRnSnHYag0Z5p8a
+	QieLrGbHFtMQ+iUbfMP2fY/rY49WM/TAetSfyQRzTnSVh4GzjayvvuO1V2eLNxxa0VE=
+X-Gm-Gg: AZFdTZcLYEwg82+MV5nmssGo+WZNrzz1A6npcUsjCYCK+Yi4VwjM5qpUmXTKEup06R4
+	V0JuCp3fhXWecMDQ5pzXAClR+Gu82w1Ty0dxsCI8lUASNuIFZaZQDuxdFnYZs7i1xo99LJOTKuI
+	b/muRwsAv3jPdf3+S6E4QEJFAjDdNSQI0FQLJZNBXquIW4x+VEz+ih3YcHA7bPej3rsWYKMbLvb
+	CKwZN5rLOKUMhQ3A1IShoZZ+nQpX4YpBLDsBM1tJPgftRGBxEiBMfpGAOZjNelo/Rz3jUCR5ZrW
+	QwGyqxL2ASdq39CPI1Q4CyK5sBb3J/d5JfvB8s3wQwNPy3IHLcZ5jEAyXiFVHG/EEBx3OIxdziG
+	f+rjas+Yn9Q1EqoBtnl6x9KYa/xybdeTMdXVp8cyP1MjcV9xRtDocSuYyeJjoDGG+Y+MovaQED9
+	HUep0lemZenWCcAGbynoy7n02BUVs8ylM4V8uNMDGgzGW8Gga+LiyloLZz9YpwWsarYtpI3uJW2
+	d8k7iZZAGMM+ccv5BINqQB08xbjqqmTmERxFSjFY80zyPaAOisiKezEy0bt99oVq3jz0g/hJrn8
+	D7lNjk31YaVOpTEcHUmC0vKxB2bVIhIe
+X-Received: by 2002:a5d:5f45:0:b0:4a7:a8f:527a with SMTP id ffacd0b85a97d-4a70a8f55cfmr5263386f8f.7.1795019401089;
+        Wed, 18 Nov 2026 08:30:01 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.57
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:29:57 -0800 (PST)
+        Wed, 18 Nov 2026 08:30:00 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:32 +0000
-Subject: [PATCH 10/34] perf cs-etm: Remove old pipe mode support
+Date: Wed, 18 Nov 2026 16:29:34 +0000
+Subject: [PATCH 12/34] perf cs-etm: Track sched out events
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +93,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-10-dad4d90747f6@linaro.org>
+Message-Id: <20261118-james-coresight-jit-v1-12-dad4d90747f6@linaro.org>
 References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -107,88 +107,37 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 
-Pipe mode hasn't been supported since we added several peeks to
-cs_etm__process_auxtrace_info_full() that require random access. Even if
-it was supported, we would have to buffer the whole file anyway to make
-fully ordered decoding work. You don't know if one core stopped tracing
-for good or whether to wait till very end of the file for the next one.
-IntelPT has the same issue, see 'perf-intel-pt.txt#Pipe mode'.
+The sched in event might be dropped due to a full ringbuffer, so the
+sched out event is still useful information if that thread is going to
+be seen again. Call machine__findnew_thread() unconditionally as it's
+harmless to do it twice for the same thread.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/cs-etm.c | 38 +++-----------------------------------
- 1 file changed, 3 insertions(+), 35 deletions(-)
+ tools/perf/util/cs-etm.c | 10 ----------
+ 1 file changed, 10 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index fb4582dc378e..11ebfdf1e933 100644
+index 67e3e2becd0f..1e1ff6cc8a5e 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -66,7 +66,6 @@ struct cs_etm_auxtrace {
- 	 */
- 	bool per_thread_decoding;
- 	bool snapshot_mode;
--	bool data_queued;
- 	bool has_virtual_ts; /* Virtual/Kernel timestamps in the trace. */
- 	bool use_thread_stack;
- 	bool use_callchain;
-@@ -3126,33 +3125,7 @@ static int cs_etm__process_auxtrace_event(struct perf_session *session,
- 	struct cs_etm_auxtrace *etm = container_of(session->auxtrace,
- 						   struct cs_etm_auxtrace,
- 						   auxtrace);
--	if (!etm->data_queued) {
--		struct auxtrace_buffer *buffer;
--		off_t  data_offset;
--		int fd = perf_data__fd(session->data);
--		bool is_pipe = perf_data__is_pipe(session->data);
--		int err;
--		int idx = event->auxtrace.idx;
+@@ -3018,16 +3018,6 @@ static int cs_etm__process_itrace_start(struct cs_etm_auxtrace *etm,
+ static int cs_etm__process_switch_cpu_wide(struct cs_etm_auxtrace *etm,
+ 					   union perf_event *event)
+ {
+-	bool out = event->header.misc & PERF_RECORD_MISC_SWITCH_OUT;
 -
--		if (is_pipe)
--			data_offset = 0;
--		else {
--			data_offset = lseek(fd, 0, SEEK_CUR);
--			if (data_offset == -1)
--				return -errno;
--		}
+-	/*
+-	 * SWITCH_IN events carry the next process to be switched out while
+-	 * SWITCH_OUT events carry the process to be switched in.  As such
+-	 * we don't care about IN events.
+-	 */
+-	if (!out)
+-		return 0;
 -
--		err = auxtrace_queues__add_event(&etm->queues, session,
--						 event, data_offset, &buffer);
--		if (err)
--			return err;
--
--		if (dump_trace)
--			if (auxtrace_buffer__get_data(buffer, fd)) {
--				cs_etm__dump_event(etm->queues.queue_array[idx].priv, buffer);
--				auxtrace_buffer__put_data(buffer);
--			}
--	} else if (dump_trace)
-+	if (dump_trace)
- 		dump_queued_data(etm, &event->auxtrace);
- 
- 	return 0;
-@@ -3454,12 +3427,8 @@ static int cs_etm__queue_aux_records(struct perf_session *session)
- 						 cs_etm__queue_aux_records_cb, NULL);
- 
- 	/*
--	 * We would get here if there are no entries in the index (either no auxtrace
--	 * buffers or no index at all). Fail silently as there is the possibility of
--	 * queueing them in cs_etm__process_auxtrace_event() if etm->data_queued is still
--	 * false.
--	 *
--	 * In that scenario, buffers will not be split by AUX records.
-+	 * No entries in the index (either no auxtrace buffers or no index at
-+	 * all).
- 	 */
- 	return 0;
+ 	return cs_etm__associate_tid(etm, event->context_switch.next_prev_pid,
+ 				     event->context_switch.next_prev_tid);
  }
-@@ -3867,7 +3836,6 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 	if (err)
- 		goto err_free_queues;
- 
--	etm->data_queued = etm->queues.populated;
- 	return 0;
- 
- err_free_queues:
 
 -- 
 2.43.0
