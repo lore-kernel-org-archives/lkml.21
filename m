@@ -1,106 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999010;
-	b=kR/+GQMaFUBHwBB0yTJSg9OqiPcdzV8lMQf4V54zmC6L9tR4kN9f8J6drS6zYuKABI2Q
-	 mJ6k0fNgoTTtY/qmJo+JRqM4C0r6AyNDg/DZmiObratFNcTTf0NpyzcEjBFiOzZzVs387
-	 9E67T880lbLj3s4C58f3thMHWh1NjQJaDllQIBBp5cvsNXiKFUOkVJXQw1HmZgX49jju5
-	 p1v4Aiw1q++s8c/B2yV86dQDvhM193bb0d8M2CeZaHIfqBgc/BDDQHPJ5RcaKHcUJJYDx
-	 +NKI/o2qVIP2jOZvBvioS50qSWUrGO7WHrgauhixuFhtZLVCUxX8VL7lu58cJ7qrunQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999010;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pcrm3vnLSGimQb5rCI5RJTtZbp3UKYK7ig1rjNTiXnM=;
-	b=m+Cq6dodK21FfjFuh9bLQqiCSEa6UaN+CsLklk70OHMXwyK908QZvUad3DTbwxkzSp7g
-	 ZSKa5xuKoii+G5N4EzWoa24BzsKSv6KIt4I5YoQ2KUyfs4MkgzyytoHjAvVvo6nIyYPUb
-	 mD4TU2uhcseAHtm3EBr/f4GwNgG9iwxiyt1RJMHRB5G6EhsessjB4BUmJo8XDCu//z2m5
-	 SkNk+t0Zkk/R9RoEovBwJk6Lb5hVR3P4kh5D8raYPhU5stNFCJwWnO0Pci8L6acmlrbHS
-	 v2k+9oV/gQEE68Q64M8Dq1DtH8H/CaD+z1y445j602CYImw6+CjittnPtIZWp6AxsLg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VjYIpOgJ;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794999013;
+	b=3H/I++V9foZNVI/P5vDzWUwXg21yYNt1iLl0e+zM7LlQxZWC/S3s+hTKnuDVluwzUVrD
+	 bnczt1GBnqk0OfnnB+79cbmkBTgo3v0nBgkVrXdKhyysZ6ugE0OcB3D2SYmlguWDFUhi9
+	 TwHpRw8nhPx79xAtVPJMLFNFqLegY9j6XKCUcV13v8VgZuStllXXkN5VHf5nL9K2OEte3
+	 lj7GCfnguJfM8pDRErrTaVNKx9REpenVW7BmT2dYwaTjIirRAO3v4nj6IBUEZY9yr7kM/
+	 VctVARkbvMh5iYSSG+ukdENRFEE3/0snfYNE3eywcp9tLJBbItHFlqXFUlVKA0NsEwA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999013;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=rXqW/GOJBbRToEmI773p9d5WGXLMUmbgpxehM0c/j0o=;
+	b=1Lh6jCBK9/iKcXXIJhvpe4o/7F00rw+Im+bJ+33w26b9CIHMP2r+oMp2PsC/xhLbDtQQ
+	 jDM70bI75jroSRRJRzzHuhfQvRfPqarP5I3zUMD06LBcqJ84VW7kkP+85mMOJai6zBGL/
+	 YvF9nX6DFSgl0Bg7sWJw/jDi7tlNRsmLR0EFo7V3SI1EiNYrm/30gLwMtLkbjgOiTrKue
+	 lUqyYFcD+pERL1+86ruSWnUN1/MKhWILGWa50/WImvOBLOmHc5EYKPdwUXIrqOSoBEpuS
+	 vAfFs7kJBjhbPYOUWMIHfes94rRuBObfZL9wZ2+W0wps1syGNZKUn1zfyllB1yGHCYg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=QW2P5Nom;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.53
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011053.outbound.protection.outlook.com [40.93.194.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB42B606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:50:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB42B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAE49606A325;
+	Wed, 18 Nov 2026 10:50:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAE49606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VjYIpOgJ
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38318d69173so199640eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:50:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794999009; x=1795603809; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pcrm3vnLSGimQb5rCI5RJTtZbp3UKYK7ig1rjNTiXnM=;
-        b=VjYIpOgJ5WkRQHK1x1tOlm+PipZQNIeO7ws2Qxf+gGLE8nsTRg+6cwQvBAcEdJ6FuP
-         W9o86ptdUA9vgM5aIGJtsZzKoV2TD4kciDHci39IlVR6UgSf8aVWFRSk1UlZr87w7fxk
-         Nwf7Oq0Mulw5hKiuT+StH12IqeiTwEesX6AyzGtpvlCMoEa7VJxtoz3as+DabHUDkZFR
-         ESkND7xTxQQk+YPUD6fs6k4Deq46VD+ncjZ84psj8ZWjQlU7MIZTxRH/1QBOhcKrk7dX
-         3e8DWMMcyLM07Z3F8orjVGQX2++0QDlVKZjJ5X71xOqXKfIOMlIIMq2ecweTLjERQ8TI
-         E9TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794999009; x=1795603809;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pcrm3vnLSGimQb5rCI5RJTtZbp3UKYK7ig1rjNTiXnM=;
-        b=1KOa283j0VjVKaECg9AocnLFg7wR/aaPqsV3DtVbJ+evqK6AuesjKgj9fzwlLZVpr9
-         q0VxDzji0IX1Lwsu8egQWM/SpBXmilHFP7VwXS5s0rQaLVl8y8xZu5/h3iPuPczFlMNv
-         04mr+GyYxaWkgPiKC0z2X4gGgj/BwZ7LiglLkpVRw6zNaxVV0Eo+EG/TDfcCJfRuKJAo
-         be9Je2YWon8hcPsDEuJB+YMErbwn9T7sPtvVdpnduinwqRGX0PcC8MhNR6huOX8IJxRX
-         jLdJhIjP5cL6NKQePNzCGALwIEtW/tMjwJcVCXDkqitHXFe1JFWi6hdGWCDZKR4z4IyL
-         ehAw==
-X-Forwarded-Encrypted: i=1; AL+hErEd73N9IqxzHSaBFcA0WN3XRY4z0ueZefwKHfQYmyE+/72ZKEIMUydQePyjn2Tm9PblOZ3SLtwDjX8yWms=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+pcZUYLNgUtS/shwpNkpPB9A/qEnpRwUHPf8XBGaXC8vlKCX7g
-	XfJV+m8idKa1dXWlBCNh21J+yZxty1I6LjaHGL+SY7sSK+1XnRzWU3gg
-X-Gm-Gg: AZFdTZdCQnMkzR+x7iL9u9XK0j2cELGKtmLbSaUfGY5izNeWGgr2xFjxusC/EzYLgYl
-	3np2QUeUGxGH5USOERkr0xKmrO1VyJavke2J1SJngmd5zlj0JTAeDqkpliBIfIyT/g/fnaJCAbf
-	281Ea8LMqvA0v1NqYO1R4sqxhbkV6O+PG25ARqAYYRkCz4Dl+pWlJPTlYMcevXlBqp9icKC4kOH
-	+OwjLiT9vAJKMqEEP49W0NRWhLrydLviCMkGiB4ZDvUayU9ixcwxfeHHjfbiNTFJMDdFqz11NLE
-	ig9OsU+FZYRKI2PsskPAmYJTRkm+Pl8UzKff4AABd2MmDCNJ86V/f3C/gk0a9onHbrIHtMhHpIA
-	H74KW54txi5ofcryvtUgc1gm6BxA9gferA5E/RrseZxxhBgfyk1ov8xMjMjS67TqJdPA+cD0xTF
-	/LUgCNgSEcz74MMbHtBE9YuXDZ/Gu8Q2Qi8IWHTMnK7uhDv3SbSbObH3vVIwRkQjmoekORYKw6K
-	PK1kVDkicPJjwWa2l5D+fK3rCDndhax4Zk5+Erz1ZUoQiijpYPhqwWhwBYUFlC20y2wXxExLsdx
-	O5M4Ui1sUqzukJGT+IxRZJXobJKIyR3m
-X-Received: by 2002:a05:693c:2113:b0:37a:a9db:6bd2 with SMTP id 5a478bee46e88-3828026960bmr2342283eec.11.1794999008833;
-        Wed, 18 Nov 2026 02:50:08 -0800 (PST)
-Received: from archl-rock5b ([45.112.0.182])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45260a8sm11729913eec.3.2026.11.18.02.50.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:50:08 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Yixun Lan <dlan@kernel.org>,
-	=?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	linux-i2c@vger.kernel.org (open list:I2C SUBSYSTEM HOST DRIVERS),
-	linux-pm@vger.kernel.org (open list:SYSTEM RESET/SHUTDOWN DRIVERS),
-	spacemit@lists.linux.dev (open list:RISC-V SPACEMIT SoC Support)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v2 3/3] power: reset: Remove SpacemiT P1 reboot driver
-Date: Wed, 18 Nov 2026 16:19:15 +0530
-Message-ID: <20261118104935.1716-3-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118104935.1716-1-linux.amoon@gmail.com>
-References: <20261118104935.1716-1-linux.amoon@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=QW2P5Nom
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oPXuJyt2KXSl1iu9d7Z8GzBatx7MeDfzqwg6/0JiHej9plSL032HWiFYUE4hGTLz2QI4q3hjYpVWYWj42HEOOdGwkXmFc1ngPM04mTG5mbxHPR3goZa0UYCn0eMxESBHsdQ7C/J2RIdzwotiOAKzDUL5vofg7UvnQQWkcK0MPAuAbKUCV+0iozd727QpuWGRnwSMZPvCvt5un4lXw9q5lukC6YhG5qbP1hSeKFAg1KLBfTX7doYFSa555a71qoK8ddMlmYXkyX+sHCOoTdY5AFkd2dY5uPC5rOjt9sAeG1zk0FomJzMyezTXEWbMHx+jp8GcsDLobrt6MMDTlY7wwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rXqW/GOJBbRToEmI773p9d5WGXLMUmbgpxehM0c/j0o=;
+ b=GkCvq+zoF8PWzXdukaAjR3crv6Jv5qtzKwPwObIBFc13VXVWjBZmOeKjYo73M+hpK7w1PokRFPszXCxGAOGlgSnSFCaWYUnDANzZ/Vsdv5OsHFk10x4vqerJY69Ka5i1cPD+2nr+Wi4NtKLfzo7NoDk+seSRqBoaC8B/9cezwIEmIBtJ2blGcmg7MmRGnkHhEpYI1FZO2eG1pueGWCsf9ZaCnoAyBdeVM1FjBqBXfN+kD1AsHaN4Lp7YRtBmYNaAzSOoWbtQEMqa1tuGXBsc6ZJd3f+v8ELmupvrngmFOBLK9jgbwrFa+vAHOtp2zj+QzhBcZIidwJarsBGkBMwh3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rXqW/GOJBbRToEmI773p9d5WGXLMUmbgpxehM0c/j0o=;
+ b=QW2P5NomZkjfAuCkK/0vN/78X1U/r0pfBxehlBD09pM261nbG/QEas046qxgIigiMi447DUXlI7+EWcxGZi19mPLsoWCcZlyldEfXaSquSjlsq+cN3cIoD8MTLTWpZmpKNdKO0SwiDfIiFQpOGrOeQIQKAqEdLgUe/rpmPoeL2c=
+Received: from CH0P221CA0039.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::21)
+ by BL4PR12MB9508.namprd12.prod.outlook.com (2603:10b6:208:58e::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Wed, 18 Nov
+ 2026 10:46:45 +0000
+Received: from CH2PEPF00016D4A.namprd02.prod.outlook.com
+ (2603:10b6:610:11d:cafe::2f) by CH0P221CA0039.outlook.office365.com
+ (2603:10b6:610:11d::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
+ 18 Nov 2026 10:46:45 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CH2PEPF00016D4A.mail.protection.outlook.com (10.167.244.119) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 10:46:45 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 04:46:44 -0600
+Received: from amd-System-Product-Name.amd.com (10.180.168.240) by
+ satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57
+ via Frontend Transport; Wed, 18 Nov 2026 04:46:41 -0600
+From: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+To: <vkoul@kernel.org>
+CC: <yung-chuan.liao@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
+	<Basavaraj.Hiregoudar@amd.com>, <Sunil-kumar.Dommati@amd.com>,
+	<venkataprasad.potturu@amd.com>, <Syed.SabaKareem@amd.com>,
+	<Mario.Limonciello@amd.com>, <Richard.Gong@amd.com>, <Poojitha.N@amd.com>,
+	<lee@kernel.org>, <linux-sound@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Vijendar Mukunda <Vijendar.Mukunda@amd.com>
+Subject: [PATCH v7 22/23] soundwire: amd: fix shared-register RMW race in amd_sdw_set_device_state()
+Date: Wed, 18 Nov 2026 16:12:41 +0530
+Message-ID: <20261118104353.331556-23-Vijendar.Mukunda@amd.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
+References: <20261118104353.331556-1-Vijendar.Mukunda@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,159 +114,75 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00016D4A:EE_|BL4PR12MB9508:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4465310-24f0-4e2d-46f9-08df45613d4b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|1800799024|36860700016|376014|22082099003|18002099003|6133799003|11063799006|56012099006|261022075727099003|261021121427099003|10067099003|261009223027099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	zovCIiKi/BtrKQVrjforE84o6vCpxkCSkk73XSH467vGnH9L4oV+leKCfsg25Ctev2yWKuvhtoDA2v7bFPZJaC6ESLPB7L6mdzFbEAIVX9BeIW3Y4uVXVnmXTNR/CBDSAT8vAaTcm3nAZQt9GyyS5AGfxubWaUZoKNxJLdaWgnVdTr+KGrNmifZaXDhl8ozakqEne1qKAt0vmSi+2nMJNkPxdeyamCGMRAtf5Pi9+jiExZYXwxpwcb6d8GW3L44EKTf8RiZzeyclEiyVMOky3uFTLjdypn1AHX6+J2NpY7nUnIR0xoTw3upI9hd9+bzZ9hREgX3fscD03C8dz0dLUyp65qDVALu7OnGfvVeB70GyZuz0J2zYinl++BqFKEkInTt6O+xpgwhKD4efinUqgFZZE4pqIIkEyJYiKmX2hfNfkmNZ8ffy06eEwHV6V8jNee4+md7+UWDctOoSk7K43DYC251RiJJCnu7SJAPSshs2KdkPVqxhHazSZK+nPhDHMKW92fL1s2pInVVmoy9t+gp7LquUVYXkUyKhwXJPINfEyV5SPzZveQp+KuYup7rtkjhJf1JY509Cm65LXBb4ICIhyLtDjFgZLcHETvNc1EbpAkb5gatrPn0lop6Bz7/xXoqZo5j2OFU7pXW6ias14nAdMX1aJdd6QreCxK9ah914C4HleVBUH10zqB9gXxUifpoEZ4oaJjJkARFtXEG1Sg==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(36860700016)(376014)(22082099003)(18002099003)(6133799003)(11063799006)(56012099006)(261022075727099003)(261021121427099003)(10067099003)(261009223027099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	6XFSIVaRM7S9VhBlNwN9IYRDpdBwJRl0abSvo/VSMq+rR7P+zUMglKrQVjmIkgB+e4Hcn3kNGIcIabKeg9oLDsuxyMgSLdWN5/5tGP80VTfWvzfpn9HdvdbHaot2aAKFPn0J/RbFCUBPzVmtJPA96MKtTA03x3yPBfb9GN0DdfZRn1hB94OBhDIT/o26+R5FMUKrkFqwUgiGnRZqBcFBBlamx+GfzpgpKoWYnuQJI1Ro0Pjrray/2SWg62ztXztv8dM7L4sio2KvfgcHc51oWMWMcmMur++r92iVV4/cRStIK7o3VadYnKEmlMnAojC7M/KlqNFWO11kjyGohaAb4g94pg6cJVjIHvnRJz+h7IHyxDCRqPhv7w3I0cZhatOQlgbCwszwwkvFabxOYmbNgxc7//dxUAf/cIAiFo4JmMYFNLXHZVK1uUESYa/Fjj03
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:46:45.1825
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4465310-24f0-4e2d-46f9-08df45613d4b
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH2PEPF00016D4A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR12MB9508
 
-The SpacemiT P1 reboot driver uses I2C-backed regmap operations to
-request system shutdown and restart through the PMIC.
+AMD_SDW_DEVICE_STATE packs the D0/D3 state for SDW0 (bits [1:0]) and
+SDW1 (bits [3:2]) in a single ACP-level register.
+amd_sdw_set_device_state() performed a read-modify-write sequence on
+this shared register without holding acp_sdw_lock, leaving it open to
+a lost-update race when SDW0 and SDW1 execute concurrent PM transitions.
 
-The system-off handlers run in atomic context, where regmap operations
-may sleep. This can trigger invalid wait context and
-scheduling-while-atomic warnings during shutdown or restart.
+Acquire acp_sdw_lock around the read-modify-write sequence. Unlock
+before returning -EINVAL from the default branch so the mutex is always
+released on every exit path.
 
-On SpacemiT K1 platforms, system poweroff and restart are handled by
-OpenSBI through the SBI System Reset (SRST) extension. The Linux PMIC
-reboot driver duplicates this firmware functionality and is no longer
-needed.
-
-Remove the driver along with its Kconfig and Makefile entries.
-The P1 MFD driver and its other functionality remain unaffected.
-
-Cc: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Aurelien Jarno <aurelien@aurel32.net>
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+Fixes: 829c3e1cb4a3 ("soundwire: amd: set device power state during suspend/resume sequence")
+Signed-off-by: Vijendar Mukunda <Vijendar.Mukunda@amd.com>
 ---
-New patch
----
- drivers/power/reset/Kconfig              |  9 ---
- drivers/power/reset/Makefile             |  1 -
- drivers/power/reset/spacemit-p1-reboot.c | 87 ------------------------
- 3 files changed, 97 deletions(-)
- delete mode 100644 drivers/power/reset/spacemit-p1-reboot.c
+ drivers/soundwire/amd_manager.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-index bce996bbef28..9e997d58fcc6 100644
---- a/drivers/power/reset/Kconfig
-+++ b/drivers/power/reset/Kconfig
-@@ -295,15 +295,6 @@ config POWER_RESET_KEYSTONE
- 	help
- 	  Reboot support for the KEYSTONE SoCs.
+diff --git a/drivers/soundwire/amd_manager.c b/drivers/soundwire/amd_manager.c
+index 4f997198f5fe..b882ec4d5cb5 100644
+--- a/drivers/soundwire/amd_manager.c
++++ b/drivers/soundwire/amd_manager.c
+@@ -282,6 +282,7 @@ static int amd_sdw_set_device_state(struct amd_sdw_manager *amd_manager, u32 tar
+ {
+ 	u32 sdw_dev_state;
  
--config POWER_RESET_SPACEMIT_P1
--	tristate "SpacemiT P1 poweroff and reset driver"
--	depends on ARCH_SPACEMIT || COMPILE_TEST
--	depends on MFD_SPACEMIT_P1
--	default MFD_SPACEMIT_P1
--	help
--	  This driver supports power-off and reset operations for the SpacemiT
--	  P1 PMIC.
--
- config POWER_RESET_SYSCON
- 	bool "Generic SYSCON regmap reset driver"
- 	depends on OF
-diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-index e31cab4ba78e..2d5bdd1584cc 100644
---- a/drivers/power/reset/Makefile
-+++ b/drivers/power/reset/Makefile
-@@ -25,7 +25,6 @@ obj-$(CONFIG_POWER_RESET_LTC2952) += ltc2952-poweroff.o
- obj-$(CONFIG_POWER_RESET_QNAP) += qnap-poweroff.o
- obj-$(CONFIG_POWER_RESET_REGULATOR) += regulator-poweroff.o
- obj-$(CONFIG_POWER_RESET_RESTART) += restart-poweroff.o
--obj-$(CONFIG_POWER_RESET_SPACEMIT_P1) += spacemit-p1-reboot.o
- obj-$(CONFIG_POWER_RESET_ST) += st-poweroff.o
- obj-$(CONFIG_POWER_RESET_TH1520_AON) += th1520-aon-reboot.o
- obj-$(CONFIG_POWER_RESET_TORADEX_EC) += tdx-ec-poweroff.o
-diff --git a/drivers/power/reset/spacemit-p1-reboot.c b/drivers/power/reset/spacemit-p1-reboot.c
-deleted file mode 100644
-index c0454b547718..000000000000
---- a/drivers/power/reset/spacemit-p1-reboot.c
-+++ /dev/null
-@@ -1,87 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * Copyright (C) 2025 by Aurelien Jarno
-- */
--
--#include <linux/bits.h>
--#include <linux/platform_device.h>
--#include <linux/regmap.h>
--#include <linux/reboot.h>
--
--/* Power Control Register 2 */
--#define PWR_CTRL2		0x7e
--#define PWR_CTRL2_SHUTDOWN	BIT(2)	/* Shutdown request */
--#define PWR_CTRL2_RST		BIT(1)	/* Reset request */
--
--static int spacemit_p1_pwroff_handler(struct sys_off_data *data)
--{
--	struct regmap *regmap = data->cb_data;
--	int ret;
--
--	/* Put the PMIC into shutdown state */
--	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_SHUTDOWN);
--	if (ret) {
--		dev_err(data->dev, "shutdown failed: %d\n", ret);
--		return notifier_from_errno(ret);
--	}
--
--	return NOTIFY_DONE;
--}
--
--static int spacemit_p1_restart_handler(struct sys_off_data *data)
--{
--	struct regmap *regmap = data->cb_data;
--	int ret;
--
--	/* Put the PMIC into reset state */
--	ret = regmap_set_bits(regmap, PWR_CTRL2, PWR_CTRL2_RST);
--	if (ret) {
--		dev_err(data->dev, "restart failed: %d\n", ret);
--		return notifier_from_errno(ret);
--	}
--
--	return NOTIFY_DONE;
--}
--
--static int spacemit_p1_reboot_probe(struct platform_device *pdev)
--{
--	struct device *dev = &pdev->dev;
--	struct regmap *regmap;
--	int ret;
--
--	regmap = dev_get_regmap(dev->parent, NULL);
--	if (!regmap)
--		return -ENODEV;
--
--	ret = devm_register_power_off_handler(dev, &spacemit_p1_pwroff_handler,
--					      regmap);
--	if (ret)
--		return dev_err_probe(dev, ret,
--				     "Failed to register power off handler\n");
--
--	ret = devm_register_restart_handler(dev, spacemit_p1_restart_handler,
--					    regmap);
--	if (ret)
--		return dev_err_probe(dev, ret,
--				     "Failed to register restart handler\n");
--
--	return 0;
--}
--
--static const struct platform_device_id spacemit_p1_reboot_id_table[] = {
--	{ .name = "spacemit-p1-reboot" },
--	{ /* sentinel */ }
--};
--MODULE_DEVICE_TABLE(platform, spacemit_p1_reboot_id_table);
--
--static struct platform_driver spacemit_p1_reboot_driver = {
--	.driver = {
--		.name = "spacemit-p1-reboot",
--	},
--	.probe = spacemit_p1_reboot_probe,
--	.id_table = spacemit_p1_reboot_id_table,
--};
--module_platform_driver(spacemit_p1_reboot_driver);
--
--MODULE_DESCRIPTION("SpacemiT P1 reboot/poweroff driver");
--MODULE_LICENSE("GPL");
++	mutex_lock(amd_manager->acp_sdw_lock);
+ 	sdw_dev_state = readl(amd_manager->acp_mmio + AMD_SDW_DEVICE_STATE);
+ 	switch (amd_manager->instance) {
+ 	case ACP_SDW0:
+@@ -293,10 +294,12 @@ static int amd_sdw_set_device_state(struct amd_sdw_manager *amd_manager, u32 tar
+ 				  AMD_SDW1_DEVICE_STATE_MASK);
+ 		break;
+ 	default:
++		mutex_unlock(amd_manager->acp_sdw_lock);
+ 		return -EINVAL;
+ 	}
+ 	writel(sdw_dev_state, amd_manager->acp_mmio + AMD_SDW_DEVICE_STATE);
+ 	sdw_dev_state = readl(amd_manager->acp_mmio + AMD_SDW_DEVICE_STATE);
++	mutex_unlock(amd_manager->acp_sdw_lock);
+ 	dev_dbg(amd_manager->dev, "AMD_SDW_DEVICE_STATE:0x%x\n", sdw_dev_state);
+ 	return 0;
+ }
 -- 
-2.56.0
+2.53.0
 
