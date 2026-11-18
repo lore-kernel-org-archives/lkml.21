@@ -1,75 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795045752;
-	b=ixg1SKFHbXqJydERyKfp1yyB1uv61bmuILHyo6Ai+S+wNnefCQ+QGLds3sYXIHNKzLcX
-	 6QA/vVhtK75e4zpChKSsWA2Wd0MbiUtu6I2Km5/FTdk+xGYTHSXLmVRplILdoIS4rq6AB
-	 o5DDYFfTCzsfi491+y+T9GW4IT1PMUwC9wbhA2a1kou5C75F1yzcPtu0FSDy3wdHCpQHg
-	 QnTXAJ3gRbmrsbsHebehzUKyzZ1RiXJQSu1n9jkcQ5lBL62PrpPi+Hc5xfBQyM7W0Rcud
-	 G/ztqN70Z9AtqRaRs7CyjbcKNUzNV30Rb8LcP/BeQNa5y7TXGfwpwIjqiIjPq3BM5uA==
+	t=1795045805;
+	b=hsUebw4qWkmqag/e946P5pgMvUf5d01YQNzwy1ry5JEJc0rcS0dOwcl64cORFq5yXcec
+	 HEKTGuIwvZ4Vi2Dr3HWHh0R7Gijf9cumLfxPlpMWUTV1N9i0KSZ3wtPzFqsLkqCkyPpjK
+	 0pnIKd6nBn2t6jXXUmawIWJqq6P2IINc4D46lVjwfFogJuiiR6LG1jlqJBS7EiRnDonsX
+	 UZyy2iialR5zXPoNKxb0qZtdkjQGjRHB1ib2cHLNmnsMqyfY4nl78zB4L95y7lKBX1noT
+	 TopGJ0Zej10J8eL4szcTvoiVHQiAmM9QREP6A0ZORzm3cqPjdum++Oh6NusOMaYNs8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795045752;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xYB1iaZfxn9aboplMl5BCrXi9a5NkstArMixGPBonuA=;
-	b=0GYEZeiJmxysfWOblQ/by0NNlyfdXrXZkYWSX1CWpieIRrzrCl4niZx3Sxthhx+Cpbvm
-	 kuyTc2eVGo4bqFjqxCwv2eeUSjMgSl+pr4QIqAQRcDzrdnl4DAPSZS2XgpDLlIDxaZlek
-	 RlJGLIgu/bpFly3Mub5vxOuvqzZA0IOU50/eFmrlPQ1U9BmzA98w8MTlMFShrizmTkMYx
-	 r992d9+U+06u1OuReUTHgWw/mETxuMEh7GxeMO5+jFeJfp8D4YnjfHuyk+0uTUoUCV8yU
-	 P89w8co+H7m3jJy0PMMbte2DOjFOQ5wT11/B95NbEQHmUP/C1CSuUIIKLo4ULFtPJeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795045805;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=oJOFhz1pCpUgpYgypKdG2orjy9gPvBXNHNe+8O6151I=;
+	b=3ZHHbcw1/+sQvg1AWwXON6iAGg1KaCqMRf++SdEBroVSbcHMtAuhaRGtH3hL8IhcC7t5
+	 Dx9Z1YsflpQYjxnxkB1IkDCz3AP8gM3/EwLQYkFEgMBboUJQF/W0P0yp1GgEpE5VfbZmu
+	 6ANPC7NaDqXZEduHGo9MffTVtM7wCCQfjbPA26sErboLwB3kG+qogFn2erq67vnsRJEhB
+	 08UT5Fkq+s3T9qjdH9+ACRkq3ToYfw2DyoDsufh9YzDEIU/zulTTeAJMbZBZajU7SomNJ
+	 /P/ewVnIRts/2FYNh7nqCl5pzD1MXMgFab6F0e0QJi1TW4/yNr5beTi6phP0x3vcUjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TZLpeNvf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GyK/+mzi";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECA7F606A325;
-	Wed, 18 Nov 2026 23:49:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5D6F606A325;
+	Wed, 18 Nov 2026 23:50:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TZLpeNvf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E7E71F000C5;
-	Wed, 18 Nov 2026 23:49:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GyK/+mzi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 800E61F000C4;
+	Wed, 18 Nov 2026 23:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795045751;
-	bh=xYB1iaZfxn9aboplMl5BCrXi9a5NkstArMixGPBonuA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TZLpeNvf3uDaTgOSrzcKZhIsz/WuzBpaMOoLmuWWKqL4lgUnyhvNwge5uXlDqpJro
-	 VydTSxMzTYkGWzWxdYkEcHbYMbHYsCdPKljrVIx9SRyyIxV1Pf1pgEwPwFPdrWJvBE
-	 YgJP73jjyqp8Q9d0yCTKqAcrtAUocl6ECLYookVSTINSE4we7kkx/rCucBvx+mVHnX
-	 LfbhRFeNBWw9EjDLT9yP0r7llnJLP7bSNMnGF1FTZcm3nRxV8ko+GYOkDeK6BRUm8+
-	 KhUpepxCT0MbfK7zdCJW3QjJLl/WDzFMzLLLh+Imh7N0iYfqAhBH6Lnnax0tOkkjOE
-	 aDUtElp3t2IuQ==
-Date: Wed, 18 Nov 2026 23:49:04 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: "Drew Fustini (Tenstorrent)" <fustini@kernel.org>
-Cc: Sunil V L <sunilvl@oss.qualcomm.com>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Atish Patra
- <atish.patra@linux.dev>, Anup Patel <anup.patel@oss.qualcomm.com>, Chen Pei
- <cp0613@linux.alibaba.com>, yunhui cui <cuiyunhui@bytedance.com>, Reinette
- Chatre <reinette.chatre@intel.com>, Radim =?UTF-8?B?S3LEjW3DocWZ?=
- <radim.krcmar@oss.qualcomm.com>, Zeng Heng <zengheng@picoheart.com>, Conor
- Dooley <conor.dooley@microchip.com>, Ben Horgan <ben.horgan@arm.com>, James
- Morse <james.morse@arm.com>, Tony Luck <tony.luck@intel.com>, Adrien
- Ricciardi <aricciardi@baylibre.com>, Zhanpeng Zhang
- <zhangzhanpeng.jasper@bytedance.com>, Gong Shuai
- <gong.shuai@sanechips.com.cn>, Gong Shuai <gsh517@gmail.com>, Weiwei Li
- <liwei1518@gmail.com>, Liu Zhiwei <zhiwei_liu@linux.alibaba.com>, Kornel
- =?UTF-8?B?RHVsxJliYQ==?= <mindal@semihalf.com>, Samuel Holland
- <samuel.holland@sifive.com>, guo.wenjia23@zte.com.cn,
- liu.qingtao2@zte.com.cn, Dave Martin <Dave.Martin@arm.com>, Babu Moger
- <babu.moger@amd.com>, Fenghua Yu <fenghuay@nvidia.com>, Peter Newman
- <peternewman@google.com>, Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
- Catalin Marinas <catalin.marinas@arm.com>, linux-acpi@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv_cbqri: Bind to RQSC platform devices
-Message-ID: <20261118234904.0f6a0f17@jic23-hlaptop>
-In-Reply-To: <20261117-acpi-rqsc-v1-3-381ce645751e@kernel.org>
-References: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
-	<20261117-acpi-rqsc-v1-3-381ce645751e@kernel.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795045805;
+	bh=oJOFhz1pCpUgpYgypKdG2orjy9gPvBXNHNe+8O6151I=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=GyK/+mziuBGZPKhrL7mj1hYkE5nElViBmqmG07hgjp7/L2EDCGFqtZEAI6z3YyQ3P
+	 w1EfM21LWD7rdaOa3kLsqhMBeby9gDtRTtTtZq9a3tlXUOryOxNHLkYfeBeS+dA80W
+	 /YuJBbAbw5uGDMOyiwA4dNl9Nimn9CmQ93P0lr+B1K3TjD4Vwea4X2gjnhEb/ujTxu
+	 XNULxnZQqwUyFEUEXWPf6hjOOyXRWspojJPe15i/Tes1OjRVJiuj0mbk7xX3HE0dwv
+	 hWW7rJCi/XFDsVLotQaIDrcjapaimj0KDnOyaT2J7nPeG4QnVlcAppGVuzqEsZ3wAM
+	 QCUQAfd2zGbWg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7735B3808210;
+	Wed, 18 Nov 2026 23:50:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,150 +53,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net/mlx5e: Hold sync_lock while resetting VXLAN ports
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179504580428.2624320.5569351185904692837.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 23:50:04 +0000
+References: <20261113040323.2090829-1-lcy8047@gmail.com>
+In-Reply-To: <20261113040323.2090829-1-lcy8047@gmail.com>
+To: Changyul Lee <lcy8047@gmail.com>
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, moshe@nvidia.com, ayal@nvidia.com,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
-On Tue, 17 Nov 2026 14:11:29 -0800
-"Drew Fustini (Tenstorrent)" <fustini@kernel.org> wrote:
+Hello:
 
-> Let the capacity controller driver probe the "cbqri-capacity" platform
-> devices created from the RQSC table. The cache is named by its PPTT
-> Cache ID and the PPTT gives its level. Select ACPI_RQSC so the table is
-> parsed and drop the OF dependency.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 12 Nov 2026 23:03:23 -0500 you wrote:
+> mlx5_vxlan_reset_to_default() walks vxlan->htable without sync_lock
+> and calls mlx5_vxlan_del_port() for each user port. mlx5e_nic_disable()
+> and mlx5e_uplink_rep_disable() call it after rtnl_unlock(), so the
+> udp_tunnel_nic work can run mlx5e_vxlan_unset_port() at the same time.
+> If that removes and frees the entry saved as the next one in
+> hash_for_each_safe(), the walk then reads freed memory.
 > 
-> No change for device tree systems.
-> 
-> Signed-off-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
+> [...]
 
-Has the DT support landed? If not feels like a few tweaks in that
-would make this less noisy.
+Here is the summary with links:
+  - [net] net/mlx5e: Hold sync_lock while resetting VXLAN ports
+    https://git.kernel.org/netdev/net/c/d61480a622be
 
-If not, see below for one tidy up I'd make here if you can't push
-it back to that series.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-You almost never want to do manual device_node puts these days!
-
-It's one of the nicest places to use the cleanup.h magic.
-> ---
->  drivers/resctrl/Kconfig          |  11 ++--
->  drivers/resctrl/cbqri_capacity.c | 111 ++++++++++++++++++++++++++++-----------
->  2 files changed, 87 insertions(+), 35 deletions(-)
-> 
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> index 844dfd75e2aa..491c867f8c5c 100644
-> --- a/drivers/resctrl/Kconfig
-> +++ b/drivers/resctrl/Kconfig
-> @@ -35,6 +35,7 @@ config ARM64_MPAM_RESCTRL_FS
->  menuconfig RISCV_CBQRI
->  	bool "RISC-V CBQRI support"
->  	depends on RISCV && RISCV_ISA_SSQOSID
-> +	select ACPI_RQSC if ACPI
->  	select ARCH_HAS_CPU_RESCTRL
->  	default y
->  	help
-> @@ -47,14 +48,14 @@ if RISCV_CBQRI
->  
->  config RISCV_CBQRI_CAPACITY
->  	bool "RISC-V CBQRI cache capacity-allocation controller"
-> -	depends on OF
->  	help
->  	  Enable driver for a RISC-V CBQRI capacity controller that
-> -	  governs a CPU cache, matching the "riscv,cbqri-capacity-controller"
-> -	  compatible. The controller's cache phandle gives the cache level and
-> -	  id, which the driver registers as a resctrl cache-allocation resource.
-> +	  governs a CPU cache, described in device tree by the
-> +	  "riscv,cbqri-capacity-controller" compatible or in ACPI by the RQSC
-> +	  table. The firmware description gives the cache level and id, which
-> +	  the driver registers as a resctrl cache-allocation resource.
->  
-> -	  Say N unless your device tree describes a CBQRI capacity controller.
-> +	  Say N unless your firmware describes a CBQRI capacity controller.
->  
->  endif
->  
-> diff --git a/drivers/resctrl/cbqri_capacity.c b/drivers/resctrl/cbqri_capacity.c
-> index 6f3d06c4f74b..7013f1a50ffd 100644
-> --- a/drivers/resctrl/cbqri_capacity.c
-> +++ b/drivers/resctrl/cbqri_capacity.c
-
-> -static int cbqri_capacity_probe(struct platform_device *pdev)
-> +static int cbqri_capacity_of_cache(struct device *dev, u32 *cache_level,
-> +				   u32 *cache_id)
->  {
-> -	struct device *dev = &pdev->dev;
-> -	struct cbqri_controller_info info = {};
->  	struct device_node *cache_np;
-> -	struct resource *res;
-> -	void __iomem *base;
-> -	u32 rcid_count, cache_level, cache_id;
->  	bool found = false;
->  	int cpu, ret;
->  
-> -	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> -	if (IS_ERR(base))
-> -		return PTR_ERR(base);
-> -
-> -	ret = of_property_read_u32(dev->of_node, "riscv,cbqri-rcid", &rcid_count);
-> -	if (ret) {
-> -		dev_err(dev, "missing riscv,cbqri-rcid\n");
-> -		return ret;
-> -	}
-> -
->  	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
-Whilst you are here.
-	struct device_node *cache_np __free(device_node) =
-		of_parse_phandle();
-and drop all the gotos. I haven't checked but if there is
-a path where you want to hang on to it, no_free_ptr() that.
-
-
-
->  	if (!cache_np) {
->  		dev_err(dev, "missing riscv,cbqri-cache phandle\n");
->  		return -EINVAL;
->  	}
->  
-> -	ret = of_property_read_u32(cache_np, "cache-level", &cache_level);
-> +	ret = of_property_read_u32(cache_np, "cache-level", cache_level);
->  	if (ret) {
->  		dev_err(dev, "%pOF: missing cache-level\n", cache_np);
->  		goto out_put;
->  	}
->  
-> -	if (cache_level != 2 && cache_level != 3) {
-> +	if (*cache_level != 2 && *cache_level != 3) {
->  		dev_err(dev, "%pOF: unsupported cache-level %u\n",
-> -			cache_np, cache_level);
-> +			cache_np, *cache_level);
->  		ret = -EINVAL;
->  		goto out_put;
->  	}
-> @@ -73,10 +63,10 @@ static int cbqri_capacity_probe(struct platform_device *pdev)
->  	 */
->  	cpus_read_lock();
->  	for_each_online_cpu(cpu) {
-> -		struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, cache_level);
-> +		struct cacheinfo *ci = get_cpu_cacheinfo_level(cpu, *cache_level);
->  
->  		if (ci && ci->fw_token == cache_np) {
-> -			cache_id = ci->id;
-> +			*cache_id = ci->id;
->  			found = true;
->  			break;
->  		}
-> @@ -85,11 +75,74 @@ static int cbqri_capacity_probe(struct platform_device *pdev)
->  
->  	if (!found) {
->  		dev_err(dev, "%pOF: no online hart reports an L%u cache with a cache id for this node\n",
-> -			cache_np, cache_level);
-> +			cache_np, *cache_level);
->  		ret = -ENODEV;
-> -		goto out_put;
->  	}
->  
-> +out_put:
-> +	of_node_put(cache_np);
-> +	return ret;
-> +}
->
 
