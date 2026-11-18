@@ -1,93 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000536;
-	b=njRlHcTsPgJOXVxYXRbkqyT5RD0IfoS0iPauvsSmEb62m3gmczJD3lvTz1CZG+zv6E++
-	 nOgtiUZDLID5fHFgORLNTNi2wT40rO+JOXQmee3m7SzbdVrHpeL8DYb/fOkJJ/rTIp89K
-	 Sa3avqiZKHxgwMNlwUfbsOoIaw5rpFayllHuDgdsMWZsTTkQ6nqwU5sYmKkSHp0r8lDCO
-	 aLQUhAEFUuSHV2/xL8M63VvG7v2z2rOy7jWoxDrpd6tn/1czqVfkTPEQqunMNlKMysjoI
-	 U0gDoklEQwt5MCVUp/b+OukWgB59XOYjrAAizlCRx8y9wXMmDaGH2zJgX3gonq3WkvQ==
+	t=1795000552;
+	b=vN42M5MswnyJbb05syUvv/WEm1+UDvqDSBDb4yeR+SmrryoTSYR8WTCZtGFuhBLwUgWl
+	 HxG9yktzXj7hvXQrXVUqJjnaOB4va6c2cv1njopWPspmm9GHacWtD562D9be65okSmWCu
+	 MrkWxlYwPu/4oVhW8EHdAuF67tS037xekzBf3H68dR88yka6wPZe1+TXUbMfZvYnoeSyU
+	 m1ITOYLhnKA5RpwZ4XRQlkPBujCa0xTjvnvO5Bl4WAx2+wdLU9BTiDHgafgw7pKdvnBrW
+	 ongdNzerNWePEhdp9oPyRj9gj0ARkrw7yWZr8UfG1Bz1oy8K5a8HPoKSzVBQap4sFSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000536;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=SXeroM2jCfcBKXV1NOSG1sFarrMqehRN66QskO8HWNg=;
-	b=KYtoVGc++puCSVqkTniKuAf71r0JmphH+oFptXomdk3c+flKPe6aH3FafzSYplc2v9+4
-	 j+lwlBTJiTbOyam2PZRFOztFei3p8f1lt7Vo+5l72BHEFMsDt7tM/5IMSBlUGKrNNPZkk
-	 lCK/+l2fO08p4c0gYmFly9odi2x66mHl9OXojGTFnF7Luq/Tzq9Gtk33zXY2KdmOKuzuG
-	 VUj81kfQUaP/RLi1YuhDZxHPofHuE5N/qgE3foGsDSTHn3iuHeAedYRZhLBm1fJiY9Lnt
-	 ekZ5K+82YNQFuXXT/ZY5kORKGwvdmK9mubBp9StqzOEHM1qGnc4X6eTWOlHccQQ50IA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000552;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
+	bh=FFCp4KDT2LcWcGOoxahgST59aYtC1T0hU0v/3EFzywc=;
+	b=j0hAWGIralJIzM5FJ9ExXwFzZGEv5fFFm4v2LLRNs3DlsyaTRRxmd6xWpQjE5aDg2WTy
+	 RU7AwThia5oEAs4PYUt/5Tp1HTPBaB0rviy+BvHkRnvbGCZkN6ygJTjtBVK3flNvVGE0I
+	 JgQbVirI60j+aOey+pJQAEMRsdC4FfvxqiWtLSthQXdCrUE6y451qbegTVN8MObTw3BdJ
+	 tdW42l3/uOpToNlBH5lPAqFc0pDgRkFQTssinyEhu1ur2QMvSJbg003cGhTOQb+XbFur8
+	 jXsCBxH8muZnNSJZFfbiLau8bcfCQ8MZI11QZ9zaOmjodIMMh5ijJaGFEdg9HHxD5GA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="bHdFKU/4";
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yse+GBIg;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lvK3ADAO;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yse+GBIg;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lvK3ADAO;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA2D660A2601
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:15:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA2D660A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CB34606A32F;
+	Wed, 18 Nov 2026 11:15:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CB34606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bHdFKU/4
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b179528d56so413989a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:15:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795000535; x=1795605335; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SXeroM2jCfcBKXV1NOSG1sFarrMqehRN66QskO8HWNg=;
-        b=bHdFKU/4t+asVDt9njDBPNmVxH74MFAD4wsINbAc3XgW5M2Fv7OJDVzO3vtyztUnoQ
-         mcxDv7NtU3WYasfNf4dk0z5bnPThVh+BfKP/wO6jgOyndTDeqNKdFhVtubTrRWN4pkqb
-         J4vteOADSYMAGg11dr3R0zuaHd723iRHYSCI1YpBi3Fz+Y11hzi4HWc0LjB1MOHkbOMA
-         zoWrtzVqfwlMnv4lYQRDjUlFN+XFBp2vUyodeKo/IZC0Qr6dT/2gP9C7UnPJ/o9YSBq4
-         isvbbwrs4K/WEN5Rk+roENzMi0YS1j5GDXnLThkMUOLP0Eh9ZL2fUpDmHyHilCkDn/Gq
-         mxOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795000535; x=1795605335;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SXeroM2jCfcBKXV1NOSG1sFarrMqehRN66QskO8HWNg=;
-        b=lwhALvRlORNhlrtfAW+rUHSthhQjRDTdE6VK2KhYNTltrgmAKq2UtgJFcp2twpa4FJ
-         tFHyIhnyqWRBnBz7QLBD/TfekxAp/n40MI4pgrv4HGM+6MmOJ16TsKC7YBWPcQrqWQF6
-         pwSXMFbK1dpcbfEB8/Iy+T1FrSIdqyYku8pL5t1a6yFoUK/Db+vh0nfM1JNmzlIuNFmc
-         KqaMUipMekXt8oqdDLrBdW64BA8G7DP11zO804xpTsL6s038ziX5Tm8pvaC4q4mhNI0v
-         Ycyw1anljm+fCc7cbOu8pzx1xCORwc875vzdQm2gP3ViyHBf5naDj3l5581Jy+UMnFPK
-         iLYA==
-X-Forwarded-Encrypted: i=1; AL+hErFo+0HhE93nxCdS/nH+868tHCL4ijaJReFevN9jncyOeAmpm6QOWp4zFvhcfR/e7YeWmar6Ryz3fF5WXy0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Nxa5cKzhslVE8299qKhhUF+YkJ4LTL46NB7w2jRpJxB9uYSbN
-	Dtar4dMeh7iG3g/V9qEvpvQ0uL1ntWo3VclRKJbknHyR0AhQgfp8h6SC
-X-Gm-Gg: AZFdTZdUDo02Vc9OzOUfCqo5StrfKPT0omqRs9+has/XzBUGdqJEq+PDXqWRtgi+V2Z
-	OppVfBZ0alR5DpYhToTcN+3ikdCOapIeW8XIeipoKVDP9eAUJnYEbQzaVkD67sHWk2jr4ehDuTE
-	qkDHAPo9lcXJgyRJNl/fUE2UArb2z19HlxXt20llGe8UvWrGRUCXi8ebS3qx/1LJZt511XJsBbN
-	nxzT22uJiDqOSFQHSpZRAktDhDUKq/T8KTGndMpDme4vQ2jNfraFFPMR+wnVyTuPIIOW2CipuLp
-	gTso5tFyjlzNNYc4phnAW5nl3iL1B0U79Yy2iPGxJJaRs81d7/PaMLVKiJBIG+VW42r+aG9REad
-	KaIr74ILYh1lMlZXyO3APSaPaLNEpl0d2WMzUdlvJziAQ65/G0xP6VNdpuUhW5IKe5adsDb+NYA
-	Y4g2JImUhW1Iwq0vUVOJ+aobIQ2OaTOwKznvMVMQ27jBBRG5gBgANyXFycaX7gDDWxfyUB5wIo3
-	zsMNp8KLeUxuHMmvw/1U3tne0kbhII7la9JYFvbQTtqGmROB2b2D2Pg/hVAsT2FM6+L7ubvVpl9
-	JWxQRLFdMQN9wTxkeLrUGEbW9wzd/cUjblyXbUPsZ73+AFPj
-X-Received: by 2002:a17:90b:3c05:b0:3ac:a11a:7c7f with SMTP id 98e67ed59e1d1-3b3d07b8f81mr2204159a91.23.1795000535203;
-        Wed, 18 Nov 2026 03:15:35 -0800 (PST)
-Received: from hj.. ([163.239.22.29])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac255634sm8796941a91.5.2026.11.18.03.15.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:15:34 -0800 (PST)
-From: Hyunjung Ko <hj351016@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyunjung Ko <hj351016@gmail.com>
-Subject: [PATCH] serial: pic32_uart: don't enable clock with interrupts disabled
-Date: Wed, 18 Nov 2026 20:15:21 +0900
-Message-ID: <20261118111521.1003717-1-hj351016@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yse+GBIg;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lvK3ADAO;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=Yse+GBIg;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=lvK3ADAO
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id A92FE1FB67;
+	Wed, 18 Nov 2026 11:15:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795000549; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FFCp4KDT2LcWcGOoxahgST59aYtC1T0hU0v/3EFzywc=;
+	b=Yse+GBIg+n7Sp/Yubh70gI36P41cCiW9uL9zFe68ACj0ZIDkZZSiCPYO0XHaQBioFVmZCa
+	glWDb1eBxbwrBucV6pJz3jZZLR40N8+8iNM/hLed3R60QUImLr8wd1WX9sHy3hVI6o6Nh3
+	IMQLxkSqcmJO2b3h2GQeTpoVEO3JTco=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795000549;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FFCp4KDT2LcWcGOoxahgST59aYtC1T0hU0v/3EFzywc=;
+	b=lvK3ADAOGQT7D2kpGGiLCEJkvJo+w5L2uKkmYiLL7fEUn+M1FG+fRxr1/Y4X6b4qhbf3UB
+	d89NynRIctWYS/CA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795000549; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FFCp4KDT2LcWcGOoxahgST59aYtC1T0hU0v/3EFzywc=;
+	b=Yse+GBIg+n7Sp/Yubh70gI36P41cCiW9uL9zFe68ACj0ZIDkZZSiCPYO0XHaQBioFVmZCa
+	glWDb1eBxbwrBucV6pJz3jZZLR40N8+8iNM/hLed3R60QUImLr8wd1WX9sHy3hVI6o6Nh3
+	IMQLxkSqcmJO2b3h2GQeTpoVEO3JTco=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795000549;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FFCp4KDT2LcWcGOoxahgST59aYtC1T0hU0v/3EFzywc=;
+	b=lvK3ADAOGQT7D2kpGGiLCEJkvJo+w5L2uKkmYiLL7fEUn+M1FG+fRxr1/Y4X6b4qhbf3UB
+	d89NynRIctWYS/CA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 825181334C;
+	Wed, 18 Nov 2026 11:15:49 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id Li/QF+WI/WqdcQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 18 Nov 2026 11:15:49 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 0D5802500B; Wed, 18 Nov 2026 12:15:49 +0100 (CET)
+Date: Wed, 18 Nov 2026 12:15:49 +0100
+From: Jan Kara <jack@suse.cz>
+To: Zhao Gongyi <zhaogongyi@bytedance.com>
+Cc: Jan Kara <jack@suse.cz>, tytso@mit.edu, linux-ext4@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, adilger.kernel@dilger.ca, libaokun@linux.alibaba.com, 
+	ojaswin@linux.ibm.com, ritesh.list@gmail.com, yi.zhang@huawei.com
+Subject: Re: [PATCH] ext4: use a stable source for the kmmpd thread name
+Message-ID: <x2m3ypyugjn25myfovxs42jgctnctmz6iof77juya3464o3bbl@qlsx2mk4smhr>
+References: <20261114172523.5888-1-zhaogongyi@bytedance.com>
+ <qz2gh5bbbyqjqfqclatkq34pgxnvbu3ey5kf3octnlykstzhx2@s65dxum2wdso>
+ <da634961-1d13-4d21-b181-f366fd72e0d1@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,45 +112,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <da634961-1d13-4d21-b181-f366fd72e0d1@bytedance.com>
+X-Spamd-Result: default: False [-11.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_SEVEN(0.00)[10];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[suse.cz,mit.edu,vger.kernel.org,dilger.ca,linux.alibaba.com,linux.ibm.com,gmail.com,huawei.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -11.30
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-pic32_uart_startup() calls clk_prepare_enable() with interrupts disabled
-via local_irq_save(). clk_prepare() calls might_sleep() unconditionally,
-so this can sleep in atomic context.
+Hello,
 
-Interrupts are only disabled to serialize the UART register
-initialization that follows; the clock must be enabled before those
-registers can be accessed anyway. Enable the clock before disabling
-interrupts.
+On Tue 17-11-26 00:36:50, Zhao Gongyi wrote:
+> On 11/16/26 8:16 PM, Jan Kara wrote:
+> > What can change it? I don't see anything that should be doing that...
+> 
+> A concurrent buffered write to the loop block device can change it. In
+> one diagnostic run, the write reached the page-cache buffer ext4 was
+> using for MMP. mmp_bdevname is embedded at bh->b_data + 0x50.
 
-Fixes: 157b9394709e ("serial: pic32_uart: Add PIC32 UART driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
----
- drivers/tty/serial/pic32_uart.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+Ah, I see. So you're corrupting the filesystem through the block device
+while it is mounted.
 
-diff --git a/drivers/tty/serial/pic32_uart.c b/drivers/tty/serial/pic32_uart.c
-index 8407f85776c0..a8010d6b65ba 100644
---- a/drivers/tty/serial/pic32_uart.c
-+++ b/drivers/tty/serial/pic32_uart.c
-@@ -455,13 +455,11 @@ static int pic32_uart_startup(struct uart_port *port)
- 	unsigned long flags;
- 	int ret;
- 
--	local_irq_save(flags);
--
- 	ret = clk_prepare_enable(sport->clk);
--	if (ret) {
--		local_irq_restore(flags);
-+	if (ret)
- 		goto out_done;
--	}
-+
-+	local_irq_save(flags);
- 
- 	/* clear status and mode registers */
- 	pic32_uart_writel(sport, PIC32_UART_MODE, 0);
+> I understand that raw writes to a block device during ext4 access can
+> corrupt metadata. The proposed change gives the two-pass thread-name
+> formatting a stable source; it does not change MMP's protection logic.
+> I can provide the full diagnostic diff, kprobe module, and console log
+> if useful.
+
+Yes, sorry, but this isn't really something we care about. It is in
+principle very similar as corrupting memory through /dev/mem and the
+filesystem can crash in many different ways. When you are fuzzing, you
+should disable BLK_DEV_WRITE_MOUNTED config which will also disallow
+corruption like this.
+
+								Honza
 -- 
-2.43.0
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
