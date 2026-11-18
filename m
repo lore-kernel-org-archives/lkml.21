@@ -1,77 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795009504;
-	b=LUVKg7BAZCb9WGjEm1fodToPOKMorW+Le5cpay76eJMMYVdpXD87+kHr7H16y5y2uF1N
-	 i96q8ZIss+tOmRhDYR1/PNlOTNFhjLymIF7pwGJZvR/cQO1J8MHOHsgaZJi2dY9+88Y7h
-	 jfCpSF154hBQ0/aBRMkBZJx5ZoVgW9X4w+k7t0czqGzxiHuSV6GTZt7eXMCrI4wE3v8FM
-	 SuJrCp3W0y+OMd4xT2QAwkgUMmQaVBSq3MD91TysbLmvQUIsth0Yc7XxWzjnzL7F/eER9
-	 j0ltPspJCwkTmlPBDvpzyFBkc3DU5n0U2+DR6j0tmts2+x4gIHrgn/tdejFORxjjKYg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009504;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received;
-	bh=9V9in5V+oYatd4P85WPzdb+jeiCieCJTniKDwY0qcm0=;
-	b=CqeqxTLpsTA4XMAr+eshERVODI+rAesp7Ca3hBA+UpjhaFtVEt2ozNiFN1xJE+mTF956
-	 Q1JLqrg6SY3/W+pk0QJgwzNfy571myshZ1NlBBBDRghoT7RRUzk1ItWvNyEMBb9L9DG+J
-	 SAb94EC+U8lypi7o37OdXvIlH4aOfZawKsrvo10ao67n2yv/FGdV+5Moucef4C5nvHpYo
-	 GYJ96zkeeJ3YsuIeEwkeHglXvEzeJm82681ij/2aAJToXOQlN0MVgkioIIhUoeR8lbPcK
-	 nW2yWon97kkVLEz4PrIrl7q48L+LCmxMolRZ0Nz70rV+biPggwFfsA6LKyzrkPU73XQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="I/KmmQgN";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795009501;
+	b=L/ajfUHTh0Q1eWcwjOXfNlOysRulZTCCx3OWexGV9qIDzeTfxKCO3qvpmNGcGFrOTMaZ
+	 SKM2nrE4B6ueBhve9gruPSf0nZoLTAMF6bM9kfJLkth2v8G7DhJPoLTgqUnKwGxE4ksMN
+	 p1XKyVkvifQ4H9rNHY7i8brAnRTgKH0BHynBAwRHlRLZDbE6IJGtZ7FQrlPJqE387s8Fk
+	 tablN9IQj1WuNxQZv2VMayTTXJq3EH/c03uxiBjEV+0yNZpTaT9Limj0A7ZVXi5PDh0uf
+	 yPVU7NfyLAcxywgdrUbYzIFvhuUHLCXfwFuqrh+oNVW3pXiUN/5Tg+1XbJiRgTxyHFw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009501;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=5tUlyNBQsLqghT4FUQlxLY5bC88rlZM0X+hORoNIiMQ=;
+	b=HlWVBiZ0a522p565EPy8ZmaAPZGQVqnlrZpUPFtM8U2fOa6ZWNRiVyN65XJeTQRggTZx
+	 JtSzPNbwLeE98cl13okhkmyINNHNS8regSOp6lPXR6xyURTsCqvaG8rS7mKSnHKjRThD5
+	 7X0jfBX/js0HgZUJXgEmtsPhIOmDaEQ4R4d3uzOlYfn+h+MYOtxAtbmDoNmxN+noujBer
+	 keXMSNr4VlFEHbTfGdwTWEXhdQaOtDSmvkJY+o7kMIPek5/8kIQ7Y49M64EQh6uj+MlZa
+	 KHd3xmq9TwDlqVZ+A4zHf2yM2xGbpMICIk618uzzeVCzxhqpU2dIp08zFqHb/HpO3AA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TYXHZjyv;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF93460A2600
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:45:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BC21606A31C;
+	Wed, 18 Nov 2026 13:45:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I/KmmQgN
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795009504;
-	b=s9CQHxF+bWaQJsdqhaA5N84hSn7SmR/T/cHaQmKEuhpoaUAcizSQcvj1K3fDoHXsOkhS
-	 4rnYAQJ2kTSFdhhGx2ID9tgmDa3TpfOCT8ncG1mtUjCcFdim3TcfK4VoShtOubT0FVTtU
-	 Z7CXByfumSCZ9qTBRj29s8cRVTxvnO3KmsYIw5v2WzJxKw4noObqgJtQxbfyFY9XXowci
-	 fd0ZJVrnGqQ9IiGxLBy1WnS5i5tHe2ibeSI8/itrWJ9by0DR1gHt3TD7JNb5E2lcXZ274
-	 vSqDQewOaXceSbgymh8iikIZ3Hkxwc91ujt1JjBVGd6ZaFoIMnDgbrZ/MU7wKcmyvYg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795009504;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received;
-	bh=9V9in5V+oYatd4P85WPzdb+jeiCieCJTniKDwY0qcm0=;
-	b=m91q8hPDyQv1Wt54WU4G2dDuh7xOG1ldytEm5ZtHqU4zpdC0nDf9M8dNVrdhTngbBdHR
-	 hUP2CGMUoEf5HLHg5CZ2wH3bmUaLU4OppwyIh11WoxSYHT4qb+m3hm+8y83zxSkVxx2ID
-	 /CSxD2LC9Wme6r6tvQEpcH13m6fpdUAsg7BxRyKJB1L6lxZ8SGW4+ws+PHFS4six3npNF
-	 +Bqb3ecpinlKzUXYRKfrf2i6gtH/VQ63PxrxecLlkTVZj0Ko89bA7uvSANOki2IT4gfbv
-	 Z9nVYKP19tfS10ubPPVih8dt93WGl8XKgo3+FeeBdA9PbqhpyuOoC/ZQbTRA4f3M6EA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B6E1C1F000C4;
-	Wed, 18 Nov 2026 13:45:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TYXHZjyv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B071F000C4;
+	Wed, 18 Nov 2026 13:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795009504;
-	bh=9V9in5V+oYatd4P85WPzdb+jeiCieCJTniKDwY0qcm0=;
-	h=From:Date:Subject:To:Cc;
-	b=I/KmmQgNM9A5idbttVtmLYdlL42wD7vqQLV9LQrATxygndVnVXLZQZj+4z71B2Vg+
-	 lGM8cvyB8/cEFzFL+Y7npBMd/wKCIvpUkt+l07VXJ1g1oPgDUcOfesHl1KqKTNO/D/
-	 8PvCf+yEGLoaiVFuIhvHuNnQiYvJilcVMskJHI+b5KhpNI5wyfDTOm66Q4QmWWfd9o
-	 YpHPhaxbTEOb7hIvZ5QX5yZWkPrS1CVTtC+BUvoHKJV13cFhxIw0TZlW9RZeBa6VTD
-	 dBFg4dT7Csb1Jft75mh2KGyKG/PJZKlB0WOK2gYuuhCHWARvo/+kZ+D3Oxh6wfqDka
-	 bznIkr1pVoboQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 17F044ADBC;
-	Wed, 18 Nov 2026 13:45:03 +0000 (UTC)
-From: Joel Granados <joel.granados@kernel.org>
-Date: Wed, 18 Nov 2026 14:44:44 +0100
-Subject: [PATCH] sysctl: Do jiffy / ms conversion in ulong space
+	s=k20260515; t=1795009500;
+	bh=5tUlyNBQsLqghT4FUQlxLY5bC88rlZM0X+hORoNIiMQ=;
+	h=From:To:Cc:Subject:Date;
+	b=TYXHZjyvBJURnLIknxHA4DXkQty/01rjeI87Gfqi9Qp3TLjNlw7QFInL20ndedE5O
+	 XAFdLI1UNjCvQVgiSZaRrcIpYSTKLJUIzjVoz3HmYvZbBlAFPJ3ebZ10QG6jQGW3xb
+	 6gRojFeuzv8Pq8qxLdq3/mIETIiH79IWqu8WjFlJE1S4ZbvmiHleXdRJp/6usRVObm
+	 w8ZIcW2E+E76S4EhMq/7fAn9D22FO278au2ti9n8MkATQIqwTfMWLb8FupRBRLaYuu
+	 MFKsWYpqqO0olLet9608L6cyUEgbkFev7PCqxoj05qGvbRXc0EIzx8XjO4YG2CXc+h
+	 Effav++yXrq1g==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linusw@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mmc: sh_mmcif: rework sg_miter handling
+Date: Wed, 18 Nov 2026 13:57:59 +0100
+Message-ID: <20261118134445.2909283-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,146 +62,242 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-lklm-sysctl-jiffie-ms-conv-v1-1-bb60e5101418@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAMur/WoC/x3MQQ6DIBAAwK+YPXcTIFWhX2k8tLjUtQiGbUwb4
- 98lPc5ldhAqTAK3ZodCGwvnVKEvDfjpkV6EPFaDUabTWluM77ig/MR/Is4cAhMugj6nDXtln66
- ja+sUQQ3WQoG///w+HMcJND1T6GwAAAA=
-X-Change-ID: 20261118-lklm-sysctl-jiffie-ms-conv-708b96e4590e
-To: Avi Weiss <thnkslprpt@gmail.com>
-Cc: Kees Cook <kees@kernel.org>, linux-kernel@vger.kernel.org, 
- Joel Granados <joel.granados@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4096;
- i=joel.granados@kernel.org; h=from:subject:message-id;
- bh=cvT9Z1VwMr5AX7VWBnNxERQBI/gspsX2d3xpiXPpo3Q=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGr9q9522ph5NaWuU0hIWdArP19DxUNdXP699
- FB56xaJCfvkK4kBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJq/aveAAoJELqXzVK3
- lkFPRLoL/2iGsdd2cbRQjQh4Mzx7Kiw4PFkv0Mfy8fSgX4DH/DRLhGfUwNKif6JF5OzIjZ3I6ZE
- kGJ7RmYmVdm/flBjtcKWCxx8tBnANZlrk2vTmV6Oz8MqGY/F2hvvWDzusEZBlmh0gRhQwHbDYp7
- W3OHeheyPK/4X0W/OTLVRQX98XjvY+JGS7JksTNQ7s9AS/MioQqTpreB+hdOlnDTzFccVhGjs8/
- eSnAvxFUHhC/mJb08J53s86jMbR7VQJV+MMkKnWR/hL0OVOixINCJ4Jpsacc4qVzrnh1RW+XUEu
- JvS1uRN27aZlOvl8Z68ZEpyog1KvJB4qfJH60se+UayrpngQxEhvuu2MY4nHjRCEBHLS257s6tM
- 1u6MaadNWLPpm7eRtcgm1bQDuC7LG9GVA8GqCXry6UtIcyYuEaFtqZk0+0X3iKRO4/nRVculuje
- d3DG5Z8Sv7iyxKsaBGzqUHi6Ibg9GLdjvsHLJ+t1fAaufiPCgMhtzrvKl/l+XJwysDjy1AUGhc8
- v4=
-X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
- fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
-X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
- auth_id=239
+Content-Transfer-Encoding: 8bit
 
-Replace jiffies_to_msecs & msecs_to_jiffies calls with sysctl specific
-converters. Removes the need to handle overflow corner cases when moving
-to and from the unsigned int and the unsigned long spaces.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Handle the unsigned long overflow in the sysctl specific converters
-(sysctl_jiffies_to_msecs & sysctl_msecs_to_jiffies). The unsigned int
-overflow is handled in the generic sysctl int converters (e.g.
-proc_int_u2k_conv_uop).
+This driver is the only one that uses sg_miter_next() to get a persistent
+mapping across interrupts, which prevents us from converting the internal
+kmap() to a local mapping using SG_MITER_LOCAL flag.
 
-Round up on writes and down on reads for both unsigned int and unsigned
-long types.
+Linus previously attempted to use atomic mappings here, which failed
+for the same reason. I gave it another try, with a mapping that is only
+active during a single sh_mmcif_mread_block()/sh_mmcif_mwrite_block() call.
 
-This is the behavior being fixed:
+This is mainly a revert of the patch that fixed the command 18 timeout,
+but tries to solve the problem by updating and checking data->bytes_xfered
+to keep track of when the transfer is finished.
 
-SUL="/proc/sys/net/rxrpc/idle_conn_fast_expiry"
-SSI="/proc/sys/debug/test_sysctl/int_ms_jiffies"
+Instead of calling sg_miter_stop() on error or completion, this now
+always stops the iterator after the data transfer and restarts it during
+the following interrupt.
 
-1. Before
-    # HZ = 300, CONFIG_TEST_SYSCTL=y & CONFIG_AF_RXRPC=y
-    echo 1 > $SSI; cat $SSI           # -> 4
-    echo 4 > $SSI; cat $SSI           # -> 7
-    echo 7 > $SSI; cat $SSI           # -> 10
-    echo 10 > $SSI; cat $SSI          # -> 10
-
-    echo 4 > $SUL; cat $SUL           # -> 3
-    echo 3 > $SUL; cat $SUL           # echo: write error: Invalid argument
-
-    # HZ = 100, CONFIG_TEST_SYSCTL=y & CONFIG_AF_RXRPC=y
-    echo 2147483648 > $SUL; cat $SUL  # -> 4294967276
-    echo 5000000000 > $SUL; cat $SUL  # -> 4294967276
-
-2. Now
-    # HZ = 300, CONFIG_TEST_SYSCTL=y & CONFIG_AF_RXRPC=y
-    echo 1 > $SSI; cat $SSI           # -> 3
-    echo 3 > $SSI; cat $SSI           # -> 3
-    echo 4 > $SSI; cat $SSI           # -> 6
-    echo 6 > $SSI; cat $SSI           # -> 6
-    echo 7 > $SSI; cat $SSI           # -> 10
-    echo 10 > $SSI; cat $SSI          # -> 10
-
-    echo 4 > $SUL; cat $SUL           # -> 6
-    echo 6 > $SUL; cat $SUL           # -> 6
-
-    # HZ = 100, CONFIG_TEST_SYSCTL=y & CONFIG_AF_RXRPC=y
-    echo 2147483648 > $SUL; cat $SUL  # -> 2147483650
-    echo 5000000000 > $SUL; cat $SUL  # -> 5000000000
-
-Fixes: afdf35cfae0d ("sysctl: Fix type truncation in sysctl_msec_to_jiffies")
-Fixes: b96b5c6708ea ("sysctl: Replace do_proc_do{int,ulong,uint}vec with do_proc_vec")
-
-Reported-by: Avi Weiss <thnkslprpt@gmail.com>
-Link: https://lore.kernel.org/all/20261102111516.1398262-2-thnkslprpt@gmail.com
-Signed-off-by: Joel Granados <joel.granados@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Fixes: 4d4a2c71b862 ("mmc: sh_mmcif: Advance sg_miter before reading blocks")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-Avi:
+Hi Wolfram and Linus,
 
-This is how it will be upstreamed. In case you have any opinions.
+Could you have a look at this? I'm not familiar with this driver,
+so there is a chance I got this completely wrong. If the change
+does make sense, maybe you can try testing it on one of the
+highmem-enabled boards.
 
-Best
----
- kernel/time/jiffies.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ drivers/mmc/host/sh_mmcif.c | 63 +++++++++++++------------------------
+ 1 file changed, 22 insertions(+), 41 deletions(-)
 
-diff --git a/kernel/time/jiffies.c b/kernel/time/jiffies.c
-index af1c69bf0c23dbcf1788e951dd9872167388bd1c..b861dc860d3452b59868128ec83340eab9e18a39 100644
---- a/kernel/time/jiffies.c
-+++ b/kernel/time/jiffies.c
-@@ -137,11 +137,19 @@ static int sysctl_k2u_int_conv_userhz(bool *negp, ulong *u_ptr, const int *k_ptr
- 	return proc_int_k2u_conv_kop(u_ptr, k_ptr, negp, sysctl_jiffies_to_clock_t);
- }
+diff --git a/drivers/mmc/host/sh_mmcif.c b/drivers/mmc/host/sh_mmcif.c
+index aa5a19d16c7f..7f1818831f93 100644
+--- a/drivers/mmc/host/sh_mmcif.c
++++ b/drivers/mmc/host/sh_mmcif.c
+@@ -604,7 +604,7 @@ static void sh_mmcif_single_read(struct sh_mmcif_host *host,
+ 			   BLOCK_SIZE_MASK) + 3;
  
-+/*
-+ * Calc ms <-> jiffies conversions for sysctls in unsigned long arithmetic.
-+ * Think hard about using the non-sysctl converters (msecs_to_jiffies &
-+ * jiffies_to_msecs) as the interaction between ulong and uint is not trivial.
-+ */
- static ulong sysctl_msecs_to_jiffies(const ulong val)
+ 	sg_miter_start(&host->sg_miter, data->sg, data->sg_len,
+-		       SG_MITER_TO_SG);
++		       SG_MITER_LOCAL | SG_MITER_TO_SG);
+ 
+ 	host->wait_for = MMCIF_WAIT_FOR_READ;
+ 
+@@ -621,7 +621,6 @@ static bool sh_mmcif_read_block(struct sh_mmcif_host *host)
+ 	int i;
+ 
+ 	if (host->sd_error) {
+-		sg_miter_stop(sgm);
+ 		data->error = sh_mmcif_error_manage(host);
+ 		dev_dbg(dev, "%s(): %d\n", __func__, data->error);
+ 		return false;
+@@ -629,7 +628,6 @@ static bool sh_mmcif_read_block(struct sh_mmcif_host *host)
+ 
+ 	if (!sg_miter_next(sgm)) {
+ 		/* This should not happen on single blocks */
+-		sg_miter_stop(sgm);
+ 		return false;
+ 	}
+ 
+@@ -638,6 +636,8 @@ static bool sh_mmcif_read_block(struct sh_mmcif_host *host)
+ 	for (i = 0; i < host->blocksize / 4; i++)
+ 		*p++ = sh_mmcif_readl(host->addr, MMCIF_CE_DATA);
+ 
++	data->bytes_xfered += host->blocksize;
++	sgm->consumed = host->blocksize;
+ 	sg_miter_stop(&host->sg_miter);
+ 
+ 	/* buffer read end */
+@@ -650,7 +650,6 @@ static bool sh_mmcif_read_block(struct sh_mmcif_host *host)
+ static void sh_mmcif_multi_read(struct sh_mmcif_host *host,
+ 				struct mmc_request *mrq)
  {
--	if (val > jiffies_to_msecs(MAX_JIFFY_OFFSET))
--		return MAX_JIFFY_OFFSET;
--	return msecs_to_jiffies(val);
-+	ulong secs = val / MSEC_PER_SEC;
+-	struct sg_mapping_iter *sgm = &host->sg_miter;
+ 	struct mmc_data *data = mrq->data;
+ 
+ 	if (!data->sg_len || !data->sg->length)
+@@ -659,14 +658,8 @@ static void sh_mmcif_multi_read(struct sh_mmcif_host *host,
+ 	host->blocksize = sh_mmcif_readl(host->addr, MMCIF_CE_BLOCK_SET) &
+ 		BLOCK_SIZE_MASK;
+ 
+-	sg_miter_start(sgm, data->sg, data->sg_len,
+-		       SG_MITER_TO_SG);
+-
+-	/* Advance to the first sglist entry */
+-	if (!sg_miter_next(sgm)) {
+-		sg_miter_stop(sgm);
+-		return;
+-	}
++	sg_miter_start(&host->sg_miter, data->sg, data->sg_len,
++		       SG_MITER_LOCAL | SG_MITER_TO_SG);
+ 
+ 	host->wait_for = MMCIF_WAIT_FOR_MREAD;
+ 
+@@ -682,27 +675,26 @@ static bool sh_mmcif_mread_block(struct sh_mmcif_host *host)
+ 	int i;
+ 
+ 	if (host->sd_error) {
+-		sg_miter_stop(sgm);
+ 		data->error = sh_mmcif_error_manage(host);
+ 		dev_dbg(dev, "%s(): %d\n", __func__, data->error);
+ 		return false;
+ 	}
+ 
++	if (!sg_miter_next(sgm))
++		return false;
 +
-+	if (secs >= ULONG_MAX / HZ)
-+		return ULONG_MAX;
-+
-+	return secs * HZ + DIV_ROUND_UP((val % MSEC_PER_SEC) * HZ, MSEC_PER_SEC);
+ 	p = sgm->addr;
+ 
+ 	for (i = 0; i < host->blocksize / 4; i++)
+ 		*p++ = sh_mmcif_readl(host->addr, MMCIF_CE_DATA);
+ 
++	data->bytes_xfered += host->blocksize;
+ 	sgm->consumed = host->blocksize;
++	sg_miter_stop(sgm);
+ 
+ 	sh_mmcif_bitset(host, MMCIF_CE_INT_MASK, MASK_MBUFREN);
+ 
+-	if (!sg_miter_next(sgm)) {
+-		sg_miter_stop(sgm);
+-		return false;
+-	}
+-
+-	return true;
++	return data->bytes_xfered < host->blocksize * data->blocks;
  }
  
- static int sysctl_u2k_int_conv_ms(const bool *negp, const ulong *u_ptr, int *k_ptr)
-@@ -151,7 +159,12 @@ static int sysctl_u2k_int_conv_ms(const bool *negp, const ulong *u_ptr, int *k_p
+ static void sh_mmcif_single_write(struct sh_mmcif_host *host,
+@@ -714,7 +706,7 @@ static void sh_mmcif_single_write(struct sh_mmcif_host *host,
+ 			   BLOCK_SIZE_MASK) + 3;
  
- static ulong sysctl_jiffies_to_msecs(const ulong val)
+ 	sg_miter_start(&host->sg_miter, data->sg, data->sg_len,
+-		       SG_MITER_FROM_SG);
++		       SG_MITER_LOCAL | SG_MITER_FROM_SG);
+ 
+ 	host->wait_for = MMCIF_WAIT_FOR_WRITE;
+ 
+@@ -731,7 +723,6 @@ static bool sh_mmcif_write_block(struct sh_mmcif_host *host)
+ 	int i;
+ 
+ 	if (host->sd_error) {
+-		sg_miter_stop(sgm);
+ 		data->error = sh_mmcif_error_manage(host);
+ 		dev_dbg(dev, "%s(): %d\n", __func__, data->error);
+ 		return false;
+@@ -739,7 +730,6 @@ static bool sh_mmcif_write_block(struct sh_mmcif_host *host)
+ 
+ 	if (!sg_miter_next(sgm)) {
+ 		/* This should not happen on single blocks */
+-		sg_miter_stop(sgm);
+ 		return false;
+ 	}
+ 
+@@ -748,6 +738,8 @@ static bool sh_mmcif_write_block(struct sh_mmcif_host *host)
+ 	for (i = 0; i < host->blocksize / 4; i++)
+ 		sh_mmcif_writel(host->addr, MMCIF_CE_DATA, *p++);
+ 
++	data->bytes_xfered += host->blocksize;
++	sgm->consumed = host->blocksize;
+ 	sg_miter_stop(&host->sg_miter);
+ 
+ 	/* buffer write end */
+@@ -760,7 +752,6 @@ static bool sh_mmcif_write_block(struct sh_mmcif_host *host)
+ static void sh_mmcif_multi_write(struct sh_mmcif_host *host,
+ 				struct mmc_request *mrq)
  {
--	return jiffies_to_msecs(val);
-+	ulong secs = val / HZ;
+-	struct sg_mapping_iter *sgm = &host->sg_miter;
+ 	struct mmc_data *data = mrq->data;
+ 
+ 	if (!data->sg_len || !data->sg->length)
+@@ -769,14 +760,8 @@ static void sh_mmcif_multi_write(struct sh_mmcif_host *host,
+ 	host->blocksize = sh_mmcif_readl(host->addr, MMCIF_CE_BLOCK_SET) &
+ 		BLOCK_SIZE_MASK;
+ 
+-	sg_miter_start(sgm, data->sg, data->sg_len,
+-		       SG_MITER_FROM_SG);
+-
+-	/* Advance to the first sglist entry */
+-	if (!sg_miter_next(sgm)) {
+-		sg_miter_stop(sgm);
+-		return;
+-	}
++	sg_miter_start(&host->sg_miter, data->sg, data->sg_len,
++		       SG_MITER_LOCAL | SG_MITER_FROM_SG);
+ 
+ 	host->wait_for = MMCIF_WAIT_FOR_MWRITE;
+ 
+@@ -792,27 +777,26 @@ static bool sh_mmcif_mwrite_block(struct sh_mmcif_host *host)
+ 	int i;
+ 
+ 	if (host->sd_error) {
+-		sg_miter_stop(sgm);
+ 		data->error = sh_mmcif_error_manage(host);
+ 		dev_dbg(dev, "%s(): %d\n", __func__, data->error);
+ 		return false;
+ 	}
+ 
++	if (!sg_miter_next(sgm))
++		return false;
 +
-+	if (secs >= ULONG_MAX / MSEC_PER_SEC)
-+		return ULONG_MAX;
-+
-+	return secs * MSEC_PER_SEC + (val % HZ) * MSEC_PER_SEC / HZ;
+ 	p = sgm->addr;
+ 
+ 	for (i = 0; i < host->blocksize / 4; i++)
+ 		sh_mmcif_writel(host->addr, MMCIF_CE_DATA, *p++);
+ 
++	data->bytes_xfered += host->blocksize;
+ 	sgm->consumed = host->blocksize;
+-
+-	if (!sg_miter_next(sgm)) {
+-		sg_miter_stop(sgm);
+-		return false;
+-	}
++	sg_miter_stop(sgm);
+ 
+ 	sh_mmcif_bitset(host, MMCIF_CE_INT_MASK, MASK_MBUFWEN);
+ 
+-	return true;
++	return data->bytes_xfered < host->blocksize * data->blocks;
  }
  
- static int sysctl_k2u_int_conv_ms(bool *negp, ulong *u_ptr, const int *k_ptr)
-
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261118-lklm-sysctl-jiffie-ms-conv-708b96e4590e
-
-Best regards,
+ static void sh_mmcif_get_response(struct sh_mmcif_host *host,
+@@ -1296,9 +1280,6 @@ static irqreturn_t sh_mmcif_irqt(int irq, void *dev_id)
+ 
+ 	if (host->wait_for != MMCIF_WAIT_FOR_STOP) {
+ 		struct mmc_data *data = mrq->data;
+-		if (!mrq->cmd->error && data && !data->error)
+-			data->bytes_xfered =
+-				data->blocks * data->blksz;
+ 
+ 		if (mrq->stop && !mrq->cmd->error && (!data || !data->error)) {
+ 			sh_mmcif_stop_cmd(host, mrq);
 -- 
-Joel Granados <joel.granados@kernel.org>
-
+2.53.0
 
