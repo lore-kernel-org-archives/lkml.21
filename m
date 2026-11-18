@@ -1,65 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026818;
-	b=3N4huFue3Lz6nUwn57pRwYydTJnLQ5i/Bfl5xl90DVgb6vht0urIiQlLpvT7weILsBEL
-	 djAAYUk3/R/ToTgdnjGDvuu3L7ycT4i7k4zDXLVVCA3j70qGbFRfErIxhdmy3Bj1XqbLD
-	 Bj1aAyvjhJbocQUibHIzxZvgdnJxop38XOFqM/z4bGd2EmI5B9i0aw3tZkjYlrUqC2p16
-	 HHxqIVDJKhR32yvHkdjkEtsW4Kga2svZNLga+Eb/1HAN/ZucHMYdoqtRderPHKzF+YyLm
-	 cK+2BDipDHDAnixm6kqoAcvHSeHreOnng2/cr1z6Y9HvIHM+uKc7V1Wv6c6wyAZJgNA==
+	t=1795026827;
+	b=LuUhQylnAE5uM4OLIzbhEjy5kKNNqYs0lOgLwqwSxfszjQxF7cuQLRy1acFVr6uVxu8H
+	 qBCVnxqSgWCT0pkrlMHC5uvhPlRPVoXfYiAmrXJ/IK3RaDeQcZACW7Ew8FaojB4BCaKy6
+	 +qzIyu/YHrorZ2bVYgDdQyi6uTfHER83wvas2dw4CM/xOodC55vYvqAPkUA0xEN3Idv7L
+	 579Mw+su4PoiRp+0/nq9/qcWl0IlCkw0Oqs3+t1Ds+iUk9o74IOlsV2rAySTW6gAzCqBc
+	 VMSo7E2g35TG5EeKN3OnT2neM5v4jJI63QZVU+cLWNXMcgYoJC23CcHcEVlt1H+e54g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026818;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=QXGQAan1vXB8Fh8B+GZljg8cnXQfywe3VvHaZl4o6AU=;
-	b=149qtZaJziVAJ3TthMDL53mBSdC5ZpSHc/eJCd6TDWP+98ZajIHKFbkVxDG0ebW0MTzc
-	 g+ewC26Dr9QdVLWvvbGz6UiQ6/XDOCVzlQeBI7eQDR9SG+L6wVdIpFke6fBWr44+Q96Jt
-	 cK2E9KxQAN9lxS/tuVfE1AbssC1DY6vEQfpTbEaoePKnI3QncW8kDFSWAVB9YD68XMyYZ
-	 wAGJccu9p/mXXUu6gmJwlD1Y5AFlrKiT9w0/RXVVPPcEU07qekxHGV5NAPF+WVkcTqMIk
-	 nm1i1dxwcErOaz+DI2S37EjxvFfUvjHXFeum3aABsHn4BFVanORyin7IOegsB3uOgcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026827;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=P/YCoMP/9FT1ykUcsd21vzGLwiDJBDzH9u2nYG1nU6w=;
+	b=1tSLH290H1PueuVMPP5sBl1Z0pgPi/FwtENsGfaVEwerHmzKXZYnOtG+RRnCjYybeXA2
+	 7Dmcx5LlHVIHByJiSl2rvty29VQY53NEBBnNedSRuwpyq8MMl3zXbQQSqM5yYZYEQIRMf
+	 4QEzL2G3SA0ZDmVS0hLb+/92yVsgG5ocLV9gJjtul4na6UZ+ulQoarApHtqCYkjInjA9g
+	 aBOOssB0qAPfn8JUQma6gbZ+GOKkyFG8LWr7oxw6LgUqRjqnvLhM052HP6+GJHvpjOAiD
+	 49hQ/VJnOw3ZTxV4h1kH3Ib80uswABFXcWyMrKsTpFk5tmRB/Es5AHZ4zH0LN6fszQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MKJv5w91;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id AAF8A606A339;
-	Wed, 18 Nov 2026 18:33:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAF8A606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LNHhiY4v;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA21606A331;
+	Wed, 18 Nov 2026 18:33:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MKJv5w91
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 171181477;
-	Wed, 18 Nov 2026 10:33:34 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 194873F673;
-	Wed, 18 Nov 2026 10:33:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795026817; bh=WR2rfmU+q6aN9Sc0uR33u2REPze10bCVVyPGykSpRuM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MKJv5w91roEUBwvnm+nqtg4/Uu1cpaWyicW1JKpCPkMIIsqtBXgzcMGlaE/rYz5im
-	 7tzt0239acWp0fzK/LkAFOX/K4cY+ognAqh4dUGLPi5T9qPfmpPOd0xzDeJoqoCjm+
-	 g5JC9RJghc9HtSlxkncDtm/e1/luGkQNRiO5mx5c=
-Date: Wed, 18 Nov 2026 18:33:32 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ben Cressey <ben@cressey.dev>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, Kees Cook <kees@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>, kexec@lists.infradead.org,
-	llvm@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>,
-	Zhaoyang Huang <zhaoyang.huang@unisoc.com>,
-	Jeson Gao <jeson.gao@unisoc.com>
-Subject: Re: [PATCH v2 2/2] arm64: hibernate: use a typed entry to drop
- __nocfi
-Message-ID: <av3vfAK-XHNzRnFI@arm.com>
-References: <20261111-arm64-kexec-nocfi-v2-0-ddf0c4aa326f@cressey.dev>
- <20261111-arm64-kexec-nocfi-v2-2-ddf0c4aa326f@cressey.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LNHhiY4v
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC99D1F000CB;
+	Wed, 18 Nov 2026 18:33:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795026826;
+	bh=P/YCoMP/9FT1ykUcsd21vzGLwiDJBDzH9u2nYG1nU6w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LNHhiY4vwIsJI6fmpylX0eXCxvEuKKvvPaFvQODi7o0zakHtQMbheWJPlEfJ2MeQd
+	 26JyAhCrZYr6agIm3RA06OEK7Fweq9rzySEVuHyPgD9fn43FZVAcS9the+5jd1Fvib
+	 5dBJi2udP0osSq//doOsk0Ekge0G/T06LfmSmTTK5w51vcY102WXoiTZDG4diVGv9M
+	 usA2fBPQtqvpG8JFjEyfaYluExZ+XSC8o51qcILMxvjxxANgOGUFsF4+sfM1xbd4S+
+	 2opIP+uJM9VWW9PI2bYEbq7wJM7fHok4AOMuCia2TDoHh4nO0pwQkibUmzlL2rA65x
+	 CNQuRIDAwmKjw==
+Date: Wed, 18 Nov 2026 18:33:41 +0000
+From: Lee Jones <lee@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Hans de Goede <hansg@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mfd@lists.linux.dev, linux-sunxi@lists.linux.dev,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v8 2/5] mfd: axp20x-i2c: Fix i2c instantiation
+Message-ID: <20261118183341.GI98456@joneslee-macbookpro.roam.internal>
+References: <20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com>
+ <20260910-axp318-regulator-v8-2-e906a61a7f3d@baylibre.com>
+ <20260924082705.GO3864833@google.com>
+ <1jy0cq94na.fsf@starbuckisacylon.baylibre.com>
+ <20261014104801.GI199624@google.com>
+ <1ja4ogfp5l.fsf@starbuckisacylon.baylibre.com>
+ <1jh5he2o9z.fsf@starbuckisacylon.baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,28 +70,123 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261111-arm64-kexec-nocfi-v2-2-ddf0c4aa326f@cressey.dev>
+In-Reply-To: <1jh5he2o9z.fsf@starbuckisacylon.baylibre.com>
 
-On Wed, Nov 11, 2026 at 03:26:05PM -0800, Ben Cressey wrote:
-> swsusp_arch_resume() calls the safe page's copy of
-> swsusp_arch_suspend_exit() indirectly, without a kCFI check. The MMU is
-> on at the call and TTBR0 maps only that page. The copy starts at the
-> page's first byte, so the check's load of the type hash in front of it
-> would fault. SYM_CODE_START() also gives the routine no hash.
-> Commit e2f8216ca2d8 ("arm64: Set __nocfi on swsusp_arch_resume()")
-> disabled the check "for now", since the entry had to be first
-> in .hibernate_exit.text.
-> 
-> SYM_TYPED_FUNC_START() emits the hash inside that section, and
-> create_safe_exec_page() already copies the whole section, at most 4 KiB,
-> to the page's start, so the page holds both hash and entry. Relax the
-> linker script's ASSERT, so the entry need only be in the section.
-> 
-> Fix by typing the routine, with a C prototype, entering the copy at the
-> symbol's offset in the section, and dropping __nocfi.
-> 
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Link: https://lore.kernel.org/linux-arm-kernel/arZSe8hNnRPM5FqY@J2N7QTR9R3.cambridge.arm.com/
-> Signed-off-by: Ben Cressey <ben@cressey.dev>
+On Wed, 18 Nov 2026, Jerome Brunet wrote:
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> On mer. 14 oct. 2026 at 14:21, Jerome Brunet <jbrunet@baylibre.com> wrote:
+> 
+> > On mer. 14 oct. 2026 at 11:48, Lee Jones <lee@kernel.org> wrote:
+> >
+> >> Note:
+> >>
+> >> --- checkpatch.pl (3 issues) ---
+> >> Line 2: WARNING: Prefer a maximum 75 chars per line (possible unwrapped commit description?)
+> >> Line 3: ERROR: Invalid commit separator - some tools may have problems applying this
+> >> ----------------------------------
+> >
+> > I've checked before sending and checked again now, I don't have those
+> > warning. I don't see anything long on line 2 or a separator near line 3.
+> >
+> > Any specific way I should run the tool reproduce the problem if there is
+> > one ?
+> >
+> >>
+> >> On Thu, 24 Sep 2026, Jerome Brunet wrote:
+> >>
+> >>> On jeu. 24 sept. 2026 at 09:27, Lee Jones <lee@kernel.org> wrote:
+> >>> 
+> >>> > On Thu, 10 Sep 2026, Jerome Brunet wrote:
+> >>> >
+> >>> >> Apparently this device never really supported i2c instantiation via
+> >>> >> sysfs, because the driver does not even look at the i2c device data,
+> >>> >> which are not set. It would only probe if the device matched through DT.
+> >>> >> 
+> >>> >> Fix that for correctness, even-though it is probably useless.
+> >>> >> Add the missing AXP323 while at it.
+> >>> >> 
+> >>> >> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> >>> >> Closes: https://lore.kernel.org/r/20260717090209.2A09B1F000E9@smtp.kernel.org
+> >>> >> Fixes: 41751b033aaa ("mfd: axp20x-i2c: Add i2c-ids to fix module auto-loading")
+> >>> >> Acked-by: Chen-Yu Tsai <wens@kernel.org>
+> >>> >> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> >>> >> ---
+> >>> >>  drivers/mfd/axp20x-i2c.c   | 24 +++++++++++++-----------
+> >>> >>  drivers/mfd/axp20x-rsb.c   |  1 +
+> >>> >>  drivers/mfd/axp20x.c       |  1 -
+> >>> >>  include/linux/mfd/axp20x.h |  3 +--
+> >>> >>  4 files changed, 15 insertions(+), 14 deletions(-)
+> >>> >> 
+> >>> >> diff --git a/drivers/mfd/axp20x-i2c.c b/drivers/mfd/axp20x-i2c.c
+> >>> >> index 5c93136f977e..a76bec5604c4 100644
+> >>> >> --- a/drivers/mfd/axp20x-i2c.c
+> >>> >> +++ b/drivers/mfd/axp20x-i2c.c
+> >>> >> @@ -35,6 +35,7 @@ static int axp20x_i2c_probe(struct i2c_client *i2c)
+> >>> >>  	axp20x->irq = i2c->irq;
+> >>> >>  	dev_set_drvdata(axp20x->dev, axp20x);
+> >>> >>  
+> >>> >> +	axp20x->variant = (kernel_ulong_t)i2c_get_match_data(i2c);
+> >>> >
+> >]>> > device_get_match_data() is bus agnostic and should still work from the
+> >>> > core driver.  What's the purpose of splitting it out and adding
+> >>> > additional call-sites?
+> >>> 
+> >>> device_get_match_data() works when the data comes through that path,
+> >>> which is generally the case.
+> >>> 
+> >>> i2c_get_match_data() calls device_get_match_data() then fallback to the
+> >>> i2c_device_ids. It covers the instanciation from sysfs mainly, not
+> >>> something usual.
+> >>> 
+> >>> As explained in the description, this changes plugs a hole identified by
+> >>> sashiko that technically exists but I highly doubt anyone will
+> >>> instanciate the PMIC through that interface. Those things do not really
+> >>> come as breakout boards ... That being said, it is cheap to fix.
+> >>
+> >> I'm confused.
+> >>
+> >> We already call device_get_match_data() in axp20x_match_device().
+> >
+> > Not anymore with this change. It is the point.
+> >
+> >>
+> >> So if you populate .driver_data in axp20x_i2c_id[], you should be
+> >> able to drop these changes altogether, no?
+> >
+> > device_get_match_data() only goes through the DT tables.
+> > Not the i2c_driver.id_table which is purpose here.
+> >
+> > My understanding is that if you instanciate the device
+> > through sysfs (which nobody does for these devices) and you only call
+> > device_get_match_data(), you will get NULL because there is no fwnode
+> > associated with the device, which in this case silently translate to
+> > AXP152_ID.
+> >
+> > device_get_match_data() does not go through the i2c_driver.id_table.
+> > Only the i2c code does, with i2c_get_match_data() and after trying with
+> > device_get_match_data() internally, which is exactly what we want.
+> >
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/i2c/i2c-core-base.c?h=v7.3-rc7#n121
+> >
+> > As noted earlier, this a problem reported by sashiko that is real but
+> > extremely unlikely to show up in real world. I'd happy to drop
+> > the change if you don't want it. It is not need to support the axp318.
+> >
+> 
+> Hi Lee,
+> 
+> How could progress on this ? I genuinely do not understand the problem.
+> This change is fixing a sashiko reported issue, in the appropriate
+> manner I think. device_get_match_data() just does not care for i2c
+> .id_table so i2c_get_match_data() is needed.
+> 
+> At the same time, what we really care for to progress on the Allwinner
+> a733 HW support is the rest of the series. So if this bothers you,
+> I'm happy to re-submit without this fix. Please let me know.
+
+It's okay.  If you're convinced, then so am I.
+
+Were there any more comments?  Is another revision coming?
+
+-- 
+Lee Jones
