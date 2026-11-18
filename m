@@ -1,66 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794961792;
-	b=22Qtv9E/nYYGuANC6a7LPstQM7f+I34c3YmUTQrO/Yen9s2JWdhpOYza6jptHnK0kzJc
-	 HqJ7mLyycaFM/4AipRLSChCBzkEHacw00kCaiSrLQAj0Qzr7XQfyi4cueJMPdFPk2bbSo
-	 YoSJ7yM9QOCsWsfXIFtRjaZCo4dU9INLiz1TthaF32E/qKoDhIr2bJ5fI2QUR9dvx4w3U
-	 zLg1Y5yW3VlTzank5tHNmE2/Ouk4W0xczeAYXq9mgha9DhjcsPNnuL4Xli7dadPf2BXnG
-	 5mrXkiqVB56/koYs2CoOUSSGWo7MrRJHoU2G3g3QewKMywB52LVxtk/qh7wUB1zgMWA==
+	t=1794961809;
+	b=G5vhF578oYSnmGDEMZAValv4cXWhfkJ4hqQrRlKVI7w9mCvi3GzPurBOAesv1Hvq0Nuf
+	 e+XH3BqB4G7bFLJoBcGjUg3M0yu4K+RBsGgESgCZt5gRWMUwV18qHkOSUJXZp6Xwl+7qB
+	 ZR4unI9u3MxsucIZVtPWLXuVPgc2RqpLpxwPOOhX+t4L7jLsKxx/fvzg0BDlXq3m9iwA+
+	 kBJsFVTBfjBznjyAiOTx/XBD0bfidCjCytC5KA6H063FQ8c0n45PvfjdQu0xLzHtBTCwg
+	 y+Ai+zqD9Y6DFlZWU8XCiJQ7laaTr12rYgZw1RQuKMhqj/CvnMzm66+T11E400ncV8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794961792;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:X-Developer-Signature:
-	 X-Developer-Key:Content-Transfer-Encoding;
-	bh=XgXrwef3GSdcgoeGpprzCP9+LfeU52zOGFONlLtqopU=;
-	b=NwB7MhnLjiShwCaSoJob7lz7+pMQxcNTSeyBdU7zZerWm+8hsw/t2X8zkEoImttEd45N
-	 6PTHL1MQBoVrrqj/cZRjVp+Llj9Y+f1QrA/7kIWReaPs/BHGXdj/DAClIn+z3Qz1cQSBT
-	 oJdqya03qydM697umX+G4/flOtRtvUIed+zREVWnV3MIAYTg0Epi/LBQXngWqKSuDFXND
-	 g4cra1HsNezOtKrZPqBqBiM2B2slnC50H+1tuqmiQeZK/p+Bj7FStLLFFHBFOiNwpyNjv
-	 LvI+duu2FpqchepzK7xz0UO7VRLZhRFTOdEBVh3Cb3HR7HDkm9DW+t2aJbop9L5AgoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794961809;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=FLFSTzTgvHuqY+20z4nQYiKE6NAG46HA4Pa6c/Rj/M8=;
+	b=KjlrmfvXV1HWWrM2PErc6M3Zy5Q/4+XV+PAjVt3tLn1Z/QT7wyNaSRAfYzwHqDK/JUz/
+	 vS4oVfcwX4lKBspVyIEN5xomTQyqpHwzsY99m2hrWVu+wqeTPwlzynBhqBxrbIONMUuQo
+	 OsYajK5j5TAxd6xC7a3VnOq8LqgHb+IDjz1Q4Qkt73dZZoWElQq59QfrTEkX1kvFNwWWZ
+	 tlZcGNOndjgcbD7Fu3sycd8tKO10qC+0+aQNviMXf9+oDWK6n9uiUPzzy32eq9WSUvSgk
+	 h1gZUB5saohGh0POvZMEv5xd79bFk40qUThYVihHQQsJjSEPphXl6d8igvYRQ0IfFvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UuEw1cbt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FX6YvtvS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D13CA606A31C;
-	Wed, 18 Nov 2026 00:29:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65141606A31C;
+	Wed, 18 Nov 2026 00:30:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UuEw1cbt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 270F41F000CC;
-	Wed, 18 Nov 2026 00:29:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FX6YvtvS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09E4E1F000C4;
+	Wed, 18 Nov 2026 00:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794961792;
-	bh=XgXrwef3GSdcgoeGpprzCP9+LfeU52zOGFONlLtqopU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=UuEw1cbtOFp4TZZlU/lzFOH+uJKcG6CGL/dfukobmupQG0yY0iLuhvoQ1vXICETNR
-	 huuTvtM41iyL42N95j/ndGletCBCyM+71NEYMobYA6J7/OPxVSzLyOhqTtQ/2NDFAf
-	 T6difwT78ibb3hHwyqX0+VGrFM24wltdIQBBDx+5r/ze70jFJkLM/o19zhIWH52B/t
-	 rfWG5izVuLLEA6eQEYVpZxu0VjX4XCeWGuQ7Zre1OkeSPsN8L9k/Vt9Hj3nl0SNTrO
-	 F5uMdm0Lib2MG25zvXue8MJTopqXYdFwzI2n16+laauBVKG1syMvA7SxevwJLcfzIi
-	 4YHbDl/scnfUA==
-From: Thorsten Blum <blum@kernel.org>
-To: David Sterba <dsterba@suse.com>,
-	Chris Mason <mason@kernel.org>,
-	Jaegeuk Kim <jaegeuk@kernel.org>,
-	Chao Yu <chao@kernel.org>,
-	Richard Weinberger <richard@nod.at>,
-	Zhihao Cheng <chengzhihao1@huawei.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	"Theodore Y. Ts'o" <tytso@mit.edu>
-Cc: linux-btrfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-mtd@lists.infradead.org,
-	linux-fscrypt@vger.kernel.org,
-	Thorsten Blum <blum@kernel.org>
-Subject: [PATCH 4/4] ubifs: Use FSTR() in ubifs_xattr_{set,get,remove}()
-Date: Wed, 18 Nov 2026 01:28:50 +0100
-Message-ID: <20261118002845.574426-10-blum@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118002845.574426-6-blum@kernel.org>
-References: <20261118002845.574426-6-blum@kernel.org>
+	s=k20260515; t=1794961809;
+	bh=FLFSTzTgvHuqY+20z4nQYiKE6NAG46HA4Pa6c/Rj/M8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=FX6YvtvSn6ASXYLwgRspXj6sUWUpGx3ppTDB+6G8ni/XIRXn1YPR8ui0j6BHP0VB8
+	 sfl05aOw6lj6c6k59P58XLllop85jGSlnESHQlLlGluTGV914DqiO+Xd2eUkIjTvJi
+	 ivu5YSzOma+PuyToik8lBQtgnZKlmmR/MSAQa9CJNXlLdX5to8kDXCPGn+TADVog83
+	 bWGGYLoCiO+qMzrP1cd3CglvosF9WZVzm/EjVHllW8n7saRqJ7DWR/tld3SOj2Vrqz
+	 +gK0aisppO6RcIshOEFK3WhJDbapEnMmQBFgpXn7oTICm0StfUBgsQvXSoKXI3sErd
+	 5T/uZuGXklyCQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15C9392B1FA;
+	Wed, 18 Nov 2026 00:30:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,45 +53,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1526; i=blum@kernel.org; h=from:subject; bh=WDBVonVI9poJWjMd/98XRPyVKKRQHMEiFwUXmeGohbE=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFl/PtpzGvoq1YpZXE1nFdg5d6r69nbd31K6j/fFReVcE D379qVqRykLgxgXg6yYIsuDWT9m+JbWVG4yidgJM4eVCWQIAxenAExkbg/DP9ub5Yd2J+94fCW0 24VFvituzp1C0eIpyftfha255JrFr8nI8Le94ZLGTtPky04bWC0Ui/6bTvNMPFQwUVuHdd+ZGd9 O8wMA
-X-Developer-Key: i=blum@kernel.org; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH wpan] mac802154: llsec: reject secured frames with
+ security
+ level 0
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179496180753.1369671.1262843769170490245.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 00:30:07 +0000
+References: <20261110-llsec-seclevel-none-v1-1-06ef143e467f@gmail.com>
+In-Reply-To: <20261110-llsec-seclevel-none-v1-1-06ef143e467f@gmail.com>
+To: Joas Antonio <joasantonio108@gmail.com>
+Cc: alex.aring@gmail.com, stefan@datenfreihafen.org,
+ miquel.raynal@bootlin.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-wpan@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-Replace FSTR_INIT() with FSTR() and drop the explicit length argument.
+Hello:
 
-Signed-off-by: Thorsten Blum <blum@kernel.org>
----
- fs/ubifs/xattr.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/fs/ubifs/xattr.c b/fs/ubifs/xattr.c
-index 3b0e8a270f59..036eb7e2be0b 100644
---- a/fs/ubifs/xattr.c
-+++ b/fs/ubifs/xattr.c
-@@ -252,7 +252,7 @@ int ubifs_xattr_set(struct inode *host, const char *name, const void *value,
- {
- 	struct inode *inode;
- 	struct ubifs_info *c = host->i_sb->s_fs_info;
--	struct fscrypt_name nm = { .disk_name = FSTR_INIT((char *)name, strlen(name))};
-+	struct fscrypt_name nm = { .disk_name = FSTR((char *)name) };
- 	struct ubifs_dent_node *xent;
- 	union ubifs_key key;
- 	int err;
-@@ -315,7 +315,7 @@ ssize_t ubifs_xattr_get(struct inode *host, const char *name, void *buf,
- {
- 	struct inode *inode;
- 	struct ubifs_info *c = host->i_sb->s_fs_info;
--	struct fscrypt_name nm = { .disk_name = FSTR_INIT((char *)name, strlen(name))};
-+	struct fscrypt_name nm = { .disk_name = FSTR((char *)name) };
- 	struct ubifs_inode *ui;
- 	struct ubifs_dent_node *xent;
- 	union ubifs_key key;
-@@ -557,7 +557,7 @@ static int ubifs_xattr_remove(struct inode *host, const char *name)
- {
- 	struct inode *inode;
- 	struct ubifs_info *c = host->i_sb->s_fs_info;
--	struct fscrypt_name nm = { .disk_name = FSTR_INIT((char *)name, strlen(name))};
-+	struct fscrypt_name nm = { .disk_name = FSTR((char *)name) };
- 	struct ubifs_dent_node *xent;
- 	union ubifs_key key;
- 	int err;
+On Tue, 10 Nov 2026 09:03:23 +0000 you wrote:
+> From: Joas Antonio dos Santos <joasantonio108@gmail.com>
+> 
+> mac802154_llsec_decrypt() handles every received frame that has the
+> Security Enabled bit set.  The security level is taken from the
+> auxiliary security header of the frame and is not required to be
+> non-zero.  The only check that looks at level 0 rejects the frame only
+> if level 0 is not allowed by the matching seclevel entry, the entry has
+> device_override set and the device is not seclevel_exempt:
+> 
+> [...]
+
+Here is the summary with links:
+  - [wpan] mac802154: llsec: reject secured frames with security level 0
+    https://git.kernel.org/netdev/net/c/3e8c853c959e
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
