@@ -1,77 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029390;
-	b=HZ+YuTqnFQsH07TETfV6sAoqz5H8OuKzq0qvmdYeKWDvvGJ8XEbDGvBiXdiEcXtsYSx3
-	 rSZFWeTj73FN0oUUpsQkCIQRnsU3ru5eFyMj2I/x+oFqmrVKX+cIaCqcNlZGJCZ84b1Qb
-	 lwPJlpsiaj6Tmz82pUtis4A6XdXNJBJlAbtNslPfg+Vuq8C/Iai4YmxAgVYAHgQoXTPir
-	 70NzxUu1LvK11BT50K3th9ETK06WoVdmCfkWykEgpjgkpQL108IaYfAWUl5WTpYsaJqxH
-	 cFCnC6y8GeeoDu6Y2YucM9dXchVjDWsYuv0GU7OkOmN58ElZmBcZNv2vf83I/J2gzVA==
+	t=1795029398;
+	b=LED3seH1KsBPtkVAeN9nD9f2yJ6QsBejj8YIRCIGKY0pPkzZNg6qYGrIa5aLVFToACzn
+	 1XXSc+OzSvil9fh82kgp3azM+m69kUUt9Y7h2dGuk2Jp1wZoTofmDeVh+dShG5r0T91+b
+	 aH/ybf8tYRc1QVQGSqBivYyB5BBiFAfw1yZKjmwIO7iRpMZxMJ/FtsvBrq9PFQZ9n1zmy
+	 qQNhiSvwhQxCaumbsIiq6Y2SAWpPNurKBNhernDF00Is+mtFcQwDOXZl3kYG0Mb7YA2nu
+	 z6UOM0G8QGNA6z0m8AgDtG9yW/otMc92DBkNmfdsgVf18fENax+5NRho2ZJUwz7yyBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029390;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=991iyhXnePuoVyWUxWvdBH/MinbTCMVR+YpyhWJMibc=;
-	b=oZyefgOYtPDtqLbPYDjYLpMhvk6iNKcozT/ism40iGbAZyzxki6wXOljuJlQP8lkDJls
-	 Wj67xJkRmB7HZP0opZcytHNNQ5H+JH1KB/yXssglLhllnaoV8JDZSQjC/M4l0vs1c1XpO
-	 sAYiZqua7sEH6Bhl4ucdEkqhpOJ34m766Su/58DLneL60tWOy2C41JM5J2jzmwJexDBdG
-	 oFLKwFoywEmFU1bbyF8Soo8fNnju5lpwqONbWJyCmlJAuQrxwm/xADi2SXeDAXQz6Ri1z
-	 09agCgHwNj1ITqNakrFmYJMHQ/K3JqUpF+yoq3o7eAkhhEZXtkvkch5f5wk9SAxXsew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029398;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=58b5SUFBCY4/MY2JUfmGH8gHdBS79YyzhPLRjlW4m0U=;
+	b=PeA90lIjmNrgmLhUUyc68cdubdQt9ajJPmfaguEkCMdnIYtT9uPdbHhowQONEddPe1DA
+	 DcwR9KJQ6B4hG1+Gn8dhlGzA5kt8xtI9cPxXGI6xXeN5ZnqQzmIwuExJgPnMZpbVxipWD
+	 D5itbnOmDFN5Dd7Eh2z3mox91zEZWWWTkAltu8+tj5K9g/YyC5QPrlDDwTTst1KfnP6Pc
+	 TnAhLyuhoLEe/6X5EWgkNtqxuLL7F0uAiJKUPv9VSbhrpCrW11KxWvabrMgtkLAZMDgJd
+	 Zt1QgcXSQXQ1P5bks0Ll74vToBHd51b2zlKYw9Mo14e8/OWUz31LcN3PK6XKbeZyR0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=FjsQKBvI;
-	arc=none smtp.remote-ip=212.227.15.15
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tJYexqmp;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F91C606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F91C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD670606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD670606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=FjsQKBvI
-DKIM2-Signature:  i=1; m=1; t=1795029387;
- mf=PGRlbGxlckBnbXguZGU+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:LlUEQOXvuTCmEmAxePlrRfY6JOMh
-   Xr85h01UtYOkq7q2JRlF0hEC4YJt1X6Se/3uK+hYuYEmrxhJR9/fVlVpYOFl8v6NS2WswqWCqA0
-   Q6oU204OvdMZf/FDP+n+agYU+drW20WSZxSDni3jLnJa0zyKB06Wb+FzTFPK3nabqQfzYT/9HXA
-   vXipVw97uZQlDlygDXYZInrbnWlukUg/OoGUfZ2ADm2jtyolfp9cjPl6tz6anEHT/r8LxRSvjG+
-   sAi3irUpw6kEJ4FGLoCwbhRBVUjwCE589lWdj33btMM4HrqPpMk5/9Em/jJUW7/lsyh2IQPxRUj
-   6BWmmgdTZ4vK2w==;
-Message-Instance:  m=1;
- h=sha256:
-   srboCBAulFwERl214zNYkk1rtllxIIWloqWhuM2n22c=:
-   p3QF7jznGO2+HIwtxtS162S1mgfk0qtMbWK073YbZPM=,
-  sha512:
-   dDveoLAUD3+QcugBd+G9Ujpxj0St5oDlXp+nQEzY2adME0PJdwVXcNL9pJJPA+oTWG7giVs4vSxU2Y5KiMqMXw==:
-   Ubfvek7mviPyQnn2jO3s1k1tqDNN2BIwHBG/RqD546thQjLzpOxC7LbknTQw20wD1t+MDbK8m+aRLmi1Xt4Hsw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795029356; x=1795634156; i=deller@gmx.de;
-	bh=991iyhXnePuoVyWUxWvdBH/MinbTCMVR+YpyhWJMibc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=FjsQKBvI2h4IP4cG0CRu/2Qixx1+KIcALY1LPV32VQMlbzap3OWe18QkWEGg51MY
-	 x1xPGshC1DP9aCWAuljzAX54g86YmlZG4MZvynT2k2/AQkL2FhD/h++YPUJMOxUth
-	 Q9GXiwwlZpFlmyUs/YVkaEenKMEHdILeHGCRCxB8t1xWpIr9dU+qu2Qq1aAiaN3bK
-	 tJEdhmee3ZYHrBkzd7R2AZJuYXarN8XxASc3J8hqb2Fa8CPOoddMUrRMYplVZ/zXk
-	 XkCI+7cy8AjbmRV1oe2dGSUzZtuU31rFHfrJ4YYxmggjkg/FtaXPb3nhuOWoi6//N
-	 J/DGERsPdinGeo3f6Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MtfNl-1wZjEZ0xep-00wSiU; Wed, 18
- Nov 2026 20:15:56 +0100
-Message-ID: <96e0feee-1c6f-4235-a76d-b43aba44c19d@gmx.de>
-Date: Wed, 18 Nov 2026 20:15:55 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tJYexqmp
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b904d10882so613738b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:16:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795029397; x=1795634197; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=58b5SUFBCY4/MY2JUfmGH8gHdBS79YyzhPLRjlW4m0U=;
+        b=tJYexqmpB1JqjQGtscML6/STrXZSc3Zf/53lM6/iVI+Lp3aqnTaQk1NbjW5KKOb4BC
+         wdT4sl8305PhWVaBETctmMi6n9bHgdThPbx4CCPY6sdren85WFDhcebDlSmNOKdg8lgz
+         qP5JT14iXk7D5/MguF9AIPPm6bN0OkZNFh3GMOYkffuWqQs39r1204o/C13KnJFRBMTu
+         19SR9+hDSgU0CC1h8oBYIhkLuaBuJRVSUXjABjOJJd2DGIdj/8joy2OLZ348YytSY22O
+         8lfWisihe2ewhIxhtQstSAsPkq+VqLEL67gzBWQGFJXH3VkNDr7tdHdzfxMiMLtK4MKt
+         zLnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795029397; x=1795634197;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=58b5SUFBCY4/MY2JUfmGH8gHdBS79YyzhPLRjlW4m0U=;
+        b=cT1gEUmm+2m2JRNq+NRp2h5COQCsq2pSfqRcvofMpR1/V+fgzzirxDBdEgcBPYei7l
+         vfLQRQtH1NmJk8aGGOwowhDMBO+xR3ZTKclwBgr/U89M9RKFWdpAhj3Tt6vAUXIK8dGy
+         987/PHdr/6xVx+HJCg5D0SGQ1UAAFHVAQ6afKQlqQsJ2oP0YsZMV8mihe5JdEBjvDhAf
+         /jyJt6Q/vn/LIfvtz/e5yOlWho/+wBK2q0KtFTNMiHL1wbSAlWrNJh8FJKaqa1IbUblV
+         SGRjMESu+ReV0jhLW4yxqcnkiagegFed8JHu3c2Diqzgi2iQOacfLUUKKfMbwA0AvW65
+         bm1g==
+X-Forwarded-Encrypted: i=1; AL+hErH/QRQdlUmcQ2fc3IZT04ert5dgptf64Fxkw+uxJ6/cXjib2Te5cioBo60lbEMoZPkysbkNcky2VyS0otg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vver2EBsYOE2W2JkUwNLOYr1Fxg2arYXqUAWlE4rqkLKysbqO
+	zPC47gzezh+kIaOOwBDieFnS2YZPlxZ9/dz+DJiGg0D13rxwGFjIFTjW
+X-Gm-Gg: AYBFou1AlcHwLOnpNLM/vFC96jYVOnwIeYc/B1kZHfkH1cFk+7swxjIE8HnJ9lS3ZMP
+	/qkKeHbhCkAVxvNg3/RUafTFQ7bLq3F7QHtnOtS3blsCC0do1ZGdmmzi8a1y0HvYgTPU+uhwRBV
+	6qFWE6udpIFA20yCQyXK0+yIihM6b2TarCIRZDiPsW2dgC0asUxCItXl+USPKzdOPzBntfqRBTT
+	A2qdidx5vwswpoq9q5yUHaLCDefXR4UBwqv3O9U+7cdIh6Qpy35xt5GZTTzKQXVO2nppLD7IerK
+	dHcYLF1wCvguymM0qaIIgBVw8pv2mhqukXgnQXex5jPVZSxGms5Hv33UcEi2n1HGq26YAAB8g3U
+	0ORhPjYwWf7QRbIQBmtu5WIU/35U0C9OwPAHJs4BHXT378fvzBP+mIcoF7HQMA90yok+5TyK5Jq
+	8V/E7wYN61Cv2YBcfZjAg5+5phNTOw/S3kEVvx77ODEaoXsgeXQ1P8hnpw2u6M03yFpqQ74Mczh
+	namJVLF7VVxK6qh11CZRqdxGTXXtASPfbjYNtEICFj57LKMAqvjjI0/62UXhGNhTO7i9shKPwPm
+	2eZzhtMt4mtwHI2vgqTi25hWwy86qVeqCcir6rKZg6xuTtvNIAb564tw
+X-Received: by 2002:a05:6a21:b8c:b0:3fb:1091:bfdc with SMTP id adf61e73a8af0-3fe97bf78a2mr3539072637.37.1795029396924;
+        Wed, 18 Nov 2026 11:16:36 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534854b1sm453228a12.12.2026.11.18.11.16.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 11:16:36 -0800 (PST)
+Message-ID: <65c24a95-1087-4f30-9f9c-9e8636da211c@gmail.com>
+Date: Wed, 18 Nov 2026 11:16:34 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,225 +93,78 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] fbdev: smscufx: keep the usb_device alive while
- ufx_data is in use
-To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>,
- Steve Glendinning <steve.glendinning@shawell.net>
-Cc: linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, Bin Yu <byu@xidian.edu.cn>,
- Cheng Wen <wencheng@xidian.edu.cn>
-References: <20261102072120.3022-1-25031212351@stu.xidian.edu.cn>
- <20261102085724.13456-1-25031212351@stu.xidian.edu.cn>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- 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
-In-Reply-To: <20261102085724.13456-1-25031212351@stu.xidian.edu.cn>
+Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+ hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+ sr@sladewatkins.com
+References: <20261118150009.797899913@linuxfoundation.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:AYp1QqgTeO0FxgUHNaFIph2kqMo3jTA9nJaUxIqXg6kr85UEvFp
- ll1vS97irlEcrlC00PUSXfOvjlKXPgcvrVndIyoUBVfmpRD4B5blu89DDR3Mcis2aA3Hnt/
- Gw+ELM9sDA/PpuXFpTxpP6jhVaeAiTDAnes+8v8SXiajdYSrwfrSHzxNEm7nrbZA9URurSF
- 26W3mWrO7ENChFU++48Kg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:Veezp+pzH50=;fQdXUNRiEahj4vJ6rHcHaSy/1uF
- B4weu9raQ4W+VsJfPh4OiIz6QJnc8g0TpwlaOhQgkwmnMbw51xlXHb+y69IeMvm6Lmg8CoJHj
- yZBhfjL3x2CoPC/GqKWgiUZRYa3ySwQ5nFWQXuIXyxJckPFd4bfB3D9/qSc9GDeszWNQRTfrR
- tA+25sClePFA2u8oE/HvxclsG/k2VRYUOISDq3WGekvZfCWVOWGXSXdRmtwebsFy2bfV7pKiN
- T5Dd+OPqniDrj97oX68sv6Hf0QmN6JHKzuycJ6R54cYLQQVPWP1MIxiUHfULO7dIuRPq19F/m
- KeeGeHBBKJbYs+dx8OXPxdYJiLthmafez0L6SB88HMQNLT2UMvm8WufFDEHx6Qii9MBo/+ip7
- Vbs5vN1EwkQthfRUSix+p1sjeFIozg7hAPK4iviMG02aaMgOZx3KLyDh1E/V/fP2n3zgx2PZD
- Fz0VlTECAZxMGYrwZowF5ku3nIUuTj0sZKL6ZXu6wsR7TrIBU+KMV2FbZNJCE0trCFCyWMc+h
- 2XpLxXCgZnDCWREd2zXxtolpovoPmk7cN2gEji5+0V/4VdJaw3F+Hj/TncU/AG7wArjS5qZhz
- Ds9/ClJ10g8l1Swv0mf6DrwTujXsx2YHhKQTWl1nIA3tPOXRST9lt4KOH6neodUhzifNRRQ0O
- UEeHY/UBDCNbaruEA/NLZC/UPSona5YTd5+6o8uxmPVBEhO67KKhOjIpvJJKynTyWn33+Jwhp
- AsQ2dZZh43rF33RtTUXs+xhTrjMqsVSExEPYnC1CIS4Nd1Hfmr8zntoXYM2J3PC8ADU9RRvEs
- NBn23QBHoPiwmO/GTOf4wyBzQLU4Iz8mCuphyyzWUWdLsD0Qv953rruOON5i1GU7I1n91cS/1
- JehG9wBUegGPiH/N8l8k2ctcC8795HBaYqIcmy6BAS2Hjp5BhEIvm9T1lBm642xypX/rtymH2
- /M3LPih8FrCVEIKQk07jAvj6Zppds3SE5wnAH4mXmKykcNGyTSNzawXQniptw5MqIFFR1+QOY
- 1+RrGltVAUlhvPPKw+u4Jiq5zl9DzYh4mt8Se8+zn90QZ0hNb5hsM9Izx9IfvBIU/ywtAO7sU
- taUYuHk7/SV6RHebGbAS2Vy08rK8J9IiSmjMADO790eCjk1XTmRAl9bVPF9Ab9HHsaqV4nVGd
- wwNkagLatbk3Pv/v07EW4xLTdRfBlDRhXKAEnQglLFxWza3G5Khjk+jx6VKnFmv/RFAE2lL8m
- Do5V7Qh27l0Ci3OngtqbXNRJPL665UDQTvneI0SsrPoMTohtcLT5gnvmsGQCg1WAWaWJJywxm
- xArwiAyXh4xRJoYAoT9HW0ckwG/ncETaXYXaeUvy8FTlJ1E5cTbnswm49NM1JYFL34+DQrQeH
- rOEN5OZ/bjHOnk5bkIJtgkar4FhF0vp4KcgZ04pgEacvdwlsmM5Wjbnn8Mv1FJkTqun7wuBLi
- 5K0WsFTXZ41rBe1Ttgu3Ft01wHlnU9YWS51I7dkhPOybjNygSrPbawKggdAUYeSdL+uDCJUj4
- OrdsndrLGKN7d6xVssygsSt/WutdHNM8I4+oY+WQIAlFHmLlKmXQBUnkgPfQD9meq2RnytQyP
- 46wI9LJIsRyN9QYgK4Y6wRBL6tjahccjHttWjl/5z4RwNbJ4Fh7rEW3+GftGSEea0aS+aciKK
- fIgCQnXVhylyKpg6LnVt/fNuU9mxssMbc+0HfSlxO8rDJGZrsiEfUS0rtsORMmyEd8S8VI2Q6
- ngxCFERPO7T1v/DMmx3oC7EkfKkmn3TneQ6Fn86fmWKe+X/s74PJPrbWUvn4q2uzd3886V+W1
- mRJr9aCwWGzIvhSkO/KFdGH4kxbrlv+Gy+m+lF/7cugzc+9IscwtcnaDXUqfBp5/NJd7DyPxE
- AI3IScBSe5jeDHs8wRQBNCs0rYmdCc49oHA3WbqwWovpniKhr+E9kVQwwWgstQws2pvay0wNw
- o9eWOrVbK5v0WFKoqNu3dBnvwSG6l4OzlP66zxQP5Rb8/qEBRyeLKF5knFSRgTy5rVvk419Qy
- hmhM0VhjcKVEv9RcljSf2i2FS6U5a8hpdrFw+U1tXaCn0IkRMKKs4OfbkGIqgJDR1Tj9E0ptJ
- 7M+NH8KunU8cEkdI0CyZQSM5wMM0hL/ssvihJVJ94KEkrHMOedGGFNcrkwhKHczZYeDsKatF8
- 2yz24y7snI1Zl1cAhiFe92ecpUeYq8ZuQvBACph1nr2SbptTi+wyxo8riyxtue8GT+BR8T/y2
- FoBpNx0SsMUjU1kypyyw/C1PePnW77sLoA+BWpLa4Z6MoU9E2J8pHhSl1qhvjE3RUNJw1A6Nl
- lysmjbyEfQeSZPCc/UXFClHyutuz4dntrTr8wR/uVFr1p+vxiHvYizRSL8eEmYBxHWfwE4rEM
- F4E4t/hIp/Hy/T2+CmKfmXGNARUTYdFEA5kG6ro7oSxSbLmbbzLpnK9bXE7MqFYNN84xZ24Jb
- 6BllHZa3gZkQA4wQMqHQnaqlDU3aXW+MjUs0yx7JxU1Ec5gdo6OMcYUTDiJmcMn6ddmSbeeZ4
- kEKJXlSSfMmYseXyz/tFWrtXteTwFTY/KPrKYp8EvyRfVHvHf4aF556FvCR+UbiKcab+F8KM3
- 7tdO2S7lEFg4M0V6SOWeUeOKf2IU6Q1KcKQCTXBaxC01nw/IpgtoE5HZ8FtW1hlAzw7BxpW4S
- dM7BzfcAdiTli9BAfV6udCUVxK+MtxPpa+dd06VQGpP8u32ZVVBi1WXe73VC0E3x5r2b3FMkP
- JcyoggZUq71PDoJiCJR1mtfqYu6oKzJBLkm8YmEWfXE5SpYStBSZo7HxpfDmTD0zQ9kQ2dRZi
- 2LpSvCirNDJvislBR8+uoKR8GbV5sm31rOmb1nzTAAciBs+Ooxj7t6s91RfSVFEIl3jX+tBet
- JONlhN/l5HaYp9r8I7qNog9+E362almLAU8tIUDre4p4cODIBulgualZLWZwu7PIvWAMQrTBB
- b+0OFSJmMaEYJ+dESw41p2p6pxLVOvSwBOXUzoiKbA7wWHUkgF8SeDumiNLDbpjExVnGcabx3
- 8p+ZzZkN9JRzpHHMslQLAy9zPN6dxwcpN12GWxzYgDg6Bmn1qGDJPAGQFckkfg1iLyzETB8Gj
- 23nI0e2pleDXwoqDmac8FXLXXuS6IS8UlQM2a37/7ZwAIO321LW/sPiAaRLYJhXEDOgvboIzC
- ojhIQoEAkfvle3YhYwzB+aOOMluR5M5BvSNP/FnmYbnuJ14rh37jSsV1UpXp8OFgTOGkp6X+8
- nt/9/Xuyt0/rI0f5DqwN8KDPyISquO+AkGDqChhaQFottB4ImrpVekIpoqZ6ct9Q9LdbbnAKz
- op4EmRddn/pBw6aoWwDFe4g7tF7wxROFU4zrJzxY9bn8MEV8iZNzKSlxhTQnAANc1agyJKp+c
- BtePl3TbI1jH8eWM7SwLpVWL9WFdZRVAEkrucEL+LyCOG/0k5G/UYdassEDYs4Npnx8rN1BxG
- YDDfFHxdUcbwS+AhvDHp/2I1lvyLFyIR7gRdANS2UjutYRt5e74V9ksGLPpDPZms/7hXRhNaj
- ih24Bfh9CLj0zgTfVSzIDfZ8QrjNGNthk8LFcveEHkiVka1jibc+BUx4fV2Cynr3CrbjovGCD
- IiUk8hBRhXyP9TCbrBi+zrci3muSn94WXL+RMeeK3XaxIf8plAWAVWIdIWz8mN7qLxCbtt/T9
- 9sydIlUw+ufJzKYN8U6jexVBbK6QzkJ8zrvzdANJYx4/SrwYFZp/ODlk1qGvIyTrtWzr2MK49
- l5XSG+lBmwYSZp/r3ir+23aLpL3z1sadfVEBx3LWPWKc20A4UbLEy9E8FxqgUEewC55r/hunP
- p1aZkze76M7AmTSmwrEA86EgQgEK27zqOGrSw47a9vAHPtOdkVAwAfVj+GfPkj1fxABmHy5WV
- SCiF6bN//E1JGcy5zkN8jdCpq8cZAzw3mY0h83TJw1GeJYbv7gqWf+Mbg5fc9pl6AaOQtJhl0
- 2Pz5U+FYrDRLUvgA9Sm9k9cqxLuhe0TXfNKSbJkcSJ8TDNK+gmmG5SIdyGx2ZFqq3LdeYoS7/
- 9SxauW4HmDepvfG313XqZyIsFZXev4zdeq20JexL9AmeB0jai+5gEoLipYP1FX/R9uquW4zoT
- /55a5iODg4KwQNT9sSFhJhS9XGYbuk0vnvTjr8dK58l/Rihyn3MDxKDJjLPY2/wS1PVZxfp7a
- m1tNpTtPYJw5Q37ycGEZuDJ9WJYNrss8sS9VO1Zwm4aIZugQEMP45pOu1lUdzROqP1FZILYO/
- c8ru2XZtr7021jtr+5VhJUV6eAhPK2+tTvDq3lvCGRk2weKykDXWsZhd/YMeTrEQbw6xl7PGV
- JJ5OcJCedAesRrzSfgBE/+yyVE8UjfNy6KOvhm3+TKoW6IqrBtYYO+S+clwaxaCN9Z8Va8wJe
- 0kAnDfcCS1X3zWKX2QFxF/loesigUB9E6smVprQewzG5DX7xHaPjUQ+xl3FsIRQFS8KG2gj+U
- FqMyO83E3c9ym1QOZ5QgBZ5eNDag98Uuy4EnZ7S1lYgsWzMPaVexrbFcIt7qtRukEODPzZ5cc
- A+e2YeeFisEfXFxnxGdmZg3pOoVlIRzIaefcA+MbShsqusO4XS1gmAvtc4DsuAhQoDxXaYeBV
- l8XZ66mCDRX5KxrD+g+LRwEjJwtQ0ZFFBFa2shFXZg3EhOq+m9xTbrfgbd1L5oCy1onF0rtr5
- pvaJ1z5j8jg5Fs9ygi7zXHSY6uNxMQIGWKlGWoAiPo8GqKpMs9mPevXALY9jr8UHGoh5bcfyJ
- COZc/nveumbGk3JjuJt3nb2X8kRE8JFQEexuI9cpkHXXxaYnf6yfUHleDFhkonjI33Wn8V0dX
- c6NvgL61Ot5EwOUnstjhtSjEkB4IFckf5SGHfgZkIviIK81C0g2YPQKoMipp8b6ZH8X3SNaJN
- 8f9YUzlz0CuEa8Qj/73EK5yoyRNEdhAb7DhIGV+bur8V5ydXO4R3sRiC5clB6fZX7xbEYRNeX
- Dt3gy6eoRpbINExLte3mhaNF5fqd+5xzPPaYlqOEnjTZP9OAXlj1Nem0VvDtN0rzx+etb1Tfn
- CETS5Uvfc5oc27g5OB0MSbpqggUgSKfRkPpCyAthoFsaxXrPKaDyFN5OqWrVZxjPBZKILmIKQ
- 4KRD01daEj6rE8i+qAb67knLGV6eLtP17eH5+2+Ze5PlckgcwDsd624aSILUdnQzKN9LJ65s4
- oPdJeFDP/6wCGSqObiVao+FsJm0t+mFQaLLm/3DpYgmG2WQ4R1VAnLsGSnLidnNHm/ccbO92k
- 88Gu7EHkBswccrtrPTtu4SpJNh9iOPjgnI31vJILFOSKA68gsVSZidtCGwBekd4ffSE5Xt/Pp
- 99kDRf3J4JLIGWlN01pOtmltPlV7Gglod4fJw42O7whrKBjml9F2C53RQsaKmwqZsFr5lddzj
- /08Rd16Zeq3zkiMnS63haw9h4MsvPDCidpLFP+LrsiBGJQ2Wl6TsNfagkMLTmJMWjgEr0zF+y
- pHXEy5DdUvA4QZTqfiAGx3hcGTqXPpSuaIfVv8L+wHwnUVWJZz3sPax5yq94nh71bPmj/Y4jL
- dXCnPfN9nTRWj/ABUZXp2xuiwc6T0Eer/C601NWOPmAuVpymBC1n9+oFHf15qpmquRMhQWiD3
- 4VaK2hYRlFowWA+dXR9fCFK1cLCy808RsO8SLEkmgWiaaNkgukl412ziDvrk5/pBFT0Pd9eX1
- n1vPWSfL28IlcVZdbQ+eS714XwrOnCDj8E7dVu7pa9KnFdjY2HTlvyKHIg1sVGjXrMT8+cFBj
- U6m7f80ZZVHqMoLu63l+IDUTWaQGx2+JWfwL0IedMQCF3bJgi4nen1jskxSODgT2J0J00DHuq
- ItoQcaN8KtQ0/8xJtBRkjToCiZflXRC2fZ1xuppV5364yZdxxAJ1R1bkdFdLNh1ITEz4su8C+
- JsNFO5WuEHXJrGIMzIVzmTPaXyHiTmX6rZ6eq/O+GPKUL4EpEzjs+n9uBqFnJJzg4KRy0tMEh
- nHwdjRWTC6YA6XctXCAnOjMASPAGjIfkTlYgngtwyhr9W6uxjT4wYoToCk9eNsgnkxWDCZmVV
- 9GU9Q0k6OS39K6ES1OVwBhAnp1a+U5hy1fiE4D61AcuhXwVeE3PYK4Ij8DkENJJyDyAd7xR45
- PYRmvo2tkz4Htx+KrIkZrsPFlCVp5YuGaMMW7LAj8hMR/G14cRQTpiyYQxbUUNeNpvIlz5tJD
- ouN8TToQigLvDIPthLDu/TuHwBcCfXVJP5Hcx6mypOZOhlMC7ljNRjo4SCUMfmT+54X5VHjk2
- ri/Wkv7fC4IlnMkVLFbGO1+6X1wZKYZgGYsKjgJemvyF2H3Y9rbC91G4231dBlzfTYJzkWOdl
- YEZHqCjmyT2bthvBvDSS+hpxVMNUO1j2YrFhy9/GGfRNTjKOjvO+lpXOOFunM2spwYDuKv+ZP
- dQwlFq5dbYuNKDETdFCcdL1GFpF6dJ55lDSOCyZfKggDISThtg6gRYpsA4b2Z6LeC4jny3m5/
- RPuFSnp2UkB+DAfnFCRmQVGZH0w+u6Xg6nHv/MACb0Xjr+b9IO3hspDev3sfNzErrr0m0BPeg
- QT8pDlgyVSxa/ISu58t8TuAHKuuIwmQUr0FOKottGJAK/+ZK9u8Akk9RgLlFsDGc46GmX32TQ
- LSqD8yKzwAoS2kSR3mQAJJVsp+wn7n9Wbz5sqCRUwJH77YxXjEYDMWfc3KfNKfRtDpChQ74tS
- e3PqFnztbF89HHSdjAzXiRMDd7GB0alHhjwOhMyEOi25fNt9a6fV0PfVtBhXqr90hq9ZYF+tI
- V75la9YDj7jml1Cl37QgDdidFTistEoWimfIG9t3vu1aak+aWeTaFpoqtVdtNM7U5J8hEsny0
- stE0cs+GNg+qaPiLrv6jkCoUDzsPxYwIh84YbVErInILBOIINb+J+G1PHSHFbqBC4OLQNOu9y
- ClH+nDv1/ZP4a5y04vrkEqLvAiItp99oavtzklC1wpq1vMeHijnSGLZbWZKesNW0tv8GLlCWy
- mnY1lsCNmfKhaVBK1A+un2+sNUHAOgh/RHirXJcuUxwQZZpnT+r7PHEC4jLjoTvcuoyCD0Q4g
- uxRJCF8HOtF4mJXzWugWkTO6atA4WSnPNnMjo5XC05Pto/nG4LcGuutITDye+ciS17C7Tq5fS
- eqxSdNrrkz87mhCnCppdAi7SL8ipLVVXUHcAWNGStImLMuCpked40HMpTtdZffvIWfkfpzx7c
- VDyWBK9Jc5BZrbwRzXpu1OT/ql/hn78kZqbG3NtxRmMJ2ytD2jDq9PmJAoXJ+XsFNwIG6xILF
- 2PEp4VezbsQnXpW55cur69Q0Qi+zRD3hiv3eub+qWZciDj6diQUf1m5IyEBzlbrW9EsmBK3ci
- giBG/ZfeETscSOmSFXc9qQ4rl8rCTML88Tz9hWx78l7+hycUAuOHk3JFYv1bhFj794QCUkbxK
- VS8X33aPXtsu5ztBfX7kI6R5Gj6KU+Sr4YGvZIPndKggIvWMBwEvuUwpWQybfv848gmOhW3dn
- jjt1CyDrfOkJcVJeu7oxJXii5W2hOKt9cSXTosY/PprxE4TEvje11uslXI9sAyY8Rpvzh71bx
- 7qplTMZ1KcF4iyNh1/UqOX/wyFlz0dN3IJrY7aihCoi3AaRiJ0cO2Ix64vAxLwbfrMnyvh6J4
- /TO4lL7cY4x6tQCNdfT6qnZ2xyD3FwYPh3l5qWafQVOMXGvfcyTDN1nH+vNOguZLEthTYjczT
- Nx9vyhTyHV2PA=
+Content-Transfer-Encoding: 7bit
 
-On 11/2/26 09:57, YuanZhe Liu wrote:
-> ufx_usb_probe() stores the usb_device pointer in dev->udev without
-> taking a reference, and ufx_usb_disconnect() does not wait for in-flight
-> control transfers.  A mode set or blank request that runs while the
-> device is being unplugged - through ufx_ops_set_par() or ufx_ops_blank()
-> on an open /dev/fbN file - keeps issuing synchronous control messages fo=
-r
-> the whole ufx_set_vid_mode() sequence, including two msleep(1) delays in
-> ufx_config_pix_clk().  Once the disconnect callback returns, the USB cor=
-e
-> may release the usb_device, and the next ufx_reg_write()/ufx_reg_read()
-> dereferences dev->udev through __create_pipe():
->=20
->    general protection fault, probably for non-canonical address
->    0xdffffc0000000006: 0000 [#1] SMP
->    KASAN: null-ptr-deref in range [0x0000000000000030-0x0000000000000037=
-]
->    RIP: __create_pipe include/linux/usb.h:2031
->    Call Trace:
->     ufx_set_vid_mode
->     ufx_ops_set_par
->     fb_set_var
->     fb_set_var_from_user
->     store_rotate
->=20
-> Take a reference to the usb_device in ufx_usb_probe() and drop it in
-> ufx_free(), so dev->udev and dev->gdev stay valid until the last
-> ufx_data user is gone.  The control transfers then fail with -ENODEV
-> instead of dereferencing freed memory.
->=20
-> Also return early from ufx_set_vid_mode() while the device is inactive,
-> matching the other transmit paths.  That check alone is not enough,
-> because it is not serialized against ufx_usb_disconnect() and the
-> transfer sequence continues after it; it only avoids a long series of
-> failing transfers.
->=20
-> Fixes: 3c8a63e22a08 ("Add support for SMSC UFX6000/7000 USB display adap=
-ters")
-> Cc: stable@vger.kernel.org
-> ---
-> Changes in v2:
->   - Hold a reference to the usb_device and drop it in ufx_free() so
->     dev->udev stays valid for the whole transfer sequence; the
->     usb_active check alone only covers the entry (review feedback).
->   drivers/video/fbdev/smscufx.c | 9 ++++++++-
->   1 file changed, 8 insertions(+), 1 deletion(-)
-applied.
+On 11/18/26 06:27, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 5.15.226 release.
+> There are 2214 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-Thanks!
-Helge
+perf fails to build with:
+
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
+in function `test_truncated_branch_stack':
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:358: 
+undefined reference to `__evsel__parse_sample'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:360: 
+undefined reference to `perf_sample__exit'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:361: 
+undefined reference to `evsel__put'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf-in.o: 
+in function `test_truncated_swapped_raw':
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:406: 
+undefined reference to `__evsel__parse_sample'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:408: 
+undefined reference to `perf_sample__exit'
+/local/stbopt_p/toolchains_303/stbgcc-12.4-2.0/bin/../lib/gcc/arm-unknown-linux-gnueabihf/12.4.0/../../../../arm-unknown-linux-gnueabihf/bin/ld: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/tests/sample-parsing.c:409: 
+undefined reference to `evsel__put'
+collect2: error: ld returned 1 exit status
+make[4]: *** [Makefile.perf:670: 
+/local/users/fainelli/buildroot/output/arm/build/linux-custom/tools/perf/perf] 
+Error 1
+make[3]: *** [Makefile.perf:238: sub-make] Error 2
+make[2]: *** [Makefile:70: all] Error 2
+make[1]: *** [package/pkg-generic.mk:286: 
+/local/users/fainelli/buildroot/output/arm/build/linux-tools/.stamp_built] 
+Error 2
+make: *** [Makefile:29: _all] Error 2
+
+which is coming from fb1a8ab598b3 ("perf evsel: Validate branch stack 
+before byte swapping") and 2bdbf51d3627 ("perf evsel: Validate RAW 
+sample before byte swapping")
+-- 
+Florian
