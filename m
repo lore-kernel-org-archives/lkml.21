@@ -1,62 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794973360;
-	b=qyaF8al/L1yDLOgSyXlpLfEGG892PpTerA7+/wZml7Yy0hSmwcHNgo4Alir5a2c6+cW/
-	 lft0uYVSMtKzuBtANEEs2+a1UCVF4Lxp0joXG4vEpeyfNcn5QwqfStTtyN+BEPlxNMjNv
-	 rccUcX4KCpR4WTmp15EXyspV3O8MDgqTtk09AbBh5i6yESh40C88yYCrjvPiFBKaiF3O6
-	 xoLj6FWsUo33cYZ6nXO6Wd/LFhew4p3CGhdjRmESVXZ6PjkkDB6UZeGlK7574yNOrTx7i
-	 OIFWli2HO4337q66qm31/z5jD8P+Iy/8b1pzdFlZFmmlBVhENxuNOgM8c0doze8sOJg==
+	t=1794973452;
+	b=0msA+DyreMNnk6UdWn3NLbR+90ckDUITPN6czUxXy6+//DpImsRryOUxYrn68AO/sRoC
+	 Q2d6MOrGyLEVgWniT9mCq+g3h5f3x5/6bWC7vanKUIZhZaz37u6GE50yAQVlAr26pJ7Sb
+	 Kulg7hdX7y3qFRpXHNUAy/RZgcZzF9xS7o4Mg070yE/oeBcGnW0qm9dCedA6B6D5kXaf3
+	 NsyvEB6vs4+cTkbccE+cEzVwB9uVgjOxTcZqHa7byIqLVzVt6UO5bRbLZotNwSAoNQ6ep
+	 O8kzFJVwoAlliSasZAja5mc6CsCxJVTrG57L0PSN9uhe/qKOc3KZFAiVrRxPM1flm/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794973360;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=CRoVCX5qUvRVZQYCG7l49zxIQXQRCkCrH+z2zQB6lGk=;
-	b=stWrL2N57RLNkID/IiMQOQBVFmgQdiEEKZuccP0jHnxsW0p6Pz6RNT3jenLLEZOzU7rG
-	 BdRzg8jg9RkoSXBO/nrrxDtq2vSDktKqAPB4f3mVi7/l6ucj+YjQD7X3IN+seVi704CHO
-	 RjxeTJYU+Q0O8zEdZ8gpQXHX74Yj11k5dZ8GIBZpBfxxokwrGzTlyQjZIvjHJ3LdM0MUZ
-	 /iOnDZiHXlWGpNXzL/Rxg21vy7mmf+z4U9zYRuHAOtV9HONxf9xMS6ryFDvr00DNGYTHu
-	 BYRxSdUmtAOHQi10WJWY3o2XKToQeqfgo7p8zPZcndjWBXlbDT2ONIBvJDjRHT9sTxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794973452;
+	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
+	 References:Date:MIME-Version:Content-Type;
+	bh=oeN4UYKbcgSbiY4OCoag9qZm+b1F9hp1E8jsUt1GOFE=;
+	b=rSQuKyyOgCVKnc05CeV0SnWeoWQusSc1c2VNLCbXVQsVbWDXwa93fGsERDmnOLH64WXr
+	 9qG3AWrv8DnUncmI6PQ4FSnnWMGRPsmoDmlZF4gQFDt8qmzHJQxQdb8PknHA3xIU7cBCm
+	 bYdZxZinm09HFJ4/8HVxat5mihA611HlHHH3gWzN9/t0wiodTWi7DPX4JVPMs5OL1JF+z
+	 I7r0VAGeS1XV5eE2fuNnRDTxjq5PL9J89nLqCBEDp0InVLe/QUtDw5FqUP9C1CLFV2J+F
+	 etj57tQa3FT/2ZDB3mgbdWIrnkD41ZT8xmzAwN1AnPMe822ZIeP1b4WiXKxX7NArBBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=mwprI4iZ;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nXy+iuCQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAC00606A31C;
-	Wed, 18 Nov 2026 03:42:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAC00606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48294606A31C;
+	Wed, 18 Nov 2026 03:44:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=mwprI4iZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=CR
-	oVCX5qUvRVZQYCG7l49zxIQXQRCkCrH+z2zQB6lGk=; b=mwprI4iZ+CbiDSDsWB
-	7VgMALErBQDHw1E7HMN0ODI8mXbWwx1x4+ZM5kyOlT0O3kjwoJR5iw0GjwQr6i5Y
-	faUNia3AAIHABG+uZynxk434tCUYvIkQgGEN9XzP2/Pk60LHqwGWwwg5HRNamu4e
-	gmoOHKho4LRzPUIGipKrGWuEk=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wDn38CPHv1qYqpgIA--.57100S2;
-	Wed, 18 Nov 2026 11:42:08 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: rafael@kernel.org,
-	viresh.kumar@linaro.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	hector.yuan@mediatek.com
-Cc: linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Haoxiang Li <haoxiang_li2024@163.com>
-Subject: [PATCH] cpufreq: mediatek-hw: Release resources when hardware enable fails
-Date: Wed, 18 Nov 2026 11:42:05 +0800
-Message-Id: <20261118034205.2002363-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nXy+iuCQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74ABE1F000C4;
+	Wed, 18 Nov 2026 03:44:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794973451;
+	bh=oeN4UYKbcgSbiY4OCoag9qZm+b1F9hp1E8jsUt1GOFE=;
+	h=To:Cc:Subject:From:In-Reply-To:References:Date;
+	b=nXy+iuCQ7ptXv1Y+PJ4LrEDWKnA1lLI5kPQirXSRT9Y6GXELoiPbEiPXaAwPfmC9v
+	 TZxVgE0sdOJmEDAKy2hKRIh9pjid/Nh7NtNZ7jePwlJFH9icN320U+YOmTILUn2JEC
+	 tqOLos4bhzc5HmBMKY0Njl3j9p5eHsZ6Nn+HUIM1kr7Uim++aDCcK3+dvIzI84kdRQ
+	 RbuHprEf9+Ph0R73wTOpVO7WkirG9mWsDVwF9MbwJ5y6kj3UR01YVws8FTqokM9u+E
+	 vz+pQW7LjNWbrhDmCpgsJwzHEUeylnduXu5MFBW+jliYnstSZnN0bVj38ABSb4SCut
+	 0JlpDk9GMpEIg==
+To: HOYOUNG SEO <hy50.seo@samsung.com>
+Cc: linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  bvanassche@acm.org,  mkp@kernel.org,  martin.petersen@oracle.com,
+  stanleyjhu@google.com,  peter.wang@mediatek.com,
+  alim.akhtar@samsung.com,  kwangwon.min@samsung.com,
+  kwmad.kim@samsung.com,  cpgsproxy1@samsung.com,  h10.kim@samsung.com
+Subject: Re: [PATCH v10 0/4] scsi: ufs: core: Avoid redundant link recovery
+ from the error handler during PM
+From: "Martin K. Petersen" <mkp@kernel.org>
+In-Reply-To: <2052256418.81794387787276.JavaMail.epsvc@epcpadp2new>
+Message-ID: <yq1mrr6st1j.fsf@mail.kernel.org>
+References: <CGME20261111082303epcas2p180a7cf157dedd181634550630fe78df5@epcas2p1.samsung.com>
+	<2052256418.81794387787276.JavaMail.epsvc@epcpadp2new>
+Date: Tue, 17 Nov 2026 22:44:10 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,76 +62,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDn38CPHv1qYqpgIA--.57100S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KFyxtryxJF1fJF4DWFyUWrg_yoW8Kw1xpF
-	W3ZrWYyr45XF4qqw1xCF4DuasayFs2y345W343A34Sv3ZxAFy5W3WUuFyUAFZakrykGF12
-	yr4rtayxuF4kArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJ5rxUUUUU=
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7RHFNGr9HpGVjAAA3M
+Content-Type: text/plain
 
-If the CPUFreq hardware fails to become enabled, mtk_cpufreq_hw_cpu_init()
-directly returns -ENODEV without releasing allocated resources.
 
-Reuse mtk_cpufreq_hw_cpu_exit() on this error path to clear the hardware
-enable request, unmap the registers and release the memory region.
+Hoyoung,
 
-Fixes: d776790a5536 ("cpufreq: mediatek-hw: Fix double devm_remap in hotplug case")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/cpufreq/mediatek-cpufreq-hw.c | 25 +++++++++++++------------
- 1 file changed, 13 insertions(+), 12 deletions(-)
+> If a LINERESET is reported and the hibern8 exit fails during system
+> resume, both ufshcd_err_handler() and __ufshcd_wl_resume() call
+> ufshcd_link_recovery(), and the two recoveries are not serialized.
+>
+> Patch 1 makes ufshcd_link_recovery() clear the saved errors like
+> ufshcd_reset_and_restore() does, so the error handler does not act on
+> errors that have already been recovered.
+>
+> Patches 2 and 3 make ufshcd_wl_poweroff() behave like
+> ufshcd_wl_suspend() by sharing its implementation. In particular it now
+> holds host_sem, so that the error handler waits for it, and the release
+> of host_sem is balanced if hibernation is aborted.
+>
+> Patch 4 restricts the early link recovery in ufshcd_err_handler(), which
+> does not hold host_sem, to runtime PM. For system PM and poweroff the
+> error handler now waits for host_sem, and for shutdown it stops.
 
-diff --git a/drivers/cpufreq/mediatek-cpufreq-hw.c b/drivers/cpufreq/mediatek-cpufreq-hw.c
-index 2c57371ad502..65f15fe935db 100644
---- a/drivers/cpufreq/mediatek-cpufreq-hw.c
-+++ b/drivers/cpufreq/mediatek-cpufreq-hw.c
-@@ -289,6 +289,18 @@ static int mtk_cpu_resources_init(struct platform_device *pdev,
- 	return ret;
- }
- 
-+static void mtk_cpufreq_hw_cpu_exit(struct cpufreq_policy *policy)
-+{
-+	struct mtk_cpufreq_domain *data = policy->driver_data;
-+	struct resource *res = data->res;
-+	void __iomem *base = data->base;
-+
-+	/* HW should be in paused state now */
-+	writel_relaxed(0x0, data->reg_bases[REG_FREQ_ENABLE]);
-+	iounmap(base);
-+	release_mem_region(res->start, resource_size(res));
-+}
-+
- static int mtk_cpufreq_hw_cpu_init(struct cpufreq_policy *policy)
- {
- 	struct platform_device *pdev = cpufreq_get_driver_data();
-@@ -321,6 +333,7 @@ static int mtk_cpufreq_hw_cpu_init(struct cpufreq_policy *policy)
- 		if (!(sig & CPUFREQ_HW_STATUS)) {
- 			pr_info("cpufreq hardware of CPU%d is not enabled\n",
- 				policy->cpu);
-+			mtk_cpufreq_hw_cpu_exit(policy);
- 			return -ENODEV;
- 		}
- 
-@@ -330,18 +343,6 @@ static int mtk_cpufreq_hw_cpu_init(struct cpufreq_policy *policy)
- 	return 0;
- }
- 
--static void mtk_cpufreq_hw_cpu_exit(struct cpufreq_policy *policy)
--{
--	struct mtk_cpufreq_domain *data = policy->driver_data;
--	struct resource *res = data->res;
--	void __iomem *base = data->base;
--
--	/* HW should be in paused state now */
--	writel_relaxed(0x0, data->reg_bases[REG_FREQ_ENABLE]);
--	iounmap(base);
--	release_mem_region(res->start, resource_size(res));
--}
--
- static void mtk_cpufreq_register_em(struct cpufreq_policy *policy)
- {
- 	struct em_data_callback em_cb = EM_DATA_CB(mtk_cpufreq_get_cpu_power);
+Applied to 7.5/scsi-staging, thanks!
+
 -- 
-2.25.1
-
+Martin K. Petersen
