@@ -1,80 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.67.36.66
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000966;
-	b=IG/WCvRGepMkOhaZIKdr4MxZDbR+FUhjty/QUkkehS0qGJCM8cKiIgohOcSIu83RBNDK
-	 mheMPiadzZ9Z01YzZOnhcWT4NUoKI/ZqgZE1Uwy0u6aAJj/JSIHEskoMNLfdttOYdIBch
-	 w/hvAbl4t/iqbm+YhaKJgu0x+d3ps9Xg5/UkJtMtCU1iOAvAsWIm5beqQZDBMhQCTOdEo
-	 0w4zsa7THCajYwbxHvE5BwOiPpMZyiqzuybv4ebP0PocFe9vGqjnglAIXnxRFpfyA4rci
-	 javzPwba3hnx/WeTVGdclUgmnAmEC9HXRnKFqPOvgomaRHtdQ0iGLkc3XKPIWn1YVWw==
+	t=1795001003;
+	b=HzYUwzqRozMjyb47TvbuS39p/6HsWug3wjJsbJcN25nEoA8OoWgIC7r2hLepb0W08vJG
+	 mJPpHn+ZHgUEEmfxNaNw6EZ2aBuY4ChUPe9iP/v58+0be6B+3oOPcGq716e5pqidFq8nJ
+	 nka3Qt37jJbfLsayql7nJsfdRiuGYCnfSEIRkzuwlKZ1DY8Y40kDw0HMBsIHpUmVg/d0c
+	 dx6t7Pap87rVUHeIPbmoXKjlc/BueiSNBD0mCQW248VvcQ8LUGMZya1psDhHWqW87CGSD
+	 euq303o7YLWRAbcWqxlm1ylQAn2XmLzrP70Nq/wJ3taZ1nq2l9syz+Z4z5Nb+F+2nig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000966;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=ZkzVAUC8Nlucc+Qn84sOEi9EHs8qdlhH5KYkgJRNO04=;
-	b=pq2Bf1b+vtYWfe4mouc7L1VsRV7z7B9m/gSdkk+MnBDmv+BoiQY/Yj4GRIFulmeuKksn
-	 sOZ5M1T8AAc8q6b12SkG0EAks5xqbmT7llQ9D9SF1fpqTT0+i9YgXPCZC94TfMbvMgt46
-	 2JXBVQ+AZfkU+cIOFm6t+A9pLjI9NSs3DDNbYl5irMVVJBO+HMe1Ne7TqyvacPC3i8iiV
-	 jvYz9KVjSsk3XmCxWrzgtPhZDSdxO/II86hHycMKgtQbcImfoFMuGOhIRyAnzL8tH0TY+
-	 SYGG7nHOVuz/Q38SIaZgU+TlFVOePHQQv58tvu1kLu6NMy0HXAicFi5JKIUpaBEmjIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001003;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=W6x2pelBr3wYOCPRTKHiPfM5HE9jBdaWLd+H8cG1qSs=;
+	b=EIGNgW8sYZnElvWCkhaekFJNXbHOcJ2WPsztaJ4cVIqgn899yKSZunKqM5M4JTN4nZ5S
+	 KM11aGuqBvDr0WaBi0Vqz5uf8mK5kSOYB45R8i8rjV5qUJ1ss4U135AIz5Cr2AojsHOOU
+	 J1k0DXnhDf41Yoyw6+pGPtxLz66xgGuYUiiQozEJt9RcI7UlkdPZe+R3bz//6kbbeNnJB
+	 Wh8WJrgu4u4L8UvTvIxxnS7ICnLsZ6cnlsdb2GtsWIKx+npDvYvh9mkQtff9tO/OGIOY6
+	 4PMC/o+fc2sODF8usTbTPwqtTIRc7rXGyMSnFQ8J/LmBiy6Sb256iv201CQDePfR3bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NMpfSZSr;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=posteo.de;
+	spf=pass smtp.mailfrom=posteo.de;
+	dkim=pass header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=h7i9IytE;
+	arc=none smtp.remote-ip=185.67.36.66
+Received: from mout02.posteo.de (mout02.posteo.de [185.67.36.66])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A61606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A61606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F3AE606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:23:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F3AE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=posteo.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=posteo.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NMpfSZSr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795000967; x=1826536967;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1F5dORa7k4HSGssZHA84M4G5Hli+drHq4OaBfT2fXi0=;
-  b=NMpfSZSr1sVDKiALiPD/qaakQ7kss6CcsB3vwx/KGGgmu9Nr3ajPd+U0
-   yGgPId7wGbSdK02S/igVXhJQyl8Fbrfeymio1Tzel1aFUQiLiXJkw42Jc
-   5ROIu59QSR5qfOKESXUNmhkjvnceOt2GY1jjVkvL6hGTr6nZa9r/p2MZC
-   2srPNfzp/5s2OyxmZY0/VBrUtqHbzbYMMocKI52iUkbnsm8j6Clz4M2b7
-   FRolSL+r4UHAWGS0pvBZQ4Zt4xqUA7Q5DpoFLWX7bKOVGAgrm5KL27k1t
-   AjEJVln4wC4jtCKSyXll6N70QeArcKZna0m5w9prHf1oVoQn2IKrnCEDh
-   Q==;
-X-CSE-ConnectionGUID: H3bvZhfuQhGA6TSvtvFq2g==
-X-CSE-MsgGUID: Q762r4M6Sv+JVXkMqkXtWw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3831909"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3831909"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:22:46 -0800
-X-CSE-ConnectionGUID: e7sICtvpR82hcomjcL602w==
-X-CSE-MsgGUID: K4Z5u7qoTnipOC3FXI9xJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10203305"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:22:43 -0800
-Date: Wed, 18 Nov 2026 13:22:41 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Dan Carpenter <error27@gmail.com>
-Cc: Shivani Patel <patelshivani2283@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Parthiban Veerasooran <parthiban.veerasooran@microchip.com>,
-	Christian Gromm <christian.gromm@microchip.com>,
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Julia Lawall <julia.lawall@inria.fr>
-Subject: Re: [PATCH v3 1/2] staging: most: video: Protect pending_mbos and
- mute with list_lock
-Message-ID: <av2KgdP5EuLamxpe@ashevche-desk.local>
-References: <20261117170558.33844-1-patelshivani2283@gmail.com>
- <av1t4DbqGsmUmrZJ@stanley.mountain>
+	dkim=pass (2048-bit key, unprotected) header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=h7i9IytE
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id B9293240101
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:23:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1795000994;
+	bh=W6x2pelBr3wYOCPRTKHiPfM5HE9jBdaWLd+H8cG1qSs=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 From;
+	b=h7i9IytE/1gaX3YfY32QyXasyHloxSLIWgiFlf/gIlmFEow9rjvE+AwtqWLWF2B1X
+	 bG5gqP10n8Jlq4dyuxsmU+JB2t9ZkPV+D16pjmL8yeAnkIjUy8qrz8MkBwXw1UkK49
+	 rGhRa7COC9VQ4Kiq0U+AUvCRCHHp4fM2oUJ01KvjOmy19jkuJTDibnhFg5ssxxzOHw
+	 uI/QBk/dHaNJ2zlAwFjZhUg0t5UPoGpuV6KP/Ofk6tDUrXj1TWgGNFlQhGVLuQg0eX
+	 skCrQGlLggBIRn4e6QnIy/yWSX+08dhqXDq8qRvpDc/85RYk0OiyZDI3wg+RfdCpS+
+	 rAFacqO68BF9A==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4jTzjs49lrz9rxF;
+	Wed, 18 Nov 2026 12:23:13 +0100 (CET)
+From: Freimut Diener <freimut.diener@posteo.de>
+To: Yang Siyuan <hsyysy@163.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] usb: phy: generic: request the vbus supply only when
+ it is described
+In-Reply-To: <20261117094539.13527-1-hsyysy@163.com>
+References: <20261117091956.12103-1-hsyysy@163.com>
+ <20261117094539.13527-1-hsyysy@163.com>
+Date: Wed, 18 Nov 2026 11:23:14 +0000
+Message-ID: <87a4n6v0wv.fsf@theta.mail-host-address-is-not-set>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,53 +69,9 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av1t4DbqGsmUmrZJ@stanley.mountain>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
 
-On Wed, Nov 18, 2026 at 12:20:32PM +0300, Dan Carpenter wrote:
-> On Tue, Nov 17, 2026 at 10:35:57PM +0530, Shivani Patel wrote:
-> > data_ready() and get_top_mbo() read mdev->pending_mbos without holding
-> > mdev->list_lock, racing with comp_rx_data() which modifies the list
-> > under mdev->list_lock. Also, comp_vdev_close() clears mdev->mute without
-> > holding mdev->list_lock.
-> > 
-> > Acquire mdev->list_lock in data_ready(), get_top_mbo(), and when
-> > clearing mdev->mute in comp_vdev_close(). Use list_first_entry_or_null()
-> > in get_top_mbo() so comp_vdev_read() can drop the redundant data_ready()
-> > check inside the read loop.
+Tested on the NXP i.MX93 FRDM board. The patch eliminates the spurious
+dummy regulator warning.
 
-...
-
-> > -static inline bool data_ready(struct most_video_dev *mdev)
-> > +static bool data_ready(struct most_video_dev *mdev)
-> >  {
-> > -	return !list_empty(&mdev->pending_mbos);
-> > +	unsigned long flags;
-> > +	bool ready;
-> > +
-> > +	spin_lock_irqsave(&mdev->list_lock, flags);
-> > +	ready = !list_empty(&mdev->pending_mbos);
-> > +	spin_unlock_irqrestore(&mdev->list_lock, flags);
-> > +
-> > +	return ready;
-> 
-> It doesn't really matter if we take the lock where since we drop it
-> right away.  The list_empty() doesn't anything that requires locking
-> so far as I can see.
-
-Right, but the problem is that we possibly might compare valid pointer
-(list head itself) with the stale pointer (head->next and/or head->prev).
-Also don't forget that for 8-byte pointers on some architectures it
-might be the cross-boundary split (most likely won't happen with struct
-list_head as it should be at least 8-byte aligned, but still).
-
-> >  }
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Tested-by: Freimut Diener <f.diener@pengutronix.de>
