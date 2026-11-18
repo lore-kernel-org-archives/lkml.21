@@ -1,56 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.136
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030562;
-	b=xh8bpZKagOPi/MW2fXFSAYMK7cc2o7UdzkHqFcGVtz3BZvNeGQKFbhamdF6uSnTwSX6P
-	 iGKA4+PlS4za6WZnE1gg1xPY8H4jJjrnPPJclv+Jr6+IwCUJRFKcm8kvg0RIfyanc6wJQ
-	 XJMBpYZh2rMLcWQmRT6Gds8LDi/BnMr2Z8OCY/ehfGzqNwopkAiDhvaf+ttIXCcZ7AsPl
-	 0S1416iTk/iXr3UAL4elXd5s0PhTmL0XrRPOPnPCK4QTmsz+6q9deB9aM7pw0n8eaoIfA
-	 wWZwaVWiaFvi1Kkls9RsI6pqOkdAEoolFCvS37CxCPCl2U+WXDKocC4Z4AoCWdXWPgg==
+	t=1795030569;
+	b=1VulYODDELkC+zfKB4pSqMtA/Tql91+RdE4nSJmJmwOwgUfJ7qKNi0YPEmzmyIfyaSx4
+	 fnDS5YktaM8AIU80wIiESvKow0NkviFFjNATXIa0XDOu4t4Rd56zhBJNd90L811m53ZrL
+	 5bafPehfoH1nYfgNbnE0fFnngZjwvKvcKqq5uEXQdr3NwfvH2YsDLZAFSD1KrglQJA9Sw
+	 wE1L4lT6qKypc0N249vVPo04ORnKNR+bFOwK8F4hNGI96y1e05FO2TeAeA8izD9OwuRI1
+	 vC385CFvPghSEbLR8NSOzg2/pN8dp6tmmLygBpeFnPAd/dyExoBAwz6UKb06GtZ7KxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030562;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=q5Mo/Kh1qLZ3uIRaKlBLItE0Zsx4/+Cy55RfXtKFyLU=;
-	b=Cb6kvU2DM4AU0Qmd1P8qIXXOfT1qZp/dNWVMGVLAxZytOd4zqj/n3z1Nxkt3li0ztNEe
-	 3BB4NqY7EIFcsfz7SWmJG0St0KIehkpORci4OpfsxLYtkFQyjx+La37bW0G874XKKglsS
-	 VIE9zbP4i9bwTfj85FBJen+JP1rJeQdAdFeYy9KL28/2WdkXvR/BTekB4aAOg8+EiZAOA
-	 XZ+BCmBrLOFI/cnleHFWV49wNawwzhNThi0pZcIAp85pCz1XkyrC2aqEMNCKoVaU+fc+a
-	 7PqekAThAPNQ3DKg7JU8WSoHNxjMOAR0P0+t19SI5KxBs6lHvJveWRiK5apFWcx/xKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030569;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=9/iku2gUgDbopkmZntaMYkLDbnHr9sW3CFLA+QZG53U=;
+	b=rhgcb1tbVzWk5ti1UfFRucA/r324fJS41FQxjhPU0amF1cuGYeXEvOJ7eMmFWT11tgdk
+	 pnGQVqOHMBNRzAXVh0EPemF8Ubtj4IHPIXM+dJhjFg490TkM+Tp+TJi9ZT3GNFvJI9t+C
+	 a7xJS/pWbZGTzbWAEpWrNd1K+3a74INL1TMqUAc6AWPXVt3O0mPwZvf4r1Sf3H/E4Hz6y
+	 m4HCAaN+7i7XlxkgpURd7BQXf+v9tyJZOvSCwBnRCtS41Cyk7c/SB2CLVQv5UGQLcJqTx
+	 zQaChp8mB1hNymDKFrWPPphlYO5niqN2l5iNo75KOImiubrn605KPKeiMf0A3hjDEYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zytor.com;
-	spf=pass smtp.mailfrom=zytor.com;
-	dkim=pass header.d=zytor.com header.i=@zytor.com header.a=rsa-sha256 header.s=2026102901 header.b=Cd6T897N;
-	arc=none smtp.remote-ip=198.137.202.136
-Received: from mail.zytor.com (terminus.zytor.com [198.137.202.136])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YRupV7wg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DD3C606DD21;
-	Wed, 18 Nov 2026 19:36:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DD3C606DD21
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zytor.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zytor.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 08C49606E7D6;
+	Wed, 18 Nov 2026 19:36:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=zytor.com header.i=@zytor.com header.a=rsa-sha256 header.s=2026102901 header.b=Cd6T897N
-Received: from [IPV6:2601:646:8001:6901:cb27:19ed:d7a2:a981] ([IPv6:2601:646:8001:6901:cb27:19ed:d7a2:a981])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 6AIJZu8a3700793
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Wed, 18 Nov 2026 11:35:56 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 6AIJZu8a3700793
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026102901; t=1795030557;
-	bh=q5Mo/Kh1qLZ3uIRaKlBLItE0Zsx4/+Cy55RfXtKFyLU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Cd6T897NlrMMzl6wCswGkonOy6f1kl0OcPXgJETQAYNvF9v1tdKDwIPKuZPztHe5J
-	 C23rrgCePy/4nYEhoN2NALyNex49pGP+8XFNEGnwXKTYrZ0i6KA2nTveaR/Ism7EqU
-	 iNzp26v7JXi1C4EH5PUeEPhcmjDY96eKFV5D6z8EzWhse/hOkqcsQfxhNxDbKdi9Yg
-	 EWnJrEUl/ywJwQKA+KW2DX0R4yJpun7wUsg1Cc++ccw/1MB9N7T3j5XvAfyQ0KdRzu
-	 Wc+2MHZcJySSSSc5x0e8bPAj+v0yuTyC/wFOYL+BZ5cf5PEjX7t2hBrypAt4ELSqaL
-	 XTCTmMszfiPIA==
-Message-ID: <f2297061-4ad1-4ece-89de-5459816e5461@zytor.com>
-Date: Wed, 18 Nov 2026 11:35:51 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YRupV7wg
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id EB7EE1F000CE;
+	Wed, 18 Nov 2026 19:36:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795030568;
+	bh=9/iku2gUgDbopkmZntaMYkLDbnHr9sW3CFLA+QZG53U=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=YRupV7wg/TbkMyMRuUVn5nh9LgIOAdC6pN3zR9rNOBCucnHbprR1RCYsgWNziqfXY
+	 ZBQSqHbz0ljg+Xu5yC2/d07b3fgZBTHtNuYVbAorNzMFRxmUXUxloMf0G9sJ3ia06X
+	 KdPw3WQGje7O2QlAYEcAiyB8tIPnGh+4Bs4naSrM4sE6Fh1qi68+2NokZnOK3awtCQ
+	 wgGpgoxA0Q+FQvJkMvBv3owXzzBIO77+8ZZlyYw0zJGOAvOsZ1XraBcByUHm4ROV2h
+	 yY/M6FQIwG4a6EA/zDSgY/pqy4y7dLb9jY1vJ7Bv1F24oQOhTtrhCZDUNol1X33TYl
+	 XOH9GtLB0Oyhg==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: David Howells <dhowells@redhat.com>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	linux-api@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jan Kara <jack@suse.cz>,
+	John Johansen <john.johansen@canonical.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: [RFC PATCH v3 05/13] rootns: Add rootns_wait() system call
+Date: Wed, 18 Nov 2026 21:35:31 +0200
+Message-ID: <20261118193539.240065-6-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118193539.240065-1-jarkko@kernel.org>
+References: <20261118193539.240065-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,181 +102,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] x86: Make the 64-bit bzImage always physically
- relocatable
-To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
-        x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org
-References: <20261111091843.3621782-2-ardb+git@google.com>
- <FD1A5979-1504-4A96-B26C-D89BD362170A@zytor.com>
- <3522588c-9d7a-454b-afe8-c16c6788265a@app.fastmail.com>
- <F6E708AE-0476-4E9A-A39D-3DF15E91EB80@zytor.com>
- <ab8628ec-9476-4f3c-80fc-b68556803002@app.fastmail.com>
- <5E2684EC-0F34-4008-B043-F912FA1AAE6C@zytor.com>
- <16b3f916-41cf-4ad6-bd54-45384051d4dc@app.fastmail.com>
-Content-Language: en-US, sv-SE
-From: "H. Peter Anvin" <hpa@zytor.com>
-In-Reply-To: <16b3f916-41cf-4ad6-bd54-45384051d4dc@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-18 09:26, Ard Biesheuvel wrote:
->>> ...
->>>> I'm going to vote NAK on this one... I was already thinking that it
->>>> would mess up low-level debugging too much,
->>>
->>> How so? The last time I proposed this, you replied that you were
->>> planning to do this yourself.
->>>
->>> https://lore.kernel.org/all/3f2e8d7c-6029-49ef-8e31-a3eb5efb385b@zytor.com/
->>>
->>
->> If we are going to get rid of it, we should get rid of it properly as
->> in removing the conditional machinery,
-> 
-> Which conditional machinery is that? All the code that reasons about the
-> physical load address needs to stay, the only thing I am changing here
-> is that you can no longer disable it on x86_64, as there is no upside to
-> forcing the 64-bit kernel to run from a fixed physical address. This
-> means the EFI stub no longer needs to depend on CONFIG_RELOCATABLE
-> (which also controls the generation for relocation data for virtual
-> displacement) for x86_64.
-> 
-> The i386 situation is different, but I left that alone on purpose.
-> Would you prefer it if that always became relocatable as well?
-> 
+wait4() and waitid() only allow a parent or subreaper to collect exit
+status, so an external manager holding a rootns file descriptor cannot
+wait on a rootns init process forked by another process or observe exit
+status multiple times across observers.
 
-Yes, if we're going to do it, it would make more sense to do exactly that.
+Add the rootns_wait() system call and its compat entry point to wait on
+a rootns file descriptor until its init thread group exits and report
+the recorded wait status and rusage. Return the init TGID translated
+into the caller's active PID namespace, 0 for WNOHANG while still
+running, or -ECHILD when the PID is not visible to the caller.
 
->> not use it as a backdoor for
->> doing something explicitly NAKed (forcing PIC compilation.)
->>
-> 
-> I know PIC compilation is a sensitive subject for some people, but
-> would you mind not framing this as some backhanded action on my part?
-> 
-> Once I get to resending that series, you will have ample opportunity
-> to voice your concerns and suggest workloads that will prove that
-> it is infeasible. Or even provide one now so that I won't have to
-> bother resending it in the first place.
+Co-developed-by: David Howells <dhowells@redhat.com>
+Signed-off-by: David Howells <dhowells@redhat.com>
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+ include/linux/compat.h   |   4 ++
+ include/linux/syscalls.h |   2 +
+ kernel/rootns.c          | 103 +++++++++++++++++++++++++++++++++++++++
+ kernel/sys_ni.c          |   2 +
+ 4 files changed, 111 insertions(+)
 
-I do (genuinely) apologize; that was indeed *quite* uncalled for.
-
-What I *do* think is a real problem -- and you are far from the only or 
-worst offender -- is to put a vague "future improvements" as 
-justification for a change. This is literally asking people to take on 
-faith that the "future improvements" is actually an engineering 
-direction we want to go in.
-
-The following points are in no way specific to your proposals, so please 
-don't take it that way; these are more general statements about "why x86 
-is special".
-
-I do not believe in is pessimizing one of the most widely used 
-architectures in the world in the name of "uniformity" or 
-"compatibility", and there have been many, genuinely well-meaning, 
-attempts to do so. If x86 were a niche architecture that would be a 
-*very* different thing, but in the world we are living in right now, 
-there is x86 and ARM; everything else is a rounding error (long tail). 
-As such, for either of those architectures to carry more arch-specific 
-stuff than other architectures is entirely fair.
-
-Now, x86 and ARM are two very different beasts, which is entirely 
-natural because they have evolved into their current market dominance 
-through completely different routes. As such, ARM has a lot more 
-*platform* divergences than x86 does, and that means it has has a lot of 
-overlap with most other "platform rich" architectures. Here, ARM sits 
-squarely with the long tail, and so it makes sense to strive for ARM to 
-drive, cooperatively, where the other architectures go.
-
-Here, the odd ones out are x86 and s390: they are architectures which 
-have a dominant -- to the point of being universal -- *systems* 
-architecture as well as a CPU architecture. This means that especially 
-the early flows are heavily influenced by that systems architecture in 
-ways other architectures aren't. This tight binding of systems 
-architecture are a major aspect of those architectures which is very 
-easy to forget.
-
->> What you are proposing is literally the exact opposite.
-> 
-> I don't think so, but I'm still not sure what you meant by "it
-> would mess up low-level debugging too much", so maybe you could
-> clarify that?
-
-Certainly.
-
-When I debug the early (1:1-mapped) flows I often find it useful to pin 
-down the kernel to a specific address so that I don't have to convert 
-between ELF addresses and physical addresses (for this purpose, I don't 
-care about significant hex digits larger than the size of the kernel, 
-which is *one* reason why kernel alignment moved to 16 MiB -- another 
-reason was the somewhat special nature of the lower 16 MiB of the 
-address space on some x86 systems.) Once we are running under the kernel 
-mappings, it is just a matter of of turning off kASLR.
-
-Now, you also quite correctly pointed out that I already proposed 
-turning on kernel relocation by default. In practice it doesn't become a 
-problem, as the kernel generally ends up loaded at 16 MiB in a legacy 
-environment, and in an EFI environment you have to deal with the memory 
-space EFI assigns you no matter what you do.
-
-PIC compilation is another matter entirely (as you also very correctly 
-point out!), as x86 unlike most RISC architectures has enough direct 
-addressing reach to encompass the entire kernel (in the "medium" model 
-for user space and the "kernel" model for kernel space.) This means that 
-x86 benefits from GOT/PLT elision in ways that many other architectures 
-don't. On the flipside, because x86 is a CISC architecture once you give 
-atup performance in the compiler stage it is very hard to recover it 
-even in the linker stage. Furthermore, on i386 PIC is *extremely* 
-painful since it involves giving up one of only 7 usable GPRs (6 if you 
-are compiling with frame pointers!) and a relatively expensive 
-sequence(*) to get EIP manifest.
-
-As a result, I very much will continue to object to PIC compilation on 
-x86 as opposed to boot time relocation. Whereas code patching in user 
-space is expensive due to breaking sharing and thus demand paging of 
-executables and libraries, none of that applies to the kernel -- and we 
-do runtime code patching of the kernel anyway. The relocation is just a 
-special case of that.
-
-Now I do know you don't like the compressed kernel relocation format 
-(which you are not trying to change with this patch) and it is *most 
-certainly* insufficiently expressive for fgKASLR. For fgKASLR you need 
-to know the relocation base rather than a simple adjustment factor, even 
-on an architecture like x86 that doesn't have to deal with "upper 
-part"-type relocations (for which the compressed format approach, 
-carrying embedded addends, completely collapses.) The metadata required 
-by fgKASLR is positively vast in comparison to the ordinary kernel boot, 
-and legitimately so.
-
-However, fgKALSR is time-consuming. On bare metal this is rarely a 
-concern, but users want to be able to spin up a VM kernel in ~100 ms. In 
-that case, the compressed relocation format is highly efficient, both 
-since it is compact and since the processing of those relocations is 
-extremely simple. Furthermore, since the kernel is also ready to go if 
-loaded at its advertised preferred address (which is the reason why this 
-address is explicitly advertised, even for a relocatable kernel: "if you 
-can load me at this specific address, I can boot faster and your vmlinux 
-symbols will match the runtime, too."), the performance-sensitive VM 
-spinup the (virtual) environment can be set up so that the relocation 
-can be skipped entirely.
-
-	-hpa
-
-
-(*) That being said, the use of an out-of-line trampoline to do so is a 
-thing that was only relevant on a small handful of cores that 
-unfortunately fell right at the end of the true 32-bit era; on both 
-older and newer cores CALL 0 is special cased to be a "PUSH xIP" 
-instruction and does not mess up the call stack. It still costs a 
-register, and if using PLT, requires that register to be %ebx, which 
-further adds to the complexity; if %ebx was *permanently* assigned to 
-this role like the gp register on (some) RISC architectures it might 
-actually be less painful, but losing one register out of 7 is going to 
-hurt like hell no matter how you slice it.
-
-	-hpa
-
-
+diff --git a/include/linux/compat.h b/include/linux/compat.h
+index ad37ca617e65..3a9ac9dbb24c 100644
+--- a/include/linux/compat.h
++++ b/include/linux/compat.h
+@@ -779,6 +779,10 @@ asmlinkage long compat_sys_recvmmsg_time32(int fd, struct compat_mmsghdr __user
+ asmlinkage long compat_sys_wait4(compat_pid_t pid,
+ 				 compat_uint_t __user *stat_addr, int options,
+ 				 struct compat_rusage __user *ru);
++asmlinkage long compat_sys_rootns_wait(int rootnsfd,
++				       compat_int_t __user *status,
++				       unsigned int options,
++				       struct compat_rusage __user *ru);
+ asmlinkage long compat_sys_fanotify_mark(int, unsigned int, __u32, __u32,
+ 					    int, const char __user *);
+ asmlinkage long compat_sys_open_by_handle_at(int mountdirfd,
+diff --git a/include/linux/syscalls.h b/include/linux/syscalls.h
+index 272d54bddbe2..60e9c4ff71e7 100644
+--- a/include/linux/syscalls.h
++++ b/include/linux/syscalls.h
+@@ -1007,6 +1007,8 @@ asmlinkage long sys_lsm_set_self_attr(unsigned int attr, struct lsm_ctx __user *
+ 				      u32 size, u32 flags);
+ asmlinkage long sys_lsm_list_modules(u64 __user *ids, u32 __user *size, u32 flags);
+ asmlinkage long sys_rootns_create(unsigned int flags);
++asmlinkage long sys_rootns_wait(int rootnsfd, int __user *status,
++				unsigned int options, struct rusage __user *ru);
+ 
+ /*
+  * Architecture-specific system calls
+diff --git a/kernel/rootns.c b/kernel/rootns.c
+index c420e36af603..5582ff010ca5 100644
+--- a/kernel/rootns.c
++++ b/kernel/rootns.c
+@@ -305,3 +305,106 @@ SYSCALL_DEFINE1(rootns_create, unsigned int, flags)
+ 
+ 	return fd;
+ }
++
++/*
++ * Wait for rootns init to exit and report results for the caller.
++ *
++ * Returns caller-visible init TGID on success, 0 for WNOHANG when still
++ * running, and -ECHILD when init pid is not visible in caller pidns.
++ */
++static long rootns_wait_common(int rootnsfd, unsigned int options,
++			       int *status, struct rusage *ru)
++{
++	CLASS(fd, f)(rootnsfd);
++	struct pid_namespace *pid_ns = task_active_pid_ns(current);
++	struct rootns *rootns;
++	long ret;
++
++	if (fd_empty(f))
++		return -EBADF;
++	if (!is_rootns_file(fd_file(f)) || (options & ~WNOHANG))
++		return -EINVAL;
++
++	rootns = fd_file(f)->private_data;
++	if (!(options & WNOHANG)) {
++		ret = wait_event_killable(rootns->waitq,
++					  READ_ONCE(rootns->state) == ROOTNS_DEAD);
++		if (ret)
++			return ret;
++	}
++
++	scoped_guard(spinlock, &rootns->lock) {
++		if (rootns->state != ROOTNS_DEAD)
++			return 0;
++		if (!rootns->init_pid)
++			return -ECHILD;
++		ret = pid_nr_ns(rootns->init_pid, pid_ns);
++		if (ret <= 0)
++			return -ECHILD;
++		if (status)
++			*status = rootns->exit_code;
++		if (ru)
++			*ru = rootns->rusage;
++	}
++
++	return ret;
++}
++
++/**
++ * sys_rootns_wait - Wait for root namespace termination and collect init status
++ * @rootnsfd: Root namespace control file descriptor
++ * @status: Optional user pointer to receive wait status of init
++ * @options: Wait options (0 or %WNOHANG)
++ * @ru: Optional user pointer to receive resource usage of init
++ *
++ * Wait killably (unless %WNOHANG is set in @options) until @rootnsfd reaches
++ * %ROOTNS_DEAD, then copy out the recorded exit status and resource usage of
++ * the rootns init thread group.
++ *
++ * Return: Caller-visible init TGID on success, 0 if %WNOHANG is set and the
++ * rootns has not terminated, %-ECHILD if init was never started or is not
++ * visible in the caller's active PID namespace, or negative error code.
++ */
++SYSCALL_DEFINE4(rootns_wait, int, rootnsfd, int __user *, status,
++		unsigned int, options, struct rusage __user *, ru)
++{
++	int code;
++	long ret;
++	struct rusage rusage;
++
++	ret = rootns_wait_common(rootnsfd, options,
++				 status ? &code : NULL,
++				 ru ? &rusage : NULL);
++	if (ret <= 0)
++		return ret;
++
++	if (status && put_user(code, status))
++		return -EFAULT;
++	if (ru && copy_to_user(ru, &rusage, sizeof(rusage)))
++		return -EFAULT;
++	return ret;
++}
++
++#ifdef CONFIG_COMPAT
++COMPAT_SYSCALL_DEFINE4(rootns_wait, int, rootnsfd,
++		       compat_int_t __user *, status,
++		       unsigned int, options,
++		       struct compat_rusage __user *, ru)
++{
++	int code;
++	long ret;
++	struct rusage rusage;
++
++	ret = rootns_wait_common(rootnsfd, options,
++				 status ? &code : NULL,
++				 ru ? &rusage : NULL);
++	if (ret <= 0)
++		return ret;
++
++	if (status && put_user(code, status))
++		return -EFAULT;
++	if (ru && put_compat_rusage(&rusage, ru))
++		return -EFAULT;
++	return ret;
++}
++#endif
+diff --git a/kernel/sys_ni.c b/kernel/sys_ni.c
+index 4a6c4337cc74..f9918d38107b 100644
+--- a/kernel/sys_ni.c
++++ b/kernel/sys_ni.c
+@@ -401,3 +401,5 @@ COND_SYSCALL(uprobe);
+ 
+ /* kernel/rootns.c */
+ COND_SYSCALL(rootns_create);
++COND_SYSCALL(rootns_wait);
++COND_SYSCALL_COMPAT(rootns_wait);
+-- 
+2.47.3
 
