@@ -1,96 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.1
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795028621;
-	b=LERTLbmFgUM66oSHg9PVoRMo1oxB8t4VTyqQ9ujK1EmH2EloUDqTXeSTWjlr97qxyw0z
-	 HDve8UHkkCaBtr+2Lg4FW15R+OiiGk/XhGHc3gV4RU0EQ1xrpOtMe+7wXm3UmHN0V3zeR
-	 7zU6kvWKr0hK5uv4L/0Ic6AA3VSyoVviLKr1mMNQfVJ63Wypw/mrCF5cfk1vnuU1ryM9D
-	 A3LW7kuM4QiShmsye4/cNWMS082OruNhjwufS6wemeH4uOteLVV0JfLxsKyd4rpOTiq6Q
-	 5/sXVJ+P6FelGgOVnwhuPOFBJyCeiGJr9IXxJL0TMUten4it95Gaw+io1mtRUG1paDg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795028621;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=UC6hFb+CEvjvUGUmqq+/31uAtKEyJKQNjuPG19DA5wA=;
-	b=42qER+uVenHuCVxS50ccEso4h65VhpLEAvVnwDzYpDeI9QqujeHwnAXoIQnRDAZUgQib
-	 1SdWRPwUZgrGvb6VmU0B5T8akgW3JAZz7YsqXHOsjqtUd7IwRT0VHE0TxsFniLD3eSlfW
-	 kxqFLeHuBZHVye6AcaLN5g3uUNuCaJjVLb204kVEJsH7qB0F/GUOXXm0WJAMVlFUPB0XQ
-	 zKS1lDijpoyAT/rNM5CY6GwOPkOtX48uPyz1k2UhAGk7P3/Ilen27sBnRsy7+jOqZ/ao9
-	 4N43VhKA4uCeZdta10Jt5nCOM97ToiieAuHOBxE+G4n6S867ETWgndIqUgDHdi2SCoA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=F1XM+VEL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.1
-Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010001.outbound.protection.outlook.com [52.101.46.1])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795028643;
+	b=aFVFhRolbwQREBobjZVP2VEXQE41+0Gln5SaN0eli3UwfJ3BHgykXkGOe/wnaXKo5Qdk
+	 B4CWJYkavK+S8rQ5Wn+3dqoEVV9cDoWzBXM5VQfeZCOGdspB6LsfzYYqckFnyfp+b0b82
+	 kB6hgLirYFrJX4WAUGvAYfglBmWPQThjs7bCAlyc7BRAAoRC8jZL6Sj/sKWuOQ6ws3JHs
+	 EPg296L444k7OYMFJVW7v7dxoNxFJ32gLsgzWSijAYpKKOPe2wXsYenjqVVaIDI4w8+kB
+	 XFFsbBJ4n0sYxwDkqqEZGJcXz/Ek5xLov5+AEquInQc/7lA7zQJwUh4kciyKAaB/brQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795028643;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Q8TBn9ubKDLYTz56NEzeNdxWEl3UJisiQtWy9Az8Fes=;
+	b=P6ftI7EAdUdUEkmnQfT1P5fNocQb8QSDjQhUGwMF4sjD1tGxRz2YMBwtAfy9SqSBCDcu
+	 BioSPt9VGoRpkAufMdv/Q9WCjgyUX7gmu3MP8TIQa1lShBt14fNSpYcXFYViSya4NcIaE
+	 ynMP5bg8jQCyzJC+4k4hQzAvvnyLRceJXQWy3edFvMwihWqZRFiHarg22YHMEy3imDjdE
+	 djR/1UDM6YyAsiy3wEZeUskP72J173EWpf80plrlbmZPH67F4C4y2fWSRXT4AsmDcfZ/k
+	 JVHfsC+cEP/pfcc0KQgdRDtfopHnHg6Uz1dcVm40zGo1fu2B1e3o44f1E52Zd1Ne3Hg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hf/HT3xD";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC6C8606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:03:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC6C8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7E86606A320;
+	Wed, 18 Nov 2026 19:04:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=F1XM+VEL
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EcBw4pNEVJMh4Kh73K2CIITr7uclmQVG7NRlb1MCctOu4gr6bHoa6maQaLbfIDBRNSipFhnClQbJoDgac7Z+Z1yVmu+kLUZmcavLlJxq8JaDOQHLcFL7UPkkgM2vHkajcX0Bjxf71FPBVxrbAx+Radkett4w7Fq42zXvim1BybMPPLOVhLsylgkfvnhrxx0Hx/iWALyvV109jIjYIrZeB6xhxhLACMB2zY/8m+0nRgQrqLKMHuZmHsRNaU2ShfDJ/AVxFt3ba7F/X96qbkBdxzmjR6yD7oX0mZImt63pk73CpvaisxcCHmPEn1VDl3uXAugIyFH6LvsWjz87StsPZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UC6hFb+CEvjvUGUmqq+/31uAtKEyJKQNjuPG19DA5wA=;
- b=Ftblml4t4K1nZtbNMjwAQQTWhNr2aSTC4NJUvcgNSKtGA2+eHUFg/Z4WTUNN3anbNxpgVerxK16Tu/SNSDuFPvVUxHPfj0BWIzQD+zmuL0aCQORRpxNHkoSKaUupLEGhvval0LQkAapBTCGFyzjd1VLC6FJavvq2YUUB6rIlLwZiAuIwZsmwadcc0Th3c4XOJ3RUChj+LoY6cmE7LP+aoE+ZbwulA30PfVM92z2GJY5ajIZxp7g9by/af91D3X6MB8psraKcNxgRt52B9qVMFNEdHJ4DJE+xIi8gmpy0ODDqqgDhVRxrAlOlyTdBu1h6pO784B+ytLDUlPb0kXdEcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UC6hFb+CEvjvUGUmqq+/31uAtKEyJKQNjuPG19DA5wA=;
- b=F1XM+VEL4cS7Jmp3/RxVF0Kwo/6IW+l7uZaYljWcaJVg+M3b1HUh1iK+gnzggRCZIoyrIiTXqk59mqzB8zMObgyAQR0pci/XaR702Q+QMRpA0GKGefj9FzYEwBDXQ1DyGXI/HvSzBE7c8asKnCPvGYZqIPmdsN9RUG2yzMxo7kERZPn1NnhJ9CB7Bl5lryurIL5xF9GgLG2HNwKtKCzfXXm4IB/YSfEf1nqQKcjX9s9ina5KQ3u9QZ7qG/ja0JJM5Z3ys0u1r7+5RxJYtEtk6lEsxO0XIx6+psEj+P3XsQgDyqWDU4nRlwlVqWvnDX4MCdBiF+1CRjBQUoqOyZjv9A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by CH4PR12MB795688.namprd12.prod.outlook.com
- (2603:10b6:610:518::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 19:03:36 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 19:03:36 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2] iommufd: only hold references to files
- memfd_pin_folios() can pin
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Jiahao Xu <xujiahao@cmss.chinamobile.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, Kevin Tian <kevin.tian@intel.com>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Christian Brauner <brauner@kernel.org>, 
- syzbot+7666ed2c3d42196bf7e3@syzkaller.appspotmail.com
-In-Reply-To: <20261117093244.652569-1-xujiahao@cmss.chinamobile.com>
-References: <20261117093244.652569-1-xujiahao@cmss.chinamobile.com>
-Date: Wed, 18 Nov 2026 15:03:33 -0400
-Message-Id: <179502861354.3851267.14368035424137707509.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-ClientProxiedBy: BL1PR13CA0447.namprd13.prod.outlook.com
- (2603:10b6:208:2c3::32) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hf/HT3xD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 153DC1F000C5;
+	Wed, 18 Nov 2026 19:03:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795028642;
+	bh=Q8TBn9ubKDLYTz56NEzeNdxWEl3UJisiQtWy9Az8Fes=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hf/HT3xDB2Pi3lfXWtso17LwDxUnrHlSV61cn70iJMfDo0CMpHaClOs/z09FJNAzT
+	 3JOTEDkxPohQigfU5UkFK6cGTmPJT5xXWQk0ujZI7KiJVC8YbNcVbSrkGGJPxwe+xr
+	 Mh1+shtCkM83jgtfy2fVf3x6DZ+T12QstaIgvKdSfK7whOr4UrPrYNLpTUxwVlzytW
+	 Qc67JPOt0UqfuFdhngtW4MmODE7597ZsjHCBxBcnh42oERDV6ucAJ2UMPLOnn3696Q
+	 dw/VTwIgI6blwV2Ejya7jYgO3KkAIwvqbjHEWfppyz5ojLv+W547233hDCoS5yDUxK
+	 p5dGd3uWal6jQ==
+Date: Wed, 18 Nov 2026 21:03:50 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Muchun Song <muchun.song@linux.dev>
+Cc: Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+	Chris Down <chris@chrisdown.name>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>, Joerg Roedel <joerg.roedel@amd.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Ketan <ketan.kishore@oss.qualcomm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Muchun Song <songmuchun@bytedance.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sashiko <sashiko-bot@kernel.org>, kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH v2 5/7] mm/page_ext: allocate page extensions early for
+ SPARSEMEM
+Message-ID: <av32ls56XJmaAO8C@kernel.org>
+References: <20261117120627.50601-1-songmuchun@bytedance.com>
+ <20261117120627.50601-6-songmuchun@bytedance.com>
+ <av20jiGZH5uYV6LT@kernel.org>
+ <7f651049-f0dd-4053-a666-ea1c5d49669e@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,101 +82,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|CH4PR12MB795688:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d820cb0-acc1-4f1b-9f40-08df45a6a618
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|22082099003|18002099003|261102130727099003|56012099006|11063799006|261026121527099003|261028144727099003|261026140227099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	uOPuv47LnYE51JO4S+/MUndGMjnjz4noPdtwy8Wye3uWue/gWslVv4/BhSzHd50MhLZlEOwebF8SdJwhajMiy0ryOA0yPm1/H1DCuxT1m6L4Y2GNTF7NTE6eA7qqCHCMgbRlphl/4VnPJfk0TomuLP0y4OAZi2dKvey0Wc0h1J5qtl/S6iE5iNxC2Az/GgDJwrQxjKBHP/9dY4HeQE1wyefw+IDGiUX4NSlgAAxnhcJ4bkpOBfMyNGOWTUXvmN0oK+iCAkDTU3tyIZXdhGw+e0d32zAvaNsqoIC3J67fJpUUScIpv+56R0nRi4JANiAGS6oTYo6y1x1wM/etlVf/7OlqmZ+Reyen80znJXhRIJz4TlOLN+ya+0+UjVOOeU/yi+reUQjL0gAtLSmth98x+Zz1daD8Ni0cLMQuLF6KW9KT26OdpDIIcEgVMi1Yyun1VGlU9xWXpKM5h34erRJZzivvEWHuWV1YtyghxKPxHS8Oh9kl1U0bow0shSi2V7s/P4A2FVJ5FbHd3FFg80Fk/lKvr7P8G16LjuaIkeanV+U/+7uL87DSDp9Q/l8xXY6TLBBiWlUcd8pTlSVGZEPTrldVRYeen7jW/4tC25Yd/zWBPNCdOiK64OZDUvZ2czJcIHfJWfbhQ9gsa73SLoCcYDAVoj8tanubrnhFAaIWcP4=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(22082099003)(18002099003)(261102130727099003)(56012099006)(11063799006)(261026121527099003)(261028144727099003)(261026140227099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?UUMvNDYzLy9BQk5nZm9TQlFVTUhBR0JLUkdTQitGODZWOVpvb1RSSklJNTRy?=
- =?utf-8?B?UkQ3L3pNRm9VMGFiZWdmV2Z0L1BjWXJZWDhFSXp4aERob1hBekVJeHlrUjd5?=
- =?utf-8?B?d2t0bTNNZm50RDJtWlcwTXQ3ZlhYb2tXWTRvYVRIMVEwN3RqWkhYVzgyanRt?=
- =?utf-8?B?WS9CZW1qSHIzU1BYdEIyaEJIR2FzOEVXR3ZXd0U4enViL2lCZENPNFNTTVJ6?=
- =?utf-8?B?UHBuMUZEUEhYSThVSFdEMlJ5NXpmRWY3SUw1YWl1ZEluRWQ1UjNYL2xaVkFx?=
- =?utf-8?B?RDJMbUNXMmx5K1R2Q1VLajUzOE56ZlVEUitYdHZiY0I1L1I2cjNNaUhUbEZV?=
- =?utf-8?B?L243bEFFaEVxODRoMmhFOGVDQWFHL0dNdXZ2VWc4aVA0cFg0Y2Nqb1lGbENv?=
- =?utf-8?B?cThoaEx6VldOOGJwODNCemFOcUZzd3EzOHkzN01Zcnk3UCt3TitkQkZJT0hM?=
- =?utf-8?B?MEtObEJJQUliNUFHTU1vUVdleWxJTWJBRmhMK1BIeWw0ak9VSnJ0UzhiSjgv?=
- =?utf-8?B?L0JDSFljTTZodmVrQVRoNEtLYUFHeXg3bVBKU3RyQ1M2eHo2NEZ2djhWZDhi?=
- =?utf-8?B?QWpwbzYvQWxxWmxxNUw4VVExbU1MdVEzRzlpYStnSW9qKzZzcVYxWGFidDFW?=
- =?utf-8?B?dG9aWVNhS3BMdXkrS2w5QVFwM1Jva2ZqVERKTnE2Ry82MnEzc2ZkUTBkb1di?=
- =?utf-8?B?QnF1dzUvbWYzTExOY01ZbjNON0lTU1Z6QTUxTHpUWStVNXlKZDhCOG5DODhF?=
- =?utf-8?B?SnRGWmJ6NUJNY3ZnYnZIOGhPb2xMcFVBaHlSQWRMR204My80MmU0bytQSEl2?=
- =?utf-8?B?Yk1iZU9ZNTJGYVFkQ0R3a1RnVnpKclc3OENBSGtyNnJGVGlGalFpTmJoNDBY?=
- =?utf-8?B?YjBUemVTcm5MbTVhREk5RVQ3UnZlTndzSEs1T2kwbHFyeDlIalFhQitwOW9o?=
- =?utf-8?B?cnJUYzBYVkg4YUEwcnJjMGZkTGw3OG5Md2dYR1R2a2hEL203TzJaaHZTRkRv?=
- =?utf-8?B?NjhEZGtVdEtnaXRtU3VHRnd0VWE1aktOYmdnYWUvMVdxaEhtRXk1Y2RZcTFr?=
- =?utf-8?B?cGRLVklFNXQ4QmVYbS9MdHlyN0M4NDlWRkRBc1ZMcTNITG5Jekd0aVNQM3NX?=
- =?utf-8?B?dC9iSXMrc2Z2c1djbTU5cDZmelR3ajdaTjVyQmdyUGZweFREVFl6ZUphQThy?=
- =?utf-8?B?TXZSOHdrR1E3ejdIaVFMTUJKWldkK21UQ205Vk9zeEVWSk1IMkdHbzJsUFFD?=
- =?utf-8?B?aWV4Mm9TempUUitMU1FhQVo2emI0Wk5yOU8rcEg5MHQvNHY0emllNUYzY2dK?=
- =?utf-8?B?OGN6R1NFcTNOL2M4TEswN2ZUQTA4MytrZXB0QzJDMENjekh0ODlYYmVpaU5n?=
- =?utf-8?B?VmwzOWt3REIvclh1WElLMGtRcjRJM3lRZ3NWb3RyMXJsYXY3UGlzUjZIL1VY?=
- =?utf-8?B?aEtramlUYy94MG92SkZYZ2N1aUZBK0tHRlZxQnNnaFRXRUxaSVdwMDN2dFZQ?=
- =?utf-8?B?NjBHNDdjQm9mdXZzN2Z1VzdCZGY5RkxPcEFpSk5XaFd1ekVmZ1pweDU5SzNY?=
- =?utf-8?B?dzg2QVp6dFd5UEppMkVVK0VZRnJHT25VUEF3UXkwc0ZzbFU1WWk3NEpQbGtV?=
- =?utf-8?B?MWJpRGNPL1ZrZGR6cmlPd21oTU41ZTdJakVRclU5b0UxV09jSittdUpuRmJ6?=
- =?utf-8?B?MGpUU3NwekwxVThXenZxL1M5eW5LczY1M0g4VmcwYmsvWWtVRFBDZlF4TGJq?=
- =?utf-8?B?cm44ZjlmMExFZXl1ak9RZi9hQkUydTJwSmZSdTVBb2xOaFcyMVQ0UFlqaVBI?=
- =?utf-8?B?dEZWVkwraXhoY2VXaVkzN2FVbXl0UDBXSmNFT21TS0tJVlFuUzIxbVQ5UTRQ?=
- =?utf-8?B?QzRFMURRMHhPL1RwdStwZWhNRy9kaUxpY1E4cGhOaUJEZGppQVNwaGNVVmFt?=
- =?utf-8?B?c283SkFWcUZydk1scEdvSy9ITVpTcG9FKy9QbUZaRVYwdllqekkvamF5aStB?=
- =?utf-8?B?cG43cm1WS3hOazJ6RG4za0ErcjJEd3htdWdkK1ZKVHZnU203RVdXODh5TlpL?=
- =?utf-8?B?R29tRjVRdk5WREY5WWkzNXpTVVBZOHB6MGwrZUY5YUJpOTgwYjZjTXRyTldZ?=
- =?utf-8?B?c0xGdHNobzhIUGN1bGkwc1RkdW1Ba2grcStTazd5UmxEYW1UOVZUdUNDcktD?=
- =?utf-8?B?aTlLMExhTWoxS05mM0xCN0JmNjNuczZ0cW9hRTRFUGFqY3FENkhXWnVWb1cv?=
- =?utf-8?B?VlJNbnl2VWtTTHl1MExLVllaU0Y0QzQrNm1GM042MGpVS2srODc1K1dLRS9I?=
- =?utf-8?Q?DzPP/ROKlIeCUZqRx8?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d820cb0-acc1-4f1b-9f40-08df45a6a618
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 19:03:36.5537
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sbHeUrhwBH/stdsyAv1cMo1n1gbJiTIus1DlZuTH8tSLUHUg7xy3A+3WKEIIBqzc
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR12MB795688
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7f651049-f0dd-4053-a666-ea1c5d49669e@linux.dev>
 
-> [ ... 61 lines skipped ... ]
-> @@ -515,6 +517,18 @@ int iopt_map_file_pages(struct iommufd_ctx *ictx, struct io_pagetable *iopt,
->  		if (!file)
->  			return -EBADF;
->  
-> +		/*
-> +		 * iopt_pages keeps a reference to the file until the mapping is
-> +		 * destroyed, so only accept the files memfd_pin_folios() is able
-> +		 * to pin.  Any other fd, in particular one that itself owns an
-> +		 * iommufd_ctx (iommufd, vfio, ...), would put the file into a
-> +		 * reference cycle with this iommufd and never be released.
-> +		 */
-> +		if (!shmem_file(file) && !is_file_hugepages(file)) {
-> +			fput(file);
-> +			return -EINVAL;
-> +		}
- [Severity: High]
- Does calling shmem_file() here break the build when CONFIG_IOMMUFD=m and
- CONFIG_SHMEM=y?
+On Wed, Nov 18, 2026 at 11:13:29PM +0800, Muchun Song wrote:
+> 
+> 
+> On 2026/11/18 22:22, Mike Rapoport wrote:
+> > On Tue, Nov 17, 2026 at 08:06:25PM +0800, Muchun Song wrote:
+> > > KMSAN needs page extensions when kmsan_init_shadow() installs per-page
+> > > metadata, before memblock_free_all() releases memory to the buddy
+> > > allocator.  FLATMEM makes page extensions available by this point,
+> > > whereas SPARSEMEM initializes them later in boot.
+> > > 
+> > > Allocate boot-time SPARSEMEM page extensions from memblock to match
+> > > FLATMEM's initialization timing.  This gives early clients the same
+> > > page_ext availability guarantee across both memory models, while runtime
+> > > memory hotplug continues to use vmalloc.
+> > > 
+> > > Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+> > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> 
+> Thanks for reviewing.
+> 
+> > 
+> > with a nit below
+> > 
+> > > ---
+> > > v2:
+> > > - Allocate all boot-time SPARSEMEM page extensions from memblock
+> > >    (suggested by Mike Rapoport)
+> > > - Keep memblock allocations above DMA and suppress per-section free
+> > >    messages (suggested by Chris Down)
+> > > ---
+> > >   include/linux/page_ext.h |   9 +--
+> > >   mm/mm_init.c             |   4 --
+> > >   mm/page_ext.c            | 119 +++++++++++++++++++--------------------
+> > >   3 files changed, 60 insertions(+), 72 deletions(-)
+> > > 
+> > > +static __ref void *alloc_page_ext(size_t size, int nid)
+> > >   {
+> > >   	void *addr;
+> > > +	if (!slab_is_available()) {
+> > > +		addr = memblock_alloc_try_nid(size, PAGE_SIZE, __pa(MAX_DMA_ADDRESS),
+> > > +					      MEMBLOCK_ALLOC_ACCESSIBLE, nid);
+> > > +		if (addr)
+> > > +			memmap_boot_pages_add(size / PAGE_SIZE);
+> > I think it should be DIV_ROUND_UP().
+> 
+> size is currently page-aligned by init_section_page_ext(), so both forms are
+> equivalent here. Is the suggestion to avoid relying on this caller-side
+> invariant and make it more robust? If so, I'll use DIV_ROUND_UP() for both
+> accounting calls.
 
- shmem_file() is only an inline stub when CONFIG_SHMEM is disabled; when
- CONFIG_SHMEM=y it is defined out-of-line in mm/shmem.c without an
- EXPORT_SYMBOL_GPL(), so linking iommufd.ko fails at modpost with an undefined
- symbol error.
+Yeah, keeping it here does not cost much and whatever
+init_section_page_ext() does we still count the pages right.
 
-Please send another version fixing this.. I guess we need to export
-it, but maybe that says the mm should instead provide a helper along
-side the pin helper that is "is file compatible with
-memfd_pin_folios()" ?
-
-Two patches and CC the mm list too.
+Especially if we move the whole thingy to memmap_alloc().
+ 
+> Thanks,
+> Muchun
+> 
+> > 
+> > > +		return addr;
+> > > +	}
+> > > +
+> > >   	addr = vzalloc_node(size, nid);
+> > >   	if (addr)
+> > > -		memmap_pages_add(DIV_ROUND_UP(size, PAGE_SIZE));
+> > > +		memmap_pages_add(size / PAGE_SIZE);
+> > And here too.
+> > 
+> > >   	return addr;
+> > >   }
+> > > @@ -304,7 +300,7 @@ static int __meminit init_section_page_ext(unsigned long pfn, int nid)
+> > >   	if (section->page_ext)
+> > >   		return 0;
+> > > -	table_size = page_ext_size * PAGES_PER_SECTION;
+> > > +	table_size = PAGE_ALIGN(page_ext_size * PAGES_PER_SECTION);
+> > >   	base = alloc_page_ext(table_size, nid);
+> > >   	/*
+> 
 
 -- 
-Jason
+Sincerely yours,
+Mike.
