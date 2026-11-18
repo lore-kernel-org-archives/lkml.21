@@ -1,68 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794965995;
-	b=y7vJx+X865SjR3ATWikZOFqZ2bQbujAT1OjMGKixFRIKpCEHZkTmx+uvzCFYfelrgfIf
-	 0jybaX6GuzWFbABjwYf0CPi3GltUUz/plOPyHTr7miQp54DaXSGXJj+VV+eVWdm5ioBzz
-	 9riNUWZrzN7fW07CaNjbHlcbUVy71epmrKLYMvyhtkDpLDHQ7FoSPXrJ7fMvTrYf7j4Qc
-	 sZC/xMowQDIQ2JmJvlTBu7Pk1MpNYhoFX0NZnbS9Ie9y9pn72oiGY2nSxTD8CmqzlSVbb
-	 ksQlxA0ur3Q/H4mZsDk7vI72BBfs+vwvGbRNWH/4e+HkSLgrIOAGWbHeyYQcUqp/UZg==
+	t=1794966012;
+	b=KTu5Rw7+Ocjdl9l7CFaBQ0KdPVVPPsqyrVbMFsjkQlibPbZFO0EpoAkzTt5AZF3/p4LN
+	 pUNKwkmoAgA0jYYVuy3txVKELXRJoHmlUiBRMyBha0qJobp5J23OxWdrIqOar7MIXyzNt
+	 Bxoa+qYHz5gQEv9VRe6ik3chDd3AJ9py3z+kfK2HfiJQjEK578P4M7Y7nYoU5MCbwjfOS
+	 5ww8f+CA1grWfad24ihXvZUQtTgDq28M45cQRB0/iodj+5QjN9zJBoAMExA6HgYx5VrL5
+	 gzuCvO7fv+OyMF3SJX8vmzJRTjxud+2Il0B3qPDKgKMDbtwIdghkiIOd4JmJriw2XIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965995;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=kxhlh8Ih28qrmQ0WUzoobXc56qikcMPA3uU4iVFRsqs=;
-	b=OeTG04/or1oAgU5wLzM/50jizwJDCWeU9YzBRhtXZRiG8smzSJdBs4CDn2jJWuCh54Vi
-	 ubejwhaJ8PpDX4a+xXOq3HVoSwnP+lcXMaTmo672vWb/hfjhYbooKQo9IVUhanFxr+vrd
-	 lC+7+NekHCgzcECExh0lVnY94/CImZxii0ErNGw7GaRRU4nBjFjl1lQ+0DExgtVMsCXdL
-	 s1s7jwC7arOWP2UWS/YqX5s3S0vJJga11p6ojCxsUmyPe4MtPp1ec2lAbTQr/PwBdKQ/p
-	 H//Z2s0UckAIJjJtQJuO2u/EfKzym/WRHg/7nJfDR4p+j8HpgoDvd7h8nJItRr8dIwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966012;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=vL5OkuwMPJHHL+Z18/0s0h54ZXXuw7l3D9zbrrsuyh8=;
+	b=I0X2OPNBTE9oqLKovMHaEEwWVOwPXSxY1f0YzG8w4G0xuio7TRWhmk25M2O6kPfiiMBg
+	 8QaquE+GBlAYggrHQRrs1my1vqrtxMZAVb/7trIplOPV9TgkHPi3U8y1GWzZzPU/vcmmr
+	 1PHSp77reqwYs19fyfe0mCM9tBmd66D2hcAmZOyeppX5kmR9ditvRO5QdgLSsLEOGwbAS
+	 GEVq8mvSBqX01+Wj6lDjN0uxK+n70bRrz8MUCxlckJIGAbqJOfRf0ie58DqD3yRAPthSb
+	 uBS6g4ANFq4OEEpFvn5yynCNiozzGgbEEc9JFNl0RKDJ/ze8lpr9zJf9cnptmbfy1pg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=x+JxVhbx;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 478BC606A337;
-	Wed, 18 Nov 2026 01:39:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 478BC606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJcDLp4i;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0731606A336;
+	Wed, 18 Nov 2026 01:40:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=x+JxVhbx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=x+JxVhbx/P4CJ8s10o6++TwuQiO5mfnjDgV/iPBUaZhbPrQsAA3wWytdS5nUwo1+YQOiioq4vYpvk
-	 +FO4EVdberwTRaNri+VXcfMbJGTcGMDehvdum4XVPecqBYte6Y1rSWM5vZT36Ie+w00ZQXuiPUNaVO
-	 mUdMer4Nz2Nb5PpY=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46afd01e779b-adb5c;
-	Wed, 18 Nov 2026 09:39:53 +0800 (CST)
-X-RM-TRANSID:2ee46afd01e779b-adb5c
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
-	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56afd01e74df-c3ff7;
-	Wed, 18 Nov 2026 09:39:53 +0800 (CST)
-X-RM-TRANSID:2ee56afd01e74df-c3ff7
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com
-Cc: shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH] wifi: mt76: mt7915: fix clock leak in mt798x_wmac_init()
-Date: Wed, 18 Nov 2026 09:39:51 +0800
-Message-ID: <20261118013951.1710-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hJcDLp4i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C053F1F000C4;
+	Wed, 18 Nov 2026 01:40:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794966011;
+	bh=vL5OkuwMPJHHL+Z18/0s0h54ZXXuw7l3D9zbrrsuyh8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=hJcDLp4iw2oGd/z1AxD7ukidBeTgUYwxkgQg6/joHr9oh2ygnCTLm54CempF4V1Pm
+	 1lVWFCHbTY6BPMxIkqFSbDSVVFAMqbzSKV5MWycUxlQo+FeR2xvMfuy/NR0s0/GD3U
+	 cZFa8bbph0IYQsBErZf1pc0fYVhzRmQmpDXrYXIdH9DLN6eoqEXskF1Quw3JYQARdn
+	 9zhmI2l3rkZfY8A+MY4bsBJIIu2Ah2reVJb4kHkMSnzwv3mzWqtwbwYG2uqD3Kfmrp
+	 A4j9ppAcww/9exTtHsYUpcpdPqYlqwJBaNmW9+imcQlRZDZ7xv0pPXkeXfDiDtWIGB
+	 jDjCOvud7blbA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4402392B1FE;
+	Wed, 18 Nov 2026 01:40:11 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,48 +54,43 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] mptcp: Avoid unsequenced accesses to jiffies in
+ mptcp_reset_tout_timer()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179496601027.1396957.18033061948874182622.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 01:40:10 +0000
+References: <20261114-mptcp-wunsequenced-v1-1-707a73a6c172@kernel.org>
+In-Reply-To: <20261114-mptcp-wunsequenced-v1-1-707a73a6c172@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: matttbe@kernel.org, martineau@kernel.org, geliang@kernel.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netdev@vger.kernel.org, mptcp@lists.linux.dev,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
 
-mt798x_wmac_init() enables the "mcu" and "ap2conn" clocks with
-clk_prepare_enable() but never disables them, not even when a later
-step of the probe fails (the devm_platform_ioremap_resource() and
-devm_reset_control_get() calls below). The clocks stay prepared and
-enabled after a failed probe.
+Hello:
 
-Use devm_clk_get_enabled() to get and enable them, so the clocks are
-automatically disabled and their references released if the probe
-fails after them or when the driver detaches.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Fixes: cd85efdfd099 ("mt76: mt7915: configure soc clocks in mt7986_wmac_init")
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
----
- drivers/net/wireless/mediatek/mt76/mt7915/soc.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+On Sat, 14 Nov 2026 21:30:07 -0700 you wrote:
+> After a recent improvement in clang to warn on unsequenced accesses to
+> volatile variables [1], an instance appears in mptcp_reset_tout_timer(),
+> which can break the build with CONFIG_WERROR=y / W=e:
+> 
+>   net/mptcp/protocol.c:3044:20: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
+>    3044 |                         tcp_jiffies32 + jiffies + mptcp_close_timeout(sk);
+>         |                         ~~~~~~~~~~~~~   ^
+> 
+> [...]
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
-index 13fba2a06..d4fc3039c 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/soc.c
-@@ -1193,16 +1193,12 @@ static int mt798x_wmac_init(struct mt7915_dev *dev)
- 	struct platform_device *pfdev = to_platform_device(pdev);
- 	struct clk *mcu_clk, *ap_conn_clk;
- 
--	mcu_clk = devm_clk_get(pdev, "mcu");
-+	mcu_clk = devm_clk_get_enabled(pdev, "mcu");
- 	if (IS_ERR(mcu_clk))
--		dev_err(pdev, "mcu clock not found\n");
--	else if (clk_prepare_enable(mcu_clk))
- 		dev_err(pdev, "mcu clock configuration failed\n");
- 
--	ap_conn_clk = devm_clk_get(pdev, "ap2conn");
-+	ap_conn_clk = devm_clk_get_enabled(pdev, "ap2conn");
- 	if (IS_ERR(ap_conn_clk))
--		dev_err(pdev, "ap2conn clock not found\n");
--	else if (clk_prepare_enable(ap_conn_clk))
- 		dev_err(pdev, "ap2conn clock configuration failed\n");
- 
- 	dev->dcm = devm_platform_ioremap_resource(pfdev, 1);
+Here is the summary with links:
+  - [net] mptcp: Avoid unsequenced accesses to jiffies in mptcp_reset_tout_timer()
+    https://git.kernel.org/netdev/net/c/728a2abd15a7
+
+You are awesome, thank you!
 -- 
-2.50.1.windows.1
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
