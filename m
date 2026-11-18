@@ -1,61 +1,89 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016786;
-	b=re5mNCVF/sct0GcAcr7O+L7uyGNN3bPjMOHztQMfYtKt6ZlQSBujGY8sYxBnehViK7Ue
-	 Hg4LCRkiw+l2OWGshQjys8sztq5e0TDyEn8rBqYiNzMvgXHBu/SJt01VOti7inmMgXZMS
-	 Lx3aee2svxyjU5xhY6RYq4l8rOlDRrandw4oNwdQrJ3+QMdtMa4/B+D4jWOcEoVA7KMbC
-	 3Cl7k4h9qmHYfTwRQKeB3CUhErhyDDFugK0paRBP6cEVMrOAwN+LtlHV5Tb4Z/53Crd+2
-	 D3ZvZLwwhEQ+t+xnOk81Ka/dNPx3KbwAraqWabgFR3zo+bW9Wkr4FqTWi5Abml33ThA==
+	t=1795016812;
+	b=Z/vYluohUtTsU8xGhXqOK+zQotJmtNVqgU2JEsu55Jq3BnPae5vUb3UEfc6l6eVeLIbf
+	 U/auHycZlra4ifpQGYVj2XZAnCcy6emXQ7s3vBATyVppTIeaFb99mepuWnJUgv9FuNPz5
+	 r7ddIE0vHT9Qcjioj98HkHuqKkwgqGsji98C1Dch3cR6yrARN2EYBJWXiK6jqFbL3BShc
+	 f7ZgFbaZ7Mfwo67xHt3NHtA1Yyg8rGFflp+p/14tSN9253FpnT2bGAtWfn3tJ2TQCdUEq
+	 8lRB+mQHCjW0s3/gFakgNR4e6Nri/M2uVGrNZQXOGwndgk9UXFrR7exp2ZGaLKHzPig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016786;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016812;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BEwIdIu+KrMDBK5eBH1rZ544ZlhtoEyfveo49Aa+So4=;
-	b=3pBsHo2fZeOBigBnebTBx1Z/0QoKf8OwMObDGf4beK3M1OJFZKdq38PBTYm/qS0p3xha
-	 ju12X2QO/wiQ4mlnddvgROhAJw8BHp3vbvhWOFYsk9visZtRLHhFHkur0do7X3ERjIqke
-	 RbXl1drGUt5iMZhOkFwlt1k6E6EeD6BcjE/GUZ06VYYba5pwNO49yfGFTQw0IcwG4NlSS
-	 uUihu+Y9xICrBnQGsVcvH2P4ZlmP5n0egos2IuRGobPM0ebr2BO/eyOjQjQMLHO0u5yfn
-	 sx5FBTg5zJ6QJJ7bbGPPR4olI1wyU7EQkotlZeSkgrVlUijucOY/sQ6E+O/1uSZ5XYg==
+	bh=Yq7h0/bdeIgVdHwxIZvW/WAXXX6JzsrZsXwYUvWhQj0=;
+	b=fxhYMp9UiYaIGa8vFU5irIrWJ0qhU/a8BQnfVVeHHFXj4TttxtbaHobjQjo1LIvHsRHb
+	 HElqFz1Ea6UY0aqiwhAFaSdx5KHaUHX936/eXHqxRDsgaujWlhMcorfNiQRsipoatucan
+	 1Q65QGKuriMj3ebt9gpmfLYufeQaw85yKd3kilT8SI4lmdvPEGUOa6Wk00tpOuTv+Hsuk
+	 CPups4KleZpSW194dFDbiss/BWoLSTCQCF/Iw2ueypFm4ED2scQDNxnbsDRrhETmOyWZT
+	 +Opgc1tFupda60jzz3Efzsnook5IncivoDrvKLnTPINrGNvHusn3DE9F8WNDd7c2obg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FjxhkCXe;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EXUa+MkZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 626C1606A320;
-	Wed, 18 Nov 2026 15:46:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id EF371606A325;
+	Wed, 18 Nov 2026 15:46:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FjxhkCXe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BC771F000C5;
-	Wed, 18 Nov 2026 15:46:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EXUa+MkZ
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id AD8611F000C4;
+	Wed, 18 Nov 2026 15:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795016786;
-	bh=BEwIdIu+KrMDBK5eBH1rZ544ZlhtoEyfveo49Aa+So4=;
+	s=k20260515; t=1795016811;
+	bh=Yq7h0/bdeIgVdHwxIZvW/WAXXX6JzsrZsXwYUvWhQj0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FjxhkCXepVQ0gmpO+4K085SjTi6qUOwoIYpnZBaNJLJkti231dFtqBcOZ8FLtwoa1
-	 YxIyASnq7FnfY+2R6pnlGQ2Sjw7rwqNDBWeDsHjARttT3mzNrrqcsmEUuiABqyjCS0
-	 024jylVPEl33ofMcj3T4cknaYjfeQXuucH1alyOgjN6rfrFgmx679rQTWOa9Q4hIyQ
-	 gGKyRH9cx621FE5fvVxKAmZloxP4G1OnQWXvJ5XZXTtwcEdZ9SM3jg7PUEHMjiKani
-	 Cl6C1x+fgQkRhFWiS8w29jFMPHIrQViv5Kw6aF2KHwnP/eZFGUcKxhXxcy9vnriwXH
-	 nhSq0svo3z2MA==
-Date: Wed, 18 Nov 2026 15:46:24 +0000
-From: Yosry Ahmed <yosry@kernel.org>
-To: "Chen, Zide" <zide.chen@intel.com>
-Cc: Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, kvm@vger.kernel.org, 
-	Jim Mattson <jmattson@google.com>, Andi Kleen <ak@linux.intel.com>, 
-	Stephane Eranian <eranian@google.com>, linux-kernel@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
-	Das Sandipan <Sandipan.Das@amd.com>, Shukla Manali <Manali.Shukla@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xudong Hao <xudong.hao@intel.com>
-Subject: Re: [PATCH v4 06/21] KVM: x86/pmu: Drop nr_arch_{gp,fixed}_counters
- from kvm_pmu
-Message-ID: <av3IHMi-DiXMk1f3@google.com>
-References: <20261112203227.289379-1-zide.chen@intel.com>
- <20261112203227.289379-7-zide.chen@intel.com>
- <CAO9r8zPD_i2aWc3jaKRr-=1Pz0td=6nqBpgBfVVaV3jfzVTAjw@mail.gmail.com>
- <e090723f-cc02-40c2-af57-ab5dfda91dcc@intel.com>
- <avz4LTEOcubVykim@google.com>
+	b=EXUa+MkZ8fF06bmTmwLNd20zxEY9MBiiXX3/inLnec+f3eiqv7AFpfp0RH1t8WMYg
+	 07CRxJbvqQzFs79L2fxYmiB+GR4+a2juvf3E/xr2joNJED6DqFsGIRBDrb6+B2ex4E
+	 sg6324IqU/NJun40bRWU9DIoQ3Mo45I4I9aqgNnl26gSlTAwOU2rfIBT3J7mwlm413
+	 UJVrWzSWKUooQDs+lkwH4rZclpp4/PrgxpZq4RUvzVBa9Zs21JNDTqT58QxIZiaVTm
+	 FXz1sMD+7Og8a/cFS0ljKI59wReWg936/UQp9l6X3OLAdeUDi4zCHOdxxm9cSZA5GW
+	 Ra3dfEdI9ZjQg==
+Date: Wed, 18 Nov 2026 17:46:47 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Ben Segall <bsegall@google.com>,
+	Christian Brauner <brauner@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
+	Jonathan Corbet <corbet@lwn.net>,
+	John Johansen <john.johansen@canonical.com>,
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Paul Moore <paul@paul-moore.com>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>,
+	alex@amutable.com
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+Message-ID: <av3IZ_ZXKJWHdAl0@kernel.org>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
+ <wdwc3b5edgtgvrgqfhlzhrachr5hrqb7ahipcuqdz5pffxlc5b@662cpwhxwjer>
+ <av3EBpSuzn_TcrDk@kernel.org>
+ <av3Gv3MwP40bqvnG@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,61 +95,66 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <avz4LTEOcubVykim@google.com>
+In-Reply-To: <av3Gv3MwP40bqvnG@kernel.org>
 
-On Wed, Nov 18, 2026 at 12:59:07AM +0000, Yosry Ahmed wrote:
-> On Tue, Nov 17, 2026 at 02:02:08PM -0600, Chen, Zide wrote:
-> > 
-> > 
-> > On 11/17/2026 11:23 AM, Yosry Ahmed wrote:
-> > >>  static void amd_pmu_init(struct kvm_vcpu *vcpu)
-> > >> diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-> > >> index 136069dfcd44..e21abcedea70 100644
-> > >> --- a/arch/x86/kvm/svm/svm.c
-> > >> +++ b/arch/x86/kvm/svm/svm.c
-> > >> @@ -761,24 +761,21 @@ static void svm_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
-> > >>  {
-> > >>         bool intercept = !kvm_vcpu_has_mediated_pmu(vcpu);
-> > >>         struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
-> > >> +       unsigned long gp_mask = kvm_gp_pmc_mask(pmu);
-> > >>         int i;
-> > >>
-> > >>         if (!enable_mediated_pmu)
-> > >>                 return;
-> > >>
-> > >>         /* Legacy counters are always available for AMD CPUs with a PMU. */
-> > >> -       for (i = 0; i < min(pmu->nr_arch_gp_counters, AMD64_NUM_COUNTERS); i++)
-> > >> +       for (i = 0; i < AMD64_NUM_COUNTERS; i++)
-> > >>                 svm_set_intercept_for_msr(vcpu, MSR_K7_PERFCTR0 + i,
-> > >> -                                         MSR_TYPE_RW, intercept);
-> > >> +                                         MSR_TYPE_RW, intercept || !test_bit(i, &gp_mask));
+On Wed, Nov 18, 2026 at 05:39:47PM +0200, Jarkko Sakkinen wrote:
+> On Wed, Nov 18, 2026 at 05:28:10PM +0200, Jarkko Sakkinen wrote:
+> > On Wed, Nov 18, 2026 at 02:47:34PM +0000, Josef Bacik wrote:
+> > > On Wed, Nov 18, 2026 at 01:13:39AM +0200, Jarkko Sakkinen wrote:
+> > > > OVERVIEW
+> > > > ========
+> > > > 
+> > > > A root namespace (rootns) is a kernel object backed by a file descriptor
+> > > > that binds together:
+> > > > 
+> > > > 1. A full or partial set of detached namespaces.
+> > > > 2. A dedicated PID namespace for spawning processes into, signaling
+> > > >    members, and polling or waiting on PID 1 exit.
+> > > > 3. An initially empty mount namespace (CLONE_EMPTY_MNTNS) that must be
+> > > >    populated before going live, without inheriting host mount-tree
+> > > >    ancestors.
 > > > 
-> > > This fixes a pre-existing bug that was reported internally, that can
-> > > happen if a malicious VMM reduces the number of counters after
-> > > initiating KVM_RUN but before VM-entry. The current code would fail to
-> > > re-enable the intercept on the counters that become unsupported.
+> > > This is what cells is doing https://lwn.net/Articles/1102593/, you may
+> > > want to take a look at that work. Christian, Lennart, Alex, myself
+> > > and others are working towards this in a more wholistic way. There's a
+> > > lot more that goes into this outside of just the object itself. I've got
+> > > my version deployed inside Anthropic for securing containers and I've
+> > > tripped over a lot of pre-work that needs to come because we can tackle
+> > > this. Alex has my rough outline for kuid64 for example, which is
+> > > necessary for making sure we don't overlap UID's on the system and
+> > > create holes this way. The cells work/anything that wants to have clear
+> > > security boundaries is going to require that as a pre-requisite. If
+> > > you'd like I can include you in our planning so we can get something
+> > > that will solve all of our problems. Thanks,
 > > > 
-> > > Might be worth splitting this out into a standalone fix.
+> > > Josef
 > > 
-> > My hesitation on a separate patch was to avoid throwaway code churn.
-> > A standalone patch would add:
+> > No it's not doing the same, and this why I sent the patch set.
 > > 
-> >         for ( ; i < AMD64_NUM_COUNTERS; i++)
-> >                 svm_enable_intercept_for_msr(vcpu, MSR_K7_PERFCTR0 + i,
-> >                                              MSR_TYPE_RW);
+> > I don't see cells fighting with rootns and given that rootns has a small
+> > surface and it leverages already battle-tested code, instead of
+> > reinventing the wheel, it also has benefits. It neither doubles the
+> > number of container frameworks in kernel.
 > > 
-> > and then it will be immediately overwritten and collapsed into a single
-> > loop in this patch.
-> > 
-> > So basically cleaner logic vs. avoiding immediate churn. I'm happy to
-> > split it out if you prefer.
+> > What I'm not claiming is that this is better. I just wanted to fact
+> > correct "this is what cells is doing". It is not true. It could be
+> > better solution but still that statement is untrue.
 > 
-> I think it's fine. You can also fix it by using the same loop struct we
-> end up with instead of adding another loop? i.e. loop until
-> AMD64_NUM_COUNTERS and intercept based on i < nr_arch_gp_counters
-> instead of testing the GP mask?
+> For better or worse, cells does a lot more; just looking at the patch set
+> size.
+> 
+> For rootns one can point out with a finger its possible problems BUT here's
+> the thing: it does not haven unknown unknowns. Even if cells had less
+> of known problems; we have zero idea what will come up if that ever
+> lands. The possible consequence have less predictability.
+> 
+> Also, as per integration, they actually are not fighting features, as
+> they are in different layers. There's no same thing at all.
+> 
 
-Thinking about this a bit more, I think having two different loop
-structures might be confusing when they are later changed/dropped. So
-I'd rather do what you suggested initially and add the second loop as a
-standalone fix.
+Yeah, and there is no obvious causality either that would result a
+zero sum game. Rootns is something OCI runtime, any of them, can
+quickly adapt to the existing framework. Cells takes longer, but
+could be very worth of price. It's called "defense in depth".
+
+Br, Jarkko
