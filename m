@@ -1,79 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.102
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795034161;
-	b=ZU3llZi2qvfG+HDPFPO3WRVL5NgG6gV0EZtA9V83Dc5uo3T0eeWcrdb2LhoLZzKowJ3N
-	 7Pe+B+WvkmhTSz2666epFUi7Tn0yfo+2qg4t7vkDW0c/V5qLdRC957xO61X118hkhBTci
-	 JtHtZYO/uEaGw04MISBzTGvnbdjoOyJETF+KSIx81N0mtjVqbyUCxfJzP634e7usPPOfF
-	 Cs7ld7sdCHr5Et+0U+BSCZRouidKWPAoECo8MzVPw2AUDWMkZ+qHB0qFqo34HeXFKZYmE
-	 36dFdbf3S6y7VCweyACUzT0qZMFhTaJNxZqaz39WSidTcRI0Yng7+f7aO7tFrDdcpuA==
+	t=1795034177;
+	b=0xEHqeMYmv9dO4ZHGZ/J8SPI2FUdIdxMkqvUicqQ0bSB3WdqA1bamgXdEyt4WKR9Nj/a
+	 H5bJx001AI8X5pLl56Idrs8PAzCKTcYvQvplxr/xQnowFJ+8Yz3KTibS4kH8t56P0mCwl
+	 pemQxftmRAjwAo/mVyjBaHwaI37SMb2ryK9UcHd+9SzN3IT92NBwwdrN3p4fV6BICPnG4
+	 yxt9BGAkf6M8u/4hbca2MXGVEw5sah87XQMOp2v6a7WjQLdF7ml/0u/wrSHGrcPDv3FTx
+	 7TBTLF8NEXTqRUrejBFeE0T0Ebc5M5z4kWIJhdVXGVZr+U176jHPunz/pYJWevhTjTQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795034161;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jEY0vd2jLPeL22K7g3/zg/F4xvcfDnw6JtP7MLa4ipY=;
-	b=zhC09zHij8iWVYuzGzFqLQy7uz15pmQ/4033RPQ1/JC8Q0EMq6k4zjBoq3YbA2FpnxCz
-	 U4tzBNoVFSccDrreeHSKhOGX1Ew4MyrPY+tXjbLFnGx7L1z8U9N6V3Wyv/NingmvX8RaF
-	 WZY0dlvp/AcsbogT57JMFmlqI+d8jU0QX5K+Dd5pV8rkWhKSWcRbGo1g+NfwnLhVFRFj+
-	 1VjcKlTvTfhQBmkydssS+Fwo+lI44x1/fT17/RGc4cmN/UrJuzBHCvqFRIvrZ31OvqKAL
-	 7Z0SCBFUAlISw8l6uO0XAKcZ8kd6KsYlKBviwBXKJ6F+xXAmpC+FDfMNt3FP8YPIlig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795034177;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=t9R14NaI/JeikKnHJ+yahYnsuQHAHuBELGNZM0uMuvo=;
+	b=UvhWM/LqMWCEwuwh3Mv2rBQlUiUzAjeSpTA5sA4hRPWYEaKZsgEE3QrsOcmYn0wpwRwT
+	 LPcuBfXFXMh4fnvHqUty76fxCd6TphgJc4TTzx3ZfEdgQ8V8wWPmAzBBqysS5mjZ/18Ld
+	 wl9A1M+KA3tw1hyatv2D321YcJSYgJUG5K+H9+R/9i3gN9BrdbSdHs1g0kluTHlbsOwlF
+	 XVeGz4Ncmf4NNIVqnuiJKeaK6f9DrEUM9wphbALIffzKC6UiINl+UDWpMmjOnwH1zcvpD
+	 oi/BYtptLoklrRlIgZyIZSLMWboy4fb9Zo9Kg1I8X7cc2J+k5CIecmlYc20KDAB4jTQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G3DdLBtG;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=estdNcX6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.102
+Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020102.outbound.protection.outlook.com [52.101.189.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FB88606A320;
-	Wed, 18 Nov 2026 20:36:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF07F606A320;
+	Wed, 18 Nov 2026 20:36:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF07F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G3DdLBtG
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795034161;
-	b=EZpQxlLwL5kOzj/oDLPW3TK6bO3h3VOpFgEhHe7akIGpK7qlvl8mdS6GnZ+Fe5pIy7yW
-	 Kxiew5km3eH8fPpsf6zqDzCqwlrQ18r1N9j6vl5BPu/PxKZ896PdUVoOqMYLDoeI4Vi1D
-	 Yb3YjVHC/BaKNDfLVVZbcvCBd4Iayr093IdCRrgB9KMuzPMxBVe2jmslYPl6gLSV0FDLA
-	 fws9egw7ERJDjjWFecrkKiscxeR4Ign6aFBTls3R/p/jtYszlmBFiJV0xY7mn5DY0A+8a
-	 wQj+ObZHsYuDMqojpkza9ZdXWbCEPYvWXdky3FnEPrwDY6ufu5i2GoaR7RZa653Ciiw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795034161;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=jEY0vd2jLPeL22K7g3/zg/F4xvcfDnw6JtP7MLa4ipY=;
-	b=e7eYliVGJKeoixOxbVGBVDIwLHJzgh1ZpC4bqWLwNMDL7T4QjhOknbVa93hq1LQvnGBW
-	 2XXp37kM9bb/bXX6oRXh35pg++6bJj13vGItEiy73n1Jfvxlk91VHTMc2+0UCXDLXd0Z5
-	 PMDcTY5ttLdTa63VuqwenuZWY0zlwJKervyK/7Iih+IXnhsecmaCYC2YSzkChjtVr5XpP
-	 rsFQBdeS+ASRFU7fbtyhKa/K42E1T4Zclmpn05TUKqQw/r+D/iyW7hTXnpsDgNspBr6kU
-	 4U74cInwFzn5ca4M+/bILISVtaY1ETvepyzsQ0rHcVUcQjtrOgopjwUVH/k+9gvzMSA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BB6DC1F000C5;
-	Wed, 18 Nov 2026 20:36:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795034161;
-	bh=jEY0vd2jLPeL22K7g3/zg/F4xvcfDnw6JtP7MLa4ipY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=G3DdLBtGMEXH7ZTgNv5TIg04YUbpEQjWBPx7E3h0WzvRK04n5wLAEjyiNzJ/2Kd3e
-	 jUhUAB4bx+NWWAbQe1KC82hANTKEqpq1lQHKTNwUkwqjTkjFL7aVN2aqKh6zPrU+qx
-	 czufARCOY7N5pkrqxD/6DuKcMYeY5n1+rfxinCPzLpw5Q3qFqceg/iEfMiV7Gkt5Ka
-	 MQaECa8eZ9u+p9VI4QGhp8jruS/jED1XYwxilmknQHghH9S1c/SnN5tr7maZ2jtmV0
-	 3O2geM2fW/drcPojKwgjeMc20jYOzx3I2G0BxqMmr/c7RNxgqzrLdIYwq4S5n0vX8N
-	 Y6q11U1TjrYHQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 3E6894AF7A;
-	Wed, 18 Nov 2026 20:36:00 +0000 (UTC)
-From: Felipe Pereira Stival via B4 Relay <devnull+v0idpwn.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 17:35:49 -0300
-Subject: [PATCH net 2/2] selftests: tls: add a poll test for a queued
- KeyUpdate
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=estdNcX6
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c8ULfWrd2BVb3Dyze8FWHivQUHQq3qDx803rgJ7/sATwUTCDEMbbULLFks9M3T89oURVaKddvfu5YKMlzyKvANCCJmx+ak9Ipul6Pt3isgmlp8KWY6wri7x6sqtJAtX2S3zQEL0/Iu4cvDJg0w8j3jCOy8ruZtxfz7B4yoWAeQzEc70HJlWqXpW5FJwReZWDxBYQt/oxhedzl4G/xRnhmGjtVRZO/GLhPmqbblTuhKAfabrKe8N4R+pX+EgJUgTiMgzamHC+uISfbzjH+vPd5Iggi/m0ZxMyl/1OvlSKpabCM6bcCV9zofRcOcWHdTYrmQ7uT9zgkPPAoIotAmvvuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t9R14NaI/JeikKnHJ+yahYnsuQHAHuBELGNZM0uMuvo=;
+ b=iUyo4VuMYoeQDbQBop67Xcym+JjYL2KnrAni6P5K1KwrO2QE6btapCB1MSj7TKe8IbvJedrd9nXccVFcZCtCWMs7H3ui1Ojumx379YfAgaz+IXkmcC8QCxsuBZ2E/eVdOs4kMlMgJTjB5m2uQJnnrJFTJolqbgy21Xk0qWi/KvR+LhAApJ7Ix+SG2QKoJfNBn9Di78PNLzRTg5Tnf9/lkkQUtwDmrimdTcQzMvcn4TWrNNGQrkcVtmwjYOzMBravVLSKV9RM3XW3dPYMcUruM9WkuTQm9XRBcHYkLbmwau+ETOoTFNy8ZTc9o2ntO78y31L8Yuy5N0lufoC+mkBO2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t9R14NaI/JeikKnHJ+yahYnsuQHAHuBELGNZM0uMuvo=;
+ b=estdNcX6ZWle4oLQWsI3DceVoq4P9PtQFZuEaPjLIUCLj8/z69YbVgUBGLNZYophyM0iZVHIlWX8gEQe3lBVWX8VyQJ4HCoAatZKZ3B7zveZ2+mgA905STALLRqXxld6kENJXR/O5Lvgw7rHY1IGJNDjneUMU9sHLxNEBONjblUHYgXa4tXUBZeSGsNJoRUFjQYqmr+7DKXnCCqi2YAVFAJ2ePARbCJX0hjjbUN9oPlmxdRiXqAQgI/1pmwS1pYadDhZ8pljjf/ZJhvrjzMFN5FO1U4VXHlNa/gGNvsabEvRKTitdFf2B8c75E4+cFcpz8iN2DKVMtDrl/x2LjGSsQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by QB1PPF9E6EACE85.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c08::270) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 20:36:12 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 20:36:12 +0000
+Message-ID: <042cdb9d-58c8-4a18-ba4e-a3dc8ab028c7@efficios.com>
+Date: Wed, 18 Nov 2026 15:36:11 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/5] locking/ww_mutex/test: Time an ABBA with both
+ owners running
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: peterz@infradead.org, tglx@kernel.org, mingo@redhat.com,
+ linux-kernel@vger.kernel.org, will@kernel.org, boqun@kernel.org,
+ longman@redhat.com, rostedt@goodmis.org, clrkwllms@kernel.org,
+ dvhart@infradead.org, dave@stgolabs.net, andrealmeid@igalia.com,
+ shuah@kernel.org, juri.lelli@redhat.com, linux-rt-devel@lists.linux.dev,
+ linux-kselftest@vger.kernel.org
+References: <20261108141347.1525532-1-mathieu.desnoyers@efficios.com>
+ <20261108141347.1525532-6-mathieu.desnoyers@efficios.com>
+ <20261118163807.75hxTxGn@linutronix.de>
+ <e57bdae9-4f87-4cc1-9fdc-22c2d766e252@efficios.com>
+ <20261118184524.Vxz_-nKr@linutronix.de>
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Content-Language: en-US
+In-Reply-To: <20261118184524.Vxz_-nKr@linutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQ1P288CA0002.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:c01:9e::23) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,98 +106,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-2-8e25101e7be6@gmail.com>
-References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6@gmail.com>
-In-Reply-To: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6@gmail.com>
-To: John Fastabend <john.fastabend@gmail.com>, 
- Jakub Kicinski <kuba@kernel.org>, Sabrina Dubroca <sd@queasysnail.net>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>
-Cc: netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Felipe Pereira Stival <v0idpwn@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795034159; l=2062;
- i=v0idpwn@gmail.com; s=20261118; h=from:subject:message-id;
- bh=aEku9achIkB6xdlEKNORIQj8tkacDlGHfxVLzvkqD+I=;
- b=9enkyopIsrXF5MoQP6Zq/3/ASTULs3Fy+dQmB0HgprtypW2tcal9ICT36I2YwTGth+euHjEo0
- OVRpWt5r9r3Dt7EHSsmtfRYLtcPzIvSS/9B9ZzJbiis7hZpV9eyZwsK
-X-Developer-Key: i=v0idpwn@gmail.com; a=ed25519;
- pk=dy+Py1JexopmEarZT58aUO9PMt7zs+cB62CS+N7NWTw=
-X-Endpoint-Received: by B4 Relay for v0idpwn@gmail.com/20261118 with
- auth_id=1562
-X-Original-From: Felipe Pereira Stival <v0idpwn@gmail.com>
-Reply-To: v0idpwn@gmail.com
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|QB1PPF9E6EACE85:EE_
+X-MS-Office365-Filtering-Correlation-Id: adb59fd7-15f9-4b55-9ca4-08df45b395bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|18002099003|22082099003|6133799003|4143699003|56012099006|261026121527099003|261026140227099003|261102123227099003|261028144727099003|261021121427099003|261022075727099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	mxHUzuY6isQ87MJRAzCSjut/CBgy15h4Ftl22AdNXVcCMEUE3gaeHOg+EBKTo4NujU/0T9tVG1x2Mn5V2pjoLkgfp50Jnej4XMgY/aUCIgBsyHSGpSIEM/FrYlMxDTk2kGy4F2GgLsaqBJ0G8Y0gv1kpAUHbXbqSzfO0zvERXPCMwBj/EgYIiOkcYbBFjI88ksG1oNFpXFO39V9K+tMhTBQ0s2ejwhb76RxhAJX6FmDbJdf0WWQll3/I8EI0x8tjfTemIXcWwv/Rz8QX4tAwu329bngqF2jkynbjJWkUWUoBwS3gQ3FpGpx+YCwB9ZTnP4zLfy7sQIilYUV9wKb5IAGYUyQeoijLzTK+aDRmK0x6oRROCwA7sfYHqLtRIxMw59XjcPcHwrzHQIYDWREGvNa2Hti6VLJZ8K5M4NQQWa6TvKvHo6OskWBSlenbwWs6W/xYfWO+tB7iAb618MebZBlMMB3s66odrZ/tFXZaT4oyQA+WcKum3wsWhu4/6Qp3pO2t0ZDlnArILfLGv5qXZZpTLuGDhaM5g8DSdyszhi9vUcZcKuus+pu/PPhFj7fDV7mdxNKbI42w/wQPcrVEqR7De5AXY7mMPcaJ01l3BV8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(6133799003)(4143699003)(56012099006)(261026121527099003)(261026140227099003)(261102123227099003)(261028144727099003)(261021121427099003)(261022075727099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?S1Y3a1F3SVJEVE9GNk9pOWlkS2NCTFdYL0VLeW4vMzVuemVGTTl3QjBDV2JO?=
+ =?utf-8?B?djRNZDBiSTBPN0syNk1SL01oMHh1anlESUJEbDFqVkFEcUNNVVB4RjdNOU9C?=
+ =?utf-8?B?SHk1WU1nN0ZCbzFpZkw4NE5kQ0N0SFQybms1NEpxZ2V2aHpsSVhMQmV6cVFX?=
+ =?utf-8?B?eTI2aVdBNHd0MTFlMG1zVmovN1IrQUZoaGtpQ25iUkpOdk1sTk5TdThoM0Vh?=
+ =?utf-8?B?b3hENG5FbnArN0RSVnlDdTNEKzM4M0RCMFRycGQ1ZDlhLy9OOUlEVmZsQTVx?=
+ =?utf-8?B?eW42amkxc1p5VjF4aWQ3QW1ZZjh1SmowUmE5VEgwMXFsdDZzcXdaR1FiYmo4?=
+ =?utf-8?B?N3ZpY2dqSk03UUFDWnZNY25NVHo1MGZzeVBUMTh6d0F0RkxJUmpOR2JuejFJ?=
+ =?utf-8?B?TjFrTWRKUVZiTktVTDNUQ3U5UzV0eERiS0tMQXpja3I4ZjF1WG1ETFdUNU9o?=
+ =?utf-8?B?NEEwMTZSQm44YzlJdHgraE1WbHBuR3l3bG04OHpuTWpZRHZkdHd2TGFWOTBH?=
+ =?utf-8?B?UUgyeGxFNjVpVytEdU5uNkRxTy9kVG9iMkk0bkt1cFdHSjhiZk96WE9xbk9u?=
+ =?utf-8?B?R25IOW10Z2NkQThIaXd5WkU0TW1MbXB0aWlZbUxYZlJyd3JDOG5tdjgvb1ZB?=
+ =?utf-8?B?N2pVZGtFcEd1cTJSRiszRW1qR21YMFJkeXVDbXkzSE5wNWxlQ1E2S1JadURh?=
+ =?utf-8?B?QmtiSnU1c09lRHZ5YytKRWdBTnBRbkpQbHdiTDU0a0VtWXVwaEVubXdEdVVh?=
+ =?utf-8?B?Y2xhZGlvd0V4czV3Sk9jSGpXY2ZwN1pTNjdaUVlXazFzVUw5VG1aZU5jejY0?=
+ =?utf-8?B?YXMwQVNIRVJwNVN0WTZMVjAvS1NtVEF1aHR3a0Q1K1FhMklFT2pTdDg1SERn?=
+ =?utf-8?B?K1JKM1VrQTdyaXJScFNHTjJkVWZnWFZNWE5TSWw3bG52cFpGajczZG9TcFIw?=
+ =?utf-8?B?U056SUY4OTN5NXQ2OFJHUkRnbis5KzRNZ3JpcHZDU1JueHZJTEJkMGh2c2dm?=
+ =?utf-8?B?SHVsd2dwTkxVdXJlMWdyMDV4bTVHdGpXcmZ2cmoyRzJlVTVid2ZITkI0QWcv?=
+ =?utf-8?B?MHNnM0thS29HM0hsQ2E1eTBSRW5VZDVKTHFwY1Z4eTFKMnFoMmJqa2x4angw?=
+ =?utf-8?B?TlRnQmRaWFdlTUZ6WkxjVzE1LzFCbUw0ek50azlSOEJ5VHJMS3JwVlBSYjVU?=
+ =?utf-8?B?VGwxU1FKZ0pWK1JZLzJGVndmV1ZsbWxVL3dIWXF5YytaUGdDNitPNzlmcWkz?=
+ =?utf-8?B?UTE1Wmk1bzQzOFQ0M2YzanM1NTl2Ykd4OUF2azFxaVNKV3RnV0ZNNkdheURw?=
+ =?utf-8?B?NncyNzVuUE5waUowUDc1ZjkyZkpNV2s2ZzB0TTRqSzVEYlVZbEZRMUlsN2Rv?=
+ =?utf-8?B?aS9HRDROVXFCWTMvQlBMSzZhby90MWVocUNCZGw3Z1B6T3BscTErVkFVVUth?=
+ =?utf-8?B?VGYweFA2VVVOMzdDQ0VISDlDZnhZMUhFQWdGbkhBM2FCRTRvSHpkdG1WUHRs?=
+ =?utf-8?B?R1RPaTRMbDNMNnByWXpxaWJzWitmZHFpQm1uenFCbmpQTDFIc1gvMEhVSFFR?=
+ =?utf-8?B?VGVzMzIzUFRDbnFQRjJ1T2NqRXkyMjJ4cCtuWkwwamR0UU9UeHExclNlRmFF?=
+ =?utf-8?B?ZnQvUHlyaXNGeS9uYzcwV3ZBSHJraWx6MFlZOHZSS3BqaUU5aFUyRk83ZTky?=
+ =?utf-8?B?Vk0vOGZSemRxWEppd2JQY3cvbERpR2RYQWdiNUlpTTRCc2ptM2xtbWRvSU1E?=
+ =?utf-8?B?ejJkNnJBd1FEanhySzgreXp5WWM4VUNrUSsvV2JOUFBCQ2dHRk1MQkVYN0ZN?=
+ =?utf-8?B?ejBub2FzZUd4V0dISWM1UXk5OW9Pb054RTJZTG8wUkJBUm1HR1YvbjFMZm14?=
+ =?utf-8?B?UUY4dHljREd3N3NiV1ljUDFVeTFlazI3VXhPQllmU0ZjS2RpUnZaYkRQTHFP?=
+ =?utf-8?B?R0VqOTZpK3NMVVFqWTczYUYrWU1BdkFMS2c4RVE0QnlhRHBnYkQ3N3BLbWJ4?=
+ =?utf-8?B?N0Y5N3RtbDNGZCt1WkppTm5zZWVNcGxjcklCV2w4R2tpOEtoblpPNU0vMlY2?=
+ =?utf-8?B?bnJEbnY1WElLdXhIZFZJeW1vTktLdTI2VC9uSHRMV0hBNkZERVJQSkVITmUw?=
+ =?utf-8?B?RXZDbDRyWVRZU2o5czE0UzduamRKWDNLbkF0NnlRSW1WK0oxdmpCQW9GL2U2?=
+ =?utf-8?B?M2RCbWg0dExjNXRZRWxlNGhDc3dNT3ZnVTlYb2l5dElEN2EvRS9LMjRMM2s0?=
+ =?utf-8?B?ZmlNbG1TalYzUW85cWZFQzdFWElMRzZQNW9NYkpwMVNUMDlEdmw5aVlESXFX?=
+ =?utf-8?B?NjhLRDcrYzFLYzJ0MGFyMG9CTHpoaWtzZVdDdEoyZ3hpUm1pazhNc0FwcXFX?=
+ =?utf-8?Q?DHLeB90/jyXOkAyp/bs8Ova3YMU0JymzT5D/e?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: adb59fd7-15f9-4b55-9ca4-08df45b395bd
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 20:36:12.4538
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BsHL1zUegEDrVymB0BycJMGerwOOot0WwEyP+AGZc8Xt5wfTYlyi6ME/nPb/nI+IVp28pXlWsM7ac7Zk8/BrH+RImKv7IWbiSTo4C93VvZ0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: QB1PPF9E6EACE85
 
-From: Felipe Pereira Stival <v0idpwn@gmail.com>
+Hi Sebastian,
 
-Check that poll() reports a read event when a recv() for data has
-decrypted and queued a KeyUpdate. Once the KeyUpdate has been read,
-check that poll() doesn't report a record sent with the new key.
+> The timeout that was introduced in commit cfa92b6d52071
+> ("locking/ww_mutex/test: Make sure we bail out instead of livelock")
+> triggers. That is not related to your patch.
 
-Assisted-by: Claude:claude-fable-5-2
-Signed-off-by: Felipe Pereira Stival <v0idpwn@gmail.com>
----
- tools/testing/selftests/net/tls.c | 40 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+Thanks for tracking it down.
 
-diff --git a/tools/testing/selftests/net/tls.c b/tools/testing/selftests/net/tls.c
-index bd2797f9f61..59e403b5f12 100644
---- a/tools/testing/selftests/net/tls.c
-+++ b/tools/testing/selftests/net/tls.c
-@@ -2421,6 +2421,46 @@ TEST_F(tls, rekey_poll_delay)
- 	}
- }
- 
-+TEST_F(tls, rekey_poll_queued)
-+{
-+	char const *test_str = "test_message";
-+	struct tls_crypto_info_keys tls12;
-+	struct pollfd pfd = { };
-+	char buf[100];
-+	int send_len;
-+
-+	if (self->notls)
-+		SKIP(return, "no TLS support");
-+
-+	if (variant->tls_version != TLS_1_3_VERSION)
-+		return;
-+
-+	/* data followed by a KeyUpdate */
-+	send_len = strlen(test_str) + 1;
-+	EXPECT_EQ(send(self->fd, test_str, send_len, 0), send_len);
-+	tls_send_keyupdate(_metadata, self->fd);
-+
-+	/* reading the data decrypts the KeyUpdate and leaves it queued */
-+	EXPECT_EQ(recv(self->cfd, buf, sizeof(buf), MSG_WAITALL), send_len);
-+	EXPECT_EQ(memcmp(buf, test_str, send_len), 0);
-+
-+	/* KeyUpdate hasn't been read, expect cfd to be readable */
-+	pfd.fd = self->cfd;
-+	pfd.events = POLLIN;
-+	EXPECT_EQ(poll(&pfd, 1, 0), 1);
-+
-+	/* get KeyUpdate */
-+	tls_recv_keyupdate(_metadata, self->cfd, 0);
-+
-+	/* update TX key and send with it */
-+	tls_crypto_info_init(variant->tls_version, variant->cipher_type, &tls12, 1);
-+	EXPECT_EQ(setsockopt(self->fd, SOL_TLS, TLS_TX, &tls12, tls12.len), 0);
-+	EXPECT_EQ(send(self->fd, test_str, send_len, 0), send_len);
-+
-+	/* key hasn't been updated, expect cfd to be non-readable */
-+	EXPECT_EQ(poll(&pfd, 1, 0), 0);
-+}
-+
- struct raw_rec {
- 	unsigned int plain_len;
- 	unsigned char plain_data[100];
+> I don't call the shots here, I just explained why I don't see this
+> needed. We might want to cover this code path if the paths divert in
+> future.  I don't know.
+
+I would keep it. stress_inorder_work shows the bug only through its
+timeout, and its margin depends on the machine. This case times the
+ABBA itself: 950ms without the fix, microseconds with it. It would also
+catch a change in the ww_mutex path that the futex cases cannot see.
+
+The next version keeps it, with your Tested-by.
+
+Thanks,
+
+Mathieu
+
 
 -- 
-2.56.0
-
-
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
