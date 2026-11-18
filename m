@@ -1,101 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795032718;
-	b=2AE3Kk6keY4bGIJPrwKaJ21aPmPeMXZbFq6cx/jPCkIBfGhtXZXV0wa/R13ANJkaeDwD
-	 sAZmO4FfarLV52Uz4Pog31Wr5x1JxiO7Ek1jzMb841EVKUbtfAeRjSUZFe3SsnbYaW0dy
-	 rEfkcr70CkH9s8JddIDqDEHLdeye7/KXNIpHegsrsnt+k1YVai10kCyOD5PZsx1Hw72Sb
-	 pDWMkzyw8yGqG2pUIvt9ES4CWMdHA55L9B+6UZiKEvkdv4qxVwwzP23HfBHyJIS4y/VgN
-	 CkgNaes59QgDluood4tNfeeGF/8viXrpRLRzHs31B/4MBqej4YONSXJPW4ZCsMeUiFA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032718;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795032766;
+	b=ISyL39QT5d1VWAbNJwH7KP1DRPs8wRAkio1zF7T7emT2cDD8RwR9C0Nk+Kqs6aTkUtSi
+	 vqdHohXZrWQw1dni2REhjO4rDSzUewVwhbaA04FUps5qkJ7ZJKxRXEdPpdHB7IIhce795
+	 PayzZtbTQ8ypO3CVOSGi4VaxCu58HY97Q2YksehCU8yE+zMdozc0sKbZmdAjprU/UIlhw
+	 oTbhxOFU55eNFpeg0N/RluYAKFDmSxRbuIsF8oVPr5SmDJ8bq8lP0DoPqQcPc1M8YrfxO
+	 WWzCUH8FTjRoeCTHvBLnH/6z3OuiCNWEAD71p4TwCeyHf4yWwwPBjnL00xf471tJ7PA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032766;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=kl4zj0/jNFlm2ibhU+UMkqFeZbcnh51SPv06nLRI2qY=;
-	b=NRe6rIUQVyxIsSoWKX2LpA+fukGVFxmXTPVuU8Px8xL+z9tPJTPavno3ZwBwm/VN7taE
-	 d6NjQhrb4nUVTvvCcNTEzxGYJaWekvi7yanG9whiGo8cL+eKFJ4SBdVSokD+pasy+psc/
-	 h2oCYTnuNG82qKfdOVD4KSjeeNDjTcvFW+Sv9/EXdVi/KEwOWNBzLgp7f9IE8zTDiX7re
-	 bZDB4cWu6+rT6XFKL95fYpswetMOQdisP0DutM5uoVtQR9+JWP+MRNtIAyG3jN7E+EpYc
-	 jFyIB2LMAbAb7fnb8+Ozj89vbMoMTTsDmKSOYRV/Q9P7pUSvIrfezoSuxC06nCoAecw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WnPEpb97;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Pjuff7q7uzbEL6ANRmv3ID5+cImAFU4IO3TNfZpMezQ=;
+	b=Bx1NUn8gd/mNwT1/1GIt5Z2AwuLLCnmX/Hfr09PpATSUEPp4jvcr9+YEMhSlO8vCAv9y
+	 U9vvN+haJXa6opKFfM5e6otuLTu/Npl6WY3KgaIe737utLIt7DLjGOFaGQBNDKh6X4Nan
+	 LMKOpDR/XTi4dgfRyJJzgxhbyM1OjItvNhMSVvMb+AWH8DYdMYgSU8pdn/MmHj76O23vF
+	 +9Ir4g5+ONKOIqUC+JPgcBI78niwv9c9cU0ipKHNk+VydWJaVKmWHmmoM8+zXBUkQfXyd
+	 530ZTwkJgqhphwZCh3grHB+bXObENeGlXUTlsvb5v5YK9N+BwRksNmBZAuwNPf56TKQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel-dk.20260707.gappssmtp.com header.i=@kernel-dk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YZ7d3lcY;
+	arc=none smtp.remote-ip=209.85.160.50
+Received: from mail-oa1-f50.google.com (mail-oa1-f50.google.com [209.85.160.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D430260A2612
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:11:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D430260A2612
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF87C606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:12:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF87C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WnPEpb97
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48e10a70540so929286f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:11:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795032715; cv=none;
-        d=google.com; s=arc-20260327;
-        b=WNzBB5GIk+ANgKUN6uMFxKYUX8QBn4btnD9PjpSxGpwaeeNNxjjzcA/+Cq6QRlfs7s
-         fg5j5iQSteqvdOWJUmqKz0kGt1NSz3xAmPhGgqd69WjR0jq42M92Fkikly5p6wWWnqYu
-         YzZPEoOqIBwcwEMybIIlwmUT2ng2zoffwQrPn7IVi3WWWBfFBH3wPaCaTSs1YKvSMwae
-         Kr/XIw4yr+SkRddHu36wYYZaZD9/UFlKxIHY2JRP0i353dO8WSYrq72kLn+ANh4+keV9
-         AFdgWamoqzLdFYCRz94lrs9aj+c03QksLnxyGLVraEXJ04Klg+gIFEPyf8R/YaUbYIAW
-         uwDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kl4zj0/jNFlm2ibhU+UMkqFeZbcnh51SPv06nLRI2qY=;
-        fh=y0O3ecrhZR9ufvuwPOqgTfRG/oZzaI40SdQCP2YnTRE=;
-        b=SX1OY96va0RAzlyWdV/rrGvfhO0rb1EweRWHO4xaIltEBwMDNcsD6cuxIDsbDnqKpq
-         9M1M+MBRIWieWb90mSrkB/BYpuBmTISAJULs+fgfjP5OGM5Jc0WYwUb5qBohCfzrgJ4W
-         y+tv5OGIXGy2AaOpeSdGCxh36gYY7YBzOJeZf7LKoLw1XoECOzArevJoelxhWRaekTSt
-         BX9QphU+8DxZr4R697eR0IGWohAlt+iV8NFEywnfvANOI1Zc0AOtuVbQEbYkyzaeAONg
-         g8U903i9UmFWyNx0C59TpyOi1VEDN/waTH0mUvD575KqdcGi6bvUJv0ADr3cd9I4yOu6
-         2NXQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=kernel-dk.20260707.gappssmtp.com header.i=@kernel-dk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=YZ7d3lcY
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-490d838b425so767373fac.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795032715; x=1795637515; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kl4zj0/jNFlm2ibhU+UMkqFeZbcnh51SPv06nLRI2qY=;
-        b=WnPEpb97kcsekPHkHRowpccMWjX8C6s0r6JhqMP+J37hvVyl3KKbdYTrt2mCKnNDPR
-         dFa++tGiOhCmVAPTDBNOBZ+/FYjY2XnEehCAl26jldhRwJjHQfxFxycMIZ2860yrP/dB
-         aqtRoitnFK+bScW4973b50bWbMpLOkw2YyCX5jHh2E2Uzdlkyo7xXRYjzP52MgWv6/yd
-         l5Hpc6/FmSbkceMFAEIunsH7fc/2JN6t/vj4zxj3eulelO/OY6aj3hPKErr0CVXD7o+0
-         /2jgYoTAzXn72smJdbBxsLFgjx7CwV+4whoC7laZsKAqXOE6XoAXJ0yzr2PIRyaTC9nQ
-         5Fxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032715; x=1795637515;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=kernel-dk.20260707.gappssmtp.com; s=20260707; t=1795032765; x=1795637565; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kl4zj0/jNFlm2ibhU+UMkqFeZbcnh51SPv06nLRI2qY=;
-        b=EAGmLT0TrzZNM5UjXuAVebnbvbgloxxzV6NgpR9Sm1bWn7KtUV5FqqWgeDhaagozjC
-         n/JwUpSW+SUNtVtvTQ5D/anFYE4KYq5fjigJ16LBsBG5AhtPtbDi0cdjTZCqBWI/fxJ/
-         mHd8XGNs9/oHVOJwrckPaGr9i9EVltY0t5v1pHRP1Rx3fo3/nkMNcLJjpwZdj4znbLjj
-         U4999cotWSp8N8pMwf9q3ny3mw18NWjGocYUUAWawZ05aeCl+Ebmu1ortW6a2mojBWAo
-         +lBt9m84XgttOg8m8INUYJK5cVsDgsltY14FEa6JbV8m7gLPbvcxbJ8I/6XXdpWoA57P
-         1EfA==
-X-Forwarded-Encrypted: i=1; AL+hErGouE3j/wZ2DXCK8qpSBAS8kb1G0B9QKXm4Dd5QMqWSJuDPx/sEBUM2dO9KChutZFd+H7d/0oBm+0bYMRM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89SxSBXKG7t1PIppl5Q0e8CR8RK+4e+8r1ndFjdFaywtkQQvxc
-	UirAv7xRvHkmBoTUO4C9dMHZ5lxVFaLe8b+6rrtZ2qD23x/ptOgpvqwQ8trk3CE4XAiJHIXJX0W
-	EsOcVMs+fBj4bJOgCpOJJ+bMOUTvtwYEf+meFQ+GU
-X-Gm-Gg: AYBFou0uIX3i1XQcvJIyuueJYNMfPJvNogQL55rursA3ZkhUuDWwHVF/N/QYOr25AxT
-	W0EghG8BuhmOvrZoNW+ZURgmbn85E00L83c3yxfpb8p9W9WK53IC4cb1RhmPHxDRL8rPV0fCdOR
-	kb5KXGKGgq2bLJBDla0emNzuwhTXwcYn2TB5L9Z2GSCjxQkBtHnQslt8Y81t9Xzq7fz0q6euszA
-	e7tGrZjZWRPXPTpUyw/LrVP5zOXxqKWWn6vT/Gd8BdJqS6sn3hUQI6Y/bRPEh081qhRqmaCmBrL
-	83gmpXw+b7IVTafWEy49LCvg1frB9idJQmx2P5imtwI7TCrvNTnB/cbVnmPvNEXWjba3yKzX/Ct
-	Z0eBCRqbpFQiuIr/Q8iMLPv2SS2Bp1AuXARhpYVD2DsLQ1Um9bGO7arfelAx9xsatjKBcGAxAqY
-	9ImGcWRFztBMVm
-X-Received: by 2002:a05:600c:4f4f:b0:4a1:f377:5c6c with SMTP id
- 5b1f17b1804b1-4bb7da1274dmr73938355e9.10.1795032714637; Wed, 18 Nov 2026
- 12:11:54 -0800 (PST)
+        bh=Pjuff7q7uzbEL6ANRmv3ID5+cImAFU4IO3TNfZpMezQ=;
+        b=YZ7d3lcY633MpPdzjWfeEyddVT+G02tld5QoTSdv291wxWB0jwFPK6qsBfYsuUz9cX
+         kAkzP3LUouv2tijYjJr8sJHC4NjR5gdQsOpn7qWo+6lPhvfvcrw03ejYxDZEH4Qoaj1E
+         RNiNTK0iXxczAY7HrtLO+bVjz6OOX+BM/PNjokwUt860VRPz84en7wkjjhhDbx3F9pX3
+         w6Yh/fYPUTTL5naOyUHHAu1UBrc2k1NL2FrhfcmUIJPSRgHJznmsQZIZd3Buanai17Jp
+         OgDO+LiHyBJp13h4BnLLXG1ojjUnUNoxNhdRWQw+8khp2DEx1JaEO95Dv4tx34KBKU0i
+         Ym1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795032765; x=1795637565;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Pjuff7q7uzbEL6ANRmv3ID5+cImAFU4IO3TNfZpMezQ=;
+        b=H5nhGSvTBTg1zVAQKBjJqDzsShHYDs3CeLrbkMGZgBFrTOZh3hz2rnYUVKsfvlGHw3
+         h+pbZRsV1+CnHae/bUWTiC9gvAXWFCITT6mK9M1z+dT9LQkboJKcHxuFDIRT8+Ti6VJy
+         JZURLNk3giWYhvtQ2he/EeT2oUIYLTkeKWfLh6tPoYZbvCZEcFIBTw2Sv3c33igUydkQ
+         JqGedoQp2evC4xGCOiIFh5INx9OdvQwYorPbvX94L24YoAndf4wFk6ZnZAxikXOeYfN8
+         z8mf7tOyoGXFqVgCmBRELz0YSomX8c75hVffyVUNFaOyUh1dT0gcGpxypjkotNMhsgx6
+         vvnw==
+X-Forwarded-Encrypted: i=1; AL+hErFUiNc/XxIiAevyonhDMi0xAyfw2arB+mHPherIWpuYG6eO6qcAg8KWQ7l1cWM4bqGfyPhS6HT+AjMN5YY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8s2p2SxFBQOuP+yj9K0IY7rQJHePeYoipfzY5s0IRkWGjelv7G
+	bkW/a9SULdYbkuwU2gkWANnUM9jkPudzCF5pprVWAaTHV9euXH2i62nRIlbEGcHMZhWezldx1zo
+	zN/87L+A=
+X-Gm-Gg: AYBFou2a9jEygef8RuvKOU6fSYIHHvAmS1rQodp0aALFNRavUvVaZql0A2xtJrrrIB/
+	DIdLw/l1O4zupuatCRwoxIybdPfe3OlBJ92inauKaBecqqjGnqaZPnVM7lsyeC2SecaXFlfaBFr
+	FqBo2Ijx0dGkNvJPbwsnJQKh0k2wkzZ3EG6eg8GyHC6AHhZZ7exWyx2a6xfiQqcuLaI1SoeEezJ
+	xcuFNjkU7e2OvWVv/5QiBNiO1DxbLVgoleYFxqEYV4AT+AzQPwkBM4wpIDSckLKdlOlMhXsJ5As
+	hP05uMMuX5szKVsgj0S0DT6lwBnfaISbTQzhtsNWEAQs1Kni2pfR0IzFFN5NeqNubFVbYq6L1hX
+	MOaOFbfP+CfCMQmfjAvuOZepQEU7R65vcXaaxke4Ite46ciHnyDA6+9H1oTyrynaPipkXoVsUBL
+	SPko0/JcE2SIc1u4uW+gPgMAwJS3knzL0cKLLs+Ka5BFvx0noThWveCP3JU8r5MoqGaCnR77rW/
+	zvahoete/KL7nVN789M2u6Cag8CrXSbcbwy6zPCYaiy51JBDt8gkGeORpVBjRNNdKaqv+b/g5IH
+	+8Y9Z2/BEJXG18Ck/hT/cgckLScU4ehnxy39+8UcEthGzXEmZszaBERFdfssRWfJ0hjmQWKuxSB
+	E6do1jiL6ZSMLaLqtCwTelLFiHNDMuTaKNud8vqMSH1mbTYY=
+X-Received: by 2002:a05:6871:5826:b0:494:75ba:c6d2 with SMTP id 586e51a60fabf-4b75f1206c7mr3688243fac.13.1795032764761;
+        Wed, 18 Nov 2026 12:12:44 -0800 (PST)
+Received: from [192.168.0.102] ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74372cb6bsm2987383fac.4.2026.11.18.12.12.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 12:12:43 -0800 (PST)
+Message-ID: <17a2244d-010e-425d-acc7-ce8601982a10@kernel.dk>
+Date: Wed, 18 Nov 2026 13:12:42 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,74 +94,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com> <CAKwvOd=iOXmF9DS8iopFZEgsqORe6eHokpF_-3-jEfD7yPuDFA@mail.gmail.com>
-In-Reply-To: <CAKwvOd=iOXmF9DS8iopFZEgsqORe6eHokpF_-3-jEfD7yPuDFA@mail.gmail.com>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Wed, 18 Nov 2026 21:11:42 +0100
-X-Gm-Features: Aa3M54q33nCN9_jrrnbqRVjKUIfyyWJWqzyIJScCl4pTAw6Zw2JFPOFUAC-yfZc
-Message-ID: <CAH5fLgidhnPbP=xXQ3162w6q0U6rWHPZ9Mu6-E5va4_CXyanOg@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: rust: disable function merging unconditionally
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Matthew Maurer <mmaurer@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] block: Fix NULL pointer dereference in
+ blk_mq_complete_request_remote
+To: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>,
+ Daniel Wagner <dwagner@suse.de>, Christoph Hellwig <hch@lst.de>
+Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hyperv@vger.kernel.org
+References: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 7:48=E2=80=AFPM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Wed, Nov 18, 2026 at 5:09=E2=80=AFAM Alice Ryhl <aliceryhl@google.com>=
- wrote:
-> >
-> > Function merging causes various different issues:
-> >
-> > * For CONFIG_CFI there's an LLVM bug causing functions with different
-> >   CFI hashes to get merged. This can lead to crashes at runtime.
->
-> Do you have a link to a bug filed against llvm?
+On 11/18/26 12:28 PM, Srivatsa S. Bhat (Microsoft) wrote:
+> Add NULL pointer validation in blk_mq_complete_request_remote() to
+> prevent kernel crashes when block drivers pass freed request structures.
 
-https://github.com/llvm/llvm-project/issues/217629
+Please stop this nonsense.
 
-> > * For gendwarfksyms it causes functions with different CRCs to get
-> >   merged. This leads to broken MODVERSIONS information if the function
-> >   changes in the future so that it can no longer be merged.
-> > * Wrong backtraces when a crash occurs in a merged function.
-> > * Possibly also issues with pahole/BTF as the merged function's debug
-> >   info is lost.
-> >
-> > These issues are new to Rust because in clang, function merging is off
-> > by default, so these things have never come up before. Because of this,
->
-> I've never heard of function merging (in clang). I've heard of
-> -Wl,--icf=3D{none,safe,all), a linker flag.  Is rustc setting that by
-> default, implicitly?
-> https://github.com/ClangBuiltLinux/linux/issues/1598
+-- 
+Jens Axboe
 
-No, this isn't linker ICF. rustc doesn't pass --icf, and in any case
-kbuild invokes rustc with --emit=3Dobj and does the final link itself, so
-rustc's linker arguments never come into play.
-
-What I'm referring to is LLVM's MergeFunctions IR pass
-(llvm/lib/Transforms/IPO/MergeFunctions.cpp). It runs as part of the
-optimization pipeline, within a single codegen unit, before any object
-file is emitted. Clang only enables it with the cc1-only flag
--fmerge-functions, which the kernel never passes, so C code in the
-kernel never sees it.
-
-rustc, however, enables it by default whenever optimizing for speed or
-size (opt-level 2, 3, s or z), which covers both kernel configurations.
-It uses the "aliases" mode: when two functions have identical bodies,
-one is deleted and its symbol becomes a GlobalAlias to the other. You
-can turn it off with -Zmerge-functions=3Ddisabled.
-
-Alice
