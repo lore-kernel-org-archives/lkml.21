@@ -1,76 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795009503;
-	b=T+V41Fnk/bum+/Ghj4UMrpBiUvH4uVWwZqvq9k0yCHA3OW0oBb8PSrN5ftBVM8X9WZqo
-	 cohfcxBIpFdGwBq2M70DT5k+hTRhC8plwGVwzSkjVDbDX+KmvE/apeR+24WdlTdAMDVQy
-	 qTORuV6uSSSs+0uCk92g5IeQcuK+UAZ7Fwz5W472E8PHTd0AUiCCdp++S2Q/DxK08C1/q
-	 PNCzVowe6xctPlkSc5m/CmjFJvV611G8fyYWE0i0KqmfrRtJc3F9G5JMPSWaNsGcXwxYr
-	 Fdr6xyrUIH/fCb2SInsva9o/ePDNra+jbCurXKD5iNrfeKNAnbGAYmWBJj9rEEoDY4g==
+	b=OfWJghKEgOakupJASgJoQ3ELkvOuuECcQrd41AVi3dQUFK1y+d3BunW6RDTApyOcoLyp
+	 qGlZ4iyQzw6yZ1Gl9zHNOGz0opCG9tJB8ALWeF08xR694FXL9NRp5ggvQT0r7EKqfebHS
+	 97nOdbLnmy9JGu5fbl+M35yHoQyx5VNqbA7lBLa+KpBTAZw4JrTdq/gGbbdpWUS5eqAA/
+	 kcC/Rq2o1tlg7/XPeBA21+TOANcdNQkfMiWFeOvg/ON6s/sllTkW/Fgrir57wLjkRFiTP
+	 CVblJfmR0smm0QJmPcTX6fNnTUaIp5mJhjxBYMZ9u1hxx5pHvAFxPHWfwXGmPAx7SxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795009503;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=0Tublv8yREvRlD0r2vLMl5/NAukCKy2oUflfeehTBNo=;
-	b=GHy7gp1Za9Grk8LvqkuqHh1OzdBVhaO+DyyFYrWFSHYgHxCKNpq7RnMRk9mZhmrNAyE3
-	 Qx2pJdFjxzdmueFcgdiWFgeq2eAM1P1qW7i53Y6jQmU8eoPVbkFvwROvNZIyzRSKjHkJd
-	 RK2u5OeM+l5jkLXZyTfzygK/XDUOcDqtvU06f0uTHzldbXHJtQJvYp/DN4oxGkXtXXuxI
-	 cxRkvDy6s926hC7tn2sDtuYU8tGY0VftgTHoVyL20y/h5xfJynAnt0at9wJpFfOQ2PwFN
-	 g/WRaE/JjeJ/w7gLJVn+sLJjQo7ccRhFX1SRzTMnrCNicpkSls7/p6gqewQTt44hiBw==
+	bh=33kIkWSUEHt9L+omL8ZBRHDo1ltw+FvS5gRLUOAaiFo=;
+	b=hX2GGLwy41ZNXEg2UW0nhmfNTfyGmaOKhZmv3paDODtBTRjA7dTr/SAfUQYeqVTx0M5a
+	 f7+nBI8kXEHMr7y6f3xz11oSavgYjWpNbWUP3m6mBVsCpdKITLJNyDxv3S2M5aFVnhufb
+	 t6+LqYUMoko6SWfFH+Y51JUIHKy84XKCV3n9k1Cjd5G2Gu/IVYqMZQHcad4wAYJzoyJjG
+	 Ldtrg+Twleag/+jAX43DW6HzNCly+fcblqBtrZkWnOyuOy9vNfEQ+dpzRtlotRKZmLUL8
+	 tkVNXS+pKk+dpXIa8XS7fk5va+n51jxi/YE9xsyU/99+zod3OtbBqE+XUcE/C0XBbiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=rjBsUdO8;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=FbyrQn1x;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=3E2kd6y1;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=VbBZHnJ8;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 233EC606A330;
-	Wed, 18 Nov 2026 13:45:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 233EC606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 234C7606A331;
+	Wed, 18 Nov 2026 13:45:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 234C7606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=rjBsUdO8;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=FbyrQn1x
-Date: Wed, 18 Nov 2026 13:44:57 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=3E2kd6y1;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=VbBZHnJ8
+Date: Wed, 18 Nov 2026 13:44:59 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795009499;
+	s=2020; t=1795009501;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0Tublv8yREvRlD0r2vLMl5/NAukCKy2oUflfeehTBNo=;
-	b=rjBsUdO8PmxR8QYv8sM2gcnHUomCP8OEM2UXhp2IJr5T4SWLkb7CGzNCUttaKywl77e/dw
-	BpgYy+iwC3SDaecWzAQWjibJ1b16RNWDUe6t5SqV9LtGHPiWSO2oylRStcmKKaJtqVzsOL
-	YJqonMjiXO4HCxFCq+hM+ww9DIy3Asmday5Kb5y0BiBDjjXZ04EM2j08dEbWsxkZhskNtF
-	nJ7/h/lk3pAhyMbHGOgP6y4frv4zW4r+IjIUwh+8WgazuVtLLrstR9/XOl46KiFPkr71RI
-	snZ0q6UIACBBrLpYv5wdutbYzj7mrMQzIrjO/HbRG/AuujDFefw7PANUVrTVXQ==
+	bh=33kIkWSUEHt9L+omL8ZBRHDo1ltw+FvS5gRLUOAaiFo=;
+	b=3E2kd6y1YIi2Qad6CuTaNNAV2GS1YLWMtgmfU+2InlkwW/WKPNTwtNKjeP3tePgxz2uu1i
+	xhmHwhlelTxAdVNHdWqS4s2Rx734Kg21bH6hAeYKIlKnci/qfWkgHrqzP6+BJLBkCwCqE9
+	N2I5El/zhlLVTyRga2sv3/bE6e1M2pPa0brqGxw+YBP5bsLXL/723a2HsXICYx9AXKRbCb
+	OOs5P+kj2Xu0ELBYn+UrQfOYbfScfMPs02R0Y1LSABIHoXCHMd/siEuUuRhrJnJObg99dm
+	BlApB1dEV0es1m7EqNVx5dGo7jnZZ8GzPk2tt+5jHt15yY66cBy7YEOBU5osZg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795009499;
+	s=2020e; t=1795009501;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0Tublv8yREvRlD0r2vLMl5/NAukCKy2oUflfeehTBNo=;
-	b=FbyrQn1x/AMf6L3GtK2C1mi/FyqEWzDIddDGuQcMaqNNCSCekNJem71n6rb67FIkdeMlK1
-	IFq8oML0lgGhdSAA==
-From: "tip-bot2 for Radu Toader" <tip-bot2@linutronix.de>
+	bh=33kIkWSUEHt9L+omL8ZBRHDo1ltw+FvS5gRLUOAaiFo=;
+	b=VbBZHnJ86gnTFVLYSKHEVQbponAlt2AYQy2Gm5esokkamNKY5Ne8xLlItYdWRGGVc/m9Ww
+	ffXIMY8YuO9TSaDA==
+From: "tip-bot2 for Chengfeng Lin" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: sched/core] softirq: Treat an interrupted idle task as idle in
- tick_irq_exit()
-Cc: Radu Toader <radu.m.toader@gmail.com>,
- "Peter Zijlstra (Intel)" <peterz@infradead.org>,
- Frederic Weisbecker <frederic@kernel.org>, x86@kernel.org,
+Subject: [tip: sched/core] sched/fair: Avoid redundant updates for unchanged
+ default slices
+Cc: Chengfeng Lin <lin2530632123@gmail.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>, x86@kernel.org,
  linux-kernel@vger.kernel.org
-In-Reply-To: <20261111112944.3868822-1-radu.m.toader@gmail.com>
-References: <20261111112944.3868822-1-radu.m.toader@gmail.com>
+In-Reply-To:
+ <CANGjgdmNCfm=SctvKZ44y8b5n8t_JSp4meX=DKGnG74B3g1vVw@mail.gmail.com>
+References:
+ <CANGjgdmNCfm=SctvKZ44y8b5n8t_JSp4meX=DKGnG74B3g1vVw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,7 +81,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179500949792.3191731.10522801986782630428.tip-bot2@tip-bot2>
+Message-ID: <179500949968.3191731.452631913249829655.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -90,171 +91,98 @@ Content-Transfer-Encoding: quoted-printable
 
 The following commit has been merged into the sched/core branch of tip:
 
-Commit-ID:     b251360cb2e6c7b74d962831f5797a4520511b36
-Gitweb:        https://git.kernel.org/tip/b251360cb2e6c7b74d962831f5797a45205=
-11b36
-Author:        Radu Toader <radu.m.toader@gmail.com>
-AuthorDate:    Wed, 11 Nov 2026 11:29:44=20
+Commit-ID:     9dc6cae4904ff34025704041d07c731937db10dc
+Gitweb:        https://git.kernel.org/tip/9dc6cae4904ff34025704041d07c731937d=
+b10dc
+Author:        Chengfeng Lin <lin2530632123@gmail.com>
+AuthorDate:    Mon, 19 Oct 2026 00:59:54 +08:00
 Committer:     Peter Zijlstra <peterz@infradead.org>
-CommitterDate: Wed, 18 Nov 2026 14:32:21 +01:00
+CommitterDate: Wed, 18 Nov 2026 14:32:20 +01:00
 
-softirq: Treat an interrupted idle task as idle in tick_irq_exit()
+sched/fair: Avoid redundant updates for unchanged default slices
 
-tick_irq_exit() only runs tick_nohz_irq_exit() if sched_core_idle_cpu(),
-which is idle_cpu() unless core scheduling is built in. idle_cpu() is
-false when the run queue has tasks while the idle task runs.
+For a fair task using the default slice, _sched_setscheduler() leaves
+attr.sched_runtime at zero, while se.slice holds the actual duration.
+Comparing them directly makes an unchanged sched_setparam() request take
+the parameter-update path.
 
-That is the normal state of a CPU under sched_ext whose BPF scheduler
-holds back a runnable task of that CPU in one of its queues, e.g. a task
-of a cgroup at its CPU limit: the task stays queued on the CPU's run
-queue and counts in rq->nr_running, while the CPU sits in the idle loop.
+Compare default/custom mode before comparing the requested duration, as
+suggested by Peter. For default-mode requests, also check that the task's
+slice still matches the current default. Keep the update path outside the
+fair class and when an implicit uclamp value needs resetting. Explicit
+uclamp requests continue to use the existing update path.
 
-tick_nohz_irq_exit() is what marks an idle CPU as idle again for the
-scheduler clock after an interrupt in the idle loop
-(TS_FLAG_IDLE_ACTIVE, sched_clock_idle_sleep_event()). Without it, the
-next exit from the idle loop doesn't resynchronize the CPU's sched_clock
-with sched_clock_idle_wakeup_event(). With an unstable sched_clock, e.g.
-under kvm-clock without a stable TSC, the clock of a CPU in tick-stopped
-idle is clamped to its last stamp plus a tick, so a task picked after a
-reschedule IPI (which doesn't go through irq_enter()) starts with a
-stale exec_start, and the next tick charges the whole idle stretch to
-it.
+This also handles two cases that an equal runtime alone does not cover:
+a custom slice equal to the default must switch the task to custom mode,
+and an unchanged legacy request may still need to reset an implicit clamp
+after an RT-PI boost has ended.
 
-Measured with one thread spinning 10 ms in every 100 ms in a cgroup,
-kept off its CPU for a further 7 to 53 ms per period by a sched_ext
-scheduler: the cgroup's cpu.stat usage_usec over the thread's own
-CLOCK_MONOTONIC measurement of its busy time reached 2.00, twice the
-CPU time the thread could possibly have used, and is 0.96 with this
-patch. The same ratio with no BPF scheduler loaded is 1.005.
+On an i7-12700KF running v7.2, repeated sched_setparam(0, priority=3D0)
+calls from a SCHED_OTHER, nice-0 task took 616.51 ns per call before this
+change and 162.39 ns after it, saving 454.12 ns (73.66%). The existing
+custom-slice fast path increased from 162.57 to 163.22 ns (0.40%).
+These are syscall microbenchmark results, not an application speedup.
 
-Commit 548796e2e70b ("sched/core: introduce sched_core_idle_cpu()")
-fixed this same gate for the other case of "the idle task runs while
-nr_running > 0", forced idle under core scheduling, where the symptom
-was too little idle time in /proc/stat. sched_ext made that state
-reachable without CONFIG_SCHED_CORE, and there the symptom is idle time
-charged to a task as runtime.
-
-Ask whether the idle task is running, which covers both cases. CPUs
-whose run queue is really empty are unaffected; a CPU interrupted
-between leaving the idle loop and switching to a task has need_resched()
-set or has already left the idle accounting, see tick_nohz_irq_exit().
-sched_core_idle_cpu() has no users left and goes.
-
-The two gates test different predicates rather than one containing the
-other, and the difference is deliberate. idle_cpu() is idle_rq():
-rq->curr =3D=3D rq->idle && !rq->nr_running && !rq->ttwu_pending.
-is_idle_task() tests PF_IDLE on current. Newly covered:
-
- - the two "the idle task runs while nr_running > 0" cases above;
-
- - a CPU idling with a wakeup queued by TTWU_QUEUE whose IPI has not
-   run yet;
-
- - injected idle. play_idle_precise() sets PF_IDLE on a SCHED_FIFO
-   kthread which then loops on do_idle(), so rq->curr is not rq->idle
-   there and the old gate was false off nohz_full CPUs. Interrupts
-   taken during injected idle now run tick_nohz_irq_exit() with
-   TS_FLAG_INIDLE set. That CPU is running an idle state and needs the
-   same latch for the same reason, so this is wanted rather than merely
-   harmless, but note it reaches the idle injection users in
-   drivers/powercap/idle_inject.c, intel_powerclamp and
-   cpuidle_cooling, and is not confined to sched_ext.
-
-One state is no longer covered: PF_IDLE is set by cpu_startup_entry()
-and not by init_idle(), so a CPU on its idle task before that point
-satisfied idle_cpu() but does not satisfy is_idle_task(current). Nothing
-is lost, because TS_FLAG_INIDLE is only set inside do_idle(), so
-tick_nohz_irq_exit() had nothing to do there, and nohz_full CPUs are
-covered by tick_nohz_full_cpu(cpu) either way.
-
-What keeps the new gate from giving a CPU idle accounting it should not
-have is that tick_nohz_irq_exit() tests TS_FLAG_INIDLE itself and only
-does the idle bookkeeping inside the idle loop.
-
-Tooling: the bug was found and this patch and changelog were written by
-Claude Opus 5 (Claude Code), in a session measuring cgroup CPU limit
-enforcement under sched_ext. All of the patch and all of the changelog
-are tool-generated. The measurements above were taken on hosts that no
-longer exist and were not repeated for this posting. By the threat model
-in Documentation/process/threat-model.rst this is a regular bug and not
-a vulnerability: it misreports CPU time under a legitimate configuration
-and crosses no privilege or isolation boundary.
-
-Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
-Signed-off-by: Radu Toader <radu.m.toader@gmail.com>
+Signed-off-by: Chengfeng Lin <lin2530632123@gmail.com>
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Acked-by: Frederic Weisbecker <frederic@kernel.org>
-Link: https://lore.kernel.org/lkml/20261106094343.174905-2-radu.m.toader@gmai=
-l.com/
-Link: https://patch.msgid.link/20261111112944.3868822-1-radu.m.toader@gmail.c=
-om
+Link: https://lkml.iu.edu/2610.1/11150.html
+Link: https://patch.msgid.link/CANGjgdmNCfm=3DSctvKZ44y8b5n8t_JSp4meX=3DDKGnG=
+74B3g1vVw@mail.gmail.com
 ---
- include/linux/sched.h   |  2 --
- kernel/sched/syscalls.c | 12 ------------
- kernel/softirq.c        | 12 ++++++++++--
- 3 files changed, 10 insertions(+), 16 deletions(-)
+ kernel/sched/syscalls.c | 36 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 33 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 1b08925..7cd8df8 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -2328,11 +2328,9 @@ extern void sched_core_free(struct task_struct *tsk);
- extern void sched_core_fork(struct task_struct *p);
- extern int sched_core_share_pid(unsigned int cmd, pid_t pid, enum pid_type t=
-ype,
- 				unsigned long uaddr);
--extern int sched_core_idle_cpu(int cpu);
- #else
- static inline void sched_core_free(struct task_struct *tsk) { }
- static inline void sched_core_fork(struct task_struct *p) { }
--static inline int sched_core_idle_cpu(int cpu) { return idle_cpu(cpu); }
- #endif
-=20
- extern void sched_set_stop_task(int cpu, struct task_struct *stop);
 diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
-index a78672b..d12d3ef 100644
+index 2d77ca0..a78672b 100644
 --- a/kernel/sched/syscalls.c
 +++ b/kernel/sched/syscalls.c
-@@ -194,18 +194,6 @@ struct task_struct *idle_task(int cpu)
- 	return cpu_rq(cpu)->idle;
+@@ -490,6 +490,38 @@ req_priv:
+ 	return 0;
  }
 =20
--#ifdef CONFIG_SCHED_CORE
--int sched_core_idle_cpu(int cpu)
--{
--	struct rq *rq =3D cpu_rq(cpu);
--
--	if (sched_core_enabled(rq) && rq->curr =3D=3D rq->idle)
--		return 1;
--
--	return idle_cpu(cpu);
--}
--#endif /* CONFIG_SCHED_CORE */
--
- /**
-  * find_process_by_pid - find a process with a matching PID value.
-  * @pid: the pid in question.
-diff --git a/kernel/softirq.c b/kernel/softirq.c
-index 7fc2200..e7d649c 100644
---- a/kernel/softirq.c
-+++ b/kernel/softirq.c
-@@ -738,8 +738,16 @@ static inline void tick_irq_exit(void)
- #ifdef CONFIG_NO_HZ_COMMON
- 	int cpu =3D smp_processor_id();
-=20
--	/* Make sure that timer wheel updates are propagated */
--	if ((sched_core_idle_cpu(cpu) && !need_resched()) || tick_nohz_full_cpu(cpu=
-)) {
-+	/*
-+	 * Make sure that timer wheel updates are propagated. An interrupted
-+	 * idle loop counts as idle even with runnable tasks queued on the
-+	 * CPU: forced idle under core scheduling, and the tasks sched_ext
-+	 * keeps on a CPU's run queue while its BPF scheduler holds them back.
-+	 * idle_cpu() would skip the idle bookkeeping of tick_nohz_irq_exit()
-+	 * for those, and with an unstable sched_clock the CPU's clock then
-+	 * isn't resynchronized when it leaves the idle loop.
-+	 */
-+	if ((is_idle_task(current) && !need_resched()) || tick_nohz_full_cpu(cpu)) {
- 		if (hardirq_count() =3D=3D HARDIRQ_OFFSET)
- 			tick_nohz_irq_exit();
- 	}
++static bool fair_params_changed(struct task_struct *p,
++				const struct sched_attr *attr)
++{
++	if (attr->sched_nice !=3D task_nice(p))
++		return true;
++
++	/* Keep the full update path for PI-boosted and sched_ext tasks. */
++	if (p->sched_class !=3D &fair_sched_class)
++		return true;
++
++	if (!!attr->sched_runtime !=3D !!p->se.custom_slice)
++		return true;
++
++	if (attr->sched_runtime && attr->sched_runtime !=3D p->se.slice)
++		return true;
++
++	if (!attr->sched_runtime &&
++	    p->se.slice !=3D READ_ONCE(sysctl_sched_base_slice))
++		return true;
++
++#ifdef CONFIG_UCLAMP_TASK
++	/* Equal fair parameters do not rule out an implicit clamp reset. */
++	if ((!p->uclamp_req[UCLAMP_MIN].user_defined &&
++	     p->uclamp_req[UCLAMP_MIN].value !=3D uclamp_none(UCLAMP_MIN)) ||
++	    (!p->uclamp_req[UCLAMP_MAX].user_defined &&
++	     p->uclamp_req[UCLAMP_MAX].value !=3D uclamp_none(UCLAMP_MAX)))
++		return true;
++#endif
++
++	return false;
++}
++
+ int __sched_setscheduler(struct task_struct *p,
+ 			 const struct sched_attr *attr,
+ 			 bool user, bool pi)
+@@ -588,9 +620,7 @@ recheck:
+ 	 * but store a possible modification of reset_on_fork.
+ 	 */
+ 	if (unlikely(policy =3D=3D p->policy)) {
+-		if (fair_policy(policy) &&
+-		    (attr->sched_nice !=3D task_nice(p) ||
+-		     (attr->sched_runtime !=3D p->se.slice)))
++		if (fair_policy(policy) && fair_params_changed(p, attr))
+ 			goto change;
+ 		if (rt_policy(policy) && attr->sched_priority !=3D p->rt_priority)
+ 			goto change;
