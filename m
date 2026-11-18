@@ -1,49 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043415;
-	b=bV9yxspGFC4ETAU/kN+k3k5O0pfXqMCW10M9kOMuQHhXpTdONiuxu55uA30nO7iqIA/n
-	 TaHydg5vbpvSiaToqVyxLc60N0SdLFUDZJNf00DcCQUbNt6stZKq8sI4FMk9BZlCZ1h4b
-	 yISHBbROnicHlrv2R7lKrWPclxLA4SMaxSN08TOgwYb2NnyW8DUIXAOnrgJzZnNRXiBbd
-	 +We2rf0+93ybmru6U9BevY2dThWglV1eJXU/Es4V3G0uhLTZlT03pypX7i3pYxThtIp0c
-	 0cMKZUYWXsO20PJUvJhdf2pgj7tKy9NK0NkAYWDsW3FDHyYvDoSmah9VyH7O3SaFCXg==
+	t=1795043423;
+	b=1jYznV5etpAUtbQE+jvMCY5AwL807eOm8o6xqqpg12L838OiuNDdF7CbnOqwScvT1hxa
+	 6PbC4GgQVIMW6wIFTfsKGjbvM3CGSfoYR71o+f79MFvTHDS/59jUgx6CzKlIsZ9jTq9r9
+	 zpfJL2x+TaLbBiHjIX7aC2Ymc1tf1ItJJdEJj/MQxkRw8siKIAzrGY9POtAQowzP1dt+s
+	 OmlQKoP8FQmEmCqanX1dv7oN87zObn1o1fSAXs8rhl/Ch/cweKhtALrLLQe5fiqLEId3r
+	 XqlPlkRWoIshS3HfJQAdFyPJcZmFnGMYvaoIn76Fq2M1tsUmjMDB7htGcyWhzfIex+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043415;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=l+Rsz/lRpQJQZahRTOyKXO8dM+Q3Gjdy6ykvGWPsdbY=;
-	b=Ubk7ABuPprkriP/MEen8jRQLcfyrGPVTSQf+/9U2ePtaOoiNwh9Vfcs6GmFWnRs8sUjK
-	 mJGnHqpxvrexkV4nzcmjr3ObQzoiFWxougZ54DdbkfUml23wKpimrMk9in/66YwRFLrtn
-	 5jes2M2z7rq2kK56wnq6EgQSqBtolpJzZqFlFViKHVzuTuOd5q85ev/uR92FYjhLa/s2T
-	 83xNw04K6TsV8f5/vCTlhs8oVb+3V06e/406ReZNQAh4pbypb2nnliz12FGZkI9LScaCR
-	 HGYW3Cyux/j1Jh06uett2UvTXDSMdlnieiuGhFVMxwVI5t/ceP6tBv2RKsOC1Y74TmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043423;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=W6XTHCprcloAxf+RgZnW+JkwJvcVboDJBn2bQ3d9asI=;
+	b=YReoxmcaLsSVob0+SsepcJr8xVFHOaWtVdaNptai9oFv2cvanT4xzQen6UifMQGcN8hz
+	 Xq58UHp/wWtxOoL5MbbZo9gQb3x2PCCZC9Zfi5dtjjyE4cXNkc6EAHjq75QYMmbUy8LZF
+	 lY5+p2WICLhnCaIm5wKJm1eMLSr1IHoUYkGghVmow1NONesZU/dkGAPz3XTOiVTK5rwYl
+	 lZai0MefJ5gJoknQhzLyYQRBWiI8O36voUWy29nUJZIcYhn570Efrep/M8Qip4gWZJSP/
+	 dQjUqBzvxGt/IKGYGwXObOWMIsrZjadVuH9Y/PnXrv8twIlVLJ9d4162BBqSEu8Stzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=asOWzzAB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=4+KyR5BH;
+	arc=none smtp.remote-ip=199.89.1.14
+Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EA8860A3823;
-	Wed, 18 Nov 2026 23:10:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD029606A951
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:10:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD029606A951
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=asOWzzAB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BEC81F000D3;
-	Wed, 18 Nov 2026 23:10:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043414;
-	bh=l+Rsz/lRpQJQZahRTOyKXO8dM+Q3Gjdy6ykvGWPsdbY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=asOWzzABuIpniE0ug05f8gzZQXTajP6nQ0ZzubVp0yuxqV2WaTsVgZEiAFB247e4L
-	 WE4NaC5mfxftbmsuBSbT61ixm90EXtMG51jUELLl5zMkKZz+mCIY1FgPVGQaAA4OXZ
-	 h4IiBYIvBhcqJfF3KDHglsReG2HsCJs5OvGpKRrTg3+k6JkJ8bbSGz0j2cF/RpywsJ
-	 vZYgvMyuxpcwR0pXH+lCOeLFPoeA5Gk9SaAyPK1IwU2dQiZ4NrTGXoDDdBrodYdGwH
-	 LJC4ptsbmPV0+PhCZ5AOL3DBwOXenQeVAxgseCFVBNxwdYb4CUOHncu0qivAB4MP01
-	 k/837vKnjU/8Q==
-From: Jeff Layton <jlayton@kernel.org>
-Date: Wed, 18 Nov 2026 15:10:04 -0800
-Subject: [PATCH v3 07/11] scsi: mpt3sas: Reset the TUR retry count for each
- device
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=4+KyR5BH
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jVHPp1vlVz1XMlX4;
+	Wed, 18 Nov 2026 23:10:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:mime-version:x-mailer:message-id:date
+	:date:subject:subject:from:from:received:received; s=mr01; t=
+	1795043418; x=1797635419; bh=W6XTHCprcloAxf+RgZnW+JkwJvcVboDJBn2
+	bQ3d9asI=; b=4+KyR5BH4S9i+Y5EmMvjJikCK7GRr6AGI+5Bsc3Klz4cVVLgX43
+	pWsKAhVfJ1FCd0LTDGbzpGfEy0sviiu62LjXzsJEAHi3y6t7+60Qh43VGMtSL0sE
+	GoEISMoSvNZ+14a+YLnOD66H3SYB0g9oJ1uqoEaZfV2BY2aRf+CWvmqtD1rdgSjj
+	0OLbYrcWhXTwM5EGzjbQb/a1i9moPkHbXMhmNMCNivmdJYNuaBkn5zNOW/ZBG5G4
+	TwWiWBOifSXoJvGwRWl3l+ulOVHXQRMvB6lqPn8HZ364hsHfY3ZmKkuTqCkNtY0S
+	n2RXqftCVqkTzI4oWjqQnQANCcx2iW0/GIA==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id Q8htp_JPl8Mn; Wed, 18 Nov 2026 23:10:18 +0000 (UTC)
+Received: from bvanassche.c.googlers.com.com (57.237.82.34.bc.googleusercontent.com [34.82.237.57])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jVHPk1rNkz1XLQ9s;
+	Wed, 18 Nov 2026 23:10:18 +0000 (UTC)
+From: Bart Van Assche <bvanassche@acm.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Marco Elver <elver@google.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Bart Van Assche <bvanassche@acm.org>
+Subject: [PATCH v4 0/3] Fix three Clang context analysis issues
+Date: Wed, 18 Nov 2026 15:09:56 -0800
+Message-ID: <cover.1795043161.git.bvanassche@acm.org>
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,96 +81,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-sas-abba-v3-7-5562d690cf61@kernel.org>
-References: <20261118-sas-abba-v3-0-5562d690cf61@kernel.org>
-In-Reply-To: <20261118-sas-abba-v3-0-5562d690cf61@kernel.org>
-To: Sathya Prakash <sathya.prakash@broadcom.com>, 
- Sreekanth Reddy <sreekanth.reddy@broadcom.com>, 
- Suganath Prabu Subramani <suganath-prabu.subramani@broadcom.com>, 
- Ranjan Kumar <ranjan.kumar@broadcom.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <mkp@kernel.org>, 
- Nagalakshmi Nandigama <Nagalakshmi.Nandigama@lsi.com>, 
- James Bottomley <JBottomley@Parallels.com>
-Cc: Keith Busch <kbusch@kernel.org>, 
- Sreekanth Reddy <Sreekanth.Reddy@lsi.com>, MPT-FusionLinux.pdl@broadcom.com, 
- linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Jeff Layton <jlayton@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2170; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=rC5vZOAow+6ceIesiT572FCQ9Ms9qxTSmCnkZb5D1pI=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBq/jBR7Sm+GlTq3XINpPSaYZ7d0o2iGneQaT9JN
- CIUostddTKJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCav4wUQAKCRAADmhBGVaC
- FfCuEADMCtbm4ueilP6KJKTflSds7r3uTkn/PPg9Fa/F6qaaQ8GpEotgSr41cF0kU6FbLMfNVe9
- Mjb07ixkMUvOCSjB09oRCp4jSwiij4VUHrb55jAdgQivirc6sqig7Mx6pmRxEnss9aNhSJOa+J7
- Be+JhaPjn+NCVxw9eLcifm3pdneUHvqv+23SkDE3cxt2iHTT/S1WcGJuIShl9kwIsLmz1RE+ch6
- fqh2Qvhr8mZTgMz+VZB5ORcL8VnNyGzipwZm8KUQEM3kRTMab7SCNLjLrJ4QsiGpyeeayo3Pzre
- IfvstsJcN7Hfgi6rzO88sbjSvzUd7oe/GH77HMQ0vRcq2DVExaF9ZIyVrwCPPb9omwGBCF6fbO/
- qzKJtSZy5XPisTRYh44q5mdrhYGH70LCXTNGWDHy7l3T1C6F/G1hoHvxmk+Z6RsHmJ4qVMD4YFk
- iP3s4AgC8OaCiMtTYfbyZVBzDzJhiDn7DFJ2QMsTc81cZfdjPxKe4uSFj6DpK/wb9PfOogglg4j
- +7LxtpLOpIZVqw2Y77q8ClccHS4rGG+wGpMjEGjhqGungzJ51SG4Zzv/LuthodlopgYYB/vksXG
- RHg/HELdy8ZYHfLLwQKR7JzraT1ACCoWta0Ow21gGMBlzEbViswFUYu6ODWHh5lGHvvv8RCEnXA
- Guuq2OCT+exEMkw==
-X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
- fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
+Content-Transfer-Encoding: quoted-printable
 
-_scsih_ublock_io_all_device() and _scsih_ublock_io_device_wait() poll
-each blocked sdev with TEST UNIT READY, for up to command_retry_count
-retries. These functions set the retry counter to 0 once per call, not
-once per sdev. Thus retries on one device consume the retry budget of
-all later devices. When the budget is empty, the driver marks a device
-deleted after its first TUR and sets it SDEV_OFFLINE. This occurs even
-for a device that needs only one retry.
+Hi Peter and Marco,
 
-Start the count from 0 for each sdev.
+This patch series includes three context analysis fixes:
+- bit_spinlock: Surround the bitnum argument and macro expansion in
+  __bitlock() with parentheses to avoid operator precedence issues.
+- cleanup: Mark __free() helper functions generated by DEFINE_FREE() as
+  __context_unsafe() because cleanup expressions that unlock trigger
+  Clang thread-safety false positives.
+- srcu: Guard the __srcu_read_lock_must_hold() call in srcu_dereference_c=
+heck()
+  with const_true(!(c)) so update-side callers satisfying the lockdep con=
+dition
+  do not fail context analysis.
 
-Fixes: 72340fecd0c8 ("scsi: mpt3sas: Add configurable command retry limit for slow-to-respond devices")
-Signed-off-by: Jeff Layton <jlayton@kernel.org>
----
- drivers/scsi/mpt3sas/mpt3sas_scsih.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Please consider this patch series for the next merge window.
 
-diff --git a/drivers/scsi/mpt3sas/mpt3sas_scsih.c b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-index 5657bda241f7..1269446eec4e 100644
---- a/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-+++ b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-@@ -4089,7 +4089,7 @@ _scsih_ublock_io_all_device(struct MPT3SAS_ADAPTER *ioc, u8 no_turs)
- 	enum device_responsive_state rc;
- 	struct _sas_device *sas_device = NULL;
- 	struct _pcie_device *pcie_device = NULL;
--	int count = 0;
-+	int count;
- 	u8 tr_method = 0;
- 	u8 tr_timeout = 30;
- 
-@@ -4113,6 +4113,7 @@ _scsih_ublock_io_all_device(struct MPT3SAS_ADAPTER *ioc, u8 no_turs)
- 			continue;
- 		}
- 
-+		count = 0;
- 		do {
- 			pcie_device = mpt3sas_get_pdev_by_handle(ioc, sas_target->handle);
- 			if (pcie_device && (!ioc->tm_custom_handling) &&
-@@ -4199,7 +4200,7 @@ _scsih_ublock_io_device_wait(struct MPT3SAS_ADAPTER *ioc, u64 sas_address,
- 	struct _pcie_device *pcie_device;
- 	u8 tr_timeout = 30;
- 	u8 tr_method = 0;
--	int count = 0;
-+	int count;
- 
- 	/* moving devices from SDEV_OFFLINE to SDEV_BLOCK */
- 	shost_for_each_device(sdev, ioc->shost) {
-@@ -4234,6 +4235,7 @@ _scsih_ublock_io_device_wait(struct MPT3SAS_ADAPTER *ioc, u64 sas_address,
- 		if (!sas_device_priv_data->block)
- 			continue;
- 
-+		count = 0;
- 		do {
- 			host_reset_completion_count = 0;
- 			pcie_device = mpt3sas_get_pdev_by_handle(ioc, sas_target->handle);
+Thanks,
 
--- 
-2.56.1
+Bart.
+
+Changes compared to v3:
+- Reworked patch 3/3 such that __srcu_read_lock_must_hold() remains in
+  srcu_dereference_check().
+
+Changes compared to v2:
+- Split out only the three standalone context analysis fixes (v2 patches
+  1, 2, and 4) into this series.
+- Dropped the lockdep and RCU assertion behavior changes (v2 patches
+  8-14: lockdep_assume_*(), lockdep_assume_in_rcu_*(), and removing
+  context assumptions from lockdep_assert_held*() and
+  lockdep_assert_in_rcu_*()), as agreed in the review discussion [2].
+- Dropped the preparatory __must_hold*() annotation patches (v2 patches
+  5-7) and the tracing branch profiling Kconfig patch (v2 patch 3) from
+  this series.
+- Updated the commit message of "cleanup: Disable context analysis for
+  __free() helpers" with concrete examples of __free() unlock helpers
+  in response to review feedback.
+- Rebased onto current mainline.
+
+Bart Van Assche (3):
+  bit_spinlock: Fix the __bitlock() definition
+  cleanup: Disable context analysis for __free() helpers
+  srcu: Make the srcu_dereference_check() reader lock check conditional
+
+ include/linux/bit_spinlock.h |  2 +-
+ include/linux/cleanup.h      |  6 ++++--
+ include/linux/srcu.h         | 13 +++++++++++--
+ 3 files changed, 16 insertions(+), 5 deletions(-)
 
