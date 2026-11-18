@@ -1,90 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989830;
-	b=jfxaJwcU3G3hFZI86Gvm/s6NBAcgY1f9V8qSWfz8oszWQEGF/TtlxpBXHUwTBCs3pI4A
-	 EFH7ccZTSrPfZPSIXil50tASNIAWCS9F6U3/8wAhJ61dDG9PoB6tJBH9rTf2lLYLcj/3z
-	 JJ9qKDmn7SDQwvgnBrSJAjZJ5PBy8cC/HmwQqwszeeknlIFl7TY6FTr5Cj5TGuXwDlpQS
-	 6QHAXOM9u683aQOuSxE+I2pQkoRfeGN4gVox1fcUAEyos7mBo1h4tz2VbU+/iJOi3ahNG
-	 rr5zVsHneiwiHutMnpdpkxdX41Wc/z0PPSguBYSlex/0RqVcHMt1qsWrSq0rysHeRfQ==
+	t=1794989834;
+	b=ej7x0E6KXJHVxeybykvn7wmroFfrFUYLxB9fThQxTONo1fa1o/zqXKfiVkWosLD7SwFJ
+	 zeh4Z3Ppz4zTLwW6gZC9r2I3mSbtO4Kjur0cS9zMxyLnSBSeA5uhOpAkM/hAH6skJoC2x
+	 L7IpbaarleTDvDY+oKgAgLZI6zXxHJlGuZla36Bv3yvYaD8Tt/+mu6tjRM9KzumDJrZA7
+	 SfjzFCbXtXNvKC/MnuPOwx/yyI6SJRocEKlIeVGGQJXTu0k8ZdAZ3tB+RILrojj3NdMjE
+	 hxbMWK0CjiRp/g6v1jARZa/DJtLg38HXoVqY6h8E7UmcaORPG+gHPO9o+flLwpOcP2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989830;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989834;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=XwiQSknzuG3mbRqQRgEl+28sKookmUItrsarjIqLkOU=;
-	b=Arf/LB3Uya8ILyffO9OyDjGCR8nVA68EZd+JrNTYgXx0woIZPc6KUFwoyPOzI+LU5lvM
-	 tAftrvf0/cLDBnNv1OiNvFPBwfH3EaEuErYW0kGuy9SXpTGRNJlxcOQcy9yv0paoVx0jg
-	 LCq/p2Lp/EBvfhBiOattLCrNoCP3/zJLXstE4EXeFte7tsd0owc5JFSigJON4tKR1ai6D
-	 HKsz0IWHT84u0wdtfmuXu7K7gmGdYjaKWDEZ8QZVnVl34SxbBWHlJY4hTcGxTJeyCBJny
-	 rAZqP4xM03NUoya+22Rri/y20oAHuAM3SViIH98nSsI5pb2u2PZVk1iF1fz/Cbr/b+g==
+	bh=V3XtopPctazpCpsuQSwQqcVRu+uBRNP367BbxHNilIo=;
+	b=3TvHh88SYw6SKEgDCs5A+k6yCndlzdU9ZKwFZI0pijVXg6/7SrVpM4cRXfr7SNnBAl7x
+	 +pS3QMgdnX9AOiHebhNLcL/McvYN4r9heN6GSMwngqqmJ+mILfeugTd/AT+0oPZRFpnFT
+	 CS4Yp8dHEvawujewRG6d4urL9lbZeh2RY2i5sg9WHyXhjo9AvxblVD6LnN7TDYqF99zQ8
+	 U4Typ0Ba8oY8erya/UZexRIM1q09g6M8/dHOk7z3jXMZ7e4QHyL5a5B4QUol0oxp2/iXd
+	 KukRK7Gokg0BWw36Kymqg5mVniaPtCVT8oqXLj4BPUWf5GM7Uo+/yjeqY+ksEpy7B7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XbZO8Exz;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TvJYkH6g;
+	arc=none smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F5F560A2628
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:17:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F5F560A2628
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C6D606A8AC
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:17:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75C6D606A8AC
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XbZO8Exz
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b2f59de176so612166b3a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:17:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TvJYkH6g
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8c5ebbc5150so398426b3a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:17:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794989830; x=1795594630; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794989833; x=1795594633; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XwiQSknzuG3mbRqQRgEl+28sKookmUItrsarjIqLkOU=;
-        b=XbZO8ExzavDbg1mRyhK8z088k6pjSc9z2l6J/zd+bRx0Q/ND9/3gfzvnY4oxRJXll4
-         D9HrMIOHRkP1OYEy06SPJ0mn9I0Em9aRg9pCa90tnxAoF6OwgcMa97+pE9NVmfmchKpl
-         q43CK6UQa4BzCXnhefQubFceV9QfMrKCpX/zuojh1NRxNI8hqsnLWKIXK9UoVW8xzltP
-         GYa1STY/TuC3Ue45+rRpoQqF5/STwAI1K/h0rPNOsF24TtWh0Y6mO5Un9PpWxla79gkf
-         v57t2NJSc8fnfVzgfDof2GG5MMLgoNL9N/xGGkTmK99JSqManKScya8DqjZkV+ebuul7
-         pMPQ==
+        bh=V3XtopPctazpCpsuQSwQqcVRu+uBRNP367BbxHNilIo=;
+        b=TvJYkH6g+t0skoSrqELRH1KzJS++yazZhL2htGTzghCbJjVz6ZDa7nocQi6UUmjxu5
+         iSc73MAhUoioBQR3yS9vybBXKfLTDJuNTwP6s2MIpyVdAMotUSyy4eW1TDMixNLvNKez
+         UCasJYNHiCG2cpCGXllJpZmqybPUDSwCj/LXK86updFdZREoLV7B3M9cCEv3gwjk8GlC
+         ptoCOr98TPOmJF0dep4lVe+bpeU8azohacNxPSmIVqSvNhb1D0wnya8TdzxuWU8IEi0z
+         eO0jdpp2vpmN2uzS0uMzRnZdLLIVj/UaXIoTAUJYw3BC/8Zfr5ccb12gTRgkslBII0fy
+         Gibg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794989830; x=1795594630;
+        d=1e100.net; s=20260707; t=1794989833; x=1795594633;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XwiQSknzuG3mbRqQRgEl+28sKookmUItrsarjIqLkOU=;
-        b=Gn9slBHvr+7h2Czn1drXLLJGnkaGnln3ky6l+Q1AhvzOibNNH/LiQ7Ps5/GRQXrHQ4
-         ureH0tGQIQPHAvGejIaxN3kdtleEX5D6PO2gb49eUy0ffugmlR/ZYYznX7DDtWx11oVm
-         BuR0kkGvW7ZRtqVX38DgxR7/ynXPiPkZ3yTKPSsMrx67mJRSY5E+7cyOkw0ujofI1a+F
-         AE1MDKs6kFR/IXiNDTBxF5UXnuHW6FZnmF6I4UIxA1OS8jjxUFGchwBb3NA+8qIKXTjr
-         5H0iKGq6HqFPpnu0tuaW6PY2puYDRe9RDBA8XEgLfUe44TzHB7uvlIbjG10F2zHhtDV9
-         tQGA==
-X-Gm-Message-State: APuU4Z+arUL/l+JQych/j2Is9zOxWl77mK/x0xE2Y6J1QPM6knKS9A9b
-	XqdkPp4i+osfe3SZykKsGttjnJukMcaO7D9OnbBJf+0kpuccaxOIf9WZ
-X-Gm-Gg: AYBFou02AFYPU9LiqOxnSmuZHdpMLz8mm63hBAiukZ+NIg2Mk33RZDV6qtvFuj8sRz7
-	98N5jEhiLuza9zVU9MouvB6pQIvKNFpGJwDsYPh1NYuCxdW622NDPqJ9MT8WcnPhDDKBxoQe6I1
-	VIDY9wEpxGkrtdHOLDKE+TaTatQ0lhofNYJr7CBKNhV3XJPHH/MWwl3w9zEfIwH3SjzNr7A3y3o
-	QQsb5jxfwvEd7X5LJ+S8c3XDnMJaFXqd7dkeoIQO15Ig+3U6KgsmVkQZUEycD/iGMcdfIi3V1Z1
-	7ROMb0+8BH9qiv6pOMttX9iyVzyRNNTYcb30ucjyE0KZV+lz2jttR5wUOoVefAHwktWVv9yJqDw
-	2TzlOxSok3n1eOly7tgUUhM3j4jdOcdcXHeMIN6PnvK+mkpSDVUWd4Iv4mhsMFBdbNMqOUxORI1
-	gICUVdozjxn3ITBKPSIfONmyzCT39XerYM4p+nfix+oJYW7ugVVRiOYuiCfrM7ohVHHdm46AWAB
-	NM6ek5OSH1aL+afnNJlDPId9PDt4IQIihJTUdLZ+5St8h0iuEjgoCKbo52OI9Dkk5YcKVuZI2BK
-	aay9i4NW5zaMKBBCKMNbYEtpVXikaeci4SmfBAqtgptD2N4m99/6ULrChx7RAnNi2s/S1LA=
-X-Received: by 2002:a05:6a20:7f8e:b0:3e2:278c:297a with SMTP id adf61e73a8af0-3fe86fce08emr2380474637.6.1794989829834;
-        Wed, 18 Nov 2026 00:17:09 -0800 (PST)
+        bh=V3XtopPctazpCpsuQSwQqcVRu+uBRNP367BbxHNilIo=;
+        b=JxnVUafcfNE35IneRxq2lcTMxgoEA994GvIe9FAAAHQQpc58A/78wpHyDkX3nGsdoB
+         PxmUoDH2rnsg/zM1uXh6+gyDfrW69D1VGJxf6FNbp5Edz+vZuThnwTnjI6IzyMv2qN4Y
+         bGK1lLlMGkmK73yUm6M1p5GuSiYHvJ3ObsArZNUece9nEv8feyX1zD1oy153FxxBz93R
+         Of6AQTvg1+c7nqAr7W9mkMYgBY2ujQhpC0+9Hi0yxVp8X3hJ30B2X6z6swdpJU8M+7nS
+         gXCO+kOYjNP05A6pszPomSdpS2RAbioQrW/1o8R37exlXNYpRyzYsn1YERhFe1B4n4iH
+         wAQw==
+X-Gm-Message-State: APuU4Z9Xa2Rdq7wCU869BTfZpgCq9Qrm3eFJ6rOxUuZn7j8uUUkNmdOt
+	1XAbLjE863UuFSkmU3l6J+r62Sxa0noCoeCDCaT3Z3BfXosCupbe4ixH
+X-Gm-Gg: AYBFou3SNMvefpJOuURyF702vpc0/Gvnsfm6l548hpY8zHluLUVw3eAp1CJsFZQskpY
+	TIi7Np5v+m60VEPasg/8+DuIhX65wL1e7/8DsDhkD68PE4OTQH/RsMX6lxbo9zfTcqpzNaCFSrP
+	JA6DY80CLVFkTompOMaHSdDGYqp6rwIt5rDPz1JhN/MaN8ZhY3HUp/CqODW43I25FPz4olFkxCw
+	0qHXeUWioy9ZMMo+ccurNo4iSHL4lBGpxaw/YMmyrerXCkNLEmzE1+ZdKYUijfklLJly+kn2R/e
+	ffDezaFbeNLKHAI7iST+7/Ct8oaYqX1A+xlv9rr7x76MHNqRqdO53bMoC2S/Z9xWMWwvzHq17/p
+	ZHjJz0mHYGKUl3AZyudTuqB0WANh3e/pAZcDg8dJ6VjTd/mrqWsu67eAv902gKDoy6H17M2cGA1
+	n59uUVa4mtzDMilK4qD2kr6Vh/ZqILwcRd1DvjmLHkakGr+yyg+DQul71+UbssGPAkWXmYm6udl
+	QdrsZJY8Gki+WCImLvkcpg/Lu7zBc31Y0BI3QMZg47Q96Q620ci9ga35sGljtn+zUFsyJrKnGWf
+	EhDuRomnJKJRy6vjkXzvepuJwOSW7dO7OlszqP2dk1Mj6LZwE0+8r4UjYKSBApgcSKedFm8=
+X-Received: by 2002:a05:6a00:ad82:b0:89e:df2e:cebb with SMTP id d2e1a72fcca58-8c5d51a387amr1637698b3a.59.1794989832762;
+        Wed, 18 Nov 2026 00:17:12 -0800 (PST)
 Received: from hcdev-d520mt2.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cad8cefbsm764401b3a.31.2026.11.18.00.17.08
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cad8cefbsm764401b3a.31.2026.11.18.00.17.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:17:09 -0800 (PST)
+        Wed, 18 Nov 2026 00:17:12 -0800 (PST)
 From: a0282524688@gmail.com
-To: lee@kernel.org
+To: lee@kernel.org,
+	Ming Yu <tmyu0@nuvoton.com>
 Cc: linux-kernel@vger.kernel.org,
 	Ming Yu <a0282524688@gmail.com>,
 	mfd@lists.linux.dev
-Subject: [PATCH v10 12/13] mfd: nct6694: Add a Kconfig symbol for the USB transport
-Date: Wed, 18 Nov 2026 16:16:23 +0800
-Message-Id: <20261118081625.2399247-13-a0282524688@gmail.com>
+Subject: [PATCH v10 13/13] mfd: nct6694: Add Host Interface (HIF) eSPI transport driver
+Date: Wed, 18 Nov 2026 16:16:24 +0800
+Message-Id: <20261118081625.2399247-14-a0282524688@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261118081625.2399247-1-a0282524688@gmail.com>
 References: <20261118081625.2399247-1-a0282524688@gmail.com>
@@ -101,82 +102,716 @@ Content-Transfer-Encoding: 8bit
 
 From: Ming Yu <a0282524688@gmail.com>
 
-Now that the sub-device drivers only access the device through regmap,
-the core no longer depends on USB.
+Add support for the Host Interface (HIF) transport over eSPI for the
+Nuvoton NCT6694.
 
-Build the USB transport under a new MFD_NCT6694_USB symbol and keep
-MFD_NCT6694 for the core. MFD_NCT6694_USB defaults to MFD_NCT6694 so
-that existing configurations keep the USB transport enabled.
+The driver locates the Super-I/O to configure the shared memory base
+address and SIRQ, and implements a regmap_bus that exchanges firmware
+commands through the shared memory window. Report accesses are served
+from a separate MMIO regmap.
 
 Signed-off-by: Ming Yu <a0282524688@gmail.com>
 ---
 Changes in v10:
-- None.
+- Commented that a read of a SET register passes val_buf as the
+  write-then-read request.
+- Allocated sio_data and hif_data with devm_kzalloc_obj().
 
 Changes in v9:
-- None.
+- Rejected transfers larger than NCT6694_MAX_DATA_LEN in the regmap bus
+  callbacks.
 
 Changes in v8:
-- New patch. Split out of v7 "Rename driver to nct6694-usb and update
-  Kconfig"; MFD_NCT6694 remains the user visible core symbol and
-  MFD_NCT6694_USB defaults to it to keep existing configurations
-  working.
+- Embedded struct nct6694 in nct6694_hif_data and dropped the priv
+  pointer; renamed hdata to hif_data and the transfer buffers and
+  lengths consistently with the USB transport.
+- Adapted to nct6694_device_{init,exit}() and register the MFD cells
+  from the transport.
+- Request the interrupt after the core is set up, so that it is freed
+  before the IRQ domain is removed.
+- Dropped the max_raw_read/max_raw_write settings, which are ignored
+  with a regmap_bus.
 
- drivers/mfd/Kconfig  | 20 ++++++++++++++++----
- drivers/mfd/Makefile |  2 +-
- 2 files changed, 17 insertions(+), 5 deletions(-)
+Changes in v7:
+- Zero the tail of the caller buffer when the firmware answers with
+  fewer bytes than requested, and split the transfer helper into
+  separate @tx/@rx buffers instead of a shared scratch buffer.
+- Request the interrupt before registering the core, so devres frees it
+  after the sub-devices are removed. Mask the interrupt and clear a
+  stale status in nct6694_hif_irq_init() so the handler cannot run
+  before the IRQ domain exists.
+- Return IRQ_HANDLED once the interrupt status has been cleared.
+- Skip hardware interrupts that have no mapping instead of dispatching
+  virq 0.
+- Bail out with -ENODEV if the BIOS left the shared memory base address
+  unconfigured.
+- Program the SIRQ register with the hardware interrupt number rather
+  than the Linux virq.
+
+Changes in v6:
+- Reworked the transport to implement a regmap_bus instead of the v5
+  read_msg/write_msg function pointers.
+
+Changes in v5:
+- Split from the monolithic v4 patch.
+- Adapted to re-use the newly introduced nct6694_core_probe() and
+  abstracted I/O APIs.
+
+Changes since version 3:
+- Remove redundant module type macro definitions from sub-device drivers
+  that are now provided by the shared header <linux/mfd/nct6694.h>,
+  fixing -Wmacro-redefined warnings.
+
+Changes since version 2:
+- Restore per-device IDA and mfd_add_hotplug_devices()/PLATFORM_DEVID_AUTO
+  to avoid child device ID conflicts with multiple NCT6694 chips.
+- Validate irq_find_mapping() return value before dispatching IRQs.
+- Check superio_enter() return value in nct6694_irq_init().
+
+Changes since version 1:
+- Drop function pointers from Super-I/O access and use static inline
+  helpers with proper types.
+
+ drivers/mfd/Kconfig         |  13 +
+ drivers/mfd/Makefile        |   1 +
+ drivers/mfd/nct6694-hif.c   | 579 ++++++++++++++++++++++++++++++++++++
+ include/linux/mfd/nct6694.h |   2 +-
+ 4 files changed, 594 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/mfd/nct6694-hif.c
 
 diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index 3c59ef8768e2..8b969dc37312 100644
+index 8b969dc37312..82ba54d74319 100644
 --- a/drivers/mfd/Kconfig
 +++ b/drivers/mfd/Kconfig
-@@ -1183,18 +1183,30 @@ config MFD_NCT6694
- 	tristate "Nuvoton NCT6694 support"
- 	select MFD_CORE
- 	select REGMAP
--	depends on USB
- 	help
--	  This enables support for the Nuvoton USB device NCT6694, which shares
-+	  This enables support for the Nuvoton NCT6694, which shares
- 	  peripherals.
- 	  The Nuvoton NCT6694 is a peripheral expander with 16 GPIO chips,
- 	  6 I2C controllers, 2 CANfd controllers, 2 Watchdog timers, ADC,
- 	  PWM, and RTC.
--	  This driver provides core APIs to access the NCT6694 hardware
--	  monitoring and control features.
-+	  This driver provides the core support shared by the transport
-+	  interface drivers, at least one of which must be enabled.
+@@ -1194,6 +1194,19 @@ config MFD_NCT6694
  	  Additional drivers must be enabled to utilize the specific
  	  functionalities of the device.
  
-+config MFD_NCT6694_USB
-+	tristate "Nuvoton NCT6694 USB interface support"
-+	depends on MFD_NCT6694 && USB
-+	default MFD_NCT6694
++config MFD_NCT6694_HIF
++	tristate "Nuvoton NCT6694 HIF (eSPI) interface support"
++	depends on MFD_NCT6694 && HAS_IOPORT && ACPI
++	select REGMAP_MMIO
 +	help
 +	  This enables support for the Nuvoton NCT6694 connected through
-+	  its USB interface. The driver uses USB bulk transfers to send
-+	  commands to the device firmware and an interrupt transfer to
-+	  receive its interrupt status.
++	  the Host Interface (HIF) over eSPI. The driver uses the Super-I/O
++	  configuration and the shared memory window to send commands to
++	  the device firmware.
 +
 +	  To compile this driver as a module, choose M here: the module
-+	  will be called nct6694-usb.
++	  will be called nct6694-hif.
 +
- config MFD_OCELOT
- 	tristate "Microsemi Ocelot External Control Support"
- 	depends on SPI_MASTER
+ config MFD_NCT6694_USB
+ 	tristate "Nuvoton NCT6694 USB interface support"
+ 	depends on MFD_NCT6694 && USB
 diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-index 20a5de726071..2efffab949c9 100644
+index 2efffab949c9..545aa62ecec8 100644
 --- a/drivers/mfd/Makefile
 +++ b/drivers/mfd/Makefile
-@@ -125,7 +125,7 @@ obj-$(CONFIG_MFD_MC13XXX_I2C)	+= mc13xxx-i2c.o
+@@ -125,6 +125,7 @@ obj-$(CONFIG_MFD_MC13XXX_I2C)	+= mc13xxx-i2c.o
  obj-$(CONFIG_MFD_PF1550)	+= pf1550.o
  
  obj-$(CONFIG_MFD_NCT6694)	+= nct6694-core.o
--obj-$(CONFIG_MFD_NCT6694)	+= nct6694-usb.o
-+obj-$(CONFIG_MFD_NCT6694_USB)	+= nct6694-usb.o
++obj-$(CONFIG_MFD_NCT6694_HIF)	+= nct6694-hif.o
+ obj-$(CONFIG_MFD_NCT6694_USB)	+= nct6694-usb.o
  
  obj-$(CONFIG_MFD_CORE)		+= mfd-core.o
+diff --git a/drivers/mfd/nct6694-hif.c b/drivers/mfd/nct6694-hif.c
+new file mode 100644
+index 000000000000..7b73c8215b85
+--- /dev/null
++++ b/drivers/mfd/nct6694-hif.c
+@@ -0,0 +1,579 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2026 Nuvoton Technology Corp.
++ *
++ * Nuvoton NCT6694 host-interface (eSPI) transport driver.
++ */
++
++#include <linux/acpi.h>
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/irq.h>
++#include <linux/kernel.h>
++#include <linux/mfd/core.h>
++#include <linux/mfd/nct6694.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/unaligned.h>
++
++#define DRVNAME "nct6694-hif"
++
++#define NCT6694_POLL_INTERVAL_US	10
++#define NCT6694_POLL_TIMEOUT_US		10000
++
++/*
++ * Super-I/O registers
++ */
++#define SIO_REG_LDSEL		0x07	/* Logical device select */
++#define SIO_REG_DEVID		0x20	/* Device ID (2 bytes) */
++#define SIO_REG_LD_SHM		0x0F	/* Logical device shared memory control */
++
++#define SIO_REG_SHM_ENABLE	0x30	/* Enable shared memory */
++#define SIO_REG_SHM_BASE_ADDR	0x60	/* Shared memory base address (2 bytes) */
++#define SIO_REG_SHM_IRQ_NR	0x70	/* Shared memory interrupt number */
++#define SIO_SHM_IRQ_NR_MAX	15	/* Highest ISA interrupt line */
++
++#define SIO_REG_UNLOCK_KEY	0x87	/* Key to enable Super-I/O */
++#define SIO_REG_LOCK_KEY	0xAA	/* Key to disable Super-I/O */
++
++#define SIO_NCT6694B_ID		0xD029
++#define SIO_NCT6694D_ID		0x5832
++
++/*
++ * Super-I/O Shared Memory Logical Device registers
++ */
++#define NCT6694_SHM_COFS_STS			0x2E
++#define NCT6694_SHM_COFS_STS_COFS4W		BIT(7)
++
++#define NCT6694_SHM_COFS_CTL2			0x3B
++#define NCT6694_SHM_COFS_CTL2_COFS4W_IE		BIT(3)
++
++/* COFS register block [STS..CTL2] is the only SHM range driven via inb/outb */
++#define NCT6694_SHM_COFS_LEN			\
++	(NCT6694_SHM_COFS_CTL2 - NCT6694_SHM_COFS_STS + 1)
++
++#define NCT6694_SHM_INTR_STATUS			0x9C	/* Interrupt status register (4 bytes) */
++
++enum nct6694_chips {
++	NCT6694B = 0,
++	NCT6694D,
++};
++
++struct __packed nct6694_hif_msg {
++	struct nct6694_cmd_header cmd_header;
++	struct nct6694_response_header response_header;
++	unsigned char data[];
++};
++
++struct nct6694_sio_data {
++	enum nct6694_chips chip;
++	int sioreg;	/* Super-I/O index port */
++};
++
++struct nct6694_hif_data {
++	struct nct6694 core;
++	struct regmap *rpt_regmap;
++	struct nct6694_sio_data *sio_data;
++	void __iomem *msg_base;
++	unsigned int shm_base;
++};
++
++static struct nct6694_hif_data *to_nct6694_hif_data(struct nct6694 *ddata)
++{
++	return container_of(ddata, struct nct6694_hif_data, core);
++}
++
++static const char * const nct6694_chip_names[] = {
++	[NCT6694B] = "NCT6694B",
++	[NCT6694D] = "NCT6694D",
++};
++
++/*
++ * Super-I/O functions.
++ */
++static inline int superio_enter(struct nct6694_sio_data *sio_data)
++{
++	int ioreg = sio_data->sioreg;
++
++	/*
++	 * Try to reserve <ioreg> and <ioreg + 1> for exclusive access.
++	 */
++	if (!request_muxed_region(ioreg, 2, DRVNAME))
++		return -EBUSY;
++
++	outb(SIO_REG_UNLOCK_KEY, ioreg);
++	outb(SIO_REG_UNLOCK_KEY, ioreg);
++
++	return 0;
++}
++
++static inline void superio_exit(struct nct6694_sio_data *sio_data)
++{
++	int ioreg = sio_data->sioreg;
++
++	outb(SIO_REG_LOCK_KEY, ioreg);
++
++	release_region(ioreg, 2);
++}
++
++static inline void superio_select(struct nct6694_sio_data *sio_data, int ld)
++{
++	int ioreg = sio_data->sioreg;
++
++	outb(SIO_REG_LDSEL, ioreg);
++	outb(ld, ioreg + 1);
++}
++
++static inline int superio_inb(struct nct6694_sio_data *sio_data, int reg)
++{
++	int ioreg = sio_data->sioreg;
++
++	outb(reg, ioreg);
++	return inb(ioreg + 1);
++}
++
++static inline int superio_inw(struct nct6694_sio_data *sio_data, int reg)
++{
++	int ioreg = sio_data->sioreg;
++	int val;
++
++	outb(reg++, ioreg);
++	val = inb(ioreg + 1) << 8;
++	outb(reg, ioreg);
++	val |= inb(ioreg + 1);
++
++	return val;
++}
++
++static inline void superio_outb(struct nct6694_sio_data *sio_data, int reg, u8 val)
++{
++	int ioreg = sio_data->sioreg;
++
++	outb(reg, ioreg);
++	outb(val, ioreg + 1);
++}
++
++static int nct6694_sio_find(struct nct6694_sio_data *sio_data, u8 sioreg)
++{
++	int ret;
++	u16 devid;
++
++	sio_data->sioreg = sioreg;
++
++	ret = superio_enter(sio_data);
++	if (ret)
++		return ret;
++
++	/* Check Chip ID */
++	devid = superio_inw(sio_data, SIO_REG_DEVID);
++	switch (devid) {
++	case SIO_NCT6694B_ID:
++		sio_data->chip = NCT6694B;
++		break;
++	case SIO_NCT6694D_ID:
++		sio_data->chip = NCT6694D;
++		break;
++	default:
++		superio_exit(sio_data);
++		return -ENODEV;
++	}
++
++	superio_exit(sio_data);
++
++	return 0;
++}
++
++static const struct mfd_cell nct6694_hif_devs[] = {
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++	MFD_CELL_NAME("nct6694-gpio"),
++
++	MFD_CELL_NAME("nct6694-i2c"),
++	MFD_CELL_NAME("nct6694-i2c"),
++	MFD_CELL_NAME("nct6694-i2c"),
++	MFD_CELL_NAME("nct6694-i2c"),
++	MFD_CELL_NAME("nct6694-i2c"),
++	MFD_CELL_NAME("nct6694-i2c"),
++
++	MFD_CELL_NAME("nct6694-canfd"),
++	MFD_CELL_NAME("nct6694-canfd"),
++};
++
++static int nct6694_hif_err_handling(struct nct6694 *ddata, unsigned char err_status)
++{
++	switch (err_status) {
++	case NCT6694_NO_ERROR:
++		return 0;
++	case NCT6694_NOT_SUPPORT_ERROR:
++		dev_err(ddata->dev, "Command is not supported!\n");
++		break;
++	case NCT6694_NO_RESPONSE_ERROR:
++		dev_warn(ddata->dev, "Command received no response!\n");
++		break;
++	case NCT6694_TIMEOUT_ERROR:
++		dev_warn(ddata->dev, "Command timed out!\n");
++		break;
++	case NCT6694_PENDING:
++		dev_err(ddata->dev, "Command is pending!\n");
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return -EIO;
++}
++
++/* @tx_buf is NULL for GET, @rx_buf is NULL if the reply is not needed */
++static int nct6694_hif_xfer_msg(struct nct6694 *ddata,
++				const struct nct6694_cmd_header *cmd_hd,
++				u8 hctrl, const void *tx_buf, void *rx_buf)
++{
++	struct nct6694_hif_data *hif_data = to_nct6694_hif_data(ddata);
++	void __iomem *hdr = hif_data->msg_base + offsetof(struct nct6694_hif_msg, cmd_header);
++	void __iomem *data = hif_data->msg_base + offsetof(struct nct6694_hif_msg, data);
++	struct nct6694_cmd_header cmd = *cmd_hd;
++	struct nct6694_response_header resp;
++	u16 data_len = le16_to_cpu(cmd.len);
++	u16 resp_len;
++	u8 status;
++	int ret;
++
++	if (data_len > NCT6694_MAX_DATA_LEN)
++		return -EINVAL;
++
++	/* Wait until the previous command is completed */
++	ret = readb_poll_timeout(hdr + offsetof(struct nct6694_cmd_header, hctrl),
++				 status, status == 0, NCT6694_POLL_INTERVAL_US,
++				 NCT6694_POLL_TIMEOUT_US);
++	if (ret)
++		return ret;
++
++	/*
++	 * Write cmd header fields, but skip hctrl - writing to it triggers
++	 * firmware command processing and must be deferred until data is ready.
++	 */
++	memcpy_toio(hdr, &cmd, offsetof(struct nct6694_cmd_header, hctrl));
++	memcpy_toio(hdr + offsetof(struct nct6694_cmd_header, rsv2), &cmd.rsv2,
++		    sizeof(cmd) - offsetof(struct nct6694_cmd_header, rsv2));
++
++	if (tx_buf)
++		memcpy_toio(data, tx_buf, data_len);
++
++	/* Write hctrl last to trigger command processing */
++	writeb(hctrl, hdr + offsetof(struct nct6694_cmd_header, hctrl));
++
++	ret = readb_poll_timeout(hdr + offsetof(struct nct6694_cmd_header, hctrl),
++				 status, status == 0, NCT6694_POLL_INTERVAL_US,
++				 NCT6694_POLL_TIMEOUT_US);
++	if (ret)
++		return ret;
++
++	memcpy_fromio(&resp, hif_data->msg_base + offsetof(struct nct6694_hif_msg, response_header),
++		      sizeof(resp));
++
++	ret = nct6694_hif_err_handling(ddata, resp.sts);
++	if (ret)
++		return ret;
++
++	if (!rx_buf)
++		return 0;
++
++	/* The firmware may answer with fewer bytes than requested */
++	resp_len = min(data_len, le16_to_cpu(resp.len));
++	memcpy_fromio(rx_buf, data, resp_len);
++	memset(rx_buf + resp_len, 0, data_len - resp_len);
++
++	return 0;
++}
++
++static int nct6694_hif_regmap_read(void *context, const void *reg_buf,
++				   size_t reg_size, void *val_buf,
++				   size_t val_size)
++{
++	struct nct6694 *ddata = context;
++	struct nct6694_hif_data *hif_data = to_nct6694_hif_data(ddata);
++	u32 reg = get_unaligned_be32(reg_buf);
++	u8 hctrl = FIELD_GET(NCT6694_REG_HCTRL, reg);
++	const struct nct6694_cmd_header cmd_hd = {
++		.mod = FIELD_GET(NCT6694_REG_MOD, reg),
++		.offset = cpu_to_le16(FIELD_GET(NCT6694_REG_OFFSET, reg)),
++		.len = cpu_to_le16(val_size),
++	};
++
++	if (val_size > NCT6694_MAX_DATA_LEN)
++		return -EINVAL;
++
++	if (cmd_hd.mod == NCT6694_RPT_MOD)
++		return regmap_bulk_read(hif_data->rpt_regmap,
++					FIELD_GET(NCT6694_REG_OFFSET, reg),
++					val_buf, val_size);
++
++	/* A SET read is a write-then-read command: val_buf holds the request */
++	return nct6694_hif_xfer_msg(ddata, &cmd_hd, hctrl,
++				    hctrl == NCT6694_HCTRL_SET ? val_buf : NULL,
++				    val_buf);
++}
++
++static int nct6694_hif_regmap_write(void *context, const void *data,
++				    size_t count)
++{
++	struct nct6694 *ddata = context;
++	struct nct6694_hif_data *hif_data = to_nct6694_hif_data(ddata);
++	u32 reg = get_unaligned_be32(data);
++	size_t data_len = count - sizeof(reg);
++	const struct nct6694_cmd_header cmd_hd = {
++		.mod = FIELD_GET(NCT6694_REG_MOD, reg),
++		.offset = cpu_to_le16(FIELD_GET(NCT6694_REG_OFFSET, reg)),
++		.len = cpu_to_le16(data_len),
++	};
++
++	if (data_len > NCT6694_MAX_DATA_LEN)
++		return -EINVAL;
++
++	if (cmd_hd.mod == NCT6694_RPT_MOD)
++		return regmap_bulk_write(hif_data->rpt_regmap,
++					 FIELD_GET(NCT6694_REG_OFFSET, reg),
++					 data + sizeof(reg), data_len);
++
++	return nct6694_hif_xfer_msg(ddata, &cmd_hd, NCT6694_HCTRL_SET,
++				    data + sizeof(reg), NULL);
++}
++
++static const struct regmap_bus nct6694_hif_regmap_bus = {
++	.read = nct6694_hif_regmap_read,
++	.write = nct6694_hif_regmap_write,
++};
++
++static const struct regmap_config nct6694_hif_msg_regmap_config = {
++	.name = "msg",
++	.reg_bits = 32,
++	.val_bits = 8,
++};
++
++static const struct regmap_config nct6694_hif_rpt_regmap_config = {
++	.name = "rpt",
++	.reg_bits = 8,
++	.val_bits = 8,
++};
++
++static irqreturn_t nct6694_hif_irq_handler(int irq, void *data)
++{
++	struct nct6694_hif_data *hif_data = data;
++	u8 reg_data[4];
++	u32 intr_status;
++	int ret;
++
++	if (!(inb(hif_data->shm_base + NCT6694_SHM_COFS_STS) & NCT6694_SHM_COFS_STS_COFS4W))
++		return IRQ_NONE;
++
++	outb(NCT6694_SHM_COFS_STS_COFS4W, hif_data->shm_base + NCT6694_SHM_COFS_STS);
++
++	ret = regmap_bulk_read(hif_data->rpt_regmap, NCT6694_SHM_INTR_STATUS,
++			       reg_data, ARRAY_SIZE(reg_data));
++	if (ret)
++		return IRQ_HANDLED;
++
++	intr_status = get_unaligned_le32(reg_data);
++
++	while (intr_status) {
++		int hwirq = __ffs(intr_status);
++
++		generic_handle_domain_irq_safe(hif_data->core.domain, hwirq);
++		intr_status &= ~BIT(hwirq);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static void nct6694_hif_irq_disable(void *data)
++{
++	struct nct6694_hif_data *hif_data = data;
++	u8 cofs_ctl2;
++
++	cofs_ctl2 = inb(hif_data->shm_base + NCT6694_SHM_COFS_CTL2);
++	cofs_ctl2 &= ~NCT6694_SHM_COFS_CTL2_COFS4W_IE;
++	outb(cofs_ctl2, hif_data->shm_base + NCT6694_SHM_COFS_CTL2);
++}
++
++static void nct6694_hif_irq_enable(struct nct6694_hif_data *hif_data)
++{
++	u8 cofs_ctl2;
++
++	cofs_ctl2 = inb(hif_data->shm_base + NCT6694_SHM_COFS_CTL2);
++	cofs_ctl2 |= NCT6694_SHM_COFS_CTL2_COFS4W_IE;
++	outb(cofs_ctl2, hif_data->shm_base + NCT6694_SHM_COFS_CTL2);
++}
++
++static int nct6694_hif_irq_init(struct nct6694_hif_data *hif_data, int irq)
++{
++	struct nct6694_sio_data *sio_data = hif_data->sio_data;
++	struct irq_data *irq_data;
++	irq_hw_number_t hwirq;
++	int ret;
++
++	/* The chip is programmed with the SIRQ line, not the Linux irq number */
++	irq_data = irq_get_irq_data(irq);
++	if (!irq_data)
++		return -EINVAL;
++
++	hwirq = irqd_to_hwirq(irq_data);
++	if (hwirq > SIO_SHM_IRQ_NR_MAX)
++		return -ERANGE;
++
++	ret = superio_enter(sio_data);
++	if (ret)
++		return ret;
++
++	superio_select(sio_data, SIO_REG_LD_SHM);
++
++	if (!superio_inb(sio_data, SIO_REG_SHM_ENABLE)) {
++		superio_exit(sio_data);
++		return -EIO;
++	}
++
++	hif_data->shm_base = superio_inw(sio_data, SIO_REG_SHM_BASE_ADDR);
++	if (!hif_data->shm_base) {
++		superio_exit(sio_data);
++		return -ENODEV;
++	}
++
++	superio_outb(sio_data, SIO_REG_SHM_IRQ_NR, hwirq);
++
++	superio_exit(sio_data);
++
++	if (!devm_request_region(hif_data->core.dev,
++				 hif_data->shm_base + NCT6694_SHM_COFS_STS,
++				 NCT6694_SHM_COFS_LEN, DRVNAME))
++		return -EBUSY;
++
++	/* Keep the device quiet until the IRQ domain is ready */
++	nct6694_hif_irq_disable(hif_data);
++	outb(NCT6694_SHM_COFS_STS_COFS4W, hif_data->shm_base + NCT6694_SHM_COFS_STS);
++
++	return 0;
++}
++
++static void nct6694_hif_device_exit(void *dev)
++{
++	nct6694_device_exit(dev);
++}
++
++static const u8 sio_addrs[] = { 0x2e, 0x4e };
++
++static int nct6694_hif_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct nct6694_sio_data *sio_data;
++	struct nct6694_hif_data *hif_data;
++	void __iomem *rpt_base, *msg_base;
++	struct nct6694 *ddata;
++	int ret, i, irq;
++
++	rpt_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(rpt_base))
++		return PTR_ERR(rpt_base);
++
++	msg_base = devm_platform_ioremap_resource(pdev, 1);
++	if (IS_ERR(msg_base))
++		return PTR_ERR(msg_base);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	sio_data = devm_kzalloc_obj(dev, *sio_data);
++	if (!sio_data)
++		return -ENOMEM;
++
++	for (i = 0; i < ARRAY_SIZE(sio_addrs); i++) {
++		if (!nct6694_sio_find(sio_data, sio_addrs[i]))
++			break;
++	}
++	if (i == ARRAY_SIZE(sio_addrs))
++		return -ENODEV;
++
++	dev_dbg(dev, "Found %s at %#x\n", nct6694_chip_names[sio_data->chip], sio_data->sioreg);
++
++	hif_data = devm_kzalloc_obj(dev, *hif_data);
++	if (!hif_data)
++		return -ENOMEM;
++
++	hif_data->sio_data = sio_data;
++	hif_data->msg_base = msg_base;
++	hif_data->rpt_regmap = devm_regmap_init_mmio(dev, rpt_base,
++						     &nct6694_hif_rpt_regmap_config);
++	if (IS_ERR(hif_data->rpt_regmap))
++		return PTR_ERR(hif_data->rpt_regmap);
++
++	ddata = &hif_data->core;
++	ddata->dev = dev;
++	ddata->regmap = devm_regmap_init(dev, &nct6694_hif_regmap_bus, ddata,
++					 &nct6694_hif_msg_regmap_config);
++	if (IS_ERR(ddata->regmap))
++		return PTR_ERR(ddata->regmap);
++
++	ret = nct6694_hif_irq_init(hif_data, irq);
++	if (ret)
++		return ret;
++
++	platform_set_drvdata(pdev, ddata);
++
++	ret = nct6694_device_init(dev);
++	if (ret)
++		return ret;
++
++	ret = devm_add_action_or_reset(dev, nct6694_hif_device_exit, dev);
++	if (ret)
++		return ret;
++
++	ret = devm_request_threaded_irq(dev, irq, NULL, nct6694_hif_irq_handler,
++					IRQF_ONESHOT | IRQF_SHARED,
++					dev_name(dev), hif_data);
++	if (ret)
++		return ret;
++
++	nct6694_hif_irq_enable(hif_data);
++
++	ret = devm_add_action_or_reset(dev, nct6694_hif_irq_disable, hif_data);
++	if (ret)
++		return ret;
++
++	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, nct6694_hif_devs,
++				    ARRAY_SIZE(nct6694_hif_devs), NULL, 0, NULL);
++}
++
++static const struct acpi_device_id nct6694_hif_acpi_ids[] = {
++	{ "NTN0538", 0 },
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, nct6694_hif_acpi_ids);
++
++static struct platform_driver nct6694_hif_driver = {
++	.driver = {
++		.name = DRVNAME,
++		.acpi_match_table = nct6694_hif_acpi_ids,
++	},
++	.probe	= nct6694_hif_probe,
++};
++module_platform_driver(nct6694_hif_driver);
++
++MODULE_DESCRIPTION("Nuvoton NCT6694 host-interface transport driver");
++MODULE_AUTHOR("Ming Yu <tmyu0@nuvoton.com>");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/mfd/nct6694.h b/include/linux/mfd/nct6694.h
+index 92949f182e2f..7ddbde6d986e 100644
+--- a/include/linux/mfd/nct6694.h
++++ b/include/linux/mfd/nct6694.h
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2025 Nuvoton Technology Corp.
+  *
+- * Nuvoton NCT6694 core definitions shared by the transport driver
++ * Nuvoton NCT6694 core definitions shared by the transport drivers
+  * and the sub-device drivers.
+  */
  
 -- 
 2.34.1
