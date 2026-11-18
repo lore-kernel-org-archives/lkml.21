@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794992931;
-	b=IZjG4z2XI1PAdZweugASlUJgdxXMU2lnYLnWoTVbrJoSDoeJyof4bzV0uNcyAoM7aTHd
-	 BmF70eIeipJRYbfxzxWvrIH18Vgc3NCvgEM08w2Oh3NKTQtiTujone79YcRnSr7t7ZLt+
-	 wESSauQooXHF/La0UWzWJ7KEZxwu9+J6DkYekloBAi1Ejt19CEIQt7e5HmxatzTLUEkh8
-	 K90ZtZgBl+kQxcju7xB82SsZ7FwLaIQGaXoB2oNT5OO7KLYxTOMjViZmo78L3u7VEfzYt
-	 zssr36hlH4EBrI+kH4R+M/MEGcPvwAcHVbFiAoYeeI+S+ryqM+8wm0329Xp1BqDhA2g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992931;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=AL/L8BBoMuh5RxZuA7Vq9fjpLcJFyNh6WrlsR3XYHdU=;
-	b=ShPfl8fW9flgGBLZSB3vymDPMG7oQlFEd5RnIyi9R4+qlQcjMfiLVzc5nVgXh+1M4wXY
-	 glb9w4mMRiCIa+7cCYPqYRT83vwx43AyAbtjBbRYUGB6wh2HWe1LifFmZ/UOGblDmWPlp
-	 Y8MagT1r+efVUhqQNWBkSmNnRLTSZXWy3I333s0tU4dmBMCxFFc+HtKrHanFF9RWhI9c2
-	 MQHiuSCDD5Sk4RLGyKlgc+uji24QNiizzniFxLhgN2FW1ANaquFibtM79Je2g9+jXNIZE
-	 yvL88ZBgG9ioSXzfLhT1Q46UFEPs5jb0Huguj8yNwTZbF8P+AP00oenotTSOiDW7e5w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gzzq4FJF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF938606A889;
-	Wed, 18 Nov 2026 09:08:51 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gzzq4FJF
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794992931;
-	b=tWYt29IW4RVbDmmoGymUh4qrfDoLF8CV/atUldroTrZW8W6D6XSgwEqsZXfakTd9DCe7
-	 Ei7Q7Edi+iW/iScTLS0hVsHefaYrOeeyS0WzFot6rsqdgRFJMw7QpKcfHWtHEbTC9QC7Y
-	 un/zZ/nqBQdp2uIigMpSfE2taAmODB6W8N8ZOBnDozHm9y2aBIeBb2xyBiNsezIxRN8U7
-	 Xn98iC1yHuv8GkSWiLEebxryj7Hu8n4Va27SnMMSrP7OdELKobMJpubxzFzCfhfwzF+5j
-	 Aw7oWvGNKeAJ4Z7pSqce7gvZeKLssFSDnYxHtMP7aWz5bQYMvVcoZqBTP6BNk8FBoxQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794992931;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=AL/L8BBoMuh5RxZuA7Vq9fjpLcJFyNh6WrlsR3XYHdU=;
-	b=g9CLEN24FdMbImEBAUsu1EGNSySnsoO7omSJ184ugYQ6EbsmfgSihkp1eb5ruCdDbA5q
-	 OI7Sy466OmUK6Hzvr/O71g36pFQw2hV6PKTJMzeoLTD/FEeE+a3CHU0COBetPfaQXbUPJ
-	 J4opzKWzvGqNVc/oAIvTnFxwpgAMDcorJcVjdKwzehvmOZT+Ai+6pUzyAa6t+svArm1LD
-	 tjWm+2Q1ARfv3G5isD4mf4PgIoMU1WroTK06qsW8DtLKwrZ/JOXZOCeKUVkR8/N1Y+Dzq
-	 ITtdcNAs+LfThXX5QqjWHKMaDd7worAAAuPDpu57kIMO5JNt8iXu+XUGxsF41cE8eaA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794992932;
+	b=mB7SvK6M/ph0jKB9kWhUy8SwrWFZpZHCDNiRe0UKSPx18i4UBPIpDYREODSTJ0GcSo75
+	 FCiHkOlvZSzWtzHyGXBoywXYZuRS4+oC9d3DNzf4v8P+zCvhsoIf/SVKoimtOphLnXaZC
+	 27mh/HRmjdgq7OTm+xTAAU2EgHGJnYeJtaJd6J89cVUdmijVusXvSCNGAMAgmJbZaOpEO
+	 754+4kl4hpCegTtT+Fmj27MTdIi6fZ7jXA9ui+mzAltI9kk5Nn4JZ2CZcflhZMlnwzhVe
+	 +7SNjcbN/cmoY+6IS7l1EM5mi4abbxBOzJY9uWTmpzAMAfiLvdFD1E/U1u5nvffZ4nA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992932;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=PJK1Lgc7a6icYtGv4WtZmDgeJAuNKJHEaXWmiSba5VE=;
+	b=10ggG18Z5teYA1c7888oVpHyfGkVhhtJNuCnUNM6Ult2fP31BvZvDBphtzw9dkNkZo2X
+	 jecriH8QuY+F1sSCygwqDfYRrGGPH+5/tKTiUnoWn5/M8XkJ4Uzilyjkzvdp8Dm2Sodo2
+	 r4dIpwm9Bk6RmUvLU2ycsRO1dALTWBaQvdQLT/hI8JDnJez+EM6RGg/8/mnGzmWsWa8m7
+	 zvMTZrpXZa/yvwqOpDoRTPXSPIl9VrtFRZE/rbFSgIUgJcTYLIjWNz5pnxoz3a1zm+RCr
+	 eJeXcD5PdbCGwyHrWRpamrZCL7owZpPtZD8S/RkFWiAs+v+vKB1rIP2C6YrJ2w/0QQA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UqGgF5sq;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 96A8E1F000CA;
-	Wed, 18 Nov 2026 09:08:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794992931;
-	bh=AL/L8BBoMuh5RxZuA7Vq9fjpLcJFyNh6WrlsR3XYHdU=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Gzzq4FJFuKfpGAgoHeCJfqnfgVCUUIWV5A4f9TVfDQ9ODtCZghv4sN68iYj47o8Ui
-	 scRkCc4cAqHY+vopWh4aWNPKbl5q/g6hVqs6gnrpvyFyQYSXkI3sj8cchJESa791cT
-	 7QWn2rO/x//GNI409UxIFnmdfMVusFIX35nicB31Sh5GW9ObCZzS+NeHPgyPJ0N5iK
-	 jpYEloFwSDTuXGQH6bJ64LT8XNI8N5eSZTU51cb15xO8rzlF4sAdu6vurxSYD2NOCn
-	 UveJqcNWpZ1F7ptlPp+6kq7zS3pXuZwJZVIW8bTIllsng90uopDx0D04tKqs8XNysw
-	 cqJabqAdVWQpA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 138E34ACAA;
-	Wed, 18 Nov 2026 09:08:50 +0000 (UTC)
-From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 10:08:50 +0100
-Subject: [PATCH] rust: kbuild: generate a symbol version for
- rust_build_error
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3519606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:08:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3519606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UqGgF5sq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=PJ
+	K1Lgc7a6icYtGv4WtZmDgeJAuNKJHEaXWmiSba5VE=; b=UqGgF5sqVsEXud99+8
+	fFP0H5M6U/a0n3KtCZihfEf6eH0tBW+ki/zqpGMprj+Qq1wgi7OC9QkbicJY5SxP
+	t601CR2DHuIkQ6l0kDEfrsOoNkMJNHMSujuWUXLGAc12qjzhDWOPRVeGGNwy2i6L
+	0Dx8e+65s1BiFsfoiUtHzturI=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S5;
+	Wed, 18 Nov 2026 17:08:32 +0800 (CST)
+From: Xuewen Wang <wangxuewen_ky@163.com>
+To: linkinjeon@kernel.org,
+	hyc.lee@gmail.com,
+	liubaolin12138@163.com
+Cc: ntfs@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Xuewen Wang <wangxuewen@kylinos.cn>,
+	Baolin Liu <liubaolin@kylinos.cn>
+Subject: [PATCH v6 11/37] ntfs: report boot geometry and MFT bootstrap errors
+Date: Wed, 18 Nov 2026 17:06:35 +0800
+Message-Id: <20261118090701.1858849-12-wangxuewen_ky@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,93 +66,398 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-fix-rust-build-error-modversions-v1-1-7c1023764f30@gmail.com>
-X-B4-Tracking: v=1; b=H4sIACFr/WoC/yWN2w6CMBBEf4XssxttFaP+ivGhl0VqpJDdlpAQ/
- t0WH89kzswKQhxI4NGswDQHCWMsoA4NuN7EN2HwhUGf9FUpdcMuLMhZEtocvh6JeWQcRj8TV1f
- wYrr23JJ3d6uhzExMxdkvnq8/S7Yfcqnu1oY1QmjZRNfXKE+SmMxw3G8iLQm27QeUqHuzqQAAA
- A==
-X-Change-ID: 20261118-fix-rust-build-error-modversions-4af535edc9b2
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Sami Tolvanen <samitolvanen@google.com>, 
- Matthew Maurer <mmaurer@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
- Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
- linux-modules@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794992929; l=2134;
- i=peder.bergan@gmail.com; s=kernel-contributions;
- h=from:subject:message-id;
- bh=iwv1qR5QyWs5FUrFMluYyHlgGOi5NpHY1vMGZeZUJRU=;
- b=NwD6BfBA4WLob4JLWPSWapwm4CZS3A7yc5jvskFd0xanhimNfBdKYJ6oPbN3P2DqnFUHqZ/RS
- z4EPoyo3A7EC6m2QxLn1urUhN9JCBklyXWBl1CvPG6Yij6lqo4TXdgd
-X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
- pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
-X-Endpoint-Received: by B4 Relay for
- peder.bergan@gmail.com/kernel-contributions with auth_id=1395
-X-Original-From: Peder Bergan <peder.bergan@gmail.com>
-Reply-To: peder.bergan@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S5
+X-Coremail-Antispam: 1Uf129KBjvAXoW3tr43Ar4ruF13Cw4fJrWDJwb_yoW8Gr47Zo
+	WSva1q9w1kKw13A3Wvgw18Xasru3ZxCws5Jr45Gr4DuFWvgw1jq347Jw13Xay3Ww4Fgr1D
+	CryxJ3WrAFWxGryxn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUcsXoUUUUU
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC8BD44Wr9axCO1AAA3P
 
-From: Peder Bergan <peder.bergan@gmail.com>
+From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-CONFIG_RUST_BUILD_ASSERT_ALLOW exports rust_build_error to modules.
-When CONFIG_MODVERSIONS is also enabled, modpost warns that the export
-has no symbol version and records a zero CRC because the build_error.o
-rule skips gendwarfksyms.
+Mount initialization detects invalid MFT locations, mirror mismatches
+and corrupt bootstrap metadata without consistently recording them.
+Report these failures and use EFSCORRUPTED for confirmed corruption.
 
-Generate the checksum from build_error.o with the existing Rust library
-rule. Make build_error.o depend on rust/Makefile when module versioning
-is enabled so incremental builds pick up the change. Kbuild's saved
-rustc command does not include the gendwarfksyms step.
+Preserve specific errors through boot-sector parsing and MFT loading,
+including the inner ntfs_read_locked_inode() failure during bootstrap.
+Use shared cleanup and reporting exits. Keep allocation failures and
+unsupported geometry distinct, and retain the read-only fallback.
+Before SB_ACTIVE, record the volume error state without sending events.
 
-Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for CONFIG_MODVERSIONS")
-Reported-by: Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>
-Closes: https://github.com/Rust-for-Linux/linux/issues/1201
-Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
+Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
+Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
 ---
-An incremental x86-64 build with LLVM=1 CLIPPY=1 clears the modpost
-warning. The kernel export and a Rust module that references it both
-record the same nonzero CRC.
+Changes in v6:
+Retain the upstream metadata-folio reader in boot and MFT checks.
 
-OpenAI Codex assisted with coding and testing.
----
- rust/Makefile | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Validation:
+- Compiled and linked the NTFS module object with W=1 at this stage.
 
-diff --git a/rust/Makefile b/rust/Makefile
-index 0165626decbe..dd5b0a958d0c 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -773,8 +773,9 @@ $(obj)/pin_init.o: $(src)/pin-init/src/lib.rs $(obj)/compiler_builtins.o \
- # treated as such so that we pass the same flags. Otherwise, for instance,
- # `rustc` will complain about missing sanitizer flags causing an ABI mismatch.
- $(obj)/build_error.o: private is-kernel-object := y
--$(obj)/build_error.o: private skip_gendwarfksyms = 1
--$(obj)/build_error.o: $(src)/build_error.rs $(obj)/compiler_builtins.o FORCE
-+# Rebuild when the symbol version generation rule changes.
-+$(obj)/build_error.o: $(src)/build_error.rs $(obj)/compiler_builtins.o \
-+    $(if $(CONFIG_MODVERSIONS),$(src)/Makefile) FORCE
- 	+$(call if_changed_rule,rustc_library)
+ fs/ntfs/inode.c | 28 +++++++++++++-------
+ fs/ntfs/super.c | 69 +++++++++++++++++++++++++++++++++++--------------
+ 2 files changed, 69 insertions(+), 28 deletions(-)
+
+diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
+index 7ebdbffcd75b..21b9202fb0b3 100644
+--- a/fs/ntfs/inode.c
++++ b/fs/ntfs/inode.c
+@@ -1901,7 +1901,7 @@ static int load_attribute_list_mount(struct ntfs_volume *vol,
+ 	ntfs_debug("Entering.");
+ 	if (!vol || !rl || !al || size <= 0 || initialized_size < 0 ||
+ 			initialized_size > size)
+-		return -EINVAL;
++		return -EFSCORRUPTED;
+ 	if (!initialized_size) {
+ 		memset(al, 0, size);
+ 		return 0;
+@@ -1917,7 +1917,7 @@ static int load_attribute_list_mount(struct ntfs_volume *vol,
+ 		/* The attribute list cannot be sparse. */
+ 		if (lcn < 0) {
+ 			ntfs_error(sb, "ntfs_rl_vcn_to_lcn() failed. Cannot read attribute list.");
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 		}
  
- $(obj)/ffi.o: private skip_gendwarfksyms = 1
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261118-fix-rust-build-error-modversions-4af535edc9b2
-
-Best regards,
---  
-Peder Bergan <peder.bergan@gmail.com>
-
+ 		rl_byte_off = ntfs_cluster_to_bytes(vol, lcn);
+@@ -1995,7 +1995,7 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 	struct attr_record *a;
+ 	struct ntfs_attr_search_ctx *ctx;
+ 	unsigned int i;
+-	int err;
++	int err = -EIO;
+ 	size_t new_rl_count;
+ 
+ 	ntfs_debug("Entering.");
+@@ -2023,6 +2023,7 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 
+ 	/* Allocate enough memory to read the first mft record. */
+ 	if (vol->mft_record_size > 64 * 1024) {
++		err = -EOPNOTSUPP;
+ 		ntfs_error(sb, "Unsupported mft record size %i (max 64kiB).",
+ 				vol->mft_record_size);
+ 		goto err_out;
+@@ -2034,6 +2035,7 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 
+ 	m = kzalloc(i, GFP_NOFS);
+ 	if (!m) {
++		err = -ENOMEM;
+ 		ntfs_error(sb, "Failed to allocate buffer for $MFT record 0.");
+ 		goto err_out;
+ 	}
+@@ -2122,6 +2124,7 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 		ni->attr_list = kvzalloc(round_up(ni->attr_list_size, SECTOR_SIZE),
+ 					 GFP_NOFS);
+ 		if (!ni->attr_list) {
++			err = -ENOMEM;
+ 			ntfs_error(sb, "Not enough memory to allocate buffer for attribute list.");
+ 			goto put_err_out;
+ 		}
+@@ -2141,6 +2144,8 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 			rl = ntfs_mapping_pairs_decompress(vol, a, NULL, &new_rl_count);
+ 			if (IS_ERR(rl)) {
+ 				err = PTR_ERR(rl);
++				if (err != -ENOMEM)
++					err = -EFSCORRUPTED;
+ 				ntfs_error(sb,
+ 					   "Mapping pairs decompression failed with error code %i.",
+ 					   -err);
+@@ -2243,6 +2248,9 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 		nrl = ntfs_mapping_pairs_decompress(vol, a, &ni->runlist,
+ 						    &new_rl_count);
+ 		if (IS_ERR(nrl)) {
++			err = PTR_ERR(nrl);
++			if (err != -ENOMEM)
++				err = -EFSCORRUPTED;
+ 			ntfs_error(sb,
+ 				"ntfs_mapping_pairs_decompress() failed with error code %ld.",
+ 				PTR_ERR(nrl));
+@@ -2281,6 +2289,7 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 			 */
+ 			if ((vi->i_size >> vol->mft_record_size_bits) >=
+ 					(1ULL << 32)) {
++				err = -EOPNOTSUPP;
+ 				ntfs_error(sb, "$MFT is too big! Aborting.");
+ 				goto put_err_out;
+ 			}
+@@ -2306,11 +2315,7 @@ int ntfs_read_inode_mount(struct inode *vi)
+ 			err = ntfs_read_locked_inode(vi);
+ 			if (err) {
+ 				ntfs_error(sb, "ntfs_read_inode() of $MFT failed.\n");
+-				NVolClearMftBootstrap(vol);
+-				ntfs_attr_put_search_ctx(ctx);
+-				/* Revert to the safe super operations. */
+-				kfree(m);
+-				return -1;
++				goto put_err_out;
+ 			}
+ 			/*
+ 			 * Re-initialize some specifics about $MFT's inode as
+@@ -2377,9 +2382,14 @@ int ntfs_read_inode_mount(struct inode *vi)
+ err_out:
+ 	/* Also reached from inside the $DATA loop. */
+ 	NVolClearMftBootstrap(vol);
++	if (err == -ENOENT || !err)
++		err = -EFSCORRUPTED;
++	if (err != -ENOMEM && err != -EOPNOTSUPP &&
++	    err != -EINTR && err != -ERESTARTSYS)
++		ntfs_report_metadata_error(vol, err);
+ 	ntfs_error(sb, "Failed. Marking inode as bad.");
+ 	kfree(m);
+-	return -1;
++	return err;
+ }
+ 
+ static void __ntfs_clear_inode(struct ntfs_inode *ni)
+diff --git a/fs/ntfs/super.c b/fs/ntfs/super.c
+index 773e5208bdbf..63595328e42e 100644
+--- a/fs/ntfs/super.c
++++ b/fs/ntfs/super.c
+@@ -869,10 +869,10 @@ static bool ntfs_validate_mft_io_geometry(struct ntfs_volume *vol,
+  * @b:		boot sector to parse
+  *
+  * Parse the ntfs boot sector @b and store all imporant information therein in
+- * the ntfs super block @vol.  Return 'true' on success and 'false' on error.
++ * the ntfs super block @vol. Return 0 on success and -errno on error.
+  */
+-static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+-		const struct ntfs_boot_sector *b)
++static int parse_ntfs_boot_sector(struct ntfs_volume *vol,
++				  const struct ntfs_boot_sector *b)
+ {
+ 	unsigned int sectors_per_cluster, sectors_per_cluster_bits, nr_hidden_sects;
+ 	unsigned int logical_block_size;
+@@ -890,7 +890,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			"Sector size (%i) is smaller than the device block size (%lu).  This is not supported.",
+ 			vol->sector_size, vol->sb->s_blocksize);
+-		return false;
++		return -EINVAL;
+ 	}
+ 
+ 	if (b->bpb.sectors_per_cluster >= 0xf4)
+@@ -914,7 +914,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			"Cluster size (%i) is smaller than the sector size (%i).  This is not supported.",
+ 			vol->cluster_size, vol->sector_size);
+-		return false;
++		return -EINVAL;
+ 	}
+ 	clusters_per_mft_record = b->clusters_per_mft_record;
+ 	ntfs_debug("clusters_per_mft_record = %i (0x%x)",
+@@ -945,7 +945,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			"Mft record size (%i) exceeds the PAGE_SIZE on your system (%lu).  This is not supported.",
+ 			vol->mft_record_size, PAGE_SIZE);
+-		return false;
++		return -EINVAL;
+ 	}
+ 	/* We cannot support mft record sizes below the sector size. */
+ 	if (vol->mft_record_size < vol->sector_size) {
+@@ -953,7 +953,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 				vol->mft_record_size, vol->sector_size);
+ 	}
+ 	if (!ntfs_validate_mft_io_geometry(vol, logical_block_size))
+-		return false;
++		return -EINVAL;
+ 
+ 	clusters_per_index_record = b->clusters_per_index_record;
+ 	ntfs_debug("clusters_per_index_record = %i (0x%x)",
+@@ -983,7 +983,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 		ntfs_error(vol->sb,
+ 			   "Index record size (%i) is smaller than the sector size (%i).  This is not supported.",
+ 			   vol->index_record_size, vol->sector_size);
+-		return false;
++		return -EINVAL;
+ 	}
+ 	/*
+ 	 * Get the size of the volume in clusters and check for 64-bit-ness.
+@@ -993,7 +993,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 	ll = le64_to_cpu(b->number_of_sectors) >> sectors_per_cluster_bits;
+ 	if (ll >= 1ULL << 32) {
+ 		ntfs_error(vol->sb, "Cannot handle 64-bit clusters.");
+-		return false;
++		return -EINVAL;
+ 	}
+ 	vol->nr_clusters = ll;
+ 	ntfs_debug("vol->nr_clusters = 0x%llx", vol->nr_clusters);
+@@ -1001,7 +1001,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 	if (ll >= (u64)vol->nr_clusters) {
+ 		ntfs_error(vol->sb, "MFT LCN (%llu, 0x%llx) is beyond end of volume.  Weird.",
+ 				ll, ll);
+-		return false;
++		goto corrupt;
+ 	}
+ 	vol->mft_lcn = ll;
+ 	ntfs_debug("vol->mft_lcn = 0x%llx", vol->mft_lcn);
+@@ -1009,7 +1009,7 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 	if (ll >= (u64)vol->nr_clusters) {
+ 		ntfs_error(vol->sb, "MFTMirr LCN (%llu, 0x%llx) is beyond end of volume.  Weird.",
+ 				ll, ll);
+-		return false;
++		goto corrupt;
+ 	}
+ 	vol->mftmirr_lcn = ll;
+ 	ntfs_debug("vol->mftmirr_lcn = 0x%llx", vol->mftmirr_lcn);
+@@ -1050,7 +1050,11 @@ static bool parse_ntfs_boot_sector(struct ntfs_volume *vol,
+ 		}
+ 	}
+ 
+-	return true;
++	return 0;
++
++corrupt:
++	ntfs_report_metadata_error(vol, -EFSCORRUPTED);
++	return -EFSCORRUPTED;
+ }
+ 
+ /*
+@@ -1127,6 +1131,18 @@ static void ntfs_setup_allocators(struct ntfs_volume *vol)
+ 	ntfs_debug("vol->mft_data_pos = 0x%llx", vol->mft_data_pos);
+ }
+ 
++/* An unused record is corruption when a required system file is loaded. */
++static struct inode *ntfs_system_iget(struct ntfs_volume *vol, unsigned long mft_no)
++{
++	struct inode *inode = ntfs_iget(vol->sb, mft_no);
++
++	if (IS_ERR(inode) && PTR_ERR(inode) == -ENOENT) {
++		ntfs_report_metadata_error(vol, -EFSCORRUPTED);
++		inode = ERR_PTR(-EFSCORRUPTED);
++	}
++	return inode;
++}
++
+ static struct lock_class_key mftmirr_runlist_lock_key,
+ 			     mftmirr_mrec_lock_key;
+ /*
+@@ -1142,7 +1158,7 @@ static bool load_and_init_mft_mirror(struct ntfs_volume *vol)
+ 
+ 	ntfs_debug("Entering.");
+ 	/* Get mft mirror inode. */
+-	tmp_ino = ntfs_iget(vol->sb, FILE_MFTMirr);
++	tmp_ino = ntfs_system_iget(vol, FILE_MFTMirr);
+ 	if (IS_ERR(tmp_ino)) {
+ 		if (!IS_ERR(tmp_ino))
+ 			iput(tmp_ino);
+@@ -1194,6 +1210,7 @@ static bool load_and_init_mft_mirror(struct ntfs_volume *vol)
+  */
+ static bool check_mft_mirror(struct ntfs_volume *vol)
+ {
++	int report_err = 0;
+ 	struct super_block *sb = vol->sb;
+ 	struct ntfs_inode *mirr_ni;
+ 	struct folio *mft_folio = NULL, *mirr_folio = NULL;
+@@ -1222,7 +1239,7 @@ static bool check_mft_mirror(struct ntfs_volume *vol)
+ 							     index);
+ 			if (IS_ERR(mft_folio)) {
+ 				ntfs_error(sb, "Failed to read $MFT.");
+-				return false;
++				goto out;
+ 			}
+ 			kmft_base = kmap_local_folio(mft_folio, 0);
+ 			kmft = kmft_base;
+@@ -1242,6 +1259,7 @@ static bool check_mft_mirror(struct ntfs_volume *vol)
+ 		if (((struct mft_record *)kmft)->flags & MFT_RECORD_IN_USE) {
+ 			/* Make sure the record is ok. */
+ 			if (ntfs_is_baad_recordp((__le32 *)kmft)) {
++				report_err = -EFSCORRUPTED;
+ 				ntfs_error(sb,
+ 					"Incomplete multi sector transfer detected in mft record %i.",
+ 					i);
+@@ -1251,12 +1269,13 @@ static bool check_mft_mirror(struct ntfs_volume *vol)
+ mft_unmap_out:
+ 				kunmap_local(kmft_base);
+ 				folio_put(mft_folio);
+-				return false;
++				goto out;
+ 			}
+ 		}
+ 		/* Do not check the mirror record if it is not in use. */
+ 		if (((struct mft_record *)kmirr)->flags & MFT_RECORD_IN_USE) {
+ 			if (ntfs_is_baad_recordp((__le32 *)kmirr)) {
++				report_err = -EFSCORRUPTED;
+ 				ntfs_error(sb,
+ 					"Incomplete multi sector transfer detected in mft mirror record %i.",
+ 					i);
+@@ -1276,6 +1295,7 @@ static bool check_mft_mirror(struct ntfs_volume *vol)
+ 		}
+ 		/* Compare the two records. */
+ 		if (memcmp(kmft, kmirr, bytes)) {
++			report_err = -EFSCORRUPTED;
+ 			ntfs_error(sb,
+ 				   "$MFT and $MFTMirr record %i do not match.  Run chkdsk.",
+ 				   i);
+@@ -1310,14 +1330,20 @@ static bool check_mft_mirror(struct ntfs_volume *vol)
+ 	do {
+ 		if (rl2[i].vcn != rl[i].vcn || rl2[i].lcn != rl[i].lcn ||
+ 				rl2[i].length != rl[i].length) {
++			report_err = -EFSCORRUPTED;
+ 			ntfs_error(sb, "$MFTMirr location mismatch.  Run chkdsk.");
+ 			up_read(&mirr_ni->runlist.lock);
+-			return false;
++			goto out;
+ 		}
+ 	} while (rl2[i++].length);
+ 	up_read(&mirr_ni->runlist.lock);
+ 	ntfs_debug("Done.");
+ 	return true;
++
++out:
++	if (report_err)
++		ntfs_report_metadata_error(vol, report_err);
++	return false;
+ }
+ 
+ /*
+@@ -2741,9 +2767,10 @@ static int ntfs_fill_super(struct super_block *sb, struct fs_context *fc)
+ 	 */
+ 	result = parse_ntfs_boot_sector(vol, (struct ntfs_boot_sector *)boot);
+ 	kfree(boot);
+-	if (!result) {
++	if (result) {
++		err = result;
+ 		if (!silent)
+-			ntfs_error(sb, "Unsupported NTFS filesystem.");
++			ntfs_error(sb, "Failed to parse NTFS boot sector.");
+ 		goto err_out_now;
+ 	}
+ 	if (!vol->mft_write_supported && !sb_rdonly(sb)) {
+@@ -2795,6 +2822,7 @@ static int ntfs_fill_super(struct super_block *sb, struct fs_context *fc)
+ 		ntfs_set_default_dentry_ops(sb);
+ 	tmp_ino = new_inode(sb);
+ 	if (!tmp_ino) {
++		err = -ENOMEM;
+ 		if (!silent)
+ 			ntfs_error(sb, "Failed to load essential metadata.");
+ 		goto err_out_now;
+@@ -2802,7 +2830,8 @@ static int ntfs_fill_super(struct super_block *sb, struct fs_context *fc)
+ 
+ 	tmp_ino->i_ino = FILE_MFT;
+ 	insert_inode_hash(tmp_ino);
+-	if (ntfs_read_inode_mount(tmp_ino) < 0) {
++	err = ntfs_read_inode_mount(tmp_ino);
++	if (err) {
+ 		if (!silent)
+ 			ntfs_error(sb, "Failed to load essential metadata.");
+ 		goto iput_tmp_ino_err_out_now;
+@@ -2826,6 +2855,7 @@ static int ntfs_fill_super(struct super_block *sb, struct fs_context *fc)
+ 	vol->lcn_empty_bits_per_page = kvmalloc_objs(unsigned int,
+ 						     lcn_bit_pages);
+ 	if (!vol->lcn_empty_bits_per_page) {
++		err = -ENOMEM;
+ 		ntfs_error(sb,
+ 			   "Unable to allocate pages for storing LCN empty bit counts\n");
+ 		goto unl_upcase_iput_tmp_ino_err_out_now;
+@@ -2876,6 +2906,7 @@ static int ntfs_fill_super(struct super_block *sb, struct fs_context *fc)
+ 		queue_work(ntfs_wq, &vol->precalc_work);
+ 		return 0;
+ 	}
++	err = -ENOMEM;
+ 	ntfs_error(sb, "Failed to allocate root directory.");
+ 	/* Clean up after the successful load_system_files() call from above. */
+ 	iput(vol->vol_ino);
+-- 
+2.51.0
 
