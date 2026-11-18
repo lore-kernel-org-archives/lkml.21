@@ -1,104 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026965;
-	b=HbyftFasnBaT/qt0J3FDV50YYTtSiZJE5ASZQfqy8uA3IxGUmJ/WCJo+wk3dbyHHZevO
-	 ihoIotffiujKMnbsv8NbbOFQhkmyHMnvFo+6nMjppSBAZjF8713MyIq/CapXBOXnY69DW
-	 DimAyFSIMqKZEQniIR+NkmF552rP24LC0/ZPv7vUfrLWGy688T0gSUl9L856EmBrO7c6L
-	 cYbY+/98EJJhh7Fww0/0k8iQokiAKdTcW174tNkls/1qkGCf8rn+3av7okLJlHomN3ocV
-	 kqMKUslj8Qx+1cMpk2NuxPMGI3Xdch/W9xaJsQ/U1ZGyzoPKrOm8VCm5vZi7dNGC8Aw==
+	t=1795026969;
+	b=gEtxQS8rrD9IwLLZ2F6wGj7clTUfj0eCNsa+fBab5YIJiQS2uiEzy3L9o+MT/QmP7qOR
+	 J5YLYBoSqqPJ1nmkEHVlBAWISDjrKhRQfYgZVDjBgXqWlkHtPGQrxjHWY3ZQEDX3wYrSq
+	 natpCBgaoTFjdYe+uEt8FSAsN4ECRXA+mGOxn+JgDz0WVbPRZPF8MuT7MHE1kjanr34hS
+	 WN8MpPgrPBQeMfPWIaw1qOJ5bUMz+MvDbs1eeaJicpTN9yOsjIMF4920VadwDy8vw3/1i
+	 nCHCeHOQCdZpz52jRtVCk6RqLPw6FAJejbE0KPzBYHJxVfUoUAlWfeFEJwGmeO9AlCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026965;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026969;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=8RDyAIx6GdPyur2p4krhRfb/lrH/VMCLoWVTsANEHhI=;
-	b=FoPqC9piMM7Xr6mgjx/4gRuWX9TvwsU9KPwhPRtfr0pJoXv285zqrndAjYq1GyImnZ4r
-	 PldXZ9kwCc2TyxOa2ZkkIHGFMMWaVwoqVUaqnYor58BpLhFq99CHnxCdDgmwZQ8gaGTRt
-	 18mwlnW8bBDmS+G6kH4lPW5hxf5KQ537O/tQByROOJ/5awmbxqJ4sRROiKxgAXCUciZJp
-	 u1f94qdP3tMNw8EzXHXLCYXRgj5UFXOAVQxN0iZFnnn5wC3gbgA/vkwm9f9aLrPCogvJe
-	 9doWixiDDEAgC1BE7BsiVWhwMrfba1Tjqw1dggE7u2oCCRd7A3FWejCKC6r+CzI9Ngw==
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=LWsePn//34GWKr66eI/3X8mjEEJpdHv2YAD5pLDzxFA=;
+	b=x69Q8FicC1EXuwrwtln9ig8W8e/9+1GsyTNgzjQe8jJf0gweJPYp/j6ZZ3K2NO2mYSux
+	 7CIY7pErVXTzFbDuQFv5YqnCTsj7yt4myNoUWsc87joZWIDn1l+R9CBwPoE/2PF2FigkR
+	 PmvF+WCXhU7enBHNJwR65OzWg2qpXNB7i0QRZ/X7mg05D+phALZVrk7sigXiTr7fmxtJm
+	 sVxBsKaTSuzqyTHEZ2+20dqokHi5c8F7aI7/Bo6aAEMRCxjSiFGGPypmhzEtXdzRMp0m4
+	 WnSR0y1ZGVgD7/f0gwfpED0Gj0Id4k522QZeA+yqOkfmqR3WgCQgVcTzyzzQUeZ6LAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kmAcvJnL;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nZPldBpq;
+	arc=none smtp.remote-ip=209.85.167.181
+Received: from mail-oi1-f181.google.com (mail-oi1-f181.google.com [209.85.167.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACCA9606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:36:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACCA9606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51BC6606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:36:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51BC6606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kmAcvJnL
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3712b6d9843so1534580eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:36:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nZPldBpq
+Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-55650fe1f0dso657617b6e.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:36:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795026964; x=1795631764; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8RDyAIx6GdPyur2p4krhRfb/lrH/VMCLoWVTsANEHhI=;
-        b=kmAcvJnL0+eiYXsyN8IMK9D8KwnlkRZHRuuD9sBxVGn5t2mob9W8a/IaGyCKBnoPXo
-         Vd+TDCxJ7g5FKRfitt4LhgaQYVaYShyMWk7KrCzqg0gNLr3+tArJDgRuyYbrZk/Y9IDC
-         ghCHM6Agc+jSakuk3SRYN53xY27OzB6ErohGLrGTYKtqp1c64tQLONvhveiUtiSjih5X
-         h3xwBeRiQlOVpLqaLA5JxJiBAsmBx8E4R93y7TqFHbZ18gvvQUSGpC3gdZ9ptWMIwG0X
-         EZ7JvNQqIpAfbPLC/lgL0HQqcCdE8Hc6GepMhdP9SYzv62xf5tkTQZQbkxW72NbHHLjl
-         kBnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795026964; x=1795631764;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=gmail.com; s=20260707; t=1795026968; x=1795631768; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8RDyAIx6GdPyur2p4krhRfb/lrH/VMCLoWVTsANEHhI=;
-        b=GBK+P9Fbsd9S5QgFzrgZ23mSAxB0yOxq2S+wIR9uINBUQFBtKc6HlqOfj/yiXyT0vu
-         36KEpGQKYef/Gy9x8c8N61UlREE6JSTixE7cxl9fFSZw261eNfND6as7I8xqBzwdNGT9
-         Ge9cXM2kVtp+8VbdggNgA+wmlFPTruppj2REw/0HKtMALuoVpGPJTqOcHZig0fn+2RRs
-         nG1v6GqdB8FgIJKybsX7zEV01gTek9UN0nHe9pEElt/W91labxYmZymqMeNQJKjkFGqv
-         hYs04W7831yTLYddEK8j6AzRQ0xzLecpiyQYokVcYZj6Go3mJmV9xYWTKo2S0KfNaA/s
-         UVnQ==
-X-Forwarded-Encrypted: i=1; AL+hErE0XmrnVPf9ca/eGOfJ3+6huRwtjtmnREYEwWIftJ2GUFgOb1Ewjd6ubHNADYdOMWSFWTytxoRCg4I3jv8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8wwQ55WqQKHVxttlECqGPdZC/WF/y8dUMg4j3ZJOuO3kd2iOwe
-	5p/96GOqZgufhHsbB5r1TlgectQumjhGelPsjGV+iMOFpTN3DL8TizPd
-X-Gm-Gg: AZFdTZfhxP+mlNVar0Mt2Y9xCFcZ/OyxJD8EJaq1ktytXaT7WkvP3hdx5setwX852qx
-	CiRGJr4Km5JfPGY7je6BZBgLkX+7cu5TJ5czt2AgxqpLTuVhrXBXZR9VWTGe9s75I5s/DtF9aJ+
-	2/9okGvj430iYd4HJIUj6aAAyCMPPD+hXYpG9tzJd95wv5yv7tcEU3oB8DhpqdSvogc+Jo5rUfJ
-	gwZyWgRAXkL4CZgkdfWqWTXIEiClM52GRcG1uZUYxX9ZVPAbsWcyrGpugSM5VlUVe7AzBlSKygC
-	hfSrgx53RLt8TPhdg2SV5N7Nt6nxYykEZibQsAsoLff6CVR3F/jnPoRbk+Ajta3BfYmpJjd7KNx
-	wpdRQz4DoCNUKwsEDzOQbX/jLSEC93YRFJqzS8U1XogIwd0et5Mr02tFIcX55zMkoJ5xramBmGs
-	eIiigxUbVP/H1m5x69fBPM0zQ3DghdufAijy/tSlN9eSzvM29LNBAKPV9FEWKmvM6/c9t0aGWJm
-	dcC60D/TFGwDNjSBT32wyLtpbeUSgW7iJXhYvNZqKhHYWlffhzFajkG+Kz+BMvhBczD8nXSpufi
-	LXAWGIN4IFl6tRli4hzVaX6jaeVVy2IJhUPgNbceGPyZzBOrQQ==
-X-Received: by 2002:a05:7301:190a:b0:36a:1e9e:ae61 with SMTP id 5a478bee46e88-38281bfa917mr3311876eec.38.1795026963313;
-        Wed, 18 Nov 2026 10:36:03 -0800 (PST)
-Received: from G7XWH7K1F3 ([139.177.225.245])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a45274aesm10450189eec.2.2026.11.18.10.35.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 10:36:03 -0800 (PST)
-From: Zhao Li <enderaoelyther@gmail.com>
-To: Jeff Chen <jeff.chen_1@nxp.com>
-Cc: Jeff Chen <jeff.chen_1@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Arend van Spriel <arend.vanspriel@broadcom.com>,
-	Jiangshan Yi <yijiangshan@kylinos.cn>,
-	Linmao Li <lilinmao@kylinos.cn>,
-	Kees Cook <kees+treewide@kernel.org>,
-	Rosen Penev <rosenp@gmail.com>,
-	Benjamin Berg <benjamin.berg@intel.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Zhao Li <enderaoelyther@gmail.com>
-Subject: [PATCH wireless v2 4/4] wifi: nxpwifi: stop AP when delayed channel switch fails
-Date: Thu, 19 Nov 2026 02:35:06 +0800
-Message-ID: <20261118183506.45749-5-enderaoelyther@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118183506.45749-1-enderaoelyther@gmail.com>
-References: <20261118183506.45749-1-enderaoelyther@gmail.com>
+        bh=LWsePn//34GWKr66eI/3X8mjEEJpdHv2YAD5pLDzxFA=;
+        b=nZPldBpqZpFVG6VU8Us2hU+bdQZXSF7bVeKG7vxCPD5lm3UFmbvB6q9gj7QhVPQKU5
+         DREGmJRSjVlxGZD2rNTK1ULbpW3kXUbBuhatjT4STnwYvks0Sk78utnlCXLWEYhwCHDY
+         TQ8weyICB8quPge89Q4ZguRfsl+xgVLzeSSVDyeQ3JeIAfouHXzbbGt2rdhO4RTY8gBi
+         UbEgxn6pQXvx8ElWpnGSuEp7B4ZNoZmNSA9l/S2rxEBu5B3E9NRC4rcmrmzeV85XJ9IH
+         5K2AY3XrUG1mqeI3/0KrxbajpaLSRWUyPgYE/5BFnrr5sQc2vwq5dlK3BNAhmgcrFuW5
+         XhKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795026968; x=1795631768;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=LWsePn//34GWKr66eI/3X8mjEEJpdHv2YAD5pLDzxFA=;
+        b=SvAA6iGdrHEm4mm/tslE+r02ejIKwBzy9RbmQrKgbg7jCBU6JGFrYK8wBOrvrw9FRF
+         CvrFg/bA/dALLmfEYpPrGzP9jOF3na4WwSm3BTpGLqnu9MWU0luvWwb4Y9xDXgejhZnN
+         gHXHcoZIxyPZQyVLtTrFuGWBiU5ZvqVMsvCzPdxgqMPt6ZZaQcFvJc1dDFLok2ndoHT+
+         NrFhUxBgNU6CUch768SX5E8csLAXcOim0RDdkWNNexw/6Xp7qCl9gRZ6C0rTjd5fBJnB
+         0hqsOAueBd8OtebGpXxlYyXPOdVTatNwJg9CaCNdV6ISGOQnxfWamOd0WPLLUJm0AEGc
+         TIqA==
+X-Forwarded-Encrypted: i=1; AL+hErF4ZTgjB3N3nVJqAGQZZHTtw/9p6jHHHliw1TtdU0TdCzhLylV6uh6yjdy2AP0o3ANubYFGOJ3YXhnDzek=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/E7j7igkaLt+ct/Yo68kRECoGbryL3o0VLU+18mteFOr3vgihs
+	aIQnC7v0k6PCzwOPH0v3YmDy2bUgUruyepXGuQnTD8Sy8cWlWbXAUAGk
+X-Gm-Gg: AYBFou0kD7LIr0UpyJNf+4biuXR3duYibCCxnCqB2WATMZ8ZjpGWW9iQyLmUPDo931o
+	Xv5yV2/VBBrZldKbQKp6LMTFkoWRgZqxga/MujLmjSxr+DuqUMzU7SVSSCTKo0Q4cfFpQO6z4lV
+	MCEafgArua506kb3BQ3ylFcHTi1PBIiOmUvMDzFNoG4mmfUFh3eAFJsT+LHIpwdrmWoPrBCplQc
+	L8mNhIF0LwNxghKrdvFmZxlO2Nyi+fRulyUQhTUQIuJnjnkmItdUJJtqsr06VxWYfP+KXrIUH0T
+	h2vZ/CYolmPUumA/Ruj1+cUqynDtC0zzpIqr7PJ42xXwER9NzOY+3fIbb9wHeQzeXNjkjkzewif
+	L9ughxws4lZpRM0vewnAazv1nabp4HHtKWmIobyr8coPzBwkuU+1Gt/ovtYNMNDXkM3lgvc5Zac
+	z9NusVmenrE97VGOGx05pH5gd+9/g1klhEwwDEkK/QnFORYICPX983JM2hHH47C5QgdoX2OIN6S
+	VtTA2fI8XAHq7QCJ4epzJVk2+xpra3qAONBLRbtVXTtzzuMf5pyhZaUtZXeALnbupbYQgeP4s5E
+	/f2v+LNd2GccaDpCf3X/QNAcgY379V0hc9dGyEG6QJH5Z3Pnw9zolPJlD9lj
+X-Received: by 2002:a05:6808:250b:b0:4e9:7d56:846f with SMTP id 5614622812f47-5773e750e7bmr4246129b6e.41.1795026967884;
+        Wed, 18 Nov 2026 10:36:07 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff:40::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74412113asm2969800fac.8.2026.11.18.10.36.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 10:36:07 -0800 (PST)
+Date: Wed, 18 Nov 2026 10:36:06 -0800
+From: Joshua Hahn <joshua.hahnjy@gmail.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com, Kiryl Shutsemau <kas@kernel.org>
+Subject: Re: [PATCH v2 1/3] mm/page_alloc: drop unused gfp_mask from
+ zone_watermark_fast()
+Message-ID: <av3vX31XxmBT6uh6@devbig011.atn3.facebook.com>
+Mail-Followup-To: Dev Jain <dev.jain@arm.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, 
+	Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, kernel-team@meta.com, Kiryl Shutsemau <kas@kernel.org>
+References: <20261116232346.788145-1-joshua.hahnjy@gmail.com>
+ <20261116232346.788145-2-joshua.hahnjy@gmail.com>
+ <b2093f38-e3e3-494e-a27b-afc91c578053@arm.com>
+ <7770de02-3f4a-4db8-9e02-5e95b148b809@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,83 +114,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7770de02-3f4a-4db8-9e02-5e95b148b809@arm.com>
 
-The delayed channel-switch work can fail while stopping the BSS, setting
-the beacon or restarting the AP. It then returns without telling
-cfg80211, and TX stays enabled over the stopped BSS unless the request
-set block_tx.
+On Wed, Nov 18, 2026 at 09:12:51PM +0530, Dev Jain wrote:
+> + Kiryl if he has different opinions
+> 
+> On 18/11/26 8:29 pm, Dev Jain wrote:
+> > 
+> > 
+> > On 17/11/26 4:53 am, Joshua Hahn wrote:
+> >> zone_watermark_fast() has not used its gfp_mask argument since commit
+> >> 2973d8229b78 ("mm: discard __GFP_ATOMIC") switched the watermark boost
+> >> check from __GFP_ATOMIC to ALLOC_MIN_RESERVE.
+> >>
+> >> Remove the argument, no functional changes intended.
+> >>
+> >> Reviewed-by: SJ Park <sj@kernel.org>
+> >> Reviewed-by: Chris Down <chris@chrisdown.name>
+> >> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> >> Signed-off-by: Joshua Hahn <joshua.hahnjy@gmail.com>
+> >> ---
+> > 
+> > Note that this series:
+> > https://lore.kernel.org/all/20261116125103.2894162-1-kas@kernel.org/
+> > 
+> > needs to use the gfp mask. So perhaps drop this patch? Otherwise we will
+> > just make noise on the list by adding it back :)
 
-On each failure, stop the carrier and TX queues, clear uap_stop_tx and
-request interface shutdown, then free the beacon update as on success.
+Hi Dev,
 
-Found by code review. Compile-tested with W=1.
+Thank you for your review on the series. Also, this was a really good
+catch, thanks a lot! I'll just drop this as it was just meant to be a
+cleanup if there was no new user, but it seems like there will be a
+real usecase.
 
-Fixes: 73b01e57ed3e ("wifi: nxp: add nxpwifi driver for IW61x")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
----
-No new W=1, sparse or smatch warnings.
+Have a great day!
+Joshua
 
-AI assistance was used.
-
- drivers/net/wireless/nxp/nxpwifi/11h.c | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/net/wireless/nxp/nxpwifi/11h.c b/drivers/net/wireless/nxp/nxpwifi/11h.c
-index a6c87dfad9ee..d83f36b1c8a5 100644
---- a/drivers/net/wireless/nxp/nxpwifi/11h.c
-+++ b/drivers/net/wireless/nxp/nxpwifi/11h.c
-@@ -300,22 +300,22 @@ void nxpwifi_dfs_chan_sw_work(struct wiphy *wiphy, struct wiphy_work *work)
- 	bss_cfg = &priv->bss_cfg;
- 	if (!bss_cfg->beacon_period) {
- 		nxpwifi_dbg(adapter, ERROR,
--			    "channel switch: AP already stopped\n");
--		goto out;
-+			    "channel switch: AP configuration is missing\n");
-+		goto stop_iface;
- 	}
- 
- 	if (nxpwifi_send_cmd(priv, HOST_CMD_UAP_BSS_STOP,
- 			     HOST_ACT_GEN_SET, 0, NULL, true)) {
- 		nxpwifi_dbg(adapter, ERROR,
- 			    "channel switch: Failed to stop the BSS\n");
--		goto out;
-+		goto stop_iface;
- 	}
- 
- 	if (nxpwifi_cfg80211_change_beacon(adapter->wiphy, priv->netdev,
- 					   priv->ap_update_info)) {
- 		nxpwifi_dbg(adapter, ERROR,
- 			    "channel switch: Failed to set beacon\n");
--		goto out;
-+		goto stop_iface;
- 	}
- 
- 	nxpwifi_uap_set_channel(priv, bss_cfg, priv->dfs_chandef);
-@@ -323,7 +323,7 @@ void nxpwifi_dfs_chan_sw_work(struct wiphy *wiphy, struct wiphy_work *work)
- 	if (nxpwifi_config_start_uap(priv, bss_cfg)) {
- 		nxpwifi_dbg(adapter, ERROR,
- 			    "Failed to start AP after channel switch\n");
--		goto out;
-+		goto stop_iface;
- 	}
- 
- 	nxpwifi_dbg(adapter, MSG,
-@@ -337,6 +337,13 @@ void nxpwifi_dfs_chan_sw_work(struct wiphy *wiphy, struct wiphy_work *work)
- 		priv->uap_stop_tx = false;
- 	}
- 
-+	goto out;
-+
-+stop_iface:
-+	netif_carrier_off(priv->netdev);
-+	nxpwifi_stop_net_dev_queue(priv->netdev, adapter);
-+	priv->uap_stop_tx = false;
-+	cfg80211_stop_iface(wiphy, &priv->wdev, GFP_KERNEL);
- out:
- 	kfree(priv->ap_update_info);
- 	priv->ap_update_info = NULL;
--- 
-2.56.1
-
+> >>  mm/page_alloc.c | 12 +++++-------
+> >>  1 file changed, 5 insertions(+), 7 deletions(-)
+> >>
+> >> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> >> index 9e1261521b6a3..4d829e5eac49d 100644
+> >> --- a/mm/page_alloc.c
+> >> +++ b/mm/page_alloc.c
+> >> @@ -3675,7 +3675,7 @@ bool zone_watermark_ok(struct zone *z, unsigned int order, unsigned long mark,
+> >>  
+> >>  static inline bool zone_watermark_fast(struct zone *z, unsigned int order,
+> >>  				unsigned long mark, int highest_zoneidx,
+> >> -				unsigned int alloc_flags, gfp_t gfp_mask)
+> >> +				unsigned int alloc_flags)
+> >>  {
+> >>  	long free_pages;
+> >>  
+> >> @@ -3877,7 +3877,7 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
+> >>  		    !waitqueue_active(&zone->zone_pgdat->kswapd_wait)) {
+> >>  			mark = wmark_pages(zone, kswapd_watermark);
+> >>  			if (!zone_watermark_fast(zone, order, mark,
+> >> -					ac->highest_zoneidx, 0, gfp_mask)) {
+> >> +					ac->highest_zoneidx, 0)) {
+> >>  				skipped_kswapd_nodes = true;
+> >>  				continue;
+> >>  			}
+> >> @@ -3897,8 +3897,7 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
+> >>  
+> >>  		mark = high_wmark_pages(zone);
+> >>  		if (zone_watermark_fast(zone, order, mark,
+> >> -					ac->highest_zoneidx, alloc_flags,
+> >> -					gfp_mask))
+> >> +					ac->highest_zoneidx, alloc_flags))
+> >>  			goto try_this_zone;
+> >>  		else
+> >>  			set_bit(ZONE_BELOW_HIGH, &zone->flags);
+> >> @@ -3906,8 +3905,7 @@ get_page_from_freelist(gfp_t gfp_mask, unsigned int order, int alloc_flags,
+> >>  check_alloc_wmark:
+> >>  		mark = wmark_pages(zone, alloc_flags & ALLOC_WMARK_MASK);
+> >>  		if (!zone_watermark_fast(zone, order, mark,
+> >> -				       ac->highest_zoneidx, alloc_flags,
+> >> -				       gfp_mask)) {
+> >> +				       ac->highest_zoneidx, alloc_flags)) {
+> >>  			if (cond_accept_memory(zone, order, alloc_flags))
+> >>  				goto try_this_zone;
+> >>  
+> >> @@ -5245,7 +5243,7 @@ unsigned long alloc_pages_bulk_noprof(gfp_t gfp, int preferred_nid,
+> >>  		mark = wmark_pages(zone, alloc_flags & ALLOC_WMARK_MASK) + nr_pages - nr_populated;
+> >>  		if (zone_watermark_fast(zone, 0,  mark,
+> >>  				zonelist_zone_idx(ac.preferred_zoneref),
+> >> -				alloc_flags, gfp)) {
+> >> +				alloc_flags)) {
+> >>  			break;
+> >>  		}
+> >>  
+> > 
+> 
