@@ -1,49 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016093;
-	b=yFGVtt9sn1NbzhydheRQXkAGiBThCzhA50ShccRu1u+mHuj9Ys9/jelSop0ye5swFQxz
-	 +RmdFANuJZRgMbhLXZlPRRn42LvZN4S6aZe/C436AZtsE04DDBT5NCv4v4MXb9pQXEp3p
-	 paooIMOsRQ/ZNlaGsAPve1wMPXD883hr8NvCHnEBnYR85LOEzcMGwuQVtfPpHCiJ0RVZc
-	 2NnEEaywCDdkEYgUDqoe0Kf1AQkjTAtzBaA43+REY5fNx36lgZJs3uxcraIyJfBtJVg39
-	 thQccnH5Qo1jB05B+hrPvplq8wAjUDhYPhd97/X+eYxUx2eecq7qlKebXBs7DW/XMZg==
+	t=1795016103;
+	b=PljI56EKY1R3KvEIXPfBBxp0DXXIRlzKil5iI3eA+ayDUG5IfG7PLk7ooZeZ61rTb/8G
+	 dmHDqAa13mos9Ot57HOCdlkmzc2oirXuOq0rgVg/tVwMI78aigcY6mZX3tt9Hf9Sk6N53
+	 OOUZmmjg1BsKDKRwUPDCffokMmK+s/7ogsphC4fkGDUhOj1413kv/B4l37YZwZ+ahaf4W
+	 24cv3PCdAmQSfrP9mGZbvY0ZfQwimAwwNCzaJU0rNf1mZbYF1iPTMxDk3YcbEjwR1+O7k
+	 s+CFVUHqfmIUXzpUmNU6//Xsv+PUezggKmEUhjXsyHr9WLfODJ6g3+8FLDQxxavpvIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016093;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=TTOWgexBBg/MVW0b5stJBvTCU1KsO22oMvb+9fg5rIs=;
-	b=zPa8FKF7mE4Cr0lrPoFXk20DIhufKl3Biq/de2q/LdOV/r93TmfnhUJa6oXv5Z/SlNp8
-	 aAEJIC6v8LmEJ0qfEkt6DX1zCoPN5XkMOvys7SyaMTkdBmNBpfK/20auECXNTaxYoGNQD
-	 IinN3ScQLCLnbB09av4hVodzVCWM4FTOjrd2vv+FT8CkUWV8WvS9KChoxPutRNjGlFHsa
-	 agRwNuiS0jc+7FF1w2FcXcEG7gHLM27WBWDhMGis+2J7g1fUD3TfXeEFMIDIYpLln8OgX
-	 GDkAblynH0pkFVDqjLoRhY2HssDeHfl9+6qMA/8PZ9qOe91FcxHXDFkSBfYJuCkAKHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016103;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=YmIyJHLhfqfVnjjdZyBd1VHQ43Q91L66Z3wUwsYbj70=;
+	b=SoKva8wjsKuveScSL/3w6py6PA+c6iZsB2ch6BK716uj6wm+U2AWwbaEtExygCP6/ufM
+	 rnLRcBexa6pChpjaYZe7YEWDgqXSIXV2Dpk5Q6k7reGhzf+pMggGQd0EMNKddZG8xN+Kd
+	 ZZDWTNrcT2+1r7XPGoBnogARmaP0ppkvVlZ5vXJOeH0rr4EZzYJogOvesYK+WSxvjMIa1
+	 8TVOcsB1PKsUwIYBP9QsVthUwKRamJMe0REo4KSPNUJLPumwfjN93XZqDa3Sifk7VHBoh
+	 +jKO0xWfuSdgCOwTTkkKGVqIUOul50CRPyAXZJpbZCQ0fulu51id4vAvF7brYlHnSxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hSU9vXMZ;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1E00C606A331;
-	Wed, 18 Nov 2026 15:34:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E00C606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=M3FQqFzf;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 111DF606A31C;
+	Wed, 18 Nov 2026 15:35:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 111DF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=hSU9vXMZ
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 413EB1477;
-	Wed, 18 Nov 2026 07:34:49 -0800 (PST)
-Received: from [10.0.136.98] (M0PRX50XMG.cambridge.arm.com [10.0.136.98])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CB6A3F632;
-	Wed, 18 Nov 2026 07:34:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795016092; bh=2BBJ1suAnTPS6/YPDbka46qhf9/+FM2sALeGOYTfwRA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hSU9vXMZlJnCa4XqPjRCwtNV6uXMCZHpWp9OKCcFMpV7fWDhrfoyYtFhu1M6433SY
-	 G7gYi9FjVVcyW1m9pIV+m0RUlTPgepTX56bUP9dqB7zppCyHf8RXxFFtu12K0w3XSk
-	 xk9aMeyZ0i6KN2KAzzRfQ3jIwicqPxkatRa3vP94=
-Message-ID: <71b9323b-902f-4bf9-9cbf-6d0d90ee7ca0@arm.com>
-Date: Wed, 18 Nov 2026 15:34:48 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=M3FQqFzf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795016101;
+	bh=51dwE9+j0e1mawOBNMOi0nQ9g2gIMsjDwbanm/5LQiY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=M3FQqFzft/Ir+kHAV0p/RwbOGW3u27zvr6sW1lPU+5YbjNxcyQY61Xv5g4w7jct62
+	 nRRIqmM8exVWdDoK5r3z7QNiwZxHTD2W9ZH0YdWey5yIc1pg+tAgJrjq8HXWrXqiHf
+	 oCb/tCqyuYglr5qCzF148U536E2cxDwn5doz9KpnwMAizCt5Z8gxpCV7ocYB5CaR4a
+	 epwIZqWKk419fQBbY2P52F3hIuweR7Z391GGDaLDccZJG1Y9nbbhzgPDzlBuToHY14
+	 bTKJJe/VqEBXXMz5yTM70lI4bKWakajb/NuRJwnLqTycU6Xf61Ag87lL3h3RT6B3gk
+	 +aWFGoeCKOouw==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C5E6917E0564;
+	Wed, 18 Nov 2026 16:34:57 +0100 (CET)
+Message-ID: <f804ccb29fdda80673f7150b24390fdefce04505.camel@collabora.com>
+Subject: Re: [PATCH v9 08/14] media: dt-bindings:
+ mediatek,vcodec-subdev-decoder: Add MT8196
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Rob Herring <robh@kernel.org>, Kyrie Wu <kyrie.wu@mediatek.com>
+Cc: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen	
+ <andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Ricardo Ribalda
+ <ribalda@chromium.org>, Kees Cook <kees@kernel.org>, Hans Verkuil
+ <hverkuil+cisco@kernel.org>,  Fei Shao <fshao@chromium.org>, Haoxiang Li
+ <haoxiang_li2024@163.com>, Chen-Yu Tsai	 <wenst@chromium.org>, Laurent
+ Pinchart	 <laurent.pinchart+renesas@ideasonboard.com>, Tomasz Figa
+ <tfiga@chromium.org>,  Philipp Zabel <p.zabel@pengutronix.de>, Benjamin
+ Gaignard <benjamin.gaignard@collabora.com>, Qianfeng Rong	
+ <rongqianfeng@vivo.com>, Irui Wang <irui.wang@mediatek.com>, Jacopo Mondi	
+ <jacopo.mondi@ideasonboard.com>, Fan Wu <fanwu01@zju.edu.cn>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Sakari Ailus
+ <sakari.ailus@linux.intel.com>
+Date: Wed, 18 Nov 2026 10:34:56 -0500
+In-Reply-To: <20261118152219.GA1746506-robh@kernel.org>
+References: <20261117032950.1425556-1-kyrie.wu@mediatek.com>
+	 <20261117032950.1425556-9-kyrie.wu@mediatek.com>
+	 <20261118152219.GA1746506-robh@kernel.org>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-EzpDPXQ5rHo8aaNXRlwQ"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,114 +104,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 03/10] irqchip/gic-v5: Serialise IRS synchronisation
- requests
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Timothy Hayes <Timothy.Hayes@arm.com>,
- Catalin Marinas <Catalin.Marinas@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>
-References: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
- <20261104-host_gicv5_fixes-v2-3-e47ad20ea3c8@arm.com>
- <auw0ulR3wrsKVcYe@red-moon>
-Content-Language: en-GB
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-In-Reply-To: <auw0ulR3wrsKVcYe@red-moon>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+
+--=-EzpDPXQ5rHo8aaNXRlwQ
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le mercredi 18 novembre 2026 =C3=A0 09:22 -0600, Rob Herring a =C3=A9crit=
+=C2=A0:
+> On Tue, Nov 17, 2026 at 11:29:44AM +0800, Kyrie Wu wrote:
+> > Compared to previous ICs, the MT8196 supports a 10-bit decoder
+> > and has a decoding capability of 4K@120fps. It also supports
+> > 36-bit DRAM IOVA address and Video Power Control to optimize
+> > bandwidth and voltage usage.
+> >=20
+> > MT8196 uses VCP to run the decoder firmware, so require mediatek,vcp
+> > for MT8196 and move the mediatek,scp requirement into the condition
+> > for the existing SoCs.
+> >=20
+> > Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> > Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > ---
+> >  .../media/mediatek,vcodec-subdev-decoder.yaml | 52 ++++++++++++++++++-
+> >  1 file changed, 51 insertions(+), 1 deletion(-)
+>=20
+> This patch should be based on this one:
+>=20
+> https://lore.kernel.org/20261019212431.4109371-1-robh@kernel.org
+
+Ack.
+
+>=20
+> Rob
+
+--=-EzpDPXQ5rHo8aaNXRlwQ
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
-On 05/11/2026 07:48, Lorenzo Pieralisi wrote:
-> [Remove stable from the CC email recipient list, leave it only in the log]
+-----BEGIN PGP SIGNATURE-----
 
-Noted, and thanks. Hadn't caught that had been added in from CC. Will 
-omit henceforth!
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav3FoAAKCRDZQZRRKWBy
+9EukAQD0ZTCdWzl/LYHeFQ4jPv5f0c/GvDvpO4ddSGxPgZzJlQEAtSL/JNfxGUlF
+ZCRrbteHcXbERxxd7ObdAXxvqyOB2Qc=
+=ic/T
+-----END PGP SIGNATURE-----
 
-> 
-> On Wed, Nov 04, 2026 at 05:47:57PM +0000, Sascha Bischoff wrote:
->> IRS_SYNCR writes are ignored while IRS_SYNC_STATUSR.IDLE is clear.
->> Calls to gicv5_irs_syncr() for different IRQs can overlap, allowing
-> 
-> Nit: gicv5_irs_syncr() has no notion of specific IRQs, this is
-> misleading.
-> 
->> the second request to be dropped. Its caller can then observe the
->> first request completing and assume that its own events have been
->> processed.
->>
->> With GICv5 ITS KVM support, gicv5_irs_syncr() is also called while
->> restoring the host ITTE in gicv5_its_set_vcpu_affinity(). The callback
->> runs under the IRQ descriptor lock via irq_set_vcpu_affinity(), so it
->> cannot sleep.
-> 
-> Technically we are talking about a use case that does not exist yet.
-> 
-> I understand it is churn to fix it first and change it again later,
-> I would just say that gicv5_irs_syncr() might need to be called in atomic
-> context.
-
-I've reworked this commit message to make it clearer.
-
-Thanks,
-Sascha
-
-> 
->> Serialise the request and completion poll with a raw spinlock, and use
->> atomic polling because the synchronisation runs while holding the IRQ
->> descriptor lock.
->>
->> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
->> ---
->>   drivers/irqchip/irq-gic-v5-irs.c | 8 ++++++--
->>   1 file changed, 6 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
->> index 4edf787f3f97f..ead76560ea08f 100644
->> --- a/drivers/irqchip/irq-gic-v5-irs.c
->> +++ b/drivers/irqchip/irq-gic-v5-irs.c
->> @@ -10,6 +10,7 @@
->>   #include <linux/log2.h>
->>   #include <linux/of.h>
->>   #include <linux/of_address.h>
->> +#include <linux/spinlock.h>
->>   
->>   #include <linux/irqchip.h>
->>   #include <linux/irqchip/arm-gic-v5.h>
->> @@ -22,6 +23,8 @@
->>   #define LPI_ID_BITS_LINEAR		12
->>   
->>   static DEFINE_PER_CPU_READ_MOSTLY(struct gicv5_irs_chip_data *, per_cpu_irs_data);
->> +/* Synchronization requests must not overlap in an IRS Domain. */
->> +static DEFINE_RAW_SPINLOCK(irs_sync_lock);
->>   static LIST_HEAD(irs_nodes);
->>   
->>   static u32 irs_readl_relaxed(struct gicv5_irs_chip_data *irs_data,
->> @@ -507,10 +510,11 @@ void gicv5_irs_syncr(void)
->>   		return;
->>   
->>   	syncr = FIELD_PREP(GICV5_IRS_SYNCR_SYNC, 1);
->> +	guard(raw_spinlock_irqsave)(&irs_sync_lock);
->>   	irs_writel_relaxed(irs_data, syncr, GICV5_IRS_SYNCR);
->>   
->> -	gicv5_wait_for_op(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
->> -			  GICV5_IRS_SYNC_STATUSR_IDLE);
->> +	gicv5_wait_for_op_atomic(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
->> +				 GICV5_IRS_SYNC_STATUSR_IDLE, NULL);
->>   }
-> 
-> Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> 
->>   
->>   int gicv5_irs_register_cpu(int cpuid)
->>
->> -- 
->> 2.34.1
->>
-
+--=-EzpDPXQ5rHo8aaNXRlwQ--
