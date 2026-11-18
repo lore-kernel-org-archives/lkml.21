@@ -1,54 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=93.77.172.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794960030;
-	b=GzJzNSFmdd1XQtpu88KeuF1rF0RNRAL/or5Akz6wTDv1I4CmFnfVwDj6xtLoeqo8MM/D
-	 HCmHofhzlz9BnmQQSQjad2fpD2uoYEkclcai9okHkpTy3jsGZybGRifFJZMOoJnRUtGZ5
-	 lbJEhIKbi3pi39/a9zPW4I3KEEKc9Y/uuqzRfg1rtcu18pl071j/06HtSqXCUM41P+zaD
-	 HUPjDB9zkHR9schNruaIKzj1ZDv3IwPxKIkMsmSnHFMDpmc/tkxXyU4n9wwPqXXBBGzMb
-	 SMhUw1WNv0Z8hdh2shsjN3dXy39ztwh/vGcJahxLuYgvw6f1SqfW4xAweC8Rk1Eg22w==
+	t=1794960038;
+	b=1Yw4BRGYFMYkvkdJN0o6oBbY9aEYGtF5PCV6KR72Aqtiivs913iZNAVUzAhvxeuPS5pD
+	 IpF5PQZhY2WoVI6MFZM8/HeG7kcmaKza0FSGUonwjBsZDVo/jjlUGnK3uEVgnx8euCdUx
+	 kWybDrQ8tEbR891kYxfby71CF0MeWuPiWbgLR9q3RLBrBIzjd7Zf5eJW0eGUuGEYjtOEe
+	 fsKAaAbdme6jSP/SZerzNZYtmZm0I4tJukL6lriAQTQZe1HXShuZkqruwOX4hVkGoeLds
+	 Y2Xmm7PCjM1cOM4bm7qDkYWw3O15Oh4ZRPFW3qi26l6PPhVFqnBwBQzx5k43moDfC1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794960030;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=bclIWZ6FX0mX08OYKuqV5M5iFQvVjJ51ZeOco2b+exc=;
-	b=hOI5elPimjhJ9TePmQcE8eDl/erlehVx0H0BkKxIDjX5+lG+o0mXFtErT7Ylgw6zb0WA
-	 Hxs7JRQrfxrACTTQVTwdeUIqzUmOu5jHhnjIs+2RnDtCxrUiNE8j/mZ4pmfCVJULHZn0x
-	 LnRtw3i96qxbnecoGydbi1eZk3eyCFk5ksjUxWF8lVxy3z6x8HKCj6zK/ct4yXy8P3rDH
-	 0qX0/ZqHpAB1qIvig5f6f2wRQgQbUycfcOCMQN/d6wTq2JdJIv3c+BN4Ea9FeGjYMPANk
-	 NkWki36cOyeUxjxzTM6Pwo7qi4G4fQBFRZmVDBi9APD0M76r6NP/m1W5tcQmMVrFTyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794960038;
+	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
+	 Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7IO9qqU3wnMoibykZ1N5l5PPq7ErE0eqGwekZqMRpqE=;
+	b=irHOgWWPbaFJ8FjLOFm5Dgd8zZBQyPIACBRKABGgsIsy0RPPcgArv4JB5tt/lToV6avO
+	 lc4eQrxVmQmE7BMHncKD0G2RyZCOWu0lkt5S58131hk9n8WfoMmF0rCuRORXNoGDDSpiE
+	 jOdB+WBRQMzMbRtJkmTe7+ruq+NTyH5WmWJfQPx2EtyN47JB8E4fO6FZ2c79ElQElPs0A
+	 jrGceR6KxOKRCcCZUmhOfIT5inAvjidBCjXglF1E0549cSs8AfVHFZIlZsG/rLzi1KMOQ
+	 Dkp1yoOHmNpRQ1YWS4/kaJ2i84jglm7G2oLwYP39kvC1ryEwEOyAv3Q4rQxAnIF5sCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=O0y8IEfs;
-	arc=none smtp.remote-ip=95.215.58.182
-Received: from mta1.migadu.com (out-182.mta1.migadu.com [95.215.58.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=yandex-team.ru;
+	spf=pass smtp.mailfrom=yandex-team.ru;
+	dkim=pass header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=L6u3caU5;
+	arc=none smtp.remote-ip=93.77.172.5
+Received: from forwardcorp2e.mail.yandex.net (forwardcorp2e.mail.yandex.net [93.77.172.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1A0C606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:00:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1A0C606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E5DA606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:00:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E5DA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex-team.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex-team.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=O0y8IEfs
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=LfZWu2kDl00YJ8hzTGAr/QsVPZ0HXBKeCp53dE5Im/c=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794960026; v=1; x=1795564826;
- b=O0y8IEfsOoJRQCQ7xQIuUqvj9rU7PKozSy/jaDvl9s3OiFU//Nl+JprWKvUyAaPcRPGMCV+2
- qLOhKKLvj4OIJ3qNqrVbvvTT8IkqEd1cRig9QI8gc6JPJLtXfrKzXBzjWVXbP9cWiVA62doebro
- WhTw9Y4FcjcPVBCDW0zrgTNM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f54fc8da450d0984;
-	Wed, 18 Nov 2026 00:00:25 +0000
-X-Mizu-Trace-ID: f54fc8da450d0984
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8130b695-c281-46e9-bfdd-e4873046c36d@linux.dev>
-Date: Tue, 17 Nov 2026 16:00:21 -0800
+	dkim=pass (1024-bit key) header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=L6u3caU5
+Received: from mail-nwsmtp-smtp-corp-main-80 (mail-nwsmtp-smtp-corp-main-80.yp-c.yandex.net)
+	by forwardcorp2e.mail.yandex.net (postfix) with ESMTPS id 52195C0053;
+	Wed, 18 Nov 2026 03:00:27 +0300 (MSK)
+Received: from i101646577.yandex-team.ru
+	by mail-nwsmtp-smtp-corp-main-80 with ESMTPSA id L0NFxU0Yj0U0-eYG64ehH;
+	Wed, 18 Nov 2026 03:00:26 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex-team.ru;
+	s=default; t=1794960026;
+	bh=7IO9qqU3wnMoibykZ1N5l5PPq7ErE0eqGwekZqMRpqE=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=L6u3caU5HDhbgq9gNGbkegT7GZ25C9gWnv+Cczano/c6tPTYjfBNCFO13jqGgR/eS
+	 igXD0bTj49EYDSYLvCJdgkuxvgy1atUs4tZBB6pwYj5x7WF4NJd5NM879JF4b8tAG+
+	 fxYbTCVTregpSMs+qUzBJW4gqBP1Ubu03nVdCyOk=
+Authentication-Results: mail-nwsmtp-smtp-corp-main-80; dkim=pass header.i=@yandex-team.ru
+From: Daniil Tatianin <d-tatianin@yandex-team.ru>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@kernel.org>
+Cc: Daniil Tatianin <d-tatianin@yandex-team.ru>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Zi Yan <ziy@nvidia.com>,
+	David Hildenbrand <david@kernel.org>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mm/page_alloc: don't undo another caller's pageblock isolation
+Date: Wed, 18 Nov 2026 03:00:13 +0300
+Message-ID: <20261118000014.1474617-1-d-tatianin@yandex-team.ru>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,66 +73,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] tracing: fgraph: allocate shadow stacks inline
- with GFP_NOWAIT
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: mhiramat@kernel.org, mark.rutland@arm.com,
- mathieu.desnoyers@efficios.com, andrii@kernel.org, peterz@infradead.org,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, kernel-team@meta.com, stable@vger.kernel.org
-References: <20261021174406.2891598-1-vineet.gupta@linux.dev>
- <20261021174406.2891598-2-vineet.gupta@linux.dev>
- <20261117185645.628de864@gandalf.local.home>
-From: Vineet Gupta <vineet.gupta@linux.dev>
-Content-Language: en-US
-In-Reply-To: <20261117185645.628de864@gandalf.local.home>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/17/26 3:56 PM, Steven Rostedt wrote:
-> On Wed, 21 Oct 2026 10:44:05 -0700
-> Vineet Gupta <vineet.gupta@linux.dev> wrote:
->
->> smp_store_release() is a drop-in replacement for the smp_wmb() and
->> plain store it replaces.
-> This should be added with that, but I can just add it as a separate patch.
+start_isolate_page_range() fails with -EBUSY when a pageblock in the
+range is already isolated, after it has undone the isolation it did
+itself. Commit 2c7452a075d4 ("mm/page_isolation.c: make
+start_isolate_page_range() fail if already isolated") made it work this
+way, so that users of overlapping ranges, such as CMA, memory offlining
+and gigantic hugetlb pages, can use pageblock isolation to stay out of
+each other's way.
 
-Thx for that. Let me know if you need me to do anything.
+Since commit b2c9e2fbba32 ("mm: make alloc_contig_range work at
+pageblock granularity"), alloc_contig_frozen_range() handles this
+failure by jumping to its common exit path, which calls
+undo_isolate_page_range() on the whole range. What is still isolated
+there at this point belongs to the other user, so this takes the
+isolation away while that user is still working on the pageblock. The
+page allocator can then hand out its free pages again.
 
--Vineet
+Return right away instead, like offline_pages() does when
+start_isolate_page_range() fails.
 
->
-> -- Steve
->
-> diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
-> index bbf6e4e2da2d..d32160a6b835 100644
-> --- a/kernel/trace/fgraph.c
-> +++ b/kernel/trace/fgraph.c
-> @@ -568,7 +568,11 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
->   	if (unlikely(ftrace_graph_is_dead()))
->   		return -EBUSY;
->   
-> -	if (!current->ret_stack)
-> +	/*
-> +	 * We must make sure the ret_stack is tested before we read
-> +	 * anything else (See alloc_retstack_tasklist()).
-> +	 */
-> +	if (!smp_load_acquire(&current->ret_stack))
->   		return -EBUSY;
->   
->   	BUILD_BUG_ON(SHADOW_STACK_SIZE % sizeof(long));
-> @@ -576,12 +580,6 @@ ftrace_push_return_trace(unsigned long ret, unsigned long func,
->   	/* Set val to "reserved" with the delta to the new fgraph frame */
->   	val = (FGRAPH_TYPE_RESERVED << FGRAPH_TYPE_SHIFT) | FGRAPH_FRAME_OFFSET;
->   
-> -	/*
-> -	 * We must make sure the ret_stack is tested before we read
-> -	 * anything else.
-> -	 */
-> -	smp_rmb();
-> -
->   	/*
->   	 * Check if there's room on the shadow stack to fit a fraph frame
->   	 * and a bitmap word.
+Fixes: b2c9e2fbba32 ("mm: make alloc_contig_range work at pageblock granularity")
+Signed-off-by: Daniil Tatianin <d-tatianin@yandex-team.ru>
+---
+ mm/page_alloc.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index 12fac9084c48..151a8d64783d 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -7335,8 +7335,9 @@ int alloc_contig_frozen_range_noprof(unsigned long start, unsigned long end,
+ 	 */
+ 
+ 	ret = start_isolate_page_range(start, end, mode);
++	/* After a failure, whatever is still isolated belongs to someone else */
+ 	if (ret)
+-		goto done;
++		return ret;
+ 
+ 	drain_all_pages(cc.zone);
+ 
