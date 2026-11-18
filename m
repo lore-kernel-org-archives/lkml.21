@@ -1,47 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794992867;
-	b=MdDq15bMJCAy3XMbopDfnAriIcqdpgcUpSwV8CRM7+KpkXBdp0IyE4w6mQeqtBtar7D/
-	 U/tGibQWBkGbiZLOs14BznYpIJd/Y1mMR++j0B4atZbQ2+vGtxhNXY2tJjqG82qALyV5H
-	 UUUmpkuM6fhOCWmwbldHcHZY4j7fXalhftfsI409ixIVj+f65/7UwyMJ9NsL2S+8B0ZER
-	 /BvEmyK9QJ6f3skkwL3W2khqjvy4LUopIPvfnA6jrhp+DVszRdbXLpi8vy7ot+mH7JeZX
-	 MPFhgkVp12v/M9viZnMearmRbDxgBcCFVQsQrG+wFVaRTZOG8tYO705LGamwOOsW1Pg==
+	b=YT2p/QyY0Bxo6NIJy6W/BHpWnIqEsg2VAbNyUxDnXf1sv0KtVlsetB3ZX44uwVb99W4s
+	 +7jd19CojNnn6w58fri8JJ/zKS6QxyUgu2F/l7td5N/yvd+T9hvqGHFnB781Js4+OIGBo
+	 tlN3wTqW3OOkZzHCmtilo1NEAOP3G3+8twhQwPIW+jfWRSq/d0GGPp2YD0aNwBTPXHcQn
+	 B3qJwR/3qz1gI86v4cxpWj/bULICVshnTjfwybN89Iw1Y4k2j6+QzFI/DJ7MGti9NfCjP
+	 sxxxitRbHn0L9zwpGmVemd9B0t05rCp/st9RkogRMNTmir/WPZwAiaztag72ZtF8bMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794992867;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=yPTYnjS9dfOlVPsaqtPNbHzv4R+Dc3E0RGRzxTOWvsw=;
-	b=RQYsO8uYPzmJN4PIf3qRc24X4irl9hFCauHrjYXekh1Up+CIYzf2PMS0dasJ2WZY0ohE
-	 SdSt8VtdkKDbqkAhDHzA0+X0dqrn4Nb5Zon7Yt05dpf8zMCd9/fx2w52k8yB1CxE8LqEO
-	 SGjWW2j8lF2GJW2A+0FbNiudsjRAR0wfM6+X7BGAFxnvJEEl0ocIQRxRjRxelo5Lwz+FA
-	 yyzha25EQ0+wHV7Ra2SRWjy7LqhqZ9hiFiqlJ9S7B1cn57/ZpF4Iwa/7yr0nnzsxXdVQM
-	 ZOlYneHh+Szr+B6fqwXCU2dI4cmuWYa0Vrk4HIGtLz8HwLXgxs1wuavANEaTZQTs1DQ==
+	bh=MFoFqOsxsF0mMxP5c38fD1pVJRD+Yn/OA3ZdUReG7Uk=;
+	b=IoVR/S8h0jzs5DOCbH1pwlxZFlRLxMPh264gaK7kH/gmdSpc2JW4VwKlRGC5g7Kx0twK
+	 tDtZM0HnRKF1LUyZ4PCUywJ8KPgfdM4J3MnY0Y+duedyUYuXXre3DwltBY4mFudnO7rDi
+	 HlIKwKGJ1BXUSNWeozn0/CZGTGXb304SZngqYjjRpKCsCElWWM86o4Bnyk8bxILuelG9X
+	 /xb4Tlg0tUova3gHxWZWtVPRD0ctLjYIQ2igpAuvxgTLLCvuL2r20+lGaJBuO9Sf3O2na
+	 h1aP6SYG0qYNlEUFx0R+CZ4zDKIAXOImkaQRXM44sqdnPgUlWZxowHPVYfwUaH2ztwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MqunJeh2;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=oYnK8x0H;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 658DA606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:07:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 658DA606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04C46606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:07:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04C46606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=MqunJeh2
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=oYnK8x0H
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=yP
-	TYnjS9dfOlVPsaqtPNbHzv4R+Dc3E0RGRzxTOWvsw=; b=MqunJeh2m1aGBcvOzK
-	y9AyuHMAQQH9ZcYmWLMA/4vU9DVXv4Z0WvmCpvavZIkBwRJouDwLZYeFpaV0k11j
-	400JpUTtsTR3MiyHlJEenmjS6ZKies9hzoUF2RcTZtAbTYpoY2xayoBqFNw7VAa7
-	qb4wyfwC7ABFtooKrkdiQZV7A=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=MF
+	oFqOsxsF0mMxP5c38fD1pVJRD+Yn/OA3ZdUReG7Uk=; b=oYnK8x0HS/O49Ya6h7
+	9jCXvpn2PVLsorH1AZ1W23J1Ad0Abhb24T//6Gadpe8SObT1KMF8tNTLT2SYsxuV
+	IklMBao+3kvFJKGmqR36u/H7WWPzvZdBYzbc5THH/BN+PpAo4vHMGaBMHMwgAoGm
+	8jRl99mKuqmABZZXUOqIE0eT8=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDn7yTNav1qnmzWIQ--.7895S4;
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDn7yTNav1qnmzWIQ--.7895S3;
 	Wed, 18 Nov 2026 17:07:26 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
@@ -49,10 +49,11 @@ To: linkinjeon@kernel.org,
 	liubaolin12138@163.com
 Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
+	Xuewen Wang <wangxuewen@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 02/37] ntfs: preserve cluster-free counts in attribute cleanup
-Date: Wed, 18 Nov 2026 17:06:26 +0800
-Message-Id: <20261118090701.1858849-3-wangxuewen_ky@163.com>
+Subject: [PATCH v6 01/37] ntfs: propagate mapping-pairs update errors from inode writeback
+Date: Wed, 18 Nov 2026 17:06:25 +0800
+Message-Id: <20261118090701.1858849-2-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -66,127 +67,49 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDn7yTNav1qnmzWIQ--.7895S4
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuryxtr4kWw1UuF13urW7Jwb_yoWrCrykpa
-	yxCrn3K3y7XF9rWws7tw1DZa4Sgw40gryjgryDJw1ay3Z0qw1xtas8trW8ur1fKrWUGwn5
-	Xr4UK3y7u3WUX37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UJ9NxUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzg-n0Gr9as-y5wAA3R
+X-CM-TRANSID:_____wDn7yTNav1qnmzWIQ--.7895S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWrZFW3Aw4ruF48GFW3uF15Arb_yoW8Jry5p3
+	9xCryDK3yDJFyDKrs2kF4agF1I9a4kK3yUJF1UKw12qwn8KF1vqFWFya18Xr1kCrZ7ta4a
+	qF1UuwsruryUZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UFAp8UUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC8A7n0Gr9as6IcwAA3B
 
-From: Baolin Liu <liubaolin@kylinos.cn>
+From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-ntfs_cluster_free() returns a signed 64-bit cluster count on success,
-not an integer status. Several attribute cleanup paths truncate that
-count or treat a positive count as an error. ntfs_attr_rm() can even
-return the count to callers that expect zero on success.
+__ntfs_write_inode() overwrites a failed mapping-pairs update with the
+result of syncing standard information. fsync() can then report success
+while the mapping pairs remain dirty.
 
-Store the result in s64 variables, test negative results for failure,
-and compare the full count when validating an allocation rollback.
-Return zero from ntfs_attr_rm() after successful removal. This keeps
-successful deallocation from being misclassified by later reporting.
+Check the update result after releasing the runlist lock and take the
+existing error path. Preserve the errno and retry handling for ENOMEM.
 
-Fixes: 495e90fa3348 ("ntfs: update attrib operations")
-Signed-off-by: Baolin Liu <liubaolin@kylinos.cn>
+Fixes: af0db57d4293 ("ntfs: update inode operations")
+Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
+Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
 ---
 Changes in v6:
-Keep the existing cluster-count fix ahead of reporting helpers.
+Keep the existing standalone writeback fix ahead of reporting helpers.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
 - No undefined references to ntfs_report_* or fserror_report_*.
 
- fs/ntfs/attrib.c | 27 +++++++++++++++------------
- 1 file changed, 15 insertions(+), 12 deletions(-)
+ fs/ntfs/inode.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
-index 9266a3ea3b0f..72e0c94c878e 100644
---- a/fs/ntfs/attrib.c
-+++ b/fs/ntfs/attrib.c
-@@ -4194,7 +4194,7 @@ static int ntfs_attr_make_resident(struct ntfs_inode *ni, struct ntfs_attr_searc
- 	struct super_block *sb = vol->sb;
- 	struct attr_record *a = ctx->attr;
- 	int name_ofs, val_ofs, err;
--	s64 arec_size;
-+	s64 arec_size, freed;
- 
- 	ntfs_debug("Entering for inode 0x%llx, attr 0x%x.\n",
- 			(unsigned long long)ni->mft_no, ni->type);
-@@ -4282,8 +4282,8 @@ static int ntfs_attr_make_resident(struct ntfs_inode *ni, struct ntfs_attr_searc
- 	 * the whole run list and thus it doesn't matter that the attribute
- 	 * record is in a transiently corrupted state at this moment in time.
- 	 */
--	err = ntfs_cluster_free(ni, 0, -1, ctx);
--	if (err) {
-+	freed = ntfs_cluster_free(ni, 0, -1, ctx);
-+	if (freed < 0) {
- 		ntfs_error(sb, "Eeek! Failed to release allocated clusters");
- 		ntfs_debug("Ignoring error and leaving behind wasted clusters.\n");
- 	}
-@@ -4526,6 +4526,7 @@ static int ntfs_non_resident_attr_expand(struct ntfs_inode *ni, const s64 newsiz
- 	struct ntfs_attr_search_ctx *ctx = NULL;
- 	struct runlist_element *rl, *rln;
- 	s64 org_alloc_size, org_compressed_size;
-+	s64 freed;
- 	int err, err2;
- 	struct ntfs_inode *base_ni;
- 	struct super_block *sb = ni->vol->sb;
-@@ -4790,9 +4791,9 @@ static int ntfs_non_resident_attr_expand(struct ntfs_inode *ni, const s64 newsiz
- 		down_write(&ni->runlist.lock);
- rollback_locked:
- 	/* Free allocated clusters. */
--	err2 = ntfs_cluster_free(ni, ntfs_bytes_to_cluster(vol, org_alloc_size),
--				-1, ctx);
--	if (err2)
-+	freed = ntfs_cluster_free(ni, ntfs_bytes_to_cluster(vol, org_alloc_size),
-+				  -1, ctx);
-+	if (freed < 0)
- 		ntfs_debug("Leaking clusters");
- 
- 	/*
-@@ -5323,6 +5324,7 @@ int ntfs_attr_map_cluster(struct ntfs_inode *ni, s64 vcn_start, s64 *lcn_start,
- 	struct runlist_element *rl, *rlc;
- 	struct runlist_element *old_rl = NULL;
- 	s64 vcn = vcn_start, lcn, clu_count;
-+	s64 freed;
- 	s64 lcn_seek_from = -1;
- 	int err = 0;
- 	size_t new_rl_count, old_rl_count;
-@@ -5453,10 +5455,8 @@ int ntfs_attr_map_cluster(struct ntfs_inode *ni, s64 vcn_start, s64 *lcn_start,
- 		ntfs_attr_reinit_search_ctx(ctx);
- 		err = ntfs_attr_update_mapping_pairs_locked(ni, 0, ni);
- 		if (err) {
--			int err2;
--
--			err2 = ntfs_cluster_free(ni, vcn, clu_count, ctx);
--			if (err2 < 0 || err2 != clu_count) {
-+			freed = ntfs_cluster_free(ni, vcn, clu_count, ctx);
-+			if (freed < 0 || freed != clu_count) {
- 				ntfs_error(vol->sb,
- 					   "Failed to free cluster allocation. Leaving inconsistent metadata.\n");
- 				NVolSetErrors(vol);
-@@ -5504,6 +5504,7 @@ int ntfs_attr_rm(struct ntfs_inode *ni)
- {
- 	struct ntfs_attr_search_ctx *ctx;
- 	int err = 0, ret = 0;
-+	s64 freed = 0;
- 	struct ntfs_inode *base_ni;
- 	struct super_block *sb = ni->vol->sb;
- 
-@@ -5525,10 +5526,12 @@ int ntfs_attr_rm(struct ntfs_inode *ni)
- 			return -ENOMEM;
- 		}
- 
--		ret = ntfs_cluster_free(ni, 0, -1, ctx);
--		if (ret < 0)
-+		freed = ntfs_cluster_free(ni, 0, -1, ctx);
-+		if (freed < 0) {
-+			ret = freed;
- 			ntfs_error(sb,
- 				"Failed to free cluster allocation. Leaving inconstant metadata.\n");
-+		}
- 		ntfs_attr_put_search_ctx(ctx);
+diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
+index 6a9f488e2775..ba1f78fc8c66 100644
+--- a/fs/ntfs/inode.c
++++ b/fs/ntfs/inode.c
+@@ -2974,6 +2974,8 @@ int __ntfs_write_inode(struct inode *vi, int sync)
+ 		if (!err)
+ 			NInoClearRunlistDirty(ni);
+ 		up_write(&ni->runlist.lock);
++		if (err)
++			goto unm_err_out;
  	}
  
+ 	err = ntfs_inode_sync_standard_information(vi, m);
 -- 
 2.51.0
 
