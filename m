@@ -1,58 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996490;
-	b=uwCtn5C9ZaD729SbyFGZkzMCQmrssiPGRD3sUYxGHlYB6RivtEpk76D9nKGr54SpTmZX
-	 GVxja1m1iSsAvWOcBrjvZ5fuMIyKOFipYbf+AjlR3mN4MOxXYLC7SSKWBmwH4csd1lQzG
-	 C24je/GcRcXQsKHrDXcb9ZxoUmO2sUdj1eIQuY87iFwTGQcZ4UEh0otKs+2nZlMy5U4OO
-	 fUIfsYM97og4nbtHVSiMvjOvyx0pXsNW6NYjLkb+BufkWT4cKwa9nT1DW5OG/1amS5ks2
-	 PzRzG+r5p4Yes4UuyL7hiNgmpgAS3jgTNLXyoEEF9JryZC9QTYUIEY3f8mxWVshKzyQ==
+	t=1794996493;
+	b=XPZq9kYS3lBCPcFbpy2zW/uiD8k6NZb+TSAIdC7ueB8iwFbzarETh5LfN0PMwHfK/Lmm
+	 ucIDN0d+VH4lQvbctDHX0AB55PPgh/3x5IXfpLYPU2KEuwqM0kaFIzuxFv3Y6T7lSUzEm
+	 rmRfs2kUPl8q1dqFYr4pCrNFmEPWynZWH+kM+1jSAgaTjnGQVnXPWhgUmD54FhOIamwSq
+	 XIPTdvsQSyNeUk6joHgxxFVNfPhIFjsK5liS8s6kKfSMjUCXeqK+adQHM0pA7b2frdIb9
+	 7D0Y+2+V4rCnPIO+1d4CRNA4C+W20wdkPsGuo2bTQSBwXlKUznCJwlKmHlvdcpamkNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996490;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
-	b=J14PZ5kXC7YeNTQZCIY9SRJta+9gQFi6PEOJkUE0dzqSHRaV/kWZeJ0z/JHw7eT3zX8z
-	 jRuDAM9xHo+i0kVS7inQtNzRL5TUOZxqCs+gRRHnUGivEo7zkDaXv9Se8nAkzM3/vBc9C
-	 ussqEuO7x/MZQBAkJNMfM6VSMNBwXSzRIoWrr31ecmDEX3AFzJfVhBe4HqcbIMjnG7HTP
-	 C0d5+EgqyTlVyNcMm1b8mr8uX0HC9O5L0tB9vAghpUskpBqjHeANtJHE5+xnupkpExGxV
-	 J7IPSWFa7oaca9dmjjqZOQKBDXUcT+XLyDv8VL7soFTicGTuanedI1e9dCGKAgOHfZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996493;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=7zhgK2cftjiTzkt87l4mZkq8xI6jhkpMgB4GLzuXArw=;
+	b=QIg+LWW3XBzYcaCvd1vlrk9a1mXV3DQ4wqh+hcbfJwWQybmexxtXXp7sLW/J9mL8UfyQ
+	 hi0nt9ra+XkIzAJOY5vVFxMpgpHrIm3VPog+zvejmShheu4LE2CR/Begu1V6p4n6rWEfz
+	 TnN7ZmvpAyN0CMtPDIQi1d7/Vos2NhtUbLA+EswBdX0kPeJ0yvG3C+Z9VYzQGB567M8BU
+	 2yhBQyB7Y/hQMgZ072BpoglgtOURaW5zAWZbFlXXSGZYPwgcF5hkVW5SHmTkvu3LOk4UB
+	 rsbBMqrki2GeRxOcMmej0TtKfkZi6Z7aqYkqeLGK7GBUA8y+YovDCpcY8C6BHtiFDnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DYBjfuJG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 096D1606A320;
-	Wed, 18 Nov 2026 10:08:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 096D1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AC4F606A33D;
+	Wed, 18 Nov 2026 10:08:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B82171A16CA;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DYBjfuJG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 728631F000C4;
 	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8287A5FE9B;
-	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2AF211BC0FB7;
-	Wed, 18 Nov 2026 11:08:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794996487; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
-	b=BB68AZtPrIn+wgtM1x0/qC7DyHiQUVWopQ1ssGA+Y1TOzd4KMKNB60b0LVYKPkFD9VcV76
-	ahMku5oXly3kXhg6nJkequfEi/o0utfR/TvUIWlGNImc3vP8BvMvUmRhApieN4/N8KCYwf
-	l/hrXd2gA3WjA1e7vKM9KeUyM2WBZtiXXEmgNKvH+TG1Oe06+7l9vFYVM5eu+iB6h5xHek
-	T6qgOu3gbAJO4lJ4ZPDdXG1UvhMV/ebWvbqw6X3eYH8AZJsdXGhjHefWqHouqaF3BjGsFe
-	WYmaBt3S9BMHRDLD3gqOU6/f4gY/nvcQfrmV9CiUUOFvB1zN3BEx8peLKIbNQQ==
-Message-ID: <2b82341c-be67-43ef-9a0c-0bf0394b627a@bootlin.com>
-Date: Wed, 18 Nov 2026 11:08:01 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794996492;
+	bh=7zhgK2cftjiTzkt87l4mZkq8xI6jhkpMgB4GLzuXArw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DYBjfuJGrCXQ5e9ujie/dO4L0JQvm+DUcbp2mc5xLpc6ZPVBjs3Ks40ccoAIAn5jE
+	 S064t9CjDeHB7T3eD57yk2dXCKfnBCc6wRIq+ITEIAdxG1oGk9NZkCCWhJODWp/Dbs
+	 ITgEHQZfxngWJpcYEVO0uKaZyWR9UqTt0PUJ0E5rvoLarq2wbkWgaUzYyw+1OA4UCO
+	 AefOBHsv0F+y8WwxpSM6ztttoWEsueqP42lDnMak+TZEkavGJ0n0yZQjCg7eQsioGi
+	 50KaZEwibq/raNQbq8BnQ6SOqDX6nGbphDC99VEYumkuZNFqFD7zuwP4HwACP0Jmwm
+	 S/Z+52+/5aPjg==
+Message-ID: <fceee6fa-2bfb-4676-b5ac-80e1bae8d4f4@kernel.org>
+Date: Wed, 18 Nov 2026 11:08:06 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,63 +51,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net v4 06/14] net: pse-pd: check the PI state under the
- lock when setting a power limit
-To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <179477645553.3136.3930514306381646741@kernel.org>
- <20261116182052.1262742-1-github@szelinsky.de>
-From: Kory Maincent <kory.maincent@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/9] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
+ Select TX or RX, add phy-type
+To: Quentin Schulz <quentin.schulz@cherry.de>,
+ Jason Yang <jason98166@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Michael Riesch <michael.riesch@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
+ <20261118-dcphy-rx-v1-v7-2-8de1adac3a74@gmail.com>
+ <3a9e999f-5ff5-422c-aa65-b8560dca84bc@kernel.org>
+ <fe324e43-50c4-4f0e-9bb0-57ea7172530b@cherry.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20261116182052.1262742-1-github@szelinsky.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <fe324e43-50c4-4f0e-9bb0-57ea7172530b@cherry.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-
-
-On 11/16/26 19:20, Carlo Szelinsky wrote:
-> On Sun, 15 Nov 2026 21:00:55 +0000, netdev-bot+sashiko@kernel.org wrote:
->> Does this description understate what the old race did? It looks like
->> the budget was leaked permanently, not just reserved for a while.
+On 18/11/2026 10:28, Quentin Schulz wrote:
+> Hi Krzysztof,
 > 
-> Right, the budget is lost until the controller is bound again.
-> v5 says that, and fixes the old "powered" comment.
+> On 11/18/26 9:16 AM, Krzysztof Kozlowski wrote:
+>> On 18/11/2026 06:55, Jason Yang wrote:
+>>> The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
+>>> for DSI and a receiver for CSI-2, and the DSI host and the CSI-2 host
+>>> can use the transmitter and the receiver at the same time. The single
+>>> cell of this binding selects the mode and refers to the transmitter, so
+>>> the receiver cannot be described.
+>>>
+>>> Change the cell to select the transmitter or the receiver. The
+>>> transmitter and the receiver cannot operate in different modes [1], so
+>>> the optional phy-type property of the PHY node sets the mode for the
+>>> whole block, D-PHY by default:
+>>>
+>>> 	/* the MIPI DSI host, driving the transmitter */
+>>> 	phys = <&mipidcphy0 PHY_DIRECTION_TX>;
+>>>
+>>> 	/* the MIPI CSI-2 host, driving the receiver */
+>>> 	phys = <&mipidcphy0 PHY_DIRECTION_RX>;
+>>>
+>>> For C-PHY the consumers stay the same and the PHY node gets:
+>>>
+>>> 	phy-type = <PHY_TYPE_CPHY>;
+>>>
+>>> Existing DTs on a newer kernel: PHY_TYPE_DPHY and PHY_TYPE_CPHY remain
+>>> valid as deprecated values. They select the transmitter and imply
+>>> phy-type = <PHY_TYPE_DPHY> or <PHY_TYPE_CPHY> respectively, so nothing
+>>> changes for them.
+>>>
+>>> New DTs on an older kernel: an ABI break. The older kernel ignores
+>>> phy-type and takes any cell value as the mode of the block. A DSI node
+>>> with PHY_DIRECTION_TX therefore gets no display, and a CSI-2 node with
+>>> PHY_DIRECTION_RX gets no camera.
+>>>
+>>> [1] RK3588 TRM: section 22.1 (overview): "The TX and RX only support
+>>>      operate in the same PHY mode."
+>>>
+>>> Suggested-by: Michael Riesch <michael.riesch@collabora.com>
+>>> Link: https://lore.kernel.org/r/94d47cab-10c6-4ec3-84a0-3bddc9d67f5f@collabora.com
+>>> Signed-off-by: Jason Yang <jason98166@gmail.com>
+>>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>>> Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+>>> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger CSI1 2-lane IMX219, CSI0 2-lane OV5675+DSI
+>>
+>> Please drop the tag, this did not happen. In the future, please add only
+>> applicable tags. Otherwise share how this code was executed and tested
+>> on the actual hardware (make process, like building code, is obviously
+>> not testing).
+>>
 > 
->> Is admin_state_enabled && isr_pd_detected enough to show that the port is
->> actually powered?
+> What did not happen? I tested the v6, on the reported hardware, on the 
+> reported two DCPHYs, see 
+> https://lore.kernel.org/all/840285d6-a8a6-4777-8d38-6758ccbc7723@cherry.de/
+
+
+I comment in a specific place in a specific patch. The testing of this
+patch did not happen, which I explained why.
+
+
 > 
->> Does this still leave part of the race with pse_isr() open?
+> If you're complaining about the Tested-by being given to a dt-binding 
+> patch, it was provided as an answer to the cover-letter, and the 
+
+I know. Tag was applied blindly and that I ask to correct.
+
+> contributor is clearly using b4 considering the last few lines from the 
+> cover letter (base-commit/change-id lines). b4 trailers -u applies the 
+> tags given to the cover letter to all patches in the series, so if 
+> there's someone to blame here, it's me for adding it as an answer to the 
+> cover letter. So now the question is, do you want me to add a Tested-by: 
+> to each individual patches of long series when I technically built and 
+
+The comment was not to you. I responded to the contributor and I expect
+the contributor to act, not you.
+
+> tested only based on the last patch of the series, which is only a DTS 
+> patch adding the nodes to the RK3588 DTSI? In that case, I cannot 
+> provide Tested-by for patches before the last, as it can simply not work 
+> at all until the last (actually all of them, except the bindings) patch 
+> is applied.
 > 
-> Both were there before this patch, which only moves the old check
-> under the lock. They need their own fixes, so I keep them out of
-> this series. The cover letter lists both.
-> 
-> Kory, are you OK with fixing the two older problems in a follow-up?
-> I am happy to work on them next, if you have a preferred approach.
 
-Yes, I am ok with this.
 
-> Also, are you fine with the rest of v4? I kept your Reviewed-by on 8
-> after the small change there, so please tell me if that is not OK.
 
-Except for comment change or commit message change, I would prefer to 
-have my R-by removed if there is code change. Thanks for asking.
-
-For patch 8, I am ok with the changes, you can keep my R-by.
-
-Regards,
--- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
-
+Best regards,
+Krzysztof
