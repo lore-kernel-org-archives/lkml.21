@@ -1,73 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018748;
-	b=HhkGyI4a+1a0eCVGzfv9beUx5CahJ87Av3unHTr+c4LbHe0cOX2FfpsJuCpZ+j+CYSar
-	 ipDQxZKwc7PbPK/XfF4IhN1zfCFL9olxOROf9zOUzxnxlDa+ESbIGEe3XbPrpfNnONw4/
-	 yFy3DzXX8hX93ME1hl4+fl06a8JSFHYU7klOpfL0K/h7UMWjM30lakUiE3/JwMG0dpVXI
-	 bP9Qg57aBzOGocYnJPC3r2GJacJawND+c0M4+PHWysXiCbjr0hmvcKN0d3zZeKBtGAH6T
-	 pDl4Eci3nmQr+Qh5QMIt7p+dJudjxtK/pyFLzAEmK7MBKgISWG7vFbxYzbJLXS0XplQ==
+	t=1795018759;
+	b=fv05XHM+qwpsMyS3MGBY4fq6Z4cD7CQ1Kla88oFvn6U1IwvfWHQtsWbrVL3VW1xEugrK
+	 0e7WdFIPzZXvSU7FFJu15ARqBLXP6H9tm5xhl8NtdUHVSgzqV0nnl3rIU1kB3g52CKDOa
+	 5jKfgBxuvdPPPioLNB/GAbgylTWjFIFm7b/YfLsXFNvA4V9UlYRMabFtoszlxtKITaDtV
+	 EtrZzWxiGCjoSGLyex46wXswjG9VLyyRzguDLLt271jioN1d+PGaczZCiUcaBEZ52biNA
+	 MiHcHACYYHTkcznW420gEnwEYS7sxpGjxhPKknWV6qU5XBzeFIF7W4fXZkCBaZqKUig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018748;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=td8ITXDrXutCjNnmbB2tSH71qffKjt0MqufWPcdUlKA=;
-	b=2t0gqDubXMUa30L+KI+3LyPoHSetQewnRpMrxXwIQeRz+Hfg4IEzi+0JJyvujLKBQl0G
-	 zf1TJZ2cdsA5zR0dGCkkwAZIXiQ3RReavOGkTDePfLkCHyMsxL+TlgERIZ2JhICcVfu4/
-	 wbWdON217ooi0SNqB/CKjNJ6Zy+MWF86js1Ogbb9hzKuObC5kb0wQFrUKrA13hDX8dI+c
-	 vUKNjay/Ber70SjILoBG/RIoEC34JLBKAH3kvnJgqN2d8PNfCiiDBbql8+S4xXOABnyYy
-	 O5O/LHwB3qRVBWYscxr7x2yl3oGDfVu/uxw4Ms1hV7G9EEaMjbRDwH06TS8W0TjmRMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018759;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=B3/C9Gq7wR7AFFJJ/O6DHxX08MLwJ2b7auylc1SLKLo=;
+	b=ZX/H/KRoZhgamL+TGFrQBsrohxR8ptYmRdz0fQWoZwTinOX+KywNZgtJi69+bkkNtfiC
+	 wGF7fUgmCQRhI928pXTrU8ww7Jqy8/km3eVeUYUkul1ki3x3nqMBczT2HzAREeendL9wL
+	 fYYpQUtxTp9lZnOizQpxRK9Am7VQTurlga9bwlhZOsVv806jpfKr9I2FJVhZyxL7UaPhi
+	 W7IT1yNq9cs7Je7/y82JjrzyQpVLyEVI8On1wbMO0NYVU4336AH9ZJ3HmDeDQuCM4yRhu
+	 K6ODEKvmbRMOx99Epu9cnRMXGtn0NSzKOVH0mVoaEU2q+bKk4g/wkAjLe/GRP9skvjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l5qww0jS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RsfWkpgD;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74BA3606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:19:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5D53606A325;
+	Wed, 18 Nov 2026 16:19:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l5qww0jS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A45C01F000C6;
-	Wed, 18 Nov 2026 16:19:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RsfWkpgD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3F0B1F000C6;
+	Wed, 18 Nov 2026 16:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795018748;
-	bh=td8ITXDrXutCjNnmbB2tSH71qffKjt0MqufWPcdUlKA=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=l5qww0jS5qAYg50WQFsC0/2+gw+wKns6gYNaN9pv+Xc18HRejJuSJZH+SNTnWdteP
-	 3ICfmJYjLBn0Af57EXg0o5cCmsDMzUwshPXD1aVQNCEcV5hZWVADieHX/E6LhLlZ6r
-	 f0wPXyeDMJMp97B6cy0EqT886dpzW7neZyD4SxvcniE5B1Hv7EYgmu4qzhDaxFTCNG
-	 p90e9T9eDC69OqglIpYuUPCfbpAmIfi9cc5RZUCoVtfXFVnFbCqTXLeigdkRlO1dw3
-	 WOgKEllXDeeq4VpfGjzP/wAMMumYNeMph3/XKuESmnoc4r07eTxTqKA9t0XgCF7v1q
-	 TSQhebt4k7HhQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id BCF34198003A;
-	Wed, 18 Nov 2026 11:19:05 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Wed, 18 Nov 2026 11:19:05 -0500
-X-ME-Sender: <xms:-M_9aor5GGxkRLSqV_OzDjqT-Djasd03viitIJz8JnqvSfkcXiVQuQ>
-    <xme:-M_9apcPmwmMPkNhyZf2W59Gi001XpGxOSGUBP48hZwEgDudrRg5dBXVgyoAy6LsB
-    94oVG9GgnkBlHaegXSjZ-IcT-L6-434koeGfqphqmOe2o6igCxCBoib>
-X-ME-Proxy-Cause: dmFkZTE9Mc/hBAyYah6FqRqdr+bR1Ar06azXY8Nnjm5x/ePyqiT3v+LLHb0X6oltaIXTKz
-    ctcxqmzs3k4VXpma/zsm2VZ/a8kCqiUTUo9/6TGlh9TS0a8q7DxM5YPl9wbIqLcy2OW0Bn
-    9wYozBUVZi6Ex91fba9dslQXEk2PeNYpkeDqE3uZIkhpRFxzSErAu1Hb7TMcBJv0zns1mK
-    9w6qmc+hJJPotRkcVo+YCE+H1Autd0bOAYXSbggFRA9pHsYpOwPj6uf0P2gU52rsriL5Wp
-    UkEumPqNd0GuGYIT09ee+EJhTpelp/rHMR6Yq+bLegnywF9MkGnLXn4c8xbTqzz+mVzJJK
-    Mavzj0F7uCe/DpPRr/P+A1M/9jTcjHKnpHAOygnCUoiuj0eX4zB6PuvtIpl+2QNWI+wpxF
-    ySJZI+p+fVjPJYPpKbheF+kiv3m0glNUrFzUcN5cmeJSgyXSlqaF1M85FEguml2VgbZZug
-    05wvu6sVfx1stZmxHEedD8mNzvVkpuZzIfo8NF2hoHfqDRAWV7nHdEWyHPR+oaMd+iRDat
-    6p39T8d5KSxZzl0qBvUGuEHOUCLPh50hFI+7cE+4yfqDIuwhPmBilbB1WNKC8Qg4DiQ7DC
-    PMp+1utAgh1+iNIwE4H8QXl0ReWnvNGw6nFjYsj0HypnNonOu7lABUVq9pCg
-X-ME-Proxy: <xmx:-c_9ap2GXLqpeoWMP5aRXqbao86CObu6taH2pvP0mXchalb_lzkARg>
-    <xmx:-c_9apC4Dr3AyrWkfiFvXBSybOMHB51LorGFa-ahCjXWQFw00ag3bQ>
-    <xmx:-c_9alc9DxTPVJ4JdwR-Rmv8pSxkYlDg-NL0PImz3HHVWP5yh0y6LQ>
-    <xmx:-c_9am6JPjENt1E-703SsMsckrSlq7Y9z5295ZgDvzoteZbdQDbDDw>
-    <xmx:-c_9aoWyRIUEvZcB_N6m6hl6Pi63vJNsVazseSmQxGCFiNtoyrtjvDrW>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 5C8D7F80093; Wed, 18 Nov 2026 11:19:04 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20260515; t=1795018759;
+	bh=B3/C9Gq7wR7AFFJJ/O6DHxX08MLwJ2b7auylc1SLKLo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=RsfWkpgDLp1mCjhaNligmLWmgxBb5kY1ZGpwk2QKIjpJU0PyMPKIHdu+2FbDu2pP7
+	 veZvae8ECkaTr3EnIw5zQjqv94cbE+quQ/yYL3JJnIh2Q6+mkXgQ9dqLu4c/HB9Py5
+	 aIhzX83c9IUyrfuLValnUJck/o7xoTfXqZPLkKBBLkmedgPNc5MVmPE4oMcpOPb/7U
+	 hziGnXN/+DQVEFqpDq3RZeNY+8+0RF1H6Fc1ZCiqt+PCG7t2/y0HD68iuIkeD7TKmx
+	 M7thuTJDf5GoPDLWXp9K+8FQEVM3+vNvf0ej94fc6RB4bVStI32dGCS/YSCN6B2e0t
+	 fu5T3lMDz9vjA==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+Date: Wed, 18 Nov 2026 17:18:21 +0100
+Subject: [PATCH v22 5/6] rust: page: add `Frozen` page kind
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,250 +52,196 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 18 Nov 2026 17:18:44 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "H . Peter Anvin" <hpa@zytor.com>, "Ard Biesheuvel" <ardb+git@google.com>,
- x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org
-Message-Id: <3522588c-9d7a-454b-afe8-c16c6788265a@app.fastmail.com>
-In-Reply-To: <FD1A5979-1504-4A96-B26C-D89BD362170A@zytor.com>
-References: <20261111091843.3621782-2-ardb+git@google.com>
- <FD1A5979-1504-4A96-B26C-D89BD362170A@zytor.com>
-Subject: Re: [PATCH] x86: Make the 64-bit bzImage always physically relocatable
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-page-ownable-v22-5-d63ff73f4075@kernel.org>
+References: <20261118-page-ownable-v22-0-d63ff73f4075@kernel.org>
+In-Reply-To: <20261118-page-ownable-v22-0-d63ff73f4075@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Uladzislau Rezki <urezki@gmail.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, 
+ Mike Rapoport <rppt@kernel.org>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
+ Rakie Kim <rakie.kim@sk.com>, Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Matthew Wilcox <willy@infradead.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, 
+ Todd Kjos <tkjos@android.com>, Christian Brauner <brauner@kernel.org>, 
+ Carlos Llamas <cmllamas@google.com>
+Cc: Igor B <igor.b@beldev.am>, Vitaly Wool <vitaly.wool@konsulko.se>, 
+ linux-mm@kvack.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6418; i=a.hindborg@kernel.org;
+ h=from:subject:message-id; bh=Vw4L8gIAfErZqGCBSVgqXqrFyw9e8Tx+BWAmaOIHTt0=;
+ b=owEBbQKS/ZANAwAKAfpQKQiqxb3QAcsmYgBq/c/yGLmpTN6MVE81epUxMfSmozWD0gj9RVIwM
+ 8pzLB0S2CGJAjMEAAEKAB0WIQRXitnI2WZ2JirAaob6UCkIqsW90AUCav3P8gAKCRD6UCkIqsW9
+ 0LQ/D/4qFDkHHYuNbKZFNk28mwu2XI0qWlvZb+yKZysjypoPr4fOmrZ52fDhIYrdb4eToGSX2pG
+ sLZYateZ/XLI8/ShJGeVVXvty5PamrB53EBrFHry0pfIXTyhhvUHdtyMhqFV0zPOncen7wzZuMc
+ sh4iMH6JXsFaWh5EjOpi7yIuRsnfo9dP3rFNJydZG4bYTwmmElB1suffnRljJEpv4Fog39s14fP
+ sEzyj+M5hM4Lv3Ce8acqYBXahS7sYcDIHxbx+MyDDgq3SlK7MaaCPBBPoloAwK36C0pHDIQuo4N
+ YMQzOHiwA9jGFiSjuuv7kHiPA99sRACo3j4WSrO1z7HMqAn0SXgYC6h2XaP/RmwF4CfvSIN4uFf
+ M45sKyol8xfrYPaAwdddKfMu/+wtz/cOUEWnB+WJlVp+OUt0DIsPk8sNoTB3bVwMVJhsxZlP0da
+ fB8lWj/iQrSAF6HkhDvmkztUYToSBhDlKhNisMYc2nYT18YzQp9utP3tH5a3PDq8cMDGN2KYnPe
+ 7Sr9jKuGg76FnsQULzx1Rr5VxP3KV9rpM0gft+GAaq7qxry5xGlQ93jqYT8n87mf/JCAm6RHxGZ
+ G6y4hiqOJubqTspteKAReaNroTHo92wf6I+oCinvXU314YT3MhOn3dlGiWb8GcUMx+mToEN5KZv
+ WzWZmET0WYr76zw==
+X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
+ fpr=3108C10F46872E248D1FB221376EB100563EF7A7
 
+Add the page kind `Frozen`. A `Page<Frozen>` is a frozen page that is
+uniquely owned through an `Owned<Page<Frozen>>`. The reference count of
+a frozen page is zero and references to it cannot be taken, so the
+ownership is exclusive.
 
+In contrast to `Page<Exclusive>`, a `Page<Frozen>` has no invariant on
+who accesses the data of the page. The owner can share the data with a
+device, and thus the data is accessed through the unsafe raw accessors
+only.
 
-On Wed, 18 Nov 2026, at 16:51, H. Peter Anvin wrote:
-> On November 11, 2026 1:18:44 AM PST, Ard Biesheuvel <ardb+git@google.com> wrote:
->>From: Ard Biesheuvel <ardb@kernel.org>
->>
->>On x86_64, the physical placement of the kernel is independent from its
->>mapping in the 'High Kernel Mapping' range. This means that even a
->>position dependent kernel built without boot-time relocation support can
->>run from any suitably aligned physical address, and there is no need to
->>make this behavior dependent on whether or not the kernel is virtually
->>relocatable.
->>
->>On i386, the situation is different, given that the physical and virtual
->>load offsets must be equal, and so only a relocatable kernel can be
->>loaded at a physical address that deviates from its build-time default.
->>
->>Clarify this in Kconfig and in the code, and advertise the 64-bit
->>bzImage as loadable at any physical offset regardless of whether
->>CONFIG_RELOCATABLE is set. In practice, this makes little difference,
->>given that it defaults to 'y' and is a prerequisite for EFI_STUB and
->>RANDOMIZE_BASE, but it will help with some future refactoring of the
->>relocation code.
->>
->>Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->>---
->> arch/x86/Kconfig                   | 40 ++++++++++++++++++------------
->> arch/x86/boot/compressed/head_64.S |  4 ---
->> arch/x86/boot/compressed/misc.c    |  8 +++---
->> arch/x86/boot/header.S             |  8 ++----
->> 4 files changed, 29 insertions(+), 31 deletions(-)
->>
->>diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
->>index 58dce0b66179..c7427daa0c3e 100644
->>--- a/arch/x86/Kconfig
->>+++ b/arch/x86/Kconfig
->>@@ -1898,7 +1898,7 @@ config EFI
->> config EFI_STUB
->> 	bool "EFI stub support"
->> 	depends on EFI
->>-	select RELOCATABLE
->>+	select RELOCATABLE if X86_32
->> 	help
->> 	  This kernel feature allows a bzImage to be loaded directly
->> 	  by EFI firmware without the use of a bootloader.
->>@@ -1995,8 +1995,9 @@ config PHYSICAL_START
->> 	help
->> 	  This gives the physical address where the kernel is loaded.
->> 
->>-	  If the kernel is not relocatable (CONFIG_RELOCATABLE=n) then bzImage
->>-	  will decompress itself to above physical address and run from there.
->>+	  If the kernel is not relocatable (CONFIG_RELOCATABLE=n) and built for
->>+	  i386, then the bzImage will decompress itself to the above physical
->>+	  address and run from there.
->> 	  Otherwise, bzImage will run from the address where it has been loaded
->> 	  by the boot loader. The only exception is if it is loaded below the
->> 	  above physical address, in which case it will relocate itself there.
->>@@ -2031,16 +2032,22 @@ config PHYSICAL_START
->> 	  Don't change this unless you know what you are doing.
->> 
->> config RELOCATABLE
->>-	bool "Build a relocatable kernel"
->>-	default y
->>+	bool "Build a relocatable kernel" if X86_32
->>+	default X86_32
->> 	help
->>-	  This builds a kernel image that retains relocation information
->>-	  so it can be loaded someplace besides the default 1MB.
->>+	  This builds a kernel image that retains relocation information so it
->>+	  can be placed someplace besides the default PAGE_OFFSET + 1MB. This
->>+	  is a prerequisite for KASLR.
->> 	  The relocations tend to make the kernel binary about 10% larger,
->> 	  but are discarded at runtime.
->> 
->>-	  One use is for the kexec on panic case where the recovery kernel
->>-	  must live at a different physical address than the primary
->>+	  On i386, where the virtual and physical load offset of the kernel
->>+	  must be equal, this also allows the kernel image to be placed at a
->>+	  physical load address that differs from the compile time default. On
->>+	  x86_64, this is always permitted.
->>+
->>+	  One use is for the kexec on panic case on i386, where the recovery
->>+	  kernel must live at a different physical address than the primary
->> 	  kernel.
->> 
->> 	  Note: If CONFIG_RELOCATABLE=y, then the kernel runs from the address
->>@@ -2049,7 +2056,7 @@ config RELOCATABLE
->> 
->> config RANDOMIZE_BASE
->> 	bool "Randomize the address of the kernel image (KASLR)"
->>-	depends on RELOCATABLE
->>+	select RELOCATABLE
->> 	default y
->> 	help
->> 	  In support of Kernel Address Space Layout Randomization (KASLR),
->>@@ -2085,7 +2092,7 @@ config RANDOMIZE_BASE
->> # Relocation on x86 needs some additional build support
->> config X86_NEED_RELOCS
->> 	def_bool y
->>-	depends on RANDOMIZE_BASE || (X86_32 && RELOCATABLE)
->>+	depends on RELOCATABLE
->> 	select ARCH_VMLINUX_NEEDS_RELOCS
->> 
->> config PHYSICAL_ALIGN
->>@@ -2098,12 +2105,13 @@ config PHYSICAL_ALIGN
->> 	  where kernel is loaded and run from. Kernel is compiled for an
->> 	  address which meets above alignment restriction.
->> 
->>-	  If bootloader loads the kernel at a non-aligned address and
->>-	  CONFIG_RELOCATABLE is set, kernel will move itself to nearest
->>-	  address aligned to above value and run from there.
->>+	  If the bootloader loads the kernel at a non-aligned address and it
->>+	  is built for x86_64 or CONFIG_RELOCATABLE is set, the kernel will
->>+	  move itself to the nearest address aligned to above value and run
->>+	  from there.
->> 
->>-	  If bootloader loads the kernel at a non-aligned address and
->>-	  CONFIG_RELOCATABLE is not set, kernel will ignore the run time
->>+	  If the bootloader loads the i386 kernel at a non-aligned address and
->>+	  CONFIG_RELOCATABLE is not set, the kernel will ignore the run time
->> 	  load address and decompress itself to the address it has been
->> 	  compiled for and run from there. The address for which kernel is
->> 	  compiled already meets above alignment restrictions. Hence the
->>diff --git a/arch/x86/boot/compressed/head_64.S b/arch/x86/boot/compressed/head_64.S
->>index 1aca51390f73..de1973f032c7 100644
->>--- a/arch/x86/boot/compressed/head_64.S
->>+++ b/arch/x86/boot/compressed/head_64.S
->>@@ -143,7 +143,6 @@ SYM_FUNC_START(startup_32)
->>  * for safe in-place decompression.
->>  */
->> 
->>-#ifdef CONFIG_RELOCATABLE
->> 	movl	%ebp, %ebx
->> 	movl	BP_kernel_alignment(%esi), %eax
->> 	decl	%eax
->>@@ -152,7 +151,6 @@ SYM_FUNC_START(startup_32)
->> 	andl	%eax, %ebx
->> 	cmpl	$LOAD_PHYSICAL_ADDR, %ebx
->> 	jae	1f
->>-#endif
->> 	movl	$LOAD_PHYSICAL_ADDR, %ebx
->> 1:
->> 
->>@@ -316,7 +314,6 @@ SYM_CODE_START(startup_64)
->> 	 */
->> 
->> 	/* Start with the delta to where the kernel will run at. */
->>-#ifdef CONFIG_RELOCATABLE
->> 	leaq	startup_32(%rip) /* - $startup_32 */, %rbp
->> 	movl	BP_kernel_alignment(%rsi), %eax
->> 	decl	%eax
->>@@ -325,7 +322,6 @@ SYM_CODE_START(startup_64)
->> 	andq	%rax, %rbp
->> 	cmpq	$LOAD_PHYSICAL_ADDR, %rbp
->> 	jae	1f
->>-#endif
->> 	movq	$LOAD_PHYSICAL_ADDR, %rbp
->> 1:
->> 
->>diff --git a/arch/x86/boot/compressed/misc.c b/arch/x86/boot/compressed/misc.c
->>index 0f41ca0e52c0..d37569e7ee10 100644
->>--- a/arch/x86/boot/compressed/misc.c
->>+++ b/arch/x86/boot/compressed/misc.c
->>@@ -314,12 +314,10 @@ static size_t parse_elf(void *output)
->> 			if ((phdr->p_align % 0x200000) != 0)
->> 				error("Alignment of LOAD segment isn't multiple of 2MB");
->> #endif
->>-#ifdef CONFIG_RELOCATABLE
->>-			dest = output;
->>-			dest += (phdr->p_paddr - LOAD_PHYSICAL_ADDR);
->>-#else
->> 			dest = (void *)(phdr->p_paddr);
->>-#endif
->>+			if (IS_ENABLED(CONFIG_X86_64) ||
->>+			    IS_ENABLED(CONFIG_RELOCATABLE))
->>+				dest += (unsigned long)output - LOAD_PHYSICAL_ADDR;
->> 			memmove(dest, output + phdr->p_offset, phdr->p_filesz);
->> 			break;
->> 		default: /* Ignore other PT_* */ break;
->>diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
->>index 9bea5a1e2c52..b72e6055e103 100644
->>--- a/arch/x86/boot/header.S
->>+++ b/arch/x86/boot/header.S
->>@@ -332,7 +332,7 @@ initrd_addr_max: .long 0x7fffffff
->> kernel_alignment:  .long CONFIG_PHYSICAL_ALIGN	#physical addr alignment
->> 						#required for protected mode
->> 						#kernel
->>-#ifdef CONFIG_RELOCATABLE
->>+#if defined(CONFIG_RELOCATABLE) || defined(CONFIG_X86_64)
->> relocatable_kernel:    .byte 1
->> #else
->> relocatable_kernel:    .byte 0
->>@@ -342,14 +342,10 @@ min_alignment:		.byte MIN_KERNEL_ALIGN_LG2	# minimum alignment
->> xloadflags:
->> #ifdef CONFIG_X86_64
->> # define XLF0 XLF_KERNEL_64			/* 64-bit kernel */
->>-#else
->>-# define XLF0 0
->>-#endif
->>-
->>-#if defined(CONFIG_RELOCATABLE) && defined(CONFIG_X86_64)
->>    /* kernel/boot_param/ramdisk could be loaded above 4g */
->> # define XLF1 XLF_CAN_BE_LOADED_ABOVE_4G
->> #else
->>+# define XLF0 0
->> # define XLF1 0
->> #endif
->> 
->
-> Can you clarify what these nebulous future improvements are?
+Add `Page::alloc_frozen()` to allocate a `Page<Frozen>`, and let
+`Page<Frozen>` dereference to `Page<Base>`.
 
-The main improvement today is that CONFIG_RELOCATABLE will be
-only implied by CONFIG_RANDOMIZE_BASE, and so turning that off
-gets rid of the unnecessary relocation metadata.
+Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
 
-The future improvement is still fgKASLR, which I am implementing
-in the ELF domain, making it arch-agnostic, and applicable to
-other static ELF executables such as hypervisors and statically
-linked user space executables. This will hopefully make the
-needed tooling changes more palatable to the wider community.
+---
 
-On x86, that will require the use of PIC code for kaslr capable
-kernels, [which surely you remember having discussed with me in
-the past], but only when opting in to kaslr/fgkaslr. Otherwise,
-the usual position dependent codegen will be preserved.
+This currently has no users, but I add it here for completeness. Let's
+discuss if we should keep it or not.
+---
+ rust/kernel/page.rs | 90 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 89 insertions(+), 1 deletion(-)
 
-Note that I have extensive benchmarking data now that shows that
-the PIC change itself has negligible impact for performance, but
-having the option to turn that off if you don't need it is still 
-appreciated, I assume. But let's leave that discussion for when
-I resend that particular series.
+diff --git a/rust/kernel/page.rs b/rust/kernel/page.rs
+index c885bcf4f886..c629764f773b 100644
+--- a/rust/kernel/page.rs
++++ b/rust/kernel/page.rs
+@@ -93,7 +93,7 @@ pub trait Sealed {}
+ /// Marker trait for the kinds of a [`Page`].
+ ///
+ /// A page kind describes what is known about a `struct page`, and thereby what a [`Page`] of that
+-/// kind can be used for. See [`Base`], [`RefCounted`] and [`Exclusive`].
++/// kind can be used for. See [`Base`], [`RefCounted`], [`Frozen`] and [`Exclusive`].
+ ///
+ /// A [`Page`] of any other kind dereferences to a [`Page`] of the base kind [`Base`]. The
+ /// purpose of the dereference is coercion: a reference to a page of any kind can be passed to code
+@@ -138,6 +138,7 @@ impl PageKind for RefCounted {}
+ ///
+ /// - `Page<Base>` is a page for which nothing is known beyond its validity.
+ /// - `Page<RefCounted>`, or just `Page`, is a page that is managed by the page reference count.
++/// - `Page<Frozen>` is a uniquely owned page that references cannot be taken to.
+ /// - `Page<Exclusive>` is a uniquely owned page whose data follows standard Rust aliasing rules.
+ ///
+ /// Operations that are valid for any page are available for all page kinds. All other page kinds
+@@ -435,6 +436,93 @@ unsafe fn dec_ref(obj: NonNull<Self>) {
+ // non-zero and it is okay to obtain an `ARef<Page>` from it.
+ unsafe impl AlwaysRefCounted for Page {}
+ 
++/// A [`PageKind`] for a frozen page.
++///
++/// The reference count of a frozen page is zero, and references to it cannot be taken. A
++/// [`Page<Frozen>`] is accessed through an owning [`Owned<Page<Frozen>>`], and the page is freed
++/// when the [`Owned<Page<Frozen>>`] is dropped.
++///
++/// Unlike for a [`Page<Exclusive>`], nothing is known about who accesses the data of a
++/// [`Page<Frozen>`]. For instance, the owner can share the data of the page with a device. Thus,
++/// the data is accessed through the unsafe raw accessors of [`Page`] only.
++///
++/// # Invariants
++///
++/// For a [`Page<Frozen>`]:
++///
++/// - The page is an order 0 frozen page: it was allocated with `alloc_frozen_pages()`, and its
++///   reference count is zero for as long as the [`Page<Frozen>`] exists.
++/// - The page is owned by a unique [`Owned<Page<Frozen>>`]. No references to the page exist
++///   together with the [`Owned<Page<Frozen>>`], other than the ones borrowed from it.
++pub struct Frozen;
++
++impl private::Sealed for Frozen {}
++impl PageKind for Frozen {}
++
++impl Deref for Page<Frozen> {
++    type Target = Page<Base>;
++
++    #[inline]
++    fn deref(&self) -> &Self::Target {
++        // SAFETY: `Page` is transparent over `struct page` for all page kinds, so the pointer cast
++        // is valid. `Base` has no invariants in addition to the ones of `Page`, which hold for
++        // `self`.
++        unsafe { &*ptr::from_ref(self).cast() }
++    }
++}
++
++impl Page<Frozen> {
++    /// Allocates a new frozen page.
++    ///
++    /// # Examples
++    ///
++    /// ```
++    /// use kernel::page::{
++    ///     Page,
++    ///     PAGE_SIZE, //
++    /// };
++    ///
++    /// let page = Page::alloc_frozen(GFP_KERNEL)?;
++    ///
++    /// // SAFETY: The page was just allocated and is not shared, so there are no concurrent reads
++    /// // or writes to the page.
++    /// unsafe { page.fill_zero_raw(0, PAGE_SIZE)? };
++    /// # Ok::<(), Error>(())
++    /// ```
++    #[inline]
++    pub fn alloc_frozen(flags: Flags) -> Result<Owned<Self>, AllocError> {
++        // SAFETY: Depending on the value of `gfp_flags`, this call may sleep. Other than that, it
++        // is always safe to call this method.
++        let page = unsafe { bindings::alloc_frozen_pages(flags.as_raw(), 0) };
++        let page = NonNull::new(page).ok_or(AllocError)?;
++
++        // INVARIANT: The page was just allocated with `alloc_frozen_pages()`, so it is frozen and
++        // we own it.
++        // SAFETY:
++        // - We just successfully allocated the page, so `page` points to a valid `struct page`.
++        //   Since `Page` is transparent over `struct page`, we can cast the pointer directly.
++        // - The page was just allocated, so no other `Owned` exists for it.
++        // - A `struct page` is never moved, so the page is pinned.
++        // - `Page<Frozen>` allows no other references to exist together with the `Owned`, and
++        //   none exist, as the page is newly allocated and references cannot be taken to a frozen
++        //   page. Thus, it is sound to hand out `&Page<Frozen>` and `Pin<&mut Page<Frozen>>`.
++        // - Pages have no logic that relies on them staying on a given thread or on them not being
++        //   accessed concurrently.
++        Ok(unsafe { Owned::from_raw(page.cast()) })
++    }
++}
++
++impl Ownable for Page<Frozen> {
++    #[inline]
++    unsafe fn release(this: NonNull<Self>) {
++        // SAFETY: By the function safety requirements, we have exclusive ownership of the page, and
++        // by the type invariant the page is an order 0 frozen page, so we can free it with
++        // `free_frozen_pages()`. Since `Page` is transparent over `struct page`, we can cast the
++        // pointer directly.
++        unsafe { bindings::free_frozen_pages(this.cast().as_ptr(), 0) };
++    }
++}
++
+ /// A [`PageKind`] for a page whose data area follows standard Rust aliasing rules.
+ ///
+ /// A [`Page<Exclusive>`] is accessed through an owning [`Owned<Page<Exclusive>>`]. It has the same
 
 -- 
-Ard.
+2.54.0
+
+
