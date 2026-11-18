@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030225;
-	b=hCRnmll9QaGKiDGUsll6H5DUaUXjVn8kpqxF5BjrSGSFhAL/L/SvVMJMRm1GtUOIyFow
-	 7N8+CWi0TN2vDRvpLzSRqlXgwDNjQKA2bvKVKENuG8gqj4n7Eu76avXGWccJwJkYcQSxu
-	 REDjSZJQzlFLPg8n4MtUMxR9704d8zKLGaqP7urDIL7r2ksgkZE/q1mNqR2MRcL9cHu3M
-	 7zpkPbr1B5p90wzcmf2jKKZHRAuw9xgwB69+MpDHFyHPqBnmx4XoVSiGR3rQ2lrqTG0Ge
-	 5+WBornDe/gaBD+3tc4ztHKsgQj9YGZAZiM8qgxZSkUPhyv5rEvghtpGcc7lkuuEp2g==
+	t=1795030227;
+	b=q6BK/FoBazTEwBdOuurbbS3F67eyCv1kQT0t8hYJTDqr7hwuom9XTVQfEdksWfSrGTRe
+	 WyiMjnxLslhGA46Dfih7e6LAF7GDbG0rzUZ6YcwohKgLGmPjFzA9b/Qbaw5TRLRSiwqip
+	 T2KOGr69/u3qtrMWjEFj1RE4kUFocp7k3kihYOg9DveDh7QH00srA+oPa+FUsXp4U0B9U
+	 xbyhdy/CqI7LtE6snI0bSPROsPLYYc1EpKQbLq8/vzI2/tkmn01qnINe8sCE1jXIwLci8
+	 59j/qZuXbYXiULt0iVcKb6Jh6RWr/F11gS1o53bHHXWHXLQgKKWd5+/tfZmwKFll9WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030225;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030227;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=TiKCTQwI498M+zPJy/UReFz64BjTVYGFPlsNBrp4k5s=;
-	b=Jpr+R/nEGb1glvI/8pd2SzdeF4zHDw5Q1oIwiHSMsWrqx5DytH51eqUX2uHZFoi2YAve
-	 4yemo++LL/D280ZLrmDfLlBfW0XVXipkN5/h7Yx4Yt5fj6DjnsbyUijiSQ/SvK5B46Czd
-	 sJKcNYkJDmE8hVPjsNYmojdyFLlyRx41kjplHMzvvqs0QUS7oZs5M4okbKZDxMSA5DBkq
-	 r8YvtytILds4GPscu2a6pu4mZoQ7/HHFb2Xtuo/AF/JRcRMGYslngqvYkIVpQgy8j/x0p
-	 iKQhjQ4HpXZO5BkHjO3cMnKdR5Uj+ccDEBLjov8OM7lP0k1/0lxk4DjLXcKG/lTzv8A==
+	bh=+zbw+9dEryfCbBPy37sn6USntTVE0xFg0XydIK5Fbqc=;
+	b=fKkjcZJyplFdGb6tqkQgb6EAqDgGlEAH/dwCnHrGA37WiEErBozVLb1wLDw6BR9Nnunm
+	 dySFls1GU9Lpgi20oHideSPr0K/MBi3s/cmvhkK+SalYfCsyFwamXXG6HlGsBFKmkDfZv
+	 k9zg6QCKTZNPF61SdiZnnU22UBkPogjiysFw07WCduCI5tUeSlUrxdRBnjGLRzqaSYkFS
+	 o88W5+pBSa77D7LAky/xefMXWt+RC2OKP2JkTn8nqjl5cW/Kp3OfFGTVef8yVrl6L/Llp
+	 fgGoFt6pjTbAhn5OOn3IjJc9gCL+fDQNBgnW117Ys5Zy1oZ4Z66SjH0Yg8GNSYTwPhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKz90UKO;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bUsB91Fi;
 	arc=none smtp.remote-ip=192.198.163.11
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 019D0606DD0E;
-	Wed, 18 Nov 2026 19:30:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 019D0606DD0E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC982606DD23;
+	Wed, 18 Nov 2026 19:30:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC982606DD23
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKz90UKO
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bUsB91Fi
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795030225; x=1826566225;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=BJ0fotAq/M8m1ArkEbvyP0Mk3dq+2UrG44ML+IBS0zo=;
-  b=mKz90UKOZsvKoJ4EfO34yHAniDoMFGdH9JYjO7Zn0DtJpjzXMyI/7LWP
-   +b+grK5ukWQR7/jGQPxuRXrSHfbi153hWyMWIZDaLpn9eI+fz1eGANPCq
-   j6EQxgTbqy92LpAiafDsjj/HOVafdhfMEhwMiaeAluiy23r0MyQmmlKhW
-   dC17JrH4m31u/BjHOBtkQ+iULnS5fZ2Kpjs3B6UvPdANQAhLhu6VKhfV7
-   827kKPG73bw9TTlZRKHi+X6osAeeZISY+tazQeTDc9u3jVv2w/TcRwO1S
-   LmTVlARXzWEPpPrayQKUZG3jmkmC+RcAwyQRRrJ8TGb6K9HcRtD7PIiEV
+  t=1795030227; x=1826566227;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=rlqwKCJdfx49L70h4PlBEi7+zKqF7NaERB9xr22BVDw=;
+  b=bUsB91Fi5cCibu7EHRNd7YdX/q2e2RepJAnQnzLKI76NL94XT7CHJdw7
+   yr27j1gAgMUYL1bviWDM+YB3dssx1nWNVkxzQhO4A+d8M5Hv3zv9SXnn/
+   +R/LXNTV15Jel+Cu876QFECiuJGYcSOk1SGbpwAR086TkEFbrcHYkDdBb
+   6rBlw1+E5KyAh7AnFO1r6bxbk+Wx0enGwffYtpUZN6q/sw/lSG7j9X6vk
+   LfuLh4uS9tyUujJ6l3zpVCk01ab1ntdg6/XnkidewlBj/ssJwwlS1g/9w
+   QQ75iQf/UusQb231sTVgh2JNTj/eTJ6V55tsoLbqULLw7swzvFIIn0RXR
    Q==;
-X-CSE-ConnectionGUID: U4ihUUVxRqSPeJy8MdYCXg==
-X-CSE-MsgGUID: nPAJv6q9SSezXKLOhQj93w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3781175"
+X-CSE-ConnectionGUID: Mu9O3jQ/Tte6GO6yJ2aEIA==
+X-CSE-MsgGUID: lswofqc4R76UsV06MuIyJQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3781212"
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3781175"
+   d="scan'208";a="3781212"
 Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:30:24 -0800
-X-CSE-ConnectionGUID: p+7tQvU2SD+OhHIXRzPzJg==
-X-CSE-MsgGUID: cwEt8V/aTsmViOJfLMHDLg==
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:30:26 -0800
+X-CSE-ConnectionGUID: /nuFYbZ7R/ux8f55iXXc8A==
+X-CSE-MsgGUID: FBpJ2y8mS3iAR8X3fcb7Nw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10468060"
+   d="scan'208";a="10468073"
 Received: from jf.intel.com ([10.165.154.102])
-  by fmviesa008.fm.intel.com with ESMTP; 18 Nov 2026 11:30:24 -0800
+  by fmviesa008.fm.intel.com with ESMTP; 18 Nov 2026 11:30:25 -0800
 From: Ehab Ababneh <ehab.ababneh@intel.com>
 To: ilpo.jarvinen@linux.intel.com,
 	hansg@kernel.org,
@@ -82,10 +82,12 @@ Cc: ashok.raj.linux@gmail.com,
 	sathyanarayanan.kuppuswamy@linux.intel.com,
 	pengfei.xu@intel.com,
 	ravi.v.shankar@intel.com
-Subject: [PATCH v2 00/17] platform/x86/intel/ifs: Support group-based In-Field Scan and Diamond Rapids
-Date: Wed, 18 Nov 2026 12:32:42 -0700
-Message-ID: <20261118193259.519568-1-ehab.ababneh@intel.com>
+Subject: [PATCH v2 03/17] platform/x86/intel/ifs: Clarify In-Field Scan MSR bit macro definitions
+Date: Wed, 18 Nov 2026 12:32:45 -0700
+Message-ID: <20261118193259.519568-4-ehab.ababneh@intel.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118193259.519568-1-ehab.ababneh@intel.com>
+References: <20261118193259.519568-1-ehab.ababneh@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,142 +97,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Some Intel Xeon processors, starting with Diamond Rapids (DMR), share
-one SCAN test engine between multiple CPU cores in a module (Dual-Core
-Module, DCM), instead of only between the threads of a single core. All
-logical processors that share an engine must start the In-Field Scan
-(IFS) test at the same time. The current driver assumes the sharing
-domain is cpu_smt_mask(), which does not hold on these systems. Also,
-although the cores in a module are tested together, each core gets its
-own result: on a DCM, one core can pass while the other fails.
+From: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
 
-This series:
+Current macros for Intel In-Field Scan MSR bits are confusing. They don't
+clearly distinguish between testing types (Scan At Field vs. Array BIST)
+or testing timing (processor startup vs. Linux Intel IFS driver at
+runtime).
 
- - Patch 1 removes the SBAF test, which is not planned for any CPU and
-   whose test images were never published.
+Clarify these macros by adopting the naming convention from [1]:
 
- - Patches 2-6 are cleanups and preparatory refactoring (comment fixes,
-   clearer MSR bit names, u64 MSR bitfields, early return on image
-   errors, a generic Array BIST parameter struct). Patches 2-4 have no
-   functional change.
+  - PERIODIC (vs. STARTUP) indicates testing capability at runtime.
 
- - Patch 7 adds stop_cluster_cpuslocked(), the cluster-level counterpart
-   of stop_core_cpuslocked(), so that all threads of a cluster can
-   rendezvous and issue WRMSR at the same time.
+  - SCAN_BIST indicates Scan At Field testing capability.
 
- - Patches 8-10 enumerate ALL_LP_JOIN_NEEDED, select the CPUs to test
-   together from topology_cluster_cpumask(), and warn when a group test
-   does not pass while some of the logical processors sharing the scan
-   engine (per TID_BIT_SHIFT) were not in the group.
+  - ARRAY_BIST indicates Array BIST testing capability [2].
 
- - Patches 11-13 record per-CPU results for group tests and expose them
-   through new sysfs files (status_list, details_list, cpus_ran_list,
-   addnl_details_list). The existing status and details files remain,
-   but now report the result of the CPU written to run_test rather than
-   the first CPU in the group.
+Additionally, align these macros vertically for better readability.
 
- - Patch 14 adds Diamond Rapids to the CPU match table.
+No functional changes.
 
- - Patch 15 removes the 256 limit on the batch file number.
+[1] Intel 64 and IA-32 Architectures Software Developer's Manual (SDM),
+    Vol. 4, "Additional MSRs Supported by the Intel Xeon 6 P-Core
+    Processors".
 
- - Patches 16-17 update the IFS documentation and ABI document.
+[2] Use ARRAY_BIST instead of MEM_BIST used in [1], which is confusing
+    with DDR memory.
 
-Most of this series was developed by Jithu Joseph and Qiuxu Zhuo, who
-have both since left Intel. I have taken over upstreaming it, so please
-send questions and review comments to me. The patches keep their
-original authorship and Signed-off-by tags, except patch 10, which I
-rewrote for v2 (Qiuxu is credited as co-developer). Where Qiuxu
-changed a patch written by someone else, the change is noted in
-brackets in the commit message, and I have added my Signed-off-by to
-every patch.
+Suggested-by: Tony Luck <tony.luck@intel.com>
+Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
+Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
+Tested-by: Yi Lai <yi1.lai@intel.com>
+---
+ arch/x86/include/asm/msr-index.h       | 12 ++++++------
+ drivers/platform/x86/intel/ifs/core.c  |  4 ++--
+ tools/arch/x86/include/asm/msr-index.h | 12 ++++++------
+ 3 files changed, 14 insertions(+), 14 deletions(-)
 
-Changes in v2:
-- Rebased onto v7.4-rc1.
-- Tested on Emerald Rapids, Granite Rapids, Clearwater Forest and
-  Diamond Rapids (Tested-by: Yi Lai on all patches).
-- Patch 9: build the CPU group mask only after the CPU online and image
-  loaded checks pass, so a rejected run_test write no longer changes
-  the group reported by the *_list files (Sashiko).
-- Patch 10: reworked, with a new title (was "Validate TID_BIT_SHIFT
-  matches topology_cluster_cpumask()"). The check at driver init is
-  gone: it failed driver load on Sapphire Rapids and Emerald Rapids,
-  which don't enumerate TID_BIT_SHIFT, when a CPU in the group was
-  offline, and on parts that expose only one core per module. Now
-  TID_BIT_SHIFT is read at init and, if a test does not pass, the
-  driver warns when not all logical processors in the TID_BIT_SHIFT
-  range were in the group. The test always runs (Sashiko, suggested by
-  Tony Luck). Author changed to me, with Qiuxu as Co-developed-by.
-- Patch 11:
-  - clear the per-CPU results of the group at the start of each test,
-    and clear them in ifs_init() before the devices are registered
-    (Sashiko);
-  - restart an interrupted test from the lowest chunk reached by any
-    CPU in the group (Sashiko);
-  - don't overwrite error codes reported by the hardware with the
-    driver's timeout or partial-completion code; report a CPU that
-    stopped early without an error code as partially completed
-    (Sashiko);
-  - the patch 10 warning checks the results of all CPUs in the group;
-  - commit message: explain that cores in a group can report
-    different results.
-- Patches 12, 13: read the CPU group mask only once in the *_list show
-  functions (Sashiko).
-- Patch 16: fix typos; say "group" instead of "core"; use the real
-  attribute name addnl_details in the commit message; describe what
-  happens with offline CPUs instead of requiring all CPUs in a group
-  to be online (Sashiko).
-
-v1: https://lore.kernel.org/all/20261026183820.129459-1-ehab.ababneh@intel.com/
-
-Ehab Ababneh (1):
-  platform/x86/intel/ifs: Warn if a group test fails with CPUs missing
-
-Jithu Joseph (7):
-  platform/x86/intel/ifs: Refactor Array BIST function interface
-  platform/x86/intel/ifs: Enumerate the bit to determine if CPUs need to
-    join for IFS tests
-  platform/x86/intel/ifs: Select CPUs from topology_cluster_cpumask()
-    for simultaneous IFS tests
-  platform/x86/intel/ifs: Track and report scan results on a per-CPU
-    basis
-  platform/x86/intel/ifs: Add new sysfs interfaces {status, details,
-    cpus_ran}_list
-  platform/x86/intel/ifs: Add additional details sysfs interface
-  platform/x86/intel/ifs: Add Intel Diamond Rapids server support
-
-Qiuxu Zhuo (8):
-  platform/x86/intel/ifs: Revert SBAF feature
-  platform/x86/intel/ifs: Fix IFS sysfs interfaces in the comments
-  platform/x86/intel/ifs: Clarify In-Field Scan MSR bit macro
-    definitions
-  platform/x86/intel/ifs: Use u64 to define the bits of IFS MSR
-    registers
-  platform/x86/intel/ifs: Early return on the IFS image hash/chunk error
-  stop_machine: Add stop_cluster_cpuslocked() for per-cluster operations
-  platform/x86/intel/ifs: Update IFS documentation
-  Documentation/ABI: Update IFS ABI doc
-
-Tony Luck (1):
-  platform/x86/intel/ifs: Remove limit on number of batch files
-
- .../ABI/testing/sysfs-platform-intel-ifs      |  33 +-
- arch/x86/include/asm/msr-index.h              |  17 +-
- drivers/platform/x86/intel/ifs/core.c         |  59 ++-
- drivers/platform/x86/intel/ifs/ifs.h          | 229 ++++-----
- drivers/platform/x86/intel/ifs/load.c         |  52 +-
- drivers/platform/x86/intel/ifs/runtest.c      | 450 ++++++++----------
- drivers/platform/x86/intel/ifs/sysfs.c        | 109 ++++-
- include/linux/stop_machine.h                  |  15 +
- include/trace/events/intel_ifs.h              |  27 --
- kernel/stop_machine.c                         |  35 +-
- tools/arch/x86/include/asm/msr-index.h        |  14 +-
- 11 files changed, 531 insertions(+), 509 deletions(-)
-
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+diff --git a/arch/x86/include/asm/msr-index.h b/arch/x86/include/asm/msr-index.h
+index addbcdd02b9b..fcf58e1b381f 100644
+--- a/arch/x86/include/asm/msr-index.h
++++ b/arch/x86/include/asm/msr-index.h
+@@ -277,12 +277,12 @@
+ #define MSR_IA32_POWER_CTL_BIT_EE	19
+ 
+ /* Abbreviated from Intel SDM name IA32_INTEGRITY_CAPABILITIES */
+-#define MSR_INTEGRITY_CAPS			0x000002d9
+-#define MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT      2
+-#define MSR_INTEGRITY_CAPS_ARRAY_BIST          BIT(MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT)
+-#define MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT	4
+-#define MSR_INTEGRITY_CAPS_PERIODIC_BIST	BIT(MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT)
+-#define MSR_INTEGRITY_CAPS_SAF_GEN_MASK	GENMASK_ULL(10, 9)
++#define MSR_INTEGRITY_CAPS				0x000002d9
++#define MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST_BIT	2
++#define MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST		BIT(MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST_BIT)
++#define MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST_BIT	4
++#define MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST		BIT(MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST_BIT)
++#define MSR_INTEGRITY_CAPS_SAF_GEN_MASK			GENMASK_ULL(10, 9)
+ 
+ #define MSR_LBR_NHM_FROM		0x00000680
+ #define MSR_LBR_NHM_TO			0x000006c0
+diff --git a/drivers/platform/x86/intel/ifs/core.c b/drivers/platform/x86/intel/ifs/core.c
+index 574f2a366d06..85a04ecc9dbe 100644
+--- a/drivers/platform/x86/intel/ifs/core.c
++++ b/drivers/platform/x86/intel/ifs/core.c
+@@ -32,12 +32,12 @@ ATTRIBUTE_GROUPS(plat_ifs_array);
+ bool *ifs_pkg_auth;
+ 
+ static const struct ifs_test_caps scan_test = {
+-	.integrity_cap_bit = MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT,
++	.integrity_cap_bit = MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST_BIT,
+ 	.test_num = IFS_TYPE_SAF,
+ };
+ 
+ static const struct ifs_test_caps array_test = {
+-	.integrity_cap_bit = MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT,
++	.integrity_cap_bit = MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST_BIT,
+ 	.test_num = IFS_TYPE_ARRAY_BIST,
+ };
+ 
+diff --git a/tools/arch/x86/include/asm/msr-index.h b/tools/arch/x86/include/asm/msr-index.h
+index a65cfa7a10e4..2a243fda4e5c 100644
+--- a/tools/arch/x86/include/asm/msr-index.h
++++ b/tools/arch/x86/include/asm/msr-index.h
+@@ -275,12 +275,12 @@
+ #define MSR_IA32_POWER_CTL_BIT_EE	19
+ 
+ /* Abbreviated from Intel SDM name IA32_INTEGRITY_CAPABILITIES */
+-#define MSR_INTEGRITY_CAPS			0x000002d9
+-#define MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT      2
+-#define MSR_INTEGRITY_CAPS_ARRAY_BIST          BIT(MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT)
+-#define MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT	4
+-#define MSR_INTEGRITY_CAPS_PERIODIC_BIST	BIT(MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT)
+-#define MSR_INTEGRITY_CAPS_SAF_GEN_MASK	GENMASK_ULL(10, 9)
++#define MSR_INTEGRITY_CAPS				0x000002d9
++#define MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST_BIT	2
++#define MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST		BIT(MSR_INTEGRITY_CAPS_PERIODIC_ARRAY_BIST_BIT)
++#define MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST_BIT	4
++#define MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST		BIT(MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST_BIT)
++#define MSR_INTEGRITY_CAPS_SAF_GEN_MASK			GENMASK_ULL(10, 9)
+ 
+ #define MSR_LBR_NHM_FROM		0x00000680
+ #define MSR_LBR_NHM_TO			0x000006c0
 -- 
 2.43.0
 
