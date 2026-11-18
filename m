@@ -1,91 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794997719;
-	b=nuJzu+ml7z3kwNZTRdasYcTgLVtk5BNhjQ0iNd7vYRsAa6yps1VWV6E72QH/sFCXv2yt
-	 HojzhsKD+6nmZsFRVleSDkH76Ur8/SfSDiQMttVTZ6ObbAasPuZQspNJEcSxdbdldRjYI
-	 bISDin5kpvhLs4uH6xdW+itsOeHZOiMPvSdGCZR3Pan0lyAR26b6z1guBLyD+D64o0v98
-	 SUKaj6RssnoiZiwFGx3iceJYKnMqU4ebNOsjTWoFBhTtQFK3HCSoid3/0lSQskxLIwIQ7
-	 86QeNrlseI/y0I0wKcXQU+1VC0IvzuMwVXzTfLBy7NgECdRtks5PDYFK0SevIKLozow==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997719;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-	b=veiU6knkZGSSR/0wyLJmXhSSIcTxAbJsLRze9rr0PlXh164ItAdDA6Q5Fslz1FQnCHHu
-	 MwWznC7TNyKHPWs5icSbV2DHDan6nutxNnpvSVOp535nAJigtCvGusaAs1M8OBaP/F9hd
-	 7Qm1zsLZdXEiDoGIe7lEnvfmxNewvikyWia+MJfDhrF/eihNefkFtbE5tTqkYIeoUSNEM
-	 oJAXM6ZQqiBCbiJJ++CwNxRcK8weSFv4T72hzHMzvOqWd9Rgkyizn2j0AXyyXankd/CPg
-	 7cLhApRa/1r2D1khd6R7T0ReFCenzyNOaBGjoi95C8JGTjp2UGoFNS/3XJFJNeBZ9/g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hartkopp.net;
-	spf=fail smtp.mailfrom=hartkopp.net;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=lDG9J8mG;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=222K0LPy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.50
-Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.50])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794997767;
+	b=OOlWzCKD74JpeAFgxf3ZQ/Kd6yFHk5CkXdZiVqhM8zTkMUI6yw7KJotP0d6jFiWVlELI
+	 ROgkUvlaVBwTi+FZjglYkLyr/WKCC9WncJTgy7TKWAcVw2vU0G8KCWDofhRUePFDM4ogK
+	 cDXG+3Ni4vD137YKI9qdZYHtF6VfJzoyPw3qQYVBWVNgUxRvRtfqyvcsbAI8cmCX4Q+v9
+	 XOXCtk/BXDXQnGqGMK2PN77GY3SmRjoe9RDPgcV5kJOQ6q9CvkUWzq/tvp0RCVml8BhFL
+	 L8SHXVCGgRcwGqvf4p/8T0XOelhibszP1K3nsXuUXiRpz1SYshleMZ9Ieq1CZ2SH55A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997767;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=;
+	b=cdpCID+NSYaZfo70oXjWTSnGzrYN7Yddd4hwUEDmmRxUHejyIHHIVCTVAYwuGSQtvhUu
+	 kECV4KWOEiJZsFyOuA3z1i49Sjoej8iS4mR7yC/dmQSqFAWHIC3FQwaqYYQZB3H5g75VG
+	 m4OVpJfmTEqN5vYU86PaGo8ZsQK/+88wN8utGBRP5hQQQU8EyqvYgYCKzk7FoxCnr8RZg
+	 1lH7NPyfxjmHLDDpRXokwR+aGK0zPXw6DycCrrZFczZFwM4R1mRnVMktLAocNAzYGJZhq
+	 OQMitXpITJ+FIg19gU+82oqOXQFqqI3sg1lchMzSRduVK8V4knH0x6d6fXuYoVxe4HQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D4Nn3l1f;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J18DB677;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C46F2606A334;
-	Wed, 18 Nov 2026 10:28:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C46F2606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hartkopp.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=hartkopp.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95640606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:29:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95640606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=lDG9J8mG;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=222K0LPy
-ARC-Seal: i=1; a=rsa-sha256; t=1794997714; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=T0oG06Hasto73lK69x61uGBrhtqGnNFBa+C1mkaqvH11Y/vXWbEahYixMEI4R0zV45
-    To1NjurFZhBhaCc3cNM47sySnIhQykA5mOPVdaMcN+38lr+KCwKFPgU8GNtlakH7zWRe
-    +eySaMuQ4HAVW0W6iNV9TPT3cHa/2dgkhcnpQP+Pj8P9A2mZX4dzkXLG9Nh6+DdtrTmB
-    nOdU8XymawSiPh1vArtxUbltKV9/MbdbsHHGJZl9bxE5/eHT3Conn6JwvnXaHsREInHL
-    1PVnVRpmEbs0IUaPkqar3QBdUy3lXqYGWFxwQpPDZDqh/mUvZQcsGVaBqxju9NJ313ov
-    39fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1794997714;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-    b=bb2ueOovuYxjLdsBZIYMu82QszoGh6PLGKUCOa6w8/v8iPGPwgtpF5trGKtS8h8ZbN
-    qAzSGUAsdWvnWPrw9zzsYbbRI0E2HLtlGjwCKISdi1qlPWNNkyys0+A8iUtXxuncG84c
-    IA2vm3w1yDqZytqJ27E+TQ/hPastQTvY+2L/UWfoyXOnX2cTwr9WISWJfqAwfomNCJbq
-    KfPrtg5lwVMTRD2jnaIUFcsE2W16SIcJJMPkOxvVPi/HVs4sNB2llBp3A1/yMLi8qlaf
-    WzzaS32q6FFox5eAQHM1MTxk5mN778tqsLjAZLOdpC7jLQ2e5gHWoLg5hBfEOKBQfgj0
-    aXSw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794997714;
-    s=strato-dkim-0002; d=hartkopp.net;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-    b=lDG9J8mG9/fgAF3U6xqk1cDW5Fr2J9m7gOeFDbMWw/FKR1U24O/bRBdCDam5378j6+
-    O/8nJl24sjX3IkEj63oYVrFcHGlXMjjOM8iOSsHF1vxoucXUCdBPSauLUD18+7altBmb
-    zmHdvTTx+ikM4jns2lRqKg8wLleRieua7v9+7OuJ/wQyR+pdjEcQm3k9DWZZn/dpzAnG
-    SNOeLjW63zMQwKB/b+jeZ8wpVMQ4id7AlSwwwPw0+dxMx7ZwKqSQ9XLMtdW6lBciVuCR
-    NkicXY3WldO7NMWiolTUYeQSmwTi5Av34B0YsGIqAf3WjD0i5A/NDG3rB5fJqgiNTOaM
-    CKhw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794997714;
-    s=strato-dkim-0003; d=hartkopp.net;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-    b=222K0LPyRcXb5rR5wPa448LSKh9eOkw8Tls2plCXCsq/hEGmR7tQre9PkcdanGWgSE
-    DusmpnyK8vbh8EdKHSCA==
-X-RZG-AUTH: ":P2MHfkW8eP4Mre39l357AZT/I7AY/7nT2yrDxb8mjH4JKvMdQv2tTUsMrZpkO3Mw3lZ/t54cFxeEQ7s8bDup0Q=="
-Received: from [IPV6:2a00:6020:4a38:6810::989]
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id Kfdf2a2AIASYFIt
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 18 Nov 2026 11:28:34 +0100 (CET)
-Message-ID: <5884daae-c820-4e2b-b5d1-7ac2dfb6013a@hartkopp.net>
-Date: Wed, 18 Nov 2026 11:28:29 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D4Nn3l1f;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J18DB677
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kAYJ2398742
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:29:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=; b=D4Nn3l1febtFyFRi
+	pjY89QCokUB76gdIDWbw/Jlk2J2fk/Lkphk6iJW4JJRmCCtq8eTHfdWy464JwlwC
+	s5eclJPHNEJKDxXMGplCyXEQU39bmxmXJSNVBlSa4AVZzm4/PVzI4vHFgqbBfsDK
+	rLMg9Zqo9CMqcOxWOMuLeFVokEVcp0JenBm8AEy0nuQODmRZrOfYn/psrGUvZgbz
+	ZL/uP+nYACkMN94hCrPb1eaPeqbMcmv5gO7VNgsTnh1WkREz76uVbpaxhSvOeKkd
+	gTNyzgDL4qmmqYe9JrGgrPHK2ER5BbLtDG6K/p7H38mWQx3ROy7ajCI9nVh+WmNg
+	eks9sQ==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv92jmd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:29:25 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2ed2c307e62so11132665ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:29:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794997765; x=1795602565; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=;
+        b=J18DB677osKq2zpxOq6sSxfpANEcR08Tjnl0NrdRgo9kAa2dEz8aHjUrneXm78uz1d
+         r0rVORWgAnPIE7/avsfqAqbihLb1ZfFwBtr3GNKBUuOqERwnyd/sWtxy9sJGNQugB7yp
+         moOF4o4QC3VBL/qslMIAk4VRwhmvLVjGsKzghsxHqXgX/ATZ6X4IAaoB0LikXfZpisG+
+         p4SDN/JuPNneZfy1siQFrDNbvLRtsRD+BV22zHLMNNCpW16Pty+sYnzuuqzlH0qJqkSJ
+         JL263jJ38IqlaHk6gkj0eXjUDnSzs/KM/9NWhdmEcWPi7dcZLBSSYSPjIAobGGc7Emd6
+         EDdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794997765; x=1795602565;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=;
+        b=F5nX1Gdb18UEv1cMFBN9RLosN0z2wCRe9wXbpME8AfjqcS4dayWmqsL909BItsNdkF
+         1FO3fPeIEMqlHNo97RoMUO3yqzhZtXS3lE41EpHd7Jn5tzF4k/mvk3BqovDC3KqHrigr
+         If0FR5p0Z3Jt1jHL+QfC2Nl/Y51/snB19qhrU4IH1onqlbRSqZS9vKdiBPvRU5ByTGd1
+         a2gER9vxD2kFXzYv9lOzFRo6z3Ng2WuMxRyRTTEqQ1grdxaO+SZFhYRXU/b+BAVNG8vM
+         GPLAY5vBv6onMoIKrJSHftqQ0pWIph3wA4i0QB9nuCF2wxT+5FamxAI+3ecNGobfO1Q/
+         W4Lg==
+X-Forwarded-Encrypted: i=1; AL+hErGnGlcpus2CFrbH6T/QQwSUqKcCI378xdk4Pv8ikoq9Qj080mAPAgEqAIw3c7KADOjuzxbyh4PO2L08fTE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/QBq1Hj183nDyO2f3m08W/mCan/S7SQrkOdPyVlcO8sQauhJf1
+	Mds/PNnYyI13Ox4IB2j6qBAYFSpamQkdWGq1T5lnTDxo14a/ruI6ijfC3iPK04COaTPLjuVzPhs
+	rg/PByo2qJFhtk/3YqSGyUyyViW6Em1qX2wGJ2UDqi6hy8DYh79+8WCqcoNMPW4ycMpM=
+X-Gm-Gg: AZFdTZf7+K1YbW7fKQshYFfmY8iyE4LukJSk3f2wFY9c5Dds25DfpQJwGvGtSmWjZ1Z
+	k7rezoSVdWRCLD1sO2mTsH4bG/W5Ul6jSd4np29aBwzXbF2kKbFtzmgLjpJWCacsezi6ghK3LQ1
+	hqB7/ItYsFOi9rKNdLBn905cqzV6k7Xed4hdKCkOW0Elahq5DEUVcb0rAfaiFwpbsiEygscPeLF
+	q8fvK8rahBWQVnyi5AGGedfS/pbdK7O7nlNuheZ3axNYZu5PrCnIUnY6/mGBS1HYQ0NzoXcITl9
+	VP2ha6CJaOSpZyWvT/HI247t35gyjEI2dvit0szry8Xknf02xhEE0nDWT/G7ZtW0KA4yxaAQFr5
+	ml9EYT1AkGL1KbLjRXSqOtWYNz9xce+/qjZsrNXzWWCEgRbueN0TJ8lSG6Q3TYybs860YdJOGem
+	kHGMLi4rIXYJp6d3t7Zk+N7y9Inb8mF5yIG5otayeAwnsBw8KcB9/sIRlVIlD2HQ==
+X-Received: by 2002:a17:903:244f:b0:2ed:379:158d with SMTP id d9443c01a7336-2eff73f1eefmr24169825ad.9.1794997764914;
+        Wed, 18 Nov 2026 02:29:24 -0800 (PST)
+X-Received: by 2002:a17:903:244f:b0:2ed:379:158d with SMTP id d9443c01a7336-2eff73f1eefmr24169625ad.9.1794997764427;
+        Wed, 18 Nov 2026 02:29:24 -0800 (PST)
+Received: from [10.149.122.146] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6115452sm11186825ad.16.2026.11.18.02.29.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 02:29:23 -0800 (PST)
+Message-ID: <cc64e5f0-fb82-41eb-8f26-6dfab7cd0791@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 15:59:18 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,84 +117,278 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH can-next v2] can: bcm: Document cyclic transmission
- failures
-To: raoxu <raoxu@uniontech.com>
-Cc: mkl@pengutronix.de, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, corbet@lwn.net, horms@kernel.org,
- skhan@linuxfoundation.org, rdunlap@infradead.org, linux-can@vger.kernel.org,
- netdev@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
+Subject: Re: [PATCH v2 3/4] remoteproc: qcom: pas: Add coredump support for
+ secondary processors
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+References: <20261015-oob-support-glymur-v2-0-715435f52dd7@oss.qualcomm.com>
+ <20261015-oob-support-glymur-v2-3-715435f52dd7@oss.qualcomm.com>
+ <20261117081011.jcuxog7ixwbfbyce@hu-mojha-hyd.qualcomm.com>
 Content-Language: en-US
-From: Oliver Hartkopp <socketcan@hartkopp.net>
-In-Reply-To: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Anvesh Jain P <anvesh.p@oss.qualcomm.com>
+In-Reply-To: <20261117081011.jcuxog7ixwbfbyce@hu-mojha-hyd.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0MSBTYWx0ZWRfXwjBkH8ad9HOe
+ ElCrx197jcEEYY9p41UtG6UrRik41dp8VJVggVc7IIbtLimXZ/WY/9Rjc3CVXfvQuOV//4n8Ep/
+ FKetDknWEamuky+Izm7Fa8yLodFR+XAUxG2/rw68ETqhMd+sV5er5n0aqsTf3B37lDHo34jGIxw
+ NuXSKDqqwRBhlD5BVVK61e5FsH3g96ZuRIOXoXI7LXMz+KIPb/1kUJe2h7wRkvVBaKq9UaXXm/F
+ oasBvkU+2VXpH3caT6TiWWm+keF4uwpm82fGiJ6HDbfgol8qnuCc4UyDF770ZXpjWCoFGP97F46
+ CJNcfq9l6IGg6YVIxaaaJ1KF0E+YnBLPsuHhCP3BQrdi/oH0mJBHAsTCyxrjSHhsDcyxlXvBybf
+ bKrmnORxhRs7U2vhbCcAH9cGSsgxn2gOvWUSSfc8PpAO0Gnm/yrooXQevU9k5O1jvQSEnQw4bH0
+ hdevGjHH78bCQ8WCxuA==
+X-Proofpoint-GUID: 9KeIj8Zd9Zd1JgOzcqpvrzgkf6NDziXB
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0MSBTYWx0ZWRfXy2SjhZw2NzB1
+ qIE3zBuHlPqF63eNpHF+KqClg1IyYCEtqInLulW6q1x5O3ses+SP0BZOd//FgAQV+VpHNSCg5t/
+ Zu1YlzGqmImnV809VUIWUZ5Y7bXLZfE=
+X-Authority-Analysis: v=2.4 cv=LuQHWXdc c=1 sm=1 tr=0 ts=6afd7e05 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=xb-HvuPonZpJoasvX4gA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-ORIG-GUID: 9KeIj8Zd9Zd1JgOzcqpvrzgkf6NDziXB
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 malwarescore=0 suspectscore=0 clxscore=1015
+ adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180041
 
 
 
-On 18.11.26 10:19, raoxu wrote:
-> From: Xu Rao <raoxu@uniontech.com>
+On 11/17/2026 1:40 PM, Mukesh Ojha wrote:
+> On Thu, Oct 15, 2026 at 11:25:51AM +0530, Anvesh Jain P wrote:
+>> Add coredump support for PAS remoteproc instances with a secondary
+>> processor by registering fixed dump segments for both primary and
+>> secondary carveouts at probe time and mapping them during collection.
+>> The attached-state path is for debug dump collection and does not
+>> provide operational device recovery.
+>>
+>> Signed-off-by: Anvesh Jain P <anvesh.p@oss.qualcomm.com>
+>> ---
+>>  drivers/remoteproc/qcom_q6v5_pas.c | 102 +++++++++++++++++++++++++++++++++----
+>>  1 file changed, 91 insertions(+), 11 deletions(-)
+>>
+>> diff --git a/drivers/remoteproc/qcom_q6v5_pas.c b/drivers/remoteproc/qcom_q6v5_pas.c
+>> index 0bce2f0d5b4a..374cafd04b62 100644
+>> --- a/drivers/remoteproc/qcom_q6v5_pas.c
+>> +++ b/drivers/remoteproc/qcom_q6v5_pas.c
+>> @@ -117,6 +117,7 @@ struct qcom_pas {
+>>  	phys_addr_t region_assign_phys[MAX_ASSIGN_COUNT];
+>>  
+>>  	void __iomem *mem_region;
+>> +	void __iomem *secondary_mem_region;
+>>  
+>>  	size_t mem_size;
+>>  	size_t dtb_mem_size;
+>> @@ -162,6 +163,28 @@ static void qcom_pas_segment_dump(struct rproc *rproc,
+>>  	memcpy_fromio(dest, pas->mem_region + total_offset, size);
+>>  }
+>>  
+>> +static bool qcom_pas_has_secondary(const struct qcom_pas *pas)
+>> +{
+>> +	return pas->secondary_pas_id && pas->secondary_dtb_pas_id;
+>> +}
+>> +
+>> +static int qcom_pas_register_dump_segments(struct rproc *rproc,
+>> +					   struct qcom_pas *pas)
+>> +{
+>> +	int ret;
+>> +
+>> +	ret = rproc_coredump_add_segment(rproc, pas->mem_phys, pas->mem_size);
+>> +	if (ret)
+>> +		return ret;
 > 
-> The CAN broadcast manager continues its configured cyclic transmission
-> schedule even when a CAN frame cannot be passed to the configured
-> network interface.
-> 
-> Such failures are not reported to user space. The failed transmission
-> is not retried by the broadcast manager, the timing remains unchanged,
-> and a non-zero count is decremented.
-> 
-> As a result, a TX_EXPIRED notification requested with TX_COUNTEVT
-> indicates that the configured transmissions at ival1 have been
-> processed, not that they were successfully sent.
-> 
-> Document this behavior to prevent applications from treating TX_EXPIRED
-> as confirmation of successful transmission.
-> 
-> Suggested-by: Oliver Hartkopp <socketcan@hartkopp.net>
-> Signed-off-by: Xu Rao <raoxu@uniontech.com>
+> Why qcom_register_dump_segments() already does this ? why need to
+> add entire region ? please modify qcom_register_dump_segments()
+> according to your need.
+>
 
-Acked-by: Oliver Hartkopp <socketcan@hartkopp.net>
+Ack, I will remove the whole-carveout segment and use
+qcom_register_dump_segments() for the firmware segments.
 
-Many thanks,
-Oliver
+>> +
+>> +	ret = rproc_coredump_add_segment(rproc, pas->secondary_mem_phys,
+>> +					 pas->secondary_mem_size);
+>> +	if (ret)
+>> +		rproc_coredump_cleanup(rproc);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>>  static void qcom_pas_minidump(struct rproc *rproc)
+>>  {
+>>  	struct qcom_pas *pas = rproc->priv;
+>> @@ -577,16 +600,38 @@ static int qcom_pas_stop(struct rproc *rproc)
+>>  static void *qcom_pas_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem)
+>>  {
+>>  	struct qcom_pas *pas = rproc->priv;
+>> -	int offset;
+>> +	phys_addr_t base;
+>> +	void __iomem *region;
+>> +
+>> +	if (da >= pas->mem_reloc && len <= pas->mem_size &&
+>> +	    da - pas->mem_reloc <= pas->mem_size - len) {
+>> +		base = pas->mem_reloc;
+>> +		region = pas->mem_region;
+>> +	} else if (da >= pas->mem_phys && len <= pas->mem_size &&
+>> +		   da - pas->mem_phys <= pas->mem_size - len) {
+>> +		base = pas->mem_phys;
+>> +		region = pas->mem_region;
+>> +	} else if (da >= pas->secondary_mem_reloc &&
+>> +		   len <= pas->secondary_mem_size &&
+>> +		   da - pas->secondary_mem_reloc <= pas->secondary_mem_size - len) {
+>> +		base = pas->secondary_mem_reloc;
+>> +		region = pas->secondary_mem_region;
+>> +	} else if (da >= pas->secondary_mem_phys &&
+>> +		   len <= pas->secondary_mem_size &&
+>> +		   da - pas->secondary_mem_phys <= pas->secondary_mem_size - len) {
+>> +		base = pas->secondary_mem_phys;
+>> +		region = pas->secondary_mem_region;
+>> +	} else {
+>> +		return NULL;
+>> +	}
+>>  
+>> -	offset = da - pas->mem_reloc;
+>> -	if (offset < 0 || offset + len > pas->mem_size)
+>> +	if (!region)
+>>  		return NULL;
+>>  
+>>  	if (is_iomem)
+>>  		*is_iomem = true;
+>>  
+>> -	return (__force void *)pas->mem_region + offset;
+>> +	return (__force void *)region + (da - base);
+>>  }
+>>  
+>>  static int qcom_pas_parse_firmware(struct rproc *rproc, const struct firmware *fw)
+>> @@ -598,10 +643,21 @@ static int qcom_pas_parse_firmware(struct rproc *rproc, const struct firmware *f
+>>  	size_t table_sz;
+>>  	int ret;
+>>  
+>> -	ret = qcom_register_dump_segments(rproc, fw);
+>> -	if (ret) {
+>> -		dev_err(pas->dev, "Error in registering dump segments\n");
+>> -		return ret;
+>> +	if (qcom_pas_has_secondary(pas)) {
+>> +		if (list_empty(&rproc->dump_segments)) {
+>> +			ret = qcom_pas_register_dump_segments(rproc, pas);
+>> +			if (ret) {
+>> +				dev_err(pas->dev,
+>> +					"failed to register dump segments: %d\n", ret);
+>> +				return ret;
+>> +			}
+>> +		}
+>> +	} else {
+>> +		ret = qcom_register_dump_segments(rproc, fw);
+>> +		if (ret) {
+>> +			dev_err(pas->dev, "Error in registering dump segments\n");
+>> +			return ret;
+>> +		}
+>>  	}
+>>  
+>>  	if (!rproc->has_iommu)
+>> @@ -716,13 +772,21 @@ static void qcom_pas_coredump(struct rproc *rproc)
+>>  {
+>>  	struct qcom_pas *pas = rproc->priv;
+>>  
+>> -	pas->mem_region = qcom_pas_ctx_map(pas->pas_ctx);
+>> +	if (!pas->mem_region)
+>> +		pas->mem_region = qcom_pas_ctx_map(pas->pas_ctx);
+>>  	if (!pas->mem_region)
+>>  		return;
+>>  
+>> +	if (qcom_pas_has_secondary(pas) && !pas->secondary_mem_region) {
+>> +		pas->secondary_mem_region =
+>> +			qcom_pas_ctx_map(pas->secondary_pas_ctx);
+>> +		if (!pas->secondary_mem_region) {
+>> +			dev_err(pas->dev, "unable to map secondary memory for coredump\n");
+>> +			return;
+>> +		}
+>> +	}
+>> +
+>>  	rproc_coredump(rproc);
+>> -	iounmap(pas->mem_region);
+> 
+> There was a region it was unmapped once done to avoid speculative fetch access.. we can't keep
+> it mapped all the time..
+>
+>
 
-> ---
-> Changes in v2:
-> - Target can-next as requested by Oliver Hartkopp.
-> - Adopt Oliver's suggested wording describing transmission failures
->    from the user's perspective.
-> - Clarify the TX_EXPIRED notification semantics and scope the lack of
->    retries to the broadcast manager.
-> - Remove implementation details and redundant descriptions.
+Ack, I’ll unmap the PAS region after coredump collection.
+
+>> -	pas->mem_region = NULL;
+>>  }
+>>  
+>>  static const struct rproc_ops qcom_pas_ops = {
+>> @@ -1133,6 +1197,12 @@ static int qcom_pas_probe(struct platform_device *pdev)
+>>  	if (desc->early_boot)
+>>  		pas->rproc->state = RPROC_DETACHED;
+>>  
+>> +	if (qcom_pas_has_secondary(pas)) {
+>> +		ret = qcom_pas_register_dump_segments(rproc, pas);
+>> +		if (ret)
+>> +			goto remove_ssr_sysmon;
+>> +	}
 > 
-> This documentation-only update follows the review of v1. The earlier
-> proposal to change BCM transmission accounting was dropped.
+> For early boot, we don't even have support for the primary image
+> itself for the first crash as we did not load for its first boot
+> up. So, this is new and you don't have check why do we need it in
+> probe whether it is early booted subsystem or loaded by linux
+> Also, not sure if it is right to dump entire memory region.
+>
+
+
+Ack, I will remove probe-time registration and add only firmware-derived
+dump segments when the firmware is available.
+
+>> +
+>>  	ret = rproc_add(rproc);
+>>  	if (ret)
+>>  		goto remove_ssr_sysmon;
+>> @@ -1144,6 +1214,7 @@ static int qcom_pas_probe(struct platform_device *pdev)
+>>  	return 0;
+>>  
+>>  remove_ssr_sysmon:
+>> +	rproc_coredump_cleanup(rproc);
+>>  	qcom_remove_ssr_subdev(rproc, &pas->ssr_subdev);
+>>  	qcom_remove_sysmon_subdev(pas->sysmon);
+>>  deinit_remove_pdm_smd_glink:
+>> @@ -1169,6 +1240,15 @@ static void qcom_pas_remove(struct platform_device *pdev)
+>>  		of_platform_device_destroy(&pas->bam_dmux->dev, NULL);
+>>  
+>>  	rproc_del(pas->rproc);
+>> +	rproc_coredump_cleanup(pas->rproc);
+>> +	if (pas->secondary_mem_region) {
+>> +		iounmap(pas->secondary_mem_region);
+>> +		pas->secondary_mem_region = NULL;
+>> +	}
+>> +	if (pas->mem_region) {
+>> +		iounmap(pas->mem_region);
+>> +		pas->mem_region = NULL;
+>> +	}
+>>  
+>>  	qcom_q6v5_deinit(&pas->q6v5);
+>>  	qcom_pas_unassign_memory_region(pas);
+>>
+>> -- 
+>> 2.34.1
+>>
 > 
->   Documentation/networking/can.rst | 8 ++++++++
->   1 file changed, 8 insertions(+)
-> 
-> diff --git a/Documentation/networking/can.rst b/Documentation/networking/can.rst
-> index 51bc70748f75..ae47f40bf456 100644
-> --- a/Documentation/networking/can.rst
-> +++ b/Documentation/networking/can.rst
-> @@ -892,6 +892,14 @@ only one timer is needed 'count' is set to zero and only 'ival2' is used.
->   When SET_TIMER and START_TIMER flag were set the timers are activated.
->   The timer values can be altered at runtime when only SET_TIMER is set.
-> 
-> +If a CAN frame cannot be passed to the configured CAN network interface
-> +(e.g. due to a full transmit queue or the interface being down), this
-> +failure is not reported to user space. The transmission sequence
-> +continues as configured: the frame is not retried by the broadcast
-> +manager, the timing remains unchanged, and a non-zero ``count`` is
-> +decremented anyway. Therefore, a ``TX_EXPIRED`` notification (requested
-> +with ``TX_COUNTEVT``) only indicates that the ``count`` transmissions
-> +at ``ival1`` have been processed, not that they were successfully sent.
-> 
->   Broadcast Manager message sequence transmission
->   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> --
-> 2.50.1
-> 
+
+-- 
+Best Regards,
+Anvesh
 
