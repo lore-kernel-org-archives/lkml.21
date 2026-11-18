@@ -1,78 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.152
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794970035;
-	b=4r8/ORa1wdnuHXhowwgmzE4uz46ECyqfxi3EpDkicMk27v/l6yVNeTuJFG99Ey+9Q82S
-	 CLzO5LE3TLrGvQH71vtRxJY3RnM+fuD/4Nx1xFtmzDHQl/xAQZ6uZrM5bQDQ1T/9wnbGE
-	 npvRyi2VGuh8+zqtCnnugRW51tZA4dU9J5d4rhuuYNhMax64DtW8iNudxWKkl1vr0bXwd
-	 A4OEmEY/46tVwSpVRb+f6A9aQV2mc+su2KQ0+A6J1o2pFHjHou7kFSIG01cy6nMWUrjNk
-	 EKoUBmKcaJZLm2f3ak6A3oBqC/AlpbBl6xxzEyVnJTbMJ5SH9wueIx6CaLvefe6WU/w==
+	t=1794970071;
+	b=Ah3W+rH8VdQDlgIN9VYuVXaJaebKLAroKNRh3OBiELi/vV5Vt2wj8mdQccg+Z2sA2vdm
+	 zWiCsa/8NN1Y8mcnqjzwSVq7Ry1srTFURWQh6x8EIX5qI4icMZ861UOAVdbnP5OMRsGPF
+	 VklUdq03oxZDCy5D5GMcev3caKjpNqBgZkKlFKZlVlOOxIbiL76ehTGOTTRMQTcosa6Nk
+	 TjE5HtmFo3tnwiImpLy25qkJO3569pLHeecjBwwVhoNszk5QDZnxgEDMPrCyoyykmStg+
+	 VfOk9U80EpZIvaxa0L1N9bOc3gR8XiUUgJy/xFJa8R145UMW4xmz1MPo//yKJqlgJSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794970035;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent;
-	bh=UeoDPoEUiCk3ZfbvHj7TK+CmAIbTDwO73lZ5hpUkjlQ=;
-	b=lu6mQeiSa2Xam0lut+kUS7pHK+t4xHBcsOSDotFltF+q//5b0TlTjose3voq4Xd1najn
-	 PSw3uBzwZD/iXs0/PryAn5N+72bzcrGQ6L5oHPMZW9fPLE4PMbmJSgDFBYIMw4HbL6SKr
-	 zabd8vHHDTsIF6pC0g/EESfa6ULxga0z3JbhcEMLow+7NUriKHPNnrfQWF8ScB8qtp0Tn
-	 8fQ0jIP52eAEyfdOH0avYOsHQMBZATsY7L2Z8gICBex/y4TQ71uQ1OQm7qnHpdzSWSN+L
-	 D/yi/Jpx9TrW9TKSPz4cP469mCsNEKbiTEj1Rk43Fsxh6jU3PgSsyhqG4a30D7DuNUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794970071;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=DvXJcTGrWQH7Z0QlV+55M/z9iw2Exbd9dATeTnNEbhw=;
+	b=fnkXXZvINwmbQhSnK/1kRkKHu6rWG7ZQHj8lkrtMTzfkDywTRucN+Fy8vEolE4vqSdO+
+	 vfuqvijVvEqpKKUTqQQ56JIG8UW3RZsiShzCnFrhEIFobjjXOWFobn84Oapd8vZ78qEdg
+	 2LtK6YPZ9LiRpEjkh6zrJ0nsxKLnVTZm1FWELqheaTfpFR+UgUUryJefuIi32le8yR7YT
+	 GSYhcihdSSAs7cD52yhns6OBf7Qqu23BVjR2NVbh+irQdcVLaMdpU3YcJNLXTCw3CTCTq
+	 PIv9f1sIrcBWVspXAsP+RK+5xUexgTse74thbjLTja9vYqDRGYn5u+x7qjTInl+V9gA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XrYKxD5s;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=timsurber.de;
+	spf=pass smtp.mailfrom=timsurber.de;
+	dkim=pass header.d=timsurber.de header.i=@timsurber.de header.a=rsa-sha256 header.s=MBO0001 header.b=IOhvuMLg;
+	arc=none smtp.remote-ip=80.241.56.152
+Received: from mout-p-102.mailbox.org (mout-p-102.mailbox.org [80.241.56.152])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2432E606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:47:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2432E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FD6D606A31C;
+	Wed, 18 Nov 2026 02:47:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FD6D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=timsurber.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=timsurber.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XrYKxD5s
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794970035; x=1826506035;
-  h=date:from:to:cc:subject:message-id;
-  bh=GdJOdEaOVAJpoIkP+7W2ptMRa40g/9AGeAGv5C+/WZU=;
-  b=XrYKxD5sRWA8GRTTeIYAa2oOzzjCtr+4a3E9lyQpk8ybGzaFbl/2p9cQ
-   x/JOq0uIGaDNe8g31Cihn7ql6Bbimnoced3QKAMyp6AA4w3+SriHoGO2D
-   81M+cjY3k7NvMz81uJvnCks/2W9XocXGnpm2oEJU4QGXOBlIY2kvL8fN8
-   KowFuO5kLVRtUq1nTjWJvMb4GFrp6a7xt6FFFFCg0kQHsRUFYZUwklgue
-   vDWvhlyytHcHe0CaHDdm/eE/lVwfMQJdaTO2dr4vdjUqxvS/UMHw4/SYG
-   IvvKfqQhV+qtwb5Zzdzx/2le8hQtLzKVqDG2C4IK1WLWd51EuezasCJ+x
-   w==;
-X-CSE-ConnectionGUID: nU0GDDRkTeKHmQr1sfnJnw==
-X-CSE-MsgGUID: /ObGazsiRcaUSE3A3h1H1g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3649262"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3649262"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 18:47:14 -0800
-X-CSE-ConnectionGUID: ydjY00hVTeCZ4oxMVwEFFw==
-X-CSE-MsgGUID: dDZyYY8zStqILFKjZuFwdA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10345922"
-Received: from igk-lkp-server01.igk.intel.com (HELO 1073a420ae3a) ([10.211.93.152])
-  by fmviesa009.fm.intel.com with ESMTP; 17 Nov 2026 18:47:12 -0800
-Received: from kbuild by 1073a420ae3a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xTVhU-000000003Iy-0r5u;
-	Wed, 18 Nov 2026 02:47:08 +0000
-Date: Wed, 18 Nov 2026 03:46:23 +0100
-From: kernel test robot <lkp@intel.com>
-To: Peter Wang <peter.wang@mediatek.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Bart Van Assche <bvanassche@acm.org>
-Subject: drivers/ufs/host/ufs-mediatek.c:1351:32-33: WARNING: Use
- ARRAY_SIZE
-Message-ID: <20261118034428.45oknqbt-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key, unprotected) header.d=timsurber.de header.i=@timsurber.de header.a=rsa-sha256 header.s=MBO0001 header.b=IOhvuMLg
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4jTmGz1CZzzKvhH;
+	Wed, 18 Nov 2026 03:47:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timsurber.de;
+	s=MBO0001; t=1794970059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=DvXJcTGrWQH7Z0QlV+55M/z9iw2Exbd9dATeTnNEbhw=;
+	b=IOhvuMLgXkz1Hkzo2ppxZp1CUzkWNUvWS51fzC5gnyf9RmPVh/Ufb76QeYOErae4M1uJAH
+	2MBJ1dFPYWCpl50x2QQmSWoB+tDQ2DlOBg9SSEcQgnLTt73+06aLrbYmGwWk77jmOmvMMS
+	bc6NlmLNDXceTfh/6IzFDNROcuxezetUNXHOTNMNuFGJe69y6Kh1duY8x8nxu/0ai5Dao8
+	XuGC/ruJgLd2yqgUouDHAa5UN8IaB5Lrb7jabKYueHnBm2/kUZzCh2htHWK2r9/Ja9jH+f
+	9+W5PO28zEuMWdY6+FiJ0jWgDgi/ktIcFl4J8Cbx07XB9FNFQCJaU+Udrusg8g==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of me@timsurber.de designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=me@timsurber.de
+From: Tim Surber <me@timsurber.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Tim Surber <me@timsurber.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?UTF-8?q?Valentin=20H=C4=83loiu?= <valentin.haloiu@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: rockchip: Fix HDMI RX 5V detection pin on CM3588 NAS
+Date: Wed, 18 Nov 2026 03:47:15 +0100
+Message-ID: <20261118024718.1540336-1-me@timsurber.de>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,57 +78,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jTmGz1CZzzKvhH
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   63fdb511c27afcebce797e3db580b3534ddfa639
-commit: 1fd05367d5b1a5edd3d14c966a5f510e5b8a0c5e scsi: ufs: host: mediatek: Adjust sync length for FASTAUTO mode
-date:   1 year, 1 month ago
-config: arm64-randconfig-r2107-20261115 (https://download.01.org/0day-ci/archive/20261118/20261118034428.45oknqbt-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project c0693becb96c1610aeb87445a50df00d58a823cd)
+The HDMI receiver node uses GPIO3_D4 both as the receiver's HPD output
+(hdmim1_rx_hpdin) and as its 5V detection input (hpd-gpios and the
+hdmirx_hpd pin group). The GPIO setting wins, so the receiver can never
+drive HPD. Sources then see HPD asserted all the time, may read the EDID
+while the driver is writing it, and never notice EDID updates.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: 1fd05367d5b1 ("scsi: ufs: host: mediatek: Adjust sync length for FASTAUTO mode")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261118034428.45oknqbt-lkp@intel.com/
+FriendlyElec's vendor device tree for the CM3588 uses GPIO1_D5, active
+low, for the 5V detection [1]. Use that pin and leave GPIO3_D4 to the
+HPD function. Tested on a CM3588 NAS with HDMI0 looped back into HDMI RX.
 
-cocci warnings: (new ones prefixed by >>)
->> drivers/ufs/host/ufs-mediatek.c:1351:32-33: WARNING: Use ARRAY_SIZE
+Link: https://github.com/friendlyarm/kernel-rockchip/blob/30d3e1c2470a7282f37b96fdd4354314dda69aa3/arch/arm64/boot/dts/rockchip/rk3588-nanopi6-rev09.dts#L299-L309 [1]
+Fixes: f9f45293f0d8 ("arm64: dts: rockchip: Enable HDMI receiver on CM3588")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tim Surber <me@timsurber.de>
+---
+Changes in v2:
+- Shorten the commit message, keep only the problem and the fix
+- Drop the cover letter
+- Capitalize "Fix" in the subject
+- Add Cc: stable
+- Link to v1: https://lore.kernel.org/linux-rockchip/20261111210059.3489502-1-me@timsurber.de/
 
-vim +1351 drivers/ufs/host/ufs-mediatek.c
+ .../boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts      | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-  1334	
-  1335	static void ufs_mtk_adjust_sync_length(struct ufs_hba *hba)
-  1336	{
-  1337		int i;
-  1338		u32 value;
-  1339		u32 cnt, att, min;
-  1340		struct attr_min {
-  1341			u32 attr;
-  1342			u32 min_value;
-  1343		} pa_min_sync_length[] = {
-  1344			{PA_TXHSG1SYNCLENGTH, 0x48},
-  1345			{PA_TXHSG2SYNCLENGTH, 0x48},
-  1346			{PA_TXHSG3SYNCLENGTH, 0x48},
-  1347			{PA_TXHSG4SYNCLENGTH, 0x48},
-  1348			{PA_TXHSG5SYNCLENGTH, 0x48}
-  1349		};
-  1350	
-> 1351		cnt = sizeof(pa_min_sync_length) / sizeof(struct attr_min);
-  1352		for (i = 0; i < cnt; i++) {
-  1353			att = pa_min_sync_length[i].attr;
-  1354			min = pa_min_sync_length[i].min_value;
-  1355			ufshcd_dme_get(hba, UIC_ARG_MIB(att), &value);
-  1356			if (value < min)
-  1357				ufshcd_dme_set(hba, UIC_ARG_MIB(att), min);
-  1358	
-  1359			ufshcd_dme_peer_get(hba, UIC_ARG_MIB(att), &value);
-  1360			if (value < min)
-  1361				ufshcd_dme_peer_set(hba, UIC_ARG_MIB(att), min);
-  1362		}
-  1363	}
-  1364	
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+index f4c34da61c4d..b2df36113d22 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+@@ -376,7 +376,7 @@ &hdmi_receiver_cma {
+ };
+ 
+ &hdmi_receiver {
+-	hpd-gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
++	hpd-gpios = <&gpio1 RK_PD5 GPIO_ACTIVE_LOW>;
+ 	pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_hpd>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+@@ -571,7 +571,7 @@ hdmi1_tx_on_h: hdmi1-tx-on-h {
+ 
+ 	hdmirx {
+ 		hdmirx_hpd: hdmirx-5v-detection {
+-			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_up>;
++			rockchip,pins = <1 RK_PD5 RK_FUNC_GPIO &pcfg_pull_up>;
+ 		};
+ 	};
+ 
 
+base-commit: a9d78db32fe78bdbe7c66ba77cb7dbb729b885de
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.55.0
+
