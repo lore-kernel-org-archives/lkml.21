@@ -1,57 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000257;
-	b=0i59u1C9f6Uhoy1zUCY8+AXpLml7MRzjECbafXLM05ETjqt41Ntk6SdHO2EH361YRiDu
-	 EkLjkFTEb3N3FdxKf69GN57Dau+Vk5tTa75YPYz1nOQ2wCr7ZDv8qMaqICjPbspfBjtId
-	 oRvVQi+X2O1nYOkMkNFOL/bbaf/bqlyqbZBgMNgAYJoplBIf3LduA0nTwhKP3R17HV7oV
-	 jQs03VPgOPZ3K7KpfyqWZtpcgiIwPCaNFLVMmr+wA+ATe5XBcBBtambjpOBI7MvImdohx
-	 BYy5MBmpSoTYADz6UYglC0DaiCJWSvs6an/J3EvqouIXAK8ciEL4B6Wn48s/hz+r8Mw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000257;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.4
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795000343;
+	b=XkezQM3h/y49UIPfbBkyso88qNuLgN1fRa/2XwoKH8E+0oJNg5eWXx3BeSHFd1ELNbFo
+	 VwP8lqcoc0GlCpT3egtkE3AtK2vifCssGB4WoSpEuvG9aqN/aT6Qvhy287AEK5NVFAmVJ
+	 FdOdzUwXfesxNwKg5vBNYYjhN488+NWfNBvfSEsiw8uZ+TZ0LNPEDjXvdfhhAHcQMWs2t
+	 8ZZFbCfM6Kce3MbB7yrrXxZwBX37bpcMukLwrv+or8+r0CU7CJW10SkZbbPuHukJxPKKf
+	 AiU82Z/oRsWAXfCgF0ShKsCg59OhS8PFCpntPKo4X1VxkjQqH4ISopS3Bl7snVmWUZA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000343;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
 	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=8bqfpbBHkizT5LV4unUjsrB2ytVrIgjNmcwUFqqZaG0=;
-	b=BHuxyUXs7O8nM+4LDwuAlC/r+JBKYfoiOkBInJ6/IU++W/82sB8MXfTNYFvvpq5zjRGr
-	 FWdi5pzI0RHC6CGX6dpzvFOY4gHuTnZGD2LWiAfzPCLPPL4pNav9dFR0ZTKMq7dLjVeT6
-	 Unk06SO+shX7NdppVBt53F43vct5LfKvb4PLv5ElFBTklrgj0GlSr+Ozic+nbXzmJRaeg
-	 yM+RiChA8X86jLmd0avUKxjuOwcgoNcg04YsNjgz6W+WahXPaUx3ay/NlqRu3sCMKoIS5
-	 uI5TW2MXX/TjAoEzx36zC8ACvmdKWHPW8C8+GsbLE/50DeWKtvXOjpYanaLssqjNoyw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=UkM6G1KM;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=MoC0qJHiRf/IM29fgA4YSGBXlBQmLZP0aYDsT20Yu1o=;
+	b=iyFiWCY+F7M46P4f9v98TLsWktFktyRgeV7s6DZDbe2cH9HcOBolKmRT+Ng7Hwewm9as
+	 MFL86f73sCxQ0ZuPBtYtzyFZh7DADPNE/96DhKuDPNYTCkbB/OeTJr8frERSE9QVl1OSM
+	 xUnVw6dMIhwI6buggHpBe0oqlYW+RFNqJBoHXfjhK9xlp4VCAQjJs/9MEF6VpTIm/QRKO
+	 YZgWIiDayf8IFs9wFHeXxucfkRvXRpijHuukFq+T9aeNORrCRxcINSp1iHPxFwKl/N3nr
+	 bplypPVhXR0OeaesgkrDxvdLL+9ZyE5G4OK72saTITs6pSAgSQqSwUWqgnNCSkw8Q6Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=3cujFvd2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.4
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011004.outbound.protection.outlook.com [52.101.62.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 418C6606A31C;
-	Wed, 18 Nov 2026 11:10:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 418C6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BE28606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:12:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BE28606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=UkM6G1KM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795000249;
-	bh=C6+HY4ClMrV2fwaShVwciggPOYGg14zJs95/gfFRXeU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UkM6G1KMQCte1V3ulm2JnI7GWk61W6NCccHcxfvacoXdy3DBDgySwYYbXTgr1zAaO
-	 zQlhQ9XDFEHqknUNHUYQnocaHdLxWhmbM2qbfODwMKxNAlwP3CkwyGEn0aeY0MbQi4
-	 Z5NCIhWhIVRjQwGc8L/dt8WtbK2KDO2K/PN85ZGkPJBMq1f2EC4w/3KOXbk+ZUJtA5
-	 yoRuv0KYgMqnL0l1gnuVZdtfUhwx2Fz8wiei9ocHrTDnXIaP/TOR93AHvukBQhSBS+
-	 4XuCsItFKgZ3deLFJ/TxSB3HjMqn/CAVfXhCxpWdW+6MBkjXWRZJWeu4WFFVn/tMEv
-	 8DjZLR3oQgqPw==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 46C7617E07EC;
-	Wed, 18 Nov 2026 12:10:48 +0100 (CET)
-Message-ID: <779efc61-646d-4735-b54d-7bc7436385bd@collabora.com>
-Date: Wed, 18 Nov 2026 12:10:47 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=3cujFvd2
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NpZ6jQ5idkpFgWQzxCUAuPu9hKbZgz7fKkos9gjRFMIBzNRYxjVW9HX4cY2L5JUwaw1TI67excSWxeOaZ8QHQAF5mgtC3A4mQoXj3il63yVc9G6jh1kgZn3405Sua4Y+jXvcCAj1XJEFKKSnAt9uRSa4TC542yPKRMOT1SomWtzQqocdEOLnI2SCI+qhC4IfK3k+2lrYshR/hDdWbMIURMejGpSaGFTfPnn9qrsDX9xb2JgozjP8K5SZy+WE2VbzNJbq5rfATClnsp+z6SocI/U5oVqS6WPAryk6B2uJMyrzF2dZ7m6O7rBedkVH9wGgw/R1Hl0XqyPG3A0SdG8XuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MoC0qJHiRf/IM29fgA4YSGBXlBQmLZP0aYDsT20Yu1o=;
+ b=KuBdNTfiKgQJl9n4DqXzBREijD4XEd6Sbc4yNRsXevs9R4VccBTRQ8qf7P6tftpkY1NCetF64utUIIjktqTzRUnMwnOFdj8hZ6PadcaL0uaP405N5MYspWww9e54NyTLeUHUgMqbDpOBvGGuk9uo/7XldJ7Gon1Rtj3Dz0ernyj6wmjs3bGkyTAdv0ThC0cfL2bsJ5UHWOaxdIP4D0wOEET9Kd8OqSH9G03d64kqwiPvFVTq2ahxD5B1YlMPwEd0hjSf1lpfIsMbax3bAHBjKiMXGpF2MHXQ9t73kcpO/HzB40GH/8ZzRnmVi5h86lg+fxvxMM1zfUJrCJDs7dHwJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MoC0qJHiRf/IM29fgA4YSGBXlBQmLZP0aYDsT20Yu1o=;
+ b=3cujFvd2ZmIAk4XajBeU5XQSfgNtoXigL9r5BcBDU4jzuekmE1ipo6Fp4JHmG+KVZF/3v4E+U1wyINvn2ATSOxpjenLxYOK7j3RMDs4rUdfOkWp73GJtJ5BA0dG8Xl17v/mK0y6mcl5ofPuklN9K7AdK9jJUSryWvpN6bCpwsB0=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10) by DSVPR12MB999286.namprd12.prod.outlook.com
+ (2603:10b6:8:41a::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 11:12:14 +0000
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 11:12:14 +0000
+Message-ID: <7ba4eea9-7e76-4436-9008-b56bcae0fafc@amd.com>
+Date: Wed, 18 Nov 2026 22:12:06 +1100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 06/15] virt: tdx-guest: Support TDI bind and unbind
+ operations
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+ "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+ "Li, Xiaoyao" <xiaoyao.li@intel.com>, "Hansen, Dave"
+ <dave.hansen@intel.com>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "kas@kernel.org" <kas@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
+ "mingo@redhat.com" <mingo@redhat.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "pbonzini@redhat.com" <pbonzini@redhat.com>,
+ "nik.borisov@suse.com" <nik.borisov@suse.com>,
+ "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
+ "Verma, Vishal L" <vishal.l.verma@intel.com>,
+ "Peng, Chao P" <chao.p.peng@intel.com>, "hpa@zytor.com" <hpa@zytor.com>,
+ "tglx@kernel.org" <tglx@kernel.org>,
+ "nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+ "Duan, Zhenzhong" <zhenzhong.duan@intel.com>, "bp@alien8.de" <bp@alien8.de>,
+ "Gao, Chao" <chao.gao@intel.com>,
+ "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>
+References: <f1cdd989f6bcf6a177dcd83e55fb8465e0ee849f.camel@intel.com>
+ <20261110195745.GG738765@nvidia.com>
+ <e44f3f12b3fecdc5f3c05aa1f1b0ceb1befad0b7.camel@intel.com>
+ <20261111001606.GH738765@nvidia.com>
+ <CO1PR11MB4835656CEB24B31B557162258C712@CO1PR11MB4835.namprd11.prod.outlook.com>
+ <20261111150029.GJ738765@nvidia.com>
+ <CO1PR11MB4835C4C6DA79A84D0F123AD88C712@CO1PR11MB4835.namprd11.prod.outlook.com>
+ <a2549a83-6acf-472c-9fd7-69e965707d12@amd.com>
+ <20261112145450.GM738765@nvidia.com>
+ <9fe0eb87-bce0-469f-8a13-a8a1e310ab62@amd.com>
+ <20261117142405.GJ2245175@nvidia.com>
+From: Alexey Kardashevskiy <aik@amd.com>
+Content-Language: en-US
+In-Reply-To: <20261117142405.GJ2245175@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SY6PR01CA0077.ausprd01.prod.outlook.com
+ (2603:10c6:10:110::10) To SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,182 +125,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: dts: mediatek: mt8167: Add DRM nodes
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Luca Leonardo Scorcia <l.scorcia@gmail.com>,
- linux-mediatek@lists.infradead.org
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>,
- Jitao shi <jitao.shi@mediatek.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260921113914.779393-1-l.scorcia@gmail.com>
- <20260921113914.779393-5-l.scorcia@gmail.com>
- <bbefcf0b-b31e-4f74-bf79-b0ccc983f62b@kernel.org>
- <200ef6c1-eced-4c36-832d-3fb409aac866@collabora.com>
- <5715e9e5-857d-4104-aedd-9662da0fc0ab@kernel.org>
- <911e4163-8a2c-4ca2-8903-8d3ddb7266e8@collabora.com>
- <600165c4-eaa7-4b1e-806c-63d3b97d5064@kernel.org>
- <63da5790-984b-4760-8e92-85b5d2269b30@collabora.com>
- <94ed1340-94bd-49ee-ba31-9bb63164c89a@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <94ed1340-94bd-49ee-ba31-9bb63164c89a@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|DSVPR12MB999286:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5015089a-4dcf-497d-2373-08df4564cc91
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|18002099003|22082099003|11063799006|56012099006|4143699003|261026121527099003|261102123227099003|10067099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261021135927099003;
+X-Microsoft-Antispam-Message-Info:
+	0KRbizDZbaL5XDsKFxN8jBuUIUl9GJhVwx7DUj/t6nroiDmwgrMuCAgvR6D6oscMpr1+ksfcMBMuqJW3x4eCQFEQBHkSMsnNLLLrGGgeFtLote9HUKeeDbD4HdnolhuFgwLEKMJEcaL9joF+rYQ/ttpnmwkIbdQszJ4ltHjyQIacY0AIBNgVPlfC8P6zQi/4i9aPdWjjifqPRu0dwQ0uAOXKq1w0dAda9v24bmvQ+3x4646QVm77QuVBQLoYx1dsD3q1ODkrOcBKA9wF92Etr6KEA5tJXhHidLGmrgGY601PC2QoxO5ikoXqRLmhmRiZQPEDzjubxrx2spahdcsvXLWxcHhe+wwjsU0L7ZI7z4haCptA4KoD0b1tQgMoRL8fKvkhUWl99imFGVMUGNATVswfT9yJxZ20Pi62dkp1BVi0Z+cls+RJpnmI5nXVKFU3sQPKlTk9qku6Giylj79glO+yvxbKfC4/CyCHTAWwXoXgvpr6qqQWExwcCY03m98gPQFVhLK2boAmHG7XMEMZhqG6j++7uhk2ncMSLtgi+Wj4WKkVI4U8HtwU1u3vqOdf1/XgcEilO2u2+vSM9v8dBX0i7v0371fRWFZqnxboOvsy5bUrpqhem1CU2GWjR21F/UrSeaRvZoFLd7pAl6es7Q==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(18002099003)(22082099003)(11063799006)(56012099006)(4143699003)(261026121527099003)(261102123227099003)(10067099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021135927099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?YlBvblJtc1V2RW9DRGtQbGFjUmlYWVZUSGVaVld2amYrVkFkbysyNWNmb1FB?=
+ =?utf-8?B?TGF4NHg1TVN6RGUzQUFSVVNZRG5sc1Awcmk3cUtSVTFPNUZtK1VzTVRlQmxy?=
+ =?utf-8?B?ZE5rRW1ucGFIRXJUREk2bG9HY1drMWhrcFRIT1BBTERCSlVsOU1DcmlEMmp2?=
+ =?utf-8?B?b0g1TXJxbTRzNnFJOWl1Mnk5WDVvSW5UVVlXWUtlbVVOcmJ4NnlpQ3dpU3Zz?=
+ =?utf-8?B?S2tnMnpQZ1YwRmtjR290TkpwdCsvKzhINnV6V0ZFYWtPWjE4U2VxcUtrRVRV?=
+ =?utf-8?B?RytEMjdEdHo0THoweVVvQkkydlloMUZyVEhtVjVLRWhZb0M0eFZnSmdOajNR?=
+ =?utf-8?B?TVlOakxuMFVVWXdabCt0cjQ0M2Z0aC9tVjBSS1JJMG5xYjJRVk5xOHdjaVFm?=
+ =?utf-8?B?bzgzWFpqaTRnajdEMUYxSG5CZ2FVSHBvVkdVSVJJbThCOElrUGw4VWgvTGFr?=
+ =?utf-8?B?NG02OU1IOTlBVytNTTV2ZUJBNVVpb3JYUU9RZjdlTTJUcW5ZZEtrVVFxcytT?=
+ =?utf-8?B?blE4RUd2ZTlWZ3RPVFkzdHRMalZFYUxHZHo5cWc0WkszUTlIK2kyeG4xV05W?=
+ =?utf-8?B?MzIwaG5PWTZLY2V4d1dDWm5XNVcxNWJEZ0ltYS9kd3pPOUM3djNoVUtHZVNm?=
+ =?utf-8?B?YXE0RWNLMVJnRjUxbk1QTEpxaThuMVdEZDBBbzYzVDRhbzFGcnJlREpzdmdl?=
+ =?utf-8?B?V1pXWUUzTWg3RU53SE40QjNvMTBWb2Y2Q2d3Z2x4L3FTcGFwYnZ5cHg3WVVv?=
+ =?utf-8?B?SlJnMXhvL3o3MlBXbWtQSTdMU0R3azVDc2ZqNWNBaVpPQytwNGRGMHhGTXda?=
+ =?utf-8?B?TGtuTHkzZTZSZ3F4WDNQcVZodHRoODc1M2RCODZpR01uemhJclBUT2hOUzFH?=
+ =?utf-8?B?NWwrVVF2K2VzWk9uLzFZQkk5aVE5YmpDNEllSHIvZG53ZmdGQURIL3pCL0ZF?=
+ =?utf-8?B?cEd5WHNkNitGZGZjY3RaalNqdytZd1llTzJJMDNEK2c0RXBSLzVRaExSb3N0?=
+ =?utf-8?B?SWllQlVGWEdqWW5BTnI5L2ZQQVJMa05zZGJXaXhYdTVhaDU3YUcyTXVEbkVu?=
+ =?utf-8?B?WjBWTFRPYmNmSjU2dnRmM0dZYTVzSW9BQnJIMHlZMklrLzlBS1c0NGtHS09v?=
+ =?utf-8?B?czhYNnUrREVVU1hTWm9TdnAyaG13RmZteHJWdTVyZnpCR3Raa0ZHZS95WUtJ?=
+ =?utf-8?B?TTNpU1BlWmVkY04yK0JES3FHVGR4djVZNzNLSEJqSGFFeUhjYlJUUDJpYmlN?=
+ =?utf-8?B?V1B6WHFuNzJLN3dvdy95MjdVem5oNlgwM1didWxTaDF0ZXllZE5odTZPQk5a?=
+ =?utf-8?B?TVMxeFlqc3JLUnBNYi9lZEJDSndtV2t1dzN3UXJSUitHNm04Q2c3VnlkZWZl?=
+ =?utf-8?B?WXlFUGJ4WE9oMWF6L051V2ZxcEhERkJ5WndIOXNlc203cUxxYlN3aExSbzNv?=
+ =?utf-8?B?VnlNRGV0MllYdmJaUjhncDBhcGJiZWhyRlYyUEt4bks5TjhRMHphWmpMZHZ2?=
+ =?utf-8?B?TWo5QkpmLy91VXZYUTFIekVhL2VuTGQxVVJ3L3pTR0xjbVZ4a3lSdkFyQVll?=
+ =?utf-8?B?cXhFcXhPRnlVek5kTWxIN0k1c0RCK0g4MkFyanBqTjFVc2FHc1dyMG16cUk2?=
+ =?utf-8?B?R2pQRHluekJqU3pEMDVWT2oxU09uZkR2VTM1Nk83WVI4L20yL3Z6WnNkMU9i?=
+ =?utf-8?B?eVFhSXFod2Z5MUFjMHNWY0l2SjBhMURSUEdDUW0xNjRWNW9SY3EvbGdDN3g0?=
+ =?utf-8?B?blJXcHZCYnRhN2xIcVVIaHZGQVp3VTZrZWNDTmxrS05mTEU2blh4SkcyNWwv?=
+ =?utf-8?B?dG1VZGRsaXRvamZ5amh0ZmpCb3JCbjdqbXB5RHJpUzFqVzVUTG5PZE5VdFNv?=
+ =?utf-8?B?clFTODIxUGdmeHFyUVVlL3Jab0ZPYi9RQUE0QUxHQVlENndHR3Q2ZkEva1c1?=
+ =?utf-8?B?T1FtbmgycTk0dVZ4NzQydDJGNkRIRHVsYVVNNFpOTEYzd1ppOVBPNTZqUi9v?=
+ =?utf-8?B?MzNTREswMHlLNC9DVmR3aWdLWkNrWW1PRHBBRGFKb2RpRlBjalpoQ1UxbFNr?=
+ =?utf-8?B?SWdUTDdsUUVGanU3RkNNZGtKYnovWjhvZ2s0Mk9JTzF4L1J6dUx6UVVmaXVD?=
+ =?utf-8?B?OUdWaFN4WlRJT1pLd2o0LzJlbW9HMmd4NHB6U3R5L3M0YXAzWFljdUNFQ0Mw?=
+ =?utf-8?B?MG96VnNPTm54UHVPbUF5SVFrajJCYlRDN1dqb29CNlRSN1diTWZ1OFNJMU0w?=
+ =?utf-8?B?bURaa2xBVmJHU2p6U0M2Q3h2WDZWZi9SMStMajNFL1NFcGxnVnlHeFJuSGRp?=
+ =?utf-8?Q?MY106Z2Zzr9kLgicQ3?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5015089a-4dcf-497d-2373-08df4564cc91
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 11:12:14.2197
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PoZR1AxuixeX25F7vZj5Cv2eSvq3BNNR2hPccMdyjFOhbfXCMXuIHGyXjXzYU5wOnXpSXAIWPStyS8rUwjc+Gw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR12MB999286
 
-On 11/17/26 17:00, Krzysztof Kozlowski wrote:
-> On 17/11/2026 15:21, AngeloGioacchino Del Regno wrote:
->>
->>>>
->>>> Any advice on how to possibly resolve this without rewriting the entire thing?
->>>>
->>>> Mapping that by mmio address in the driver seems too stupid/dirty/bad/etc.
->>>
->>> Driver needs that, so why exactly stupid?
->>
->> Really feels like going back to the days when devicetree was not a thing and all of
->> the MMIOs (on ARM at least) were added into a mach file.
+On 18/11/26 01:24, Jason Gunthorpe wrote:
+> On Tue, Nov 17, 2026 at 10:16:58PM +1100, Alexey Kardashevskiy wrote:
 > 
-> Well, adding an alias just to tell that device node with MMIO address
-> 0xdeadbeef is ID 0 is very similar, just placed differently. The
-> "aliases" are the mapping between MMIO and ID. Driver code also can do
-> the mapping between MMIO and ID.
+>>> You should still clear the sDTE and that should be a non-failable
+>>> operation.
+>>
+>> In AMD GHCB, the host forwards guest requests to the PSP, and the
+>> host can screw this up. The guest still gets to know if the host
+>> tried to meddle. I do not expect it to fail normally but I saw some
+>> of this while debugging. Thanks,
 > 
->>
->>   >
->>> You do not represent any
->>> actual hardware information in DT with these aliases.
->>
->> That depends on how you see it (as in, on the point of view), really, because well
->> technically the second ReadDMA IP is ... not the ... primary, as it's the secondary
->> one - as much as the third DPI is not the primary one (even though DRM can make it
->> so that it can be used as a primary output, but that's a software thing, not HW).
->>
->> So... well, with that point of view... those aliases *are* representing information
->> about the hardware.
->>
->> But I know that you're not complaining just about this, and this reply is not a way
->> to argue all that much, just a bit of thinking out loud.
+> Like I said, it is completely bad you don't have a fail safe way to
+> block DMA again.
+
+Who does? I mean, 100% guaranteed to not have software bugs?
+
+> If the guest tries to do this operation and it fails
+> then it must panic.
+
+Alright.
+
+>> I still don't know how your "host controlls dma enable" works with any
+> possible security. Is crypto involved somehow?
+
+The host forwards encrypted messages between the VM and the PSP, one of the messages is SDTE_WRITE (which is enable/disable *trusted* DMA, pretty much). The "trusted dma enable" bit lives in SDTE which is in the encrypted memory accessible by the PSP.
+
 > 
-> Being simply "second" is not alone useful information. It's pointless,
-> it does not matter neither to hardware nor to drivers.
+> Jason
 
-Hmm... Sorry, but I disagree about this statement - it does matter in some cases.
+-- 
+Alexey
 
-The driver's POV is of course out of context here, as we're talking about DT//HW.
-
-(I know that you know, this is to avoid misunderstanding from anyone else reading
-this thread).
-
-> If it matters,
-> then probably that "second" has some other meaning and it maps to an
-> actual hardware topology difference, then often it deserves its own
-> compatible or property, depending on the difference.
-> 
-
-This is a bit more complicated than that: "second" may or may not have another
-meaning, as in, it may or may not be topologically different in the whole context
-of the controller.
-
-Having different compatibles wouldn't do either, because having 10 compats for one
-IP which is 99.9% compatible if not for very very very very (add as many "very" as
-you wish here) small details that definitely don't deserve a new compatible... and
-besides, a driver parsing more than 90 compatible strings would be... how can I
-express that in professional words? :-)))
-
->>
->>   >
->>> You want to tell
->>> drivers how drivers should behave - that's not a job for DT,
->>
->> I want to tell drivers what is the first or the second or the third hardware
->> instance of the same IP, I don't want to tell drivers how drivers should behave
->> from devicetree.
->> The drivers are behaving differently with different hardware (read as: hardware
->> that is *physically* located in front of something else, or somewhere else anyway)
->> as in with different hardware instances.
-> 
-> Then alias is not the way to represent these differences.
-> 
-
-Are we opening a can of worms here?
-
-There are a bunch of (generic, yes, and I think acceptable-because-generic, right?)
-aliases for other devices like UART, I2C, SPI, etc which instance is actually
-represented by an alias - and this is *not* for HW, but rather for drivers' device
-node number consistency in the userspace (of course not just MTK, but all of them).
-
-That makes things a bit weird then when we assert that devicetree describes the HW
-and, compared to what we're analyzing in this specific MediaTek case (which does in
-a way describe hardware, as in hw instance number), the LS busses aliases are just
-software details in an inappropriate place (DT) at this point?
-
-I wonder if there's anything that can be done for that case, because then now I'm
-kind of sensing that there's something else that is fundamentally wrong and that
-1. Leads to confusion (not in experienced people usually, but not granted)
-2. May actually help resolving situations that are similar to this one
-
-I'm well aware that whatever comes out of this won't be for this round, nor for the
-next one, but rather something that may eventually take (a lot of) time to assess
-and address, but still.
-
-Mind you - I keep thinking out loud - but I believe sometimes this is what makes
-good (hopefully) ideas come to mind.
-
->>
->>> that's job
->>> for driver data. Of course if there is smarter way than MMIO->ID, I am
->>> all in.
->>
->> You can't imagine how much I was hoping for you to say something about an
->> alternative solution to that.
->>
->> As I said, it feels a bit like pre-DT times, but what I get from you is that this
->> is cleaner than just adding information about the real hardware instance number in
->> devicetree (no that's not just MediaTek, qcom also had similar issues as you said).
-> 
-> Sure, I understand. This is an workaround and might be less applicable
-> here. It might be possible that your hardware needs a dedicated
-> property.
-
-I didn't check the others - but from what I remember, Qualcomm also has this kind
-of workaround somewhere (in some driver[s]) - so that pushes the count to two
-vendors, let alone the number of SoCs affected which is .. well, more than two :-)
-
-I wonder if someone (unfortunately not me or at least not in the next 6 months)
-should do ... well, something ... to fix this situation in a good way.
-
-Adding the same workaround to MediaTek would make the argument stronger when that
-someone actually gets to resolving this situation somehow.
-
-> Unfortunately, this cannot be a custom per-device alias.
-> 
-
-I will come up with some way (right now, I have no idea how) to get this situation
-addressed in MediaTek DRM, maybe it's going to be that MMIO address workaround, or
-maybe not, let's see what I can do here.
-
-Surely though, either way, that's not good news - not just because it's going to
-slow down the upstreaming by a whole lot - but mostly because it's all about
-adding one more workaround for something that is "left in the future-decisions-box"
-in the kernel.
-
-Having to do this makes me sad, and this is mostly because I have no other choice.
-
-I'm sure you know what I mean here, so I won't add any more words to this already
-long reply.
-
-P.S.: Luca, you don't need to add the aliases to your SoC, because there's only one
-instance of the display controller IPs that you're adding; for DSI1/2 DPI1/2 and
-those final outputs, I guess just leave them out for now and add just the first....
-
-Cheers,
-Angelo
