@@ -1,76 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003934;
-	b=QRNLXNbUz2irHO60iLk6uirbyOnOo7PCsNNppyGThoylLVbJFbk3MAFr62Qmd/VWSmQl
-	 e70tCgzEIrkanBbr2JpmGEezKuo9DbOWE3enQsgG8Ane4RVaFJ6jYoeN1GA8HASIT9YTj
-	 YdPgkBeeo50BJMKFBA9OcM+COaLLwekcC2X9nHZX4GIIEeggI8vpBAH0A1/9lumMlqoJF
-	 UR7h82RjV9A2pgeXwX5Ge8xL3eewbEaFclbs1QUcVUzxOGvH1pLF/JCVOFNSgnhb8rvbk
-	 wJkASYJkOMOwFhu421h5QHzET0WbsBM6pV+PAhb5DlWbRgG2pN95dmwwAZ6DAfy/TDw==
+	t=1795003946;
+	b=hs9I7MaVHGjSK3pGPrV0yOFXV0ZVF4na58IJ9u1eyvLFP9oBDi02u8AwxTlo6mxO2lRc
+	 fIk697FocWVbLoKIwCwQOd/yBOlJsp27hAFc73dNeeIiQjPfyMkUNcsGpJNKm3XIzpzeW
+	 /yytSP7zVe0Z/2c+M9ZH6W5RmFHa0Uxtq84Iq70kXJiydqljaBdpMt59lCSkSwXpHXTOa
+	 5kzeQchOVpHC5oACfr0iI7jToSwZ8+XhOvHJNQ2WRv3DaPlBiQ//5oKXBAWHkgCvnYFzk
+	 n9jgAUkycKEm9iXvJEjgLKftu2dcKgjumdGutUcnTQHTLoMcCAbr6fstkVABMPpFuLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003934;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=UTLyf/Un7t8f/JJJ6neh6fVV7b+Ecu5jTGdE9Z/l6tg=;
-	b=gwQ7D/Fr4P2+lc0gZP0wpmLNW35z0cstlMqrAteQmb1aH09fUwqPUG0XKT05qo6RiIqk
-	 1byf2UpYiMTKS1jRv6AL1Zf9AaY202YEwqxPGI5i+kGD03LzMpcT+nc+TRa0PKgjh6xoE
-	 yL+adZ62yB6fljoQ+kbuwPvwRUL30Ode8ImKODwoscCW0mIWPCyzMUS0C0eKo9mYBr7Rn
-	 bD3Ok0zWJC3CKmbXQKuhAfi2fsH8h92rzHpixKk7gt27Xw0IQF/jbecn8CBTrjuFK99ek
-	 PerTCUDOEV+e+fHiPutaP9m00NCU6h136kTYEd6SMn4QSZ5Ajiru5W0c7VVqQPYWzkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003946;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=epBVrGZiw1creBvuYOePhoSdCzgWgXCOkWpLld3FPh8=;
+	b=VnZAXoDZCT/nv7essSYCBC79x4ajYL9UG9O1Lag6c1pP+pMf1rxGvHtZNVfhHNemQu28
+	 Rs7gGO5zInaDqJ9g5gUf6ieoJ1FnKybSeDwEILWh1pgbjrRh5/NBdy+HMxscoEgKdGPCr
+	 hZBRdJ2Tki0SKVfIGb0bo3UoFTiM0crW4BSdDUNdtGl57I4ETEoRr879/wY2hyW1uVFFH
+	 qUcU9FdiQfSn4ETyxa+x70MmDdP2VjhrvX0TWZKqkM/cFuY+HAt5qrS5d/afw9EHoqM0n
+	 pr+eloyFcf+oOiZr2fYGvm0dgeD1BEIzZL8h+KHYy9Z1vAiObd33MCC/xxm0GNkpijg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VnLwnZCk;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XXXJ2R0J;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E7BB606A338;
-	Wed, 18 Nov 2026 12:12:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E7BB606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFF2D606A31C;
+	Wed, 18 Nov 2026 12:12:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VnLwnZCk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795003933; x=1826539933;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=uMdP28J8ruxyc617AkA9mX2kd8b6181ALjrCuZZJlvA=;
-  b=VnLwnZCkaAPt+4YtkdqQ8GWEWwxEwFhReGVrezadYKB6nHFteZQFAuUH
-   04qMJuvf2u78djWXW08AZoR5H/JPNJvxgxi53tJzNkT0p5lb7wokeoBGH
-   P+ZLQAjgO7q3I2mLEz/lzj1lcEGoZD+swPp1DQIq2i50QwUq8fCjSgvvv
-   DuVocsIt/CspKMwY25UpZdJ/CO/ekKo8GoidgVSTqWX4f+1/HOKIj7pvF
-   3pbMJL7HpUHTeuwG7XiQA7ZX3N2oK5n2zeJG1JqXtxBPwC3UHXc27P512
-   Uz3EO7nceEKVQM7mjKwsyV6OvgT6KONWPs6J5bKNgf5ausvvKfz7ALSqD
-   Q==;
-X-CSE-ConnectionGUID: pnfvTPMhSCS6YmcJAJaTrQ==
-X-CSE-MsgGUID: rqt2e007QC+tHBCwu+A8gA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3834531"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3834531"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 04:12:13 -0800
-X-CSE-ConnectionGUID: +QhsQ6GYS+yl7IZW6hab6w==
-X-CSE-MsgGUID: M0auMPadQgaD93TxdhD0bA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10344295"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.239])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 04:12:10 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Wed, 18 Nov 2026 14:12:06 +0200 (EET)
-To: Stefan Ghetu <stefan.ghetu@nxp.com>
-cc: linux-pci@vger.kernel.org, bhelgaas@google.com, 
-    LKML <linux-kernel@vger.kernel.org>, hongxing.zhu@nxp.com, 
-    Jason Liu <jason.hui.liu@nxp.com>
-Subject: Re: [PATCH] LF-18678 PCI: Add quirk to fix byte-swapped class code
- on ARA240 device
-In-Reply-To: <20261118100406.600995-1-stefan.ghetu@nxp.com>
-Message-ID: <0558cc87-feca-3584-3af5-b05e7fcf4753@linux.intel.com>
-References: <20261118100406.600995-1-stefan.ghetu@nxp.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XXXJ2R0J
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C04FF1F000C6;
+	Wed, 18 Nov 2026 12:12:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795003945;
+	bh=epBVrGZiw1creBvuYOePhoSdCzgWgXCOkWpLld3FPh8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XXXJ2R0J07MlKzGSwWu2Ztiv4YkTe+gqNLjFMOxXUTiqc4KhcH/eJEWxVN7VQM116
+	 cNXqLxlFhUHJ8b+uND7+oerzPM38gJdjj0EIHS5jjoV26s5vq9ie2EDCKWGMd28ES9
+	 Hczw4PXnJ9cJTSDkjHo/lQpCxhKXGuIbLH9GClLCRri2llSYafn1JTyhTibDDUQaoE
+	 7p31kQGSigBrTorB0Aso2vAFqpbRvlZegUa3yhW6vEEzmvMx28m0TIejxJFrFf0+3m
+	 MXoGpnzAjwGpCfwhPDQn2qu1O8ze7DwTbiDl6RFv80riVktXjfpwU/hcwj/tAKPR0S
+	 oHS/+luRr9Oiw==
+Date: Wed, 18 Nov 2026 12:12:20 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "Adrian Huang (Lenovo)" <adrianhuang0701@gmail.com>
+Cc: Suren Baghdasaryan <surenb@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, "Liam R . Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ahuang12@lenovo.com
+Subject: Re: [PATCH mm-unstable v2 1/1] fs/proc/task_mmu: avoid spurious
+ seq_file warning on interrupted VMA lookup
+Message-ID: <av2V-JWdu8GqKtMT@gremlin>
+References: <20261118103421.776-1-adrianhuang0701@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,51 +60,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118103421.776-1-adrianhuang0701@gmail.com>
 
-On Wed, 18 Nov 2026, Stefan Ghetu wrote:
+(micro-nit - no need to say 1/1 for a single patch :)
 
-> From: Richard Zhu <hongxing.zhu@nxp.com>
-> 
-> The ARA240 PCIe endpoint device (1e58:0002) reports an incorrect,
-> byte-swapped class code of 0x000012 instead of 0x120000 (Processing
-> Accelerator). This causes the device to appear as an unclassified
-> device (class 0x00) rather than a processing accelerator (class 0x12).
-> 
-> On ARM platforms, the kernel may refuse to assign BARs to unclassified
-> devices, preventing the ARA240 from functioning properly. The device
-> cannot be initialized and remains unusable.
-> 
-> Add a PCI quirk to force the correct class code during early device
-> enumeration, allowing proper resource assignment and device operation.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Acked-by: Jason Liu <jason.hui.liu@nxp.com>
-> Signed-off-by: Stefan Ghetu <stefan.ghetu@nxp.com>
+On Wed, Nov 18, 2026 at 06:34:21PM +0800, Adrian Huang (Lenovo) wrote:
+> Commit 5631da56c9a8 ("fs/proc/task_mmu: read proc/pid/maps under
+> per-vma lock") introduced the possibility of returning -EINTR from
+> proc_get_vma() when a fatal signal interrupts mmap_read_lock_killable().
+>
+> The issue can be reproduced using stress-ng's VMA stressor, which reads
+> /proc/self/maps while concurrently modifying VMAs and periodically
+> terminates child processes with SIGKILL. The reproduced command is:
+>
+>   # stress-ng --vma 0 -t 60
+>
+> When the VMA lookup is interrupted, proc_get_vma() returns an error
+> pointer without advancing the position index. Consequently,
+> seq_read_iter() emits the following rate-limited informational message:
+>
+>   seq_file: buggy .next function m_next did not update position index
+>
+> Save the current position in priv->last_pos before checking the VMA
+> lookup result, allowing it to be reused by both successful and error
+> paths. Advance the position index when returning an error to avoid
+> the spurious warning, while preserving the original error handling.
+>
+> Suggested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> Signed-off-by: Adrian Huang (Lenovo) <adrianhuang0701@gmail.com>
+
+LGTM and:
+
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
 > ---
->  drivers/pci/quirks.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-> index 3d92b99a49238..fc95d87d4af0a 100644
-> --- a/drivers/pci/quirks.c
-> +++ b/drivers/pci/quirks.c
-> @@ -559,6 +559,18 @@ static void quirk_citrine(struct pci_dev *dev)
->  }
->  DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_IBM,	PCI_DEVICE_ID_IBM_CITRINE,	quirk_citrine);
->  
-> +/*
-> + * The ARA240 device reports a byte-swapped class code (0x000012) instead of
-> + * the correct value (0x120000 - Processing Accelerator). This causes resource
-> + * assignment issues on ARM platforms. Apply a quirk to force the correct
-> + * class code.
-> + */
-> +static void quirk_ara240_class_code(struct pci_dev *dev)
-> +{
-> +	dev->class = 0x120000;
+> Changes since v1:
+>   - Simplify the error handling and comments as suggested by Lorenzo.
+>   - Clarify the fatal-signal trigger and the cosmetic nature of the warning.
+>
+>  fs/proc/task_mmu.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+>
+> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
+> index 22361607020d..564e52f7ddc6 100644
+> --- a/fs/proc/task_mmu.c
+> +++ b/fs/proc/task_mmu.c
+> @@ -216,16 +216,17 @@ static struct vm_area_struct *proc_get_vma(struct seq_file *m, loff_t *ppos)
+>
+>  retry:
+>  	vma = get_next_vma(priv, *ppos);
+> -	/* EINTR of EAGAIN is possible */
+> +	/* Store previous position to be able to restart if needed */
+> +	priv->last_pos = *ppos;
+>  	if (IS_ERR(vma)) {
+>  		if (PTR_ERR(vma) == -EAGAIN && fallback_to_mmap_lock(priv, *ppos))
+>  			goto retry;
+>
+> +		/* Advance to avoid spurious buggy seq warning in dmesg */
+> +		(*ppos)++;
+>  		return vma;
+>  	}
+>
+> -	/* Store previous position to be able to restart if needed */
+> -	priv->last_pos = *ppos;
+>  	if (vma) {
+>  		/*
+>  		 * Track the end of the reported vma to ensure position changes
+> --
+> 2.43.0
+>
 
-Why isn't this based on PCI_CLASS_ACCELERATOR_PROCESSING ?
-
--- 
- i.
-
+--
+Cheers, Lorenzo
