@@ -1,72 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996548;
-	b=1AbOkaCxSBT7/WWrkl796eNPQdlaWXyK98Kje1DJdGzEAcB8NhcL357aiU/xwzEoibie
-	 mEuv+vp1DdJlS08rvJP0npjDrjkBrY8KZ+SbwiltLVgPMcJblFGD1Z3IQUAxkRk1ssfxZ
-	 3l0o4pQUmoitaa8Kl47ZRAmKnS8+qvOs3uue1tG1I8WOJOfXHTgqVVmpzftT9NbYpuZ8G
-	 k0OIlKlxC4tp72L0fEA38z6fIgrnThKa3nrTfX7H1DyBiHu5ml+GzxXMliZZ2rxeQvBOe
-	 Y//ATN8dKieaDeIF/cSdt/PT+tyJIx9eV4JJJ89JXHUFmz7bpBRVNqrxKMnWXlpCcOw==
+	t=1794996562;
+	b=LFbLc2yIh08U6RcfpdX9wOPlor4MkEAKqt4nA2NFfZaiDomkQ+nkDv0ChfLEIJzcKWDo
+	 OH8gXT+BMvmifm45cDNn6yJXQilDnh23mQF+imjJgptdDsyMWKOL8F5JIjRJyd2IedFsi
+	 HvASaViHFubVuVwZpnQwU+mqhEvlN6EAofK05yeymehG4fMIdoArQYAC4KBQmtU4CGyHW
+	 RHCJArVDxmp1Ylk7TnUyPkjNRmUoiblFlxevj00xXdi8mb7K8faBZua3T9iKcdKFcHhKG
+	 rdH7ZCU73vEGu6UJHu/EqYRXAkgprTx3HWU4kOxJCyLsbOD04OIUxsIKNYlqvAITi3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996548;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=+B1TOH9oUaUU/yKHKlpMG2Fg0rcqqVsIpnka2NiH2/I=;
-	b=fgAeMrN7A5lGVPvnF1pby6X8k08AcoxHspwx+igMNqNS/ybaJMDRyx702SF8SOEI1wYQ
-	 vb2/POO3b5nap3ZQ7hzmYXPv+pj2T8o4fAkVUrw2VJ12FpXs+ZLQiNt8TY1kjSSoeNOgv
-	 u+GnoexKoIBT8PqjNKYiy6zPHn2pxLKxgh65Vzb4Vwp7GCZOctFo6J1Vt0EINb/EvBY3d
-	 oLQde4ZhKf7OaG15jxAaWEZRZWpCRfKs1i6FuOjqOXuOSjWCQxVALvXDQmMs9b+KILe1O
-	 asLbHt8pvWvZJnLfV5kskSy+2A3pJi8bqhIHXlxm0DE1IskZHMthLbsZ1KuN8mfifWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996562;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=MZmVqOTHxTktTcU1qGgWrv5Bi4RVG456/6Vfq3swBUc=;
+	b=jEkHG7egPBIFUSfnh+imJfM3ZfnHHuVp7VzlFTkZLd+iIYKHQZgSRkLhVYJeH6ca1Q3r
+	 jMaf7hu9RdweixnFjiDTyfwQ+Paho0ZlK+e6yKkuwwB0xwZo48SXTWal/HJurwP1xupaO
+	 g44gA5EXdimm5URuc3I1/oycMH6m6aewdlivNJKsowQ1XXkrTQqvFThiPRv6DDMS6hb1N
+	 5og/crIyLCI8zQZSLoorOqXTVWffYLb2CPvTLxBAjTgp5XWllDiVDmvI4Z7/UMaFeTwhg
+	 0yglQo5w5Auz243YvIdy6w2W473keNx1c0bgZkv1wH494Je1wSni7Ieg+tEwo5JtxFg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G14vOFv3;
-	arc=none smtp.remote-ip=209.85.210.197
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="Bcbg/1s0";
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FCD6606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:09:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FCD6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--amitamishra.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA973606A31C;
+	Wed, 18 Nov 2026 10:09:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA973606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G14vOFv3
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b203b0c139so645903b3a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:09:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794996547; x=1795601347; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+B1TOH9oUaUU/yKHKlpMG2Fg0rcqqVsIpnka2NiH2/I=;
-        b=G14vOFv3Ujb4z9LNJX6zHgOB/CiwYIy9Oy8Jt5I6Gz3ApMFDg7KvkQ6RdNztHu3C8c
-         qziMNmi2uJwjjaGR1vEA01vJ0dWRcsexxdNVY3WbxuuoGZ00IDI5nfaFpfm2TOVvOmEv
-         v6GBlsjWXLTtTTxV/GBDpFeJg3Lnac74OjZ1x9PjbqKwQWKRLSbDHwJkWH1Xbwre/Oyq
-         daIGMoFrDrnzXyHsjznsigqT+tDVSneoU1pbr0wCyfdQRCZrV/uqPnvH3EesfIHdEkK/
-         q1rQAwwD0IsLN3y5YmG2rO3PFMh07S/0ZSqHrTRr1v6g7FbtivSzK02Bzn0XmTaGF8je
-         T/Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996547; x=1795601347;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+B1TOH9oUaUU/yKHKlpMG2Fg0rcqqVsIpnka2NiH2/I=;
-        b=JCi8oGocJTPDU5yNZIacVmCLXE0X4RFU4PHJyFYsxt1TCEHRWn454cnJbSuAoh7Mmq
-         fDPQx44dLVkoFoCJlJsv4X6hRz5IQNjReKRvBCdkSJmpJtSBuiINo6/bbbBezSltx3CT
-         eJN6XEA+cdYzLOAU88LU046moVbhU/HKaVEfwE3Foun/WqzlsYv1xwsydCfR4syGdS7H
-         M1P+ATR+wOi2pIP2GRcfCsN7rnuFz5nzbEhvg6w26V7GFEr6JWHsJAcTCoCPF7PEAZYp
-         GgxCfBJUtxfxxW7FJ5o3kXs8ianZINGDHDcnpLZ0rV9kAyffZM0+jF8lEKEHuHLrNBVE
-         3/RA==
-X-Forwarded-Encrypted: i=1; AL+hErFgSsADJ0g8CEP70qPh5qzN8lf6QtQlWs/rBMOnH5oif0YN07i+lMorTkUJp4H3Ue5zJG+x7ok3INYougk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/sptME5SppMrFPJdkUNeOGIKvHtPimtnX80PEy0FkM2/b0y7ns
-	mIkReKpiqr4P8xkgPhmN9NTQ78BRkt7v4vDDKC1WCBs4OejY9M6gK9NHGJ2fd+sVQrYfjLXq0R0
-	n/l1QC9PxS1g9YbjA8TPP1Mgqdw==
-X-Received: from pfdf8.prod.google.com ([2002:aa7:8b08:0:b0:8c5:fdd3:6020])
- (user=amitamishra job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:1c8e:b0:87d:ee98:606 with SMTP id d2e1a72fcca58-8c5d45de9a8mr1864339b3a.23.1794996547074;
- Wed, 18 Nov 2026 02:09:07 -0800 (PST)
-Date: Wed, 18 Nov 2026 10:08:39 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Bcbg/1s0
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9uNIE3354313;
+	Wed, 18 Nov 2026 10:09:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=MZmVqOTHxTktTcU1qGgWrv5Bi4RVG4
+	56/6Vfq3swBUc=; b=Bcbg/1s0GgB1RP+bYURvuotiA2w8Y75Bzqyt5qLKKiZzo2
+	LDNvjffwdVTfd4XtKdwrkWjig0tX4LEcBZIIK3gRY0wiliR8+Bf7KuoPs+DHuWLA
+	jzlf0wKaIrEpZitA8GI8S1JD5Ng9CSUyKygSgDnksd0tHvliBqIrCNNnJEbdw33G
+	5RjhaZTTG5nZs3XNzfaTe9ItXqS1p2os0B9ej6Cb6ftiG4YVtPTpdysa7vlOFAI0
+	wFTNflHbWbW91X7wQphs4AwOi59x47WqZtlpovRtRTXvrloBF0xT0i+Rp42RnUwb
+	yB3C+Tr2b+7w9rpxVJAcwUfLsYGwmmK3ZC6BaQnQ==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105rhwjb-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 10:09:16 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9nx8p1832149;
+	Wed, 18 Nov 2026 10:09:15 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j17c4rfvm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 18 Nov 2026 10:09:15 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AIA9Bcx15139110
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 18 Nov 2026 10:09:11 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7A6CE20071;
+	Wed, 18 Nov 2026 10:09:11 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5038F2006C;
+	Wed, 18 Nov 2026 10:09:11 +0000 (GMT)
+Received: from osiris (unknown [9.68.31.201])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 18 Nov 2026 10:09:11 +0000 (GMT)
+Date: Wed, 18 Nov 2026 11:09:09 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Vlastimil Babka <vbabka@kernel.org>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 10/14] s390/sclp_cmd: Replace page allocator calls with
+ kzalloc()
+Message-ID: <20261118100909.14542A04-hca@linux.ibm.com>
+References: <20261108-s390-sclp-ready-v1-0-3e7c90eb6676@kernel.org>
+ <20261108-s390-sclp-ready-v1-10-3e7c90eb6676@kernel.org>
+ <20261116152216.165348Aa5-hca@linux.ibm.com>
+ <20261118091126.25efaea8@pumpkin>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,68 +99,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118100839.3090172-1-amitamishra@google.com>
-Subject: [PATCH] dmaengine: dmatest: terminate channel on timeout or error
-From: Amita Mishra <amitamishra@google.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Frank Li <Frank.Li@kernel.org>, Dan Williams <djbw@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Amita Mishra <amitamishra@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118091126.25efaea8@pumpkin>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: uBfXR2dxc6PwfwtKlUHYdBmHv4j8jsO2
+X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6afd794c cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=uEPgcOoI_TXTlIU_0SwA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX1PC8daa1Jvk7
+ kb7SppLX7bDgSgLGDXrqWZvoZjaZsy0OBNj47V+QkvMFtEpy1upJVp4Obwkcjmc9WLP5xKvkFuR
+ 3Ccg5XihKbJjdILw6E7cdQYLhn57gjo=
+X-Proofpoint-ORIG-GUID: 4mmnc0ttL-ybd-Ur_WVKaNC63vTULTZU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX1ZOHf78Ow3Bn
+ a11wztO6vKtFxp1JIaE8QMgqv1fumQWjCsBqOtQUsXKafPyBfUt38EBju3EYnRYvi3y/z0lcfkQ
+ Pq4lGYm+QUbB37Ftd/xSUmxn6yEgyWTe68+0z17WwCyDyp8fpKDa09d0z+kNh42cfXxxXpfCdjO
+ P0J+ehhP/UFtuTN2FZakVZENsCc/2U/U0GklBYMYGmGoGJo7jSIOCZCsmZorSJPEGPH2c9pdA2H
+ V/sefKeyBHjuLWfLX0aAM6nzraJHWht12H8OLYR13GCa/ARQVr7plfQi8dGdq/9rFrw36JC8Vp+
+ TDp2oc2RjpsRN8/g6htKrLHxVi3piWerqADEhpQ943xwHyjqL3nJXYbb1MPTQiD5aGzeiChSpug
+ XEyKKIW1USy+PxGvfjjETYWZouTucb/Nu1kY1HzuvQ0G1fcj9jekfy7JZ4rvY0KIK4r0FnXGm24
+ c0zfyp+IezWGn/ovfSw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611180039
 
-In interrupt mode (!params->polled), when wait_event_freezable_timeout()
-times out (!done->done) or dma_async_is_tx_complete() reports a
-non-DMA_COMPLETE status, dmatest_func() jumps to error_unmap_continue and
-calls dmaengine_unmap_put() without terminating the DMA channel first.
-Channel termination via dmaengine_terminate_sync() only happens later
-when the test thread exits, unlike the polled path which terminates the
-channel immediately after dma_sync_wait().
+On Wed, Nov 18, 2026 at 09:11:26AM +0000, David Laight wrote:
+> On Mon, 16 Nov 2026 16:22:16 +0100
+> Heiko Carstens <hca@linux.ibm.com> wrote:
+> > It is a bit subtle that this really works. EXT_SCCB_READ_CPU is 3 * PAGE_SIZE,
+> > so we end up with a guaranteed 4k alignment from the slab cache, which is
+> > indeed sufficient here. But this is really not obvious, and not as stable as
+> > before, IMHO.
+> > 
+> > I'd prefer to have this changed to:
+> > 
+> > 	sccb = kzalloc(PAGE_SIZE << get_order(length), GFP_KERNEL | GFP_DMA);
+> > 
+> > which comes with the same alignment guarantees as before.
+> 
+> Would it be better (more obvious) to round up EXT_SCCB_READ_CPU ?
 
-If the DMA controller is still actively transferring when the source and
-destination buffers are unmapped, an IOMMU-backed DMA engine will trigger
-use-after-unmap translation faults, or overwrite the buffers while the
-next iteration reinitializes them. In addition, if the timed-out transfer
-completes during a subsequent iteration, its callback sets the shared
-per-thread done flag and wakes done_wait prematurely, causing the next
-iteration to fail with "completion busy status".
-
-Terminate the channel with dmaengine_terminate_sync() on both the timeout
-and non-DMA_COMPLETE error paths before unmapping the buffers, skipping
-the redundant call on timeout when params->polled has already terminated
-the channel.
-
-Fixes: 4076e755dbec ("dmatest: convert to dmaengine_unmap_data")
-Cc: stable@vger.kernel.org
-Signed-off-by: Amita Mishra <amitamishra@google.com>
----
- drivers/dma/dmatest.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/dma/dmatest.c b/drivers/dma/dmatest.c
-index 2ae3469397f3..950b7a9e7769 100644
---- a/drivers/dma/dmatest.c
-+++ b/drivers/dma/dmatest.c
-@@ -852,6 +852,8 @@ static int dmatest_func(void *data)
- 		}
- 
- 		if (!done->done) {
-+			if (!params->polled)
-+				dmaengine_terminate_sync(chan);
- 			result("test timed out", total_tests, src->off, dst->off,
- 			       len, 0);
- 			goto error_unmap_continue;
-@@ -859,6 +861,7 @@ static int dmatest_func(void *data)
- 			   !(dma_has_cap(DMA_COMPLETION_NO_ORDER,
- 					 dev->cap_mask) &&
- 			     status == DMA_OUT_OF_ORDER)) {
-+			dmaengine_terminate_sync(chan);
- 			result(status == DMA_ERROR ?
- 			       "completion error status" :
- 			       "completion busy status", total_tests, src->off,
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.56.1.703.gf848ed807c-goog
-
+Mike sent already a new version; this is now good enough.
