@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030226;
-	b=vOVybZVNf6Ldhy+q80j8cn7SUmyL2g+UUD+XxApaoKfyx6atfBOPL/9+gglCwk5fjjZs
-	 g/Eb/qAL2qh35LEM3Knptlwx16SRtoCHzQdNlIIDA5zuG9okGbcH133t6mRTmNX6Y6tJN
-	 VYxOHbE8HgFFeIcHLHQw2FhIHzjdrCPMAsu/kyRFGgw66OVG3QUlrDrUWFa+F3hN30W6I
-	 dTXzDBXPuLjwWxHxVP7Pi6qBA5BlnhvOoT80nGvzgUPFrJplqZQ8WWzZBLSBGZlqS7Vmb
-	 /JR6G11Px7LBbINmaFqBBz7p1EJ6ctzpcyLwydc6MXuYGhmeIBCNnLNMrZEhr44GhPQ==
+	t=1795030232;
+	b=Wnqf1JdPtFoKPob9VNnT3hcxT5YuNUxIj57i6eztFmjovMqQK8iz2JIsG5EMQS6hGQGg
+	 D7cLSIcYDIMck0i5ZCfcsi7a7R3VQMGwnE56vvLpqriYY8MSsEkV/n3zvj9j1s+/Tp+9W
+	 SxaqLHBw6Qp53miaqXHUBDnQ8Rdf31bSJkbu++X/7z/mG7OyhcDQwKJ2rxh+FueMUruDv
+	 C9A+2xBM9sSOj9WxDwEAQ9SWmSDenGMGVjUGCPDafIxxuiyZ4uaQ73LChmImkeSiA9l2a
+	 V08+ciUgMga7lVLmfz6axKhhupFM1SRZqbyn/VEaT2ps3pljx7NyMSsuTl9KgBJm7Og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030226;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030232;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=M0Xegxe5Ql0D2ZywVo3ovmRKh6jTG7zXtqm/K6iBSLs=;
-	b=3cbsguGtTLL/rvyNDB0/hsIyN1GEmankHzQGj0k23iJii14Zz5klWlKeJZZtVWrpmP+k
-	 N8k9XCmz0j6ZWut0BlVfwTD7EUahpOy8BRJiaV9bRGbHJpMxP2JMIbjDqzM7TxUUdWLVT
-	 wuU61cUe4gCMM+6heYOq2IPT6Jdy81EKEVfnBGi15nr/g6BiKU4r74p8ZQGupku10vNbK
-	 lnpJTFCoQJgGcp5bJR9AVrNGItdobrDGA/iXVPQj25n+qFVVGDK4dAZ/kZB+ppXFueo2a
-	 knx2qA1P4W3s/QUVf3qhXdZ2F1D6OhnrVQMk3I0p8qTzm2VNZnbUTrKS9U7z254Mm6A==
+	bh=n4PNeEybZpAW0mC0xqJL3DdhIkHCnBiTLB4/1PvHJhQ=;
+	b=yp99HyYTvmyIju26SQnfWJF+o1Kwta3cDgvlJmJbdpmOp1vsRzkOT81unfmEGDGKD3+5
+	 A5NRlJ2EBxnIwW+iuFcsP+bVUY6HuWgE2cYXQ0c8WzXjHER4LVA57jdY0HM/EqToGAEuX
+	 JeDcFOV6QKuqUMVaTbd982zyQsPtQt+KUTk0g2EyEAVXxh3EVuxtccel9tonMVefW6JQm
+	 TwQa2HsUEet6FShbYVGNkJe9aKepz+H+glIZyNK6PY+BoOrBI8CEQ1e5EuF0rXqHy+DCY
+	 FR9mZkUtwnIHFzAMtPcUIv++T8ECkFOdJldxcexAl0oarCB2Z2hQ2USX8Ss5JBYjhgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I6hgvvFX;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MWwm5eVP;
 	arc=none smtp.remote-ip=192.198.163.11
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5D91606DD14;
-	Wed, 18 Nov 2026 19:30:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5D91606DD14
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98F96607E70D;
+	Wed, 18 Nov 2026 19:30:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98F96607E70D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=I6hgvvFX
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MWwm5eVP
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795030226; x=1826566226;
+  t=1795030232; x=1826566232;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=za57Kql4IQYy2qJ4ooo/KHd7+YCOH1OpIAanhMXJdhQ=;
-  b=I6hgvvFXe/KZ4HIYXbZH7+/8kOrAL6HglEu8JCNSYBOgUR63uWyWwPvu
-   kRAE79aftdVlB+8T+eo0rrObPpVQ7bxXLqWHQSeRSKs8QVgmcV/yC3Kk5
-   Rj2UMTg9drv1A5a8bGAtPbhpZBzZ1aBK1LygYsytzym6WN3F1v7gct2VZ
-   9f1UOw6MkG/7KFTz+5BBUPgdiKWUTZkBjtIQRe/P/1pPNP0OQlM8JRoPQ
-   agcj8HXc75Cof0UlMNLc9zDosn0xPZajMnOv3yuKguxRW1gc0ov1fFG/p
-   Lkr+gy4eT7uhPEkEnta6GhSGS2zFoRQlq+vX88VvBTApddZII/OQomwUu
-   Q==;
-X-CSE-ConnectionGUID: wSf9PoqzRHmSDpjf8srTtA==
-X-CSE-MsgGUID: X0buczqYTmKan6jiEYpx1Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3781184"
+  bh=P6kLXifl5/11T6GIbDHV5075zKSPQDKq9/6zWzb2fSM=;
+  b=MWwm5eVPyTgTPu02X9CfghCu/DHVEAQ9ElNUPE2lXsPlG7dGPBcpv2NN
+   FGbTHkCLcSP1WxbaqpBFJATUhjYejCfOfPFaRbg57f8Cpn3NINYZyYnLc
+   4GZ/LNjVIScJR0i8GuWRmmSrQTtINbDxb0jrTE9sRMk1IdxrUX9Zqx6xT
+   mEqvkqgOdPQcDkCUZOH6620dZzCDS9K+yaUnVCDzuuLi6HHs/f+uDlm3J
+   mbX7zmKVAwhHiUZCcWDrWX+vCjQLb4WDKA7GoDA6S2nsJPyO7ztToHG+P
+   wOozvPUb6p/cZJAzCZ0v3A4u6Q57OBZFwC25kv/1xOuLxuk6n0usmDAJP
+   g==;
+X-CSE-ConnectionGUID: FkgZfaW0T72rS8uR40OaPw==
+X-CSE-MsgGUID: PWTHsgMxSECMXCsBLeU4wA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3781330"
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3781184"
+   d="scan'208";a="3781330"
 Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:30:25 -0800
-X-CSE-ConnectionGUID: KHZOvhAYRf2/S1t8AGxTaQ==
-X-CSE-MsgGUID: GLMFlRU+QdSeErje+r5PyA==
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:30:31 -0800
+X-CSE-ConnectionGUID: r0whFGCgT4SwQ1qzBMs0mg==
+X-CSE-MsgGUID: dnQXkmqkTBGxU10WNAw1Gw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10468064"
+   d="scan'208";a="10468135"
 Received: from jf.intel.com ([10.165.154.102])
-  by fmviesa008.fm.intel.com with ESMTP; 18 Nov 2026 11:30:24 -0800
+  by fmviesa008.fm.intel.com with ESMTP; 18 Nov 2026 11:30:31 -0800
 From: Ehab Ababneh <ehab.ababneh@intel.com>
 To: ilpo.jarvinen@linux.intel.com,
 	hansg@kernel.org,
@@ -82,9 +82,9 @@ Cc: ashok.raj.linux@gmail.com,
 	sathyanarayanan.kuppuswamy@linux.intel.com,
 	pengfei.xu@intel.com,
 	ravi.v.shankar@intel.com
-Subject: [PATCH v2 01/17] platform/x86/intel/ifs: Revert SBAF feature
-Date: Wed, 18 Nov 2026 12:32:43 -0700
-Message-ID: <20261118193259.519568-2-ehab.ababneh@intel.com>
+Subject: [PATCH v2 16/17] platform/x86/intel/ifs: Update IFS documentation
+Date: Wed, 18 Nov 2026 12:32:58 -0700
+Message-ID: <20261118193259.519568-17-ehab.ababneh@intel.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118193259.519568-1-ehab.ababneh@intel.com>
 References: <20261118193259.519568-1-ehab.ababneh@intel.com>
@@ -101,602 +101,140 @@ Content-Transfer-Encoding: 8bit
 
 From: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
 
-Structural Based Functional Test at Field (SBAF) test was initially
-expected to be supported in Granite Rapids (GNR) CPUs. However, due to
-recent roadmap changes, the SBAF test support will not be included in
-GNR and is unlikely to be included in future CPUs.
+Update the simultaneous IFS testing domain in the IFS documentation from
+a core to a group that shares the same SCAN engine, which works for both
+the traditional Hyper-Threading (HT) systems and the Dual-Core Module (DCM)
+based systems (e.g., Diamond Rapids).
 
-Additionally, Intel has never published the SBAF scan files, and the
-SBAF feature and its interface [1] are not utilized. Therefore, it's
-safe to remove them. Given this, remove the SBAF test from the In-Field
-Scan (IFS) driver by reverting the following commits:
-
-  commit 1e701372d7ac ("platform/x86/intel/ifs: Fix SBAF title underline length")
-  commit 61b74964536e ("trace: platform/x86/intel/ifs: Add SBAF trace support")
-  commit 3c4d06bd6e37 ("platform/x86/intel/ifs: Add SBAF test support")
-  commit 0a3e4e94d137 ("platform/x86/intel/ifs: Add SBAF test image loading support")
-  commit 744a6a1f2a83 ("tools arch x86: Sync the msr-index.h copy with the kernel sources")
-
-[1] /sys/devices/virtual/misc/intel_ifs_2
+Add documentation for the new sysfs interfaces {status, details,
+addnl_details, cpus_ran}_list.
 
 Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
 Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
 Tested-by: Yi Lai <yi1.lai@intel.com>
 ---
- arch/x86/include/asm/msr-index.h         |   2 -
- drivers/platform/x86/intel/ifs/core.c    |  24 ---
- drivers/platform/x86/intel/ifs/ifs.h     |  65 +------
- drivers/platform/x86/intel/ifs/load.c    |  16 +-
- drivers/platform/x86/intel/ifs/runtest.c | 233 -----------------------
- include/trace/events/intel_ifs.h         |  27 ---
- tools/arch/x86/include/asm/msr-index.h   |   2 -
- 7 files changed, 5 insertions(+), 364 deletions(-)
+ drivers/platform/x86/intel/ifs/ifs.h | 66 ++++++++++++++++++----------
+ 1 file changed, 44 insertions(+), 22 deletions(-)
 
-diff --git a/arch/x86/include/asm/msr-index.h b/arch/x86/include/asm/msr-index.h
-index c0914829a925..addbcdd02b9b 100644
---- a/arch/x86/include/asm/msr-index.h
-+++ b/arch/x86/include/asm/msr-index.h
-@@ -282,8 +282,6 @@
- #define MSR_INTEGRITY_CAPS_ARRAY_BIST          BIT(MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT)
- #define MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT	4
- #define MSR_INTEGRITY_CAPS_PERIODIC_BIST	BIT(MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT)
--#define MSR_INTEGRITY_CAPS_SBAF_BIT		8
--#define MSR_INTEGRITY_CAPS_SBAF			BIT(MSR_INTEGRITY_CAPS_SBAF_BIT)
- #define MSR_INTEGRITY_CAPS_SAF_GEN_MASK	GENMASK_ULL(10, 9)
- 
- #define MSR_LBR_NHM_FROM		0x00000680
-diff --git a/drivers/platform/x86/intel/ifs/core.c b/drivers/platform/x86/intel/ifs/core.c
-index 3dafa28a1010..574f2a366d06 100644
---- a/drivers/platform/x86/intel/ifs/core.c
-+++ b/drivers/platform/x86/intel/ifs/core.c
-@@ -34,7 +34,6 @@ bool *ifs_pkg_auth;
- static const struct ifs_test_caps scan_test = {
- 	.integrity_cap_bit = MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT,
- 	.test_num = IFS_TYPE_SAF,
--	.image_suffix = "scan",
- };
- 
- static const struct ifs_test_caps array_test = {
-@@ -50,20 +49,6 @@ static const struct ifs_test_msrs scan_msrs = {
- 	.test_ctrl = MSR_SAF_CTRL,
- };
- 
--static const struct ifs_test_msrs sbaf_msrs = {
--	.copy_hashes = MSR_COPY_SBAF_HASHES,
--	.copy_hashes_status = MSR_SBAF_HASHES_STATUS,
--	.copy_chunks = MSR_AUTHENTICATE_AND_COPY_SBAF_CHUNK,
--	.copy_chunks_status = MSR_SBAF_CHUNKS_AUTHENTICATION_STATUS,
--	.test_ctrl = MSR_SBAF_CTRL,
--};
--
--static const struct ifs_test_caps sbaf_test = {
--	.integrity_cap_bit = MSR_INTEGRITY_CAPS_SBAF_BIT,
--	.test_num = IFS_TYPE_SBAF,
--	.image_suffix = "sbft",
--};
--
- static struct ifs_device ifs_devices[] = {
- 	[IFS_TYPE_SAF] = {
- 		.test_caps = &scan_test,
-@@ -82,15 +67,6 @@ static struct ifs_device ifs_devices[] = {
- 			.groups = plat_ifs_array_groups,
- 		},
- 	},
--	[IFS_TYPE_SBAF] = {
--		.test_caps = &sbaf_test,
--		.test_msrs = &sbaf_msrs,
--		.misc = {
--			.name = "intel_ifs_2",
--			.minor = MISC_DYNAMIC_MINOR,
--			.groups = plat_ifs_groups,
--		},
--	},
- };
- 
- #define IFS_NUMTESTS ARRAY_SIZE(ifs_devices)
 diff --git a/drivers/platform/x86/intel/ifs/ifs.h b/drivers/platform/x86/intel/ifs/ifs.h
-index f369fb0d3d82..f55528ac517b 100644
+index 10eea2c6b871..46461cc69f94 100644
 --- a/drivers/platform/x86/intel/ifs/ifs.h
 +++ b/drivers/platform/x86/intel/ifs/ifs.h
-@@ -127,38 +127,11 @@
-  * 2) Hardware allows for some number of cores to be tested in parallel.
-  * The driver does not make use of this, it only tests one core at a time.
+@@ -14,11 +14,11 @@
+  * Introduction
+  * ------------
   *
-- * Structural Based Functional Test at Field (SBAF):
-- * -------------------------------------------------
+- * In Field Scan (IFS) is a hardware feature to run circuit level tests on
+- * a CPU core to detect problems that are not caught by parity or ECC checks.
+- * Future CPUs will support more than one type of test which will show up
+- * with a new platform-device instance-id.
 - *
-- * SBAF is a new type of testing that provides comprehensive core test
-- * coverage complementing Scan at Field (SAF) testing. SBAF mimics the
-- * manufacturing screening environment and leverages the same test suite.
-- * It makes use of Design For Test (DFT) observation sites and features
-- * to maximize coverage in minimum time.
-- *
-- * Similar to the SAF test, SBAF isolates the core under test from the
-- * rest of the system during execution. Upon completion, the core
-- * seamlessly resets to its pre-test state and resumes normal operation.
-- * Any machine checks or hangs encountered during the test are confined to
-- * the isolated core, preventing disruption to the overall system.
-- *
-- * Like the SAF test, the SBAF test is also divided into multiple batches,
-- * and each batch test can take hundreds of milliseconds (100-200 ms) to
-- * complete. If such a lengthy interruption is undesirable, it is
-- * recommended to relocate the time-sensitive applications to other cores.
++ * In-Field Scan (IFS) is a hardware feature that runs circuit-level tests on
++ * all CPUs in a group, where all CPUs share the same SCAN test engine to
++ * detect problems that are not caught by parity or ECC checks. Future CPUs
++ * will support more than one type of test, which will show up with a new
++ * platform-device instance-id.
+  *
+  * IFS Image
+  * ---------
+@@ -59,19 +59,19 @@
+  * Running tests
+  * -------------
+  *
+- * Tests are run by the driver synchronizing execution of all threads on a
+- * core and then writing to the ACTIVATE_SCAN MSR on all threads. Instruction
+- * execution continues when:
++ * Tests are run by the driver synchronizing execution of all CPUs in a group
++ * that share the same SCAN test engine, then writing to the ACTIVATE_SCAN MSR
++ * on all CPUs. Instruction execution continues when:
+  *
+  * 1) All tests have completed.
+  * 2) Execution was interrupted.
+  * 3) A test detected a problem.
+  *
+- * Note that ALL THREADS ON THE CORE ARE EFFECTIVELY OFFLINE FOR THE
++ * Note that ALL CPUs IN THE GROUP ARE EFFECTIVELY OFFLINE FOR THE
+  * DURATION OF THE TEST. This can be up to 200 milliseconds. If the system
+- * is running latency sensitive applications that cannot tolerate an
++ * is running latency-sensitive applications that cannot tolerate an
+  * interruption of this magnitude, the system administrator must arrange
+- * to migrate those applications to other cores before running a core test.
++ * to migrate those applications to other CPUs before running a group test.
+  * It may also be necessary to redirect interrupts to other CPUs.
+  *
+  * In all cases reading the corresponding test's STATUS MSR provides details on what
+@@ -81,30 +81,52 @@
+  * The IFS driver provides sysfs interfaces via /sys/devices/virtual/misc/intel_ifs_<n>/
+  * to control execution:
+  *
+- * Test a specific core::
++ * Test a specific group::
+  *
+  *   # echo <CPU#> > /sys/devices/virtual/misc/intel_ifs_<n>/run_test
+  *
+- * when HT is enabled any of the sibling CPU# can be specified to test
+- * its corresponding physical core. Since the tests are per physical core,
+- * the result of testing any thread is same. All siblings must be online
+- * to run a core test. It is only necessary to test one thread.
++ * Any CPU in the same group that shares the same SCAN test engine can be
++ * specified to test its corresponding group. Offline CPUs in the group do
++ * not take part in the test; if the test then does not pass, the driver
++ * warns. It is only necessary to test one CPU in the group.
+  *
+- * For e.g. to test core corresponding to CPU5
++ * For e.g. to test a group corresponding to CPU5
+  *
+  *   # echo 5 > /sys/devices/virtual/misc/intel_ifs_<n>/run_test
+  *
+- * Results of the last test is provided in /sys::
++ * The result of the last test for the primary CPU in the group is provided in /sys::
+  *
+  *   $ cat /sys/devices/virtual/misc/intel_ifs_<n>/status
+  *   pass
+  *
+- * Status can be one of pass, fail, untested
++ * Status can be one of pass, fail, untested.
+  *
+- * Additional details of the last test is provided by the details file::
++ * Additional details of the last test for the primary CPU in the group are provided in /sys::
+  *
+  *   $ cat /sys/devices/virtual/misc/intel_ifs_<n>/details
+- *   0x8081
++ *   0x7f0080
++ *
++ * For intel_ifs_0, there are following additional sysfs files:
++ *
++ * All CPUs in the same group that ran the test are provided in /sys::
++ *
++ *   $ cat /sys/devices/virtual/misc/intel_ifs_0/cpus_ran_list
++ *   5,149
++ *
++ * The results of the last test for all CPUs in the same group are provided in /sys::
++ *
++ *   $ cat /sys/devices/virtual/misc/intel_ifs_0/status_list
++ *   pass pass
++ *
++ * Additional details of the last test for all CPUs in the same group are provided in /sys::
++ *
++ *   $ cat /sys/devices/virtual/misc/intel_ifs_0/details_list
++ *   0x7f0080 0x7f0080
++ *
++ * More additional details of the last test for all CPUs in the same group are provided in /sys::
++ *
++ *   $ cat /sys/devices/virtual/misc/intel_ifs_0/addnl_details_list
++ *   0xc44191a 0xc44191a
+  *
+  * The details file reports the hex value of the test specific status MSR.
+  * Hardware defined error codes are documented in volume 4 of the Intel
+@@ -125,7 +147,7 @@
+  * uses the subrange feature to restart an interrupted test.
+  *
+  * 2) Hardware allows for some number of cores to be tested in parallel.
+- * The driver does not make use of this, it only tests one core at a time.
++ * The driver does not make use of this, it only tests one group at a time.
+  *
   */
  #include <linux/device.h>
- #include <linux/miscdevice.h>
- 
- #define MSR_ARRAY_BIST				0x00000105
--
--#define MSR_COPY_SBAF_HASHES			0x000002b8
--#define MSR_SBAF_HASHES_STATUS			0x000002b9
--#define MSR_AUTHENTICATE_AND_COPY_SBAF_CHUNK	0x000002ba
--#define MSR_SBAF_CHUNKS_AUTHENTICATION_STATUS	0x000002bb
--#define MSR_ACTIVATE_SBAF			0x000002bc
--#define MSR_SBAF_STATUS				0x000002bd
--
- #define MSR_COPY_SCAN_HASHES			0x000002c2
- #define MSR_SCAN_HASHES_STATUS			0x000002c3
- #define MSR_AUTHENTICATE_AND_COPY_CHUNK		0x000002c4
-@@ -168,7 +141,6 @@
- #define MSR_ARRAY_TRIGGER			0x000002d6
- #define MSR_ARRAY_STATUS			0x000002d7
- #define MSR_SAF_CTRL				0x000004f0
--#define MSR_SBAF_CTRL				0x000004f8
- 
- #define SCAN_NOT_TESTED				0
- #define SCAN_TEST_PASS				1
-@@ -176,7 +148,6 @@
- 
- #define IFS_TYPE_SAF			0
- #define IFS_TYPE_ARRAY_BIST		1
--#define IFS_TYPE_SBAF			2
- 
- #define ARRAY_GEN0			0
- #define ARRAY_GEN1			1
-@@ -226,8 +197,7 @@ union ifs_chunks_auth_status_gen2 {
- 		u16	valid_chunks;
- 		u16	total_chunks;
- 		u32	error_code	:8;
--		u32	rsvd2		:8;
--		u32	max_bundle	:16;
-+		u32	rsvd2		:24;
- 	};
- };
- 
-@@ -284,34 +254,6 @@ union ifs_array {
- 	};
- };
- 
--/* MSR_ACTIVATE_SBAF bit fields */
--union ifs_sbaf {
--	u64	data;
--	struct {
--		u32	bundle_idx	:9;
--		u32	rsvd1		:5;
--		u32	pgm_idx		:2;
--		u32	rsvd2		:16;
--		u32	delay		:31;
--		u32	sigmce		:1;
--	};
--};
--
--/* MSR_SBAF_STATUS bit fields */
--union ifs_sbaf_status {
--	u64	data;
--	struct {
--		u32	bundle_idx	:9;
--		u32	rsvd1		:5;
--		u32	pgm_idx		:2;
--		u32	rsvd2		:16;
--		u32	error_code	:8;
--		u32	rsvd3		:21;
--		u32	test_fail	:1;
--		u32	sbaf_status	:2;
--	};
--};
--
- /*
-  * Driver populated error-codes
-  * 0xFD: Test timed out before completing all the chunks.
-@@ -320,12 +262,9 @@ union ifs_sbaf_status {
- #define IFS_SW_TIMEOUT				0xFD
- #define IFS_SW_PARTIAL_COMPLETION		0xFE
- 
--#define IFS_SUFFIX_SZ		5
--
- struct ifs_test_caps {
- 	int	integrity_cap_bit;
- 	int	test_num;
--	char	image_suffix[IFS_SUFFIX_SZ];
- };
- 
- /**
-@@ -356,7 +295,6 @@ struct ifs_test_msrs {
-  * @generation: IFS test generation enumerated by hardware
-  * @chunk_size: size of a test chunk
-  * @array_gen: test generation of array test
-- * @max_bundle: maximum bundle index
-  */
- struct ifs_data {
- 	int	loaded_version;
-@@ -369,7 +307,6 @@ struct ifs_data {
- 	u32	generation;
- 	u32	chunk_size;
- 	u32	array_gen;
--	u32	max_bundle;
- };
- 
- struct ifs_work {
-diff --git a/drivers/platform/x86/intel/ifs/load.c b/drivers/platform/x86/intel/ifs/load.c
-index 50f1fdf7dfed..329400908cb2 100644
---- a/drivers/platform/x86/intel/ifs/load.c
-+++ b/drivers/platform/x86/intel/ifs/load.c
-@@ -262,22 +262,20 @@ static int copy_hashes_authenticate_chunks_gen2(struct device *dev)
- 		return -EIO;
- 	}
- 	ifsd->valid_chunks = valid_chunks;
--	ifsd->max_bundle = chunk_status.max_bundle;
- 
- 	return 0;
- }
- 
- static int validate_ifs_metadata(struct device *dev)
- {
--	const struct ifs_test_caps *test = ifs_get_test_caps(dev);
- 	struct ifs_data *ifsd = ifs_get_data(dev);
- 	union meta_data *ifs_meta;
- 	char test_file[64];
- 	int ret = -EINVAL;
- 
--	snprintf(test_file, sizeof(test_file), "%02x-%02x-%02x-%02x.%s",
-+	snprintf(test_file, sizeof(test_file), "%02x-%02x-%02x-%02x.scan",
- 		 boot_cpu_data.x86, boot_cpu_data.x86_model,
--		 boot_cpu_data.x86_stepping, ifsd->cur_batch, test->image_suffix);
-+		 boot_cpu_data.x86_stepping, ifsd->cur_batch);
- 
- 	ifs_meta = (union meta_data *)find_meta_data(ifs_header_ptr, META_TYPE_IFS);
- 	if (!ifs_meta) {
-@@ -307,12 +305,6 @@ static int validate_ifs_metadata(struct device *dev)
- 		return ret;
- 	}
- 
--	if (ifs_meta->test_type != test->test_num) {
--		dev_warn(dev, "Metadata test_type %d mismatches with device type\n",
--			 ifs_meta->test_type);
--		return ret;
--	}
--
- 	return 0;
- }
- 
-@@ -400,9 +392,9 @@ int ifs_load_firmware(struct device *dev)
- 	char scan_path[64];
- 	int ret;
- 
--	snprintf(scan_path, sizeof(scan_path), "intel/ifs_%d/%02x-%02x-%02x-%02x.%s",
-+	snprintf(scan_path, sizeof(scan_path), "intel/ifs_%d/%02x-%02x-%02x-%02x.scan",
- 		 test->test_num, boot_cpu_data.x86, boot_cpu_data.x86_model,
--		 boot_cpu_data.x86_stepping, ifsd->cur_batch, test->image_suffix);
-+		 boot_cpu_data.x86_stepping, ifsd->cur_batch);
- 
- 	ret = request_firmware_direct(&fw, scan_path, dev);
- 	if (ret) {
-diff --git a/drivers/platform/x86/intel/ifs/runtest.c b/drivers/platform/x86/intel/ifs/runtest.c
-index dfc119d7354d..1762eab7fe5c 100644
---- a/drivers/platform/x86/intel/ifs/runtest.c
-+++ b/drivers/platform/x86/intel/ifs/runtest.c
-@@ -30,13 +30,6 @@ struct run_params {
- 	union ifs_status status;
- };
- 
--struct sbaf_run_params {
--	struct ifs_data *ifsd;
--	int *retry_cnt;
--	union ifs_sbaf *activate;
--	union ifs_sbaf_status status;
--};
--
- /*
-  * Number of TSC cycles that a logical CPU will wait for the other
-  * logical CPU on the core in the WRMSR(ACTIVATE_SCAN).
-@@ -154,7 +147,6 @@ static bool can_restart(union ifs_status status)
- #define SPINUNIT 100 /* 100 nsec */
- static atomic_t array_cpus_in;
- static atomic_t scan_cpus_in;
--static atomic_t sbaf_cpus_in;
- 
- /*
-  * Simplified cpu sibling rendezvous loop based on microcode loader __wait_for_cpus()
-@@ -396,225 +388,6 @@ static void ifs_array_test_gen1(int cpu, struct device *dev)
- 		ifsd->status = SCAN_TEST_PASS;
- }
- 
--#define SBAF_STATUS_PASS			0
--#define SBAF_STATUS_SIGN_FAIL			1
--#define SBAF_STATUS_INTR			2
--#define SBAF_STATUS_TEST_FAIL			3
--
--enum sbaf_status_err_code {
--	IFS_SBAF_NO_ERROR				= 0,
--	IFS_SBAF_OTHER_THREAD_COULD_NOT_JOIN		= 1,
--	IFS_SBAF_INTERRUPTED_BEFORE_RENDEZVOUS		= 2,
--	IFS_SBAF_UNASSIGNED_ERROR_CODE3			= 3,
--	IFS_SBAF_INVALID_BUNDLE_INDEX			= 4,
--	IFS_SBAF_MISMATCH_ARGS_BETWEEN_THREADS		= 5,
--	IFS_SBAF_CORE_NOT_CAPABLE_CURRENTLY		= 6,
--	IFS_SBAF_UNASSIGNED_ERROR_CODE7			= 7,
--	IFS_SBAF_EXCEED_NUMBER_OF_THREADS_CONCURRENT	= 8,
--	IFS_SBAF_INTERRUPTED_DURING_EXECUTION		= 9,
--	IFS_SBAF_INVALID_PROGRAM_INDEX			= 0xA,
--	IFS_SBAF_CORRUPTED_CHUNK			= 0xB,
--	IFS_SBAF_DID_NOT_START				= 0xC,
--};
--
--static const char * const sbaf_test_status[] = {
--	[IFS_SBAF_NO_ERROR] = "SBAF no error",
--	[IFS_SBAF_OTHER_THREAD_COULD_NOT_JOIN] = "Other thread could not join.",
--	[IFS_SBAF_INTERRUPTED_BEFORE_RENDEZVOUS] = "Interrupt occurred prior to SBAF coordination.",
--	[IFS_SBAF_UNASSIGNED_ERROR_CODE3] = "Unassigned error code 0x3",
--	[IFS_SBAF_INVALID_BUNDLE_INDEX] = "Non-valid sbaf bundles. Reload test image",
--	[IFS_SBAF_MISMATCH_ARGS_BETWEEN_THREADS] = "Mismatch in arguments between threads T0/T1.",
--	[IFS_SBAF_CORE_NOT_CAPABLE_CURRENTLY] = "Core not capable of performing SBAF currently",
--	[IFS_SBAF_UNASSIGNED_ERROR_CODE7] = "Unassigned error code 0x7",
--	[IFS_SBAF_EXCEED_NUMBER_OF_THREADS_CONCURRENT] = "Exceeded number of Logical Processors (LP) allowed to run Scan-At-Field concurrently",
--	[IFS_SBAF_INTERRUPTED_DURING_EXECUTION] = "Interrupt occurred prior to SBAF start",
--	[IFS_SBAF_INVALID_PROGRAM_INDEX] = "SBAF program index not valid",
--	[IFS_SBAF_CORRUPTED_CHUNK] = "SBAF operation aborted due to corrupted chunk",
--	[IFS_SBAF_DID_NOT_START] = "SBAF operation did not start",
--};
--
--static void sbaf_message_not_tested(struct device *dev, int cpu, u64 status_data)
--{
--	union ifs_sbaf_status status = (union ifs_sbaf_status)status_data;
--
--	if (status.error_code < ARRAY_SIZE(sbaf_test_status)) {
--		dev_info(dev, "CPU(s) %*pbl: SBAF operation did not start. %s\n",
--			 cpumask_pr_args(cpu_smt_mask(cpu)),
--			 sbaf_test_status[status.error_code]);
--	} else if (status.error_code == IFS_SW_TIMEOUT) {
--		dev_info(dev, "CPU(s) %*pbl: software timeout during scan\n",
--			 cpumask_pr_args(cpu_smt_mask(cpu)));
--	} else if (status.error_code == IFS_SW_PARTIAL_COMPLETION) {
--		dev_info(dev, "CPU(s) %*pbl: %s\n",
--			 cpumask_pr_args(cpu_smt_mask(cpu)),
--			 "Not all SBAF bundles executed. Maximum forward progress retries exceeded");
--	} else {
--		dev_info(dev, "CPU(s) %*pbl: SBAF unknown status %llx\n",
--			 cpumask_pr_args(cpu_smt_mask(cpu)), status.data);
--	}
--}
--
--static void sbaf_message_fail(struct device *dev, int cpu, union ifs_sbaf_status status)
--{
--	/* Failed signature check is set when SBAF signature did not match the expected value */
--	if (status.sbaf_status == SBAF_STATUS_SIGN_FAIL) {
--		dev_err(dev, "CPU(s) %*pbl: Failed signature check\n",
--			cpumask_pr_args(cpu_smt_mask(cpu)));
--	}
--
--	/* Failed to reach end of test */
--	if (status.sbaf_status == SBAF_STATUS_TEST_FAIL) {
--		dev_err(dev, "CPU(s) %*pbl: Failed to complete test\n",
--			cpumask_pr_args(cpu_smt_mask(cpu)));
--	}
--}
--
--static bool sbaf_bundle_completed(union ifs_sbaf_status status)
--{
--	return !(status.sbaf_status || status.error_code);
--}
--
--static bool sbaf_can_restart(union ifs_sbaf_status status)
--{
--	enum sbaf_status_err_code err_code = status.error_code;
--
--	/* Signature for chunk is bad, or scan test failed */
--	if (status.sbaf_status == SBAF_STATUS_SIGN_FAIL ||
--	    status.sbaf_status == SBAF_STATUS_TEST_FAIL)
--		return false;
--
--	switch (err_code) {
--	case IFS_SBAF_NO_ERROR:
--	case IFS_SBAF_OTHER_THREAD_COULD_NOT_JOIN:
--	case IFS_SBAF_INTERRUPTED_BEFORE_RENDEZVOUS:
--	case IFS_SBAF_EXCEED_NUMBER_OF_THREADS_CONCURRENT:
--	case IFS_SBAF_INTERRUPTED_DURING_EXECUTION:
--		return true;
--	case IFS_SBAF_UNASSIGNED_ERROR_CODE3:
--	case IFS_SBAF_INVALID_BUNDLE_INDEX:
--	case IFS_SBAF_MISMATCH_ARGS_BETWEEN_THREADS:
--	case IFS_SBAF_CORE_NOT_CAPABLE_CURRENTLY:
--	case IFS_SBAF_UNASSIGNED_ERROR_CODE7:
--	case IFS_SBAF_INVALID_PROGRAM_INDEX:
--	case IFS_SBAF_CORRUPTED_CHUNK:
--	case IFS_SBAF_DID_NOT_START:
--		break;
--	}
--	return false;
--}
--
--/*
-- * Execute the SBAF test. Called "simultaneously" on all threads of a core
-- * at high priority using the stop_cpus mechanism.
-- */
--static int dosbaf(void *data)
--{
--	struct sbaf_run_params *run_params = data;
--	int cpu = smp_processor_id();
--	union ifs_sbaf_status status;
--	struct ifs_data *ifsd;
--	int first;
--
--	ifsd = run_params->ifsd;
--
--	/* Only the first logical CPU on a core reports result */
--	first = cpumask_first(cpu_smt_mask(cpu));
--	wait_for_sibling_cpu(&sbaf_cpus_in, NSEC_PER_SEC);
--
--	/*
--	 * This WRMSR will wait for other HT threads to also write
--	 * to this MSR (at most for activate.delay cycles). Then it
--	 * starts scan of each requested bundle. The core test happens
--	 * during the "execution" of the WRMSR.
--	 */
--	wrmsrq(MSR_ACTIVATE_SBAF, run_params->activate->data);
--	rdmsrq(MSR_SBAF_STATUS, status.data);
--	trace_ifs_sbaf(ifsd->cur_batch, *run_params->activate, status);
--
--	/* Pass back the result of the test */
--	if (cpu == first)
--		run_params->status = status;
--
--	return 0;
--}
--
--static void ifs_sbaf_test_core(int cpu, struct device *dev)
--{
--	struct sbaf_run_params run_params;
--	union ifs_sbaf_status status = {};
--	union ifs_sbaf activate;
--	unsigned long timeout;
--	struct ifs_data *ifsd;
--	int stop_bundle;
--	int retries;
--
--	ifsd = ifs_get_data(dev);
--
--	activate.data = 0;
--	activate.delay = IFS_THREAD_WAIT;
--
--	timeout = jiffies + 2 * HZ;
--	retries = MAX_IFS_RETRIES;
--	activate.bundle_idx = 0;
--	stop_bundle = ifsd->max_bundle;
--
--	while (activate.bundle_idx <= stop_bundle) {
--		if (time_after(jiffies, timeout)) {
--			status.error_code = IFS_SW_TIMEOUT;
--			break;
--		}
--
--		atomic_set(&sbaf_cpus_in, 0);
--
--		run_params.ifsd = ifsd;
--		run_params.activate = &activate;
--		run_params.retry_cnt = &retries;
--		stop_core_cpuslocked(cpu, dosbaf, &run_params);
--
--		status = run_params.status;
--
--		if (sbaf_bundle_completed(status)) {
--			activate.bundle_idx = status.bundle_idx + 1;
--			activate.pgm_idx = 0;
--			retries = MAX_IFS_RETRIES;
--			continue;
--		}
--
--		/* Some cases can be retried, give up for others */
--		if (!sbaf_can_restart(status))
--			break;
--
--		if (status.pgm_idx == activate.pgm_idx) {
--			/* If no progress retry */
--			if (--retries == 0) {
--				if (status.error_code == IFS_NO_ERROR)
--					status.error_code = IFS_SW_PARTIAL_COMPLETION;
--				break;
--			}
--		} else {
--			/* if some progress, more pgms remaining in bundle, reset retries */
--			retries = MAX_IFS_RETRIES;
--			activate.bundle_idx = status.bundle_idx;
--			activate.pgm_idx = status.pgm_idx;
--		}
--	}
--
--	/* Update status for this core */
--	ifsd->scan_details = status.data;
--
--	if (status.sbaf_status == SBAF_STATUS_SIGN_FAIL ||
--	    status.sbaf_status == SBAF_STATUS_TEST_FAIL) {
--		ifsd->status = SCAN_TEST_FAIL;
--		sbaf_message_fail(dev, cpu, status);
--	} else if (status.error_code || status.sbaf_status == SBAF_STATUS_INTR ||
--		   (activate.bundle_idx < stop_bundle)) {
--		ifsd->status = SCAN_NOT_TESTED;
--		sbaf_message_not_tested(dev, cpu, status.data);
--	} else {
--		ifsd->status = SCAN_TEST_PASS;
--	}
--}
--
- /*
-  * Initiate per core test. It wakes up work queue threads on the target cpu and
-  * its sibling cpu. Once all sibling threads wake up, the scan test gets executed and
-@@ -648,12 +421,6 @@ int do_core_test(int cpu, struct device *dev)
- 		else
- 			ifs_array_test_gen1(cpu, dev);
- 		break;
--	case IFS_TYPE_SBAF:
--		if (!ifsd->loaded)
--			ret = -EPERM;
--		else
--			ifs_sbaf_test_core(cpu, dev);
--		break;
- 	default:
- 		ret = -EINVAL;
- 	}
-diff --git a/include/trace/events/intel_ifs.h b/include/trace/events/intel_ifs.h
-index 70323acde1de..0d88ebf2c980 100644
---- a/include/trace/events/intel_ifs.h
-+++ b/include/trace/events/intel_ifs.h
-@@ -35,33 +35,6 @@ TRACE_EVENT(ifs_status,
- 		__entry->status)
- );
- 
--TRACE_EVENT(ifs_sbaf,
--
--	TP_PROTO(int batch, union ifs_sbaf activate, union ifs_sbaf_status status),
--
--	TP_ARGS(batch, activate, status),
--
--	TP_STRUCT__entry(
--		__field(	u64,	status	)
--		__field(	int,	batch	)
--		__field(	u16,	bundle	)
--		__field(	u16,	pgm	)
--	),
--
--	TP_fast_assign(
--		__entry->status	= status.data;
--		__entry->batch	= batch;
--		__entry->bundle	= activate.bundle_idx;
--		__entry->pgm	= activate.pgm_idx;
--	),
--
--	TP_printk("batch: 0x%.2x, bundle_idx: 0x%.4x, pgm_idx: 0x%.4x, status: 0x%.16llx",
--		__entry->batch,
--		__entry->bundle,
--		__entry->pgm,
--		__entry->status)
--);
--
- #endif /* _TRACE_IFS_H */
- 
- /* This part must be outside protection */
-diff --git a/tools/arch/x86/include/asm/msr-index.h b/tools/arch/x86/include/asm/msr-index.h
-index 9c26d4075c5f..a65cfa7a10e4 100644
---- a/tools/arch/x86/include/asm/msr-index.h
-+++ b/tools/arch/x86/include/asm/msr-index.h
-@@ -280,8 +280,6 @@
- #define MSR_INTEGRITY_CAPS_ARRAY_BIST          BIT(MSR_INTEGRITY_CAPS_ARRAY_BIST_BIT)
- #define MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT	4
- #define MSR_INTEGRITY_CAPS_PERIODIC_BIST	BIT(MSR_INTEGRITY_CAPS_PERIODIC_BIST_BIT)
--#define MSR_INTEGRITY_CAPS_SBAF_BIT		8
--#define MSR_INTEGRITY_CAPS_SBAF			BIT(MSR_INTEGRITY_CAPS_SBAF_BIT)
- #define MSR_INTEGRITY_CAPS_SAF_GEN_MASK	GENMASK_ULL(10, 9)
- 
- #define MSR_LBR_NHM_FROM		0x00000680
 -- 
 2.43.0
 
