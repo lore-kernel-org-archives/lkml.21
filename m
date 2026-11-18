@@ -1,78 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795022747;
-	b=1OanH/1KQ2BQb21dl3JhZc2ao6j2LvUPbhK6v7JY/kr7c12snxY1nKFqi15Ucni7oD8S
-	 CZhZDjpMnLYQB4lnWZRxAbDi9djPWWf/yikXJO08EJeGwHvTpiRRJDe5nH6OsR5lpFdSs
-	 oKcPpkmLNGMuT/VrJ3tj//UrRfO6Wu7WcF3m9p9t8vMdpSWn8yoTKBwApv1QGlMzLFB88
-	 CgqvNr2BjUTJ3bR0QAOGURwQcouq1BEwtDpkJSAGCdkE9V8ThhBBM/8WjFs6pzH/EkkqJ
-	 n21QAr5s5o1SVNVfYQxOGefPtwX7O/IlTAgo51sZNqHZaAv1MJQqfxfX47fr3Q9Lfkg==
+	t=1795022748;
+	b=QCoUOI7K72GGdii1na0kSoCm2N4a7V1p6bp5emAe8v/faQu9v+SRVpX1ndTUFfGvfpkk
+	 yAc2OaRaWD2NmQGVIgXkj+lyq2BIlfn+/wV0xej6NAjHjP2fq+5vXwFRQBoV1zAnu4OO/
+	 tXNMxbQIBPH51+uLR4un7GqTSwzVcwhkS9Ea6HFb/6+tR47gEZbw4JkCod49oW++YAAbR
+	 RbOESgSQ7Wl7Dg5XObS30lTuBrTYg7x7s0pNv3aKJRgmX1PJo+l89XwnrLCbcHMoRgbK/
+	 1/+krmWoTC0rEThLDODj5ou7n7gjwmbax6fvbJKdXpLP4d0MLu/MkRu1JhCUYwVmbvA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022747;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022748;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=yXluSobaMZMbKLzA61AfBwd0tBsSypE8yf7S782q9wQ=;
-	b=nvEDmEeThWGbrUh37Pbfz49JkIu1e2nRpYkV0L1aDcqtLDHVkzQJWxwvlHWQrWlqqhph
-	 7DpQA+ErOIH0mqRplcO9X8gfL+Xxvu1lnAIdZ0DIJ7p+g9kM/SQbHsg+O26NBoCgakngw
-	 b0vVPxOrqwctz4g+K06CXjvNECf4rIDQMwCetbrQBWTl+Ip07iIW/EydLYZHoKVCRUZMJ
-	 gk2fmeM0CF0TncGXBDOarQswmD/EH/QuoGvwKbl4djA/Goqye3MaejUUiBqlcPq1MoIYA
-	 VDbbfBmOo23gFj/CskYbZuJU9ZC6g+iUCmYPrUi03+fxeF7OxWi9ykaYPhXCQ3Ddruw==
+	bh=MNzZxP15leU2I6mMVxBO0HS7wWLWzLgRBjo6S8kI+MM=;
+	b=rUFzgrN0ZGaKBsl1uTh/kc3j1fr9qAD4U7x5HvfIkWpL220s4m1KMb0NIS+tV/2Z1yKP
+	 hn0CfxDnhH3EF8cdjPpsyZI+RzE1SkZ6UaniYic7fGenCEHzUFpj1wKVRe7E4LcdJUXbO
+	 bQC1nj89mw6Mhqy9u5wFlCrCOVo+MZwc7EHEWWhS+fPEEjylCDCCraYfdjMB8YcPxvOKf
+	 bUyfwbf99bmQVQjpdE9H6G3wyuepM+SKIAi3gVqwypEpY0TefjHCcVo4YGETQF4MuiiFG
+	 1LVCLIlRU+3zdhv0hIIeAVQ96UmZ6vLIybIhqcpiul/oyl7/S+G5Fq+QmUBSgaD0m1w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="jX/hm0su";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nP6+Fwpn;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDA6960A3826;
-	Wed, 18 Nov 2026 17:25:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57B5660A5BD7;
+	Wed, 18 Nov 2026 17:25:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jX/hm0su
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nP6+Fwpn
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795022747;
-	b=NLc9btd+otGo62dd6iK2wgKjcBFLigNIpKLGV529NaaJAaezMrE6B8fwr3YphMDePv9B
-	 s7DcRR7XywCMFIrQEoqRgeXzECBkajjYx7zyolz870cYC48VmH75OUz7Bw7ExYDUL2F2+
-	 ASWo/X0dkcsYf5KuooNm54vWrhioFZY0t8Jf0kv0AmIJRKaXtwJEDJIzo0zo6yHWRpPIy
-	 t7H2dWnuLuDc76IRVvgKpzP+7jwTweSsa+coiucehRLypUH0xpBvz4HE5E/6Aa4jF9PiA
-	 A8csh+IsNionmX2xtEtJ78Z/RMBduX6XLYjxIkxxLwlfz6NrFUR8bZQxz6QOwdj6l2w==
+	t=1795022748;
+	b=HpH5+oe1qll8nX40r5zGZH5M432eRdNB45pEQCeAnQUdpXOZ2pGuxwOTa+7lP3tboWUf
+	 XslLwyFIgLlLs+XJ2+aE4MToXTrkZS82cVUSvRejyzQTwraBC7jWCtc2Y69f/6hSNLHzS
+	 +J3Ej4ZlEA06KARX1lS2pp+d3xbqYAKE+F9Rq9y7hW8t/OxoRIt9TY5lgc6TB8wqRM2sz
+	 uww5KX8xKhuP3TCypLp+pK/m+37yKrtIIN+auIHIPehXJ2pwQr/n6ic+yCerP5Wo307oc
+	 Mm7TJmFXzNivD7OrOJTZwY52mSvj1lyOCfZ2N+TNuIzEqf90DLS53nmhuoLPmHGcYRg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795022747;
+	c=relaxed/relaxed; t=1795022748;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=yXluSobaMZMbKLzA61AfBwd0tBsSypE8yf7S782q9wQ=;
-	b=0+yugHEI0lgo1g02RNcaZatOZr4G4c/9yvqKp1DvTLsk+VA2FDfB7EeaKmpFoTAliV2f
-	 T7C9h/BylRlb8sAvzTyWaiRh6RtmoAxELkRggvv7UyYbdPeiMg8q9UxytIOElWPxVA9C+
-	 uy1LVcfjdbdl5jQtmXks3H1LStG2JmuCA5mPfjZz+cGjlV75quBgCcjtKkqU4O4aNXEHA
-	 CMWAHXwqs4Km8tUDhjl5Z4SuR6rg5TbuK2U/ZOpQWhYw8gIWSgkQqDsXMqV95Jv3r0XMo
-	 7gaVQ8XnDexsCZJ2ItAlOIhBh0bzhV0YqKpX7m5EIjcJJwRPdM0gLwyJNfid3bbc3qQ==
+	bh=MNzZxP15leU2I6mMVxBO0HS7wWLWzLgRBjo6S8kI+MM=;
+	b=dpqYaMGoLo/PF/z1VZKWQR/cVn3DBs0wlMASKkU7y2JoTJjvZRqZEbBgar/EI2kgnBKY
+	 5zKOt19gvWfQHtYw0qcv6Z4i8jwhAaSJCtWBSaA2mCrXSQfTdQuLCUsG6SFBEwVW6sL/p
+	 yz/NNv7RWa92ZBpkLCQi9oxd91EdBxjC9RE0Zd9jRBUkKVsUIX11jJbmEuyYuvktbEJQl
+	 DTAgzQWPcauW7zg64cT6kA9aNIJLGgu7sE5AdmbDNKjdlex72OsiSP58XHfHwDnWDI7yb
+	 PSI6Ap7EtijpOe0AgKgd+b1X8N1y8ZyQSeN1ub/3dza/leitBQbcVJ4YZzwkbIJACJA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id ADBFB1F000CF;
-	Wed, 18 Nov 2026 17:25:46 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 4A2BD1F0092A;
+	Wed, 18 Nov 2026 17:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022747;
-	bh=yXluSobaMZMbKLzA61AfBwd0tBsSypE8yf7S782q9wQ=;
+	s=k20260515; t=1795022748;
+	bh=MNzZxP15leU2I6mMVxBO0HS7wWLWzLgRBjo6S8kI+MM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=jX/hm0suTWOO99AAzN2tzoQk6coTwrei+0QHlofTZwDfNrsVxZuIJS3VLGQO+Bxn1
-	 IguaZFwSbhv1Qk3Qg1j2/4e27KtAY7ToJ7r8s4Yeo+wPs8VtsVC5+R6cr0C3Lh5rfI
-	 u6MwPdGE2thOotNoeNQq2J4IAY274bfhUXdkwobYNUXbfLn5BBNIITIzMjILV9h+eZ
-	 GRpdNxOPkbq/88ktM3mdFOzNGSwEkomAy8rVy+LBG11RUOP4FRl3UtxYrE6GA1jDgB
-	 zaTsdThPzdfNkwcLST6WoxdTpGPBygXS7kRqGfsysPhEQOET9Otq4zEWXN9MioHgeY
-	 aqS8YJxtNmNnw==
+	b=nP6+FwpnuM2Ph/juqK7T/LLsVBMVX1riDtFxJsUZjr0SMnGr//qhvOacwBst6ln93
+	 PyNN3b9wcNRVtKGzSh1W/8WlXHoZySINNJXk8NwzCm0Zc9xPDHbBjwC8dMg4B4rVcy
+	 L11KWMcuckM8NKW0qXNO493gl0J2RgkygW4/7U4FDDAZTKCPVwDVMh05xi/HiF3XfS
+	 u61Zl9Mo0OmJGfgPJnGhbrtqH9g6C4uuoifWB3VKec7rLvN8Zhoi0lnGPMMWbCZ9yb
+	 cvqsz2u3WAGkhvooBb6ITmoPOmkFzvKVjDnOIAI38ujNCrft3umi6BQQw3Te73beXK
+	 vvR00UvbY2LMA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 7E28A4AEF2;
-	Wed, 18 Nov 2026 17:25:45 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 0152F4AF05;
+	Wed, 18 Nov 2026 17:25:46 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Wed, 18 Nov 2026 18:25:40 +0100
-Subject: [PATCH v2 07/12] arm64: dts: qcom: sdm845-google: Enable vbus
+Date: Wed, 18 Nov 2026 18:25:45 +0100
+Subject: [PATCH v2 12/12] arm64: dts: qcom: sdm670-google: Enable vbus
  support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-pmi8998-vbus-v2-7-3c77a72b280a@ixit.cz>
+Message-Id: <20261118-pmi8998-vbus-v2-12-3c77a72b280a@ixit.cz>
 References: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
 In-Reply-To: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
 To: Alexey Minnekhanov <alexeymin@minlexx.ru>, 
@@ -102,21 +102,21 @@ Cc: Richard Acayan <mailingradian@gmail.com>, linux-arm-msm@vger.kernel.org,
  linux-pm@vger.kernel.org, phone-devel@vger.kernel.org, 
  David Heidelberg <david@ixit.cz>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=892; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=985; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=VkOTwwbUirh5SMOgzMhWbBAJrp1wguqG0ymDT4qYW/I=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+XZSFQwxLzTmFjB1NHz/hEX3XHI77Ygrdl2
- Prlq7NZiyqJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flwAKCRBgAj/E00kg
- cjGmD/sEaSEdMyQLmSgXhBuZ12FqpHWGOIFl8ctW1iDbvRKqVBAU7LZfvq9YvbYd5+THnoXnb3s
- JMMUUJEAOSWgjrMR4zz6FAird4bh2JY/h6gqof/G/1eteZcL5cUAcBS4NUHy9hzTocW7n45QrBZ
- nlb95iDdPyqD9NxU2H9fAAdM53V4SsLqxWS4MtnBZCaAutEpo6hOMbBZ6p/DmUq3nufRKnWxspi
- aVX3JmlJ3F8sl59L9CUp0M3ce8fCuP/BExdpEv9xSfcCUSW1uPy6C3AXBFeO4rbF9YmhSiOMz19
- QBYEx/RJ8O4CY3JUeHmVSQTii2Zw0Bz7FdYVBD4ebqfz6TICGevxcDLSowbPsjGg31FX3VgQad6
- NuuTceMoqtQBlmgFB8p9x6/L/1YmBxcwSAzYbn9KgaudEaHLe/WTKYTGRgJ2apy/5lRt0vz8FL3
- JpPwfmBBWMEWfLbII1QemNAPSHAILj0sIQrVaFOD2UhkeHbo7GKZqnk9AbKt2N+o3wfjUAzBgNJ
- yVNQceX5iY936IVsm38JZ4/AT4Ot14Qk29BtFNjo2DmDe3JcNSdWJ87LD6Se1Sydkp7BwypKxj4
- NGF+VIoh1ZMOppI06UguG5Zz94SMWMZ4qm1Z1Lk9IPKjgCxiNgTdNMBv5f6wTz0mOS31TDxwvhK
- Y8vQXaXp6GAVKYg==
+ bh=opQSg7fZ2yNDm8dbUq57ONjOIZ7j+aCXyQPY1Da3ae0=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+X8tGUm9NqcawCeiNNQn3yPCHrsJApxfjza
+ /qcssjy6P6JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flwAKCRBgAj/E00kg
+ cuOpD/9Mlt3mX5CO1pP7WQX65+rTeQsLM5MkbJ7evmfniT6rHsLOhp71uqBd1GUskQtHJKzxUeU
+ 0xzKXgB6mfU0pZxyX7A3o3ukHz0LGlBvpLJplRTxru7BL/3f5tkcI+81kTmHBABSXlxdU/D0EoK
+ xeO+HpfOfSV75ZzWypwhrmK8vVusYRi4OKMj8jP5p1mlJEXchi3OLXgp3YAuOgj+WqDFmRDdr/D
+ YhK9pYMeN0pFs4GgSbaG32ytluKhtIH0p+Re5XZjF4NbxGo9A+SsKWcN5FTqyFGeh4LR4FNRRz7
+ d+Qr+lU0HGL0fad1FeZ0dSbWEAaSjwcPjIKwpC/5zgWBAAiOW3itJh3aOBI5XSnqf+9YLycrVfk
+ xW3p1cT7PB6W7I4hV8Abk+yrRPDAra0ALUVbAnZnV8y3k1jTp8Z7ZTrolTn4ydrcjSqYFgcDAuR
+ acZZEw40VqXMeprrOYbCfS9ubj3OGFXzcToVqAOe+414UW1leMeKg1klnXXTt/OG9EDCALu6u2T
+ QTGZw9p+3k/g/hMj1K6uzQsIB61PX50Puvaj1qzAU6LfO5e8jo99pY62Ulp1//OmEjtILyn39MN
+ EBgix4WWMXgCRfIjX67T5XjXH3UwDvWdvKrcuCMD6I//Bww47MPrmeb38g6XVvmx9QfsnmhOw1h
+ KnLowI+KdNeqNyA==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -131,37 +131,37 @@ Enable proper driver.
 
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
- arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi | 7 +++++++
+ arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi | 7 +++++++
  1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
-index 3c9656b88b696..417c767a1821d 100644
---- a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
-@@ -451,16 +451,23 @@ &pm8998_resin {
+diff --git a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+index 8f91faf8a9cc5..9c95855b56e7b 100644
+--- a/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdm670-google-common.dtsi
+@@ -604,16 +604,23 @@ cam_vio_pin: cam-vio-state {
+ 		power-source = <0>;
+ 	};
  };
  
- &pmi8998_charger {
- 	monitored-battery = <&battery>;
- 
+ &pm660_rradc {
  	status = "okay";
  };
  
-+&pmi8998_vbus {
++&pm660_vbus {
 +	regulator-min-microamp = <500000>;
 +	regulator-max-microamp = <1500000>;
 +
 +	status = "okay";
 +};
 +
- &qupv3_id_0 {
+ &pm660l_flash {
  	status = "okay";
- };
  
- &qupv3_id_1 {
- 	status = "okay";
- };
- 
+ 	led-0 {
+ 		function = LED_FUNCTION_FLASH;
+ 		color = <LED_COLOR_ID_WHITE>;
+ 		led-sources = <1>, <2>;
+ 		led-max-microamp = <500000>;
 
 -- 
 2.55.0
