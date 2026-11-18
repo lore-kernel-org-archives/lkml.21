@@ -1,57 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039678;
-	b=X7zaqAHQ1aNyeQdNNc0rCiLr90dbBQxSC7DWrFJAO2yQITn4MrW+4Q+kvSLUxF9Ffs5w
-	 2MUiQTpjJ6jRwFbjplLBmAMsDiBVDxpc577HDckDJUnOqbrfWDj189H8mGturN75SP1yG
-	 NSFkrNMZbvPXzAOCaFaLymM8l1YuEfZRO0JloblThvBeRa9kMuwJzLKLlQv+r30l3oHnL
-	 lSLINgJAR4cu5y+WfeJtJuxjNs6jUhLCto1YXOG74sdX/bs302qwckWqxHSzgFJbKmttd
-	 1ccRrl6L6Fk8Upu/6VK/a5vfQBX4BHu6CghIrwYrv3ZQf9kbkvkNGvrTDzHjE+Myibw==
+	t=1795039718;
+	b=z6mEkF1DI1dMRDr1BG5eecn0qHyuCCVsGYFmoIpTIxirHu8TyjkJ0TvOJ3PyIgGvkPJP
+	 ijWzBuhwMlnICm2FTbYoLq6N5fhc/8bZgd7Ny6uMFsB83xgTEWMCYphPb7jQ5Mw1v9XO9
+	 GJKjZ9tICDoPSfgZbiEM+wyxSfdfRplkzijJWpYmO7cZmtzKg7ir2ShaCZMyUsdVVfBVx
+	 B6ae0EwB1Ysx3c0AFo6zh/DyzitDDwMXt9eH2jcfik6vRuTejxqzPcauN0+mvT1YsSILB
+	 xERLyimWozGC2NcSmM+9npOrZPFZd00sD57oshZhs9q9GWxidvRF4eycBLP6HGcnRPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039678;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=Ltf/D1U3fBU25HLoOONKELBPBoOBkSZopBKQqtCUdXs=;
-	b=wjTy2ukgJEhjr8f7zTnC4oD56YkIJ5eD1XBC+vC+BZfRF+ySnjkLd0CKOP3SzCvQzi8g
-	 xcAy3odmj/OnrYNi7HPLZG7yC+Nbv2RwE72cnwIhyp0dDHPLf6Db9fu3TOEe8/wBJFscx
-	 Jz54cwK9elVm8e0eKopYtC3d6+NcXAYzuQSO24LcuMzwIXKgc/JGZUTYGVz8a58bmFSPN
-	 ffACZ2S1bDi75j4d+FUxkzA667mGKAsaXPOV96w5nEQYdthpxUmvS4yG48oSYiyY/XPpC
-	 pG0adOEnXWnT8F+f2CEkw/RldSNeXjkYdMffWcQ/NUm0eXX/OkOoS5FhlC2X4Xyfz/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039718;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=48GpV2tL7XVTAarQnrcMPM8Usr/dY/fptCTJVKAYBQY=;
+	b=ttVFOoqO2/nE592FVieuwMeqWVV50aGMnQlKRq1ns23d0i+A41huDkUp7wdoqdiZcJgD
+	 Qhwq1jQ2f2/ytyo9xgX2sKbvG1Ot5+FiRcrqUhPzO3rqcpqkbDpFjA+WpWx5cGnUoufua
+	 EICdQRu1vPJgjipFz//3LM1+drti9jrGo6bXDaPyzgZVL2puLISObwAYjUgdxXH2cfucl
+	 cwW6CMFa1DNTIpiJXB0MQQnRSMH7PUe/8zNPlMOseagPAUT/e6mWdYJbk2RBV3TfLIIoS
+	 t7DhNMOkqUUF/SbJZS3D3jY6gRmG6XRPu8yXKIrPicNK0TC9+1dHH3Xff9FNNxmht1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=giUQltc0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TL+qoGVE;
+	arc=none smtp.remote-ip=74.125.227.137
+Received: from mail-pj2-f9.google.com (mail-pj2-f9.google.com [74.125.227.137])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB7E1606A31C;
-	Wed, 18 Nov 2026 22:07:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3AB4606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:08:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3AB4606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=giUQltc0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 022421F000C5;
-	Wed, 18 Nov 2026 22:07:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795039678;
-	bh=Ltf/D1U3fBU25HLoOONKELBPBoOBkSZopBKQqtCUdXs=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=giUQltc097KIay3q/sSSNU/iPuPn10aaiKkUW2FDl5tKCM3JYXQpdOCLV/ymD/Yvf
-	 NS44grh3KqUHjMERLuROzAGSLM/6uZe8NeodzYS6EhvNtcVOWEzwbuTRiXwmfNIiWj
-	 NystOAVmUF6VHI7Lyq1nIP+oCSqPdO/0TQphF6sK6ZzZs0b995BFFaJMWEyYz2Y+sz
-	 mIAAUc2CUp9JbsQmqLaY/EPIXtGJ7GXEy1xVjCP89D23Kl3QI7wC1JaUJTEhrVZR78
-	 f6IByvIKiTcHWrVEilzNyoqlOSAQVQbwR293H0f3eZ0jmBFWcabzTOiTQNz4DCtGZQ
-	 099lGgjVKKWWg==
-Message-ID: <sashiko-outbox-222083@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v2 16/16] selftests/sched: Add a test of SCHED_DEADLINE
- bandwidth accounting
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <a94584f87598e48fece3c4eb9ec5f65e2a442abb.1795037078.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
- <a94584f87598e48fece3c4eb9ec5f65e2a442abb.1795037078.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 18 Nov 2026 22:07:57 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TL+qoGVE
+Received: by mail-pj2-f9.google.com with SMTP id 98e67ed59e1d1-3b18c01238eso454534a91.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:08:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795039717; x=1795644517; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=48GpV2tL7XVTAarQnrcMPM8Usr/dY/fptCTJVKAYBQY=;
+        b=TL+qoGVENBtqdSL1KVPq7bNBAjkkVhIwlqKAUADbqYHk4AkYI+nRvsOWAO2mGrIxHj
+         nBz+igXfMC5XechbWZtetuHpApE5n6+lZNRoEfYS4bAnH6z/0ZTDY8KlnTRj9RhbMzye
+         I6I+eyyIFk1yA2toiirFyOIsuUv2r4V1Q5scTbNY6ow+mlMy/Alp1sjHdR2zr2/AYCt4
+         QGqEE2TJudyL9ZxgRhw/LpZR/YqqXqRi1Q5C5prDCvZkW8JPxH5tOK1Co5oZxRYp8Qc1
+         lIoa5oYKpqKwJumMzX9Z+uWv2ECf5dNKH/4iGGl1/7zVJqleRGmJBK5EV5poLVck17Mk
+         YAcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795039717; x=1795644517;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=48GpV2tL7XVTAarQnrcMPM8Usr/dY/fptCTJVKAYBQY=;
+        b=dJZELlejZAtE3kJ+i5fu2ModSGt8edXmEgHTThvxS60sZT4NRWbThfDN35bL2uDtze
+         Chx2rB4KmlcBsV3cJ4NogOgD15EdAlTH7naZCS3CXFEzYuCKusD8VIziqHbxEwYNb6nI
+         qcsap0DeN/bFsE0ntjBJmlZ/heOtAGwOcVOaryDt/YH+pF4+1PtdCECgIiYPYReowwEr
+         0FpNT6Yf7GyQMfqbP1UvoGhIrj6HxITU22S62exCyeBAuedWft1mBDObQtsifokbMr0N
+         Ivb1SW+/AI8nt013Iznj5Pv91/LTYEzikudLEODbsWnznXv0PW2xgyNwgsAXXlmhngWb
+         5zAw==
+X-Forwarded-Encrypted: i=1; AL+hErFR4VDqMnDifJpEMR5t5v3GRHSIair4dubrVJDPtVN1Mobhu0ONVWSUEoDRIWZeo0xs/AQJipoI08GeCJM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9Ap++Tz86WUTMD6CR9aiIi4IPVTgsYYvcZvMJPX3tF+uyog8n
+	125c48xi6olF7zf5IUz3/L4dq1TNcfD/JBKcftdi2raqiEdTIKXooQqQ
+X-Gm-Gg: AZFdTZe4hs95oLGJDzNkXeMw5rMBxeEN2Rxou3fk4BHUnovxd/wPZU5APjNAq+Adxc6
+	ETkeM3ng5DshPblKhwstgBYOoV1mE5nZavgeJBXZjh/NOznyE0AnbPwlQKyuEMeheWkN9kaD9ye
+	b7myig+orodqLoYuDwtDr1+R3NsHLH6rU4dUfDWfoSGjLBLqYwBN2cu5XQ9g4cE3JnxENhB/9Yh
+	FXpPFclpfIPslO0UXi3qYmVvzqMvcbXgzzWRr5HvksC6ffvFkEzNLiLVf4SPMhxGzFRROPD0EyH
+	7O8mDYcHQYZMlTfnTiX3/oO0l1DaBBJ4PioT4h1lzj7A7iBP25Zqh+ruxfe+RHpDg7nb/UN27wv
+	nnJBedK3vaExCmxPHGvJnxPvhh8YZPnvNHvzZp6WvOlwoil5y6NXr/1VaP9z8u9OHbTWk71qvjZ
+	JpnjSWDROxL7nuBO7fE+7sz7DlUfzAjz/N8mpLgv+Ib9zThhV8WYulOdkSnwQqt+bEPrB9kyJO4
+	vOx0obpRkFfm02FCktLuNLKVqG7BFwf104qphBqXGLZbSpCI+Qa1fumHlhMrBSwdGrPM0Pv2P+u
+	4rc=
+X-Received: by 2002:a17:90b:2ccf:b0:3b3:cb22:72d0 with SMTP id 98e67ed59e1d1-3b3d07656e8mr4366165a91.29.1795039717105;
+        Wed, 18 Nov 2026 14:08:37 -0800 (PST)
+Received: from localhost ([2403:2c80:6::107b])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3fe09df73sm93624a91.9.2026.11.18.14.08.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 14:08:35 -0800 (PST)
+Date: Thu, 19 Nov 2026 06:08:29 +0800
+Message-ID: <aef6553f89eba87f753b048a87e3080e.codykang.hk@gmail.com>
+From: Cody Kang <codykang.hk@gmail.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Yixun Lan <dlan@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Haylen Chu <heylenay@4d2.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yao Zi <me@ziyao.cc>,
+ Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Guodong Xu <docular.xu@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 10/17] drm/spacemit: add Saturn DPU KMS pipeline
+In-Reply-To: <f0b2beb9-d0ad-4870-812a-fef530a964c3@suse.de>
+References: <20260809-k3-display-v2-0-327d7910bf71@gmail.com>
+ <20260809-k3-display-v2-10-327d7910bf71@gmail.com>
+ <f0b2beb9-d0ad-4870-812a-fef530a964c3@suse.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,272 +114,236 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issues to consider:
-- [Medium] selftests/sched: unhandled SCHED_FIFO EPERM in
-  server_client()
-- [Medium] selftests/sched: pi_chain_donor_leaves() fails due to
-  unpropagated dl.pi_se
-- [Medium] selftests/sched: zero waiter deadline in
-  deboost_new_params_reboost()
-- [Low] selftests/sched: process-private ready flag in shm_lock_init()
-- [Low] selftests/sched: write-only fair_tid, unused isol, and dead mode
-  branches
---
+Hi Thomas,
 
-commit 027ae545afaed0101b592ecd773abaab9b25aeca
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+On Mon, 14 Sep 2026 15:58:39 +0200, Thomas Zimmermann wrote:
+> Hi,
+>
+> please find a review below.  I've only mentioned most issues once, they 
+> are usually throughout the code. Please fix all instances then.
 
-selftests/sched: Add a test of SCHED_DEADLINE bandwidth accounting
+Thanks for the review. Will fix all instances.
 
-This commit adds the deadline_bw_test selftest covering SCHED_DEADLINE
-bandwidth accounting across priority inheritance, parameter changes,
-cpuset moves, task exits, bandwidth reclaiming, fair servers, and CPU
-hotplug.
+> Am 09.08.26 um 15:14 schrieb Cody Kang via B4 Relay:
+[...]
+> > +	drm_atomic_crtc_state_for_each_plane_state(plane, pstate, crtc_state) {
+> > +		u32 rdma_id = to_spacemit_plane_state(pstate)->rdma_id;
+> > +		u32 layer_fbcmem_size =
+> > +				to_spacemit_plane_state(pstate)->fbcmem_size;
+>
+> If you need to check plane state, please do this in the plane's 
+> atomic_check. For atomic commits that only change plane state, the 
+> CRTC's atomic_check might not run, I think.
 
-Link: https://github.com/jlelli/sched-deadline-tests
+Will do; the check moves into the plane's atomic_check.
 
-> diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/=
-tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> new file mode 100644
-> index 0000000000000..d015e743c941f
-> --- /dev/null
-> +++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
+> It looks like this code allocates memory. This is is something that 
+> should be done globally.
 
-[ ... ]
+It does not allocate memory: it partitions the on-chip line buffer.
+With one plane per CRTC nothing is shared between planes, so the
+plane's own check is enough.
 
-> +static void *reboost_owner(void *arg)
-> +{
-> +	uint64_t t0;
-> +	int err;
-> +
-> +	owner_tid =3D gettid_();
-> +	if (take_pi_lock())
-> +		return (void *)1;
-> +	owner_holds =3D 2;
-> +	sem_wait_sig(&owner_go);
-> +	if (rb_abort) {
-> +		drop_pi_lock();
-> +		return NULL;
-> +	}
-> +	err =3D set_deadline(0, 50 * NSEC_PER_MSEC, PERIOD);
-> +	if (err) {
-> +		ksft_print_msg("the owner refused as a deadline task: %s\n",
-> +			       strerror(-err));
-> +		goto out;
-> +	}
-> +	sem_post(&rb_donor_go);
-> +	t0 =3D now_ns();
-> +	while (!rb_donor_locking || proc_state_of(donor_tid) !=3D 'S') {
-> +		if (now_ns() - t0 > NSEC_PER_SEC) {
-> +			ksft_print_msg("the donor did not block on the lock\n");
-> +			err =3D -1;
-> +			goto out;
-> +		}
-> +	}
-> +	err =3D set_deadline(rb_waiter_tid, 2 * NSEC_PER_MSEC, PERIOD);
-> +	if (err) {
-> +		ksft_print_msg("the waiter refused as a deadline task: %s\n",
-> +			       strerror(-err));
-> +		goto out;
-> +	}
-> +	err =3D set_deadline(0, 5 * NSEC_PER_MSEC, PERIOD);
+[...]
+> > +	if (!drm_dev_enter(crtc->dev, &idx))
+> > +		return;
+>
+> drm_dev_enter() and drm_dev_exit() protect hardware access. Given hat 
+> you have a tracepoint below, you certainly don't want to return here. 
+> It's is better to write code like this
+>
+> atomic_enable() {
+>
+>    if (drm_dev_enter()) {
+>
+>        // do HW access
+>        drm_dev_exit()
+>    }
+>
+> }
+>
+> although not many drivers do this.
 
-[Severity: Medium]
-Does calling set_deadline() on rb_waiter_tid while W is already blocked on
-pi_lock give W an absolute deadline of 0 instead of a deadline later than O
-and D?
+Will do.
 
-Because W is not queued on a runqueue, __setparam_dl() sets its static
-parameters while leaving W->dl.deadline at 0, and switched_to_dl() returns
-early without enqueuing W.  rt_mutex_adjust_pi() then updates W's waiter
-node on pi_lock with tree.deadline =3D 0, which sorts ahead of D
-(dl_time_before(0, D->dl.deadline) is true) and makes W the top waiter
-boosting O right away.  When D times out 20ms later, D is no longer the top
-waiter, so remove_waiter() returns without deboosting or reboosting O.
+> > +
+> > +	trace_spacemit_crtc_atomic_enable(a_crtc->dev_id);
+>
+> Why is your modesetting code is filled with tracepoints? Most other 
+> drivers don't need them. There is debugging infrastructure available in DRM.
 
-[ ... ]
+Will drop them.
 
-> +static int pi_init_lock2(void)
-> +{
+[...]
+> > +		ret = reset_control_bulk_assert(ARRAY_SIZE(priv->pipe_resets),
+> > +						priv->pipe_resets);
+> > +		if (ret)
+> > +			dev_warn(a_crtc->dev,
+> > +				 "failed to assert resets: %d\n", ret);
+> > +		usleep_range(10000, 20000);
+> > +		a_crtc->first_modeset = false;
+> > +	}
+>
+> Just no. This code belongs into driver or platform init. It is 
+> definitely not for mode setting.
 
-[ ... ]
+Will do; it moves to probe.
 
-> +	donor_tid =3D 0;
-> +	x_tid =3D 0;
-> +	fair_tid =3D 0;
-> +	return 0;
-> +}
+[...]
+> > +		usleep_range(10000, 20000);
+> > +	}
+> > +
+> > +	drm_crtc_vblank_on(&a_crtc->crtc);
+>
+> I'd say you want to enable vblanking after programming the display mode. (?)
 
-[Severity: Low]
-This isn't a bug, but fair_tid is only written here and never read (which
-triggers -Wunused-but-set-variable under Clang).  In addition, main()
-populates isol via read_online(&isol, 1) without using or freeing it,
-wait_spinner(), hold() and release_held() have unused forward declarations,
-and several helpers retain unreachable branches with no callers in
-p_cases[] or hp_cases[] (sleeper_cpu >=3D 0 in dl_sleeper_tid(), was_dl !=
-=3D 0
-in sleeping_owner() and pi_asleep(), modes 1 and 2 in deboost_case(),
-spin_ms =3D=3D 8 in refill_case(), modes 0 and 2-5 in return_case() along w=
-ith
-set_constrained(), MV_YIELDED in mover(), and hp_case::no_hp).
+Will do.
 
-[ ... ]
+> > +
+> > +	spacemit_crtc_init(a_crtc);
+>
+> The code is full of these tiny helpers. Please inline them. And please 
+> also avoid the callbacks that these tiny helpers invoke.  The DRM 
+> interfaces are your abstraction interface. Please don't introduce 
+> another one.
 
-> +/*
-> + * A chain walk must pass a new donor on to the end of the chain. This
-> + * holds even when the sort keys of the task in the middle do not change.
-> + *
+Will do.
 
-[ ... ]
+[...]
+> > +	/*
+> > +	 * MMIO on a clock-gated DPU stalls the bus, so an in-flight handler
+> > +	 * must finish its status reads before dpu_pm_suspend() gates the
+> > +	 * clocks.
+> > +	 */
+> > +	if (a_crtc->irq_online > 0)
+> > +		synchronize_irq(a_crtc->irq_online);
+>
+> This irq is unrelated to vblanking, I presume?
 
-> + * 5. Z blocks on L1. Z's deadline is earlier than W's, so Z becomes M's
-> + *    donor. M sleeps, so its deadline does not move. The chain walk must
-> + *    go on to O and make Z O's donor too.
-> + * 6. The main thread switches W to SCHED_OTHER. W sleeps and has run
-> + *    almost nothing, so its parameters are cleared at once.
-> + * 7. 250ms later, the main thread wakes O up. O has no deadline ahead, =
-so
-> + *    its wakeup starts a new period from its donor. O spins 100ms.
-> + *    Then it measures the CPU time Y gets over 200ms, and unlocks L2.
-> + *
-> + * With Z as its donor, O gets 2ms every 80ms. Y's deadline is soon the
-> + * earlier one, and Y gets about its 60ms. With W as its donor, O runs on
-> + * cleared parameters. Each refill gives it no runtime and a deadline of
-> + * about now. O then runs before Y all the time, and Y gets close to
-> + * nothing. The case fails if Y gets less than 30ms.
-> + *
-> + * W does not exit before O unlocks L2. It waits for L1, which M releases
-> + * after it gets L2.
-> + */
-> +static int pi_chain_donor_leaves(void)
-> +{
+It is the vblank interrupt as well: the one line carries the DPU's
+vsync, config-ready and underrun status. The synchronize_irq() is not
+about vblank, though. A register read on a clock-gated DPU stalls the
+bus, so a handler that is already running has to finish before the
+clocks stop. With the move to runtime PM (next point) the call will
+sit in the runtime suspend callback, ahead of the clock gating.
 
-[ ... ]
+> > +	timer_delete_sync(&a_crtc->cfg_rdy_timer);
+> > +
+> > +	/* Close the ISR's MMIO gate before the clocks actually stop. */
+> > +	a_crtc->clocks_on = false;
+> > +	dpu_pm_suspend(a_crtc->dev);
+>
+> This whole DPU PM stuff doesn't seem to belong here.  There's are 
+> device-PM ops for controlling power management.  It might happen that 
+> compositors disable the CRTC for simple mode setting. This should not 
+> suspend the whole device.
 
-> +	} else if (ret =3D=3D KSFT_PASS && y_ns < 30 * (long long)NSEC_PER_MSEC=
-) {
-> +		ksft_print_msg("Y ran %lld ms of 200: O ran on the cleared parameters =
-of W\n",
-> +			       y_ns / (long long)NSEC_PER_MSEC);
-> +		ret =3D KSFT_FAIL;
-> +	}
+Will do; it moves to runtime PM.
 
-[Severity: Medium]
-Does pi_chain_donor_leaves() pass on this series without an rt_mutex chain
-walk change to propagate M->dl.pi_se to O when M's sort keys do not move?
+> > +	spin_lock_irq(&drm->event_lock);
+> > +	if (crtc->state->event) {
+> > +		drm_crtc_send_vblank_event(crtc, crtc->state->event);
+> > +		crtc->state->event = NULL;
+> > +	}
+> > +	spin_unlock_irq(&drm->event_lock);
+>
+> You need set up the vblank machinery to send the event on the next 
+> vblank irq. See [1] for a simple example.
+>
+> [1] 
+> https://elixir.bootlin.com/linux/v7.2.5/source/drivers/gpu/drm/drm_vblank_helper.c#L51
 
-When Z blocks on L1 in step 5, rt_mutex_setprio(M, Z) updates M->dl.pi_se
-to &Z->dl, but M is sleeping on L2, so M->prio and M->dl.deadline stay
-unchanged.  In rt_mutex_adjust_prio_chain(), rt_waiter_node_equal() sees
-that M's waiter node on L2 still matches task_to_waiter_node(M), skips
-requeueing M on L2, and never calls rt_mutex_adjust_prio() on O:
+Will do. The event will be armed from the config-ready interrupt
+rather than in atomic_flush, since the next commit must not start
+before the hardware has taken the current command lists.
 
-kernel/locking/rtmutex.c:rt_mutex_adjust_prio_chain() {
-    ...
-	if (rt_waiter_node_equal(&waiter->tree, task_to_waiter_node(task))) {
-		if (!detect_deadlock)
-			goto out_unlock_pi;
-		else
-			requeue =3D false;
-	}
-    ...
-}
+[...]
+> > +	trace_spacemit_crtc_atomic_check(a_crtc->dev_id);
+>
+> Please don't add your own tracepoints.
 
-O->dl.pi_se stays &W->dl after W switches to SCHED_OTHER and has its
-parameters cleared.  When O wakes in step 7, replenish_dl_entity() keeps
-resetting O->dl.deadline to rq_clock(rq) and O->dl.runtime to 0 from W's
-cleared parameters, starving Y on P's CPU and failing this check.
+Will do.
 
-[ ... ]
+> > +	ret = spacemit_crtc_atomic_check_fbmem(crtc, state);
+> > +	if (ret) {
+> > +		drm_dbg_kms(crtc->dev,
+> > +			    "failed to satisfy fbcmem size for all rdmas\n");
+>
+> Drivers should only use drm_dbg().  drm_dbg_kms() et al are for DRM core 
+> and helpers.
 
-> +/* Set up shm_lock. Return 0, or -1 if it cannot be set up. */
-> +static int shm_lock_init(void)
-> +{
-> +	static int ready;
-> +	pthread_mutexattr_t a;
-> +	int err;
-> +
-> +	/*
-> +	 * A case can kill the owner while it holds the lock. Take the lock
-> +	 * back and release it, so that it can be destroyed.
-> +	 */
-> +	if (ready) {
-> +		err =3D pthread_mutex_trylock(shm_lock);
-> +		if (err =3D=3D EOWNERDEAD)
-> +			err =3D pthread_mutex_consistent(shm_lock);
-> +		if (!err)
-> +			pthread_mutex_unlock(shm_lock);
-> +		pthread_mutex_destroy(shm_lock);
-> +		ready =3D 0;
-> +	}
+Will do.
 
-[Severity: Low]
-Since death_pi_waiter, death_pi_owner, and death_pi_deadline_owner each run
-in a separate child process forked by run_in(), doesn't the process-private
-static ready variable start at 0 in every child?
+[...]
+> > +	if (WARN_ON(!crtc->state))
+>
+> There are helpers like drm_WARN_ON() et al. Please prefer them over 
+> WARN_ON() and other non-DRM counterparts.
 
-In death_pi_waiter, reap(owner) kills the owner while it holds shm_lock,
-leaving *shm_lock in MAP_SHARED memory in the EOWNERDEAD state.  When
-death_pi_owner and death_pi_deadline_owner run in new child processes,
-ready is 0, so the EOWNERDEAD recovery and pthread_mutex_destroy() block is
-skipped and pthread_mutex_init() is called directly on the active mutex.
-Should ready live in the MAP_SHARED mv_state buffer (or should pi_death()
-clean up shm_lock before exiting)?
+Will do.
 
-[ ... ]
+[...]
+> > +	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
+> > +	if (ret) {
+> > +		dev_err(dev, "failed to initialize vblank\n");
+> > +		goto err_unbind_all;
+> > +	}
+>
+> Better do this after running drm_mode_config_reset().
 
-> +static pid_t server_client(int rt)
-> +{
-> +	pid_t pid =3D fork_child(rt ? "a real-time task of P" : "a fair task of=
- P");
-> +
-> +	if (!pid) {
-> +		struct sched_param sp =3D { .sched_priority =3D 1 };
-> +
-> +		if (enter(cg_p, getpid()) ||
-> +		    (rt && sched_setscheduler(0, SCHED_FIFO, &sp)))
-> +			_exit(1);
-> +		mv_state[0]++;
-> +		for (;;) {
-> +			wait_set(&mv_state[4 + rt]);
-> +			spin_ns(rt ? 50 * NSEC_PER_MSEC : NSEC_PER_MSEC);
-> +			if (rt)
-> +				sleep_ns(NSEC_PER_MSEC);
-> +		}
-> +	}
-> +	return pid;
-> +}
+Will do.
 
-[ ... ]
+[...]
+> > +	/* The programming paths use the raw rectangles, so refuse to clip. */
+> > +	if ((state->src.x1 >> 16) != src_x || (state->src.y1 >> 16) != src_y ||
+> > +	    (drm_rect_width(&state->src) >> 16) != src_w ||
+> > +	    (drm_rect_height(&state->src) >> 16) != src_h ||
+> > +	    state->dst.x1 != state->crtc_x || state->dst.y1 != state->crtc_y ||
+> > +	    drm_rect_width(&state->dst) != crtc_w ||
+> > +	    drm_rect_height(&state->dst) != crtc_h) {
+> > +		drm_dbg_kms(plane->dev,
+> > +			    "clipped plane rectangles not supported\n");
+> > +		return -EINVAL;
+> > +	}
+>
+> What's the matter with this code?
+>
+> Allocated buffers can be larger than the display mode. If the hardware 
+> cannot handle this, it might become a problem in some setups.
 
-> +static int server_states(void)
-> +{
+It worked around the driver programming the unclipped rectangles.
+Will fix.
 
-[ ... ]
+> > +	/* One-dimensional sources are invalid (only 0x0 = constant fill) */
+> > +	if ((src_w == 0) != (src_h == 0)) {
+> > +		drm_dbg_kms(plane->dev, "unsupported src_w %d src_h %d\n",
+> > +			    src_w, src_h);
+> > +		return -EINVAL;
+> > +	}
+>
+> I'm not aware of any driver testing this. The above calculation of 
+> state->visible should have detected this case.
 
-> +	fair =3D server_client(0);
-> +	rt =3D server_client(1);
-> +	if (fair < 0 || rt < 0 || wait_for(5000, mv_state[0] >=3D 2)) {
-> +		if (fair >=3D 0 && rt >=3D 0)
-> +			ksft_print_msg("a fair or real-time task of P could not start\n");
-> +		ret =3D KSFT_FAIL;
-> +	}
+Will do.
 
-[Severity: Medium]
-On a CONFIG_RT_GROUP_SCHED=3Dy system where the cpu controller is already
-enabled in root/cgroup.subtree_control, won't server_client(1) fail
-sched_setscheduler(0, SCHED_FIFO, &sp) in cg_p with EPERM and cause
-server_states() to time out and fail instead of skipping?
+[...]
+> > +		cur_state->mmu_tbl.size =
+> > +			((PAGE_ALIGN(fb->obj[0]->size) >> PAGE_SHIFT) +
+> > +			 HW_ALIGN_TTB_NUM) * 4;
+> > +		cur_state->mmu_tbl.va =
+> > +			dma_alloc_coherent(a_crtc->dev, cur_state->mmu_tbl.size,
+> > +					   &cur_state->mmu_tbl.pa,
+> > +					   GFP_KERNEL | __GFP_ZERO);
+> > +		if (!cur_state->mmu_tbl.va)
+> > +			return -ENOMEM;
+>
+> Resource allocation/deallocation like this should better be done in 
+> begin_fb_access/end_fb_access when you need them for the commit. 
+> User-space compositors might send in a large number of states only for 
+> atomic_check'ing. There's no point in allocating actual memory then.
 
-As noted in move_cancelled(), child cgroups have no RT runtime in cgroup v2
-when CONFIG_RT_GROUP_SCHED is enabled with the cpu controller active.
-Because move_cancelled() only disables the cpu controller on exit if it
-added "+cpu" itself, sched_setscheduler() in server_client(1) fails and
-calls _exit(1) without updating mv_state[0], so server_states() waits the
-full 5 seconds and returns KSFT_FAIL.
+Will move the allocation to prepare_fb.
 
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795037078.gi=
-t.mathieu.desnoyers@efficios.com?part=3D16
+Cody
