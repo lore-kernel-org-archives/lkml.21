@@ -1,124 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016028;
-	b=YxQ907NtzwuuDjtalGi5pK61UXpefsE1S2nDIg4AUK8TeSbw7GalJI50Z1sDvY4+j+EM
-	 K3PDQWi5U/Px9SG0eI80x7NaNhPLa8BSHAWyi/H+ZEBs56WiSD36M5fxaMkhQuSJpY2qP
-	 Tzhc/O/3vC60+8al8uLwWGLHgAtKOSn4RQ1lCf9ilOI5q8c6L1cImZhA5U2ZJAUA0vsIp
-	 XiFyAD3y2jpmmDlGJu/oIdlrqRC0oBVjCVjOXyxBwxSJ9ip6d488yTHV2kuFKE95QjA2+
-	 NK3QdFwzUcYd5sL0ifJPQQRzzU39mkODVrKvRqHwab5WftIz6lNgyhUV60EFbruCFHA==
+	t=1795016031;
+	b=Zj3b7DVt/1XQXbGUVgU/wORFqjmz04y0wmyBm0cuYVHTZ68cN7mSC+XBhcE7zb8neDQv
+	 VT1MMJ9VYVdZTK0+7MJZPC2RSIvhWhoZiUeQzE05i256y7kcjAV8m/HeJHeN/dYvWWLcT
+	 tz8dHwC7hxeNRm5Cyp/lg+vS/IIlNPT3LYtwiIBQ6clOva6+xz8YsNmqiQ1fXu3oNqnkN
+	 BGJySeXFBvPVoqNV5OY4oPnV+SAdPYRw55bjbHTGbgYnGP1jXOqmS0Vg+itVUZo3CV1W3
+	 2DSlCoHF+JeunvnHPHU9h6j7Q9dQPUmYdGqc5EByB7bksVtIGjsR0z9IkFdqpVVEgRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016028;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=x85cpobaf638Fe9w3ZW1Zro4FQs+4uIPwl9i5atMIvg=;
-	b=JqPeb/eOE0irPPv858n+ZqXtrTTGyPiFThqrEkUToTncIo8pUypg7ETK8+3Im7Fx6I+W
-	 SXjD7VkneqokveEA+PjmHCQ58o8adXtA3+gsxt612O/k6eqx1+0SSruWRKg+yszL85IG4
-	 vswLI1GukHtK1LMPGyGRIWo1HkgovSKbLsJl6zmXuZy8/y7oeOJKZoGiOZQlCX8xmKnQ0
-	 Ns/QiZqcgkH9DeWYlcF2m8+mHg9ArEux6BebmaWGwlSO8FDeTKNa1nIQfX2gVYTjxnW6I
-	 +9NaJGUSoAoBmiekeUI1+dpyfS8vHCasGDR8jQQbpIeN2ptHafhgav3aMjiqJXXIYcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016031;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=d4NAL/Ml+6iNHCtzdazoN6cjIew8lYcoEk44FgyAVTw=;
+	b=nuZVhUTaslQMdvaDmzlzq5odvi8tcbwlZxNxXT3VmihuQbGY3VkD+/MoEGJwtspQDLl7
+	 AMeDwp4jSybRmhE0bEbbNYV0ZYkSa9hRQX2U4vtrIGWa1NwUiFWhTGAD6yLt4l0B33hFu
+	 NosfvsRXoc/ZTX/KEO4bgH0rBc3v/g7AHntnBRgW66RDCdnHGTzMAJfJgwVoNacTUXUzE
+	 aq3OxKIQtb3Mr6qH+HVcCKVAVX7DHRIPXB1nzJXQhc1p24ssYkDEW9SkyK0AjXWPQE4XO
+	 njUtvU4Air6sqWqvadBOvIAmS6COP6xFG5eNSzrV4+m71WP3RYdNCedb06G6AflZ+Cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SMHVdGhq;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hjapHfa9;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HqAEKjQc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 882F2606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:33:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 882F2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD05E606A31C;
+	Wed, 18 Nov 2026 15:33:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SMHVdGhq;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=hjapHfa9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795016026;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=x85cpobaf638Fe9w3ZW1Zro4FQs+4uIPwl9i5atMIvg=;
-	b=SMHVdGhqsrOTmOb/h7yyl7JinrKAkC/2HQEylbpLDrEdToSemJkq0rZnXh/1bc3keuw82u
-	Tm4M+YIsPV5AYYtZqxRkIqD6Vt1WP8b0VAfz38mPiC9liNh0AeenirvzdaxvuK9XwOunVR
-	JGUCx1kCMnj9XixnhrH1Mh5pUo5GOAY=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-683-bZoUd0N7O2G6EYw0q8q2uw-1; Wed, 18 Nov 2026 10:33:45 -0500
-X-MC-Unique: bZoUd0N7O2G6EYw0q8q2uw-1
-X-Mimecast-MFC-AGG-ID: bZoUd0N7O2G6EYw0q8q2uw_1795016024
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a70b42bab0so9153805e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:33:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795016024; x=1795620824; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=x85cpobaf638Fe9w3ZW1Zro4FQs+4uIPwl9i5atMIvg=;
-        b=hjapHfa9Gh3Zmy9e0Dd9POv2CixHjjA6fXGunjIJ1xJ1iLutSfN3J26cEelLg5++1s
-         aybMZHXUIPLNRvWSWyhJiy/LqnvrE8LIUVyHrM6gJKVkEAuHl6KHOhdUW//uGfE7oO+b
-         N8th80yZMR1lm3M0MtWxQ+/wjcTW/6SGrGFkJ8Euu1CzQf4xmmIUYhczo40kdeufkohy
-         1iv+6emM7lalwYFFhqy9d9C1VXmgGIEel5Ie3rXEUGDEkhTFUHnhc8ozAp3cRDc3ojYU
-         jzsuQ0poAUXPz0V3Jkgsr31wy0pnbjcKgCmJluwtndAp5fcJlFgxAgdcdvlv9dsjIqR7
-         Bi3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795016024; x=1795620824;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=x85cpobaf638Fe9w3ZW1Zro4FQs+4uIPwl9i5atMIvg=;
-        b=QLxChAjNXL15K5uNyQshi3mvibuyzrzzqN8/dmRfNFQpWNx7vQKyeVZHHnfDwB/IH7
-         VZ18CQM/iRuMYj/GCphbgXlMCVSOFW68be0xFYg98I4MVmkftdo8nI2XkaSUq5yGu6r1
-         YPOKkwmqgOq0848thCYl4rGMkJnaID0+HbL9UAWSqAOegVVRBAbQqzsfqkVCtXOk8FTf
-         zqOaSAY3UnMVsEdDhu4dtR7rUPUw5XCfe4f2x10I5w47pNuYfpJljAk0FIZbdj5qhS3t
-         HOJ/Za1Lubbj43vNzsgq+N/BeAfszY9V1/JDE0O87PMAXqYiN+U2jPkXKOuzYdfJDh5p
-         3NlA==
-X-Forwarded-Encrypted: i=1; AL+hErEBL9PU8wxd1m+USO79IlI4JXwb8jOX4VXy2Y2KTm6IK5pwLvfbU138wlYniATRlYvsQyGvg7RC7u/tTh8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83hD7lX9tFazf7IwTZjGqEmhG4+snEPplY8W3b9JEBFrygYArF
-	pH0FJg5RXQeA8tL8RwInYQ4M3UBbPX2DUM/nIAyXGr37Tsl9X8bAefbgWfbO4w1XIr6SALczGLf
-	KsN0gClDdY+R+qMXKEcVo8xxR/F7tZgKjlEEyNIA+Z7/+CPe7w735D4TAUPbbPCJtUg==
-X-Gm-Gg: AYBFou1FtxDUdUbsVtMEi4Ojr5+Y0FGz31XwwCVDggvNzArWLyY72tZsKC2dSpFH8HY
-	R6jaspYX3be2bvzVVEsddW4FujaweZsP/SodGjmpkNmvZpwOAg/xIcPG8Zf7dFmtJGg5+PaVhKx
-	VMdJjZaAvSeB3OSN4C1IWLYdvlWoWSh5oOQCukixRzzrtgsEyjIMr2k20reqVDkzkuhYId+wukT
-	u1lU6Z9eaWrFwIpptFeKSKv8xgNMnYDVFWr3vLWasYt/B8Y9zAN107ldo3UYJrLmTpBETDyjuFL
-	qVKcBBxeZHo9hfj96oyOXYxSsHuSm3DSkbEIEH+H6qceWI/qdLkqCCteBEm31PEBN2YiVG7NwBm
-	pnqzVBe8m8oIvZ1Rbtehd31I023EwawOEPt9I1UbdBZyajl/3Mp1M8HVl+LBkyJAoDrrscCVctd
-	a2PAQ=
-X-Received: by 2002:a05:600c:37c3:b0:49e:6581:7baf with SMTP id 5b1f17b1804b1-4bb7d6cd4ffmr53090225e9.2.1795016024146;
-        Wed, 18 Nov 2026 07:33:44 -0800 (PST)
-X-Received: by 2002:a05:600c:37c3:b0:49e:6581:7baf with SMTP id 5b1f17b1804b1-4bb7d6cd4ffmr53089605e9.2.1795016023651;
-        Wed, 18 Nov 2026 07:33:43 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7e50e992sm37379485e9.0.2026.11.18.07.33.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:33:43 -0800 (PST)
-Date: Wed, 18 Nov 2026 16:33:40 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
-	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
-	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
-	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
-	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org, longman@redhat.com,
-	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
-	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, parri.andrea@gmail.com,
-	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v7 13/40] sched/deadline: Release the bandwidth of a task
- that leaves the class asleep
-Message-ID: <av3FVDh4PX-5gWSW@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <a809425266acca7cfadd2e8187a7b5a815ba32cb.1794922146.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HqAEKjQc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E17D1F000C9;
+	Wed, 18 Nov 2026 15:33:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795016031;
+	bh=d4NAL/Ml+6iNHCtzdazoN6cjIew8lYcoEk44FgyAVTw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HqAEKjQcCiF0I1EdTnOdnKnaOiuGTp44AgaFH0YVU/olYlRRwSPUwYkR6yr921pKc
+	 J58Or1xiYCiXdBvuS3nuO227Xcvf4CjJa/+YccmTU/tG4BO4ZMOusrXJSmBWR5l0yH
+	 4O+qLiyPy1xgkLebRM4xBsBpfEp/4UabXtmKQfb/08XHbH7EMaxIg8YVOGbgD1N533
+	 WOf+SvvxxOwUnOFclW94aaoZlbX5g21C3zA1nbiZT4/Fm8LjtKcrVvCxoHML5p5lKA
+	 dzIHoVBCu0Nl+dgeNG7MV/Y4CZgoNjD2ABNCRFB8lrLGhq5Cyt3f5KDi6Ml1sTDq5v
+	 kfU2uZvdkjbvA==
+Message-ID: <84d548ad-9623-4db9-9637-634f45bdffb3@kernel.org>
+Date: Wed, 18 Nov 2026 16:33:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,72 +51,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a809425266acca7cfadd2e8187a7b5a815ba32cb.1794922146.git.mathieu.desnoyers@efficios.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/13] mm/migrate_device: fix use-after-free of the
+ anon rmap
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Usama Arif <usama.arif@linux.dev>, Kairui Song <kasong@tencent.com>,
+ Balbir Singh <balbirs@nvidia.com>, =?UTF-8?B?SsOpcsO0bWUgR2xpc3Nl?=
+ <jglisse@redhat.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Yu-cheng Yu <yu-cheng.yu@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>,
+ Chris Mason <mason@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>,
+ Mark Brown <broonie@kernel.org>,
+ "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, stable@vger.kernel.org
+References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
+ <20261113-mason-migrate-et-al-fixes-v2-9-50a2ed382b61@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-9-50a2ed382b61@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hello,
-
-On 17/11/26 09:10, Mathieu Desnoyers wrote:
-> A task that leaves SCHED_DEADLINE while it is not queued can keep its
-> bandwidth in total_bw until the next rebuild of the root domains.
-> Repeated, this fills total_bw up to the admission limit. Then
-> sched_setattr(SCHED_DEADLINE) and CPU offlining fail with EBUSY.
+On 11/13/26 22:45, Lorenzo Stoakes (ARM) wrote:
+> A munmap() of anonymous memory can result in a use-after-free of the
+> anonymous rmap if a concurrent device memory migration occurs and the
+> migration runs without the mmap_lock held.
 > 
-> A task that leaves the class keeps its bandwidth until its 0-lag time.
-> Releasing it earlier would allow temporary overloads. For a queued task,
-> switched_from_dl() calls task_non_contending(). It releases the
-> bandwidth if the 0-lag time is past. Otherwise it arms the inactive
-> timer, which releases it then. For a task that is not queued,
-> switched_from_dl() relies on the timer armed when the task blocked.
+> This can occur for a long-term pin of device-coherent memory, or a driver
+> evicting its device memory by PFN.
 > 
-> But the timer is not always pending when the task leaves the class:
-> - The task blocked after its 0-lag time. The timer was not armed.
-> - The timer fired while the task was still in the class. It only
->   removed running_bw.
-> - The task was woken up on another CPU and is not enqueued there yet.
->   The wakeup cancelled the timer.
-> - The task came back to the class asleep. switched_to_dl() cancelled
->   the timer.
+> Consider:
 > 
-> Then nothing releases total_bw.
+>     eviction                        munmap()
+>     ========                        ========
+>     migrate_device_range()
+>       migrate_device_unmap()
+>         try_to_migrate()
+>                                     zap the migration entry
+>                                     unlink_anon_vmas()
+>                                       last VMA: free the anon_vma
+>     migrate_device_finalize()
+>       remove_migration_ptes()
+>         /* locks and walks the freed anon_vma */
 > 
-> Fix this in switched_from_dl(). For a task that is not queued and has
-> no timer pending, call task_non_contending(), as for a queued task. It
-> arms the timer if the 0-lag time is ahead. Otherwise it releases the
-> bandwidth now and clears the parameters, as inactive_task_timer() does.
+> If munmap() runs before try_to_migrate() instead, the folio is no longer
+> mapped and gets no migration entry. The walk still runs, and follows the
+> stale folio->mapping to the freed anon_vma.
 > 
-> Clearing the parameters keeps later paths from releasing the bandwidth
-> again:
-> - A timer handler that already started finds a dl_bw of 0.
-> - The deboost of a later priority inheritance boost finds no
->   parameters.
+> Resolve this by pinning the anon rmap of each folio which possesses one in
+> migrate_device_range(), migrate_device_pfns() and
+> migrate_device_coherent_folio() before its PTEs are replaced, and
+> unpinning it once the walk is done.
 > 
-> An owner that the task boosts as a waiter can find the parameters
-> cleared too. "sched/deadline: Do not replenish a boost from cleared
-> parameters" handles this, so a backport needs it first. Without it, the
-> owner's CPU can lock up as soon as the waiter leaves the class.
+> A folio which is no longer mapped cannot be pinned and has no migration
+> entries to remove, so skip it rather than migrating it.
 > 
-> Juri Lelli's first fix, since dropped from tip, released the bandwidth
-> here without clearing dl_bw. The bandwidth of a boosted task was then
-> released twice.
-> 
-> Juri Lelli suggested the call to task_non_contending() in review.
-> 
-> The Sashiko AI review of the third posting found the two cases with the
-> 0-lag time ahead. deadline_bw_test, added later in this series, tests
-> this in pi_former_owner_asleep and deboost_released_resets_period.
-> 
-> Fixes: 209a0cbda7a0 ("sched/deadline: Improve the tracking of active utilization")
-> Reported-by: Tejun Heo <tj@kernel.org>
-> Closes: https://lore.kernel.org/all/2b5fb3f22bca6aa383be8f4781923392@kernel.org/
-> Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Reported-by: Chris Mason <mason@kernel.org>
+> Fixes: e778406b40db ("mm/migrate_device.c: add migrate_device_range()")
 > Cc: stable@vger.kernel.org
-> Link: https://lore.kernel.org/all/20261103-b4-sched-dl-bw-fixes-v1-2-dd761fe005b4@redhat.com/
+> Reviewed-by: Zi Yan <ziy@nvidia.com>
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > ---
 
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Great, I have to wash my eyes now. :)
 
-Thanks,
-Juri
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
+-- 
+Cheers,
+
+David
