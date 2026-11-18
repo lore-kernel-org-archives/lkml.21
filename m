@@ -1,59 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012068;
-	b=DUe91uaLGW3AQ8qRl1/mIzRK0NgjYj745jlzTluU+bGSgEKPA6TifNrFR72H2Leu47go
-	 rd98h75GKEbvrr0EyvffAR2NEt+wwclfA0VyG6cuAJdT8CtAAZeHw6rGwmkgpJR8CGtS7
-	 J7e89BRGqYwiqJHYcjeV90Ebn3YxZdS54qMGOm3pCaMPuJ2ZuPMY811g4/ct7NPGZ5UJ0
-	 PyxtUgTdoTbd/TcYmCwDsIDxSOhck7GXkf0TmCZJAIvn55RZzEm/rSshg8U6KqXQgQ4Ko
-	 xXj0dIK7oeSKQVSrcRtSlyCbhNuB44Nn4oOLA6WmqMqCVZ6B6+VIwZV7cIH3SxiSX6Q==
+	t=1795012077;
+	b=sDC3zsHOlcxtDJmQjd5o8aQMJz76Fi76f/bfjSeazhUAWDZOZw5dk1EcN3zQSM+07BBx
+	 Zof+eOYaoKJAISxUjiAFTSJUh+W3d93MvykubW+LHxRnUSdprhzlODCmuQkg4XjbREnw4
+	 3z8KHkI2HZ3jEuaw03SP6jUk2GAiqpPfqg/8xNfemJe6UqbE7/viD7jsayiaD8yMrKxce
+	 p2Wba5atNMhc4NGR4BFb5GJEda7TFp5Olap3whEclm03Ta1N1nQJ/FHvo4EPV4NyevywB
+	 s7wuQwgsPchMihY8znovExK6CXSywvzqz8Hsnc7rUhm86pcOCz7oayyvjGEMFfh3IFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012068;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=IrpiBrM7liH8MKiWPu8fuzT5T22D0j2HTUUXtUQY1FQ=;
-	b=vm9q3TmsrDWrYfr6py/6UXPw/kB/BlG/m8EPWHCuqeIHTbrmhbzj29m6DIkxzQSsCIpM
-	 CyDEORPHedrvBhiBylB1ZL8z0XzZBBtrdh+s8SpIXD5V8efq4dEgN54AK1Qbx+gQcWYUY
-	 l0WUXYSu2nVVxPJYiT2bYCrBcW8cToO54wfvXk4WfxNx7qCIAzp0XMONzzYPYe2EhynM/
-	 ZoXj9B7Th/UqpY1IhWVl0dapdYNMK8gNELPCTYlTYWFVpmpXTC3FuOaX66GAY3uFO/w91
-	 lFVt7SfQHh7eAH+gUy77jSvMVm3Mv8pPGZqy2knhqTMdVSObhPY1ZxUExZCziHFYmPg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012077;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
+	b=Y9ceElVxzU2paHEznrt27zpU3+COlGVkfSfuMUd2328vOy31T/9+zqwNTivCxvopmDSM
+	 Itj27Y4QD0gY/Z7KJJt4C7WbA+SbCeAH5eqKlK1oJMa+tAGWzn3AMpGMAX9C++Ao3Y6vo
+	 2XBg9oLsCcw0IJTjE/+zYVwrsswSmuFpTiqm01bg6CYeQICS3JGUSd3TrjXYVGdoAsjzr
+	 RdttahI+nxUW938U/6GG986cX/2N5rUsTkTFBdUWAN4B+OVRTqhA3ugDssqK2XLo7xNDi
+	 ax1iR7bhFUaD7bM/RGPXZf1brm8JUO7BxefqlXx7lnAs3kmYzykgmCX4x+lRPF81BQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTdaO141;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QkYNVbFy;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ovW6qsQm;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9837606A33E;
-	Wed, 18 Nov 2026 14:27:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4493960A2602
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:27:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4493960A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTdaO141
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82BDB1F000C5;
-	Wed, 18 Nov 2026 14:27:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795012068;
-	bh=IrpiBrM7liH8MKiWPu8fuzT5T22D0j2HTUUXtUQY1FQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fTdaO141iKava4U02bGsRcWshGkeb9ovgA4WkCWpAKecLl5TZxk0dnh8ZaYWicMfZ
-	 tpbO0jgTXFuMb9gqtXs1H3JL505BuGEObSktbtHlRonX1W+CnBnXBsQQKdpF5NjgxT
-	 4BLOudDQw+d5Ihmvy3SgJD22ccc1D3xe910LaQOMSsqSvecT0uhV/Tkh3KO0Mrpigx
-	 Cq2MLRMR4vv3b0hfX8qa4KKZ1bLLx8uheVq4Jih0emKGKUSl+e1/MTBWVuvnv5z7zL
-	 VbyQG7yDGok9QASvRPGIMJzdLQXa6NbzFfnflirjCDTg4o/9IjvADxQgGNfz8dNXlE
-	 QdB9MSGP5/qNg==
-Date: Wed, 18 Nov 2026 14:27:41 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, Jan Kara <jack@suse.cz>, Jingyi Sun <1045704958@qq.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Matthew Wilcox <willy@infradead.org>, 
-	Michal Hocko <mhocko@suse.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	Peter Xu <peterx@redhat.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	nvdimm@lists.linux.dev
-Subject: Re: [PATCH 3/3] mm/memory: don't upgrade non-present PTEs in
- insert_page_into_pte_locked()
-Message-ID: <av21s_WAXAzEtLyX@gremlin>
-References: <20261117-uffd-dax-async-wp-fix-v1-0-c9a30f27f452@kernel.org>
- <20261117-uffd-dax-async-wp-fix-v1-3-c9a30f27f452@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QkYNVbFy;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ovW6qsQm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795012075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
+	b=QkYNVbFysbtyTo4AxL9B0KwDuvSpfKKsbLodLqm+JE17yhpqM0Uc1uPV54vOxQ2dt2R8Mp
+	DR5gWNMiUB1X7iZeh1X3GFSnqhRQITCHNkf1td9SMRIMjElUawN3/Z15TV4NKlFp/cpIEF
+	H5TGVjuYC28MEq+4aildZ7y8A8b27uc=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-683-JZwUMDlQNeeDOU-D0YIrBg-1; Wed, 18 Nov 2026 09:27:54 -0500
+X-MC-Unique: JZwUMDlQNeeDOU-D0YIrBg-1
+X-Mimecast-MFC-AGG-ID: JZwUMDlQNeeDOU-D0YIrBg_1795012073
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4a3052225cbso1017239f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:27:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795012073; x=1795616873; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
+        b=ovW6qsQmxXVAihs5E/C0Up2koWSJwl97J3RlT0gDjxNl/3ewPaKcGrXV6X/pbbBTw2
+         xi9g//5llwdtKmaJLelowcrxl6y2x+sSq/SIaGXuPrGIx7XotPDQPhf3iy6TPJp63kL4
+         z3BSDoag6uBYVTcj7pKhffpS/T6Nx38DFBhbvGqc6b472iaOq7TrkQ4AqGzbrwYncE6F
+         24mDqAPo/P1px0V9gCwDqrbihj3uE9zsWEh4eM7S8K66PxOvWYx6UwR6BnOD5nLDovKG
+         ZgBLNUOY7akxZNQFRg8u9y4rWNLBdBE+JiRdlM+VlZqGrz+8T5aX1b4vTxhG8aQYZkGP
+         G7bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795012073; x=1795616873;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nZboGS9TzIUKYx8nlJm/8q9o+1lIrW0X9zgljbgU57g=;
+        b=pgCt5TYBVF3GWPXtc1liPQ3jftOpGHorRZnDvaq0M+i8vmguEIx6hhEoGi2mV0ZQXG
+         68C8ECqvoBaJ2c6Cpvo4+2zkBaAIxPpoSN4U8HH2xIF7XVL5lI8CdEfeGNwAYJvWzy6w
+         Hxfwt4miijBs4bYLAtYqfkEhGluFR5bLSq6jm6JYRBcn0gh1y/dfplf5n9roXH3hXzKz
+         d5HfJgoujC8urw2LoyPcDQdAbvSYR716Eb2D1fKYh+dTQABZxwkWq6Bz1dXFFcqtXFpU
+         pI87Z5r35ovFHBThzP8WMrwFBt7IIrbRoFfdnkePBQGPf5KhRinv6UJqY2j/wP/XVCIM
+         0xHw==
+X-Forwarded-Encrypted: i=1; AL+hErE+S4b4S/MU+SO8MmrtqIU53txTm4SeCvPko6SvblB+LJ92BSAPxiCR2giPLTgqDvlj391tuDIavX8462c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Oa/1tkspUW3BuvpujFZkNbqHQEf0vsLnyXCWZqzYgPReGfBfS
+	B6qWuEqHQsWGVsfEjfNXIe8aGGGOQPKime0oo8vVBobblOepJBCXXTwz4mjnxI+NC9814XkWBLR
+	xP3Hd0zx2dAQ1wbKBOiaymom3w74j3VZSv3zk+Glqsw4axve7joct/1BP7+xawqXryQ==
+X-Gm-Gg: AZFdTZfbF6dWt79DkYTGPA8/2WjpYGKx9wrLYvV85dKoNvsfdlL7Saclbtg7xDboRZ0
+	GPlJgfKPxpyrFR2XymVwkf7JvMNPeSH4UAEi54jbnjCZUqSp+Pdt3o8s9z0ROG4CjADXMiTLXEc
+	UzX5CyHUKBV2sxGTriMGahNX6FtTvh8uXs5EX/uyEZgXdTeGGDxG7IvI6keZ4bxv7Ey0hX+Vbpn
+	vjsEzm/xpi1FGMVVunkndVZDcwueAJsTGbSaBts0yMVcZu/GBaEIYzaiPk++hCktoj5zH1WGFtH
+	IioCBRdcJGc3GgxcKX9BFE8qagTc37uj+wCAUlS8r4O1BnrHOt/iYULKDw9GlQzwC5RS/qOJWa2
+	cS6TRNukqcxA1vjklTJYijpPDCHyAzsBgzC94M7etxkrcDcj3Tzp5HTfX1JSqryjJxlcE6dh26/
+	+a4HU=
+X-Received: by 2002:a5d:5888:0:b0:48d:ff71:dd87 with SMTP id ffacd0b85a97d-4a639475750mr5574858f8f.17.1795012072827;
+        Wed, 18 Nov 2026 06:27:52 -0800 (PST)
+X-Received: by 2002:a5d:5888:0:b0:48d:ff71:dd87 with SMTP id ffacd0b85a97d-4a639475750mr5574789f8f.17.1795012072412;
+        Wed, 18 Nov 2026 06:27:52 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656933961sm5275395f8f.46.2026.11.18.06.27.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:27:51 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:27:49 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
+	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
+	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
+	mathieu.poirier@linaro.org, longman@redhat.com,
+	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
+	clrkwllms@kernel.org, parri.andrea@gmail.com,
+	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v7 09/40] rtmutex: Continue the chain walk when a
+ waiter's deadline donor changes
+Message-ID: <av215SnBF5GShg0J@jlelli-thinkpadt14gen4.remote.csb>
+References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
+ <c8b228501d8981454f63843b394019fefd4002f3.1794922146.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,73 +130,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117-uffd-dax-async-wp-fix-v1-3-c9a30f27f452@kernel.org>
+In-Reply-To: <c8b228501d8981454f63843b394019fefd4002f3.1794922146.git.mathieu.desnoyers@efficios.com>
 
-On Tue, Nov 17, 2026 at 05:58:34PM +0200, Mike Rapoport (Microsoft) wrote:
-> On a write fault insert_page_into_pte_locked() assumes that a non-empty PTE
-> maps a page, compares its PFN with the page being inserted and upgrades
-> the PTE to writable.
->
-> Since guard regions are allowed in file-backed mappings,
-> MADV_GUARD_INSTALL can put a guard marker into a PTE of a DAX mapping
-> after the DAX fault handler found that PTE empty and before it inserts
-> the page.
->
-> vmf_insert_page_mkwrite() then extracts a PFN from the marker, hits the
-> WARN_ON_ONCE() and fails the fault with SIGBUS instead of the SIGSEGV
-> expected on access to a guard region:
->
->   WARNING: mm/memory.c:2489 at insert_page_into_pte_locked+0x47e/0x490, CPU#3: guard-race/157
->   RIP: 0010:insert_page_into_pte_locked+0x47e/0x490
->   Call Trace:
->    <TASK>
->    insert_page+0x6f/0xc0
->    vmf_insert_page_mkwrite+0x31/0x60
->    dax_fault_iter+0x3be/0x5f0
->    dax_iomap_pte_fault+0x1b8/0x390
->    ext4_dax_huge_fault+0x1a4/0x2f0
->    __do_fault+0x34/0xc0
->    do_fault+0x179/0x610
->    __handle_mm_fault+0x8ca/0x1250
->    handle_mm_fault+0xb4/0x290
->    do_user_addr_fault+0x15f/0x730
->    exc_page_fault+0x83/0x190
->    asm_exc_page_fault+0x26/0x30
->
-> Return -EBUSY for non-present PTEs on write faults like it's done for read
-> faults, so that the fault is retried and handle_pte_marker() deals with
-> the marker.
->
-> Fixes: f807123d578d ("mm: allow guard regions in file-backed and read-only mappings")
->
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Hello,
 
-Seems similar to some of my recent work :) what a hive of alien facehuggers
-insert_page() and friends are...
+On 17/11/26 09:10, Mathieu Desnoyers wrote:
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+...
 
-> ---
->  mm/memory.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/mm/memory.c b/mm/memory.c
-> index 66ad58429967..a80925c61706 100644
-> --- a/mm/memory.c
-> +++ b/mm/memory.c
-> @@ -2474,7 +2474,7 @@ static int insert_page_into_pte_locked(struct vm_area_struct *vma, pte_t *pte,
->  		return 0;
->  	}
->
-> -	if (!mkwrite)
-> +	if (!mkwrite || !pte_present(pteval))
->  		return -EBUSY;
->
->  	/*
->
-> --
-> 2.53.0
->
+> Fix this by recording the donor in the waiter with the sort keys, in
+> waiter_update_prio(). rt_waiter_up_to_date() compares both. The walk and
+> rt_mutex_adjust_pi() use it. A new donor then takes the walk on to the
 
---
-Cheers, Lorenzo
+...
+
+>  kernel/locking/rtmutex.c        | 22 ++++++++++++++++++++--
+>  kernel/locking/rtmutex_api.c    |  2 +-
+>  kernel/locking/rtmutex_common.h |  3 +++
+>  3 files changed, 24 insertions(+), 3 deletions(-)
+
+Thanks for confirming the Sashiko finding and for the plan in your reply
+[1]. As you note there, a window remains however the walk is changed,
+because the donor pointer holds no reference on the donor. So I have to
+wonder (and ask for Peter, Thomas, etc opinion) if we'd rather not keep
+extending the chain walk for DEADLINE PI, which is known broken and
+proxy execution is going to replace anyway, and leave rtmutex.c alone.
+
+It looks like what we lack is memory safety, apart from accurate PI.
+It's an hack after another, but how about having the owner pin its donor
+instead: take a reference on the task behind dl.pi_se whenever it is set
+to another task's entity, and drop it when pi_se changes
+(rt_mutex_setprio() and __setscheduler_dl_pi() are the only writers).
+The donor then stays allocated at most for the owner's critical section;
+its parameters may be stale or cleared meanwhile, which
+replenish_dl_entity() already copes with after patch 8; and the owner
+may keep running on a stale donor, which is no worse than today's
+DEADLINE PI. Thoughts?
+
+Not against doing "the more right thing" of course. Just evaluating
+alternatives.
+
+Thanks,
+Juri
+
+[1] https://lore.kernel.org/all/f535fbbd-2247-4d0d-9771-a67116fda1a2@efficios.com/
+
