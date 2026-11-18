@@ -1,54 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795006466;
-	b=Osrbbz4vY+zLMJ0xmk19vl1kEPiCWdFxReB4JNFP/C2CHGsDkEe7awoMyhfCBWoel4RR
-	 AYbDKUUsqlpUaIgdt1uQICZmQtB2/eH5/BalCOOK0z1LLd6vW6NcwJ6kGfEJdvXWEYpAj
-	 ikfwAuAwfqd2rmvU9tuIkBO+Q9Q0D+IGkfr40D0FkaGjVgCUobfd4PX26HmKv2wwJyb++
-	 QypVHyKU2c47RgR0nVxum7JspG73v+/QZxt7NDVN05O5SO6ntw1Tvd6DeCqPRNJNtwF7Z
-	 p7KLTBXdHy9wpkgbkmMrsr1IlJI/6iFqHWu7blTFu0ZadXx177UVQQJ73grL40McsDg==
+	t=1795006473;
+	b=Ibh5MJwhWJhoq5t1nJ1X7v9owpuTyVSUSJmmSF8yiNMMnwuBAuDR0Q0MNUU0U0BGGhM6
+	 WkofOoF/iyYKmDBV3I649E5KAZfGVYFmSqwYL5YF/Qg2BnYPJi34mXbdnujK9DWkuqzlI
+	 8OCNsYz6JdP4VPGqUn8STaKUv/dx+56kw6wh0Xzu7YaH5ULLaZrmFYWg4KwlqdonyA1Cm
+	 QyV3YB9SmLP7ul8EXJQ0hG5BZ8bgZTcLINxlkcl9fBwpvcIPgOpfXEINdwOBCTDzF0TOy
+	 netUreDFkmZWpkTAvz5EKrsA8s63bypxALN7PjY/+MGk7yVUV8O98aqw+AzdlpQZiTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006466;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=snVU1uqD4hTlrRX9k1xzj/33svmeMLTwMOQ0/0pcN24=;
-	b=UIYOzw7roxvYHMhAzJT5f2kiLN4X7GSExW8YRaFOFyHj8mjan8v8UMkcu/pqCigGWoSG
-	 bxh+GVj2SHg7eA/4F5C4zCkRCjAh2akr++Dcxr2pfie2KqOr3Pwj4eJ/CjBC0Ef0y4NgO
-	 ggcRK5+jDK3nYNw5FGjKsmcXYFLuseDHlyxbzV7rLQjOcBWVCcK7r9Mli433PG4GEBiZw
-	 e6Ua8GGN0iHrYtt6SSzNvlGDRl4VPB2EBmkXT5oDX3FUhwLsXQCzbrY1OLqjY96zOrGnz
-	 CE2VDS2GkSEJm0qXwxCX7O8KXcMnwGVj4zup0zWaQu3rxiIl1xaFsqzbXpT3tDord2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006473;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=G17J7pDh+avlQuW0DxA3Qojcg455TcPTlRVkxP2LNDc=;
+	b=4V3e6PXmhaNrTcQES/LuaPEmk1VE6lQ+sMcIDyBhYqe2lt5EUiUvtUPtTSrjSZ0x3DY8
+	 7VOoE/Ft1TsUXoE8VxnPrY+OOiFTJCU8Yo5yWGi8ZxPdK1rEnHDlBQrzsGRLuu2A3CR0E
+	 ChfF6qx01xB50s5l3hzEGjksh3lsIetNMipjK+hPUOAH0PObyqizWCP3WFvF5dc2BQbdH
+	 qXhP0vDo1RSPTwI3s3xP6iWPZAM9xBMZxdJgN+walpyFmKwRZsoTCdEkNj/4hL27Zi0D1
+	 tC+Zo13Q8Ef9VGIBJ9DfvF15OaaKU+TxVBzr6kNgjCNsPcYYXNnIw9Apm8uG7u0u1rQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=igalia.com;
-	spf=pass smtp.mailfrom=igalia.com;
-	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=Ata6ASR5;
-	arc=none smtp.remote-ip=213.97.179.56
-Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=cBUnezY3;
+	arc=none smtp.remote-ip=113.46.200.223
+Received: from canpmsgout08.his.huawei.com (canpmsgout08.his.huawei.com [113.46.200.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2209C606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:54:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2209C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4BCC606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:54:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4BCC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=Ata6ASR5
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=snVU1uqD4hTlrRX9k1xzj/33svmeMLTwMOQ0/0pcN24=; t=1795006464; x=2110366464; 
-	b=Ata6ASR5Vq10W5iDCsKEQpIW8aZ+AQXpbHjqh/ZohNuCoCIUBvP5HcD/i7DDLFCI4cZFSeUwSeR
-	yr0d9bmRxxMmPczqHy9murxLtPeSHSwD3sbuvidHrZXCDc8JZ6yAHUNSqbHU/UdPKzv82PqI41QXt
-	owmpktnbOegbYe3N2gtCF9PzhTN+1F5EFpktmxcLNtqNsSgZ6JDu4+qPqZkZomWOSpjNLpXL+P9PJ
-	FHLCaCXIOlXrxIqknr72GjzgDDcDBI31om2/AH8cFceCBoBLnEvnHAxIidJJb+1dHI/tVgbaaHPx6
-	vuX6v/o/3rrnZqePgP1Z+cR3u56BBO99jWoA==;
-Received: from [179.105.94.163] (helo=[192.168.0.4])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1xTfB2-000000010Xu-1j4R;
-	Wed, 18 Nov 2026 13:54:16 +0100
-Message-ID: <99676bca-eba1-46e8-a23a-923bffdc574e@igalia.com>
-Date: Wed, 18 Nov 2026 09:54:12 -0300
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=cBUnezY3
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=G17J7pDh+avlQuW0DxA3Qojcg455TcPTlRVkxP2LNDc=;
+	b=cBUnezY3ndiDrLsbWzbnPsvhKqQQN7p8U+GC/aJ0ec5jMXKFHMn9laTnyl0wVSokGNp80h3Qh
+	v94GbaTzuejeXQpb6zVPAsr4PV4dgkLTSCUC+VNSBgk9O+f90/sbXuRPsbeY9/8hZKQU73LkZC8
+	bLOcAQgoGITXPPrSbt48tMY=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jV1kl4M0XzmV6N;
+	Wed, 18 Nov 2026 20:54:07 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 272C34048B;
+	Wed, 18 Nov 2026 20:54:27 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 18 Nov
+ 2026 20:54:26 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <james.morse@arm.com>, <ben.horgan@arm.com>, <reinette.chatre@intel.com>,
+	<fenghuay@nvidia.com>, <will@kernel.org>, <jic23@kernel.org>,
+	<gshan@redhat.com>, <tan.shaopeng@jp.fujitsu.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v3] arm_mpam: resctrl: Use the domain's counter ID
+Date: Wed, 18 Nov 2026 20:54:17 +0800
+Message-ID: <20261118125417.671859-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,99 +70,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/v3d: Fix double free of the sg_table when a PRIME
- import fails
-To: Aleksei Riapolov <tsbol@icloud.com>, mwen@igalia.com
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261114164451.9222-1-tsbol@icloud.com>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <20261114164451.9222-1-tsbol@icloud.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-Hi Aleksei,
+resctrl assigns MBM counters per domain: mbm_L3_assignments takes a
+domain ID, a group can have a counter in one domain and none in
+another, and resctrl_arch_cntr_read() and resctrl_arch_reset_cntr()
+are given the counter to use.
 
-On 14/11/26 13:44, Aleksei Riapolov wrote:
+The driver ignores that counter and looks the monitor up in
+mbwu_idx_to_mon[], indexed by CLOSID and RMID.
+resctrl_arch_config_cntr() fills that array without looking at the
+domain, so each group has one monitor for the whole resource.
+Whichever assignment is written last selects the monitor the group
+reads in every domain.
 
-[...]
+For example, with the counter ID each group uses for mbm_total_bytes
+on each domain and "_" for none:
 
-> 
-> Hand the table back to its owner before freeing the object: with
-> shmem->sgt cleared, drm_gem_shmem_release() leaves it alone and it is
-> unmapped once, by the exporter, on drm_gem_prime_import_dev()'s error
-> path. With this change the same test gets -ENOSPC from the failing
-> import in each of three consecutive fills and the kernel log stays
-> clean.
+                                domain 0         domain 1
+  mount, mkdir g1               default=0 g1=1   default=0 g1=1
+  unassign both on domain 1     default=0 g1=1   default=_ g1=_
+  assign g1 on domain 1         default=0 g1=1   default=_ g1=0
 
-The issue you reported is real and makes sense, but your fix only treats
-the symptom, not the problem.
+g1 is assigned the lowest free counter on domain 1, counter 0. That
+assignment is the last one written for g1, so it selects the monitor
+g1 reads in every domain. On domain 0, g1 uses counter 1, but reads
+the monitor of counter 0:
 
-V3D allocates the GPU address inside the gem_prime_import_sg_table()
-callback, before the core marks the object as imported. No teardown
-would be correct at that point.
+                      counter whose monitor is read on domain 0
+                      default      g1
+  expected            0            1
+  actual              0            0
 
-I'd rather move the allocation after the import completes. Implement
-.gem_prime_import as a wrapper around drm_gem_prime_import() and call
-v3d_bo_create_finish() once it returns. At that point import_attach is
-set, so drm_gem_object_put() takes the regular import teardown path,
-which unmaps the sg_table once and detaches.
+That is the default group's monitor.
 
-Best regards,
-- Maíra
+Translate the counter ID with assigned_counters[], which maps a counter
+ID to a monitor of the class and is valid in every domain.
 
-> 
-> A reproducer is available on request.
-> 
-> Fixes: 40609d4820b2 ("drm/v3d: Use the new shmem helpers to reduce driver boilerplate.")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Aleksei Riapolov <tsbol@icloud.com>
-> ---
->   drivers/gpu/drm/v3d/v3d_bo.c | 8 ++++++++
->   1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/v3d/v3d_bo.c b/drivers/gpu/drm/v3d/v3d_bo.c
-> index db95a2f..48c7807 100644
-> --- a/drivers/gpu/drm/v3d/v3d_bo.c
-> +++ b/drivers/gpu/drm/v3d/v3d_bo.c
-> @@ -185,6 +185,14 @@ v3d_prime_import_sg_table(struct drm_device *dev,
->   
->   	ret = v3d_bo_create_finish(obj);
->   	if (ret) {
-> +		/*
-> +		 * obj->import_attach is only set by drm_gem_prime_import_dev()
-> +		 * after we return, so drm_gem_shmem_release() would treat this
-> +		 * object as native and unmap/free the attachment's sg_table,
-> +		 * which the caller unmaps again on its error path. Hand the
-> +		 * table back to its owner before freeing the object.
-> +		 */
-> +		to_v3d_bo(obj)->base.sgt = NULL;
->   		drm_gem_shmem_free(&to_v3d_bo(obj)->base);
->   		return ERR_PTR(ret);
->   	}
+mbwu_idx_to_mon[] is left alone: resctrl_arch_config_cntr() still fills
+it, but the read and reset paths no longer consult it, and a future
+default mbm_assign_mode may use the array, so removing it can be
+considered separately. Unassigning a counter now resets its monitor,
+where before the lookup made the reset a no-op; the monitor is reset
+again when the counter is next assigned.
+
+Fixes: a5ff6ef2d73e ("arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()")
+Suggested-by: Ben Horgan <ben.horgan@arm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: <stable@vger.kernel.org>
+---
+v3:
+- Keep mbwu_idx_to_mon[] and remove the cleanup. (Ben)
+- Split out as a mpam seperate patch.
+- Remove unnessary stable version.
+- v2: https://lore.kernel.org/all/20261113083506.4129060-2-ruanjinjie@huawei.com/
+---
+ drivers/resctrl/mpam_resctrl.c | 50 ++++++++++++++++++++++++++++------
+ 1 file changed, 42 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 8e9d5c68c2c1..0d290962ef62 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -463,6 +463,15 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
+ 	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
+ }
+ 
++/* The monitor resctrl's counter @cntr_id uses for @cdp_type. */
++static int mon_for_cntr(struct mpam_resctrl_mon *mon, int cntr_id,
++			enum resctrl_conf_type cdp_type)
++{
++	u32 idx = resctrl_get_config_index(cntr_id, cdp_type);
++
++	return mon->assigned_counters[idx];
++}
++
+ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+ 		      enum mpam_device_features mon_type,
+ 		      int mon_idx,
+@@ -558,7 +567,7 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+ 
+ /* MBWU counters when in ABMC mode */
+ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+-			   u32 closid, u32 rmid, int mon_idx,
++			   u32 closid, u32 rmid, int cntr_id,
+ 			   enum resctrl_event_id eventid, u64 *val)
+ {
+ 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
+@@ -574,8 +583,30 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+ 	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+ 	mon_comp = l3_dom->mon_comp[eventid];
+ 
+-	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
+-				 USE_PRE_ALLOCATED, closid, rmid, val);
++	/* A counter ID maps to one monitor per CDP configuration. */
++	if (cdp_enabled) {
++		u64 code_val = 0, data_val = 0;
++		int err;
++
++		err = __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
++				 mon_for_cntr(mon, cntr_id, CDP_CODE),
++				 CDP_CODE, closid, rmid, &code_val);
++		if (err)
++			return err;
++
++		err = __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
++				 mon_for_cntr(mon, cntr_id, CDP_DATA),
++				 CDP_DATA, closid, rmid, &data_val);
++		if (err)
++			return err;
++
++		*val = code_val + data_val;
++		return 0;
++	}
++
++	return __read_mon(mon, mon_comp, mpam_feat_msmon_mbwu,
++			  mon_for_cntr(mon, cntr_id, CDP_NONE),
++			  CDP_NONE, closid, rmid, val);
+ }
+ 
+ static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+@@ -603,13 +634,16 @@ static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon
+ }
+ 
+ static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+-			       int mon_idx, u32 closid, u32 rmid)
++			       int cntr_id, u32 closid, u32 rmid)
+ {
+ 	if (cdp_enabled) {
+-		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
+-		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
++		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_CODE),
++			    CDP_CODE, closid, rmid);
++		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_DATA),
++			    CDP_DATA, closid, rmid);
+ 	} else {
+-		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
++		__reset_mon(mon, mon_comp, mon_for_cntr(mon, cntr_id, CDP_NONE),
++			    CDP_NONE, closid, rmid);
+ 	}
+ }
+ 
+@@ -631,7 +665,7 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+ 	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
+ 	mon_comp = l3_dom->mon_comp[eventid];
+ 
+-	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
++	reset_mon_cdp_safe(mon, mon_comp, cntr_id, closid, rmid);
+ }
+ 
+ /*
+-- 
+2.34.1
 
