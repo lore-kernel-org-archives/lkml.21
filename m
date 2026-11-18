@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.103
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.114
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029342;
-	b=aj5DTzSmzLzzg2oFj/t1zdiXeiwDBAr8WdZEy6+8PIht4LS4yIB/vkXN3v4buGFH5/wf
-	 2zCRIRyoxXNJ4g1pF2dXKyZwoy8prBqynSsnYN9yGXEeGLyKLy5dvjFb2ExwrwHX2xkOv
-	 hF9vvGZaBov4ENswODKaF+G1lIjME+a8KZeSLUGwqontpswAQbDhU+gp65ZAuctQ2ROa5
-	 vOl+yDLrS7gBVCmQqv0Huhmv2UgxfzMxQnJAJH/XB1x+wSr0+HMdHLlUfbAjUygaN80sJ
-	 IMGdyo4VdM1X2NDYboDdnjuMQ3eApbBa5v5cstfUoDr5tEmkrvBCoUIgkhza04GXD0A==
+	t=1795029346;
+	b=vgUwph7gmEXwecPIrY+7332S55D3CB3crHxtDVzrPmMAFcRwtc6XhOsZarFAVqnc8Fkn
+	 Z37IRCh0N0IKmDObZd6MAs85vBPcsFEhKdAxhTIi4zZTNYoXLvITd9+FKtrPz32d2cAe8
+	 8MPkBtRhtwnFXD0/5k2gwRJo3KTTczeekrnCkktFtbYYBbnQGyF2zWViofprxBmN3NLHR
+	 K2eR34i+M3iLG8BWEPwHq7rQ0fnN3liJm+w+aR3nGLOAexOi0hGAZ9L7RIvPWA88O3WpF
+	 mbIP2QslBnq/rqB5/FAjx/NNWgO0CtGeBjBFUUUhkJqreA+H/yK9gFdUKVy4FiRGNTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029342;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029346;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Ng2TPFdMxOFHLiZdjhAeL2IFis1gohsMTPuJTp5XCoM=;
-	b=sHdWhJWKxy8NlTDi1eolAb1xCs/mUqneJa7Y6BRZpIsn+mwy9dG31y02Gg8XlV8w5JY3
-	 b8akw/mNddNvq9ITqIogTUrrMAbfbiE7XRtlDmONN2Db247OqN2dJXbJ0WMBvNHUYBy6m
-	 6QbRdzhbcERwSSLIYwVhBNclAenEx1rCQzqtE+z2oJZP541JfraI/k1Fp6iwav7fIZ7Xz
-	 SsyBfniTDnkriZTXkGSwDDckzqzNlJtHaX3us/+ar52se80AizHtRIlFYX/1fZXRjmjgV
-	 BLSj9Vyu5AbDwIHRDrTrDNAJZOsQuXXYUEPS8bwNa9IiOm6iAq/N+X2IZDIm5V47o3Q==
+	bh=svYEaYY+8OkF13We7tgo+l2UToXXzWxAP5wMZXoFZGI=;
+	b=NFFaEE9MEFmH1PMp2g+iOpF3g+9hlGzlCAKLUJuouYWJ1DEoSZcPXZ2y5WY0+DAgatTy
+	 B5kqPT//X/g7e0cJflfWw1QFz1x86i2zZJWBOUkSXjkF1ixjy10ST53lohUYK79U72D/d
+	 QuSl1voVuelJKQFi1AqhvK7o0PWCKSkoyMSu/rAoz5KHLAEf7YC9tSDb6IPy5iVd5i9p8
+	 SSkgDwtbsyiTipw0t2UHZMmaCbBC/EHYEbxWZGUVuz/7ReZ1OMXeI95kDTdgI3hSMIgGO
+	 u+jDDsUbsG6O0lZ6vuvheTv4T452uUpisIoqtDMFsqnIzu+UB8kdaPhgxOm/gcFTqgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bFl20dEL;
-	arc=none smtp.remote-ip=95.215.58.103
-Received: from mta1.migadu.com (out-103.mta1.migadu.com [95.215.58.103])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ca7enL61;
+	arc=none smtp.remote-ip=95.215.58.114
+Received: from mta1.migadu.com (out-114.mta1.migadu.com [95.215.58.114])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB886606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:15:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB886606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6B64606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:15:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6B64606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bFl20dEL
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ca7enL61
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=yJ/VgO6HGAtuOZaxpfVKTTpGQpLGk+yVE1GwJWY0ppQ=;
+DKIM-Signature: a=rsa-sha256; bh=fmcXfnQxb0qtqIl21TRZlE6o9ga9GKgYl2RPp4Wr9Aw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795029339; v=1; x=1795634139;
- b=bFl20dELIk/bnrWQYSkbwYkGtvl2+h6a379s54Fsy0CrhqE2s554yDAuGymnyX+fsebHwgXU
- xOUokkwGT8m5P5qXsP7pCPyrBJFakR92VpK7dgufCTxI1hOHVU1v+lrzWl0EEWr0gAlbjcqzw5I
- kC8TuHRSb4xFpJHso0a3CCBc=
+ t=1795029343; v=1; x=1795634143;
+ b=Ca7enL613jQBDwC9oQyOIGSyAqMAE6wuFXL9oJ7zbFgab2j+GwegYyGJeiCTQNUXgb3qaF/4
+ FF+CD8cAo7Z3qCSbfAlWlw/fkQd3cKsFiJejhMDcePLPAH3Edk407M7uDAbbe+OFLSRjkoeM84x
+ sX2fa6UkiRhf13RvA0Pxt6Eo=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f1c0974d48d30305;
-	Wed, 18 Nov 2026 19:15:26 +0000
-X-Mizu-Trace-ID: f1c0974d48d30305
+Received: by smtp.migadu.com with ESMTPS id d39edd8d2b425d4b;
+	Wed, 18 Nov 2026 19:15:43 +0000
+X-Mizu-Trace-ID: d39edd8d2b425d4b
 X-Migadu-Flow: FLOW_OUT
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 To: intel-gfx@lists.freedesktop.org,
@@ -62,9 +62,9 @@ Cc: uma.shankar@intel.com,
 	Suraj Kandpal <suraj.kandpal@intel.com>,
 	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 1/2] drm/i915/color: only let the owning plane program the 3D LUT
-Date: Wed, 18 Nov 2026 11:15:12 -0800
-Message-ID: <20261118191514.2931270-2-matthew.schwartz@linux.dev>
+Subject: [RFC PATCH 2/2] drm/i915/color: load the 3D LUT in the order the hardware indexes it
+Date: Wed, 18 Nov 2026 11:15:13 -0800
+Message-ID: <20261118191514.2931270-3-matthew.schwartz@linux.dev>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261118191514.2931270-1-matthew.schwartz@linux.dev>
 References: <20261118191514.2931270-1-matthew.schwartz@linux.dev>
@@ -79,104 +79,92 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-intel_color_plane_commit_arm() runs for every universal plane on pipes A
-and B and rewrites LUT_3D_CTL from that plane's own 3D LUT state. Only
-the primary plane on Xe3p_LPD can carry a 3D LUT colorop, so any other
-plane update on those pipes disables the LUT the primary plane enabled,
-and on older platforms every plane update writes a register no plane
-owns.
+The 3D LUT colorop blob is laid out with red as the fastest axis,
+index = R + n * (G + n * B). glk_load_lut_3d() writes the blob to
+LUT_3D_DATA front to back, but the hardware walks its table with blue as
+the fastest axis and red as the slowest. Every entry whose red and blue
+coordinates differ lands at the node with the two exchanged.
 
-Give the "Xe3p_LPD primary plane owns the 3D LUT" rule a single helper
-and use it both to build the plane color pipeline and to decide who may
-write LUT_3D_CTL.
+Measured on Lunar Lake by programming the pipe-bound LUT through
+LUT_3D_INDEX and LUT_3D_DATA directly and decoding the pipe CRC of solid
+color frames. A table holding each node's own stream position reads back
+position B + 17 * G + 289 * R, and an identity table written in that
+order reproduces all of 70 sampled colors exactly.
+
+Write the table in hardware order.
 
 Fixes: 65db7a1f9cf7 ("drm/i915/color: Add 3D LUT to color pipeline")
 Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
 ---
- drivers/gpu/drm/i915/display/intel_color.c          | 10 +++++++++-
- drivers/gpu/drm/i915/display/intel_color.h          |  3 +++
- drivers/gpu/drm/i915/display/intel_color_pipeline.c | 10 +---------
- 3 files changed, 13 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/i915/display/intel_color.c     | 18 +++++++++++++++---
+ drivers/gpu/drm/i915/display/intel_color.h     |  2 ++
+ .../drm/i915/display/intel_color_pipeline.c    |  2 +-
+ 3 files changed, 18 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/i915/display/intel_color.c b/drivers/gpu/drm/i915/display/intel_color.c
-index 4070dc8d97d9..742ae471540d 100644
+index 742ae471540d..ea4e6c9f0309 100644
 --- a/drivers/gpu/drm/i915/display/intel_color.c
 +++ b/drivers/gpu/drm/i915/display/intel_color.c
-@@ -4278,9 +4278,10 @@ void intel_color_plane_commit_arm(struct intel_dsb *dsb,
- 				  const struct intel_plane_state *plane_state)
+@@ -4112,8 +4112,8 @@ static void glk_load_lut_3d(struct intel_dsb *dsb,
  {
- 	struct intel_display *display = to_intel_display(plane_state);
-+	struct intel_plane *plane = to_intel_plane(plane_state->uapi.plane);
- 	struct intel_crtc *crtc = to_intel_crtc(plane_state->uapi.crtc);
+ 	struct intel_display *display = to_intel_display(crtc->base.dev);
+ 	const struct drm_color_lut32 *lut = blob->data;
+-	int i, lut_size = drm_color_lut32_size(blob);
+ 	enum pipe pipe = crtc->pipe;
++	int r, g, b;
  
--	if (crtc && intel_color_crtc_has_3dlut(display, crtc->pipe))
-+	if (crtc && intel_color_plane_has_3dlut(display, plane->pipe, plane->id))
- 		glk_lut_3d_commit(dsb, crtc, !!plane_state->hw.lut_3d);
- }
+ 	if (!dsb && intel_de_read(display, LUT_3D_CTL(pipe)) & LUT_3D_READY) {
+ 		drm_err(display->drm, "[CRTC:%d:%s] 3D LUT not ready, not loading LUTs\n",
+@@ -4121,9 +4121,21 @@ static void glk_load_lut_3d(struct intel_dsb *dsb,
+ 		return;
+ 	}
  
-@@ -4313,6 +4314,13 @@ intel_color_crtc_has_3dlut(struct intel_display *display, enum pipe pipe)
- 		return false;
- }
- 
-+bool intel_color_plane_has_3dlut(struct intel_display *display,
-+				 enum pipe pipe, enum plane_id plane_id)
-+{
-+	return DISPLAY_VER(display) >= 35 && plane_id == PLANE_PRIMARY &&
-+		intel_color_crtc_has_3dlut(display, pipe);
-+}
++	/*
++	 * The hardware walks the table with blue as the fastest axis, the
++	 * colorop blob with red.
++	 */
+ 	intel_de_write_dsb(display, dsb, LUT_3D_INDEX(pipe), LUT_3D_AUTO_INCREMENT);
+-	for (i = 0; i < lut_size; i++)
+-		intel_de_write_dsb(display, dsb, LUT_3D_DATA(pipe), glk_3dlut_10(&lut[i]));
++	for (r = 0; r < LUT_3D_SIZE; r++) {
++		for (g = 0; g < LUT_3D_SIZE; g++) {
++			for (b = 0; b < LUT_3D_SIZE; b++) {
++				int i = r + LUT_3D_SIZE * (g + LUT_3D_SIZE * b);
 +
- static void
- intel_color_load_3dlut(struct intel_dsb *dsb,
- 		       const struct intel_plane_state *plane_state)
++				intel_de_write_dsb(display, dsb, LUT_3D_DATA(pipe),
++						   glk_3dlut_10(&lut[i]));
++			}
++		}
++	}
+ 	intel_de_write_dsb(display, dsb, LUT_3D_INDEX(pipe), 0);
+ }
+ 
 diff --git a/drivers/gpu/drm/i915/display/intel_color.h b/drivers/gpu/drm/i915/display/intel_color.h
-index f3963a8d1239..9d11741423ef 100644
+index 9d11741423ef..02ef30390558 100644
 --- a/drivers/gpu/drm/i915/display/intel_color.h
 +++ b/drivers/gpu/drm/i915/display/intel_color.h
-@@ -16,6 +16,7 @@ struct intel_dsb;
- struct intel_plane_state;
- struct drm_property_blob;
+@@ -18,6 +18,8 @@ struct drm_property_blob;
  enum pipe;
-+enum plane_id;
+ enum plane_id;
  
++#define LUT_3D_SIZE 17
++
  void intel_color_init_hooks(struct intel_display *display);
  int intel_color_init(struct intel_display *display);
-@@ -47,6 +48,8 @@ void intel_color_plane_program_pipeline(struct intel_dsb *dsb,
- void intel_color_plane_commit_arm(struct intel_dsb *dsb,
- 				  const struct intel_plane_state *plane_state);
- bool intel_color_crtc_has_3dlut(struct intel_display *display, enum pipe pipe);
-+bool intel_color_plane_has_3dlut(struct intel_display *display,
-+				 enum pipe pipe, enum plane_id plane_id);
- u32 intel_color_background_color_drm_to_hw(u64 drm_background_color);
- u64 intel_color_background_color_hw_to_drm(u32 hw_background_color);
- 
+ void intel_color_crtc_init(struct intel_crtc *crtc);
 diff --git a/drivers/gpu/drm/i915/display/intel_color_pipeline.c b/drivers/gpu/drm/i915/display/intel_color_pipeline.c
-index 7fc31fe891a8..77f65182e3e3 100644
+index 77f65182e3e3..0c73072819fb 100644
 --- a/drivers/gpu/drm/i915/display/intel_color_pipeline.c
 +++ b/drivers/gpu/drm/i915/display/intel_color_pipeline.c
-@@ -58,14 +58,6 @@ static const u64 intel_plane_supported_csc_ff =
- 		BIT(DRM_COLOROP_FM_YCBCR2020_NC_FULL_RGB) |
- 		BIT(DRM_COLOROP_FM_YCBCR2020_NC_LIMITED_RGB);
- 
--static bool plane_has_3dlut(struct intel_display *display, enum pipe pipe,
--			    struct drm_plane *plane)
--{
--	return (DISPLAY_VER(display) >= 35 &&
--		intel_color_crtc_has_3dlut(display, pipe) &&
--		plane->type == DRM_PLANE_TYPE_PRIMARY);
--}
--
- static
- struct intel_colorop *intel_color_pipeline_plane_add_colorop(struct drm_plane *plane,
- 							     struct intel_colorop *prev,
-@@ -144,7 +136,7 @@ int _intel_color_pipeline_plane_init(struct drm_plane *plane, struct drm_prop_en
- 	int ret = 0;
- 	int i;
- 
--	if (plane_has_3dlut(display, pipe, plane)) {
-+	if (intel_color_plane_has_3dlut(display, pipe, to_intel_plane(plane)->id)) {
- 		pipeline = xe3plpd_primary_plane_pipeline;
- 		pipeline_len = ARRAY_SIZE(xe3plpd_primary_plane_pipeline);
- 	} else if (icl_is_hdr_plane(display, to_intel_plane(plane)->id)) {
+@@ -88,7 +88,7 @@ struct intel_colorop *intel_color_pipeline_plane_add_colorop(struct drm_plane *p
+ 		break;
+ 	case INTEL_PLANE_CB_3DLUT:
+ 		ret = drm_plane_colorop_3dlut_init(dev, &colorop->base, plane,
+-						   &intel_colorop_funcs, 17,
++						   &intel_colorop_funcs, LUT_3D_SIZE,
+ 						   DRM_COLOROP_LUT3D_INTERPOLATION_TETRAHEDRAL,
+ 						   true);
+ 		break;
 -- 
 2.56.1
 
