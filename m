@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967647;
-	b=fGO62XPppqJCFiavNH+6Iqmn/Wl9S7YIhc1YZvXZmknBQgUN4IfJSPoiMQ0CMhzjNgXG
-	 rvsDGGvDYAh8WZUFvL058J3LWwG0hp98yNwQ+IoQevuaWShFQEmxTnB2Y41YPyOdqV/sS
-	 jgmPZLdj5sXWJO53fgSo65rLAwZFrEeYCGiBvWKSGiswkReb9l4sIm4fbd0zEDdu7e80J
-	 b3hTcsqUbka7yw106HKeJ8B8OgYZK1mfYqm3q0DVIShDfG3eG1OoorzNISV7HPo+Jm9SM
-	 RI0Yy6H3DoCp05hV19E1JbDPhFqIem10joHcrq9NIaEY24+OfbGyD/LzM2g0wyqCRcA==
+	t=1794967652;
+	b=HNCW+2s/sVzpu8eCr8vubAOQzym8gsWT48t9g7kSSx49v5E3IuvnOZDnw0enVvoU34SI
+	 W7MDurgKtJSdTauSUYrU1OMxUCmDSFSufpmroF+drm3XfKjMu2BA1BTG63Qas2UNdYLCY
+	 PPyb0d49KCB59euXPePloP+bP0YFNyQRefgQ021KPVhyw+4/WiAXPPWGILMOP5x/fqod5
+	 kRxdMxhdPBBn5B1/zKHL9mId4qIO+xAZr013pZ0+vhaRRZzG6C1ByNGCsLSHa1m4I1FjE
+	 xsH9QV/sIzNXEzER/912Jx81ZfaQnkE5Z48f+VT679OYCG/rAHEMojhSqbNG5IYg3lQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967647;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967652;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=i45bHZiP3wEgcVETQzoa65BO2wkAbHlegiGhDqMSTjc=;
-	b=db5jYf1zhExc5p+RgCaPxTZjN7iTqeREycKYa5CYXhM/FL2jhzrBbaVAhO3d8rdhe+61
-	 ffay98HcCcsodM0udFQ1lWs407rncWCoVTq3Rf3CYLFCT6i1+S6LUtwTV3d9JZRm1iJ3z
-	 Q38E8CuzO3rRda2a8vjeodzBkQqJiP5Uw3waKsaVf3Y8zCAt2X/oS+2K1kiM3mCoCdfSH
-	 SGFA8GM73DwNoNAv5SbLKoY0C5u2baEr8haQxhYg0zN1OSN4XSnStwW0p9pyV8wFh9ZP8
-	 B5QAfZaYX4RDHkXxeo1tJ9TLJ+DrRcydjKH/9OVEQ+iRYfa81AmFPoW5St8L1y64fPw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=4XYNeMt6VNMRAiLe5EbRBvBhMDIpn29m4tUHZ+DRyz0=;
+	b=ySx9i2FocFgw1NOtrEWa1PCBvp75VEJgakSmmdD+kSeIjwC9Ddt7SncLsGTtwjcYsyTe
+	 xF39C0hVu3RinX3stjZrj3WHPgRgqpLfJXr5FP9TUNYICvf/pM+IBXSqqbFLPdFF0OZC9
+	 5fk7VXx9TXRC180gJ0cOQ9LJEFJSTvBpbdVNvAQeMJnhSFsxORRH5UTSCCgZD+2l2ggCK
+	 8NdHgNwuR7QUD1x/5NG+TWmk/it/SXe3IW4p97xApTLHSE9NZsgFQH/bQbuwU22DlE5v6
+	 tnBDxUlBUL21F6zVo8wERAYOHf3fLv8OS+vaNuhS61x9qhnYgCewNiu6yQVWP8cRyKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cWzcJU8f;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tfrItGmZ;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E1AC606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E1AC606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C5AC606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C5AC606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cWzcJU8f
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-376a4059061so58313eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:07:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tfrItGmZ
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-382d85f4230so5815eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 18:07:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794967646; x=1795572446; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i45bHZiP3wEgcVETQzoa65BO2wkAbHlegiGhDqMSTjc=;
-        b=cWzcJU8f71qRXuXGab0DEdPLcwJztkCG7kZJaC6cbL19em4r3br54w30smE8pVof0X
-         g/ciOffOuD17gLF1EJYrASn96dvF009LMvgC9J4zeHhlsc7KTbvF/TU5xIkhuHZbRjYq
-         U85FO6tj31Q7nVIjpT11nnknwycWNw3VxmPtJSj4ZANiu9OPeZceii6W82s6z/XmO7Px
-         4Qn2vRYFJd0uIJ+cCWYjTmvnPhb0yMlNEUhF7m8m41GJ0mUL8xTbqgqcaVA86NfzyzXn
-         QpzEljDLoxt/E5UfIthfAXICGkZNQpHIhSCjxbhkl3VkxijZKBH3pdc12qGfX4+xGdiZ
-         vNWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794967646; x=1795572446;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794967651; x=1795572451; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=i45bHZiP3wEgcVETQzoa65BO2wkAbHlegiGhDqMSTjc=;
-        b=a4yi9+KwNiH/fzRpuL9+R+YHbLmrLGYyrxhw4LlUViUnJq5fSbPDhDmDFxrlFyevXM
-         Sg1xKS9i1WRQ+yzO5VeLhyfG0Sqi6Jl3x5vW1yl/1j7fVEw3Z2Vpp0nTDoRmGFIjF+eJ
-         kbD6nqmqBxCzytI5ozKkMP/OE72g1gcaLMrepsDORSSa2H0l8RpxDXee5n8zvVDM3oY/
-         nr0lRFCNPpZBgJdL039+2DgCr/p58jWo/xA96+XMWxgFWmTHrqZC6qFqSdkTGXfz3VQp
-         pO7u8EaIkFlykMuMbVBrHUiFnYG8bd8jwKSXfp26KkO/L0n46dmNg8igXIxHO4DphcxP
-         hpMg==
-X-Forwarded-Encrypted: i=1; AL+hErG2knq+vl4ULJrDvuxMYeOKGklyd8NMqogMqAcUYycYzCaG93LoKQpSMN2OCHWhVHLW02DfTFR1Oub22+o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98mUBvIQDvOkPTyECQ4dqWAyJGdiNyqLeDeQDN0JdcGBJtvyM0
-	r2MTObsNQyLRTh8QkW8gJtoJtPzpW5HhIYBYNw5o4lVGSKfTdKWEhZSY
-X-Gm-Gg: AYBFou2/uoPDg1DVYCNdv0vrQD7BfkNa0757iNBsyymAN2KPN2zcZHtDcSEMazYXhQl
-	am7iw7gztnBkkeQPdIiqZO7lEC7Q6rKAtVYhya0K/0vocG83FSsXga0spN7tvB5IAlINbdIZ3e1
-	BsgSRC0pkmij/ksczOjwfcARq6EX1DcFafZwD+z+o6CMoaDPcPGZzB6fDt6xHtP8HLls43ZlA4j
-	1Op/cY04KAR3Xlm7wD/uqHSNGjeyTpSqtX6dEOoyGVL0y2i1wu+HtNFPmx37GXcVhIieDXIxyAf
-	NOpPzWx2iF6NC2XIvvlwUVsbE4qSjHBh4IBX6dwci5oUaL9/aEuO4YO2axNen881ZtYHu9mlBQc
-	jAqHvwnPnleHJIJSY6WWU/6aRZihqBCo98g/NtKMHS29Tr94fDjyZnjOyB4vZMW8XNa8sUGGbe6
-	5HmiQDYZTIgNxrPyKTzxUx5hCO68FhK0CBKcodRl8/nyYm96m17gpc2DmKaFZLlIEfLwVFuFlOI
-	ty9YPinxb22eKXFvqF8u+sOkNeWKSrUBIVuIE4fLbmzchEDEel9RA3Zv2zqA3yEAVGefxh6X4bA
-	br9u3xhGAiNycc9EYE3pOibrEIwUd5qgJapIjBQey+gl4S13xkxNl3d5fYshpL58akpzzNKrhL1
-	fR9XsFcU=
-X-Received: by 2002:a05:701a:cc8f:20b0:1b5:4596:8371 with SMTP id a92af1059eb24-1b54596847cmr617949c88.0.1794967645989;
-        Tue, 17 Nov 2026 18:07:25 -0800 (PST)
+        bh=4XYNeMt6VNMRAiLe5EbRBvBhMDIpn29m4tUHZ+DRyz0=;
+        b=tfrItGmZyurqbc7AlNCYAocIN4DcMjwq1XHmG9CUCxqlUqqTzPbwPuqUy4p8jbdZxg
+         Qg7eLGUPoU0Mq5TAfgxhb70/JJZrt1fUYhuMSEegIZiAoUrRgAZVmgT0Xha2WeAffogU
+         oyFGGQL01j7wZBfLQR4eK2E8HlWpRIkZOkoObmeL6nNFFYSIEILCc3whXwdyEoofO2fw
+         tH8iNwWoEJXL3T7vUmoJPIjf8dzzVb0nJrqKtuTYQ4ASpxpf3sCUADQB/sMlrTs1p7mx
+         X7pVMUx1Iqs3sc0BFZLsZ6EaPauyyYz1Rt2l/EgRSmkYT44Q/Wl/1+xhCd3hHoyTlWB+
+         d53A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794967651; x=1795572451;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4XYNeMt6VNMRAiLe5EbRBvBhMDIpn29m4tUHZ+DRyz0=;
+        b=EIwIJiZqFWVY3ktxb7dAaZMVBG3z4FZo6l4oEPG/Z/cEAcLpF6LDomhZXtp3m7Ki5r
+         q+rEC613zvHuSLDCJDmP27lTDxSs/REsM6pY/xKRiCz5Gzr6j+uR8iJbeAACu8ZPLglG
+         jtLkGnldmUBZgalGstmKD+cu0vbiCitw4FwRKewnSG9QLLQsKVPp1G9FGZJruQmU6GC0
+         A1MxL4Niijde/gmYC0LieDAFjieI+eucUVO0RgLlBuIvrfUrLI9dlkt/ma4ArHQV9qvR
+         MSSSqEiDRa/pKeWKK+QhRjkPdeytFcnBQDzZ1XpCKY+UWhEnkw7PHIQVqODe5GPwBa9J
+         lHAg==
+X-Forwarded-Encrypted: i=1; AL+hErEzUCBcoXiHRts7GCWhyc/AxNzRK7gso/GEi/vVZMicTe5WP/cUIozOhaTuvDheQ0aVxBEh8i5HquVfXXs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lCL4g/GFW0/YTfe6DpVGP+Kdc7roqC8H2lLk66/P8Enw1Zilk
+	ZDWV6a7/agAA+AyiWbqVyOYIslzrYCs6zHXdiKx8t2kqa5GvUz/D4AJb
+X-Gm-Gg: AYBFou15a3cA53OBLIfqZI4NdjvfTltEbpqzzsHDduWb1ScfBI1KapOaJPXvdxWqMhw
+	p+fKKKYGtDvNEVsDtzNvm/1UjsE5bxWsStexr9S+i0/gUaOk5/R5hlPlzfFe+RIyY8eW6bLb5pz
+	6IOkF1vOde4nyazNq+OUknate8hf6q5zPhomcwMitlkLxjTSsvrZ3mkQIS1xGj9pYgx1H3iR1Ys
+	7DzFBfX/B1Zcz1JYyrMi68SuBSEZfc471fm5VVRkMG08SpHd2w7iFQxV1PEQz4Q+DjkXKSou0v1
+	cJyYc1DOT609Mzj+jrC/WVBdfNQBDip3DhS0ZOabL0/K0TA1N2DjE2GuznCgoIvTSVpA5agzQ+B
+	qNgDzwUZr31GeUCf/KmPRqABREm1SX7tzb9oS2T1bvc5ZAAYQg2cTQZ536OcyEkSXY3wsx3Wm0F
+	VqyEbqIa9w6rX0d18X7trAU4jz0IqnceLunGICv40sMPEpdaEGo/cwmIYjTYSo8C8VYt4m4SbGk
+	Em8OeaYSA18jRUIwUqX7AKmOsSF1DsABEjW2DRy+IiCoiydPC55nuwTTcx3IUihDgGAJzNQDXWE
+	oGFBLR1upjNLNSfnOhXkDHe7Iyp7QCKI8lUKrzVXnj/9VZ/EsCT5khXIO/5LCxL+7T1SBFx74EM
+	6bNb3ffc=
+X-Received: by 2002:a05:7022:698b:b0:1b2:5884:a039 with SMTP id a92af1059eb24-1b543a1715bmr2662340c88.0.1794967651150;
+        Tue, 17 Nov 2026 18:07:31 -0800 (PST)
 Received: from DESKTOP-CJ1L666.dankook.ac.kr ([220.149.255.57])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544784008sm2862327c88.5.2026.11.17.18.07.20
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b544784008sm2862327c88.5.2026.11.17.18.07.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 18:07:25 -0800 (PST)
+        Tue, 17 Nov 2026 18:07:30 -0800 (PST)
 From: Jiwoo Kim <arpe1618@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>,
 	Dmitry Baryshkov <lumag@kernel.org>
@@ -96,10 +97,12 @@ Cc: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
 	freedreno@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v4 0/5] drm/msm: Fix VM_BIND job, queue and entity lifetimes
-Date: Wed, 18 Nov 2026 11:07:11 +0900
-Message-ID: <20261118020716.1698-1-arpe1618@gmail.com>
+Subject: [PATCH v4 1/5] drm/msm: Wait for VM_BIND jobs in msm_gem_vm_close()
+Date: Wed, 18 Nov 2026 11:07:12 +0900
+Message-ID: <20261118020716.1698-2-arpe1618@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118020716.1698-1-arpe1618@gmail.com>
+References: <20261118020716.1698-1-arpe1618@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,75 +114,89 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-These fix what happens to VM_BIND jobs, queues and entities when the
-file or a VM_BIND queue is closed while jobs are still pending, and
-make the VM unusable when VM_BIND jobs of different queues apply an
-unmap before the map that it undoes.
+msm_gem_vm_close() waits for vm->last_fence before it tears down the
+VM's scheduler and its remaining mappings, but only submits add their
+fences to it. msm_submitqueue_close() flushes the VM_BIND entities
+first, but drm_sched_entity_flush() gives up after
+MAX_WAIT_SCHED_ENTITY_Q_EMPTY when the process is exiting, or on a
+fatal signal, and a queue that was closed earlier with
+DRM_IOCTL_MSM_SUBMITQUEUE_CLOSE is not flushed at all. A VM_BIND job
+that is then still waiting for its dependencies is not waited for, so
+its pgtable updates can still be pending, and the job still queued on
+its entity, when the scheduler is torn down.
 
-Patch 1 makes msm_gem_vm_close() wait for VM_BIND jobs, as it does for
-submits. Patch 2 handles an unmap that finds part of its range not
-mapped, or that comes before the map it undoes, like a failed map.
-Patch 3 makes a VM_BIND job that the scheduler kills before it runs
-apply its queued unmaps before it drops its references to the unmapped
-objects, release its BO pins, and mark the VM unusable.
-Patch 4 destroys the VM_BIND entity when its queue is closed, instead
-of on the final put, which can come after the VM's scheduler has been
-torn down. Patch 5 puts the queue last when a job is freed, as the
-queue may hold the last reference to the VM.
+Add the fences of VM_BIND jobs to vm->last_fence as well, as
+submit_attach_object_fences() does for submits, but keep the previous
+fence if dma_fence_unwrap_merge() fails. As for submits,
+msm_gem_vm_close() waits for these fences without a timeout and
+uninterruptibly, so closing the file now also waits for the
+dependencies of the queued VM_BIND jobs.
 
-Changes in v4:
-- New patch 1, as Rob suggested: VM_BIND jobs add their fences to
-  vm->last_fence, keeping the previous fence if the merge fails. Patch
-  4 is still needed for killed jobs, which the scheduler frees only
-  after it has signalled their fences.
-- New patch 2, for the ordering problem across VM_BIND queues that
-  Sashiko found in v3 patch 2, and that v3 patch 1 also made reachable
-  through killed jobs. Unmap errors are now handled like map errors, as
-  Rob suggested, and so is an unmap that comes before the map it undoes.
-  A job that fails in the ioctl after updating the VMAs now marks the
-  VM unusable as well.
-- Patch 3 (v3 patch 1): uses the checks of patch 2, and describes the
-  window that Sashiko pointed out in v3, where a job that waits for a
-  killed job applies its updates before the killed job's unmaps.
-- Patch 4 (v3 patch 2): changelog updated for patch 1, and a second
-  Fixes tag, for the commit that added VM_BIND jobs.
+This does not cover a job that is killed, e.g. on SIGKILL while the
+process exits: the scheduler signals the fence of such a job before it
+frees the job, and the free can drop the last reference to the queue.
+That is fixed by "drm/msm: Destroy the VM_BIND entity when its queue is
+closed".
 
-Changes in v3:
-- Patch 1: only apply the queued ops of a job that the scheduler frees
-  after killing it, once its dependencies and the previous job of its
-  entity are done. The error path of msm_ioctl_vm_bind() frees the job
-  right away, so v2 could apply its unmaps too early and out of order
-  (Sashiko). That path is left as it is in mainline, and the title now
-  says which jobs the patch is about.
-- Patch 3: rebased on patch 1, title adjusted.
+This was found with an AI coding assistant, which also drafted this
+patch and its changelog. It has not been reproduced, and the change
+has only been compile-tested.
 
-Changes in v2:
-- New patch 1, for an issue that Sashiko reported on v1 patch 1, which
-  that patch makes easier to hit.
-- Patch 2: changelog refers to patch 1.
+Fixes: 2e6a8a1fe2b2 ("drm/msm: Add VM_BIND ioctl")
+Cc: stable@vger.kernel.org
+Suggested-by: Rob Clark <robin.clark@oss.qualcomm.com>
+Link: https://lore.kernel.org/r/CACSVV00ZppfBKwsHJ+NBYBB7a2f3g1O=6J4Gt1m_A74fudZQoQ@mail.gmail.com
+Signed-off-by: Jiwoo Kim <arpe1618@gmail.com>
+---
+As for submits, a VM_BIND job whose in-fence does not signal now keeps
+msm_gem_vm_close() waiting, uninterruptibly.
 
-Review of v2 by Rob:
-https://lore.kernel.org/r/CACSVV00ZppfBKwsHJ+NBYBB7a2f3g1O=6J4Gt1m_A74fudZQoQ@mail.gmail.com
+submit_attach_object_fences() drops vm->last_fence when
+dma_fence_unwrap_merge() fails. This patch keeps the previous fence for
+VM_BIND jobs instead, and leaves the submit path as it is.
 
-v3: https://lore.kernel.org/r/20261114141851.134290-1-arpe1618@gmail.com
-v2: https://lore.kernel.org/r/20261114081902.1669-1-arpe1618@gmail.com
-v1: https://lore.kernel.org/r/20261114062541.2001-1-arpe1618@gmail.com
+ drivers/gpu/drm/msm/msm_gem_vma.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
-Jiwoo Kim (5):
-  drm/msm: Wait for VM_BIND jobs in msm_gem_vm_close()
-  drm/msm: Mark the VM unusable on out-of-order VM_BIND unmaps
-  drm/msm: Release the pins and ops of a killed VM_BIND job
-  drm/msm: Destroy the VM_BIND entity when its queue is closed
-  drm/msm: Put the VM_BIND queue last when freeing a VM_BIND job
-
- drivers/gpu/drm/msm/msm_gem.h         |   7 +
- drivers/gpu/drm/msm/msm_gem_vma.c     | 242 ++++++++++++++++++++++++--
- drivers/gpu/drm/msm/msm_gpu.h         |   6 +
- drivers/gpu/drm/msm/msm_submitqueue.c |  50 ++++--
- 4 files changed, 272 insertions(+), 33 deletions(-)
-
-
-base-commit: 1e59855738454b14021b64115f0090eafc7526ae
+diff --git a/drivers/gpu/drm/msm/msm_gem_vma.c b/drivers/gpu/drm/msm/msm_gem_vma.c
+index 8b702422030a..2f0698df1a9a 100644
+--- a/drivers/gpu/drm/msm/msm_gem_vma.c
++++ b/drivers/gpu/drm/msm/msm_gem_vma.c
+@@ -6,6 +6,7 @@
+ 
+ #include "drm/drm_file.h"
+ #include "drm/msm_drm.h"
++#include "linux/dma-fence-unwrap.h"
+ #include "linux/file.h"
+ #include "linux/sync_file.h"
+ 
+@@ -1443,7 +1444,7 @@ msm_ioctl_vm_bind(struct drm_device *dev, void *data, struct drm_file *file)
+ 	struct msm_syncobj_post_dep *post_deps = NULL;
+ 	struct drm_syncobj **syncobjs_to_reset = NULL;
+ 	struct sync_file *sync_file = NULL;
+-	struct dma_fence *fence;
++	struct dma_fence *fence, *last_fence;
+ 	int out_fence_fd = -1;
+ 	int ret, nr_bos = 0;
+ 	unsigned i;
+@@ -1586,6 +1587,17 @@ msm_ioctl_vm_bind(struct drm_device *dev, void *data, struct drm_file *file)
+ 	msm_syncobj_reset(syncobjs_to_reset, args->nr_in_syncobjs);
+ 	msm_syncobj_process_post_deps(post_deps, args->nr_out_syncobjs, fence);
+ 
++	/*
++	 * Let msm_gem_vm_close() wait for the job, as it does for submits.
++	 * The VM's resv, which protects last_fence, is still locked here.
++	 * If the merge fails, keep waiting for the previous fence at least.
++	 */
++	last_fence = dma_fence_unwrap_merge(fence, to_msm_vm(vm)->last_fence);
++	if (last_fence) {
++		dma_fence_put(to_msm_vm(vm)->last_fence);
++		to_msm_vm(vm)->last_fence = last_fence;
++	}
++
+ 	dma_fence_put(fence);
+ 
+ out:
 -- 
 2.43.0
 
