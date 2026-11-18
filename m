@@ -1,98 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993640;
-	b=bKJWGjeldITJB/5yjDvEPRmjt62VbsKCt4IeR5EhsV7eWUE/Yoc4kShg4NRyw3g5Dp0g
-	 Eow6JRiKdLGwzAYQNCmxe3upEeMf7JtOVogwEGnJXX9KzwlhAw1zIUQvzeTomIHOkFlzF
-	 MB21Hk1ckgHOjXH4AZkmhzJ5dWxmLnHLTAwpUXNxOTaOjEtX8o85ikU6cyRoLX2waV7t0
-	 7FVshJkTBKLJmahMH1RbKoRwaBPL0kCyD1Id92V2NZ0NId2AqNiI3QpOKl7Xim56F8kk7
-	 rjFgaZR/mF8Udf0A08CefgVf7ZB+EeRIi4InsZcVexKoQg624TbsU/6avZVHIw33+EA==
+	t=1794993669;
+	b=qo58syDoSCdy3RHPMPT8EVMMCnTeRYh2zhhrrR4jTMqkAdaM52D7DYFGa6ZbeJGcqZAu
+	 KZ3Z4550FvekHcLpj1LXnzeOyzA/0FbJuQXBpeKXiLS4Mv144nc8/msTOE6+rA+Ea+7DO
+	 9K/JERg+l4oZ7SFUyBdAD2VJQZ0nOCJdXIelrFxxlNxxBkNJQy9796T/EFyGqfaLKwiQi
+	 mJFhFSoxTWgibcv4zHBciNNl2GJos6LM6K48Dx865p5LleVtYHKr4Pkp909eLz4HG4lFV
+	 OFBRTWzWZY4UB/0EeEVd7DAe/D55jzJI5HtCz33vRp4hVOnisRJpbO+lzCTPBAa3s+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993640;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=7G2JleZyR72mUGx/SlF6TitvE9bUJJx/pf31x7lthho=;
-	b=zn2FwbtIQtZNClP4hQbjm9qGaw2Akji7LtkjQt9sj042AIuz2LRZcmkPDVJ4aNcSVBwl
-	 EZMHuehWzEfX8K8fgR7WGpOL6Imbrh9Sux0tDh0V042duJkUbycpLSYJ2RRarBSwiIyeD
-	 cbxy6//6NpUCoeHOnzk63gtphAtZqKSwjBK5zIyoFdHBnABpWMjgMzyNX7o+EwFcoJvvO
-	 4EGidJdEBg3ddF/nk4OgxXbCMZo3z264jJlDsEopL8fXQ0n3+iERFAWfF98y0Xh7imiap
-	 y0jp47Ri61lOE3Pim2hWc/de74WXUr05rfTevR8Y4TrbCK+x74V7CJOXfnFGUvh84tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993669;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=hcfafF7WXNr27PZx8i3XRebSUbFpd4N+v61QV1UymJI=;
+	b=M2otC477ic/tVgZXXu6eGIuxAuwYJcd5ycgsWBH0X1qW+0oZvsWi39dzUpYtSibdCzuG
+	 JurIWXuHuEGFM///Ng4Ujq/vLqlzOLtbsuT5+p11AzlHp9Qc3NQ1C9YvnBjdVqYlQp0Nj
+	 j9+PhmQZLY4nLHT6MjU9nZxGqQyLboMiamHVv0n9jBu3OdFp29ppyAoy6J0bPCZ9JoMrR
+	 nygNEC8oExkXPAPZK8qUjvwFULdBdlzWMyLi9QLdQCVwvqhD9jQfUMwlxxomk6rtTc3+n
+	 bSVsRiCLo202WDMAcdsgD8cgIk4OEtIOEY5ZuSpcZ0OOcbMHuD48+0FINYJsLZC/wAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HPBA0Fx1;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=knsgeF4b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82F7B606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:20:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82F7B606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9DEE606A31C;
+	Wed, 18 Nov 2026 09:21:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HPBA0Fx1
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb68c197c7so9935245e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:20:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794993639; x=1795598439; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7G2JleZyR72mUGx/SlF6TitvE9bUJJx/pf31x7lthho=;
-        b=HPBA0Fx1Y42IjYowQTS54bVquaWdLj/lhdK2aoMLk4jypLo1ums5U21+BBKknp3EUB
-         PsYZzXipMwJwKl7un/FPSMn/1jgqnE6qwJgdpCPvWs0d5FZibp5ILp2g3AS64kE/Rxat
-         9TDOCVhbwRXcZhrQDM7pR00aQpb+jAbacK+7z9efYi6aGkKBUVojLI/lYBvOTRWFtftY
-         tOUhAfj4kOzM+XvNzgYEWZBKwVm97eXQQuIGhpgeEvK/Chot4bOHK8cspes0Gw8wMnkP
-         6PW+SbIRCN+s+li4UCqAzQyVS0xBVvoBjdmOp6tMhMaDZalC/qbyeX0+hMfRm6MO4s14
-         ksAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794993639; x=1795598439;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7G2JleZyR72mUGx/SlF6TitvE9bUJJx/pf31x7lthho=;
-        b=AmY/3kkxgQFWA0wwye0rbHAkVYvMEkjm40itxtbc+xxPUQ3KUO8iO6vHEx/047fGAO
-         w2Q9HDr1L2zQYIFEfqu/mDyskMPJR0+Y5l2j9/SYCoFVWnpe483ZzmyDAcKx4H8wmR38
-         6P+GxXgHG2IjrPI8waTdAOLQTjr9hv/sOW6xI/x2vdyaNBn0+9m/5/iK6Oks1eDcNWmJ
-         ySDun9lU+HAlhhnszvZKVERxXTBF4heMqkWZp7J2uUijrfXVIz4q6qRk0PClfgKxYO1/
-         6JLmg9yq+AC6BYNGKJi7RPjvjO8wQEShaVqVSVIhyyzuyXy80+nX+SCvXRC03ro4D8Wo
-         j0Ug==
-X-Forwarded-Encrypted: i=1; AL+hErGV4KBmoAQUhjNu9xbS1Y9eLdz+qVHfFFL0H5nZHiDWIFAS4lPNafaCeIt1qnyUohbiFD1Y1m95WnpSZP4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8sZKI/2/SrRwEeIjd4bnNCleoy3eSJCQmiCavF5+Pf/A1GOIVo
-	hFEhqwKFb8Zh558PkHRFQou+k+9BjfHjH0UeS4vwSjUIPFggzn2mY5gZ
-X-Gm-Gg: AYBFou1SD9ske/4MotwCXAvEY5ZF/+m0tfvOxb+6YT5VCOhNArY/orVd3BewxeMoU0o
-	nH62YzFdnQchiydxUxk7t2subje8lTV6gGizKauXsX2qgjhrtbaULrJ7eJnUxpEN2nPH6bHL1on
-	2rJXxIcGzoI9NiHjg4smgmDdxr8MEXRQ28yC72XEl5CiGeeIRwoZ4LvET2kQzyD9LJeH/B0xuKL
-	xcL4XStIKVpc6Rknmzw4ynssHRHBLvNyd+BMEY42Rfk7EdXveohwavBM0JRi7lZO3WZti+hdZvA
-	qAFNsb3xH8eMFDlpDAEndIvVDd6U6+yPmSse+aJYFFQ4Qv3IoCiJJOamoqjNZMxzd8hISWetSNo
-	mJqqjACnMHeJNr6mXEb0N5MZUkPXhG4HSFGomf/n9gyfdfyW5X5z8K/y1unx3SzE9WeJUeWLoFM
-	a2gp35Xie6PWgNWwmbC7uHKk3/2qBIKJVkLIqdCaIlDj9aYQxPTduF1wpDTP/3rThNMyWaRfyfv
-	p/mC4xubJeXxr66cmYRM7Ox6ge0YKhcvBuB3SahVT1Zo2FXyWGR2inPQde12ebFGYlZ1a6vtuz1
-	Q8mcITdBmaiLN6EZZ4++Um/5/mjQYkj8U3TTjcPSqqlTEWBlqno2lWzMO7W9fas7+OUSMx+OSmo
-	6oYqZr2IDILEUMK9dQU5h82MgA/ZF9IXunZZjwiZAuZVHYijCthoUT5rk7ZlQZLzG90TK
-X-Received: by 2002:a05:600c:4f14:b0:4ac:da92:2bd4 with SMTP id 5b1f17b1804b1-4bb7d6cc934mr40618635e9.1.1794993638760;
-        Wed, 18 Nov 2026 01:20:38 -0800 (PST)
-Received: from localhost ([2c0f:3d00:6be:8900:ce5e:9212:ea4b:f30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2aad96sm42979355e9.6.2026.11.18.01.20.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 01:20:37 -0800 (PST)
-Date: Wed, 18 Nov 2026 12:20:32 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: Shivani Patel <patelshivani2283@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Parthiban Veerasooran <parthiban.veerasooran@microchip.com>,
-	Christian Gromm <christian.gromm@microchip.com>,
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Julia Lawall <julia.lawall@inria.fr>
-Subject: Re: [PATCH v3 1/2] staging: most: video: Protect pending_mbos and
- mute with list_lock
-Message-ID: <av1t4DbqGsmUmrZJ@stanley.mountain>
-References: <20261117170558.33844-1-patelshivani2283@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=knsgeF4b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1591F000C6;
+	Wed, 18 Nov 2026 09:20:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794993669;
+	bh=hcfafF7WXNr27PZx8i3XRebSUbFpd4N+v61QV1UymJI=;
+	h=From:Subject:Date:To:Cc;
+	b=knsgeF4b9Zqq2mXULZ2xDUqAb/MDVTZ+31aNGsl2OmkKsxj7SM9K/I2Lj6SDTusFD
+	 9hn3x2iUPD2XD3WbebyB2J2xXayuyE73Sn3Ky9K4WLWz9BeyZWHhRnZ7+p0ohiRvFV
+	 g5GLf9HbVwQ8zS+5KdLQ0diU096Vo88Bt0SPThWweEDxQwmV/wcF93W4HKjwfT9tCD
+	 Bz5Xe9N9KyfO2Y9/NMR6p5PCaUrT3aRC4cy+5+H3Tqph4iONu6w6erA8A3Vet9so9g
+	 tRJGA7FOrFEI0fuTpaJvs0XfYlvAt4KEugPS/Ya5RBtCLNLqKX7Eu1JHwu4ZFKcW8C
+	 4EpRGHjPK/+YA==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: [PATCH 0/4] mm: fixes for stale TLB entries due to delayed/batched
+ TLB flushes
+Date: Wed, 18 Nov 2026 10:20:35 +0100
+Message-Id: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,114 +54,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117170558.33844-1-patelshivani2283@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yXMQQrCMBAF0KuEv27ACcVqriJS2mbGjoRGMlaE0
+ ruLunybt8G4Khui21D5paZlQXTUOEzzsNzYa0J0CIdwJKLWi2bupWQtveTVZt8l6tqzDGNIJzQ
+ Oj8qi7195uf5t63jn6fl9sO8fqjXp1XQAAAA=
+X-Change-ID: 20261114-file_folio_flush-7d1749fab2d8
+To: Lorenzo Stoakes <ljs@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ "Borislav Petkov (AMD)" <bp@alien8.de>, 
+ =?utf-8?q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>, 
+ Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
+ Matthew Brost <matthew.brost@intel.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+ Gregory Price <gourry@gourry.net>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Alistair Popple <apopple@nvidia.com>, Chris Li <chrisl@kernel.org>, 
+ Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>, 
+ Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>, 
+ Mel Gorman <mgorman@suse.de>, Sasha Levin <sasha.levin@oracle.com>, 
+ Rik van Riel <riel@redhat.com>, Ingo Molnar <mingo@kernel.org>, 
+ Peter Xu <peterx@redhat.com>, Hugh Dickins <hughd@google.com>, 
+ Axel Rasmussen <axelrasmussen@google.com>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, "David Hildenbrand (Arm)" <david@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7325; i=david@kernel.org;
+ h=from:subject:message-id; bh=+XVlM1zarDt/HoTmPPZ/6LhCqrtwp0Vps9Eria3V5YE=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLL+5r41r9qbeeLAswnm7KJNK1J4UnauMDBvn5PwZW1zT
+ sqvN72CHaUsDGIcDLJiiixBwfcNXr5cV1vtxscMM4eVCWQIAxenAExEey3D/7TbJ1jt108/9L6z
+ cun5WD6r4llqN/bFHdxta1lamnvapJGRYWXM4p7DnjP1Hu1T1niXlvvC/oakHv+VnPiFXzvYjkw
+ RZwAA
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-On Tue, Nov 17, 2026 at 10:35:57PM +0530, Shivani Patel wrote:
-> data_ready() and get_top_mbo() read mdev->pending_mbos without holding
-> mdev->list_lock, racing with comp_rx_data() which modifies the list
-> under mdev->list_lock. Also, comp_vdev_close() clears mdev->mute without
-> holding mdev->list_lock.
-> 
-> Acquire mdev->list_lock in data_ready(), get_top_mbo(), and when
-> clearing mdev->mute in comp_vdev_close(). Use list_first_entry_or_null()
-> in get_top_mbo() so comp_vdev_read() can drop the redundant data_ready()
-> check inside the read loop.
-> 
-> Signed-off-by: Shivani Patel <patelshivani2283@gmail.com>
-> ---
-> v3:
->  - New patch added after inspecting list_lock usage per Dan Carpenter's
->    review of v2.
+David, what keeps you up at night? Well, the last 3 nights, TLB flushes.
 
-Huh...  This is interesting.
+We have two mechanisms that can delay/batch TLB flushes and cause
+problems:
 
-> 
->  drivers/staging/most/video/video.c | 34 ++++++++++++++++++++++++------
->  1 file changed, 27 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/staging/most/video/video.c b/drivers/staging/most/video/video.c
-> index 3a0445ff6..92d5fbc9a 100644
-> --- a/drivers/staging/most/video/video.c
-> +++ b/drivers/staging/most/video/video.c
-> @@ -60,14 +60,27 @@ static inline struct comp_fh *to_comp_fh(struct file *filp)
->  static LIST_HEAD(video_devices);
->  static DEFINE_SPINLOCK(list_lock);
->  
-> -static inline bool data_ready(struct most_video_dev *mdev)
-> +static bool data_ready(struct most_video_dev *mdev)
->  {
-> -	return !list_empty(&mdev->pending_mbos);
-> +	unsigned long flags;
-> +	bool ready;
-> +
-> +	spin_lock_irqsave(&mdev->list_lock, flags);
-> +	ready = !list_empty(&mdev->pending_mbos);
-> +	spin_unlock_irqrestore(&mdev->list_lock, flags);
-> +
-> +	return ready;
+ (A) mmu_gather zap: we can delay TLB flushes until after dropping the
+     PT lock, after having zapped PTEs and adjusted the mapcounts.
 
-It doesn't really matter if we take the lock where since we drop it
-right away.  The list_empty() doesn't anything that requires locking
-so far as I can see.
+ (B) TTU_BATCH_FLUSH when used by reclaim: we can defer (batch) TLB
+     flushes, after having unmapped folios and adjusted the mapcounts,
+     and after having discarded lazyfree folios, removed folios from the
+     page-cache/swap-cache or just dropped the folio lock.
 
->  }
->  
-> -static inline struct mbo *get_top_mbo(struct most_video_dev *mdev)
-> +static struct mbo *get_top_mbo(struct most_video_dev *mdev)
->  {
-> -	return list_first_entry(&mdev->pending_mbos, struct mbo, list);
-> +	struct mbo *mbo;
-> +
-> +	spin_lock_irq(&mdev->list_lock);
-> +	mbo = list_first_entry_or_null(&mdev->pending_mbos, struct mbo, list);
-> +	spin_unlock_irq(&mdev->list_lock);
-> +
-> +	return mbo;
->  }
->  
->  static int comp_vdev_open(struct file *filp)
-> @@ -143,7 +156,9 @@ static int comp_vdev_close(struct file *filp)
->  	}
->  
->  	most_stop_channel(mdev->iface, mdev->ch_idx, &comp);
-> +	spin_lock_irq(&mdev->list_lock);
->  	mdev->mute = false;
-> +	spin_unlock_irq(&mdev->list_lock);
+Code that installs new folios (and doesn't just refault the old ones)
+must be aware of that, otherwise we can end up with stale TLB entries
+while new folios are already mapped into page tables.
 
+So in general, whenever we install a new folio into the page tables,
+we must make sure that no such stale TLB entries exist.
 
-I don't see the point of protecting ->mute.
+Even worse, whenever we replace a folio in the page-cache that might differ
+content-wise from the old folio, or we end up modifying a new folio through
+write(), we must make sure that no such stale TLB entries exist.
 
+There are some exceptions (e.g., only once MADV_DONTNEED finished is when
+a new read from the same address gives any guarantees), so the primary
+focus is on folios that got unmapped transparently by the system, without
+involving MADV_DONTNEED.
 
->  
->  	v4l2_fh_del(&fh->fh, filp);
->  	v4l2_fh_exit(&fh->fh);
-> @@ -175,10 +190,15 @@ static ssize_t comp_vdev_read(struct file *filp, char __user *buf,
->  	if (!data_ready(mdev))
->  		return -EAGAIN;
->  
-> -	while (count > 0 && data_ready(mdev)) {
-> +	while (count > 0) {
->  		struct mbo *const mbo = get_top_mbo(mdev);
-> -		int const rem = mbo->processed_length - fh->offs;
-> -		int const cnt = rem < count ? rem : count;
-> +		int rem, cnt;
-> +
-> +		if (!mbo)
-> +			break;
-> +
-> +		rem = mbo->processed_length - fh->offs;
-> +		cnt = rem < count ? rem : count;
+This series handles the following scenarios:
 
-The worry here is that we could have more than one reader open, right?
-I don't think this is a complete fix, because they could both take the
-same mbo and could have cnt >= rem and the other has a use after free.
+Patch #1: Zapping: flush the TLB before installing a CoW'ed folio.
+          Handles CoW of a folio that is still in the page-cache.
 
-I'm not super familiar with this code.  I assume it's only supposed to
-have one reader at a time.  Maybe it's serialized at a different layer?
+Patch #2: Reclaim: flush deferred writable TLB entries before unlocking
+          the folio. Handles writes through stale TLB entries getting
+          lost when reclaim keeps a dirty folio and somebody else
+          starts writeback.
 
-regards,
-dan carpenter
+Patch #3: Reclaim: don't defer TLB flushes when unmapping lazyfree
+          folios. Handles mapping a new anon folio after reclaim
+          discarded a lazyfree folio (do_anonymous_page(),
+          migrate_vma_insert_page(), UFFDIO_COPY, UFFDIO_MOVE).
 
+Patch #4: Reclaim: unlock unmapped folios only after the deferred TLB
+          flush. Handles refaulting a new page-cache folio, CoW of a
+          folio that is still in the page-cache, and swapping in a new
+          folio (do_swap_page(), unuse_pte(), UFFDIO_CONTINUE). Also
+          handles invalidation replacing a folio that reclaim kept, and
+          write() modifying a new page-cache folio.
+
+Patches #1 and #2 are small fixes that should be merged as soon as
+possible. Patch #4 makes the flush added by patch #2 unnecessary by
+keeping folios locked until the deferred TLB flush, and removes it
+again.
+
+Patches #3 and #4 are RFC, because #4 is rather intrusive and #3 comes
+with a performance impact (see below). But there isn't really a good
+alternative to fix these things for good that I see.
+
+In theory, UFFDIO_COPY installing a new anon folio into a MAP_PRIVATE
+shmem mapping is affected by concurrent zapping just like CoW faults in
+patch #1. But the required setups (e.g., userfaultfd on a MAP_PRIVATE
+mapping of a tmpfs file that backs a loop device) are so unusual that we
+will leave it alone for now. Same applies to the hugetlb counterpart.
+
+Remaining Problem
+-----------------
+
+There is one remaining known problem that is not handled by this
+series:
+
+Zapping (e.g., unmap_mapping_range()) removes the rmap of clean
+page-cache folios before performing the deferred TLB flush. If the
+mapcount drops to 0, a concurrent invalidation (e.g.,
+invalidate_inode_pages2_range()) will skip the unmapped folio and can
+remove it from the page-cache before the pending TLB flush.
+
+A page fault (except a CoW fault, see patch #1) can then map a new folio,
+or write() can modify it, while other CPUs still read the old folio through
+stale TLB entries.
+
+I think that this is low priority: it requires two concurrent invalidations
+of the same file range while another process has the file mapped, and CPUs
+can only read stale data until the zapper flushes the TLB; writes are never
+lost.
+
+It could maybe be fixed in the invalidation code? unmap_mapping_*() holds
+the i_mmap_rwsem in read mode until it flushed the TLB, so
+folio_unmap_invalidate() could briefly take it in write mode iff the folio
+has unexpected references. But dropbehind (RWF_DONTCACHE) invalidates
+folios on writeback completion while holding an additional reference, where
+we must not sleep on the i_mmap_rwsem, so that would need some care.
+
+Something for the future :)
+
+Testing
+-------
+
+I threw a bunch of selftests at it and had AI generate some stress
+tests, in particular for the benchmarks below. I also ran stress-ng to
+force reclaim.
+
+I managed to reproduce the issues in patch #3 and #4, as described in
+the patch descriptions.
+
+Stale reads out of 1024000 checked pages in 2000 iterations:
+
+                               base    series
+  lazyfree,  MGLRU            16242         0
+  lazyfree,  classic LRU      16274         0
+  swapcache, MGLRU            24076         0
+  swapcache, classic LRU      23028         0
+
+Performance Impact
+------------------
+
+I ran some benchmarks in an x86-64 VM with limited CPUs, RAM and zram
+enabled. Running inside a VM might make TLB flushes more expensive, so
+the results below might be a bit exaggerated. AI results below.
+
+Classic LRU, 4 threads randomly touching a working set twice the size of
+their memcg for 30 seconds. Pages touched per second:
+
+                 base     series
+  anon-rw        681k      1055k
+  anon-ro       1013k      1027k
+  file-ro        417k       419k
+  file-rw        173k       183k
+  lazyfree      1512k       333k
+
+Swapping out dirty anon folios ("anon-rw") is about 55% faster, because
+patch #4 now also batches TLB flushes of stale writable TLB entries.
+That is what Zhang Peng's series [1] tried to achieve, and his work also
+inspired how patch #4 locks folios again, but the used mechanism is
+different.
+
+Reclaiming clean anon folios ("anon-ro"), clean page-cache folios
+("file-ro") and dirty page-cache folios ("file-rw") is not noticeably
+affected.
+
+Reclaiming lazyfree folios ("lazyfree") is about 4.5x slower, because
+we stop batching TLB flushes when discarding them entirely, which seems
+to be the right thing to do for now. We can look into optimizing this
+separately later.
+
+[1] https://lore.kernel.org/linux-mm/20261031-batch-tlb-flush-v6-0-190539839eec@tencent.com/
+
+---
+David Hildenbrand (Arm) (4):
+      mm: flush stale TLB entries before installing a CoW'ed folio
+      mm/vmscan: flush deferred writable TLB entries before unlocking the folio
+      RFC: mm/rmap: don't defer TLB flushes when unmapping lazyfree folios
+      RFC: mm/vmscan: unlock unmapped folios only after the deferred TLB flush
+
+ mm/internal.h |   5 ++
+ mm/memory.c   |   6 +++
+ mm/rmap.c     |  20 +++++++-
+ mm/shmem.c    |   2 +-
+ mm/swap.h     |   5 +-
+ mm/swapfile.c |   7 ++-
+ mm/vmscan.c   | 155 ++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ 7 files changed, 184 insertions(+), 16 deletions(-)
+---
+base-commit: 0c524518413094607a6178c53a65815762bc9c45
+change-id: 20261114-file_folio_flush-7d1749fab2d8
+
+Best regards,
+--  
+David Hildenbrand (Arm) <david@kernel.org>
 
