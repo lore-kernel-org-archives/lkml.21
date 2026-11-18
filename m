@@ -1,62 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795039088;
-	b=RQXW/RKy/xiE8MtQn/2FsPGko/LG6WQW1YxSlrWEDBgeVE/KJRPMzLJFjfI18WdpY2Ra
-	 PLEgsVKWbHqr4Omp3tfk6DLdZnTjn7l9hy1LpB+QjEe9OCic9kf+i7OYe6kYId7mqjWBv
-	 c530JbsDLEZpVrx+25ySLE2/r7+KbEuz3wEVmhUJPRjj456dvmDhWQ3X24iwyPkgX26fc
-	 bQr4OxCWcf5m7C4LetPV6KyQUkMPKiscxnBrnxJHoLIBwIV6w/NWnO/ftwt6Oefe/+DYI
-	 bP8Vdrd8sR7OfbHYFrMvu2b68HLgWrurJx+6Q+5NmDRCCwjvie+UFTOYPC78A3Brv5Q==
+	t=1795039100;
+	b=fJQFJ2BLExMOWsh41fdqtm0mFt+8Deq9nVG6mKAzJsVy4SyyVznuxhMg7cHBlYar6ZjE
+	 osP2MD3HpjrdyZpVw7yYPACUVycZt5PG0UJaE7JL9HZUA+cSRvoj8MSIVhhDe1TO97TPm
+	 FLK+ChOR9OnacHkAKe1aL1qbxR1Is6oZD2TnSISwpXGiCTdhfsNJiqfR/0VzO/tdbgW0z
+	 U2pJiSkEdsRQIypulvzArtIUze+Bsj03e4joKhyaIoRcYa6tuyqMQ0DZXJn1QHTExiTyg
+	 n1S4WGsPmY07kNE8F3v3mBGkPM6hEaTCuJENUROg4iU2YxodiRKZIbiG8fZrW5t52SQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795039088;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=HqdU3TKWtk+QHYDMIs0OjFQmc/8QrMHOsCdFuTPEaI4=;
-	b=07gUurbhH4qZCcTxICjYEqGkmVOh8W0wdK3BbJPMD5IX/oLWPiNepKksZG9UnyXldYzl
-	 MLQSbkzIc+OLlrYnG0DodbA8BWEsefVX5tZdYQKEtt/ILiWBXerBLimnmyC4GMaGtmplc
-	 WqozFHkZ3+K1d0rcq/3gLykcDREBOKncfRWyrw6d0/ItyVLeU0rF3ALBRuJmgOH+oHsW/
-	 1YT/z5ttylihHzlt8iG/74JFjXYAS9Xr7FkHkcZnz5M4yhvPYWifNJ8npqazj0YyDGazd
-	 8z/G4VFQR/A+e3XEaBna/FeW5AZjWYKwrBr8T5hLK75+wsdPpTWYQGENbPhdpMp0Y5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795039100;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=rChBRqqSVBT9e1P75bUhE8ESuw1nkQkXwil9ljzhOmw=;
+	b=hf9cIHwlMVA8qqW9pDGAXA22HAaFabUCGt4tL7SGnrFksIHtdjd/NtWL/Ap83vOEt0iv
+	 KdOr65MMICpvi6YXHzsG6S/tQOF9X/3VyKX93PHOWV9SrIktVu2Mam4j56Ilhkqq2WmY1
+	 yGIxXNQPjtnEG7EdzPe9dYyFcV/PG+Z+1v8hHhZ7EW5h5MAsiAar458LFROg1MrvlShti
+	 2NfGo1dDo2iitTpIhGWN3ZJA1MBcUome9/YxJTmlglxuUjLrndMlpLVTnFacWMTaY3Mv1
+	 nYyB46U1LKHHRxIxyHhkfIw7dcJe9QafcY6STT3ocRSHrTU/Sn1b2SoziHM6xPfoGjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C2VvBPID;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VkDexxKW;
+	arc=none smtp.remote-ip=185.70.43.16
+Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C8260A2602;
-	Wed, 18 Nov 2026 21:58:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCDDA606A320;
+	Wed, 18 Nov 2026 21:58:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCDDA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C2VvBPID
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DDBC1F000CB;
-	Wed, 18 Nov 2026 21:58:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795039088;
-	bh=HqdU3TKWtk+QHYDMIs0OjFQmc/8QrMHOsCdFuTPEaI4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C2VvBPIDE5Rn9Qmczx+zT8rkh6xGMTN6oFbWfPpoaP+fDAXF1EaKjyWud+Rcc4gdi
-	 ptU5TYYQCMLjzYae0Ar6TLUdnS/oc6UgQYT+DJQ1o+M2I0vUN+PPaKok0ji46oqoOq
-	 IFDOcBxO7+lOGWe6830gaaFpOTgrzsKDicW8JqiDJcY7ci50obmsaw7J++N+SY372D
-	 cxVXCPcLaNrREeLc/QMPuu47OeGZiPfIL0mJQ2h7wQ5z77iwlMHkzKBSgF2AX84r5Z
-	 KA5UuvYejLEh/QcD0i1EwebHXkOb0qAy06AdE7bMis82A7wZ2QAqZQUAH1y9YVAWry
-	 ub4nPAsS4XVvg==
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v7 13/13] perf test: Skip the LBR inline unwinding check when unsupported
-Date: Wed, 18 Nov 2026 18:57:15 -0300
-Message-ID: <20261118215716.114868-14-acme@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118215716.114868-1-acme@kernel.org>
-References: <20261118215716.114868-1-acme@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VkDexxKW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795039098; x=1795298298;
+	bh=rChBRqqSVBT9e1P75bUhE8ESuw1nkQkXwil9ljzhOmw=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=VkDexxKWJMJVnleSYjAEjp9CFgAwAQjVB5mRLnm70v1muEW0lNE/GLnlQwLI/jXtt
+	 E96grVy0NAtAzaCrjxGnrdQmjy8f5SDlYausxhjYc+c1DLmgDs81qE7vn+/Fius2Od
+	 6+SoAkrCBkDYM+g1/Ajvw43YEw4pgPxSnwXRX1SLCX3AiDcEQ43RLHLKEyavcqVrmh
+	 obpvnRROVlaoaJL4E8ueOI9aRnlBEu6NAD1r6YkQZI6QcToOD8uLnKMpjwT7zyKSsu
+	 5ppzp8rT2xjlqmn0MUNfderVIMxdM1SVmfY2sz8FUrHidSGANbEf3uFFCLHItSW4vx
+	 5sqmpj1TfvCRQ==
+Date: Wed, 18 Nov 2026 21:58:14 +0000
+To: Hans de Goede <hansg@kernel.org>, =?utf-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+From: =?utf-8?Q?Eren_=C3=96zen?= <erenozen@protonmail.com>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] platform/x86: huawei-wmi: Set battery charge thresholds through \SBCM
+Message-ID: <gR5eRejUrFL8r_avvKgYV4tymr9pYj-ekkfPoBHzguyCAh2rG-LABv8fUn0FjEhllk4xzDNyBE259vwg4vEwTaM6mRM0VoBKNB2lV3c5kNU=@protonmail.com>
+In-Reply-To: <20261112-huawei-wmi-charge-mode-v1-1-89974ab1e859@protonmail.com>
+References: <20261112-huawei-wmi-charge-mode-v1-1-89974ab1e859@protonmail.com>
+Feedback-ID: 19860221:user:proton
+X-Pm-Message-ID: 5ffb264db3ceedd8b221e0c3f8f69030ab840d1a
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,65 +64,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-From: Arnaldo Carvalho de Melo <acme@redhat.com>
+Hi Hans, Ilpo,
 
-The LBR check takes caps/branches as sufficient to record cycles with
---call-graph lbr, but the file only says the PMU has an LBR: AMD LBRv2
-rejects the call stack mode with EOPNOTSUPP and AMD BRS, which samples
-only its own retired branches event, rejects cycles with EINVAL, so the
-test fails on AMD instead of skipping.
+Gentle ping on this patch. It still  applies cleanly on the current
+for-next (9c82959c37bf); huawei-wmi.c hasn't changed since I sent it.
 
-Skip when the same event records without the branch stack, so a PMU
-without the LBR call stack skips while a perf record that fails for
-another reason still shows its error and fails the test.
+It fixes the charge limit on the MateBook 16 (CREM-WXX9): once GNOME's
+"Preserve Battery Health" has been turned off, turning it back on
+leaves the EC in its smart-charge mode, and the battery charges past
+the end threshold.
 
-Fixes: 446c595dc0dd1759 ("perf test addr2line_inlines: Ensure inline information shows on LBR leaves")
-Cc: Ian Rogers <irogers@google.com>
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/perf/tests/shell/addr2line_inlines.sh | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
+Fuwei Xie's RFC v2 [1] also touches huawei_wmi_battery_get(), so the
+two patches conflict in three lines there. The fix is to keep my
+charge-mode check and Fuwei's huawei_wmi_cmd_min(..., 3) call; with
+that, the combined driver builds cleanly with W=3D1. I'm happy to rebase
+on top of whichever goes in first, or to send a v2 if anything else
+needs changing.
 
-diff --git a/tools/perf/tests/shell/addr2line_inlines.sh b/tools/perf/tests/shell/addr2line_inlines.sh
-index e8754ef2d7f21ac2..050e95c0fea12aae 100755
---- a/tools/perf/tests/shell/addr2line_inlines.sh
-+++ b/tools/perf/tests/shell/addr2line_inlines.sh
-@@ -8,6 +8,7 @@ err=0
- test_dir=$(mktemp -d /tmp/perf-test-inline-addr2line.XXXXXXXXXX)
- perf_data="${test_dir}/perf.data"
- perf_script_txt="${test_dir}/perf_script.txt"
-+perf_record_err="${test_dir}/perf_record.err"
- 
- cleanup() {
-     rm -rf "${test_dir}"
-@@ -71,7 +72,24 @@ test_lbr() {
-     fi
- 
-     # Record data. Currently only dwarf callchains support inlined functions.
--    perf record --call-graph lbr -e cycles:u -o "${perf_data}" -- perf test -w inlineloop 1
-+    # caps/branches does not mean the LBR call stack is supported: AMD LBRv2
-+    # rejects it with EOPNOTSUPP and AMD BRS, which samples only its own
-+    # retired branches event, rejects cycles with EINVAL. Skip when the same
-+    # event records without the branch stack.
-+    if ! perf record --call-graph lbr -e cycles:u -o "${perf_data}" -- \
-+            perf test -w inlineloop 1 2> "${perf_record_err}"
-+    then
-+        if perf record -e cycles:u -o "${perf_data}" -- true 2> /dev/null
-+        then
-+            echo "Skip: LBR call stack not supported by the PMU"
-+        else
-+            cat "${perf_record_err}"
-+            echo "Inline unwinding lbr verification test [Failed to record]"
-+            err=1
-+        fi
-+        return
-+    fi
-+    cat "${perf_record_err}"
- 
-     # Check output with inline (default) and srcline
-     perf script -i "${perf_data}" --fields +srcline > "${perf_script_txt}"
--- 
-2.56.1
+[1] https://lore.kernel.org/all/69C3BBDEF214121E+20261118161311.17252-1-123=
+13607@mail.sustech.edu.cn/
+
+Thanks,
+Eren
 
