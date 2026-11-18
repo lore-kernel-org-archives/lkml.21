@@ -1,59 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999448;
-	b=FP06v+h3UE1gR+SpYE/tZzRGtjcGdUtr4I430w7pz17nmwntaZcKg+SYBVoYXeZPOmAx
-	 Q6YCWFkQqajqZZFpK8MpGqAdAbUGi41DSr9kHJKlmkRWvnq+md11Ev+W5d44Z7dgKMoCJ
-	 T32YsdaVyanygevRZFOmE85v4CzpBjZSnacZ1fJc//sTE6sxu5G/IeWjnsBxmUq816Zuu
-	 62xxGY3Y9t5+/an4JnpTXl8/pq0OmayWYD5IlS020318lN1plzFAVHRI43vM2qhu0wXR8
-	 JrgauDie1AQ5TK/J8KDOscxQ4N3N4Es0k9MZ4aZ2+pkFVdmSRz/ImAdtQTtH4AduzBA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999448;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=5vccRsej6U4a/ZHe+hzTCUcNdodK+DAuno/TNDFubxo=;
-	b=AvP3me1wWi0RpIEPbx2DAOS7HWSMiUslfxiK64Ce1jK/1Qfa8PdYgmL0OkiJMNbiafZR
-	 7Pib2/s+BXkVGXubekegfpfUPhtqx7dBFS1YIpHxrCoaA6k6R8vTB1dnCNn2203wSxNqt
-	 3Hj/Zhx1eNcKO5z45+I+u6r4BzySg77DyG3Rb6TINzrkymvfwdu6xQdasOlmMfnGPtJer
-	 6fMtbpj83FQYzLcv2qkuz7MRvD2CfB902dMLpMxbzCDLbyj4A37FfAyDyX7/jWU0UD/oT
-	 UtWP+dfmb71NZyZwgJX615V/bQOQsPY0iScA/Qfjxfw5+T8jHzGGrfjqUfkyR9YelXw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=eswincomputing.com;
-	spf=pass smtp.mailfrom=eswincomputing.com;
-	dkim=pass header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=TLujzcJr;
-	arc=none smtp.remote-ip=13.76.78.106
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DCD5C606A320;
-	Wed, 18 Nov 2026 10:57:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCD5C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=eswincomputing.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=eswincomputing.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.193
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794999454;
+	b=k16gb/ljAYI0b7zUk1GZ7PbS9j1UJDbQ4agyn+6BzOVqproUHC1NGNZ//oB1RFGm2rSN
+	 a64DPXek6RHrTss4SAczRwJLbaW/yAagWkUfLFkBOccgFeqyHQRR9mFBC5dB5QFDQ7nSY
+	 pUwvHX9j5ccQzGXIGjZCthQcTI2TYsvbdVu2v9wmX0h0E71fElIc8AqDlb5OEVQpaGa3B
+	 JucES4KdXia2KgbYbY+qQmRai4lt73fajx1ntFAA9vz4EBDZJPQgCnxSHYsvw38L3fYOi
+	 DoVdPtg132qCTkrKODfvcY+kmNVKSPP7gjXb5MW5feObCHY9nudLw5x0G6s4IY4PzNg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999454;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:From:In-Reply-To:References:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+	b=3z8xvqW4rUUeyZutUeFGluLgtcaInMCtFGx+CwnFH+7P244hvrcwmCvp13YyFv0WqhVE
+	 LCCGYboAylB1v25fXTtgbF6eM0LvEmZXH0OcHAJhQcilhpyoXJhSvnLfoY3+hzsWzwfwJ
+	 SKxVeP2nZeMZXZlNx9KkiA/vOKTSY+xv9Ekgmkqpfb//uLUB/le/G0289VI7LPLWOE8Vs
+	 Ic6Gf2K8Qji/kAi5uOPeGrOsJOECfFuDU7r7yAIEu4RKvQv5EAWBoYF26IiQhcJ3bRL9p
+	 c0QY7KC06cwUO8aw0O3SF/LKTWSIO56ATkokHt08puR4Wf8R8SeXKQk0ScRf2cCMoRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SCiX+gda;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.193
+Received: from mail-oi2-f1.google.com (mail-oi2-f1.google.com [74.125.231.193])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A824606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:57:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A824606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=TLujzcJr
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SCiX+gda
+Received: by mail-oi2-f1.google.com with SMTP id 5614622812f47-539d2baa897so191738b6e.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:57:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794999453; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TJtce3/JjZ+CdWpN2IoZ5iesibvXKS8bC/yfKUm3G1KK+6zX4SYD3wiJdefLNUB+D1
+         oOAPKCfXkMLtnZNK3YbKSU6uCmjm3agtrU5OwAoHPD3Fb19bVg5I96ZfntmeckBXuzFV
+         p0Rgbes7J3+6RN6oNlJTURmDvPAs5og25BH8CErOZ36ZCVZeRWRoF6MYVP5ikNT6wcRj
+         q4xh4wlDF8xgdhCLRar26fKoIz6txLhY96dhOY4hvts4kJkZsw1VM4yGSSdI3CO6yM/G
+         Da58jsD/ibviem/xBc63fpX+UzETPw05lqv9CZk0dmzRjGEjuTAr/pRXARSI5u5OTja+
+         cofA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:references:in-reply-to:from
+         :mime-version:dkim-signature;
+        bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+        fh=l8QNBItfxWpz7SGSy+ip76JZ5ZFyQ69MTXR7DKSnXx4=;
+        b=oDHRICRtnyj9os35ux+H2ADOO6NltOA3dxITB8jKTC3sml5PAVZUFp38VlfqHEbZWI
+         4kUgfgRmOm1zEisFrE7Hidee4sz7pmUUOx2ELlb4ScBzwr2R1T5quOPLMKD7IzjPaWC1
+         Fr4hb+mfDeRaalvvl0FV9w5b0/VokWLC8qtGo9QPwSmjBjFG5l86/XH60wIAt0gChkRn
+         6aDFR0SI/74hR0eCzzYnw+OEm1YZY/rI6jEF8FeHz2lv6GztmEZydxPM+d7RFS1VGoIj
+         lEmw3lMil8UnxkZTVYvbXDxn4BiGA69FBpji/Dxd9aDlAEl9jfZo+P/MI0fqO86VSo8M
+         Q1yA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=eswincomputing.com; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-ID:MIME-Version:Content-Transfer-Encoding; bh=5vccRsej6U
-	4a/ZHe+hzTCUcNdodK+DAuno/TNDFubxo=; b=TLujzcJr94kTWqv3zompplZjyp
-	JJifaWWpcbjg1yZPbHKP47SsjUEIBRtLvXYNLwnu33crjK+ckxIZAWP7TVauSj1u
-	+yfdqlZITz8TY7Js3aFcc9gl7ilPEr9IC1tMcdmRKU3ocpQrpaolURQPXflxH6Gr
-	9xFCGTJ22d+3kUv9k=
-Received: from E0007865LT.eswin.cn (unknown [10.64.112.9])
-	by app1 (Coremail) with SMTP id TAJkCgDn1eSOhP1qLCEAAA--.181S2;
-	Wed, 18 Nov 2026 18:57:20 +0800 (CST)
-From: Donghui Zhao <zhaodonghui@eswincomputing.com>
-To: linux-pci@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhengyu@eswincomputing.com
-Subject: [RFC] PCI: dwc: eswin: proposal for a separate EGC-series driver
-Date: Wed, 18 Nov 2026 18:57:17 +0800
-Message-ID: <20261118105717.1364-1-zhaodonghui@eswincomputing.com>
-X-Mailer: git-send-email 2.55.0.windows.4
+        d=gmail.com; s=20260707; t=1794999453; x=1795604253; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
+         :from:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+        b=SCiX+gdagQMSb6XvZ8933xAebg6muvz2hl4ihZ1YmtXJlKP2Pjy75qs9nO1o8P49OY
+         GsKDyZmZAc0MA+10LRyLfBgP1P4LIFNboEbFmxGF0+wCArYLoyE81LzGZJ7LbrhnaKKC
+         hXCH9hiaqkl9mxkSTrP9504lLu4Yx2VNZ6b276/xQjPEAEdEhvh8Y7ndMn3sb48uFGEU
+         47euiz1wkzO1kfAm8PPjHbUjk+GmsY9Z+Y2r0GTqmdKxjtoKlLgcyVYcyTdFNIDbLipZ
+         TxkaYrS05NUaSCMgACItdzYnDrEq2XccfhHQ+bKG/s695Df6wOGGquvh1KS8fGu/Be7x
+         rnAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794999453; x=1795604253;
+        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
+         :from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+        b=23BngIYeMfYt4k2IUv6IaED0LkHbkwH6oztOWSpUQSi0//SxA73E+J5qP4hPNWqspb
+         6Us1aTgZeHELZzm4VpasZTg+v66PDBzvPl542TUUgYqhPLwd8zNtAwa5mypgGIcSKsvv
+         m136zTaT9eqNo+fG9vi+YCga6kjh9DvdtZJzIRGDdcIILraRKimPh0N9wDaAtEs3uiVq
+         SYxQtoDfOWdCr2AyEW8No9lVk6CM3reW2+ZkvThW/ivIWkMsOPy7sUV/6ybvDvcjlET4
+         7AevfzZJ2Pp/0fsG8kR1jimPQSXJxlH5v92USp7h74fQa4NiuzD8KVdBH6mYlFNmw46K
+         ZLYw==
+X-Forwarded-Encrypted: i=1; AL+hErHrexGF9f3KHtSJ5yDuZi2R/OmOYCzh37npxHbhg0pYx/q1h9Klj0g7fUe+H5X3QDGFDlWEUacvDl+XdSc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PaSB4Ssfo8XGgnwwIPQJdQ3uNQzfiyaZ9ciDAGHTCHY2njJR/
+	WjGo39ROCCwf5yPBESZHHyxueL1uY/ypMoUATd5MhHORhbvbaUmvAPJ29PmX16OV/d/XvnXUSjS
+	ypO/AXOKtYOS6SvQm89kBg6xQ0hLcNPU=
+X-Gm-Gg: AYBFou3j5Fq7jk2wk9eDJdTwdeN+MQv3mHiaa9nemGDMcIQwsG+tLc0+DbijVWvJ1Lm
+	SbxCTMo9a0MvBSln+jl9P6pdywPthvxwaiw2vJSghhlYoNahl3TbdUfunt2YlOoo9Mx35RBF5am
+	3InKPPxy4XPnZK5sXnKwv5w14wXlxAXFB2yVGaZdT3OQ9SksgFshrjww4HSp9e1WvCAojbRmGne
+	m1DB4VvOv5Wa9V/qGDLFbRgdpjpr4o/vQ4ao2UOF6aNgAQYxpJUUv056/czTtfaCl+nAjssst19
+	X10eZx0umAb4yclBXKac6xgW6Cr1ZWN3bTtj1XxtGhQuZ8MZ553QLNhMz5yT8AxSwacPtiI0lk1
+	c+JfX0Xtq/0TY8eMfm8g0Gccv01oxTOG26d8/rQ==
+X-Received: by 2002:a05:6808:1385:b0:4f4:f5b9:8c74 with SMTP id
+ 5614622812f47-57736f96840mr2811966b6e.0.1794999452991; Wed, 18 Nov 2026
+ 02:57:32 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Wed, 18 Nov 2026 05:57:32 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,56 +105,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:TAJkCgDn1eSOhP1qLCEAAA--.181S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJr1rGFW7ZFWDJr15uw1xXwb_yoW8Gr1rpF
-	W5Way8AFn7JF43u3WkZF4vyFyIvwn3CFyUKws5Gw10v3WfCa4UXr4aqF1FqF1DGF1qgw4j
-	qryYva4UZr4YyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUva14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	tVW8ZwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2
-	IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v2
-	6r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2
-	IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv
-	67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyT
-	uYvjfUonmRUUUUU
-X-CM-SenderInfo: p2kd0vxrqjx33l6h245lqf0zpsxwx03jof0z/
+From: Kimberly Morris <gy770616@gmail.com>
+In-Reply-To: <179499832232.3291.8192759477709019638@kernel.org>
+References: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
+ <179499832232.3291.8192759477709019638@kernel.org>
+Date: Wed, 18 Nov 2026 05:57:32 -0500
+X-Gm-Features: AclHuK8muBKj1nIv2D6vArXPRtf9o__0MzrQcXww4sWxtk4rC_y30JUhZOF10Ao
+Message-ID: <CAD-64Dee2PZpdOshS-TdjXRsGKxV-nw7ppvBzDtpePLJZnyHiA@mail.gmail.com>
+Subject: Re: [PATCH net 0/2] net: phy: fix timestamping lifetime after probe failure
+To: netdev-bot+sinfo@kernel.org
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
+	florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	richardcochran@gmail.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
+Content-Type: text/plain; charset="UTF-8"
 
-Hello PCI maintainers,
+> - How the issue was discovered, e.g. hit in production, hit during
+>   development, syzbot report, manual code inspection, LLM or static
+>   analysis tool scan.
 
-ESWIN Computing is preparing support for a new EGC series of SoCs.  The
-PCIe controllers in these SoCs are still based on the Synopsys DesignWare
-core, but the SoC integration around the core differs considerably from
-the EIC7700 controller supported by
-drivers/pci/controller/dwc/pcie-eswin.c.  Reusing the existing driver
-would require a large amount of per-SoC conditional code, so we would
-prefer to keep the new support in a separate driver.
+The issue was found during a targeted source audit of PHY hardware
+timestamping lifetime and probe-error paths. The source audit was assisted
+by an LLM; it was not a production report or a syzbot finding.
 
-Before posting the full series, could you confirm the preferred upstream
-structure?
+The resulting hypothesis was then validated against the current Linux
+source with a focused KUnit/KASAN reproducer. The test registers a real
+mii_bus, phy_device and phy_driver, follows phylib's probe failure and the
+driver core's devres cleanup, attaches the generic PHY driver, and calls
+skb_defer_rx_timestamp() with a non-PTP skb. KASAN reported the
+use-after-free before the fix, and the same test passed after the fix.
 
-  a) Add a new host-only driver in
-     drivers/pci/controller/dwc/pcie-eswin-egc.c, with a separate
-     CONFIG_PCIE_ESWIN_EGC Kconfig symbol and Makefile entry, while
-     reusing the common DesignWare host code.
+The concrete BCM54210E/BCM54213PE publication-before-failure ordering and
+the missing PHC cleanup were also checked directly in the driver source.
+No physical hardware reproduction has been completed.
 
-  b) Extend pcie-eswin.c with additional of_device_id data and per-SoC
-     operations, so that a single ESWIN driver covers both controller
-     generations.
-
-If (a) is acceptable, is pcie-eswin-egc.c the preferred file name?  The
-differences from EIC7700 are at the SoC-integration level rather than in
-the DesignWare core programming; a detailed list will be included in the
-cover letter of the full series.
-
-We will follow up with the driver, the DT binding and the MAINTAINERS
-update as a complete series once the direction is agreed.
-
-Thanks,
-Donghui Zhao
-
+On Wed, 18 Nov 2026 10:38:42 +0000, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
