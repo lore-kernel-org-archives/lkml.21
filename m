@@ -1,82 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008237;
-	b=BTh/3yZft//G3oekqAXKWgFSGldqi4bYJPWUdxiaS9eLan3UNUtcpgSYRJBuYy3kTvCL
-	 3yDsrrRSl6lio83WhCBR3Srp78MIQI75RTch2625xSMdxt2xlHyhaEEJG1t1pweTYcsnM
-	 niTT4w+vgY2xrdIx+bqDvo2bYYcZ3wxBov61ZuupzGzLBUJ+kESNx2k67t1IvPf1wrnlr
-	 0NnwwAl8rBDTWcR0AwuyhjSunpS+CbnFNvmsuUqWCBlHb9vwj/aPaTlhAkzE6rRniiIui
-	 uEAT68B5X2Za4ZtEUFF8Bw/VJEBPv5ADOq7cx1BwsC9XQZOMIzmtRXENFUW9VvvuT+w==
+	t=1795008254;
+	b=mgqtCH6V6gsJrmTQ2OB0Gdp75NX3ezE5m4ACNdgkERKDiAj+2b3v0qxNHWv7hF9AW+kB
+	 PS9eImZxOsFFmwkFrP0FUSg4uAXUspOrf8ah5yX7Sose2bM80QHoSaeQmar/Ce3UY31XJ
+	 VrxQoXQ2yUO0hAPDWuQfd1SgU1c55aCSqkz4+aKzRs5VLpGSHksQDSORmtu4m6vW/U5fZ
+	 U2ARZT5fzOa52pMy2RIDrSL8YgWzVFSVHsxnZtwE9zS7OGNlpfALUxkhjmyBu9pMUY/90
+	 wvwGRvdzj03kvsTPKQWGyKgCO08N6j+e2YswjIhZY+1TEbgFegQI6C11mCya/BCBiNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008237;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=397vhIFiqK0VX8uLK5k207ooRxnaZvzsYO45W2jXP9Q=;
-	b=S+RCabeK6gRvzAyLNkcWdVtDqA/tx59+1Sxj/leTyBblJoGv/IZDICo4WTlLyIorO+Oo
-	 73UcL6J5l4m1CLE212/4aLlUkeWKdXhz99O3P9OuYoUAVlXZO+yCAk7CpplnvjisvtG17
-	 PgERRBX2uyxWFmy09cTEJARYIUfIORQWYZCBMnkQtR0wGjAEfibhO331sa4fynDYeQHKr
-	 GbHCgQhz6EOcerTxltaF/m2m/lEaAM+TRQC9gTuTZPKSo7O3Ccqensk5aRYN5CQiYbha3
-	 PYChZlc2St1z/T9K5PomsLHoerRQczsmeEYlF4ASVlg2U9VlQzYnfOBs8gaQfYkP5Zg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008254;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=zwh9/RgZ9buOdjk59loExjfzNV3sTF0q3vmVzocq4s4=;
+	b=ZH11vJJPGG2Jz9l8uor/b3nLgcYk8VQO5DtBp5+mU9UeTc1+UMPnx+HmARBNxhPsEMDz
+	 i3URo5L5Uxm0zHDkrGuBrM1RyDHDe2HXlxxt6MEneAk3gnA8iJ5BMTgT/KiUa5IE7Tkir
+	 WnaXxV2T2z9Lq2fSedsUwOqoeftZSULhsjBMt5d0dTtsfoTSKaMsQ3Sv9GsDFBA7FcuFl
+	 v16rRfX1bx5ibEcI0TxFPZDm2NQPDPdqeizRGspup9sGGajIHZCtiqpmgRe+9Y5nd+6DF
+	 YjDq/QmQvJf5KmIq/Lybn+khoYQbymR719rnmhM39LjThi7j/xqiT9iz3PztDn6+Jvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=yKjWdM+K;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="Z/KD2fhY";
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51F0C606A31C;
-	Wed, 18 Nov 2026 13:23:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51F0C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBE51606A320;
+	Wed, 18 Nov 2026 13:24:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBE51606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=yKjWdM+K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795008237; x=1826544237;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OZEEVTLUB3jevmB4KOdPwJHRwAUA+Qi5MdIqoD6hVHc=;
-  b=yKjWdM+KmOg57NDdqWeA9rQ/iGSXnA+0ows/oCxhXJDMNPGWnksiIti6
-   3tu6FUZUQfV+2X+vhaxgeZu7PbIuxmTPI127ZDZ3kJNaglW4zsgDrCz9J
-   9HQYkXXrSmR1LMVi3oXTOQjRh+r7DEt3cgf+pTXtWy3Ph8uXnXQaHy+g+
-   PZTXLqmb/l16pJB65s+x/DiDiJrJqNeIBuNZrZSnEWOlWmiohul4koufV
-   p7zqGGtZWOcGwKMESrm6cnCm12miqLvB3v+9Wp7s4BSv0UR8dRzP1L3s0
-   CngVuPgs3Z3Td0MlFoMNGsMcjUG1GdTeAMkxg6f0q2+dPtV2SfX3sFGJ+
-   g==;
-X-CSE-ConnectionGUID: cORQJduaRCqCLdiX6mZMjg==
-X-CSE-MsgGUID: hqm/j2cET/Wvb5TSHIHTTw==
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="66933088"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 06:23:50 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 18 Nov 2026 06:23:49 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Wed, 18 Nov 2026 06:23:46 -0700
-Date: Wed, 18 Nov 2026 14:23:46 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Hangbin Liu
-	<hangbin.liu@linux.dev>, Fernando Fernandez Mancera <fmancera@suse.de>, MD
- Danish Anwar <danishanwar@ti.com>, Murali Karicheri <m-karicheri2@ti.com>,
-	Wojciech Drewek <wojciech.drewek@intel.com>, Ravi Gunasekaran
-	<r-gunasekaran@ti.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <1342116488@qq.com>, Hangbin Liu
-	<liuhangbin@kylinos.cn>
-Subject: Re: [PATCH net v2] net: hsr: clean up synced addresses and allmulti
- in hsr_del_port()
-Message-ID: <20261118132346.zagm5ofoyfvczth7@DEN-DL-M70577>
-References: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Z/KD2fhY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=zw
+	h9/RgZ9buOdjk59loExjfzNV3sTF0q3vmVzocq4s4=; b=Z/KD2fhYKnq15hooxe
+	oyYpjPy5uboMD+Ew9TcPmGBYaH3qpszMNh0AtiMtwiwl0sUoCpfmjK/x6plj2U0U
+	koC3opqAVSlcAvrq/xSQjL/tp170B9DNqAoTpLaGne4FvU4SZwAhqpKou6wiWxoa
+	MN7OxURPPvWUXrlDxHjN89MiI=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3X0Tgpv1qlRFsIg--.36225S2;
+	Wed, 18 Nov 2026 21:23:46 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: brgl@kernel.org,
+	andersson@kernel.org,
+	konradybcio@kernel.org,
+	abelvesa@kernel.org,
+	quic_eberman@quicinc.com
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>
+Subject: [PATCH] firmware: qcom: tzmem: Clean up SHM bridge on pool add failure
+Date: Wed, 18 Nov 2026 21:23:43 +0800
+Message-Id: <20261118132343.2350034-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,38 +64,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3X0Tgpv1qlRFsIg--.36225S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWrtw4Uur1ktF45GFW3Ar45GFg_yoW8Jr4Dpa
+	1UXrW7G3y8Wan7t347G3yrur95Jwn7trWYgry7Aa4F9w1fXr1Fyryjvr4fWFs8CF1vyr43
+	tF4SgF18Xa4Ygr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEL0ehUUUUU=
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7QL7amr9puIGdAAA3f
 
-> hsr_set_rx_mode() syncs unicast and multicast addresses to slave A and
-> slave B devices via dev_uc_sync_multiple() and dev_mc_sync_multiple(),
-> and hsr_change_rx_flags() propagates IFF_ALLMULTI via
-> dev_set_allmulti().
-> 
-> When an UP HSR device is deleted via hsr_dellink(), hsr_del_ports()
-> removes all ports from hsr->ports before unregister_netdevice_queue()
-> leads to hsr_dev_close(). Consequently, hsr_dev_close() iterates over an
-> already-empty port list and cannot execute dev_uc_unsync() or
-> dev_mc_unsync() on the detached slaves. Likewise, when a slave device is
-> unregistered while the HSR master is UP, hsr_netdev_notify() calls
-> hsr_del_port() directly without running hsr_dev_close(). In addition,
-> hsr_dev_close() does not release IFF_ALLMULTI on slave devices either.
-> As a result, detached slave devices can retain synced unicast/multicast
-> addresses and an elevated allmulti reference count.
-> 
-> Clean up these states in hsr_del_port() when detaching slave A or slave B
-> by calling dev_uc_unsync(), dev_mc_unsync(), and, when IFF_ALLMULTI is
-> set on the master device, dev_set_allmulti(port->dev, -1).
-> 
-> This issue was identified with the assistance of an LLM-based code
-> review tool, confirmed by reproducing the retained allmulti reference
-> count and synced multicast address in a User-Mode Linux (UML)
-> environment upon deleting an active HSR interface, and verified in UML
-> that both states are properly cleared after HSR port deletion.
-> 
-> Fixes: 36b20fcdd966 ("net: hsr: Add support for MC filtering at the slave device")
-> Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
-> Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+If gen_pool_add_virt() fails after qcom_tzmem_init_area() succeeds,
+qcom_tzmem_pool_add_memory() frees the DMA memory and area descriptor
+but leaves the SHM bridge and its handle allocated.
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Since the area has not been added to pool->areas, pool destruction
+cannot reclaim these resources. Call qcom_tzmem_cleanup_area() before
+freeing the DMA memory to delete the bridge and release its handle.
+
+Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ drivers/firmware/qcom/qcom_tzmem.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/firmware/qcom/qcom_tzmem.c b/drivers/firmware/qcom/qcom_tzmem.c
+index e1d944d0eb63..b2ca1d18bf3b 100644
+--- a/drivers/firmware/qcom/qcom_tzmem.c
++++ b/drivers/firmware/qcom/qcom_tzmem.c
+@@ -219,6 +219,7 @@ static int qcom_tzmem_pool_add_memory(struct qcom_tzmem_pool *pool,
+ 	ret = gen_pool_add_virt(pool->genpool, (unsigned long)area->vaddr,
+ 				(phys_addr_t)area->paddr, size, -1);
+ 	if (ret) {
++		qcom_tzmem_cleanup_area(area);
+ 		dma_free_coherent(qcom_tzmem_dev, area->size,
+ 				  area->vaddr, area->paddr);
+ 		return ret;
+-- 
+2.25.1
+
