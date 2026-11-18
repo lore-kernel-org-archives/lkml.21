@@ -1,102 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032329;
-	b=39eAICBo02cpszQmFyXrWJABHossR7pLtySgCBux4MMlgH0oH1wdfcQVppeBVAhxkEvk
-	 YuXV+DvT8/JPr+QuZXjHnPrH8CbAleh0bpwvrunzF2YQfioqDN1ukt2hnR6of9olOHzqg
-	 xZTarUZUW6yW886520noSyfvEy4Trl2beaC3l9aC5dj8vBghqKwgNUjuSYDmvQFE5D9YW
-	 UnOtJJPxVwyUk2Zs2ZkEQ5AYIQ9/jr1sZQn0NGNjoc5DGTSu6y034iMMWqzbTIPaeMBQU
-	 HHyJhLpVP8yxVg8FsZgkjutYd8GVW+GwOc5G1Eju3rHVwUpCp8eVuL/zMdy6U2S/ahg==
+	t=1795032335;
+	b=ODftiIivIJkgW9ZrYHsUQORCby/Y1JwyiIOtJ/YcST+oeYMVNVFQrstSZTyqIYidK1Up
+	 dAGEOsN1gq/zBkq9v6xKQ1Oufj/eGXhD5jwxkeOLpc0FLGLUyDEf3sGS/eXdxDo8wUPaV
+	 KbRIjpm6aN4zsX7N1ApBEoTDoAG7JrigVHWTFB0dxvIPkeU9G4wgCxEvtDSpx0IEf/Gce
+	 nsc3KpGglhP4VV1Neg5wtEbLxEZ4OPOINs6RtYoJr/URS5TJpcfEm15V9IFhUvDlNiodv
+	 YhplIhBpVvb7HzcFPftdTUo0eWFJBAh3t9AUOPRQ1gho9T0RZNZbyKfjI5ZO02hHlsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032329;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032335;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=vyE5jE78QejGeUNpk2fN0Lh2UcG+wGDugPW4CrDMAXI=;
-	b=tKuUFMgPp+3U/EehZdzZHd8Cw7mwa+SNOPfySkyiJRNLYVuzfFt9yl77j8F9YcbpqJaf
-	 X0FVl8Jwoi8Ct1+rZBvlnvq2WuyOdDMStZ2Y52QGHR1o188GtWbwVaxgcuxv3MKxWLLg4
-	 1N9QFXOlO2O+1Qxje6NNCXUFYmBHppRbxrEK2ecADveI3KH1pgJ4Ivz+GFr4DTlWdnZt9
-	 s1CI2EwRE1ziSNiGXZcfRsumgmK2J7xMGaJUcHuhG+BQGRzjc3ZBip6bx9hG8IgRGz+/5
-	 gq97x8piArCvJ32kdJh1hMxP7S90M6/I6IFENeYlcFLEMvm7XVl9SZwJGMtN2ncwY7Q==
+	bh=vm6X4RXhkwTGS0rODxxBI99H8aOAkurBTqwazIDQj1E=;
+	b=tNK2/gqBoVw84E2z4Yg0dXTuOHLP3X1qkfr3nfPyUfAdWi7u1N6V+un6BDQmaHUQQ3Dk
+	 Xawt6yvp54XKAOFOXZ1sFbKlVvcAMTEYBuxqCeanNDjP9qBzrPptRpl3IZZVsio2jn31z
+	 9/uUsLg4mHnPBvoTnbnIAc84KXX6Rc8Twc/wcEvNGcHmurLGFED9lWcwrJeX1ky8Y36Y5
+	 kUwNzrYRaCDADOJAhJejK/gTtSjif5pjzlKgr3iGpfEOWafgzX2llYSlJED3OJDEw18Ee
+	 UbQ7w9n2f6vV5hAP3wzOiR6kL7cMrd3jNJhm6Vj078EDdVu/7Bn1WMjHzlM8FY4xf/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=POupRKWv;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q1FMbmrY;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBED160A2621
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:05:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBED160A2621
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8BDA606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:05:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8BDA606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=POupRKWv
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1a2761c69fbso1554622c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:05:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q1FMbmrY
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-382ecd5cf2cso210899eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:05:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795032328; x=1795637128; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795032334; x=1795637134; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vyE5jE78QejGeUNpk2fN0Lh2UcG+wGDugPW4CrDMAXI=;
-        b=POupRKWviGCLd+1OxweZTOkVriYNvVXgWS1eCPXRZB8HWLI70OkR+lFqcWAukrX8JC
-         +O0IJ6Xpvr0/RoKtToAllK6ojWOK2WfdMf11fvYZq9YpmpyZraIHlTNjQ8Sq+t3JwaTM
-         G8khywboxxuZXCy99u7yPpMJ2qrJ8N/sdTWsWHgzqXxhhUO30KtlDVHeQRbVvbNNJVgN
-         TIYu7XP75cvXzYRoGyIVQ+P3IL6L4kCl77agjtO8g6klYhNYQLqU53p8FgW4iBFFq7LD
-         dhgHhvlQTtbXUzjySEqeET16omvb482REfNkq9chkJCWFlQKfbdpBx49sCqn6cNPIVnR
-         ZNJw==
+        bh=vm6X4RXhkwTGS0rODxxBI99H8aOAkurBTqwazIDQj1E=;
+        b=Q1FMbmrYQQM0s+ITTtFVk2rDTCxKhZq0tHSCa2oNwKmMIhrmem7HiE4QVyRnT/aIyH
+         DXfy3kpwMUJOIhMYIMy+ACBusVXxNb97WjPXy3ICtPgpymxbpK0/ogDILwffmlNlyHZq
+         eFMxQxRZ8XFVEd972N+qeDY4Nq9JbbPp24pcGo4fctMzvMj5hnnox2rz/WUOKIrG/GQ8
+         UYxRNzI8UIo14siV2QhWPTiAVnItrl2hCUZZrDkDRCyr2ZECEJjSWeooQOiNiQ3w61/C
+         ryWjtdjI+8N6tzj8SewjK/TnGSE2EQeqN+0w39ywVYFJPV1JPjAA1lMfVffOxP9LKXSr
+         VMxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032328; x=1795637128;
+        d=1e100.net; s=20260707; t=1795032334; x=1795637134;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vyE5jE78QejGeUNpk2fN0Lh2UcG+wGDugPW4CrDMAXI=;
-        b=FIxO8CXPQRqi+2Zd+uQ4BVjO29UOVAiUjOmM/Q+YWqZVu3vXEBU5VmeOOR7quEZb1Z
-         faQJkJjRo3VSXt7uy2a65TeRUMByXXSY9iBkiLM/u+Ku7ODZE8Fw9q8lGjLZfHXrT96V
-         W2VSLpweGjJwoDBw6iynmDzsFxBFH5/EFT+CvxnYsfGzs2eWFWQlC8dektrrsDnZknRd
-         hV5GtfTMyulqegYiuaFgFh+dC3ShAEpzaAkiucix161linG9l+ney09Y5s+65Ihjmhvb
-         z6ECEIsBqII9wSJQ5CC7AUNX1K+ABydN8tLNvWO5B7tf2FnxM5jKO0bUIjbF4XymfcIT
-         +f/w==
-X-Forwarded-Encrypted: i=1; AL+hErFiZKaxzxbw7rqxj0U2xf4OhaRU7cJp4U5NGeDsUwYXvDrGTARvCBrqDxr+shwQ2SpW8eoum6vbM1wmt4M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Bp9eifgbseGZDc/lgqv7GKb7Kxdf71Ob4FFMdjPDQwhc+bnqt
-	CpQjQrhFGw2rvuOz/0kwYFIQ8wKbcdo6wF0eEI7VA4p6ACdVMatPlVmJ
-X-Gm-Gg: AYBFou0DEBiVRKA6GrZlmzuWTeB8qtz0/qYaWGA+R1s7UvSC3jZ3SpTg+E8D1bNI789
-	cSfu4j09oRx2NowjJp4gBxsOFLDWtInSMHozsTzRTQnqNSrXXUNC+bw4K4ZkrXsX3dpbyXM4kdb
-	d7G81Sjs/+vpAZ/QnozMQ/+KVL81U5ZB+XSafwIqKlBF/OYf3wty2sZWZau60qQgwXpxEdG829h
-	hMO3Nr7uT3bV0qaLIaajuveoiJJ3qGwF3qd8uTtz19xMUhrCaXFgDGvJgZ43BPnF1syJkdG+2Bg
-	SeQPmoyen+MZIwOxaEqAWxi9fAEk8oM45VEo/DDwIHsKKb/oGxUGGBJ5hmr3AX7JWpngLLRTibh
-	uApCmF3RR9o2d3ZoSItNGEKxKE8F+twj5RM1qy8bQdNK5/j0gfCk0PAiPGqyAgrTrkBmrzpAnlB
-	THZoO5lmK+N9PW0u8cobJJMBqirVtINgD/jIwv9E9eF0baGYl9AtL2CaKbeskQQQ9q0mKHPvd5J
-	Ytm01fkB7+7PI33BT0yUaugEHe1Awacv7etOmhBIs9E6Fudb3jOejNshER4Z0hcfRY4S4Ag+lPt
-	/Q2nEYKqWrkv9af9S97WHcbSZBKhLYtDQRteRNribOshOA0TMi7DvEBsbRQgeVjDL3No/WgoVmH
-	tCQpcDeLMQ+A1eMIRuEhEAQRebqB0
-X-Received: by 2002:a05:701b:4348:b0:1b5:342a:e4f0 with SMTP id a92af1059eb24-1b543b09960mr3155007c88.6.1795032327530;
-        Wed, 18 Nov 2026 12:05:27 -0800 (PST)
+        bh=vm6X4RXhkwTGS0rODxxBI99H8aOAkurBTqwazIDQj1E=;
+        b=cKG9BnMQa+c5+azE9LXBLm0fRIRGsvsDnxzIXjyDmKwuKGvNaMHG73BMYFw1n6vQg8
+         dZoP84Rb6TqBoTbC2zvh5dw5faQFspOs8Ja2nau1SasNVfrQEPP1rjeNV7uE4Gtskdwo
+         uIzsQk91TwIzz5SmPYHIetFKRhQjE9jUjilvztIHmAOoLHLCeoFVU60u55Gp9nlUcXhy
+         wfXv7Ml9RkHU9kLZbzuRD05oZGes1haqYjzuZIoMggWHIsa27hbRteVrRfIeveyTskJd
+         OlMyHnBOSlznTg0XpzzOHuEaihwPYbHlDsaqFuP3q7vmG8MyCpCUZg0phhtkPjzUGBwi
+         YCjg==
+X-Forwarded-Encrypted: i=1; AL+hErGoYrs1MhcrEJT4b4XsfmcAeYnTztgTocz8sAOef4s/8IoxH5tufZnue6wP5H+CRRrLVnLtuVKp0Yzto0s=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+jU9NV5dGt0SuahCRQ5AYDZbTx5Jj07WL7SFx/9ZhEvbY04UGl
+	zJECifoXzyx5ka2o+3kmgwqyay9gCA5Ujz8UJAP537VP1shcpWRggnva
+X-Gm-Gg: AZFdTZeK0NMXDRFv60XxrgD77zA8EwUj52yPxKmFiQ2PwWKr/U5ZHAHAyy12g71OAFf
+	OVVUOkG74CRk3wQc/Pykitya3ypAMpC5z+rr6LlHnixjpY53yrBFNSvfbpAk2ySh8cbsP+n//md
+	cOHttKVReIdJtxkJ8eqgiKUshLsbJ7rBB4M2SbbN+0bt0+07RpXKX4DitytmAK4iDSLNf8EKunz
+	V2fIPYCnN9oOCb9MYvM0BBHe4tS4ykTJ0KUl7jmbniiEr2l72qro9+4u4nmzVxdD4odLSZ0K3fZ
+	Vz2F0NkGAz3xZonPRyDoEUmep62188gV90PG1qTlrkuTJZhA8nKUXnmkpDzeI020i6Usuetia3f
+	jOCQWPNiZeYiCvPWDO6+zssl6OzZnxLugFRKYfUVN16j6mu8l/WpqjUq86eijxX+imfjS6hj+hu
+	UOTDX7wowzu3RuT9UzlIv/015oybLr/aUJccEQgtFLNsbPVN7lEOaYdeZODgpsvqqmXvH8gTRRt
+	CK6M0Zl8cBZ7uYnKRQqAogEQOSI19JE2H85L1t98w4T6DaEt3VoiQKArfoJAZaYgQqGiL4ngUaO
+	eyToXoPHeB9tGKmmQMMlTBppSsgM8jchTG4SLbQFIsiYwpZV57DTLB6nsD7fqeMFNx1oN4/DIuR
+	iviiQBGIiXvgZMVQHo1Ph//kp7/Hj
+X-Received: by 2002:a05:7300:ae97:b0:382:2ae3:b1d0 with SMTP id 5a478bee46e88-383ee2228b7mr420599eec.13.1795032333782;
+        Wed, 18 Nov 2026 12:05:33 -0800 (PST)
 Received: from Mac.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5445eb29esm8843535c88.0.2026.11.18.12.05.25
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a75d401fsm9683206eec.20.2026.11.18.12.05.31
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 12:05:26 -0800 (PST)
+        Wed, 18 Nov 2026 12:05:33 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	richardcochran@gmail.com
-Cc: andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
+To: netdev-bot+sashiko@kernel.org
+Cc: andi.shyti@kernel.org,
+	andrew+netdev@lunn.ch,
+	corbet@lwn.net,
 	davem@davemloft.net,
 	edumazet@kernel.org,
+	horms@kernel.org,
 	jiri@resnulli.us,
 	kuba@kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	pabeni@redhat.com
-Subject: [PATCH net 4/4] ptp: ocp: correct the DCF output frequency
-Date: Wed, 18 Nov 2026 12:05:24 -0800
-Message-ID: <20261118-timecard-common-301f823ddd-4-ahmadexp@gmail.com>
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	rdunlap@infradead.org,
+	richardcochran@gmail.com,
+	skhan@linuxfoundation.org,
+	vadim.fedorenko@linux.dev
+Subject: Re: [PATCH net-next v3 2/3] i2c: xiic: add KUnit coverage for register access modes
+Date: Wed, 18 Nov 2026 12:05:30 -0800
+Message-ID: <20261118-timecard-common-301f823ddd-r2-ahmadexp@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
-References: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
+In-Reply-To: <179502617695.3136.6995182814188526026@kernel.org>
+References: <20261116-wiwi-v3-87afa10a8-2-ahmadexp@gmail.com> <179502617695.3136.6995182814188526026@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,46 +115,13 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The output selector table uses 77000 Hz for DCF, whereas the input table
-and the DPLL supported frequency list use 77500 Hz. A request for the
-advertised DCF77 frequency consequently fails on an output, and reading
-that output reports a frequency outside its advertised set.
+Agreed. RAM cannot distinguish a byte read from a truncated word read
+returning the same value. I have stated that explicitly in the Kconfig
+help and test comment, and retained the direct-x86-64 restriction.
 
-Use 77500 Hz for the DCF output selector as well.
-
-Reported by the netdev Sashiko AI review and confirmed by code
-inspection. Source-derived C regression tests pass with ASan/UBSan;
-restoring the faulty selector, mask, disabled-state or DCF value makes
-the corresponding regression fail. Tests use stubbed MMIO, not hardware.
-The driver object builds on current net with W=1 and KCFLAGS=-Werror. No
-physical card was tested.
-
-Codex prepared the fix, tests and changelog from the review and upstream
-source, at the request to separate common-driver fixes from WiWi support
-and validate removal ordering.
-
-Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-
-Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-
-Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
----
- drivers/ptp/ptp_ocp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 650047581f..aa950cae68 100644
---- a/drivers/ptp/ptp_ocp.c
-+++ b/drivers/ptp/ptp_ocp.c
-@@ -1376,7 +1376,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
- 	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
- 	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
- 	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
--	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
-+	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
- 	{ .name = "GEN1",	.value = 0x0040 },
- 	{ .name = "GEN2",	.value = 0x0080 },
- 	{ .name = "GEN3",	.value = 0x0100 },
--- 
-2.54.0 (Apple Git-157)
-
+All four KUnit cases pass in x86-64 QEMU. Separately, the source-derived
+accessor fixture records which I/O accessor was called, including its
+width and address. Removing the forced-word read branch makes that
+fixture fail. This is software accessor coverage, not a measurement of
+PCIe transaction widths, and I have not added runtime indirection to the
+driver just for testing.
