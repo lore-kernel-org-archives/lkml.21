@@ -1,47 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795042803;
-	b=YMlUbal1AFwuZE+NhtVsv3iP+G9cI4mx/1wJ0/NYohTr4+fN2Dcqwj6Ww+SK1ozN6+wo
-	 gLtm65ydqr8fVmlOHQnjMJZ9XQKD7uomq30Qy4q/p4aiKpFOvLgEBslmK6erKVdeJx/H5
-	 V1i7nM6zgYIfeAmUOultfx1Z+F75XncGJ4Kdq9XZ+bOAT56X8F2Lxc8ROcdV6CM9YIOd7
-	 k68OLVRQIf9/TamgfinCOXjYs/JNmtyZE+lmtvw3GPanC8I5JfK8XYpD7njiMAeiLj+HG
-	 LVP+owpzgAwEW+1an26ZFGEdqBeJQrVXy1PEdoLTj2Z32s0tAq6pHMjCQ8QSEt+BrSg==
+	t=1795042825;
+	b=L4TjjqmMWKxNvCtPuKekoQzWdazutF+l9lkQngKp8OMgdpRaefYwVVz1TsY7yWuJxBpt
+	 WqnanjpoelOaf8CmBqamKmFHQbvPaHPWijezljwHRH18fz9RyeFj8kgU5hjN44EI8zAQH
+	 q8BNr8aL78Ow53N+MrXpqbXC5TcPgJ9/CEnhdTQBkN72Kep3Ak64ti27QET5grSLriWtr
+	 QtDwCblwbh7wCJHTMI+iB0/BapCFA1e+mQsaE/g8Ama3fU1osBb/frpkHJoPHNGSHYrps
+	 k3JaBniHwKSsVg/tXJmfz3ANNpiOizGaazJ6rhwRev85mOoENIM4Ut/JlN/GJIqsfsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795042803;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=XAuhA+IU5X7u3tpSaiC00u8UC8LTIZ7zSVpFz6MURNo=;
-	b=EEPUIml0DAjwo6J2U/lF8AMFiria7HwGKGeZut3//xorcpNMgANrDDzvHWDrtw/3cFcE
-	 DWZCJqecWA1D6BqjNaejr2JOMFgQkHcFdPUbnNykIpLiGN9ARjcUHosEfNHXANOUFjQRw
-	 4q9WLzqPo4j7rVTG6RX9xF6W1+eLeFUnLX6fYWlrqvTmXvz6IYyu/LFYJvfCFhDNiNF79
-	 M1yyAe/pWP83eVN6sgxAoduNFySbc9UGoF3PO/ot1tsA9yoKyxjC/eHJGtqoU4hVaHHbl
-	 ZItL2TYckzHvVbdcKe0bUhNwG3iM7vbvd5hSvh4rv07mbaRPZ2KKke6YT617ZTtKKXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795042825;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=LcGUIxJ0hhWwJBANgRsmsDcWNEnQenUxD/N5yM1KEfM=;
+	b=BwimZDmeArq35+JGoibnZbNfl7Hr3g9Z160t5OrOor0hMN5flO97f+hnYDedbm/sdgVO
+	 uL1AfzfRYzBXEykNV599CfiL9A9k3pFnH+ZT1BmvEySnjJLtAR4VXpIN0olET+iFN704O
+	 LgrwEOfO44k3xISRRzBIOdwxPBCzlUoXcxbHiy3n+8y1bjnPWPZXrmLSESHrAksfr4G9z
+	 alFD6GJxkx7xYVyMj1XUSADWUExxL5tYAeEyoT2DAUEkXpFgm1skKUXwFWq8EJznKn0Bp
+	 HPwE8MMjh/QxzZMFsDsxdC6pWqA7WVRjMJqU/miOk1jmQLLNIdq8fbtEtUpH+V2QpQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Xes/E2vx";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=l6IhFjxb;
+	arc=none smtp.remote-ip=44.202.169.39
+Received: from omta040.useast.a.cloudfilter.net (omta040.useast.a.cloudfilter.net [44.202.169.39])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD39F606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:00:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77511606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:00:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77511606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xes/E2vx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CBFB1F000C7;
-	Wed, 18 Nov 2026 23:00:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795042803;
-	bh=XAuhA+IU5X7u3tpSaiC00u8UC8LTIZ7zSVpFz6MURNo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Xes/E2vxcQbfPOkatddUiAnb4zYnJ1FeLekD5lDExpx+Ct0bPR8nWagx0C20vj5F6
-	 RPackmRHerVZOMDioK7aUASk82QgYK73h1BebC+5t3H9Owt/FA0ukPT8bCD1z2bl7S
-	 vMMSqwxg26fpqR3qaN8iG410fpymMrmXe73bzvzZ2viTkRFblTvVMZ170eoY916KyI
-	 gDX0OKdGaqx98mFVRh0Hds+Z8tQlC4ZiwoMYjsycVs9+LvKWkPhewydmx5ttf0QMi5
-	 n5V8MFEf2O1DHcLckSPOLFfqTWa2xI9vh+P6qfhx/AmQ78j7OdAwi8JoEG/TYiM2n2
-	 RORAm6tMpospg==
-Message-ID: <45ce0b42-d45a-44e3-b300-607989e618c5@kernel.org>
-Date: Wed, 18 Nov 2026 23:59:57 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=l6IhFjxb
+Received: from eig-obgw-6002b.ext.cloudfilter.net ([10.0.30.203])
+	by cmsmtp with ESMTPS
+	id TgChxuDMAOOJnTodbxWjC7; Wed, 18 Nov 2026 23:00:23 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id TodaxPYsm8cn4TodaxiXM8; Wed, 18 Nov 2026 23:00:22 +0000
+X-Authority-Analysis: v=2.4 cv=Qrde3Uyd c=1 sm=1 tr=0 ts=6afe2e06
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=xtVSApEC_Af63HCmTx8A:9 a=QEXdDO2ut3YA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=LcGUIxJ0hhWwJBANgRsmsDcWNEnQenUxD/N5yM1KEfM=; b=l6IhFjxbqkEW
+	usFNckm0PuJnx6D3jE0/a1aY5IAo3PpzAvw7KShZLOUfkRVno4Lni0blwvnt2OO7ftyK3HXUlZyuc
+	FCidRVfOk7o6kjfOjwiYcotvDdE429VCmEL1oVAgikzmoyIzmCvclGTecIERMcjwl8hC9ysLfZRQj
+	sY9kTAWaL/FqMHkQ/O9rx2pb6NL9MKudoaN+0dXrVXbtPEg4xQI09v2QkzTbTRcmJ0udV1FIkgkWf
+	C28L7rPX28FTx2KsmB91ZxZC0R47/YXJ1M81axuYYM3Sl40ZAIf3e/vwztlRWiP9XqcO2+x15dQDM
+	othLraxL6uzql8OB3/hqEQ==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:36386)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xToda-000000049Xm-00es;
+	Thu, 19 Nov 2026 04:30:22 +0530
+Message-ID: <11a821f4-aef6-425a-8626-1d8641e9f83d@roeck-us.net>
+Date: Wed, 18 Nov 2026 15:00:20 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,185 +76,128 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/secretmem: Keep locked memory accounting until inode
- eviction
-To: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- "Lorenzo Stoakes (Arm)" <ljs@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261030152407.113568-1-pocj8ur4in@gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v1 0/3] Introduce cros_ec power monitoring
+To: Daniel Balint <dbalint@google.com>, Jonathan Cameron <jic23@kernel.org>
+Cc: linux-hwmon@vger.kernel.org, Benson Leung <bleung@chromium.org>,
+ Lee Jones <lee@kernel.org>, Tzung-Bi Shih <tzungbi@kernel.org>,
+ linux-iio@vger.kernel.org, chrome-platform@lists.linux.dev,
+ mfd@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261106193129.43493-1-dbalint@google.com>
+ <20261107010356.39d9eddf@jic23-hlaptop>
+ <20261118204532.257423-1-dbalint@google.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261030152407.113568-1-pocj8ur4in@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
+ RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
+ nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
+ 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
+ gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
+ IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
+ kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
+ VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
+ jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
+ BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
+ ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
+ CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAmgrMyQFCSbODQkACgkQyx8mb86fmYGcWRAA
+ oRwrk7V8fULqnGGpBIjp7pvR187Yzx+lhMGUHuM5H56TFEqeVwCMLWB2x1YRolYbY4MEFlQg
+ VUFcfeW0OknSr1s6wtrtQm0gdkolM8OcCL9ptTHOg1mmXa4YpW8QJiL0AVtbpE9BroeWGl9v
+ 2TGILPm9mVp+GmMQgkNeCS7Jonq5f5pDUGumAMguWzMFEg+Imt9wr2YA7aGen7KPSqJeQPpj
+ onPKhu7O/KJKkuC50ylxizHzmGx+IUSmOZxN950pZUFvVZH9CwhAAl+NYUtcF5ry/uSYG2U7
+ DCvpzqOryJRemKN63qt1bjF6cltsXwxjKOw6CvdjJYA3n6xCWLuJ6yk6CAy1Ukh545NhgBAs
+ rGGVkl6TUBi0ixL3EF3RWLa9IMDcHN32r7OBhw6vbul8HqyTFZWY2ksTvlTl+qG3zV6AJuzT
+ WdXmbcKN+TdhO5XlxVlbZoCm7ViBj1+PvIFQZCnLAhqSd/DJlhaq8fFXx1dCUPgQDcD+wo65
+ qulV/NijfU8bzFfEPgYP/3LP+BSAyFs33y/mdP8kbMxSCjnLEhimQMrSSo/To1Gxp5C97fw5
+ 3m1CaMILGKCmfI1B8iA8zd8ib7t1Rg0qCwcAnvsM36SkrID32GfFbv873bNskJCHAISK3Xkz
+ qo7IYZmjk/IJGbsiGzxUhvicwkgKE9r7a1rOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
+ 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
+ pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
+ J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
+ pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
+ 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
+ ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
+ I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
+ nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
+ HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
+ JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAmgrMyQFCSbODQkACgkQyx8mb86fmYHlgg/9
+ H5JeDmB4jsreE9Bn621wZk7NMzxy9STxiVKSh8Mq4pb+IDu1RU2iLyetCY1TiJlcxnE362kj
+ njrfAdqyPteHM+LU59NtEbGwrfcXdQoh4XdMuPA5ADetPLma3YiRa3VsVkLwpnR7ilgwQw6u
+ dycEaOxQ7LUXCs0JaGVVP25Z2hMkHBwx6BlW6EZLNgzGI2rswSZ7SKcsBd1IRHVf0miwIFYy
+ j/UEfAFNW+tbtKPNn3xZTLs3quQN7GdYLh+J0XxITpBZaFOpwEKV+VS36pSLnNl0T5wm0E/y
+ scPJ0OVY7ly5Vm1nnoH4licaU5Y1nSkFR/j2douI5P7Cj687WuNMC6CcFd6j72kRfxklOqXw
+ zvy+2NEcXyziiLXp84130yxAKXfluax9sZhhrhKT6VrD45S6N3HxJpXQ/RY/EX35neH2/F7B
+ RgSloce2+zWfpELyS1qRkCUTt1tlGV2p+y2BPfXzrHn2vxvbhEn1QpQ6t+85FKN8YEhJEygJ
+ F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
+ FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20261118204532.257423-1-dbalint@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xToda-000000049Xm-00es
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:36386
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 1
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfFd5b718NSXzZ3tsLG9KyTr+Ku4iMf+QrnFkyWb9ejB+JplHZcs5TXdIKrke2EGRNKg9yDT3MMxkcRux0urU5ocxvusV/mw6Z4XH0SpWA0JsidbQfdqp
+ A6GyYb5oLzXPL4DY6qKrgGZ90UQEXO7B8XmvQgUb+Mk8aaCKg8OORHukHGkLVUir74ZMSna/M8wRxmWR72u+bJGie+3y0aiiuIkd8Kb7HdsZq7w1IPuW5BLV
 
-On 10/30/26 16:24, Baek Kyu, Kim wrote:
-> A secretmem inode can outlive its original file. An O_PATH descriptor
-> opened through /proc/self/fd keeps the inode and its unevictable folios
-> alive after the mapping and original descriptor are closed. The file
-> release path nevertheless drops the locked-memory charge, allowing the
-> same user to reuse RLIMIT_MEMLOCK while those folios remain allocated.
+On 11/18/26 12:45, Daniel Balint wrote:
+> On Sat, 7 Nov 2026 01:03:56 +0000
+> Jonathan Cameron <jic23@kernel.org> wrote:
 > 
-> Move private-state and locked-memory accounting cleanup to inode eviction,
-> after truncating the page cache. Keep secretmem_users active over the same
-> lifetime so that the hibernation guard covers retained secret pages. Let
-> iput() handle file-creation failures and tolerate an inode with no private
-> state.
+>> Hi Daniel
+>>
+>> I'm not necessarily against this but when adding monitoring components
+>> to IIO the usual question is why not hwmon?  What features are not
+>> well supported by that framework?
+>>
+>> Note historically I suspect we accepted one or two drives into IIO that
+>> would have fitted better there so precedence isn't a strong argument.
+>>
+>> Convention for these somewhat borderline case is +CC hmwon maintainer
+>> and list as well as IIO with that explanation in the cover letter.
+>> That avoids any last minute surprises!
 > 
-> Fixes: 97d34aa65c29 ("mm/secretmem: properly account locked pages")
-> Signed-off-by: Baek Kyu, Kim <pocj8ur4in@gmail.com>
-
-Lorenzo, Mike, this problem seems real to me. Can you take a look?
-
-> ---
-> On an arm64 QEMU guest with an 8 KiB RLIMIT_MEMLOCK, an O_PATH reference
-> retained two secretmem pages. The baseline dropped the charge to zero and
-> allowed a further one-page fault; the patch kept both pages charged and
-> rejected that fault until the last path reference closed. The Image
-> was built with KASAN and lockdep. Hibernation, other architectures,
-> and long-running concurrency were not tested.
+> Hi Jonathan,
 > 
->  mm/secretmem.c | 31 ++++++++++++++++++-------------
->  1 file changed, 18 insertions(+), 13 deletions(-)
+> Thanks for taking a look!
+> The main reason for choosing IIO over hwmon is that for On-Device Power
+> Monitoring, userspace needs an atomic, untorn snapshot across all rails
+> (up to 64) over the same integration window, triggered on demand from
+> userspace and read out in a single buffer read rather than repeated
+> per-channel sysfs reads.
 > 
-> diff --git a/mm/secretmem.c b/mm/secretmem.c
-> index 384f5cfc457f..fa8be360bd2a 100644
-> --- a/mm/secretmem.c
-> +++ b/mm/secretmem.c
-> @@ -185,18 +185,14 @@ static void secretmem_destroy_inode_priv(struct inode *inode)
->  {
->  	struct secretmem_inode_state *state = inode->i_private;
->  
-> +	if (!state)
-> +		return;
-> +
->  	secretmem_unaccount_all_folios(state);
->  	free_uid(state->user);
->  	kfree(state);
->  	inode->i_private = NULL;
-> -}
-> -
-> -static int secretmem_release(struct inode *inode, struct file *file)
-> -{
->  	atomic_dec(&secretmem_users);
-> -	secretmem_destroy_inode_priv(inode);
-> -
-> -	return 0;
->  }
->  
->  static int secretmem_mmap_prepare(struct vm_area_desc *desc)
-> @@ -216,7 +212,6 @@ bool vma_is_secretmem(struct vm_area_struct *vma)
->  }
->  
->  static const struct file_operations secretmem_fops = {
-> -	.release	= secretmem_release,
->  	.mmap_prepare	= secretmem_mmap_prepare,
->  };
->  
-> @@ -274,6 +269,7 @@ static int secretmem_init_inode_priv(struct inode *inode)
->  
->  	state->user = get_uid(current_user());
->  	inode->i_private = state;
-> +	atomic_inc(&secretmem_users);
->  	return 0;
->  }
->  
-> @@ -296,7 +292,7 @@ static struct file *secretmem_file_create(unsigned long flags)
->  				 O_RDWR | O_LARGEFILE, &secretmem_fops);
->  	if (IS_ERR(file)) {
->  		err = PTR_ERR(file);
-> -		goto err_free_priv;
-> +		goto err_free_inode;
->  	}
->  
->  	mapping_set_gfp_mask(inode->i_mapping, GFP_USER);
-> @@ -309,11 +305,7 @@ static struct file *secretmem_file_create(unsigned long flags)
->  	inode->i_mode |= S_IFREG;
->  	inode->i_size = 0;
->  
-> -	atomic_inc(&secretmem_users);
-> -
->  	return file;
-> -err_free_priv:
-> -	secretmem_destroy_inode_priv(inode);
->  err_free_inode:
->  	iput(inode);
->  	return ERR_PTR(err);
-> @@ -335,6 +327,18 @@ SYSCALL_DEFINE1(memfd_secret, unsigned int, flags)
->  	return FD_ADD(flags & O_CLOEXEC, secretmem_file_create(flags));
->  }
->  
-> +static void secretmem_evict_inode(struct inode *inode)
-> +{
-> +	truncate_inode_pages_final(&inode->i_data);
-> +	clear_inode(inode);
-> +	secretmem_destroy_inode_priv(inode);
-> +}
-> +
-> +static const struct super_operations secretmem_super_ops = {
-> +	.statfs		= simple_statfs,
-> +	.evict_inode	= secretmem_evict_inode,
-> +};
-> +
->  static int secretmem_init_fs_context(struct fs_context *fc)
->  {
->  	struct pseudo_fs_context *ctx;
-> @@ -342,6 +346,7 @@ static int secretmem_init_fs_context(struct fs_context *fc)
->  	ctx = init_pseudo(fc, SECRETMEM_MAGIC);
->  	if (!ctx)
->  		return -ENOMEM;
-> +	ctx->ops = &secretmem_super_ops;
->  
->  	return 0;
->  }
+> Reflecting that requirement, EC_PWRMON_LATCH on the EC is a global,
+> stateful command: a single latch simultaneously snapshots all onboard
+> power accumulators and resets their accumulation window on the EC, so
+> individual channels cannot be latched independently. As far as I know,
+> hwmon only exposes independent per-channel sysfs attributes with no
+> multi-channel buffer or on-demand trigger ABI, whereas IIO's triggered
+> buffer interface is well suited for this kind of pattern.
+> 
+> CC'ing hwmon maintainer and list to keep me honest.
+> 
 
+You could accomplish that the same way many hwmon drivers are doing it:
+Read all attributes in one go from the hardware, then cache it for a period
+of time.
 
--- 
-Cheers,
+Having said that, my experience is that people wanting to implement IIO
+drivers instead of hardware monitoring drivers keep finding reasons,
+so I won't object to an IIO implementation.
 
-David
+Guenter
+
