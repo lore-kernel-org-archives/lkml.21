@@ -1,107 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030285;
-	b=fxaXkMueyf/XgaScnceZoE+BzkiOzZOPF/BC2Bxitcs3m1nzj5bKOfXhx+UBXA0bDaZC
-	 YyXA7vFy+5kBtAW12PvZ++twIwt3/PC9PghE1Fg2xVnGz1uzZuSze7Z0mqwjZFXfI0gJk
-	 DMbnOTC481Kr+VaVVBC1iUcO6effMscx3APzGOx0hGDF1mo5uhggynDez9us6E4MWnhXQ
-	 kMHnb8OrfHgYQhEdi2gRM6G/70vhjsFuGPHeYp+AR4IsMgmtjEDz8wuQp7T9Ry6SiIWjO
-	 frZcTW3MACFS1l6WknrSzRbyzIaRvRqE2MEobzuageQbuZG0Jr/sC4Wy3UGMLrAJ0qQ==
+	t=1795030295;
+	b=WrobkA42vkFnjEq4jQcq5p3GS7yvcsv2IG9zJwaxXVvC4porg3SYG3no2/d/UvSol/AM
+	 oqLJPdFSM+svC5RNnHdhsjw5MEV4NLvPVmmTGSPVpj5nmYwON6xVNA9S8JNJyLHRZ8815
+	 OuCbX+OTwITWN8TNPZob3pgXktFTEzCekRerzXhRXB9UJ5G5UKXuRZqEwj+8D6uCWIuAu
+	 Lxids3ThucWuDE0EG2hwFzV8L8l44Pkdu6ql/qhWN7CktSyxuNgPyu/4ai4laLhSOEHZ0
+	 PlXF56xmjnFeDjCzh6d4G1VZSMO61Z7ub1t7hsBYQJTfMQIGp4kNe1NXJ/ZCCSTrXbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030285;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=DyoNOi8SqxQRtdWNaiooYSD8hFAkDD28ur39JiQbgr8=;
-	b=ts06P27cvZ5qOgjp1ztvgfVkkqOQMiVhFYO8cpHJwk5WepG1qxML+v+y+8YDoXWBg+g1
-	 coNUpMX8t4XWManjsx8ae6CktHR/aN1J3IKUF1CxF+kQciZ7pra1pK9FoslUrluk4BQJj
-	 vyyOtFTU90v9o6zJfTgyRTOBFT9tH9M9GOt82NL6majGWlaHV1c2QMUAGIqfbAUkI3dyA
-	 astybarFEOZQYJSIWfMI2Z0ALjzMc5YxP6ZHUYh2IPgc80rWHdPdjVPPIn18qd8TbCvMm
-	 OLTEgiQ/Pxh/HKeyBVdGh8apPfnK1BkWiVlLPUYMXXdh5V4TmQy79TS+ufI9QLpT9eA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030295;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=fLthrjN5WgzhoWxabUT0whfp6slcAS4z3Nr3WCkNqVY=;
+	b=sOMnMq5isaMC6t8Q5cdHpmBfvpo8gqbF3TT0a7Gwo0nhyxa2mf29ZRsNkncnlUeNHTOO
+	 nShUL4rnW/wXEuSsa8quKdjeG51p/vst3m5jkgBRATSbvwYMgEEqr6RTijlPu5V/fmFIo
+	 FJfzfcyIG+5F2VMrjU6zpNbJDIlhI5I/3tafi6xTPb18BoEPxiNinFegctL3q4VVc27Zg
+	 S5cgRYlnM5FFfWoqLnQPJWRssVR5QRmMhVXtt/Pofcfwma0mJNa+fSCA9Rrajj+CRMU3a
+	 1eu+hdMMsDicm++5uYOwsLPcE6H6+hIcm53LXOrLtWCcPy3K1d8kQbRTPZ0x10rGkgw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gFuf4zQU;
-	arc=none smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=KXgDlwr9;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B0FA606A7D7
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:31:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B0FA606A7D7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73B98606A7E3;
+	Wed, 18 Nov 2026 19:31:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73B98606A7E3
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gFuf4zQU
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c5118deebcfso150382266b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:31:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795030282; x=1795635082; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DyoNOi8SqxQRtdWNaiooYSD8hFAkDD28ur39JiQbgr8=;
-        b=gFuf4zQUDEoP7iC2MdGtPoZNDoQc0po102MyjgPSAjI/BKxKDcOzPFQXDCTGxyoBma
-         ZutVtJQ+lca3F6ODV51vM/ExvFJ/ePHWA7kdQrU6ouTfQXFE+kQaSMexlfB8odlLRHLG
-         5wSicNPDE+0B9z7eJPIRHplPTeH+I0/wlu60Zy+8hYhORZyORxy5hW1S03rK166oNCyn
-         GPsMYDW5+erH449aPuogmViYnqiGWX9Zxg41I6Dxj2YXp+gwOQbxnkdrkmiUT2kewRX2
-         b2YruDCaQzs9cTSB615OgQ8LfgBtVkYQKR3NvNLGq57ePa31b0b9dge2IPneUHc6BXA0
-         RJJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795030282; x=1795635082;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DyoNOi8SqxQRtdWNaiooYSD8hFAkDD28ur39JiQbgr8=;
-        b=S2n+iasOO+IvvXYqGcaL50ndtIPZ0nMu76eFYi4W6emhkGvJ2XnfWpi/9JJWUVKOHR
-         tI16NB7mTsXUeKEzekU1QhF4RK35qZsq3mqcFi73PUHtAQ+3gUn3hO32qPHh8jK89ub0
-         tc2a4t3tFu3J8IO99gLOP85R22OC3kwwdYIKKjBF5ia+E3a/lk3tKrmZ05O223DWlDS9
-         Q3WuEH39N0GorNsyMtaeM0uMmYMKn1HqrCc2BdceZnWDnClbO4DlgoDEgXhOTDGTtnJw
-         V4nyNI/9XXcijqgq1nl7lltY+ycrPhzqFuj286OZXhsbQDF52zHbkhfyftytYZqS/uSW
-         fT+w==
-X-Forwarded-Encrypted: i=1; AL+hErFp+NxbMNOmfs1H4xbSPvQPb2/fkXoo4y296ezToFmRETZiWI469z5L6KQbgU3OxDZlX/QMxTycyhZBzuQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8iEtsBNBTPsGgwPiDmaYAFc/THvCMTbVVs51Ky2GXG8oIEF+74
-	aqxUhRnCILX7+0q9heMCBC6YP8fiKfaOp37JRrzVdYpfQWX1EwQD3F81
-X-Gm-Gg: AYBFou21prAigJrgv/BoTBjG4B+IKt/UE7JT693vuoTxkJXjd+FVexWCBhVHCh+t0sY
-	fMIrZNoudOTdSc2z8h+nadSabj9i3JEltyuk3qvGAU/QvFEpOttZHxQKzOp9F3BM4Aau7IgqsTi
-	UcSvW0xhohdLjoL2PSo4cxJuf3SNcIkIjTpjN30ubpKTD3q4v0+xjbJEmcbVuQv2Kw3+7YkahE/
-	83VdYVaSfUFrAob64FGXRaLDaIZIJ+MQ2Y74U51V3J14pI5suw4+1gLhtcF8V36LL2URMvkc9Mc
-	n8+iU+EV1lCtM+9fpHj+QTSGwZAQFpAW1jg6xXcPz4Q2En3cYcLf/gM/eznQVLOJr1yo4A4JXLu
-	sR+Y6aDk8A6QI7EWgg4p8C6CzzeLxSYcIfQ/1p8CiH8Qx/PHpHvaoVFdjpk+CP2ckDvzH/FbG9y
-	rnNGCsT9DG7imXoXmCuaAiAmtmts6naf9ieBD/hCdbN4+xVFCW28EwePyNF1SONd5uZCZ4JWadK
-	c2ug4yJiVkg0yREqRF7VwqTJZU+fdmZybPalMo0Ouhg2m9tLsfLFXYR89xkYN+3h/aYwg==
-X-Received: by 2002:a17:907:3f93:b0:c2e:61e:f4fd with SMTP id a640c23a62f3a-c510debe470mr322367566b.5.1795030282513;
-        Wed, 18 Nov 2026 11:31:22 -0800 (PST)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c512351bc7fsm29492666b.86.2026.11.18.11.31.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 11:31:22 -0800 (PST)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Wed, 18 Nov 2026 20:31:18 +0100
-To: Hao Ge <hao.ge@linux.dev>
-Cc: Suren Baghdasaryan <surenb@google.com>,
-	Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
-	linux-mm@kvack.org, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH v5 05/11] mm/vmalloc: only flush the cache after the vmap
- succeeded
-Message-ID: <av39BuCsq-dRFiMM@milan>
-References: <20261116071325.263682-1-hao.ge@linux.dev>
- <20261116071325.263682-6-hao.ge@linux.dev>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=KXgDlwr9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795030292;
+	bh=fLthrjN5WgzhoWxabUT0whfp6slcAS4z3Nr3WCkNqVY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=KXgDlwr9EYezTyhZH6f113tD9IXvmi78IgDfAdx3BajMOcug+kilIgq1izYqmUL8d
+	 j8vEEjPLk/hzTs6DP7E274OX2N+OjJUcinoIkoN+MqcLe38W9bhTlhupvMQ2NY2yPu
+	 Xl+e6YU8sYpquLVNXRJXhV2eULFoY45/tpYqWV1ugcP3ZDReRGPVZKkn/RFwoWkSND
+	 6y5Jl6d7xbf0O5gz6j5J8ZwLrYuBkJk5fAej5MLEOY4A4oo+X4kGxSx9PU507r0raT
+	 p/vhCtHtDzE9QGVV7v9dpAUYI0Gfhcv0Dl3P6PWrbk6aMiDZLXH9jpq8DWIwMofLcm
+	 KchprO3vAlHTA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E443117E0480;
+	Wed, 18 Nov 2026 20:31:29 +0100 (CET)
+Message-ID: <ede3b421d419a35c115ed584e60e74bfd6b91dff.camel@collabora.com>
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Daniel Almeida <daniel.almeida@collabora.com>, "Joerg Roedel (AMD)"	
+ <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy	
+ <robin.murphy@arm.com>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng	
+ <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?=
+ Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Andreas Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl
+ <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich
+ <dakr@kernel.org>, Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
+ <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
+ Abdiel Janulgue <abdiel.janulgue@gmail.com>, 	iommu@lists.linux.dev,
+ rust-for-linux@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ driver-core@lists.linux.dev, Detlev Casanova	
+ <detlev.casanova@collabora.com>
+Date: Wed, 18 Nov 2026 14:31:28 -0500
+In-Reply-To: <20261118160909.GC3115493@ziepe.ca>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+	 <20261116193821.GC2452510@ziepe.ca>
+	 <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+	 <20261117202055.GA3115493@ziepe.ca>
+	 <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
+	 <20261118160909.GC3115493@ziepe.ca>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-NdLYfQQ4mCwqMscWXOoT"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,49 +101,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116071325.263682-6-hao.ge@linux.dev>
 
-On Mon, Nov 16, 2026 at 03:13:19PM +0800, Hao Ge wrote:
-> vmap_page_range(), __vmap_pages_range() and vmap_pages_range_batched()
-> call flush_cache_vmap() before they even look at the error code. A
-> failed mapping is never used, so the flush is pointless at best.
-> 
-> According to the Sashiko review it is worse than pointless on UML:
-> flush_cache_vmap() there is flush_tlb_kernel_range(), which syncs the
-> PTEs into the host OS. Flushing a half-installed mapping therefore
-> leaves host mappings behind for a range that was just freed again.
-> 
-> Only flush when the mapping, and for vmap_page_range() also the KMSAN
-> metadata, is fully set up.
-> 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/sashiko-outbox-178439@kernel.org/
-> Signed-off-by: Hao Ge <hao.ge@linux.dev>
-> ---
->  mm/vmalloc.c | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index e2b63cb1592b..d99d7710e1ba 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -371,10 +371,12 @@ int vmap_page_range(unsigned long addr, unsigned long end,
->  
->  	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
->  				 ioremap_max_page_shift);
-> -	flush_cache_vmap(addr, end);
->  	if (!err)
->  		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
->  					       ioremap_max_page_shift);
-> +	if (!err)
-> +		flush_cache_vmap(addr, end);
-> +
->  	return err;
->  }
->  
-This is incomplete. Maybe merge with 6.
+--=-NdLYfQQ4mCwqMscWXOoT
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
---
-Uladzislau Rezki
+Hi,
+
+Le mercredi 18 novembre 2026 =C3=A0 12:09 -0400, Jason Gunthorpe a =C3=A9cr=
+it=C2=A0:
+> On Wed, Nov 18, 2026 at 10:25:58AM -0500, Nicolas Dufresne wrote:
+> > Hi,
+> >=20
+> > Le mardi 17 novembre 2026 =C3=A0 16:20 -0400, Jason Gunthorpe a =C3=A9c=
+rit=C2=A0:
+> > > On Tue, Nov 17, 2026 at 05:09:11PM -0300, Daniel Almeida wrote:
+> > > > Hi Jason,
+> > > >=20
+> > > > > On 16 Nov 2026, at 16:38, Jason Gunthorpe <jgg@ziepe.ca> wrote:
+> > > > >=20
+> > > > > On Thu, Nov 12, 2026 at 02:00:07PM -0300, Daniel Almeida wrote:
+> > > > > > This series adds a Rust abstraction for IOMMU paging domains. A=
+ driver
+> > > > > > can allocate a domain, attach it to its device, map pages into =
+it, and
+> > > > > > install a handler for its faults.
+> > > > > >=20
+> > > > > > This will be used by the upcoming rkvenc driver that my colleag=
+ues
+> > > > > > Detlev Casanova, Nicolas Dufresne and I are working on. More de=
+tails on
+> > > > > > this driver can be found by watching Nicolas Dufresne's talk at=
+ LPC 2026
+> > > > > > [0].
+> > > > > >=20
+> > > > > > As part of the security model, each client will have its own IO=
+MMU
+> > > > > > domain. This is needed as the submission model will let userspa=
+ce set
+> > > > > > most of the encoder's registers directly, so the kernel cannot =
+check
+> > > > > > every memory access that a job makes the encoder do. With a sin=
+gle
+> > > > > > domain, one client could make the encoder read or write the mem=
+ory of
+> > > > > > another client.
+> > > > >=20
+> > > > > How do you plan to get the paging domain in the first place?
+> > > >=20
+> > > > We plan to alloc a paging domain when a video encoder session is cr=
+eated. Then
+> > > > we call iommu_attach_device() before a job runs, and detach back to=
+ the default
+> > > > domain after it finishes so the next job can attach its own session=
+'s domain.
+> > > > This is so each session is isolated from each other.
+> > >=20
+> > > If you do that you can't use the DMA API at all in your driver as you
+> > > have to set 'driver_managed =3D true'. Is it OK? If it is why not jus=
+t
+> > > use VFIO?
+> > >=20
+> > > Or are you planning DT horrors to get yourself a DT created "DMA
+> > > struct" ?
+> >=20
+> > This seem to digress. All we want to do is use the iommu subsystem as i=
+ntended
+> > for the case the iommu driver is not inside the DRM driver (which seems=
+ to have
+> > never been the case so far in DRM).
+>=20
+> "As intended" means you use the DMA API and you do not touch
+> the paging domain.
+>=20
+> "As intended" means you use iommufd if you want a domain full of user
+> controlled mappings.
+
+As discussed at LPC, we believe its pointless for this type of device to gi=
+ve
+any direct page choices to userspace. Can you explain why you believe
+differently?
+
+>=20
+> > The existing infra for that (in C) is pretty abstract an simple in
+> > my opinion, and built into the DMA API if you manage which domain to
+> > attach to your device at the right time.
+>=20
+> What does this even mean? The DMA API owns the domain, not the
+> driver.
+>=20
+> All the cases using these APIs in DRM and media are troubled in one
+> way or another.
+>=20
+> For example the recent revelation they have always been using DMABUF enti=
+rely wrong:
+>=20
+> https://lore.kernel.org/all/20261009125338.GB13920@nvidia.com/
+>=20
+> Tegra desires to undo their abuses.
+>=20
+> It was never intended for things to work like this, there is missing
+> infrastructure.
+>=20
+> > To me, it fits CODEC HW driver which are also simple. The DT horrors
+> > you refer to seems totally unfounded, you just describe the iommu
+> > and the iommu subsystem will manage it for your device.
+>=20
+> "unfounded? You are not following along, I've written about this now
+> many times to many different people. Follow the links and discussion
+> from here:
+>=20
+> https://lore.kernel.org/all/20260917144804.GI3196566@ziepe.ca/
+>=20
+> If you use DT correctly there is no place to attach an iommu_domain to
+> and you can't even use these APIs. You get DMA API only and that's it.
+>=20
+> You have to do something "wrong" in DT to create fake HW devices to
+> even give you a struct device to even attach something to.
+>=20
+> Or you have to entirely give up DMA API and attach to your only struct
+> device.
+
+I'm not sure how this applies to our work. But since they are all broken
+according to you, let me give example of cores/iommu mapping we are using, =
+and
+perhaps you'll be able to explain us correctly? I've picked the Rockchip vi=
+deo
+decoder, which is upstream but expose through V4L2 stateless API, but from =
+a
+hardware point of view is pretty much identical:
+
+The DT (which I read you must be broken and in violation of everything, yet=
+ all
+reviewed by DT maintainers):
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arc=
+h/arm64/boot/dts/rockchip/rk3588-base.dtsi#n1400
+
+The multi-core support proposal, its not doing process isolation, its not
+strictly needed in higher level abstraction (though could be better), but i=
+ts
+using domains so that each core can actually see the same memory:
+https://lore.kernel.org/all/20260810-rkvdec-multicore-v2-0-986f89d22cdc@col=
+labora.com/
+
+The DMA abstraction that is used by the above driver:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
+vers/media/common/videobuf2/videobuf2-dma-contig.c
+
+GEM kind of offer similar high level abstraction to DMA (with important
+behaviour changes in of course, specially for write combine delivery), so t=
+his
+is what we have for now in the WIP driver. Check the LPC presentation for t=
+he
+rest of the context.
+
+Nicolas
+
+--=-NdLYfQQ4mCwqMscWXOoT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav39EAAKCRDZQZRRKWBy
+9IV1AP9AxkflEeZ/bPaxvQmt8nZyMjXbjyeIHJu034CF7vtj+wD9H6GjJpenIQM8
+yOiR+zj1r9H/KSkGDS6RmpGOgH1UNA0=
+=UPaF
+-----END PGP SIGNATURE-----
+
+--=-NdLYfQQ4mCwqMscWXOoT--
