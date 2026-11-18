@@ -1,59 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017771;
-	b=2aJFkNvpuz1H0SneBJ1MEN9RWGk7Y52GkNroFxziF7MV923TjjmiiXT2Vx8hjwxdb8qF
-	 H7X1ZtggF/suYLC3GodQUZf5Lsy0ggXQUsqNbBnW8zL4v8zLl6AwXC9sSVa6J8nXKbe9p
-	 H8DRhq2A2m5EJoxDoaEAAlYVxIMAzxhptv54yWnqyPjLWos2tTwxtXpmh0vhbL0XPiFpg
-	 EBWFquiUpwAz2IMRC7LJi2R+QF+n618v04oGtuNLj6L1dv33xWXEQRNNMGqGdq2wIk+pr
-	 PooCcWzI52/c8wPO3ec4/3wN0ALmBa/Ng2LBa4z8oSomTmDR8kJb2VHYnBKmI4SXfZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017771;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=0QYXm/usn5AX/LuaeYvPA5b88k5wfFMxlzRSlq7qFBs=;
-	b=TJWw6QpUsm+CGcE4XFqGyk0vlQw0JIiXDetOrIViObkw4e65avEUIHX/DXO0w1lr1CrO
-	 r3EVihcMGwpXO5QNsx3Wns7az0MyA9IVczg1/x5N+J8rbD6JG+jrsb2UEtCk5LAs2ADiK
-	 moHnBugGX5oEmOtUOoOE9Nxh4ZwQDk/aIP7R7YB1QBScFmSCqjsU3imxDOGQQUwVnyqLT
-	 +khg8UHsWmaDXakxQGjo1pu/W0k5/938p2JFHhx5MwyPJUlAYRIWiJ+Ihjl6RL+Q4FXiS
-	 oqyVleMUgVrptqNmaxAe2eWwB2C+rj3YlCGapCFulDz8jgbkz+RVg66uCkiSYMkbRuw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnLo+mF+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=165.173.180.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795017805;
+	b=tPZqG+lrB2JYK5yHzKCjqvyZevoZ9BcATtevAEiEJH2iEKT5SqY4KpebDcp3tUY3L5Z4
+	 b/soa03Nd5HwJOO2biBIAL/F5Zss5YtyMqQxmzTCxEiT1xgd83KWVWdZZdc+0bv564xDm
+	 QKI13xqzQkRqKcNHFhQHTTHWX7V7Hkb+8aSAf5LQuhphMVf6Zi74+1jErnOuY3G9os5hr
+	 YR5zFZ0GXIHYddmpdRO7eeDgWMSZO8oeMlLRvHs4cwGVDXkBOH7T4u2hfS3prdl4EVLCj
+	 DhQP9YnI952dCIq94ZivrDqJx03u31a2qY1fiTU54Uhk4xQnfk6xpJVfcRJK3AIgjqw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017805;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Zoho-Virus-Status:
+	 X-Zoho-AV-Stamp:X-ZohoMailClient;
+	bh=lvK9tuIpxKgDgpYO7x8VbuolpPM0n5OGltXSZRjUgJ8=;
+	b=YyXvpVCwbOrBNUrw/YtuQt68trZ8tDofpNqSOlHoU5pa0exGljU/fjPq7Ri9MtQkCgXy
+	 QmRa4lb/SuZSyCiusEFwgue52p3dy+wk3n7eCQ3t+5gmKNGmVA785ePzLQNbgOxniOLiV
+	 9LHlJQi/JVPbBqJoV7+L4TZl0xfoBbfvdNvSSOfwMd9C919nmNR3og5QaBBLFuzX5DzOX
+	 1yMwNAtdh8gaNDLuOBV4c/jahEetVnMJFdayYWWBgYj3jlsrMLQ3zyg18AdtigKle2Mow
+	 GG1uAqBncaZ2+jDywvnLidv3BWGFTLfdnsNst5xO9jfT2BWlFp2fjvLt6U7WsP+lHGg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ziyao.cc;
+	spf=pass smtp.mailfrom=ziyao.cc;
+	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=cBzRIq3k;
+	arc=fail smtp.remote-ip=165.173.180.15
+Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE8BC606A320;
-	Wed, 18 Nov 2026 16:02:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F411F606A334;
+	Wed, 18 Nov 2026 16:03:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F411F606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnLo+mF+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AA591F000C7;
-	Wed, 18 Nov 2026 16:02:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795017771;
-	bh=0QYXm/usn5AX/LuaeYvPA5b88k5wfFMxlzRSlq7qFBs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PnLo+mF+rhc6Z+c6rkZFYpfUeoTB1BYvgaHP/JT+5vZqcuGRIpZ59mN16EKGKBIqX
-	 h34KeMZPEK9FRmwiO41XWjADuYFp7OjVdfnBBQlPcskkoVBd2iQgsJmqErj9GMucu3
-	 htg6uSB1kVefubwGXfQV2N1uY6hjK9JkduNWD/gjOaj3208A9/pRljOgU1syeA2cCu
-	 FFpNiZWSP+CdHyVCA0LPkqP2nFhYwsfPTwKkeDRdOLy0WMVsYNbznnhO5IPloV9gJu
-	 yq1j/n5VQ89Ny+jBHUpAHXexWm4UjTQDtLlzH6Odj9FG+oU/QsArN/JilvTVwVIu/h
-	 bKaYb/JAqFeYg==
-Subject:
- Re: [PATCH net v2 4/4] net: dsa: motorcomm: Use VID 0 as the unaware PVID
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
-Date: Wed, 18 Nov 2026 16:02:50 +0000
-Message-ID: <179501777066.3136.14665752486224743787@kernel.org>
-In-Reply-To: <20261116160107.1351198-5-mmyangfl@gmail.com>
-References: <20261116160107.1351198-5-mmyangfl@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=cBzRIq3k
+ARC-Seal: i=1; a=rsa-sha256; t=1795017777; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DSGObvRuVfYHe9SPWi3DqDIgiYIldCXNqh1t+Zl00inX7x7i4f+eV1cq4wzsvlo86V17Dn23wGvSW1t07EXrholfCFxxPKGaij/5zbn70TAJEb0LBkpdLmQiXDDKQgFHprfMLaziAnTTKCZVVASEMI7uO4iuJvVIVSlFkGWx/h0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795017777; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SwGyqM8fKkj7sRpo7lsvMTTp7Ch2ClbA8Qn5X5Zgelw=; 
+	b=ZYWXKgyx53JzR0+YODEWbeooFlcwA6c/+xMowA+BxuljXu5YPCzBy6l0pF1y+zb8kI7UTln+6jbKfSEWLrJcAzQYZuQHc3tngfPr6j18V8KfaXfQlLCiYjqqC6f4EAMuw548RDPc36yF3DBDCnKW5ifBohM7I1mjvuSLNdIDkf8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: a=rsa-sha256; b=cBzRIq3kEbo4izYjricXxCxci6PaCtbycrEGqIvCAEKBY0o6AKexzsYMH6bqRdVYgmH6sSUxhWB9tVf5agQD9OynAuwPmFKzxrcP1TcpFUrlEsg2aQsfOczSvBqk1zepyamp4NpdJ7Yl7Eh368529V7T2mO4VzWMvM0oLcZYZIg=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=lvK9tuIpxKgDgpYO7x8VbuolpPM0n5OGltXSZRjUgJ8=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795017774093467.4763197419518;
+	Wed, 18 Nov 2026 08:02:54 -0800 (PST)
+Date: Wed, 18 Nov 2026 16:02:43 +0000
+From: Yao Zi <me@ziyao.cc>
+To: =?iso-8859-1?Q?Fr=E9d=E9ric_Mah=E9?= <frederic.mahe@cirad.fr>,
+	Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@kernel.org>
+Cc: Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.co>,
+	Haylen Chu <heylenay@4d2.org>,
+	Hung-Chun Tseng <alan.tseng.cs@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Yao Zi <me@ziyao.cc>
+Subject: Re: [PATCH 0/6] riscv: spacemit: k1: RCPU2 PWM clocks and the BPI-F3
+ fan
+Message-ID: <av3MI0wgou3pbab8@pie>
+References: <20261117205951.140146-1-frederic.mahe@cirad.fr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,195 +78,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117205951.140146-1-frederic.mahe@cirad.fr>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/294.994.34
+X-ZohoMailClient: External
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 09:59:45PM +0100, Frédéric Mahé wrote:
+> The BPI-F3 fan header (J27) has a PWM line driven by an RCPU2 PWM
+> (GPIO 79). This series adds the RCPU2 PWM clocks and DT nodes and
+> enables the fan on the BPI-F3.
+> 
+> Patch 2 keeps pll1_aud_245p7 enabled: once clk_disable_unused() gates
+> it, accesses to the RCPU2 block hang the CPU (the vendor kernel keeps
+> it on through its RCPU firmware). It may be better tied to a power
+> domain once the K1 power domain driver lands; comments welcome.
+> 
+> Tested on a BPI-F3 on v7.4-rc1 (no fan with a PWM input at hand, so
+> with a multimeter on J27 pin 3): 0.86, 1.76, 2.74 and 4.66 V at 25,
+> 50, 75 and 100% duty (0.04 V off), as with the vendor kernel, and
+> the fan goes to level 1 when the package reaches 40 C under load.
+> 
+> Trees: 1-3 clk, 4-5 SpacemiT DT (4 needs the IDs from 1), 6 riscv
+> defconfig. Depends on "reset: spacemit: Fix the RCPU2 PWM reset
+> registers" (reset/fixes).
+> 
+> Written with help from Claude (Anthropic); reviewed and tested on
+> hardware.
+> 
+> Signed-off-by: Frédéric Mahé <frederic.mahe@cirad.fr>
+> 
+> 
+> Frédéric Mahé (6):
+>   dt-bindings: clock: spacemit: k1: Add RCPU2 PWM clocks
+>   clk: spacemit: k1: Keep pll1_aud_245p7 enabled
+>   clk: spacemit: k1: Add RCPU2 PWM clocks
+>   riscv: dts: spacemit: k1: Add RCPU2 PWM nodes
+>   riscv: dts: spacemit: k1-bananapi-f3: Add PWM fan
+>   riscv: defconfig: Enable PWM fan support
+> 
+>  .../boot/dts/spacemit/k1-bananapi-f3.dts      | 63 +++++++++++++
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |  7 ++
+>  arch/riscv/boot/dts/spacemit/k1.dtsi          | 91 +++++++++++++++++++
+>  arch/riscv/configs/defconfig                  |  1 +
+>  drivers/clk/spacemit/ccu-k1.c                 | 45 ++++++++-
+>  .../dt-bindings/clock/spacemit,k1-syscon.h    | 12 +++
+>  6 files changed, 218 insertions(+), 1 deletion(-)
 
-Critical: 0 Â· High: 0 Â· Medium: 1 Â· Low: 2 (1)
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] This patch turns VID 0 into the shared FDB domain of VLAN-
-  unaware bridges and removes the YT921X_VLAN_CTRLa_LEARN_DIS that usedâ€¦
-- [Low] After this patch, nothing in the driver ever programs VLAN table
-  entry 0.
-- [Low] The concern: VID 0 is now the forwarding domain of VLAN-unaware
-  bridges, but its VLAN entry is never programmed.
-
-Pre-existing issues:
-- [Low] yt921x_bridge_join() first clears YT921X_PORT_LEARN_DIS through
-  yt921x_userport_bridge() (line 1301), then writes the isolationâ€¦
-
---
-
-net: dsa: motorcomm: Use VID 0 as the unaware PVID
-
-This patch changes the PVID of ports in VLAN-unaware bridges from 4095 to
-0, so the hardware lookups can hit bridge FDB entries that switchdev
-reports with VID 0. It also skips VID 0 in the VLAN add/del paths and
-programs PVID 0 when a port joins a VLAN-unaware bridge. Finally, it
-removes the setup-time write of VLAN table entry 0.
-
-> diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-> index d84d863080ce0..aa4d6a0c930ce 100644
-> --- a/drivers/net/dsa/motorcomm/chip.c
-> +++ b/drivers/net/dsa/motorcomm/chip.c
-
-[ ... ]
-
-> @@ -1029,8 +1031,7 @@ yt921x_pvid_clear(struct yt921x_priv *priv, int port)
->  
->  	vlan_filtering = dsa_port_is_vlan_filtering(dp);
->  
-> -	res = yt921x_port_set_pvid(priv, port,
-> -				   vlan_filtering ? 0 : YT921X_VID_UNWARE);
-> +	res = yt921x_port_set_pvid(priv, port, 0);
->  	if (res)
->  		return res;
-
-[Severity: Medium]
-Ports in a VLAN-aware bridge that have no bridge PVID get hardware PVID 0.
-That happens here, and also in yt921x_vlan_filtering() when
-br_vlan_get_pvid() returns 0. On those ports, the only extra protection is
-YT921X_PORT_VLAN_CTRL1_CVLAN_DROP_UNTAGGED.
-
-This patch also makes VID 0 the shared FDB domain of the VLAN-unaware
-bridges. It removes YT921X_VLAN_CTRLa_LEARN_DIS from VLAN entry 0 in
-yt921x_chip_setup_dsa().
-
-Suppose a VLAN-aware bridge and a VLAN-unaware bridge are on the same
-switch. A priority-tagged frame arrives on a VLAN-aware port that has no
-PVID. The commit message says such frames are classified to the port
-PVID, so this one would be classified to VID 0.
-
-If CVLAN_DROP_UNTAGGED does not drop priority-tagged frames, and the reset
-member mask of VLAN 0 lets the frame through VLAN_IGR_FILTER, could its
-source MAC be learnt into the FDB that the VLAN-unaware bridges use?
-
-The comment in yt921x_chip_setup_dsa() says port isolation is applied
-after the FDB lookup. A unicast frame from the VLAN-unaware bridge to that
-MAC would hit an entry pointing at a port in the other bridge. It would be
-dropped instead of trapped to the CPU until the entry ages out. The
-software bridge would have dropped the original priority-tagged frame,
-because the port has no PVID.
-
-Before this patch, LEARN_DIS on VLAN 0 prevented this learning. Could
-VLAN-filtering ports without a PVID use a VID other than 0, for example an
-unused VID with learning disabled, so their traffic stays out of the
-unaware domain?
-
-[ ... ]
-
-> @@ -1135,6 +1138,11 @@ yt921x_dsa_port_vlan_add(struct dsa_switch *ds, int port,
->  	 */
->  	if (dsa_is_cpu_port(ds, port))
->  		return 0;
-> +	/* VID 0 is the VLAN-unaware bridges' FDB domain; nothing to program,
-> +	 * keep the entry at reset defaults
-> +	 */
-> +	if (!vid)
-> +		return 0;
-
-[Severity: Low]
-The comment just above says the CPU port is supposed to be a member of
-every VLAN. With this early return, VID 0 never reaches yt921x_vlan_add(),
-which is the only place that sets the CPU port bits:
-
-yt921x_vlan_add() {
-    ...
-	masks[0] = YT921X_VLAN_CTRLa_PORTn(port) |
-		   YT921X_VLAN_CTRLa_PORTS(priv->cpu_ports_mask);
-    ...
-}
-
-VID 0 is now the forwarding domain of the VLAN-unaware bridges, yet entry
-0 keeps its reset values for member ports, UNTAG_PORTS, FID and STP_ID.
-
-This is probably fine in practice. The old unaware PVID 4095 was never
-programmed either. VLAN_IGR_FILTER is only enabled on VLAN-filtering user
-ports, and YT921X_VLAN_EGR_FILTER is never written.
-
-Should the CPU port comment mention the VID 0 exception, though?
-
-[ ... ]
-
-> @@ -1297,6 +1306,14 @@ yt921x_bridge_join(struct yt921x_priv *priv, int port, u16 ports_mask)
->  	if (res)
->  		return res;
->  
-> +	if (!vlan_filtering) {
-> +		/* DSA may shortcut .port_vlan_filtering(), leaving stale PVID
-> +		 */
-> +		res = yt921x_port_set_pvid(priv, port, 0);
-> +		if (res)
-> +			return res;
-> +	}
-> +
->  	return 0;
->  }
-
-[Severity: Low]
-This isn't a bug introduced by this patch, but there is a short window
-where frames are learnt under the standalone VID 4095.
-yt921x_bridge_join() clears YT921X_PORT_LEARN_DIS in
-yt921x_userport_bridge(), then writes the isolation registers in
-yt921x_bridge(). Only after that is the PVID moved off 4095 here.
-
-For VLAN-aware bridges, the PVID stays at 4095 even longer. It changes
-only when dsa_port_switchdev_sync_attrs() calls dsa_port_vlan_filtering(),
-which happens after DSA_NOTIFIER_BRIDGE_JOIN has been handled.
-
-Port isolation is applied after the FDB lookup. Could a standalone port
-sending to a MAC learnt in this window have its frame dropped instead of
-trapped, until the entry ages out?
-
-This patch makes the unaware window much shorter than before. Would
-writing the PVID before clearing LEARN_DIS close what remains?
-
-[ ... ]
-
-> @@ -2335,15 +2352,6 @@ static int yt921x_chip_setup_dsa(struct yt921x_priv *priv)
->  	if (res)
->  		return res;
->  
-> -	/* Tagged VID 0 should be treated as untagged, which confuses the
-> -	 * hardware a lot
-> -	 */
-> -	ctrls[0] = YT921X_VLAN_CTRLa_LEARN_DIS | YT921X_VLAN_CTRLa_PORTS_M;
-> -	ctrls[1] = 0;
-> -	res = yt921x_reg64_write(priv, YT921X_VLANn_CTRL(0), ctrls);
-> -	if (res)
-> -		return res;
-> -
->  	return 0;
->  }
-
-[Severity: Low]
-After this removal, does anything in the driver still program VLAN table
-entry 0?
-
-yt921x_dsa_port_vlan_add() and yt921x_dsa_port_vlan_del() now return early
-for vid 0, and yt921x_dsa_vlan_msti_set() rejects vid 0 with -EINVAL.
-Learning and membership in the VID 0 domain therefore depend entirely on
-the chip's reset value for entry 0.
-
-The commit message says:
-
-    Lift the restriction on VLAN 0.
-
-The new comment in yt921x_dsa_port_vlan_add() says "keep the entry at
-reset defaults". Neither one gives the reset values. Neither says that
-the all-ports membership (YT921X_VLAN_CTRLa_PORTS_M) is also dropped.
-Neither explains why the workaround in the removed comment is no longer
-needed.
-
-The commit message mentions a measurement on YT9215S only. Could it
-document which reset value of entry 0 is relied on, and whether that value
-is the same on the other supported variants?
+I think spacemit,k1-syscon.yaml should probably be updated to make
+'#clock-cells' property mandatory for rcpu2 node? And probably also
+the other blocks capable of clock stuff as fix...
 
 -- 
-Sashiko AI review Â· https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116160107.1351198-1-mmyangfl%40gmail.com
+Thanks,
+Yao Zi
+
+Meow-mrrp-mrow, I'm a cat.
