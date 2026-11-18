@@ -1,45 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975056;
-	b=MGCzNeURbnCHx16QVKAYoX8TTxH6fS+lqMKEkCS55eRmcGPNG2tFRV08AKEW0nbdyGQU
-	 29DNvrXdKYz5hBO82QLMoWwFys//SIFFjo+oKki7p5nYqquDRvFq1g/XEzgsm/NFeafXW
-	 7VMDl88kqf1p2RtyVXU2j7C5il0Ltqoe3ehEdk99+Q9Pzcai6fdD9ga/GVfgay0xBKkY7
-	 EvgIWo5Rjf7mPYgJAd35lI9zUnW/nR4uMYnMrJ9M0fPvJUs24BFwDoaH5GSvuAUDqHYnA
-	 x6ISGGhFTrg01jb2a33JeeRrBBbx7iFDdjjYw3UYSf68Hq6L4S6S3H8jjZXV/ZYzAaQ==
+	t=1794975077;
+	b=qheQyv/bGz/FEytlblDVndkXqeWqStutAezNW7D94/A/7E45AucUTLj32VZyAIDOGd+6
+	 sYBi1gKiqtfLZdo3hxq55gu4FDuLIpVof3M5wBRj4UoO2OJfapoF9Lc5FfmECzCcueIop
+	 1Sd39cnKQ4w22mFrl25M8jT0FO7JzohHKk7YnEx4tPHRAEiH8WXf94zUI7v2SFXUL33vT
+	 aY27sawt6UYNbczGq8ZZ2SQ3bCMtWvYWiCdzbu6YolWVSsjFEGxV+tMnostP6UNobb7ZK
+	 S6u5OIjQyoDAjPnNzLAEY02/NK+e5VU2fATbVi1OcqFLmGH75HXAguqzQN6H+Dys9Og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975056;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=h3qA4QlsVDH5xdgBYsuDi3c1zf0fz2YKqCzY/AfDqKw=;
-	b=DmnTrsspdPtbeQMamPcN8hOgMcHJy9P31ob20vPcrpPCuMgCug7FaNxcgqIWe5C7PjRo
-	 hIGEm4dyzpPyqwCbBqtrsfs/pZKDnHw1F/JL1laMZIuw4gZkDG9nfEIMXPjMEEmMjTMm7
-	 Axnc5GdJDaPl0r5DqWAIWgf564d7f5ODwjx03mMXFjxGOYpbc5OXmtmGjkzAPdVwRXNsS
-	 c0MbuI6/yvs6QITA3tgdL7td845NoryngJHzHGlHVsppAhszpgy5hoZBeEj7M0zdc/MPZ
-	 xXXzVWi4kJybLX8s6cnSjdqU6xVKVfmRX/h63PIG0/4aHLDmzN6IQlSwUPcHotEqNMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975077;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
+	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=IL1uP3TWx2sdq9EHxnID+hoVQzxeT6JCCziC5GCVic0=;
+	b=ZahqPHTVVHnaeYQtvBJIhK/X2qcdRMU/HhsAZwitvf7TnLth8/6ozpoGoiRCxzuMkXZZ
+	 16R+j8DKmHYjjzQ4ZAAnGogAY9YOoqmF1BNWTbKp8X0wGJMFEa8nxij6axsl0/L4NMRHK
+	 6oa0Wp/PEJNnrTTsRVwh+uUbvGQEB+HunpOIkOYoH+E5QDo7j9Ga6o5X/7h9m9aa43jwV
+	 pyvDdu30VbrRMGY8CkJOErOh58FQWmMScgpri8aSuE/WqStww/+gGGXDzU9neCrVaCg9r
+	 deBm6/T2oqJKkyL1fgSlCDvvsBcOgJpsVvOkEnIFX+lrPosKu8t7rkj9KeOJiAViZUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aj23ateH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=fail header.from=linux-m68k.org;
+	spf=none smtp.mailfrom=linux-m68k.org;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=OknC5iF5;
+	arc=none smtp.remote-ip=202.12.124.155
+Received: from fhigh-b4-smtp.messagingengine.com (fhigh-b4-smtp.messagingengine.com [202.12.124.155])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E393606A332;
-	Wed, 18 Nov 2026 04:10:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD7E3606A31C;
+	Wed, 18 Nov 2026 04:11:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD7E3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aj23ateH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18E291F000C4;
-	Wed, 18 Nov 2026 04:10:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794975055;
-	bh=h3qA4QlsVDH5xdgBYsuDi3c1zf0fz2YKqCzY/AfDqKw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=aj23ateHmO9Smp7R79jBViBScdqnAoymGWoAdhtMHs3lxneWGKXLMmtYAlT09KPsR
-	 ezPed/+0h9CJtmLum74vdgaVeCml80Wb2epts35prlLnLpmbuZzNzw73+aX9CFC4Cg
-	 eTBJgLp0CE2bq+9e3Hn0E/6gImicqzWDySFBe8DBJRgBk773Fdf0ckRLj69J9BRXWI
-	 wKVK/R/zwATldEk5BnrXZ6CuPUbKJyM/GfTgeREuj8eHk7pWKhRsMd/NkKeQpYfx3l
-	 mLMmPTSXWbtFI0ihQ34jqbLUWtO9OuW4TFLemNTOUqKJmrhoxaeZDlOwRLkGubNwh3
-	 2TIg4Sj1aPAow==
-Content-Type: multipart/mixed; boundary="===============2643490914929125600=="
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=OknC5iF5
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id DCD667A027A;
+	Tue, 17 Nov 2026 23:11:15 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Tue, 17 Nov 2026 23:11:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1794975075; x=1795061475; bh=IL1uP3TWx2sdq9EHxnID+hoVQzxeT6JCCzi
+	C5GCVic0=; b=OknC5iF5hdwju2lQaAxYxWDg8yVMDio4GBfslj75QJ/kf3KS0nM
+	s48oD1wRgTkrqCJc4GJxkZDHnLmMZp/fp++iZbNgJ1enpu1D+aaufTAug4/ezU9d
+	8F/UV1Rd54YslhT+rUVee8xYGDF0r64sxWHmqVP9DjviSxXNSS7pYxud28VKwwXO
+	IzEQpDIRYhgBmO6G/Paf6i8+fmOL9NUXK4n8Wq7wWL6vb2viN4xnTV7cqZBaqbGM
+	3PstnTO3eKyoESefbjCIZC/Yl7GArg8jq5zgG8nOQaNMAIx5LUAXYBXOs3Tw0aMl
+	96bGkp8uAWK/k8+LSw0aM1N6tLfvF1TIY+g==
+X-ME-Sender: <xms:YyX9ap2X74tGVv50NiwIHVLa25dGLTXLiO9mqVPGp8b0CdcaUfuFpA>
+    <xme:YyX9ahnGl0d-AldqoQWHFZy1eWZ-h7S5dvNpWQd-UZex-RoLLZoH7gnd_UxQKXZhY
+    rsS5rU4HnStN_iwBqGM3mH_fyX6S8OMxt3LAflMx4yICSEbgymgM4I>
+X-ME-Received: <xmr:YyX9ap-Lu1nxGbdPYNF2mf85rPESC55l7qkl_-fFYor5aa9j_oCCElWuDi7o>
+X-ME-Proxy-Cause: dmFkZTEGcbklFMPuvNp3yEESMShtPrCjiVijO2JNLjxVkU8dk4WjSZ3g1bmbNcSS8Pj/b/
+    xbHvEEF5M2CEgOPtWJGGQnAnH347CYaUPwoZ9d6KJKZy5mUp22qRUooj6bRMZ+i0IUJjsZ
+    /hm2rR098w0LUvDZxuKVbe9gZnRiT/rQas+yYZxxpNbaxPSkKxtISXAuwYQ51EbhmIR8fp
+    GZDO3eVQbMPZ5G6jit9/5rEnMLp+MCafBpdtjTlPQWedwgPMexxL6PBTHnr8HfcBBveQgS
+    /UO5R6x1pmG4azbIse/1f2pC+5tf+PjNgGCzL/Uhd609b0kMF45n5N2MCCyYUqOoejURZd
+    SS/IRz52WKS6ON+UK2V/GTlVWrOyV1xP51siT+QaKbR+jJxJBqCiwtOSwoyFCiFdT0SXwp
+    4ALYHq4Uc0P4UvETjpv0sCgUUk2d9h3Xvycw4eHad+VfsCTsKQ7pXG/aCCDe9W5huIKzzT
+    Sg2zL6Fm8koZMnp6UFxeNSel6908P5XkGEhrUx7gvh9IcoqhJWlFAkmxgcX6f6HONJl3Ls
+    7QHRW7qxJUZjGoMhrrXWM8d+ihG/DRb9Q5pbaGy309N572mhpYozWGi1ItmcSxCqpqIUqz
+    GDyPWwuQn9yd/fy+gNXddxHZty5j5mEv2D0tlOrCiFecFruXp5ejyGcQHpBg
+X-ME-Proxy: <xmx:YyX9amqm21B5VnP0z8gPHINIDrMFtTUYgFdODwy-Myz7fY4wev6Pcg>
+    <xmx:YyX9ailf-nA-x7rgHFFMts4MKNljHrFi-MQ1lDkqHXRAIOTEWdUTnQ>
+    <xmx:YyX9atibVkusm0x4Pr0JafFNHQea8ejnV1fDRm38tk1YozWLrfqfjQ>
+    <xmx:YyX9aqfFxye6vduuLtnNyCZ7orVo83oCoMiLKFTur2EOnQTNNcNJlg>
+    <xmx:YyX9ahDsRaMuNTEEHoxdDiVY6mvIt9OjKq_Ft_lbg5vezsXKmzL-t-_a>
+Feedback-ID: i58a146ae:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 17 Nov 2026 23:11:12 -0500 (EST)
+Date: Wed, 18 Nov 2026 15:11:02 +1100 (AEDT)
+From: Finn Thain <fthain@linux-m68k.org>
+To: Tim Douglas <me@timdoug.com>
+cc: mkp@kernel.org, James.Bottomley@HansenPartnership.com, 
+    linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] scsi: esp_scsi: report the residual byte count
+In-Reply-To: <20261118003746.61659-1-me@timdoug.com>
+Message-ID: <ee193416-6116-7656-e984-5a556490997e@linux-m68k.org>
+References: <20261118003746.61659-1-me@timdoug.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,94 +91,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <61848b4bb02d2dcb5f78b813f31a4f395805c864c1152c52374abc2ca1a1ff51@mail.kernel.org>
-In-Reply-To: <20261118031453.1353625-5-dapeng1.mi@linux.intel.com>
-References: <20261118031453.1353625-5-dapeng1.mi@linux.intel.com>
-Subject: Re: [Patch v7 04/24] perf/x86/intel: Limit branch snapshots to valid entries
-From: bot+bpf-ci@kernel.org
-To: dapeng1.mi@linux.intel.com,peterz@infradead.org,mingo@redhat.com,acme@kernel.org,namhyung@kernel.org,irogers@google.com,adrian.hunter@intel.com,alexander.shishkin@linux.intel.com,ak@linux.intel.com,eranian@google.com,sandipan.das@amd.com,andrii@kernel.org,song@kernel.org,ravi.bangoria@amd.com,ananth.narayan@amd.com
-Cc: linux-kernel@vger.kernel.org,linux-perf-users@vger.kernel.org,bpf@vger.kernel.org,dapeng1.mi@intel.com,zide.chen@intel.com,thomas.falcon@intel.com,xudong.hao@intel.com,dapeng1.mi@linux.intel.com,sashiko-bot@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed, 18 Nov 2026 04:10:53 +0000 (UTC)
+Content-Type: text/plain; charset=us-ascii
 
---===============2643490914929125600==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
 
-> perf/x86/intel: Limit branch snapshots to valid entries
+On Tue, 17 Nov 2026, Tim Douglas wrote:
 
-TL;DR: Resetting the shared lbr_stack.nr in intel_pmu_lbr_read() may corrupt
-an in-flight host adaptive-PEBS branch-stack sample when KVM vLBR is active
-and a BPF program calls bpf_get_branch_snapshot(); a later patch fixes it.
+> The ESP core tracks the number of bytes left to transfer in tot_residue
+> but does not report that count to the SCSI midlayer. As a result, SG_IO
+> returns a residual of zero even when a target transfers fewer bytes than
+> requested, as can happen with INQUIRY and MODE SENSE.
+> 
+> Report tot_residue with scsi_set_resid() when a command with a data
+> buffer completes with DID_OK. Initialize the scatterlist DMA length
+> on the identity-mapped PIO/pseudo-DMA path so the residual starts
+> from the buffer length on architectures with a separate DMA length.
+> 
+> On a Performa 6200CD with an out-of-tree ESP front end, an SG_IO
+> INQUIRY with an allocation length of 255 returns 36 bytes from the
+> internal CD-ROM drive. The residual is 219 with the fix and 0 before it.
+> 
+> AI assistance was used to investigate ESP transfer accounting and draft
+> the fix.
+> 
+> Signed-off-by: Tim Douglas <me@timdoug.com>
 
-> diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
-> --- a/arch/x86/events/intel/lbr.c
-> +++ b/arch/x86/events/intel/lbr.c
+Tested-by: Finn Thain <fthain@linux-m68k.org>
 
-[ ... ]
+Regarding that front-end for the esp_scsi driver, do you think it can 
+replace the mac53c94 driver? Has your driver been published yet?
 
-> @@ -1026,14 +1026,19 @@ void intel_pmu_lbr_read(void)
->  {
->  	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+> ---
+>  drivers/scsi/esp_scsi.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/scsi/esp_scsi.c b/drivers/scsi/esp_scsi.c
+> index 9993b0ae9..162f8fe14 100644
+> --- a/drivers/scsi/esp_scsi.c
+> +++ b/drivers/scsi/esp_scsi.c
+> @@ -388,6 +388,7 @@ static void esp_map_dma(struct esp *esp, struct scsi_cmnd *cmd)
 >  
-> +	if (!cpuc->lbr_users || vlbr_exclude_host()) {
-> +		/* Reset lbr_stack.nr to prevent stale data leakage. */
-> +		cpuc->lbr_stack.nr = 0;
-> +		return;
+>  		scsi_for_each_sg(cmd, s, spriv->num_sg, i) {
+>  			s->dma_address = (uintptr_t)sg_virt(s);
+> +			sg_dma_len(s) = s->length;
+>  			total += sg_dma_len(s);
+>  		}
+>  	} else {
+> @@ -907,8 +908,11 @@ static void esp_cmd_is_done(struct esp *esp, struct esp_cmd_entry *ent,
+>  	esp_free_lun_tag(ent, dev->hostdata);
+>  	cmd->result = 0;
+>  	set_host_byte(cmd, host_byte);
+> -	if (host_byte == DID_OK)
+> +	if (host_byte == DID_OK) {
+>  		set_status_byte(cmd, ent->status);
+> +		if (cmd->sc_data_direction != DMA_NONE)
+> +			scsi_set_resid(cmd, ESP_CMD_PRIV(cmd)->tot_residue);
 > +	}
-> +
-
-Can this reset of cpuc->lbr_stack.nr corrupt a host adaptive-PEBS sample
-that is still in flight?
-
-Before this patch the vlbr_exclude_host() case returned without writing
-anything.  Now the BPF snapshot path writes to the same per-CPU struct
-that a PMI-time sample may still point at:
-
-intel_pmu_handle_irq()
-  handle_pmi_common() -> x86_pmu_drain_pebs
-    __intel_pmu_pebs_last_event()
-      setup_pebs_adaptive_sample_data()
-        intel_pmu_store_pebs_lbrs(lbr)   /* cpuc->lbr_stack.nr = N */
-        intel_pmu_lbr_save_brstack()
-          perf_sample_save_brstack()     /* data->dyn_size += N entries */
-                                         /* data->br_stack = &cpuc->lbr_stack */
-      perf_event_overflow()
-        __perf_event_overflow()
-          bpf_overflow_handler()
-            BPF prog -> bpf_get_branch_snapshot()
-              __intel_pmu_snapshot_branch_stack()
-                intel_pmu_lbr_read()     /* vlbr_exclude_host(): nr = 0 */
-          overflow_handler() -> perf_output_sample()
-            perf_output_put(handle, data->br_stack->nr);       /* now 0 */
-            perf_output_copy(handle, data->br_stack->entries, ...);
-
-The record header was sized for N branch entries, but nr is now 0 and no
-entries are written, so the PEBS LBR data for that sample is lost and the
-tail of the record is never written.
-
-This looks reachable when KVM's vLBR event is active (it sets
-INTEL_PMC_IDX_FIXED_VLBR in intel_ctrl_exclude_host_mask) alongside a host
-PEBS event using PERF_SAMPLE_BRANCH_STACK, with a perf_event BPF program
-calling bpf_get_branch_snapshot().  Before this patch the same sequence
-produced a consistent sample.
-
-The !cpuc->lbr_users half of the condition does not look affected, since
-any event whose sample references cpuc->lbr_stack is counted in lbr_users.
-
-The series appears to fix this later in 61909a79de63 ("perf/x86/intel:
-Use a dedicated LBR stack for BPF snapshotting"), where
-intel_pmu_lbr_read() takes the stack to fill as a parameter.  Is it worth
-avoiding the shared-stack write in this patch, so that the intermediate
-commit does not have this window?
-
->  	/*
->  	 * Don't read when all LBRs users are using adaptive PEBS.
->  	 *
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44231525404
---===============2643490914929125600==--
+>  
+>  	if (ent->eh_done) {
+>  		complete(ent->eh_done);
+> 
+> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+> 
