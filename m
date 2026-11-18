@@ -1,56 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.154.239.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997630;
-	b=Aj5qAkqIlBBx+cfyWoXlwb1gmb3lgGJkZxSH1ErFF30FUo4p6S6mrlxyEJwkdgcVcMU8
-	 P6lf9GZeLTdSf/u6NEAancEzVT+RhspoTtL/iWdlX/0tcv4qBmcTfkm5U+RIh576843O8
-	 G8x6F/nsjJdQr0jI+uKZ/aHpC8dn6Pp/k2XLyTUY7KThXnGjCxZ/Nf+9ShtFthGIG/ael
-	 oY4ychF+9m4hZPLlBD7mkchHgtjIFJnupRRpAhWInyspqSHRD4NdEUikGCFi2A2Kb7TlP
-	 AIJKZsRbZddjSQm9RIX2t1LaunJHD2JNj/rklzdbYwkeoXlM7M0oPmLYEqKwnAuAciA==
+	t=1794997690;
+	b=N//opVAnqYOht1dR6PxZ5PfR62Nq/YvHxmOp0u61N9OQTZuXcR4H3Wzmk3Ahi2uJWEa4
+	 UgI2eE6QCJLcTQ6rVyjdmMTd+/OsDkNcUsJg0kQViJgcBnepErSRyKsW8qWzHx0sUx0Xu
+	 fRFDoxzv5O54tGE+5oeByQ7Z9r8hq6EIb1A2xUmIuFb7Pv8W+jGCgnagaZr60LwaYa/mE
+	 oQi11aT4ZyhioTC2H8KCXjLt96Dy8IALsmcKQ0/FGiac8F47Y1Gw0z9JftkLO6Jpk8hBy
+	 2XdZu85e+6DP9BwXBILVynR2iST0yPuKmla8SIsitzD0nQIkLALE+QFRLa2jQ+oFp1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997630;
-	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=lgBgYjBwxx/0h1itT1vxtcD9+XMGMAnJpI+uws+wlmE=;
-	b=s/fh2Vg+sZ5JSlN4No5qRgBrqWV9GtffVlhb5O38Aau7LcJFoOMbyI5X9ufYxmW0hjF5
-	 dxJ6ONWDJXikJk4UMPZZNxQniU9x6P04GA2NVcU1B0gF4gSlVZqzLljs3EkB6KltqBY9D
-	 eDW92DTlv7dPDkyrkZlRjjhyi+8QyAqFrcAV2I15KBGRLzP3NT11oyEHVwhpr7YQoYujF
-	 U26urJ/gScoiGZVKxdW1MtdBm6ywbuwY23MBiE3CmqFmJhAo4bInJveLd3twyvk1DAEFd
-	 4n6LVFqr5AR7yneFOufFxS2FDM9qORNjvTz2g5w0sKOvduQwJ2iTwZbUWfY/P//yzfA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997690;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=WTHIX/qp7Jnj/BOwjhzLa4IXBs5/UwCDK2s4rST4pQ0=;
+	b=vbU4JujlQ8fu5wU9XAmwt0bqBD45LJ6jG8O0gydBNLOxR1yfVAAaDMCDhtlWICCjVfQG
+	 L225WYWcKFJ47HCUmKnLvC/OF2zhYLm87WnWMlOsC6PmldwVBrybRf1VWWoNN/WH+Q2PJ
+	 5u7xFA1rsnueGGBmbGyLVdpNFGhMWaiFnOkE8vn0FOrH/RS1UzG0GNpoJl4x9mpUjM7Bd
+	 CRV+eu4Hvd/sqipt4HIxfwujnrC24MfR9avKbdIvkW7XfP4ZznvrO1/ga+tBq41iCb33Y
+	 luvT/PDRYAQ/+BDjc2LAEuP/rJD1yEY4N2OqicQ8CyKE9yQYdQsPdLk4db6cGlCBLSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yandex-team.ru;
-	spf=pass smtp.mailfrom=yandex-team.ru;
-	dkim=pass header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=CH0ELNzD;
-	arc=none smtp.remote-ip=178.154.239.72
-Received: from forwardcorp1a.mail.yandex.net (forwardcorp1a.mail.yandex.net [178.154.239.72])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lUdLy0q7;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15FA1606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:27:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15FA1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex-team.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex-team.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B656606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:28:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B656606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=CH0ELNzD
-Received: from mail-nwsmtp-smtp-corp-main-66 (unknown)
-	by forwardcorp1a.mail.yandex.net (postfix) with ESMTPS id 01BB4C01B0;
-	Wed, 18 Nov 2026 13:27:00 +0300 (MSK)
-Received: from [IPV6:2a02:6bf:8080:d4b::1:2a]
-	by mail-nwsmtp-smtp-corp-main-66 with ESMTPSA id vQXVM51WmuQ0-e6VOJhIF;
-	Wed, 18 Nov 2026 13:26:59 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex-team.ru;
-	s=default; t=1794997619;
-	bh=lgBgYjBwxx/0h1itT1vxtcD9+XMGMAnJpI+uws+wlmE=;
-	h=From:In-Reply-To:Cc:Date:References:To:Subject:Message-ID;
-	b=CH0ELNzDFEWRRsummb5x9cX8/IIhLQzKFNgUrby7/D8EmYSyal4QdK+xgpE5LwmFl
-	 d0Bk6WhzDFrRRCp/MXhw3KeJX4DeLQ+XCwG4LBqO5Ot0Ygte360VyPZ3DPQggYC5DR
-	 LK/Cfw4d/OxxMFyqsiaUmkbGGrilmrwMp9/Jtqn4=
-Authentication-Results: mail-nwsmtp-smtp-corp-main-66; dkim=pass header.i=@yandex-team.ru
-Message-ID: <464d793e-19e5-42d2-b695-c8124fbb9b34@yandex-team.ru>
-Date: Wed, 18 Nov 2026 13:26:57 +0300
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lUdLy0q7
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 992741A16CB;
+	Wed, 18 Nov 2026 10:28:08 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6518A5FE9B;
+	Wed, 18 Nov 2026 10:28:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35BCB11BC1054;
+	Wed, 18 Nov 2026 11:28:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794997687; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=WTHIX/qp7Jnj/BOwjhzLa4IXBs5/UwCDK2s4rST4pQ0=;
+	b=lUdLy0q760khVWphycTcUyg1TKxCuX9tmHvM5Ud/Ge5zxTbQhLmGU/9k2FkIASoMZGVUaD
+	Oy8pipx7y4fzRgJrFkUJzM3DCOG262OLY6HFCyJ2yin8lTFh5WZDFRXZhrQQftRCwC8Rwq
+	oq11crIuIvReO9ExB+svND9b/fECKZXShvgZVTAvPzQyA9a5Y8MoV878lmoR39siZBZoRc
+	fEV1nik2bxHGa4O5yu6YlHKTyiMlHTxxgXM6mHSheDk0yX7v1lhoCpOonpiEMiakRe6d0b
+	Q+meiYVgU6FJh2iQ+cP31G+mw33IIZGJvUXct3ju/qPMaNzLv51O6UgQ8PgxTg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Boris Brezillon <bbrezillon@kernel.org>,
+  linux-mtd@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mtd: rawnand: propagate timing-mode recovery failures
+In-Reply-To: <20261103-submit-rawnand-timing-recovery-v1-v1-1-1cc33723e052@gmail.com>
+	(James Hilliard's message of "Tue, 03 Nov 2026 23:13:18 -0700")
+References: <20261103-submit-rawnand-timing-recovery-v1-v1-1-1cc33723e052@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 18 Nov 2026 11:28:05 +0100
+Message-ID: <874idejux6.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,69 +72,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/page_alloc: don't undo another caller's pageblock
- isolation
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Vlastimil Babka <vbabka@kernel.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <brendan.jackman@linux.dev>,
- Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261118000014.1474617-1-d-tatianin@yandex-team.ru>
- <17456889-f94b-438f-85b3-45e9d51272ee@kernel.org>
-Content-Language: en-US
-From: Daniil Tatianin <d-tatianin@yandex-team.ru>
-In-Reply-To: <17456889-f94b-438f-85b3-45e9d51272ee@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/18/26 12:50 PM, David Hildenbrand (Arm) wrote:
+On 03/11/2026 at 23:13:18 -07, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-> On 11/18/26 01:00, Daniil Tatianin wrote:
->> start_isolate_page_range() fails with -EBUSY when a pageblock in the
->> range is already isolated, after it has undone the isolation it did
->> itself. Commit 2c7452a075d4 ("mm/page_isolation.c: make
->> start_isolate_page_range() fail if already isolated") made it work this
->> way, so that users of overlapping ranges, such as CMA, memory offlining
->> and gigantic hugetlb pages, can use pageblock isolation to stay out of
->> each other's way.
->>
->> Since commit b2c9e2fbba32 ("mm: make alloc_contig_range work at
->> pageblock granularity"), alloc_contig_frozen_range() handles this
->> failure by jumping to its common exit path, which calls
->> undo_isolate_page_range() on the whole range. What is still isolated
->> there at this point belongs to the other user, so this takes the
->> isolation away while that user is still working on the pageblock. The
->> page allocator can then hand out its free pages again.
->>
->> Return right away instead, like offline_pages() does when
->> start_isolate_page_range() fails.
->>
->> Fixes: b2c9e2fbba32 ("mm: make alloc_contig_range work at pageblock granularity")
->> Signed-off-by: Daniil Tatianin <d-tatianin@yandex-team.ru>
->> ---
->>   mm/page_alloc.c | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
->> index 12fac9084c48..151a8d64783d 100644
->> --- a/mm/page_alloc.c
->> +++ b/mm/page_alloc.c
->> @@ -7335,8 +7335,9 @@ int alloc_contig_frozen_range_noprof(unsigned long start, unsigned long end,
->>   	 */
->>   
->>   	ret = start_isolate_page_range(start, end, mode);
->> +	/* After a failure, whatever is still isolated belongs to someone else */
->>   	if (ret)
->> -		goto done;
->> +		return ret;
->>   
->>   	drain_all_pages(cc.zone);
->>   
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7d9c29ed8feec8bfbe5e5f673ba2b5926da11375
+> When GET_FEATURES succeeds but the chip does not acknowledge the requested
+> timing mode, nand_setup_interface() falls back to mode 0. Both the
+> controller-interface reset and the NAND RESET command can fail, but their
+> return values are discarded. The function then returns the successful
+> GET_FEATURES status even though the fallback did not complete.
+>
+> Check the controller reset before issuing RESET and propagate either
+> recovery error when there was no earlier error. Preserve an earlier
+> GET_FEATURES failure and keep returning success when a timing mismatch
+> is recovered by a successful mode-0 fallback.
 
-Oops, my bad, should've checked. Thanks
+You are carrying a return value in an error path of an error path. If
+the reset actually fails, the very next attempt will fail and probe will
+be aborted anyway. So while the fix is not inherently wrong, the title
+and commit log overstate the problem.
 
+My proposal:
 
+mtd: rawnand: propagate mode-0 fallback failures
+
+When a chip does not acknowledge the requested timing mode,
+nand_setup_interface() falls back to mode 0 by resetting the controller
+interface and issuing a NAND RESET. Either step can fail; returning
+success will likely lead to any later attempt at talking to the chip to
+fail.
+
+Make sure the error path propagates those failures in the mode-0
+fallback case.
+
+Thanks,
+Miqu=C3=A8l
