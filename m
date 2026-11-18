@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.28
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015161;
-	b=T5f1aAx0NMhOWOU+Y+NHXJ9RYgcU4VW4sv++A7yxCFrrECYb+QwNPzZrU3C+LyETDH09
-	 10whWry3wiKf3vIMj/un3S9LXqO68/2LkLNdP9HdE7N9TVrWEHo2keb004pPm+VA2zhZt
-	 6JpzTocOXQeCXt5GB9xW7+J7R/HJyDPx9tYQ9PW+9MeMXlilXDVl+Jr/7OywWOQJG+51n
-	 wZZko6XavtQGz6XuOsA/wgJi6HGlyFAX2gNjdfXsMaacrnujwR1y37DG0xB6+FJpOM4Oi
-	 cHRMBaIl9jQ3BF3qMKK4BHxgbRnOkNprdchoWhZxw9HPDtCsMtRDBXcsRZewgtnxAmg==
+	t=1795015164;
+	b=xANZYtWfMVlp7okhqcC1U+KEl7jSOWWqGqbqL13kZa6B9UGjCSOufn35lt8o+tLIqnmg
+	 OBwt1lodqal1U37Jf2TZ4B0stmuTucyAbbSLIWwIXySLvI1q9o/DBaOEIE3nh+QyzjQun
+	 6myohSJbH7wzPMb+lNaeaSHmx/T+e2juID5/KKsdh4DdMgWl269DD0JuEqUJnaZ6BGrvy
+	 ebJLqZHIRd9PYQxMOKN+Gd5dpvp2F9oBQXaG1+Sr2wvxjbLzas+78cS+UBD3mPtrpM6tK
+	 XTU/IxyieMJgyxQEQvdXpZTbnvIwH/iz9mOohGz9Bj3Xv0+L/lK0bTjrgFB+ei4H2ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015161;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015164;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=yuXnA40b2u+Mi2FzfkpuShKnyxfnwry4FJFmbbBdxUg=;
-	b=pvu5ULUqwCRvHWIPfvg0G7u+QyXrcn80Olq4iIENrrg7zORQnxk9PhhJ3WbuZaOnE+Fp
-	 XYv3IneQ/sypIsTianzFtBMR464cOBfsHglBZHvhcSp+rYG7z7VLtsv5yVPh6kBeVeSuz
-	 UjTUVWzUoMA5xCLFxA1Cm4K9+rzq+L1S6cWQdq9uDBs5fSjnFTDn7LlKsiTZi9NV/yDks
-	 R8RG/EbzlM/BesxMLGHTtiQ5t0+S1yLz5ah5LF/Pjuril8//KTbOwGpzN3QAccP+Ay4e+
-	 X0RhztjFMMaqrLOfNCYQA2MnQWlD+oowNH4yFsZWTMp9yJT0aHKCpm7+LuNQ1WuUmrg==
+	bh=koCdIud5bvpKPiL3HIQENure4nj+SWr6XN5dow1D4zc=;
+	b=B3kfuI4c2RaVD8eH7qpB1zZU+b5JKy71kTb1/cPmicqPp8xx3U9CJVWN9FPOSG0miavp
+	 v7LPfQ2eA7Fchnh+5i+Os7mTavzGX7lFWofWdB3z2Ew5TBobuUJNEmtDlLZ9TwDFVPP51
+	 ZdJFtzjrzFgWRaQUjwi9zEmZMgL9rLatk3rzCT/hYdNKXjBvGwGMDKjiLvG5SUugN/1xO
+	 AZE+JMPsbh00TtYcX312ICePK9FK2lAYZpoVVrlgrFh0JnjtCBPcyuMfZpAAfMUtTqosg
+	 MJTOzuFW7DJgWEt6z08q5Ic/PLft5JnovSwBQ3DXKl5O8PKvZ8bq8NVUDwcYNecf8Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Np15XjIh;
-	arc=none smtp.remote-ip=91.218.175.21
-Received: from mta0.migadu.com (out-21.mta0.migadu.com [91.218.175.21])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uRUCCjhw;
+	arc=none smtp.remote-ip=91.218.175.28
+Received: from mta0.migadu.com (out-28.mta0.migadu.com [91.218.175.28])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCF7360A2611
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCF7360A2611
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF4F760A2605
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF4F760A2605
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Np15XjIh
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uRUCCjhw
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Pp1GfdczrRGPwsK1fk1F5//bwoV0T9EmPdenf1KqcJ4=;
+DKIM-Signature: a=rsa-sha256; bh=Bb7O1wsvqN0w+zVyjmLfDDD+fQI7fDHwilt03qAD9W4=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795015158; v=1; x=1795619958;
- b=Np15XjIhSULCAgrWxl0i8TAV0k8wHgKKcfiG4D7/Iz6wsLAe71TrDxpWYfmrypUd+Rx/8UsE
- yugWieuAQux5T2QhWr1yry/+iDpamQz0bg4WqWmvpZ7plD5XpzQimEXazi/zOo0UDnVY2PXxxMS
- gyY5slccec7uArkFWiBRfpA8=
+ t=1795015160; v=1; x=1795619960;
+ b=uRUCCjhwGpctUfiXbk62GkkckYA5hgq6TPTHmQXtQes/s/ys0Vcxe3zPbj820cOC7dySK1WO
+ ZJypSIFBLRZLOO1Rbx0UMSGVECEzanCIf/GLYZPcUuVU8qVeyI9r/wPNqknioxB24odHvYSA/HJ
+ yQZwqlD5XfLVWeAJkRKkzs00=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c7201d5f7500edcc;
-	Wed, 18 Nov 2026 15:19:17 +0000
-X-Mizu-Trace-ID: c7201d5f7500edcc
+Received: by smtp.migadu.com with ESMTPS id 9ade009b9b921e73;
+	Wed, 18 Nov 2026 15:19:20 +0000
+X-Mizu-Trace-ID: 9ade009b9b921e73
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -71,9 +71,9 @@ Cc: Will Deacon <will@kernel.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 03/13] irqchip/gic-v3: Disable GICv4 features in pKVM
-Date: Wed, 18 Nov 2026 15:18:54 +0000
-Message-ID: <20261118151904.4099560-4-fuad.tabba@linux.dev>
+Subject: [PATCH v4 04/13] irqchip/gic-v3-its: Page-align ITT allocations in pKVM
+Date: Wed, 18 Nov 2026 15:18:55 +0000
+Message-ID: <20261118151904.4099560-5-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118151904.4099560-1-fuad.tabba@linux.dev>
 References: <20261118151904.4099560-1-fuad.tabba@linux.dev>
@@ -91,107 +91,36 @@ Content-Transfer-Encoding: 8bit
 
 From: Bartłomiej Grzesik <bgrzesik@google.com>
 
-In subsequent patches the hypervisor takes the ITS from the host and
-checks each command the host queues. Those patches don't emulate the
-vLPI commands, as VMAPP's VPT_base, for one, is a host-chosen address
-the ITS and the redistributors write to.
+In a subsequent patch the host donates the pages of each device's ITT
+to the hypervisor. A page the hypervisor already owns can't be donated
+again, so the MAPD of a device whose ITT shares a page with another
+device's would be rejected.
 
-Clear has_vlpis and has_rvpeid at redistributor probe in protected mode,
-so the host never issues a vLPI command, and print that GICv4 is off.
-The host loses GICv4 direct injection for its non-protected guests, a
-feature that's off unless kvm-arm.vgic_v4_enable is set. A guest
-migrated from a host with GICD_TYPER2.nASSGIcap set can't be restored
-either, as KVM rejects that GICD_TYPER2 value without GICv4.1. Document
-the loss of direct injection in kernel-parameters.txt.
-
-Add gic_is_protected_kvm() to irq-gic-common.h to test for protected
-mode, as the ITS driver uses it too from the next patch on. It calls
-kvm_get_mode(), so the header now includes linux/kvm_host.h.
+Round each ITT up to whole pages in protected mode. This costs up to a
+page per MSI device, where several 256-byte ITTs would have shared one.
+That's tens of pages on a phone and thousands on a server with thousands
+of VFs.
 
 Signed-off-by: Bartłomiej Grzesik <bgrzesik@google.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- Documentation/admin-guide/kernel-parameters.txt |  8 +++++---
- drivers/irqchip/irq-gic-common.h                | 13 +++++++++++++
- drivers/irqchip/irq-gic-v3.c                    |  8 ++++++++
- 3 files changed, 26 insertions(+), 3 deletions(-)
+ drivers/irqchip/irq-gic-v3-its.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 0b3c140babd94..3e63e44609522 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3275,8 +3275,9 @@ Kernel parameters
- 				hardware (with FEAT_NV2).
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index c952c069f9373..bbfea565149bb 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -3493,6 +3493,9 @@ static struct its_device *its_create_device(struct its_node *its, u32 dev_id,
+ 	nr_ites = max(2, nvecs);
+ 	sz = nr_ites * (FIELD_GET(GITS_TYPER_ITT_ENTRY_SIZE, its->typer) + 1);
+ 	sz = max(sz, ITS_ITT_ALIGN);
++	/* The hypervisor takes whole pages for each ITT. */
++	if (gic_is_protected_kvm())
++		sz = PAGE_ALIGN(sz);
  
- 			Defaults to VHE/nVHE based on hardware support. Setting
--			mode to "protected" will disable kexec and hibernation
--			for the host. To force nVHE on VHE hardware, add
-+			mode to "protected" will disable kexec, hibernation and
-+			GICv4 direct LPI injection for the host. To force nVHE
-+			on VHE hardware, add
- 			"arm64_sw.hvhe=0 id_aa64mmfr1.vh=0" to the
- 			command-line.
- 			"nested" and "protected" are experimental and should be
-@@ -3296,7 +3297,8 @@ Kernel parameters
+ 	itt = itt_alloc_pool(its->numa_node, sz);
  
- 	kvm-arm.vgic_v4_enable=
- 			[KVM,ARM,EARLY] Allow use of GICv4 for direct
--			injection of LPIs.
-+			injection of LPIs. Has no effect when
-+			kvm-arm.mode=protected.
- 
- 	kvm-arm.wfe_trap_policy=
- 			[KVM,ARM] Control when to set WFE instruction trap for
-diff --git a/drivers/irqchip/irq-gic-common.h b/drivers/irqchip/irq-gic-common.h
-index 710cab61d9195..3ce1dc7abf648 100644
---- a/drivers/irqchip/irq-gic-common.h
-+++ b/drivers/irqchip/irq-gic-common.h
-@@ -10,6 +10,9 @@
- #include <linux/irqdomain.h>
- #include <linux/msi.h>
- #include <linux/irqchip/arm-gic-common.h>
-+#ifdef CONFIG_ARM64
-+#include <linux/kvm_host.h>
-+#endif
- 
- struct gic_quirk {
- 	const char *desc;
-@@ -29,6 +32,16 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
- void gic_enable_of_quirks(const struct device_node *np,
- 			  const struct gic_quirk *quirks, void *data);
- 
-+#ifdef CONFIG_ARM64
-+/* is_protected_kvm_enabled() can't be used, as the GIC probes before the cpucaps are final. */
-+static inline bool gic_is_protected_kvm(void)
-+{
-+	return kvm_get_mode() == KVM_MODE_PROTECTED;
-+}
-+#else
-+static inline bool gic_is_protected_kvm(void) { return false; }
-+#endif
-+
- #define RDIST_FLAGS_PROPBASE_NEEDS_FLUSHING    (1 << 0)
- #define RDIST_FLAGS_RD_TABLES_PREALLOCATED     (1 << 1)
- #define RDIST_FLAGS_FORCE_NON_SHAREABLE        (1 << 2)
-diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
-index 94873646d46fb..f02c568d95653 100644
---- a/drivers/irqchip/irq-gic-v3.c
-+++ b/drivers/irqchip/irq-gic-v3.c
-@@ -1123,6 +1123,14 @@ static void gic_update_rdist_properties(void)
- 	gic_iterate_rdists(__gic_update_rdist_properties);
- 	if (WARN_ON(gic_data.ppi_nr == UINT_MAX))
- 		gic_data.ppi_nr = 0;
-+
-+	/* pKVM doesn't emulate the vLPI commands. */
-+	if (gic_is_protected_kvm() && gic_data.rdists.has_vlpis) {
-+		pr_info("GICv4 features disabled in protected KVM mode\n");
-+		gic_data.rdists.has_vlpis = false;
-+		gic_data.rdists.has_rvpeid = false;
-+	}
-+
- 	pr_info("GICv3 features: %d PPIs%s%s\n",
- 		gic_data.ppi_nr,
- 		gic_data.has_rss ? ", RSS" : "",
 -- 
 2.47.3
 
