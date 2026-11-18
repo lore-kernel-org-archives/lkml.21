@@ -1,69 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795045089;
-	b=1XwjUY6bxrPsxR3KiKZpap3CEk9CetFhZLl4nG1RmyzOLcfdtCFrs4IP2h8wE5esrj93
-	 0AMBoYmaPzJaNqc1miWcHzjvJdXyopy1iNIwocLkZFIXO6DHwumZTtzcZr2XJ5PRcn8UB
-	 YtTTl5M/cAvt77zlvTKEcAtld1UHZH6BgrdT8E3FITdwEE2n5YPvLuORFolTrnyfS8SOp
-	 hml8UXP/JgS2yKCAKBiWsEKOlolngIr7y2sk91OVxsw8wzkiZQEKRYWIA/zgCNrA9ykxl
-	 aXvpr9+qouKfwjL9Vg2KZIxuv8vCWvPKVtRXa3aew5lvYi1VqsrYd0DQMVUiCcEXbEA==
+	t=1795045096;
+	b=QFf35xRBXr8JaGUuUo/adnQy4xh++ZYxo0xB1RPijiKrRmZsmaRtGTm81uZG4tGg7Wmp
+	 4LUKn8CkUvPJqyZY0bTBaHEg1sdDT0bIZgwWHXRR0L8tM7JwkYkYypDJnQLqqa/xYSyMJ
+	 5AhQ9TAkZr1ss+pEWFKPx7PPPRc2SMsGbd+XeLPEuT5ICeGrOnJaYrByqNWt+evTfdhgx
+	 2ZRe+HJE6Lo73QkX1cwQ01zlVOiIfR9CNI/voyyXmJ3rpJAquBKibczd3EKUUFL43Xtze
+	 zhdHqmtLVLHUNk4ADswrL49vpnvSawQufogrMBar9MjdSAVL/cTp2uMNji21MW/YVKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795045089;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=I9QM7AcXN+NGEFCpZazq539bp5laPCskln3LUMmzQl4=;
-	b=hKM3Qgl0NyaKT+6U1mZ4sW1f1uWDCEHqVVwK2BVQsbsnouRH/yxg09KgBhVBBFbWvIdx
-	 4yYm+QbJmrgjoGJcakIlD225L2AD0Co+XwMAqbvKy8Q85+HHh+iLai1pJTfHji8PZpfQz
-	 GAMMpn3X38hrKffdiEkfvzCEbl4eEE6c9SkiR5vqybrfvRDpp18jFv6dxd1P6OYv1MCr2
-	 XCVXJi7NWLXf6ugVG97c8Dh2DH81HCh1P/WPKfnrCnKVR67+Cyx8zES2Ns+48VYcBjd0z
-	 it9xOZzAfxoLox3MGrt3C9OhKZN88kfQOLcSg1MuztnKyfjdHnxXV1C46W67aB6R5Rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795045096;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=FyLwrv3tc6B65Jc/++V4whsnCokB7GcVr+TGSV7+NBU=;
+	b=dKoJPvB0q2FbrQmDDATCXUH8Z4QpUuG/PYS3/a45KF77MUtZxxnlyr+ewfwd1hSMlDtt
+	 /nn2ODoK4/TXoB1TEG3pxBTn0S8zeDIiWYdHiNhIu85rTmYe2iGal72TkEDiWXncHnK1Z
+	 vmtG7NPByYB2+LYSIEMul1ufqnUkksOuLesmjcw5GPgxdfNlx67N37e9vaMJLzcb8GsUi
+	 8QDOxscD6rxqW9c/vTYdUCVru94eO4MszWq+mViApZWwxWYQfAX0atNE+n/2Y4ebGFl5b
+	 d0g+OXPITDPdtOe1DeVNT7DyV5ii6f6zEcbA3Yn7fpvsmUo17ex0FsuNFxtvQzS18yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ko59BP5j;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=MVkfLde9;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A4D1606A335;
-	Wed, 18 Nov 2026 23:38:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32EF6606A33F;
+	Wed, 18 Nov 2026 23:38:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32EF6606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ko59BP5j
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4444D1F000C7;
-	Wed, 18 Nov 2026 23:38:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795045088;
-	bh=I9QM7AcXN+NGEFCpZazq539bp5laPCskln3LUMmzQl4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ko59BP5jz/U6b9VEqglkh310lLLTn+q/iGtd8d+hM8z4tdHNR+vYAO2/IBF/AZ5Fs
-	 wnIjhs9ufGpyTZtqM6T3nTWaN5/G9+COOOSbS0i099SZcH8w12gu7nO5XQCuTfOwdL
-	 UJ43mN3vxxPY7kYtA5bij9zZ+6SNjvhQDSceO6WKnKmIl7yef0sStl9Y6Ab3wQhg8c
-	 vFRgXkDotWe+VS7lrAB05Xnh94K5EgNvmW2pcNn7CC04As+3JUZwmqSY7fNkNXEKN6
-	 d5/x7qj2u0BOVcIu2efgCuLWO8VVn2kgJKLCnfqdzRtB7isawJgU4LuiRHe+ncTHdc
-	 W2vLXBkArpdvA==
-From: Danilo Krummrich <dakr@kernel.org>
-To: dakr@kernel.org,
-	aliceryhl@google.com,
-	daniel.almeida@collabora.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lossin@kernel.org,
-	gary@garyguo.net,
-	ojeda@kernel.org,
-	boqun@kernel.org,
-	bjorn3_gh@protonmail.com,
-	a.hindborg@kernel.org,
-	tmgross@umich.edu,
-	tamird@kernel.org,
-	acourbot@nvidia.com,
-	work@onurozkan.dev
-Cc: dri-devel@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] drm/tyr: use ScopeGuard for firmware loading cleanup
-Date: Thu, 19 Nov 2026 00:37:05 +0100
-Message-ID: <20261118233727.3147222-5-dakr@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118233727.3147222-1-dakr@kernel.org>
-References: <20261118233727.3147222-1-dakr@kernel.org>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=MVkfLde9
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=FyLwrv3tc6B65Jc/++V4whsnCokB7GcVr+TGSV7+NBU=; b=MVkfLde9Dlu1FWh2dcuIGYaNOq
+	yA9l+17kh9Mf37cKRxP7HEp2djsGEUxXw9FOb+RGgCJnJbSwpyL3PJ6R0EagQoJoznRdvnZc/05qh
+	dHRLnpMJQrLOTnExbSbcXlFIb0dzj07/UumVeGgVacb2Rhs9dAAlu2E+oeGVAXytpQ2I=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTpE4-00HWnP-29; Thu, 19 Nov 2026 00:38:04 +0100
+Date: Thu, 19 Nov 2026 00:38:04 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: github@bumblecito.com
+Cc: Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 1/2] net: sfp: add 2500base-X quirk for ODI
+ DFP-34X-2C3
+Message-ID: <b0f5b784-a02a-486b-9549-b368df67ed3b@lunn.ch>
+References: <20261118162323.436219-1-github@bumblecito.com>
+ <20261118162323.436219-2-github@bumblecito.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,103 +67,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118162323.436219-2-github@bumblecito.com>
 
-Use ScopeGuard to call vm.kill() when firmware section loading fails.
-Dismiss it on success, replacing the nested closure and explicit error
-check.
+On Wed, Nov 18, 2026 at 04:23:22PM +0000, github@bumblecito.com wrote:
+> From: Israel Cueto <github@bumblecito.com>
+> 
+> The ODI DFP-34X-2C3 XPON SFP module supports 2500Base-X.
+> 
+> Add a quirk to enable 2500Base-X support for this module.
+> 
+> Tested on a Horaco ZX-SWTGW2C8F switch with an ODI
+> DFP-34X-2C3 module. A 2500 Mb/s link was established
+> with speed and duplex forced and autonegotiation disabled.
+> 
+> Signed-off-by: Israel Cueto <github@bumblecito.com>
 
-Signed-off-by: Danilo Krummrich <dakr@kernel.org>
----
- drivers/gpu/drm/tyr/fw.rs | 59 ++++++++++++++++++---------------------
- 1 file changed, 27 insertions(+), 32 deletions(-)
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-diff --git a/drivers/gpu/drm/tyr/fw.rs b/drivers/gpu/drm/tyr/fw.rs
-index bd377875778b..755112959ee2 100644
---- a/drivers/gpu/drm/tyr/fw.rs
-+++ b/drivers/gpu/drm/tyr/fw.rs
-@@ -29,7 +29,8 @@
-     num::Bounded,
-     prelude::*,
-     str::CString,
--    time, //
-+    time,
-+    types::ScopeGuard, //
- };
- 
- use crate::{
-@@ -228,46 +229,40 @@ pub(crate) fn new<'a, 'res>(
-             sections: {
-                 let vm = vm.get_ref();
-                 vm.activate()?;
-+                let guard = ScopeGuard::new(|| vm.kill());
- 
--                let result: Result<_> = (|| {
--                    let (fw, parsed_sections) = Self::load(dev, ddev, gpu_info)?;
--                    let mut sections = KVec::new();
--                    for parsed in parsed_sections {
--                        let size =
--                            u64::from(parsed.va.end.checked_sub(parsed.va.start).ok_or(EINVAL)?);
-+                let (fw, parsed_sections) = Self::load(dev, ddev, gpu_info)?;
-+                let mut sections = KVec::new();
-+                for parsed in parsed_sections {
-+                    let size =
-+                        u64::from(parsed.va.end.checked_sub(parsed.va.start).ok_or(EINVAL)?);
- 
--                        let va = u64::from(parsed.va.start);
-+                    let va = u64::from(parsed.va.start);
- 
--                        let mut mem = KernelBo::new(
--                            ddev,
--                            vm,
--                            size,
--                            KernelBoVaAlloc::Explicit(va),
--                            parsed.vm_map_flags,
--                        )?;
-+                    let mut mem = KernelBo::new(
-+                        ddev,
-+                        vm,
-+                        size,
-+                        KernelBoVaAlloc::Explicit(va),
-+                        parsed.vm_map_flags,
-+                    )?;
- 
--                        let section_start = parsed.data_range.start as usize;
--                        let section_end = parsed.data_range.end as usize;
--                        let mut data = KVec::new();
-+                    let section_start = parsed.data_range.start as usize;
-+                    let section_end = parsed.data_range.end as usize;
-+                    let mut data = KVec::new();
- 
--                        // Ensure that the firmware slice is not out of bounds.
--                        let fw_data = fw.data();
--                        let bytes = fw_data.get(section_start..section_end).ok_or(EINVAL)?;
--                        data.extend_from_slice(bytes, GFP_KERNEL)?;
-+                    // Ensure that the firmware slice is not out of bounds.
-+                    let fw_data = fw.data();
-+                    let bytes = fw_data.get(section_start..section_end).ok_or(EINVAL)?;
-+                    data.extend_from_slice(bytes, GFP_KERNEL)?;
- 
--                        Self::init_section_mem(dev, &mut mem, &data)?;
-+                    Self::init_section_mem(dev, &mut mem, &data)?;
- 
--                        sections.push(Section { data, mem }, GFP_KERNEL)?;
--                    }
--
--                    Ok(sections)
--                })();
--
--                if result.is_err() {
--                    vm.kill();
-+                    sections.push(Section { data, mem }, GFP_KERNEL)?;
-                 }
- 
--                result?
-+                guard.dismiss();
-+                sections
-             },
-         })
-     }
--- 
-2.56.1
-
+    Andrew
