@@ -1,63 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021552;
-	b=losrcf7vXO+D/rpcEQiACQC6dmQmaAvVAxw6x0fDyYF4MgTqKai80DYLAm5E7o3fVVO8
-	 pDYi6JGDsr/TgXAeJSX6ctIaThKj9nSPBMFFBTU627kmvDioyhdiHA2rNJBZ7FxCh6hUk
-	 5dGwUyQ22OsfMhnBCKcYz61lq3oLxn8cdRywCy0jhmRo29OvwO6aaIw+Vo0ID68g601Ui
-	 LXyzcZq9H5m2pJgVYZgKxpgWPRmQbdvejq1wvMjhL9jY16Bphb1Q2EfAXxPx+J/NtIZsI
-	 nYOGM3tfE6bY4Jx6v76cmUc0d80gKwXo6rZiE0yXmLqGht6Ng1KGo0raxpiL2AwrDOA==
+	t=1795021562;
+	b=JaPLRgwWLpj4sP28xBLVZ+HdJvfPlkwKSm/XdpRhrgxJp4HM3GKh5HJ+40iYtD+N7GT3
+	 ii85vVDShZuO3HWGFEnS/ZymzrEYNAlmVq3suGKxfGI759rBVTq0rqF2rOEOiHDSQ5Cry
+	 oDPcK9qhuKNJyFPbIYWevZ/8MrwHzGcGfEyh0Keqwz0mlYZRLAAl3uWgkGCIBx+t8gj9E
+	 /iR4QAw6ZfIbrFbocb39Sz86SZtbWV+saCd3OyCzgJuJOnLgHQYlXDOyLXOIKGraTksff
+	 CM9Ss4KhQdoaIIaPlCRIdrDjncEql+BfrSlt3ITbvyALjlEzRfcnL0CarrAx1TNXVsQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021552;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Last-TLS-Session-Version;
-	bh=BzhgYa1unzhI3g0jhwkxjiti8vrG+zesnQxHS14lDbA=;
-	b=ZoTxh8/7ovyo4UvSDtIoI/pWpPVbAJ/NrXSowrwC8hPOEYDu0juy46YMs+RoxTHg9RGI
-	 DsjZ73+VNzNWNUtZHOoi4Yao1ZlWhPk8OTEwzCoeKSFGH+p8RlpqYRkIwQZhEhQ98KjHY
-	 dP+cLHDz4yE8c0h6eaz7rHdcyyqXLA5dypx88x3Zp4ybLhUBiu3MEkLsZYYFpjo1xQoxJ
-	 pn0YPkoIR3gf5FTqpO5Fw9S8SpndGbG61dAJh2Oyg2UAsRil/agmLDhwJCfrbPhAET+2O
-	 mlFzwgCSyAsmWt9KASH/8hZZVtPVLIrgXCU1qKsmXF5H3+Ze2ZeYxYNd5MS+SLdzhiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021562;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=u6MgyzFLN6jbopZSfbLVy87PbaNNPLfiPPyANJFnCQc=;
+	b=NrszpN9lc61HQKsOnFTsO4l3M4ug/jvnUiHvTnwz1ZMy2YDpFXGTnKLvLNkLmpOQ8yyG
+	 UcXwSEG33UAev4WBfjNFyjdx/ZGD0PC3q9lFo/rqto/qwjEqf4B+WWDOLlYyffZitqJtD
+	 Bkt1whEi2GKZ07YqWZCJMcQIrC9AU4Av6EqUYYD2/azL0m3QowT8np/iCIIGTv3whOagK
+	 Mzh3Z9Db174qnPb/3JbL+i3Nwa1a2zGGNgV8LLrgEYAo4QEYvXuQVhn+axXnKoRF+2F80
+	 aaPMK4BMceHiA0oViIahEOU/7GnwabwA5SzSRuG21YKEgzhO0MVggElhg0YmF6Ve+1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nabladev.com;
-	spf=pass smtp.mailfrom=nabladev.com;
-	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=TSRLCAOJ;
-	arc=none smtp.remote-ip=178.251.229.89
-Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=KGk42p6U;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B896E606A33B;
-	Wed, 18 Nov 2026 17:05:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B896E606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E4B4606A32C;
+	Wed, 18 Nov 2026 17:06:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E4B4606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=TSRLCAOJ
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1E05C10DF33;
-	Wed, 18 Nov 2026 18:05:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1795021539;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=BzhgYa1unzhI3g0jhwkxjiti8vrG+zesnQxHS14lDbA=;
-	b=TSRLCAOJxjhntG42pMnFewcIYIBx0ST9rWAgpGOdJOOL5mvLoVM0L8icYCWEzi1+FKetDm
-	5cS5gKSsbOQ6D2EFBvd5xRP0CnkSzyq9mpL/vR2YgiroKo8+V2FB3+7lYMHp9j1vdNpTcW
-	RZFaWub47zVxDnzyq8FcBhjd3dmy7ElqjDOIOqBGcksv4mCXK5DIaaLPLoE8KCJsv09XM2
-	IeeSYYomlhjZ07FDvLI2LGJHOk01hngYyNUPpy7NkwtyDKX6GCJAD+Pk2V0pHfdDkvgkYY
-	ROkE3IGvBDNI2pW1CVGZreCuRJnkjRLgVrOi81kZdG/QB73f0M3LGF3eW6drCg==
-Date: Wed, 18 Nov 2026 18:05:35 +0100
-From: Pavel Machek <pavel@nabladev.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
-Message-ID: <av3a38u7mlLN6yJL@duo.ucw.cz>
-References: <20261118145911.150052362@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=KGk42p6U
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B02C5C4F77B;
+	Wed, 18 Nov 2026 17:06:04 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C23105FE9B;
+	Wed, 18 Nov 2026 17:05:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BD15211BC29D6;
+	Wed, 18 Nov 2026 18:05:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795021553; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=u6MgyzFLN6jbopZSfbLVy87PbaNNPLfiPPyANJFnCQc=;
+	b=KGk42p6UIGYOb0yJuXx2rsSOsPEzjAVQgquw2ND05oOy3WAbB2w16yH71bajzXTXY2/R8R
+	JrIWCOISDUz9OJnMhyxAL9sdMQGdLfUkTAw7klwVBapw/G2JC6nIoXzxM0wB8zu889BU69
+	wlw70G+Pb+mPbYa8z/n/5FIeUwkPGzhyjPcp85/Lj3md6w5Cd+9qGq5cNsdHVWelOQ3lzW
+	c+InSUgruaxSMxVKWleFTitvvG63eqys+6ZAg/jGOYfOifcSLO+pnDyOEmQ4/Mv9pikFTk
+	nHpu3oNx6vHZ/d++iNeLRErlZBu/TOraZbjYQ+JcvK9XUG/Q0xX5aASXupVtDA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v12 00/10] clk: nuvoton: ma35d1: Fix mux parenting and
+ peripheral clock rates
+Date: Wed, 18 Nov 2026 17:59:09 +0100
+Message-Id: <20261118-perso-ma35d1-upstream-clk-v12-0-bee2c8dad4e1@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,83 +63,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="ih/tdEP5PrTSaNaH"
-Content-Disposition: inline
-In-Reply-To: <20261118145911.150052362@linuxfoundation.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43SzWrDMAwH8FcpPs9D8rd72nuMHWxHXsPapiRd2
+ Ch99zkdrBkJpkcJ/LP8ty5soL6lgW03F9bT2A5tdywFiqcNS7twfCfeNqXBBAgDDiU/UT90/BC
+ kbpB/noZzT+HA0/6DG51CygmDM5GV86eecvt1w1/fSr1rh3PXf9/uGvXU/VW98BV11By4cVpK8
+ lITqZfYded9e3xO3YFN7oh3qz7hiBw5WUeaDFpBYWmJ+VxYs0SZS4DPjRTBRYClJeeWrlmyWDn
+ HQJZAQHBLSz1sqcmSxltdMvOYl5aZWRJqlimWcl5aIpN8jEvL/lkIIGqWLVaKjS8jBSPsSl5ub
+ qma5YpFGBBMQOHSiuVnFlbz8sXCrJXLQZQn0Mp+wcMYwpSYTd5GrYIDv6Ld1xURXVXDosUGGyS
+ Y/t38167X6w/L1ERkwQMAAA==
+X-Change-ID: 20260813-perso-ma35d1-upstream-clk-65cacfc1a86b
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
+ stable@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
+I am in possession of an MA35D1 NuMaker board. The SPI controller has
+been contributed, but at this stage it does not work with the current
+clock driver.
 
---ih/tdEP5PrTSaNaH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The clock controller registers its muxes with .fw_name parent data,
+which requires every internal clock name to be declared in the DT. As
+the DT does not declare them, all parent lookups fail: muxes end up
+registered as root clocks and most peripherals read a zero rate.
 
-Hi!
+This conversion exposed a first issue with the WDT/WWDT parents which
+were actually missing in the clock driver. I am not using these clocks
+myself but it is worth fixing.
 
-> This is the start of the stable review cycle for the 5.10.275 release.
-> There are 1848 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+The second round of reviews raised another problem with the
+crystals. HXT and LXT are external crystal oscillators wired on the
+board, while HIRC and LIRC are on-chip RC oscillators. HXT was described
+whereas LXT was not. The series now also takes the two crystal inputs
+from the DT: they get documented in the bindings, described in the
+boards and looked up by the driver (with a fallback for backward
+compatibility).
 
-We get build failures here:
+Finally, I was still unsatisfied by the clock tree because there were
+too many root clocks. Many "gates" were wrongly set aside from the
+downstream clocks they would gate, and SYSPLL was simply not parented at
+all (?).
 
-https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/pipelines/3=
-084757694
-https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/tree/linux-=
-5.10.y
+The clock tree now looks much more accurate.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+Changes in v12:
+- Rebased on 7.4-rc2 because of the treewide allocator change, fixed
+  patch 3.
+- Link to v11: https://lore.kernel.org/r/20261118-perso-ma35d1-upstream-clk-v11-0-bd1d1e060926@bootlin.com
+
+Changes in v11:
+- Add a patch to fix the CCAP mux bus width.
+- Add comments stating that the HXT and LXT IDs are legacy clock IDs.
+- Collect R-by tag.
+- Dropped the DTS patches from the clock series.
+- Link to v10: https://lore.kernel.org/r/20261015-perso-ma35d1-upstream-clk-v10-0-47c97b54a809@bootlin.com
+
+Changes in v10:
+- Make sure muxes registration is device managed like all the other clocks.
+- Link to v9: https://lore.kernel.org/r/20261015-perso-ma35d1-upstream-clk-v9-0-1f548fa2002e@bootlin.com
+
+Changes in v9:
+- Create devm_clk_hw_register_fixed_rate_parent_hw().
+- Use the above helper to register SYSPLL.
+- Keep hws[HXT] available in the legacy case.
+- Propose myself for maintaining this driver.
+- Link to v8: https://lore.kernel.org/r/20261004-perso-ma35d1-upstream-clk-v8-0-e1a106a128c0@bootlin.com
+
+Changes in v8:
+- Fix an out-of-bound bug (syspll parenting structure was wrongly
+  defined).
+- Make sure HXT_GATE is validated before being reused (and possibly
+  dereferencced blindly by the core.
+- Link to v7: https://lore.kernel.org/r/20261002-perso-ma35d1-upstream-clk-v7-0-cbd991fa6270@bootlin.com
+
+Changes in v7:
+- Avoid opencoding core helpers, replace them with existing helpers
+  (mentioned by Jerome)
+- Rebased on top of clk-next since the first patches have been applied
+- Link to v6: https://lore.kernel.org/r/20260930-perso-ma35d1-upstream-clk-v6-0-48937ee6c9bb@bootlin.com
+
+Changes in v6:
+- Drop the clock output names entirely, they are not relevant.
+- Error out when the crystal providers defer probing.
+- Make sure gates are correctly parented.
+- Make sure SYSPLL is parented.
+- Link to v5: https://lore.kernel.org/r/20260929-perso-ma35d1-upstream-clk-v5-0-68533e935ee4@bootlin.com
+
+Changes in v5:
+- Fix the bindings wrt HXT and LXT.
+- Fix the DT descriptions of HXT and LXT.
+- Collect tags.
+- Link to v4: https://lore.kernel.org/r/20260925-perso-ma35d1-upstream-clk-v4-0-f3697553391f@bootlin.com
+
+Changes in v4:
+- I forgot to bump the clock counter in the driver after adding the two
+  new clocks in the bindings. Sashiko will keep complaining about the
+  incoherency though. Since binding and driver changes should be kept
+  separated, I cannot do both at the same time.
+- Link to v3: https://lore.kernel.org/r/20260925-perso-ma35d1-upstream-clk-v3-0-ffbae7e020a8@bootlin.com
+
+Changes in v3:
+- Drop the number of clocks from the binding, set it in the driver only
+- Split the binding/driver patches completely
+- Link to v2: https://lore.kernel.org/r/20260921-perso-ma35d1-upstream-clk-v2-0-209fd32a8b00@bootlin.com
+
+Changes in v2:
+- New patch 1/3: register the missing WDT/WWDT parent clocks
+- New patch 3/3: harden the code
+- Link to v1: https://lore.kernel.org/r/20260813-perso-ma35d1-upstream-clk-v1-1-e78e5e6172ea@bootlin.com
+
+---
+Miquel Raynal (10):
+      dt-bindings: clock: ma35d1: Mark HXT and LXT legacy
+      clk: nuvoton: ma35d1: Use clk_hw pointers as mux parents
+      clk: nuvoton: ma35d1: Avoid possible error pointer dereferencing
+      clk: nuvoton: ma35d1: Retrieve HXT/LXT from DT when possible
+      clk: nuvoton: ma35d1: Reparent the gates correctly
+      clk: nuvoton: ma35d1: Use device managed helpers for fixed rate clocks
+      clk: Create devm_clk_hw_register_fixed_rate_parent_hw()
+      clk: nuvoton: ma35d1: Reparent SYSPLL correctly
+      clk: nuvoton: ma35d1: Fix CCAP muxes bus width
+      MAINTAINERS: Add myself as Nuvoton MA35D1 clock controller
+
+ MAINTAINERS                                    |   8 +
+ drivers/clk/nuvoton/clk-ma35d1-divider.c       |   3 +
+ drivers/clk/nuvoton/clk-ma35d1-pll.c           |   3 +
+ drivers/clk/nuvoton/clk-ma35d1.c               | 716 +++++++++----------------
+ include/dt-bindings/clock/nuvoton,ma35d1-clk.h |   2 +
+ include/linux/clk-provider.h                   |  13 +
+ 6 files changed, 281 insertions(+), 464 deletions(-)
+---
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+change-id: 20260813-perso-ma35d1-upstream-clk-65cacfc1a86b
 
 Best regards,
-								Pavel
+-- 
+Miquel Raynal <miquel.raynal@bootlin.com>
 
-drivers/dma/ste_dma40.c: In function 'd40_handle_interrupt':
-2300
-15:17:13
-drivers/dma/ste_dma40.c:1695:8: error: too few arguments to function 'pm_ru=
-ntime_get_if_active'
-2301
-15:17:13
- 1695 |  ret =3D pm_runtime_get_if_active(base->dev);
-2302
-15:17:13
-      |        ^~~~~~~~~~~~~~~~~~~~~~~~
-2303
-15:17:13
-In file included from drivers/dma/ste_dma40.c:19:
-2304
-15:17:13
-=2E/include/linux/pm_runtime.h:42:12: note: declared here
-2305
-15:17:13
-   42 | extern int pm_runtime_get_if_active(struct device *dev, bool ign_us=
-age_count);
-2306
-15:17:13
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~
-2307
-15:17:13
-drivers/dma/ste_dma40.c: In function 'd40_hw_detect_init':
-2308
-15:17:13
-  CC      drivers/clk/imx/clk-pllv3.o
-2309
-15:17:13
-drivers/dma/ste_dma40.c:3306:11: warning: returning 'int' from a function w=
-ith return type 'struct d40_base *' makes pointer from integer without a ca=
-st [-Wint-conversion]
-2310
-15:17:13
- 3
-=20
-
---ih/tdEP5PrTSaNaH
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCav3a3wAKCRAw5/Bqldv6
-8pM8AJ9aZwC1BB337UtjjjfB5jxxK3RzUQCeO5mPImVqPf7Vn0RuWN/BwJJwjIw=
-=XRvI
------END PGP SIGNATURE-----
-
---ih/tdEP5PrTSaNaH--
