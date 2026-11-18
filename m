@@ -1,48 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005862;
-	b=4gAB7xQnzJvlvL4T/ZildfORa8c01YglNJfNODTvZ+gg2ZzlVRkLX7QtYSunyRdJdm4i
-	 3bikJSyzAXoytN9bUrVXtMsuF8O1Y1Nva/+0vz3GKu8xvFRHQ0cbhHAtvbVBhJTAqCVuB
-	 nXGvoLT5x6VkmXxguqxy8KImTQ+s4WskI+353L8iPJXN2H4cQWwe+6CUqfrwGuLH2byHr
-	 v/Ic5EC3otKuOBWErZczqIFzn8o44opwlGrXbYHuFAD0WyJONcZ7d9Ps4mmBYgdwWx3dz
-	 LLvPUKnLvVnWmq1D0uIx3H6j0M7QzEIxGxfrir4RlEc2RTsjpUYYSWdLNfREtSvp9/A==
+	t=1795005857;
+	b=1CQMCbIOJz8ql5n8/2U1bDT0q2T17fvB+u01VXC8cal3fbXsBK2X5hdVifYN2ePCl8PL
+	 Z721QTvu2WDfJKtX74JYVQ3NWnDWO0Zjt4bSWU5HVbOSYkK8IH7LG4cVYwnkUCSivDch1
+	 dWyMUxecM+cHobk1aNrco2D8JKhn1hjT0JXv5ViP+lAy6WsWogWpXzgs8SJJ+Hr0IUsFQ
+	 XvwyhWoLGFmNV8xgzmn3Kjy/6zN6/mlByflbVVwvMljTeuvD5pwUWDfoW07Bp4R09MiUc
+	 i8SOqiHVPvfARDeHu0ZdVRFW1r+j2cCyWvTQm2wWWVMXjjBESZtuoAsSguZBpN3CCWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005862;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005857;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=+6FVVfLaLS/hv3N8ozRjQvloBEXDQ0wQOQRvzOzy0Fs=;
-	b=Sgtlp1+gm9nXhGyXHjOyfhOGEVIojK7TVBS/bQsrXHys7GUoyIn6HbXed7FDQOz2xgWD
-	 3PXzZsjsrAypWCER/+sA9U+FX0mEzElbz7MCkWWX5Qr3vWr8tCXqrDZ03se91rGjgnUwe
-	 xFEf3A+E4J8gczXsA+C5OALv/7XoOLLD/fe7XY263VG5QQgGGfNmvzvZ1epnBMqPg09Kg
-	 urGGLdNYnOWvWyrnOpY9ozAA5XGOITpqlSY9i3GgtOgAZ7aO2VcPHkp6NU6LVc3ViEEWt
-	 rtrvY2iHx67MzLab1kyxjGCEmyWervR4SGogAfaAK7WImEJQd3yyf/xNjNrJUkSNeiQ==
+	bh=G6cu1Z82N/KT8p79LEvLWumkU68eKo4xwx6zpd/gmmE=;
+	b=l4qZwUkLGJ5FkQQ8Zv6RbJzvBFlfMfbKNm3JIcc6EVa4SSoZIGTsjyOdlWZ2AxDD4ymR
+	 YSj9zxplQKM+I6i8J4l6SQm4ygNl9EvX1D1sESFY3hhQTUnx82OIyxaGvJcRIEHBsJaar
+	 GPxIU9aRZSBUIsk5XkXyVLTQPFJOMOpINGsj4OWM4xDfVgfBg5qWQKbPOg8aH705IzSV7
+	 24NCqndXl7HMwDVnCco9iKnYr234f+X0o13s44mp8dcRDN204k284hUezVcbsT3XXuOvW
+	 bwUzuHs6FO+MdlEGYAzI9iQyavt0F7Ekginns8KC953iL7Cg/NTi9domKBx+qEQgAdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h3yoNtrt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ByKjxoI3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9A2B606A33B;
-	Wed, 18 Nov 2026 12:44:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF71D60A2612;
+	Wed, 18 Nov 2026 12:44:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h3yoNtrt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D59DE1F000C5;
-	Wed, 18 Nov 2026 12:44:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ByKjxoI3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45FB71F000C5;
+	Wed, 18 Nov 2026 12:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005862;
-	bh=+6FVVfLaLS/hv3N8ozRjQvloBEXDQ0wQOQRvzOzy0Fs=;
+	s=k20260515; t=1795005857;
+	bh=G6cu1Z82N/KT8p79LEvLWumkU68eKo4xwx6zpd/gmmE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=h3yoNtrtRbFltflX20fd9my23X2kNfuYCz3/YAWH2T3oinbKL/+7siUP+cDNYWUfJ
-	 Z4ykkwWaZd53sXvlWOF4IJxC61LAQAfXj3Cjuy/CV0K5jYUKt/d80uDO+mPkEwJlbC
-	 0+g3v5nq+/+ZtFxr7vhJBcb9OM0+IHEQJdPtqI1M+2Q31h6RMWg2/TseWE+Sut9tGj
-	 CJeJeif74kyDPgc/IoOEc+G3z9C3rX/GioPB2RExu3Tslkya3jRHUQB349PR714135
-	 GLd8nEqtrEeEV4+MwfNOrXYJPBpn8A+p7TQyVG0nqexLggNgw/tIegPV6d/8Tzu6D+
-	 bD/iye0JtBJwA==
+	b=ByKjxoI34jU+4UcernfSQGDTB/gmwUZS9TfWxme8ng12lXC+pKDrKlCHJOO5VyFbu
+	 eeCz7cJaW4dyHwZihxIDagIcfn7IxKofQH4yd5TC2US22b/gJzkyCuRIqYgvmap1qK
+	 XHarC6mNkDalZMjTyW46Dki76xxVgudSbwVR0GsG0G1y8mg3e5D3kfpZauGCtwGTDp
+	 hVFjT5St0CyAdlNRT1dh8m6pxPSQ1S2gZ7XidUPzqWGc/mlVX7oYfgI6yOa9IIrCbR
+	 abPiNPF+VaJPRVLL/yVYYwT2dBdPJCJ+eaRVyVBoKltOiqYC0xFQOJ4c/AxaeUbMFC
+	 A4RMNIs0CnnxA==
 From: Mattijs Korpershoek <mkorpershoek@kernel.org>
-Date: Wed, 18 Nov 2026 13:43:54 +0100
-Subject: [PATCH RFC v2 10/16] media: media.h: Add entity connection status
+Date: Wed, 18 Nov 2026 13:43:52 +0100
+Subject: [PATCH RFC v2 08/16] media: mc: Add
+ MEDIA_EVENT_ENTITY_REGISTRATION
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-v4l2-sensor-detect-v2-10-1bb1a445b556@kernel.org>
+Message-Id: <20261118-v4l2-sensor-detect-v2-8-1bb1a445b556@kernel.org>
 References: <20261118-v4l2-sensor-detect-v2-0-1bb1a445b556@kernel.org>
 In-Reply-To: <20261118-v4l2-sensor-detect-v2-0-1bb1a445b556@kernel.org>
 To: Hans Verkuil <hverkuil+cisco@kernel.org>, 
@@ -72,159 +73,69 @@ Cc: Mattijs Korpershoek <mkorpershoek@kernel.org>,
  Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5025;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1477;
  i=mkorpershoek@kernel.org; h=from:subject:message-id;
- bh=K8lJraMRKIl3wB0cnp6/Awfr4ldH/V+0EIfKdxrR/CA=;
- b=owEBbQGS/pANAwAKARkNHbRmThk1AcsmYgBq/Z2LPThPyuwIpky0wS2SiEkZIXLJ4Ye9wu/dY
- aEwZ+j5IDmJATMEAAEKAB0WIQQu6UKnth9qvlMTrQAZDR20Zk4ZNQUCav2diwAKCRAZDR20Zk4Z
- Neu0CADPP5NtAIB8N2SL/IYwBnl681aQ6oRpNXhY+VLIGgmPNIpBOGy606D8NzdemJxlTNquYXs
- AfXN80af3JGIw34YIHxowMstVQqiNLSxSsz4idOq+feR11LrVfuXqQpIQrMhefeL4FVgBxyXRXt
- c+vWcw0ZRwq7Q93YZUhtBBduQ045ZmIL1mb14zGwz8zMGHfhfIRgPDT72ZAco2n3B9LhvDOPNIv
- EnggNoNLVcIx++q5r5U1TyCGALMq+iqlHn65SYLPiyUcJxPw9YLhmWS5z6elm+O++IBX7+vdcj8
- Zag3Ggia8nxRPvE67MQrAtF/Bft7Eu8tPPb3MXdrJTVfcvzl
+ bh=/ow5W/ic0RXTNQHgmu6clXvJzQJun3gx9pBqQxHuVrU=;
+ b=owEBbQGS/pANAwAKARkNHbRmThk1AcsmYgBq/Z2LjxPorZZnTniyz9PgzgcAxs9Z0cY1XFV9C
+ 2vgeUg16S6JATMEAAEKAB0WIQQu6UKnth9qvlMTrQAZDR20Zk4ZNQUCav2diwAKCRAZDR20Zk4Z
+ NZENCACU/l0gv8wlOAVXuJfVE9lu7CtZ6rBYNb014K7rqGT3Tg6as2TB6iosMgFdV6Z6w4NDbRo
+ gKwmpiDMm7olZwa/wkdTfqjZrzKaLCL1tKz5kUJcreBikcv7OKydcOyQyTxEVe0XDInmGxVpqJX
+ 0cx2/bmzg832M8nudy++OK+kqhckPGDJLTFUM6b4SlkjB2cTY83pEXq9aozSATc3by8i+BiKLBj
+ TRyeOHl/gp5bT8fMPEQZr6lKXvhlG1FyGSeLmZq9/vkjS23M7dVyEMZTKQrZ26gREo9piHrS1wC
+ GEYIYs36KZ8jAtxhN6/LadGiHuTw3kGqyL8Y5GWy7XaKxDgC
 X-Developer-Key: i=mkorpershoek@kernel.org; a=openpgp;
  fpr=8234A35B45C0D26B31C1A2DA570338B018144F28
 
-Some elements in the media graph (such as camera sensors) can be
-physically disconnected/reconnected. Drivers may still probe in that
-case to have a complete media graph.
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
 
-Add a new entity field, named status, which reflects the connection
-status of that particular entity.
+Add a media event to tell a new media entity has been registered.
 
-This field is retrieved by userspace via the MEDIA_IOC_G_TOPOLOGY and
-can be updated from drivers via media_entity_set_status().
-
-When a status is not initialized, it's set to zero (STATUS_CONNECTED).
-This matches older media graphs were all entities are always connected.
-
-Signed-off-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 ---
- drivers/media/mc/mc-device.c |  1 +
- drivers/media/mc/mc-entity.c | 29 +++++++++++++++++++++++++++++
- include/media/media-entity.h | 20 ++++++++++++++++++++
- include/uapi/linux/media.h   |  6 +++++-
- 4 files changed, 55 insertions(+), 1 deletion(-)
+ drivers/media/mc/mc-device.c | 5 +++++
+ include/uapi/linux/media.h   | 9 ++++++++-
+ 2 files changed, 13 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/mc/mc-device.c b/drivers/media/mc/mc-device.c
-index 82f5676afbc0..71cdf079c8a8 100644
+index 98d323c89b41..82f5676afbc0 100644
 --- a/drivers/media/mc/mc-device.c
 +++ b/drivers/media/mc/mc-device.c
-@@ -307,6 +307,7 @@ static long media_device_get_topology(struct media_device *mdev,
- 		kentity.id = entity->graph_obj.id;
- 		kentity.function = entity->function;
- 		kentity.flags = entity->flags;
-+		kentity.status = entity->status;
- 		strscpy(kentity.name, entity->name,
- 			sizeof(kentity.name));
+@@ -746,6 +746,11 @@ int __must_check media_device_register_entity(struct media_device *mdev,
+ 	}
+ 	mutex_unlock(&mdev->graph_mutex);
  
-diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
-index 7938f785e2e3..c152d3a61d51 100644
---- a/drivers/media/mc/mc-entity.c
-+++ b/drivers/media/mc/mc-entity.c
-@@ -1530,6 +1530,35 @@ struct media_pipeline *media_entity_pipeline(struct media_entity *entity)
++	media_event_queue(mdev, &(struct media_event){
++		.type = MEDIA_EVENT_ENTITY_REGISTRATION,
++		.u.entity_reg.entity_id = entity->graph_obj.id,
++	});
++
+ 	return 0;
  }
- EXPORT_SYMBOL_GPL(media_entity_pipeline);
- 
-+void __media_entity_set_status(struct media_entity *entity, u32 status)
-+{
-+	struct media_device *mdev = entity->graph_obj.mdev;
-+
-+	/* Do nothing if the entity is not registered. */
-+	if (mdev == NULL)
-+		return;
-+
-+	lockdep_assert_held(&mdev->graph_mutex);
-+
-+	if (entity->status != status)
-+		entity->status = status;
-+}
-+EXPORT_SYMBOL_GPL(__media_entity_set_status);
-+
-+void media_entity_set_status(struct media_entity *entity, u32 status)
-+{
-+	struct media_device *mdev = entity->graph_obj.mdev;
-+
-+	/* Do nothing if the entity is not registered. */
-+	if (mdev == NULL)
-+		return;
-+
-+	mutex_lock(&mdev->graph_mutex);
-+	__media_entity_set_status(entity, status);
-+	mutex_unlock(&mdev->graph_mutex);
-+}
-+EXPORT_SYMBOL_GPL(media_entity_set_status);
-+
- struct media_pipeline *media_pad_pipeline(struct media_pad *pad)
- {
- 	return pad->pipe;
-diff --git a/include/media/media-entity.h b/include/media/media-entity.h
-index fa393e840669..1ec62793fc76 100644
---- a/include/media/media-entity.h
-+++ b/include/media/media-entity.h
-@@ -325,6 +325,10 @@ enum media_entity_type {
-  * @flags:	Entity flags, as defined in
-  *		:ref:`include/uapi/linux/media.h <media_header>`
-  *		(seek for ``MEDIA_ENT_FL_*``)
-+ * @status:	Entity connection status, as defined in
-+ *		:ref:`include/uapi/linux/media.h <media_header>`
-+ *		(seek for ``MEDIA_ENT_STATUS_*``).
-+ *		Access with media_entity_set_status()
-  * @num_pads:	Number of sink and source pads.
-  * @num_links:	Total number of links, forward and back, enabled and disabled.
-  * @num_backlinks: Number of backlinks
-@@ -352,6 +356,7 @@ struct media_entity {
- 	enum media_entity_type obj_type;
- 	u32 function;
- 	unsigned long flags;
-+	u32 status;
- 
- 	u16 num_pads;
- 	u16 num_links;
-@@ -1022,6 +1027,21 @@ static inline bool media_entity_is_streaming(const struct media_entity *entity)
- 	return false;
- }
- 
-+void __media_entity_set_status(struct media_entity *entity, u32 status);
-+
-+/**
-+ * media_entity_set_status - Set the connection status of an entity
-+ * @entity: The entity
-+ * @status: The new status (%MEDIA_ENT_STATUS_CONNECTED or
-+ *	                    %MEDIA_ENT_STATUS_DISCONNECTED)
-+ *
-+ * Update the entity's connection status.
-+ *
-+ * The entity must be registered with a media device. To set the initial
-+ * status before registration, assign entity->status directly.
-+ */
-+void media_entity_set_status(struct media_entity *entity, u32 status);
-+
- /**
-  * media_entity_pipeline - Get the media pipeline an entity is part of
-  * @entity: The entity
+ EXPORT_SYMBOL_GPL(media_device_register_entity);
 diff --git a/include/uapi/linux/media.h b/include/uapi/linux/media.h
-index b5275acad87f..ab1dea809879 100644
+index 24b6b3f75592..b5275acad87f 100644
 --- a/include/uapi/linux/media.h
 +++ b/include/uapi/linux/media.h
-@@ -302,12 +302,16 @@ struct media_links_enum {
- #define MEDIA_V2_ENTITY_HAS_FLAGS(media_version) \
- 	((media_version) >= ((4U << 16) | (19U << 8) | 0U))
- 
-+#define MEDIA_ENT_STATUS_CONNECTED		0
-+#define MEDIA_ENT_STATUS_DISCONNECTED		1
-+
- struct media_v2_entity {
- 	__u32 id;
- 	char name[64];
- 	__u32 function;		/* Main function of the entity */
- 	__u32 flags;
--	__u32 reserved[5];
-+	__u32 status;
-+	__u32 reserved[4];
+@@ -373,11 +373,18 @@ struct media_v2_topology {
+ 	__u64 ptr_links;
  } __attribute__ ((packed));
  
- /* Should match the specific fields at media_intf_devnode */
+-#define MEDIA_EVENT_ALL		0
++#define MEDIA_EVENT_ALL			0
++#define MEDIA_EVENT_ENTITY_REGISTRATION	1
++
++struct media_event_entity_reg {
++	__u32 entity_id;
++	__u32 pending;
++} __attribute__ ((packed));
+ 
+ struct media_event {
+ 	__u32 type;
+ 	union {
++		struct media_event_entity_reg entity_reg;
+ 		__u8 data[64];
+ 	} u;
+ 	__u32 reserved[8];
 
 -- 
 2.56.0
