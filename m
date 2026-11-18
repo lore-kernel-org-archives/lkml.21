@@ -1,112 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997767;
-	b=OOlWzCKD74JpeAFgxf3ZQ/Kd6yFHk5CkXdZiVqhM8zTkMUI6yw7KJotP0d6jFiWVlELI
-	 ROgkUvlaVBwTi+FZjglYkLyr/WKCC9WncJTgy7TKWAcVw2vU0G8KCWDofhRUePFDM4ogK
-	 cDXG+3Ni4vD137YKI9qdZYHtF6VfJzoyPw3qQYVBWVNgUxRvRtfqyvcsbAI8cmCX4Q+v9
-	 XOXCtk/BXDXQnGqGMK2PN77GY3SmRjoe9RDPgcV5kJOQ6q9CvkUWzq/tvp0RCVml8BhFL
-	 L8SHXVCGgRcwGqvf4p/8T0XOelhibszP1K3nsXuUXiRpz1SYshleMZ9Ieq1CZ2SH55A==
+	t=1794997832;
+	b=fb3c1aAK1cklj/mGtjebZZye3PWCBcbAoiIkNiZ/9fwVj1KjXwRj3G+mHqZhUHCojMs1
+	 tZW0WZnNNBqhy/FDnAEJFROS6yweI+wykBLqDHYV+D5OkDl4YSOHTZvCdVhQZmx5ryBRt
+	 VMPw5EOlMolLLh0tAxkLgrZb015wgLyVcGxv02qb8HARGj2i2/kjbOVD9oAotRrAfo6iB
+	 MOtfxaDhsw84y5R1t9LRak95rr/OpfOXvZa5kR/pdqoyQDMmmnc5pf2JlO3PZx2NpC0iH
+	 OtFoQuNG/STQ5T9IZhwXIjZie5cXMQD9Oi478bPpi+qSa5Lp2UvppzWRmN18QB2rF+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997767;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=;
-	b=cdpCID+NSYaZfo70oXjWTSnGzrYN7Yddd4hwUEDmmRxUHejyIHHIVCTVAYwuGSQtvhUu
-	 kECV4KWOEiJZsFyOuA3z1i49Sjoej8iS4mR7yC/dmQSqFAWHIC3FQwaqYYQZB3H5g75VG
-	 m4OVpJfmTEqN5vYU86PaGo8ZsQK/+88wN8utGBRP5hQQQU8EyqvYgYCKzk7FoxCnr8RZg
-	 1lH7NPyfxjmHLDDpRXokwR+aGK0zPXw6DycCrrZFczZFwM4R1mRnVMktLAocNAzYGJZhq
-	 OQMitXpITJ+FIg19gU+82oqOXQFqqI3sg1lchMzSRduVK8V4knH0x6d6fXuYoVxe4HQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997832;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ZFYle6KblLp4pMRurRVbM9XAwT6FbRg7IQe5ICogpZc=;
+	b=fYLmVcXOqgcK1zOmEMxWoaCEN39th0oYRuP/ul3MYMaCde1amo+E9D/MAkxwogRFY7Io
+	 tVwegfGdiMMvPs7/Gi5SVVII8kGibILJstaoL289YLSKXUxbM5WEd9PoLDILLgqxf7Vx4
+	 gcecW2s6+gIfpm2zt+WIosdnLJBZotABBmiFte9gOPCOhuSUL1ImvMw43A0CzyGRyY7wa
+	 cpcLFdHGN7CYAc0/sFJbE9+wSXSny0WqEYQSts5eoydTgUhfB90LbogQz3QwMVjFiAqFb
+	 y+6nmUyyd1nXw1LUTDOFaGGV7C0W/QSplhzZANjM4nRXx5feex9N0Mgc9vB94xKGi5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D4Nn3l1f;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J18DB677;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uAatVS1p;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95640606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:29:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95640606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB412606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:30:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB412606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D4Nn3l1f;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=J18DB677
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9kAYJ2398742
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:29:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=; b=D4Nn3l1febtFyFRi
-	pjY89QCokUB76gdIDWbw/Jlk2J2fk/Lkphk6iJW4JJRmCCtq8eTHfdWy464JwlwC
-	s5eclJPHNEJKDxXMGplCyXEQU39bmxmXJSNVBlSa4AVZzm4/PVzI4vHFgqbBfsDK
-	rLMg9Zqo9CMqcOxWOMuLeFVokEVcp0JenBm8AEy0nuQODmRZrOfYn/psrGUvZgbz
-	ZL/uP+nYACkMN94hCrPb1eaPeqbMcmv5gO7VNgsTnh1WkREz76uVbpaxhSvOeKkd
-	gTNyzgDL4qmmqYe9JrGgrPHK2ER5BbLtDG6K/p7H38mWQx3ROy7ajCI9nVh+WmNg
-	eks9sQ==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv92jmd-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:29:25 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2ed2c307e62so11132665ad.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:29:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uAatVS1p
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso7586665e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:30:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794997765; x=1795602565; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=;
-        b=J18DB677osKq2zpxOq6sSxfpANEcR08Tjnl0NrdRgo9kAa2dEz8aHjUrneXm78uz1d
-         r0rVORWgAnPIE7/avsfqAqbihLb1ZfFwBtr3GNKBUuOqERwnyd/sWtxy9sJGNQugB7yp
-         moOF4o4QC3VBL/qslMIAk4VRwhmvLVjGsKzghsxHqXgX/ATZ6X4IAaoB0LikXfZpisG+
-         p4SDN/JuPNneZfy1siQFrDNbvLRtsRD+BV22zHLMNNCpW16Pty+sYnzuuqzlH0qJqkSJ
-         JL263jJ38IqlaHk6gkj0eXjUDnSzs/KM/9NWhdmEcWPi7dcZLBSSYSPjIAobGGc7Emd6
-         EDdA==
+        d=gmail.com; s=20260707; t=1794997830; x=1795602630; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZFYle6KblLp4pMRurRVbM9XAwT6FbRg7IQe5ICogpZc=;
+        b=uAatVS1pICWhh2yIqaUAXDLIMc0ZHMlELMNRzwjpIclFx+LoC0ohfCo361ezZ80LY4
+         zE1nA2S40seW4kNMmjBAtGig/Dg5XUJ2ahF3n/kL7AyqndKfaazJm01QBoIEEfYXmC9N
+         bioFHuBMHolD/d09iFTxxHKp9fZHXBbs2OgQFcPDuto4aOl6CrK3Pn179NMaifdFlPPw
+         K0jSgeZUUT1ZwFLZ6pW5OAXEJ5NasznwsoiYqgtkrh/WDtqdscPt0XwF+LXqrS66q01B
+         4mJw7APgVFOJE7+H9vDF6lC6tl5E0ybadmBZo17H71LJcezN+J4r6LS+2GfJVMNSwJBQ
+         TVEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997765; x=1795602565;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F7HShi/pVHNTYdg2FinqmbYKeZfV6jrr8hz1Nm2p0Qw=;
-        b=F5nX1Gdb18UEv1cMFBN9RLosN0z2wCRe9wXbpME8AfjqcS4dayWmqsL909BItsNdkF
-         1FO3fPeIEMqlHNo97RoMUO3yqzhZtXS3lE41EpHd7Jn5tzF4k/mvk3BqovDC3KqHrigr
-         If0FR5p0Z3Jt1jHL+QfC2Nl/Y51/snB19qhrU4IH1onqlbRSqZS9vKdiBPvRU5ByTGd1
-         a2gER9vxD2kFXzYv9lOzFRo6z3Ng2WuMxRyRTTEqQ1grdxaO+SZFhYRXU/b+BAVNG8vM
-         GPLAY5vBv6onMoIKrJSHftqQ0pWIph3wA4i0QB9nuCF2wxT+5FamxAI+3ecNGobfO1Q/
-         W4Lg==
-X-Forwarded-Encrypted: i=1; AL+hErGnGlcpus2CFrbH6T/QQwSUqKcCI378xdk4Pv8ikoq9Qj080mAPAgEqAIw3c7KADOjuzxbyh4PO2L08fTE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/QBq1Hj183nDyO2f3m08W/mCan/S7SQrkOdPyVlcO8sQauhJf1
-	Mds/PNnYyI13Ox4IB2j6qBAYFSpamQkdWGq1T5lnTDxo14a/ruI6ijfC3iPK04COaTPLjuVzPhs
-	rg/PByo2qJFhtk/3YqSGyUyyViW6Em1qX2wGJ2UDqi6hy8DYh79+8WCqcoNMPW4ycMpM=
-X-Gm-Gg: AZFdTZf7+K1YbW7fKQshYFfmY8iyE4LukJSk3f2wFY9c5Dds25DfpQJwGvGtSmWjZ1Z
-	k7rezoSVdWRCLD1sO2mTsH4bG/W5Ul6jSd4np29aBwzXbF2kKbFtzmgLjpJWCacsezi6ghK3LQ1
-	hqB7/ItYsFOi9rKNdLBn905cqzV6k7Xed4hdKCkOW0Elahq5DEUVcb0rAfaiFwpbsiEygscPeLF
-	q8fvK8rahBWQVnyi5AGGedfS/pbdK7O7nlNuheZ3axNYZu5PrCnIUnY6/mGBS1HYQ0NzoXcITl9
-	VP2ha6CJaOSpZyWvT/HI247t35gyjEI2dvit0szry8Xknf02xhEE0nDWT/G7ZtW0KA4yxaAQFr5
-	ml9EYT1AkGL1KbLjRXSqOtWYNz9xce+/qjZsrNXzWWCEgRbueN0TJ8lSG6Q3TYybs860YdJOGem
-	kHGMLi4rIXYJp6d3t7Zk+N7y9Inb8mF5yIG5otayeAwnsBw8KcB9/sIRlVIlD2HQ==
-X-Received: by 2002:a17:903:244f:b0:2ed:379:158d with SMTP id d9443c01a7336-2eff73f1eefmr24169825ad.9.1794997764914;
-        Wed, 18 Nov 2026 02:29:24 -0800 (PST)
-X-Received: by 2002:a17:903:244f:b0:2ed:379:158d with SMTP id d9443c01a7336-2eff73f1eefmr24169625ad.9.1794997764427;
-        Wed, 18 Nov 2026 02:29:24 -0800 (PST)
-Received: from [10.149.122.146] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6115452sm11186825ad.16.2026.11.18.02.29.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 02:29:23 -0800 (PST)
-Message-ID: <cc64e5f0-fb82-41eb-8f26-6dfab7cd0791@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 15:59:18 +0530
+        d=1e100.net; s=20260707; t=1794997830; x=1795602630;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZFYle6KblLp4pMRurRVbM9XAwT6FbRg7IQe5ICogpZc=;
+        b=Xiigsi1Eblt8bU7AFIBOGRSmqpI1eQfV/MJXlGFLwwdutpqiAEH5YhkI/XxsKOjmrc
+         cRo9+TelUoIo3KClC4NC7YI/UvGbkdqu8vEghB9p9M1CrERj07jY0cS7ooGkmnT4/Lni
+         sMrlmfHmFFJ8JjM3TEml16qmUcFzHOCGBwAFNsI/uXsmaJ02n/nCy+NZiydqfKCGnEON
+         IhBnUDH010CufZFRNkZyGoE+bbk3B9CQ6BhK7pKmyrGlR8T7I5xyVJA+BnHcmYr95eqx
+         tOuxHCdNZxr+zSmABVSAdm+S6EI9r3+om8Y2E2/ucSimS+oIewbFILhBSmUGTV1gZgZs
+         ErlQ==
+X-Forwarded-Encrypted: i=1; AL+hErG9N92uNiVLOMNCd11w3Joo+g+Ea4hRXXRF3qVmkBHrSP8cHLhhH0g60ImJ2qtuyM/cmyQYML88yfWDqAs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/d1LJ7IvNxxyly7AZa+WvsHg+pSUKDawtC3Cwy5r32EuYngU67
+	H/oqdmxeUR/Fud1+295mKCtNHhEQO6u2XvKqwvPDQQ6rQ61D82LUbFIZ
+X-Gm-Gg: AYBFou0lutDL/mwjBHcqH0dBo0h1zrLLlpbbBLeWaBm70pGrClXcGPYBnPfs5k4iQJw
+	CmZCEQenFI9TSv+WDgZMfd9VseJEdncO3Brb6C36Oq+fMo0IET8c20AQzgAyf6ufvwZin0X0dDE
+	Rtam+81iZP4pJlXTI9MiEDPTzOYUwBiUjP9CUCzp6qR6vko5QJw5I1H7uA+nsaYI09S1L2ToOdG
+	8rgxsLjYROgm22ruNYfOxt3Vt17w+ZxARqJ0YNzCHQDtb70LiQ8iC1+p+Vaw3cObIYi4hjNNTBc
+	RuVSTSpZjuskRMifX9/tO0jAPheydTCU6Qo8F4TE4jm6YnKTa6/WefvfxLGRFmAa/QSARPe/IwJ
+	c5o7PoIUi/VO4R+Qi0+osq0EvuiV8pn1svpppHwOf2dkHLJMYBp4f5Oi+baNB4syPdWFuvStJWw
+	zrGHT0X0LzIvzf5akrlb88PXN3MhR+S47jjbm250alMy++a6DxU71X4t/DsYyQYDkiMxiRBtMtE
+	MuTy30qQEo55z9PCJ63eoS08ssaggzsSxb2cQrMeXRvEvNuQ2Tsivloj+XzgRh+eORDrdS9aQoz
+	J95b42rT6o+i16VUTmW3x5OefaJk+C3C0WDtTZ7SHFm8syBIKyxPvMsALfXATQNKmbr1zUbzFY+
+	oKsNTeplXEZs=
+X-Received: by 2002:a05:600c:b99:b0:4ba:6d8:dfad with SMTP id 5b1f17b1804b1-4bb7da1aa22mr38586795e9.14.1794997830101;
+        Wed, 18 Nov 2026 02:30:30 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d257112sm49503835e9.2.2026.11.18.02.30.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:30:29 -0800 (PST)
+Date: Wed, 18 Nov 2026 10:30:27 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, "Masami Hiramatsu (Google)"
+ <mhiramat@kernel.org>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+ Christian Brauner <brauner@kernel.org>, Breno Leitao <leitao@debian.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Sang-Heon Jeon
+ <ekffu200098@gmail.com>, Wilson Felipe Pereira <wfelipe@google.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] init: Use scnprintf() to simplify setup_command_line()
+Message-ID: <20261118103027.33256f2b@pumpkin>
+In-Reply-To: <20261117234805.551734-2-blum@kernel.org>
+References: <20261117234805.551734-2-blum@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,279 +103,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] remoteproc: qcom: pas: Add coredump support for
- secondary processors
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Sibi Sankar <sibi.sankar@oss.qualcomm.com>
-References: <20261015-oob-support-glymur-v2-0-715435f52dd7@oss.qualcomm.com>
- <20261015-oob-support-glymur-v2-3-715435f52dd7@oss.qualcomm.com>
- <20261117081011.jcuxog7ixwbfbyce@hu-mojha-hyd.qualcomm.com>
-Content-Language: en-US
-From: Anvesh Jain P <anvesh.p@oss.qualcomm.com>
-In-Reply-To: <20261117081011.jcuxog7ixwbfbyce@hu-mojha-hyd.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0MSBTYWx0ZWRfXwjBkH8ad9HOe
- ElCrx197jcEEYY9p41UtG6UrRik41dp8VJVggVc7IIbtLimXZ/WY/9Rjc3CVXfvQuOV//4n8Ep/
- FKetDknWEamuky+Izm7Fa8yLodFR+XAUxG2/rw68ETqhMd+sV5er5n0aqsTf3B37lDHo34jGIxw
- NuXSKDqqwRBhlD5BVVK61e5FsH3g96ZuRIOXoXI7LXMz+KIPb/1kUJe2h7wRkvVBaKq9UaXXm/F
- oasBvkU+2VXpH3caT6TiWWm+keF4uwpm82fGiJ6HDbfgol8qnuCc4UyDF770ZXpjWCoFGP97F46
- CJNcfq9l6IGg6YVIxaaaJ1KF0E+YnBLPsuHhCP3BQrdi/oH0mJBHAsTCyxrjSHhsDcyxlXvBybf
- bKrmnORxhRs7U2vhbCcAH9cGSsgxn2gOvWUSSfc8PpAO0Gnm/yrooXQevU9k5O1jvQSEnQw4bH0
- hdevGjHH78bCQ8WCxuA==
-X-Proofpoint-GUID: 9KeIj8Zd9Zd1JgOzcqpvrzgkf6NDziXB
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0MSBTYWx0ZWRfXy2SjhZw2NzB1
- qIE3zBuHlPqF63eNpHF+KqClg1IyYCEtqInLulW6q1x5O3ses+SP0BZOd//FgAQV+VpHNSCg5t/
- Zu1YlzGqmImnV809VUIWUZ5Y7bXLZfE=
-X-Authority-Analysis: v=2.4 cv=LuQHWXdc c=1 sm=1 tr=0 ts=6afd7e05 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=xb-HvuPonZpJoasvX4gA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-ORIG-GUID: 9KeIj8Zd9Zd1JgOzcqpvrzgkf6NDziXB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 malwarescore=0 suspectscore=0 clxscore=1015
- adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180041
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
+On Wed, 18 Nov 2026 00:48:04 +0100
+Thorsten Blum <blum@kernel.org> wrote:
 
-
-On 11/17/2026 1:40 PM, Mukesh Ojha wrote:
-> On Thu, Oct 15, 2026 at 11:25:51AM +0530, Anvesh Jain P wrote:
->> Add coredump support for PAS remoteproc instances with a secondary
->> processor by registering fixed dump segments for both primary and
->> secondary carveouts at probe time and mapping them during collection.
->> The attached-state path is for debug dump collection and does not
->> provide operational device recovery.
->>
->> Signed-off-by: Anvesh Jain P <anvesh.p@oss.qualcomm.com>
->> ---
->>  drivers/remoteproc/qcom_q6v5_pas.c | 102 +++++++++++++++++++++++++++++++++----
->>  1 file changed, 91 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/remoteproc/qcom_q6v5_pas.c b/drivers/remoteproc/qcom_q6v5_pas.c
->> index 0bce2f0d5b4a..374cafd04b62 100644
->> --- a/drivers/remoteproc/qcom_q6v5_pas.c
->> +++ b/drivers/remoteproc/qcom_q6v5_pas.c
->> @@ -117,6 +117,7 @@ struct qcom_pas {
->>  	phys_addr_t region_assign_phys[MAX_ASSIGN_COUNT];
->>  
->>  	void __iomem *mem_region;
->> +	void __iomem *secondary_mem_region;
->>  
->>  	size_t mem_size;
->>  	size_t dtb_mem_size;
->> @@ -162,6 +163,28 @@ static void qcom_pas_segment_dump(struct rproc *rproc,
->>  	memcpy_fromio(dest, pas->mem_region + total_offset, size);
->>  }
->>  
->> +static bool qcom_pas_has_secondary(const struct qcom_pas *pas)
->> +{
->> +	return pas->secondary_pas_id && pas->secondary_dtb_pas_id;
->> +}
->> +
->> +static int qcom_pas_register_dump_segments(struct rproc *rproc,
->> +					   struct qcom_pas *pas)
->> +{
->> +	int ret;
->> +
->> +	ret = rproc_coredump_add_segment(rproc, pas->mem_phys, pas->mem_size);
->> +	if (ret)
->> +		return ret;
+> strcpy() has been deprecated [1] because it performs no bounds checking
+> on the destination buffer, which can lead to buffer overflows.
 > 
-> Why qcom_register_dump_segments() already does this ? why need to
-> add entire region ? please modify qcom_register_dump_segments()
-> according to your need.
->
-
-Ack, I will remove the whole-carveout segment and use
-qcom_register_dump_segments() for the firmware segments.
-
->> +
->> +	ret = rproc_coredump_add_segment(rproc, pas->secondary_mem_phys,
->> +					 pas->secondary_mem_size);
->> +	if (ret)
->> +		rproc_coredump_cleanup(rproc);
->> +
->> +	return ret;
->> +}
->> +
->>  static void qcom_pas_minidump(struct rproc *rproc)
->>  {
->>  	struct qcom_pas *pas = rproc->priv;
->> @@ -577,16 +600,38 @@ static int qcom_pas_stop(struct rproc *rproc)
->>  static void *qcom_pas_da_to_va(struct rproc *rproc, u64 da, size_t len, bool *is_iomem)
->>  {
->>  	struct qcom_pas *pas = rproc->priv;
->> -	int offset;
->> +	phys_addr_t base;
->> +	void __iomem *region;
->> +
->> +	if (da >= pas->mem_reloc && len <= pas->mem_size &&
->> +	    da - pas->mem_reloc <= pas->mem_size - len) {
->> +		base = pas->mem_reloc;
->> +		region = pas->mem_region;
->> +	} else if (da >= pas->mem_phys && len <= pas->mem_size &&
->> +		   da - pas->mem_phys <= pas->mem_size - len) {
->> +		base = pas->mem_phys;
->> +		region = pas->mem_region;
->> +	} else if (da >= pas->secondary_mem_reloc &&
->> +		   len <= pas->secondary_mem_size &&
->> +		   da - pas->secondary_mem_reloc <= pas->secondary_mem_size - len) {
->> +		base = pas->secondary_mem_reloc;
->> +		region = pas->secondary_mem_region;
->> +	} else if (da >= pas->secondary_mem_phys &&
->> +		   len <= pas->secondary_mem_size &&
->> +		   da - pas->secondary_mem_phys <= pas->secondary_mem_size - len) {
->> +		base = pas->secondary_mem_phys;
->> +		region = pas->secondary_mem_region;
->> +	} else {
->> +		return NULL;
->> +	}
->>  
->> -	offset = da - pas->mem_reloc;
->> -	if (offset < 0 || offset + len > pas->mem_size)
->> +	if (!region)
->>  		return NULL;
->>  
->>  	if (is_iomem)
->>  		*is_iomem = true;
->>  
->> -	return (__force void *)pas->mem_region + offset;
->> +	return (__force void *)region + (da - base);
->>  }
->>  
->>  static int qcom_pas_parse_firmware(struct rproc *rproc, const struct firmware *fw)
->> @@ -598,10 +643,21 @@ static int qcom_pas_parse_firmware(struct rproc *rproc, const struct firmware *f
->>  	size_t table_sz;
->>  	int ret;
->>  
->> -	ret = qcom_register_dump_segments(rproc, fw);
->> -	if (ret) {
->> -		dev_err(pas->dev, "Error in registering dump segments\n");
->> -		return ret;
->> +	if (qcom_pas_has_secondary(pas)) {
->> +		if (list_empty(&rproc->dump_segments)) {
->> +			ret = qcom_pas_register_dump_segments(rproc, pas);
->> +			if (ret) {
->> +				dev_err(pas->dev,
->> +					"failed to register dump segments: %d\n", ret);
->> +				return ret;
->> +			}
->> +		}
->> +	} else {
->> +		ret = qcom_register_dump_segments(rproc, fw);
->> +		if (ret) {
->> +			dev_err(pas->dev, "Error in registering dump segments\n");
->> +			return ret;
->> +		}
->>  	}
->>  
->>  	if (!rproc->has_iommu)
->> @@ -716,13 +772,21 @@ static void qcom_pas_coredump(struct rproc *rproc)
->>  {
->>  	struct qcom_pas *pas = rproc->priv;
->>  
->> -	pas->mem_region = qcom_pas_ctx_map(pas->pas_ctx);
->> +	if (!pas->mem_region)
->> +		pas->mem_region = qcom_pas_ctx_map(pas->pas_ctx);
->>  	if (!pas->mem_region)
->>  		return;
->>  
->> +	if (qcom_pas_has_secondary(pas) && !pas->secondary_mem_region) {
->> +		pas->secondary_mem_region =
->> +			qcom_pas_ctx_map(pas->secondary_pas_ctx);
->> +		if (!pas->secondary_mem_region) {
->> +			dev_err(pas->dev, "unable to map secondary memory for coredump\n");
->> +			return;
->> +		}
->> +	}
->> +
->>  	rproc_coredump(rproc);
->> -	iounmap(pas->mem_region);
+> Use scnprintf() to format the saved and static command lines while
+> taking their buffer sizes into account. Use scnprintf()'s return value
+> to keep track of saved_command_line_len and avoid extra strlen() calls.
 > 
-> There was a region it was unmapped once done to avoid speculative fetch access.. we can't keep
-> it mapped all the time..
->
->
-
-Ack, I’ll unmap the PAS region after coredump collection.
-
->> -	pas->mem_region = NULL;
->>  }
->>  
->>  static const struct rproc_ops qcom_pas_ops = {
->> @@ -1133,6 +1197,12 @@ static int qcom_pas_probe(struct platform_device *pdev)
->>  	if (desc->early_boot)
->>  		pas->rproc->state = RPROC_DETACHED;
->>  
->> +	if (qcom_pas_has_secondary(pas)) {
->> +		ret = qcom_pas_register_dump_segments(rproc, pas);
->> +		if (ret)
->> +			goto remove_ssr_sysmon;
->> +	}
+> No functional change.
 > 
-> For early boot, we don't even have support for the primary image
-> itself for the first crash as we did not load for its first boot
-> up. So, this is new and you don't have check why do we need it in
-> probe whether it is early booted subsystem or loaded by linux
-> Also, not sure if it is right to dump entire memory region.
->
-
-
-Ack, I will remove probe-time registration and add only firmware-derived
-dump segments when the firmware is available.
-
->> +
->>  	ret = rproc_add(rproc);
->>  	if (ret)
->>  		goto remove_ssr_sysmon;
->> @@ -1144,6 +1214,7 @@ static int qcom_pas_probe(struct platform_device *pdev)
->>  	return 0;
->>  
->>  remove_ssr_sysmon:
->> +	rproc_coredump_cleanup(rproc);
->>  	qcom_remove_ssr_subdev(rproc, &pas->ssr_subdev);
->>  	qcom_remove_sysmon_subdev(pas->sysmon);
->>  deinit_remove_pdm_smd_glink:
->> @@ -1169,6 +1240,15 @@ static void qcom_pas_remove(struct platform_device *pdev)
->>  		of_platform_device_destroy(&pas->bam_dmux->dev, NULL);
->>  
->>  	rproc_del(pas->rproc);
->> +	rproc_coredump_cleanup(pas->rproc);
->> +	if (pas->secondary_mem_region) {
->> +		iounmap(pas->secondary_mem_region);
->> +		pas->secondary_mem_region = NULL;
->> +	}
->> +	if (pas->mem_region) {
->> +		iounmap(pas->mem_region);
->> +		pas->mem_region = NULL;
->> +	}
->>  
->>  	qcom_q6v5_deinit(&pas->q6v5);
->>  	qcom_pas_unassign_memory_region(pas);
->>
->> -- 
->> 2.34.1
->>
+> Link: https://www.kernel.org/doc/html/latest/process/deprecated.html#strcpy [1]
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
+> ---
+>  init/main.c | 54 +++++++++++++++++++++++------------------------------
+>  1 file changed, 23 insertions(+), 31 deletions(-)
 > 
+> diff --git a/init/main.c b/init/main.c
+> index 8a6c3b4f1d5e..0c3bc7efe0f4 100644
+> --- a/init/main.c
+> +++ b/init/main.c
+> @@ -669,36 +669,31 @@ static inline void smp_prepare_cpus(unsigned int maxcpus) { }
+>   */
+>  static void __init setup_command_line(char *command_line)
+>  {
+> -	size_t len, xlen = 0, ilen = 0;
+> +	size_t xlen = 0, ilen = 0;
+> +	size_t saved_cmdline_size;
+> +	size_t static_cmdline_size;
+>  
+>  	if (extra_command_line)
+>  		xlen = strlen(extra_command_line);
+>  	if (extra_init_args) {
+> -		extra_init_args = strim(extra_init_args); /* remove trailing space */
+> -		ilen = strlen(extra_init_args) + 4; /* for " -- " */
+> +		extra_init_args = strim(extra_init_args);
+> +		ilen = strlen(extra_init_args) + strlen(" -- ");
+>  	}
+>  
+> -	len = xlen + strlen(boot_command_line) + ilen + 1;
+> +	/* Keep bootconfig kernel parameters before any "--" separator. */
+> +	saved_cmdline_size = xlen + strlen(boot_command_line) + ilen + 1;
+> +	saved_command_line = memblock_alloc_or_panic(saved_cmdline_size, SMP_CACHE_BYTES);
+> +	saved_command_line_len = scnprintf(saved_command_line, saved_cmdline_size, "%s%s",
+> +					   extra_command_line ?: "", boot_command_line);
 
--- 
-Best Regards,
-Anvesh
+I think all the lengths are known (and used for the alloc) so the
+code might as well uses memcpy().
+	blen = strlen(boot_command_line);
+	...
+	if (xlen)
+		memcpy(saved_command_line, extra_command_line, xlen);
+	memcpy(saved_command_line + xlen, boot_command_line, blen + 1);
+(etc)
+
+David
+
+>  
+> -	saved_command_line = memblock_alloc_or_panic(len, SMP_CACHE_BYTES);
+> -
+> -	len = xlen + strlen(command_line) + 1;
+> -
+> -	static_command_line = memblock_alloc_or_panic(len, SMP_CACHE_BYTES);
+> -
+> -	if (xlen) {
+> -		/*
+> -		 * We have to put extra_command_line before boot command
+> -		 * lines because there could be dashes (separator of init
+> -		 * command line) in the command lines.
+> -		 */
+> -		strcpy(saved_command_line, extra_command_line);
+> -		strcpy(static_command_line, extra_command_line);
+> -	}
+> -	strcpy(saved_command_line + xlen, boot_command_line);
+> -	strcpy(static_command_line + xlen, command_line);
+> +	static_cmdline_size = xlen + strlen(command_line) + 1;
+> +	static_command_line = memblock_alloc_or_panic(static_cmdline_size, SMP_CACHE_BYTES);
+> +	scnprintf(static_command_line, static_cmdline_size, "%s%s",
+> +		  extra_command_line ?: "", command_line);
+>  
+>  	if (ilen) {
+> +		size_t len;
+> +
+>  		/*
+>  		 * Append supplemental init boot args to saved_command_line
+>  		 * so that user can check what command line options passed
+> @@ -708,19 +703,16 @@ static void __init setup_command_line(char *command_line)
+>  		 */
+>  		if (initargs_offs) {
+>  			len = xlen + initargs_offs;
+> -			strcpy(saved_command_line + len, extra_init_args);
+> -			len += ilen - 4;	/* strlen(extra_init_args) */
+> -			strcpy(saved_command_line + len,
+> -				boot_command_line + initargs_offs - 1);
+> +			len += scnprintf(saved_command_line + len, saved_cmdline_size - len, "%s%s",
+> +					 extra_init_args, boot_command_line + initargs_offs - 1);
+>  		} else {
+> -			len = strlen(saved_command_line);
+> -			strcpy(saved_command_line + len, " -- ");
+> -			len += 4;
+> -			strcpy(saved_command_line + len, extra_init_args);
+> +			len = saved_command_line_len;
+> +			len += scnprintf(saved_command_line + len, saved_cmdline_size - len,
+> +					 " -- %s", extra_init_args);
+>  		}
+> -	}
+>  
+> -	saved_command_line_len = strlen(saved_command_line);
+> +		saved_command_line_len = len;
+> +	}
+>  }
+>  
+>  /*
+> 
 
