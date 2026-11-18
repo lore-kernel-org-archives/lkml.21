@@ -1,54 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009840;
-	b=03skYJ+5QOIjkDGvitZzvJqTdFzs3gcb917T7g4FtF7aC9AfuHIpgVaodxNS/VEoQDmj
-	 1uW6CGy27nXg1lFFXEOIpbkRh1PnaDcXLoYs1swd96N3QNGLSsTKWjWtHAQhROF89mfTs
-	 F3za3CfltuArQ6CVm8LS260yTFK9W3XuCNIZvCwcWJWEPBr+OGk1rso8NKmRDcyACS0RM
-	 8Q4G50YndpCpwKRsf8BXu26olMS8N2LClzu9z3ylO4gyOh4JXGdNji4a7RgsupGYff6KF
-	 23tuaRWBb0vNqdeVq+PzOUcFSIbWdANStx0paUXCRoVBHi/aUKBu+op92rLASUjBlUg==
+	t=1795009864;
+	b=sDt35tPd0Yz46LpcQ7bfA0zX39puQZRNAt7j1m8zTrAkE/h/dZPA4K3+8VYGmb0hEkY8
+	 vltxbLbA489yXAvcDbw4udN4WxZcai2DdoTlbr6PYbnFGFKni3MblQnJ+7Pn3+XCa302A
+	 nUW4G7fqH2a6Fuf5gy5SKIN4fczFwbO64mIJOE/JlseZne2ZXuW8Rg6DxXC9fMwgApmaX
+	 MjxUGB1FMd4A5wFQ1y1SVBnWK7PC/iYOjy3jzyJp2RwfzpE1r4FqK4EThjjndsd/nu8oU
+	 DbKjnZLzodthIdwhDee1s5ozsq2NzBxjZYby+XyNCbhdnUQrotOVY5GdoI1bvjb0HKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009840;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=oe3qxDxEEBCgkMf3LaoAvV0Pg0/IXg79f/nMkFBr+bY=;
-	b=aTFY/bfbp3O7YO96FQc3+BsIu9LrsUzl5rukqejPRexvXYOYfOnTgEXulKwkWc1bGuSq
-	 xnKEmy9OEU182RZlCb6huoyCXE/9oFVN4vd7mUtqIOFru/H3N8p148hXzvosckx2ZCZcX
-	 Pdlm+nwZhXG6F7r2OQjdepBJsoZq9b8rBYRe5h7KoyxmH4t8mhZ0YI0yJbihMKc+pBVO9
-	 4O2Z4wtt57Vf0ddAjKdG82P4JKQaayNXvl4uiziqbauUC3p6VMnVNEXrD6LB8OaRwV86D
-	 WHmdfZdJDlXRaYocFHTSCV0piptkq3wiWqiA8HvWAw3zDBJ7e2qKgHsSwTVTuc2kAYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009864;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=Xv6ZLSbP6n9Fqjz3yHGKwGABvgK8NbihdmkMj0RD7OU=;
+	b=VeGf3tRFo9IlCdN5zprXb5leZueZZ6E7MgWMxUQ2N5CVAiduumWWag8+pxqsT32kkPFf
+	 0BuanA0vZR0GlDyUhQ0DaS7U7RKUaJQHvpdqOzmRtjKGdb9pngjRWNdrcn3nriCTpu2If
+	 xmMXpo2U3G1/I81HHLtJdrhDeKSCFjRxwZ4v1kuD8c8FZMO5kmyKOu1TKLntyXCU4nWqZ
+	 SJXDb7Ueqo1ReeZxvftCdB48+sReNq7QcfygvibTK2lqoIUn8U/bd1BFJKGQGwDHMd7zO
+	 3q8EcMRRIHOcFvtYJtdWNd6N4+Dr8AHflnju0XgTcXEjNe4XVkZCa/AZc8WTtdEm46w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.69
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=lSWxA4eB;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89670606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:50:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89670606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-4ab90cdf747so2689264fac.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:50:40 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009839; x=1795614639;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=oe3qxDxEEBCgkMf3LaoAvV0Pg0/IXg79f/nMkFBr+bY=;
-        b=Gz6Ff8tYr4e9LLGzV90uhSVVvEOI9uZvRmVmVnQDrGpj7/OlIMcr4PTBEjtcZD20xP
-         V5mb6uy/wzVX4HhSlYP4o+OsaBvAYFh1gmobmaYxPGwqaouwo9Y660Pp/ktlG8TzEFAu
-         xvd2VzdVulZ7LHRq0QnhD9AtFMlKelfoS4dCLDeJCteknfDfDi7x9mO1IEHmMF9yzLku
-         d0aJgYeisz1z5TXIPK0k1f/TJFcqLMlF8UhgqlbOinlKtmN/erUPZ8xrqudnkCA4Zyaz
-         e+vqhNtWvZWjojEBRJO2j8OKvdmCYGuLylOiBPwUZIm4+oe97P39N1CY0sQuGfFRvhML
-         exsQ==
-X-Forwarded-Encrypted: i=1; AL+hErEJ5WnvKC9lYi253eVSp0LaRLxSxguYw/A/lC6RlinHhs8vXruH90SMewo4GjZX3tpXjg3+QIpinJ0WRdI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pw0IsB5JbP4OiktlJ+vzbysnVKAY/MdleJQ2bMchPMZpRjegW
-	GECHQ/rCgMI5Nm+hySJ/u1C5zdg5pLmcNI2JcokGIMS/lYOwyCDC0X4I4UQy4Zd97UZXk+RfhAj
-	j6flStToKdHQa3EaZgTWLD/C2mk2QTUjKiXFy+mDdKndyfnF/CLlvuqcB7YE=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11DAE606A31C;
+	Wed, 18 Nov 2026 13:51:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11DAE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=lSWxA4eB
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Xv6ZLSbP6n9Fqjz3yHGKwGABvgK8NbihdmkMj0RD7OU=; b=lSWxA4eB5bPX/y/32M3w5C7/M0
+	2eVPLLtSf/Y8ZLm7VJAFzm97q/ieD+h5+g62xiaSU5XTHv5YxiDJaS/qpHSdUdYCA8mQnWx/KbSPI
+	VGqdhMuGDvs8b8oK2ziJB7l/qN8JlloMbIvpbaIJAbYI3fsdfCGai3JJw4MMJQRtNAyO9oCapLN/x
+	rMZLyVJNBjcvihA2UDune6ANtdrgjlyArvxX1pBsOOnzxeEgI6alJYNr2RX6hMA5oU5OOsG/q5QOm
+	lC9ficajCKBuQE/kLerGwfqIIkA8Bh+qubJsFRtn9gwOZr+Rsj5z/odxFkLTwDmfusdzR4Yf8L2jW
+	9kzAjV5g==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTg3q-0000000G61F-0eLq;
+	Wed, 18 Nov 2026 13:50:55 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 736E630057F; Wed, 18 Nov 2026 14:50:52 +0100 (CET)
+Date: Wed, 18 Nov 2026 14:50:52 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Fernand Sieber <sieberf@amazon.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Daniel Bristot de Oliveira <bristot@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Don <joshdon@google.com>, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, nh-open-source@amazon.com,
+	Fahad Mubeen <fmubeen@amazon.de>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Misha Karataiev <karataev@amazon.com>,
+	Hendrik Borghorst <hborghor@amazon.de>,
+	Ibrahim Elshahed <lshahed@amazon.de>
+Subject: Re: [PATCH 2/5] sched/core: Keep a sibling's DL server link in the
+ core-wide pick
+Message-ID: <20261118135052.GX1779021@noisy.programming.kicks-ass.net>
+References: <20261112161548.78189-1-sieberf@amazon.com>
+ <20261112161548.78189-3-sieberf@amazon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,114 +83,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:c1d4:b0:4dd:f8bb:e1bd with SMTP id
- 5614622812f47-575dd62583amr4190167b6e.13.1795009839590; Wed, 18 Nov 2026
- 05:50:39 -0800 (PST)
-Date: Wed, 18 Nov 2026 05:50:39 -0800
-In-Reply-To: <6aec63fe.5f5735a5.290c1c.0004.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6afdad2f.15a38f0c.5f8d.0009.GAE@google.com>
-Subject: Re: [syzbot] [raid?] BUG: unable to handle kernel paging request in remove_spares
-From: syzbot <syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com>
-To: agk@redhat.com, bmarzins@redhat.com, dayou5941@163.com, 
-	dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-raid@vger.kernel.org, liyouhong@kylinos.cn, magiclinan@didiglobal.com, 
-	mpatocka@redhat.com, sashiko-bot@kernel.org, snitzer@kernel.org, 
-	song@kernel.org, stable@vger.kernel.org, syzkaller-bugs@googlegroups.com, 
-	xiao@kernel.org, yukuai@fygo.io
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112161548.78189-3-sieberf@amazon.com>
 
-syzbot has found a reproducer for the following issue on:
+On Thu, Nov 12, 2026 at 06:15:45PM +0200, Fernand Sieber wrote:
+> The core-wide selection records in rq_i->core_dl_server the DL server
+> each sibling's pick came through, then clears it for every sibling in
+> the cookie matching loop, including when the pick is kept. The sibling
+> takes the fast path, which sets rq->dl_server from rq->core_dl_server,
+> and runs the task its server picked with p->dl_server NULL. Only the
+> selecting CPU keeps the link, as its pick goes through rq->dl_server.
+> 
+> A running task is ranked for core scheduling by p->dl_server. While
+> such a task runs on a sibling, each following core-wide selection
+> ranks it as a plain fair or ext task rather than by its server's
+> deadline, so a higher class task on another sibling takes the core
+> back before the server's runtime is used. The RV nomiss monitor, which
+> follows the server through next->dl_server at sched_switch, does not
+> see the server run either.
+> 
+> Keep the server that pick_task() left in rq_i->dl_server. With the
+> previous patch it is NULL when the class pick was replaced. Drop the
+> assignment in the first loop, which the matching loop always
+> overwrites.
+> 
+> Fixes: bd9bbc96e835 ("sched: Rework dl_server")
+> Signed-off-by: Fernand Sieber <sieberf@amazon.com>
+> ---
+>  kernel/sched/core.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index f7ac13186ee59..61d4e6e990bba 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -6431,7 +6431,6 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+>  		}
+>  
+>  		rq_i->core_pick = p;
+> -		rq_i->core_dl_server = rq_i->dl_server;
+>  
+>  		if (!max || prio_less(max, p, fi_before))
+>  			max = p;
+> @@ -6462,7 +6461,7 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+>  		}
+>  
+>  		rq_i->core_pick = p;
+> -		rq_i->core_dl_server = NULL;
+> +		rq_i->core_dl_server = rq_i->dl_server;
+>  
+>  		if (p == rq_i->idle) {
+>  			if (rq_i->nr_running) {
 
-HEAD commit:    20eef29b7c84 Merge tag 'arc-fixes-7.4' of git://git.kernel..
-git tree:       upstream
-console output: https://syzkaller.appspot.com/x/log.txt?x=1186ff3d580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
-dashboard link: https://syzkaller.appspot.com/bug?extid=a53c2918175b36cfd601
-compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
-syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=17f8f94d580000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=173f9411580000
+Isn't this broken in the face of a rq->lock drop through pick_task() ?
 
-Downloadable assets:
-disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/d900f083ada3/non_bootable_disk-20eef29b.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/bb852a1ddb76/vmlinux-20eef29b.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/4c636c3f4242/bzImage-20eef29b.xz
+Consider this does:
 
-AI-generated root cause summary:
-In the MD (Multiple Devices / RAID) subsystem, md_start_sync is scheduled as a
-work item on the md_misc workqueue to initiate resynchronization or manage spare
-devices. For read-only arrays (!md_is_rdwr(mddev)), md_start_sync executes
-remove_and_add_spares(), which invokes remove_spares(). However, md_start_sync
-fails to verify whether the array's personality (mddev->pers) is still valid
-before calling into personality operations, and array stop/detach sequences do
-not ensure that mddev->sync_work is completely halted or prevented from running
-after mddev->pers is cleared. When remove_spares() executes with mddev->pers ==
-NULL, it attempts to invoke mddev->pers->hot_remove_disk (located at offset
-0x50), triggering a NULL pointer dereference crash.
+  SMT0: pick_task()
+  SMT1: pick_task()
+          drop rq->lock
+	    newidle
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=a53c2918175b36cfd601
+  SMT0: rq_0->core_dl_server = rq_0->dl_server;
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com
 
-Oops: general protection fault, probably for non-canonical address 0xdffffc000000000a: 0000 [#1] SMP KASAN NOPTI
-KASAN: null-ptr-deref in range [0x0000000000000050-0x0000000000000057]
-CPU: 2 UID: 0 PID: 66 Comm: kworker/2:2 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-Workqueue: md_misc md_start_sync
-RIP: 0010:remove_spares+0x147/0x540 drivers/md/md.c:10182
-Code: 67 60 f9 45 84 ff 74 55 e8 e6 6c 60 f9 48 8b 44 24 10 80 38 00 0f 85 83 03 00 00 49 8b 45 08 48 8d 78 50 48 89 fa 48 c1 ea 03 <42> 80 3c 22 00 0f 85 78 03 00 00 48 89 de 4c 89 ef 48 8b 40 50 2e
-RSP: 0018:ffffc90000d47a10 EFLAGS: 00010206
-RAX: 0000000000000000 RBX: ffff888059649108 RCX: 0000000000000000
-RDX: 000000000000000a RSI: ffffffff88ae1bfa RDI: 0000000000000050
-RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000001
-R10: ffff8880596491cf R11: 0000000000000000 R12: dffffc0000000000
-R13: ffff888059648058 R14: ffff888059648070 R15: 0000000000000001
-FS:  0000000000000000(0000) GS:ffff8880d4669000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000001b30924008 CR3: 0000000051ca3000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- remove_and_add_spares+0x6c7/0x7f0 drivers/md/md.c:10207
- md_start_sync+0x736/0xea0 drivers/md/md.c:10323
- process_one_work+0xac7/0x1b10 kernel/workqueue.c:3495
- process_scheduled_works kernel/workqueue.c:3578 [inline]
- worker_thread+0x5ef/0xe50 kernel/workqueue.c:3659
- kthread+0x373/0x450 kernel/kthread.c:436
- ret_from_fork+0x730/0xd60 arch/x86/kernel/process.c:158
- ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
- </TASK>
-Modules linked in:
----[ end trace 0000000000000000 ]---
-RIP: 0010:remove_spares+0x147/0x540 drivers/md/md.c:10182
-Code: 67 60 f9 45 84 ff 74 55 e8 e6 6c 60 f9 48 8b 44 24 10 80 38 00 0f 85 83 03 00 00 49 8b 45 08 48 8d 78 50 48 89 fa 48 c1 ea 03 <42> 80 3c 22 00 0f 85 78 03 00 00 48 89 de 4c 89 ef 48 8b 40 50 2e
-RSP: 0018:ffffc90000d47a10 EFLAGS: 00010206
-RAX: 0000000000000000 RBX: ffff888059649108 RCX: 0000000000000000
-RDX: 000000000000000a RSI: ffffffff88ae1bfa RDI: 0000000000000050
-RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000001
-R10: ffff8880596491cf R11: 0000000000000000 R12: dffffc0000000000
-R13: ffff888059648058 R14: ffff888059648070 R15: 0000000000000001
-FS:  0000000000000000(0000) GS:ffff8880d4669000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000001b30924008 CR3: 0000000051ca3000 CR4: 0000000000352ef0
-----------------
-Code disassembly (best guess):
-   0:	67 60                	addr32 (bad)
-   2:	f9                   	stc
-   3:	45 84 ff             	test   %r15b,%r15b
-   6:	74 55                	je     0x5d
-   8:	e8 e6 6c 60 f9       	call   0xf9606cf3
-   d:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
-  12:	80 38 00             	cmpb   $0x0,(%rax)
-  15:	0f 85 83 03 00 00    	jne    0x39e
-  1b:	49 8b 45 08          	mov    0x8(%r13),%rax
-  1f:	48 8d 78 50          	lea    0x50(%rax),%rdi
-  23:	48 89 fa             	mov    %rdi,%rdx
-  26:	48 c1 ea 03          	shr    $0x3,%rdx
-* 2a:	42 80 3c 22 00       	cmpb   $0x0,(%rdx,%r12,1) <-- trapping instruction
-  2f:	0f 85 78 03 00 00    	jne    0x3ad
-  35:	48 89 de             	mov    %rbx,%rsi
-  38:	4c 89 ef             	mov    %r13,%rdi
-  3b:	48 8b 40 50          	mov    0x50(%rax),%rax
-  3f:	2e                   	cs
+I am reworking all of that somewhere, but delaying saving rq->dl_server
+like this feels fragile.
+
+Can't we fold the first two patches into something like so?
+
+---
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 175b52a7ea79..68b980ddf88f 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -6453,10 +6453,16 @@ pick_next_task(struct rq *rq, struct rq_flags *rf)
+ 				p = sched_core_find(rq_i, cookie);
+ 			if (!p)
+ 				p = idle_sched_class.pick_task(rq_i, rf);
++
++			/*
++			 * Neither a core tree pick nor idle comes through a
++			 * DL server; drop the one the replaced pick left.
++			 */
++			rq_i->dl_server = NULL;
+ 		}
+ 
+ 		rq_i->core_pick = p;
+-		rq_i->core_dl_server = NULL;
++		rq_i->core_dl_server = rq_i->dl_server;
+ 
+ 		if (p == rq_i->idle) {
+ 			if (rq_i->nr_running) {
