@@ -1,61 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096392;
-	b=Qy9v8VO+BxPRRdQdfql1yQ4dd2YFP6pvaFiXp79g9U+4H4MLtoSZqwDAXKFw51diLkOU
-	 HTjNDM+Td6ERpX2kydm3ExVq3m7EC3EDDV39RYSZUCsmk8wJy8hi7ZTdevKaEotZOdDZi
-	 676JQiKEH0VNtA28i54lWzE3JPzKizaARDrvbIR7BqFSgKRUmIBi8Src3OLWYLnIIxp2n
-	 RdbSTr4DBhNYdjEc+oec0akgZwpg9NukE7v3zo/7iI+AqeyDFrT8y62Dz3yhBVNajntCZ
-	 Q3IbXQZVZ7mb92N07hN7+bkJAZTb9NUbpx8rrl0J+ARR+KznQEb54F+GsAj1GtcR/Rg==
+	t=1795096400;
+	b=P8dtMNSNuRgb9wwdhm7wyxd5PnAyo5gwsVA/iOlSkHU2h7J+uYaPW+YnZ003f/EIn7Dc
+	 DfAVU8gpNYaj9zbbPOLO0lfSgnuSccgqhGTnup9WDcSIwFFPJ6laDHsyyQdx85/QXJrGT
+	 Y8nDkJbJ4h8B/mL3yyrcResc4+RVtCtoKJB98gxwjomwOHxfFnlGz06U4L2pEa6Ov5Z/F
+	 Cmc/LiC/W4x1mE07+zKke9j++P4QKG5qh/6sGs9g1uGx0q3x9ZokwZ0ug0AK8NxzymjkK
+	 5uP4MLrzFDAt/d0/R/Mdhwp80zTiFhiokmpxGpCCug94REpEsKd7joEBorRizV4rbSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096392;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096400;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=mPThn7hmWxFFOkKLnM6RILYilZeG4F+al+8NhYqs7bc=;
-	b=kJ0rYg0e1R8VCi87zuegBhxl3eqgyWYJ5VBZJGAp3VklHNqFzpdphpLRLfDWXtrGsAJr
-	 I6NGHwapeVhDPqeyDJN7tDrAmaA02Z8S4XtO8kRl9NqXF2GcszQRvvUwTsLIfd+aoe6Z/
-	 0KeC5SuBdgWCCN9P7sOgphNiv7NwHAbzGyhhfWIebaCL/GX7w3Rywy3nkx+PDHUNowpIm
-	 PEzDxxuk15dKrsc2LRFEqw0kYX5dOHF708JiusprLlu+MmD+tZ7j1KfFO7f/BlRv2CeMP
-	 +hyakp8DjG5qbdc1BSXgqLfHd+ByZEiGJDmI26wa6rgx0bWA8RGyXQqYyIei2UI3TOg==
+	bh=yEHuIKscNBcr2ODtIvDbXvMU1VdStlgHKQaKmCUfC7M=;
+	b=xM9JBMiaIDhVtMe/k7XSfrgfz+rlTxV+onLHHymf5F1AagVwH/rj9uYxCmgDEogZrOPC
+	 JlUAoDHWNMIwVjscKKfoVippnVOGsyO9a8OwEPd1ZYVKd5nw5sgcUyAznvi2iiURt0BIR
+	 TuZSHHwnSJSmcfS5cWTSqXITikxwIhAHIic2p6Px8ZiG4dx6H9qyOJYIgfvElNJO/UjsO
+	 kajb+10NxpxLYFFuzrB1FY1Iu4Y/l7Ly0zKCnTZtQWfQDSBtZGqVT6huBZS1PktG9/Qrn
+	 Vx2Ce8y/scNKbZVy8RGaVi+pig2w40esuAT4oaWuFPsUtIQjILFCJn989ELABLujpOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IYq09nlD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hkMf8ITB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BFB6606A32F;
-	Thu, 19 Nov 2026 13:53:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A262E606A332;
+	Thu, 19 Nov 2026 13:53:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IYq09nlD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A71F51F000C6;
-	Thu, 19 Nov 2026 13:53:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hkMf8ITB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4CAF1F000C9;
+	Thu, 19 Nov 2026 13:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096391;
-	bh=mPThn7hmWxFFOkKLnM6RILYilZeG4F+al+8NhYqs7bc=;
+	s=k20260515; t=1795096400;
+	bh=yEHuIKscNBcr2ODtIvDbXvMU1VdStlgHKQaKmCUfC7M=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=IYq09nlDw/S4RjUpNqJF6KkGRmXYo7CUAsJkzaP3keSHT15nm7ChlfA9OTyaJOvgt
-	 cNAL+/2p7nX4MMLT4N2EdDYjfocOyV5a2tEyhvsUm32Q6jOcipUvJsbl8FmJaP3o6t
-	 yTS2l1N07JitPxe06LuH4HBRJ7guCvmaqYE795I5XmfOxTSiLzpaDcjvLJhdeugiH/
-	 jcv1PTmkXmmibUnkNAmg0jQiMExL/rHORH7r+P6yjYcYJyaJJl2qzDmRkH06uVgOyu
-	 sXwWONtVvn6sAIQOw55m8a8siN2XULku53n3QID3tciwVcc0CCfl4bPFpdhdpJgtb4
-	 ybzBqW5z3O09Q==
+	b=hkMf8ITB0dqSeKaBr/vbFzlLk09P602us5XrF5yM6T3pYjvU7erMD4smeTfRHvFlB
+	 QVOaY2EtYgHZiWiCHU6Qe+IGpGLuzsZ5//DgDHfi+4hiJyDFta2aRL8ys6g1MH1Bb7
+	 HiB/1axhrnqqhm4r9SaRxmrMP4tgixAtGxprEhdaHgZ1A7J71vsLyUZq+nXQGZOBSt
+	 PV6QANKUmtkaU+gsBp2UAMetB2S0pWCo5XtDd+LgIoJMDed0a2tRbtvj0TAcyAbyOK
+	 swbC10WWZmKsZeLHxTM5n+jDnQD58GFVMzHCHe9wVBOIhMFALb7G4pkrRPtAXDc5jt
+	 NJcbsSQZWoFhQ==
 From: Mark Brown <broonie@kernel.org>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Andrei Simion <andrei.simion@microchip.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, 
- Codrin Ciubotariu <codrin.ciubotariu@microchip.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+To: Srinivas Kandagatla <srini@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, "Ingo A. Kubbilun" <ingo.kubbilun@gmail.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  linux-kernel@vger.kernel.org
-In-Reply-To: <20261111100616.31211-1-phucduc.bui@gmail.com>
-References: <20261111100616.31211-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH v2 0/2] ASoC: atmel-i2s: Fix clock and slot width
- handling
-Message-Id: <179501012503.349622.11739221636052053078.b4-ty@b4>
-Date: Wed, 18 Nov 2026 13:55:25 +0000
+In-Reply-To: <20261113214544.232836-1-ingo.kubbilun@gmail.com>
+References: <20261113214544.232836-1-ingo.kubbilun@gmail.com>
+Subject: Re: [PATCH] ASoC: qcom: common: report line-out plugs on the
+ Headphone Jack pin
+Message-Id: <179502567183.810609.6836739761636920522.b4-ty@b4>
+Date: Wed, 18 Nov 2026 18:14:31 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,26 +64,17 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1458; i=broonie@kernel.org;
- h=from:subject:message-id; bh=J7RtMztD0VkcpU5WGmYpngD3kqOdRp9XomIjDn+CNtw=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+/Xd+9f7vZLXmrF6+opzXoZaylR4zGy4dncH/6YHzn
- E9zg736OkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjARlRcM/6POh++8Vnboo+nr
- f+8lRdilDZd+P/MmKP/6bIn3ifMarnIx/BVb/7V8/u3dRTZTw00cYlte+jmq9iq31ngo/V7A73p
- nHTsA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1156; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vEdsMOYSGYQgjuscyDjbKmibDWbAMiNJHEbk0zfz2jw=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+/fc5s5L53z5/SxdPMe6td0RVWNYUXjf5wd2659u7f
+ N8PkpMWdJSyMIhxMciKKbLEZXG/rC95vYbv4MI2mDmsTCBDGLg4BWAi+qUM/73Ni34Zzl9fmX1S
+ 9EHgxxrelY5Fn+4vnWi0T6Kybe3Zd0cY/kq+uHImj1cw0EZI6vsipj+bo5hc1iQ5cl9mm/3vysk
+ UM0YA
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Wed, 11 Nov 2026 17:06:14 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: atmel-i2s: Fix clock and slot width handling
-> 
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> Hi all,
-> 
-> This series simplifies peripheral clock handling and fixes the
-> I2SC_WS slot width configuration in the Atmel I2S driver.
-> 
-> [...]
+On Fri, 13 Nov 2026 22:45:35 +0100, Ingo A. Kubbilun wrote:
+> ASoC: qcom: common: report line-out plugs on the Headphone Jack pin
 
 Applied to
 
@@ -95,10 +82,8 @@ Applied to
 
 Thanks!
 
-[1/2] ASoC: atmel-i2s: Use devm_clk_get_enabled() for pclk
-      https://git.kernel.org/broonie/sound/c/a19f318322c5
-[2/2] ASoC: atmel-i2s: Fix I2SC_WS slot width configuration
-      https://git.kernel.org/broonie/sound/c/f0903e6544fb
+[1/1] ASoC: qcom: common: report line-out plugs on the Headphone Jack pin
+      https://git.kernel.org/broonie/sound/c/b610f9cd00f4
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
