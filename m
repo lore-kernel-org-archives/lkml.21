@@ -1,95 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794986627;
-	b=ESXHzffHwjI350UTSJWroRiO1anMvleXEvok72CAkE1AxIOX/NxqTG9Q+keuh+SQ7/UH
-	 eH9oeJ8uivQNwxdyHPlAHzvIZLPSH5LL9cMpjLrLIHSNhFFcxoSsYKgXSssVvMv+r2te1
-	 RjhE4wPlDNcIfyY+w+SYLxqP5NitzmqLEBt1TM1tM/D8h/ILvqlQbjf1nNZfihu8BmpVK
-	 XXVzQFR6o+QYP/5dUKPj9szLzSJJjiqJ6gCfRuODiXWth+wXXrLMzBMzmFzoaF1oCoDaG
-	 3HhrpeWN/Q0ztEGMu0ZHb4+Iz6NYZqSYscU0oJzdsK5TaENz1k2WaW09IRX6OxsgFBg==
+	t=1794986641;
+	b=TnwYENy1msqPROEaaf+xe+NNifX3kP9ZDdqAxt9Q4wEhRTWOb4KW+LWxiRufnHyupNje
+	 5rOypTgcCuE7EDWNzPUeG/8MQFF+hcixBVU0M4mX2z6S61woMzkleeBubcPwZj7KHxHdP
+	 SgkEYM3jnsfwHFR7OUKOLVSOU2s91v3cphXkGcCKWexWyvuERiXZE0j1w1c5hxfbNXJO+
+	 Eb61QjrQtxvs8XMuV3TzGUYEV7b8g/iQnR4STFnEfcntjlK6r+GEHt5GPCtvsiETcGS2I
+	 hp1pKbaZrXNPHw+RwLsP5lvT8rZxVREyPF0OuojqoLcyC30GeVeWHioHwyURqd2YLpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794986627;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794986641;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=vQ2c++ctYVEsMIRs4ak0P2XeKQncytEGP/X4DLiiT8M=;
-	b=hKS1qQA/HFADwz/mQChGsTs2ADIFHoO7c6SqOKb33okkNZJ2tG3rLpkAc/l4Yu2ngqE9
-	 eYzRAuI6Bc0zJmHllmc9T+i5EZsNyFJ9n3k8fTjx8dTY+bdSBa3OJWDXVmIWjZrsvD1MI
-	 e3fVbeT2yhAAL0G26HPJaoWMDO18S8ZlbkTA2Mojqv5tmxqw/fxNXjmOPGYsFRRaDOJRj
-	 Zy7vE3LepNGXR8gg1eXVNiB9RZUlxnsFs44VoTJmfYy/Fdfmwwj/LhkdZ/pbF0EEYu1JZ
-	 92fkafnj5lS9X4ak8c32vGRNdA0ZMQ7LUVx3s0Gr9kerudYj9WX95sYXuDRXqDWA/4g==
+	bh=vSJzI8GBb8ZaTH+tAugZ/R1HgxYHhFd5lsw8P9UM59c=;
+	b=kA5PxZ8oGp5RG29iw0T6Ig4Z3ElZY5lDbeAVdbI0iEVPjUsJYuCfbiB8El5I9yPFWRyP
+	 deCWaxlwBfD88/DarlWWoIr6XYLQnjnv+gbIZImJDW2xd1Iq79TMFtcHVIN3YKHGoYva3
+	 OtHFdmdxVNdEXgAr4hGzIs0p5SPF8I5BxaFBFHcxKwsEIvge8ngdYpCXFsdpdNw/cpx3y
+	 ERgwjap2sarDl3GNrOsF9fBR9AOgFVHYz70oAXKY9sOmuxztIpjqwDAFrsYS5ALvMaRVh
+	 IQWoUNKDuY9o0Bdn1f6gXk/JQXKND37Cp6BKqRD9ucEWvXflnjddxWqtmS+WTwQB8dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jsLSbPyL;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zcR1nlVL;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F38DC606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:23:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F38DC606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B51BB606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:24:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B51BB606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jsLSbPyL
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cdab8873d9dso430994a12.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:23:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zcR1nlVL
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3704d30b84fso1005013eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:24:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794986626; x=1795591426; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794986640; x=1795591440; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vQ2c++ctYVEsMIRs4ak0P2XeKQncytEGP/X4DLiiT8M=;
-        b=jsLSbPyLLsW/Z6lk6LrfFzkL9mmQx+MaqKPcKHp04gITZ+j+BPmd/5kMLyUmIshOML
-         yVvX4/Lu4PeX39hOzgO0WxGtb9YdjvBk0RCH4Scyhe/IUS2DblnhCdLYvyk1xUSTWLDv
-         aaEvQK+hUQ8UiPU8PvtJiZK/HyUq+zWoGMXUL2nWcqlqmBURDM3JBa6MA2s6avZkNZIg
-         G10zjtYjKslIUR7KEQIbOnoE4Wkz4q19MYXMJ53k9Bp9VrU6nzEfC3wMz3u5huZyxv8q
-         MB+yXbAnCiNNtclwZswsch0W5ZBj0w2rIy6OYEJDCKNVQuiTkRTRqOR9MIEc+wWb3DMp
-         aK5w==
+        bh=vSJzI8GBb8ZaTH+tAugZ/R1HgxYHhFd5lsw8P9UM59c=;
+        b=zcR1nlVL3ZvmA2Wm7UMtZQVq6XfeYG6VFCmt6nMaThUGUOvyeBIn7QuPm4OQ0endMj
+         qNpJKc9A1oBr5YXXiMIX7kqPvGJnYkqTgViYcJ4XcZjd9JCgb5d+QrNpEjnf9khaR0G7
+         rxQ/8KVV6irgNMXXIM2ZQ75K6UiBEYHsCjIzBORZ43tesxfy8OYzKO2BQvDwPjq/3ZpT
+         XqbIu1BZw+ELuMdJeUWGxS4VGBqJlo8PIt9lNDk7t3gOU9A/YLO7y3/+bWI3MWf36A5Q
+         7u5cgJYDwi46c9JB0BjLAZnSueM2O5Dx+SyUIYXLWmHJvucfdckDRXdudrKp/Ejl6tV4
+         YP3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794986626; x=1795591426;
+        d=1e100.net; s=20260707; t=1794986640; x=1795591440;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vQ2c++ctYVEsMIRs4ak0P2XeKQncytEGP/X4DLiiT8M=;
-        b=GQ3Cmc+FbMjk2RDMd+QltheO0Oe2fO0erZBOADRI40epnq0GYOHSpTgwOhbfMs6J8c
-         S3T17cFFcVRjbybvU9FMk803eSNnQZEU9R9VF7lirabkWW4Z2q+UVXLjAVFo7haEh1ie
-         avEqTruGVxPu4yHjU0SVryYV4Zb8ZqOnKQz5WX6+XmZu3Wu/LosezDSEC/u+eKFBzybC
-         rsSR6Gprn9LENeFayuUFl7+fJlEpnFDXtn8KoJyfnaMQOdVtFtoDaQTWne5v38LsxjUv
-         o87o2Mf/5ZhLtr4HRvt7/tFfXJO6PMjn8VhGunPhtCbEZLaoJPvS83OPUoPF3BGSRwiS
-         p2gw==
-X-Forwarded-Encrypted: i=1; AL+hErHYBWus8m010dxcIutO34Y2El0K2m4JdWFHfdhyUfAAyS0zz9qOt6j37sAy2hIXO9Cxd5kCmkMBWWYbIIU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+IborZJ9uYXfXBd3gbT5hLyMLmdl7pGmBojpzxLOzMybNO96Kj
-	BHAcZnvWhyRUb5GCDtMwDWa3vro0uwrb5sNTJLUQY1D0SiIM8XpQhQbM
-X-Gm-Gg: AZFdTZfa0xwL4tKG6TwzJJHFFYkp1HO7S8u0/m0wc7bZMEGFO3gTW6PDZLFhIXBPBv3
-	OeT39ZHK0P+CDFGmAbVuTyaVR61+b9rfERFUmFoW+NpJ+BA1S66ZoADA4mQs9iO5e0GO1AXYA0i
-	JVejCTB5v9dsvuQ+cwMQX9KZfBOPvt16qoTtRZC4l4pwMHnrjguVh36IvUduRXvVCnfZiBoZG/V
-	AyrCho5ELRvZyXpj1MVHx3ef4lYlY6uNImbGaoi90zlWAu+XA2itDYhxxMISpZIy4oBLRRuYoki
-	sfxwe6+Ifspuq0nddE+iNm+WCYv5ONeV1RtnMJSQ9FSMgvbZSvT1hJGJMFJ04f1u0zPkirrvzSd
-	Mgwb2EVJl/oxevMeRLeUsPWU2MWC0xbtXWX6WJhxmlrUZzWlM/3FvkNGCIRzLvg5ta5fosnZw/u
-	tYwEMzY5PTTG2VNvR6mhLlrpZ/9JXOOXZsaP+pf4ha01ReqPiYJrBUHIlaNYpAtrv3FhKmi073k
-	MeOIYbAkb9Y2VCs3ZJJys0afYbMvXDPbkM9yt9OX/YswjD0MZyrhclwxQ0BVoCGBxvkisnfZX9q
-	ReX+kpZqXXyQ0aH8J3OeDODDbyOjMdhqnEILnV8zaAeZAGI8fcweSS64g1Lv4K5MDgIGNGsi9/k
-	RjosYM5PP/itQmeW//oqEQWTDtcl2mj3W2l+sGx0dJWN46W7b9wMWUTb4vhFDjA==
-X-Received: by 2002:a17:90a:d886:b0:3b0:9bfa:72b1 with SMTP id 98e67ed59e1d1-3b3d07caebemr2082646a91.49.1794986626214;
-        Tue, 17 Nov 2026 23:23:46 -0800 (PST)
+        bh=vSJzI8GBb8ZaTH+tAugZ/R1HgxYHhFd5lsw8P9UM59c=;
+        b=o3bzHr4dIA8Lz6kGbxSzmwN223lSlZJ+Y+Wqq2mXyVa6hvhsO5cWqu49AwXJybxFCl
+         d8HwktUduEbn7rZiV8CgeM80+h0HQYTliqmVwP7WLbFtLoSuTuaiGVieNqDusvpn+4Tb
+         c271FZdoqouxHSJ7/LC/K4whiKGR1Z9YuMSX+D4MFTuCjryH32s5zQqcuY57r5sHbcPX
+         6viTzlKzfioYYsDAZvc6K+mjGnetzxT5lpL7tUBlEJkZDv0xwGJGlRDQFG3hzxaHtBb6
+         5c40J9MLK54oKgMM6UAoqh3pUmecucvGILgeEFEkZ412HJ4i6RJVgUbT7JV/LO7Pzw7h
+         fKXw==
+X-Forwarded-Encrypted: i=1; AL+hErFj7uUwGnP6QPGucCTvq1fnlDnN2tECA4jSq2dRp+fZbLR7TMLVUznlLeF9XK30xmUJEAUtFyYk5CCNfB8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hVNO3ptodt/dUVAKfhXwbAAjPUhup8zs3fkOignExQbRR9N+u
+	aJbmduLVsMbewPu0BwFx9lfKVujiFyiB1eKC3vGy4ReDFEF/qQ939ZQK
+X-Gm-Gg: AYBFou0aA6YHGuBoygJbQOJrbm84hKqTtZOaHP5sqigMU9EJGM/Ckpep8A4pq6hOcv/
+	xz8yQOlGpEmjxooXgi+6zFW4e/V5DgNKfvExI35m4frsNM3SAyXtG6/TOfpvZpiX5nBQGSOdKyJ
+	KbF48e2qaTy+NeIrVwOq9gZuklhvzcybBvjEOLI8OBxSSgsgnViZ5rHH/cafn1wso0ZplMc1LXJ
+	zJwDTBJ7tQxZ9n4H74lsKiieQBN13zWUiTBHWBEFkuuIhpBp2sHLOyFxaey5bz/je3Rmwf4lVtw
+	o4HlY3G0Mf3TURV/x1ypr3tQrDF666Rasm1SlqvzeqUdQRxCinDFrifxW8eXCo3bugbSIXPpMbY
+	HzlDZO+4w3Zf3KCheIOIV8ryrRwWIdSVbXKIxZzo5u7Cym2EGe2vxUUiCoOTSdJYYeC7+2N+C+H
+	4AnMYG8RFIC8joVPeqH/SvRoe59d+ZKvOZoOzn7MRBlnvacfHlKOJyQhNycAXENbeOFVlrri3rQ
+	lLJgPpRvoeycUWtRmZqa+tb0ejIuOMB/KlJmyLrQcuMW3KafxEvwRcR1Z5CwkOS+7uXT1gzx8c2
+	v/B2lmW9NWhvT3o2OaBbXAYrxcWXWmPQL5yKh97klW5QJPFrasekEt06xNXyCrrSscbNqeDYNOm
+	1CQeU8VDuq4fNmwSGfKFsdQlb1+8dJeRJHhKNqqtP
+X-Received: by 2002:a05:7023:d0d:b0:1b2:60b2:96ff with SMTP id a92af1059eb24-1b543d0ce1fmr1925170c88.38.1794986639490;
+        Tue, 17 Nov 2026 23:23:59 -0800 (PST)
 Received: from lwq-System-Product-Name.. ([2602:feda:30:cafe:ec49:29ac:0:f6])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm1046395a91.0.2026.11.17.23.23.42
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447da7e0sm6185847c88.9.2026.11.17.23.23.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 23:23:45 -0800 (PST)
+        Tue, 17 Nov 2026 23:23:59 -0800 (PST)
 From: Yaohan Li <shunsheng1218@gmail.com>
-To: miquel.raynal@bootlin.com,
-	rafael@kernel.org,
-	daniel.lezcano@kernel.org
-Cc: rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	linux-pm@vger.kernel.org,
+To: lgirdwood@gmail.com,
+	broonie@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	edubezval@gmail.com
-Subject: [PATCH] thermal/drivers/armada: free the overheat IRQ before the zones are gone
-Date: Wed, 18 Nov 2026 15:23:39 +0800
-Message-Id: <20261118072339.1259719-1-shunsheng1218@gmail.com>
+	sumit.semwal@linaro.org
+Subject: [PATCH] regulator: qcom-labibb: stop the recovery workers on teardown
+Date: Wed, 18 Nov 2026 15:23:53 +0800
+Message-Id: <20261118072353.1259751-1-shunsheng1218@gmail.com>
 X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -102,35 +99,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The overheat interrupt is requested before the thermal zones are
-registered, so devres releases the zones first and the interrupt
-afterwards.  armada_overheat_isr_thread() calls
-thermal_zone_device_update() on priv->overheat_sensor, which by then has
-been unregistered and freed, and thermal_zone_device_update() locks the
-zone mutex unconditionally.
+The driver never stops sc_recovery_work or ocp_recovery_work.  Both are
+queued from the interrupt handlers and reschedule themselves from their
+recovery paths, so they outlive the driver data that devres frees once
+the probe or the removal is over.  A short-circuit or over-current event
+followed by an unbind leaves a pending work item that runs against a
+freed labibb_regulator.
 
-The handler also polls the sensor once per second until the temperature
-drops below the threshold.  If that poll is still running when the
-device goes away, free_irq() waits for it and the removal is blocked for
-as long as the sensor stays hot.
+A ->remove() callback would cover the unbind but not a probe that fails
+after the interrupt was requested: the driver core does not call
+->remove() for a failed probe, while devres still releases the
+interrupts and the private data.
 
-The same handler runs while priv->overheat_sensor is still NULL, because
-the interrupt is requested before the zones exist and a spurious
-interrupt in that window passes a NULL zone to
-thermal_zone_device_update().
+Register one devres action in ->probe() instead, after the short-circuit
+interrupt, and let that action own every resource that has no devres
+release of its own: it stops both workers and it releases the
+over-current interrupt.  disable_delayed_work_sync() is used rather than
+cancel_delayed_work_sync() because both workers reschedule themselves.
 
-Move the teardown into armada_thermal_quiesce_irq(), which disables the
-interrupt, frees it and tells the poll loop to give up, and call it from
-->remove().  The same helper is called from the probe rollback once the
-interrupt has been requested: the driver core does not run ->remove()
-for a probe that fails, while devres still frees the zones and the
-private data of an interface whose handler is registered.
+The over-current interrupt cannot be requested from
+->set_over_current_protection(): the regulator core calls that op from
+set_machine_constraints(), inside regulator_register(), so a devres node
+created there is released after the regulator itself and the recovery
+worker would still be runnable while vreg->rdev is gone.  That op now
+only programs the interrupt registers and records the request; ->probe()
+installs the interrupt once devm_regulator_register() has returned, and
+a runtime first enable goes through the same helper.  Both requests stay
+after the regulator node, so the teardown order becomes: stop the works,
+release the interrupts, unregister the regulator.
 
-Read the zone once at the top of the thread and bail out when it is not
-published yet or the driver is shutting down, and reuse that pointer for
-both thermal_zone_device_update() calls.
+The interrupt is requested with request_threaded_irq() rather than with
+the devres helper so that the same action can release it; its name comes
+from vreg->desc.name, which outlives the interrupt, while a name
+allocated with devres would be released before the action runs.  This
+also keeps the cleanup to a single devres action: a second one
+registered from the helper would be released by devm_add_action_or_reset()
+from under ocp_lock on allocation failure, and would then re-enter
+itself through that lock.
 
-Fixes: 879d7362d1d0 ("thermal: armada: add overheat interrupt support")
+The op and the probe side share a per-device mutex, and the probe
+publishes the registration only after the deferred cleanup action
+exists, so a runtime enable cannot request an interrupt that has no
+teardown paired with it.  The hardware source is enabled only after the
+handler has been installed, and turned back off when that fails, so a
+retry can be attempted without leaving the source running on its own.
+
+The teardown action publishes a shutdown flag before it drains anything:
+an over-current request that runs while devres is releasing the actions
+is refused instead of installing an interrupt whose cleanup action has
+already gone, and the hardware source is turned off once the handlers
+are stopped.  The interrupt may still be left disabled by a handler that
+called disable_irq_nosync(), with no recovery worker left to re-enable
+it; that depth is left alone on purpose, because free_irq() shuts the
+line down regardless of it while an enable_irq() racing with a handler
+that is still running would unmask a line whose thread has not
+finished.
+
+Fixes: 498ab2fdf855 ("regulator: qcom: Add labibb driver")
 Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
 ---
 Prepared against v7.4-rc1-1969-g666539eecdf4.
@@ -139,154 +164,279 @@ AI assistance: the analysis, the change and its review notes were
 prepared with Claude (Anthropic) as a coding assistant.  The author
 reviewed the reasoning and takes responsibility for the content.
 
-Testing: compile tested only (arm64, gcc 11.4).  No Armada hardware was
-available, so neither the removal race nor the poll loop were run.
- drivers/thermal/armada_thermal.c | 66 +++++++++++++++++++++++++++-----
- 1 file changed, 56 insertions(+), 10 deletions(-)
+Testing: compile tested only (arm64, gcc 11.4).  No PMI8998 hardware was
+available, so no over-current or short-circuit event was run.
+ drivers/regulator/qcom-labibb-regulator.c | 195 ++++++++++++++++++++--
+ 1 file changed, 177 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/thermal/armada_thermal.c b/drivers/thermal/armada_thermal.c
-index 83672f95b011..72261338d744 100644
---- a/drivers/thermal/armada_thermal.c
-+++ b/drivers/thermal/armada_thermal.c
-@@ -68,6 +68,8 @@ struct armada_thermal_priv {
- 	struct thermal_zone_device *overheat_sensor;
- 	int interrupt_source;
- 	int current_channel;
-+	int irq;
-+	bool shutdown;
- 	long current_threshold;
- 	long current_hysteresis;
+diff --git a/drivers/regulator/qcom-labibb-regulator.c b/drivers/regulator/qcom-labibb-regulator.c
+index 8641e69b55c3..49aaa31a539d 100644
+--- a/drivers/regulator/qcom-labibb-regulator.c
++++ b/drivers/regulator/qcom-labibb-regulator.c
+@@ -96,6 +96,12 @@ struct labibb_regulator {
+ 	int				ocp_irq;
+ 	int				ocp_irq_count;
+ 	int				fatal_count;
++	bool				registered;
++	bool				ocp_requested;
++	bool				ocp_irq_done;
++	bool				shutting_down;
++	/* serialises the over-current request between set_ocp() and probe */
++	struct mutex			ocp_lock;
  };
-@@ -297,8 +299,7 @@ static void armada_enable_overheat_interrupt(struct armada_thermal_priv *priv)
- 	regmap_write(priv->syscon, data->syscon_control1_off, reg);
- }
  
--static void __maybe_unused
--armada_disable_overheat_interrupt(struct armada_thermal_priv *priv)
-+static void armada_disable_overheat_interrupt(struct armada_thermal_priv *priv)
- {
- 	struct armada_thermal_data *data = priv->data;
- 	u32 reg;
-@@ -517,14 +518,22 @@ static irqreturn_t armada_overheat_isr(int irq, void *blob)
- static irqreturn_t armada_overheat_isr_thread(int irq, void *blob)
- {
- 	struct armada_thermal_priv *priv = blob;
-+	struct thermal_zone_device *zone;
- 	int low_threshold = priv->current_threshold - priv->current_hysteresis;
- 	int temperature;
- 	u32 dummy;
- 	int ret;
- 
-+	/*
-+	 * The interrupt is requested before the thermal zones are
-+	 * registered, so overheat_sensor can still be NULL here.
-+	 */
-+	zone = READ_ONCE(priv->overheat_sensor);
-+	if (READ_ONCE(priv->shutdown) || !zone)
-+		goto enable_irq;
-+
- 	/* Notify the core in thread context */
--	thermal_zone_device_update(priv->overheat_sensor,
--				   THERMAL_EVENT_UNSPECIFIED);
-+	thermal_zone_device_update(zone, THERMAL_EVENT_UNSPECIFIED);
- 
- 	/*
- 	 * The overheat interrupt must be cleared by reading the DFX interrupt
-@@ -538,13 +547,15 @@ static irqreturn_t armada_overheat_isr_thread(int irq, void *blob)
- 		mutex_unlock(&priv->update_lock);
- 		if (ret)
- 			goto enable_irq;
--	} while (temperature >= low_threshold);
-+	} while (temperature >= low_threshold && !READ_ONCE(priv->shutdown));
-+
-+	if (READ_ONCE(priv->shutdown))
-+		goto enable_irq;
- 
- 	regmap_read(priv->syscon, priv->data->dfx_irq_cause_off, &dummy);
- 
- 	/* Notify the thermal core that the temperature is acceptable again */
--	thermal_zone_device_update(priv->overheat_sensor,
--				   THERMAL_EVENT_UNSPECIFIED);
-+	thermal_zone_device_update(zone, THERMAL_EVENT_UNSPECIFIED);
- 
- enable_irq:
- 	enable_irq(irq);
-@@ -807,6 +818,29 @@ static int armada_configure_overheat_int(struct armada_thermal_priv *priv,
- 	return 0;
+ struct labibb_regulator_data {
+@@ -307,12 +313,141 @@ static irqreturn_t qcom_labibb_ocp_isr(int irq, void *chip)
+ 	return IRQ_HANDLED;
  }
  
 +/*
-+ * Stop the overheat interrupt for good.  Both ->remove() and the probe
-+ * rollback after the interrupt was requested go through here, so that a
-+ * failed probe cannot leave a handler behind either.
++ * Stop the recovery workers and release the over-current interrupt.  A
++ * devres action is used instead of ->remove() so that a probe which fails
++ * after the resources were set up goes through the same teardown: the
++ * driver core does not call ->remove() for a failed probe, but devres
++ * still releases what was registered.
++ *
++ * This is the only cleanup entry, and the over-current interrupt is
++ * requested without devres so that it can be released here: registering a
++ * second action from a path that runs under ocp_lock would also make
++ * devm_add_action_or_reset() run this function from under that lock on
++ * allocation failure.
 + */
-+static void armada_thermal_quiesce_irq(struct armada_thermal_priv *priv)
++static void qcom_labibb_stop_works(void *data)
 +{
-+	if (priv->irq <= 0)
-+		return;
++	struct labibb_regulator *vreg = data;
++	int irq = 0;
 +
 +	/*
-+	 * devres unregisters the thermal zones before it frees the
-+	 * interrupt, because the zones were registered after it.  Stop the
-+	 * handler here so that it cannot touch a zone that is already gone.
-+	 * Tell the poll loop to give up as well, or free_irq() waits for the
-+	 * sensor to cool down before the removal can finish.
++	 * Announce the shutdown before anything is drained: a set_ocp()
++	 * that runs from here on must not request the over-current
++	 * interrupt while devres is releasing the action that would stop
++	 * its worker.
 +	 */
-+	WRITE_ONCE(priv->shutdown, true);
-+	armada_disable_overheat_interrupt(priv);
-+	devm_free_irq(priv->dev, priv->irq, priv);
-+	priv->irq = 0;
++	mutex_lock(&vreg->ocp_lock);
++	vreg->shutting_down = true;
++	mutex_unlock(&vreg->ocp_lock);
++
++	/*
++	 * Both recovery workers reschedule themselves, so a plain cancel
++	 * would leave them queued again: disable_delayed_work_sync() also
++	 * blocks the requeue.
++	 */
++	disable_delayed_work_sync(&vreg->sc_recovery_work);
++	if (vreg->ocp_irq > 0) {
++		disable_delayed_work_sync(&vreg->ocp_recovery_work);
++
++		/*
++		 * The over-current handler turns the source off before it
++		 * queues the worker, but a handler that was stopped above
++		 * may have done so after the worker was drained: leave the
++		 * source off now that nobody would turn it back on.
++		 */
++		qcom_labibb_ocp_hw_disable(vreg->rdev);
++
++		mutex_lock(&vreg->ocp_lock);
++		if (vreg->ocp_irq_done) {
++			vreg->ocp_irq_done = false;
++			irq = vreg->ocp_irq;
++		}
++		mutex_unlock(&vreg->ocp_lock);
++
++		/*
++		 * A stopped handler can also have left the interrupt
++		 * disabled with disable_irq_nosync(), while the recovery
++		 * worker - the only caller of enable_irq() - is gone.  The
++		 * depth is deliberately not unwound here: free_irq() shuts
++		 * the line down regardless of it, whereas an enable_irq()
++		 * racing with a handler that is still running would unmask
++		 * a line whose thread has not finished.
++		 *
++		 * free_irq() waits for a running handler, so it is called
++		 * without ocp_lock held.
++		 */
++		if (irq)
++			free_irq(irq, vreg);
++	}
 +}
 +
- static int armada_thermal_probe(struct platform_device *pdev)
- {
- 	struct thermal_zone_device *tz;
-@@ -903,6 +937,8 @@ static int armada_thermal_probe(struct platform_device *pdev)
- 						0, NULL, priv);
- 		if (ret)
- 			return ret;
++/*
++ * Request the over-current interrupt once the regulator is registered.
++ * Requesting it from ->set_over_current_protection() is not possible: the
++ * regulator core calls that op from set_machine_constraints(), inside
++ * regulator_register(), and a devres node created there is released after
++ * the regulator itself.  The recovery worker would then still be runnable
++ * while vreg->rdev is already gone.
++ */
++static int qcom_labibb_setup_ocp_irq(struct labibb_regulator *vreg)
++{
++	u32 irq_flags = IRQF_ONESHOT;
++	int ret;
 +
-+		priv->irq = irq;
- 	}
++	lockdep_assert_held(&vreg->ocp_lock);
++
++	if (vreg->shutting_down)
++		return -ESHUTDOWN;
++
++	if (!vreg->ocp_requested)
++		return 0;
++
++	if (!vreg->ocp_irq_done) {
++		/* IRQ polarities - LAB: trigger-low, IBB: trigger-high */
++		switch (vreg->type) {
++		case QCOM_LAB_TYPE:
++			irq_flags |= IRQF_TRIGGER_LOW;
++			break;
++		case QCOM_IBB_TYPE:
++			irq_flags |= IRQF_TRIGGER_HIGH;
++			break;
++		default:
++			return -EINVAL;
++		}
++
++		/*
++		 * The interrupt is owned and released by the cleanup
++		 * action, so its name has to outlive the interrupt:
++		 * devres would release a name allocated here before the
++		 * action runs, while vreg->desc.name is owned by the
++		 * driver data.
++		 */
++		ret = request_threaded_irq(vreg->ocp_irq, NULL,
++					   qcom_labibb_ocp_isr, irq_flags,
++					   vreg->desc.name, vreg);
++		if (ret)
++			return ret;
++
++		vreg->ocp_irq_done = true;
++	}
++
++	/*
++	 * Enable the hardware source only once a handler exists, and turn
++	 * it back off if that failed, so that a later attempt can retry
++	 * without leaving the source enabled on its own.
++	 */
++	ret = qcom_labibb_ocp_hw_enable(vreg->rdev);
++	if (ret)
++		qcom_labibb_ocp_hw_disable(vreg->rdev);
++
++	return ret;
++}
++
+ static int qcom_labibb_set_ocp(struct regulator_dev *rdev, int lim,
+ 			       int severity, bool enable)
+ {
+ 	struct labibb_regulator *vreg = rdev_get_drvdata(rdev);
+-	char *ocp_irq_name;
+-	u32 irq_flags = IRQF_ONESHOT;
+ 	int irq_trig_low, ret;
  
  	/*
-@@ -912,8 +948,10 @@ static int armada_thermal_probe(struct platform_device *pdev)
- 	for (sensor_id = 0; sensor_id <= priv->data->cpu_nr; sensor_id++) {
- 		sensor = devm_kzalloc_obj(&pdev->dev,
- 					  struct armada_thermal_sensor);
--		if (!sensor)
--			return -ENOMEM;
-+		if (!sensor) {
-+			ret = -ENOMEM;
-+			goto err_irq;
-+		}
+@@ -326,52 +461,58 @@ static int qcom_labibb_set_ocp(struct regulator_dev *rdev, int lim,
+ 	if (vreg->ocp_irq <= 0)
+ 		return -EINVAL;
  
- 		/* Register the sensor */
- 		sensor->priv = priv;
-@@ -942,14 +980,22 @@ static int armada_thermal_probe(struct platform_device *pdev)
- 		dev_warn(&pdev->dev, "Overheat interrupt not available\n");
+-	ocp_irq_name = devm_kasprintf(vreg->dev, GFP_KERNEL, "%s-over-current",
+-				      vreg->desc.name);
+-	if (!ocp_irq_name)
+-		return -ENOMEM;
+-
+ 	/* IRQ polarities - LAB: trigger-low, IBB: trigger-high */
+ 	switch (vreg->type) {
+ 	case QCOM_LAB_TYPE:
+-		irq_flags |= IRQF_TRIGGER_LOW;
+ 		irq_trig_low = 1;
+ 		break;
+ 	case QCOM_IBB_TYPE:
+-		irq_flags |= IRQF_TRIGGER_HIGH;
+ 		irq_trig_low = 0;
+ 		break;
+ 	default:
+ 		return -EINVAL;
+ 	}
  
- 	return 0;
++	mutex_lock(&vreg->ocp_lock);
 +
-+err_irq:
-+	armada_thermal_quiesce_irq(priv);
++	if (vreg->shutting_down) {
++		ret = -ESHUTDOWN;
++		goto unlock;
++	}
++
+ 	/* Activate OCP HW level interrupt */
+ 	ret = regmap_update_bits(rdev->regmap,
+ 				 vreg->base + REG_LABIBB_INT_SET_TYPE,
+ 				 LABIBB_INT_VREG_OK,
+ 				 LABIBB_INT_VREG_TYPE_LEVEL);
+ 	if (ret)
+-		return ret;
++		goto unlock;
+ 
+ 	/* Set OCP interrupt polarity */
+ 	ret = regmap_update_bits(rdev->regmap,
+ 				 vreg->base + REG_LABIBB_INT_POLARITY_HIGH,
+ 				 LABIBB_INT_VREG_OK, !irq_trig_low);
+ 	if (ret)
+-		return ret;
++		goto unlock;
+ 	ret = regmap_update_bits(rdev->regmap,
+ 				 vreg->base + REG_LABIBB_INT_POLARITY_LOW,
+ 				 LABIBB_INT_VREG_OK, irq_trig_low);
+ 	if (ret)
+-		return ret;
++		goto unlock;
+ 
+-	ret = qcom_labibb_ocp_hw_enable(rdev);
+-	if (ret)
+-		return ret;
++	vreg->ocp_requested = true;
++
++	/*
++	 * During regulator_register() there is no interrupt yet and no
++	 * cleanup action to pair with it; the probe finishes the job once
++	 * the regulator and its devres nodes exist.
++	 */
++	if (vreg->registered)
++		ret = qcom_labibb_setup_ocp_irq(vreg);
+ 
+-	return devm_request_threaded_irq(vreg->dev, vreg->ocp_irq, NULL,
+-					 qcom_labibb_ocp_isr, irq_flags,
+-					 ocp_irq_name, vreg);
++unlock:
++	mutex_unlock(&vreg->ocp_lock);
 +	return ret;
  }
  
- static void armada_thermal_exit(struct platform_device *pdev)
- {
- 	struct armada_drvdata *drvdata = platform_get_drvdata(pdev);
+ /**
+@@ -836,6 +977,7 @@ static int qcom_labibb_regulator_probe(struct platform_device *pdev)
+ 		vreg->dev = dev;
+ 		vreg->base = reg_data->base;
+ 		vreg->type = reg_data->type;
++		mutex_init(&vreg->ocp_lock);
+ 		INIT_DELAYED_WORK(&vreg->sc_recovery_work,
+ 				  qcom_labibb_sc_recovery_worker);
  
--	if (drvdata->type == LEGACY)
-+	if (drvdata->type == LEGACY) {
- 		thermal_zone_device_unregister(drvdata->data.tz);
-+		return;
-+	}
+@@ -884,6 +1026,23 @@ static int qcom_labibb_regulator_probe(struct platform_device *pdev)
+ 						sc_irq_name, vreg);
+ 		if (ret)
+ 			return ret;
 +
-+	armada_thermal_quiesce_irq(drvdata->data.priv);
- }
++		ret = devm_add_action_or_reset(vreg->dev,
++					       qcom_labibb_stop_works, vreg);
++		if (ret)
++			return ret;
++
++		/*
++		 * Publish the registration only now: a concurrent
++		 * set_ocp() must not be able to request the over-current
++		 * interrupt before the action that stops its worker exists.
++		 */
++		mutex_lock(&vreg->ocp_lock);
++		vreg->registered = true;
++		ret = qcom_labibb_setup_ocp_irq(vreg);
++		mutex_unlock(&vreg->ocp_lock);
++		if (ret)
++			return ret;
+ 	}
  
- static struct platform_driver armada_thermal_driver = {
+ 	return 0;
 -- 
 2.34.1
 
