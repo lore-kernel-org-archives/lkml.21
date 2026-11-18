@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992936;
-	b=tnX5kua+byO/tRhfdaF0LeaTgSq/xvOVJJBNPHI+tiDOaFn2d3Cc/IOr8MXwbbj050mG
-	 uJ/bARe0OgfdpShscbsRTnSZFb9bk759VYvczr7rn0nwGu8yJrPU6UPb5I5cMwtgv4WTW
-	 ENnPuH3lLDQJIw6X6MwPH2d5fmhLrXZ4jdeXAr8h3GPHTmqcHPModQxgPJT3vVPh+DbII
-	 7usD1lMpVFyuVXsn+iNjg4Gg+CqPUYvW2zEeT1OoBeUoJGvrNAZm/Qf58Zd8ICeeEkS+3
-	 AbeX18WTD1yWyTLK1T9b8k7z3qI54f7ghY4XhEsW92Bc+UIJ9A0QUvp4gqaj6D8TJgw==
+	t=1794992938;
+	b=reEuHJS/FspbxTLtW+WlqKqsMvXYhbWxuisgmYtn2/TreqrYwHyBo/LcrXhwECn4Ct/b
+	 Skkd5kd9preQTw53lqadCQc3HydMcZQ4XWYQyUhHcla7BijuCdWSSv5sSX3eciltEd6bH
+	 LfXVSco8zvhwzUl1toDkUWI5J3YZk8Tzc6YgczN8Ob0ksy/B9D7NAUnpUticq2RteO6AF
+	 YqqnOhJd/RkUvgl9GZmWhwnZV7CkVSxS6ku+yediY0c4YDbQmuGI3iIgPdSKtIaEoSO5F
+	 hQ41fpdWjmaVZmKcV92B0NNnS19YcGewFU+uHkWBSGuTsbKONkbxLJYoaTc6ivn3xYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992936;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992938;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=02zqn6B3kQGyg8emThUA8arcp0H04bbXHxtv7wJIhEI=;
-	b=F+f0hWTZdMDbqsGK3kdLGgwp9/9opKSWnDZISAeaEtea6DxUZjdoXhW4elNXGCzoAqMt
-	 W/MGethQPsLDI/cb1e+ty+JVA2OQhqVbmOluCu4C/2ltoEWABwKA/cA53WjTgSlSZj87/
-	 E7xNfgpjQRdKwnJIbRlhQb4u6Gu9hjOHrRtLpOnY3sUdsXih5W9pDLRNG6yW7lX3pEkBV
-	 ZYmtOQescnRdUQHrJBds8izM8mzsc0vkOzxNgZCN17xqeOAcjMw1wqb8DHSR0QsmlnOcY
-	 wMYBal15QM2gcSTDjUYgAwIO6yGcS6L+44xd8rhJ2SRhDV7QNLi7KfzUPxxmJKUYU1A==
+	bh=eLplVoUR151Z1rxiGrfmDOIgnEPAYp9Bob6L9S+wLKc=;
+	b=1eYrSyatsgdLRWByYmCdRh/na6CVGJITt6s0+Q/1BM8PEaj+q8o+rYU3H+B2lMcHdKHH
+	 I5StLAQvCf2XQaiwHiIYFFnY18DvEWCczzYLLLUVqmb0B+1q/kJkZaEgqfYXENMURy7hq
+	 b4LYEh2hWnXbGe4Lgq6xI3IvW7NVKMctygKtiLYUZRUJ5lkYUebT9UX+HAoIXfVN9HLbH
+	 Rqgr9At8/8tjfXgO57/CMcZ6R5RB6PUDIVsE5in3mKziixkLK7O4mq8UzrBLVipVafBOx
+	 4Q5+tAiBsuMDu6Em6ropdr4WCM0M1ODbjIHFSM+4C9pW9VHHr/dHvxy/26QXlzfoh1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=FF5IAqEe;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GhSH6JDB;
+	arc=none smtp.remote-ip=117.135.210.5
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11EBD606A8A3
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:08:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11EBD606A8A3
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DA0A606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:08:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DA0A606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=FF5IAqEe
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GhSH6JDB
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=02
-	zqn6B3kQGyg8emThUA8arcp0H04bbXHxtv7wJIhEI=; b=FF5IAqEe+weuznpbbu
-	S+cGlWGtH771ku9fZ9YYloqwK8XqtTwFaTpFmZ2Ub4rzxvJl06J6nm4aizO78zSA
-	B2DlACqV0u9OPvCoti3LeazsFG5rGpa/mzFg7pl6xqFYFo/juM0oGxOMrjItC1Da
-	HO0U7FKcyBD+XEKMw/rLuTr1k=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=eL
+	plVoUR151Z1rxiGrfmDOIgnEPAYp9Bob6L9S+wLKc=; b=GhSH6JDBYfKmTXHHXX
+	BqC+NYO7+Se9cjAdVw8MrscIGNAJJn0nS/OU9xq5gzL5bSfJXUphfolMilNZAojE
+	V9wE6L4cQQRJ383ZuAWPHSRWdl6mPP2mZbQyuq7/RZpKFWFwRGE10prnnT15zXkI
+	LxGTld2kDdGzvkL2APm4hj4g0=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S7;
-	Wed, 18 Nov 2026 17:08:33 +0800 (CST)
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S9;
+	Wed, 18 Nov 2026 17:08:35 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
 	hyc.lee@gmail.com,
@@ -51,9 +51,9 @@ Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Dandan Wu <wudandan@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 13/37] ntfs: report logfile metadata and emptying errors
-Date: Wed, 18 Nov 2026 17:06:37 +0800
-Message-Id: <20261118090701.1858849-14-wangxuewen_ky@163.com>
+Subject: [PATCH v6 15/37] ntfs: report iomap metadata corruption
+Date: Wed, 18 Nov 2026 17:06:39 +0800
+Message-Id: <20261118090701.1858849-16-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -67,256 +67,194 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S7
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Xw4UKw15Ww4UWw47tw45trb_yoWfGw45p3
-	WrGrn8t39Yk3WfWrsFyFyDZ3Wayw1fJay2qry3Jw1Iqwnagr4ktFyUKF909Fyrtr95G34U
-	uF4YyrZrCFsxZa7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S9
+X-Coremail-Antispam: 1Uf129KBjvJXoWxtF1xAryxCr1fCF45tr1rtFb_yoW7Kr48pF
+	y3KrZxKw1rXr97Wrn7t390vF1a93W8K3y7Wr1fJw4fZa1Yyw47tF10kF1YqF1SqrZ5A34q
+	vFWjkrW7Cw4UZwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UTVb9UUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzRL44Wr9axIhiQAA3A
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzRP44Wr9axMhpgAA3v
 
 From: Dandan Wu <wudandan@kylinos.cn>
 
-Logfile validation and emptying can detect corruption or I/O failures
-without recording them. Report an unusable nonempty log after trying
-alternate restart pages, keeping unsupported versions distinct from
-corrupt restart metadata.
+The iomap paths detect missing required attributes and invalid runs
+without reporting them. Report these conditions as EFSCORRUPTED while
+preserving allocation and underlying mapping errors.
 
-Report a missing required logfile, read failures, and write failures or
-corrupt runlists when emptying it, including on remount. Retain the
-existing read-only fallback.
+Keep sparse holes, ordinary EOF and partial-I/O semantics distinct from
+corruption. The preceding read_folio fix preserves synchronous errors.
 
 Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 Signed-off-by: Dandan Wu <wudandan@kylinos.cn>
 ---
 Changes in v6:
-Rebase onto the updated ntfs-next; retain the v5 reporting behavior.
+Keep the reporting changes here; buffered-read error propagation is
+now a preceding patch. Adapt to the current iomap callback interface.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
 
- fs/ntfs/logfile.c | 58 +++++++++++++++++++++++++++--------------------
- fs/ntfs/super.c   |  2 +-
- 2 files changed, 35 insertions(+), 25 deletions(-)
+ fs/ntfs/iomap.c | 56 ++++++++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 44 insertions(+), 12 deletions(-)
 
-diff --git a/fs/ntfs/logfile.c b/fs/ntfs/logfile.c
-index cdc951309d0c..5fb7e3864521 100644
---- a/fs/ntfs/logfile.c
-+++ b/fs/ntfs/logfile.c
-@@ -17,14 +17,14 @@
-  * @rp:		restart page header to check
-  * @pos:	position in @vi at which the restart page header resides
-  *
-- * Check the restart page header @rp for consistency and return 'true' if it is
-- * consistent and 'false' otherwise.
-+ * Check the restart page header @rp for consistency. Return 0 on success,
-+ * -EOPNOTSUPP for an unsupported version, or -EINVAL for corruption.
-  *
-  * This function only needs NTFS_BLOCK_SIZE bytes in @rp, i.e. it does not
-  * require the full restart page.
-  */
--static bool ntfs_check_restart_page_header(struct inode *vi,
--		struct restart_page_header *rp, s64 pos)
-+static int ntfs_check_restart_page_header(struct inode *vi,
-+					  struct restart_page_header *rp, s64 pos)
- {
- 	u32 logfile_system_page_size, logfile_log_page_size;
- 	u32 ra_ofs, usa_count, usa_ofs, usa_end = 0;
-@@ -43,7 +43,7 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 			(logfile_system_page_size - 1) ||
- 			!is_power_of_2(logfile_log_page_size)) {
- 		ntfs_error(vi->i_sb, "LogFile uses unsupported page size.");
--		return false;
-+		return -EINVAL;
- 	}
- 	/*
- 	 * We must be either at !pos (1st restart page) or at pos = system page
-@@ -51,7 +51,7 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 	 */
- 	if (pos && pos != logfile_system_page_size) {
- 		ntfs_error(vi->i_sb, "Found restart area in incorrect position in LogFile.");
--		return false;
-+		return -EINVAL;
- 	}
- 	/* We only know how to handle version 1.1. */
- 	if (le16_to_cpu(rp->major_ver) != 1 ||
-@@ -60,7 +60,7 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 			"LogFile version %i.%i is not supported.  (This driver supports version 1.1 only.)",
- 			(int)le16_to_cpu(rp->major_ver),
- 			(int)le16_to_cpu(rp->minor_ver));
--		return false;
-+		return -EOPNOTSUPP;
- 	}
- 	/*
- 	 * If chkdsk has been run the restart page may not be protected by an
-@@ -75,7 +75,7 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 	if (usa_count != le16_to_cpu(rp->usa_count)) {
- 		ntfs_error(vi->i_sb,
- 			"LogFile restart page specifies inconsistent update sequence array count.");
--		return false;
-+		return -EINVAL;
- 	}
- 	/* Verify the position of the update sequence array. */
- 	usa_ofs = le16_to_cpu(rp->usa_ofs);
-@@ -84,7 +84,7 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 			usa_end > NTFS_BLOCK_SIZE - sizeof(u16)) {
- 		ntfs_error(vi->i_sb,
- 			"LogFile restart page specifies inconsistent update sequence array offset.");
--		return false;
-+		return -EINVAL;
- 	}
- skip_usa_checks:
- 	/*
-@@ -99,7 +99,7 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 			ra_ofs > logfile_system_page_size) {
- 		ntfs_error(vi->i_sb,
- 			"LogFile restart page specifies inconsistent restart area offset.");
--		return false;
-+		return -EINVAL;
- 	}
- 	/*
- 	 * Only restart pages modified by chkdsk are allowed to have chkdsk_lsn
-@@ -108,10 +108,10 @@ static bool ntfs_check_restart_page_header(struct inode *vi,
- 	if (!ntfs_is_chkd_record(rp->magic) && le64_to_cpu(rp->chkdsk_lsn)) {
- 		ntfs_error(vi->i_sb,
- 			"LogFile restart page is not modified by chkdsk but a chkdsk LSN is specified.");
--		return false;
-+		return -EINVAL;
- 	}
- 	ntfs_debug("Done.");
--	return true;
-+	return 0;
- }
+diff --git a/fs/ntfs/iomap.c b/fs/ntfs/iomap.c
+index ce916707f69b..438837318522 100644
+--- a/fs/ntfs/iomap.c
++++ b/fs/ntfs/iomap.c
+@@ -102,8 +102,13 @@ static int ntfs_read_iomap_begin_resident(struct inode *inode, loff_t offset, lo
  
- /*
-@@ -315,6 +315,7 @@ static bool ntfs_check_log_client_array(struct inode *vi,
-  *
-  * The following error codes are defined:
-  *	-EINVAL	- The restart page is inconsistent.
-+ *	-EOPNOTSUPP - The logfile version is unsupported.
-  *	-ENOMEM	- Not enough memory to load the restart page.
-  *	-EIO	- Failed to reading from LogFile.
-  */
-@@ -328,10 +329,9 @@ static int ntfs_check_and_load_restart_page(struct inode *vi,
+ 	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
+ 			CASE_SENSITIVE, 0, NULL, 0, ctx);
+-	if (unlikely(err))
++	if (unlikely(err)) {
++		if (err == -ENOENT) {
++			err = -EFSCORRUPTED;
++			ntfs_report_file_metadata_error(inode, -EFSCORRUPTED);
++		}
+ 		goto out;
++	}
  
- 	ntfs_debug("Entering.");
- 	/* Check the restart page header for consistency. */
--	if (!ntfs_check_restart_page_header(vi, rp, pos)) {
--		/* Error output already done inside the function. */
--		return -EINVAL;
--	}
-+	err = ntfs_check_restart_page_header(vi, rp, pos);
-+	if (err)
-+		return err;
- 	/* Check the restart area for consistency. */
- 	if (!ntfs_check_restart_area(vi, rp)) {
- 		/* Error output already done inside the function. */
-@@ -372,8 +372,6 @@ static int ntfs_check_and_load_restart_page(struct inode *vi,
- 				ntfs_error(vi->i_sb, "Error mapping LogFile page (index %lu).",
- 						idx);
- 				err = PTR_ERR(folio);
--				if (err != -EIO && err != -ENOMEM)
--					err = -EIO;
- 				goto err_out;
- 			}
- 			size = min_t(int, to_read, PAGE_SIZE);
-@@ -452,6 +450,7 @@ static int ntfs_check_and_load_restart_page(struct inode *vi,
-  */
- bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
+ 	attr_len = le32_to_cpu(ctx->attr->data.resident.value_length);
+ 	if (unlikely(attr_len > ni->initialized_size))
+@@ -241,11 +246,12 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
+ 	rl_length = ntfs_cluster_to_bytes(vol, rl->length - (vcn - rl->vcn));
+ 
+ 	if (rl_length == 0 && rl->lcn > LCN_DELALLOC) {
++		ntfs_report_file_metadata_error(inode, -EFSCORRUPTED);
+ 		ntfs_error(inode->i_sb,
+ 				"runlist(vcn : %lld, length : %lld, lcn : %lld) is corrupted\n",
+ 				rl->vcn, rl->length, rl->lcn);
+ 		up_write(&ni->runlist.lock);
+-		return -EIO;
++		return -EFSCORRUPTED;
+ 	}
+ 
+ 	if (rl_length && length > rl_length - vcn_ofs)
+@@ -375,6 +381,7 @@ static int ntfs_zero_range(struct inode *inode, loff_t offset, loff_t length)
+ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_t offset,
+ 						      loff_t length, struct iomap *iomap)
  {
 +	int report_err = 0;
- 	s64 size, pos;
- 	s64 rstr1_lsn, rstr2_lsn;
- 	struct ntfs_volume *vol = NTFS_SB(log_vi->i_sb);
-@@ -461,7 +460,7 @@ bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
- 	struct restart_page_header *rstr1_ph = NULL;
- 	struct restart_page_header *rstr2_ph = NULL;
- 	int log_page_size, err;
--	bool logfile_is_empty = true;
-+	bool logfile_is_empty = true, unsupported_version = false;
- 	u8 log_page_bits;
- 
- 	ntfs_debug("Entering.");
-@@ -495,8 +494,9 @@ bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
- 	 */
- 	if (size < log_page_size * 2 || (size - log_page_size * 2) >>
- 			log_page_bits < MinLogRecordPages) {
-+		report_err = -EFSCORRUPTED;
- 		ntfs_error(vol->sb, "LogFile is too small.");
--		return false;
-+		goto err_out;
- 	}
- 	/*
- 	 * Read through the file looking for a restart page.  Since the restart
-@@ -516,6 +516,8 @@ bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
- 			}
- 			folio = ntfs_read_metadata_folio(mapping, idx);
- 			if (IS_ERR(folio)) {
-+				if (PTR_ERR(folio) == -EIO)
-+					report_err = -EIO;
- 				ntfs_error(vol->sb, "Error mapping LogFile page (index %lu).",
- 						idx);
- 				goto err_out;
-@@ -574,7 +576,11 @@ bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
- 		 * not abort if the restart page was invalid as we might still
- 		 * find a valid one further in the file.
- 		 */
--		if (err != -EINVAL) {
-+		if (err == -EOPNOTSUPP)
-+			unsupported_version = true;
-+		else if (err != -EINVAL) {
-+			if (err == -EIO)
-+				report_err = err;
- 			kunmap_local(kbase);
- 			folio_put(folio);
- 			goto err_out;
-@@ -594,9 +600,11 @@ bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
- 		return true;
- 	}
- 	if (!rstr1_ph) {
-+		if (!unsupported_version)
+ 	struct ntfs_inode *ni = NTFS_I(inode);
+ 	struct ntfs_inode *mrec_ni = ntfs_inode_is_named_stream(ni) ?
+ 			ntfs_base_inode(ni) : ni;
+@@ -397,7 +404,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 		err = ntfs_map_runlist(ni, vcn);
+ 		if (err) {
+ 			mutex_unlock(&mrec_ni->mrec_lock);
+-			return -ENOENT;
++			goto out;
+ 		}
+ 		down_read(&ni->runlist.lock);
+ 		rl = ni->runlist.rl;
+@@ -409,9 +416,18 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 	/* Seek to element containing target vcn. */
+ 	rl = __ntfs_attr_find_vcn_nolock(&ni->runlist, vcn);
+ 	if (IS_ERR(rl)) {
++		unsigned long irqflags;
++		s64 allocated_size;
++
++		read_lock_irqsave(&ni->size_lock, irqflags);
++		allocated_size = ni->allocated_size;
++		read_unlock_irqrestore(&ni->size_lock, irqflags);
++		if (offset < allocated_size)
 +			report_err = -EFSCORRUPTED;
- 		ntfs_error(vol->sb,
- 			"Did not find any restart pages in LogFile and it was not empty.");
--		return false;
-+		goto err_out;
+ 		up_write(&ni->runlist.lock);
+ 		mutex_unlock(&mrec_ni->mrec_lock);
+-		return -EIO;
++		err = offset < allocated_size ? -EFSCORRUPTED : -EIO;
++		goto out;
  	}
- 	/* If both restart pages were found, use the more recent one. */
- 	if (rstr2_ph) {
-@@ -624,6 +632,8 @@ bool ntfs_check_logfile(struct inode *log_vi, struct restart_page_header **rp)
- 	return true;
- err_out:
- 	kvfree(rstr1_ph);
+ 	lcn = ntfs_rl_vcn_to_lcn(rl, vcn);
+ 
+@@ -430,19 +446,24 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 	 * extent over clusters that are allocated on disk but unknown to us.
+ 	 */
+ 	if (lcn == LCN_RL_NOT_MAPPED) {
++		if (!map_err || map_err == -ENOENT)
++			report_err = -EFSCORRUPTED;
+ 		up_write(&ni->runlist.lock);
+ 		mutex_unlock(&mrec_ni->mrec_lock);
+-		return map_err == -ENOMEM ? -ENOMEM : -EIO;
++		err = !map_err || map_err == -ENOENT ? -EFSCORRUPTED : map_err;
++		goto out;
+ 	}
+ 
+ 	max_clu_count = min(max_clu_count, rl->length - (vcn - rl->vcn));
+ 	if (max_clu_count == 0) {
++		report_err = -EFSCORRUPTED;
+ 		ntfs_error(inode->i_sb,
+ 				"runlist(vcn : %lld, length : %lld) is corrupted\n",
+ 				rl->vcn, rl->length);
+ 		up_write(&ni->runlist.lock);
+ 		mutex_unlock(&mrec_ni->mrec_lock);
+-		return -EIO;
++		err = -EFSCORRUPTED;
++		goto out;
+ 	}
+ 
+ 	iomap->bdev = inode->i_sb->s_bdev;
+@@ -456,7 +477,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 				err = max_clu_count;
+ 				up_write(&ni->runlist.lock);
+ 				mutex_unlock(&mrec_ni->mrec_lock);
+-				return err;
++				goto out;
+ 			}
+ 		}
+ 
+@@ -485,11 +506,16 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 			rl = ntfs_runlists_merge(&ni->runlist, rlc, 0,
+ 					&new_rl_count);
+ 			if (IS_ERR(rl)) {
++				err = PTR_ERR(rl);
++				if (err != -ENOMEM) {
++					err = -EFSCORRUPTED;
++					report_err = err;
++				}
+ 				ntfs_error(vol->sb, "Failed to merge runlists");
+ 				up_write(&ni->runlist.lock);
+ 				mutex_unlock(&mrec_ni->mrec_lock);
+ 				kfree(rlc);
+-				return PTR_ERR(rl);
++				goto out;
+ 			}
+ 
+ 			ni->runlist.rl = rl;
+@@ -544,7 +570,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 				err = 0;
+ 			if (err) {
+ 				ntfs_release_dirty_clusters(vol, max_clu_count);
+-				return err;
++				goto out;
+ 			}
+ 		}
+ 	} else {
+@@ -561,7 +587,11 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
+ 			iomap->length = length;
+ 	}
+ 
+-	return 0;
++	err = 0;
++out:
 +	if (report_err)
-+		ntfs_report_file_metadata_error(log_vi, report_err);
- 	return false;
++		ntfs_report_file_metadata_error(inode, report_err);
++	return err;
  }
  
-@@ -767,10 +777,10 @@ bool ntfs_empty_logfile(struct inode *log_vi)
- 	ntfs_error(sb, "Failed to write buffer.  Unmount and run chkdsk.");
- 	goto dirty_err;
- rl_err:
-+	err = -EFSCORRUPTED;
- 	ntfs_error(sb, "Runlist is corrupt.  Unmount and run chkdsk.");
- dirty_err:
--	NVolSetErrors(vol);
--	err = -EIO;
-+	ntfs_report_file_metadata_error(log_vi, err);
- err:
- 	kvfree(empty_buf);
- 	kfree(ra);
-diff --git a/fs/ntfs/super.c b/fs/ntfs/super.c
-index f22af29a51d2..8ce2a54ad3bb 100644
---- a/fs/ntfs/super.c
-+++ b/fs/ntfs/super.c
-@@ -1365,7 +1365,7 @@ static int load_and_check_logfile(struct ntfs_volume *vol,
- 	int err = 0;
+ #define NTFS_IOMAP_FLAGS_BEGIN		BIT(1)
+@@ -677,8 +707,10 @@ static int ntfs_write_iomap_begin_resident(struct inode *inode, loff_t offset,
+ 	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
+ 			CASE_SENSITIVE, 0, NULL, 0, ctx);
+ 	if (err) {
+-		if (err == -ENOENT)
+-			err = -EIO;
++		if (err == -ENOENT) {
++			err = -EFSCORRUPTED;
++			ntfs_report_file_metadata_error(inode, -EFSCORRUPTED);
++		}
+ 		goto out;
+ 	}
  
- 	ntfs_debug("Entering.");
--	tmp_ino = ntfs_iget(vol->sb, FILE_LogFile);
-+	tmp_ino = ntfs_system_iget(vol, FILE_LogFile);
- 	if (IS_ERR(tmp_ino)) {
- 		if (!IS_ERR(tmp_ino))
- 			iput(tmp_ino);
 -- 
 2.51.0
 
