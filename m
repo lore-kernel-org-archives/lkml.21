@@ -1,166 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.151.120
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019593;
-	b=vlMpnkG8ZmDhDZkb5F4WYdwgpLnOqkI21B+W0rW8sTJ2W2ohQkytmMXfMglecJ4GPsnU
-	 Hp5pWCg0jODHbh7UixrnwfaP4JsWabaynSDkRpdNU8dYGm0o6KzVxJJQY3yV/5MbrwAOn
-	 dedktAtBErzj4/l6pv2m9z8p4RVh9bRA5WLTkwGmsyxbWv+dfQjeyv19/opFrVNgkI47r
-	 pTLQjNrnzPuC9ARJhByRNUWKTK1fXzpgfZXSAfAbGb/0xlkLslTFQuqRX4nMM5bAA58FR
-	 aNt2BCDmCigGXKaJ4vYZwBbPHiSmtaes3sNgG3id6azxqc/3Nn1GKQO3GC29qFWoZbw==
+	t=1795019608;
+	b=Ms2tQBtZO9ylY2FjCK4b9O6nwFa++V74VUB+F+X1ceLEEPy/wmuLwu5SjeG6UlcPTzSf
+	 U/Cd0uOTWOabu9e8rv6+FR+xwYa/vyJwb1rZhm8qgFrCraxh1GWwVIS5YA91E+YB45+UI
+	 vJ2gURKGt3SijwAkYbYTuBwGezFlP46nabMOpD5YVZkOsCGBxwM3O74/kUzsTukQFstCo
+	 EA9xH/219Chv8CD7RYcqRqRgnQOhcoFHjJ2UrrSmfWkDvuA0eU0G0jA5ta9KzTjYfGgJg
+	 xTWmzigpjOfB+rfrjg9jzU1Ab2qlRHE60giPOE9FifceCdhDBUKmi8DFykhC1FlH6Bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019593;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Mimecast-Spam-Score:X-Mimecast-MFC-PROC-ID:X-Mimecast-Originator:
-	 Content-Language:Content-Type:Content-Transfer-Encoding;
-	bh=njLIEZZbahidaB+c5D34w2cGpNehYggHjUInKVvMqe4=;
-	b=ne//45EHDKvIYoCK9PADBxTn6G8uOczL8jrgMueOvnjdEKcUuFTHHv38GlIe7eZCy3P/
-	 d5Ngdym2MPrCoedNJrVvxNfd3HzNRQwKWFp0T2Y4XTC+ez7iGNVOBaQB87taE72nQLzhu
-	 AQ/sx6K3VGDcWqoVXxGQ1wt0CLnc/Av4OOBM6MqTOH8nxTN+KHKtxPIB8FjOOrOjsIiwV
-	 LHVSIhk3uwzMLpU4Rac7Q7DDo1t/tHkE4TXNTaGseFG/wt/PwNOqFqJdmYyqB2FCsJdhL
-	 W73ve7Vqwsfec5YD56E789GToDNkGciB/hI3JWE/rzDK1Q1PnW3K3xF9Mlq6rU19Ehg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019608;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=jZUvrbhbcZvb+yNyUGJEDBN+jZxprMUpQ75mT/ONYDg=;
+	b=zqnvDNePW6sskZuCHp+LD1iUFVo/OyNn6SwdNP7sQSiydyBwVrzLbD/8Uy+yQGqpAP3l
+	 Vxd0by6bxdPC/YYGsjbFY6jkYHJCeVPssqLwLUumPXptx8Fccs3UxPqHkRXmu1aN/F5VI
+	 RFjR6cYXUJuDV84/Do1b5Bly6ZX5s5vcubFgFFTbOW1dkvajTlTIuPxhgfASwrTktKFYv
+	 v9Q6BJ0WrnahW9FirLwQas9JHQuZwzhe36I3IY7S/L9V036qeoAtnj8sqDR86Au1diRhO
+	 DOJWuiAB0W839fiIltudZWfiycViW4KvzvzO1miBzx5x5Keop/IGFIzVGFQPcjo34yA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=onsemi.com;
-	spf=pass smtp.mailfrom=onsemi.com;
-	dkim=pass header.d=onsemi.com header.i=@onsemi.com header.a=rsa-sha256 header.s=mimecast20250127 header.b=dq2EEUDb;
-	arc=none smtp.remote-ip=170.10.151.120
-Received: from usb-smtp-delivery-120.mimecast.com (usb-smtp-delivery-120.mimecast.com [170.10.151.120])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pMMGfoUh;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 067EF606A7D4
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:33:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 067EF606A7D4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=onsemi.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onsemi.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C955F606A7DA
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:33:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C955F606A7DA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=onsemi.com header.i=@onsemi.com header.a=rsa-sha256 header.s=mimecast20250127 header.b=dq2EEUDb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onsemi.com;
-	s=mimecast20250127; t=1795019592;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=njLIEZZbahidaB+c5D34w2cGpNehYggHjUInKVvMqe4=;
-	b=dq2EEUDbLpfvGqkANBO4JG/U1QnA2/85CEpuUtugna6R8Lzh9VSaILJcfxq6IGuZJfV9Sc
-	X9zT8Mba2dSyOk4us+YdWJbhkIVUl6Ozswh29MKiNY1JgWmS123H8kEIjCtFoBJ2ogVQDE
-	tWFKKBB7JrAUnqfAzPG7WS9R1p6ACFg0sW5dcQggwcvC5qElkrMKmX9QwsLTVbJAKRlu3H
-	axndQi3Y26HTaVzukN6fuLQcnhC6S0YxPt3svGRltefaJVxmupplR11CDjJxQX8r+nte51
-	Bi7T0y6JehrZw72ol1Df8j57ffJC/NdVJ7xFm3Y/8BxWzBsz1blQeb2zx/dq8w==
-Received: from PH8PR06CU001.outbound.protection.outlook.com
- (mail-westus3azon11012046.outbound.protection.outlook.com [40.107.209.46])
- by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id usb-mta-57-TZe_ihXBMiG0ykd9ryhhfQ-1; Wed,
- 18 Nov 2026 08:32:53 -0800
-X-MC-Unique: TZe_ihXBMiG0ykd9ryhhfQ-1
-X-Mimecast-MFC-AGG-ID: TZe_ihXBMiG0ykd9ryhhfQ_1795019571
-Received: from CH0PR02MB7867.namprd02.prod.outlook.com (2603:10b6:610:110::22)
- by PH0PR02MB7509.namprd02.prod.outlook.com (2603:10b6:510:5e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 16:32:49 +0000
-Received: from CH0PR02MB7867.namprd02.prod.outlook.com
- ([fe80::d722:d686:a9cb:6c2e]) by CH0PR02MB7867.namprd02.prod.outlook.com
- ([fe80::d722:d686:a9cb:6c2e%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 16:32:49 +0000
-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "parthiban.veerasooran@microchip.com"
-	<parthiban.veerasooran@microchip.com>, "horms@kernel.org" <horms@kernel.org>,
-	"corbet@lwn.net" <corbet@lwn.net>, "skhan@linuxfoundation.org"
-	<skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>,
-	"richardcochran@gmail.com" <richardcochran@gmail.com>, "andrew@lunn.ch"
-	<andrew@lunn.ch>, "hkallweit1@gmail.com" <hkallweit1@gmail.com>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "edumazet@kernel.org"
-	<edumazet@kernel.org>, "piergiorgio.beruto@gmail.com"
-	<piergiorgio.beruto@gmail.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "jerry.ray@microchip.com"
-	<jerry.ray@microchip.com>, "ciprian.regus@analog.com"
-	<ciprian.regus@analog.com>
-Subject: RE: [PATCH net-next v11 08/14] net: ethernet: oa_tc6: Drop frames if
- footer has FD bit set
-Thread-Topic: [PATCH net-next v11 08/14] net: ethernet: oa_tc6: Drop frames if
- footer has FD bit set
-Thread-Index: AQHdc5BlUTHP4752Y0K+rr6MPZuOfLcys2MAgAFZjnA=
-Date: Wed, 18 Nov 2026 16:32:49 +0000
-Message-ID: <CH0PR02MB7867083AFB60EBAC2EE68473837A2@CH0PR02MB7867.namprd02.prod.outlook.com>
-References: <20261113-s2500-mac-phy-support-v11-8-7a186141952c@onsemi.com>
- <179494518411.3136.11012925273881298159@kernel.org>
-In-Reply-To: <179494518411.3136.11012925273881298159@kernel.org>
-Accept-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CH0PR02MB7867:EE_|PH0PR02MB7509:EE_
-x-ms-office365-filtering-correlation-id: acb51d93-38a2-4017-51b1-08df4591959d
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|38070700021|4143699003|11063799006|261026140227099003|56012099006|261022105027099003|261028144727099003|261009223027099003|22082099003|18002099003
-x-microsoft-antispam-message-info: /Rbd5W3PWwWCxcFoP9Bjwl9rGc1F1zuXlDZdqXMbJK1vNHr+9SIi+kr1FNHM1pPccEyUvr2zAm3hrMEImSIpf7FpnFfYhaH2VHubAKNHjgn4DaRWIFiw4/1o7Fdb0ufwYW2Qww+Hkdchs5YwaWhZjqFaE0Go64PlcF5XVh4dUlyV6U+sVtIC5SytoKJwF5z2fJKJ6wQOD9IOVfLUgNnCHDyfboHu+nG7V2qz4nHAW8JhwZSRqlhZD+lK+wRORLAXNG/4RdxLtih/jV+iNHUpVjtw02AdTwb+oOYNTjqYY7Q81z14mQzPb5Sax/w+X/p2/tKXhukiMDe+L+0HVu1DjU63cyVnVK0dALC5O2TGABIMFRG2flgdnLvpIJSM/h9s9j7fkHF2+dTAHy1LA5gzL4KNMyIy6QdV4GDlhBJCFiFOvGhsZIsZqcOIrIydKDm3hGac/JQryCBZ0SK9Q1VKiBHYG0o8PP5u6zIiHX0jqvaQdfiPd3OwX0Py2T4P+SyurJVqxjSFD2ySRTFzorPYTjExt8DTn4/QVBDQ+90clbY/AF5GKTGut+45rxVViXSdzeqLdHEoSjonIWp0+w/ox+ph5mjZCiSZNQM8gb7OOIvVqy4woD/t3MzyqyGZg9PacY0QU3Yao37Ns4nkExGeN8r04Heym9rSzbpnDCMW9tw=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR02MB7867.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(38070700021)(4143699003)(11063799006)(261026140227099003)(56012099006)(261022105027099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aDRFY1RkWjNESnZCTGs4aFBkRHptQjJ0RW1jbis4NXJvMlkxMjlxd3UzSEEz?=
- =?utf-8?B?M2s3YmVPdEtJTTVNalVmMTlTa0VoVGt5c0I0Q1dqZlR6Q2hvOENiYW1KMjVC?=
- =?utf-8?B?QWpyQy8rYzFqOVBqR0Y5cWtGR2oxRDVGb1ZGbXUrM1kyZE5WZi82TUpaNTJq?=
- =?utf-8?B?L1l3WllDUmFrRnZuOU9SaENoSXZkUVNpNC8yQUZuNmUzUkJvTHlBaWFCQ2I5?=
- =?utf-8?B?UGJWQmlwODBtL3NoajdDdUdtNGdYOHJlL1Q2UlVDMlRld1pVOGY5YVRobm5Z?=
- =?utf-8?B?RGgwMHZ0elk2TUJVRDk5d0pob25kd21EVDF3Sld2YjRHWGhIMFhkMU9YK3B3?=
- =?utf-8?B?c09IVzZ1WmkrajZtNXJYMXNDQ0hVZS83Vnk3VFY2K05vdU9scE0zY1YxbGwz?=
- =?utf-8?B?SkFEUHdFZjdYNVJHNmtLaS9INWtCbGhSMU1xbFVDVkpkb2lua2V2aGpxSno0?=
- =?utf-8?B?cGlSTDlKZWpnZ2Z5OWJDM3diT1NIcGxnQW1sL3VDUUtkenhkVjg5S0Y3STJT?=
- =?utf-8?B?cjJqSW5JSVV6RVRRLzFKQ0R3NWlVNDlhcVJlUVFidWJ4dlQvZ1g5WU9BV3BD?=
- =?utf-8?B?WERxOXJNTXB0RTAwQVl6M3dwMCtNQVFCemdzWGt4RS9oQ1BOazdKWElZS2xh?=
- =?utf-8?B?Y20zQ3pZT21OQ0tUOFRDWVVvMld1VWRNdUlwN0toNWZ6NjQ0WmdRYkF1Vm91?=
- =?utf-8?B?V2pEaEI3emZFejFyaWw1MzduVkF0WTIxc0cxMXZjKzhNTitwU3BVeUFxTUM2?=
- =?utf-8?B?MmNqZStOZzJJVDZtL0hSWTIyY3I4cGNpY1pFVTVtMG04YTdacG94a1NEaUY1?=
- =?utf-8?B?d1BDQ1gzcitNVHNmZ09vQ3p3WS9ZcEx4WWEyaU9nRXUxV2dsOVE5bDdxaWs0?=
- =?utf-8?B?ZWY0SnRQRW8wM0VJR3JnRUxiM3NnSW5sWnhVUTlwUFhHMHVYVkluUkE0YU91?=
- =?utf-8?B?QVdleGZ1RmFWVVJIWjBCQmNUYXMvdElKNmRncjZ0YnZNNjdHdGlwQTJ0c3dE?=
- =?utf-8?B?TS9KR0plekJPNXJSM1Fya3FZODhNOStUd2IwTlp3bkgrbGxWekRraWFLNFhv?=
- =?utf-8?B?YkVsZ09ObGxEU2VUYVAyQjYyQ0MwQlN2WEh3YWxoeHJ5UUd3ZERPblByTFh5?=
- =?utf-8?B?VDVNZmhONGdMbEpNbUk0bW1NeWtZSmluOTBaU3IwRmMwVkVZeEVLZHlZKzhn?=
- =?utf-8?B?V2gzeFV4VVpkdWVlY2xWcWFQMWI0WksraFp4SGhrbnZjd1czKzloVGsxTUgv?=
- =?utf-8?B?dm1WWHVhNE9vYVNVQmNyT2h2ZWJFdU15Qmc2Yzg0T2Fmc3VzMnVnemUxM0pS?=
- =?utf-8?B?QzA2WFZib3hHTU9XSUtqT1ZjY21oZU1hRTRzTkthVXhUNURHMDNPbDZxV1N5?=
- =?utf-8?B?YmJxSTdVbXVmeHpVbE0yZHBNSlo4a3krY0pRZVRJQys1R04rOWxPdDdCZ3o5?=
- =?utf-8?B?WGV6YlJtK25xeGdWT0VDUHNpU1lpSGFKZmJyYXh5Y2VFdEdmNkp1VTl2VVlP?=
- =?utf-8?B?d3NnN0JrbUtKU2dMTlhuck9MQkN3ZG14RTBNQlRnVGpyWjVNenE0QXBkU0t4?=
- =?utf-8?B?MVdoMTI1WWQzU21LeUFrQXlwRkZVd25UcTA2L2JQQ3lYUHpObEk4WVpWNWND?=
- =?utf-8?B?VjQwMU1BRnVubHpxRlc1dVhXakJkMFZTWGpLUWFidUh6Q0lRTVcweGt3Z2NT?=
- =?utf-8?B?eHJienlibHdrVVJEelY3TzN3TDl6YjdsS0xjc3BpZU5NK1M4R0FKS3FuSDlr?=
- =?utf-8?B?VUUrTk42Y0ZzTUh1T2xYdHM3KytCcmswb3FqWVlnWFY1M1BBa05xa1dicHR4?=
- =?utf-8?B?QStMcWVGd1JGSzdvRTlNV1JmaEsrRitCNlRSUTNEVkRtdjJZRnRZUEVmWlJD?=
- =?utf-8?B?QzBWKzg0Y21KR0NaUmNaVXZIUWcrR1VoVU9Oa1hKVmpXUTAzcWt1RldOOFYy?=
- =?utf-8?B?SFo5dkwxd2M2UlBTaXc1T3A0TDlHV0xkRkdCdVg4Sm9SY3BkbWVLditUemhz?=
- =?utf-8?B?YklldkJUU0pLVitWRFdEdHQyZHhZR2RnNEpoZzRZNlpNbUEwdkxLdFY3M3hn?=
- =?utf-8?B?VFlhaU9VVWVHMldjTHdMUmVCM1diNWxMWkYwbmNXT28ybm5uQ0ZZcWZ3UTlp?=
- =?utf-8?B?Y015MFpNU3NsWTcxck5ZMlQ3cEV3VnZMRS9IR3dNTXZzY0hnTjY3d3JYTE5U?=
- =?utf-8?B?Q1dDcVovSkUrTW8zNlZXTm1Gd1F3amhIbTZUN2NWMHRCUVdCaWRxeUZhMDhT?=
- =?utf-8?B?UnROMCtTNzJmTjg1Mm52WWlNbjB1VlNRTlpKS3RsZWN2OU9RK2hPM2RkcFI1?=
- =?utf-8?B?UUo0amRtTVFEaDZLRFRjbUZQaVpzTGF4VlR5bGszUFkwdFRJSVJiRzdJZlgv?=
- =?utf-8?Q?VPdg31waUQGhn8Js=3D?=
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pMMGfoUh
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso8692445e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:33:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795019603; x=1795624403; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jZUvrbhbcZvb+yNyUGJEDBN+jZxprMUpQ75mT/ONYDg=;
+        b=pMMGfoUhkARBQHUjBg3XEEiwWBS6QuzdNEjV2VYyvSUmbiwb3EhWkofvJr3aswn/hx
+         eYwWrdrSB7cvRTkApvkMMk7Jf/4KwDjmKRez2yQAQAzhfXPIy7rJ3j+E2aRUmeeMRUz4
+         VBx+9LKHeu/vi6CYEmSmAiAkL3mLQWjscSfcbwOtyIu/HBvrei8sPwEiffI79k6Gym09
+         S8etFOHQmFXyXT2g/55XcrccBvdwyWpvit+UbaDXDfL4KYcbStoEpBSma9BbsMJtTsT6
+         8411VtgQs13yMa5FA0kHjucXbyl5/ocvpnK1lOqTzh8Z+eAm5EMJ5IKC2700IT+XovHl
+         UJ0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795019603; x=1795624403;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jZUvrbhbcZvb+yNyUGJEDBN+jZxprMUpQ75mT/ONYDg=;
+        b=OAxPIZZ3ZrCGipd92WuACTfav7HODs8KGXlv7WAXuIP7xEJIJNMpb9S9Bg4GEaJnjN
+         u0ULNnrtzQsXr/EfaFRkd2jegQGhK7p5MabIoH5+OP4eFykzb9FL4Cr3USb2PBM3RM9Z
+         jk/wrJK2rweC4tMGKYX+fV38pdWqd07kW0/RqJMwTXq4t6wFPkHW7VadBpkzWuJXvczX
+         LLmS+1sBImvOGJMw70/gxqIdXUE93yi8SrOik3SKyRACdpN2qhsXVgsq251JDrI3nkVt
+         2AlCIYvZNRbQNVd0Z6LIsXiYlkDZ+s5kGLe6b3cCAnz/aGs8gjoitec9e9gXd59hzuY1
+         c3TQ==
+X-Gm-Message-State: APuU4Z9NRu59+pd6GBVqA9bCJaLtqF6REbxGKy1YgJFv4xanNzYMDuUD
+	gs0X7/Ir1n1AZMoO4bTfCjm3JGZM3b8mR+PfYroezb/QPlxoFzjaxf0sH1yF/k09ouQ=
+X-Gm-Gg: AYBFou0AzntXyaci4P/sfX1e1i6f5tI5Scw7/xdwF9Jp54poVt3b0BA/p6NvwHr8x/O
+	ICj2lzYs5OSV/Xt6eM8xXYyUENDb1DPaRIf7re5XwHeX5FKddPJqufT+L/aPEMRNgg73dHxTkF4
+	TnnVeT/GCMUZyHVZjkCACoQhGeahXbf5THmjrhKqDzXAWQrW54cpx6y+JjngdRjFR3u5BYRszAZ
+	L05k4tY03dph8brClkx/ed3Qy/G1mPX/nCW6WPg4HJHsjzWU90Qk+SUCiO78lUVwn5d5Z2arWDz
+	M5grgBKcaQyomjGME46SULGP05jTAstMO2NzKhwTmcgvrIaVN1U8cWQhRlb9VRjE9xqZp9pvDw+
+	c0zlOerUMrJZVUkIcO928S8CkDc5e8M7MNg8RPoTZKRePcAAFgVv61Yb0P4MpNXhDkhnv3I743j
+	8gV9YyAoZ8yKQVWRHGCgFrB6uw+rEaiMuomI8WDUwNUw2QnvV9ZGKKHYwhFIQz2L6VrJ7eOCJ6X
+	FmcIpnKkqUYfsGbDz+WBQyL3gSVOFIKpTn5YWFHjoOD4SOr9OD1fWyM0zbd/mRey3CMdDid0bY3
+	DtGak2UeP4ScLW0qrts//tJvi8HGbLCbjw==
+X-Received: by 2002:a05:600c:19d2:b0:4bb:5de1:e912 with SMTP id 5b1f17b1804b1-4bb7d5d6636mr63465845e9.1.1795019603103;
+        Wed, 18 Nov 2026 08:33:23 -0800 (PST)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb783f8154sm167009625e9.4.2026.11.18.08.33.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:33:22 -0800 (PST)
+Message-ID: <c9a9e247-265d-476d-abc1-308fbe1d4a2b@linaro.org>
+Date: Wed, 18 Nov 2026 16:33:21 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -170,38 +90,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: DIw+kSgslQlbOyhExe7M4Cg2JVeY1w/HjiCQ1ITYjfmKKUCP3ZpNnno+QnmFzAUG8HNog+HjoUEk8SOIiTmqxNlLxQa8chMg04SCFOm2wcKzjfFFjo/QeGGDzmsYjyUQHJ6JU4qPbvIkXskwGB88ZJMEa2ChuBFd7nSqxHe6YBoa9PrGFD1f2YYzFClVUXe8JmILloU2Nr4357M7gROTiG+71ux8tvu4e9Ei0CFc6EpM5GAUA+ZGgPuPstCoBNA7FQeer93Ngxk/bn1DitJ6Gl0HrKS37VRJZa/VtRG91MONAgURT2oapxF7IftMXQ6PtyJ6BenlwDgE07gufx3PfQ==
-X-OriginatorOrg: onsemi.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR02MB7867.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: acb51d93-38a2-4017-51b1-08df4591959d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 16:32:49.1430
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 04e1674b-7af5-4d13-a082-64fc6e42384c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ul2Js3M2KgCI86nnNxj1JojtgDjOXxQfTa3ymOv0NfPch+UEyply3Z4NleqEpIN5vTZUZEfaUUKnq8I4JJ8zkvphpIVGPp3dwD2fYHKcgn4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR02MB7509
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rjUFe-LRWEdN5oND-ndn5OSHbh3C1f1bTCaZ0g7nEoc_1795019571
-X-Mimecast-Originator: onsemi.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/34] perf cs-etm: JIT decoding support
+To: Linux perf Profiling <linux-perf-users@vger.kernel.org>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ Leo Yan <leo.yan@arm.com>, Amir Ayupov <aaupov@fb.com>,
+ Suyash Mahar <smahar@meta.com>
+References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBuZXRkZXYtYm90K3Nhc2hpa29A
-a2VybmVsLm9yZyA8bmV0ZGV2LWJvdCtzYXNoaWtvQGtlcm5lbC5vcmc+DQo+IFNlbnQ6IFR1ZXNk
-YXksIE5vdmVtYmVyIDE3LCAyMDI2IDExOjUzIEFNDQo+IFRvOiBTZWx2YW1hbmkgUmFqYWdvcGFs
-IDxTZWx2YW1hbmkuUmFqYWdvcGFsQG9uc2VtaS5jb20+DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0gg
-bmV0LW5leHQgdjExIDA4LzE0XSBuZXQ6IGV0aGVybmV0OiBvYV90YzY6IERyb3AgZnJhbWVzIGlm
-IGZvb3RlciBoYXMNCj4gRkQgYml0IHNldA0KDQo+IA0KPiBbU2V2ZXJpdHk6IE1lZGl1bV0NCj4g
-U2hvdWxkIGZyYW1lcyB3aXRoIEZEIHNldCBiZSBjb3VudGVkIGluIHJ4X2Vycm9ycyByYXRoZXIg
-dGhhbiBvbmx5IGluDQo+IHJ4X2Ryb3BwZWQ/DQoNCg0KWWVzLiBJdCBzaG91bGQgYmUgY291bnRl
-ZCBpbiByeF9lcnJvcnMgcmF0aGVyIHRoYW4gcnhfZHJvcHBlZC4gV2lsbCBmaXggaW4gdGhlIG5l
-eHQgdmVyc2lvbi4NCg0KPiANCj4gLS0NCj4gU2FzaGlrbyBBSSByZXZpZXcgwrcgaHR0cHM6Ly9u
-ZXRkZXYtYWkuYm90cy5saW51eC5kZXYvc2FzaGlrby8jL3BhdGNoc2V0LzIwMjYxMTEzLXMyNTAw
-LQ0KPiBtYWMtcGh5LXN1cHBvcnQtdjExLTAtN2ExODYxNDE5NTJjJTQwb25zZW1pLmNvbQ0KPiA8
-aHR0cHM6Ly9uZXRkZXYtYWkuYm90cy5saW51eC5kZXYvc2FzaGlrby8jL3BhdGNoc2V0LzIwMjYx
-MTEzLXMyNTAwLW1hYy1waHktc3VwcG9ydC12MTEtMC03YTE4NjE0MTk1MmMlNDBvbnNlbWkuY29t
-DQo+IG5ldGRldi1haS5ib3RzLmxpbnV4LmRldj4NCg0KcHctYm90OiBjcg0K
+
+
+On 18/11/2026 16:29, James Clark wrote:
+> Restructure the Coresight decoder to decode trace in order with the Perf
+> events. This improves decoding accuracy all workloads, but particularly
+> with JIT code when instructions at the same addresses are re-written.
+> 
+> The resulting decode loop structure is simplified to
+> cs_etm__insert_heap() and cs_etm__pop_heap(), which work in the same way
+> for all of the timeless/per-thread/per-cpu etc modes.
+> 
+> For every Perf event, we pop from the heap while the packet's timestamps
+> are before the current Perf event. When a packet is popped, the next
+> packet is decoded and re-inserted.
+> 
+> The same path works for timeless mode because we can just assign the
+> timestamp of the AUX record to all trace from that buffer. This also
+> improves timeless decoding accuracy because now we don't use the
+> timestamp from the very last AUX record for all samples.
+> 
+> In Coresight trace, timestamps come after their associated atoms and
+> Perf uses a single decoder for both searching forwards for a timestamp
+> and decoding. It does this by caching decoded packets into
+> packet_buffer[] and replaying them once a timestamp is received.
+> Unfortunately this does't work for strict ordering with Perf events
+> because while searching for the timestamp the decoder will decode trace
+> using previously seen mmap which is incorrect.
+> 
+> To fix this, add a "packet only" decoder for each queue. This is used
+> for searching for the next timestamp after a discontinuity and not for
+> decoding trace. Once it's found, the backend re-orders that timestamp
+> and the previous packet before delivering them to the frontend so that
+> we can be at the correct Perf event before processing context packets or
+> ranges. Excluding the tests, this patchset results in similar total
+> lines of code but if we updated OpenCSD to return timestamps and
+> discontinuities in the correct order, then it would be a significant
+> reduction in code and complexity.
+> 
+> This series depends on https://lore.kernel.org/linux-perf-users/20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org/
+> 
+
+Assisted by various Claude and Codex agents.
+
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+> James Clark (34):
+>        perf jit: Support JITDUMP_USE_ARCH_TIMESTAMP on arm64
+>        perf jit: Add name of clock in error message
+>        perf jit: Add address ranges to DWARF compilation units
+>        perf libdw: Don't look up the module by ELF address
+>        perf cs-etm: Use the exception level to tell kernel from user
+>        perf cs-etm: Don't read past the end of the map
+>        perf build-id: Cache the vDSO in build ID mmap mode
+>        perf cs-etm: arm-spe: Use arch timestamp in HW tracers
+>        perf cs-etm: arm-spe: Report error if default clock isn't used
+>        perf cs-etm: Remove old pipe mode support
+>        perf cs-etm: Track threads in timeless mode
+>        perf cs-etm: Track sched out events
+>        perf cs-etm: Handle PERF_RECORD_SWITCH events
+>        perf cs-etm: Always enable Perf event timestamps
+>        perf cs-etm: Use time from Perf samples
+>        perf cs-etm: Don't buffer non-timestamped packets
+>        perf cs-etm: Decode in order of Perf samples
+>        perf cs-etm: Don't special case per-thread mode
+>        perf cs-etm: Decode one packet at a time and don't estimate timestamps
+>        perf cs-etm: Remove the decoded packet ring buffer
+>        perf cs-etm: Fold packet state into the trace ID queue
+>        perf cs-etm: Rename trace ID queues to trace ID contexts
+>        perf cs-etm: Rename tidq variables to tidc
+>        perf cs-etm: Share the thread ctxt between frontend and backend
+>        perf cs-etm: Consume each OpenCSD packet immediately
+>        perf cs-etm: Split base and packet decoder state
+>        perf cs-etm: Add packet-only timestamp decoder ops
+>        perf cs-etm: Create timestamp decoders
+>        perf cs-etm: Find timestamps by searching ahead
+>        perf cs-etm: Invalidate OpenCSD's cache on MMAPs
+>        perf test cs-etm: Add a Java JIT source-line test
+>        perf test cs-etm: Test trace is ordered with context switch records
+>        perf test cs-etm: Test decoding of kernel modules
+>        perf test cs-etm: Add an HHVM JIT call stack test
+> 
+>   tools/perf/Makefile.perf                           |    4 +-
+>   tools/perf/arch/arm/util/cs-etm.c                  |   21 +-
+>   tools/perf/arch/arm64/util/arm-spe.c               |   11 +
+>   tools/perf/jvmti/jvmti_agent.c                     |    5 +
+>   tools/perf/tests/genelf.c                          |   70 +-
+>   .../tests/shell/coresight/context_switch_thread.sh |   20 +-
+>   tools/perf/tests/shell/coresight/hhvm-jit.sh       |   89 ++
+>   tools/perf/tests/shell/coresight/java-jit.sh       |   65 +
+>   tools/perf/tests/shell/coresight/kernel_module.sh  |   54 +
+>   tools/perf/tests/shell/coresight/lib/PerfJit.java  |   82 ++
+>   tools/perf/tests/shell/coresight/per-thread.sh     |   45 +-
+>   tools/perf/tests/workloads/jitdump.c               |    7 +-
+>   tools/perf/util/auxtrace.h                         |    2 +
+>   tools/perf/util/build-id.c                         |   12 +
+>   tools/perf/util/cs-etm-decoder/cs-etm-decoder.c    |  790 ++++++----
+>   tools/perf/util/cs-etm-decoder/cs-etm-decoder.h    |   28 +-
+>   tools/perf/util/cs-etm.c                           | 1515 ++++++++------------
+>   tools/perf/util/cs-etm.h                           |   56 +-
+>   tools/perf/util/genelf.c                           |    2 +-
+>   tools/perf/util/genelf.h                           |    3 +-
+>   tools/perf/util/genelf_debug.c                     |   22 +-
+>   tools/perf/util/jitdump.c                          |    2 +-
+>   tools/perf/util/libdw.c                            |   16 +-
+>   23 files changed, 1643 insertions(+), 1278 deletions(-)
+> ---
+> base-commit: b7ff10b9ddec8da75304c40fe4abf1ee4f9f0a43
+> change-id: 20260824-james-coresight-jit-250f19309e35
+> prerequisite-message-id: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
+> prerequisite-patch-id: 9c49b9ffb75309e9187eb2e3ef84026118fcfdb5
+> prerequisite-patch-id: 4ce0ba0ab1302c9043f0d0734d9cf6a35298bc47
+> prerequisite-patch-id: 5e69770fbaf94296da5c474ce09539a1993bc61e
+> prerequisite-patch-id: 41d797af2aba7e97ff4435ae2659629e026d36ec
+> prerequisite-patch-id: d5f67b3b704f4f4b3d9e39c4299d13a086b29363
+> prerequisite-patch-id: a99348cc2065af31840f652286f840f23395892f
+> prerequisite-patch-id: aa90408e69dedf9e68d7158f2499bd9fbc7b0b40
+> prerequisite-patch-id: cd31a650f8dd3e7a9795fa641eee2415b126ad29
+> prerequisite-patch-id: 922a7fe2937a575beb8d0e7777fd869a11023eb2
+> prerequisite-patch-id: b0436630e22fd92803e277cd08d782c50f135be6
+> prerequisite-patch-id: e136ff402ddf5121c63c1393b7fc00a826f60a69
+> prerequisite-patch-id: 8a2674fa45e40848742e8b8472003e2b9706211d
+> prerequisite-patch-id: df905386a100ac4b8b047328de08da86b3adf241
+> prerequisite-patch-id: 44ee88eeafd54c0148ed2332dc5e33f1ba6dfce4
+> prerequisite-patch-id: b9622164f99682ca6b813b9d38ced3e95170653e
+> prerequisite-patch-id: 2f22df1738caf5af3a631851d8a57fc3bfea7742
+> prerequisite-patch-id: afe679ea285ddc6cd281f697ce504b7a18888999
+> prerequisite-patch-id: f507254858995051e8e1b96fb9fd95506228c5e6
+> prerequisite-patch-id: 6fe822580ea330633f8a23260aa7b2c7de834ab3
+> 
+> Best regards,
+> --
+> James Clark <james.clark@linaro.org>
+> 
 
