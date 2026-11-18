@@ -1,77 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967566;
-	b=LqOSBEtVOyZuTTbd1ZG/T/kaCHNKyu/N05uQw2t0SWEBcb6PpEJhStRSCpI27KCoK2Pf
-	 hmC193StE9rqlS2dX4nBbHUGo+D+pXu2M+4jp9BWKRsImbDyM31VaDO6nZYa1vLOWWc6P
-	 0yKTbr/v3QSv3Rk0lSgBUtIJPdU4FaCU5UKG9vijdapx/nJ6/HcccNvVaZyiZANo7CNH+
-	 v71rxDbvwVNYFQRZ93KXHB3W8QkqrmqAUrL3MNi4GhA0aRXujlwnG7LY6NFVXAdMNEoYP
-	 HRJZWk9vNj/NXN/FOyIeNYCJOi9+akf670OMe35/35b0XzqaZ46wUT3PHXVhXWvJLFg==
+	t=1794967636;
+	b=XtnhXkDHNLGPxdg7UJo4j/2H4XJtmJKZbSIQCDm094fa5zEeWdG14imAusrd0WJLw+/1
+	 W6l8/rK/0FDJr2WgijOWME36XSN3vVTHKc+ARwW9+VzCKnNo5RZF9RFZ1yP54S5Ph+9S7
+	 sBg/HcTz/V9qjAQqKgpeFOjbnNpVjgkyCwgO70EqhZK08bsPwoKciTxBgIvrXSCpXAmJz
+	 D9aVjxly70JjrnL49Cy9MGtZzfxNna//6/Hbt/UmNvhe6wcghnzLqilOxBTQY8mzPWXVO
+	 JZcYaUwEE5379qqZk+4Z/xfLhm/9rjsxtPlTEpT+v2KA8opF5Yt0LfeWMZy5cY974hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967566;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:In-Reply-To:References:
-	 Message-ID:Date:MIME-Version:Content-Type;
-	bh=MA3jroYBMrib0INrMZsHd4EPR8od++oBGys3n7EDepg=;
-	b=owTbRU3nBFIpB8mjRCzUcCk2PvmVGBHjuB5y6b4+yvwj56dAjE0XOdb9hUQUvICHqqy2
-	 vVrPvw0DfoJWGyHjnUoYj0yqab4nCicRMmlkAj8jNCLCQBi/UHsglKrdC+/6g9qN3MHzy
-	 tSwW4t/ijkEGOVA9HxBaMZJjGVUhRnWA0AiesZCAXcocUWlyNL3y3N6RW80p0eZ6YyV9z
-	 Q32OAck3NXeK7uA9tRX629lVNlaZUabgji9Q9vW3K5MU00VaNBj8gv03wOvoPCD/7PqX4
-	 0pnYHces0OTm87NC1jSBYy3/67RHv7hulMYfd7CsPQ65Hg7g+JgEozkomuaKGMaOY9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967636;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=SfJwYwm5e4vsMzXCNz9yx/bfvNCh4e6ZadaT7dtFFCc=;
+	b=jfjA1dt8/EZY2SxNwVw3bH8E+zCmRq4WqyInQYt1cc0RhNRfdiIpfuR7jOxCz7Z21FQ0
+	 Fk7zxRN6eZxfck0HBSA46kbqFn/jypn/0DNrO8pruB9FVaZypMe1zkty6UMeREw/uCky9
+	 jY+LOn62vpvpCz6168TbdenNzWlaJRdg1/yv83om7wH1GqH/sxRLLSySsYs1B1QJ8tZUE
+	 Y6x9KuZq1krCovRfTkOJSN2WYUudGAIrXnk+pw73G+73qtsfwJCDMbGXlBbLra1n1q/zY
+	 g/DFmJ8ZUb7HV9el9sKvdtrL57Hj/xYA9AZnVPV2rpTZjld9sj/di1PMp//slUA4mRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=cNmW34ZU;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OxS0Otyy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9EB5606A31C;
-	Wed, 18 Nov 2026 02:06:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9EB5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1B03606A31C;
+	Wed, 18 Nov 2026 02:07:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=cNmW34ZU
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI25bkK6866158, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794967537; bh=MA3jroYBMrib0INrMZsHd4EPR8od++oBGys3n7EDepg=;
-	h=From:To:CC:Subject:In-Reply-To:References:Message-ID:Date:
-	 MIME-Version:Content-Type;
-	b=cNmW34ZU2j79YAggK98TLKQVVYDIxNk0MqvHbmpBvrUHX3FBWo/skvkMUUxdIm92I
-	 WaEqJKT8b7fImIgtrqVvuwqXimUla5/qsFNvIwDXkd2wLqXyYeVCHgZwRf17heA/gl
-	 7ETOKXE2iD6UXyAi39ya/mtyFh6Tua7NmjoXU/h83DmTBfHpeOiyHR52XvN4Fw/tUq
-	 wz5H+Fxd0zQbNpwH6RrNEm2OLJvQhlA9vJzWpyD/FnYv6h+5cYG7cCwg+gmDE8Evr9
-	 MaX8gtkD5iS94DISOJmSXJStF+33dExQBijwCGIimo2sjcbhI1lntGXWXsdCYSkAOf
-	 V0SYwVu0VeJ7w==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI25bkK6866158
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 10:05:37 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 10:05:37 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 10:05:37 +0800
-Received: from [127.0.1.1] (172.21.40.75) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56 via Frontend
- Transport; Wed, 18 Nov 2026 10:05:36 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Mehmet Fide <mehmet.fide@gmail.com>, Ping-Ke Shih <pkshih@realtek.com>
-CC: Luka Gejak <luka.gejak@linux.dev>, Bitterblue Smith
-	<rtl8821cerfe2@gmail.com>, Yan-Hsuan Chuang <yhchuang@realtek.com>, "Kalle
- Valo" <kvalo@kernel.org>, Stanislaw Gruszka <sgruszka@redhat.com>, "Brian
- Norris" <briannorris@chromium.org>, <linux-wireless@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <mehmet.fide@screeningeagle.com>
-Subject: Re: [PATCH rtw-next v2] wifi: rtw88: program the beacon interval
-In-Reply-To: <20261117101419.1687892-1-mehmet.fide@gmail.com>
-References: <20261117101419.1687892-1-mehmet.fide@gmail.com>
-Message-ID: <e1412da9-4679-4e3c-9856-711fd75414e9@RTKEXHMBS05.realtek.com.tw>
-Date: Wed, 18 Nov 2026 10:05:36 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OxS0Otyy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA9151F000C4;
+	Wed, 18 Nov 2026 02:07:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794967636;
+	bh=SfJwYwm5e4vsMzXCNz9yx/bfvNCh4e6ZadaT7dtFFCc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=OxS0OtyyAIerLsAhqGBRZ+KTdGsIkmq3EWg7V/diqU8vep8orjnhHHMpfi8HdS/e8
+	 5CmV4owJrPu9fVMDWqrP3PXnFDuGAFxOaWbl9nbawe5aBx8OmbUcTRdGCuN+8szwLm
+	 DzEqrqHJvaQSXYaDpZsKoIjy+ePZyuap0aQ1vEfQgM6F47xKF/ewaUbsZyqE56eT1o
+	 sSZIdd8GUjB2BZqHlC4ABa4Wpfnx49lcjt5R3KAAiANpXhY/jtbLp+zRzJYnEaoAau
+	 PpPfsxAlxmuqUWpmLp45IjLc1wrfkR2ugyBHxexfl7s/cEMqNpWaGj2HapQa9pzGe3
+	 ou5Yf9OOHZUkA==
+From: SJ Park <sj@kernel.org>
+To: Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org>
+Cc: SJ Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	damon@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Mattathias Pinchover <mattathias.pinchover@uber.com>
+Subject: Re: [PATCH v2 0/6] mm/damon: add sz_ops_filter_passed_last DAMOS stat
+Date: Tue, 17 Nov 2026 18:07:08 -0800
+Message-ID: <20261118020709.97589-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261117-damon-sz-ops-b4-v2-0-439888fa04ac@uber.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,35 +66,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-Mehmet Fide <mehmet.fide@gmail.com> wrote:
+On Tue, 17 Nov 2026 23:22:14 +0000 Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org> wrote:
 
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+> DAMOS stat sz_ops_filter_passed shows the total bytes that passed
+> operations layer-handled DAMOS filters, accumulated from the beginning
+> of the scheme's execution.  Users who want the amount for only the
+> latest apply interval, e.g., the size of a workload's anonymous memory
+> that is cold as of now, have to keep the previous value in user space
+> and compute the difference.  To know how many apply intervals a
+> difference covers, they have to rely on nr_snapshots.  But nr_snapshots
+> is increased once per target per apply interval, so the computation is
+> complicated for contexts having multiple targets.
 > 
-> The driver never writes the beacon interval register, so the hardware
-> keeps its default of 100 TU. An AP or IBSS started with another
-> interval says that interval in its beacons and sends them 100 TU apart.
-> 
-> With beacon_int=200 in hostapd the beacons of an RTL8822CE, RTL8822CU,
-> RTL8822BU and RTL8821CU are 102.4 ms apart on the air. The same holds
-> for an IBSS joined with a beacon interval of 200 on an RTL8822CE and
-> RTL8822BU.
-> 
-> Write the interval when mac80211 sets it for an AP or IBSS interface.
-> Both beacon from port 0: rtw_core_port_switch() moves an AP there, and
-> an IBSS interface is never combined with another one.
-> 
-> Reported-by: Luka Gejak <luka.gejak@linux.dev>
-> Closes: https://lore.kernel.org/linux-wireless/1D396970-35B7-4B0B-82E9-24B523AD69C2@linux.dev/
-> Fixes: e3037485c68e ("rtw88: new Realtek 802.11ac driver")
-> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
-> Reviewed-by: Luka Gejak <luka.gejak@linux.dev>
+> This series introduces a new DAMOS stat, sz_ops_filter_passed_last.  It
+> shows the amount of sz_ops_filter_passed increase in the last apply
+> interval of the scheme.  It is updated at the end of each apply
+> interval, and kept unchanged until the next apply interval is
+> completed.  Like the other DAMOS stats, it is exposed under the stats/
+> directory of the scheme in the DAMON sysfs interface, and refreshed
+> together with the other stats when refresh_ms expires or
+> update_schemes_stats is written.
+[...]
+> Changes in v2:
+> - Patch 2: join the attribute declaration onto one line 
+> - Patch 3: call damos_set_filters_default_reject() before adding the
+>   scheme 
+> - Patch 4: keep only the stats list bullet, dropping the explanation
+>   that the stat is not accumulated 
+> - Patch 5: wrap the stats line in the usage document
+> - Link to v1: https://patch.msgid.link/20261116-damon-sz-ops-b4-v1-0-1cffe7227e6d@uber.com
 
-1 patch(es) applied to rtw-next branch of rtw.git, thanks.
+Thank you for addressing all comments I added to v1.  However, you didn't
+directly reply to the comments on the v1 thread.  That might confuse some
+future readers.  From the next time, please make sure the previous version
+thread is complete by replying to all comments and waiting sufficient time to
+let any other chime in if they have opinions.
 
-0bdc579dbfc2 wifi: rtw88: program the beacon interval
+All patches in this version look good to me.
 
----
-https://github.com/pkshih/rtw.git
+This series is applied to damon/next [1] tree.  I will repost it soon (~1 week)
+as an mm.git merge request.  So, no action from your side is needed for now.
 
+[1] https://origin.kernel.org/doc/html/latest/mm/damon/maintainer-profile.html#scm-trees
+
+
+Thanks,
+SJ
+
+[...]
