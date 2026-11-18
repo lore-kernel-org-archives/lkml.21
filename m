@@ -1,17 +1,17 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.6
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.5
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795011758;
-	b=jq/VjGrcs/I+91evvfwWgsybAmkjrCRbB80aUU90L41Edg1znA9TUxcwN8A9zEZb0nGv
-	 VbyFM7rhffAzRXsASMLXElWbHpMJZEIErlHKqcDI39p8jIauOjwciS6ewQjXyAzuWGpu6
-	 UXxDh41W83MKRDPrD8/8ZfangLnQdYTIzyRVtxwlxHbTffOLeOZxncmJn+FEv11SmRSx6
-	 A3QkpavwhCuKV+11CGc/0UAa5GFKYyK0pj5G8xjHlzVFbULBr0h1Wqk4HwpY5fkI7Y5sn
-	 yPbZidX8ENsRc10XdzyamGzy0Xw6jd+36yCX9HTnkZgvGBWJVzFqgbnvJejEjFrBr4A==
+	t=1795011767;
+	b=5a8/99HB5RsW8Sbk+90HDMrpBH3PEYipbBAsTPk1CFx+xyldC3mpxUvE5pOk2nASasiS
+	 ND3Lgh6TxX+/2daVTqliwK1FAgzvAWXXZCaYOGPwElqwboV1H3YSRizIjJB1jdpwrq2zn
+	 w2o9kQy1lPTW6lMSLmNjnxYmzd+tuM34Q8iJrhxu4JTLX1xvxzctBCXf2ZWpkAT+OfB4D
+	 yrNjHow1hDgfvZGEmqU3kF+fHfDslt8JM2wQOwX2iYEt8iBdy+Xxz27407Wj8w13uiAl8
+	 NhIeHtFpX4gGDYrKo4mg6HgtBlPYuh4DuZFjbd3Yq3UKnvPYMUxsI6WNFaiouCUh2vw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011758;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011767;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
 	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
 	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
 	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
@@ -26,70 +26,74 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=4Z5r8JDQOmWjctcosvxnw4qudecDQYRolGbAdOxnHnU=;
-	b=0QowjiFPKUpspN/rDRbpfbCOY/X4D48fa8dWstCgER+yt3zebbv6fAsnDXkciK0q7G+h
-	 bp1Vsq08YHmGpV2lNmrG9FNCZPvdFWMuzJo5Yt8ZEH4rrD6L3tHKVmBrzRi/nregb2lGd
-	 Ibl23neFpUkdP8I8hxoS4OAXWO1IsT6wL4rpnTpIQdJ3e0SHx3xSiju2HDhuRnvaorKKC
-	 Fal0UOAPCbj2/jr6bdXnBjUWu0FXV3ImpZsj6ZpQPlyRf6hL+WiFw2CuyFjQfDpi8ptf3
-	 6qKF2qizA/yuDm7nEMyrSQeWVxdMq8AcuLJgi7oLtUoXa14RLbR9++ssoBBQZOgLkCA==
+	bh=WoxcfhnpPuzNRYDSCyJtMQ4kLCnx1qJaNrbjgIMXG2w=;
+	b=kxx02a11/CmpmoKyT/rw46gFrdd9EjfRiifgJkrxaBC1oq/GT4firqsOJNpqk14Rur+n
+	 xzU3Y3BckiPUxBIzerdegfnZfpvuB7DHdeoxk4WpgeFTjMJmBp/cpcQ1xlXIFqyPbzDnO
+	 qhKs2lhSAfjEaan1p+M3ec5PQVZ67CeEFAf50DX1ZJK6qWKZUPlC0Kku+9VsH3W1itvSf
+	 f72xqbOqIczMXWxPKviCY5UI8rIx8HCeq8MacNEnXc2tNIlTWWbbIpwuzoFcy6dr5vGzE
+	 1Qlk6YgftPIryhFuN1HNKDXrdlGZyzHoe0gIZoaLJgBg5pqN1RpI9oO2xDKfb7fcxhw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=tfF6fdxp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.6
-Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011006.outbound.protection.outlook.com [52.101.52.6])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=AOEaK+K8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.5
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012005.outbound.protection.outlook.com [40.93.195.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B276606A332;
-	Wed, 18 Nov 2026 14:22:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B276606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FD8606A332;
+	Wed, 18 Nov 2026 14:22:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1FD8606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=tfF6fdxp
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=AOEaK+K8
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YJvEBE/bK4tZDn5AgUEM32BcMTG7rTPNzKBxoGET9PIHtsn98+9/1F7gNMNG8ZBrRaFNfAU0CR01+EiQBspOPgxqHZgZPEXiSvRDDWeJDZgt0I8JAJ3/4ezTfZQxFMZMqmDUb+FpqcCWEWNZiLT33145P9EV8dEKWf7jtHRnIHTGpjqekTnWcH68NROaX6TyjLlBi4jgYnXq6rmM4e9nwsZMKoA1hzTYnZIonMeGn4YjME3/5jA6cLiKDH+/6jRR4VMKbBZDVDTC83/du76LLTq9DqNfPAuP/0Ka+PbIhygIBIekafx1Lu5ETFCzFSxHm/Eiy9tkK/CpsT6u97+DRA==
+ b=crv5qPcL2mihfWoA2sAZTdUubDQn0ZcNnoqw+lC/RtxuPPi6qFwaw9UytYsFHQhIpbkBmLdAvZtIS0NY/Eov2pjdBg6chB67hOXoXDfEJaJbl1c94+VW9UOceFQYE04IBdQ+l7rIUAiXsIOeJL3ytn3QnF42Au/C6E+cgzU4zbxbIoIfjhOJe0oCef9pWO/B+E05O71B1gvLpvJjnic5rGN3OIXQw7iIc4Um9gGKxI9/TLvlUC3fzcSkZzwzNcn6aAqcxexbmcAADdFQBY9C3FrPC+XHTY/fQSFlo1nuKU/L5TwxHl3Gg0axrsl4RtTK+nWSTS8sZnbE11d6dkNV1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4Z5r8JDQOmWjctcosvxnw4qudecDQYRolGbAdOxnHnU=;
- b=KOtfewp3o3teGkvKVieb0jMm6eDbMmDf9PnhReVqEWZDcZSITfOHYsMS9M0PGsrshFLYmOtV7zBm16CDepzVUoj7BhNHiuyQoy4SuBgslsrayY258gsvyYfhi5OtUjWrtNR9OGFLOzePGJaoup6PWaSryt+ENjoDI7EjxwT/T6AMDwP48QAGIjVJuS89jPYXdRJttzT1BcsTRsW1UAozPElJNveNdd3PmczzgqeWZC5PqjdVGfx+RWPyS28snZHK3Vb373om1/ugoLpEwaM0hMk4MJbdQMl1jQGzkdEfh3jAU0qEKNJh6tFemQBb6HUI25UM2R0Ldpa5yV2XUur6tg==
+ bh=WoxcfhnpPuzNRYDSCyJtMQ4kLCnx1qJaNrbjgIMXG2w=;
+ b=F89TRnal/lE2IEmNpuynExs6bUhDFyp012+YdTReVOkjTBUC0SgpixBWmQ5YVbLjRGa+k4P8BHlK9fI/ZvXLPCM5pP+XdINl+lcm5Od5IL3QH1HqOZg8TuqPXwIStQU1p9dUTe/nZWeDGFG5Bsc9KsMdUlpGIDGa1O9QYicfm2L+iEc+TI3mBXCiMQH+O3rxkuKpd4J0gSVSFAB4hEEqLqgSk9ywzBuTNuaQFFIxl+yIutV5KZygPxUBUYXgVZW8mNv4LTemKkfOo6w1yvb4Vp5f7WvB9kFQgEtWMUnddxn6ULqFAOHyBkeWKgI6G4a96BpBHEmdkgTkkPcZ/1pMww==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4Z5r8JDQOmWjctcosvxnw4qudecDQYRolGbAdOxnHnU=;
- b=tfF6fdxpUz0tx4DVShhkc3oYRFo0BemyGF3g0Q2kR14fsr+U3vL0SUFPjy+ukbtp13hykXEref9m5tncA3zX4hP+AVK7AxBV4eF6Voks5ANNriBbP+jWvZ59YJeducxp+qhAHR2OoARoQHUdxgc6pQ/Avz5/jV5abNRhPm6JEV0=
-Received: from CH5PR05CA0015.namprd05.prod.outlook.com (2603:10b6:610:1f0::20)
- by SA1PR12MB5671.namprd12.prod.outlook.com (2603:10b6:806:23b::21) with
+ bh=WoxcfhnpPuzNRYDSCyJtMQ4kLCnx1qJaNrbjgIMXG2w=;
+ b=AOEaK+K86ZVAN39//xCTg4B9DQypB7Ft9x8NQpmkIlImwKTkLv5EYpOoXVoHAMAwaptWt36lLvatE33gNJvLKwUYc0/l88yqjFsxVQdR/NUhTaY0szrr8jfwkPCJE1Br8p3jEtewT5TSubbsHCMpZf2oqpEhCmqv1KE5+gup9FM=
+Received: from BLAPR03CA0110.namprd03.prod.outlook.com (2603:10b6:208:32a::25)
+ by MN0PR12MB6101.namprd12.prod.outlook.com (2603:10b6:208:3cb::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 14:22:32 +0000
-Received: from DSM2EPF00000011.namprd02.prod.outlook.com
- (2603:10b6:610:1f0:cafe::81) by CH5PR05CA0015.outlook.office365.com
- (2603:10b6:610:1f0::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.10 via Frontend Transport; Wed,
- 18 Nov 2026 14:22:32 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
+ 2026 14:22:40 +0000
+Received: from BN7PEPF000000A5.namprd05.prod.outlook.com
+ (2603:10b6:208:32a:cafe::58) by BLAPR03CA0110.outlook.office365.com
+ (2603:10b6:208:32a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Wed,
+ 18 Nov 2026 14:22:40 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- DSM2EPF00000011.mail.protection.outlook.com (10.167.23.11) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN7PEPF000000A5.mail.protection.outlook.com (10.167.245.229) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 14:22:32 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 14:22:40 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 08:22:21 -0600
+ 2026 08:22:18 -0600
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 08:22:17 -0600
 Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 18 Nov 2026 08:22:17 -0600
+ Transport; Wed, 18 Nov 2026 08:22:14 -0600
 From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 To: <linux-edac@vger.kernel.org>
 CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, <michal.simek@amd.com>,
@@ -98,12 +102,10 @@ CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, <michal.simek@amd.com>,
  Herring" <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Borislav
  Petkov" <bp@alien8.de>, Tony Luck <tony.luck@intel.com>,
 	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: [PATCH v2 01/12] EDAC/versalnet: Fix device_register() error handling in init_one_mc()
-Date: Wed, 18 Nov 2026 19:50:25 +0530
-Message-ID: <20261118142213.100581-2-shubhrajyoti.datta@amd.com>
+Subject: [PATCH v2 00/12] EDAC/versalnet: Fix error handling, teardown, and robustness
+Date: Wed, 18 Nov 2026 19:50:24 +0530
+Message-ID: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
 X-Mailer: git-send-email 2.44.4
-In-Reply-To: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
-References: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,138 +119,105 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DSM2EPF00000011:EE_|SA1PR12MB5671:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc5232b9-b25b-45e9-2710-08df457f6241
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000A5:EE_|MN0PR12MB6101:EE_
+X-MS-Office365-Filtering-Correlation-Id: 54fb4e10-6e01-4df0-f4aa-08df457f6748
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|376014|261021123027099003|10067099003|11063799006|56012099006|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|18002099003|6133799003|261009223027099003|3023799007|13003099007|56012099006|11063799006|261026121527099003|10067099003|261028144727099003|261026140227099003|261022105027099003|261021123027099003|261021121427099003|261102123227099003;
 X-Microsoft-Antispam-Message-Info:
-	m3FYzEp6WuETynfAUOTTFbfMcIQhpTLpVOALe96L5CwgOYurGeing03qNA9WwxHyd2qCNG5D3xvuvZCwWapr8p8kxxgwFoeV47XOyLARxLKlJJ9fLHbLmliJuV8A1UXZ3OcfcbF2SxiTS3S0fhMkOnizQ1AESWB7+gp06taChOPeOOjTDKZ/adU2wfOahAtdwgEwcklieNK7CFaqGXnygOpz5X7MAFKNgqwLBgWjLKXGpme46dFP9CviWfTut2Madpd76QEgmJu9IO8KptWJWRVGz1S2+Z4GIVTmfCU9dl6PwOP7SJo17gPaGm9151ZdB0RXe6X0QB7wNmNU3kCg9R0Hf4OJZvVnB8Roh2RtQwErggKzMjFfWZLm0Nre+jfXKYs7XCVy3erA8VX4tzR34RiH3FS8WmTrfOO1DvL9vl/QQhFKp5NSAnm5OlLeR3s3Wg1o0Ty7vink5SNQz7tEjAcnq/B5V23W4aXGIvHczBGXuDunu/3L+vhEm4L5UGyhkOefmxJKxiulBbxpSemxkLj8k4PZeHon+ZdYXHrqtwkhBd30k7a8Mtsds2vo8P5Pfb2VVdLlMJ0wzrFd5dK61Dr1F8jjsq8tQEd9x7PWppdJy68uggNwApv9Webtbd6x15f31NyR2USjCaTidPqbsprLKN8g9fkUPUgwSvJlHpq46w2QI3ULdI3zZsbDZYm1eVKmOAqpXlxnLK4YBuKCOw==
+	oGq/d5S2Ic5OYOxtiAQWVNauS21Jp4p1aLvKFvt6HH/Jx3ZVyFIeIPY5fEbeNx9Tq8Am+jKfXFgeyz3KPjMKQWzkiNbND3mARCjZl6kNgjzh9UlsavNVXwP9BIWOhq/v3g6tgpJQqNyIUWsl3CWRTG6YPt1eaaEdONAjHkRDoa8tGn362Z28iQGBSCjMdxa3j8bLTDVsWj164vvC4ESjgqCyVKawN7zTduDjDBQ3XtuaMuSrxJdp8kjwb3+u8ifK2f3udEW5VbsLsnatc+xh2PfiY+2201aqDRByAD2XKHwvhYqqbwEbOamJV3LoQ32ukhk1mgAZui+JihbhXjqdBkdNzFMEuhb2FdNhRoeyDRu08dJWEEK0NhwYu6d4ZV9rCzicaP+MpXYJjnQDYAs8COrkkSo/vAG8Dl9lDi9xcvF21QBqxv9XvsTiDe2uereY33vJ2CDqUnMxDp/d1QMCZ8AJYYSwl6FBru07jhBskoBdepmg+/R4nYOBzf6R8yswjMCCDxPnqlvS41cXndZ07Nust2UU93vuUdMd6iv7qdG/02EQFoHdWpNDSh/4POXbrT2TovTtjPjjAIjNp5aitjUAQ65r5ufNR66bK5qAUQa1OzeSQgKx78fFz6QZdO/0GX86IJIj6NLr6tW8nHxh3g==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(376014)(261021123027099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(18002099003)(6133799003)(261009223027099003)(3023799007)(13003099007)(56012099006)(11063799006)(261026121527099003)(10067099003)(261028144727099003)(261026140227099003)(261022105027099003)(261021123027099003)(261021121427099003)(261102123227099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	n0aQoRq2Lyb9WC3dCXttt3s3guHluzkjYGbu3DO6yiFUDpVBfCOP2cWfV645rGGmfHUG8WOXZ2EWHvJZPEtEnsDPF6SwyatqKulQn+k1PTeWD0kv1l1csXopQP8uLL2Eal6i9j2yQujC0c5tRt/kT/Zhv0HYEuTZQ3NBqPy76et2VqfhcBQvXQS2MHcrA1fB3/6ojbG8U7NZ/GU39fqGhx36X+b1dr3eLqHdXz6phCwcO4yLHlOFcaC2k3HqSBq80ui35csZM3ROu5yyrplABD7n0LeLWkt1zBQiIFQvP/vy0JEFrk9jjg/hE/1mjkimrlahgK6KkDfMVwyhPBlxYV9q/byTaKwGfdGe+T/AXrBuZMIBksSHThx4bEg5CxeysjopqDolEfFEJ+qOK9B8+m9p4E9PvqdlpvmKm+9hCpZSZqNmxtExh4oRdX5M2lA0
+	QM0ecfwK321CNOnGH3A6JyIVWmb+nCxb+xXLcVJucccfDf83vVkqyodf+MJkUHN3ddSY2A52epQdT+c4ReoMOqdTLbCm0hRM62H4GsN8ES3IxVdQqYpNNM6lZ4f5tdlBWF5k5AHuWyo6Nxb8Tlhy0raLu86B2E1EnkcF5Q0WOrDDqXXOdFjyTEtHdpGPR4bLNNMl0ysP/UJLZDHnrn8y+GhNBLGCPRt6O8oX6F2KFieTXkGhAPy3BMf36UOzQPQu0ZG4Pnt2S+/pgT4U+L2FcNUg9lQaBkZJk1xlOvyqB8jtoDS03BJGiYp9S1JeZsxfFbOOMzVsl88xfygPfJkFzJ+fEAPap/dnCRmE4Dbpom7wrt7axVJYul6+I/rMxlHXx3xsliIY1vv5Bkm6zfcJg1WIxJYWzUpA7rR26yU6cO2Kg8N+YJy8pCw4/KH4xVlM
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 14:22:32.0684
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 14:22:40.5420
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc5232b9-b25b-45e9-2710-08df457f6241
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54fb4e10-6e01-4df0-f4aa-08df457f6748
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	DSM2EPF00000011.namprd02.prod.outlook.com
+	BN7PEPF000000A5.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB5671
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6101
 
-From: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+This series addresses several correctness and robustness issues in
+the VersalNet EDAC driver, including NULL pointer dereferences,
+resource lifetime problems, shutdown handling, and probe/remove
+path cleanup.
 
-When device_register() fails, it must be followed by put_device()
-rather than kfree(), because device_register() calls
-device_initialize() which sets up the device refcount. The matching
-release function versal_edac_release() handles the actual kfree().
+The main fixes are:
 
-To simplify error handling and avoid complex unwinding, split
-device_register() into device_initialize() and device_add().
-Initialize the device early so put_device() can be used in all
-error paths.
+* Robustness fixes
+  - Add bounds validation in rpmsg_cb().
 
-Fixes: d5fe2fec6c40 ("EDAC: Add a driver for the AMD Versal NET DDR controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-Co-developed-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
----
+* Probe and initialization cleanup
+  - Move platform_set_drvdata() from init_one_mc() to mc_probe().
+  - Reorder probe flow to initialize MCDI before RPMsg registration.
+  - Remove unused pdev parameters from internal initialization
+    functions.
+
+* Resource management fixes
+  - Fix error handling in init_one_mc() to avoid a potential
+    double-free by reordering device_register() and edac_mc_alloc().
+  - Replace sprintf() with init_name by dev_set_name() to avoid
+    use-after-free issues caused by deferred kobject cleanup.
+
+* Code cleanup
+  - Use a designated initializer for rpmsg_channel_info.
+
 
 Changes in v2:
 Add the codeveloped tag and remove the non standard signature
 fix the name stack warning
+Use a macro for channel name
+Add reviewed by tag
+Sashiko comment
+"This is a pre-existing issue, but are offset and length validated before
+being used as indices?"
+New patch to fix shashiko review comment "this is a pre-existing
+issue, but is the per-controller width overwriting the shared
+state for all controllers?".
+Patch addition for the rpmsg endpoint race
+Update the labels
+Address the sashiko comment
+"register_rpmsg_driver() exposes the callback endpoint before setup_mcdi()
+initializes the mcdi pointer. Could this lead to a NULL pointer dereference
+if a response arrives early?"
+Patch addition for the rpmsg drvdata race
+Add reviewed-by tag
+Add amd,num-ctrl property to device tree
+The property was requested in the discussion below
+https://lore.kernel.org/all/34ffba5a-8e9a-49b9-9e36-c31d0e4369f8@amd.com/
+Adding the device tree parameter was suggested in the review in v1
+https://lore.kernel.org/all/34ffba5a-8e9a-49b9-9e36-c31d0e4369f8@amd.com/
+New patch added to bailout if the cdx_mcdi_rpc fails.
 
- drivers/edac/versalnet_edac.c | 36 +++++++++++++++++------------------
- 1 file changed, 18 insertions(+), 18 deletions(-)
+Hayden Rinn (1):
+  EDAC/versalnet: Wait for RPMsg endpoint initialization
 
-diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_edac.c
-index eae9fea60db1..89672d4d17c9 100644
---- a/drivers/edac/versalnet_edac.c
-+++ b/drivers/edac/versalnet_edac.c
-@@ -70,8 +70,6 @@
- #define XDDR5_BUS_WIDTH_32		1
- #define XDDR5_BUS_WIDTH_16		2
- 
--#define MC_NAME_LEN			32
--
- /**
-  * struct ecc_error_info - ECC error log information.
-  * @burstpos:		Burst position.
-@@ -777,7 +775,6 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
- 	u32 num_chans, rank, dwidth, config;
- 	struct edac_mc_layer layers[2];
- 	struct mem_ctl_info *mci;
--	char name[MC_NAME_LEN];
- 	struct device *dev;
- 	enum dev_type dt;
- 	int rc;
-@@ -817,28 +814,31 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
- 	if (!dev)
- 		return rc;
- 
-+	dev->release = versal_edac_release;
-+	device_initialize(dev);
-+
-+	rc = dev_set_name(dev, "versal-net-ddrmc5-edac-%d", i);
-+	if (rc)
-+		goto err_put_dev;
-+
-+	rc = device_add(dev);
-+	if (rc)
-+		goto err_put_dev;
-+
- 	mci = edac_mc_alloc(i, ARRAY_SIZE(layers), layers, sizeof(struct mc_priv));
- 	if (!mci) {
- 		edac_printk(KERN_ERR, EDAC_MC, "Failed memory allocation for MC%d\n", i);
--		goto err_dev_free;
-+		rc = -ENOMEM;
-+		goto err_dev_del;
- 	}
- 
--	sprintf(name, "versal-net-ddrmc5-edac-%d", i);
--
--	dev->init_name = name;
--	dev->release = versal_edac_release;
--
--	rc = device_register(dev);
--	if (rc)
--		goto err_mc_free;
--
- 	mci->pdev = dev;
- 	mc_init(mci, dev);
- 
- 	rc = edac_mc_add_mc(mci);
- 	if (rc) {
- 		edac_printk(KERN_ERR, EDAC_MC, "Failed to register MC%d with EDAC core\n", i);
--		goto err_unreg;
-+		goto err_mc_free;
- 	}
- 
- 	priv->mci[i] = mci;
-@@ -848,12 +848,12 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
- 
- 	return 0;
- 
--err_unreg:
--	device_unregister(mci->pdev);
- err_mc_free:
- 	edac_mc_free(mci);
--err_dev_free:
--	kfree(dev);
-+err_dev_del:
-+	device_del(dev);
-+err_put_dev:
-+	put_device(dev);
- 
- 	return rc;
- }
+Prasanna Kumar T S M (1):
+  EDAC/versalnet: Fix device_register() error handling in init_one_mc()
+
+Shubhrajyoti Datta (10):
+  EDAC/versalnet: Use designated initializer for rpmsg_channel_info
+  EDAC/versalnet: Fix use-after-free in remove_one_mc()
+  EDAC/versalnet: Add bounds validation in rpmsg_cb()
+  EDAC/versalnet: Make dwidth per-controller
+  EDAC/versalnet: Initialize MCDI before RPMsg registration
+  EDAC/versalnet: Guard against NULL drvdata in rpmsg_cb()
+  EDAC/versalnet: Move platform_set_drvdata() to mc_probe()
+  dt-bindings: memory: xlnx,versal-net-ddrmc5: Add amd,num-ctrl property
+  EDAC/versalnet: use device tree property for number of controllers
+  EDAC/versalnet: Make get_ddr_config() return errors
+
+ .../xlnx,versal-net-ddrmc5.yaml               |   9 +
+ drivers/edac/versalnet_edac.c                 | 283 +++++++++++++-----
+ 2 files changed, 220 insertions(+), 72 deletions(-)
+
 -- 
 2.44.4
 
