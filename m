@@ -1,61 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992930;
-	b=5g0MH6jTX9YPulgUg1lOUYDNHAe4AFsr5/GwkVGLhqsMKK31mIsqt1gyCwbPrVk68w7D
-	 MQirJX5w98DwiU+cGqCheVFIkWovq40rq3+naG5j02PvvxIDuqAPV8cLdoffudnADi+CF
-	 tb883wn4hK/gSQ1yRaOizzFdAYWRmIhwZ67vCxXzRmttmawTjLTTp3KgqRKyNO/cfwc40
-	 l6F6hwNg4cGpCZ4d9AkzOsPxqrHIC+PsdvL+kslQz/8e5CCSLty9HadZknCsoZr4dVeEA
-	 wXP5jHD34k/+YE3e8Rsd57fKGwyg9eOM8lt2UPcmM8xTRtAwnAkHhXBLejfQZv7dzBg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992930;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=xQGOsErGOZXq9+WXIxXt/LMa5Ic2cv6DVsqe8EAXFnA=;
-	b=BrY2G/3QeB5VSvhyVCXTxLEOiYDzpIKPEfapbPV4iOoO3cS2YfAmethcqjZ+u+wUSLuX
-	 1Te99ONAQUQYpcCkDL0LxFBoL3dZ1uoc2dWuK8uqb5xlieYNzF1KD8hoH3uB/11GT1KJ0
-	 kFqL5N6aQhxkATG9OAPrwvyNvjckjMGNw5/KM4hCehhOzjhdqLvOCUH9mpVD0YNhak4UO
-	 GHqfibXcSxvZsIUHihhFG7qxEPyD6xuG2CsNv4+HTWmTQ5VlV0pihwcTMPuGX90DuMzyT
-	 50AmJZrjt8Lc93LZa1tyUi0a+qSewYJAnWwt/+fswc2y54UGHg0cD+LaqvobkpsD/zQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=lkc8tJW7;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794992931;
+	b=IZjG4z2XI1PAdZweugASlUJgdxXMU2lnYLnWoTVbrJoSDoeJyof4bzV0uNcyAoM7aTHd
+	 BmF70eIeipJRYbfxzxWvrIH18Vgc3NCvgEM08w2Oh3NKTQtiTujone79YcRnSr7t7ZLt+
+	 wESSauQooXHF/La0UWzWJ7KEZxwu9+J6DkYekloBAi1Ejt19CEIQt7e5HmxatzTLUEkh8
+	 K90ZtZgBl+kQxcju7xB82SsZ7FwLaIQGaXoB2oNT5OO7KLYxTOMjViZmo78L3u7VEfzYt
+	 zssr36hlH4EBrI+kH4R+M/MEGcPvwAcHVbFiAoYeeI+S+ryqM+8wm0329Xp1BqDhA2g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992931;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=AL/L8BBoMuh5RxZuA7Vq9fjpLcJFyNh6WrlsR3XYHdU=;
+	b=ShPfl8fW9flgGBLZSB3vymDPMG7oQlFEd5RnIyi9R4+qlQcjMfiLVzc5nVgXh+1M4wXY
+	 glb9w4mMRiCIa+7cCYPqYRT83vwx43AyAbtjBbRYUGB6wh2HWe1LifFmZ/UOGblDmWPlp
+	 Y8MagT1r+efVUhqQNWBkSmNnRLTSZXWy3I333s0tU4dmBMCxFFc+HtKrHanFF9RWhI9c2
+	 MQHiuSCDD5Sk4RLGyKlgc+uji24QNiizzniFxLhgN2FW1ANaquFibtM79Je2g9+jXNIZE
+	 yvL88ZBgG9ioSXzfLhT1Q46UFEPs5jb0Huguj8yNwTZbF8P+AP00oenotTSOiDW7e5w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gzzq4FJF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF938606A889;
+	Wed, 18 Nov 2026 09:08:51 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gzzq4FJF
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794992931;
+	b=tWYt29IW4RVbDmmoGymUh4qrfDoLF8CV/atUldroTrZW8W6D6XSgwEqsZXfakTd9DCe7
+	 Ei7Q7Edi+iW/iScTLS0hVsHefaYrOeeyS0WzFot6rsqdgRFJMw7QpKcfHWtHEbTC9QC7Y
+	 un/zZ/nqBQdp2uIigMpSfE2taAmODB6W8N8ZOBnDozHm9y2aBIeBb2xyBiNsezIxRN8U7
+	 Xn98iC1yHuv8GkSWiLEebxryj7Hu8n4Va27SnMMSrP7OdELKobMJpubxzFzCfhfwzF+5j
+	 Aw7oWvGNKeAJ4Z7pSqce7gvZeKLssFSDnYxHtMP7aWz5bQYMvVcoZqBTP6BNk8FBoxQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794992931;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=AL/L8BBoMuh5RxZuA7Vq9fjpLcJFyNh6WrlsR3XYHdU=;
+	b=g9CLEN24FdMbImEBAUsu1EGNSySnsoO7omSJ184ugYQ6EbsmfgSihkp1eb5ruCdDbA5q
+	 OI7Sy466OmUK6Hzvr/O71g36pFQw2hV6PKTJMzeoLTD/FEeE+a3CHU0COBetPfaQXbUPJ
+	 J4opzKWzvGqNVc/oAIvTnFxwpgAMDcorJcVjdKwzehvmOZT+Ai+6pUzyAa6t+svArm1LD
+	 tjWm+2Q1ARfv3G5isD4mf4PgIoMU1WroTK06qsW8DtLKwrZ/JOXZOCeKUVkR8/N1Y+Dzq
+	 ITtdcNAs+LfThXX5QqjWHKMaDd7worAAAuPDpu57kIMO5JNt8iXu+XUGxsF41cE8eaA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 451D4606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:08:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 451D4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=lkc8tJW7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=xQ
-	GOsErGOZXq9+WXIxXt/LMa5Ic2cv6DVsqe8EAXFnA=; b=lkc8tJW7/qUtvvlfHD
-	VF7kM+mNlils5ctbxP4ZdskwWx4EUfewzzjp/1vxiy2O1NvdNTBs+wySW8a9KrCx
-	xAMpolRPhrQnath7fNOs0/1IOglHwrjlQnYo+vqX9AsovLU3eOUNufol0WcnT77H
-	YkJXM/8iiHKhQJQCyi3UM7Bhs=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S4;
-	Wed, 18 Nov 2026 17:08:32 +0800 (CST)
-From: Xuewen Wang <wangxuewen_ky@163.com>
-To: linkinjeon@kernel.org,
-	hyc.lee@gmail.com,
-	liubaolin12138@163.com
-Cc: ntfs@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 10/37] ntfs: add filesystem metadata error reporting helpers
-Date: Wed, 18 Nov 2026 17:06:34 +0800
-Message-Id: <20261118090701.1858849-11-wangxuewen_ky@163.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
-References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 96A8E1F000CA;
+	Wed, 18 Nov 2026 09:08:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794992931;
+	bh=AL/L8BBoMuh5RxZuA7Vq9fjpLcJFyNh6WrlsR3XYHdU=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=Gzzq4FJFuKfpGAgoHeCJfqnfgVCUUIWV5A4f9TVfDQ9ODtCZghv4sN68iYj47o8Ui
+	 scRkCc4cAqHY+vopWh4aWNPKbl5q/g6hVqs6gnrpvyFyQYSXkI3sj8cchJESa791cT
+	 7QWn2rO/x//GNI409UxIFnmdfMVusFIX35nicB31Sh5GW9ObCZzS+NeHPgyPJ0N5iK
+	 jpYEloFwSDTuXGQH6bJ64LT8XNI8N5eSZTU51cb15xO8rzlF4sAdu6vurxSYD2NOCn
+	 UveJqcNWpZ1F7ptlPp+6kq7zS3pXuZwJZVIW8bTIllsng90uopDx0D04tKqs8XNysw
+	 cqJabqAdVWQpA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 138E34ACAA;
+	Wed, 18 Nov 2026 09:08:50 +0000 (UTC)
+From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
+Date: Wed, 18 Nov 2026 10:08:50 +0100
+Subject: [PATCH] rust: kbuild: generate a symbol version for
+ rust_build_error
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,137 +83,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S4
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZw1fXw4Utw4xXF1UtrW7CFg_yoWrCr4rpF
-	97Awn3Kw4DJFy2grs2kr42vw1SkF92gw4Utr1UXw1xZ3W8tw18tF4vy3WF9F1SgFWrW34j
-	qr1j939rur4UZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UK-eOUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzhD44Wr9axD5tgAA3k
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261118-fix-rust-build-error-modversions-v1-1-7c1023764f30@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACFr/WoC/yWN2w6CMBBEf4XssxttFaP+ivGhl0VqpJDdlpAQ/
+ t0WH89kzswKQhxI4NGswDQHCWMsoA4NuN7EN2HwhUGf9FUpdcMuLMhZEtocvh6JeWQcRj8TV1f
+ wYrr23JJ3d6uhzExMxdkvnq8/S7Yfcqnu1oY1QmjZRNfXKE+SmMxw3G8iLQm27QeUqHuzqQAAA
+ A==
+X-Change-ID: 20261118-fix-rust-build-error-modversions-4af535edc9b2
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+ Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Sami Tolvanen <samitolvanen@google.com>, 
+ Matthew Maurer <mmaurer@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
+ Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+ linux-modules@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794992929; l=2134;
+ i=peder.bergan@gmail.com; s=kernel-contributions;
+ h=from:subject:message-id;
+ bh=iwv1qR5QyWs5FUrFMluYyHlgGOi5NpHY1vMGZeZUJRU=;
+ b=NwD6BfBA4WLob4JLWPSWapwm4CZS3A7yc5jvskFd0xanhimNfBdKYJ6oPbN3P2DqnFUHqZ/RS
+ z4EPoyo3A7EC6m2QxLn1urUhN9JCBklyXWBl1CvPG6Yij6lqo4TXdgd
+X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
+ pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
+X-Endpoint-Received: by B4 Relay for
+ peder.bergan@gmail.com/kernel-contributions with auth_id=1395
+X-Original-From: Peder Bergan <peder.bergan@gmail.com>
+Reply-To: peder.bergan@gmail.com
+Content-Transfer-Encoding: 7bit
 
-From: Baolin Liu <liubaolin@kylinos.cn>
+From: Peder Bergan <peder.bergan@gmail.com>
 
-Add file and volume helpers to report metadata errors through the generic
-deferred fsnotify infrastructure while retaining the volume error bit.
-Pass the caller's errno unchanged.
+CONFIG_RUST_BUILD_ASSERT_ALLOW exports rust_build_error to modules.
+When CONFIG_MODVERSIONS is also enabled, modpost warns that the export
+has no symbol version and records a zero CRC because the build_error.o
+rule skips gendwarfksyms.
 
-Move ntfs_inode_base() to inode.h and use it to identify the base file for
-attribute and extent inodes. Fall back to a volume report for I_FREEING
-or I_WILL_FREE, when retaining the inode for deferred reporting is unsafe.
-When SB_ACTIVE is clear, record only the volume error state.
+Generate the checksum from build_error.o with the existing Rust library
+rule. Make build_error.o depend on rust/Makefile when module versioning
+is enabled so incremental builds pick up the change. Kbuild's saved
+rustc command does not include the gendwarfksyms step.
 
-Signed-off-by: Baolin Liu <liubaolin@kylinos.cn>
+Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for CONFIG_MODVERSIONS")
+Reported-by: Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>
+Closes: https://github.com/Rust-for-Linux/linux/issues/1201
+Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
 ---
-Changes in v6:
-Introduce the reporting helpers after the standalone fixes.
+An incremental x86-64 build with LLVM=1 CLIPPY=1 clears the modpost
+warning. The kernel export and a Rust module that references it both
+record the same nonzero CRC.
 
-Validation:
-- Compiled and linked the NTFS module object with W=1 at this stage.
+OpenAI Codex assisted with coding and testing.
+---
+ rust/Makefile | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
- fs/ntfs/inode.c  |  7 -------
- fs/ntfs/inode.h  |  8 ++++++++
- fs/ntfs/super.c  | 29 +++++++++++++++++++++++++++++
- fs/ntfs/volume.h |  3 +++
- 4 files changed, 40 insertions(+), 7 deletions(-)
+diff --git a/rust/Makefile b/rust/Makefile
+index 0165626decbe..dd5b0a958d0c 100644
+--- a/rust/Makefile
++++ b/rust/Makefile
+@@ -773,8 +773,9 @@ $(obj)/pin_init.o: $(src)/pin-init/src/lib.rs $(obj)/compiler_builtins.o \
+ # treated as such so that we pass the same flags. Otherwise, for instance,
+ # `rustc` will complain about missing sanitizer flags causing an ABI mismatch.
+ $(obj)/build_error.o: private is-kernel-object := y
+-$(obj)/build_error.o: private skip_gendwarfksyms = 1
+-$(obj)/build_error.o: $(src)/build_error.rs $(obj)/compiler_builtins.o FORCE
++# Rebuild when the symbol version generation rule changes.
++$(obj)/build_error.o: $(src)/build_error.rs $(obj)/compiler_builtins.o \
++    $(if $(CONFIG_MODVERSIONS),$(src)/Makefile) FORCE
+ 	+$(call if_changed_rule,rustc_library)
+ 
+ $(obj)/ffi.o: private skip_gendwarfksyms = 1
 
-diff --git a/fs/ntfs/inode.c b/fs/ntfs/inode.c
-index a892540146b8..7ebdbffcd75b 100644
---- a/fs/ntfs/inode.c
-+++ b/fs/ntfs/inode.c
-@@ -3571,13 +3571,6 @@ void ntfs_destroy_ext_inode(struct ntfs_inode *ni)
- 	kmem_cache_free(ntfs_inode_cache, ni);
- }
- 
--static struct ntfs_inode *ntfs_inode_base(struct ntfs_inode *ni)
--{
--	if (ni->nr_extents == -1)
--		return ni->ext.base_ntfs_ino;
--	return ni;
--}
--
- static int ntfs_attr_position(__le32 type, struct ntfs_attr_search_ctx *ctx)
- {
- 	int err;
-diff --git a/fs/ntfs/inode.h b/fs/ntfs/inode.h
-index 7ea52c59c04b..3fcf5b761eab 100644
---- a/fs/ntfs/inode.h
-+++ b/fs/ntfs/inode.h
-@@ -298,6 +298,14 @@ static inline bool ntfs_inode_is_named_stream(struct ntfs_inode *ni)
- 	return NInoAttr(ni) && ni->type == AT_DATA && ni->name_len;
- }
- 
-+/* Extent and attached attribute inodes refer to their base MFT inode. */
-+static inline struct ntfs_inode *ntfs_inode_base(struct ntfs_inode *ni)
-+{
-+	if (ni->nr_extents == -1)
-+		return ni->ext.base_ntfs_ino;
-+	return ni;
-+}
-+
- /* Return the base MFT inode for an attribute inode, or @ni itself. */
- static inline struct ntfs_inode *ntfs_base_inode(struct ntfs_inode *ni)
- {
-diff --git a/fs/ntfs/super.c b/fs/ntfs/super.c
-index 79c2e1c4a2ed..773e5208bdbf 100644
---- a/fs/ntfs/super.c
-+++ b/fs/ntfs/super.c
-@@ -14,6 +14,7 @@
- #include <linux/sched/mm.h>
- #include <linux/fs_context.h>
- #include <linux/fs_parser.h>
-+#include <linux/fserror.h>
- 
- #include "sysctl.h"
- #include "logfile.h"
-@@ -426,6 +427,34 @@ const struct option_t on_errors_arr[] = {
- 	{ 0,			NULL }
- };
- 
-+/*
-+ * Report confirmed metadata corruption as -EFSCORRUPTED, matching the errno
-+ * returned to the caller. Preserve the errno of I/O and recovery failures
-+ * so listeners can distinguish their causes.
-+ */
-+void ntfs_report_metadata_error(struct ntfs_volume *vol, int error)
-+{
-+	NVolSetErrors(vol);
-+	if (vol->sb->s_flags & SB_ACTIVE)
-+		fserror_report_metadata(vol->sb, error, GFP_ATOMIC);
-+}
-+
-+void ntfs_report_file_metadata_error(struct inode *inode, int error)
-+{
-+	struct ntfs_inode *ni = NTFS_I(inode);
-+
-+	/* Attribute inodes share the file handle of their base inode. */
-+	inode = VFS_I(ntfs_inode_base(ni));
-+	/* Eviction cannot retain an inode reference for the deferred report. */
-+	if (inode_state_read_once(inode) & (I_FREEING | I_WILL_FREE)) {
-+		ntfs_report_metadata_error(NTFS_SB(inode->i_sb), error);
-+		return;
-+	}
-+	NVolSetErrors(NTFS_SB(inode->i_sb));
-+	if (inode->i_sb->s_flags & SB_ACTIVE)
-+		fserror_report_file_metadata(inode, error, GFP_ATOMIC);
-+}
-+
- void ntfs_handle_error(struct super_block *sb)
- {
- 	struct ntfs_volume *vol = NTFS_SB(sb);
-diff --git a/fs/ntfs/volume.h b/fs/ntfs/volume.h
-index ed5c0ccb9cd9..27f58beb4b2d 100644
---- a/fs/ntfs/volume.h
-+++ b/fs/ntfs/volume.h
-@@ -262,6 +262,9 @@ DEFINE_NVOL_BIT_OPS(SymlinkNative)
- DEFINE_NVOL_BIT_OPS(MftBootstrap)
- DEFINE_NVOL_BIT_OPS(StreamsWindows)
- 
-+void ntfs_report_metadata_error(struct ntfs_volume *vol, int error);
-+void ntfs_report_file_metadata_error(struct inode *inode, int error);
-+
- static inline void ntfs_inc_free_clusters(struct ntfs_volume *vol, s64 nr)
- {
- 	if (!NVolFreeClusterKnown(vol))
--- 
-2.51.0
+---
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+change-id: 20261118-fix-rust-build-error-modversions-4af535edc9b2
+
+Best regards,
+--  
+Peder Bergan <peder.bergan@gmail.com>
+
 
