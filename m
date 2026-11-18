@@ -1,60 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=128.30.2.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030158;
-	b=nz4Xw4sKYlg+ca+36vF5XTNBQzm7OHPJag+45xtuBJrY79+zeWzRPm99vCiwUM7hAVWh
-	 qQUQwuN+dfCFwT8iPxsSeuRpWImWoZF0yOFZVVlEaDtuJY0fdqQ1rKhc/p0KYsIW2Ag6X
-	 5rwTV7gysJgZgkTl2IGGUk1ndoBt6UMYTirk+LPzyZDwiC7amDStqoOrQqgzjcId0AKCK
-	 z9X+fMup5atjZ4Cbt/paEAT0UlU1R2Q0LVGiDkk3pOxUhqQJXs/BOrTyYgnxHCS9WoAZb
-	 Hbbqfhkarvazhdz/P7XO4MoKA6z4+Am7bCXKLpp2lVi7VPU2NlK0hkVQfzXHrdMZB5w==
+	t=1795030225;
+	b=hCRnmll9QaGKiDGUsll6H5DUaUXjVn8kpqxF5BjrSGSFhAL/L/SvVMJMRm1GtUOIyFow
+	 7N8+CWi0TN2vDRvpLzSRqlXgwDNjQKA2bvKVKENuG8gqj4n7Eu76avXGWccJwJkYcQSxu
+	 REDjSZJQzlFLPg8n4MtUMxR9704d8zKLGaqP7urDIL7r2ksgkZE/q1mNqR2MRcL9cHu3M
+	 7zpkPbr1B5p90wzcmf2jKKZHRAuw9xgwB69+MpDHFyHPqBnmx4XoVSiGR3rQ2lrqTG0Ge
+	 5+WBornDe/gaBD+3tc4ztHKsgQj9YGZAZiM8qgxZSkUPhyv5rEvghtpGcc7lkuuEp2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030158;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:To:Cc:
-	 X-Mailer;
-	bh=saGdpj4r3L96cDSsR2+wXxIGDapfklTmNU2pm+8TxUw=;
-	b=xxMDOP3B64Yza5WovfCuWR2g2K65OY2RhclDmdvvjdVsv8OnTV5AHijb1uf2ht4OPUqS
-	 k7Ega5qNhdAvoHt1rg0S4hbPAC7Uu+wgsR6M0XZ88uHuQMxU/PxO0Xq+mYLDdMXLZwPoh
-	 gp9xSKu3BAygFU/Oms9+XuWsyKaWaNlHZ8UKmmjzRwwlfDCj6270TnXoJQTRpFxndkH0P
-	 teJBDCzEP4DtQ1hoxJzp4TWK7EA19/5agAvtEXPIA5cqg+ePEEO0rLi67Cz8as7tZykmW
-	 r1hdBo68aVNPZSEV6bvIDk5Uww8wk35nx+jtAgZPL2U2SMBsoz/Cv6ETeR2Wdyh7Imw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030225;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=TiKCTQwI498M+zPJy/UReFz64BjTVYGFPlsNBrp4k5s=;
+	b=Jpr+R/nEGb1glvI/8pd2SzdeF4zHDw5Q1oIwiHSMsWrqx5DytH51eqUX2uHZFoi2YAve
+	 4yemo++LL/D280ZLrmDfLlBfW0XVXipkN5/h7Yx4Yt5fj6DjnsbyUijiSQ/SvK5B46Czd
+	 sJKcNYkJDmE8hVPjsNYmojdyFLlyRx41kjplHMzvvqs0QUS7oZs5M4okbKZDxMSA5DBkq
+	 r8YvtytILds4GPscu2a6pu4mZoQ7/HHFb2Xtuo/AF/JRcRMGYslngqvYkIVpQgy8j/x0p
+	 iKQhjQ4HpXZO5BkHjO3cMnKdR5Uj+ccDEBLjov8OM7lP0k1/0lxk4DjLXcKG/lTzv8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=csail.mit.edu;
-	spf=pass smtp.mailfrom=csail.mit.edu;
-	dkim=pass header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=p8G9gPpb;
-	arc=none smtp.remote-ip=128.30.2.78
-Received: from outgoing2021.csail.mit.edu (outgoing2021.csail.mit.edu [128.30.2.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKz90UKO;
+	arc=none smtp.remote-ip=192.198.163.11
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7861606C709;
-	Wed, 18 Nov 2026 19:29:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7861606C709
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=csail.mit.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=csail.mit.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 019D0606DD0E;
+	Wed, 18 Nov 2026 19:30:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 019D0606DD0E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outgoing.csail.mit.edu header.i=@outgoing.csail.mit.edu header.a=rsa-sha256 header.s=test20231205 header.b=p8G9gPpb
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=outgoing.csail.mit.edu; s=test20231205; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=saGdpj4r3L96cDSsR2+wXxIGDapfklTmNU2pm+8TxUw=; t=1795030157; x=1795894157; 
-	b=p8G9gPpb4gjdfab3+A2OwF7P2YZEd8tTuQU1zW+KlAd2OZ6S0yH8LG0pS8FZGdYvJZR40tByma9
-	GbeRo3VEBWf799YSGwVxXDB6FfyQ5mldSvOJ9TQXaRDZ1h/gLD2JFMQi/xfN6BIkAZQS6fnL/ZWo3
-	UUsbP/PsH04M19HucQIz2rFmmPx8l9DaYgBXnK3iDi5lmxlEeL5tlWjTlfroae2o6TjvhhrXt/ruC
-	vMFxAeut5e4upEggfknHkXkLtTxcWC5d5bm+yTT8io5vvmoyXWdp+RF9TwhYN0i7T+xs00ANT9WX+
-	2HeIZvtKGju88ApwY1eCV9akH0azSOstq4Vw==;
-Received: from [49.207.212.66] (helo=[127.0.1.1])
-	by outgoing2021.csail.mit.edu with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <srivatsa@csail.mit.edu>)
-	id 1xTlLB-00HZUt-Vn;
-	Wed, 18 Nov 2026 14:29:10 -0500
-From: "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>
-Date: Thu, 19 Nov 2026 00:58:44 +0530
-Subject: [PATCH] block: Fix NULL pointer dereference in
- blk_mq_complete_request_remote
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKz90UKO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795030225; x=1826566225;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=BJ0fotAq/M8m1ArkEbvyP0Mk3dq+2UrG44ML+IBS0zo=;
+  b=mKz90UKOZsvKoJ4EfO34yHAniDoMFGdH9JYjO7Zn0DtJpjzXMyI/7LWP
+   +b+grK5ukWQR7/jGQPxuRXrSHfbi153hWyMWIZDaLpn9eI+fz1eGANPCq
+   j6EQxgTbqy92LpAiafDsjj/HOVafdhfMEhwMiaeAluiy23r0MyQmmlKhW
+   dC17JrH4m31u/BjHOBtkQ+iULnS5fZ2Kpjs3B6UvPdANQAhLhu6VKhfV7
+   827kKPG73bw9TTlZRKHi+X6osAeeZISY+tazQeTDc9u3jVv2w/TcRwO1S
+   LmTVlARXzWEPpPrayQKUZG3jmkmC+RcAwyQRRrJ8TGb6K9HcRtD7PIiEV
+   Q==;
+X-CSE-ConnectionGUID: U4ihUUVxRqSPeJy8MdYCXg==
+X-CSE-MsgGUID: nPAJv6q9SSezXKLOhQj93w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3781175"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3781175"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:30:24 -0800
+X-CSE-ConnectionGUID: p+7tQvU2SD+OhHIXRzPzJg==
+X-CSE-MsgGUID: cwEt8V/aTsmViOJfLMHDLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10468060"
+Received: from jf.intel.com ([10.165.154.102])
+  by fmviesa008.fm.intel.com with ESMTP; 18 Nov 2026 11:30:24 -0800
+From: Ehab Ababneh <ehab.ababneh@intel.com>
+To: ilpo.jarvinen@linux.intel.com,
+	hansg@kernel.org,
+	tony.luck@intel.com
+Cc: ashok.raj.linux@gmail.com,
+	platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	peterz@infradead.org,
+	sathyanarayanan.kuppuswamy@linux.intel.com,
+	pengfei.xu@intel.com,
+	ravi.v.shankar@intel.com
+Subject: [PATCH v2 00/17] platform/x86/intel/ifs: Support group-based In-Field Scan and Diamond Rapids
+Date: Wed, 18 Nov 2026 12:32:42 -0700
+Message-ID: <20261118193259.519568-1-ehab.ababneh@intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,107 +95,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-fix-blk-mq-null-ptr-deref-v1-1-9bcbcfcfaff8@csail.mit.edu>
-X-B4-Tracking: v=1; b=H4sIAGv8/WoC/x2MWw5AMBAAryL7bRMlnlcRH6VbNqpoEYm4u8bnT
- DLzgCfH5KGJHnB0sefVBhBxBMMk7UjIKjCkSVoIISrUfGNvZlx2tKcxuB0OFTnSWOqsLAaVS1U
- nEPotSL7/d9u97wf7WD3tawAAAA==
-To: Jens Axboe <axboe@kernel.dk>, Daniel Wagner <dwagner@suse.de>, 
- Christoph Hellwig <hch@lst.de>
-Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-hyperv@vger.kernel.org, 
- "Srivatsa S. Bhat (Microsoft)" <srivatsa@csail.mit.edu>
-X-Mailer: b4 0.13.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Add NULL pointer validation in blk_mq_complete_request_remote() to
-prevent kernel crashes when block drivers pass freed request structures.
+Some Intel Xeon processors, starting with Diamond Rapids (DMR), share
+one SCAN test engine between multiple CPU cores in a module (Dual-Core
+Module, DCM), instead of only between the threads of a single core. All
+logical processors that share an engine must start the In-Field Scan
+(IFS) test at the same time. The current driver assumes the sharing
+domain is cpu_smt_mask(), which does not hold on these systems. Also,
+although the cores in a module are tested together, each core gets its
+own result: on a DCM, one core can pass while the other fails.
 
-When NVMe devices experience hardware failures or firmware bugs,
-completion queue corruption can occur, leading to scenarios where
-drivers attempt to complete already-freed requests. The NVMe genctr
-validation in nvme_find_rq() catches most stale completions, but when
-corruption produces a command_id whose genctr bits happen to match,
-the freed request passes validation and reaches the block layer. The
-block layer's __blk_mq_free_request() sets rq->mq_hctx to NULL,
-but blk_mq_complete_request_remote() lacks validation before
-dereferencing this pointer.
+This series:
 
-This manifests as a kernel crash like shown below (the stack trace
-was obtained from a crash observed in a Linux VM on Hyper-V):
+ - Patch 1 removes the SBAF test, which is not planned for any CPU and
+   whose test images were never published.
 
-  nvme nvme0: resetting controller due to AER
-  nvme nvme0: request 0xe3 genctr mismatch (got 0x0 expected 0x5)
-  nvme nvme0: invalid id 227 completed on queue 6
-  nvme nvme0: request 0x26 genctr mismatch (got 0xb expected 0x9)
-  nvme nvme0: invalid id 45094 completed on queue 94
+ - Patches 2-6 are cleanups and preparatory refactoring (comment fixes,
+   clearer MSR bit names, u64 MSR bitfields, early return on image
+   errors, a generic Array BIST parameter struct). Patches 2-4 have no
+   functional change.
 
-  BUG: kernel NULL pointer dereference, address: 00000000000000fe
-  RIP: 0010:blk_mq_complete_request_remote+0x1b/0x150
-  Call Trace:
-   <IRQ>
-   nvme_irq+0x182/0x320 [nvme]
-   __handle_irq_event_percpu+0x47/0x180
-   handle_irq_event+0x38/0x60
-   handle_edge_irq+0x87/0x1a0
-   __common_interrupt+0x3f/0xa0
-   common_interrupt+0x42/0xa0
+ - Patch 7 adds stop_cluster_cpuslocked(), the cluster-level counterpart
+   of stop_core_cpuslocked(), so that all threads of a cluster can
+   rendezvous and issue WRMSR at the same time.
 
-The crash occurs at offset 0xfe when accessing rq->mq_hctx->nr_ctx,
-where mq_hctx is NULL.
+ - Patches 8-10 enumerate ALL_LP_JOIN_NEEDED, select the CPUs to test
+   together from topology_cluster_cpumask(), and warn when a group test
+   does not pass while some of the logical processors sharing the scan
+   engine (per TID_BIT_SHIFT) were not in the group.
 
-Add a NULL check that returns true (signaling to callers that the
-request has been handled) to gracefully drop freed requests, with a
-WARN_ONCE to flag the condition for diagnosis.
+ - Patches 11-13 record per-CPU results for group tests and expose them
+   through new sysfs files (status_list, details_list, cpus_ran_list,
+   addnl_details_list). The existing status and details files remain,
+   but now report the result of the CPU written to run_test rather than
+   the first CPU in the group.
 
-Fixes: 40d09b53bfc5 ("blk-mq: add a new blk_mq_complete_request_remote API")
-Signed-off-by: Srivatsa S. Bhat (Microsoft) <srivatsa@csail.mit.edu>
----
-I'd like to call out a few unresolved aspects about this patch for
-review attention:
+ - Patch 14 adds Diamond Rapids to the CPU match table.
 
-1. I'm not sure if the NULL ptr check should be placed before or after
-the rq->state update to MQ_RQ_COMPLETE. Do we need to update that
-state even if we don't proceed with the complete-request operation?
+ - Patch 15 removes the 256 limit on the batch file number.
 
-2. While this was a real bug that I hit in one of my systems, I don't
-have a way to repro that same scenario anymore (i.e., hardware/firmware
-bug that introduces the corruption), so validating this kernel fix
-against the original crash has been a bit of a challenge.
+ - Patches 16-17 update the IFS documentation and ABI document.
 
-Still, I wanted to post this patch to report the bug and seek guidance
-on how best to fix it and harden blk-mq against this NULL ptr dereference.
+Most of this series was developed by Jithu Joseph and Qiuxu Zhuo, who
+have both since left Intel. I have taken over upstreaming it, so please
+send questions and review comments to me. The patches keep their
+original authorship and Signed-off-by tags, except patch 10, which I
+rewrote for v2 (Qiuxu is credited as co-developer). Where Qiuxu
+changed a patch written by someone else, the change is noted in
+brackets in the commit message, and I have added my Signed-off-by to
+every patch.
 
-Thank you!
----
- block/blk-mq.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Changes in v2:
+- Rebased onto v7.4-rc1.
+- Tested on Emerald Rapids, Granite Rapids, Clearwater Forest and
+  Diamond Rapids (Tested-by: Yi Lai on all patches).
+- Patch 9: build the CPU group mask only after the CPU online and image
+  loaded checks pass, so a rejected run_test write no longer changes
+  the group reported by the *_list files (Sashiko).
+- Patch 10: reworked, with a new title (was "Validate TID_BIT_SHIFT
+  matches topology_cluster_cpumask()"). The check at driver init is
+  gone: it failed driver load on Sapphire Rapids and Emerald Rapids,
+  which don't enumerate TID_BIT_SHIFT, when a CPU in the group was
+  offline, and on parts that expose only one core per module. Now
+  TID_BIT_SHIFT is read at init and, if a test does not pass, the
+  driver warns when not all logical processors in the TID_BIT_SHIFT
+  range were in the group. The test always runs (Sashiko, suggested by
+  Tony Luck). Author changed to me, with Qiuxu as Co-developed-by.
+- Patch 11:
+  - clear the per-CPU results of the group at the start of each test,
+    and clear them in ifs_init() before the devices are registered
+    (Sashiko);
+  - restart an interrupted test from the lowest chunk reached by any
+    CPU in the group (Sashiko);
+  - don't overwrite error codes reported by the hardware with the
+    driver's timeout or partial-completion code; report a CPU that
+    stopped early without an error code as partially completed
+    (Sashiko);
+  - the patch 10 warning checks the results of all CPUs in the group;
+  - commit message: explain that cores in a group can report
+    different results.
+- Patches 12, 13: read the CPU group mask only once in the *_list show
+  functions (Sashiko).
+- Patch 16: fix typos; say "group" instead of "core"; use the real
+  attribute name addnl_details in the commit message; describe what
+  happens with offline CPUs instead of requiring all CPUs in a group
+  to be online (Sashiko).
 
-diff --git a/block/blk-mq.c b/block/blk-mq.c
-index 5ae22d556540..5dc9d7d806b5 100644
---- a/block/blk-mq.c
-+++ b/block/blk-mq.c
-@@ -1307,6 +1307,15 @@ static void blk_mq_raise_softirq(struct request *rq)
- 
- bool blk_mq_complete_request_remote(struct request *rq)
- {
-+	/*
-+	 * Validate request is not freed (__blk_mq_free_request() sets
-+	 * mq_hctx = NULL).
-+	 */
-+	if (unlikely(!rq->mq_hctx)) {
-+		WARN_ONCE(1, "%s: attempt to complete freed request", __func__);
-+		return true;
-+	}
-+
- 	WRITE_ONCE(rq->state, MQ_RQ_COMPLETE);
- 
- 	/*
+v1: https://lore.kernel.org/all/20261026183820.129459-1-ehab.ababneh@intel.com/
 
----
-base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
-change-id: 20261118-fix-blk-mq-null-ptr-deref-7f376cd5ad90
+Ehab Ababneh (1):
+  platform/x86/intel/ifs: Warn if a group test fails with CPUs missing
 
-Regards,
-Srivatsa
+Jithu Joseph (7):
+  platform/x86/intel/ifs: Refactor Array BIST function interface
+  platform/x86/intel/ifs: Enumerate the bit to determine if CPUs need to
+    join for IFS tests
+  platform/x86/intel/ifs: Select CPUs from topology_cluster_cpumask()
+    for simultaneous IFS tests
+  platform/x86/intel/ifs: Track and report scan results on a per-CPU
+    basis
+  platform/x86/intel/ifs: Add new sysfs interfaces {status, details,
+    cpus_ran}_list
+  platform/x86/intel/ifs: Add additional details sysfs interface
+  platform/x86/intel/ifs: Add Intel Diamond Rapids server support
+
+Qiuxu Zhuo (8):
+  platform/x86/intel/ifs: Revert SBAF feature
+  platform/x86/intel/ifs: Fix IFS sysfs interfaces in the comments
+  platform/x86/intel/ifs: Clarify In-Field Scan MSR bit macro
+    definitions
+  platform/x86/intel/ifs: Use u64 to define the bits of IFS MSR
+    registers
+  platform/x86/intel/ifs: Early return on the IFS image hash/chunk error
+  stop_machine: Add stop_cluster_cpuslocked() for per-cluster operations
+  platform/x86/intel/ifs: Update IFS documentation
+  Documentation/ABI: Update IFS ABI doc
+
+Tony Luck (1):
+  platform/x86/intel/ifs: Remove limit on number of batch files
+
+ .../ABI/testing/sysfs-platform-intel-ifs      |  33 +-
+ arch/x86/include/asm/msr-index.h              |  17 +-
+ drivers/platform/x86/intel/ifs/core.c         |  59 ++-
+ drivers/platform/x86/intel/ifs/ifs.h          | 229 ++++-----
+ drivers/platform/x86/intel/ifs/load.c         |  52 +-
+ drivers/platform/x86/intel/ifs/runtest.c      | 450 ++++++++----------
+ drivers/platform/x86/intel/ifs/sysfs.c        | 109 ++++-
+ include/linux/stop_machine.h                  |  15 +
+ include/trace/events/intel_ifs.h              |  27 --
+ kernel/stop_machine.c                         |  35 +-
+ tools/arch/x86/include/asm/msr-index.h        |  14 +-
+ 11 files changed, 531 insertions(+), 509 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.43.0
 
