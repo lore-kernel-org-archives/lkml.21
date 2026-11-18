@@ -1,97 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001131;
-	b=pnQtmupYrnD10e+9gbCUOgbGui+K+H/gNRtjhXmOFDXn5JQWhTBTZdMPdV/iwZJ1Gypi
-	 /T/Vbv6LgZ4vtJ7HgjnHpxNUvVMB1FtTvfzskwWbDrEl2LXGTpact0+jf4hWRAQ8FkONP
-	 VZdQQhZHyiJJ53eH/ki9klCDZPt78dpvX57J7ZVa/ZjU67RYF0D9aNpcQCaWHNCcq51lH
-	 uqMp3cgrxE8XbZWOYjZ8cHpomrAmTIzvVuc2M7jhl+OeEHaNQ2YQOrP0Essd4jDDId71o
-	 qtwy1MkB5Zl+NdphoURp1qct5dXtN3rLJXWJZW6WXSFeOQGtL/ZHsBeQ3WwBcEsZUsA==
+	t=1795001145;
+	b=bvjO5jJgoFutFcbZF6BwPOZUw61wzHujQ3LmxN8EIsGTli64fb9UQUz6TxFOpLCPmdAv
+	 hpRBgnfjaq102NSwG8ALTtaen11tHdAkk9R7QJQh4wEqcTUxa5i8QZeKGqXDJg3iNqMdO
+	 whp+slb1MwQ8GhaAngBa1MIXbFgWtkTLUXloklBi0oyct+ry6JeXNy09w3a8C0QjCPtfK
+	 lCtaVabqiGkr4UhwsS0uij8UZjXNCRMDzyaRh2oG7dd1f3mYaYHmNxkctQyaYQ2V/q+a1
+	 Ve0aNKJicjETMl4t7vchoUe0XU3NpeHwPMz1CIByHbOHjXzbrq8N9jJPEKnWnV0CbRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001131;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001145;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YoWmRHzC0ZELuZ7/SC3fVKMECkRMqpESbzYlx1qsT7E=;
-	b=C7/Oe21BUIJFrlMo8VALhR4P9KJHFkVGH1rrBL2tePMh+lWRDmFLh5xy4LYFI156ntfA
-	 OUEyVEG/JFwhDHBV8KogO9Qsf2PyYpU9VmbnBEQYTxDJcV3WTUhhkClP17/0S8K9XnmqP
-	 7WPHdVuay0itgdMks6N2+fOLMJjBlSt1mDUw9WkRN1ZhB/W+1xPsAcOsy8nRiEQKxe+fb
-	 Emi7Sun6/uZHlzFg/D4MgHSZ3jcpnvBLCN4JJZpQ/2LYMGRWFH/opfcjsc5gihVihmwCE
-	 DeulSq2ZAN/w514ftaXimhO+MN89WIbeyX9FYsqiP22UZnu7Vgop7h1IGCVf7n5SAhw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-B4-Tracking:X-Change-Id:X-Developer-Key:X-Developer-Signature:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=Jj3AiIIXmRC9FyTihY7j7RN1Wu5qfeANt23v7y2ZS24=;
+	b=4GX1CvG43NJowwjHBYkqmN8EI0BtzGUrmHxwkzYGiThYI2p667C0WWFUR290MKEalkND
+	 5ucvbkXe6hBwyrJmyMHTacOjPzVRtKewrdl8kWXm9gqgABGcAC3A/PtDotp/BmsUstPZy
+	 2/km0bceAyfeoOnLHQGgrn7fQAi33elw3gAfrHf9pB+OFzoXk05Lg/glpEjaX7fYhvNuE
+	 5X5bTMEt48BNTnCF2P7hESA05XzLoUJhlvzfK5YE/4dC3MgEC9QMLiUoyfQop8Ib7QX7o
+	 gqqUqTpgma91oxANIrgpAGyd0btgRTVWV/bgKSbRIDbl2kWyhfT0MA7r5E+vDDZDajQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BhHhSd8J;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cqskiwFE;
+	arc=none smtp.remote-ip=209.85.128.69
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com [209.85.128.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AEDA606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:25:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AEDA606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9022606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:25:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9022606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BhHhSd8J
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2eff722a480so4385285ad.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:25:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cqskiwFE
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4b9fde3044dso6327625e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:25:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795001131; x=1795605931; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YoWmRHzC0ZELuZ7/SC3fVKMECkRMqpESbzYlx1qsT7E=;
-        b=BhHhSd8Jqwqaq+ZpO72sN5yxdyMAYiIVo/1PbavN/9YSm1mLO++iVhA7k2Udt0uv9N
-         i6acSDn7tj3qkYtH900QKBWJFouCFLttP0SKwwGll7Kc7A/Nw9/V/lWRCpGCSY480gsU
-         qfmFsQHeegbR84dlAEYHFJ9EmaIOWQQMpYufu+vMN1p+HbBZqq3JhMezwDiZio1mPBH7
-         7s8PnLsYF5CDIjUjhE9eT2yJ4kbRV+zg/t8dU04AG8MS8iZUIEuA8OWkb3wyZ+zy8U1r
-         mpvmtgguowT7hirXMXeY/HjNfEzTV4piCLpP5rMxMMPvY++/63hE1c1cS5bWsIiO20Ea
-         oBgQ==
+        d=google.com; s=20260707; t=1795001143; x=1795605943; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Jj3AiIIXmRC9FyTihY7j7RN1Wu5qfeANt23v7y2ZS24=;
+        b=cqskiwFE/oWO/rqVLm4kkogciIji3y4Kjq4RgbP821CCVY/g4AxdF16yvfpwBFVFGp
+         tGEazMi+uCxsu+p2LZn50ixtULmFWxHVge+hVo/5D+4DRD/AdfXTrOOOP6g2cVZIPjkH
+         xIc8+ihl+8Elr0xhuw6ORHwxcWo117GwjA7/dLJDyZpYUYTSZgIXNppmZM9yrKc2B3dC
+         L+es4JT0fWntwtEF9WzX4Ae8vtjS3xpIdp5wPdAWSxnd7jFZrMPLIPzfxdzaN1mk3bH5
+         XWFHfOfqUuhvPrc2Kg31cD8+/T5OrywHWQSF7rv3r3TN9zoOO/Vw9CGrYectyl2v7Vfe
+         nzFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001131; x=1795605931;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YoWmRHzC0ZELuZ7/SC3fVKMECkRMqpESbzYlx1qsT7E=;
-        b=H8G1XYTZsjnNFscYxlX720mEU8VW3kr4IGwvKqQ8EZpKKyHgF018uuq9rBYzsRNtZu
-         0J80/jQbZXwrchyMY2jDzT7GM/xybYkqF+4ZPwwkigCGs3x+bwaQFSkKj1bEkeZySfP3
-         9qwUtnkmrkli9vWPdECzDTQmpTlB9isAJuKjqCiccNXk5+pse/lDBMg3JX6CI2GKJsp3
-         4S3zA4iS8kUNXzCEKw5Xs340Yb6AFYorotVPb9BJKRKpct51o80Hz1FKdfVtPXOyNkH8
-         ITi/1VGF9np6o5OyWIPJ68KOb3u2dHkzwDEiIRXf6RiGBJdLIfJymvdVoEvz6w3sJduI
-         rtWg==
-X-Forwarded-Encrypted: i=1; AL+hErHYVHf9MOnQ8w2xz84eiZDueTEf03HaLDRzK26oL0sTwP9zwgRFZi2F64ZCatQuDAEfUJ10zupVQC9fMT4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7+NQcf6sSyqbDUshYTjsUqHKoTGFHRuwq7u1jrlsumSLKkng/
-	wJ9IKavMtQ26kkHAWpC8HmVGQu3EiqRzeL8+qg53YwWFSGA1IRHK+kjJ
-X-Gm-Gg: AZFdTZejrH06KCI7WfGymba65O0jdAnAue3QexU/alv2PPDn0HT5GjgU0DDiPNbWIoV
-	i3hdZONxqNVOD/x/7Ui2meJxah8dqHuCaAz5nA8wvNBvKO5uo12c6731yGu4pIJ05NXoSQLXDcv
-	S42hv56roBCMXFyvLPR7tJmBFjH3Yb2NBoMmJ8JDlhdDHgcJfMYgzvBWYV/HOR5mA9WpSESKof0
-	PIRgzALTayWTDMz3h05CeJE3DaHsyCZQYSiNzLooQFbnl2NSAs3lLjBImgsfHsnZufEfvv2oGwe
-	8BRl8sZZUixVYJWzJqOb9QB1Ey8Fh/2JMsEHVkJKVklfjnoiSCnjGhPOTTGmk30G2OCwwhY/iu0
-	JWy7VHCB5X6nDv1UPCzhchmISEGjztJg3MMsJTEDw+qMIIab8aIiBpPfTkkJ4V3AJ/itwTZIuJS
-	O55sWojxCzFJGIPM2NFn+PV0Ug9p6p2yGI7AArjCzPL9ppKxSJBu+icnb9KjwA2XUzM6vZEelOW
-	+ngJm3Er0RK6zD90bO5Q3d6IxzrT5+s7BQ94XgSx6/wwuIue0DbY3hzQRgmu0Mwj13cG91xhipx
-	EVpsk7V/EqhNkgiH4VJtvlAd1szD9QRtCQ==
-X-Received: by 2002:a17:903:384d:b0:2e8:95d8:6423 with SMTP id d9443c01a7336-2efd9eeba96mr39665665ad.38.1795001130590;
-        Wed, 18 Nov 2026 03:25:30 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6183f8csm11702945ad.31.2026.11.18.03.25.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:25:29 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: xiang@kernel.org,
-	chao@kernel.org
-Cc: linux-erofs@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	zbestahu@gmail.com,
-	jefflexu@163.com,
-	dhavale@google.com,
-	hongbohbli@tencent.com,
-	guochunhai@vivo.com,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH] erofs: preserve unspecified options on remount
-Date: Wed, 18 Nov 2026 19:25:23 +0800
-Message-Id: <20261118112523.3824782-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20260707; t=1795001143; x=1795605943;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Jj3AiIIXmRC9FyTihY7j7RN1Wu5qfeANt23v7y2ZS24=;
+        b=vaV58wiLsAOmgO0SI0SH/4UbbkvWr0FYb96hpJ5hGbuP3bMWIGthz9muQEWbmsgt3/
+         xHDyDulV9a9c17QLCe/NOkcNm5yITCxTl3A2A3kEjXUx34FLQIeSpTu90p5grsq6bFav
+         aY3p9+IzJDwbEwb+nC00itqNntTgr3Y5+WFkKn7NxuX/lbvjz1deDBQbJMpAEwVXHeW6
+         ul+mACg50k7xprxtCzKOkb0TArlcHXLo//iZFBZCYN8LsgchuIHLxsyLscQWYaqjhiVD
+         IKpcSMW+HujhNeCjxEHekSkmegsVz6TE5IdsUBaW3PNNX7pmAo7MyoJlbWqLigvOdbll
+         5rvg==
+X-Forwarded-Encrypted: i=1; AL+hErGaDT1gn5I+Dr+GgldV9RMpQHI1YqUjuLAdIIbyXgYqoJPsxAziV1stSMozSISTxKmOIgit1KB/1OLpF4A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9g0hac7iIq2L8tAJEwUBPKDuZV1MRgMni9NUtGzkq6/EjD6Px5
+	y6nmYCh25JkIjHkxtfOJpQLqsawEJJ/25iDPTshS2y7ghuRYhO+fMWzS740C/UuskR2m4zFNDr7
+	1ukitgSnQdIKGv8vBdA==
+X-Received: from wmte3.prod.google.com ([2002:a05:600c:8b23:b0:4a1:e44e:ffd0])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600d:82e4:b0:4bb:6c71:b268 with SMTP id 5b1f17b1804b1-4bb7da0f6edmr48886255e9.6.1795001142665;
+ Wed, 18 Nov 2026 03:25:42 -0800 (PST)
+Date: Wed, 18 Nov 2026 11:25:40 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,57 +76,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIADOL/WoC/x3MywqDMBBG4VeRWTuQCaK0r1K6MOZvOyhjSfAC4
+ rsbXH6Lcw7KSIpMz+qghFWzzlYgdUXDr7cvWGMxeedbcf7BQS0i8WKjzZsx1NZ+YnGN66IgBAG V9p/w0f3+vt7neQFEjIZgZwAAAA==
+X-Change-Id: 20261029-binder-unknown-einval-10407d1ebb1e
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1226; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=+SUG3kGuFCHmoOrycx6vsE5gV58r45W54JR1JLI8nZM=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/Ys1O60Q4+eQ4Q/yuYRDRcG8xoT83OLtaGNPV
+ vXdNKpiB/WJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCav2LNQAKCRAEWL7uWMY5
+ RnQzD/9rqO6NyxT/nmnnELkRkLu7U9+ISwS+vCpWIzuwnmpCfBmyxPgj/Lpx7AIsNSxXI5pqtgH
+ NN9NXXhKca+hm996cJudy5RwJtUq2ap9g7dUYSjxDuaO4Hy38ZqWuH1yi9NiPcN0FkL/j7Lcjab
+ rnJsuslLGOjndwf/oWqboGBXUP/Grk6iFSVcWvrlHrXZIIA9d37DAWb+PYjJ7NCF5psHnNWjsKn
+ DpdrDJwdPilNHOvFaR8WJBZqz29D5oypCZZAbwsasBEM8XcX1tvPzZMFXQmloGJffcqB5bycJyO
+ Oz0NhTdFw2L4Acv10bSgcNNs8xKvVeSQFTdWB/e2Hf7ZcUnHAAZOqAJ13NKyPtyTm4gdUvwdqu5
+ XUvmQLfE8VnXaTbETDRDpTOVaFMFRIl6hXDbUdorYojNeJvtiuxMpz3mk1vS7AIXOunT1n+wfsh
+ lSnCvwPriX5Y8LVe/pFHsyMNOUh2V2CXuUg/szkfQ+LEqGMOXsuo2wXSSA3tJpF895C0BGq0amx
+ kjUA7MYUv6QkVJCG87FjiYuTfRdrEB6ZHLRx4WP0OT4Vb1lHc2sNnXrnziaJU83f0ZRohOmLcYw
+ 35hRKL0RmopHM0iXWkSfTzmYyf+tesZ/t3BMZkCUdonjdNjzL5l52ywt55+mktTzEvMDKcz2FRq idU6S63mf9dD0gw==
+X-Mailer: b4 0.14.3
+Message-ID: <20261118-binder-unknown-einval-v1-1-ef4ece277b26@google.com>
+Subject: [PATCH] rust_binder: report EINVAL for unknown handles
+From: Alice Ryhl <aliceryhl@google.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Carlos Llamas <cmllamas@google.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, "=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
 
-Before the fs_context conversion, erofs_remount() parsed the new
-options on top of the live option set, so an option not mentioned
-in the remount data kept its current value.  After the conversion,
-erofs_fc_reconfigure() swaps in a freshly parsed option set, so
-every option left unspecified is silently reset to its default.
+Currently unknown handles are reported as ENOENT, which userspace
+doesn't treat as a fatal error. However, providing the wrong handle is a
+fatal API violation, and indicates UAF in the userspace process.
 
-In practice util-linux and busybox mount paper over this by
-re-sending the options shown in /proc/mounts, but any caller doing
-a mount(2) remount with NULL or partial data silently loses e.g.
-cache_strategy or, on a filesystem mounted with inode_share, the
-page cache sharing feature itself -- memory usage then silently
-grows once new inodes stop deduplicating.  It can be observed on a
-mount of "-o domain_id=test,inode_share" followed by:
+Thus, change it to EINVAL to match C Binder and make userspace treat it
+as a fatal error.
 
-    mount(NULL, mnt, NULL, MS_RDONLY | MS_REMOUNT, NULL);
-
-which returns 0 while "inode_share" disappears from /proc/mounts.
-
-Fix it by seeding the reconfigure option set from the live one,
-in the same spirit as ext4 (fc->s_fs_info = EXT4_SB(sb)) and
-tmpfs (only "seen" options applied).
-
-Fixes: f57a3fe44995a ("erofs: convert to use the new mount fs_context api")
-Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+Cc: stable@vger.kernel.org
+Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
- fs/erofs/super.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/android/binder/process.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/fs/erofs/super.c b/fs/erofs/super.c
-index c2c652522fad..305b2daa343f 100644
---- a/fs/erofs/super.c
-+++ b/fs/erofs/super.c
-@@ -1000,6 +1000,13 @@ static int erofs_init_fs_context(struct fs_context *fc)
- 	idr_init(&sbi->devs->tree);
- 	init_rwsem(&sbi->devs->rwsem);
- 	erofs_default_options(sbi);
-+	/*
-+	 * On remount, start from the current option set so that options
-+	 * left unspecified this round keep their existing values rather
-+	 * than being silently reset to defaults.
-+	 */
-+	if (fc->purpose == FS_CONTEXT_FOR_RECONFIGURE)
-+		sbi->opt = EROFS_SB(fc->root->d_sb)->opt;
- 	fc->ops = &erofs_context_ops;
- 	return 0;
- }
+diff --git a/drivers/android/binder/process.rs b/drivers/android/binder/process.rs
+index e97213250beb..406d80cfff08 100644
+--- a/drivers/android/binder/process.rs
++++ b/drivers/android/binder/process.rs
+@@ -958,7 +958,7 @@ pub(crate) fn get_node_from_handle(&self, handle: u32, strong: bool) -> Result<N
+             .lock()
+             .by_handle
+             .get_mut(&handle)
+-            .ok_or(ENOENT)?
++            .ok_or(EINVAL)?
+             .node_ref()
+             .clone(strong)
+     }
 
-base-commit: 79f9e56d1bbf598503b240b8119624602e7ef3d2
+---
+base-commit: 917fcbf033154a6c8d83cfa6c88f012b71eb37b2
+change-id: 20261029-binder-unknown-einval-10407d1ebb1e
+
+Best regards,
 -- 
-2.34.1
+Alice Ryhl <aliceryhl@google.com>
 
