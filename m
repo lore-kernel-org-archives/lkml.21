@@ -1,97 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795005828;
-	b=OfRLeVCFAjHeIXnIh66jucfpwLVe/3VvPN+htQOnfdsmIp/MdgvESlf3Wg2veRIkm6+W
-	 VsZtBU/1psNnzKvFt3N4kOtIVtJER4EsyFtP0N7J4reg1Wffj4qPZtGGBsl1GDr2Tznkw
-	 MYnvQRjVgh3VKKd4bPFM2xw9am9jlZa2+AzIsfwu+3wvOxhFl7TUmTivErf8YnT5veGXe
-	 3xwfmvcLg8sdE6O8hGt1H271uDxYfHrPqRedljcQXdXvLfvuEoCAFM3GnXNSZRSz8eGUm
-	 oTalhnTQQdwSPzNXZGU2Lx5Xnlezsz1OTsnpAD22m8ywrnk0B4U+Vc6EGUSQEljqu0A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005828;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
-	b=mko0CFEklajvmvGjg7sjtlKcf1jtaHfrDRv7bI2T2buZhgWaxawgWqSKuZ+uO8k5yQR2
-	 cZXMLR0OCehhfu7XSPZlVXPr2xMS7BvZICI90jkCwwEC9QZhff3e8AVnR3GyMlDimisUi
-	 0OtZfXTh2wHm8zCu5/a+sTOjG21+nfR8tWiFW5HkYjsFzOn5EQqi9/f6IfMRZHYbONiKl
-	 r6mmlUu+47vVFgG0W5X5ll6Jk/dOBlGHp7KTzGZCBG8emJLP3dP7Vw7gROlqWZ+svHlLu
-	 9Zqigf7jqW+WaWEtcrgQe/KBQkmmHRmOfJUDE/XVljzbhIQpOIB6GeaPMOOcb4qTHGQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iAXTJNPb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795005839;
+	b=I0Sxu3ZiRf3B/xv+tmyHFsvxU38oYVE+j8EZofwoVXe3GulKAsU6r7jl/AC6gJn//FZM
+	 4dL4984friK5b6D7FnmymBlj0IUABuoxYmNbu9KJ8sS3aUq10nGbugutt13LWn3k2NZa2
+	 zaIVTfL5SIijGy6r+mMC17DkP0zQ8ymCdbELDj+L77LqoU3kGlOC4NRqjo0TIqiTQagPO
+	 WE0+niOZw9pTXCzSbfM/VEs6uQtbNax+MpmAnngfdro37pSQE0yUyWnh/4YSfvny/VIIv
+	 RkVziSOCaEoeq7Pke4HeArSAugd+oBCJuqN4/iHnLnF8v+moEZufC7GMrAO1lBhnwQw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005839;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=gC10VzDGHK2VJeM7ibqIPA7PShFYGqEoG8ozb5T2OzQ=;
+	b=ltU2zU6NdvV4P0dnUTvzAR3X0vmzUod15/nfPAeAJTPtnnPxc8MASQP7+kIkKUGFjY/P
+	 5Pw1PRo7L9X3sHcukUssZKuHuqVjJrR2GuB80mu4r6VdPguTUwIlzLG4PBtohq0ANpeRP
+	 6O6TfWG4gcNiF0Wh6BAWSaBQl7f3PP88q++4xbEDFiNGMII9fwpR1FXgVALWfhUdh23U8
+	 d1CBLPzIzObluspLCf6T/J9tLSDHOVi3drWWTykobiMaW1q7Zx8ybbAzjZkM41QuVVSxh
+	 KrXBB5X68uWwMBSd5MWRWlTvyndM57o3fGGFGz+lfg+BB5rf8mBADuVvFNGqc1HYJwA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlIvnwJp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA7B3606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:43:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA7B3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 806DA606A31C;
+	Wed, 18 Nov 2026 12:43:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iAXTJNPb
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-491971ac844so888117f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:43:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795005826; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YZp643hB7rZgQUttKOZtj/R/YCMTK+5iq48nFFLvgIX48k4a/cUhh0nZDKienoprwk
-         NjtjiTeGO5p/Jw7EwtUztBEfviM6JYfvLeynDbykMBMG7qR0+WVpEzteilsuqBY5IvIY
-         Tn7dlKwdnwoo2AnmZJMhV7B9uJAZkopduGw0/27HBo7KnHBpC4NlKizmI6EVonbTZQmG
-         xk62bKZKnux2puBUds8JeNkusU3sLSHFTA/U6mQ0RwPQHvhODKN7qpDcuB1HwxCVLvXT
-         Ha5XRsO+8OlVdQmJ8X0IzyYvNFw4qbKjcg2u21IHYSNQ11OSjfmxOy6ZjIxRD17cx2Jt
-         0itw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
-        fh=nuRXkkPgSQw/gcGDLH/q7U/HFbMZRi8pzWbJ9rewg08=;
-        b=AExay9kM5HJEtWW48LhCcKy0FUFDQQJ+jOwmAdqbmH4hf1Yr5K7NNZFPv2jkTYv2Gy
-         2+qIsc6u9MS2+8xnT5+4ILl+DeGQbX8ceNWN4zcdv/ussFTgHAMcorQfmXmwNl0i7Lx1
-         WKISGzSKQuveP0olzMLbQzi3pf0mxnZv/dbKRDeqEVB8jzQ5/JdR5rqd7/3LLrJ2lrHr
-         pQqhMRvhzhgi1Z9sQtRTSAGyYCV8Rv8MQhHDr0SnuDYOdnz1nzJQo+mkXz9pcpk+C6Hy
-         EmMFnZKZwxiKNbCjYxZoQiOIt0MREU+oNiu7mT3wWi4an3CtTU/Krde3nXPrFfL6+t5U
-         dhFQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795005826; x=1795610626; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
-        b=iAXTJNPbbCN659b9MtFE9Nq3rMo5jF5bTb9kRrR9tpOx3pdss/rcDpa6WK1UryjALr
-         ZBJAlqBA9S5KVXqKFLk59uXQ+JUt05h8tmHqKLwO6fYKzbcrvotCRgoMHWFZTWpUUGmB
-         dd/cEU9vQfDFf98lUVbzKxspwMrgKoAep4AMOAUa3N/5hqJfMn6n6m24xAI9q6CbSnab
-         j6k8/fztBZ5YoaPKZ2yuHtmbYUPCRlIK74ftjquzJO76AB+E3JW+utqEr99xIPLtmall
-         T21cqmj8KzYzPEnD+2G7O38mgLT1PsFavjqz8D8fGobB+4KiwEN2zb9MY+grF7Bsw7xW
-         E6SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795005826; x=1795610626;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=HOa9a+YmhCohrGoQIoOJu5k2eiu280ZQTpGsvtsQ4X8=;
-        b=yc36bTBmKMxIw8dcH0IjHpFNXmQYKwHPX+uUJkI3V0lQTvIy1ZS5Kz8RSECimeZb/N
-         BbudVV8gdMdbiCkhdXu0BS/CQQCk/UKAzaGQYPw/3FSLJdqFnh7W3d4jY1BXhyp1omrf
-         QJRbyGwADRi5x30ozhXgatZkxT/LNLJmon6u6zPJGxUUSd6Q8sC3qIqDPlF7eSUmoQX6
-         ysu1OtkWjpN/GVUcBfIvFZfRAeP/Mhw2RfZH/M5GlwlzeZPRLsQ4ZGQhjZ228W6ItTQ3
-         aWwJIipmIiPy7oiPoYKedohbGlir4OlMsFJwWuFUOn9K/Cdex4hEEhda2xmRFVu/PobG
-         EFOQ==
-X-Forwarded-Encrypted: i=1; AL+hErE63LCAvgwRq46vnZR61P2G2DfoRd67pZhvV92EiKumYS2uJ0Qix00IJX0H8lgtyvNubcXirMcEe8lugMo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ygpvO9ROjKg6qEPM3Plkz7ulndTTklkPjI0+YOKnGptKcdfhT
-	M8Za+05O2a3BD18SFu3kY4Ir2/e2TBRrykJLssjlsQdZbypSmG3NLrQ5jbbe5j8EjKmC65Z97Hh
-	Om8SazFFyBAMHf4yYAStm6HcwnzjEeIw=
-X-Gm-Gg: AZFdTZcsCj2isyWDBuKaau9zg+7Zyn1XmPT4dbppCllmyU4rLTp1FrgMm8gTEgxUkkg
-	+r5yP2er+K0lDcAG6+WeAOg9BBCN79OXpIAdhnoUkZ5eK7KG/iV7V5naR204fsBKApt5FFlc+dJ
-	j2IJJz1rgC8zUHI/Y44lrgprcTXtmwvNASoIBweTuwJoP8EY2t0TLsYY/VDqLG0sRS1lBk9Ptm4
-	HdxZw/LsLaQjACy5MMFYAhX1Zb5r2kaOtjbCs2pCcpNd91GjTvUaef2d44nUe8tpejR/GU1UQw4
-	q/JSUmGBsi/uKVYDP5p0ilV38ULdmxaX0ESfcF4Hnzl9Fs2boLMG8FD4K3L1huWmEwZ4dAIvAor
-	ZCZ9eNQCH/7bbJAwvcNSHVnlLOHu6p9IFoQ==
-X-Received: by 2002:a05:6000:4a04:b0:4a6:8012:19a with SMTP id
- ffacd0b85a97d-4a68012033bmr4116923f8f.22.1795005825888; Wed, 18 Nov 2026
- 04:43:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlIvnwJp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A16151F000C4;
+	Wed, 18 Nov 2026 12:43:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795005839;
+	bh=gC10VzDGHK2VJeM7ibqIPA7PShFYGqEoG8ozb5T2OzQ=;
+	h=From:Subject:Date:To:Cc;
+	b=IlIvnwJpDpE4FK3fg6xoebsUkS65WZPuXByUSQyBQsv+w6cSZg8BngQQWxcrZDaYO
+	 fihU9irzHzJbiOjtoQn37XfyIRaTUly5P5OIV4vPC8WGc1jkxnsjHRVe5TaTBwhDWL
+	 9dvp4YbtBXjOqt78vdoSuNirK7l0PfA69ltAFnbCyAgrLBXC5FnzX9nsb/epBgCm4d
+	 cUhlH8Gei4DGKOH1l4QMSrMiMcDtMuveBvf/UvWsXRpnmDDbyJjGvxvu7QSzAixT3n
+	 Y1EnbSBUebqWV179Trn0mdXiwRVCqxFrdd8OwtHDmkw4klkfCQhmZ7Ybd9MXhR+6US
+	 aoqnnIOhqBGQQ==
+From: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Subject: [PATCH RFC v2 00/16] media: Fault-Tolerant V4L2
+Date: Wed, 18 Nov 2026 13:43:44 +0100
+Message-Id: <20261118-v4l2-sensor-detect-v2-0-1bb1a445b556@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,47 +53,203 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Wong Steve <shyckless@gmail.com>
-Date: Wed, 18 Nov 2026 20:43:33 +0800
-X-Gm-Features: Aa3M54ppZITCCGdeh2x9pwMNL4N9s_TEBJJomvDgdCI7vdkibDlWPRSqczxn-uw
-Message-ID: <CA+X8SdhwtAT=XoRXf_1=WBfYYrc1MWh1sywQ0uUuQ7b_b3EOeQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] coresight: etm-perf: reject events that exclude both
- kernel and user space
-To: moonafterrain@outlook.com, suzuki.poulose@arm.com, mike.leach@arm.com, 
-	james.clark@linaro.org, leo.yan@arm.com, alexander.shishkin@linux.intel.com, 
-	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, danisjiang@gmail.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NwQrCMBBEf6Xs2UiyqdV4EgQ/wKv00KZrG1oS2
+ ZSglP67sWePb4Z5s0AkdhThXCzAlFx0wWfAXQF2aHxPwnWZASVW0qAWqZxQRPIxsOhoJjsLjY1
+ s0ejKWgV5+GJ6uvcmfcD9doU6h4OLc+DPdpTUVv2cSkr1z5mUkKIpD8boltSxPV1GYk/TPnAP9
+ bquX+Qxp3y6AAAA
+X-Change-ID: 20260923-v4l2-sensor-detect-32a0b2936cc1
+To: Hans Verkuil <hverkuil+cisco@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Andy Walls <awalls@md.metrocast.net>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Nicolas Dufresne <nicolas.dufres@collabora.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7840;
+ i=mkorpershoek@kernel.org; h=from:subject:message-id;
+ bh=o8f6emCddhrPySCyohc2k1Y5UF+Ua+DfDaTjoTlw94E=;
+ b=owEBbQGS/pANAwAKARkNHbRmThk1AcsmYgBq/Z2K4VjVvTIGXxafDia8ubS3HMyneSQ4P8DZZ
+ N96aKwnLKKJATMEAAEKAB0WIQQu6UKnth9qvlMTrQAZDR20Zk4ZNQUCav2digAKCRAZDR20Zk4Z
+ NWlYCACDVzOuTtecfiFack+u6/zqMad6nvdeJyZjz903xsXfin5cT9Q2vLT4kzDW80Iz6RBvsaz
+ 5yU3ZtJ6P5BWGnR7+RvIAcuJMyw9ZU+oA+J5DY9c5ZNZ8eXnN7tjQ0yrg5AP4P/InQa687MPTmx
+ cZNob2tNTvmA7ANlDR5ipbktHG8TUtJIRUcQl2Ta1wZQBdWN2KFGHpqhCgr6WVHbotxPs5rykU6
+ IG0z+C3+g5ylXiUsx/YghlgnRxSj8GRYPOvDwqREC+8MdBMX0rdl60TVEKHZd4rjZJ7HIHl/lKr
+ WMtDCuE8vvbY3FKLmaktwtmuBaJWJ+R/w6v/EVdn5Amg1zwo
+X-Developer-Key: i=mkorpershoek@kernel.org; a=openpgp;
+ fpr=8234A35B45C0D26B31C1A2DA570338B018144F28
 
-Hi Junrui,
+On media-centric camera pipelines, every entity is known at boot time
+and described statically (for example via device-tree).
 
-Nice catch, and thanks for the detailed analysis. We ran into the same
-issue independently while auditing privilege checks, and I can confirm
-it is real: in etm4_parse_event_config(), and in the same place in
-etm3x,
+The V4L2 framework assumes that every entity of the camera
+pipeline is always present. This is a reasonable assumption for
+integrated cameras in laptops or phones. However, in automotive systems,
+cameras (e.g. rear-view or surround-view) can be damaged or disconnected.
+When the framework assumes all sensors are present, a single missing
+camera can prevent the entire pipeline from operating.
 
-        if (attr->exclude_kernel)
-                curr_config->mode = ETM_MODE_EXCL_KERN;
-        if (attr->exclude_user)
-                curr_config->mode = ETM_MODE_EXCL_USER;
+This is a known problem and has been discussed at various conferences:
+* https://www.linuxtv.org/downloads/presentations/media_summit_2026/Michael%20-%20The%20Butterfly%20Effect.pdf
+* https://www.linuxtv.org/news.php?entry=2022-11-14-0.hverkuil
+* https://lore.kernel.org/linux-media/20261021224119.GA383235@killaraus.ideasonboard.com/T/#u
 
-the second assignment overwrites ETM_MODE_EXCL_KERN, so an event that
-sets both exclude_kernel and exclude_user excludes only user space and
-still traces the kernel. perf_event_open() skips perf_allow_kernel()
-when exclude_kernel is set, so the privilege check is bypassed and an
-unprivileged user can trace the kernel.
+For example, in the following pipeline:
+"""
+  imx219  9-0010 -> ds90ub953 7-0044 -> ds90ub960 pad0 -+
+                                                        |-- pad4 -> cdns_csi2rx -> ticsi2rx
+  imx219 10-0010 -> ds90ub953 7-0045 -> ds90ub960 pad1 -+
+"""
 
-Rejecting the combination in etm_event_init(), as your patch does, is
-the right place to fix it and covers both etm3x and etm4x. I went
-through the patch and it looks correct to me.
+If imx219 9-0010 fails to probe, media-ctl -p will show:
+"""
+                    ds90ub953 7-0044 -> ds90ub960 pad0 -+
+                                                        |-- pad4 -> cdns_csi2rx -> ticsi2rx
+  imx219 10-0010 -> ds90ub953 7-0045 -> ds90ub960 pad1 -+
+"""
 
-Reviewed-by: Suyuan Wang <stevewong@hust.edu.cn>
+Now, if ds90ub953 7-0044 fails to probe(), media-ctl -p will only show the
+following topology:
+"""
+                                                                    cdns_csi2rx -> ticsi2rx
+"""
 
-Suzuki, Mike, James, Leo: this still applies to next-20261117 and the
-hole is still open. The patch has been out since August without a reply
--- could you let us know its status? Happy to help if anything is needed
-to get it picked up.
+To solve this, we chose to go for a simple solution inspired by
+DRM connectors.
+
+We created an ioctl for media entitities to report their current
+connection status.
+This allows applications to discover an entity state when discovering
+the graph (using media-ctl -p, for example)
+The entity status is then cached. When applications start streaming,
+the status is polled on a regular basis and reported as a media event
+every time it changes.
+This mandates that the driver can probe even when the device is
+not connected.
+
+This has the benefits of being fairly simple to implement, understand
+and support in drivers.
+
+This new behaviour is opt-in. It is enabled via a module parameter
+for the Media Controler: mc.fault_tolerant.
+
+Patch 1-9 Add event support at media device level
+Patch 10-14 Add entity status and ioctls to interact with it
+Patch 15-16 implement this pattern switch for the imx219 driver.
+
+With this, we can hot-plug the sensor and get notified via the media
+device of the status:
+
+[root@fedora]# ./media-event-monitor
+Subscribed to ENTITY_REGISTRATION and ENTITY_STATUS_CHANGE on /dev/media0
+Waiting for events (Ctrl-C to quit)...
+event: type=2 (ENTITY_STATUS_CHANGE) id=0 seq=0 ts=403045107120 pending=0
+  entity_id=40 status=DISCONNECTED
+event: type=2 (ENTITY_STATUS_CHANGE) id=0 seq=1 ts=415292362587 pending=0
+  entity_id=40 status=CONNECTED
+
+The code for this demo is available at:
+https://gitlab.com/-/snippets/6077614
+
+The media device event code is mostly Sakari's work which can be found at:
+https://git.linuxtv.org/sailus/media_tree.git/log/?h=partial-reg
+
+Current known limitations:
+* Only leaf entities (typically sensor nodes) are covered. We should
+  also address entities that are in the middle of the media graph
+
+This has been tested on a SK-AM69 board on top of the following series:
+* https://lore.kernel.org/all/20260824121451.3348583-1-sakari.ailus@linux.intel.com/
+* https://lore.kernel.org/all/20261104-j721e-csi2rx-crash-sd-enable-streams-v1-1-b77ee38c8dcf@kernel.org/
 
 Thanks,
-Suyuan
+Mattijs
+
+---
+Changes in v2:
+- Notifications are now done at media device level (Laurent, Nicolas)
+- Connection status is tracked at entity level (Laurent)
+- imx219: Fail the probe if CHIP_ID does not match (Dave)
+- Dropped patch 'media: imx219: Move LP-11 state switch to power_on()'
+  as we did not get any feedback from cadence on this
+- Replaced VIDIOC_SUBDEV_G_CONNECTION_STATUS with a media controller
+  ioctl instead: MEDIA_IOC_G_ENTITY_STATUS
+- Do status polling in generic framework (Dave)
+- Increase polling interval to 10s (Dave)
+- Polling/Fault tolerance is only enabled when mc.faul_tolerance=1
+  module param is set (Dave, Hans V, Sakari)
+- Reworked .detect() polling to be only done when streaming is on. This
+  should address the privacy led blinking concerns (Dave, Hans D)
+- Link to v1: https://lore.kernel.org/r/20261001-v4l2-sensor-detect-v1-0-a45993be17b8@kernel.org
+
+---
+Laurent Pinchart (1):
+      media: mc: Add per-file-handle data support
+
+Mattijs Korpershoek (7):
+      media: media.h: Add entity connection status
+      media: mc: Add .detect() to media_entity_operations
+      media: mc: Add MEDIA_IOC_G_ENTITY_STATUS ioctl
+      media: mc: Add MEDIA_EVENT_ENTITY_STATUS_CHANGE event
+      media: mc: Add detect polling helpers for drivers
+      media: imx219: Allow driver probe with missing sensor
+      media: imx219: Implement .detect() sensor operation
+
+Sakari Ailus (8):
+      media: mc: Add struct media_device_fh pointer to media device IOCTL op
+      v4l: event: Separate event related information from struct v4l2_fh
+      v4l: event: Rework data structures for separating events and V4L2
+      v4l: event: Split the event framework into generic and V4L2 bits
+      media: mc: Maintain a list of open file handles in a media device
+      media: mc: Add MEDIA_IOC_DQEVENT
+      media: mc: Add MEDIA_EVENT_ENTITY_REGISTRATION
+      Documentation: media: Add Media controller event documentation
+
+ .../userspace-api/media/mediactl/media-funcs.rst   |   3 +
+ .../media/mediactl/media-ioc-dqevent.rst           | 130 +++++++++
+ .../media/mediactl/media-ioc-g-entity-status.rst   |  92 ++++++
+ .../media/mediactl/media-ioc-subscribe-event.rst   | 112 +++++++
+ drivers/media/Kconfig                              |   3 +
+ drivers/media/i2c/imx219.c                         | 117 +++++---
+ drivers/media/mc/Kconfig                           |   3 +
+ drivers/media/mc/Makefile                          |   3 +-
+ drivers/media/mc/mc-device.c                       | 236 ++++++++++++++-
+ drivers/media/mc/mc-devnode.c                      |  19 +-
+ drivers/media/mc/mc-entity.c                       |  59 ++++
+ drivers/media/mc/mc-evbase.c                       | 260 +++++++++++++++++
+ drivers/media/mc/mc-event.c                        | 244 ++++++++++++++++
+ drivers/media/pci/ivtv/ivtv-fileops.c              |   2 +-
+ drivers/media/usb/uvc/uvc_ctrl.c                   |  36 ++-
+ drivers/media/v4l2-core/v4l2-ctrls-api.c           |  16 +-
+ drivers/media/v4l2-core/v4l2-ctrls-core.c          |  20 +-
+ drivers/media/v4l2-core/v4l2-event.c               | 324 +++++++++------------
+ drivers/media/v4l2-core/v4l2-fh.c                  |  12 +-
+ include/media/media-device.h                       |  24 ++
+ include/media/media-devnode.h                      |  18 +-
+ include/media/media-entity.h                       |  77 +++++
+ include/media/media-evbase.h                       | 200 +++++++++++++
+ include/media/media-event.h                        | 181 ++++++++++++
+ include/media/media-fh.h                           |  37 +++
+ include/media/v4l2-event.h                         | 106 ++++---
+ include/media/v4l2-fh.h                            |  32 +-
+ include/uapi/linux/media.h                         |  51 +++-
+ 28 files changed, 2079 insertions(+), 338 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+change-id: 20260923-v4l2-sensor-detect-32a0b2936cc1
+
+Best regards,
+--  
+Mattijs Korpershoek <mkorpershoek@kernel.org>
+
