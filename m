@@ -1,91 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794978906;
-	b=1ol1npZuaapOwb0R5d/ZobT4jeQUxteNGpVvE3mk/z+FKeJjlWVyqwzKmQorHWxYUj8U
-	 4qbYYH/ICnmHqAOHPyhfnCg93lcC67R684+g5PE/VNdblB0dGQXftouQ83w6FgXXc0cqS
-	 H3D7eGiq73AuE3vBKWRioSzNIKK7wV0yKEZdC5dG+q44ayefMtzN9d54Po6FbaHPnyTPI
-	 4w6uJzQfkfcQk16mPGr0BswmRpf2kZETNTTv53btqSOS6Qdf3KZ4u823V2Fc8rBDigUV4
-	 m70C+4V3T4bPt+cqhMDVe11snktisXWWYFJB/JitJtb03uZeuqJ1NRJ4ZJpPdSvDHug==
+	t=1794978976;
+	b=engbAeFnPHdPCEP7xTneGllFRJ1ljTvVmEG9S6IA9acnW3/mdXbgPmX7TIvDk/2sB5Fk
+	 8OW98kADxf7jndMANDipOI+dvj7lTCkiW69XN9OgT8JtR8aNpV4xIXQXbRXCDgirORXYB
+	 8Vk0sHuophbAnUhrLti81V67OiNvL0YgKxVAcd2gsDwKZHzG8OMWszRaNhcxILL0x3g5T
+	 D9gLD4ZeKG3X+ZyOp0lXBze+84ZtQdxEQwUvWYxfwdfPAQQL/CC+lVdyIIny3L0cO/bu+
+	 x71b1eOGuaNd7mc4QXiJlTEJFhdoF9ddB5WfTrS1ObipXIIhYmqZ6XZDyfi14pw2jBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794978906;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=aKPz5k3KfnEQ1A9QRLM5kkJiWuZV7J7Ix51XTjbdjT8=;
-	b=e9yY4jPKKX2EKBr5tq1HwMDjXxUmO647Pua1Bue5UNpiISCnz9V6xfo4QDzVbynRfp0D
-	 7dUwArtPsIWOAPqx8X43cuaZgywdhamnRvlWacfgbbjLAUAKA67pHSD6GngaE+meiJDYd
-	 1o2STBliJ882C7rBrHf7e9T5yF38NQ7PJel2kPeG8tRlu7Idm102vTQ7gLvSomKlIMDLM
-	 1kWbKqh9Yk4uB5C47WB8RcgxmYHrNYJDhkJZl5BxNg6Ex3qSfzGbSnSl6fJJYId/xTAqM
-	 QYHZa++x4nDVQIt1Ne49UFd1CxL8btSnPw5KbQ5zs7lq24RUl6SBiaBYCAJJiD/BQHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794978976;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Cuyjjq/ADVaIP+GusU/9yT03ulOQTHuNU1ExsSSvRD8=;
+	b=2M7ixOsLa9+ft6fcshuuedFKi952mHNSrJ7rKLrW96WnWfKb1EjlxMSu5rhmwWwK0XSM
+	 HiZq827c6dr0vNmp/thV6RvsGQ13iCsq4epmlgNQ3ENol7gt6uHAZQHgqKIONaJWAyC1G
+	 JXcmltQiXSdKui/UiSuqFXgwoKkl25XgJ14ljy1Pah4lHvtVtIJTCE2wJDw3Y9CRhhLOr
+	 ewPH0FnQ/DIwYHTqw9HXLS6q7i9W9uhY8iASBWVy+JSF9STvxLo1AOKxsNuhUXPmdpHzA
+	 On5u+1nsJ97O4+nOMKPURkAnCpCyggcJuNGz990HDp9MSIozIxxbe/ezXMhZUwyzFtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=cL7wx6EJ;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="SG/8DsSq";
+	arc=none smtp.remote-ip=209.85.160.173
+Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com [209.85.160.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A7AD606A336
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:15:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A7AD606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3DA1606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:16:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3DA1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=cL7wx6EJ
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2U0Hu4068663;
-	Wed, 18 Nov 2026 05:14:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=aKPz5k3KfnEQ1A9QR
-	LM5kkJiWuZV7J7Ix51XTjbdjT8=; b=cL7wx6EJdBOHIVNVnyCEuYleOg2M9RiIL
-	knSh7lFiL6GyonNdGTAX84mNwRXKt1qAnTM8EiMhx3V7AB0jF2Tf4MyyxKfev0+l
-	6bAClg8gG1AOCKDCJKBsJ0q7oOxFr/0SDVwG2wceuGSbmH5kYj1f872/9Q3jxpbb
-	kdAw1fvNBlIU4qdBnI5RI76v4QD/ksYamtS15qVaZcarqr6lXpFElzn4SMj3YddJ
-	C4WkSMngGW1gT2L75rQubLq6vMJMqHfRi89yxZz3dw/hSqiaMWoxAwEAfLBxQpM1
-	BjlzR0NJ3rg4uHFBU/cmX1ejh4OuRROm+N/fRHqs+gMXuBP1Zq1hw==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t0ypn-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 05:14:49 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2Z92O1373174;
-	Wed, 18 Nov 2026 05:14:48 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j00nsghsf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 05:14:48 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI5Eiuk32571910
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 05:14:44 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 97EE22004B;
-	Wed, 18 Nov 2026 05:14:44 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 837D420040;
-	Wed, 18 Nov 2026 05:14:40 +0000 (GMT)
-Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.20.10])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 18 Nov 2026 05:14:40 +0000 (GMT)
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-To: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, chzigotzky@xenosoft.de
-Cc: sshegde@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-        christophe.leroy@csgroup.eu, linux-kernel@vger.kernel.org,
-        msuchanek@suse.de, ritesh.list@gmail.com, harshpb@linux.ibm.com,
-        gautam@linux.ibm.com, amachhiw@linux.ibm.com, venkat88@linux.ibm.com,
-        nnmlinux@linux.ibm.com, mkchauras@gmail.com
-Subject: [PATCH v5 3/3] KVM: PPC: Hard disable interrupts before guest entry
-Date: Wed, 18 Nov 2026 10:44:19 +0530
-Message-ID: <20261118051419.783878-4-sshegde@linux.ibm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118051419.783878-1-sshegde@linux.ibm.com>
-References: <20261118051419.783878-1-sshegde@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SG/8DsSq
+Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-53634b8328eso5574921cf.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:16:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794978975; x=1795583775; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Cuyjjq/ADVaIP+GusU/9yT03ulOQTHuNU1ExsSSvRD8=;
+        b=SG/8DsSqETvEmF4qRmOh9P28vfXZa0KtBi/jIMMS8TNPNQj44lJVLve4dEBymyATb1
+         47fEzl+7XpzsTht+9AlzKOgvYzoXzNY+jlUZbFJuehjkACig3NBrQVTN7yCw9UPujWEk
+         SzGdWmCDdL7w3hzmztrOU2d4A26Qhd5jfvhjDAKVW4oT9yUAKPt3L2RzgqxT+ahJ8eXU
+         vDRbUU0HtFNebdeXhKvR+dTULEbsjfBiy0ANvCb4iqDJkY0qMPr2GV2+hQYnPJRl1fej
+         /4v2k0eNdwdJ1zaRld8D1RBAd36g1wBmvYh/f9bqgbXHMjC4usT2T0EOERhHuUfbgfQk
+         urYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794978975; x=1795583775;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Cuyjjq/ADVaIP+GusU/9yT03ulOQTHuNU1ExsSSvRD8=;
+        b=DcIvYcz2PCcNphfbV5lhNp76wQkMeILExLPRd2jkWd2ci0DEd9+cirNImKDYVSRsqc
+         cjOGDhDbapabp+Jyz32emoI7n0jX6pQh3/kAxmd/XPb6mc1DpuVmSaBYgqZEFs5Are3/
+         GO9i3V79i3WcQTJKFTKiCbjFStIdJu11AFmTJqQqK905+JnmsdbocZRL8PFaMb1qnOen
+         EukrNny7eRtRDw/bhMYuFGC+Y4mmradDNrCANDkjLCb1zxO5F7xsEeHApGFJAni8U9o3
+         Md9XDl7rt1qYO0d1ZYhTznPAjC30P7aCLODzudWhQJMmOi5KSy12VZgHxF6qCH4Rfp5P
+         kC9A==
+X-Forwarded-Encrypted: i=1; AL+hErG9ihvWVDJlzd9n10cWQMqurXJs+5COse4g8JrIVsb7aU5HeA7w7Swe6jQrdzrrGiwsm5qUV1E2+OXMkyw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hQS0ZNYz0uqPGsxWaRKSpeXcmq7iCR4HXA85UxCmQo+mGWn38
+	zqO7PW3yMTmP1novF9sA7QLwOz4SkdKGf0ETbMC8SgOiUn69m1zAAbJV
+X-Gm-Gg: AYBFou0KPbb6zx4SHv1VyXYL7K+dBzTNiIfQSGjTVYuIrr4Wkgguadaql2WzENgHLC7
+	uk+JHv+GmliRnZl2fXwKXyeOOd5oLp7rOQhHejrQhqPzCWKpZDbBsl4gYZVuDshKv1qQzWcgwdf
+	cFOmBKvG1vejhn0pf7TvBIoGlX2w6yxiJjTp2/U0HA6QXyQWeXGu32FC5+57VUyyZef2tshGZeN
+	w9I5A6oCYOxE3eVUQvs/SguoUBOqpnlTTtE7Ppl9GNaLcjODSA7w6e/Fzm78OpUHZThWJGUkT+u
+	7hwzoGxAZCp/Zp9qboSMAhQKqJbJDwMg0Df6pZlBQ2K3iEPiLLYByCI7Vza/I6CY/K9L8TuL4cT
+	ZQytMmizTH8krDy9yYvoQ68W1Wox/EYb5Mb3+213jT7uCDYdaWgoNjZurHNNMV3/l4N30HtQTRy
+	T2x8GesZ1+a9I+ihArbAjcw+d1sDqnJBkq19MaLfvSkzfECzJopLYy2dJoFMkLmzCWSbbogYJAX
+	YK+z5jnscR/S+psfOatBABC6YieDtwT7i+trzKdWp1DAk0X1gukzB//4M9a/aF1BY+w/72GWhc8
+	/eoxJRFa02/kLARVb5RcmA939wo5PdgzuSx7xYEO9FOAxaMJ/LtF/H4lNK1MysjKhASelskJyyn
+	u
+X-Received: by 2002:a05:622a:307:b0:536:64fd:7b5c with SMTP id d75a77b69052e-55d5a785e9amr25107371cf.58.1794978974791;
+        Tue, 17 Nov 2026 21:16:14 -0800 (PST)
+Received: from linux.. ([8.34.174.240])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921149f4f5dsm12799576d6.2.2026.11.17.21.16.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 21:16:14 -0800 (PST)
+From: Changyul Lee <lcy8047@gmail.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Joshua Hay <joshua.a.hay@intel.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Changyul Lee <lcy8047@gmail.com>
+Subject: [PATCH iwl-net] idpf: free the RDMA auxiliary device ID after deleting the device
+Date: Wed, 18 Nov 2026 00:16:11 -0500
+Message-ID: <20261118051611.3892489-1-lcy8047@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,129 +108,44 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afd3449 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8
- a=SkEQ8EbvhdlHpgZ8pF0A:9
-X-Proofpoint-ORIG-GUID: Cyz6oXSQNqb3P8Yieco17JiTqx1G3zod
-X-Proofpoint-GUID: m2QnBkFE9S9Q5_ibCHPz7Vs6X3aLVbZW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX/x5ddYz+kBoX
- AUtr9Xe6whfuNvwMngjlceIi7zh/WX9Nk0ksRN8zVjiijRNQcm+EGHMz3n4bOO4YB1v4DGoPrSd
- ErY2Nk/yEIwkpRefOYeWGWUcBJpyYDHBio2J8yWnyWCpVtZ1P/SjR+m26diP7GbNZof0vySfCi7
- S/cs2iJ5oIJi4ox8+7IHFGG6DcwYyT9LYZoEpXsp6SMsZnf/AelB9YTGvsHgpuU2ssvWR8tps2T
- jAXcKUvTLZT1S+tvOWjJj617WgBxyHVSzFnWuJek0lkkgisWG+nFTCv31FVvjMJEqW9pC9L1NYK
- IdgfDlIi/F+WHnpZsUo5an5Qrby55OsZutZwIWTfptM4UDR11XnpOdhbdLflYZdOgpjO7xMk7zO
- P/OU+K/lxOse1fhtCv0I58KfCWZ0zxSl36ScpO7TvphB5QWbl6wCgGNlpxD0w9z+K2WcTrRThMr
- GoqUWqm3ge4A3N7WBlw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX61WYF1/5rxgg
- 92hPgbSEjykuH5CumlrlLu3kiaBYj6nT1vs0D2KjH9yppWfpl7Ewy+/ebFsFKi1JzZTHiYJiPLD
- 0mHYZHFe70+lEicqXiugZLG08wLKRbs=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611180019
 
-After applying preempt disable patch, i.e PATCH 2/3, Christian reported
-a subsequent warning stopping his board to boot properly.
+idpf_unplug_aux_dev() returns the ID to idpf_idc_ida before
+auxiliary_device_delete() removes the device. If another idpf device
+plugs an RDMA auxiliary device in between, it can get the same ID, and
+its auxiliary_device_add() fails with -EEXIST because the old
+"idpf.<vendor>.rdma.core.<id>" or "idpf.<vendor>.rdma.vdev.<id>" device
+is still registered. RDMA is then not set up on that device.
 
-WARNING: at .kvmppc_fix_ee_before_entry+0x10/0x28, CPU#0: qemu-system-ppc/4667
-CPU: 0 UID: 1000 PID: 4667 Comm: qemu-system-ppc Tainted: G        W           7.3.0-rc4-2-powerpc64-smp #1 PREEMPT
-Tainted: [W]=WARN
-Hardware name: varisys,CYRUS5040 e5500 0x80240012 CoreNet Generic
-NIP [c00000000005dc3c] .kvmppc_fix_ee_before_entry+0x10/0x28
-LR [c00000000005f298] .kvmppc_handle_exit+0x5b4/0x5e8
-Call Trace:
-[c000000086587780] [c00000000005ee10] .kvmppc_handle_exit+0x12c/0x5e8 (unreliable)
-[c000000086587830] [c000000000062068] .kvmppc_resume_host+0xb8/0x10c
+Free the ID after auxiliary_device_delete(). It still has to be freed
+before auxiliary_device_uninit(), whose release callback frees adev.
 
-It triggers below warning...
-
-static inline void kvmppc_fix_ee_before_entry(void)
-{
-        trace_hardirqs_on();
-
-        /*
-         * To avoid races, the caller must have gone directly from having
-         * interrupts fully-enabled to hard-disabled.
-         */
-        WARN_ON(local_paca->irq_happened != PACA_IRQ_HARD_DIS);
-
-This happens since kvmppc_prepare_to_enter does first local_irq_disable
-followed by hard_irq_disable. This leaves a small window where interrupt
-may occur and it could set the irq pending bit in PACA.
-
-That local_irq_disable was necessary for PPC32 to track the lockdep
-state etc. On PPC64 hard_irq_disable is good enough. There is no need to
-do both. With now hard_irq_disable, doing local_irq_disable for PPC32,
-just calling that is enough.
-
-Suggested-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-Fixes: 12013e3d4695 ("KVM: powerpc: Use generic xfer to guest work function")
-Reported-by: Christian Zigotzky <chzigotzky@xenosoft.de>
-Closes: https://lore.kernel.org/all/b8f82519-9ae5-c247-e020-e79c627e57df@xenosoft.de/
-Tested-by: Christian Zigotzky <chzigotzky@xenosoft.de>
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-Reviewed-by: Narayana Murty N <nnmlinux@linux.ibm.com>
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+Fixes: 65637c3a1811 ("idpf: fix UAF in RDMA core aux dev deinitialization")
+Signed-off-by: Changyul Lee <lcy8047@gmail.com>
 ---
- arch/powerpc/kvm/booke.c   | 1 -
- arch/powerpc/kvm/powerpc.c | 8 --------
- 2 files changed, 9 deletions(-)
+Found with a static analysis tool we are developing.
 
-diff --git a/arch/powerpc/kvm/booke.c b/arch/powerpc/kvm/booke.c
-index aed7b476b7eb..2593f7ae6c09 100644
---- a/arch/powerpc/kvm/booke.c
-+++ b/arch/powerpc/kvm/booke.c
-@@ -722,7 +722,6 @@ int kvmppc_core_prepare_to_enter(struct kvm_vcpu *vcpu)
- 	if (vcpu->arch.shared->msr & MSR_WE) {
- 		local_irq_enable();
- 		kvm_vcpu_halt(vcpu);
--		local_irq_disable();
- 		hard_irq_disable();
+Compile-tested only, with x86_64_defconfig plus IDPF and W=1.
+
+ drivers/net/ethernet/intel/idpf/idpf_idc.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_idc.c b/drivers/net/ethernet/intel/idpf/idpf_idc.c
+index b6cd1c25ae5d..9d3c55854477 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_idc.c
++++ b/drivers/net/ethernet/intel/idpf/idpf_idc.c
+@@ -253,9 +253,8 @@ static void idpf_unplug_aux_dev(struct auxiliary_device *adev)
+ 	if (!adev)
+ 		return;
  
- 		kvmppc_set_exit_type(vcpu, EMULATED_MTMSRWE_EXITS);
-diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-index 9194cf492d1c..f4db7dea57b3 100644
---- a/arch/powerpc/kvm/powerpc.c
-+++ b/arch/powerpc/kvm/powerpc.c
-@@ -81,12 +81,6 @@ int kvmppc_prepare_to_enter(struct kvm_vcpu *vcpu)
- 	int r;
+-	ida_free(&idpf_idc_ida, adev->id);
+-
+ 	auxiliary_device_delete(adev);
++	ida_free(&idpf_idc_ida, adev->id);
+ 	auxiliary_device_uninit(adev);
+ }
  
- 	WARN_ON(irqs_disabled());
--	/*
--	 * local_irq_disable() first: on 32-bit, hard_irq_disable() alone is a
--	 * raw MSR[EE] clear that bypasses the lockdep/irq-tracing state, and
--	 * the xfer_to_guest_mode helpers assert IRQs are seen as disabled.
--	 */
--	local_irq_disable();
- 	hard_irq_disable();
- 
- 	while (true) {
-@@ -101,7 +95,6 @@ int kvmppc_prepare_to_enter(struct kvm_vcpu *vcpu)
- 			 */
- 			local_irq_enable();
- 			r = kvm_xfer_to_guest_mode_handle_work(vcpu);
--			local_irq_disable();
- 			hard_irq_disable();
- 			if (r) {
- 				/*
-@@ -134,7 +127,6 @@ int kvmppc_prepare_to_enter(struct kvm_vcpu *vcpu)
- 			local_irq_enable();
- 			trace_kvm_check_requests(vcpu);
- 			r = kvmppc_core_check_requests(vcpu);
--			local_irq_disable();
- 			hard_irq_disable();
- 			if (r > 0)
- 				continue;
+
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
 -- 
-2.54.0
+2.43.0
 
