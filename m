@@ -1,59 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993061;
-	b=RjhzMgzZdnYufVhSnFtpqiS+mi8nq6gNLVSEiUG90EZqOvRI6JvbhIFX6kS4FCVhFeMV
-	 x64mvB1CLsmerTkUw6f/mDsEFQExThx5CbjNJERHIA3Z6gIt/hziVWBF+4ztchjO7w+Yy
-	 ThRMqepL22dWTnb8TMUGObP/sR9ZTuuR0osn6v206B19Doi40mOoAa52w+OxaV+NPTRwp
-	 e/rJxfib5KmR0qNVwbzrJXwhxAwXczdsQBpf4JCbkr/cfBvsVpYqOoeJufQZ8SMDDfo7G
-	 JkoHyhHO/PY13UqdF8hVHUzcBNtL8hzoGZ3MpxzL4iwG1+qhf90mhmlzMCGhfGv8R2Q==
+	t=1794993063;
+	b=zhV7RjQYw9hw4P4lbVZjaBONtkM1tjezKAS8VUG4jxcuJKwDa5GlQGzXBHGwj2owHzp/
+	 55SnroPnJUB4SjfXhBSglB4P1DX9A7XZdpkHNfah01M9s04VWnkQv8sXhd69LFzijqWot
+	 fiIBkQfMTtItYRhedkXO6u5WBf7HEKr20Eu7pXCeq5pxIh0+yR/gd3qspLN3XsJDQqlAc
+	 6iSb+JWxmk8RStkF2YWfFwX4SecYT+jJBE22dgpFTV7Xt9qLvA0Duh6RLUmiExJTCJHA2
+	 w5b4Lb2pOxd7t9u8FXgEko4fQIQbih29TWP/k58aqDLAyRBbVmnCwxpYPc5Svb6QCyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993061;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993063;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=ssUPmw10Mh4FCI1SoIRejVYVCyerLwptRehdVt2fqCk=;
-	b=q1oeXQL/ttvQpnJKO2XrUheE5SAm5eMyR2FqAxe+iA6TY4Va03Z7X/v12d4ZF5Po44iU
-	 z8v2G44LpcP7vg78HJY+oO32h3RLY0P9gUnNSlCB9PgGxfP1HA9rHhJklINvBPYVLrvH2
-	 APXcRyocYxsTOF8kfj4UVdnFngfb+e2Ra6QE0w/JO8Ly0csKrt5YLFIEYhEs5GJQy5lpZ
-	 7XfpYLeQqVqeX2XsfcV5CMIX/+sHKZc5eHMh6RecRYRWoGvAoHQqMTrCLrV8z+9GHPHeF
-	 7aJGoCA7tXH0PGBR8BhZhjI8Jp+k3UIxjL0NkX+oSrocCx80U2U/Xcffm2chOwvaE1w==
+	bh=Pcw/J58V7yKF4Ldo/nzNTi8vrfXRvMy+g1rLf0d+mK0=;
+	b=byuVZLuvJAoG2aeyfJoiuu1cC3xO5FYwhKlUysDuliwxbtQl6frvsE28urECL4bWZpgQ
+	 e2uuUvkRqq6lE/+j6wk+2mApEFuPK4RI7jO1X3eqDHUF4d3sFBy60kqCQkCN8df8BJNyp
+	 Tyx53ym6XvCIa9riDPjE5qhogEqr1WsHUUxrvueGbqlFszZvual6aAp/2drzZiakXlWzJ
+	 Wfb1cp3plo6Q5W6bH7rh1JxsIzHqX3KDfdv62n3P/xtm3fAePFZLkrErWcU3er86lqixj
+	 6O2axveq2vqrid4cZ8H95B0EtFvlHqjFyp+V9i/bSIUHAw7cZkzFdSqsJMsD8JuNzZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XYENOtmo;
-	arc=none smtp.remote-ip=220.197.31.5
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.5])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=pcN8Gs4p;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB0A0606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:11:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB0A0606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C68BD606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:11:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C68BD606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XYENOtmo
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=pcN8Gs4p
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ss
-	UPmw10Mh4FCI1SoIRejVYVCyerLwptRehdVt2fqCk=; b=XYENOtmo/dVoz33zQ2
-	qcuaRO1nknT12e7nEcRW015hKtWdevO5e5m93G3stSKsLBUsDf80eSjTHVJEexjX
-	Vkl6wsYJgEJwZ1RcWv3fXVLAPjc43wkAxomXNX0AdyPGr29dnV4whdsX/HXU031T
-	PMlD9QHwzexG75SqyzOyjv7qY=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Pc
+	w/J58V7yKF4Ldo/nzNTi8vrfXRvMy+g1rLf0d+mK0=; b=pcN8Gs4pwyWuV+MROU
+	nALg2eRElVGA9Tg+Yzc7tFig7FPGU38kVvuPrsRKWb20yq50iyas4FRh/eLEOK8P
+	+O+svT6x1Xdr3keCHRjDKDmymhpZxtzWvRsT4AuGlfwqdcSxqoO5i8StArNREhIJ
+	ghrjxDLiqzwQlj/W59VgRVqjk=
 Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgD3UiuQa_1qEjvuGg--.61000S4;
-	Wed, 18 Nov 2026 17:10:42 +0800 (CST)
+	by gzsmtp3 (Coremail) with SMTP id PigvCgD3UiuQa_1qEjvuGg--.61000S9;
+	Wed, 18 Nov 2026 17:10:45 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
 	hyc.lee@gmail.com,
 	liubaolin12138@163.com
 Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Dandan Wu <wudandan@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 26/37] ntfs: report directory lookup and metadata corruption
-Date: Wed, 18 Nov 2026 17:06:50 +0800
-Message-Id: <20261118090701.1858849-27-wangxuewen_ky@163.com>
+Subject: [PATCH v6 31/37] ntfs: report MFT bitmap and data growth recovery failures
+Date: Wed, 18 Nov 2026 17:06:55 +0800
+Message-Id: <20261118090701.1858849-32-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -67,342 +66,500 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgD3UiuQa_1qEjvuGg--.61000S4
-X-Coremail-Antispam: 1Uf129KBjvJXoW3ur4xJw1DuF4fCryfCF4fGrg_yoWkCw13pF
-	ZrG3s3t3yfGry2kwnayF4DZF1S9a4Ig3y7XrWDCw1Sk3Z5tw12yFW8tFyjgFyrKrWrC3sr
-	XF4Yg3yUGa1UZ37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UK-eOUUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzhIZAmr9a5IHfwAA3R
+X-CM-TRANSID:PigvCgD3UiuQa_1qEjvuGg--.61000S9
+X-Coremail-Antispam: 1Uf129KBjvAXoW3KFW7XF4kJFy3Xw17Gr13XFb_yoW8Ww17Co
+	WSvr40yw4DW34jk3yYywn5AasxAan8Ca95JrW5CrZrCa92vw1qvrW3G3y3X3yxG3WrGr1a
+	vr1xJrn5Ars3AF9xn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUnCJmDUUUU
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzhUaA2r9a5UHzgAA3i
 
-From: Dandan Wu <wudandan@kylinos.cn>
+From: Baolin Liu <liubaolin@kylinos.cn>
 
-Directory lookup and enumeration detect malformed indexes, missing
-required attributes and stale references without consistently reporting
-them. Report corruption against the directory and use EFSCORRUPTED while
-preserving underlying errors and ordinary lookup misses.
+Growing the MFT bitmap or data allocation can detect missing or
+inconsistent metadata and leave failed recovery unreported. Record
+corruption and failures to restore mappings, allocation, or search state
+through volume metadata reports.
 
-Attribute dangling reparse entries to the directory. Report unused
-parents during directory fsync except for deleting children, retaining
-its existing return behavior.
+Use EFSCORRUPTED for corrupt mappings and preserve ENOMEM from runlist
+merges. After a failed merge, report cluster-release failure separately
+without replacing the merge error.
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-Signed-off-by: Dandan Wu <wudandan@kylinos.cn>
+Signed-off-by: Baolin Liu <liubaolin@kylinos.cn>
 ---
 Changes in v6:
-Report the upstream child-VCN bounds failure after common cleanup.
+Rebase onto the updated ntfs-next; retain the v5 reporting behavior.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
-- Final-kernel lookup and readdir tests on out-of-range child VCNs
-  returned EUCLEAN and generated EUCLEAN events.
 
- fs/ntfs/dir.c     | 78 ++++++++++++++++++++++++++++++++---------------
- fs/ntfs/reparse.c |  9 ++++--
- fs/ntfs/reparse.h |  2 +-
- 3 files changed, 61 insertions(+), 28 deletions(-)
+ fs/ntfs/mft.c | 204 +++++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 136 insertions(+), 68 deletions(-)
 
-diff --git a/fs/ntfs/dir.c b/fs/ntfs/dir.c
-index 69ed34fff23f..faaf28fadea3 100644
---- a/fs/ntfs/dir.c
-+++ b/fs/ntfs/dir.c
-@@ -24,10 +24,12 @@
- __le16 I30[5] = { cpu_to_le16('$'), cpu_to_le16('I'),
- 		cpu_to_le16('3'),	cpu_to_le16('0'), 0 };
- 
--static inline u64 ntfs_check_mref(u64 mref)
-+static inline u64 ntfs_check_mref(struct ntfs_inode *dir_ni, u64 mref)
- {
--	if (IS_ERR_MREF(mref))
--		return ERR_MREF(-EIO);
-+	if (IS_ERR_MREF(mref)) {
-+		ntfs_report_file_metadata_error(VFS_I(dir_ni), -EFSCORRUPTED);
-+		return ERR_MREF(-EFSCORRUPTED);
-+	}
- 	return mref;
- }
- 
-@@ -75,6 +77,7 @@ static inline u64 ntfs_check_mref(u64 mref)
- u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		const int uname_len, struct ntfs_name **res)
+diff --git a/fs/ntfs/mft.c b/fs/ntfs/mft.c
+index 4d101c6b0937..0f33ecd1fc30 100644
+--- a/fs/ntfs/mft.c
++++ b/fs/ntfs/mft.c
+@@ -1340,6 +1340,7 @@ static int ntfs_mft_attr_extend(struct ntfs_inode *ni,
+  */
+ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
  {
 +	int report_err = 0;
- 	struct ntfs_volume *vol = dir_ni->vol;
- 	struct super_block *sb = vol->sb;
- 	struct inode *ia_vi = NULL;
-@@ -113,7 +116,8 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 			ntfs_error(sb,
- 				"Index root attribute missing in directory inode 0x%llx.",
- 				dir_ni->mft_no);
--			err = -EIO;
-+			err = -EFSCORRUPTED;
+ 	s64 lcn;
+ 	s64 ll;
+ 	unsigned long flags;
+@@ -1349,8 +1350,9 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	struct ntfs_attr_search_ctx *ctx = NULL;
+ 	struct mft_record *mrec;
+ 	struct attr_record *a = NULL;
+-	int ret, mp_size;
++	int err, ret, mp_size;
+ 	u32 old_alen = 0;
++	u16 mp_ofs;
+ 	u8 *b, tb;
+ 	struct {
+ 		u8 added_cluster:1;
+@@ -1381,11 +1383,13 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		up_write(&mftbmp_ni->runlist.lock);
+ 		ntfs_error(vol->sb,
+ 			"Failed to determine last allocated cluster of mft bitmap attribute.");
+-		if (!IS_ERR(rl))
+-			ret = -EIO;
+-		else
++		if (!IS_ERR(rl)) {
 +			report_err = -EFSCORRUPTED;
- 		}
- 		goto err_out;
- 	}
-@@ -187,7 +191,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 			mref = le64_to_cpu(ie->data.dir.indexed_file);
- 			ntfs_attr_put_search_ctx(ctx);
- 			unmap_mft_record(dir_ni);
--			return ntfs_check_mref(mref);
-+			return ntfs_check_mref(dir_ni, mref);
- 		}
- 		/*
- 		 * For a case insensitive mount, we also perform a case
-@@ -282,7 +286,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		if (name) {
- 			ntfs_attr_put_search_ctx(ctx);
- 			unmap_mft_record(dir_ni);
--			return ntfs_check_mref(name->mref);
-+			return ntfs_check_mref(dir_ni, name->mref);
- 		}
- 		ntfs_debug("Entry not found.");
- 		err = -ENOENT;
-@@ -320,8 +324,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		ntfs_error(sb,
- 			"Child node vcn %lld is outside $INDEX_ALLOCATION in directory inode 0x%llx.",
- 			vcn, dir_ni->mft_no);
--		err = -EIO;
--		goto err_out;
-+		goto unm_corrupt;
- 	}
- 	/*
- 	 * Convert vcn to index into the index allocation attribute in units
-@@ -334,6 +337,8 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		ntfs_error(sb, "Failed to map directory index page, error %ld.",
- 				-PTR_ERR(folio));
- 		err = PTR_ERR(folio);
-+		if (err == -EIO)
-+			report_err = err;
- 		goto err_out;
- 	}
- 
-@@ -358,14 +363,14 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		ntfs_error(sb,
- 			"Out of bounds check failed. Corrupt directory inode 0x%llx or driver bug.",
- 			dir_ni->mft_no);
--		goto unm_err_out;
-+		goto unm_corrupt;
- 	}
- 	index_end = (u8 *)ia + dir_ni->itype.index.block_size;
- 	if (index_end > kaddr + PAGE_SIZE) {
- 		ntfs_error(sb,
- 			   "Index buffer (VCN 0x%llx) of directory inode 0x%llx crosses page boundary. Impossible! Cannot access! This is probably a bug in the driver.",
- 			   vcn, dir_ni->mft_no);
--		goto unm_err_out;
-+		goto unm_corrupt;
- 	}
- 	err = post_read_mst_fixup((struct ntfs_record *)ia,
- 				  dir_ni->itype.index.block_size);
-@@ -373,14 +378,14 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		ntfs_error(sb,
- 			   "MST fixup failed for index block vcn %lld in directory inode 0x%llx.",
- 			   vcn, dir_ni->mft_no);
--		goto unm_err_out;
-+		goto unm_corrupt;
- 	}
- 	err = ntfs_index_block_inconsistent(vol, ia,
- 					    dir_ni->itype.index.block_size,
- 					    vcn, COLLATION_FILE_NAME,
- 					    dir_ni->mft_no);
- 	if (err)
--		goto unm_err_out;
-+		goto unm_corrupt;
- 	index_end = (u8 *)&ia->index + le32_to_cpu(ia->index.index_length);
- 	/* The first index entry. */
- 	ie = (struct index_entry *)((u8 *)&ia->index +
-@@ -399,7 +404,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 			break;
- 		/* Key length should not be zero if it is not last entry. */
- 		if (!ie->key_length)
--			goto unm_err_out;
-+			goto unm_corrupt;
- 		/*
- 		 * We perform a case sensitive comparison and if that matches
- 		 * we are done and return the mft reference of the inode (i.e.
-@@ -443,7 +448,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 			mref = le64_to_cpu(ie->data.dir.indexed_file);
- 			kfree(kaddr);
- 			iput(ia_vi);
--			return ntfs_check_mref(mref);
-+			return ntfs_check_mref(dir_ni, mref);
- 		}
- 		/*
- 		 * For a case insensitive mount, we also perform a case
-@@ -538,7 +543,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 			ntfs_error(sb,
- 				"Index entry with child node found in a leaf node in directory inode 0x%llx.",
- 				dir_ni->mft_no);
--			goto unm_err_out;
-+			goto unm_corrupt;
- 		}
- 		/* Child node present, descend into it. */
- 		old_vcn = vcn;
-@@ -558,7 +563,7 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 		}
- 		ntfs_error(sb, "Negative child node vcn in directory inode 0x%llx.",
- 				dir_ni->mft_no);
--		goto unm_err_out;
-+		goto unm_corrupt;
- 	}
- 	/*
- 	 * No child node present, return -ENOENT, unless we have got a matching
-@@ -568,15 +573,19 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 	if (name) {
- 		kfree(kaddr);
- 		iput(ia_vi);
--		return ntfs_check_mref(name->mref);
-+		return ntfs_check_mref(dir_ni, name->mref);
- 	}
- 	ntfs_debug("Entry not found.");
- 	err = -ENOENT;
-+	goto unm_err_out;
-+unm_corrupt:
-+	err = -EFSCORRUPTED;
-+	report_err = -EFSCORRUPTED;
- unm_err_out:
- 	kfree(kaddr);
- err_out:
- 	if (!err)
--		err = -EIO;
-+		err = -EFSCORRUPTED;
- 	if (ctx)
- 		ntfs_attr_put_search_ctx(ctx);
- 	if (m)
-@@ -585,8 +594,11 @@ u64 ntfs_lookup_inode_by_name(struct ntfs_inode *dir_ni, const __le16 *uname,
- 	*res = NULL;
- 	if (!IS_ERR_OR_NULL(ia_vi))
- 		iput(ia_vi);
-+	if (report_err)
-+		ntfs_report_file_metadata_error(VFS_I(dir_ni), report_err);
- 	return ERR_MREF(err);
- dir_err_out:
-+	report_err = -EFSCORRUPTED;
- 	ntfs_error(sb, "Corrupt directory.  Aborting lookup.");
- 	goto err_out;
- }
-@@ -654,7 +666,7 @@ static inline int ntfs_filldir(struct ntfs_volume *vol,
- 	}
- 	mref = MREF_LE(ie->data.dir.indexed_file);
- 	if (ie->key.file_name.file_attributes & FILE_ATTR_REPARSE_POINT)
--		dt_type = ntfs_reparse_tag_dt_types(vol, mref);
-+		dt_type = ntfs_reparse_tag_dt_types(VFS_I(ndir), mref);
- 	else if (ie->key.file_name.file_attributes &
- 			FILE_ATTR_DUP_FILE_NAME_INDEX_PRESENT)
- 		dt_type = DT_DIR;
-@@ -742,6 +754,7 @@ static int ntfs_ia_blocks_readahead(struct ntfs_inode *ia_ni, loff_t pos)
- 
- static int ntfs_readdir(struct file *file, struct dir_context *actor)
- {
-+	int report_err = 0;
- 	struct inode *vdir = file_inode(file);
- 	struct super_block *sb = vdir->i_sb;
- 	struct ntfs_inode *ndir = NTFS_I(vdir);
-@@ -858,12 +871,16 @@ static int ntfs_readdir(struct file *file, struct dir_context *actor)
- 	}
- 
- 	/* Find the index root attribute in the mft record. */
--	if (ntfs_attr_lookup(AT_INDEX_ROOT, I30, 4, CASE_SENSITIVE, 0, NULL, 0,
--				ctx)) {
-+	err = ntfs_attr_lookup(AT_INDEX_ROOT, I30, 4, CASE_SENSITIVE, 0,
-+			       NULL, 0, ctx);
-+	if (err) {
-+		if (err == -ENOENT) {
-+			err = -EFSCORRUPTED;
-+			report_err = -EFSCORRUPTED;
++			ret = -EFSCORRUPTED;
++		} else {
+ 			ret = PTR_ERR(rl);
+-		return ret;
 +		}
- 		ntfs_error(sb, "Index root attribute missing in directory inode %llu",
- 				ndir->mft_no);
- 		ntfs_attr_put_search_ctx(ctx);
--		err = -ENOMEM;
- 		goto out;
++		goto out;
  	}
- 
-@@ -881,7 +898,8 @@ static int ntfs_readdir(struct file *file, struct dir_context *actor)
- 	if (ictx->block_size < NTFS_BLOCK_SIZE) {
- 		ntfs_error(sb, "Index block size (%d) is smaller than the sector size (%d)",
- 				ictx->block_size, NTFS_BLOCK_SIZE);
--		err = -EIO;
-+		report_err = -EFSCORRUPTED;
-+		err = -EFSCORRUPTED;
- 		goto out;
- 	}
- 
-@@ -1047,6 +1065,8 @@ static int ntfs_readdir(struct file *file, struct dir_context *actor)
- 	kfree(nir);
- 	kfree(ra);
- 	mutex_unlock(&ndir->mrec_lock);
-+	if (report_err)
-+		ntfs_report_file_metadata_error(VFS_I(ndir), report_err);
- 	return err;
- }
- 
-@@ -1068,6 +1088,11 @@ int ntfs_check_empty_dir(struct ntfs_inode *ni, struct mft_record *ni_mrec)
- 	ret = ntfs_attr_lookup(AT_INDEX_ROOT, I30, 4, CASE_SENSITIVE, 0, NULL,
- 				0, ctx);
- 	if (ret) {
+ 	lcn = rl->lcn + rl->length;
+ 	ntfs_debug("Last lcn of mft bitmap attribute is 0x%llx.",
+@@ -1453,15 +1457,21 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		status.added_cluster = rl2->lcn == lcn;
+ 		rl = ntfs_runlists_merge(&mftbmp_ni->runlist, rl2, 0, &new_rl_count);
+ 		if (IS_ERR(rl)) {
++			int merge_err = PTR_ERR(rl);
++
++			if (merge_err != -ENOMEM)
++				report_err = -EFSCORRUPTED;
+ 			up_write(&mftbmp_ni->runlist.lock);
+ 			ntfs_error(vol->sb, "Failed to merge runlists for mft bitmap.");
+-			if (ntfs_cluster_free_from_rl(vol, rl2)) {
++			err = ntfs_cluster_free_from_rl(vol, rl2);
++			if (err) {
+ 				ntfs_error(vol->sb, "Failed to deallocate allocated cluster.%s",
+ 						es);
+-				NVolSetErrors(vol);
++				ntfs_report_metadata_error(vol, err);
+ 			}
+ 			kvfree(rl2);
+-			return PTR_ERR(rl);
++			ret = merge_err == -ENOMEM ? merge_err : -EFSCORRUPTED;
++		goto out;
+ 		}
+ 		mftbmp_ni->runlist.rl = rl;
+ 		mftbmp_ni->runlist.count = new_rl_count;
+@@ -1494,8 +1504,10 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	if (unlikely(ret)) {
+ 		ntfs_error(vol->sb,
+ 			"Failed to find last attribute extent of mft bitmap attribute.");
+-		if (ret == -ENOENT)
+-			ret = -EIO;
 +		if (ret == -ENOENT) {
 +			ret = -EFSCORRUPTED;
-+			ntfs_report_file_metadata_error(VFS_I(ni),
-+							-EFSCORRUPTED);
++			report_err = -EFSCORRUPTED;
 +		}
- 		ntfs_error(ni->vol->sb, "Index root attribute missing in directory inode %llu",
- 				ni->mft_no);
- 		ntfs_attr_put_search_ctx(ctx);
-@@ -1172,8 +1197,13 @@ static int ntfs_dir_fsync(struct file *filp, loff_t start, loff_t end,
- 			continue;
- 
- 		parent_vi = ntfs_iget(vi->i_sb, MREF_LE(fn->parent_directory));
--		if (IS_ERR(parent_vi))
-+		if (IS_ERR(parent_vi)) {
-+			if (PTR_ERR(parent_vi) == -ENOENT && !NInoBeingDeleted(ni)) {
-+				ntfs_report_file_metadata_error(vi,
-+								-EFSCORRUPTED);
+ 		goto undo_alloc;
+ 	}
+ 	a = ctx->attr;
+@@ -1514,7 +1526,9 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 			"Get size for mapping pairs failed for mft bitmap attribute extent.");
+ 		ret = mp_size;
+ 		if (!ret)
+-			ret = -EIO;
++			ret = -EFSCORRUPTED;
++		if (ret == -EFSCORRUPTED)
++			report_err = -EFSCORRUPTED;
+ 		goto undo_alloc;
+ 	}
+ 	/* Expand the attribute record if necessary. */
+@@ -1537,6 +1551,8 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	if (unlikely(ret)) {
+ 		ntfs_error(vol->sb,
+ 			"Failed to build mapping pairs array for mft bitmap attribute.");
++		if (ret == -EFSCORRUPTED)
++			report_err = -EFSCORRUPTED;
+ 		goto undo_alloc;
+ 	}
+ 	/* Update the highest_vcn. */
+@@ -1559,6 +1575,10 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		if (unlikely(ret)) {
+ 			ntfs_error(vol->sb,
+ 				"Failed to find first attribute extent of mft bitmap attribute.");
++			if (ret == -ENOENT) {
++				ret = -EFSCORRUPTED;
++				report_err = -EFSCORRUPTED;
 +			}
- 			continue;
+ 			goto restore_undo_alloc;
+ 		}
+ 		a = ctx->attr;
+@@ -1579,9 +1599,10 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 
+ restore_undo_alloc:
+ 	ntfs_attr_reinit_search_ctx(ctx);
+-	if (ntfs_attr_lookup(mftbmp_ni->type, mftbmp_ni->name,
+-			mftbmp_ni->name_len, CASE_SENSITIVE, rl[1].vcn, NULL,
+-			0, ctx)) {
++	err = ntfs_attr_lookup(mftbmp_ni->type, mftbmp_ni->name,
++			       mftbmp_ni->name_len, CASE_SENSITIVE, rl[1].vcn,
++			       NULL, 0, ctx);
++	if (err) {
+ 		ntfs_error(vol->sb,
+ 			"Failed to find last attribute extent of mft bitmap attribute.%s", es);
+ 		write_lock_irqsave(&mftbmp_ni->size_lock, flags);
+@@ -1594,8 +1615,8 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		 * The only thing that is now wrong is ->allocated_size of the
+ 		 * base attribute extent which chkdsk should be able to fix.
+ 		 */
+-		NVolSetErrors(vol);
+-		return ret;
++		ntfs_report_metadata_error(vol, err);
++		goto out;
+ 	}
+ 	a = ctx->attr;
+ 	a->data.non_resident.highest_vcn = cpu_to_le64(rl[1].vcn - 2);
+@@ -1613,37 +1634,46 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	}
+ 	/* Deallocate the cluster. */
+ 	down_write(&vol->lcnbmp_lock);
+-	if (ntfs_bitmap_clear_bit(vol->lcnbmp_ino, lcn)) {
++	err = ntfs_bitmap_clear_bit(vol->lcnbmp_ino, lcn);
++	if (err) {
+ 		ntfs_error(vol->sb, "Failed to free allocated cluster.%s", es);
+-		NVolSetErrors(vol);
+-	} else
++		ntfs_report_metadata_error(vol, err);
++	} else {
+ 		ntfs_inc_free_clusters(vol, 1);
++	}
+ 	up_write(&vol->lcnbmp_lock);
+ 	if (status.mp_rebuilt) {
+-		if (ntfs_mapping_pairs_build(vol, (u8 *)a + le16_to_cpu(
+-				a->data.non_resident.mapping_pairs_offset),
+-				old_alen - le16_to_cpu(
+-				a->data.non_resident.mapping_pairs_offset),
+-				rl2, ll, -1, NULL, NULL, NULL)) {
++		mp_ofs = le16_to_cpu(a->data.non_resident.mapping_pairs_offset);
++		err = ntfs_mapping_pairs_build(vol, (u8 *)a + mp_ofs,
++					       old_alen - mp_ofs, rl2, ll, -1,
++					       NULL, NULL, NULL);
++		if (err) {
+ 			ntfs_error(vol->sb, "Failed to restore mapping pairs array.%s", es);
+-			NVolSetErrors(vol);
++			ntfs_report_metadata_error(vol, err);
+ 		}
+-		if (ntfs_attr_record_resize(ctx->mrec, a, old_alen)) {
++		err = ntfs_attr_record_resize(ctx->mrec, a, old_alen);
++		if (err) {
+ 			ntfs_error(vol->sb, "Failed to restore attribute record.%s", es);
+-			NVolSetErrors(vol);
++			ntfs_report_metadata_error(vol, err);
+ 		}
+ 		mark_mft_record_dirty(ctx->ntfs_ino);
+-	} else if (status.mp_extended &&
+-		   ntfs_attr_update_mapping_pairs_locked(mftbmp_ni, 0,
+-							  mftbmp_ni)) {
+-		ntfs_error(vol->sb, "Failed to restore mapping pairs.%s", es);
+-		NVolSetErrors(vol);
++	} else if (status.mp_extended) {
++		err = ntfs_attr_update_mapping_pairs_locked(mftbmp_ni, 0,
++							    mftbmp_ni);
++		if (err) {
++			ntfs_error(vol->sb, "Failed to restore mapping pairs.%s", es);
++			ntfs_report_metadata_error(vol, err);
 +		}
- 		mutex_lock_nested(&NTFS_I(parent_vi)->mrec_lock, NTFS_INODE_MUTEX_NORMAL);
- 		ia_vi = ntfs_index_iget(parent_vi, I30, 4);
- 		mutex_unlock(&NTFS_I(parent_vi)->mrec_lock);
-diff --git a/fs/ntfs/reparse.c b/fs/ntfs/reparse.c
-index 775e96a43771..f6cac20081e1 100644
---- a/fs/ntfs/reparse.c
-+++ b/fs/ntfs/reparse.c
-@@ -396,16 +396,19 @@ int ntfs_parse_reparse(struct ntfs_inode *ni, unsigned int *mode)
- 	return err;
+ 	}
+ 	if (ctx)
+ 		ntfs_attr_put_search_ctx(ctx);
+ 	if (!IS_ERR(mrec))
+ 		unmap_mft_record(mft_ni);
+ 	up_write(&mftbmp_ni->runlist.lock);
++
++out:
++	if (report_err)
++		ntfs_report_metadata_error(vol, report_err);
+ 	return ret;
  }
  
--unsigned int ntfs_reparse_tag_dt_types(struct ntfs_volume *vol, unsigned long mref)
-+unsigned int ntfs_reparse_tag_dt_types(struct inode *dir, unsigned long mref)
+@@ -1663,6 +1693,7 @@ static int ntfs_mft_bitmap_extend_allocation_nolock(struct ntfs_volume *vol)
+  */
+ static int ntfs_mft_bitmap_extend_initialized_nolock(struct ntfs_volume *vol)
  {
- 	s64 attr_size = 0;
- 	struct reparse_point *reparse_attr;
- 	unsigned int dt_type = DT_UNKNOWN;
- 	struct inode *vi;
++	int report_err = 0;
+ 	s64 old_data_size, old_initialized_size;
+ 	unsigned long flags;
+ 	struct inode *mftbmp_vi;
+@@ -1670,7 +1701,7 @@ static int ntfs_mft_bitmap_extend_initialized_nolock(struct ntfs_volume *vol)
+ 	struct ntfs_attr_search_ctx *ctx;
+ 	struct mft_record *mrec;
+ 	struct attr_record *a;
+-	int ret;
++	int err, ret;
  
--	vi = ntfs_iget(vol->sb, mref);
--	if (IS_ERR(vi))
-+	vi = ntfs_iget(dir->i_sb, mref);
-+	if (IS_ERR(vi)) {
-+		if (PTR_ERR(vi) == -ENOENT)
-+			ntfs_report_file_metadata_error(dir, -EFSCORRUPTED);
- 		return DT_UNKNOWN;
-+	}
+ 	ntfs_debug("Extending mft bitmap initialized (and data) size.");
+ 	mft_ni = NTFS_I(vol->mft_ino);
+@@ -1694,8 +1725,10 @@ static int ntfs_mft_bitmap_extend_initialized_nolock(struct ntfs_volume *vol)
+ 	if (unlikely(ret)) {
+ 		ntfs_error(vol->sb,
+ 			"Failed to find first attribute extent of mft bitmap attribute.");
+-		if (ret == -ENOENT)
+-			ret = -EIO;
++		if (ret == -ENOENT) {
++			ret = -EFSCORRUPTED;
++			report_err = -EFSCORRUPTED;
++		}
+ 		goto put_err_out;
+ 	}
+ 	a = ctx->attr;
+@@ -1731,21 +1764,24 @@ static int ntfs_mft_bitmap_extend_initialized_nolock(struct ntfs_volume *vol)
+ 	mrec = map_mft_record(mft_ni);
+ 	if (IS_ERR(mrec)) {
+ 		ntfs_error(vol->sb, "Failed to map mft record.%s", es);
+-		NVolSetErrors(vol);
+-		return ret;
++		err = PTR_ERR(mrec);
++		report_err = err;
++		goto err_out;
+ 	}
+ 	ctx = ntfs_attr_get_search_ctx(mft_ni, mrec);
+ 	if (IS_ERR(ctx)) {
+ 		ntfs_error(vol->sb, "Failed to get search context.%s", es);
+-		NVolSetErrors(vol);
++		report_err = PTR_ERR(ctx);
+ 		ctx = NULL;
+ 		goto unm_err_out;
+ 	}
+-	if (ntfs_attr_lookup(mftbmp_ni->type, mftbmp_ni->name,
+-			mftbmp_ni->name_len, CASE_SENSITIVE, 0, NULL, 0, ctx)) {
++	err = ntfs_attr_lookup(mftbmp_ni->type, mftbmp_ni->name,
++			       mftbmp_ni->name_len, CASE_SENSITIVE, 0, NULL, 0,
++			       ctx);
++	if (err) {
+ 		ntfs_error(vol->sb,
+ 			"Failed to find first attribute extent of mft bitmap attribute.%s", es);
+-		NVolSetErrors(vol);
++		report_err = err;
+ put_err_out:
+ 		ntfs_attr_put_search_ctx(ctx);
+ unm_err_out:
+@@ -1773,6 +1809,8 @@ static int ntfs_mft_bitmap_extend_initialized_nolock(struct ntfs_volume *vol)
+ 	read_unlock_irqrestore(&mftbmp_ni->size_lock, flags);
+ #endif /* DEBUG */
+ err_out:
++	if (report_err)
++		ntfs_report_metadata_error(vol, report_err);
+ 	return ret;
+ }
  
- 	reparse_attr = (struct reparse_point *)ntfs_attr_readall(NTFS_I(vi),
- 			AT_REPARSE_POINT, NULL, 0, &attr_size);
-diff --git a/fs/ntfs/reparse.h b/fs/ntfs/reparse.h
-index b6360b0452e6..b81baf196d6c 100644
---- a/fs/ntfs/reparse.h
-+++ b/fs/ntfs/reparse.h
-@@ -10,7 +10,7 @@
- extern __le16 reparse_index_name[];
+@@ -1798,6 +1836,7 @@ static int ntfs_mft_bitmap_extend_initialized_nolock(struct ntfs_volume *vol)
+  */
+ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ {
++	int report_err = 0;
+ 	s64 lcn;
+ 	s64 old_last_vcn;
+ 	s64 min_nr, nr, ll;
+@@ -1807,7 +1846,7 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	struct ntfs_attr_search_ctx *ctx = NULL;
+ 	struct mft_record *mrec;
+ 	struct attr_record *a = NULL;
+-	int ret, mp_size;
++	int err, ret, mp_size;
+ 	u32 old_alen = 0;
+ 	bool mp_rebuilt = false, mp_extended = false;
+ 	size_t new_rl_count;
+@@ -1829,11 +1868,13 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		up_write(&mft_ni->runlist.lock);
+ 		ntfs_error(vol->sb,
+ 			"Failed to determine last allocated cluster of mft data attribute.");
+-		if (!IS_ERR(rl))
+-			ret = -EIO;
+-		else
++		if (!IS_ERR(rl)) {
++			report_err = -EFSCORRUPTED;
++			ret = -EFSCORRUPTED;
++		} else {
+ 			ret = PTR_ERR(rl);
+-		return ret;
++		}
++		goto out;
+ 	}
+ 	lcn = rl->lcn + rl->length;
+ 	ntfs_debug("Last lcn of mft data attribute is 0x%llx.", lcn);
+@@ -1898,15 +1939,21 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	rl = ntfs_runlists_merge_keep_src(&mft_ni->runlist, alloc_rl, 0,
+ 			&new_rl_count);
+ 	if (IS_ERR(rl)) {
++		int merge_err = PTR_ERR(rl);
++
++		if (merge_err != -ENOMEM)
++			report_err = -EFSCORRUPTED;
+ 		up_write(&mft_ni->runlist.lock);
+ 		ntfs_error(vol->sb, "Failed to merge runlists for mft data attribute.");
+-		if (ntfs_cluster_free_from_rl(vol, alloc_rl)) {
++		err = ntfs_cluster_free_from_rl(vol, alloc_rl);
++		if (err) {
+ 			ntfs_error(vol->sb,
+ 				"Failed to deallocate clusters from the mft data attribute.%s", es);
+-			NVolSetErrors(vol);
++			ntfs_report_metadata_error(vol, err);
+ 		}
+ 		kvfree(alloc_rl);
+-		return PTR_ERR(rl);
++		ret = merge_err == -ENOMEM ? merge_err : -EFSCORRUPTED;
++		goto out;
+ 	}
+ 	mft_ni->runlist.rl = rl;
+ 	mft_ni->runlist.count = new_rl_count;
+@@ -1934,8 +1981,10 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 			CASE_SENSITIVE, rl[1].vcn, NULL, 0, ctx);
+ 	if (unlikely(ret)) {
+ 		ntfs_error(vol->sb, "Failed to find last attribute extent of mft data attribute.");
+-		if (ret == -ENOENT)
+-			ret = -EIO;
++		if (ret == -ENOENT) {
++			ret = -EFSCORRUPTED;
++			report_err = -EFSCORRUPTED;
++		}
+ 		goto undo_alloc;
+ 	}
+ 	a = ctx->attr;
+@@ -1956,7 +2005,9 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 			"Get size for mapping pairs failed for mft data attribute extent.");
+ 		ret = mp_size;
+ 		if (!ret)
+-			ret = -EIO;
++			ret = -EFSCORRUPTED;
++		if (ret == -EFSCORRUPTED)
++			report_err = -EFSCORRUPTED;
+ 		up_write(&mft_ni->runlist.lock);
+ 		goto undo_alloc;
+ 	}
+@@ -1981,6 +2032,8 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 			mp_size, rl2, ll, -1, NULL, NULL, NULL);
+ 	if (unlikely(ret)) {
+ 		ntfs_error(vol->sb, "Failed to build mapping pairs array of mft data attribute.");
++		if (ret == -EFSCORRUPTED)
++			report_err = -EFSCORRUPTED;
+ 		goto undo_alloc;
+ 	}
+ 	/* Update the highest_vcn. */
+@@ -2005,6 +2058,10 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		if (unlikely(ret)) {
+ 			ntfs_error(vol->sb,
+ 				"Failed to find first attribute extent of mft data attribute.");
++			if (ret == -ENOENT) {
++				ret = -EFSCORRUPTED;
++				report_err = -EFSCORRUPTED;
++			}
+ 			goto restore_undo_alloc;
+ 		}
+ 		a = ctx->attr;
+@@ -2024,8 +2081,9 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	return 0;
+ restore_undo_alloc:
+ 	ntfs_attr_reinit_search_ctx(ctx);
+-	if (ntfs_attr_lookup(mft_ni->type, mft_ni->name, mft_ni->name_len,
+-			CASE_SENSITIVE, rl[1].vcn, NULL, 0, ctx)) {
++	err = ntfs_attr_lookup(mft_ni->type, mft_ni->name, mft_ni->name_len,
++			       CASE_SENSITIVE, rl[1].vcn, NULL, 0, ctx);
++	if (err) {
+ 		ntfs_error(vol->sb,
+ 			"Failed to find last attribute extent of mft data attribute.%s", es);
+ 		write_lock_irqsave(&mft_ni->size_lock, flags);
+@@ -2038,8 +2096,8 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		 * The only thing that is now wrong is ->allocated_size of the
+ 		 * base attribute extent which chkdsk should be able to fix.
+ 		 */
+-		NVolSetErrors(vol);
+-		return ret;
++		ntfs_report_metadata_error(vol, err);
++		goto out;
+ 	}
+ 	ctx->attr->data.non_resident.highest_vcn =
+ 			cpu_to_le64(old_last_vcn - 1);
+@@ -2050,9 +2108,10 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 	 * is dropped, as lcnbmp_lock nests outside it (see above).
+ 	 */
+ 	down_write(&mft_ni->runlist.lock);
+-	if (ntfs_rl_truncate_nolock(vol, &mft_ni->runlist, old_last_vcn)) {
++	err = ntfs_rl_truncate_nolock(vol, &mft_ni->runlist, old_last_vcn);
++	if (err) {
+ 		ntfs_error(vol->sb, "Failed to truncate mft data attribute runlist.%s", es);
+-		NVolSetErrors(vol);
++		ntfs_report_metadata_error(vol, err);
+ 		/*
+ 		 * The runlist may still reference the clusters, so leave them
+ 		 * allocated until chkdsk.
+@@ -2061,15 +2120,19 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 		alloc_rl = NULL;
+ 	}
+ 	up_write(&mft_ni->runlist.lock);
+-	if (ntfs_cluster_free_from_rl(vol, alloc_rl)) {
++	err = ntfs_cluster_free_from_rl(vol, alloc_rl);
++	if (err) {
+ 		ntfs_error(vol->sb, "Failed to free clusters from mft data attribute.%s", es);
+-		NVolSetErrors(vol);
++		ntfs_report_metadata_error(vol, err);
+ 	}
+ 	kvfree(alloc_rl);
+-	if (mp_extended && ntfs_attr_update_mapping_pairs(mft_ni, 0)) {
+-		ntfs_error(vol->sb, "Failed to restore mapping pairs.%s",
+-			   es);
+-		NVolSetErrors(vol);
++	if (mp_extended) {
++		err = ntfs_attr_update_mapping_pairs(mft_ni, 0);
++		if (err) {
++			ntfs_error(vol->sb, "Failed to restore mapping pairs.%s",
++				   es);
++			ntfs_report_metadata_error(vol, err);
++		}
+ 	}
+ 	if (ctx) {
+ 		a = ctx->attr;
+@@ -2085,21 +2148,26 @@ static int ntfs_mft_data_extend_allocation_nolock(struct ntfs_volume *vol)
+ 			up_read(&mft_ni->runlist.lock);
+ 			if (err) {
+ 				ntfs_error(vol->sb, "Failed to restore mapping pairs array.%s", es);
+-				NVolSetErrors(vol);
++				ntfs_report_metadata_error(vol, err);
+ 			}
+-			if (ntfs_attr_record_resize(ctx->mrec, a, old_alen)) {
++			err = ntfs_attr_record_resize(ctx->mrec, a, old_alen);
++			if (err) {
+ 				ntfs_error(vol->sb, "Failed to restore attribute record.%s", es);
+-				NVolSetErrors(vol);
++				ntfs_report_metadata_error(vol, err);
+ 			}
+ 			mark_mft_record_dirty(ctx->ntfs_ino);
+ 		} else if (IS_ERR(ctx->mrec)) {
+ 			ntfs_error(vol->sb, "Failed to restore attribute search context.%s", es);
+-			NVolSetErrors(vol);
++			ntfs_report_metadata_error(vol, PTR_ERR(ctx->mrec));
+ 		}
+ 		ntfs_attr_put_search_ctx(ctx);
+ 	}
+ 	if (!IS_ERR(mrec))
+ 		unmap_mft_record(mft_ni);
++
++out:
++	if (report_err)
++		ntfs_report_metadata_error(vol, report_err);
+ 	return ret;
+ }
  
- int ntfs_parse_reparse(struct ntfs_inode *ni, unsigned int *mode);
--unsigned int ntfs_reparse_tag_dt_types(struct ntfs_volume *vol, unsigned long mref);
-+unsigned int ntfs_reparse_tag_dt_types(struct inode *dir, unsigned long mref);
- int ntfs_translate_symlink_path(struct dentry *dentry, const char *target,
- 				char **translated);
- int ntfs_reparse_set_wsl_symlink(struct ntfs_inode *ni,
 -- 
 2.51.0
 
