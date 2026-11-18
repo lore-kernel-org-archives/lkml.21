@@ -1,95 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794989801;
-	b=k9ZKImfOwoCQu1h4sf4I7vzOGrJ5++Q15y7ooS3hKhaXEXuNDzsf/LXaUPvWjHSw9pkw
-	 HeuAY4N0dSLovaPR3pUjpiUx9+eV2t7Gek7v/KXAry3s9Fdc5bjs4IjjnhoeFgqFvZzEj
-	 lIIfV28BpMZXM96f4641lWIKTqUSfjhkQYECujPprrXEW5lHyINmqDB2hIEHH65iD6saR
-	 YcV04thyHc5nDmwUqRZQkl8QoU2JQuMXE2JdNuGRXwuUodovhL+HSKtOlCQqxiMv7RpLv
-	 FdTyft5q0Sef/EHw8p8Y+Tc4FOaAvn5vnNsoVJJltTozQhXvwv7hd6cgb6z+QNfdTHg==
+	b=1NW8ngNImEL6zRbOapVETfVabHOqwmnI9BNVP1cryG7hZ+oqMeA6nfLBh7KoxwSqzCaT
+	 iOuc2LEkMvs4keHOBVkFBIJ9NSHrYbitA/mqzi1ZSbTQJka1fj+juK2nvvc80/BiCg91t
+	 ngV9l43UbWpddfUzMcGaDJaZVhWQEKnNRqt8+Vh4oFmcENiVgQnWnaOjoQSWTwTEDZa48
+	 4ax4saGVH3GfirzZCR+y8jz49O9q95Y+QOpxSu+ptYwqjJSOGp5W1Pfmtzyx19/m3pXE3
+	 z6wW1WWEH7qnUl76CktXxBAzJfbzJclfUueArO5K9sil/u1nmnPwr2sdE+dxqSovLWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794989801;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zs+S5yUZxI5UJIwT47i1hdYSehc6gDMi64/ByZlpHWk=;
-	b=Ci1D67gcA0UqhJ+TFkXX+lALDAS6eUPwldVYzXRvq1rqhuMOu8+RoanedJloNodZYaHf
-	 P+k424E53ozD0TAUfKMJaMN/P6zzur/VIM+yCDEBmCOsW+g5mmYZNUc524+Iq8tTmwKZ8
-	 jp2JFfoX392bgTxazPW6R/rKmm8ny/++iyD7rY7JAM94j3R2o0Ehz97T8izQn6Cqa4xRj
-	 Ls/5zJnlJ+vwbOzDou/FKXHU6+u5M8mpdPoN7iss2mc7FJfYIY3IhItiNoEmwl59ZGOrE
-	 plOUheszIen7U/S+d99CWWMmZPAwVGEOm9Aut4G1ZX+SAy1nESODCIytbtQnU/NOFCg==
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=gx/W6tXP2KdrCc0CO/VXLdzUUudIbq1I1EKN4P81bA4=;
+	b=BtJrG9TD8qbuQO+Mu5q5e4l4xaa+TC4HYqDFq3Q/8nkFlEIX5GXtTGW9EtvhOuzzIgm+
+	 wz6IajOFpYr1ZI43hOZctrwp4f1NlQSxPrKXy93mXk8m7XYaus4GU2yLGhUJN13/KquYP
+	 U5jU+R9lOlTHCJoibJ/iL+WvvZ9LuX0v5J2paouJYKjt9J5bezd9SbdTbkCmoIwOOQdRU
+	 SGhvX//nnkDIv8MEOmhN0P7m4o3VTBwkqQr5WtBgb9BgTtKLKATmncAd4Sr92B+apUffC
+	 1jaDeAMtWmVM7TEVvlwmg2JjdsFOoaHpHQiEkELXbXhKvgbevJX8OJVKbnuhKP5ZQIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gZxr+Z4p;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FpVrs0Bh;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g7cgadLv;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7063F606A885
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7063F606A885
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08D41606A88B
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08D41606A88B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gZxr+Z4p
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8a058315c79so349879b3a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FpVrs0Bh;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=g7cgadLv
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2UtQU1959674
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	gx/W6tXP2KdrCc0CO/VXLdzUUudIbq1I1EKN4P81bA4=; b=FpVrs0Bha0w/0rn0
+	aXJhKN/JmYwXtN/rPG/vJzue0PU8ZxPmj6NBMtxe4mUsnR8BnqGKZvU9kR1FZVhc
+	qtTYZwuc0NDyeaJJ0HeKlg1WS1OitJdRQ3h2vfXeaM9bO/8gqdOJ5z/Nv8sP6fut
+	QKa0CmmZbO3qEecQkqbdhQmyOYcr9s6mrguRhpIRd0uSaELLDPOlOTHBLbatd0/Y
+	Zq8HYZeNB3LXxIBWfeFDRWXKVMOl/+kCHaTPAA4TGHN0aUKo6IkhR8WxsUO+JoIp
+	LtzOPwErN33XFku0tzlH8qXUO9ALcwXp9RB49c1qGAAN8SOOVtCzE1G7ldvZg0lS
+	tQsT1g==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9hytt-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:16:40 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3ad30487d55so963880a91.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:16:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794989799; x=1795594599; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1794989799; x=1795594599; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zs+S5yUZxI5UJIwT47i1hdYSehc6gDMi64/ByZlpHWk=;
-        b=gZxr+Z4pgheo+7kFmwAABKxAZp7rf+wrH7LtWfQb7NwXlLIHP50cSPjtM6GF+Mpht+
-         lS3qHxwnhb8+BDEEurhuG1DKVnUcyRFKicxJR7bGHAfa5Mbjm6KkLqEjaD/h0S18bpLN
-         oFlQafsi/+fPTMoNZMkrFoDb5cnMa6OobgiacEdsUNWlOCOqGQ28PgkrJ1hspDmVICdJ
-         N86tmWO6y/W1mlOCct877k+tzM0Ydolrs9e7i5zkfMomPZrJH0PG4mUELq0nmISOxqXI
-         VyLDMPHRMjfDJMH4+hxF///A/pNawiQQOLw051Wl0egPpOJ/ZO9MsYvvcDfnfaXMLekn
-         RWIg==
+        bh=gx/W6tXP2KdrCc0CO/VXLdzUUudIbq1I1EKN4P81bA4=;
+        b=g7cgadLvBGI6/krNsIgWiFHJctVowT5rcZw3dPk7GWkaY/f1TqaOJAFkrIeCbckGLj
+         wbqCLA6TmsTq1NEIDYnDCzAOwHFUdw8MWqJMGcF89VzSZ84tEUDCrGbcSLazpnBRuHEd
+         6Q/Xwtkmzy9DkkxiNPtcjaUaZAjPXlXoJag65Lne1lztZtjSoheH8N5aTRcuSEgPh7Pq
+         FXwQxUpcCQeCvyzXfm5cx58VdOvN/iga+8ShJ2Cq1TbXBbSLEIcYW19/un8PGc+5UNAj
+         sv8NxGl9fo54fc/oquBM1K/yUT6H+uL42CNq0iHe3AplcDHTbaBFVxD3ypS3jux9TR8Q
+         H2VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1794989799; x=1795594599;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zs+S5yUZxI5UJIwT47i1hdYSehc6gDMi64/ByZlpHWk=;
-        b=llBYrtgjQGTD6Pr0YlB5UQs9bz8HZbCsVNX4zDRPWvvvvYURzt9+ymK3D1aRkcmip8
-         ld0x2v2DvQxjqvSr0sjRJJXFCt55EaVpcGzPP+Y9RpY5tUPiyDvysgEq4hD/1dlM5foW
-         c9OkqfbF7U75lCRnt6w9UwcXilOa1p4d36eVU4RqYQOOFmFxTVQdseuQiupFDsaQx3YX
-         Fzhi17baoorYdTnfkWlQWaMU7FB9z+qiWPWVDTykvTnUbaMW6wbP0F8qKgypkXX4c7UN
-         di9OfU2GPAQQ+67wzNGwaG+t9NHnFm30ESKVt0Ey42Ar3irSxUFSOD/wXtLP3DVxUk+r
-         K99A==
-X-Gm-Message-State: APuU4Z+S9eP7aEo1dTi/QEzTP0AlWJlC0aIKs+rKwraUU/9NePEt6tsW
-	v04JzxU5kljhiUve2k/IdfXlbQeQbEAcG1t0O/AobNTsM6Gtxv0tun2PAIAfQQ==
-X-Gm-Gg: AYBFou1Ik6zo5h/5TIwTXXW0CsZsKhtDJzdemo/DcYvsJrYEGTk6uDu7Z6IA56w55Uy
-	fRpHQpsisC1C1wOA+g55g4NTzhH/+1gOWP9e9G+C4wtg4iQgndeAyK7XG957uvUCdhwzHgFJDRD
-	fJr3BCdMpqM4RdTwq3r4CJk9yAu0cjiKMTxs3DFWsBLYTzVR+G0l/Mr/xaeVl5/a1B6EU7pkJ7h
-	wT0d9jqiegRNJldvYrCqT4ynkWeDlPemrrKzl/eUofhnGGriD43IPXxF5z68SDC0RD058oRoEuu
-	ugto7dMq5iG8eFZUCS58xFZfESxEfn7sBB8XGD+08EFeh2QV2+5PsbCH7lCAlHq+x/CLGggHAEZ
-	pnIHWXiIOLycaHcpfbhbRHZ6/cb30iAKNuCLkP0Sgz3LRUpI62p8GMxBWH4B8zNTBfkHs529ISQ
-	Pbr4RCc4TbCX0bOGwVxHdhKQ5jIUFcdTDX9Ok8f16P7fxRgRphILUl5HOhzZdLSvmHhfUNBLmAJ
-	R3tYF5/dVPLzMZjx0AruIjkLN4QL2JuMT8fFu8Msa+20lvvdITz5xTU0iIGV+xtT9x8gv9ekvxy
-	Zp377UfrsGggIylWiYwBZ8AtHs07jQjxbl9wVNLHUYAH/U8vAZQHJetidtYzRB44N7rsIxvbHsY
-	IDyWvHwsampvo2BBe
-X-Received: by 2002:a05:6a20:5491:b0:3f9:3f64:9b99 with SMTP id adf61e73a8af0-3fe97ff1704mr1784713637.58.1794989799379;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gx/W6tXP2KdrCc0CO/VXLdzUUudIbq1I1EKN4P81bA4=;
+        b=arlvl5LUavRNtuN8wsXd69VDCPjBiRj4W01XqKXI+lqvvbFqirqs6Qvyx0x16TuQ5i
+         jcHTpUXhFHRjmSzjiqU0q5wrm/MG0ItM4eLXaEGei/ZMMUBCKcykWZ6HEmdkRhzKcg8L
+         3Q7+U78zJnP1TGZgv3bwMwOmrg9FusP5/zaS/pBlm1Vzum+tU0mMo/FqZiUY0PNOtpbp
+         a6YQWHDksRYS4G0m87E6FiEPkfYAMmXxyFScWS4RnMd4ECU6KvWLsF9Bw16OE42VfQDv
+         2DTLrAVMC/MvGf0vTcwLq5IHzdg4P9uub/AmDAOb+UzZ/XnQncXW9boijszIsGl4Qq5f
+         78pA==
+X-Forwarded-Encrypted: i=1; AL+hErFifIf6c1FOK+Dpolr2FxW/NqeHqNrMSAkibfpZ3xlgvutYx/Q91EszCbK3wc+uQkC2SfZqMx2igexkXVc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+LN2ImHaIKGayO76nhDuAZZ50aL2eIVcCx2yzxGsqkoe1vmwCn
+	NqZQq/VWiJLS5sRKkiZOBWWuhdhyOST6FG8nMVa46upkUBjWki8TgaEt9Lfh3PmL5qDvYypbAgr
+	I6vD91VHkrtATJr5HVxjo8amw7jX+0nxRe9Cc1V68HkleHF1lTSd3alHF4a/DaQBbryQ=
+X-Gm-Gg: AZFdTZd5yrCL+XA9G5bSJhgMQ1yOPdZ9XGvyBTG8KJfHWcMRkLR5yE2ihig0em+//O+
+	JO5EJeLLKfNSgEaj31/U/EKR//jPU/YuIapeQHVRFpLmQvqVNOsKuNb56zhESSFzFbJ9VL4Bpnq
+	4lG5zodFbEkm66/nWGsg3Eev7eG7uOojot27NDR30iagx9o+l8w1XAdllxEICFGkLcj62fA08MV
+	eFs8K60f545RTISg5oki2a1w55FOaUZJ8RbXOo6vk4tjOWsjni3nBI5BjZoCvD761zxY0HyvT/F
+	IIHHWf0qGy/vWGYTzFnbM4PpYAxYRGBsac/w3Bm4qAn+l/BFraJ5ybqKY/z+RrkvNRRcO35rmtO
+	/YVz3zARVxm80/oRKsUZQ/V9WWK9oaR5xgDxNjDNqIxLfREVZcOYPKrb/wxTZUNbuSs5ttKXxpW
+	EhedUuxO8k+M7r1mVfauwv9KiqQl4y5Zq9e723+HeHpL9eNAb+CuakuJqc4QOQQn8sg/yhx8CLU
+	g==
+X-Received: by 2002:a17:90b:1c8b:b0:3ab:f2a9:cacd with SMTP id 98e67ed59e1d1-3b3d07a92ffmr1922923a91.49.1794989799330;
         Wed, 18 Nov 2026 00:16:39 -0800 (PST)
-Received: from hcdev-d520mt2.. (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cad8cefbsm764401b3a.31.2026.11.18.00.16.37
+X-Received: by 2002:a17:90b:1c8b:b0:3ab:f2a9:cacd with SMTP id 98e67ed59e1d1-3b3d07a92ffmr1922910a91.49.1794989798904;
+        Wed, 18 Nov 2026 00:16:38 -0800 (PST)
+Received: from hu-madhgane-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b5e8asm3369181a91.8.2026.11.18.00.16.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 18 Nov 2026 00:16:38 -0800 (PST)
-From: a0282524688@gmail.com
-To: lee@kernel.org,
-	Ming Yu <tmyu0@nuvoton.com>
-Cc: linux-kernel@vger.kernel.org,
-	Ming Yu <a0282524688@gmail.com>,
-	mfd@lists.linux.dev
-Subject: [PATCH v10 01/13] mfd: nct6694: Validate the USB endpoints
-Date: Wed, 18 Nov 2026 16:16:12 +0800
-Message-Id: <20261118081625.2399247-2-a0282524688@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261118081625.2399247-1-a0282524688@gmail.com>
-References: <20261118081625.2399247-1-a0282524688@gmail.com>
+From: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 13:45:36 +0530
+Subject: [PATCH ath-next v3 13/15] wifi: ath12k: add Wi-Fi 8 hw ops for
+ QCN9575
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,116 +117,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-wifi8_qcn9575_bringup-v3-13-9875d2a3953f@oss.qualcomm.com>
+References: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
+In-Reply-To: <20261118-wifi8_qcn9575_bringup-v3-0-9875d2a3953f@oss.qualcomm.com>
+To: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Bill Wendling <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>
+Cc: linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
+        llvm@lists.linux.dev,
+        Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Authority-Analysis: v=2.4 cv=QenzLcbv c=1 sm=1 tr=0 ts=6afd5ee8 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=L9wxWISAF5v3VASzmuUA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-ORIG-GUID: IravZgyoVMafFkmZtaQOQlFjSJ3nYJyz
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX9NS6CSO/BeNn
+ MEgiDTNBD7FOuzfMDcQ8DK4tgLAPNAvCDTdH3PkVCTAwBDLLRvKc+4DTTHx4ezu5q0Txoy7e4MD
+ fMyC/Y9LqhRcqgyi2Re4rxQ7zorzm4AHebqxkaHZJXdKNLsrmsl2J4AitqOyMoTS7i22mpPgbM4
+ H/5+iqbmq1197G3SMG+1gW9jH7apYJXWVxvH/C02Mqb6ySHyCMucjq3cOxKSLw0yHPXZtq2gEQB
+ erZYKz2v6zFtUTI9LXOjLzj45w32NwKOzI8sZMj/sVIKDpFvnb8s1adL58w4BK/OIo/UVFHd4tF
+ Ng8qNlDKxywiN7+kk4fiUelg4chvwUkl6WFC/Rl8WAWAdKk6KtzGKyfdQfuG1T4drM0ANGNUZgw
+ WeZ1DXasNQOkzLjppAOL5RYOdDgCkif1V9sJBHfLuoa2gcK1P3nZbjKOKS2O50DtXbg3YEbFKWd
+ AM1ULT1fahbKKC5Z+uQ==
+X-Proofpoint-GUID: IravZgyoVMafFkmZtaQOQlFjSJ3nYJyz
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzMiBTYWx0ZWRfX+4oZ7vJcByGj
+ kVgNIZ3n2CUmJ07LL6OBWGXQldBOwj9/CX3bvQ0h1uv8SqV/j6qDyWd7OpVmmdnoKgdUxE827kF
+ SlkxXwdDxvGHOpx4iqNuoMOvQt/GU6Q=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 clxscore=1015 suspectscore=0 impostorscore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180032
 
-From: Ming Yu <a0282524688@gmail.com>
+Implement hw_ops for QCN9575.
 
-The probe reads endpoint[0] of the current altsetting without checking
-that the interface describes any endpoint, and the bulk endpoints used
-for the command transfers are never validated. A malformed device can
-make the driver read past the endpoint array or submit URBs to
-endpoints of the wrong type.
+Add QCN9575 hw_ops (qcn9575_ops) in wifi8/hw.c implementing pdev/mac ID
+mapping, srng ID lookup, and TX ring selector callbacks. Update the
+QCN9575 hw params entry to use qcn9575_ops.
 
-The interface exposes several interrupt and bulk endpoints, of which
-only EP1 IN, EP2 IN and EP3 OUT carry the command interface, so the
-endpoints cannot be looked up by type. Check that the expected
-endpoints are present with usb_check_{bulk,int}_endpoints(), and take
-the polling interval from the interrupt endpoint actually used.
+Tested-on: QCN9274 hw2.0 PCI WLAN.WBE.1.6-01243-QCAHKSWPL_SILICONZ-1
+Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
 
-Define the interrupt endpoint by its number, like the bulk endpoints,
-as the pipe macros expect an endpoint number rather than an address.
-
-Fixes: 51dad33ede63 ("mfd: Add core driver for Nuvoton NCT6694")
-Signed-off-by: Ming Yu <a0282524688@gmail.com>
+Signed-off-by: Madhavan Ganesan <madhavan.ganesan@oss.qualcomm.com>
 ---
-Changes in v10:
-- Rebased on the current mainline, which allocates with
-  devm_kzalloc_obj().
+ drivers/net/wireless/ath/ath12k/wifi8/hw.c | 38 +++++++++++++++++++++++++++++-
+ 1 file changed, 37 insertions(+), 1 deletion(-)
 
-Changes in v9:
-- None.
-
-Changes in v8:
-- Also validate the bulk endpoints. Keep the fixed endpoint numbers and
-  check them with usb_check_{bulk,int}_endpoints() instead of looking
-  up the first endpoint of each type, as the interface exposes several
-  interrupt and bulk endpoints.
-- Take the polling interval from the interrupt endpoint actually used,
-  and define it by its number like the bulk endpoints.
-
-Changes in v7:
-- New patch.
-
- drivers/mfd/nct6694.c       | 29 +++++++++++++++++------------
- include/linux/mfd/nct6694.h |  2 +-
- 2 files changed, 18 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/mfd/nct6694.c b/drivers/mfd/nct6694.c
-index dabd83b9d455..b7088b2850f7 100644
---- a/drivers/mfd/nct6694.c
-+++ b/drivers/mfd/nct6694.c
-@@ -273,13 +273,25 @@ static const struct irq_domain_ops nct6694_irq_domain_ops = {
- static int nct6694_usb_probe(struct usb_interface *iface,
- 			     const struct usb_device_id *id)
- {
-+	static const u8 bulk_ep_addr[] = {
-+		USB_DIR_IN | NCT6694_BULK_IN_EP,
-+		USB_DIR_OUT | NCT6694_BULK_OUT_EP,
-+		0
-+	};
-+	static const u8 int_ep_addr[] = {
-+		USB_DIR_IN | NCT6694_INT_IN_EP,
-+		0
-+	};
- 	struct usb_device *udev = interface_to_usbdev(iface);
--	struct usb_endpoint_descriptor *int_endpoint;
--	struct usb_host_interface *interface;
- 	struct device *dev = &iface->dev;
- 	struct nct6694 *nct6694;
-+	unsigned int int_pipe;
- 	int ret;
+diff --git a/drivers/net/wireless/ath/ath12k/wifi8/hw.c b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
+index 74873fc5f3f3..92c897de16f4 100644
+--- a/drivers/net/wireless/ath/ath12k/wifi8/hw.c
++++ b/drivers/net/wireless/ath/ath12k/wifi8/hw.c
+@@ -18,6 +18,42 @@
+ #include "mhi.h"
+ #include "wmi.h"
  
-+	if (!usb_check_bulk_endpoints(iface, bulk_ep_addr) ||
-+	    !usb_check_int_endpoints(iface, int_ep_addr))
-+		return -ENODEV;
++static u8 ath12k_wifi8_hw_qcn9575_mac_from_pdev_id(int pdev_idx)
++{
++	return pdev_idx;
++}
 +
- 	nct6694 = devm_kzalloc_obj(dev, *nct6694);
- 	if (!nct6694)
- 		return -ENOMEM;
-@@ -318,17 +330,10 @@ static int nct6694_usb_probe(struct usb_interface *iface,
- 	if (ret)
- 		goto err_ida;
++static int
++ath12k_wifi8_hw_mac_id_to_pdev_id_qcn9575(const struct ath12k_hw_params *hw,
++					  int mac_id)
++{
++	return mac_id;
++}
++
++static int
++ath12k_wifi8_hw_mac_id_to_srng_id_qcn9575(const struct ath12k_hw_params *hw,
++					  int mac_id)
++{
++	/*
++	 * TODO: QCN9575 supports 2 radios (max_radios = 2). This currently
++	 * maps both radios to srng 0; per-radio srng mapping will be wired
++	 * in by an upcoming DP patch.
++	 */
++	return 0;
++}
++
++static u8 ath12k_wifi8_hw_get_ring_selector_qcn9575(struct sk_buff *skb)
++{
++	return smp_processor_id();
++}
++
++static const struct ath12k_hw_ops qcn9575_ops = {
++	.get_hw_mac_from_pdev_id = ath12k_wifi8_hw_qcn9575_mac_from_pdev_id,
++	.mac_id_to_pdev_id = ath12k_wifi8_hw_mac_id_to_pdev_id_qcn9575,
++	.mac_id_to_srng_id = ath12k_wifi8_hw_mac_id_to_srng_id_qcn9575,
++	.get_ring_selector = ath12k_wifi8_hw_get_ring_selector_qcn9575,
++};
++
+ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+ 	{
+ 		.name = "qcn9575 hw2.0",
+@@ -37,7 +73,7 @@ static const struct ath12k_hw_params ath12k_wifi8_hw_params[] = {
+ 		.qmi_max_chunk_size = SZ_2M,
+ 		.internal_sleep_clock = false,
  
--	interface = iface->cur_altsetting;
--
--	int_endpoint = &interface->endpoint[0].desc;
--	if (!usb_endpoint_is_int_in(int_endpoint)) {
--		ret = -ENODEV;
--		goto err_ida;
--	}
--
--	usb_fill_int_urb(nct6694->int_in_urb, udev, usb_rcvintpipe(udev, NCT6694_INT_IN_EP),
-+	int_pipe = usb_rcvintpipe(udev, NCT6694_INT_IN_EP);
-+	usb_fill_int_urb(nct6694->int_in_urb, udev, int_pipe,
- 			 nct6694->int_buffer, sizeof(*nct6694->int_buffer), usb_int_callback,
--			 nct6694, int_endpoint->bInterval);
-+			 nct6694, usb_pipe_endpoint(udev, int_pipe)->desc.bInterval);
+-		.hw_ops = NULL,
++		.hw_ops = &qcn9575_ops,
+ 		.ring_mask = NULL,
  
- 	ret = usb_submit_urb(nct6694->int_in_urb, GFP_KERNEL);
- 	if (ret)
-diff --git a/include/linux/mfd/nct6694.h b/include/linux/mfd/nct6694.h
-index 6eb9be2cd4a0..a5ad7be47bf9 100644
---- a/include/linux/mfd/nct6694.h
-+++ b/include/linux/mfd/nct6694.h
-@@ -10,7 +10,7 @@
- 
- #define NCT6694_VENDOR_ID	0x0416
- #define NCT6694_PRODUCT_ID	0x200B
--#define NCT6694_INT_IN_EP	0x81
-+#define NCT6694_INT_IN_EP	0x01
- #define NCT6694_BULK_IN_EP	0x02
- #define NCT6694_BULK_OUT_EP	0x03
- 
+ 		.host_ce_config = ath12k_wifi8_host_ce_config_qcn9575,
+
 -- 
 2.34.1
 
