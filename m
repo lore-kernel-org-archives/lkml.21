@@ -1,98 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.134
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991781;
-	b=zBxcIvtBRCPx7cJ0pP2B8JZkK6H6MhRuIBVTjIIOcNSd5gxbCYM7l6g7G2aGGbWTqs6P
-	 KfUM/QLBLHqC0Dd9bncS+REKdSSvI42DQRI0jeyHDFHoIReOFh8Z2WfFqbGRjeV1bwxNU
-	 FrT0cX6QmF3L1sapmqiE5+JvRNA0DG8X0Bweo9B53OV4uAIkbdxFd+4hppcDNcyPM+vZ7
-	 A8poZInb+LF0paBs+op8OeE4k5SZVciNt4aB2YzYE3TLnnujrg6AJILOxe1RRfOTk4E3y
-	 0uUNKjUI0AeDWTx9pNIhrgFw69pp38WiQIBNFtsoi0ZVb5CSc9KlMrJ0wgtMrJ1oFrw==
+	t=1794991804;
+	b=DCvtHiv26wQ79wp43S08x/4ElOjgX+II6qWRu0izZk0P8N2Mr1SmkLzfAoE/+zTw3DBO
+	 tyrdqlLpscGNrh0i7lKwXMuHs5ZWUOZtxO5ltyzAzvb+mVrxyNXvEKsf66OC2LM2tU+uw
+	 xfNz382olPhSn15pR040woLAelxSH7Fl8gCkGGvC8OuIZUKGdOfgaMskJSJ4HeSzR9npU
+	 RC4r5VZSGI2ec485rHL0isCQdkq/booOksBLr2ZzMAc1MW9pWp3VWZRvza+IIPbUkBlfb
+	 ZZwvxAy7/l1ioVfR2n0zssoCaDCs1K3REnr8ibUkZsW3Zicu6OYeS2c8uKBeTv1wuEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991781;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3KSTlKXLcvFE39HjBxEy6lamoTPY2th5Ul1xhrdr1rQ=;
-	b=M4Jmyy5ha/bVhFzYh7W3Zi3Q3xVYvfG7XScdq12pib1maIdHKz1OzCvV+tqBRKB/izuv
-	 M9sV16C8lRckCpY3hIYb6VsK76RmE/FfLQVLwxJi4OzX+m5zUaD+of5a6U8OK5E6LW/7A
-	 kj3sKqtjQ/Gui0CZUcv4D7rNGZnKOkH3AgRKLOc/SEXoIDHAZtXSxoSw/8+oVdd9Z5Asf
-	 fAsj3YyXIeouINcXPsvhi9r+oEVMz9418lSNg2X3/BGCCCy8gFL+NC9VE51IudMYBKE9V
-	 QpoiKtStRtuPf0BLAtyf3UJIfUHGKPWLPFdbPs80UmlFdo7Rw7Jba8uJTxPx2XRNOGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991804;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=AX5c5wMD7OnLAFm+CC9DuYrUK3y63Z1EbaUVg/peetY=;
+	b=c0cakDN34S2EU8hbzjIzJwzbXd3N0Y9ZNomY8UGImR0XKbxhy9epOnVwd9RAYS30ZL7u
+	 lsmMO9pEO+0yuydTKclF71bNaz5DCZyvIDW85yKwki1KRct0OjM20kWuKQcxzoGGtMQCQ
+	 rjvtpa12engHP9StZtENxdZLHBMwFP2gEBUgsQUxQU9tDuI/IDbCFuMlwfE5fvpCW/3YQ
+	 y1slbZuLRxV1bD2JxKZUpmeOuJFU6GlCGXh0byIKQ1Z3LOmvWgrRVHwVWDCZ37xg+dz5P
+	 6bylNlkb/2vtOF/H96XIQEXwobasriqbb1RtuMDpHjRk5PqUmRLce99jcdTJDLodrSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gf7oNAPC;
-	arc=none smtp.remote-ip=74.125.231.134
-Received: from mail-oo2-f6.google.com (mail-oo2-f6.google.com [74.125.231.134])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ee4v89F0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0F45606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:49:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0F45606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65EC9606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:50:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gf7oNAPC
-Received: by mail-oo2-f6.google.com with SMTP id 46e09a7af769-8629eb92bebso232237a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:49:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991780; x=1795596580; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3KSTlKXLcvFE39HjBxEy6lamoTPY2th5Ul1xhrdr1rQ=;
-        b=Gf7oNAPCCRd1rqT09B1dAuM9Xla1krFFlz71lRsX5gHLceMZr9JWlhfxsSWEdIqvgu
-         jWnLgVzQcjc79iyvGw2qLFrIkpOlzzBzpqPHUg8LPZzI3cCDMjbrijlo2UzPryjWkMSd
-         utah1JJTmCiBlKbxSHGh67phkY9R+P/83bYqE26gvungBXtQ4gYul+WMZIbnGSJnmMzx
-         hVHzsIMHGha3yRdHvRsFxV4dUpQdpTEsXdV5v+fD6k9XV+IuwpK5NtqTGrysvzPu1MnR
-         yJULP2q2OXOC6D/Brdldgz4FAnRAv+kMP+ek4DuVITqfgc+r/O3hko0b3oNgJEZetGJi
-         hJkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991780; x=1795596580;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3KSTlKXLcvFE39HjBxEy6lamoTPY2th5Ul1xhrdr1rQ=;
-        b=v6YDAsVr/HT1lSkGKmsSwKIBag3D8W5DoeEpjGk2oR74HA7/U5j/V7BLwWARPkltk8
-         t5jrqkqHmCefVhPrUxApBInL+h+lWeUpLkuKcFMNOeA0GKmpqlj/YGrq0PBOKljSB7Sp
-         kXcnFyEYigY+aDXqG7eQ6rvoIZgSB8LOILO+SeK7996F4PcehfVggHNV+waNBhkuD46b
-         7IAZNypOpNhuTpI9xsPm2dHpxCu0/BIL7GaTK8qm3jc4Pu9wgRXH5NcGiprUwVOY5ptV
-         L8iBOYHL4ew1u2XePrTeXqsHlCPgFsfPhUudsfIBHYvFyEqoJVt0D7p6/+CnmEZUv32r
-         H0bg==
-X-Forwarded-Encrypted: i=1; AL+hErE9BrQyvSD1cj9MJOJ6qDKUllh2cUDt2bNac71iVeN8ifA9gBJHmarnp0T8D9+E6qBAhbG2ZKlIZYzHsvM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8TE1rkaEBaFPbFKpVNRs0Xmty5Tzht/zR2J0CCDYVUHL8bFjn3
-	J6cFtcwx5pgBW++nK7rPF66obbhq5pJk2E1NhDdLmKwkdbbNncmXtl6u
-X-Gm-Gg: AYBFou1QThd4CkU4CKpCYLWtXSlRMZ9arkGKtMoGBLoMn3BFIGiBHICc4hsLNlQqyS+
-	z7jf2yDsuV03cidMJXt1DKDQT7CmX77WGxv2AvWrt9BAA8dsj4RUvnUeJ9y9LhE0hjQJMBSMpET
-	YlwCTH7Xio5UxpvsnPcUXFBWQqch3nA5na7BnKAqoIioKQbaOhnDGdjpDKvbA8nJv8syBf37CsB
-	Ji8/7bq7IQbJwvavC8A7m4Ws1nmzVSmVQLD1lxMN+djTUqMA5Txub0VZO5w/YmxHEwQMKMTEzLm
-	YFdW26VJaI7sXl0tI+SC1j80Q2CEpDizoQnZTqlN5EMUtVaSMKaDRJq6q8ic9Su2q45ca0HBCWe
-	15dsya30aD5ckoe/GDsIN4Xdr3SeYqlL+wJcWWi1qECmZTK+4kmtnaaHXbAvIfl+kmWmldcvZSD
-	hlQ1tTkoi+ikMfgyluYzy9F2sLwQ9MfEubUqNbRYztLIDIfwPJbqBwd67dTrH9k5m0sjDUCNBFz
-	jXpeGLa280cyTd7o0h+FMpTCEDAq8oob1eL8MR+3TINoK64WVQANP8J9QGNXaV8FH/dwkRz6QMf
-	zrN9tlnRgx4IYl2kX27mpr4UFHVsGLefHQ9UT7+oSYyyLm5oqYQOZP/4BYhyqZIAvjox
-X-Received: by 2002:a05:6830:264c:b0:862:a7f2:6d7d with SMTP id 46e09a7af769-862f086c34dmr1737910a34.24.1794991779830;
-        Wed, 18 Nov 2026 00:49:39 -0800 (PST)
-Received: from localhost.localdomain ([14.116.239.36])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f01381f5sm1530710a34.3.2026.11.18.00.49.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:49:38 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Simon Horman <horms@kernel.org>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] net: initialize sk_peer_lock in cloned sockets
-Date: Wed, 18 Nov 2026 16:49:27 +0800
-Message-ID: <20261118084927.1756747-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ee4v89F0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E07ED1F000C6
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:50:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794991803;
+	bh=AX5c5wMD7OnLAFm+CC9DuYrUK3y63Z1EbaUVg/peetY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Ee4v89F0/CYplUMWd4mrYQPEdS2rCUppTQI5k96tUb9WMelFCwGQDfb/Mw/KoeUV3
+	 RkDnzTN3HaE8jGkRWtAPSX79rXHA5FMcyP8vIZ90QnSeyImP8YTbiW8ZhRXGA7sWI1
+	 B/ahlM+rNT5H1z/EaUtqvb35lgOcR1eA3JudQKqzAmAwzEovWbO1XZSLKXgB3fKLyW
+	 l6OgLvVqAE1n5Q4SG0LBfT9E2yF//MyBS9c70vxspBqmws0woymojLJbm3tTfCT7eS
+	 Rlp+/jTBGbeosHqJ0cOnVRFVBu8YxiZ7kVN063iFfWyvK7XZtPfZg8ofXR7mATe99q
+	 kANbBaZvMJaOQ==
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-499f20c7054so401505fac.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:50:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFXC7pHT9qqEUpXQBYk5pn0IJZBYJ8ev5acb6kZe8Lt20JEXb3VG2JKYzXDIaG7RKPJUz/wEQvDW11D/1o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8iFFvqKbfqYPd45atonlw7Sox93g3DdlsQO1wdmCV7X8vqLttt
+	Y8PkF1ncngcWHGuSZWVOAZ40VoCE3mAGaIncDb9UzxumqSoZGHDrW477i6m8YKKrRv9Q+x5/Ccu
+	iE3LlVTsrFxPdszSMK5K/RYOXJu3IYew=
+X-Received: by 2002:a05:6870:d40b:b0:49e:4ed0:11ca with SMTP id
+ 586e51a60fabf-4b7613c4a21mr1363707fac.53.1794991803234; Wed, 18 Nov 2026
+ 00:50:03 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,45 +59,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
+In-Reply-To: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 09:49:51 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirYP1mDaZmyjfqoRJWJLd8PnfW3GFey7tnqYtNNqSn-kw@mail.gmail.com>
+X-Gm-Features: AclHuK_EKf6E2OR6VbHx-j3ZE8wpfUYjecPiFVwvcoA1MyS4rmOtt0l72ONjZtQ
+Message-ID: <CAL4WiirYP1mDaZmyjfqoRJWJLd8PnfW3GFey7tnqYtNNqSn-kw@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: openvswitch: avoid hashing the network
+ namespace pointer
+To: Zhengchuan Liang <zcliangcn@gmail.com>
+Cc: Aaron Conole <aconole@redhat.com>, Eelco Chaudron <echaudro@redhat.com>, 
+	Ilya Maximets <i.maximets@ovn.org>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Pravin B Shelar <pshelar@nicira.com>, Jesse Gross <jesse@nicira.com>, netdev@vger.kernel.org, 
+	dev@openvswitch.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-sock_copy() clones a struct sock with two memcpys that both include
-sk_peer_lock.  sk_clone() re-initializes sk_lock, but nothing resets
-sk_peer_lock, so a clone created while the parent's sk_peer_lock is held
-inherits the lock in the locked state.
+Le mer. 18 nov. 2026 =C3=A0 09:40, Zhengchuan Liang <zcliangcn@gmail.com> a=
+ =C3=A9crit :
+>
+> The Open vSwitch vport name table uses the network namespace pointer as
+> the Jenkins hash seed. When an Open vSwitch vport already exists in the
+> attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests can
+> look up attacker-chosen missing names and time whether those lookups
+> traverse an occupied bucket. Ranking the resulting collision pattern
+> across possible KASLR slides recovers the init_net pointer and thus the
+> kernel text base.
+>
+> Use the namespace cookie instead. It is a stable, unique, non-address
+> identifier that is deliberately exposed to userspace. setup_net() assigns
+> it before per-net initializers run, and it remains unchanged for the
+> namespace lifetime. Fold both halves into the seed so vports in different
+> namespaces retain namespace-dependent bucket placement.
+>
+> Found by AI-assisted code review and reproduced on an unmodified kernel
+> without fault injection. After privileged setup created the resident
+> vport, the timing measurements ran as an unprivileged user with no
+> effective capabilities. With this change, the pointer-derived prediction
+> fails. Existing and missing vport lookups behave as expected. Identically
+> named vports in separate network namespaces remain independent.
+>
+> Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces.")
+> Cc: stable@vger.kernel.org
 
-The first getsockopt(SO_PEERCRED) on such a child spins forever in
-queued_spin_lock_slowpath().  spin_lock() disables preemption, so the
-task never schedules and its CPU stops reporting quiescent states; RCU
-grace periods then stop and callers of synchronize_rcu(), such as
-expand_files() from accept(), hang.
+Same remark as for your dev_name_hash() patch: local KASLR attacks are
+not a serious concern, a "Cc: stable" tag does not belong in a
+net-next patch.
 
-Initialize sk_peer_lock explicitly for the clone.
+> Assisted-by: LLM
+> Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
+> ---
+>  net/openvswitch/vport.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+>
+> diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
+> index 083f7a8d9d4e..6689c8370ec1 100644
+> --- a/net/openvswitch/vport.c
+> +++ b/net/openvswitch/vport.c
+> @@ -53,7 +53,10 @@ void ovs_vport_exit(void)
+>
+>  static struct hlist_head *hash_bucket(const struct net *net, const char =
+*name)
+>  {
+> -       unsigned int hash =3D jhash(name, strlen(name), (unsigned long) n=
+et);
+> +       u32 seed =3D jhash_2words(lower_32_bits(net->net_cookie),
+> +                               upper_32_bits(net->net_cookie), 0);
 
-This issue was discovered by Tencent CodeBuddy Security.
+Nit: hash_64(net->net_cookie, 32) would be simpler.
 
-Fixes: 35306eb23814 ("af_unix: fix races in sk_peer_pid and sk_peer_cred accesses")
-Cc: stable@vger.kernel.org
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
- net/core/sock.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/net/core/sock.c b/net/core/sock.c
-index ad414878dc5b..b5e2a2a7741c 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -2545,6 +2545,10 @@ struct sock *sk_clone(const struct sock *sk, const gfp_t priority,
- 
- 	sk_node_init(&newsk->sk_node);
- 	sock_lock_init(newsk);
-+	/* sock_copy() copies the parent's sk_peer_lock verbatim, including a
-+	 * held state, so the clone must start with a fresh lock.
-+	 */
-+	spin_lock_init(&newsk->sk_peer_lock);
- 
- 	if (lock)
- 		bh_lock_sock(newsk);
--- 
-2.43.7
-
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
