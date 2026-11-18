@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019431;
-	b=bvPoWUwX+ORsHE/+50ULBTJXzO5uVIXqD+QBxT/F6QTmmei8uwf5uNnB2iU7uL1gImd0
-	 bLKv4HPP56/L9MTpwQfSDdkmx6CcezjwoXKqGyqaFhAcoBi5MXVfNi4EmLzEDMHPjlIhj
-	 4Bo6K7iVXyJIx/z4YYKlPGX916BxM44VUmusprryb397AkeRJ4ciACugx6KOsHAYOdlCC
-	 GBuMAOmo8xLjjViD+xxWcxXsceUR9g4SedtlMWyvv49wL67vBkJZXIna5zXsJNfB/Xu/U
-	 TFW4B+o+S+puVBffLGVNeEGxKDruyMvkh+yFlTQDBD4tSrtn0QqIOJbnvVHC8ZBMsfQ==
+	t=1795019437;
+	b=hyvdZs3z5YZGKoz3vouLkghKVINMbcof2GESHR2JeTo3weEOuf/bTBv4v36OwmoZlvQu
+	 FaMysZr97Y3+6Ftd0lJ+V2dGYOuuOTcSXG2kKIujy/lhrbYNJIMMzH9/iWPgC7hq77aE8
+	 4tMmgxkwoB8zs7+GdFiIr1/5YZsOeMSU8kS9h56XoEkUTyvsbza6dxQqhqaUH1y6gSPy2
+	 phFmc7pIbdHl9yQiB1k7/Vhpd4rLqiWaIRD+CbkAVbqG7+cCgAu89WNCcLbd0pu6eNqS+
+	 O/ISTqOTxYraM6NE4bYnzxBhfyzVRmoGCE9NkFQvAya0uk33EeSWYiEJKmio12uoH0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019431;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019437;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=E/2hFSm7meulPmCwLu++JRGIkk9hAFb9HU0/al2mUsQ=;
-	b=KG0EKlwIpe28M9KpxQYa9/YLCvt6kULUzdCZQKa7GzhXhkrbR0X42xqyKonRAOAT2OI9
-	 cYSMpqcAsgluKbIhdBQ2TM90NxeHxsUvCBTnEXBUrsJcILN+j+pmBqRAsKxB/5aMywbZH
-	 5ZckvDcM7VsOOZGadRFp2OvvZi4BRPm4EcQhcWBjxQL8ay0rZUnUrI+yHgB8VGbDRlW/K
-	 y/ZlOdF6c9htJ+gojibuwYnqQE/2y+WDz8g5Mbn3yssYo7LLll1JWURQWTy/d0OLDOCRV
-	 UkQCgCZ82Hc0YQ6eKQY3SCA+oweCy6NZEyMtJ4vl/Ko9M0cUXrWQdI+i2Sa/SlwSIeg==
+	bh=rTvXpEQ89nznZPWxi0xSOEtJetC4t1T0N57WoEYU+Xo=;
+	b=zRq4coErqXHW6pCcR9KP34M2r/ccQQAsIczTB5MzFxuYo1cqR2sBoXbRybi0E9ALfgjM
+	 GZxcYbBQrVuIptHm6P6AOVW8VvFjFfZwb/VAU5ykoAFVjWVczivIKzEXA22xZNMHzEgHJ
+	 vIJcpXOBEIZxgrsGUQMwvjaDPOAgdjHzVTzGh7dmlThV9tg21LMprhaKpnOr+IAWwpqJz
+	 Uz+V0ddh1SmJj501bEna7RoW3glSFECj3cYNW8ALrsOGErCEV0Cd2hA2yuUf2D8IlK5xD
+	 uYpXd7dhkG2rbsryfuPiyRc/ey4kcKtUEA5YUBuajGR0GTABCZzSea4Ldio+GiR9U2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=zI1NCbim;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b="Yeh+jj/D";
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C965460A5BFD
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:30:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C965460A5BFD
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C63AD606C3F8
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:30:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C63AD606C3F8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=zI1NCbim
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-490f38e9688so842936f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:30:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Yeh+jj/D
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso13639065e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:30:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019420; x=1795624220; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795019423; x=1795624223; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=E/2hFSm7meulPmCwLu++JRGIkk9hAFb9HU0/al2mUsQ=;
-        b=zI1NCbimL0cC2DD5CQctccLpUJbBhgWwtm73z1xyituue/cnIvOT+LTHJv77w1pJwO
-         x76dyrtD48Mn5BAXKGtDQaSMVxKx6N8b70ANG6Ulgp1g2te4xkGCd6aOuOEuZhaEt3nu
-         sFvuu1QBH6WnNYID9MgAW4ZnSNDGxTaWDzdAZTpTobYTFzWoaTiskSniOkxFPXyP501T
-         0bciRLyiVakjSr0XNJi7zNdRfFk4vGpKWgv0fJEcyoG4zRX+s/PpOQJ3YcUo8OJBElWc
-         qkKi2eVv/6unS71F9a3IGJPnQp0nNdpERaO9E4xFLFT4uqH9rSrMsC9k9VdJHC0bC5mO
-         MkuQ==
+        bh=rTvXpEQ89nznZPWxi0xSOEtJetC4t1T0N57WoEYU+Xo=;
+        b=Yeh+jj/DWeDX0BS/4Oc9RoegdgtuIJ9ndtbjZMAX6yPzVp9zM8JXFnXOt0XgYDz7a0
+         +KeYphCNBupAdUxj7GV+R+HaxarC5DWXvWwJIYNyOOoCiVRs9wJmoTtKf3tlxuzNPV+C
+         AUUQTZtrkdaWBvuQCwr69SGDk39XGIKHd+YFqfbofHRnSTCumOk38itvQdBRueVgXEGz
+         Hn+t1Q95Qfyr3DztGmESGYtZ5NBZ+m55qMMYezG4tOMgjI6eoZBTH5CXI7lii43CFZG6
+         WYgmoLAg6PrbCPSRwRhHVsctExoKg+mtShbYgdH1Hbs6oY+9hGbsC12F06aYtNKXtnKm
+         pdvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019420; x=1795624220;
+        d=1e100.net; s=20260707; t=1795019423; x=1795624223;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=E/2hFSm7meulPmCwLu++JRGIkk9hAFb9HU0/al2mUsQ=;
-        b=IdqvGgZWvJc2AJsGkmSD9zAHBFMrqQKCk1rcW/FKjF+mvoXO3DVJDUhSjwEj2rhjkX
-         Nw5HMZkXPlrzJfN77xajO35eYE/0ZFebhMKsMZLXtmOetGXLuRyOlsu3+WaTBycSuOPk
-         AbUaCJaYjfIP2G6SdZ+ROQHJ+w1ErWGUWndvhEIw6oeqpkZ7HYuR5VsvM/kdVu5d3UPR
-         ITHy9Ajxqs/U+D6xj4yZFT8Gm8DjuEuW6ZcNb70uuDg94Yy/rB4NxbrupTD6vwvpeyh/
-         hvNjCsUBc5nb+81y3nhlpxNNdASdpkOLsCaFi8M6KNKuPGc7/IurcaHvY2WPuF1B+RR2
-         yUPA==
-X-Forwarded-Encrypted: i=1; AL+hErEQS7ZbgRFCkWD61u4UkG4lVc1+zOO0MzhAogPHBbTUhgjfaipnH8vQbQzpR545vyGkRz95aTFmL6sHJA8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9nhrFNxY3FUadgVEp390x2WLWTOIc8X3ufHmThxSBqnzVw+nhS
-	679yf+lkgScHIgMfciwAdEmP8z/0KF/peE5NYvhBHIJm8cy9gVTCI1COKX7+CjwUa+4=
-X-Gm-Gg: AZFdTZc4GC+DeMDCpcHXBhcvE3+chJjlFS9SI/m0IOE+tEMj/eMnbIHcsn0X/Jj5ZUW
-	3/ItZabBFIE3dms+NolsBXrjuBkRbZaFgR9vdQj69jRgBy7H2xHyL4oOUgpd2wKx3kWr8hhMTL2
-	ermtQ2w2C3SaFpC4rhC5mvveQkrs+yQ/je41jUJVIjC+fq9DbaUT0KouozPyj7g+H3Tfkg5WzWe
-	VXKL4dLhjmxhq6dppkTmbbeGdBvpJL7pyBK0yomFuk7pN31D3PizOY8IbHMuA53wG8alSDecxBg
-	8xdKqPuKjLKKWD31HIp+S0bA+4j222cn4suLLUUZqLXnV87/P6SpFUAv48lxvxpgH9s5Iw4J54a
-	1KMakoJWLbAgCvilE33Be79+RFFQjDqW8cBaYwr+ugFoENEZu+9LqR6fEl0877Iohd6l2xpOV9R
-	d5sJFKjkcvI3ioXrcl+SMjmIMbF/DRjKuArKscgknDKyxUxwrMYSugvbERfsG51oQPPT/+GEItM
-	4IyM7XTqdU2i1dY162+09Z4Y+0uXGuTxkKbVXA+SCZqWhwkrlZqA2Ul4zIrbSOU833a/CXdHVrY
-	e0V8D9RBxR9t1mZqnXc3H8/t44za6lIM
-X-Received: by 2002:a05:6000:290c:b0:4a7:a8f:5297 with SMTP id ffacd0b85a97d-4a70a8f5685mr6082263f8f.19.1795019419993;
-        Wed, 18 Nov 2026 08:30:19 -0800 (PST)
+        bh=rTvXpEQ89nznZPWxi0xSOEtJetC4t1T0N57WoEYU+Xo=;
+        b=Awm1HRIIzdNQO8GgXawCRaTzigCe47wI0UT8n4z197sojwGE/4OzTsdwQyjWNL+KpB
+         Gq+thHSYfRDIdGV79jrs/ZwCzmZkOAwDtClLqi5ByTORGQOGMaHA6R/yJbxskftRg8SO
+         Wi6rl6D1J8EQBJniEjX5S9XM34cb/v3xtZeAQQKMJ3gB3COK53UG7qV6iojZMU+cYBV9
+         YRrxhvKVF9/jIdiCi533eBOJgMrfAns+vbYhj1W2o+sUDXfts/UElhL492WIGdo+iHAu
+         7znBhLvhbxX1CjbL6ha/XXFkBlrNoMQ+Bwr9hrjVHNwndpPeoWcisgTVtHDg0SM9ACvi
+         S9gg==
+X-Forwarded-Encrypted: i=1; AL+hErGAGNc5638iljHE0f9Iru3xHYmXTsgVF8J5Vnu52SNWM37MweotS6y1U/lH8l8CJRv05YbvqaQ82aRiFVs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oBMEP6ksSs+7uqfbBrOfgIQ5EYfD/6QKFf7bhxVh/JJJpsQno
+	1pbznnGUbfKWeAYzg8jtfi5TN7F6lK4fYs1SacutxudulZqaBIihFMgh14Q/LbkvW20=
+X-Gm-Gg: AYBFou04v0J5EXlYhHyVDNGL/bnn4xR757xT/YrYeyNjqa+9l+0wsiGCCxnbEcgUUOd
+	4qVDcrBJDDa9U9kOr0AUBiXwyFkeo11R48sgVmRkxM8Wk7d6beEL1BVdzThtUSIKYH5FWiPGdtX
+	00iUHocslySOaPh8LOiB8s90TU4FciKF2+5uAJHPWoKEykg/EvgHA6JcUUXpLnr5bE3UD2QfzgO
+	tsiFrkKTLzQC1jMF2LfsFSn4bAj4ZrYSjqwWmqFiFms2BtFQVs3io/QkFPZv8eIxtl09MZj9P2M
+	utpZsS/hrMunAyk6WW7QmD1Yl9U4zwxgaC4KrlLNHOKFMGt9JisiYRGOFI0FJqW7rlxeQFI5cI/
+	GQ0WHFP1zYSKgPmUXbHuoUWa77l9Us1mo5sN3j6oad/W5zK5IXz2QrV0rnHc3PVrDE+ErepcC7w
+	w8ZJrmfY982SYQNAblytcygAcsBdQL+1ibCwZCWVpMfXpKDDkNMlB7LlZ4DKYoufo5vRlp3HlBo
+	4BkkBuAAXlbeaTnE3s2+t5vD0zAQrW2uw14PisMre+Lr79Fxw0I4oEUl0ODT5cGto0s7P7NpSH4
+	vV5acOqooY5xNvuJN5740OcrhT3w1q8jmfsy1a2QfVuhaIkj/7Cx7g==
+X-Received: by 2002:a05:600c:4e02:b0:4bb:6994:abf0 with SMTP id 5b1f17b1804b1-4bb7da4b889mr64509715e9.23.1795019423221;
+        Wed, 18 Nov 2026 08:30:23 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.30.19
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.30.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:30:19 -0800 (PST)
+        Wed, 18 Nov 2026 08:30:22 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:51 +0000
-Subject: [PATCH 29/34] perf cs-etm: Find timestamps by searching ahead
+Date: Wed, 18 Nov 2026 16:29:54 +0000
+Subject: [PATCH 32/34] perf test cs-etm: Test trace is ordered with context
+ switch records
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-29-dad4d90747f6@linaro.org>
+Message-Id: <20261118-james-coresight-jit-v1-32-dad4d90747f6@linaro.org>
 References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -107,745 +108,52 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 
-Use the packet-only timestamp decoder to search ahead for the next
-timestamp on discontinuities, so the time is known before the full
-decoder needs instruction mappings.
-
-Use the next timestamp from any trace ID rather than searching only
-within one stream which would be significantly more complicated.
-Searching and re-ordering is most useful with TRBE and virtual
-timestamps where there is only one trace ID stream anyway. Timestamps are
-also unlikely to be significantly out of order between streams.
-
-Reorder the packets in the backend so timestamps precede context packets
-and discontinuities. The frontend can then flush samples using the old
-timestamp before processing the next packet, and not attempt to look up
-the thread from the context packet before the Perf event for it was
-reached.
-
-Drop the trace ID from the heap and only store the queue number. We
-never used the heap to re-order between individual trace ID streams
-anyway, and now that the decoder returns last decoded context directly,
-storing the ID in the heap does nothing.
+Enable timestamps in the context switch attribution test and add an
+additional check that decoded samples are output in order with context
+switch events.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.c | 163 +++++++++++++++++--
- tools/perf/util/cs-etm-decoder/cs-etm-decoder.h |   9 +-
- tools/perf/util/cs-etm.c                        | 200 +++++++++---------------
- tools/perf/util/cs-etm.h                        |   2 +-
- 4 files changed, 227 insertions(+), 147 deletions(-)
+ .../tests/shell/coresight/context_switch_thread.sh   | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index 56de6c76de68..b7ed7847f209 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -13,12 +13,12 @@
- #include <linux/overflow.h>
- #include <linux/zalloc.h>
- #include <stdlib.h>
-+#include <string.h>
- #include <opencsd/c_api/opencsd_c_api.h>
+diff --git a/tools/perf/tests/shell/coresight/context_switch_thread.sh b/tools/perf/tests/shell/coresight/context_switch_thread.sh
+index 2b9c44b86c59..584661cf47b0 100755
+--- a/tools/perf/tests/shell/coresight/context_switch_thread.sh
++++ b/tools/perf/tests/shell/coresight/context_switch_thread.sh
+@@ -55,7 +55,7 @@ mkfifo "$cf" "$af"
+ # Pin to one CPU so the two threads alternate running but record into the same
+ # trace buffer. Start disabled and use the control FIFO to only record the
+ # workload and not startup.
+-perf record -o "$tmpdir/data" -e cs_etm/timestamp=0/u -C 0 -D -1 --control fifo:"$cf","$af" -- \
++perf record -o "$tmpdir/data" -e cs_etm//u -C 0 -D -1 --control fifo:"$cf","$af" -- \
+ 	taskset --cpu-list 0 perf test --record-ctl fifo:"$cf","$af" \
+ 	-w context_switch_loop > /dev/null 2>&1
  
- #include "cs-etm.h"
- #include "cs-etm-decoder.h"
- #include "debug.h"
--#include "intlist.h"
+@@ -65,5 +65,23 @@ check_samples
+ perf script -i "$tmpdir/data" --itrace=b -F comm,pid,tid,ip,sym > "$tmpdir/script" 2>/dev/null
+ check_samples
  
- /* use raw logging */
- #ifdef CS_DEBUG_RAW
-@@ -42,6 +42,12 @@
-  */
- #define CS_ETM_TIMESTAMP_SEARCH_MAX 1024
- 
-+struct cs_etm_buffer {
-+	u64 index;
-+	const u8 *data;
-+	size_t len;
-+};
++# Decoded trace should be output in time order with the context switch records.
++# Allow 1ms for estimated trace timestamps.
++perf script -i "$tmpdir/data" --itrace=b --show-switch-events -F time,event > \
++	"$tmpdir/script" 2>/dev/null
++if ! awk 'match($0, /[0-9]+\.[0-9]+:/) {
++		t = substr($0, RSTART, RLENGTH - 1) + 0
++		if (t < last - 0.001) {
++			printf "Time went back %.6fs: %s\n", last - t, $0
++			exit 1
++		}
++		if (t > last)
++			last = t
++	}' "$tmpdir/script"; then
++	echo "Trace was output out of order with context switches"
++	cleanup
++	exit 1
++fi
 +
- struct cs_etm_decoder {
- 	void *data;
- 	void (*packet_printer)(const char *msg, void *data);
-@@ -55,7 +61,12 @@ struct cs_etm_packet_decoder {
- 	struct cs_etm_decoder base;
- 	cs_etm_mem_cb_type mem_access;
- 	struct cs_etm_traceid_ctxt *traceid_ctxt;
-+	u64 packet_index;
-+	/* Next output packet, returned before resuming OpenCSD. */
-+	struct cs_etm_traceid_ctxt *pending;
-+	struct cs_etm_packet pending_packet;
- 	struct cs_etm_timestamp_decoder *timestamp_decoder;
-+	u64 timestamp; /* Last delivered queue timestamp. */
- };
- 
- struct cs_etm_timestamp_source {
-@@ -126,6 +137,10 @@ int cs_etm_decoder__reset(struct cs_etm_packet_decoder *decoder, u64 index)
- {
- 	int ret;
- 
-+	decoder->traceid_ctxt = NULL;
-+	decoder->packet_index = 0;
-+	decoder->pending = NULL;
-+	memset(&decoder->pending_packet, 0, sizeof(decoder->pending_packet));
- 	ret = cs_etm_decoder__reset_core(&decoder->base);
- 	if (ret)
- 		return ret;
-@@ -294,11 +309,12 @@ static int cs_etm_decoder__init_core(struct cs_etm_decoder *decoder,
- }
- 
- static ocsd_datapath_resp_t
--cs_etm_decoder__do_hard_timestamp(struct cs_etm_queue *etmq,
-+cs_etm_decoder__do_hard_timestamp(struct cs_etm_packet_decoder *decoder,
- 				  const ocsd_generic_trace_elem *elem,
- 				  const uint8_t trace_chan_id,
- 				  const ocsd_trc_index_t indx)
- {
-+	struct cs_etm_queue *etmq = decoder->base.data;
- 	struct cs_etm_traceid_ctxt *tidc;
- 	u64 converted_timestamp;
- 
-@@ -325,7 +341,7 @@ cs_etm_decoder__do_hard_timestamp(struct cs_etm_queue *etmq,
- 		return OCSD_RESP_CONT;
- 	}
- 
--	tidc->cs_timestamp = max(tidc->cs_timestamp, converted_timestamp);
-+	decoder->timestamp = max(decoder->timestamp, converted_timestamp);
- 	tidc->packet->sample_type = CS_ETM_TIMESTAMP;
- 
- 	/* Halt processing until we are being told to proceed */
-@@ -579,15 +595,17 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
- 		resp = cs_etm_decoder__buffer_exception_ret(etmq, tidc,
- 							    elem, trace_chan_id);
- 	else if (type == OCSD_GEN_TRC_ELEM_TIMESTAMP)
--		resp = cs_etm_decoder__do_hard_timestamp(etmq, elem,
-+		resp = cs_etm_decoder__do_hard_timestamp(decoder, elem,
- 							 trace_chan_id,
- 							 indx);
- 	else if (type == OCSD_GEN_TRC_ELEM_PE_CONTEXT)
- 		resp = cs_etm_decoder__set_tid(etmq, tidc,
- 					       elem, trace_chan_id);
- 
--	if (OCSD_DATA_RESP_IS_WAIT(resp))
-+	if (OCSD_DATA_RESP_IS_WAIT(resp)) {
- 		decoder->traceid_ctxt = tidc;
-+		decoder->packet_index = indx;
-+	}
- 
- 	return resp;
- }
-@@ -827,30 +845,27 @@ cs_etm_decoder__new(int decoders, struct cs_etm_decoder_params *d_params,
- 	return NULL;
- }
- 
--int cs_etm_decoder__process_data_block(struct cs_etm_packet_decoder *decoder,
--				       u64 indx, const u8 *buf,
--				       size_t len, size_t *consumed,
--				       struct cs_etm_traceid_ctxt **tidc)
-+static int cs_etm_decoder__process_data(struct cs_etm_decoder *decoder,
-+					u64 indx, const u8 *buf,
-+					size_t len, size_t *consumed)
- {
- 	int ret = 0;
- 	ocsd_datapath_resp_t cur = OCSD_RESP_CONT;
--	ocsd_datapath_resp_t prev_return = decoder->base.prev_return;
-+	ocsd_datapath_resp_t prev_return = decoder->prev_return;
- 	size_t processed = 0;
- 	u32 count;
- 
--	decoder->traceid_ctxt = NULL;
--
- 	/* Drain buffered output even if the last input byte was consumed. */
- 	while (processed < len || OCSD_DATA_RESP_IS_WAIT(prev_return)) {
- 		if (OCSD_DATA_RESP_IS_WAIT(prev_return)) {
--			cur = ocsd_dt_process_data(decoder->base.dcd_tree,
-+			cur = ocsd_dt_process_data(decoder->dcd_tree,
- 						   OCSD_OP_FLUSH,
- 						   0,
- 						   0,
- 						   NULL,
- 						   NULL);
- 		} else if (OCSD_DATA_RESP_IS_CONT(prev_return)) {
--			cur = ocsd_dt_process_data(decoder->base.dcd_tree,
-+			cur = ocsd_dt_process_data(decoder->dcd_tree,
- 						   OCSD_OP_DATA,
- 						   indx + processed,
- 						   len - processed,
-@@ -869,16 +884,130 @@ int cs_etm_decoder__process_data_block(struct cs_etm_packet_decoder *decoder,
- 		prev_return = cur;
- 	}
- 
--	decoder->base.prev_return = cur;
-+	decoder->prev_return = cur;
- 	*consumed = processed;
--	if (tidc)
--		*tidc = decoder->traceid_ctxt;
- 	if (OCSD_DATA_RESP_IS_FATAL(cur))
- 		return -EINVAL;
- 
- 	return ret;
- }
- 
-+static int cs_etm_decoder__process_timestamp(struct cs_etm_timestamp_decoder *timestamp_decoder,
-+					     const struct cs_etm_buffer *buffer,
-+					     u64 index)
-+{
-+	u64 decode_index = timestamp_decoder->timestamp_decode_index;
-+	size_t offset, processed;
-+	int ret;
-+
-+	if (decode_index < buffer->index ||
-+	    decode_index - buffer->index > buffer->len)
-+		return -EINVAL;
-+
-+	offset = decode_index - buffer->index;
-+	timestamp_decoder->timestamp_search_index = index;
-+	timestamp_decoder->timestamp_packet_count = 0;
-+	timestamp_decoder->timestamp = 0;
-+	ret = cs_etm_decoder__process_data(&timestamp_decoder->base, decode_index,
-+					   &buffer->data[offset], buffer->len - offset,
-+					   &processed);
-+	timestamp_decoder->timestamp_decode_index += processed;
-+	return ret;
-+}
-+
-+static int cs_etm_decoder__search_timestamp(struct cs_etm_packet_decoder *decoder,
-+					    const struct cs_etm_buffer *buffer,
-+					    u64 index, u64 *timestamp)
-+{
-+	struct cs_etm_timestamp_decoder *timestamp_decoder = decoder->timestamp_decoder;
-+	int ret;
-+
-+	*timestamp = 0;
-+	if (index < buffer->index || index - buffer->index >= buffer->len)
-+		return 0;
-+
-+	/* Reuse a timestamp still ahead of this packet instead of skipping it. */
-+	if (!timestamp_decoder->timestamp ||
-+	    timestamp_decoder->timestamp_search_index <= index) {
-+		ret = cs_etm_decoder__process_timestamp(timestamp_decoder, buffer, index);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (timestamp_decoder->timestamp)
-+		*timestamp = cs_etm__convert_sample_time(decoder->base.data,
-+							 timestamp_decoder->timestamp);
-+	return 0;
-+}
-+
-+/*
-+ * Re-order timestamps and context and discontinuity packets so that the
-+ * frontend can process them at the correct time.
-+ */
-+static int cs_etm_decoder__reorder_packet(struct cs_etm_packet_decoder *decoder,
-+					  const struct cs_etm_buffer *buffer,
-+					  struct cs_etm_traceid_ctxt *tidc)
-+{
-+	u64 timestamp;
-+	int ret;
-+
-+	if (tidc->packet->sample_type != CS_ETM_CONTEXT &&
-+	    tidc->packet->sample_type != CS_ETM_DISCONTINUITY)
-+		return 0;
-+
-+	/*
-+	 * ETM always emits a timestamp after a context or trace discontinuity
-+	 * so search for it and give it to the frontend first.
-+	 */
-+	ret = cs_etm_decoder__search_timestamp(decoder, buffer, decoder->packet_index, &timestamp);
-+	if (ret)
-+		return ret;
-+
-+	decoder->pending = tidc;
-+	decoder->pending_packet = *tidc->packet;
-+	decoder->pending_packet.timestamp = max(decoder->timestamp, timestamp);
-+	if (tidc->packet->sample_type == CS_ETM_CONTEXT) {
-+		/* Publish the timestamp before allowing the context to be applied. */
-+		decoder->timestamp = decoder->pending_packet.timestamp;
-+		tidc->packet->sample_type = CS_ETM_TIMESTAMP;
-+	} else {
-+		/* Let the discontinuity flush preceding samples at the old time. */
-+		decoder->pending_packet.sample_type = CS_ETM_TIMESTAMP;
-+	}
-+	return 0;
-+}
-+
-+int cs_etm_decoder__process_data_block(struct cs_etm_packet_decoder *decoder,
-+				       u64 indx, const u8 *buf,
-+				       size_t len, size_t offset, size_t *consumed,
-+				       struct cs_etm_traceid_ctxt **tidc)
-+{
-+	const struct cs_etm_buffer buffer = { .index = indx, .data = buf, .len = len };
-+	int ret;
-+
-+	*consumed = 0;
-+	if (decoder->pending) {
-+		*tidc = decoder->pending;
-+		*(*tidc)->packet = decoder->pending_packet;
-+		decoder->timestamp = decoder->pending_packet.timestamp;
-+		decoder->pending = NULL;
-+		ret = 0;
-+		goto out;
-+	}
-+
-+	decoder->traceid_ctxt = NULL;
-+	ret = cs_etm_decoder__process_data(&decoder->base, indx + offset, buf + offset,
-+					   len - offset, consumed);
-+	if (tidc)
-+		*tidc = decoder->traceid_ctxt;
-+	if (!ret && decoder->timestamp_decoder && tidc && *tidc)
-+		ret = cs_etm_decoder__reorder_packet(decoder, &buffer, *tidc);
-+out:
-+	if (!ret && tidc && *tidc)
-+		(*tidc)->packet->timestamp = decoder->timestamp;
-+	return ret;
-+}
-+
- void cs_etm_decoder__zfree(struct cs_etm_packet_decoder **decoder)
- {
- 	if (!(*decoder))
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-index 125696520625..67592b93778e 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.h
-@@ -87,9 +87,14 @@ enum cs_etm_decoder_operation {
- 	CS_ETM_OPERATION_MAX,
- };
- 
-+/*
-+ * Feed the complete AUX buffer, starting full decoding at offset. The timestamp
-+ * decoder maintains its own position in the same buffer. Output may be
-+ * returned without consuming input, including at the buffer end.
-+ */
- int cs_etm_decoder__process_data_block(struct cs_etm_packet_decoder *decoder,
- 				       u64 indx, const u8 *buf,
--				       size_t len, size_t *consumed,
-+				       size_t len, size_t offset, size_t *consumed,
- 				       struct cs_etm_traceid_ctxt **tidc);
- 
- struct cs_etm_packet_decoder *
-@@ -103,7 +108,7 @@ int cs_etm_decoder__add_mem_access_cb(struct cs_etm_packet_decoder *decoder,
- 				      u64 start, u64 end,
- 				      cs_etm_mem_cb_type cb_func);
- 
--
-+/* Reset all decoders to the start index of a new AUX buffer. */
- int cs_etm_decoder__reset(struct cs_etm_packet_decoder *decoder, u64 index);
- const char *cs_etm_decoder__get_name(struct cs_etm_packet_decoder *decoder);
- 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index d275d3701165..5a704dfeebd3 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -79,6 +79,8 @@ enum cs_etm_format {
- struct cs_etm_queue {
- 	struct cs_etm_auxtrace *etm;
- 	struct cs_etm_packet_decoder *decoder;
-+	/* current packet/context */
-+	struct cs_etm_traceid_ctxt *tidc;
- 	struct auxtrace_buffer *buffer;
- 	unsigned int queue_nr;
- 	enum cs_etm_format format;
-@@ -103,8 +105,8 @@ struct cs_etm_queue {
- static int cs_etm__pop_heap(struct cs_etm_auxtrace *etm, u64 timestamp);
- static int cs_etm__flush_queues(struct cs_etm_auxtrace *etm);
- static int cs_etm__get_data_block(struct cs_etm_queue *etmq);
--static int cs_etm__decode_data_block(struct cs_etm_queue *etmq,
--				     struct cs_etm_traceid_ctxt **tidc);
-+static int cs_etm__decode_packet(struct cs_etm_queue *etmq,
-+				 struct cs_etm_traceid_ctxt **tidc);
- static int cs_etm__metadata_get_trace_id(u8 *trace_chan_id, u64 *cpu_metadata);
- static u64 *get_cpu_data(struct cs_etm_auxtrace *etm, int cpu);
- static int cs_etm__metadata_set_trace_id(u8 trace_chan_id, u64 *cpu_metadata);
-@@ -112,16 +114,6 @@ static int cs_etm__metadata_set_trace_id(u8 trace_chan_id, u64 *cpu_metadata);
- /* PTMs ETMIDR [11:8] set to b0011 */
- #define ETMIDR_PTM_VERSION 0x00000300
- 
--/*
-- * A struct auxtrace_heap_item only has a queue_nr and a timestamp to
-- * work with.  One option is to modify to auxtrace_heap_XYZ() API or simply
-- * encode the etm queue number as the upper 16 bit and the channel as
-- * the lower 16 bit.
-- */
--#define TO_CS_QUEUE_NR(queue_nr, trace_chan_id)	\
--		      (queue_nr << 16 | trace_chan_id)
--#define TO_QUEUE_NR(cs_queue_nr) (cs_queue_nr >> 16)
--#define TO_TRACE_CHAN_ID(cs_queue_nr) (cs_queue_nr & 0x0000ffff)
- #define SINK_UNSET ((u32) -1)
- #define MAX_TIMESTAMP (~0ULL)
- 
-@@ -545,32 +537,6 @@ static int cs_etm__process_aux_output_hw_id(struct perf_session *session,
- 	return err;
- }
- 
--/*
-- * Timestamp used to order sample generation between queues.
-- *
-- * This can either be a virtual or non-virtual CoreSight timestamp value, or the
-- * kernel time from the AUX record if there are no timestamps. The only
-- * requirement is that it's the same timebase between queues so comparisons
-- * work, the absolute value isn't important.
-- *
-- * This is not the same as the timestamp assigned to synthesized samples
-- * (cs_etm__resolve_sample_time()) and may be zero before a timestamp is
-- * received, at which point sample generation is still un-ordered.
-- */
--static u64 cs_etm__etmq_get_sort_timestamp(struct cs_etm_queue *etmq,
--					struct cs_etm_traceid_ctxt *tidc)
--{
--	/*
--	 * If there are no timestamps, use the TS from the AUX records to sort
--	 * in order of trace collection.
--	 */
--	if (!etmq->etm->has_timestamps)
--		return etmq->buffer->time;
--
--	/* Use the last trace timestamp, or zero if none has been found yet. */
--	return tidc->cs_timestamp;
--}
--
- static int cs_etm__init_traceid_ctxt(struct cs_etm_queue *etmq,
- 				      struct cs_etm_traceid_ctxt *tidc,
- 				      u8 trace_chan_id)
-@@ -836,9 +802,8 @@ static void cs_etm__dump_event(struct cs_etm_queue *etmq,
- 		size_t consumed;
- 
- 		ret = cs_etm_decoder__process_data_block(
--				etmq->decoder, buffer->offset,
--				&((u8 *)buffer->data)[buffer_used],
--				buffer->size - buffer_used, &consumed, NULL);
-+				etmq->decoder, buffer->offset, buffer->data,
-+				buffer->size, buffer_used, &consumed, NULL);
- 		if (ret)
- 			break;
- 
-@@ -1215,68 +1180,74 @@ static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
- 	return 0;
- }
- 
--static int cs_etm__add_to_heap(struct cs_etm_queue *etmq,
--			       struct cs_etm_traceid_ctxt *tidc)
-+static int cs_etm__add_to_heap(struct cs_etm_queue *etmq, u64 timestamp)
- {
- 	struct cs_etm_auxtrace *etm = etmq->etm;
--	unsigned int cs_queue_nr;
- 	int ret;
- 
--	if (!tidc) {
--		struct int_node *inode = intlist__first(etmq->traceid_list);
--
--		if (!inode)
--			return -EINVAL;
--		tidc = cs_etm__etmq_get_traceid_ctxt(etmq, inode->i);
--	}
--	if (!tidc)
--		return -ENOMEM;
-+	/*
-+	 * Use collection time only when trace timestamps are unavailable or
-+	 * disabled. Otherwise keep the last trace timestamp, or zero until
-+	 * one is found.
-+	 */
-+	if (!etm->has_timestamps)
-+		timestamp = etmq->buffer->time;
- 
--	cs_queue_nr = TO_CS_QUEUE_NR(etmq->queue_nr, tidc->trace_chan_id);
--	ret = auxtrace_heap__add(&etm->heap, cs_queue_nr,
--				 cs_etm__etmq_get_sort_timestamp(etmq, tidc));
-+	ret = auxtrace_heap__add(&etm->heap, etmq->queue_nr, timestamp);
- 	if (!ret)
- 		etmq->on_heap = true;
- 	return ret;
- }
- 
--static int cs_etm__push_queue(struct cs_etm_queue *etmq, u64 time)
-+static int cs_etm__insert_heap_queue(struct cs_etm_queue *etmq, u64 time)
- {
- 	int ret;
- 
- 	if (!etmq || etmq->on_heap)
- 		return 0;
- 
--	while (!etmq->on_heap) {
-+	if (!etmq->buf) {
- 		ret = cs_etm__get_data_block(etmq);
- 		if (ret <= 0)
- 			return ret;
-+	}
-+
-+	while (1) {
- 		if (!etmq->etm->has_virtual_ts && etmq->buffer->time > time)
- 			return 0;
- 
--		ret = cs_etm__add_to_heap(etmq, NULL);
--		if (ret)
-+		ret = cs_etm__decode_packet(etmq, &etmq->tidc);
-+		if (ret < 0)
- 			return ret;
-+		if (etmq->tidc)
-+			return cs_etm__add_to_heap(etmq, etmq->tidc->packet->timestamp);
-+
-+		/* Drain buffered decoder output before fetching another AUX buffer. */
-+		ret = cs_etm__get_data_block(etmq);
-+		if (ret <= 0)
-+			break;
- 	}
- 
--	return 0;
-+	if (!ret)
-+		etmq->buf = NULL;
-+	return ret;
- }
- 
--static int cs_etm__push_heap(struct cs_etm_auxtrace *etm,
--			     struct perf_sample *sample)
-+static int cs_etm__insert_heap(struct cs_etm_auxtrace *etm,
-+			       struct perf_sample *sample)
- {
--	return cs_etm__push_queue(cs_etm__get_queue(etm, sample->cpu),
--				  sample->time);
-+	return cs_etm__insert_heap_queue(cs_etm__get_queue(etm, sample->cpu),
-+					 sample->time);
- }
- 
--static int cs_etm__push_heap_all(struct cs_etm_auxtrace *etm)
-+static int cs_etm__insert_heap_all(struct cs_etm_auxtrace *etm)
- {
- 	unsigned int i;
- 	int ret;
- 
- 	for (i = 0; i < etm->queues.nr_queues; i++) {
--		ret = cs_etm__push_queue(etm->queues.queue_array[i].priv,
--					 MAX_TIMESTAMP);
-+		ret = cs_etm__insert_heap_queue(etm->queues.queue_array[i].priv,
-+						MAX_TIMESTAMP);
- 		if (ret)
- 			return ret;
- 	}
-@@ -1493,12 +1464,12 @@ u64 cs_etm__convert_sample_time(struct cs_etm_queue *etmq, u64 cs_timestamp)
- }
- 
- static inline u64 cs_etm__resolve_sample_time(struct cs_etm_queue *etmq,
--					       struct cs_etm_traceid_ctxt *tidc)
-+					       struct cs_etm_packet *packet)
- {
- 	struct cs_etm_auxtrace *etm = etmq->etm;
- 
- 	if (etm->has_virtual_ts)
--		return tidc->cs_timestamp;
-+		return packet->timestamp;
- 
- 	/*
- 	 * Timestamps were disabled or no virtual TS. All samples are assigned
-@@ -1598,7 +1569,7 @@ static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
- 	event->sample.header.size = sizeof(struct perf_event_header);
- 
- 	/* Set time field based on etm auxtrace config. */
--	sample.time = cs_etm__resolve_sample_time(etmq, tidc);
-+	sample.time = cs_etm__resolve_sample_time(etmq, packet);
- 
- 	sample.ip = addr;
- 	sample.pid = thread__pid(tidc->thread);
-@@ -1694,7 +1665,7 @@ static int cs_etm__synth_branch_sample(struct cs_etm_queue *etmq,
- 	event->sample.header.size = sizeof(struct perf_event_header);
- 
- 	/* Set time field based on etm auxtrace config. */
--	sample.time = cs_etm__resolve_sample_time(etmq, tidc);
-+	sample.time = cs_etm__resolve_sample_time(etmq, tidc->packet);
- 
- 	sample.ip = ip;
- 	sample.pid = thread__pid(tidc->thread);
-@@ -2086,7 +2057,7 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- 
- 	/*
- 	 * We cannot assume consecutive blocks in the data file
--	 * are contiguous, reset the decoder to force re-sync.
-+	 * are contiguous, reset the decoders to force re-sync.
- 	 */
- 	ret = cs_etm_decoder__reset(etmq->decoder, etmq->offset);
- 	if (ret)
-@@ -2492,17 +2463,20 @@ static int cs_etm__set_sample_flags(struct cs_etm_queue *etmq,
- 	return 0;
- }
- 
--static int cs_etm__decode_data_block(struct cs_etm_queue *etmq,
--				     struct cs_etm_traceid_ctxt **tidc)
-+/*
-+ * Decode the next packet and put its context in tidc.
-+ */
-+static int cs_etm__decode_packet(struct cs_etm_queue *etmq,
-+				 struct cs_etm_traceid_ctxt **tidc)
- {
- 	int ret = 0;
- 	size_t processed = 0;
-+	size_t len = etmq->buf_used + etmq->buf_len;
-+	u64 buffer_index = etmq->offset - etmq->buf_used;
- 
--	/* Stop at a packet, a timestamp update, or the end of the buffer. */
- 	ret = cs_etm_decoder__process_data_block(etmq->decoder,
--						 etmq->offset,
--						 &etmq->buf[etmq->buf_used],
--						 etmq->buf_len,
-+						 buffer_index, etmq->buf, len,
-+						 etmq->buf_used,
- 						 &processed, tidc);
- 	if (ret < 0)
- 		goto out;
-@@ -2520,6 +2494,10 @@ static int cs_etm__process_traceid_ctxt(struct cs_etm_queue *etmq,
- {
- 	int ret;
- 
-+	/* A timestamp update only reschedules decoding; it consumes no trace. */
-+	if (tidc->packet->sample_type == CS_ETM_TIMESTAMP)
-+		return 0;
-+
- 	/*
- 	 * Since packet addresses are swapped in packet
- 	 * handling within below switch() statements,
-@@ -2560,7 +2538,7 @@ static int cs_etm__process_traceid_ctxt(struct cs_etm_queue *etmq,
- 		 * Discontinuity in trace, flush
- 		 * previous branch stack
- 		 */
--		cs_etm__flush(etmq, tidc);
-+		ret = cs_etm__flush(etmq, tidc);
- 		break;
- 	case CS_ETM_EMPTY:
- 		/*
-@@ -2580,11 +2558,11 @@ static int cs_etm__process_traceid_ctxt(struct cs_etm_queue *etmq,
- static int cs_etm__pop_heap(struct cs_etm_auxtrace *etm, u64 timestamp)
- {
- 	int ret = 0;
--	unsigned int cs_queue_nr, queue_nr;
--	u8 trace_chan_id;
-+	unsigned int queue_nr;
-+	u64 cs_timestamp;
- 	struct auxtrace_queue *queue;
- 	struct cs_etm_queue *etmq;
--	struct cs_etm_traceid_ctxt *tidc, *decoded;
-+	struct cs_etm_traceid_ctxt *tidc;
- 	u64 queue_time;
- 
- 	while (1) {
-@@ -2592,14 +2570,13 @@ static int cs_etm__pop_heap(struct cs_etm_auxtrace *etm, u64 timestamp)
- 			break;
- 
- 		/* Take the entry at the top of the min heap */
--		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
--		queue_nr = TO_QUEUE_NR(cs_queue_nr);
--		trace_chan_id = TO_TRACE_CHAN_ID(cs_queue_nr);
-+		queue_nr = etm->heap.heap_array[0].queue_nr;
-+		cs_timestamp = etm->heap.heap_array[0].ordinal;
- 		queue = &etm->queues.queue_array[queue_nr];
- 		etmq = queue->priv;
- 
- 		/* Don't go further than the trace timestamp or collection time */
--		queue_time = etm->has_virtual_ts ? etm->heap.heap_array[0].ordinal :
-+		queue_time = etm->has_virtual_ts ? cs_timestamp :
- 						   etmq->buffer->time;
- 		if (queue_time >= timestamp)
- 			break;
-@@ -2611,46 +2588,15 @@ static int cs_etm__pop_heap(struct cs_etm_auxtrace *etm, u64 timestamp)
- 		auxtrace_heap__pop(&etm->heap);
- 		etmq->on_heap = false;
- 
--		tidc  = cs_etm__etmq_get_traceid_ctxt(etmq, trace_chan_id);
--		if (!tidc) {
--			/*
--			 * No traceID queue has been allocated for this traceID,
--			 * which means something somewhere went very wrong.  No
--			 * other choice than simply exit.
--			 */
--			ret = -EINVAL;
--			goto out;
--		}
--
--		ret = cs_etm__decode_data_block(etmq, &decoded);
--		if (ret < 0)
--			goto out;
--		if (decoded) {
--			tidc = decoded;
--			ret = cs_etm__process_traceid_ctxt(etmq, tidc);
--			if (ret)
--				goto out;
--			goto add_to_heap;
--		}
--get_data_block:
--		ret = cs_etm__get_data_block(etmq);
--		if (ret < 0)
-+		tidc = etmq->tidc;
-+		etmq->tidc = NULL;
-+		ret = cs_etm__process_traceid_ctxt(etmq, tidc);
-+		if (ret)
- 			goto out;
- 
--		/*
--		 * No more auxtrace_buffers to process in this etmq, simply
--		 * move on to another entry in the auxtrace_heap.
--		 */
--		if (!ret)
--			continue;
--
--add_to_heap:
--		/* Schedule the next decode step after consuming the current packet. */
--		ret = cs_etm__add_to_heap(etmq, tidc);
-+		ret = cs_etm__insert_heap_queue(etmq, timestamp);
- 		if (ret)
- 			goto out;
--		if (!etmq->on_heap)
--			goto get_data_block;
- 	}
- out:
- 	return ret;
-@@ -2767,7 +2713,7 @@ static int cs_etm__process_event(struct perf_session *session,
- 		 * Perf events.
- 		 */
- 		if (has_sample_time && etm->has_virtual_ts) {
--			ret = cs_etm__push_heap(etm, sample);
-+			ret = cs_etm__insert_heap(etm, sample);
- 			if (ret)
- 				return ret;
- 		}
-@@ -2791,7 +2737,7 @@ static int cs_etm__process_event(struct perf_session *session,
- 		 * point because it's emitted at the same time.
- 		 */
- 		if (has_sample_time && etm->has_virtual_ts) {
--			ret = cs_etm__push_heap(etm, sample);
-+			ret = cs_etm__insert_heap(etm, sample);
- 			if (ret)
- 				return ret;
- 		}
-@@ -2806,9 +2752,9 @@ static int cs_etm__process_event(struct perf_session *session,
- 		 * would be too late.
- 		 */
- 		if (etm->has_timestamps && !etm->has_virtual_ts)
--			ret = cs_etm__push_heap_all(etm);
-+			ret = cs_etm__insert_heap_all(etm);
- 		else if (has_sample_time)
--			ret = cs_etm__push_heap(etm, sample);
-+			ret = cs_etm__insert_heap(etm, sample);
- 
- 		if (ret)
- 			return ret;
-diff --git a/tools/perf/util/cs-etm.h b/tools/perf/util/cs-etm.h
-index 5d9cc31b08d0..ff947bb847df 100644
---- a/tools/perf/util/cs-etm.h
-+++ b/tools/perf/util/cs-etm.h
-@@ -172,6 +172,7 @@ enum cs_etm_isa {
- struct cs_etm_queue;
- 
- struct cs_etm_packet {
-+	u64 timestamp; /* Timestamp, in ns when has_virtual_ts == true */
- 	enum cs_etm_sample_type sample_type;
- 	enum cs_etm_isa isa;
- 	/* For exceptions: source PC, or CS_ETM_INVAL_ADDR. */
-@@ -258,7 +259,6 @@ struct cs_etm_traceid_ctxt {
- 	struct ip_callchain *callchain;
- 	struct cs_etm_packet *prev_packet;
- 	struct cs_etm_packet *packet;
--	u64 cs_timestamp; /* Timestamp, in ns when has_virtual_ts == true */
- 
- 	ocsd_ex_level decode_el;
- 
+ cleanup
+ exit 0
 
 -- 
 2.43.0
