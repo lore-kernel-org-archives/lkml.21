@@ -1,102 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794996451;
-	b=Gh4bhHMAk/GEh/NefQpIcHpxVOBL6Sc5lJWhs7mdCuwre5HUa/6CNNWgcEHz3FCYD9lE
-	 e7i1XiVFQqHu4hB3JzetVJc57082kSaEK0W9jfe+e1+OTVI4iDKs4Yt5H4KTGivgFc+Im
-	 31RfJhkZ4LXsiuvCSdB0JIceBV2OlNe7zB0WeFrfatppAw2azHg8MAyhKNVQ4BWxoqD9p
-	 grlyG0ZaxJURfwddjQjVMaqYdhTz0D04i2vW7oUF8Lv310y+EFPRMYMhNw6X2mnouAF8R
-	 JRYfldVaL1GbhrJbGUmx7fBin3/ig+KMY5XqD22sKksQouVJYWfUEsSgMPLJzqd9cNw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996451;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=S+vT9vEZXXGE5nylP28OP5E16FdGgGeVcWYBckNJ7xA=;
-	b=RSBeCbNE3RRbS2nn09OQuSSMFK5iOiZfIreanQ666IoRHw7TC/kyGRiVICgku92SN/Nd
-	 iIv4i0KGstGFz7VZ531xl7apjHBBYt3vCBCc9Xg631m1k7sq3G+bJd8Dm5Gj77eOWuFsU
-	 qati//H1ofby4vou5afwbaoN5ayuzueZuay/NN0ZJcwPnuuojUfzn0dpIAzESgs7Xdyya
-	 oZkZVMGIjLFd3Eeu+rY54zaM83egXeCN3aU4qt/iFFOG7O9Zibvz8Kgp/WS4f7CcXTEeA
-	 KIsagPPjbuYQ0FzABqkNlBI2E4Zlj2XAdrvX5kHdv5pTgmRVqha0xE7yJ+53GNtnqyw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J2OqD5yw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
-Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794996454;
+	b=UP44fFlPJUQ7aCioGxN5AIuzc2D4ecQX1v0q6Q0YtOx37V4jZZI3TAHKdJFdSd7sDU88
+	 Pg0fiOin2GB9SZ0iNir1KhX2NcMFJI073VaalVH61SD4UkXn8AiyREto/mVTliJHX7mH4
+	 +jrkAiRHmi+XXV98gM5c3vUYjfmtrlQiirENSP4Ci+jpEWeyFvgZiJk15/iz7Ish/npdi
+	 5PuPTKY4cNEocxgOfGLjEJb5jtnFbyNEYsHeLFOHWCDs8/nSFdqoiw8LpB0ULm4jEV3cn
+	 mYReuNP7K2u/oihxlq37x62Eqm2br8IwNkNG5uO0InVDE51Px/tB0D0zGVkBC6J/MIg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996454;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=9p7nWP6aCwolh1r/jYlW6rQASc0ZzZDHEc19WN951qU=;
+	b=NE5jLzVgcwhwubsf6IxqZRJJUPcbpP47ESVCjg5B52qPahVupH3vLqs81jNCOuAkwLi5
+	 5KjtrU0Y2vZBrCSoPhwMSaRLsSk/1lIjtW0UpS4RIei9D45Up6HJAsgFlwCItWph9//PS
+	 GYzfj/WBVCTHIPs7qz0Eqwcb2P8Di89L+3OEcXCqE9Tnd4iaN3vuXkyypBDqz3BqPssJ4
+	 GHv/qF6bZYFGlZGOGvwgiEIn5qY5VTym09kdTk5WGG1Nl2OqV3QqYOfxLOsZeK9abNJVD
+	 078K3w86i+EP8vobfdEuSupx1ouAnZ17rban9dyh0V2f8QEi+ic5ghGxXIWqIcdsffQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aqa4i8Na;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0958A606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:07:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0958A606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A535606A330;
+	Wed, 18 Nov 2026 10:07:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A535606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J2OqD5yw
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b0d126f631so6484677b3.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794996450; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rn03gUWY/flfYbdHfSnDfRbPFzalpSrg5hQW0RykTgD9xPBo+Ixm+whTVVaiivdYl0
-         XlAOnVkfN67FP/l9HbSs3fEWmx2lvbSWW8C7TihFctD+X3KQKNwjzmr7BG8QLYHt1apU
-         oDL/b1peW6msjcjyNyRJoeDduXmS1gdiwqT1dk8xqsbT3NzaMSQHZcMfENnzab1DeiL4
-         gVajrXS8cjuswU2+4qjVaeCo56lnJ9ZYv/GDvM6U5slI5EcdEFKIE8yJUd3F8ZoZj/Ai
-         L5xUIF8SB17C2NP+pp1JK5Vv7MNyNxkqU2XEPvGTx2ZVSFFi5DnOVzuM3FSodWgKq9zo
-         zeEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=S+vT9vEZXXGE5nylP28OP5E16FdGgGeVcWYBckNJ7xA=;
-        fh=7mx139yhlvoc8xQ6I8HjOxG3Ed879Z/FQ+rhy6Kxx2Q=;
-        b=EX9fhRSs5h6KA+m9tgmprFO/eTkWvAY4AbS+laijWWBSeS7O+HXMYzKy9xFurXUQDd
-         wZK8tHHsIIObxLfuN0oTBdaeAelzXSlGjFgU5nGYWeYMNCCFTFnoB672znpyNty4uT2U
-         m9qW0jkbpQYH/aJIlTJZTYVr7pJRwe+0AYvLUtdCc7Jvs7JKm5GIjPV+umRfSX8zZhYZ
-         W05O1etb9hpTX2mYBMcVjveBfxOEVCpRMm7K3neL+EmAzlzbj3r7GiklxES1TquxDQL6
-         Yz+NTFP5zos0lsr1iBxAUu0p+BqDmdJpT1k+gkVsKZ7xEFETY1hcxAALpMNjSfM4yKXt
-         0+ag==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794996450; x=1795601250; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=S+vT9vEZXXGE5nylP28OP5E16FdGgGeVcWYBckNJ7xA=;
-        b=J2OqD5ywyH6LSEJ9BuWQdnXBANlORCux9CWVCvlPvyXwDNECvacfIqeqlxdhU/zUU9
-         +H9DaQM/3143PxHTTAeEK5al1FsRM5tLGy5D7sFGq8AwKBBEFq+VHS9DWU2RTFSz2g+i
-         fRnqFcRQDp3fhP6XgcjM5fRg+H6He/4Efb7pGNhF+ThcF1lpl23vydjUIOha0qgKTk0p
-         FZ8DOwP75UIDS+6HbXrJtR/h6FeGLPWe43w+x7vcffvzedVvz41971mmbUL0LhzDc6Ax
-         U8nunais28KNSlarbONkt9hj0+CL0ZoFu8k9nZg0iejgjtP3mS01jqBeFFu/d8aT677B
-         /5RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996450; x=1795601250;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=S+vT9vEZXXGE5nylP28OP5E16FdGgGeVcWYBckNJ7xA=;
-        b=PsfGrULtXKA4mgBSjg5kxgA56JPi0x0TOeg8vFoLb5sumxBDAlulB756q5/1UbZVzM
-         Hzah6hkjgsV5Su01z47wjZ5LxkUSJ2PGTdelQTbq+DXmeDZ6Qm/U5grRtzAIaddGpWJ3
-         gDe3xksami7vFO82h4fEa/ND02XmE9/r3nlzMfDp+G8I0RohR8SdCs+Vz3wxuuL9vr34
-         BcfSSRasMixRW6qoMyK7npGaVVrw8E3zbCWI+xhQJwgTZhaF12zlkfTQuTai+jnNrY5w
-         V7ZQX9C1npgMKqJ9Jio8Vaz8Kz1b/9DuBB7KA/bp7EyNGciQFWGofgSO7jtLVyf51Rk0
-         Dumw==
-X-Forwarded-Encrypted: i=1; AL+hErHinVCUCw00Cj1VUd/p0PMrxUGmdCrDuEIlQIt6pdrXPFOFeKEaiXfY60/zMfQwes3xoHtl0m8PDrHMWTo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qJ2qzMoZabDoJ05V5T8L+nq5rMPjhdhtkqF22s3gVX7vO/TvP
-	2flFYwo4qg2D7koSMF5yrheAojm0LMhDVFq1Dzlseykp9MPh0n9PHoYvCk1lEDmxeMjCWOv/Q2/
-	X3uQQ9QZQqwHShdkXFgGpVfswqEmdtO+3wQkhpkgmWQ==
-X-Gm-Gg: AZFdTZc+PVUOxA5opi/vfzM/kH2ZoGBPXHWIRECMOFH6pRoen5q0gd/DTU4z+DvvkWG
-	V5oZVK0WFJu/oZEsI00ubpXwNIx691sVuuR58uYFQasI4kdBxUG/JK5vBH43VEo9uRj2oQGMKWD
-	WhjqHY1+ozcdPxBzHqIcE3atSreKUXcWcYXIxdujexA2JoYEno0Zioq5cfCQbY5OMy5oMr3Sxij
-	MH+Vkk2O0F2Wjcizi7xvI8Ejpol3tv/6B2dcSZ/OX1Tt89O53uLW2CmHRR5mJQbaaPuhj00rymg
-	cpx1axVzEt4DglrxmmjVe0C7qAO1EF1ACqnNfBtrsszF2vw6+NtCZm6GkZj047UIDww9tc68jND
-	9bZOVA+VDyWcEZsoOc8ADw9LuwQ2dCvebUzo0upYrtdST3Lq03iYOg5WmUiL1VFhmdUWbIBS3pT
-	T6MmNdUO0dvOQpECRUJW/xXsL/5j8rRjM/X+GQy/lvO19zKDqpEKSnbDOGGsMfjV5NeiRUQFB+v
-	W8qxVUyliLgQZMZEtD/sI0eaqf8aZNrSYO87NcZjd0zyz25chbTfPEaCr8jLg==
-X-Received: by 2002:a05:690c:a402:20b0:8b5:6e9:2183 with SMTP id
- 00721157ae682-8b506e9277emr1851467b3.7.1794996450036; Wed, 18 Nov 2026
- 02:07:30 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aqa4i8Na
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1794996461; x=1826532461;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WV62P4nogrn/yedNrcqAoj0rawX6mdY7FKe5AzL+xxc=;
+  b=aqa4i8Na/12xObUKqU5m2tbbsExjC0TaFY6hk9HcgxKLEeyFRkG5XPeu
+   +eONOWY8+gCvE5hYCy5BwwCIGjSY5wj8gHhcuV/3SDHEWT3DYW0ZG3Z6P
+   TnYVxba00w2R9SZb+Og/BKN+yIxzYTS2wsKFtAlmqETeOfH2LAHdDzw5K
+   pG9ZVidylnJ/VOvRVy0preNj07KvtSObVnoSDrZQPTdL8kxS5Umv320Cu
+   YORjfErMKXmxPmmPxP/27b5sPEmc6aDqE7b0hdtkx/AdPy1JEeVytoyQL
+   8tKcw8/hsQPvdqanZv64qzxtuMe8VpHjRU/TBK6XpbhiIlYcTkGRC1+LP
+   w==;
+X-CSE-ConnectionGUID: CDvrusw7S4i+4/eC+9cqbA==
+X-CSE-MsgGUID: RUyH8oQSQnuzLEE9CMGJJQ==
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="65717232"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 03:07:40 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 18 Nov 2026 03:07:31 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 18 Nov 2026 03:07:29 -0700
+Date: Wed, 18 Nov 2026 11:07:29 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Henry Martin <bsdhenrymartin@gmail.com>
+CC: Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Simon
+ Horman <horms@kernel.org>, Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas
+ Dichtel <nicolas.dichtel@6wind.com>, Yuyang Huang <sigefriedhyy@gmail.com>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address
+ dumps
+Message-ID: <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net>
+References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,61 +84,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118095314.42769-1-patelshivani2283@gmail.com>
-In-Reply-To: <20261118095314.42769-1-patelshivani2283@gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 18 Nov 2026 12:06:53 +0200
-X-Gm-Features: Aa3M54qZ8hkps0LsViVJo_s7XZ7AAjtX2_rzeA2MmsfOWg5FnTjwadGRxEgW-j8
-Message-ID: <CAHp75VcPRtBpFmrd0sRD3HHPd3dMgwATzUxTyfkBPkuSh_xABg@mail.gmail.com>
-Subject: Re: [PATCH] staging: media: atomisp: Deduplicate and reformat atomisp_find_in_fmt_conv_by_atomisp_in_fmt()
-To: Shivani Patel <patelshivani2283@gmail.com>
-Cc: Hans de Goede <hansg@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Andy Shevchenko <andy@kernel.org>, linux-media@vger.kernel.org, 
-	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
 
-On Wed, Nov 18, 2026 at 11:53=E2=80=AFAM Shivani Patel
-<patelshivani2283@gmail.com> wrote:
+Hi,
+
+> __hw_addr_create() allocates entries with kmalloc() and initializes
+> only addr_len bytes of ha->addr. Dump paths emit entries using the
+> current dev->addr_len, which can grow after the entry was created:
+> tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+> ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+> /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+> memory per entry.
+> 
+> This discloses leftover kernel heap contents to anyone reading those
+> interfaces.
+> 
+> Zero the tail of ha->addr at creation time, so dumps can only emit
+> initialized bytes.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: a748ee242681 ("net: move address list functions to a separate file")
+> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> ---
+>  net/core/dev_addr_lists.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> index d827cc21867b..53a2dfa2706c 100644
+> --- a/net/core/dev_addr_lists.c
+> +++ b/net/core/dev_addr_lists.c
+> @@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
+>  	if (!ha)
+>  		return NULL;
+>  	memcpy(ha->addr, addr, addr_len);
+> +	/* Entries are dumped with the current dev->addr_len, which can grow
+> +	 * after creation (e.g. tun TUNSETLINK), so never leave the tail
+> +	 * uninitialized.
+> +	 */
+> +	memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
+>  	ha->type = addr_type;
+>  	ha->refcount = 1;
+>  	ha->global_use = global;
+> -- 
+> 2.43.7
 >
-> atomisp_subdev.h contains duplicate declarations of
-> atomisp_find_in_fmt_conv_by_atomisp_in_fmt() under ISP2400 and ISP2401
-> comments. Both declare the exact same function with broken formatting
-> (lines ending with open parenthesis, leading spaces, and awkward line
-> breaks).
->
-> Furthermore, the definition in atomisp_subdev.c uses the same broken
-> formatting with leading spaces and a line ending with an open
-> parenthesis.
->
-> Remove the duplicate declaration in atomisp_subdev.h, place the return
-> type on its own line, and shorten the parameter name to 'fmt' so that the
-> prototype and definition adhere to the 80-character line limit and
-> Linux coding style.
 
-...
+Looks right.
 
-> +const struct atomisp_in_fmt_conv *
-> +atomisp_find_in_fmt_conv_by_atomisp_in_fmt(enum atomisp_input_format fmt=
-)
+Just a thought, I think switching to kzalloc, like so:
 
-Can't we take one more step and drop the duplicate 'atomisp' in the
-name? The quick suggestion (you can try find a better one) for the
-name is atomisp_find_in_fmt_conv_by_enum() and also rename
-atomisp_find_in_fmt_conv() to atomisp_find_in_fmt_conv_by_code().
++       ha = kzalloc(alloc_size, GFP_ATOMIC);
 
-Also drop stale declaration for atomisp_find_in_fmt_conv_compressed().
+Would give you the same fix, and you would get rid of that extra tail length
+arithmetic.
 
-Altogether, make a series of the three patches:
-- drop duplicate / unused declarations of atomisp_find_in_fmt_conv*() names=
-pace
-- rename atomisp_find_in_fmt_conv() to atomisp_find_in_fmt_conv_by_code()
-- this patch that renames atomisp_find_in_fmt_conv_by_atomisp_in_fmt()
-and fixes formatting
-
-Don't forget to add a cover letter.
-
---=20
-With Best Regards,
-Andy Shevchenko
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
