@@ -1,54 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000961;
-	b=ANtbWfXbTReH+fZzwS+bJOuarg2yRSN4B+HuWd0z0U3necoyN5YZ9atM+AFLcdMRtmaQ
-	 TfySFVDmG+q3c0l9G+hKeWgkqMacb61iG1YOsymjalJXASokwtIvAtSJmOT50gqcZoLj7
-	 c0s7JV1zXlC1XaRCcnwh4ZKnEpDSDhFgVqEGdkGwcisye4bXXCD+ucYsqFrny09WAaOvA
-	 MW6psvLQcPJANu2Rv1TA1ZgYfl3g44sojVx3yc1Vl8AEozxLYDjwn6Bb9nCESxM3g3r2F
-	 IvYz4UgY11dIOfM1k4/vWKd+WTWk5hIqUc3zG9AvqGruPwtcM8zdTO8/8a86KaK+a3Q==
+	t=1795000966;
+	b=IG/WCvRGepMkOhaZIKdr4MxZDbR+FUhjty/QUkkehS0qGJCM8cKiIgohOcSIu83RBNDK
+	 mheMPiadzZ9Z01YzZOnhcWT4NUoKI/ZqgZE1Uwy0u6aAJj/JSIHEskoMNLfdttOYdIBch
+	 w/hvAbl4t/iqbm+YhaKJgu0x+d3ps9Xg5/UkJtMtCU1iOAvAsWIm5beqQZDBMhQCTOdEo
+	 0w4zsa7THCajYwbxHvE5BwOiPpMZyiqzuybv4ebP0PocFe9vGqjnglAIXnxRFpfyA4rci
+	 javzPwba3hnx/WeTVGdclUgmnAmEC9HXRnKFqPOvgomaRHtdQ0iGLkc3XKPIWn1YVWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000961;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=77LYkd6w+hlNQFCFED7fSwKj1hXKwNHIG4CKpCoNc2A=;
-	b=wuWiGI3ua6Q2Rc2745PEcDB1HzU1AsvGw8aG6cDaHw6qVpVshS7+i6QsqFRrc/wfRkCN
-	 UwzjCLjZNx1bqA99B6s8+1IrL4YLl0drIy7NhI+emo0BZwACRsqW8g462h52NjQAdO9Gq
-	 HCJUYffHvJ6P/5TvDL5AI3WuSLbEd/TSAx78rNgksqrarvln8j531LT1gt0ObwHmVUxj/
-	 ax9SaRmzMs+hJWj3eEeMbag8QVCILPWJ/XWTycC9f+hKVSZkVUwW4H84TqP1tE1PSru13
-	 c3sJonZlVevgDVSfn3zp4ohbWS2WoPHMc4cv67dXWudw7F6mJyY4b8BQ3gyrFtN7L4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000966;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=ZkzVAUC8Nlucc+Qn84sOEi9EHs8qdlhH5KYkgJRNO04=;
+	b=pq2Bf1b+vtYWfe4mouc7L1VsRV7z7B9m/gSdkk+MnBDmv+BoiQY/Yj4GRIFulmeuKksn
+	 sOZ5M1T8AAc8q6b12SkG0EAks5xqbmT7llQ9D9SF1fpqTT0+i9YgXPCZC94TfMbvMgt46
+	 2JXBVQ+AZfkU+cIOFm6t+A9pLjI9NSs3DDNbYl5irMVVJBO+HMe1Ne7TqyvacPC3i8iiV
+	 jvYz9KVjSsk3XmCxWrzgtPhZDSdxO/II86hHycMKgtQbcImfoFMuGOhIRyAnzL8tH0TY+
+	 SYGG7nHOVuz/Q38SIaZgU+TlFVOePHQQv58tvu1kLu6NMy0HXAicFi5JKIUpaBEmjIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y02ImFVG;
-	arc=none smtp.remote-ip=95.215.58.44
-Received: from mta1.migadu.com (out-44.mta1.migadu.com [95.215.58.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NMpfSZSr;
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3F19606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3F19606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A61606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:22:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A61606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y02ImFVG
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=sqf1F/p7j0Uf+RTtC3DdaK0iskYEuv41dl2cbLS6AHk=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795000958; v=1; x=1795605758;
- b=Y02ImFVGyjtDOnuridr4UH21yzLqYUwLNlPHZxuiwlIAuBrwb4ZO78AKQW8gVaOoL1/v3xht
- vgOaoSI8ELrdTkfBVmG5tTrWl4QMDLhmc4peMM4Z0b92plBOxJVNFzSiMYAynoNerRic7n2WQpJ
- hvecQYmpkv5bmhi4sHhsKMr0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 6e57789d0efec76c;
-	Wed, 18 Nov 2026 11:22:38 +0000
-X-Mizu-Trace-ID: 6e57789d0efec76c
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <caceeef7-5148-4795-9947-dfcffff7b1f3@linux.dev>
-Date: Wed, 18 Nov 2026 19:22:25 +0800
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NMpfSZSr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795000967; x=1826536967;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1F5dORa7k4HSGssZHA84M4G5Hli+drHq4OaBfT2fXi0=;
+  b=NMpfSZSr1sVDKiALiPD/qaakQ7kss6CcsB3vwx/KGGgmu9Nr3ajPd+U0
+   yGgPId7wGbSdK02S/igVXhJQyl8Fbrfeymio1Tzel1aFUQiLiXJkw42Jc
+   5ROIu59QSR5qfOKESXUNmhkjvnceOt2GY1jjVkvL6hGTr6nZa9r/p2MZC
+   2srPNfzp/5s2OyxmZY0/VBrUtqHbzbYMMocKI52iUkbnsm8j6Clz4M2b7
+   FRolSL+r4UHAWGS0pvBZQ4Zt4xqUA7Q5DpoFLWX7bKOVGAgrm5KL27k1t
+   AjEJVln4wC4jtCKSyXll6N70QeArcKZna0m5w9prHf1oVoQn2IKrnCEDh
+   Q==;
+X-CSE-ConnectionGUID: H3bvZhfuQhGA6TSvtvFq2g==
+X-CSE-MsgGUID: Q762r4M6Sv+JVXkMqkXtWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3831909"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3831909"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:22:46 -0800
+X-CSE-ConnectionGUID: e7sICtvpR82hcomjcL602w==
+X-CSE-MsgGUID: K4Z5u7qoTnipOC3FXI9xJg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10203305"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:22:43 -0800
+Date: Wed, 18 Nov 2026 13:22:41 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Dan Carpenter <error27@gmail.com>
+Cc: Shivani Patel <patelshivani2283@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Parthiban Veerasooran <parthiban.veerasooran@microchip.com>,
+	Christian Gromm <christian.gromm@microchip.com>,
+	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Julia Lawall <julia.lawall@inria.fr>
+Subject: Re: [PATCH v3 1/2] staging: most: video: Protect pending_mbos and
+ mute with list_lock
+Message-ID: <av2KgdP5EuLamxpe@ashevche-desk.local>
+References: <20261117170558.33844-1-patelshivani2283@gmail.com>
+ <av1t4DbqGsmUmrZJ@stanley.mountain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,205 +84,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 05/16] mm/mglru: skip zones above reclaim_idx instead
- of rotating them
-To: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
- baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
- kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
- lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
- liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
- mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com,
- shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
- weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
- zhuhui@kylinos.cn, sidchintamaneni@gmail.com
-References: <20261114200803.23129-1-baohua@kernel.org>
- <20261114200803.23129-6-baohua@kernel.org>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <20261114200803.23129-6-baohua@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av1t4DbqGsmUmrZJ@stanley.mountain>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
+On Wed, Nov 18, 2026 at 12:20:32PM +0300, Dan Carpenter wrote:
+> On Tue, Nov 17, 2026 at 10:35:57PM +0530, Shivani Patel wrote:
+> > data_ready() and get_top_mbo() read mdev->pending_mbos without holding
+> > mdev->list_lock, racing with comp_rx_data() which modifies the list
+> > under mdev->list_lock. Also, comp_vdev_close() clears mdev->mute without
+> > holding mdev->list_lock.
+> > 
+> > Acquire mdev->list_lock in data_ready(), get_top_mbo(), and when
+> > clearing mdev->mute in comp_vdev_close(). Use list_first_entry_or_null()
+> > in get_top_mbo() so comp_vdev_read() can drop the redundant data_ready()
+> > check inside the read loop.
 
+...
 
-On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
-> From: Kairui Song <kasong@tencent.com>
+> > -static inline bool data_ready(struct most_video_dev *mdev)
+> > +static bool data_ready(struct most_video_dev *mdev)
+> >  {
+> > -	return !list_empty(&mdev->pending_mbos);
+> > +	unsigned long flags;
+> > +	bool ready;
+> > +
+> > +	spin_lock_irqsave(&mdev->list_lock, flags);
+> > +	ready = !list_empty(&mdev->pending_mbos);
+> > +	spin_unlock_irqrestore(&mdev->list_lock, flags);
+> > +
+> > +	return ready;
 > 
-> scan_folios() used to visit every zone. Folios in zones above
-> sc->reclaim_idx can never be isolated, so sort_folio() rotated them to
-> a younger generation, the "ineligible" branch, or, when only one gen
-> was left, skipped them. This wasted scan work on every pass, and the
-> rotation kept the protected folios from aging.
-> 
-> Restrict both the scan and the gen selection to the eligible zones,
-> like the legacy LRU, which only isolates folios in zones up to
-> reclaim_idx:
-> 
-> - lruvec_populated_min_seq() takes a zone_limit, so the oldest
->    populated gen is searched only among the zones the scan can
->    reclaim from. A gen populated only in protected zones no longer
->    stalls the scan.
-> - scan_folios() iterates the eligible zones in the descending order
->    of the legacy zonelist walk, draining the zone at reclaim_idx
->    first.
-> - The ineligible branch of sort_folio() is now dead and removed,
->    with a VM_WARN_ON_ONCE_FOLIO() guarding the new invariant.
-> 
-> try_to_inc_min_seq() still considers all zones, so min_seq[type] is
-> only bumped once the oldest gen is empty everywhere. At DEF_PRIORITY
-> the search bound stays min_seq[type], so the scan still starts from
-> the oldest gen regardless of whether it is populated.
-> 
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> ---
->   mm/vmscan.c | 47 +++++++++++++++++++----------------------------
->   1 file changed, 19 insertions(+), 28 deletions(-)
-> 
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index 603fb7c73f94..b3ce4a550a62 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -3992,7 +3992,7 @@ static bool inc_min_seq(struct lruvec *lruvec, int type, int swappiness)
->   
->   /* Similar to lruvec_evictable_size, return the oldest populated seq of the type */
->   static unsigned long lruvec_populated_min_seq(struct lruvec *lruvec, int type,
-> -					      unsigned long max_seq)
-> +					      int zone_limit, unsigned long max_seq)
->   {
->   	int gen, zone;
->   	unsigned long min_seq;
-> @@ -4003,7 +4003,7 @@ static unsigned long lruvec_populated_min_seq(struct lruvec *lruvec, int type,
->   	min_seq = READ_ONCE(lrugen->min_seq[type]);
->   	while (min_seq < max_seq) {
->   		gen = lru_gen_from_seq(min_seq);
-> -		for (zone = 0; zone < MAX_NR_ZONES; zone++) {
-> +		for (zone = 0; zone < zone_limit; zone++) {
->   			if (!list_empty(&lrugen->folios[gen][type][zone]))
->   				return min_seq;
->   		}
-> @@ -4026,7 +4026,7 @@ static void try_to_inc_min_seq(struct lruvec *lruvec, int swappiness)
->   	/* Requires at least MIN_NR_GENS gens for basic functionality */
->   	seq = lrugen->max_seq - MIN_NR_GENS;
->   	for_each_evictable_type(type, swappiness) {
-> -		min_seq[type] = lruvec_populated_min_seq(lruvec, type, seq + 1);
-> +		min_seq[type] = lruvec_populated_min_seq(lruvec, type, MAX_NR_ZONES, seq + 1);
->   		if (min_seq[type] > lrugen->min_seq[type])
->   			seq_inc_flag = true;
->   	}
-> @@ -4689,6 +4689,7 @@ static bool sort_folio(struct lruvec *lruvec, struct folio *folio, struct scan_c
->   	struct lru_gen_folio *lrugen = &lruvec->lrugen;
->   
->   	VM_WARN_ON_ONCE_FOLIO(gen >= MAX_NR_GENS, folio);
-> +	VM_WARN_ON_ONCE_FOLIO(zone > sc->reclaim_idx, folio);
->   
->   	/* unevictable: let it through and the generic path will cull it */
->   	if (!folio_evictable(folio))
-> @@ -4705,10 +4706,8 @@ static bool sort_folio(struct lruvec *lruvec, struct folio *folio, struct scan_c
->   	 * longer be promoted or protected, so just isolate them. The one
->   	 * exception is lru_gen_reparent_memcg(), which is handled above.
->   	 */
-> -	if (min_gen == max_gen) {
-> -		VM_WARN_ON_ONCE(zone > sc->reclaim_idx);
-> +	if (min_gen == max_gen)
->   		return false;
-> -	}
->   
->   	/* protected */
->   	if (tier > tier_idx || refs + workingset == BIT(LRU_REFS_WIDTH) + 1) {
-> @@ -4725,13 +4724,6 @@ static bool sort_folio(struct lruvec *lruvec, struct folio *folio, struct scan_c
->   		return true;
->   	}
->   
-> -	/* ineligible */
-> -	if (zone > sc->reclaim_idx) {
-> -		gen = folio_inc_gen(lruvec, folio, min_gen);
-> -		list_move_tail(&folio->lru, &lrugen->folios[gen][type][zone]);
-> -		return true;
-> -	}
-> -
->   	return false;
->   }
->   
-> @@ -4763,16 +4755,17 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   		       struct scan_control *sc, int type, int tier,
->   		       struct list_head *list, int *isolatedp)
->   {
-> -	int i;
->   	enum node_stat_item item;
-> +	int zone_idx;
->   	int sorted = 0;
->   	int scanned = 0;
->   	int isolated = 0;
->   	int skipped = 0;
->   	int gen, max_gen;
-> -	unsigned long min_seq;
-> +	unsigned long seq;
->   	unsigned long remaining = nr_to_scan;
->   	struct lru_gen_folio *lrugen = &lruvec->lrugen;
-> +	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
->   	DEFINE_MAX_SEQ(lruvec);
->   
->   	VM_WARN_ON_ONCE(nr_to_scan > MAX_LRU_BATCH);
-> @@ -4784,24 +4777,22 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   	 * when under pressure to respect swappiness more and reduce IO cost.
->   	 */
->   	if (sc->priority == DEF_PRIORITY)
-> -		min_seq = lrugen->min_seq[type];
-> +		seq = lrugen->min_seq[type];
->   	else
-> -		min_seq = lruvec_populated_min_seq(lruvec, type, lrugen->max_seq);
-> +		seq = lrugen->max_seq;
->   
-> -	gen = lru_gen_from_seq(min_seq);
-> +	seq = lruvec_populated_min_seq(lruvec, type, sc->reclaim_idx + 1, seq);
-> +	gen = lru_gen_from_seq(seq);
->   	max_gen = lru_gen_from_seq(max_seq);
->   
-> -	for (i = MAX_NR_ZONES; i > 0; i--) {
-> +	/* Scan eligible zones in descending order. */
-> +	for (zone_idx = sc->reclaim_idx; zone_idx >= 0; zone_idx--) {
->   		LIST_HEAD(moved);
->   		int skipped_zone = 0;
-> -		int zone = (sc->reclaim_idx + i) % MAX_NR_ZONES;
-> -		struct list_head *head = &lrugen->folios[gen][type][zone];
-> +		struct zone *zone = &pgdat->node_zones[zone_idx];
-> +		struct list_head *head = &lrugen->folios[gen][type][zone_idx];
->   
-> -		/*
-> -		 * If there is only one gen left, rotating the unreclaimable
-> -		 * zone become meaningless, just skip them.
-> -		 */
-> -		if (gen == max_gen && zone > sc->reclaim_idx)
-> +		if (!managed_zone(zone))
->   			continue;
->   
->   		while (!list_empty(head)) {
-> @@ -4811,7 +4802,7 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   			VM_WARN_ON_ONCE_FOLIO(folio_test_unevictable(folio), folio);
->   			VM_WARN_ON_ONCE_FOLIO(folio_test_active(folio), folio);
->   			VM_WARN_ON_ONCE_FOLIO(folio_is_file_lru(folio) != type, folio);
-> -			VM_WARN_ON_ONCE_FOLIO(folio_zonenum(folio) != zone, folio);
-> +			VM_WARN_ON_ONCE_FOLIO(folio_zonenum(folio) != zone_idx, folio);
->   
->   			scanned += delta;
->   			if (sort_folio(lruvec, folio, sc, gen, max_gen, tier))
-> @@ -4830,7 +4821,7 @@ static int scan_folios(unsigned long nr_to_scan, struct lruvec *lruvec,
->   
->   		if (skipped_zone) {
->   			list_splice(&moved, head);
-> -			__count_zid_vm_events(PGSCAN_SKIP, zone, skipped_zone);
-> +			__count_zid_vm_events(PGSCAN_SKIP, zone_idx, skipped_zone);
->   			skipped += skipped_zone;
->   		}
->   
+> It doesn't really matter if we take the lock where since we drop it
+> right away.  The list_empty() doesn't anything that requires locking
+> so far as I can see.
 
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
+Right, but the problem is that we possibly might compare valid pointer
+(list head itself) with the stale pointer (head->next and/or head->prev).
+Also don't forget that for 8-byte pointers on some architectures it
+might be the cross-boundary split (most likely won't happen with struct
+list_head as it should be at least 8-byte aligned, but still).
+
+> >  }
 
 -- 
-Best regards
-Ridong
+With Best Regards,
+Andy Shevchenko
+
 
