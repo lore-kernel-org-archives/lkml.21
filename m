@@ -1,96 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.34
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795000459;
-	b=2exwrTTLczwRLOspwWK6Ksv0TWk7qKke8lFKYSL7srXdWE5BR3u1RWz7HnVppf2HW+RL
-	 IL+zvx+K38tP/xOak4HoWZ6FSsUCPN7fD5zaU5ln6Vtam4NWr0FLE7BkQBqKA7O7aHsl1
-	 a7v4gSwmeI4AaTKB151VVJswz+GIghveAiy/91Mxq5qFRmL7TjX8/hw4xzt+DL2Q+/D9/
-	 hHlUY/yscMHhPtedkIAbHNp5tUMUHecxpiTDMz7FxoYFmCiKmgRFhU3M0xkocE8ZbPtQM
-	 3v0Q85E/z2ME28eMy+x4MLgDfPZCq8eFZzHsxXrpuXagROUTIpw93jCU3UeUvOqX04A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000459;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=SuhMM5tP+Ue3jEYH4yR2NPhl037xN9ikemfgGprro5s=;
-	b=cbEw7ZEW7A8o45hSQAkYF1OYp3ncp9SsU5mm1mVcVFS7vvqHFcjN4lHlqNAEO5ROgPPA
-	 lk5RtQckNrPuYGbNUMProok11yVXyKUQZAgJYIlPIfZLzbZJdtzyjn+fPtSxxP1kkNCPu
-	 JfILH8cUCCeQnbr7bTROkEibcW/Z2Wt/nm8/ZpE/SpKfhDgatIMtSBzPtg6Y1GvWAYPRH
-	 Z2Y+EElAoknsuoVeCMw0YYdU00JP+I8JxeMBu2j5B3tP+bjWbC9Lr3FZSkEKJ6NpIs6fY
-	 AZU300Vwza9sj/RWjZaNtitQh8g/CdGOYx3/O1yXw75bmV/dM5r5sC7NPZUACF4wtIQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Z21eXcWX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.34
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010034.outbound.protection.outlook.com [52.101.193.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D027D606A31C;
-	Wed, 18 Nov 2026 11:14:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D027D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795000477;
+	b=OaeYBZmHdZNQPHe6HS5x09LJjAyiTkWe8+TU+boiCg5zUIcyeyoCmbzss5GvTak2usy5
+	 j4EJt0byec0wZWKkWhViYGFxFn+a5RT31QH4kbkKUWCAyrvIbcfliIzXj8+bNRgmDL7gY
+	 W0jc8/Cj56IZCOwTaGxo6jTyLbYKo1zp0DSa7Cxm47C7jWj/eAfqZ8wCCrYL9aV9Q7PGm
+	 O0gOW34j8nZLzVJmeK0FsqKnz+6RX4tcZCZUe0pubzMWlVFk4mUKRBqtTiTT14niw1ZjD
+	 QK1yr7cA2H9Ts8+q8KLTk0mqyZXqD+rcmvcGDP9qARwhsoluJcCpPKoIXkrRW5O2ruw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000477;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=kpFNtNivNFK5E09pZOo62DDo/NkEsRhWz34V2Kf54aw=;
+	b=QUbtJ7gKC4PHpKiVuYtZg0qvKqYf0FdBJHdmI0QGey94QUB6P5ITEa2GOyQHgEOAJLHd
+	 P9hYbEnUK+DtTydnmuDpXsJwlxfvzWB0kGioFy4yLysTDJlLCGsglsgm/XPTFek7jatKW
+	 /mKdXfitJ5EWWVHMv38mUbjvc1qx2sKZzpVFEWfeq9jx+689Ls4I3SgSA/U0rUikw19Tt
+	 4vDgXmadeUmxwSSd5rl8xc+mkSbjfLXKxj8o+ak9nQz2WB0Ikhgqx1VPtSecD63w0c/vQ
+	 xtmCfUP9SYfywGCvH6Q3h2PtZ6FeecEF3z5GkKHcg1NTNULgITEznAtvcAekoQC86rA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E5gQTmv2;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id DA2CA606A31C;
+	Wed, 18 Nov 2026 11:14:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA2CA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Z21eXcWX
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TX3HWKWZ2k8NUIwIt/66aWrVyL8It1wQcvENUEv/uepI/OOJfLms+yj/4sA06tr0TVHV1WaTX80diSzUbrqOuoaswEYOElFk2yNHws6EpBpw+yLrILx9ND2EYbzxKtIZlsKr+vdeH04QnZYzdshCO9PQnAhCveKP0iR942iwpqsWvuDB5+y7/EMrQ9pC/SiiQ1jklZjJnqur0NXyodiwKw0OtQMSAyEaz/Rznj3AoDmf7xMbG5j6fNZ3Hf0gjB4p6aYhj31g+pKEdd6MwR2YFPnC2P1iSZSkZ2t7MT2vwswkb9SFLKdXOSqK1PYJ5lkbc89vjh0npO+xuW1erFLblg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SuhMM5tP+Ue3jEYH4yR2NPhl037xN9ikemfgGprro5s=;
- b=nberDHYPaw/rxN0ZnH8eLyeC5AEiHOUTrphjKsou7xFMeFMqF0+AbaE+rE+n81npv/iFYgtycyfAJ7CXS6DTaa3nM39KQe2JVNGmKMMY6menolBqob68BiQQFwlgVYoFhKWYmIfbdVlOPAacw34duoD3HM19sLpXdlYUqyJyPiyLpH074zZQeolGmyvugu8Sk7i+cG7HOcjhq5Uavq7klyy0GVCqx8PJb+D8FVq2VDEaCStOm5vdSArPcB+xdzo8USRn6YBBoAdszXb/5IS6x4a+Y6+JonkYbD35z9iInQc4zyAOgTswzbQUZ40lwYkUcEl0SxFrJpWfrwFf4k9vKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SuhMM5tP+Ue3jEYH4yR2NPhl037xN9ikemfgGprro5s=;
- b=Z21eXcWXmKTypgeZgYFm75riYUtO4bG3SADVN2AiuuSBVdZjvDX2ioEu6MOduHWyoQj8npJi1NBbCVA0sWn1ITs3zmN20ZiIHtBACYK04TRF3iFmmxnCdFd13zSZYeFIXfTERjhUIgzMdNJs5FXlkQjzJLQuRhlmLclwpU9ZylIaxLDipFATnftGNAykNzgjAdDpFwML0r30RAIhvOwbjnpaX43yrVUUP8OklDisAvWuXCYWj7hKxesYKEpPBN2B19LWQ05fSF8iDHVt2uaPHmmhj7Z681O+IpfAKcfXxhYp1VyfdH5ATpW/KDF261kZxcqeOvsEKEjmIKvRo+VLsw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15) by BN3PR12MB9593.namprd12.prod.outlook.com
- (2603:10b6:408:2cb::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 11:14:14 +0000
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 11:14:14 +0000
-Message-ID: <773ac747-b58b-45eb-8072-8f048da3c54f@nvidia.com>
-Date: Wed, 18 Nov 2026 13:14:08 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v1] net/mlx5e: TX, Do not open a multi-packet WQE
- for a single packet
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org, Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-References: <20261117085036.3138779-1-xuanqiang.luo@linux.dev>
-Content-Language: en-US
-From: Tariq Toukan <tariqt@nvidia.com>
-In-Reply-To: <20261117085036.3138779-1-xuanqiang.luo@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0027.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:3::11) To IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=E5gQTmv2
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D56301596;
+	Wed, 18 Nov 2026 03:14:32 -0800 (PST)
+Received: from [10.57.62.206] (unknown [10.57.62.206])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 192D23F673;
+	Wed, 18 Nov 2026 03:14:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795000475; bh=TKbqgMIPduy318TAL4Aa4U0sAxhaULPe1XRzCdumkbg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=E5gQTmv2MiIyZx1MnDRo90tJYN43gume5p7d6KB3NmpM0o7uA6PCE2zYcpBmb8Jsi
+	 t3YfPJKXHuK2Zrp0s0DHEAbc9gp1pTOZXTjE28mbBo8mvrgYgeYJhxuIMZjSTozrXA
+	 vi/rEcEBJt1XoR6wS15Ak9Tq4KWaTk6E+nieQkTo=
+Message-ID: <b1ef7241-54b0-4a17-83b6-0008e722f2f6@arm.com>
+Date: Wed, 18 Nov 2026 11:14:23 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,96 +53,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|BN3PR12MB9593:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1099ff59-19f3-4027-5773-08df4565140f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|18002099003|22082099003|261009223027099003|5023799004|11063799006|56012099006|261102123227099003|261021121427099003|261021135927099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	WcSURO3snV//DvC51eSwX8WFm1JXilBTCXnJvBSm2DO8sgheSx0/QDCjC23gmbzGOMJ2CPw71IWM2CMIVlA9YLyRNBC1hKE1eIJfHDtHtV7re88vOa41xkXSmOxx/M4NV6oAH+keMCZmdEpGhJl68+EuYBCF8xaGyd8sGNgM54lFJ0YT/2Us36XK+x4TcpeFtQ2ZTCLgvIrAviQGRgAtl5HFMm4QRRfs62DxnSsT5EHyYspJHemGRk2qKx4p3+3DwcVkBraWhoYyJrNh6pdd++IDnrj9jY4Vg5Rxu0T1J4xOwHUT7Ug+kODOzTQMGuAqzGiyR6pIC7edTIJfhsNKNNNp2t4WInuC9VtqvfkIVlbnyOsdavaAVf7YS6F/yjcun2GFquVHCmBXA+fGejDdnxuDcqY1WcQYIRN65oTR+T9NYQgCB4H2mz2f8lRAvn1SEFq0bfR+zZzDxOegXxDJcx82EXzaN0REgi28mT3/39LfoDbGjyHY42PiV7NAeG5u0BgflvCUyQwmyUFKg2tYjCu0bWz5/KKdd1aakJTihdgeg+vIUGOje7eZzx7ok8TDLvT2AtbW8LKafTnrjY2TM7NfNP88cNHimtlLxKHwhWkUFxXkLCIerOZkCDsy+CFX3tjhsVn2bev+i02qFS5rJSmiWUDjRXDAouknrFvQkaA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(18002099003)(22082099003)(261009223027099003)(5023799004)(11063799006)(56012099006)(261102123227099003)(261021121427099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?dGVxekVBcmQvOEFsbE9EWWpkSEF4R2tKREF5TkhNZnZGVnNOa3hrSVZxZVdM?=
- =?utf-8?B?UC8yT25ZOWJPc2ZvZDBaU0NzdTFzL3hGTFM5VC9rOWZhbzAwMkZSQ0ZSWS83?=
- =?utf-8?B?eWFOVFpPNkl6eDlaYkl2YXFudUs5VktwVTNBMUo1ZTFsbHM3b2xqcDBFZTQ1?=
- =?utf-8?B?YU9LTFozaDh6SUlKVGRMRVlTaDlsRHFNaHFTc2tpVFI3UlBnbGt0d1RpZWt2?=
- =?utf-8?B?bnlmcCsvNzV6bnJxRDR3ejdGOUFNa1BEb24rSFlFUTZKcHdROXVYcVZXWmNk?=
- =?utf-8?B?K0tvd0k0disrVTkwZWw0OVNJaVdFVktsUDJ0dzhhVWQ1U2xDMjB3WjlhWFc4?=
- =?utf-8?B?T1IvejU1K3BITnk0cVY0b2VRWTZQNzZpUndxVWxIQVhDRnRzUFpORE04eVZD?=
- =?utf-8?B?ZEcwcm5lQzVnWE11akhLV0wvMSszbmtyaisyMGtqNWVPYUUrWUJZbmdrUXEr?=
- =?utf-8?B?d3RibDV6c2M3bEJpVCt4Y0xoWkZYcjdwbkFETXJTRVNIZ25aZXJ1NHVEcS94?=
- =?utf-8?B?WVB3NUZxS3ZGWU1CSmFiTk1YUG5aN2JGcDBGV1kzYlYvVTI0TE9NQzZxVlRH?=
- =?utf-8?B?WHk2TXErYVN2eGtwYzVZa2ExUFE0K3ZwSlIxRmRUYWxmVXV5Rmp0enBJUVlU?=
- =?utf-8?B?RTFxQVRGajBFb1o3bG1mSFlWYVdOY2szOXhwSGtmMTJqK1M1RkVFMFUwYzJr?=
- =?utf-8?B?U3VXY0RRRmRNVWxVMUxGTXArKzdNWFJueWFycDI5Ti9KUkRTMVc1L2htby9u?=
- =?utf-8?B?czUvQVBBY21zT1dNTTdKajh1SEVBV1kwUGdQRUhINFV3ZUFnY2NtcE5NM1c2?=
- =?utf-8?B?Q0hvYzYrVDZaREN1Vmt2dENYMldlNjF1NnFFWHhxbU52aHE5RmNBTEpMUFgv?=
- =?utf-8?B?d092N0cza1Q0enRSSzhiM2dJdXVoQXpERitLWTY2dDMvNUYwTzNpVCs5V2dw?=
- =?utf-8?B?MXZHOWVhU25lc2xpN1A3UGlkZ3QyaklFS2wrYnpBLzFCQ2E5ZFdjaUFSdEcw?=
- =?utf-8?B?VlJ5ekFIL2NER293Qm9BU3RjYnhHZGE1bUQ2QXBWQVB5Q3lNQW16Z3FCMk9J?=
- =?utf-8?B?RTYwcHNYOE5pV2ZudkZoM2tFK3BjMFRRNzVPTmJHQWthbndjZmtBU1NjRlVW?=
- =?utf-8?B?T3FtWElzZ2ZHMHFmeUNnc0VpNnhlVWw4Y3FRZVZVenNHK1E3Y3ZYOGlJVGpZ?=
- =?utf-8?B?S09qNXpSNmIvdGIwcFpxUXRkRXNIdWpyM1BYTE93N3BVRmozVEloS1FDY2Q5?=
- =?utf-8?B?U1kwWXhEUzJnOXRGUmIzcWc5NFlqclZOVFhKbzJkOFlOdFBQL1doUTB1Nkps?=
- =?utf-8?B?L1pIVG4yQ2psZmZoSWN4R3RvODdZMkhPVzZWVVB1NGUzNnNTN1FaSjlnZi9H?=
- =?utf-8?B?bXdHNlpUZUJUVjU2eG5PWWpEQmZubklJa0ZDRjZ4NldNZXZLQlVuRk9EMEJt?=
- =?utf-8?B?ei9oRjczT3pkaGppKytZSnVabmpCVXZ4MHhWK1l1eUhzRm14Uytqa3BqVUFa?=
- =?utf-8?B?aGEvdnJZSmVUa1VXOGJYcmF3RnMyb2cvS1VZTVpFcXVaa0lwR3lCaGcxVWFG?=
- =?utf-8?B?UzY0U1JUYy9oRmhMVEdYTzJqOFVkako5UGduSGRFalMzZ1NQWG56Z0htSFBZ?=
- =?utf-8?B?aDlUd3E3RnBvK1ZjZHNtbTNRQVY1K2FvTGNBL1FDNC9FY3BpcWY1YXloZ2JD?=
- =?utf-8?B?TGZ5bnRWYUxLaUdRdm5TMGtRY2RZNlFmdUxmS3VBRHowd3dHa1lKUk9DeEFT?=
- =?utf-8?B?QzhXWit1RmkySmgvamZiakpQQjJTbEhCUVpPTllSUnpUY0hiMC80ME9ic1pL?=
- =?utf-8?B?c0pwS0M5OFYyd1Z5N09WUWN4ZFhXM1ZaMlBzdVd1dEhkT2ZHb0o5cStPY09S?=
- =?utf-8?B?WlRwZUMwb2VYeWZ6WjNDUzlWc1ExY0dRQlQyM09yak41TXRCSU5meXo2STRW?=
- =?utf-8?B?ODZhUTBURXprZ1RlWXJmT3Y0ZDQvdGJqR2JKeFo3ajNGeDFjbWZqTTJRSlBm?=
- =?utf-8?B?Y2lzbklZZEJMN292MmhZN2xYRXJuZnNHMGVEeFNTVTVDTHpWS2pWV24xL1pa?=
- =?utf-8?B?LzdDeitvZkdDV3d1KzVlYlBVREVITXJheFRVSjE4MzRXaWRSK0hBcmpTUGps?=
- =?utf-8?B?T1lKZEZHaFhQSHJzVFpuUmtRc1AvYW8vNWxBNHROeU5JbXpGdVlkYktjMHZL?=
- =?utf-8?B?UXNJZEdHRHlMdTNVaUNGOGNENVg1VUtIbk8rZFo1WTJVSS9wOE5wVThyNzhu?=
- =?utf-8?B?WlhPOWJQbXc0SDVYRWJkeW1XNlR1S2NsR2ozbXFMUWxOVzg0cVgvTGdaeXl6?=
- =?utf-8?B?dkJQR0FLMlZ1d3ZBMVVENzJRS25naTJCQWZkdGsvWmRmUllpQUlZQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1099ff59-19f3-4027-5773-08df4565140f
-X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 11:14:14.2237
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KJoEcJKpBu+u8hi0TFXYHTGFrN7FSQYTfdZxsJKgK79ej2ah5Kqsf/E+9str0UGpyaqYL4EvQx+r+Xbb0nZEIw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN3PR12MB9593
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 01/11] KVM: arm64: guest_memfd: Check mmap support when
+ preparing memslot
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261116164358.142785-1-steven.price@arm.com>
+ <20261116164358.142785-2-steven.price@arm.com>
+ <CA+EHjTy5xBmavNWSYPjqU9qXtssV3ZHzsUr1s_4bVOt1GnDLVg@mail.gmail.com>
+ <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <6bb490cd-ebbe-41d7-adf3-d6eaf0e53478@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-
-
-On 17/11/2026 10:50, Xuanqiang Luo wrote:
-> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+On 18/11/2026 10:34, Suzuki K Poulose wrote:
+> Hi Steven
 > 
+> On 17/11/2026 14:05, Fuad Tabba wrote:
+>> Hi Steven,
+>>
+>> On Mon, 16 Nov 2026 16:43:47 +0000, Steven Price
+>> <steven.price@arm.com> wrote:
+>>> Check the guest_memfd backing file when deciding whether an arm64
+>>> memslot has mappable memory rather than checking whether the slot is
+>>> gmem only. A public helper function is added to be able to reuse the
+>>> static kvm_gmem_supports_mmap() function.
+>>
+>> nit: could the message say why this is needed? It's a no-op until
+>> patch 8 defines kvm_arch_has_private_mem(), which makes every
+>> guest_memfd slot gmem-only.
+> 
+> I still don't understand why this is needed. For arm64 we have always
+> prevented guest_memfd without MMAP, in kvm_arch_prepare_memory_region().
 
-[...]
+Fuad is correct, this isn't really needed until patch 8. Patch 8 defines
+kvm_arch_has_private_mem() - that means that gmem_in_place_conversion
+becomes true (see include/linux/kvm_host.h). That in turn means that
+every guest_memfd slot is KVM_MEMSLOT_GMEM_ONLY including slots backed
+by a file without mmap support.
 
-> @@ -678,11 +679,13 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
->   	mlx5e_sq_xmit_prepare(sq, skb, &accel, &attr);
->   
->   	if (test_bit(MLX5E_SQ_STATE_MPWQE, &sq->state)) {
-> -		if (mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
-> +		/* An MPWQE for a lone packet saves nothing, use a regular WQE. */
-> +		if (mlx5e_tx_skb_supports_mpwqe(skb, &attr) &&
-> +		    (xmit_more || mlx5e_tx_mpwqe_session_is_active(sq))) {
+But regardless the check for kvm_memslot_is_gmem_only() isn't really
+what the code is trying to do. The fact that the memslot is "gmem only"
+isn't really relevant. The thing we care about is the mappability.
 
-I'd swap the two conditions:
+But I agree the commit message could do with improving. I'll expand that.
 
-	if ((xmit_more || mlx5e_tx_mpwqe_session_is_active(sq)) &&
-		mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
-
-A lone packet, which is the case you optimize, then skips the skb 
-checks, and it reads in the natural order: is there a batch to join, and 
-can this skb join it.
-
-Also, it's be nice if you could test for traffic that goes through the 
-stack, for example UDP_RR / TCP_RR and a UDP stream with netperf, in 
-addition to pktgen.
+Thanks,
+Steve
