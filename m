@@ -1,173 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.141
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795046250;
-	b=GIhxQJnRt7nrSKIowbHCVlQn2lvPF23Q65uZrK4KgngXUVjr9VbklRLvaeIudPH68kpy
-	 LHTgE+kNxSZ9QFjqvkoI26dlUenWucZ6+YE0AJjc8Zw8VJrPAsA+Foo6UBidmQe8VuJji
-	 ja6OLRnX93PbJ4yhOnNw9721puYPlmnOyW2d5cMY1QNjavCsK3wGnIHR6+jvPwr1IffSU
-	 iDFQ0SqUCLp14OWeCY64udGfAyQYW1DPWYqGjC2EZ+vJb8aoDjmiLF+9ypC9M8xQHgmi0
-	 hI1+iy6yFCm+yEm6nhfARGIXr04LmA9MNaboyCcMr4hPoI5Y9EDxTEnztmNIp0GoKfQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046250;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=B4zFjEL5hlhQrSt2smgrlHZVn55qIbn5+9S0rz2RBas=;
-	b=CRRh3oF1+ViASTa8MIKyejj+EquMtnPlu0gXaR/OLrrN7YXhpY6P49Wv5q1GauOLu9p/
-	 beRlusnI3uGn7ugVIS0m3GsWSxyyjfmcc8+SZ8wZ1vZlM3kqyNcsFR9rWxl8NcErAA0fH
-	 9MYOOiwicL9F3DFjQRDDClHqzIdHThdLVf0JzcA162D1neBW4V3tRNrBzikr9xLSpD3u/
-	 +bbyWVfltQkfaC+FE+ZRax/6JxvxP5XDuU6+kp7X2g7lyuvtgMtQJG3jVGVZXjj0Eb84W
-	 Sv0CmdWepPoSXjahbsKlbmP6xO0HAZhRrDFBdoScQzG6R7jsnyGT63xARh13gh3qBBQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=shazbot.org;
-	spf=pass smtp.mailfrom=shazbot.org;
-	dkim=pass header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=jhChCI27;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=oKNtFcR7;
-	arc=none smtp.remote-ip=103.168.172.141
-Received: from flow-a6-smtp.messagingengine.com (flow-a6-smtp.messagingengine.com [103.168.172.141])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795046369;
+	b=ZBfjt+351epxQybiyUQWd9hKtiSaR0rYCK7RfvdQyQ7OVpDriayfydC2pQFjD/Q6T738
+	 4nkxs0Q0/Go101s8Ex545x9YWHcONK67VzuQYNQkgtJnF9jCKz7rDMlIQhZb3+pHyRd82
+	 FqJNHA7LtJWVAOr71hdv4JGIc7NuX6Y9Haf+YFUKv8BegEfMomU21TWQwjAN9IZ2gUzxz
+	 k+wKMbLo2Hx7DLqxTp3qre4ougWcWMQ8yTw/LGLkMJ78a8/KsjJ47yYVcvWZUEexrWriL
+	 vSpt/NWn1z6qoXMrlP93AY72B/Y6smLoSlvf9wuLIJxA1oxvrLyeq/ldFc6XAs++v7Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046369;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
+	b=LuA01wx3JZidxxhi0MuzyOXx9t1zZ9/mJ4zO/9Tf3+Vrr2w/yaqsvxBwASk6iOXbPv8d
+	 S6ywPAUBA2YQE9i3IaldmYg3f9GOnbLGXZQ8YAYJ5v1qo1i8QyqsBOrhcua1W5LYdpCr7
+	 Bh4qcroxuE9CGxZw5w8Nop+9FoU4do/u0WQYA2Npx+zF6PIA3y+wveTi7Eruttfvi7hlg
+	 8RmWuSqGrQNombXjFfr0lLxYv/yl4beKTii+zzoaa2jW3E0EeucSm2ttZk+R29DWSZCuz
+	 F70+ZveM6i9nT2qV2UP0TJZtaAwNOh1gyWBjN8CRHmskhTOHNra8NfxvwTd/0u8yG2g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=crosse.dev;
+	spf=pass smtp.mailfrom=crosse.dev;
+	dkim=pass header.d=crosse.dev header.i=@crosse.dev header.a=rsa-sha256 header.s=google header.b=LTwTP1XC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.47
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 547C2606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:57:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 547C2606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=shazbot.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shazbot.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54304606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:59:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54304606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crosse.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crosse.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=shazbot.org header.i=@shazbot.org header.a=rsa-sha256 header.s=fm2 header.b=jhChCI27;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=oKNtFcR7
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailflow.phl.internal (Postfix) with ESMTP id 72E0A13819B3
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:57:28 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Wed, 18 Nov 2026 18:57:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shazbot.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795046248;
-	 x=1795053448; bh=B4zFjEL5hlhQrSt2smgrlHZVn55qIbn5+9S0rz2RBas=; b=
-	jhChCI27TV0AUe3b/OxSOD4nN2iBvo0mrgoeO6U99iuz/83bXfUyuTNSNKQTRno4
-	MU4OLYd12tVJtLPOC4q3YKounCyXILO8+Dce3nwTC277Qq/bX6TwMeCRXf3DC780
-	qbxJLTdiiwXghIba0ZyVnIBlsIAUGSvnl/wtHcHHbL9eWeJLo9HTg7AeYm4wu52y
-	WW5ksSo4mW7ABZgWHmkHOZn5Z/sOPQ5AWllSji1yfzMGYwuhgBOleoB59ROkK/67
-	fnGLXf3DB0KHURCzbwnpM0ebq3nmoPPYWU+M555JuKHRroRUVGyRadl8I0oO9LIj
-	5Kx45kJPSRX5aWlL8eHWEA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795046248; x=
-	1795053448; bh=B4zFjEL5hlhQrSt2smgrlHZVn55qIbn5+9S0rz2RBas=; b=o
-	KNtFcR70DVjYBfQi1evQJ2By4kJtIi0MW4f71HgMh9FX69hVTo3SPkTZpPr1eoW2
-	fkRlTLtN+Ij+6RuMKKvr/hYrps+MDdwlDnU63FxILssh7XBdzIpKWt4kNs2kkgGF
-	zAaP0ONbV1XQhJcW3VdfDZSlPd8mYA6l68hckKA94RF5x323FWK9zdsANjw5Ue91
-	gtlOt9aCHV9EvNIFf/1toXez4eZG+zrntjM+FqYQnPacW4vxBAxW87zOGd35qPvu
-	b1rZYCwiB3LMG2xHatxYGd/pKQW8N2b4lFMg7Q8e08ijwzrCABlgmKOntZ3Oolsp
-	P8wOI0uy5r/STHlS41fww==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=shazbot.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795046248; d=shazbot.org;
-	mf=PGFsZXhAc2hhemJvdC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:hzpgU+huKc+ygjq3fCX38IpFrvz5zX9LE3DNpJrhrnrCMHl
-	RP4J1RnPt9F99fuY3D8qVo4kktC5chd/3cvThVxR8LmlH3np5qlCyg8Lw4MZfe1J
-	ZGSB/SiOfAqik5ajV6X6E5BJXbuiwvNCifwyXmzpsN8Pkd0DSBFAAR/CQ14BVJCE
-	BRSjDeHwpnhQX8ZdTpSHwUsUa9FGTqubbaHU5aFdzvcQyQZM0h7ViR5da6pWsmqb
-	DwmgfLvqjE8aGM1SMsz6r1lamvEkxYaH9A69U1dSAyMEj8rqqcJwzkXi+iERkOqf
-	l6d9Bv66Jn9p3bDH/+MDrUI9Ub3NmLepCMsF10g==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:qog/qb0ddv/KJY5cf9DNh/IItNoaVRZb1M1r5Mk/ZL0=:zdUGlLVrHk0sg6/jTFIok0PVKmmRpFzoo1hWrECnnaY=;
-X-ME-Sender: <xms:Zjv-aqfnz5xmurs_GHsqTWy6lXiC0lL2J1trjzRetqE9iXsPfAHA9A>
-    <xme:Zjv-arPTiRXQ_nYvYXkFMB5hr9FlB4VMtPzWshvTyK-QC0xlM9jJbOyrfhNR_Op40
-    ZfqKomxiUCilnEtutoYyJ13lFEywsc3rpEAdnOzkDxCE2ns2xSQcg>
-X-ME-Received: <xmr:Zjv-an0yUoDjq_5V2rAUugRk4GcrVzcsLEpbentKeOXxYwzEK38B2WPHWTFajMnTQ7_KQc6S3u4>
-X-ME-Proxy-Cause: dmFkZTETr3a90om7ZcxKHjLHiqlEITvFRz7EG4g8nD0o633cA3uUqXNQzqyRCqHNmFHd0d
-    zzK7udLaJMcv0zL0xjQNuLrOosegpV0KyCxl59ibhiuUcdaPuW0gIZ/BO5XlQ24ypBWVMX
-    c+3koyrttcdMTEx6oKP82WiXEOp2ZY2ktCOIEZstACd6F+alceiHjDBixJEKURxmB9PUEY
-    As8xQ+NktmnMGJIPT2ravKfkS4AvdxWe7CxmkHGqjCUif+f7TZm5FrutIqEazF8ylYiwSd
-    lfR2xIhVUJgfis7MYUtXAG4tw5UUZ5KM0TY0M61y0jv5NwUbtXsOR/u6AhRD1A5l5Rofcy
-    MdExTJQ2HeZuU8vuLrFvl7X7bh2ObYgm62G/Q/CS3qUEiJ3Meo6fWxZhI8FK8Qg8wEzyHF
-    Ob1e1xavbZ+rXIy/Qld57huC2fxa9HIUaAxoC36fOkjrhV2CYCf17C+9q99ANiZ2SI3zOl
-    pBTcJe5PUTfgs63+2Mk2TWommQzhhm9+KR4jEzdzbHvUoFzTAGJpRXU6+oDQNns2ebmqWg
-    S+dEzIHXPA4/4UwaITH+b7kbX9D0Z0LvcSlw+zJ5laplspIyz6QRx6ax1qb4AbCgvhlH+X
-    KU4Jt0oomr1gCRGwiUyuZdmNQztO+VkcjXafPorfNIk7xYzscAIBFhCR10SQ
-X-ME-Proxy: <xmx:Zjv-au1jFUxaVkqvTf2_nGHRo7pEFwmRIYqfWMIz-PTGEkOIyNR08g>
-    <xmx:Zjv-atV6qbBh_xJ8tB0a0RxVNialdFZXQI2TkGrZM3go_j4scCwaOA>
-    <xmx:Zjv-aggzyYqS6mcl6Ey1awRnIhE-m_e8Ge6vqf3sRdgFpCsQ8ckVnQ>
-    <xmx:Zjv-agIcA0qovO-trbGtL7hLD3B4qd41NvIRWEpMpdyfKV7a8xnPfA>
-    <xmx:aDv-anCw6RIdfILW7MNW1DXCVNCv0UKHb6z_PrXssdXRW1kCf4EsoqIQ>
-Feedback-ID: i03f14258:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 18:57:22 -0500 (EST)
-From: Alex Williamson <alex@shazbot.org>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Alex Williamson <alex@shazbot.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Johan Hovold <johan@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Armin Wolf <W_Armin@gmx.de>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	"Paul E . McKenney" <paulmck@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Marco Elver <elver@google.com>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Jeff Layton <jlayton@kernel.org>,
-	Bradley Morgan <brads@mainlining.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Pnina Feder <pnina.feder@mobileye.com>,
-	Mete Durlu <meted@linux.ibm.com>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Rio <rioo.tsukatsukii@gmail.com>,
-	Feng Tang <feng.tang@linux.alibaba.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-trace-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Yishai Hadas <yishaih@nvidia.com>,
-	Longfang Liu <liulongfang@huawei.com>,
-	Ankit Agrawal <ankita@nvidia.com>,
-	Brett Creeley <brett.creeley@amd.com>,
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
-	=?UTF-8?q?Micha=C5=82=20Winiarski?= <michal.winiarski@intel.com>,
-	Julian Ruess <julianr@linux.ibm.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	qat-linux@intel.com,
-	virtualization@lists.linux.dev,
-	intel-xe@lists.freedesktop.org,
-	kvm@vger.kernel.org
-Subject: [PATCH] vfio: Allow untainted use of driver_override
-Date: Wed, 18 Nov 2026 16:56:44 -0700
-Message-ID: <20261118235645.2907908-2-alex@shazbot.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
-References: <DMYH4ED3GWDO.29DGXPK4M82VR@kernel.org>
+	dkim=pass (2048-bit key) header.d=crosse.dev header.i=@crosse.dev header.a=rsa-sha256 header.s=google header.b=LTwTP1XC
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c1479a959aso1235271e87.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:59:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795046367; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AN76nrIZQYopl7quqOlBJUkqhAVuo6hgmBa9B1oSxyBvjSFDsmTwAMVFYGBafNAM0d
+         2WehYn0GKggAhZTBSW8od6na4cWC/KjfNaqldkeVIiyKi7I/y9qqBqfMwYAv028gClRo
+         NVd7ltpYTCO+CkrRsfCVEg5QCf0cmlKtoh0ZHTm1W5QvSrzsyOLGqu8cJh0cKTxfZXOK
+         tnda+jcPgH3CZS84pHE8yW9Yf/q91shu8JrrJMs33GSkOLcVv/sfgwke4mbLL45tb9JV
+         ctZRRWO53BFFlII5AZpiGxp0Cr/5fjXxQgzgwk69TmU9r4eZIIXoCUy+5ZR53ikqz1we
+         3c1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
+        fh=5bwaQzsgMyq1+T7TwggdFYI69pdgxdN4wWuvVYx38Oo=;
+        b=pih9/BaIIe4e3xiklh+DlOO4+IocyePZ0je0SW5Fr7pvYA8IuoX54DycqnTe8rxu7u
+         qSwjN0m1sYjEdTJLaHpFaTlKEySrlWSBi8ETYxz4//pHRJXUl5csOzIGQITui6fNSNhJ
+         jx3Ua0qQ1T5xAQOBhy5wIKtTqH+yrSDoeXZeEkzB0Uu1kQrkVOIVMP++beMJzmmEOHuW
+         bTZtHgN60hlwqUyPw1Vbu55v1+R+aG5hYBSJm3YdK6Ygl60Io2s2bBv8CqRIXCqaffa+
+         WeG5hONb795/N5ff+VJ8srIplFvKFbU9heChC3nRdQJAka4vav219OeOKTpPlrhZK74Z
+         DxAg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=crosse.dev; s=google; t=1795046367; x=1795651167; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
+        b=LTwTP1XCBdKUZG4tfRx5wu4oUSByB7xTmM/n1Q8XIc0hQR8QE2hdg+rfBBDhF/eA0V
+         iw7ZxjM3xQuOqYSkpaGatIzPD8HZZ80rLBrykozLkXddarwEtW3/YMyRlM3D8h1TqRgb
+         iR/K44rgcU6P9QVgvvGwwgJEP5fGU27fYldrXpacoMjmUhzMrHG4b39ain/oV2x+2pvO
+         fOp1zDPrICIi8ISvwZhv8KYNFpserQpR6Dtn1JAZZVuqhFoBX/ADF3q8FCZkLtuvHlCx
+         TavY2I8r7iKpl+lQCUNOo1/YFUE9XUtHzq/Yi+dSmDd9/hrva4MF2S833V4E5N3KD9WY
+         LP8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795046367; x=1795651167;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=T6R/PYV+nSxp1UtaMco+VKM8S4ufxpCmVV0RFQLraMg=;
+        b=rHlzA0Q5cMhhvWb1T768SCoheBgDl4qWb/TPRsdp69+eeG1NXADjIZfQ++T5up9Sjj
+         Hh8RTXPWw/tpG2Qvd2u9fu6Xok5qOyh4gYgDmfBTfFJ0kR7H7jwaR0u87W0HxWAyI8sy
+         rxWrMGpjt1oFr5z5P4QZ67W21So3zO5vKo2Y8mZ/NetfxQk50vY7PbqSVKPDCXg9WJCP
+         eRDfg4go/wxYM8VchytN7WxDnTIyNj/ZPf4hSrozkMZvYDsZNzyddF/tZI1rKpwN7ibu
+         z0QCC6fpCaOFepK3dZiAnlczczhI2askheTgDOi2sJ/Y18EkH4hhWvKQ1hAHmyNy3xhP
+         jwlA==
+X-Forwarded-Encrypted: i=1; AL+hErEqllrd/P0lDkHouuWoIHGb3BbJ/XCnBN+qss1Dy0C28+0E89plJXZGfgZRkhg+PFvAP+wTnUkmhAc9ngw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sW7NPNjXWZxRbUJW99cJtbW62rfBce7b/kinJoHUuPoo/K6tw
+	fQPNdpES24LNK81UaeGQ9bZ4mwaavzm6OHgA8SRxUjmbhZNhOhNoNqQV7X0MO3pcrsineSHPPeb
+	DLIgQUyxnu9mAV09CxmqfWhWDcSNEyDibsHUlpFkhBg==
+X-Gm-Gg: AYBFou3H69gHTtSYW+vT/O6ynB2MJl2diAsW/juCP0e4FupU3M2CtqgebBEZjXm/7vI
+	3KP8azfmHiVnIE5I5QY/ELvq5IyLDiHzrsHCVRrkPLXefIZic7ce2a7DH0LCGQS2cJYKlbX8/Ik
+	BETjVvz4Q0Eqn0yYgFqpK06APfkZXC/i87PTpAQQGZDWlSVw7qqPXoIKigMo/loKxlMosbfZIeb
+	XJYpZvOXWvlvtuwSJENLscADt4seeZnKZEltDBaus7ORXOUNCjrcc5A0QTLeMD9M2rkbxwSYfrs
+	+r4qm4v2vB2xTLwoM7ll1JBaSs2v51x0K/8nbcmDGKdD4/CWtrLlcaI1tWsjphZCcIPQ87LaPvZ
+	rRCFecvmQz1Nc99QB8tiRgv3zYnC/G7wROZJt
+X-Received: by 2002:a05:6512:10d1:b0:5b8:f81b:dfea with SMTP id
+ 2adb3069b0e04-5c1aa2ce5d9mr1273317e87.62.1795046367239; Wed, 18 Nov 2026
+ 15:59:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -177,232 +104,138 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261118-mmpop-populate-v1-0-9c561d178d11@crosse.dev>
+ <20261118-mmpop-populate-v1-1-9c561d178d11@crosse.dev> <e32482de-295a-4e26-b6ae-5b8b58f8b98c@kernel.org>
+In-Reply-To: <e32482de-295a-4e26-b6ae-5b8b58f8b98c@kernel.org>
+From: Harrison Crosse <harrison@crosse.dev>
+Date: Wed, 18 Nov 2026 18:59:16 -0500
+X-Gm-Features: AclHuK_1VAQDAg1dH3obLDVFJKWckiVyn_K5qUH1FINUpBm1FFDjoVLIC7OItpA
+Message-ID: <CAAFYBzy=Rf+gtYBkHfR9MpmakDrZBpOEfk-rLxUtRo7RfiFy+g@mail.gmail.com>
+Subject: Re: [PATCH 1/2] mm/gup: make mlock() and MAP_POPULATE handle
+ VM_FAULT_RETRY properly
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Shuah Khan <shuah@kernel.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Jan Kara <jack@suse.cz>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Driver overrides are the standard mechanism for binding vfio drivers
-to devices.  With the introduction of the support_driver_override flag
-in the core driver struct, it's now required for drivers to declare
-themselves as driver_override compatible, otherwise driver_override
-bindings will be denied or generate a kernel taint.
+> Let me take care of this (or find someone more familiar with that code
+> that can help).
 
-Set the support_driver_override flag on the driver struct across all
-vfio drivers.
+Thanks for taking this over David!
 
-Cc: Yishai Hadas <yishaih@nvidia.com>
-Cc: Longfang Liu <liulongfang@huawei.com>
-Cc: Ankit Agrawal <ankita@nvidia.com>
-Cc: Brett Creeley <brett.creeley@amd.com>
-Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>
-Cc: Michał Winiarski <michal.winiarski@intel.com>
-Cc: Julian Ruess <julianr@linux.ibm.com>
-Cc: Nipun Gupta <nipun.gupta@amd.com>
-Cc: Nikhil Agarwal <nikhil.agarwal@amd.com>
-Cc: Eric Auger <eric.auger@redhat.com>
-Cc: Mostafa Saleh <smostafa@google.com>
-Cc: Pranjal Shrivastava <praan@google.com>
-Cc: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: qat-linux@intel.com
-Cc: virtualization@lists.linux.dev
-Cc: intel-xe@lists.freedesktop.org
-Cc: kvm@vger.kernel.org
-Signed-off-by: Alex Williamson <alex@shazbot.org>
----
+Harrison
 
-Uwe, this should cover all the vfio drivers that expect to use
-driver_override.  Thanks,
-
-Alex
-
- drivers/vfio/cdx/main.c                        | 1 +
- drivers/vfio/fsl-mc/vfio_fsl_mc.c              | 1 +
- drivers/vfio/pci/hisilicon/hisi_acc_vfio_pci.c | 3 ++-
- drivers/vfio/pci/ism/main.c                    | 3 ++-
- drivers/vfio/pci/mlx5/main.c                   | 3 ++-
- drivers/vfio/pci/nvgrace-gpu/main.c            | 3 ++-
- drivers/vfio/pci/pds/pci_drv.c                 | 3 ++-
- drivers/vfio/pci/qat/main.c                    | 3 ++-
- drivers/vfio/pci/vfio_pci.c                    | 3 ++-
- drivers/vfio/pci/virtio/main.c                 | 3 ++-
- drivers/vfio/pci/xe/main.c                     | 3 ++-
- drivers/vfio/platform/vfio_amba.c              | 1 +
- drivers/vfio/platform/vfio_platform.c          | 1 +
- 13 files changed, 22 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/vfio/cdx/main.c b/drivers/vfio/cdx/main.c
-index 28dc8c825600..fb7679bf92fd 100644
---- a/drivers/vfio/cdx/main.c
-+++ b/drivers/vfio/cdx/main.c
-@@ -358,6 +358,7 @@ static struct cdx_driver vfio_cdx_driver = {
- 	.match_id_table	= vfio_cdx_table,
- 	.driver	= {
- 		.name	= "vfio-cdx",
-+		.support_driver_override = true,
- 	},
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/fsl-mc/vfio_fsl_mc.c b/drivers/vfio/fsl-mc/vfio_fsl_mc.c
-index 15b05b8c0c90..1603f81e0257 100644
---- a/drivers/vfio/fsl-mc/vfio_fsl_mc.c
-+++ b/drivers/vfio/fsl-mc/vfio_fsl_mc.c
-@@ -597,6 +597,7 @@ static struct fsl_mc_driver vfio_fsl_mc_driver = {
- 	.remove		= vfio_fsl_mc_remove,
- 	.driver	= {
- 		.name	= "vfio-fsl-mc",
-+		.support_driver_override = true,
- 	},
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/hisilicon/hisi_acc_vfio_pci.c b/drivers/vfio/pci/hisilicon/hisi_acc_vfio_pci.c
-index c82c59246a3f..5c56aff8db01 100644
---- a/drivers/vfio/pci/hisilicon/hisi_acc_vfio_pci.c
-+++ b/drivers/vfio/pci/hisilicon/hisi_acc_vfio_pci.c
-@@ -1737,7 +1737,8 @@ static struct pci_driver hisi_acc_vfio_pci_driver = {
- 	.id_table = hisi_acc_vfio_pci_table,
- 	.probe = hisi_acc_vfio_pci_probe,
- 	.remove = hisi_acc_vfio_pci_remove,
--	.driver = { .pm = pm_ptr(&hisi_acc_vf_pm_ops) },
-+	.driver = { .pm = pm_ptr(&hisi_acc_vf_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &hisi_acc_vf_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/ism/main.c b/drivers/vfio/pci/ism/main.c
-index cce3bdf1f070..263b377e87c4 100644
---- a/drivers/vfio/pci/ism/main.c
-+++ b/drivers/vfio/pci/ism/main.c
-@@ -399,7 +399,8 @@ static struct pci_driver ism_vfio_pci_driver = {
- 	.id_table = ism_device_table,
- 	.probe = ism_vfio_pci_probe,
- 	.remove = ism_vfio_pci_remove,
--	.driver	= { .pm = pm_ptr(&ism_vfio_pm_ops) },
-+	.driver	= { .pm = pm_ptr(&ism_vfio_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &ism_vfio_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/mlx5/main.c b/drivers/vfio/pci/mlx5/main.c
-index 18a6d224b1fd..63c89e461be8 100644
---- a/drivers/vfio/pci/mlx5/main.c
-+++ b/drivers/vfio/pci/mlx5/main.c
-@@ -1451,7 +1451,8 @@ static struct pci_driver mlx5vf_pci_driver = {
- 	.id_table = mlx5vf_pci_table,
- 	.probe = mlx5vf_pci_probe,
- 	.remove = mlx5vf_pci_remove,
--	.driver	= { .pm = pm_ptr(&mlx5vf_pm_ops) },
-+	.driver	= { .pm = pm_ptr(&mlx5vf_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &mlx5vf_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/nvgrace-gpu/main.c b/drivers/vfio/pci/nvgrace-gpu/main.c
-index 5ddec340b73b..946da32c61ff 100644
---- a/drivers/vfio/pci/nvgrace-gpu/main.c
-+++ b/drivers/vfio/pci/nvgrace-gpu/main.c
-@@ -1438,7 +1438,8 @@ static struct pci_driver nvgrace_gpu_vfio_pci_driver = {
- 	.id_table = nvgrace_gpu_vfio_pci_table,
- 	.probe = nvgrace_gpu_probe,
- 	.remove = nvgrace_gpu_remove,
--	.driver = { .pm = pm_ptr(&nvgrace_gpu_pm_ops) },
-+	.driver = { .pm = pm_ptr(&nvgrace_gpu_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &nvgrace_gpu_vfio_pci_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/pds/pci_drv.c b/drivers/vfio/pci/pds/pci_drv.c
-index cf7e33d4d17b..1fcef987f1b0 100644
---- a/drivers/vfio/pci/pds/pci_drv.c
-+++ b/drivers/vfio/pci/pds/pci_drv.c
-@@ -184,7 +184,8 @@ static struct pci_driver pds_vfio_pci_driver = {
- 	.id_table = pds_vfio_pci_table,
- 	.probe = pds_vfio_pci_probe,
- 	.remove = pds_vfio_pci_remove,
--	.driver = { .pm = pm_ptr(&pds_vfio_pm_ops) },
-+	.driver = { .pm = pm_ptr(&pds_vfio_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &pds_vfio_pci_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/qat/main.c b/drivers/vfio/pci/qat/main.c
-index 69448fa57df4..8a616f9b6494 100644
---- a/drivers/vfio/pci/qat/main.c
-+++ b/drivers/vfio/pci/qat/main.c
-@@ -695,7 +695,8 @@ static struct pci_driver qat_vf_vfio_pci_driver = {
- 	.id_table = qat_vf_vfio_pci_table,
- 	.probe = qat_vf_vfio_pci_probe,
- 	.remove = qat_vf_vfio_pci_remove,
--	.driver	= { .pm = pm_ptr(&qat_vf_pm_ops) },
-+	.driver	= { .pm = pm_ptr(&qat_vf_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &qat_vf_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/vfio_pci.c b/drivers/vfio/pci/vfio_pci.c
-index e7c012febe91..fde2c3fc88eb 100644
---- a/drivers/vfio/pci/vfio_pci.c
-+++ b/drivers/vfio/pci/vfio_pci.c
-@@ -260,7 +260,8 @@ static struct pci_driver vfio_pci_driver = {
- 	.remove			= vfio_pci_remove,
- 	.sriov_configure	= vfio_pci_sriov_configure,
- 	.err_handler		= &vfio_pci_err_handlers,
--	.driver		= { .pm = pm_ptr(&vfio_pci_pm_ops) },
-+	.driver		= { .pm = pm_ptr(&vfio_pci_pm_ops),
-+			    .support_driver_override = true },
- 	.driver_managed_dma	= true,
- };
- 
-diff --git a/drivers/vfio/pci/virtio/main.c b/drivers/vfio/pci/virtio/main.c
-index 123ff5193812..1e02a8fd4a61 100644
---- a/drivers/vfio/pci/virtio/main.c
-+++ b/drivers/vfio/pci/virtio/main.c
-@@ -222,7 +222,8 @@ static struct pci_driver virtiovf_pci_driver = {
- 	.id_table = virtiovf_pci_table,
- 	.probe = virtiovf_pci_probe,
- 	.remove = virtiovf_pci_remove,
--	.driver = { .pm = pm_ptr(&virtiovf_pm_ops) },
-+	.driver = { .pm = pm_ptr(&virtiovf_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &virtiovf_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/pci/xe/main.c b/drivers/vfio/pci/xe/main.c
-index 7dab3e024aa8..e0ab61f604de 100644
---- a/drivers/vfio/pci/xe/main.c
-+++ b/drivers/vfio/pci/xe/main.c
-@@ -592,7 +592,8 @@ static struct pci_driver xe_vfio_pci_driver = {
- 	.id_table = xe_vfio_pci_table,
- 	.probe = xe_vfio_pci_probe,
- 	.remove = xe_vfio_pci_remove,
--	.driver = { .pm = pm_ptr(&xe_vfio_pm_ops) },
-+	.driver = { .pm = pm_ptr(&xe_vfio_pm_ops),
-+		    .support_driver_override = true },
- 	.err_handler = &xe_vfio_pci_err_handlers,
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/platform/vfio_amba.c b/drivers/vfio/platform/vfio_amba.c
-index fa754f203b2d..2c87caf1b7f7 100644
---- a/drivers/vfio/platform/vfio_amba.c
-+++ b/drivers/vfio/platform/vfio_amba.c
-@@ -137,6 +137,7 @@ static struct amba_driver vfio_amba_driver = {
- 	.id_table = vfio_amba_ids,
- 	.drv = {
- 		.name = "vfio-amba",
-+		.support_driver_override = true,
- 	},
- 	.driver_managed_dma = true,
- };
-diff --git a/drivers/vfio/platform/vfio_platform.c b/drivers/vfio/platform/vfio_platform.c
-index a4d3ace3e02d..93d06032cdde 100644
---- a/drivers/vfio/platform/vfio_platform.c
-+++ b/drivers/vfio/platform/vfio_platform.c
-@@ -116,6 +116,7 @@ static struct platform_driver vfio_platform_driver = {
- 	.remove		= vfio_platform_remove,
- 	.driver	= {
- 		.name	= "vfio-platform",
-+		.support_driver_override = true,
- 	},
- 	.driver_managed_dma = true,
- };
--- 
-2.54.0
-
+On Wed, Nov 18, 2026 at 6:25=E2=80=AFPM David Hildenbrand (Arm)
+<david@kernel.org> wrote:
+>
+> On 11/18/26 22:56, Harrison Crosse via B4 Relay wrote:
+> > From: Harrison Crosse <harrison@crosse.dev>
+> >
+> > If every read of a page of a file mapping fails, mmap(MAP_POPULATE)
+> > and mlock() of that mapping do not return: the task spins in
+> > __mm_populate(), submitting a new read of the page on each iteration,
+> > until it gets a fatal signal. Touching the same page gets SIGBUS, and
+> > madvise(MADV_POPULATE_READ) fails with -EFAULT.
+> >
+> > The first fault on the page reaches filemap_fault() with
+> > FAULT_FLAG_ALLOW_RETRY and without FAULT_FLAG_TRIED. filemap_fault()
+> > releases the mmap_lock to read the page and, because it released the
+> > lock, returns VM_FAULT_RETRY before it looks at the result of the read.
+> > It cannot report the error then: a fault that has released the lock
+> > returns VM_FAULT_RETRY or VM_FAULT_COMPLETED, and neither carries an
+> > error. faultin_page() turns VM_FAULT_RETRY into -EBUSY, so
+> > __get_user_pages() stops at that page without an error, and
+> > __mm_populate() calls populate_vma_page_range() again at that address,
+> > again without FOLL_TRIED. The page fault handlers and
+> > __get_user_pages_locked() retry with FAULT_FLAG_TRIED instead, and on
+> > that attempt filemap_fault() reads the page with the lock held and
+> > returns VM_FAULT_SIGBUS if the read fails.
+> >
+> > Commit 631426ba1d45 ("mm/madvise: make MADV_POPULATE_(READ|WRITE) handl=
+e
+> > VM_FAULT_RETRY properly") fixed the same loop for MADV_POPULATE_* by
+> > calling __get_user_pages_locked(). That does not fit here:
+> > __get_user_pages_locked() retakes the mmap_lock itself and carries on
+> > with the GUP flags it was given, while populate_vma_page_range()
+> > derives those flags from the VMA that __mm_populate() looks up again,
+> > and may skip, after each unlock. Retrying with a NULL locked instead
+> > would drop FAULT_FLAG_ALLOW_RETRY and FAULT_FLAG_KILLABLE, so a
+> > userfaultfd range would fail rather than wait, and folio lock waits
+> > would not be killable.
+> >
+> > Instead, have __mm_populate() remember the address of the page whose
+> > fault released the mmap_lock. When the next iteration starts at that
+> > address, fault in that page alone with FOLL_TRIED, as
+> > __get_user_pages_locked() does, then continue with the rest of the
+> > range as before. The retry reads the page with the mmap_lock held, as
+> > filemap_fault() did for a page that was not uptodate before v5.1, and
+> > as the other GUP retries do. With a persistent read error the retry
+> > fails with -EFAULT: mlock() returns -ENOMEM
+> > (__mlock_posix_error_return() maps -EFAULT to it), and MAP_POPULATE,
+> > which ignores populate errors, returns the mapping. A fatal signal
+> > still ends the loop, with -EINTR from __get_user_pages() or, if it
+> > interrupts the FOLL_TRIED read, with -EFAULT. The other callers of
+> > populate_vma_page_range() pass a NULL locked, so they cannot get
+> > VM_FAULT_RETRY and are unchanged.
+> >
+> > Reproduced with ext4 on dm-linear over a loop device, with the eight
+> > sectors of one page of a file mapped to the dm "error" target, on arm64
+> > (Debian's 6.12.116 and v7.4-rc3) and x86_64 (v7.4-rc3): mmap(MAP_POPULA=
+TE)
+> > and mlock() of the file were still running in the kernel after 5 second=
+s
+> > and ended when sent SIGKILL. On 6.12.116, the block layer tracepoints
+> > showed about 280,000 bios a second being submitted and failed.
+> >
+> > The analysis, the patch and this changelog were prepared with the help
+> > of an AI coding assistant (Claude).
+>
+> Yes, that's rather obvious from looking at it, thanks for documenting tha=
+t :)
+>
+> Thanks for the report!
+>
+> [...]
+>
+> > +              *
+> > +              * filemap_fault() reports a read error only when
+> > +              * FAULT_FLAG_TRIED is set: on a first attempt it release=
+s the
+> > +              * mmap_lock for the read and returns VM_FAULT_RETRY what=
+ever
+> > +              * the result. So when the last call released the lock at
+> > +              * nstart, retry that page with FOLL_TRIED, and only that=
+ page,
+> > +              * so that later pages still get a first attempt that rel=
+eases
+> > +              * the lock for the read. Compare the address because nst=
+art
+> > +              * moves past that page if it is no longer mapped, or its=
+ VMA
+> > +              * is skipped, when the lock is retaken.
+> >                */
+> > -             ret =3D populate_vma_page_range(vma, nstart, nend, &locke=
+d);
+> > +             tried =3D retry && nstart =3D=3D retry_addr;
+> > +             ret =3D __populate_vma_page_range(vma, nstart,
+> > +                                             tried ? nstart + PAGE_SIZ=
+E : nend,
+> > +                                             &locked, tried);
+>
+> Yeah, that's quite the ugly code. Let me take care of this (or find someo=
+ne more
+> familiar with that code that can help).
+>
+> @Yeoreum, do you have some spare cycles?
+>
+>
+> --
+> Cheers,
+>
+> David
