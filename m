@@ -1,79 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795013896;
-	b=xgC2tzg9TJ0rJqGFABIderab2l64vOBGxuxcvjgYkvPSRxTeJucYdbt4eMghdrksHD7w
-	 zAgT/+vWM/zqpi4VM6hQ3vhsA8gTFXFzmqwbjbGW5Vt/HuIUjLh8hLuZXZBrFFP4lmbvv
-	 qPmHGXoiApEc7UD8rCZy7fe3mUIl61wNWT5y94UaeMFr5gAVUsRuiyoty2r/ngWM2wfDB
-	 11JlNnP7epYH7bu/Eu3FWIUIPQwGNwIdysxNUebmjqjc50izzYn916MI3e83OAONvSzRn
-	 1KD8Fk//TPfqRCcNuF1Bpn2TIonaiYUfz0lgMrKSqFMYzaP3YdAw59yfOcpgcquHb0w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013896;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zIt1ASrbnOGcLtW3sl2rVdTEUS+/vIWkbm6UJtqJ7ak=;
-	b=sIkZthNWybP4hU9Roc6F3MjQcIy6xwky4mDE5tN+xxwez7VaYtQrfcDJ/OrQp+sR3urW
-	 y+ZyWWVM9PHONn6q9O3t+L7yhIdmxUe3ubL364KdKwgk3XwfwSC1b2o47f4egIUyr/5jy
-	 Yoq1SlmcRHLlRiEYfTsKzWCijOr2b2TRIk2e8JUGBd/xBzLREJkcP7CMFUF2nj9L2uZC7
-	 xlnolM6c0cv3IxYLYRTHwnFBKagJ/+qrty4Y1voRxdC1+lr/CvMH26KGSOWUmp6nxtij2
-	 6RJRoQqOs2AnFdNH4iayJMR0arSM6z5wunNdsJovpB0Vr1cskXttHL3qCNBMFoK/uzQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ka+CL7fJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795013897;
+	b=dSs/DeuZylTgMAYO8/avdhTf/9EwMuKsSkS0uQwuBbeXbZ23NUE/Sx5/pPCcbwz+PrRD
+	 xsKdis62+y/SotxClOd6iUI7YyjOxsWUbEDnBvHyumF+ciFcVBNtWTD4S9z90wsq8EZbP
+	 Lm0eUoEof5km2J59eN+DNsP/HX2QaI/eELLrg7U89kN2jECKIuHw0mgOBsdhrrRd3msIc
+	 gyzjCUznMGoscUK2XKXafM38KrB5RFxRGModGo72IqpzWa+vU+paa4pMSEhW0WROIDJaD
+	 tFJ7N/i4UnIrGc9j/KCqK1DxQgCb+rfB9Kplw+U8CEhBvRhyiHr9cJ4L5Jh+UqAtx9w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013897;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=PJCnB2NDWiV3ObQfPaZFnBjIW1Yxsi5C6UDhp71aKIY=;
+	b=nbG9TgHDlkIo9sJq/es+lyaHwV1IDj8utJY5gJIviR8snKSyXPbbVG4MN8u7WPWZ9Top
+	 +K4m/WrDHqdHnMR+FyHE7m4cdCucn3GVFLhVe9FofoJ/3Ewak06UBd0KIrPNVfHmLvfR1
+	 NVJ9f3TnhqvT7Bq6037nqNgiAOi/73haQgNZTZWVaBBsj/EOOxfJ8JvDJVk7EE6IxjwmS
+	 ldy3dK3JohSDnObZQ+i8FdaSa0VzvIfx/Eue273AlcOeAdi6xOF8V2feDYRBpC0MQst2s
+	 pdZfxlcHJgLPLoTENRjpFv53LVo2Jc3Mh9Blg4BVD5Td/GxDVC5WvYi1u9+qhlvfUXw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DijxmAwD;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B402E606A325;
-	Wed, 18 Nov 2026 14:58:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7671860A261F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:58:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ka+CL7fJ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795013896;
-	b=KtR4QxqasG6BhfDrOBn941GA25PhM2XF2vGe+5oFHTTytK9z3lkfu64aJWqiDYWETbVp
-	 3NNyNVCj88gXSPCMcHIdRBbB2J1B0kL9ZW1Bu3oloVmbAUy61LadcwR3SCiybDTagnLsn
-	 tKZ/zJsWDQ64zhbLuwljlP47ofdsnKAPU/N+XTITFrWhRTeHTlWaNGbxZ3AwwrFTkIFk0
-	 vKTiwEwFoJNIoYARDtcqon5hFz+bRnq1INlnUzbm2xb8/9ss7+eZKNXHvl6n4UTakw9xP
-	 u7W8EEOqciJh5a2oASSR4vmj1PP3CFmlYtrcu3ZbwleX78+cpZzqmr58+PNw6bYzy9A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795013896;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=zIt1ASrbnOGcLtW3sl2rVdTEUS+/vIWkbm6UJtqJ7ak=;
-	b=IZYbIiEdqBizGEBOs8m3Fi1TpRjlPVufV4SlIUT4q2IWeszFgWe3Jw6KQnfD99/zQk24
-	 5yxWXQs/vVEK6T6vq8cxKlgkjI60VXV0sVNou/5xnPTAQPrsH/YKXvIRhfpIRs8+iyd3G
-	 Bs+LBwGvBFZH0JiU7JFIG5TLwzFSgVFEBKyfkegaqG+KmGrpnV5az11DLqew0Z0gLqUe8
-	 K+bMZBteQMx7cwzb3IB3G2489xEW7iTtavCVrCh4MvF1b0mYsNKvCKn43nommfIaQOrWN
-	 JtBNsX2aoVkNrecHzhTd/hCBtQXx3YQeVCWtyGSiBidiFU2fGUoZnM6mjzunO1Kqftg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 982451F00926;
-	Wed, 18 Nov 2026 14:58:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DijxmAwD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4096D1F000C6;
+	Wed, 18 Nov 2026 14:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795013896;
-	bh=zIt1ASrbnOGcLtW3sl2rVdTEUS+/vIWkbm6UJtqJ7ak=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Ka+CL7fJXSmJOzwXzugmS+lD0iH4UcS+TZbjFhGaF1UUrH8EDKk3Iz43LB4gWlLnK
-	 hx7fYGQ73bp5LBie0YAJBIYt0rfd3qRW9uUey4eW7d2QKON13cGKjRuRvOTKeLWlvp
-	 dMVutWqaOAXMZygbarH6Sd3bdskOybHjv46pUe9bJiFW8bN6McHWDNezTp++lTEINN
-	 GdjGCtNqr36JGJBku/5hgw1HBtvuWhaUkzHD3JuwEwzOg4cvWqJ/ivYEUB5H/XokkA
-	 wJNx14xcKlDwqdyTRrFtL7T7atfCaZJU2PQfLM5J3hcVqIbotBlIVE6QCVZ4F0foRM
-	 qriE1PQ+iEOTg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 2026B4AE04;
-	Wed, 18 Nov 2026 14:58:13 +0000 (UTC)
-From: Alexandre Rapaille via B4 Relay <devnull+arapaille.atlr-engineering.com@kernel.org>
-Date: Wed, 18 Nov 2026 15:58:01 +0100
-Subject: [PATCH 3/3] wifi: wcn36xx: Stop waiting on a dead firmware during
- remove
+	s=k20260515; t=1795013897;
+	bh=PJCnB2NDWiV3ObQfPaZFnBjIW1Yxsi5C6UDhp71aKIY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=DijxmAwDbTa4L2Ply7caGjZo5P0/KZEG25tVtp7gfTyyxy4pkIsZr+RuhaTgWEr27
+	 yU+/Fs8hacMRumXJ13cbUwfvoJd1nzStWTWKoc+aY28QMmPlhHokIuYj9TL9DpyW61
+	 uRqamPRt7si3+j7WBBLXmbxC4MXNCgnEhyT+EbgTqAszhilZ7w69B96XPhpF04/GL5
+	 bnBYtWWwSyz27qRE9GcI7Z6bZpi/kp0SC9M9WkXJPyqNJQuZPf/U8k9kL+BwCzNo8y
+	 aw30ShH/ITAduc7ZirgqnDRvFzHZk40JaYT+djBuxNJTW1VAyGmph7ANwOOCiOqbCy
+	 u1y7kdnm7XFcA==
+Message-ID: <f30cda1f-3f7f-4e58-b5eb-5db77c0f82ee@kernel.org>
+Date: Wed, 18 Nov 2026 15:58:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,102 +51,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-wcnss-series-v1-v1-3-a64d82e151bf@atlr-engineering.com>
-References: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com>
-In-Reply-To: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Luca Weiss <luca@lucaweiss.eu>, Eugene Krasnikov <k.eugene.e@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, wcn36xx@lists.infradead.org, 
- linux-wireless@vger.kernel.org, 
- Alexandre Rapaille <arapaille@atlr-engineering.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795013892; l=2576;
- i=arapaille@atlr-engineering.com; s=20261118; h=from:subject:message-id;
- bh=OWtB8gLUHR0gZZyDT6Sr85NMnedCySghwg3+i2hEYMk=;
- b=40vQIVIHDiOrrWXDECYvU5u3JJRHAVNJeUedW0JPVJCgi5Xofe0K70qQvMCKg/EHM6Bza2uQk
- +hoPHbqb31UD0khKmRPYS2s9xX9yNGInY/QjftvDjjtkHMEQzsXZy8B
-X-Developer-Key: i=arapaille@atlr-engineering.com; a=ed25519;
- pk=xskH/sIiNU/aZCeGeBB1TK/AuiG3MXlX0m2wMlbMl08=
-X-Endpoint-Received: by B4 Relay for
- arapaille@atlr-engineering.com/20261118 with auth_id=1560
-X-Original-From: Alexandre Rapaille <arapaille@atlr-engineering.com>
-Reply-To: arapaille@atlr-engineering.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] mm/memory: remove the mkwrite argument from
+ __vm_insert_mixed()
+To: Sang-Heon Jeon <ekffu200098@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+ "Jose A . Perez de Azpillaga" <azpijr@gmail.com>,
+ "Liam R. Howlett" <liam@infradead.org>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>
+References: <20261002160535.661399-1-ekffu200098@gmail.com>
+ <20261002160535.661399-3-ekffu200098@gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261002160535.661399-3-ekffu200098@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-From: Alexandre Rapaille <arapaille@atlr-engineering.com>
+On 10/2/26 18:05, Sang-Heon Jeon wrote:
+> __vm_insert_mixed() is only called from vmf_insert_mixed() with
+> mkwrite == false, so mkwrite is also always false in vm_mixed_ok()
+> and insert_pfn().
+> 
+> So remove the argument and the unreachable code in insert_pfn().
+> 
+> No functional change.
+> 
+> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+> ---
 
-After a WCNSS crash, remove sends ~16 HAL commands nobody can answer,
-each waiting HAL_MSG_TIMEOUT: recovery took 160 s on msm8974. Once one
-times out during remove, fail the rest at once; recovery now takes ~20 s.
-
-Signed-off-by: Alexandre Rapaille <arapaille@atlr-engineering.com>
----
- drivers/net/wireless/ath/wcn36xx/main.c    | 1 +
- drivers/net/wireless/ath/wcn36xx/smd.c     | 8 ++++++++
- drivers/net/wireless/ath/wcn36xx/wcn36xx.h | 4 ++++
- 3 files changed, 13 insertions(+)
-
-diff --git a/drivers/net/wireless/ath/wcn36xx/main.c b/drivers/net/wireless/ath/wcn36xx/main.c
-index ad8a4bd910..77a1029108 100644
---- a/drivers/net/wireless/ath/wcn36xx/main.c
-+++ b/drivers/net/wireless/ath/wcn36xx/main.c
-@@ -1651,6 +1651,7 @@ static void wcn36xx_remove(struct platform_device *pdev)
- 
- 	release_firmware(wcn->nv);
- 
-+	WRITE_ONCE(wcn->removing, true);
- 	ieee80211_unregister_hw(hw);
- 
- 	qcom_smem_state_put(wcn->tx_enable_state);
-diff --git a/drivers/net/wireless/ath/wcn36xx/smd.c b/drivers/net/wireless/ath/wcn36xx/smd.c
-index c0b4773458..d07ea967ac 100644
---- a/drivers/net/wireless/ath/wcn36xx/smd.c
-+++ b/drivers/net/wireless/ath/wcn36xx/smd.c
-@@ -427,6 +427,12 @@ static int wcn36xx_smd_send_and_wait(struct wcn36xx *wcn, size_t len)
- 		(struct wcn36xx_hal_msg_header *)wcn->hal_buf;
- 	u16 req_type = hdr->msg_type;
- 
-+	/* After a WCNSS crash every teardown command would wait the full
-+	 * timeout; one is enough to know nobody will answer.
-+	 */
-+	if (wcn->fw_dead)
-+		return -ETIME;
-+
- 	wcn36xx_dbg_dump(WCN36XX_DBG_SMD_DUMP, "HAL >>> ", wcn->hal_buf, len);
- 
- 	init_completion(&wcn->hal_rsp_compl);
-@@ -440,6 +446,8 @@ static int wcn36xx_smd_send_and_wait(struct wcn36xx *wcn, size_t len)
- 		msecs_to_jiffies(HAL_MSG_TIMEOUT)) <= 0) {
- 		wcn36xx_err("Timeout! No SMD response to req %d in %dms\n",
- 			    req_type, HAL_MSG_TIMEOUT);
-+		if (READ_ONCE(wcn->removing))
-+			wcn->fw_dead = true;
- 		ret = -ETIME;
- 		goto out;
- 	}
-diff --git a/drivers/net/wireless/ath/wcn36xx/wcn36xx.h b/drivers/net/wireless/ath/wcn36xx/wcn36xx.h
-index 8c43f67bd7..9e5f3918ca 100644
---- a/drivers/net/wireless/ath/wcn36xx/wcn36xx.h
-+++ b/drivers/net/wireless/ath/wcn36xx/wcn36xx.h
-@@ -276,6 +276,10 @@ struct wcn36xx {
- 	spinlock_t	dxe_lock;
- 	bool                    queues_stopped;
- 
-+	/* Set in remove; a HAL timeout then means the firmware is gone. */
-+	bool			removing;
-+	bool			fw_dead;
-+
- 	/* Memory pools */
- 	struct wcn36xx_dxe_mem_pool mgmt_mem_pool;
- 	struct wcn36xx_dxe_mem_pool data_mem_pool;
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
-2.43.0
+Cheers,
 
-
+David
