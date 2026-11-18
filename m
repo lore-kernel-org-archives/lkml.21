@@ -1,49 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795023192;
-	b=3eJQDhH51JiyUEqNBrwF7Ioz8BAm9PDcG62xQCADgskqrJRGsTNASuLcvZOp9j67MnSw
-	 UxfFkeBc7rK6qQC+BB0GSIcQVx3B/1jFLMCqusv2hk2TfoSi4YH6XHKj3Qdg60BPdIOk7
-	 xQbVP6YODQvYwC66k/t+VjmE1AqZAivqbcZqnFccOWdRqevOEb8OfCmz7fNXuqZUDvlMO
-	 xxroKgM+0MMZOoiliRnkg4rBsgflKrBSaXz8zVBMbnSPjfF30VCPLeNPiDiyAc9VQ4Td5
-	 0zKN6zLgD5cwvb54igaeWhHKrPsvKXBTn/TI6s+vRfMVAiPcg5aRb5An2W/EXduW1mQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023192;
-	h=DMARC-Filter:Received:DKIM-Signature:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:In-Reply-To:References:Subject:From:Cc:To:
-	 Date:Message-ID:User-Agent;
-	bh=a/lyCJQdRve1tbsoR8RKcutalG9QBdrs3OjhI/MIc7M=;
-	b=JyL5LW6yugaYkN8Sk5DYx7X59DtXXimPcCIJ+r8ZzBHwWYAmQX+9PaI3us+s+XaMt/tN
-	 YEUuU5ztKsPT0zoLDCZj1RayRkA88fIzEmlvsnq6Nta8LLQ0n4K35z+IMj0DaxROV4CFQ
-	 F0AG2MUGT9JY/naQ8TsDJ99iH0kxMTTGOgtDMA6md7ByoBHg+k5la1sKhYsmligdxLutF
-	 dHY145+adRu/WpS9T5bwGewKq5fdeH2BCYKdHZefdPPJ1VlAj4LQjnBaOUaSaGQm5V8d0
-	 Cr9n7GuBuxVf2XJy9xs9ebQHjAI2mFVJwHtz7HycKNDotegi+QQidPSPA9rN+bhvBqA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=UvsMN39A;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795023208;
+	b=uLr3Jx4xWbPteO8C4BGlFu7moOHG+Qhd2DvWgIeL3Ow95ATPKZVSeGD/1w8HolvuyY85
+	 cAcakgkj6vBz0+wmTqGlXtFiV59ynTkzhKjmk/cHppgEN52EEcML9jTUrtLszqtYVJtDD
+	 JWt/WlwGt2TYBSnOf+ZLhRfVa91R8ZZI7VV2kQ6UH3xQY4xVEthyDDhGf2E1O7VNK4TX1
+	 egnZnMA5i25W5TAohm7gO7zSLcOiiMeLk5wW2/Q697QIaQLq0j7Rr/V5FhRvz3Vb//TV+
+	 18x/CYToQudl0WyjvU0Qf6imqjDSka/iuqSjTe/Dsv+CPABKDBjA0zaVx9+zFh1TaAw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023208;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=GW1bT+NiWRjh5FxWkqjWNnySe32roAPjUmodhG2IUG8=;
+	b=o24IG+/VWZySfgYJ8iigYJH07kBg9xLFtY6+UiPuiFXyKrwjSuK49iXzn87PabdE41k7
+	 wh/o+Y1kbqnXRkKbKV00HMhsUrM/yUwkX5kI7FM1GawJmylZdTmTzd+phi+2vaszo5672
+	 jEn/nsyZdnTcKLUgAGo1xTDGKuq6TeOEXYusPP9TsSw2WjjH7D+XkIQehyP/hc6VEsjir
+	 y9gTdaJ0SuHyMNhkmUE/VTz+9hxXpdq8DZK+Zvn5kV3wPM6gJKt0XAROxA9XWkJnez4FP
+	 pKPHP3TNhwlFEn0kYzdJtlvmsC9uXjKEh3qFTAjuCYgmSsbCF1MoTCugKuemzTMSySA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=fmawHGJo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.46
+Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013046.outbound.protection.outlook.com [40.107.201.46])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E26B2606A32A;
-	Wed, 18 Nov 2026 17:33:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E26B2606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB521606A31C;
+	Wed, 18 Nov 2026 17:33:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB521606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=UvsMN39A
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c67:cdf:7464:6c04:36e4:ee87])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 661D5270;
-	Wed, 18 Nov 2026 18:30:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795023033;
-	bh=kudhAj0IuoHyw+UdwKzgpyxC28M9LV4mqZXkQiOmDlw=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=UvsMN39AxilyRRaSXbHZPXLjNoVKqxq9WMwcJl7ZarDO+oNUHOOtn3n3xnoR2FjEZ
-	 Dm2yUnJwbPbMpjxgimpG5OL7ghKctSjVK+cjZ39AGzVdVYeiIvwR/GwM87S7aFRvX+
-	 IgF6EM6I+ttSJbgktDbenSEUfDgJ3Kl+xLsY/qyo=
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=fmawHGJo
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MHir0eX9b0COQz/3SckHQYxKGdm+e1gPVEbuQ2nwyt7UcQq8vp/EoFUhZepTOCNq1Cha88iEmHAoHadeKWiiEPJu+ogcV/4kpZMrnGNEcK6Ekt6bUkBEkEXMlWBs0LBaxWahSrFbi6EhZxYeRSGPtAy0kjZY5ZrFWoUhbJ166pmC/CGytvK4Gk+3xqpxLWLOzGqvowgBp0vp0n8DJ+SQ+LvaTAQ4TioHX/FvejvSnzv1fMsrPHoqiO5s7WH2nBsJtERLXXA/EeP2St2+X8nrSpxZQ6vg8Z/JK8nQKgn5BXWyiM/kzUl1e4LEG1t08laQlwEe7652y10vUUDC++vwQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GW1bT+NiWRjh5FxWkqjWNnySe32roAPjUmodhG2IUG8=;
+ b=dutO65+S1V6vcx/l1lvYnaTvbchoXsJQXzjvDXcCYzfXnYl06YYbMva2w/Pt7QuDC/wtD+rhpHvw0DUPzqQQbWYyGO8KVGgc8Idqv8jpR14iz+1P02JphI22mUpOC7Mwju7/SSy3AHQCgcvjEcC0+54saTuXd1uKTs92Ya8xT9hiI0BuuDFFISapMfN/+dKeHRGBSi6CVK6qyNBfPMEnpFQcv4zZuXWIXUlg1HCphPTGV83/t+yG7wqKAz9JaJH1XiC+uyItLydC7zfgFR1qbjkk69wEWXY0t05JCn/wUnN9PQYiFDygbvTGxL9Gro8+jbI4PXLB2wd8DX661LGvsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GW1bT+NiWRjh5FxWkqjWNnySe32roAPjUmodhG2IUG8=;
+ b=fmawHGJoI637KRT7BLNsLfKMDkNzJ4niFFoxcvbKiRbeHDOVLT5iOxOb5nhzO+QbTLi6TfGxFA5IjFowcHt5ODX2c+bDKm3w1PdGfzg7oDLlSqV4KPqoaGb3xsmgtZBya4YiEmNtjFE8TAw+0QMqnQ7QL+KRxLCS18CB2QJaFmGt6GAv0rbSI4UUYugKYBybuSYVBSlrkF+nFA1Wlg2DPNokewZvPLtUedgcUZliFIHsiRJtX/gciRxZtlC9CLQ8M38apv9d56uKse9wojzK7sRQwIWSxUAlumv7bV4unuuMGIYZtzbzN3mbd6fh3fwpCLCEWSJU/tNgqIYTMJQixQ==
+Received: from BN0PR04CA0068.namprd04.prod.outlook.com (2603:10b6:408:ea::13)
+ by DS7PR12MB9476.namprd12.prod.outlook.com (2603:10b6:8:250::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 17:33:20 +0000
+Received: from BN3PEPF00022BCF.namprd03.prod.outlook.com
+ (2603:10b6:408:ea:cafe::3f) by BN0PR04CA0068.outlook.office365.com
+ (2603:10b6:408:ea::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
+ 18 Nov 2026 17:33:20 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BN3PEPF00022BCF.mail.protection.outlook.com (10.167.248.170) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 17:33:19 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 09:32:54 -0800
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 18 Nov 2026 09:32:53 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Wed, 18 Nov 2026 09:32:48 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Alexandre Cassen <acassen@corp.free.fr>, Alex Vesker <valex@nvidia.com>,
+	Erez Shitrit <erezsh@nvidia.com>, Gal Pressman <gal@nvidia.com>, Kees Cook
+	<kees+treewide@kernel.org>, Leon Romanovsky <leon@kernel.org>, open list
+	<linux-kernel@vger.kernel.org>, <linux-rdma@vger.kernel.org>, Mark Bloch
+	<mbloch@nvidia.com>, Moshe Shemesh <moshe@nvidia.com>, Prathamesh Deshpande
+	<prathameshdeshpande7@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>, "Simon
+ Horman" <horms@kernel.org>, Tariq Toukan <tariqt@nvidia.com>, "William
+ Theesfeld" <william@theesfeld.net>, Yevgeny Kliteynik <kliteyn@nvidia.com>
+Subject: [PATCH net V2 0/2] net/mlx5: Fix HWS and DR steering memory safety bugs
+Date: Wed, 18 Nov 2026 19:32:25 +0200
+Message-ID: <20261118173227.1957670-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,247 +120,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <avsIXOBDRYvwINiI@valkosipuli.retiisi.eu>
-References: <20261112-b4-vchiq-isp-v6-0-711b48378367@ideasonboard.com> <20261112-b4-vchiq-isp-v6-4-711b48378367@ideasonboard.com> <avsIXOBDRYvwINiI@valkosipuli.retiisi.eu>
-Subject: Re: [PATCH v6 4/5] media: platform: broadcom: Add bcm2835-isp driver
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Tomasz Figa <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, Paul Elder <paul.elder@ideasonboard.com>, Hans Verkuil <hans@jjverkuil.nl>, linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Sakari Ailus <sakari.ailus@iki.fi>
-Date: Wed, 18 Nov 2026 23:02:56 +0530
-Message-ID: <179502317689.4071753.17481325815212926138@freya>
-User-Agent: alot/0.13.dev199+g9722e8483
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BCF:EE_|DS7PR12MB9476:EE_
+X-MS-Office365-Filtering-Correlation-Id: 078efa65-ef02-4d7e-1d72-08df459a09bb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|36860700016|82310400026|261021123027099003|11063799006|56012099006|261026140227099003|261028144727099003|10067099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|18002099003|6133799003|13003099007|41080700001;
+X-Microsoft-Antispam-Message-Info:
+	N4OxxmI2YYRqxTKMh+vJABnmS9pA+NOGfWsFpxW9ixKszAPxDLGKDe0cfQBtyKnzbvrFfcaaXvcGWwckMaJgC4b2EPfC/FhYb0WHhH250kOxWWjguOl52Wmr+5miiUFHh0PjKHUsirWoG3PoWAGR57DWXr4jABmCpoMONwgcFf7L9O9Xf42wcB6Cgjdrxj5H9gb+yfEC3A6tef/EfOnpyzI9osmqwW9bOtApUL/wxwaq+LBlPN5Xx2R+87Pe0E5BPMt6Bawy7gvrtZb4aiCdzH3t6YN60EGTzU9g1WYT7tDdUbLkmJEx3VHAPSpWHRSCHep8Ugguynfkd0ZLDfZLyC9pn0fARz8FCzNR5nUgDXcu9KuuSz2DM2iw2kJ44zszkdlrhthZ8NI/AuMBKE1qiw/Eh9a7JJwiFZ/CuX3KF+eTEwqVBqAijLsLQ6w5GJrE9l7IFVtnaJO0VB6AzM5+qJhNEoGsFMLqAewrKfHs0EEAHMrzZbwjDUvAirZNhcXBySzD93etmJevXXgZUu3joCIASJyG5DVWOOSgB/SjZQ2vXeQcrE6zZ8H+OznMmYjzgYmoAg4k8jyc3y/8z+VzRcm3FS/g6bV86E4PVopTMBkmtJ4BEVSA8faVvBMjqXE3VGasqu+dzfWUm8RFPz9fZIea7/twOHll+zSr9ezGK3DfQDYI3BRB/TpRSkombqryzmOXOD0C5uqVUFwaWPYo6ypqgCMTwjzTVBEX9WGBkiG3cPT+VfkN1kAZfmIkAxpvNT1ZR4+buF73P2gRw7IrEg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(36860700016)(82310400026)(261021123027099003)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(10067099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(18002099003)(6133799003)(13003099007)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	gDIwjbKxSpsdWtiFYViRDEZMaFKZBD2MF8/19BcoYYUygEmNNaJ0C163eggLDxijfIKJms99qr8zh4ANInAKkr4gyDdNkCuD7aC9vJPwDBw5criwA09HuSMXM1ydLN/dLKlfL/5LcjhC8k9HrY0c6XWr3qLsYMcedy7vEcA6JZAJlSMxMR0JYDwAKw9V0IMKdYXuRpF4X1GgZ3O/LHLfQ12ftY9CQbpXM0iVNUuRBAxZI4+MvmhJWX1BDt8p5vcVzJqJiRrRKWGp6b00J7q+xNoS4loB065XUWGCTnq7sJzvLYV39xTdu0jVAQ4icFOT5ziVYuy8wzAHdrPNjb85kxs2GWNt+VmMz6Z1hs5LyP/gV5AWuvg/qEJQfKeUElcXXS/ABgGMu1Go9kmV6RGvBqO5UhrMD3D3LppuYR6y7NWhonqrUm9Lh8NY9gdrFlPy
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:33:19.8660
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 078efa65-ef02-4d7e-1d72-08df459a09bb
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN3PEPF00022BCF.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9476
 
-Hi Sakari,
+Hi,
 
-Thank you for the review.
+This series by Yevgeny fixes two memory safety bugs in the mlx5 software
+and hardware steering code paths.
 
-Quoting Sakari Ailus (2026-11-16 19:12:52)
-> Hi Jai, Naush,
->=20
-> On Thu, Nov 12, 2026 at 04:56:32PM +0530, Jai Luthra wrote:
-> > diff --git a/drivers/media/platform/broadcom/bcm2835-isp/bcm2835-isp-fm=
-ts.h b/drivers/media/platform/broadcom/bcm2835-isp/bcm2835-isp-fmts.h
-> > new file mode 100644
-> > index 000000000000..6f3333d33c4f
-> > --- /dev/null
-> > +++ b/drivers/media/platform/broadcom/bcm2835-isp/bcm2835-isp-fmts.h
-> > @@ -0,0 +1,558 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * Broadcom BCM2835 ISP driver
-> > + *
-> > + * Copyright =C2=A9 2019-2026 Raspberry Pi (Trading) Ltd.
-> > + *
-> > + * Author: Naushir Patuck (naush@raspberrypi.com)
-> > + *
-> > + */
-> > +
-> > +#ifndef BCM2835_ISP_FMTS
-> > +#define BCM2835_ISP_FMTS
-> > +
-> > +#include <linux/videodev2.h>
-> > +#include <linux/raspberrypi/mmal-encodings.h>
-> > +
-> > +struct bcm2835_isp_fmt {
-> > +     u32 fourcc;
-> > +     int depth;
-> > +     int bytesperline_align;
-> > +     u32 mmal_fmt;
-> > +     int size_multiplier_x2;
-> > +     u32 colorspace_mask;
-> > +     enum v4l2_colorspace colorspace_default;
-> > +     unsigned int step_size;
-> > +};
-> > +
-> > +#define V4L2_COLORSPACE_MASK(colorspace) BIT(colorspace)
->=20
-> The V4L2 prefix shouldn't be used for declaring macros in drivers. Please
-> use a driver specific prefix instead.
->=20
+Both are missing-check or wrong-handling problems that lead to a NULL
+pointer being inserted into an xarray, or an out-of-bounds write that
+corrupts the kernel heap.
 
-Will fix.
+Regards,
+Tariq
 
-[...]
+V2:
+Took patch #2 out of the series.
+Patch #1: Remove empty line. Updated commit message.
+Patch #3 (now #2): Update commit message.
+Not allocating chunks in error state.
+Print error once when putting pool into error state
 
-> > +             return -EINVAL;
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int bcm2835_isp_mmal_buf_cleanup(struct mmal_buffer *mmal_buf)
-> > +{
-> > +     mmal_vchi_buffer_cleanup(mmal_buf);
-> > +
-> > +     if (mmal_buf->dma_buf) {
-> > +             dma_buf_put(mmal_buf->dma_buf);
-> > +             mmal_buf->dma_buf =3D NULL;
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int bcm2835_isp_node_queue_setup(struct vb2_queue *q,
-> > +                                     unsigned int *nbuffers,
-> > +                                     unsigned int *nplanes,
-> > +                                     unsigned int sizes[],
-> > +                                     struct device *alloc_devs[])
-> > +{
-> > +     struct bcm2835_isp_node *node =3D vb2_get_drv_priv(q);
-> > +     unsigned int size;
-> > +
-> > +     if (setup_mmal_port(node))
-> > +             return -EINVAL;
-> > +
-> > +     size =3D node->q_data.sizeimage;
-> > +     if (size =3D=3D 0) {
-> > +             v4l2_info(&node_get_dev(node)->v4l2_dev,
-> > +                       "%s: Image size unset in queue_setup for node %=
-s[%d]\n",
-> > +                       __func__, node->name, node->id);
-> > +             return -EINVAL;
-> > +     }
-> > +
-> > +     if (*nplanes)
-> > +             return sizes[0] < size ? -EINVAL : 0;
-> > +
-> > +     *nplanes =3D 1;
-> > +     sizes[0] =3D size;
-> > +
-> > +     node->port->current_buffer.size =3D size;
-> > +
-> > +     if (*nbuffers < node->port->minimum_buffer.num)
-> > +             *nbuffers =3D node->port->minimum_buffer.num;
-> > +
-> > +     node->port->current_buffer.num =3D *nbuffers;
-> > +
-> > +     v4l2_dbg(2, debug, &node_get_dev(node)->v4l2_dev,
-> > +              "%s: Image size %u, nbuffers %u for node %s[%d]\n",
-> > +              __func__, sizes[0], *nbuffers, node->name, node->id);
-> > +     return 0;
-> > +}
-> > +
-> > +static int bcm2835_isp_buf_init(struct vb2_buffer *vb)
-> > +{
-> > +     struct bcm2835_isp_node *node =3D vb2_get_drv_priv(vb->vb2_queue);
-> > +     struct bcm2835_isp_dev *dev =3D node_get_dev(node);
-> > +     struct bcm2835_isp_buffer *buf =3D
-> > +             to_bcm2835_isp_buffer(to_vb2_v4l2_buffer(vb));
-> > +
-> > +     v4l2_dbg(3, debug, &dev->v4l2_dev, "%s: vb %p\n", __func__, vb);
-> > +
-> > +     buf->mmal.buffer =3D vb2_plane_vaddr(&buf->vb.vb2_buf, 0);
-> > +     buf->mmal.buffer_size =3D vb2_plane_size(&buf->vb.vb2_buf, 0);
-> > +     mmal_vchi_buffer_init(dev->mmal_instance, &buf->mmal);
-> > +     return 0;
-> > +}
-> > +
-> > +static int bcm2835_isp_buf_prepare(struct vb2_buffer *vb)
-> > +{
-> > +     struct bcm2835_isp_node *node =3D vb2_get_drv_priv(vb->vb2_queue);
-> > +     struct bcm2835_isp_dev *dev =3D node_get_dev(node);
-> > +     struct vb2_v4l2_buffer *vb2 =3D to_vb2_v4l2_buffer(vb);
-> > +     struct bcm2835_isp_buffer *buf =3D to_bcm2835_isp_buffer(vb2);
-> > +     struct dma_buf *dma_buf;
-> > +     int ret =3D 0;
-> > +
-> > +     v4l2_dbg(3, debug, &dev->v4l2_dev, "%s: type: %d ptr %p\n",
-> > +              __func__, vb->vb2_queue->type, vb);
->=20
-> Is this still appropriate after development time?
->=20
+V1:
+https://lore.kernel.org/all/20261021074949.3471704-1-tariqt@nvidia.com/
 
-I don't think so, I'll drop this and other ones at v4l2_dbg level 3.
+Yevgeny Kliteynik (2):
+  net/mlx5: HWS, Handle NULL in vport destination action creation
+  net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
 
-[...]
+ .../mellanox/mlx5/core/steering/hws/fs_hws.c  |  2 ++
+ .../mlx5/core/steering/sws/dr_icm_pool.c      | 32 +++++++++++++++++--
+ 2 files changed, 31 insertions(+), 3 deletions(-)
 
-Ack on rest of the comments for prints as well.
 
-> > diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-=
-core/v4l2-ioctl.c
-> > index 17ba1ae70735..1449de2b64b5 100644
-> > --- a/drivers/media/v4l2-core/v4l2-ioctl.c
-> > +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-> > @@ -1490,6 +1490,8 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc =
-*fmt)
-> >       case V4L2_META_FMT_GENERIC_CSI2_16:     descr =3D "8-bit Generic =
-Meta, 16b CSI-2"; break;
-> >       case V4L2_META_FMT_GENERIC_CSI2_20:     descr =3D "8-bit Generic =
-Meta, 20b CSI-2"; break;
-> >       case V4L2_META_FMT_GENERIC_CSI2_24:     descr =3D "8-bit Generic =
-Meta, 24b CSI-2"; break;
-> > +     case V4L2_META_FMT_BCM2835_ISP_STATS: descr =3D "BCM2835 ISP Imag=
-e Statistics"; break;
-> > +     case V4L2_META_FMT_BCM2835_ISP_PARAMS: descr =3D "BCM2835 ISP Con=
-fig Parameters"; break;
->=20
-> What's the status of the documentation for these? Do we have something
-> beyond the headers?
->=20
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+-- 
+2.44.0
 
-These are documented in metafmt-bcm2835-isp.rst, which in turn refers to
-v4l2-isp.rst, and also refers to the actual parameter and stats structures
-defined in the bcm2835-isp.h.
-
-I'll add an actual C code example for reading AWB stats, as that seems to
-be missing right now, even though it's straightforward.
-
-[...]
-
-> > +/**
-> > + * struct bcm2835_isp_params_digital_gain - Digital gain parameters bl=
-ock
-> > + *
-> > + * @header: Block header (type =3D BCM2835_ISP_PARAM_BLOCK_DIGITAL_GAI=
-N)
-> > + * @digital_gain: Digital gain configuration
-> > + */
-> > +struct bcm2835_isp_params_digital_gain {
-> > +     struct v4l2_isp_params_block_header header;
-> > +     struct bcm2835_isp_digital_gain digital_gain;
-> > +} __attribute__((aligned(8)));
-> > +
-> > +/**
-> > + * define BCM2835_ISP_PARAMS_MAX_SIZE - Maximum size of all ISP parame=
-ters
->=20
-> How about adding a build-time check to the driver the size remains
-> unchanged? There are quite a few different fields there.
->=20
-> I might do the same for the statistics.
->=20
-> This can be all fixed on top though and doesn't affect the UAPI.
->=20
-
-I'll add a static_assert() for both in the next revision.
-
-> > + *
-> > + * This defines the maximum size needed to accommodate all possible pa=
-rameter
-> > + * blocks in a single buffer. Drivers use this to allocate appropriate=
-ly
-> > + * sized buffers.
-> > + */
-> > +#define BCM2835_ISP_PARAMS_MAX_SIZE                                  \
-> > +     (sizeof(struct bcm2835_isp_params_black_level) +                \
-> > +      sizeof(struct bcm2835_isp_params_geq) +                        \
-> > +      sizeof(struct bcm2835_isp_params_gamma) +                      \
-> > +      sizeof(struct bcm2835_isp_params_denoise) +                    \
-> > +      sizeof(struct bcm2835_isp_params_sharpen) +                    \
-> > +      sizeof(struct bcm2835_isp_params_dpc) +                        \
-> > +      sizeof(struct bcm2835_isp_params_cdn) +                        \
-> > +      sizeof(struct bcm2835_isp_params_cc_matrix) +                  \
-> > +      sizeof(struct bcm2835_isp_params_lens_shading) +               \
-> > +      sizeof(struct bcm2835_isp_params_awb_gains) +                  \
-> > +      sizeof(struct bcm2835_isp_params_digital_gain))
-> > +
-> >=20
->=20
-> --=20
-> Regards,
->=20
-> Sakari Ailus
-
-Thanks,
-Jai
