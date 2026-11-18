@@ -1,59 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983691;
-	b=z/vr1m+p/5P98uUD4sKbZvQS/1DCx1c89sf6i/sXdxtda0dtbXQnOmLs6/8YSErZ3ZT5
-	 H3f/k0TcU1cjaZ/gahsCEizGgBnmS+8Rdl00DEoNHNjXWh6pyXAjqGIAeybd0V1gg57t/
-	 p7eR9mGQvplafwupR4zbuRh2DCSgw7phDYAtA1sixvFDheR1aNz2RQKGRIRaUfPbmu28h
-	 DkbhRQPMjAiD/qOz3L3kGWHor8IuNzBjkbNzVc+YCJPN2TgNAFX9lcSlU18vqH6N6hcRs
-	 HAo6OkJznYq0ZTOdmT8OeLDCrlmUz6f+Hhbg01VBfC56XCmRWken2+HkCRY1km5Q/Sg==
+	t=1794983728;
+	b=1KZmy+t55x7mrrh1WfCSueDSzEx6N83GMQtZ08LxAdihTtK4I0dipY3u8RSXll80Uvbo
+	 Ed+BGJFPEch7ynWrvnh1EOGGLtapDwVchQMBgYKBHrK0pQG6hSjrX1G0Hdtqc2WyEKWWi
+	 cNW54V4m7AA2aVWUP8L3UuzrJGtW6kq8kUrSy206Hi4XidKW20sDkBMJ0IK3VycrYkMvl
+	 SgJ+sHI3NTA9FGItGATGL86xQF3bE49puYOviyzj4c/y8FWq9z6VZU4Wja4OECfRy7KhQ
+	 LzgXX9mr5tcU9DC81THoeHcYCfzwxDKC4Tsfqkf3d4PBmEJb81IWzvgPs7/C9qo/21w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983691;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=fL11dDptzx2R2m7tViFYuNdvwOTBmS4zd01n8DT5KBU=;
-	b=u/NkfbAOTNpx6vxMi1XShHBkDCCI7SoHA4ySFXCHtckCZaeho7IYfBRiNz2hqhQmAUzK
-	 nNuZLbzxt17gB+m54lWg1zkxBj6OtLNQYhNauHjqJs/ZYkkKNF9okAJH66PJDkQmkDvlS
-	 eZwIHRot/mMbEZHTZjU3gl9RhOYtf+yyb+bt8VVkMHu5y2bLTP+RPlKuWm27HlVI7InLl
-	 unjwB/YS/gLeSHavpIUKenGifjRSwrF/mqsgkbdeQcpe7E1x1sOJeq8q5VGZkkbR+Qc4c
-	 eJNVyn1MPqL6UAT/RUGuS9tciqoci6Q+XkuGsT0utA9XPNbbwpHX7s/t8U1cvXpa7bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983728;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Oe7S7ewgDx4+EMlGCDD6QUVkIrPAcGugMFECRzJaPj4=;
+	b=inwr7y0nrDwHTodRju4B047/I+irX+PxbDIv7E59ejOuxrWGg5ZOTqYNuhn/QuZEU4U9
+	 v0BmglCDvzt58ONghEf5P0yH63iFk+EM8zM4THdSDOVNdFzw5AtlBdQxWRZPmRWYuth0K
+	 0gp4EoYXavYTUaz64MkPRPBIA6bXtFZvoDBOTdJ/cZhhFSnC6fWDnRSZnGFAo3xpxXwV1
+	 Jhi3so+bGeUlvrZ7jn4yRpHpYn0FhIAyfNr0xq4lvtBw3Yu0y/0c6HQs3kI4RttY0wENU
+	 5D3bcc+/qLgMEdP9R6xq8+dnM1qJaBYU6rUe0CP4EDm0G7jxe0qiyec8j4Qb8SezrAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CrRP62ce;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=vayavyalabs.com;
+	spf=pass smtp.mailfrom=vayavyalabs.com;
+	dkim=pass header.d=vayavyalabs.com header.i=@vayavyalabs.com header.a=rsa-sha256 header.s=google header.b=ZsS5nrkd;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A927606A31C;
-	Wed, 18 Nov 2026 06:34:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66B53606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:35:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66B53606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vayavyalabs.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vayavyalabs.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CrRP62ce
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33C2B1F000C4;
-	Wed, 18 Nov 2026 06:34:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794983690;
-	bh=fL11dDptzx2R2m7tViFYuNdvwOTBmS4zd01n8DT5KBU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CrRP62ce5XrD8LemYlth5lpa7MpL1N/MViVIX0B5QGGECPpaRDticwfUpCyvMWYFL
-	 GRP8dbkMEgEJo/vzyTaZK38Kuk3Fs/l8nz6LUFUDEM9NqefZvSrrQnAg6itfk3Ezw5
-	 CLQuZpsJ069JISEPj++zw9oh3lP4os2FcJhyNf7P5Ya1rf/iGZvzWxKFGDOA5cZqSd
-	 vIW0xPfZsWObXUckQnRoyCoHbEdUzxQVVLoLQXOct/yntezAjn3E8C/g0fWrG3aLhf
-	 Ciu83wdO6RKx4uafUUfqMR5o8kk8ZsLDIkjj9aM0QHfp1DLqqmF0wZOIqBfC3NXsG2
-	 v7bbXZ9plIAJg==
-Date: Tue, 17 Nov 2026 22:34:48 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Alireza Haghdoost <haghdoost@uber.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 6/9] perf symbol: Optimize symbol sorting with
- natural-run merge sort and binary insertion
-Message-ID: <av1HCI3b1fO_WT0c@google.com>
-References: <20261117185305.108003-1-irogers@google.com>
- <20261117185305.108003-7-irogers@google.com>
+	dkim=pass (1024-bit key) header.d=vayavyalabs.com header.i=@vayavyalabs.com header.a=rsa-sha256 header.s=google header.b=ZsS5nrkd
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-15ea896ddc8so1176220c88.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:35:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=vayavyalabs.com; s=google; t=1794983726; x=1795588526; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Oe7S7ewgDx4+EMlGCDD6QUVkIrPAcGugMFECRzJaPj4=;
+        b=ZsS5nrkdaJQhUFul5vCR+HBFYL7RDWhGtjeqcb4VxRDcHA1SHtnkDn217ihQyiz1bp
+         LNw510Zfz71nmaHeRnq5p57wESIBkrI9qsmgPJl/JLzc0/JgjJ4iXc2SgRMUaosd5gJo
+         quVCCFTvjDwvYJZE59jU2yH7XwFePn+0l6jTU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794983726; x=1795588526;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Oe7S7ewgDx4+EMlGCDD6QUVkIrPAcGugMFECRzJaPj4=;
+        b=XcsePH0bhDdy2Zj+May191bLtFSCwbjxknEp0KMjtjO9V7VVzP1vEVvwl302Xflqca
+         vHxcqCkKAeQZ6zNVKgltEDbfCDiunTOO7BLXVc+gSG0G0iZxHW9UCAVXKFoQ/pCxZ0Zc
+         ZZSLU+Sgwn19Nz7+q+5Ieq4z+NE2fKx3kpLVYG9FeCOatRaOBz8SWB3eObKXgB8cgQLL
+         yzufDVBUjfpP05g8mQX22EKRRINNF1SjIjs1rpIdXi0J+u7MAfnyDu4aNpAOrqXZhpGQ
+         2IyN3JEyIjW6+sIm1UznkAi0EkFP+k3FU87eOzllpKO1r5hR4HpXXQIvtMQuk9D/4PF/
+         7Htg==
+X-Forwarded-Encrypted: i=1; AL+hErHRS79VCRjsyP3XOpegEVjOLJsoNt6L0UnaAqkmDHgSBFsv21OeURGB4Pb6pigXoD8de/7XDJWmof/gQHE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DdLzftgAO3ZFPV8isd0VbLb3B7KLydDDdzHHmL9stIEBPPqm9
+	kdEoUItKX4Y+a1ydjbd0HryFRlxS246HFwNjfeUu+PKm4U+SrFnLWsWPML0Jgu/4nKs=
+X-Gm-Gg: AZFdTZdJdiF2RoahFcbr3vec1Adu4tuPSwA7E8+TR8YLxnkodzczdkq7b3oCePtVpS5
+	i98gq5UM1bPL5vofMqqLWIWkAIfRm6+KdUq4sy/rawCkYzWofkUsZxuv3ZG7pSkXkbgMbQX1ca4
+	nAvxIgaDtMi80sHxIs22rZNvkzh4Unlv2ASXuS5INFSBhlEtKTtO5tV2PxohnXmLOKQxc8nQw5M
+	onvIFPa4Fa7yB4DM87QzE2u9Fp4dhVJdz+tkM7WmOekXxO4cqrZxWL2ktQoxnocYiYzqQhJLghk
+	VJ+FZqNaPr6iyX1LKTmI/NsOZbfhvCtpSQwyl/ta+jzglA89KidyyQv2scQ0NkMwsSYd0F+qlO/
+	q/3lV4FN5kG14ONjF9bsO2Uyxzm0cxvwyPwinMQyEKBeTjuIBtOLiy5BpmDP44qzlUbEgQOTXVg
+	8SNowOcZmM9l6xqwqAMhF5oaqBNPxVHnGX/y3JB9JkFose+KexSaC17L0R/6PnAZrQgwM6cRMDn
+	fX/nxJFhUnUrVRUB988qlzw/Lc1NI8ZmodgaJMpZb3YUu7hWg/SZ843QNf5GX2Tz9hxuX0mPCsJ
+	JuR5XG955QD2E8zOeLMTk4Ooqi+PRByyG58gv8UOulLw0iSNrntel6JUrxl+q6pTUCHhdTh+vn4
+	I9q3RzHEycpGwLTrMlWpaU/mHmIn0mGro0xom5TvLEJZCLBtuDmcWPtC0bj2yxAd/Fll9
+X-Received: by 2002:a05:7301:e108:b0:375:c862:31c with SMTP id 5a478bee46e88-38281bfbeb3mr1805865eec.40.1794983726208;
+        Tue, 17 Nov 2026 22:35:26 -0800 (PST)
+Received: from localhost.localdomain ([103.219.60.9])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a72eb2f3sm5002338eec.18.2026.11.17.22.35.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 22:35:25 -0800 (PST)
+From: Pavitrakumar Managutte <pavitrakumarm@vayavyalabs.com>
+To: linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	herbert@gondor.apana.org.au,
+	robh@kernel.org
+Cc: krzk@kernel.org,
+	conor+dt@kernel.org,
+	ruud.derwig@gf.com,
+	rbannerm@synopsys.com,
+	manjunath.hadli@vayavyalabs.com,
+	adityak@vayavyalabs.com,
+	navami.telsang@vayavyalabs.com,
+	bhoomikak@vayavyalabs.com,
+	nazim.khan@vayavyalabs.com,
+	Pavitrakumar Managutte <pavitrakumarm@vayavyalabs.com>
+Subject: [PATCH v30 0/4] crypto: spacc - Add SPAcc Crypto Driver
+Date: Wed, 18 Nov 2026 12:05:00 +0530
+Message-Id: <20261118063504.835259-1-pavitrakumarm@vayavyalabs.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,666 +104,208 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261117185305.108003-7-irogers@google.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 10:53:02AM -0800, Ian Rogers wrote:
-> ELF .symtab and .dynsym sections are typically already mostly ordered by
-> address in ascending runs, and dynamic symbol resolution
-> (dso__insert_symbol()) frequently inserts one or a few symbols into an
-> already-sorted DSO symbol table. Invoking full-array qsort() on every
-> sort after incremental insertions or across pre-ordered ELF runs spends
-> avoidable CPU time in symbol comparisons.
+Add the driver for SPAcc(Security Protocol Accelerator), which is a
+crypto acceleration IP from Synopsys. The SPAcc supports multiple ciphers,
+hashes and AEAD algorithms with various modes. The driver currently supports
+below
 
-This makes sense.
+hash:
+- cmac(sm4)
+- xcbc(sm4)
+- hmac(md5)
+- md5
+- hmac(sha1)
+- sha1
+- sha224
+- sha256
+- sha384
+- sha512
+- hmac(sha224)
+- hmac(sha256)
+- hmac(sha384)
+- hmac(sha512)
+- sha3-224
+- sha3-256
+- sha3-384
+- sha3-512
 
-> 
-> Speed up symbol array sorting and out-of-order symbol insertions:
-> 
-> - Track the sorted prefix length (@sorted_cnt) in struct symbols and
->   replace full-array qsort() with a natural-run merge sort
->   (symbols__sort_range_with_tmp()) and galloping binary-search merge
->   (symbols__merge_runs()), plus an O(N) in-place binary insertion fast
->   path when <= 8 symbols are appended.
-> - Insert directly into sorted position in dso__insert_symbol() when
->   symbols->sorted is true so dynamic single-symbol insertions maintain
->   the sorted invariant without triggering full re-sorts.
+changelog:
+  v1->v2 changes:
+    - Added local_bh_disable() and local_bh_enable() for the below calls.
+      a. for ciphers skcipher_request_complete()
+      b. for aead aead_request_complete()
+      c. for hash ahash_request_complete()
+    - dt-bindings updates
+      a. removed snps,vspacc-priority and made it into config option
+      b. renamed snps,spacc-wdtimer to snps,spacc-internal-counter
+      c. Added description to all properties
+    - Updated corresponding dt-binding changes to code
 
-Probably the same comment as my previous one.  Can we have the simple
-merge sort change first?
+  v2->v3 changes:
+    - cra_init and cra_exit replaced with init_tfm and exit_tfm for hashes.
+    - removed mutex_lock/unlock for spacc_skcipher_fallback call
+    - dt-bindings updates
+     a. updated SOC related information
+     b. renamed compatible string as per SOC
+   - Updated corresponding dt-binding changes to code
 
-Thanks,
-Namhyung
+  v3->v4 changes:
+   - removed snps,vspacc-id from the dt-bindings
+   - removed mutex_lock from ciphers
+   - replaced magic numbers with macros
+   - removed sw_fb variable from struct mode_tab and associated code from the
+     hashes
+   - polling code is replaced by wait_event_interruptible
 
-> 
-> Using 'perf bench internals symbols':
-> 
->   Before:
->     Average DSO load + sort: 6.242 msec (+- 0.057 msec)
->     Average bulk insert + lookup: 1404.150 usec (+- 18.752 usec)
->     Average append + lookup: 40429.750 usec (+- 507.578 usec)
->   After (-7.0% load, -13.9% bulk, -99.6% append):
->     Average DSO load + sort: 5.808 msec (+- 0.047 msec)
->     Average bulk insert + lookup: 1209.250 usec (+- 18.446 usec)
->     Average append + lookup: 152.900 usec (+- 0.736 usec)
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/symbol.c | 433 +++++++++++++++++++++++++++++++++++++--
->  tools/perf/util/symbol.h |  11 +-
->  2 files changed, 423 insertions(+), 21 deletions(-)
-> 
-> diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-> index f1e3d7af714c..84a8b3e4c528 100644
-> --- a/tools/perf/util/symbol.c
-> +++ b/tools/perf/util/symbol.c
-> @@ -219,6 +219,7 @@ void symbols__init(struct symbols *symbols)
->  	symbols->symbols = NULL;
->  	symbols->symbols_by_name = NULL;
->  	symbols->cnt = 0;
-> +	symbols->sorted_cnt = 0;
->  	symbols->allocated = 0;
->  	symbols->num_by_name = 0;
->  	symbols->sorted = true;
-> @@ -233,6 +234,7 @@ static void symbols__delete_locked(struct symbols *symbols)
->  	zfree(&symbols->symbols);
->  	zfree(&symbols->symbols_by_name);
->  	symbols->cnt = 0;
-> +	symbols->sorted_cnt = 0;
->  	symbols->allocated = 0;
->  	symbols->num_by_name = 0;
->  	symbols->sorted = true;
-> @@ -263,37 +265,311 @@ static inline bool symbol__less_or_equal(const struct symbol *a, const struct sy
->  	return a->start <= b->start;
->  }
->  
-> -static int symbols__sort_cmp(const void *vlhs, const void *vrhs)
-> +static unsigned int symbols__upper_bound(struct symbol **arr, unsigned int len,
-> +					 const struct symbol *sym)
->  {
-> -	const struct symbol *lhs = *((const struct symbol **)vlhs);
-> -	const struct symbol *rhs = *((const struct symbol **)vrhs);
-> +	unsigned int low = 0, high = len;
->  
-> -	if (lhs->start != rhs->start)
-> -		return lhs->start < rhs->start ? -1 : 1;
-> -	return 0;
-> +	while (low < high) {
-> +		unsigned int mid = low + (high - low) / 2;
-> +
-> +		if (symbol__less_or_equal(arr[mid], sym))
-> +			low = mid + 1;
-> +		else
-> +			high = mid;
-> +	}
-> +	return low;
-> +}
-> +
-> +static unsigned int symbols__lower_bound(struct symbol **arr, unsigned int len,
-> +					 const struct symbol *sym)
-> +{
-> +	unsigned int low = 0, high = len;
-> +
-> +	while (low < high) {
-> +		unsigned int mid = low + (high - low) / 2;
-> +
-> +		if (!symbol__less_or_equal(sym, arr[mid]))
-> +			low = mid + 1;
-> +		else
-> +			high = mid;
-> +	}
-> +	return low;
-> +}
-> +
-> +static void symbols__insertion_sort_range(struct symbol **arr,
-> +					  unsigned int start,
-> +					  unsigned int end)
-> +{
-> +	for (unsigned int i = start + 1; i < end; i++) {
-> +		struct symbol *sym = arr[i];
-> +
-> +		if (!symbol__less_or_equal(arr[i - 1], sym)) {
-> +			unsigned int pos = start +
-> +				symbols__upper_bound(&arr[start], i - start, sym);
-> +
-> +			memmove(&arr[pos + 1], &arr[pos],
-> +				(i - pos) * sizeof(struct symbol *));
-> +			arr[pos] = sym;
-> +		}
-> +	}
-> +}
-> +
-> +static void symbols__merge_runs(struct symbol **arr,
-> +				unsigned int left,
-> +				unsigned int mid,
-> +				unsigned int right,
-> +				struct symbol **tmp)
-> +{
-> +	unsigned int first_left, last_left, left_len, right_len;
-> +	unsigned int i, j, dst;
-> +
-> +	if (left >= mid || mid >= right)
-> +		return;
-> +	if (symbol__less_or_equal(arr[mid - 1], arr[mid]))
-> +		return;
-> +
-> +	first_left = left + symbols__upper_bound(&arr[left], mid - left, arr[mid]);
-> +	right_len = right - mid;
-> +
-> +	if (mid - first_left <= right_len) {
-> +		left_len = mid - first_left;
-> +		memcpy(tmp, &arr[first_left], left_len * sizeof(struct symbol *));
-> +		i = 0;
-> +		j = mid;
-> +		dst = first_left;
-> +		while (i < left_len && j < right) {
-> +			if (symbol__less_or_equal(tmp[i], arr[j])) {
-> +				arr[dst++] = tmp[i++];
-> +			} else {
-> +				arr[dst++] = arr[j++];
-> +				if (right - j >= 16 &&
-> +				    (right - j) > 8 * (left_len - i) &&
-> +				    !symbol__less_or_equal(tmp[i], arr[j])) {
-> +					unsigned int step =
-> +						symbols__lower_bound(&arr[j], right - j, tmp[i]);
-> +
-> +					if (step > 0) {
-> +						memmove(&arr[dst], &arr[j],
-> +							step * sizeof(struct symbol *));
-> +						dst += step;
-> +						j += step;
-> +					}
-> +				}
-> +			}
-> +		}
-> +		if (i < left_len)
-> +			memcpy(&arr[dst], &tmp[i], (left_len - i) * sizeof(struct symbol *));
-> +		return;
-> +	}
-> +
-> +	last_left = first_left +
-> +		    symbols__upper_bound(&arr[first_left], mid - first_left, arr[right - 1]);
-> +	left_len = last_left - first_left;
-> +
-> +	memcpy(tmp, &arr[mid], right_len * sizeof(struct symbol *));
-> +	if (last_left < mid) {
-> +		memmove(&arr[last_left + right_len], &arr[last_left],
-> +			(mid - last_left) * sizeof(struct symbol *));
-> +	}
-> +
-> +	if (first_left == last_left) {
-> +		memcpy(&arr[first_left], tmp, right_len * sizeof(struct symbol *));
-> +		return;
-> +	}
-> +
-> +	i = last_left;
-> +	j = right_len;
-> +	dst = last_left + right_len;
-> +	while (i > first_left && j > 0) {
-> +		if (symbol__less_or_equal(arr[i - 1], tmp[j - 1])) {
-> +			arr[--dst] = tmp[--j];
-> +		} else {
-> +			arr[--dst] = arr[--i];
-> +			if (i - first_left >= 16 &&
-> +			    (i - first_left) > 8 * j &&
-> +			    !symbol__less_or_equal(arr[i - 1], tmp[j - 1])) {
-> +				unsigned int pos = first_left +
-> +					symbols__upper_bound(&arr[first_left],
-> +							     i - first_left,
-> +							     tmp[j - 1]);
-> +				unsigned int step = i - pos;
-> +
-> +				if (step > 0) {
-> +					dst -= step;
-> +					i = pos;
-> +					memmove(&arr[dst], &arr[pos],
-> +						step * sizeof(struct symbol *));
-> +				}
-> +			}
-> +		}
-> +	}
-> +	if (j > 0)
-> +		memcpy(&arr[first_left], tmp, j * sizeof(struct symbol *));
-> +}
-> +
-> +struct symbol_run {
-> +	unsigned int start;
-> +	unsigned int len;
-> +};
-> +
-> +static void symbols__sort_range_with_tmp(struct symbol **arr, unsigned int n,
-> +					 struct symbol **tmp)
-> +{
-> +	struct symbol_run runs[64];
-> +	unsigned int nr_runs = 0;
-> +	unsigned int i = 0;
-> +
-> +	if (n <= 32) {
-> +		symbols__insertion_sort_range(arr, 0, n);
-> +		return;
-> +	}
-> +
-> +	while (i < n) {
-> +		unsigned int start = i++;
-> +
-> +		if (i < n) {
-> +			if (symbol__less_or_equal(arr[i - 1], arr[i])) {
-> +				while (i < n && symbol__less_or_equal(arr[i - 1], arr[i]))
-> +					i++;
-> +			} else {
-> +				while (i < n && !symbol__less_or_equal(arr[i - 1], arr[i]))
-> +					i++;
-> +				for (unsigned int lo = start, hi = i - 1; lo < hi; lo++, hi--) {
-> +					struct symbol *swap = arr[lo];
-> +
-> +					arr[lo] = arr[hi];
-> +					arr[hi] = swap;
-> +				}
-> +			}
-> +		}
-> +
-> +		if (i - start < 32 && i < n) {
-> +			i = min(start + 32U, n);
-> +			symbols__insertion_sort_range(arr, start, i);
-> +		}
-> +
-> +		runs[nr_runs++] = (struct symbol_run){
-> +			.start = start,
-> +			.len = i - start,
-> +		};
-> +
-> +		while (nr_runs > 1) {
-> +			unsigned int r = nr_runs - 2;
-> +
-> +			if (nr_runs >= 3 &&
-> +			    runs[nr_runs - 3].len <=
-> +			    runs[nr_runs - 2].len + runs[nr_runs - 1].len) {
-> +				if (runs[nr_runs - 3].len < runs[nr_runs - 1].len)
-> +					r = nr_runs - 3;
-> +			} else if (runs[nr_runs - 2].len > runs[nr_runs - 1].len &&
-> +				   nr_runs < ARRAY_SIZE(runs)) {
-> +				break;
-> +			}
-> +
-> +			symbols__merge_runs(arr, runs[r].start,
-> +					    runs[r + 1].start,
-> +					    runs[r + 1].start + runs[r + 1].len,
-> +					    tmp);
-> +			runs[r].len += runs[r + 1].len;
-> +			if (r + 2 < nr_runs)
-> +				runs[r + 1] = runs[r + 2];
-> +			nr_runs--;
-> +		}
-> +	}
-> +
-> +	while (nr_runs > 1) {
-> +		unsigned int r = nr_runs - 2;
-> +
-> +		if (nr_runs >= 3 && runs[nr_runs - 3].len < runs[nr_runs - 1].len)
-> +			r = nr_runs - 3;
-> +		symbols__merge_runs(arr, runs[r].start,
-> +				    runs[r + 1].start,
-> +				    runs[r + 1].start + runs[r + 1].len,
-> +				    tmp);
-> +		runs[r].len += runs[r + 1].len;
-> +		if (r + 2 < nr_runs)
-> +			runs[r + 1] = runs[r + 2];
-> +		nr_runs--;
-> +	}
->  }
->  
->  static void symbols__sort_locked(struct symbols *symbols)
->  {
-> -	if (symbols->sorted)
-> +	unsigned int m = symbols->sorted_cnt;
-> +	unsigned int k;
-> +
-> +	if (symbols->sorted && symbols->sorted_cnt == symbols->cnt)
->  		return;
->  
-> -	if (symbols->cnt > 1) {
-> -		qsort(symbols->symbols, symbols->cnt, sizeof(struct symbol *),
-> -		      symbols__sort_cmp);
-> +	if (m > symbols->cnt)
-> +		m = 0;
-> +	k = symbols->cnt - m;
-> +
-> +	if (k == 0) {
-> +		symbols->sorted = true;
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * When only a few symbols have been appended since the last sort
-> +	 * (including single-symbol insertions), insert them directly at
-> +	 * their binary-searched sorted positions in O(N) without allocating.
-> +	 */
-> +	if (k <= 8 || symbols->cnt <= 64) {
-> +		symbols__insertion_sort_range(symbols->symbols, 0, symbols->cnt);
-> +		symbols->sorted_cnt = symbols->cnt;
-> +		symbols->sorted = true;
-> +		return;
->  	}
-> +
-> +	if (symbols->sorted) {
-> +		/*
-> +		 * Both [0 .. m) and the sorted tail [m .. cnt) are already
-> +		 * sorted; merge them into a single sorted run.
-> +		 */
-> +		struct symbol **tmp = malloc(min(m, k) * sizeof(struct symbol *));
-> +
-> +		if (tmp) {
-> +			symbols__merge_runs(symbols->symbols, 0, m, symbols->cnt, tmp);
-> +			free(tmp);
-> +		} else {
-> +			symbols__insertion_sort_range(symbols->symbols, 0, symbols->cnt);
-> +		}
-> +	} else if (m <= 1) {
-> +		struct symbol **tmp = malloc(((symbols->cnt + 1) / 2) * sizeof(struct symbol *));
-> +
-> +		if (tmp) {
-> +			symbols__sort_range_with_tmp(symbols->symbols, symbols->cnt, tmp);
-> +			free(tmp);
-> +		} else {
-> +			symbols__insertion_sort_range(symbols->symbols, 0, symbols->cnt);
-> +		}
-> +	} else {
-> +		struct symbol **tmp = malloc(k * sizeof(struct symbol *));
-> +
-> +		if (tmp) {
-> +			symbols__sort_range_with_tmp(&symbols->symbols[m], k, tmp);
-> +			symbols__merge_runs(symbols->symbols, 0, m, symbols->cnt, tmp);
-> +			free(tmp);
-> +		} else {
-> +			symbols__insertion_sort_range(symbols->symbols, 0, symbols->cnt);
-> +		}
-> +	}
-> +
-> +	symbols->sorted_cnt = symbols->cnt;
->  	symbols->sorted = true;
->  }
->  
->  /*
->   * Acquire @symbols->lock for reading after ensuring @symbols->symbols is
-> - * sorted.
-> + * fully sorted into a single contiguous run.
->   */
->  void symbols__sort_read_lock(struct symbols *symbols)
->  	NO_THREAD_SAFETY_ANALYSIS
->  {
->  	down_read(&symbols->lock);
-> -	while (!symbols->sorted) {
-> +	while (!symbols->sorted || symbols->sorted_cnt < symbols->cnt) {
->  		up_read(&symbols->lock);
->  		down_write(&symbols->lock);
->  		symbols__sort_locked(symbols);
-> @@ -342,6 +618,7 @@ void symbols__fixup_duplicate(struct symbols *symbols)
->  		}
->  	}
->  	symbols->cnt = write_idx + 1;
-> +	symbols->sorted_cnt = symbols->cnt;
->  	zfree(&symbols->symbols_by_name);
->  	symbols->num_by_name = 0;
->  	symbols->sorted_by_name = false;
-> @@ -517,9 +794,15 @@ static int __symbols__insert(struct symbols *symbols, struct symbol *sym)
->  		symbols->allocated = to_allocate;
->  	}
->  
-> -	if (symbols->sorted && symbols->cnt > 0 &&
-> -	    !symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym))
-> +	if (symbols->sorted && symbols->sorted_cnt == symbols->cnt) {
-> +		if (symbols->cnt == 0 ||
-> +		    symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym))
-> +			symbols->sorted_cnt = symbols->cnt + 1;
-> +		else
-> +			symbols->sorted = false;
-> +	} else {
->  		symbols->sorted = false;
-> +	}
->  
->  	symbols->symbols[symbols->cnt++] = sym;
->  	zfree(&symbols->symbols_by_name);
-> @@ -528,6 +811,69 @@ static int __symbols__insert(struct symbols *symbols, struct symbol *sym)
->  	return 0;
->  }
->  
-> +static int __symbols__insert_sorted(struct symbols *symbols, struct symbol *sym)
-> +{
-> +	unsigned int idx;
-> +
-> +	if (!symbols->sorted)
-> +		return __symbols__insert(symbols, sym);
-> +
-> +	if (symbols->cnt == symbols->allocated) {
-> +		unsigned int to_allocate = symbols->allocated ? symbols->allocated * 2 : 32;
-> +		struct symbol **temp = realloc(symbols->symbols,
-> +					       sizeof(struct symbol *) * to_allocate);
-> +
-> +		if (!temp) {
-> +			symbol__delete(sym);
-> +			return -ENOMEM;
-> +		}
-> +		symbols->symbols = temp;
-> +		symbols->allocated = to_allocate;
-> +	}
-> +
-> +	if (symbols->sorted_cnt == symbols->cnt) {
-> +		if (symbols->cnt == 0 ||
-> +		    symbol__less_or_equal(symbols->symbols[symbols->cnt - 1], sym)) {
-> +			symbols->symbols[symbols->cnt++] = sym;
-> +			symbols->sorted_cnt = symbols->cnt;
-> +		} else if (symbols->cnt < 64) {
-> +			idx = symbols__upper_bound(symbols->symbols, symbols->cnt, sym);
-> +			memmove(&symbols->symbols[idx + 1], &symbols->symbols[idx],
-> +				(symbols->cnt - idx) * sizeof(struct symbol *));
-> +			symbols->symbols[idx] = sym;
-> +			symbols->cnt++;
-> +			symbols->sorted_cnt = symbols->cnt;
-> +		} else {
-> +			/*
-> +			 * Start a sorted tail buffer at symbols[sorted_cnt .. cnt)
-> +			 * so out-of-order insertions do not memmove the entire
-> +			 * primary sorted prefix on every call.
-> +			 */
-> +			symbols->symbols[symbols->cnt++] = sym;
-> +		}
-> +	} else {
-> +		unsigned int tail_cnt = symbols->cnt - symbols->sorted_cnt;
-> +
-> +		idx = symbols->sorted_cnt +
-> +		      symbols__upper_bound(&symbols->symbols[symbols->sorted_cnt],
-> +					   tail_cnt, sym);
-> +		memmove(&symbols->symbols[idx + 1], &symbols->symbols[idx],
-> +			(symbols->cnt - idx) * sizeof(struct symbol *));
-> +		symbols->symbols[idx] = sym;
-> +		symbols->cnt++;
-> +		tail_cnt++;
-> +
-> +		if (tail_cnt >= 256 &&
-> +		    (size_t)tail_cnt * tail_cnt >= symbols->sorted_cnt)
-> +			symbols__sort_locked(symbols);
-> +	}
-> +
-> +	zfree(&symbols->symbols_by_name);
-> +	symbols->num_by_name = 0;
-> +	symbols->sorted_by_name = false;
-> +	return 0;
-> +}
-> +
->  int symbols__insert(struct symbols *symbols, struct symbol *sym)
->  {
->  	int ret;
-> @@ -546,7 +892,9 @@ static inline bool symbol__covers(const struct symbol *s, u64 ip)
->  	return ip >= start && (ip < end || (ip == end && ip == start));
->  }
->  
-> -static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt, u64 ip)
-> +static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
-> +					  u64 ip, bool *has_candidate,
-> +					  u64 *candidate_start)
->  {
->  	unsigned int low = 0, high = cnt, idx;
->  	u64 start;
-> @@ -559,8 +907,10 @@ static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
->  		else
->  			high = mid;
->  	}
-> -	if (low == 0)
-> +	if (low == 0) {
-> +		*has_candidate = false;
->  		return NULL;
-> +	}
->  
->  	/*
->  	 * Rewind across any equal-start group so a trailing zero-length or
-> @@ -569,6 +919,8 @@ static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
->  	 */
->  	idx = low - 1;
->  	start = arr[idx]->start;
-> +	*has_candidate = true;
-> +	*candidate_start = start;
->  	while (idx > 0 && arr[idx - 1]->start == start)
->  		idx--;
->  	for (; idx < low; idx++) {
-> @@ -585,12 +937,38 @@ static struct symbol *symbols__find_range(struct symbol **arr, unsigned int cnt,
->  static struct symbol *symbols__find(struct symbols *symbols, u64 ip)
->  {
->  	struct symbol *res;
-> +	bool has_prefix;
-> +	u64 prefix_start = 0;
->  
->  	if (symbols == NULL)
->  		return NULL;
->  
-> -	symbols__sort_read_lock(symbols);
-> -	res = symbols__find_range(symbols->symbols, symbols->cnt, ip);
-> +	down_read(&symbols->lock);
-> +	while (!symbols->sorted) {
-> +		up_read(&symbols->lock);
-> +		down_write(&symbols->lock);
-> +		symbols__sort_locked(symbols);
-> +		up_write(&symbols->lock);
-> +		down_read(&symbols->lock);
-> +	}
-> +
-> +	res = symbols__find_range(symbols->symbols, symbols->sorted_cnt, ip,
-> +				  &has_prefix, &prefix_start);
-> +	if (symbols->sorted_cnt < symbols->cnt) {
-> +		struct symbol *tail_res;
-> +		bool has_tail;
-> +		u64 tail_start = 0;
-> +
-> +		tail_res = symbols__find_range(&symbols->symbols[symbols->sorted_cnt],
-> +					       symbols->cnt - symbols->sorted_cnt, ip,
-> +					       &has_tail, &tail_start);
-> +		if (has_tail) {
-> +			if (!has_prefix || tail_start > prefix_start)
-> +				res = tail_res;
-> +			else if (tail_start == prefix_start && !res)
-> +				res = tail_res;
-> +		}
-> +	}
->  	up_read(&symbols->lock);
->  
->  	return res;
-> @@ -735,7 +1113,13 @@ static struct symbol *symbols__find_by_name(struct symbol *symbols[],
->  
->  int dso__insert_symbol(struct dso *dso, struct symbol *sym)
->  {
-> -	return symbols__insert(dso__symbols(dso), sym);
-> +	struct symbols *symbols = dso__symbols(dso);
-> +	int ret;
-> +
-> +	down_write(&symbols->lock);
-> +	ret = __symbols__insert_sorted(symbols, sym);
-> +	up_write(&symbols->lock);
-> +	return ret;
->  }
->  
->  void dso__delete_symbol(struct dso *dso, struct symbol *sym)
-> @@ -743,11 +1127,15 @@ void dso__delete_symbol(struct dso *dso, struct symbol *sym)
->  	struct symbols *symbols = dso__symbols(dso);
->  
->  	down_write(&symbols->lock);
-> -	for (unsigned int i = 0; i < symbols->cnt; i++) {
-> +	for (unsigned int i = symbols->cnt; i-- > 0; ) {
->  		if (symbols->symbols[i] == sym) {
->  			memmove(&symbols->symbols[i], &symbols->symbols[i + 1],
->  				(symbols->cnt - i - 1) * sizeof(struct symbol *));
->  			symbols->cnt--;
-> +			if (i < symbols->sorted_cnt)
-> +				symbols->sorted_cnt--;
-> +			if (symbols->sorted_cnt == symbols->cnt)
-> +				symbols->sorted = true;
->  			zfree(&symbols->symbols_by_name);
->  			symbols->num_by_name = 0;
->  			symbols->sorted_by_name = false;
-> @@ -1094,6 +1482,7 @@ static int maps__split_kallsyms_for_kcore(struct maps *kmaps, struct dso *dso)
->  	old_cnt = root->cnt;
->  	root->symbols = NULL;
->  	root->cnt = 0;
-> +	root->sorted_cnt = 0;
->  	root->allocated = 0;
->  	root->sorted = true;
->  	zfree(&root->symbols_by_name);
-> @@ -1168,6 +1557,7 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
->  	old_allocated = root->allocated;
->  	root->symbols = NULL;
->  	root->cnt = 0;
-> +	root->sorted_cnt = 0;
->  	root->allocated = 0;
->  	root->sorted = true;
->  	zfree(&root->symbols_by_name);
-> @@ -1314,6 +1704,7 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
->  	if (root->cnt == 0) {
->  		root->symbols = old_symbols;
->  		root->cnt = write_idx;
-> +		root->sorted_cnt = write_idx;
->  		root->allocated = old_allocated;
->  		root->sorted = true;
->  		old_symbols = NULL;
-> @@ -1343,12 +1734,14 @@ static int maps__split_kallsyms(struct maps *kmaps, struct dso *dso, u64 delta,
->  	if (root->cnt == 0) {
->  		root->symbols = old_symbols;
->  		root->cnt = write_idx;
-> +		root->sorted_cnt = (delta == 0) ? write_idx : 0;
->  		root->allocated = old_allocated;
->  		root->sorted = (delta == 0);
->  		old_symbols = NULL;
->  	} else {
->  		for (unsigned int j = 0; j < write_idx; j++)
->  			__symbols__insert(root, old_symbols[j]);
-> +		root->sorted_cnt = 0;
->  		root->sorted = false;
->  	}
->  	zfree(&root->symbols_by_name);
-> diff --git a/tools/perf/util/symbol.h b/tools/perf/util/symbol.h
-> index adfb1a3a89be..ce7be4b18a11 100644
-> --- a/tools/perf/util/symbol.h
-> +++ b/tools/perf/util/symbol.h
-> @@ -113,11 +113,20 @@ struct symbols {
->  	struct symbol **symbols_by_name;
->  	/** @cnt: Number of valid entries in @symbols. */
->  	unsigned int cnt;
-> +	/**
-> +	 * @sorted_cnt: Number of leading entries in @symbols that form the
-> +	 * primary sorted prefix. When @sorted is true and @sorted_cnt < @cnt,
-> +	 * the remaining tail @symbols[@sorted_cnt .. @cnt - 1] is also sorted.
-> +	 */
-> +	unsigned int sorted_cnt;
->  	/** @allocated: Capacity (in entries) of the @symbols allocation. */
->  	unsigned int allocated;
->  	/** @num_by_name: Number of valid entries in @symbols_by_name. */
->  	unsigned int num_by_name;
-> -	/** @sorted: True when @symbols is sorted by address range. */
-> +	/**
-> +	 * @sorted: True when @symbols[0 .. @sorted_cnt - 1] and any tail
-> +	 * @symbols[@sorted_cnt .. @cnt - 1] are sorted by start address.
-> +	 */
->  	bool sorted;
->  	/**
->  	 * @sorted_by_name: True when @symbols_by_name is populated and sorted
-> -- 
-> 2.56.1.703.gf848ed807c-goog
-> 
+  v4->v5 changes:
+   - Updated to register with the crypto-engine
+   - Used semaphore to manage SPAcc device hardware context pool
+   - This patchset supports Hashes only
+   - Dropping the support for Ciphers and AEADs in this patchset
+   - Added Reviewed-by tag on the Device tree patch since it was reviewed on
+     v4 patch by Krzysztof Kozlowski and Rob Herring (Arm)
+
+  v5->v6 changes:
+   - Removed CRYPTO_DEV_SPACC_CIPHER and CRYPTO_DEV_SPACC_AEAD Kconfig options,
+     since the cipher and aead support is not part of this patchset
+   - Dropped spacc_skcipher.o and spacc_aead.o from Makefile to fix build errors
+     reported by kernel test robot
+   - Added Reported-by and Closes tags as suggested
+
+  v6->v7 changes:
+   - Fixed build error reported by Kernel test robot
+   - Added Reported-by and Closes tags as suggested
+
+  v7->v8 changes:
+   - Fixed misleading comment: Clarified that only HMAC key pre-processing
+     is done in software, while the actual HMAC operation is performed by
+     hardware
+   - Simplified do_shash() function signature by removing unused parameters
+   - Updated all do_shash() call sites to use new simplified signature
+   - Fixed commit message formatting by adding "crypto: spacc - <subject>" to
+     all patches
+   - used __free() for scope based resource management
+
+  v8->v9 changes:
+   - Updated the software fallback implementation to use HASH_FBREQ_ON_STACK
+   - Corrected dynamic allocation of statesize and reqsize in init_tfm
+   - Fixed synchronization issues in the digest request
+
+  v9->v10 changes:
+   - Fixed unused variable warning
+
+  v10->v11 changes:
+   - Removed the redundant crypto_alloc_ahash in the init_tfm function
+   - Removed the redundant crypto_free_ahash in exit_tfm function
+   - Removed the redundant crypto_ahash_setkey call in setkey function
+
+  v11->v12 changes:
+   - Removed do_shash() and switched to lib/crypto API in spacc_hash_setkey
+   - Dropped support for SM3 algorithm
+   - Improved multi-device safety by encapsulating handling within priv
+   - Added memzero_explicit() in sensitive paths
+   - Minor code cleanups and style fixes
+   - Algorithm registration cleanups
+
+  v12->v13 changes:
+   - Removed all the sleep function from setkey function
+   - Added shash implemntation for aes algorthims
+
+  v13->v14 changes:
+   -Added fixes based on the reports by Sashiko
+   -Removed the spacc_is_mode_keysize_supported call from do_one_request
+
+  v14->v15 changes:
+   -Added fixes based on the reports by Sashiko on 19/jun/2026
+   -Fixed styling in the Kconfig
+
+  v15->v16 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v16->v17 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v17->v18 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v18->v19 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v19->v20 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v20->v21 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v21->v22 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v22->v23 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v23->v24 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v24->v25 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v25->v26 changes:
+   -Added fixes based on the reports by Sashiko
+   -Removed the additional fallback
+   -Added the CRYPTO_AHASH_ALG_BLOCK_ONLY flag to the cra_flags
+   -Minor code cleanups and style fixes
+
+  v26->v27 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v27->v28 changes:
+   -Added fixes based on the reports by Sashiko
+
+  v28->v29 changes:
+   - Resent with patch 2/4 regenerated; v28 2/4 had a corrupt hunk
+     header and failed to apply. No functional changes from v28.
+
+  v29->v30 changes:
+    -Added fixes based on the reports by Sashiko
+
+Pavitrakumar Managutte (4):
+  dt-bindings: crypto: Document support for SPAcc
+  crypto: spacc - Add SPAcc ahash support
+  crypto: spacc - add spacc autodetect support
+  crypto: spacc - Add SPAcc Kconfig and Makefile
+
+ .../bindings/crypto/snps,dwc-spacc.yaml       |   50 +
+ drivers/crypto/Kconfig                        |    1 +
+ drivers/crypto/Makefile                       |    1 +
+ drivers/crypto/dwc-spacc/Kconfig              |   64 +
+ drivers/crypto/dwc-spacc/Makefile             |    7 +
+ drivers/crypto/dwc-spacc/spacc_ahash.c        |  806 ++++++
+ drivers/crypto/dwc-spacc/spacc_core.c         | 2552 +++++++++++++++++
+ drivers/crypto/dwc-spacc/spacc_core.h         |  862 ++++++
+ drivers/crypto/dwc-spacc/spacc_device.c       |  340 +++
+ drivers/crypto/dwc-spacc/spacc_device.h       |  178 ++
+ drivers/crypto/dwc-spacc/spacc_hal.c          |  349 +++
+ drivers/crypto/dwc-spacc/spacc_hal.h          |  113 +
+ drivers/crypto/dwc-spacc/spacc_interrupt.c    |  365 +++
+ drivers/crypto/dwc-spacc/spacc_manager.c      |  659 +++++
+ 14 files changed, 6347 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/crypto/snps,dwc-spacc.yaml
+ create mode 100644 drivers/crypto/dwc-spacc/Kconfig
+ create mode 100644 drivers/crypto/dwc-spacc/Makefile
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_ahash.c
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_core.c
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_core.h
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_device.c
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_device.h
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_hal.c
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_hal.h
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_interrupt.c
+ create mode 100644 drivers/crypto/dwc-spacc/spacc_manager.c
+
+
+base-commit: 8ba9044ff0bf4a5789216496019fad614eeafd45
+--
+2.25.1
+
