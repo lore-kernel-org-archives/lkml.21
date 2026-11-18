@@ -1,93 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983890;
-	b=xwi8MdNGraAuUjBQYB/8vsTmqe4FJDOkMgfeeo9TYzv1nlPQLndLyeK1dTp1XEfl49Xo
-	 7gU7oTKSTUp7uy/DiKM7ZzMM34LF7P7BvLHVxH7SW0z6FH27tNRf24juKVa8ZCz1LB3Qu
-	 ChvVzz4ARcOFy5uO5ZTMTjPEo/WZNklbtOI4X3SgNyJQHIpRuxFNtHrp0s0zgKM2Ebr11
-	 6vWWJH4Caoee/miWQhppmG6edtpU+xvHPaNHj9rHf+upd91iNSB08JuRcRmtFyo7BIqT+
-	 qpbehRCGe8U+yvH8J3PLrJz0Ir+mcWHh6hPI3ik28QZl/Zs1C6W/wI6POYX4qE849XQ==
+	t=1794983971;
+	b=TGqRWaA81lx3Jk43vKO2tV6uHzquvSmYzPrV5qlDnXW645kynDApbD6GOxjFmdggTmPu
+	 QVkN4KgtlR3YQpBnNvDqaWwA91vWGOWKCeJpiKmvuE+QHOg45Dp8bRF5elfQRS04Js6OJ
+	 AZ7Vm1DSvjSr1kB7TqHHQyUKT9K1BquVQsNvRjL6omZiVAUi3tpl//M82MBpez2yV8jVY
+	 Tf1G2KrCItezc2XacXd3jqFsZc12qx526BlfOo2AIFH21Rgdb9s/BNSgCYz8ub+co26mR
+	 5MsPxIzKbDhsYcefX5dCY3kQdRl0t0Q95gJ2S9c/aK1sFDFNzYbDSPEMxAi7J73QyCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983890;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983971;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=M1+qMsPy6fKyAjck+GZTx88ZCCPsYdHAFPCNWYPe8pw=;
-	b=k2qXg6u8Pk6KB+/H5Vpwpn68Q8hpjubzs/G6RNI2brGtV+gs8v8FG1jYIH5RJZlKir8E
-	 WuZxneOdyV6Rtvdad4D9+Zt+qiZHbePbPHsvzEDtLEPo61ECj4CbOQhKyr3mu5ku31h6h
-	 T4Ooj1L/ZqF2cHZ8g+W25CRZBfUqKu4GVyCR3lb/L3A3cBwFDSXzh2GTYip+gTCQ098L7
-	 QuYYkW2nxt/ISsAGgnxHZ+kPLgogFOI/7hTR4FgLINyI8TRZSTCuzQ1vgA5n8JjkBMSx7
-	 rR0hBn5GIUHGrGkPlccjIzq9yXro46sZSHg46tgxSYye79LvhHU0reA4ZxqCuQR1QkA==
+	bh=XAcon0bPGB/oOjy8oTqDZo1BhwkcxrdxjLe278WDxJ0=;
+	b=zvMRgJgV54M6VcL4FamIC9IJoREwm+50tA6y9IMU3N3ZvhnurLvC0A0+NxcRN2NoBmij
+	 djlsQqEBrAdMykfxUL5ip266igpULme7WLHaKDnJ2UMGrDZ38qbcILCBguCLOtwUzxCgI
+	 CUhfq/ZdKatg4bKnwfkMQOqbO36+HEGfHe9Gm1etPsbx0ArGffl93vDqS853qAdULc6Kr
+	 ysXdu88L9ql2g9/hPCDDXl3bZ1se3OSdBLgQWZHBtENanSIkp0OTUD1e09P61BQ5Hn3EN
+	 SXRj98iW7pHejpZnSnaxLbbl731A8R3Fg3syFzsFFeWVz/jqc1FSSEmM27SFpOS3/yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NI100kZn;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EbxSF1Cp;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6897606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:38:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6897606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 384AF606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:39:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 384AF606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NI100kZn
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-36e90071735so129018eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:38:09 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EbxSF1Cp
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cde1479f76fso521079a12.0
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:39:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794983889; x=1795588689; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794983970; x=1795588770; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M1+qMsPy6fKyAjck+GZTx88ZCCPsYdHAFPCNWYPe8pw=;
-        b=NI100kZnnTRpk1ImaMCnh1QcNvL5HV+h33KDyU4v6AxHVD4ByTlvyICYZDTqt9E+J7
-         yTdAPQ4On/95/VA/SdN2mJbi7lHMgzNviugpG1Jd13GYOEew5KUXoJI7LwMFDaohkuVn
-         eQPvLgtYYtZXx5vrE7WefaC4tMTl2GpmNop/KdCkUsjuVHPTuYrw+aFIV50dl7KVoqn1
-         N+mODXg2c/IIAY5Nl9ByHaDD1+oppqZd1Hc21iOIQMjgvYY7Z1TYhZhRx0hE649rIakT
-         yVjznvSCje+EnoJG4XNHvr4HpmhMBonDlWS7CVkGXe28VjcJgOBXy+Wb84aiVeWrqo8n
-         XfuQ==
+        bh=XAcon0bPGB/oOjy8oTqDZo1BhwkcxrdxjLe278WDxJ0=;
+        b=EbxSF1Cpupu10/hGoiSCTVs35XFe/p0DNId9GVw+zqqQ1g2CFmVNipzSdS7btmYBz/
+         gBDabXO+4Ro+d5+s/eIQZwxKGDgkQpAZ2sToN0Jl4Qwuh2om3GfROG8c1Sxxbxn+XccU
+         rv9l9ck4IFGRqR2qlPcSoQl8v31CO/DPtVvoKTudcOAyXRptzxM/0MOgIaqVRZdSWa7F
+         m8GjYrHL14fZJI2Z/K1U3dbNiEAJgKSKj75TybxsTQ5Q8uMJY05dwBLy8JwoGBDs9gTA
+         kMWSRwKQfvwxw4L0sjqIQioA9mqXlw7pbFmOJD7xFLBZu0c8IK9q7+2SbigCYXgGV0qK
+         G1Bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983889; x=1795588689;
+        d=1e100.net; s=20260707; t=1794983970; x=1795588770;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M1+qMsPy6fKyAjck+GZTx88ZCCPsYdHAFPCNWYPe8pw=;
-        b=mfvwlzbNOG+/8WxVxzVfgvytzRFs1bvSrhXak3Qucnp1sX5snYBCHNWMMbH4F03LMh
-         r+KpK1Iyj2mYG+yQckzY7elETfPJocJGTWoZ/q85kyQQ0sgeEccdZUQwo5aDYgLhWu2w
-         PfEFy6MwSyofZFylBQXo53P8NpRqcdio+ludcQJdd7bX7BuneezYyh4KEN6wy1iNbFgq
-         Ev/2mxw1FVAHOHeJcC3p+pMnByx/gYaybkx6QeQweMpFla8jfwAfQ+RApnZobRFYgKjF
-         I04UV8zRHpnFFoTWnuxDGOH23CcpVypaFl05iwFy0Wk6OImZ+RtOUTCYYwBMAPgPF8ze
-         n9XQ==
-X-Forwarded-Encrypted: i=1; AL+hErGzaYlHwnWQUYnsPtkSozpaT2uhnmooqcBfupbjevoO0d1Wlae3lizuWPlFMq0vC+VpkI6Cj+BGtzEitNM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+auW0RwqJWbPVlwMAZns3lloSR/JiItxasgSj7d9WujpVvpaFJ
-	FR7g1s8Q+Aa5PpILsliV4tSD9UY7R36ME6NHHxPLOKcrYmjgAi4g5/zswR2nOKxb
-X-Gm-Gg: AZFdTZcGN9q8oIGPsisYNw9TERIsRom7zTpMY+tqutmPm5S02HxeLN4XrLAWjxuhv1W
-	r5LEMj6b62vs6d3vYdUquMAQ7h+5GAtKgP4USqv7t2/vHhHsy5sEwpKE74kUXdBzHJpDISMrDEB
-	iyMQpA9B4UE0enYnpm+bdDaFBqwJ2xT/zqnVdg3bBc27os6ClhFV4Ys6xRGOyF2/BY0ir2szlWl
-	wD4RDFGWHCrVWNKFBIyNSiddoBgJrw68utPWsP0X5eBQnj6M3Q7JPJ8h1O6o6d5r8dGn1lIaEuf
-	rH+oyuPkI74B8xIVNgz2lQuaOIP5rzx5Nf7a1bckE7ftWLG45HN13T5Xy00lDkJB0LBe/BNZjhT
-	R8sWbIS58VxZ1sllfb/OFGqSEaz4aSgDfHK2HMwH9vu8CopFvc8vbu36qE58fwzxuM3pWVzxxd3
-	IlgVme/anaSKWvGDpev8u7iDEZvIpGC7Kg9WbhiaG4rGME4n5KMxxL4+2aw/JLBbNjHjZdoXJOt
-	5ON/TKvzIYnvPILXJUEPYSsYoIau2r6X5XTefkComuvGfjeUevk948eV4bAtYsf6Qhfaj4F5kSS
-	R+J51s8F3IUDJoG//+LXJTeg3BGm7CzapMvJ9AnqDOV5pku4x94Vfykpv+y+TqoVS0+O1IvAVg=
-	=
-X-Received: by 2002:a05:7301:52c8:b0:381:dc3c:4c19 with SMTP id 5a478bee46e88-3827aed7177mr2606013eec.0.1794983888747;
-        Tue, 17 Nov 2026 22:38:08 -0800 (PST)
-Received: from localhost.localdomain ([27.59.52.137])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm6423069eec.5.2026.11.17.22.38.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:38:08 -0800 (PST)
-From: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
-To: sj@kernel.org
-Cc: damon@lists.linux.dev,
-	linux-mm@kvack.org,
+        bh=XAcon0bPGB/oOjy8oTqDZo1BhwkcxrdxjLe278WDxJ0=;
+        b=lRk8qLq7+AmSUz0wsBmONCoBieEKR6QsgiPRuFb2BJukdfjYAhp87rZYPHYdciQLCw
+         EJJSKux3Do/a0Xr/rC+UTwN8D0ww8ctQOz033izeFUXgUMke/r9Hztu8bv7cqD6G2ubw
+         LPJFD/fNDcH4DzQevi/lbt/A79WEx3+0LMZrChmfIIU6Rcz7MPpBhHwCqMjwpV+IiixW
+         551yPAwbM31Sg9zeVx4AwC7onlOa+5pDIEPp9qlOFb2iJnlaQTt4RVwfkPdREnrlthMp
+         dMp1cAUPFq3ZlGQIhfwMFLzDcggjZxZ8+Vwn7eHAtAgeB154HzWxRiNWikC0vU1s2A7M
+         ueqA==
+X-Forwarded-Encrypted: i=1; AL+hErH+VQFfJmFMwsn2Eeae+Apo4wAsrcLIdc3mt9vhhFLubxHDRPbUNN9NpzIWtdxLTDC7plJsMLz/N13h6Z0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nuhZEMRaoGnCq8oyOWCQcGs3MjgqAI6EZmdkinq9wqA56BaMN
+	phwmo7roLRWsTmSHp9tVsxxSiYzUloHZWwzowaDP1/iRomxYl4xQMY3L
+X-Gm-Gg: AZFdTZfYM5dLg97ZCPjSFMNDaYUCJconkntaxEv3NxSkrl18IlaAwoaSJuvOGHTDbIe
+	K8qp6f6vAvoiE+f626eNV8+EPPhzpI0Fd6/sINDYlgic8cw6DM4J264fGXbOsPUnsEn9wThqLa2
+	7K4WHO56zyApRGS1CYXt3I1Kp6IsAhC36rjzwrtm562dpxkz2XIRB4uUi/DYaM5h3ZgpCLS6IRr
+	R7Bh2mmILoX2vJBPbT1yepG6mrEN/zP6GzqDC0ohmYnk4C7TzvyYDlfiahJbLo2ZxoUFYSmgRzK
+	Cp46hGbNiY/+fwZix6GhEiigI5F6Jw+KlXgokRb6ziTaTpyeh0FnNrTnh4GrLjfFkqr3DGARPg0
+	0+xqSxxnUvrzjiumrcF3EBxHnDghV0xR3//HUYwwOz5Am90PVCnvQSNwYuCdiNcDUJaDHAU13dO
+	rD+J5MXGHVy+ANCGUL07OP5z07AVpJ1SsyEr7vJi1B3OSQ18yTlAqtGzNhJeXBEEsRz5NtUbi0R
+	jkRWatenEcYVxKKabpd3rYF50QSnHLkOxJkEhIq76zA6ItKbApvDDT9KCZAigrmsiYsWXKB/wzE
+	C9XPVqolpQzMqWJqIb/uOGXf2f35QgdHZpZMvQmZJ9/eOvKMSg6kvFO/x6I5z42LymI0edKT7qn
+	ENQ1JZrd42HPbElhVUFHq0B2vNP+Rc+g=
+X-Received: by 2002:a17:90b:1cd0:b0:3ac:b7b9:6471 with SMTP id 98e67ed59e1d1-3b3d07d2ab7mr1602445a91.65.1794983969538;
+        Tue, 17 Nov 2026 22:39:29 -0800 (PST)
+Received: from LDYT9Q2G2M.pvgl.sap.corp ([104.28.235.58])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1c03e04sm2562322a91.15.2026.11.17.22.39.24
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 17 Nov 2026 22:39:29 -0800 (PST)
+From: Zhiqi Zhang <zhiqizhangg@gmail.com>
+To: netdev@vger.kernel.org
+Cc: jhs@mojatatu.com,
+	jiri@resnulli.us,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	koen.de_schepper@nokia-bell-labs.com,
 	linux-kernel@vger.kernel.org,
-	Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
-Subject: [PATCH v2] mm/damon/tests/core-kunit: add test for damon_call()
-Date: Wed, 18 Nov 2026 12:07:55 +0530
-Message-Id: <20261118063755.37749-1-saileshnandanavanam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net 0/2] dualpi2: fix queue delays after trimming
+Date: Wed, 18 Nov 2026 14:39:20 +0800
+Message-ID: <20261118143500.dualpi2.0.543a9a1be910-zhiqizhangg@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,68 +106,64 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A newly allocated damon_ctx has call_controls_obsolete set, meaning no
-kdamond is available to handle call requests.  damon_call() should
-return -ECANCELED in that case instead of queueing the request and
-waiting forever.  When call_controls_obsolete is unset and
-damon_call_control->repeat is set, damon_call() should return 0
-without waiting for kdamond.  Add a kunit test for the two cases.
+Changing DualPI2's queue limits can remove the cached head packet without
+refreshing its enqueue timestamp. This leaves an increasing delay on an
+empty queue, or the removed head's delay on a partially trimmed queue.
+The first patch refreshes both cached timestamps after trimming. The
+second adds regression tests through the net selftest framework.
 
-Signed-off-by: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
----
-Changes from v1
-(https://lore.kernel.org/20261117172219.26725-1-saileshnandanavanam@gmail.com,
- https://lore.kernel.org/20261117174834.29182-1-saileshnandanavanam@gmail.com)
-- Merge the two tests into damon_test_call().
-- Drop the list_empty()/call_controls.next expectations.
-- Drop list_del() on the stack-allocated control.
-- Post as a single patch.
+I identified the issue, reviewed the fix, and developed and tested the
+regression checks with AI assistance. I used OpenAI Codex for root-cause
+analysis, drafting the fix and initial test code, automated validation,
+and preparation of the commit messages and this cover letter. I asked
+Codex to analyze kernel code, implement and test a fix, check public
+reports for duplicates, and follow the kernel contribution process.
+The archived results below are from Codex-assisted automated validation.
+I found no matching public report or patch in the upstream histories,
+Patchwork, lore and GitHub searches performed with Codex as of 2026-11-18.
 
- mm/damon/tests/core-kunit.h | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+I used Codex-assisted automated runs of the 11 companion DualPI2
+selftests to validate unmodified and fixed arm64 net/main kernels in
+QEMU, at the base commit below. Real AF_PACKET traffic was retained with
+HFSC ls/ul shaping on a dummy interface in an isolated network namespace.
+No source changes or fault injection were used to trigger the bug.
+The baseline passed three controls and failed eight trimming cases;
+the fixed kernel passed all 11. KASAN, UBSAN and PROVE_LOCKING were
+enabled, and the completed runs showed no corresponding diagnostics.
+An earlier eight-case standalone reproducer verified the fix on mainline.
 
-diff --git a/mm/damon/tests/core-kunit.h b/mm/damon/tests/core-kunit.h
-index 43e2f950f8ff..228cb044d1dd 100644
---- a/mm/damon/tests/core-kunit.h
-+++ b/mm/damon/tests/core-kunit.h
-@@ -2481,6 +2481,27 @@ static void damon_test_last_region_quota_reset(struct kunit *test)
- 	damon_free_target(t);
- }
- 
-+static void damon_test_call(struct kunit *test)
-+{
-+	struct damon_ctx *ctx;
-+	struct damon_call_control control = {};
-+	int ret;
-+
-+	ctx = damon_new_ctx();
-+	if (!ctx)
-+		kunit_skip(test, "ctx alloc fail");
-+
-+	ret = damon_call(ctx, &control);
-+	KUNIT_EXPECT_EQ(test, ret, -ECANCELED);
-+
-+	ctx->call_controls_obsolete = false;
-+	control.repeat = true;
-+	ret = damon_call(ctx, &control);
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+
-+	damon_destroy_ctx(ctx);
-+}
-+
- static struct kunit_case damon_test_cases[] = {
- 	KUNIT_CASE(damon_test_target),
- 	KUNIT_CASE(damon_test_regions),
-@@ -2525,6 +2546,7 @@ static struct kunit_case damon_test_cases[] = {
- 	KUNIT_CASE(damon_test_rand),
- 	KUNIT_CASE(damos_test_esz_goal_temporal),
- 	KUNIT_CASE(damon_test_last_region_quota_reset),
-+	KUNIT_CASE(damon_test_call),
- 	{},
- };
- 
+I used Codex to build before/after arm64 kernel Images on mainline and
+net, compile the modified object with W=1 under debug, allmodconfig and
+allyesconfig without new warnings, and build the selftest helper through
+its Makefile target with -Wall -Wextra -Werror. Both patches pass
+checkpatch --strict, and applying the series to the base
+commit reproduces the committed tree exactly.
 
-base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
+I also used Codex to complete full arm64 allmodconfig and allyesconfig
+builds on mainline at 7ccb044c27720d48175577080b851f047ddcfd1c with the
+same fix, using W=1 and CONFIG_WERROR= to allow baseline warnings. Default
+strict attempts hit the existing arch/arm64/kernel/sys.c override-init
+warning promoted to an error; the same failure was reproduced on the
+unmodified net tree.
+After the full builds, I used Codex to rebuild the modified object under
+both configs with default CONFIG_WERROR and W=1, without warnings.
+
+Zhiqi Zhang (2):
+  net/sched: dualpi2: refresh head timestamps after trimming
+  selftests: net: check DualPI2 head timestamps after trimming
+
+ MAINTAINERS                                 |   1 +
+ net/sched/sch_dualpi2.c                     |   2 +
+ tools/testing/selftests/net/Makefile        |   2 +
+ tools/testing/selftests/net/config          |   2 +
+ tools/testing/selftests/net/dualpi2_head.c  | 304 +++++++++++++++++
+ tools/testing/selftests/net/dualpi2_head.sh | 350 ++++++++++++++++++++
+ 6 files changed, 661 insertions(+)
+ create mode 100644 tools/testing/selftests/net/dualpi2_head.c
+ create mode 100755 tools/testing/selftests/net/dualpi2_head.sh
+
+
+base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
 -- 
-2.34.1
+2.54.0 (Apple Git-157)
 
