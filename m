@@ -1,59 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996406;
-	b=OjTAK+FAD5uzNP7BHHVNC9YuXqrXpGhB/eKabIIV/hFWgE0gX3ZqZx66rDV10L3lhzxr
-	 Sqdur6HuIn/spKcag9uyqCmL386brxb9ViTBrPTL0YW57dk82QD6vCLJTLxs4xgyjjU4a
-	 8uoD67/bV83KUTYmoOjrCZFqGsHhw/FLrfIPCtQ41nDO5SVUM7eq9BbviZvV8Nj8OfDdS
-	 PHf8bWO27lkH98X7ri+8hRlgQKDAmhD9ktHA90dAnySnIYMU/6urrNulOita7t11acMgj
-	 +LyC+wxtLonJE4LYlEvxlXURPaJuG3yyHlCwAGqPVGn+idgbtn3XnKkXHMlmkCYRMXA==
+	t=1794996424;
+	b=AZyK1pPWjkUCh6mJhLzwcwCZiG4M6qePpfUMZ1mpJP+g4GRlrYALGdXpRXmK6GWGIoYX
+	 iaJ0Xn0kVlp/w6NcZISz34ANct82MuAz/JguvDy4HIU1XNzIz5FApz55bacRbyo7miXIb
+	 qJ3em6hr12haUOy/kFTr3eEEC/jg7VL/pDZesyqu/5dzCJVjPU4ZUb3ZpxpS4DhCDhH2c
+	 cMgJhjZI2ieEuL78v8ty57Ox4Ni4c69SzMbYixSN9ISE2tI4/goxxeK0OjGUSsfGVSve9
+	 raf5H7MOvK4eKedrl7+wBrUkyzTnqgJ9Ci7t9SUC+XsK47z1lMNhK5q1IGXgES2BXKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996406;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=w+Zp5fYUXpTHENGGEArXBNYqTXx0/SwepjxfieSoHbk=;
-	b=qAgvElPecwuGvpSeImoZuTV3ghib0WMYCkDfIAFGZSOT/yOOx6ZHFy0XAWhY1mnSDFbi
-	 Zeqv9ZoreggPWeM3iCXXc/rzBjDHyFk8ddIaLtd3aIcbh5NA1wwRrsg35oc5H63YaCXON
-	 Qpvw2CQ7A1OYJn66+1SqxAzuXiaOktIG0kBjeMIyJaPAVcw1dExWe2dPJqR5pj44+O5ZD
-	 phFDimcvaP0BiQfjPcG2gkxDWQcxwsGmAUN4PeDgY79Y8IdkxxVkqKUMIldW/kBZfFJL+
-	 WcsRGQ9XmBV1IyZs5yIte1gmO0oSJP2hun7NJMHaqpBZQbQM/MWDeRmgH3oyBc0mSKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996424;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=/kO93nSsjjdF3j4npCojXQ0FzWXWJez2uUSNY9jjjOo=;
+	b=AJhjgqbipBmrjY1CQLeOQwO0nYPCjxog02fwMeM//DepXEU4hzBt3ylCvHL3MAH0V+fW
+	 5JZpbK5/EoEmzUzSApebFKRuSL9B+Rqrrnut/zo9ohwhzKghpdFzvlZ8vkPTef0Niougg
+	 uYAGcNg0v2rfX/hR2GZIJ0Fjw/1+pGBU1teh71iWaYvU+0boYi8wlM2Dt7hUBhQ+RxS/h
+	 dbXvI5oWn3Rta43D+p6izXJeDeBVD27rNESDHMzxwjH9W+Ljp8CAOaY+KgFTq8qyFz5EQ
+	 ls+GNYyZ9JrsRQmh9zzXtBp2TbhmgA0YSXpsO/xWQhgwm+bDDSeurEch0Mks88Iqmug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Bc4LnXam;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RJvt4+Tk;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37811606A33A;
-	Wed, 18 Nov 2026 10:06:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37811606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46D17606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:07:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46D17606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Bc4LnXam
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 0333C1A16CA;
-	Wed, 18 Nov 2026 10:06:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CC7135FE9B;
-	Wed, 18 Nov 2026 10:06:44 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9CFD611BC0F29;
-	Wed, 18 Nov 2026 11:06:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794996403; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=w+Zp5fYUXpTHENGGEArXBNYqTXx0/SwepjxfieSoHbk=;
-	b=Bc4LnXamwh12WRr26cHRHMdLSxBfQh4CBDxNoQHTa4xfZ8QwICGQpaEBgfToTF/1J6fWe0
-	lj0ufaaK4VQKsrl5OsHmDZw9DcCOjykCvcjRcr179Kz3RbzZH4ZOWa1LEbd5TGasyA8+SC
-	uNtsNK4lP13htBCKX+bSYKVfrm0CWb9X8rN8OJuVkSnY56UHzB7DKaDwQTxSFDHB6ybN/5
-	POlRNGhMA2KMaUfD1jazF2bvX6kDM7KZgE7BrA9oYHGbM73WpSRxJXn/05dKK82rc17njh
-	Dx6yzVHlrdy21JeHC9xd5MtnT7duqpvb6sanV1/bLf+/ngOkOaCdzP/nNYdQmw==
-From: Paul Louvel <paul.louvel@bootlin.com>
-Date: Wed, 18 Nov 2026 11:05:59 +0100
-Subject: [PATCH v8 3/3] ARM: dts: renesas: r9a06g032: add EDAC node
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RJvt4+Tk
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2efddf749e5so9048255ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:07:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794996423; x=1795601223; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/kO93nSsjjdF3j4npCojXQ0FzWXWJez2uUSNY9jjjOo=;
+        b=RJvt4+TkXdfEoie/3L8Sz6AdW2W2NbhPUqEi5fc/QS3YuAQhoBnhCvWArNfzPj/vr9
+         dEUNP6nwq5fDOjbQ3p4I1HjYP/gqpkL9IVRv9WH7OUwpPvi2MBf+A9I9+Kc+EKnx1X7J
+         qvRIlEKZKbxJ4/Juho8EzNUFTsp61h3EShUEII3qXovU8AHEL146BbrTo++Oacm0Lmt4
+         anDatOVEhuDhPTXo0pjX54GZBSSgTeb4bMrKotsX4mdM8MTFE5oHoOKO4FbVNiej4snF
+         z1U8GcE1SukrIq8dm2zdUxRG/J90/JaRP2qA8LbyekmSsBdva8vMTL2PSRGQTL/onmWL
+         o9oQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794996423; x=1795601223;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/kO93nSsjjdF3j4npCojXQ0FzWXWJez2uUSNY9jjjOo=;
+        b=HZexrLTHoobQ+7x1AQPwzJgI3+ZfLC7sumvyN1ZfvxixsEw01x1+UcIjDf9/QIedEY
+         8jMOvoelXKsbaEoICBsINuxCb9naPrWcQ8WFutzOzQb6CJJmAAnQYAXHKm+EtrO3/Dmt
+         xxvR8PcKC2j2ZYNQ3W0hLaTSdCqs4zRzy0L/pblhDbQ/NgEuV1/s7HKE9JhNcHZyfJNz
+         UUilRKn9H8ekCwBVwoBOLpQsK8vz46ByH5ODM4W5Gp2+3dEGwV9JAfRd1C3ygHCJYrwY
+         B118/Hhr43YpEfU0sP0qreOMx9umkd24zBO36cVYZIneGGbVjrGGvPuab5S13n2btGpT
+         FXdg==
+X-Forwarded-Encrypted: i=1; AL+hErFXsaE+ISIK94wKi4ZX7WvDJW/bCHgqPeV+uZ6KXaWviq2E4gOalu+bgdpSXwp2rTl+9Ujek0z2USVv4cg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ytRxG+HoaWcwGZrS53ZxGCswRQzns9T0f1ZGLLozR5qgDMDEY
+	s0oEeEekPbC4Y1aBaD8jNvD16SSjGwwgBBw95DyrwmF5p2mPU4m55YDzBWlNtQ==
+X-Gm-Gg: AZFdTZcXviZB0cxGNcp1dztHVTh+blWLbYqRCZ71d7GtirIeOBuxSdiiOy4YXZPKUL5
+	LbN7eyGUlgA4SrMplUQnUbeOJ+rMl0bLKJ4PLlV+D9HnFbR9eklNKl6T5v89GlW3ut4zrN5Tida
+	rereGTuCb2pJIu9Pf6ZeOCT9kWAjgDWnDZL6U2o5KnI9aBjD5Q1fij/Hxywtlrozk1QfXjDYi9B
+	fPtdJrWVU9H4wE9A8QY3wwbPehQjwZu1zP6GLZ93SKFKZ+QSr76Xa/0O112yO3bjuVRa3LWHrDx
+	21fuqPMvSOpyMc2+t5yNFZ51UicZkMx7D/cvoKiSe4XMk5RU/KXgZnRXmJ/EVF2yUKKVFPZfivo
+	mNzlDKogW6ZfXKWDynF0MNXXFQaBKUwv86hsKN8eSK7VHAlJhyEYnt0eQryDCyRUsJowbHgeCsn
+	S230pzBzytfJ++88pRcB2ffONpwu6/H1bJlqt42ZeoyKr5tLM+79814ZW5Fce4RPsG5OJzri9m4
+	1t2TSPOIGYxNMcAIOLPZ++2bNHUe/LsYcjv374shHDcZVuMepmF4v18ZDSR9v7sf+eOv7Vwqisa
+	6q9Nh/f6ghwklTLj06zvuw8o6NNFUk9YGd8fNr9gbjH5Gp6XVPb+nOYQ5sUEojxpk67TUeuDX4A
+	VX1WvPGMxi4P64YpHdfp8gJDg1YbLErtlMdLwvit27knA
+X-Received: by 2002:a17:902:dad2:b0:2ed:520:2641 with SMTP id d9443c01a7336-2efd9bcde77mr39901635ad.31.1794996423492;
+        Wed, 18 Nov 2026 02:07:03 -0800 (PST)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6215025sm10634145ad.46.2026.11.18.02.07.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:07:03 -0800 (PST)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	jonathan.downing@nautel.com,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/2] ASoC: fsl: lpc3xxx-i2s: Fix error handling and DMA configuration
+Date: Wed, 18 Nov 2026 17:06:29 +0700
+Message-ID: <20261118100631.26658-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,61 +103,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-paul-v7-3-rc1-edac-v8-3-ed791084cc19@bootlin.com>
-References: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
-In-Reply-To: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
-To: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
- linux-edac@vger.kernel.org, devicetree@vger.kernel.org, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- Herve Codina <herve.codina@bootlin.com>, 
- "Paul Louvel (Schneider Electric)" <paul.louvel@bootlin.com>, 
- Wolfram Sang <wsa+renesas@sang-engineering.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794996390; l=1030;
- i=paul.louvel@bootlin.com; s=20260313; h=from:subject:message-id;
- bh=bjqx9mWsVyVgBUPyTaZqDuanfvJmzUqCelIb9D3jJRg=;
- b=pXwMztftrUVoRpu0lIlphNUPsvtcbzn0ACauG4sULaNgmXDg94ESRJNtxZr1CVAMb7/voAxvW
- 65n9rBqAteKD3gqxFgloB0sdo3PurQHPTTHMQhDuECr6JMS6qlEiKwd
-X-Developer-Key: i=paul.louvel@bootlin.com; a=ed25519;
- pk=eLW50NT18UAvUT5cAcYf88zNbBCZDLFXuptpyLVhVIU=
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-Add EDAC node to the SoC base device tree file.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
----
- arch/arm/boot/dts/renesas/r9a06g032.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Hi all,
 
-diff --git a/arch/arm/boot/dts/renesas/r9a06g032.dtsi b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-index 5455dccfbdd0..370756014571 100644
---- a/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-+++ b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-@@ -163,6 +163,14 @@ dmamux: dma-router@a0 {
- 			};
- 		};
- 
-+		edac: memory-controller@4000d000 {
-+			compatible = "renesas,r9a06g032-ddr-edac", "cdns,ddr-edac";
-+			reg = <0x4000d000 0x1000>;
-+			interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&sysctrl R9A06G032_CLK_DDRC>, <&sysctrl R9A06G032_HCLK_DDRC>;
-+			clock-names = "ddrc", "pclk";
-+		};
-+
- 		udc: usb@4001e000 {
- 			compatible = "renesas,r9a06g032-usbf", "renesas,rzn1-usbf";
- 			reg = <0x4001e000 0x2000>;
+This series simplifies error handling and fixes incorrect 
+DMA depth macro usage.
+
+Compile-tested only.
+
+Best regards,
+Phuc
+
+bui duc phuc (2):
+  ASoC: fsl: lpc3xxx-i2s: Simplify error handling
+  ASoC: fsl: lpc3xxx-i2s: Fix DMA depth configuration
+
+ sound/soc/fsl/lpc3xxx-i2s.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
 -- 
-2.56.1
+2.43.0
 
