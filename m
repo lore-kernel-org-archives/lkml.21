@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991962;
-	b=HclxHvgjlDfFVZijkT71vbEGfngB3HJGUpdUn7GLV4SNDHy1B9jdU6dbHi+f91KorEQF
-	 Q7YN2waAi0MMC5sqWg64+3+dtWBmJwmb5l4QvLKSc6NNI+WiitdxR+uuKGfaEOiMH5/6D
-	 igzfmQnQ2OZKev7bm5j0MIoHYpX9Tfn2EE9JX3q8ggOwfgpAJem3Jwfdcd4EZaJ+Vi9+h
-	 WXK9sDgj1A+nqTvtXZp4+yWPFGPKh13b+8rbra3LUnBu78QxuV6XXsoDH6My1iIuWVjRf
-	 eJY/DIm8xdnZmc2QE3NCjCbFD5sst5wGBRETVMhsKDJvqyqQXurqsCVhd2L5sgiLUJA==
+	t=1794991958;
+	b=2SUC8PWiDI2LiyW0q08vmCwKkMi8AeMekd6dpQVzUGCDRrtI58AwIAXs17zluV8FefWH
+	 5PDvz1/srx2d1LFqYtA7Ts7zrm+jFqKjKdJBBDgGVLzHtnN67d/K+MURcREFEt1YfV0nj
+	 lUtNGKfLYeJEQPiB5EAvYu7lIaha3IgrJDKy2RGEHl83uRW50xi50EGqEV7ciZKfqG6LA
+	 6UpboDngqZsLbm6bPLbwgUugE1JAzzqApjYcOQoBorfuflTQj7LTPsU7Grta9DLcA0s+Q
+	 kr8f7lsAaUD3oIIBwuW4VKmqJzEureBUg1PhXh5uHjnPoP/YJ4yrPaJlj9XaifO5b7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991962;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991958;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=he7nMqkjkQ0JQDd1p+ONkOp35UlWt58F62jCI8xjmd0=;
-	b=h4sMoc0z/oKQEVwI3EOtq/wLtYWMWpIen2/xwimM3kuU/VdjpEwRj2ThPLO0fOMDV0Gu
-	 U6IsLuHU87ueg5M19EAETvICHt6sZpb9kJSMgQDUawg3Yucx57VDWMQxiRFPn1NmU16Jt
-	 J5Dnfc6jSdx5bBuj/blMRhfh1h0pRNH3jpiCulxGzUwPfO/D9nFekwouA7S8Pr6yDBEYd
-	 3Zn39vpiT793O25BUqMoTKv+Wl67/+Shwawz6ncLKxBzyMcajUVWkZUIj0wZxBzO41jJs
-	 c6n68R1TTwFpRk9Ch175xkDcGlx/2wl+WDzMu1fiYGYvyykX9tDxaegOQJSAE4+m+Gg==
+	bh=cmclyy+oqh2tP8YaWR+pfirFW50GH14lOaNjbDPN0Cw=;
+	b=igCLP6ijaNrfgqEXPckqNQmh1B5OURVvO498WAYTlvw+Cvr2afVa4YHMjIJmFhF7qClr
+	 RId5pLTOkt/bbSIQpsCzqABIx3Y8QshuxBfD9Va9Ie3yISqMpk2Ty2nAPnPCxiUAEgmvw
+	 uR9ix6wTKWFqWOAALRiF7OhH6SCBJcT5j36Nq0MWE8Mtfw1srcj5yHQm7ya2XmEdd+azw
+	 iuuuf7oAvPluvWOdTXo0YKxFrpuW8YSwJWv71sWiIB7mL7tIe1T7pov5Lm+RW2Bk9530u
+	 SVKKqchuksI+MY78EefB+QfMRpVABCCLsWwq+jLZgUT17PGzsBfkEJuge6bT6e0ZVQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vuHW7tEG;
-	arc=none smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XAp6m8pL;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32F36606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:52:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32F36606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE822606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:52:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE822606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vuHW7tEG
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c4cb6834eaaso94357866b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XAp6m8pL
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c50d3ac6b51so364942766b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:52:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991960; x=1795596760; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794991956; x=1795596756; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=he7nMqkjkQ0JQDd1p+ONkOp35UlWt58F62jCI8xjmd0=;
-        b=vuHW7tEGePFSfW6S21w9ZS13dvKqPCnVrQXH5pqUAsUw7gi6CnCr/zfsha+Z0ivUpS
-         CmkZzhkm3yRxp6gFFms1Mr90qOJ9zY458I5KYhSFJClLEbZDGQpDNOWHoDPuHpR6IMzq
-         pVmlEhi01BqlD/a+6RKBC7HD5fhVmlNhHayaAVOkyeOXaZdJtJFY7Up9Zgz2IqRGiZWQ
-         /QEKbb+hKeDU94KIhIrQ3h7d+NBdTsyCGZTjLz3klRGp2v6xCYA1INHjWPE2trfgQxu/
-         tnp2pjBOQZL1DSC+UriK0rQDXLrdZke38E8JbETVBzB6Oa/KYbvqCTNhubwRWXQva60b
-         bC3g==
+        bh=cmclyy+oqh2tP8YaWR+pfirFW50GH14lOaNjbDPN0Cw=;
+        b=XAp6m8pLBTS6qgDNHMFpn/BOdvNiOdHvPmkhQiUqH8Ik3NRAl6oD6JOt2mWcs4CZoK
+         vY3jnYh+t5FIECZdNjztFz3Z0qCE5H4t4BCy1skNQyWTdWI28Y/g6Nb6z2OlIXE1FTY/
+         zFKtGn1I3tyo+EOIepd9FBaacekCAuazEFdAI3DR3sWH5fMgp8FMdaLIb8qlvzK2DhyG
+         LmMiAoNMA4NAsa0nM4Izh0ZlIStMJZxE4PK4RmEp7CzdeBclLRLpQCdGnU7ffLmM53+w
+         f7l1em7fE3MiRusz+B6hizyk2nfHOQHO6HZVsiijZcxLxnEKxdo45yqp2zbAPQtH2XtP
+         DU9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991960; x=1795596760;
+        d=1e100.net; s=20260707; t=1794991956; x=1795596756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=he7nMqkjkQ0JQDd1p+ONkOp35UlWt58F62jCI8xjmd0=;
-        b=LgzDiQfNhzBPpKkm3yz2SSY1wqDyWj4ZoCQHDLOMm1j+8NyIQPw9EdgV27Q3AQh2GZ
-         RX77DEGdaOo19gpEwvvvTx5bbR78h0dRWNXb9phtjcbdQvvPZX8oVXcgUdId2vjGoB+w
-         fKm9iWlnOxgEn1uc7PHebeBtJdRFkU/oc3uqJ5Y8RImVODifJGP0nXJcrv4cEtH4e/eL
-         mCmIWrBycvDH4LNZtNJynagBal/GbezNgX+Mjs8dUDLIN/ONFIKNnkdcvS4/+0GAdGFO
-         u7qSFaJfQitw93oZNKUy3tOUQGgrr1ehY49j5EpZ/Kgzsm2OQx5XVC3luvjzbJlMSloa
-         YQYg==
-X-Forwarded-Encrypted: i=1; AL+hErHUDajZapGqXCYrWtfb6bb668sw5583WKOQIPFlmhuS8Yk1bmnSWWdAkWTC2yKO9NQxHz6McUdecPca8v4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hbqNl0zBh6seI29kYNsSBeXELMXm6sqC8kO7ge/wp8oogO31A
-	PMtKSQRRfTclYGYEc84hoZRfUZRCDfp+VYzn49XTgruWl8uIR65kTxq7
-X-Gm-Gg: AYBFou2wGKPICBQLlJ9H0nmloFPLltm5yF8viwRQ1uw5pMTbitTaxrU9Vv+8ySj9rKb
-	ZMpMaRGGqzgWt7W4SRBLuT2Ysu+Igs7GhamlZBpkphgCmzX7omZtT6S2XUyhnMPKR1fXj/X9ML0
-	avdfjEI4ldJlF8rj6gLtROWGOWYASDkpr5dnU+GfgpDObEs/tlK0CZrZrPSrC6xr3reM/+QVCl9
-	QOF6jcVaXFoj77jlIRt4I3I3rnnaI+JTOx96AckVCF2NjiaHas7gNlFICocZrHRf+6FSlecnDy2
-	4uSXH4vY6u2Z7gkC0QiITnlsBHpLeZL0xIS6ZBhr3K/oE7QGceRkF9FZW27T/Y46mKJ5zpAOSTV
-	iTCzTjmCRYIbWRBhEcDEsNgCmYpxMQ0bErrEyoyIuyYw/KvwbKWJOZxXcho/EZPgTa/3EJK4u9y
-	FyqeOKSXFZGnHXxERye1vwKDeeDEmPxkbssvmJo8qWzJwx31XqdERf4173AfbXeVgRTW4+4lqc2
-	mW85uLiFWLfL1Sf+7d8DR/VlXyKCtkMw6mtIUiUmhryJC/Ehq2fFY4uqAus2gWz4AysKdktBzFC
-	Zp9Z03v4n4DtILy+UdGGr6KejM2kOnHLldf8jBI1hA4zbnQrfzGTfPgVBA==
-X-Received: by 2002:a17:907:728f:b0:c50:5a51:632f with SMTP id a640c23a62f3a-c510e37fdabmr167218466b.39.1794991960028;
-        Wed, 18 Nov 2026 00:52:40 -0800 (PST)
+        bh=cmclyy+oqh2tP8YaWR+pfirFW50GH14lOaNjbDPN0Cw=;
+        b=UjM2iPS/2P1AE7RJziSA6K4YEnNkoKPO6wl6mo4x4hGi/wo1S3X6D/ldocyRoKbEzv
+         AasExxH7bAR60e0w7o5Pb3CWu3WEdeZUrQTmgVLyuab43M13NKePNoYCUJwtuZGpKjPs
+         dNeFb2e6jZtKMVmLRrY3DtCGfp02S1k9c1h5aXEJHnGN5AD9YxcYPxzsepkH1H0CSabO
+         SK+gWPWsBuitxDvTkChAXo9Fu/cs/kNE95ENtOK2ty+aC4Zv3B2th5G2TtbieLuO0ytg
+         BjunOppieHuV0W+204dc+T9q++oI1yct8EsmPDSEujrppPoBejIUvM7AHU/O1Ldz8NbA
+         VAwg==
+X-Forwarded-Encrypted: i=1; AL+hErHqpjRKU/ByjV+zRpPyD/HLzQZizs6OFv5zCfOSNqpe5dsNYcEByIxT3xrUV8yv6XpGss+04MRq+glchoo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/bP6FVHgaBF6GCZ6ggQ9m66k7gpEhpvBvs2otc6e6tHAOkxSaR
+	aS/JjeckcdeRxQioWFUgcQrFZIQ+IeeZi+B1LsRR7pIpM89F0QBngkHz
+X-Gm-Gg: AYBFou11ZeCBluaS8IGnbdl1I+NRH7yaVKKkEbqgqKcGjlyf6C1qGAld15AvUw7TDB5
+	6nkCcLLeDXNh21DReTmrgU22Wrufrbpe3IeQR0Rc6fx6z+m/oS82HKbGUEXW4PqvrWnBZLwj3lV
+	nPoDCjsRcUKzmMG/w/9WbfdrCRlHhg9yym09IwfCF+SWxqk+3iGGy8P0QkfjgTCftMK9fWlPq++
+	4p9mQDsFthny5116XZUHa2F8st8xzmXu/lNeqM+gQIwVopNJCclamfP2yAraxfbIf6frDFyLtH8
+	f8UDL8VA1ESTQ3zfIgDVc4nAld4VTA9gVtxu/gTn3JSxRyEKy9BY28fb7BkQuFY3KP2NcrnMhAt
+	y+3qB1aPm7rt98kYQ018Stwcd8pEJfowLtHEjuCaChguhOLCEixmn3XeRhZY/yRguSjUX4aWSs1
+	AD96KohHfCmUuh5wllmKYGlreyEuiAW4euyXfxxTLGwh5u4/5iicTtIOnDcKcDzgYLHn3o58vz6
+	Iy2bmh7RbXatWJu4YVnTKpjtNpdxAP/CposVMY0asYOUfd0q5ofl9RWXLIbOes/oXhrGOrevzzZ
+	WT2QMWwWARiD1/vVadPOh+EH3Tk0iQ4WZP91
+X-Received: by 2002:a17:907:6d11:b0:c49:8bf8:a7a7 with SMTP id a640c23a62f3a-c510e158af7mr146788466b.7.1794991955656;
+        Wed, 18 Nov 2026 00:52:35 -0800 (PST)
 Received: from kernel.. ([191.40.25.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f31csm71077266b.10.2026.11.18.00.52.35
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f31csm71077266b.10.2026.11.18.00.52.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:52:39 -0800 (PST)
+        Wed, 18 Nov 2026 00:52:35 -0800 (PST)
 From: Kunwu Chan <kunwu.chan@gmail.com>
 To: dave@stgolabs.net,
 	paulmck@kernel.org,
@@ -95,9 +95,9 @@ Cc: rostedt@goodmis.org,
 	rcu@vger.kernel.org,
 	Kunwu Chan <kunwu.chan@gmail.com>,
 	Kunwu Chan <chentao@kylinos.cn>
-Subject: [PATCH v2 6/7] rcutorture: Add kasan-aux.sh aux-stack checker
-Date: Wed, 18 Nov 2026 16:51:46 +0800
-Message-ID: <20261118085147.1668598-7-kunwu.chan@gmail.com>
+Subject: [PATCH v2 5/7] rcutorture: Add KASAN aux-stack self-test
+Date: Wed, 18 Nov 2026 16:51:45 +0800
+Message-ID: <20261118085147.1668598-6-kunwu.chan@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118085147.1668598-1-kunwu.chan@gmail.com>
 References: <20261118085147.1668598-1-kunwu.chan@gmail.com>
@@ -112,468 +112,113 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-kasan-aux.sh runs dedicated aux-stack tests with kvm.sh --kasan,
-existing scenarios, and the rcutorture.kasan_debug=1 and
-kasan_multi_shot boot parameters.  It then verifies the recorded
-caller in each intentional report's auxiliary stack, retaining the
-report body and using kvm-recheck.sh for the ordinary checks.
-Flavors without callback operations are expected to skip the
-self-test.  Saved results can be rechecked with --check using
-their batches list and QEMU commands.
+Add rcutorture.kasan_debug to queue and drain an empty callback,
+then free and read its rcu_head to trigger a KASAN report.
+
+Check "Last potentially related work creation:" for rcu_test_kasan()
+and the enqueue path. The intentional report makes kvm.sh exit 3
+(runtime errors), even if rcutorture prints SUCCESS.
 
 Suggested-by: Paul E. McKenney <paulmck@kernel.org>
-Suggested-by: Joel Fernandes <joelagnelf@nvidia.com>
+Suggested-by: Zqiang <qiang.zhang@linux.dev>
 Cc: Kunwu Chan <kunwu.chan@gmail.com>
 Signed-off-by: Kunwu Chan <chentao@kylinos.cn>
 ---
- Documentation/RCU/torture.rst                 |  32 +++
- .../rcutorture/bin/kasan-aux-check.sh         | 158 ++++++++++++
- .../selftests/rcutorture/bin/kasan-aux.sh     | 228 ++++++++++++++++++
- 3 files changed, 418 insertions(+)
- create mode 100755 tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
- create mode 100755 tools/testing/selftests/rcutorture/bin/kasan-aux.sh
+ .../admin-guide/kernel-parameters.txt         | 11 +++++
+ kernel/rcu/rcutorture.c                       | 44 +++++++++++++++++++
+ 2 files changed, 55 insertions(+)
 
-diff --git a/Documentation/RCU/torture.rst b/Documentation/RCU/torture.rst
-index 1ad5cc7938113..15a430f5111f4 100644
---- a/Documentation/RCU/torture.rst
-+++ b/Documentation/RCU/torture.rst
-@@ -212,6 +212,38 @@ Note that --gdb limits you to one scenario per kvm.sh run and requires
- that you have another window open from which to run ``gdb`` as instructed
- by the script.
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index e3c5a6b68fc34..d88471dbdee40 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -6257,6 +6257,17 @@ Kernel parameters
+ 			accurately, from a timer handler.  Not all RCU
+ 			flavors take kindly to this sort of thing.
  
-+The callback enqueue-stack self-test intentionally triggers a KASAN
-+use-after-free report.  Run it separately from ordinary KASAN bug hunts::
++	rcutorture.kasan_debug= [KNL]
++			Enable an intentional KASAN use-after-free test of
++			callback enqueue-stack recording. Requires
++			CONFIG_KASAN_GENERIC and a torture flavor with
++			callback and barrier operations. Inspect "Last
++			potentially related work creation" in the report
++			for the enqueue stack. Disabled by default.
++			Use a dedicated test run: the report taints the
++			kernel and suppresses later KASAN reports unless
++			kasan_multi_shot is enabled.
 +
-+	tools/testing/selftests/rcutorture/bin/kasan-aux.sh
-+
-+This uses ``kvm.sh --kasan``, existing scenarios, and the
-+``rcutorture.kasan_debug=1`` and ``kasan_multi_shot`` boot parameters.
-+The default 30-second runs cover Tree RCU, RCU Tasks, RCU Tasks Trace,
-+Tree SRCU, and, except on arm64, Tiny RCU and Tiny SRCU.  Use ``--configs``
-+and ``--duration`` to override the scenario list and duration.
-+
-+These scenarios cover the callback enqueue implementations that record
-+KASAN auxiliary stacks, rather than all RCU configuration combinations.
-+Flavors with no callback operations, such as Tasks Rude, are expected
-+to skip the self-test, and the checker requires their skip message and
-+a successful ordinary run.  Any other skip fails the check, even if
-+the ordinary torture run succeeds.
-+
-+The script requires exactly one intentional report per supported scenario, with
-+``rcu_test_kasan()`` in its "Last potentially related work creation"
-+stack, followed by successful completion of the same torture flavor.
-+Only the verified report's diagnostic markers are filtered; the body
-+is retained for the existing checks, including the configuration,
-+build, and console checks that ``kvm-recheck.sh`` runs.  The original
-+logs and the underlying ``kvm.sh`` runtime-error status are preserved.
-+Saved results can be rechecked with ``kasan-aux.sh --check
-+results-directory``, using the saved ``batches`` file and QEMU commands.
-+As with the intentional warnings tested by ``srcu_lockdep.sh``, ordinary
-+``kvm-recheck.sh`` and ``kvm-find-errors.sh`` still report the raw
-+diagnostic; use the dedicated check to distinguish the expected report
-+from failures.
-+
- Kernel boot arguments can also be supplied, for example, to control
- rcutorture's module parameters.  For example, to test a change to RCU's
- CPU stall-warning code, use "--bootargs 'rcutorture.stall_cpu=30'".
-diff --git a/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh b/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
-new file mode 100755
-index 0000000000000..7a6f425975207
---- /dev/null
-+++ b/tools/testing/selftests/rcutorture/bin/kasan-aux-check.sh
-@@ -0,0 +1,158 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0+
-+#
-+# Verify the intentional rcutorture KASAN report and remove its diagnostics.
-+# Flavors without callback operations must instead show the expected skip.
-+# Leave all other console output for the usual torture error checks.
-+#
-+# Authors: Kunwu Chan <kunwu.chan@gmail.com>
-+#
-+# Usage: kasan-aux-check.sh console.log flavor
-+
-+if test "$#" -ne 2 || ! test -r "$1"
-+then
-+	echo "Usage: $0 console.log flavor" >&2
-+	exit 1
-+fi
-+
-+awk -v flavor="$2" '
-+BEGIN {
-+	timestamp = "[[:space:]]*[0-9]+\\.[0-9]+";
-+	caller = "[[:space:]]*[CT][[:space:]]*[0-9]+";
-+	log_prefix = "^[[:space:]]*\\[(" timestamp "|" caller ")\\][[:space:]]*";
-+	frame_prefix = "^(\\[<[[:xdigit:]]+>\\][[:space:]]*)?\\??[[:space:]]*";
-+	frame_suffix = "([.][[:alnum:]_.]+)?\\+0x[[:xdigit:]]+/0x[[:xdigit:]]+([[:space:]]|$)";
-+	test_name = "rcutorture: WARN: KASAN aux-stack call_" flavor "()";
-+	success = flavor "-torture:--- End of test: SUCCESS: ";
-+	skip_name = "rcutorture: " flavor " has no callback/barrier ops, skipping KASAN test";
-+	skip_mode = flavor ~ /^(tasks-rude|busted|trivial)$/;
-+}
-+
-+function fail(message)
+ 	rcutorture.leakpointer= [KNL]
+ 			Leak an RCU-protected pointer out of the reader.
+ 			This can of course result in splats, and is
+diff --git a/kernel/rcu/rcutorture.c b/kernel/rcu/rcutorture.c
+index 0e8366eb2efb5..5051ec0a853b9 100644
+--- a/kernel/rcu/rcutorture.c
++++ b/kernel/rcu/rcutorture.c
+@@ -112,6 +112,7 @@ torture_param(int, gp_poll_wi_exp, 128,
+ 		   "Wait interval for expedited polled grace periods, us (default 128 us)");
+ torture_param(bool, gp_sync, false, "Use synchronous GP wait primitives");
+ torture_param(int, irqreader, 1, "Allow RCU readers from irq handlers");
++torture_param(bool, kasan_debug, false, "Enable KASAN aux-stack call_rcu() testing");
+ torture_param(int, leakpointer, 0, "Leak pointer dereferences from readers");
+ torture_param(int, n_barrier_cbs, 0, "# of callbacks/kthreads for barrier testing");
+ torture_param(int, n_up_down, 32, "# of concurrent up/down hrtimer-based RCU readers");
+@@ -4639,6 +4640,46 @@ static void rcu_test_debug_objects(void)
+ 	kfree(rhp);
+ }
+ 
++/*
++ * Trigger a KASAN use-after-free report after draining a callback. Check
++ * "Last potentially related work creation" for the callback enqueue stack.
++ */
++static noinline void rcu_test_kasan(void)
 +{
-+	print "kasan-aux-check.sh: " message " at line " NR > "/dev/stderr";
-+	failed = 1;
-+	exit 1;
++	struct rcu_head *rhp;
++
++	if (!IS_ENABLED(CONFIG_KASAN_GENERIC)) {
++		pr_alert("%s: !CONFIG_KASAN_GENERIC, not testing KASAN aux stack call_%s()\n",
++			 KBUILD_MODNAME, cur_ops->name);
++		return;
++	}
++
++	if (!cur_ops->call || !cur_ops->cb_barrier) {
++		pr_alert("%s: %s has no callback/barrier ops, skipping KASAN test\n",
++			 KBUILD_MODNAME, cur_ops->name);
++		return;
++	}
++
++	rhp = kmalloc_obj(*rhp);
++	if (!rhp) {
++		pr_alert("%s: KASAN aux-stack test skipped: allocation failed\n", KBUILD_MODNAME);
++		return;
++	}
++
++	pr_alert("%s: WARN: KASAN aux-stack call_%s() test starting.\n",
++		 KBUILD_MODNAME, cur_ops->name);
++
++	/* Keep the rcu_head allocated until all callbacks have completed. */
++	cur_ops->call(rhp, rcu_torture_leak_cb);
++	cur_ops->cb_barrier();
++
++	kfree(rhp);
++	/* Intentional use-after-free to display the recorded enqueue stack. */
++	(void)READ_ONCE(*(u8 *)rhp);
++	pr_alert("%s: WARN: KASAN aux-stack call_%s() test complete.\n",
++		 KBUILD_MODNAME, cur_ops->name);
 +}
 +
-+# Strip printk timestamps/caller IDs for matching, retaining the original line.
-+function message(line)
-+{
-+	sub(/\r$/, "", line);
-+	sub(/^<[0-9]+>/, "", line);
-+	while (sub(log_prefix, "", line))
-+		;
-+	sub(/^[[:space:]]+/, "", line);
-+	sub(/[[:space:]]+$/, "", line);
-+	return line;
-+}
+ static void rcutorture_sync(void)
+ {
+ 	static unsigned long n;
+@@ -5198,6 +5239,9 @@ rcu_torture_init(void)
+ 	if (object_debug)
+ 		rcu_test_debug_objects();
+ 
++	if (kasan_debug)
++		rcu_test_kasan();
 +
-+function frame(line, symbol)
-+{
-+	return line ~ (frame_prefix symbol frame_suffix);
-+}
-+
-+{
-+	line = message($0);
-+	if (skip_mode) {
-+		if (line == skip_name) {
-+			if (++skips != 1 || succeeded)
-+				fail("unexpected or late skip message");
-+		} else if (line ~ /skipping KASAN test|KASAN aux-stack test skipped|not testing KASAN aux stack/)
-+			fail("unexpected skip message");
-+		if (line ~ /End of test: SUCCESS:/) {
-+			if (index(line, success) != 1 || ++succeeded != 1 || skips != 1)
-+				fail("unexpected SUCCESS marker");
-+		} else if (line ~ /End of test:/)
-+			fail("unexpected test result");
-+		if (line ~ /^rcutorture: WARN: KASAN aux-stack/ || line ~ /BUG: KASAN:/)
-+			fail("unexpected aux-stack test output");
-+		print;
-+		next;
-+	}
-+	if (line ~ /skipping KASAN test|KASAN aux-stack test skipped|not testing KASAN aux stack/)
-+		fail("KASAN test was skipped");
-+	if (line ~ /^rcutorture: WARN: KASAN aux-stack call_[-[:alnum:]_]+\(\) test starting\.$/) {
-+		if (line != test_name " test starting." ||
-+		    ++started != 1 || reports || completed || succeeded)
-+			fail("unexpected test start");
-+		next;
-+	}
-+	if (line ~ /^rcutorture: WARN: KASAN aux-stack call_[-[:alnum:]_]+\(\) test complete\.$/) {
-+		if (line != test_name " test complete." ||
-+		    ++completed != 1 || started != 1 || reports != 1 || in_report)
-+			fail("unexpected test completion");
-+		next;
-+	}
-+	if (line ~ /End of test: SUCCESS:/) {
-+		if (index(line, success) != 1 ||
-+		    ++succeeded != 1 || completed != 1 || in_report)
-+			fail("unexpected SUCCESS marker");
-+	}
-+	else if (line ~ /End of test:/)
-+		fail("unexpected test result");
-+	if (line ~ /BUG: KASAN:/) {
-+		if (line !~ ("^BUG: KASAN: slab-use-after-free in rcu_test_kasan" frame_suffix))
-+			fail("unexpected KASAN report");
-+		if (in_report || !separator || started != 1 || completed || ++reports != 1)
-+			fail("unexpected or unbounded KASAN report");
-+		report_separator = message(separator);
-+		printf "%s", before_report;
-+		before_report = "";
-+		separator = "";
-+		in_report = 1;
-+		next;
-+	}
-+	if (in_report) {
-+		if (line == report_separator) {
-+			if (reads != 1 || traces != 1 || aux_stacks != 1 || !test_frame)
-+				fail("incomplete KASAN report or missing caller in auxiliary stack");
-+			in_report = 0;
-+			next;
-+		}
-+		if (line ~ /^(Read|Write) of size /) {
-+			if (line !~ /^Read of size 1 at addr / || ++reads != 1)
-+				fail("unexpected KASAN access");
-+		}
-+		if (line == "Last potentially related work creation:") {
-+			if (++aux_stacks != 1)
-+				fail("duplicate auxiliary stack");
-+			in_aux = 1;
-+		}
-+		else if (in_aux) {
-+			if (!frame(line, "[[:alnum:]_]+"))
-+				in_aux = 0;
-+			else if (frame(line, "rcu_test_kasan"))
-+				test_frame = 1;
-+		}
-+		# Suppress only the main trace title in the expected report.
-+		if (line ~ /^Call [Tt]race:$/ && ++traces == 1)
-+			next;
-+		print;
-+		next;
-+	}
-+	if (started && !reports && line ~ /^=+$/) {
-+		if (separator) {
-+			print separator;
-+			printf "%s", before_report;
-+		}
-+		separator = $0;
-+		before_report = "";
-+		next;
-+	}
-+	if (separator) {
-+		before_report = before_report $0 "\n";
-+		next;
-+	}
-+	print;
-+}
-+
-+END {
-+	if (failed)
-+		exit 1;
-+	if (skip_mode) {
-+		if (skips != 1 || succeeded != 1)
-+			fail("missing skip message or SUCCESS marker");
-+	} else if (in_report || started != 1 || completed != 1 || succeeded != 1 || reports != 1)
-+		fail("missing test markers or truncated KASAN report");
-+}' < "$1" || exit 1
-diff --git a/tools/testing/selftests/rcutorture/bin/kasan-aux.sh b/tools/testing/selftests/rcutorture/bin/kasan-aux.sh
-new file mode 100755
-index 0000000000000..ae7896658e94d
---- /dev/null
-+++ b/tools/testing/selftests/rcutorture/bin/kasan-aux.sh
-@@ -0,0 +1,228 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0+
-+#
-+# Run and check the intentional KASAN callback enqueue-stack tests.
-+#
-+# Authors: Kunwu Chan <kunwu.chan@gmail.com>
-+
-+scriptname=$0
-+RCUTORTURE="$(pwd)/tools/testing/selftests/rcutorture"; export RCUTORTURE
-+PATH=${RCUTORTURE}/bin:$PATH; export PATH
-+. functions.sh
-+
-+usage () {
-+	echo "Usage: $scriptname [ --datestamp string ] [ --duration time ]"
-+	echo "       [ --configs \"existing scenario list\" ]"
-+	echo "       $scriptname --check results-directory"
-+	exit 1
-+}
-+
-+ds="$(date +%Y.%m.%d-%H.%M.%S)-kasan-aux"
-+duration=30s
-+configs="TREE03 TASKS01 TRACE01 SRCU-P"
-+if test "$(uname -m)" != aarch64
-+then
-+	configs="$configs TINY01 SRCU-T"
-+fi
-+checkdir=
-+while test $# -gt 0
-+do
-+	case "$1" in
-+	--check)
-+		checkarg --check "(results directory)" "$#" "$2" '.' '^--'
-+		checkdir=$2
-+		shift
-+		;;
-+	--configs)
-+		checkarg --configs "(scenario list)" "$#" "$2" '^[^/.a-z]\+$' '^--'
-+		configs=$2
-+		shift
-+		;;
-+	--datestamp)
-+		checkarg --datestamp "(relative pathname)" "$#" "$2" '^[a-zA-Z0-9._/-]*$' '^--'
-+		ds=$2
-+		shift
-+		;;
-+	--duration)
-+		checkarg --duration "(time)" "$#" "$2" '^[0-9][0-9]*[smhd]\?$' '^--'
-+		duration=$2
-+		shift
-+		;;
-+	"")
-+		;;
-+	*)
-+		usage
-+		;;
-+	esac
-+	shift
-+done
-+
-+T="$(mktemp -d "${TMPDIR-/tmp}/kasan-aux.sh.XXXXXX")" || exit 1
-+trap 'rm -rf "$T"' EXIT
-+nsupported=0
-+
-+# Keep raw logs intact and let the ordinary recheck handle the verified output.
-+check_results () {
-+	local rundir config dir copy flavor f configs
-+	local work="$T/results"
-+
-+	rundir=$(cd "$1" && pwd) || return 1
-+	if ! test -s "$rundir/batches" || ! test -r "$rundir/log"
-+	then
-+		echo "$rundir: missing batches or log"
-+		return 1
-+	fi
-+	configs=$(awk '!/^#/ { print $2 }' "$rundir/batches")
-+	if test -z "$configs"
-+	then
-+		echo "$rundir: empty scenario list"
-+		return 1
-+	fi
-+	mkdir "$work" || return 1
-+	ln -s "$rundir/log" "$work/log" || return 1
-+	echo rcu > "$work/torture_suite"
-+	if test -f "$rundir/re-run"
-+	then
-+		ln -s "$rundir/re-run" "$work/re-run" || return 1
-+	fi
-+	for config in $configs
-+	do
-+		dir="$rundir/$config"
-+		copy="$work/$config"
-+		mkdir "$copy" || return 1
-+		# Link inputs only, so recheck cannot overwrite saved diagnostics.
-+		for f in .config ConfigFragment ConfigFragment.input Make.defconfig.out Make.out qemu-cmd qemu-retval
-+		do
-+			if ! test -r "$dir/$f"
-+			then
-+				echo "$config: missing $f"
-+				return 1
-+			fi
-+			ln -s "$dir/$f" "$copy/$f" || return 1
-+		done
-+		for f in Make.oldconfig.err Warnings vmlinux vmlinux.xz
-+		do
-+			ln -s "$dir/$f" "$copy/$f" || return 1
-+		done
-+		if ! grep -q '^CONFIG_KASAN_GENERIC=y$' "$dir/.config" ||
-+		   test "$(cat "$dir/qemu-retval")" != 0
-+		then
-+			echo "$config: Generic KASAN required and QEMU must exit normally"
-+			return 1
-+		fi
-+		# kvm.sh saves a single QEMU command with a double-quoted -append string.
-+		# Read it once, retaining the last flavor parameter, as the kernel does.
-+		if ! flavor=$(awk '
-+			BEGIN { flavor = "rcu"; }
-+			/^[[:space:]]*(#|$)/ { next; }
-+			{
-+				if (++commands != 1 ||
-+				    !match($0, /(^|[[:space:]])-append[[:space:]]+"/))
-+					exit 1;
-+				args = substr($0, RSTART + RLENGTH);
-+				if (!sub(/"[^"]*$/, "", args))
-+					exit 1;
-+				# Only the plain kvm.sh-generated format is supported.
-+				if (args ~ /\\/)
-+					exit 1;
-+				# Keep quoted kernel parameter values together.
-+				while (args ~ /[^[:space:]]/) {
-+					sub(/^[[:space:]]+/, "", args);
-+					if (!match(args, /^([^"[:space:]]|"[^"]*")+/))
-+						exit 1;
-+					word = substr(args, 1, RLENGTH);
-+					args = substr(args, RLENGTH + 1);
-+					if (args !~ /^([[:space:]]|$)/)
-+						exit 1;
-+					whole_quote = sub(/^"/, "", word);
-+					equals = index(word, "=");
-+					param = equals ? substr(word, 1, equals - 1) : word;
-+					value = equals ? substr(word, equals + 1) : "";
-+					value_quote = sub(/^"/, "", value);
-+					if (whole_quote || value_quote) {
-+						if (equals)
-+							sub(/"$/, "", value);
-+						else
-+							sub(/"$/, "", param);
-+					}
-+					if (param == "--" && !equals)
-+						break;
-+					gsub(/-/, "_", param);
-+					if (param == "rcutorture.torture_type")
-+						flavor = value;
-+					if (param == "kasan_multi_shot")
-+						multi_shot = 1;
-+				}
-+				valid = 1;
-+			}
-+		END {
-+			if (!valid || commands != 1 || !multi_shot ||
-+			    flavor !~ /^(rcu|srcu|srcud|tasks|tasks-tracing|tasks-rude|busted|trivial)$/)
-+				exit 1;
-+			print flavor;
-+		}' "$dir/qemu-cmd")
-+		then
-+			echo "$config: invalid saved boot arguments or missing kasan_multi_shot"
-+			return 1
-+		fi
-+		case "$flavor" in
-+		rcu|srcu|srcud|tasks|tasks-tracing)
-+			nsupported=$((nsupported+1))
-+			;;
-+		esac
-+		if ! TMPDIR="$T" kasan-aux-check.sh "$dir/console.log" "$flavor" > "$copy/console.log"
-+		then
-+			return 1
-+		fi
-+		# kvm-recheck.sh does not propagate parse-build.sh exit status.
-+		TMPDIR="$T" parse-build.sh "$dir/Make.out" "$config" || return 1
-+	done
-+	if ! TMPDIR="$T" kvm-recheck.sh "$work" 2> "$T/recheck.err" || test -s "$T/recheck.err"
-+	then
-+		cat "$T/recheck.err"
-+		return 1
-+	fi
-+	echo "Summary: KASAN aux-stack checks passed"
-+}
-+
-+if test -n "$checkdir"
-+then
-+	check_results "$checkdir"
-+	exit $?
-+fi
-+
-+rundir="$RCUTORTURE/res/$ds"
-+if test -e "$rundir"
-+then
-+	echo "Results directory already exists: $rundir"
-+	exit 1
-+fi
-+kvm.sh --allcpus --kasan --kconfig "CONFIG_KASAN_GENERIC=y" \
-+	--configs "$configs" --duration "$duration" --trust-make \
-+	--bootargs "rcutorture.kasan_debug=1 rcutorture.object_debug=0 kasan_multi_shot" \
-+	--datestamp "$ds"
-+ret=$?
-+err=0
-+if ! check_results "$rundir" > "$T/check.out" 2>&1
-+then
-+	err=1
-+fi
-+# Scenarios with callback operations produce the intentional reports, so
-+# kvm.sh must report them as runtime errors.  Skip-only selections exit 0.
-+if test "$nsupported" -gt 0
-+then
-+	expected=3
-+else
-+	expected=0
-+fi
-+if test "$ret" -ne "$expected"
-+then
-+	echo "Expected kvm.sh exit status $expected, got $ret"
-+	err=1
-+fi
-+cat "$T/check.out"
-+if test -d "$rundir"
-+then
-+	cat "$T/check.out" >> "$rundir/log"
-+fi
-+exit "$err"
+ 	if (cur_ops->gp_slow_register && !WARN_ON_ONCE(!cur_ops->gp_slow_unregister))
+ 		cur_ops->gp_slow_register(&rcu_fwd_cb_nodelay);
+ 
 -- 
 2.43.0
 
