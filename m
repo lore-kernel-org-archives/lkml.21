@@ -1,59 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794962917;
-	b=suc1al8hoEa3eLvWdN0QE0A1EU9SqXd2UMhaUwR8oc5Mi+D0pUEmxXHITFo5t0Hg3lAH
-	 owyQ6kud6+3AGjUZI0t98+MPM2ctYd1GuOpOqdT1QZD3Lt/UQK5q5nHs+wvQOG3D8GoOM
-	 sLK+3Ecbz25TMOv8t+ZLo2389KUZ4xuiv9f+aKTY9DI1O5RWvyNWX2Ymo54QBFGlyi99y
-	 z1X+yFjKk4aSNmVqqsmdckpzUiI48TvaemHqCyYLiKv7T1zJv7K8WnAznDXS82dX6wjz8
-	 6NP4WtyebBmqmABDSgGM+y+4EE5l1A4ZTvKGDM046eOUsPPv2ZI7/zRDpp30wKnmF2w==
+	t=1794962939;
+	b=Cxe2KBFqmXxdnpDYzXLU38veCeNmPPUKh+i2k2RJvwW+k5WLIGBojjf27PVFrCbgkQ4o
+	 M/QeX4cofRnOoFkk+dtjZHuSLZxrwY26Fsm9jI+jLTi7ZJeMIsorUUjDOhzzEoT8QeXA8
+	 Z8ihXJg4Nat450hyQGiGzNR7DxhYJoFP6a7iUaF+EvFsOFtc9Y9omcy0M+QMmZ7pC1oQI
+	 S5EMQ/diRaUt+sJuZwV/RCQoYvzpEpU52yo/KLr06sSzjChDiVGZ1MofCpBLlq0Ck8MIY
+	 mLPIeIyrxDrbzwEIagfn6g4Wst6bWmp5e6QE+7znBDq/EvIuTHZ79JwGNLr+Hnrhs3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794962917;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=mw6A9y9mCJDaeXxPPToECiD1RC/0Eef4ZlgQ/93wlhk=;
-	b=oYKoRxHjMnhzYadJQ/D0v2QpF8qA+eIBi5VC/nQad5CATZcH/kki6SfZGiSYmyMmzZAi
-	 LRMGvAARFyDDWwZ0MiDiyXc9yk3OXvx2ROEnl2gSw8yVYzYQaJk93+AhT+105iY0gparq
-	 hyKENzvbmDF3oJE4KJ6Feh99Mh9LPFPAxehTU11b6oLn7Y4nHC61cH40LDuESwo5OnZl5
-	 62bYRQuS++POd6X9JBTRYQciwu7KR7U1LbTvVFK9RVGWmvrEa0IKJQljngZWVAOdwDZO9
-	 87ybnJFsXrmBDbgGyy4KidVQSEGcoiPzBpYXtPWlRM9PTc1+bYkDkpFZsYcJ5HBpf4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794962939;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8V2XOZmn0Vctd6GGoq9tH0tWyX2ZAclwzJyrOF4lr5s=;
+	b=b8XX65VydBiuFQNFWRugxRzdyILD/zZxdmWidxH9KXHegGT9gBQbeTYGXregfYtfqGj6
+	 lwAZBXPmKPixDqNpLGNVdau5LuJ7TyrkMsTU12GvV+6zl4C6GEno/+q5EZSSdpqUDgRgL
+	 d1WAmwbOPWOe2nj8KBfNUYE1aDgG8u5UGbilQa5RuzrX4lHwn8bBbujP/yvuMEhzQz3+t
+	 VRCdBwpHYDOGMgFi7WnPuWbTkKxyNLv0WQCOF6GhW3EyM0R0IlL8OtuPTLg29NHBToyys
+	 YB7GRNhllqGMiz7PhKnro0pb/t495279kw4Lw6ZH2nKX0v1j3GOAbGkDDdT4XugS7DA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=TIgsiGIc;
-	arc=none smtp.remote-ip=185.70.43.170
-Received: from mail-43170.protonmail.ch (mail-43170.protonmail.ch [185.70.43.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=dubeyko.com;
+	spf=pass smtp.mailfrom=dubeyko.com;
+	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=j5niG9jT;
+	arc=none smtp.remote-ip=209.85.128.171
+Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC39606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:48:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC39606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288F5606A888
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:48:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 288F5606A888
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=TIgsiGIc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1794962907; x=1795222107;
-	bh=mw6A9y9mCJDaeXxPPToECiD1RC/0Eef4ZlgQ/93wlhk=;
-	h=From:To:Cc:Subject:Date:Message-ID:From:To:Cc:Date:Subject:
-	 Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=TIgsiGIcI1wOOe9PDU04o15OrojNhRCaTNcDi/Qxu/dgGneXSKO78UnB/PdUPMw7U
-	 FFtec1ElspCF867Pf7j1zJfnBXSvcN1OTpWzdvkddpIqswP2hGUuj2+Z3XSu/7hJFE
-	 b2QMUgxeGTlDS8N7awX134B/yl9O13s7C1imX9izMzsWJniXZF+LviHqXiTNwHva+P
-	 +O9vqmodT+kKTA6c1ooFzHHaBacYYztdZOusmKqwihyN/hPwqAcRsBzW7MthGhZ03w
-	 NW6uYmtP85QUTx+llXyCr5fWOYtgMoy3jMwyGOq9mfKghQRvDN7/0oH7ipPx51f2Hi
-	 1yQL0BbdQhNgg==
-X-Pm-Submission-Id: 4jTjdN54jcz2ScQ3
-From: Miroslav Cimerman <mc@raidlab.org>
-To: linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>,
-	Chris Mason <mason@kernel.org>,
-	Naohiro Aota <naohiro.aota@wdc.com>,
-	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] btrfs: zoned: wait for the relocating repair kthread during unmount
-Date: Wed, 18 Nov 2026 00:48:08 +0000
-Message-ID: <20261118004808.201460-1-mc@raidlab.org>
+	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=j5niG9jT
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b4e2fcc300so3828057b3.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:48:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1794962936; x=1795567736; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8V2XOZmn0Vctd6GGoq9tH0tWyX2ZAclwzJyrOF4lr5s=;
+        b=j5niG9jTnJN1+gZWK21jVz+cw+yHDsYF54ZwSy+ffCeVmvhUtigihjzMA3Mx/izRsI
+         /fZJgCpHIIkkY5Wf1lmBFZ+Xe3paQzu3YFRsTVJyq7eVhJ6kqpBhSocstjZb7M11xhbh
+         3WlkURETSQgnt/vNwX8lpuJcDbb2BuCoCXjQjs9GaHZcER53/T0+PJmZD0EutNvY67P7
+         I2L+M2GDcmp4rGU+5p53p6w9sYjfjw+kkZAfFDv0qc9Eh0iECvt+7tLG+asujOUE5UTg
+         NTb9cCWZGl9BCi2FGlAKXt5SDnOw5zR7Y0jnh7rD3cPAZV0I5b2KoDTK2BcZMcQqoLyw
+         bf4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794962936; x=1795567736;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8V2XOZmn0Vctd6GGoq9tH0tWyX2ZAclwzJyrOF4lr5s=;
+        b=HfT7vtIfCJ84i4p35aGpK0UO92ialpLVF9SKZDWYIK2HtMtEQPbpiDtZIp7fsXd1aQ
+         ucxKnLyqDEl4QU2bNWNTtEfX5oRhhyJyRtpQ1G/krM9m0pV+eJVZkPLGycWdcnbBQgZO
+         3oHpBM0THuJATCQb011Ea6/5ClOi7JwIJqGrEaneO9QSx9OD5C3T3DeVYvTBL3InAAWp
+         ak2Z3Sxaz+mxG+6MN2Sp9hIUeX1gcUTHOZjgFRDyTvemubssZQYWB18HX0xuN9SJ9oIB
+         BOiFqxW5HdF9bq+QEFzXZcUli3J1Jy4NhFWHoPVdPOnkz3XOMcmYYk1ao8kVmXaKgP9M
+         uTyw==
+X-Forwarded-Encrypted: i=1; AL+hErHByvUqO/GVAfzcgenxAbl8W286csFaz67M+/rrsMobhQyGXHQ2ZYOeesaMmBXJV9gpAU4Xbrdnhbz4cIM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+LgXl1gyzHL4Bc4HTR6JeY8Xkr7gfUvm+A1LM9FHa2BL0bOJpF
+	MUTLZ1PmBl1pgCkBLp85BNEkTSAr9m16bBr3l/HvvRIcc6EW+iQXWVnegVxQ7LQ7ej4=
+X-Gm-Gg: AZFdTZeyY/miYOPxJCj9dk3hAhWLU6vhd32696yg4jBidPBn7xDFn4fspXKNbDTKj+Q
+	mhMfaXE0WO06aiU3uzCoYvkykoCFPZ9pjslY2wtx5bvEK63soJ1MMvLwQZRmECl9HoSemvo/IHh
+	WZvzJIc75785lfFos9MWTR8hCT+0B5RWmJKrQMRy56IpivDLv+3J2nuMsbg/+Zw+Nj2nMEcLCPT
+	lU4z6uT3sTiDARbp9V+Lx9Y+EA42pnT0XizoTc/MzY2HpUuYolVVB49S35XAb0OBYNOqiHGT+0g
+	MdqvX18jTnb3IghsfydPX9yNmSFA8Mv/tuQ7Q4enP5RGW/Lc3XviW6BHZGmXJ0nmUsvMG7g2HBZ
+	2tUKhmmp8FRLEA/l6D5fWB7gNiS20f7vDB3rx3dLCYmTNfRwuK60jlWzIortoSaOiI34W/cS/p7
+	9WKLQWvFVpnSr2CrCPrpy77MooGX+WilIOgIpJRXljFAC0aRO8TpxKV+fYst75+Da/VpKAnp/p+
+	cX/lW/7ZqV1rfVv0A+qb27/bUvGQUjblhagJQKoBtKp8QvzcZlMqBj6cuqcj0YgdovVXTi55/4T
+	sF6iizXt8TkvwOfEXIo9PsUtR3annOHcnwEK86eNYBfEBfvgw/1ud1ay28lJSbmr1IfJ80ljdzp
+	aKoXeD5w0cEKLdi0AQc/DJwT4HFuwRodfMLnDDcnRU4G06ThWVaT4QrTLsIDBtWTmTKlu1/6UbZ
+	mEnDyfi/pGx1qxKaLA
+X-Received: by 2002:a05:690c:6f84:b0:8b3:4b09:f4ef with SMTP id 00721157ae682-8b4febd981dmr3810477b3.13.1794962935978;
+        Tue, 17 Nov 2026 16:48:55 -0800 (PST)
+Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:5fae:4d02:7055:94ad])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd56ead87sm729575d50.1.2026.11.17.16.48.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 16:48:55 -0800 (PST)
+From: Viacheslav Dubeyko <slava@dubeyko.com>
+To: glaubitz@physik.fu-berlin.de,
+	frank.li@vivo.com,
+	hch@lst.de
+Cc: linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vdubeyko@coreweave.com,
+	brauner@kernel.org,
+	linux-xfs@vger.kernel.org,
+	Viacheslav Dubeyko <slava@dubeyko.com>
+Subject: [PATCH v5 0/5] hfsplus: convert regular file I/O to iomap
+Date: Tue, 17 Nov 2026 16:48:39 -0800
+Message-ID: <20261118004844.3849979-1-slava@dubeyko.com>
 X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -66,212 +104,85 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On a zoned filesystem, a read error with another good copy makes
-btrfs_repair_one_zone() start a "btrfs-relocating-repair" kthread that
-relocates the whole block group, and return. Nothing tracks that
-kthread. It takes sb_start_write() and the BALANCE exclusive operation,
-but neither holds off an unmount: freeze protection only excludes
-freezing, and close_ctree() only pauses a balance that has a
-balance_ctl. If the filesystem is unmounted during the relocation,
-close_ctree() tears it down under the kthread:
+Switch the HFS+ regular file data path from buffer heads and
+blockdev_direct_IO() to iomap.
 
-  assertion failed: list_empty(&fs_info->delalloc_roots), in fs/btrfs/disk-io.c:4608
-  kernel BUG at fs/btrfs/disk-io.c:4608!
-  RIP: 0010:close_ctree+0x67f/0x9b8
-  Call Trace:
-   generic_shutdown_super+0x14d/0x540
-   kill_anon_super+0x35/0x90
-   btrfs_kill_super+0x39/0x60
-   deactivate_locked_super+0x9f/0x120
-   cleanup_mnt+0x9a/0x130
+(1) adds a generic iomap_dio_end_io() helper to
+include/linux/iomap.h: a direct write ->end_io callback that updates
+i_size when the write goes beyond the end-of-file. It can be used by
+file systems that issue all extending direct writes synchronously
+under inode_lock.
 
-Without the assertion, the relocation goes on to use the fs_info and
-the roots that the unmount freed (KASAN: slab-use-after-free in
-wait_subpage_spinlock(), null-ptr-deref in btrfs_root_node()).
+(2) moves the file related operations (open, release, fsync and
+file_operations) from inode.c into the new file.c, without functional
+changes, to prepare the place for the iomap-based file operations.
 
-Do as for the uuid rescan kthread: hold a semaphore from the start of a
-repair until its kthread ends, and take and release it in close_ctree()
-where the block group reclaim work, which does the same relocation, is
-cancelled, before the cleaner is parked. btrfs_repair_one_zone() checks
-BTRFS_FS_CLOSING_START after taking the semaphore, so no repair starts
-once close_ctree() has waited. Unmount now waits for the relocation of
-that one block group, as it already does for the reclaim work. The
-kthread is split in two so that its guard(super_write) is released
-before the up(), which must be its last access to fs_info.
+(3) splits the extent lookup/allocation logic out of
+hfsplus_get_block() into hfsplus_map_extent(), which reports the
+mapping without a buffer_head, so that the iomap path can use it
+directly. No functional change for the buffer_head path.
 
-A repair started while mounting has the same problem if the mount then
-fails, as most error paths of open_ctree() (the fail_* labels) free
-fs_info without calling close_ctree(). Don't start one before
-BTRFS_FS_OPEN is set, as btrfs_should_reclaim() does.
+(4) makes hfsplus_map_extent() return -EIO when no extent covers
+the requested block. On a corrupted volume, hfsplus_get_block() mapped
+such a block to allocation block 0, i.e. the boot blocks and the volume
+header. The iomap path relies on this check, since a zero-length extent
+would otherwise produce a zero-length mapping.
 
-Only one repair runs at a time now. Before, a second repair started
-while one was running failed the exclusive operation with -EBUSY but
-left BLOCK_GROUP_FLAG_RELOCATING_REPAIR set, so its block group was not
-repaired again until the next mount. Now it returns before setting the
-flag, and the next read error retries it.
+(5) adds the HFS+ iomap operations, implements iomap-based
+llseek/read_iter/write_iter, switches hfsplus_aops to iomap (removing
+hfsplus_direct_IO() and the LEGACY_DIRECT_IO dependency), and rolls
+back i_size and the allocated blocks when the zero-filling extension
+or the data write fails. HFS+ doesn't support holes, so extending
+writes and truncates zero-fill the gap up to the new end-of-file.
 
-Fixes: f7ef5287a63d ("btrfs: zoned: relocate block group to repair IO failure in zoned filesystems")
-CC: stable@vger.kernel.org # 6.19+
-Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
----
-Found with FuzzyRAID, a fault-injection tester for RAID that is not
-public at the moment. The analysis, the fix, the tests and the commit
-message were prepared with the help of an LLM. I reviewed everything.
+Changes since v4:
+- iomap_dio_end_io() is extracted into a dedicated patch 1.
+- Rebased on top of "hfsplus: don't take inode_lock in
+  hfsplus_file_fsync()", "hfsplus: set s_maxbytes from the volume
+  capacity" and "hfsplus: release preallocated blocks in
+  hfsplus_file_truncate()", which are already applied.
+- v5 patches 04, 06, 07 and 10 are squashed into patch 5.
+- The -EIO check in hfsplus_map_extent() is moved out of the iomap
+  conversion into the separate, documented patch 4.
+- The phys_size change in hfsplus_get_block() is dropped: it is not
+  related to iomap, since after the conversion hfsplus_get_block() only
+  allocates blocks when phys_size is block-aligned.
+- hfsplus_write_iomap_end() keeps fs_blocks and the inode byte count in
+  whole blocks, as hfsplus_inode_read_fork() and hfsplus_file_truncate()
+  do, while phys_size stays byte-granular for a partially written block.
+- __hfsplus_iomap_begin() ends a mapping of initialized blocks at the
+  block boundary above phys_size instead of at phys_size itself. With
+  an unaligned on-disk size this used to produce a mapping length that
+  is not a multiple of the logical block size, and an aligned O_DIRECT
+  overwrite failed with -EINVAL.
+- The fsync locking change is dropped from this series, since it is
+  handled by the separate prep patch.
+- The volume capacity check in hfsplus_file_write_iter() is dropped,
+  since generic_write_checks() enforces s_maxbytes, which is set from
+  the volume capacity.
 
-Tested on btrfs for-next (6f4bbde7e036) in QEMU with KASAN, two zoned
-null_blk devices with RAID1 and the raid stripe tree, and read errors
-on one of them, so that reading a file starts the repair:
-- unmount while the repair relocates: without the patch 4 of 4 crash as
-  above, with it 6 of 6 unmount cleanly after the relocation
-- unmount after the repair has finished: works with and without the
-  patch
-- mount with read errors in one device's metadata: without the patch
-  the repair starts during the mount, btrfs_start_pre_rw_mount() then
-  fails ("failed to recover relocation: -ENOENT") and close_ctree()
-  crashes on the repair's uncommitted transaction (ASSERT(!found) in
-  warn_about_uncommitted_trans()). With it the mount works and a scrub
-  repairs the errors.
+Viacheslav Dubeyko (5):
+  iomap: add iomap_dio_end_io() helper
+  hfsplus: move file related operations to file.c
+  hfsplus: rework hfsplus_get_block() logic
+  hfsplus: return -EIO from hfsplus_map_extent() if no extent covers the
+    block
+  hfsplus: convert regular file I/O to iomap
 
-Remount read-only has the same problem: it doesn't wait for the repair,
-and outside the part of the repair where the remount is refused with
--EBUSY it succeeds with the kthread still running. The next unmount
-then finds the repair's transaction not committed (ASSERT(!found) in
-warn_about_uncommitted_trans(), 3 of 4 runs). I'll send a separate fix
-for that.
+ fs/hfsplus/Kconfig      |   2 +-
+ fs/hfsplus/Makefile     |   5 +-
+ fs/hfsplus/extents.c    | 163 +++++++++++++++------
+ fs/hfsplus/file.c       | 308 ++++++++++++++++++++++++++++++++++++++++
+ fs/hfsplus/hfsplus_fs.h |  26 +++-
+ fs/hfsplus/inode.c      | 274 +++++++++++------------------------
+ fs/hfsplus/iomap.c      | 254 +++++++++++++++++++++++++++++++++
+ fs/hfsplus/iomap.h      |  17 +++
+ include/linux/iomap.h   |  20 +++
+ 9 files changed, 823 insertions(+), 246 deletions(-)
+ create mode 100644 fs/hfsplus/file.c
+ create mode 100644 fs/hfsplus/iomap.c
+ create mode 100644 fs/hfsplus/iomap.h
 
- fs/btrfs/disk-io.c |  8 ++++++++
- fs/btrfs/fs.h      |  6 ++++++
- fs/btrfs/volumes.c | 49 +++++++++++++++++++++++++++++++++++++++++-----
- 3 files changed, 58 insertions(+), 5 deletions(-)
-
-diff --git a/fs/btrfs/disk-io.c b/fs/btrfs/disk-io.c
-index 7775fc768f7e..6af173e65c77 100644
---- a/fs/btrfs/disk-io.c
-+++ b/fs/btrfs/disk-io.c
-@@ -2965,6 +2965,7 @@ void btrfs_init_fs_info(struct btrfs_fs_info *fs_info)
- 	init_rwsem(&fs_info->cleanup_work_sem);
- 	init_rwsem(&fs_info->subvol_sem);
- 	sema_init(&fs_info->uuid_tree_rescan_sem, 1);
-+	sema_init(&fs_info->zone_repair_sem, 1);
- 
- 	btrfs_init_dev_replace_locks(fs_info);
- 	btrfs_init_qgroup(fs_info);
-@@ -4405,6 +4406,13 @@ void __cold close_ctree(struct btrfs_fs_info *fs_info)
- 	 * trying to stop the async reclaim task.
- 	 */
- 	cancel_work_sync(&fs_info->reclaim_bgs_work);
-+	/*
-+	 * Same for a zoned repair relocating a block group. Wait for it, no new
-+	 * one can start after this since BTRFS_FS_CLOSING_START is set, see
-+	 * btrfs_repair_one_zone().
-+	 */
-+	down(&fs_info->zone_repair_sem);
-+	up(&fs_info->zone_repair_sem);
- 	/*
- 	 * We don't want the cleaner to start new transactions, add more delayed
- 	 * iputs, etc. while we're closing. We can't use kthread_stop() yet
-diff --git a/fs/btrfs/fs.h b/fs/btrfs/fs.h
-index 2dd167c32d61..3abbe4aa85e4 100644
---- a/fs/btrfs/fs.h
-+++ b/fs/btrfs/fs.h
-@@ -862,6 +862,12 @@ struct btrfs_fs_info {
- 
- 	struct semaphore uuid_tree_rescan_sem;
- 
-+	/*
-+	 * Held while a zoned repair kthread relocates a block group, see
-+	 * btrfs_repair_one_zone(). close_ctree() waits for it.
-+	 */
-+	struct semaphore zone_repair_sem;
-+
- 	/* Used to reclaim the metadata space in the background. */
- 	struct work_struct async_reclaim_work;
- 	struct work_struct async_data_reclaim_work;
-diff --git a/fs/btrfs/volumes.c b/fs/btrfs/volumes.c
-index f27c0c400a20..4630053d5cea 100644
---- a/fs/btrfs/volumes.c
-+++ b/fs/btrfs/volumes.c
-@@ -9053,9 +9053,8 @@ bool btrfs_pinned_by_swapfile(struct btrfs_fs_info *fs_info, void *ptr)
- 	return node != NULL;
- }
- 
--static int relocating_repair_kthread(void *data)
-+static int relocate_repair_block_group(struct btrfs_block_group *cache)
- {
--	struct btrfs_block_group *cache = data;
- 	struct btrfs_fs_info *fs_info = cache->fs_info;
- 	u64 target;
- 	int ret = 0;
-@@ -9100,6 +9099,22 @@ static int relocating_repair_kthread(void *data)
- 	return ret;
- }
- 
-+static int relocating_repair_kthread(void *data)
-+{
-+	struct btrfs_block_group *cache = data;
-+	struct btrfs_fs_info *fs_info = cache->fs_info;
-+	int ret;
-+
-+	ret = relocate_repair_block_group(cache);
-+	/*
-+	 * Pairs with close_ctree(). Must be the last access to fs_info, the
-+	 * unmount may free it as soon as the semaphore is released.
-+	 */
-+	up(&fs_info->zone_repair_sem);
-+
-+	return ret;
-+}
-+
- bool btrfs_repair_one_zone(struct btrfs_fs_info *fs_info, u64 logical)
- {
- 	struct btrfs_block_group *cache;
-@@ -9112,19 +9127,43 @@ bool btrfs_repair_one_zone(struct btrfs_fs_info *fs_info, u64 logical)
- 	if (btrfs_test_opt(fs_info, DEGRADED))
- 		return true;
- 
-+	/*
-+	 * Don't start one during mount either: most error paths of
-+	 * open_ctree() free fs_info without waiting for the repair in
-+	 * close_ctree().
-+	 */
-+	if (!test_bit(BTRFS_FS_OPEN, &fs_info->flags))
-+		return true;
-+
-+	/*
-+	 * One repair at a time, the kthread releases the semaphore when it
-+	 * ends. close_ctree() takes it after setting BTRFS_FS_CLOSING_START,
-+	 * so either it waits for the kthread or we see the flag here.
-+	 */
-+	if (down_trylock(&fs_info->zone_repair_sem))
-+		return true;
-+	if (btrfs_fs_closing(fs_info))
-+		goto out_up;
-+
- 	cache = btrfs_lookup_block_group(fs_info, logical);
- 	if (!cache)
--		return true;
-+		goto out_up;
- 
- 	if (test_and_set_bit(BLOCK_GROUP_FLAG_RELOCATING_REPAIR, &cache->runtime_flags)) {
- 		btrfs_put_block_group(cache);
--		return true;
-+		goto out_up;
- 	}
- 
- 	task = kthread_run(relocating_repair_kthread, cache, "btrfs-relocating-repair");
--	if (IS_ERR(task))
-+	if (IS_ERR(task)) {
- 		btrfs_put_block_group(cache);
-+		goto out_up;
-+	}
-+
-+	return true;
- 
-+out_up:
-+	up(&fs_info->zone_repair_sem);
- 	return true;
- }
- 
 -- 
 2.53.0
 
