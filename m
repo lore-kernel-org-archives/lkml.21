@@ -1,101 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795017720;
-	b=Ud3UumIauYSL1ER8S0YukXAjiB58hxxI+crpnIzYMvNcWQwpfOgOFKX91fwbwyMhvnyb
-	 AvYfc0PqcCWvkNANLweWO9rS/u4t5/HkbqJCcmumI2+LuoU7q9/Zd3Kbizf2lgTuUPzDY
-	 DJ1pa212j1vW7XOcWcyCW/1j5OxysEYkV2mYRuUGqcSZx9fMR6hjPUcRbFQAmy1UIF+Ex
-	 Wb1w2Sbb12Cx2iS/1JaF/G20JmOwuQyjHvSjCpm8CGuzWW9xqCmtVrv+hdeySuYbSVw4s
-	 5GKk/Vp4TlFp4lLYuOpb663576y4TsoE86GDFES0AEJ+nON6R6Tl7up+8EV7RRUeTHg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017720;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
-	b=lE0CjYBiMYqx8792+Mgo25O4Vw3fVD5bG7KM03lY0SEnqDtcM7WZ0SJjvBFDEOZpG0Wg
-	 bW+25pkz5/EcyYdlg/Jwvurt6THNQaaeEA8fwBRr+jyGTAGz2eR3K6KlmWGHgiAhe73b2
-	 tUDLbEJ2lHu3FkJaTliQ9IQkaFfhBB+TVCutZuFBgbNXyZNMq6cMzmTRVa9A35DsDJ7NH
-	 TlhUb5O96jYdIkaFFaQ8U+ykuh8eKKKOQdc0QXcvLnzCwjrL8De+sabGwz0ggzqAAbcOw
-	 bhNr1UFyKP60r8KL+csgHvWFoZBuumJXUL/AQIZ++jHjoxQeWuJ4K3doKk+nb1xV8ow==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0t2HT1IL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.179
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com [209.85.208.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795017747;
+	b=H2tBcrIvZRiH+x5GKVn1UWLVTJwqb/yiR9wVviOhHbVIVQT6EwYIZF6KABAIXJYYzHKO
+	 eDU5XYu9dAQRvDZhwbV+fXGyHqjpBgAZhz7aHBjUgwK8prxHatxRB/u4R5JpPxfsW6dDb
+	 JQxWvLnaREAYYuL4vZNAv+z/kWSp0xa6aTSMXJgEq6MQfgJikvau74zf8EVwdKPK+hdok
+	 6udAwQ7dK5oqGBHTAUdfPw+miQZ8vu1ZwK47qyft/6edJOlVAdXGk12gbBOV1iF8L+SLD
+	 dHcjQtnT5CfKPK7dsPEr5JZHP8p4rE2OFZjl6bATRcWi7Upr4D6n8a9b3Ky14p9EqYA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017747;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=XrdabjoeKoqZWgiPzIuL3cPjSBYVcnxPS9RnfVz1GGs=;
+	b=HR347RzXF4FMUACgdNiIH3moKNroK7uV41dHqeEtgc2H0t/cxNpflWJi9m8/sZZed5QF
+	 2qs7BtISbyh2kRnFnUMZKtVe2H2fr9L9r6HWhyMQjxfbQx1Q3rdDV0t4lnCTY1cWUl/6r
+	 mEAgU7WcLuFWuUqEFwNxyu73GiJbj7FVwVTFOLdbnl7bTQ5rZ3lThHBJKY1OkWTWc3o4u
+	 9y7tDNVxERM9BAiV5Vj3za8xR/e1Oa5i7SAo7tHppFtaQVh43BCqPzd+jr/DoUJrvE3t0
+	 S/d6sCcGVF6vUNAfxqmLN+gOKVSD2V/ihJAppH02cuTWqxeoUxYpod6R2J73NsUKc1A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WU1Tfeou;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79F42606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:02:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79F42606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7900606A320;
+	Wed, 18 Nov 2026 16:02:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0t2HT1IL
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ae2ab35d82so10718861fa.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:02:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795017719; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HtKmtuB1/hOLP6bMeF2jJVXeJajEkoQDEJ4BGJdUZLqqPUH0WKmAoZWD5Gzhto8gb2
-         ZVxd7c4u69/hbJuQhGPtt561X0+nI6CY9vmb3f7fDu0aqhYDj9WCXvIRkd3ZR7tRgzfE
-         MplFo6e7wCsCJjic+p+CiQ38loHC9+fXiz129nitbhZXF5HrResfYBgX/6XLEL2ogfbR
-         5Zw5aWTbXcgjpCCkgAYOaXMbzMxLCwAXs+YQZYRp55Ka+1KF6tBgWKTuU1a6bdzz1yQq
-         /c3AK+CZkWaSBElg7BmPlP/fWxWLfPwE0+5GP1fMNY3RjahLEkULyYmUFj2Q2MBlmC/u
-         R2pQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
-        fh=f0IZoqL1pckYZIzCCxVXMiaNEDM1eCv+Ll0y8OEyIEg=;
-        b=Ld/iay/zA7BM/UeG8r0jYMSlOLmBNhE1rqTw4tbOjQNLYRDqI+IKOlJqVJHn2Imrx+
-         WC+pdvONzW8+qWHe+a0uxL9Pp2h3CRRRZuuN15S4MjaYO6uFRpCsaRQNjtLg3tgc9uVJ
-         e8p2d1KrNphAl1T72Gu4LWb/+WbpGOPBAFzaYNe9MiLQqZab12BBD4YMReuuTdTkwrbk
-         2muCcE5159vqHDnQttm6lpaAPglz+m+VmLNumJ274CeUzYoEv3F82Oz7JGxId5xNfVn6
-         F6hazt/expxCH5Y2iCkEwnrpwXyqET/rY0HSVZ7SOln1IziivXWOkE1SGsiGfTsslHLD
-         k/zQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795017719; x=1795622519; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
-        b=0t2HT1ILVORRjbNJ3cA8tlSHBgrO6VSW9rUhRGFmQyrhQmD2w5QcmUqXRcWVtF+NNM
-         4WAAabROuibG6Ig2IK0N4/wlG4YoZqXOXWnHwUsULHOy3aIeZX/P50wacMjucdZsWOlc
-         lt2Je6T0VWHeHfJQoBOyUoTp2Qd0RyUvfSfRvfnakGsCp9o6311bfuklZYWRhBBgoTAl
-         V24ZFvETltbgQIv+GyMMDhqiwbJw4tR6R8NcbAa9qXBDdoC8eWnetouYFRqBhnBRkXEp
-         Njj8KKn2D2wAl0SHEHGQZy32qOx+N11jldJqO77TGGW9tNuUKArl7DAEnErjZ3cYcEHc
-         u/Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795017719; x=1795622519;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qWeur32sDG2NOrrqdHK9VIUZ28NlMpK0IoLZt7fvp/Y=;
-        b=e2Yzo3e3/hHv7K3d18FO3Q5RKaLg5vG6BjWyM9vXvzKMDqmGwl3p2tifxkgalFQWxy
-         QNxVYubXhIjx424XJR7kJBp9ZGN+IbAhxgjwgH24BRt7IU4K970lrb8zXqwWLiPaakh0
-         F7zgFk2xWhKkaDrHvK/EN4mDsZmPdpz15qkifUu7cpkzoLEQyTVfmo8ULH2VLouIiPGF
-         R67NLl2LIZ32m8LS0DDHTDUvWwmlZwpPGGqSz6Img4ag8rxFyKb24lWER7G2wZne44Mz
-         ZQRsPbbAIFHdFDusfxqzcOjlSUplWwLK7pp5BkLz851musAiBUlli7wpq8SG80dgq5UI
-         8vZg==
-X-Forwarded-Encrypted: i=1; AL+hErFWsSt5a6Dr7hn+yXasiP0sAs3FShyp/xepZp7RVv7/N3+r83Mzb2BmFiMuOI5f6Cctp1dfD+4S3CgFzbM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uvSd3prHk+IIJ0+Y3uCuvRam8SUfK/iag/AHC7SM4PD2qBS3e
-	L9lm3CvJDM/9xTyoBCuRdVelPlYB7IdiETUPO8VOzED7GFGYKA1l1L1CfRlwFea/gR7mnI0+5hD
-	PgYolEsNzlYQgBoOt8jls0Wy3ThCV1hE=
-X-Gm-Gg: AYBFou1QvGk47Yq4+foFgaHc4DjcjQPDb1DQ3X/FZRrkh1wyUkwtFZNJZwzlsZ5lBS9
-	cKKDE2D0bLWr9Ba0CMnTvBzDfGhD7GDJpT84csIoq0fO9AgUIOSZuBLC4A4/PbsxSkvnOKC7BwP
-	f3FzP6DQxUb078QF44nPxbF1JFJTr+aSuYY5NBZb+aWHSqk+aimCcGx1AApQSlzbkcjBXoo/qlz
-	rqj2UVpQ2rlVUR2sKajKG0+Fv1E8kUnLTSfZyt+22wt0pLPj7J2VmZyl00pKexyFLf9PAmEChIz
-	brbxt+BtRGe4IDv623dvI/i/GWRKQlD1clU1vhWQ5gm8/l5daBkdgxJt1TwJtcukt7033Hq4Mie
-	LdcP3qHRR/9Pr6Fn4QSzYA661nEe/Q8E8NaesLfxj2AmanowP9dNILtVsqejI+/0c05pATKqTOE
-	Ih2AQwPDrz/mMZ13YgB4bVDiq9baslxpG6LYDJ9Mo0/k81uZ8=
-X-Received: by 2002:a05:651c:50d:b0:3ac:ddf0:f91 with SMTP id
- 38308e7fff4ca-3ae670d17a3mr10433301fa.15.1795017718248; Wed, 18 Nov 2026
- 08:01:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WU1Tfeou
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9531F000C5;
+	Wed, 18 Nov 2026 16:02:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795017746;
+	bh=XrdabjoeKoqZWgiPzIuL3cPjSBYVcnxPS9RnfVz1GGs=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=WU1TfeoutT9TRUjHxlvhGm9LpJKpy+H4cCwsKZ3CtgcKFzxOVt8QTF3OsSPY+3SqT
+	 aAdu9dQt8z+RBpbVA/FbYcUwIRmBLVvlyc5kQrdWtafZ6KLOVJTvIPVYFojOIf30AZ
+	 7lgsg7/pnxk15kCBZHn80H92G3q8ZpEvUEzxElp9QZrPkHSaLvjOYd5ZGhHU42H8G4
+	 VyW/r0O/Bq1+6SqgxasiVU+YChY67/DuTQsRwj4ySZ3cbDQSvl1wIaiTAE/9/SSC/J
+	 gb1Tik48CySE8lgtyKNxCxwfEza8wnMmpe0Cl9c0+K6Gt1nSwS89PVGSXbdeAhmNjx
+	 j2BjueANmd9RA==
+Content-Type: multipart/mixed; boundary="===============3130468370452098512=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,57 +49,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-ppc32-perf-v2-0-2072e9b90009@gmail.com>
- <20261117-ppc32-perf-v2-7-2072e9b90009@gmail.com> <53a68daf-e694-4c88-b99e-fb8a4c17c1a7@linux.ibm.com>
-In-Reply-To: <53a68daf-e694-4c88-b99e-fb8a4c17c1a7@linux.ibm.com>
-From: Matt Turner <mattst88@gmail.com>
-Date: Wed, 18 Nov 2026 11:01:46 -0500
-X-Gm-Features: AclHuK_8SbeIetAuAxVk5cUH8H6DpVcwuDu7-4JcvC6SDnui_bzwIAqMlYKvZ6M
-Message-ID: <CAEdQ38HmRZUwkh2TKSW8_Vg_O8yW8JdcEbj2j-EJtq2_u4zprQ@mail.gmail.com>
-Subject: Re: [PATCH v2 7/8] powerpc/perf: Use SIAR for sample addresses on 32-bit
-To: Tanushree Shah <tshah@linux.ibm.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, 
-	Paul Mackerras <paulus@ozlabs.org>, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Message-Id: <b65ecbc71f53e21edd402d078451459002dd39941b1dda46aaa0572bdd66b484@mail.kernel.org>
+In-Reply-To: <20261118152054.999990-1-visitorckw@gmail.com>
+References: <20261118152054.999990-1-visitorckw@gmail.com>
+Subject: Re: [PATCH] m68k, bpf: Add initial BPF JIT compiler support
+From: bot+bpf-ci@kernel.org
+To: visitorckw@gmail.com,corbet@lwn.net,geert@linux-m68k.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,eddyz87@gmail.com,memxor@gmail.com,gerg@linux-m68k.org
+Cc: skhan@linuxfoundation.org,rdunlap@infradead.org,martin.lau@linux.dev,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,marscheng@google.com,eleanor15x@gmail.com,jserv@ccns.ncku.edu.tw,linux-doc@vger.kernel.org,linux-kernel@vger.kernel.org,linux-m68k@lists.linux-m68k.org,bpf@vger.kernel.org,visitorckw@gmail.com,daniel@thingy.jp,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Wed, 18 Nov 2026 16:02:23 +0000 (UTC)
 
-Thank you for the review!
+--===============3130468370452098512==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 8:20=E2=80=AFAM Tanushree Shah <tshah@linux.ibm.com=
-> wrote:
-> Thanks, v2 looks right. One concern: the rule infers user vs kernel
-> from SIAR's address, but a real-mode address (translation off) is also
-> low, so it can look like a user address. The 0xc00 samples in the
-> results come out right only because the regs are kernel there. If a
-> real-mode SIAR ever pairs with user regs, the rule would trust a bogus
-> address.
+> m68k, bpf: Add initial BPF JIT compiler support
 
-It does pair with user regs. On the hash MMU CPUs, a DSI or ISI for a
-page whose PTE is present but not in the hash table goes to
-hash_page_dsi/hash_page_isi, which call hash_page() with translation
-still off and return to user space from fast_hash_page_return. EE is
-clear the whole way, so if a counter overflows in there, the exception
-is taken at the first user instruction with SIAR holding the real
-address of the hash code.
+TL;DR: Nit only: the "bne.s .+8" style comments in the m68k JIT's 64-bit
+compare code are off by 2 (should be .+10); the emitted encoding looks
+correct.
 
-I reproduced it on the 7448 with a loop that mprotect()s 2048 pages
-read-only and back, which flushes their hash PTEs, then reads one word
-from each page. With -c 10007, 1674 of 2659 user samples landed on the
-real addresses of DataAccess, hash_page_dsi, hash_page, create_hpte and
-fast_hash_page_return. My syscall test couldn't have caught this, since
-it counted those as user addresses in user mode.
+> diff --git a/arch/m68k/net/bpf_jit_comp.c b/arch/m68k/net/bpf_jit_comp.c
+> new file mode 100644
+> --- /dev/null
+> +++ b/arch/m68k/net/bpf_jit_comp.c
 
-> This rule avoids it and still fixes the interrupts-off case:
-> regs->result =3D siar && !user_mode(regs) && is_kernel_addr(siar);
-> User samples then use regs->nip, which loses little (SIAR was only ~4
-> instructions closer in your table).
+[ ... ]
 
-Agreed. With that, the same test has no user samples at kernel
-addresses, and 99.9% of the kernel samples still get their address
-from SIAR. I'll use it in v3 with your Suggested-by.
+> +	} else {
+> +		emit_16(ctx, 0xb080 | (d_hi << 9) | s_hi);	/* cmp.l s_hi, d_hi */
+> +
+> +		switch (op) {
+> +		case BPF_JEQ:
+> +			emit_16(ctx, 0x6608);			/* bne.s .+8 */
+> +			emit_16(ctx, 0xb080 | (d_lo << 9) | s_lo); /* cmp.l s_lo, d_lo */
+> +			EMIT_JMP32(0x6700);			/* beq.l */
+> +			break;
 
-Thanks,
-Matt
+[ ... ]
+
+> +		case BPF_JGT:
+> +			EMIT_JMP32(0x6200);			/* bhi.l */
+> +			emit_16(ctx, 0x6508);			/* bcs.s .+8 */
+
+This isn't a bug, but are the "bne.s .+8" style comments accurate?
+
+In m68k assembler syntax "." is the address of the current instruction, so
+"bne.s .+8" would assemble to 0x6606, since the 8-bit displacement is
+relative to the opcode address + 2.
+
+The emitted word 0x6608 has a displacement of 8, so the branch target is
+".+10".  It skips the 2-byte cmp.l and the 6-byte b<cc>.l, so the code
+looks correct and only the comment is off by 2.
+
+The same comment pattern appears for bne.s, bcs.s, bhi.s, blt.s and bgt.s in
+the other 64-bit compare cases of emit_jmp().  Would ".+10", or something
+like "bne.s +8: skip cmp.l + b<cc>.l", match the encoding better?
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44337242298
+--===============3130468370452098512==--
