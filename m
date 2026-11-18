@@ -1,55 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794961447;
-	b=YOApjW4f6EJY5hmBlOfkfrKlUkm1PRV4r13ZvathGLYihofSHhMQsg0Uu0rxt6xZldlD
-	 xHZm9nIrUmlwoqrsnJd81dvj2EQ/6anOvxpUZB4oq730gatLIM0PuByTYiSgSUoq9XnRx
-	 +3TFyMOHgucqVAVkF+FoCJIl+IHcvVkDx/2l+jTnvWfLPqBUzOrbwv2hKZx6bnfg/kXQs
-	 3Lu805KdTWMRxwCpFjaxtzuWlLVljWHYB4cLCyZntw0hhAcUbFIglqrpfLIQ0h6ZLCx47
-	 GM8ml0eC0o0P1hpJ1jigrRt7kOqvQxHC1WTHrf8oon0z8Wwdk+kSHSlpiAA8O/25EDw==
+	t=1794961534;
+	b=vOJBYyv2i+HcBdqQJZ+mYkrJQgPCRqCsySZnLgUZGupcfueMQGvvtyaDmvVGlutf1tu8
+	 lfMcGPsIZcleiFXrz/96fAiaQu8YCzLVqkOVRIFM2JnZ03yZsF7+PfiFVFePQU+TDJqg9
+	 FfAHIGOQ7WFyAmNK0dfDuLP3Yoh4hsSk41cj8gcnQAKSHAtyF9ixVbddG/Mfnwu1XxHhO
+	 8lpuuNNoLM1E5+lPiD9ZBQ8QZ9hesxlxHIkkaFCRKo97WhOc8n19mVW7lEnfWmaBKCEWd
+	 N6iB4eU0HhnUfUGijiG811181ur/apqitJffQy3p6Se0iHBxkf4DC5P8eqRwYKVGzVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794961447;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=u6oWx1ny/i9E9ms2J0GDi4d3fbg3mrPP6JGKuvrVaXs=;
-	b=r0IdfYJwRMzKu08mThurD2tdDT3JzZl4JScnX1TVzWP35jPpxPKm0PCu98Ej4pbzp1MV
-	 oSFMInuG8y2LH0aQmv13KVrKaeAYWdNxexiYZH6y7q0kzcTbxLLmd1uBGrJvYZnPuJ6sS
-	 eh5hUA5TYPEFAT4SkQYK5lA519V4YdJU7xLA8uhbTKcwblvwoJlSglJHamd0IX62fVVTn
-	 phMAp4d0jn+3XPwm+iOSi/O0Hx4D3lyuCiC0O1OGbGXN8n4jpxh3LtIQnzomFWTFoc/7f
-	 4PiD1v+HIODrYb4ufz0Xmgxc/IkM97RDQlbxHh6NJBqAudBD4wIn9+RfzVsmuA4msUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794961534;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=YOsED0g/bd1ZFHc7sB4ziCibNPUUgz2EiQJdiyX05eE=;
+	b=BHqHfYkt2WSPoyHTHndMVSlsD5qz8iOEI0H8HRyIve5bpkLTqflMBgUMnP+kb0UJgaRf
+	 IGhbeA2RNvbgrVhPfTu/r87jTXtDO9y8afARC9CmZijQ3WYf6GKswFpMiqnsHCB5eVoh9
+	 qneI3ChoK1RtzCTVnYCLgD75ffqsURnROIKRJ3yCFBye++cWIFa0VAl1jMcaQSfjE0XG4
+	 6EbNDEWO4FbZonvhseds97UcRYwyxvFwdoLIbrrVnwT6BRnkTasj7+bjLYbw3MmjsB4Ag
+	 h0p6ozH381gZkMTd+8l7Exdo9TUdYglTfUuPiNxYdZc/ssImkuUjCohST6WQiTLEgAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Et9OPNf2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fBRvclcE;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94734606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:24:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBE39606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:25:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBE39606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Et9OPNf2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26FCE1F000CC
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:24:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794961447;
-	bh=u6oWx1ny/i9E9ms2J0GDi4d3fbg3mrPP6JGKuvrVaXs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Et9OPNf2+uEThknGo4NZ5p/dqjt9wBSm0zYWdAuk1PpiWLmyvLOUiBpeQYGBBxVgv
-	 HxVZW2L/zeqdRGuPQwPAybTFqeFBOyQdEGMjhWOmiVynGBQ/CBM95KJoz1KXo3wOfH
-	 VLs3ePMIgImnHtqPlidYtKYhjcHwBPsnoU+d64p166xMXNTOvtbvtm7/Zag6vJqO//
-	 9MxuXdB3AYxZU3w81YZLi3hUEGpvjRxTQ2jGVRgLqtLj7b4RjDLO7Ic4BJwsFh7wt9
-	 6OtK4xQhc/AMUVa1RCIHj05nHKhXwFnsDb8iG0HNsir8cIhuiAwh1upw/Rsr+wqNmL
-	 JQHBvNsCEd7pg==
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c50d3ac6b51so301202066b.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:24:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErG6ASXrVF1OMzt8LDBqO9XNcyW8O24za4LXZvsa5E8DBu/QUsaBrbW6MOPVvycBQX7Ugk80FXiE1ev9dKs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+GNB22VZwSlE5C2ZLreOZg7YQiJZ83bjCbvVcMk7CE1sP6im0Z
-	U4sVGoldtNoH+e2U8qf00mumfh1XbgqaDSc+6cP5ojWrFMqzU/eePB5nuSAqw6YLQE5/Rf3csRJ
-	8imImLSJ9TmdLkZkuz4w2K352wSnXVzI=
-X-Received: by 2002:a17:907:7f87:b0:c49:9247:9688 with SMTP id
- a640c23a62f3a-c50f34ecaf9mr367492566b.7.1794961445932; Tue, 17 Nov 2026
- 16:24:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fBRvclcE
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdba1bbde0bso193742a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:25:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794961533; x=1795566333; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YOsED0g/bd1ZFHc7sB4ziCibNPUUgz2EiQJdiyX05eE=;
+        b=fBRvclcE6DV+QVl1fn5PVAdkf4Ap78GiiTNsA/hCvlkDe8tnEJGuDifjgFZ1PL1qaa
+         04eHV5oPKnnSEUW2jtif2P4s4pCyTsZz927Qp3K3i/t1piC8Lo3M4U1IoXMyipM1BAer
+         WdsRYqd+6v8M80crHGhRi66FmeSxkc/KaPMcrhj99/+ktBJ8Q30p4LZjGyrDgK4smy/+
+         5k7an5IQ6lSArzZ2shka6Xoq3Bdx+2KAvpNJE/ukoXF6hOyspDsknReUgPvKLbtBPVuU
+         Jb/bnrke9cHXC0Dza4xH1qwy8NYXl4G1zN1jsaJsVOmpd4SK6rEopSO7ubp31dPmb/rS
+         dhnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794961533; x=1795566333;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YOsED0g/bd1ZFHc7sB4ziCibNPUUgz2EiQJdiyX05eE=;
+        b=YeyFX3MJZrFLPT7W4KV5e5KqHv3LQaSq/0gr3A1AkmVI7vciepgxcXgKmMh0zNg1WM
+         ZuBrd1L7rnYbIJGeyOffVafrIWqT6LK6LGWPs5aA5OuYBGKqLtjD1hVQjvHBDFcfMfE/
+         PN4fAh4Hhjo1G4YWwtHhkCWJTEvyM1jNEh5596FVReYjWpb4jTGc550Hq47CXgXmeoFA
+         dyWiw3+IwtPXuPT8fR7Tp8jZSa1G8MveL2r7GWmSDHcp0Sa677xWFVQThu7nth9AkI1z
+         /igOjp9jX+VEvzHIUySEsqNmldbWem5tNbj4wyP/ZZ7f+slwJdGfTnEQ1AaE3NhB7dVh
+         fZnA==
+X-Forwarded-Encrypted: i=1; AL+hErE0Gi0vZ3bnVlieCKG+4VoWw/hoO8fenonuIhhx7CybvWci94ShUDM8Ko8NhaDXftoJKrKhx0YAh9LimvM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TJXUB5qHekJ22UOkmpUmjP74hYIE4Guq9Z416K2vUEO1+kEjk
+	TQEGadlxwfMR9Q6OxCtEXQa1ZVHAyqh+mz4D1sNCWt3RX792I8s+E0rW
+X-Gm-Gg: AZFdTZed9uZdpCViHVNT7pw4aXbHgQ9WmD1teTyYpwcfmysNeo8DN+57lTbGtBYnuat
+	PA6QC4hN7SYOHrytm+AOYd2BPoyUvLytR3RBCFEbmUMV8JmHeAmLYZAOFFHZF/GxJ9QlSeSphuR
+	00Nx+FLW2h7a7l3zj+HWzXJU5poVcToriohLjzJEPRpH7UJ3II+Uz7HxkyFcjitLvLIStM8tHm5
+	Wugsu6yaIJ2OreMEW3ShNE5Bxgu6p2aGGttC1bIvkVzons8N6s8ELom9EPsHjt1vTlkS2RCo8uA
+	VfNbin6t/a0xh8yO8LtNbvsfIf1MYZARi7+wpa0Wu+NmhSm1gxN8/S/V89KXztAuI4QxvUAGoFh
+	0xSn5MnBj/Fcrx5qJlvnWTAVSEd9ZXabKAWbZKWvN0ozzl+gxsBKAczF9gAKZ6QRhnCZ/oUvfcd
+	W09vjPCqQK9M/BJKrg0Loz09r6//QnY/9GHARK69JmhsuWItxIrtB5OPWX/tfRqPqt4t2p9Xmrg
+	4n/fbl8Enx4QTQ5nSgpXhHVXj8GfYoaeuvVLdpiTjGgyLQY73ZeT4w5jJYB9GnQZ1F2GelRyU3G
+	wYRGLzi9GlSzGuHFxN/oukoytreibzc+Tumg96K7sbNi0hCopps5+hMoWUJef1cPdCFm1/BtdtF
+	ejqWdHfztXaSAvTVQb7Fw1PhjJSD9g0lJQP71YgMtGP/XBvN4WX6SycLUWeSYrkKGpt27tv6fCA
+	fb8CDnnhqBSv6Ok6Z+8SJFjIZ5CNBtB1uoC0iyfL0MtsY/OB7EWSx4lrM5nM2jTA==
+X-Received: by 2002:a17:90a:d444:b0:3aa:fc22:8aad with SMTP id 98e67ed59e1d1-3b3d07c23bfmr1013734a91.54.1794961533262;
+        Tue, 17 Nov 2026 16:25:33 -0800 (PST)
+Received: from sid-dev-env.cgrhrlrrq2nuffriizdlnb1x4b.xx.internal.cloudapp.net ([4.155.54.158])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1c04020sm1212211a91.17.2026.11.17.16.25.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 16:25:32 -0800 (PST)
+From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+To: Paulo Alcantara <pc@manguebit.org>
+Cc: Ronnie Sahlberg <ronniesahlberg@gmail.com>,
+	Shyam Prasad N <sprasad@microsoft.com>,
+	Tom Talpey <tom@talpey.com>,
+	Bharath SM <bharathsm@microsoft.com>,
+	Allen Pais <apais@microsoft.com>,
+	Rachel Menge <rachelmenge@linux.microsoft.com>,
+	Hardik Garg <hargar@linux.microsoft.com>,
+	Siddharth Chintamaneni <sidchintamaneni@gmail.com>,
+	Gillian Laming <glaming@microsoft.com>,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] smb: client: fix cached-dir and deferred-close unmount races
+Date: Wed, 18 Nov 2026 00:25:27 +0000
+Message-ID: <20261118002529.250616-1-sidchintamaneni@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,58 +105,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <47ed45b5-de67-41aa-aa21-a3ba3479a7cc@vivo.com>
- <anXJ-5_vO7-toSe1@google.com> <CAKEwX=Mm2tXcen-quRXHf1Y2qSHYvpEUe4xiw-mHYaJnRUR-EA@mail.gmail.com>
- <auKqt6b4AxCLziIH@google.com> <aufPMirl4cD7tz0X@google.com>
- <18e4542967ebdd10.3137322e32332e3235332e313736.1dfc41.0000sendgmr@google.com>
- <CAKEwX=MV_xEUvz91pz6uc4qXWnWOUDtXZ2zASdNVOBHBLeA60w@mail.gmail.com>
- <18e4ebf806e937ec.3137322e32332e3235332e313736.1bf52a.0000sendgmr@google.com>
- <CAKEwX=PFdgEbba+H3fEnJFDnfkxCTsvuHEb4numVwJRaiMgwKQ@mail.gmail.com>
- <179384102494.19062.12740032892044628762.b4-reply@b4> <auwOBaRtM9p_Wxfx@google.com>
- <18e529a5ab0738f7.3137322e32332e3235332e313736.873cb.0000sendgmr@google.com>
- <CAKEwX=OUt4=wqDLiPvYuiTnkpuZYnszkuNQScNR93hHhVPRRGA@mail.gmail.com>
- <CAO9r8zMMGem-LTJQseT5xSSBjfr3UX2gzG_ftpw6+KF8m9v5yw@mail.gmail.com>
- <CAO9r8zOY1E7gCYnJZAfKvyHcbj8e2WVuXMqsaPGPsKR4-9itsg@mail.gmail.com>
- <18e53459a8013078.3137322e32332e3235332e313736.12c7b6.0000sendgmr@google.com>
- <avVVRYkIAQnLC_Yu@google.com> <18e8fb5c1c4d127f.3137322e32332e3235332e313736.289d37.0000sendgmr@google.com>
-In-Reply-To: <18e8fb5c1c4d127f.3137322e32332e3235332e313736.289d37.0000sendgmr@google.com>
-From: Yosry Ahmed <yosry@kernel.org>
-Date: Tue, 17 Nov 2026 16:23:54 -0800
-X-Gmail-Original-Message-ID: <CAO9r8zOtL4t5pwQOE=SAWeg=k2TkhtNXgV6CJJGNTwuTebKpBQ@mail.gmail.com>
-X-Gm-Features: AclHuK-0l1x5Ka17FQb35YPdKVq1Bx0JlvEgDxgD4J52JUsmFJaic8A5SEFngsA
-Message-ID: <CAO9r8zOtL4t5pwQOE=SAWeg=k2TkhtNXgV6CJJGNTwuTebKpBQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/2] mm: zsmalloc: make shrinker compaction budget-aware
-To: Chris Wiseman <chriswiseman@google.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Xueyuan Chen <xueyuan.chen21@gmail.com>, 
-	Xueyuan Chen <xueyuan.chen@vivo.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Barry Song <baohua@kernel.org>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Brian Geffon <bgeffon@google.com>, 
-	Minchan Kim <minchan@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 4:13=E2=80=AFPM Chris Wiseman <chriswiseman@google.=
-com> wrote:
->
-> On Thu, Nov 12, 2026 at 2:58 PM Sergey Senozhatsky <senozhatsky@chromium.=
-org> wrote:
-> >
-> > On (26/11/05 16:53), Chris Wiseman wrote:
-> > [..]
-> > > Maybe we go with Nhat's idea (CONFIG_ZSMALLOC_SHRINKER defaulting to
-> > > ZSWAP_DEFAULT_ON) for now, and if zswap adds a proactive compact knob
-> > > later we can just kill the shrinker?
-> >
-> > Sounds good to me (on the zram side).
->
-> Thanks Sergey.  Xueyuan, are you still planning to send the 2-patch
-> series (CONFIG_ZSMALLOC_SHRINKER + unlocked zs_can_compact() pre-check),
-> or want me to spin and post it?
->
-> Yosry / Nhat - any objection to starting with CONFIG_ZSMALLOC_SHRINKER
-> defaulting to ZSWAP_DEFAULT_ON so zram users can turn it off right away
-> while we decide whether to drop the shrinker completely?
+While investigating the cifs_kill_sb() unmount busy-dentry race fixed in
+"smb: client: fix busy dentry and inode on unmount from late oplock
+break" [1], I wrote a static analysis tool with AI assistance to scan
+for the same teardown pattern where objects are moved off shared lists
+and locks are dropped before their underlying dentry references are
+released.
 
-I would rather drop it right away, but I am fine if you don't wanna
-bother with zswap.
+That scan identified two more unmount races in cifs_kill_sb(), both of
+which I reproduced in QEMU where cifs_kill_sb() reaches
+generic_shutdown_super() while dentries are still in use:
+
+- Patch 1 walks cfids->dying under cfids->cfid_list_lock in
+  close_all_cached_dirs() and holds cifs_sb->outstanding_rreq across
+  dput(dentry) in smb2_close_cached_fid() so dentries for dying or
+  concurrently closed cached directories are dropped before
+  kill_anon_super() runs.
+- Patch 2 counts cancelled deferred-close handles in
+  cifs_sb->outstanding_rreq while they sit on a local stack list before
+  _cifsFileInfo_put() completes in cifs_close_deferred_file(),
+  cifs_close_all_deferred_files(), and
+  cifs_close_deferred_file_under_dentry().
+
+[1] https://lore.kernel.org/all/20261117001733.192399-1-sidchintamaneni@gmail.com/
+
+Siddharth Chintamaneni (2):
+  smb: client: drop dentries for dying cached dirs during unmount
+  smb: client: fix busy dentry on unmount from cancelled deferred close
+
+ fs/smb/client/cached_dir.c | 31 +++++++++++++++++++++++++++++--
+ fs/smb/client/misc.c       | 32 +++++++++++++++++++++++++++++---
+ 2 files changed, 58 insertions(+), 5 deletions(-)
+
+-- 
+2.43.0
+
