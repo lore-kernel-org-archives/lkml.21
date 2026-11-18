@@ -1,71 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008601;
-	b=RpfTWRVHGc8ucaLG5dKIG5E3hvohyVIV+n5XR3bnGyUeZ22RyiXP4KAD23sAlBP6SQ7/
-	 2Jima9s7PGzCDJq5LkU4xJ8s2FegH0GnpumRNYdpGZBHxu8lAJUA/j4pch1Ywyz3n2qw6
-	 1ZBydK+I0XxjWgFRpixRxm2lFJVMW7YBax6R1pPIDxItshCVrw8JS0845E/NLER4dZC8g
-	 bz7JfpFv1Ta/e3LcmmVSTq2o3cL4TYaN7BCsByi2JP1dHfVtjcR145y+85VcCMg+1Y4U1
-	 /lxsBunWUBvhgK24XVSI/nFtgE3YpcJP0bku9EHpREtcvHvI4LV4qdiwJvgLXmb5LYA==
+	t=1795008624;
+	b=QUtR5RuEPO68mx7u9RWqAi1QV0QK89SWcTDYBdD5i8ZTqIpZRQmEw7qF48GXUjBqoy+Q
+	 ReCCAgosWqEIQN+xCvsiE9BgJ05PrRXn1wbeaRjIk+5i0GNgLTH1rP5edmrH7rMurl9QH
+	 HhT164udUx+6RovPmgsxH0Ae2yDt1WxQjL+Ukx3X7aJgFbv6ZbLseZgHl6NFf1Fg6VUI1
+	 Cah5WK0mKIA1joG7cVsMqM1F7gxjg1TZIVrQyJxYLU8unalujRrZrMvcWEZrTbU7c+d6C
+	 sxH7yCzdr5GI4/NuATS5TgfBehsHCxF/cRPv1afwUwYMLS678VJGQlgljhTXQu6DD2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008601;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=DoOBTy4Tk4KM1tk2NwfW3r2DE81cjIG/a8hAQ7rYZRU=;
-	b=kVhl/nEXWTqp+takqGe9wPN0HTKXGFqN2jrzkHpTrBz2x+sNkO+S/wuVUZ5h5aFN7WiT
-	 pg60kbKQfy999MZDihGYTgk1H3CFrzMMyemV7HMFE6GISCELMC9jgahmz+JMUoiV1WqMY
-	 AfgXSzFTqTfDza1W6alDnhv3ESVbDc2+1AjGcb+XpTaaJs8Jf69wW8XZbeQxhWye8e3CB
-	 n7AJ3bGGha9Hu6wFvuG+JISSDrza/Q06DMfpiq/VSoS8Iu5zAQY+eS4laUU+3JgjhTQ7I
-	 RyHNu0VslalCgoXhvXMKujRPFJ0AUgi0/ulGrD5CIomt9YIOmHofDQ3ZSTYdQsG+0BA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008624;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=hyr0/vBL7xqqhFXVGePqQR+38WonfCDQ4la1hN00s5s=;
+	b=kYxaD7OJvdLxUr8OZ+MciaQjs7P/upopHeI7zx1CF4P3rSCFdMAWoGHyuDLWJFJY7mab
+	 XX/PZQ55wsSM3bCKYG9DEwejPxNdsawjLG59qnOChjrS21o4hbW0VBR4CIL50XHX2Cki+
+	 VrPtsa8JiV4b2MDDsm3AQZDoCa26WvxMAHh4RN5lgTvGopsu+g6ozmBLp6cUjAI+086bR
+	 OltwubiDVHHYHe+Fgxq8XKHOh38PgKPPJjngAVe+ekMLN9iRow+/GG6oAUDuNFRuZ9Zvt
+	 dXly2zNc5VKTPb3TGHRx6cY7yqYpA3CErqdd6pPdUXVGFeCk67R9VDmprb9PPuxahdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=epv2KiF2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=AUU+I9LM;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1C03606A320;
-	Wed, 18 Nov 2026 13:30:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DB1B606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:30:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DB1B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=epv2KiF2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F45E1F000C4;
-	Wed, 18 Nov 2026 13:29:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795008600;
-	bh=DoOBTy4Tk4KM1tk2NwfW3r2DE81cjIG/a8hAQ7rYZRU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=epv2KiF2Rq5l53Ltl8HexVQ5cyr3TPjxn18/fKXQfq4N1tK6JOwxWOVBQtzdHI2IM
-	 V6WBYmhX63bYjVcLwyQ6druZZ4WzlkRV7G/BRPDvM8xQLtRV7FYG0S0fIsVZhnZCNI
-	 UOPUbGhtU1x3a3d+WOBOIDjLluVYV6VecfLMUGwKojwtTvEyuXzGCOQFJjktoqdhkG
-	 5vDL37pvBhp+wnymdzHQHbBYWemqiBohmPc8XSasJy6UFR8bKWsyEbFJ7/AMCsPyUs
-	 sqmxksd+SKAWPXgDr9JnWl0u9d5azGFNCzNG6TXPHOFu6/pjvrHjhHtyS7xwIRHIOI
-	 PQuuBNXdOdTcA==
-From: Christian Brauner <brauner@kernel.org>
-To: Tejun Heo <tj@kernel.org>,
-	Krystian Kaniewski <krystianmkaniewski@gmail.com>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Ian Kent <raven@themaw.net>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Johan Hovold <johan@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	autofs@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+002fb7b2d0bc53bf7e75@syzkaller.appspotmail.com
-Subject: Re: [PATCH v4 0/2] kernfs, sysfs: refuse splice on /sys/power/resume
-Date: Wed, 18 Nov 2026 14:27:20 +0100
-Message-ID: <20261118-verknallen-ungnade-kurven-9f83ec75cb88@brauner>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261116133903.400202-1-krystianmkaniewski@gmail.com>
-References: <20261116133903.400202-1-krystianmkaniewski@gmail.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=AUU+I9LM
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id D51C5C4F77E;
+	Wed, 18 Nov 2026 13:30:27 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0BB575FE9B;
+	Wed, 18 Nov 2026 13:30:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 10BA911BC1FF8;
+	Wed, 18 Nov 2026 14:30:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795008618; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=hyr0/vBL7xqqhFXVGePqQR+38WonfCDQ4la1hN00s5s=;
+	b=AUU+I9LMHP8NCA/NArDhmRH2t9Z8gMXvbKxRnfPRnUnzfJW+kxbnwQk7vc/aqF2kijMsDP
+	qOsAWGi9QJ0jAXRW++BVZ5wWpNIAxwqoZWbMNLjzhJlh6eQsG3Tg5PScE0/ofrPXBOI2Jv
+	s1GgsqY1UZfk03RtxChUZ8jViQYeo1BqiI/4Y278aFNDnJi3lL2dr/qHoyyPPaTg6u3S4B
+	aWET0WA2Qt91rVJc60XaY5uVIjJ5MdPmwZk+9vLKWWIM33oTXv8aY8tsCZyyUoocQ1rDdF
+	YQWATLCZNZYvAfGjd84CYnoOypKibSUEiiicvjfgSyCZzWOA4evrZQxF8F8nrg==
+Message-ID: <59f417a8-be50-4378-9ded-1adc1148cc6f@bootlin.com>
+Date: Wed, 18 Nov 2026 14:30:14 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,39 +62,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1410; i=brauner@kernel.org; h=from:subject:message-id; bh=7YVp2rjs4Iw1cumttAP8imErlAFVjA2olxiCGh9aAJk=; b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9XWHhk30rSdaKNarpQf2xb0e0V3W6fTHnPj5xrvANN s9+dsljHaUsDGJcDLJiiiwO7Sbhcst5KjYbZWrAzGFlAhnCwMUpABNJ7GP4n/Cs6GLPLZecfK2F rf2uKxxbyzZz1uy7cXFS9L/kY3ZaPxkZFmhNCrWNE37bejFJ/4Zg1yWJXxkc/zeZpciumjO5x3c FFwA=
-X-Developer-Key: i=brauner@kernel.org; a=openpgp; fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] drm/vkms: add support for BGR233
+To: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20260928005301.367977-1-matheus.aalmeida@inf.ufrgs.br>
+ <20260928005301.367977-6-matheus.aalmeida@inf.ufrgs.br>
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260928005301.367977-6-matheus.aalmeida@inf.ufrgs.br>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, 16 Nov 2026 14:39:01 +0100, Krystian Kaniewski wrote:
-> This series refuses splice on /sys/power/resume and gives writable
-> opens of that file separate lockdep classes, as Tejun suggested in the
-> v1 discussion.
+
+
+On 9/28/26 02:53, Matheus Alves de Almeida wrote:
+> Add support for reading and writing the BGR233 pixel format.
 > 
-> The reported cycle is assembled from two operations. Splice into an
-> ordinary writable kernfs file records pipe->mutex before of->mutex. A
-> normal write to /sys/power/resume records of->mutex before the autofs
-> pipe locks when resume_store() resolves a relative path.
+> Signed-off-by: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>
+
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
+> ---
+>   drivers/gpu/drm/vkms/vkms_formats.c   | 20 ++++++++++++++++++++
+>   drivers/gpu/drm/vkms/vkms_plane.c     |  1 +
+>   drivers/gpu/drm/vkms/vkms_writeback.c |  3 ++-
+>   3 files changed, 23 insertions(+), 1 deletion(-)
 > 
-> [...]
+> diff --git a/drivers/gpu/drm/vkms/vkms_formats.c b/drivers/gpu/drm/vkms/vkms_formats.c
+> index 0c3bb0618..de25c8a19 100644
+> --- a/drivers/gpu/drm/vkms/vkms_formats.c
+> +++ b/drivers/gpu/drm/vkms/vkms_formats.c
+> @@ -273,6 +273,12 @@ static struct pixel_argb_u16 argb_u16_from_RGB332(u8 pixel)
+>   				    pixel & 0x3, 0xffff, 3, 3, 2, 0);
+>   }
+>   
+> +static struct pixel_argb_u16 argb_u16_from_BGR233(u8 pixel)
+> +{
+> +	return channels_to_argb_u16(pixel & 0x7, (pixel >> 3) & 0x7,
+> +				    (pixel >> 6) & 0x3, 0xffff, 3, 3, 2, 0);
+> +}
+> +
+>   static struct pixel_argb_u16 argb_u16_from_gray8(u8 gray)
+>   {
+>   	return argb_u16_from_u8888(255, gray, gray, gray);
+> @@ -482,6 +488,7 @@ READ_LINE(RGB565_read_line, px, __le16, argb_u16_from_RGB565, px)
+>   READ_LINE(BGR565_read_line, px, __le16, argb_u16_from_BGR565, px)
+>   
+>   READ_LINE(RGB332_read_line, px, u8, argb_u16_from_RGB332, *px)
+> +READ_LINE(BGR233_read_line, px, u8, argb_u16_from_BGR233, *px)
+>   
+>   READ_LINE(R8_read_line, px, u8, argb_u16_from_gray8, *px)
+>   
+> @@ -707,6 +714,15 @@ static void argb_u16_to_RGB332(u8 *out_pixel, const struct pixel_argb_u16 *in_pi
+>   	*out_pixel = r << 5 | g << 2 | b;
+>   }
+>   
+> +static void argb_u16_to_BGR233(u8 *out_pixel, const struct pixel_argb_u16 *in_pixel)
+> +{
+> +	u16 r, g, b;
+> +
+> +	argb_u16_to_channels(&r, &g, &b, NULL, 3, 3, 2, 0, in_pixel);
+> +
+> +	*out_pixel = b << 6 | g << 3 | r;
+> +}
+> +
+>   /**
+>    * vkms_writeback_row() - Generic loop for all supported writeback format. It is executed just
+>    * after the blending to write a line in the writeback buffer.
+> @@ -771,6 +787,8 @@ pixel_read_line_t get_pixel_read_line_function(u32 format)
+>   		return &BGR565_read_line;
+>   	case DRM_FORMAT_RGB332:
+>   		return &RGB332_read_line;
+> +	case DRM_FORMAT_BGR233:
+> +		return &BGR233_read_line;
+>   	case DRM_FORMAT_NV12:
+>   	case DRM_FORMAT_NV16:
+>   	case DRM_FORMAT_NV24:
+> @@ -1013,6 +1031,8 @@ pixel_write_t get_pixel_write_function(u32 format)
+>   		return &argb_u16_to_BGR565;
+>   	case DRM_FORMAT_RGB332:
+>   		return &argb_u16_to_RGB332;
+> +	case DRM_FORMAT_BGR233:
+> +		return &argb_u16_to_BGR233;
+>   	default:
+>   		/*
+>   		 * This is a bug in vkms_writeback_atomic_check. All the supported
+> diff --git a/drivers/gpu/drm/vkms/vkms_plane.c b/drivers/gpu/drm/vkms/vkms_plane.c
+> index fff2d4eb5..89beda57e 100644
+> --- a/drivers/gpu/drm/vkms/vkms_plane.c
+> +++ b/drivers/gpu/drm/vkms/vkms_plane.c
+> @@ -30,6 +30,7 @@ static const u32 vkms_formats[] = {
+>   	DRM_FORMAT_RGB565,
+>   	DRM_FORMAT_BGR565,
+>   	DRM_FORMAT_RGB332,
+> +	DRM_FORMAT_BGR233,
+>   	DRM_FORMAT_NV12,
+>   	DRM_FORMAT_NV16,
+>   	DRM_FORMAT_NV24,
+> diff --git a/drivers/gpu/drm/vkms/vkms_writeback.c b/drivers/gpu/drm/vkms/vkms_writeback.c
+> index 54330803e..37042445d 100644
+> --- a/drivers/gpu/drm/vkms/vkms_writeback.c
+> +++ b/drivers/gpu/drm/vkms/vkms_writeback.c
+> @@ -23,7 +23,8 @@ static const u32 vkms_wb_formats[] = {
+>   	DRM_FORMAT_ARGB16161616,
+>   	DRM_FORMAT_RGB565,
+>   	DRM_FORMAT_BGR565,
+> -	DRM_FORMAT_RGB332
+> +	DRM_FORMAT_RGB332,
+> +	DRM_FORMAT_BGR233
+>   };
+>   
+>   static const struct drm_connector_funcs vkms_wb_connector_funcs = {
 
-Applied to the vfs-7.5.kernfs branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.kernfs branch should appear in linux-next soon.
-
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
-
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.kernfs
-
-[1/2] kernfs, sysfs: add SYSFS_NO_SPLICE to refuse splice
-      https://git.kernel.org/vfs/vfs/c/0df09178ae40
-[2/2] PM: hibernate: refuse splice on /sys/power/resume
-      https://git.kernel.org/vfs/vfs/c/af5f879f9d4e
