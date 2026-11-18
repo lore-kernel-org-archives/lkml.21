@@ -1,118 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.59
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795023217;
-	b=4rte0+wMa3gWh5eQ2Wj/98P930KIh1gICu8UUuswYOX6pGUpf8fYk2fUG9hqajrGMzNU
-	 XGtO4vedugkgK0D+x8skheHPDPStVEdtbG9ZWzGarZBvLbbQGfUrwTgBvlykVzwwzooZy
-	 6rCgfoSwfH+0IYVpAxkA5BpI5UpPhXckRJaGDYLWSonvF5q6Rv6AYNEmEesaRF8EdHQxj
-	 dOqJeZYF2OrWXsTbnXrtaGYNNXrSKdcP9+SkV4+N2vgZp25TW5P+amwdd3GW2FzMRAR0Z
-	 kRSahyfzJ8nLT5GjB6EhEX6FNjROB/Hqm4VcPloaHAjimkwWXod09oqgf4aRBD8iyZw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023217;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=z8yuW0DEvRGeG5n/vMlKLLDZ+N3hVlRWgkr8WDg5Bl4=;
-	b=w5Bq6Eqok+WRRKaAVfW9twcakgUmAr3op9JPuzLpYYPu07uAycXg9IQCX9j+OzCQnhGT
-	 S6K7j3v070fBKVeASa6BAeSnh2+K7GMoAT4OBr5m8rgeVlxy+7YQaS0S/pDiJM/AUvxVB
-	 nhM36oFtQssTUYkGpGMv4gOAWVlJxHIaTpIwo7A+s7GO/aOCWVLyiSnYadebKQMuW5nuf
-	 CMP/ebIh8qW8ukM5tnxq2JEgzgNOgKfoPMHaUIl/lhSJtsoWvYibcT6HOZEp1P3aOS0DD
-	 W+Dm/s4Lx9r9vw5iRU/L8VqM0Qvw6nlZNzXvBrXDENfrIZpcT1MZhgP9bEZRw7PqSGg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=T4vDpPl6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.59
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012059.outbound.protection.outlook.com [52.101.48.59])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.152
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795023301;
+	b=x8L+E6QYSATJC0clSPmfXZuuXL+L+sZPIdGOztg23zgUcoCFWWZ4A/BJXE33ib6T437R
+	 AyvqYQ/GYkdxFf5LA6LkMooKKw+cGXCH/xFORPyjuHrlMx4mA1lq1fst3x6oLDHwupRM1
+	 b3Y0eLSYhmscoaDgatKbZJkVJ0sQtinvCrpSq+wfAJLXdTuQEatYc3mwPu6e8V2dTJo9I
+	 DNhszROljMkfsCH8o7IZN3oGYTVl2GD668bR142I+ZGygxHn3tEiIrLeLcamfC5X5UO7m
+	 WooK2XupyNQZsayOQltSAYH/r/OVktNtO8uFjwr3qOWgI7CO2ceqhu8OPqaICizjHjg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023301;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8fZ/Kxw5ysHvm1gRaGTc8BKvj3+nNehSTXXJUGYzQeA=;
+	b=WowtIgAqOjT/CxQKh753d/0d834kONccfNHed4U16IbySvSnNCmT23Kx/dUeJb7vkMq8
+	 CBIQDijd/3i+n3WCS5QbZl6UupT5dNk2lif0fS6YYLwZtgLqX/oQWLDd/+B0PvH+tFKSA
+	 5vnsNtZwlLEUoRkH+gQVTMAzm7Ou0Dkt6JFL2v3+x4UeKKusiCdr7Yd9Ja6LNFa7Z5DWW
+	 i9sXD81zCJ25V9tRh8DxAaQJQNxL3DaqDdDh6oXxZtq04yMuB2xnCcoTmlCSFZ9TKSNM4
+	 FLd8ME5jU+tVShLd7qCQ5kSdDj/HDVTnUeYZ8suwLSI878vP4WaZbPrPLt7MsoHex+A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fastmail.org;
+	spf=pass smtp.mailfrom=fastmail.org;
+	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b="s/xXDjYl";
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=f4Rx2On9;
+	arc=none smtp.remote-ip=103.168.172.152
+Received: from fhigh-a1-smtp.messagingengine.com (fhigh-a1-smtp.messagingengine.com [103.168.172.152])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3270A606A31C;
-	Wed, 18 Nov 2026 17:33:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3270A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EDF1606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:35:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EDF1606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=T4vDpPl6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZFAfg9si5B+bC037B1A3M/IpJ9Kew++qqhomA8IJpm5NOI3YS4KEmzH+MSR0HJUiHpieWyNv6bblCWr9spPvDbNdBt3hMz4YQseF7a90L0A5IYHJppjt47l5cdlUE6SFnYGBz908ZSAG+zqNQqax6vzqowH7Qo54mpuvhUZ77T1e6xhGYBzf/QX292qvn9aNHnUpCM/nJzVyxUAokrHHlgbx/LQ3EKE/1g3od3xbtggwqu6i3/AnyQMsuPJEBWY/QEryZG8ejJYIYMCU4QOBWPJfu+4MtOe9Z+Tg+iBfiRA+aREgrLTJIxAZ4tsQGbHhk5VQRn/+n/etx8lJE4ar4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=z8yuW0DEvRGeG5n/vMlKLLDZ+N3hVlRWgkr8WDg5Bl4=;
- b=R/UBRphqJTVpx4UxYiPLgMRz4sE3o6FkjjkPwu2KHm+EedaKs0LvNkNVmRLY/0r/SIcKxny4ElOimxGAwmTHR/fii1ohpIEoIShfJ7807LBXb5RmzjgSgBSjQGIp17PPH+52clnz4pG0e+mWyTkMBBfPlm9+APWkJe9297iT71vejDuGjXXsTbTUb5UIEIq5//h5x9EiNeHA2iKz4JZy1wt2SGnmYRO7GGF1e+HJ6ArJcUT4TxHjlsCZQEgruwSWQ0aq4EvFUh3viTv1ZwaOTWDtQWzvv5bPsZSPzhhIQ7DFnxfVqDelGwRtN7RxSfzhaiKqm2B6WcW+aO25C9JQOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=z8yuW0DEvRGeG5n/vMlKLLDZ+N3hVlRWgkr8WDg5Bl4=;
- b=T4vDpPl6/qtNtke3ReEb0cC3sdXFfV7qciloCADygJYGNNXY/Zy3u/cWk336CZgXP/keIbSzWuLLEdRtkNwyyiqtqxzR15/j4ejmK1020+zvInYrxRkvxvRCWj82uLtep2nEpA3mp7CwDtG4SIt1spX4RjtbKeGeJqlDuqHxLkGA6DAaZ1t+qpapaVMkFr+q6pGwJmSJd51HwIaEAPMM7dygu+uAuVCY1SjnNxRWRGwidkEexnmr3TGA6rlPLrgRjitvZruAvW/0HH8pRamRHRF4aN4rYwbDv6AM083boJdSVarOJaMvpd9Bl8zoWkqL+YXk5zX5jU3xLCQuzgxHeg==
-Received: from BN9PR03CA0424.namprd03.prod.outlook.com (2603:10b6:408:113::9)
- by CH4PR12MB780039.namprd12.prod.outlook.com (2603:10b6:610:516::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 17:33:29 +0000
-Received: from BN3PEPF00022BD1.namprd03.prod.outlook.com
- (2603:10b6:408:113:cafe::5e) by BN9PR03CA0424.outlook.office365.com
- (2603:10b6:408:113::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
- 18 Nov 2026 17:33:28 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN3PEPF00022BD1.mail.protection.outlook.com (10.167.248.171) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 17:33:28 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 09:33:05 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 18 Nov 2026 09:33:04 -0800
-Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 18 Nov 2026 09:33:00 -0800
-From: Tariq Toukan <tariqt@nvidia.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
-CC: Alexandre Cassen <acassen@corp.free.fr>, Alex Vesker <valex@nvidia.com>,
-	Erez Shitrit <erezsh@nvidia.com>, Gal Pressman <gal@nvidia.com>, Kees Cook
-	<kees+treewide@kernel.org>, Leon Romanovsky <leon@kernel.org>, open list
-	<linux-kernel@vger.kernel.org>, <linux-rdma@vger.kernel.org>, Mark Bloch
-	<mbloch@nvidia.com>, Moshe Shemesh <moshe@nvidia.com>, Prathamesh Deshpande
-	<prathameshdeshpande7@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>, "Simon
- Horman" <horms@kernel.org>, Tariq Toukan <tariqt@nvidia.com>, "William
- Theesfeld" <william@theesfeld.net>, Yevgeny Kliteynik <kliteyn@nvidia.com>
-Subject: [PATCH net V2 2/2] net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
-Date: Wed, 18 Nov 2026 19:32:27 +0200
-Message-ID: <20261118173227.1957670-3-tariqt@nvidia.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <20261118173227.1957670-1-tariqt@nvidia.com>
-References: <20261118173227.1957670-1-tariqt@nvidia.com>
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=s/xXDjYl;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=f4Rx2On9
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 74067140017B
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:34:59 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-07.internal (MEProxy); Wed, 18 Nov 2026 12:34:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1795023299; x=1795109699; bh=8fZ/Kxw5ysHvm1gRaGTc8
+	BKvj3+nNehSTXXJUGYzQeA=; b=s/xXDjYlX6j6oLIXXm/RXaGxPhJBT942EhSVa
+	6WlFozTgMZnTnaDdqDpfsOD4SdwCCxarC6vCcpqXp4r2zHmy/8P5WbmC5sakf2LB
+	lSWpmWlpCaVtedWz4DM51gSOT3cyxJUeg4tSPSbY3pgflnrX3GH0ZPPYbQH/t/7R
+	uZOPbiiLyr+QdrMKaXJ9wfAN5llYXzAECQpcuhKUIeWZBn3Bfh6DHetsvgS/x/iQ
+	jOwAYrUSDgnDwvw5mkeyDr25tbTzbRVrxjJRKKn4OcTZsfcMcbQbJeX6NWt9RmL4
+	8KHyX/XS80ruJXWf7WpZFdREcOTZBGrCN0lLTdPLp636PFBDQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795023299; x=1795109699; bh=8fZ/Kxw5ysHvm1gRaGTc8BKvj3+nNehSTXX
+	JUGYzQeA=; b=f4Rx2On9nMnBWwQElfC7PUzLSsx1wjfzAhVOFeWpBm7g/TIcW7U
+	VahVs3Q53dhARhph+57xZVuh9Rttzk1M361qgcwgA3BlDOpclh6DU3+45Wf9T8fO
+	aou5tUeujNktENbv7XlrvDZZL7jbKip1T5jfHHSu4a1w4/4nQcTZHXK+4NB9JgNB
+	N4sVbsrFpenWZizgsQ0MCEQldkVVaS+8MWuTEa8m4t7kULpGjHF2tLrINoDHK2s9
+	bgVyvlXFf8DgOIfU6m7Q1BXe8p/H5ooTV/YRt+1Nf4Zk5qKDdISYbP84tczHCwN5
+	euwGJ3HnM4y668G42aCRyhwz/30OxzyGRCQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795023299; d=fastmail.org;
+	mf=PGljYkBmYXN0bWFpbC5vcmc+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:oZ4vTLpbo1bg1Z11BOg0aHQxGu+SvGcfSgsjpqG3dEdkYrt
+	mlcG8VueNfKhBAnfjf/O0jONw6DtrcMNxdgCiNaHSCYH5OVqujTTOaK9raq6Hmg5
+	N1Mnx3+utKFrKUheYBaySo40wJ0lm0DlwdNSX0AM0ykV4UYK6tVVy1nXyMbBZDQa
+	xvc0qb5pt0PHcDx1jqQuNyrEt8dOg+8IWq6L9rrq6132SIHokJcnPgha3aWitLOg
+	abWC39n3B1mP2x2UxR71qyIN/RYaN13ATvCkGXGMbgdGm9TEOjCT/kCwDSR+SBDn
+	4oIfRUQboAp8deZhITusXCeWjvobjNi7eAWCGcg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:Oq7lNfgZIZStWBBZNqx43UlZdX234f4ouEubo9qk+tk=:tAjl/4ejSE5QxYJY++DFPh+rZ+7sOuvFDDtilHFBdd8=;
+X-ME-Sender: <xms:wuH9aolR_7aMHtktEStEcwIk7BrrcVpaDPbJzj2QlOy-gSNgZ3LNzw>
+    <xme:wuH9aoSD5Fc9udPGhRXtoVrI8Zr_LYDeo3SAjH-BkarPGOlgYwPy2vozUN6FNhuX4
+    eivmTXB-UgUgb74FMtSITholn4xh2Ie-30xZ0TknyAjktN-u9EXQUU_>
+X-ME-Received: <xmr:wuH9anWTKzkT8-BEorbhSzlUXhwG2RFs2DjI-dAWsUdC9ZHH7R4AJYMZ4s2IGzzn>
+X-ME-Proxy-Cause: dmFkZTE665ki3z6U4P9eZMFvamr17VPbNJ9oJwqirtbKiFZZVsgSXWFv+TLQIfjnq98VFs
+    own32DuLKLA4btFG9+1UZ+G68Orv8JzrQh8vOuczU971+hKpxbY99Unn11GT48RP+G4t+c
+    WQr4KOkrPQZEjVp0HRQqP+wagVLdA9vcV2653tZT3jhv5SIWfKIQ2dk1LumpTElDPYH5P+
+    rqXyJ3tjgo8NV8hoJmEy6iEvwXjp+kAAiaB7XrTSTw6FEOQL76rCHZD3J68l4UaBsSWaih
+    Vq45vGG7NHubxa6D3beAzL/JMpixr+FqCx3HlZrZZqqQNtw+iGamQ8vGg55rw63Q6wwdck
+    Sxju3lHkTorTlCjLH7ZNuMi6B6/qnu0q1Me+70qQIroFhtFWYE1A2zWZTI+2EshUunPPoy
+    4bmPSUFslPuqkkPSvizFySEBtgNWj19kCgkbUqdiEet+HXDPxkU9K3rJ6r7SFPmJDFuCbD
+    Hfw8W+Ziwp0XmyVvfJG25VS7v9tnjwjlS0SrEN+VUnocLcsPnHyhSCBPoUy2fk5pcA9517
+    JrmAxZqGsmmmUMeOL5qlZI4M41AjYr2OEKhYHrO8BXcnmMawGsENzjymhxRo2I/jJ7eyTe
+    ABCf/uTODmn7y8JOG9NHbNy3o7NHao5wHjyNKX2L5CV6/MEr0xPEk0qlVyrg
+X-ME-Proxy: <xmx:wuH9asLNsFtW-BkdVKpJtwN_ecZhjuQAqI4ONzxBBi-S8C78CAa_pg>
+    <xmx:wuH9an0gokHtNZOD6uA-vBuQw-DmWyWGgM8NKLXPvDwGhwJecdActg>
+    <xmx:wuH9apIk6ST-7xXkYTaY2PAEiWlqvzPqvDJ4iaUtknmGelcIPWy20w>
+    <xmx:wuH9aiiW1dyHiXElb51ucnj2E200HfQVgWs1l8f9uWF--NAgC7wX0A>
+    <xmx:w-H9al0OgwIQW3rVCngcfyBHGtZGIER3lzTSk0A_eOd6Z3L4ZOZ9o5mP>
+Feedback-ID: ib53e4b78:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 12:34:57 -0500 (EST)
+From: Ian Bridges <icb@fastmail.org>
+To: linkinjeon@kernel.org
+Cc: senozhatsky@chromium.org,
+	tom@talpey.com,
+	chenxiaosong@chenxiaosong.com,
+	manizada@pm.me,
+	linux-cifs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ian Bridges <icb@fastmail.org>,
+	stable@vger.kernel.org
+Subject: [PATCH] ksmbd: allocate the security descriptor reply at its padded size
+Date: Wed, 18 Nov 2026 11:34:54 -0600
+Message-ID: <20261118173454.76416-1-icb@fastmail.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,151 +128,57 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD1:EE_|CH4PR12MB780039:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0056fc10-18bc-4a2b-ef4b-08df459a0edd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|36860700016|376014|82310400026|7416014|261021123027099003|10067099003|11063799006|56012099006|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|261009220027099003|261009221227099003|261009223327099003|261009223027099003|261009221727099003|22082099003|18002099003|6133799003|41080700001;
-X-Microsoft-Antispam-Message-Info:
-	u8IGRaLAbci63zDVPasCqjBTeXVSE0JEqR2vuRrdsVmk+nT191l9QKxrIyX4YA+/swKLG0QtUJh7Gyilsp3A1gXS2qBbvXGgnMJwM+cH1QupI6xJEwSnygjg0LD+XRRMbARfXS9l4KsvjspcPOuSKLmi1voaPBuZJvzANj5doaPiPVolC0jny86/6bkODDoVTr2RB7bBr0zJVzGv9MpIqWQ5VMsAUWQQNnzmhzNsBJsDmW4FXy4ujhTQsyenF1zmwWLjYgi7nCTcdn6+E6zQ2TXarpzPfuj+RfNpx7HTIgZCKcxnszif3A6A3k7T7AUVxEnZCeZqbHn36gj28Bqb+QaRV1w1kChIXuUMOxXeAzJW/8YJweuaUJNoB00w5HbPku89B+JQgDvBhmkwAUPPDN372Kj47tVVlt83Jp8BP1afHNaAq9+/uF48N/qWCp+lZF7xHFjN3yMGbpYxN7IiSUh9ZERQjuaYCmWKqljbGzX4O1BAO6fF2wCEX41gd1jOJP/+eC/CzIhAYLxLBwZQEgENJoSi2iw2uMFB8FdagSLrvP/WuANdG4ruw8cqsi9gZlS7y724L2r3b0aFwjMr/QlHZ0B+9np+ac1J5LmemYHtNW4BpoCqfq3JRgNAH3ZuVcj8ddVQsNHfVarnc+GllScoeChRQ46iqFug3r1/ptEO3CzljdKJIAlAjCaLYP/uCBke7z7sP3RcynWxo1ElMlxm+AOph+3/1HTf5DFtWXPdx2n6UkEPV1VE0PU9bK3r
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(376014)(82310400026)(7416014)(261021123027099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(261009220027099003)(261009221227099003)(261009223327099003)(261009223027099003)(261009221727099003)(22082099003)(18002099003)(6133799003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	9Xow41BxP872/k1mS99dUqrswh/pIQ7t0ZJ00uyNoEOtRmDL8E6892+4jG9q0eJEmLrp3/UX7kGi4lU0ltDXTql6qFGFhDbTDRQrY43zH0iVv5miFDsYNOF5IZNaABh9E/l2PfH0CqrH+j6nk0Hr8B0X6y8V+dPuw2bAGthhM/sKpXeWxDcf3aXuwUdZd+CTGtFx7XxCAmOToMIm5V+wsDwr0hRQv6Gr6NmN7+99KXGeGc824IFxBqn30hjVvM4Cu+qUq0NsAxuIZHPq6BNP657H3xnAhSngpDRdROXVToIidUXDjd/rSCCK+iUrdmkeCyi89mlN9yNGOjq2hXpG9RxfyfxOPTGX7cIe1eWdwYUX+1I5+5DsZ+2leRXeVVZOBSDj5V5JIs0BmfWz+iQd8Vlp9QeqQ7MzrMjHTjqipLV2kWltDemh9Amw6DOwlaVh
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:33:28.4762
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0056fc10-18bc-4a2b-ef4b-08df459a0edd
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN3PEPF00022BD1.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR12MB780039
 
-From: Yevgeny Kliteynik <kliteyn@nvidia.com>
+smb2_get_info_sec() allocates the security descriptor reply with the
+size that smb_acl_sec_desc_scratch_len() estimates. A compound response
+pads the reply to 8 bytes inside that buffer, so after build_sec_desc()
+the query fails with -EFBIG when the padded length does not fit. The
+estimate is not padded, so a descriptor that fits the estimate can
+still fail. A query with AdditionalInformation 0 always fails with
+-EFBIG. Its reply is the 20-byte header, the estimate is 20 bytes, and
+the padded length is 24. The client gets an error instead of the
+header.
 
-mlx5dr_icm_free_chunk() moves a freed chunk to the "hot" chunks array by
-writing it to hot_chunks_arr and, once the accumulated hot memory
-crosses a threshold, triggers a sync to HW that flushes the array.  The
-array is large enough to hold the chunks of a single accumulation cycle,
-and relies on the sync path to flush it.
+Round the allocation up to 8 bytes, as READ does for its data buffer.
 
-However, if sync to HW fails, hot chunks array is not cleared, and every
-subsequent mlx5dr_icm_free_chunk will write past the end of
-hot_chunks_arr, resulting in an out-of-bounds write and kernel heap
-corruption.
-
-A failed sync to HW also means it is no longer safe to recycle ICM: a
-chunk's memory may only be returned to the buddy allocator (and thus be
-reused) after a sync has confirmed that HW no longer references it.
-
-The issue was discovered by a fuzzer that repeatedly triggered sync
-failure, at which point the out-of-bounds write was reported by KASAN:
-
-   KASAN log excerpt: BUG:
-     slab-out-of-bounds in mlx5dr_icm_free_chunk+0x4cd at call 2
-     (hot_chunks_num=3 > cap=2).
-
-Fix this by putting the pool into an error state on the first failed
-sync to HW, reporting the failure once. The sync is not retried, and
-while the pool is in this state:
-
-- mlx5dr_icm_free_chunk() doesn't queue freed chunks; the segment is
-  left reserved and is reclaimed when the pool is destroyed.
-
-- mlx5dr_icm_alloc_chunk() doesn't serve new chunks.
-
-Fixes: 4519fc45beeb ("net/mlx5: DR, Keep track of hot ICM chunks in an array instead of list")
-Signed-off-by: Yevgeny Kliteynik <kliteyn@nvidia.com>
-Reviewed-by: Alex Vesker <valex@nvidia.com>
-Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
+Fixes: fda9522ed6af ("ksmbd: fix OOB write in QUERY_INFO for compound requests")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ian Bridges <icb@fastmail.org>
 ---
- .../mlx5/core/steering/sws/dr_icm_pool.c      | 32 +++++++++++++++++--
- 1 file changed, 29 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-index 1b928b40686e..a906a72601c4 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-@@ -33,6 +33,11 @@ struct mlx5dr_icm_pool {
- 	u64 hot_memory_size;
- 	/* hot memory size threshold for triggering sync */
- 	u64 th;
-+	/* Set when a sync to HW fails - no new chunks are served, freed
-+	 * chunks are no longer queued, and their ICM is not returned to
-+	 * the buddy allocator.
-+	 */
-+	bool error_state;
- };
+The size check after build_sec_desc() is kept. It still makes sure the
+descriptor and its padding fit in the buffer.
+
+Tested on ksmbd-for-next 267029b35ad1 with KASAN. A query with
+AdditionalInformation 0 now returns the 20-byte header, both alone and
+in the middle of a compound. Replies for the other tested
+AdditionalInformation values are unchanged. smbtorture results match
+the base.
+
+This patch was developed with LLM assistance.
+
+ fs/smb/server/smb2pdu.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/fs/smb/server/smb2pdu.c b/fs/smb/server/smb2pdu.c
+index 29750970f8da..84f840f51297 100644
+--- a/fs/smb/server/smb2pdu.c
++++ b/fs/smb/server/smb2pdu.c
+@@ -8510,11 +8510,13 @@ static int smb2_get_info_sec(struct ksmbd_work *work,
  
- struct mlx5dr_icm_dm {
-@@ -368,7 +373,15 @@ static int dr_icm_pool_sync_all_buddy_pools(struct mlx5dr_icm_pool *pool)
- 
- 	err = mlx5dr_cmd_sync_steering(pool->dmn->mdev);
- 	if (err) {
--		mlx5dr_err(pool->dmn, "Failed to sync to HW (err: %d)\n", err);
-+		/* The hot chunks could not be flushed. Put the pool in an
-+		 * error state so that no further chunks are queued (which
-+		 * would overflow hot_chunks_arr), and no new chunks are
-+		 * served. The sync is not retried.
-+		 */
-+		mlx5dr_err(pool->dmn,
-+			   "Failed to sync to HW (err: %d), disabling ICM pool\n",
-+			   err);
-+		pool->error_state = true;
- 		return err;
+ 	scratch_len = smb_acl_sec_desc_scratch_len(&fattr, ppntsd,
+ 			ppntsd_size, addition_info);
+-	if (!scratch_len || scratch_len == SIZE_MAX) {
++	if (!scratch_len || scratch_len > SIZE_MAX - 7) {
+ 		rc = -EFBIG;
+ 		goto release_acl;
  	}
  
-@@ -443,6 +456,10 @@ mlx5dr_icm_alloc_chunk(struct mlx5dr_icm_pool *pool,
- 		return NULL;
- 
- 	mutex_lock(&pool->mutex);
-+
-+	if (pool->error_state)
-+		goto out;
-+
- 	/* find mem, get back the relevant buddy pool and seg in that mem */
- 	ret = dr_icm_handle_buddies_get_mem(pool, chunk_size, &buddy, &seg);
- 	if (ret)
-@@ -475,6 +492,14 @@ void mlx5dr_icm_free_chunk(struct mlx5dr_icm_chunk *chunk)
- 	/* move the chunk to the waiting chunks array, AKA "hot" memory */
- 	mutex_lock(&pool->mutex);
- 
-+	/* If the pool is in an error state, the chunk must not be queued.
-+	 * ICM memory is not returned to the buddy allocator - it is
-+	 * reclaimed only when the pool is destroyed.
-+	 * Just free the chunk's bookkeeping struct.
-+	 */
-+	if (pool->error_state)
-+		goto out;
-+
- 	pool->hot_memory_size += mlx5dr_icm_pool_get_chunk_byte_size(chunk);
- 
- 	hot_chunk = &pool->hot_chunks_arr[pool->hot_chunks_num++];
-@@ -482,12 +507,13 @@ void mlx5dr_icm_free_chunk(struct mlx5dr_icm_chunk *chunk)
- 	hot_chunk->seg = chunk->seg;
- 	hot_chunk->size = chunk->size;
- 
--	kmem_cache_free(chunks_cache, chunk);
--
- 	/* Check if we have chunks that are waiting for sync-ste */
- 	if (dr_icm_pool_is_sync_required(pool))
- 		dr_icm_pool_sync_all_buddy_pools(pool);
- 
-+out:
-+	kmem_cache_free(chunks_cache, chunk);
-+
- 	mutex_unlock(&pool->mutex);
- }
- 
++	/* A compound response pads the descriptor to 8 bytes in this buffer */
++	scratch_len = ALIGN(scratch_len, 8);
+ 	pntsd = kvzalloc(scratch_len, KSMBD_DEFAULT_GFP);
+ 	if (!pntsd) {
+ 		rc = -ENOMEM;
 -- 
-2.44.0
+2.47.3
 
