@@ -1,58 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993130;
-	b=ht3KFlbAKM8LI5/wBIxeq2/nrWlISSedcfbwat2+dSuk0wpUyI70ZwCCg7t/VOWbmZoG
-	 iGxbgGI/jiHCdBeBK3NNEa7Pb0zMwwucWJ8IsAOa855DQb+D0Cd9QxYyX/JhlPLkOyGQv
-	 Bb03Clt26+D5BjzehS2ARPgeNVnmtXP15ok8D59h7RYgWPOSLXCiIQuS5BrxaVzSNI3Vf
-	 7xmk2U167U0gc0yQ/Io9aKYvcM5tQVTolvbAInwWpIqwAgurPp1zlnpuxdVg7M6u0wVGM
-	 GLqTgrx8QQJ9+jJ09u3j+gv/eZQZGfOl2nQDAdN3dN+uEIYxC5W9pJddcA4OdGIEpwA==
+	t=1794993134;
+	b=l+MQJCnPxV6WVF19c/PHYi8AcA1UY1mSveYTTxPqqoK9Yx6VaDa3sT+lb1BKe12UukTU
+	 ofzvI+LTZv9HGSI8mzpnUMbl0A/J9j4C9AYo9qQLJKvzLWemrKr9RxIxYW5ovFv/qWoRF
+	 k4tAZo2utKjpgs3l47gIBiV6GWz4gb6DrmNfJDXum5YHrxcdI3eEIPsGYj7QLTIFZRDgw
+	 Al4SGWo4Yzu0lnP9BwZKNiZ30LN+VVFtHevTOVYNN7CeADF01bLefO6lXr89qu9/JI2a3
+	 yDeaV9d95i3kYb3ghke57/iETxcCT9yLRmRo13cX2PmwJT3FqMke7OzUyGxUNFA+Clg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993130;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993134;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=kyPEMtNB1WsJRDOsvvodLv8gkX0hMfYjt/jgN5NieCg=;
-	b=GI3zmxJTJ+EeO97Jdx7t1O8NEnrPNYbZkQbhb0gk/gr0G/uQiFOJNuAKWRrIca1BmDCW
-	 JusBsvnH+Qfd/3hZ4DS3BQuGt1eS3zjAAcUSOo/4COFEuyIJla+EjqoLDWktzyKChKLIf
-	 /s8KL9P69WRg31gA73NtMd3jVjXohFa2PweFBjT3H9i5P9EDeOhL2dc/hyKRAEgRvdLKN
-	 FvX0d5ltlWW7QXU9+fX+OloDSiWQjRFZKu3B5SXIDhEItikKlNolHH8sHIAYJAk3mbjFe
-	 KiMKfONxiC6LXRn6f5PafhmNkhTvxmlNlZRuN4GWGkIxYZEusV5RtPJ42MLiLdiz+qg==
+	bh=j4VEP/66boLRVWLZORrD0dkbCraUxgEcYkZxlyDhLLA=;
+	b=5qxGmFr8xewqGZ2JwSajrdbdWMqJ4stwXKZSWeroD/nib8JHTBUtUytkQwNihekzJQZe
+	 2iV779r65lOj8BxE6JMrxsaZTS6QmBgw7LNPUvUPninMdHEeWWg67zx7lx3OuuuzUG1dg
+	 Oq+vdTRpGs+i1GZXKtUVOHHyOyKrmtNbx5k/wcwcEN0TZ0c311BZ4d2BhoQ6J2OfICtJW
+	 TQbtnFDhk1N+na8ZoneinNXwe2zDPqfCjq3QqKk9LimmudgAsXMGmFJwpif35j6fFPAm5
+	 2y1oQe/VgIJPL8wC+2vpfYmYrBvfitnAPQmF2WExFoCllcTz3f6X5R5fs+PjGEV1yVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HSs0rVMk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP+qJlwZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 963A5606A88E;
-	Wed, 18 Nov 2026 09:12:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED45A606A8A8;
+	Wed, 18 Nov 2026 09:12:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HSs0rVMk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C8F31F000CE;
-	Wed, 18 Nov 2026 09:12:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP+qJlwZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126C71F000C5;
+	Wed, 18 Nov 2026 09:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794993130;
-	bh=kyPEMtNB1WsJRDOsvvodLv8gkX0hMfYjt/jgN5NieCg=;
+	s=k20260515; t=1794993133;
+	bh=j4VEP/66boLRVWLZORrD0dkbCraUxgEcYkZxlyDhLLA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HSs0rVMkt8QPfo1izHLhXCbm2oXS26L7g07R6UtZ+fWcSQsH8sure7+EyY1i2C4rj
-	 4WMPyBNQ1tYAG/lNCYR9MNyxmYCTR4d5K5M06M+Al/KlVaAw6gXGmUUC1f47py2GJK
-	 maqFVHOYoh6ljsrz5YrRLWdIvBP+lVKQCrRyui0Wcq5gnWeDYnHojxjPjeE8tRmYwn
-	 Pf9j9RLgt7HhZg5lUFQZgWHM+mfPCD/7xDR6xB07vbyWrw/lJSMtwj5cr8R0rXPMVv
-	 xBBeIZpkGfPYEGk1mmQQ4vqUw87waj71xL2GFL1MedESdKWo8EuVMSvjt39r0k845X
-	 3JlLFAsXvrZ0Q==
-Subject: Re: [PATCH net-next] net/mlx5: E-Switch, Size FDB peer groups for
- asymmetric peers
+	b=fP+qJlwZnVEhyynEgSeitpCeMW7M6F45Eovjgo30VhhhRs9AA6t9w5QEBxZnYb/f+
+	 0unogwzVha6dzU/YARlKowC/Ju/uno8z0TkMhun82clA6jSzY5vcuN75/1FIljT4WC
+	 1SPn0eWj9F7RMkxAEA1+rrkLvgRx2XhEnefIr6YdIJhPcCA++BpNmnicDuMYCvG40L
+	 48L7T9eBnC9Nf0EyyPuQeE5b3yC0VkYclaYmn/0xkV4R0Dv742h1i8Zesg9aWvTdCp
+	 q1Rjb1vzmu8UTz30JBxHnmkJnBcVbMzioxVIcqkc1kBGcrnNyP26+s3zM5QlmS/80M
+	 yn7lOcW92e9KA==
+Subject:
+ Re: [PATCH net-next 3/4] eth: mpnic: sync unicast and multicast address lists
 From: netdev-bot+sashiko@kernel.org
-To: tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, gal@nvidia.com,
- leon@kernel.org, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- mbloch@nvidia.com, moshe@nvidia.com, saeedm@nvidia.com, shayd@nvidia.com,
- udar@nvidia.com
-Date: Wed, 18 Nov 2026 09:12:08 +0000
-Message-ID: <179499312875.3136.7073415507714082354@kernel.org>
-In-Reply-To: <20261116210917.1297111-1-tariqt@nvidia.com>
-References: <20261116210917.1297111-1-tariqt@nvidia.com>
+To: daniel.zahka@gmail.com
+Cc: alexanderduyck@fb.com, kuba@kernel.org, kernel-team@meta.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, dimitri.daskalakis1@gmail.com, mohsin.bashr@gmail.com,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Date: Wed, 18 Nov 2026 09:12:12 +0000
+Message-ID: <179499313262.3136.12811016164943625265@kernel.org>
+In-Reply-To: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
+References: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -66,10 +65,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,125 +76,100 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In SMFS/HMFS mode, esw_max_vports() returns the fixed
-  MLX5_ESW_MAX_VPORT_ID (4095) and ignores esw->total_vports.
-- [Low] The patch changed how the send-to-vport and peer-miss groups are
-  sized, but left the comment and the table_size formula in…
+- [Medium] The unicast and multicast lists are synced in the wrong order
+  in __mpnic_set_rx_mode()…
 
 --
 
-net/mlx5: E-Switch, Size FDB peer groups for asymmetric peers
+eth: mpnic: sync unicast and multicast address lists
 
-The patch changes how the slow path FDB send-to-vport and peer-miss groups
-are sized in SW and HW steering modes. They now use a fixed architectural
-vport maximum, MLX5_ESW_MAX_VPORT_ID, instead of the local total_vports.
-This lets asymmetric peers pair. FW steering keeps the existing sizing.
+This commit adds the secondary unicast and multicast addresses to the
+MACDA TCAM and advertises IFF_UNICAST_FLT. When either list outgrows the
+table, the driver falls back to promiscuous or all-multicast mode. A
+per-slot users count is kept so the same address can sit in both dev->uc
+and dev->mc.
 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c b/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c
-> index 4747841310914..20eca8b89b8f4 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c
-> @@ -1744,6 +1744,17 @@ esw_chains_destroy(struct mlx5_eswitch *esw, struct mlx5_fs_chains *chains)
->  
->  #endif
->  
-> +/* SW and HW steering tables are unbounded, so they can be sized for any peer.
-> + * FW steering is bounded by log_max_ft_size, so it uses local total_vports.
-> + */
-> +static int esw_max_vports(const struct mlx5_eswitch *esw)
-> +{
-> +	if (esw->dev->priv.steering->mode == MLX5_FLOW_STEERING_MODE_DMFS)
-> +		return esw->total_vports;
-> +
-> +	return MLX5_ESW_MAX_VPORT_ID;
-> +}
-
-[Severity: Medium]
-In SMFS/HMFS mode, can esw_max_vports() return less than the old sizing?
-
-MLX5_ESW_MAX_VPORT_ID is 4095, which is the width of the ESW_VPORT_BITS
-field in the reg_c_0 source-port metadata. It limits the number of vports
-only when vport-match metadata is enabled. In that case
-esw_offloads_vport_metadata_setup() fails with -ENOSPC if there are more
-than 4095 vports:
-
-	return vport->metadata ? 0 : -ENOSPC;
-
-Metadata matching can be turned off, though. One way is the
-esw_port_metadata devlink parameter. Another is a device without metadata
-support. The FDB then matches on the 16-bit source_port/source_sqn space,
-and nothing limits total_vports to 4095. total_vports comes from firmware
-(VFs plus mlx5_sf_max_functions() and the host-PF/SPF SFs and EC VFs).
-
-If total_vports goes above 4095 in that configuration, both groups end up
-smaller than before:
-
-  send-to-vport: 8 * (4095 * 32 + 256) = 1,050,368 entries,
-                 versus 8 * (32 * N + 256) before
-  peer-miss:     4094 * 7 = 28,658 entries,
-                 versus (N - 1) * 7 before
-
-Once the number of rules goes past the new capacity, would insert_fte()
-fail here?
-
-	index = ida_alloc_max(&fg->fte_allocator, fg->max_ftes - 1, GFP_KERNEL);
-
-Peer-miss or send-to-vport rule installation would then fail, where the old
-sizing worked.
-
-Would max(esw->total_vports, MLX5_ESW_MAX_VPORT_ID) keep the old sizing as
-a lower bound?
-
-A smaller point: the new public macro is named MLX5_ESW_MAX_VPORT_ID, but
-real vport numbers are 16-bit (MLX5_VPORT_UPLINK is 0xffff and
-MLX5_VPORT_ECPF is 0xfffe). Here it is used as a vport count, not an ID.
-Would a name tied to the metadata field width be clearer?
-
-> +
->  static int
->  esw_create_send_to_vport_group(struct mlx5_eswitch *esw,
->  			       struct mlx5_flow_table *fdb,
-> @@ -1771,7 +1782,9 @@ esw_create_send_to_vport_group(struct mlx5_eswitch *esw,
->  	}
->  
->  	/* See comment at table_size calculation */
-> -	count = MLX5_MAX_PORTS * (esw->total_vports * MAX_SQ_NVPORTS + MAX_PF_SQ);
-> +	count = MLX5_MAX_PORTS *
-> +		(esw_max_vports(esw) * MAX_SQ_NVPORTS + MAX_PF_SQ);
-> +
-
-[Severity: Low]
-This isn't a bug, but should the comment and the table_size calculation in
-esw_create_offloads_fdb_tables() be updated as well? The cross-reference
-above now points at text that no longer matches this group:
-
-	/* To be strictly correct:
-	 *	MLX5_MAX_PORTS * (esw->total_vports * MAX_SQ_NVPORTS + MAX_PF_SQ)
-	 [ ... ]
-	 * the peer miss group should also be created based on the number of
-	 * total vports of the peer (currently is also uses esw->total_vports).
-	 */
-	table_size = MLX5_MAX_PORTS * (esw->total_vports * MAX_SQ_NVPORTS + MAX_PF_SQ) +
-		     esw->total_vports * MLX5_MAX_PORTS + MLX5_ESW_MISS_FLOWS;
-
-In SMFS/HMFS, both the send-to-vport group and the peer-miss group now use
-esw_max_vports(). table_size, and so ft_attr.max_fte, is still computed
-from total_vports. The group index layout therefore goes well past the
-max_fte the table asks for.
-
-This works today only because mlx5_cmd_dr_create_flow_table() and the HWS
-create path overwrite the value:
-
-	ft->max_fte = INT_MAX;
-
-Nothing at the table_size site records that dependency. Could the comment
-mention it?
-
->  	MLX5_SET(create_flow_group_in, flow_group_in, start_flow_index, 0);
->  	MLX5_SET(create_flow_group_in, flow_group_in, end_flow_index, *ix + count - 1);
->  	*ix += count;
+> diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+> index 43547a7d6e5c7..c01e276c4a74d 100644
+> --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+> +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
 
 [ ... ]
 
+> @@ -35,7 +53,14 @@ static void __mpnic_set_rx_mode(struct mpnic_dev *mpd,
+>  		mac_addr->state = MPNIC_TCAM_S_ADD;
+>  	}
+>  
+> -	if (!netdev_hw_addr_list_empty(mc))
+> +	err = __hw_addr_sync_dev(uc, netdev, mpnic_addr_sync,
+> +				 mpnic_addr_unsync);
+> +	if (err == -ENOSPC)
+> +		uc_promisc = true;
+> +
+> +	err = __hw_addr_sync_dev(mc, netdev, mpnic_addr_sync,
+> +				 mpnic_addr_unsync);
+> +	if (err == -ENOSPC)
+>  		mc_promisc = true;
+
+[Severity: Medium]
+Can the device get stuck in unicast promiscuous mode here, even though a
+TCAM slot is free?
+
+The uc and mc lists share the same MACDA slots (between
+MPNIC_TCAM_MACDA_BROADCAST_IDX and MPNIC_TCAM_MACDA_HOST_ADDR_IDX). The
+whole uc pass, both its flush and its add phase, runs before the mc pass
+flushes stale multicast entries.
+
+Consider this sequence:
+
+1. The table is full of multicast entries and a secondary unicast
+   address U is added. mpnic_macda_sync() returns -ENOSPC, U stays at
+   sync_cnt == 0, and mpnic_promisc_sync() enables unicast promisc.
+
+2. A multicast address M is then removed. The core runs
+   netif_rx_mode_run()->mpnic_set_rx_mode()->__mpnic_set_rx_mode().
+
+3. The uc pass retries U. M's slot is still MPNIC_TCAM_S_VALID, so
+   mpnic_macda_free() rejects it, mpnic_macda_sync() returns -ENOSPC
+   again, and uc_promisc is set.
+
+4. The mc flush runs only after that. It calls mpnic_macda_unsync() on M:
+
+	if (!--mac_addr->users)
+		mac_addr->state = MPNIC_TCAM_S_DELETE;
+
+   mpnic_write_macda() then frees the slot.
+
+The reverse case works. A unicast removal can make room for a pending
+multicast address, because the uc flush runs before the mc add.
+
+Would it make sense to flush stale entries from both lists before either
+add phase runs?
+
+[ ... ]
+
+> @@ -53,7 +78,7 @@ static int mpnic_set_rx_mode(struct net_device *netdev,
+>  	struct mpnic_net *mpn = netdev_priv(netdev);
+>  
+>  	if (netif_running(netdev))
+> -		__mpnic_set_rx_mode(mpn->mpd, mc);
+> +		__mpnic_set_rx_mode(mpn->mpd, uc, mc);
+>  
+>  	return 0;
+>  }
+
+Because mpnic_set_rx_mode() always returns 0, netif_rx_mode_run() never
+calls netif_rx_mode_schedule_retry() for the case above.
+
+mpnic_service_task() doesn't re-run the rx mode sync either. So U stays
+unsynced and the promisc entry (zero mask) stays installed until some
+unrelated rx-mode event happens. The commit message says:
+
+  Advertise IFF_UNICAST_FLT so we don't need to use promiscuous mode to
+  handle extra unicast addresses.
+
+The later patch in the series, "eth: mpnic: support changing the MAC
+address", keeps the same uc-then-mc ordering.
+
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116210917.1297111-1-tariqt%40nvidia.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-mpnic-l2-oot-v1-0-8dc6eb3582b0%40gmail.com
