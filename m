@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794970212;
-	b=eUN6O7tLFHs42v3+Tw32WtMnAIfPZcEGbRg0i/oXTwqC1Q5jPYeY4uJmwOP0LxM8isUP
-	 +DmzlErkT7OxqTDCldgAVkCDSg215WvZ1CM9gPbkY5NlSejlXuyCHfP1GJ6Q/7VQFhA9w
-	 oTAHDeC6BK6shv5hRZaAoFAV2KDBD3fbeaX3swBMx+U8/IS+/mkbYUjZh/b3wcM6jgIQs
-	 E6LP4hu+tx4OdWtE8va/NwoIN5wfIPDcNdHkwYLFy6bwQk3IeXHAP0kyuBiisJeLwWJ4a
-	 c1EK5+5yu4ortIAF4sCJYwsi0fOr/nMFjDjGQnMRDWEbrFnXC5+JQs60mUGy5WAEEHA==
+	t=1794970207;
+	b=VlL6X/pwtUrkdtUdflObelLFQ0Qiw+1lbgn4WCe6ahNKuH7G25biaQsN3+/T+Eg8En/x
+	 s5+5K2ZhK20wt1Qms66T2BIxBwZS9PM2M5fGu+Ua10giuRMjuxAMA0T98AELPg6qtTHKS
+	 RBZDj3cWRPzZsyyyEDT4qc5204PBugNPMJwV6Qp4jf7dqWM4oQccxpZWDOZgolr576xyP
+	 A2V8f0qQHOm0l/oO4sUkPvnWbNbk0M6Zc++4ye8ILhJtQp9ZB04wTpbSXTaJnC8p0MV6v
+	 SCv4jUfxgVYqvVcO+suwibl8wn7gwBrWC+RdMaU+j2b1guTr6NmWWvvXSxIgnKR5RFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794970212;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794970207;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=tbCnf2CdLlNVulpjS0KApyUbQiUtzgwHBEFdOPcFhp8=;
-	b=iYT+N/n26X7ZcU7dYNTH29+Po5d5nmmruocfSDFz1siG/P1/SAbYQka3vUzD+U/12pP/
-	 nQ9AqCHkSbGTbmB8CCBSgQX/tylUgo7iDDMI+QxJ8yPb/J1WuovsPW7wh0GoNHNZH4SLl
-	 xBrwsctTw688bxw9E174yIslvE4DM6DhRkSaKPjNbzfhVg0UEqS41vFa2Qwk40YqZ5ob9
-	 FEJYT4AK/WPbFr1fDvDEdVeOb9zdQsORBVZ8ykGdTLflILvE7fgwh9HOVo4cH4b9Qy0Cc
-	 BaEGpumvwUsNQKaEJ7IBiy/wJsn6WeVbDEDfDFZ4urT4LthSxm/nKESH5297Mio8wFw==
+	bh=dzhVr7ooy4NmV1PPNADeNTmJcEBZPbMvTHOVGSY5ZGk=;
+	b=1YW5EoCn9+PWoJWKEdi37+RWSrGU+QH8jJ7O4MRqPPfXraF4PxvI/oIv2fWBXUvFOPdD
+	 V0u36h0EWB5DWUe66fdb38da4d9dhXYd50N2uLHwenKCAlN1zOgGGLuzm572R3AdKL/9W
+	 5q0t33zKaqB9B84iKGk1+EJe+CuVjdABo8kFFsDu1pw/yrnJYupr7LDcNY2lHou6UtaHv
+	 NqHeEQtn6BHGFPemjqwVa6HzRq/20k2iBI6B8TJW5RoVdwcrXgn3XYpoO4pr5qbJ2y8IK
+	 Ngg1wyWxF7CqwQ93EfdMaIb+5or0C0F659MVhzUxMuEUqw2syPoIKsUFhAODu4IR9IA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TkabkAO3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iw1vZ4S3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F098D606A33D;
-	Wed, 18 Nov 2026 02:50:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4538606A31C;
+	Wed, 18 Nov 2026 02:50:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TkabkAO3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803EB1F000CC;
-	Wed, 18 Nov 2026 02:50:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iw1vZ4S3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 097501F000C4;
+	Wed, 18 Nov 2026 02:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794970211;
-	bh=tbCnf2CdLlNVulpjS0KApyUbQiUtzgwHBEFdOPcFhp8=;
+	s=k20260515; t=1794970207;
+	bh=dzhVr7ooy4NmV1PPNADeNTmJcEBZPbMvTHOVGSY5ZGk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=TkabkAO3wec5U6wzkHhwX0oISBYq7OFAuMYDvZNaRNa5b6haen7ON+nsGjxws9eHB
-	 jZ8g+fSXgB6X5I1RU/m/sB3vcYXZclP8mULwR4XR/46yYujCuSkyme+cqtWgurlLtU
-	 gL/SuSKxKMfrnvzPZ1y1RZUmOQq24bWQUIXjNIpUUgXHUYYVGcjwrkPXp7aQwC6G6V
-	 OVPoYEEfX6fY2WLz1ixzSAHQLzfU/i1ljTUTTcDzBgE2iPe5GV555ADtVM0AFAdQFz
-	 9COn6ecNg+8sCd8b1guxMM/qxSro7SZWboeMKYroArLXThKlbnER0oUeZAzsB7CvwQ
-	 xuAGqaAfUEprA==
+	b=Iw1vZ4S3/CRkf1mYAuT9nXZY6/P8NAT+0CoIOge0mliGxX860kOhqYgFQpFP+rE+l
+	 cDamF2B7g4qdqt/WTVIrd4PV5KiYMzLI/ZdiaN7kAP9bUkleOAowqEvm1MQJBmjLY7
+	 dWxMHBDCrwhZcPlvyzX7dD6qRr/vA5/gNl5cJG/UCWbAEOdc04nM3HpIB0z/5UFK5J
+	 zClTwZy7pRxNwNClDuYpumdqTFUR7pBq213b7op1VguEQEVUjAL/VQfYOal/CtbPgK
+	 pFvYlfdY4PCYUULkpMROp1Jx5jzb+aNPal9XAwjTSpFhtLCjzBw6f77kLUwJ3OJSlI
+	 j6gINp+57VB1A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77402392B1FF;
-	Wed, 18 Nov 2026 02:50:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1556392B1FF;
+	Wed, 18 Nov 2026 02:50:06 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,40 +54,43 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net/mlx5e: Fix XSK pool corruption when switching
- channels
+Subject: Re: [PATCH net] net: bridge: fix skb leak of reinjected link-local
+ frames
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179497021002.1430642.9809813861373019082.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 02:50:10 +0000
-References: <20261115072934.353341-1-tariqt@nvidia.com>
-In-Reply-To: <20261115072934.353341-1-tariqt@nvidia.com>
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, ast@kernel.org,
- bpf@vger.kernel.org, cjubran@nvidia.com, daniel@iogearbox.net,
- gal@nvidia.com, hawk@kernel.org, john.fastabend@gmail.com, leon@kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
- noren@nvidia.com, saeedm@nvidia.com, horms@kernel.org, sdf@fomichev.me
+ <179497020578.1430642.1274657276624361229.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 02:50:05 +0000
+References: <20261115130211.7724-1-danjwade95@gmail.com>
+In-Reply-To: <20261115130211.7724-1-danjwade95@gmail.com>
+To: Daniel Wade <danjwade95@gmail.com>
+Cc: razor@blackwall.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ bridge@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Sun, 15 Nov 2026 09:29:34 +0200 you wrote:
-> From: Gal Pressman <gal@nvidia.com>
+On Sun, 15 Nov 2026 23:32:11 +1030 you wrote:
+> br_handle_frame() passes the link-local frames it neither forwards nor
+> delivers (01:80:c2:00:00:02 to 0d and 0f, unless set in the group
+> forward mask) through NF_HOOK() at NF_BR_LOCAL_IN. Since commit
+> 3b2e2904deb3 ("net: bridge: fix per-port af_packet sockets") the okfn
+> only learns the source and returns 1, which becomes RX_HANDLER_PASS.
 > 
-> When the device supports tis_tir_td_order, mlx5e_safe_switch_params()
-> closes the old channels only after the new ones are activated.  With an
-> AF_XDP socket bound, the old and the new channel hold an XSK RQ on the
-> same pool.
+> That commit sent the nf_queue case to RX_HANDLER_CONSUMED, which is
+> right for the synchronous return, but the frame comes back: on
+> reinjection nf_reinject() calls the okfn and ignores its return value,
+> because every other okfn consumes the skb. This one no longer does, so
+> nothing frees the frame. NFQA_CFG_F_FAIL_OPEN leaks it the same way
+> with no verdict at all, when the queue or the listener's socket is full.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net/mlx5e: Fix XSK pool corruption when switching channels
-    https://git.kernel.org/netdev/net/c/ff1ee9cc8993
+  - [net] net: bridge: fix skb leak of reinjected link-local frames
+    https://git.kernel.org/netdev/net/c/98382d41f92f
 
 You are awesome, thank you!
 -- 
