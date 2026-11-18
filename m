@@ -1,101 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015739;
-	b=UswEw9SIrTMyspI6LkgQfHUeTchSSOvo4O5rEWMQQx3bwI3bVvHVLF+bqmiIEE2wv3w1
-	 TBmNTrRvII3ioYsYRQcZjO52WykjGVgOnoZZlZjlByWQopO1RWcMeUFrQL/pp3lcISL7R
-	 miC4GvEy0CNiGVgWvRLYCRmhGHF8Gat/JNMA9puJ1OdHqLHyKcM3JxKfkb0DxtM9IJnb1
-	 JRVlPa2WcVySTDWhZjEqjnH3QHS123OS+SyksCLoz2U5Ehq+0QvE9FQbXIKw86NbqU2XI
-	 p75J53fXigc+sfT0amcQ0/cnj1meFQ2Aqsm6il0kvuc2TbXObzGGS53KcquT58xxp7Q==
+	t=1795015746;
+	b=OLYHSO6mSAQTVQAQEwlJpmf/k+iV62YJdDwj8A1MF080nxnQvAqNKK53DtgKZEsyiHr2
+	 dGWXwOeW+PcgihtpjM+x8YurzzvuZ7w8IktdRihxIvh/HPShP47k9Ed0lc4OPN2FyAPMU
+	 EhuyS4w+cDwgwTaENZLfjnqaIt9OPEpiAsr8rrRfdyOPivepFToZhZqJ4UaxKlWoUoRSC
+	 qppcwnEuSACY+kCsEePWLZvBMdHAGHINGECXCo2yBM33Qs2j5p/DwwV5pIq1hsEVQ0ru+
+	 3ehcb2IO6MAY76rvfxc3GB+b4XViJk1JBrM5oBHNK8jGPtPBjoJrh9iinHgK7CDLylQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015739;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015746;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Vwg0PMEd8sJ4yJtQjtLbWSELD2pw9lJLZFEOJ73Wi1s=;
-	b=gxlNgJ0Y/jwSRcXZ6D2WjxhuBuvRCQEr9rICJ5PL8AsAhMUsu9/8REb7VvwETk+I3Tt+
-	 nO+LmXmq3b2DMPCBBM6+k6K9JoYToK8Ph6VC2MY88dEOgBd6FqqUGZZo9iJlQkjKustDj
-	 5YYlbjU+y89VmG8C2LmRCCmVoaAajkwM9uxPi0MHMQdvtUD7tSPtKG8EBF3oyJGSX8tcW
-	 g2+bUFI0S6VLVn/+g/DS5AYClfPpAzxPGCyXFfqhOxN04yhVLsiyNVCOO0qtD3DMUPWsQ
-	 UAGU46epFpZ+AjBvL9AZ9w+SEgr8dCBL1PdiFqgzsdXmc4rne9beQCDo5RUxysYo7mA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=WjQ+lJ948dIG2BXocv8WBAwSlCVPjavCtkad1QsAfjU=;
+	b=nXv6mwAmSoociWZcqQrocd2KHAL5ZP5hD0CBQXCDDaACWRlEyXI+N6ljz5hGgMQvgH7f
+	 FtcrDdjYY5TnsN13DTdM2PLLa55bXJ/3KlSbBR/iy54bbjBtz93Qzkjdbcpy2wpqnSCQV
+	 crLoQS1XweHra0UPGHAEhh+umC6dYHKUnjA6eTcwVVV8vNL5pzOA5YOtpRQK8GF3kcHJ6
+	 QVmANhscl6dhmEZk7YDIeg9Xx4ELqMyLo+wJTH9G4tVfx6RwyugTH4Syrv/Y51XXWMPq7
+	 X/nq2I8c7xTGFOfHnfWNf6XC1jKGtNg9L6Fy+1dCNApfHWk7Qmo/N+qbJaFxcd6CjlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="s8Al3wZ/";
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hPY7twFf;
+	arc=none smtp.remote-ip=209.85.128.72
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CAF5606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:28:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CAF5606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99BE1606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:29:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99BE1606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s8Al3wZ/
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b58d6f67a5so655239b3a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:28:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hPY7twFf
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a16dc2323cso10359345e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:29:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795015736; x=1795620536; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Vwg0PMEd8sJ4yJtQjtLbWSELD2pw9lJLZFEOJ73Wi1s=;
-        b=s8Al3wZ/wJLJLZVUJSpx+ewxs2DAhPArX2XFkCHig55UUkXDMnQ794zy+S36h+eE1Q
-         O18KxyPxh+q+tdb0rsryUGsZC47avqf9rSKJDIIF6K9YX8tGwECCkGCDV9jhtpyH/yN2
-         vWPX7pWcOKDg52Wk9lz2e7c6K3qXRhGgKAOpdTERRX6d4iF+0TyNoQnMAzGqRxmNe8+B
-         9L5ljdXgKN/M+elOWbyMhOtFaYpujL3TX49tMaF9hEQwTaUIjtuh+7TuJhbg47TNe5W7
-         QKWnvgLd1+cgVh7mgGkUbdQ3iCmjRFBO/+2yra06pilVD5ytPIiJtjgzFm9G3KLWM+q7
-         RAiA==
+        d=google.com; s=20260707; t=1795015743; x=1795620543; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WjQ+lJ948dIG2BXocv8WBAwSlCVPjavCtkad1QsAfjU=;
+        b=hPY7twFfgYZsSLpm/wBE8tsEMaXzEm/nNAVYiPPBA9dqn4wo0krrCyqdAl0387aRxu
+         1BkfEWIFZWDQfdt2PUiUWMxYoKJC3IBq601vzPk7GjLZUGwH2tFs/7M9TB335oxhkLsY
+         RI7HVnzOzF2zUMAfM8S6a4TImmXhOlJp+GY7cKK+7fMHinhpy8FSvoFSuwEpIzvAmCBk
+         kCcVXAhFajBtkmn43NVyY+QpiZmRhsI2aYK4WKH8VJdPZCBpu8zBsiHqFQAOyTSkCRKA
+         IzsVxA4hkULC4h7dTed3Koig49lAAwp1aAvSs0S1HMf0JKtFMR7BTPEWTLFNa4JaLcCY
+         rdtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795015736; x=1795620536;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Vwg0PMEd8sJ4yJtQjtLbWSELD2pw9lJLZFEOJ73Wi1s=;
-        b=r6ko0fuze4D18Z0nuBocleXbqif+iKiesrQSlaHq6uqEYqJ/SGSkNwedNH8ymqhKot
-         H68cVotk/hPHNlvl8QJKbmMFygrYoMo3LqiavxguKWaMkRNB7jQE6nWWlsLK2ZIr4npy
-         QgWAWQMFkfuiqdEl9JfdU0yYQPo+cLugeqVL6iujYa11mfj+vuoPVAYTpBx/XFXseezs
-         9HsgRVV/tw+JAkjq+2IJCEGHvadCk2e1YJbe0RcThMMaQ11qvugCoos457ihh/AJ7xFY
-         u9BSHajMWfgezkzU2SGUqMranp9BW+Xbi99FsDjOC+a3xlzNF6+hVHWwoPzS0e5sGkCN
-         O9ZQ==
-X-Forwarded-Encrypted: i=1; AL+hErGWECIz+wvgpP3u9uI3d2a3uTBn8NuFxkqeMHWMBVjlJRW43AGyk2rEqQoknCSttc8ACqt/cL5uGpa53ZA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6j30HFR1C9VZe2Trpn4tUP7E4nrh4Y+EZxjWoQn1J0/jxKcdd
-	FZxxbtN33PtWFmIOYPh0uW3vF9Z7/aoqqwmGtdwakM9WFpx3bqbeZ24j
-X-Gm-Gg: AYBFou3xNW99Kh0QSbYR1AMORrjochhGNCV1GgVBbhFxveOSGQ8Z4JVp9pNIGubDtVI
-	EcVWERlwbqFbm+FbNGZ/h6wHnzui+kWotGYWpwcGhVfLX49GzXzi7/UQWljzABKgZKKGFhyGtq6
-	Y1ysJLc8xu+uEuLpXiFnKn5wwcZXRYKgUhKEJ+vm3mroN9wVPay+yoL5LW+ISBaglIn85yp8q8i
-	J21GZKDIvu6fgjE/6lKnQ5j2oiN/0DuqzjnL2wJOAiKKdS1yxwf05yNTdysC2IlgUKtEZEGtNp7
-	l1/Wi0MbCOWKXmucvMSjDYTmSHKfROoJCzoabLAMe4jAhmd4rIBvVABZpCDbdaGol6KqFZGT84O
-	SThnNZNVFl+gJ5/iAQS5V6aUCc3lFlAqxQzXIghddGZq3O//TRYJCYu0ydXv4AeNvgJGXN/nwFW
-	sdQ/R5bKpkK8LQd09zxgpNITY1fDuxvzT2CXcvwRoOjP93SRWDkxJds6oI5FBt5pCwu1oyaFg7/
-	4cQxocvjXPn0jik0RHUw1t725YszVXyOH5+Ic1WmG2WYG8u8ySI9iYdyL29Ao6XTIP3w3RMpecH
-	P0EBtBMgQpghbjh96od06WdEUj9KRBSzxOoklsBk3Iz1rAST
-X-Received: by 2002:a05:6a21:a10c:b0:3eb:b9e1:4341 with SMTP id adf61e73a8af0-3fe98af4d5amr2641588637.67.1795015736458;
-        Wed, 18 Nov 2026 07:28:56 -0800 (PST)
-Received: from hj.. ([163.239.22.29])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aa2b3sm1419153b3a.9.2026.11.18.07.28.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:28:56 -0800 (PST)
-From: Hyunjung Ko <hj351016@gmail.com>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	dmaengine@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyunjung Ko <hj351016@gmail.com>
-Subject: [PATCH v2] dmaengine: stm32-dmamux: don't call runtime PM under a spinlock
-Date: Thu, 19 Nov 2026 00:28:43 +0900
-Message-ID: <20261118152843.1126665-1-hj351016@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <90b4417d-f2fe-498a-8128-3229eb284d8c@foss.st.com>
-References: <90b4417d-f2fe-498a-8128-3229eb284d8c@foss.st.com>
+        d=1e100.net; s=20260707; t=1795015743; x=1795620543;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WjQ+lJ948dIG2BXocv8WBAwSlCVPjavCtkad1QsAfjU=;
+        b=z5l/3xckvDwZWV0rfvno0WYjQYL6+i8ZlkrhKoIF8JDl4yh5+8UVJGLzZPMzHDg9ch
+         2IdtF5mYIzg3GI1yEVjafuxsckDmSdkt6y3ArbNVMDzI0eqlwKO4/cb8D9+gZL/1gJtj
+         AIP6DnSRay7A7+EXxJU0RoGJ8jGto0o+lEsfamcCLVuUC9cJpdmVR422SdSIwTBqiIy0
+         DqpvmWPcHwDPwwSlttDOSspqeEkjWONdsq+VxGEGbcXSaKipuv/VHVAQD4q4THZ9Llr7
+         R6/53rOSNlYF1XE0W82RzR5qaV4NmspcOQAkkpoOnIkMBofqnmRxEcECndDKECrFVeR4
+         Yetg==
+X-Forwarded-Encrypted: i=1; AL+hErFjrTpE2hh3M586itUUvuNVamBc9PI6dxq5os8pez1DOAqVYlpH4uNNVnVA1gUWhMl1MDsN8o7y+yf9EDw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9/aWEZ7LwUlZ2dlyCxXmYZNJ/4T+xfGfvFABE7hvDkLsR58Wz9
+	Bgzcfblbx/Zo1U+TkrVZbFi5DJEemS1H7Wq8emHNKTkT5PVG4trIkR06Zlw5HI3ADSF3R/SJKj+
+	CMHg8HVAlfGKBYfApFQ==
+X-Received: from wmbeb10.prod.google.com ([2002:a05:600c:678a:b0:4b6:5d12:e070])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:a55:b0:4b1:2026:6b41 with SMTP id 5b1f17b1804b1-4bb7da2bd37mr54038905e9.30.1795015742420;
+ Wed, 18 Nov 2026 07:29:02 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:29:01 +0000
+In-Reply-To: <20261118133232.48603-1-vishal.moola@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,82 +78,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261118133232.48603-1-vishal.moola@gmail.com>
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261118152901.788942-1-aliceryhl@google.com>
+Subject: Re: [PATCH] rust: drm: ioctl: fix call to unsafe function
+From: Alice Ryhl <aliceryhl@google.com>
+To: "Vishal Moola (Fractile)" <vishal.moola@gmail.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Miguel Ojeda <ojeda@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, "=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, 
+	Asahi Lina <lina+kernel@asahilina.net>, Lyude Paul <lyude@redhat.com>, 
+	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-stm32_dmamux_route_allocate() calls pm_runtime_resume_and_get() while
-holding dmamux->lock with interrupts disabled, and stm32_dmamux_free()
-calls pm_runtime_put_sync() in the same way.  The runtime callbacks
-enable and disable the clock with clk_prepare_enable() /
-clk_disable_unprepare(), which can sleep, and the device is not marked
-pm_runtime_irq_safe(), so both sleep in atomic context.
+On Wed, Nov 18, 2026 at 01:32:32PM +0000, Vishal Moola (Fractile) wrote:
+> Fixes: 9a69570682b1 ("rust: drm: ioctl: Add DRM ioctl abstraction")
+> Signed-off-by: Vishal Moola (Fractile) <vishal.moola@gmail.com>
+> 
+> --------------------
+> Based on drm-rust-next.
 
-The lock was in the wrong place: it did not protect the runtime PM call,
-while the CCR write in stm32_dmamux_route_allocate() was left unlocked
-even though stm32_dmamux_free() writes the same register under the lock.
-Move the runtime PM calls outside the lock in both functions and take
-the lock for the CCR write instead, matching stm32_dmamux_free().
+Note that patch commentary needs to go after a three-dash `---` line
+rather than `--------------------`, otherwise `git am` / `b4` includes
+everything above `---` in the commit message. No need to resend just for
+that as we can strip it when applying.
 
-Fixes: 4f3ceca254e0 ("dmaengine: stm32-dmamux: Add PM Runtime support")
-Cc: stable@vger.kernel.org
-Suggested-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
----
-v2: Amelie Delaunay pointed out that v1 was correct but incomplete:
-    - also take dmamux->lock for the CCR write in
-      stm32_dmamux_route_allocate(), which stm32_dmamux_free() already
-      does for the same register;
-    - also move pm_runtime_put_sync() out of the lock in
-      stm32_dmamux_free(), which has the same sleep-in-atomic problem.
-    Link to v1: https://lore.kernel.org/all/20261118082853.926607-1-hj351016@gmail.com/
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
- drivers/dma/stm32/stm32-dmamux.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/dma/stm32/stm32-dmamux.c b/drivers/dma/stm32/stm32-dmamux.c
-index 5731871..8290122 100644
---- a/drivers/dma/stm32/stm32-dmamux.c
-+++ b/drivers/dma/stm32/stm32-dmamux.c
-@@ -73,10 +73,10 @@ static void stm32_dmamux_free(struct device *dev, void *route_data)
- 	stm32_dmamux_write(dmamux->iomem, STM32_DMAMUX_CCR(mux->chan_id), 0);
- 	clear_bit(mux->chan_id, dmamux->dma_inuse);
- 
--	pm_runtime_put_sync(dev);
--
- 	spin_unlock_irqrestore(&dmamux->lock, flags);
- 
-+	pm_runtime_put_sync(dev);
-+
- 	dev_dbg(dev, "Unmapping DMAMUX(%u) to DMA%u(%u)\n",
- 		mux->request, mux->master, mux->chan_id);
- 
-@@ -139,13 +139,9 @@ static void *stm32_dmamux_route_allocate(struct of_phandle_args *dma_spec,
- 	}
- 
- 	/* Set dma request */
--	spin_lock_irqsave(&dmamux->lock, flags);
- 	ret = pm_runtime_resume_and_get(&pdev->dev);
--	if (ret < 0) {
--		spin_unlock_irqrestore(&dmamux->lock, flags);
-+	if (ret < 0)
- 		goto err_put_dma_spec_np;
--	}
--	spin_unlock_irqrestore(&dmamux->lock, flags);
- 
- 	mux->request = dma_spec->args[0];
- 
-@@ -156,8 +152,11 @@ static void *stm32_dmamux_route_allocate(struct of_phandle_args *dma_spec,
- 	dma_spec->args[0] = mux->chan_id - min;
- 	dma_spec->args_count = 4;
- 
-+	spin_lock_irqsave(&dmamux->lock, flags);
- 	stm32_dmamux_write(dmamux->iomem, STM32_DMAMUX_CCR(mux->chan_id),
- 			   mux->request);
-+	spin_unlock_irqrestore(&dmamux->lock, flags);
-+
- 	dev_dbg(&pdev->dev, "Mapping DMAMUX(%u) to DMA%u(%u)\n",
- 		mux->request, mux->master, mux->chan_id);
- 
--- 
-2.43.0
-
+Alice
