@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795006402;
-	b=T4oeihNIWIizPoldZy5qPjd/RC8MNojMYttNAegBSHyBHAn5xequgRCIN0V5sHP6D9yB
-	 j8+u7Kajrp74utbFO4LhUlY5sPcBe/GCqs8r0MMpTkID9QZ3aOAgVolKjw3+G2FWQoDTu
-	 vSiGLwER1cgOkAmbYME4gPi/rbsG5FX4WjNpfYDakaAD7zH+gO39hIqYjKC2G8XkS3oWP
-	 +Cdt0kKsqZyZydDYc6sqJbcBwEj15wMwmRI8hn7HvfP23/khilw8UhUTaBdHUTIPRG9A/
-	 EMtfD/BJJ/FCZz+d2fViHZg3Ag0unM4xo8hM62E733854gnyqb5Zf7FZc66A1SLTAWg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006402;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=a4QGCnrwlxC0s/gYdasEzGsyCKg5zxioqQGPp6K+YLo=;
-	b=4MbSx2mOGVx/fNiX2Vq6/gKSNaDslEj2c8XksTTFIg5IzNRjCQQL/zIoVoVhYbcLQtrL
-	 RoAY4rGUxIki7f0TIvGOqYqpX+IzuHum0bv55UmKBcpBqxSVkrPKDGPlqH3SGepi6Cc5S
-	 25NkZ1jTrB2iiJelBlqRBukyf2SDWz+J6yJ0E1/oMYTZ4yXHZD/4Zbzry+CXf+/P746tO
-	 9ahJ7a/0JdDOTnnFWpo2sbrdxTvJIFy48bjREU8Z940KYNRNv4MyfMyeia5FN+FCR8Z2z
-	 wQ5VlHRZLabVCVE6PphVOMkf1F/zffuLkECcg1L2amrMJLGVcu01ID5CXoi/QOwn95Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZKJmbVi;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 485B4606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:53:22 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZKJmbVi
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795006402;
-	b=ZxWpLHPcw827Ys+4xLgnnWWz5LlnCI4ElHGT8gTLSA2qOC+cHIYeNbaUaf+BpJZs9Xj4
-	 IP4tPPQw8ux/hPsCPnKhMJan7J9OUB+9J0SkvnjMV4AHgjJgJK0FF+lPQlPh2hcuWdwQl
-	 g2Iewhcieu9E6CcAYPMVxdY9LGOa7Qdgz8rP1qGEyLhisKVCc0si5wXV6zcefMUid9NZw
-	 MFU686zwRzWBZzEkrNCdcvr2JABYLcrx3JIVmdQue+FQg4cZTz16E/sJK9Eq0BWx2U/Lk
-	 Ks/mT9cyS+7vJyGV51YQlHWSt3DZaWmm+11N0dmP6G2yiRVKyHIR0BobFOwNN76umsA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795006402;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=a4QGCnrwlxC0s/gYdasEzGsyCKg5zxioqQGPp6K+YLo=;
-	b=MJlpgU94uWv1+QwxS19SWcug5wR7eTfQ3LfgkkYdP/xP8t+8LByGk3ayos14xLoVwFpx
-	 4Gj0oOJcVfQs94YqSMtoMrYHOGdv2Kz/KsL1gYCEQojD2GVwCS7O2vv4jUMjubNp5dUUc
-	 Vcwy4a8JoEvtpBb2ktvIlyYAXr93b2+2YegEuCqiKnVqtLcudPUFlqefxt4cGBT6r6Gyp
-	 kYrECOJYNHtDqz1x77mbzl/9iFOpdheadCl3aQQBRds3z4vLpHFRplyJTaNmpoOqFOwc3
-	 LYMTWxC5lB3sDSNS9B6nSsq77b24oSEW7ZwK1C1MZOEp+R8R1r2FTXfYhkMxTfZGNPQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.189.121.228
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795006404;
+	b=g1zwjFvIrrnFErhKEA1/FZ7oithFLrCdwNsnfuF/r/Ip5HADC/BKmq4gukI+dNi9Fnyb
+	 ucivpOejfogw/mabCRyn1/FCZAlcg/QRh0D46DAxCBn720tjvZz0lDyWLC8sxxxKKbXKa
+	 kK75Tc8SU6qCrfptXVJoqngbugHfPXw6fcxCm/tZalrNXCwLW+FBMYcWWBqEr4jK3PB4y
+	 yrjbAw2QzoG0VMQYZChzRywoe1zW9pJywmRlgPpVtXkQAeUuzwMBiHtegx2aDLx67MsI6
+	 Dd7b8ij5sVcj2OsB0RSG3UbNBJDQQRcTtR4DgFaVePtHT9mkOCWrk56XdOUnYEhNKAQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006404;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:MIME-Version;
+	bh=KWrc5VN7yT42tqPLw7rYJmyMVxl7tUpmfInMF0IRSZY=;
+	b=2YwqgfyLz2QMSkyF/5vQTVl+bGPSrvjblTUNzDcrS5zsYRSMspWGzqXESvtGpWMq39X9
+	 4IXt/tcCB9LtvuLNbPTan4A8RLc6IDNL3uc7htiPXEFg/VY1dhhAO8AGDOAY9Fexkk9rq
+	 EgkjFU6GfH7DlU3F51hu2Blmyfmu5JPFi3JAcGsDanxgg0vGkiVaF0uG6tw2LEjFrMlW+
+	 AfRbCUH0u2sJ3nf84KHny6NWI0TLYilC/UsJ6xTWWHTahu5/4e8ab3nLKWZkKN5WrAquU
+	 /nHAvQdZlIvDR9BkErvasTc6tvGI/83rozA0C0jLrRkEL9eDKe+VJeMrAizxf8LR8Mg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=itx.no;
+	spf=pass smtp.mailfrom=itx.no;
+	dkim=pass header.d=itx.no header.i=@itx.no header.a=rsa-sha256 header.s=mx.itx.no header.b=iMe7wvJb;
+	arc=none smtp.remote-ip=91.189.121.228
+Received: from mx.itxnorge.no (itx-kvm-14.itxnorge.no [91.189.121.228])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A4AD71F000C4;
-	Wed, 18 Nov 2026 12:53:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795006402;
-	bh=a4QGCnrwlxC0s/gYdasEzGsyCKg5zxioqQGPp6K+YLo=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=kZKJmbViIRsUXABtMSOvCpSbNGlw7QU5242iXLi1KMOxq5EPUVQ5Ua0FJtu3ScXun
-	 yXNLjWT5leVqRR0fPMt0rZGTWntsJP7HUB/zC5sX3C3ejddz4QzC6Ew281usGcyRS9
-	 BYdomIDbgh/ngqN5ba0Cy9dpEN+wPBkVZMsq3GFYkOt7M8oZDW9TUCn2S30MAPtEGQ
-	 bvcOWv1SAZVIe5HQRGffTImVkDTwZImPjPdSQiJFVrgrMfPIK5psO5EFmpG10Uv4/a
-	 ENyvDU2qPLqbmhjlR+Q5Q6iFYYBkb/uAsPnQKI37Kkvrx5CJ+vAaoOkstvtaLxfWel
-	 xxN68ba/c4cWg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 00E274AD78;
-	Wed, 18 Nov 2026 12:53:20 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 12:53:20 +0000
-Subject: [PATCH] f2fs: don't read inode->i_ino after iput() in
- gc_data_segment()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B20E606A335;
+	Wed, 18 Nov 2026 12:53:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B20E606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=itx.no
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=itx.no
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=itx.no header.i=@itx.no header.a=rsa-sha256 header.s=mx.itx.no header.b=iMe7wvJb
+Message-ID: <fead846b415ddff4e2a97acff37c3dc40c107d3c.camel@itx.no>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=itx.no; s=mx.itx.no;
+	t=1795006401;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KWrc5VN7yT42tqPLw7rYJmyMVxl7tUpmfInMF0IRSZY=;
+	b=iMe7wvJbzhnF/FIY7scBmR2G/cEKuqtjZ24WfRS7APzoqH5Mwta4b3gvAiRkna9c+Gx2gM
+	eTyiEhOpHSDZ5YM+9yPWAqNAx0lgDgtWozrdMkCLkH6eS+bmwhKz6HriNmetZXMSuVqcrh
+	+FKwNYoV8XBA4BlVjV6NG1Drmbr3SbA=
+Subject: Re: [PATCH v2 1/2] sparc64: Stop the hwcap-list parser at an
+ unterminated entry
+From: Stian Halseth <stian@itx.no>
+To: sashiko-reviews@lists.linux.dev, sparclinux@vger.kernel.org
+Cc: Andreas Larsson <andreas@gaisler.com>, "David S . Miller"
+ <davem@davemloft.net>, Eric Biggers <ebiggers@kernel.org>, Mark Cave-Ayland
+ <mark.cave-ayland@ilande.co.uk>, linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 13:53:19 +0100
+In-Reply-To: <sashiko-outbox-220876@kernel.org>
+References: <20261118115537.160675-1-stian@itx.no>
+	 <20261118115537.160675-2-stian@itx.no> <sashiko-outbox-220876@kernel.org>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-hi747SlEPGLCVfYnjJEu"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,82 +64,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-f2fs-gc-v1-1-297612253f6c@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAL+f/WoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0ML3TSjtGLd9GRdI3NLI0Njs0RzAzNjJaDqgqLUtMwKsEnRsRB+cWl
- SVmpyCUi7Um0tACss0+drAAAA
-X-Change-ID: 20261118-f2fs-gc-2792136a7063
-To: jaegeuk@kernel.org, chao@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795006400; l=1817;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=CnaJBZLbNSkqbrUrG6Geieyu9/h+9hR1JQWRnrfCtG0=;
- b=gmxM3O37yU6iQwcn8i11c4Qjn9+9bQNCjnDuqrVqffwHf5d8hiGWVCyq2vaPTmw2NVbCSkv6H
- d5U2Xx0zn5ZClzra6lpw0eh25Uj5PSSm8QyV1/GXLzioyr6n3/nZmzv
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
-
-From: Suyuan Wang <stevewong@hust.edu.cn>
-
-When gc_data_segment() finds an inode that has both the inline-data flag
-and a data block, it puts the inode before logging the error:
-
-	iput(inode);
-	set_sbi_flag(sbi, SBI_NEED_FSCK);
-	f2fs_err_ratelimited(sbi,
-		"inode %llu has both inline_data flag and "
-		"data block, nid=%u, ofs_in_node=%u",
-		inode->i_ino, dni.nid, ofs_in_node);
-
-At this point the inode has not been added to the GC inode list and
-i_gc_rwsem has not been taken, so nothing else is holding it. iput()
-may drop the last reference, so reading inode->i_ino for the message is
-a use-after-free.
-
-Move the iput() below the error message so i_ino is read while the
-reference is still held.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: fc01008c92f4 ("f2fs: fix to do sanity check on F2FS_INLINE_DATA flag in inode during GC")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Compile tested only (x86_64, W=1 and sparse show no new warnings). The
-use-after-free is in the corrupted-inode error path and hasn't been
-reproduced at runtime.
----
- fs/f2fs/gc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/fs/f2fs/gc.c b/fs/f2fs/gc.c
-index 5b948c92f981..edbfb45f15fc 100644
---- a/fs/f2fs/gc.c
-+++ b/fs/f2fs/gc.c
-@@ -1664,12 +1664,12 @@ static int gc_data_segment(struct f2fs_sb_info *sbi, struct f2fs_summary *sum,
- 			}
- 
- 			if (f2fs_has_inline_data(inode)) {
--				iput(inode);
- 				set_sbi_flag(sbi, SBI_NEED_FSCK);
- 				f2fs_err_ratelimited(sbi,
- 					"inode %llu has both inline_data flag and "
- 					"data block, nid=%u, ofs_in_node=%u",
- 					inode->i_ino, dni.nid, ofs_in_node);
-+				iput(inode);
- 				continue;
- 			}
- 
 
 
+--=-hi747SlEPGLCVfYnjJEu
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
+Hi Andreas,
 
+On Wed, 2026-11-18 at 12:07 +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+>=20
+> [Severity: Low]
+> This fixes a bug in mdesc_cpu_hwcap_list().  Should this include:
+>=20
+>   Fixes: ac85fe8b2124 ("sparc: Sanitize cpu feature detection and reporti=
+ng.")
+>=20
+
+Yes, the loop came in with that commit.
+
+Fixes: ac85fe8b2124 ("sparc: Sanitize cpu feature detection and reporting."=
+)
+
+Could you add it when applying? If there is a v3, I'll fold it in.
+
+/Stian
+
+--=-hi747SlEPGLCVfYnjJEu
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTK1ph9OaYoND1R57zoeAEuJe36VgUCav2fwAAKCRDoeAEuJe36
+VutsAQDhMlTr9OgxrKTn6KDAx+emKbqBtKGJgTJcJEdBIeQbOQD/dJJ/aYUyVS/B
+W8EVbt5B/8d3nM0cuZLUK1Cnmnjs8QQ=
+=oVuM
+-----END PGP SIGNATURE-----
+
+--=-hi747SlEPGLCVfYnjJEu--
