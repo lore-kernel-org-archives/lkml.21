@@ -1,57 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035887;
-	b=viOpCLKuQqHy81QXCrn5O7FvpilzlCOygC4WdyXF/qxZLFsO3b5NDMQ1DOgt39log7ON
-	 4N8KHMYTWBMWWmRZdO4zeOQH1Ex/q+ljzrvT8rhCLSJ0BkNSujnVzhdcUmgjG7gkx6WBh
-	 zqxZZJZheumB5xJntKI2fVAc7uzyci0k0OCbXyPlk4ku4lSmeR/CjUvkZsjQsyw47zSYi
-	 U4xNQrumMHifUr8dhvEZuAMS1tWLnjDOjVNr2wc6ahq220Q3HmGMqXIq0p0e1K/c4/cKO
-	 PpwhuktDIbSaUPQjOenEBED9Yrq0onBV5Zgg/oOBV0C8QNzYFxv+fL8hb6GHZ+44wCQ==
+	t=1795035969;
+	b=JW76Ee5/pBFfD2W//0zI7FEMSRzf7fSjBgc8UnsRdUZuIWmrgXqktOyFNxWNzfWoQNKf
+	 8yHLBIAmnY6+xF6jf4GeA2cBbL1wjDSe/K8oMXdCu3s3GQuu9Z5mb0VjguvWKvAvbd7cb
+	 cZE5CmhVO/eTi16zQTbdWRfRR3Q+8PWQqdLuSQoD4xSoJD2Wq8e3WdarzXJopN6+zxnqW
+	 YW0ly3WRV+3DttUbEFW6qEtLudW521HMJejfrNfkDoyu3Isul3pOthiAynV2KtHF546xc
+	 3xh427z8fyCxSlH6kfS05GO0BUSAWmi7pFx0QWAPF0ZT9shHAm5sxm4DuYbsgQE1WkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035887;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=hVpOUdPfBVWBK2Biqg840IDP1oSjbED2vU8YGX+1DjY=;
-	b=XX3I7x8342RtEWyuy+toQIlYioWgUgKwHzD1j3NzhGtGBFpTKY0uqWZOB7PcoLvqa4N4
-	 LIm4Dpg2kRd5htQ40w9iJnx4kDaWTfJe7zkbrHj1N5yZpfdtnPF7M0XdszQK+MtvpLdbP
-	 lejYUyb1P4z0pvjNYxstddkc8pPSbDw2xpPeKc4z/pfdxyUa3FheRPxathuPCkabg1/Kj
-	 D+YLxkTA2Rhz+h5Uu5YclxS0xcA7g3JP+v/x4zpZy6TD0TLdjjnsZORNVmRSCn2pMa93E
-	 ufAvdSnpADDsr/ASoKw67cGkJnJ498xYW20aKTRM8aN5ugkI0yCAI8ct1Io2oKiYNwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035969;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=OFOAizb0lscpHZmsQNMwCZciIP7qYn5PXudpLFxhVjo=;
+	b=o1YWrk9tb6GpZ8RUejOJGf25s22UG2nCs+Nx6iyFaGR3STdCfZGwyvakC3L1R7P+hrLz
+	 uBh9BEUgQGd4EOM8wOFOHu8h0IaT28CC/lr+E+3LGSawTwwzV/OTLtNm/PW8Pkw5bl+EQ
+	 CEi+frbL5ixQjXcbQjUdDJdEtprFuSDnZhvHUAw261JasHYQnA8N9CXUzd54gAZHtECRU
+	 DIaLsXQAfDiEV2saAK3LelFtYNgBOytAJKDVdWUH1cM+1uWbXkCVG1zgbtdNHK5EZCg1A
+	 kFwLujQPTrLlqzsea1WWvwXw7oyA7ZOZPu1SK3O35wg6uB2ju3Nh2dsHgLtlZdz5+TQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i0ygF9ww;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oxumkmff;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 574DE60A2600;
-	Wed, 18 Nov 2026 21:04:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D46CC606A320;
+	Wed, 18 Nov 2026 21:06:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i0ygF9ww
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A711F000C4;
-	Wed, 18 Nov 2026 21:04:46 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oxumkmff
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49971F000C5;
+	Wed, 18 Nov 2026 21:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795035887;
-	bh=hVpOUdPfBVWBK2Biqg840IDP1oSjbED2vU8YGX+1DjY=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=i0ygF9wwx8rhPnMwBPVhfYFmd5cmdRZBLKwjgN1ryL03LJNZ3c9rJxJJ0z+1tBAem
-	 49TafgFzHqNtZyxniNfX4kyGn6TIHYJRDlQeCA/0QTbGGIK1Obc5Pn4KwOU1ndwxEN
-	 EI5Ra9dkkz8n5shSaZ+pmx+U+dxsAQ7oPbj49/rtJagffPu+b25K213lh8TJyuMN9+
-	 CzR9LdIp6I+nZxGCE3ilXeBVGFmbM5w4AZ1pMbmVE1S81Ymel1f7EoQoMGQVABFURJ
-	 p9nj9eIj1zC8sV/Nj7EuQlsh52rradweS1brCBPwpcbNijLJpvvWv1WTWpMLpVEJOF
-	 FFJpIdxv145TQ==
-Message-ID: <sashiko-outbox-221967@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH 16/16] selftests/sched: Add a test of SCHED_DEADLINE
- bandwidth accounting
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <92d746027d4034afb4e9c55bd1b686312a2401ab.1795031605.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795031605.git.mathieu.desnoyers@efficios.com>
- <92d746027d4034afb4e9c55bd1b686312a2401ab.1795031605.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 18 Nov 2026 21:04:46 +0000
+	s=k20260515; t=1795035969;
+	bh=OFOAizb0lscpHZmsQNMwCZciIP7qYn5PXudpLFxhVjo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Oxumkmffd22oHF7wJW38hIMU17Z8IDsp3bMe2LRsEkvKCXjg3EAdR8hPO1RQygJxX
+	 maa5Wr2sBhJ4g2+11YmKbgX1CxHGiDyr6SpBJi8FP9+RJV4Z4B6qbftOvJFBgmLysR
+	 owiAp9FuVPl7j8bbomdobonegaudOenFoENCgYs+PObtVvqEdOYsO094XPzCkyx0Aa
+	 0NhDxKrCswLGZUL3UN8PjPwyHamn6Dsyzd1ccHi86BpQAR79X/74tFKQAKUlD+2YMV
+	 7GSXq6skor2xtMKDlym1bnHUCqYvIF0PbepUdlyQUc/0OpB+U7doxUnbUix1DanUfk
+	 BdoMvC6ASRZrg==
+Date: Wed, 18 Nov 2026 22:06:01 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Andy Lutomirski <luto@amacapital.net>
+Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Paul Moore <paul@paul-moore.com>, 
+	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
+	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Jann Horn <jannh@google.com>, 
+	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, KP Singh <kpsingh@kernel.org>, 
+	Jonathan Calmels <jcalmels@3xx0.net>, Casey Schaufler <casey@schaufler-ca.com>, 
+	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
+	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
+ opt-in netns loopback
+Message-ID: <20261118-zufahrt-baubeginn-gutsbetrieb-c09004227e8f@brauner>
+References: <20261028221705.3915340-1-halg@google.com>
+ <CALCETrW9ygriu54gxiHFLEd5+hJminQo0r8Jwd63wR69Dj4W7w@mail.gmail.com>
+ <20261106-befreien-addieren-eislauf-e09212803534@brauner>
+ <CALCETrWa1SBLcb5oWjqjgzZvKvCoHjmYFk=Lf5ytEM9uqm5jYA@mail.gmail.com>
+ <avM41a80aig2de-R@google.com>
+ <20261111-behagen-faktisch-entgegen-e2e714373895@brauner>
+ <CALCETrUjW=kXxyggDUvEN+Pxc-pE98eVbdW8XBU8JzfqXj_voA@mail.gmail.com>
+ <20261117-rational-ohnehin-unbeugsam-e5c04759a156@brauner>
+ <CALCETrWhuOnBy0N0KznmczD4S2XEK0fbr0C=1KFQqTnoTJbQbg@mail.gmail.com>
+ <20261118-stapeln-eckpunkte-lesbar-ee73537f474d@brauner>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,436 +77,213 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261118-stapeln-eckpunkte-lesbar-ee73537f474d@brauner>
 
-Thank you for your contribution! Sashiko AI review found 9 potential
-issues to consider:
-- [Medium] selftests/sched: sub-cgroup start and unconditional cpu
-  toggle in move_cancelled()
-- [Medium] selftests/sched: broken PI and runtime logic in
-  deboost_new_params_reboost()
-- [Medium] selftests/sched: pi_chain_donor_leaves() fails due to
-  unpropagated dl.pi_se
-- [Medium] selftests/sched: rebuild_record_taken() fails under
-  isolcpus=3Ddomain,0,1
-- [Low] selftests/sched: rebuild_record_taken() fails instead of
-  skipping without debugfs
-- [Low] selftests/sched: data race on late.done and unjoined thread in
-  move_cancelled()
-- [Low] selftests/sched: unchecked -1 error return from probe() in
-  bandwidth comparisons
-- [Low] selftests/sched: unused variables, write-only fair_tid, and dead
-  mode branches
-- [Low] selftests/sched: re-init of active robust mutex shm_lock in
-  shm_lock_init()
---
+On Wed, Nov 18, 2026 at 11:21:57AM +0100, Christian Brauner wrote:
+> On Tue, Nov 17, 2026 at 09:37:19AM -0800, Andy Lutomirski wrote:
+> > On Tue, Nov 17, 2026 at 9:10 AM Christian Brauner <brauner@kernel.org> wrote:
+> > >
+> > > On Mon, Nov 16, 2026 at 09:15:18AM -0800, Andy Lutomirski wrote:
+> > > > On Wed, Nov 11, 2026 at 7:20 AM Christian Brauner <brauner@kernel.org> wrote:
+> > > > > * a task that setns()es in later gets
+> > > > >   ns->cap_bset & (cred->cap_userns | cred->cap_permitted)
+> > > >
+> > > > I'm not sure this is ideal.  If a task has cap_userns & CAP_NET_ADMIN,
+> > > > then there is no attack surface issue with allowing it to enter a
+> > > > namespace and be NET_ADMIN there even if the namespace itself has
+> > > > CAP_NET_ADMIN cleared from cap_bset.  But any exemption here would
+> > > > need to be a new API so that it isn't used by accident.
+> > > >
+> > > > I'm mostly saying this because container managers might want to
+> > > > restrict cap_userns within their containers but still have it
+> > > > themselves for management.  But maybe there isn't any need to enter
+> > > > the userns for this purpose.
+> > >
+> > > I don't think there is. A manager that holds the capabilities itself can
+> > > just do most things from the outside. I think it's nice that once you're
+> > > inside a namespace you're bound by its capabiltiy set. Otherwise the set
+> > > isn't a property of the namespace anymore. If someone comes up with a
+> > > real need to enter we can add an explicit opt-in later?
+> > 
+> > Fair enough.  Also you've written infinitely more nontrivial container
+> > managers than I have (I've written container managers, too, but
+> > they're all special-purpose things that don't do much in the way of
+> > actual managing).
+> 
+> So I think this is another instance where we're bitten by the complexity
+> of the whole namespace api. In a perfect world our answer would be "Yes,
+> the owner of the userns is definitely capable of performing all relevant
+> actions from outside the userns.". But we're actually not able to say
+> that because there's so many different ways how some <object> is set up
+> or configured for a container and nobody ever sat down and defined the
+> model how a container and it's various resoures are set up.
+> 
+> So once again, here we are guessing our way to a decent decision...
+> Thanks for helping with thinking this through.
+> 
+> > > > > * Root in a container has caps as well so for containers the exemption
+> > > > >   would be wrong.
+> > > > >
+> > > > >   So here we need a a lockable SECURE_NO_USERNS_CAP_RAISE bit thingy.
+> > > > >   This turns off the exemption and prevents raising the mask.
+> > > > >
+> > > > >   Docker lowers the mask, sets and locks the bit, and
+> > > > >   unshare(CLONE_NEWUSER) in the container doesn't hand out CAP_NET_ADMIN
+> > > > >   anymore.
+> > > >
+> > > > Can you clarify this part a bit?  I'm not seeing why Docker should be
+> > > > special.  Shouldn't the inside of a Docker container work as much like
+> > > > a normal non-container system as possible?  What's the use case?
+> > >
+> > > I picked Docker because you brought it up, and your goal of allowing
+> > > user namespaces even in Docker is kinda the use case. Docker can only
+> > > drop the CLONE_NEWUSER block from its seccomp profile if nested user
+> > > namespaces can't get more caps than root/Docker wants to give them.
+> > >
+> > > But the bit isn't at all Docker specific. Any privileged task that wants the
+> > > mask to apply to itself would benefit. With just the exemption this wouldn't be
+> > > possible:
+> > >
+> > > (1) A runtime that holds full capabilities gives a
+> > >     user namespace it creates all bits.
+> > >     It can just set the bit before creating it.
+> > >
+> > > (2) In a container without a user namespace container root has host-level
+> > >     capabilities. Any user namespace it creates gets them through this
+> > >     exemption thing. So it can also add them back to its mask. And the mask is
+> > >     inherited. So every process it starts can then create user namespaces with
+> > >     them.
+> > >
+> > >     by raising the bit we stop both. The locked bit keeps container root which
+> > >     also has CAP_SETPCAP from clearing it.
+> > >
+> > 
+> > I'm still not 100% sure I'm following this.  By "exemption" are you
+> > talking about the cred->cap_premitted term here?
+> 
+> Yes.
+> 
+> > ns->cap_bset = parent->cap_bset &
+> >                        (cred->cap_userns | cred->cap_permitted);
+> > 
+> > (As as aside, as formulated, the parent->cap_bset term should be
+> > irrelevant, no?  cred always refers to a task in parent, and this
+> 
+> (
+> I don't think it i.s
+> cap_userns is full by default. Entering a namespace doesn't change it.
+> A task inside a namespace with a reduced cap_bset still has the full
+> mask. Without the term a child namespace gets more caps than its parent
+> had.
+> 
+> cap_permitted can grow through a setuid-root exec in the parent
+> namespace. And that exec is bounded by the tasks bounding set and not
+> by the namespace bounding set.
+> 
+> So that term ensures that the namespace bounding set shrinks
+> monotonically by construction.
+> 
+> I think it would only be redundant if exec would be clamped by cap_bset.
+> I'm not sure if the patchset does this.
+> 
+> /me looks...
+> 
+> Ah, ok... this patch series already clamps exec to the namespace
+> bounding set. So yes, you're right.
+> )
+> 
+> > whole thing is defined so that cap_userns and cap_permitted are always
+> > subsets of parent's cap_bset, right?)
+> > 
+> > I think I agree that there needs to be a way to turn the cap_permitted
+> > thing on and off (and I'm also not sure whether cap_permitted is
+> > better than cap_effective), but I'm not convinced that an inheritable
+> 
+> The effective set can be raised from the permitted set at will. So I
+> think permitted is just more correct.
+> 
+> > and lockable bit is necessary or wise.
+> > 
+> > How about changing the rule to:
+> > 
+> > child->cap_bset = parent->cap_bset & soft_cap_userns &
+> > (cred->cap_userns | cred->cap_permitted)
+> > 
+> > a) (ugly but easier) A non-inheritable prctl-controlled mask
+> > soft_cap_userns, changing the rule to parent->cap_bset &
+> > soft_cap_userns & (cred->cap_userns | cred->cap_permitted).
+> > soft_cap_userns would be reset to all ones on on fork and exec to
+> > avoid creating new inheritable security-relevant state.
+> 
+> So both let the creator pick. But the bit is for the creator when it
+> wants to self-restrict: container-root without a user namespace.
+> 
+> It's the same reason that securebits and no_new_privs are inheritable
+> and lockable. Afaict, a) is reset on exec so it doesn't control the next
+> exec. b) covers namespace creation but not unsharing a user namespace.
+> 
+> > b) A whole new create-a-namespace API where the caller chooses
+> > soft_cap_userns at the time they create the namespace.
+> > 
+> > > On the host none of that matters as the mask is root's own policy there.
+> > 
+> > I'm still not seeing how there's a difference between host vs
+> > init-userns-container vs separate-userns-container.  After all, in
+> 
+> I think the difference is simply whether the restricting task holds the
+> capabilities itself. Unprivileged users on the host don't and so they're
+> not subject to the exemption. The bit is for that case where the task
+> holds the caps.
+> 
+> But ok, if we really don't want to bother with container without user
+> namespaces the bit vs a) thing can also go into a follow-up series.
+> 
+> > Unfortunately we don't live in this world, and I'm not convinced that
+> > can credibly even approximate it, because people really like their
+> > setuid programs working inside a userns.  It still bugs me that we're
+> > designing permission systems designed to work in the POSIX model that
+> > I think we all kind of agree is fundamentally rather messed up.
+> 
+> I don't think all hope is lost. We have slowly been pushing in this
+> direction. systemd allows to set NoNewPrivileges= in it's global config
+> so it's possible to enable it for the whole system easily.
+> 
+> There's been a ton of work to get rid of classic setuid-exec stuff:
+> 
+> * run0 instead of sudo (with sudo compat), and systemd-ptybrokerd for
+>   interactive shells
+> * nsresourced for user namespaces with delegated ranges, mountfsd for
+>   unprivileged image mounts
+> * outside of systemd: pwaccessd/pwupdd/newidmapd replacing unix_chkpwd,
+>   passwd and newuidmap/newgidmap, polkit without a setuid helper, and
+>   su/sudo/pkexec wrappers on top of ptybrokerd
+> 
+> But yes, containers are the sore spot. no_new_privs inherited from PID
+> 1 breaks setuid inside of containers.
+> 
+> My idea has been to make this dynamic:
+> 
+> * deny privilege gain on exec in the initial user namespace and allow it
+>   in nested ones. I mused about this in
+>   https://github.com/uapi-group/kernel-features/pull/38
+> 
+> Also, since v7.1 there's CLONE_NNP to spawn a child without no_new_privs
+> set.
 
-commit ec25de481fdb21f02eb990530342399d3485450d
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Forgot:
 
-selftests/sched: Add a test of SCHED_DEADLINE bandwidth accounting
+https://www.thkukuk.de/blog/no_new_privs/
 
-This commit adds deadline_bw_test, a kselftest covering SCHED_DEADLINE
-bandwidth accounting across priority inheritance, parameter changes,
-cpuset moves, task deaths, yields, runtime overruns, bandwidth
-reclaiming, fair server changes, and CPU hotplug.
+has an overview of where we're currently at.
 
-Link: https://github.com/jlelli/sched-deadline-tests
+Some tools are in:
 
-> diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/=
-tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> new file mode 100644
-> index 0000000000000..1e64402f90df0
-> --- /dev/null
-> +++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
+https://github.com/thkukuk/account-utils
 
-[ ... ]
+and Thorsten also gave a talk at All Systems Go in September:
 
-> +	sem_post(&rb_donor_go);
-> +	t0 =3D now_ns();
-> +	while (!rb_donor_locking || proc_state_of(donor_tid) !=3D 'S') {
-> +		if (now_ns() - t0 > NSEC_PER_SEC) {
-> +			ksft_print_msg("the donor did not block on the lock\n");
-> +			err =3D -1;
-> +			goto out;
-> +		}
-> +	}
-> +	err =3D set_deadline(rb_waiter_tid, 2 * NSEC_PER_MSEC, PERIOD);
-> +	if (err) {
-> +		ksft_print_msg("the waiter refused as a deadline task: %s\n",
-> +			       strerror(-err));
-> +		goto out;
-> +	}
-> +	err =3D set_deadline(0, 5 * NSEC_PER_MSEC, PERIOD);
-
-[Severity: Medium]
-Does deboost_new_params_reboost() exercise reboosting after a deboost as
-its comment describes?
-
-When reboost_owner() calls set_deadline() on rb_waiter_tid while W is
-blocked on pi_lock, W is not queued on a runqueue, so __setparam_dl()
-updates W's static parameters and switched_to_dl() returns without setting
-W->dl.deadline.  rt_mutex_adjust_pi() then copies W->dl.deadline (0) into
-W's waiter node on pi_lock, which sorts ahead of D's deadline in
-rt_waiter_node_less() and makes W the top waiter boosting O immediately,
-before D times out.
-
-Also, when O calls set_deadline() on itself while running, the kernel
-enqueues O with ENQUEUE_RESTORE | ENQUEUE_MOVE without replenishing, and
-rt_mutex_setprio() on deboost does not compare O's remaining runtime
-against its new static runtime or start a new period, so the test passes
-without testing a reboost on deboost.
-
-[ ... ]
-
-> +static pthread_mutex_t pi_lock2;
-> +static sem_t holder_go;
-> +static atomic_int holder_holds, chain_waits, donor_done, x_waits, l2_tak=
-es;
-> +static atomic_int chain_rank, x_rank;
-> +static _Atomic pid_t x_tid, fair_tid;
-
-[ ... ]
-
-> +	donor_tid =3D 0;
-> +	x_tid =3D 0;
-> +	fair_tid =3D 0;
-> +	return 0;
-> +}
-
-[Severity: Low]
-fair_tid is set in pi_init_lock2() but never read, which triggers a
--Wunused-but-set-variable warning under -Wall.  Similarly, nisol and isol
-in main() are populated by read_online(&isol, 1) and never used or freed,
-sleeper_cpu is never modified from -1 (leaving the sleeper_cpu >=3D 0 block
-in dl_sleeper_tid() unreachable), struct hp_case::no_hp is never set, and
-several helper modes (was_dl !=3D 0 in pi_asleep(), modes 1 and 2 in
-deboost_case(), spin_ms =3D=3D 8 in refill_case(), modes 0 and 2..5 in
-return_case(), and MV_YIELDED in mover()) have no callers.
-
-[ ... ]
-
-> +	have[LV_Z] =3D !pthread_create(&t[LV_Z], NULL, leave_waiter, (void *)2L=
-);
-> +	if (!have[LV_Z] ||
-> +	    wait_for(1000, (leave_tid[LV_Z] && proc_state_of(leave_tid[LV_Z]) =
-=3D=3D 'S') ||
-> +			   leave_err)) {
-> +		ksft_print_msg("Z never blocked on L1\n");
-> +		goto out;
-> +	}
-> +	sleep_ns(10 * NSEC_PER_MSEC);	/* the chain walk of Z is done */
-> +	err =3D leave_err ? -EINVAL : set_other(leave_tid[LV_W]);
-
-[Severity: Medium]
-Does pi_chain_donor_leaves() fail because Z is never propagated past M to
-O as O's donor?
-
-When Z blocks on L1, task_blocks_on_rt_mutex() updates M->dl.pi_se to
-&Z->dl, but M is sleeping on L2, so M->prio (-1) and M->dl.deadline do not
-change.  In rt_mutex_adjust_prio_chain(), rt_waiter_node_equal() sees that
-M's waiter node on L2 still matches M's prio and deadline and stops without
-requeueing M on L2 or calling rt_mutex_adjust_prio() on O:
-
-kernel/locking/rtmutex.c:rt_mutex_adjust_prio_chain() {
-    ...
-	if (rt_waiter_node_equal(&waiter->tree, task_to_waiter_node(task))) {
-		if (!detect_deadlock)
-			goto out_unlock_pi;
-		else
-			requeue =3D false;
-	}
-    ...
-}
-
-O->dl.pi_se therefore stays &W->dl.  After set_other(leave_tid[LV_W]) and
-the 250ms sleep clear W's deadline parameters, waking O replenishes O from
-W's zeroed parameters with runtime =3D 0 and deadline =3D rq_clock(rq), so O
-preempts and starves Y on P's CPU and fails the y_ns < 30ms check.
-
-[ ... ]
-
-> +/* What late_setter() does, and the result. */
-> +static struct {
-> +	pid_t pid;
-> +	uint64_t runtime;
-> +	uint64_t delay;
-> +	atomic_int go;
-> +	int ret;
-> +	uint64_t done;
-> +} late;
-> +
-> +/*
-> + * Make late.pid a deadline task of late.runtime every 100ms, late.delay
-> + * ns after late.go. Store the result in late.ret and the time it return=
-ed
-> + * in late.done.
-> + */
-> +static void *late_setter(void *arg)
-> +{
-> +	uint64_t start;
-> +
-> +	while (!late.go)
-> +		;
-> +	start =3D now_ns();
-> +	while (now_ns() - start < late.delay)
-> +		;
-> +	late.ret =3D set_deadline(late.pid, late.runtime, PERIOD);
-> +	late.done =3D now_ns();
-> +	return arg;
-> +}
-
-[ ... ]
-
-> +static int move_cancelled(void)
-> +{
-> +	int with_p, with_r, ret =3D KSFT_PASS, i, err;
-> +	const char *name =3D "move_cancelled";
-> +	uint64_t start, len;
-> +	pid_t pid;
-> +
-> +	mv_state[0] =3D 0;
-> +	mv_state[3] =3D 0;
-> +	mv_state[4] =3D 0;
-> +	mv_state[5] =3D 0;
-> +	pid =3D pinned_mover(2048, 1);
-> +	if (pid < 0 || child_up(name, 0) || wait_for(5000, mv_state[5])) {
-> +		reap(pid);
-> +		return mv_state[0] =3D=3D -2 ? KSFT_SKIP : KSFT_FAIL;
-> +	}
-> +	if (mv_state[5] < 0 || write_file(root, "cgroup.subtree_control", "+cpu=
-")) {
-> +		ksft_print_msg("%s: no SCHED_FIFO thread or no cpu controller\n", name=
-);
-> +		reap(pid);
-> +		return KSFT_SKIP;
-> +	}
-
-[ ... ]
-
-> +		if (wait_for(5000, late.done)) {
-> +			ksft_print_msg("%s: sched_setattr() still waits after a cancelled mov=
-e\n",
-> +				       name);
-> +			ret =3D KSFT_FAIL;
-> +			break;	/* the thread cannot be joined */
-> +		}
-> +		join(t);
-> +		if (late.ret) {
-> +			ksft_print_msg("%s: sched_setattr: %s\n", name, strerror(-late.ret));
-> +			ret =3D KSFT_FAIL;
-> +		}
-> +	}
-> +	sleep_ns(3 * PERIOD);
-> +	if (ret =3D=3D KSFT_PASS &&
-> +	    (admits_in(cg_p, with_p, "P, after the cancelled moves") ||
-> +	     admits_in(root, with_r, "the root domain of the process")))
-> +		ret =3D KSFT_FAIL;
-> +out:
-> +	reap(pid);
-> +	if (write_file(root, "cgroup.subtree_control", "-cpu"))
-> +		ksft_print_msg("%s: the cpu controller stays enabled\n", name);
-> +	return ret;
-> +}
-
-[Severity: Medium]
-What happens in move_cancelled() when deadline_bw_test is started from a
-non-root cgroup (such as a systemd session or service cgroup)?
-
-Unlike kill_case() and death_group(), main() and move_cancelled() never
-move the test process into root before forking pinned_mover(2048, 1).
-With CONFIG_RT_GROUP_SCHED=3Dy, a non-root cgroup has no RT runtime by
-default, so either fifo_sleeper() fails sched_setscheduler(SCHED_FIFO)
-with EPERM when +cpu is already enabled, or enabling +cpu on root fails
-with EINVAL while the child cgroup contains a SCHED_FIFO task, causing
-move_cancelled() to always skip.  Also, unlike run_p_cases() and
-cs_setup() with +cpuset, move_cancelled() unconditionally writes -cpu to
-root/cgroup.subtree_control at exit even if the cpu controller was already
-enabled before the test ran.
-
-[Severity: Low]
-In the same loop, late.done is a plain uint64_t written by late_setter()
-while move_cancelled() polls it in wait_for(5000, late.done), which is a
-data race.  If that wait times out, breaking out before join(t) also
-leaves t unjoined in the main process even though reap(pid) at out: kills
-pid and unblocks late_setter().
-
-[ ... ]
-
-> +/* Set up shm_lock. Return 0, or -1 if it cannot be set up. */
-> +static int shm_lock_init(void)
-> +{
-> +	pthread_mutexattr_t a;
-> +	int err;
-> +
-> +	err =3D pthread_mutexattr_init(&a);
-> +	if (!err)
-> +		err =3D pthread_mutexattr_setpshared(&a, PTHREAD_PROCESS_SHARED);
-> +	if (!err)
-> +		err =3D pthread_mutexattr_setprotocol(&a, PTHREAD_PRIO_INHERIT);
-> +	if (!err)
-> +		err =3D pthread_mutexattr_setrobust(&a, PTHREAD_MUTEX_ROBUST);
-> +	if (!err)
-> +		err =3D pthread_mutex_init(shm_lock, &a);
-
-[ ... ]
-
-> +	} else {
-> +		reap(waiter);
-> +		waiter =3D -1;
-> +		sleep_ns(50 * NSEC_PER_MSEC);	/* the owner deboosted asleep */
-> +	}
-> +out:
-> +	reap(waiter);
-> +	reap(owner);
-> +	return ret;
-> +}
-
-[Severity: Low]
-Does shm_lock_init() re-initialize shm_lock without destroying it across
-death_pi_waiter, death_pi_owner, and death_pi_deadline_owner?
-
-shm_lock lives in MAP_SHARED memory, and in death_pi_waiter, reap(owner)
-kills the owner with SIGKILL while it still holds shm_lock, leaving the
-robust mutex in the FUTEX_OWNER_DIED state when the next test case calls
-pthread_mutex_init(shm_lock, &a).  shm_lock_init() (and
-pi_chain_two_owners()) also omits pthread_mutexattr_destroy(&a).
-
-[ ... ]
-
-> +static int hotplug_server(void)
-> +{
-> +	int base, off10, off30;
-> +
-> +	if (server_set(hp_cpu, SERVER_RUNTIME, SERVER_PERIOD)) {
-> +		ksft_print_msg("the fair server of CPU %d cannot be set\n", hp_cpu);
-> +		return KSFT_SKIP;
-> +	}
-> +	base =3D probe(NULL);
-> +	if (cpu_online(hp_cpu, 0)) {
-> +		ksft_print_msg("offline of CPU %d refused\n", hp_cpu);
-> +		return KSFT_FAIL;
-> +	}
-> +	off10 =3D probe(NULL);
-> +	cpu_up(hp_cpu);
-> +	if (server_set(hp_cpu, 3 * SERVER_RUNTIME, SERVER_PERIOD) ||
-> +	    admits(base - 2, "a fair server of 30%"))
-> +		return KSFT_FAIL;
-> +	if (cpu_online(hp_cpu, 0)) {
-> +		ksft_print_msg("offline of CPU %d refused, its fair server at 30%%\n",=
- hp_cpu);
-> +		return KSFT_FAIL;
-> +	}
-> +	off30 =3D probe(NULL);
-> +	cpu_up(hp_cpu);
-> +	if (off30 !=3D off10) {
-
-[Severity: Low]
-Can hotplug_server() pass when probe(NULL) fails and returns -1?
-
-If both offline probes return -1, off30 !=3D off10 evaluates to false; base
-is not checked for <=3D 0 either.  move_refused() and move_zero_bw()
-similarly compare probe(cg_p) !=3D base_p || probe(root) !=3D base_r without
-checking whether base_p or base_r failed with -1.
-
-[ ... ]
-
-> +static int rebuild_record_taken(void)
-> +{
-> +	int a =3D top_cpu(3), b =3D top_cpu(2), c =3D online[0], d =3D top_cpu(=
-1);
-> +	int fd[2] =3D { -1, -1 }, i, n, err, cpu, ret =3D KSFT_SKIP;
-> +	long long q, h, q0, h0, bw;
-> +	char buf[4096];
-> +	pid_t pid =3D -1;
-> +
-> +	if (ncpus < 4 || !cpu_hotpluggable(a) || !cpu_hotpluggable(b) ||
-> +	    !cpu_hotpluggable(d)) {
-> +		ksft_print_msg("needs 4 CPUs, 3 of them hotpluggable\n");
-> +		return KSFT_SKIP;
-> +	}
-> +	if (cs_setup())
-> +		return KSFT_SKIP;
-> +	/* Q has every housekeeping CPU but A, B and D. */
-> +	for (i =3D n =3D 0; i < ncpus - 3; i++)
-> +		n +=3D snprintf(buf + n, sizeof(buf) - n, "%s%d", n ? "," : "",
-> +			      online[i]);
-> +	if (make_partition_cpus(cs_q, buf)) {
-> +		ksft_print_msg("Q cannot be a partition root of CPUs %s\n", buf);
-> +		goto out;
-> +	}
-> +	ret =3D KSFT_FAIL;
-> +	err =3D cpu_online(d, 0);
-> +	if (err) {
-> +		ksft_print_msg("offline of CPU %d: %s\n", d, strerror(-err));
-> +		goto out;
-> +	}
-> +	bw =3D total_bw_of(a);
-> +	if (bw =3D=3D -1 || pipe(fd)) {
-> +		ksft_print_msg("no total_bw of CPU %d, or no pipe\n", a);
-> +		goto out;
-> +	}
-
-[Severity: Low]
-Should rebuild_record_taken() return KSFT_SKIP instead of KSFT_FAIL when
-total_bw_of(a) returns -1 because /sys/kernel/debug/sched/debug is not
-available?
-
-ret is set to KSFT_FAIL before total_bw_of(a) is checked, whereas the
-other debugfs-dependent cases skip when debugfs files cannot be read.
-
-> +	mv_state[0] =3D 0;
-> +	mv_state[1] =3D 0;
-> +	pid =3D fork_child("a deadline task");
-> +	if (!pid) {
-> +		cpu_set_t set;
-> +		char ch;
-> +
-> +		CPU_ZERO(&set);
-> +		CPU_SET(a, &set);
-> +		CPU_SET(b, &set);
-> +		if (sched_setaffinity(0, sizeof(set), &set) ||
-> +		    set_deadline(0, 10 * NSEC_PER_MSEC, PERIOD)) {
-
-[ ... ]
-
-> +	if (fallback_wake(fd[1], pid))
-> +		goto out;
-> +	/* Go on after a failure: the totals tell more. */
-> +	cpu =3D task_cpu_of(pid);
-> +	if (cpu !=3D c)
-> +		ksft_print_msg("woken on CPU %d, not %d\n", cpu, c);
-> +	else if (!totals_check("woken", d, c, q, h))
-> +		ret =3D KSFT_PASS;
-> +	reap(pid);
-> +	pid =3D -1;
-> +	sleep_ns(3 * PERIOD);
-> +	if (totals_of(d, c, &q0, &h0)) {
-> +		ret =3D KSFT_FAIL;
-> +		goto out;
-> +	}
-> +	if (q !=3D q0 || h !=3D h0 + bw) {
-> +		ksft_print_msg("Q counts %lld of %lld, the root cgroup %lld\n",
-> +			       q - q0, bw, h - h0);
-> +		ret =3D KSFT_FAIL;
-> +	}
-
-[Severity: Medium]
-Does rebuild_record_taken() fail when CPU 0 is isolated with
-isolcpus=3Ddomain,0,1?
-
-When CPU 0 is isolated, online[0] is the first housekeeping CPU (for
-example, c =3D 2).  The child in the root cgroup overwrites its inherited
-housekeeping affinity with {a, b}.  Once a and b are taken offline and
-cs_q takes the remaining housekeeping CPUs except c,
-dl_add_task_root_domain() queries cpuset_cpus_allowed_locked() for
-top_cpuset, which includes the isolated CPUs 0 and 1, so
-cpumask_first_and(cpu_active_mask, msk) picks CPU 0 and adds bw to CPU 0's
-default root domain rather than CPU c's housekeeping root domain (leaving
-h =3D=3D h0 instead of h0 + bw).  Likewise, waking pid via fallback_wake()
-hits select_fallback_rq() -> cpuset_cpus_allowed_fallback(), which resets
-pid's affinity to top_cpuset.cpus_allowed and wakes pid on CPU 0 instead
-of CPU c.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795031605.gi=
-t.mathieu.desnoyers@efficios.com?part=3D16
+https://www.youtube.com/watch?v=MKG_WMAypDY
