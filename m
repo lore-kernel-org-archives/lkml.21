@@ -1,75 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008155;
-	b=e1kuxA86ghoP78sb10chrVjtw86DOeESutQfHGZOZ6LQ8NjFsUsQKKoT6CU+1SpPABwj
-	 LZjVaJEbeTTHRBeHMlTgL7l9rmErlVfnk+MIXf0WrW1xqgs+BFGROPOOs06L+qxtQPcjG
-	 739XI5rSn84R80BuGxfbUCmk4ilfu20jqWLRNOfDAtp0FF1FtGuz4kbozS+oArAH2IjG9
-	 u+Rw2KUN1TzPpOXaWcbUREaBK6soaymlW1O+LrZDdHHpFLDU9kyu3S4igi47Nytc8OBk0
-	 mdApOhd440z9ovLrKmI9iW5tdXslnDTs2Q+Qr954VZdivkUMuIvagrMQXa71Ok0LknQ==
+	t=1795008163;
+	b=W3zTqeUXCSZf10rwelnFkn7WgFjmEnloy9aK+nj7wz5vmN/7IVP0lZwqPoQgrfmeSeQP
+	 UoR+sXwOsxDrPtE5qMJYzIf1CvDJMSUbUewjsn0WX9Tq364p1FR/vHhKSkkc10yH0P1PL
+	 v/zzU7vr+bhZ12d7V5CjbeFwgSFDNJ+D9sVOrmUZbvSmuLfRT+Pp9m5dtIJJlQ6vkVKeJ
+	 FNvZtiaMmWUnyZx6Z95LRcF016J9lKxdQK9MEAe3y9Ba9XNjiC7wTnIb+j0scarq6hSXq
+	 HyRaNfe40qd3kRvsIgibcmGZ6kg0/ml8vn1wwiipFn1mp19t47UJN9jlehsLwIYQ/Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008155;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=8TF6UKCst8lzq0LV30okvmZ/jdB3sqBqVgF0ME6NPUU=;
-	b=lQQ5ml1wE101xGbBAufHLkm6A+apH4Z2RwQcJ3SpTSfnkAqjZaN8CAkSQAbQUJ++jUbq
-	 Nu31fUKHdnJfr0U2Hd24Vglh+RBBgLWzIyuOkcw8Jls1WgwboV1z9EIDvaVHPL8B/krFd
-	 tGOR2thwA1jNfGiHfvEsTP7pTtjwBWb0my1kWEDabXs94hPs7wQIoWJHraXM2RHqAoN1T
-	 btP31Ep/IQ4cVUzzGnQu4dKNySF/Iv6OsxSQz3k5jn7DGPKGZ5sToxWurqxYc2MZOcmp/
-	 N2d2zMfPGG/LomquTV++e1WPbYzJkgr0fq4f4DJKALgy/ybFfFLpjz5o6wp8Rjv9ZlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008163;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=+wKWXTICw+rK5bkgX4OO79DEF0MgQ4W42M/9WAyxMKM=;
+	b=POOqJKIN2wprkOz6t6oiQyyWDV+LWdz3C+AZ2mdlcblwXbNWQK9XQKo9h4Ux+lCdnvb+
+	 4kcG44c8cY5hoA2+2nOa9bjoPhJYdZdOhckmbpLRUa29E3DG94UIUnkKqg7tAubcTZZNh
+	 KP7WjIfGt27tzpearyzZdxGUntVa9gGNBxSlJHfTGH/odeUsjCkjhRgMJ38hlGFvBQcd2
+	 40xYrWZntT36Q2Z5attGbkaxSCNL7bdnUGvjgMgV0AhV0hVRssBEENRuQn8XqyoSI4xG1
+	 c77YF8C44gaN6fkTl4eq9FrEz9o96PZq30Oq21Mpml62zlwQEYAJQY29oM5jGpwKxpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnAvX89B;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dlNbPrgu;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56B0C606A320;
-	Wed, 18 Nov 2026 13:22:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C8EE606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:22:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C8EE606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnAvX89B
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 142691F000C4;
-	Wed, 18 Nov 2026 13:22:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795008155;
-	bh=8TF6UKCst8lzq0LV30okvmZ/jdB3sqBqVgF0ME6NPUU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PnAvX89BLlompbeCCkZjl3vr9MCqKZciuydSOpL0eogzTLskwf3xZTohivEs0roUy
-	 SGHE3ptZwvcw56AzvAQmWHU2AKWfZBJ1Q+aHQiUujgs16dQbeouPrsRjUXjxqwCmzL
-	 Ic0BLwqP6KqS0jGWCMS2T/Ixdqkpxh4ygAhpATxyMBjSiigYgk4GNjPL5CPg7RuAHm
-	 2wFGRm0miTBwzMDFzEuxnDS2tc8VOXV/OZSGQmr95YsoKwOuCDUI0e75scvGjYgnhZ
-	 3DWuuj7B7Ts5+S7mf+y4R+8vNESPWSyJ/M9EWivAgicYCJ5uI0mObnGGnufPMbHttt
-	 d5ZeN50+Ga+jQ==
-From: Christian Brauner <brauner@kernel.org>
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	Julian Sun <sunjunchao@bytedance.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Breno Leitao <leitao@debian.org>
-Cc: Christian Brauner <brauner@kernel.org>,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	cgroups@vger.kernel.org,
-	kernel-team@meta.com,
-	stable@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/4] writeback: make slow writeback report more actionable
-Date: Wed, 18 Nov 2026 14:21:46 +0100
-Message-ID: <20261118-abhaken-flocken-popmusik-322cfc4cfb7b@brauner>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261110-writeback_stall_report-v2-0-9e0ed75074ca@debian.org>
-References: <20261110-writeback_stall_report-v2-0-9e0ed75074ca@debian.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dlNbPrgu
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso16119075e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:22:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795008161; x=1795612961; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+wKWXTICw+rK5bkgX4OO79DEF0MgQ4W42M/9WAyxMKM=;
+        b=dlNbPrguCgVqYXFYDz1P6ETpZkY6b9CW2PmSUSxzaGTGqkWyeZnAhpgdAXWcl2sxf5
+         tOkKYgfxCO+6SDl0hNOh4dva/qaMAzN5dqNkCW70X0bIDZnqYLrKwX3dVl4GtFu1wStw
+         Ftq08ZhaTalQh/h0Bkinb6AzR8B4ZT3jRBimwEfqbnfTup+7aBmeT68v4h0oPH4Tqqoy
+         xkYMF4H1iu2IDvWdkKFVAGo1vSMgceMe+q9dksArDf4D9+T+RlggZ1nT6jmeqIv9T3+X
+         rYyjoj2ZsUtnlxmT91G9K+1jdE1J2mdbb1TpzVS+rjdiy24+8Vot2UO11Wyntan5kv7n
+         4FMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795008161; x=1795612961;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+wKWXTICw+rK5bkgX4OO79DEF0MgQ4W42M/9WAyxMKM=;
+        b=j+6mnEkAu7mE2V2KrAobDSXUxwW/T/dGbD1/hyrpzVHdE8tJmMu6PafoBM4aZBpNs0
+         l64lQCF2mNZb4cXmcmX7hpjAyVcKLHnMfOSlCTJiE45gdNxNamcAVuNTYbusdWOzmYnd
+         Ufb1RSUXNFeAVDKIwOWBeyx/j6QVxfJ/3y9mW+dZhnE2Hd/OIZQr5uZg3z3su7QiqCN4
+         6rxH85Pm3854hX+RhXFnaiOn5KvgBK8/sxUfkt1yj9mYuMv0aebtonnAMk9aBbHRttM7
+         NmxzI9l4GVW8ilh+jpdW2rYJpv3gGxjm/zvdRcXcYONfALeDfubP/5noIOrnLywdtIma
+         luUw==
+X-Forwarded-Encrypted: i=1; AL+hErFHe4AanaDzHMEYh7giQUDsIbubOfHM6MIk9DOv6NknOEIEtmf6knSB0/xO4zbkxNqnwdtUZTzNu9KjPnE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/oKv4fXJYpEOCwtg9ADXxAigW/D1FJHcpfnWdoWxQqiQ1xyD71
+	0VtQ2jmGhcKa0fFCVmsQhUfZOpG9fA1bz5SDs01QUbc5H2GbVtaG32My
+X-Gm-Gg: AYBFou2h0Gj6HMZwk6DZuifB1jpUFitF9gDIpmJaG6z3k8MQ34CkfvmidoX31tPMnQF
+	jrTk++HzNwik5c50M2PL27GQ02/IdD99m+jiGP9c8/YVyNd6vrX0o77osioY77SbdR/LIA2R1iK
+	FUmCbj4UjM1PeSXivlx7RdIK6EiZ6FSt49T9XQ7O7GtmH6kAUm3GpjtDpGcHVnoiaFyvKji1Bi5
+	eSh6dw2EjMHE8HgDBR5LqVoErQA2TTLhltHdet5WvsiRbi/5jCOMF58Ks59cZ1yTFSYdPNvAMFh
+	CyaF4QIH5+lAgXikitsDZ6e+9M8XYjXxS+q+BilEb8YgibdohHeY5oiBbRZiWR43Ad0FOz3zXDU
+	Bt2hkF9ndp+rRYpDFcyFyX3PTcF7Y5SVXyjbeyHRAQbi6poXSp8qHnsDoskD2OOabQvvvy5ILLD
+	1JPKv1L92lsRkiyUkT8tv6RgB/VEKCVPLx4TYLPPO+YgqGGmbX4txfgyRTrWcKMGuKVmi4WSEAd
+	8BdoSnUbX3xBi+Ba+sYmyJGWhNzW5w4GJeqd+4SHWUe3SVV+AwHvlHulKk9dJUfy3d4zvIQcjPe
+	+/XXvzMegp45ffrSkVV4ALFFhk9b+QYoAPQNs0PPk77+UkBHHFenR+v8i6xXtuqh2V0=
+X-Received: by 2002:a05:600c:6290:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb7d6cd48cmr51017095e9.1.1795008160593;
+        Wed, 18 Nov 2026 05:22:40 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2cfce7sm67254185e9.14.2026.11.18.05.22.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 05:22:40 -0800 (PST)
+Date: Wed, 18 Nov 2026 13:22:39 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Christian Brauner <brauner@kernel.org>, Shuah Khan <shuah@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH] selftests/pidfd: print time_t as long long
+Message-ID: <20261118132239.600873a8@pumpkin>
+In-Reply-To: <20261103155447.534264-1-sashal@kernel.org>
+References: <20261103155447.534264-1-sashal@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,46 +98,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1641; i=brauner@kernel.org; h=from:subject:message-id; bh=17BmXY+svo1KKAU3k/ez0FW6KIlSlOJjiwLKTuSYAHE=; b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9XdZ/5kOhJceeRM/vHyZofy/xnxT4zdrUsSbiyamTA sbRT85N6ChlYRDjYpAVU2RxaDcJl1vOU7HZKFMDZg4rE8gQBi5OAZjI74UM/z3e+ShL79f9uLr3 jg/fksyjM6fc89T1ub/9mXZq3aXuc4GMDA1OrMk/izVsRdd9amKoZV95hK0/V3jVt8rFS0XKtr+ 6yQ8A
-X-Developer-Key: i=brauner@kernel.org; a=openpgp; fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Tue, 10 Nov 2026 03:39:26 -0800, Breno Leitao wrote:
-> Since v6.19, writeback waiters are woken while their writeback makes
-> progress, so a slow sync no longer trips the hung task detector.
-> Instead, a waiter past hung_task_timeout_secs logs:
+On Tue,  3 Nov 2026 10:54:47 -0500
+Sasha Levin <sashal@kernel.org> wrote:
+
+> On 32-bit architectures with a 64-bit time_t, such as armhf in Debian
+> 13, printing the time_t values with %lu warns:
 > 
->   INFO: The task sync:180 has been waiting for writeback completion for more than 28 seconds.
+>   pidfd_test.c:523:50: warning: format '%lu' expects argument of type 'long unsigned int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wformat=]
 > 
-> Across the Meta fleet, this line is logged about 19,000 times a day
-> (the median over 40 days), and up to 82,000 times on a busy day.
+> Cast them to long long and print them with %lld.
 > 
-> [...]
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> ---
+> Found with a 32-bit build of the selftests with a 64-bit time_t (gcc 16
+> and clang 21 with -m32 -D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64);
+> KernelCI's 32-bit arm builds show the same warnings. The changed files
+> build without format warnings there now, and the x86_64 builds don't
+> change. The other selftests get the same kind of fix in separate
+> patches.
+> 
+>  tools/testing/selftests/pidfd/pidfd_test.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
+> index 932cbd8caa770..a53e72cb256ce 100644
+> --- a/tools/testing/selftests/pidfd/pidfd_test.c
+> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
+> @@ -520,7 +520,7 @@ static void test_pidfd_poll_exec(int use_waitpid)
+>  
+>  	time_t prog_time = time(NULL) - prog_start;
 
-I took 1-3 as they're fairly separate fixes. Please rework 4 as agreed on the
-thread and send it.
+Why not just change the type to 'unsigned int' and use "%u" ?
+It isn't as though the difference is going to be longer than 75 years.
 
----
+David
 
-Applied to the vfs-7.5.writeback branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.writeback branch should appear in linux-next soon.
+>  
+> -	ksft_print_msg("Time waited for child: %lu\n", prog_time);
+> +	ksft_print_msg("Time waited for child: %lld\n", (long long)prog_time);
+>  
+>  	close(pidfd);
+>  
+> @@ -599,7 +599,8 @@ static void test_pidfd_poll_leader_exit(int use_waitpid)
+>  
+>  	time_t since_child_exit = time(NULL) - *child_exit_secs;
+>  
+> -	ksft_print_msg("Time since child exit: %lu\n", since_child_exit);
+> +	ksft_print_msg("Time since child exit: %lld\n",
+> +		       (long long)since_child_exit);
+>  
+>  	close(pidfd);
+>  
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
-
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.writeback
-
-[1/4] writeback: add the missing newline to the slow writeback report
-      https://git.kernel.org/vfs/vfs/c/82da6ca38c26
-[2/4] writeback: name the bdi in the slow writeback report
-      https://git.kernel.org/vfs/vfs/c/8dd5775aab52
-[3/4] writeback: log the end of a slow writeback wait
-      https://git.kernel.org/vfs/vfs/c/26286f60c266
