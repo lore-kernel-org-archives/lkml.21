@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043633;
-	b=CzhpsvIqD5IxFrAcEURQYdqNtBuN7y9HS6y4+uQRKOgfPmFxGzSYOV0PKgGdF3BvtWWA
-	 RISQonZt9pJaNA5bsuPDFOkKp6SKES03BA/fbzVQpNtUe8OWDeL6Uq6K6A1Dx3Ps/Bmcp
-	 zOEQMix0ZHKfat1nWVUCVF7eT5S0XgXlMoICbV40oVb2xoPPkRPo1ZtNzPYhdvMDhHnf3
-	 26XF6nbSPEwhXGWnHBpRFv/7YZTShrZD/2wq1hIZxoIjveGxHZrm++BXezcSlX5ANIKxf
-	 diPJrEP2XAiCWLTDKUnMztRNELyjjyCINs4btYWwr6vXDL4ZaCyscv/ZJbrJk15uToQ==
+	t=1795043824;
+	b=L/pEb2s8P5yZ0TltKchpAtq3z/WXj+vEJPoL6wdwfliMZny8NIAwr4ZS+P2Pui2J5pCM
+	 0lcmm5LkQZBD23u71ES6bJQnrlbmi0HD2dMFGoywIcAXsoSiODB/cYAIDx328YKc+OfYH
+	 d9g6gt4x+AEjk3px/iZ8wi132LRiun3oyoUOrRJ0nHtQNDYVgVe0VZMQmhbx9FpFdy0GZ
+	 dnBet1VNXmwDtvDlydeWjrhsswq17/d3qo+tnGsMx/42V/y4wT+V3F4068o2AYSaHFfZC
+	 HaDch1ZjIrb+Z04xao2Bp3SBx1Z011PNv+teCxoRINlG+N/hqoH2pO0/RFl59Tc/IXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043633;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
-	b=0yIJ1fK+7bg3iMY/GHXiM6wGCZwRgcALyo95J3343OGR6MG2t9JlLa9rhmJ6+fhuTUNB
-	 KY1xBUdFnKA5/mKxTtyWjlphVDzOfnEiIfKnUQTcawVE32lwx+DM4Wg9Yu1XGlHxJgx6D
-	 +00Qi0/wo1tuJVmhnZEz+BSoqNdxZ3i1kJ1qRJFg1BwnthVtp4HGsD0CADzr3iTIWDItD
-	 e70AyJ3OF87QppqYIBPSIpDMv2hvqChJlI7ORYXZQ3vUneLPdX7vAuzVHPz0Od9kdV7Oq
-	 wO4tuEo66Yk1GmITPGcvMbPTYHiE5WeYBaXjy14UD6Je7FuR6sPz8ywkFUse6t3SyhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043824;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
+	b=esruLRFocMI3zFs4irvfhSHE/NBd23K3cI6d1d2ab9PPjUgyAZbUfofwnqC32OBYUge6
+	 o5CAMlcLIMwFcpIaMrMPclX01qgemikOKYM57cEDRb8mWilh07AYz8nJfpTWvDwV4Uw5c
+	 5lnTM7u1CQPUJQVcNC9xbCAcv/+4FJJQbipc2FOUkwQInRAVtcuvX3TLPzATDk1SvxZTi
+	 Zrh36XAm6nWhJPQoY2jDNfmofFXxDpAJYFWcnrCRLgCTDcx1NKpY9h4tbO8EE1EdyGgdW
+	 LxyO1UcrAA5eL2RWL0r83K9nwpYmxbHM011syRbo/bACwD+CNEJX+mzmYkiwzyCfAbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DwDYl0pG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wGxdAVzU;
+	arc=none smtp.remote-ip=74.125.229.135
+Received: from mail-dl2-f7.google.com (mail-dl2-f7.google.com [74.125.229.135])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4343C606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:13:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 327C4606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 327C4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DwDYl0pG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 210FA1F000D0
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:13:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043633;
-	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=DwDYl0pGRRpXYPDwHzGQjjdAr7A2aq1eVNTLUE6zag/Wxb5mdFX42wWPpWbJL+8Au
-	 9/ckG9LPhSyFvkpyLvS9i3W7GvVzfutN6oJDA66nF8/RVHrcr+JIVX/2BjHe6CYLBG
-	 IF+5ujaMUVhqIop0RueXKEfw/1T5p+rASlTsIzLT8t+QFeawX23gbkSE6XcwMhh8Np
-	 T4D5OcwaJyjXBsZ2Cpw8MzmJ7tBeN22mKDP75Pd0GumEzK1T0gl0mbyFl8Q3bFg23C
-	 FLCEHOzSU/ABrKbn7IYiBS/HS73HOY3lAOW0uGOoI/5U/gxIu2cvFYKdro9NglulGk
-	 268rabgU0JgPQ==
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-716c0217635so406329eaf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:13:53 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGGfiEwlF3d+wYzBIuhwUj2cnKQVXcLaKDMH+JvHYA+PymEiD+Yo+0uc/4d7ep5hDlwm3EKplb5i2lHtf0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9fqEY8IKogL+t/r+uR7NKOVLrk2Q64afZbN6oxC8eNwpozK9JU
-	42mMDfCQLNp1um6Dpa0OwUtYvL9hLF6BOEwyOb2dv7R5FIVOPAQ3cYz3LFAi4Do7XLoc4+HWMGg
-	+Euob78Y2NPHQS3er4imLFivUzJbtXFI=
-X-Received: by 2002:a05:6820:3505:20b0:71a:fb85:d056 with SMTP id
- 006d021491bc7-71b2e1830d0mr153233eaf.6.1795043632256; Wed, 18 Nov 2026
- 15:13:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wGxdAVzU
+Received: by mail-dl2-f7.google.com with SMTP id a92af1059eb24-13985f8229aso1024787c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:17:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795043822; x=1795648622; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
+        b=wGxdAVzU55D/UTOdKilRGohvnaaIPVWd86ia2R/x3qv+oyPmY3pdJTBK/VF5mnItDq
+         iVLpsObynSXM2egP56umevRyki+uSG6qQcgMQgIUXLDHRSzBYVAa5ynAgYe1k3d/1Vov
+         SgOwPCf+wVT5d/biw4qJPEqKRB6Qr9nrHdKbk88z3C1DciiFOqet2foTdqMBnjcRHE9V
+         XGFqcKqjveK5xyDEiRow16NMDNFBDPrLaVn282ofacK6Z+NEkBo30G3STp5eTY0yTtRN
+         0JEwJ1zrI4/UOcwujjL1iBXYs4c9tpEYjGaQLeReckH5Lyi5cpPQGxLBX/5rrwU6Q/QS
+         KH9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795043822; x=1795648622;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
+        b=D0qzb/mC3s7g0BjXEsMt65EQ3GI9gO/ycCWYMZxJfqDbDM41M4ZMnCCr1OnHDZiqS+
+         LG4MT+hasMdwX0jEYCaIc4OX/ITTPmk1bRMw0gQSbHwjeFC+PAPPnxWzHBdWXeyGFEef
+         fHDshFhm2pKqZeE16W9lkCpJdBUb7UndrwRR0OEIo1aVWRXy5ERHCD77VfntuQK2Vv7T
+         j+WF65ibR3TnRAMAySvHk+VPcadmO3t4/JC82hxg3RQwkPSVB44Q2QspWSVZwEoVBVv6
+         KIfQwzyRigKfFJxbqYR5/hC9TO3O7K18wNfGSSiiZ1wceuhnZzxJDxA6zWZRnTJ7a5rQ
+         6lbw==
+X-Forwarded-Encrypted: i=1; AL+hErFPWwJAiodB4xfv3szSD03XT71Ev42MI3GWRAFIFyrAsvp6fhCABE344QxJ4zjfkilUv9M/uFVlIA205lQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9VFr+LKRF95MwhkAnAZZ+PXiZYpYm8DNYHQIePuMb5q0IDV48o
+	grTriQJHmEm4q626g0l2GmjApNsh7POeBPrA8Zpd0eCzyaAnLhG/juR5
+X-Gm-Gg: AYBFou07qREnJN85XdRwmnNs1KodKdo6mArbfCQrbQIup+HZwxfErHirwfGgO2m4d5O
+	Cp7B/I8WUE7fOJzRr3V27z6qWrAPzHAPiNaaw2ZzBbHswdaOsHzgEi2UlvPs/OMnf5cQGkhf59e
+	bJiDF0L4eiNFr8LJ7RTTWTnp2hPfhoQpiC+W2T+OWDk3txveqiEo2tVbAL760CVDSols9Cyb0BJ
+	Qs5guwE8Z2nvCWdWdmcLHCD1lkvoDAvxyvukkBT3Y9Wu1wjLOyEZrq1AmbJctqrWhl2GauPYc8R
+	wotGT8m7/lhzAypMirGT7ZJ9/nP9VutXwq2EKBk9aSiaH3fWGGLTY+fZnuVyTbOuHE+WiC+N6+m
+	4n5Zvu4JuBgpqWj5F2CKZVAuZi+mbBVXGRVHATXvCvJT7pvOBwptXqEbhbHXw5HodzDb01nt732
+	3Re5qn8PTrfGGqvcE1+kMMlvlgR4/9yfYqQbiq+wm70LV5jpD/WBdeEC1zc/s3hJG3Gq0Vy20E9
+	fASiDSbusSmGr7Yu4OKoT5eqr0LznfBdk+r/PLAzeZbrXGgVpfP5AuBzptueoyo6Rw2hCfixj7X
+	ma6hNf3+z1ul6Ix92VCvn4k=
+X-Received: by 2002:a05:7022:ea8a:b0:1b5:1a5a:1dc with SMTP id a92af1059eb24-1b543be9b64mr3808568c88.12.1795043822125;
+        Wed, 18 Nov 2026 15:17:02 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:43::])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm9021578c88.14.2026.11.18.15.17.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 15:17:01 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:16:55 -0800
+From: Stanislav Fomichev <sdf.kernel@gmail.com>
+To: Mina Almasry <almasrymina@google.com>
+Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
+	Josef Bacik <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, 
+	Willem de Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov <asml.silence@gmail.com>, 
+	Daniel Borkmann <daniel@iogearbox.net>
+Subject: Re: [PATCH net-next v5 3/3] tcp: propagate skb_zcopy() uarg in
+ tcp_mtu_probe()
+Message-ID: <av4x4oM-xxCmymSg@devvm16445.scu0.facebook.com>
+References: <20261115004003.3695475-1-almasrymina@google.com>
+ <20261115004003.3695475-4-almasrymina@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,45 +104,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-nb-genet-xmit-drop-kick-nn-v1-1-e4e54b143d60@tipi-net.de>
- <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
-In-Reply-To: <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 00:13:40 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
-X-Gm-Features: AclHuK8eBwJrfhyin3SZg4bGLsa4kZahp_0pSqnbPmibibSVGeBRbc-WcUQOYsk
-Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: bcmgenet: write the Tx producer index when
- a frame is dropped
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Nicolai Buchwitz <nb@tipi-net.de>, Doug Berger <opendmb@gmail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Justin Chen <justin.chen@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261115004003.3695475-4-almasrymina@google.com>
 
-Le mer. 18 nov. 2026 =C3=A0 22:01, Florian Fainelli
-<florian.fainelli@broadcom.com> a =C3=A9crit :
->
-> On 11/18/26 12:40, Nicolai Buchwitz wrote:
-> > With xmit_more, queued frames reach the hardware only when a later fram=
-e
-> > writes TDMA_PROD_INDEX. If that frame is dropped, the write is skipped
-> > and the queued frames wait for the next transmit on that ring, which ma=
-y
-> > never come.
-> >
-> > Write the producer index on the drop paths too.
-> >
-> > Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
->
-> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+On 11/15, Mina Almasry wrote:
+> tcp_clone_payload() takes references on source skb fragments when
+> building an MTU probe skb, but never attaches the source skb's zerocopy
+> ubuf_info (uarg) to the probe skb. When tcp_mtu_probe() subsequently
+> frees fully consumed source skbs via tcp_eat_one_skb(), skb_release_data()
+> drops their uarg references and can deliver the zerocopy completion to
+> userspace while the unacknowledged probe skb still references the user
+> buffers.
+> 
+> Additionally, tcp_can_coalesce_send_queue_head() only checks
+> skb_pure_zcopy_same() (which compares SKBFL_PURE_ZEROCOPY), allowing
+> adjacent zerocopy skbs with different uargs (or a mixed-zerocopy skb and
+> a non-zerocopy skb) to be coalesced into a single probe skb that can
+> only hold one destructor_arg.
+> 
+> Reject coalescing across different skb_zcopy() uargs in
+> tcp_can_coalesce_send_queue_head() and propagate the uarg to the probe
+> skb via skb_zcopy_set() in tcp_clone_payload().
+> 
+> This is a pre-existing issue found by manual code inspection and LLM
+> review; it was not triggered in production. Verified with the net_core
+> KUnit test suite; not tested on real hardware.
+> 
+> Fixes: 736013292e3c ("tcp: let tcp_mtu_probe() build headless packets")
+> Signed-off-by: Mina Almasry <almasrymina@google.com>
 
-I think this is a net candidate, even if you could not reproduce the bug.
-
-Fixes: ddd0ca5d60b3 ("net: bcmgenet: add support for xmit_more")
-
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Acked-by: Stanislav Fomichev <sdf@fomichev.me>
