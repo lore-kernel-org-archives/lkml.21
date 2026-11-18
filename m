@@ -1,85 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.136
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.81.71.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998115;
-	b=PqEEWjmVJxMIJBTe9/y8/iRZEYVda1wMW6hkyZEztPDaMhdDLCOkKlxK7x3p6DxV+03H
-	 yFis6tWBhL9aGcuLSabV81d0g4M8m1TvXFErdDUbwaR0nOgaoe83DbEzC5I4clGjVlfKU
-	 L0U5obwDdnrko0Mfryfp5ZJY1AZ6lrNSYcXfIVeiK4tI9OyLTtuofINSDqGykJgdSoFVS
-	 1fYX6VA6F9lcedYky0DmRt110Z32V9W/6xKLy+QuRcXeZWbPYMvnrudVTKmJuOGWCRD+s
-	 UHUup/YxSxmmzmvBeiOzG2ZzDD1FUHpBux4VB6r06NYieVXo3FAzXaUm1eKZxnZ/obw==
+	t=1794998122;
+	b=RsnRW0/LcJRPQFL/A3C55s6fVj8oDo1qxJtMfrFXeZPjIssiJpxoXNqR/RDMO8nTIYpB
+	 ioEf9vzj4f3Lmrrx9EiVmn3Qv8/qVZT5lStb2QKd9gemaPSaAnyzLmobLk5n1xlKiuaAz
+	 33AE4ca3rowliv/TkMGTezg2ED150DeP2wUSkYJE/V0t0+RoTRhnF404lIhGLeH5ifalg
+	 uh2De8fKaf+wRMZkzw0qa5PuSgHE1ib8C8rQzqs8p+zb1gAaMTy4ftxX6wodKuuF02h8G
+	 SIrzJFPPzx0GKzyQeFr/ty34HF5hzzpiYcNqlGeFF26imzOwTRn2alw60pxqjoTETVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998115;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=V/rcDmWi1GhtPKbEjFzCUZhJ8UrOGyK/nBYXCR03k6k=;
-	b=lwKtOl+7WVbdiBRLSNbGvXFAW1dEB+Qwrfem7UcSGFW62yBY29YsCM9fIfHYJTzjA7xa
-	 XCKGkq5Ps/hG/7L/ZEBmvsWl1d/DhcVL6VjK/9MqFoQ3oPZMcUipM+X5Ur0LQly+deVgo
-	 GwOz9zu+qnnfdhpTAM2YqnXouBQm2wOWSXh7/wPgUZ1PrBZimuD4YgZFODTyZOj0qfHHe
-	 VuIVJudKzor/qCuj/yKA5032uO6fRvWR6PN52E64mfJO4af8zwVy0+lJuw0m8XrKtreO5
-	 jByLiXDh3+vowOX7KbRhxrxPub9rApIhZyN1DdZ+KMmXFFAbW5zPhuMmOR2BH6LefFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998122;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Message-ID:
+	 x-ms-reactions:Date:MIME-Version:From:Subject:References:
+	 Content-Language:To:Cc:Autocrypt:In-Reply-To:Content-Type;
+	bh=dReN6za/momLtfkgoBoloBUmgkXM0SZOHsPUXaY5RNg=;
+	b=IKuSgpj9VhumWIIM5yLzzb0rsej4kTZojUkAV4DKYdekbe3jr/C09XCPzaX/fQvI6UP2
+	 m9uPF1laooyWRqvbEw62GDb0hGsziuNPfpVsM8nmMmhe8MIP5++q35m2d890IQGYLqAhK
+	 qGQy1o4w5QYIkkZ53YCkGxoLXzcZ3VWt4Ou7tcBlcID6QNf8x3xxPtWSWJVppFn3UA+u4
+	 aWNFgywqodauQzPAZc5gXKmimZEVxlIOxQXdsD0qqfDumjAAqFTZ67Ke0pNP4gUbSQg8/
+	 TPqrFSCn7edBEuojyNK/a7R/ZHhxjRj1hg7TqFYFpAvzXHnWN/t244Qzm2EwMiCMLOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eEQaPypI;
-	arc=none smtp.remote-ip=74.125.225.136
-Received: from mail-wm2-f8.google.com (mail-wm2-f8.google.com [74.125.225.136])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=puzzle.ch;
+	spf=pass smtp.mailfrom=puzzle.ch;
+	dkim=pass header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211230 header.b=wOTuQu5a;
+	dkim=pass header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211209 header.b=mWX8lchq;
+	arc=none smtp.remote-ip=45.81.71.124
+Received: from mx03.puzzle.ch (mx03.puzzle.ch [45.81.71.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42EEA60A2600
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:35:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42EEA60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5440606A31C;
+	Wed, 18 Nov 2026 10:35:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5440606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=puzzle.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=puzzle.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eEQaPypI
-Received: by mail-wm2-f8.google.com with SMTP id 5b1f17b1804b1-4bb68c48655so3685625e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:35:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794998113; x=1795602913; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=V/rcDmWi1GhtPKbEjFzCUZhJ8UrOGyK/nBYXCR03k6k=;
-        b=eEQaPypIwfhomdAqEvFeeYyFXJIk1zUNJ4899C3azLdFLU3mWkK9maUI1it27Aopnf
-         Yizybi1/pD9i0ZCeQITUUuNG8TntDtwcqEbtyVwbh58Xwd5n9dG+A+BEsRPPgxbkaLkB
-         ySRo4NRcQh2C1mKZvddkxfB/au0fyXHnAh68lVNdDTRbVW+fc11Sksno+oER3qnxUNgH
-         pAsP8hvtnKppFMoqZGOGNyLDYukOVcJJrVuSb/9HTWERBnsN+5IyI1O6Ol1Ot2Ieef9L
-         zvR52lKXr7fiB/GWfn1C7aidLj0NBH/uWMnEG41mlTIhuKwbVrxEPac4eMA4r9U+c8qr
-         o+tQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794998113; x=1795602913;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=V/rcDmWi1GhtPKbEjFzCUZhJ8UrOGyK/nBYXCR03k6k=;
-        b=Z10Ma6jjh1+CLGfpGiOgoSsS3Z8X6hAPtEjeK0EAJnaG1igCN6sulpGGIfDFr9IJcM
-         QwnJSNQD97KvL8pM8YkHUAYeeRbnGN0FhK6XWzBuyTa3TzJJhs4Au1L13PSF/n/bDnKM
-         GB4vWnwwLA9N42jCAp5QHhOmKY93GEJfuMWc1r/pbBh7eVo7cv4UZdcx3X02H6+YGl2R
-         Iqv/lmz4I7rgsgKQnSLDvp9ZY2U7GLOHLjJ9T8lltm/HQUtMcF1zYWdInZOtYJEoQxjw
-         z3KJcm9CpQ9EIYa3TNe26H+JqU9ZTqxZOozLcBLpgJB8zxSg6zpgcAT8PJ2jWpIJpnwq
-         bEEA==
-X-Forwarded-Encrypted: i=1; AL+hErEwn9QWEFugqVo/WkJ4i1Zr92HajdADnT2WX3sARMe2Po7BjvHTQy/ue0vMPyEH6AEa1xPHhHXEa20di34=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8e73x4xTRx00Q+I4+OJXtL2hdynQN2zTSsEYBEBjrVobB3/Uo0
-	Q8VUGV+NEwdS9Q5ZLN/Yj4an6rMy8U6rr7yUi07ZPnew8LfZkGAhD4Bz
-X-Gm-Gg: AYBFou2+Ibs+e880ZeG1c0UfnZF4qmiVavAN37Sx5JE4xCPlOfQxN9h2F4BHWrUUMmL
-	Is1911sg1FuzO+6QH5ULavv9xKuXO30ITqS97RVHxegvObJaP8TpEpaSR13/0W5JBxZEj28z8V9
-	Uq9qPgOj+gEC+R2w7VCdS4WtHNkxnIHxdL4MGXY7Z4zLrdUnZX02M1jn106aHdpiRheIxVrFRSS
-	9Q3CDEoqJBaJhtlfuaCQqt7bo3M6NINEm+fY8e1sIrxFJ5DpRiOvIKNhSCcFN6oK/O1RcVMeHLP
-	QK5+hQbxSboHE/7/c8zDdLOxw8BkjO+NRbFWvX2LsbKrfbiRQSnP1swRrSW6Kpk/0BV4vPbDaxb
-	Gsf3CGs0qsTWjri3zL60b045mhJ2trgAfF73+m5kr/4KyiHN+2XCiudPv/QXPHKJiA6uaVj1XSd
-	oPXNDp2qhYhv0ITqzb89QU9IiI5a5bZRxlFmL8VG27VTOZrL7KZ2MGP+nnUtn76Urx8zfnn0DxE
-	lxu4jDpej5bSjG75VMnGHE0D1SRmCFVnk/WUVmZp7lpkHruGGsZazELZL2zpLGDIDjVOYOAbRWN
-	c//7boQtxXJPqGAjFQT1J+xQXOxTHNOMZfiUMSe2CqgOSx0Ed1NydjIarWHEokR+lKdxiuGDBMH
-	WAM/8DX2ZYt5Oc11OGiauwB523dKdjfB6ol1JdiqOStVFe+S7sNv9saa6zKwt1UfIVNIc
-X-Received: by 2002:a05:600c:4e02:b0:4bb:6b59:aac3 with SMTP id 5b1f17b1804b1-4bb7da44054mr39406725e9.29.1794998113097;
-        Wed, 18 Nov 2026 02:35:13 -0800 (PST)
-Received: from localhost (nat-icclus-192-26-29-3.epfl.ch. [192.26.29.3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78346f4asm144465015e9.0.2026.11.18.02.35.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 02:35:12 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211230 header.b=wOTuQu5a;
+	dkim=pass (2048-bit key, unprotected) header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211209 header.b=mWX8lchq
+Received: from mailstore02.cloud.puzzle.ch (mail.puzzle.ch [45.81.71.99])
+	by mx03.puzzle.ch (Postfix) with ESMTPS id 63B96F1;
+	Wed, 18 Nov 2026 11:35:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=puzzle.ch; s=20211230;
+	t=1794998113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=dReN6za/momLtfkgoBoloBUmgkXM0SZOHsPUXaY5RNg=;
+	b=wOTuQu5aU9pcMYXpJm+8WtyjuvOj6/01tSYywSwrL2/kbEWrbKsdVpA3AnrXofn8OS0QeO
+	Vq1x2GO2BR9Aoni9OhCJh5KhxKNM2S4DCYpHhhMfurMTnH/tx5dTYoGv5aSVoQuF5oI+gv
+	zCb5TLwRGRQn1oxUKvwsmX7uSJhX0UnXHz/pV8VlQPXeswQfn5Jd1j3trn1jmpqOQ8rhuv
+	mE4ZQPlU6SmZN6YNKK/dmtQwJseK2/X+oLVCQaosczuaFkhhCqqb/u5yogup0t85o7UdCN
+	H2spPtnySIGbhlk7NHxv9I1RQhhaGcA+eoFxAXZFYce5WDjAii3CpvFRkHSJPg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=puzzle.ch; s=20211209;
+	t=1794998113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=dReN6za/momLtfkgoBoloBUmgkXM0SZOHsPUXaY5RNg=;
+	b=mWX8lchqtIlI8TfCDlnYkb7bEIbxtii3KAqRHlN9QgMW5j5GIm0PeFXNNeDgSVw4bPqSq6
+	jh21M/ZXT79unfAnThfpgSYxnOiYoG5tVmNdKDopR3fXJkG1ewwKEc4AWtRjeKyHftn1iT
+	UUIcvkPbzsiMLDzTV00KxHIfZ/6xeDpMLo9oVYS0tWPDQB6qQRA86hrUT2CYVDD3siQ/sQ
+	TNH+CFnyR7rZc36xINzvhru5JjfGinEm3rX88Wo72FvKEPHooBQAM3i1+2NqThq/nYTShF
+	EypV5duSBjH56Q6tdHa1Pi0Kr8BXybrIeQoNTGkpB7L5bBC1j6lpiV0vOq48zQ==
+Message-ID: <f0a598b9-3160-437c-9ed1-8529cbf07cff@puzzle.ch>
+x-ms-reactions: disallow
+Date: Wed, 18 Nov 2026 11:35:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,142 +71,232 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 11:35:11 +0100
-Message-Id: <DMY9Q4RMBKLM.2F6A6DVPXCTOH@gmail.com>
-Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Martin KaFai
- Lau" <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf] rqspinlock: Reset tail if no waiter queues behind
- the queue head
-From: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>
-To: "Shashank Mohan Jain" <jain.sm@gmail.com>, "Alexei Starovoitov"
- <ast@kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20261117225023.36660-1-jain.sm@gmail.com>
-In-Reply-To: <20261117225023.36660-1-jain.sm@gmail.com>
+MIME-Version: 1.0
+From: Michael Grzeschik <grzeschik@puzzle.ch>
+Subject: Re: [PATCH 1/2] usbip: stub: reference count struct stub_device
+References: <20261111-usbip-v1-0-da5217ac71d7@puzzle.ch>
+ <20261111-usbip-v1-1-da5217ac71d7@puzzle.ch>
+ <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
+Content-Language: en-US, de-DE
+To: Shuah Khan <skhan@linuxfoundation.org>,
+ Valentina Manea <valentina.manea.m@gmail.com>, Shuah Khan
+ <shuah@kernel.org>, Hongren Zheng <i@zenithal.me>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb <linux-usb@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>
+Autocrypt: addr=grzeschik@puzzle.ch; keydata=
+ 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
+ brFdynih
+In-Reply-To: <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------uSGHclwRkkBen2TpjlsFmj8l"
 
-On Tue Nov 17, 2026 at 11:50 PM CET, Shashank Mohan Jain wrote:
-> When the head of the wait queue claims the lock and its cmpxchg from
-> n,0,0 to 0,0,1 fails, it sets the locked bit and waits for node->next,
-> with no timeout. The comment, taken from qspinlock, says the cmpxchg
-> can only fail if somebody queued behind us, or if a waiter set PENDING,
-> which will then see our tail and queue behind us.
->
-> In rqspinlock that waiter does not always queue. After clear_pending()
-> it goes to queue:, and two paths return -EDEADLK there before
-> xchg_tail():
->
->  - the trylock fallback for an NMI waiter whose per-CPU node is busy
->    (in_nmi() && idx > 0), or when idx >=3D _Q_MAX_NODES;
->  - check_deadlock_AA(), when this CPU already holds an entry for the
->    lock.
->
-> For example, with the queue head H alone in the queue:
->
->   CPU 0 (H, head)                    CPU 1 (NMI, idx 1 on another lock)
->   reads lock->val =3D=3D H,0,0
->                                      queued_fetch_set_pending_acquire()
->                                        sees tail H
->   try_cmpxchg(H,0,0 -> 0,0,1) fails
->   set_locked()          -> H,1,1
->                                      clear_pending()   -> H,0,1
->                                      in_nmi() && idx > 0, trylock fails
->                                      return -EDEADLK
->   waits for node->next ...
->
-> H now owns the lock and spins until another context queues on the same
-> lock. For a lock that is rarely taken, such as a hash map bucket lock,
-> that can be a long time, with interrupts disabled, so it shows up as an
-> RCU stall or a hard lockup. The same happens on v6.17 and v6.18 for any
-> NMI waiter, as the trylock fallback was used for all of them.
->
-> The AA path needs the interrupted context to have taken its entry for
-> the lock and not to try the lock again, so it is much narrower.
->
-> While waiting for the successor, reset the tail if it still points to
-> us, as the deadlock and timeout exits already do, and keep the lock. If
-> the tail has moved, a waiter has done xchg_tail() and will link into
-> our node, so keep waiting for it. try_cmpxchg_tail() reads the lock
-> word first, so the loop only adds a plain load while a successor
-> finishes linking.
->
-> Found with a TLA+ model of the slow path. A userspace port of the slow
-> path, driven through the interleaving above, hangs without this change
-> and completes with the lock word clean with it. I have not reproduced
-> the hang on a running kernel.
->
-> Fixes: 0d80e7f951be ("rqspinlock: Choose trylock fallback for NMI waiters=
-")
-> Fixes: 087849cca31d ("rqspinlock: Precede non-head waiter queueing with A=
-A check")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
-> ---
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------uSGHclwRkkBen2TpjlsFmj8l
+Content-Type: multipart/mixed; boundary="------------B8kdL2CbB8dnEg1rm6Q8F6AU";
+ protected-headers="v1"; hp="clear"
+Message-ID: <f0a598b9-3160-437c-9ed1-8529cbf07cff@puzzle.ch>
+Date: Wed, 18 Nov 2026 11:35:12 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Michael Grzeschik <grzeschik@puzzle.ch>
+Subject: Re: [PATCH 1/2] usbip: stub: reference count struct stub_device
+References: <20261111-usbip-v1-0-da5217ac71d7@puzzle.ch>
+ <20261111-usbip-v1-1-da5217ac71d7@puzzle.ch>
+ <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
+Content-Language: en-US, de-DE
+To: Shuah Khan <skhan@linuxfoundation.org>,
+ Valentina Manea <valentina.manea.m@gmail.com>, Shuah Khan
+ <shuah@kernel.org>, Hongren Zheng <i@zenithal.me>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb <linux-usb@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>
+Autocrypt: addr=grzeschik@puzzle.ch; keydata=
+ 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
+ brFdynih
+In-Reply-To: <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
 
-I am aware of this one, but I don't think it's that serious (of course, nee=
-ds to
-be fixed). I was going to send it in a couple weeks with some other changes=
- for
-rqspinlock. For the next version, let's drop Cc to stable and target bpf-ne=
-xt.
+--------------B8kdL2CbB8dnEg1rm6Q8F6AU
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
-How about the approach below instead that I have? You could check whether t=
-he
-violation in your TLA+ model goes away. The benefit is that we don't penali=
-ze
-the loop that waits for next, for this very rare condition that is not like=
-ly to
-be hit.
+T24gMjAyNi0xMS0xNyAxMjoxNSBBTSwgU2h1YWggS2hhbiB3cm90ZToNCj4gT24gMTEvMTEv
+MjYgMDQ6MzQsIE1pY2hhZWwgR3J6ZXNjaGlrIHdyb3RlOg0KPj4gQSBzdHViX2RldmljZSBp
+cyBmcmVlZCBieSBzdHViX2Rpc2Nvbm5lY3QoKSByaWdodCBhZnRlciB1c2JpcF9zdG9wX2Vo
+KCkNCj4+IHJlcG9ydGVkIHRoYXQgdGhlIGV2ZW50IGhhbmRsZXIgaXMgZG9uZSB3aXRoIGl0
+LiBUaGUgcnggYW5kIHR4IHRocmVhZHMNCj4+IGFuZCB0aGUgZXZlbnQgaGFuZGxlciBjYW4g
+c3RpbGwgdXNlIGl0IGF0IHRoYXQgcG9pbnQ6DQo+Pg0KPj4gwqAgLSBUaGUgZXZlbnQgaGFu
+ZGxlciBjbGVhcnMgYW4gZXZlbnQgYml0IGFmdGVyIGl0IHJhbiB0aGUgaGFuZGxlciBmb3IN
+Cj4+IMKgwqDCoCBpdC4gQSBTSFVURE9XTiByZXF1ZXN0ZWQgd2hpbGUgYSBwcmV2aW91cyBz
+aHV0ZG93biBpcyBydW5uaW5nIGlzIGxvc3QsDQo+PiDCoMKgwqAgc28gdGhyZWFkcyBzdGFy
+dGVkIGFmdGVyIHRoYXQgc2h1dGRvd24gYXJlIG5vdCBzdG9wcGVkIGJlZm9yZSB0aGUNCj4+
+IMKgwqDCoCBzdHViX2RldmljZSBpcyBmcmVlZC4NCj4+IMKgIC0gQW4gZXZlbnQgcXVldWVk
+IGZvciB0aGUgZGV2aWNlIHdoaWxlIGFub3RoZXIgb25lIGlzIGhhbmRsZWQgbGVhdmVzIGFu
+DQo+PiDCoMKgwqAgZW50cnkgaW4gdGhlIGV2ZW50IGxpc3QuIE9uY2UgdGhlIGV2ZW50IGJp
+dHMgYXJlIGNsZWFyLA0KPj4gwqDCoMKgIHVzYmlwX3N0b3BfZWgoKSByZXR1cm5zLCB0aGUg
+c3R1Yl9kZXZpY2UgaXMgZnJlZWQsIGFuZCB0aGUgaGFuZGxlcg0KPj4gwqDCoMKgIHRoZW4g
+bG9ja3MgdGhlIHN5c2ZzX2xvY2sgb2YgdGhlIGZyZWVkIGRldmljZS4NCj4+IMKgIC0gVGhl
+IHN0dWJfZGV2aWNlIG5vIGxvbmdlciBob2xkcyBhIHJlZmVyZW5jZSB0byB0aGUgdXNiX2Rl
+dmljZSwgc28gYQ0KPj4gwqDCoMKgIHRocmVhZCBvdXRsaXZpbmcgdGhlIGRpc2Nvbm5lY3Qg
+dG91Y2hlcyBhIGZyZWVkIHVzYl9kZXZpY2UgdG9vLg0KPj4NCj4+IFRoaXMgd2FzIHNlZW4g
+ZXhwb3J0aW5nIHRoZSBzZXJpYWwgcG9ydCBvZiBhbiBTVC1MaW5rIGZyb20gYW4NCj4+IFNU
+TTMyTVAxLURLMiBvbiBhIEtpcmt3b29kIChBUk12NSkgaG9zdC4gQWZ0ZXIgcmVwZWF0ZWQg
+ImVuZHBvaW50IDUgaXMNCj4+IHN0YWxsZWQiIC8gdXNiX2NsZWFyX2hhbHQgY3ljbGVzIHdo
+aWxlIGEgY2xpZW50IG9wZW5lZCBhbmQgY2xvc2VkIHRoZQ0KPj4gcG9ydCwgc3R1Yl9yeCBj
+cmFzaGVkIGluIGRldl9lcnIoKSB3aXRoIHRoZSBkZXZpY2UgcG9pbnRlciBjb21wdXRlZCBm
+cm9tDQo+PiBhIE5VTEwgc2Rldi0+dWRldiBvZiBmcmVlZCBtZW1vcnk6DQo+Pg0KPj4gwqDC
+oCBVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBOVUxMIHBvaW50ZXIgZGVyZWZlcmVuY2UgYXQg
+dmlydHVhbCBhZGRyZXNzIDAwMDAwMGI4IHdoZW4gcmVhZA0KPj4gwqDCoCBQQyBpcyBhdCBk
+ZXZfZHJpdmVyX3N0cmluZysweDAvMHgzOA0KPj4gwqDCoCBMUiBpcyBhdCBfX2Rldl9wcmlu
+dGsrMHgyMC8weDZjDQo+PiDCoMKgIENhbGwgdHJhY2U6DQo+PiDCoMKgwqAgZGV2X2RyaXZl
+cl9zdHJpbmcgZnJvbSBfX2Rldl9wcmludGsrMHgyMC8weDZjDQo+PiDCoMKgwqAgX19kZXZf
+cHJpbnRrIGZyb20gX2Rldl9lcnIrMHg0MC8weDc0DQo+PiDCoMKgwqAgX2Rldl9lcnIgZnJv
+bSBzdHViX3J4X2xvb3ArMHg1ZDgvMHhkNjggW3VzYmlwX2hvc3RdDQo+PiDCoMKgwqAgc3R1
+Yl9yeF9sb29wIFt1c2JpcF9ob3N0XSBmcm9tIGt0aHJlYWQrMHgxMDAvMHgxMjANCj4+DQo+
+PiBSZWZlcmVuY2UgY291bnQgdGhlIHN0dWJfZGV2aWNlIGluc3RlYWQgb2YgcmVseWluZyBv
+biB0aGUgZXZlbnQgaGFuZGxlcg0KPj4gZm9yIGl0cyBsaWZldGltZToNCj4+DQo+PiDCoCAt
+IHRoZSBiaW5kaW5nIChwcm9iZSB1bnRpbCBkaXNjb25uZWN0KSBob2xkcyB0aGUgaW5pdGlh
+bCByZWZlcmVuY2UsDQo+PiDCoMKgwqAgc3R1Yl9kaXNjb25uZWN0KCkgZHJvcHMgaXQgaW5z
+dGVhZCBvZiBmcmVlaW5nIHRoZSBkZXZpY2UNCj4+IMKgIC0gdGhlIHJ4IGFuZCB0eCB0aHJl
+YWQgaG9sZCBvbmUgZWFjaCB3aGlsZSB0aGV5IHJ1biwgdGFrZW4gYmVmb3JlIHRoZXkNCj4+
+IMKgwqDCoCBhcmUgd29rZW4gYW5kIGRyb3BwZWQgd2hlbiB0aGV5IGVuZC4gSWYga3RocmVh
+ZF9zdG9wKCkgcmVwb3J0cyB0aGF0IGENCj4+IMKgwqDCoCB0aHJlYWQgbmV2ZXIgcmFuLCBz
+dHViX3NodXRkb3duX2Nvbm5lY3Rpb24oKSBkcm9wcyBpdCBmb3IgdGhlIHRocmVhZC4NCj4+
+IMKgIC0gdGhlIGV2ZW50IGhhbmRsZXIgaG9sZHMgb25lIHBlciBxdWV1ZWQgZXZlbnQgdW50
+aWwgaXQgaXMgY29tcGxldGVseQ0KPj4gwqDCoMKgIGRvbmUgd2l0aCB0aGUgZGV2aWNlLCB0
+aHJvdWdoIG5ldyBvcHRpb25hbCBnZXQvcHV0IGV2ZW50IGhhbmRsZXINCj4+IMKgwqDCoCBv
+cGVyYXRpb25zLCB3aGljaCB2aGNpIGFuZCB2dWRjIGRvIG5vdCBzZXQNCj4+IMKgIC0gdGhl
+IHN0dWJfZGV2aWNlIGhvbGRzIGEgcmVmZXJlbmNlIHRvIGl0cyB1c2JfZGV2aWNlIGFnYWlu
+LCBkcm9wcGVkDQo+PiDCoMKgwqAgd2l0aCB0aGUgbGFzdCByZWZlcmVuY2UNCj4+DQo+PiBU
+aHJlYWRzIHRoYXQgbWlzcyB0aGVpciBzaHV0ZG93biBub3cgZW5kIHdoZW4gdGhlIGNvbm5l
+Y3Rpb24gZ29lcyBhd2F5DQo+PiBpbnN0ZWFkIG9mIHVzaW5nIGZyZWVkIG1lbW9yeS4NCj4g
+DQo+IEkgcmVhbGx5IG5lZWQgYSBzaW1wbGVyIGNoYW5nZSBsb2cgdGhhdCBleHBsYWlucyB0
+aGUgcHJvYmxlbSBhbmQgdGhlIGZpeC4NCg0KU29ycnksIHRoYXQgSSB0b29rIHRoZSBzbG9w
+dHJhaW4gaGVyZS4gQXMgeW91IHNlZSwgdGhlIEFJIHdhcyBzdWdnZXN0aW5nDQpzb21lIGNv
+bXBsZXgga3JlZiBtZWNoYW5pc20sIGZvciBhIG9idmlvdXMgdXNlIGFmdGVyIGZyZWUuDQoN
+ClRoZSBtYWluIHRha2V3YXkgb2YgdGhlIGlzc3VlIGhlcmUgaXM6DQoNCiAgICBXaGVuIGEg
+c3R1YiBkZXZpY2UgaXMgdW5ib3VuZCwgc3R1Yl9kaXNjb25uZWN0KCkgYXNrcyB0aGUgdXNi
+aXAgZXZlbnQgaGFuZGxlcg0KICAgIHRvIHNodXQgdGhlIGNvbm5lY3Rpb24gZG93biBhbmQg
+ZnJlZXMgdGhlIGRldmljZSBhcyBzb29uIGFzIHVzYmlwX3N0b3BfZWgoKSByZXR1cm5zLg0K
+ICAgIEJ1dCB1c2JpcF9zdG9wX2VoKCkgb25seSBjaGVja3Mgd2hldGhlciB0aGUgZGV2aWNl
+4oCZcyBldmVudCBmbGFncyBhcmUgY2xlYXJlZCwNCiAgICB3aGlsZSBldmVudF9oYW5kbGVy
+KCkgbWF5IHN0aWxsIGhhdmUgYSBzZWNvbmQgZXZlbnQgZm9yIHRoZSBzYW1lIGRldmljZSBx
+dWV1ZWQuDQogICAgVGhlIGhhbmRsZXIgdGhlbiBwaWNrcyB1cCB0aGF0IGxlZnRvdmVyIGV2
+ZW50IGFuZCBydW5zIHN0dWJfc2h1dGRvd25fY29ubmVjdGlvbigpDQogICAgb24gdGhlIGFs
+cmVhZHkgZnJlZWQgZGV2aWNlLCB3aGljaCBjcmFzaGVzIGluIGRldl9wcmludGsoKS4NCg0K
+SG93ZXZlciwgYWZ0ZXIgdGFraW5nIHRoZSBzYXNoaWtvIHN1Z2dlc3Rpb25zIGludG8gYWNj
+b3VudCBhbmQgdW5kZXJzdGFuZGluZw0KdGhlIG92ZXIgYWxsIHBpY3R1cmUsIEkgc3BpbiBh
+bm90aGVyIHBhdGNoIHdpdGggaG9wZWZ1bGx5IGxlc3MgY29tcGxleGl0eS4NCkFkZGluZyBy
+ZWZlcmVuY2UgaGFuZGxpbmcgc2VlbWVkIGxpa2UgdGhlIG9idmlvdXMgY2hvaWNlIGhlcmUs
+IGJ1dCBpdCBzaG91bGQNCmFsc28gYmUgcG9zc2libGUgd2l0aCBwcm9wZXIgbG9ja2luZyBh
+bmQgc29tZSBjaGVja3MgaW4gdGhlIHVzYmlwX3N0b3BfZWgoKS4NCg0KU29ycnkgZm9yIHRo
+aXMgYWdhaW4uIFBsZWFzZSBpZ25vcmUgdGhpcyB0aHJlYWQgYW5kIHRha2UgSm9obnMgdmVy
+c2lvbiBvZiBteSAyLzIuDQoNClRoYW5rcywNCk1pY2hhZWwNCg0K
 
-diff --git a/kernel/bpf/rqspinlock.c b/kernel/bpf/rqspinlock.c
-index 111ec80ea958..f6a938ee7ab4 100644
---- a/kernel/bpf/rqspinlock.c
-+++ b/kernel/bpf/rqspinlock.c
-@@ -624,20 +624,23 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rq=
-spinlock_t *lock, u32 val)
-         * Otherwise, we only need to grab the lock.
-         */
+--------------B8kdL2CbB8dnEg1rm6Q8F6AU--
 
--       /*
--        * Note: at this point: (val & _Q_PENDING_MASK) =3D=3D 0, because o=
-f the
--        *       above wait condition, therefore any concurrent setting of
--        *       PENDING will make the uncontended transition fail.
--        */
-        if ((val & _Q_TAIL_MASK) =3D=3D tail) {
--               if (atomic_try_cmpxchg_relaxed(&lock->val, &val, _Q_LOCKED_=
-VAL))
--                       goto release; /* No contention */
-+               u32 new =3D _Q_LOCKED_VAL;
-+
-+               for (;;) {
-+                       if (atomic_try_cmpxchg_relaxed(&lock->val, &val, ne=
-w))
-+                               goto release; /* No queued successor */
-+                       if ((val & _Q_TAIL_MASK) !=3D tail)
-+                               break;
-+                       /* A pending claimant can abandon before publishing=
- a tail. */
-+                       new =3D _Q_LOCKED_VAL | (val & _Q_PENDING_MASK);
-+               }
-        }
+--------------uSGHclwRkkBen2TpjlsFmj8l
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
-        /*
--        * Either somebody is queued behind us or _Q_PENDING_VAL got set
--        * which will then detect the remaining tail and queue behind us
--        * ensuring we'll see a @next.
-+        * A different tail proves that a successor will publish node->next=
-.
-+        * Preserve pending while installing ownership; a racing claimant m=
-ay
-+        * still be undoing its speculative reservation against this queue.
-         */
-        set_locked(lock);
+-----BEGIN PGP SIGNATURE-----
+
+wsF5BAABCAAjFiEEFdvthaW6nen779Bov2lYRPlx9KsFAmr9f2AFAwAAAAAACgkQv2lYRPlx9KvE
+FhAAslQVts0d+DUjr59+LIwaApQQB1czqjothH3u+HAdiC+JhPpfS6xjUZMq1n/GQepPjnpGm4Fc
+drgbIpmAkuMIgoAJ+W4xfbR9TgX6XFGfApyW4pxKThU52uLwtYNOyLGwC+0lX6RVtDuW6tzFsUd6
+ISQUPd4H31t+r9NdIZMOUJjRwTz3q3pVbnn3cuEki/oGfvahs91MuSNRJl37ElefOTvMISy8yRIC
+lhF+SoDmWbvjuDJfW2mcSa/h/ChdmTmTquoF4yHNh4fXxlqx3vEwe/hJxOfFzEMfQpAImb+CVWmN
+mbIEJnT9otHNf6CggqlXjPW9JjJHi5ACfQAVKGU/6JSLh4iKOlfsw3bqW4NmvaJwDnOpCZ0lg5Pz
+eg1ZJeWJ0K2mTTghteRd5p1RVqUW3cLPiMuIF5KG/6oQAZBrJztmsNyPkyeaor1JZWm2LPqdMWuU
+chJCO1ZIodrWyp0Bc4DC+in570Z/o1OpPjKnYJs3O86Ep1m866arTIixvkZogEsLBwVBsh+4Fnao
+UuuXMf6CASsf6tp2ah7EQm7Il42haxlXxSAUiVbuhr74wsv7H33ug5VLM3kkK8rkbZkTlzciGuVP
+GC85XF0X8J1gO97wSN07X2JtcUzwIYTEZ96pLKmFIyPtELy779nSQrdjaWHy+f8QNvYdddfUdeF7
+7dU=
+=XxWc
+-----END PGP SIGNATURE-----
+
+--------------uSGHclwRkkBen2TpjlsFmj8l--
