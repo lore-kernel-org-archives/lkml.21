@@ -1,88 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019656;
-	b=wePKlNnqLyUZi0d1nig/UsGx0FyCZylC4kYJq4FomlSHlGMXmwblomqUNlHHqDDPkpnC
-	 S9RrQKWYl8oHT/OHU+M+iepQ8zLmdAO/oQ0LP7mUBsgpqEmqEIqzzAC+a4kc802S/j2n9
-	 dGhsugAfpiywIcxShWfe8631+t+6XhumxhC5j/PjqYmUrSeogU24Ps/HimKpf3fYBeVDU
-	 N1RapRsmdcD4IsxDJdJdCL6WshWt2A1vJCVN1yIET0Wtn648sqWcRarw/ZzpvvND+g46i
-	 IDYmo3z+RlhWOqZ/CwX7oaKR56GenWuktKvpB2vhDULchXMoIlrTX7JTtDL4WFsdUvA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019656;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795019816;
+	b=do3Qlj2Ll95smlYWhK3vqUJqpLhBOp8cQnyTjsouEIaoZfpjfPc95jVcDkFcdFHXRT33
+	 Ti9jXMUWGPHfrdZkr3dEMdOZvUIFhUMujy6YfEnYTheYONBpHSC2xZdvLU5gE5Ub/4YER
+	 Ta3EuKNIXUtDBuiXY7lrFpASWXMtbtWROwmMS5ATiUNSX0IrcUpAtO9oLJ+4hMNivroiF
+	 aXrJVM2RLk6UInfm1eorEbsx9TK9Nrc2QscUXn5bA58zre1OD/TrKBVzsPn48xRHD7zRg
+	 lVJjHbTFBqMAXf5BfHogMP1Y+YYa0Xryh+0gXr9C8TfLP4PYWxFrD9OrFQMh8ef80wQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019816;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=C0uQO4m5AZQuZD/qmLkcdjegER6bbbPKAATaLMex7+s=;
-	b=Yxg88BBmKEtQXx1y9D9/yMwksbd9SJVkDB0Gw2JLfjzvkqqGVEDSypPCSBY0RIJXSeKv
-	 fETTrq5ouFQc+rzPNfg8IP1gCP3rSkllNJLQ4SsV7KeVuaO7LTA4ccOJlUrSxsuYa9Joy
-	 dX/1lSriy57LRHgpkNjACfI2MYzdf6cPjGoRf+pxo0ArIR82n+7/k0sxh5jpZIaYHPcbh
-	 0tDawSPi6ZS3kiVkuzqFvvZo3kbGzopePO3ykKA59F0jJkscwxZqoDlxRxYATHOKb0P36
-	 AakBe0vLjDVigDXlpc2eXsy5qGChOQzwcIAg9cClVg5QFK98n9ZwrGqpsUBJxDIRtkA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ursulin.net;
-	spf=pass smtp.mailfrom=ursulin.net;
-	dkim=pass header.d=ursulin.net header.i=@ursulin.net header.a=rsa-sha256 header.s=google header.b=Zw6qWe1d;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
+	b=WjioADXgTvWzcBOeg0O9MIRVgvs/pfx46S1JvBg0q30YIxA1Uky6nnTsmuF4ZJmz/NRW
+	 jQTetFrXoUxgQMAo4Op/gphVJmV87wVGPps7C0UfQQVPdVfHZnH2JRQCmd4iy0Ihi60x+
+	 Ua5detmEH6HtmXzlpiXCu3SAEcX64E5GUgzkCXQAWZV2liq2Xfoac9mR13vroDalpllZW
+	 wNA4ogupuv3FI1YzvEJWCzPupFNiGff3qNNJ/66I3ypviuL7+TJqC/ocecZ/Phsu1ckxp
+	 f/8zvyfyxz7mFbXBEsEb/g2cOMT9K+OUpOVFTfiy6G0FwQWB7QPxidOvRH1dOBeyKCQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q928FUfp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E975606A33A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:34:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E975606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ursulin.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ursulin.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DF0F606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:36:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DF0F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ursulin.net header.i=@ursulin.net header.a=rsa-sha256 header.s=google header.b=Zw6qWe1d
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48e47347279so750429f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:34:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q928FUfp
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b8a2518f7cso1093024a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:36:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795019814; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RYGQ5JYE8BiZd1peSSNno/VBphx/DX1jtRMuz9EjDneIebfC0VsyBgbHotT/ty7Gm1
+         A2xmlDFZHzALRXKt1TMTdfFel667MKfDC4LRioBgAJBJbGzHBgnQF+PJ5VpF+QiK58uw
+         ixwNKeygwp8d6sj/2BxaZHbAV9n6iTkyXTCC3wVAu1LoX+mrOxWD1FgcqryfJWWW8HhN
+         /sGif4ctQegITR86qulcZuPsXQkMF6+ap3oAaJbolFM+n37bObwlBH/ShBZ1EM/0mlpX
+         IG8/R34Mn6vPy5uF2VaCzUHrp4S6UhfyZAZqXeUN0MSliGKs7ob9A2TpzhKbOanqhaxf
+         NtJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
+        fh=w8C2bc1abOkLJ3QS5zl3pJN7NODAE/utgsXGUxI1NbY=;
+        b=aJ/2PL6LxQiCF5+sDdD8jQDn17MO1ir1aUoJu5KwKbwJg+wK/ZZK/2Voqfw80qRqLX
+         NCl6oe2HPc3O0l+xwG+jrjoHjVZLNe1pnm6Ocey8QSIyQDOEl1Rc6XqZbJ3i4SiL0qy8
+         dZ8sllgs6ec5ZnZZ+uFJHZs3ZUyUjMoqjL7ONu/V+gH7O4PB4FfIKun8ziTrQFHm7blc
+         gIOf4e+hpjIcLkOEcSvBh3qJeMHuIoeiEF2W9AqqX0VdL23G+BzsKqkRf5viNWYk8Y/K
+         fbyljwxJKbeFHCLc0O0tcvpern9vDELzG0daYHhOPLZhxQDKWVMNFyS4NijdTZBvlnzd
+         kkKw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ursulin.net; s=google; t=1795019650; x=1795624450; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C0uQO4m5AZQuZD/qmLkcdjegER6bbbPKAATaLMex7+s=;
-        b=Zw6qWe1dklum+Q3iocRUaXuOiybw8tOrFbJZ9YlFPUIvClKNgcXXbCyqkBZ7R9bQ4q
-         xPGmBQEfYtaHInvo6M4pZ0MDN7fWysAmKwK9Xcc0mIuCV0BWRmTKKPpFH3jwoi49SeXI
-         KLYyVV3B770TjhIO07zL8xXqS4DqaOjPcvTKr98LrdYgC/fzDEs9ECyYfXN46ZbX5BUj
-         gL8oCcJNAyDIHpbzRTu0STpvmYS2bqf4GPKISOeJDEqIxlIruksj+nHs/cGSgjtCZDdr
-         aXq4T+KRavv1NcZ5zrOIzBxH7cl6xvxMYoWwcCKK/Yu09Be6V92sZC5KiPATpgyU23ju
-         k0nQ==
+        d=gmail.com; s=20260707; t=1795019814; x=1795624614; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
+        b=Q928FUfp2LnQkjGEnKMIMu+nIXWPV8Mw0HjVjFDQa7MZUVLuYPLFwnsc7iiHqC360u
+         Kp8IRabh9aATlCbBIrXYC8LB4ujsA2WowQnPl0onFZOSJ5rVYhQ50HD2q0pTUJXyKimM
+         OUL77cTMfVDMrYjz/NQW0TKyEQpYRFMt7Ju+HVxVGfRQjrSAY87Mpzq+C/2x9bC6NTow
+         OtYFWyMzdvLEcoERGP5aXpJZMZOJljjkWPd07rML7zS6cDn/RnBxJCXaYM/7fpaXHvui
+         3d3div9gMzI9ed77/rJrBt7B9+fw7rgFDQ4NESvylFpmE6QFtWC5GnB6Lj4Ro4sGb6Nt
+         AJ7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019650; x=1795624450;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C0uQO4m5AZQuZD/qmLkcdjegER6bbbPKAATaLMex7+s=;
-        b=D5CwvHOWnBcM8B9DXrKQK4TihZzcOUtV7tHfoJgNzgeTjv55Yzun7IylIfmDWJGX5i
-         hY2i64lpoW4CzWvId8n+g07k0yq7qGnCztYaEjebKoiTvWpay0jvjDWQ2HEixkTupVPv
-         sata862RVpU2lMmq0pZzRjgOMm6+3iLIPtU/cBNnedsWsedEMabgUEu3j5y76BiyNbAc
-         cGoPdV4YqHx86AuEYdZFaP7P13HOXRMIUQo5zPvm+pwJdTgImo6mOE9sE9xPMz5QvRPW
-         +Qxg3bb5tk0But40qkOd8OmRquZTPY5dpGnUysfTZYM+mXxOT3BveJ+8jMTRN0N1pOK9
-         U4Ww==
-X-Forwarded-Encrypted: i=1; AL+hErHrJGgCTo8TgaZ920EgKZLOd6e+AsJbnQ5l8VhUOQNtH24M5NA4yj74TcEKv7i3POus+GNTTBtok2zLA7E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+PsuA3Tm9Z4+zRL2DtoJNzGiahi9kzeFnWb3gf6nQPyloY5/MR
-	k/0aOc6xJokhwDgmU1wQH6tKtErRp7CNAXr7hVdSzXa4iJF/uNjOrbEnyKRO/m84+vY=
-X-Gm-Gg: AZFdTZc57dXd3tBMrbdhqn7kLQV9grQkXRHR/ug0gv6KiS+3oCs1EIS1gP2Z3jGJH39
-	l1iYK1/s6xdGYYxjVvIL9wisZCcYFplDlIJ4YtV32tMuNGIO7+H8i1Z1T/Xug1BTBVe74h5CrS4
-	3jn81pTqehcfV2RFjXT7xPYhnHDxPMy9K1PpZSJkCV4ZygGr+IUE1GCWd8vRHsydnyv0cbh0UmV
-	Gdrji1Ix60w5hBurPj+CwfRMYeyce46qK7NW+oS2pulrlknVjwBeJWyWsmcsKltS5tlxM5t4M+9
-	lTpG8qejw514+M9NhPZur4IBfCBKfkc07NFKKG5lRX76bnCKm7cun/qUOrxHPjda7GAhofB4nKi
-	yL5Be0ppHKT2eKwpFS4beF00yBBSpm6dzTy/LX7QHkei5PREiX94+KqYqlU3WOA0P1OC36J5RZE
-	I6vPdV6skStlyUoXCh0IwT7tOrEzI5h4EYzANDqcA8EIQ2np/54qubFTyt/w3hohXEyR7rGDaFR
-	s41KRuO9vCiQI+n5YzB+g3Lxn6JEM/s1/6WSDvwrKPuhW5sX7bv8n6FdQJSD3MJcY+wh8pMCW5Y
-	1LmDJHP0qW2vxPJxJ/63a/CPJPLCwQDqK7LCT5W3sCpxpw==
-X-Received: by 2002:a05:6000:1610:b0:491:e062:383d with SMTP id ffacd0b85a97d-4a63d1daa1fmr4563395f8f.57.1795019650348;
-        Wed, 18 Nov 2026 08:34:10 -0800 (PST)
-Received: from [192.168.0.116] ([81.79.79.1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2e26csm5659578f8f.4.2026.11.18.08.34.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 08:34:09 -0800 (PST)
-Message-ID: <598d80dc-1269-44ff-8852-b63b6ab57ea5@ursulin.net>
-Date: Wed, 18 Nov 2026 16:34:09 +0000
+        d=1e100.net; s=20260707; t=1795019814; x=1795624614;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ThJWWn15R7JIY3hayjLwOhu3LzqQd50Rds3OyAm+UpI=;
+        b=taPOjUE5noeN4UijEhN8LuUnzr19H2WH8y8YgqFwosaiBEEH2JsnW+P8DUvNGggZX7
+         D1n48DEn70TopOG+z/iG/CRmwPjexiOhzDfiAnX3kdltQfQCLmdo4L2Hs+x4WRnLfD5E
+         jkYE0dcClE5bZ13X4omUx2xxQGUrMAZcphvY2YI15J4FlxEaX3TF3GB0/83ssKKaXQ07
+         ABNTnfHBmYvv0NrwwdZzZgoUQkBPoERu7kKayI0j9ay6uduWaXHpFSHcLq1dyxzSTAYM
+         GiCpDmzSae2cDZkz2QEUEIYQrOhp3tmO6sYG8jvwIZsGN9NNFCN/BK3Tp0ML0jhRZjOt
+         sKKw==
+X-Forwarded-Encrypted: i=1; AL+hErHbEKmqsAqHK3kxpzKW2Ie7eejmkZXms7fFY02wWwvzJql1UN+vSAvoUh/gfe4M6cMdzwhzDiUUFqAxpag=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/HG3ShkOk3Paq4g0emoP3A+hOIFQ1vv7zeaWHy3A2N+BNKQVUS
+	ABLH6PW6n3CTBIiIpzffYrrwgzt6b3H23aHnhl66wj/Mi9j94CWoLXgpdZTZ4KerPjCmOImVj4M
+	SyjYU8dj+jt4B5eLa2C83Fn15HNxyw3E=
+X-Gm-Gg: AYBFou0gj2JezdE5K41RdL2E6S9UxMI8a3+4oNwxV+8/c+p5fuvgjwhSDNYIiYlnBE/
+	FxXiWUFoYXb++o8yh/YBK4YMbEYpCVpHa93HmHMsEyV7irxBG6aCk+Jrz3w4vekgZ//gCCw6O90
+	dZk7B+RQEaZQZrLusFmEGUSGaRJIEG4BiZBdDI1cVK4mgLVSRw4yU2xYUTd8Msqtx1Pn9I0mK6R
+	gUWAXBhidEVqlwPCVBPFZIcWM2bjdIpt49Kwq8KGmNjASrQ/u9Iymrjn8CijBdcqAV6tdn6wYlM
+	56LyWbZws+aCnxZ4Z0bVZAzM7aDPoLNBVDbPQSCXEZSFzBSdpky6l+HICP7rtq9cqLzDQ7s5jGt
+	q5+AmieKCSexVQpXxo8qoyY2XSeeLNIs4UI0FtDx6zbHyagSIdVTC2K06J/qLI7MHgZZqcQ==
+X-Received: by 2002:a05:6402:c711:20b0:6b7:b12e:1638 with SMTP id
+ 4fb4d7f45d1cf-6b887effc26mr1999145a12.37.1795019814317; Wed, 18 Nov 2026
+ 08:36:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,96 +104,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] drm/sched: Add drm_sched_entity_get_runtime()
-To: Sidong Yang <sidong.yang@furiosa.ai>, Tomeu Vizoso
- <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>,
- Philipp Stanner <phasta@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Matthew Brost <matthew.brost@intel.com>, ckoenig.leichtzumerken@gmail.com
-Cc: mcanal@igalia.com, Heiko Stuebner <heiko@sntech.de>,
- Gyeyoung Baek <gye976@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261112171144.3151554-1-sidong.yang@furiosa.ai>
- <20261112171144.3151554-2-sidong.yang@furiosa.ai>
-Content-Language: en-GB
-From: Tvrtko Ursulin <tursulin@ursulin.net>
-In-Reply-To: <20261112171144.3151554-2-sidong.yang@furiosa.ai>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-8-koray.fra@gmail.com>
+ <f297d9ea-ebd7-47f4-ab7b-de5c45980000@app.fastmail.com> <CAOQ4uxhpMARO_ZMJDeoa044BwufLVnS0o4Fv0abBF=tjaZmtWQ@mail.gmail.com>
+ <cd49ce48-58d7-4341-b4fc-34e63daf3c52@app.fastmail.com>
+In-Reply-To: <cd49ce48-58d7-4341-b4fc-34e63daf3c52@app.fastmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Wed, 18 Nov 2026 17:36:41 +0100
+X-Gm-Features: AclHuK_Wot5qcfi8_9CAebWCtd31KyKZ5gW_T2w6JAANm_7TsCfaaSyfxQBsTLM
+Message-ID: <CAOQ4uxjme9sJ5LGNDnP6rEKZLTJzX_ZdcMohgu2iLULK96GPOA@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 07/10] nfsd: add provenance time (ptime) via FATTR4_TIME_CREATE
+To: Chuck Lever <cel@kernel.org>
+Cc: koraynilay <koray.fra@gmail.com>, David Sterba <dsterba@suse.com>, 
+	Namjae Jeon <linkinjeon@kernel.org>, Sungjong Seo <sj1557.seo@samsung.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Trond Myklebust <trondmy@kernel.org>, Anna Schumaker <anna@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
+	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
+	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J. Wong" <djwong@kernel.org>, 
+	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
+	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+On Wed, Nov 18, 2026 at 5:09=E2=80=AFPM Chuck Lever <cel@kernel.org> wrote:
+>
+>
+>
+> On Wed, Nov 18, 2026, at 2:44 AM, Amir Goldstein wrote:
+> > On Tue, Nov 17, 2026 at 11:02=E2=80=AFPM Chuck Lever <cel@kernel.org> w=
+rote:
+> >>
+> >>
+> >>
+> >> On Sun, Nov 15, 2026, at 1:03 PM, koraynilay wrote:
+> >> > Implement provenance time (ptime) in NFSD, as introduced in a
+> >> > previous commit ("vfs: add provenance time (ptime)").
+> >> >
+> >> > Map ptime to FATTR4_TIME_CREATE, allowing clients to set it across
+> >> > CREATE, OPEN and SETATTR compounds.
+> >> >
+> >> > If the underlying filesystem supports it, use __vfs_fileattr_set_loc=
+ked()
+> >> > to set it, returning -EOPNOTSUPP in case it's not supported (i.e. wh=
+en
+> >> > __vfs_fileattr_set_locked() returns -ENOIOCTLCMD).
+> >> >
+> >> > When querying FATTR4_TIME_CREATE, request both STATX_PTIME and
+> >> > STATX_BTIME, preferring ptime over btime if available, and advertise
+> >> > FATTR4_TIME_CREATE support if either ptime or btime is available.
+> >> >
+> >> > Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
+> >> > Signed-off-by: koraynilay <koray.fra@gmail.com>
+> >>
+> >> > @@ -3646,7 +3649,14 @@ static __be32
+> >> > nfsd4_encode_fattr4_time_access(struct xdr_stream *xdr,
+> >> >  static __be32 nfsd4_encode_fattr4_time_create(struct xdr_stream *xd=
+r,
+> >> >                                             const struct nfsd4_fattr=
+_args *args)
+> >> >  {
+> >> > -     return nfsd4_encode_nfstime4(xdr, &args->stat.btime);
+> >> > +     const struct timespec64 *ts;
+> >> > +
+> >> > +     if (args->stat.result_mask & STATX_PTIME)
+> >> > +             ts =3D &args->stat.ptime;
+> >> > +     else
+> >> > +             ts =3D &args->stat.btime;
+> >> > +
+> >> > +     return nfsd4_encode_nfstime4(xdr, ts);
+> >> >  }
+> >>
+> >> I have trouble with this approach.
+> >>
+> >> We've already established that, for the Linux in-kernel NFS server
+> >> implementation, FATTR4_TIME_CREATE reports a file's birth time and
+> >> does not permit NFS clients to modify that.
+> >>
+> >> After this patch is applied, the server reports the ptime instead
+> >> of the btime on some filesystems but not others.
+> >
+> > In other words, for some server filesystems FATTR4_TIME_CREATE is
+> > settable and for others it is not.
+> >
+> > Isn't the NFSv4 protocol equipt to deal with this complexity?
+>
+> Not a question of whether NFSv4 _can_ do it. It's whether it _should_
+> and whether opaquely choosing a settable vs. an immutable timestamp
+> on the server is the right design.
+>
+>
+> >> Essentially this changes the semantics of existing files that have
+> >> a btime set -- technically that's a regression.
+> >
+> > I fail to see in what situation this is a regression. Please explain.
+>
+> Any consumer that depends on btime being read-only is now screwed.
+>
 
-On 12/11/2026 17:11, Sidong Yang wrote:
-> The scheduler accumulates the time each entity's jobs spend on the
-> hardware for the fair policy, but drivers cannot read it. Export it so
-> drivers can report per-client engine time through fdinfo without
-> keeping their own counter.
-> 
-> The stats object is refcounted and held by the entity and its jobs, so
-> unlike commit df622729ddbf ("drm/scheduler: track GPU active time per
-> entity"), which was reverted, accounting a job does not touch the
-> entity.
-> 
-> Suggested-by: Tvrtko Ursulin <tursulin@ursulin.net>
-> Signed-off-by: Sidong Yang <sidong.yang@furiosa.ai>
-> ---
->   drivers/gpu/drm/scheduler/sched_entity.c | 25 ++++++++++++++++++++++++
->   include/drm/gpu_scheduler.h              |  1 +
->   2 files changed, 26 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/scheduler/sched_entity.c b/drivers/gpu/drm/scheduler/sched_entity.c
-> index 03e68b4102d5..ac040f95876a 100644
-> --- a/drivers/gpu/drm/scheduler/sched_entity.c
-> +++ b/drivers/gpu/drm/scheduler/sched_entity.c
-> @@ -238,6 +238,31 @@ int drm_sched_entity_error(struct drm_sched_entity *entity)
->   }
->   EXPORT_SYMBOL(drm_sched_entity_error);
->   
-> +/**
-> + * drm_sched_entity_get_runtime - Get the time an entity's jobs have run
-> + * @entity: scheduler entity
-> + *
-> + * Returns the time the jobs of @entity have spent on the hardware, measured
-> + * from the scheduled to the finished fence of each job. A job is accounted
-> + * when the scheduler frees it.
-> + *
-> + * The caller must ensure @entity has not been finalized.
-> + *
-> + * Return: Accumulated runtime in nanoseconds.
-> + */
-> +u64 drm_sched_entity_get_runtime(struct drm_sched_entity *entity)
-> +{
-> +	struct drm_sched_entity_stats *stats = entity->stats;
-> +	ktime_t runtime;
-> +
-> +	spin_lock(&stats->lock);
-> +	runtime = stats->runtime;
-> +	spin_unlock(&stats->lock);
-> +
-> +	return ktime_to_ns(runtime);
-> +}
-> +EXPORT_SYMBOL(drm_sched_entity_get_runtime);
-> +
->   static void drm_sched_entity_kill_jobs_cb(struct dma_fence *f,
->   					  struct dma_fence_cb *cb);
->   
-> diff --git a/include/drm/gpu_scheduler.h b/include/drm/gpu_scheduler.h
-> index 3b0978fa8cf0..96a3401d4c88 100644
-> --- a/include/drm/gpu_scheduler.h
-> +++ b/include/drm/gpu_scheduler.h
-> @@ -730,6 +730,7 @@ void drm_sched_entity_destroy(struct drm_sched_entity *entity);
->   void drm_sched_entity_set_priority(struct drm_sched_entity *entity,
->   				   enum drm_sched_priority priority);
->   int drm_sched_entity_error(struct drm_sched_entity *entity);
-> +u64 drm_sched_entity_get_runtime(struct drm_sched_entity *entity);
->   void drm_sched_entity_modify_sched(struct drm_sched_entity *entity,
->   				   struct drm_gpu_scheduler **sched_list,
->   				   unsigned int num_sched_list);
+Who is the consumer in this context?
+An NFS client?
 
-LGTM.
+Can't an NFS client be connected to another NFS server
+implementation which does allow this?
 
-Reviewed-by: Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+I can't wrap my head around the problem.
 
-Regards,
-
-Tvrtko
-
+Thanks,
+Amir.
