@@ -1,49 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018392;
-	b=K9GyHBPYdo35zY+UoWYPZPmAG7KvTN4gor1I49lc8sOg3gz/8FRUvkIMwj0sF9xXbTkr
-	 AFFsA5AM1lM2N2EV+aN+p/NuTj56yxYb/hOgQokcfhX/cWtNGTomkFxraSsRYWK3P/m4U
-	 fqsOO1x+2xUEmJd2SHuOylUnGVgMgMgUfq8pa3crVwdzfUWYTSlug50foAeJl4jN4Iiu6
-	 haq2J0aaBmYgfPJqxwOKWQVFeZEPMEGG9ycInoYnCdWse8bLAWFRqIMmZbXdYFe3PwgfC
-	 yT3dHJ9JC4zjQ0v+NnzAERoaHnsXEQGLo7z9lUiXDa3yIutcMfeCVpUd3blefjuG0AA==
+	t=1795018404;
+	b=QJ/Xm4Vfc3y1N60HeFHUngguSWaeuSd8fxYy/WfDygTMbfn47f+J4wWzFTYPzUuRAz0Q
+	 2uxO06pBBXTpOcUvQTZLnjKQwQD6dPKNZAYlMbsIEykOO8mxgJSBLZhXlwoWlh8Poje5z
+	 90Ft49+flFr2Ga+uZnZcWdix3cmoectD1F7OBfTtGLq3lyFYD5tfgdJhlRkkBBpIHfoXP
+	 Qb2/uk0ZFyWV6BB3o7s3DSZPqg6PPMTXEyfDV1CK+1lFAFfjayku9iLqt3BrP3U8L6lfg
+	 O1w54wXzqiPpsKFqnj642jJjCJBMvdEe4M8JY3Di8ZDvx/ZlVSQMNO/+5mJuNdWbDEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018392;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=1IbllusjMRCIaAIXLA41cjwGt2hmRdKFmrBTakj2Av0=;
-	b=vWzszMtEwegMinluXOBgloUQp8bXHWrkUFEcylT8mJ0OIhTvzy7IKyfCu+R1ZLEipqAH
-	 zYFci4MtSjJ54sFrtaK5/JUcADXexquZF2PbP60k7EeOS3h9Dc/lSwL4u3h+SE/oVtTjl
-	 /ZSYVUd2AhMur8liMRucHlmh22vAkrRiQ2zoGtPxY85gEJmVH24AXmYZwYFw+A3NoI3wy
-	 7FveHuL12+1eDDcsQGuqlwcBGO/bJv+JIyPXpNuNSFEkwlOypZRzm1monBtM1/nWIUEoz
-	 Pv8m9dGlEFXIX8HFNctGmX5UoF8BBioyHaiGgPReXcwFySWuc8a/zze7hzqrI1s94Ww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018404;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=3Lq/7sTlAJbfIIqLa7wmAuF2tMNPuQ+wGipfJEmlBdE=;
+	b=BJeezhvVkKXGChevrF2MM4qBnPRgy5AR+IHbt3fVfBkTCQB1EAzROzoukBp9N8WadT/x
+	 +o5ATehX6GkO5wH/by8kABeGPSF2VVySHDHV6y1qSI+NrzjbyAosqRscFCqI2e8mIVRZk
+	 HqhaQMli0gL26rcmc6o2SRc+rna5PZBoswV78MIivnFwZtj+ApGTLcm3dj1gBZDIzeWm7
+	 xpT/UHhbEEYcMQpQmMoEUZMQyME8KguQ0yQN/WUctwrdQYmV6c0K05rNex1zoc5XXLD/j
+	 XdWPcBUARk8zhKLjlbjvWedeunK60kcvPDAfWSSwnRyDJEC4GEVUpvdTZbvdu0Fi//g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="gOtf1/KA";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9BB91606A337;
-	Wed, 18 Nov 2026 16:13:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BB91606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=fairphone.com;
+	spf=pass smtp.mailfrom=fairphone.com;
+	dkim=pass header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=FV0bltX0;
+	arc=none smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16590606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:13:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16590606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fairphone.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fairphone.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=gOtf1/KA
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0561E1596;
-	Wed, 18 Nov 2026 08:13:08 -0800 (PST)
-Received: from [10.57.62.206] (unknown [10.57.62.206])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C54163F673;
-	Wed, 18 Nov 2026 08:13:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795018390; bh=nK7TBcSEp2JbydJ2xoCE0lvuJ2Yl2LRjmtzjJylPKjQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gOtf1/KAKZj0LMreurjK+QC939uTJvImRh1Xm/OujjEONs/gFKqLMkCFvInwO66+E
-	 urAh8koJGsYtsUadAI9jgqq8h9ix5b0q6/3JxMcNYtb277lkuF12K29garixfPWOYV
-	 9zDoYMbQFXlvdFTnpzct0re30aKTlLViMKjThLAg=
-Message-ID: <6f0f15ef-37c5-491c-9b71-f78ff5b50a23@arm.com>
-Date: Wed, 18 Nov 2026 16:12:59 +0000
+	dkim=pass (2048-bit key) header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=FV0bltX0
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so1638164a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:13:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fairphone.com; s=fair; t=1795018401; x=1795623201; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3Lq/7sTlAJbfIIqLa7wmAuF2tMNPuQ+wGipfJEmlBdE=;
+        b=FV0bltX0oekj6/9f3wa9B0/l8zl9COMFFyQ5EAruEn6+3u8/cdTM5/fAof+ws1va0+
+         9V7ZDTR58f1agBhb7jH2ZL23CYfYjNxO9GWe5UnzWp/TDmnnGY2nLr8Kic0Ewgy0cvoj
+         0YFwCl6ZFhMviqdtHWJ7uNUE7iVBQ9qja0BQtawatKhVTmELVv/qTlkkbMn7FFPzE7+t
+         eXoRoWgCAjRLWh80ANeC3KOnPoeMh687hvXa8XsLwshJmADDY3F0N9ej++7BVjTBWgni
+         JzCzrJrBRgmsz6I5zgmhaUZ9e6xoF5WOnjD/Gel1Oxr/msrr91dJmbK9CBW/d0LiXQ9B
+         CBhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795018401; x=1795623201;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3Lq/7sTlAJbfIIqLa7wmAuF2tMNPuQ+wGipfJEmlBdE=;
+        b=gUn3tFMhnGihWlgsrcBKl1EaQU8vaa52MKEpM87uxiLGmAzRZt5/AHN2uCdbd61wBs
+         vQ0LApg9uwp1lAWBTpujyuLONhtDVLXF2xE+44FT+zXItOu6uXIcQgkS7vcEv0+nBmOV
+         4FlHGfKlhogfdh2WMwEXMh+HIWj/fA/fDOjjw9iqC0WIaubNgQx0h5O6nwUoFzsfltjw
+         AArAcOJrR5hFSChIbXYWfOBDtyGUP9CjpIkpqgbOG5gE+5LAyO3wKBGaA9ctqXpXjfF7
+         nptyiMZ18pO7ZbAErB68wKmTdT/fs9coQ4WmAsUttu0kucr6Ld+1K3K0peaZPqhSJNU7
+         UFkQ==
+X-Forwarded-Encrypted: i=1; AL+hErEY/V/ghSWG031s+RrAU8Aj8QJ5ltHbCymliTw3o6VR94qAV281mAWurcRee/Zlh0jVKGXz5nHOKDFHloo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ii7PPW7Tcau2rlFpidNC/aHb9nXmAlp9oW1QFJrUYoqiWO8Zt
+	OAbA66hVUFm3SL26jCwAV6kSiirB03DP+Hxu6ngxgbWIe+sGA+0ccSLZS23Id+lbaY4=
+X-Gm-Gg: AYBFou0Z8uFFerR8DKC+iSRctyOxkBhPyfzBXhBtp028nbEpIbuM+6phw7XfAHHZ+tj
+	zRyXKBgg7/YhtRTEmnv1e/2+oLMpTapn4aR8nEo8q9PyWzRheg33U3+p27zsTl1ad1A/yfTXaZT
+	cS2fpJdSH8w3VKYgGNXmprGuiW6biVBKa7SvH0xpWsrE0xq7JgAqQuTmByKQeybUVyS0wkjbV7x
+	otbnVCCKepJv3deGYz1jp5EcoawTQrbaFc8ZBBOXARYH7hy8tXZNnEuuVg/n1c7oRSiChRyRXhg
+	+jTKhhpX5dGlDcDEHokoSTIuES2Oum7JiZ71WTgBMXY+efIT9cPiMwQQf1hX8lWgeKLn9gBWJnn
+	SVyyXaIr8zcqmf+rVsQE5tf3JnKO2WD1PL3XhpRRy7cgD5ib5iNZk1pabf9/fxM7HRxg/in0P71
+	80U82TnYbl3dqy32eV1NNon9JVB1iOpCXmZqcnrHGhpcztSgv2ozdE2UzNzBgWIpWFWvG/VLb+Y
+	qgObFFeZ1g1C7xK1pH2eZnFzVQGfp2StAO5ElM5NGUvnlWquX9jAJng8oCD/QQysznTO7O839c7
+	R/fZ2hKSPbZ7eBPy9oKB3aa2BXCr6uauYK94HcDV6muiUBCo0GMFLlH5ZwGvl+uk+cc8DvCyhQ=
+	=
+X-Received: by 2002:a05:6402:693:b0:6b7:5712:f13e with SMTP id 4fb4d7f45d1cf-6b887e9a998mr2171788a12.21.1795018401363;
+        Wed, 18 Nov 2026 08:13:21 -0800 (PST)
+Received: from localhost (144-178-202-142.static.ef-service.nl. [144.178.202.142])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a6fc230sm1256698a12.36.2026.11.18.08.13.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 08:13:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,54 +88,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/11] KVM: arm64: Handle attributes in
- stage2_unmap_range
-To: Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Kohei Enju <enju.kohei@fujitsu.com>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-4-steven.price@arm.com>
- <CA+EHjTyeE0gbLgfiDePPVRR88GFVa7G-G8sr8k6vzM7v_uHxdA@mail.gmail.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CA+EHjTyeE0gbLgfiDePPVRR88GFVa7G-G8sr8k6vzM7v_uHxdA@mail.gmail.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Wed, 18 Nov 2026 17:13:20 +0100
+Message-Id: <DMYGX16XPQEY.PD4MUZN1IINL@fairphone.com>
+Cc: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <wcn36xx@lists.infradead.org>,
+ <linux-wireless@vger.kernel.org>
+Subject: Re: [PATCH 2/3] wifi: wcn36xx: Do not enforce interrupt trigger
+ type
+From: "Luca Weiss" <luca.weiss@fairphone.com>
+To: <arapaille@atlr-engineering.com>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Konrad Dybcio" <konradybcio@kernel.org>, "Abel
+ Vesa" <abelvesa@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Loic Poulain" <loic.poulain@oss.qualcomm.com>, "Luca Weiss"
+ <luca@lucaweiss.eu>, "Eugene Krasnikov" <k.eugene.e@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3-dirty
+References: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com> <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
+In-Reply-To: <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
 
-On 17/11/2026 14:16, Fuad Tabba wrote:
-> On Mon, 16 Nov 2026 16:43:49 +0000, Steven Price <steven.price@arm.com> wrote:
-> [...]
->> With the introduction of private memory support, we need to
->> handle invalidation requests with filters for a given type.
->> Add support for passing the attributes down.
-> 
-> nit: what this passes down is a filter rather than attributes, in both
-> the subject and the message.
+On Wed Nov 18, 2026 at 3:58 PM CET, Alexandre Rapaille via B4 Relay wrote:
+> From: Alexandre Rapaille <arapaille@atlr-engineering.com>
+>
+> Forcing IRQF_TRIGGER_HIGH over the DT type makes the re-probe after a WCN=
+SS
+> restart fail ("type mismatch, failed to map hwirq"). Rely on the DT, as
+> commit 1ee6c5abebd3 ("ath10k: do not enforce interrupt trigger type") did=
+.
 
-True - I'll update the commit message.
+Worth noting, that all upstream dts files that use qcom,wcnss-wlan
+(apart from msm8974.dtsi which is getting updated in this series) are
+already using IRQ_TYPE_LEVEL_HIGH, so this should not change behavior
+for any other SoC.
 
-> 
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+>
+> Fixes: 8e84c2582169 ("wcn36xx: mac80211 driver for Qualcomm WCN3660/WCN36=
+80 hardware")
+> Signed-off-by: Alexandre Rapaille <arapaille@atlr-engineering.com>
+> ---
+>  drivers/net/wireless/ath/wcn36xx/dxe.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/net/wireless/ath/wcn36xx/dxe.c b/drivers/net/wireles=
+s/ath/wcn36xx/dxe.c
+> index 801f1218ef..7852f71368 100644
+> --- a/drivers/net/wireless/ath/wcn36xx/dxe.c
+> +++ b/drivers/net/wireless/ath/wcn36xx/dxe.c
+> @@ -552,14 +552,14 @@ static int wcn36xx_dxe_request_irqs(struct wcn36xx =
+*wcn)
+>  {
+>  	int ret;
+> =20
+> -	ret =3D request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete,
+> -			  IRQF_TRIGGER_HIGH, "wcn36xx_tx", wcn);
+> +	ret =3D request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete, 0,
+> +			  "wcn36xx_tx", wcn);
+>  	if (ret) {
+>  		wcn36xx_err("failed to alloc tx irq\n");
+>  		goto out_err;
+>  	}
+> =20
+> -	ret =3D request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, IRQF_TRIGGER_HIG=
+H,
+> +	ret =3D request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, 0,
+>  			  "wcn36xx_rx", wcn);
+>  	if (ret) {
+>  		wcn36xx_err("failed to alloc rx irq\n");
 
-Thanks!
-Steve
-
-> Cheers,
-> /fuad
 
