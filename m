@@ -1,107 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795029363;
-	b=dk0b48yFDa+J0L2x5WJ7EJ+RtrAoSJ+fHPlLyDPo16uIVh1Tyf6KsScL0cnjP42QzrH1
-	 KUEgt9Xv5joUqyRreQCrypGhBdaa5w6u9hnPi+cYgYL3hU9kCRfN3or0iOdA+b/jHpRBc
-	 tQeYUKbFkfIhWuWwREzMXM376NWliamZl18y/FR9ktrT1Wo/EU0zyE8YgBgBKtztvdzva
-	 plS+dW8gojCaN+jIjmu+ux1p8okv6jJDcQL8N0xEhlIrn67HGZsvs4TCjBIPRCD7Ro6jc
-	 aqWpSsmkdIa+03ClyBBa1AbFVtvQrD1TKUOU/N4l86lQRI+8qO45SO/Z1AT6vzIBR+Q==
+	t=1795029375;
+	b=RJtQJN9B9SBWkJv2dQzqJdEwl2/irRz40UrSZgK099jPDW0LdjgXZrQD9mVKtRz2Vsj8
+	 GfeY/aTVxLREb/H8hA8IFHyA0ES87JNBG0rCXbbh1z4vkdvagewW0KS0onXakUZAndr4q
+	 xoXO90uKQpx/2luNAAYswT4ZYAQbqbO85HuuhxBXuAR/XTD80h9ctQz0lYsg0KPb+9VuW
+	 vTt1+okZDM4DB1xXxU/iY27DaGzK7egnoHAtjntVRy1yvoVPpVUYcnHgw1HCNXTqEKnxL
+	 hn/IoYlW8hkZ5dFlFFYAsVB6jaaNuAKccTvu2z+SKUnXpLzzTwCdzPhAZLlvam1qPGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795029363;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=bStvPDV/J1vGilix5sAk+qt1tT2j9aOVdxdc6N/4kWM=;
-	b=BnBWTuPkNj0thNJLKlemw+SH2/o1XFFFazRm0GTnzWN5TQ3XVp1yRm/sK06qoayYEfwR
-	 tZV8lPX/5G6cwcTuqsp8gzltyF6XB30jahU3XiL3DIyHb3WKDyx/dvUz/yfSp1XNnB7RA
-	 fAFgxH1VScf5BSkJ9BK0m+nj5N2U9mB9IgD0O5p+eDF/53GaAnkofcJhHQOtwOocDEOji
-	 ID8hEhtSR/onKi1QedtPDpOCclhwiiwkcJ4qRnLnLw+RXzRtXuqAGZfkObndTaLm4jXSb
-	 2wJiNr1Rz4TZEsckTwZCBEUnktXl3ZslIP2q+kVWVOw4p+qaKeqok/cUYUD7HlOkkBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795029375;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=u47cAxSdQSkx1pPGekgjoJHfC8hpbnBxtSZtleu/S08=;
+	b=QPeOxupGkDoZ4jhEolzXquVmIrpCoAFS7zlaT9RmSmuUMLxAQkLjjsK+CldoQwszntXo
+	 pcsFPxlLBXoMPouOsQfdJhfZ7CNM6E4mP5ro2XU4YniHdqwg8XYpOImY7XCSU/C6UJsLj
+	 vD/Sf7XLhr7M0t4597GyOFp5Dev9EjD0JH3kvm7f1vB1CgkKz+RD+6OJ1fWodQI8UKSbY
+	 A55RhzumteJXyJm10RuUuZENig2WGAy/kX+hP/NtkUHLfSu403Ymo8Sbz6t4tHUoR+igS
+	 imjJuiYi00J2QSjwWPeSraRlkPRNdfhUBsMp/2WVnc/XiDgE/OI8SGUZmYRuU67NvXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tcbH8uTP;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=N8OPpb6E;
+	arc=none smtp.remote-ip=212.227.15.19
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA2E1606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA2E1606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0D02606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:16:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0D02606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tcbH8uTP
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a357b1c649so884338f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:16:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795029361; x=1795634161; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bStvPDV/J1vGilix5sAk+qt1tT2j9aOVdxdc6N/4kWM=;
-        b=tcbH8uTPPIacl2pUnV5ukIA+K9TumGFleoI7xLZ2Xn+ePxR1rMivlDRBkpDn8EW3rB
-         htVG+3pm4FG/lFIwYA/E8nk4rTAShbMZTrh/TQBkL4BHT/toPKtTOj2FwSz9FBz7pnK7
-         d+/ndS7FNaKLnb893geujjVcHVWtMy7aGdx2QHl/xTppWMSKxOWh9muHq74LzS4GIm1l
-         IeTjsNbK++tvogH5AzMHzQfzeQVVSjSQoq/bUm9/g92aL17xyZpfrPzh/XjlXE72UWm9
-         /7mVawSfF1Qs8POlwzGq+j63yK6ZP3DfguKnl2ocE0Ozfi+xM+3HRR5ja89G9Urs8RPO
-         t8Qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795029361; x=1795634161;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bStvPDV/J1vGilix5sAk+qt1tT2j9aOVdxdc6N/4kWM=;
-        b=nqkqDMcwMxXnVoaAxDgZE1JEoScMi7jK4C8ksC0PsnineNjKXEAoKw1pCYSHmAQPNz
-         6Fn3WVcJ6Is0yFv7RvxjE04w8xGwaDw+Hvk99WEP+ckRbxkx6Kc3Xl4oaLS6Va1dWPtK
-         3jQ+/NokjNJZCVok0ACfYJzEPjwatgUDPiXumo0i003MiPlTXGHmiB7//bgrEzYidqRJ
-         RvOb3w4g6YQDqGyMVRQvY2NKxBGDfvAJ9UNoZTqYYTrXiy51d+rrNMlMTvnYGri80J2H
-         zJZJY54LtJn6milXkBMDpmE9GBu7NFdW2wgYHSCTenWZTcIpdpUYgkN0QJ1S5hNqXO9/
-         NbPw==
-X-Forwarded-Encrypted: i=1; AL+hErFgck7la+k7qL40zeq25kQPsXv1s80NPcgGidlZ5fljPDjVHlmBumaA+UB4EywqxnSq8+x4HbzrTeRvo2Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9jG3dxLiAEp3HR0mx6jL5Iv8vWIbnR5ngYDoOSh2L5IuBaMJL1
-	XGGUj5wJmhIx6qHeCShd8Fjdy2Sg5+AnxW8Vvazm3hJE9AUO17j18dUf
-X-Gm-Gg: AZFdTZdtvhc2Mqilq0W4B/kknW3weKxc1Vp51jJPgAuy2SmsqeDOQYT+lFF8HOgnfvY
-	i3/XIieLeMejcqW55I/V48TTLT0j3TT/m2tqMMGvfahz/+GnT6g005eCN3836oOK136Ep9lH+nd
-	ZpZVf4XmxYrjuTjk1vYw18tK6rq9cuwCOBedOoOsXuBjnogCVuGc6H0eVeHKdqufEvwQIbLUwcf
-	cQTBJoeJoqfkFSxhK2qS/FpO7cQqdE/Dmt8etflIs5KsCfKoxFW0ZlMwQsNy8XtEsS6pIvNk8d6
-	iuFURiMIfPAQev13oIym036cYn1PtWEL+pAeTlXKmUjJYykyLjBPQlYSQjP2SQ9UCO7C5Sb5MHO
-	iul6pMmQmbFucxEZOFR3enJVnkVWttUgs3BUxqUax1on08jKlNqeiY1h9MN3FF9MLJ3fInKPxDJ
-	zzA45NRa7wo4iDGV+E3WZeJorModOpAooxtdiyGjsKI7tSm1ZfgiLUhRISoOK0YCgbiJ0TtQNaf
-	jRUXqPEMmnLxZpevHC/ULXtnrQAYYMO5fENTcJg/X4wscyIHsQBVm0hypyBnPHArVe7ReB4lzOB
-	qJOfIUuEoKVv3vEtIv4uuXacR4nXr2x9ru1nf7Zu+/b4OOGHazv6jj8vM0iUzRPYbRtby6XMhPk
-	tj2CQqeQF1KU=
-X-Received: by 2002:a5d:5d12:0:b0:4a7:14d0:9c4c with SMTP id ffacd0b85a97d-4a714d0b8b5mr6051587f8f.6.1795029361023;
-        Wed, 18 Nov 2026 11:16:01 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2f682sm6131023f8f.6.2026.11.18.11.16.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 11:16:00 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:15:59 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Doug Anderson <dianders@chromium.org>
-Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>,
- Devicetree@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Chen-Yu Tsai <wenst@chromium.org>, Saravana Kannan <saravanak@kernel.org>,
- David Gibson <david@gibson.dropbear.id.au>, =?UTF-8?B?QW5kcsOp?= Draszik
- <andre.draszik@linaro.org>, Simon Glass <sjg@chromium.org>,
- linux-kernel@vger.kernel.org, Brian Norris <briannorris@chromium.org>,
- Peter Griffin <peter.griffin@linaro.org>, Julius Werner
- <jwerner@chromium.org>
-Subject: Re: [PATCH v4 08/14] libfdt: Speed up fdt_find_string_len_() with
- memchr()
-Message-ID: <20261118191559.7a39c37f@pumpkin>
-In-Reply-To: <CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
-References: <20261116205320.1621386-1-dianders@chromium.org>
-	<20261116205320.1621386-9-dianders@chromium.org>
-	<20261118095418.51d30ee8@pumpkin>
-	<CAD=FV=XZP5ZD8J8k5wD5XgQP-sF1SEoZNkRkXyYL1ZeuU187_A@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=deller@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=N8OPpb6E
+DKIM2-Signature:  i=1; m=1; t=1795029372;
+ mf=PGRlbGxlckBnbXguZGU+;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:B+OvzbLJHmbeAaNdQKl0ZiweXW2/
+   uhDGOqAroZtoZpB9tZMpoNthaJL+LfFKIMcRfKcg7wy64ygLetM49mSSrKvXsUWJLYC80HghJ2/
+   tbtfjXeXhq9FZs0bZ2he6xUSM+Kyi7AeURogp9g4h6i8ITGZ5ozwl++VJonCQtB02ch64hTBicr
+   yMN04QPJFwFUWXlDBXRGUizduTveo3NvmLzvRnu6eaIUfZANKVLUZBftIaedvVwwibuMHHquQpp
+   oZVlJrG00QnllbdzPliyfZShPQBbRvX6i38cPcII9v37bBoVdW8PCrSEhpjeAxv3mrG8niYZ5tq
+   iJIpUTpJlZJh9g==;
+Message-Instance:  m=1;
+ h=sha256:
+   RwVPTp89gxWzTJanc5CTUVEZqhELOx50wn0yqfdghXE=:
+   UOYexMIF9MnZ1REOgZnxzRUMo8ikM6q8Ix6NJd20hSY=,
+  sha512:
+   dgbowvGOA/d5X7Dl1V+KGdwXSo5f2JP9WzVJ0mxBPsUzpS2V6InNH2g3PPtL8R3n1jscQ2p+AWUU50/C1QKfQQ==:
+   B9SpYHKU4gqRMNtCgMEFQ26fmgSNb50gBXVycGn1cxVw5semwqfI5YAjiJoa/mMTtEUlKHmJzF2Pwz7rvuHZbQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795029332; x=1795634132; i=deller@gmx.de;
+	bh=u47cAxSdQSkx1pPGekgjoJHfC8hpbnBxtSZtleu/S08=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=N8OPpb6E4g+CKkquwCge+Xcz6UESgNE9VC8b83d5OPGOyWfjUXvA4hWViV5370x1
+	 L60uOgTF3A3A6JSmJEz6EYtYLp1OdJ463rEkEMZOfJxh58xG/3DzPVr2i2rH5WESC
+	 HafOyaSPZ0GSVP3kv0stVg4TAM/HOcnaXUxV01ylZmsSEFv+8ZWKvErfD/zuKXF2d
+	 Kg1r8YWdpBcLp4FI5IFjAI0ESL0wZXpT88lFkdhm958jM8LhoR4xSpSOilGefVswK
+	 TLLOXxPmb6GKUMKiaZ4ZiFFy4hdWYdKuNQPY1/gV4YUbAHzUcy497aNnAx3ylWU5c
+	 2HK7csgNbdRmzNDGHw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M9o1v-1xNyEQ3ReH-003vBo; Wed, 18
+ Nov 2026 20:15:31 +0100
+Message-ID: <4a5d5e4b-e376-463e-a919-2c16a625be1d@gmx.de>
+Date: Wed, 18 Nov 2026 20:15:28 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,104 +81,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] fbdev: smscufx: don't free registered framebuffer on
+ probe error
+To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>,
+ Steve Glendinning <steve.glendinning@shawell.net>
+Cc: linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, Bin Yu <byu@xidian.edu.cn>,
+ Cheng Wen <wencheng@xidian.edu.cn>
+References: <20261102084830.9890-1-25031212351@stu.xidian.edu.cn>
+Content-Language: en-US
+From: Helge Deller <deller@gmx.de>
+Autocrypt: addr=deller@gmx.de; keydata=
+ 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
+In-Reply-To: <20261102084830.9890-1-25031212351@stu.xidian.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:EroS975HfyOQhcrxKU/luS6olzgcAVSdSNOMZW1HiUIYtogekH2
+ TANB+RC3RgbF6GCTYIrifTQf61ck6jB8VwheO4e/6ALCOuTy1PjzA4X4TMEAwdNUZ9yihOV
+ lWgmUzHBXHMGwhuuoQpWQXcbomBO0TmApSJFiAER0ifE9eFr9BxNlENeoWtI3p9Il5BnrsM
+ w+qzysz/8Zi/Oc5B0d6lw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:AM2WJbbDq6E=;rwUTPbig/UMteTDB2+STJ2kbLMM
+ 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
 
-On Wed, 18 Nov 2026 09:24:38 -0800
-Doug Anderson <dianders@chromium.org> wrote:
+On 11/2/26 09:48, YuanZhe Liu wrote:
+> register_framebuffer() can return an error after the framebuffer has
+> already been installed: do_register_framebuffer() bumps info->count,
+> creates /dev/fbN and stores the fb_info in registered_fb[] before it
+> returns the result of the console takeover, and that takeover may fail.
+> ufx_usb_probe() treats any error as "nothing was registered" and unwinds
+> through reset_active, which releases the fb_info and drops both
+> references to struct ufx_data, freeing @dev.
+>=20
+> The framebuffer stays registered and can still be opened, so the next
+> open() of /dev/fbN reaches ufx_ops_open() with info->par pointing at
+> freed memory:
+>=20
+>    refcount_t: addition on 0; use-after-free.
+>    WARNING: lib/refcount.c:25 at refcount_warn_saturate
+>    Call Trace:
+>     kref_get
+>     ufx_ops_open    drivers/video/fbdev/smscufx.c:1033
+>     fb_open         drivers/video/fbdev/core/fb_chrdev.c:351
+>     chrdev_open
+>     ...
+>    refcount_t: underflow; use-after-free.
+>    WARNING: lib/refcount.c:28 at refcount_warn_saturate
+>    Call Trace:
+>     ufx_ops_release drivers/video/fbdev/smscufx.c:1135
+>     fb_release       drivers/video/fbdev/core/fb_chrdev.c:378
+>     __fput
+>=20
+> Reuse the "has this fb_info been registered" test that ufx_setup_modes()
+> already uses: take the error path only when refcount_read(&info->count)
+> says the core did not register the framebuffer.  A failed console
+> takeover is not fatal for the driver, so report it and keep the
+> framebuffer registered; the disconnect callback will unregister it
+> normally.
+>=20
+> Fixes: 3c8a63e22a08 ("Add support for SMSC UFX6000/7000 USB display adap=
+ters")
+> Cc: stable@vger.kernel.org
+> ---
+>   drivers/video/fbdev/smscufx.c | 12 ++++++++++--
+>   1 file changed, 10 insertions(+), 2 deletions(-)
 
-> Hi David,
-> 
-> On Wed, Nov 18, 2026 at 1:54 AM David Laight
-> <david.laight.linux@gmail.com> wrote:
-> >
-> > On Mon, 16 Nov 2026 12:53:05 -0800
-> > Douglas Anderson <dianders@chromium.org> wrote:
-> >  
-> > > `fdt_find_string_len_()` currently calls `memcmp()` at every byte offset
-> > > across the string table (`for (p = strtab; p <= last; p++)`). When
-> > > building or modifying trees with large string tables (such as DTBs and
-> > > overlays with hundreds of `/__symbols__` or `/__fixups__` labels via
-> > > `fdt_sw` or `fdt_rw`), scanning multi-kilobyte string tables byte by
-> > > byte dominates serialization time.  
-> >
-> > Are those symbols just in a linear list with embedded '\0' ?
-> > That doesn't scale well at all :-)  
-> 
-> I'm assuming from your :-) that your "That doesn't scale well at all"
-> was intended to be wrapped in <sarcasm> tags? :-P
+applied.
 
-Something like that...
-
-> > > Advance `p` between candidate first-byte matches using `memchr()` (with
-> > > an explicit `slen == 0` check for empty property names and a `tabsize <
-> > > slen + 1` bounds check before computing `last`), preserving identical
-> > > suffix-sharing behavior.  
-> >
-> > Might it be better to scan for the '\0' that terminated/separates the strings?
-> > Then you do one memcmp() for each string/symbol rather than for each time
-> > the first character appears in any string.  
-> 
-> Two things work against scanning for `'\0'` here:
-> 
-> 1. `fdt_find_string_len_()` intentionally supports suffix sharing (e.g.
->    `"controller"` matching the tail of `"interrupt-controller\0"`), so
->    scanning for `'\0'` can't check `nul + 1` (the start of the next
->    string) -- it has to start at `strtab + slen` and test `p = nul -
->    slen` before each `'\0'`.
-
-That isn't a real problem and doesn't make much difference.
-
-> 2. Every stored string ends with `'\0'`, whereas `s[0]` only appears in
->    a smaller fraction of bytes. On a real upstream Qualcomm base DTB's
->    `dt_strings` block (855 strings in 11,259 bytes, average 13.2 bytes
->    per string), `'\0'` occurs on 7.6% of bytes while `s[0]` averages
->    3.9%. Replaying those 855 insertions makes 362k `memchr()` calls when
->    scanning for `'\0'` vs. 187k `memchr()` calls when scanning for
->    `s[0]`.
-
-You need to count the number of times that a letter that is the first
-character of a string you are going to lookup appears in the entire buffer.
-There might only be one 'j' in the entire buffer - but you never look for it.
-(But I might still be wrong)
-
-> 
-> > Even with the code below you want to do the !p[slen] check before the memcmp().  
-> 
-> Agreed. Since `p <= last` (`strtab + tabsize - (slen + 1)`), `p[slen]`
-> is always in bounds, and checking `!p[slen]` (i.e. `p[slen] == '\0'`)
-> before `memcmp(p, s, slen) == 0` cuts the `memcmp()` call count across
-> that 855-string replay from 187k down to 14.3k (the exact same 14.3k
-> `memcmp()` calls you'd get from scanning for `'\0'` with a `*p == *s`
-> pre-check, just with half as many `memchr()` stops).
-> 
-> Timing 200 replays of that 855-string (11,259-byte) Qualcomm
-> `dt_strings` block with `gcc 15.2 -O2` on x86_64:
-> * Original (per-byte `memcmp`): 3.45 s
-> * Scan for `'\0'`, `memcmp(nul - slen, s, slen)`: 0.45 s
-> * Scan for `'\0'`, `*p == *s` then `memcmp`: 0.36 s
-> * Scan for `s[0]`, `memcmp` then `!p[slen]` (merged `c954f9dd8357`):
->   0.27 s
-> * Scan for `s[0]`, `!p[slen]` then `memcmp`: 0.21 s (~20% faster)
-> 
-> Since you already applied this patch to `main` (`c954f9dd8357`), so
-> I'll include a 1-line follow-up patch swapping the check order (with
-> `Suggested-by:` you) in v5.
-
-Have you tried an open coded scans instead of calling memchr() and memcmp()?
-With an average of 13 bytes per string (26 for your memchr()) the code loop
-might be faster.
-But beware, gcc is likely to convert the code back to a call to memcmp()
-- it certainly does for strlen and memcpy.
-
-Oh - and if this code runs in kernel the timings will be significantly
-different to glibc - it uses some magic avx instructions for strlen()
-and memchr() is effectively the same.
-The kernel functions are likely to be out of line byte loops.
-
-David
-
-
-> 
-> -Doug
-
+Thanks!
+Helge
