@@ -1,96 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.128
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795008971;
-	b=c4GtXkikaw31xUvQb9yd7j4+RxfU3fTXgsJOCzUjMhI1YNndrRQtAbB+CITXkiVMv6fx
-	 QAw6eMwlfaXMowSlaX8AJpWcRL/7sgrimos4TyhUjVwciSLNcSl9yii2LJ3Uq8lm3LotO
-	 r2zEbwxpHU2+sM2r/cwsOe0ix2qrQ9R9NvBJE9OIbR/su9SP94+ijlNvcYcJ38dJ7gvNY
-	 smaGPto9Oc3/1YY+Gbr12G7hF5El8Y58cEpOHOJw1lYffaYPdCaJXGmfUolfzV6v0LCLG
-	 dcpMa1dJcwqVaqeXkft7f3J6GlbLNPcOCHP6n+OG+CZttKRyumQsmoA6E6b1OJ2LtSA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008971;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=XmjwcrixBdYdShXF3j6BajIoW55pEfUzdxENeiiVaXQ=;
-	b=BuIPaPKwbnMbZM6RuCc8i8eD8o36uijVKLIbrDb5Ic+QHdq0kWMtS0JKwO5JFdZ5xuZB
-	 6hXRdX1nnMYkjmanmSRYTPmg+Gx595VGcrIoIJgjcTMSAKDPI4bvU9nzvnnXS6u8c2vaa
-	 UDbWlr+JHziqXqBK0WnykYtgmmH1ZCcvaM+LtxMT94lH22BXgpTyhiv53pgQ8nG2Kyf/p
-	 fZcWq4Bi9grzkg9ARdRSwd5oYujR1SW46IMzBSCnPpEQGlaEdtQRabSzvHEAiI7FhBskk
-	 ZbM8KcZertQZoDsiXUuKPXfWTSveMb+p/SGVKZwvcrWTHW/efioWIL4exbbmR8rLzqQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=FbB76ayh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.128
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020128.outbound.protection.outlook.com [52.101.189.128])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795008996;
+	b=4zxQcALMdwCjaKJ/r/xy4sSpQzZ/7NLpPm+QMWtE8nb9bG4+W6CNwsq1LqoegDoHXMF/
+	 DYZAiiS2RqGZS/t6GAsCEqLx45y8JHxVM24Nok3owiYzoXFTRt+8N6ARdJjsHWIWZ76bB
+	 nS9HzjJzpvFDUyLtaqJWVCXXWeDlM/yRsE9cosKGV1/Qc526V/6g0bW9TshGvPwCpHW1B
+	 8S8tHdl0d1XzeDJoffA/XovNER2hBcL2GyiI6u/dxoUwWQ827ardCoNhoXgsVPVawTENY
+	 MZuIiivqN/Zhmciu0PPNimx4if1j0v2QHskNzXaJZnIhJ0j6eGv9svxEpx+Cv0omkzw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008996;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=CsF55ZXLDTjTlBBCuvyJQs4EzU3mpk9cWSAc5sBOHaM=;
+	b=5WFeIO0LHEcPzhf8ueW8snK4dVEzmJEEdm6YvXn28pIPf5Yly5Qo03NGauThHTUnLdmv
+	 0y9VQFZVOkwkWWMALwpmuaRJ8JCqb+ijj99osk93styRu60VAy5yPA0mSn7DlDx77IFnT
+	 ncHx9HPg+8bSVOYILP+0LGnm4Q7NS1Z61aT/avJ21/h7fKJTkkMcCIMKHRvwLUaks/5+V
+	 VZB+xKf0K4Jx/EIuLsL4TAduCZ8hBFOtgy6vRBwBqieoihV7W804LQEjmbpbbtozyIJ1C
+	 h/CLQq+F3VGuiDzn0f/i/W90/O7x+jA1BUH3zYkl2TyZvsEva6mj97HAcemwcyneKog==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2SU2GLR;
+	arc=none smtp.remote-ip=209.85.216.41
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DF67606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:36:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DF67606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63595606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:36:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63595606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=FbB76ayh
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yKvGT0biK6+KkqeBT60j8yIMPK/KSrXtiuQhmhQAMJbb3xqdBBaUKi62eSlgy1gEn3XojeJJtADjj9CDE7CKhOvs7SQP2vHfeGGwziXl4Uf1KHa2nlJKkFeWEyXoTXQ6CKZxeNME0K4xTjf0KrRGFB8lCZ3cTJhD0u26c4UjpGpKXv8rdZYtTpHHbUKe0A1Ntf3CZb9LKPAl494HJtfQMuR1TMTVBJK5NHyz1GX/hYoFZ54x1J6mrnU+1MY/8bfVEiA5NOD2bj0yVCdGqZIbxbx7AMTuhz6mNNhIJzM++GQT24ZFLs/zwpdQikGLd9FZWfd/2u7i+LH9Q92BzOPtrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XmjwcrixBdYdShXF3j6BajIoW55pEfUzdxENeiiVaXQ=;
- b=qGi6yUjY3wFmIifjsK79D7G8fDpawxM2zWs4L2lGQt/SxZhA2UGynSr7Y8PowtX+iSi34r9Fgjbsr9lEgYSXViHpDLSFbKV5BlNUmyeFRsJhF73EBZtIjH2NaRjk4qsqtALyVamGdmKrzy7Xe/ylGpBCy0RoP4IVfeqqTP9caiOkZJ0M/vsA2V9gMP29uOg39obuCHHzwspZtPousB/y+BNKz5CHYjX3MY9PY628R3IxyPzSYO6ADPg/dBoevIjmEyj5vYG31kz97mKkp/Ohv2dm/2Varr2fLrblam847B7T0FgBdLVzzkX0BxK91UOCROkHvjbKxkPvKcgVkq5FlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XmjwcrixBdYdShXF3j6BajIoW55pEfUzdxENeiiVaXQ=;
- b=FbB76ayhPYyiIOYcM2u7aM2vZEfTHNQYqq8QdIq8/o03XHWG1cWMxU5NQxYG5XH3YcL8G9ApE60/5rnKJtqpUIkT+fZBmi07NkaKtalPnAptpzj6WkmvTLknDFczmqRFlrIcPWDMNid6iRp8Owc1vct4GQw0+PyxORGILhLX1v5el0Z7gbfnjly4dG0wofT77SSKsUyQKzI9rJBq2KiSMsO+a9MbYr0d+qu8XS+Fkhm+vcoPRdB6LQVOnYyhHkGg70dXAG2vadr3u/mMvuXlgRUbeLZLLRY2mIIcxzrsHlyxLGZf68XKUkhzPlZJhCuchdEU0W7OaUzZiWYs6CgvGQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YQBPR0101MB9677.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:80::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 13:36:09 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 13:36:09 +0000
-Message-ID: <1dc97b46-dd33-40c6-8422-59101516b392@efficios.com>
-Date: Wed, 18 Nov 2026 08:36:08 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 11/40] sched/deadline: Reset the donor's runtime at a
- deboost in the class
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
- <299aaf536a1a63c7b496eebe7a6ca20e8f06ad5f.1794922146.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-219000@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-219000@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQZPR01CA0086.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:84::15) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2SU2GLR
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3ad41b47541so705449a91.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:36:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795008995; x=1795613795; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CsF55ZXLDTjTlBBCuvyJQs4EzU3mpk9cWSAc5sBOHaM=;
+        b=S2SU2GLRF7Q89vZPqbcg9Aca5nW2jM86vS2pGy48rE5doSUQjy3FLIIMRBeEMTfIjB
+         zz2Z+vNiBM7gJMRfEp8eGZnudVVHDIuunmMGIFVHtQaWoLug9yS/EurPe2Fd9FeSsj5y
+         6462+0gjk5MOdiOSkWFygN5kySHbh1xShtKsfC4OCZsPXQq4HmnUiupvQBuPa0ii+g9y
+         mfo4FCE9fRklJJ2BUfv4ALPteKb3nk8zrta1/XraRnm3gwk5WOpWpDMIbahKn6C3Subs
+         zGUTHHvIvjOc6UvfDODWGpYOLi2QfKHe7EOuVOROgnmBuLYifoL7ZJ7TujaqrdB7MYgh
+         aItg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795008995; x=1795613795;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CsF55ZXLDTjTlBBCuvyJQs4EzU3mpk9cWSAc5sBOHaM=;
+        b=SoAPKb33QfXAOP0Db/HHJt3dFXEIgbJH8fd9sbmMaQSCDvUW/lMOiimZdAOh1V+4nQ
+         IQUJISxGKjgWxiOL76QkiHPnyaKCBxutjmSNaIbWgHdwA4X1IM4cBgbYcWlR6yna4CjG
+         9ZF/aQE/VtKIXM6KCY4Dz510Qz3cUZYoAUNF3cwaKZ5apY/oonghbrGII34bjS1q/r8i
+         VRxAEdiPSqPCOT+gGN9z9kjxdNmz/b+npGwsjTd/T03Cxw6CJG3Zo+E0bReKT7Ow2NJW
+         sOcFYd2AVHI4F7PIaYdkmDH8q6HdKOYikDZOlC31W1R2sW9MX4/rbebX8OMmJHJtvj4a
+         /Umw==
+X-Forwarded-Encrypted: i=1; AL+hErFTtv71USh31jQCgmb7ZWV+HPP1VlToDtFCpoOjG2FrGz5GQkzxGJhh34jdX3vZ2gAb+L2PlA4RbwJL/e8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LYGwc+tw0lC1Cm5PrlypKfIvKZ/B56mcYH1pMmt9HFhOBWrhi
+	nxQDIeQptwe+ZbRFcRKkVpO5/HSUTjwzt8QerEiK9j+3BrTY8kQzwKuS
+X-Gm-Gg: AZFdTZdaYGWYhUSeYfsoNvXnsKUVYlCdjL2VqSMtz6n4AjCYSmTaKKSBwP+Fqmq1U4c
+	Z0gglubh/gxERfXPapb7/YGT7vrXMTmhyhygnwhQadasXhMUfdgMe7OnLJEo6gVLBbFp0iEZi+z
+	acKiyvs3qd3/T7/NHq4HNbIsl/6sbv9FT8wB+ZYBFyCNeKqIx/GiIq2I97CUG0bNCbxGAttlZW9
+	ZQGz9eIIvey6MizDnp5NtGt6nLAks1zNR7vW362/U0aOkkNyiqETqs+IsGOHVP0vyfhzIlnphxw
+	5H9+TwBf06bg+zPQ9bIEF6QOCLyzhKodQIs6gnBE76rLyzuUgXPR5EtyNV31KXlnbQD6mpGrMeQ
+	qIGvr8wcM6CPkEvfi6DX9AqDdRmqWI+HUd7ZIS9osBhSRR30X7ShEeXmBhEhC+FrPU4hgoHVRWE
+	DT83NM4XDNQVoAAN+VyAvj/bnwn21hMehJeLLpZAujE7r2xNIlblE+AkQG+/lexJjBmVkcdB7BA
+	37D4CHrXngvIIv4pourUoYAs0FdQLq0csZ+xCrLRHIcbxMG57laXxpg3GQnHx04Q3cQPKUgaksQ
+	hRZHTxNK745kYFuPc1UJWedc9s1bHKDDWZlnspmBli21NvR4d+qz
+X-Received: by 2002:a17:90b:314e:b0:3b3:c930:35d1 with SMTP id 98e67ed59e1d1-3b3d07c8421mr3025084a91.51.1795008994528;
+        Wed, 18 Nov 2026 05:36:34 -0800 (PST)
+Received: from macbookair ([187.40.224.113])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6214565sm13741965ad.42.2026.11.18.05.36.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 05:36:34 -0800 (PST)
+Date: Thu, 19 Nov 2026 00:36:23 +1100
+From: Myria Sarvay <myrialsarvay@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
+	Yuvan Shen <yuvanshen09@gmail.com>,
+	Nick Chan <towinchenmi@gmail.com>
+Subject: Re: [PATCH v2 03/15] drivers/perf: apple_m1: Support
+ per-implementation event tables
+Message-ID: <av2p17j8AglpTSAz@macbookair>
+References: <20261107-m3-plus-pmu-events-v2-0-acf1e78da039@gmail.com>
+ <20261107-m3-plus-pmu-events-v2-3-acf1e78da039@gmail.com>
+ <864ide1hb1.wl-maz@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,116 +107,250 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQBPR0101MB9677:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9774d372-2fc0-4164-33da-08df4578e74d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|10067099003|261022075727099003|56012099006|5023799004|4143699003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	zsr/1qBfF550yZyY9TCZuJRx96xJeyuV3rl+8j10+HzOItFv30O3mSmPez6udrQ35OlegNW1jFC2gF0d00a1qWgmtKUQU3MiTodV97Kruk3kAI5l1/8NMlxLwHYA5uQWBxihWY5ad0DBRTJzfrn8UDjmsO0s9dtKpkhPrYrImDGnEqBLVGtYNZaHk6u9a6vxCht0DwsaCRHqwk05ruP9J4xWV1fMrZxxOEDL5ThJcnvGysNqyFV6dkk66VAkYC1nZ0WqH68UUw4L//3T4dLCgvvlaPkgQI5Alhnlc8ikvC/NS9CL/DGsGlZ1WpF9Hm/HVvyAUYJ+FwvOk5gYtKmyDEFBL2HTNuzS/+GDCKl5Oj8O6Zk8DJt9RHRbn52lzifh8fQ/gef4AsQUEXd4ZHEpV5g/cPOxN5YR5Y8ju/UPWW/IWXL3qKbQU1hWxEMfNrFK+Q7CXX8uSgyfV0mneCs/od1jIoGKtKdqGj1DEIpbtK5HnrL4fr8xOBywgRG/6QC8RLS4elNCOy/hCr2VYQ+WJaB2GKWDzYMLz9CYWqkQTUz2xKw7+iW41Ujfs4Za55gJnxPfDtWmHHoJxXXDS38FWbPblklPHdr5LYnPvPOTgJQ=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(10067099003)(261022075727099003)(56012099006)(5023799004)(4143699003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QldQK1E5dkRCNWVOT0dLbnh5WTVUUjJ2VHlDbUE1OUl3VnA4UHBOUFlaQXFO?=
- =?utf-8?B?TGN5NVRuZkRwby8yVWpEd21hZEZjVHV0enRLOXZ6ZzIvSUUrTTcxTktYY1RE?=
- =?utf-8?B?YzIwSFZhaXkyVUV4RmFSaWhVRXRrVU91aFZScjJSYmhyNFpmRHRlcWZVcSty?=
- =?utf-8?B?dlVKMlFKRWlXeFZkTW1McFk3S0FmSmVYZ1VMMVlyWmhPQkJwdEhKYm5mVE15?=
- =?utf-8?B?MUYySjJmSFo4UHFaalFkQmsyMkRPcTdsNmVtNmFMK3phazEvMzRlRDNJUmVo?=
- =?utf-8?B?NVVxZ3RBUDkrZk8rRnpzL0RWamw1MGpGaHlvVXYydjRzMHIwUk8zWHFPRXJh?=
- =?utf-8?B?ZEpNKy9FMk11SkZGVkJadWYrUnovekFsejNBMWpGMlovUHQ3U1NqRytJQko4?=
- =?utf-8?B?VkpZMGprTWZ1eFFTRm1ZVWRCTHltdHZJbzNmQ1Z2bW5yZWt6UXMyemVocHZF?=
- =?utf-8?B?MUlobjNMK1RWSTVSZ3dJTkNON2Vwdi95amxSQWNPSGxnSXRVL3AyY0o1dDRz?=
- =?utf-8?B?amNFQStGaFlydmJmREpsRStLYWtiSGdXM3hpQmlwSnhJWFlLb2MwNCs1SklN?=
- =?utf-8?B?eHVVM2NHTmgvSWs3WEZXVEpjNjlrdmJHR3V3em91VjVLckx4aG02ZFByM2tI?=
- =?utf-8?B?R3l2MHZ2VVZaMUx0eHk2Z0toOXlkRGkzQ1U5RWRKd1VCU0RrTmY4M1FXTEdJ?=
- =?utf-8?B?TmQybGx1TXVVK1BxRnlGYVBwTGszZjVjVHF3Z0dFQWRXZk93OEpxUkd5VlBW?=
- =?utf-8?B?YW1TSFNPSkFuNGk4eStFa3R5SDM4NFgxd2crakZ1MGh6NFk0UE9QN1hBRjRx?=
- =?utf-8?B?UUFXcXNqQVNwczh2cmFvKytDMlNaTXV0SWhMZnhSQyt6MDU0eTRYTDIwU2hP?=
- =?utf-8?B?Rk5pMXc0bWw4TVZCbXpTTm1ROWZqZDBDdlppdlpXaERMbVFndjl3U3A2Mm9G?=
- =?utf-8?B?SFpVMitGUjdydytRamxDUm1jRFVCTmZtOURiWUNuSVNRTVVldFdhNDBPMHpQ?=
- =?utf-8?B?U2VlTG5RL1kzNXNlWmZRVlEyZjRKaUlNa2VmeXJoRzJEdW1qRFluNDZ6UUw0?=
- =?utf-8?B?eUlablhqcUloZGc5eXZxK3h2RVhxNXJ0MVdERnE5cjFxbTZOUFZwd241Zmpz?=
- =?utf-8?B?YTRvTVg2dXhWYzdwTkdmT21VTG02QjcrN0RxR2k0T2JBZ0pCWDcyUmhCN2Nj?=
- =?utf-8?B?WSsxSm8xSTYySndRTGd3Q1QvY1ZSQmxTMG54bDdBNEFKTDBmcXZWL2hmL25r?=
- =?utf-8?B?MTd2VG96TnhDdW1XL1JPK1BQRjArL3l1VWRMYjQwajcrMHRKdmxuZnNrcmZZ?=
- =?utf-8?B?SUFZd2dsbzFVR2MrYWtkRzNtWVVERWNkdTJkWnpRNHFLZ2dKU004cnVkYmtO?=
- =?utf-8?B?V1NzTmlSejlJcUt2TTJ5bGFiMDdPQnhwZ0Q2M1hqdVFjTm5SNXJEbVRmV2RM?=
- =?utf-8?B?MmZiNEpESVpMZXlOQVg5Q1A3ODVoTlJrMmxGZGlwSnRhMG1zSlEyTUZvUUlw?=
- =?utf-8?B?MFhtOTFxdDVKVUExaDUzMmxKcTVSZkx5S1paUUFkUkxmTHh2SzlrdzVpTUN2?=
- =?utf-8?B?aG95QjVPN2I0QkpMdStRK2dKZUk5YitkRFNURzkzZ2hmT3ZwWnhyTEdVV1pw?=
- =?utf-8?B?TUtJVUNic2w5V1VrSjVSbzM0REVJV1JoSzBkbXJ3TDRVMEVXWGUzZFVGdG5m?=
- =?utf-8?B?QWdJdVBvMlV3N2ZmYjlqNW5lbjRVcnBFaS9KWHY4dHAzN2lVcW9ENkV1ODJr?=
- =?utf-8?B?UE9ZWHYwcDdvZ2JyOHdxZ2lTS3FWc2VlQ2ZwZHYycnRnU0NlMC9iSUMzYkFM?=
- =?utf-8?B?TDNFRGdzVXJ2TlpvbFArK21YT0N3V2JZdTlJL2lKUG54Q2V1dzJNbEUyNG8w?=
- =?utf-8?B?ZXljMUk2Z3BBZFFIWFVHdXBCU0dBclBaTUJ1Mit5UlFJNWZkVlppdERNN0dF?=
- =?utf-8?B?dUk4bTZmUmRidzVib2VnVGxsWTNMQzhWczI0NW93bEhCVnVYc2QyTk9aWUlR?=
- =?utf-8?B?V0pBN0ZkSzNaRmJEb0lBT2JFbXljZElDb0RtYStpaHg0VS9sWWZLWHBYNEJ3?=
- =?utf-8?B?WU5NYTM3NUU2N2pUbXFrUEdaR1NUTkthUmJIYzhjQWFaZVh0NDhncUxvbXZT?=
- =?utf-8?B?ZHFkbkYvOXpyeHhBeXg5OUtWYVc5bDE3RVJHSWZZa1lvQVlIZ0RNaWc1UzFC?=
- =?utf-8?B?aWR5UStMZlIyeFlndS8xQ01hYUt5YnlEWlpGdEVtbDhqNE1scEp4ZlQvWnVC?=
- =?utf-8?B?Rks0cEg1aHN1NkdBLzBZV3RHbERIV2NPaEEzUHN6M1NaeXdtNVVkTU9VYS9L?=
- =?utf-8?B?cllWNThwRWZMTlNLYW42d2llM3FxMytLZ2gxT0RBWmtNYWd2R2ZCZ3RCa3c3?=
- =?utf-8?Q?dAhVo9dHRri/PNRKa4k3IPh+ynC/BTjcbnRMx?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9774d372-2fc0-4164-33da-08df4578e74d
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:36:08.9585
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: h1dcMkhrMhpEMAWCbkqKf4CbCb+Db+5JpcRq4ZLsPfQnv6oV28oX3LUfiuXEKEVINtne40av7MXDe9FngvSWwzrSOOZL14lec0n5W3kWAEM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB9677
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <864ide1hb1.wl-maz@kernel.org>
 
-> Can a SCHED_DEADLINE task skip dl_deboost(&p->dl) here when switching
-> from one deadline donor to another?
+On Wed, Nov 18, 2026 at 11:59:30AM +0000, Marc Zyngier wrote:
+> On Sat, 07 Nov 2026 10:48:50 +0000,
+> Myria Sarvay via B4 Relay <devnull+myrialsarvay.gmail.com@kernel.org> wrote:
+> > 
+> > From: Nick Chan <towinchenmi@gmail.com>
+> > 
+> > Use per-implementation event tables to allow supporting implementations
+> > with a different list of events and event affinities.
+> > 
+> > Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> > Co-developed-by: Myria Sarvay <myrialsarvay@gmail.com>
+> > Signed-off-by: Myria Sarvay <myrialsarvay@gmail.com>
+> > ---
+> >  drivers/perf/apple_m1_cpu_pmu.c | 113 ++++++++++++++++++++++++----------------
+> >  1 file changed, 69 insertions(+), 44 deletions(-)
+> > 
+> > diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
+> > index de4026c63afd..2ff0c2e0b737 100644
+> > --- a/drivers/perf/apple_m1_cpu_pmu.c
+> > +++ b/drivers/perf/apple_m1_cpu_pmu.c
+> > @@ -43,9 +43,6 @@
+> >   * moment, we don't really need to distinguish between the two because we
+> >   * know next to nothing about the events themselves, and we already have
+> >   * per cpu-type PMU abstractions.
+> > - *
+> > - * If we eventually find out that the events are different across
+> > - * implementations, we'll have to introduce per cpu-type tables.
+> >   */
+> >  enum m1_pmu_events {
+> >  	M1_PMU_PERFCTR_RETIRE_UOP				= 0x1,
+> > @@ -167,7 +164,7 @@ static const u16 m1_pmu_event_affinity[M1_PMU_PERFCTR_LAST + 1] = {
+> >  	[M1_PMU_PERFCTR_UNKNOWN_fd]				= ONLY_2_4_6,
+> >  };
+> >  
+> > -static const unsigned m1_pmu_perf_map[PERF_COUNT_HW_MAX] = {
+> > +static const unsigned int m1_pmu_perf_map[PERF_COUNT_HW_MAX] = {
+> >  	PERF_MAP_ALL_UNSUPPORTED,
+> >  	[PERF_COUNT_HW_CPU_CYCLES]		= M1_PMU_PERFCTR_CORE_ACTIVE_CYCLE,
+> >  	[PERF_COUNT_HW_INSTRUCTIONS]		= M1_PMU_PERFCTR_INST_ALL,
+> > @@ -486,11 +483,12 @@ static void m1_pmu_write_counter(struct perf_event *event, u64 value)
+> >  	isb();
+> >  }
+> >  
+> > -static int m1_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+> > -				struct perf_event *event)
+> > +static int apple_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+> > +				   struct perf_event *event,
+> > +				   const u16 event_affinities[])
+> >  {
+> >  	unsigned long evtype = event->hw.config_base & M1_PMU_CFG_EVENT;
+> > -	unsigned long affinity = m1_pmu_event_affinity[evtype];
+> > +	unsigned long affinity = event_affinities[evtype];
+> >  	int idx;
+> >  
+> >  	/*
+> > @@ -509,6 +507,12 @@ static int m1_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+> >  	return -EAGAIN;
+> >  }
+> >  
+> > +static int m1_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+> > +				struct perf_event *event)
+> > +{
+> > +	return apple_pmu_get_event_idx(cpuc, event, m1_pmu_event_affinity);
+> > +}
+> > +
+> >  static void m1_pmu_clear_event_idx(struct pmu_hw_events *cpuc,
+> >  				   struct perf_event *event)
+> >  {
+> > @@ -536,44 +540,52 @@ static void m1_pmu_stop(struct arm_pmu *cpu_pmu)
+> >  	__m1_pmu_set_mode(PMCR0_IMODE_OFF);
+> >  }
+> >  
+> > +static int apple_pmu_map_event(struct perf_event *event,
+> > +			       const unsigned int (*perf_map)[],
+> > +			       unsigned int flags)
+> > +{
+> > +	event->hw.flags |= flags;
+> > +	return armpmu_map_event(event, perf_map, NULL, M1_PMU_CFG_EVENT);
+> > +}
+> > +
+> > +/*
+> > + * Apple PMU counters have been observed to be either 48 or
+> > + * 64 bits wide, depending on the SoC. However, the MSB is
+> > + * what triggers an overflow interrupt, so we advertise the
+> > + * counters as being 1-bit smaller than hardware so as to
+> > + * mimick ARM PMU behaviour
+> > + */
+> >  static int m1_pmu_map_event(struct perf_event *event)
+> >  {
+> > -	/*
+> > -	 * Although the counters are 48bit wide, bit 47 is what
+> > -	 * triggers the overflow interrupt. Advertise the counters
+> > -	 * being 47bit wide to mimick the behaviour of the ARM PMU.
+> > -	 */
+> > -	event->hw.flags |= ARMPMU_EVT_47BIT;
+> > -	return armpmu_map_event(event, &m1_pmu_perf_map, NULL, M1_PMU_CFG_EVENT);
+> > +	return apple_pmu_map_event(event, &m1_pmu_perf_map, ARMPMU_EVT_47BIT);
+> >  }
+> >  
+> >  static int m2_pmu_map_event(struct perf_event *event)
+> >  {
+> > -	/*
+> > -	 * Same deal as the above, except that M2 has 64bit counters.
+> > -	 * Which, as far as we're concerned, actually means 63 bits.
+> > -	 * Yes, this is getting awkward.
+> > -	 */
+> > -	event->hw.flags |= ARMPMU_EVT_63BIT;
+> > -	return armpmu_map_event(event, &m1_pmu_perf_map, NULL, M1_PMU_CFG_EVENT);
+> > +	return apple_pmu_map_event(event, &m1_pmu_perf_map, ARMPMU_EVT_63BIT);
+> >  }
+> >  
+> > -static int m1_pmu_map_pmuv3_event(unsigned int eventsel)
+> > +static int apple_pmu_map_pmuv3_event(unsigned int eventsel, const u16 pmceid_map[])
+> >  {
+> > -	u16 m1_event = HW_OP_UNSUPPORTED;
+> > +	u16 apple_event = HW_OP_UNSUPPORTED;
+> 
+> nit: s/apple_event/hw_event/.
 
-Yes, while the boost lasts. The first branch does not clear
-dl_donor_refill. The flag set by the first donor's refill stays set
-while the second donor boosts the task. At the last unlock,
-rt_mutex_setprio(p, NULL) takes the else branch. There, dl_deboost()
-starts a new period. So the task keeps nothing of the first donor after
-the boost. 
+Thanks!
+> 
+> >  
+> >  	if (eventsel < ARMV8_PMUV3_MAX_COMMON_EVENTS)
+> > -		m1_event = m1_pmu_pmceid_map[eventsel];
+> > +		apple_event = pmceid_map[eventsel];
+> >  
+> > -	return m1_event == HW_OP_UNSUPPORTED ? -EOPNOTSUPP : m1_event;
+> > +	return apple_event == HW_OP_UNSUPPORTED ? -EOPNOTSUPP : apple_event;
+> >  }
+> >  
+> > -static void m1_pmu_init_pmceid(struct arm_pmu *pmu)
+> > +static int m1_pmu_map_pmuv3_event(unsigned int eventsel)
+> > +{
+> > +	return apple_pmu_map_pmuv3_event(eventsel, m1_pmu_pmceid_map);
+> > +}
+> > +
+> > +static void apple_pmu_init_pmceid(struct arm_pmu *pmu)
+> >  {
+> >  	unsigned int event;
+> >  
+> >  	for (event = 0; event < ARMV8_PMUV3_MAX_COMMON_EVENTS; event++) {
+> > -		if (m1_pmu_map_pmuv3_event(event) >= 0)
+> > +		if (pmu->map_pmuv3_event(event) >= 0)
+> >  			set_bit(event, pmu->pmceid_bitmap);
+> >  	}
+> >  }
+> > @@ -616,33 +628,22 @@ static int m1_pmu_set_event_filter(struct hw_perf_event *event,
+> >  	return 0;
+> >  }
+> >  
+> > -static int m1_pmu_init(struct arm_pmu *cpu_pmu, u32 flags)
+> > +static int apple_pmu_init(struct arm_pmu *cpu_pmu)
+> >  {
+> >  	cpu_pmu->handle_irq	  = m1_pmu_handle_irq;
+> >  	cpu_pmu->enable		  = m1_pmu_enable_event;
+> >  	cpu_pmu->disable	  = m1_pmu_disable_event;
+> >  	cpu_pmu->read_counter	  = m1_pmu_read_counter;
+> >  	cpu_pmu->write_counter	  = m1_pmu_write_counter;
+> > -	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+> >  	cpu_pmu->clear_event_idx  = m1_pmu_clear_event_idx;
+> >  	cpu_pmu->start		  = m1_pmu_start;
+> >  	cpu_pmu->stop		  = m1_pmu_stop;
+> > -
+> > -	if (flags & ARMPMU_EVT_47BIT)
+> > -		cpu_pmu->map_event = m1_pmu_map_event;
+> > -	else if (flags & ARMPMU_EVT_63BIT)
+> > -		cpu_pmu->map_event = m2_pmu_map_event;
+> > -	else
+> > -		return WARN_ON(-EINVAL);
+> > -
+> >  	cpu_pmu->reset		  = m1_pmu_reset;
+> >  	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+> >  
+> > -	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+> > -	m1_pmu_init_pmceid(cpu_pmu);
+> > +	apple_pmu_init_pmceid(cpu_pmu);
+> >  
+> >  	bitmap_set(cpu_pmu->cntr_mask, 0, M1_PMU_NR_COUNTERS);
+> > -	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+> >  	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
+> >  	return 0;
+> >  }
+> > @@ -651,25 +652,49 @@ static int m1_pmu_init(struct arm_pmu *cpu_pmu, u32 flags)
+> >  static int m1_pmu_ice_init(struct arm_pmu *cpu_pmu)
+> >  {
+> >  	cpu_pmu->name = "apple_icestorm_pmu";
+> > -	return m1_pmu_init(cpu_pmu, ARMPMU_EVT_47BIT);
+> > +	cpu_pmu->get_event_idx	  = m1_pmu_get_event_idx;
+> > +	cpu_pmu->map_event	  = m1_pmu_map_event;
+> > +
+> > +	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+> > +
+> > +	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+> > +	return apple_pmu_init(cpu_pmu);
+> >  }
+> >
+> 
+> Looking at the following patches, I feel that this series is taking
+> the long route to get to a relatively clear point: most of the
+> invariant that we relied on for M1, slightly relaxed for M2 (counter
+> width), are even more relaxed for M3+ (event width). We therefore need
+> to indirect things. The way you do it is to mirror the current setup,
+> with a whole set of callbacks per implementation and a bunch of
+> additional helpers.
+> 
+> But instead of having a set of helper functions, one per
+> implementation, with an ever increasing set of parameters, it really
+> feels like we could do with a more data-centric approach where we have
+> a single data structure describing an implementation, containing all
+> the relevant data (pointer to the event mapping table, flags, bit
+> indices for the user/kernel/guest/host attributes, and so on. We could
+> then have a single set of callbacks that work on everything.
+> 
+> You could convert M1/M2 to that, then just add the relevant
+> descriptions for M3+, which should just add data and the init
+> functions, nothing else.
+> 
+> Does this make sense to you?
 
-During the second boost, the task keeps the deadline and runtime it has,
-as upstream does. Its own new period could indeed be earlier. But a
-dl_deboost() at each change of top waiter would give the task a full
-runtime of its own each time. A task whose top waiter changes often
-would then exceed its bandwidth. So this is left as is. The cover letter
-of the next version lists it under "Not changed".
+Hi Marc,
 
-> Does a task that still has SCHED_DEADLINE parameters
-> (p->dl.dl_runtime != 0) keep the donor's refilled runtime and
-> deadline when leaving the deadline class at deboost? 
+It does make sense, and should reduce duplicated code, I'm just not
+confident I have the right idea as to how to implement it. I don't want
+to duplicate a lot of the generic arm_pmu code, so it looks like it'd
+probably have to be modified to allow passing a hardware specific detail
+struct to all the callbacks, likely stored as a new field (void *) in
+the arm_pmu struct itself. Does that vaguely sound right to you?
 
-This is the same point as on patch 10. It is known, and upstream does
-the same. A return to SCHED_DEADLINE before the inactive timer is
-checked against the task's own parameters, by patches 35 and 36. The
-cover letter of the next version states it more clearly under "Not
-changed".
-
-> In this cleared-donor fallback (!runtime || !deadline || !period),
-> should dl_note_donor_refill(dl_se) also be called when
-> dl_se->dl_deadline is non-zero?
-
-No, this is intended, as answered on v6. The task has parameters of its
-own. It keeps its own deadline, with no runtime left: an exhausted
-period. After the deboost, the next update_curr_dl() throttles it until
-its next period, as for any task that used up its runtime. Setting the
-flag would make dl_deboost() start a new period. That would be a second
-full runtime in the same period.
-
-All three points were checked by reading.
+Also, with this rewrite, if we're going to make the code a whole lot
+more generic, and take hardware specific data from a static struct,
+would it make sense to rename the driver/all the callbacks while we're
+at it, now that we're adding a lot more than just M1/M2 pmu events?
 
 Thanks,
+Myria
 
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
