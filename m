@@ -1,47 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021108;
-	b=EpIixkFFwnvCakXXFaZ4jDGFttMbsWkIJB41IrZm0OmaNjYQuCv6x5vQvlJQsKpQxv2y
-	 SKNSjffWryttzWfvu1BF57wlz6Fv8t5nTUEWIV9p9/2oesC6iM3GtmD+0IMqu8CIxdMUw
-	 l070aOfGZ1hMTC1NIJSa5rxHRp64xSeBwi2dMsrKYTlO+V+y+HWOFOQFTdY9deriVpK1v
-	 wWe5Z9tMASQqrgXYlupPSO7sYsmiu1U1vpTmPdHBLT4QwcA4AOVjJzPkLQk41x/Ncxb1J
-	 +v1P7hyZMxUjscqbs1y+52cKSRO9dJvDrnqtbSXuX2kKeXX2ut7gGQfL0eKyg2BkxdA==
+	t=1795021125;
+	b=vulYEU9MNP5syxoYBp9lBzN7Jfl/buC/6d0CSoZtvcKcdC9wPSbWeraFB9AJyTXqwRtY
+	 kW9QMG86JtEzTMUBpPajnEJQ0NAn41IItLcxoghN4nIdhaNCDFG4q3W1WovCq0h0vgDr4
+	 ab8VwqR+jWf1MejjPkffGYbCsjjVIYytXbRyZFHvD/NppfPhYM6JVQxJ7+D5ot+mTKmLh
+	 8zHGDu/eQJmNbHeQdegXkxnSTfMSP8i+IhNKX7asojPhbTcz+pfDy1t2Ka76jskRKe5ls
+	 O3Q77RzP5Lx/R6qBNDV9DTMyxFGqY/jAo1qOj+nq29QPYCHbyFo2xgs55qyO9xPETgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021108;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=TSwhsJSNjnAtKDkFULTFwFmDhe+Yv9c61DRAS88DMuI=;
-	b=Uo1Lx9usheRejLxm9FCvTBnITsZil8ygMOjdztG4ioXHXWYmyau/GSOzlNfID+3YN835
-	 xZcVKQVYwWFtrEh5OWVWP9yWuLWOyajsSBdXm6pOJh2wDuCXjUSPbE48ohpvnHur5kqAB
-	 JQlNpEuDjkKydqDEiQfA0u4VySrmrpPQNo547JMMlt4/QYvuBW4Rcodikvn8ItzRpWI+I
-	 sik5UC8vDLb3j60M9KjLZQrYUGOkafXYnHFfVSFt14lgptm4SXOGED1dNrLTKxh4o9Wd8
-	 5xQm56SB6jw+UM4+X/pBTa36mVvaplj9NCJbX1or3nJru+i6G53J9SPxtLhU6hnHIyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021125;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=V+EJ9RUzxCOAUO4kV71qX/xQMGJep7DBGe17w5CTk4o=;
+	b=AdF6cx75EHl2AeDT475Dcf8q9jjFSLfA39FFQRAZcbBEYDKqAixLlPYz74QYII3HRYtr
+	 rtw00pjyZqMBt/wbH8OkEXHkozy0QZ2/mw4iNb31+Tzs3v+GCc80LuUAEUfPSJUt1ezy7
+	 dkPNFcjdRkXfOr7x8ulp3ymF6UpX9mfs6EVZAuMa2vgirVpEWRtbdp35rxtklY6XWYXl0
+	 JnXJlAk8SCNChHjDgFNLu3G848qzTV8ezGBmLTY3dXInz8+wqLKBe4SBiHtisZFKgoXkb
+	 crSB+AxjNs3DLw9f/YBuAQWGEiFrgDe4wUBQ7LN/u2N1OO/sLU9O9FydJ+iNHLp9M9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oFZKfKQl;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RrpNn6y+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB430606A31C;
-	Wed, 18 Nov 2026 16:58:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C6A606A31C;
+	Wed, 18 Nov 2026 16:58:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oFZKfKQl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03CE41F000C4;
-	Wed, 18 Nov 2026 16:58:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RrpNn6y+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE9F31F000C4;
+	Wed, 18 Nov 2026 16:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795021108;
-	bh=TSwhsJSNjnAtKDkFULTFwFmDhe+Yv9c61DRAS88DMuI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oFZKfKQleOycQXAfqulsKeEapGKLGTey4/+kx9d5tDssB9lQtl8VnoLZYSunOwlFN
-	 yKTCvk4zRFgTjUPQtxiIAiludCEsBREbUVdLyrkMoTWvXDqBRn/asPIuirMZXZl3jg
-	 V7We/Q3VL0z5Iatc+kK4+7AuY9XnH2pS7xtJGdkWR6gcH3PRpi3AVuaY/lyNfDvjKX
-	 wIpP3KgUpJqvlEudYzswYxye/f89Gnb/iGdIntHyaxOQLsqQoAUwM8zqxg2nBWxZJB
-	 5vw9Z1rm/vWb0ymAND4jHc2hyhlWiEJ/pZRBorFcNVImYcIJQSHOixwPifNyZNn6Dk
-	 hNxPvcK2Rfx7Q==
-Message-ID: <2650b0d0-49a9-450c-af6a-df1aa129c3b7@kernel.org>
-Date: Wed, 18 Nov 2026 17:58:23 +0100
+	s=k20260515; t=1795021125;
+	bh=V+EJ9RUzxCOAUO4kV71qX/xQMGJep7DBGe17w5CTk4o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=RrpNn6y+46QpHOKdkuUZGRwTHBl2RNFAcYLU0yhTf1eIFbFQ5Sjn2IoCVG/QNFDrB
+	 c7cLq6Yfbf4MYDoVspr2ozfH6ynwL+0ji76+UISzk6VUdLA+p3wsBPYr4LELz59JhK
+	 4+5JfoDsidETaf7xeKUjDOA+/grt5FpJhPbgAJnLWLMQzMvAgduXsQX1adEW8pfnyS
+	 qFvaVLxxygBnEm5YD/SmXO3EjGtaGU/qrVzuVDFM8+c1HGvcDN68kt1BifltYnex1P
+	 Vs+gHY0VArQUN37M8fGmi42JdCcOeOEwoE9OmOiSQPDUbnNUYgpYQqPT+kuGioOcbE
+	 MoFxd8al8Y2TQ==
+Subject:
+ Re: [PATCH] net: dst: Avoid false sharing between tclassid and __rcuref
+From: netdev-bot+sashiko@kernel.org
+To: jiebin.sun@intel.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, tim.c.chen@linux.intel.com,
+ tianyou.li@intel.com, wangyang.guo@intel.com
+Date: Wed, 18 Nov 2026 16:58:44 +0000
+Message-ID: <179502112428.3136.7381445616366581807@kernel.org>
+In-Reply-To: <20261116015732.2744688-1-jiebin.sun@intel.com>
+References: <20261116015732.2744688-1-jiebin.sun@intel.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,140 +64,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH for-next v3 7/7] mm/slab: call debug_locks and KCSAN
- checks in kfree_nolock()
-Content-Language: en-US
-To: "Harry Yoo (Meta)" <harry@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Alexei Starovoitov <ast@kernel.org>, Hao Li <hao.li@linux.dev>,
- Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>,
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
-Cc: kernel-team@meta.com, cgroups@vger.kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
-References: <20261115-kmalloc-nolock-fixes-v3-0-9034dd4ecaab@kernel.org>
- <20261115-kmalloc-nolock-fixes-v3-7-9034dd4ecaab@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Autocrypt: addr=vbabka@kernel.org; keydata=
- xsFNBFZdmxYBEADsw/SiUSjB0dM+vSh95UkgcHjzEVBlby/Fg+g42O7LAEkCYXi/vvq31JTB
- KxRWDHX0R2tgpFDXHnzZcQywawu8eSq0LxzxFNYMvtB7sV1pxYwej2qx9B75qW2plBs+7+YB
- 87tMFA+u+L4Z5xAzIimfLD5EKC56kJ1CsXlM8S/LHcmdD9Ctkn3trYDNnat0eoAcfPIP2OZ+
- 9oe9IF/R28zmh0ifLXyJQQz5ofdj4bPf8ecEW0rhcqHfTD8k4yK0xxt3xW+6Exqp9n9bydiy
- tcSAw/TahjW6yrA+6JhSBv1v2tIm+itQc073zjSX8OFL51qQVzRFr7H2UQG33lw2QrvHRXqD
- Ot7ViKam7v0Ho9wEWiQOOZlHItOOXFphWb2yq3nzrKe45oWoSgkxKb97MVsQ+q2SYjJRBBH4
- 8qKhphADYxkIP6yut/eaj9ImvRUZZRi0DTc8xfnvHGTjKbJzC2xpFcY0DQbZzuwsIZ8OPJCc
- LM4S7mT25NE5kUTG/TKQCk922vRdGVMoLA7dIQrgXnRXtyT61sg8PG4wcfOnuWf8577aXP1x
- 6mzw3/jh3F+oSBHb/GcLC7mvWreJifUL2gEdssGfXhGWBo6zLS3qhgtwjay0Jl+kza1lo+Cv
- BB2T79D4WGdDuVa4eOrQ02TxqGN7G0Biz5ZLRSFzQSQwLn8fbwARAQABzSNWbGFzdGltaWwg
- QmFia2EgPHZiYWJrYUBrZXJuZWwub3JnPsLBsAQTAQoAWhYhBKlA1DSZLC6OmRA9UCJPp+fM
- gqZkBQJqFFy6GxSAAAAAAAQADm1hbnUyLDIuNSsxLjEyLDIsMgIbAwUJGtCBUAULCQgHAwUV
- CgkICwUWAgMBAAIeBQIXgAAKCRAiT6fnzIKmZJIUEADFx/tREzUImHrEwVHeSvDFmA7tJysI
- UVrlvrM09E7GIuzphzv7jYmo8n3ANpCczLEVr4G0syYQdTigaZgv3+FQDIIzhKih1IHhu1Ei
- XHlywNWKnQxxQEUNi5Mwx43wQz5XVw9F1A7gtKBKNtfogO511hAbrzagrYajyQacEJ/+sfhZ
- 9Da8ltHIXD8pcYaHUfQgEusCgmEd9+KrUwrTbckFKmYq5chuE6yJ4J0EmWknL096jIE6CnzF
- FRslQ3B1UKDjxVsm1ZHfir5NeWszLkTvGFsddFaWTgh8UycESG6VQzKXjjewXu2pG7YQYRpj
- QKm1W5X2TkwWkXRBZTmfmbhxIUMh3+zf5wQ463rSmDN/8v81tdqBtAW6rH/kzg1GvkaTHXn0
- 507yEHFzBksk2viAuIxxr7km8+/KARYLIdGtx30EG8cKzAUZOK6WqxtNCsXUJNrVE8CWrCaD
- icoNu7Fs1c5hmPHdSTnU48ce67449DdnO4neLSNhRiGlMHJgfJUmgrxu/hcYeOZ3haWmEQ2w
- uW1Mh01OHi8QZHCEyAbABrPs9GUgccc/4eYXX9hIgxfSkYzn8f+8NuIFPWl/0uTvjgqU29FQ
- SbzOLxHq9439Ox40G5mS5eZXRGxITYR+6TXvRGI6P/264jvflnr/pDGUttaikU+0W+1uxgKH
- cmYbEc7ATQRbGTU1AQgAn0H6UrFiWcovkh6EXVcl+SeqyO6JHOPm+e9Wu0Vw+VIUvXZVUVVQ
- La1PQDUi6j00ChlcR66g9/V0sPIcSutacPKfdKYOBvzd4rlhL8rfrdEsQw5ApZxrA8kYZVMh
- FmBRKAa6wos25moTlMKpCWzTH84+WO5+ziCTsTUZASAToz3RdunTD+vQcHj0GqNTPAHK63sf
- bAB2I0BslZkXkY1RLb/YhuA6E7JyEd2pilZOrIuBGl/5q2qSakgnAVFWFBR/DO27JuAksYnq
- +aH8vI0xGvwn75KqSk4UzAkDzWSmO4ZHuahKtQgZNsMYV+PGayRBX9b9zbldzopoLBdqHc4n
- jQARAQABwsF8BBgBCgAmAhsMFiEEqUDUNJksLo6ZED1QIk+n58yCpmQFAmfIHFQFCRYU6J8A
- CgkQIk+n58yCpmS2PA//bqN1LfcotmArgElsa+0EGZSQlYgK48pm8WAeTXTngudP9IJ4SuKY
- HR5RNjHcBeqN+Me0zxRqYzRb8nGanHEkDyf4Im8DQM8d6vbyU+FcPmG4skud4kgS1zMHnlVd
- SXfSIwKC/hKgdHG8aBV7545Lz9X6Iohea+94wneD0aw/hqF+QWewGZhWJriWAZtvEkzNjQOi
- 4U9F/trLten/x7bpphDSnDMKJtITbtzATT1Dq7o7VpIUK1nCTQALMuMjKCdi8OdU/+V+R3O4
- 0PXWvX8qrvqYapVbZ+9KqT74FsuB0Ya9uXwgBF2Q6cRuETZk5vqaqKxzqoQZCO8AOz/58j6O
- 2RHNy/mZEN+7tJ5Tsq42zVJ4jxsT8b9YplavCMsnBgDeRWhcbYhCyttoL7nYISyWg4kQYZ/P
- wIV3OuNv2f8iKYsxNsRuClOAF82+gvqOy1/1pprFjy8uo2pkoOrb63aOP3vO5VHnRKgra6dq
- NcaZ+c6J4H+nEJGi2SkHAUJz5oBzuThvPudLvPA/SK8sKoM01IRxSihev/S/5WLazXB1PGem
- OCbvzC1IjWJJraxiDJ5IygokapUa2RP7+WBR22skQ3SSl6G107QgWKSyTOGWEaRmV53vxQLV
- jXuCmzSSasTL60zq5yGrT4/DYQVSNEUiUbG4pYekxJujNeEDkUlky0Y=
-In-Reply-To: <20261115-kmalloc-nolock-fixes-v3-7-9034dd4ecaab@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/15/26 16:09, Harry Yoo (Meta) wrote:
-> kfree_nolock() skips free hooks that may acquire spinlocks because it
-> can be called from any context. debug_check_no_locks_freed() and
-> __kcsan_check_access() are skipped as well.
-> 
-> However, they acquire a spinlock only when they report a bug.
-> debug_check_no_locks_freed() disables interrupts and walks
-> current->held_locks, and reaches printk only when a held lock is inside
-> the freed object. KCSAN takes report_lock only when it observes a race.
-> 
-> Just like KASAN, take the risk of potential deadlock for bug reporting.
-> Call debug_check_no_locks_freed() and __kcsan_check_access() regardless
-> of allow_spin.
-> 
-> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Seems fair.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Reviewed-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> ---
->  mm/slub.c | 25 ++++++++++++-------------
->  1 file changed, 12 insertions(+), 13 deletions(-)
-> 
-> diff --git a/mm/slub.c b/mm/slub.c
-> index fd3de3bee1de..fad19ec6af4b 100644
-> --- a/mm/slub.c
-> +++ b/mm/slub.c
-> @@ -2708,19 +2708,25 @@ bool slab_free_hook(struct kmem_cache *s, void *x, unsigned int free_flags)
->  
->  	kmsan_slab_free(s, x);
->  
-> +	/*
-> +	 * debug_locks, KCSAN, KASAN may acquire a spinlock to report a bug,
-> +	 * but otherwise cannot deadlock. Take the risk of deadlock for
-> +	 * reporting.
-> +	 */
-> +	debug_check_no_locks_freed(x, s->object_size);
-> +
-> +	/* Use KCSAN to help debug racy use-after-free. */
-> +	if (!still_accessible)
-> +		__kcsan_check_access(x, s->object_size,
-> +				     KCSAN_ACCESS_WRITE | KCSAN_ACCESS_ASSERT);
-> +
->  	/* Hooks that acquire locks or kmalloc_nolock() skips alloc hook counterpart */
->  	if (likely(allow_spin)) {
->  		kmemleak_free_recursive(x, s->flags);
-> -		debug_check_no_locks_freed(x, s->object_size);
->  
->  		if (!(s->flags & SLAB_DEBUG_OBJECTS))
->  			debug_check_no_obj_freed(x, s->object_size);
->  
-> -		/* Use KCSAN to help debug racy use-after-free. */
-> -		if (!still_accessible)
-> -			__kcsan_check_access(x, s->object_size,
-> -					     KCSAN_ACCESS_WRITE | KCSAN_ACCESS_ASSERT);
-> -
->  		if (kfence_free(x))
->  			return false;
->  	}
-> @@ -2728,13 +2734,6 @@ bool slab_free_hook(struct kmem_cache *s, void *x, unsigned int free_flags)
->  	/*
->  	 * Give KASAN a chance to notice an invalid free operation before we
->  	 * modify the object.
-> -	 *
-> -	 * If KASAN finds a bug it will do kasan_report_invalid_free() which
-> -	 * will call raw_spin_lock_irqsave() which is technically unsafe from
-> -	 * NMI, but take chance and report kernel bug. The sequence of
-> -	 * kasan_report_invalid_free() -> raw_spin_lock_irqsave() -> NMI
-> -	 * -> kfree_nolock() -> kasan_report_invalid_free() on the same CPU
-> -	 *  is double buggy and deserves to deadlock.
->  	 */
->  	if (kasan_slab_pre_free(s, x))
->  		return false;
-> 
+- [Medium] The patch moves tclassid after lwtstate in struct dst_entry
+  (include/net/dst.h), which makes sizeof(struct dst_entry) on x86-64…
 
+--
+
+net: dst: Avoid false sharing between tclassid and __rcuref
+
+On 64-bit builds, this commit moves dst_entry::tclassid to sit after
+lwtstate, so it no longer shares a cache line with __rcuref. On x86-64,
+struct dst_entry grows from 136 to 144 bytes. The commit message says the
+SLAB_HWCACHE_ALIGN caches used for rtable and rt6_info absorb the growth.
+
+> diff --git a/include/net/dst.h b/include/net/dst.h
+> index dbedfe72e1fd1..f01cfb42f97c1 100644
+> --- a/include/net/dst.h
+> +++ b/include/net/dst.h
+
+[ ... ]
+
+> @@ -94,6 +94,7 @@ struct dst_entry {
+>  	struct uncached_list	*rt_uncached_list;
+>  #ifdef CONFIG_64BIT
+>  	struct lwtunnel_state   *lwtstate;
+> +	__u32			tclassid;
+>  #endif
+>  };
+
+[Severity: Medium]
+The commit message says:
+
+  However, both struct rtable and struct rt6_info are allocated from slab
+  caches with SLAB_HWCACHE_ALIGN, so the per-object allocation sizes
+  remain unchanged at 192 bytes for rtable and 256 bytes for rt6_info.
+
+Does the same hold for struct metadata_dst? It also embeds dst_entry, but
+it is allocated with kmalloc and not from an aligned cache:
+
+include/net/dst_metadata.h:
+struct metadata_dst {
+	struct dst_entry		dst;
+	enum metadata_type		type;
+	union {
+		struct ip_tunnel_info	tun_info;
+		...
+	} u;
+};
+
+The union is 16-byte aligned because ip_tunnel_info::options[] is marked
+__aligned_largest. So the 8-byte growth of dst_entry becomes 16 bytes
+here. On x86-64 with CONFIG_DST_CACHE=y, sizeof(struct metadata_dst) goes
+from 240 to 256.
+
+metadata_dst_alloc() then allocates that size plus the options length:
+
+net/core/dst.c:metadata_dst_alloc() {
+	...
+	md_dst = kmalloc_flex(*md_dst, u.tun_info.options, optslen, flags);
+	...
+}
+
+With the new 256-byte base, does any optslen > 0 now land in kmalloc-512
+instead of kmalloc-256?
+
+On a collect_md device, vxlan_rcv() does this for every received packet:
+
+	tun_dst = udp_tun_rx_dst(skb, vxlan_get_sk_family(vs), flags,
+				 key32_to_tunnel_id(vni), sizeof(*md));
+
+That reaches udp_tun_rx_dst()->__ip_tun_set_dst()->metadata_dst_alloc()
+with GFP_ATOMIC and optslen = sizeof(struct vxlan_metadata), which is 4.
+Before this patch the allocation is 244 bytes (kmalloc-256). After it,
+the allocation is 260 bytes (kmalloc-512).
+
+geneve_rx() passes gnvh->opt_len * 4. Before the patch, options of up to
+16 bytes still fit in kmalloc-256. After it, would any Geneve option at
+all push the allocation into kmalloc-512?
+
+The growth also applies to 64-bit kernels built with
+CONFIG_IP_ROUTE_CLASSID=n, where nothing reads tclassid on the hot path.
+
+Could the commit message cover the metadata_dst case? Alternatively,
+could the layout be arranged so that metadata_dst stays within the
+256-byte kmalloc bucket?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116015732.2744688-1-jiebin.sun%40intel.com
