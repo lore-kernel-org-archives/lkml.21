@@ -1,61 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795002436;
-	b=MzeoEcrIap5DhAEEeaE2ujHocIR7QNerCyevea4UyFeHNpSGkoalJmEffn0z9nvHIyy5
-	 12FKTy5gJglaGIC2nq+GYmOHtGh7PvIHjsGD3nITOTUj8IDLrMv5Uad4SYDTD3+nK90M9
-	 Q6zBWkMu7MVCXPFnK9+owpd856rijV+DVDBQymGIVIhIw8EFhGMnkR94Kmw/fp7Y3E/QU
-	 v8YHhNL/B5noNJGVHaRyXH9q9H/wKHln6Bd0myAsE1xMkwaW9quh75Rx9cxg+2bIt4wYX
-	 ohtEM5BNesvpiVK9dDGmpWsnD8FMWmO7nUpxFh8HDQl4W3+vV+BPYow/a7vE3YLCE5g==
+	t=1795002502;
+	b=XTtZ5ctcNwAGbvKOYD8pDuLK2F5Be88By98qPOPOedFV3sRJSvCwqAfq1yHyMc/AW3QV
+	 V2e9XgrwI624ZK7Ck6WpSKWskBg3OtNJC4vNzRtVjo9JZHbGzonVt6S5Kr+5CNsB0AHv1
+	 nkLSkrrcErzA9bTsGJIW7FVZEyu2hakxsc2v7nYZUsZytV9AaKzjdSTlOeKbu2lKvDHDj
+	 u8smonCjyvhcKpSsH3da88JaPGN0Ol3zv+MTTsgCK547b+f9ptjNIC0rSJi4iUM4Bsnen
+	 ou6zzy34g9s1RKiL5wWsxrwZngv5tOguin+XHWFl7Ge0+glsSQQDVSA5OLWsf2a3Anw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795002436;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=yCRovRJLZSnC8+NEOr/ttmo+gNqMMch0BjxoeFzhucA=;
-	b=T8SyreXBiaWdhzBZVBzzvUMBBs4EL34MGcahEbNoFB62Vi1nJ8P8TRiz+gtNqfkTPWy1
-	 fm6nBkez82X3wdYyfOzdoDYr1TZ8lmfBjDO3zxY9SXCPP8AhetoHLKlqYYvXhbnZXvJYd
-	 whOtHt79BHsqI8t37KhLBsmc9dZeTmJ5iwtkNaWK7qtzWv5uzk4mkLET9bDGHbUUrMLlm
-	 zsqJutW6e1VmLvYlKoGgcQrHI3orxkaFXMiHS34N9O6EX+Wjk3L8iwLxPiIousKyHbQN0
-	 NumNcwCHahhCuVjGAwxb9jsYv3iaj3uVyEPoMxs2mOHkWhDV4jfXiFvhfjkVkvCzaQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795002502;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
+	 To:X-Mailer;
+	bh=tO3TgKkDiEBpFDzUdbEPGhGOGJy6r4jFNQqVHNYhZcQ=;
+	b=azJAhOHAyn+sIC3ENd7H5CLexiN2zTMlgR/v0kLA+sAK/J1lKOpWoksiK7MXPBVSiXYM
+	 89lj28Vk+XKvXYZvd5QSJBvScP8JF2obaD1j9HEhxPIqdOQLBJ6m0GoyTzWVjKuKOQniO
+	 bTSF/sGSesEPRFfvk6iG+hvsJKuNgGrwAExq2xH335cpoAcEhQISGGksAZVD8wxUxAAHW
+	 tVAXGbiuFx62epXlHSytlpPvDsXQOjGl2hkzikpuQBbuNSBXKojUTWNSXl5+U3deLX54A
+	 k7lgL0iw3S3BdAie6yoyps4YiRW/bQq3WgamrJvUeBqfg7Hzucpt7Muk+Csg8X5Nt/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=SuulrDXD;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MI3cXKzl;
+	arc=none smtp.remote-ip=91.218.175.120
+Received: from mta0.migadu.com (out-120.mta0.migadu.com [91.218.175.120])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 9FAD4606A31C;
-	Wed, 18 Nov 2026 11:47:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FAD4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CE82606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:48:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CE82606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=SuulrDXD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795002428;
-	bh=yCRovRJLZSnC8+NEOr/ttmo+gNqMMch0BjxoeFzhucA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SuulrDXDJs9PawWEi7SBkvD7B5lRgfs7t5SnGqtS8rB+IMsTttD6XMNoBJ3NbSOpJ
-	 o8uyfdFkueVa9gIJkHmhtFkby/Kp5ziuiTtP+8LjMDxhuvSji3+/j2ZzlcnK2Whbht
-	 pjoCbwdA9t8AqZwFgGMl4MArZvOyAH2sGFazbSg6JkwJDBEuDy+sjU8hX6FLvKNzBt
-	 qj5gVCYhDyNDIH+Ma8bZIDtbSInBN+epFimP+byKqzB1qOvtPHJe7T/1aW/FypEbw3
-	 Wmj+qDa5P1R5zjfbysDc1HU5S0Nk5moaBbNx691NEEHvVwhCQ3PNUfK5kkrNba4GVQ
-	 SocUqyoyBd/CQ==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id D4CE660054;
-	Wed, 18 Nov 2026 12:47:07 +0100 (CET)
-Date: Wed, 18 Nov 2026 12:47:05 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Shashank Mohan Jain <jain.sm@gmail.com>
-Cc: Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH nf] netfilter: ctnetlink: apply port filters to SCTP and
- GRE entries
-Message-ID: <av2QOZbkZZnXBKme@chamomile>
-References: <20261118042950.83129-1-jain.sm@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MI3cXKzl
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=vauVE3U2RMCS1gurgi7wXZGlIMNdafXrioxA86yoBjw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795002499; v=1; x=1795607299;
+ b=MI3cXKzlV7UIr/RZ0JX6zp4i0ZFe9LQp1SU4et4ivCh54T6Ja0pP9WZ9+k1/UZ+OIIv9MRlj
+ IAFN8DwBWnaXQlL/Q75g862SuUeF8UnThX0fNToO6s6oeWNpqfXdxfAQmiTMPc5dh3uv8j3D5aH
+ IC5m9wu5OEcUSbEJN2hAGIi4=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 995b1b54c0241e97;
+	Wed, 18 Nov 2026 11:48:19 +0000
+X-Mizu-Trace-ID: 995b1b54c0241e97
+X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset=us-ascii
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,70 +57,113 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118042950.83129-1-jain.sm@gmail.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH 1/2] mm/memfd: drop redundant hugetlb allocation mask
+ narrowing
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <20261117-for-memfd-v1-1-fa68f433171e@kylinos.cn>
+Date: Wed, 18 Nov 2026 19:47:21 +0800
+Cc: Hugh Dickins <hughd@google.com>,
+ David Hildenbrand <david@kernel.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Oscar Salvador <osalvador@suse.de>,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ Hongfu Li <lihongfu@kylinos.cn>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <87A66860-C0E1-42CF-AFF7-671D19B82E16@linux.dev>
+References: <20261117-for-memfd-v1-0-fa68f433171e@kylinos.cn>
+ <20261117-for-memfd-v1-1-fa68f433171e@kylinos.cn>
+To: Hongfu Li <hongfu.li@linux.dev>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
 
-Hi,
 
-This is nf-next material.
 
-This is a feature that is missing. BTW, GRE has no ports.
-
-On Wed, Nov 18, 2026 at 09:59:50AM +0530, Shashank Mohan Jain wrote:
-> ctnetlink_filter_match_tuple() only compares CTA_PROTO_SRC_PORT and
-> CTA_PROTO_DST_PORT for TCP and UDP. SCTP and GRE also parse these
-> attributes into the filter tuple (both use nf_ct_port_nlattr_to_tuple()),
-> so a filter such as "protonum SCTP, src port X" is accepted, but the
-> port part is then ignored and every SCTP entry matches.
-> 
-> CTA_FILTER is also honoured by IPCTNL_MSG_CT_DELETE
-> (ctnetlink_flush_conntrack()), so a filtered flush that asks for one
-> SCTP port deletes all SCTP conntrack entries in the netns, and a
-> filtered dump returns all of them. The same applies to GRE keys.
-> 
-> The port and the GRE key share the same offset in
-> nf_conntrack_man_proto and in the dst union, so the existing
-> comparison works for both.
-> 
-> Found by reading the code with LLM assistance. Tested on x86_64 under
-> QEMU: with three SCTP and three GRE entries, a delete filtered on one
-> source port (or GRE key) removed all three entries of that protocol
-> before this change and only the matching one with it. Filtered dumps
-> show the same difference.
-> 
-> Fixes: cb8aa9a3affb ("netfilter: ctnetlink: add kernel side filtering for dump")
-> Cc: stable@vger.kernel.org
-> Assisted-by: LLM
-> Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
+> On Nov 17, 2026, at 18:53, Hongfu Li <hongfu.li@linux.dev> wrote:
+>=20
+> From: Hongfu Li <lihongfu@kylinos.cn>
+>=20
+> memfd_alloc_folio() derives its allocation mask from htlb_alloc_mask()
+> and then clears __GFP_HIGHMEM and __GFP_MOVABLE. This mask handling =
+was
+> introduced by commit 89c1905d9c14 ("mm/gup: introduce =
+memfd_pin_folios()
+> for pinning memfd folios"), when the fallback path in
+> alloc_hugetlb_folio_nodemask() could still call
+> alloc_migrate_hugetlb_folio() and reach the buddy allocator, so the =
+mask
+> decided the zone and migratetype of freshly allocated pages.
+>=20
+> Since commit 26a8ea80929c ("mm/hugetlb: fix memfd_pin_folios
+> resv_huge_pages leak"), this call site uses =
+alloc_hugetlb_folio_reserve(),
+> which only dequeues folios from the existing hugetlb pool and never =
+falls
+> back to the buddy allocator. The mask therefore no longer decides =
+where
+> any page comes from.
+>=20
+> Long-term pinning safety no longer depends on the mask either:
+> memfd_pin_folios() obtains its folios (dequeued from the pool, or =
+freshly
+> allocated) under memalloc_pin_save(), so PF_MEMALLOC_PIN makes
+> dequeue_hugetlb_folio_node_exact() skip any folio that fails
+> folio_is_longterm_pinnable(), and current_gfp_context() already clears
+> __GFP_MOVABLE from any page allocator request made under =
+PF_MEMALLOC_PIN.
+>=20
+> Drop the narrowing, which has had no effect since 26a8ea80929c.
+>=20
+> Signed-off-by: Hongfu Li <lihongfu@kylinos.cn>
 > ---
-> Prepared with Claude Code (Anthropic), model Claude Opus 5.5
-> (claude-opus-5-5).
-> 
-> Based on nf.git main 734bef548a96. Tested with a small raw ctnetlink
-> program in a busybox initramfs under QEMU (x86_64, TCG). It adds three
-> SCTP, three GRE and three TCP entries, then sends dumps and
-> IPCTNL_MSG_CT_DELETE requests with CTA_FILTER set to protonum plus
-> source port. TCP behaves the same before and after. Also built for
-> i386; W=1 shows no warnings for nf_conntrack_netlink.c before or after.
-> 
->  net/netfilter/nf_conntrack_netlink.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/net/netfilter/nf_conntrack_netlink.c b/net/netfilter/nf_conntrack_netlink.c
-> index 1f8d94a05..5e8e0b93b 100644
-> --- a/net/netfilter/nf_conntrack_netlink.c
-> +++ b/net/netfilter/nf_conntrack_netlink.c
-> @@ -1127,6 +1127,8 @@ static int ctnetlink_filter_match_tuple(struct nf_conntrack_tuple *filter_tuple,
->  	switch (ct_tuple->dst.protonum) {
->  	case IPPROTO_TCP:
->  	case IPPROTO_UDP:
-> +	case IPPROTO_SCTP:
-> +	case IPPROTO_GRE:
->  		if ((flags & CTA_FILTER_FLAG(CTA_PROTO_SRC_PORT)) &&
->  		    filter_tuple->src.u.tcp.port != ct_tuple->src.u.tcp.port)
->  			return 0;
-> -- 
-> 2.43.0
-> 
+> mm/memfd.c | 1 -
+> 1 file changed, 1 deletion(-)
+>=20
+> diff --git a/mm/memfd.c b/mm/memfd.c
+> index 0e3ff3eebfa8..8905e3e9efc8 100644
+> --- a/mm/memfd.c
+> +++ b/mm/memfd.c
+> @@ -85,7 +85,6 @@ struct folio *memfd_alloc_folio(struct file *memfd, =
+pgoff_t idx)
+> 	u32 hash;
+>=20
+> 	gfp_mask =3D htlb_alloc_mask(h);
+> -	gfp_mask &=3D ~(__GFP_HIGHMEM | __GFP_MOVABLE);
+
+You didn't mention why __GFP_HIGHMEM can be removed safely. I have to
+investigate the reason myself.
+
+During review, __GFP_HIGHMEM was cleared because "these pages might need
+to be accessible by some DMA driver, so you have HIGHMEM constraints.",
+refer to =
+https://lore.kernel.org/all/ZmvNLSUgUgFETR0M@localhost.localdomain/
+
+I think that restriction is unnecessary now: DMA and existing =
+memfd_pin_folios()
+users operate on pages or scatterlists and support highmem, while the
+shmem path already permits highmem folios. The hugetlb path therefore
+does not need a separate lowmem constraint.
+
+Because you have removed the constrains, why you didn't remove the =
+comment
+along the way?
+
+	/*
+	 * The folio would most likely be accessed by a DMA driver,
+	 * therefore, we have zone memory constraints where we can
+	 * alloc from. Also, the folio will be pinned for an indefinite
+	 * amount of time, so it is not expected to be migrated away.
+	 */
+
+Thanks,
+Muchun
+
+> 	idx >>=3D huge_page_order(h);
+>=20
+> /*
+>=20
+> --=20
+> 2.54.0
+>=20
+
