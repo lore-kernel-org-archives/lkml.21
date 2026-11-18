@@ -1,66 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017230;
-	b=AnPjV+GC3WXcWS2JesyNuQbdZtvrOUkZQ2t59rFRSY/hh0xZDw4xSGhLv5Svn2APAXL+
-	 YYR0eo//BtuACbZcMrujSGk4KbvaVT4dFa47CRfkgP7esmBLT8AxLbra+sTgOXstz9InT
-	 tVYgrYX0msPt7Ztjk1SzRLzGxDidMb5QjA+GcaV8FSccblaAVcRNb4gfv3oJ3opL5ZeXe
-	 Wkriqpmrr+nbMTsEhfDWajf538hSzs8LUCPQAh/z/y67HTxjomYv6MwQDjIpGHXKay3Bi
-	 x1wwXKVLZ8oQH82oCGqv0UpyQ2MRnPJyNjo9Vzfc0qouO92eev5EQGjgabZWboLtBCQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017230;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ATsBvPQeZ+0DWGOQXf47upSNBvw/9e4Viq5CdLJoK8k=;
-	b=DGr/SvqqqD8aE5uXSm7qQ0/UHM6JccCWU9L1nCZoyuVeEAh+jMNdeIVWx4Om0yMeMBXD
-	 D92WY9Pg0/fQfIVM43u7Pq3IGzarZCHW3tGGkF2gn3mhzIza5txYY/OTi7Pfw0UO9RCth
-	 rR3QSpv6Q8UGGyhi9L5NHBv4BR1dH2MVFroc+V+I8K1Ntrla+iqnH8vfgXqafvsZ1t1GX
-	 3iAzTrCp2KfmE0UfiVw4assue6DpyGFAWu0dCW1YBJzCWAjW+1LDznJo6+EOug0NNNfz0
-	 1g7rqP/QDRpD4xWlQ0JatC2VVRf6Q8DnYE+LXeyYKWVfZbFmH8ZwuKZnD29Etse39Bg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kernelriot.com;
-	spf=pass smtp.mailfrom=kernelriot.com;
-	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=Pa5sOIv0;
-	arc=none smtp.remote-ip=74.208.142.49
-Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795017237;
+	b=2T6GBg6XXhd7j5tkoo7OU/mi5HuDiXpGRzElvArv2gwjRupJ6FrPJv8I7QekFAHqs2Wq
+	 81gWwrar5/bddSHcBwpJ58Clo7ZXDlKtE/tS6QYvYZGD81MJNWRr/XT/stQciLAXZVpiA
+	 b8vgol9qh1kiLRqc7KkchEONY4IFuY/7ADmNgv9g5eFiE6g+KMiygXmX8QlmIJUn6N6Z2
+	 7Hio+GT+EAxlF/4+eHILGScdqr+bMiyIEb6gQ5aD7hqH3Omn9EbKMWSGAz7gQ+x49SukL
+	 Uxr8erhIER/Txzt3HMSgSJGrKUZapM7qZpjKl2oozvhSUOJIBVYSnbwvhr+zsg9JEcw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017237;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=DhA6yzgN5A0/FBAJ/Yj8T3bHCtQqCLayO+WITfNdeHk=;
+	b=y7A8hh7rIKAraR6PuuB2kliZfehB2pzkgSlXd6ZSLXDlIYTLaPPvTk7fEB9RNCSiTMR4
+	 puYYzNLly+XlrJp8rupgWlVCVom1huBbmez3ZNy7Sc1kHxNOLHQCrbBWObggb0I1KbfmX
+	 Ha3hboRBcQvyr29bhNmprBHgvz6buFHxteupBFHq11mvxV9BdS63svB/rz76gAU/Zg2gv
+	 XwNPFdHQwsZ3tv9J2xCmBOCYWXspdecqed9Px7TauN6gBeaB7Us8QURLlFkwmV2sj4SvK
+	 9afe/jP/2mHsLzoHdCnV50CVgEtX1IdwW0GD3MDXAsBEnWckyyhCY1JxzuikaKCB5fA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=d4btl8c7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.13
+Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011013.outbound.protection.outlook.com [40.107.130.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC0DD606A325;
-	Wed, 18 Nov 2026 15:53:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC0DD606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F6A606A330;
+	Wed, 18 Nov 2026 15:53:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7F6A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=Pa5sOIv0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
-	s=kr2026; t=1795017222;
-	bh=0xCKQAQ/uxlRRF3Jf6jbviGNyLZtmwjhQVBX3NEIr4Y=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:From;
-	b=Pa5sOIv0LrylxYm1yf74SFYPVPpDFm++v/AEtoR6ffl+DNnt1HfjGOMfYucL9DApJ
-	 l0j+aepLtJXP/Z3Td3YgqkdQAR2WKcX/+8/PH5CydkAFtXUQs8YAGmgCvpYtuFLRSQ
-	 Wvwp6mJiG+VZNuY+trZQrmbBmTkniqjqhSlHi79ZbvjH/kY7/ZmWnooKP+0ke8WEJL
-	 iWhnDJ8Onb5UbCAX9ERJqLoscS+sPnWo47BYBl7lcRkrk1mSqZ3x0ZVUAIHtNR8V7s
-	 9y+z9ArT5xip6oJvjQPWpooIcecwsl+ot1YXYim75SLj2WUv5pq49cK2O0jy6WRGE8
-	 YHqAyjfDPkArw==
-Received: by mail.kernelriot.com (Postfix, from userid 995)
-	id D63C081A5F; Wed, 18 Nov 2026 15:53:42 +0000 (UTC)
-From: Magnus Leatti <magnusleatti@kernelriot.com>
-To: rafael@kernel.org
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
-	Kees Cook <kees+treewide@kernel.org>,
-	Kaushlendra Kumar <kaushlendra.kumar@intel.com>,
-	Jean Delvare <jdelvare@suse.de>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] thermal: intel: intel_pch_thermal: Add 200 series PCH-H device ID
-Date: Wed, 18 Nov 2026 12:53:13 -0300
-Message-ID: <20261118155313.2067857-1-magnusleatti@kernelriot.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=d4btl8c7
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fkJ/vDGW5c0y1Vn9X8Rlk4BRlMIDyJI87flaNOXlO/BJ/sB0XsTGLvil6Wk4lHLnjJVVbukNj9tuomCxyq7NyLfWMZHC3KP2HKkh9AZCa0mnsLO6xPDY6jJbTb2ckn6nC2BZjPH/pEhGVaV6dnpzbJ0/4gjCnPnZ1voTIJHXVuUWjVEc15Gk1PANuWLJ6AW9cQwunK7vMSY7cGHmn4ccPzjG6GcMQohAITRyXq18sOt+vF21Vt9b15LkYE4GQnqCeCXOpOamkprOabvbYvuZVDutg5bnj4D3Bik6kKRYSwtJxlzOlQvDMt5Jt8bgU+4socpeV5AWq+Q3Zr39ziM0TA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DhA6yzgN5A0/FBAJ/Yj8T3bHCtQqCLayO+WITfNdeHk=;
+ b=o/WnlDjnFv7AdOV3O6ZDfBTmox4XilRfv+U8Sp09ImeHvXc5DT4f+8XmyJoMIHpL21bgv3HO2z/gAkh4o/IkuAEyXM8OFPUsYl+ku0OlmboE+uU7u/ZQVnx+QfynfJw5/3IETtSInDhSPlpvOiuuY8vrjhy1HBf4l3dCBR67bOukpLMxJevPJNTBtTHj2+Y+098mjPOddPh9kkM+lAQYrmV0cXYoM6XrtxTymJDo2J65Us+/3qPjJp9eu9nmPBm7b1+DRCmDhloQyEnL50aUgFa8rEb4nS9scYAiPO5LOashJtgmdDdMLRMA/y/YxRd9RZvDvfXE5ZP+lO6ly00+dg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DhA6yzgN5A0/FBAJ/Yj8T3bHCtQqCLayO+WITfNdeHk=;
+ b=d4btl8c7xjoGfd9bBjzneCWuMJuRbEiS8izXucMUPKR7LAH1sqZSB1D7arRh9njaJ2ym3AaoOKQEkcleh9EU36e7OTtUCskSnrb8+CKsQSrAayENmDltcS44X8t6rAd4FVdqOl0a9Hd+uU9cKDBvK/rLm/zIi25d89gCMEAqgNDNCr44N81TEsXXjL0bia8M2yOKZN8TN6ixsFybpaSpN3+ohk2/InwDaLA+/Ll3XkE39o5jQoTjX+G5mknl+cqU05qwJ2xsICLu7DjmGQr7tHJnxoxo+RWBIHf1aMJ+gVRqzuA9UmRA25d18SiUKYcyyCnZVJv7fJo8urzCxooQoQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DU4PR04MB10695.eurprd04.prod.outlook.com (2603:10a6:10:580::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 15:53:50 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 15:53:50 +0000
+Date: Wed, 18 Nov 2026 09:53:39 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, pankaj.gupta@oss.nxp.com,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v51 5/7] firmware: imx: adds miscdev
+Message-ID: <av3KA89WuUc5GdZj@SMW015318>
+References: <20260915-imx-se-if-v51-0-4a7dac612cb5@nxp.com>
+ <20260915-imx-se-if-v51-5-4a7dac612cb5@nxp.com>
+ <2034fb2f-f169-46a5-85e8-fa723ddb0360@app.fastmail.com>
+ <aqqqDnOMmlfqit6u@SMW015318>
+ <f3e1e3de-6abf-48cb-aba7-7b231c38ec5c@kontron.de>
+ <180d2335-e328-48a4-b376-a90464279027@kontron.de>
+ <3acc652b-d2e2-4a18-b70a-2656b309d798@kontron.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3acc652b-d2e2-4a18-b70a-2656b309d798@kontron.de>
+X-ClientProxiedBy: PH7P221CA0033.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::25) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,74 +113,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DU4PR04MB10695:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6a73ca4c-f6a6-4a0d-0a86-08df458c238f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|7416014|19092799006|261009223027099003|261022075727099003|10067099003|261026140227099003|56012099006|4143699003|11063799006|261021135927099003|261026121527099003|261028144727099003|261022105027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	R+3F4m82xFgAFXnBVYRdn3Di3SVLWxroeMGkeiP5XDyswDJy0aea5c7pJYQF9s4GqpKCQ0sEzpgxDjF29G4FEZMlbktulTwS8ijnTNkfUYAzNBjdL2aoIYRuMctZECT6tDk1HJ0vimQvIoeONLn8LJqUnXVORK+HBLA6+8jza2O2Db4xuP+25IJwuxXD+OrIN7iKSNm4N3lmoPa6AXbat/+YRPo14RVM5FHuDo6rcbCY8pPTE77itbUlc//wOGmnIa0vnTdmtjux/SRoF106lRCbzSsCDMqcFKOva5gvjZDOdEu2nSAgrz9hAziyy+/w5cB8WHNnkSb3WtymhkzIV0TQpHyGBnD+8UyuHjy4mac2oL7Lpi3BBjpycx3R2G+okCxoUTDS9pYlaMa0TfD5XeJLHpyddwbRpWCqS6ngR/nqMXeW0KIJEGzzuQs7JHNX6tw/lXHs0QioeAXIV+UsTzt7uS0+GDRoMuwIY63lc73FTeejIcyCsKYBkMAPX2RE/IFVDc4RhIPv+7TEA9uosWKY7qd4QqW53zpPHmJlOwS9IxCK/LCVpvvrs59gibGiCqlU2j8Fb6IsXG9U8rMeaYbaS3uLEPHkVZlMASLhHTi6tlvqr0PUowlrSaTl5BXY
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(7416014)(19092799006)(261009223027099003)(261022075727099003)(10067099003)(261026140227099003)(56012099006)(4143699003)(11063799006)(261021135927099003)(261026121527099003)(261028144727099003)(261022105027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?jzBlHpTbZzeig0VX/tUPBCmuQV6Mw5tdGTc5XCMzzyeUTn8dfs6U02/Rjk7+?=
+ =?us-ascii?Q?8uGQd++0l8p71sdk5xexkJTBXoYPuBHXy4w7Ol50U8OK+KN2htm8TKoEfj2W?=
+ =?us-ascii?Q?l4jSTunX5DeurTbz2uT0rcR8IQ91SR0mEYazcNIWxgtdccZAfpJ+A5dT4+Lz?=
+ =?us-ascii?Q?moEpUcXC8oguzJN6DAbe7KwKvwltvaeXYmjnv9Np1/Z+KBJLeDCD97LeyCkU?=
+ =?us-ascii?Q?0kV75SxXLWTFr5G53gKNw5NF7iBljPCi0B+a5Js+qWs37mdJov9dx6ZFd9dd?=
+ =?us-ascii?Q?cCGvVTVVTkVuro2exqNrdJiRlMZVd6dTuPBeybrjq/Imw3DTjK1w9l/dIcWS?=
+ =?us-ascii?Q?w4hpJc/Hsc+/AZH0DR/qeHuD4iZBxzj1L+CQROlDzSMZ4vAfUClpUvnkH4Qx?=
+ =?us-ascii?Q?hWl0hvURvpifJYvaFuAwiX4MJWVmSlRHW3CPuUAUjHHqM+gTZs9BjDCEMStA?=
+ =?us-ascii?Q?5aV5283d77CYYRC+qY8ZucJg6/KvBpzFj6MlPAzB/h/rKmaoHsEBNbYH0IiI?=
+ =?us-ascii?Q?NAHP6LavlCjcuN427dPRt2DGFWs2s2FXKkWFlpN542lbyOJ0//LhOsV/zBn/?=
+ =?us-ascii?Q?PJ8h5aWXpV4qCk9s1uifdUnLiQER+kOaUfqW7/srDs/1rdRMwSvTo1swSaN3?=
+ =?us-ascii?Q?0UvXXMRsrj/mIcltm2awDpHOlXI9mGG5GHd8Q6w0eHqBptYA+CwLV8bexItg?=
+ =?us-ascii?Q?QlWtcKp5Onpe2JOfmsm89WUOyunZArsQOacH05R9KMg1ZhXcjLvB7h56FnOJ?=
+ =?us-ascii?Q?T6iw/27iDWfD627a5VQm1yIkx+TmuCzGCwVRLxAYS3+diCrz7+h0rl237Dq8?=
+ =?us-ascii?Q?k3ICWxgr+jkZlqk6DaKdEqib8LNEvKLIH06Q6dLQTKuTYrJYDFkqxem93iWa?=
+ =?us-ascii?Q?XSEmBqim1cDOSVDuzndnH8h6th/20yxIsOd1iDLinyGSicperjcvZmc7LIXh?=
+ =?us-ascii?Q?9icj8Lb3fyQhLahKUF7G3W+4qls3bCR8kWHaoZsX8xmzwtpr+RZ8/Bkv7FfM?=
+ =?us-ascii?Q?+yVXeDjO+AK6nQhdwhvQWojeDcwjiqUrZBr5H9KWSwX1BE7h25V6CDV4/oA0?=
+ =?us-ascii?Q?Kq0qdHzegji4bQWQJvbEncFuoVmbpW6s7lloyAT46b0PROYNylX5M/C0sZYY?=
+ =?us-ascii?Q?EE6ax2OF5jQ7I3sHKMgLZSXEE0AYKsNMNlbF7poNeQ7V80IWVGdfyDW32IrU?=
+ =?us-ascii?Q?4+khZtu/Z3KMCweBC51okFMP2HtNSDAx6wYaDPmxHCHCT+jsus7uVyvi5zO8?=
+ =?us-ascii?Q?7regY3qXXD4NCOU8P3AkEwDyKnbVYgBXVlmCtOVHHkHgKA0y0fit5ZVkMTJv?=
+ =?us-ascii?Q?0L+n9oxllEnMrDAE5/RIL0WhGtob+40Qp3XTWU6LEvThUHtF32mcXt8YkyR7?=
+ =?us-ascii?Q?fSZOJj7kHhmN+JGPm3/dRRQYwjs+S+RZ8mvL4CZNg0horq+zEwZgdObme5FD?=
+ =?us-ascii?Q?n962BBTAXFimnABwU366qnOyi9PEV5hx04mdHue3fnTiKEljeuuhybQs7u1Z?=
+ =?us-ascii?Q?F/4g0hHGtVa2hzSUghEdSa1ppJqwEWIpD8ShXQOhEMoZ+LpzYxXa2xVBCRQr?=
+ =?us-ascii?Q?VUG448oRtSz9SSXv6zdEtuNDWGzqjLqtOOSa1Tbg/iexYt92pWhTZq/aYKuR?=
+ =?us-ascii?Q?Zpidpa6CcsT5edF5eM5Fj3CH2jTOf+24oj1q111IxaEEJsjh67d98yoTnmk1?=
+ =?us-ascii?Q?YSFpbXkcHrcrbhnciFyk7eJ+kHoAULtzV5iZxYxqV/td9quQ9VM/X+Q8Bqm9?=
+ =?us-ascii?Q?Ql9uWo7+AnGu/q9s7aMJ7Hxxj3E1LmTNE9XWEn5dADa293XOsCx3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6a73ca4c-f6a6-4a0d-0a86-08df458c238f
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 15:53:50.6690
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Wl+TVT9JYbTdtEWUGfd8asumkBNqTJL9ZQ1/lJzIBkMIzMEQ7gWPDck7S4XK70ZBr9XGZAOBGCw9Apk8DZ6tEvxE48sSqsOc3aym+M9AHHkT7Qwv4qbNfe5+XspbknZm
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10695
 
-The PCH thermal sensor on 200 series boards (Z270, Z370, X299, ...) is
-8086:a2b1 and it's not in the ID table, so these boards, including mine,
-get no PCH temperature at all. The 100 series (Skylake) and 300 series
-(Cannon Lake) are there, Kaby belongs perfectly in between, I see no
-reason to not have it there.
+On Wed, Nov 18, 2026 at 03:43:28PM +0100, Frieder Schrempf wrote:
+> On 18.11.26 13:46, Frieder Schrempf wrote:
+> > +Cc: Peng
+> >
+> > Hi NXP developers,
+> >
+> > On 05.10.26 16:28, Frieder Schrempf wrote:
+> >> On 16.09.26 16:39, Frank Li wrote:
+> >>> On Wed, Sep 16, 2026 at 03:16:13PM +0200, Arnd Bergmann wrote:
+> >>>> On Mon, Sep 14, 2026, at 21:40, pankaj.gupta@oss.nxp.com wrote:
+> >>>>> From: Pankaj Gupta <pankaj.gupta@nxp.com>
+> >>>>>
+> >>>>> Adds the driver for communication interface to secure-enclave, that
+> >>>>> enables exchanging messages with NXP secure enclave HW IP(s)
+> >>>>> like EdgeLock Enclave, from:
+> >>>>> - User-Space Applications via character driver.
+> >>>>>
+> >>>>> ABI documentation for the NXP secure-enclave driver.
+> >>>>
+> >>>> I just saw this in linux-next, where it has caused a build failure
+> >>>> for a missing include of linux/slab.h. I hadn't see the series
+> >>>> before (even though it is a v51, which seems crazy), but I am
+> >>>
+> >>> It is in linux-next about v37, but build bot find many problems, I dropped
+> >>> it and request to fix it. And sashiko is online recently and also find many
+> >>> risk. I request to clean up it, and local AI environment have difference
+> >>> with sashiko, so bump to v51.
+> >>>
+> >>> I put to linux-next again to make sure that pass all build test.
+> >>>
+> >>> Other two problems, need more time to check whole review history. reply
+> >>> you later.
+> >>
+> >> So this is still in linux-next, but was not sent in the pull request for
+> >> 7.4. It's rather confusing to me that maintainers add stuff to
+> >> linux-next for build-testing and then leave it there, neither removing
+> >> it, nor continuing the mainlining process.
+> >>
+> >> Frank, what is the plan?
+> >>
+> >> I'm currently rebasing my work for the NVMEM driver onto linux-next, but
+> >> as there have been so many iterations and this whole thing took so long,
+> >> I want to make sure that this is not another dead end where I'm wasting
+> >> my time on.
+> >
+> > I need to ping here, again. What is the plan at NXP to move on with
+> > this? This is blocking multiple features that depend on ELE firmware
+> > support for i.MX9 and similar platforms from being upstreamed.
+> To be more constructive, here is a proposal: let's get the
+> kernel-internal part of this series merged first (patch 2-4, DT patches
+> 6-7, doc patch 1 reduced to kernel side). I currently don't see any
+> objections or issues with those.
+>
+> This would unblock drivers using the in-kernel API, such as the NVMEM
+> driver and this is also the part I already tested when working on [1].
+>
+> The somewhat more controversial uAPI in patch 5 can then be further
+> discussed until there is a consensus on it.
+>
+> Arnd, Frank, would that work for you?
 
-It's the same sensor. Intel's own datasheet (335193, chapter 21.2) has
-the register layout the driver already uses, so just add the ID and
-point it at PCH_BOARD_SKL like a131.
+It needs at least one user for the in-kernel API.
 
-Tested on an ASRock X299 Taichi, Kernel @ 7.4-rc3 with this patch. The
-driver loads by itself and the BIOS already turns the sensor on, so it
-just reads it. The zone shows 66°C / 115°C Crit, the readings look
-correct.
+Frank
 
-Adding the ID has one more effect. I am not going to call it a side
-effect but more, an intended effect? AFAICS these boards were just
-missing the s2idle cooling delay that the 100 and 300 series already
-have, and now they get it. X299 usually runs above the 50 C threshold,
-it would wait the full 60s. Meaning that the wait *WILL* be present.
-
-The reason I am saying it *WILL* be present, is that I could not put
-this specific box to suspend, due to the GPU not allowing it under Linux
-and X299 not having onboard GPU on the CPU. But I manually followed the
-path (intel_pch_thermal_suspend_noirq()) and it seems to be precisely
-what will happen.
-
-I am not the first to notice this. Henry Bent put a patch in bugzilla
-back in 2024, and Jean Delvare asked about it on linux-pm last year.
-
-Link: https://cdrdv2-public.intel.com/335193/200-series-chipset-pch-datasheet-vol-2.pdf
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=219197
-Link: https://lore.kernel.org/linux-pm/20251222154444.496284d9@endymion/
-Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
----
-
-Thanks,
-Magnus
-
- drivers/thermal/intel/intel_pch_thermal.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/thermal/intel/intel_pch_thermal.c b/drivers/thermal/intel/intel_pch_thermal.c
-index 074bc8ca5f0f..7d8803608486 100644
---- a/drivers/thermal/intel/intel_pch_thermal.c
-+++ b/drivers/thermal/intel/intel_pch_thermal.c
-@@ -24,6 +24,7 @@
- #define PCH_THERMAL_DID_WPT	0x9CA4 /* Wildcat Point */
- #define PCH_THERMAL_DID_SKL	0x9D31 /* Skylake PCH */
- #define PCH_THERMAL_DID_SKL_H	0xA131 /* Skylake PCH 100 series */
-+#define PCH_THERMAL_DID_KBL_H	0xA2B1 /* Kaby Lake PCH 200 series */
- #define PCH_THERMAL_DID_CNL	0x9Df9 /* CNL PCH */
- #define PCH_THERMAL_DID_CNL_H	0xA379 /* CNL-H PCH */
- #define PCH_THERMAL_DID_CNL_LP	0x02F9 /* CNL-LP PCH */
-@@ -372,6 +373,8 @@ static const struct pci_device_id intel_pch_thermal_id[] = {
- 		.driver_data = PCH_BOARD_SKL, },
- 	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_SKL_H),
- 		.driver_data = PCH_BOARD_SKL, },
-+	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_KBL_H),
-+		.driver_data = PCH_BOARD_SKL, },
- 	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_CNL),
- 		.driver_data = PCH_BOARD_CNL, },
- 	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_CNL_H),
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.56.1
-
+>
+> Pankaj, can you prepare such a reduced series?
+>
+> [1]
+> https://patchwork.kernel.org/project/linux-arm-kernel/cover/20260727-upstreaming-next-20260609-imx-ocotp-ele-v4-0-1a515de33093@kontron.de/
