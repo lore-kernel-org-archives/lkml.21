@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794993621;
-	b=5icd+Xj13S50K1ILNLB3mm8XHW+xEgPzrJuXvEskzRK1G8bWKfEIMZvjf7Pi7Z8LkYw6
-	 0pMiXRV0hqeTthOfKQpcsHtRoF6VCI3dGJvvevBtbMifItKNm/BLVxKpFYJjPTMkjFVX1
-	 jHN//wvKeGO/POEKcf8AUnEyENxJAxwiXmt7t16TltNKpUQ5IRo05BfH4uPMnW71+c8f2
-	 yDh0GUA4eAd/eGK/9Oj/HrvZ9eC1iOMj4jmb7icYFU15zCHab/HsqsRatb2PzGcYQrdcb
-	 J6DQzYim1lSOCoP8MBPuM2qzKC3/9Abku7V0ZvhDn77/lM7O8IdhbOEtDKNYPG4Vhfg==
+	t=1794993629;
+	b=eMe2hKEzxa7JRO9+Vtx/ytCwgU67R4PMvt+5WcKQL8kvT3Ft4vOXlXWrCGs97ejEx6yq
+	 +3p3gtPDN1yGx07+FEZ3YfiTvZHrKckUToLNoa8LDErPl4ugmJokEILkPZ7Bce7avrTyb
+	 t6lKljxNBALJ9IhQMbU97tl2QsU+QDT7Jia5BAilwVIJ2boIzDodJSGLvW8Rpn5xFdOWW
+	 21G9dj+NrPkq3c4x3nmR9plbCJxrKDWBAXgC0/jsUDrpHPVWAGYfwh4ynLqjko7CVxvtB
+	 xr37WO8ytOJwCTNCxtENQwfQMXvVjiFKVExlkyJFyT02rxLy+tHhK5JpWXCjTUIb7WQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993621;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1eDZqaeAdBXkeNEYN8hrXH+4wZcd0JXpXQ5BXT1LIJY=;
-	b=OhXs6Zk18faPTAW3dc9Dz+EYP1g8rqhLVYd1/IhJ/yI6oLjc1yF8f+c+MivaUzH+XEPA
-	 1nFCRbcIv9LEqragDdeRjhyupJIke5wjhctmaU4NwTJopaD7CXbO4kL1liygX4hcUfMZg
-	 eGOOscmlRIDnQn2rTAQzYiBBHalMieMqaU6S2DVGHUM70yqtIU01Q9GovH7hla6UjFEHe
-	 ZkhSdMTM787rPS2QRddprIqFSE6pdTWNsTQ2i93TicqZQzpub0CBF2RIIVJ7ndbFhUWYY
-	 KVQ94pfAu10EdUD1gYWKqool0GJN1U1NsflHStu3L24q/NBcjzNSByQfyas0BXwS6jA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993629;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=Aeo8Kc6gDZPXZvE0DmabfYTz/zNuvasGH9KV0/D9kjE=;
+	b=nmSbQmkYN5dQCbmNM12ZgtjsGPA+yf/RUSZXvSZBtoPBfZSIx/I6l58Vy/IMF+ANUxdx
+	 mfrtUXwLj6bzlxc3KpVWVnwsxnLfeRRY36YzquzULF8PubhIxm7U1GqpLpUQSP2KOP9Kc
+	 ld7RWhvmO25JPFISpdOjU5tkShzpXtNpURZP6yvA3Wb9AYnNYLBgAoI7skbVyDN8ldwIn
+	 lLd+06KZmiDE12tZr28wkEuTiREelJP4u8e7+oY5D6KDLuox3QVbQM6cnarRpJ9ro3sbB
+	 5fI5yPALPmLSgG5kcJeNFrsIQ2KDfhYN+PnYkA5K7jlgOwfM3tUzAD8Ko4fYgyx2MhA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h8wO3zJr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 331E3606A334;
-	Wed, 18 Nov 2026 09:20:20 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h8wO3zJr
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794993620;
-	b=y5bpyr9u2NdqXMijdDE3mGcjU56zT0MJL1bM6oRpi1H7GU8kwmXWlYxuctz7PBGLlcVt
-	 Jg/BGKgGr/7OBkNNwE3tptM2Qigl7oU7FBlzu6M+nVmteVRrTkV6Wc5bSTVrTYsy4yKlg
-	 q50weEXnkELKT4du2jRhr4rk0t9JP7T29Ft+E84lCLRjd5nURfVkGLrm3Tptb5g2r7Uru
-	 EPZ2+8c8W12fWK28hJur62UL8fkd7OfAQhMYCl/ygD2XsWz28gm5GhFpJGpzI9NQlm9AD
-	 2mkrXSLO+VzQtkyEPU7CVcrJu90zpVeZLbMAgZero1SdpOBCe8Li/4yLAs+cPD3xWaA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794993620;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=1eDZqaeAdBXkeNEYN8hrXH+4wZcd0JXpXQ5BXT1LIJY=;
-	b=qUGDdXp0EzZe1h9uY4jIvppz5wYmXC5KnbUHWOHPykYgSqDf9tCFTv5V98fcjiyKULAI
-	 MXtPXhfgEK5V7ay0ojIu1wjFyvuQzHhYcnRfZSk4QhxZDGMtG3rc9z9EebFjxFc1WzVXi
-	 lIdBeyPgl/xKpATo79EO50dS6Daun012bo7k9uMRSnc8HDzqpj13Rr2ZQkYLwq4Asgo9J
-	 hWjcguXuqmvOB2N2uKyGpmDxH3UYTjh32w3oYzAleederya0kj8ReyxVDFDVev36syNuA
-	 4qPkBKZrDsK08eU8f6u2fKA2efPolJb0khbuHYjxTCjADHd4xqKEnMw8L5hdS+qIUYg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=iyLBskJd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id EB6AC1F000C5;
-	Wed, 18 Nov 2026 09:20:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794993620;
-	bh=1eDZqaeAdBXkeNEYN8hrXH+4wZcd0JXpXQ5BXT1LIJY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=h8wO3zJrAOFVO4tbQdOI4z235irCzjIxS+kX0ZvWm+Pfzi/OakiJSNDm7gBYk0rqx
-	 aIQy41eJQFpvNh+pSORlwaBZvQTalHUhfhrkzkfB63SZGnC/NoVvlR/xQRi7WcPjbG
-	 ZEIKFgDnKP1Xtw9yxqFIHC7/GiGoKMLyEwS1+yAQWOW1qXgXeVFc9DooUqJTuCDt46
-	 UM/Oovq3NbHaMDLvNJlvgK/qMIs2frUqTdu/fO74F2eWIl/9Y7PjKft8S48MPwCcP/
-	 4Lb2vxnBHTdpcQuJb29jnMeriVI5uzmTV8qPuDh0Z7c1HwVU7vMhIh+ib/EpQcL9Ef
-	 A8TPqW2asT4Vg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 80FFA4ACC4;
-	Wed, 18 Nov 2026 09:20:19 +0000 (UTC)
-From: Ishu Brar via B4 Relay <devnull+patches.brar.si@kernel.org>
-Date: Wed, 18 Nov 2026 14:50:16 +0530
-Subject: [PATCH v6 1/2] dt-bindings: interconnect: qcom: Add SM7250 RPMh
- NoC
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76064606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:20:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76064606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=iyLBskJd
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b87408c797so1122202a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:20:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794993628; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BhXQPeBkJCke4rT5q5L7KXm5LY8PvOrMcm5YP1ZsfiofF82LKUv0AAs9TgXFoYbZNv
+         opf/wAPSPc4+kgNUBxVYb08M4p/x1a8FZnhGqDjH9NEhyY4DPx13F0XIeuo7QT74LINO
+         OOinjgLJW8OxPvS0FkTo8DnVtU+to8oWi/JZJuH6R0j/+Z2W3X3micMxtKEhNDz8QxAy
+         R21KLFb3qwpploX0mJJZy6XCHh2sr6TiOShtR6tshGRIB8Flw6agkkMEoVFBxrjZvqbS
+         lkn6evog/cU8J6GU48ZWlTUiMoletL1cLNjBkiLDR8eMASnAbv1ZzQj5p1CtOqpL96tk
+         VMQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Aeo8Kc6gDZPXZvE0DmabfYTz/zNuvasGH9KV0/D9kjE=;
+        fh=eaNKhkTWpjR5KHXz/5ebW3/1WW6L+5KNVpkFdAU0Bik=;
+        b=oITpAMHf/9V/SIKfU1sQlIfcyvZluwmt7VJC4Eoq5mZQXeHDM0612uY5gkdyy+zv5g
+         fOBfKeqFKMeE021kAotHCnDK6Eza0gd4RrfcIGpndVSGj3/AopBxIscVdVmUPwSH53dU
+         bcxBD5aTr7YVpCDGLtz2DggzefoinpA0WDuYM2Ga1goCol09PjaxRu0fs8NKhVG/9nla
+         LtnDksLc7BQdl3lvauiG+JmwUrxK+DWba/iYOcgm9zOeY30wKQzpTI6OfO1m09dAqSNs
+         rzcu4h4HNDpnh742L5y9W4C/tr0fBFdULoeLb5P6ZraANen9WA01HpzY0NT/0pRqVK6t
+         cgGA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1794993628; x=1795598428; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Aeo8Kc6gDZPXZvE0DmabfYTz/zNuvasGH9KV0/D9kjE=;
+        b=iyLBskJdIJtYGSnIY6piD6QVm91jLi12dM2xCcsHRaMWSWN690hEfVOHUUlWHsOG8p
+         Eci2PpHWtm9mJ9KckBu6HcEg3M2rL3Kly9c4Vv+YVrZPu4vAwR3YM0FesX2SQuxwt2f+
+         7Gadniz8CG14kuqgyHf7rJTpxGh6mfKbWIao2LHP67ckbIEwMp+5CV5NbP5C4VG8WGEM
+         tqEaq7Qka8acwIXS1GE9Zu8bJxCIFFZ7rvD97vjPCvrOygYLNSvTxJLUQwX89y8aoQH1
+         vtX13yPITnlM6+NkXDSByUNvW+ZeptLlZp0jZhbW2XWc84XM10wOVHxXoc1maSuwfAT/
+         nWQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794993628; x=1795598428;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Aeo8Kc6gDZPXZvE0DmabfYTz/zNuvasGH9KV0/D9kjE=;
+        b=q/9JcZK1ZSFh4TIpeJ7Wu+iGTq4wiKXNZXyI1thFTWUzFgErvynzqHYrySjOtVyLeJ
+         0te5pKf47CwMt1P4ye8Zx/Sqs5CIOjqXYKkZPb7ldEbvvU7YN6LOG/ZfQKQh0UzpmLGG
+         KivDzmlHKk7HaS9o00kPRaQOsocMrVYggyYuSx9+kfr7JjlKs7/xiSz+R2emDLkyXoEe
+         sbbx3iHUqaIJCHtQIZN+sv8CDoBcxvi1ZtHnp9EMIoqFjiauHRTO6N/TxFnhfelr5DNS
+         v5DEgKzoGGhv4ghUtRmDXQLtLk00mQa1hm+YgRqXrqe8xNqGeaz123s+vUJwYJDq7n3r
+         cK7A==
+X-Forwarded-Encrypted: i=1; AL+hErFz9FM+j4tarzHg36CVj1P+2ir5TVmHTEL/UkIxzGrt7mwmO3Qtx8fWSMF6mG+Bd0GnOpp0oRnFcgMTXwk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/W1Qr+yGWWDaUqwI1dThRvNuDScox6ftRaQiL2e0YQ7SLpZYeh
+	VDBfbSmvjxRqB1a7aB6ihoZW9QnOB8redKX9/o71Wk+jY1XywIWcNixyAhQQUBAyi+57NppF+Zs
+	IqqanHRgaHi/bZYybQ4UyoA666DBkZcso71cfOVc7OA==
+X-Gm-Gg: AYBFou284BCZBcmZni+KX4s2KzM0wzRdUnm1eDUWdtXSjwIwbE9Qdb88dyxn7pzu4nA
+	3iNpgAqbF5Auudoz709dofWD3u9ZpHqzVU/a8ko3k2eYGapL3VS9yZ5IDJz+i54ES5BrBkYQbH6
+	2b06zN8QIJs6JafXKoxf+R6Ypnb6je2rDeUGK6ZLYqniVqeRCq34qYCIP24CrtyAge08qwzOCdX
+	yVCTDteH4LnscvG/Ni7tuC4AQO2Po6ya/ujz5+CN1WVgcAqia6qVGyATw45DBx/lY8jzdhib/VN
+	sg+T4dZzg4M6VmB9gOFgvmCgpauJg/2BZEXMFWEZ8E/8qhUeAuC6tcHifHGUUHoHI6e64+eUR4i
+	HHeBzmPbFO0u16hBwaSWLOa76XfSGecKFS3szl7KqsqsDvVW80AM2q7QinNtWcdT1saj3TVzhSi
+	UTaU44iFTws0+P
+X-Received: by 2002:a05:6402:5025:b0:6b7:dda4:f72c with SMTP id
+ 4fb4d7f45d1cf-6b88814ddbemr1418382a12.44.1794993627427; Wed, 18 Nov 2026
+ 01:20:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,380 +104,221 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-icc-sm7250-v6-1-a06ec15c6e29@brar.si>
-References: <20261118-icc-sm7250-v6-0-a06ec15c6e29@brar.si>
-In-Reply-To: <20261118-icc-sm7250-v6-0-a06ec15c6e29@brar.si>
-To: Georgi Djakov <djakov@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ishu Brar <patches@brar.si>
-Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org, 
- Konrad Dybcio <konradybcio@kernel.org>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794993617; l=9850;
- i=patches@brar.si; h=from:subject:message-id;
- bh=nZz553/2dh16j4l5ZONtevBvzE8n45Y9EXV6hm2h9T8=;
- b=ZxJaVRj9VHqfCDc7b0LGz9BaX6L4j5fzeaQW1HvYCJDC/5lVc6ig6tgLbOWj0bsz6eRPknsHu
- ta3qT7HMBCQBKHMKkegzUycmB0AaTxT2EPagFdAb9li/YFZOWuNtejO
-X-Developer-Key: i=patches@brar.si; a=ed25519;
- pk=Ds+E23E3ntzjPzuBDyVRkOouclcNI5k75R+N42yJtCk=
-X-Endpoint-Received: by B4 Relay for patches@brar.si/default with
- auth_id=1189
-X-Original-From: Ishu Brar <patches@brar.si>
-Reply-To: patches@brar.si
-Content-Transfer-Encoding: 7bit
+References: <20261106151947.3991524-1-vincent.guittot@linaro.org>
+ <20261106151947.3991524-2-vincent.guittot@linaro.org> <avr4MsRsjGfGHKKk@scheduler.schedules>
+In-Reply-To: <avr4MsRsjGfGHKKk@scheduler.schedules>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 18 Nov 2026 10:20:14 +0100
+X-Gm-Features: AclHuK_oniCwAqlI2oAZeu8xsFu1h8iipcGgGgvvNigzDOS5HzX_db5ZNqKqLFA
+Message-ID: <CAKfTPtBZ=Dc_X48EQ0yXMym0JrS=pWvbviyVyFri0tv5VdR3Eg@mail.gmail.com>
+Subject: Re: [PATCH 01/20 v3] sched/eevdf: Decay positive lag of sleeping entities
+To: Kayra Cizmeci <kayracizmeci@gmail.com>
+Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
+	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, 
+	linux-kernel@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
+	linux-pm@vger.kernel.org, tj@kernel.org, void@manifault.com, 
+	arighi@nvidia.com, changwoo@igalia.com, sched-ext@lists.linux.dev, 
+	qyousef@layalina.io, christian.loehle@arm.com, pierre.gondois@arm.com, 
+	sshegde@linux.ibm.com, tim.c.chen@linux.intel.com
+Content-Type: text/plain; charset="UTF-8"
 
-From: Ishu Brar <patches@brar.si>
+On Mon, 16 Nov 2026 at 14:57, Kayra Cizmeci <kayracizmeci@gmail.com> wrote:
+>
+>
+> Hi Vincent!
+>
+> On Fri, Nov 06, 2026 at 04:19:28PM +0100, Vincent Guittot wrote:
+> > Similarly to delayed dequeue, which enables an entity to decay its negative
+> > lag while sleeping, a task should not keep a positive lag forever.
+> >
+> > The sleep duration and the weight are used to decay the positive lag at
+> > wakeup.
+> >
+> > Apply the decay when enqueueing on prev rq for which we hold the lock to
+> > get rq_clock_task().
+> >
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  kernel/sched/fair.c | 124 ++++++++++++++++++++++++++++++++------------
+> >  1 file changed, 90 insertions(+), 34 deletions(-)
+> >
+> > diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+> > index 0feec172fd37..5cd171f830d8 100644
+> > --- a/kernel/sched/fair.c
+> > +++ b/kernel/sched/fair.c
+> > @@ -897,6 +897,91 @@ bool update_entity_lag(struct cfs_rq *cfs_rq, struct sched_entity *se)
+> >       return avruntime - vlag != se->vruntime;
+> >  }
+> >
+> > +/*
+> > + * Signed add and clamp on underflow.
+> > + *
+> > + * Explicitly do a load-store to ensure the intermediate value never hits
+> > + * memory. This allows lockless observations without ever seeing the negative
+> > + * values.
+> > + */
+> > +#define add_positive(_ptr, _val) do {                           \
+> > +     typeof(_ptr) ptr = (_ptr);                              \
+> > +     __signed_scalar_typeof(*ptr) val = (_val);              \
+> > +     typeof(*ptr) res, var = READ_ONCE(*ptr);                \
+> > +                                                             \
+> > +     res = var + val;                                        \
+> > +                                                             \
+> > +     if (val < 0 && res > var)                               \
+> > +             res = 0;                                        \
+> > +                                                             \
+> > +     WRITE_ONCE(*ptr, res);                                  \
+> > +} while (0)
+> > +
+> > +/*
+> > + * Remove and clamp on negative, from a local variable.
+> > + *
+> > + * A variant of sub_positive(), which does not use explicit load-store
+> > + * and is thus optimized for local variable updates.
+> > + */
+> > +#define lsub_positive(_ptr, _val) do {                               \
+> > +     typeof(_ptr) ptr = (_ptr);                              \
+> > +     *ptr -= min_t(typeof(*ptr), *ptr, _val);                \
+> > +} while (0)
+> > +
+> > +static inline unsigned long cfs_rq_load_avg(struct cfs_rq *cfs_rq);
+> > +static unsigned long task_h_load(struct task_struct *p);
+> > +
+> > +static __always_inline
+> > +void decay_entity_lag(struct cfs_rq *cfs_rq, struct task_struct *p, int flags)
+> > +{
+> > +     struct sched_entity *se = &p->se;
+> > +     s64 delta_exec, vlag = se->vlag;
+> > +     unsigned long cfs_load;
+> > +     struct rq *rq;
+> > +
+> > +     WARN_ON_ONCE(se->on_rq);
+> > +
+> > +     /* Negative lag is managed by delayed dequeue path */
+> > +     if (vlag <= 0)
+> > +             return;
+> > +
+> > +     rq = rq_of(cfs_rq);
+> > +
+> > +     /* No fast access to prev rq task clock */
+> > +     if (flags & ENQUEUE_MIGRATED)
+> > +             return;
+> > +
+> > +     /* Compute sleep time */
+> > +     delta_exec = rq_clock_task(rq) - se->exec_start;
+> > +     if (unlikely(delta_exec <= 0))
+> > +             return;
+> > +
+> > +     /* For anything above ~4 seconds, save computation and clear the lag */
+> > +     if (unlikely(delta_exec >> 32)) {
+> > +             se->vlag = 0;
+> > +             return;
+> > +     }
+> > +
+> > +     /*
+> > +      * Use cfs' load and p's weight to estimate what would have been the
+> > +      * share for p. task's load contribution to cfs' load is replaced by
+> > +      * its weight.
+> > +      */
+> > +     cfs_load = cfs_rq_load_avg(cfs_rq);
+> > +     lsub_positive(&cfs_load, task_h_load(p));
+> > +     if (cfs_load) {
+> > +             unsigned long weight = scale_load_down(se->h_load.weight);
+> > +
+> > +             delta_exec *= weight;
+> > +             delta_exec = div64_long(delta_exec, cfs_load + weight);
+> > +     }
+> > +
+> > +     vlag -= calc_delta_fair(delta_exec, se);
+> > +
+> > +     /* vlag can't become neg while sleeping */
+> > +     se->vlag = max(0, vlag);
+> > +}
+>
+> Look:
+>
+> Let's say we have 3 tasks named TA, TB and TC. They all have the same
+> weight and the same slices. So TA gets picked, works for a while and then
+> sleeps for less than the rest of its slice.
+>
+> So the part that I hate and love, math. For your diff, we do:
+>
+> (sleep_time * weight) / (3 * weight)
+>
+> 3 * weight here is TA + TB + TC, it equals to 3 * weight since they all
+> have the same weight.
+>
+> So if sleep_time equals 2, weight equals 1, and slice equals 3 this equals
+> 2/3. If the lag is 2, we do 2 - 2/3 resulting with 4/3.
 
-Document the Network-On-Chip interconnect providers of the Qualcomm
-SM7250 SoC (Snapdragon 765/765G/768G), which are controlled through RPMh
-Bus Clock Managers, and add the header with the node and slave IDs.
+yes, we assume that TA would have run 1/3 of its sleep time
 
-Signed-off-by: Ishu Brar <patches@brar.si>
----
- .../bindings/interconnect/qcom,sm7250-rpmh.yaml    | 176 +++++++++++++++++++++
- .../dt-bindings/interconnect/qcom,sm7250-rpmh.h    | 148 +++++++++++++++++
- 2 files changed, 324 insertions(+)
+>
+>
+> Later, place_entity() uses this formula to do V - ((Sum(weight) + weight) * lag) / Sum(weight)
+> So ((2 + 1) * 4/3) / 2 equals to 2. But this is wrong, no?
 
-diff --git a/Documentation/devicetree/bindings/interconnect/qcom,sm7250-rpmh.yaml b/Documentation/devicetree/bindings/interconnect/qcom,sm7250-rpmh.yaml
-new file mode 100644
-index 000000000000..1bb1ef409221
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interconnect/qcom,sm7250-rpmh.yaml
-@@ -0,0 +1,176 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interconnect/qcom,sm7250-rpmh.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm RPMh Network-On-Chip Interconnect on SM7250
-+
-+maintainers:
-+  - Ishu Brar <patches@brar.si>
-+
-+description: |
-+  RPMh interconnect providers support system bandwidth requirements through
-+  RPMh hardware accelerators known as Bus Clock Manager (BCM). The provider is
-+  able to communicate with the BCM through the Resource State Coordinator (RSC)
-+  associated with each execution environment. Provider nodes must point to at
-+  least one RPMh device child node pertaining to their RSC and each provider
-+  can map to multiple RPMh resources.
-+
-+  See also: include/dt-bindings/interconnect/qcom,sm7250-rpmh.h
-+
-+properties:
-+  compatible:
-+    enum:
-+      - qcom,sm7250-aggre1-noc
-+      - qcom,sm7250-aggre2-noc
-+      - qcom,sm7250-config-noc
-+      - qcom,sm7250-dc-noc
-+      - qcom,sm7250-gem-noc
-+      - qcom,sm7250-mmss-noc
-+      - qcom,sm7250-npu-noc
-+      - qcom,sm7250-system-noc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 2
-+
-+  interconnect:
-+    type: object
-+    description:
-+      Interconnect provider without a register space of its own. The
-+      compute-noc QoS registers are within the aggre2-noc register space.
-+      The mc-virt and qup-virt providers are virtual and have no registers.
-+
-+    allOf:
-+      - $ref: qcom,rpmh-common.yaml#
-+
-+    properties:
-+      compatible:
-+        enum:
-+          - qcom,sm7250-compute-noc
-+          - qcom,sm7250-mc-virt
-+          - qcom,sm7250-qup-virt
-+
-+    required:
-+      - compatible
-+
-+    unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+
-+allOf:
-+  - $ref: qcom,rpmh-common.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: qcom,sm7250-aggre1-noc
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: aggre UFS PHY AXI clock
-+            - description: aggre USB3 PRIM AXI clock
-+      required:
-+        - clocks
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: qcom,sm7250-aggre2-noc
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: RPMH CC IPA clock
-+        interconnect:
-+          properties:
-+            compatible:
-+              const: qcom,sm7250-compute-noc
-+      required:
-+        - clocks
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: qcom,sm7250-gem-noc
-+    then:
-+      properties:
-+        interconnect:
-+          properties:
-+            compatible:
-+              const: qcom,sm7250-mc-virt
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: qcom,sm7250-system-noc
-+    then:
-+      properties:
-+        interconnect:
-+          properties:
-+            compatible:
-+              const: qcom,sm7250-qup-virt
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - qcom,sm7250-config-noc
-+              - qcom,sm7250-dc-noc
-+              - qcom,sm7250-gem-noc
-+              - qcom,sm7250-mmss-noc
-+              - qcom,sm7250-npu-noc
-+              - qcom,sm7250-system-noc
-+    then:
-+      properties:
-+        clocks: false
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - qcom,sm7250-aggre1-noc
-+              - qcom,sm7250-config-noc
-+              - qcom,sm7250-dc-noc
-+              - qcom,sm7250-mmss-noc
-+              - qcom,sm7250-npu-noc
-+    then:
-+      properties:
-+        interconnect: false
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    interconnect@16e0000 {
-+        compatible = "qcom,sm7250-aggre1-noc";
-+        reg = <0x016e0000 0x15080>;
-+        #interconnect-cells = <2>;
-+        clocks = <&gcc 4>, <&gcc 5>;
-+        qcom,bcm-voters = <&apps_bcm_voter>;
-+    };
-+
-+    interconnect@1620000 {
-+        compatible = "qcom,sm7250-system-noc";
-+        reg = <0x01620000 0x19200>;
-+        #interconnect-cells = <2>;
-+        qcom,bcm-voters = <&apps_bcm_voter>;
-+
-+        interconnect {
-+            compatible = "qcom,sm7250-qup-virt";
-+            #interconnect-cells = <2>;
-+            qcom,bcm-voters = <&apps_bcm_voter>;
-+        };
-+    };
-diff --git a/include/dt-bindings/interconnect/qcom,sm7250-rpmh.h b/include/dt-bindings/interconnect/qcom,sm7250-rpmh.h
-new file mode 100644
-index 000000000000..2b1fa23d0a21
---- /dev/null
-+++ b/include/dt-bindings/interconnect/qcom,sm7250-rpmh.h
-@@ -0,0 +1,148 @@
-+/* SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause */
-+/*
-+ * Qualcomm SM7250 interconnect IDs
-+ *
-+ * Copyright (c) 2020, The Linux Foundation. All rights reserved.
-+ */
-+
-+#ifndef __DT_BINDINGS_INTERCONNECT_QCOM_SM7250_H
-+#define __DT_BINDINGS_INTERCONNECT_QCOM_SM7250_H
-+
-+#define MASTER_A1NOC_CFG		0
-+#define MASTER_QUP_1			1
-+#define MASTER_SDCC_2			2
-+#define MASTER_SDCC_4			3
-+#define MASTER_EMMC			4
-+#define MASTER_UFS_MEM			5
-+#define MASTER_USB3			6
-+#define A1NOC_SNOC_SLV			7
-+#define SLAVE_SERVICE_A1NOC		8
-+
-+#define MASTER_A2NOC_CFG		0
-+#define MASTER_QDSS_BAM			1
-+#define MASTER_QUP_0			2
-+#define MASTER_CRYPTO_CORE_0		3
-+#define MASTER_IPA			4
-+#define MASTER_QDSS_ETR			5
-+#define A2NOC_SNOC_SLV			6
-+#define SLAVE_SERVICE_A2NOC		7
-+
-+#define MASTER_NPU			0
-+#define MASTER_NPU_CDP			1
-+#define SLAVE_CDSP_GEM_NOC		2
-+
-+#define SNOC_CNOC_MAS			0
-+#define MASTER_QDSS_DAP			1
-+#define SLAVE_A1NOC_CFG			2
-+#define SLAVE_A2NOC_CFG			3
-+#define SLAVE_AHB2PHY_SOUTH		4
-+#define SLAVE_AHB2PHY_CENTER		5
-+#define SLAVE_AOSS			6
-+#define SLAVE_CAMERA_CFG		7
-+#define SLAVE_CLK_CTL			8
-+#define SLAVE_CDSP_CFG			9
-+#define SLAVE_RBCPR_CX_CFG		10
-+#define SLAVE_RBCPR_MX_CFG		11
-+#define SLAVE_CRYPTO_0_CFG		12
-+#define SLAVE_CX_RDPM			13
-+#define SLAVE_DCC_CFG			14
-+#define SLAVE_CNOC_DDRSS		15
-+#define SLAVE_DISPLAY_CFG		16
-+#define SLAVE_GRAPHICS_3D_CFG		17
-+#define SLAVE_IMEM_CFG			18
-+#define SLAVE_IPA_CFG			19
-+#define SLAVE_IPC_ROUTER_CFG		20
-+#define SLAVE_LPASS			21
-+#define SLAVE_CNOC_MNOC_CFG		22
-+#define SLAVE_NPU_CFG			23
-+#define SLAVE_PDM			24
-+#define SLAVE_PIMEM_CFG			25
-+#define SLAVE_PRNG			26
-+#define SLAVE_QDSS_CFG			27
-+#define SLAVE_QUP_0			28
-+#define SLAVE_QUP_1			29
-+#define SLAVE_SDCC_2			30
-+#define SLAVE_SDCC_4			31
-+#define SLAVE_SNOC_CFG			32
-+#define SLAVE_TCSR			33
-+#define SLAVE_TLMM_NORTH		34
-+#define SLAVE_TLMM_SOUTH		35
-+#define SLAVE_TLMM_WEST			36
-+#define SLAVE_UFS_MEM_CFG		37
-+#define SLAVE_EMMC_CFG			38
-+#define SLAVE_USB3			39
-+#define SLAVE_VENUS_CFG			40
-+#define SLAVE_VSENSE_CTRL_CFG		41
-+#define SLAVE_SERVICE_CNOC		42
-+
-+#define MASTER_CNOC_DC_NOC		0
-+#define SLAVE_GEM_NOC_CFG		1
-+#define SLAVE_LLCC_CFG			2
-+
-+#define MASTER_AMPSS_M0			0
-+#define MASTER_SYS_TCU			1
-+#define MASTER_GPU_TCU			2
-+#define MASTER_GEM_NOC_CFG		3
-+#define MASTER_COMPUTE_NOC		4
-+#define MASTER_GRAPHICS_3D		5
-+#define MASTER_MNOC_HF_MEM_NOC		6
-+#define MASTER_MNOC_SF_MEM_NOC		7
-+#define MASTER_SNOC_GC_MEM_NOC		8
-+#define MASTER_SNOC_SF_MEM_NOC		9
-+#define SLAVE_MCDMA_MS_MPU_CFG		10
-+#define SLAVE_MSS_PROC_MS_MPU_CFG	11
-+#define SLAVE_GEM_NOC_SNOC		12
-+#define SLAVE_LLCC			13
-+#define SLAVE_SERVICE_GEM_NOC		14
-+
-+#define MASTER_LLCC			0
-+#define SLAVE_EBI_CH0			1
-+
-+#define MASTER_CNOC_MNOC_CFG		0
-+#define MASTER_CAMNOC_ICP		1
-+#define MASTER_CAMNOC_HF0		2
-+#define MASTER_CAMNOC_HF1		3
-+#define MASTER_CAMNOC_SF		4
-+#define MASTER_MDP_PORT0		5
-+#define MASTER_MDP_PORT1		6
-+#define MASTER_ROTATOR			7
-+#define MASTER_VIDEO_P0			8
-+#define MASTER_VIDEO_P1			9
-+#define MASTER_VIDEO_PROC		10
-+#define SLAVE_MNOC_HF_MEM_NOC		11
-+#define SLAVE_MNOC_SF_MEM_NOC		12
-+#define SLAVE_SERVICE_MNOC		13
-+
-+#define MASTER_NPU_SYS			0
-+#define MASTER_NPU_NOC_CFG		1
-+#define SLAVE_NPU_CAL_DP0		2
-+#define SLAVE_NPU_CP			3
-+#define SLAVE_NPU_INT_DMA_BWMON_CFG	4
-+#define SLAVE_NPU_DPM			5
-+#define SLAVE_ISENSE_CFG		6
-+#define SLAVE_NPU_LLM_CFG		7
-+#define SLAVE_NPU_TCM			8
-+#define SLAVE_NPU_COMPUTE_NOC		9
-+#define SLAVE_SERVICE_NPU_NOC		10
-+
-+#define MASTER_QUP_CORE_0		0
-+#define MASTER_QUP_CORE_1		1
-+#define SLAVE_QUP_CORE_0		2
-+#define SLAVE_QUP_CORE_1		3
-+
-+#define MASTER_SNOC_CFG			0
-+#define A1NOC_SNOC_MAS			1
-+#define A2NOC_SNOC_MAS			2
-+#define MASTER_GEM_NOC_SNOC		3
-+#define MASTER_PIMEM			4
-+#define SLAVE_APPSS			5
-+#define SNOC_CNOC_SLV			6
-+#define SLAVE_SNOC_GEM_NOC_GC		7
-+#define SLAVE_SNOC_GEM_NOC_SF		8
-+#define SLAVE_OCIMEM			9
-+#define SLAVE_PIMEM			10
-+#define SLAVE_SERVICE_SNOC		11
-+#define SLAVE_QDSS_STM			12
-+#define SLAVE_TCU			13
-+
-+#endif
+why is this wrong ?
 
--- 
-2.56.1
+Assuming TB and TC have the same vruntime before placing TA, the
+average vruntime is avg == V(TB) == V(TC).
+place_entity will do V(TA) = avg - 2
+After placing TA, avg' = (V(TA) + V(TB) + V(TC)) / 3
+avg' = (3*avg - 2) / 3 = avg - 2/3
+TA's lag is : (avg - 2/3)  - (avg - 2) = 4/3 which is what we assumed above
+TB's lag equals TC's lag : (avg - 2/3)  - avg = -2/3
 
+>
+> If we didn't decayed lag: ((2 + 1) * 2) / 2 equals 3.
+> So we would do V - 3.
 
+Which would end up once placed to
+avg' = (3*avg - 3) / 3 = avg - 1
+TA's lag is : (avg - 1)  - (avg - 3) = 2
+TB's lag equals TC's lag : (avg - 1)  - avg = -1
+
+>
+> Now our objective is to add the sleep_time of the task to -3.
+> Because if the task didn't slept, in that time it would be working
+> instead of sleeping.
+>
+> So, we should do V - 1. But we do V - 2.
+
+Why ?
+You assume that the whole sleeping time would have been spent by TA
+running on the CPU but we don't really know. We can assume that a task
+with positive lag should run first, but this also depends on other
+tasks enqueued.
+My first version assumed the whole sleep time would have been used to
+run which is optimistic. Peter suggested using the ratio of weight and
+cfs loads instead which accounts more fairly for the running time.
+
+>
+>
+> AFAICT, we can't already know for sure how much will a task run even
+> when the sleep_time is smaller than the slice. Because of preemption
+> :-(.
+>
+> The cleanest, the simplest and maybe the worst or the best solution I can think of
+> is just setting lag to 0 on every wakeup with positive lag TBH.
+
+Keeping eternal positive lag for a long sleeping task is unfair but on
+the other end, clearing all positive lag for a micro sleeping or
+because of waiting on a shared lock is also unfair
+
+>
+> Or maybe, try to calculate when sleep_time is smaller than the slice,
+> but just set the lag to 0 when sleep_time is bigger or equal to slice.
+
+There is a difference between sleep time and lag. Even with a sleep
+time longer than the slice, the task can still have positive lag after
+sleeping (this is also true for runtime). All this depends on how many
+other tasks are running simultaneously and their weight
+
+>
+> What you think?
+>
+> Sreehc,
+>
+> Kayra
