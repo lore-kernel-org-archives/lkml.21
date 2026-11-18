@@ -1,56 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005778;
-	b=rWnlGJTqwjL9Q1NsTr85hU8oWj3b46ieUShw3pJij3JAmDCNQhJVinPHzggeC51hc/EH
-	 GaYCT4goqJU5T4EgbLhnjIiUNoDToYi6cWo5WnJ22G97i2evt13T+A40guqWUOzRi9YrF
-	 sGj1/x3FeXPTN+QCjQWmW/uD2IRBa+9d2QffLmBbGoM/qBNDG+zR/yMkKbelSUngOsRqj
-	 ykIL1d5zRr4bRQNWGdoinFAou0PMZzMqbY9be9Yf7DSBt9vbq3svyEru5noYKX5rOyl9S
-	 eqoPR5M0Mc8xtqBRHij3SxUQIP50VG7/NuMMtOnAUD54cj4K74p+q9Xbj6OOajvmVhg==
+	t=1795005784;
+	b=P1SAeDT2KUZjsL4MdrLpcQ7yVuJn6+Rzp1Rv1FVtoZ2B2jwiH5QZ9/eNBP3YL8MfbnL6
+	 tBlWaOpJiV2/o7VJZBiOTMdd5hRM+hvK5qs/VrCZGLOI5jps0DZjLkYhBHT698sxq/3px
+	 P5gaQTPE3buwfuBi7bJEKhBPQn6OKbQgdBcaw47f2BoPAzUdH85VIO0L1aVwWqy89TQJN
+	 uGRaDkqa6vFkh4AacwLeSF2fpaB1EVVI3i/Pk1HhVrs7B/7rhQKH1IHzfBoJiBaVapfPF
+	 BpE7acxmvEas37uSX4inoOyCKnDbkdQMlmxD4VERyr1ng2NRy30qcxL5dGTNVTtoJfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005778;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=Khwy/yV0Mv8WqGQMzg9B3NGN7aah+zLdU5pxnPjCEGo=;
-	b=EKHGIG3z6XnrDTjvzENQfH7GKphk26HxQpdXJ5yJaKvbS7ZSrKSnq+VjC7FVR+Uh4m9k
-	 oUJqNZPyLrucSgVwoKlcR6PKcQv5KOQtzePgkDxQdpKHBYxJrTvKW6+db8x2aGdRxklEf
-	 1/bfVspdeTWXUFa+qbCJW7vW+8xRt8/+DU1qiYExebIhsZOT0wTBCoJQgQ8yDMGSMR2tF
-	 2ffUB44evKjo0++AoMIxaDhsbQAHxmI821UboUBjJ1fbs6MyFANGNgeEVwnn6EQ6U+xpg
-	 YNVIeDbJgO8006T6RDRBP12aZzkvdBY3mkjG+B3e3HIuBz8FfzsakHFDxKLAWsJm/5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005784;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=i7BOqRCeyCtAF/WP5xZtoPvyJhiNeF0I4oiRbcf0zpc=;
+	b=OMAlAB2szhSZEA1oOR2Q/hkpDmQNprfiCKYK8N4pWSJPzJSF5XInKAdZh7uuatsqcxii
+	 LbRjyO493sJVVOgYNRMb/R2WvfspQzEX8Cr3wpJ7BdEXRwqk6rBwE45VFvxYErqkcYZjV
+	 7ePU5LnCmmDrQM5wHHNHtp0X+qXMFcLWgiTfksOvKyiVgsinsCObBmekpwvMvSlTyzm31
+	 dQ6ISL2ogpB4GFKiNAPDIpU3Pt36k96Ny9E7rsWsSNFVF3UnNRySrLa0ypQhDZYrKczwR
+	 cKPRAEc+Vf0DVzJS4Z/zaIGSHQDyvwfQ8phde/sdINR1KqLU9LcM6bD5h/h3Pkocj1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RbEXUMN2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJfNtYoA;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAD4E60A2604;
-	Wed, 18 Nov 2026 12:42:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B15860A260A;
+	Wed, 18 Nov 2026 12:43:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RbEXUMN2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B7091F000C6;
-	Wed, 18 Nov 2026 12:42:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HJfNtYoA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 108711F000C5;
+	Wed, 18 Nov 2026 12:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005778;
-	bh=Khwy/yV0Mv8WqGQMzg9B3NGN7aah+zLdU5pxnPjCEGo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=RbEXUMN2CMj/iwKw3KsDByucdw2jK8cqH2KcHvaUURp3yqvXGBnWWoNucez3Ai6K3
-	 3OT1sReVM8CY1JkqHkEqL5gEM+LLpqDq9amlKgLHrndHAHf7FrVCEgxLMd9ndZf6nW
-	 Rqye2n/o1vJhcVBLPAWiQcUykvI+/i4SE0+RY2TfAffyoyUARJm088RBU3jgyRFgSa
-	 +QW8zobXdY/bs2vvxrVOlw+uAzrM079O4JjtBIarVhugkZDpOTSLEku0/n8uNKzxjA
-	 okxNff9bovPlrXsYmwt2gwZdZUMMMZCbFcDq65DaRfgmDG9kyFGWIWu5PNVRRCWXG2
-	 kiKfUQWi2ynJg==
-From: Christian Brauner <brauner@kernel.org>
-To: Jens Axboe <axboe@kernel.dk>, Hengyu Liang <hengyul@cs.unc.edu>
-Cc: Luis Chamberlain <mcgrof@kernel.org>, Christoph Hellwig <hch@lst.de>, 
- Hannes Reinecke <hare@suse.de>, John Garry <john.garry@linux.dev>, 
- linux-block@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261112174805.1200379-1-hengyul@cs.unc.edu>
-References: <20261112174805.1200379-1-hengyul@cs.unc.edu>
-Subject: Re: [PATCH] bdev: do not report a statx block size below the block
- size
-Message-Id: <20261118-bierdeckel-auffahren-zeche-1be876b46ef9@brauner>
-Date: Wed, 18 Nov 2026 13:42:53 +0100
+	s=k20260515; t=1795005783;
+	bh=i7BOqRCeyCtAF/WP5xZtoPvyJhiNeF0I4oiRbcf0zpc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HJfNtYoANKaHZ2oDdH8fQ/6C/p6v3PUgE8GPyx361yKWpTeixsXnScDij65hbQ9MQ
+	 SqHEWaD9MmqvK1z2hp5jkH9wtqeNTFWUCJk75BCZIHos99tIiVq9VDCAb4qOWhBort
+	 jPh4v3Dd7f0K/u3bNtflMuM1JAFORoRBBPz5wf7+kd9C+Tnh11nlv/TVWpVaJ8IzDq
+	 7Tnu4QKM0Mqo7KtS33OBo/l35HQKzCntM18P0Y2+q8rZv9tR9aUkqrXXFt4ZxxiPnX
+	 SHzi39sJLIa4EEtkW4cZlV4EcQVkI7IjH4sJV/7Muc5TF6yNMXdwNK2HyP1++CMYTU
+	 4PkN5XJJK++ng==
+Message-ID: <c20a2a9f-f40d-4ef0-9aa3-f6eee24ed2b1@kernel.org>
+Date: Wed, 18 Nov 2026 13:42:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,40 +51,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: enable the SerDes PHY for Qualcomm
+ SA8255p
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261118-qcom-scmi-sgmii-phy-defconfig-v1-1-d0c7d2e881c7@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
 
-On Thu, 12 Nov 2026 12:48:05 -0500, Hengyu Liang wrote:
-> Commit 425fbcd62d2e ("bdev: use bdev_io_min() for statx block size")
-> made stat() report the minimum I/O size of a block device as
-> st_blksize, so that devices with a large minimum I/O size get large
-> enough I/O. Commit 777d0961ff95 ("fs: move the bdex_statx call to
-> vfs_getattr_nosec") did the same for fstat().
+On 18/11/2026 11:31, Bartosz Golaszewski wrote:
+> Enable the SGMII/SerDes PHY driver for the firmware-managed variant of
+> the Lemans platform. This module is required for ethernet to work on
+
+Which Lemans? This is a generic defconfig, not vendor specific.
+
+> sa8255p-ride.
 > 
-> However, the minimum I/O size of most disks is 512 bytes, and
-> st_blksize was 4096 for them before. As of now, programs that size
-> their buffer by st_blksize, such as stdio, write to these disks 512
-> bytes at a time. Each write that covers only part of a block makes the
-> kernel read the block from the disk first.
-> 
-> [...]
 
-Applied to the vfs.fixes branch of the vfs/vfs.git tree.
-Patches in the vfs.fixes branch should appear in linux-next soon.
+`git grep` gives me only piece of a compatible, not even DTS. There is
+no such board simply. We don't take changes for non-upstream boards.
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs.fixes
-
-[1/1] bdev: do not report a statx block size below the block size
-      https://git.kernel.org/vfs/vfs/c/085dfb5a71d7
-
+Best regards,
+Krzysztof
