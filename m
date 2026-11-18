@@ -1,65 +1,166 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.136
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.151.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019584;
-	b=v4hwayYv0maDiEQXJoxHnaINzKIoAMtdnaY0XR6p9GObXUquclgRpuglXsPvyL51Tjs+
-	 sQLyMd+I+wrClYq2mbLthlM71VmwK/vfoXlIFgCW7+3D6F5McoJA1r0FOYSSgA2A8TKZ2
-	 Y6bKsNQKwF7RQ1SzrhA7Xga/ykVO0iDBUx+rCTA5vc2VIJd2FxjBdbAnUTqCF31u7uvpl
-	 xAit4ND/imLNPaufcDI9bdgB98qNoEkzsYfREKAhxm4M4N/ug5FeH1dNFwBw+V5ieW0co
-	 ntbh9e07ClD7Yj3oVPYRsc9Pusgs/iYROq+RmPeXCQQ7zxbcB3GV5jhq0Y8UkYtkfZA==
+	t=1795019593;
+	b=vlMpnkG8ZmDhDZkb5F4WYdwgpLnOqkI21B+W0rW8sTJ2W2ohQkytmMXfMglecJ4GPsnU
+	 Hp5pWCg0jODHbh7UixrnwfaP4JsWabaynSDkRpdNU8dYGm0o6KzVxJJQY3yV/5MbrwAOn
+	 dedktAtBErzj4/l6pv2m9z8p4RVh9bRA5WLTkwGmsyxbWv+dfQjeyv19/opFrVNgkI47r
+	 pTLQjNrnzPuC9ARJhByRNUWKTK1fXzpgfZXSAfAbGb/0xlkLslTFQuqRX4nMM5bAA58FR
+	 aNt2BCDmCigGXKaJ4vYZwBbPHiSmtaes3sNgG3id6azxqc/3Nn1GKQO3GC29qFWoZbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019584;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:CC:
-	 Subject:User-Agent:In-Reply-To:References:Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=MrY/KnS3ef/f4qiV96vwLU4Xuf0acemhEzWgdG7MY5I=;
-	b=djmh/1omTxdf4NuIR3ClT8fzoITxN1ttqduZyKJXxTbMo4RNCRWJ3dR7wy7gT1mwMfCt
-	 2uUkEz/fr6glpeskV7X+vuphL0FNtSrUPrRBcGUMlY7n1M2M2xOLk7JVfap+pmysD3Z5x
-	 h7jn2bcoR4KdaYXhv5od5JoNxwqD5/n4GDkeoT5eB2j24nDOI6VY0lTWXDXXSJQ/jsdm3
-	 iml1tyos84Ow7kNDrABPN5DC5yATiji+pLWmSnArHwxfp1wq4HmMWYILsW+S1pVsLlEYJ
-	 3xuH38M0IUr9T19OK5F84yPLahN+LVCxqqZgW3+ojyZ2Djk/P7EP3t6C+b6mE/BcXhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019593;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Mimecast-Spam-Score:X-Mimecast-MFC-PROC-ID:X-Mimecast-Originator:
+	 Content-Language:Content-Type:Content-Transfer-Encoding;
+	bh=njLIEZZbahidaB+c5D34w2cGpNehYggHjUInKVvMqe4=;
+	b=ne//45EHDKvIYoCK9PADBxTn6G8uOczL8jrgMueOvnjdEKcUuFTHHv38GlIe7eZCy3P/
+	 d5Ngdym2MPrCoedNJrVvxNfd3HzNRQwKWFp0T2Y4XTC+ez7iGNVOBaQB87taE72nQLzhu
+	 AQ/sx6K3VGDcWqoVXxGQ1wt0CLnc/Av4OOBM6MqTOH8nxTN+KHKtxPIB8FjOOrOjsIiwV
+	 LHVSIhk3uwzMLpU4Rac7Q7DDo1t/tHkE4TXNTaGseFG/wt/PwNOqFqJdmYyqB2FCsJdhL
+	 W73ve7Vqwsfec5YD56E789GToDNkGciB/hI3JWE/rzDK1Q1PnW3K3xF9Mlq6rU19Ehg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=zytor.com;
-	spf=pass smtp.mailfrom=zytor.com;
-	dkim=pass header.d=zytor.com header.i=@zytor.com header.a=rsa-sha256 header.s=2026102901 header.b=z+OA0xs5;
-	arc=none smtp.remote-ip=198.137.202.136
-Received: from mail.zytor.com (terminus.zytor.com [198.137.202.136])
+	dmarc=pass header.from=onsemi.com;
+	spf=pass smtp.mailfrom=onsemi.com;
+	dkim=pass header.d=onsemi.com header.i=@onsemi.com header.a=rsa-sha256 header.s=mimecast20250127 header.b=dq2EEUDb;
+	arc=none smtp.remote-ip=170.10.151.120
+Received: from usb-smtp-delivery-120.mimecast.com (usb-smtp-delivery-120.mimecast.com [170.10.151.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D6AC606A333;
-	Wed, 18 Nov 2026 16:33:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D6AC606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zytor.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zytor.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 067EF606A7D4
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:33:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 067EF606A7D4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=onsemi.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onsemi.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=zytor.com header.i=@zytor.com header.a=rsa-sha256 header.s=2026102901 header.b=z+OA0xs5
-Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 6AIGUb9C3348199
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Wed, 18 Nov 2026 08:30:52 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 6AIGUb9C3348199
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026102901; t=1795019578;
-	bh=MrY/KnS3ef/f4qiV96vwLU4Xuf0acemhEzWgdG7MY5I=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=z+OA0xs5vZqfjj9VmdPdTbO/hJtCzwyIpjLJpY6J5u5X3SRJ8DA1nurvNGS//+XsE
-	 gKKZRRq6vhRBoFe+97OhxQRlXLnfahFCcQF2ecm1E4XS+zcfxF6SmflqMTB53Z2U1/
-	 PrORRWuhQSPIlTWmmqhHuJVq79BHY4qpi3kQRx0tRo/azm5NnjCH+kw3Zdulo3zzGQ
-	 l1iSDe899cEdjm/NU3sTGHaRvfW9XAA56RvlmZwRT246f1w/qYLbPHIqP+0bkvRI/G
-	 a06LUldQ+mdXaiLjZZN8BckfGKTyYSGTq9U9JdnfzWL4C3CkImfmJyBZJ5xV4U3PoP
-	 LbQ1MrzMKUUOg==
-Date: Wed, 18 Nov 2026 08:29:03 -0800
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
-        x86@kernel.org
-CC: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_x86=3A_Make_the_64-bit_bz?=
- =?US-ASCII?Q?Image_always_physically_relocatable?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <3522588c-9d7a-454b-afe8-c16c6788265a@app.fastmail.com>
-References: <20261111091843.3621782-2-ardb+git@google.com> <FD1A5979-1504-4A96-B26C-D89BD362170A@zytor.com> <3522588c-9d7a-454b-afe8-c16c6788265a@app.fastmail.com>
-Message-ID: <F6E708AE-0476-4E9A-A39D-3DF15E91EB80@zytor.com>
+	dkim=pass (2048-bit key) header.d=onsemi.com header.i=@onsemi.com header.a=rsa-sha256 header.s=mimecast20250127 header.b=dq2EEUDb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onsemi.com;
+	s=mimecast20250127; t=1795019592;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=njLIEZZbahidaB+c5D34w2cGpNehYggHjUInKVvMqe4=;
+	b=dq2EEUDbLpfvGqkANBO4JG/U1QnA2/85CEpuUtugna6R8Lzh9VSaILJcfxq6IGuZJfV9Sc
+	X9zT8Mba2dSyOk4us+YdWJbhkIVUl6Ozswh29MKiNY1JgWmS123H8kEIjCtFoBJ2ogVQDE
+	tWFKKBB7JrAUnqfAzPG7WS9R1p6ACFg0sW5dcQggwcvC5qElkrMKmX9QwsLTVbJAKRlu3H
+	axndQi3Y26HTaVzukN6fuLQcnhC6S0YxPt3svGRltefaJVxmupplR11CDjJxQX8r+nte51
+	Bi7T0y6JehrZw72ol1Df8j57ffJC/NdVJ7xFm3Y/8BxWzBsz1blQeb2zx/dq8w==
+Received: from PH8PR06CU001.outbound.protection.outlook.com
+ (mail-westus3azon11012046.outbound.protection.outlook.com [40.107.209.46])
+ by relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id usb-mta-57-TZe_ihXBMiG0ykd9ryhhfQ-1; Wed,
+ 18 Nov 2026 08:32:53 -0800
+X-MC-Unique: TZe_ihXBMiG0ykd9ryhhfQ-1
+X-Mimecast-MFC-AGG-ID: TZe_ihXBMiG0ykd9ryhhfQ_1795019571
+Received: from CH0PR02MB7867.namprd02.prod.outlook.com (2603:10b6:610:110::22)
+ by PH0PR02MB7509.namprd02.prod.outlook.com (2603:10b6:510:5e::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 16:32:49 +0000
+Received: from CH0PR02MB7867.namprd02.prod.outlook.com
+ ([fe80::d722:d686:a9cb:6c2e]) by CH0PR02MB7867.namprd02.prod.outlook.com
+ ([fe80::d722:d686:a9cb:6c2e%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 16:32:49 +0000
+From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
+CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "parthiban.veerasooran@microchip.com"
+	<parthiban.veerasooran@microchip.com>, "horms@kernel.org" <horms@kernel.org>,
+	"corbet@lwn.net" <corbet@lwn.net>, "skhan@linuxfoundation.org"
+	<skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>,
+	"richardcochran@gmail.com" <richardcochran@gmail.com>, "andrew@lunn.ch"
+	<andrew@lunn.ch>, "hkallweit1@gmail.com" <hkallweit1@gmail.com>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "edumazet@kernel.org"
+	<edumazet@kernel.org>, "piergiorgio.beruto@gmail.com"
+	<piergiorgio.beruto@gmail.com>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "jerry.ray@microchip.com"
+	<jerry.ray@microchip.com>, "ciprian.regus@analog.com"
+	<ciprian.regus@analog.com>
+Subject: RE: [PATCH net-next v11 08/14] net: ethernet: oa_tc6: Drop frames if
+ footer has FD bit set
+Thread-Topic: [PATCH net-next v11 08/14] net: ethernet: oa_tc6: Drop frames if
+ footer has FD bit set
+Thread-Index: AQHdc5BlUTHP4752Y0K+rr6MPZuOfLcys2MAgAFZjnA=
+Date: Wed, 18 Nov 2026 16:32:49 +0000
+Message-ID: <CH0PR02MB7867083AFB60EBAC2EE68473837A2@CH0PR02MB7867.namprd02.prod.outlook.com>
+References: <20261113-s2500-mac-phy-support-v11-8-7a186141952c@onsemi.com>
+ <179494518411.3136.11012925273881298159@kernel.org>
+In-Reply-To: <179494518411.3136.11012925273881298159@kernel.org>
+Accept-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CH0PR02MB7867:EE_|PH0PR02MB7509:EE_
+x-ms-office365-filtering-correlation-id: acb51d93-38a2-4017-51b1-08df4591959d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|38070700021|4143699003|11063799006|261026140227099003|56012099006|261022105027099003|261028144727099003|261009223027099003|22082099003|18002099003
+x-microsoft-antispam-message-info: /Rbd5W3PWwWCxcFoP9Bjwl9rGc1F1zuXlDZdqXMbJK1vNHr+9SIi+kr1FNHM1pPccEyUvr2zAm3hrMEImSIpf7FpnFfYhaH2VHubAKNHjgn4DaRWIFiw4/1o7Fdb0ufwYW2Qww+Hkdchs5YwaWhZjqFaE0Go64PlcF5XVh4dUlyV6U+sVtIC5SytoKJwF5z2fJKJ6wQOD9IOVfLUgNnCHDyfboHu+nG7V2qz4nHAW8JhwZSRqlhZD+lK+wRORLAXNG/4RdxLtih/jV+iNHUpVjtw02AdTwb+oOYNTjqYY7Q81z14mQzPb5Sax/w+X/p2/tKXhukiMDe+L+0HVu1DjU63cyVnVK0dALC5O2TGABIMFRG2flgdnLvpIJSM/h9s9j7fkHF2+dTAHy1LA5gzL4KNMyIy6QdV4GDlhBJCFiFOvGhsZIsZqcOIrIydKDm3hGac/JQryCBZ0SK9Q1VKiBHYG0o8PP5u6zIiHX0jqvaQdfiPd3OwX0Py2T4P+SyurJVqxjSFD2ySRTFzorPYTjExt8DTn4/QVBDQ+90clbY/AF5GKTGut+45rxVViXSdzeqLdHEoSjonIWp0+w/ox+ph5mjZCiSZNQM8gb7OOIvVqy4woD/t3MzyqyGZg9PacY0QU3Yao37Ns4nkExGeN8r04Heym9rSzbpnDCMW9tw=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR02MB7867.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(38070700021)(4143699003)(11063799006)(261026140227099003)(56012099006)(261022105027099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aDRFY1RkWjNESnZCTGs4aFBkRHptQjJ0RW1jbis4NXJvMlkxMjlxd3UzSEEz?=
+ =?utf-8?B?M2s3YmVPdEtJTTVNalVmMTlTa0VoVGt5c0I0Q1dqZlR6Q2hvOENiYW1KMjVC?=
+ =?utf-8?B?QWpyQy8rYzFqOVBqR0Y5cWtGR2oxRDVGb1ZGbXUrM1kyZE5WZi82TUpaNTJq?=
+ =?utf-8?B?L1l3WllDUmFrRnZuOU9SaENoSXZkUVNpNC8yQUZuNmUzUkJvTHlBaWFCQ2I5?=
+ =?utf-8?B?UGJWQmlwODBtL3NoajdDdUdtNGdYOHJlL1Q2UlVDMlRld1pVOGY5YVRobm5Z?=
+ =?utf-8?B?RGgwMHZ0elk2TUJVRDk5d0pob25kd21EVDF3Sld2YjRHWGhIMFhkMU9YK3B3?=
+ =?utf-8?B?c09IVzZ1WmkrajZtNXJYMXNDQ0hVZS83Vnk3VFY2K05vdU9scE0zY1YxbGwz?=
+ =?utf-8?B?SkFEUHdFZjdYNVJHNmtLaS9INWtCbGhSMU1xbFVDVkpkb2lua2V2aGpxSno0?=
+ =?utf-8?B?cGlSTDlKZWpnZ2Z5OWJDM3diT1NIcGxnQW1sL3VDUUtkenhkVjg5S0Y3STJT?=
+ =?utf-8?B?cjJqSW5JSVV6RVRRLzFKQ0R3NWlVNDlhcVJlUVFidWJ4dlQvZ1g5WU9BV3BD?=
+ =?utf-8?B?WERxOXJNTXB0RTAwQVl6M3dwMCtNQVFCemdzWGt4RS9oQ1BOazdKWElZS2xh?=
+ =?utf-8?B?Y20zQ3pZT21OQ0tUOFRDWVVvMld1VWRNdUlwN0toNWZ6NjQ0WmdRYkF1Vm91?=
+ =?utf-8?B?V2pEaEI3emZFejFyaWw1MzduVkF0WTIxc0cxMXZjKzhNTitwU3BVeUFxTUM2?=
+ =?utf-8?B?MmNqZStOZzJJVDZtL0hSWTIyY3I4cGNpY1pFVTVtMG04YTdacG94a1NEaUY1?=
+ =?utf-8?B?d1BDQ1gzcitNVHNmZ09vQ3p3WS9ZcEx4WWEyaU9nRXUxV2dsOVE5bDdxaWs0?=
+ =?utf-8?B?ZWY0SnRQRW8wM0VJR3JnRUxiM3NnSW5sWnhVUTlwUFhHMHVYVkluUkE0YU91?=
+ =?utf-8?B?QVdleGZ1RmFWVVJIWjBCQmNUYXMvdElKNmRncjZ0YnZNNjdHdGlwQTJ0c3dE?=
+ =?utf-8?B?TS9KR0plekJPNXJSM1Fya3FZODhNOStUd2IwTlp3bkgrbGxWekRraWFLNFhv?=
+ =?utf-8?B?YkVsZ09ObGxEU2VUYVAyQjYyQ0MwQlN2WEh3YWxoeHJ5UUd3ZERPblByTFh5?=
+ =?utf-8?B?VDVNZmhONGdMbEpNbUk0bW1NeWtZSmluOTBaU3IwRmMwVkVZeEVLZHlZKzhn?=
+ =?utf-8?B?V2gzeFV4VVpkdWVlY2xWcWFQMWI0WksraFp4SGhrbnZjd1czKzloVGsxTUgv?=
+ =?utf-8?B?dm1WWHVhNE9vYVNVQmNyT2h2ZWJFdU15Qmc2Yzg0T2Fmc3VzMnVnemUxM0pS?=
+ =?utf-8?B?QzA2WFZib3hHTU9XSUtqT1ZjY21oZU1hRTRzTkthVXhUNURHMDNPbDZxV1N5?=
+ =?utf-8?B?YmJxSTdVbXVmeHpVbE0yZHBNSlo4a3krY0pRZVRJQys1R04rOWxPdDdCZ3o5?=
+ =?utf-8?B?WGV6YlJtK25xeGdWT0VDUHNpU1lpSGFKZmJyYXh5Y2VFdEdmNkp1VTl2VVlP?=
+ =?utf-8?B?d3NnN0JrbUtKU2dMTlhuck9MQkN3ZG14RTBNQlRnVGpyWjVNenE0QXBkU0t4?=
+ =?utf-8?B?MVdoMTI1WWQzU21LeUFrQXlwRkZVd25UcTA2L2JQQ3lYUHpObEk4WVpWNWND?=
+ =?utf-8?B?VjQwMU1BRnVubHpxRlc1dVhXakJkMFZTWGpLUWFidUh6Q0lRTVcweGt3Z2NT?=
+ =?utf-8?B?eHJienlibHdrVVJEelY3TzN3TDl6YjdsS0xjc3BpZU5NK1M4R0FKS3FuSDlr?=
+ =?utf-8?B?VUUrTk42Y0ZzTUh1T2xYdHM3KytCcmswb3FqWVlnWFY1M1BBa05xa1dicHR4?=
+ =?utf-8?B?QStMcWVGd1JGSzdvRTlNV1JmaEsrRitCNlRSUTNEVkRtdjJZRnRZUEVmWlJD?=
+ =?utf-8?B?QzBWKzg0Y21KR0NaUmNaVXZIUWcrR1VoVU9Oa1hKVmpXUTAzcWt1RldOOFYy?=
+ =?utf-8?B?SFo5dkwxd2M2UlBTaXc1T3A0TDlHV0xkRkdCdVg4Sm9SY3BkbWVLditUemhz?=
+ =?utf-8?B?YklldkJUU0pLVitWRFdEdHQyZHhZR2RnNEpoZzRZNlpNbUEwdkxLdFY3M3hn?=
+ =?utf-8?B?VFlhaU9VVWVHMldjTHdMUmVCM1diNWxMWkYwbmNXT28ybm5uQ0ZZcWZ3UTlp?=
+ =?utf-8?B?Y015MFpNU3NsWTcxck5ZMlQ3cEV3VnZMRS9IR3dNTXZzY0hnTjY3d3JYTE5U?=
+ =?utf-8?B?Q1dDcVovSkUrTW8zNlZXTm1Gd1F3amhIbTZUN2NWMHRCUVdCaWRxeUZhMDhT?=
+ =?utf-8?B?UnROMCtTNzJmTjg1Mm52WWlNbjB1VlNRTlpKS3RsZWN2OU9RK2hPM2RkcFI1?=
+ =?utf-8?B?UUo0amRtTVFEaDZLRFRjbUZQaVpzTGF4VlR5bGszUFkwdFRJSVJiRzdJZlgv?=
+ =?utf-8?Q?VPdg31waUQGhn8Js=3D?=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,269 +170,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-Exchange-RoutingPolicyChecked: DIw+kSgslQlbOyhExe7M4Cg2JVeY1w/HjiCQ1ITYjfmKKUCP3ZpNnno+QnmFzAUG8HNog+HjoUEk8SOIiTmqxNlLxQa8chMg04SCFOm2wcKzjfFFjo/QeGGDzmsYjyUQHJ6JU4qPbvIkXskwGB88ZJMEa2ChuBFd7nSqxHe6YBoa9PrGFD1f2YYzFClVUXe8JmILloU2Nr4357M7gROTiG+71ux8tvu4e9Ei0CFc6EpM5GAUA+ZGgPuPstCoBNA7FQeer93Ngxk/bn1DitJ6Gl0HrKS37VRJZa/VtRG91MONAgURT2oapxF7IftMXQ6PtyJ6BenlwDgE07gufx3PfQ==
+X-OriginatorOrg: onsemi.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR02MB7867.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: acb51d93-38a2-4017-51b1-08df4591959d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 16:32:49.1430
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 04e1674b-7af5-4d13-a082-64fc6e42384c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ul2Js3M2KgCI86nnNxj1JojtgDjOXxQfTa3ymOv0NfPch+UEyply3Z4NleqEpIN5vTZUZEfaUUKnq8I4JJ8zkvphpIVGPp3dwD2fYHKcgn4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR02MB7509
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rjUFe-LRWEdN5oND-ndn5OSHbh3C1f1bTCaZ0g7nEoc_1795019571
+X-Mimecast-Originator: onsemi.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
 
-On November 18, 2026 8:18:44 AM PST, Ard Biesheuvel <ardb@kernel=2Eorg> wro=
-te:
->
->
->On Wed, 18 Nov 2026, at 16:51, H=2E Peter Anvin wrote:
->> On November 11, 2026 1:18:44 AM PST, Ard Biesheuvel <ardb+git@google=2E=
-com> wrote:
->>>From: Ard Biesheuvel <ardb@kernel=2Eorg>
->>>
->>>On x86_64, the physical placement of the kernel is independent from its
->>>mapping in the 'High Kernel Mapping' range=2E This means that even a
->>>position dependent kernel built without boot-time relocation support ca=
-n
->>>run from any suitably aligned physical address, and there is no need to
->>>make this behavior dependent on whether or not the kernel is virtually
->>>relocatable=2E
->>>
->>>On i386, the situation is different, given that the physical and virtua=
-l
->>>load offsets must be equal, and so only a relocatable kernel can be
->>>loaded at a physical address that deviates from its build-time default=
-=2E
->>>
->>>Clarify this in Kconfig and in the code, and advertise the 64-bit
->>>bzImage as loadable at any physical offset regardless of whether
->>>CONFIG_RELOCATABLE is set=2E In practice, this makes little difference,
->>>given that it defaults to 'y' and is a prerequisite for EFI_STUB and
->>>RANDOMIZE_BASE, but it will help with some future refactoring of the
->>>relocation code=2E
->>>
->>>Signed-off-by: Ard Biesheuvel <ardb@kernel=2Eorg>
->>>---
->>> arch/x86/Kconfig                   | 40 ++++++++++++++++++------------
->>> arch/x86/boot/compressed/head_64=2ES |  4 ---
->>> arch/x86/boot/compressed/misc=2Ec    |  8 +++---
->>> arch/x86/boot/header=2ES             |  8 ++----
->>> 4 files changed, 29 insertions(+), 31 deletions(-)
->>>
->>>diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
->>>index 58dce0b66179=2E=2Ec7427daa0c3e 100644
->>>--- a/arch/x86/Kconfig
->>>+++ b/arch/x86/Kconfig
->>>@@ -1898,7 +1898,7 @@ config EFI
->>> config EFI_STUB
->>> 	bool "EFI stub support"
->>> 	depends on EFI
->>>-	select RELOCATABLE
->>>+	select RELOCATABLE if X86_32
->>> 	help
->>> 	  This kernel feature allows a bzImage to be loaded directly
->>> 	  by EFI firmware without the use of a bootloader=2E
->>>@@ -1995,8 +1995,9 @@ config PHYSICAL_START
->>> 	help
->>> 	  This gives the physical address where the kernel is loaded=2E
->>>=20
->>>-	  If the kernel is not relocatable (CONFIG_RELOCATABLE=3Dn) then bzIm=
-age
->>>-	  will decompress itself to above physical address and run from there=
-=2E
->>>+	  If the kernel is not relocatable (CONFIG_RELOCATABLE=3Dn) and built=
- for
->>>+	  i386, then the bzImage will decompress itself to the above physical
->>>+	  address and run from there=2E
->>> 	  Otherwise, bzImage will run from the address where it has been load=
-ed
->>> 	  by the boot loader=2E The only exception is if it is loaded below t=
-he
->>> 	  above physical address, in which case it will relocate itself there=
-=2E
->>>@@ -2031,16 +2032,22 @@ config PHYSICAL_START
->>> 	  Don't change this unless you know what you are doing=2E
->>>=20
->>> config RELOCATABLE
->>>-	bool "Build a relocatable kernel"
->>>-	default y
->>>+	bool "Build a relocatable kernel" if X86_32
->>>+	default X86_32
->>> 	help
->>>-	  This builds a kernel image that retains relocation information
->>>-	  so it can be loaded someplace besides the default 1MB=2E
->>>+	  This builds a kernel image that retains relocation information so i=
-t
->>>+	  can be placed someplace besides the default PAGE_OFFSET + 1MB=2E Th=
-is
->>>+	  is a prerequisite for KASLR=2E
->>> 	  The relocations tend to make the kernel binary about 10% larger,
->>> 	  but are discarded at runtime=2E
->>>=20
->>>-	  One use is for the kexec on panic case where the recovery kernel
->>>-	  must live at a different physical address than the primary
->>>+	  On i386, where the virtual and physical load offset of the kernel
->>>+	  must be equal, this also allows the kernel image to be placed at a
->>>+	  physical load address that differs from the compile time default=2E=
- On
->>>+	  x86_64, this is always permitted=2E
->>>+
->>>+	  One use is for the kexec on panic case on i386, where the recovery
->>>+	  kernel must live at a different physical address than the primary
->>> 	  kernel=2E
->>>=20
->>> 	  Note: If CONFIG_RELOCATABLE=3Dy, then the kernel runs from the addr=
-ess
->>>@@ -2049,7 +2056,7 @@ config RELOCATABLE
->>>=20
->>> config RANDOMIZE_BASE
->>> 	bool "Randomize the address of the kernel image (KASLR)"
->>>-	depends on RELOCATABLE
->>>+	select RELOCATABLE
->>> 	default y
->>> 	help
->>> 	  In support of Kernel Address Space Layout Randomization (KASLR),
->>>@@ -2085,7 +2092,7 @@ config RANDOMIZE_BASE
->>> # Relocation on x86 needs some additional build support
->>> config X86_NEED_RELOCS
->>> 	def_bool y
->>>-	depends on RANDOMIZE_BASE || (X86_32 && RELOCATABLE)
->>>+	depends on RELOCATABLE
->>> 	select ARCH_VMLINUX_NEEDS_RELOCS
->>>=20
->>> config PHYSICAL_ALIGN
->>>@@ -2098,12 +2105,13 @@ config PHYSICAL_ALIGN
->>> 	  where kernel is loaded and run from=2E Kernel is compiled for an
->>> 	  address which meets above alignment restriction=2E
->>>=20
->>>-	  If bootloader loads the kernel at a non-aligned address and
->>>-	  CONFIG_RELOCATABLE is set, kernel will move itself to nearest
->>>-	  address aligned to above value and run from there=2E
->>>+	  If the bootloader loads the kernel at a non-aligned address and it
->>>+	  is built for x86_64 or CONFIG_RELOCATABLE is set, the kernel will
->>>+	  move itself to the nearest address aligned to above value and run
->>>+	  from there=2E
->>>=20
->>>-	  If bootloader loads the kernel at a non-aligned address and
->>>-	  CONFIG_RELOCATABLE is not set, kernel will ignore the run time
->>>+	  If the bootloader loads the i386 kernel at a non-aligned address an=
-d
->>>+	  CONFIG_RELOCATABLE is not set, the kernel will ignore the run time
->>> 	  load address and decompress itself to the address it has been
->>> 	  compiled for and run from there=2E The address for which kernel is
->>> 	  compiled already meets above alignment restrictions=2E Hence the
->>>diff --git a/arch/x86/boot/compressed/head_64=2ES b/arch/x86/boot/compr=
-essed/head_64=2ES
->>>index 1aca51390f73=2E=2Ede1973f032c7 100644
->>>--- a/arch/x86/boot/compressed/head_64=2ES
->>>+++ b/arch/x86/boot/compressed/head_64=2ES
->>>@@ -143,7 +143,6 @@ SYM_FUNC_START(startup_32)
->>>  * for safe in-place decompression=2E
->>>  */
->>>=20
->>>-#ifdef CONFIG_RELOCATABLE
->>> 	movl	%ebp, %ebx
->>> 	movl	BP_kernel_alignment(%esi), %eax
->>> 	decl	%eax
->>>@@ -152,7 +151,6 @@ SYM_FUNC_START(startup_32)
->>> 	andl	%eax, %ebx
->>> 	cmpl	$LOAD_PHYSICAL_ADDR, %ebx
->>> 	jae	1f
->>>-#endif
->>> 	movl	$LOAD_PHYSICAL_ADDR, %ebx
->>> 1:
->>>=20
->>>@@ -316,7 +314,6 @@ SYM_CODE_START(startup_64)
->>> 	 */
->>>=20
->>> 	/* Start with the delta to where the kernel will run at=2E */
->>>-#ifdef CONFIG_RELOCATABLE
->>> 	leaq	startup_32(%rip) /* - $startup_32 */, %rbp
->>> 	movl	BP_kernel_alignment(%rsi), %eax
->>> 	decl	%eax
->>>@@ -325,7 +322,6 @@ SYM_CODE_START(startup_64)
->>> 	andq	%rax, %rbp
->>> 	cmpq	$LOAD_PHYSICAL_ADDR, %rbp
->>> 	jae	1f
->>>-#endif
->>> 	movq	$LOAD_PHYSICAL_ADDR, %rbp
->>> 1:
->>>=20
->>>diff --git a/arch/x86/boot/compressed/misc=2Ec b/arch/x86/boot/compress=
-ed/misc=2Ec
->>>index 0f41ca0e52c0=2E=2Ed37569e7ee10 100644
->>>--- a/arch/x86/boot/compressed/misc=2Ec
->>>+++ b/arch/x86/boot/compressed/misc=2Ec
->>>@@ -314,12 +314,10 @@ static size_t parse_elf(void *output)
->>> 			if ((phdr->p_align % 0x200000) !=3D 0)
->>> 				error("Alignment of LOAD segment isn't multiple of 2MB");
->>> #endif
->>>-#ifdef CONFIG_RELOCATABLE
->>>-			dest =3D output;
->>>-			dest +=3D (phdr->p_paddr - LOAD_PHYSICAL_ADDR);
->>>-#else
->>> 			dest =3D (void *)(phdr->p_paddr);
->>>-#endif
->>>+			if (IS_ENABLED(CONFIG_X86_64) ||
->>>+			    IS_ENABLED(CONFIG_RELOCATABLE))
->>>+				dest +=3D (unsigned long)output - LOAD_PHYSICAL_ADDR;
->>> 			memmove(dest, output + phdr->p_offset, phdr->p_filesz);
->>> 			break;
->>> 		default: /* Ignore other PT_* */ break;
->>>diff --git a/arch/x86/boot/header=2ES b/arch/x86/boot/header=2ES
->>>index 9bea5a1e2c52=2E=2Eb72e6055e103 100644
->>>--- a/arch/x86/boot/header=2ES
->>>+++ b/arch/x86/boot/header=2ES
->>>@@ -332,7 +332,7 @@ initrd_addr_max: =2Elong 0x7fffffff
->>> kernel_alignment:  =2Elong CONFIG_PHYSICAL_ALIGN	#physical addr alignm=
-ent
->>> 						#required for protected mode
->>> 						#kernel
->>>-#ifdef CONFIG_RELOCATABLE
->>>+#if defined(CONFIG_RELOCATABLE) || defined(CONFIG_X86_64)
->>> relocatable_kernel:    =2Ebyte 1
->>> #else
->>> relocatable_kernel:    =2Ebyte 0
->>>@@ -342,14 +342,10 @@ min_alignment:		=2Ebyte MIN_KERNEL_ALIGN_LG2	# mi=
-nimum alignment
->>> xloadflags:
->>> #ifdef CONFIG_X86_64
->>> # define XLF0 XLF_KERNEL_64			/* 64-bit kernel */
->>>-#else
->>>-# define XLF0 0
->>>-#endif
->>>-
->>>-#if defined(CONFIG_RELOCATABLE) && defined(CONFIG_X86_64)
->>>    /* kernel/boot_param/ramdisk could be loaded above 4g */
->>> # define XLF1 XLF_CAN_BE_LOADED_ABOVE_4G
->>> #else
->>>+# define XLF0 0
->>> # define XLF1 0
->>> #endif
->>>=20
->>
->> Can you clarify what these nebulous future improvements are?
->
->The main improvement today is that CONFIG_RELOCATABLE will be
->only implied by CONFIG_RANDOMIZE_BASE, and so turning that off
->gets rid of the unnecessary relocation metadata=2E
->
->The future improvement is still fgKASLR, which I am implementing
->in the ELF domain, making it arch-agnostic, and applicable to
->other static ELF executables such as hypervisors and statically
->linked user space executables=2E This will hopefully make the
->needed tooling changes more palatable to the wider community=2E
->
->On x86, that will require the use of PIC code for kaslr capable
->kernels, [which surely you remember having discussed with me in
->the past], but only when opting in to kaslr/fgkaslr=2E Otherwise,
->the usual position dependent codegen will be preserved=2E
->
->Note that I have extensive benchmarking data now that shows that
->the PIC change itself has negligible impact for performance, but
->having the option to turn that off if you don't need it is still=20
->appreciated, I assume=2E But let's leave that discussion for when
->I resend that particular series=2E
->
-
-So since you're not going to get people to stop using kASLR, you're now go=
-ing a different path to forcing everyone to build with PIC?
-
-I'm going to vote NAK on this one=2E=2E=2E I was already thinking that it =
-would mess up low-level debugging too much, but when *handwave handwave fut=
-ure improvement* turns into "the thing that has been NAKed several times al=
-ready", then=2E=2E=2E
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBuZXRkZXYtYm90K3Nhc2hpa29A
+a2VybmVsLm9yZyA8bmV0ZGV2LWJvdCtzYXNoaWtvQGtlcm5lbC5vcmc+DQo+IFNlbnQ6IFR1ZXNk
+YXksIE5vdmVtYmVyIDE3LCAyMDI2IDExOjUzIEFNDQo+IFRvOiBTZWx2YW1hbmkgUmFqYWdvcGFs
+IDxTZWx2YW1hbmkuUmFqYWdvcGFsQG9uc2VtaS5jb20+DQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0gg
+bmV0LW5leHQgdjExIDA4LzE0XSBuZXQ6IGV0aGVybmV0OiBvYV90YzY6IERyb3AgZnJhbWVzIGlm
+IGZvb3RlciBoYXMNCj4gRkQgYml0IHNldA0KDQo+IA0KPiBbU2V2ZXJpdHk6IE1lZGl1bV0NCj4g
+U2hvdWxkIGZyYW1lcyB3aXRoIEZEIHNldCBiZSBjb3VudGVkIGluIHJ4X2Vycm9ycyByYXRoZXIg
+dGhhbiBvbmx5IGluDQo+IHJ4X2Ryb3BwZWQ/DQoNCg0KWWVzLiBJdCBzaG91bGQgYmUgY291bnRl
+ZCBpbiByeF9lcnJvcnMgcmF0aGVyIHRoYW4gcnhfZHJvcHBlZC4gV2lsbCBmaXggaW4gdGhlIG5l
+eHQgdmVyc2lvbi4NCg0KPiANCj4gLS0NCj4gU2FzaGlrbyBBSSByZXZpZXcgwrcgaHR0cHM6Ly9u
+ZXRkZXYtYWkuYm90cy5saW51eC5kZXYvc2FzaGlrby8jL3BhdGNoc2V0LzIwMjYxMTEzLXMyNTAw
+LQ0KPiBtYWMtcGh5LXN1cHBvcnQtdjExLTAtN2ExODYxNDE5NTJjJTQwb25zZW1pLmNvbQ0KPiA8
+aHR0cHM6Ly9uZXRkZXYtYWkuYm90cy5saW51eC5kZXYvc2FzaGlrby8jL3BhdGNoc2V0LzIwMjYx
+MTEzLXMyNTAwLW1hYy1waHktc3VwcG9ydC12MTEtMC03YTE4NjE0MTk1MmMlNDBvbnNlbWkuY29t
+DQo+IG5ldGRldi1haS5ib3RzLmxpbnV4LmRldj4NCg0KcHctYm90OiBjcg0K
 
