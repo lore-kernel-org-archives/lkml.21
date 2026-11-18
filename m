@@ -1,55 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022148;
-	b=Ph1W9jCtSGqmfyh+JfoJY7nrKilmFuIkMNXFb8emInapJ6xquJD8oEZCpDrsXhLyZSv0
-	 Tlg7aeTTzKvaOSmHYv+pB2ZmZuxqe5RudX/vUb+2L2v0lVfybPxWaCjkxi8Wi6m/Srrit
-	 sfrNNgQ08+6HSGqxAaVdv/R5Xznde2kbroJVxKN3lt44KfzGvgGSIdByKgnKTJgQESXGd
-	 GAK7XzDHx+J9mprf1yWxrM0SvSAtWzqIfJAclFXKxpcTtoJDDt4ChXV6jpgVg5mWdiSh1
-	 8Y0+nY5+HH5llHOfoBvwlG4JaHNZaBJbQoCh6SRiCIA19jWzRBOLfH6XT8zO2keduOg==
+	t=1795022169;
+	b=DRTokOEl00PzkJAw7jygL5+o0pPGrErxtO9C/ziYfbqpgPjH5cm+FA9EQ9GWF/UEokl8
+	 /gUquZHKCe1fSgxg+RXPL9P3O/L5Az58dGdTh3QsEWUe59Irbnjcz/DYcp9hqgdvNimdH
+	 ZNMKfR0NoB/XbLFlY42D5SephUCbLC0y6q5pKjHUmF+iMFz3AOsb8lttNiAk9lNZ7ooEA
+	 r6Gy81+hrjZT0lBXVrivg3dSgAqqP7ANB7rJhOQuuPjCYHFmuB7fdfuXQuXDI9qmyDbvE
+	 GFmzutSeYXVSKy28XXBbl1+Zwo5w5vG6XC1CNjcf9ms8MDYknEWr/6sBCd59lXm5svA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022148;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=y1HQ4WbkwsYDU9C8N67zbQb8VxPifqOw6NSzlc1e1o4=;
-	b=LQuqotw+oE8v/16FcF9QbI5yMVfJPYs7rVkW14IgsC5WCGHHK+/PuZ0pp36eEmWTF9Rv
-	 GMUQGJCFy27USYRVadNHA9R+t1QjrlA9+XtxRKri9xsrjqHwGQjl0bwJ9ECCQYiBgq8Ol
-	 JINGfF9WhMfeWGnonWHVxl7pujev7DI25G27GbmF4rQ1faCEdppRLnDsy7arhxGe7wxlL
-	 r1u46xSpmfKSHd1MbtlYlBIXQjbQtFwUSfuiBBlDixJ9WJTPd9tmpUOLeaHBO9lIHvZ8D
-	 yygH6hyr3UcBZgMgXTdKFuCEqAOzJwf2MJc5sdvcgU6NYegVvMmKKFhHW2ArIJotHtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022169;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=azMjNdYADYprUFTQqXnXRt+Qw7yDyykdEbBxtGqlwkg=;
+	b=d7UKgBBMQO7KJR8L+3VPvx89cOJKosiujPWvRIWlQMpgAl5DNbiz0TZPF72RP6PIVLTU
+	 8qelBUJqNp3x1nkIgmndF8fk+wvH+5EwvmSqnybP+2GoUAAQvJqAaXGiJ2oHp3lmwtVoU
+	 Yya4Q+H8SaS0nZWMhHZm4oK7nx7j734aV1J/Nk9klN41cYIFEL48huMh7DG2i3BEWnh/q
+	 0TEB04swQkVvwVhWBR+eTHRtgm77A7SVp8HBYFFY1Nl9COlNAkOWPKtrYSFdoTftiLgTs
+	 K1KzwsL3mYcoMdJqWYvftw5NR/y+WQys6SsDCFPHj7MgvJSbhpTR8LPk6524bEmNAYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WpCu6JJN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ubvuxvkU;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 358DB606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:15:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C70F8606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:16:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C70F8606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WpCu6JJN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFFA81F000C6
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:15:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022147;
-	bh=y1HQ4WbkwsYDU9C8N67zbQb8VxPifqOw6NSzlc1e1o4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=WpCu6JJNYdW5/+jjULJDCYglNCXydsIJNx8hI7jpXxSeAe8oXwC3OagfaZ06yn/1A
-	 VDWTvZyEaAmeQuc+u0XV+MrYDiMz9eJJ3zUm8TMUYnhuVGjUo46iKb1CduGayvxOX8
-	 eto1gq7PaNe5bqyucCLvY5p7KiC9OWEFKWEBlAl/5UEz91ht82jdNtJQmrFGtHldDh
-	 XwTuqIUuU//hR8+dzupxVhRUeadJ9XnfdfYHxW48kAPowS2lbJHS2/F05Fe8HVJ0cK
-	 IekRQlcIcRDvZKhxrjtEz/QQZUfEkGJN+//8K9UYtG5TZ6pAr/CkHqPeNhn9PB4j09
-	 bM9dIYoih/rOw==
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-716c0217635so43600eaf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:15:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHf463JBvxOvkCIEMkc3DFHeYciVdhvZwUWQeloPZSXPtDEuAnLHpjLFA4Ssnt50QECIUYM9rm55o77CJM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/v+Y/IEtM0JNuxFmN73D5vo6Yo2NdCVmat+g30AyRLCxj0jCgM
-	Tv33JOCSf7zdaxm7AWI4YnmITmTxR4CleHafPFC6UhMp4XdCPxD/5fE5qeSPqp0awKUaFINSQVi
-	1yiSy+IW0komXqYWih5HyJ9YahLHou/I=
-X-Received: by 2002:a05:6820:5712:10b0:71a:fcbf:2484 with SMTP id
- 006d021491bc7-71b2a536c4fmr59343eaf.36.1795022147087; Wed, 18 Nov 2026
- 09:15:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ubvuxvkU
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 597A24E40B00;
+	Wed, 18 Nov 2026 17:16:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 231C45FE9B;
+	Wed, 18 Nov 2026 17:16:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FFA211BC2A6E;
+	Wed, 18 Nov 2026 18:15:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795022162; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=azMjNdYADYprUFTQqXnXRt+Qw7yDyykdEbBxtGqlwkg=;
+	b=ubvuxvkUmYhT7rBjFh7+hL3MGn/EZTSrIeC279f/6wUx9rBSNHIkKD93l+HtgnF9zbyz+y
+	h6gOmUC7+Cng+BsfY5/UUGXD7EgAVR8ZqQQAloAd08tRmnrDbKC/M1k/IT8K1kR2OOYH2P
+	LcBDhHqO+iX8XxgIBsRhlMg/vSQ1WTp9JtnZIFJy/tfCTx9S10g/gqVNytFIzTbWAL4Ej6
+	qn6coN94CLK3MSHKKGXt8gol9lLe0ITQAUFMmHo65hANA5yssndwfrVd0tSvXGwKr+GLPa
+	u/P8XV6IyRzU+W+/U54Aps6qyZdJYVH70tD6TM077S2B6yGLztzsJ4S+ENvjWA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Boris Brezillon <bbrezillon@kernel.org>,
+  linux-mtd@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mtd: rawnand: propagate timing-mode recovery failures
+In-Reply-To: <CADvTj4or-XBJCp3oUh2T438Tf5kB0vfecNzOV+haisVrLKW9vA@mail.gmail.com>
+	(James Hilliard's message of "Wed, 18 Nov 2026 09:49:52 -0700")
+References: <20261103-submit-rawnand-timing-recovery-v1-v1-1-1cc33723e052@gmail.com>
+	<874idejux6.fsf@bootlin.com>
+	<CADvTj4or-XBJCp3oUh2T438Tf5kB0vfecNzOV+haisVrLKW9vA@mail.gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 18 Nov 2026 18:15:58 +0100
+Message-ID: <871p8igiwh.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,249 +74,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116015732.2744688-1-jiebin.sun@intel.com>
-In-Reply-To: <20261116015732.2744688-1-jiebin.sun@intel.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 18:15:36 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiio=6iUnMQM1Ry+fda3Y2Y3=d13_g42e5ZHhXHDmhp7eFA@mail.gmail.com>
-X-Gm-Features: AclHuK-drbUSgy2492OTPn4_aGO4otO_DPLYCBGNsvJCoOpkSZnVkAHlnvN9vlw
-Message-ID: <CAL4Wiio=6iUnMQM1Ry+fda3Y2Y3=d13_g42e5ZHhXHDmhp7eFA@mail.gmail.com>
-Subject: Re: [PATCH] net: dst: Avoid false sharing between tclassid and __rcuref
-To: Jiebin Sun <jiebin.sun@intel.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org, linux-kernel@vger.kernel.org, 
-	tim.c.chen@linux.intel.com, tianyou.li@intel.com, wangyang.guo@intel.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-Le lun. 16 nov. 2026 =C3=A0 02:53, Jiebin Sun <jiebin.sun@intel.com> a =C3=
-=A9crit :
->
-> On x86-64, dst_entry::tclassid shares the same cache line with
-> dst_entry::__rcuref. Updates to __rcuref cause false sharing with
-> tclassid reads, for example in ip_rcv_finish_core() when
-> CONFIG_IP_ROUTE_CLASSID=3Dy. Memcached perf c2c shows the paths:
->
->   read:    net_rx_action -> process_backlog -> ip_rcv_finish_core
->            -> skb_dst(skb)->tclassid (load)
->   acquire: tcp_write_xmit -> __tcp_transmit_skb -> __dev_queue_xmit
->            -> skb_dst_force -> dst_hold_safe -> rcuref_get
->   release: tcp_rcv_established/tcp_add_backlog -> tcp_cleanup_skb
->            -> skb_dst_drop -> dst_release -> rcuref_put
->
-> Move tclassid after lwtstate on 64-bit to avoid false sharing with
-> __rcuref.
->
-> On x86-64, struct dst_entry grows from 136 to 144 bytes. struct
-> rtable and struct rt6_info embed dst_entry, so their sizes grow
-> from 176 to 184 and from 224 to 232 bytes, respectively. However,
-> both struct rtable and struct rt6_info are allocated from slab
-> caches with SLAB_HWCACHE_ALIGN, so the per-object allocation sizes
-> remain unchanged at 192 bytes for rtable and 256 bytes for rt6_info.
->
+On 18/11/2026 at 09:49:52 -07, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
+> On Wed, Nov 18, 2026 at 3:28=E2=80=AFAM Miquel Raynal <miquel.raynal@boot=
+lin.com> wrote:
+>>
+>> On 03/11/2026 at 23:13:18 -07, James Hilliard <james.hilliard1@gmail.com=
+> wrote:
+>>
+>> > When GET_FEATURES succeeds but the chip does not acknowledge the reque=
+sted
+>> > timing mode, nand_setup_interface() falls back to mode 0. Both the
+>> > controller-interface reset and the NAND RESET command can fail, but th=
+eir
+>> > return values are discarded. The function then returns the successful
+>> > GET_FEATURES status even though the fallback did not complete.
+>> >
+>> > Check the controller reset before issuing RESET and propagate either
+>> > recovery error when there was no earlier error. Preserve an earlier
+>> > GET_FEATURES failure and keep returning success when a timing mismatch
+>> > is recovered by a successful mode-0 fallback.
+>>
+>> You are carrying a return value in an error path of an error path. If
+>> the reset actually fails, the very next attempt will fail and probe will
+>> be aborted anyway. So while the fix is not inherently wrong, the title
+>> and commit log overstate the problem.
+>>
+>> My proposal:
+>>
+>> mtd: rawnand: propagate mode-0 fallback failures
+>>
+>> When a chip does not acknowledge the requested timing mode,
+>> nand_setup_interface() falls back to mode 0 by resetting the controller
+>> interface and issuing a NAND RESET. Either step can fail; returning
+>> success will likely lead to any later attempt at talking to the chip to
+>> fail.
+>>
+>> Make sure the error path propagates those failures in the mode-0
+>> fallback case.
+>
+> There is also a caller outside probe: nand_do_write_oob() calls
+> nand_reset(), which calls nand_setup_interface(). If GET_FEATURES
+> reports a different timing mode and the fallback fails, nand_reset()
+> currently returns success and the OOB write continues past its reset
+> check. Propagating the fallback error lets the write stop there.
 
-This leaves a 4-byte hole where tclassid was, and adds 4 bytes of
-padding at the end of dst_entry.
-
-As the AI review pointed out, struct metadata_dst is not allocated
-from a HWCACHE_ALIGN cache. Its union is 16-byte aligned, so it grows
-from 240 to 256 bytes, and metadata_dst_alloc() with any optslen > 0
-(vxlan collect_md, geneve options) moves from kmalloc-256 to
-kmalloc-512, for every received packet.
-
-I do not think we need to grow dst_entry at all.
-
-dst->expires sits in the first (read-mostly) cache line, but its
-fast path readers are all conditional (rt->rt_pmtu for IPv4,
-RTF_EXPIRES for IPv6). It can live in the __rcuref cache line.
-
-Swapping it with {error, __pad, tclassid} keeps sizeof(struct dst_entry)
-at 136 bytes, keeps __rcuref at offset 64 on both 32-bit and 64-bit
-without any new #ifdef, and also moves dst->error out of the
-contended cache line.
-
-Something like this (untested):
-
-diff --git a/include/net/dst.h b/include/net/dst.h
---- a/include/net/dst.h
-+++ b/include/net/dst.h
-@@ -31,7 +31,9 @@ struct dst_entry {
-        };
-        struct  dst_ops         *ops;
-        unsigned long           _metrics;
--       unsigned long           expires;
-+       short                   error;
-+       short                   __pad;
-+       __u32                   tclassid;
- #ifdef CONFIG_XFRM
-        struct xfrm_state       *xfrm;
- #else
-@@ -74,9 +76,7 @@ struct dst_entry {
-        int                     __use;
-        unsigned long           lastuse;
-        struct rcu_head         rcu_head;
--       short                   error;
--       short                   __pad;
--       __u32                   tclassid;
-+       unsigned long           expires;
- #ifndef CONFIG_64BIT
-        struct lwtunnel_state   *lwtstate;
-        rcuref_t                __rcuref;       /* 32-bit offset 64 */
-
-Could you test this with your memcached setup, and include
-pahole output for dst_entry and metadata_dst in the changelog?
-
-> Memcached perf c2c samples at the class-ID load:
->
->   +----------+------------+-------------+
->   | Kernel   | Local HITM | Remote HITM |
->   +----------+------------+-------------+
->   | Baseline |        894 |         680 |
->   | Patched  |         15 |           0 |
->   +----------+------------+-------------+
->
-> Results with 64 workers per endpoint (baseline 6628e7d4c6b2).
-> Improvement is 100 * (patched average / baseline average - 1).
->
-> Memcached (5 iterations, average operations/s):
->
->   +--------------------+--------------------+
->   | Case               | Improvement (%)    |
->   +--------------------+--------------------+
->   | default            |             +27.20 |
->   | hit                |             +52.36 |
->   | balanced           |              -0.52 |
->   | large              |             +64.68 |
->   +--------------------+--------------------+
->
-> Memcached over IPv4 loopback.
-
-Please make clear in the changelog that this is a loopback workload.
-__rcuref is written for every packet there because loopback does not
-set IFF_XMIT_DST_RELEASE, so __dev_queue_xmit() calls skb_dst_force()
-and the receive path reuses the same dst. This is not what happens
-with a physical NIC.
-
-> The default client command is:
->
->   memtier_benchmark -s 127.0.0.1 -p 11221 -P memcache_text
->     -t 64 -c 1 --pipeline=3D16 --test-time=3D60 --ratio=3D1:100
->     --data-size=3D32 --key-maximum=3D10000000
->
->   hit:              --key-maximum=3D1000
->   balanced:         --key-maximum=3D1000 --ratio=3D1:1
->   large:            --key-maximum=3D1000 --data-size=3D1024
->
-> TCP request/reply (5 iterations, average transactions/s):
->
->   +----------------------+--------------------+
->   | Case                 | Improvement (%)    |
->   +----------------------+--------------------+
->   | tcp4-rr              |              +1.85 |
->   | ipv6-loopback-plain  |              -0.60 |
->   | ipv6-loopback-expiry |              -0.24 |
->   | tcp6-rr              |              -1.60 |
->   +----------------------+--------------------+
->
-> 64 pinned netperf clients per case, with 128-byte requests and
-> replies:
->
->   tcp4-rr:              netperf -t TCP_RR -l 8 -- -r 128,128
->   ipv6-loopback-plain:  netperf -6 -t TCP_RR -l 8 -- -r 128,128
->   ipv6-loopback-expiry: netperf -6 -t TCP_RR -l 8 -- -r 128,128
->   tcp6-rr:              netperf -6 -t TCP_RR -l 30 -- -r 128,128
->
-> Transfer (5 iterations, average received Mbit/s):
-
-These tables are all within noise and do not exercise the contended
-path. Please remove them, the changelog would be much easier to read
-with only the perf c2c data and the memcached numbers.
-
-Also, please tag the next version for net-next.
-
-Thanks.
-
-pw-bot: cr
-
-
->
->   +-------------+--------------------+
->   | Case        | Improvement (%)    |
->   +-------------+--------------------+
->   | udp4-small  |              -0.91 |
->   | udp4-frag   |              +0.41 |
->   | tcp4-stream |              +0.92 |
->   | udp6-small  |              -0.81 |
->   | udp6-frag   |              +1.37 |
->   | tcp6-stream |              +3.22 |
->   | udpxfrm     |              +4.57 |
->   | tcpxfrm     |              -1.23 |
->   | geneve0     |              +0.49 |
->   | geneve8     |              +4.28 |
->   | geneve32    |              +1.53 |
->   +-------------+--------------------+
->
-> 64 pinned netperf clients per case. Netperf commands:
->
->   udp4-small:  netperf -t UDP_STREAM -l 30 -- -m 512
->   udp4-frag:   netperf -t UDP_STREAM -l 8 -- -m 8K
->   tcp4-stream: netperf -t TCP_STREAM -l 8 -- -m 10K
->   udp6-small:  netperf -6 -t UDP_STREAM -l 8 -- -m 512
->   udp6-frag:   netperf -6 -t UDP_STREAM -l 8 -- -m 8K
->   tcp6-stream: netperf -6 -t TCP_STREAM -l 8 -- -m 10K
->   udpxfrm:     netperf -t UDP_STREAM -l 8 -- -m 8K
->   tcpxfrm:     netperf -t TCP_STREAM -l 8 -- -m 10K
->   geneve0:     netperf -t TCP_STREAM -l 8 -- -m 10K
->   geneve8:     netperf -t TCP_STREAM -l 8 -- -m 10K
->   geneve32:    netperf -t TCP_STREAM -l 30 -- -m 10K
->
-> Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
-> Reviewed-by: Tianyou Li <tianyou.li@intel.com>
-> Reviewed-by: Wangyang Guo <wangyang.guo@intel.com>
-> Signed-off-by: Jiebin Sun <jiebin.sun@intel.com>
-> ---
->  include/net/dst.h | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
->
-> diff --git a/include/net/dst.h b/include/net/dst.h
-> index dbedfe72e1fd..f01cfb42f97c 100644
-> --- a/include/net/dst.h
-> +++ b/include/net/dst.h
-> @@ -76,17 +76,17 @@ struct dst_entry {
->         struct rcu_head         rcu_head;
->         short                   error;
->         short                   __pad;
-> -       __u32                   tclassid;
->  #ifndef CONFIG_64BIT
-> +       __u32                   tclassid;
->         struct lwtunnel_state   *lwtstate;
->         rcuref_t                __rcuref;       /* 32-bit offset 64 */
->  #endif
->         netdevice_tracker       dev_tracker;
->
->         /*
-> -        * Used by rtable and rt6_info. Moves lwtstate into the next cach=
-e
-> -        * line on 64bit so that lwtstate does not cause false sharing wi=
-th
-> -        * __rcuref under contention of __rcuref. This also puts the
-> +        * Used by rtable and rt6_info. Moves lwtstate and tclassid into =
-the
-> +        * next cache line on 64bit so that they do not cause false shari=
-ng
-> +        * with __rcuref under contention of __rcuref. This also puts the
->          * frequently accessed members of rtable and rt6_info out of the
->          * __rcuref cache line.
->          */
-> @@ -94,6 +94,7 @@ struct dst_entry {
->         struct uncached_list    *rt_uncached_list;
->  #ifdef CONFIG_64BIT
->         struct lwtunnel_state   *lwtstate;
-> +       __u32                   tclassid;
->  #endif
->  };
->
-> --
-> 2.52.0
->
+If you are at using nand_do_write_oob() there is no reason you would end
+up in the error path of the setup interface step. This reset is super
+legacy anyway, the comment says August 1999. This path is also not so
+useful anymore. You can mention it at the end of the commit log though.
