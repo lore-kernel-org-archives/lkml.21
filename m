@@ -1,70 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795028882;
-	b=gLAEVkUSUhN2SX9urwRlLWO26IPwNBeJkdPaVaD271KLGPnpmbG8B9w8fEIrkZi5v0sd
-	 KzBD6hfmP3Av2Zd1IOBD33Wpg+JxlOtBeLVrsUe5LKxjikChdxp5Kr5XKtXAqvnGU5l0t
-	 Llf6DhY3xt1khHM5LIsHZ4R/C8sScKkAMKDudnTh988MCNfQMBNaUwfzRWbIgn8k7+O/z
-	 JFEqbFqOqUN6YdhNwgJl7cJsitDvGCAYlCD7pBDF+wx4lre3K5GGkO2xmaO59mgJ3VRwx
-	 /YIIFQ9GX28R7N1lVdiIX6YCMmJJ2NcNX5uaI1MBpMte4zNzF63S9bnSc98i+RdoAIQ==
+	t=1795028921;
+	b=wVqiIGpvCUXxN65+SmHZPY0gNtB6AaI0hT0OUMjdH83kwWf/05jfYH1exkvu0/KTG6zA
+	 C6SU0KYpcMkb6oH3DSV7v9No2k03dHAD8kVZKdIQ4vYAXacTKH6dX486SA+nf4ORAm3bR
+	 UZgfucaSjIrmpPrg5/N71MGkfsX97uUv0byxkT8I8O/KjXDAq6PaFZ1ZewO79c+L4g/ed
+	 bDRSBAZX02z3nzoLOsrh0oZiS0btEw9q9IyMrYDEWf23Nr0us12e1bf30+M/HR4RcZ4KN
+	 kJBCU/VYEia1rrK5JdxVpXaW+NgHplLKW0aMDgnIDgljGjqNlt36N31+oZOuEyAVlFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795028882;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-MBO-RS-ID:X-MBO-RS-META;
-	bh=ddmcfOMT36ub/WSfnc7vyNXOjLLAnlpQ7vBbWbGIDIY=;
-	b=HUBd2pwPhfn7qooVD+yd+fN26mu13ZsBu85q2Cltios+KkWDkMnDqEPmQcDJqxeWG/nU
-	 1cJsHyKWZE/YFtQWbNme7e5plErJQGiXADp9NUj8HAw0UVvZ4HYqDnc5mmpn/RzzkaIVk
-	 VohTxDzmh1UyyCCTlc+f5XT6WutjgBSQTOVZG9ZG944Dec3Il8/Qd3R925jOf3HNg2dzS
-	 u7i9RtVvvHC61eI+XeSO0OUOx9syAyGpczUrXMQqSGvzH3VB88HJnNNn8QJ6omPeLnYgw
-	 a5OymwqxEjONKZ76pt+L6m3RkIl34mFQhFf+MczCKsBmp8QCLGdi7g3PXZ0Gx4zY9/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795028921;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=j8NHvkg0mcHS6NppRIX+eDEokhzbE1hV9ZJ/sEvlK4U=;
+	b=ryrYTj/Nx/qXNUa2/cX/bHoCnuvwcU+pU48g8nl9mNczrTASCZlJHwxUz+iHJQLGUfKP
+	 xDTSV+VDH+BurwQVz69e4B/GUUgFXivaVhDmQjJK901+9cixrAWtkfUBgMdkTkGypBfCK
+	 wj2X0DTvLvZxCgRQmkt6DvPMEd0IFLLOnP8uF0xVv1aeu9KMBJwM0EfCsaKkHKk5Ofg8U
+	 c1kCe1RNYt2W6JYQ9dwKyboFRzuO3ljzrHIvcwH3LXQM7Usr5kVluwFWYUm0c5wByqtUo
+	 TO+syw0usncocqheqfopk2xrgrBKnCnp3ZUDuxQfrdCEliGv5Buxctw2vNQCx75T2oQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=A8PfnZ2f;
-	arc=none smtp.remote-ip=80.241.56.151
-Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BDJPVTAD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB2BE606A33A;
-	Wed, 18 Nov 2026 19:08:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB2BE606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52DC2606A325;
+	Wed, 18 Nov 2026 19:08:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=A8PfnZ2f
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jVB260rzgz8vR4;
-	Wed, 18 Nov 2026 20:07:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795028878;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ddmcfOMT36ub/WSfnc7vyNXOjLLAnlpQ7vBbWbGIDIY=;
-	b=A8PfnZ2fXXlaRpM7LuYHV46sG+n5g0Bk4AqcIQcS5/fNpEoX2HxSX9JhTs5XeviktoUNjT
-	PeG9opNkvYP+ZZuS1mOlzY+iC3V8SQsDm2CyM7Stn64T+5WH637QGaTygg+BoNZAsqQyfq
-	tMCJ9JKme2pAcHnS+oKU2re0mn1oOCoJgVu0XfJvLqIjEmWyLAJT1jPLsT4LLKlYa/Mqy+
-	ny640pbb+SQqRp3dF6nWvxo9HFonu/1DL5sENCVYnY8mCopaj8m4jFXLx5298XN20/jyLx
-	Q7NVF+bNi3NGxUmSuBcV4cpxET/mXvmh3h0iKBRRM0vMYPT5BapFrHWhYkNb9A==
-From: Manuel Ebner <manuelebnerli@mailbox.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>
-Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
-	linux-sound@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] docs: soundwire: stream: harmonize diagrams
-Date: Wed, 18 Nov 2026 20:06:52 +0100
-Message-ID: <20261118190655.1179347-2-manuelebnerli@mailbox.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BDJPVTAD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAAFB1F000C4;
+	Wed, 18 Nov 2026 19:08:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795028921;
+	bh=j8NHvkg0mcHS6NppRIX+eDEokhzbE1hV9ZJ/sEvlK4U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BDJPVTADU+MiIs2CIl8rFOWWP+9Kt+G6akZKawZPdkAf8/Qm/NUbj1bozbJgxecFG
+	 CJWqECGUh9QehHXJKFCjGT5C4nsLfq/JT9mKc9UMMxk5pw13fC+My2ZBlj+8s8Ijrf
+	 eeVTd1gMOF+J3ER8O4/CteXSRjHc3ry65VUWdDO/Ez0ilceOqiLLzGLoWsGDAwegW9
+	 63MbdibGqqdzH/1YN+xjeYbdiXqeLeYoDMicEE/3c+oIpqAGUt6vZYTqzrSz3hY1Ut
+	 yDxj2PlvVER2TSmMwEPQlAMwfhF7ia8EPRxb14ufHd+/277knxt3tuD9qq5Ajj5OW3
+	 tOpjPFZQvUduw==
+Date: Wed, 18 Nov 2026 13:08:39 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Cunhao Lu <1579567540@qq.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-kernel@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>, David Wu <david.wu@rock-chips.com>,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next v4 1/2] dt-bindings: net: rockchip-dwmac: Add
+ RK3572
+Message-ID: <179502891855.247733.11686816962535109949.robh@kernel.org>
+References: <20261117-add-board-ok3572-c-net-v4-0-4e9da569395a@qq.com>
+ <20261117-add-board-ok3572-c-net-v4-1-4e9da569395a@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,50 +73,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: add99da8afa8268bb16
-X-MBO-RS-META: g9pffjxyieeqieced6qax6i79qm1mwkp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117-add-board-ok3572-c-net-v4-1-4e9da569395a@qq.com>
 
-In example 3 and 4 the slave interfaces are in an equal relation to the
-master interface. Reflect this with equal arrows.
 
-Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
----
- Documentation/driver-api/soundwire/stream.rst | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+On Tue, 17 Nov 2026 17:04:35 +0800, Cunhao Lu wrote:
+> Add the rockchip,rk3572-gmac compatible with the snps,dwmac-4.20a
+> fallback and require rockchip,php-grf.
+> 
+> Mark tx_delay and rx_delay as deprecated and disallow them for RK3572
+> so new designs do not use the legacy delay properties.
+> 
+> Signed-off-by: Cunhao Lu <1579567540@qq.com>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> ---
+> Changes in v3:
+> - Deprecate tx_delay and rx_delay and disallow them for RK3572.
+> 
+> Changes in v2:
+> - Add RK3572 to the shared Synopsys compatible list for consistency.
+> ---
+>  Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 15 +++++++++++++++
+>  Documentation/devicetree/bindings/net/snps,dwmac.yaml     |  1 +
+>  2 files changed, 16 insertions(+)
+> 
 
-diff --git a/Documentation/driver-api/soundwire/stream.rst b/Documentation/driver-api/soundwire/stream.rst
-index d662012996..58b05f2d0b 100644
---- a/Documentation/driver-api/soundwire/stream.rst
-+++ b/Documentation/driver-api/soundwire/stream.rst
-@@ -67,11 +67,11 @@ Slaves are using single port. ::
- 	                    |     |
- 	                    |     |
- 	                    |     |                        +---------------+
--	                    |     +----------------------> |     Slave     |
-+	                    |     +------------------------+     Slave     |
- 	                    |                              |   Interface   |
- 	                    |                              |       2       |
- 	                    |                              |               |
--	                    +----------------------------> |       R       |
-+	                    +------------------------------+       R       |
- 	                                                   |     (Data)    |
- 	                                                   +---------------+
- 
-@@ -93,11 +93,11 @@ one or more speakers. ::
- 	                    |     |
- 	                    |     |
- 	                    |     |                        +---------------+
--	                    |     +----------------------> |     Slave     |
-+	                    |     +------------------------+     Slave     |
- 	                    |                              |   Interface   |
- 	                    |                              |       2       |
- 	                    |                              |               |
--	                    +----------------------------> |     L + R     |
-+	                    +------------------------------+     L + R     |
- 	                                                   |     (Data)    |
- 	                                                   +---------------+
- 
--- 
-2.56.0
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
