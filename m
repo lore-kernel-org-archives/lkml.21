@@ -1,72 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795045045;
-	b=Jirc5odiZIXZByuo1ajosBPpGMbRHbF68OnCmV5WgdwtRoZQ9ielYrxZ0fhaK9yiS2wD
-	 O/lqWNUzvsXbLLFDPwjvPaK64XkpB4xX1YG0Nz792ACyo8/nV3YNn2xaJYlLN+S3oKWxE
-	 AGtJgW/nz4l1DC+ssbE233ce37EHTp2e1U6lCG9HiSufI5nPIjA+ln4jBOXMFRZ5gobXN
-	 FzCmnUGUy7xcefNKPvHLqq0ScW+/aQWOPBeHXwXf33MfrqZuEHuYEZ8pXlA+LAvcdIek9
-	 q5l1KEfjtgaCCAzujz6vDn0KjkxvTQjLeTUjQgOC4ASSxo7HxE7cZmXBK+b2w+iA3bw==
+	t=1795045072;
+	b=N9yyRM1zVwDqKpOAjNfvKLWr/aM838bm5tDPEmnN7eblZl3S/K7h+fYEJFVl/dpNbxzG
+	 afLnZYb7iPGwmVnfWxc04hyofEFhOszcbFZl22JSQ515fbdci1kBDvxZ/O2AU9mufEU1M
+	 O3YLo2jqpOv0dwMhmeHIrHu4LrDRmQeC7HGVniKIw5Kmo7zvqACTZXiFQHNviWhkmJEXS
+	 +J10BKuFryl+PdnA+f9iSrk3p4dD7VHoPgB8VNLfz+jpkYayy+/FxuhVIszIMonjDGm2A
+	 yJmQgtSTGgq4jXn9S9sQV1QWIlAW8Ls73MAIkEV2GCoBG/clC7HMYCGh6epW8E7P6VA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795045045;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=oxGRhGQXP+saO4hdaaeuycHrsZeNHZNVjp3QPLTuF0w=;
-	b=Mn5WYUNgB8gqJYfL/LhCwRYDcA6dZs+bd/TmA3geE11a7USJxx3ybo2HZakywO7gDgCQ
-	 Rs6EmeAdcFnZUvyYnJWvambmGbA04Hr1/Oyo+PgduT1PIAf/eiFsk27MCASLgg902mWOf
-	 ZMbOEPhCt4ACcXYn+NMYPRcrn0XUl1tVFnVWOsC4uXecpwQrKAd6v4vT+mX+6bWGXjJ6S
-	 oGrSMWoif7ukbhHY+qV/xLblpWDi/Qzsy/3sDLkgJG5sfoCln0NqsXTRX++/6W0YFf+rL
-	 Es5AwXdk6sxE+bZm2P7/giQJ3mLNNLHELr7pBtYFsw0RXMkCtcJH6s0xgzHFJEdj3/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795045072;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=AkAg6L5zEzM+0zn2rA3ANMwlJH9j/CQ/7JKe3RPzwQk=;
+	b=UZ14EtrRcKMhui/golHrivnx6wJQ9jeXds/vdMk2Es6pRDBYLHYUtq/Nr3AtP94/YENw
+	 8wOW9FCVyQ4X8LAzNIEMfLhgMoMpzCAV2zJjwrAkwQ6Iom4sM2oKvb6eDShkOtk3cKe7O
+	 PJ6uGt/b2luQ4BZ0ZwneAIb78Awc1TrBiPEEcRkw2hPoB7P8OgxmmYC7XYP0sUtyV6vU4
+	 Itra3mH9w/7nCV39yvTFB8IJ3rWkNrky1umqaog79ZKVMmd5ZJ2aYmzHfNJxNfDEQ7AZF
+	 Er6xCTKFjsEaNIgD1HfBXP46CILYrQcGklDIN6qsFbo+QrS8zSeSZBdWi618EAbpBbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--jmattson.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PYktBma3;
-	arc=none smtp.remote-ip=209.85.167.199
-Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WK7uPiZ3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D5CF606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:37:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D5CF606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jmattson.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6C35606A320;
+	Wed, 18 Nov 2026 23:37:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PYktBma3
-Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-55bf11583d9so480209b6e.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:37:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795045043; x=1795649843; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oxGRhGQXP+saO4hdaaeuycHrsZeNHZNVjp3QPLTuF0w=;
-        b=PYktBma3zGnmgU3FEdhSeE3oExDUfohiUpQetb31i0M8L5INWjBsjCM4IaP4qQ+3Aj
-         YBUNGH07aX6lMBWJX8+I0hAff+oRIKIBSQA0mYr22EO4shaWxDSkGp393sjibvOmqLli
-         Shw7sK3NjguuAQYsIJbyBV9pBFzykc+jfwlSgWq1TGilA0laM2fGVgigOCqZZahqbqzw
-         VHd7ODkk9lkQ0S1k/W75zgeYf3IKGxIMnEWByuuDY1YlW2vipjw2Jsor7aOJNgjag/yJ
-         wPiNtTuw/lQRY5R7bDgayvDu48DkVHYqIQQxNEqaoso/29pLol8G9ZYNqBcFYyspehYk
-         REuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795045043; x=1795649843;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oxGRhGQXP+saO4hdaaeuycHrsZeNHZNVjp3QPLTuF0w=;
-        b=o+rZaxYl8Okp97Z2mEBITedTTVCNdBysuDKlVYOC9gHFKiVE9LxKxjYeM3QNWy1E0b
-         PaFOb5WYCZ5EmJL4IONqS54s6q7tE+ylv4rMQyJeTL208NkXDdXQ9CajhudiWuANELU+
-         7jIBHaYw+VE00HggWXqVRJfghO+w0IzT81VRVT58RY8S+cWqi5j3W/Vb4yhyWURgmtNA
-         2hfUG+YmLLckHIbzgegk+2GlOCXM0RHvmr4yglR5OmaF5gW9ABEuPOUKX6t0rNLROqN+
-         /R7hopY9EU7EfICE5UlGAAZwce4XBhnThCLRkiVXdafR26IZ9UsMe+SP8zOZM7F3NabO
-         CjRQ==
-X-Forwarded-Encrypted: i=1; AL+hErGy5w6Pwz+daiIh720JZh7qYrifAOqsC0d1ArIUP2mN0qVlif9YJDEgQdzmA+afNGMfp0PaF8AYLr6D3a0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8w/33pItfC5nFo6av18aMf4x0crKQs3muB9phbkhyRyRxuobuM
-	9UoilPVCqlfNis08zLNci7yRGOMCbQSi2qVTdZQVVN7EA0EW6FShr3aI2VyhBs0xbDwit5sNMWy
-	NjVaKn7kzB7mSLw==
-X-Received: from ilei20-n1.prod.google.com ([2002:a05:6e02:61d4:10b0:54e:8720:76ce])
- (user=jmattson job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:2f13:b0:53a:1c29:cb37 with SMTP id 5614622812f47-579083c6501mr264180b6e.38.1795045042975;
- Wed, 18 Nov 2026 15:37:22 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:37:19 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WK7uPiZ3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6B451F000C7;
+	Wed, 18 Nov 2026 23:37:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795045072;
+	bh=AkAg6L5zEzM+0zn2rA3ANMwlJH9j/CQ/7JKe3RPzwQk=;
+	h=From:To:Cc:Subject:Date;
+	b=WK7uPiZ38zHXjJLnXwa6kLb44zKfNlzRwSU22q7AE80VUDPbot1ZJE6AtSqzfkbA8
+	 jDYibcwMk6qX4W6jT/VlxDEpZkIJr5I4OlKFfw5OWrI2tSRrCFUgQUBOve19Bz8kx6
+	 JO4ZjdIIaGYF4bBbxDVtfox8Pq9OdoztGvJkByjX3GdCTIoJYkeX9Jj1/hcg4X9VRn
+	 kRG1RH37y5GWbj86eQrNjI+6Fiob+UWpt+KdpTYzNPz93sGtdDmssy0b9xK84snunL
+	 enKN73QgrpMfSWAL47vfuPveXTdS0K5gudI7ukXeC7s3wyUK4eQqv6hqBC0jm2XSLR
+	 +h803z6KNAKRQ==
+From: Danilo Krummrich <dakr@kernel.org>
+To: dakr@kernel.org,
+	aliceryhl@google.com,
+	daniel.almeida@collabora.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	lossin@kernel.org,
+	gary@garyguo.net,
+	ojeda@kernel.org,
+	boqun@kernel.org,
+	bjorn3_gh@protonmail.com,
+	a.hindborg@kernel.org,
+	tmgross@umich.edu,
+	tamird@kernel.org,
+	acourbot@nvidia.com,
+	work@onurozkan.dev
+Cc: dri-devel@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] drm/tyr: use pin-init self-referential support
+Date: Thu, 19 Nov 2026 00:37:01 +0100
+Message-ID: <20261118233727.3147222-1-dakr@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,55 +70,32 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261118233719.2101265-1-jmattson@google.com>
-Subject: [PATCH] KVM: SVM: Set V_IGN_TPR when enabling a dummy V_IRQ for an
- IRQ window
-From: Jim Mattson <jmattson@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: Yosry Ahmed <yosry@kernel.org>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Jim Mattson <jmattson@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Per the APM, the processor takes a virtual INTR interrupt only if
-V_INTR_PRIO is *strictly* greater than V_TPR, unless V_IGN_TPR is set to
-bypass the priority comparison.
+This series uses pin-init's self-referential support to replace Arcs for
+resources whose lifetimes are bounded by their owners.
 
-In svm_set_vintr(), KVM injects a dummy V_IRQ with V_INTR_PRIO=0xf to
-trigger #VMEXIT(VINTR) as soon as an interrupt window opens, but it does
-not set V_IGN_TPR.  If V_TPR is 0xf when the window opens--e.g. when
-CR8=0xf (in L1, or in L2 with V_INTR_MASKING=0) while a TPR-independent
-ExtINT or userspace IRQ-window request is pending, or in L2 with
-V_INTR_MASKING=1, INTERCEPT_INTR=0, and vmcb12.int_ctl.V_TPR=0xf--the
-priority comparison (0xf > 0xf) fails, and hardware masks the dummy
-V_IRQ indefinitely (also stranding any VM-wide AVIC IRQ-window inhibit).
+It also cleans up lifetime names, fixes a Clippy warning in generated pin-init
+code, and simplifies firmware loading cleanup with ScopeGuard.
 
-Set V_IRQ_INJECTION_BITS_MASK (which includes V_IRQ_MASK,
-V_INTR_PRIO_MASK, and V_IGN_TPR_MASK) in svm_set_vintr().  Note that
-svm_clear_vintr() already clears and restores V_IRQ_INJECTION_BITS_MASK.
+Danilo Krummrich (4):
+  drm/tyr: name resource lifetimes after their types
+  rust: pin-init: internal: suppress multiple_bound_locations
+  drm/tyr: use pin-init self-referential support
+  drm/tyr: use ScopeGuard for firmware loading cleanup
 
-Fixes: 649d68643ebf ("KVM: SVM: sync TPR value to V_TPR field in the VMCB")
-Signed-off-by: Jim Mattson <jmattson@google.com>
----
- arch/x86/kvm/svm/svm.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/gpu/drm/tyr/driver.rs            |  38 +++---
+ drivers/gpu/drm/tyr/fw.rs                | 151 ++++++++++++-----------
+ drivers/gpu/drm/tyr/gem.rs               |  15 +--
+ drivers/gpu/drm/tyr/mmu.rs               |  56 ++++-----
+ drivers/gpu/drm/tyr/mmu/address_space.rs |  40 +++---
+ drivers/gpu/drm/tyr/vm.rs                | 119 +++++++++---------
+ rust/pin-init/internal/src/pin_data.rs   |   3 +-
+ 7 files changed, 209 insertions(+), 213 deletions(-)
 
-diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-index e30ee80624b7..2c60413597ae 100644
---- a/arch/x86/kvm/svm/svm.c
-+++ b/arch/x86/kvm/svm/svm.c
-@@ -1622,9 +1622,7 @@ static void svm_set_vintr(struct vcpu_svm *svm)
- 	 */
- 	control = &svm->vmcb->control;
- 	control->int_vector = 0x0;
--	control->int_ctl &= ~V_INTR_PRIO_MASK;
--	control->int_ctl |= V_IRQ_MASK |
--		((/*control->int_vector >> 4*/ 0xf) << V_INTR_PRIO_SHIFT);
-+	control->int_ctl |= V_IRQ_INJECTION_BITS_MASK;
- 	vmcb_mark_dirty(svm->vmcb, VMCB_INTR);
- }
- 
+
+base-commit: e55a991e09e3b44f0b0d8206bb523dc57c086341
 -- 
-2.56.1.708.g77570a6a1d-goog
+2.56.1
 
