@@ -1,80 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009266;
-	b=p/H8Os8SST6SeREYYSSU9bxO/o3YJ09ie8zFCK0KXrXzX5n3gou2tNGY4waullVFBqVH
-	 s7TLP6LnulJCijVx3RLzym+PxOV+4etzNqqfqYZxfiMFrZ0Vn9912LzPa+QcvriIDoXJM
-	 gIC+UkoNQekX+BVKnnasWTw48mq+cPang1REvOT4k795cuyVBu/eWW2wtBIAScnsiYmA7
-	 JYV7uOJzCtOwnkhGGcstZLpkNeTWZcz6+bL0cL5A5/YpZD8EJOKXqe8OA8zDDs2KKT1gh
-	 JZt9eoxbwfKTmqKEg+Vo2ZSETVf32ufHAvU2DH4GJTIEOoPTsWSHwWYJ9dOpzcTzYbA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009266;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=D9V4WkGeE1gNbwV0EuTSccb8kH3ZkT64phRaT3tM55k=;
-	b=z+LlhpZKQHLvEGhMQw7tOZ6buCo6oXEJVR5aN5CrLc8JT2exIVxbl8gxMKbohSoPyga0
-	 sxYjm9f7TzL0Uqv7uQOlhWcuCaZYPdLlknBhcGiLCownmpoqVRYteKV3IVQNOsoQmrn/t
-	 +Iwkins84zXhG7a3KqviMk8JNDfRW0Ugw9tFE7qZ68sz6rh5XUVoOjYLgR783WhUImTny
-	 YxMaJYq+vbgRECqx615rBT5bBvaPIyCLyvKWWL+gwv7gTmM0OCMRzA9/PyYTPNFjC8miq
-	 v0tSN77JxeI201FJ59yGgQB38tr15EMytZT7IxQ0n83cmkhiMa471O+OMwF1ai2Y7EQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QxPwFnlB;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.106
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795009287;
+	b=tRDbmdA7EysPTK7z1zxMnrVNHeXWCbYK3eqkFtHc8Gyb9SflTBy5uPFOCwyzSK0FqBJP
+	 yMvcbMxGjnmmBRu6q6Cx9xz00uBB/PPwemTaBqpeCaOF0JAC6xKsDZ492cmYGu3fRQ8iR
+	 QoIc2r5anrtIGiwbPlQ3zhADcoZpCpdIlZFC8JiN4zwyG45Uo4GUlMy7vdO6vz1rHfuZ/
+	 V3/jqRzaKbxwct0h+YTtZ1ieQB+VF5Y71TDobSqxBmMDbRAqW5jPlyuujAmYHAiSOt9ox
+	 fLNgUs6iVruQEsuPic0lp/68tHTo2ZJ95c6jUz7g3rFSK+7Mh7SMPkLIX08n6LW69dg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009287;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=MQm0gCDOzUVP1nW2fCT3k6g/NoASg9+vwfkgBcwAxn8=;
+	b=4pC26WFs3cacGGGCNU3Oc+NaCSNVeZOWtwCT4G30jSMbAZWj5pkQjmf/hUVa/6mjDSEK
+	 HWHOLmH/02njzWBZ8SIEmvuwPtOmk3QKb1PPBQJuyDXXYs1YkIS6NuhfGBohMCGfI4SYz
+	 CLEYu6UTsuIIOSePOqEH50/PPWTqFu3e1+GtrxzCZ8pfAXA32R41CTXa4pncgLDByzXXe
+	 0tejzCLpANqHezp9PGB5wLud6W9NEWedamXYHJWWSQ0mYhn5UG5loEKperygsPFTUhWes
+	 63UGsevOSolEDW/Il0/Jrqn+w6/BDLMZLOQ4ac3r1S2l0p0ZQt/XKa1cUR3o6bHU25Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=cFlkbT0S;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.106
+Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020106.outbound.protection.outlook.com [52.101.189.106])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FCDD60A262E;
-	Wed, 18 Nov 2026 13:41:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FCDD60A262E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84D0C606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:41:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84D0C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QxPwFnlB
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CF58F4E41636;
-	Wed, 18 Nov 2026 13:41:04 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9F9635FE9B;
-	Wed, 18 Nov 2026 13:41:04 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7DB711BC20A9;
-	Wed, 18 Nov 2026 14:41:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795009263; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=D9V4WkGeE1gNbwV0EuTSccb8kH3ZkT64phRaT3tM55k=;
-	b=QxPwFnlBQzMJjMVMjLqYccma9uxQ7cISONOrB1G0WNBWLYWpAakFpuyFkVPcXuP9TByPH4
-	T7U8pFhv8dy6Dpee17NiN2L7rqEIASFVfL1o2avGDdpP7gzInaCQcVDvHTDM8yQ5JZraG/
-	RhGx/Xoh1XaNr6NsSIlu1MwsJg4SpDZCTnIQ46gHJC/mb5SxpbzTNYvzO4lIfkE4dqt4TP
-	BEx9DZiusYe5YKCW15Q+RPM8IVLNdIOPIXL/kaNPkQBdgCiRxnVVrSwx1AsH7sMkrXrbKY
-	r2Z5uhT3RN/Dp+u9d84cRH+KvF/I62FBUTotXCH+Oz/FVyP42BDg+Vvk5p092w==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Peter Rosin <peda@lysator.liu.se>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v10 6/6] i2c: atr: Create missing devlink between ATR and adapter physical device
-Date: Wed, 18 Nov 2026 14:39:15 +0100
-Message-ID: <20261118133927.366482-7-herve.codina@bootlin.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118133927.366482-1-herve.codina@bootlin.com>
-References: <20261118133927.366482-1-herve.codina@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=cFlkbT0S
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZITUnoacq+hJ/Y/CzevgKlJEyb8UyGCskA848YwTDdq59SJ573h/c+xgteGryvf4eEyc+JFmRt4FtC8xyd3lOojunLtDf+g392QoaZLDupLNd44ef2S6vIQPyZIgnUPiXJpDJvMO+uygh802ntXFpFsgc5tL+Ird1VHx+nEoAe8PCxVOY8hIsl9SWNxPPcM1N5zJeiisHZQeN9dXVHYJVV4JwFOz26xYdE9cp+j/MyuMNEygCDwviCT3UU0LkVkmVcxnCp15gDJI/aIEgPGxyIEeALr70RCn97/Serb7PmhZdgizrCiGgy+DUoymtqGNmCSz+NurSh2QyCR9G2N+Rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MQm0gCDOzUVP1nW2fCT3k6g/NoASg9+vwfkgBcwAxn8=;
+ b=eq/CJOnNwdys/VyuNCbp5U7dMBdH9BRPnfrva/i5DElBFEVICdUnQdT416+tPYHMv7z+mCJduzkSuoRH3T6AIckA9jZmI1DHWzf1dvAvK5wSQ1zQvekB2a1wpCSm2/hfjFrUC/I4tsKPExQILwi8x4+vSe8u10DizKAgFyVQ3mYxiGp/VfqNnSd+Rra5TtQhd6C4iMSs5nWPFkwLMATItTgT1iuzT6p2Mb/YwtJjrxr1x1a1Wi3C8TQnhFx0hDXbneo6oQbSe4+9lBiHvIyqspemtlsKEPcmF0KZUswK/6pRBoxiEyILOy+/1hoUOKIbmtbSE+BFxsqoEPvR3oY7JQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MQm0gCDOzUVP1nW2fCT3k6g/NoASg9+vwfkgBcwAxn8=;
+ b=cFlkbT0S6QobxUYV09Xi0U8Q4Zuhl9mroJx4DWbE62cMaQnOUekZAmHf8pKmaLkfgopfZJLW0GPUU/dAgZgNbV12KqZLnLk+VMO7jAScWjYH52Trp9J6vpmztYWkhrnAEPnhkhwl4eXSUdUa7MdWySKno9ldT9xIfAQ9vAgp7dWk4uDtPhByf6v1+ix8KmR5xGxydBDhCSevUBuNpqXO/Hxzpww8ATjVZNsrEItayaTAiPEpPFiRYalnUZAWIYb+IjH/upj1rj6l0SWpvFXYivigeYVGVdl1ZwYVBFdUn0R4gQy98wF6nLKXbweQJQAePNaTVNlOueTBdGbBLAIaSw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by QB1PPFA2F60E653.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c08::274) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 13:41:24 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 13:41:24 +0000
+Message-ID: <5949872f-320b-44c5-bf2d-829cd4523d36@efficios.com>
+Date: Wed, 18 Nov 2026 08:41:24 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 29/40] sched/deadline: Keep the last CPU a task has in
+ its root domain
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
+ <a075dad17300a5b31dc3d99bef81fb9dadd6cbcd.1794922146.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-219096@kernel.org>
+Content-Language: en-US
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <sashiko-outbox-219096@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQBPR0101CA0302.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:6d::17) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,139 +100,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|QB1PPFA2F60E653:EE_
+X-MS-Office365-Filtering-Correlation-Id: f5eab082-454a-4bb2-e2b4-08df4579a394
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|10067099003|261026140227099003|4143699003|56012099006|261026121527099003|261021121427099003|261022105027099003|261102123227099003|261028144727099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	HN6gch9xKvWJa0vGWjTIGhL+sCrA6jkWfek4SzFEcG8wh66MMHbAJ1QvSF4cYrq2ukbeYlTxw3Dfo1aUePVDZJINu3DJQ/M0J4KR0191t6D+Cy2mrPb2lLB2WU1zm8XcVfso+re1+Yq1jVUT3QHgIlXkML+vottZrLkUe9p5APcmN82XkUgtb+VPhJfhWc31srBGmXvxUjJZfGpjL9GqTwX1/yqvenDn/FT0wgkCP0kGtFKNK/1WhNgdm5s1hy7x3dRjWjnBMWphgbab+egE4tPfIc67b3+R2TSvAAHEk7ViS0FGUerXGt2/InurHM5af+3FlPYPYOd91CLiMtAIGMKFDnTwJhWLg49WB9wAhgqNeGKGw75tx7DuhtPWpnNKFtVkGHSbeogdrMg4AP9ySjBhtLbpiRGWD+CL2m1EHM3aAxIcbup3n1uY7TyxlntSJN6Z5+EtsESiUFoaND7tvvOzf2rd8FGDh8jE3lfBBdaner4R9+zGzkthgO+MYYgUC9e4fehkq5c0nW85Ep4HazKrW49qPtZFnQrCv5zBZRrUlqmkiAhlRCWgSqC8S7BWVJAmqvadJNHPC8mA9ACDXpPnTzHUJFb7zDQMa3x/H+8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(10067099003)(261026140227099003)(4143699003)(56012099006)(261026121527099003)(261021121427099003)(261022105027099003)(261102123227099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?TkNSOGlYYkR2enFkU1hzQkFmQVlaaUlxUjBtTjhGQjdZclVIYVAyWGM4ZXQ5?=
+ =?utf-8?B?T3E3bHZTQ25kbDRNVXlWRzN1YkdqZFZVVDdTVEk1akRYRjBBemZaaCtXQ0t4?=
+ =?utf-8?B?THUzalR4Mjd3aWZ5WFM0MlQ5Wk5VZEhBcHlxYjBLaGQyS05WZVE2MEo4WWRH?=
+ =?utf-8?B?L1hJMzZIczg1OVU4NGY4UTdBcTNEYkY5MnB2bDBxTDJzRWUrVCtxVVVkanZw?=
+ =?utf-8?B?UldGU3FMbGFxOTN4TW8zYVk3UlVNMGhQSEYwVlU4UHNEUXJtQzlmY1l4em9M?=
+ =?utf-8?B?VmhIMFVSSnUzZERBb0VWYzZWaklRY3pOQTUydU8wRm00R2hXU1d1bGppS2xP?=
+ =?utf-8?B?akM5MHVPVE9yelFuWTU5L3Zyd09vZG04aHJIVmV2NU5Xc3VmaE1FdWo3ejJJ?=
+ =?utf-8?B?Q2dMUkxFM00zODBDRWN2QkxMOUhWUUUzdWZLRE00OFZNMW9ULzhjTlJhY0pq?=
+ =?utf-8?B?T290Y0l1N0dRMUppbnl5ME4zSS9CYW8rZDdUalJrTVVXVXBHQS9PWTdYYlNK?=
+ =?utf-8?B?TjZUUmd4WTVteDZZU0RyR2orK2hBVCtEaFhvcFAxV05uUjFRSFlkeHltbDRw?=
+ =?utf-8?B?clprV3FCbVZsOFhzL3d3QVZLdGp1b2drMTJXampTOFNPRnk4SEU1M2VmK045?=
+ =?utf-8?B?ZUdlK0ZtcjFENi9RSW0rMlh5VmxsVzJtTGNvY3o2c21VOWkxeVFaM1NLU1ly?=
+ =?utf-8?B?V1U1YkI5MkFaTTlLNUNqMFVIUUxuR1dHbXM2djZrNitNaXNKSmdFbTVhT3pG?=
+ =?utf-8?B?ZVR2SHYxb1o0TXFPVENIYndpOEJJamphbXBqOE90Vm5BYzRMOU5rMkVOa0h2?=
+ =?utf-8?B?VGJYTjNjREJYTXBUczVVYWRvNmJRLzFoR3MwaDdDd3BSSUhJc2d1cVNwK0k3?=
+ =?utf-8?B?M29mQTBmd05FTDVNNUYzYjVTTWFrQSt5dFYvOW1LRHkvSnR5Zi81enRyaGc0?=
+ =?utf-8?B?ZEJ3TCtoS2srZGhoWlhwTFgrTVNWeXByYmwyV080MjIreFI1K0hrbVorYTZF?=
+ =?utf-8?B?RGFYS0x1UVJjaGcrbEsrSmcxV2JGRWFQRkZNTFJTNll3UHR5RjR0a2FjOW9Q?=
+ =?utf-8?B?Z0k0S2M2RzN6MHpoeFY3cDhpS3gyYmgyNEY1UWd3V3hUOGRhM1RRd3M4aEI5?=
+ =?utf-8?B?MDBBYjdiMWpYeFZ1ZTdWcjMrSnZoa0RjTDZvWnZjZHhFRThrdkpONy9LWlda?=
+ =?utf-8?B?dmhxUzBJMURtRENhQzFwZ09JQ3Z0MEpHTzZ4Q3ROdWpibzZZQUlxNkNRNVVV?=
+ =?utf-8?B?ekpzZ1JRL0dIZG42a0NVQlkxRFFlMXVXWlZHbEtrZ2xVdk1Lb21vbnNBQnR3?=
+ =?utf-8?B?cEQ1S2psM2RTTTROVitHaEVHS2ppdlJxTEJWd1NFbDFZamh5U29YSDJQS1JT?=
+ =?utf-8?B?MWpNUm9pdnUvR0RyN3Z2cHRMeFJGSHhKYk92NlFFMVdBNTVjYU9WT0QrSE81?=
+ =?utf-8?B?NEFpRmZzby8rOEw1SCs4clpNazJ3UUM4eGpNYis5YzNmbVNPLzFxdlVTVmlL?=
+ =?utf-8?B?NXFSNVVwaFdsZzN6VjNEaUQ5R1RFNzcyK3BGc05zSi80SHZMMlVMZTRER3Y5?=
+ =?utf-8?B?ZjdsWUdxWDV2ci9rRGtPZkhqL0NlSHcvYWp1Z1JFdjdzL0tjZWxicHg0NlNB?=
+ =?utf-8?B?dWF1bXU3QkJBSFNuTXVtOXVQMUYyQ1ZiaFU1SjAzYVZzSzhmai81bjZMNjQz?=
+ =?utf-8?B?WGg5bGUwNElXK2VybDE0ZSs0ZlJtSUNXSGdUcUVRNytubE9DcmN5SngrNlJy?=
+ =?utf-8?B?OUFKSm1NUmxneW1FRUp0UUFsVzZyS1hWQ0pJUkZXeUF1eXRQR1V5dHdxMVg0?=
+ =?utf-8?B?WEFoZmpRWkRhWThQbmhobUltS0xWT0xaSWFnSE1xU3AxSnNrUFpSSGloc0RD?=
+ =?utf-8?B?VzkwSmhQV0YzYVVsQ3cwUzhDUXdnSkNRY21HTkN1TlBPNmRnNTFjSGxCWjlS?=
+ =?utf-8?B?QURueDVzM09vUUVMU1NpZHEyd253YUV2L3p6ZkVodThuZk1TVXNtcStmRFZ1?=
+ =?utf-8?B?WXZ3aW5mV2pFekx4Ui9SMVVvQzFQM2E2ZlpId0Y3VGE4SkRuQ1lRMm1rdVdi?=
+ =?utf-8?B?WmJSN2R0dWdzQzdyTlNzY3AzV3k3ekFlS3ExU2dFRWdQT2N1bEhqRnRRWTFK?=
+ =?utf-8?B?WHNNYkNybzc1SzNqYW5lbC82OVE3S1JqZDk1NkgxR2QyeHVXNWZwY1BxbnUy?=
+ =?utf-8?B?ekRWWDU3OWk5cng2cFZvc3MvdWpISmg0NmRVN1F6dTlqbXJzbEdTa0VpZG9I?=
+ =?utf-8?B?TmsxS2E5RUFNN0tRUGZrNkVwVS9WdVF1TUdwSktIK09GSGdTS0EyWXl1M0VM?=
+ =?utf-8?B?RTZQSnpWcHFNQlJIMlF4c0d0NkQ4NUJlVHNScVZJemNkZlpJVm56RmF0Unlu?=
+ =?utf-8?Q?ZuB3oX6M+VHKLyg/bdLm9bvIjNkYRI5XgnaUx?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5eab082-454a-4bb2-e2b4-08df4579a394
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:41:24.8523
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +XVxqbl2U6FmAkwVzBLRrQLXPXjrQY5G5PGloVI/xUFMm6ndF73qDRXVVaRYsADIZCVFSNCmRew9k/TcQYebVRss/dXSDihAJRYA4rHnpOs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: QB1PPFA2F60E653
 
-When removing an i2c controller device handling an i2c bus where an i2c
-ATR (address translator) is connected to, the removal process hangs and
-is stuck in the wait_completion() call done in i2c_del_adapter().
+> Does cpuset_cpus_allowed_without() return an overly wide mask when it
+> walks past an intermediate ancestor to find remaining active CPUs?
 
-The i2c_del_adapter() tries to removed the i2c adapter related to the
-i2c controller device and the wait_completion() is waiting for the i2c
-adapter device release. This release is performed when the device is no
-more used (i.e. refcount reaches zero).
+Yes, thanks. cgroup v2 computes the CPUs from the top down. The walk up
+skipped a parent that then inherits wider CPUs. The next version starts
+from the nearest valid partition root, or the top cpuset, that keeps an
+active CPU. It then works down to the cpuset of the task with
+effective_cpus_below(), as compute_effective_cpumask() does. Patch 30
+already used that helper for cpuset writes. It moves into this patch.
+cgroup v1 keeps the walk up.
 
-When an i2c ATR is involved in an i2c path, the struct dev topology is
-the following:
+This was found by reading. A new test case, hotplug_nested_refused,
+tests it. On v7 the offline is accepted, and the task wakes up on an
+isolated CPU. With the next version it fails with EBUSY. That held in
+each of 6 runs on both.
 
-    +----------------+                   +-------------------+
-    | i2c controller |       atr->parent |   deserializer    |
-    |     device     |      +----------- |      device       |
-    |   (supplier)   |      |            |    (atr->dev)     |
-    |       ^        |      |            +-------------------+
-    |       |        |      |
-    |  dev's parent  |      |            +-------------------+
-    |       |        |      |            |    serializer     |
-    |   i2c adapter <-------+            |      device       |
-    |     device    <------------------- |  (desc->parent)   |
-    |   (no driver)  |      i2c client   |        ^          |
-    +----------------+                   |        |          |
-                                         |   dev's parent    |
-                                         |        |          |
-                                         | i2c adapter chanX |
-                                         |     device        |
-                                         |   (no driver)     |
-                                         +-------------------+
+> Can intersecting pmask with task_cpu_possible_mask(tsk) after the
+> ancestor loop leave pmask empty when an ancestor has possible CPUs
+> for tsk?
 
-When an i2c ATR channel adapter is created, a reference is taken to its
-adapter dev's parent. This parent is the device owning the channel
-adapter (desc->parent), not necessarily atr->dev.
+Yes. The possible mask must come before the empty test. The path is
+select_fallback_rq(), though. The cpuset update fails on an empty mask
+and leaves the mask alone. The wakeup then tries cpuset.cpus, then
+task_cpu_fallback_mask(). Patch 28 makes each step prefer a CPU of the
+span. So the bandwidth leaves only if none of those CPUs is in the span.
 
-No relationship exists between the device owning the ATR channel adapter
-and the i2c controller device (physical device) in order to have that
-device calling i2c_del_adapter() to remove its downstream adapters and
-so, release references taken to the upstream adapter.
+The next version stops the walk at a cpuset with a CPU the task can run
+on. If none is left, select_fallback_rq() picks the CPU, with the change
+described below. The check now predicts that change too. This was
+checked by reading. I have no asymmetric arm64 system to test
+on.
 
-This consumer/supplier relationship is typically a devlink relationship.
+A second read of this patch found a related gap. At an offline,
+select_fallback_rq() runs before the cpuset update. A runnable deadline
+task on the outgoing CPU is pushed away then. The fallback uses
+cpuset.cpus, then the housekeeping CPUs. These are not the CPUs that
+this patch predicts. So a running task could leave its root domain while
+the offline was accepted.
 
-Also, i2c ATRs can be chained and so, the upstream adapter can be
-supplied by either an i2c controller device or an other i2c ATR or mux
-device.
+A new test case, hotplug_fallback_running, shows it. A deadline task
+with a 2ms period runs on the outgoing CPU. On v7, the task left its
+root domain in every run (8 runs). The next version changes
+select_fallback_rq() in patch 28. When it would widen the mask out of
+the root domain of the task, the task gets the CPUs of that root domain
+instead. The cpuset update that follows sets the real mask. With that
+change, the case passed in each run where it was not skipped.
 
-In order to get the physical device of the adapter an ATR is connected
-to, rely on the newly introduced i2c_adapter_get_physdev() and create
-the missing devlink between the device owning the ATR channel adapter
-(desc->parent) and the physical device of the adapter the ATR is
-connected to.
+Thanks,
 
-With that done, the device owning the ATR channel adapter is removed
-before the device handling the upstream i2c adapter (i2c controller
-device or i2c mux/ATR device). All references are released and the
-i2c_del_adapter() call performed by driver handling the upstream adapter
-device is not blocking anymore.
+Mathieu
 
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
----
- drivers/i2c/i2c-atr.c | 46 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 46 insertions(+)
-
-diff --git a/drivers/i2c/i2c-atr.c b/drivers/i2c/i2c-atr.c
-index 7c599d2d09c4..5bc7e31ba998 100644
---- a/drivers/i2c/i2c-atr.c
-+++ b/drivers/i2c/i2c-atr.c
-@@ -788,9 +788,12 @@ int i2c_atr_add_adapter(struct i2c_atr *atr, struct i2c_atr_adap_desc *desc)
- 	struct fwnode_handle *bus_handle = desc->bus_handle;
- 	struct i2c_adapter *parent = atr->parent;
- 	char symlink_name[ATR_MAX_SYMLINK_LEN];
-+	struct device *parent_physdev;
- 	struct device *dev = atr->dev;
- 	u32 chan_id = desc->chan_id;
- 	struct i2c_atr_chan *chan;
-+	struct i2c_client *client;
-+	struct device_link *dl;
- 	int ret, idx;
- 
- 	if (chan_id >= atr->max_adapters) {
-@@ -864,6 +867,49 @@ int i2c_atr_add_adapter(struct i2c_atr *atr, struct i2c_atr_adap_desc *desc)
- 		chan->alias_pool = atr->alias_pool;
- 	}
- 
-+	/*
-+	 * There is no relationship set between the device registering the ATR
-+	 * channel adapter and the physical device handling the parent adapter.
-+	 * Create this missing relationship so that the consumer device (the one
-+	 * owning the ATR channel adapter) and the downstream adapters attached
-+	 * to it are removed before the supplier (the physical device handling
-+	 * the ATR upstream adapter).
-+	 */
-+	parent_physdev = i2c_get_adapter_physdev(parent);
-+	client = i2c_verify_client(desc->parent);
-+	if (!parent_physdev) {
-+		dev_warn(dev,
-+			 "no physical device for the parent adapter, skip device link\n");
-+	} else if (parent_physdev == desc->parent) {
-+		/*
-+		 * The parent physical device is the parent adapter itself
-+		 * itself. Skip the device link
-+		 */
-+		put_device(parent_physdev);
-+	} else if (client && client->adapter == parent) {
-+		/*
-+		 * The device owning this ATR channel adapter is an I2C
-+		 * client on the parent adapter. i2c_del_adapter(parent)
-+		 * will unregister it and remove the channel adapters it
-+		 * owns before waiting for the parent adapter to be
-+		 * released. No device link is needed, and adding one
-+		 * would make the driver core unbind it before the parent
-+		 * physical device's .remove() callback.
-+		 */
-+		put_device(parent_physdev);
-+	} else {
-+		dl = device_link_add(desc->parent, parent_physdev,
-+				     DL_FLAG_AUTOREMOVE_CONSUMER);
-+		if (!dl) {
-+			dev_err(dev, "failed to create device link to %s\n",
-+				dev_name(parent_physdev));
-+			put_device(parent_physdev);
-+			ret = -EINVAL;
-+			goto err_free_alias_pool;
-+		}
-+		put_device(parent_physdev);
-+	}
-+
- 	atr->adapter[chan_id] = &chan->adap;
- 
- 	ret = i2c_add_adapter(&chan->adap);
 -- 
-2.56.0
-
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
