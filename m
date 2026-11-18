@@ -1,92 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.60
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794996254;
-	b=anH4AbnYpQX96XKDiPs3/GFuaRYuFlYEpKrspzbMdk8/fvpLdUdPcImwy0qu/3EDkh7N
-	 eQ/Kj/cmcISINrPVn3Z6dmCo7HVeWhJyLITwRKIWg1HTkcChjelcum9mRVNObjKF2sK2h
-	 4Cw7keqLJmDmpAYtQ4kA0rwX1JGLGpuI3LHr0T6dODfMmLwZkACJu162yino6o6ot1AIX
-	 axBoPZoLPRlhKdTjrzjVjfaWUqiS/pgacbnlurpR8fINQjPo9HeJxJZ70Ic3mfoawbGS9
-	 5HgB++eB3Yizdh+prIJdavWwktyTIx9cYJAvbLxCV0OutT8rtMz0qXSZjzfV40YsYWA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996254;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=rLT9bEJivW3KgEFZZXXfmmSSnCrRhVuFC35Xk2x73JM=;
-	b=K/KaCqiD62clSU4VRLXwXMW3MWOaIzDFyZ/85mZFwWiKOuloS3FaQeqGxuZWJF3dK6RB
-	 yBzfAPMgJRGnjfo9DDKSZcFXygvthRigMNOfTfmEH9ziBCC2S644nrKz4SJ5Ct+xMg6li
-	 YP/J9WItnto7vEqd/M8IyLSpdrEXP5ctSDIirlburS3zanPT+WB9jUEvN7oRMdH3I2kYM
-	 gWPxuw4390n6v29UBKJt9D3nnjxuyWPvGX/NVHpsyUpIfOE9mLjjt5w76HOjv38P1RLhJ
-	 /8oXPjsfFa2jlHwQQ5mz7FTEmDbQDVF89Rylw7d0dhzc6xbMe2Uw9BBcwFVNj2JVYrQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=oQjgQHBE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.60
-Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013060.outbound.protection.outlook.com [52.101.72.60])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.169
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794996267;
+	b=jYFxyLJmr7aFR97ww0u4UetH7GFKCUE2ooDghP5+F8aINg+XTA24hDAp7epNEbZWnxtZ
+	 Rsw49hUUwYmtfYQ7aHDqyKRj29CyEmnSaD2HtLGMNRGTjMwv1pcgMfhW5bCOdFOp9XZdG
+	 HCqC49XrpnmnTDmDaBZ/VOh2mzvpbKofKPbowiiacKIeI4WxRM2CtTL26cROCYRzjUli8
+	 KAftvroU6yoeYtGRMYt/YGX9hUeNocOZlUnpagftX9aLNnykwkIrKIn+Wy/Saxg69wR6f
+	 1FMAOFQpcSxzlyBGoz1HZ3Fjgp4a+M6lNDDT+61cu731kQL0aGMuM6OrPWnERFiurVQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996267;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=Q3ss+bMAywcoTR+sv0KAcM3aywyzYmassgWdS2br2Xg=;
+	b=yD3uwAv7wWIsNtpgL9WGYb/cJdeYRaFC0HH9qn+N06fz7jogBiYPXo0J6jZoTG0Pqs2S
+	 f/4UdWy4R6L7VS117wM18f/q9KibOfoak6127fhInP2lk8aGDGx7gx5yG7BDpMUo34gpG
+	 K1eg1e8lZHfVcNKN2fkUd+fpT/sCtheLACxuPj9FRDinoX18uZWWcwuj0G9CCetOgIm48
+	 JN7qWuRuzMKHjAw635VdbKMNMTUQvl7lI7CdaUSON+oyApr+Xajbg8uBzRtBKSugOlytj
+	 dCuB519yrYvdqDzLUmDcV/EQbCQI9AKIgghu6zFAAor/+SFBzWrhrkTFX/a8dJHTeuQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V7COnju1;
+	arc=none smtp.remote-ip=209.85.160.169
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 797FE606A31C;
-	Wed, 18 Nov 2026 10:04:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 797FE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1421D606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:04:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1421D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=oQjgQHBE
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zMqCfzYFWnTZPLe2S1hTjhEPSnqvni+9Ca9t6ZBo1cwMWkrbasDlCF2bIe0jWvJw/sKwWIs3RxCVFqT5cNQf6+zsFH6DD++J+iJO6aXK+u6VIuLX+XFxtyuZ/tbYxiO6HSUlzWJN2Kv68gYHDKIVzj1KyU4eJ+e3G2F24DwlC3WYIEhyGNOrpqYHLtK+/8ex7u5OIoS//+ApgwJeRd1K72CQB6Xf/ICcjFxFj4BHs0Q9iHf06ulrpBjnw+EQsxHeCbdkDWm1BvCox9iy3i2OezcGD5jAV5WnKe2TAeyAyORmpns+g46IfjO3zeFjNE4QVgRU0BapOiP3wTKrvzV7sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rLT9bEJivW3KgEFZZXXfmmSSnCrRhVuFC35Xk2x73JM=;
- b=HRIPKEQ+l6GVobHBaC25BpwwTcwu1vHVJklTwc0Ln6VM9kE0H5rmOnOHAsaKfeQcBNuKNkGVLXeQFIKsIBJUYZcHhd3HEOd8n1D8IGDJ/wKoR9MRpgjMpeWTATudwoaHikLSVn/nIKG3aOI0T3um0zi/L9TLpxA7mGLeE9JYa7FWe/KYi7V2xGHV6+hEcbkZTwhmhBu6IiTQ7U8yyzVTV1V2PYOFYXhJo5raNsyV34cNVmOYAMByn8470+23DpcLoUFAI3wxWPzHAbwno/tr6R+CYOnI2YMBj//kIpPy69aOVzinHDF7H/b2ZjUgO80/b6reycvokRC4FURfIp9MgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rLT9bEJivW3KgEFZZXXfmmSSnCrRhVuFC35Xk2x73JM=;
- b=oQjgQHBEOIxfEa8/wOnteHMnHUXUH3YTvEUxOuH0mg1AwXFb+RMKNB0ZazTlYwhIQF+MS3MLfkuQCeNkY2XVC8EbsuVgkeXkeNsfWYxb9XzAbjZyx2VC3ieARqyPuoAYClw6F1t54kSw2TPArfFiehEEcqej1GBUrZBdgRsmVwbJsmFu+5BbHf8LXbCoVEthOCXjmeg35mpBufNc9BkqI/wW2lhagldHsEQeDfGP35TwMntUvO2k3qWQP1PT5mgmiHnCzJfLX1ACE32vsM5YSv+vxuC4rhiWwcW+s5XvRqh06lsUEypNI2RmKjyi12s1qJnUF94S6Bere1qfHVh+9Q==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM6PR04MB4472.eurprd04.prod.outlook.com (2603:10a6:20b:23::20)
- by PA6PR04MB11734.eurprd04.prod.outlook.com (2603:10a6:102:524::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 10:04:10 +0000
-Received: from AM6PR04MB4472.eurprd04.prod.outlook.com
- ([fe80::aed9:e8b9:c352:9ba0]) by AM6PR04MB4472.eurprd04.prod.outlook.com
- ([fe80::aed9:e8b9:c352:9ba0%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 10:04:09 +0000
-From: Stefan Ghetu <stefan.ghetu@nxp.com>
-To: linux-pci@vger.kernel.org
-Cc: bhelgaas@google.com,
-	linux-kernel@vger.kernel.org,
-	hongxing.zhu@nxp.com,
-	Jason Liu <jason.hui.liu@nxp.com>,
-	Stefan Ghetu <stefan.ghetu@nxp.com>
-Subject: [PATCH] LF-18678 PCI: Add quirk to fix byte-swapped class code on ARA240 device
-Date: Wed, 18 Nov 2026 12:04:06 +0200
-Message-ID: <20261118100406.600995-1-stefan.ghetu@nxp.com>
-X-Mailer: git-send-email 2.53.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM6PR10CA0048.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:209:8c::31) To AM6PR04MB4472.eurprd04.prod.outlook.com
- (2603:10a6:20b:23::20)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V7COnju1
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-55d03bfd477so8360471cf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:04:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794996266; x=1795601066; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Q3ss+bMAywcoTR+sv0KAcM3aywyzYmassgWdS2br2Xg=;
+        b=V7COnju1jRjM9JtJL2wiAUsC9gP1sU+i5NBC4oK3EFqERfMEnn/Gqiyz6wLAv3X3JW
+         6FjO7//qLwCCl1QNaSV7fRnn13bLbqbCrH+vlCba4zEcb61hqZ+/u7xK2jnUqcfSLqUm
+         ZrizwfanSAFZOmFJVd8zemdSaMioUQ/7O+8N+wYXMAhF5Ue45HAPjRw6PJ9FADnSsqvu
+         fRUTBtmJgSJ23wnLszuwG/3Z2RDKdqqtkoc9cBQ0KAz1rqiXI3U1zNpZNkvUet9Lo4gL
+         nJwT9rynfQ2f+Sre2co+j57mLjssJbzrIm+VSJenkLNnUL56tV2aHu2wSyNKz3FTiatK
+         F3Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794996266; x=1795601066;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Q3ss+bMAywcoTR+sv0KAcM3aywyzYmassgWdS2br2Xg=;
+        b=OSOaOtGOoFyNft8p034rXCgEnrvtCzhIyGjB1BLWyjNdd/KsKTAfZKCZ2syOq7z/x1
+         GFdwrCt7Mo+MvWfN/5t4BxQtDZH/3m+PT43zX8cxa2DyMoPe3aq2uYy9SwMCDECypTtr
+         pLyDMwxdLvtsxT3a+VlIdOQgRjOMPkwtsRYc8DdH1jOcfXF9zYTA6sp0CQqqx2X5qieV
+         zg6n/2zdOQb+fW4AXt+PCruQKrQmmG6lCm4y22UiuwHIeaPotQn2W2ViyJITFwlseNlV
+         uICwT4YFHzV/ijpZv2SLrPqjdnwPsNaa6g5mYUjYDZkkIPwUWTYDr9708rPLYAy4FPQH
+         PG9A==
+X-Forwarded-Encrypted: i=1; AL+hErEmA+JMRBTowTd6aPhxKt7LXNDR4UrGfdBwP67Z6Pt9s/VUNV5knBMFACXL8TxYolvHVXintRhlKzWy6Xw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8aAwXldyIxzXunI3s86F+zeH1+UqZHHwKsppNtkFuzRsjhAu8y
+	xc0kfX9dw0EiaH+FXgwi32p+coua8T1vGqD5wFUvCUjt1WS/KZSZljdC
+X-Gm-Gg: AYBFou151TLt5iUdC+5ZWBrRZqgdF+UwSMYAKCQv9mf3nUFadf4OWI8wIsipLgXsp/8
+	T4tRSOkqCtsO5x2y7dHos7KiLU6KIWYWbFKTftlQG2Nzw65+sUI9e05mkuEYnRSSffPnmsrfZN8
+	XTFJhqMbp/rXpCm0JvfAeb/RJiU+FxFE07XlGhJhSmfsKR+AXriv2nWQJbWhp1c1f5oCS81W6ZT
+	0eQvZprcvWw6OtSvOZaFS+K/ypcZm5b4qBQQk/uPgo7cVcdOnaj8r2usKqL3nRQrUMwAatXHLYH
+	X/XyMFIxiM1Ic2fhdcyLZ3NisDifr7TvCtE/Wj+wyiP9ykMP3zYOTIgaex/X+h/5w6/FWJSnot8
+	0i0uc/hG+joIhNa9QONsy06t5wg4fTyEM+ol1Qjay/JR/dsAjJ9OQoOwwyM/6P/yMjkPNixv0X8
+	1WslOLLGDJR3np86LTMn8VjBd6+i0abz7sfnhsBKXjKaGHO0LuBTXnrO5goKLnfyEfsk/GjyHZx
+	Z4waOfn7Ne4mu/llp5kuyKXnfOU7SBiuy1pveQq0C1nnQjM2KKoM+3RIGzTZcwDJO1GmluhYBo5
+	IRWOd0FDjA0AdAsm2OuMEJ3ATLvth2qcBg==
+X-Received: by 2002:ac8:5a91:0:b0:55c:7769:9a0a with SMTP id d75a77b69052e-55d5a3224bfmr33606021cf.5.1794996265839;
+        Wed, 18 Nov 2026 02:04:25 -0800 (PST)
+Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d638cesm17505736d6.29.2026.11.18.02.04.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 02:04:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,106 +87,111 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM6PR04MB4472:EE_|PA6PR04MB11734:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7d954cc3-92fc-468c-56e8-08df455b4a0d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|366016|19092799006|23010399003|261028144727099003|10067099003|56012099006|11063799006|261021121427099003|261022075727099003|261022105027099003|261009223027099003|261026140227099003|261026121527099003|261102123227099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	h4FiLC8+hPTiqpC/xKhKvw5LdE3jpT+5zM2xnGg5Qqk+EGQjNQxUp3U/1RT+x6GJv9Tzrkhfl6Pya7TbI9db4OPRooPJr9OvZ43Dn5JI9FUz7kN+jLU2nS2d9fDq9g6Gd3vdBElP4X8OQYtwjFEnb7c8qZqzRaxPtnzAScF2EXwbLHzpPXfBtlmXs/Rm6rKUQIMbtCstFT00mqDYca56jQdPgobIf4+t9Xy5xkfOrqTyyCffnOZQhUvsB8IZ1AxNhAKRB/I+TLRZpmOSQGIczj91tlIAX09GEO8ESFaXJvHHHqQiBWZcughCTbWSaeH/cpMPbzDRhDwfYulsD4KpCzW+lyJqLFojLnyi7iT2KHZ3y9PbI7Piq/gFfMSvZIsW/pmNB5bm9YiTe2FJ/5gmWSKUh4zMpAACOtVozVsWuJU5sKMfwLnF18LZZKdoCVA/CCg1+BM/DoQOSUdIvW2pT9Bl/NBcFXcOwSYQ2Zll6Yt3pziVxR6s8CVeW8I2MCdacXiOuWKCl6OnPN1z0IsARnX6Gfdp78Uok5fPy99X56vi3QDmozk2rr97y9KPBk4xep8mupG97XsN/6yY7EZOz/M2ujjZQveTgG/opuqmoYOQeWthIksFcEb1rlsSa4VVgJUkgOD+OaMulpo2oj0M03hAsd6ocjBvjQ6qbwtx4lA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB4472.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(19092799006)(23010399003)(261028144727099003)(10067099003)(56012099006)(11063799006)(261021121427099003)(261022075727099003)(261022105027099003)(261009223027099003)(261026140227099003)(261026121527099003)(261102123227099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?6S4pQ1qzvwWsL8eFIO1IxjP1fMfWpJu7bZ2YYLD/+3j8EKkRSfcz9lXv9/wt?=
- =?us-ascii?Q?+wijA40wfZgxKaeWBDdsdaPNv4drT4BJ6vdfVbwJ6/1NSKsmTPDke4SRwQeI?=
- =?us-ascii?Q?0/I4bQQyKVpSBsmEGeZYi6VPrbh7H1gpOTM7uT8NoB7dsp5WEFsdVXS0Yoc1?=
- =?us-ascii?Q?aH244Z1wc43w0LEJvud6WHPn9uJgnVb24CkwcJwyOe9l45PBaMVymybwJFo4?=
- =?us-ascii?Q?68Q6eMVRYFyIPUGOXyRMO2j0w2Wp2pTvWBtsuTnto4BmxDUe3FGpKlV7Ljzg?=
- =?us-ascii?Q?WEuTYAhZNn9mjuchHvuLvf9ocxk2Dq3uLTlZm+2WYsZ3LWeufQJG2oZp/Jpa?=
- =?us-ascii?Q?08Bb53+t1hTTQTqvRZjtjqoVb4743FTSLqjIx1ThqbaG8OyR3MUVOvXdMm0y?=
- =?us-ascii?Q?xhZnkeqfUkAx6Lj+llw30C2Ct0ccxu8wINZKy0uRzDpRc0OcTpP6JRjr8xxY?=
- =?us-ascii?Q?HXJrnC3OUhgGTDYNrEVwU0YrQLLH8kLZnckZyzs2xb1tgHDQ6LGlkaaPdM4o?=
- =?us-ascii?Q?XhJLpn//PHkgISdcfBQJLxkEKbMjearAajegDEFrsncHKLEBooDzElaNaUGL?=
- =?us-ascii?Q?UOmeK4oYLluynJeC5R/nNPRtVnYVUFwFjwRCeSwb+atexVFOVdeq1ZpWyJ4H?=
- =?us-ascii?Q?r1wA57Q9Vbgy/6ko5gRkV9Mv7YnuhAdmbqiVIu4yYV4p9qLljOMdpUqcog36?=
- =?us-ascii?Q?pUxewesiBuGMNyy3YVmPKJnJQKAu1nU61DCKA3sryAP/66EzrCkQLiAvIQi+?=
- =?us-ascii?Q?HTn8NF2rLWiY/4/0+IYLorDmQclk0rhrksz5aarLWlIF8zfOfs5CvFZqsDa7?=
- =?us-ascii?Q?n3QyI7fwWBthlws7cI2+exL9uLLs7w2r47GEIoyzmmJSrot/758o2mzndDQw?=
- =?us-ascii?Q?WMFwJE1u9NyEmR1qy3dCgIFnrQGptoqYoASioSGqM7eClA5Uzgn6FfcCJsoK?=
- =?us-ascii?Q?ZC8IKP9Yd4uM2ZCMvKJbZ2YjCxRvqHz+5Lvr0nQs+KRvSsdB+aLcGYv6P1/x?=
- =?us-ascii?Q?MetW8XOJ3H836iDJETCYNVvTIIXbIjjpCNWG5xnwjQCHU6z6Ir6wyGuEreQ1?=
- =?us-ascii?Q?ev/w6JyMNKQ3+UTh0QPOaHgGMzFwtKh8vVwyKxr48X+5boG+Anps55uozA4/?=
- =?us-ascii?Q?V69jWe5BsbRNxx7dFQ1t4JAO32ztX8I9TBbXluIE69l3QtC9BU0RaTLnPl5y?=
- =?us-ascii?Q?3fplgq4MFCP/72KJddaX4kP0GnOMDNTg3LT7Uo3ihvpbXWGRrpSHfZg3W2gw?=
- =?us-ascii?Q?MnTTTy06kwWJTJXHobdLGvzTQAenH1QYE3zB64/VM8kP+N719+ASsFA6+S0t?=
- =?us-ascii?Q?NiLNY3zfoTXSCRst5Q22LYVnw24RGpxLabSMBsVNKtes3jK3GLKj2Aw/A2VM?=
- =?us-ascii?Q?DMOgyoxZWUfaxuQ8418nZusXxRtGwn6gQ3nre2Yj1zS04ilMfx/0a+6Ysn6u?=
- =?us-ascii?Q?lNF/14R9asTb9+IcHTYySV4PqdHqP1X/mncWnJqMpZYHxOjVLRHeKABifbsh?=
- =?us-ascii?Q?UV6MiQbvSEjr7D6Vc46uUHFqzGF9WznQ1wTcxFenDE+u+S8WJz23z0RsB7tI?=
- =?us-ascii?Q?q0T+B6AqCZLkEVVevCwr5113sotRmQkRqDKGH8h+dLsgXFsEaxxWQZekNJhY?=
- =?us-ascii?Q?j5AHAkWW9VJ4AF6CBz46+qJxj6scAdRQwq5nTNfSeHrISt90MPirz2S76sq7?=
- =?us-ascii?Q?KhIvVkAGHCgGT7reWOJ6B9oeB2LAdLVU8sgR8kuZ1uFNZ7gBwoNqu6ZB9y+d?=
- =?us-ascii?Q?3SFdSn6m2Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d954cc3-92fc-468c-56e8-08df455b4a0d
-X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB4472.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:04:09.8236
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cs4QbTO1AcyjSSULzP1JWhOLfhEOO0U/8/aRBwElmd0Wii5E+1W4NucZArQvJ5HvhNytc+TIS9wfNUlVajbzoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11734
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 05:04:24 -0500
+Message-Id: <DMY92K13JB4A.2KW6B4PA2L6A1@gmail.com>
+Subject: Re: [PATCH net-next 2/4] eth: mpnic: add promiscuous and
+ all-multicast filters
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
+Cc: <alexanderduyck@fb.com>, <kuba@kernel.org>, <kernel-team@meta.com>,
+ <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+ <pabeni@redhat.com>, <dimitri.daskalakis1@gmail.com>,
+ <mohsin.bashr@gmail.com>, <linux-kernel@vger.kernel.org>,
+ <netdev@vger.kernel.org>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261116-mpnic-l2-oot-v1-2-8dc6eb3582b0@gmail.com>
+ <179499313144.3136.4262860920559871885@kernel.org>
+In-Reply-To: <179499313144.3136.4262860920559871885@kernel.org>
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+On Wed Nov 18, 2026 at 4:12 AM EST, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] On every ndo_stop, mpnic_clear_rx_mode()
+>   (drivers/net/ethernet/meta/mpnic/mpnic_netdev.c, called from=E2=80=A6
+>
+> --
+>
+> eth: mpnic: add promiscuous and all-multicast filters
+>
+> This commit implements IFF_PROMISC and IFF_ALLMULTI using the last DMAC
+> TCAM entry, which matches either every address or only the multicast bit.
+> It also changes the default action on TCAM misses from pass to drop.
+>
+>> diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/ne=
+t/ethernet/meta/mpnic/mpnic_netdev.c
+>> index 16611813db555..43547a7d6e5c7 100644
+>> --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+>> +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+>
+> [ ... ]
+>
+>> @@ -54,6 +64,7 @@ static void mpnic_clear_rx_mode(struct mpnic_dev *mpd)
+>> =20
+>>  	mac_addr[MPNIC_TCAM_MACDA_BROADCAST_IDX].state =3D MPNIC_TCAM_S_DELETE=
+;
+>>  	mac_addr[MPNIC_TCAM_MACDA_HOST_ADDR_IDX].state =3D MPNIC_TCAM_S_DELETE=
+;
+>> +	mac_addr[MPNIC_TCAM_MACDA_PROMISC_IDX].state =3D MPNIC_TCAM_S_DELETE;
+>
+> [Severity: Low]
+> Should this check for MPNIC_TCAM_S_VALID before moving the promisc entry
+> to delete?
+>
+> The broadcast and host address entries are always valid while the
+> interface is up. The promisc entry is usually MPNIC_TCAM_S_DISABLED,
+> though. That is its state whenever IFF_PROMISC and IFF_ALLMULTI are both
+> clear and the mc list is empty, and also after mpnic_promisc_sync() has
+> already removed it.
+>
+> The state comment in mpnic_rpc.h only lists valid as a source of delete:
+>
+>  *  Valid     1	-> Delete     3
+>  *  Delete    3	-> Disabled   0
+>
+> The other place this patch adds that deletes the same entry follows
+> that rule:
+>
+> mpnic_promisc_sync() {
+>     ...
+> 	} else if (mac_addr->state =3D=3D MPNIC_TCAM_S_VALID) {
+> 		mac_addr->state =3D MPNIC_TCAM_S_DELETE;
+> 	}
+> }
+>
+> With ip link set dev X up and no promisc/allmulti flags set, followed by
+> ip link set dev X down, the path is mpnic_stop()->mpnic_clear_rx_mode()
+> ->mpnic_write_macda(). This takes a disabled entry straight to delete,
+> and then issues an UNLOAD_TRIG for entry 1023 even though it was never
+> loaded.
+>
+> The extra unload looks harmless, because mpnic_rxb_init() already
+> unloads every entry at init. The remaining problem is that the code no
+> longer matches the documented state ordering, and the two delete sites
+> behave differently.
+>
+> This is still the case at the end of the series. The later commit "eth:
+> mpnic: sync unicast and multicast address lists" updates the same
+> comment to add "Delete 3 -> Add 2". It does not add a disabled to delete
+> transition, and it does not add a state check here.
+>
+> Could this either check the state, the way mpnic_promisc_sync() does, or
+> document disabled to delete as an allowed transition?
+>
 
-The ARA240 PCIe endpoint device (1e58:0002) reports an incorrect,
-byte-swapped class code of 0x000012 instead of 0x120000 (Processing
-Accelerator). This causes the device to appear as an unclassified
-device (class 0x00) rather than a processing accelerator (class 0x12).
+A check is not necessary. If I respin a v2, I'll adjust the comment, but
+I think overall this isn't an issue.
 
-On ARM platforms, the kernel may refuse to assign BARs to unclassified
-devices, preventing the ARA240 from functioning properly. The device
-cannot be initialized and remains unusable.
-
-Add a PCI quirk to force the correct class code during early device
-enumeration, allowing proper resource assignment and device operation.
-
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Acked-by: Jason Liu <jason.hui.liu@nxp.com>
-Signed-off-by: Stefan Ghetu <stefan.ghetu@nxp.com>
----
- drivers/pci/quirks.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 3d92b99a49238..fc95d87d4af0a 100644
---- a/drivers/pci/quirks.c
-+++ b/drivers/pci/quirks.c
-@@ -559,6 +559,18 @@ static void quirk_citrine(struct pci_dev *dev)
- }
- DECLARE_PCI_FIXUP_HEADER(PCI_VENDOR_ID_IBM,	PCI_DEVICE_ID_IBM_CITRINE,	quirk_citrine);
- 
-+/*
-+ * The ARA240 device reports a byte-swapped class code (0x000012) instead of
-+ * the correct value (0x120000 - Processing Accelerator). This causes resource
-+ * assignment issues on ARM platforms. Apply a quirk to force the correct
-+ * class code.
-+ */
-+static void quirk_ara240_class_code(struct pci_dev *dev)
-+{
-+	dev->class = 0x120000;
-+}
-+DECLARE_PCI_FIXUP_HEADER(0x1e58, 0x0002, quirk_ara240_class_code);
-+
- /*
-  * This chip can cause bus lockups if config addresses above 0x600
-  * are read or written.
--- 
-2.53.0
+>> =20
+>>  	mpnic_write_macda(mpd);
+>>  }
+>
+> [ ... ]
 
