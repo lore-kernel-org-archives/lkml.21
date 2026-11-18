@@ -1,51 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010057;
-	b=lj29GxUSFWOWEZiJ7ZtOVc1BlTyvpohtod7HkABSx1QRaQbgqiJIRRiibdKdXjewGR2b
-	 O1JhQG+UszlVDUoLBffkugjDkfVViwU92Tf/1/NN0PDWvT+pCXrSTR3MFZuy3SfpjjooB
-	 BniynNZ4DLqxkukzLwmwI/TlWlJlUT+f3d5duAycnMbKcoCly9r3G7Tgm+TyCDYVsSh27
-	 i2n0JpEXzqSzkWOVrOFbiUsTi2LyopYKI655hivU5hj0/OF8mgLq83BzRMobfP6YPtSeA
-	 wbvhVEsLIP/jlZaZBA02OakO+S1zQ2vofZ88srWp1A++Ip4qGoYGAwlFeRJ4Dv7NUbQ==
+	t=1795010061;
+	b=zZd8i5p47XG7O+8bg4bFmVA2wxZZBuW5Zu5UvTZae2DWXLfGqnedd7Jhdz7874W5LzL9
+	 gcpq0rErr4Ugc5SdDD4VBirBB4uNjXVGxuVTuMe6G07vYUPQJ/t0goKKkwW1UTnCn4JKN
+	 +r7Ccr3yASmzmEcC69WpcRqoKML4fhhcNCMV1NqIgXsKP2sbBtN7YB2sV2+lHGxXI/4cZ
+	 +CSK2hWlwP8qcbSdr0rNoOdsqkyDWUrqnM8a4Muvm9sA3Wx+I3ERE7cxm9b7jfVXkUb49
+	 RRI4RMCKlCtyf112HY2YW2hJRAQwH26Pa3pkBQmtg/XKrNKaPCqcOGWYrDcVnz5kjVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010057;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=R2U1Iay9opWXWPMFTlF5nVzaXl3O+CauwEhETUWGyGU=;
-	b=yyS76AtwG3A75PkDvWV7xosEiX6glsDJIrkjiVOUOK2y/fLiW2h0Au4+2x26mpuqIvHK
-	 NusYPrNrjKAzPRuJx0zmDQ5BA4fNJNFR9ok1sYo9juctmueSDnd5uXx8PHazGvBglRnHO
-	 fYBXklKwfY2diYxi7BX/OyzmhK7qwSc9beNbCcdK2uF/goJbuFXGZkZedcA703I7PW2RQ
-	 0hBznoj9HQy6vIreqEoM/5t++f0yhBV3VXnV25x8Oapk0UdbTzkUFiHNHwRbTfc39Lt3F
-	 b0/0SN1/gJRjxdip2xZFk0MO9Ra9OMCtzhXXlCR6nxXMEmsX8aNkZAWzXd2RhSOLkgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010061;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=kzGMn3RZdHoP+1BarQqYMq7gL7J1eh3K0osuCxgs0HY=;
+	b=AtGTcEKsknhwUEmljP4wdqVSJKO1XWa7XL1AzWJ2aj+XgpCZ+ybykyrXNjXYA0lWUFpy
+	 x7WjupP+zCfRmnUCRGPW7oDUqPbqQcM+SZLqsSNZKSCQRwB3EvwH8lQ7omllFUIO6yPk0
+	 HMvzewFfDXu4Nq9gOfA/Do9itPBqyWEaERyuLraFi9/XpZ6UGe6JSutv5UfyM93l4kylQ
+	 h4oyzptUSlvoVZDpMglnDsb4aapR9GMf88Z5WTfMbDaZaIr7vAtobAltEM9J4mzhjPU1N
+	 Y2PbnIsvSEn0oKvG2akzptC7SJbRyHIOFi2XVlBK05NljZHtLM58VJ8wsvYpagKy2Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=O2mBfSCO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Oke1NnA/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7AF5606A31C;
-	Wed, 18 Nov 2026 13:54:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BD7C606A31C;
+	Wed, 18 Nov 2026 13:54:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=O2mBfSCO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B284B1F000C4;
-	Wed, 18 Nov 2026 13:54:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795010057;
-	bh=R2U1Iay9opWXWPMFTlF5nVzaXl3O+CauwEhETUWGyGU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=O2mBfSCOT1gwMIkslypZuBq/prLU95Cift6SdPw0WriQg87UKew5urmWC4p1VtZPY
-	 EJ5whUWlrVScCXzirzm8CVBMtjQhLPwkbfDUJDzhqrn5/huuJQHNMK6jjUoDZR6ajH
-	 RTBXUgSRNGWZaXA7wBDs/aAkulyoxjX8siOtDku4=
-Date: Wed, 18 Nov 2026 14:54:14 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Zheng Zheng <fengaojigui88@gmail.com>
-Cc: dsterba@suse.com, mason@kernel.org, tj@kernel.org,
-	linux-btrfs@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com
-Subject: Re: [BUG] WARNING in kernfs_remove_by_name_ns (fs/kernfs/dir.c:1784,
- v7.4-rc3)
-Message-ID: <2026111834-capital-sanitizer-4af1@gregkh>
-References: <CAO-4RZ1DiPS2+=3WPxRGSEajO=dnsfYi4zDyjcVp3LBy2670AQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oke1NnA/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 598E61F000C5;
+	Wed, 18 Nov 2026 13:54:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795010061;
+	bh=kzGMn3RZdHoP+1BarQqYMq7gL7J1eh3K0osuCxgs0HY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=Oke1NnA/DpMCH9q8bXF0/lA1C4rfbqU4R0U4Rn+aAWI88gC/rJUApsXCV+nILNAxA
+	 mTgUvhXnafbjG1ljxWGnTE5seNPxJ/YuAKvnnTu6FLj9kaKLFSW6Pz6ugGJUFQCBMn
+	 Rb+inUjaKJPBTtA/PLBhUvRh6ya7kdtUiYYbzHbTahxjrUxpqn/5CN2Dpf+GO29qS0
+	 FTfyydFF7eGCM0Ocrx1uscVTWrUCfQXTATcsNyacI14ICxnVTGLwMNi3cAvpbVBKKX
+	 gsJJDzS7Tc4Y8vJPvt4/sYSop2feyYsUvex1yBxhoKmOWpYZHKfk6i/XUg3dTVq+sN
+	 5dL4HWbzhnnnA==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, hyunjungg <hj351016@gmail.com>
+Cc: mfd@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20261105162722.1688960-1-hj351016@gmail.com>
+References: <20261105162722.1688960-1-hj351016@gmail.com>
+Subject: Re: (subset) [PATCH] mfd: si476x-i2c: cancel RDS drainer work
+ before freeing RDS FIFO
+Message-Id: <179501006012.26227.5532520377129437168.b4-ty@b4>
+Date: Wed, 18 Nov 2026 13:54:20 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,25 +58,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAO-4RZ1DiPS2+=3WPxRGSEajO=dnsfYi4zDyjcVp3LBy2670AQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 
-On Wed, Nov 18, 2026 at 08:37:03PM +0800, Zheng Zheng wrote:
-> Hi David, Chris, Greg, Tejun,
+On Fri, 06 Nov 2026 01:27:22 +0900, hyunjungg wrote:
+> The RDS FIFO drainer work (core->rds_fifo_drainer) is scheduled from the
+> interrupt dispatcher si476x_core_get_and_signal_status() whenever an
+> SI476X_FM_RDS_INT interrupt is seen:
 > 
-> We found a reproducible WARNING in the kernfs/sysfs removal path on
-> v7.4-rc3 with syzkaller. It is triggered while enabling Btrfs quotas and is
-> stable on fresh VMs.
+> 	if (status & SI476X_FM_RDS_INT)
+> 		si476x_core_start_rds_drainer_once(core);
 > 
-> The archive and reproducer are here:
-> 
->   https://github.com/Zheng-zheng-codes/kernfs-remove-by-name-ns-warning
->   commit 1d8c9a81d3f812c9ea320afba737bb4be8643ed4
+> [...]
 
-Great, as you have a test and reproducer, please create a fix for it and
-submit it so that it can be resolved.
+Applied, thanks!
 
-thanks,
+[1/1] mfd: si476x-i2c: cancel RDS drainer work before freeing RDS FIFO
+      commit: f06fa446a04cbb3b7600d4566f774e268ecdde20
 
-greg k-h
+--
+Lee Jones [李琼斯]
+
