@@ -1,89 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.189.121.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795000554;
-	b=RtWEKTwEMKRJSEKws6xtz9YVnJVODqNi0LCI7KHi8WlmUzMXxy1q7rADw7G4CsZEk7mM
-	 IGMS1robj6ffVXVPAqOLDW8ra4I/5EZNNbmJ/aGKOWPqujPDEMq5RWmQkpwy5cY0o90jb
-	 sEbDbNJbUCDdtsNHGxDZUBtpraEWiWj3A+Q0WJQyruWJiS28NuI5g5KyT8R+vjp3tC3L4
-	 OA4ftPA0TQlKCPzwC4965RWE7QYWfaXkirztoyOgabmP0t/YWX4KKrPrWY9oqZZQ57YD0
-	 Hl/Tw3UsYrSTe7zNFfGtcimy70cUDcWpslDEKZOISo1Y02UHXY2dYvJG4sx16gKEcrA==
+	t=1795000555;
+	b=fp0lVpww7cFSyuEr8sB2erYw/xnRsTQ2jWUyFIzs+tDDQEh90Wr347gAcCRTVc0JjNE7
+	 XsgVm4gTlvv6kfN/5WAInzZKWpKVFYwmRAF6mD/HApdZ1hwULZgR3KxezENso5aM+snhK
+	 MEjNHsE2ElIFcU6hkurwxwiR6Dj5v0TfDaJcdEKfM14G0/OvDzk3Xw54Q0b0Mi1eRfjQb
+	 CVi4xtt0EhEmcy/PZQaeMu6sxVhM0PVoj/fC5FCQJuTCwaNG7xFNEDfMhNdzntcugd+yv
+	 UdpfjYpe+zxEiabx43rcpgzvesPvkA/jBgnIG10jEGZEDkcJHCrv1Bv8xcqgAeOrmpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795000554;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References;
-	bh=dxJkUC24im2bGryNLkAlqWRfHL6XOBwDY6Gegry7bnQ=;
-	b=UTreW0sBejnH4NKo4VdyO/pHGfRq3J6gUi5YgKT1y5mdggb+wsjNpNMwTivfXt/vYGr3
-	 8Yt6/01u84X20n+WK9XJam6HetwNBMzQAhC1UrveLImdVIZP99HZbJWm7vrk7gr9npujx
-	 4ILqZDg6AKL2Ys1vMUShPoR3J3+Umabo2EGZ0msZViyTJcGZE7lOdxzOlAGcEbSEj5ikz
-	 cnEY90mYrD/Nrl8VGKBV2IIf+QuB6HwC3HdLPyO5u/9fSEWerXwx6Tj5w20XiADYjpohv
-	 dUuMeXHALHYuk1xItwW7kMoeFIeOdb+qxxLbMHy8JC7i7NrxkPntanG5U5b975vV7Tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795000555;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:MIME-Version;
+	bh=Y4hHKOCSU2CmbP8FEKSLsQJzoNedloCjuCXqEcxU9FM=;
+	b=YuI2jN+bXpS/pVX1UDvVJdu0wfDcfbynS44uOETyHWta8LpmOGAbWkA406eK/YHsGJL0
+	 gYAml1GF70gAr6C0OQw/vRsr+cDpSAebTsI2rS64Kkhksg3XKNfdGkctPzQ4qykGwawZp
+	 SOJBiNtITj0c41SgZSGD962qWwb26N7T5Q91mwJgIvB1iQJ2JF6OLEaMuHBNtZf7EYGfJ
+	 ci5z7fAHkHmfQhfSmyzbfh0SFgXOUfjGCcP9bX4V5x3NfqG0Eci/e4HN3v70BGO/kigEL
+	 Ae3w8aTB2tmLDfYnPWCrQInIE4at/qLkjUv99zx7c4DET6np8ayBeHWBI27MRMso2wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uaOzwvJl;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=itx.no;
+	spf=pass smtp.mailfrom=itx.no;
+	dkim=pass header.d=itx.no header.i=@itx.no header.a=rsa-sha256 header.s=mx.itx.no header.b=jJW1YBwm;
+	arc=none smtp.remote-ip=91.189.121.228
+Received: from mx.itxnorge.no (itx-kvm-14.itxnorge.no [91.189.121.228])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6345606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:15:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6345606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1CA260A2601;
+	Wed, 18 Nov 2026 11:15:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1CA260A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=itx.no
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=itx.no
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uaOzwvJl
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-382c3c9671fso855276eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:15:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795000553; x=1795605353; darn=vger.kernel.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=dxJkUC24im2bGryNLkAlqWRfHL6XOBwDY6Gegry7bnQ=;
-        b=uaOzwvJlXdLXRb5c3IRYdXU/DOmkiIO6NOQBOqasbjI8XCIEoWbvLTrdaN7bTuEPlO
-         2rWC1tssxCYoMzYBmxPsy1zQ7g8YZOW4z90dICP7PJdtMBAK1ZQ7MUQ7jJNM6kERY7Br
-         PIaPsg0Bubj+y7n7Xd01xZuLPXZICusjVAIgeoRiZK1kqPLWHugOcXIMYH3rfPZJREvi
-         JLfEfS79UjMmYnk++Iw80BQ/34XknetnUNAoUUR+j9peJREOFWLKhfdG/38JNp7q0O63
-         pIT5EIAtx5gPR1w1T+zMsgUYQ+c6A/IjwR2v+VQ+By3rcFDzBWAHkSy6vWdG6QsYJvnI
-         YHng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795000553; x=1795605353;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dxJkUC24im2bGryNLkAlqWRfHL6XOBwDY6Gegry7bnQ=;
-        b=rJBy2t7rb9wS3d+BAp1TeedtZ4Cq0ph6Ayfdt+WFy6EdQwPF//Cvbu77j6hBPyvwb0
-         gSLq7hTdr0Irq+gPdmRUjJtbc2PpbK/h6P3mTygjqm9s3iTdXbCOGRxSlqTr3SNuW7Dn
-         SKpST/OVdPwE5CtxkslXkofM3sRWhmh0fA+YA1ptewYs1grSnpjq1QhKJvFt4znXIVKf
-         FpqURo9t8n05VGdR2MzCCGt001YyfqF73hbUIZfHq/KhWRo9AiSvcKv1i/vQrQHckjG/
-         9rmp3ExCIfxYht54bWMVPsYyufhP/9MascLvVPnBH71nlEXEx2Lq6G/5VxdkMp1JJbdc
-         00rQ==
-X-Forwarded-Encrypted: i=1; AL+hErHi+UCGllQN3h2EusxMVf519cqaSCRATOuBQxinQxqFJlr9em3WurT7kqTCaQd1wfwzr5rGuyx9O0USo3Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GgoK1euQPVleIoMTRB674InPkgxcFmlPZll68Ga7Tj1nfEGIL
-	4il4o61B8LyXIy6wV8PJMmutZOdHAZ/iXFrO+/j/hEjx9+y9vSzb2lhL
-X-Gm-Gg: AZFdTZc4SqxpdiAtJZgLASWPnegmlAVUnQXpEB5HyU4Ii53q/dYp/3B5aumYqfahK/J
-	ik9NBjql2IuKZQQo6QerM0hISI32YbVoU0S7nqaNEMj6QqiDTVsZ1i7yjD2kb6jeZiViIyQUc0r
-	Y2rVYWSZPjT1VuWHAlObufJd17Nzno0XGNr6chSqxCwKXrkRGey0Z8PRcSJmZe7p1moCJQz/hXs
-	MYTjxX6ON3Z/UZdgQyyNa3EL2xqIvCJwufZ3AkpUHl1c75be32KKTvmJZfgbGHIWPNtGzq4Fmxi
-	zrZmtALg2Hx9rBd7338BPTveVrck8eOHafOYfajXQv3L/hnECEaQgRPeVP3sIW+ZNthc2A6wTiE
-	pAPYN/HHhtocq62WDTqwIOZR71LwAFpkBzjA1oZQoRsSsvD+yVqxyK6Tjyc5VjegRk6c3Tu6xjb
-	dVyApE2vPwiGlvR3Vfc1AV18EfMIc78sa7nMo7QtyF4FMuZ0d9hOGU1aPCLCPOzVQ2lf9gbBv5f
-	LHMqNcpvUo1dj1pn5wSyHePcST/4jSv9ml4j+uYVPF8NcWfCsk0xD7CeetVL2su29e33nJH1mO/
-	3FBlPugz7eRA3wBHlcuEHNdnHcI=
-X-Received: by 2002:a05:693c:3881:b0:36f:83e7:fb7b with SMTP id 5a478bee46e88-38281cf6999mr2106174eec.40.1795000552950;
-        Wed, 18 Nov 2026 03:15:52 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a80bc19bsm7085645eec.29.2026.11.18.03.15.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:15:52 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Haoxiang Li <haoxiang_li2024@163.com>, maddy@linux.ibm.com, npiggin@gmail.com, mpe@ellerman.id.au, chleroy@kernel.org, sshegde@linux.ibm.com, farosas@linux.ibm.com
-Cc: linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, Haoxiang Li <haoxiang_li2024@163.com>
-Subject: Re: [PATCH v2] KVM: PPC: Book3S HV: Clean up on uvmem initialization failure
-In-Reply-To: <20261118102012.2252221-1-haoxiang_li2024@163.com>
-Date: Wed, 18 Nov 2026 16:44:01 +0530
-Message-ID: <mrr675om.ritesh.list@gmail.com>
-References: <20261118102012.2252221-1-haoxiang_li2024@163.com>
+	dkim=pass (1024-bit key, unprotected) header.d=itx.no header.i=@itx.no header.a=rsa-sha256 header.s=mx.itx.no header.b=jJW1YBwm
+Message-ID: <51593f27903fb901f7c34e3c084d1c34a126e567.camel@itx.no>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=itx.no; s=mx.itx.no;
+	t=1795000552;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y4hHKOCSU2CmbP8FEKSLsQJzoNedloCjuCXqEcxU9FM=;
+	b=jJW1YBwm3C78/3vUAUiLSB5okP4vTdUjECOQRa/X+YgAfsFTxxScUebAebdNRx2YHvcXgO
+	bC0U4bXiHqhVGbhwNoUcSAnw/ZAbAU6E646B9nm9z30+Ck6BJWxDWz4alVSQ/4sY4Su5BF
+	5s/Slsky5tEZ0eMUjECFdYqQSuOTY7E=
+Subject: Re: [PATCH] sparc64: Read qemu,hwcap-list from the OF cpu node on
+ sun4u
+From: Stian Halseth <stian@itx.no>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: sashiko-reviews@lists.linux.dev, sparclinux@vger.kernel.org, Andreas
+ Larsson <andreas@gaisler.com>, "David S . Miller" <davem@davemloft.net>,
+ Mark Cave-Ayland <mark.cave-ayland@ilande.co.uk>,
+ linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 12:15:51 +0100
+In-Reply-To: <20261118043857.GA3400@sol>
+References: <20261117112914.2300417-1-stian@itx.no>
+	 <sashiko-outbox-218725@kernel.org>
+	 <8c0c3734b9ad1ba0072ce1fbcf895b544563798f.camel@itx.no>
+	 <20261118043857.GA3400@sol>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-siijRfQfDx5NwjZLvIFT"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,16 +66,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
 
-Haoxiang Li <haoxiang_li2024@163.com> writes:
 
-> When kvmppc_uvmem_init() fails, kvmppc_book3s_init_hv() returns
-> directly, bypassing the existing error path. Jump to the existing
-> error path to clean up before returning the error.
->
-> Fixes: 175be7e5800e ("KVM: PPC: Book3S HV: Free allocated memory if module init fails")
-> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+--=-siijRfQfDx5NwjZLvIFT
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-LGTM. Feel free to add:
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Hi Eric,
 
+On Tue, 2026-11-17 at 20:38 -0800, Eric Biggers wrote:
+> The following series migrates the remaining SPARC crypto opcodes
+> accelerated AES modes into lib/crypto/:
+> https://lore.kernel.org/linux-crypto/20261118041033.50014-1-ebiggers@kern=
+el.org/
+
+Thanks, that was quick! I'll send a v2 of this patch with your
+Tested-by. It also gets a new first patch=A0that addresses the Sashiko
+finding.
+
+I've also tested directly from your branch. With +crypto, the KUnit
+tests and the full self-tests pass. To make sure the=A0library really
+uses the opcodes, I broke the AES round instruction in a local QEMU
+build. The AES tests then failed with +crypto and passed without it.
+I'll also try it on real hardware, a T4 and an M7, and reply on your
+series.
+
+> I think this is the only case where a Linux architecture has
+> restrictions on when memcpy() can be called, though.  It would be worth
+> finding a way to remove that footgun
+
+Agreed. Not a full proposition (yet), but perhaps U1memcpy and
+U3memcpy could fall back to integer copies when the FPU is in use,
+like NG4memcpy and M7memcpy do. I haven't properly looked into it,=A0
+but I might later.
+
+/Stian
+
+
+--=-siijRfQfDx5NwjZLvIFT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTK1ph9OaYoND1R57zoeAEuJe36VgUCav2I5wAKCRDoeAEuJe36
+VifkAQC/AxmvDhLO+ORuG8DbZsBS/uFyjlZEJpTFUiDZAQfzCgD+K/aguaFLYTg8
+r4fGVnSPHVzb+dt1eX4ggNH+QtwkKQQ=
+=jGxd
+-----END PGP SIGNATURE-----
+
+--=-siijRfQfDx5NwjZLvIFT--
