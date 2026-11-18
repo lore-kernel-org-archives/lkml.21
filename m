@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043984;
-	b=pIb6ndGHPIHsGM/F1GZ0GOrRw6CgS0b6ivH2TM4FCh6xLECj+8cepctc2ER4MC+AJBYD
-	 LbSoe6Sq1ZyvmeuZAde/o1pTJQmTh3BsS6niVhKJL6UYLhZ+3VPqjUqUXtHyMZ44yLYAf
-	 jyodMa1gjLBDTWe6ccYRHmpTrIR3DEWpGIfIJ/GbcldnQK//jgHfQZw9wnNx7/CJ7Ayty
-	 Rv4753kaKLieSOvEG1XXxAmKZETHBd4leMWCr+csRMTmnnPz70xoD1duxiOvILOuMnlwD
-	 DFzHgunubblqqbkP3sfyEqIioqAY9/Crc4q1wijPhu3iYBny/4RrWUXuKKVwdGvcXcQ==
+	t=1795043985;
+	b=n7KagmbSfGQrDOwTwV+gK4ejSCj1Lq7FiHYZY5rGayCn06pL9Rr6kagug5t1j6Y3WTdA
+	 EpCkFP2Q/p8VOHCZGADdyYB13nWK/twOMkNfJz/xnTEPrMZNmejxqxZQHvn/fxzGuZ546
+	 M9DI3ERntJTFOON9XNy5rnJNEuRQs4+rux2LEHnL+yjt6Z90MO9CkpehUciI1OzH4wC9i
+	 DgWfjtaYKFSW935APm2BRh6F/IKEYVnNbFaVS3gTjj4lQn80cwmAjcI7MLYJ/wa1/n6lE
+	 LIQN+HZeX05948XZ/6tNXwXWu45NpYbNhoobcgLN2WoE9aU7MXlrx1eI5bExqDKx3mQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043984;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043985;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=hRgZssAH4ti64ijQavF0eSuzNXMinfBtQMQfYWzf8+4=;
-	b=ws6AuzxIS5+3nMf+/Dadw2tP40QemO5gSr7G51PeTeaKf554K9E/xHorvZWtjnJNVkIn
-	 VakgdJPHOh3ee4bUE+HaNmO3UALI+pLWTuJA9Y4Fei8zlis54XYjG7q6+iwLdmLmcG6+c
-	 doSS0DeAg9cgWB0hS3rN9uFNrOnAB/QdJPJEtq61eBl/FsR2nw4MiCqyAoAl+SHmRNvry
-	 QMVgg3/BVgg03I+ngLj16OrgIg2FPgnuXRwlAfDezjr/7v7doI/M5kgWlBiYnB2YkLrRQ
-	 GHHAN/AIYvFdehjHxfJCjITGRs4SsuN5d/haatE+ylWBUgq9dgxsLQLBv6Y3lTQ6XCQ==
+	bh=kPvKw0301ieQAlMXppdOagHZm6GF8lfDDVzHCZ+vpTY=;
+	b=0IvA2/4MfyMFXmg+qH6WNRD8/4DpAf25l+Aekv6AXTVny+Hrp8FBZAtXWMFHOV3hRoqD
+	 +62k6lCtLxrpuLZiF0BW9nlKwYwZwLz2ztSsEd0ty+lk+Zy6vi7h+adnr1iMTNLK/Jrnx
+	 Os7dJ8ZJ1QD2XheuhPp7YmwxztK8MS2ybkyCiOxn/AK+9Z2FqENxYRlpq+3ezy8MI7bNB
+	 XAiQQ/m5J11ftSmx3T6usSJQBSLyeFhMm0/ioQ1lmG2wPsFB07fKxLovQ214OgL/kRQEn
+	 wUCzPhu/ECHSWx8iINKewN3gI8sXXs5i04KaUxkS0IaqCnfHVPqnFW4MTU+Bl3GCeqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VT2xSSf2;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h6EqUezo;
 	arc=none smtp.remote-ip=209.85.128.48
 Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60F29606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:19:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60F29606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FE3C60A2604
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:19:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FE3C60A2604
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VT2xSSf2
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a1b07c3c5fso15955915e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h6EqUezo
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so12079975e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795043983; x=1795648783; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795043984; x=1795648784; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hRgZssAH4ti64ijQavF0eSuzNXMinfBtQMQfYWzf8+4=;
-        b=VT2xSSf2SUQQhwa3jwt/O0jy28UGrwzw1THs30UK1EjDZM4fuSJ6tBh/TxS9UZferG
-         iYpUWyOmsnYvB0/AC1O9AdasGL38TuXk/206wPlP6qmNpMrVsXKtfDB6zi/aZ5ZymbpY
-         nDclRTHJo/psBN3jpnOVvDjgjcA7q9Ydx1aLRl92On6NFruN0rQUnqwl54lk5cs0rYpQ
-         tCioGzppofJwhc+NO9Tcz2VxaV0tZ8P8lNiez+BoCopCr6kj11qJlqXcWHPGlHI67GyM
-         x1qeJmxAejzXme7CGjYOh6ai5MGwuii8YxawS/JSnC8n6f3R03ZdF/fON7aKCT3Dm/RS
-         MohQ==
+        bh=kPvKw0301ieQAlMXppdOagHZm6GF8lfDDVzHCZ+vpTY=;
+        b=h6EqUezoeWcvHGIqAxXyYdMMrwEZgxZaOtxsR25QxEligTM8MaK2kY6S8lyjMADVBj
+         pXJpF2mzBjN9g51mGWfxBFngkpuXgDsHWQ4/GaeFXRnH1URRXwgc/qSwdYVeDDlJ1dRK
+         DYtTRKIZprazbLEVEmsClR98Wngf1aLKycoRoz2FCPqojfLjEbBU5lou/XAOk9XJPkD6
+         vjvtJzeiZakbu+oWvkN28XMje13bNg5Di9VLyR0HNA8lTH2Gwi8M8bIdnpUXXB1S1ilL
+         ycVN9QJUj7mIoMgENzPK426Ilt3o3Y9BDxz3yeKqk+Y6HQgR3XgtcSUpBnvE+rbedOvq
+         /kvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795043983; x=1795648783;
+        d=1e100.net; s=20260707; t=1795043984; x=1795648784;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hRgZssAH4ti64ijQavF0eSuzNXMinfBtQMQfYWzf8+4=;
-        b=R4gUlhMjzJupt5CUucQ0nFnPF+4zZ8xOks9Tk8EcSOuLOKe4VqSY7SLu5BVeB23dkg
-         RCh/DSf9iRE98QLiVAoVbTgDVuknmvwwT1yoAThTBhOt1M+QIFOB4IJd8j6KK7aOTJP6
-         JQ+uejDMfSVSZPS/+JELi+lBNxqH0Hk3Wc3Ab7WEsiX90PkgcWwktwCEh8kj8dZMko6S
-         Is+dewVyP+gIytIU0K0JGVvDD6CnguA0pV3FYi2kOHi7kP8HhUX3aa15kyTnVHDN1pQt
-         zrHqbotRGPcNaxI9HoPINfCU/45ZDkjqRpPLeYLr9KkVUO1XF7AO2ePwNvka8Qb8uNbK
-         yVjA==
-X-Forwarded-Encrypted: i=1; AL+hErG32Gd0b6o9jV3FZR3cHn8tIOMdQbPdb8QKNrexEJ5auLLC/ll4JOwQo1vHz4kugot5AVK2rpOXJ/JpC74=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sXzhH+mSNn9HZu1o5m2fhHFSGV4tjnHa0LOBPETL1dWfHktT4
-	qhL6IAGh13DqJQofGndwaCeZ4n6lvl+Hc2RKzIEcY9e40S7Go5fGmg+K
-X-Gm-Gg: AYBFou0sL5yRGG2THERvYtSrOcVKPGDMOPxTBpIKeJjSCT5J0yQgT1VhbnU8YbEhl+u
-	pNfdtlOxdRQDdkcumUl7UaHDQwoeAx76plxqDyVqccjNjmWDmLLVOQJ/bqnxXYqI14CgY4VpRie
-	jUErLggsV04snqLwKTOYhY7XaDbC0g8Cv3cn8HOnTjzKz/FutWvfpylemLYjn2e4eDl64eWBdOB
-	crOCympkfZi0+3shIh+2L3uayXKOwgfTfRtZyNFVhNx7EJB/bUjoeU1+19GsU1FjrnvsVv5pYUw
-	xh8CbwQu1hk4S9vpUasDUfOjSbG2M2xRp0z85wI83oledq9NlDwN3WVM8eNmio8yKvfBHv2u1Jt
-	VZ2XyR5g3hteLnQ7bLR3CikAEOpyAiWJmJJ8usnWVtkjkdO9Cdt2EdBZqP4pqH8/NKfC0C5wrGf
-	fTjIyxtWPkHdewJ/aA0gAAKjd4OWNkNAT2lcF0FG/FZVPmYrBSbmZ6pq1w8EiS2IEn16F8pDjba
-	qpztRAfGiMH3cFoBwmrJy+UgQYVXWK8QOs+3yXKVoZzWl/zYJznvprWB0ADYvC9IF4wbJqcI5nN
-	EKUv3qhN2myLESFlM2wrobD0/WRsLsNus4c=
-X-Received: by 2002:a05:600c:4e87:b0:4a5:75d2:c104 with SMTP id 5b1f17b1804b1-4bb7da2db77mr85733475e9.22.1795043982770;
-        Wed, 18 Nov 2026 15:19:42 -0800 (PST)
+        bh=kPvKw0301ieQAlMXppdOagHZm6GF8lfDDVzHCZ+vpTY=;
+        b=UPhrbXopfLpR0VpBWhGzOZQTT1yPH49UDHbdJuC7XnvBrPikQ7kqaxsz5gmrotDlQW
+         yT7iruZQmXqPT21KfHVmUq46pFpaJrClZ4yM3hIygaD+Tu5zep34h2YIwMyo761ECdpb
+         DsuMLFYU/FuDaHCvRfrIdFrh6eSqTUsutDObxo0yUEdvEiuulk19KCOGKV6cKO2USQpW
+         y5da6OHgch9c2ePfyN09UknBqzStmIR2AHFuDFGOcrb95GVU3AJXl15WLD3G1crIl7+j
+         ZZcAP5ioQ5912RMkLOd2Ul/FN1N1TaC/fMmODN6qDeAS+NSCUtL/jUdrbz6d5jc0jzdh
+         8AhA==
+X-Forwarded-Encrypted: i=1; AL+hErHi52Ow0TtFoK8xAEIzNZ/kAE9rxqp5VUDPLVBesUXhSK31NCFPnMP096wppvJiRqfuNnIfV1R2EkSZVuk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8AhLBdyVbGGiMht8gydBb0hW91UUhNWnYGu5+3P2XqhTOX6zox
+	z1vWDDf/L/69I+U8bc2E/OvTbb/OUH8jghGj/Kl7lW8YvMCDATC960Z5
+X-Gm-Gg: AYBFou27/MI3tR5/nyMGpHg010GXwaDo5lI1eJbwnAN8C+rpPQ0sJNqs8nr2cjk+EU2
+	tBzNA3ssbagV9V2N8onW+gjy2egvAaqk+GF5mBzaqkwzYdyc/On27sXvLSGoBxkMSiBFQz3W4lQ
+	ybEemtMrwmixQ3XDo/pcRV5ksUm9IUueNa2Yc0GW5xOgo8a6pdi4yAPAbO2Tfa2mx3LDOqMWmp3
+	TjSY2X1E5ApbGfoScOzLHUqi9Cz+/aS5qb3rhoYxLamtHxP/KviQJN7/GLHQPy0s0m2Souqfm26
+	HENkT+skNhX3ogUHoslStTk+SqDfoe4sE1ot8EFB9b0dd0ro3DXJFu5ryW3Zi7EpdzUzvcDW8Yt
+	+soetNTrbfIlIGI3/a15YzQf2GwLHEPMLEZyI6MsfxSjJoAn+M7QubY9It5soCSrCOmPjymQyjL
+	tfxgiPex+4ivwxhI6R5RHtmAN89x3EPyiXWlm//ez7JwLnoc99X1Cya+hJfkPZ4ufhUwxfQbJyD
+	mlzsSTxweE16fvb6ePOxUrGad3SHI78nW6McYYyRzFsN+pepAdETKjPnVmZlWTo3S1a3AhBNfp+
+	jkr2/VqcI5KrnSjMJWiCZoX+SPka0HMMZSPXE3e+ZMqUjgehruJpV5KQ
+X-Received: by 2002:a05:600c:524d:b0:49f:ce78:356d with SMTP id 5b1f17b1804b1-4bb7da46634mr83114965e9.30.1795043983591;
+        Wed, 18 Nov 2026 15:19:43 -0800 (PST)
 Received: from deb05.proceq.com ([213.160.61.66])
         by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb842f9348sm5966095e9.8.2026.11.18.15.19.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 15:19:42 -0800 (PST)
+        Wed, 18 Nov 2026 15:19:43 -0800 (PST)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Ping-Ke Shih <pkshih@realtek.com>
 Cc: Luka Gejak <luka.gejak@linux.dev>,
@@ -85,9 +85,9 @@ Cc: Luka Gejak <luka.gejak@linux.dev>,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	mehmet.fide@screeningeagle.com
-Subject: [PATCH rtw-next v13 1/3] wifi: rtw88: download the beacon the reserved page was built with
-Date: Thu, 19 Nov 2026 00:19:38 +0100
-Message-ID: <20261118231940.3950-2-mehmet.fide@gmail.com>
+Subject: [PATCH rtw-next v13 2/3] wifi: rtw88: support channel switch in AP mode
+Date: Thu, 19 Nov 2026 00:19:39 +0100
+Message-ID: <20261118231940.3950-3-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261118231940.3950-1-mehmet.fide@gmail.com>
 References: <20261118231940.3950-1-mehmet.fide@gmail.com>
@@ -104,179 +104,421 @@ Content-Transfer-Encoding: 8bit
 
 From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-rtw_fw_download_rsvd_page() downloads the beacon twice: once as part of
-the reserved page and once more on its own, so that the firmware ends up
-with a TX descriptor that describes the beacon rather than the whole
-page. The second download fetched a new beacon from mac80211 instead of
-downloading the one the page already holds.
+hostapd's CHAN_SWITCH is refused because the driver does not announce
+channel switch support, so an rtw88 AP can only change its channel by
+being torn down and started again.
 
-Besides the extra work, every beacon fetch advances the DTIM count and,
-while a channel switch is announced, the CSA countdown; doing it twice
-per update steps a countdown that starts at 2 past 1, which mac80211
-reports as "beacon TX faster than countdown". Hand the beacon skb out of
-the page build and download that. The hw scan, which downloads the
-beacon without a page build, keeps fetching its own.
+Declare WIPHY_FLAG_HAS_CHANNEL_SWITCH and start the countdown when
+BSS_CHANGED_BEACON brings a beacon with CSA: the firmware repeats the
+beacon held in the first reserved page, so while a switch is announced
+the page is downloaded again every beacon interval to advance the
+countdown. The work steps the count with ieee80211_beacon_update_cntdwn()
+and calls ieee80211_csa_finish() one beacon interval after the count of
+1 was downloaded; a download that fails is repeated with the same count,
+so the switch does not complete before its last count was handed to the
+firmware. IBSS shares the page and the work.
 
-Without a channel switch nothing on the air depends on it: the hardware
-writes the DTIM count of an AP beacon itself (BIT_TCR_UPDATE_TIMIE), so
-this is not marked as a fix.
+The work is a delayed work of the device and csa_vif names the
+interface, both under the driver mutex. The driver clears csa_vif, the
+work never does: the countdown is cancelled when the AP stops, when the
+interface goes away, on WoWLAN suspend and in rtw_core_stop(), and while
+beaconing is disabled, as for an IBSS that is left or for an off-channel
+period; it starts again when beaconing is enabled with the switch still
+announced. It is not started while the device is stopped. The work
+itself only stops, at the end of the countdown or once mac80211 has
+taken the beacon away. The BSS_CHANGED_BEACON replay after a hardware
+restart resumes the countdown, a failed download of the replay is
+repeated before the next step, and the driver resumes the countdown
+after a WoWLAN resume, which mac80211 follows with no replay.
+
+While a switch is announced the beacon of the page is fetched as a
+template, which leaves the count as it is, so a download for another
+reason, the replay after a hardware restart or the page of the WoWLAN
+firmware, carries the count as the work left it. The TIM update, the PG
+backup and the download on association are left to the work during a
+countdown, its next download carries their changes. An AP that stops
+downloads the page once more if a station interface stays behind. A
+scan is refused: it would take the AP off the channel its stations
+count down to.
 
 Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
-Reviewed-by: Luka Gejak <luka.gejak@linux.dev>
-Acked-by: Ping-Ke Shih <pkshih@realtek.com>
 ---
-
-Notes:
-    Changes in v13:
-    - none, rebased on rtw-next
-    
-    Changes in v12:
-    - the commit message says why this is not marked as a fix and what
-      mac80211 reports for the double fetch (Sashiko); no code change, the
-      tags are kept
-    - rebased on patches 1-4 of the rtw88 firmware recovery fixes v3
-    
-    Changes in v11:
-    - none, rebased on rtw-next
-    
-    Changes in v10:
-    - none, rebased on rtw-next
-    
-    Changes in v9:
-    - none
-    
-    Changes in v8:
-    - none
-    
-    Changes in v7:
-    - none, rebased on rtw-next
-    
-    Changes in v6:
-    - none
-    
-    Changes in v5:
-    - none
-    
-    Changes in v4:
-    - none, rebased on rtw-next
-    
-    Changes in v3:
-    - the beacon out-pointer is initialised in the caller
-
- drivers/net/wireless/realtek/rtw88/fw.c | 34 +++++++++++++++----------
- 1 file changed, 21 insertions(+), 13 deletions(-)
+ drivers/net/wireless/realtek/rtw88/fw.c       | 100 +++++++++++++++++-
+ drivers/net/wireless/realtek/rtw88/fw.h       |   5 +
+ drivers/net/wireless/realtek/rtw88/mac80211.c |  55 ++++++++--
+ drivers/net/wireless/realtek/rtw88/main.c     |   9 +-
+ drivers/net/wireless/realtek/rtw88/main.h     |   6 ++
+ 5 files changed, 164 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
-index aa2daf2d1820..e0f3e1adb13f 100644
+index e0f3e1adb13f..9d5df3e65b97 100644
 --- a/drivers/net/wireless/realtek/rtw88/fw.c
 +++ b/drivers/net/wireless/realtek/rtw88/fw.c
-@@ -1625,7 +1625,8 @@ static int  __rtw_build_rsvd_page_from_vifs(struct rtw_dev *rtwdev)
- 	return 0;
- }
- 
--static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
-+static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size,
-+			       struct sk_buff **beacon)
+@@ -1229,6 +1229,7 @@ static struct sk_buff *rtw_lps_pg_info_get(struct ieee80211_hw *hw)
+ static struct sk_buff *rtw_get_rsvd_page_skb(struct ieee80211_hw *hw,
+ 					     struct rtw_rsvd_page *rsvd_pkt)
  {
- 	const struct rtw_chip_info *chip = rtwdev->chip;
- 	struct ieee80211_hw *hw = rtwdev->hw;
-@@ -1705,13 +1706,15 @@ static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
- 	list_for_each_entry(rsvd_pkt, &rtwdev->rsvd_page_list, build_list) {
- 		rtw_rsvd_page_list_to_buf(rtwdev, page_size, page_margin,
- 					  page, buf, rsvd_pkt);
--		if (page == 0)
-+		if (page == 0) {
- 			page += rtw_len_to_page(rsvd_pkt->skb->len +
- 						tx_desc_sz, page_size);
--		else
-+			/* the caller downloads it once more on its own */
-+			*beacon = rsvd_pkt->skb;
++	struct ieee80211_mutable_offsets offs = {};
+ 	struct ieee80211_vif *vif;
+ 	struct rtw_vif *rtwvif;
+ 	struct sk_buff *skb_new;
+@@ -1252,7 +1253,15 @@ static struct sk_buff *rtw_get_rsvd_page_skb(struct ieee80211_hw *hw,
+ 
+ 	switch (rsvd_pkt->type) {
+ 	case RSVD_BEACON:
+-		skb_new = ieee80211_beacon_get_tim(hw, vif, &tim_offset, NULL, 0);
++		/* only the countdown work advances the count */
++		if (vif->bss_conf.csa_active) {
++			skb_new = ieee80211_beacon_get_template(hw, vif, &offs,
++								0);
++			tim_offset = offs.tim_offset;
 +		} else {
- 			page += rtw_len_to_page(rsvd_pkt->skb->len, page_size);
--
--		kfree_skb(rsvd_pkt->skb);
-+			kfree_skb(rsvd_pkt->skb);
++			skb_new = ieee80211_beacon_get_tim(hw, vif, &tim_offset,
++							   NULL, 0);
 +		}
- 		rsvd_pkt->skb = NULL;
- 	}
- 
-@@ -1726,11 +1729,12 @@ static u8 *rtw_build_rsvd_page(struct rtw_dev *rtwdev, u32 *size)
- 	return NULL;
- }
- 
--static int rtw_download_beacon(struct rtw_dev *rtwdev)
-+/* the beacon the page was built with, or a fresh one for the hw scan */
-+static int rtw_download_beacon(struct rtw_dev *rtwdev, struct sk_buff *beacon)
- {
- 	struct ieee80211_hw *hw = rtwdev->hw;
- 	struct rtw_rsvd_page *rsvd_pkt;
--	struct sk_buff *skb;
-+	struct sk_buff *skb = beacon;
- 	int ret = 0;
- 
- 	rsvd_pkt = list_first_entry_or_null(&rtwdev->rsvd_page_list,
-@@ -1747,7 +1751,8 @@ static int rtw_download_beacon(struct rtw_dev *rtwdev)
- 		return -EINVAL;
- 	}
- 
--	skb = rtw_get_rsvd_page_skb(hw, rsvd_pkt);
-+	if (!skb)
-+		skb = rtw_get_rsvd_page_skb(hw, rsvd_pkt);
- 	if (!skb) {
- 		rtw_err(rtwdev, "failed to get beacon skb\n");
- 		return -ENOMEM;
-@@ -1757,21 +1762,23 @@ static int rtw_download_beacon(struct rtw_dev *rtwdev)
- 	if (ret)
- 		rtw_err(rtwdev, "failed to download drv rsvd page\n");
- 
--	dev_kfree_skb(skb);
-+	if (!beacon)
-+		dev_kfree_skb(skb);
- 
+ 		rsvd_pkt->tim_offset = tim_offset;
+ 		break;
+ 	case RSVD_PS_POLL:
+@@ -1808,14 +1817,99 @@ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
  	return ret;
  }
  
- int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
++bool rtw_fw_csa_active(struct rtw_dev *rtwdev)
++{
++	lockdep_assert_held(&rtwdev->mutex);
++
++	return !!rtwdev->csa_vif;
++}
++
++/* paced from the first download: a late one does not delay the next */
++static void rtw_fw_csa_queue(struct rtw_dev *rtwdev, struct ieee80211_vif *vif)
++{
++	u32 interval = ieee80211_tu_to_usec(vif->bss_conf.beacon_int);
++	s64 delay;
++
++	rtwdev->csa_due = ktime_add_us(rtwdev->csa_due, interval);
++	delay = ktime_us_delta(rtwdev->csa_due, ktime_get());
++	ieee80211_queue_delayed_work(rtwdev->hw, &rtwdev->csa_beacon_work,
++				     usecs_to_jiffies(max(delay, 0)));
++}
++
++void rtw_fw_csa_start(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
++		      bool retry)
++{
++	lockdep_assert_held(&rtwdev->mutex);
++
++	if (rtwdev->csa_vif == vif ||
++	    !test_bit(RTW_FLAG_RUNNING, rtwdev->flags))
++		return;
++
++	rtwdev->csa_vif = vif;
++	rtwdev->csa_retry = retry;
++	rtwdev->csa_count = ieee80211_beacon_cntdwn_is_complete(vif, 0) ? 1 : 0;
++	rtwdev->csa_due = ktime_get();
++	rtw_fw_csa_queue(rtwdev, vif);
++}
++
++void rtw_fw_csa_stop(struct rtw_dev *rtwdev, struct ieee80211_vif *vif)
++{
++	lockdep_assert_held(&rtwdev->mutex);
++
++	if (!vif || rtwdev->csa_vif != vif)
++		return;
++
++	rtwdev->csa_vif = NULL;
++	cancel_delayed_work(&rtwdev->csa_beacon_work);
++}
++
+ void rtw_fw_update_beacon_work(struct work_struct *work)
  {
--	u8 *buf;
-+	struct sk_buff *beacon = NULL;
- 	u32 size;
-+	u8 *buf;
+ 	struct rtw_dev *rtwdev = container_of(work, struct rtw_dev,
+ 					      update_beacon_work);
+ 
+ 	mutex_lock(&rtwdev->mutex);
+-	rtw_fw_download_rsvd_page(rtwdev);
+-	rtw_send_rsvd_page_h2c(rtwdev);
++
++	/* the countdown's next download carries the TIM */
++	if (!rtw_fw_csa_active(rtwdev)) {
++		rtw_fw_download_rsvd_page(rtwdev);
++		rtw_send_rsvd_page_h2c(rtwdev);
++	}
++
++	mutex_unlock(&rtwdev->mutex);
++}
++
++void rtw_fw_csa_beacon_work(struct work_struct *work)
++{
++	struct rtw_dev *rtwdev = container_of(work, struct rtw_dev,
++					      csa_beacon_work.work);
++	struct ieee80211_vif *vif;
++	u8 count;
++
++	mutex_lock(&rtwdev->mutex);
++
++	vif = rtwdev->csa_vif;
++	if (!vif || !vif->bss_conf.csa_active)
++		goto out;
++
++	if (!rtwdev->csa_retry) {
++		if (rtwdev->csa_count == 1) {
++			ieee80211_csa_finish(vif, 0);
++			goto out;
++		}
++
++		count = ieee80211_beacon_update_cntdwn(vif, 0);
++		if (!count)
++			goto out;
++		rtwdev->csa_count = count;
++	}
++
++	rtwdev->csa_retry = !!rtw_fw_download_rsvd_page(rtwdev);
++	if (!rtwdev->csa_retry)
++		rtw_send_rsvd_page_h2c(rtwdev);
++	rtw_fw_csa_queue(rtwdev, vif);
++
++out:
+ 	mutex_unlock(&rtwdev->mutex);
+ }
+ 
+diff --git a/drivers/net/wireless/realtek/rtw88/fw.h b/drivers/net/wireless/realtek/rtw88/fw.h
+index 48ad9ceab6ea..14bcddbd786d 100644
+--- a/drivers/net/wireless/realtek/rtw88/fw.h
++++ b/drivers/net/wireless/realtek/rtw88/fw.h
+@@ -863,7 +863,12 @@ void rtw_add_rsvd_page_pno(struct rtw_dev *rtwdev,
+ void rtw_add_rsvd_page_sta(struct rtw_dev *rtwdev,
+ 			   struct rtw_vif *rtwvif);
+ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev);
++bool rtw_fw_csa_active(struct rtw_dev *rtwdev);
++void rtw_fw_csa_start(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
++		      bool retry);
++void rtw_fw_csa_stop(struct rtw_dev *rtwdev, struct ieee80211_vif *vif);
+ void rtw_fw_update_beacon_work(struct work_struct *work);
++void rtw_fw_csa_beacon_work(struct work_struct *work);
+ void rtw_send_rsvd_page_h2c(struct rtw_dev *rtwdev);
+ int rtw_dump_drv_rsvd_page(struct rtw_dev *rtwdev,
+ 			   u32 offset, u32 size, u32 *buf);
+diff --git a/drivers/net/wireless/realtek/rtw88/mac80211.c b/drivers/net/wireless/realtek/rtw88/mac80211.c
+index 3029fbdb288a..c9ac2685437e 100644
+--- a/drivers/net/wireless/realtek/rtw88/mac80211.c
++++ b/drivers/net/wireless/realtek/rtw88/mac80211.c
+@@ -240,6 +240,10 @@ static void rtw_ops_remove_interface(struct ieee80211_hw *hw,
+ 
+ 	mutex_lock(&rtwdev->mutex);
+ 
++	rtw_fw_csa_stop(rtwdev, vif);
++	if (rtwdev->csa_wow_vif == vif)
++		rtwdev->csa_wow_vif = NULL;
++
+ 	rtw_leave_lps_deep(rtwdev);
+ 
+ 	rtw_txq_cleanup(rtwdev, vif->txq);
+@@ -388,6 +392,7 @@ static void rtw_ops_bss_info_changed(struct ieee80211_hw *hw,
+ 	struct rtw_coex *coex = &rtwdev->coex;
+ 	struct rtw_coex_stat *coex_stat = &coex->stat;
+ 	u32 config = 0;
++	int ret;
+ 
+ 	mutex_lock(&rtwdev->mutex);
+ 
+@@ -398,8 +403,11 @@ static void rtw_ops_bss_info_changed(struct ieee80211_hw *hw,
+ 		if (vif->cfg.assoc) {
+ 			rtw_coex_connect_notify(rtwdev, COEX_ASSOCIATE_FINISH);
+ 
+-			rtw_fw_download_rsvd_page(rtwdev);
+-			rtw_send_rsvd_page_h2c(rtwdev);
++			/* a station associating while the AP counts down */
++			if (!rtw_fw_csa_active(rtwdev)) {
++				rtw_fw_download_rsvd_page(rtwdev);
++				rtw_send_rsvd_page_h2c(rtwdev);
++			}
+ 			rtw_fw_default_port(rtwdev, rtwvif);
+ 			rtw_coex_media_status_notify(rtwdev, vif->cfg.assoc);
+ 			if (rtw_bf_support)
+@@ -444,8 +452,16 @@ static void rtw_ops_bss_info_changed(struct ieee80211_hw *hw,
+ 
+ 	if (changed & BSS_CHANGED_BEACON) {
+ 		rtw_set_dtim_period(rtwdev, conf->dtim_period);
+-		rtw_fw_download_rsvd_page(rtwdev);
++		ret = rtw_fw_download_rsvd_page(rtwdev);
+ 		rtw_send_rsvd_page_h2c(rtwdev);
++		/*
++		 * A beacon with CSA starts the countdown, also when a restart
++		 * replays it. A beacon without CSA ends it.
++		 */
++		if (conf->csa_active)
++			rtw_fw_csa_start(rtwdev, vif, !!ret);
++		else
++			rtw_fw_csa_stop(rtwdev, vif);
+ 	}
+ 
+ 	if (changed & BSS_CHANGED_BEACON_ENABLED) {
+@@ -455,6 +471,10 @@ static void rtw_ops_bss_info_changed(struct ieee80211_hw *hw,
+ 		else
+ 			rtw_write32_clr(rtwdev, REG_FWHW_TXQ_CTRL,
+ 					BIT_EN_BCNQ_DL);
++		if (!conf->enable_beacon)
++			rtw_fw_csa_stop(rtwdev, vif);
++		else if (conf->csa_active)
++			rtw_fw_csa_start(rtwdev, vif, rtwdev->csa_retry);
+ 	}
+ 	if (changed & BSS_CHANGED_CQM)
+ 		rtw_fw_beacon_filter_config(rtwdev, true, vif);
+@@ -498,11 +518,17 @@ static void rtw_ops_stop_ap(struct ieee80211_hw *hw,
+ 	struct rtw_dev *rtwdev = hw->priv;
+ 
+ 	mutex_lock(&rtwdev->mutex);
++	rtw_fw_csa_stop(rtwdev, vif);
+ 	rtw_write32_clr(rtwdev, REG_TCR, BIT_TCR_UPDATE_HGQMD);
+ 	rtw_write16(rtwdev, REG_ATIMWND, ATIMWND_DEFAULT);
+ 	rtwdev->ap_active = false;
+-	if (!rtw_core_check_sta_active(rtwdev))
++	if (!rtw_core_check_sta_active(rtwdev)) {
+ 		rtw_clear_op_chan(rtwdev);
++	} else {
++		/* what a countdown may have held back */
++		rtw_fw_download_rsvd_page(rtwdev);
++		rtw_send_rsvd_page_h2c(rtwdev);
++	}
+ 	mutex_unlock(&rtwdev->mutex);
+ }
+ 
+@@ -634,7 +660,8 @@ static int rtw_ops_set_key(struct ieee80211_hw *hw, enum set_key_cmd cmd,
+ 	}
+ 
+ 	/* download new cam settings for PG to backup */
+-	if (rtw_get_lps_deep_mode(rtwdev) == LPS_DEEP_MODE_PG)
++	if (rtw_get_lps_deep_mode(rtwdev) == LPS_DEEP_MODE_PG &&
++	    !rtw_fw_csa_active(rtwdev))
+ 		rtw_fw_download_rsvd_page(rtwdev);
+ 
+ out:
+@@ -851,12 +878,16 @@ static int rtw_ops_suspend(struct ieee80211_hw *hw,
+ 			   struct cfg80211_wowlan *wowlan)
+ {
+ 	struct rtw_dev *rtwdev = hw->priv;
++	struct ieee80211_vif *csa_vif;
  	int ret;
  
- 	if (bitmap_empty(rtwdev->hw_port, RTW_PORT_NUM))
- 		return 0;
+ 	mutex_lock(&rtwdev->mutex);
++	csa_vif = rtwdev->csa_vif;
++	rtw_fw_csa_stop(rtwdev, csa_vif);
+ 	ret = rtw_wow_suspend(rtwdev, wowlan);
+ 	if (ret)
+ 		rtw_err(rtwdev, "failed to suspend for wow %d\n", ret);
++	rtwdev->csa_wow_vif = ret ? NULL : csa_vif;
+ 	mutex_unlock(&rtwdev->mutex);
  
--	buf = rtw_build_rsvd_page(rtwdev, &size);
-+	buf = rtw_build_rsvd_page(rtwdev, &size, &beacon);
- 	if (!buf) {
- 		rtw_err(rtwdev, "failed to build rsvd page pkt\n");
- 		return -ENOMEM;
-@@ -1788,13 +1795,14 @@ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
- 	 * the beacon again to replace the TX desc header, and we will get
- 	 * a correct tx_desc for the beacon in the rsvd page.
- 	 */
--	ret = rtw_download_beacon(rtwdev);
-+	ret = rtw_download_beacon(rtwdev, beacon);
+ 	return ret ? 1 : 0;
+@@ -865,12 +896,18 @@ static int rtw_ops_suspend(struct ieee80211_hw *hw,
+ static int rtw_ops_resume(struct ieee80211_hw *hw)
+ {
+ 	struct rtw_dev *rtwdev = hw->priv;
++	struct ieee80211_vif *csa_vif;
+ 	int ret;
+ 
+ 	mutex_lock(&rtwdev->mutex);
+ 	ret = rtw_wow_resume(rtwdev);
+ 	if (ret)
+ 		rtw_err(rtwdev, "failed to resume for wow %d\n", ret);
++	csa_vif = rtwdev->csa_wow_vif;
++	rtwdev->csa_wow_vif = NULL;
++	if (!ret && csa_vif && csa_vif->bss_conf.csa_active &&
++	    csa_vif->bss_conf.enable_beacon)
++		rtw_fw_csa_start(rtwdev, csa_vif, false);
+ 	mutex_unlock(&rtwdev->mutex);
+ 
+ 	return ret ? 1 : 0;
+@@ -901,20 +938,24 @@ static int rtw_ops_hw_scan(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
+ 	struct rtw_dev *rtwdev = hw->priv;
+ 	int ret;
+ 
++	guard(mutex)(&rtwdev->mutex);
++
++	/* a scan takes the AP off the channel its stations count down to */
++	if (rtw_fw_csa_active(rtwdev))
++		return -EBUSY;
++
+ 	if (!rtw_fw_feature_check(&rtwdev->fw, FW_FEATURE_SCAN_OFFLOAD))
+ 		return 1;
+ 
+ 	if (test_bit(RTW_FLAG_SCANNING, rtwdev->flags))
+ 		return -EBUSY;
+ 
+-	mutex_lock(&rtwdev->mutex);
+ 	rtw_hw_scan_start(rtwdev, vif, req);
+ 	ret = rtw_hw_scan_offload(rtwdev, vif, true);
  	if (ret) {
- 		rtw_err(rtwdev, "failed to download beacon\n");
- 		goto free;
+ 		rtw_hw_scan_abort(rtwdev);
+ 		rtw_err(rtwdev, "HW scan failed with status: %d\n", ret);
  	}
- 
- free:
-+	dev_kfree_skb(beacon);
- 	kfree(buf);
+-	mutex_unlock(&rtwdev->mutex);
  
  	return ret;
-@@ -2352,7 +2360,7 @@ int rtw_hw_scan_offload(struct rtw_dev *rtwdev, struct ieee80211_vif *vif,
- 	rtw_fw_set_scan_offload(rtwdev, &cs_option, rtwvif, &chan_list);
- out:
- 	if (rtwdev->ap_active) {
--		ret = rtw_download_beacon(rtwdev);
-+		ret = rtw_download_beacon(rtwdev, NULL);
- 		if (ret)
- 			rtw_err(rtwdev, "HW scan download beacon failed\n");
- 	}
+ }
+diff --git a/drivers/net/wireless/realtek/rtw88/main.c b/drivers/net/wireless/realtek/rtw88/main.c
+index 48abf0daf402..38bf6100a0dd 100644
+--- a/drivers/net/wireless/realtek/rtw88/main.c
++++ b/drivers/net/wireless/realtek/rtw88/main.c
+@@ -1557,11 +1557,13 @@ void rtw_core_stop(struct rtw_dev *rtwdev)
+ 
+ 	clear_bit(RTW_FLAG_RUNNING, rtwdev->flags);
+ 	clear_bit(RTW_FLAG_FW_RUNNING, rtwdev->flags);
++	rtwdev->csa_vif = NULL;
+ 
+ 	mutex_unlock(&rtwdev->mutex);
+ 
+ 	cancel_work_sync(&rtwdev->c2h_work);
+ 	cancel_work_sync(&rtwdev->update_beacon_work);
++	cancel_delayed_work_sync(&rtwdev->csa_beacon_work);
+ 	cancel_delayed_work_sync(&rtwdev->watch_dog_work);
+ 	cancel_delayed_work_sync(&coex->bt_relink_work);
+ 	cancel_delayed_work_sync(&coex->bt_reenable_work);
+@@ -1574,6 +1576,9 @@ void rtw_core_stop(struct rtw_dev *rtwdev)
+ 
+ 	mutex_lock(&rtwdev->mutex);
+ 
++	rtwdev->csa_vif = NULL;
++	cancel_delayed_work(&rtwdev->csa_beacon_work);
++
+ 	rtwdev->chip->ops->power_off(rtwdev);
+ }
+ 
+@@ -2177,6 +2182,7 @@ int rtw_core_init(struct rtw_dev *rtwdev)
+ 	INIT_WORK(&rtwdev->ips_work, rtw_ips_work);
+ 	INIT_WORK(&rtwdev->fw_recovery_work, rtw_fw_recovery_work);
+ 	INIT_WORK(&rtwdev->update_beacon_work, rtw_fw_update_beacon_work);
++	INIT_DELAYED_WORK(&rtwdev->csa_beacon_work, rtw_fw_csa_beacon_work);
+ 	INIT_WORK(&rtwdev->ba_work, rtw_txq_ba_work);
+ 	skb_queue_head_init(&rtwdev->c2h_queue);
+ 	skb_queue_head_init(&rtwdev->coex.queue);
+@@ -2297,7 +2303,8 @@ int rtw_register_hw(struct rtw_dev *rtwdev, struct ieee80211_hw *hw)
+ 	hw->wiphy->available_antennas_rx = hal->antenna_rx;
+ 
+ 	hw->wiphy->flags |= WIPHY_FLAG_SUPPORTS_TDLS |
+-			    WIPHY_FLAG_TDLS_EXTERNAL_SETUP;
++			    WIPHY_FLAG_TDLS_EXTERNAL_SETUP |
++			    WIPHY_FLAG_HAS_CHANNEL_SWITCH;
+ 
+ 	hw->wiphy->features |= NL80211_FEATURE_SCAN_RANDOM_MAC_ADDR;
+ 	hw->wiphy->max_scan_ssids = RTW_SCAN_MAX_SSIDS;
+diff --git a/drivers/net/wireless/realtek/rtw88/main.h b/drivers/net/wireless/realtek/rtw88/main.h
+index 6034187ed29e..0444fd46028e 100644
+--- a/drivers/net/wireless/realtek/rtw88/main.h
++++ b/drivers/net/wireless/realtek/rtw88/main.h
+@@ -2095,6 +2095,12 @@ struct rtw_dev {
+ 	struct work_struct ips_work;
+ 	struct work_struct fw_recovery_work;
+ 	struct work_struct update_beacon_work;
++	struct delayed_work csa_beacon_work;
++	struct ieee80211_vif *csa_vif;
++	struct ieee80211_vif *csa_wow_vif;
++	ktime_t csa_due;
++	u8 csa_count;
++	bool csa_retry;
+ 
+ 	/* used to protect txqs list */
+ 	spinlock_t txq_lock;
 -- 
 2.56.0
 
