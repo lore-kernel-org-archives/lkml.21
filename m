@@ -1,94 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008163;
-	b=W3zTqeUXCSZf10rwelnFkn7WgFjmEnloy9aK+nj7wz5vmN/7IVP0lZwqPoQgrfmeSeQP
-	 UoR+sXwOsxDrPtE5qMJYzIf1CvDJMSUbUewjsn0WX9Tq364p1FR/vHhKSkkc10yH0P1PL
-	 v/zzU7vr+bhZ12d7V5CjbeFwgSFDNJ+D9sVOrmUZbvSmuLfRT+Pp9m5dtIJJlQ6vkVKeJ
-	 FNvZtiaMmWUnyZx6Z95LRcF016J9lKxdQK9MEAe3y9Ba9XNjiC7wTnIb+j0scarq6hSXq
-	 HyRaNfe40qd3kRvsIgibcmGZ6kg0/ml8vn1wwiipFn1mp19t47UJN9jlehsLwIYQ/Tg==
+	t=1795008237;
+	b=BTh/3yZft//G3oekqAXKWgFSGldqi4bYJPWUdxiaS9eLan3UNUtcpgSYRJBuYy3kTvCL
+	 3yDsrrRSl6lio83WhCBR3Srp78MIQI75RTch2625xSMdxt2xlHyhaEEJG1t1pweTYcsnM
+	 niTT4w+vgY2xrdIx+bqDvo2bYYcZ3wxBov61ZuupzGzLBUJ+kESNx2k67t1IvPf1wrnlr
+	 0NnwwAl8rBDTWcR0AwuyhjSunpS+CbnFNvmsuUqWCBlHb9vwj/aPaTlhAkzE6rRniiIui
+	 uEAT68B5X2Za4ZtEUFF8Bw/VJEBPv5ADOq7cx1BwsC9XQZOMIzmtRXENFUW9VvvuT+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008163;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=+wKWXTICw+rK5bkgX4OO79DEF0MgQ4W42M/9WAyxMKM=;
-	b=POOqJKIN2wprkOz6t6oiQyyWDV+LWdz3C+AZ2mdlcblwXbNWQK9XQKo9h4Ux+lCdnvb+
-	 4kcG44c8cY5hoA2+2nOa9bjoPhJYdZdOhckmbpLRUa29E3DG94UIUnkKqg7tAubcTZZNh
-	 KP7WjIfGt27tzpearyzZdxGUntVa9gGNBxSlJHfTGH/odeUsjCkjhRgMJ38hlGFvBQcd2
-	 40xYrWZntT36Q2Z5attGbkaxSCNL7bdnUGvjgMgV0AhV0hVRssBEENRuQn8XqyoSI4xG1
-	 c77YF8C44gaN6fkTl4eq9FrEz9o96PZq30Oq21Mpml62zlwQEYAJQY29oM5jGpwKxpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008237;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=397vhIFiqK0VX8uLK5k207ooRxnaZvzsYO45W2jXP9Q=;
+	b=S+RCabeK6gRvzAyLNkcWdVtDqA/tx59+1Sxj/leTyBblJoGv/IZDICo4WTlLyIorO+Oo
+	 73UcL6J5l4m1CLE212/4aLlUkeWKdXhz99O3P9OuYoUAVlXZO+yCAk7CpplnvjisvtG17
+	 PgERRBX2uyxWFmy09cTEJARYIUfIORQWYZCBMnkQtR0wGjAEfibhO331sa4fynDYeQHKr
+	 GbHCgQhz6EOcerTxltaF/m2m/lEaAM+TRQC9gTuTZPKSo7O3Ccqensk5aRYN5CQiYbha3
+	 PYChZlc2St1z/T9K5PomsLHoerRQczsmeEYlF4ASVlg2U9VlQzYnfOBs8gaQfYkP5Zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dlNbPrgu;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=yKjWdM+K;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C8EE606A335
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:22:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C8EE606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51F0C606A31C;
+	Wed, 18 Nov 2026 13:23:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51F0C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dlNbPrgu
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso16119075e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:22:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795008161; x=1795612961; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+wKWXTICw+rK5bkgX4OO79DEF0MgQ4W42M/9WAyxMKM=;
-        b=dlNbPrguCgVqYXFYDz1P6ETpZkY6b9CW2PmSUSxzaGTGqkWyeZnAhpgdAXWcl2sxf5
-         tOkKYgfxCO+6SDl0hNOh4dva/qaMAzN5dqNkCW70X0bIDZnqYLrKwX3dVl4GtFu1wStw
-         Ftq08ZhaTalQh/h0Bkinb6AzR8B4ZT3jRBimwEfqbnfTup+7aBmeT68v4h0oPH4Tqqoy
-         xkYMF4H1iu2IDvWdkKFVAGo1vSMgceMe+q9dksArDf4D9+T+RlggZ1nT6jmeqIv9T3+X
-         rYyjoj2ZsUtnlxmT91G9K+1jdE1J2mdbb1TpzVS+rjdiy24+8Vot2UO11Wyntan5kv7n
-         4FMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795008161; x=1795612961;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+wKWXTICw+rK5bkgX4OO79DEF0MgQ4W42M/9WAyxMKM=;
-        b=j+6mnEkAu7mE2V2KrAobDSXUxwW/T/dGbD1/hyrpzVHdE8tJmMu6PafoBM4aZBpNs0
-         l64lQCF2mNZb4cXmcmX7hpjAyVcKLHnMfOSlCTJiE45gdNxNamcAVuNTYbusdWOzmYnd
-         Ufb1RSUXNFeAVDKIwOWBeyx/j6QVxfJ/3y9mW+dZhnE2Hd/OIZQr5uZg3z3su7QiqCN4
-         6rxH85Pm3854hX+RhXFnaiOn5KvgBK8/sxUfkt1yj9mYuMv0aebtonnAMk9aBbHRttM7
-         NmxzI9l4GVW8ilh+jpdW2rYJpv3gGxjm/zvdRcXcYONfALeDfubP/5noIOrnLywdtIma
-         luUw==
-X-Forwarded-Encrypted: i=1; AL+hErFHe4AanaDzHMEYh7giQUDsIbubOfHM6MIk9DOv6NknOEIEtmf6knSB0/xO4zbkxNqnwdtUZTzNu9KjPnE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/oKv4fXJYpEOCwtg9ADXxAigW/D1FJHcpfnWdoWxQqiQ1xyD71
-	0VtQ2jmGhcKa0fFCVmsQhUfZOpG9fA1bz5SDs01QUbc5H2GbVtaG32My
-X-Gm-Gg: AYBFou2h0Gj6HMZwk6DZuifB1jpUFitF9gDIpmJaG6z3k8MQ34CkfvmidoX31tPMnQF
-	jrTk++HzNwik5c50M2PL27GQ02/IdD99m+jiGP9c8/YVyNd6vrX0o77osioY77SbdR/LIA2R1iK
-	FUmCbj4UjM1PeSXivlx7RdIK6EiZ6FSt49T9XQ7O7GtmH6kAUm3GpjtDpGcHVnoiaFyvKji1Bi5
-	eSh6dw2EjMHE8HgDBR5LqVoErQA2TTLhltHdet5WvsiRbi/5jCOMF58Ks59cZ1yTFSYdPNvAMFh
-	CyaF4QIH5+lAgXikitsDZ6e+9M8XYjXxS+q+BilEb8YgibdohHeY5oiBbRZiWR43Ad0FOz3zXDU
-	Bt2hkF9ndp+rRYpDFcyFyX3PTcF7Y5SVXyjbeyHRAQbi6poXSp8qHnsDoskD2OOabQvvvy5ILLD
-	1JPKv1L92lsRkiyUkT8tv6RgB/VEKCVPLx4TYLPPO+YgqGGmbX4txfgyRTrWcKMGuKVmi4WSEAd
-	8BdoSnUbX3xBi+Ba+sYmyJGWhNzW5w4GJeqd+4SHWUe3SVV+AwHvlHulKk9dJUfy3d4zvIQcjPe
-	+/XXvzMegp45ffrSkVV4ALFFhk9b+QYoAPQNs0PPk77+UkBHHFenR+v8i6xXtuqh2V0=
-X-Received: by 2002:a05:600c:6290:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb7d6cd48cmr51017095e9.1.1795008160593;
-        Wed, 18 Nov 2026 05:22:40 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d2cfce7sm67254185e9.14.2026.11.18.05.22.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:22:40 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:22:39 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Christian Brauner <brauner@kernel.org>, Shuah Khan <shuah@kernel.org>,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH] selftests/pidfd: print time_t as long long
-Message-ID: <20261118132239.600873a8@pumpkin>
-In-Reply-To: <20261103155447.534264-1-sashal@kernel.org>
-References: <20261103155447.534264-1-sashal@kernel.org>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=yKjWdM+K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795008237; x=1826544237;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OZEEVTLUB3jevmB4KOdPwJHRwAUA+Qi5MdIqoD6hVHc=;
+  b=yKjWdM+KmOg57NDdqWeA9rQ/iGSXnA+0ows/oCxhXJDMNPGWnksiIti6
+   3tu6FUZUQfV+2X+vhaxgeZu7PbIuxmTPI127ZDZ3kJNaglW4zsgDrCz9J
+   9HQYkXXrSmR1LMVi3oXTOQjRh+r7DEt3cgf+pTXtWy3Ph8uXnXQaHy+g+
+   PZTXLqmb/l16pJB65s+x/DiDiJrJqNeIBuNZrZSnEWOlWmiohul4koufV
+   p7zqGGtZWOcGwKMESrm6cnCm12miqLvB3v+9Wp7s4BSv0UR8dRzP1L3s0
+   CngVuPgs3Z3Td0MlFoMNGsMcjUG1GdTeAMkxg6f0q2+dPtV2SfX3sFGJ+
+   g==;
+X-CSE-ConnectionGUID: cORQJduaRCqCLdiX6mZMjg==
+X-CSE-MsgGUID: hqm/j2cET/Wvb5TSHIHTTw==
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="66933088"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 06:23:50 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 18 Nov 2026 06:23:49 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Wed, 18 Nov 2026 06:23:46 -0700
+Date: Wed, 18 Nov 2026 14:23:46 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Hangbin Liu
+	<hangbin.liu@linux.dev>, Fernando Fernandez Mancera <fmancera@suse.de>, MD
+ Danish Anwar <danishanwar@ti.com>, Murali Karicheri <m-karicheri2@ti.com>,
+	Wojciech Drewek <wojciech.drewek@intel.com>, Ravi Gunasekaran
+	<r-gunasekaran@ti.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <1342116488@qq.com>, Hangbin Liu
+	<liuhangbin@kylinos.cn>
+Subject: Re: [PATCH net v2] net: hsr: clean up synced addresses and allmulti
+ in hsr_del_port()
+Message-ID: <20261118132346.zagm5ofoyfvczth7@DEN-DL-M70577>
+References: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,58 +86,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
 
-On Tue,  3 Nov 2026 10:54:47 -0500
-Sasha Levin <sashal@kernel.org> wrote:
-
-> On 32-bit architectures with a 64-bit time_t, such as armhf in Debian
-> 13, printing the time_t values with %lu warns:
+> hsr_set_rx_mode() syncs unicast and multicast addresses to slave A and
+> slave B devices via dev_uc_sync_multiple() and dev_mc_sync_multiple(),
+> and hsr_change_rx_flags() propagates IFF_ALLMULTI via
+> dev_set_allmulti().
 > 
->   pidfd_test.c:523:50: warning: format '%lu' expects argument of type 'long unsigned int', but argument 2 has type 'time_t' {aka 'long long int'} [-Wformat=]
+> When an UP HSR device is deleted via hsr_dellink(), hsr_del_ports()
+> removes all ports from hsr->ports before unregister_netdevice_queue()
+> leads to hsr_dev_close(). Consequently, hsr_dev_close() iterates over an
+> already-empty port list and cannot execute dev_uc_unsync() or
+> dev_mc_unsync() on the detached slaves. Likewise, when a slave device is
+> unregistered while the HSR master is UP, hsr_netdev_notify() calls
+> hsr_del_port() directly without running hsr_dev_close(). In addition,
+> hsr_dev_close() does not release IFF_ALLMULTI on slave devices either.
+> As a result, detached slave devices can retain synced unicast/multicast
+> addresses and an elevated allmulti reference count.
 > 
-> Cast them to long long and print them with %lld.
+> Clean up these states in hsr_del_port() when detaching slave A or slave B
+> by calling dev_uc_unsync(), dev_mc_unsync(), and, when IFF_ALLMULTI is
+> set on the master device, dev_set_allmulti(port->dev, -1).
 > 
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
-> ---
-> Found with a 32-bit build of the selftests with a 64-bit time_t (gcc 16
-> and clang 21 with -m32 -D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64);
-> KernelCI's 32-bit arm builds show the same warnings. The changed files
-> build without format warnings there now, and the x86_64 builds don't
-> change. The other selftests get the same kind of fix in separate
-> patches.
+> This issue was identified with the assistance of an LLM-based code
+> review tool, confirmed by reproducing the retained allmulti reference
+> count and synced multicast address in a User-Mode Linux (UML)
+> environment upon deleting an active HSR interface, and verified in UML
+> that both states are properly cleared after HSR port deletion.
 > 
->  tools/testing/selftests/pidfd/pidfd_test.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
-> index 932cbd8caa770..a53e72cb256ce 100644
-> --- a/tools/testing/selftests/pidfd/pidfd_test.c
-> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
-> @@ -520,7 +520,7 @@ static void test_pidfd_poll_exec(int use_waitpid)
->  
->  	time_t prog_time = time(NULL) - prog_start;
+> Fixes: 36b20fcdd966 ("net: hsr: Add support for MC filtering at the slave device")
+> Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+> Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
 
-Why not just change the type to 'unsigned int' and use "%u" ?
-It isn't as though the difference is going to be longer than 75 years.
-
-David
-
->  
-> -	ksft_print_msg("Time waited for child: %lu\n", prog_time);
-> +	ksft_print_msg("Time waited for child: %lld\n", (long long)prog_time);
->  
->  	close(pidfd);
->  
-> @@ -599,7 +599,8 @@ static void test_pidfd_poll_leader_exit(int use_waitpid)
->  
->  	time_t since_child_exit = time(NULL) - *child_exit_secs;
->  
-> -	ksft_print_msg("Time since child exit: %lu\n", since_child_exit);
-> +	ksft_print_msg("Time since child exit: %lld\n",
-> +		       (long long)since_child_exit);
->  
->  	close(pidfd);
->  
-
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
