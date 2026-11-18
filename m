@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021731;
-	b=3no/9Q/vxXollK45wQn+72icUSO192s8J5rmOcADv4lZTeI1cHfVREei4mXg4ftA1U/R
-	 EVndliA74gkJEVY2vIJnb5SO2XA1N+4vXHVRasZhtaYTak1N0Q64Nz1AXo4/lsqbt8Y+a
-	 eaNsUFT5e5Gg1c40lUOgcpkh0uCiVZuXjwIPOzldgxhKdsZKfTXse4m5SMYrrAUBpsteZ
-	 iGR/SbjpQ5viwFD/xMaCcYGW86KpD+I1uWa/Nqq5xeih8I23hxJICyzpryEoLDyPpVwAb
-	 rfZHfsjw4kqbcQkZOqk28HnhpRe0VDRMryk/rIqWQZauDhSHtRlAGju8O+ahCgG7dTQ==
+	t=1795021732;
+	b=muo1+CgVRjDwju/erRbOqtQVKp3di5XXdNajgska6tLBAgWpbeMrFvxYdD8gsrNPHCR/
+	 IVKuuognYyb9m6AKYWQ8A0CMa/U0aJVRe8HfNJ45bC/CN1jnOm2/iOnnpDlFnknZ6mXUm
+	 BRIt1lq9/1pzyqEOZv4m40t5oza9uRgB+FDDBdckbiZF5E4cfOPZXZ9N1upnS20hNMto3
+	 Nb2OZxY8QaGIxCxrLalfAuOj2htLkHo8X95+sCWZoOuRZ6000r/+zcuvJ3VClWOybOY6B
+	 bANAWMZF+OnL+PaD8qHrAfNVw0wwAaQKZfdxTRW/afWKyKCzHkG7PmnZDlXn1wFcmVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021731;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021732;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=RIDasA6Yo41X2XxZNHY5eia5WhYTwzwGV1LE+WbpzdM=;
-	b=bqIMkUTpyBkl40ovpIBDc6aldAznqH3sz+p9RKp2HIxxmRmokPvNzOEyHQJ7dBgmLUPZ
-	 LDyg+DC2WPd7aEG7D+2Wbgp2kQ1XooNwgdFBwhDrbkB604wZhaxYNaGDo6ADwm6SbRuPG
-	 Nuw0q0dYWi5y6pMS2ii5hBitB7EuRB0hK2+GXDa9Sh8WqK3jbX6wHteNFjT0BU+20kXue
-	 g/4Ecqhrj9xWJ7ddOc7QcMnNuPPN42E6vh0FpXHzmgzYurj/+hDKmTqhvWOky7TkcuYYZ
-	 eyXy7U4JP25ew5rkf6nQHZve2HND7ZJzYfTOT8saR7V/Svbbk+x3hkrHGa92nO5r+bQ==
+	bh=kbZvxEQTLb3YU1ecR2Xm0WW6ueRaIVM1hk43jde/uHs=;
+	b=llRVVDulP4qbDTFLPHIz5LWomazzBSYZHX1FsDkVe3JCgdHpTl530L+fiVlC3jwNkKEO
+	 PyR0bBM1KgTczZXf1UfmBqd9jyGphDH5CUj20G572DSqiqReIRIaGDexfN6BagaXBfHjX
+	 kVYL2xHp4Zj04IDotbd6lSUPcXFECXa+htp9fFVXVyjR+9oUo7KdLqLxBirt4bX/sC56c
+	 7srsEOw+BNg2xCArLZSEcwE0b55Brjl5NxSoxQCuI89DZ0eB27T5+8esOpju5x7riiLYh
+	 A7qIwdsJF2rFIbx2a/z4S7o3oDlH722uFGfLnH2p7h0dHotaOu2QuRWe9+f85I8lQlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="yFgTK/0s";
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=wmOyO1OA;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA9FA60A2635
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:08:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA9FA60A2635
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D2BE60A3808
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:08:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D2BE60A3808
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yFgTK/0s
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=wmOyO1OA
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7C6061A16E2
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:08:49 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DC4DE4E41636
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:08:50 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4E79A5FE9B;
-	Wed, 18 Nov 2026 17:08:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 480B211BC2A16;
-	Wed, 18 Nov 2026 18:08:46 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AD2945FE9B;
+	Wed, 18 Nov 2026 17:08:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8FD2811BC2A08;
+	Wed, 18 Nov 2026 18:08:48 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795021727; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795021729; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=RIDasA6Yo41X2XxZNHY5eia5WhYTwzwGV1LE+WbpzdM=;
-	b=yFgTK/0snPLl/MHHufweKXDArDgT51/Uw8vZxy0jELUVs8HSnSdLLurj1ZToKnO8tqQsip
-	W7evaKBQiY/9P0O84gZzeKd5tDBXuqSku+2Y5oGTgW6MhBPak1sqTRKkJ4sg51Rkur/z54
-	pqJxXnz6ZrKDnTSSoRr5jd7ymtn/OsEv0a46brsSxLKcnpLawe5mbavt+dSQee7Qkr7JOA
-	D0gU8Zpd4hqLAbVHCz+L+nQeFsT0lHj4Qqi2d4QwlkO3NabvUsFknOvklcJybnMCgFIE4D
-	ADCupgSIcRZUCg2fJRmUv9BXMRYqU3aKSZYnPfWXEOuvP1ChtDNdWDr+2MVMfw==
+	bh=kbZvxEQTLb3YU1ecR2Xm0WW6ueRaIVM1hk43jde/uHs=;
+	b=wmOyO1OAjJfO/RrrLdhE4/Vwd4d+WwwrQAvtxBnbjHO8z/Zya7A6ZMzjuXnvbA+iAhCCY3
+	Lf6DZ9EZrfylmyWUlKr+ICCqoGB7Ox/lJBWarI7k0/KwNXw/mYsigS722dae2QhsGHXKu2
+	DIJaZpQxMMQ2wAedFXZi02TYUX4tv4lj31+BtGtMp1ESv1/RfdyY5zJaIwNCEqlJBQD+pR
+	ooz81NU0X94fSLtGzU8qf2wjP+KdpedyB9stb44bbup0ocgp+4NDCY6a3Hk/j6Gd6tqmEy
+	Sb0O3YtHeTuahH8GTbd0h8eoCS7ez6g4+r6f/3zAG2WmE9BX0MqvsJn+r3n7vw==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Wed, 18 Nov 2026 18:08:22 +0100
-Subject: [PATCH v2 05/13] mtd: spinand: winbond: Rename the
- ->ecc_get_status() helper
+Date: Wed, 18 Nov 2026 18:08:23 +0100
+Subject: [PATCH v2 06/13] mtd: spinand: winbond: Add 1S_1S_1S continuous
+ read variant
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-winbond-master-w25nxxlvw-v2-5-55956313d6cb@bootlin.com>
+Message-Id: <20261118-winbond-master-w25nxxlvw-v2-6-55956313d6cb@bootlin.com>
 References: <20261118-winbond-master-w25nxxlvw-v2-0-55956313d6cb@bootlin.com>
 In-Reply-To: <20261118-winbond-master-w25nxxlvw-v2-0-55956313d6cb@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, 
@@ -79,93 +79,72 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 
-Most W25N chips (KV, LV, KW, LW) seem to share the same helper.
+The speed jump is not amazing, yet the feature exists and brings a few %
+of extra speed.
 
-Rename the helper to clarify its use.
+$ flash_speed /dev/mtd0 -C
+...
+page read speed is 966 KiB/s
+testing multiple pages read speed
+2 page read speed is 977 KiB/s
+3 page read speed is 984 KiB/s
+4 page read speed is 984 KiB/s
+5 page read speed is 987 KiB/s
+6 page read speed is 991 KiB/s
+7 page read speed is 992 KiB/s
+8 page read speed is 988 KiB/s
+9 page read speed is 992 KiB/s
+10 page read speed is 991 KiB/s
+11 page read speed is 995 KiB/s
+12 page read speed is 991 KiB/s
+13 page read speed is 995 KiB/s
+14 page read speed is 995 KiB/s
+15 page read speed is 995 KiB/s
+16 page read speed is 996 KiB/s
+32 page read speed is 992 KiB/s
+64 page read speed is 996 KiB/s
+...
 
+Data integrity can be checked with the new mtd-utils tool:
+
+$ nandcontreadtest /dev/mtd0
+testing 2 blocks from 0 to 1 (2 good), seed 37
+success: verified 524288 bytes read in 517.787 ms (988.82 KiB/s)
+
+Link: https://lore.kernel.org/linux-mtd/20261030144108.2211604-1-miquel.raynal@bootlin.com
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/spi/winbond.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ drivers/mtd/nand/spi/winbond.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/mtd/nand/spi/winbond.c b/drivers/mtd/nand/spi/winbond.c
-index 95b6c3b80eea..e3cd6950e61e 100644
+index e3cd6950e61e..6beda45366c8 100644
 --- a/drivers/mtd/nand/spi/winbond.c
 +++ b/drivers/mtd/nand/spi/winbond.c
-@@ -470,8 +470,8 @@ static const struct mtd_ooblayout_ops w35n01jw_ooblayout = {
- 	.free = w35n01jw_ooblayout_free,
- };
+@@ -39,6 +39,13 @@
+  * always at least provide the column. Keep using address cycles, but
+  * reduce the number of dummy cycles accordingly.
+  */
++#define WINBOND_CONT_READ_FROM_CACHE_1S_1S_1S_OP(ndummy, buf, len, freq) \
++	SPI_MEM_OP(SPI_MEM_OP_CMD(0x03, 1),				\
++		   SPI_MEM_OP_ADDR(1, 0, 1),				\
++		   SPI_MEM_OP_DUMMY(ndummy - 1, 1),			\
++		   SPI_MEM_OP_DATA_IN(len, buf, 1),			\
++		   SPI_MEM_OP_MAX_FREQ(freq))
++
+ #define WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(ndummy, buf, len, freq) \
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(0x0b, 1),				\
+ 		   SPI_MEM_OP_ADDR(1, 0, 1),				\
+@@ -216,7 +223,8 @@ static SPINAND_OP_VARIANTS(cont_read_cache_variants,
+ 		WINBOND_CONT_READ_FROM_CACHE_1S_1S_4S_OP(4, NULL, 0, 0),
+ 		WINBOND_CONT_READ_FROM_CACHE_1S_2S_2S_OP(4, NULL, 0, 0),
+ 		WINBOND_CONT_READ_FROM_CACHE_1S_1S_2S_OP(4, NULL, 0, 0),
+-		WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(4, NULL, 0, 0));
++		WINBOND_CONT_READ_FROM_CACHE_FAST_1S_1S_1S_OP(4, NULL, 0, 0),
++		WINBOND_CONT_READ_FROM_CACHE_1S_1S_1S_OP(3, NULL, 0, 0));
  
--static int w25n02kv_ecc_get_status(struct spinand_device *spinand,
--				   u8 status)
-+static int w25nxxkv_kw_lv_lw_ecc_get_status(struct spinand_device *spinand,
-+					    u8 status)
- {
- 	struct nand_device *nand = spinand_to_nand(spinand);
- 	u8 mbf = 0;
-@@ -735,7 +735,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 					      &write_cache_variants,
- 					      &update_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25n01kv_ooblayout, w25n02kv_ecc_get_status)),
-+		     SPINAND_ECCINFO(&w25n01kv_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
- 	SPINAND_INFO("W35N01JW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xdc, 0x21),
- 		     NAND_MEMORG(1, 4096, 128, 64, 512, 10, 1, 1, 1),
-@@ -781,7 +781,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 					      &write_cache_variants,
- 					      &update_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25n02kv_ecc_get_status)),
-+		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
- 	SPINAND_INFO("W25N02KW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xba, 0x22),
- 		     NAND_MEMORG(1, 2048, 128, 64, 2048, 40, 1, 1, 1),
-@@ -790,7 +790,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 					      &write_cache_variants,
- 					      &update_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25n02kv_ecc_get_status)),
-+		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
- 	SPINAND_INFO("W35N02JW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xdf, 0x22),
- 		     NAND_MEMORG(1, 4096, 128, 64, 512, 10, 1, 2, 1),
-@@ -813,7 +813,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 					      &write_cache_variants,
- 					      &update_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25n02kv_ecc_get_status)),
-+		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
- 	SPINAND_INFO("W25N04KW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xba, 0x23),
- 		     NAND_MEMORG(1, 2048, 128, 64, 4096, 40, 1, 1, 1),
-@@ -822,7 +822,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 					      &write_cache_variants,
- 					      &update_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25n02kv_ecc_get_status)),
-+		     SPINAND_ECCINFO(&w25nxxkv_kw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
- 	SPINAND_INFO("W25N04LW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xb2, 0x23),
- 		     NAND_MEMORG(1, 4096, 256, 64, 2048, 40, 1, 1, 1),
-@@ -831,7 +831,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 					      &write_cache_variants,
- 					      &update_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25nxxlv_lw_ooblayout, w25n02kv_ecc_get_status)),
-+		     SPINAND_ECCINFO(&w25nxxlv_lw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status)),
- 	SPINAND_INFO("W35N04JW", /* 1.8V */
- 		     SPINAND_ID(SPINAND_READID_METHOD_OPCODE_DUMMY, 0xdf, 0x23),
- 		     NAND_MEMORG(1, 4096, 128, 64, 512, 10, 1, 4, 1),
-@@ -855,7 +855,7 @@ static const struct spinand_info winbond_spinand_table[] = {
- 							&update_cache_variants,
- 							&cont_read_cache_variants),
- 		     0,
--		     SPINAND_ECCINFO(&w25nxxlv_lw_ooblayout, w25n02kv_ecc_get_status),
-+		     SPINAND_ECCINFO(&w25nxxlv_lw_ooblayout, w25nxxkv_kw_lv_lw_ecc_get_status),
- 		     SPINAND_CONT_READ(w25n_set_cont_read)),
- };
- 
+ static SPINAND_OP_VARIANTS(write_cache_variants,
+ 		SPINAND_PROG_LOAD_1S_1S_4S_OP(true, 0, NULL, 0),
 
 -- 
 2.56.0
