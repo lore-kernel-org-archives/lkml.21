@@ -1,64 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.4
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795025218;
-	b=z083p6MMmfvdme1bzzuMSOZ9lAQVJgTQfuD1xJ1OOJX6Tstr1jSXMHJqjDDsGr04vu2u
-	 gnH5A3XliaY6tpwn+PAaggbMmov0zMCMHsEk7ywMb0QhWAdXAH4NSEPproyf6CghQ7O9B
-	 qKH8aR55c6CYLv46gD/HJtdntAM3K9IfvTIj3b6vCgHDkyx4AzM3kV/647ptUF0yaoO+/
-	 qfsR2MixTIeq6owmiTpoVE/PphYTjEu3B//aevn2NGjEl6h1B4vP+2cMWfJIQIu9D9sXk
-	 O5dcVIZhQzZegcrbKmk5yENTAkMC3Mc65pThSvqC/lvOv7Uee/wXrprf/a9zZ00DFeA==
+	t=1795025229;
+	b=OpxIxRqDlhWb4jLvVe5VtlHP90bzYYxC4gPI+fbAJENQniupKq/bb/BKrlwOa04ds5cN
+	 hV4NgODO9/ar4t/4nE6hG3rkQf+hvRMdR1tbyBeCoeMC93GQ7ZgM78T2CN1C4IpPYOvrl
+	 qwHkNzse9NGY6aZstQfJXHzbidCamkYxQbAeK5AoVETZYxQwMyB1DdjRlVB181U63p2IV
+	 8WJfAu2C7bFIcmSWFGAtg0QcBY9s5l+tevVy+tcLgOz4dznRK9JVDAURFp83HSKh1vHSf
+	 RT4+cYeQNTTfK7uPGOetlg4CNigsuFXckHWbN/yYeMzdJbDpzhVTdJKw5jeW8pl4+nA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025218;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-ZohoMailClient;
-	bh=yQFc6LSoGOm3sJGEs8L1Xmc4hjG7iVBzxwW8/ryu/2E=;
-	b=kTrOWIucrmynUAfDE8PtvRUlpHVLD3X5ax61BiLj+U9gPlz/iqCVAVGbl6F0maOUcGmw
-	 GQGL/IvkDWs+56ruywkaE+X+opGHNp3NkXeSbmxR7A9UQCC2S2+Rb0wD0eG6i5PYB5KpA
-	 3nG7W1eNkpPgmGLESZQoCmYaB9Qe89HPFAZQnGTzh7fYvO+XfoTP+MA8C/MfKUrBv1AqU
-	 EfObYinu4J3OU8tOvF/HeFmEiTeWhvVMikUd1ApkGi30JC+aMxkcYDfMGGXVK6OY3Y/+3
-	 2gK6H29SbmUCwDM4Bn5Nr5bsG+NRQrMBOOhJp7nV9yeSuD1mEax8xd2mDVjx6eWfbdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025229;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=2G1U2zVeKSuKE+J3Aiabjx6y35FJ1RFEgckcOHaqURU=;
+	b=pLnbob3xTsjWv6e72UXgmwXFMA5jh/4hbcSZdBzx/LUtWzKeWW4eAw04Ynh1RwFRDBIZ
+	 bKzY45pZztW77FArV/NO9Hllin37VejaFoBSKkZ5x9F/mrmFi8eg2qmHJSU2UOPiiyTVe
+	 K2xnFWpOAGtgdcDsTZXi61iOYulN6nnBX3JZKhoJXjmPBGy8SuYfYHgp4mACzk8DNvgX8
+	 y0bda63gL+umCPDd0QJnBGH22Ya1VozdtJk1A4TNbiFdg6X6+zVptwZhbB+XzKNmHBx8n
+	 WcMVJYbLo6plE+fcqqXlEJXVCFMpxA6nEY22dy9Mk+ORquX1tByqve7/I8BXEhF/RmA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ph4ntom-rev.uz;
-	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
-	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=jpVRspc0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.54
-Received: from sender6-of-o54.zoho.com (sender6-of-o54.zoho.com [165.173.180.54])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Sg6SYXcd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.4
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012004.outbound.protection.outlook.com [52.101.53.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE4FD606A325;
-	Wed, 18 Nov 2026 18:06:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE4FD606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3F1C606A332;
+	Wed, 18 Nov 2026 18:07:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3F1C606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=jpVRspc0
-ARC-Seal: i=1; a=rsa-sha256; t=1795025088; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=AM96ZDfqhxx8xcqSTWkbUDelqCfAo0Q6XXTTZJWcliI/hsVnjEbSAaqbehMMtrYVhvxMw7jBcXB0GnAl44LTz/KjapMB2xtMSn7paI1CHlmT3pvMNULDKRZaANXmXKPo7uDjhSN3bzw3f4tTiTrXfJVk/mNvK4qJeGnuNysn8bw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795025088; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=yQFc6LSoGOm3sJGEs8L1Xmc4hjG7iVBzxwW8/ryu/2E=; 
-	b=i+BZDGuGzN7qRShCQDHLamxyJv5J7WG8PU33AuDPuBS+xobV6CA+YD3TL39oFTpDd6D69Hc2rhkoE0B3hywB3R4fYgCWlYPoMvv9B3HuLcd9E/xM3OBsNylWy7qC12MI2lugXniD+5IXL0W9x5r4FLUNcRSh9bNMDe+cRXRboco=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ph4ntom-rev.uz;
-	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
-	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
-DKIM-Signature: a=rsa-sha256; b=jpVRspc03moFq9P21XMHu+CY/Bb1+eLv/8TNtNFkW+dL1ql8Q0rZ2IVpcc6+XZgXRGQE+J6DZPtMDywWS+KK6g0Tg+8wdARgnVt9YUEgPp6Oc9wSY92HQDiIW8c97SzRNZmLHCU0Zp9f5Km72Co5STmkgI9HSHqLZNiuCSnFTWcTG9R/StiLcoJb6SnxAYvLr++tfav/H6h1QYgA/S+wyDXb/0vzQwtFsZf5iXf0dNfhfP+awciPdXngnvycmaCZU56+qyIUm4XArbviW9ZBWruW6hxQd35eNbV6BXyRg541sUrGOlaQHOkU+oDXWq+h4V4v1Ondx1vlBShhPPo4VA==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=yQFc6LSoGOm3sJGEs8L1Xmc4hjG7iVBzxwW8/ryu/2E=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795025086507268.54071679078265;
-	Wed, 18 Nov 2026 10:04:46 -0800 (PST)
-From: Enver Ikromov <owner@ph4ntom-rev.uz>
-To: Ping-Ke Shih <pkshih@realtek.com>
-Cc: Zong-Zhe Yang <kevin_yang@realtek.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Enver Ikromov <owner@ph4ntom-rev.uz>
-Subject: [PATCH rtw-next v7 3/5] wifi: rtw89: restore channel when leaving idle on non-chanctx devices
-Date: Wed, 18 Nov 2026 23:04:33 +0500
-Message-ID: <20261118180435.904-4-owner@ph4ntom-rev.uz>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <20261118180435.904-1-owner@ph4ntom-rev.uz>
-References: <20261118180435.904-1-owner@ph4ntom-rev.uz>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Sg6SYXcd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V72AzXY55QhlYXyTdu1GDAG0nDBU4JUZQiWVguvRygAQg9l/KPKxxD/pXUNG+HvTtqzzPgpPv7J8xN82872K0NyafNDkZ14zj3BSBtzFgGLa0JtMRX7X17vlbZ/XBUQgLgmaygYlm+xGRmekS1QUKHE+o0wlm/nD8mCNfc6MRN+nOFP4U7zGo3TU+qvxEniNo6kPy5O4M9ZIwoF0ocIcQ68Kbirg3A4qTzMI0WQriBuXo91qi+TEtEA/Q7Nh/YetJHBGchQXHWp5CQzgSYkU/AbdH2wyEBOY6JhcjGzMEmysWox3ZAK7tQHHSKpT+t47J/dHP9zKTzCYqdnH5Me/cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2G1U2zVeKSuKE+J3Aiabjx6y35FJ1RFEgckcOHaqURU=;
+ b=iN4M1n1OOSc8qs6PdcFKgdLyRo8J5w/gbR25x/j2z89k8z6homR5PB7LOC3rHNS9l0jXYO4GvJ/UUkTAOIFycEZhmSMvaC2j0FZPgpbsa1vQLovehSqh4HKhqIxtqqpFdPnF4P62w7cO28AkrvlNNOTso3qODKFV2AHrTUzmHJ6WhIQqRT+muP182VdOIVBBCOlrHKuLADurdco9CpLCHrQmfYdgH5GRM5veRtfYtvBPPyk6qr4nBqPDQicF7NZ5ArQGVqOVI0XKMBUyUjq9yNKAea55koUiskaYO2Yfps6hiUyCCl+fRfmY+tUd7lbeRJhRdch+umOJEPz5nAIdOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2G1U2zVeKSuKE+J3Aiabjx6y35FJ1RFEgckcOHaqURU=;
+ b=Sg6SYXcds3+BMHuA/VRRH+lD4Hd8qIqQ6SrX5TgQyLlaFdOV964tM2/bWGPtkCf2Z5jsnGULHQLTFFYEZJssmKdLyMrTXYB7pPTEO1h47govVxhR2/h6+8Iw5frTdunUPVEV0BZcCmm+1t+zF2ouDK+7fhW1UsJLCJv5oH4NHVkSC8M/ZuNCWxgWSqz4nUGxkb7YB2dywfPfHWjdYUcefiRpDC+SgelhnuJk4LxFLtyluFTXS8RhqWojv05y1EoK0yw96U2aJ8qaIjxE1QCBdWuMOAGzO6W+9PQGlaLGlPuBjsBOUDqvi5mRxgAfGIJXCvuRQCdsd6laSUSZCLl4zg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
+ by DS7PR12MB6237.namprd12.prod.outlook.com (2603:10b6:8:97::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 18:06:59 +0000
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286%4]) with mapi id 15.21.0615.012; Wed, 18 Nov 2026
+ 18:06:58 +0000
+Date: Wed, 18 Nov 2026 13:06:55 -0500
+From: Yury Norov <ynorov@nvidia.com>
+To: Eliot Courtney <ecourtney@nvidia.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, Burak Emir <burak.emir@gmail.com>,
+	Yury Norov <yury.norov@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, rust-for-linux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, nova-gpu@lists.linux.dev,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v12 0/2] rust: Add support for reserving of ranges of IDs
+Message-ID: <av3pKdesSwpPYnnq@yury>
+References: <20261112-chid-v12-0-49ad43286dad@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112-chid-v12-0-49ad43286dad@nvidia.com>
+X-ClientProxiedBy: BN9PR03CA0080.namprd03.prod.outlook.com
+ (2603:10b6:408:fc::25) To LV3PR12MB9356.namprd12.prod.outlook.com
+ (2603:10b6:408:20c::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,68 +112,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|DS7PR12MB6237:EE_
+X-MS-Office365-Filtering-Correlation-Id: ac085a08-20a4-4729-3411-08df459ebc75
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|10070799003|366016|376014|7416014|18002099003|261009223027099003|22082099003|261021121427099003|11063799006|56012099006|261028144727099003|261022075727099003|261022105027099003|261026140227099003|261026121527099003|261021123027099003|261022113327099003|10067099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	+Fq8dVT2hQ4zEU4/QyQzeGArPUTuIfl3Pe0e0ypthXpOUiuVI8zSE40hndRX5hm3IWsXKa80Vp6gt4ueBjrRRySPkPmHIkCSOhXoU8TQLMlhOxfVKId0aydOaN5isAScyutLJvqVWbKnLz6LqeLaWszUZMgSiVgi0CSr0d0oHBSdBNyN9RFZncdnfJfLkpjAiW+1tg1z5T/NzIPBG3hsNSFaJxlifQSiTYemDMt6SEMELkwgtf4iccTBtxZUIlKbxwgyj66JaAjhsQ/9L2jG0aeYinakgNoO19GuUWTixmeqa1LjEwT2I0hlMd+HFF1ku4ikdKlGrp1QoVpIalr9Nk/zuSKdlWG83KWcRY/OCn4Ol9lrLRGbGVZSmMDKxn3KzvhC+FWi79AN5mVaBS2ZBPhZtVLDosoMEg3rXcalDWohAt3Zbzncq4iWhxfpZItLs30hPHYwXsRhFoQdq6fZ2EJIlWlX2NUzsis/8yiD/+9esy4+EslKoqLchfEV9d0TvkAZbiVMxwU8K0qlA2OKRsjWZ4SuY7yKa0LLomIS3kaVYH/VK3YBS74Ym2ANexohFgObasmuk2tzxe1muEddZx7KtWlqUP53Xoi2KhA3EKG6y0OYI6pcQgGnKfQeKNBatQjGX6h9DJ27iWrwirkX1KvI36x2103Etn9M1Yghqjc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(10070799003)(366016)(376014)(7416014)(18002099003)(261009223027099003)(22082099003)(261021121427099003)(11063799006)(56012099006)(261028144727099003)(261022075727099003)(261022105027099003)(261026140227099003)(261026121527099003)(261021123027099003)(261022113327099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?G1Y/iYoVHhKpU8kDYKYjhh+nbnLdBq7DhkixyOuI++rtnhdbeTpVcsJJceCv?=
+ =?us-ascii?Q?dpmrqYLsEKMTBQthRsR1s/njMRUevYszK8qHsg9tS9Q3jfYot3+smPYNAhT+?=
+ =?us-ascii?Q?xYGlEIvPMzOJtGPqhruKShGabP32XgHXt5f/i5s5l7uGmNvVpnePFei6EQil?=
+ =?us-ascii?Q?W9OJ5XA8WZELru8NwFo+OB5XH3C+gdMYUrA13a6ftsw9rbYic7snUyNhmces?=
+ =?us-ascii?Q?MOaP9DbcGLqN9nNwMJkrvu5eC/FSLv8FOeu4joC4YK7c3ZPpbciZkpmbAII2?=
+ =?us-ascii?Q?Mo7Kkj5fpJKxwArU+tkZuYaNT4pWFp4UddxS4vvItMzYWp7ARiQgYXc6cjD+?=
+ =?us-ascii?Q?lkj7PbWp9bbSoo70Awtu+rCqdqbE8bwfPQqQHIQkU0JyKdCU8pPl/4HkfMq3?=
+ =?us-ascii?Q?XPUI/wTlJDOfQ5SVYE5tAXtrUJh088nrq9fRrVj5ouJ1tUVjcH1D+N16b6l+?=
+ =?us-ascii?Q?mkT2ida8a6KURFfcjYpnSWvc5zsd9DfVf+i1Ih16vMmUKSoZQI0cocCBes/E?=
+ =?us-ascii?Q?T19tKMkzA/OKlmUO4KhZtRDuxO/tuImRwgEQUtCQlMWtY0wRS5y8tOUkt7dA?=
+ =?us-ascii?Q?EvteWWIsUF+T6xI2LitLJqw+cLi4VFAUO0gkHaI0oKUP0WGicyp/8kUpj3mq?=
+ =?us-ascii?Q?W5z9QyVwXXc04PmMqf+XGLnjcXVlTOJs3hoOr92sFPKtQ7dpduFyRiLA8t6O?=
+ =?us-ascii?Q?b4R8MbFpUtS3JpU2o3MWj6+nehg+J+hw4hFaFzjwHBnFog4gTxDnGkunMVCh?=
+ =?us-ascii?Q?FkJDkVyasUVCgG8nxbLLlZTiVmjqFRV6EPJsMN+MBLUfBnCe+A/31vViUemY?=
+ =?us-ascii?Q?2X9v8Jvcw9Hmvj9LDq6JeLZ2Pu07m/d2waMRxetGTUb+8fkPP+HCblgDTIvx?=
+ =?us-ascii?Q?NNySxEsriLE3ZjRPBfvcFULtgT85kOs95x2BpeZ3twlZ6CbXYF6Zb1274t4S?=
+ =?us-ascii?Q?1MwVg3/NXfc8rABUhTdleTkfaapdMka1voQZOusbB9pvZTg3Wi0Er2WWmmmj?=
+ =?us-ascii?Q?RgSG9Z/KHJL7OFrZ8F/I9Os/JGGZMhvPYMozUdEOgWoT9XFHxyFJcmEE2fIo?=
+ =?us-ascii?Q?7s8kRH7e6fl/gNIIlEhfw9BTlEEmWh1VvEK5+CObyyPmnYQL/2bCNEaQR+1t?=
+ =?us-ascii?Q?I8/+LTDveoICdAnSvSDGNAMggFmXMVxTZhuVip+XZ2LZXQay/FFDmyilaueh?=
+ =?us-ascii?Q?kaaOS1Exe8pCePfo7pYGV2LXbvsav+oGukSH2dEgBhEYuqK/YAFlkgEmk8G7?=
+ =?us-ascii?Q?RZD6k4og/vyaTbLR32TjmA5GU6iLxSBFpUgFd9nGKh1z8I6Xd5cm0/fRMZD6?=
+ =?us-ascii?Q?bS2Xq7jI9vyTS3Ls2L6q2JYQWWQhmThDgMkYEaWjfwzANZKq52tSjUBqVZKH?=
+ =?us-ascii?Q?l5Dw7ZWa6nFLCCAlHW+J3xeNK0VFKO0Ae5SFpsSyzobSng7NkiJ3q7ITOOEQ?=
+ =?us-ascii?Q?t2ULn+kIt/DWy0teKwSKTJmY30MEukw+lT7cX+gL9KZbqgLt+btALNiW2ICV?=
+ =?us-ascii?Q?u5CTSjvUX2tTPvfVJOMnjVAy8tX5a2OdUr7QXFG/6vHeSCQcwlelqAlCDHrl?=
+ =?us-ascii?Q?61H9YjkU39KHZ4qh9HmWzY0KzO4/6WfGcm1LRoUTSeQ7xkRJ3d3SoHOSP4/i?=
+ =?us-ascii?Q?0bIWG99vJbAGMLCt9NiuGdAdoi0Qsvfmqg+kuZD+2lJsvNr3SWcLJwvRds0I?=
+ =?us-ascii?Q?d0yu2s9duoewsnPjLnOSeWyqit1nPE8RRILYYFJg0y9jXoDsov/7j8RuAt0D?=
+ =?us-ascii?Q?ar49hEYsh5QewCxoLLSm2Joi6fE2bGSmvxpRObV+hhzFrER0PPBf?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac085a08-20a4-4729-3411-08df459ebc75
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 18:06:58.2966
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e7FIaVcNRwbM1a6i/oaGljjtyNMvDLJBkh5SN6bRanKf8e5rEJW8qh5BEANUYoPrPIbfkJMurtGUQ3T2dHgp2A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6237
 
-Fix the operating channel not being restored after bringing a monitor
-interface down and back up on devices that do not use native chanctx
-callbacks (such as RTL8852AE when firmware lacks beacon filtering).
+On Thu, Nov 12, 2026 at 09:37:11PM +0900, Eliot Courtney wrote:
+> Add support for reserving of ranges of IDs, with a usage in nova-core
+> for channel IDs.
+> 
+> The bitmap and `IdPool` parts from earlier versions are in v7.4-rc1
+> now, and this version has the remaining patches: exact `IdPool`
+> capacities and `ChannelIdPool`.
+> 
+> Channel ID tracking is needed for allotting ranges of channel IDs to
+> vGPU guests, and later for regular host channel ID reservation.
+> nova-core needs allocation of a contiguous sequence of IDs with a
+> specific length and sometimes a specific alignment [1].
+> 
+> About the tradeoffs between different data structures:
+> - IDA/xarray do not support allocating a contiguous sequence of IDs
+>   (ida_alloc_range() allocates a single ID within a range, not a contiguous
+>   sequence).
+> - A maple tree works, but is not as good a fit. The ID space is small
+>   (limited to 2048) and aligned allocation needs an alloc_range()+erase() retry
+>   loop (plus a Mutex around it, or new mas_empty_area() bindings) that
+>   essentially reimplements bitmap_find_next_zero_area(). See the maple tree
+>   version at [2]. For 2048 IDs a bitmap is also considerably faster and smaller
+>   [3].
+> - The bitmap API natively supports aligned contiguous area allocation
+>   (bitmap_find_next_zero_area()).
+> 
+> This is based on drm-rust-next.
 
-Stopping the interface powers down the PHY while mac80211 retains the
-previous chandef and omits IEEE80211_CONF_CHANGE_CHANNEL on restart.
-Record support_chanctx in rtwdev and set IEEE80211_CONF_CHANGE_CHANNEL
-when re-entering monitor mode from idle on non-chanctx devices so the
-channel is applied again.
-
-Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
----
- drivers/net/wireless/realtek/rtw89/core.c     | 1 +
- drivers/net/wireless/realtek/rtw89/core.h     | 1 +
- drivers/net/wireless/realtek/rtw89/mac80211.c | 7 +++++++
- 3 files changed, 9 insertions(+)
-
-diff --git a/drivers/net/wireless/realtek/rtw89/core.c b/drivers/net/wireless/realtek/rtw89/core.c
-index 37ff745..8333b26 100644
---- a/drivers/net/wireless/realtek/rtw89/core.c
-+++ b/drivers/net/wireless/realtek/rtw89/core.c
-@@ -7761,6 +7761,7 @@ struct rtw89_dev *rtw89_alloc_ieee80211_hw(struct device *device,
- 	rtwdev->board = info->board;
- 	rtwdev->fw.req.firmware = firmware;
- 	rtwdev->fw.fw_format = fw_format;
-+	rtwdev->support_chanctx = !no_chanctx;
- 	rtwdev->support_mlo = support_mlo;
+Reviewed-by: Yury Norov <ynorov@nvidia.com>
  
- 	bitmap_copy(rtwdev->quirks, &chip->default_quirks, NUM_OF_RTW89_QUIRKS);
-diff --git a/drivers/net/wireless/realtek/rtw89/core.h b/drivers/net/wireless/realtek/rtw89/core.h
-index 8e93cf1..780ec47 100644
---- a/drivers/net/wireless/realtek/rtw89/core.h
-+++ b/drivers/net/wireless/realtek/rtw89/core.h
-@@ -7703,6 +7703,7 @@ struct rtw89_dev {
- 	const struct rtw89_io_ops *io;
- 
- 	bool dbcc_en;
-+	bool support_chanctx;
- 	bool support_mlo;
- 	enum rtw89_mlo_dbcc_mode mlo_dbcc_mode;
- 	struct rtw89_hw_scan_info scan_info;
-diff --git a/drivers/net/wireless/realtek/rtw89/mac80211.c b/drivers/net/wireless/realtek/rtw89/mac80211.c
-index 7a55fed..98f4b5c 100644
---- a/drivers/net/wireless/realtek/rtw89/mac80211.c
-+++ b/drivers/net/wireless/realtek/rtw89/mac80211.c
-@@ -97,6 +97,13 @@ static int rtw89_ops_config(struct ieee80211_hw *hw, int radio_idx, u32 changed)
- 
- 	rtw89_leave_ps_mode(rtwdev);
- 
-+	if (!rtwdev->support_chanctx &&
-+	    changed & IEEE80211_CONF_CHANGE_IDLE &&
-+	    changed & IEEE80211_CONF_CHANGE_MONITOR &&
-+	    !(hw->conf.flags & IEEE80211_CONF_IDLE) &&
-+	    hw->conf.flags & IEEE80211_CONF_MONITOR)
-+		changed |= IEEE80211_CONF_CHANGE_CHANNEL;
-+
- 	if ((changed & IEEE80211_CONF_CHANGE_IDLE) &&
- 	    !(hw->conf.flags & IEEE80211_CONF_IDLE))
- 		rtw89_leave_ips(rtwdev);
--- 
-2.56.0.windows.4
+> [1]: https://lore.kernel.org/all/84bc8bd2-e292-4b84-9580-a1b5df4c5bdc@nvidia.com/
+> [2]: https://lore.kernel.org/all/20260710-chid-maple-v1-1-4ee869055268@nvidia.com/
+> [3]: https://lore.kernel.org/all/20260717053241.916441-1-ynorov@nvidia.com/
 
+Maybe add this links in the commit message too?
+
+> Signed-off-by: Eliot Courtney <ecourtney@nvidia.com>
+> ---
+> Changes in v12:
+> - Drop the patches that were applied to drm-rust-next and driver-core
+> - Rebase on drm-rust-next
+> - Drop the zero capacity part of the patch #1 commit message (Yury)
+> - Add reviewed-by tags
+> - Link to v11: https://patch.msgid.link/20261109-chid-v11-0-082aa9bf5a91@nvidia.com
+> 
+> Changes in v11:
+> - Rebase on drm-rust-next (pre-reqs are merged now)
+> - Split patch #1 by subsystem (Danilo). Just splitting with no actual
+>   changes, so I kept the reviewed-by tags on the new patches
+> - Add reviewed-by tags
+> - Link to v10: https://patch.msgid.link/20261019-chid-v10-0-67de9180b4ed@nvidia.com
+> 
+> Changes in v10:
+> - Drop the patches that were applied to rust-next
+> - Rebase on drm-rust-next (plus pre-reqs)
+> - Use a capacity of 1 instead of 0 in the grow_request() example in
+>   patch #2 (Yury)
+> - Convert the remaining Alignment::new() users in nova-core in patch #1
+> - Link to v9: https://patch.msgid.link/20260930-chid-v9-0-0d6cca376cff@nvidia.com
+> 
+> Changes in v9:
+> - Rebase on drm-rust-next
+> - Moved cv! to a separate series which this now depends on
+> - Reference Link: tag from the text + indent code in patch #4 commit
+>   message (Miguel)
+> - Add reviewed-by tags
+> - Link to v8: https://patch.msgid.link/20260827-chid-v8-0-bc74c77d0214@nvidia.com
+> 
+> Changes in v8:
+> - Clarify overflow cases in patch #2 (Alex)
+> - Replace nz! with generalized cv! macro (Gary)
+> - Add cv! macro to prelude
+> - Split SizeConstants and adding new constants patch (Alex)
+> - Move alignment size constants conersions patch (Alex)
+> - Drop NonZero on IdPool, fix grow_request instead (Alice, Alex)
+> - Add shrink/grow doctests (Burak)
+> - Link to v7: https://patch.msgid.link/20260817-chid-v7-0-a5872e64d8f4@nvidia.com
+> 
+> Changes in v7:
+> - Add nz! macro for compile time NonZero
+> - Implement SizeConstants for Alignment + add sub 1k size constants
+> - Use Alignment constants + nz! in this series
+> - Add final patch converting existing callers to use Alignment constants
+> - Rename alloc_area/release_area -> reserve_ids / release_ids
+> - Link to v6: https://patch.msgid.link/20260813-chid-v6-0-160be5dfb5bd@nvidia.com
+> 
+> Changes in v6:
+> - Take a NonZero nbits in `next_zero_area_off`, `set` and `clear` (Yury)
+> - Remove `UnusedArea`, `IdPool::alloc_area` now allocates directly (Yury)
+> - Add patch: take a NonZero capacity in `IdPool::with_capacity()`
+> - Add patch: do not round the capacity up to `BitmapVec::MAX_INLINE_LEN`,
+>   which also removes the bounds check in `ChannelIdPool::alloc_area`
+> - Add more testing of Drop for `ChannelIdPool` (Yury)
+> - Link to v5: https://patch.msgid.link/20260812-chid-v5-0-6c767770b3f4@nvidia.com
+> 
+> Changes in v5:
+> - `bitmap_assert!` i32::MAX length for Bitmap::from_raw* (Yury)
+> - Only run overflow check on 32-bit (Yury)
+> - Link to v4: https://patch.msgid.link/20260810-chid-v4-0-c9f206fdcb97@nvidia.com
+> 
+> Changes in v4:
+> - Add `next_zero_area_off` to match C code (Yury)
+> - Replace overflow checks to match C code in bitmap-for-next.
+> - Tighten `Bitmap` unsafe contract to disallow Bitmaps larger than i32::MAX
+> - Link to v3: https://patch.msgid.link/20260729-chid-v3-0-20cc08032bbc@nvidia.com
+> 
+> Changes in v3:
+> - Use `Alignment` type in id_pool and bitmap (Alice)
+> - Remove hang check on the basis that it's extraordinarily rare.
+> - Link to v2: https://patch.msgid.link/20260723-chid-v2-0-c35e5e9fb3d9@nvidia.com
+> 
+> Changes in v2:
+> - Collected Alice's Reviewed-by on patch 1.
+> - Address Yury's comments w.r.t. using __bitmap_set etc directly.
+> - Address Yury's comments w.r.t. following the C names
+> - Additionally check for an overflow case that causes a hang
+> - Added more info to cover letter + patch 4 w.r.t. channel ID allottment
+>   requirements
+> - Add align parameter to ChannelIdPool::alloc_area() plus an aligned
+>   allocation test
+> - Add missing INVARIANT comment when constructing UnusedArea
+> - Link to v1:
+>   https://patch.msgid.link/20260703-chid-v1-0-84fe8259e46e@nvidia.com
+> 
+> ---
+> Eliot Courtney (2):
+>       rust: id_pool: do not round capacity up to BitmapVec::MAX_INLINE_LEN
+>       gpu: nova-core: add ChannelIdPool
+> 
+>  drivers/gpu/nova-core/gpu.rs         |   2 +
+>  drivers/gpu/nova-core/gpu/channel.rs | 198 +++++++++++++++++++++++++++++++++++
+>  rust/kernel/id_pool.rs               |  38 +++++--
+>  3 files changed, 232 insertions(+), 6 deletions(-)
+> ---
+> base-commit: 6e557330b874b0e1fdd03e8fe4c438f36c93eefa
+> change-id: 20260608-chid-18fa943c6d6c
+> 
+> Best regards,
+> --  
+> Eliot Courtney <ecourtney@nvidia.com>
