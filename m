@@ -1,73 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.70
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001075;
-	b=pcgIEe2Kem6ClqjOmJLzw6Cf6TNDV3zDddz78PsnnN6cxIo30ti6ejN4sE0tnYNHv7N2
-	 dK+ekUwNOHLJnF574PahzWoke1exjDmegRHLvq2FZyR8cx+P8c7FZOO/pb2m2gjwkGYK0
-	 feG0Ii7H2nEU7EugwcJVZxzjL1iii4gY8g45FNw+WL9AXzD6+v1jrsK89uToPlksi5ZEp
-	 3I7rZ1dntEnCqoWpOyCGetIftrrZ3lxTbBo4TkmEF+YdphtxK+7Cn33gARB8l9NGxuVI1
-	 L+V7NMElyz3ftANYKCB/8O88urbfWsdk/dtjNdkRy9yIrLRXk/+D1l6waALvdX8chmA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001075;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-B4-Tracking:X-Change-Id:X-Developer-Key:X-Developer-Signature:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=NgxcydZ7W7diTZLrEW7mmD64GYiEJTtactewUU2r9BU=;
-	b=GoTwE5k6SysGCNhS7cBFi26sJA85wNugiO8eP4h2dOgHgEmyPFuxaPXJurk7G3t27NIj
-	 /2A95Livi9/AoKoPu/pB3DOPoDLws11en6oKQG/j+QXXqH6WwYyreRzA9mmzYnQZV9W7Y
-	 Y0nllauIS/q5qa6vtmw0Vqkm6gxvo1HosPNux/KlbKEgpcoWZezKIjGvY1a1eQArIUKf6
-	 JEuJ03g7jIF63ljkaild87onzQ57vGO36q1aozr3uEcyIyjfJxWSYFMYENThkhbckfmGD
-	 ZkBLFnPRzmYKc5aRZyWCK8Lj8wv81auglP2QZB4joh3X1euSv6ppr7rUz2Tb1s5oNhA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nTYKR7vS;
-	arc=none smtp.remote-ip=209.85.221.70
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795001111;
+	b=vEy9EEgORDFCc50Jztrsk+xZreCvcxWhl/zZDHOUqIlGIdpl6++y+BvH51kcwnYN4zYV
+	 4SSz63xlFfGUNAKAaWV/CLKkxHjVr/whr7Jh1Zu+RzGwxyLf69RXUkiSp5A4LOvRV03TF
+	 MrpP3c55ix6rDp+/Wm6lG85WafRxgUwRUFqispCnfk6DS6z3wYYltCg4N0sfD24h02DGv
+	 Gj611hZDT06z5JCqCGSrjrdGSOTIqGNytpYw9mRrIY6zMHrG4GwhGD3Nhvq0iQc9jTOc7
+	 QVH70SlYwTaQ6JnqbW0PZyNx7bf8eOSWtRjaOh7YA0LMjeQ0gWAG+oU+CnvNey82qdQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001111;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=zM3k/2WCvMrCdMm27K8Fi760CqD+YE5EovKRW6Oi8RA=;
+	b=fuBllJ3GP1sksME4m+o1xHu436jSuM5YY0x+ye5mx1HDPpHpf77tfOIfJVavqoTru5Km
+	 E61tWM+osBbmkBaQdeBlUP1Oe/ZaA9bVNa9TKqfoM7g+3bl+d+be6Bw5RoLRrZaO+RUVp
+	 jWTK5hp75FaflqhG0lxj2clLbeF8ismbI8q38QjpawwkOk45cjbqxFwFmv5pbhfGVppz+
+	 NUo3oCxWilS4PKoE/8e1XbqkCocKeBNyW/p5z++xMzrC7owOVfyUKFXtU7rNUHJfR+wkp
+	 BCq/eEBtecvDydWTnDdRndn5+eTbijP6V855Fhv4L+Sr1NwKnw1HPVd2wWYXOg5N7Yg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=citrix.com;
+	spf=pass smtp.mailfrom=citrix.com;
+	dkim=pass header.d=citrix.com header.i=@citrix.com header.a=rsa-sha256 header.s=selector1 header.b=qLd2n2SV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.47
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010047.outbound.protection.outlook.com [52.101.46.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D880606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:24:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D880606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6E76606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:25:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6E76606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=citrix.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=citrix.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nTYKR7vS
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-490d2ac331bso898792f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:24:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795001073; x=1795605873; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NgxcydZ7W7diTZLrEW7mmD64GYiEJTtactewUU2r9BU=;
-        b=nTYKR7vSpmKhR0Ssct/nW+P9T+b621hzUsbStNf5cIUdGf5KKRDXanH0lgGuqHHc4q
-         8pLVSBHj0W6WuX6nG1UR0s49rfRBqocVJ5vxatLU5NG2qdVRRNt8pTocYZvE4Zf8697o
-         uuuKUOsSwQ8NXC8aTTtAXN0qfkkug4m+Jy3TNcVyaCvq4Wz1HQzYvAQYbx5ClmMXPxPf
-         Of4kXO5JFsIZssgaXv0hkJP4Vhn4pbaz7L32Fumg1gQVL2aFbIqwebA2Hpz3IsG9xaAY
-         NwLNyJUm7Ie0m7ccBlkQIdrTmjimOJJxznjQqL7DhuyskKymiEOn9Zyyxh+wZumNfM8m
-         al8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001073; x=1795605873;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NgxcydZ7W7diTZLrEW7mmD64GYiEJTtactewUU2r9BU=;
-        b=GZ6HxO0KmxbJenyQf1nCUauV3V0w3ppJodxo9gVB7mqfmtSdmLSkVcQ6cKZGiPVfQk
-         JuG7q780CKSWtrepssUMO26bXyktt3FcylWzPU8L2qPs34mlBwAwKMWavgFqWOfIqqhB
-         YTg0vs1xaGYw+0j+G43ltGOpLWFJwN1bc61L0fcVN9+OsTYj51HKsu1Lk2DHVUdcVU31
-         5uDuWHqOhl34u9Wytv2//oJkATdaqvkWYGvtITDzuyBKLgI4LddmIBsxoLkIRe/MfO29
-         1/OrwU6U5QqeKhrlgNot8PY7D7A344NWp9l0ZL+4XOwvZtDNG779bNrk/7g48l5B3gqs
-         7ndA==
-X-Forwarded-Encrypted: i=1; AL+hErGHcRW2XI4h/fhx2M5PgZI5gLBD4lwWupKYLDXI4rxLdhvJ9aQx3kypWQOrfvwWULQYEnal16ACoVnX9Ms=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89oixEjTDPwl4Ta1SbHhSmoaT8ThNzWWTh8NX0MtA/s/xhvxfD
-	I8jqdtQUQtQAZp4b5h0cy9N0cqDsnHR/MqNNft1+rUD/sMJcplH13u1M6MlBI9b50lR3eC4SATU
-	daw1Zlb6V1pKcVLhG0Q==
-X-Received: from wrud4.prod.google.com ([2002:a5d:4f84:0:b0:48f:beda:6924])
- (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2383:b0:490:f98f:addd with SMTP id ffacd0b85a97d-4a6331c6cdamr5728890f8f.4.1795001072496;
- Wed, 18 Nov 2026 03:24:32 -0800 (PST)
-Date: Wed, 18 Nov 2026 11:24:25 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=citrix.com header.i=@citrix.com header.a=rsa-sha256 header.s=selector1 header.b=qLd2n2SV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vJgKLig6WnslawOZfsuMRvdo23gTnsuta62R4N3FJIVavCfLLIJeWvj/+hKy9nrFJBr5ykFCtnFxXMF5pNrjmgU3qvERASh4AD3o1HHNd+sA+xkZ1z0Dgrn39vXThfaoDHCURfEf+j/iAfMcoqIXzCrHjyGPAMyaPpjmOYvk7UBiOc9uucfL7yASfoagu88bj9e5mAJh5jPtWPb94bWc0l/PSZ8jP3lbubPsGt0cTfqLfxAAhG1745zaXbNqcXUiWYBwb5Zd6Mq9Q84ept2+TQFvgUlt5AcWtZuyi9mNXdZumPfMgN31Yi7x5Cwudv26u/QSzuXlyAiOpjMg8qDe5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zM3k/2WCvMrCdMm27K8Fi760CqD+YE5EovKRW6Oi8RA=;
+ b=i6vWGs2LH90jfHBwDZLypd1ubIiFjGbKc3D5yDCot8iIpR5qgKa1N+C7mube300eoDkzE/iG7AU7etPtKxDPrQIUpp/EDizxhO+75iQJGx1dvucnMnmyGPwZ85YMP6Dx0LJkOqZaHaB85eEyJ1ytBRKy6mpuI9svRwCpCYH6+ss5hC1f69Eb1o4K7GiOaV2VhevJRPRfkcwijAXXAHodRFyCX++hvsYvCJ+XtfI6vBic8x7EXM0kLe8ZlpQR21+AvnCe/WZAlV+n67tYeFL+u6PkRg2cwaLykE94nZJnrz594q7KtUrCJla0W+ebF2sGVhro2CSjkIG0/Z8jer+31Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
+ dkim=pass header.d=citrix.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=citrix.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zM3k/2WCvMrCdMm27K8Fi760CqD+YE5EovKRW6Oi8RA=;
+ b=qLd2n2SVmH/37PqLRraugs6QsZTLE3chLZ/6aS8gqviro951JXCAE8kdjax/wri2US74zXv/0avoaLZOafycRtthFbmou+xp51v/SdfAVb4+yoQLxiu6jB5rqBtvb4KRwFYkXyCt4AB4iq6IOzVrUv+XB+jGpvlfTwcL0BHwPn8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=citrix.com;
+Received: from CH8PR03MB8274.namprd03.prod.outlook.com (2603:10b6:610:2ba::5)
+ by SJ2PR03MB7166.namprd03.prod.outlook.com (2603:10b6:a03:4f8::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Wed, 18 Nov
+ 2026 11:25:09 +0000
+Received: from CH8PR03MB8274.namprd03.prod.outlook.com
+ ([fe80::ebe2:32c1:d2be:a096]) by CH8PR03MB8274.namprd03.prod.outlook.com
+ ([fe80::ebe2:32c1:d2be:a096%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 11:25:08 +0000
+Message-ID: <75f37608-f3ef-48db-8e7b-4a1ba13a9ee0@citrix.com>
+Date: Wed, 18 Nov 2026 11:25:04 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] xen/swiotlb: Check the segment boundary in
+ range_straddles_page_boundary()
+To: Lin Liu <lin.liu01@citrix.com>, jgross@suse.com, sstabellini@kernel.org
+Cc: oleksandr_tyshchenko@epam.com, andrew.cooper3@citrix.com,
+ xen-devel@lists.xenproject.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+Content-Language: en-US
+From: Ross Lagerwall <ross.lagerwall@citrix.com>
+In-Reply-To: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0218.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a6::7) To CH8PR03MB8274.namprd03.prod.outlook.com
+ (2603:10b6:610:2ba::5)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,75 +98,135 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAOiK/WoC/x3MQQqDMBBG4avIrB3IBFpMryJdaPLXzCaVGSiCe
- HdDl9/ivZMcpnB6DScZfur6bR0yDpTr0jawlm6KIT4lxMSrtgJjuOXK6lywFJ4kpIw1iTwy9XQ 3fPT4b+f3dd2c6z16ZgAAAA==
-X-Change-Id: 20261029-binder-esrch-is-dead-8109ceb9115c
-X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1396; i=aliceryhl@google.com;
- h=from:subject:message-id; bh=wZRKSXn6TR6MdqwykIO/PARHCDKLEFWKsF5C3d2QD3c=;
- b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBq/YrrtJoXrIaXn2dfYFATxfXU8esNx7i83ho1K
- IYauU+mWy6JAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCav2K6wAKCRAEWL7uWMY5
- RvvbD/9NEP5A+vzaHatKFT8hAu+P+BohRZ9ddIu5EuKxN7Dv8TP7AV1tBovrhxsLz2yCbz6jPgM
- 5xkhKoW9gjX0BD4Uum6GqgXa5LJgTpNJeGYaxZ4KhL22x5ACHnepNqGq1CWX/LZXpHUJni0nbwA
- YdOdcm2YzqiVWtl4fQf7Tlrjm4/nON3eyV9W1mLrgHabPsSB7VrHqxgi0Egj6ZuyLMwfRJTwK/p
- 1HKXmyOGt4K71MxmiuJC8jsd5tqhwPH8wDyY0nGF5+LP09xgvhXC01fjYj9vKM67l0iuhPrA4SS
- YuUsP2UfGpIbFuzL3UeXs29VgtMUJ4iG/sydfYUp2kPDBCT13MZqkRoGo9QB2wXdofhk/fjxd4N
- dDxh8tSx+r3/A3NN8TEoGhNTVdsgAr+nuqFtrS46yyntbqMv+RKy5kcRVCO+6bmtY9TEjJy06KK
- wuuOuw6Y5855Of0qTGbV6rPH+FyxDFGCIMpz/qIJ22oLdQpZIqV0XVgPF0rfZV6ktSqaaQekDim
- RyBjlOWn0J63yRt4WWfH82cfie6lvMkdAKpKOK3Q4oml0JeVGPbPx+yLTXyGlRbbR9ngoZMVKsy
- p+a7/qiSy0KMp1N9PoCKiK0ffiK8ptzeVo1dBgnU9CeOLBFIfRXy4z8B3hNA06CFLBWLVzq3o9w KO8LOTm+X6DoDDQ==
-X-Mailer: b4 0.14.3
-Message-ID: <20261118-binder-esrch-is-dead-v1-1-a45bb951fd14@google.com>
-Subject: [PATCH] rust_binder: treat ESRCH as BR_DEAD_REPLY instead of BR_FAILED_REPLY
-From: Alice Ryhl <aliceryhl@google.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Carlos Llamas <cmllamas@google.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, "=?utf-8?q?Onur_=C3=96zkan?=" <work@onurozkan.dev>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH8PR03MB8274:EE_|SJ2PR03MB7166:EE_
+X-MS-Office365-Filtering-Correlation-Id: e5621488-14b5-407a-63e0-08df45669a47
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|18002099003|22082099003|6133799003|261009223027099003|261021121427099003|11063799006|56012099006|261028144727099003|261102123227099003|261021123027099003|261026121527099003|261022105027099003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	3hZTY/xAtJzjw/fFN09V3W/BtquT6aHipIx0FfBLebbSxgeJXfd5pPmfIlmI2qFDa+7VnPfHWdkUt0JFonFZnF1rb05do+VTJZ1wmLJVKgoKFqhAQS36cmfdd6XxfJvJqBR8vUSvXqzHJG5M3BB48/RraeTXEgv9GWxaQMyo1y4nSElokxdDjBxalgnBtigRgoHt6CwdMVnAf1RNXQDy7yKwUX15lmuutOU0Dre1PPF6ZviEN+KbD6a14EgCRikqRPt8V1agjc9Jy0kU1K6F2PYPDMJzGUT7qLot1EYeu6GyzIJKxxquSLbnHQXMTT5Nl/a7YwDKlNUxds4dgSSrsOJN5OIL2LypXa71byWH9HsNlgoVOGN4Cmbo1jQxRzPlxKbG1yjIMjb3RtxuodgCfPPeQ4G9pIRnfXAaV8Dkbr6Zp+lOrCWSxpmK7+FqCee5LvAEWByDO3LNu2ZGHQN5j9LVxtNcLJZWU4S0KWEsCs3kJSEkfVWQ1JNTRN6dHBI0YRsn5ExERJjJ5boSQvTqjMg3mPmkY32U519pJ6rSpqr3B699oZxzeqKBA02OSDCrYeAbi4mPJyv5QzpFF0xnWJiuVtqaJgECTggx1qcegSRzXRSsKFYxA/OkRMkTKOCZgrwEU6id93huKNCOoDXoS4trshD5shbgeX/JzNZFkes=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH8PR03MB8274.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(18002099003)(22082099003)(6133799003)(261009223027099003)(261021121427099003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261021123027099003)(261026121527099003)(261022105027099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?U0pMUmtSQ3o0MjVaVzR3elhPdDhTSjFVdXZDRC9kNGRIVWdlYi9LVUUxc05P?=
+ =?utf-8?B?VEkwUDFqUjd5L1E0Z01xbnpvOFliTVR0MnY3L01tY1ZYK052eEVMNUFXM09Q?=
+ =?utf-8?B?S3g1RWVndnE2d0I2ckNDZGJWN0k1VUZNUjJrTWYwN3F4RHZsWnVFM3JZaHlM?=
+ =?utf-8?B?VWZrZFlIaFNzMjVNbXhxVEpTNnZCVHVSbkEzZVR1MXQwa1ZzWG5nQzlYS1ps?=
+ =?utf-8?B?MmpqUEdkSXNyT1BXeVVhbGJySWhhRlcyTEFBenU5d2ZISitITktvVXpGUld1?=
+ =?utf-8?B?VCttRzFzY2czdFh4WWN3dXRYUGxrSDRGR3hDTjZKSWdtbHBjRDhvKzlBZGIx?=
+ =?utf-8?B?MVJEWDhCS2Nvb1lHbTRmVGNES1ZSOFV2K0hGMHFUZkYxbXVoY1NTYU1ob1Vq?=
+ =?utf-8?B?VGpvd2hGMVM3ZENYbTNHYkpDbWxmb2VRMHdwbEY0OVNTbHJPNDE2ZHhyNlpr?=
+ =?utf-8?B?Z2hOcnExV0NHN2FLWVVwWDhRRGlWQTlsWDg3b2pxSnlqVHVKNW5BdWF5VVVE?=
+ =?utf-8?B?YTN5Vk5rTHlPczNHQ0xCYmRPU0U1L0R2cVYrWGlVWXlQeEJEMnZlZFdjYVVM?=
+ =?utf-8?B?bkJHZGZvRTFhNi9EWUhuV2tUaHFlNmhDWEVnTlhVNUtsZGZJV1h4RnB6cjhH?=
+ =?utf-8?B?TStSc3IvKzM3VEVJN0ZOSXhQT2NsQk1GQVNoWUZrUTVBMXJodG1IMVFod2Yx?=
+ =?utf-8?B?RWRlTEZPbFphVGM0NUVXOXlyU1BPQUx1bnJ0a05QOUVMSTRJRzhsT1MyZGMr?=
+ =?utf-8?B?VkJ6aVNCbUlXeDJURE4xcW9hd0lZckR3dmN5TVVRQ3FnOFEvSmoyQ1FJSzcw?=
+ =?utf-8?B?dERTWkdUMXpTNVdJTy9nbEZ1N0pCWEdYay92eE1sRXBTMk84cURMSnRLbUdK?=
+ =?utf-8?B?S2ZEZVk0UVBwb0pZSjdxVS9WZ1BWN2FVUGJpYTgwb2tSUlhZZkpOeUpXTml4?=
+ =?utf-8?B?dHNLaVYxb21TdHB2OTdWSC9FSmtNR3hrMlBZaTR2NFdPa3UxV29kYUdIYjF4?=
+ =?utf-8?B?Q1JTbzEwUVpVTm8yOGZ2SnE3VjVoQlQ2bHpzUlBHWGs1MDc5TmcvNDg3dDhu?=
+ =?utf-8?B?eEJmK0JCYUtzWTRjejFWSFc3MTZnc0VTQU9vQWxqZW9Id3hKRkNPYnpCRHdB?=
+ =?utf-8?B?RWFtWGZMRENxOFpmTUpzK0VFUFRzZVRwQjNHNU1vN0JUc29HVk5sZTlJUVFY?=
+ =?utf-8?B?WkpneVlTMUY0dVVTeXlwaUdJMkt0K1VzV2xTa2NzSVhkZ1JNSTJuZ2toRnN6?=
+ =?utf-8?B?NmhiQm5CRFN5RVU3UFJ0dW15SUNLWjFUNDJkb1RPZDlmRDdyVVdzUEo0dVhj?=
+ =?utf-8?B?T1FVcTJSQVRiWHpwellGUFBCVGZienhkbEYrYngybmxRSU5Nbjh0SERveTVQ?=
+ =?utf-8?B?YzZ1TFlRRldyRlQ5NmY2c1hFclpXNmxDVFVva0U4NVNRb0wyanNLYU5hY2ZG?=
+ =?utf-8?B?aVZmZGMyRlU5L1JWUHpkK1ZPVVlCZTI4dGZ5cVgrREZyQ3Fsd3RVSXhlT0R4?=
+ =?utf-8?B?QmZidXpnTHdadVAvZ1VMc20yYUE3bEN0WFk5UmlIZ3IyQWlmK1RYck02VGM2?=
+ =?utf-8?B?ckpXOThVQVF2em9SQVhoRzh2bXRLYldUd1g0NDdqcUpsenJiY2I4V0JQVkVS?=
+ =?utf-8?B?OWhNanVwYzREamJNK1JhcHJZRUpRbmhKQ1oxN2FKNGM2aXovZ00wcjkxRHIx?=
+ =?utf-8?B?Q1VaSUd3MGYyeUZVclJRNXgvZ1NRUHdoZnBzaDJTcXh1OGg3WXJjdFVMWXVL?=
+ =?utf-8?B?bWdUZ2FnT1A2L0xFT1hDbTJXcWluOS9VWGdQMHpMR3IvbkQrZzdBNlhZWHFN?=
+ =?utf-8?B?RUQ2UXBMdkRSWC8yOGN4RUc5TSt2ak1za3dlNzFZdEswQVNuc2pQcXl3VTZv?=
+ =?utf-8?B?QlhLS3pkTWhwazdGQi91R2E1dVFYVDBQbEh4OEwrcHN3Qk1rdHJXV2hMK1ZX?=
+ =?utf-8?B?Wm5XU0hFV3NqN3BWNjVkY0JJWUdBYkVVZVl4ZXlXb0dUMktPVEdteFNyenFt?=
+ =?utf-8?B?ZEFON0IvQ2gzZUVEVnR6Rm5yNm00UTdCYzF1Qm5NemRzVWFiUmluRm9tdjVh?=
+ =?utf-8?B?eWxJcGZneVE1N0p0aEJjdEhJK2FJRjVoNUFhZWRENWVic2Z2Lzc0ZHl0Tzlo?=
+ =?utf-8?B?WVBIck5TUXJYSGtFUkwwTEpCNUllWE9kVHBONWFTRUVOcDV2YzR3OWo5RnVj?=
+ =?utf-8?B?VVhNS1FOdjJ3U1NrQVFCdlp2a29WM2hwS3dVQVBSdXRraG9xd09UVzg4ekdL?=
+ =?utf-8?B?UHR4TGtoNHZmOGs5Y3VHQ1BrRlc2ci80eTZ1MnJ3WDZGOEYzNDFidXJXdnpn?=
+ =?utf-8?B?elk4ZElpZnRHWHZaWEUrZmpHb0I1cENzVk1oUEZSRkpGRUY1Mk5MZDlwUFpM?=
+ =?utf-8?Q?PUw60wuOdxgGqqe8=3D?=
+X-OriginatorOrg: citrix.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e5621488-14b5-407a-63e0-08df45669a47
+X-MS-Exchange-CrossTenant-AuthSource: CH8PR03MB8274.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 11:25:08.7997
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QljWTFRXLpqFRTDBEbDkjF57PWOS1jfDIIv3TLJ6ToqMMJbSRrCo2fKToj2DFvvohIntyvY1FVaxAUn7g5stKZ8fhabtYAhpXff5Wg0f/1I=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR03MB7166
 
-When sending a message concurrently with it exiting, the transaction may
-fail with ESRCH if the timing is right. Since this is delivered to
-userspace as BR_FAILED_REPLY, userspace thinks that something went wrong
-with the transaction, but actually the target process just died. This
-usually leads to the sender aborting.
+On 11/13/26 12:47 PM, Lin Liu wrote:
+> The block layer applies a device's DMA segment boundary to
+> pseudo-physical addresses, but in a Xen PV domain the bus address is the
+> machine address.  A range that is contiguous in both spaces can still
+> cross the boundary in machine space and reach the device.  AHCI declares
+> a 4 GiB boundary, and controllers that do not carry across it (e.g.
+> Marvell 88SE9230) then DMA the tail of the transfer 4 GiB too low.
+> 
+> Make range_straddles_page_boundary() also reject a contiguous range that
+> crosses the device's segment boundary in bus space, so all its callers
+> cover it.  Streaming mappings are bounced; coherent allocations are
+> already naturally aligned via range_requires_alignment().
+> 
+> Signed-off-by: Lin Liu <lin.liu01@citrix.com>
+> ---
+>   drivers/xen/swiotlb-xen.c | 16 +++++++++++-----
+>   1 file changed, 11 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
+> index e2538824e..181f8cef2 100644
+> --- a/drivers/xen/swiotlb-xen.c
+> +++ b/drivers/xen/swiotlb-xen.c
+> @@ -82,10 +82,13 @@ static inline bool range_requires_alignment(phys_addr_t p, size_t size)
+>   	return IS_ALIGNED(p, algn) && !IS_ALIGNED(bus_addr, algn);
+>   }
+>   
+> -static inline int range_straddles_page_boundary(phys_addr_t p, size_t size)
+> +static inline int range_straddles_page_boundary(struct device *dev,
+> +						phys_addr_t p, size_t size)
+>   {
+>   	unsigned long next_bfn, xen_pfn = XEN_PFN_DOWN(p);
+>   	unsigned int i, nr_pages = XEN_PFN_UP(xen_offset_in_page(p) + size);
+> +	unsigned long mask;
+> +	dma_addr_t dma;
+>   
+>   	next_bfn = pfn_to_bfn(xen_pfn);
+>   
+> @@ -93,7 +96,10 @@ static inline int range_straddles_page_boundary(phys_addr_t p, size_t size)
+>   		if (pfn_to_bfn(++xen_pfn) != ++next_bfn)
+>   			return 1;
+>   
+> -	return 0;
+> +	/* Contiguous, but may cross the segment boundary in bus space */
+> +	mask = dma_get_seg_boundary(dev);
+> +	dma = xen_phys_to_dma(dev, p);
+> +	return size - 1 <= mask && ((dma ^ (dma + size - 1)) & ~mask);
+>   }
+>   
+>   static struct io_tlb_pool *xen_swiotlb_find_pool(struct device *dev,
+> @@ -158,7 +164,7 @@ xen_swiotlb_alloc_coherent(struct device *dev, size_t size,
+>   
+>   	*dma_handle = xen_phys_to_dma(dev, phys);
+>   	if (*dma_handle + size - 1 > dma_mask ||
+> -	    range_straddles_page_boundary(phys, size) ||
+> +	    range_straddles_page_boundary(dev, phys, size) ||
+>   	    range_requires_alignment(phys, size)) {
+>   		if (xen_create_contiguous_region(phys, order, fls64(dma_mask),
+>   				dma_handle) != 0)
 
-Cc: stable@vger.kernel.org
-Fixes: eafedbc7c050 ("rust_binder: add Rust Binder driver")
-Signed-off-by: Alice Ryhl <aliceryhl@google.com>
----
- drivers/android/binder/error.rs | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Is the change actually needed for alloc_coherent / free_coherent?
+The allocation from __get_free_pages() is naturally aligned and
+range_requires_alignment() requires it has the same alignment so it is
+naturally aligned in bus space. I don't think that it can cross a
+segment boundary then.
 
-diff --git a/drivers/android/binder/error.rs b/drivers/android/binder/error.rs
-index acf0aa09c555..00f1519a8d77 100644
---- a/drivers/android/binder/error.rs
-+++ b/drivers/android/binder/error.rs
-@@ -78,8 +78,12 @@ pub(crate) fn new_frozen_oneway() -> Self {
- impl From<Error> for BinderError {
-     #[track_caller]
-     fn from(source: Error) -> Self {
-+        let reply = match source {
-+            ESRCH => BR_DEAD_REPLY,
-+            _ => BR_FAILED_REPLY,
-+        };
-         Self {
--            reply: BR_FAILED_REPLY,
-+            reply,
-             source: Some(source),
-             line: ErrorLocation::caller(),
-         }
-
----
-base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
-change-id: 20261029-binder-esrch-is-dead-8109ceb9115c
-
-Best regards,
--- 
-Alice Ryhl <aliceryhl@google.com>
-
+Ross
