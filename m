@@ -1,64 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.248.207
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005595;
-	b=1kfMRpNzy74oDsjbnhRTgfwtU3Y/tdGJZmAnIWg/xIeenPvGvSaP7IyD4QCvXQdLjfpx
-	 Hhh/j70V0OmmIIOK1NBwEVeQvTxMvX94Y5FNFaHsaCwSk1LVmA8dtYkZmw1+/HgwkhbUH
-	 rL38FdBWNRnBaGapCJGy72CmqK7TUF7k9uhWjyMs4p4a3mWhK35XQOi2mA0f4f4z+k6vZ
-	 m65guocUEZCRbFFnmebQEyqNcENLDdig6xZLFQfxIgAnc+M1LvvBpOP+trffJDv44wbAY
-	 YrxreQqzUH6WhQBJG79Y0pL4Do5Yh96hT181664YMSaQORxYKRWuIy0V6syaKCsi1kg==
+	t=1795005622;
+	b=S5R6ewQcW0bP783aDtqoPwOirh4N2SECXtPFHscHUz+6DGrGm5cp4EzDRSP3/vxs3YfQ
+	 LTOpNYSzZ9JUHXt8sNvM6W4RNlhCR7c+rIMhpfUWdj78OAJotSG9AHRVzUjjykuH0yC4t
+	 eoCME3pBjWyyQBbUcDgyBJrbedlA8Z1Enw+xWwgu8CMRzZJBbHYWZJyK9gmcgIthOwfv5
+	 1Sah1vg6gFkFA74P5pMCRd3XyXFPEL0K34NbjDa8Fk0l1B8o3ErVm2VwYCd3EE3eHJQnO
+	 lH1FOXdNYjRcJryk9uKMeobVIN6trsQpYFcV/I/0VvOIrntZMmFgd52ViM5cCRt0+Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005595;
-	h=DMARC-Filter:From:X-Lima-ML-UUID:DKIM-Signature:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wJWY+H7MlcUDBSxoJT3NvYfqFR9PW6PfPjEEDgQAXpg=;
-	b=n4hei5qF/5/c1X/OJjNmurjDfQZE3l7ZXA4+/sbg6P3+VURN6TL5ZIdscDMjqvx+67/i
-	 1HbUdJgLMcHkYwNcRJ4ZybcxmeuT+cyVjNe4PABP+Xh9aDBPuz3mY7Imcy9JJ5tTZsLiQ
-	 MbaSgNZmIKvajB2g/zpByBhwtA0259opWtQ/VadKA/QAIkMaRjfwQ+2QFC7OGFxzKnWAa
-	 khHoKUzyB0qpgUVvIAXz249rePoXQx9I3SalL1lpyNXx9Sow5SG1KWgLq6wDztio+UVGD
-	 40POly16KvkjlyUQVMU0TMVrdwE7OIjb0S3ZhYJt8ZXjFYcyk5NuT+oIRSr/hRQZ6QA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005622;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=jmq7Af/sM0RcMj+9tuc6VMNoq5IrrSVjtEHnLJaumaY=;
+	b=ia0DKTdDkAGREQhlVCXxLSy6Z2/EKa3f4b+53cdkou6/3R+wRoBF0BRWpraZACn/Q09I
+	 OGyEGVfGXZmwPmITZJO1FeF5WHZJyu/0J9McqauZkuHHTpkpXSqfBAneXyI9YfAccmGaK
+	 a6+GIuLfuub/tnFNkOAKyQATYdV15hujv0NJHTv+OsOSnKHqkrfPi1N6yRKT8D8Th5Uom
+	 tjYR9MQgthj7Fmn6dbSvc17T9ORICRhS26EBIZ9Fqr/oEtPNqmgZa2+fmLSybyMHiMBVH
+	 C9ZSE+od4zRpVOe41BNJL9feSlN4GUorP4sX7a+Rj79LqySFD7pi+N93P0OtXOuqPqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=deq.rocks;
-	spf=none smtp.mailfrom=deq.rocks;
-	dkim=pass header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=VLolwM2U;
-	arc=none smtp.remote-ip=91.216.248.207
-Received: from mx5.mail-out.lima-city.de (mx5.mail-out.lima-city.de [91.216.248.207])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=p49ssens;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C24F606A320;
-	Wed, 18 Nov 2026 12:39:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C24F606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=deq.rocks
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=deq.rocks
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CBCC606A320
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:40:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CBCC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=deq.rocks header.i=@deq.rocks header.a=rsa-sha256 header.s=securedbylima-20251205 header.b=VLolwM2U
-From: Andre Eikmeyer <dev@deq.rocks>
-X-Lima-ML-UUID: 3b985f98-896a-4dd0-85c6-48ae21c131fb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=deq.rocks;
-	s=securedbylima-20251205; t=1795005591;
-	bh=RFyJsWBgMKmHUjPTsXIbWid7cPYu4guWWMY3nhzBcBw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VLolwM2UjV0+PFE5s0xcHGQQju6g6aylHEoPgLk72sD9Qt/mO+EHndnpYe0F3qvfL
-	 zt5b7b+oVxVvtPKmOOtbCsjIzcU0nhekar/CbdMmt91hwVHKMAGdQGKeNbeT3Q/+Aa
-	 tPqnU21WQfqrMex71r4uQOR95BKG1aqINOMtuIhxqQqLa+1u4vs5OCcTBhYNp8Eajs
-	 cIJnCswf5y+uLDKDOq9bqeyADYze2JtLOwcybmxSJn1wja1yGwhNGwyFjh/7z4XrXO
-	 DjM1jTpVkOluKwIL5qgi4ScdD4f7p1JEP59H49Spa1BDKT97dnwF9qs5PJgaTSdx+C
-	 3gsTC89gVclFw==
-To: arend.vanspriel@broadcom.com
-Cc: linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=p49ssens
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3ac9f49b984so518369a91.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:40:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795005621; x=1795610421; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jmq7Af/sM0RcMj+9tuc6VMNoq5IrrSVjtEHnLJaumaY=;
+        b=p49ssensfNeolb6Ih8IzXirPrigVla/RaZ6YMNBkNmOJ1WnxeYsjKRHCEk3DJ+xfri
+         NjkF/f/XmkQtpAFHNLVPyNBsFwJ0SvlYr3W9hdEy1lBDfIKbGKwg8zzxQM6ZjJmujwrn
+         UK2nk9/rHDbN+QgBxht8vdrPlmX+7MljZ+5vlp19cqr7/Z+HzV+wsfXdK4SQMND7xhHx
+         4erVtxtbbWg01ScivNolsL2hSyDo5LLUbVjV5a2RvDaIZJE8Tv5ckPXTJnQSmXIJ6L4T
+         AGPlKP2qUFcG+9ghK803ZXbC6Hkg8t0JCPaXwWY1oT6OmIacKRoVGEsyK63Iey1Nu1qm
+         uUSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795005621; x=1795610421;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jmq7Af/sM0RcMj+9tuc6VMNoq5IrrSVjtEHnLJaumaY=;
+        b=pjsbd8cDHw+gLqhmtjeyxKvb7sJdS+2RXzReTMF1LHn7NF10yjWmd4DrnvBwRAuQjE
+         RnaGRv2EVJ7Hxj2tPpjo61itmaqaSkUhW1Ddu6pOSBDug5Zj8CoUq2ZzgTmvIfr9AzZp
+         Uf0UPoLN6a0gUDCINEJn0PkhzD9KcYTBYQ9SExtWMTv1eSQcNYOj3s2xtWR3ZRQ9HlvM
+         QvKp4rb4qRh+QdGdf5vMFMf/ZOIFmQSLPaz6NqsnsEeBSom2Q8GoOV1Xdlyef2MubqxI
+         yel+B3/cIsJRCXs2lOJg9MjyBqMt8l/VfYv+5uOLgCwN8BiIunhEIawSmVMj7kGb8xpO
+         Uyng==
+X-Forwarded-Encrypted: i=1; AL+hErFRFYj8kbnQ939wLAqUfJqxbh+C4cDCaokc2mtcqSPt9pjks4RLhY0oLdAkzsRGi3/ZfSXEkoRuXGjwu78=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cHQ2s4pYfjGy2ogNYmS/+w9n0sQI7USgsxkqKysxUwAXcn927
+	024UU9rqH8FOf0nvGuJhXsTPZebRN5hQhUzubvZfg2cPeHyDLLlbnJPSzxZiXhFFznE=
+X-Gm-Gg: AZFdTZc+tCd1rmR2+rbyBSYLblZsGcpu1p+H7nthKaIdq5+qkvLem+5eNJXYeybi84X
+	+YxoiBi3adEHxrmgQ4nP2/BDQ376ht7k/AgrmVaz2PEQ+NDHtxTQ/65e5XvfklhxSQPRWEhkyuD
+	sU0aM3Ftch47eBFmOhwRVLbOovPivRLPqmI9uxJ+FYOP2wj/dbzKHnB+sH+JEcPk7da4EVOqY+w
+	QnhTkftQCwMtZmCBatGCxG6OFx/BGhdEbSPABKPTC1V7KSe7Sw9RMkDmSOENrCNNf3PKkYMgYuV
+	hbQvoS8NiP1hT+WIYwERVxH9lDvdqu3VJAEYTcnpieGyJJzOr5VZD1qh69uTLCa39j/zGZQbGIk
+	GNyqaniJpbbpVhkkOWB+ZT1uG0p5m85NwpvKtlsBX0J7ADL/h0CqscuK8nHxykfZE0Afi1mb9Nq
+	QNkCe3SEQo2qY/2jwlavHB/joVHktrsi+igRwPbrC9mAULMPX3HrwR7Cp5O8KTdDspBjYv8B+Ny
+	iQnpMlgSBFnp+bUw103RrYh/vi850absUO7u5fo5MoipLzlAWThTusdINkrpvJuSi/BrfphnNd7
+	iwM1Dhw/JW7TtVPzVXfbrf9aDmuLYRFcmwvjVZPEPoViw7eZIAYMbGVxiVPCmblX8RPNLFNp8uV
+	JUOTV/ezclWFemUHA+8SSIGwrfgKuwPTPUjOIbw==
+X-Received: by 2002:a17:90b:5848:b0:3a4:b509:88bd with SMTP id 98e67ed59e1d1-3b3d063dbcbmr1675099a91.2.1795005621132;
+        Wed, 18 Nov 2026 04:40:21 -0800 (PST)
+Received: from localhost.localdomain ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b6e18sm4257980a91.10.2026.11.18.04.40.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 04:40:20 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: gregkh@linuxfoundation.org,
+	nkapron@google.com,
+	linux-usb@vger.kernel.org
+Cc: Thinh.Nguyen@synopsys.com,
+	bigeasy@linutronix.de,
+	target-devel@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Andre Eikmeyer <dev@deq.rocks>,
-	Yossef Osman <Yossef.Osman@proton.me>,
-	Aditya Garg <aditya.garg@linux.dev>
-Subject: [PATCH wireless v2] wifi: brcmfmac: keep ARP and ND offload off on Apple BCM4355 and BCM4364
-Date: Wed, 18 Nov 2026 13:39:33 +0100
-Message-ID: <20261118123933.74517-1-dev@deq.rocks>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261104151620.70671-1-dev@deq.rocks>
-References: <20261104151620.70671-1-dev@deq.rocks>
+	benquike@gmail.com
+Subject: [PATCH v8 1/4] usb: gadget: f_tcm: queue the BOT status requests with GFP_ATOMIC
+Date: Wed, 18 Nov 2026 21:40:02 +0900
+Message-ID: <20261118124005.2428068-2-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
+References: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,107 +105,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-brcmfmac enables the firmware's ARP and IPv6 ND offload (ndoe) whenever
-the interface is up and not promiscuous. On the Apple firmware for the
-BCM4355 and BCM4364, ndoe makes downloads collapse.
+bot_send_bad_status() and bot_send_status() run from endpoint completion
+callbacks - bot_send_bad_status() via usbg_data_write_cmpl()'s cleanup
+path, and both of them via bot_read_compl() after a BOT read.  Those
+callbacks are called with interrupts disabled and must not sleep, but both
+functions queue the status or drain request with GFP_KERNEL, which can.
 
-On the BCM4364, IPv6 downloads topped out at 55 Mbit/s on a
-MacBookPro15,1 with the BCM4364/3 and on the MacBookPro16,1 with the
-later revision [1][2]. On the BCM4355 of the MacBookAir8,1, downloads
-fell to about 50 Mbit/s with the offload on and stayed at 300 to 400
-Mbit/s with it off, and the firmware logged errors several times a
-second [3]. The BCM4377 is not affected.
+Queue with GFP_ATOMIC, like the other usb_ep_queue() calls reached from the
+same callbacks (bot_enqueue_sense_code() and bot_err_compl()).
 
-macOS enables ARP and ND offload for associated sleep only and clears
-both on wake. ARP offload brings no benefit while awake, and without
-WoWL brcmfmac disconnects on suspend on these Macs, so the offloads are
-never used in sleep either. With ARP offload on, the firmware answers
-from its own host IP table, and the host does not notice when that
-table is stale. brcmfmac already turns both offloads off in promiscuous
-mode and while a soft AP runs.
-
-Keep both off on these chips when the board type is an Apple one,
-which runs the firmware the way macOS does while awake.
-
-[1] https://github.com/t2linux/kernel/issues/34
-[2] https://github.com/t2linux/T2-Debian-and-Ubuntu-Kernel/issues/227
-[3] https://github.com/t2linux/linux-t2-patches/pull/85
-
-Fixes: 52f22fb21764 ("brcmfmac: add neighbor discovery offload ip address table configuration")
+Fixes: c52661d60f63 ("usb-gadget: Initial merge of target module for UASP + BOT")
 Cc: stable@vger.kernel.org
-Closes: https://github.com/t2linux/kernel/issues/34
-Closes: https://github.com/t2linux/T2-Debian-and-Ubuntu-Kernel/issues/227
-Link: https://github.com/t2linux/linux-t2-patches/pull/85
-Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-Tested-by: Aditya Garg <aditya.garg@linux.dev>
-Co-developed-by: Aditya Garg <aditya.garg@linux.dev>
-Signed-off-by: Aditya Garg <aditya.garg@linux.dev>
-Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
+Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
 ---
-Changes in v2:
-- Restrict the quirk to Apple boards with settings->board_type
-- Add the BCM4355 of the MacBookAir8,1 (Aditya)
-- Add Fixes and Cc stable, target wireless
-- Explain why ARP offload stays off as well
-- v1: https://lore.kernel.org/all/20261104151620.70671-1-dev@deq.rocks/
+ drivers/usb/gadget/function/f_tcm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- .../broadcom/brcm80211/brcmfmac/core.c        | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
-
-diff --git a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c
-index 92ec269f43b2..00d608923380 100644
---- a/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c
-+++ b/drivers/net/wireless/broadcom/brcm80211/brcmfmac/core.c
-@@ -13,6 +13,7 @@
- #include <net/addrconf.h>
- #include <net/ieee80211_radiotap.h>
- #include <net/ipv6.h>
-+#include <brcm_hw_ids.h>
- #include <brcmu_utils.h>
- #include <brcmu_wifi.h>
- 
-@@ -93,6 +94,22 @@ struct brcmf_if *brcmf_get_ifp(struct brcmf_pub *drvr, int ifidx)
- 	return ifp;
- }
- 
-+static bool brcmf_is_apple_nd_offload_broken(struct brcmf_pub *drvr)
-+{
-+	const char *board_type = drvr->settings->board_type;
-+
-+	if (!board_type || !strstarts(board_type, "apple,"))
-+		return false;
-+
-+	switch (drvr->bus_if->chip) {
-+	case BRCM_CC_4355_CHIP_ID:
-+	case BRCM_CC_4364_CHIP_ID:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
- void brcmf_configure_arp_nd_offload(struct brcmf_if *ifp, bool enable)
- {
- 	s32 err;
-@@ -103,6 +120,16 @@ void brcmf_configure_arp_nd_offload(struct brcmf_if *ifp, bool enable)
- 		return;
+diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
+index 9e6d4f39900a27..12e2b20e33b921 100644
+--- a/drivers/usb/gadget/function/f_tcm.c
++++ b/drivers/usb/gadget/function/f_tcm.c
+@@ -139,7 +139,7 @@ static void bot_send_bad_status(struct usbg_cmd *cmd)
+ 		req->complete = bot_err_compl;
+ 		req->context = cmd;
+ 		req->buf = fu->cmd[0].buf;
+-		usb_ep_queue(ep, req, GFP_KERNEL);
++		usb_ep_queue(ep, req, GFP_ATOMIC);
+ 	} else {
+ 		bot_enqueue_sense_code(fu, cmd);
  	}
+@@ -167,7 +167,7 @@ static int bot_send_status(struct usbg_cmd *cmd, bool moved_data)
+ 		csw->Status = US_BULK_STAT_OK;
+ 		fu->bot_status.req->context = cmd;
  
-+	/* With ND offload on while awake, the Apple firmware for the BCM4355
-+	 * and BCM4364 makes IPv6 downloads drop to low rates. macOS runs ARP
-+	 * and ND offload only in sleep, keep both off on these chips.
-+	 */
-+	if (enable && brcmf_is_apple_nd_offload_broken(ifp->drvr)) {
-+		brcmf_dbg(TRACE, "Skip ARP/ND offload enable on Apple BCM%x\n",
-+			  ifp->drvr->bus_if->chip);
-+		enable = false;
-+	}
-+
- 	if (enable)
- 		mode = BRCMF_ARP_OL_AGENT | BRCMF_ARP_OL_PEER_AUTO_REPLY;
- 	else
-
-base-commit: 763b13f622e2758726e8e3ecaef819db8fa0430a
+-		ret = usb_ep_queue(fu->ep_in, fu->bot_status.req, GFP_KERNEL);
++		ret = usb_ep_queue(fu->ep_in, fu->bot_status.req, GFP_ATOMIC);
+ 		if (ret)
+ 			pr_err("%s(%d) ERR: %d\n", __func__, __LINE__, ret);
+ 	} else {
 -- 
-2.56.0
+2.43.0
 
