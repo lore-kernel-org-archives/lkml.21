@@ -1,88 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794981111;
-	b=49ejuFoh6mLp4Lmg2A/MYoaNKwoS6xp4g7tqO4uWfuJvYJXZDz6oaPItAblhXwT5kNz8
-	 vQu69NnIYiXkP07tp2ftEMpHoVkBWmIyHaj0znFPec5q2YFS2V3R6Z0eywTsBLC27vq0b
-	 PN0YTyIHBH34HVP1MLq849AkuaDJsuyFrtiQe8f9uknONfT2wcP7Zs9KQLhCSgPOlm5n/
-	 bE4A+bh5l9MCLFZ8fl0nTfTzmPcJ7IikrDXfj8xYzkY7gXp9otAKtYDo8npKQVV/4SLfp
-	 y/ZkArn07qmZIEbXecsQDGZWbEyXTZ4woSYyk8alibbv8uIVdoKwvPQOwV6vq8D1sVg==
+	t=1794981344;
+	b=a2dy/21L4GqR5ciYM2BVa2x4issoHrSb3UDWqgTwhIDfGcvrBnwb/eJgrEI2hNjRQ4Q0
+	 asVIIyOGXB5NBAY0pFFfN6LqsDv6W1fJYUzivT5Ga0taqSUkTq+nM7TIE8JCez8/w1R28
+	 t0XRoDxauxufyW5Q+4CM9wWJS+fLr3tFNNcyCUXXia8Ydx/cSknREYKNjhIg9N+K+6d7T
+	 h/EIRXPQzKlKgwvo9p+Oq4BSX/eYOyIOWU8S7OruQOe//oG2JZrRWv5AIlhbqC4i49Gde
+	 NsMVPOKMKgmbc90gMoDsmh0VqXTTRIXlZvv/oQsunTBf5/SdYRqVyg23OAcsTqqFKdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794981111;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794981344;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=K1+i37zow9fs4Cjhvsoa4TL0ORjDFPoMRJ9lYrcteHs=;
-	b=rxaG1FTY7kLE971JOajbEMsuNpCWXfl0ypYOpxQx9QXAW/BEMzukWesr5m+6AN2Q39bH
-	 mqzehtH8w8xfC41VX5UuZcbbgtDVgbt7zEwuTTv6fTV3dw8LyS5/TIptRln/aOtV6QOEN
-	 LGZgDvyC/QGbqZ1OLqFonAVJVKkiswl4xv+6AXRJuz3fd1/bbEOfb4j969rI2yh9lDdX8
-	 hSXCP6HW31yIoWG7MshKR2GWPT2rA3rdESYfTxmVUjA4Uz5QR6mJhfd2v1N7dvfPcXoBw
-	 y3nrSj3k04bm/PJBo3Z+kDoCUTIJLnalHBls+9SrAXvf94QtlU2LXupGcz4/muaE3zQ==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=JxBXNLa6ZBXlBBQrdfV9c1+1S3GpXGF9noKFfawCuGg=;
+	b=pYDeJm0+2XQvxzBl5bo4JcLKyBZ0+UGVvVnwJVBbEHK18wFYs6V6bO5Z6MvTPq0g+Gpe
+	 tfUckgpCCatEHK7D/6Tew6OSCVnYsX7PvUoMXDlQPafQ7jJxoaS0qSxm+WGluTg54whaN
+	 lxM7aYVYX4eE6+C5TOmbebUFb1HArxwk9/dvo9MDNpFNL/nBc2nX5nx1VOBkP+WOvbbTJ
+	 jnDXRG3V/jDPPDbae2K867CwaNdCkCdLRCB0B1dN6djBu0ZQh/1TDRZ2OxOTQYeyqx/bE
+	 YBMLP0d7qvQLJ97ZwQbz20Jas0gBkAJUoSPLDLGQWfETs7RpSjSYKG8bNCLZD422B8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Vd/EX1dG";
-	arc=none smtp.remote-ip=209.85.216.42
-Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xky3HLNs;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6E07606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:51:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6E07606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68D7E606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:55:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68D7E606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vd/EX1dG
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b16896b8ceso245851a91.1
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:51:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xky3HLNs
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-89a837bf00eso5448b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 21:55:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794981110; x=1795585910; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=K1+i37zow9fs4Cjhvsoa4TL0ORjDFPoMRJ9lYrcteHs=;
-        b=Vd/EX1dGfPPzGZIAFvwXwdUGOy6S5WcVDgtb5R/ElF4C5UBqrpTkw9S52UNFkBCRok
-         6DDo1HsyC0TbhfSxM7ipXDHTyXb1V2YQ7fcwMo+9VlydNw2z1F3vD4uN4wqbBUxAv+XR
-         DqlBkwWXB4KN/QuEftXr3Q5+9MdWCTFwDVNEeak0igtmvcQxqtofSO5RqMgoxVIJujTr
-         Tn4hlW7pwJg9jII7HdhlBWuLrrIMriIIk+M3H0DSuOSscb6x4JERMCbIL8bK1bkSxGEp
-         1drroGKQJH4qQQiVwGBQ4RVcsF88VwkfQUAanitLHXHYGlkkBxTpMnz8Xs4DxPsRpsMh
-         AcUQ==
+        d=gmail.com; s=20260707; t=1794981344; x=1795586144; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=JxBXNLa6ZBXlBBQrdfV9c1+1S3GpXGF9noKFfawCuGg=;
+        b=Xky3HLNsqHHmxCoRklLlvpa2BZtft+64fQQLyAbArYRCNrugBc+ka9psRhaA+YSnAJ
+         2nlLQbPNK1+S3CQevUo+xh4Q+1nbY/bpOrFh/FJJ7J9YEB+aRva+rhD3CXrJodT9qL1W
+         AK3rvCE92qPpIR+Md3CpS4ioRHLxpM8Xaii6ywwphEXWCy4DdTRPWNq0XCrQN0ZQWS/6
+         5V/5BRp1+KcmkkRwpbriaOUPoYlY543lpSgfFOANHCiwE3QDQg3dWPxljL52btn8QrtR
+         ssAeQgpxOn1WwGneynk6eexPbPo4AdQoUnE0poxPD20XVKQt/KZUA7emqYUSxDNFT99O
+         gKZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794981110; x=1795585910;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K1+i37zow9fs4Cjhvsoa4TL0ORjDFPoMRJ9lYrcteHs=;
-        b=r6y7G/fbbTLTbQBUIuDErKVpOt3lNcE8CnZWa+tabzsu6tQdESgjUSr2MC03YXrjTq
-         zi11Q2P9vmiDFDgxsqR9ZWD1CkinacKNOlbidpC0H3o7Bf9l0xJSYPiSaCoyHqCqhigz
-         8LDVWsiA2/uGOW0YiD8iiV5rjHjVM9A+OHTi2Hc/0e65inC6GZF8xlz9TLMmfbByGZl+
-         0AqhT7i1PRn+YVbvu6tvRqr7h8JWb1tVVlI3A1w5hDvF8NQ9/XXcyS8r7rDCln57oQOa
-         ZlE5kXvkxiuaAvMdcfqe+66mfiZ9SLusvWV8/ed72luXn18U8iL6rak93drhwABufPja
-         U/xw==
-X-Forwarded-Encrypted: i=1; AL+hErHp24yTs8Ti9Khckyo9TufWK53E479o/N8SFmzZo0bxC/4nXHJ4aNm5PPK2qg7Csfg6jD0CE8M2C3iNTF4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/42i9J0mnjYXJUqNU0UiU7T8CfOppj1MWjgARjgOQZ5euatW0D
-	L5otSOKe1zjpzeeqN7OOBs0JEkjPZ4UzhT2lXfMMFKBVv22nZnUeUNpSihjWGg==
-X-Gm-Gg: AZFdTZcgksZyFUBDt7VJu+7GJzjGVsjiaIoopHIGX8LbbBwLlQDu8cOW8+ZqAgAAsxK
-	Q510NMSlL2zY7J5Q83g6sy88aAyYDIuKAsGr33Gt+iwVlplZTsl1qHR3xGn/Y76Qi8ufnwdW8xQ
-	Ga/neXtbEY+YVeN8QzRORMqwq3qnO61V3+sSuH5mvm4z2+4wlZ8WQl1Pbcz+buaf3vtJAhxWG+c
-	7XEyTosMbIsOhWLF7eta8+v9pshbZ1paZtSC/oASy/JFh6QkNAGMmMs6Cae4CxfPYDNd3w5yU8Z
-	zQOIz7IbfglieDQ8IzBKqJ3ouvSJ/eISCW/6+BrwLv4owfpgUHcAv7e79KJKDiXOAEL4AgCBzfa
-	qUNIjlZjHyHH4+jKciCbLEjBaeU0+LKxKkJNkeDIkUQZJd//nHxP8oO+NgLmePm9u5ktez0g6uZ
-	WfFr4LNZwGPSMvGf9ykiibpE7F+KCudRpyLobsGQFgMCf7S73B6piKcGDG985CZvSqX+8HPD5oa
-	RzCOIEfz/HY4JPn/SurNwgr8ElTtCLFq9mcGlBpgt6DSTu5tcQr8HGynVl6LeTpQwDWSh7mAL7k
-	x7oJoudq9goKB+0he21/aZIpp+cAaKKAF3XbfdeY1gstnvw4kthWGzJn5U9K3oU=
-X-Received: by 2002:a17:90b:4b8b:b0:3ac:6fcf:81a2 with SMTP id 98e67ed59e1d1-3b3d07e377fmr1556470a91.57.1794981109874;
-        Tue, 17 Nov 2026 21:51:49 -0800 (PST)
-Received: from ?IPV6:2401:4900:1c44:97d3:280e:619:20ff:54b? ([2401:4900:1c44:97d3:280e:619:20ff:54b])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac606d8csm7704241a91.16.2026.11.17.21.51.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 21:51:49 -0800 (PST)
-Message-ID: <af1d4e40-9d2f-4a7a-bd0c-3661b07a4599@gmail.com>
-Date: Wed, 18 Nov 2026 11:21:43 +0530
+        d=1e100.net; s=20260707; t=1794981344; x=1795586144;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JxBXNLa6ZBXlBBQrdfV9c1+1S3GpXGF9noKFfawCuGg=;
+        b=fb20VL+6OECwtrRpWEjhHaJiyuXc1KyYO+puRVewzmife4QR50RTwj8FpGikRevjBV
+         BbYjWWRUKYxq6ziAYltzMUSFzTHrGpxkL0SoVWEqtrWNKMbrOjzs5vXxi+KZfWYRovge
+         HnyETrwtbHhixwY+VDMkCTPu34q4dwv1KXKEPRzdIJDdqZ6Mm1XKUyDW5Y30PjPFMxl+
+         YvTgphn0HxPva06WktpSbXmbaU228kd7zJshNjl879cNSv7vHGyb+DhZJkppNY7bscov
+         He3Tr/gtQ4HRayl6n86SUB4SBLF2jSNPCM+8KhBfZrCFbW6uwvue68hZD0zsReHiGsKa
+         JUNQ==
+X-Forwarded-Encrypted: i=1; AL+hErF1K5IgvExYXw/DgEo0gYCMMPPX1Bk42ukt+1yRDCzKn/iarX4U1MHVTLKggKrHi28JlTsQvmt9YnIuoZc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oEDdlIMcsM93ntZcr2dCH3JCLJKHGWm/XMCGuwO7M09dyOK93
+	3D4Io9qxu/QkK/kUwqaNv+WGpjtG19BRYf8ADd/iEkAYzHWnos1ixVtE
+X-Gm-Gg: AYBFou326vUmGivKYZgUMg32IR5CcVIRRjyCkEED2SiFGmjlBhUsJFHmdlBS2wuE2wE
+	bDxCt/g+NRokUoqkT1+r3TXuVrRjjbtloL/4YsLBjfv1t+/BQFnSydjT6sxmySqsQ80wAMlUYBj
+	rb1g8R0lLVbfYVPafW60blZkglDgIBGJDaWPF71AXotLP0Jnm9CemEIw9LlEpRNkCcz4gAKXFB3
+	vGmT7HUSiXVa/Sj6kGed5mg4c1fbvLK4U74yOGzZrCD1XuqUd7fqTbwMguA5cmu5IZIwb41tleP
+	EZljlFfL5zJIemora8RT/T9x4a0D8N+AE2GdBCdAp9NJjj7kzBUKwVwcdJ50dqu4tytY1IW7PCz
+	4nlHBkkptArPFIJvY16W6J2Fa5YwQgs8PyhIzqREHdJNmH2lQxw6kicK6xfyn7U0n9j5Kpj1no7
+	u0JKdQXzKlgAJGh/0VwD3MhrH434e4GnIYKlhY2ATplOF+RHSeFkTvvK9m7J2omcuzjFfEfXXRm
+	oEQ3xj7O4DTGoTnLFQQ21WtBy89S1lYU7KZPLUfAsVEFVm4dBE95T5+AkNjHuVkyxWOPH/Jnbai
+	o6LeAUw7nBeQAfXcC3pX/a0Y817tf+yNudQBxgi1fQEgcnW9wi+TyHVTwzXHFbhbyNOrsu8QnBs
+	i+ObsDBBBb+i49go9OqGY
+X-Received: by 2002:a05:6a00:754f:b0:8a0:4f14:8a4d with SMTP id d2e1a72fcca58-8c5d278952bmr2016960b3a.2.1794981343233;
+        Tue, 17 Nov 2026 21:55:43 -0800 (PST)
+Received: from [127.0.1.1] (211-23-39-77.hinet-ip.hinet.net. [211.23.39.77])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca5bf959sm569563b3a.20.2026.11.17.21.55.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 21:55:42 -0800 (PST)
+From: Jason Yang <jason98166@gmail.com>
+Subject: [PATCH v7 0/9] phy: rockchip-samsung-dcphy: Add the MIPI D-PHY
+ receiver
+Date: Wed, 18 Nov 2026 13:55:13 +0800
+Message-Id: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,204 +94,231 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] openrisc: Add KProbes
-To: Stafford Horne <shorne@gmail.com>
-Cc: jonas@southpole.se, stefan.kristiansson@saunalahti.fi, naveen@kernel.org,
- davem@davemloft.net, mhiramat@kernel.org, pjw@kernel.org,
- wangruikang@iscas.ac.cn, namcao@linutronix.de, kees@kernel.org,
- linux-openrisc@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260930202744.50489-1-sahilcdq0@gmail.com>
- <20261026201240.107462-3-sahilcdq0@gmail.com> <avAo140Wc1CerVwf@antec>
- <33becbe3-867a-4e54-8471-7f0101af8623@gmail.com> <avkOmdojYYJkeer4@antec>
-Content-Language: en-US
-From: Sahil <sahilcdq0@gmail.com>
-In-Reply-To: <avkOmdojYYJkeer4@antec>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMI9/WoC/23PQW7DIBAF0KtErEvFDBhMV71H1cV4gBipiSNcW
+ Yki370kiyamldj8kd7X5yrmWHKcxdvuKkpc8pynYw3uZSd4pOM+yhxqFqjQKocgA5/GiyxnuYD
+ 0lDqXdAwpeFHFqcSUz/e2j8+axzx/T+VyL1/gdv2/pz4lTeJes2Im9u/7A+WvV54O4taz4LO1W
+ 4vVcvLM2pABpNbqh+1Bba2uljBgx+gpJG6tebLtZlNtAued1Qa1Dq3tfi0oaDZ31UarB+MjDRH
+ /WPuw0G621Qbbw0CoBm03/13X9QciCVk20gEAAA==
+X-Change-ID: 20260721-dcphy-rx-v1-9af57f3edfd9
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Guochun Huang <hero.huang@rock-chips.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Michael Riesch <michael.riesch@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Jason Yang <jason98166@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Quentin Schulz <quentin.schulz@cherry.de>, Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794981338; l=9675;
+ i=jason98166@gmail.com; s=20260721; h=from:subject:message-id;
+ bh=4jldtoqotv+0+iVOKby65SdrP0m8eLnQDSL8YhS7iS4=;
+ b=dEmFplU2MroJIYLQWmJxnycUVLog0BQBHxuTTx87Q/u7Epn/a78HxJKxVydC3sIB3gGwIZC0+
+ G75qhyoh0XiCpKadq5GSPpI4odVILMOHjBbfXUN1f2mLz3E/4WVhU06
+X-Developer-Key: i=jason98166@gmail.com; a=ed25519;
+ pk=xQmD001Q/ooHl39PxyQtusbUQmgbOsSfpFryRVWZ/k4=
 
-On 11/15/26 7:14 AM, Stafford Horne wrote:
-> On Fri, Nov 13, 2026 at 10:43:55PM +0530, Sahil wrote:
->> On 11/8/26 1:16 PM, Stafford Horne wrote:
->>> On Tue, Oct 27, 2026 at 01:42:38AM +0530, Sahil Siddiq wrote:
->>>> Add KProbes support for OpenRISC. This work is primarily based
->>>> on similar work done for LoongArch, MIPS and RISC-V.
-> 
-> [snip]
-> 
->>>> +++ b/arch/openrisc/include/asm/kprobes.h
-> 
-> [snip]
-> 
->>>> +#define flush_insn_slot(p)		do { } while (0)
->>>
->>> On openrisc I think we need to implement flush_insn_slot.  As our
->>> copy's only affect data caches instruction caches may end up being
->>> stale.  This is really hard to detect as context switches invalidate
->>> a lot of the instruction cache lines, but not all.
->>>
->>> I fixed this for text patching recently with commit aca063c90245
->>> ("openrisc: Fix jump_label smp syncing")
->>
->> Understood. In the same commit [1], you have also mentioned that
->> invalidating all the cache lines is less expensive than keeping
->> track of which line needs to be invalidated.
->>
->> In case of KProbes, where a KProbe at a specific instruction is
->> armed or disarmed:
->>
->> void arch_arm_kprobe(struct kprobe *p) {
->>      patch_insn_write(p->addr, KPROBE_BP_INSN);
->>      flush_insn_slot(p);
->> }
->>
->> void arch_disarm_kprobe(struct kprobe *p) {
->>      patch_insn_write(p->addr, p->opcode);
->>      flush_insn_slot(p);
->> }
->>
->> Should only that page be invalidated? Or is it ok to invalidate all
->> lines?
-> 
-> I think you only need to flush the part of the kprobe data structure that has
-> code that is updated, for example p->addr.  Since you have all of that
-> information tracked for you in the kprobe structures it should be pretty simple.
-> That was not the case for text patching.
-> 
-> Note, I had a look this is needed for init_aggr_kprobe() which copies code from
-> one prope to another.
-> 
-> Note 2, for arch_arm_kprobe/arch_disarm_kprobe we use patch_insn_write which
-> internally does a icache invalidation alredy.  So I think the call to
-> flush_insn_slot() in arch_disarm_kprobe()/arch_arm_kprobe() is not needed.
-> 
+The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
+for DSI and a receiver for CSI-2. Both can be used at the same time.
 
-Got it, thank you for the clarification.
+Mainline only supports the transmitter and models the block as a single
+struct phy. The PHY core refcounts power_on() per struct phy, so the
+receiver cannot be powered independently of it, and the single
+devicetree cell selects the mode, so the provider cannot tell which of
+the two a consumer refers to.
 
->>>> +#define kretprobe_blacklist_size	0
->>>> +
->>>> +void arch_remove_kprobe(struct kprobe *p);
->>>> +int kprobe_fault_handler(struct pt_regs *regs, int trapnr);
->>>> +bool kprobe_breakpoint_handler(struct pt_regs *regs);
->>>> +bool kprobe_singlestep_handler(struct pt_regs *regs);
->>>> +#else /* !CONFIG_KPROBES */
->>>> +static inline bool kprobe_breakpoint_handler(struct pt_regs *regs)
->>>> +{
->>>> +	return false;
->>>> +}
->>>> +
->>>> +static inline bool kprobe_singlestep_handler(struct pt_regs *regs)
->>>> +{
->>>> +	return false;
->>>> +}
->>>> +#endif /* CONFIG_KPROBES */
->>>> +#endif /* __ASM_OPENRISC_KPROBES_H */
->>>> diff --git a/arch/openrisc/kernel/Makefile b/arch/openrisc/kernel/Makefile
->>>> index 150779fbf010..2ac824867963 100644
->>>> --- a/arch/openrisc/kernel/Makefile
->>>> +++ b/arch/openrisc/kernel/Makefile
->>>> @@ -14,6 +14,7 @@ obj-$(CONFIG_SMP)		+= smp.o sync-timer.o
->>>>    obj-$(CONFIG_STACKTRACE)	+= stacktrace.o
->>>>    obj-$(CONFIG_MODULES)		+= module.o
->>>>    obj-$(CONFIG_OF)		+= prom.o
->>>> +obj-$(CONFIG_KPROBES)		+= kprobes.o
->>>>    obj-y	+= patching.o
->>>>    clean:
->>>> diff --git a/arch/openrisc/kernel/entry.S b/arch/openrisc/kernel/entry.S
->>>> index c7e90b09645e..cd28bf1f7a3b 100644
->>>> --- a/arch/openrisc/kernel/entry.S
->>>> +++ b/arch/openrisc/kernel/entry.S
->>>> @@ -15,6 +15,7 @@
->>>>    #include <linux/linkage.h>
->>>>    #include <linux/pgtable.h>
->>>> +#include <asm/asm.h>
->>>>    #include <asm/processor.h>
->>>>    #include <asm/unistd.h>
->>>>    #include <asm/thread_info.h>
->>>> @@ -640,6 +641,7 @@ ENTRY(_sys_call_handler)
->>>>    	/* r30 is the only register we clobber in the fast path */
->>>>    	/* r30 already saved */
->>>>    /*	l.sw    PT_GPR30(r1),r30 */
->>>> +_ASM_NOKPROBE(_sys_call_handler)
->>>
->>> How is this working for these not function symbols?  _ASM_NOKPROBE registers a
->>> sybmol (in this case just a macro address) into the _kprobe_blacklist.  I think
->>> withing kprobe.c it uses these _kprobe_blacklist entries to detect ranges that
->>> cannot be probed.  However, in this case I think you are not able to get range
->>> information.
->>
->> _ASM_NOKPROBE and NOKPROBE_SYMBOL (for functions in C) expand to the
->> same thing functionally. The kernel treats these labels as symbols as
->> well. I verified this using "nm".
->>
->> When a KProbe is registered using an address instead of the symbol_name,
->> "register_kprobe()" [2] at kernel/kprobes.c indirectly calls
->> "within_kprobe_blacklist()" [3] which performs "kprobe_lookup_name()".
->> It then checks if that name is in the blacklist. This blacklist
->> includes the names of the asm functions as well.
->>
->> I wrote this test module [4] to verify that an address in memcpy's range,
->> for example, is also blacklisted.
-> 
-> Right, I think for C functions this is fine.  But for OpenRISC assembly I think
-> we do not provide enough info for this to work correctly.
-> 
-> For example above _sys_call_handler, is just a label.
-> 
-> In other architectures they do something like this:
-> 
->      SYM_CODE_START(handle_syscall)
-> 	    UNWIND_HINT_UNDEFINED
-> 	    csrrd           t0, PERCPU_BASE_KS
-> ...
-> 	    bl              do_syscall
-> 
-> 	    STACKLEAK_ERASE
-> 	    RESTORE_ALL_AND_RET
->      SYM_CODE_END(handle_syscall)
->      _ASM_NOKPROBE(handle_syscall)
-> 
-> The SYM_CODE_START/SYM_CODE_END macros or similar are not used in OpenRISC, I
-> think we need something to define the beginning and end of our asm macros
-> in order for this to work.
+This series registers a struct phy for the PHY transmitter and one for
+the PHY receiver, and implements the D-PHY receiver. As suggested in
+the v5 review, the single cell of the binding now selects the PHY
+transmitter or the PHY receiver. The cell values are the new generic
+PHY_DIRECTION_TX and PHY_DIRECTION_RX constants. The PHY transmitter
+and the PHY receiver cannot run in different modes. A phy-type property
+of the PHY node therefore sets the mode of the whole block, D-PHY by
+default.
 
-Sorry, I am still not very clear here. My understanding from the implementation
-of kprobe_lookup_name [1] is that the kernel determines which function's/symbol's
-range an address belongs to by fetching the symbol that appears before and after
-this address in its sequence of symbols (kallsyms_seqs_of_names [2]). Since the
-kernel is treating the labels of asm functions also as symbols, it already has
-the symbol's offset.
+  1/9  adds PHY_DIRECTION_TX and PHY_DIRECTION_RX to the generic header
+  2/9  changes the single cell of the rockchip,rk3588-mipi-dcphy binding
+       to select PHY_DIRECTION_TX or PHY_DIRECTION_RX, adds phy-type for
+       the mode of the whole block, and keeps PHY_TYPE_DPHY and
+       PHY_TYPE_CPHY as deprecated values
+  3/9  unwinds the PHY transmitter power-on when the PLL fails to lock
+  4/9  always writes the rate-dependent registers of the PHY transmitter
+  5/9  moves the block-level setup (APB reset, BIAS) to runtime resume
+  6/9  names the transmitter helpers and ops (no functional change)
+  7/9  takes the PHY mode from phy-type and the PHY from the cell, and
+       keeps the deprecated cell values on the PHY transmitter
+  8/9  registers the receiver's struct phy, takes PHY_DIRECTION_RX in
+       of_xlate() and implements the D-PHY receiver bring-up
+  9/9  adds the MIPI CSI-2 receiver nodes on RK3588 and connects them
+       to VICAP
 
-In OpenRISC, some symbols like _sys_call_handler are wrapped in ENTRY() which is
-identical to SYM_FUNC_START() [3], while other labels don't have this wrapper.
-Labels without the wrapper are being treated as local symbols while those with
-ENTRY() are being treated as global symbols.
+9/9 has to wait for 1/9 to 8/9. It uses PHY_DIRECTION_RX from 1/9,
+and the csi nodes need a PHY driver with receiver support.
 
-I agree that none of the non-C functions are suffixed with SYM_*_END() which is
-where the symbol's size/range is being set [4]. But I don't think this is required
-when the kernel performs a lookup on the address to get the corresponding symbol.
-Please let me know what your thoughts are.
+Compatibility
+=============
 
-> 
-> -Stafford
-> 
-> [snip]
->   
->> Thanks,
->> Sahil
->>
->> [1] https://github.com/torvalds/linux/commit/1be031de802ba486a7605b52eda825f128b026e2
->> [2] https://github.com/torvalds/linux/blob/master/kernel/kprobes.c#L2002
->> [3] https://github.com/torvalds/linux/blob/master/kernel/kprobes.c#L1730
->> [4] https://github.com/valdaarhun/or-dev/blob/main/home/kprobes_blacklist.c
->>
+In 2/9 and 7/9, the old cell values PHY_TYPE_DPHY and PHY_TYPE_CPHY
+remain valid as deprecated values. They select the PHY transmitter, so
+existing DTs keep working on a newer kernel.
 
-Thanks,
-Sahil
+New DTs following 1/9 and 2/9 are an ABI break on an older kernel. The
+older kernel ignores phy-type and takes any cell value as the mode of
+the block. A DSI node with PHY_DIRECTION_TX therefore gets no display,
+and a CSI-2 node with PHY_DIRECTION_RX gets no camera.
 
-[1] https://elixir.bootlin.com/linux/v7.3.1/source/kernel/kallsyms.c#L170-L224
-[2] https://elixir.bootlin.com/linux/v7.3.1/source/kernel/kallsyms.c#L160
-[3] https://elixir.bootlin.com/linux/v7.3.1/source/include/linux/linkage.h#L122
-[4] https://elixir.bootlin.com/linux/v7.3.1/source/include/linux/linkage.h#L165
+In 9/9, the dsi nodes keep PHY_TYPE_DPHY, which older and newer kernels
+both accept. With the csi nodes disabled, the display therefore keeps
+working on either kernel.
+
+The csi nodes in 9/9 have no older value to keep and have to use
+PHY_DIRECTION_RX. Enabling csi0 or csi1 therefore needs a PHY driver
+with receiver support. Since v7.0, a CSI-2 host driver probes the csi
+nodes. An older PHY driver then gives the CSI-2 host the PHY transmitter
+that drives the display. The camera gets no frames, and the display can
+stop working as well.
+
+Testing
+=======
+
+Tested on an RK3588 board, with a DSI panel and an IMX219 camera on
+DCPHY0, and an LVDS panel behind a DSI-to-LVDS bridge on DCPHY1.
+
+  - The PHY transmitter and the PHY receiver run at the same time: with
+    8/9 and 9/9, both panels light from boot, and the camera stream is
+    shown live on the DCPHY0 panel.
+  - The two can be powered independently: the DCPHY0 panel is turned
+    off and back on during a 1200-frame capture, and the capture
+    completes.
+  - The PHY receiver does not need the PHY transmitter: with dsi0
+    disabled, the camera alone brings the block up and streams, which
+    relies on 5/9 moving the block-level setup to runtime resume.
+  - Existing device trees keep working: with a single PHY_TYPE_DPHY
+    cell in dsi0 as before this series, the DCPHY0 panel lights.
+  - The DT of 9/9 keeps the display working on an older kernel: with
+    the csi nodes disabled and without this series, both panels light.
+  - The new cell works for the PHY transmitter: with PHY_DIRECTION_TX
+    in dsi0, with and without phy-type = <PHY_TYPE_DPHY>, the DCPHY0
+    panel lights.
+
+No WARNING, underflow, "Internal error" or Oops in dmesg in any of
+these.
+
+Not covered: the receiver of DCPHY1 (tested by Quentin Schulz on v6),
+the 3- and 4-lane receiver paths, and RK3576. 3/9 and 4/9 fix states
+found by reading the code. Those states were not reproduced on
+hardware.
+
+This series was prepared with Claude through Claude Code:
+
+  - It checked the driver against the vendor driver and the TRM.
+  - It drafted the code. I reviewed and reworked it before committing it
+    to my tree.
+  - It checked the wording and spelling of the commit messages and this
+    cover letter.
+  - After I ran the basic pipeline tests, it generated more test cases
+    and ran them on my board.
+
+---
+Changes in v7:
+- Collect the Reviewed-by and Tested-by tags. Keep them on 6/9 and 8/9,
+  as the changes there only rename and move fields as Michael suggested.
+- 6/9: also give the PLL helpers the tx_ prefix, and move the master
+  reset and the PLL state, which only the transmitter uses, into
+  struct samsung_mipi_phy. (Michael)
+- 8/9: put the receiver-only and the transmitter-only fields of struct
+  samsung_mipi_phy in a union, and move the slave reset there as well.
+  (Michael)
+- 8/9: use a single space before = in the receiver's phy_ops. (Michael)
+- 9/9: restrict the commit message to what the patch does and how it
+  affects an older kernel. (Michael)
+- Thanks to Quentin Schulz for testing v6 and for pointing out that the
+  U-Boot SPLL fix is merged.
+- Test with mainline U-Boot v2027.01-rc2 and drop the note about the
+  SPLL fix.
+- Link to v6: https://patch.msgid.link/20261110-dcphy-rx-v1-v6-0-d681ba20b36a@gmail.com
+
+Changes in v6:
+- Rebase onto phy/next (v7.4-rc1).
+- Collect the Reviewed-by tags on 1/9 and 6/9.
+- 2/9: move the mode from the first cell to a phy-type property.
+  (Michael, Heiko, Rob)
+- New 3/9: power_on relied on the APB reset, which 5/9 moves to
+  runtime resume, to clean up after a PLL lock failure. (Sashiko)
+- New 4/9: power_on also relied on that reset to clear the
+  rate-dependent registers, found while checking power_on for 3/9.
+- 5/9: keep BIAS_CON4 with the other BIAS writes. (Michael)
+- New 7/9: support the new phy-type and direction binding of 2/9.
+- 8/9: merge v5's 5/8 and 6/8. (Michael)
+- 8/9: trim the comments and name the magic numbers.
+- Drop v5's 7/8: the dsi nodes keep PHY_TYPE_DPHY. (Michael, Krzysztof)
+- 9/9: use a single PHY_DIRECTION_RX cell in the csi nodes.
+- Describe the ABI break of new DTs in 2/9, 9/9 and the cover letter.
+  (Rob, Krzysztof)
+- Drop the Assisted-by tags.
+- Link to v5: https://patch.msgid.link/20261016-dcphy-rx-v1-v5-0-e63b49eabe2d@gmail.com
+
+Changes in v5:
+- Rebase onto phy/next. The runtime PM fix this series applied on top
+  of is now commit 261e84f9278f ("phy: rockchip-samsung-dcphy: Enable
+  runtime PM at PHY core level"), so it is no longer carried here.
+- 1/8: use PHY_DIRECTION_TX and PHY_DIRECTION_RX instead of
+  PHY_TYPE_DSI and PHY_TYPE_CSI. (Michael)
+- 2/8: use PHY_DIRECTION_* for the second cell and rewrite the
+  description.
+- Drop v4's 5/7: it has no benefit over the switch, and it moved a
+  DC-PHY shared function into a D-PHY helper. (Michael)
+- 5/8: rename protocol to direction in of_xlate() to follow 1/8.
+- 6/8: use a switch in the receiver's power_on() and power_off(), as
+  the transmitter does.
+- New patches 7/8 and 8/8: switch the RK3588 DC-PHYs to two cells and
+  add the MIPI CSI-2 receiver nodes.
+- Link to v4: https://lore.kernel.org/r/20260821-dcphy-rx-v1-v4-0-f1797634233d@gmail.com
+
+Changes in v4:
+- Put the second cell back: the first cell selects the mode, the
+  second the transmitter or the receiver.
+- Drop the private use count and mutex; the runtime PM usage count
+  does the same job.
+- New patch 3/7: move the block-level setup to runtime resume.
+- Split v3's 3/5 into 4/7 and 5/7.
+- of_xlate() rejects a mix of D-PHY and C-PHY consumers.
+- The runtime PM probe-order fix is now a separate patch [1] that this
+  series applies on top of.
+- Bryan O'Donoghue's Reviewed-by from v2 is not carried over; that
+  patch was rewritten.
+- Link to v3: https://lore.kernel.org/r/20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com
+
+---
+Jason Yang (9):
+      dt-bindings: phy: Add PHY_DIRECTION_TX/RX definitions
+      dt-bindings: phy: rockchip,rk3588-mipi-dcphy: Select TX or RX, add phy-type
+      phy: rockchip-samsung-dcphy: Unwind power-on on PLL lock failure
+      phy: rockchip-samsung-dcphy: Always write the rate-dependent registers
+      phy: rockchip-samsung-dcphy: Move block-level setup to runtime resume
+      phy: rockchip-samsung-dcphy: Name the transmitter helpers and ops
+      phy: rockchip-samsung-dcphy: Support the new phy-type and direction binding
+      phy: rockchip-samsung-dcphy: Add MIPI D-PHY receiver support
+      arm64: dts: rockchip: add the dcphy mipi csi-2 receiver nodes to rk3588
+
+ .../bindings/phy/rockchip,rk3588-mipi-dcphy.yaml   |  18 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  68 +++
+ drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c  | 659 +++++++++++++++++----
+ include/dt-bindings/phy/phy.h                      |   3 +
+ 4 files changed, 634 insertions(+), 114 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260721-dcphy-rx-v1-9af57f3edfd9
+
+Best regards,
+--  
+Jason Yang <jason98166@gmail.com>
 
