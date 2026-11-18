@@ -1,45 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017638;
-	b=YLFQoQdDnfKgzbGWMBC5WAMc32mMJUtKigRbTj9OalUjRKNTJ5VUOTpodJqZNE5S27eX
-	 GBDfEgod2iHuNM8euXgSgGa6bKTAcGDP25ueSDTyTFY54FDpBtXOEOTQlgswDHlMLeGOS
-	 o23mYba0SHV7dzefwh1uGxxcmXupboME1haUUuaTVaMl+g/i/Neejc6GrK1Zmtb+3p7CO
-	 5+adcs/LJ7dHXX4VJAGqhLERho3qnAlCf2gr2rGRwPbBOm3LY6Fwa20MacY/QIco8ASN5
-	 cYs+lQ3KrMn1EootVTruJ8gpHQlQzaT5NA8bGaSTRSwcvVAEMIEQzN+5551hj/mf9nw==
+	t=1795017646;
+	b=f+RQAbTfHhX2LONtEPpjW+xBjF0sAa6u2Lof7KNTaiKtRHljUBGNyoY1bJH/8+lIzdpF
+	 iEM1FYd6N1jfC82VIU+VXRp4PfvZprl6ljNOK2ZbcmVTVAF/sJ+bzxHx4R0HMCC+rVuMY
+	 qCmfLfpHzU1MT5FsCXk4v3g2nT6k8Rih/vjjOm/WUrW7YqGz3HiTkwqvbO/7CWlDgX/le
+	 9290gHpUYOA+fnla+WHwvAfM5Q6Ql2Jv+IrU2n72wfwjExvO8PDC8EomaFgs4pHomozA3
+	 zDeVKhAm875hmX9yDspN93r4/FzVWf0Gq7zR9FVVOMomuBkSFjcV+mLugFgcTqS33NA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017638;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=cSzRCJe203nG3DjmKreWNmifbqQ6eZroTgaCVpedgq8=;
-	b=wsug/zJTNDxUwXHiQiTiIGC0D1A7cIeo3yPL5aSnTb/fYkAoFKnEVBWhubr787RiQB9m
-	 RTxHj6ivko7SpS0eGE1Gyopi7nllkoVfWEVzIFLbTvG7SAzGT6F8MQbm8/NC8PXhKIvDc
-	 8zV3rMZJLESJ166HV7D5lVJbnP77ULOh1uGLdjhg04KzP0ZCTOJNNrLDFUsfzdU9E5FDM
-	 VNK62Xgd6Y9C01uGNR/R5YLafEeMc2UuIKMExrVU4zccU06969Vlfk72H5VJ4+fJrEK3j
-	 lNF8CQj+Qpl679N33XET+RwCb6DFtXfGDN7C+gfDty+U8Em7q1eK7dOzvGszHnXOFqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017646;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/eUnpfGijmmacs6gMeFB9nlJBGT8B/OrjwsgWkYiIPM=;
+	b=Z3IElu5Wio0+3LNzNP/TxGQXTuIGyYtF34dA3NA2skXqqby1V2UGNZlPdOZPNa2ZL+1k
+	 wTK/OV404zFXB1gKXzdXrU0ziDz3Pnq836wb8yJVTc+8nRhpUA8YTtzcSJsE/nJx1I8vW
+	 Mz36GdlXvvhWNvCz3/oJ+g31pWUT2RvvnIZ8mliETIg88iUVnMxqTkrUsoEzKBmhqLGvz
+	 fqekNEmS+B9T9RP9XHOKCi5rvF6E5av5RHTTxuIvgm6mp9gyVGSOd60RXBPifd3Vv6OGJ
+	 5Zxp4g7h+KKuCeI++HUhmS1G2GeRSA3lBtVPfTjRmu2uNLAk8jdzWXZFSXogQJKfzqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIQpdHT4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jNLmMzj+;
+	arc=none smtp.remote-ip=95.215.58.47
+Received: from mta1.migadu.com (out-47.mta1.migadu.com [95.215.58.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82613606A325;
-	Wed, 18 Nov 2026 16:00:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA4DA606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:00:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA4DA606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIQpdHT4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B931F000CE;
-	Wed, 18 Nov 2026 16:00:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795017638;
-	bh=cSzRCJe203nG3DjmKreWNmifbqQ6eZroTgaCVpedgq8=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=AIQpdHT4afUI2Yr6DBMBJ538B2Jh9xZElqzRV/cOj/VYB8cAtgJzCBK7UrCXioIsF
-	 H47ULU079HX6F41g/CHSqfaIv7Bwuj32R85uJLGeEV2/13wNkoZNMCkVR/AKLPKXyz
-	 wuq1IvVsdSV/QSKDgDvQxyV6Uk1SzF5k517NUksbxr27HYvIa6x8dMOaVBJSbYh3dI
-	 Tc96qzyeszI7j6l/SY/2msWk+N0GWdRfzByWS63Jscgh4selyjVN8xNHBFct5iF+6v
-	 u2tgJXx/Kap7Zt2vMuriPDYSmo9gZE/H+2RNaNXsFOLfRe6DUi4n0LLU0WtO6p7MUn
-	 ZEEdKptvA1njQ==
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jNLmMzj+
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=7VeXSmZ3/hUkdPciRRL585AMCPSZFly0ImGRWGDZsag=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795017643; v=1; x=1795622443;
+ b=jNLmMzj+LWIEyTsXHqJY/sFju3iEkY8eNZmswrqQ3+o/tdhuTanGZGPjBS4QVzEZXnvxe3Df
+ RoQOr0nkcaYMWOCm0tx5xvTulEQxI5GZ+48JZAbb9rV+/J5/Lc/xQxTygPoy3afAp/NqKnNbduI
+ yXQPYPgbl+mh+y+IDKYYOqxw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a1dd53c957c54ffa;
+	Wed, 18 Nov 2026 16:00:43 +0000
+X-Mizu-Trace-ID: a1dd53c957c54ffa
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 16:00:43 +0000
+From: Bradley Morgan <bradley.morgan@linux.dev>
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, rafael@kernel.org,
+ tglx@linutronix.de
+CC: Andrew Morton <akpm@linux-foundation.org>,
+ Peter Ziljstra <peterz@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Thomas Gleixner <tglx@kernel.org>, linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_1/2=5D_smpboot=3A_Allow_res?=
+ =?US-ASCII?Q?tricting_per-CPU_threads_to_a_CPU_mask?=
+In-Reply-To: <7a1e55d24c39d70caa157e6e2c823d9be5db07e7.1794992905.git.daniel.lezcano@oss.qualcomm.com>
+References: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com> <7a1e55d24c39d70caa157e6e2c823d9be5db07e7.1794992905.git.daniel.lezcano@oss.qualcomm.com>
+Message-ID: <0453960B-FF17-4E49-8672-FC0FDA3EF5DE@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,83 +69,200 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 3/3] media: iris: Use firmware reported count for
- output buffers
-From: bod@kernel.org
-To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-Cc: Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
- Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Vedang Nagar <quic_vnagar@quicinc.com>, Hans Verkuil <hverkuil@kernel.org>, 
- Stefan Schmidt <stefan.schmidt@linaro.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, 
- Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>, 
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- stable@vger.kernel.org
-In-Reply-To: <20261031-fix_dec_seek-v1-3-cfedf0c267ee@oss.qualcomm.com>
-References: <20261031-fix_dec_seek-v1-0-cfedf0c267ee@oss.qualcomm.com>
- <20261031-fix_dec_seek-v1-3-cfedf0c267ee@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 16:00:32 +0000
-Message-Id: <179501763210.2846709.2834027862962422789.b4-reply@b4>
-X-Mailer: b4 0.17-dev-e3fc9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1806; i=bod@kernel.org;
- h=from:subject:message-id; bh=/AP0CoAgLohhW5HLCcUNA+EpSWZFnT0y2EdkIXNbETE=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/cugn7uvdcNTuOfP9Xbb1suR9FMivnTjAW0KV
- QwoeoYaKgSJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav3LoAAKCRAicTuzoY3I
- OpV2EACQ/TsC5dkjOhP0DBcih24tqd5YR4mkMNv2fqwOCG2fzstzwL3xRzS8zguIjtMrDbrhYOo
- ASQxvbyQUl0lrgpefu4w49HWLJe3on1oScY3IE4wSo0Gm90JVfB+EL1uCYSiSgZES/b6jOhulsc
- TnmFfq9OG/UAF6M1Dp78Olg9AdAxwQgfBwutI2C8XSf53BTG/ah/jpFQHDdz/IgsXWScaggYQHI
- dfHugOSWWUUkI8vahNzNw1NzOA5yGzUGZ8x0iTeKP3vj+8ozDkKOBd56ZAreZ7n/Yq95O0+sDtz
- JymFLEArHN5WJR1uA7CJu9GIzBytDWs1YyB9ECicSaWH4+HdfiwxnDVXK92tIUP+cvxu79dl7vB
- 3CqIaat2NH/aXk/3iDMI59ZORZGhKs2uyAjm1kI28niCxaI57QUrPKKRnBXZjuNvJns3D2tJeRN
- q5ldR1+C/y3huHapXc/7zy6/TlSZYg5quu511C7Ofyk9ZZOHlv0nQvC1SAM1DN4Eyp/CE9K14Kb
- FBK8BU1t9biOsj6MOCopt8kax2kouw55EEX7kXfURj8qywRnubbOdcgEgwf3aLqWMYGeCmIhcE0
- 8R3npHC9p254L7f3ouIOBMzx5v/TyDVUh217J9zJf8lsWAr+9sCN1AVpn8rTDV69Ii3jIDZ45Wn
- ltM/Y5fxOt7Jmng==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 2026-10-31 01:49 +0530, Vishnu Reddy wrote:
-> Once the firmware reports its minimum output buffer count, the driver
-> still caps it to 4 for VP9 and AV1 when split mode is enabled. After a
-> seek, the output buffer count can be lower than the minimum required by
-> the firmware for VP9 streams. This causes the firmware to report
-> insufficient output buffers and the seek operation can fail.
-> 
-> Use the firmware reported minimum count as is. The driver calculated
-> count is only used until the firmware reports its own requirement.
-> 
-> Fixes: e1f5d32608ec ("media: iris: Add internal buffer calculation for HEVC and VP9 decoders")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-> ---
->  drivers/media/platform/qcom/iris/iris_vpu_buffer.c | 10 ++--------
->  1 file changed, 2 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/media/platform/qcom/iris/iris_vpu_buffer.c b/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
-> index a8170e5fa9e6..57467c952f42 100644
-> --- a/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
-> +++ b/drivers/media/platform/qcom/iris/iris_vpu_buffer.c
-> @@ -2375,14 +2375,8 @@ static int output_min_count(struct iris_inst *inst)
->  	int output_min_count = 4;
->  
->  	/* fw_min_count > 0 indicates reconfig event has already arrived */
-> -	if (inst->fw_min_count) {
-> -		if (iris_split_mode_enabled(inst) &&
-> -		    (inst->codec == V4L2_PIX_FMT_VP9 ||
-> -		     inst->codec == V4L2_PIX_FMT_AV1))
-> -			return min_t(u32, 4, inst->fw_min_count);
-> -		else
-> -			return inst->fw_min_count;
-> -	}
+On 18 November 2026 10:33:48 GMT, Daniel Lezcano
+<daniel.lezcano@oss.qualcomm.com> wrote:
+>smpboot_register_percpu_thread() creates a thread for every online CPU
+>and registers the descriptor for subsequent CPU hotplug operations.
+>There is currently no way to restrict these threads to a subset of
+>CPUs, even when the user only needs work performed on that subset.
+>
+>For example, an idle injection device targets a specific CPU mask.
+>Creating threads outside that mask consumes resources unnecessarily.
+>Supporting multiple such devices also requires each descriptor to
+>manage only the threads associated with its own CPUs.
+>
+>Add an optional CPU mask to struct smp_hotplug_thread and apply it
+>throughout the thread lifecycle. Registration creates threads only for
+>online CPUs in the mask. CPU bring-up creates threads for selected
+>CPUs that were offline at registration, while parking and unparking
+>are restricted to the same mask.
+>
+>Apply the restriction to thread destruction as well, both during
+>unregistration and registration failure cleanup. This is necessary
+>when descriptors with disjoint masks share the same per-CPU task
+>storage: tearing down one descriptor must not stop or clear threads
+>owned by another descriptor.
+>
+>Reject registrations that share task storage with an existing
+>descriptor and have overlapping CPU masks. Check for overlaps under
+>smpboot_threads_lock before creating any threads, warn once and return
+>-EBUSY on a conflict. Checking the masks also covers offline CPUs,
+>whose task pointers may not yet be populated. This prevents descriptors
+>from sharing a thread and interfering with each other's teardown.
+>
+>Default a NULL mask to cpu_possible_mask at registration, preserving
+>the existing all-CPU behavior and allowing the lifecycle helpers to
+>use the mask unconditionally. Use scoped guards for the registration
+>locks so all error returns release them in the correct order.
+>
+>The caller must keep the mask valid and unchanged until the descriptor
+>is unregistered. smpboot serializes the overlap check and descriptor
+>registration against other registration and unregistration operations.
 
-Quite a few questions here. Why is the minimum count currently set to four
-? Why do we use a hard-coded value of four more than once, why not define a
-different minimum count ?
----
-bod
+Cheers,
 
+Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
+
+>
+>Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+>---
+> include/linux/smpboot.h |  6 ++++++
+> kernel/smpboot.c        | 45 ++++++++++++++++++++++++++++++++---------
+> 2 files changed, 41 insertions(+), 10 deletions(-)
+>
+>diff --git a/include/linux/smpboot.h b/include/linux/smpboot.h
+>index 9d1bc65d226c..57b945d51b19 100644
+>--- a/include/linux/smpboot.h
+>+++ b/include/linux/smpboot.h
+>@@ -5,6 +5,7 @@
+> #include <linux/types.h>
+> 
+> struct task_struct;
+>+struct cpumask;
+> /* Cookie handed to the thread_fn*/
+> struct smpboot_thread_data;
+> 
+>@@ -27,6 +28,10 @@ struct smpboot_thread_data;
+>  *			unparked (cpu online)
+>  * @selfparking:	Thread is not parked by the park function.
+>  * @thread_comm:	The base name of the thread
+>+ * @cpumask:		Optional mask of CPUs on which to create threads. Must remain
+>+ *			valid and unchanged until the descriptor is unregistered.
+>+ *			Registration defaults NULL to cpu_possible_mask. Descriptors
+>+ *			sharing @store must have disjoint masks.
+>  */
+> struct smp_hotplug_thread {
+> 	struct task_struct		* __percpu *store;
+>@@ -40,6 +45,7 @@ struct smp_hotplug_thread {
+> 	void				(*unpark)(unsigned int cpu);
+> 	bool				selfparking;
+> 	const char			*thread_comm;
+>+	const struct cpumask		*cpumask;
+> };
+> 
+> int smpboot_register_percpu_thread(struct smp_hotplug_thread
+> *plug_thread);
+>diff --git a/kernel/smpboot.c b/kernel/smpboot.c
+>index 4503b60ce9bd..f997fe85f088 100644
+>--- a/kernel/smpboot.c
+>+++ b/kernel/smpboot.c
+>@@ -168,6 +168,9 @@ __smpboot_create_thread(struct smp_hotplug_thread *ht, unsigned int cpu)
+> 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
+> 	struct smpboot_thread_data *td;
+> 
+>+	if (!cpumask_test_cpu(cpu, ht->cpumask))
+>+		return 0;
+>+
+> 	if (tsk)
+> 		return 0;
+> 
+>@@ -225,6 +228,9 @@ static void smpboot_unpark_thread(struct smp_hotplug_thread *ht, unsigned int cp
+> {
+> 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
+> 
+>+	if (!cpumask_test_cpu(cpu, ht->cpumask))
+>+		return;
+>+
+> 	if (!ht->selfparking)
+> 		kthread_unpark(tsk);
+> }
+>@@ -244,6 +250,9 @@ static void smpboot_park_thread(struct smp_hotplug_thread *ht, unsigned int cpu)
+> {
+> 	struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
+> 
+>+	if (!cpumask_test_cpu(cpu, ht->cpumask))
+>+		return;
+>+
+> 	if (tsk && !ht->selfparking)
+> 		kthread_park(tsk);
+> }
+>@@ -267,6 +276,9 @@ static void smpboot_destroy_threads(struct smp_hotplug_thread *ht)
+> 	for_each_possible_cpu(cpu) {
+> 		struct task_struct *tsk = *per_cpu_ptr(ht->store, cpu);
+> 
+>+		if (!cpumask_test_cpu(cpu, ht->cpumask))
+>+			continue;
+>+
+> 		if (tsk) {
+> 			kthread_stop_put(tsk);
+> 			*per_cpu_ptr(ht->store, cpu) = NULL;
+>@@ -279,28 +291,41 @@ static void smpboot_destroy_threads(struct smp_hotplug_thread *ht)
+>  * 					    to hotplug
+>  * @plug_thread:	Hotplug thread descriptor
+>  *
+>- * Creates and starts the threads on all online cpus.
+>+ * Creates and starts the threads on online CPUs selected by the descriptor's
+>+ * cpumask, or all online CPUs if no mask is specified.
+>+ *
+>+ * Return: 0 on success, -EBUSY if a registered descriptor shares the same task
+>+ * storage and has an overlapping CPU mask, or a thread creation error.
+>  */
+> int smpboot_register_percpu_thread(struct smp_hotplug_thread
+> *plug_thread)
+> {
+>+	struct smp_hotplug_thread *ht;
+> 	unsigned int cpu;
+>-	int ret = 0;
+>+	int ret;
+>+
+>+	if (!plug_thread->cpumask)
+>+		plug_thread->cpumask = cpu_possible_mask;
+>+
+>+	guard(cpus_read_lock)();
+>+	guard(mutex)(&smpboot_threads_lock);
+>+
+>+	list_for_each_entry(ht, &hotplug_threads, list) {
+>+		if (ht->store != plug_thread->store)
+>+			continue;
+>+		if (WARN_ON_ONCE(cpumask_intersects(ht->cpumask, plug_thread->cpumask)))
+>+			return -EBUSY;
+>+	}
+> 
+>-	cpus_read_lock();
+>-	mutex_lock(&smpboot_threads_lock);
+> 	for_each_online_cpu(cpu) {
+> 		ret = __smpboot_create_thread(plug_thread, cpu);
+> 		if (ret) {
+> 			smpboot_destroy_threads(plug_thread);
+>-			goto out;
+>+			return ret;
+> 		}
+> 		smpboot_unpark_thread(plug_thread, cpu);
+> 	}
+> 	list_add(&plug_thread->list, &hotplug_threads);
+>-out:
+>-	mutex_unlock(&smpboot_threads_lock);
+>-	cpus_read_unlock();
+>-	return ret;
+>+	return 0;
+> }
+> EXPORT_SYMBOL_GPL(smpboot_register_percpu_thread);
+> 
+>@@ -308,7 +333,7 @@ EXPORT_SYMBOL_GPL(smpboot_register_percpu_thread);
+>  * smpboot_unregister_percpu_thread - Unregister a per_cpu thread related to hotplug
+>  * @plug_thread:	Hotplug thread descriptor
+>  *
+>- * Stops all threads on all possible cpus.
+>+ * Stops all threads associated with the descriptor, including offline CPUs.
+>  */
+> void smpboot_unregister_percpu_thread(struct smp_hotplug_thread
+> *plug_thread)
+> {
+>
+
+
+--- Thanks!
