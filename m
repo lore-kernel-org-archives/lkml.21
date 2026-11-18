@@ -1,100 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794997280;
-	b=axYSx4/pmHRyALjIZujr5sQe3b0seN8bx3VYAZYLY2/Gs1YmoVi2ojHbpU9gm1B/KY2Q
-	 yv3mLNb0vTJCQ3BdmHd/+771GReNDkGlLMrYtuJETkW5mnvzkQV3mjxoQq9j6u470pP+I
-	 NKlvtbofwIiTHK+Zt622OgKRWNcVkgPZFxba1umHQAKvkVdC/9rL403Nh5s95QqC3EGoB
-	 UOyaw/IvF98k4+sZYVG6LWLGKm0tHr7QQcBZ58pi3O268pCRg4w5YGA1tZAiwmy3+sQcJ
-	 1pNxOS7/SIt9/C1vk2lEw2MTlE0mrgThFJ0KPA2ce7UxQjds2SrRjDnQTKBc2nGmxlA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997280;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794997307;
+	b=i7DcYnKxXoLaBuW4Hbq+E/2v5e6O8ZWg+P3eMtBAsx6DK8n23OJSxO8ZXsQRSAG3NAON
+	 +ZvE/aFQSOTLJm98ZV9RCnDyptx/SRVLHfebVEKHWxrHcO++FfbO1jNZgDBFXDB2imYGb
+	 q/IXLsbGno5DkL8KkxW482CvhCo10lgHpmQSnT64fTP84N6kJuO1sYm8mNSdETjZvpEbv
+	 F0MJHF1qUwmYig+gezHyAHC+cflv7Q0XoGx3AVuGNDlFkFbQkNT/S5r5bvG0lgPb9qVHc
+	 7hLgDqsCKEtp1pHl/VutOT7PelypusYH/ge1H+Qs7TJyonFo+xtD/2ptqM0u4E6jY/A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997307;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=OKlysgVhXlDWHBj34P4jffZweJrtXPbcGRFSOLG7LlE=;
-	b=dSE5ioB20I7itf9QRUHAgRmTy7AO+OXlly1dQZBWFZfFujoBH0VQVmblKuvjEirY17RG
-	 3FIYs6uOJVPZCprHUoiJsCkUPTNeP+3aW5YB8mWda7rzEQ275BpXqM7vZKPKpk0dOXDi6
-	 92XDJ3nU56lRa2hJgjuSE4bWMahT1jACTLxA+q4AeIgyRKGEZM3q5P+/yhQvjgoFgx8oD
-	 E5ZmWdQz1p0In3ltmwZI9B65+euAudhTcsrQRg80Bf7lKMZ9B9o6kJKDjP62n0qCZCy45
-	 NZ6IFqTxtQVBBMuT3WFvG+G79ySxErcyo5tsi5T4gM/inm2dfpHJD8cGdoE4Se5QThg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=s3IJ5oLj14lpgQEhMKNadywDImk2GjSKGL/HdUAQRNM=;
+	b=sg7XYS7aQYv3kraQmNeSc6oqT+KfnNNdwES631HHQHt2cNNmjrVX2pyQerBwKsERtrsb
+	 /u9kFd3ECj279GVpGkj/8PwiAJX+3u3K6CpJ3PshnHST1cqIccxpyf8ErPBjbhFfYH6U7
+	 9DOC5wSU4aga+1Sip/y0ICpDeEvAZrKXs4L7WoJclmAJjIDxAwT11ki34vsYNk/aKgUUA
+	 QQIaegCDqnuRKcp8ExDDLfx6g6l+KfetOofdN/LLl8D2RE2iWo5BqyS0uIJEKp5LbOQtK
+	 iTZLO0Y60jzEj02Yg0tWHj0Cu9o7sSa1k46zCKZjJC9Ucj1EzXt7cdf3ltpprjw0tAg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X11STAnA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.169
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BU4bYpyz;
+	arc=none smtp.remote-ip=209.85.219.42
+Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4188C606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:21:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4188C606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48D6D606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:21:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48D6D606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=X11STAnA
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3adf87fc0c6so7788141fa.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:21:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794997278; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eQ76IANEdvqDRYrKYfFraB6I2mRxh0IApipwCjSy4Jn8JqfLRAp3Ccz9+lxmT3Pwc6
-         NbfNSjpVAZ9HM2AB6SdtzQl/3Xu9ZjBSeyMZWOab5QspQUg2z6I8kHHGB6vOb1kFSXhV
-         +eBNJt3Isb0lEuQ1hFy7+22+LDnXwxl1KEMlMg2p1BPYqPnFqiRd+HVHLUPHsUTzj/kS
-         x4xpICY0y4rIZqiIjjQsY3EsDBmwWVHCmrM9mXcMgSPDQqLeOcY36y2HVbT/If0GZJN0
-         JcNpg+knVacEQ7DbnAUn/VqnBYPg4ktyiZOPmfwm4LEdCIUlvOWGZF4VYV5yN7SkvVfX
-         V15A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=OKlysgVhXlDWHBj34P4jffZweJrtXPbcGRFSOLG7LlE=;
-        fh=sWLvaC9rgEEaris744WHnu9xUW7NJbI6VwnOwZ8jdvI=;
-        b=ASNZmXzX7xASp+6T91KIGik2J3KvcmxaGbt2bOYKYH1idXUZ75P+x+dDNvZnsA1OMY
-         itGwSWZxv2Ul+EHJUEgXJ776YTkxTe+fZkTAH1Q6J6VQ3XQsNEg/xI+dE6m9mRlTGTxh
-         vRTutgfihJsXK3k8ofW/Rwot8r25/wCEg4m1Ck6d1wjm7RLE4c8kQ2HTOZGZoaxfcPGp
-         hLIu5a2eOx3tdH5i6gleTNN6QkwpZ9Ct/I7NdR/bUr8Axd7Jg+DOCACxs2z6jpddor28
-         rSr7g722T6hS6Mid+af1BY0v+LFdZNlh4XfxDvqK8w1YKyFsalzUzotmnvD3rre4uxKO
-         SFCg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BU4bYpyz
+Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-92119da3d37so3168076d6.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:21:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794997278; x=1795602078; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OKlysgVhXlDWHBj34P4jffZweJrtXPbcGRFSOLG7LlE=;
-        b=X11STAnArudM4lWn5HjBEmbQz6YYaKrMjuk40u/0cSoSGLlRY8kbg4iWunqvUeUnmN
-         ZR0fCtiY40t59+jVBoNXvROMtIAzHq6gmrWADGblblrIcod+bDXWOuUK/EDHdyBhPVRu
-         ss3Oy6LXwE4fT2vD/Zj6NbPqWW2Hmm5as7PXhgk9EN8mFXflFbUmAF+6klv/6sDYznxC
-         RKx0zoV6xVvZN1hqp7cvXmpcpWkIlcHjlDo3WE4GUX9NDYFYfrK8INOSqMt/XDQOhJuh
-         pzqvpr2zwUJzVot+Q3DnkATXjkVuhFbSpPw0OKWoRrI+idb+F6Q3OIZJhRYnbDCcN1o9
-         e4qA==
+        d=gmail.com; s=20260707; t=1794997306; x=1795602106; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=s3IJ5oLj14lpgQEhMKNadywDImk2GjSKGL/HdUAQRNM=;
+        b=BU4bYpyzpln6vZPMuIQM2DiZhzvlWv3UrOF8HiTMlCx9epoczmdAlqona7iT71/xPK
+         xQZcHXmpkmOGqbS+IqrsIi4I/vCGTDwE0ogByZ1KhpwjzRyOSxcTbzBa7WpJzxFiS1Zd
+         Il/HokkCS/e1n6/KvDdLx+eUywc8IYUJT/iKUz3QRnQVbBnlAGC76FdapV+y4hAFp/8T
+         eELeXTSkXEO+Tx/nBx+i3Zxul1hACemoZj94gmtP2cItO4JSwtx7iDyzOZ8wdYwiG1CT
+         t2aOGZ6hRwvNzznHQKCQBZsQYFh2d5I2WmSu/yHKMC1vSut5dj3bAkKFWBc2FKvh9icf
+         E80Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794997278; x=1795602078;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794997306; x=1795602106;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OKlysgVhXlDWHBj34P4jffZweJrtXPbcGRFSOLG7LlE=;
-        b=Ao6Id/iaBV7zgPPzT8MpAq+NOrrtPLs3uFDs2m6VvE6/Rs2FrMRvDSiUgDkE1O0S0A
-         a/+IgwkS/oF6v6YjHG4Lb0r2OVzRRLFD7Vbb1u53DMuHbWC8L75QJRhkMsB0EqNjuUfU
-         vdnbQnsyKf2ehy3sAhtwPuvotTKQjaS5CFHBodiRcocumWILmVGxOhwGnwfpiBfxq/JB
-         g7x1ey3UsAcl/NTsKNtf3G+/Bp968GUT5PupMvHC5xU81bFDD5sVel/InbFM030i6gor
-         2fIV+dmVb7StKSNtgo89eSCdC/dbfTIwdUZBfLww4OXIDa90E588c4+pALKXkTio5A+O
-         Mf1g==
-X-Forwarded-Encrypted: i=1; AL+hErEbtqTMJO3wZhUjMwK34cY75OjImZu2SMCt+FJeQ2CFLbRUJqrm3f2SYlLEiATwr9mBWiaGC8har7t/eH8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9z4aF3uaj2s8pqDNDH7T7nb+Rcz4zu9z1pFWWb0xaic0fiIHPO
-	ZSyLfW2DLCWSXfru+QBpk5RSlyuXVMga0U+zlboMbNG3kFbviRm4I6Uf66go4kzqXUl0gQDBSUV
-	L7mT2TkEF7hlgf85zqHgV19Ei9eXeq3M=
-X-Gm-Gg: AYBFou0W6khd/uiQxLeEuB9Zz9tD7PiI6v9vEJMzBYQInhwAbx3CIlPiaPF/ybOseTb
-	WFIDDhpGD14OMZnPUsXmIfznwTMLJ6GDRqVTIdqNAK8cNhLxBJeN6vKJnxFZPj32b80TrdWVrzM
-	sd23hQmUghz+zba7sHfKkcSJo44A6BRTuv5ki3/tBNrzfwPyg+U3Hrj/jnzW4k2lrGHoZKI5JFY
-	+Wz3e6OeujUMNp4WQDoq1gGPv8SEoc84jBDDA/nDDSM7jTpVK/WsALyoGUvMwPn/6th92w/+3u2
-	dAf7UnxRa1O+SOpNXd10FaJzwa4qkm2MJZsb2mBlEhW+1oU2XtUyOKZHeStDJm3h3kkfYNtYeht
-	rRF6CApqp8G1BZjHDTBGSUoC0cSHDGPCmDUBRdg==
-X-Received: by 2002:a05:6512:3d08:b0:5c0:471:e462 with SMTP id
- 2adb3069b0e04-5c1a9b66497mr656788e87.4.1794997278082; Wed, 18 Nov 2026
- 02:21:18 -0800 (PST)
+        bh=s3IJ5oLj14lpgQEhMKNadywDImk2GjSKGL/HdUAQRNM=;
+        b=bKiGuxZa3qAlijabHU/ojinR3IaXq4wvlEzalghX/QnWNhZ9JMTCOPparf1DCYwOP8
+         Yb1V2PkiRJ3WFDFJaZwqN7CIs0EiFA4w258QgNJxKqiafG4+Vr9f074APLNK/YL8Vb5g
+         8XmMQiPQC3x2ylGsa8PVVttU+qWf59S4r3tS/t0Zz1YWFQq0TbiicxwGoQc4xSnB8pII
+         4wG1RULYfsq6EH/yWeyDZkMmtz6imV3AN3X6Nfp1tnj0SSZ/kZgbtNNuPDgM87EJW8sE
+         WTvZN5DKb+WFOG51jUrQ6VC/ycVONgQ5QHT+jVrhe0zMm/NaXeiAOhUjBSzdk4CkPvgx
+         zmeg==
+X-Forwarded-Encrypted: i=1; AL+hErGWSGBJBzRBMFZVdrfcJvx5BPSuu1kSvWlY73773RwyHsNAS3orKYY9KxoYMfSjnNHYc29yfONjtv4nSM0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ef8MqQY8KvywBtz7YUdajEeK4Jo+xbMgH3QJk8QzdUyvHnLpV
+	I/ZwYUiU6CMyh24kU57G+j9YSSmPF06Bl8KEHNREZOnAfS1h35qL/dQH
+X-Gm-Gg: AZFdTZeTVcUGu3EigRRzRWrRc9LLyyxkWdWc/v9qUUwOj9gpAlfVeP1Ch6Zlf+1bYt+
+	Z6BeLvt+Uh9jLj/DxI3d+3QtDGNJAyQ9kGu1r0ojJbUMyGcALdz7mnsDc+L3oaQjP6kX/0Co95m
+	k+HOjOGofkrn36aKSJZVlZUSh2QPsusotCSGbXVKnaqeOSMC9cRoCQpzcT9kU3kC++HndPdlQc5
+	lCeV1hIggD3H2dj9G4F7b6oIuGRVAWeuo5nnQ/92ysdBrD34x8h99hJUB4UFIyf3gZc1QkRgcVU
+	u8nJWgLQN6N5VBateNBEg//Zm40RXwaiPZ4MCvsbb4lWks/oWLS2snpYPeHFw6lqknmILTqnOLV
+	wA+RvdCCx8WX5/Z/T56SqMrtAZnxBxIwqJfhd0eGqcAvHh9CF5yrgAbRSqzARn2jmJ7M+A9YFEE
+	bug9/1w/XVoOre6Jdu/oWMUK3QpYLkDtKyJAtZ2d1GLh005DMin6uwy4JhIpL5qLIe8J6YgtDuJ
+	7v9ooLfvrHsCAoLRzntceopSLUyC2cKo0OBBGCDY54CaI9RQbjONgkEWybK2mV5oAReXBTYIH01
+	3s/Nd/iHa6SHQ3gaCt9fRfkiIONYYm9ZBg==
+X-Received: by 2002:a05:6214:3f88:b0:91e:9811:7a2e with SMTP id 6a1803df08f44-92114f415c1mr27630356d6.13.1794997306087;
+        Wed, 18 Nov 2026 02:21:46 -0800 (PST)
+Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d70c5csm17918346d6.31.2026.11.18.02.21.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 02:21:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,41 +87,30 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261113164903.785381-1-graypanda.inzag@gmail.com> <179493503300.3136.4070504744747730772@kernel.org>
-In-Reply-To: <179493503300.3136.4070504744747730772@kernel.org>
-From: Junyoung Jang <graypanda.inzag@gmail.com>
-Date: Wed, 18 Nov 2026 19:21:05 +0900
-X-Gm-Features: AclHuK-8A49ekN06DelaI7wTycoXs5z8M24DfEr9ZeGl99WxlDp-NH1QomMTSXg
-Message-ID: <CAO7ntTSz6miMECPn8e2goAvYTYwUUpSGx_ozNHWbAfQ_t-rajA@mail.gmail.com>
-Subject: Re: [PATCH net] tap: clamp zero-copy copylen to remaining payload length
-To: netdev-bot+sashiko@kernel.org
-Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 05:21:44 -0500
+Message-Id: <DMY9FTQ22U8T.JKYB4HL8J8PH@gmail.com>
+Cc: <alexanderduyck@fb.com>, <kuba@kernel.org>, <kernel-team@meta.com>,
+ <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+ <pabeni@redhat.com>, <dimitri.daskalakis1@gmail.com>,
+ <mohsin.bashr@gmail.com>, <linux-kernel@vger.kernel.org>,
+ <netdev@vger.kernel.org>
+Subject: Re: [PATCH net-next 3/4] eth: mpnic: sync unicast and multicast
+ address lists
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
+ <179499313262.3136.12811016164943625265@kernel.org>
+In-Reply-To: <179499313262.3136.12811016164943625265@kernel.org>
 
-Apologies for the noise =E2=80=94 I accidentally sent out an unfinished loc=
-al
-draft that still had an unreplaced placeholder in the Fixes tag and
-was missing a Co-developed-by trailer.
-
-Thanks as well for pointing out the oversized hdr_len path via
-__tun_vnet_hdr_get(). I will send a corrected v2 shortly with the
-proper trailers and an updated commit message/comment covering both
-paths, and will check tun_get_user() separately.
-
-pw-bot: cr
-
-On Wed, Nov 18, 2026 at 2:03=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
+On Wed Nov 18, 2026 at 4:12 AM EST, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
 > issue(s) to consider.
 >
-> Critical: 0 =C2=B7 High: 0 (1) =C2=B7 Medium: 1 =C2=B7 Low: 1
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
 >
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
@@ -147,116 +120,110 @@ k
 y
 > (one such reply per series is enough).
 >
-> - [Medium] The Fixes: trailer in the commit message is an unfilled
->   template: `Fixes: <12=EC=9E=90=EB=A6=AC_=EC=BB=A4=EB=B0=8B_=ED=95=B4=EC=
-=8B=9C> ("<=EC=9B=90=EB=B3=B8_=EC=BB=A4=EB=B0=8B_=EC=A0=9C=EB=AA=A9>")`.
-> - [Low] The commit message and the new comment ("A padded vnet header can
->   leave fewer payload bytes than GOODCOPY_LEN.") describe only the=E2=80=
-=A6
->
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but tun_get_user()
->   in drivers/net/tun.c has the same unbounded zero-copy copylen.
+> - [Medium] The unicast and multicast lists are synced in the wrong order
+>   in __mpnic_set_rx_mode()=E2=80=A6
 >
 > --
 >
-> tap: clamp zero-copy copylen to remaining payload length
+> eth: mpnic: sync unicast and multicast address lists
 >
-> This commit clamps copylen in the zero-copy TX branch of tap_get_user()
-> to the remaining payload length. Without the clamp, a padded vnet header
-> can leave fewer frame bytes than GOODCOPY_LEN, and the uninitialized
-> part of the skb linear head is then transmitted.
+> This commit adds the secondary unicast and multicast addresses to the
+> MACDA TCAM and advertises IFF_UNICAST_FLT. When either list outgrows the
+> table, the driver falls back to promiscuous or all-multicast mode. A
+> per-slot users count is kept so the same address can sit in both dev->uc
+> and dev->mc.
 >
-> > Fixes: <12=EC=9E=90=EB=A6=AC_=EC=BB=A4=EB=B0=8B_=ED=95=B4=EC=8B=9C> ("<=
-=EC=9B=90=EB=B3=B8_=EC=BB=A4=EB=B0=8B_=EC=A0=9C=EB=AA=A9>")
->
-> [Severity: Medium]
-> This trailer looks like an unfilled template. The placeholders translate
-> to "<12-digit commit hash>" and "<original commit title>".
->
-> The trailer sits above the --- separator, so git am keeps it in the
-> applied commit, and stable tooling can't use it to select the fix for
-> backporting.
->
-> Could this cite the commit that introduced the zero-copy copylen sizing
-> in tap_get_user()? That would be either the macvtap zerocopy support or
-> the later copylen clamp rework.
->
-> > diff --git a/drivers/net/tap.c b/drivers/net/tap.c
-> > index 2f19fb07bb2d4..b1f8776a5ca57 100644
-> > --- a/drivers/net/tap.c
-> > +++ b/drivers/net/tap.c
-> > @@ -608,6 +608,8 @@ static ssize_t tap_get_user(struct tap_queue *q, vo=
-id *msg_control,
-> >               struct iov_iter i;
-> >
-> >               copylen =3D clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good=
-_linear);
-> > +             /* A padded vnet header can leave fewer payload bytes tha=
-n GOODCOPY_LEN. */
-> > +             copylen =3D min_t(unsigned long, copylen, len);
->
-> [Severity: Low]
-> The comment and the commit message only describe the case where
-> hdr_len =3D=3D 0 falls back to GOODCOPY_LEN. Doesn't this min_t() also cl=
-ose
-> a second trigger?
->
-> __tun_vnet_hdr_get() checks hdr_len against the iterator count before it
-> skips the header padding:
->
-> drivers/net/tun_vnet.h:__tun_vnet_hdr_get() {
->     ...
->         if (hdr_len > iov_iter_count(from))
->                 return -EINVAL;
->
->         iov_iter_advance(from, sz - parsed_size);
->     ...
-> }
->
-> That means a guest-supplied hdr_len is bounded by payload plus padding,
-> not by len. Before this patch, with a large TUNSETVNETHDRSZ,
-> clamp(hdr_len, ETH_HLEN, good_linear) could reach good_linear while len
-> is only 14. The leak would then be much larger than the 114 bytes
-> described.
->
-> Should the changelog and the comment mention this path, so the size of
-> the disclosure isn't understated?
->
-> [Severity: High]
-> This is a pre-existing issue and wasn't introduced by this patch, but
-> does tun_get_user() in drivers/net/tun.c have the same unbounded
-> copylen?
->
-> drivers/net/tun.c:tun_get_user() {
->     ...
->                 copylen =3D min(hdr_len ? hdr_len : GOODCOPY_LEN, good_li=
-near);
->                 linear =3D copylen;
->     ...
-> }
->
-> Nothing bounds copylen to len there. When zerocopy is set,
-> tun_can_build_skb() returns false, and tun_alloc_skb() calls
-> skb_put(skb, linear) with linear =3D=3D copylen. zerocopy_sg_from_iter()
-> then copies only min(skb_headlen(skb), iov_iter_count(from)) bytes into
-> the head.
->
-> Both triggers seem to apply to tun:
->
->   - the 246-byte vnet header plus 14-byte frame from the commit message
->     (tun_vnet_ioctl() only enforces a lower bound on the header size)
->   - an oversized guest hdr_len, as described above
->
-> tun_chr_open() sets SOCK_ZEROCOPY unconditionally. With
-> vhost_net.experimental_zcopytx=3D1, the more common tun backend would
-> therefore still put uninitialized host heap bytes on the wire.
->
-> The notes below the --- cite the analogous tun.c report. Is a matching
-> fix for tun_get_user() planned?
+>> diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/ne=
+t/ethernet/meta/mpnic/mpnic_netdev.c
+>> index 43547a7d6e5c7..c01e276c4a74d 100644
+>> --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
+>> +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
 >
 > [ ... ]
 >
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261113164903.785381-1-graypanda.inzag%40gmail.com
+>> @@ -35,7 +53,14 @@ static void __mpnic_set_rx_mode(struct mpnic_dev *mpd=
+,
+>>  		mac_addr->state =3D MPNIC_TCAM_S_ADD;
+>>  	}
+>> =20
+>> -	if (!netdev_hw_addr_list_empty(mc))
+>> +	err =3D __hw_addr_sync_dev(uc, netdev, mpnic_addr_sync,
+>> +				 mpnic_addr_unsync);
+>> +	if (err =3D=3D -ENOSPC)
+>> +		uc_promisc =3D true;
+>> +
+>> +	err =3D __hw_addr_sync_dev(mc, netdev, mpnic_addr_sync,
+>> +				 mpnic_addr_unsync);
+>> +	if (err =3D=3D -ENOSPC)
+>>  		mc_promisc =3D true;
+>
+> [Severity: Medium]
+> Can the device get stuck in unicast promiscuous mode here, even though a
+> TCAM slot is free?
+>
+> The uc and mc lists share the same MACDA slots (between
+> MPNIC_TCAM_MACDA_BROADCAST_IDX and MPNIC_TCAM_MACDA_HOST_ADDR_IDX). The
+> whole uc pass, both its flush and its add phase, runs before the mc pass
+> flushes stale multicast entries.
+>
+> Consider this sequence:
+>
+> 1. The table is full of multicast entries and a secondary unicast
+>    address U is added. mpnic_macda_sync() returns -ENOSPC, U stays at
+>    sync_cnt =3D=3D 0, and mpnic_promisc_sync() enables unicast promisc.
+>
+> 2. A multicast address M is then removed. The core runs
+>    netif_rx_mode_run()->mpnic_set_rx_mode()->__mpnic_set_rx_mode().
+>
+> 3. The uc pass retries U. M's slot is still MPNIC_TCAM_S_VALID, so
+>    mpnic_macda_free() rejects it, mpnic_macda_sync() returns -ENOSPC
+>    again, and uc_promisc is set.
+>
+> 4. The mc flush runs only after that. It calls mpnic_macda_unsync() on M:
+>
+> 	if (!--mac_addr->users)
+> 		mac_addr->state =3D MPNIC_TCAM_S_DELETE;
+>
+>    mpnic_write_macda() then frees the slot.
+>
+> The reverse case works. A unicast removal can make room for a pending
+> multicast address, because the uc flush runs before the mc add.
+>
+> Would it make sense to flush stale entries from both lists before either
+> add phase runs?
+>
+
+I see this more as a low severity issue, because having the device be in
+promiscuous mode when a slot is free is not incorrect, just not optimal.
+
+If anything I would probably just rerun __hw_addr_sync_dev() on the uc
+list again after the mc one, if the first call returned -ENOSPC. I
+didn't think that was really worth it when this same comment came up in
+local review though.
+
+> [ ... ]
+>
+>> @@ -53,7 +78,7 @@ static int mpnic_set_rx_mode(struct net_device *netdev=
+,
+>>  	struct mpnic_net *mpn =3D netdev_priv(netdev);
+>> =20
+>>  	if (netif_running(netdev))
+>> -		__mpnic_set_rx_mode(mpn->mpd, mc);
+>> +		__mpnic_set_rx_mode(mpn->mpd, uc, mc);
+>> =20
+>>  	return 0;
+>>  }
+>
+> Because mpnic_set_rx_mode() always returns 0, netif_rx_mode_run() never
+> calls netif_rx_mode_schedule_retry() for the case above.
+>
+> mpnic_service_task() doesn't re-run the rx mode sync either. So U stays
+> unsynced and the promisc entry (zero mask) stays installed until some
+> unrelated rx-mode event happens. The commit message says:
+>
+>   Advertise IFF_UNICAST_FLT so we don't need to use promiscuous mode to
+>   handle extra unicast addresses.
+>
+> The later patch in the series, "eth: mpnic: support changing the MAC
+> address", keeps the same uc-then-mc ordering.
+
