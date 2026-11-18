@@ -1,56 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795003946;
-	b=hs9I7MaVHGjSK3pGPrV0yOFXV0ZVF4na58IJ9u1eyvLFP9oBDi02u8AwxTlo6mxO2lRc
-	 fIk697FocWVbLoKIwCwQOd/yBOlJsp27hAFc73dNeeIiQjPfyMkUNcsGpJNKm3XIzpzeW
-	 /yytSP7zVe0Z/2c+M9ZH6W5RmFHa0Uxtq84Iq70kXJiydqljaBdpMt59lCSkSwXpHXTOa
-	 5kzeQchOVpHC5oACfr0iI7jToSwZ8+XhOvHJNQ2WRv3DaPlBiQ//5oKXBAWHkgCvnYFzk
-	 n9jgAUkycKEm9iXvJEjgLKftu2dcKgjumdGutUcnTQHTLoMcCAbr6fstkVABMPpFuLA==
+	t=1795003978;
+	b=qRa5oR10plPcSeksQzdgRE6ml+xlv/arrzWQjWIS2DKaUXNu/y0SnhFEVd8yuY1Nh7sJ
+	 tcraUQ+Jbedhrsr+14p+0cgOw+BHfxqi27d0uMrNCk4vH8iOKq1BlcIAqJEKp9VfWu/BW
+	 oXE0pP4YwxbPlLeKj2DcCIPvmqNsxscDTZQ0y6w+UHby81QPc1VmLhn5aSPatcjm0t6wW
+	 MzjL8NdVk/zPnons7ooKLLg29LlPaxdeEtcYg4UcMPZJ8NdniPLlA5kUeUyviE6v38EKH
+	 ImVyPxKMkzmEiLVuX6hhc+noNpkKlcWwjMAUlOUkB17iWY2mBpTMhlW6w63Ogaf/Cug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003946;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=epBVrGZiw1creBvuYOePhoSdCzgWgXCOkWpLld3FPh8=;
-	b=VnZAXoDZCT/nv7essSYCBC79x4ajYL9UG9O1Lag6c1pP+pMf1rxGvHtZNVfhHNemQu28
-	 Rs7gGO5zInaDqJ9g5gUf6ieoJ1FnKybSeDwEILWh1pgbjrRh5/NBdy+HMxscoEgKdGPCr
-	 hZBRdJ2Tki0SKVfIGb0bo3UoFTiM0crW4BSdDUNdtGl57I4ETEoRr879/wY2hyW1uVFFH
-	 qUcU9FdiQfSn4ETyxa+x70MmDdP2VjhrvX0TWZKqkM/cFuY+HAt5qrS5d/afw9EHoqM0n
-	 pr+eloyFcf+oOiZr2fYGvm0dgeD1BEIzZL8h+KHYy9Z1vAiObd33MCC/xxm0GNkpijg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003978;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=o6NkUixIaGIxhWVtX5vLgTJsl5Rt9R4mlOjq/LvWRRU=;
+	b=mb1jDQHwNwQB0xvdwF714e6wTLMZJSvJqcaViiszeRkoRWvSnQLLv/YoptuVp9htz1AZ
+	 0pU4evRZFEdCWhGlEnQ2FZpXSbyH8M5Uh1tpPA7qUXvvpTyppVhLHUI/ZaTtNo+/AEaio
+	 GnvAtpzyaPTpEBpvd2/m+D8UbKxJADPPQJsPS9igPWvhL+/6tbgwvxBpSiOXqU/AQ7F0a
+	 VVzLvLCQoiY253ShqaBB4gWluJx5NOCnY2HXW802zgtfpB56q6XFs36RPhgWg4CzMdqdZ
+	 5NMV5RMxHfpkQJklKmyeX2zcUb+vCSU/fcP0cFYW/P7m7Ja4igxDxv6MWfE3tqQuk5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XXXJ2R0J;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DNYQIi4k;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFF2D606A31C;
-	Wed, 18 Nov 2026 12:12:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B195606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XXXJ2R0J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C04FF1F000C6;
-	Wed, 18 Nov 2026 12:12:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DNYQIi4k
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E80C71F000C7
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795003945;
-	bh=epBVrGZiw1creBvuYOePhoSdCzgWgXCOkWpLld3FPh8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XXXJ2R0J07MlKzGSwWu2Ztiv4YkTe+gqNLjFMOxXUTiqc4KhcH/eJEWxVN7VQM116
-	 cNXqLxlFhUHJ8b+uND7+oerzPM38gJdjj0EIHS5jjoV26s5vq9ie2EDCKWGMd28ES9
-	 Hczw4PXnJ9cJTSDkjHo/lQpCxhKXGuIbLH9GClLCRri2llSYafn1JTyhTibDDUQaoE
-	 7p31kQGSigBrTorB0Aso2vAFqpbRvlZegUa3yhW6vEEzmvMx28m0TIejxJFrFf0+3m
-	 MXoGpnzAjwGpCfwhPDQn2qu1O8ze7DwTbiDl6RFv80riVktXjfpwU/hcwj/tAKPR0S
-	 oHS/+luRr9Oiw==
-Date: Wed, 18 Nov 2026 12:12:20 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Adrian Huang (Lenovo)" <adrianhuang0701@gmail.com>
-Cc: Suren Baghdasaryan <surenb@google.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, "Liam R . Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	ahuang12@lenovo.com
-Subject: Re: [PATCH mm-unstable v2 1/1] fs/proc/task_mmu: avoid spurious
- seq_file warning on interrupted VMA lookup
-Message-ID: <av2V-JWdu8GqKtMT@gremlin>
-References: <20261118103421.776-1-adrianhuang0701@gmail.com>
+	s=k20260515; t=1795003977;
+	bh=o6NkUixIaGIxhWVtX5vLgTJsl5Rt9R4mlOjq/LvWRRU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=DNYQIi4kPqDgK3BJL8BQkHE1hN7kKYWgIOTohmEDmhhloQACdNKkJMT2PvJv0THGy
+	 FRKQmh2n4s25WOPOiGELPIkhvpQNiA4oKMP3tFagKXe80bJRzDfkWzcLdjM3cjLO1C
+	 X2vdo4t38OyzqqUxdwFqPXHu0vZ/5zVzIKp1VYjW7je8iVBi8/xuS24SP61LOaw3cV
+	 BrndyT8YaRL/8cVpW08kHNblEvJW7gJZjRa6cJ2Fj7mHnzArZRgB4AdlNqrgTdY/gv
+	 vtWpB+oE3XxyDV8tmutClLnvN50taKsj2Yk+l6pA+ZikN1Duv6nEo6cCKaqQAK1LnZ
+	 a/pa9RgqHJkdg==
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-86156cf8a7eso1391782a34.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:12:57 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFVvUSa4AWNtQ9frztkGkMCJasK/jDa2gRJZd0vJKocEMRvaJRvVagidqs6CatK/nKUbK9eG81WKi0omV8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/acZgO4CNKOtK9uLaYF/GtS9DoBT7NIckekmkLuWVtV1PqaSsR
+	czQiLiquUtDPozMZNQjpdVfrW4DzSiJf1jPwUSysYkJ+S7+/n3cB9AG0HDsSz1qJyvamC+AqaR1
+	q65hCE0odjf2n3qhtLeoEfj9VMTY6OG0=
+X-Received: by 2002:a05:6820:1907:b0:6d9:4131:5035 with SMTP id
+ 006d021491bc7-71b02944507mr3515423eaf.43.1795003977008; Wed, 18 Nov 2026
+ 04:12:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,77 +59,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118103421.776-1-adrianhuang0701@gmail.com>
+References: <179499954853.1440581.6627074959099619480@gmail.com>
+In-Reply-To: <179499954853.1440581.6627074959099619480@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 13:12:45 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
+X-Gm-Features: AclHuK-hXcrZxctniMtIHyC9pOLLCSZJDsVh-XhX04k9Pj10EP6n6DQMf1hKW4o
+Message-ID: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
+Subject: Re: [BUG] tcp: shift-out-of-bounds in inet_csk_rto_backoff() for an
+ orphaned zero-window probe
+To: Kyuwon Cho <kyuwoncho18@gmail.com>, Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Cambda Zhu <cambda@linux.alibaba.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-(micro-nit - no need to say 1/1 for a single patch :)
+Le mer. 18 nov. 2026 =C3=A0 11:59, Kyuwon Cho <kyuwoncho18@gmail.com> a =C3=
+=A9crit :
+>
+> Hi Eric, Neal,
+>
+> While testing v7.4-rc3 with an LLM-guided test generator that we are
+> developing as a research prototype, we found that an orphaned socket
+> that keeps sending zero-window probes makes inet_csk_rto_backoff()
+> shift by 64 or more. An unprivileged user can set this up in its own
+> user and network namespace:
 
-On Wed, Nov 18, 2026 at 06:34:21PM +0800, Adrian Huang (Lenovo) wrote:
-> Commit 5631da56c9a8 ("fs/proc/task_mmu: read proc/pid/maps under
-> per-vma lock") introduced the possibility of returning -EINTR from
-> proc_get_vma() when a fatal signal interrupts mmap_read_lock_killable().
->
-> The issue can be reproduced using stress-ng's VMA stressor, which reads
-> /proc/self/maps while concurrently modifying VMAs and periodically
-> terminates child processes with SIGKILL. The reproduced command is:
->
->   # stress-ng --vma 0 -t 60
->
-> When the VMA lookup is interrupted, proc_get_vma() returns an error
-> pointer without advancing the position index. Consequently,
-> seq_read_iter() emits the following rate-limited informational message:
->
->   seq_file: buggy .next function m_next did not update position index
->
-> Save the current position in priv->last_pos before checking the VMA
-> lookup result, allowing it to be reused by both successful and error
-> paths. Advance the position index when returning an error to avoid
-> the spurious warning, while preserving the original error handling.
->
-> Suggested-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> Signed-off-by: Adrian Huang (Lenovo) <adrianhuang0701@gmail.com>
+Thanks for the report and the reproducer.
 
-LGTM and:
+This is a known issue, a fix is under review:
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+[PATCH net v2 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
+https://lore.kernel.org/netdev/20261026123244.239766-2-jiayuan.chen@linux.d=
+ev/
 
-> ---
-> Changes since v1:
->   - Simplify the error handling and comments as suggested by Lorenzo.
->   - Clarify the fatal-signal trigger and the cosmetic nature of the warning.
->
->  fs/proc/task_mmu.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->
-> diff --git a/fs/proc/task_mmu.c b/fs/proc/task_mmu.c
-> index 22361607020d..564e52f7ddc6 100644
-> --- a/fs/proc/task_mmu.c
-> +++ b/fs/proc/task_mmu.c
-> @@ -216,16 +216,17 @@ static struct vm_area_struct *proc_get_vma(struct seq_file *m, loff_t *ppos)
->
->  retry:
->  	vma = get_next_vma(priv, *ppos);
-> -	/* EINTR of EAGAIN is possible */
-> +	/* Store previous position to be able to restart if needed */
-> +	priv->last_pos = *ppos;
->  	if (IS_ERR(vma)) {
->  		if (PTR_ERR(vma) == -EAGAIN && fallback_to_mmap_lock(priv, *ppos))
->  			goto retry;
->
-> +		/* Advance to avoid spurious buggy seq warning in dmesg */
-> +		(*ppos)++;
->  		return vma;
->  	}
->
-> -	/* Store previous position to be able to restart if needed */
-> -	priv->last_pos = *ppos;
->  	if (vma) {
->  		/*
->  		 * Track the end of the reported vma to ensure position changes
-> --
-> 2.43.0
->
+It limits the shift to 32 in inet_csk_rto_backoff() itself, so it
+covers both callers: tcp_ld_RTO_revert(), which is where Jiayuan hit
+the splat, and the orphan check in tcp_probe_timer() from your report.
 
---
-Cheers, Lorenzo
+> We found no earlier report of this call site.
+
+Searching lore for the function name would have found it:
+
+https://lore.kernel.org/netdev/?q=3Dinet_csk_rto_backoff
+
+Please do this before sending a report, especially for findings
+coming from automated tools.
+
+Note that the netns sysctls are not needed. tcp_retransmit_timer()
+increments icsk_backoff without any limit, so TCP_USER_TIMEOUT and
+TCP_RTO_MAX_MS on a socket with a silent peer are enough to get
+icsk_backoff above 63, then an ICMP unreachable reaches the shift
+from tcp_ld_RTO_revert().
+
+> On x86 the shift count is masked, so from 64 on alive can come out true
+> again and the orphan keeps probing instead of being aborted.
+
+Right, and this starts before 64: with icsk_rto =3D=3D 200, the u64
+is already zero when icsk_backoff reaches 61.
+
+Jiayuan, I have not seen a v3 addressing Neal's feedback.
+
+When you send it, could you please add:
+
+Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Closes: https://lore.kernel.org/netdev/179499954853.1440581.662707495909961=
+9480@gmail.com/
+
+and mention the zero window probe path in the changelog ?
+
+Kyuwon, it would be nice if you could test Jiayuan's patch with your
+reproducer and send a Tested-by: tag in that thread.
+
+Thanks.
