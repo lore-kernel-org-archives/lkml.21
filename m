@@ -1,88 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983078;
-	b=l/oWApFQ6jrwBf7pVA3tJXx1g8pbAnoHMo3u9seWYAuH9heOGqJUDblPrpflcfPofFwO
-	 uLp1lqCp3n3PT+/+5zi22nr4Ldx5I+x541786RAJSWqLAUCLA1vsS1o0AQoeP/JQk3fAy
-	 xb+yt+zu9Lvoxep0BcZ2eURASuaPgT5EwThAqnOnbwlFTOgJn/YuwKI3B54p5kum6bGaj
-	 xMRJdBuXTwmso704i094q6sWcivpKHKxzpXm7v3SBwhgNt7h79iNf4bkebVqBuGSThfPv
-	 jxoSa5TVJoYd54TM0JfCokYLsNRYUeW64p64tff2DNdOwx2G4ify86N8pSMXtRGCgPA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983078;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Content-Transfer-Encoding:From:Mime-Version:Subject:Date:
-	 Message-Id:References:Cc:In-Reply-To:To:X-Mailer;
-	bh=na/KvaP9r6HHnCtVPiRJkOHiqbHZrFGDFwAb0LX3mh0=;
-	b=pKXzZp1C42kQ/84oSce81WNUjELp2jj3OBHjHKsuiPxjOCwmmRfdDDPE0Y/Zy7TEOVWk
-	 QvdVF8/BPDoo/860er0nVLOCfOOJQXCbFaz42eeO03g5+cHXZOYReUtWUAHpPUwlqVcGJ
-	 m/myAZsNmlPj+eOGm6bbS8pAQ/Fhf263LyapJ3aIUiOdYHdaQpq4AN0AVXgrWz0bl+Ucu
-	 CZAgKZB4ed7Yhga/YOnx5KFg6mcNSkTUK150EDlIiApG8Btciq1m3Sdr0ZdlRtmN8XkKD
-	 oynMN7//wx0ehlmy7gi1+denEOZDwe3DtDQio7/xTN203oTHecLbqBiQHMmpH8o4mUQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AztHoGjR;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794983085;
+	b=PQXlSw9JcWcieOKLriE/hnESI+FjT18vSeLSR8l+49BQGSLzqFJBNT+M2VlKDnibSdMa
+	 FHJTnVgwlnBaEUk6tASshNzN6YiRhdJU/VtYSyilj8p/A3uLnPgOn84qsOFhRUWROEAWa
+	 +uVYDpZG7tlvYHm+ILiEZXg5Nk29BbPnmj5BY+/OaQxYXC3qK++0Ke8riJNU7o62yrMEp
+	 87HX3g6UEqrANUWHNG95F4hTCJanfH0RODXHzg5+e6YOkAWyxoHY4oCDQogQD8lM7eGyx
+	 LfkXWGW0oqilY3OhhyL1jSr9u6/fQh1nQB3Fd1iF8twBNvCXF18iKuQeiQrR0g/SWJg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983085;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Kk3Hn3DHlz1cPajRvCKocWJn+LgcjZzQ+PdSVfcHk+M=;
+	b=P4mReBPRz5h6+rntYQtMc/+/FVjj5nlXcyamHO7IERQEbwrl7iOSHfN6hcKU4OsoT6fR
+	 EJGp8FKuJp7gA3qjzJelP35vQPaZKoUpGnYFXTW8A2WB3aoBdgZYAP6mNpH3KK+j4lLND
+	 9yTTwOSjdMQPnn+G9tRhdxzh0i+6nZdConT5j2YJwFrJdvswLOXZsCQhrSDqdq6ZoGiIV
+	 qX7G03P4kgfJcT9axupUATXg70Rwp7Bz3xAxAebjroKI4s1Da88JBa92qIBFIdGYRycZH
+	 g6htxHbVM9hQogQ2HPmZzNpD5rr+PAnOKfQZk/4zJfB4lGhIDHsuCNqAxVGTMfgAdxQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=XDsMkXyp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.17
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012017.outbound.protection.outlook.com [52.101.53.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9C37606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:24:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9C37606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E841606A32A;
+	Wed, 18 Nov 2026 06:24:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E841606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AztHoGjR
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so453677f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 22:24:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794983076; x=1795587876; darn=vger.kernel.org;
-        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
-         :from:content-transfer-encoding:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=na/KvaP9r6HHnCtVPiRJkOHiqbHZrFGDFwAb0LX3mh0=;
-        b=AztHoGjRjFnPNy5DkAr00cNJqNbqzrXZSUaXAuai7KIeM8cqlWxyYmJoZp+NzNNzAX
-         EP2Ue1M6w+ySbbDzoVCysgvgkynYoMX9NoCZ3uspbrx9bjdjAGXvKwnMZwNx4qvt4Vnw
-         i6I9Z+b2DPJOh2Kz+TYg7vl45VpSabfQWg7OI4QSJ8Nln2pO9VUxqjZt8HSRP3tLA6cy
-         8glPMVNCJeE1+OqCEcuWGuVxetJ7/b959CY2XItoIpOVdeEFe1u/vQQyiNQsby6KdGU0
-         zo8Ad7d8jIu3MGdeCwcklXRk+5C7RP3vk2OMYEQW3qlbpm1aCwFRBLYVo4PkTg3QEisb
-         lRRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983076; x=1795587876;
-        h=to:in-reply-to:cc:references:message-id:date:subject:mime-version
-         :from:content-transfer-encoding:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=na/KvaP9r6HHnCtVPiRJkOHiqbHZrFGDFwAb0LX3mh0=;
-        b=q/F0tR6M/xS71koQfkoSXxm8oode/ajqgBdoHr9do54t3LapHMWW/HLyunlcmBgD1+
-         Un1oYdZYvwbIXAI16ayWrQJXbCP9C6HEVY/hzW//aA+bIux23n/YGV4A7iexb0DQpJLB
-         WrhnStNqH02TP7D0punlYj0X32NRwayJIYi6JaHUFE3vixCwchrjMU+w/WDjTBGsbKtF
-         qTGxuiGXdmaHw2LloB+jZS1rVOpcMmXpkjMfkU3M/d9QKB65SJOMDywQ/cX1P3BfxRtk
-         Ya6jiJO+TsGWBRqM52Ox2FKD5nK4T3u8s3XupphiGyx4KiymzH+tAheD2axmqyPBibSf
-         0Qbw==
-X-Forwarded-Encrypted: i=1; AL+hErEOyCEkex8yUKsR/M2L7cPz4BszmYAvNVFiRO39VHHAxwBkkWLBOAmxJUeL1CjW+FusrTpES5WWqvVjvpI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9h8nCIovJjTbxc23wdMfh9SX8/GbG/AQUbiY87y3QcsA/MilM2
-	fFrd1kfjJ3Xt3xgqsSBMIW29vmhKGR69zdg1PGsM/SuovSMgFA2+oJ4q
-X-Gm-Gg: AZFdTZdGM9AnS5/nEBr8L/27sXefNDAgbDU9002q68ri7+OPkmGCud0ZL7/ONGQsvn/
-	whNmF7rJTLvqGv/dtQcNUHnfUYwH9WwUEL38om59xh82G6C4t54oLEvHQi3O/Bov0sf2SAJV9ER
-	B6jjz57E8gsFRb5sFAf6WnsjAANdnWG7rCOpkBYrZWShiv8wvrxS8ejjKTRhsDxw5gOR8PkpHaG
-	Kc6C2aGWUcHz1kP5tNGZMUd2Ycf8BYtg/ITfHj7taxFceBo5F05fKdgsKOKss/vepoRiq5tb7QF
-	rPZ+tH8/GGiYs99L82y3bW1BsT3jizEwfRncrjrR1GoqCNXYxe+7R+Tw6xQo+tB0dhmBh8b5Ud5
-	hspssXAAyoGRrCtUD//J9YtpzKKhByymxwnGFcc2nHQQV4WQmMFnhchzOxQcZyt3OahK3nmDUL1
-	TpN8Nj1Gr0ArgudRZkL6uLa+0pneOqEda2jZUohA2rG4/1RUXKRnzw1JYTXSOe/j27G/5QB0W5D
-	wWLezuTHkFCrxNgpwfN5ShGoSt0qJVj0R3/ViXtodTf8rXpqXdRFO03Pm8S6jYFoCZ08IYnqYhu
-	xNB/0kVCU3eCxuIS39meRFi45Mj6PP18UaRXqx0tOsgjBAZrot2iRLksdjWdpCzqXU5+PUvBTrX
-	Kbelv/v4pm1L+HDxa6T9E3S4UtY1yeMAgU1g=
-X-Received: by 2002:a05:6000:4812:b0:490:6fbc:9457 with SMTP id ffacd0b85a97d-4a63c18831bmr3346488f8f.41.1794983075935;
-        Tue, 17 Nov 2026 22:24:35 -0800 (PST)
-Received: from smtpclient.apple ([2a05:b100:188e:3c00:e0ee:5dba:4f48:db8d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654997681sm2289481f8f.15.2026.11.17.22.24.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:24:34 -0800 (PST)
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-From: teolyub@gmail.com
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=XDsMkXyp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C4cfJ8RDXsLlVeN47cgpPIr1MvyTCMGAnFawzypmRCkx5A+vnyHRMcW/SJlbcww+xjquqd6REs55KY0CQXyF5lYGUE0+sssdg2XWTygBy4pR7vKdfoZT7xzNzKHEH0KQZ2eBzht/LK7Gs7CkyonPKQlKnIvDoTA/bXe3mEnh/ABJ5sDZwlz9nHQ4q1Rt9sEkgoq2cFiF4HgL9i8O/h5eygwP6KkpLK6ixLuIBtnfGeNVii/u9kw0kPGHxl4DT2RjfsEmGdHvXeyYNf0q0bC9OdrZeXxL1d6sQI2gouZntVKTqGXpchNOvisNwmbgjIpte0B0tusZEyGZVwxUTG5kig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kk3Hn3DHlz1cPajRvCKocWJn+LgcjZzQ+PdSVfcHk+M=;
+ b=N2kUXHQpVhXvvjgtZXiBomB1m1U1wbGmwvO62q3AdrCkM5ljq7KAO4YHe+Cm869GDpKQKwLSPBljl1XhdFwTobMz0vObDQaruc8tcrGCfdvPwkLmOwlPs6bzRHN09z8L+1MIz0liPPbj8VKl01JSFSMCKDz0NI3xMZp6JlQTfp/eyjCTgDew/sjAKUkpv0p7NAuSHKwArFn1fVXz6h/sRHaihEqDb9StYD0XZv1/v1N5kmsXEm9hjzCPEDwcOItBn3g9sQ4riizuLfX1urIRlfTN8ULwGDKOmRmXbwfDt6mnAsaHknKx4+y1Qw6dIDsSxhLBIyoizGwFNAi1JxrUew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kk3Hn3DHlz1cPajRvCKocWJn+LgcjZzQ+PdSVfcHk+M=;
+ b=XDsMkXyp/2+MDb3jHaFxLoWosB6UWPOoFti9pxCvs7rqu0oLiIrMl04Z8xQzgU+lpe6eeZ7jb8D3LjfyODSHwkAp64b3Ux0Fc9QqbMOYR1aZBPoHD7B4QzM42SqNS66MoVNTV4mxwrhn4U4OS8GZ+NjVDOUz5nN3yQFMQU11Lv8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY8PR12MB7516.namprd12.prod.outlook.com (2603:10b6:930:94::9)
+ by IA0PR12MB8862.namprd12.prod.outlook.com (2603:10b6:208:48e::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 06:24:39 +0000
+Received: from CY8PR12MB7516.namprd12.prod.outlook.com
+ ([fe80::b6cb:7a8c:fe0f:b9cd]) by CY8PR12MB7516.namprd12.prod.outlook.com
+ ([fe80::b6cb:7a8c:fe0f:b9cd%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 06:24:39 +0000
+Message-ID: <5cbd17e2-f3ee-44a7-9a6d-bde4380520d7@amd.com>
+Date: Wed, 18 Nov 2026 11:54:30 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/4] dmaengine: zynqmp_dma: Add per-channel reset
+ support
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Michael Tretter <m.tretter@pengutronix.de>,
+ Harini Katakam <harini.katakam@amd.com>,
+ Shyam Pandey <radhey.shyam.pandey@amd.com>, Abin Joseph
+ <abin.joseph@amd.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+ dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com
+References: <20261106-adma_per_channel_reset_v5-v5-0-f9990669362f@amd.com>
+ <20261106-adma_per_channel_reset_v5-v5-4-f9990669362f@amd.com>
+ <avtpSXEdyeWpghqd@SMW015318>
+Content-Language: en-US
+From: "Golla, Nagendra" <Nagendra.Golla@amd.com>
+In-Reply-To: <avtpSXEdyeWpghqd@SMW015318>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0093.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ae::20) To CY8PR12MB7516.namprd12.prod.outlook.com
+ (2603:10b6:930:94::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,353 +107,156 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (1.0)
-Subject: Re: [PATCH 1/2] platform/x86: dell: Add new dell-wmi-pega driver
-Date: Wed, 18 Nov 2026 06:24:22 +0000
-Message-Id: <5C8178E2-6BDF-4110-82FA-0AA4628DEFB6@gmail.com>
-References: <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
-Cc: =?utf-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org,
- LKML <linux-kernel@vger.kernel.org>
-In-Reply-To: <848ebb18-b9bf-4747-9403-fa8da4fba2ad@gmx.de>
-To: Armin Wolf <W_Armin@gmx.de>
-X-Mailer: iPhone Mail (24A446)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY8PR12MB7516:EE_|IA0PR12MB8862:EE_
+X-MS-Office365-Filtering-Correlation-Id: 433f1427-1e49-40be-2b92-08df453c9f8a
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|10067099003|4143699003|56012099006|11063799006|261026140227099003|261026121527099003|261022075727099003|261021121427099003|261021123027099003|261022105027099003|261102123227099003|261028144727099003|261009223027099003|22082099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	3VoWxfLvAvBIKb2ft/J9msZDdC0jv4umbBvFDjkCOk+kws3uZ7cGc9iEEb8xGwBbLJKDIERRgg0gLyFqds9WH5jYc75BxjlKNxmuISJVlhuxsq51x1ySO9VgkgGwn1+OSgf7DygZBxkWmuk0csxVzVQEqCCvH1DoQYueKJaOfqAaoETuvrsWusBjxyWp6mSWxv0EHEd8QQfgv2XmcdC3yQpQB2DwHC/m9OKXenhmsuyvBfadQOUeHRrj5l0HGbVfODbWasYvgcB6aCMqyFqVQ9wuVQKLSQ3RPHD6Oq8FeP2HPhY9+MAVntdHYgaxJfxjL1T2btTGsK+IA5U7ZGFiB01fcJCD1KOUOYvSHOvnSctNRza6MW9iwCztc5VdFyvVYl7mXQnc6BAoqCP6DxWmJf6IKfbO314qgsYYTkYlXMKV75Ma4N81OcAs+mAUyLNTcemrOBqw5yaZ5Wpiaa2woh3/6EMK4m77KPI8EWZntczccn0QMJ5dbKqt+PtTwAVvVzZmHp4q6xud2Cr+nkCZ/irHNLc3RdKKHolTWQRBa9EFRRrLL/8jqwjGL0+eZt36xnoM11rMnUfJjI4IsSJiIg9iPlwK9lZPF/K6NsmPihO1tEHltVVumhPDRLkmFL8ZP333fvhBtroy99YhhHOISfKZAl0dK6kRRtHJdwSR8ig=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY8PR12MB7516.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(10067099003)(4143699003)(56012099006)(11063799006)(261026140227099003)(261026121527099003)(261022075727099003)(261021121427099003)(261021123027099003)(261022105027099003)(261102123227099003)(261028144727099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Q29pSy9PV21rTVJDM3E3SXFZUGNEcXRLZENtQi9LcndrVWM2Z2JINWVwdld2?=
+ =?utf-8?B?MHJvd0pySVMvUktpM05aQjFrYUgxeUFySzFDRmlTWVg0dUc2K0ZxeEx2a2Vl?=
+ =?utf-8?B?aWNKUUdmbkFnWFdTS21GdTdiZjhOVDNjUmN5aGRBeUMzaXozZTB2MVg3bUl0?=
+ =?utf-8?B?dEU0Z3RFbm9ZRjlSUVZxaEkvcWhiVENMc3FNeGZaaEdWWmRjM2R3TUxTRnNp?=
+ =?utf-8?B?ZVA3VHBwdVJ6TW9pdENBa0JFN1VZYStmK3NhNHVOcXJVMkx1bGtiSVVadXlt?=
+ =?utf-8?B?aVFNazVTUXhFdnpiNlJDZjNGRWd2ZkVYamNuL3BFOGRBMGZFLzhaR2RSc3Bq?=
+ =?utf-8?B?Mi8zS2pjWW1RZGxIVHFvcnRNV1h2eStiKzlMM2NFeHJ5dVdUeUJwSGxjTVFi?=
+ =?utf-8?B?bTFJeUg0YVZMa3l6TzBsRFE5d3FkWUxBVHcwcFZtMHd2cGphM2RIUXh2allC?=
+ =?utf-8?B?d3BkWXQxMXBMTmhqS3FQWVMwc2tOSnFQTlhXUWtYS0ZTN1dSVzgza01jbFI5?=
+ =?utf-8?B?Q2RhcmRSU0FNT29iYW1xNm52clYrMDZ2dFFoOUcxK3ErZGtPRlpYQmg3OWlo?=
+ =?utf-8?B?N2FHU2pkMjE2d29hSVNoWUs0c3QxMGJ6cWNUSTZiV2hsb1hwUGhlUldPak9I?=
+ =?utf-8?B?TldiYUt6SkV0TFFpYjN0UGtjQS9SQkFzamU1Y0tOTlVMUmNWZHY3VDRoU0Ft?=
+ =?utf-8?B?dHNKbWduSnBDZVg3Z2tsNVZ3QW4yeGNWcXg3c1Y4STFubjc4dW1HamNaaEU4?=
+ =?utf-8?B?Qk1PL0F0SHlqRzRjaEdUejVreStSR1RtV0FnQzAvNzNIaWNmdFFvYWc0enNi?=
+ =?utf-8?B?N0s5eU43bmsrcTlDdmsrNmQ2Vy82YUV0a0JNQkxRaENUV2xRNUhJYWdKcG41?=
+ =?utf-8?B?TGtNNktxSWJRZzlrYk83ZUFsR3ZBQ09zcWp0bGc3MHdLTEEwU0hqZXZPVTZs?=
+ =?utf-8?B?ZjJpeXJHc0JhOHJiTDU2a21SUGVtMHUyejVpOW44ZmhKa0hqMzZWcTRWekkz?=
+ =?utf-8?B?VytxbGIwMzBydlZUSFlxUmVPV1dKNG9KVEFHQnNHQVZFbWZGZEV0KzhIOWU0?=
+ =?utf-8?B?WGVFV3Y5Vm5jclR1YjZlbFI4ZnROOGNQL0h5a3EzOFZaakUzMGQyRTRJQ1ZC?=
+ =?utf-8?B?Y1FDSGg3cFBYR0FXV3J3UVhMNXFGYXVsbXBZYXhlTkVFNVpCd2FJa0JQTzVC?=
+ =?utf-8?B?Y3l6WFVuUnBzN1BUaUx1UEdkd09yUzRvcCttUU9HVVhXbTNBZzM3MjlTWDZz?=
+ =?utf-8?B?VkFSeTNRT1NVT1MrUGNMdUt0VFl2T2dLSFgydklEYnMxd3pkTUJmcmxxMmVN?=
+ =?utf-8?B?WkJneWw3S2cyUFJENnJySkFqcTlsNDNXcStKQWJ2SUlTYWxCWUVlZkN6L1Ri?=
+ =?utf-8?B?TU9IeFdRUXZYajhHdTdFKzBlV3VTTTczL1lPNy9NQ0lldnF5bkNNcDBCRi82?=
+ =?utf-8?B?YVY0ZWN1dlp3RnBNUUJBRWlWMWw4aHVCbXl1NjhFZGF2RlN2M1FVd3Zyeitn?=
+ =?utf-8?B?c2R5dUlXVWd4OUFWN0hvVHVsNTh2eVlxSGRlK2tUUVVGalNzZGJOZis0WWo5?=
+ =?utf-8?B?UGo4andReFNJZC9DMmh6MjhLemZCTHVPZDh5ZmhLSmgwZEdpS0NGcGJZeStB?=
+ =?utf-8?B?RnF0ZkFwcWptUHR2NmVXMGhkNEtzRjdDdTd6dFFrMHhYY0FudW55MWNmQ29z?=
+ =?utf-8?B?TVdYMi9NdnZVOVlWQ3lUV1ZuWHlsaE81dWxyZEprWnJYV2xuVkhrOE8wTC9Z?=
+ =?utf-8?B?N3QzQW5FdGNYTXRHRHpldlUwUFM3STZuV05YbjFjUnFIOXpSdHRHYUZvaE5p?=
+ =?utf-8?B?ei91ekFNNGJMTEpoR2VZODFhdkNJNHBaNE9veENmQXQ2Mk9qclFZeUZOZUJj?=
+ =?utf-8?B?aWxrclV5WHJjZ0ZHR1hEUlBsdldJS3RMdlQ4bVBpSDNad1lOU1FETmROV1Vo?=
+ =?utf-8?B?UmhKRG5UY0pYYzFlT3YrTmh1RTNxSkcwZXdBeDhJMlU4KzRBc0hCdGRCREpx?=
+ =?utf-8?B?TGFPNWpEQkZmaC9qOEl3ZVVXd2F2bitrTFY3M29Qc2p6dVJCbldvYlVhYzM1?=
+ =?utf-8?B?VWtPbU1abGRybkRCeFJ1bXRqbTBzeWhRanBvRnpwM1RIUktTbm9JR1BKU1NK?=
+ =?utf-8?B?dmlFcmZ5bkd1VGx5QmJRbS9UU0dHci9zOHJCb0FMYndUQUd3Vkg1UllQaHhK?=
+ =?utf-8?B?b0krRzBUNlhWcnBWYjFxU05yYXRqUEhKc092dzhtbDQ4aWlrWUxISzRxbDBz?=
+ =?utf-8?B?Qzh2S0pBNnkyNS9DZjdLQXNQUWxNaU05NWVSWWhTc0F0SkxkVnNsMWh1bjE2?=
+ =?utf-8?B?bGJDU2V6cW9ncXhxWlFxSHZKY0pXUTQ3M3ZSMFVJcjM3VW1FZ1F3UT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 433f1427-1e49-40be-2b92-08df453c9f8a
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7516.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 06:24:39.0866
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Gcbg9GcT7ssuQ8RJQwuVJMCiEFg0V27Kl7iOxiGWSmxblq21/RztUJznkDrQ5khtdsjZPwGcb704xfz8ylRIgw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8862
 
-Hi all - please proceed with the patch and thank you all for your work!
+Hi Frank,
 
-Sent from my mighty iPhone 13 mini
+On 11/17/2026 2:06 AM, Frank Li wrote:
+> On Fri, Nov 06, 2026 at 03:40:26PM +0530, Golla Nagendra wrote:
+>> Versal Gen2 and Versal Net expose a dedicated reset line per ZDMA
+>> channel. Trigger a reset pulse during probe using device_reset().
+>>
+>> For Versal Net and Versal Gen2, reset is a required DT property, so
+>> probe returns an error if the reset property is missing. For legacy
+>> SoCs, the reset path is skipped.
+>>
+>> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+>> ---
+>>   drivers/dma/xilinx/zynqmp_dma.c | 10 +++++++++-
+>>   1 file changed, 9 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+>> index cb0eb13f9b05..12696fa44c66 100644
+>> --- a/drivers/dma/xilinx/zynqmp_dma.c
+>> +++ b/drivers/dma/xilinx/zynqmp_dma.c
+>> @@ -19,6 +19,7 @@
+>>   #include <linux/clk.h>
+>>   #include <linux/io-64-nonatomic-lo-hi.h>
+>>   #include <linux/pm_runtime.h>
+>> +#include <linux/reset.h>
+>>
+>>   #include "../dmaengine.h"
+>>
+>> @@ -937,6 +938,14 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
+>>   	if (IS_ERR(chan->regs))
+>>   		return PTR_ERR(chan->regs);
+>>
+>> +	match_data = of_device_get_match_data(&pdev->dev);
+>> +	if (match_data && match_data->has_reset) {
+>> +		err = device_reset(&pdev->dev);
+>> +		if (err)
+>> +			return dev_err_probe(&pdev->dev, err,
+>> +					     "failed to reset channel\n");
+>> +	}
+>> +
+> 
+> Use device_reset_optional() will simple code. Your binding already verify
+> dts, needn't check again.
 
-> On 17 Nov 2026, at 22:31, Armin Wolf <W_Armin@gmx.de> wrote:
->=20
-> =EF=BB=BFAm 17.11.26 um 23:17 schrieb Ilpo J=C3=A4rvinen:
->>> On Tue, 17 Nov 2026, Armin Wolf wrote:
->>> A user has reported that the WMI hotkey events on Dell All-In-One
->>> machines need to be manually enabled on some models thru a separate
->>> WMI device. This WMI device seems to be present on many other models
->>> but has no effect on them.
->> Can you rephrase this to not textually depend on "user" or "user's
->> report", just state what the problem is, not how you became aware of it.
->>> Add a small driver for enabling support for this WMI device. This
->>> enables the HDMI Input key on the Dell OptiPlex 7400 All-in-One
->>> machine.
->>>=20
->>> Reported-by: Teodora <teolyub@gmail.com>
->>> Closes: https://lore.kernel.org/platform-driver-x86/0TZENT.54P2IBFQRED22=
-@gmail.com
->>> Tested-by: Teodora <teolyub@gmail.com>
->>> Signed-off-by: Armin Wolf <W_Armin@gmx.de>
->>> ---
->>>  Documentation/wmi/devices/dell-wmi-pega.rst | 82 ++++++++++++++++++
->>>  MAINTAINERS                                 |  6 ++
->>>  drivers/platform/x86/dell/Kconfig           | 13 +++
->>>  drivers/platform/x86/dell/Makefile          |  1 +
->>>  drivers/platform/x86/dell/dell-wmi-pega.c   | 93 +++++++++++++++++++++
->>>  5 files changed, 195 insertions(+)
->>>  create mode 100644 Documentation/wmi/devices/dell-wmi-pega.rst
->>>  create mode 100644 drivers/platform/x86/dell/dell-wmi-pega.c
->>>=20
->>> diff --git a/Documentation/wmi/devices/dell-wmi-pega.rst b/Documentation=
-/wmi/devices/dell-wmi-pega.rst
->>> new file mode 100644
->>> index 000000000000..935c8511594b
->>> --- /dev/null
->>> +++ b/Documentation/wmi/devices/dell-wmi-pega.rst
->>> @@ -0,0 +1,82 @@
->>> +.. SPDX-License-Identifier: GPL-2.0-or-later
->>> +
->>> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
->>> +Dell All-In-One Series Platform Integration (dell-wmi-pega)
->>> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D
->>> +
->>> +Introduction
->>> +------------
->>> +
->>> +Many Dell All-In-One devices contain a WMI device for notifying the und=
-erlying platform
->>> +of various OS-specific events like power up, shutdown and backlight bri=
-ghtness control.
->>> +
->>> +Not implementing support for this WMI device might prevent hotkeys expo=
-sed over WMI from
->>> +working on some models.
->>> +
->>> +WMI interface description
->>> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D
->>> +
->>> +The WMI interface description can be decoded from the embedded binary M=
-OF (bmof)
->>> +data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility:
->>> +
->>> +::
->>> +
->>> + [WMI, Dynamic, Provider("WmiProv"), Locale("MS\\0x409"),
->>> +  Description("Class used to operate method - WMBC"),
->>> +  guid("{2D703EE8-36AC-4F88-BDB5-7556CE6B2946}") : ToInstance]
->>> + class AcpiOSD_WMBC_method : WMIMethod {
->>> +
->>> +   [key, read]
->>> +   string InstanceName;
->>> +
->>> +   [read]
->>> +   boolean Active;
->>> +
->>> +   [WmiMethodId(1), Implemented, read, write,
->>> +    Description("Invoked by AP when system up.")]
->>> +   void PegaOemNotificationStartUp([out, Description("Return Value")] u=
-int32 RetVal);
->>> +
->>> +   [WmiMethodId(2), Implemented, read, write,
->>> +    Description("Invoked by AP when system is going to off state.")]
->>> +   void PegaOemNotificationStop([out, Description("Return Value")] uint=
-32 RetVal);
->>> +
->>> +   [WmiMethodId(3), Implemented, read, write,
->>> +    Description("Invoked by Application to tune up brightness.")]
->>> +   void PegaOemNotificationBrightnessUP([out, Description("Return Value=
-")] uint32 RetVal);
->>> +
->>> +   [WmiMethodId(4), Implemented, read, write,
->>> +    Description("Invoked by Application to tune down brightness.")]
->>> +   void PegaOemNotificationBrightnessDown([out, Description("Return Val=
-ue")] uint32 RetVal);
->>> +
->>> +   [WmiMethodId(5), Implemented, read, write, Description("Reserved.")]=
+Thanks for the review
 
->>> +   void PegaOemNotificationRSVD1([out, Description("Return Value")] uin=
-t32 RetVal);
->>> +
->>> +   [WmiMethodId(6), Implemented, read, write, Description("Reserved.")]=
+The binding schema restricts the resets property to Versal Gen2 and 
+Versal Net, where it is required.
 
->>> +   void PegaOemNotificationRSVD2([out, Description("Return Value")] uin=
-t32 RetVal);
->>> + };
->>> +
->>> +The return value of each WMI method should be equal to the WMI method I=
-D.
->>> +
->>> +WMI method PegaOemNotificationStartUp()
->>> +---------------------------------------
->>> +
->>> +Notifies the platform that the OS is operational. On some models this W=
-MI method also enables
->>> +reporting of hotkey events over WMI.
->>> +
->>> +WMI method PegaOemNotificationStop()
->>> +------------------------------------
->>> +
->>> +Notifies the platform that the OS is shutting down.
->>> +
->>> +WMI method PegaOemNotificationBrightnessUP()
->>> +--------------------------------------------
->>> +
->>> +Notifies the platform that the user wants to increase the backlight bri=
-ghtness. This WMI method
->>> +usually only forwards this request to the acpi-video driver, so the del=
-l-wmi-pega driver does
->>> +not use it.
->> Could these paragraphs be reflowed to 80 chars as long textual lines are
->> harder to read (eye movement required).
->=20
-> Sure, will do.
->=20
->>> +WMI method PegaOemNotificationBrightnessDown()
->>> +----------------------------------------------
->>> +
->>> +Notifies the platform that the user wants to decrease the backlight bri=
-ghtness. See
->>> +``PegaOemNotificationBrightnessUP()`` for details.
->>> diff --git a/MAINTAINERS b/MAINTAINERS
->>> index bd31e734669e..fb9a80f96900 100644
->>> --- a/MAINTAINERS
->>> +++ b/MAINTAINERS
->>> @@ -7534,6 +7534,12 @@ M:    Pali Roh=C3=A1r <pali@kernel.org>
->>>  S:    Maintained
->>>  F:    drivers/platform/x86/dell/dell-wmi-base.c
->>>  +DELL WMI PEGA DRIVER
->>> +M:    Armin Wolf <W_Armin@gmx.de>
->>> +S:    Odd Fixes
->>> +F:    Documentation/wmi/devices/dell-wmi-pega.rst
->>> +F:    drivers/platform/x86/dell/dell-wmi-pega.c
->>> +
->>>  DELL WMI SYSMAN DRIVER
->>>  M:    Prasanth Ksr <prasanth.ksr@dell.com>
->>>  L:    Dell.Client.Kernel@dell.com
->>> diff --git a/drivers/platform/x86/dell/Kconfig b/drivers/platform/x86/de=
-ll/Kconfig
->>> index 9f0016056d7e..289379383ccb 100644
->>> --- a/drivers/platform/x86/dell/Kconfig
->>> +++ b/drivers/platform/x86/dell/Kconfig
->>> @@ -228,6 +228,7 @@ config DELL_WMI_AIO
->>>      depends on ACPI_WMI
->>>      depends on INPUT
->>>      select INPUT_SPARSEKMAP
->>> +    imply DELL_WMI_PEGA
->>>      help
->>>        Say Y here if you want to support WMI-based hotkeys on Dell
->>>        All-In-One machines.
->>> @@ -262,6 +263,18 @@ config DELL_WMI_LED
->>>        This adds support for the Latitude 2100 and similar
->>>        notebooks that have an external LED.
->>>  +config DELL_WMI_PEGA
->>> +    tristate "Dell WMI AIO Platform Support"
->>> +    default m
->>> +    depends on ACPI_WMI
->>> +    help
->>> +      This option adds support for WMI-based platform integration on De=
-ll All-In-One machines.
->>> +      This driver is necessary for enabling the delivery of hotkey even=
-ts to the dell-wmi-aio
->>> +      driver on some machines.
->>> +
->>> +      To compile this drivers as a module, choose M here: the module wi=
-ll be called
->>> +      dell-wmi-pega.
->>> +
->>>  config DELL_WMI_SYSMAN
->>>      tristate "Dell WMI-based Systems management driver"
->>>      default m
->>> diff --git a/drivers/platform/x86/dell/Makefile b/drivers/platform/x86/d=
-ell/Makefile
->>> index 470874c6e6e6..46c91c240a2c 100644
->>> --- a/drivers/platform/x86/dell/Makefile
->>> +++ b/drivers/platform/x86/dell/Makefile
->>> @@ -27,5 +27,6 @@ obj-$(CONFIG_DELL_WMI_AIO)            +=3D dell-wmi-ai=
-o.o
->>>  obj-$(CONFIG_DELL_WMI_DESCRIPTOR)        +=3D dell-wmi-descriptor.o
->>>  obj-$(CONFIG_DELL_WMI_DDV)            +=3D dell-wmi-ddv.o
->>>  obj-$(CONFIG_DELL_WMI_LED)            +=3D dell-wmi-led.o
->>> +obj-$(CONFIG_DELL_WMI_PEGA)            +=3D dell-wmi-pega.o
->>>  obj-$(CONFIG_DELL_WMI_SYSMAN)            +=3D dell-wmi-sysman/
->>>  obj-$(CONFIG_DELL_DW5826E_RESET)        +=3D dell-dw5826e-reset.o
->>> diff --git a/drivers/platform/x86/dell/dell-wmi-pega.c b/drivers/platfor=
-m/x86/dell/dell-wmi-pega.c
->>> new file mode 100644
->>> index 000000000000..ddb1b6cc6b1c
->>> --- /dev/null
->>> +++ b/drivers/platform/x86/dell/dell-wmi-pega.c
->>> @@ -0,0 +1,93 @@
->>> +// SPDX-License-Identifier: GPL-2.0-or-later
->>> +/*
->>> + * WMI platform integration for Dell All-In-One series.
->>> + *
->>> + * Copyright (C) 2026 Armin Wolf <W_Armin@gmx.de>
->>> + *
->>> + * Based on earlier work by Teodora <teolyub@gmail.com>.
->>> + */
->>> +
->>> +#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
->>> +
->>> +#include <linux/cleanup.h>
->>> +#include <linux/device.h>
->>> +#include <linux/device/driver.h>
->>> +#include <linux/dev_printk.h>
->>> +#include <linux/kernel.h>
->> What for is this?
->> I suspect direct device.h include isn't necessary either (and it's
->> anyway guaranteed to come through wmi.h).
->=20
-> Good question, i copied it from one of the other WMI drivers.
->=20
-> I will remove both includes in the next revision.
->=20
->>> +#include <linux/module.h>
->>> +#include <linux/slab.h>
->>> +#include <linux/types.h>
->>> +#include <linux/wmi.h>
->>> +
->>> +#define PEGA_GUID    "2D703EE8-36AC-4F88-BDB5-7556CE6B2946"
->>> +
->>> +enum dell_pega_method {
->>> +    DELL_PEGA_NOTIFICATION_STARTUP        =3D 0x01,
->>> +    DELL_PEGA_NOTIFICATION_STOP        =3D 0x02,
->>> +    DELL_PEGA_NOTIFICATION_BRIGHTNESS_UP    =3D 0x03,
->>> +    DELL_PEGA_NOTIFICATION_BRIGHTNESS_DOWN    =3D 0x04,
->>> +    DELL_PEGA_NOTIFICATION_RESERVED_1    =3D 0x05,
->>> +    DELL_PEGA_NOTIFICATION_RESERVED_2    =3D 0x06,
->>> +};
->>> +
->>> +static int dell_wmi_pega_invoke(struct wmi_device *wdev, enum dell_pega=
-_method method)
->>> +{
->>> +    struct wmi_buffer input =3D { };
->>> +    struct wmi_buffer output;
->>> +    int ret;
->>> +
->>> +    ret =3D wmidev_invoke_method(wdev, 0x0, method, &input, &output, si=
-zeof(__le32));
->>> +    if (ret < 0)
->>> +        return ret;
->>> +
->>> +    __le32 *result __free(kfree) =3D output.data;
->>> +    /* The return value should always be equal to the WMI method ID */
->>> +    if (le32_to_cpu(*result) !=3D method)
->> Include for le32_to_cpu()
->=20
-> What would be the correct include for this?
->=20
->>> +        return -EIO;
->>> +
->>> +    return 0;
->>> +}
->>> +
->>> +static int dell_wmi_pega_probe(struct wmi_device *wdev, const void *con=
-text)
->>> +{
->>> +    int ret;
->>> +
->>> +    ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STARTUP);=
+An unconditional device_reset_optional() does not enforce this required 
+property for Versal Gen2 and Versal Net devices in alignment with the DT 
+binding schema. If the required reset is missing, 
+device_reset_optional() would allow the driver to continue probing.
 
->>> +    if (ret < 0)
->>> +        dev_err(&wdev->dev,
->>> +            "Failed to notify platform of startup, some hotkeys might n=
-ot work\n");
->> braces for multiline constructs.
->>> +
->>> +    return ret;
->>> +}
->>> +
->>> +static void dell_wmi_pega_shutdown(struct wmi_device *wdev)
->>> +{
->>> +    int ret;
->>> +
->>> +    ret =3D dell_wmi_pega_invoke(wdev, DELL_PEGA_NOTIFICATION_STOP);
->>> +    if (ret < 0)
->>> +        dev_warn(&wdev->dev, "Failed to notify platform of shutdown\n")=
-;
->>> +}
->>> +
->>> +static const struct wmi_device_id dell_wmi_pega_id_table[] =3D {
->>> +    { PEGA_GUID, NULL },
->>> +    { }
->>> +};
->>> +MODULE_DEVICE_TABLE(wmi, dell_wmi_pega_id_table);
->>> +
->>> +static struct wmi_driver dell_wmi_pega_driver =3D {
->>> +    .driver =3D {
->>> +        .name =3D "dell-wmi-pega",
->>> +        .probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
->>> +    },
->>> +    .id_table =3D dell_wmi_pega_id_table,
->>> +    .probe =3D dell_wmi_pega_probe,
->>> +    .remove =3D dell_wmi_pega_shutdown,
->>> +    .shutdown =3D dell_wmi_pega_shutdown,
->>> +    .no_singleton =3D true,
->>> +};
->>> +module_wmi_driver(dell_wmi_pega_driver);
->>> +
->>> +MODULE_AUTHOR("Armin Wolf <W_Armin@gmx.de>");
->>> +MODULE_DESCRIPTION("Dell All-In-One series platform integration");
->>> +MODULE_LICENSE("GPL");
->> Just the mandatory nitpicking :-), seems fine otherwise.
->=20
-> Thanks,
->=20
-> i will wait with sending a v2 until Teodora has tested the second patch.
->=20
-> Thanks,
-> Armin Wolf
+Whereas, in the current approach, the match-data check limits reset 
+handling to Versal Gen2 and Versal Net. Calling device_reset() for those 
+compatibles enforces the required reset property and ensures that probe 
+fails if the required reset is missing or cannot be applied, in 
+alignment with the DT binding schema.
+
+For legacy compatibles, the driver skips reset handling even if an old 
+or unvalidated DTB contains an unexpected resets property.
+
+Hence, we prefer the current approach. Could you please advise if you 
+see any concerns?
+
+Thanks,
+Nagendra
+> 
+> Frank
+> 
+>>   	chan->bus_width = ZYNQMP_DMA_BUS_WIDTH_64;
+>>   	chan->dst_burst_len = ZYNQMP_DMA_MAX_DST_BURST_LEN;
+>>   	chan->src_burst_len = ZYNQMP_DMA_MAX_SRC_BURST_LEN;
+>> @@ -952,7 +961,6 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
+>>   		return -EINVAL;
+>>   	}
+>>
+>> -	match_data = of_device_get_match_data(&pdev->dev);
+>>   	if (match_data)
+>>   		chan->irq_offset = match_data->offset;
+>>
+>>
+>> --
+>> 2.43.7
+>>
+
