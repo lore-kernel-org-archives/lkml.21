@@ -1,97 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.160.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795009103;
-	b=DwNDLDiugr15cnUs8P5yL8GzASovgCiFTINeF4XRe7B5/VHfU6MqNTAekcqbNrlYDCVk
-	 rQSkN2yqAPp+Gpmh2Crp49brFmKhuyNAAy1fQAtzsrYtjoRgdZOWvKJpHJM47HAE10sMX
-	 R4pg6wUI3rbedwDbSmOdnWiSzmogqjjSwbhSYyn9fnoDv4g7QIzH4DiJaFC5ahREuB5Jz
-	 CfCQFJvHNTJ6uSonLpEiX4l2F0jKfgzWsDZI7zIotSAc2lJLTAf+DG71ZkK/aJ3R2om2Z
-	 HJDdU4eOjMR/gQ/PE7Q8SfOPhjZ+UEq7JAGQK8X7+NNz3zeNV4lt8CSnJgroalXz9rA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009103;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=Gu0OV3kkEAl4D4CjhNeE+xCTUXelNvJBkZGChj72U4U=;
-	b=BxeC30gKinAVF+OmE2JGfHvI/ReCcuXjg2J9KDq6AP6bKOk/qG+WxObwdTvLBhfQamQm
-	 RQHxlr06YYMfeER3fnpWBULiMGYF0VrvXfVSL8iPXrfT4bHz9EECVlBbQIZMAXCpPe+hv
-	 7UpeNDDL5so0N5WRk8MnbfThFH4fQRqWK55MkfsiGsv+pMbwFYxCF7S3oAJEyOamLtfjy
-	 W/EW7bBzihHa58pKKJ11dGVvgVi/dtGoW5YE9Qrblqe5bd+/bm8mJOac1s2gAN3Cj2pNa
-	 xx/Wt8WmD6EgIw4tXC+bcZ3sUOSoXFxs4FD8X8JzgrQ8lzVM9mtQh9GUnI6sg/RjguA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=szeredi.hu;
-	spf=pass smtp.mailfrom=szeredi.hu;
-	dkim=pass header.d=szeredi.hu header.i=@szeredi.hu header.a=rsa-sha256 header.s=google header.b=Pe34tTsI;
-	arc=fail smtp.remote-ip=209.85.160.170
-Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795009113;
+	b=xWjV/0toAtF2+hcl0uR4LB838uYBnTqCZCn8B2Lf1chih692azukfxy9tfd8zNYgQD98
+	 boir1yisA/LNX9KD3rZ30qkIG2chP/8iwFmHkppOhaJRGsgK1czGCHflyivarqkqa9KSX
+	 FQAhuu9SDN+QiA97B2Js/s14fwFHZ5uzcryEQu2xUNcbc6TAJoe1rTdRLoW+N8XpqAm2i
+	 5eYF2rMpztqPn/t+8aFZcKsIwhbMqVdtSljOdJ0mz5Are99vlXkYfEhmI9GT7DJyxB71G
+	 h6rS6KEBFLJLSNMmIXNqHasnmSC0t9oBCkKL/FEy12i5IqhRQf2+dd88aGuj0LanpKQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009113;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=tRoiMPf7bc7glgn8sxiDt2fd8OqUIkdqotnoRF5JNCg=;
+	b=JFVAsBp5xZ/R+V1yfnfugi4xLAgZMhPbZMbImc8JwTcalF3iN9F+nJYEhG2Yl7eNfDe2
+	 mizOe6hrsTkpXf1pEWUgZGXbm87YkWGGaXbRdGIEeA0i1URhCoivZ3z8VHhbHJpVrcNny
+	 q15kOR2E3Xkn/jBCDVmEcmNrS2vaTE61b+WjrQgzRx7NWkrr6IdH3ZMeRtf68XNUFEfCV
+	 TQIluI2kIgvZC177gms3sNP04DHlCm+Db/tbp3NuM05x25pkgW9nKQlqIUJfesUlmAa7L
+	 fEscuw65+GgFJ6Fce3O/FscEjui0jxdA28nEnnBpZQ/PxflbwLuz+Tkhnc7WmKgIYDA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WtQ6BEBh;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54D7560A2606
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:38:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54D7560A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szeredi.hu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szeredi.hu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCA00606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:38:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCA00606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=szeredi.hu header.i=@szeredi.hu header.a=rsa-sha256 header.s=google header.b=Pe34tTsI
-Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-55d30c054dfso10536231cf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:38:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795009101; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Pa9hOlh2oq6yX30Ic5gLa4pPCwFwrSL9uszJm9DAMDLdXiyZQUW+7cfQu7uaaT2sMp
-         G7t3f/5ydSENkRT9ykZJZyE7OG7UnVmaUMKjjo7WY/2K6dnb5XzDq63pxFV10sxqPkVB
-         f8IWa92oBadH/EjAtuLHniZmyktlkvxo7d2T6MlEdjgJpbQOT4dIGF93ScsdvwZoe3oF
-         TP26/BO6DrBMet7CawnMlk3q6W7lb9p6Y6oKU/l9+lIj4l2GP/FLThkaBkQnzegdvGkh
-         AkBtv2p7Ifclmbq+AIVd3fy7XlDygw3yVZTdqrgPsgip64/8gRUi31o+Guv5C/ZrAG+R
-         aSEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Gu0OV3kkEAl4D4CjhNeE+xCTUXelNvJBkZGChj72U4U=;
-        fh=FOzwuuNfPavm+U91oRWAiB/tDouBrRA8lU8y5JmLAkg=;
-        b=LiA9QVzhb/6lvWrDj0+mL+fJc2lGLPqC+jC/Pm8C8q79l1rxtR1llkkV9X87XTwpzg
-         DGv2/NOZ13T74QKJemHYh30ke/yOMi3YqcV3KeUHGlkLT/O2M5elrVedxqWvEDCT6wWi
-         ZHVBGLhrI1ZraHdi5E5eKilznJKK+4NajyAZiPPLeZFndqMGJYoYjibmGIU3+rt2LK9g
-         ZkkVOnfVg4iafw061YA8mz1jclpwpG8JVxN59jdy0eQX+vzrUFEaxvKbeC9gGWVeJ2Rt
-         9YCnAMVCZ8RbRphur/M9TRX46ykMy+LJ/BNXgE06Ko/6xbkpX+yp9RRcrNVMLWdv8Rqn
-         BLbg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=szeredi.hu; s=google; t=1795009101; x=1795613901; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Gu0OV3kkEAl4D4CjhNeE+xCTUXelNvJBkZGChj72U4U=;
-        b=Pe34tTsIgFeEeOlE8BDyVJuTMubDV7IkG0gfFDkXSbD/+AwMJkcrj2xltdA98E10Jt
-         WN8LQd0JEg98Z/33ga26tURmtWsAi7rYQ9NM9Ch20U1RmHdV/OD+mO+UwpY5EnnjM+HE
-         8NzXR1OZ4amekDKtfzXQMjpyw8un5pJRKJMmg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009101; x=1795613901;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Gu0OV3kkEAl4D4CjhNeE+xCTUXelNvJBkZGChj72U4U=;
-        b=BYrhh0t5bkXRgYoDTB7RD6dCeI6R+xMe1D8zoQQ7maJWdYMK2T7bqpNK2Qw6onSevk
-         PCPQonChrY30e/WCBuN6VlvZF7Z99wG+/rDv5DiA3iu2v0QGoyUugYYkrWYU2UioLrEv
-         SKfPTSGU0k7ckdm9rV5AqsuC+/CE5roRDh7ptZIa2Wj3zgBs2sefMe1ceOdm8LnCcDbU
-         +eRaZDDBAW/fgZTS8nUvUOigsU2KfkpoWAx8SkyQ507jzLhHjY9+EcG/JWFbJ52W+0xj
-         E/JHS+bGLIwbZwGlg0mvbzc2gjMB3LPw2Yfy/+Lmss36GDiuMYVGeOTG0Oh8xbwqXDsC
-         UN6g==
-X-Forwarded-Encrypted: i=1; AL+hErGaEFomTTnGJDcOKarWrgsztdqfNGcx1lnGIhK9Of2g84IVF89pXRIXC+0IpHco6ew/0VnwmByB/uzWbLE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/9uUR5Zsb4wgXK9G2IWeplDgLp83dDtBnV7CpWYMULciVFoz6/
-	eD/NXGKmoRMkQjFtomIy7L6c9AEKP9P9HMTlAAosqYSinmFV8bZ6AplrfpCXFjLN7WOvvUIqWyG
-	GtRc9oMz0pEhRG/DkLhvjaVLe1yaWlPvR3CwUNoepNHxyFXiHIt3t
-X-Gm-Gg: AYBFou2cS1dxCUhhofCkukWKAGo/HR7sOR6t5f/LX9tPHpz5ydrIF9drVN8x9+oiQD1
-	sTPd1DyxI3eiZYaJk2MPvDEmoq9mu6sKs+XPsykL2uVPgKyvh5J9iPucoIUj4WEAdfl0Wpwp2Wd
-	pwocUOnlVDnmFQEYz1+ufgYQupijxtSxHNVit5qws4BvztbVOJG3H4UYOc8YqY8O3023Ng5SZDw
-	ScagA6Ax/xhNtIgqQLcRdjlxocGnYj80E5CuC0BwHjGfkte5TV6M3F1UlxEQzERb4EzKTOXE075
-	JWmPuhbc3aC6eywCDjm8ijYMsVlYkhDmo8+1bSXkB73lq5hUQ0K/zVocqreIRZPP4Czd3LuhszH
-	0MxsQcWo+rZ+ZkuXTZhOKYrVnYd7Jza6nzk4aNlyAy9hIKjPmSprpQ3BXS/J1G+XSN9MHDjErrk
-	XtH4KMiBHVaKc=
-X-Received: by 2002:a05:622a:558e:b0:55c:f47a:8c96 with SMTP id
- d75a77b69052e-55d5a340368mr39697851cf.3.1795009101249; Wed, 18 Nov 2026
- 05:38:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WtQ6BEBh
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A7B801A16D0;
+	Wed, 18 Nov 2026 13:38:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 768B55FE9B;
+	Wed, 18 Nov 2026 13:38:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 811BD11BC1FF3;
+	Wed, 18 Nov 2026 14:38:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795009109; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=tRoiMPf7bc7glgn8sxiDt2fd8OqUIkdqotnoRF5JNCg=;
+	b=WtQ6BEBhdGQ4Wt3gDfXBZLiEJKbVeKUy1I+YDYe9za9XuSECKqmAQiePKNvZWDALgAoSTN
+	uqUeYs1PTi/Jn0HXbVipAPayC8QcwJTbpYd2AGwIbKAAa+z4V9MqtLY6OrBiEWZxKZgt+b
+	c2v3WU+hl1c36CXmoc1e72uRyfGc2nNyK2GrOQZURFOH8lY0qoejkzC3zQ67MlkJPjfSgp
+	XwMCyhhvvEDLXWZhWCRR1IpXtKWwbMMbS0oOHI2oKB4La6SnO9IysRokaldbCZD7s89mlt
+	hv5XQIJkvEa2YOqIsgefHC7Vlfo9fdNK3CtguxPQCKZyM7tFiHjutEDWXAbkAg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Wed, 18 Nov 2026 14:37:15 +0100
+Subject: [PATCH v11 08/10] clk: nuvoton: ma35d1: Reparent SYSPLL correctly
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,30 +63,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117135146.3174252-1-graypanda.inzag@gmail.com> <20261117135146.3174252-2-graypanda.inzag@gmail.com>
-In-Reply-To: <20261117135146.3174252-2-graypanda.inzag@gmail.com>
-From: Miklos Szeredi <miklos@szeredi.hu>
-Date: Wed, 18 Nov 2026 14:38:09 +0100
-X-Gm-Features: AclHuK95w6kthqK2rcV5FGmp6byHyDgOGBtGbNMoFRdYyxphnOM3Now-gzk5ZLo
-Message-ID: <CAJfpegvfKhZYuMQ914GUPNvdPi-nZBYE9qfwHVg6m+8ABuhqCg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] fuse: skip dcache instantiation for readdirplus
- names with embedded NUL
-To: Junyoung Jang <graypanda.inzag@gmail.com>
-Cc: Jan Kara <jack@suse.cz>, Amir Goldstein <amir73il@gmail.com>, 
-	Matt Bobrowski <matt@bobrowski.net>, Gwanhyun Lee <gwanhyunlee@gmail.com>, fuse-devel@lists.linux.dev, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-perso-ma35d1-upstream-clk-v11-8-bd1d1e060926@bootlin.com>
+References: <20261118-perso-ma35d1-upstream-clk-v11-0-bd1d1e060926@bootlin.com>
+In-Reply-To: <20261118-perso-ma35d1-upstream-clk-v11-0-bd1d1e060926@bootlin.com>
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Miquel Raynal <miquel.raynal@bootlin.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, 17 Nov 2026 at 14:52, Junyoung Jang <graypanda.inzag@gmail.com> wrote:
+The clock tree is still incorrect. SYSPLL is derived from HXT_GATE, very
+much like CAPLL, DDRPLL, VPLL, APLL and EPLL. SYSPLL has a fixed
+frequency, but if HXT gets gated, SYSPLL stops running.
 
-> Some FUSE servers include a terminating NUL in namelen.  Follow
-> nfs_prime_dcache() in commit 78d04af4995a1 ("NFS: nfs_prime_dcache must
-> validate the filename") by skipping dcache instantiation without
-> failing getdents().  Return -EIO from fuse_direntplus_link() so
-> parse_dirplusfile() sends FUSE_FORGET for the unused lookup reference
-> and continues readdir.
+Reparent SYSPLL under HXT_GATE to properly define the clock tree
+topology. After this change, the frequencies are identical, but the
+clock tree looks (again) much closer to the reality.
 
-Applied, thanks.
+Since the TRM does not explicitly shows that HIRC and LIRC are
+internally sourced from HXT and LXT, respectively, I haven't reparented
+them (even though that was tempting). This can be done later anyway.
 
-Miklos
+Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/clk/nuvoton/clk-ma35d1.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+index 8fab3c563316..3015c49ee852 100644
+--- a/drivers/clk/nuvoton/clk-ma35d1.c
++++ b/drivers/clk/nuvoton/clk-ma35d1.c
+@@ -139,6 +139,12 @@ static const struct clk_div_table eadc_div_table[] = {
+ 	{13, 28}, {14, 30}, {15, 32}, {0, 0},
+ };
+ 
++static struct clk_hw *ma35d1_clk_fixed_parent_hw(struct device *dev, const char *name, int rate,
++						 const struct clk_hw *parent_hw)
++{
++	return devm_clk_hw_register_fixed_rate_parent_hw(dev, name, parent_hw, 0, rate);
++}
++
+ static struct clk_hw *ma35d1_clk_fixed(struct device *dev, const char *name, int rate)
+ {
+ 	return devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
+@@ -286,6 +292,9 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 
+ 	hws[HXT_GATE] = ma35d1_clk_gate_parent_data(dev, "hxt_gate", hxtg_parent_data,
+ 						    clk_base + REG_CLK_PWRCTL, 0);
++	if (IS_ERR(hws[HXT_GATE]))
++		return PTR_ERR(hws[HXT_GATE]);
++
+ 	hws[LXT_GATE] = ma35d1_clk_gate_parent_data(dev, "lxt_gate", lxtg_parent_data,
+ 						    clk_base + REG_CLK_PWRCTL, 1);
+ 	hws[HIRC] = ma35d1_clk_fixed(dev, "hirc", 12000000);
+@@ -297,7 +306,7 @@ static int ma35d1_clocks_probe(struct platform_device *pdev)
+ 
+ 	hws[CAPLL] = ma35d1_reg_clk_pll(dev, CAPLL, pllmode[0], "capll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL0CTL0);
+-	hws[SYSPLL] = ma35d1_clk_fixed(dev, "syspll", 180000000);
++	hws[SYSPLL] = ma35d1_clk_fixed_parent_hw(dev, "syspll", 180000000, hws[HXT_GATE]);
+ 	hws[DDRPLL] = ma35d1_reg_clk_pll(dev, DDRPLL, pllmode[1], "ddrpll",
+ 					hws[HXT_GATE], clk_base + REG_CLK_PLL2CTL0);
+ 	hws[APLL] = ma35d1_reg_clk_pll(dev, APLL, pllmode[2], "apll",
+
+-- 
+2.56.0
+
