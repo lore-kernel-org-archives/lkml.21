@@ -1,88 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794990159;
-	b=XP0E9vDIzRjQwcrH5AG/WszqK3900fasI0NdIm8YHGbIvZ9SHoYT78V21HfUAZplwYjR
-	 vnoBzQbohYi6RYzCB1MGV57NuzgJPpyLgV9W44LLJTHvVthoNIvQFXw0TLEHf/UW2PgYB
-	 9c3KqfpJwFRCXWBdQ97gECeVo5tmn1siwDVs41Z1xwvKApGU0gOL51rkH5xXN/dMy3Jsx
-	 RhFFan6jlQrOO+lMJcYCAIQyEdOFSEA6BE6qYCaeXeB5Cu0AlCHuRb9PwrH0KH9s236o4
-	 IDI04Ih1Cr3/0pq0c/eZlAvLaKrTnHe8K6udF9NLk/mbfjXQK2RQk/efp5/LGNNJhKw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990159;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=J4ZE7vCsAhG2tmo9f0rn5//fakwxkyXyV2k3at5S3/s=;
-	b=5IP6Z0x6IBIZZUdM1hRBRHOme5bbevsYp4nN2FXri5/eESs/isFmzSBOgRTnYL42aGKI
-	 gRKSqDrIPlDnffq8cybMWNv0d1NgmtEMQPysC0far5AWIgXEPgn2401sjuuZXvCQPyOw7
-	 NgApseJBLJlnNubynlIIUCllqHGhUGB9fMZxx4Ac9Evt54tqti1wwOmzp3klZAtmvE1ju
-	 pd7TW7xjo4GYNfnZci027bt+BRG06tBsVHd30V0S5ayeP/8a6UCcYCpDqZ1xJfFnHO43F
-	 /PfBxn7HXvqjcpi15yheHAKdOdP5U1M96FjyzJNXasq+k7wKtCSG55AeB/7x70ULlkA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I9fHU312;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CBD0606A31C;
-	Wed, 18 Nov 2026 08:22:38 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794990186;
+	b=gLxvw5TMQA1fWU+uDcyTQaHfn19v7GxDkRENB+D3j3EJXlou65AZ6HFBKmdZGcB5ENkL
+	 uefBCYr/HJqDneYRkbhhNU69fDgpX1ZdsxW3Qxh1XIEAoQ4TcU0K5jpgdtDqAjm/4+YP5
+	 Fh9jp2ebbDC29cBpD++Ly+IiKUypnfN2QxsUbpRoHklkY35xIEu8/M1ivvE3NlcG5YSnx
+	 H+NQ/hlm7Az7aj4xbNbaNnfpMA0wUuhnJgGChbDnp8rTKI65YG3X+HWgmoJXatOgfk9NR
+	 aNC6zLVG8yWtGYLc2YIlNUsDA26Zgb4qceg0aXhH0Qgo0Jp3/ECQWvd0Zny/3dGS1mQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990186;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:To:Cc:
+	 Message-ID:In-Reply-To:References:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=3BqdCJTGw47ZPbEBDmV2Sxr2xhOXRAA8TmzOR2G/4rE=;
+	b=KY1ysurNla4c6aHKHpl+IzpLFfTMMd3/IeiKGL5+77xX55JCJU0ica6x3SC+D8dj3XRG
+	 LWjXKbxSpAZJyDdwC7xHlomTjZJecgg+wAf4TMXxpqmw4Zqnqkr3CUohCMUYwAeZViu0w
+	 ZPZ/iDeMPS37oxmvmer0kd9Gnjbi0/oHYfo5kiqtAObV5rpE8z+heSn65PHimUovvrW+Y
+	 CeGnmU0W0kwczNnbLjjRkFZsBrDDRaPpVHS+Eu9GRRk9Wmp5BfzNktDeqIqrjccXQuNUV
+	 9Vr5yY/SkyQHw/f64F++BSBM1VmgsPLxpdaLC/b+oUhmrHitjErxQwSckGN41HXalow==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Y9snmjpX;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0A360606A32A;
+	Wed, 18 Nov 2026 08:23:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A360606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I9fHU312
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=90.182.112.124
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794990158;
-	b=xCGlP1SgfiF/6gAdmvwDF+qYGoTPVikgYJLqzL7eMBRupSNz8J7pRNB4gO4J/UE44+vr
-	 Gaph9flItWZV+iGbTzz0OHKRaj91BDg0DvfGkCThgQ6k+AOg/glsQNRwz9mwEtW4r1ELZ
-	 jvb6PrOyp0Wwrtng8pa8iOZRgXE3S6bwUCuHtJCqq4IzvEIXhTX/GBWZkfmyWFoSvlBUJ
-	 qE7vi61iDJolxR4kcXBiDqbnpMAT+HBOMYMzXl2AiaJPb5BW9sm+d5nCkZvs9lANMRx63
-	 1ulVUt3rM1JCxAgt3Y0Jnx3MJOiCdqeUBHnP4/OuZzWTqOjT478fujeURTJJZxRb4qA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794990158;
-	h=DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
-	 References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=J4ZE7vCsAhG2tmo9f0rn5//fakwxkyXyV2k3at5S3/s=;
-	b=3nY3jBXrCug+fyQ+ZAjPJjrMSygrADZCp1OTHeNWHfrWHlfAIcRNrYcHta9tHHdQ09tZ
-	 w1/m2zZ91B5YHDIyd8YgNKn8bLqQ+vuD5FYUJRWcfQgdyIbERtnlrxCixtia397wN51UO
-	 MefIXBERw1fBp8Qdnf7uakE7kDzVUQH+IHzOnPO1ko9CMTmbnDywbPDjz93Qr5e23m67h
-	 m7bUD4lFPK6Q7uhyALgo9LD0+WzbU29SEE9kbAJCMVUl8xVFemcc6YSTdWlObXZKIClFE
-	 NxjlHXss2sPV5BxkQaSniwLUvA0vxiXX48lXMa6xbl90oY+F+ScnGD0iFtGywdvnI2Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=90.182.112.124
-Received: from localhost (90-182-112-124.rcp.o2.cz [90.182.112.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPSA id 8A22B1F000C4;
-	Wed, 18 Nov 2026 08:22:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794990158;
-	bh=J4ZE7vCsAhG2tmo9f0rn5//fakwxkyXyV2k3at5S3/s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=I9fHU312mFw8dRB/mVNG1BZMmmzSYemzcy2nxHbnCceuoSllNqRqBKLxSkVU4daJL
-	 aRTybwxeTCS5RCfFzM1IPX44PsZ5Z3okw/UfUWIyMUd366pYNKgRycYD+cEHHameK0
-	 CU6lAnsWUiKtO5YCCp+q52WdRFxMj6oTITYMR91DJHq3KHaCln/j1OK8cMT2V2WwvK
-	 VmVcBnT87WWOuw/f3m3U7HW/VFuK3rvK9xzBDnCAwqGBw8QsvIjh7ubwG/iE6WhG7I
-	 ULzFsc66CSXeoo5GTfRG5GoQYWm4XZWxw0uDsmDPHjT2krsqK469dPYMj83aAz3gXM
-	 mkbx/oa0tmD3g==
-Date: Wed, 18 Nov 2026 09:22:29 +0100
-From: Joshua Crofts <crofts@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, Marcelo Schmitt
- <marcelo.schmitt@analog.com>, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>, linux@analog.com,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Michael Hennerich
- <michael.hennerich@analog.com>, Nuno =?ISO-8859-1?Q?S=E1?=
- <nuno.sa@analog.com>, Esteban Blanc <eblanc@baylibre.com>, Jonathan Cameron
- <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, Andy Shevchenko
- <andy@kernel.org>
-Subject: Re: [PATCH v1 1/3] math.h: Add mult_fract() that takes struct
- __Txx_fract as argument
-Message-ID: <20261118092229.000025fb@kernel.org>
-In-Reply-To: <20261117091638.1463621-2-andriy.shevchenko@linux.intel.com>
-References: <20261117091638.1463621-1-andriy.shevchenko@linux.intel.com>
-	<20261117091638.1463621-2-andriy.shevchenko@linux.intel.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Y9snmjpX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:Date:Subject:To:Cc:
+	Message-ID:In-Reply-To:References; bh=3BqdCJTGw47ZPbEBDmV2Sxr2xh
+	OXRAA8TmzOR2G/4rE=; b=Y9snmjpXX4TSOp6AdaL0bRsENdt8MEcgFeUQ4KQGht
+	bF6S85fofeH54j3maAQ1frcq3KF1ND88sEjrI2zOIQxqbooKK4YqjorM5A7gJRzS
+	tGsomYnEPiBUtlTLUYnerxFDl/KdcOoJEFq0UWeWA4sfSX1TI26KjNYxnp8pRGUC
+	8=
+Received: from v3_send.eml (unknown [58.206.202.11])
+	by web2 (Coremail) with SMTP id yQQGZQDXBGlIYP1qHSRHAQ--.37447S2;
+	Wed, 18 Nov 2026 16:22:32 +0800 (CST)
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Date: Wed, 18 Nov 2026 14:43:07 +0800
+Subject: [PATCH net-next v3] net: sparx5: check DT port reg against chip port count
+To: Daniel Machon <daniel.machon@microchip.com>,
+ Steen Hegelund <Steen.Hegelund@microchip.com>,
+ UNGLinuxDriver@microchip.com
+Cc: netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Message-ID: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
+In-Reply-To: <20261116210802.2718-1-haoranwangsec@gmail.com>
+References: <20261116210802.2718-1-haoranwangsec@gmail.com>
+X-CM-TRANSID:yQQGZQDXBGlIYP1qHSRHAQ--.37447S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCw4fXFyxuFWUXw47Gr1rJFb_yoW5Cr4xpF
+	Z8Aas8KrW8Gr43Ca4xJw48uas09a1DXFy5Wr1xCwsxWw45GFW0yryxKFs0vF1jkrWrJa97
+	JF4Yqa43Ca9FkFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
+	15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
+	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r43Mx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5vPftUUUUU==
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYPD2r81Zf3kwAAs3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,39 +83,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 10:14:40 +0100
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 
-> Add mult_fract() that takes struct __Txx_fract as argument and
-> calls do_div() instead of plain divisions.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> ---
->  include/linux/math.h | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/include/linux/math.h b/include/linux/math.h
-> index 1e8fb3efbc8c..ded258df50df 100644
-> --- a/include/linux/math.h
-> +++ b/include/linux/math.h
-> @@ -128,6 +128,10 @@ __STRUCT_FRACT(u32)
->  	q * n_ + r * n_ / d_;	\
->  })
->  
-> +/* Same as above but for a struct __Txx_fract fraction */
-> +#define mult_fract(x, f) 				\
-> +	mult_frac(x, (f)->numerator, (f)->denominator)
-> +
->  #define sector_div(a, b) do_div(a, b)
+mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
+portno, which sparx5_create_port() later uses to index the fixed-size
+sparx5->ports[] array:
 
-Sashiko has some remarks.
+    sparx5->ports[config->portno] = spx5_port;
 
-https://sashiko.dev/#/patchset/20261117091638.1463621-1-andriy.shevchenko%40linux.intel.com
+The value is never validated, so an out-of-range 'reg' (runtime overlay,
+corrupted or attacker-controlled DTB, kexec-supplied or bootloader
+fixed-up DT) turns probe into an out-of-bounds write.
 
--- 
-Kind regards,
-Joshua Crofts
+Skip port nodes with an out-of-range 'reg'.  lan966x_probe_port() has
+the same bounds check but fails probe with -EINVAL; skipping here keeps
+the remaining valid ports working.  The bound is the per-chip port count
+from the match data (sparx5->data->consts->n_ports), so lan969x, which
+shares this probe path and has only 30 ports, is bounded correctly as
+well.
+
+Found by a scripted scan of of_property_read_u32() call sites used to
+index fixed-size arrays, followed by manual review. Verified at runtime
+on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
+CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
+malicious DT overlay, the unmodified in-tree driver performs the store.
+reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
+write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
+with a later NULL oops. With this patch all three are skipped. The PoC
+and full logs are posted in the thread. Not tested on real hardware,
+QEMU virt (cortex-a57) and compile testing only.
+
+Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
+Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+---
+v2 -> v3:
+- Fix the diff paths (a/a/ -> a/, b/b/ -> b/) so the patch applies
+  (Daniel Machon).
+- Restore the in-body From: line so the author matches the Signed-off-by
+  (checkpatch author/Signed-off-by mismatch).
+- Clarify that lan966x fails probe instead of skipping (Daniel Machon).
+
+v1 -> v2:
+- Check against sparx5->data->consts->n_ports instead of SPX5_PORTS,
+  so that lan969x (30 ports), which goes through the same probe, is
+  bounded correctly as well (Daniel Machon).
+- Document how the issue was found, the runtime verification and the
+  test setup, as requested by the patch bot.
+
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+index 08a398adf..164706745 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+@@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
+ 			dev_err(sparx5->dev, "port reg property error\n");
+ 			continue;
+ 		}
++		if (portno >= sparx5->data->consts->n_ports) {
++			dev_err(sparx5->dev, "port %u: reg out of range\n",
++				portno);
++			continue;
++		}
+ 		config = &configs[idx];
+ 		conf = &config->conf;
+ 		conf->speed = SPEED_UNKNOWN;
+
