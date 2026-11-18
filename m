@@ -1,79 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992717;
-	b=wmGfNmnyX+gTw9+SM6dBHcEIGCIDe6LWXBWed21UZDfQfOwkC+RalhJ5YObS7fv3QU5o
-	 gUIUWcG8BnQ4gPZN7CLq1VqfrG9sFMHiJs7J1ylwhq/bgqmV8jCa3WiLXQ8iHH64Z/v+b
-	 yCThlB1xbjq0XeZQgYwsjGbWZMstEM34o18seEgm0BEOGGzVQ8IZ3X5eA+9eKVP+2B7GZ
-	 zCxFBpFAHQ8DjPhKNVjzOEPofLJSlRy8uiWBf3JSNejSbcbf0JpWh1N2pyS9SZw1+62K6
-	 UYHRF/g/YRnHYqizzbFeqkzqdNMEusHgBT1Hi4kuxt8tpvH4xUC96UpIzPed8KfRyNA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992717;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=374ri7+4MeVZtf5um2Y1DNiMy9roud5hxc7+KcS4KyA=;
-	b=gpQa+oYujkUVo9hKiEcPOLRtNujj8XEpJxkPq0/pJBskcVZ76ssQ5rLX0LZLSY01Dza3
-	 lbSln4ZWnltfGPbIs0RH65V5cfFm6LlCbEwm5zAtAqjO2BiiDpxhswjhgY9q43438WhMQ
-	 sbgAR/NV8Pd3xdzrdDo1J+mUo0lQhV+A5Qy+vinAwfIxb4NSW/WZ/V3aOApyPq5kucIBx
-	 ym0OlBnDHMFLfVGbfdDcNM2i2I6prLFyGVTB0iK32r3kvYVauxzE+uQLrmX3EUBAKdOHy
-	 Gb1pYVV27VsCVfI07w5/+OL0JTLRa+/f1grZfTZasLVPZqGi9kqV7jg1plg4kgczx3w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MtmMx8sj;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794992725;
+	b=q3LJR0Pbz9Gx/eKo7k1vF95QAU7irVUL2R9NJLb8ACEgBolipPB8/oWo0+SRPqsm1tUQ
+	 +vwG9ycFiFCv7OwjZhW+5Tjbs6XnENyr6LRdShCp+bywzxINNv5V1lsMYKFKKrlDKmAVr
+	 LFHyc5hypqLOO/sUPJBmqp8wNT0OKb0Cngl2dU9rvhAeNxawXUTMdG5g1A/v/lLNu8bUm
+	 V5V0RLKGnZg+8YwjsLrxiI9cFB9B05KmecP3NY+Vec/16toh8A21DwPj3Ny8cZBy9qOyp
+	 rdn1QNAtJpc6OB80H1MNtbLxgfSKQPWyWUhsgARvp+C73BUkE5B8qlBAq2CrDp7/zAw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992725;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=KqLI2iWr3E+CbCoENrRYfXpEWSlq7m1O/v7cDwwkw5M=;
+	b=CjtLPFkh72fQKJKu8LSdDtc4Lshipt+6/8QH0uduwbzfCsBCkR6VVN82nnmM9OHur4Gr
+	 qohKd8SCO/5Hmhwu7JDQQjYPQlwXlmu9mDf5cjCgsBxC9HbLN72GLr3Jikv2F7tHUWLn1
+	 qXNWoE9Bn1o4Z99bLJHrUOpS2Ft7dzBPU5wCz5i9MVklUXFgmUOKUI/7uaoytmycQr4lY
+	 I87d229wx+2YqtL3rqj9A0HmeSpa3Fur5C6AvnhFMUce++PwS/+R5hfPTzWy08RTtAGWD
+	 BT7HRQlJEdISQXzosVUkse2IjaGRK/0v2P4uklFcBZAP+6Hg2YgnwSrWrz9oI+bTRVg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=EkjDqgwe;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F317606A320;
-	Wed, 18 Nov 2026 09:05:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F317606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78B6A606A331;
+	Wed, 18 Nov 2026 09:05:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78B6A606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MtmMx8sj
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794992716; x=1826528716;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=JRYvHjc2XzoEsxyTnYYkNUZ2Ub40RofbKnyppuYWcVE=;
-  b=MtmMx8sjCr5vR+qjxpRhT2uNF/AhwpmpnYaQB8iYuwddgwW1eHRpf46g
-   3e9L02Hoy2kNWR8sQXviPEI4D14YgBRHKkDWvp0weTXSdbJvbq8ZvQFHK
-   hHLP0FCbp66isUf6r15T62wjaQMSFVNv0JbRazYb2WZCzVLFO1q7EiAMP
-   Ihx6d4l3R4NHPI0G+L6txUO2TuJqABPynBSXJ8k4mwsBmbAdvmmxQ7rzV
-   OQ5pRDF2MHj3d98/issjEuwX9g833B9Bjk5YPrAopSP698FMHMMrNrg7K
-   w8MuxjqixGHADcE6nB9dgkpRHsa5xs+NpRQBT6NGSHotohuaVBRFON8a3
-   A==;
-X-CSE-ConnectionGUID: a+1EVYp8R06QWilypDlDKg==
-X-CSE-MsgGUID: hAiYoEO7RPWg9VqHpJEg6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3818818"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3818818"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 01:05:02 -0800
-X-CSE-ConnectionGUID: +yvOVnxlTj+CX2zSo4rUIA==
-X-CSE-MsgGUID: nKNRUAYyRJqpgofT/76kLA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10424378"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.157])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 01:04:59 -0800
-Date: Wed, 18 Nov 2026 11:04:56 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: raffaele.tranfaglia@gmail.com
-Cc: Mark Brown <broonie@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
-Subject: Re: [PATCH RFC] regmap: kunit: add tests for values wider than
- val_bits
-Message-ID: <av1qOFxolvDhQTKs@ashevche-desk.local>
-References: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=EkjDqgwe
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 59270202929;
+	Wed, 18 Nov 2026 10:05:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794992720;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=KqLI2iWr3E+CbCoENrRYfXpEWSlq7m1O/v7cDwwkw5M=;
+	b=EkjDqgweSzFmcuk+F5mCfAVbh0AZUUxzUCWPucRpjE0N12bb51Bi8m5YS8Av64GEM8ZsTG
+	39UlPLAseu41v6x3UCRe5ZxDYPp868FjL1Zlq1giV2yCM3+t6QZ42IBSA5uSgHi/Gemzew
+	LQlFuc4kcUdZ5hyns1dn59VQHpgG2GXPbuLD9dq8pTy1akQcGaJt+0Oz0lp9lamLaSkttD
+	WjvEroSn6Q1zqiwWkQubMPpZ6SRd1D02V3muk8HpmTJ02eMIEUaB+GQFW+mEVxeunbj/Fw
+	UFqxu5duoYcTiLw7mgNgh8r8pJNgGjuEadQbJ9vuRsMuWfDJeC3cwzm1ncRHJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794992720;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=KqLI2iWr3E+CbCoENrRYfXpEWSlq7m1O/v7cDwwkw5M=;
+	b=d6MCUj0IvuX5v+W1oKHJmOOfF3ZKsg6PMi+fLZkFW6xEleZPA3f8Xce1PlzKW51lUV60wi
+	le01Aypb76ce6mH3pSi1GD3oX8Z7UMDPIT4gT+B6jE1CrsiyeMCSGvtgJe4AXAj0i019f7
+	uFQuPSKPUlh4qVU5FiA0GYjzRs7ji1R8dCOLFLPP22goJZSPNUCnIjG7q/3BTTbcDF/hwS
+	llTdNlFXRmJZmyA8Co3AtckDB+aAMADjn7d8xmQghZw9pCU4U03h6Lvf+iXFubedzlipDn
+	JFiiqLja+c97FxvuLwBg8V4twZ+s0XjTyjg877il8U8eucSa9YEyES4vCjk22w==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794992720; a=rsa-sha256;
+	cv=none;
+	b=IMlh7yk+5e9KViRilrBeYFsvbokCXDHsIz0mMVWD5PIJR0UE/LuuOp5ImgkamROlwOraYS
+	+Nr1GsydlerDMgK8TKeFeiQspin8c0/+uAl4ByNcGwfkiQC2yaFZ8lZSkZXyI0Cx9vPTdb
+	gAeR6crvL6zYr3K/cc7nE1HNZ40JRILAJ19WCTa0Zl7qxVWQwPyzq9GE92JiMmUL3m5TgT
+	Ckoxn83YnKRKdR2aJDjOrBAdYwQZ5Yn/VS0mPh07yIaVQcoBtZfxgVjVn51MAgXdigTc6N
+	7Tk21stfWMW8W0FdEbrrp+U4V6mAYAoOvJAP+Kx0BY+6RKMdPIKce7Ugmyk8Uw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1xTbbT-000KGc-2S;
+	Wed, 18 Nov 2026 10:05:20 +0100
+Received: from hardanger.blackshift.org (unknown [185.109.152.103])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id E97355EDC78;
+	Wed, 18 Nov 2026 09:05:19 +0000 (UTC)
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+Date: Wed, 18 Nov 2026 10:05:06 +0100
+Subject: [PATCH can-next] can: dev: remove unused safe_candev_priv()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,114 +95,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-regmap-kunit-val-bits-v1-1-a1cd02063217@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261118-remove-safe_candev_priv-v1-1-a0083fbd5358@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QqCQBBFf0XmuYFWsaJfiZB19loTtMqsLoL47
+ 231eLj3nI0STJHoWm1kyJp0jAXcoSJ5+vgAayhM9bE+OecubHiPGZz8gE58DMjdZJq5sARpz03
+ bN1TsyTDo+ivfqBw5Yp3p/l/S0r8g8zdM+/4BGWjlu4UAAAA=
+X-Change-ID: 20261118-remove-safe_candev_priv-afecdc5735b3
+To: Vincent Mailhol <mailhol@kernel.org>
+Cc: kernel@pengutronix.de, linux-can@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Magnus_Aagaard_S=C3=B8rensen?= <mas@csselectronics.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>
+X-Mailer: b4 0.17-dev-d7211
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1993; i=mkl@pengutronix.de;
+ h=from:subject:message-id; bh=TPL6PYgiBRhS3qVHTTMEAvCwmyh+i5BysZKLU49gYho=;
+ b=owGbwMvMwCV2xirl17qZay8xnlZLYsj6m+W2JdYide5mb/NnUc9ftGh+ezDPcG7lzxsyd61T3
+ vmd63hi11HKwiDGxSArpsiy9McJRYFAh9LelwmTYOawMoEMYeDiFICJrD3AyPBunrHuMp0SgfJl
+ SlLyjuvKtzHLyXZsaDY74Pl9m14Jyw9GhsMHN6j9/d35j2naukDRIDf74rBXTQmv1mRf0XoyU5M
+ 7gREA
+X-Developer-Key: i=mkl@pengutronix.de; a=openpgp;
+ fpr=C1400BA0B3989E6FBC7D5B5C2B5EE211C58AEA54
 
-On Tue, Nov 17, 2026 at 07:55:14AM +0000, Raffaele Tranfaglia via B4 Relay wrote:
+From: Magnus Aagaard Sørensen <mas@csselectronics.com>
 
-Thanks for starting this discussion! My comments below.
+After commit 4650ff58a1b9 ("Revert "can: raw: instantly reject unsupported
+CAN frames""), there are no other in-tree users of safe_candev_priv().
 
-> Add two test cases writing 0xffffff0f with regmap_write() to a regmap
-> with val_bits = 16:
-> 
-> - write_wider_than_val_bits uses the RAM regmap, a bus that only
->   provides reg_write()/reg_read();
-> - raw_write_wider_than_val_bits uses the raw RAM regmap, which goes
->   through the value formatters.
-> 
-> Both expect that only the low 16 bits reach the bus and can be read
-> back. The raw test passes, since regmap_format_16_*() only store 16
-> bits. The RAM test currently fails: _regmap_bus_reg_write() hands the
-> value to bus->reg_write() unmodified, so the bus sees 0xffffff0f. With
-> the rbtree cache the value is in addition truncated in the cache only,
-> so the cache and the bus disagree.
+Remove function and prototype.
 
-It means we can't enable this test cases without addressing the underneath
-implementation(s) of the regmap. I think the proper solution is to cut upper
-bits on the regmap level, so the cache and HW will see it as expected.
+Signed-off-by: Magnus Aagaard Sørensen <mas@csselectronics.com>
+Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+---
+ drivers/net/can/dev/dev.c | 12 ------------
+ include/linux/can/dev.h   |  3 ---
+ 2 files changed, 15 deletions(-)
 
-> Signed-off-by: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
-> ---
-> regmap_write() takes an unsigned int, also for regmaps with
-> val_bits < 32. What happens to the bits above val_bits currently
-> depends on the bus and on the cache type:
-> 
-> - buses with raw write() go through the value formatters, which
->   silently drop the upper bits;
-> - buses with only reg_write() get the value unmodified. regmap-i2c's
->   SMBus backends and regmap-fsi then return -EINVAL, others (like
->   regmap-ram here) take the full value;
+diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+index 769745e22a3c..3207c0e08712 100644
+--- a/drivers/net/can/dev/dev.c
++++ b/drivers/net/can/dev/dev.c
+@@ -656,18 +656,6 @@ void unregister_candev(struct net_device *dev)
+ }
+ EXPORT_SYMBOL_GPL(unregister_candev);
+ 
+-/* Test if a network device is a candev based device
+- * and return the can_priv* if so.
+- */
+-struct can_priv *safe_candev_priv(struct net_device *dev)
+-{
+-	if (dev->type != ARPHRD_CAN || dev->rtnl_link_ops != &can_link_ops)
+-		return NULL;
+-
+-	return netdev_priv(dev);
+-}
+-EXPORT_SYMBOL_GPL(safe_candev_priv);
+-
+ static __init int can_dev_init(void)
+ {
+ 	int err;
+diff --git a/include/linux/can/dev.h b/include/linux/can/dev.h
+index 346faddee02e..648abf2be478 100644
+--- a/include/linux/can/dev.h
++++ b/include/linux/can/dev.h
+@@ -110,9 +110,6 @@ struct net_device *alloc_candev_mqs(int sizeof_priv, unsigned int echo_skb_max,
+ 	alloc_candev_mqs(sizeof_priv, echo_skb_max, count, count)
+ void free_candev(struct net_device *dev);
+ 
+-/* a candev safe wrapper around netdev_priv */
+-struct can_priv *safe_candev_priv(struct net_device *dev);
+-
+ int open_candev(struct net_device *dev);
+ void close_candev(struct net_device *dev);
+ void can_set_default_mtu(struct net_device *dev);
 
-To make the users' lives easier we should not move the burden on their
-shoulders to carefully cut the upper bits all the time it might be required.
-I see the only solution is to fix either globally in regmap core or in each
-bus and document that somewhere that developers for the new regmap busses
-won't repeat the same mistakes.
+---
+base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git main
+change-id: 20261118-remove-safe_candev_priv-afecdc5735b3
 
-> - with a reg_write() bus and the rbtree cache, the cache stores the
->   truncated value while the bus got the full one.
-> 
-> This was found in the adux1020 IIO driver, which writes ~u16 (promoted
-> to int) to a 16-bit register. It works on I2C adapters and fails with
-> -EINVAL on SMBus-only ones [1]. I am raising it here as other drivers
-> can hit the same thing.
-> 
-> The tests in this patch expect masking to val_bits on both kinds of
-> buses, so the reg_write one fails today. This is only to show the
-> difference: should regmap_write() mask the value to val_bits for
-> reg_write() buses, or should it reject such values consistently for all
-> buses? I can send a patch for whichever is preferred and adjust the
-> tests accordingly.
-
-...
-
-> +static void raw_write_wider_than_val_bits(struct kunit *test)
-> +{
-> +	struct regmap *map;
-> +	struct regmap_config config;
-> +	struct regmap_ram_data *data;
-> +	u16 *hw_buf;
-> +	unsigned int rval;
-
-Reversed xmas tree order?
-
-> +	config = raw_regmap_config;
-> +
-> +	map = gen_raw_regmap(test, &config, &data);
-> +	KUNIT_ASSERT_FALSE(test, IS_ERR(map));
-> +	if (IS_ERR(map))
-> +		return;
-> +
-> +	hw_buf = (u16 *)data->vals;
-> +
-> +	/* Write a value with bits set above val_bits */
-> +	KUNIT_EXPECT_EQ(test, 0, regmap_write(map, 0, 0xffffff0f));
-> +
-> +	/* The "hardware" should only have seen the low val_bits bits */
-> +	if (config.val_format_endian == REGMAP_ENDIAN_BIG)
-> +		KUNIT_EXPECT_EQ(test, 0xff0f,
-> +				be16_to_cpu((__force __be16)hw_buf[0]));
-
-Do we really need those explicit castings? I think they are already inside
-the byteorder macros. Also we have be16_to_cpup() and le16_to_cpup() which
-might help.
-
-> +	else
-> +		KUNIT_EXPECT_EQ(test, 0xff0f,
-> +				le16_to_cpu((__force __le16)hw_buf[0]));
-
-Ditto.
-
-> +	/* And that is what we should read back */
-> +	KUNIT_EXPECT_EQ(test, 0, regmap_read(map, 0, &rval));
-> +	KUNIT_EXPECT_EQ(test, 0xff0f, rval);
-> +}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+Best regards,
+--  
+Marc Kleine-Budde <mkl@pengutronix.de>
 
