@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795019400;
-	b=5Pboj+PWiNYexZ00602wCdNMQGOvRCnOUD3Om6AVG1D/4+qFFoViqLQ0bw/1laE96/Fg
-	 5XDeRpZpvvo8iXgRhVLYCrZXGbS+zesPv6DY+UTHOaQ7w8iDhLucv6MJeusFMJs1AdD72
-	 z2Vnf/hCz0Bc4oTqP9zF0IzOj3zCJ3D8oEpra5CuqpiBOfOnZqXRu21IBidEfiEcOpJW1
-	 obEpLwAUpWhjZlxEJlNzJGmfdGw6aLKFpeD2eTvmgXtSDmVqwPx+rpHT1787uldryVg+G
-	 VnHrq3zBOLLTo+DPVbUlJHrRIZaWGiNiaOx2+UEVBRyD1mQRGQu94gGVnHibshv4rXw==
+	b=P1ju4lgNcpOMvd6WyoVJ9ClKsuVouhMsgTJ4QzxM+ZVxqHIZGTt/oUF6naZNH45IUFi4
+	 ky4yTy/U/X51b+CVe/KBOd/3PyN0hw9bsxUlcL8Fms63w9Tfpok6WYrwrtF7iHtwa1I7f
+	 6VnFrVLd4whYZcWwCPa1k4HzxH3AUM35JuBFpzZGYJeTcFM9CH1gNgyTHyYG2v0KdA5I+
+	 VcxVgyP/htqeBUFsDq0wCCS0wTiYGinI6DTUJpFx369+Y4+pUW2sXYdemi40l/jLpehQO
+	 /9yZ56/lz+qutosunwGW0Xa2k57nF72Are22U9biNBTWWjgWo/oiHOjBaMk/PY4Rs5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795019400;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=7HY3Xyy42ADU9ACuHgExJQX2qZxHihPnkeqAIQZiRGg=;
-	b=fGuNevaD/kzoythDZo/HgyB1mRSUgiFlon/4huFhRn/ELkEfS+Z9vSY1f1hiylJ9arCq
-	 jbZhgTrWdYbsjb/WqzCGkXui0pCfHU0dpu6XibFTtLz4crKZ09pkP6p1DVBThEnWE6eFb
-	 NbGlw4kfjw42kAnnaBfmb8PkCQIKjasqVv1DkGdgsaOw8yFyTxXJcA0dhQmPBOLSiYeEK
-	 yh1RXp5g/pmlR2/67OfzW7rbw21Hlx9ej+HQmganDFXJeIecvMK8vvmAeDpW/wgHOc2Za
-	 el6N69CO/U2wy73qPeLNNl0FpetHZMFeYbKr4gE8FItXRScU679AISLV+Y1hH8RWOgQ==
+	bh=Babeb2HFdoGfJcLZPBXE1y9vKgkFHl2HkzCwc6W1yGQ=;
+	b=Ey3Ye9QC5Cl+iz3q8LBIqGlrI2zJzaLB//xyqPYmd0WkfGefvA2LsCRB4jJqTAJqC7+H
+	 HN7bCG5aCRNp5cPOka4CS2Qp7mtQLROl06WrPjzxBMqDuqAy6Va2y5W82+gW/6aafmMnX
+	 1gR8QMtvEhjM6ez4b/hxn/2uCwX34nP87xWxnQyMo2DShY8neThMQBo3cUQMikPVDu1Ws
+	 mYY7RWUoOtTP+bbmFHXvru0CKNV/7iWQS5dwXiNa1gQMZW3e5MKm45HUE2x7obIutv/Z/
+	 wqrKz5KPmqJ+2RKuiCKk5RtedN/TAcyBSgAPcb3pmmGIfeLjOr9i7PlIeR7JoKkOvqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linaro.org;
 	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=qAbOZoyi;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=NDJbtURZ;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F90660A260C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F90660A260C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B56A1606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:29:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B56A1606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=qAbOZoyi
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-48b001cd92bso728580f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=NDJbtURZ
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4b467581b98so14607985e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:29:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795019392; x=1795624192; darn=vger.kernel.org;
+        d=linaro.org; s=google; t=1795019394; x=1795624194; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7HY3Xyy42ADU9ACuHgExJQX2qZxHihPnkeqAIQZiRGg=;
-        b=qAbOZoyijGrmkGVrE9dZMju6YUDkrGYAnVdUORu7ElyqcYvRc+hx6LZq+GuTECRIrT
-         UkV87aQABtcpAi09GnhORkpXb3z90BC3I2q6P48dYheWgyGFHLOzxTuH40boB8wGVe08
-         a8RUNF06kYthUwZ5AZv/PPQm2rZ/CyrWmedy7yGlVJ15xZlJdcP+n5momFJ1QU5RU90m
-         GbZ2Fn+Q8RuqYNGy8ZgxpRVxaoMWNTfIVnuGaOqI2tF5xxRmUW8v69Q6JZxc+4sMAbaj
-         ZTDDf1iHcE0QJlQUdPD7bqPwhvZzwtAWxcXxoBDuHCCl4Ceb4elTyQPj0cimoWlRgaU8
-         uxPw==
+        bh=Babeb2HFdoGfJcLZPBXE1y9vKgkFHl2HkzCwc6W1yGQ=;
+        b=NDJbtURZxxEfV5/3jhv2dVf9EbZiK6GuGOj1BjjjFpdaGiEKercbd8FTs6zje1nYSt
+         IDRuk/9b+DuxuGCF4aKz2AKifJXTp8rtWppKhkXppGMPC12V/Ef13rjBGpurKEg3tg8V
+         oc9tU8kNoqMpN76xVFpt5ZFYglRvSD/P3VjpovsQZPkKYp1yFejUWl1kjhFeI5ZYM/og
+         VGt+WWoQuJnjgshJMBHAx7BourT3+Bdj0ILJz3KgbIjBiaCGisSXMCE2dO3wpNuIw1z6
+         TZPkt8pTVF0FLnS6uZVHKUar0DKoMTHdYkfhlT34f5/L0QNBqG6wZiqZLAtZ3ORO10ss
+         gc0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795019392; x=1795624192;
+        d=1e100.net; s=20260707; t=1795019394; x=1795624194;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7HY3Xyy42ADU9ACuHgExJQX2qZxHihPnkeqAIQZiRGg=;
-        b=QKNGGq+szJgQCMO7jyeQjNmBGnTvTg2E4hfEzjOdHjZxZJv/xUa41d0um4aF44mARa
-         F8maLL7TOsnkKcpQZ07vUVy+IaiojutIiU0YnKRWXUWU19pnUIWmaSctt/Jna7VBbywz
-         1EmoA98Zo2fR3r4OiY5KAXc2P7wBWIcffVQa+HBu7FHCLQ2ti/w5i6mMG1xR3gKx8EFr
-         Y99NkmjQHkaMsUBOECfqFzZK9RaGCsYk8+ocfilhDfO6Q0d5xxdI993vPGGNX9Ku13zA
-         pijc32AR8Rk7/ZbJzjLBDH0it2Po2+5wRDXq1Gt63p+um3e7ocBsXwQX4TjuscbaEDPZ
-         rWVg==
-X-Forwarded-Encrypted: i=1; AL+hErENfk6xePnDtD9kcoGJu4xALP4jJ3gxZ9x/GUXgMmUSDpYZjKpTrEtBU+z+l32wSihtIsttlCe40zswzrg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ymVLfu8Xxty8grpRxFDdlhi8uHycoVaApIAxuE5McC8xiGXft
-	4pA48CURAZ6JgvUys36ZORchKnta1RIWJSqwWCGgrk6fVf+aKvPYIHrkD57kNgxeQyU=
-X-Gm-Gg: AZFdTZeBV7BSIG44N5pPufah+w4ny13LAQtLMwP4ASp11IIDwqgwlbIXhGpSqhzAs0M
-	G+eOumu0IgqSZZHOKO/aVLse4eGE4DwFYyZ0kMcD/KrLyA+5te5gXWvuI2yBzKGDMXxx3eziWDn
-	w/Tw/OvrSX3ut8xaTwXE671WBiaQtAJXL6pJXaxI929A20mW0W9PGJaulCCI03uEvRm5zNI18D+
-	DGWugFgkRjLaQeoPRMRKREZzaO+tWJ/aKiryiX6ff7fTtBwS6a8VFJv+WaaYKQ5K5eUZzDczhL8
-	67Xz5ULnzGN0zkGWwaqboe5FNmF4il+jPjDP6G7Mr90dkfOREZ//DW99lpHYtesnbv6GGujIF5K
-	C4CA+IuBnf3P7NFxQQnSeWe2bszJy8QE6T/lr8X2szpWptaJDtfMbXkN/EYX8kCy+2HrY7wvBQh
-	ZZyVgpXw/0jFtTpIP+l9JAy+KTodlRRBU5B5e+XztbyYxF2qFrsE9hLRvNanRAcehxLbSdr4WBV
-	Hfr9sfcW/VPuXqljX9Km4ysdNe3aBSkIGYwJMVu921TvWfUfnelxZz4bQpllHNx+bhd68Zg/+sb
-	3irEfxy+Orb6rVS847FHO3UPkpzxC8Ao
-X-Received: by 2002:a05:6000:15c8:b0:4a4:c39a:1d4d with SMTP id ffacd0b85a97d-4a63bea7683mr5023380f8f.52.1795019392133;
-        Wed, 18 Nov 2026 08:29:52 -0800 (PST)
+        bh=Babeb2HFdoGfJcLZPBXE1y9vKgkFHl2HkzCwc6W1yGQ=;
+        b=y61v+CtMhnV2hY8N/QyF+iC+ODrPO+OJVjZP/W56XnNyxpZtzhFErpKqTpgeCBEujk
+         eeOQ8WA9ZL9tK4Xa5MoAKpeF/h3H/qy38Kt86NtLE8UT1Jt2WHocq6rdc6lFGTk3pOK1
+         j1o96Eb0eHF8ndQQOfWaMnVa/pBjvB/AlGtBjFYi3mCPNGWPzKkkzbpVpQq0QqT1mHCY
+         GgFQByXhnPh/+LVdlzuknEpfRt5uG6KqKqozYByLUwUCtOZtIWmIsLsL+tkDRDjJ80sT
+         gMlqrCjGXX5z/wf/TDvSyRAD53ajZWV84P3KfJu26RC/+GVDnzsCXcnotVBfqMoZbFYW
+         1OjQ==
+X-Forwarded-Encrypted: i=1; AL+hErH/Cfq0rTpykWKZnZ9mCsbJA9QYhGhEd6pgLuz8HVFMwLR7D52m8vUjzdemhDuGybeOPh7ahQtPftq9B9k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5OGCwGdfvhqg0PE9erntAxKyUkcbUfmnhhKYe6X2/OX1tqhHw
+	/gnKeEWSGKpWUAUbdrkhOUpusSNbHTuaJglqrNftJogGs4YSSCC6iCPdR0pcy3UnYDA=
+X-Gm-Gg: AYBFou28kYeAH8WhbSzhrVH2Lx4iSFfy16DOogSsmf6W5mZpsoETCi+sBYeaQ8q5Xtp
+	Ac6YQnWwVaaGWm9kyJjrXHWfkNB3I/FmbZP71EZxxzt0t7aBXusoh6bB9Oj5crq+knoUAjOTz8+
+	P1Hbh3vTq4OFfzNc/0E7S4uFqDbf/VlhLK7XerCGGl0YfHcUkQWqD2YPGnXFXqUlm5MdG27bK3P
+	l9/d8+JcscktLAK/E7ORiimJN+QYtwlzhQm4pTsKWdviw/OpAPzwMMefRm/8H+LAQSuvMJLYeVt
+	/mYQQSEWV+vgVBjEJORxxdqTyL/Yk30pbdZQe1sTAdMYFKWrgkXs21JkewKzwnEpViT1xJj98Cy
+	/UdjD6BIbqhGComtsXHh8Uxtx3/t0SmMvPZliwWgZCiW1c72G6LADrmJyinRQZv96tcEbEtHoOY
+	3XZ/8r7U7B5qgWJeoZKG2VNbOB+DQbB/Qpsh+xOSseXUScx7fZXwIpvMZRsKSifg4ChZNRF5QeL
+	yk20cB+5dWJlkHC4NPVL+bk07fIiwYlf1ADE2WHHBsK406Ey66fUR1D3u4WNMIEG3Fdt6VIv7Kn
+	VcMd3bUKXBFXBEHWR5nLykC+eULVqb4b
+X-Received: by 2002:a05:600c:8b34:b0:4bb:781f:6067 with SMTP id 5b1f17b1804b1-4bb7d6cd404mr58751415e9.1.1795019394229;
+        Wed, 18 Nov 2026 08:29:54 -0800 (PST)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.51
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654a8c23bsm4980927f8f.12.2026.11.18.08.29.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:29:51 -0800 (PST)
+        Wed, 18 Nov 2026 08:29:53 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 18 Nov 2026 16:29:26 +0000
-Subject: [PATCH 04/34] perf libdw: Don't look up the module by ELF address
+Date: Wed, 18 Nov 2026 16:29:28 +0000
+Subject: [PATCH 06/34] perf cs-etm: Don't read past the end of the map
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +93,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-james-coresight-jit-v1-4-dad4d90747f6@linaro.org>
+Message-Id: <20261118-james-coresight-jit-v1-6-dad4d90747f6@linaro.org>
 References: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 In-Reply-To: <20261118-james-coresight-jit-v1-0-dad4d90747f6@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -107,61 +107,39 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 
-libdw__addr2line() finds the module with dwfl_addrmodule() using the ELF
-address. However, libdw reports modules loaded from disk at a fixed bias
-of 0x10000, so any ELF address below that isn't considered to be in the
-module. This means that source lines for very small binaries and JIT
-files can't be found by libdw.
+OpenCSD caches instruction memory one page size at a time. Perf reads
+this requested size from the file on disk without limiting it to the end
+of the map, so the page can contain ELF metadata from the file that
+wasn't mapped. If a subsequent read for a different .so file falls into
+this range, then it won't be decoded properly.
 
-This used to be hidden by falling back to the next addr2line style, but
-now missing information stops the fallback since commit (62d7cdc8d587
-"perf libdw: Optimize fallback logic for missing DWARF"). So perf script
-fails to show source line for these addresses.
+Fix it by clamping the read size to the end of the map. Now when OpenCSD
+requests an address outside of that range, Perf will load the next .so
+file rather than OpenCSD using the mis-cached data.
 
-Perf creates a separate Dwfl session for each DSO and only loads that
-DSO's file into it, so take the session's only module instead of looking
-it up by address to fix the issue.
-
-Fixes: 88c51002d06f ("perf addr2line: Add a libdw implementation")
+Fixes: c9a01a11dfe6 ("perf tools: Add support for decoding CoreSight trace data")
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/libdw.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+ tools/perf/util/cs-etm.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/tools/perf/util/libdw.c b/tools/perf/util/libdw.c
-index 90767361f485..4f472ff9f1bf 100644
---- a/tools/perf/util/libdw.c
-+++ b/tools/perf/util/libdw.c
-@@ -164,6 +164,14 @@ static int libdw_a2l_cb(Dwarf_Die *die, void *_args)
- 	return DWARF_CB_ABORT;
- }
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 3fce3c357943..fb4582dc378e 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -1213,6 +1213,12 @@ static u32 __cs_etm__mem_access(struct cs_etm_queue *etmq,
  
-+static int libdw__get_module(Dwfl_Module *mod, void **userdata __maybe_unused,
-+			     const char *name __maybe_unused,
-+			     Dwarf_Addr base __maybe_unused, void *arg)
-+{
-+	*(Dwfl_Module **)arg = mod;
-+	return DWARF_CB_ABORT;
-+}
-+
- int libdw__addr2line(u64 addr, char **file, unsigned int *line_nr,
- 		     struct dso *dso, bool unwind_inlines,
- 		     struct inline_node *node, struct symbol *sym)
-@@ -188,7 +196,13 @@ int libdw__addr2line(u64 addr, char **file, unsigned int *line_nr,
- 		goto out;
- 	}
+ 	offset = map__map_ip(al.map, address);
  
--	mod = dwfl_addrmodule(dwfl, addr);
 +	/*
-+	 * The session only contains this DSO, but libdw places offline modules
-+	 * away from address 0. Take the module directly rather than looking it
-+	 * up by an ELF address, which isn't a module address.
++	 * Clamp to the map size to avoid putting unmapped ELF file data from
++	 * the .so into OpenCSD's cache as map data.
 +	 */
-+	mod = NULL;
-+	dwfl_getmodules(dwfl, libdw__get_module, &mod, 0);
- 	if (!mod) {
- 		ret = 0;
- 		goto out;
++	size = min_t(u64, size, map__end(al.map) - address);
++
+ 	map__load(al.map);
+ 
+ 	len = dso__data_read_offset(dso, maps__machine(thread__maps(thread)),
 
 -- 
 2.43.0
