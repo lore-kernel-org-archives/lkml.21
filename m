@@ -1,50 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795037118;
-	b=uYw2uMik5En9RYc/IUTd0cYZef6MKmwd3890doupofI3LXbbaVjeJjJ2hd8V8zsBZsAi
-	 fx96qyNTf1W1pt+IcJ2csxakaZgNU+GNF1//mII/wSDgFa/l6/Hpbu18o7nFC2YX1AlnP
-	 lXUM6c09uITJzcxKrSMqTxlhcSSDyEa9D0+8tHOUB9NQvTWLdMjLPdEg/iuwvgziIeQ7d
-	 q5JphAAmVbFfuCfGR0RaweN1d4+vRrnhngphCHBcDbjoZF1HQjn5nOLOHt7mo+evDQ5Fw
-	 Pdrb88JBp+OfR84Ftsc72sFib0xVJfywTlatTspVYXN7zK1RAMPgRkrOg+vT0RDL07A==
+	b=XvF5pqPkpYliJ2r/yGIP+aa0KUMBC04n+PYYCGIU40ae/gxVsUQPTMgwUyT3RFuujHV0
+	 371fiDvezUwkpZDo9jDgW7t4GQiFvhQvIt+Yi8df5TOvBb5XdycZfQ6RtEb3i514LROqF
+	 esTFjT/EZUxGoxUyeFx9WoIwYh5zoahPi1oGSIQlcht9njKzBQaWBQqAyr1aqrO/hAvzA
+	 avh4g5UTGS1VegRFjKobGjlNA2jnEVmEQUkwlkK9LmeeaIRrTkt28s/RoSp1ZPjCAQI/g
+	 +eUOu5a1hpanR7+deEWbYbwrpaV+1JyExWbQcxvr1KpKLEeMcLj6xJH25bm5F9u9qOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795037118;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=RpH3Eqg7iYrUnR+bT4B28VRSM1FxKzR8GEzsrCXC1us=;
-	b=UCkUA3u8S9vkK37nsW0v5gf6XfV/T6ruFgcdH6f/GHKAN6oGtQY4o0AnCjY66FzOQZqG
-	 qM7WcnOj9IGyLSlXyxPtqz/SXQV538cbylg4Ac6UqlNnuox+ps/IQILe2+rQbPR92+s2O
-	 oW0S7X6ZJZ5v0wZ49qvpbMylhrlMOb1akUylRTECPL5L5g7xxq+YJnKCCubVPKeuHD3uI
-	 fRVo9vz3EpYFeObYrI7rkMid0LyvqNRB6YiSfnJHHUtANDw6vHzPurbVqKutft+ZVGkA7
-	 v9hXDYTF116cmJPfnZpFlHzKbIVKw6OCYUJb+7iZj5hH9xowgFoIhiPgu7EI2TURojw==
+	bh=18ZdUzzadRsL6aFCNsE+0dn3GNsx1KvXA2R8ZIV+JwY=;
+	b=WbG9BtjlkioJGIRIKjKgwUhjQotiHMTNApB/vujH7Yqg0rYhfpj70OG8ePguRde2O4cD
+	 ir/CvdFGzxLgpUDZUhP8O2+aDg5rt98k6Qn7G3WaFMTHzw0ai7G1dt0TQ6iBiDykrmWW+
+	 8IoWtMWkWSSjOWQ9qaH8mm5RBnLV4F4w52VgJpwBvHVIeiaOTudjYP45+icP309E0WEwE
+	 mF+g7jQo1/xHYgUlBPzi2YlKPQfdOhhf9el3r/3ptEsqe4mskFtBWPmalw7oYVYWei2mD
+	 Zcvs/frEXGYQR/hZeikl0pEye54Pgq0jloaQ1EBmDSmCF2FQiOp/L4uMsfiBBBw4YYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b="w/2mCEYC";
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=U6HEZCrz;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E256760A261D;
-	Wed, 18 Nov 2026 21:25:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E256760A261D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E65F60A262F;
+	Wed, 18 Nov 2026 21:25:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E65F60A262F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=w/2mCEYC
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=U6HEZCrz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
 	s=smtpout1; t=1795037116;
-	bh=RpH3Eqg7iYrUnR+bT4B28VRSM1FxKzR8GEzsrCXC1us=;
+	bh=18ZdUzzadRsL6aFCNsE+0dn3GNsx1KvXA2R8ZIV+JwY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=w/2mCEYC5S56ZVqCzfy+1exd24DqEdW4hzL//zTI+klXv35safrFXjf9YUT2NXsWT
-	 bH3VVOUAXwqGc9ynabf1SgRfMr/uDuHp/SQo38G65Nf4VDJEAnyjMCKN+N+4uHNWcv
-	 1CQeq/7wRAobN6X0FjxSWZAuaqGicqjJJLj/Jd5Au1OMyyn3uIHVu+UxX3gn+6/xx5
-	 1Nw2T7HQQVqKpnSAKIEIQeDzf+RmbsktNFNNWXt2BLF8ZTrn8WjkyOZUAbFlGAPFt3
-	 w5EhgBHi3dyz115y4eiPLz+22SeASjTjD+LqXpoGrMerEdPqSbsqUKEv+Z7iElquv7
-	 ZJ4spFldKTodQ==
+	b=U6HEZCrzzjKnv3q5OX0WVbnj6Hijf0+glRgjnDDMS9OXiiT0Yh7ClvbnfgmbTmpJA
+	 w3joTR/ml/JPiPRxELtdZI7Md9cTOodIUpf+kpHLcvoaD4uphH1vu0xoM/nhX45w5W
+	 vNHBY2RTJkawTMqGieZ1yWzQpQzpt6z+9r1hXRy+b6vm532+lkUlgIfFtJqkiUtjUN
+	 NCdPimeft65nGx9DYHV+i+2ESRyO9Z7h0DzaVZNLeiQoO8fTvxa85fbXJzcSIRI5s5
+	 KumXltVseV7eKoCOX9YBUISXZRAQ8iAmn1qPvyStDtpjSbZ6cXrGObRp6JqzmhBR9d
+	 /NoGTVjWWwdnA==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVF4X2Y90zRVQ;
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jVF4X57YwzSRS;
 	Wed, 18 Nov 2026 16:25:16 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
@@ -80,9 +80,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	stable@vger.kernel.org
-Subject: [PATCH v2 05/16] sched/deadline: Refuse dl_server debugfs writes while the rq is offline
-Date: Wed, 18 Nov 2026 16:25:01 -0500
-Message-Id: <30870826885d7aa42b641d23701066e03b1a2b9b.1795037078.git.mathieu.desnoyers@efficios.com>
+Subject: [PATCH v2 07/16] sched/deadline: Do not lose a throttled task switched out and back
+Date: Wed, 18 Nov 2026 16:25:03 -0500
+Message-Id: <e58738e763010632a024a6874a97f1d980b90ce3.1795037078.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
@@ -97,62 +97,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit 4043f5498416 ("sched/deadline: Reject debugfs dl_server writes
-for offline CPUs") refuses a write to a dl_server's runtime or period
-on an offline CPU. Its message says that such a write has no meaningful
-semantics.
+A SCHED_DEADLINE task can be throttled, switched to another policy, and
+switched back before its 0-lag time. It may then never run again, not
+even to die of a fatal signal.
 
-It tests cpu_online(). But during hotplug the CPU is still online while
-it sits in the default root domain. This lasts from the rebuild in
-sched_cpu_deactivate() to the offline, and from the online to
-sched_cpu_activate(). That root domain does not count the server's
-bandwidth. A write in the window still goes through admission. With
-admission control off, it changes total_bw there. On v7.4-rc2, a write
-of the current value divides by zero in that window. The previous patch
-removes the division, not the write.
+A task that leaves SCHED_DEADLINE keeps its parameters until its 0-lag
+time, so that leaving and coming back gains nothing. Commit 209a0cbda7a0
+("sched/deadline: Improve the tracking of active utilization") moved
+their reset from the replenishment timer to the inactive timer, which
+switched_to_dl() cancels.
 
-Fix this by testing rq->online instead. It is set under the runqueue
-lock when the CPU joins a root domain that counts it, after
-cpu_active() is set. Test cpu_active() too. On the way down, it is
-cleared before rq->online.
+This misses a task that was throttled when it left. An overrun can put
+its 0-lag time after its replenishment timer. That timer fires while
+the task is out of the class, and does nothing. On the return of the
+task, enqueue_dl_entity() leaves it to that timer, which has fired. The
+task is then on no dl_rq, with no timer pending, until it leaves
+SCHED_DEADLINE again.
 
-A write now fails with EBUSY while the CPU goes offline or comes
-online, as a write on an offline CPU already does. Writes at any other
-time are unchanged.
+Fix this by replenishing the task when the timer finds it out of the
+class, as for a throttled task that is not queued. Its return then
+enqueues it.
 
-Applied without the previous patch, this patch alone also stops the
-oops. The reproducer survives 20 rounds with no warning, in 3 VMs of 3.
+Clearing dl_throttled alone would not do. It would forgive the overrun.
+A yield left set, or the old deadline of a constrained task, would
+throttle the task again. The Sashiko AI review of this series found this
+in the first version of this patch.
 
-Fixes: d741f297bcea ("sched/fair: Fair server interface")
+A cgroup selftest under development hung on this bug about once in
+1350 runs. The throttled_round_trip case of deadline_switch_test, added
+later in this series, fails 8 times out of 8 on v7.3 and v7.4-rc2. It
+passes with this patch.
+
+Fixes: 209a0cbda7a0 ("sched/deadline: Improve the tracking of active utilization")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Acked-by: Juri Lelli <juri.lelli@redhat.com>
 Cc: stable@vger.kernel.org
 ---
- kernel/sched/debug.c | 11 ++++++++++-
+ kernel/sched/deadline.c | 11 ++++++++++-
  1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/kernel/sched/debug.c b/kernel/sched/debug.c
-index e6a3b516c703..ddb382df454b 100644
---- a/kernel/sched/debug.c
-+++ b/kernel/sched/debug.c
-@@ -410,7 +410,16 @@ static ssize_t sched_server_write_common(struct file *filp, const char __user *u
- 			return  -EINVAL;
- 		}
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index b614d5fc1a1a..e4d7cbf4861d 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -1233,9 +1233,18 @@ static enum hrtimer_restart dl_task_timer(struct hrtimer *timer)
+ 	/*
+ 	 * The task might have changed its scheduling policy to something
+ 	 * different than SCHED_DEADLINE (through switched_from_dl()).
++	 * It keeps its parameters until its 0-lag time. If it comes back
++	 * before then, nothing else would lift its throttle. So replenish
++	 * it now, as the !queued case below does. Its return enqueues it.
+ 	 */
+-	if (!dl_task(p))
++	if (!dl_task(p)) {
++		if (dl_se->dl_throttled && !is_dl_boosted(dl_se)) {
++			sched_clock_tick();
++			update_rq_clock(rq);
++			replenish_dl_entity(dl_se);
++		}
+ 		goto unlock;
++	}
  
--		if (!cpu_online(cpu_of(rq)))
-+		/*
-+		 * Refuse the write while the runqueue is offline. This
-+		 * includes the windows where the CPU goes offline or comes
-+		 * online. The root domain then does not count the server's
-+		 * bandwidth, and may have no active CPU. rq->online is set
-+		 * under this lock when the CPU joins a root domain that
-+		 * counts it. cpu_active() is set before that. On the way
-+		 * down, cpu_active() is cleared first.
-+		 */
-+		if (!rq->online || !cpu_active(cpu_of(rq)))
- 			return -EBUSY;
- 
- 		update_rq_clock(rq);
+ 	/*
+ 	 * The task might have been boosted by someone else and might be in the
 -- 
 2.47.3
 
