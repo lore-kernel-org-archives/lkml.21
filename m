@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009677;
-	b=jNI17ojtPwZhDWaSUO4I4/xjwaVtZ0fX8e46U4wVIAFlxq9MJGwEbKaZ+LL+cfDd6H+p
-	 5fmeZJXfPGn3k9G9g/wfrRzyKzyU9dyDGYEHdG7SmFZVpA1raC8PD8ZbzqosAjTRjRrNm
-	 kDcUl+NGq9v3aEcWsdXwWtjWX90xd8Zm9rV0HM1jOc5YbjluA9xVIQT85MHUrrBTVy6Db
-	 H+MsYDikVXDb8q0YUoMRDZfr4iF/Mj20RoM/ZJUrAoxT/ctt/p1RatLUtoK+bHGyTaIZL
-	 QzuggjKNmptdHcrNFT1Yy25B5h6lJi5TJ5Sil395CQbaYLPFJ/Az6hbradPIAjg1JYQ==
+	t=1795009678;
+	b=fD4jfNuYWmUVY2mi27Ksk/1eu8zQEyL7+FGOQsHHrdTi3l1UerJTvuxU8dkRSOFCnkSz
+	 hAHX04GjWmgRPOwLafOza/OWmozBjlSNUPGnivntHzNaNqU6N7+k3HETf9M+hVfW2XXbH
+	 +8g/roh4LDN5gGhrhwJz5kVNSVz2QHec+v8EVvtQ7oK7/Z43OccKLAcgwMmnWnMMP6p2T
+	 LgjbV5JpH+J2YUF3bkgaMyIjPa9owr5F6IvA/CyplAKD2LGbCqWAaiynFldNlO1LTXvOG
+	 EXkR5U2rPbOlaDBzVozCaGdL1RZEesvNc7k7E3noInANkyaLtcMLoUobuzmA2julEfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009677;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009678;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=ReEzbagpHcp/fcY0hMd4fNtM6diXxUaPoUO44vW/qBI=;
-	b=ceBjrrodvaRC4eAK0u8Haoksu1N6C1NJMYxCXLYuM+quJAwYcVnfaKGi8+VkJg4g7N9B
-	 orjZeubLCYraA3x9dEkyZOsUV0RioicjX5pCZCC0Yftwjfs2BhpiRgQkkce+sxNwPn2/q
-	 /F6BtwjCh34PQB1On+iJzpbNbXq/Ph4vY0QLoTbR7Jho7erAdJjvkIEoU7TYKdh1IdzOD
-	 HXCYGje+AlE/UyAepfkvYEF7ig05J/0q/Wz0roz5b8eGk7Df5dSWGFseXvuvK2BL/O4P2
-	 liU/cE4Nc3HGE2SOC3WY1izdfgoCz8n2Nz1gM8RswvwCiS3UOqZj1PcCVgiOQqY/ChQ==
+	bh=fp5kGNyd0eTmZJulttSFuV08XJjVgnvokjb06RGq2vw=;
+	b=QHalvYdylKCoAJXFJP8HiePRCf1t0pUewJWVo6jk/LS8qXGDa3q05uPH9hDqy6qWq0qU
+	 ifxGY0013QTFwz4ys/5uT0UhoCtQGXYl2PfMU6RqmtT9C+PnrIKIkoKmShkvemb1gxzTG
+	 cti61/tcVh6ksDcu+1a4bPlIBKNV8T3hjZAm8rmf41OrWKjOent3StGJGxvcJth61hao6
+	 v1HYMeh3ScBgV7MR+xm1etIkUSR2hQhRakm7zAwiXLIJpeHql+0h7O7Xw/8LexnhpLKjj
+	 TjERac5xHhxqQZTCPfCf9p3CwA8+XCBfV4+/a631QB9809GKmEjqapn8495OSCG48eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mD+pK0c+;
-	arc=none smtp.remote-ip=209.85.128.70
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dNmkEaEl;
+	arc=none smtp.remote-ip=209.85.221.71
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84D6560A2610
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:47:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84D6560A2610
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FBE960A2616
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:47:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FBE960A2616
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mD+pK0c+
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4bb6bbc025aso8399365e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:47:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dNmkEaEl
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48e0389d6f9so719467f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:47:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795009675; x=1795614475; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795009677; x=1795614477; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ReEzbagpHcp/fcY0hMd4fNtM6diXxUaPoUO44vW/qBI=;
-        b=mD+pK0c+M4yqOS0nuRtyleGn08rLkbqa0+ntG2h9RSKQx8HxtzF2uFobMxvKsLhFIF
-         u5tuxotsdBlKwuJkGYA8QvBtxl70+ju4T58pnrA8AGomEzyUapTBTEXgFKhkbTLYv31q
-         aZeUKsF4hqL9Ma7GkvfyNhUI2vbBkAzmJSvSma0+/1rQVupdCHXJxZeUtpSD7LNrkC1k
-         npmLaX+YbPK3Y8usYq0DooJydQ9Fqzi6UCgg72jHJ0ycsGxAWct5tOvTd38kA0Arxpyn
-         N75V8uZstRR4Gzlspm0oPGuc2XBc5pSlxw2tTPSZd03qQ7vNPkzi7M5tK411P8HzYeNr
-         biDA==
+        bh=fp5kGNyd0eTmZJulttSFuV08XJjVgnvokjb06RGq2vw=;
+        b=dNmkEaElbn7W0RsZzP/CYzFGmyEkXFAnBJjALAYfOzlk5HKf4yBZkElycb3wOmea7O
+         caAf+vkZXidQ/di0XnDTfCdqbUOHcyPxFv9vqY7Z/bNPLvL70J5d1tHYO8ykNC99A/AE
+         IBC4avKCzgyHpAPYrXcC+Cv78m3zCcxC+bAIZklOa9Vtn6dRcyBR5i+fG1R5s9nJXSSm
+         JdNyGZJQhYb3mjD+yjh3nq6zr1VKvAtBWf9uAHjJUBG7g7u0s7jWEDRIIxYC9bbo3DPg
+         qIC24zC2EllAlbIaFfpivJ7b85mZTeQzPkJdMKExuftIfOVe0pX+yVbikwHF7SxWdf+q
+         MQhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009675; x=1795614475;
+        d=1e100.net; s=20260707; t=1795009677; x=1795614477;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ReEzbagpHcp/fcY0hMd4fNtM6diXxUaPoUO44vW/qBI=;
-        b=tRo767xYW8HMJZ/viA0Z1MEXTRHj9vDkblOMzSEk3i9yqSQkICWdtT8E4XKSxFnhIL
-         C7amn8aUE9Gfnd53RxZ2O9jVQvh3XtK/WCB3hp6uHXRRDvh/ViuIxOxcAi66Nes+JYOK
-         znZLoPfhSWRCw8TJf4XgdHChnOJ0r8kaCI3Da0AOG/OcU//1ryPa8SCipjXNMTg8gfO+
-         NItI8t6g9KUuOFOyJQesg2kFMgphNYs/4iA4eVz7QcMWskW3ISdLyOX0pE1aBjpw+qh/
-         WaA6Su7Nrel6ZPBXaJM1w5Xyz7dUHyGVA/5yQ0SEbtXlioXsiOCJoMY1OnFlBA4GAU8B
-         OYyA==
-X-Forwarded-Encrypted: i=1; AL+hErF2GB8mhk/m2xet++0c16IMTGwBRirPnmKTFQBfJe0orD8Y6BGGrkEdjPYG8Hxv0vn+0VUZ1bnNio0HqCc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9/A/YKjbQMjFu0fp+hls8Kl8NoqJ0Rc4K2dcg/0pl47bc4MhPn
-	erPyBHIrj6PRjpJoU9vkCmGZezXVJHX782FwxUrnRhvxrhug8MFJmNQcFcdLi+TUXQXHJpds9Ta
-	6XyT9Ek4xYASuFFkadg==
-X-Received: from wmbgz3.prod.google.com ([2002:a05:600c:8883:b0:4a1:811f:6de2])
+        bh=fp5kGNyd0eTmZJulttSFuV08XJjVgnvokjb06RGq2vw=;
+        b=OYRi7P1VpuG+g3yLrTEWGyby8161iULN9aNW5E/Q7tQJs9FYD3KAPTKlquG4P2v5Zp
+         OCGUdnKJaq5bLgMtsgqzKi4RP74vSL01vpSX3J317U4Qpba6et/KxawYhf0lh6bFjyJ6
+         +6gS8Z7ha8WuJbdmCZRPDjNs3X7BtQcXL54BzrHHfVjsKTFLYoN9406vFtTKBjxs8bYy
+         T290MbzNXdfLio6yhxX1qhX5tMd5FhGLMP30q4gWRGYogaj6xmY94hpYJVdASrPJsWrQ
+         /HlgtsG+FFwTGS6UfJ+V2VTAXe1reNTdOojDX7OvG4O4rXlGtATGAY3niUEV52UrQwKG
+         f1hQ==
+X-Forwarded-Encrypted: i=1; AL+hErHj9DdNID07KBr9CyqjGg0EDgDQT1Bl6kz/yNCZ+L0mM9CYxDn3bsTrQL1zKkVyOphNuypiclhDnzYjbgQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CNbtb7adTj4FUp4yVbZHC8l2P4cO006r1YWxjaiiPAVtdFCSm
+	dpNPWpy2xuJSrUEcpdvd1sdLmEJ+LANnHxYRCb4cN4SYGtKbezp8LASeL/ebvJM0RQuieJRruFt
+	SZtvQnoi6l5cYTxnQ4g==
+X-Received: from wrbay30.prod.google.com ([2002:a5d:6f1e:0:b0:49b:ed87:ac7b])
  (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4f56:b0:4b7:6c16:7b43 with SMTP id 5b1f17b1804b1-4bb7da12aa6mr55502915e9.10.1795009674222;
- Wed, 18 Nov 2026 05:47:54 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:47:53 +0000
-In-Reply-To: <20261013-clk-type-state-v6-4-a5e9977b3509@collabora.com>
+ 2002:adf:e002:0:20b0:4a1:a2ed:bc1d with SMTP id ffacd0b85a97d-4a63b6fbe61mr4560158f8f.43.1795009676739;
+ Wed, 18 Nov 2026 05:47:56 -0800 (PST)
+Date: Wed, 18 Nov 2026 13:47:55 +0000
+In-Reply-To: <20261013-clk-type-state-v6-5-a5e9977b3509@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,10 +79,10 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com> <20261013-clk-type-state-v6-4-a5e9977b3509@collabora.com>
+References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com> <20261013-clk-type-state-v6-5-a5e9977b3509@collabora.com>
 X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
-Message-ID: <20261118134753.658399-1-aliceryhl@google.com>
-Subject: Re: [PATCH v6 4/7] rust: clk: add guards for scoped prepare and enable
+Message-ID: <20261118134755.658603-1-aliceryhl@google.com>
+Subject: Re: [PATCH v6 5/7] rust: clk: add devres-managed clks
 From: Alice Ryhl <aliceryhl@google.com>
 To: Daniel Almeida <daniel.almeida@collabora.com>
 Cc: Alice Ryhl <aliceryhl@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -103,25 +103,20 @@ Cc: Alice Ryhl <aliceryhl@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
 	"=?UTF-8?q?Onur=20=C3=96zkan?=" <work@onurozkan.dev>, Maurice Hieronymus <mhi@mailbox.org>
 Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Oct 13, 2026 at 02:07:43PM -0300, Daniel Almeida wrote:
-> The state transitions consume the Clk, so a driver that keeps a
-> Clk<Prepared> in its data cannot enable it for a short section without
-> moving it out and back in. A clock handle also holds at most one count
-> of clk_prepare() and one of clk_enable().
+On Tue, Oct 13, 2026 at 02:07:44PM -0300, Daniel Almeida wrote:
+> Many drivers only need a clock running for as long as the device is
+> bound and never touch it afterwards. In C, devm_clk_get_enabled() and
+> devm_clk_get_optional_enabled() cover this case.
 >
-> Add EnabledGuard, PreparedGuard and PrepareEnabledGuard, returned by
-> Clk::enable_guard(), Clk::prepare_guard() and
-> Clk::prepare_enable_guard(). Each guard borrows the Clk, takes its count
-> when it is created and releases it when it is dropped. It dereferences
-> to the clock in the higher state, so a function that takes a
-> &Clk<Enabled> also accepts an EnabledGuard. Several guards may borrow the
-> same Clk, and the borrow keeps the Clk from being dropped or moved to
-> another state while a guard is alive.
+> Add devm_enable(), devm_enable_optional() and
+> devm_enable_optional_with_rate(), which wrap the C helpers. They return
+> no handle, so the driver keeps nothing in its data and cannot change the
+> state of the clock. The clock is disabled, unprepared and put when the
+> device is unbound.
 >
-> There are no users yet.
+> This mirrors regulator::devm_enable() and devm_enable_optional().
 >
-> Suggested-by: Alexandre Courbot <acourbot@nvidia.com>
-> Suggested-by: Gary Guo <gary@garyguo.net>
+> Reviewed-by: Alexandre Courbot <acourbot@nvidia.com>
 > Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
 
 Reviewed-by: Alice Ryhl <aliceryhl@google.com>
