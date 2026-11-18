@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994220;
-	b=xQVtA773K47n20cXuGG38iYznXWdfcsBSvOpPjiTiJb6owIWyA0F4o/4eYJYV5GfgukX
-	 p5P64Adtb8ZUgGjyHD7nkf1W0J0xjGrBppHx4GsUmP2uBemF5sA4Kwoe91FtGGpK8wdc1
-	 w/LM+XPQq+xlaADgU6egbFXDudvIjHIUROwCY52LinLQ0hVceIaNw80B0eqTRAIe0yIqw
-	 9yorWOcVDeVBauROcffl4BP1MsfxQuUbERkEyTc0AIGUN+gILZZ6q8LC3zIIGDjA4tqvd
-	 8AkXPIn+qKN6KHillU2xyQhrJbC2W6QCfBsC0GH16z0tiZ99ThC6IK93e0baP51rwUw==
+	t=1794994222;
+	b=rNjyy7DNxQ11bU21jnyHN5KYh+bYqixLbnFw2UuHLTgj3PKBsC5snp0F4aofkNdZzhBW
+	 wKLeW6kes7FfwsM/B/gTMXYGqtnHGuG9L8AmzUZtvvMUMD3iNLOqxvnEBvzQ5R+zlJd9P
+	 Yo21v4JIrU5OodpFYpw6Mek4sSFMN/J0lwD8wexfcdzgdTHhta3mL9JlXMXJKbwpbpWdU
+	 Epy0H+XjgKhDhZKTvCm83RA8nYnLV+qphH2uYPDjsscfEdvLorgXvNK3v3S5Mkw2gfUkE
+	 cIyQde+iTbKJI7vYXF9yp6cN9r1L08Gc0lWiFbiU/D4qu66Vm6coD26ie8VkQIPj4Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994220;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994222;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=9QyEpxBvVfPvBVod3Et1pNl54XN/+FJGPYaqZZl9YH8=;
-	b=hOlV/F7C3EG6Cp/hCrmqppS+e3EmquAuaxKE+qPcknyysJRI/7TG38dSV/oSnklZx/lr
-	 JaVmz4bKM0ECv8VLkfm/AXIzB5QMF3+XAK8hZS7Ku5hoXO9EeCRGMz0/vR0+fcFtQNdi7
-	 VF8QejTMrMKW/nVddga+M8AUBYbopxz4QCxTyNrxnKo2pLpyO1l+A/MD/KOb5dc70pNRy
-	 q/ux3T/QNDBVdk5FQViLmYKjzumtbc77bQ57vxuulOJCchvB7biu0wuG/5lolQB4++6Du
-	 qsXXK09sUoDkpAwQl87SITnCdbDkk45V7Csy2H7aMGPofI9wWGm72wUW2N79WVXjg9g==
+	bh=bgDlX5QaMLg7y4b6FpejDiDYpseNWtykESeTKF63GOE=;
+	b=w+Af6FLQn4tHmpvO6i9j2PbVi/Nz5AoY9+dgUhoZlEce3TPyyX/RRbid0qnURYW1nqen
+	 Ue72+bAG38QHGxGFQbI9K01Bzb8lZZjr48AGS4BgHnmVRy9KBWRxY7DO/DB7YSA+DtJKq
+	 Lq2kVfUkt/udtgJpEss2qo0lnoSRxYdnvH4oookg7e2WU1rNKll3orRK8zMe+6LV9irgK
+	 /FUxMbdCYaD8yCVc5qyM/pgjbjyn4G3jbUB53BkJ1PraiQjHF1cFFfL94+igXKkmmLgU6
+	 iSsFvCWP5N8TxU9T5i7fGCDq3NHf88MX7tJ5nAMvY9KhScr3uyAheEOhTmYCrJP3W9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aMFkwx7O;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XP20oGew;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 770AC606A886
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:30:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 770AC606A886
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4FB4606A890
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:30:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4FB4606A890
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aMFkwx7O
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-492fcbfaa88so396782f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:30:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XP20oGew
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-492690dd5daso500867f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:30:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794994219; x=1795599019; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794994220; x=1795599020; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9QyEpxBvVfPvBVod3Et1pNl54XN/+FJGPYaqZZl9YH8=;
-        b=aMFkwx7Oqop7x9FCbwLIgaw9pnwFHO4XYALgNg3pM3vdxdpybBpC2/476aw7/89GKF
-         PCLqwY650++fBUaRR/X4fxI+NqWO9czb7gYwUhFvx+PNwnI6u7i3QSAZ4zr5jyCbgBfw
-         yqL4me/5Uw6ofe6OEY4XZV0XN/KeXADavfJcFU5Pe1GrOVA7WSjK1+3vgH9ZoCRBEeH7
-         GF0F5KsSFLKY+aV+zLAoTKGRUIP9YMOYy9ueEamnG1d3HGC4RTnOsUsEfEe9dCr/SH5E
-         coh1Ns5gdoboMRoIbAI7XipVmHD60e8FkBCGt6UWEC2p8EXubVorVsyB/wW39UHIwBmf
-         pngA==
+        bh=bgDlX5QaMLg7y4b6FpejDiDYpseNWtykESeTKF63GOE=;
+        b=XP20oGewroSv1tF8eB/sB9ipVfwEeaZpL9Zd45zOBMEAW6vercjXlgXQaSG3zLI7Oy
+         9qaekKp0ttWN/WrYa4lGtp4B8a4ihg8geBZUeyMl3w//gWP1Qzyn3MNkGgiYhzsZynpz
+         J2IsPoRukeh6w8zftFHAc9QCx74KEbVSaeUT/lhVjYBQR9FgxXkAe6cBYCu9NR/YQqgs
+         EaNWxa0bCdlkPI0wFGAtBqpo3qxSgQ8QARYzdfP2QySdSxUOohot1lWuAQWl287hrWjj
+         o7liPM6cNbsntp8jc1n7wyjv1zQrLDUN1X8jCKiqclgpHoAON8OxFR12dHOWlcyj0oYQ
+         8FsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794994219; x=1795599019;
+        d=1e100.net; s=20260707; t=1794994220; x=1795599020;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9QyEpxBvVfPvBVod3Et1pNl54XN/+FJGPYaqZZl9YH8=;
-        b=FEf24aSoThozG7yxw6cvSsJX56kzYLU4T1uGYTef1WqT9fxHbQgL42bDMiNWN39NpQ
-         Fhp7LNU0FzhtFBAu2BmqL0DzVkxXA3mT6jKNj1tD0wDd6SQBDakw/kE5GZ7qMDAbwhHR
-         fr67m99XQU8IbfHT9b0dw7YcFY4gC9ndtH57gxYWdHTNCT8j8XcMvmwXTsDMu4MQyNiX
-         CDriOGR+znm7iR2my/iD1Z44fIE5YqWEqPeGO1Iz4wNNSFILwO8kXqP2t7OC/idoCuRd
-         iRFtTneCz6M4WqHeBoR99JcZuCSXXEv3z6/CaTEizRZ9yq5mWmsCE/sakX1b6GizTudM
-         noTQ==
-X-Forwarded-Encrypted: i=1; AL+hErFs7QEYXu4cA76lKPtLBrN+tIo2cwHB7urmnmGyIrF8D9NvisUT7aghhsAUCP7KsGbWouj89YeqoUiacHg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+bnz2NjLxmvATWaOM7C0HN3IY6WOj/nMPZQBv/riPZtwtpgW1c
-	fz/9IFCTz5oKRePsEtg3w3nvKmY1qweR8ybn5V8ebLf7LvB7gX8y2Gcu
-X-Gm-Gg: AZFdTZdc9dsfTTA00ts67xhWkdaDf+zhhLo6u9JwE7yGOLiHPqEbgOWe6GakSeZSCGP
-	ecoXdVzQ7C02zqwufdp8xu9lMechZUodNw2Aono0ACu+PLIQwmjqAK4r1NMKzn9iKIejQlySVuR
-	EqZ+qJDC7Yx+gui0CJZ/4OJIdCOlJvpfdujr8vQF3doVtt55icSGN0FXBgBqmWZDxeX8NzDoUfC
-	qBzSQbNsRSST7g5WpeiGlZAUSXwtaZi4UHoyzVMfxuDM4fV4wHU3at7m9ePT7uqEm+BUkafa1Co
-	e9qAFS0lxlNFW5rq4lXtH0AQtyCPtQn5R4rfdHwmoPu5VdI98xn10AR8slmu4VTiJ5s948+VW5E
-	Ef+wXdmJn9Ai7Oktysk1kTgZkF7IKX9cQeJf+s42qfq3mJewdKCguRsFPXMAWecb2GJS19d2Ddx
-	SEBVLUvofXLDZgyvLRgwbIhJxdK9gbE6sN7kNLSKJAQlzd/kVg54G/Ap5wBU6Vo59LWW5Ou4bZb
-	OuXLxYx5dtH9yMbictohHgy1iGAJ7XNjkyeyfqdUSLQQ5QfTLlGtP3R1zgg6RFweUYYk2MoqHrK
-	BIzgSlD1aBYJ3l4WoadlW7dEbQrNBJtJIJHhhs94/kVasrHVM50yoJQ93U1xl+zw1Cv5JdgkqH9
-	7M4bWaKmJ14y4+cuTQ8got6Luk9E2aGfSlbeCggz6J7CufwEfpBHvkGs3Leba0/PsbJI0rJPBws
-	a1jBNjbfrPTA0RhuMUmLiWCToKqpepMoLSZzO7XF+vTdskkco4zMlh
-X-Received: by 2002:a5d:5d0e:0:b0:4a6:f405:824c with SMTP id ffacd0b85a97d-4a6f4058560mr2734631f8f.31.1794994218862;
-        Wed, 18 Nov 2026 01:30:18 -0800 (PST)
+        bh=bgDlX5QaMLg7y4b6FpejDiDYpseNWtykESeTKF63GOE=;
+        b=Ny4e5HX/IZ5h/XZGzohPDni65lbzQAM3aKGRI8wRYChbXJG3t3KeLOhCaNqKQ6yq4D
+         64u0spIqScYkWnV1LuytKkq0KSwyeVEbLnAkoNfMuEpXj51HMQyFBTS+NcVSrh6x9hhp
+         mzsdy4D2TtVOkZJpBfc1n4QLCpKiJcloR6b16j87pvD0yFgEOAFfG7gwQq8IcjNY1Vuh
+         N2q4jQW0ocVv2mxPjj87cYP/ybH5cOTzFOp9wByK46Shrv9zJL81hltNmsDZB8q46fYu
+         hRTBwv6TCeVoXOxEpjEIbETE03KBTA0P5N8tTG4HtKFoBIUU2hwmj/RghTlBEqbVFZRK
+         9nMQ==
+X-Forwarded-Encrypted: i=1; AL+hErEgUgH10lLRD5uv8Ija7wn4n/6KLgzFWAsokGFuprGbAA+WJ4OXtWEH3B2obzZMQmKq/2MciIcj/IaFuxs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+wfZyuMfy0lqbePB1egPHeZjgPIGmicMCcDEvhoG++/sNKm59A
+	64+99eVPwroqICnPctM9rp5ptDUreKqG1ED0npwQ8X1qu3QA810c4u3S
+X-Gm-Gg: AZFdTZelZIGK+v5q8YuyJoihKZEeAn3jL0syG1vIEBhrm5dMto5Fopx8aCeQPOg6Ex9
+	8vqGgSMLkxL/JubFxxDGIw47v9F+hakNj47JAuUODbMTfXPhvX+V4LQE8qcYvkTvhkAO31qIpRB
+	umFHCGxOnxtgABRfAVCbpOO9+jynMMpWKMK1a66ZnREq4PRZzn9y0Et0Vxsnos6PXJqlnfVQ4S+
+	ZOz3fgEVuSm3vsa5WXDWPlQL/ZqyAyqdDUicDg57eDAoh5qskWEsKoAyMRcmgDwH9TsHjPh3Sa+
+	yUtU0bsl7yzQ34tUjgDyxV3HWb+teAKeZp6zvtUo/m0F+zC39oDggw53ZmUSnhwnJzdTH5dIBVp
+	EAIqvVhKomp1l4Az5a8VBpk77Pl2UVXGPRkfBoxk5zU+w4LkDsNruvKGTlXQ84a4G+R9NSvXKsP
+	fvEV+GV0ninyAe8BujEDFRa+i203DCtFErpaRCb0xFFNzy3Ycic2eNgTGsVsdB5XQant1p5MXJW
+	yMdiCYN7gGByH78ZmC9AtbR8C0FeSP70wybfFxCGSKjxkRKzOR4xCgeg+vcG7KNCNKNvlTe3ur6
+	2plZo9echvUf8Plzv2N61UAaM7u+fHbwRxxMYNQiBdTOGkNtt0nYxyTkFub9bKYNanjIw7skQt4
+	2W5KZ3bsHfMLlBODLi6DGGwhoOI4styhitLK7qZ49rqjoJxELzqwyl4/ShCO1livq0hSdTCUdhk
+	7ltB/BLrhz0TmvnUseFo2JxC9wEz7syocnNyVmxAuI6FdBSaAcM8D7
+X-Received: by 2002:a05:6000:258a:b0:48d:ff71:dd9d with SMTP id ffacd0b85a97d-4a6390a0d36mr4218222f8f.23.1794994219972;
+        Wed, 18 Nov 2026 01:30:19 -0800 (PST)
 Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-c049-d359-3a47-0198.ipv6.o2.cz. [2a00:1028:8388:a84e:c049:d359:3a47:198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.17
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.18
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 01:30:18 -0800 (PST)
+        Wed, 18 Nov 2026 01:30:19 -0800 (PST)
 From: Josef Schlehofer <pepe.schlehofer@gmail.com>
 To: netdev@vger.kernel.org
 Cc: marcin.s.wojtas@gmail.com,
@@ -91,9 +91,9 @@ Cc: marcin.s.wojtas@gmail.com,
 	maxime.chevallier@bootlin.com,
 	w@1wt.eu,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 2/6] net: mvneta: fix the removal of the mqprio offload
-Date: Wed, 18 Nov 2026 10:30:08 +0100
-Message-ID: <20261118093012.90121-3-pepe.schlehofer@gmail.com>
+Subject: [PATCH net-next v4 3/6] net: mvneta: check the TX queue range of an mqprio offload
+Date: Wed, 18 Nov 2026 10:30:09 +0100
+Message-ID: <20261118093012.90121-4-pepe.schlehofer@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
 References: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
@@ -108,66 +108,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Deleting an offloaded mqprio qdisc leaves its traffic classes and
-per-queue rate limits in place:
+An mqprio offload without a shaper can map a traffic class to TX
+queues that do not exist. Reading the class statistics then reads past
+the TX queue array of the device, also as an unprivileged user:
 
+  # kernel command line: mvneta.txq_number=4
   tc qdisc add dev eth2 root handle 100: mqprio num_tc 2 \
-    map 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 queues 4@0 4@4 hw 1 \
-    mode channel shaper bw_rlimit max_rate 10Mbit 10Mbit
-  tc qdisc del dev eth2 root
+    map 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 queues 4@0 4@4 hw 1
+  tc -s class show dev eth2
 
-mqprio_disable_offload() passes an all-zero configuration, so qopt.hw
-is 0 and mvneta_setup_mqprio() returns before it reaches the teardown
-code. Check qopt.hw only when traffic classes are set up.
+mvneta_setup_mqprio() checks the queue ranges against the number of RX
+queues, and against the number of TX queues only when a shaper is set.
+With fewer TX than RX queues a range can pass the RX check and end
+beyond the last TX queue. Check every queue of a class against both
+numbers.
 
-With this fix, replacing an offloaded mqprio qdisc under a new handle
-by another qdisc with traffic classes loses them. The replacement is
-set up before the old qdisc is destroyed, and the teardown call does
-not say which qdisc it belongs to. The old qdisc's teardown therefore
-clears the traffic classes of the new one, and for a new offload also
-its rate limits and RX queue mapping. tc then shows the new qdisc
-without traffic classes. The core does the same when the old qdisc is
-a software mqprio. A taprio qdisc left without traffic classes sends
-nothing.
+Found by an AI code review agent while working on this series, and
+confirmed on a Turris Omnia (Armada 385) booted with
+mvneta.txq_number=4. Without this patch the setup was accepted, and
+the class dump as uid 65534 caused a kernel oops in
+mqprio_dump_class_stats(). With this patch the range is rejected with
+-EINVAL, so the class dump stays within the TX queue array. Tested
+with the series applied up to this patch and with the whole series
+applied. No kernel selftest covers the mvneta mqprio offload.
 
-Triggered during code development. Reading mvneta_setup_mqprio()
-showed the early return, and the commands above confirmed it on a
-Turris Omnia (Armada 385) with a 100 Mbit/s link. Only TX queues 0-3
-were used and the link carried 19 Mbit/s. With this patch and the
-previous one the queues above 3 are used again and the link reaches
-94 Mbit/s. No kernel selftest covers the mvneta mqprio offload.
-
-Fixes: e7ca75fe6662 ("net: mvneta: Don't force-set the offloading flag")
+Fixes: 4906887a8ae5 ("net: mvneta: Implement mqprio support")
 Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
-v4: Commit message only. Commands and discovery statement added, and
-the replace paragraph also names the rate limits and the RX queue
-mapping (Sashiko).
+v4: New patch. Answering TC_QUERY_CAPS with validate_queue_counts would
+let the core check the TX range, but it would also reject classes
+without queues and overlapping ranges, which the driver accepts today,
+and it does not check the RX queues.
 ---
- drivers/net/ethernet/marvell/mvneta.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/marvell/mvneta.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-index c0abc843b1c1..06b5453543a1 100644
+index 06b5453543a1..76dfbc484269 100644
 --- a/drivers/net/ethernet/marvell/mvneta.c
 +++ b/drivers/net/ethernet/marvell/mvneta.c
-@@ -5251,11 +5251,12 @@ static int mvneta_setup_mqprio(struct net_device *dev,
- 	int rxq, txq, tc, ret;
- 	u8 num_tc;
+@@ -5277,7 +5277,8 @@ static int mvneta_setup_mqprio(struct net_device *dev,
+ 		for (rxq = mqprio->qopt.offset[tc];
+ 		     rxq < mqprio->qopt.count[tc] + mqprio->qopt.offset[tc];
+ 		     rxq++) {
+-			if (rxq >= rxq_number)
++			/* The range sets the TX queues of the class as well */
++			if (rxq >= rxq_number || rxq >= txq_number)
+ 				return -EINVAL;
  
--	if (mqprio->qopt.hw != TC_MQPRIO_HW_OFFLOAD_TCS)
--		return 0;
--
- 	num_tc = mqprio->qopt.num_tc;
- 
-+	/* On removal the qdisc passes an all-zero qopt, with hw 0 */
-+	if (num_tc && mqprio->qopt.hw != TC_MQPRIO_HW_OFFLOAD_TCS)
-+		return 0;
-+
- 	if (num_tc > rxq_number)
- 		return -EINVAL;
- 
+ 			mvneta_map_vlan_prio_to_rxq(pp, tc, rxq);
 -- 
 2.54.0 (Apple Git-157)
 
