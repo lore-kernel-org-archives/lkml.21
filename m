@@ -1,69 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795030866;
-	b=gfoo039Ip8TBJXHd+5eiVI5TklObocaZCuv56fOZH2egCKJTncDOZWuceyjK0zQnAQBG
-	 lCnYGg7GWe3yc04l/ufHChMgY/Ofv1yUmagaAhSlgR5LxSAFVoAML2qU26+St0+uh4Ou4
-	 Y8DVj0JndsSMpeB7BRxxW9QqoBPFPJ3Wny53nevvQwoMvXGFxKYJz9+vttZwbCpSeVUbd
-	 wYULxwQvNR9uQUu+8GkYbcYBPniW54DfzvGrkm4DMbbHWSYWG9x4XAA6z6dpRAJ5FdGxH
-	 xzwYVkTw1gVV4jO502pV74ZApAcxZCeYSU/Ufh1IGzHkm7TrdPEgqa/8oEQBnuvk+SQ==
+	t=1795030899;
+	b=V96jgt7uoW8d/iraLjmvvzAGxy64BW5slKYLoDxgoy5iuo4REr+cOZUQQGJuKsYv4jH9
+	 EnIm8CrvkJZgdtblcc8g0QPIVF8b4Q2grZOh/Blurl707U6u7jSL2tlxb4OeDdb+pwktG
+	 vTj0B8E77sxmMJkr8AH5HSyZYzeuNhkhtb66PCoOX5eQdjIv7vzrTsZDUrSlYahzcroG5
+	 /oDUVfdxhTj4h1MhOffKNlVtI4FU2MImb5XFVhZJMiO5PJNu32CPLS8DdKzQeJdyhzygX
+	 6TuCFSCfr0Ci92mQvPEu7pesnhXUtYl+Jjk9SxG5OqDOto8HS5kjYdJTaiFEzPgF6iQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795030866;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mXo1ghkq6pdaTOlsyhMoA5lXrPyYNX/rOz9SwOb0hVM=;
-	b=ZhTxqdQtb003ap9oEMud0PQP/FlxX3BlNA+6QY3lRk5uPqy7OX+cVpNobTep003jGk27
-	 Bf/u1MP0slQM2lynHhQxSDwVYdwlA3WI+FYXxC9kFy+9iI8JvaWfzViiyAoHZ/zUwynKb
-	 /eKFSeK9vaKwxZQdU/jOM+9VNSE4zQTZUhBcVLJ+ayhBUGRh/bxUdfGoijwVhqeZdOwC9
-	 Mfx6H8lYvv2gQgZzjmLxTvsomRTZcaZBNusWsl36sSQmaJDN/poeFaRqbISA1F8ki5Koe
-	 PS5lS6ae/2Xnwoah9mZeemgCtgJmPNeKnQg//p46QJ92Bruur1O4N1X5vm50hE31ffg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795030899;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=sxI1zN1iSt5WLFJOiBLp/HXVFEB2cTTrPgSWUehu01E=;
+	b=n3UIIyKPkcWo+H5CYc3Ymyx2KOuc5BwFYs1k2ooKimdIFLvxdhPh06pBTf0CeneOlXzQ
+	 N/i2Kh9efo54i5eZcGydLmPH8moPs5/BcyO6TZ9m1BTURSsNikgESyB9qrdtfRK2SSgYe
+	 Ly6Mz/o/bR79wnCaN36ewj9oUc4WgKPtaLlwtEburIs9B9Gek01Ix+DMkB1L5XGoNvzWD
+	 s/wCUPX8sX3dhQ5PZM7JgnrZS+PWpP1vtD4UIWudOZolncy3gtQ7pykgGR/MnyvMfUA82
+	 iDoCu7XDaLPfdywasoFJkFiaZ5TbWEDG48o8AEbGCQXND/najHhBi9B2aPVYn1TPsSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="aH/i1Xwb";
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D9PAuqN3;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C29606D356;
-	Wed, 18 Nov 2026 19:41:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9C29606D356
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6B0B606DD0A;
+	Wed, 18 Nov 2026 19:41:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6B0B606DD0A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aH/i1Xwb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795030866; x=1826566866;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=qlWyKpqP9s1ty0wn203bKf4SuqBcbZO+VvTcSfHNakU=;
-  b=aH/i1XwbdJrqHDZWkoFYrmlwipmYoDxNzp1mx5iFQgmE52PDnu4zqB8b
-   BRmSDj3LvV7Rck9sfGzcWtvThhChyCgfVKS4ek72TjU6YGztp0d8mZrmy
-   2vKfjwV5lAKVI4sKwxX6JWiIobsI3eqB+FnoZgOUaXeb1kf4lPyVv/6j+
-   0wPlSaB8LIawXRHTniAT/YGpeGdgaGv3ZHG2wS0xj2qz+lDX+G/H2EChR
-   Kge0nRc+CrZwZiBrBoEbdqvf2WT4bmqG8UbteTc1ITaltW7WGgixvbPrf
-   fFuu9IhKMwYxSGOhJKG9EraPPHwMgYHMJab/t6QsskKawMp7Nlnx04NDn
-   g==;
-X-CSE-ConnectionGUID: RhZE+wjOT4G4gPhK0QcaGg==
-X-CSE-MsgGUID: H9VXThTJSeymBlV0r0jTSA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3851716"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3851716"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:41:05 -0800
-X-CSE-ConnectionGUID: 7CXNrgORSw22gUDwWlNW/A==
-X-CSE-MsgGUID: eRKqtevxRCyuPuBIS8L6Xw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10269940"
-Received: from unknown (HELO [10.241.243.237]) ([10.241.243.237])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 11:41:03 -0800
-Message-ID: <be480966-3b68-44f5-9afa-f88b3c203092@intel.com>
-Date: Wed, 18 Nov 2026 11:40:59 -0800
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=D9PAuqN3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795030896;
+	bh=sxI1zN1iSt5WLFJOiBLp/HXVFEB2cTTrPgSWUehu01E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=D9PAuqN3aX9RLO/jkUibeLIHu70RVAZVUaKrReKklMbzcY1Uf6KzfcBnJg2H1P82W
+	 3CKEr3AB8uoQ5KecvYP/yZwcBhI/lpaI/0FJg0E0Rs0OO4vh9VSzYmnfAdeMHPDxmY
+	 ghYMaBzuryJPVfdLaHoHNbvUBTmKG+Jjbsg9mJ1zB54rXbsJUhaSeRsjHjjNJG9rX2
+	 Pe3X0Oehlym2FY1ikig37oO0W/HFqHagwrMydpsbqAwaSCYLuQcfy/pXA133S9LOLY
+	 x1UpZUXnWJuo91nzm7+n03xEye1eDBlmfOSeIUK47PxrlUdUzyLf1mdT4ZHuhcsLJh
+	 AwGV5vLZKDi8w==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 30B0C17E0406;
+	Wed, 18 Nov 2026 20:41:34 +0100 (CET)
+Message-ID: <457fe01cc1fbc5b6e2d7b5c9c167012b56fe86b2.camel@collabora.com>
+Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Daniel Almeida
+	 <daniel.almeida@collabora.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Miguel Ojeda <ojeda@kernel.org>, Boqun
+ Feng <boqun@kernel.org>, Gary Guo	 <gary@garyguo.net>,
+ =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	 <bjorn3_gh@protonmail.com>, Benno
+ Lossin <lossin@kernel.org>, Andreas Hindborg	 <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>, Trevor Gross	 <tmgross@umich.edu>,
+ Danilo Krummrich <dakr@kernel.org>, Tamir Duberstein	 <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	
+ <work@onurozkan.dev>, Abdiel Janulgue <abdiel.janulgue@gmail.com>, 
+	iommu@lists.linux.dev, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, Detlev Casanova	
+ <detlev.casanova@collabora.com>
+Date: Wed, 18 Nov 2026 14:41:32 -0500
+In-Reply-To: <20261118193521.GD3115493@ziepe.ca>
+References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
+	 <20261116193821.GC2452510@ziepe.ca>
+	 <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
+	 <20261117202055.GA3115493@ziepe.ca>
+	 <615C3DA2-4C02-4A8B-AEC4-70D498672559@collabora.com>
+	 <20261118193521.GD3115493@ziepe.ca>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-upUcWOi2k3hKqqHR1efN"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,79 +101,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2] x86/early-quirks: Scan all functions in
- early_pci_scan_bus()
-To: Thorsten Blum <blum@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Jesse Barnes <jbarnes@hobbes.lan>
-Cc: Lukas Wunner <lukas@wunner.de>, Ingo Molnar <mingo@elte.hu>,
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261106004343.457087-2-blum@kernel.org>
- <av3v7KY64vjxDCk1@kernel.org>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <av3v7KY64vjxDCk1@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+
+--=-upUcWOi2k3hKqqHR1efN
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Jason,
+
+Le mercredi 18 novembre 2026 =C3=A0 15:35 -0400, Jason Gunthorpe a =C3=A9cr=
+it=C2=A0:
+> > No, not OK :/ We want to use GEM shmem, which calls into the DMA API in=
+ternally
+> > through drm_gem_shmem_get_pages_sgt() -> dma_map_sgtable().
+>=20
+> You cannot continue to use DMA API once you start touching a paging
+> domain directly. It is why driver_managed exist.
+
+You are building a strong argument around something that is not what we int=
+ent
+this binding to be used for. If you had cared about the context you'd know =
+we
+don't want to touch paging from userspace in this type of drivers. At least=
+ not
+until we have a really good reason to include this complexity. And I agree,=
+ its
+quite likely the iommu subsystem API would just fall short, its far from
+perfect.
+
+There is a line to draw between GPU and VPUs, and memory management is wort=
+h
+looking into. But seriously, let's have this discussion once the driver is =
+ready
+for the ML, so we can code to correlate to.
+
+Nicolas
+
+--=-upUcWOi2k3hKqqHR1efN
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
-On 11/18/26 10:35, Thorsten Blum wrote:
-> Applied to blum/for-7.5 for linux-next testing.
-> 
-> [1/1] x86/early-quirks: Scan all functions in early_pci_scan_bus()
->       https://git.kernel.org/blum/c/83e3892f2aadca0123a3b7d452e3f39e74cf5126
-> 
-> I plan to send it to Linus during the next merge window unless there are
-> objections or the x86/PCI maintainers would prefer to take it.
+-----BEGIN PGP SIGNATURE-----
 
-I'm confused why you would even consider sending this to Linus. I'm
-sorry but I'm not familiar with your work. Is this kind of thing you
-normally send to Linus?
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav3/bAAKCRDZQZRRKWBy
+9Dn+AP9Sxy4GNfTEn1PqG1A0ThC0jQy5J14QKl3UgwHTTy5xEwD/aLpZ8keoPdWW
+1b0zIzgEtpqE19BhAIWbV68uFqtn0AA=
+=xdUx
+-----END PGP SIGNATURE-----
 
-Oh, and I guess this is an objection. Please don't send this specific
-fix upstream.
+--=-upUcWOi2k3hKqqHR1efN--
