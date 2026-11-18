@@ -1,48 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794992938;
-	b=reEuHJS/FspbxTLtW+WlqKqsMvXYhbWxuisgmYtn2/TreqrYwHyBo/LcrXhwECn4Ct/b
-	 Skkd5kd9preQTw53lqadCQc3HydMcZQ4XWYQyUhHcla7BijuCdWSSv5sSX3eciltEd6bH
-	 LfXVSco8zvhwzUl1toDkUWI5J3YZk8Tzc6YgczN8Ob0ksy/B9D7NAUnpUticq2RteO6AF
-	 YqqnOhJd/RkUvgl9GZmWhwnZV7CkVSxS6ku+yediY0c4YDbQmuGI3iIgPdSKtIaEoSO5F
-	 hQ41fpdWjmaVZmKcV92B0NNnS19YcGewFU+uHkWBSGuTsbKONkbxLJYoaTc6ivn3xYg==
+	t=1794992933;
+	b=LyRFd/UtMcR7WSM7rFkjGNDow7ooBCQKnpVfwy7my2iNDyjnBGmvSLxD6XbQt7Rpe5YD
+	 o/9Fw2qq6jSfI1npctrVeo8HVPqTNJTh0l0ediqdT53THjpMkOS8ePaG853tpZCR8u1TU
+	 wu/8Z7yD8GSyc0ryxE/0+h9q95KvlBg8rOpYK12igEBM2DPBiUfaWlJFdL4CoZzIeYWYe
+	 UyMR+bkyIZWLPdLxzQ6qV3LtXHoaoueiOKpOm3oxl+XrEpHA3z+plDsH0aHtHnlZViC8Z
+	 ptujJLHYMpcokgZ1UlZsQzGzN+thV/pyOs6t7os9bUbDQrj4u8tpQXvYWT7+TxP0b8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794992938;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794992933;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=eLplVoUR151Z1rxiGrfmDOIgnEPAYp9Bob6L9S+wLKc=;
-	b=1eYrSyatsgdLRWByYmCdRh/na6CVGJITt6s0+Q/1BM8PEaj+q8o+rYU3H+B2lMcHdKHH
-	 I5StLAQvCf2XQaiwHiIYFFnY18DvEWCczzYLLLUVqmb0B+1q/kJkZaEgqfYXENMURy7hq
-	 b4LYEh2hWnXbGe4Lgq6xI3IvW7NVKMctygKtiLYUZRUJ5lkYUebT9UX+HAoIXfVN9HLbH
-	 Rqgr9At8/8tjfXgO57/CMcZ6R5RB6PUDIVsE5in3mKziixkLK7O4mq8UzrBLVipVafBOx
-	 4Q5+tAiBsuMDu6Em6ropdr4WCM0M1ODbjIHFSM+4C9pW9VHHr/dHvxy/26QXlzfoh1g==
+	bh=4vk21OXBMeWwvVJYnU0guSYB0iBz+kolIfHiEovWSvc=;
+	b=OSK7/42Uy7b391/T2aNriTNFCw2XLoyKzLG32YSUKX9u/Zr/bvDtKu7B2SDckIHd9Ipz
+	 bRu0MXD75PwdwbBwJNGkzLquor1fpr9j6gxELL6KHhuLZGb1kfyYXa1G5RVm3d5tiV5N7
+	 NL6df6nkhn/7rJE0SLoe/+6a5QAb26F1BiTSLT0zBAjJ398K93ZMlbOSDqh8Df8qA2t3W
+	 lyENVuDdUwo0ejzX2k6h12F9esS2BfhWcfUWgKbos9kvkCh5sHmkMu91K9xTUYz+SspVl
+	 Pz3sHJXhtjuNOpABfniqP/KZ91kryQrrbL+DaZJN2jSBC/eKHe/j506FL/XrHot7OzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GhSH6JDB;
-	arc=none smtp.remote-ip=117.135.210.5
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=mGlQEUmC;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DA0A606A336
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:08:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DA0A606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F903606A88E
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:08:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F903606A88E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GhSH6JDB
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=mGlQEUmC
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=eL
-	plVoUR151Z1rxiGrfmDOIgnEPAYp9Bob6L9S+wLKc=; b=GhSH6JDBYfKmTXHHXX
-	BqC+NYO7+Se9cjAdVw8MrscIGNAJJn0nS/OU9xq5gzL5bSfJXUphfolMilNZAojE
-	V9wE6L4cQQRJ383ZuAWPHSRWdl6mPP2mZbQyuq7/RZpKFWFwRGE10prnnT15zXkI
-	LxGTld2kDdGzvkL2APm4hj4g0=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=4v
+	k21OXBMeWwvVJYnU0guSYB0iBz+kolIfHiEovWSvc=; b=mGlQEUmCzjQPeQfRLV
+	aTEtA8AaANqhj/moQ1QkoF7OwBNfOV/3q5FCFEhthoUCkmcCtLq7TfPK2Oskh/yM
+	JQg3jgRi30Ky8vyz6NClzoZ0CfOYIjEXjPmg3/dLNr+nZnaSspWUIl2B7IqF36v9
+	9vCVh6Kk8puMesqF7tt+vtink=
 Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S9;
-	Wed, 18 Nov 2026 17:08:35 +0800 (CST)
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3_+gOa_1qh6wGIA--.32884S6;
+	Wed, 18 Nov 2026 17:08:33 +0800 (CST)
 From: Xuewen Wang <wangxuewen_ky@163.com>
 To: linkinjeon@kernel.org,
 	hyc.lee@gmail.com,
@@ -51,9 +51,9 @@ Cc: ntfs@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Dandan Wu <wudandan@kylinos.cn>,
 	Baolin Liu <liubaolin@kylinos.cn>
-Subject: [PATCH v6 15/37] ntfs: report iomap metadata corruption
-Date: Wed, 18 Nov 2026 17:06:39 +0800
-Message-Id: <20261118090701.1858849-16-wangxuewen_ky@163.com>
+Subject: [PATCH v6 12/37] ntfs: report required system file and volume metadata errors
+Date: Wed, 18 Nov 2026 17:06:36 +0800
+Message-Id: <20261118090701.1858849-13-wangxuewen_ky@163.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20261118090701.1858849-1-wangxuewen_ky@163.com>
 References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
@@ -67,194 +67,530 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S9
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtF1xAryxCr1fCF45tr1rtFb_yoW7Kr48pF
-	y3KrZxKw1rXr97Wrn7t390vF1a93W8K3y7Wr1fJw4fZa1Yyw47tF10kF1YqF1SqrZ5A34q
-	vFWjkrW7Cw4UZwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UTVb9UUUUU=
-X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzRP44Wr9axMhpgAA3v
+X-CM-TRANSID:_____wD3_+gOa_1qh6wGIA--.32884S6
+X-Coremail-Antispam: 1Uf129KBjvAXoWfJFy3KrWUAryfKr18WrWxJFb_yoW8WFyDXo
+	WSka10kws5Wr1fJr4Yy3Z3Za47Za98Cws5CF4rKw4kua929w4qga17Gw13Xa4fGw1YgF1D
+	Aryxt3Z5XFW8AFyDn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUnCJmDUUUU
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC7xH44Wr9axG7JAAA3V
 
 From: Dandan Wu <wudandan@kylinos.cn>
 
-The iomap paths detect missing required attributes and invalid runs
-without reporting them. Report these conditions as EFSCORRUPTED while
-preserving allocation and underlying mapping errors.
+Required system-file loading can obscure the original errno or fail
+without recording corrupt metadata. Report missing system records,
+invalid tables and allocation metadata, and a stale hiberfil.sys
+reference. An absent hiberfil.sys remains valid.
 
-Keep sparse holes, ordinary EOF and partial-I/O semantics distinct from
-corruption. The preceding read_folio fix preserves synchronous errors.
+Preserve errors from the AttrDef and UpCase loaders and other system-file
+initialization paths, retaining the default-upcase fallback. Report a
+missing AT_VOLUME_INFORMATION during volume-flag updates and preserve
+the errno when synchronizing the volume dirty state.
 
 Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 Signed-off-by: Dandan Wu <wudandan@kylinos.cn>
 ---
 Changes in v6:
-Keep the reporting changes here; buffered-read error propagation is
-now a preceding patch. Adapt to the current iomap callback interface.
+Retain the upstream metadata-folio reader in AttrDef and UpCase loading.
 
 Validation:
 - Compiled and linked the NTFS module object with W=1 at this stage.
 
- fs/ntfs/iomap.c | 56 ++++++++++++++++++++++++++++++++++++++-----------
- 1 file changed, 44 insertions(+), 12 deletions(-)
+ fs/ntfs/super.c | 184 +++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 127 insertions(+), 57 deletions(-)
 
-diff --git a/fs/ntfs/iomap.c b/fs/ntfs/iomap.c
-index ce916707f69b..438837318522 100644
---- a/fs/ntfs/iomap.c
-+++ b/fs/ntfs/iomap.c
-@@ -102,8 +102,13 @@ static int ntfs_read_iomap_begin_resident(struct inode *inode, loff_t offset, lo
+diff --git a/fs/ntfs/super.c b/fs/ntfs/super.c
+index 63595328e42e..f22af29a51d2 100644
+--- a/fs/ntfs/super.c
++++ b/fs/ntfs/super.c
+@@ -535,8 +535,13 @@ static int ntfs_write_volume_flags(struct ntfs_volume *vol,
  
- 	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
- 			CASE_SENSITIVE, 0, NULL, 0, ctx);
--	if (unlikely(err))
-+	if (unlikely(err)) {
+ 	err = ntfs_attr_lookup(AT_VOLUME_INFORMATION, NULL, 0, 0, 0, NULL, 0,
+ 			ctx);
+-	if (err)
++	if (err) {
 +		if (err == -ENOENT) {
 +			err = -EFSCORRUPTED;
-+			ntfs_report_file_metadata_error(inode, -EFSCORRUPTED);
++			ntfs_report_metadata_error(vol, -EFSCORRUPTED);
 +		}
- 		goto out;
+ 		goto put_unm_err_out;
 +	}
  
- 	attr_len = le32_to_cpu(ctx->attr->data.resident.value_length);
- 	if (unlikely(attr_len > ni->initialized_size))
-@@ -241,11 +246,12 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
- 	rl_length = ntfs_cluster_to_bytes(vol, rl->length - (vcn - rl->vcn));
+ 	vi = (struct volume_information *)((u8 *)ctx->attr +
+ 			le16_to_cpu(ctx->attr->data.resident.value_offset));
+@@ -1441,6 +1446,10 @@ static int check_windows_hibernation_status(struct ntfs_volume *vol)
+ 	/* Get the inode. */
+ 	vi = ntfs_iget(vol->sb, MREF(mref));
+ 	if (IS_ERR(vi)) {
++		if (PTR_ERR(vi) == -ENOENT) {
++			ntfs_report_metadata_error(vol, -EFSCORRUPTED);
++			vi = ERR_PTR(-EFSCORRUPTED);
++		}
+ 		if (!IS_ERR(vi))
+ 			iput(vi);
+ 		ntfs_error(vol->sb, "Failed to load hiberfil.sys.");
+@@ -1486,9 +1495,9 @@ static int check_windows_hibernation_status(struct ntfs_volume *vol)
+  * load_and_init_attrdef - load the attribute definitions table for a volume
+  * @vol:	ntfs super block describing device whose attrdef to load
+  *
+- * Return 'true' on success or 'false' on error.
++ * Return 0 on success or -errno on error.
+  */
+-static bool load_and_init_attrdef(struct ntfs_volume *vol)
++static int load_and_init_attrdef(struct ntfs_volume *vol)
+ {
+ 	loff_t i_size;
+ 	struct super_block *sb = vol->sb;
+@@ -1497,20 +1506,32 @@ static bool load_and_init_attrdef(struct ntfs_volume *vol)
+ 	u8 *addr;
+ 	pgoff_t index, max_index;
+ 	unsigned int size;
++	int err;
  
- 	if (rl_length == 0 && rl->lcn > LCN_DELALLOC) {
-+		ntfs_report_file_metadata_error(inode, -EFSCORRUPTED);
- 		ntfs_error(inode->i_sb,
- 				"runlist(vcn : %lld, length : %lld, lcn : %lld) is corrupted\n",
- 				rl->vcn, rl->length, rl->lcn);
- 		up_write(&ni->runlist.lock);
+ 	ntfs_debug("Entering.");
+ 	/* Read attrdef table and setup vol->attrdef and vol->attrdef_size. */
+-	ino = ntfs_iget(sb, FILE_AttrDef);
+-	if (IS_ERR(ino))
++	ino = ntfs_system_iget(vol, FILE_AttrDef);
++	if (IS_ERR(ino)) {
++		err = PTR_ERR(ino);
+ 		goto failed;
++	}
+ 	NInoSetSparseDisabled(NTFS_I(ino));
+ 	/* FILE_AttrDef must hold at least one entry and fit inside 31 bits. */
+ 	i_size = i_size_read(ino);
+-	if (i_size < (s64)sizeof(struct attr_def) || i_size > 0x7fffffff)
++	if (i_size < (s64)sizeof(struct attr_def)) {
++		err = -EFSCORRUPTED;
++		ntfs_report_metadata_error(vol, err);
+ 		goto iput_failed;
++	}
++	if (i_size > 0x7fffffff) {
++		err = -EFBIG;
++		goto iput_failed;
++	}
+ 	vol->attrdef = kvzalloc(i_size, GFP_NOFS);
+-	if (!vol->attrdef)
++	if (!vol->attrdef) {
++		err = -ENOMEM;
+ 		goto iput_failed;
++	}
+ 	index = 0;
+ 	max_index = i_size >> PAGE_SHIFT;
+ 	size = PAGE_SIZE;
+@@ -1518,8 +1539,10 @@ static bool load_and_init_attrdef(struct ntfs_volume *vol)
+ 		/* Read the attrdef table and copy it into the linear buffer. */
+ read_partial_attrdef_page:
+ 		folio = ntfs_read_metadata_folio(ino->i_mapping, index);
+-		if (IS_ERR(folio))
++		if (IS_ERR(folio)) {
++			err = PTR_ERR(folio);
+ 			goto free_iput_failed;
++		}
+ 		addr = kmap_local_folio(folio, 0);
+ 		memcpy((u8 *)vol->attrdef + (index++ << PAGE_SHIFT),
+ 				addr, size);
+@@ -1534,7 +1557,7 @@ static bool load_and_init_attrdef(struct ntfs_volume *vol)
+ 	vol->attrdef_size = i_size;
+ 	ntfs_debug("Read %llu bytes from $AttrDef.", i_size);
+ 	iput(ino);
+-	return true;
++	return 0;
+ free_iput_failed:
+ 	kvfree(vol->attrdef);
+ 	vol->attrdef = NULL;
+@@ -1542,16 +1565,16 @@ static bool load_and_init_attrdef(struct ntfs_volume *vol)
+ 	iput(ino);
+ failed:
+ 	ntfs_error(sb, "Failed to initialize attribute definition table.");
+-	return false;
++	return err;
+ }
+ 
+ /*
+  * load_and_init_upcase - load the upcase table for an ntfs volume
+  * @vol:	ntfs super block describing device whose upcase to load
+  *
+- * Return 'true' on success or 'false' on error.
++ * Return 0 on success or -errno on error.
+  */
+-static bool load_and_init_upcase(struct ntfs_volume *vol)
++static int load_and_init_upcase(struct ntfs_volume *vol)
+ {
+ 	loff_t i_size;
+ 	struct super_block *sb = vol->sb;
+@@ -1560,23 +1583,31 @@ static bool load_and_init_upcase(struct ntfs_volume *vol)
+ 	u8 *addr;
+ 	pgoff_t index, max_index;
+ 	unsigned int size;
++	int err;
+ 
+ 	ntfs_debug("Entering.");
+ 	/* Read upcase table and setup vol->upcase and vol->upcase_len. */
+-	ino = ntfs_iget(sb, FILE_UpCase);
+-	if (IS_ERR(ino))
++	ino = ntfs_system_iget(vol, FILE_UpCase);
++	if (IS_ERR(ino)) {
++		err = PTR_ERR(ino);
+ 		goto upcase_failed;
++	}
+ 	/*
+ 	 * The upcase size must not be above 64k Unicode characters, must not
+ 	 * be zero and must be a multiple of sizeof(__le16).
+ 	 */
+ 	i_size = i_size_read(ino);
+ 	if (!i_size || i_size & (sizeof(__le16) - 1) ||
+-			i_size > 64ULL * 1024 * sizeof(__le16))
++			i_size > 64ULL * 1024 * sizeof(__le16)) {
++		err = -EFSCORRUPTED;
++		ntfs_report_metadata_error(vol, err);
+ 		goto iput_upcase_failed;
++	}
+ 	vol->upcase = kvzalloc(i_size, GFP_NOFS);
+-	if (!vol->upcase)
++	if (!vol->upcase) {
++		err = -ENOMEM;
+ 		goto iput_upcase_failed;
++	}
+ 	index = 0;
+ 	max_index = i_size >> PAGE_SHIFT;
+ 	size = PAGE_SIZE;
+@@ -1584,8 +1615,10 @@ static bool load_and_init_upcase(struct ntfs_volume *vol)
+ 		/* Read the upcase table and copy it into the linear buffer. */
+ read_partial_upcase_page:
+ 		folio = ntfs_read_metadata_folio(ino->i_mapping, index);
+-		if (IS_ERR(folio))
++		if (IS_ERR(folio)) {
++			err = PTR_ERR(folio);
+ 			goto iput_upcase_failed;
++		}
+ 		addr = kmap_local_folio(folio, 0);
+ 		memcpy((char *)vol->upcase + (index++ << PAGE_SHIFT),
+ 				addr, size);
+@@ -1605,7 +1638,7 @@ static bool load_and_init_upcase(struct ntfs_volume *vol)
+ 	if (!default_upcase) {
+ 		ntfs_debug("Using volume specified $UpCase since default is not present.");
+ 		mutex_unlock(&ntfs_lock);
+-		return true;
++		return 0;
+ 	}
+ 	if (default_upcase_len == vol->upcase_len &&
+ 	    !memcmp(vol->upcase, default_upcase,
+@@ -1615,11 +1648,11 @@ static bool load_and_init_upcase(struct ntfs_volume *vol)
+ 		ntfs_nr_upcase_users++;
+ 		mutex_unlock(&ntfs_lock);
+ 		ntfs_debug("Volume specified $UpCase matches default. Using default.");
+-		return true;
++		return 0;
+ 	}
+ 	mutex_unlock(&ntfs_lock);
+ 	ntfs_debug("Using volume specified $UpCase since it does not match the default.");
+-	return true;
++	return 0;
+ iput_upcase_failed:
+ 	iput(ino);
+ 	kvfree(vol->upcase);
+@@ -1632,11 +1665,11 @@ static bool load_and_init_upcase(struct ntfs_volume *vol)
+ 		ntfs_nr_upcase_users++;
+ 		mutex_unlock(&ntfs_lock);
+ 		ntfs_error(sb, "Failed to load $UpCase from the volume. Using default.");
+-		return true;
++		return 0;
+ 	}
+ 	mutex_unlock(&ntfs_lock);
+ 	ntfs_error(sb, "Failed to initialize upcase table.");
+-	return false;
++	return err;
+ }
+ 
+ static int ntfs_validate_badclus(struct ntfs_volume *vol,
+@@ -1647,7 +1680,7 @@ static int ntfs_validate_badclus(struct ntfs_volume *vol,
+ 	size_t i;
+ 
+ 	if (!rl)
 -		return -EIO;
 +		return -EFSCORRUPTED;
- 	}
  
- 	if (rl_length && length > rl_length - vcn_ofs)
-@@ -375,6 +381,7 @@ static int ntfs_zero_range(struct inode *inode, loff_t offset, loff_t length)
- static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_t offset,
- 						      loff_t length, struct iomap *iomap)
+ 	for (i = 0; i < runlist->count; i++) {
+ 		if (!rl[i].length) {
+@@ -1655,22 +1688,22 @@ static int ntfs_validate_badclus(struct ntfs_volume *vol,
+ 			    rl[i].vcn != vol->nr_clusters ||
+ 			    rl[i].lcn != LCN_ENOENT ||
+ 			    next_vcn != vol->nr_clusters)
+-				return -EIO;
++				return -EFSCORRUPTED;
+ 			*bad_clusters = bad;
+ 			return 0;
+ 		}
+ 		if (rl[i].vcn != next_vcn || rl[i].length < 0 ||
+ 		    rl[i].length > vol->nr_clusters - next_vcn)
+-			return -EIO;
++			return -EFSCORRUPTED;
+ 		if (rl[i].lcn != LCN_HOLE) {
+ 			/* Each bad cluster is mapped to its own volume offset. */
+ 			if (rl[i].lcn != rl[i].vcn)
+-				return -EIO;
++				return -EFSCORRUPTED;
+ 			bad += rl[i].length;
+ 		}
+ 		next_vcn += rl[i].length;
+ 	}
+-	return -EIO;
++	return -EFSCORRUPTED;
+ }
+ 
+ /*
+@@ -1681,6 +1714,7 @@ static int ntfs_validate_badclus(struct ntfs_volume *vol,
+  */
+ static int load_and_check_badclus(struct ntfs_volume *vol)
  {
 +	int report_err = 0;
- 	struct ntfs_inode *ni = NTFS_I(inode);
- 	struct ntfs_inode *mrec_ni = ntfs_inode_is_named_stream(ni) ?
- 			ntfs_base_inode(ni) : ni;
-@@ -397,7 +404,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 		err = ntfs_map_runlist(ni, vcn);
- 		if (err) {
- 			mutex_unlock(&mrec_ni->mrec_lock);
--			return -ENOENT;
-+			goto out;
- 		}
- 		down_read(&ni->runlist.lock);
- 		rl = ni->runlist.rl;
-@@ -409,9 +416,18 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 	/* Seek to element containing target vcn. */
- 	rl = __ntfs_attr_find_vcn_nolock(&ni->runlist, vcn);
- 	if (IS_ERR(rl)) {
-+		unsigned long irqflags;
-+		s64 allocated_size;
-+
-+		read_lock_irqsave(&ni->size_lock, irqflags);
-+		allocated_size = ni->allocated_size;
-+		read_unlock_irqrestore(&ni->size_lock, irqflags);
-+		if (offset < allocated_size)
-+			report_err = -EFSCORRUPTED;
- 		up_write(&ni->runlist.lock);
- 		mutex_unlock(&mrec_ni->mrec_lock);
--		return -EIO;
-+		err = offset < allocated_size ? -EFSCORRUPTED : -EIO;
-+		goto out;
- 	}
- 	lcn = ntfs_rl_vcn_to_lcn(rl, vcn);
+ 	static __le16 bad_name[] = {
+ 		cpu_to_le16('$'), cpu_to_le16('B'),
+ 		cpu_to_le16('a'), cpu_to_le16('d'),
+@@ -1693,23 +1727,29 @@ static int load_and_check_badclus(struct ntfs_volume *vol)
+ 	size_t i;
+ 	int err;
  
-@@ -430,19 +446,24 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 	 * extent over clusters that are allocated on disk but unknown to us.
- 	 */
- 	if (lcn == LCN_RL_NOT_MAPPED) {
-+		if (!map_err || map_err == -ENOENT)
-+			report_err = -EFSCORRUPTED;
- 		up_write(&ni->runlist.lock);
- 		mutex_unlock(&mrec_ni->mrec_lock);
--		return map_err == -ENOMEM ? -ENOMEM : -EIO;
-+		err = !map_err || map_err == -ENOENT ? -EFSCORRUPTED : map_err;
-+		goto out;
- 	}
- 
- 	max_clu_count = min(max_clu_count, rl->length - (vcn - rl->vcn));
- 	if (max_clu_count == 0) {
-+		report_err = -EFSCORRUPTED;
- 		ntfs_error(inode->i_sb,
- 				"runlist(vcn : %lld, length : %lld) is corrupted\n",
- 				rl->vcn, rl->length);
- 		up_write(&ni->runlist.lock);
- 		mutex_unlock(&mrec_ni->mrec_lock);
--		return -EIO;
+-	base_ino = ntfs_iget(sb, FILE_BadClus);
++	base_ino = ntfs_system_iget(vol, FILE_BadClus);
+ 	if (IS_ERR(base_ino))
+ 		return PTR_ERR(base_ino);
+ 	if (!S_ISREG(base_ino->i_mode)) {
+-		err = -EIO;
 +		err = -EFSCORRUPTED;
++		report_err = -EFSCORRUPTED;
+ 		goto iput_base;
+ 	}
+ 	bad_ino = ntfs_attr_iget(base_ino, AT_DATA, bad_name,
+ 				 ARRAY_SIZE(bad_name));
+ 	if (IS_ERR(bad_ino)) {
+ 		err = PTR_ERR(bad_ino);
++		if (err == -ENOENT) {
++			err = -EFSCORRUPTED;
++			report_err = -EFSCORRUPTED;
++		}
+ 		goto iput_base;
+ 	}
+ 	ni = NTFS_I(bad_ino);
+ 	if (!NInoNonResident(ni) || NInoCompressed(ni) || NInoEncrypted(ni) ||
+ 	    ni->data_size != size || ni->allocated_size != size) {
+-		err = -EIO;
++		err = -EFSCORRUPTED;
++		report_err = -EFSCORRUPTED;
+ 		goto iput_bad;
+ 	}
+ 
+@@ -1718,8 +1758,10 @@ static int load_and_check_badclus(struct ntfs_volume *vol)
+ 	if (err)
+ 		goto unlock;
+ 	err = ntfs_validate_badclus(vol, &ni->runlist, &vol->bad_clusters);
+-	if (err)
++	if (err) {
++		report_err = -EFSCORRUPTED;
+ 		goto unlock;
++	}
+ 	for (i = 0; i < ni->runlist.count - 1; i++) {
+ 		struct runlist_element *rl = &ni->runlist.rl[i];
+ 
+@@ -1737,17 +1779,20 @@ static int load_and_check_badclus(struct ntfs_volume *vol)
+ iput_base:
+ 	iput(base_ino);
+ 	if (err)
+-		return err;
 +		goto out;
- 	}
- 
- 	iomap->bdev = inode->i_sb->s_bdev;
-@@ -456,7 +477,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 				err = max_clu_count;
- 				up_write(&ni->runlist.lock);
- 				mutex_unlock(&mrec_ni->mrec_lock);
--				return err;
-+				goto out;
- 			}
- 		}
- 
-@@ -485,11 +506,16 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 			rl = ntfs_runlists_merge(&ni->runlist, rlc, 0,
- 					&new_rl_count);
- 			if (IS_ERR(rl)) {
-+				err = PTR_ERR(rl);
-+				if (err != -ENOMEM) {
-+					err = -EFSCORRUPTED;
-+					report_err = err;
-+				}
- 				ntfs_error(vol->sb, "Failed to merge runlists");
- 				up_write(&ni->runlist.lock);
- 				mutex_unlock(&mrec_ni->mrec_lock);
- 				kfree(rlc);
--				return PTR_ERR(rl);
-+				goto out;
- 			}
- 
- 			ni->runlist.rl = rl;
-@@ -544,7 +570,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 				err = 0;
- 			if (err) {
- 				ntfs_release_dirty_clusters(vol, max_clu_count);
--				return err;
-+				goto out;
- 			}
- 		}
- 	} else {
-@@ -561,7 +587,11 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
- 			iomap->length = length;
- 	}
- 
+ 	if (free_bits) {
+ 		/* A read-only mount must not later remount RW without repair. */
+-		if (sb_rdonly(sb))
+-			return -EIO;
++		if (sb_rdonly(sb)) {
++			report_err = -EFSCORRUPTED;
++			err = -EFSCORRUPTED;
++			goto out;
++		}
+ 		err = filemap_write_and_wait(vol->lcnbmp_ino->i_mapping);
+ 		if (err)
+-			return err;
++			goto out;
+ 		err = blkdev_issue_flush(sb->s_bdev);
+ 		if (err)
+-			return err;
++			goto out;
+ 		ntfs_warning(sb,
+ 			     "Marked %lld bad clusters as used in $Bitmap.",
+ 			     free_bits);
+@@ -1755,7 +1800,11 @@ static int load_and_check_badclus(struct ntfs_volume *vol)
+ 	if (vol->bad_clusters)
+ 		pr_info("volume contains %lld bad clusters, dev %s\n",
+ 			vol->bad_clusters, sb->s_id);
 -	return 0;
 +	err = 0;
 +out:
 +	if (report_err)
-+		ntfs_report_file_metadata_error(inode, report_err);
++		ntfs_report_metadata_error(vol, report_err);
 +	return err;
  }
  
- #define NTFS_IOMAP_FLAGS_BEGIN		BIT(1)
-@@ -677,8 +707,10 @@ static int ntfs_write_iomap_begin_resident(struct inode *inode, loff_t offset,
- 	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
- 			CASE_SENSITIVE, 0, NULL, 0, ctx);
- 	if (err) {
--		if (err == -ENOENT)
--			err = -EIO;
-+		if (err == -ENOENT) {
-+			err = -EFSCORRUPTED;
-+			ntfs_report_file_metadata_error(inode, -EFSCORRUPTED);
+ /*
+@@ -1777,6 +1826,7 @@ static struct lock_class_key
+  */
+ static int load_system_files(struct ntfs_volume *vol)
+ {
++	int report_err = 0;
+ 	struct super_block *sb = vol->sb;
+ 	struct mft_record *m;
+ 	struct volume_information *vi;
+@@ -1803,6 +1853,11 @@ static int load_system_files(struct ntfs_volume *vol)
+ 	/* Get mft bitmap attribute inode. */
+ 	vol->mftbmp_ino = ntfs_attr_iget(vol->mft_ino, AT_BITMAP, NULL, 0);
+ 	if (IS_ERR(vol->mftbmp_ino)) {
++		if (PTR_ERR(vol->mftbmp_ino) == -ENOENT) {
++			report_err = -EFSCORRUPTED;
++			vol->mftbmp_ino = ERR_PTR(-EFSCORRUPTED);
 +		}
- 		goto out;
++		ret = PTR_ERR(vol->mftbmp_ino);
+ 		ntfs_error(sb, "Failed to load $MFT/$BITMAP attribute.");
+ 		goto iput_mirr_err_out;
+ 	}
+@@ -1811,23 +1866,24 @@ static int load_system_files(struct ntfs_volume *vol)
+ 	lockdep_set_class(&NTFS_I(vol->mftbmp_ino)->mrec_lock,
+ 			   &mftbmp_mrec_lock_key);
+ 	/* Read upcase table and setup @vol->upcase and @vol->upcase_len. */
+-	if (!load_and_init_upcase(vol))
++	ret = load_and_init_upcase(vol);
++	if (ret)
+ 		goto iput_mftbmp_err_out;
+ 	/*
+ 	 * Read attribute definitions table and setup @vol->attrdef and
+ 	 * @vol->attrdef_size.
+ 	 */
+-	if (!load_and_init_attrdef(vol))
++	ret = load_and_init_attrdef(vol);
++	if (ret)
+ 		goto iput_upcase_err_out;
+ 	/*
+ 	 * Get the cluster allocation bitmap inode and verify the size, no
+ 	 * need for any locking at this stage as we are already running
+ 	 * exclusively as we are mount in progress task.
+ 	 */
+-	vol->lcnbmp_ino = ntfs_iget(sb, FILE_Bitmap);
++	vol->lcnbmp_ino = ntfs_system_iget(vol, FILE_Bitmap);
+ 	if (IS_ERR(vol->lcnbmp_ino)) {
+-		if (!IS_ERR(vol->lcnbmp_ino))
+-			iput(vol->lcnbmp_ino);
++		ret = PTR_ERR(vol->lcnbmp_ino);
+ 		goto bitmap_failed;
+ 	}
+ 	lockdep_set_class(&NTFS_I(vol->lcnbmp_ino)->runlist.lock,
+@@ -1837,6 +1893,8 @@ static int load_system_files(struct ntfs_volume *vol)
+ 
+ 	NInoSetSparseDisabled(NTFS_I(vol->lcnbmp_ino));
+ 	if ((vol->nr_clusters + 7) >> 3 > i_size_read(vol->lcnbmp_ino)) {
++		ret = -EFSCORRUPTED;
++		report_err = -EFSCORRUPTED;
+ 		iput(vol->lcnbmp_ino);
+ bitmap_failed:
+ 		ntfs_error(sb, "Failed to load $Bitmap.");
+@@ -1846,8 +1904,9 @@ static int load_system_files(struct ntfs_volume *vol)
+ 	 * Get the volume inode and setup our cache of the volume flags and
+ 	 * version.
+ 	 */
+-	vol->vol_ino = ntfs_iget(sb, FILE_Volume);
++	vol->vol_ino = ntfs_system_iget(vol, FILE_Volume);
+ 	if (IS_ERR(vol->vol_ino)) {
++		ret = PTR_ERR(vol->vol_ino);
+ 		vol->vol_ino = NULL;
+ volume_failed:
+ 		ntfs_error(sb, "Failed to load $Volume.");
+@@ -1855,6 +1914,7 @@ static int load_system_files(struct ntfs_volume *vol)
+ 	}
+ 	m = map_mft_record(NTFS_I(vol->vol_ino));
+ 	if (IS_ERR(m)) {
++		ret = PTR_ERR(m);
+ iput_volume_failed:
+ 		iput(vol->vol_ino);
+ 		vol->vol_ino = NULL;
+@@ -1882,8 +1942,14 @@ static int load_system_files(struct ntfs_volume *vol)
  	}
  
+ 	ntfs_attr_reinit_search_ctx(ctx);
+-	if (ntfs_attr_lookup(AT_VOLUME_INFORMATION, NULL, 0, 0, 0, NULL, 0,
+-			ctx) || ctx->attr->non_resident || ctx->attr->flags) {
++	err = ntfs_attr_lookup(AT_VOLUME_INFORMATION, NULL, 0, 0, 0,
++			       NULL, 0, ctx);
++	if (err || ctx->attr->non_resident || ctx->attr->flags) {
++		ret = err;
++		if (!err || err == -ENOENT) {
++			ret = -EFSCORRUPTED;
++			report_err = ret;
++		}
+ 		ntfs_attr_put_search_ctx(ctx);
+ get_ctx_vol_failed:
+ 		unmap_mft_record(NTFS_I(vol->vol_ino));
+@@ -1947,10 +2013,9 @@ static int load_system_files(struct ntfs_volume *vol)
+ 
+ 	kvfree(rp);
+ 	/* Get the root directory inode so we can do path lookups. */
+-	vol->root_ino = ntfs_iget(sb, FILE_root);
++	vol->root_ino = ntfs_system_iget(vol, FILE_root);
+ 	if (IS_ERR(vol->root_ino)) {
+-		if (!IS_ERR(vol->root_ino))
+-			iput(vol->root_ino);
++		ret = PTR_ERR(vol->root_ino);
+ 		ntfs_error(sb, "Failed to load root directory.");
+ 		goto iput_logfile_err_out;
+ 	}
+@@ -2033,19 +2098,22 @@ static int load_system_files(struct ntfs_volume *vol)
+ 		return 0;
+ 	/* NTFS 3.0+ specific initialization. */
+ 	/* Get the security descriptors inode. */
+-	vol->secure_ino = ntfs_iget(sb, FILE_Secure);
++	vol->secure_ino = ntfs_system_iget(vol, FILE_Secure);
+ 	if (IS_ERR(vol->secure_ino)) {
+-		if (!IS_ERR(vol->secure_ino))
+-			iput(vol->secure_ino);
++		ret = PTR_ERR(vol->secure_ino);
+ 		ntfs_error(sb, "Failed to load $Secure.");
+ 		goto iput_root_err_out;
+ 	}
+ 	/* Get the extended system files' directory inode. */
+-	vol->extend_ino = ntfs_iget(sb, FILE_Extend);
++	vol->extend_ino = ntfs_system_iget(vol, FILE_Extend);
+ 	if (IS_ERR(vol->extend_ino) ||
+ 	    !S_ISDIR(vol->extend_ino->i_mode)) {
+-		if (!IS_ERR(vol->extend_ino))
++		ret = IS_ERR(vol->extend_ino) ?
++			PTR_ERR(vol->extend_ino) : -EFSCORRUPTED;
++		if (!IS_ERR(vol->extend_ino)) {
++			report_err = -EFSCORRUPTED;
+ 			iput(vol->extend_ino);
++		}
+ 		ntfs_error(sb, "Failed to load $Extend.");
+ 		goto iput_sec_err_out;
+ 	}
+@@ -2085,6 +2153,8 @@ static int load_system_files(struct ntfs_volume *vol)
+ 	iput(vol->mftbmp_ino);
+ iput_mirr_err_out:
+ 	iput(vol->mftmirr_ino);
++	if (report_err)
++		ntfs_report_metadata_error(vol, report_err);
+ 	return ret;
+ }
+ 
+@@ -2339,10 +2409,10 @@ static int ntfs_sync_fs(struct super_block *sb, int wait)
+ 	 * seen no modification; with NVolErrors() set this can only set
+ 	 * the bit, never clear it.
+ 	 */
+-	if (NVolErrors(vol) &&
+-	    ntfs_sync_volume_dirty_state(vol)) {
+-		ntfs_warning(sb, "Failed to sync dirty bit in volume information flags.  Run chkdsk.");
+-		err = -EIO;
++	if (NVolErrors(vol)) {
++		err = ntfs_sync_volume_dirty_state(vol);
++		if (err)
++			ntfs_warning(sb, "Failed to sync dirty bit in volume information flags.  Run chkdsk.");
+ 	}
+ 	sync_inodes_sb(sb);
+ 	ret = sync_blockdev(sb->s_bdev);
 -- 
 2.51.0
 
