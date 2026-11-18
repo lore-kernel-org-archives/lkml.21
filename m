@@ -1,59 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010001;
-	b=sVbXGFc/nOGVN04eOO1+wktj2afE3kUIPNUh+yqOrbjH5lPlYEU7Zy5UnKVrDrTx8Z9m
-	 iSEH2qCkmfEI1UzQlJRuxf5eLeQ/UBG13BhZVUJEk4bkw6AxLqv5HPPw+zyq/wvDEmta0
-	 lXDA+p1BiNxQ10Eq9rGaVAAGhjupSnVjw9uR3wSuHmmkKJYHzRoB3snKji9jmNNhg1b5K
-	 TdEejVmUngEdoKSDZihW2j1yKqZHxFGyzniAnPasAw9BwjROTS9ABvSm/XTHdicDPb1A5
-	 mjT+E4Va+DehTGxR2pXJE/osi5EdzH5fsktN2Ll6aMisZP18xhXWQ+WQVBqZdUS8mUw==
+	t=1795010025;
+	b=A3mkj05RFyA2AY+BifJkZQrKTz7PMi9GOqpOaYhw7XOPUJhrOAvqk8ZhiDp4w+k8BLYA
+	 HIU3+K9p1XYXyCh0B5NAtToUA9bKhvrkAztKhIk0zdW2wmcZk4/5rtGfbpHYkA4geHr7C
+	 D5xmYGIVS3OTFcSnilqmHZ3IzUOwqE6A4eN+5v778Rxp57WrC3+2EpXRoFsrdL/YyOKOn
+	 sDZ56kHHAzUTFmFpQOQJGJJUHVhtH+JGV44vhkTGjtAs4lWBo1xBeEaZDvXGH64tCywg/
+	 C9ntpJj5clp3Obh7RNfeEYhUy2mQpkAahq02I9WqBLwSivRCjven1TOfg0C6I35SkGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010001;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=NLeu6B84TB3cba6KWMiNe9d0rCfS3RkNAZ9oG5NH2D4=;
-	b=eWyQ3DpjtaNAWdh0fSojv3yKZcH4DiH9h3kUy8851cTD+j49fQA5Ax4DMw1tHcNnAVi8
-	 bhfGHgaQU3rgNnTSzura66H9HEYUzEtRLQNOANI35oeqQiF3rA8X3zL8XcrNyk4mBueiK
-	 wdYQzezhXZPbI4bWyzj+Ur7VipavVr0inOQr5GaXVV1IS5A1z9TnAqtERr3XONY6s34Is
-	 EMCWCLoMxgkRvAe9nhYnr4G9IPCik/bDA7TkOQISP+w6z4bDGJQ2GBKv5aKI0Wo/GtGxi
-	 9EWZ+epXEIMEMvhOUBcW96lAEnwx4XN3YYViQjbZRItBXMFq5kp7zFkyKuG8zjV0VDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010025;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=o7ezIVkxIIxFbHXUirO8U2Ygr063EQw7nBDsOC0esC0=;
+	b=r74Y1MAVhgnO6jnmjwqkDLda+BxLZANCeTtJSXn9miMqNZauQAtIVmvfC7H8IWSt8WJ7
+	 avu7Dm54lPbHzubkaxCSiJrzYQPK6I2b2f97d1MPZJFw5AqXmdxnPCihildVLwZgxMguK
+	 Gy3V5/vNSa8iR5wNtm6PtrIO/Wk60pfXN3agjh0UPFwbFwuDj/UrPQU05GfJO5D/uQ5nR
+	 A8FSzMSF333ypOByAV8Xn4AFM4WeQq3GogFnlNmjMfVNq5mggxXr2VhWMO9VJRvXMmLUj
+	 9dxXKtyhPHd1hw0PxAa15VoPtKUM8fQJSd0P7CKhXlBVHKFR1DV3jIzpmsYx/ldP76Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=b+InCj1k;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kbjdYjGY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1A82606A31C;
-	Wed, 18 Nov 2026 13:53:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1A82606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 073D1606A31C;
+	Wed, 18 Nov 2026 13:53:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=b+InCj1k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=NL
-	eu6B84TB3cba6KWMiNe9d0rCfS3RkNAZ9oG5NH2D4=; b=b+InCj1kq1glkgtETQ
-	deHvCrkodl+W+e8CfkCjqfSR4qeKpa825YdhbiUYv8m0qmEcYCuOqm8tQrZXZjJy
-	/zhme7egAhNfi659q0w9FWIvwOunW56MmIbqpEQpep/NbtINW59TQyGpHUpJ0aU8
-	UrBEKuesCooZOJXuEA5pr4djw=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgAnJTy6rf1qx_EVGw--.1930S2;
-	Wed, 18 Nov 2026 21:53:00 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: thierry.reding@kernel.org,
-	jonathanh@nvidia.com,
-	kees+treewide@kernel.org,
-	pdeschrijver@nvidia.com
-Cc: linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>
-Subject: [PATCH] firmware: tegra: bpmp: Free SRAM on channel initialization failure
-Date: Wed, 18 Nov 2026 21:52:58 +0800
-Message-Id: <20261118135258.2368093-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kbjdYjGY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DE4F1F000C4;
+	Wed, 18 Nov 2026 13:53:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795010024;
+	bh=o7ezIVkxIIxFbHXUirO8U2Ygr063EQw7nBDsOC0esC0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kbjdYjGYGCUs/NY8KUlPldKhJc9WsOzqbeGHCR4GYlOPfDSC63VCBtUCzZ3bHqQNS
+	 0ARjlrzTQn8ZTSG2f1hLrgibvH9cK9D077B9LsZG0BOFphRHWkzi/YOH/f50Mu7oP3
+	 tmGHcexqqrywHgm8PPCXOTBcV1G2YgYDCnY/OxOvKS+swJ3DXlWgcbIljadkUeKYgK
+	 Bp248gi4PrywoGVGPfVvPzsTVADZfn5fVbhmeWrlw3d/64GL4gu+HgNzDgoPdh53iv
+	 7Lga8h2Ou1VfdqQu4duKWr+Hqr8zWQpD38ZHL15CCQs7yaJ7JFbayCHPqVMCqZW20Q
+	 lwaxUQZymGt9Q==
+From: Christian Brauner <brauner@kernel.org>
+To: viro@zeniv.linux.org.uk, Ding Feng <dingf3ng@gmail.com>
+Cc: jack@suse.cz, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, dlemoal@kernel.org, naohiro.aota@wdc.com, 
+ jth@kernel.org, Jun-ichi Takimoto <takimoto-j@kba.biglobe.ne.jp>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261117173129.61028-2-dingf3ng@gmail.com>
+References: <20261117173129.61028-2-dingf3ng@gmail.com>
+Subject: Re: (subset) [PATCH 1/2] fs: ignore RLIMIT_FSIZE above LLONG_MAX
+ in generic_write_check_limits()
+Message-Id: <20261118-erzwang-einwand-kanzlei-a8960dafbd19@brauner>
+Date: Wed, 18 Nov 2026 14:53:40 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,81 +61,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PigvCgAnJTy6rf1qx_EVGw--.1930S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJrW3Cw17urW7Aw4UWryfJFb_yoW5Jr43pr
-	WxG3yUuFs3JFs3Aa4xXw45AF48JF48G3W7GasIk3WkAw4DCr9rAr15Ka4Yga15JrZ2yr43
-	t3W3JryrW3W7GF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pR3CzAUUUUU=
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7hy0I2r9rbwRDgAA38
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev-04696
 
-If TX or RX channel initialization fails after SRAM allocation
-succeeds, tegra186_bpmp_setup_channels() returns without freeing
-the two SRAM buffers.
+On Wed, 18 Nov 2026 01:31:28 +0800, Ding Feng wrote:
+> generic_write_check_limits() stores rlimit(RLIMIT_FSIZE), an unsigned
+> long, in a loff_t. A soft limit between 2^63 and RLIM_INFINITY becomes
+> negative there, so "pos >= limit" holds for every position: each write
+> through generic_write_checks() or copy_file_range() fails with -EFBIG
+> and raises SIGXFSZ, although no file position can reach such a limit.
+> 
+> Reproducer (bash counts ulimit -f in 1024-byte blocks, so 2^53 blocks
+> is 2^63 bytes):
+> 
+> [...]
 
-Route all channel initialization failures through the existing
-teardown path. Check the bpmp field before cleaning up the TX
-and RX channels so that teardown skips channels that were not
-successfully initialized.
+Applied to the vfs-7.5.misc branch of the vfs/vfs.git tree.
+Patches in the vfs-7.5.misc branch should appear in linux-next soon.
 
-Fixes: 2abd484ca48f ("firmware: tegra: bpmp: Add support for DRAM MRQ GSCs")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/firmware/tegra/bpmp-tegra186.c | 22 ++++++++++++----------
- 1 file changed, 12 insertions(+), 10 deletions(-)
+Please report any outstanding bugs that were missed during review in a
+new review to the original patch series allowing us to drop it.
 
-diff --git a/drivers/firmware/tegra/bpmp-tegra186.c b/drivers/firmware/tegra/bpmp-tegra186.c
-index 5a97496600ac..d0a865ad604c 100644
---- a/drivers/firmware/tegra/bpmp-tegra186.c
-+++ b/drivers/firmware/tegra/bpmp-tegra186.c
-@@ -179,8 +179,10 @@ static void tegra186_bpmp_teardown_channels(struct tegra_bpmp *bpmp)
- 		tegra186_bpmp_channel_cleanup(&bpmp->threaded_channels[i]);
- 	}
- 
--	tegra186_bpmp_channel_cleanup(bpmp->rx_channel);
--	tegra186_bpmp_channel_cleanup(bpmp->tx_channel);
-+	if (bpmp->rx_channel->bpmp)
-+		tegra186_bpmp_channel_cleanup(bpmp->rx_channel);
-+	if (bpmp->tx_channel->bpmp)
-+		tegra186_bpmp_channel_cleanup(bpmp->tx_channel);
- 
- 	if (priv->tx.pool) {
- 		gen_pool_free(priv->tx.pool, (unsigned long)priv->tx.sram, 4096);
-@@ -283,14 +285,12 @@ static int tegra186_bpmp_setup_channels(struct tegra_bpmp *bpmp)
- 	err = tegra186_bpmp_channel_init(bpmp->tx_channel, bpmp,
- 					 bpmp->soc->channels.cpu_tx.offset);
- 	if (err < 0)
--		return err;
-+		goto err_teardown;
- 
- 	err = tegra186_bpmp_channel_init(bpmp->rx_channel, bpmp,
- 					 bpmp->soc->channels.cpu_rx.offset);
--	if (err < 0) {
--		tegra186_bpmp_channel_cleanup(bpmp->tx_channel);
--		return err;
--	}
-+	if (err < 0)
-+		goto err_teardown;
- 
- 	for (i = 0; i < bpmp->threaded.count; i++) {
- 		unsigned int index = bpmp->soc->channels.thread.offset + i;
-@@ -298,11 +298,13 @@ static int tegra186_bpmp_setup_channels(struct tegra_bpmp *bpmp)
- 		err = tegra186_bpmp_channel_init(&bpmp->threaded_channels[i],
- 						 bpmp, index);
- 		if (err < 0)
--			break;
-+			goto err_teardown;
- 	}
- 
--	if (err < 0)
--		tegra186_bpmp_teardown_channels(bpmp);
-+	return 0;
-+
-+err_teardown:
-+	tegra186_bpmp_teardown_channels(bpmp);
- 
- 	return err;
- }
--- 
-2.25.1
+It's encouraged to provide Acked-bys and Reviewed-bys even though the
+patch has now been applied. If possible patch trailers will be updated.
+
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. If in doubt, please check the listed branch.
+
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
+branch: vfs-7.5.misc
+
+[1/2] fs: ignore RLIMIT_FSIZE above LLONG_MAX in generic_write_check_limits()
+      https://git.kernel.org/vfs/vfs/c/bc0dc4379463
 
