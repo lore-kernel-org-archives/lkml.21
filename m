@@ -1,74 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794961630;
-	b=pBlgzOyu+t/WsIloIDWmslJ2CCrDYNQxnnjbqZiRYkdo5kpXqaq1xc3HMRLHqziZDwi1
-	 876X9h70J0acTM+01IkmOlfxU3ynkBv/vafChDAo/+ucqn/WWFqRJkqc+D3n/5QXOuHWy
-	 FoQMJklKhqzDRBMx3qYLH2whtaRPpMVbKVibcK2nU3mFgptfIxCjPzNGVbq2ak3d6Yj4O
-	 FrfWTHMry8v1rjGz9/0OJZcEEVmojOkdkS7ZsKwoUL46OQZcR+Usft2bbGnef25b7SmWL
-	 O6J/1WeMIuKGHNMnfnJjGC1dmAX6IsqfHE81M4nIctEdv2vj34l657Fdd6WROIjwDxQ==
+	t=1794961689;
+	b=swvXJ0hrwu5SMN7wQDDtQPnXaAu6bP18kqaryOpnVRjXNXz8Lrsq2YpjwmerO21UScMG
+	 4qDIgABIZIelXyMXHRDIecos/ptoTkDCCYcKEZ0avO/8roxQDjSDTJ1Ilu66z/+mEVg3S
+	 G8PJIuO6M6TxYevlPbxeUosYX9XE9uEfpqS1vo0/FH8CDjiEV0CpN5UXEFf7ckDwLN00V
+	 8hvX3P0NPbwlKwFW2JxrxSdsqNN4RfJ1msCn32OvHmcAsmkIsol/03q156eP2SkbRVm+V
+	 ZvDL86t4i2/KId8No5octFF43G7MDZv5qgh0hSFqya8l9Clv9XTmxenilbn5UwEAYsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794961630;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=PsHVmlswq1n5zq4kG8Bif2auVAICBU1MbvOTG3olm7c=;
-	b=L+Doi4DxRqlVxfLSdNCwFRGbfIGDq6jnRIU63wndFFlRmWQYcjYLhD4oNL4d8qicMZD0
-	 zdfZiWVRoJ5vfMMeARm+vLxOhGom0wO1Um0/+4Zxfs5IHtR36BpfT6R4zwZLA1B4Jj/Er
-	 F7kVPndwfC/hXTGmVoZ5o4o6yd4ZITZheONb1xl1N0qy2zokd3UVevs/epzLOKANuaJ9D
-	 32bVpK6OAgGrjKaICDkAytI/qpae1UXOLlyoVlOWtXx56A3H70R6jEHI08i9R9XOL+HOW
-	 J8J3mKqxphqTL9TOXLygNkG89PBQfM+Nmr4Z7MMZxPN0FkJpZ8lcBzU3BvPUbOn/otw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794961689;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=reSEEgpGY2rZVkhwb8lhZbTfi6oOClaH9o6t7C24Jlw=;
+	b=Tkz6Vx3sbPiCP5WttUX7hSV4Sqpde0D4I9TWshW28braYPjYKunzYcQkb2J0IpqSVx1H
+	 UeRoPPbjY1c968rNkTJgk9nl9McNmK3YAeP99RaO1+2PQ9AObWQHi9laAiiTUAiKeYiL/
+	 8tTiS/CkZwydgJjb7PMDQwIqcf2F66guoc9mD/e2P4sXsYWvnMzg/xvxOdftXRR75Oikc
+	 m3Qh0K3Hn/eR5jXyp/v9oI4IIZmxZ8mNTaCy/wXb28e8jOGKMTmgirlJwS37J3sZyW8rp
+	 JTJzEoND0fNsYqxaHbqlPSfMvoLLpt1YEhrXK95nVmZboXDR2kHoiM+U/vpmvE4AfXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--chriswiseman.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TJy2c5Zo;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=1GE28hfd;
+	arc=none smtp.remote-ip=44.202.169.35
+Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F409606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:27:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F409606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--chriswiseman.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B882606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:28:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B882606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TJy2c5Zo
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-36f26e6abe9so612075eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 16:27:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794961628; x=1795566428; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PsHVmlswq1n5zq4kG8Bif2auVAICBU1MbvOTG3olm7c=;
-        b=TJy2c5ZoUY/cYj1ne5dNZ0SfN9BtHEhWBLat+/aePFMP1eNIu+DPc2r7g7H8aS2AP/
-         Zfdki1sUyKwUaBCXTt2YxK5+sFqIiImVjz7SVNrKWy338I9rqrSQT9yA7NQBpqpDVQLD
-         LowIGFxwfj0KI4FqUsN86KrnvaC9MEMUswbs16I2NukrFCoREq7ZyZ6Nf6MaJC0sKZxl
-         CEaiMriTIcdXA9j3uY2O+0gVxr1GklIJIKsbyaS55vBvEgSHaY3L5K0FzdWfNJ3BChK+
-         D4Jf9iBvBOu8xmZIgo66JrAesQXYPg6SrvzGaEyeBOUbOQhyM1CZa9+pT+/C1ITb4rkf
-         Ghsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794961628; x=1795566428;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PsHVmlswq1n5zq4kG8Bif2auVAICBU1MbvOTG3olm7c=;
-        b=QWvSrVYZGp6Ae2jNZ14sBASeRjWgEGuD8IQt/iPB0su4p4DvXWPmCc6SZ8KpVNCVfA
-         bfNpXrr2jt3i6vqgVN8fS6FzZENY1L4qErsGy3Zoz61NB5rn/aIkhiifZ8mbtSoZC78j
-         qgA3sa0K7CuMA4ZREcRSUikzGoQy8UdzmJ4DirqdankFQtWw2+dmnPE0hNAca449BEOF
-         /ACWIUbWpIKNpkcB0VgjdwZlapuGVAs1YJC+FjqynMkQq8qXqA/hOVR9HvtK/NoRSZaY
-         OqJxdcwEP712Jzlhbe7YbQWuX7ds65MARkcgA4htFzBDMe2i9Y00gvaZPWMP7M9p5UNy
-         +tBg==
-X-Forwarded-Encrypted: i=1; AL+hErHLJmM6qz4LiEWL79kWP2cNcTXpOdJZOhxZvX3WggJiBq1f0ZM92EL9ArA6LaksogP5xabmhf+k8bZf6Vo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8y519IcZyRNsinaUI0SV3VnawC9i56Qrebj49jzTXWJNBGqM1a
-	2zCHDirnA5znkcAR9Q/aFzGvkwlXYx+VNBahaUdty7f8kmNc2KL3jU/HPW6naB1Mm8jjkRRf5T9
-	Kpa3D+S8uK+l1bCA2Jm8eJNln/aNz8Q==
-X-Received: from dybut12.prod.google.com ([2002:a05:7301:e0cc:b0:342:c2e6:20f7])
- (user=chriswiseman job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7300:7314:b0:381:a3bb:f945 with SMTP id 5a478bee46e88-38280a386d4mr1424912eec.22.1794961628155;
- Tue, 17 Nov 2026 16:27:08 -0800 (PST)
-Date: Wed, 18 Nov 2026 00:27:07 GMT
-In-Reply-To: <CAO9r8zOtL4t5pwQOE=SAWeg=k2TkhtNXgV6CJJGNTwuTebKpBQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=1GE28hfd
+Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
+	by cmsmtp with ESMTPS
+	id TQFsxV2LL4vCDTTWxxRaBv; Wed, 18 Nov 2026 00:28:07 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id TTWxxCAW8b2qJTTWxxuUdg; Wed, 18 Nov 2026 00:28:07 +0000
+X-Authority-Analysis: v=2.4 cv=A7tsP7WG c=1 sm=1 tr=0 ts=6afcf117
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=QyXUC8HyAAAA:8 a=Byx-y9mGAAAA:8 a=9hZNRq4AwDQPDaotvscA:9 a=QEXdDO2ut3YA:10
+ a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=reSEEgpGY2rZVkhwb8lhZbTfi6oOClaH9o6t7C24Jlw=; b=1GE28hfdQAP0
+	eH6SV9cVG88AXLzXwhB84q5isrt64bM2FNyooBXlLl9Y3sbPtnwzNIVM98gKU1k759lJz3poL4TSy
+	1mHFkiGocEbC4H0zCkNW67RtsTjlHpTHNI+I4h1dNNDmDddY5jYMd6pab0EvCy/FP1roMeuJqE92+
+	uQxaSt9NlSnIOU2Vpcr0SHx8b0bRIm2gXT5VP2R/5HyXvq/5ZuVqs5mM3tcHViwXUmJ6D8I1IyGEV
+	x7zIHxn6jvQCTZV96pHCgwF+VM/7vHMqmG/HRU6kECXyUZSXjvHDgkcKuOYyvISz4h1UNwWjpOOBU
+	Jszo388BL4qfRwbQKCLd+Q==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:48036)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xTTWw-00000002Q97-3Xcp;
+	Wed, 18 Nov 2026 05:58:06 +0530
+Message-ID: <ece4aa08-fb86-4f76-b4b8-a9351a71df14@roeck-us.net>
+Date: Tue, 17 Nov 2026 16:28:05 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,43 +75,114 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <47ed45b5-de67-41aa-aa21-a3ba3479a7cc@vivo.com>
- <anXJ-5_vO7-toSe1@google.com> <CAKEwX=Mm2tXcen-quRXHf1Y2qSHYvpEUe4xiw-mHYaJnRUR-EA@mail.gmail.com>
- <auKqt6b4AxCLziIH@google.com> <aufPMirl4cD7tz0X@google.com>
- <18e4542967ebdd10.3137322e32332e3235332e313736.1dfc41.0000sendgmr@google.com>
- <CAKEwX=MV_xEUvz91pz6uc4qXWnWOUDtXZ2zASdNVOBHBLeA60w@mail.gmail.com>
- <18e4ebf806e937ec.3137322e32332e3235332e313736.1bf52a.0000sendgmr@google.com>
- <CAKEwX=PFdgEbba+H3fEnJFDnfkxCTsvuHEb4numVwJRaiMgwKQ@mail.gmail.com>
- <179384102494.19062.12740032892044628762.b4-reply@b4> <auwOBaRtM9p_Wxfx@google.com>
- <18e529a5ab0738f7.3137322e32332e3235332e313736.873cb.0000sendgmr@google.com>
- <CAKEwX=OUt4=wqDLiPvYuiTnkpuZYnszkuNQScNR93hHhVPRRGA@mail.gmail.com>
- <CAO9r8zMMGem-LTJQseT5xSSBjfr3UX2gzG_ftpw6+KF8m9v5yw@mail.gmail.com>
- <CAO9r8zOY1E7gCYnJZAfKvyHcbj8e2WVuXMqsaPGPsKR4-9itsg@mail.gmail.com>
- <18e53459a8013078.3137322e32332e3235332e313736.12c7b6.0000sendgmr@google.com>
- <avVVRYkIAQnLC_Yu@google.com> <18e8fb5c1c4d127f.3137322e32332e3235332e313736.289d37.0000sendgmr@google.com>
- <CAO9r8zOtL4t5pwQOE=SAWeg=k2TkhtNXgV6CJJGNTwuTebKpBQ@mail.gmail.com>
-Message-ID: <18e8fc17375582a2.3137322e32332e3235332e313736.2a6db6.0000sendgmr@google.com>
-Subject: Re: [RFC PATCH 0/2] mm: zsmalloc: make shrinker compaction budget-aware
-From: Chris Wiseman <chriswiseman@google.com>
-To: Yosry Ahmed <yosry@kernel.org>, Nhat Pham <nphamcs@gmail.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>, Xueyuan Chen <xueyuan.chen@vivo.com>, 
-	Barry Song <baohua@kernel.org>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
-	Brian Geffon <bgeffon@google.com>, Minchan Kim <minchan@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Chris Wiseman <chriswiseman@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] watchdog: sunxi_wdt: stop the watchdog across system
+ suspend
+To: Yang Siyuan <hsyysy@163.com>, Wim Van Sebroeck <wim@linux-watchdog.org>
+Cc: linux-watchdog@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <202611172344.RbQl66xu-lkp@intel.com>
+ <20261117231819.264381-1-hsyysy@163.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20261117231819.264381-1-hsyysy@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xTTWw-00000002Q97-3Xcp
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:48036
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 1
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfEJqfFSvr+fdxpbi9iJjZYDKu75qWyOS6Yps+1FRr1xgseiI2fTkplsNhuSvasEHxxdoJFynaqOBu9mBFQuKfXLFgrSvEU6klFoday9NOK91XqIBQdxH
+ YlpWzCHpZzLSiXbyqqVJoGwu8F8N759cOqIxHt+Lj8n14o5yR8kLCfmN7WpByQlH4AdGFOLdBF1rsQqIvSmoO0FbSJaCIVHD2ivoWEp4FIC8ejIuIEv/inxf
 
-On Tue, Nov 17, 2026 at 4:23 PM Yosry Ahmed <yosry@kernel.org> wrote:
->
-> I would rather drop it right away, but I am fine if you don't wanna
-> bother with zswap.
+On 11/17/26 15:18, Yang Siyuan wrote:
+> The H616 watchdog has a maximum timeout of 16 seconds.  systemd keeps
+> /dev/watchdog0 open with RuntimeWatchdogSec=16s, but during system
+> suspend all userspace is frozen and the watchdog core does not stop the
+> hardware.  A suspend longer than the timeout therefore resets the board
+> before it can resume.
+> 
+> Add system sleep PM ops to stop the watchdog before suspend and restart
+> it after resume if it was running.  The driver did not store its private
+> data in the platform device, so add platform_set_drvdata() for the PM
+> callbacks.
+> 
+> Use DEFINE_SIMPLE_DEV_PM_OPS() and pm_sleep_ptr(), and use
+> watchdog_hw_running() instead of a private flag to decide whether the
+> hardware needs to be stopped and restarted.
+> 
+> Tested on an Anbernic RG35XX-SP: a 30-second s2idle suspend resumes
+> without the 16-second watchdog reset, and /dev/watchdog0 keeps working
+> afterwards.
+> 
+> Signed-off-by: Yang Siyuan <hsyysy@163.com>
+> ---
+> Changes in v3:
+> - Mark the PM callbacks __maybe_unused.  With CONFIG_PM_SLEEP=n the
+>    pm_sleep_ptr() references expand to NULL, so both callbacks were unused
+>    and a W=1 build warned about them.  Reported by the kernel test robot:
+>    https://lore.kernel.org/oe-kbuild-all/202611172344.RbQl66xu-lkp@intel.com/
 
-Works for me - dropping it outright is way cleaner than adding a
-Kconfig knob nobody wants to maintain.
+That build report was for v1 of the patch. __maybe_unused is unnecessary
+with DEFINE_SIMPLE_DEV_PM_OPS.
 
-Nhat / Johannes / Sergey - good with a 2-patch series that just removes
-the zsmalloc shrinker and adds the unlocked zs_can_compact() pre-check
-for manual zram compaction?  If Xueyuan doesn't grab it I'm happy to
-post it.
+Guenter
+
