@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.28
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.28
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795044769;
-	b=BVTwrR3pXgycn6Ad40m1sVixm4BkvdkP0NI1i7XEB9mhTLfvY7pgfpviDImtqpuIcKvW
-	 44Mfm1ez+40LoA9oUP818W/TsHAzXKwuk+2uZ7VDZmspPxPHFbiqNH2SuCqEl35Gl7XDm
-	 wZWC99VqhZwB0h4vO9dAyOTLR/A9Ve/a/CUsGwzmm+62DdYhesujxSs5V0lwfle0Mn31i
-	 3GA4PttD9BX864Je1YT1S/0n8DUD0umxvf5T2Dl4SmX+cfFxkuUvWJnNSQwu1mfEUOgLz
-	 AmNenqclTBYq00mOzoB32yKyhF5WLHgn98Q+fkFuOYiicsOTIS6FMD5f27cSpkqltlQ==
+	t=1795044770;
+	b=k8y5CVngSIYaJXFzbc2iykPooIyenIFCnUZrTSUaQKVZy+9LjCE5iUmQB+ZKu1Qoo3ED
+	 Kol+V9COz1cb1wSwdTaZsTC+Ih4QhJj8nDCi97k4fKPcF1qnOlCu+5W10zPhLDP84YUlw
+	 dDVhQ8eTxLnyb7S8SAScGAbyGQOb0UTfr6aB9bF6woRhFupphhYm+i192Z/oVOJe7bOCi
+	 4Qc2Arq8+13B4UjoU82pExOyHXFJic40tKkH7gDXD4xoFvPjh7Zm62984D+h6N9slQxXt
+	 4c7g5AdlGwGNIBwjEr3EILrIZuUsydDLm/fKt6HnX4d1nbVpqL5eD5ME5NYuhUQw67A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044769;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044770;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
@@ -26,53 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=NH99dfoG6hKdTlQnZB+tmXtdz76WkigJYBvld/rezs8=;
-	b=PAaR+llH1L5bcSaT5asSnLvKIRGsjEUKRYs5s0TQUQvlTU8YK+u/QJ2lmwTs5CXC3ODh
-	 ZflWcVZBNAFfNbxngj31mVc+fRWt9xW/xFMSWh4D+H+jqxrBRiLVsljJ8MOJ6Pq0v9aQw
-	 0RSIiNXFdtmdEuuhn2yD3IAMAOciZpGpzaSVemsyGGe2tnzCf8UauChfL2GdjXXmT2K9t
-	 ge229pHt9ERwYkYB1LEFUFml20waE/7EW8KwCUa6dA5hdBnAtCttGzMl4ZfH4kCJ6xlpj
-	 YCU6cb6KJRQz3ZrW5CGvv8m6z2QwBlxrXh2hZhLSJF1FkPWDpcyO4k22/QxFO68T/8A==
+	bh=qpxVLapIkNPfrph8ijihUA4vpC9xwkryfWf+cqA6XWs=;
+	b=zMTXkU/jCgYHsxgqm9h6+UvC+6d1IuVUwKaq72UC4rpuNi6PZY0qRCeBG4pOGEa0ufRY
+	 mXfMkVcBW1o5f98rHiiyMZb3U413IKhWhlbWUWBrIYg1i/U1bdC67mv657NmaIs4AQgcZ
+	 +/IKaULzFHaT65oMFBGwIwzXZXvvVZ19oF4z8Z8yr5lTZgHXC3wezs0VAVutp+hj5FP5F
+	 nLnAnzQ619by5+Dvf1xj/iMIXvK421uueq/w2HTkeQiB3CJzF2HO+nVI93/XuQV3An+HI
+	 pl4dsTa+xtU6c24AMFBxJIFqc1VzTrKVS0QkuX2Lg5IZme+urZ9jbB+TzinVod4lFIQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TSnNu+2k;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.28
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010028.outbound.protection.outlook.com [52.101.201.28])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=3ZmybCcD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.28
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010028.outbound.protection.outlook.com [52.101.46.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1BA4606A9D0
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:32:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1BA4606A9D0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42C8E60A380F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:32:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42C8E60A380F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=TSnNu+2k
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=3ZmybCcD
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wcrf/JZ7y9vuPTqWqlO5sq1qIYU9VMvRbu48Y6RYuvp8oPEnYHo5+oqYpMbYWa7jnhUHafPsDF4MoIqcQs+5xlLWvzZr3x2aH7lOoJACYiewJXhsV+aZR8+MLIb0RRSSgQlfsPWuQ7dQrsliNDh/n9P+MS9wack1K/SFW0aRSztc2IEBqeTM8YxWraZvyzbK+gFtcvfRIaEFSRIv+uiroDrQM8z6HpJcUAvZnYXmU+LITcQHmm32oJXMGHqLRaJTjVuWDAlLr54jvb2x6qWS6NOPka1JmfhX3Da3jL6Zbaybl+VCxa4Fger5AzPVM7M7R1iz6psNeiz5gaqfkvlSLg==
+ b=KawIr8dmJK/YzVmt6qS9VsJkKeewQxq9WQ93rvGAzTUJay7/aZuzFSwiFWLGnvTHpdtrS3deoUur6Dr/y7AVjNyGGEeEvkaZlkZ9Yf/eyKn8r0nM/wG40XKNVVnyAt8iHFmfMBVxvs6l38I2jNqZnZolHnzvYTU93UvmHJer3D2vxdZIGwFgtWuDWiMgTUMMyZ5opvib+Aie8QyB09s8Zq+m7P9y/tYdcIyq4++KLHeEk/GUguz7VFoSckzJgtitL7uZUkxHMwcOZEV/B9/2uYthzfhIg7u0+IsZm8YaFChQMHr8talAYoHvoEnMTrEDJGmYSwWMWoadC5zga0iIaQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NH99dfoG6hKdTlQnZB+tmXtdz76WkigJYBvld/rezs8=;
- b=GZde3WWBhNWr4MRMiUAGHV7EHuxabGdNivxKKHFs9kqcOglCwfvJ+BOW4tlnveITIc37FmBRFF87DgJFgNk6O8oJ4gAZjtV8Jfrlp/HsM8+TJK4w8k/aHw++Yi7ftNMg+EAYSl8Ua6KAwzqaEPeB+g8Kbw+XB5U3cyeTlIRpwGZ09f2VBSqyot3JYB8hHb1DM3KtTqVartGgyjlAebY32/CN8cAFN/E0pKkzvm0fwb34oELY+2BSNHVgUmnvQPzIYEvpzvrWE/EOWZPTt1AfKLlz22vrkYfSptCre4Ag95b0b3+KMvg6i8UCYbhHQP8TxeNZoJiKfU92rEkhMpX4KQ==
+ bh=qpxVLapIkNPfrph8ijihUA4vpC9xwkryfWf+cqA6XWs=;
+ b=lv7mVp+y9q8kBn4bMsSbU9ZxywymbVkjR78c6jnez+AmTOgLTmBCQKyF6EjmYkKS+trQRgQiDkI6LMC3ikUw9VTpx6u74Cub+uAbPuUa/yn56TcN7RC0+P+LPZ2Ml50Ykcsn6d6xqN6LZ571EnMF4zPx9ovyiYLk8A1SOTIyqQTXTHosFrvYIW7y3FeKUmT9xm0YBIQYpPTKdR6qFYnLXSp6KrW9VtpG+jvR/shY1o8nHTsh9LCehAIW7C77mMLG9Hi2jEMeyVRQNtX8AjSywelJMd3CTti5Jzaixpb0lGgTDex9T8QhHevPKktTY9vqci7JbeYV32l5yFUhWP/cEQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NH99dfoG6hKdTlQnZB+tmXtdz76WkigJYBvld/rezs8=;
- b=TSnNu+2kwkcLrWat3SxEaL/D6ml8OwMnRqwwB++H1JZBTrOtMQRnDbQwWydoB0Ew+QBQTtdIg1gmEEyi+2Lb/yXyMzMb0cOw1aRA5eFqLJI9SwUA7JMmnbUYPS9r4mdijAdTmNr+J7oE00gq1Ac0dqZhNrCaKaiO1Nor/2ZnR1I=
-Received: from CH5P220CA0012.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:1ef::24)
- by MW4PR12MB7240.namprd12.prod.outlook.com (2603:10b6:303:226::17) with
+ bh=qpxVLapIkNPfrph8ijihUA4vpC9xwkryfWf+cqA6XWs=;
+ b=3ZmybCcDAE53x1418OtlXFXRzKCKcuhcgZ9s+2JTYGzlahips+tuYXTjiVVrepIMDj/c5/hzvu8ST1Ln4C8+Qfn3SsagRQWoX0WswB2LG3746QBfgyX6OwqvDNK4KYJjYNJMij5V4+ZFrr5b5hu6AXwWIMYUrdR8ZlVyUXIvySI=
+Received: from CH3P221CA0023.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1e7::23)
+ by IA0PPF44635DB8D.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bcc) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 23:32:43 +0000
-Received: from CH3PEPF00024580.namprd04.prod.outlook.com
- (2603:10b6:610:1ef:cafe::c) by CH5P220CA0012.outlook.office365.com
- (2603:10b6:610:1ef::24) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 23:32:40 +0000
+Received: from CH3PEPF0002457C.namprd04.prod.outlook.com
+ (2603:10b6:610:1e7:cafe::33) by CH3P221CA0023.outlook.office365.com
+ (2603:10b6:610:1e7::23) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
- 18 Nov 2026 23:32:42 +0000
+ 18 Nov 2026 23:32:40 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -80,26 +80,26 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- CH3PEPF00024580.mail.protection.outlook.com (10.167.252.26) with Microsoft
+ CH3PEPF0002457C.mail.protection.outlook.com (10.167.252.22) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:42 +0000
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 23:32:39 +0000
 Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 17:32:42 -0600
+ 2026 17:32:39 -0600
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
  (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 17:32:42 -0600
+ 2026 17:32:39 -0600
 Received: from xsjgregoryw50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 18 Nov 2026 17:32:41 -0600
+ Transport; Wed, 18 Nov 2026 17:32:39 -0600
 From: Gregory Williams <gregory.williams@amd.com>
 To: Oded Gabbay <ogabbay@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>
-Subject: [PATCH 15/15] accel/amd-ai-engine: Add reset operations
-Date: Wed, 18 Nov 2026 15:32:11 -0800
-Message-ID: <20261118233211.4121361-16-gregory.williams@amd.com>
+Subject: [PATCH 14/15] accel/amd-ai-engine: Add support to enable/disable tile clocks
+Date: Wed, 18 Nov 2026 15:32:10 -0800
+Message-ID: <20261118233211.4121361-15-gregory.williams@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261118233211.4121361-1-gregory.williams@amd.com>
 References: <20261118233211.4121361-1-gregory.williams@amd.com>
@@ -116,548 +116,589 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00024580:EE_|MW4PR12MB7240:EE_
-X-MS-Office365-Filtering-Correlation-Id: 649d40e1-250f-4281-b404-08df45cc3e33
+X-MS-TrafficTypeDiagnostic: CH3PEPF0002457C:EE_|IA0PPF44635DB8D:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7bab16c-f3f7-4bf2-00c5-08df45cc3c76
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|23010399003|82310400026|1800799024|36860700016|261102123227099003|10067099003|261021121427099003|56012099006|11063799006|261021123027099003|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261102130727099003|261022075727099003|261009223027099003|22082099003|6133799003|18002099003;
+	BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|23010399003|5023799004|261026140227099003|261022105027099003|261028144727099003|56012099006|261021123027099003|11063799006|261021121427099003|10067099003|261009223027099003|261102123227099003|261022075727099003|18002099003|22082099003;
 X-Microsoft-Antispam-Message-Info:
-	GPsCY12bU7T+s9T1qmgZY+c6YaOBL2eoX/sUP6/EjIEChCSWew7nve7FJe1rD4jeIVNFChygitrvcP7mL89py4BkVNzIpMfpc507xFD2QCoSjPps3yLe2Kw3JsRMydD3lZy+tPkYlAL/0Rn/aYaQCpVXdTc1Ct6EuK3OXg/YIlflFEksvMfNhV0VL5I7PtT0eBmzGxFdHEln6gEXKw1Ze97ukicIcCDuO6F0EHHnblsUyAHIW3onJs2zN/RpUsWCzb9QhZAS9GusAflJFG78MsENGsOb4Sl1dSK6BQAKJzhPRpL86AuWSHaAogr5+wSN0uDjEm+u5YeKUnAB2FDBh5UE4zPUBElWvHoHQ5BkQVeCXoi5YJxsX5q5aXmW66VIfc5hPk5DcCs6WtXc0LsgcO2d6i4yqEpLH2+Vc7y5xfi/XDx460LZtSVaqL0Bi2SU9H6bmyoKQcu0Y6+GzOPS6TKuO9C5GdZtGI0DIXCe0HSw3Or5QxguFXZu2QT/drFdsgD4jraBWx8C4PtbkF+EHKARTDh0DVHpQDhTvqPJosuvlwbLuPM40v/SoiQpFslukCvhfIm2PiFlY2i1qu7ysFHjO7a4gNeUWCkaXPdWDoeJZ2bF3QTAVeqfhaK3p9t2zkmw3gtUzpABu+lE2U//nrzwBu0oNqHjGTDUyh4wzvAF/JWkeYCrpn0dsPkGC58w6oLnEkoOBAUuWejWCQGBWg==
+	fJtReCC5te5mOGzZopOc+94ueykP71kJdvV0sYAo7SO2JHIlJAHkGSQDDbGTFOZOYe4otAxWrZDFGlkjfS8cChcCtDe61jR1rNcCUonkQMvrsXZWwDg9WDvzylzmeQZ06Xs/vUfBlQXZ0bRZxHOI8QtjyWnIqTuAiIJIgryGl9om6g6WrzrVt7VuRqeExKBDkdu/nx3cXIvPlSU6QmGyTtcrO2FhryV5rL+lkcDEgogSSnDyHQH5c9EXKk41iGqojG7Cu9o+ADrZuOBa3omHuylGFhlLrpb1If8pd1ZM03BtLHchorNVU1OmustrfNwEyaVnGdFPcULYgLh557BJv58vUlfOMftSSo0uH+yU5mwuhceHHqGx9bjjn8wcEEIeQjgFPDLeKbgnJt65XhUYzOMM8d/jmqYddF6bQYl3hlVgR7hAAjuoaJGsUsCFBvmatnYlrtdnuFPFZiGv4QQ2fokD29ZxtzwiDIDgC8bgV6hr3wzyp6AlxAqGWfTfLhLXBNNvXcEB2NvwnlHaW3rN8mciqvrOny11dBCYPWsuMA8Yxcp4mGgmjaQS5r32C3IjwuaLOh6DXypPa8N+lkNbAYKU386lWe6TSSU7JtDFz9rHqzBMN2wxOdV7zXrGw3yuVjRLO5ZR8qZl2pTWE2MaSzLyMY9WWgIIhdUt3fuWdMbUCMDbsr0qppAIj9EE2Ib6BH201nK93mUmWS+jT1Iv9A==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(82310400026)(1800799024)(36860700016)(261102123227099003)(10067099003)(261021121427099003)(56012099006)(11063799006)(261021123027099003)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261102130727099003)(261022075727099003)(261009223027099003)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(23010399003)(5023799004)(261026140227099003)(261022105027099003)(261028144727099003)(56012099006)(261021123027099003)(11063799006)(261021121427099003)(10067099003)(261009223027099003)(261102123227099003)(261022075727099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	hzsk1rzLQ6cfBm5uKkGLFv579idOVSme4GUWxB0gEBTXCiRM32RWtW102OO4YHOl/jEMvM0m6tFEpk+Xh05ZsmcIsS1tpQ5FvgJmqBasUqpwq6B2NKm3JJU5QsguTzvkdwx62TbGKtaPcrSg+DdjhKSGIyzIipNRnCC++nDeNsZvq75HAA1Aw2JLxF3HbbAjAzyiImVL1UioP6MtYb+q6rL2mtmuLHD4FxnJSlI7D+fwstBp9G+ndl/C9LEybQe2KELvhzW8t6fDHb7Jfofq2qml0B3N9PDqUOnqI4vnzA9iZZf6D4HKqyAoFsY/+QnnmW9eJyIM2gRYJ9SOik9vEX/OPOfIxES0/4qUxmhQs3buC5RiUQR5XUYHyygJoEMrLOzJvr2TOiDQl1fruyVYYf1kVKz1a0K98iADy2d7sqoskqXks/Qm+qr0dkx4c8Nl
+	tEogdq2ikNYhCOhV8LCDUn3I9q5oKYp1MUdgJtABOavb0EeJmjsUPysUNKyKkH8t8kxqK6ywicoQAkoxOia3CsINfVYAdAG5QlbzUNB5padAzeE9uKfObkb9L0yC+bl66pOrIA2GofpgA6dkORbo5L0LqZGes3gT6viS2wYxuFdbgQF5UaIamYf9tm2GKSO/+weNT1kUpVnzCySMsJjGhlPPgyi7KWoisp8AE2iBo3jdx8ujifOS4qznip04knO1ESkJoChoquiybuBM7+KeybMApJ7l1KQM4vJY5O8HZIFGaxvoq6kvpPEEy3VJBRz3Tw2lhT8TAHqGylCEO8Vi/5tVcE83j6QavFQBr/sZlQmjTklTNXHj0FSIlxISFoOXmJ2810EKesBj6Iv1qj4AYSKDAoUW7+Q4vqIN88Bt8I806dnTjVZqZ9VmJbZ6g6ai
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:42.8576
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:32:39.9335
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 649d40e1-250f-4281-b404-08df45cc3e33
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7bab16c-f3f7-4bf2-00c5-08df45cc3c76
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	CH3PEPF00024580.namprd04.prod.outlook.com
+	CH3PEPF0002457C.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7240
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF44635DB8D
 
-Add reset operations partition initialize/teardown.
-aie_partition_initialize should be called before application start,
-aie_partition_teardown should be called after application has finished.
-
-Initialize will reset the device configuration, clear memories, enable
-clocks of used tiles, configure hardware error reporting and NMUs, and
-will enable ECC scrubbing.
-
-Teardown will clear tile memories and disable tile clocks.
+Add support for enabling tile clocks and requesting/releasing tiles.
+Requesting tiles will enable the clocks of the tiles requested, releasing
+tiles will disable the tile clocks.
 
 Signed-off-by: Gregory Williams <gregory.williams@amd.com>
 ---
- drivers/accel/amd-ai-engine/Makefile          |   3 +-
- .../accel/amd-ai-engine/ai-engine-aiemlv2.c   | 244 ++++++++++++++++++
- .../accel/amd-ai-engine/ai-engine-internal.h  |   8 +
- drivers/accel/amd-ai-engine/ai-engine-part.c  |  32 +++
- drivers/accel/amd-ai-engine/ai-engine-res.c   |  16 ++
- drivers/accel/amd-ai-engine/ai-engine-reset.c |  69 +++++
- include/linux/amd-ai-engine.h                 |  16 ++
- 7 files changed, 387 insertions(+), 1 deletion(-)
- create mode 100644 drivers/accel/amd-ai-engine/ai-engine-reset.c
+ drivers/accel/amd-ai-engine/Makefile          |   1 +
+ .../accel/amd-ai-engine/ai-engine-aiemlv2.c   | 150 +++++++++++++++++
+ drivers/accel/amd-ai-engine/ai-engine-clock.c | 154 ++++++++++++++++++
+ .../accel/amd-ai-engine/ai-engine-internal.h  |  43 +++++
+ drivers/accel/amd-ai-engine/ai-engine-part.c  |  18 ++
+ drivers/accel/amd-ai-engine/ai-engine-res.c   |  56 +++++++
+ include/linux/amd-ai-engine.h                 |   1 -
+ 7 files changed, 422 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/accel/amd-ai-engine/ai-engine-clock.c
 
 diff --git a/drivers/accel/amd-ai-engine/Makefile b/drivers/accel/amd-ai-engine/Makefile
-index c6d090257d6e..d5b6ccde0a35 100644
+index 8b0d857d3347..c6d090257d6e 100644
 --- a/drivers/accel/amd-ai-engine/Makefile
 +++ b/drivers/accel/amd-ai-engine/Makefile
-@@ -10,4 +10,5 @@ amd-aie-$(CONFIG_DRM_ACCEL_AMDAIE) := \
- 	ai-engine-clock.o	\
+@@ -7,6 +7,7 @@ obj-$(CONFIG_DRM_ACCEL_AMDAIE)	+= amd-aie.o
+ amd-aie-$(CONFIG_DRM_ACCEL_AMDAIE) := \
+ 	ai-engine-aiemlv2.o	\
+ 	ai-engine-dev.o		\
++	ai-engine-clock.o	\
  	ai-engine-part.o	\
  	ai-engine-pm.o		\
--	ai-engine-res.o
-+	ai-engine-res.o		\
-+	ai-engine-reset.o
+ 	ai-engine-res.o
 diff --git a/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c b/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c
-index 26dd1d726bfa..910a9bda2305 100644
+index 0c9c7ccdd54e..26dd1d726bfa 100644
 --- a/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c
 +++ b/drivers/accel/amd-ai-engine/ai-engine-aiemlv2.c
-@@ -16,12 +16,16 @@
- /*
-  * Register offsets
-  */
-+#define AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_REGOFF	0x00002120U
- #define AIEMLV2_SHIMPL_COLCLOCK_CTRL_REGOFF		0x0007FF20U
-+#define AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_REGOFF	0x000C0024U
+@@ -13,6 +13,16 @@
+ #define AIEMLV2_COL_SHIFT		25U
+ #define AIEMLV2_ROW_SHIFT		20U
  
- /*
-  * Register masks
-  */
-+#define AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_MASK		BIT(0)
- #define AIEMLV2_SHIMPL_COLCLOCK_CTRL_MASK		GENMASK(1, 0)
-+#define AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_MASK		GENMASK(1, 0)
- 
++/*
++ * Register offsets
++ */
++#define AIEMLV2_SHIMPL_COLCLOCK_CTRL_REGOFF		0x0007FF20U
++
++/*
++ * Register masks
++ */
++#define AIEMLV2_SHIMPL_COLCLOCK_CTRL_MASK		GENMASK(1, 0)
++
  static u32 aiemlv2_get_tile_type(struct aie_device *adev, struct aie_location *loc)
  {
-@@ -173,10 +177,250 @@ static int aiemlv2_set_part_clocks(struct aie_partition *apart)
- 	return aie_part_pm_ops_flush(apart);
+ 	u8 num_mem_rows = adev->ttype_attr[AIE_TILE_TYPE_MEMORY].num_rows;
+@@ -25,8 +35,148 @@ static u32 aiemlv2_get_tile_type(struct aie_device *adev, struct aie_location *l
+ 	return AIE_TILE_TYPE_SHIMNOC;
  }
  
-+static int aiemlv2_maskpoll_uc_outstanding_aximm_txn(struct aie_partition *apart)
++static int aiemlv2_scan_part_clocks(struct aie_partition *apart)
 +{
-+	u32 end_col = apart->range.start.col + apart->range.size.col;
-+	struct aie_location loc = {.row = 0};
-+	int ret = 0;
-+	u32 regoff;
++	struct aie_range *range = &apart->range;
++	struct aie_device *adev = apart->adev;
++	struct aie_location loc;
 +
-+	for (loc.col = apart->range.start.col; loc.col < end_col; loc.col++) {
-+		regoff = aie_cal_regoff(apart->adev, loc,
-+					AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_REGOFF);
-+		ret = aie_part_maskpoll_register(apart, regoff, 0x0,
-+						 AIEMLV2_SHIMUC_AXI_OUTSTANDING_TX_MASK,
-+						 2000000);
-+		if (ret < 0) {
-+			dev_err(&apart->dev,
-+				"failed due to outstanding UC AXIMM transactions!\n");
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int aiemlv2_maskpoll_noc_outstanding_aximm_txn(struct aie_partition *apart)
-+{
-+	u32 end_col = apart->range.start.col + apart->range.size.col;
-+	struct aie_location loc = {.row = 0};
-+	int ret = 0;
-+	u32 regoff;
-+
-+	for (loc.col = apart->range.start.col; loc.col < end_col; loc.col++) {
-+		regoff = aie_cal_regoff(apart->adev, loc,
-+					AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_REGOFF);
-+		ret = aie_part_maskpoll_register(apart, regoff, 0x0,
-+						 AIEMLV2_SHIMNOC_AXI_OUTSTANDING_TX_MASK,
-+						 2000000);
-+		if (ret < 0) {
-+			dev_err(&apart->dev,
-+				"failed due to outstanding NoC AXIMM transactions!\n");
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int aiemlv2_part_init(struct aie_partition *apart,
-+			     struct aie_partition_init_args *args)
-+{
-+	u32 opts;
-+	int ret;
-+
-+	mutex_lock(&apart->mlock);
-+	opts = AIE_PART_INIT_OPT_ENB_UC_DMA_PAUSE | AIE_PART_INIT_OPT_ENB_NOC_DMA_PAUSE;
-+	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 1);
-+	if (ret)
-+		goto out;
-+
-+	ret = aiemlv2_maskpoll_noc_outstanding_aximm_txn(apart);
-+	if (ret)
-+		goto out;
-+
-+	ret = aiemlv2_maskpoll_uc_outstanding_aximm_txn(apart);
-+	if (ret)
-+		goto out;
-+
-+	aie_resource_clear_all(&apart->tiles_inuse);
-+	aie_resource_clear_all(&apart->cores_clk_state);
-+
-+	/* First lets send non-data aie_op_type_len ops */
-+	opts = 0;
-+	/* This operation will do first 4 steps of sequence */
-+	opts |= (args->init_opts & AIE_PART_INIT_OPT_COLUMN_RST);
-+	opts |= (args->init_opts & AIE_PART_INIT_OPT_SHIM_RST);
-+	opts |= (args->init_opts & AIE_PART_INIT_OPT_BLOCK_NOCAXIMMERR);
-+	opts |= (args->init_opts & AIE_PART_INIT_OPT_ENB_COLCLK_BUFF);
++	/* Clear the bitmap of cores and memories clock state */
++	aie_resource_put_region(&apart->cores_clk_state, 0,
++				apart->cores_clk_state.total);
 +
 +	/*
-+	 * push opts to pm and flush, these ops need to be completed before we
-+	 * call the next ones
++	 * If the clock buffer on shim tile is enabled, then all tiles above in
++	 * the same column are also enabled.
 +	 */
-+	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 1);
-+	if (ret) {
-+		dev_err(&apart->dev, "pm ops: 0x%x failed: %d\n", opts, ret);
-+		goto out;
++
++	loc.row = 0;
++	for (loc.col = range->start.col;
++	     loc.col < range->start.col + range->size.col;
++	     loc.col++) {
++		void __iomem *va;
++		u32 val, nbitpos;
++
++		nbitpos = (loc.col - range->start.col) * (range->size.row - 1) + loc.row;
++
++		va = adev->base +
++		     aie_cal_regoff(adev, loc,
++				    AIEMLV2_SHIMPL_COLCLOCK_CTRL_REGOFF);
++		val = readl(va);
++
++		if (!((val & AIEMLV2_SHIMPL_COLCLOCK_CTRL_MASK) % 2))
++			continue;
++
++		aie_resource_set(&apart->cores_clk_state, nbitpos,
++				 range->size.row - 1);
 +	}
++	/*
++	 * Set the tiles in use bitmap.
++	 * In case of scanning, tiles which are powered on are considered as
++	 * tiles in use.
++	 */
++	bitmap_copy(apart->tiles_inuse.bitmap, apart->cores_clk_state.bitmap,
++		    apart->tiles_inuse.total);
 +
-+	if (args->init_opts & AIE_PART_INIT_OPT_ZEROIZEMEM) {
-+		opts |= AIE_PART_INIT_OPT_ZEROIZEMEM;
-+		ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_ZEROIZEMEM,
-+				      apart->range, 1);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_UC_ZEROIZATION) {
-+		u16 data = 0x6;
-+
-+		opts |= AIE_PART_INIT_OPT_UC_ZEROIZATION;
-+		ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_UC_ZEROIZATION,
-+				      apart->range, 1);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_NMU_CONFIG) {
-+		struct aie_range range = {0};
-+
-+		opts |= AIE_PART_INIT_OPT_NMU_CONFIG;
-+		if (apart->range.start.col == 0) {
-+			range.size.col = 2;
-+			ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_NMU_CONFIG,
-+					      range, 0);
-+			if (ret)
-+				goto out;
-+		}
-+	}
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_HW_ERR_INT) {
-+		u16 data = 0;
-+
-+		opts |= AIE_PART_INIT_OPT_HW_ERR_INT;
-+		ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_HW_ERR_INT,
-+				      apart->range, 0);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_HW_ERR_MASK) {
-+		u16 data = 0x2;
-+
-+		opts |= AIE_PART_INIT_OPT_HW_ERR_MASK;
-+		ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_HW_ERR_MASK,
-+				      apart->range, 0);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_SET_ECC_SCRUB_PERIOD) {
-+		u16 data;
-+
-+		if (args->ecc_scrub > U16_MAX) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
-+
-+		data = args->ecc_scrub;
-+		opts |= AIE_PART_INIT_OPT_SET_ECC_SCRUB_PERIOD;
-+		ret = aie_part_pm_ops(apart, &data,
-+				      AIE_PART_INIT_OPT_SET_ECC_SCRUB_PERIOD,
-+				      apart->range, 0);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_UC_ENB_MEM_PRIV) {
-+		opts |= AIE_PART_INIT_OPT_UC_ENB_MEM_PRIV;
-+
-+		ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_UC_ENB_MEM_PRIV,
-+				      apart->range, 0);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	/* Request tile locations */
-+	ret = aie_part_request_tiles(apart, args->num_tiles, args->locs);
-+	if (ret)
-+		goto out;
-+
-+	if (args->init_opts & AIE_PART_INIT_OPT_DIS_TLAST_ERROR) {
-+		u16 data = 0;
-+
-+		opts |= AIE_PART_INIT_OPT_DIS_TLAST_ERROR;
-+		ret = aie_part_pm_ops(apart, &data,
-+				      AIE_PART_INIT_OPT_DIS_TLAST_ERROR,
-+				      apart->range, 1);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	if (opts != args->init_opts)
-+		dev_warn(&apart->dev, "Invalid init_opts: 0x%x\n", opts ^ args->init_opts);
-+
-+out:
-+	mutex_unlock(&apart->mlock);
-+	return ret;
++	return 0;
 +}
 +
-+static int aiemlv2_part_teardown(struct aie_partition *apart)
++static int aiemlv2_set_part_clocks(struct aie_partition *apart)
 +{
-+	u32 opts;
-+	u16 data;
-+	int ret;
++	struct aie_range *range = &apart->range;
++	struct aie_range prev_range = {};
++	struct aie_location loc;
++	int ret = -EINVAL;
++	u32 prev_ops = 0;
 +
-+	mutex_lock(&apart->mlock);
++	for (loc.col = 0; loc.col < range->size.col; loc.col++) {
++		u32 startbit, col_inuse = 0;
 +
-+	opts = AIE_PART_INIT_OPT_ENB_UC_DMA_PAUSE | AIE_PART_INIT_OPT_ENB_NOC_DMA_PAUSE;
-+	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 1);
++		startbit = loc.col * (range->size.row - 1);
++
++		for (loc.row = range->start.row + 1;
++		     loc.row < range->start.row + range->size.row;
++		     loc.row++) {
++			u32 nbitpos = startbit + loc.row - 1;
++
++			if (aie_resource_testbit(&apart->tiles_inuse, nbitpos)) {
++				col_inuse = 1;
++				break;
++			}
++		}
++
++		if (col_inuse) {
++			struct aie_range op_range = {
++				.start.col = loc.col + range->start.col,
++				.size.col = 1,
++			};
++
++			ret = aie_resource_set(&apart->tiles_inuse, startbit,
++					       apart->range.size.row - 1);
++			if (ret)
++				return ret;
++			ret = aie_resource_set(&apart->cores_clk_state, startbit,
++					       apart->range.size.row - 1);
++			if (ret)
++				return ret;
++
++			if (!prev_ops) {
++				prev_range = op_range;
++				prev_ops = AIE_PART_INIT_OPT_ENB_COLCLK_BUFF;
++				continue;
++			}
++			if (prev_ops == AIE_PART_INIT_OPT_ENB_COLCLK_BUFF &&
++			    ((prev_range.start.col + prev_range.size.col) == op_range.start.col)) {
++				prev_range.size.col += op_range.size.col;
++				continue;
++			}
++			ret = aie_part_pm_ops(apart, NULL, prev_ops, prev_range, 0);
++			if (ret)
++				return ret;
++			prev_ops = AIE_PART_INIT_OPT_ENB_COLCLK_BUFF;
++			prev_range = op_range;
++		} else {
++			struct aie_range op_range = {
++				.start.col = loc.col + range->start.col,
++				.size.col = 1,
++			};
++
++			ret = aie_resource_clear(&apart->tiles_inuse, startbit,
++						 apart->range.size.row - 1);
++			if (ret)
++				return ret;
++			ret = aie_resource_clear(&apart->cores_clk_state, startbit,
++						 apart->range.size.row - 1);
++			if (ret)
++				return ret;
++			if (!prev_ops) {
++				prev_range = op_range;
++				prev_ops = AIE_PART_INIT_OPT_DIS_COLCLK_BUFF;
++				continue;
++			}
++			if (prev_ops == AIE_PART_INIT_OPT_DIS_COLCLK_BUFF &&
++			    ((prev_range.start.col + prev_range.size.col) == op_range.start.col)) {
++				prev_range.size.col += op_range.size.col;
++				continue;
++			}
++			ret = aie_part_pm_ops(apart, NULL, prev_ops, prev_range, 0);
++			if (ret)
++				return ret;
++			prev_ops = AIE_PART_INIT_OPT_DIS_COLCLK_BUFF;
++			prev_range = op_range;
++		}
++	}
++	if (prev_ops)
++		ret = aie_part_pm_ops(apart, NULL, prev_ops, prev_range, 0);
 +	if (ret)
-+		goto out;
-+
-+	ret = aiemlv2_maskpoll_noc_outstanding_aximm_txn(apart);
-+	if (ret)
-+		goto out;
-+
-+	ret = aiemlv2_maskpoll_uc_outstanding_aximm_txn(apart);
-+	if (ret)
-+		goto out;
-+
-+	opts = AIE_PART_INIT_OPT_COLUMN_RST |
-+	       AIE_PART_INIT_OPT_SHIM_RST |
-+	       AIE_PART_INIT_OPT_ZEROIZEMEM;
-+	ret = aie_part_pm_ops(apart, NULL, opts, apart->range, 0);
-+	if (ret)
-+		goto out;
-+
-+	/* Zeroizes the uc-DM and uc shared DM */
-+	data = 0x6;
-+	ret = aie_part_pm_ops(apart, &data, AIE_PART_INIT_OPT_UC_ZEROIZATION, apart->range, 1);
-+	if (ret)
-+		goto out;
-+	ret = aie_part_pm_ops(apart, NULL, AIE_PART_INIT_OPT_DIS_COLCLK_BUFF, apart->range, 0);
-+	if (ret)
-+		goto out;
-+	ret = aie_part_pm_ops_flush(apart);
-+	if (ret)
-+		goto out;
-+
-+	/* Clear resources */
-+	aie_resource_clear_all(&apart->tiles_inuse);
-+	aie_resource_clear_all(&apart->cores_clk_state);
-+
-+out:
-+	mutex_unlock(&apart->mlock);
-+
-+	return ret;
++		return ret;
++	return aie_part_pm_ops_flush(apart);
 +}
 +
  static const struct aie_tile_operations aiemlv2_ops = {
  	.get_tile_type = aiemlv2_get_tile_type,
- 	.scan_part_clocks = aiemlv2_scan_part_clocks,
- 	.set_part_clocks = aiemlv2_set_part_clocks,
-+	.part_init = aiemlv2_part_init,
-+	.part_teardown = aiemlv2_part_teardown,
++	.scan_part_clocks = aiemlv2_scan_part_clocks,
++	.set_part_clocks = aiemlv2_set_part_clocks,
  };
  
  /**
-diff --git a/drivers/accel/amd-ai-engine/ai-engine-internal.h b/drivers/accel/amd-ai-engine/ai-engine-internal.h
-index 572476c97aad..64691223ff9c 100644
---- a/drivers/accel/amd-ai-engine/ai-engine-internal.h
-+++ b/drivers/accel/amd-ai-engine/ai-engine-internal.h
-@@ -49,6 +49,8 @@ struct aie_partition;
-  *		     caller to apply partition lock before calling this
-  *		     function. The caller function will need to set the bitmap
-  *		     on which tiles are required to be clocked on.
-+ * @part_init: initialize partition with user options.
-+ * @part_teardown: teardown partition
-  * Different AI engine device version has its own device
-  * operation.
-  */
-@@ -56,6 +58,9 @@ struct aie_tile_operations {
- 	u32 (*get_tile_type)(struct aie_device *adev, struct aie_location *loc);
- 	int (*scan_part_clocks)(struct aie_partition *apart);
- 	int (*set_part_clocks)(struct aie_partition *apart);
-+	int (*part_init)(struct aie_partition *apart,
-+			 struct aie_partition_init_args *args);
-+	int (*part_teardown)(struct aie_partition *apart);
- };
- 
- /**
-@@ -360,10 +365,13 @@ int aie_resource_get_region(struct aie_resource *res, u32 start,
- void aie_resource_put_region(struct aie_resource *res, int start, u32 count);
- int aie_resource_set(struct aie_resource *res, u32 start, u32 count);
- int aie_resource_clear(struct aie_resource *res, u32 start, u32 count);
-+int aie_resource_clear_all(struct aie_resource *res);
- bool aie_resource_testbit(struct aie_resource *res, u32 bit);
- int aie_part_pm_ops_create(struct aie_partition *apart);
- void aie_part_pm_ops_destroy(struct aie_partition *apart);
- int aie_part_pm_ops_flush(struct aie_partition *apart);
- int aie_part_pm_ops(struct aie_partition *apart, void *data, u32 type,
- 		    struct aie_range range, bool flush);
-+int aie_part_maskpoll_register(struct aie_partition *apart, u32 offset, u32 data,
-+			       u32 mask, u32 timeout);
- #endif /* AIE_INTERNAL_H */
-diff --git a/drivers/accel/amd-ai-engine/ai-engine-part.c b/drivers/accel/amd-ai-engine/ai-engine-part.c
-index 35451d1ed88a..2cd93c02246e 100644
---- a/drivers/accel/amd-ai-engine/ai-engine-part.c
-+++ b/drivers/accel/amd-ai-engine/ai-engine-part.c
-@@ -6,6 +6,7 @@
-  */
- 
- #include <linux/amd-ai-engine.h>
-+#include <linux/delay.h>
- #include <linux/device.h>
- #include <linux/list.h>
- #include <linux/mutex.h>
-@@ -106,3 +107,34 @@ struct aie_partition *aie_part_create(struct aie_device *adev,
- 	device_unregister(&apart->dev);
- 	return ERR_PTR(ret);
- }
-+
-+/**
-+ * aie_part_maskpoll_register() - Mask polls an address for a data in a partition.
-+ * @apart: AI engine partition.
-+ * @offset: AI engine register offset.
-+ * @data: data to poll.
-+ * @mask: if it is non 0, it is mask read.
-+ * @timeout: Timeout in microseconds.
-+ *
-+ * Return: zero for success, or -EBUSY for failure
-+ */
-+int aie_part_maskpoll_register(struct aie_partition *apart, u32 offset, u32 data,
-+			       u32 mask, u32 timeout)
-+{
-+	u32 usleep_time = 10;
-+	u32 value;
-+	u32 i;
-+
-+	for (i = 0; i < timeout; i += usleep_time) {
-+		value = readl(apart->adev->base + offset);
-+		if ((value & mask) == data)
-+			return 0;
-+		usleep_range(usleep_time, usleep_time + 10);
-+	}
-+
-+	value = readl(apart->adev->base + offset);
-+	if ((value & mask) == data)
-+		return 0;
-+
-+	return -EBUSY;
-+}
-diff --git a/drivers/accel/amd-ai-engine/ai-engine-res.c b/drivers/accel/amd-ai-engine/ai-engine-res.c
-index 45b9447d896f..d35c27141cdd 100644
---- a/drivers/accel/amd-ai-engine/ai-engine-res.c
-+++ b/drivers/accel/amd-ai-engine/ai-engine-res.c
-@@ -151,6 +151,22 @@ int aie_resource_clear(struct aie_resource *res, u32 start, u32 count)
- 	return 0;
- }
- 
-+/**
-+ * aie_resource_clear_all() - clear all the AI engine resource bits
-+ * @res: pointer to AI engine resource
-+ * @return: 0 for success and negative value for failure
-+ *
-+ * This function clears all the bits in the resource.
-+ */
-+int aie_resource_clear_all(struct aie_resource *res)
-+{
-+	if (!res || !res->bitmap)
-+		return -EINVAL;
-+
-+	bitmap_clear(res->bitmap, 0, res->total);
-+	return 0;
-+}
-+
- /**
-  * aie_resource_testbit() - test if a bit is set in a AI engine resource
-  * @res: pointer to AI engine resource
-diff --git a/drivers/accel/amd-ai-engine/ai-engine-reset.c b/drivers/accel/amd-ai-engine/ai-engine-reset.c
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-clock.c b/drivers/accel/amd-ai-engine/ai-engine-clock.c
 new file mode 100644
-index 000000000000..f34d8d687d0e
+index 000000000000..f2bf373c1da0
 --- /dev/null
-+++ b/drivers/accel/amd-ai-engine/ai-engine-reset.c
-@@ -0,0 +1,69 @@
++++ b/drivers/accel/amd-ai-engine/ai-engine-clock.c
+@@ -0,0 +1,154 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * AMD AI Engine device driver reset implementation
++ * AMD AI Engine clock operations
 + *
-+ * Copyright (C) 2025 Advanced Micro Devices, Inc.
++ * Copyright(C) 2026 Advanced Micro Devices, Inc. All rights reserved.
 + */
 +
 +#include <linux/amd-ai-engine.h>
++#include <linux/clk.h>
 +#include <linux/firmware/xlnx-zynqmp.h>
-+#include <linux/io.h>
++#include <linux/list.h>
 +#include <linux/mutex.h>
 +
 +#include "ai-engine-internal.h"
 +
 +/**
-+ * aie_partition_initialize() - AI engine partition initialization
-+ * @dev: AI engine partition device
-+ * @args: User initialization options
++ * aie_part_init_clk_state() - initialize clock state and tiles in use bitmaps
++ * @apart: AI engine partition
 + *
-+ * Return: 0 for success and negative value for failure
-+ *
-+ * Based on user passed options this function will:
-+ * - enable column and shim reset
-+ * - ungate all columns
-+ * - disable column reset
-+ * - zeroize memories
-+ * - setup NMU traffic and hardware error reporting
++ * Return: error code for error 0 for success
 + */
-+int aie_partition_initialize(struct device *dev,
-+			     struct aie_partition_init_args *args)
++int aie_part_init_clk_state(struct aie_partition *apart)
 +{
-+	struct aie_partition *apart;
++	u32 num_tiles;
++	int ret;
 +
-+	if (!dev || !args)
-+		return -EINVAL;
++	/* SHIM row always enabled so it is not needed in the bitmap */
++	num_tiles = apart->range.size.col * (apart->range.size.row - 1);
++	ret = aie_resource_initialize(&apart->cores_clk_state, num_tiles);
++	if (ret) {
++		dev_err(&apart->dev, "failed to initialize clock state resource.\n");
++		return ret;
++	}
 +
-+	apart = dev_to_aiepart(dev);
-+	if (apart->adev->ops->part_init)
-+		return apart->adev->ops->part_init(apart, args);
++	ret = aie_resource_initialize(&apart->tiles_inuse, num_tiles);
++	if (ret) {
++		dev_err(&apart->dev, "failed to initialize tiles in use resource.\n");
++		aie_resource_uninitialize(&apart->cores_clk_state);
++		return ret;
++	}
 +
-+	return -EINVAL;
++	return 0;
 +}
-+EXPORT_SYMBOL_GPL(aie_partition_initialize);
 +
 +/**
-+ * aie_partition_teardown() - AI engine partition teardown
-+ * @dev: AI engine partition device
++ * aie_part_get_clk_state_bit() - return bit position of the clock state of a
++ *				  tile
++ * @apart: AI engine partition
++ * @loc: AI engine tile location
++ *
++ * Return: bit position for success, negative value for failure
++ */
++static int aie_part_get_clk_state_bit(struct aie_partition *apart,
++				      struct aie_location *loc)
++{
++	u32 ttype = apart->adev->ops->get_tile_type(apart->adev, loc);
++
++	if (ttype != AIE_TILE_TYPE_TILE && ttype != AIE_TILE_TYPE_MEMORY)
++		return -EINVAL;
++
++	if (loc->col < apart->range.start.col)
++		return -EINVAL;
++
++	return (loc->col - apart->range.start.col) *
++	       (apart->range.size.row - 1) + loc->row - 1;
++}
++
++/**
++ * aie_part_scan_clk_state() - scan the clock states of tiles of the AI engine
++ *			       partition
++ * @apart: AI engine partition
++ *
++ * Return: 0 for success, negative value for failure.
++ *
++ * This function will scan the clock status of both the memory and core
++ * modules.
++ */
++int aie_part_scan_clk_state(struct aie_partition *apart)
++{
++	return apart->adev->ops->scan_part_clocks(apart);
++}
++
++/**
++ * aie_part_request_tiles() - request tiles from an AI engine partition.
++ * @apart: AI engine partition
++ * @num_tiles: number of tiles to request. If it is 0, it means all tiles
++ * @locs: the AI engine tiles locations array which will be requested
++ *
++ * Return: 0 for success, negative value for failure.
++ *
++ * This function will enable clocks of the specified tiles.
++ */
++int aie_part_request_tiles(struct aie_partition *apart, u32 num_tiles,
++			   struct aie_location *locs)
++{
++	int ret;
++
++	if (num_tiles == 0) {
++		aie_resource_set(&apart->tiles_inuse, 0,
++				 apart->tiles_inuse.total);
++	} else {
++		u32 n;
++
++		if (!locs)
++			return -EINVAL;
++
++		for (n = 0; n < num_tiles; n++) {
++			int bit = aie_part_get_clk_state_bit(apart, &locs[n]);
++
++			if (bit >= 0)
++				aie_resource_set(&apart->tiles_inuse, bit, 1);
++		}
++	}
++	ret = apart->adev->ops->set_part_clocks(apart);
++
++	return ret;
++}
++
++/**
++ * aie_part_release_tiles() - release tiles from an AI engine partition.
++ * @apart: AI engine partition
++ * @num_tiles: number of tiles to release. If it is 0, it means all tiles
++ * @locs: the AI engine tiles locations array which will be released
++ *
++ * Return: 0 for success, negative value for failure.
++ *
++ * This function will disable clocks of the specified tiles.
++ */
++int aie_part_release_tiles(struct aie_partition *apart, u32 num_tiles,
++			   struct aie_location *locs)
++{
++	int ret;
++
++	if (num_tiles == 0) {
++		aie_resource_clear(&apart->tiles_inuse, 0,
++				   apart->tiles_inuse.total);
++	} else {
++		u32 n;
++
++		if (!locs)
++			return -EINVAL;
++
++		for (n = 0; n < num_tiles; n++) {
++			int bit = aie_part_get_clk_state_bit(apart, &locs[n]);
++
++			if (bit >= 0)
++				aie_resource_clear(&apart->tiles_inuse, bit, 1);
++		}
++	}
++
++	ret = apart->adev->ops->set_part_clocks(apart);
++
++	return ret;
++}
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-internal.h b/drivers/accel/amd-ai-engine/ai-engine-internal.h
+index d2857ec50033..572476c97aad 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-internal.h
++++ b/drivers/accel/amd-ai-engine/ai-engine-internal.h
+@@ -37,11 +37,25 @@ struct aie_partition;
+ /**
+  * struct aie_tile_operations - AI engine device operations
+  * @get_tile_type: get type of tile based on tile operation
++ * @scan_part_clocks: scan partition modules to check whether the modules are
++ *		      clock gated or not, and update the soft clock states
++ *		      structure. It is required to be called when the partition
++ *		      is requested so that the driver knows which modules are
++ *		      clock gated when the partition is requested. This function
++ *		      expects the caller to apply partition lock before calling
++ *		      this function.
++ * @set_part_clocks: set partition modules clocks gate registers based on the
++ *		     partition clock states bitmap. This function expects the
++ *		     caller to apply partition lock before calling this
++ *		     function. The caller function will need to set the bitmap
++ *		     on which tiles are required to be clocked on.
+  * Different AI engine device version has its own device
+  * operation.
+  */
+ struct aie_tile_operations {
+ 	u32 (*get_tile_type)(struct aie_device *adev, struct aie_location *loc);
++	int (*scan_part_clocks)(struct aie_partition *apart);
++	int (*set_part_clocks)(struct aie_partition *apart);
+ };
+ 
+ /**
+@@ -275,6 +289,8 @@ struct aie_device {
+  * @dev: AI Engine partition device
+  * @adev: pointer to AI device instance
+  * @range: range of partition
++ * @cores_clk_state: bitmap to indicate the power state of core and mem tiles
++ * @tiles_inuse: bitmap to indicate if a tile is in use
+  * @mlock: protection for AI engine partition operations
+  * @pm_ops: pm ops pkt and metadata for pm firmware calls
+  */
+@@ -283,6 +299,8 @@ struct aie_partition {
+ 	struct device dev;
+ 	struct aie_device *adev;
+ 	struct aie_range range;
++	struct aie_resource cores_clk_state;
++	struct aie_resource tiles_inuse;
+ 	struct mutex mlock;
+ 	struct aie_pm_ops pm_ops;
+ };
+@@ -307,10 +325,32 @@ struct aie_device_cfg {
+ 
+ #define dev_to_aiepart(_dev) container_of((_dev), struct aie_partition, dev)
+ 
++/**
++ * aie_cal_regoff() - calculate register offset to the whole AI engine
++ *		      device start address
++ * @adev: AI engine device
++ * @loc: AI engine tile location
++ * @regoff_intile: register offset within a tile
++ *
++ * Return: register offset to the whole AI engine device start address
++ */
++static inline u32 aie_cal_regoff(struct aie_device *adev,
++				 struct aie_location loc, u32 regoff_intile)
++{
++	return regoff_intile + (loc.col << adev->col_shift) +
++	       (loc.row << adev->row_shift);
++}
++
+ void aiemlv2_device_init(struct aie_device *adev);
+ struct aie_partition *aie_part_create(struct aie_device *adev,
+ 				      u8 start_col, u8 num_col);
+ void aie_part_release(struct aie_partition *apart);
++int aie_part_init_clk_state(struct aie_partition *apart);
++int aie_part_scan_clk_state(struct aie_partition *apart);
++int aie_part_request_tiles(struct aie_partition *apart, u32 num_tiles,
++			   struct aie_location *locs);
++int aie_part_release_tiles(struct aie_partition *apart, u32 num_tiles,
++			   struct aie_location *locs);
+ int aie_resource_initialize(struct aie_resource *res, int count);
+ void aie_resource_uninitialize(struct aie_resource *res);
+ int aie_resource_check_region(struct aie_resource *res, u32 start,
+@@ -318,6 +358,9 @@ int aie_resource_check_region(struct aie_resource *res, u32 start,
+ int aie_resource_get_region(struct aie_resource *res, u32 start,
+ 			    u32 count);
+ void aie_resource_put_region(struct aie_resource *res, int start, u32 count);
++int aie_resource_set(struct aie_resource *res, u32 start, u32 count);
++int aie_resource_clear(struct aie_resource *res, u32 start, u32 count);
++bool aie_resource_testbit(struct aie_resource *res, u32 bit);
+ int aie_part_pm_ops_create(struct aie_partition *apart);
+ void aie_part_pm_ops_destroy(struct aie_partition *apart);
+ int aie_part_pm_ops_flush(struct aie_partition *apart);
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-part.c b/drivers/accel/amd-ai-engine/ai-engine-part.c
+index 51580049f0e7..35451d1ed88a 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-part.c
++++ b/drivers/accel/amd-ai-engine/ai-engine-part.c
+@@ -26,6 +26,8 @@ void aie_part_release(struct aie_partition *apart)
+ 				apart->range.start.col -
+ 				adev->range.start.col,
+ 				apart->range.size.col);
++	aie_resource_uninitialize(&apart->cores_clk_state);
++	aie_resource_uninitialize(&apart->tiles_inuse);
+ 	device_unregister(&apart->dev);
+ }
+ 
+@@ -82,6 +84,22 @@ struct aie_partition *aie_part_create(struct aie_device *adev,
+ 		goto err;
+ 	}
+ 
++	ret = aie_part_init_clk_state(apart);
++	if (ret) {
++		dev_err(&apart->dev, "failed to initialize clock state\n");
++		aie_part_pm_ops_destroy(apart);
++		goto err;
++	}
++
++	ret = aie_part_scan_clk_state(apart);
++	if (ret) {
++		dev_err(&apart->dev, "failed to scan clock state.");
++		aie_part_pm_ops_destroy(apart);
++		aie_resource_uninitialize(&apart->cores_clk_state);
++		aie_resource_uninitialize(&apart->tiles_inuse);
++		goto err;
++	}
++
+ 	return apart;
+ 
+ err:
+diff --git a/drivers/accel/amd-ai-engine/ai-engine-res.c b/drivers/accel/amd-ai-engine/ai-engine-res.c
+index 62df26edf87d..45b9447d896f 100644
+--- a/drivers/accel/amd-ai-engine/ai-engine-res.c
++++ b/drivers/accel/amd-ai-engine/ai-engine-res.c
+@@ -110,3 +110,59 @@ void aie_resource_put_region(struct aie_resource *res, int start, u32 count)
+ 		return;
+ 	bitmap_clear(res->bitmap, start, count);
+ }
++
++/**
++ * aie_resource_set() - set the AI engine resource bits
++ * @res: pointer to AI engine resource
++ * @start: start bit to set
++ * @count: number of bits to set
 + *
 + * Return: 0 for success and negative value for failure
 + *
-+ * This function will:
-+ * - reset columns and shim
-+ * - zeroize memories
-+ * - gate all columns
++ * This function sets the specified number bits in the resource.
 + */
-+int aie_partition_teardown(struct device *dev)
++int aie_resource_set(struct aie_resource *res, u32 start, u32 count)
 +{
-+	struct aie_partition *apart;
-+
-+	if (!dev)
++	if (!res || !res->bitmap || !count ||
++	    start > res->total || count > res->total - start)
 +		return -EINVAL;
 +
-+	apart = dev_to_aiepart(dev);
-+	if (apart->adev->ops->part_teardown)
-+		return apart->adev->ops->part_teardown(apart);
-+
-+	return -EINVAL;
++	bitmap_set(res->bitmap, start, count);
++	return 0;
 +}
-+EXPORT_SYMBOL_GPL(aie_partition_teardown);
++
++/**
++ * aie_resource_clear() - clear the AI engine resource bits
++ * @res: pointer to AI engine resource
++ * @start: start bit to set
++ * @count: number of bits to clear
++ *
++ * Return: 0 for success and negative value for failure
++ *
++ * This function clears the specified number bits in the resource.
++ */
++int aie_resource_clear(struct aie_resource *res, u32 start, u32 count)
++{
++	if (!res || !res->bitmap || !count ||
++	    start > res->total || count > res->total - start)
++		return -EINVAL;
++
++	bitmap_clear(res->bitmap, start, count);
++	return 0;
++}
++
++/**
++ * aie_resource_testbit() - test if a bit is set in a AI engine resource
++ * @res: pointer to AI engine resource
++ * @bit: bit to check
++ *
++ * Return: true for set, false for not set
++ */
++bool aie_resource_testbit(struct aie_resource *res, u32 bit)
++{
++	if (!res || !res->bitmap || bit >= res->total)
++		return false;
++
++	/* Locate the unsigned long the required bit belongs to */
++	return test_bit(bit, res->bitmap);
++}
 diff --git a/include/linux/amd-ai-engine.h b/include/linux/amd-ai-engine.h
-index 229434372fc0..95884b782742 100644
+index 9df3463985af..229434372fc0 100644
 --- a/include/linux/amd-ai-engine.h
 +++ b/include/linux/amd-ai-engine.h
-@@ -94,6 +94,22 @@ struct aie_op_handshake_data {
- 	struct aie_location loc;
- };
+@@ -96,5 +96,4 @@ struct aie_op_handshake_data {
  
-+/*
-+ * struct aie_partition_init_args - AIE partition initialization arguments
-+ * @locs: Allocated array of tile locations that will be used
-+ * @num_tiles: Number of tiles to use
-+ * @init_opts: Partition initialization options
-+ * @ecc_scrub: ecc_scrub period.
-+ */
-+struct aie_partition_init_args {
-+	struct aie_location *locs;
-+	u32 num_tiles;
-+	u32 init_opts;
-+	u32 ecc_scrub;
-+};
-+
  struct device *aie_partition_request(struct device *dev, struct aie_partition_req *req);
  void aie_partition_release(struct device *dev);
-+int aie_partition_initialize(struct device *dev, struct aie_partition_init_args *args);
-+int aie_partition_teardown(struct device *dev);
+-
  #endif
 -- 
 2.34.1
