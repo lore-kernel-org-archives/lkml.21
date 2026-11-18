@@ -1,102 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795003175;
-	b=yjzOXy1qpxnmGzIO9t484haMiX3AnVypiqegm8u0Fb6b/IlVcuM1Xfuaa9Cto81K/goC
-	 s2svQiRMxr6/3g72HgD6uIx7Bgpqhhmy1O0UoqznH2CI692Xm24oIH3qH7aVSHsl7rclr
-	 LCfg7JgK0jllFUvSxHgaP5Kfc36QoB63z+w4WsvD8/pgYA3MS3lmvROKP0aIA8OlewKYz
-	 GRtx8n3dYxbSxZAXTJVZd4CO3/h/0pdMraw2esT0fT0A/nOlAmSaBkTjFwdBJtwr6Zbbp
-	 Wd3JiaXtiRZVkunsZTMJFS1UROFVLpbgE4XVE45rlPLi2uwA0QWW9cy70ip+qhyQjSw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795003175;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-ID:References:In-Reply-To:To:CC:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Gbc7VoynWYlzI9ARjpuXW83LqxFtbNrif1zKI1HWFvM=;
-	b=259n3hcHWAHU3T2BdCJ0zbGk4BDS6T4fOftMo6JPxTNUK6va1mqyksBdpT4xCIVaUZGp
-	 slUMnLReipkZY6rVxO8ZmMtbUfCED+UB0mJK9KmTh635lS94Lb55mdIzN7p8Vw7kGMkvM
-	 V0347PA6WlRKGxrUYWs+ilCND1UOWnv5ITajrAC0TQc9yKarceO7TYbdaAZMk0OARV20x
-	 oF3/wBdVL9TglsyGGpRuBSnqeMPtJfSOFqFMEkNLEBoQKseZ12mRIjkLvQr8474k8dyQi
-	 U5hdrfgLjB+iIWY6PBlKMX+mFxtnBE6Ae/7MVEjEjpLcF1uZJ7pBfHir1Mx2MXzByxw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=mVwGZKfh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.46
-Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013046.outbound.protection.outlook.com [52.101.83.46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795003183;
+	b=UVEA3hdTYU4AdBFFjODyot4kClCDViVjNB1Mb51rgXZNTHf9RU5vunF8Bi62frBVaowF
+	 nwxZo4agzTnMzzPGY/MXhntGLbi/0Q3KGgA2FskIr1uoRsRlQexiDyzyXljHWy1FZ5q8U
+	 jxQ11U1l7dKiOUrP7PQQymj+H25a8pxSq3tsU7kT42XAH9CWSKKT9iceSzLuBPT6GHpKG
+	 /JokIDf5Ax5TYXq2YO2+BBvYkX1oZ7SgJ2vvyW76mErvKvP5buBB9Pa5aSq40GO7PXTX1
+	 M3T+TH0zvIJb7TcLUNKpXs1wVssDcV4pn2xkGXcUrRoFSJAsyuhZSathCNPPZzJwP5A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795003183;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=XfwLIkUROrYdB4KwphfdvJCcHKrSEr7wJjah9paB9X4=;
+	b=hnYTjt3wHp6G6r0PcwolKKHr+U6GDj1RWHXuhWfSsNnLPibJmgPNUN94IR0srDBjeSyn
+	 XKFZei+aH1ZpOoUeDZMyk8Tv0y3uGHvZnrTlPfXF3ugDt24j5ixX+32ear0QxrFdYKN2b
+	 hWkSdwp8n/uIyJ3X26n8CudVAiZN4ITsjIabYVDS98VYf1VIpZpJXX5+ABDIinE8gZ1cz
+	 wUX9DpUAKgBvJ4H7uzq2btzghPeJyMFSHlL0dz1xV3Zj6KeN9PTxsrPlfhdoNIfwHzhz4
+	 iJDhEVKRyQAwPq5Y9gzn2YkEYpyiwesB8JbTCqJIcChivsVdXQymzLsE3M97OwvCBow==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BPJRHa5w;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B064C60A2606;
-	Wed, 18 Nov 2026 11:59:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B064C60A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A828606A31C;
+	Wed, 18 Nov 2026 11:59:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A828606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=mVwGZKfh
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UOSKFGPhqE5KBu2Fc13nXf3toKDdRqkSj4G+b6/LJLtFgEDjBPHQLLze8uQ3IYzeyL/JbjPlrA2LEYpD/ZWIiGd0WvTgnUz9SjahnV1mx6VjnGCV4qANr1W0CU8puJy6B8TvTaaDxpV4g4Y5za0EnN2+Zkx4fDhnBRBnaxr1q4QA34uWIrzEWnjtlKOnpgaHMnSKqyeQSL7aicfrRe2tgKEQwf5t224bBVUoH1YigP0sNJK6J01g5+uQqNdEBfJjRM2w1CBzAQtx0QHXXetWyp6+czjeZbV4PH+5H+Lwa/3FUP6Nq9QUsB9LMi1BfsA+o+6pBLaDjHvMcwyCPlmRvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Gbc7VoynWYlzI9ARjpuXW83LqxFtbNrif1zKI1HWFvM=;
- b=ko5DPLN7tyrk7M1szlNHuUvSyQFnYoG2kykkOxHUVNXCkbpSA3vMqyG+SNpiMDW/M66jJLLsGW1VjUlmGlr9mge46oN/q76lt+yC8+LO0sc8T289p+PaVZ6RVMtxWRy3QwqZ2QSF1PBjMctAGie9If1RE5UxzgejQiXc9nEWK/O24pVMU3tz9uct3CuvxueAUhP3UUYPQrRAR1p5EGjAkgVBWLmLmC9vXYRx+/gprtB5C4RHEeFAIM6qk69Zj8zFv0TYdL4oPnl2xssnb4Rp5nKC/qxc6zvJgK/QBbbcfqkIYzOvTP2Wh79FbyE9wATSK7Vbb/axZSSb3raGn6E21Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Gbc7VoynWYlzI9ARjpuXW83LqxFtbNrif1zKI1HWFvM=;
- b=mVwGZKfh+Ldai629BY7pXFR5R9tKdRSrwr1LjpdrNYMLuxmC5T8hs1zHNmwYJ7O1mBSXqTbaf1Q/UTZQsTa2QI8YyrOGFZAG3Xv8W1cRaaWWinniDCC58A+qqFX6ga3XjXhh34ICxXxbju5bdx/QXP+Um4z7NDCyrF5OpD0Xbt0NV22ki30WR9EyNOmp+CyJGp/9jKmN4rmpTcP//OyqDW6P+eV8AspBbl4CgCywx9NdmVzTt9vEi+qsJsxudSKxj+IgbxxCxyM2fwA4JAihSvrniZXIiHTWiMAg2hSH4IzHLezJ/H5g3LUfPrHjXuEdHI4FZ7tL2lBLh41ThRhVdA==
-Received: from MA3P292CA0066.ESPP292.PROD.OUTLOOK.COM (2603:10a6:250:49::11)
- by AM7PR10MB3317.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:103::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Wed, 18 Nov
- 2026 11:59:27 +0000
-Received: from MAD0EPF000008B6.eurprd04.prod.outlook.com
- (2603:10a6:250:49:cafe::2b) by MA3P292CA0066.outlook.office365.com
- (2603:10a6:250:49::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
- 18 Nov 2026 11:59:27 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.60) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- MAD0EPF000008B6.mail.protection.outlook.com (10.167.241.138) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 11:59:27 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 18 Nov
- 2026 13:00:22 +0100
-Received: from localhost (10.252.6.76) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Wed, 18 Nov
- 2026 12:59:20 +0100
-From: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-Date: Wed, 18 Nov 2026 12:59:06 +0100
-Subject: [PATCH v3 1/6] dt-bindings: arm: stm32: Add clock inputs to
- STM32MP2 SYSCFG
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BPJRHa5w
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795003183; x=1826539183;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=rxoUAVpGL7oGe6fjygtaqhJn8MRA2lCIFh+xjJ13J5w=;
+  b=BPJRHa5wzfOJwYKXj/TD4B511rp5ZhS3QHEHNaE/zSDvWMzb7+U4MEbB
+   vanxnar3Q04H9TW34lv6qv9yNF4O4J0RjJsNs2+W6/a344OK0HPFlwpm0
+   8cJ3HKsV45YC8+2zPSTqgunr0ggncr0aWAIGpCnPg1GAQ8JVXypAriuhm
+   Bu7nXCtNOJHr/yM1Ox13xwI/T0EJW2Br1l+c7Qr3OABm0eBuyIOuDpyGw
+   7Ttc8UQHX8MfOQZWOaQzTM0VLL/Pgpr75uAopCltpV5sNikwuvrxVF8bh
+   0LnTFP0JgZtNpXV2s9zjTOLga+T/CsUER68bDj0NM6tj0txGi5EIsLY6H
+   g==;
+X-CSE-ConnectionGUID: lr1yUNU1QrKTlviLSkpEOQ==
+X-CSE-MsgGUID: vAAry2YUQUaMu42op/Aogg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3850209"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3850209"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:59:27 -0800
+X-CSE-ConnectionGUID: qxGiH8FxRV+fheo/hfErKQ==
+X-CSE-MsgGUID: MDLEJq2WSsqeMy2ZsAcGSw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10366665"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.239])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 03:59:23 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Wed, 18 Nov 2026 13:59:20 +0200 (EET)
+To: Aaron Ma <aaron.ma@canonical.com>
+cc: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+    "Derek J. Clark" <derekjohn.clark@gmail.com>, Rong Zhang <i@rong.moe>, 
+    Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] platform/x86: lenovo-wmi-other: Deconflict battery
+ with thinkpad_acpi
+In-Reply-To: <CAJ6xRxVLMmK6Vk8h8FYbeuDSKhd_hhN=HKEkF=E5CUisimKtZw@mail.gmail.com>
+Message-ID: <c549d6e3-06db-5836-82ae-06f5bdb6fdd8@linux.intel.com>
+References: <20261113055726.952551-1-aaron.ma@canonical.com> <b4feb4ce-d818-c6b0-a749-4e58b92c2573@linux.intel.com> <CAJ6xRxVLMmK6Vk8h8FYbeuDSKhd_hhN=HKEkF=E5CUisimKtZw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,146 +81,180 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261118-ups_mp25_clk_syscfg-v3-1-935de791a4ce@foss.st.com>
-References: <20261118-ups_mp25_clk_syscfg-v3-0-935de791a4ce@foss.st.com>
-In-Reply-To: <20261118-ups_mp25_clk_syscfg-v3-0-935de791a4ce@foss.st.com>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Christophe Roullier
-	<christophe.roullier@foss.st.com>, <patrick.delaunay@foss.st.com>,
-	<yannick.fertre@foss.st.com>
-CC: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795003158; l=2744;
- i=gabriel.fernandez@foss.st.com; s=20261013; h=from:subject:message-id;
- bh=2d8WqizkwbFjjE744aYABlgMYG7n6eOoTYhhis8ejw0=;
- b=2iBFOTS5tlIZa3DvA6FNJpmi7A4ccYTNXptr9XW20TWQoFrqeeVmitnbAEid+jCOLy7wvkk7B
- 8RiUJi0a9NJAfC8LO+Iz2qukyp80/SihrVnFNLczeN8CI4WD+4Jbfqe
-X-Developer-Key: i=gabriel.fernandez@foss.st.com; a=ed25519;
- pk=BVZE1QjIfcrviw9RyyOGQGGsg9CNbaxyjYn9pAlkNyQ=
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008B6:EE_|AM7PR10MB3317:EE_
-X-MS-Office365-Filtering-Correlation-Id: 33c07036-a572-4fa6-e956-08df456b6578
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|23010399003|36860700016|261009223027099003|22082099003|18002099003|261021123027099003|261021121427099003|921020|261026121527099003|261102123227099003|56012099006|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	FyyMuxSD4HD2v7oDSJ8dCfGQ7D1h8r30GwUKvx2fITz9k+phv/VOAp7otZ/VHdAGaytPAra1RCvMhhLin5oWqBUCCLtxR0v1+7r1qCEysflZ/OvdrlQO+ooNgvmasOMz6jWHBVvLDgi4yYUkv+S4mwAJJFahc8+GBCJjsp2hY1145Q6uep+uVBeb2Xju1Zmv6UVhEROe21hNr18Mi9dPa81tsBHqLGBXA/e0jBAPDg3B63RTjltA7rHApJPe1d/9BK4taqXN8r/C84uqMvnP1FGN7YYcqMFvzRq2fTHJ7w9J1oK+wyAoz+zSMTEyFX8fDzZr80kFnhxNH3DMD9umjs4VOIHnoOYne9cQaBDaTCMMLX2LJCQ4NOrlUcQWd2E6H98ugDSF0C0s++aSHC/nB67fva5AYlHdfhJLqEqM2Z3qBhAtyWTBLiL/WvwN7qSl1YwW+1QV3edVLpdgOJM5uGL2itm/Gc+IOwDpa6qTvwsJR+PrucxgKXGilTG/UgU02qpZJvpVUk3jIwtU87JRH+9/yz895g8wdRW4iqnGffS0Iv3IVHbwP3mC2rhIuf7jqyQdIen3tzPS1fX5yobVT+vvrJA++/I/3HEN1DCUY4ERce2QGi6KR9DE7pfEjLuh6A6PouKfYjCnIY31Rkd+tmz/5EkYGDw6G1qJ0Nq+3RHyvJSSLJqy5RlgWdMT1+RgKs/HChfOTxGGv5I36VQS0pTOBFv75xQMFXsWWBBPzhJVuTt68EZ+yDdEMBUH8RFn
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(23010399003)(36860700016)(261009223027099003)(22082099003)(18002099003)(261021123027099003)(261021121427099003)(921020)(261026121527099003)(261102123227099003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	2D8SQzK/cTNt0PIr5IvGeJTSb9lsYz5kxYLCOYAyCKKzOYJIi9tkX8fjbQWJeihCf3FxiXzP1H/fBCIVtCWX3hodg5h2jrXolB185ml+QbCAe0uppZb0dU2vxX4c9rnamBl2L3L5n7rc82tVF+baBsW6oJnOUNtA+/I2k3CAAyTnQM5ibZzc7VYEESPgxU6d9KtIiQAwgLWM46C8gF0mwyxRzrTZf2ibCwxGt/RCesCA+ExVIW6yAuHtYZRNvGEU8TACBdgQZmaUlWONiZwn0FveMjj1XeGHNxdxt5jNS1e9dX/+3xjS4Nf89E9r+h90DiLDFoEwV+OLvXc+lIX1nRu62eIsgs4lXsuKETo05nM+IB9JrKTVWI+NCAvkk72WDZHwO/UHpEBskN0Cg4Zrs/khafbT5PiO8ddfcrjew097wnI0Cj+67a7r7+xSwo7l
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 11:59:27.5099
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33c07036-a572-4fa6-e956-08df456b6578
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MAD0EPF000008B6.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3317
+Content-Type: multipart/mixed; boundary="8323328-467769840-1795003160=:1169"
 
-The SYSCFG of the STM32MP23x and STM32MP25x SoCs is the provider of the
-LTDC pixel clock, which it selects in its DISPLAYCLKCR register among
-the LTDC kernel clock, the LVDS PHY pixel clock and the DSI PHY byte
-lane clock.
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Describe these inputs with the clocks and clock-names properties. The
-LVDS and the DSI don't exist on STM32MP231/233 and STM32MP251/253, which
-use the same SYSCFG compatibles as STM32MP235 and STM32MP255. So the
-inputs are listed in the "ltdc", "lvds", "dsi" order, and the missing
-ones are omitted at the end of the list.
+--8323328-467769840-1795003160=:1169
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-The inputs are required, the LTDC kernel clock being always an input of
-the mux. This doesn't break the users of existing devicetrees: no driver
-registered the SYSCFG clock so far, and the clock driver doesn't need
-these properties to probe.
+On Wed, 18 Nov 2026, Aaron Ma wrote:
+> On Fri, Nov 13, 2026 at 7:04=E2=80=AFPM Ilpo J=C3=A4rvinen
+> <ilpo.jarvinen@linux.intel.com> wrote:
+> >
+> > On Fri, 13 Nov 2026, Aaron Ma wrote:
+> >
+> > > ThinkPads expose battery charge thresholds and charge_behaviour throu=
+gh
+> > > thinkpad_acpi's ACPI battery hook using raw sysfs attribute groups. T=
+he
+> > > Lenovo WMI "Other Mode" driver also registers a power_supply_ext for
+> > > charge_behaviour and charge_types on systems advertising those WMI
+> > > capabilities.
+> > >
+> > > When lenovo-wmi-other registers first, thinkpad_acpi fails to create =
+a
+> > > duplicate charge_behaviour sysfs attribute and unregisters its batter=
+y
+> > > extension. Conversely, registering or updating any power_supply_ext o=
+n
+> > > the same battery runs sysfs_update_groups(), which removes standard
+> > > power-supply attributes not owned by power_supply_core and wipes out
+> > > thinkpad_acpi's charge_control_start_threshold,
+> > > charge_control_end_threshold, and charge_behaviour files.
+> > >
+> > > Deconflict both ideapad_laptop (VPC2004 with GBMD and SBMC) and
+> > > thinkpad_acpi (LEN0268, LEN0068, or IBM0068 with BDSG and BICG) via a
+> > > per-driver table guarded by IS_ENABLED() in Kconfig, and update the
+> > > force_load_psy_ext description accordingly.
+> > >
+> > > Fixes: 9ca8fc065b88b ("platform/x86: lenovo-wmi-other: Add WMI batter=
+y charge limiting")
+> > > Reviewed-by: Derek J. Clark <derekjohn.clark@gmail.com>
+> > > Co-developed-by: Rong Zhang <i@rong.moe>
+> > > Signed-off-by: Rong Zhang <i@rong.moe>
+> > > Signed-off-by: Aaron Ma <aaron.ma@canonical.com>
+> > > ---
+> > > Changes in v3:
+> > > - Wrap deconfliction table entries in #if IS_ENABLED(CONFIG_*) and dr=
+op
+> > >   driver_enabled, as suggested by Rong Zhang.
+> > > - Group deconfliction entries per driver (HIDs list + methods list).
+> > >
+> > > Changes in v2:
+> > > - Consolidate IdeaPad and ThinkPad deconfliction into a table of ACPI
+> > >   device IDs, method pairs, and driver configuration checks, as sugge=
+sted
+> > >   by Derek J. Clark.
+> > > - Check GBMD and SBMC for IdeaPads, and BDSG and BICG for ThinkPads,
+> > >   instead of relying only on ThinkPad ACPI device presence.
+> > > - Check whether the corresponding driver is enabled before looking up
+> > >   its ACPI device, including for ideapad_laptop.
+> > > - Update the force_load_psy_ext description to cover both drivers.
+> > >
+> > > v2: https://lore.kernel.org/platform-driver-x86/20261112074823.853819=
+-1-aaron.ma@canonical.com/
+> > > v1: https://lore.kernel.org/platform-driver-x86/20261111083529.727285=
+-1-aaron.ma@canonical.com/
+> > >
+> > >  drivers/platform/x86/lenovo/wmi-other.c | 66 ++++++++++++++++++++---=
+--
+> > >  1 file changed, 53 insertions(+), 13 deletions(-)
+> > >
+> > > diff --git a/drivers/platform/x86/lenovo/wmi-other.c b/drivers/platfo=
+rm/x86/lenovo/wmi-other.c
+> > > index bd64e7b44669d..340159df5f7cc 100644
+> > > --- a/drivers/platform/x86/lenovo/wmi-other.c
+> > > +++ b/drivers/platform/x86/lenovo/wmi-other.c
+> > > @@ -189,10 +189,10 @@ MODULE_PARM_DESC(relax_fan_constraint,
+> > >  static bool force_load_psy_ext;
+> > >  module_param(force_load_psy_ext, bool, 0444);
+> > >  MODULE_PARM_DESC(force_load_psy_ext,
+> > > -     "This option will skip checking if the ideapad_laptop driver wi=
+ll conflict "
+> > > +     "This option will skip checking if the ideapad_laptop or thinkp=
+ad_acpi driver will conflict "
+> > >       "with adding an extension to set the battery charge behavior an=
+d battery charge "
+> > >       "control end threshold. It will also skip checking if the BIOS =
+reports that "
+> > > -     "those features are fully supported. It is recommended to black=
+list the ideapad "
+> > > +     "those features are fully supported. It is recommended to black=
+list the conflicting "
+> > >       "driver before using this option.");
+> > >
+> > >  /* =3D=3D=3D=3D=3D=3D=3D=3D HWMON (component: lenovo-wmi-capdata 00 =
+& fan) =3D=3D=3D=3D=3D=3D=3D=3D */
+> > > @@ -905,17 +905,41 @@ static acpi_status lwmi_acpi_match(acpi_handle =
+handle, u32 lvl,
+> > >       return AE_CTRL_TERMINATE;
+> > >  }
+> > >
+> > > +struct lwmi_psy_deconflict {
+> > > +     char * const *hids;
+> >
+> > Who is only the pointer const, not the char?
+> >
+>=20
+> It only lacked const because it shared LWMI_PSY_DECONFLICT_STRS() with
+> methods. I made hids const char * const * in v4.
+>=20
+> > > +     char * const *methods;
+> >
+> > If acpi_has_method would input const char * (to me it seems convertable
+> > as it only calls acpi_get_handle that takes const char *), this too cou=
+ld
+> > be const char.
+> >
+>=20
+> Agreed. acpi_has_method() still takes char *, so I kept methods as
+> char * const * in v4.
 
-Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
----
- .../bindings/arm/stm32/st,stm32-syscon.yaml        | 28 +++++++++++++++++++++-
- 1 file changed, 27 insertions(+), 1 deletion(-)
+Well, I was kind of hoping we'd get that conversion as well as a=20
+side-product of this.
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-index a559f8b03b84..e94d668d51e0 100644
---- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-@@ -34,7 +34,12 @@ properties:
-     maxItems: 1
- 
-   clocks:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 3
-+
-+  clock-names:
-+    minItems: 1
-+    maxItems: 3
- 
-   "#clock-cells":
-     const: 0
-@@ -62,6 +67,8 @@ allOf:
-             enum:
-               - st,stm32mp157-syscfg
-               - st,stm32f4-gcan
-+              - st,stm32mp23-syscfg
-+              - st,stm32mp25-syscfg
-     then:
-       required:
-         - clocks
-@@ -76,10 +83,26 @@ allOf:
-               - st,stm32mp23-syscfg
-               - st,stm32mp25-syscfg
-     then:
-+      properties:
-+        clocks:
-+          minItems: 1
-+          items:
-+            - description: LTDC kernel clock
-+            - description: LVDS PHY pixel clock
-+            - description: DSI PHY byte lane clock
-+
-+        clock-names:
-+          minItems: 1
-+          items:
-+            - const: ltdc
-+            - const: lvds
-+            - const: dsi
-+
-       required:
-         - "#address-cells"
-         - "#clock-cells"
-         - "#size-cells"
-+        - clock-names
-         - phy@2400
-         - phy@2800
-     else:
-@@ -87,6 +110,9 @@ allOf:
-         '#address-cells': false
-         '#clock-cells': false
-         '#size-cells': false
-+        clocks:
-+          maxItems: 1
-+        clock-names: false
-         phy@2400: false
-         phy@2800: false
- 
+> > > +#if IS_ENABLED(CONFIG_IDEAPAD_LAPTOP) || IS_ENABLED(CONFIG_THINKPAD_=
+ACPI)
+> > > +#define LWMI_PSY_DECONFLICT_STRS(...) \
+> > > +     ((char * const[]) { __VA_ARGS__, NULL })
+> > > +#endif
+> >
+> > What exactly does ifdef'ing this construct achieve? Does something hunt
+> > unused macros?
+> >
+>=20
+> Yes, W=3D2 enables -Wunused-macros. The guard avoids the warning when
+> both drivers are disabled.
 
--- 
-2.43.0
+Okay, the cure (ifdeffery) seem worse than the disease... I guess it can't=
+=20
+be helped then. :-/
 
+> > > +             for (unsigned int j =3D 0; entry->hids[j]; j++) {
+> > > +                     const char *hid =3D entry->hids[j];
+> > > +                     acpi_handle handle =3D NULL;
+> > > +                     bool has_methods =3D true;
+> > > +
+> > > +                     ret =3D acpi_get_devices(hid, lwmi_acpi_match, =
+&handle, NULL);
+> > > +                     if (ret || !handle)
+> > > +                             continue;
+> > > +
+> > > +                     for (unsigned int k =3D 0; entry->methods[k]; k=
+++) {
+> > > +                             has_methods =3D acpi_has_method(handle,=
+ entry->methods[k]);
+> > > +                             if (!has_methods)
+> > > +                                     break;
+> >
+> > So this goes to dev_dbg + return, why complicate the code flow with ext=
+ra
+> > break + check that is never true?
+> >
+> > If indentation is the worry here, the innermost bodies don't seem to
+> > require much from the outer ones so they could be moved to a function
+> > (j body + k loop).
+> >
+>=20
+> When missing a method then try the next HID. In v4, I moved the lookup
+> and method checks into a helper.
+
+It looked much better structured in v4, thanks.
+
+--=20
+ i.
+
+--8323328-467769840-1795003160=:1169--
