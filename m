@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994224;
-	b=j2r37qIkpPuNlXixVcPiJWPehLWTcKHQIUG0+YUmiVQDtGag3Q2LPVcSmqeJycQWCzS3
-	 Wc0qlXL7LInx9yTNC8lWRPwSsNttl0ycyG4FM1MJHc/I5wUDNSDTqDcF3NC0S7hDAjU+K
-	 buVwY4/dVUsD1x82A/9+t0zUMeEu5mW2c2uwU3YIb7dRDqD3WzVLzSCxNUq1TPHGs496/
-	 VLPuLGewaVgkqBbtkZi4/R9xSNgEJ6WJXVIhZSM5gi/+NFq7kNzaepLIje1BOh05TVEhn
-	 Y/GSIkL551wZdMap5M//YJfQA4Bb81RuUIbbJfBUNzb8HSx5s1mc7zzVYP+vlHR2Ccw==
+	t=1794994225;
+	b=MORnyUxyZjgVfa4EOtzsjlwglek+e497Zl7p51wHJsao6iGMI/FmvOFhsHZsPUXOXpPq
+	 wZDJ4T3LtgEJNQyJ2teygKBOaVO4IZyB2VGZcl0HMjLQzfMvoTC9uUx4mJCgBkxsuLG+T
+	 SCeqqMxlZG9hJLkvtgTH3SYy/YNmfdetJTd/E6jPYs8m1Yo7AyrO5yOi9bQF55XmmB20j
+	 wPv3SeB4phKKEuWWRe5mZQ/R0PYNfhtFPwkDeboaotGqkaupgwXCEiYWYBZNvmoMSfj8l
+	 GgZ+XitpweayrzIsmMhkn764vvmfSVmjcpmG1N8pvtyaQCYyLJG/sJNJBjA8zEG3wTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994224;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994225;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=UCp7aENN8X0x2F8gJ90fh4ZzYrhVBqarNDH9ecBgn+I=;
-	b=QvKoG98vHU9cTwcMHxN0OLvloM/l/CWVve2L+ljGDUrQeZ86PD401DuaT2wSK4FLBu/U
-	 95O0mwkTL+BQNLdLKVOs15AAUP1oBB4YkD0tUvrHk12FHoXJ8mJqBk5tg0tMFUJOIAgsQ
-	 atZJKm0zy4KrE0zhNqVUxE9OVCRoqfeLcQziWk8XQu1bT/YaSiEoEZwAJtJ/oAVHBYijo
-	 t9ROupbv4oGbxZ+qoSPJH+X7wb6bCufjjAd6+J+Eke/utnns8H/rQnd1PWS5OqixqB2PR
-	 KzL8OKZb9qgpY3p6U4W2ya4Fe1L/XbETxes09jm8JGouRU53gJ0oD3Q103zlPMsGAcg==
+	bh=uD1tBuYOug83rEirqNXlPEIbnE3sowo0Gmaf/KHGZnI=;
+	b=sO59vhHSvE0D7pLn/jBYqXrPmVvl6o0vfVz8Bixozs7PptLeMtaq3UGugYEPKm/3kiJc
+	 ji3Ak4FafYTzx3gPdIHYedx/FZfZkIcE68ydhAMS/E00Lj25JMnfmkPWTej6ffjUFuakN
+	 WU2aXmq89T/aomDF1R1O9osynVE+kQ5eguSc4bzLnngKaBxP3qSaowF65zUJ41cfoT5nL
+	 5mc7uTpcsHJITrGSHbLE6ul4h+zgCoRFU9FKMP3cLCkqG9zFUzxjNDPR4aigRo1ZsA2sW
+	 ykEB/IKpBCF3YY6Bm3lO3ucjIkvRHlLcgOr59d+9SgyMujyDQzHXTb96J8Zo8MelRXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M0cOFNPT;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fYGhSDO9;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71937606A896
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:30:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71937606A896
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F6FE606A8BB
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F6FE606A8BB
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M0cOFNPT
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so5491845e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:30:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fYGhSDO9
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-491d1f66968so26194f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:30:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794994223; x=1795599023; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794994224; x=1795599024; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=UCp7aENN8X0x2F8gJ90fh4ZzYrhVBqarNDH9ecBgn+I=;
-        b=M0cOFNPT9+7SNTwaq8Q3znIAI0ky2LpO6+v3K5fO+6bNrBB41HTCN3o2q5NVukdN5n
-         wLGFLGPDpLm2DV5Dj5XD69A6jNpbaILUGg6G9TeKbthWV5hTJZZIoiaAaGQdNCWFds8o
-         Tmd636Iu07MWxe/BVhxzrsfUYz4wshEGLVfifaRzo5rnpyI/r5uI0hM4wtF62c77asdl
-         m6giIGY9x5OZAA9Cd+t7QpiuSxmdEx3//rOfPZ4vFTwnnZ1606BgjE0rVTPX9q0az1YX
-         b7nt37LXkym+2sW0zjzTqDLsZEA8sVQwyoYuH/ZYCMe4BuyJo0II7VM/mlx1d3l40U5x
-         ZK8Q==
+        bh=uD1tBuYOug83rEirqNXlPEIbnE3sowo0Gmaf/KHGZnI=;
+        b=fYGhSDO9+nroHFZCNfRmxsl96MZLuAiQ1ScC+SsvjLLVYxAvcIEwQdHGTl6XY7AF5e
+         hwBpE9x/gNgFTYsYQbJtRIiwTxohhxS6WcKdskS6v5SkwFwHHqXoLvKIM9D5FGVvF+KK
+         G5PKa2xm9ICuVP4RtRMx1DZuwKeQ32CqzBIgVhWgUFdpqgRd7EvsMZSIjvtFdVDcgpko
+         6GH3kcuDV2SwxpVbLcBgtMYRLg0zD0M3/hWa4mzJ8KLje1yPLHGAibX56N2jOgXPVOj7
+         Bg82LappZVU5yBe3t7pSKSPJBOq0rp7WbPxfzkatYZLmQ/yg6NDcQ3dtNezP76EHsXJH
+         1mwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794994223; x=1795599023;
+        d=1e100.net; s=20260707; t=1794994224; x=1795599024;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UCp7aENN8X0x2F8gJ90fh4ZzYrhVBqarNDH9ecBgn+I=;
-        b=Ni2EeSgwnbR0EHgQq8EsjIvIpoJzIZcuOqmyb7GUX7StBRQLsASJ+CglgfuPI2X11W
-         kZedVnkG3PQvnbXimdkSlSyE9vZuMKjMzIbf6xwMoI6zNFmBCbyo0eiaDoY3OestFXQE
-         Mfzr82mP3viGegDLSpy3q5tfirFTrWxichFU8DeSYivMzue3DrwO+kiKLvHwzNFzGcrs
-         dhOKnTOok40G9R5dLx2Xoo0PtEgGV8aC0dnQoA89HGFJZUoXql/IYWgZxL1v+p6Ag/tA
-         U6oxfGedgZmWXPiFmeoQI1cF0Dh1zmNCmkdHtbghcDb8TH4H+H04H5+MUa4zpKgitgn+
-         OYxw==
-X-Forwarded-Encrypted: i=1; AL+hErHOnct6DiC+DYXXj+hphjPKWyC+D6wVIGWMLIkTT6Z9vuZ1neHWDSGPN0E6GpTGvuGQxBXW+ocU9DHk6b0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/FglZrNxfBuCfK4+ZBNKpnz9oAjf1If3Osa1zKrniSrp6wAkg6
-	+KexHht/p+ln2c+x8hruzqcJ0QR1BB0ACL3yFFTDSh/cdGhQhy/tG+MH
-X-Gm-Gg: AYBFou2MxtybxwXYt+EBo0lqHvMzMHyMd20MzXtNLZUd0tbXfqBZ3GWlu0W+QHrdCoa
-	CmTgLw4pI37PFkXDvvncywThTwFyE+bWP3+sboz/Tp7I5dpp1ClWgOnqSqurs2HN12U4GyDRblx
-	qHWOp7KWrOHC3BCRb19bKDTAoxBK2bpzEcBHIbNlnSdcT1oGCKEVUKSr5119GsRr1hDXpXnMaDK
-	ucM9W/PPKq+qQin8GAQTQfCGFVnhr/3Z+H31vVZEYJUYrDXXoSgEr2N5HX4aRZAxe/h5ljQ8A9s
-	0nDUtz0zPrcStBOLIiVfjFZU4CxMIE3yrUFjpqm+BoPky1kC814pQ8CzZv1TBBxBucGiLSBAgbh
-	IyOHcf3zQxyDfTEZMm9eKu3jmx3pvHPmsooJHanY/iCYRQ9+erdMDYs3+guYWmO5Ur/LX8aWg3B
-	LTVMPXO0bCocw46oZs7tlDJv+GqjhkwqbTT+lZtADTWJCimDCaSHJ3w+vp3QCsClbby+k8JLRZt
-	odI6R+tPxP6svFRu8gc6ZHAUkzikYg2NupOpWpd0pgJk0ZOk1OXl0Mt/9ZN0ub4pksdit0ZUVl4
-	tvTHDIkg32qyOl3RdbyJijNGTQK2LRIUBB0ytvWTLn+HpZVmCDC+mjQ+Cl1+uMnN3MnyxeTrwvB
-	lzCaDOYO9YQmvNuo/BoXF+HYbBvnTwFBsV6uXgse0hjaBjKbXhqb19Hl0xsMTBDLtp7580M8piR
-	GDoyFMJDBQRbZExyJXZqvPOKsVovL9hBfUYjpUGVHI05PrbcD322CR
-X-Received: by 2002:a05:600c:1d26:b0:4bb:5d39:95fa with SMTP id 5b1f17b1804b1-4bb7da1a877mr38156785e9.12.1794994222673;
-        Wed, 18 Nov 2026 01:30:22 -0800 (PST)
+        bh=uD1tBuYOug83rEirqNXlPEIbnE3sowo0Gmaf/KHGZnI=;
+        b=j2EyH2Q/PDW+gPBmhFX+cfpQ2c3CN6Nr1Uy2h6WeqEPPE/GOyc8XPZk/ZjwLWw3t2D
+         hBkIIQefSr2xwljvzoiXGmDQ1Jwwef32biAMzXbkrP20seZChBSpgZOgxyBiPE9okGVt
+         daUedNCDbepsrMd85W4Gs/c22+d4Db3kuF5E49tIOtYmI2Q9qhX9+bS+KS7WWqohJUHb
+         qeasUraPWW9Mu4/tSA0YlXim+m8NXTmeZLAUEN/u1TcmplzFg4YD1Btm9w4NvtUNrOHI
+         aUKlJpKNLcdQQFUwtF3g4lQ2MtxYr7svRalXCezOWBSXo9zWkxh3FaYoQRuIYExlADI0
+         8yLA==
+X-Forwarded-Encrypted: i=1; AL+hErESku3osSG9g72Vn3ySX63jKLULYT+GhIXgeUa3UAOKaLuVBhCSj0Fg9z926iD/t4aigRO3378eZbAa550=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ITIaF7N346MVEi22jaXvPU+NOrMgAZ/6GDUQX0csC7DryKS3J
+	dovMfnB47xdJeiPy5JeSUHTZkVlVG3pJHXVH+qVcXxDg6cL4sODdeOQ2
+X-Gm-Gg: AZFdTZfqnoRxjx3KhfIjz0uk8WNyNBohmutBtmWPQGCBhxkiC0GI3DiO8TtEw84jJKO
+	Bi/Ndulf6deO2Uh5QWGIgxMEZlP7f6JVr0AR26M3wVUSn6m6DMPQvloZpW5YpBCLTtsU/vPTepI
+	eyiPMqlc/R0VFpzIpNzFZ9DWUc0nHXF9Vls9Kj5pYC/f1LBjibmLp4UbKSqgP8IKvVxW5FS0SYL
+	nB/QgGnksTnAiDKIYMJyr8CdBDZbWo+6TD9nzRDuFBR3zdz0oSoY6R7jVrjETUtkTy5yRAz2doA
+	BvH6GXlfLyoniD5odWl1sWvxbVq1qyyxeu1/Y9WIlTonBSBwBUXOfJDJcs+qiuiuuqNCHqZGnAM
+	JxVG2BzrVZxDOSsHZucUeRfhCafQxAk8DQ8T2vX7W+n+SSihcTa4Enmbcz0VAk40seBpzI+/FMe
+	33hmeClQi+0ySscmdtQqNlLcKosw+/x603kJ9q0h4P0n4b4jRJOyXh81/majTLluUE1+Gy7qu2O
+	hpHJf6YSIiSwsYsiFSrGXQswmJpAQEjG7qa1BBus7JmApkYoWrXSRQNRSZ5q+p8wYuiy7moPLY8
+	vz4Qv+bj+aBSybKOgaSvMaVKn4bb3AbVhzJTg7DpbaVD6bj2lf2tfropBl9I7Jk0Et5xOmA3UOb
+	R+wURBrxdS2eXnHhYXz0Ih4Q2X47T/D168YSkQqAurL1Ed8GT0t+66iOlQzGENbSwBsaFzvfUpP
+	OyYSiVLKgixd+poNnuLj4N/m3dWd3emx3cENj75RHMMIi3hyM2+OXD
+X-Received: by 2002:a05:6000:46c3:b0:48d:ee35:b3fe with SMTP id ffacd0b85a97d-4a6333b29bcmr2724653f8f.8.1794994223763;
+        Wed, 18 Nov 2026 01:30:23 -0800 (PST)
 Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-c049-d359-3a47-0198.ipv6.o2.cz. [2a00:1028:8388:a84e:c049:d359:3a47:198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.22
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 01:30:22 -0800 (PST)
+        Wed, 18 Nov 2026 01:30:23 -0800 (PST)
 From: Josef Schlehofer <pepe.schlehofer@gmail.com>
 To: netdev@vger.kernel.org
 Cc: marcin.s.wojtas@gmail.com,
@@ -91,9 +91,9 @@ Cc: marcin.s.wojtas@gmail.com,
 	maxime.chevallier@bootlin.com,
 	w@1wt.eu,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 5/6] net: mvneta: validate an mqprio setup before applying it
-Date: Wed, 18 Nov 2026 10:30:11 +0100
-Message-ID: <20261118093012.90121-6-pepe.schlehofer@gmail.com>
+Subject: [PATCH net-next v4 6/6] net: mvneta: serve the TX queues in weighted round robin
+Date: Wed, 18 Nov 2026 10:30:12 +0100
+Message-ID: <20261118093012.90121-7-pepe.schlehofer@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
 References: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
@@ -108,205 +108,167 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A failed mqprio offload setup leaves part of its configuration in the
-hardware. When one max_rate is not a multiple of 10 kbit/s, the
-command fails, but the RX queue mapping, the rate limit mode and the
-rates of TX queues 0-3 are already written:
+Under load, some TX queues get no service at all. With four TCP
+streams on a 100 Mbit/s link, up to three streams sent nothing for 20
+seconds. The TX queue arbiter is left at its reset default, which
+serves all queues in fixed priority, and the stack spreads the flows
+over the queues.
 
-  tc qdisc add dev eth2 root handle 100: mqprio num_tc 2 \
-    map 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 queues 4@0 4@4 hw 1 \
-    mode channel shaper bw_rlimit max_rate 10Mbit 10001kbit
+Give the TX queues the same WRR weight, the smallest one that is
+larger than the largest packet, and clear the fixed priority. The
+Armada 370 and XP manuals list separate registers for the version 1
+arbiter, which the driver runs unless a shaper is set, so write both
+register sets. On the Armada 385 they are the same registers, as
+writing one set and reading the other shows.
 
-mvneta_setup_mqprio() checks the queue ranges and rates while it
-programs them, and the qdisc then fails to attach without calling the
-driver again.
+Keep the fixed priority while an mqprio offload is set up, as its
+traffic classes may rely on it, and clear it when the offload is
+removed. A rejected setup leaves it as it was, and after a rejected
+replace it applies to all flows until the qdisc is deleted. A class
+that fills the link starves the lower classes, and as the fixed
+priority is set per queue, the queues of one class still starve each
+other.
 
-Check the whole configuration first and write to the hardware only
-when it is valid, so a setup that the driver rejects changes nothing.
-A class without queues is still accepted. This also covers a rejected
-replace under a new handle, which runs while the old offload stays
-attached:
+Observed on machines in real use. OpenWrt users reported it as a
+multi-flow lockout on a Linksys WRT1200AC, and OpenWrt has worked
+around it since 2017 by sending all TX traffic of its 32-bit boards
+through queue 0. Reproduced on a Turris Omnia (Armada 385). With this
+patch each busy TX queue gets the same share and no stream stalls,
+4 x 23.5 Mbit/s on a 100 Mbit/s link and 4 x 232 Mbit/s on a 1 Gbit/s
+link. With an mqprio offload a higher queue still has priority over a
+lower one. Only the Armada 385 was tested. No kernel selftest covers
+the TX queue arbiter.
 
-  tc qdisc add dev eth2 root handle 100: mqprio num_tc 2 \
-    map 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 queues 4@0 4@4 hw 1 \
-    mode channel shaper bw_rlimit max_rate 10Mbit 10Mbit
-  tc qdisc replace dev eth2 root handle 200: mqprio num_tc 2 \
-    map 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 queues 4@0 4@4 hw 1 \
-    mode channel shaper bw_rlimit max_rate 10Mbit 10001kbit
-
-The hardware setup of the old qdisc is kept. The rejected qdisc never
-enabled its offload, so its mqprio_destroy() still calls
-netdev_set_num_tc(dev, 0). Until the old qdisc is deleted, tc shows it
-without traffic classes and the stack spreads the flows over all TX
-queues.
-
-Found by an AI code review agent while working on this series, and
-confirmed on a Turris Omnia (Armada 385). Without this patch, after
-the first command failed, TX queues 0-3 stayed limited to 10 Mbit/s
-and the VLAN priority map stayed set. With this patch both failed
-commands leave every register unchanged, and after the failed replace
-the 10 Mbit/s limits of 100: stay in effect. No kernel selftest covers
-the mvneta mqprio offload.
-
-Fixes: e9f7099d0730 ("net: mvneta: Allow having more than one queue per TC")
-Fixes: 2551dc9e398c ("net: mvneta: Add TC traffic shaping offload")
-Link: https://lore.kernel.org/netdev/20261022144814.66366-1-shawnq1@163.com/
+Fixes: ee40a116ebf1 ("net: mvneta: fix improper tx queue usage in mvneta_tx()")
+Link: https://github.com/openwrt/openwrt/issues/5411
+Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Josef Schlehofer <pepe.schlehofer@gmail.com>
 ---
-v4: Replaces "unwind a failed mqprio setup". The unwind also cleared
-the hardware setup of an attached qdisc when its replacement failed,
-as Sashiko pointed out on v3 [1]. Maxime's Reviewed-by is dropped
-because the approach changed.
-
-The rate conversion moves to mvneta_txq_refill_val() unchanged. A
-follow-up will tighten its range check for very large rates.
-
-[1] https://lore.kernel.org/netdev/179418382346.994134.3211728825005845989@kernel.org/
+v4: The fixed priority and the weights are also written to the version
+1 registers. A setup that the driver rejects no longer clears the fixed
+priority. Discovery statement added.
 ---
- drivers/net/ethernet/marvell/mvneta.c | 90 +++++++++++++--------------
- 1 file changed, 44 insertions(+), 46 deletions(-)
+ drivers/net/ethernet/marvell/mvneta.c | 56 ++++++++++++++++++++++++++-
+ 1 file changed, 55 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/marvell/mvneta.c b/drivers/net/ethernet/marvell/mvneta.c
-index 58453c69be36..89ade2ed7ce4 100644
+index 89ade2ed7ce4..35409695d3d7 100644
 --- a/drivers/net/ethernet/marvell/mvneta.c
 +++ b/drivers/net/ethernet/marvell/mvneta.c
-@@ -5224,11 +5224,10 @@ static void mvneta_disable_per_queue_rate_limit(struct mvneta_port *pp)
+@@ -118,6 +118,7 @@
+ #define      MVNETA_HSGMII_SERDES_PROTO		 0x1107
+ #define MVNETA_TYPE_PRIO                         0x24bc
+ #define      MVNETA_FORCE_UNI                    BIT(21)
++#define MVETH_TXQ_FIXED_PRIO_REG                 0x24dc
+ #define MVNETA_TXQ_CMD_1                         0x24e4
+ #define MVNETA_TXQ_CMD                           0x2448
+ #define      MVNETA_TXQ_DISABLE_SHIFT            8
+@@ -196,6 +197,7 @@
+ #define      MVNETA_RXQ_ENABLE_MASK              0x000000ff
+ #define MVETH_TXQ_TOKEN_COUNT_REG(q)             (0x2700 + ((q) << 4))
+ #define MVETH_TXQ_TOKEN_CFG_REG(q)               (0x2704 + ((q) << 4))
++#define MVETH_TXQ_WRR_ARB_REG(q)                 (0x2708 + ((q) << 4))
+ #define MVNETA_GMAC_CTRL_0                       0x2c00
+ #define      MVNETA_GMAC_MAX_RX_SIZE_SHIFT       2
+ #define      MVNETA_GMAC_MAX_RX_SIZE_MASK        0x7ffc
+@@ -253,6 +255,8 @@
+ #define MVNETA_TXQ_CMD1_REG			 0x3e00
+ #define      MVNETA_TXQ_CMD1_BW_LIM_SEL_V1	 BIT(3)
+ #define      MVNETA_TXQ_CMD1_BW_LIM_EN		 BIT(0)
++#define MVNETA_TXQ_FIXED_PRIO_REG		 0x3e04
++#define      MVNETA_TXQ_FIXED_PRIO_ALL		 0xff
+ #define MVNETA_REFILL_NUM_CLK_REG		 0x3e08
+ #define      MVNETA_REFILL_MAX_NUM_CLK		 0x0000ffff
+ #define MVNETA_TX_MTU                            0x3e0c
+@@ -264,6 +268,8 @@
+ #define      MVNETA_TXQ_BUCKET_REFILL_VALUE_MAX	 0x0007ffff
+ #define MVNETA_TXQ_TOKEN_SIZE_REG(q)             (0x3e40 + ((q) << 2))
+ #define      MVNETA_TXQ_TOKEN_SIZE_MAX           0x7fffffff
++#define MVNETA_TXQ_WRR_ARB_REG(q)		 (0x3e80 + ((q) << 2))
++#define      MVNETA_TXQ_WRR_WEIGHT_MASK		 0xff
+ 
+ /* The values of the bucket refill base period and refill period are taken from
+  * the reference manual, and adds up to a base resolution of 10Kbps. This allows
+@@ -518,6 +524,8 @@ struct mvneta_port {
+ 	 */
+ 	spinlock_t lock;
+ 	bool is_stopped;
++	/* An mqprio offload keeps the TX queues in fixed priority */
++	bool txq_fixed_prio;
+ 
+ 	u32 cause_rx_tx;
+ 	struct napi_struct napi;
+@@ -1632,6 +1640,39 @@ static void mvneta_txq_max_tx_size_set(struct mvneta_port *pp, int max_tx_size)
  	}
  }
  
--static int mvneta_setup_queue_rates(struct mvneta_port *pp, int queue,
--				    u64 min_rate, u64 max_rate)
-+/* Convert a rate limit to the token bucket refill of a TX queue */
-+static int mvneta_txq_refill_val(u64 min_rate, u64 max_rate, u32 *val)
- {
- 	u32 refill_val, rem;
--	u32 val = 0;
- 
- 	/* Convert to from Bps to bps */
- 	max_rate *= 8;
-@@ -5243,12 +5242,8 @@ static int mvneta_setup_queue_rates(struct mvneta_port *pp, int queue,
- 	    refill_val > MVNETA_TXQ_BUCKET_REFILL_VALUE_MAX)
- 		return -EINVAL;
- 
--	val = refill_val;
--	val |= (MVNETA_TXQ_BUCKET_REFILL_PERIOD <<
--		MVNETA_TXQ_BUCKET_REFILL_PERIOD_SHIFT);
--
--	pp->txqs[queue].bucket_refill = val;
--	mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue), val);
-+	*val = refill_val | (MVNETA_TXQ_BUCKET_REFILL_PERIOD <<
-+			     MVNETA_TXQ_BUCKET_REFILL_PERIOD_SHIFT);
- 
- 	return 0;
- }
-@@ -5276,8 +5271,10 @@ static void mvneta_restore_per_queue_rate_limit(struct mvneta_port *pp)
- static int mvneta_setup_mqprio(struct net_device *dev,
- 			       struct tc_mqprio_qopt_offload *mqprio)
- {
-+	bool shaper = mqprio->shaper == TC_MQPRIO_SHAPER_BW_RATE;
- 	struct mvneta_port *pp = netdev_priv(dev);
--	int rxq, txq, tc, ret;
-+	u32 refill[TC_QOPT_MAX_QUEUE];
-+	int queue, last, tc, ret;
- 	u8 num_tc;
- 
- 	num_tc = mqprio->qopt.num_tc;
-@@ -5286,58 +5283,59 @@ static int mvneta_setup_mqprio(struct net_device *dev,
- 	if (num_tc && mqprio->qopt.hw != TC_MQPRIO_HW_OFFLOAD_TCS)
- 		return 0;
- 
--	if (num_tc > rxq_number)
--		return -EINVAL;
--
--	mvneta_clear_rx_prio_map(pp);
--
- 	if (!num_tc) {
-+		mvneta_clear_rx_prio_map(pp);
- 		mvneta_disable_per_queue_rate_limit(pp);
- 		netdev_reset_tc(dev);
- 		return 0;
- 	}
- 
--	netdev_set_num_tc(dev, mqprio->qopt.num_tc);
-+	/* Check everything first, a rejected setup must not change anything */
-+	if (num_tc > rxq_number || (shaper && num_tc > txq_number))
-+		return -EINVAL;
- 
--	for (tc = 0; tc < mqprio->qopt.num_tc; tc++) {
--		netdev_set_tc_queue(dev, tc, mqprio->qopt.count[tc],
--				    mqprio->qopt.offset[tc]);
-+	for (tc = 0; tc < num_tc; tc++) {
-+		if (!mqprio->qopt.count[tc])
-+			continue;
- 
--		for (rxq = mqprio->qopt.offset[tc];
--		     rxq < mqprio->qopt.count[tc] + mqprio->qopt.offset[tc];
--		     rxq++) {
--			/* The range sets the TX queues of the class as well */
--			if (rxq >= rxq_number || rxq >= txq_number)
--				return -EINVAL;
-+		last = mqprio->qopt.offset[tc] + mqprio->qopt.count[tc];
-+		if (last > rxq_number || last > txq_number)
-+			return -EINVAL;
- 
--			mvneta_map_vlan_prio_to_rxq(pp, tc, rxq);
--		}
-+		if (!shaper)
-+			continue;
++static void mvneta_txq_wrr_weight(struct mvneta_port *pp, u32 reg, u32 weight)
++{
++	u32 val = mvreg_read(pp, reg);
 +
-+		ret = mvneta_txq_refill_val(mqprio->min_rate[tc],
-+					    mqprio->max_rate[tc], &refill[tc]);
++	val &= ~MVNETA_TXQ_WRR_WEIGHT_MASK;
++	mvreg_write(pp, reg, val | weight);
++}
++
++/* With the default fixed priority, a busy queue starves the others.
++ * The Armada 370 and XP manuals list separate registers for the
++ * version 1 arbiter, which runs without a shaper, so set both.
++ */
++static void mvneta_txq_wrr_set(struct mvneta_port *pp, int max_tx_size)
++{
++	/* In units of 256 bytes, must exceed the largest packet */
++	u32 weight = max_tx_size / 256 + 1;
++	int queue;
++
++	for (queue = 0; queue < txq_number; queue++) {
++		mvneta_txq_wrr_weight(pp, MVNETA_TXQ_WRR_ARB_REG(queue), weight);
++		mvneta_txq_wrr_weight(pp, MVETH_TXQ_WRR_ARB_REG(queue), weight);
++	}
++}
++
++/* Only the traffic classes of an mqprio offload keep the fixed priority */
++static void mvneta_txq_fixed_prio_set(struct mvneta_port *pp)
++{
++	u32 val = pp->txq_fixed_prio ? MVNETA_TXQ_FIXED_PRIO_ALL : 0;
++
++	mvreg_write(pp, MVNETA_TXQ_FIXED_PRIO_REG, val);
++	mvreg_write(pp, MVETH_TXQ_FIXED_PRIO_REG, val);
++}
++
+ /* Set unicast address */
+ static void mvneta_set_ucast_addr(struct mvneta_port *pp, u8 last_nibble,
+ 				  int queue)
+@@ -3765,6 +3806,8 @@ static void mvneta_start_dev(struct mvneta_port *pp)
+ 
+ 	mvneta_max_rx_size_set(pp, pp->pkt_size);
+ 	mvneta_txq_max_tx_size_set(pp, pp->pkt_size);
++	mvneta_txq_wrr_set(pp, pp->pkt_size);
++	mvneta_txq_fixed_prio_set(pp);
+ 	mvneta_restore_per_queue_rate_limit(pp);
+ 
+ 	/* start the Rx/Tx activity */
+@@ -5345,9 +5388,20 @@ static int mvneta_setup_mqprio(struct net_device *dev,
+ static int mvneta_setup_tc(struct net_device *dev, enum tc_setup_type type,
+ 			   void *type_data)
+ {
++	struct mvneta_port *pp = netdev_priv(dev);
++	struct tc_mqprio_qopt_offload *mqprio;
++	int ret;
++
+ 	switch (type) {
+ 	case TC_SETUP_QDISC_MQPRIO:
+-		return mvneta_setup_mqprio(dev, type_data);
++		mqprio = type_data;
++		ret = mvneta_setup_mqprio(dev, mqprio);
 +		if (ret)
 +			return ret;
- 	}
- 
--	if (mqprio->shaper != TC_MQPRIO_SHAPER_BW_RATE) {
-+	/* This can only fail before it writes to the hardware */
-+	if (shaper) {
-+		ret = mvneta_enable_per_queue_rate_limit(pp);
-+		if (ret)
-+			return ret;
-+	} else {
- 		mvneta_disable_per_queue_rate_limit(pp);
--		return 0;
- 	}
- 
--	if (mqprio->qopt.num_tc > txq_number)
--		return -EINVAL;
-+	mvneta_clear_rx_prio_map(pp);
-+	netdev_set_num_tc(dev, num_tc);
- 
--	ret = mvneta_enable_per_queue_rate_limit(pp);
--	if (ret)
--		return ret;
-+	for (tc = 0; tc < num_tc; tc++) {
-+		netdev_set_tc_queue(dev, tc, mqprio->qopt.count[tc],
-+				    mqprio->qopt.offset[tc]);
 +
-+		last = mqprio->qopt.offset[tc] + mqprio->qopt.count[tc];
-+		for (queue = mqprio->qopt.offset[tc]; queue < last; queue++) {
-+			mvneta_map_vlan_prio_to_rxq(pp, tc, queue);
-+			if (!shaper)
-+				continue;
- 
--	for (tc = 0; tc < mqprio->qopt.num_tc; tc++) {
--		for (txq = mqprio->qopt.offset[tc];
--		     txq < mqprio->qopt.count[tc] + mqprio->qopt.offset[tc];
--		     txq++) {
--			if (txq >= txq_number)
--				return -EINVAL;
--
--			ret = mvneta_setup_queue_rates(pp, txq,
--						       mqprio->min_rate[tc],
--						       mqprio->max_rate[tc]);
--			if (ret)
--				return ret;
-+			pp->txqs[queue].bucket_refill = refill[tc];
-+			mvreg_write(pp, MVNETA_TXQ_BUCKET_REFILL_REG(queue),
-+				    refill[tc]);
- 		}
++		pp->txq_fixed_prio = mqprio->qopt.num_tc;
++		mvneta_txq_fixed_prio_set(pp);
++		return 0;
+ 	default:
+ 		return -EOPNOTSUPP;
  	}
- 
 -- 
 2.54.0 (Apple Git-157)
 
