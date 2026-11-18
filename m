@@ -1,85 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.245.243.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988171;
-	b=qB9ZpIqGrePk6aX33yuwCcqy00+OeuZM0ew6AkFEu5jIPhB2Uxfn3pfaIOxNuo1rbUXo
-	 XF/HBpEshyLlob7Rjjw1LApG48Y2PM4MhzpGQRl/8xghDGxvEVkOu34vXV2sepruYILdb
-	 QIu42kT17lZPKQBWSlXTB6+v5eCxcxSC0C0ak6TUgw6zKYjDya9h3NOm990v+j1BgWz3c
-	 /bfihoNMZZ4FPnDf+NJ4EVKEHhK1ZHmcrCOHntAs2DBniO29aeKW+AdZT7TQJrWVYF630
-	 zKnQIKEd0fNlKmxQ4unM+wXcNCapWAdYFJieDDbLNYOQ4Mt05kez2784TYebOSyqelg==
+	t=1794988177;
+	b=1EgX1Bt/QegY9g9DoOxsWirn0Rzmwzp+a0hhGwBGup02NlFBA2hjqcoEuWy1cdB1h3dz
+	 0lSe5ey6wK950FzkU+Vw9GmD4kIAeg4ER/lvKhkIWPguHf31NRZuv0zPDWasA2SdC+xlD
+	 ecwi95RSGRqPyCFvRa3kLfabRwss8ca7E3XmKWRCaA/rpht5G2q9sI15XsimKs8m/HxZY
+	 e4s4VDUpDV1Q/JbKlyqzisb7+uxRvcmRV7/gBGMYSiFEq7X9+qwfU8kqWAv6CAlQH3JcH
+	 QBOk1fH7lke+LTOEFDJYOks8dx2UeibTFDxgAgt/WqsbeFIYlK1MY8JcyAdL+cBMx3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988171;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988177;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=1lt9+s8UbBEHQqO56fzaJBUqbeY66n0KBH9AAmit2Qs=;
-	b=1O7DcIgQqzYC0TGvo0PZtrZsnsY1gBxamlcbKruUHJDOPmM1haB0irMN1j56k1AEYZHu
-	 teO19adiTIliAUxlb2lpIYeKCwjAcs9sp9n0kbQjCruCSBZKhsUP8ucLkxAyIVZw1kqux
-	 CBR+N6i1Uxf0rteRr8MU+RivOKgjXWVaL6vXWhEYCK1glHZaF7DJ8KWCmiHhcUbgNWBoP
-	 7S8gylIbmddakbWJeCEa70WqXQ3GWN/a0U/cbDpnvPjX0EtOO8CJAGQ/cCxUxoQuIg8oO
-	 tlcmYyP2UwiUwX5qDH+hro5oeHVBOowPMSceIwh+EIhxvEgnyv2TKMu3XpNGoeCXIgQ==
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ESPCsoEPtuCXM1f1Dh5TyCaDd7FuNNWEbBXa4uabGnQ=;
+	b=F2mKpRLf2l0GNx6Afu32q0uDHwVmhccfZhiD9PSZYkzmLSKpedE160Jp3yMv1ji1kI4s
+	 ntVT9Wjv+MQSdOrFV3yxmPwdU0boXlP95fPUcARBA+vUIkYrzbCn8ejXkfjFwcDISNC/4
+	 8SbvKMWGz/cXcjXiK+G9Jsbx5VzrklHVPkUNGpP8B8z2jm635cnKj4PsEO/ogtdjpSANy
+	 2+69Mks3qXKYxeCrqdoZNpLvAHEnS1yaBFQgVghY+lHlK5Oqw0sSPFs226Nr0ypLWmp7T
+	 ZE6HlhD1txYDw/AOLrusvM1zjgMj0A2OMR2A3nXPpVWexcDXvQt/0s/B9ToXmKs165Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.com;
-	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=At++NS0i;
-	arc=none smtp.remote-ip=44.245.243.92
-Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com [44.245.243.92])
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YAr8hA5N;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D6E7606A31C;
-	Wed, 18 Nov 2026 07:49:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D6E7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E605606A325;
+	Wed, 18 Nov 2026 07:49:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E605606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=At++NS0i
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1794988171; x=1826524171;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=1lt9+s8UbBEHQqO56fzaJBUqbeY66n0KBH9AAmit2Qs=;
-  b=At++NS0i9eHyqMMtyUt0nkL/Zo1Cfv5BchVw/YqeLE0eem1/cuugKgWZ
-   H407Lp7kvHhuUpF+UWIxVRVW8ZGuHNMZMjCE05Ww6DgOStxQOeAg05n2y
-   iCjoe0Eo+9F7xhgIAsr0CeawfY/VCBHE0RUZEpRUJZ/NYxQJNZO4NIDP+
-   6gM65viKaw/Y/i7iB26Co/j1i9fxhEyVV23Ed3jaqjnatULJYI218Eks3
-   eRU0OFvXgB/CPY3K7UJ8B9oqUlRjOnpwGHNClPypXzjDRfeRwMq1vSC6e
-   RiGGfUkxw/6jlQka7RO9ZnUtzEbUD+nuZ6uEApMGsZw3qcSeZ9Iq1nVv2
-   w==;
-X-CSE-ConnectionGUID: WbqHsPG0QXSCR0D5ab/wjQ==
-X-CSE-MsgGUID: cUOYV0tXQjy69xMo2aoOGA==
-X-IronPort-AV: E=Sophos;i="6.27,219,1787011200"; 
-   d="scan'208";a="33957463"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 07:49:28 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:29902]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.46.128:2525] with esmtp (Farcaster)
- id bc8ec1a4-c413-40e3-88b3-332085f380ca; Wed, 18 Nov 2026 07:49:28 +0000 (UTC)
-X-Farcaster-Flow-ID: bc8ec1a4-c413-40e3-88b3-332085f380ca
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Wed, 18 Nov 2026 07:49:28 +0000
-Received: from dev-dsk-surenkj-2b-416930d2.us-west-2.amazon.com (10.169.26.94)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Wed, 18 Nov 2026 07:49:27 +0000
-From: Surendran Kanagaraj <surenkj@amazon.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>, Peter Huewe <peterhuewe@gmx.de>
-CC: Jason Gunthorpe <jgg@ziepe.ca>, <linux-integrity@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
-	<linux-doc@vger.kernel.org>, Jonathan McDowell <noodles@earth.li>, "Breno
- Leitao" <leitao@debian.org>, <nh-open-source@amazon.com>, Alexander Graf
-	<graf@amazon.de>, Gunnar Kudrjavets <gunnarku@amazon.com>, Josh Levinson
-	<joshlev@amazon.com>
-Subject: [RFC PATCH v4 7/8] tpm: Show timeouts and durations for TPM 2.0 chips
-Date: Wed, 18 Nov 2026 07:49:03 +0000
-Message-ID: <20261118074904.60624-3-surenkj@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118073852.81107-1-surenkj@amazon.com>
-References: <20261118073852.81107-1-surenkj@amazon.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YAr8hA5N
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794988177; x=1826524177;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=C3BJLvclQYCeUdc56oRM38yDtB84CMxhqig1w0q6W7I=;
+  b=YAr8hA5Na1JuGU4kb/wRc5rJOxIDQYI2xWYbywKPePjN8MsnManET6ny
+   kjF8XonC16IwfzgWOeL98YNuBNg5+EPruGc/6JERV90MKJrGOKpsehpJY
+   4RYo+XbXL7MBoelalmn/2HEtwOdiwP0sjYUrW1WBfaCaMQzLGQx4s/HPY
+   6Z0+/y+islLbiWeQFjeaJX47SCuNCVYMfF3so7VfnJwvunP+eAnHqIlZl
+   teXnMpBvkR8t+cm/Vjj6oi7XLyORoIiX13I2o72Xiv8Z2NUlLzrG64uUF
+   Su9SsEIGHSr277tmx6cNfq16KbxrWkE8Qniy1yJJD7MsdGcK1yfYcd5wX
+   Q==;
+X-CSE-ConnectionGUID: nFeTgua9TkiSDwqL1Xe19Q==
+X-CSE-MsgGUID: 4iE46M8lQ5+9oUWHMjtt0g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3679532"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3679532"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 23:49:36 -0800
+X-CSE-ConnectionGUID: ebXOhVNTRZ6lgBbDHIlbqA==
+X-CSE-MsgGUID: sJzLRkfxSJCmG5AMr6tPag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="9866875"
+Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 23:49:32 -0800
+Message-ID: <19551f22-84cd-4256-a24b-f26c61502368@linux.intel.com>
+Date: Wed, 18 Nov 2026 15:49:30 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,110 +72,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWA003.ant.amazon.com (10.13.139.47) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, iommu@lists.linux.dev,
+ Kevin Tian <kevin.tian@intel.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Danny Gonzalez <digonzal@google.com>, David Decotigny <decot@google.com>,
+ Sheena Mohan <sheenamo@google.com>, Jason Gunthorpe <jgg@nvidia.com>,
+ Pranjal Shrivastava <praan@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] iommu/vt-d: Fix WARN_ON in iommu probe path
+To: Bjorn Helgaas <helgaas@kernel.org>
+References: <20261117180122.GA427856@bhelgaas>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <20261117180122.GA427856@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-The timeouts and durations files exist only for TPM 1.x chips, so a
-TPM 2.0 chip exposes none of its wait limits, even when tpm.limits= or
-a driver's ->adjust_limits() hook changes them.
+On 11/18/2026 2:01 AM, Bjorn Helgaas wrote:
+> [+cc Danny and others because this is related to ongoing work at
+> https://lore.kernel.org/all/20261020181053.2646782-1-digonzal@google.com/]
+> 
+> On Sun, Apr 07, 2024 at 09:14:29AM +0800, Lu Baolu wrote:
+>> Commit 1a75cc710b95 ("iommu/vt-d: Use rbtree to track iommu probed
+>> devices") adds all devices probed by the iommu driver in a rbtree
+>> indexed by the source ID of each device. It assumes that each device
+>> has a unique source ID. This assumption is incorrect and the VT-d
+>> spec doesn't state this requirement either.
+>> ...
+> 
+>> +++ b/drivers/iommu/intel/iommu.c
+>> @@ -4299,9 +4299,11 @@ static struct iommu_device *intel_iommu_probe_device(struct device *dev)
+>>        }
+>>   
+>>        dev_iommu_priv_set(dev, info);
+>> -     ret = device_rbtree_insert(iommu, info);
+>> -     if (ret)
+>> -             goto free;
+>> +     if (pdev && pci_ats_supported(pdev)) {
+>> +             ret = device_rbtree_insert(iommu, info);
+>> +             if (ret)
+>> +                     goto free;
+>> +     }
+> 
+> This change is upstream as 89436f4f5412 ("iommu/vt-d: Fix WARN_ON in
+> iommu probe path"), but I think there's a problem here.  Previously
+> the rbtree insertion was unconditional, so the unconditional remove in
+> the error path was correct.
+> 
+> After 89436f4f5412, the rbtree insertion is conditional.  If
+> intel_pasid_alloc_table() fails, we try to remove it even though it
+> may never have been inserted:
 
-Both files read the limits table, so add them to the TPM 2.0 attributes
-too. A TPM 2.0 chip reports none of these values, so for it "[adjusted]"
-means that tpm.limits= or a driver's ->adjust_limits() hook set one of
-the shown values, or that validation changed one. TPM 2.0 chips get no
-device/ links, so the files are /sys/class/tpm/tpmX/timeouts and
-durations. Document both paths in sysfs-class-tpm.
+info->node is initialized with RB_CLEAR_NODE() before the insertion, and
+the remove helper checks RB_EMPTY_NODE() before erasing. If insertion
+was skipped, removal is a no-op, so this error path does not need
+another state check.
 
-Signed-off-by: Surendran Kanagaraj <surenkj@amazon.com>
----
- Documentation/ABI/stable/sysfs-class-tpm | 26 ++++++++++++++++++++++++
- drivers/char/tpm/tpm-sysfs.c             |  2 ++
- drivers/char/tpm/tpm2-cmd.c              | 17 ++++++++++++++++
- 3 files changed, 45 insertions(+)
+> 
+>>        if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev)) {
+>>                ret = intel_pasid_alloc_table(dev);
+>                  if (ret) {
+>                          dev_err(dev, "PASID table allocation failed\n");
+>                          goto clear_rbtree;
+>                  }
+>      ...
+>      clear_rbtree:
+>          device_rbtree_remove(info);
+>      free:
+>          kfree(info);
+> 
+>> @@ -4336,7 +4338,8 @@ static void intel_iommu_release_device(struct device *dev)
+>>        struct intel_iommu *iommu = info->iommu;
+>>   
+>>        mutex_lock(&iommu->iopf_lock);
+>> -     device_rbtree_remove(info);
+>> +     if (dev_is_pci(dev) && pci_ats_supported(to_pci_dev(dev)))
+>> +             device_rbtree_remove(info);
+> 
+> This is also somewhat problematic because it relies on the assumption
+> that pci_ats_supported(X) always returns the same value it returned in
+> intel_iommu_probe_device().  That may be true today, but I don't think
+> you should rely on it.
 
-diff --git a/Documentation/ABI/stable/sysfs-class-tpm b/Documentation/ABI/stable/sysfs-class-tpm
-index 73b69f63b298..ada59d147d14 100644
---- a/Documentation/ABI/stable/sysfs-class-tpm
-+++ b/Documentation/ABI/stable/sysfs-class-tpm
-@@ -184,6 +184,32 @@ Description:	The "timeouts" property shows the 4 vendor-specific values
- 		"[adjusted]" if any value differs from what the chip
- 		reported, and "[original]" otherwise.
- 
-+What:		/sys/class/tpm/tpmX/durations
-+Date:		November 2026
-+KernelVersion:	7.5
-+Contact:	linux-integrity@vger.kernel.org
-+Description:	The "durations" property, in the same format as
-+		/sys/class/tpm/tpmX/device/durations. On a TPM 1.x chip,
-+		device/durations is a compatibility link to this file. A
-+		TPM 2.0 chip has only this path. TPM 2.0 has no command
-+		that returns these values, so for a TPM 2.0 chip
-+		"[adjusted]" is displayed when the tpm.limits= parameter
-+		or the driver set one of the values, or the bounds check
-+		changed one.
-+
-+What:		/sys/class/tpm/tpmX/timeouts
-+Date:		November 2026
-+KernelVersion:	7.5
-+Contact:	linux-integrity@vger.kernel.org
-+Description:	The "timeouts" property, in the same format as
-+		/sys/class/tpm/tpmX/device/timeouts. On a TPM 1.x chip,
-+		device/timeouts is a compatibility link to this file. A
-+		TPM 2.0 chip has only this path. TPM 2.0 has no command
-+		that returns these values, so for a TPM 2.0 chip
-+		"[adjusted]" is displayed when the tpm.limits= parameter
-+		or the driver set one of the values, or the bounds check
-+		changed one.
-+
- What:		/sys/class/tpm/tpmX/tpm_version_major
- Date:		October 2019
- KernelVersion:	5.5
-diff --git a/drivers/char/tpm/tpm-sysfs.c b/drivers/char/tpm/tpm-sysfs.c
-index b289a7f6f085..6bfc366fa120 100644
---- a/drivers/char/tpm/tpm-sysfs.c
-+++ b/drivers/char/tpm/tpm-sysfs.c
-@@ -340,6 +340,8 @@ static struct attribute *tpm1_dev_attrs[] = {
- 
- static struct attribute *tpm2_dev_attrs[] = {
- 	&dev_attr_tpm_version_major.attr,
-+	&dev_attr_durations.attr,
-+	&dev_attr_timeouts.attr,
- #ifdef CONFIG_TCG_TPM2_HMAC
- 	&dev_attr_null_name.attr,
- #endif
-diff --git a/drivers/char/tpm/tpm2-cmd.c b/drivers/char/tpm/tpm2-cmd.c
-index 629caaeffa17..8cc1a262d668 100644
---- a/drivers/char/tpm/tpm2-cmd.c
-+++ b/drivers/char/tpm/tpm2-cmd.c
-@@ -41,9 +41,26 @@ int tpm2_find_hash_alg(unsigned int crypto_id)
- }
- EXPORT_SYMBOL_GPL(tpm2_find_hash_alg);
- 
-+static bool tpm2_limits_adjusted(struct tpm_chip *chip, unsigned long mask)
-+{
-+	const struct tpm_limit_entry *e = chip->limits.entry;
-+	int limit;
-+
-+	for_each_set_bit(limit, &mask, TPM_NR_LIMITS) {
-+		if (e[limit].src != TPM_LSRC_DEFAULT ||
-+		    e[limit].flags & TPM_LF_CLAMPED)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- int tpm2_get_timeouts(struct tpm_chip *chip)
- {
- 	tpm_limits_update(chip, NULL);
-+	chip->timeout_adjusted = tpm2_limits_adjusted(chip, TPM_LIMIT_INTF_MASK);
-+	chip->duration_adjusted =
-+		tpm2_limits_adjusted(chip, TPM1_LIMIT_DURATION_MASK);
- 	chip->flags |= TPM_CHIP_FLAG_HAVE_TIMEOUTS;
- 	return 0;
- }
--- 
-2.47.3
+Agreed. The release path should not re-evaluate pci_ats_supported().
+
+> I think both issues could be solved if intel/iommu.c kept track of the
+> rbtree insertion itself, e.g., with a bit in struct
+> device_domain_info.
+
+Sure. I will address this with a follow-up patch.
+
+> 
+>>        mutex_unlock(&iommu->iopf_lock);
+>>   
+>>        if (sm_supported(iommu) && !dev_is_real_dma_subdevice(dev) &&
+>> -- 
+>> 2.34.1
+>>
+
+Thanks,
+baolu
 
