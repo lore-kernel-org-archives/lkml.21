@@ -1,97 +1,151 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794975729;
-	b=umo+YldmQx/By1ldKy9c9Wupysz1C5FxsOfPkfsExVznFlGcHmu1gOLka6S9ATbJJaGS
-	 4SCEFC3Hb1apFvcpg+c/axRdxdj5XeN2JOsBxYInek4ToyMwbM6Sh0dgwWX5NyD1pYQV5
-	 RAm345wqL38YaAqOUNRF6imLYw7oOXDWzkPwmU1CjpNIcCU3nk/aBD5lj+ltMZn3UHTJX
-	 outZC19E6Iuhiq6ys+H3CqVg0uKtqCR5pLhZZxmu4WwkWr0Wa9+YZxawUUA/cAEwg9HX8
-	 76TW7LQ8H6Ttqf/Vo7LIMaeibAKk88X0nIzyG62KvsD64JUJrxP/oFzYCFZgTXWCoxQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794975729;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=+acrRslSsIF0MpbuDFzo2Z4fIDWFTCZSzThtQ8e3lc0=;
-	b=1uS75hM0aJxV+ggqO2zxlz+GRijHL9GzOFWOb6IzPkqlNesk6S6n2BgNXqkQruubL5bF
-	 mfq3zb7jEU010U34h55I8CBtI+f+vXTY6DM0TgxU6c2AOl8+yQtygtdjyi3hcvIDWFBqx
-	 OQDg4zzdoUYT4JMx4/nXE7+GCIj40P3uDdsiP1/3BcgTrbmKBUi/YwjRRDGpGczn908yp
-	 wwQ2BMgr/mmkJyc2vNlAEVEFFaLeEQfYlmzUksgWKW4S360XibZZs9wlL48Fq5AOoSqzK
-	 CVhJNkKnbWQftkX3WbCD1k9ijUYA2G+dEooe5zvcV6cbN2HH6qsMkjPLULoCgZWO2gQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OH7QGoM6;
-	arc=none smtp.remote-ip=209.85.210.182
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794975847;
+	b=CWToXof5scWLeSMwds608W09iqMwEbjfx1Im/R3V336EbGVWgnovbR2MFZeWRALdMjjg
+	 UShax/EcQ+u96v0EosETOYzGICm1o/78EYr1acodAQ789066YwZt29L2cvSwkjhl0hj0U
+	 ml/wB5nJNRtvuoIRYPOUfPcxUq0tVbdBLmkCpUo7iAZgX1CH1JFUAGt0E8PvDP1KAFNlo
+	 bP12xhCCCL+/y+mNo5yAztqEBm7XPZtSJefZ9/VJgcg9XZFzxEYS7HFEbflN1ESmxDwFG
+	 I+LkExvZv/vtlLhTmSOy9xaVaLnN2oLNaI0rJ1XjlXRQFWnD1bW2JAb6GuAEaHXTlsw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794975847;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=4MjRG3TLW1v4YlU9r5k7pH4O2XZ1LNGrs34K2EFdv5I=;
+	b=T0ZzuVeu3Wuys599HDgpgG/JJb5/u08lR8DpAwcUL+/XTv67vDT/hlOioctlxtkoecpg
+	 nOTEyKH2cOWs40IiBghzQiIv4k+5ijAoIv0ZkO+KxC80yIXzJo615EH6dww1LQgNgoi6d
+	 goWftnA2omP9Bu/UFIjA0YtLblBvS61Z1cMS8lVDmru6mwqLyZHkd1jt/uoq5IeyWMVhJ
+	 dMUbq4Mo7qrUSbPjNcQZnhgv50qTf7FrIq6QGuxU4jWjN1ddjqbny1mV/9VaGadVO12EW
+	 ZDpUwii2XQVD6BI2OeuZ+C2X0qG3fYO/xWkZ7tYwErptKeF0KKamOO3aK8afPO/5IMw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=U+vYH3kX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.49
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010049.outbound.protection.outlook.com [52.101.84.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83A07606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:22:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83A07606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E56606A31C;
+	Wed, 18 Nov 2026 04:24:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5E56606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OH7QGoM6
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8b2382bf051so325498b3a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:22:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794975729; x=1795580529; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+acrRslSsIF0MpbuDFzo2Z4fIDWFTCZSzThtQ8e3lc0=;
-        b=OH7QGoM69fXi9UOEgXPX6gft9Uh+2hcrzUrbVTnZXeQVWZlzTew/LJ/fsJWGTUejLt
-         Rm1KY2YiDmzurN3sI4nyANLACAJ4wjn4auWUWnLZdHCRdyr3hoeAtaSzBlHg7m32E9LM
-         yzYL4ppo31L2NQ+DQliDO8xNNkqSKr0DIFA4JMOQhhP9UNinv8kglkTFKVIj6VOVNk2t
-         0un9T7A4ZPsX0ghNO3fgYGrndtqEZAgkAX+YxWNhVR2AHiSwUpQlK/sVb4CJjIvTCc+1
-         9M0Dwzhda/b9bTP4a9LR86dGI85Ony4qwkl0Lw/aiC0bMyWJWlP8o59eMd5m0rgXExkl
-         cZew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794975729; x=1795580529;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+acrRslSsIF0MpbuDFzo2Z4fIDWFTCZSzThtQ8e3lc0=;
-        b=dJPZLZqGa5DaNh1ekqCNgypM3PtG57YZV/Ky4B8glkBljxa5Gw3H2negEzRBC/JrjZ
-         WaaxJTTBmagFfsU56vtWTD5mHg+E81AKbxKW3Yx1y0Loo2pkBdcs58R5E6hpKBOvhTLI
-         9fKwcZjQNcSpB5XXZ25sr6N9cq11H/eh0Tpwe/xKOjNfWSxqbPsKcIpTC2yuOXn7ubRp
-         SrFQeu74juj0qPTfpGqnEJ1ViOYjsxPd7RGihqVF6M1BxI2GSHQrVnPzGWiQNhnlJP3x
-         Cuw424BMmk9NIxB/uS9+iupf5ES28a+6Py6f4F1yDqjjRKhx0NMOd/R/k3Tzc3hT4zB1
-         Awfg==
-X-Forwarded-Encrypted: i=1; AL+hErEqp8NhYOmPgdXYffQseSkOd+O28WRXt6gj9mioSP9WJbZ5nl/SDPXMj47KmRm88tPr1s1nv8MUHr868lU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9nLdsIjAXNZKlf46jsHhyMzbR3KiP2uGANi3DjJFdcS9CwGfFW
-	5HdrcWIu4ccKSk1eMF/adHLHlWCHjbOqXWlKYgUuMwLXVv9yMxLU9vUJ0uMBNeJ3y/A=
-X-Gm-Gg: AYBFou04E6M8xBnQ5I74hqrJexu25L+0Ug/Ti/l4C2KiVCTfD0QFPg6W5BbDPRzVzL3
-	5mN9nQLxL9h7sQgkwYFNW4W4dR7GRyRhAB2nqGt40CiY8RNYmWPYu4PsTLj4deKttPI0uRmrSUN
-	qe8a28T3O/ESwht240FhQhaqba8L3vzKF5hZs7jjtcGPeCvnxtCgPcKqF/TC1/NoLBscrkKidqx
-	DRGSjxH7iLpvFmZClLsQqFEJgP+i+w+8rLoI88qo/zno75LK8Ns2MSQDFbyC/Pp46wc0SdgKamu
-	6Y0Qq0kf0CPxLTe72asWix4LVcNEwjPawcrgMin0kbf3WllNyEzflMJwWqe8hWWJ4G8ZLR0mwGp
-	/+V146IWJE6kiqSTeyNBzJcJBtt96nFcDreWXOOfF1YbwzuRtFhnaaQ5tvR+Ie56dDIJsaS4tDD
-	iK3Xt8GUcM9aVV1t7jk71siL3kb02ptE15v0ccMuPaYZ4sWTgSaz8Nn3gmGJq9kCFCV8kpkhaX0
-	y9hc/+w2RyJC5JlvRzS7hazjWZi83KtV/4Qkut51jJaeas48Z0opc6IZ3awB/iYRV4Uy0apcJqx
-	y1JC/cbCKXNQCCiHgyyIgvZe
-X-Received: by 2002:a05:6a00:3310:b0:878:3538:8f77 with SMTP id d2e1a72fcca58-8c5d4eba27dmr1264894b3a.37.1794975728759;
-        Tue, 17 Nov 2026 20:22:08 -0800 (PST)
-Received: from localhost ([111.228.63.84])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5ca7aaa8dsm455003b3a.10.2026.11.17.20.22.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 20:22:07 -0800 (PST)
-From: Cen Zhang <zzzccc427@gmail.com>
-To: marcel@holtmann.org,
-	luiz.dentz@gmail.com
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	baijiaju1990@gmail.com,
-	jjzuming@gmail.com,
-	zzzccc427@gmail.com
-Subject: [PATCH v4 4/4] Bluetooth: SMP: Serialize root channel replacement
-Date: Wed, 18 Nov 2026 12:21:38 +0800
-Message-Id: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-4@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-0@gmail.com>
-References: <pm-bluetooth-objects-candidate-0184-v11-900043ed2303656c76fe-0@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=U+vYH3kX
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k3ZMOxNIils3A9mbWeVaHvyZHpoM2K90pgNBnqHBZfT95eoebcx+RLMBHFDrDoFtLoVdcWsvyKdCVXvMS4xQiN3v7NPfy2/pci4Q5lVpuN3eiRYA7cwRsfE7I7wW0uudkqHdHjA5+fOQ1inYWzjFy0rzGToAWdLub7W9LqZUkC6YFGGR6pCIJv+uVvy7t5oLM+g+mRLSb/B4JOt6UKCdnUsCvNsSJEVoryZdPi57+6h49FjPUS/zXCjVGgG6lBjytiYwOWTi1UNXjsNiN9V3GZpYLCs4XMp7zaMJt5ULUxoCxavMY0wbnW9oO6SWwkWLBcdlywJM5o6j/dfN3GRepg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4MjRG3TLW1v4YlU9r5k7pH4O2XZ1LNGrs34K2EFdv5I=;
+ b=dzCzHLwmp1bCsyzmEnkhpIFhhmV0arVlWRL2J5mzaj/hH9xxpj722vhoWSmM0zaFYNuK9UfMD9kuPJ9Yb9pNFzB7Tvr+8q2RpZUVBwMIshFa4LDt8jyq+gO9DCVir3k42AIQRj9b1f6F4S/4lkIOCqgtmvMFVcb9HO57GmxWkTlDukBjGKit4I+/kkIIcEcPSlWPsc4krhY1D7xy0WWe8Hzw5UBSSkny4JiEmteZO8TAWSNi1mWpIGqqq5CP5w9cE4MWC1DaHuyZ/f8YODX/AaM5uayQ1bzjk5lMEfWp2rqQlF9uBSaVjl4CNUpv2TWQf0IDLKUNsgUxBR5bmVmfKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4MjRG3TLW1v4YlU9r5k7pH4O2XZ1LNGrs34K2EFdv5I=;
+ b=U+vYH3kXUI2SSqLHkl8yIMiqsn+LA8yRTYQkPBkfAEngmlByWZp65EdfDsxXR8NKK5VBGiWXuToDi+8+eV+IPHDZOIT297J0RVStC15SnGOZKqoE0Zn6xIoWWjBs7BAETHTzTkDL1hLZbHr8C36Q8m2fgtcLz4etoxMAey2ojpNNTScaFtqU3Qix6p/DH16hk2Q8NptKY47dMs0MV1CzMoDttRPWCvOooYSGlCzbJC3BCSnqfSo4I8w3IzEwf7tTN5M8Mpd7vHcU7V8V44X9UoRqQHKbf4EIYtuq0NiX7lgNwdpDnBZrLrzjKkTeIEMgceUBB7iPQVv7W7NBUsmUzA==
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
+ by VI0PR04MB11940.eurprd04.prod.outlook.com (2603:10a6:800:307::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 04:24:00 +0000
+Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
+ ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 04:24:00 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "Wei Fang (OSS)" <wei.fang@oss.nxp.com>, Clark Wang
+	<xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
+	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
+	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v7 net-next 0/9] net: dsa: netc: add PTP support for NETC
+ switch
+Thread-Topic: [PATCH v7 net-next 0/9] net: dsa: netc: add PTP support for NETC
+ switch
+Thread-Index: AQHdcaUbCEw420b0TEa1e67jj7Uo/bczROnQ
+Date: Wed, 18 Nov 2026 04:24:00 +0000
+Message-ID:
+ <AS4PR04MB93388587139E3C5D7240A030887A2@AS4PR04MB9338.eurprd04.prod.outlook.com>
+References: <20261111062753.1397582-1-wei.fang@oss.nxp.com>
+In-Reply-To: <20261111062753.1397582-1-wei.fang@oss.nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|VI0PR04MB11940:EE_
+x-ms-office365-filtering-correlation-id: 47ada314-79ea-4414-8d01-08df452bc53d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|921020|38070700021|10067099003|56012099006|261102130727099003|261026140227099003|11063799006|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261021123027099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+x-microsoft-antispam-message-info:
+ 3dEfdYumt6V4nqukBeThCt5MEfqBgsb97vLL+xc12gDbxL8tC2cPoNbbPtM1rTFUi+27hjKZHGWNOaCDUyTfnuocyPJuSYD+KUaPwEODqxLlj/iY5KPh1Z5haL8c3fetV7ken+Gt/R+yqOHh/d3dEcv0l46eu+jsgygityB8QlPRUeqmsmjTb1CcU/2HnwfimgSInGQMAsFWZ8bF/BqyfpXoSL5cx+Ymj0AFz4oWrftTcu2IAmagW4AWVUV0f0JkO0HQEIm1i1Q20x3JwdrieWAVZr4Sdp+LaqG/+0BvRZdwpo0hmXqVGycCmxVfUWi7pR5hPRgGHORgoMp5LvoBOgYyP8b0txssVc+NFy07qmwp2nxz7w6QhqMpYGrPJGkajR4EIVKbkLOZt+k6TzK8eCx3vf2c9KAEGGjh4Dkq0oX6DnR79psjb4w/WBz13490XTF1OlatH4N/uWmKuPaOQ6g+rYD7iWXI9ocQwRxZkeV1N6CYx003dMDQ1BnXEqCb6WOc3Ey7XDS8beERw43/z2Mi8wqg4Xwspgez8JBr/CauccwLHaVtmXcBm6LFfeHRDj3+K3+iVjUXlWoseuC/PY5NuyZkHN5oz/JVujwY3v5D4EjGQsxYlMgUdksTnydnBvUSKFdzuzYFdIJcCO/lUzGpqoH2LuDH1qJ2TRetnbM43uyGMVBWWfe+R5A9+G0d
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(921020)(38070700021)(10067099003)(56012099006)(261102130727099003)(261026140227099003)(11063799006)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261021123027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?us-ascii?Q?XUXeajxnYKMK/gxtq+rSA7koZEDHH9e2tjWnvWEphkpJ+0VJKXIiDjncCAHA?=
+ =?us-ascii?Q?Zn7jjEYykOURccAW1YDmdn8v+IeE6igiGVgwnKYRXNetSA4cv0TqQovkX45y?=
+ =?us-ascii?Q?EEOljMWJYV7zaBU8z0K939fAtJSspOMrJGbKcd+2qbbufLD+9DTPLkIPS9nW?=
+ =?us-ascii?Q?g/guE0YucieeYKZECXgzEWL2Yq2OOB/Nv44sD5kvHdjyfG2xRIQyMMNvPA4x?=
+ =?us-ascii?Q?4H8tz9e36vmXEIv11YdGmqP9+zf4yqEmeyvb7BSoxx6zAq6eWfBCPd+/C4/z?=
+ =?us-ascii?Q?bcUsUTBSw/or/Q1+vcR9J9RIg48z3dYBCVD1jW408jD7QuICdzJCtEESzIrO?=
+ =?us-ascii?Q?pOpU83hSqkjuAu8dt1LmfJfLzMrQHnnuOYBzRzy9DBbDD1AFM1vvb24mEn9c?=
+ =?us-ascii?Q?58ebvnRjivdCqzINMKL5dzpmMN1Z0A+1vxbRrbb3SV0WqD9ANkZ9bcJt3V4J?=
+ =?us-ascii?Q?WzrqYEGJe8N0/DfvDskQQkzr8pZkZ+84B7ylPHw2aG1URMQCPTyir4nPcLRE?=
+ =?us-ascii?Q?+iwTd8VYW2FXSUftA8TCjzOdWdN0R0cGvOJS4fsA4765KSNRPAZNo14RU3yQ?=
+ =?us-ascii?Q?31xwyyOcj7BAU5OeAfHNxmfpGLzIQhi1N8CAnwtOkFukizeMa4kSv71cNAF0?=
+ =?us-ascii?Q?NcU8qIgQD+N035TqDO7lS3RqjEfvLeQXSqQoRdYR5XYGes10bDwL9iFoBoLu?=
+ =?us-ascii?Q?Fw610HIwPxU9FoekCrY3Vy1yMbpyOCKhm0OwvO4TyZ/nXrwO9yTekWVjKyGj?=
+ =?us-ascii?Q?wA2nVbwWuzph7cQkFtZ3KsxPdaom0uP8oP2cXuMlgKjeH2thwOur5R5cdc9c?=
+ =?us-ascii?Q?jZEFF0coKqHbsvfwKO57vfS9ZVKDBHch2/YIZuk3F0m3WCYVJwNrQJvYTqX1?=
+ =?us-ascii?Q?dQHTIZ/rDKVSnZyUAnOzpJDuU8Be5RE/iuOjplzGtlUE6r+m3vP7Gmn/ZyF3?=
+ =?us-ascii?Q?18EcyMibhJbDU0/qtJfU4UHOqxgRVf4ljv1IOXHaFvwWr5eoaztpgG7tScPV?=
+ =?us-ascii?Q?0uXvWbmr2HVHLHBWA4LIMirNuFe2A5dmlaSjz8yDhPyiu4y0w0IryBHLPkMW?=
+ =?us-ascii?Q?7y9OBSFAfPa8A2/Tcc5+obZXRGLJVOVfjZ9GVxKuWtPEhnRFrn0lhYsTEyoW?=
+ =?us-ascii?Q?7EFT+z0u2DmuemKmkcYEUSoN2uc+2d1YCSpaq2qEFnvUQ0dVbZY0hcCcKF9t?=
+ =?us-ascii?Q?XAUNo6GyLO6GoWj/TbmuLI2P/ZaMk0WVcSVfQ7eXURZ2HrQU0jdrFtgZLXeI?=
+ =?us-ascii?Q?ef3j/2GAGTrYlX1hmV3nbIT1t5YJWK4PFAk5OV229tMLyG2tT75gYmGfRtgo?=
+ =?us-ascii?Q?LJiLrBSAwWMDV/un0tPBHgbwW85y4DlfqvTwSpl+KY0VDFNjeG+x+g3ufXAX?=
+ =?us-ascii?Q?v9hXWnoCA0jCbZtdIrLOcqgawyCzvPoLucHlgWayaCy8ALi98BWxfkW36/Aq?=
+ =?us-ascii?Q?46cgqEBD32M1+pn4nKeTouat87QqoRYhj9Qct2zqFFsZO9DLEWp/mHjUJb11?=
+ =?us-ascii?Q?qzEEf8HS0oQ7SdrJkW1dKV0tKzZ6/Ar6CKFE34Xl8NnD+Mbsud9lzm7mzo2W?=
+ =?us-ascii?Q?Mk4zp8hO1UYzU1nfo/fShZfXy40o6hFbfHICjqYFSPpdZrG6L0A9ZExyXjUd?=
+ =?us-ascii?Q?8TI4aqkVyFUW9BQ17IykHiKojBAOW5qYWAmTUgkJw6Fv09Bglys1paSaqmWY?=
+ =?us-ascii?Q?NhujGHISDN4idXOTytngEg5tYcw083vOqBs0qq4n82tcHpok?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,262 +155,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 47ada314-79ea-4414-8d01-08df452bc53d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 04:24:00.4362
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 04H1MQE2yxfMkEdL5dK2igc6UiDZ0WxXCFrqHXiDuOUJXdIxpJG1IXUpT3JgKh/eNEuJwg+eWOS9AwAWGcy2uQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11940
 
-smp_register() replaces the SMP root channels when they are still
-registered from an earlier power-on. This happens when management powers
-on a controller that is already up with HCI_AUTO_OFF set:
-hci_power_on_sync() clears the flag and runs hci_powered_update_sync()
-again, which registers SMP so that the channels use the identity address
-chosen for this power-on. The WARN_ON() in smp_register() fires on this
-path, and the old channels and their SMP data are freed while two kinds
-of users can still hold them.
+> This patch set adds PTP timestamping support to the NETC switch, so that
+> the switch ports can be used for IEEE 1588 PTP synchronization.
+>=20
+> The NETC switch has no time registers of its own and instead shares the
+> PTP time of the NETC Timer, which is a separate PCIe function driven by
+> its own driver. The first 3 patches prepare the Timer driver for this
+> role: tidy up its 64-bit register access, drop an ineffective reset, and
+> export netc_timer_get_current_time() so the switch driver can read the
+> current PTP time across the driver boundary in a race-free way.
+>=20
+> The switch redirects PTP frames to the CPU through the ingress port
+> filter table (IPFT). A few patches harden and simplify the existing IPFT
+> and host flood handling first, then enable the ingress port filtering
+> lookup by default so PTP filter rules take effect without extra software
+> tracking.
+>=20
+> On top of that groundwork, the switch driver gains RX timestamping and
+> both flavours of TX timestamping. Timestamps are carried between the
+> hardware and the driver through dedicated switch tags: the ingress and
+> transmit timestamps ride in To_Host tags, and per-frame requests ride in
+> To_Port tags. Two-step TX matches a queued skb clone against the
+> timestamp response echoed back by the hardware. One-step TX defers the
+> Sync frame to a per-port work, where the driver reads a fresh PTP time
+> and writes it into the Sync frame's timestamp field, then programs the
+> single-step register and transmits the frame so the hardware can add the
+> residence time to the correction field on the wire.
+>=20
+> Together these changes let standard user-space PTP stacks drive hardware
+> timestamping on the NETC switch ports.
+>=20
+> ---
+> v7 changes:
+> 1. Rename in_probe to configured in struct netc_switch
+> 2. ptp_ipft_eid[] is initialized for every port, next to ipft_hf_eid
+> 3. Return -EOPNOTSUPP when netc_get_phc_index() is negative in
+>    netc_port_hwtstamp_get()
+> 4. Initialize onestep_state to NETC_ONESTEP_PORT_INACTIVE in
+>    netc_port_ptp_init()
+> 5. Drop the netc_port_enable_onestep() call from netc_port_enable()
+> 6. When the frame is not known to be a one-step Sync, set *twostep to
+>    true instead of dropping it
+> v6 link: https://lore.kernel.org/imx/20261103021024.3121936-1-
+> wei.fang@oss.nxp.com/
+> v5 link: https://lore.kernel.org/imx/20261012095924.1129312-1-
+> wei.fang@oss.nxp.com/
+> v4 link: https://lore.kernel.org/imx/20260918072852.501420-1-
+> wei.fang@oss.nxp.com/
+> v3 link: https://lore.kernel.org/imx/20260831082335.1184605-1-
+> wei.fang@oss.nxp.com/
+> v2 link: https://lore.kernel.org/imx/20260808032146.2335723-1-
+> wei.fang@oss.nxp.com/
+> v1 link: https://lore.kernel.org/imx/20260728104548.3301214-1-
+> wei.fang@oss.nxp.com/
+> ---
+>=20
+> Wei Fang (9):
+>   ptp: netc: use ioread64_lo_hi/iowrite64_lo_hi for 64-bit register
+>     access
+>   ptp: netc: remove unnecessary pcie_flr() call in probe
+>   ptp: netc: export netc_timer_get_current_time() for cross-driver use
+>   net: dsa: netc: tie setup resources and reset to DSA setup/teardown
+>   net: dsa: netc: use entry ID instead of pointer to track host flood
+>     rule
+>   net: dsa: netc: check return value of ntmp_ipft_delete_entry()
+>   net: dsa: netc: enable ingress port filtering lookup by default
+>   net: dsa: netc: add PTP two-step timestamping support
+>   net: dsa: netc: add PTP one-step timestamping support
+>=20
+>  drivers/net/dsa/netc/Kconfig          |   2 +
+>  drivers/net/dsa/netc/Makefile         |   3 +-
+>  drivers/net/dsa/netc/netc_main.c      | 404 +++++++++---
+>  drivers/net/dsa/netc/netc_platform.c  |   1 +
+>  drivers/net/dsa/netc/netc_ptp.c       | 895 ++++++++++++++++++++++++++
+>  drivers/net/dsa/netc/netc_switch.h    |  67 +-
+>  drivers/net/dsa/netc/netc_switch_hw.h |   5 +
+>  drivers/ptp/ptp_netc.c                | 136 ++--
+>  include/linux/dsa/tag_netc.h          |  38 ++
+>  include/linux/fsl/netc_global.h       |  10 +
+>  net/dsa/tag_netc.c                    | 228 ++++++-
+>  11 files changed, 1619 insertions(+), 170 deletions(-)
+>  create mode 100644 drivers/net/dsa/netc/netc_ptp.c
+>=20
+> --
+> 2.34.1
 
-HCI event handlers read hdev->smp_data under hdev->lock, for example
-smp_irk_matches() when resolving the target of a directed advertising
-report:
+The code base of the switch driver has been updated, so this series
+needs to be rebased as well.
 
-  HCI receive worker              Power-on request
-  hci_dev_lock(hdev)
-  smp_irk_matches()
-    chan = hdev->smp_data
-                                  hci_powered_update_sync()
-                                    smp_register()
-                                      smp_del_chan(chan), chan freed
-    reads chan->data
+--
+pw-bot: cr
 
-SMP receive callbacks run on hdev->workqueue without hdev->lock and use
-the ECDH transform of the root, for example smp_cmd_public_key():
 
-  HCI receive worker (SMP)        Power-on request
-  smp_cmd_public_key()
-    tfm = root's tfm_ecdh
-                                  smp_register()
-                                    smp_del_chan()
-                                      crypto_free_kpp(tfm)
-    compute_ecdh_secret(tfm, ...)
-
-Before commit 2ff13894cfb8 ("Bluetooth: Perform HCI update for power on
-synchronously"), mgmt_powered() called smp_register() synchronously
-under hdev->lock, before submitting the HCI update. That excluded HCI
-event users, but did not exclude SMP receive callbacks. Those callbacks
-already used root-owned OOB data after commit 33d0c030717b ("Bluetooth:
-Use OOB key pair for LE SC pairing with OOB method"). The later commit
-4ba5175f2c10 ("Bluetooth: Use correct tfm to generate OOB data") made
-the ECDH calculation use the root's transform too.
-
-Queue registration on hdev->workqueue and hold hdev->lock while it
-replaces the channels. This adds exclusion from SMP receive callbacks
-and restores exclusion from HCI event users. smp_register() waits for
-the work and returns its result. Its callers hold the request lock but
-not hdev->lock, including hci_power_on() when it updates a controller in
-the HCI_AUTO_OFF window. No work on hdev->workqueue takes the request
-lock, and hci_dev_close_sync() drains this workqueue only with the
-request lock held, so the registration work cannot be queued while it
-drains. Users that run under the request lock, such as
-smp_generate_rpa(), stay serialized by that lock.
-
-The reports below come from test kernels with scheduling hooks that
-widen these windows. The WARN_ON() in smp_register() was printed before
-each of them.
-
-KASAN report as below:
-
-    ==================================================================
-    BUG: KASAN: slab-use-after-free in smp_irk_matches+0x2fb/0x310
-    Read of size 8 at addr ffff88810c35f4a0 by task kworker/u17:0/520
-
-    Workqueue: hci0 hci_rx_work
-    Call Trace:
-     <TASK>
-     dump_stack_lvl+0x93/0xd0
-     print_report+0xce/0x630
-     kasan_report+0xe0/0x110
-     smp_irk_matches+0x2fb/0x310
-     process_adv_report.part.0+0x2ce/0x1680
-     hci_le_direct_adv_report_evt+0x2f8/0x4c0
-     hci_le_meta_evt+0x30c/0x5c0
-     hci_event_packet+0x4e8/0xc70
-     hci_rx_work+0x367/0xf00
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-     </TASK>
-
-    Allocated by task 522:
-     kasan_save_stack+0x33/0x60
-     kasan_save_track+0x14/0x30
-     __kasan_kmalloc+0xaa/0xb0
-     __kmalloc_cache_noprof+0x251/0x610
-     l2cap_chan_create+0x47/0x930
-     smp_add_cid+0x120/0x4f0
-     smp_register+0xa7/0x400
-     hci_powered_update_sync+0x88/0x720
-     hci_dev_open_sync+0xae0/0x2060
-     hci_set_powered_sync+0x2a9/0x720
-     set_powered_sync+0xaa/0x150
-     hci_cmd_sync_work+0x1b3/0x450
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-
-    Freed by task 522:
-     kasan_save_stack+0x33/0x60
-     kasan_save_track+0x14/0x30
-     kasan_save_free_info+0x3b/0x60
-     __kasan_slab_free+0x5f/0x80
-     kfree+0x307/0x580
-     l2cap_chan_put+0x273/0x3a0
-     smp_del_chan+0x9f/0x170
-     smp_register+0x2e8/0x400
-     hci_powered_update_sync+0x88/0x720
-     hci_set_powered_sync+0x5e5/0x720
-     set_powered_sync+0xaa/0x150
-     hci_cmd_sync_work+0x1b3/0x450
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-
-    The buggy address belongs to the object at ffff88810c35f000
-     which belongs to the cache kmalloc-2k of size 2048
-    The buggy address is located 1184 bytes inside of
-     freed 2048-byte region [ffff88810c35f000, ffff88810c35f800)
-    ==================================================================
-
-KASAN report as below:
-
-    ==================================================================
-    BUG: KASAN: slab-use-after-free in compute_ecdh_secret+0x856/0xa50
-    Read of size 4 at addr ffff8881071f4f00 by task kworker/u17:2/500
-
-    Workqueue: hci1 hci_rx_work
-    Call Trace:
-     <TASK>
-     dump_stack_lvl+0x93/0xd0
-     print_report+0xce/0x630
-     kasan_report+0xe0/0x110
-     compute_ecdh_secret+0x856/0xa50
-     smp_recv_cb+0x3acf/0x93b0
-     l2cap_recv_frame+0x13cc/0x8830
-     l2cap_recv_acldata+0xe9f/0x10e0
-     hci_rx_work+0x5a6/0xf00
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-     </TASK>
-
-    Allocated by task 497:
-     kasan_save_stack+0x33/0x60
-     kasan_save_track+0x14/0x30
-     __kasan_kmalloc+0xaa/0xb0
-     __kmalloc_node_noprof+0x2f2/0x7b0
-     crypto_create_tfm_node+0x92/0x390
-     crypto_alloc_tfm_node+0xf5/0x220
-     smp_add_cid+0xc1/0x4f0
-     smp_register+0x9d/0x430
-     hci_powered_update_sync+0x82/0x680
-     hci_set_powered_sync+0x4f4/0x750
-     set_powered_sync+0xb8/0x210
-     hci_cmd_sync_work+0x1b3/0x450
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-
-    Freed by task 497:
-     kasan_save_stack+0x33/0x60
-     kasan_save_track+0x14/0x30
-     kasan_save_free_info+0x3b/0x60
-     __kasan_slab_free+0x5f/0x80
-     kfree+0x307/0x580
-     crypto_destroy_tfm+0xdd/0x230
-     smp_del_chan+0x8b/0x180
-     smp_register+0x29d/0x430
-     hci_powered_update_sync+0x82/0x680
-     hci_set_powered_sync+0x4f4/0x750
-     set_powered_sync+0xb8/0x210
-     hci_cmd_sync_work+0x1b3/0x450
-     process_one_work+0x908/0x19c0
-     worker_thread+0x65c/0xe40
-     kthread+0x34f/0x460
-     ret_from_fork+0x659/0x940
-     ret_from_fork_asm+0x1a/0x30
-
-    The buggy address belongs to the object at ffff8881071f4f00
-     which belongs to the cache kmalloc-128 of size 128
-    The buggy address is located 0 bytes inside of
-     freed 128-byte region [ffff8881071f4f00, ffff8881071f4f80)
-    ==================================================================
-
-Fixes: 33d0c030717b ("Bluetooth: Use OOB key pair for LE SC pairing with OOB method")
-Fixes: 2ff13894cfb8 ("Bluetooth: Perform HCI update for power on synchronously")
-Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
----
-Assisted-by: LLM
-
- net/bluetooth/smp.c | 36 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
-
-diff --git a/net/bluetooth/smp.c b/net/bluetooth/smp.c
-index e605ee8d20586..8df155566cea1 100644
---- a/net/bluetooth/smp.c
-+++ b/net/bluetooth/smp.c
-@@ -3459,7 +3459,8 @@ int smp_force_bredr(struct hci_dev *hdev, bool enable)
- 	return 0;
- }
- 
--int smp_register(struct hci_dev *hdev)
-+static int __smp_register(struct hci_dev *hdev)
-+	__must_hold(&hdev->lock)
- {
- 	struct l2cap_chan *chan;
- 
-@@ -3509,6 +3510,39 @@ int smp_register(struct hci_dev *hdev)
- 	return 0;
- }
- 
-+struct smp_register_work {
-+	struct work_struct work;
-+	struct hci_dev *hdev;
-+	int err;
-+};
-+
-+static void smp_register_func(struct work_struct *work)
-+{
-+	struct smp_register_work *reg =
-+		container_of(work, struct smp_register_work, work);
-+	struct hci_dev *hdev = reg->hdev;
-+
-+	hci_dev_lock(hdev);
-+	reg->err = __smp_register(hdev);
-+	hci_dev_unlock(hdev);
-+}
-+
-+int smp_register(struct hci_dev *hdev)
-+{
-+	struct smp_register_work reg = { .hdev = hdev };
-+
-+	/* HCI event handlers use the root channels under hdev->lock, and
-+	 * SMP receive callbacks use them from hdev->workqueue. Replace the
-+	 * channels from that workqueue while holding hdev->lock.
-+	 */
-+	INIT_WORK_ONSTACK(&reg.work, smp_register_func);
-+	queue_work(hdev->workqueue, &reg.work);
-+	flush_work(&reg.work);
-+	destroy_work_on_stack(&reg.work);
-+
-+	return reg.err;
-+}
-+
- void smp_unregister(struct hci_dev *hdev)
- {
- 	struct l2cap_chan *chan;
