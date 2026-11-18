@@ -1,106 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001885;
-	b=Io26KDD9qgJvMcQrydfAB+JZR+b5qOnpSKZzOW5VHUYlktsiNpflSelDz1Yza3i4iBju
-	 TTO7hjcisGD7Kct6LL7jfBu/XmD0ksLnX2XQ2YIfEwWxlgMUK9NnhJT04ZQyJ4BiTh+Hl
-	 m8u4UlRr8FexujHnNoBUi6yrxkMkuRTEW2GSrj0jTZVVT3Q0lnG/zUu5xr3iDmcGCUNS6
-	 pwZqcY+yUuqKqzvh70m6Xifexx/YXiEt+fXrje0y9u0C0pBOvolctwnbAK49dDQGlw61I
-	 vLmlTQssWKi8Lz4kGZPtAK3eOySTPW8GbXGnuRq7P5rcBhZPKrikSuMH/NVDRujJZxA==
+	t=1795001958;
+	b=Ab8MkCduurvSGbrFKew4817tsOrV6aVdjItnKRyMoShaiR3q5ss5M2w9WtETX1ljuATb
+	 dNzw0oVxt7xxn8J6GUR8MSCJzsf+yUQbeaj3v3aBBRM0J2DAysPZX+CY56AGK0/tX2yo8
+	 eqmGZw45CJ887qWDBPTnibGBpQyzF4okWCbOdCXaACFbSuDfT8IFVdUcIYWgP+ALPj8H3
+	 WKHaZm1kDffyB5gUaYmGlYXCDTr4CwYxgRgz58YXwGCWsU0FsVjlUevcNAUFuAgn37jc9
+	 CPfppVt9YpyT+wFIkgGVlzLcSqWKvf+FcQZabrZKIn67GnQv+sd9axAwU0zPaNhnxPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001885;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001958;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=AZ7qkD0L75OuzyZ7+z/b4gyTaud+oMoBaIWST7AAwg8=;
-	b=kmkdSxugi/03TLNwrelcagyI9gV1/0/+8YngLkDeFrw+55H7NuCB9jQg5tgExiyuk5pe
-	 RAbs5hOTfOGituZyRWHtZ+oals1FYxrjt8tVm/pLLWlDR58+mcKZxVu/ELRt9L9GoSgks
-	 OavWw5Drr60cl3JEJPwC7xlRoV1B/9XrtLCyyj4cWhucsvf4a9LmXCnpgGfK0+5316EAT
-	 VlNYONXChLa8l5ruOONKmIdyXDzRHWFbn/TwloX2ElzNvhNAzHQGZ3tLfuOH7lZeQZt1o
-	 Ug6SCTVq8X+V2C2QEVcxori8JjS+zYqRBBCjMC6cwpvQXFw+V3Agpgzp5xqqy9KL8CQ==
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=1+kdwEfmree7Bsdte7aArB/ykhaO2+XpLvUMQT5Wi2E=;
+	b=wEDhmJuWq2hmcxmv7D5ygnXjpGfRBP7iP7R6PFPyWU+iOFz+ONMydEy3zwKCAGtGLIzB
+	 kP5Dpgt7ohh6uKAMVe7O5wukxDxRDVAimQBpWS2dRWov28TaMZ0kC5kfrPrtS/DPvmtjr
+	 3ajTR+EDMnnVgecLcO1Ng42cWFvkrwLmTVqoSHZrXWGPDybAD3ij2fYElwupFDE4ki7St
+	 tYSuFBdp/G84mPGyNrHh8KIlb/RUIP0cpuPzPF5nBARs5AvhnysbsFQG0Vom7ENMfbDvc
+	 Z0dE1VYyZwdhGk2jgTNPv931L02qBBTXxF/GQq4R7IQCL50DAbQKI+nr249odOgazwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v+7og4LC;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=OOQdVk8n;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D8260A2612
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:38:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7D8260A2612
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF738606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:39:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF738606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v+7og4LC
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdb2893531bso630101a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:38:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=OOQdVk8n
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-3704d30b84fso1311079eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:39:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795001884; x=1795606684; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AZ7qkD0L75OuzyZ7+z/b4gyTaud+oMoBaIWST7AAwg8=;
-        b=v+7og4LCpbgt8zqV0qGj5L5k9LpgFcD0H0EJlsFDgNHGtKS0F9k3naOHe+9i/2bWeK
-         fPnCiGrJ1oREJ2+h9P6ZKwmoSXSZwgkiENGzo78/EZxbAgOUuY7qaBdPUhqxxdZAdfMn
-         PINW7m5SL8HOai4MWvu+6qrQ3a3gdYcAWvU+dqtYCKFjQTTY/LjyJEp9BT2ogV+kY6jV
-         wQwSCQwUH1MCU09yI/qoVnTqk+MsQEBxxK++4yao1W4KqJSdklyQ1POSzEjEu3h4QkPN
-         R0NvlLmgEt57FkDf2isa3IkqaEuFkxQCgoorgkuw6Irqm5R4d5NvSZmko/MjOATcgF/l
-         X1Ew==
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795001957; x=1795606757; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1+kdwEfmree7Bsdte7aArB/ykhaO2+XpLvUMQT5Wi2E=;
+        b=OOQdVk8ns4bemUbO+PkfiXAygXCEjjXd/DUUA8TWYhrPxsVUK1dXfugUpXCo929mMI
+         BzuMtmajgrwI/9abfGHVMCpuadlAilciuMpLOg0vYhtqXqM8oRJO7zkAsLf8RtyYzZ/U
+         NkGUjaCuN44rOIf8XMILLaJ7KUQchKjJuaPPGyXTwMyqCnZwMiiZlzITdoP5yqwaVDtm
+         6jdX8jyGl0d7+7nf9MeLKX1poXLq73hB0y/cvQETfbsL6Lqd9u6YhzAQ6yMhghoVNbYs
+         hU6mtB9ySgpUncPqMYLosjHS1D7k8yGRXyR71Ut/kUCXwERCQ3B1W+z+vFQ1yLgbmIbB
+         hYcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795001884; x=1795606684;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AZ7qkD0L75OuzyZ7+z/b4gyTaud+oMoBaIWST7AAwg8=;
-        b=p1cHdXw/wHCOggk+3pwMv46w4TB7FQBF32S6r1J2oYz0K9GnRMo3QXEaWurLERF4Nx
-         fvmWfrlqp/UuWsEte+8ww6oK1yr6yqKxbnnDW4AAEwyYNsjFtXy5YxV7HfdcBodOKltQ
-         KCDaPZbWFr45Z3wQ+BXz4lVzKnORLlI8XDBHVDuvtPo4sfhsbkbBoYqyt9/fGC+FY+oy
-         YM++Tpe5iL0ZC0lOaDbdF66FIBcSYkP1w6QErReSpDIglekRWOTBiR9Iw8iLyzOGIvha
-         KoMDTN5o4WoT1avqidMkMLh/mvKXtKVI70gTxwCVbfccHpTJpeQ7Btbg+gpZgqv0mhPS
-         K2tA==
-X-Forwarded-Encrypted: i=1; AL+hErG093Ze4y7iFz0Iha7Am/S3+4z0838yDOzhUD9HHoEMCsGvOdtocOCIISC8ECp1CBKb04BvJqEaRNZSDaU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qL7kPtqwifvbrgEQFOMmM4hkzCDFfzDOez9AhU2zNsZWZmxPh
-	C+I2mSv9SpB7J5OuDo+a4tCYEfJPhGBVHYNVXBCzaNu+y6URDoA8eGMB
-X-Gm-Gg: AZFdTZc078a+Le21U83hOpENPEu4i276e1rpyCbs/sw3GiOmhWw92vy+ptZeoRCBYHg
-	MG1BqQllDZap/zJXK8wijaHd+MVyePIsq8aeaPXE6ILsq7v7hyVL23GbPeCk27NcFJEk88mekMC
-	lnkmg8bwDjDgMDtqitwXRKLOPWwH7Nh/E1BnKcfvjrS2UITNDNeQEq0LxW8CnB6AIRPw/xM+fPO
-	T+jvqLBReEByILiTBZfHlV0gbn7BKGdqDLnu35TwlTnHhVdJ70J0+R+GYtxvsvM7GKjSenUVKu0
-	qCUJEwjeaFduTTDkgGevktdyu+2Q6cDT5dhIKvkNN+23F+QirweujgdRj0VklRHq7ebLYAMLFtO
-	LKzYQET342WgVJ6n9gOYRTEybcAoUrcDmJ5Mglpg8LmLWXphwblKQK4NQFMVozXH+WTmFspGmP2
-	+bL3yeQFs05lDDG4DcJ16UGbdWWjt+9GzZE0F7bp9LbKQruiogQp7ny1OJ6XfVRELyxHNoXBvpD
-	uKSl/1V39X5BnlLdGNz6QaBxeDDJdlaGb9r+buhbQZYfPgJu+FG/1YMW93IWq+n5ta6UQALjmup
-	qiHhYMfxeF6n3KHsjUnKP5i4OIXSECs7GN+IO9e51NjZxqzLqpbaGNyuXxYMCMJFaNn4wOMMAWH
-	IUo20pciBFCM=
-X-Received: by 2002:a17:90b:5407:b0:3a6:e901:e79b with SMTP id 98e67ed59e1d1-3b3d074d841mr2303560a91.15.1795001884103;
-        Wed, 18 Nov 2026 03:38:04 -0800 (PST)
-Received: from 1.tailnet.ftu ([1.54.0.190])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac254ba6sm8950084a91.4.2026.11.18.03.38.00
+        d=1e100.net; s=20260707; t=1795001957; x=1795606757;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1+kdwEfmree7Bsdte7aArB/ykhaO2+XpLvUMQT5Wi2E=;
+        b=0rzjf85gRcooXnDaqBZx8ND9SmIjovtKNXIwcld0/Zn8NKY/G1IWj/P4ZUJoqT7psr
+         MWAnz2QmJUOA26kXhz37JN7yHchXydX1ceuZdohgSvQEZOhboh9PIrdSQEJzPy+qdTNK
+         pKWRZ1wIqbfVuAIlFETO2gYTtwVrow9ulWyVGWTb8pGWoiU0P0BXiUyCUNvcvoF1EBAM
+         OShpanuXjRvI7y5w5tT+zncMj4fJjclVro8+pvQuow+N4QRdirwDIEGKH1ziOgrp92Zv
+         8A+Yg74s3TKuTglCZhBcLWSz7A5S9bnS7hOrG2A5wLY7EqIdAgdhw25xsfd03dpGQyJf
+         oqXw==
+X-Forwarded-Encrypted: i=1; AL+hErFiYDtfy5CawqhaRBD83VJPWawLH+gKisDON3nuUF+rwwtj9w82QH42qaJMfQaHos+Hr+SikwTGfcy1FLY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/J52+483SCn+BhrcVEoHV9ueRH8vWd/cKqp/8KTCc9mP7viIP7
+	lZcGsov8VarAa1gfMvw/OuSsCyUVLuiNAahc/iAoKuTpkMaBMFt8Ke/E9cY3+ZhxVfd1hvn8f2m
+	ekjVfTtg=
+X-Gm-Gg: AYBFou0Wxock4YErtf/GTNlGLZ0OT0gqCQ+fSjuyW1n1COhxf4GfnbmV55P7uDWTttf
+	iISs9FdBx7AGBAnxBAafDL8SWtL9Jk7eVySMY6LqIXOq6cUSwoL1bjCXNi506csfLmMV/HGJDhi
+	sK/yd/EGbKgaCtFAi1+y9xQdBcmITPEvG1hWaKbhuGgyz8EYoMKjl5NIPFUQYfUi6x5qUHO6yeB
+	E9rvJZycAuf70icJvIS2qmJ3Vg8l4Y2y4j2rsdeSKa4Uo1dsDGBEcJwlQXuFwB9d9SfzxfPpKlu
+	r/m1JzI6HJFP79jkWHgzUqsu3CFXQtF/8pSFY0gJW25rOhhJCTGym7mW6pBHHYIoH767vx9PHke
+	WytBAhiUcxMYDMpRBf/FgpCsdFQBihtyRzPOOV+F70CJu3iQLDGkqBGbB0h1ZQzhzPVT/xUCSb0
+	eNINzQBaRX3BGGcma7PCYoHY5i8YUCU8tMbusUjD7jjlXdl0yDjo/uGA2EYFSg8XVS4fTeza6G4
+	bBH+xAdiK6ByB9gI6UPa59SwfrLSDVzCqMTT7cbO+3UisxcLxU/UYGQOyuSGCssH9s1oYFBcFbQ
+	ZeUz5jNMk0+gLkBU6mbWSxmJ3F7wrOMv9TxYVYofAbLOlkzOSxixEAMS318CL8OGhVCKSmKU6om
+	b6x1MPyipuXTOnDK3NDRWhzLMqNdhA1KOigqkvQ==
+X-Received: by 2002:a05:7023:888:b0:144:c123:4036 with SMTP id a92af1059eb24-1b543d0696emr2400351c88.35.1795001956659;
+        Wed, 18 Nov 2026 03:39:16 -0800 (PST)
+Received: from localhost.localdomain ([2406:5900:1044:110c:e78e:f7f0:2120:34e7])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5446f954dsm6044662c88.2.2026.11.18.03.39.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:38:03 -0800 (PST)
-From: =?UTF-8?q?Tr=E1=BA=A7n=20Trung=20Nh=C3=A2n?= <nhan.094.vn@gmail.com>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: exynos: Add initial support for Samsung Galaxy Note8
-Date: Wed, 18 Nov 2026 18:37:19 +0700
-Message-ID: <20261118113756.304373-1-nhan.094.vn@gmail.com>
+        Wed, 18 Nov 2026 03:39:16 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: sagi@grimberg.me,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	mkp@kernel.org
+Cc: linux-rdma@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/4] scsi: target: iscsi: match a NOP-In by opcode as well as by tag
+Date: Wed, 18 Nov 2026 20:39:02 +0900
+Message-ID: <20261118113905.2361969-2-yhlee@isslab.korea.ac.kr>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CADrjBPph5r0rjZPLz7db9-QtmN5+7S2Ft8Zgn1oi+C0Okvas_w@mail.gmail.com>
-References: <20261118-upstream-greatlte-dts-v2-0-bc2f23ce81c6@gmail.com> <20261118-upstream-greatlte-dts-v2-2-bc2f23ce81c6@gmail.com> <CADrjBPph5r0rjZPLz7db9-QtmN5+7S2Ft8Zgn1oi+C0Okvas_w@mail.gmail.com>
+In-Reply-To: <20261118113905.2361969-1-yhlee@isslab.korea.ac.kr>
+References: <20261118113905.2361969-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,64 +104,208 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi Peter,
+iscsit_find_cmd_from_ttt() returns the first command on the connection
+whose targ_xfer_tag matches, whatever kind of command it is.  Its two
+callers each want one kind: iscsit_process_nop_out() wants the NOP-In the
+target sent, so that a NOP-Out carrying its TTT retires it, and
+iscsit_handle_data_ack() wants the SCSI command a Data-In belongs to.
 
-On Wed, 18 Nov 2026 at 10:51, Peter Griffin <peter.griffin@linaro.org> wrote:
-> Does the Samsung bootloader not pass a correctly populated memory node
-> for the device? Or is this required because UniLoader doesn't pass
-> along the memory node it received from the previous stage bootloader?
+A Reject the target core allocates itself is zeroed by
+iscsit_allocate_cmd(), so its targ_xfer_tag is 0, and it is on
+conn_cmd_list before it is sent.  A NOP-Out with a reserved ITT and TTT 0
+is therefore given that Reject, and iscsit_process_nop_out() queues it
+with ISTATE_REMOVE on the immediate queue.  The rx thread does that; the
+tx thread is what takes the command off conn_cmd_list and frees it, so a
+second such NOP-Out can be given the same command before the tx thread
+has got to the first one, and it is freed twice.  Such a command has no
+se_cmd, so iscsit_free_cmd() releases it on the spot.
 
-From what I can check here, it's a bit of both. S-Boot doesn't build
-the memory node itself. It loads the DTB from the boot image it boots
-(BOOT, or RECOVERY as in my test); it checks that a /memory node
-exists, and only fills in the bank at 0x900000000
-(reg = <0x9 0x0 0x80000000>) when it detects 6GB of DRAM. The other
-three banks have to be in the DTB already. Samsung's own device tree
-for this phone lists them and leaves the size of the fourth bank as 0
-for S-Boot to fill in. From
-arch/arm64/boot/dts/exynos/exynos8895-greatlte_common.dtsi in
-Samsung's kernel source release for the Note8 (SM-N950F_PP_Opensource,
-N950FXXSGDUG6, on opensource.samsung.com):
+An initiator reaches this over plain iscsi_tcp one PDU after login.
+iscsit_check_dataout_hdr() rejects a Data-Out whose DataSegmentLength
+exceeds MaxXmitDataSegmentLength without dumping the payload, and
+iscsit_handle_data_out() throws away the error it returns, so the receive
+loop reads on and takes the next 48 bytes on the wire as the next BHS.
+Twenty Data-Out/NOP-Out pairs in one write give 19 or 20 KASAN reports,
+in 5 boots out of 5:
 
-	memory@80000000 {
-		device_type = "memory";
-		reg = <0x0 0x80000000 0x3C800000>;
-	};
+  [   10.546883] ==================================================================
+  [   10.546895] BUG: KASAN: double-free in iscsit_release_cmd+0xff/0x390
+  [   10.546957] Free of addr ffff88800e5d1680 by task iscsi_ttx/140
+  [   10.546964]
+  [   10.546976] CPU: 0 UID: 0 PID: 140 Comm: iscsi_ttx Not tainted 7.4.0-rc2-RJ9TA-00716-g23c62304dde2 #1 PREEMPT(lazy)
+  [   10.546989] Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+  [   10.546997] Call Trace:
+  [   10.547002]  <TASK>
+  [   10.547008]  dump_stack_lvl+0x66/0xa0
+  [   10.547023]  print_report+0xd0/0x630
+  [   10.547040]  ? iscsit_release_cmd+0xff/0x390
+  [   10.547049]  ? iscsit_release_cmd+0xff/0x390
+  [   10.547057]  ? __virt_addr_valid+0x209/0x3f0
+  [   10.547071]  ? iscsit_release_cmd+0xff/0x390
+  [   10.547079]  ? iscsit_release_cmd+0xff/0x390
+  [   10.547087]  kasan_report_invalid_free+0xb8/0xe0
+  [   10.547100]  ? iscsit_release_cmd+0xff/0x390
+  [   10.547110]  ? iscsit_release_cmd+0xff/0x390
+  [   10.547119]  check_slab_allocation+0xd9/0x100
+  [   10.547131]  kfree+0x163/0x510
+  [   10.547147]  iscsit_release_cmd+0xff/0x390
+  [   10.547156]  iscsit_immediate_queue+0x17a/0xa90
+  [   10.547167]  ? kmem_cache_free+0x1fe/0x500
+  [   10.547176]  ? iscsit_get_cmd_from_immediate_queue+0x189/0x210
+  [   10.547187]  iscsi_target_tx_thread+0x34d/0x700
+  [   10.547201]  ? __kthread_parkme+0x9f/0x1f0
+  [   10.547213]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
+  [   10.547227]  ? __pfx_autoremove_wake_function+0x10/0x10
+  [   10.547241]  ? __kthread_parkme+0xac/0x1f0
+  [   10.547251]  ? __pfx_iscsi_target_tx_thread+0x10/0x10
+  [   10.547263]  kthread+0x300/0x400
+  [   10.547274]  ? __pfx_kthread+0x10/0x10
+  [   10.547285]  ret_from_fork+0x52e/0x780
+  [   10.547297]  ? __pfx_ret_from_fork+0x10/0x10
+  [   10.547307]  ? __switch_to+0x572/0xdd0
+  [   10.547321]  ? __pfx_kthread+0x10/0x10
+  [   10.547332]  ret_from_fork_asm+0x1a/0x30
+  [   10.547352]  </TASK>
+  [   10.547357]
+  [   10.547359] Allocated by task 141:
+  [   10.547366]  kasan_save_stack+0x33/0x60
+  [   10.547379]  kasan_save_track+0x14/0x30
+  [   10.547388]  __kasan_kmalloc+0x8f/0xa0
+  [   10.547397]  __kmalloc_node_track_caller_noprof+0x26d/0x680
+  [   10.547409]  kmemdup_noprof+0x20/0x50
+  [   10.550518]  iscsit_add_reject+0x99/0x2b0
+  [   10.550532]  iscsit_check_dataout_hdr+0x26d/0x360
+  [   10.550542]  iscsit_get_rx_pdu+0x5da/0x35d0
+  [   10.550552]  iscsi_target_rx_thread+0x132/0x2f0
+  [   10.550563]  kthread+0x300/0x400
+  [   10.550573]  ret_from_fork+0x52e/0x780
+  [   10.550582]  ret_from_fork_asm+0x1a/0x30
+  [   10.550593]
+  [   10.550596] Freed by task 140:
+  [   10.550603]  kasan_save_stack+0x33/0x60
+  [   10.550615]  kasan_save_track+0x14/0x30
+  [   10.550623]  kasan_save_free_info+0x3b/0x60
+  [   10.550631]  __kasan_slab_free+0x43/0x70
+  [   10.550640]  kfree+0x2e5/0x510
+  [   10.550651]  iscsit_release_cmd+0xff/0x390
+  [   10.550659]  iscsit_immediate_queue+0x17a/0xa90
+  [   10.550669]  iscsi_target_tx_thread+0x34d/0x700
+  [   10.550679]  kthread+0x300/0x400
+  [   10.550688]  ret_from_fork+0x52e/0x780
+  [   10.550696]  ret_from_fork_asm+0x1a/0x30
+  [   10.550706]
+  [   10.550710] The buggy address belongs to the object at ffff88800e5d1680
+  [   10.550710]  which belongs to the cache kmalloc-64 of size 64
+  [   10.550719] The buggy address is located 0 bytes inside of
+  [   10.550719]  64-byte region [ffff88800e5d1680, ffff88800e5d16c0)
+  [   10.550729]
+  [   10.550734] The buggy address belongs to the physical page:
+  [   10.550743] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0xe5d1
+  [   10.550753] flags: 0x100000000000000(node=0|zone=1)
+  [   10.550763] page_type: f5(slab)
+  [   10.550776] raw: 0100000000000000 ffff888008c428c0 dead000000000100 dead000000000122
+  [   10.550785] raw: 0000000000000000 0000000000200020 00000000f5000000 0000000000000000
+  [   10.550790] page dumped because: kasan: bad access detected
+  [   10.550794]
+  [   10.550796] Memory state around the buggy address:
+  [   10.550801]  ffff88800e5d1580: 00 00 00 00 00 00 fc fc fc fc fc fc fc fc fc fc
+  [   10.550808]  ffff88800e5d1600: 00 00 00 00 00 00 fc fc fc fc fc fc fc fc fc fc
+  [   10.550813] >ffff88800e5d1680: fa fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+  [   10.550818]                    ^
+  [   10.550823]  ffff88800e5d1700: fa fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+  [   10.550829]  ffff88800e5d1780: fa fb fb fb fb fb fb fb fc fc fc fc fc fc fc fc
+  [   10.550834] ==================================================================
 
-	memory@C0000000 {
-		device_type = "memory";
-		reg = <0x0 0xC0000000 0x40000000>;
-	};
+The same shape was reported in 2015 and fixed by taking one holder of
+TTT 0 away rather than by looking at the kind of command.  A Test Unit
+Ready left at TTT 0 was being matched to the session's first NOP-In and
+queued for removal twice, so every non-READ SCSI command was given
+0xFFFFFFFF instead:
+commit 9547308bda29 ("target/iscsi: Fix double free of a TUR followed by a solicited NOPOUT").
+The Reject and the first READ of a session still carry TTT 0.
 
-	memory@880000000 {
-		device_type = "memory";
-		reg = <0x00000008 0x80000000 0x80000000>;
-	};
+Pass the opcode the caller is after and compare it too.  The test belongs
+in the loop rather than at the caller: at the caller, a Reject or a first
+READ standing earlier on conn_cmd_list would mask a NOP-In holding the
+same TTT, and its answer would be dropped.
 
-	memory@900000000 {
-		device_type = "memory";
-		reg = <0x00000009 0x00000000 0x0>;
-	};
+Link: https://lore.kernel.org/all/1437516477-30554-4-git-send-email-sbaugh@catern.com/
+Fixes: e48354ce078c ("iscsi-target: Add iSCSI fabric support for target v4.1")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+---
+ drivers/target/iscsi/iscsi_target.c      | 3 ++-
+ drivers/target/iscsi/iscsi_target_erl1.c | 2 +-
+ drivers/target/iscsi/iscsi_target_util.c | 6 ++++--
+ drivers/target/iscsi/iscsi_target_util.h | 4 +++-
+ 4 files changed, 10 insertions(+), 5 deletions(-)
 
-The DTB in the stock SM-N950N BOOT image (N950NKSU5DZE2) has the same
-four nodes.
+diff --git a/drivers/target/iscsi/iscsi_target.c b/drivers/target/iscsi/iscsi_target.c
+index 124ff269b8e759..2762a60ec3b33d 100644
+--- a/drivers/target/iscsi/iscsi_target.c
++++ b/drivers/target/iscsi/iscsi_target.c
+@@ -1821,7 +1821,8 @@ int iscsit_process_nop_out(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
+ 	 * This was a response to a unsolicited NOPIN ping.
+ 	 */
+ 	if (hdr->ttt != cpu_to_be32(0xFFFFFFFF)) {
+-		cmd_p = iscsit_find_cmd_from_ttt(conn, be32_to_cpu(hdr->ttt));
++		cmd_p = iscsit_find_cmd_from_ttt(conn, be32_to_cpu(hdr->ttt),
++						 ISCSI_OP_NOOP_IN);
+ 		if (!cmd_p)
+ 			return -EINVAL;
+ 
+diff --git a/drivers/target/iscsi/iscsi_target_erl1.c b/drivers/target/iscsi/iscsi_target_erl1.c
+index d8ca06e697d63f..74dc218716f2ad 100644
+--- a/drivers/target/iscsi/iscsi_target_erl1.c
++++ b/drivers/target/iscsi/iscsi_target_erl1.c
+@@ -536,7 +536,7 @@ int iscsit_handle_data_ack(
+ {
+ 	struct iscsit_cmd *cmd = NULL;
+ 
+-	cmd = iscsit_find_cmd_from_ttt(conn, targ_xfer_tag);
++	cmd = iscsit_find_cmd_from_ttt(conn, targ_xfer_tag, ISCSI_OP_SCSI_CMD);
+ 	if (!cmd) {
+ 		pr_err("Data ACK SNACK for TTT: 0x%08x is"
+ 			" invalid.\n", targ_xfer_tag);
+diff --git a/drivers/target/iscsi/iscsi_target_util.c b/drivers/target/iscsi/iscsi_target_util.c
+index c1888c42afdd5e..9ee1b5fcf5059f 100644
+--- a/drivers/target/iscsi/iscsi_target_util.c
++++ b/drivers/target/iscsi/iscsi_target_util.c
+@@ -383,13 +383,15 @@ EXPORT_SYMBOL(iscsit_find_cmd_from_itt_or_dump);
+ 
+ struct iscsit_cmd *iscsit_find_cmd_from_ttt(
+ 	struct iscsit_conn *conn,
+-	u32 targ_xfer_tag)
++	u32 targ_xfer_tag,
++	u8 iscsi_opcode)
+ {
+ 	struct iscsit_cmd *cmd = NULL;
+ 
+ 	spin_lock_bh(&conn->cmd_lock);
+ 	list_for_each_entry(cmd, &conn->conn_cmd_list, i_conn_node) {
+-		if (cmd->targ_xfer_tag == targ_xfer_tag) {
++		if (cmd->iscsi_opcode == iscsi_opcode &&
++		    cmd->targ_xfer_tag == targ_xfer_tag) {
+ 			spin_unlock_bh(&conn->cmd_lock);
+ 			return cmd;
+ 		}
+diff --git a/drivers/target/iscsi/iscsi_target_util.h b/drivers/target/iscsi/iscsi_target_util.h
+index 7ae48a8a5cbf0b..56487d15ed80d4 100644
+--- a/drivers/target/iscsi/iscsi_target_util.h
++++ b/drivers/target/iscsi/iscsi_target_util.h
+@@ -25,7 +25,9 @@ extern int iscsit_sequence_cmd(struct iscsit_conn *conn, struct iscsit_cmd *cmd,
+ 			       unsigned char * ,__be32 cmdsn);
+ extern struct iscsit_cmd *iscsit_find_cmd_from_itt_or_dump(struct iscsit_conn *,
+ 			itt_t, u32);
+-extern struct iscsit_cmd *iscsit_find_cmd_from_ttt(struct iscsit_conn *, u32);
++extern struct iscsit_cmd *iscsit_find_cmd_from_ttt(struct iscsit_conn *conn,
++						   u32 targ_xfer_tag,
++						   u8 iscsi_opcode);
+ extern int iscsit_find_cmd_for_recovery(struct iscsit_session *, struct iscsit_cmd **,
+ 			struct iscsi_conn_recovery **, itt_t);
+ extern void iscsit_add_cmd_to_immediate_queue(struct iscsit_cmd *, struct iscsit_conn *, u8);
+-- 
+2.43.0
 
-S-Boot does the same on SM-N950F: the device tree fixups in its
-N950FXXSGDUG6 bootloader are the same code as in the SM-N950N
-N950NKSU5DZE2 one. Every Exynos Note8 ships with 6GB of RAM, so the
-fourth bank is always filled in and the DTS doesn't need to differ
-between them.
-
-uniLoader then doesn't pass that DTB on. It boots the kernel with the
-DTB linked into it and only adds the initrd properties to /chosen, so
-nothing S-Boot wrote reaches the kernel and the memory node has to be in
-the DTS. dreamlte and starlte do the same for the same reason.
-
-btw, the name's Nhân; Trần is the family name, and if the convention is
-to write first name first, I'd be pleased to adjust!
-
-Thanks,
-Nhân
