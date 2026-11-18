@@ -1,88 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041354;
-	b=sWYEBNo0bbCx1UEf1w0pnz5Swwz7XPmhfWitnxNZuIq789RHavFV6nDjlfR0ELeOGEjP
-	 x6ttcUkfOjuIKjjZ8ygQGDdCOGBhvaIBS0/thk2Km6fxfvfB2yJOtTayNgXk88HmwGCDx
-	 X1ADFJKwtOO/T18deIFv1t2ZJ741ThYmkAbJ3POW12U/4gtqo0SESfqKo/gDQqw8OqY7J
-	 bd4S5NbKu2xjgH9UVF++lppUNhp4n1WAYEpRhRywYsNhrT8oPbRx03yPlbAYkL6TMOOX4
-	 DU4Ff685zdDnnNjCOAFYqXVNY6sykiONAnkTXE+vcJaoOVsozxoIUPv5RBNwZmzTX3g==
+	t=1795041391;
+	b=LgToh0lRSq4qdmsLP8ADHuiyVP9RIUw8l8wpqH99j8OspOL5Oh/iBe/2ifDyiDhTjqfB
+	 RjsG3EgUl4DH7NbmsjjAO4PAglscXEevPO5zrDNOM2HUB1GpUZsJdcEm3wxZ2q8Z4QdKs
+	 dVHJMM6lR3hPjnQnxwlqx5vDMpGXoFFndh+IT0hTkOzra99Fn7gbsZPLYizN2c4NYOZsV
+	 vzBd5Mm0tFwP39tnmoRZJekxeDHsVPLevzfEh/1McCqxDv/q6eoV3wy+4/GW9tBdhR3mS
+	 X9eSWqvOubeBIEGUVcAYdd+CHLIlb4Mw2u9verDd/WHzrxRbakxYRd3cO+lETxw9P5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041354;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/1QlJHCek+NUM+XDDyqHX4umCUytIfs6olrzBCKAfC8=;
-	b=2bkgDUcjOQdQd4adJWqZ+OmbQ0eomQj4s20ewi5EpccYi7sdXXLQ5NWXIaSQ1tRUb2Nq
-	 /vCsJ+4UsBVAe+SxOkak3WgiOmwH9zBg15LbEKjMvlunZ3+LpvUcw8n301c/5JedIViWH
-	 mIfNxnhz8vDwmVAx+Z79H6GpTvbA4KD7Jm3gBKNQ9W82pn45pmTCTkhcrCP4IoANsWGpE
-	 MIJNz1X0go4Ext+rI4/32uykAwkAUhTbMPzO306J5Doo5d6FJ/SxwscT5uTisL5Av87NI
-	 m8yZIs25aMbZjXWku23X1OPPR/zckUfTmBDq4ypkKjSL1qaXS2xBfrJ1G3MPp7115Mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041391;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=giz9sJbi7AOf6PAf+EITaeI2qW09MerlLLpsHbUYRWE=;
+	b=KcZ5y92ctMiukzpw4maZH7aeVhcXH3fnHGWoOoudXdMOHnAUBRYZHPLiWFvedMT2n9zE
+	 lU1KWbpENt/OY396E+zlWgmVAMQZfsPJy8UoJ5CE/069vwdPZnM8vsJxo/x9E2jvRGUSk
+	 OajoATdiPPRvzuJzSipCXIKmSveM/wxWb7qsish1CCPsQS4eZRSmsScp2WKgWHXGdeyD2
+	 OtfZUCfmBwPXQWk5FqWuOFUCiEbHeBgPRP8wl9Plbd5i6GQxMAii2BU74PwycAo9V5HqV
+	 wSmW4opKmL7LUA+U0Z9cohYaK/90IMWp6QbQEp+lJq2IZykjhSqs/zSRBh0k9yLxb3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z2k9Aopr;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=he7jUpP7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC984606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:35:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC984606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45E59606A325;
+	Wed, 18 Nov 2026 22:36:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z2k9Aopr
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-49465892f7bso1212375f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:35:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795041352; x=1795646152; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/1QlJHCek+NUM+XDDyqHX4umCUytIfs6olrzBCKAfC8=;
-        b=z2k9Aopriz/s/DdJBcHB96CxFi9cWMysyIavKi0+kegv2HKMstRYQHOC4Mqo4PI5Gn
-         nx9x91MTbTNzLMdNMBz1NseyiIRkYsrxrzMxd3V4SEunBHQtBJ4G5YDTDpLtgZixhWkq
-         /qqdYESS27oMnu+7KoFJmoqbfFphM2TMYu7OFKQrMvy03ZSKipNikKNgbb9+M7VVGfnq
-         0uc2YV1r3hvRw7bKWswIqb/2A0JI9uxhQML48EA0ZY5plsnH2mZO5N52dJzG+K9LAYLL
-         EGDe3kRWWQy5ukKqvoPA8gxeUKHc/GaIjXURRfPAXyn+6obt8fC5G7ETRYPzYFUGEFW3
-         TxHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795041352; x=1795646152;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/1QlJHCek+NUM+XDDyqHX4umCUytIfs6olrzBCKAfC8=;
-        b=yDvTe80MMN+eD0VLH2oC6cq4q00tbA77egBX4EsD12pfSgoH25jwBiyCfiMhSTWVcw
-         bVDiCeZHeTp3km9bJSwIDM1JBUNcxAIy/KpzpxTCdoe/apVikgNuyXBRBGVx96UV34g4
-         E4z6PzfyED5rzUBS8YUdczklm/Hpd9H+7AovFWyaTWVzkXUse4+ToN5UHZnHD2vldkP/
-         Wp5lw8v9hNdnVau2Che/eUZ90qIm+31hCSUhPnp0GPqHwYMLmqNZANaIxsdCrw3Jb+v3
-         J1GlM+GQjxll4b1T9nmLXcLRRf+vS3zT7qN2gMJfWFMdF+7xnSvVuLB5nl4eM0TJ+fqC
-         xkpg==
-X-Forwarded-Encrypted: i=1; AL+hErEKKqAl1+bcDJbOtF1RESWlArxqxmaCPM/c2Hsvn76nirHWjwP/tcE2Irc2ZoMG71Y/hTGL7dhFBKeGLos=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lT/wJM7WAhXA8WIpISOLYk85iJohXsJGnfdmRMUfLjK8s95ow
-	CzH/6LH1NvTUA1IkgWkcoyr7i0oTTNz0LGIg9xs3MJ2/CZK3a68nPz8W
-X-Gm-Gg: AYBFou06u79hbmYtsrr+jiHKOzqXel5mZgyo/8sbnMkzjD/kTT72UaQe+nGElIdjG2z
-	0sEtHkBD65k8BzY5pwCkeM8T6XxaY5XsVfBNaApB1WKMl0VhrQfzDy6sGBmkEo2rBkqNvEl+az8
-	05NzK0Q54eGsQ105JzmkgE4qpSxKmMR5aYYUvPrtxlfqZMF7r5pdvGkIqbR1UnzbKtLupYCyYNh
-	3ZPgeBw5nBLtWfFMKK83o+SUiFCaj0WlYbsafh3b0yJfWrCF59+dTS5GK5ArRkczAI4H3JYuYlF
-	Gx3FHUAKazNZKNpotGbqU1NECPYFHzNYgmYlQv/ihzlFxkLbWex3YtGKLFP461DTimKE7WZqhcv
-	kPUe3+Yse9iyOBBZ0/j44lhy2xEmb72E6ijn4Owke2Xjgz/CeQVdXeGKNUBVqpJFgdWJzJz6Zc+
-	UGBtiHKoP3EuTwfJAu/xsRhS2THmgG51DI/SWki4s58j+cP+C79Nx1ycGXqMp/ve06Ai3qVY+cf
-	8vwoS+l5BskRlTvoMOjWO0IPuq4bEtxa+cMK+owmlMNWAwJts08oBjU+CncBeUpUHaNvjilN71P
-	CPE5cfZuG9E7B28iNjHo9n12
-X-Received: by 2002:a05:600c:4f14:b0:4ac:da92:2bd4 with SMTP id 5b1f17b1804b1-4bb7d6cc934mr90494465e9.1.1795041352279;
-        Wed, 18 Nov 2026 14:35:52 -0800 (PST)
-Received: from [192.168.1.22] ([83.231.69.9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb844ee2absm4881495e9.13.2026.11.18.14.35.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 14:35:51 -0800 (PST)
-Message-ID: <ad22c01a-dfd0-46ac-bd51-ac5d331c9a89@gmail.com>
-Date: Wed, 18 Nov 2026 23:35:49 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=he7jUpP7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 702831F000C5;
+	Wed, 18 Nov 2026 22:36:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795041391;
+	bh=giz9sJbi7AOf6PAf+EITaeI2qW09MerlLLpsHbUYRWE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=he7jUpP7W8wDKQl/Ac9/kNQcvc3DMO1YkGS7w+fX+gzQALPIfhbbsoZRzonAL29hz
+	 XV2HJ4mGcFOxPoxIyvK2iqLjsLfC80ujakgr3GD3gBIexhQZbwv1Ra29Nv6i0urF93
+	 mFVUHruiJeluzhgNRXnqLSsr9Wx9o3USwccENA1lM4ilNwGvubCTIWITLl6XcGO0fS
+	 RI44swSjupHrKUIAq31VGqsT4SEO7dYtfDCAzwOIPxgIj9xsJNpjbB91y/6otnFA5T
+	 NH9Sr0EiJ/BBY4/r0MRuie9RbCf5YhUSLt8DUfj+85e1AqQRk2cYYKFqlKIf8QkfNX
+	 rTYiX1mfpLPxA==
+Message-ID: <9bc43f9b-d721-408c-bf78-0f08f6ec4bb2@kernel.org>
+Date: Wed, 18 Nov 2026 23:36:20 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,71 +52,89 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] mm/vmscan: flush deferred writable TLB entries before
- unlocking the folio
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, "Borislav Petkov (AMD)" <bp@alien8.de>,
- =?UTF-8?Q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>,
- Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
- Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
- Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
- Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
- Youngjun Park <youngjun.park@lge.com>, Mel Gorman <mgorman@suse.de>,
- Sasha Levin <sasha.levin@oracle.com>, Rik van Riel <riel@redhat.com>,
- Ingo Molnar <mingo@kernel.org>, Peter Xu <peterx@redhat.com>,
- Hugh Dickins <hughd@google.com>, Axel Rasmussen <axelrasmussen@google.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
- <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
+Subject: Re: [RFC PATCH v3 00/13] Namespace for namespace roots
 Content-Language: en-US
-From: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
-In-Reply-To: <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
+To: Jarkko Sakkinen <jarkko@kernel.org>, David Howells <dhowells@redhat.com>
+Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+ linux-security-module@vger.kernel.org,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@amacapital.net>,
+ Anna-Maria Behnsen <anna-maria@linutronix.de>,
+ Ben Segall <bsegall@google.com>, Christian Brauner <brauner@kernel.org>,
+ David Hildenbrand <david@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Jan Kara <jack@suse.cz>, John Johansen <john.johansen@canonical.com>,
+ Jonathan Corbet <corbet@lwn.net>, Juri Lelli <juri.lelli@redhat.com>,
+ Kees Cook <kees@kernel.org>, K Prateek Nayak <kprateek.nayak@amd.com>,
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Manfred Spraul <manfred@colorfullife.com>, Mel Gorman <mgorman@suse.de>,
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
+ Neal Gompa <neal@gompa.dev>, Paul Moore <paul@paul-moore.com>,
+ Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+ Peter Zijlstra <peterz@infradead.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Serge Hallyn <sergeh@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Suren Baghdasaryan
+ <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>,
+ Valentin Schneider <vschneid@redhat.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+References: <20261118193539.240065-1-jarkko@kernel.org>
+From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Autocrypt: addr=vbabka@kernel.org; keydata=
+ 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
+In-Reply-To: <20261118193539.240065-1-jarkko@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/18/26 10:20 AM, David Hildenbrand (Arm) wrote:
-> try_to_unmap() with TTU_BATCH_FLUSH transfers the PTE dirty bit to the
-> folio and defers the TLB flush.
+On 11/18/26 20:35, Jarkko Sakkinen wrote:
+> VERSIONS
+> ========
 > 
-> Reclaim must flush the TLB before unlocking the folio, otherwise stale
-> writable TLB entries might be left behind temporarily: writeback started
-> by other mechanisms (e.g., fsync) will not find any mappings in
-> folio_mkclean(), so it will neither write-protect nor flush anything.
-> 
-> A write through a stale TLB entry after the folio was cleaned gets lost
-> once the folio is reclaimed.
-> 
-> However, reclaim currently does not flush the TLB if the now-dirty folio
-> does not get written back (e.g., gets activated or kept instead). Fix it
-> by flushing right after try_to_unmap() if the folio is dirty, which makes
-> the existing flush before pageout() unnecessary.
-> 
-> For dirty page-cache folios that reclaim activates, we will now flush the
-> TLB immediately after unmapping them instead of batching the flush, which
-> is the right thing to do. Performance-wise, it shouldn't really matter
-> much, because folios with dirty PTEs are usually young and reclaim won't
-> even try to unmap them.
-> 
-> Fixes: d950c9477d51 ("mm: defer flush of writable TLB entries")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> v2: https://lore.kernel.org/linux-fsdevel/20261117231352.3816603-1-jarkko@kernel.org/
+> v1: https://lore.kernel.org/linux-fsdevel/20261117050841.3289652-1-jarkko@kernel.org/
 
-LGTM:
+3 versions in 2 days, with 13 patches and such a vast CC list? Maybe slow
+down a bit, please?
 
-Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
-
--- 
-cheers,
-jose a. p-a
