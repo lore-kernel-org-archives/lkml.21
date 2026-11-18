@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.40
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.59
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015182;
-	b=13nBt9k3UWyx3IZLHUUAvuEZB5AgbXkGGLibN99FylQk/rfohVZAgTmA1C6XZD2YLIDR
-	 5h4zZTFsZwHg2szP2n+wdAofOtm5EnsrKxeYdf1DgmRBSg6I3OiDf9PffbPDObt5ltldq
-	 km5EPWzNWKFAj3w40Od6Mn5PkWucbZV4yRkUUxEskz7dU1xoeMXM37KZ08QtAFCykZDLs
-	 mxSU6DrXxS9ugtCvKy/1EIdbBqJrAT80xsMjOZFPUEuzmj4zyLtVuFFeKRaLT5ByJeliU
-	 X6oeoQbwLS6YET7ns/5sSB8UH2Gxk3/CmWCXS3eZoR7TPY4EdUdftDT7TeN9HDRe9QQ==
+	t=1795015189;
+	b=ryYzxUzauuhXMPf4V+ECQeJbl1yp8i0KAsCLH51VlNK1NfIOYTlCojCRAoJFQZi/iotZ
+	 L6/c8TflwgSq7zZHPIdGLn6nkUlVwBx/aVDsexYzg12QwN1IOditgpquPFSKl8arPUzaK
+	 Ah6yMdrkuFRTaOJ2Sq1IPJyZ33snQIdci+mJwFyQTO82Z3JdTmQ6PijhibfATUNxU3rjq
+	 Y8fgQDsTZsKE6E92MBUnOhk5ALqjy9mimKwhfvzCMzdmteOdwLSWGoJzkk6Yo4qmaZRb6
+	 mycuLDWJVTxNq/eNzRLP9jf303t1XjEH3pIybQQCj4NwbL+i+cE51/MAetrxCr/IpAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015182;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015189;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=Ih7PJseCTUo9992Qi/riC8TJ+5UyoXMZp5GLXDRFGsg=;
-	b=chirOflpqEU6b6st3Cbk+pnVsNudwVnIP3coe7IU213PFUrKxOSRco36XX4Kj07u+WU/
-	 kZBUjQ9nwGYHshZ1GHuTSlongFDyZ3+6RSfKt3O/NIadCnviOl3xMrXwQ1sBtgDM4T1in
-	 AT60GhEQF7EX0+PJ2W9Rp+F2ziZpxE7/zKsI5OUcHks2xLmesyK7CMBy6OZxa7QQI0Z6k
-	 mfYhKL965qRYNGZHN29tLSnTmyKEr8FtE3PY0WtBT+BI/MnbuPEMepi6aQYgrM3Ie486h
-	 0wb9ab8qkf51Q/AZZQLww/+WNunQZrChqlEMFWVLQHaY7LkSOjVXipMv8heDyS7kBFg==
+	bh=28cn1Kair98GTwqDiRDvASqmoyMJ23a90Jb1Em5523E=;
+	b=LeVScmCfpFRiwZfo9RXeRmu/CadiuBUaPQwI2rUhgyk46wesgdAsuR6l6yusBAAAYNOP
+	 QO41DdFoTICrOBKF2Nb9Tf8PHBPwni1Gxh4XZGHVP9J3CqPW3OFb2zmdWGA9c2oBD25hR
+	 /6yW8136kRuWRPlvizE3NUr/txZU5MfnON1U959xPr68TQkYMQOJ09t0tgW93wLG7AcTe
+	 i2NrgOn74ywnTuN3akerryvq0+fEUJMeILPUwP3L3xKT7LuGFRG5hYITzel43O5wFhgQg
+	 aOcvUrKNW8r2jHuKSe6DbpZbx+uxDqCRVAu/XEvvykm3Ds7W7kinUIuxAqHwXy+1COw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="vA/uNhz8";
-	arc=none smtp.remote-ip=91.218.175.40
-Received: from mta0.migadu.com (out-40.mta0.migadu.com [91.218.175.40])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sSTubd9l;
+	arc=none smtp.remote-ip=91.218.175.59
+Received: from mta0.migadu.com (out-59.mta0.migadu.com [91.218.175.59])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9610A606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9610A606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E79E3606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:19:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E79E3606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vA/uNhz8
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sSTubd9l
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=g087P9+edDWSWSxVVt+5nxjxLatHb08fe1Dv5ib5o6Y=;
+DKIM-Signature: a=rsa-sha256; bh=gC89BE6dhBGkEE3drKusXTAY7nFwy3zcNF0PGMb/LAk=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795015179; v=1; x=1795619979;
- b=vA/uNhz8F2uBN8nnSsSN1c42pP/m3YPB3Rr+gI36JK7b/6mu30O8joF+JANxagXYpYNmlqt1
- CtSfXCafKBFyNgqmb/5jIqbw0GfwM76hSkQ7ZOBfwa0iYxtO1ekGtd3rzWWog2oOc1gYtp/JyA/
- SDtNgdzB7/F7YcDlKTGS8jHo=
+ t=1795015186; v=1; x=1795619986;
+ b=sSTubd9l9Aqlx/MX47MJhB00dg03oDKBrTKFFu+Kx/UAksop9tBPXWKNvgF++1xUZQUugQRt
+ Weva6si1XE8emkvEaZ6X/XjteD6MAfxNlyRWjDIfveGaUwFY4i1DfrlSXjLSIGesUX/FlYXlZcI
+ J5tSsp4jPtolgOoCEg2M1xzc=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 76ddee6606c60c99;
-	Wed, 18 Nov 2026 15:19:39 +0000
-X-Mizu-Trace-ID: 76ddee6606c60c99
+Received: by smtp.migadu.com with ESMTPS id 39bc16c2b94e545e;
+	Wed, 18 Nov 2026 15:19:45 +0000
+X-Mizu-Trace-ID: 39bc16c2b94e545e
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -71,9 +71,9 @@ Cc: Will Deacon <will@kernel.org>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 06/13] KVM: arm64: Share the ITS command field accessors with the hypervisor
-Date: Wed, 18 Nov 2026 15:18:57 +0000
-Message-ID: <20261118151904.4099560-7-fuad.tabba@linux.dev>
+Subject: [PATCH v4 09/13] KVM: arm64: Emulate the ITS command queue
+Date: Wed, 18 Nov 2026 15:19:00 +0000
+Message-ID: <20261118151904.4099560-10-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261118151904.4099560-1-fuad.tabba@linux.dev>
 References: <20261118151904.4099560-1-fuad.tabba@linux.dev>
@@ -86,107 +86,781 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The vgic's ITS emulation reads command fields with its_cmd_mask_field()
-and the its_cmd_get_*() accessors. struct its_cmd_block, the block they
-decode, is private to the ITS driver, but in a subsequent patch the
-hypervisor parses the host's commands too.
+From: Sebastian Ene <sebastianene@google.com>
 
-Move the command block and the accessors to arm-gic-v3.h, which already
-holds the GITS_CMD_* encodings, so there is one copy of each. Only KVM
-reads commands, but the accessors decode the block the driver writes, so
-they sit with it rather than in a KVM header.
+The ITS writes to the memory its commands point to, so a host that
+queues commands freely can aim those writes at the hypervisor or a
+protected guest.
 
-No functional change intended.
+Register each ITS's control frame with the hypervisor, so that every
+host access to it traps once the host is deprivileged. Each ITS takes
+one of the hypervisor's eight MMIO region slots, so on a host with more
+than eight ITSes KVM doesn't initialise in protected mode. Inside the
+stop_machine() callback that deprivileges the host, the hypervisor reads
+GITS_CBASER, GITS_CWRITER and GITS_CREADR itself, takes the queue and
+pins the driver's copy. If that fails, no CPU is deprivileged and
+KVM_CREATE_VM fails with -ENODEV.
 
+On a GITS_CWRITER write, the hypervisor reads each new command once from
+the driver's copy of the queue, checks it and copies it into the
+hardware queue. For a rejected command, the host's GITS_CWRITER write
+takes a data abort, after the commands before it have been forwarded.
+For now that's a vLPI command or an unknown encoding, neither of which
+the driver queues.
+
+An access aborts if its syndrome isn't valid, or if it is narrower than
+four bytes or misaligned. Reads go to the hardware for the registers the
+driver reads, each at the size the driver uses, and other reads abort.
+GITS_CREADR, which the driver reads at 32 bits, can be read at 64 bits
+too.
+
+Writes abort, except to GITS_CWRITER, GITS_BASER<n>, GITS_CTLR and
+GITS_CBASER. The next patch restricts GITS_BASER<n>, and the driver
+writes GITS_CTLR and GITS_CBASER on suspend and resume. A GITS_CBASER
+write is accepted only with the ITS disabled and quiescent, and the
+hypervisor writes the value it read at setup in place of the host's. A
+write that enables the ITS aborts unless GITS_CBASER holds that value.
+While the ITS isn't quiescent, the hypervisor drops such a write rather
+than abort it, which leaves the ITS disabled. The driver re-enables the
+ITS from a syscore callback when a quiesce times out, and an abort
+there would take the host down.
+
+Add to arm-gic-v3.h the GITS_CBASER, GITS_CWRITER and GITS_CREADR
+fields that the hypervisor decodes.
+
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+Co-developed-by: Bartłomiej Grzesik <bgrzesik@google.com>
+Signed-off-by: Bartłomiej Grzesik <bgrzesik@google.com>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/vgic/vgic-its.c     | 15 ---------------
- drivers/irqchip/irq-gic-v3-its.c   | 10 ----------
- include/linux/irqchip/arm-gic-v3.h | 22 ++++++++++++++++++++++
- 3 files changed, 22 insertions(+), 25 deletions(-)
+ arch/arm64/include/asm/kvm_asm.h              |   2 +
+ arch/arm64/include/asm/kvm_hcall.h            |   2 +
+ arch/arm64/include/asm/kvm_pkvm.h             |   4 +
+ arch/arm64/kvm/arm.c                          |   4 +
+ arch/arm64/kvm/hyp/include/nvhe/its_emulate.h |  16 +
+ arch/arm64/kvm/hyp/nvhe/Makefile              |   3 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            |   8 +
+ arch/arm64/kvm/hyp/nvhe/its_emulate.c         | 323 ++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  65 ++++
+ arch/arm64/kvm/pkvm.c                         |  98 +++++-
+ include/linux/irqchip/arm-gic-v3.h            |   5 +
+ 11 files changed, 527 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/its_emulate.c
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 7e9b265b1f521..78e480d112025 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -802,21 +802,6 @@ static bool vgic_its_map_lpi(struct kvm *kvm, struct its_ite *ite,
- 	return false;
- }
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index abda476e023de..339850e2702d0 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -122,6 +122,8 @@ enum __kvm_host_smccc_func {
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
+ 	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
++	/* Called with kvm_protected_mode_initialized on, before __pkvm_prot_finalize. */
++	__KVM_HOST_SMCCC_FUNC___pkvm_its_emulate_setup,
  
--static u64 its_cmd_mask_field(u64 *its_cmd, int word, int shift, int size)
--{
--	return (le64_to_cpu(its_cmd[word]) >> shift) & (BIT_ULL(size) - 1);
--}
--
--#define its_cmd_get_command(cmd)	its_cmd_mask_field(cmd, 0,  0,  8)
--#define its_cmd_get_deviceid(cmd)	its_cmd_mask_field(cmd, 0, 32, 32)
--#define its_cmd_get_size(cmd)		(its_cmd_mask_field(cmd, 1,  0,  5) + 1)
--#define its_cmd_get_id(cmd)		its_cmd_mask_field(cmd, 1,  0, 32)
--#define its_cmd_get_physical_id(cmd)	its_cmd_mask_field(cmd, 1, 32, 32)
--#define its_cmd_get_collection(cmd)	its_cmd_mask_field(cmd, 2,  0, 16)
--#define its_cmd_get_ittaddr(cmd)	(its_cmd_mask_field(cmd, 2,  8, 44) << 8)
--#define its_cmd_get_target_addr(cmd)	its_cmd_mask_field(cmd, 2, 16, 32)
--#define its_cmd_get_validbit(cmd)	its_cmd_mask_field(cmd, 2, 63,  1)
--
- /*
-  * The DISCARD command frees an Interrupt Translation Table Entry (ITTE).
-  * Must be called with the its_lock mutex held.
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index 734fe4fb52bd6..df6d7b2fc8611 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -528,16 +528,6 @@ struct its_cmd_desc {
- 	};
+ 	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
+ };
+diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
+index 5f77a8aa29635..0748232c387ec 100644
+--- a/arch/arm64/include/asm/kvm_hcall.h
++++ b/arch/arm64/include/asm/kvm_hcall.h
+@@ -254,5 +254,7 @@ DECLARE_KVM_HOST_HCALL0(void, __pkvm_vcpu_put)
+ DECLARE_KVM_HOST_HCALL0(void, __pkvm_vcpu_sync_state)
+ DECLARE_KVM_HOST_HCALL(void, __pkvm_tlb_flush_vmid,
+ 	pkvm_handle_t, handle)
++DECLARE_KVM_HOST_HCALL(int, __pkvm_its_emulate_setup,
++	phys_addr_t, its_base, phys_addr_t, desc_pa, size_t, desc_size)
+ 
+ #endif /* __ARM64_KVM_HCALL_H__ */
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 4695c35b31e1a..e1203b06ec7b3 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -24,11 +24,15 @@ struct pkvm_protected_reg {
+ 	u64			pfn;
+ 	u64			nr_pages;
+ 	void __iomem		*hyp_va;
++	/* The ITS's state once it is taken. */
++	void			*priv;
  };
  
--/*
-- * The ITS command block, which is what the ITS actually parses.
-- */
--struct its_cmd_block {
--	union {
--		u64	raw_cmd[4];
--		__le64	raw_cmd_le[4];
--	};
--};
--
- #define ITS_CMD_QUEUE_SZ		SZ_64K
- #define ITS_CMD_QUEUE_NR_ENTRIES	(ITS_CMD_QUEUE_SZ / sizeof(struct its_cmd_block))
+ extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
+ extern unsigned int kvm_nvhe_sym(num_protected_reg);
  
-diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
-index ea5fd2374ebe0..e0bec40adf2b7 100644
---- a/include/linux/irqchip/arm-gic-v3.h
-+++ b/include/linux/irqchip/arm-gic-v3.h
-@@ -657,6 +657,28 @@ static inline bool gic_enable_sre(void)
- 	return !!(val & ICC_SRE_EL1_SRE);
++int pkvm_register_its_regions(void);
++
+ int pkvm_init_host_vm(struct kvm *kvm);
+ int pkvm_create_hyp_vm(struct kvm *kvm);
+ bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 157bf4b812020..789f6ca13ae12 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -3128,6 +3128,10 @@ static int __init init_hyp_mode(void)
+ 		if (err)
+ 			goto out_err;
+ 
++		err = pkvm_register_its_regions();
++		if (err)
++			goto out_err;
++
+ 		err = kvm_hyp_init_protection(hyp_va_bits);
+ 		if (err) {
+ 			kvm_err("Failed to init hyp memory protection\n");
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/its_emulate.h b/arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
+new file mode 100644
+index 0000000000000..0b0d4aa25a5b7
+--- /dev/null
++++ b/arch/arm64/kvm/hyp/include/nvhe/its_emulate.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2026 Google LLC
++ * Author: Sebastian Ene <sebastianene@google.com>
++ */
++#ifndef __ARM64_KVM_NVHE_ITS_EMULATE_H__
++#define __ARM64_KVM_NVHE_ITS_EMULATE_H__
++
++#include <asm/kvm_pkvm.h>
++
++int pkvm_its_emulate_setup(phys_addr_t its_base, phys_addr_t desc_pa,
++			   size_t desc_size);
++bool pkvm_its_emulate_handler(struct pkvm_protected_reg *region, u64 offset,
++			      bool write, u64 *val, u8 size);
++
++#endif /* __ARM64_KVM_NVHE_ITS_EMULATE_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index 56a7e2c05f73a..2c50940849782 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -24,7 +24,8 @@ CFLAGS_switch.nvhe.o += -Wno-override-init
+ 
+ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
+ 	 hyp-main.o hyp-smp.o psci-relay.o alloc.o early_alloc.o page_alloc.o \
+-	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
++	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o \
++	 its_emulate.o
+ hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
+ 	 ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
+ hyp-obj-y += ../../../kernel/smccc-call.o
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 179d7c8277b88..5efaa32037a5b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -22,6 +22,7 @@
+ 
+ #include <nvhe/alloc.h>
+ #include <nvhe/ffa.h>
++#include <nvhe/its_emulate.h>
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/mm.h>
+ #include <nvhe/pkvm.h>
+@@ -1169,6 +1170,12 @@ DEFINE_KVM_HOST_HCALL(void, __pkvm_tlb_flush_vmid,
+ 	put_pkvm_hyp_vm(hyp_vm);
  }
  
-+struct its_cmd_block {
-+	union {
-+		u64	raw_cmd[4];
-+		__le64	raw_cmd_le[4];
-+	};
-+};
-+
-+static inline u64 its_cmd_mask_field(u64 *its_cmd, int word, int shift, int size)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_its_emulate_setup,
++	phys_addr_t, its_base, phys_addr_t, desc_pa, size_t, desc_size)
 +{
-+	return (le64_to_cpu(its_cmd[word]) >> shift) & (BIT_ULL(size) - 1);
++	return pkvm_its_emulate_setup(its_base, desc_pa, desc_size);
 +}
 +
-+#define its_cmd_get_command(cmd)	its_cmd_mask_field(cmd, 0,  0,  8)
-+#define its_cmd_get_deviceid(cmd)	its_cmd_mask_field(cmd, 0, 32, 32)
-+#define its_cmd_get_size(cmd)		(its_cmd_mask_field(cmd, 1,  0,  5) + 1)
-+#define its_cmd_get_id(cmd)		its_cmd_mask_field(cmd, 1,  0, 32)
-+#define its_cmd_get_physical_id(cmd)	its_cmd_mask_field(cmd, 1, 32, 32)
-+#define its_cmd_get_collection(cmd)	its_cmd_mask_field(cmd, 2,  0, 16)
-+#define its_cmd_get_ittaddr(cmd)	(its_cmd_mask_field(cmd, 2,  8, 44) << 8)
-+#define its_cmd_get_target_addr(cmd)	its_cmd_mask_field(cmd, 2, 16, 32)
-+#define its_cmd_get_validbit(cmd)	its_cmd_mask_field(cmd, 2, 63,  1)
-+
- #endif
+ DEFINE_KVM_HOST_HCALL(void, __kvm_flush_cpu_context,
+ 	struct kvm_s2_mmu __kern *, mmu)
+ {
+@@ -1603,6 +1610,7 @@ static const hcall_t host_hcall[] = {
+ 	HANDLE_FUNC(__pkvm_vcpu_put),
+ 	HANDLE_FUNC(__pkvm_vcpu_sync_state),
+ 	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
++	HANDLE_FUNC(__pkvm_its_emulate_setup),
+ };
  
- #endif
+ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
+new file mode 100644
+index 0000000000000..dd077abb1b24b
+--- /dev/null
++++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
+@@ -0,0 +1,323 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Emulation of the host's accesses to a GICv3 ITS in pKVM.
++ *
++ * Copyright (C) 2026 Google LLC
++ * Author: Sebastian Ene <sebastianene@google.com>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/io.h>
++#include <linux/irqchip/arm-gic-v3.h>
++
++#include <asm/kvm_pkvm.h>
++
++#include <nvhe/its_emulate.h>
++#include <nvhe/mem_protect.h>
++#include <nvhe/memory.h>
++#include <nvhe/spinlock.h>
++
++/* Per-ITS state, in the pages the host donated at setup. */
++struct its_priv {
++	hyp_spinlock_t		lock;
++	void __iomem		*base;
++	u64			cbaser;
++
++	/* The hardware queue, which is hyp-owned, and the host's pinned copy of it. */
++	void			*cmdq_hw;
++	void			*cmdq_copy;
++	u32			cmdq_size;
++
++	/* The next slot to forward, at the offset last written to GITS_CWRITER. */
++	u32			cmd_offset;
++
++	/* The GITS_CREADR offset last read. */
++	u32			hw_creadr;
++};
++
++static int its_pin_host_pages(phys_addr_t pa, u64 nr_pages)
++{
++	void *va = hyp_phys_to_virt(pa);
++	u64 pfn = PHYS_PFN(pa), i;
++	int ret;
++
++	for (i = 0; i < nr_pages; i++) {
++		ret = __pkvm_host_share_hyp(pfn + i);
++		if (ret)
++			return ret;
++	}
++
++	return hyp_pin_shared_mem(va, va + (nr_pages << PAGE_SHIFT));
++}
++
++static bool its_process_cmd(struct its_priv *its, struct its_cmd_block *cmd)
++{
++	switch (its_cmd_get_command(cmd->raw_cmd)) {
++	case GITS_CMD_MAPD:
++	case GITS_CMD_MAPC:
++	case GITS_CMD_MAPTI:
++	case GITS_CMD_MAPI:
++	case GITS_CMD_MOVI:
++	case GITS_CMD_DISCARD:
++	case GITS_CMD_INV:
++	case GITS_CMD_MOVALL:
++	case GITS_CMD_INVALL:
++	case GITS_CMD_INT:
++	case GITS_CMD_CLEAR:
++	case GITS_CMD_SYNC:
++		return true;
++	default:
++		/* The vLPI commands and anything unknown. */
++		return false;
++	}
++}
++
++static u64 its_read_creadr(struct its_priv *its)
++{
++	u64 creadr = readq_relaxed(its->base + GITS_CREADR);
++	u32 offset = creadr & GITS_CREADR_OFFSET;
++
++	its->hw_creadr = offset;
++
++	return creadr;
++}
++
++/* Returns false on a rejected command, after forwarding the ones before it. */
++static bool its_cwriter_write(struct its_priv *its, u64 val)
++{
++	u32 new = val & GITS_CWRITER_OFFSET;
++	struct its_cmd_block cmd;
++	bool rejected = false;
++	unsigned int i;
++	u64 *slot;
++
++	if (new >= its->cmdq_size)
++		return false;
++
++	its_read_creadr(its);
++
++	/* The queue is full with GITS_CWRITER 32 bytes behind GITS_CREADR, so reject an overrun. */
++	if ((its->cmd_offset + its->cmdq_size - its->hw_creadr) % its->cmdq_size +
++	    (new + its->cmdq_size - its->cmd_offset) % its->cmdq_size >
++	    its->cmdq_size - sizeof(cmd))
++		return false;
++
++	/* A value below cmd_offset wraps around the queue, as it does for the ITS. */
++	while (its->cmd_offset != new) {
++		/* Read the command once, as the host can change its copy. */
++		slot = its->cmdq_copy + its->cmd_offset;
++		for (i = 0; i < ARRAY_SIZE(cmd.raw_cmd); i++)
++			cmd.raw_cmd[i] = READ_ONCE(slot[i]);
++		if (!its_process_cmd(its, &cmd)) {
++			rejected = true;
++			break;
++		}
++
++		memcpy(its->cmdq_hw + its->cmd_offset, &cmd, sizeof(cmd));
++		/*
++		 * Flush whatever GITS_CBASER says, as it can read as shareable on an ITS
++		 * that the driver treats as non-coherent (ITS_FLAGS_CMDQ_NEEDS_FLUSHING).
++		 */
++		gic_flush_dcache_to_poc(its->cmdq_hw + its->cmd_offset, sizeof(cmd));
++		its->cmd_offset = (its->cmd_offset + sizeof(cmd)) % its->cmdq_size;
++	}
++
++	dsb(ishst);
++	/* Retry has no effect unless the hardware stalled on a command error. */
++	writeq_relaxed(its->cmd_offset | (val & GITS_CWRITER_RETRY), its->base + GITS_CWRITER);
++	return !rejected;
++}
++
++/* A reset clears GITS_CBASER.Valid, and an enable with it clear is UNPREDICTABLE. */
++static bool its_bases_intact(struct its_priv *its)
++{
++	return readq_relaxed(its->base + GITS_CBASER) == its->cbaser;
++}
++
++static bool its_ctlr_write(struct its_priv *its, u64 val)
++{
++	u32 ctlr = readl_relaxed(its->base + GITS_CTLR);
++
++	if ((val & GITS_CTLR_ENABLE) && !(ctlr & GITS_CTLR_ENABLE)) {
++		/*
++		 * Enabling while not Quiescent is UNPREDICTABLE. Drop the write rather than
++		 * abort it, as the driver enables the ITS when a quiesce times out on suspend.
++		 */
++		if (!(ctlr & GITS_CTLR_QUIESCENT))
++			return true;
++		if (!its_bases_intact(its))
++			return false;
++	}
++
++	writel_relaxed(val, its->base + GITS_CTLR);
++	return true;
++}
++
++/* GITS_CBASER and GITS_BASER<n> are UNPREDICTABLE to write otherwise. */
++static bool its_disabled_quiescent(struct its_priv *its)
++{
++	u32 ctlr = readl_relaxed(its->base + GITS_CTLR);
++
++	return !(ctlr & GITS_CTLR_ENABLE) && (ctlr & GITS_CTLR_QUIESCENT);
++}
++
++static bool its_cbaser_write(struct its_priv *its)
++{
++	if (!its_disabled_quiescent(its))
++		return false;
++
++	writeq_relaxed(its->cbaser, its->base + GITS_CBASER);
++
++	/* The write reset GITS_CREADR to 0, and the ITS drops what was queued before it. */
++	its->cmd_offset = 0;
++	its->hw_creadr = 0;
++	writeq_relaxed(0, its->base + GITS_CWRITER);
++	return true;
++}
++
++static bool its_emulate(struct its_priv *its, u64 offset, bool write, u64 *val, u8 size)
++{
++	if (write) {
++		switch (offset) {
++		case GITS_CTLR:
++			return size == sizeof(u32) && its_ctlr_write(its, *val);
++		case GITS_CBASER:
++			return size == sizeof(u64) && its_cbaser_write(its);
++		case GITS_CWRITER:
++			/* The driver writes the low word, and the high word is RES0. */
++			return its_cwriter_write(its, *val);
++		case GITS_BASER ... GITS_BASER + (GITS_BASER_NR_REGS - 1) * sizeof(u64):
++			if (size != sizeof(u64))
++				return false;
++			writeq_relaxed(*val, its->base + offset);
++			return true;
++		default:
++			return false;
++		}
++	}
++
++	/* The driver doesn't read any other register. */
++	switch (offset) {
++	case GITS_CTLR:
++	case GITS_IIDR:
++	case GITS_MPIDR:
++	case GITS_PIDR2:
++		if (size != sizeof(u32))
++			return false;
++		break;
++	case GITS_TYPER:
++	case GITS_CBASER:
++	case GITS_BASER ... GITS_BASER + (GITS_BASER_NR_REGS - 1) * sizeof(u64):
++		if (size != sizeof(u64))
++			return false;
++		break;
++	case GITS_CREADR:
++		break;
++	default:
++		return false;
++	}
++
++	*val = size == sizeof(u64) ? readq_relaxed(its->base + offset) :
++				     readl_relaxed(its->base + offset);
++	return true;
++}
++
++bool pkvm_its_emulate_handler(struct pkvm_protected_reg *region, u64 offset,
++			      bool write, u64 *val, u8 size)
++{
++	struct its_priv *its = region->priv;
++	bool ret;
++
++	if (size < sizeof(u32) || !IS_ALIGNED(offset, size))
++		return false;
++
++	hyp_spin_lock(&its->lock);
++	ret = its_emulate(its, offset, write, val, size);
++	hyp_spin_unlock(&its->lock);
++
++	return ret;
++}
++
++static struct pkvm_protected_reg *its_find_region(phys_addr_t its_base)
++{
++	int i;
++
++	for (i = 0; i < num_protected_reg; i++) {
++		if (PFN_PHYS(pkvm_protected_regs[i].pfn) == its_base)
++			return &pkvm_protected_regs[i];
++	}
++
++	return NULL;
++}
++
++static int its_take_cmdq(struct its_priv *its, phys_addr_t copy_pa)
++{
++	u32 cwriter = readq_relaxed(its->base + GITS_CWRITER) & GITS_CWRITER_OFFSET;
++	u32 creadr = readq_relaxed(its->base + GITS_CREADR) & GITS_CREADR_OFFSET;
++	u32 size = SZ_4K * (FIELD_GET(GITS_CBASER_SIZE, its->cbaser) + 1);
++	phys_addr_t hw_pa = GITS_CBASER_ADDRESS(its->cbaser);
++	u64 nr_pages = size >> PAGE_SHIFT;
++	int ret;
++
++	ret = __pkvm_host_donate_hyp(PHYS_PFN(hw_pa), nr_pages);
++	if (ret)
++		return ret;
++
++	ret = its_pin_host_pages(copy_pa, nr_pages);
++	if (ret)
++		return ret;
++
++	its->cmdq_hw = hyp_phys_to_virt(hw_pa);
++	its->cmdq_copy = hyp_phys_to_virt(copy_pa);
++	its->cmdq_size = size;
++	its->cmd_offset = cwriter;
++	its->hw_creadr = creadr;
++	return 0;
++}
++
++int pkvm_its_emulate_setup(phys_addr_t its_base, phys_addr_t desc_pa,
++			   size_t desc_size)
++{
++	u64 desc_pages = desc_size >> PAGE_SHIFT;
++	struct pkvm_protected_reg *region;
++	struct its_pkvm_desc *desc;
++	struct its_priv *its;
++	u64 priv_pages;
++	int ret;
++
++	region = its_find_region(its_base);
++	if (!region)
++		return -ENODEV;
++	if (region->priv)
++		return -EBUSY;
++
++	/*
++	 * Called once per ITS by the still-privileged host, so its arguments and
++	 * the registers it programmed are trusted. A failure isn't unwound, as the
++	 * host is then never deprivileged.
++	 */
++	ret = __pkvm_host_donate_hyp(PHYS_PFN(desc_pa), desc_pages);
++	if (ret)
++		return ret;
++	desc = hyp_phys_to_virt(desc_pa);
++
++	priv_pages = desc->priv_pages;
++	ret = __pkvm_host_donate_hyp(PHYS_PFN(desc->priv_pa), priv_pages);
++	if (ret)
++		return ret;
++	its = hyp_phys_to_virt(desc->priv_pa);
++	memset(its, 0, priv_pages * PAGE_SIZE);
++
++	hyp_spin_lock_init(&its->lock);
++	its->base = region->hyp_va;
++	its->cbaser = readq_relaxed(its->base + GITS_CBASER);
++
++	ret = its_take_cmdq(its, desc->cmdq_copy_pa);
++	if (ret)
++		return ret;
++
++	WARN_ON(__pkvm_hyp_donate_host(PHYS_PFN(desc_pa), desc_pages));
++	/* Published by stop_machine()'s exit, and no host CPU traps until then. */
++	region->priv = its;
++	return 0;
++}
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 8d45f45d30e6a..58cc1691b67a6 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -13,10 +13,12 @@
+ #include <asm/kvm_pkvm.h>
+ #include <asm/stage2_pgtable.h>
+ 
++#include <hyp/adjust_pc.h>
+ #include <hyp/fault.h>
+ 
+ #include <nvhe/arm-smccc.h>
+ #include <nvhe/gfp.h>
++#include <nvhe/its_emulate.h>
+ #include <nvhe/memory.h>
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/mm.h>
+@@ -779,6 +781,65 @@ static void host_inject_mem_abort(struct kvm_cpu_context *host_ctxt)
+ 	inject_host_exception(esr);
+ }
+ 
++static struct pkvm_protected_reg *find_protected_reg(u64 addr, u8 size)
++{
++	struct pkvm_protected_reg *region;
++	u64 start, end;
++	int i;
++
++	for (i = 0; i < num_protected_reg; i++) {
++		region = &pkvm_protected_regs[i];
++		start = PFN_PHYS(region->pfn);
++		end = start + PFN_PHYS(region->nr_pages);
++
++		if (addr >= start && addr + size <= end)
++			return region;
++	}
++
++	return NULL;
++}
++
++/*
++ * Returns false when the access cannot be emulated or the emulation rejects it.
++ * The caller's host stage-2 path then injects the abort.
++ */
++static bool handle_host_mmio_trap(struct kvm_cpu_context *host_ctxt, u64 esr,
++				  u64 addr)
++{
++	struct pkvm_protected_reg *region;
++	u64 val = 0;
++	u8 size, rt;
++	bool write;
++
++	/* An access without a valid syndrome can't be emulated. */
++	if (ESR_ELx_EC(esr) != ESR_ELx_EC_DABT_LOW || !(esr & ESR_ELx_ISV))
++		return false;
++
++	size = BIT(FIELD_GET(ESR_ELx_SAS, esr));
++	region = find_protected_reg(addr, size);
++	if (!region)
++		return false;
++
++	rt = FIELD_GET(ESR_ELx_SRT_MASK, esr);
++	write = esr & ESR_ELx_WNR;
++	if (write && rt != 31)
++		val = cpu_reg(host_ctxt, rt) & GENMASK_ULL(size * 8 - 1, 0);
++
++	if (!pkvm_its_emulate_handler(region, addr - PFN_PHYS(region->pfn), write, &val, size))
++		return false;
++
++	if (!write && rt != 31) {
++		if ((esr & ESR_ELx_SSE) && size < sizeof(u64))
++			val = sign_extend64(val, size * 8 - 1);
++		if (!(esr & ESR_ELx_SF))
++			val = lower_32_bits(val);
++		cpu_reg(host_ctxt, rt) = val;
++	}
++
++	kvm_skip_host_instr();
++	return true;
++}
++
+ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+ {
+ 	struct kvm_vcpu_fault_info fault;
+@@ -801,6 +862,10 @@ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+ 	BUG_ON(!(fault.hpfar_el2 & HPFAR_EL2_NS));
+ 	addr = FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
+ 
++	if (num_protected_reg &&
++	    handle_host_mmio_trap(host_ctxt, esr, addr | FAR_TO_FIPA_OFFSET(fault.far_el2)))
++		return;
++
+ 	switch (host_stage2_idmap(addr)) {
+ 	case -EPERM:
+ 		host_inject_mem_abort(host_ctxt);
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 16dfb249b4961..ddd797d21d42d 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -6,6 +6,7 @@
+ 
+ #include <linux/init.h>
+ #include <linux/interval_tree_generic.h>
++#include <linux/irqchip/arm-gic-v3.h>
+ #include <linux/kmemleak.h>
+ #include <linux/kvm_host.h>
+ #include <asm/kvm_mmu.h>
+@@ -43,6 +44,53 @@ static int __init register_memblock_regions(void)
+ 	return 0;
+ }
+ 
++static int __init pkvm_register_its_region(phys_addr_t its_base)
++{
++	unsigned int idx = kvm_nvhe_sym(num_protected_reg);
++	struct pkvm_protected_reg *region;
++
++	if (idx >= PKVM_PROTECTED_REGS_NUM) {
++		kvm_err("ITS@%pa: no protected region slot left\n", &its_base);
++		return -ENOSPC;
++	}
++
++	/*
++	 * Only the control frame is taken. GITS_TRANSLATER is in the next frame and
++	 * stays host-mapped, as devices raise MSIs through it.
++	 */
++	region = &kvm_nvhe_sym(pkvm_protected_regs)[idx];
++	region->pfn = PHYS_PFN(its_base);
++	region->nr_pages = PFN_DOWN(GITS_TRANSLATER);
++	kvm_nvhe_sym(num_protected_reg) = idx + 1;
++
++	return 0;
++}
++
++int __init pkvm_register_its_regions(void)
++{
++	int ret;
++
++	ret = its_pkvm_iter_its(pkvm_register_its_region);
++	if (ret)
++		kvm_err("Failed to register the ITS regions with hyp: %d\n", ret);
++
++	return ret;
++}
++
++/* Called by the driver with every CPU stopped. */
++static int __init pkvm_init_its_emulation(phys_addr_t its_base,
++					  struct its_pkvm_desc *desc,
++					  size_t desc_size)
++{
++	int ret;
++
++	ret = kvm_call_hyp_nvhe(__pkvm_its_emulate_setup, its_base, virt_to_phys(desc), desc_size);
++	if (ret)
++		kvm_err("ITS@%pa: emulation setup failed: %d\n", &its_base, ret);
++
++	return ret;
++}
++
+ void __init kvm_hyp_reserve(void)
+ {
+ 	u64 hyp_mem_pages = 0;
+@@ -299,6 +347,10 @@ int pkvm_init_host_vm(struct kvm *kvm)
+ {
+ 	int ret;
+ 
++	/* The ITS takeover failed, so the hypervisor never finalised. */
++	if (!is_pkvm_initialized())
++		return -ENODEV;
++
+ 	/* Reserve the VM in hyp and obtain a hyp handle for the VM. */
+ 	ret = kvm_call_hyp_nvhe(__pkvm_reserve_vm);
+ 	if (ret < 0)
+@@ -313,19 +365,61 @@ int pkvm_init_host_vm(struct kvm *kvm)
+ 	return 0;
+ }
+ 
++struct pkvm_its_takeover {
++	int	ret;
++	bool	done;
++};
++
+ static int __init __pkvm_drop_host_privileges(void *arg)
+ {
++	struct pkvm_its_takeover *takeover = arg;
++
++	if (smp_processor_id() == cpumask_first(cpu_online_mask)) {
++		takeover->ret = its_pkvm_setup_commit(pkvm_init_its_emulation);
++		/* Publishes ret to the CPUs spinning below. */
++		smp_store_release(&takeover->done, true);
++	}
++
++	/* Pairs with the release above, so that ret is read after done. */
++	while (!smp_load_acquire(&takeover->done))
++		cpu_relax();
++
++	/* No CPU is deprivileged unless the hypervisor took every ITS. */
++	if (takeover->ret)
++		return 0;
++
+ 	return WARN_ON(kvm_call_hyp_nvhe(__pkvm_prot_finalize)) ? -EINVAL : 0;
+ }
+ 
+ static int __init pkvm_drop_host_privileges(void)
+ {
++	struct pkvm_its_takeover takeover = {};
++	int ret;
++
++	/* Device drivers take dev_alloc_lock, through the MSI layer, with the cpus lock held. */
++	cpus_read_lock();
++	ret = its_pkvm_setup_prepare();
++	if (ret)
++		goto out;
++
+ 	/*
+ 	 * Flip the static key upfront as that may no longer be possible
+ 	 * once the host stage 2 is installed.
+ 	 */
+-	static_branch_enable(&kvm_protected_mode_initialized);
+-	return stop_machine(__pkvm_drop_host_privileges, NULL, cpu_online_mask);
++	static_branch_enable_cpuslocked(&kvm_protected_mode_initialized);
++	ret = stop_machine_cpuslocked(__pkvm_drop_host_privileges, &takeover, cpu_online_mask);
++	if (takeover.ret) {
++		/* No stage 2 was installed. Clear the key again, which also refuses every VM. */
++		static_branch_disable_cpuslocked(&kvm_protected_mode_initialized);
++		ret = takeover.ret;
++	}
++out:
++	its_pkvm_setup_finish();
++	cpus_read_unlock();
++	if (ret && !is_pkvm_initialized())
++		pr_err("pKVM: ITS takeover failed (%d): host not deprivileged, VMs refused\n", ret);
++
++	return ret;
+ }
+ 
+ static void __init pkvm_selftests(void)
+diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
+index 1d31d5a72e009..01110162914f7 100644
+--- a/include/linux/irqchip/arm-gic-v3.h
++++ b/include/linux/irqchip/arm-gic-v3.h
+@@ -435,6 +435,11 @@
+ #define GITS_CBASER_RaWaWb	GIC_BASER_CACHEABILITY(GITS_CBASER, INNER, RaWaWb)
+ 
+ #define GITS_CBASER_ADDRESS(cbaser)	((cbaser) & GENMASK_ULL(51, 12))
++#define GITS_CBASER_SIZE		GENMASK_ULL(7, 0)
++
++#define GITS_CWRITER_RETRY		(1ULL << 0)
++#define GITS_CWRITER_OFFSET		GENMASK_ULL(19, 5)
++#define GITS_CREADR_OFFSET		GENMASK_ULL(19, 5)
+ 
+ #define GITS_BASER_NR_REGS		8
+ 
 -- 
 2.47.3
 
