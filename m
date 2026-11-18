@@ -1,94 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794986200;
-	b=4RU5yhVmJCC0C5eCp7EwHdspGV76DVaFn1VwufUKkQsxp7PXCR5s0rUTBuLTYll2bZSe
-	 qYaPSJeqoB7QCUHxLIqPZC7naEpzIXvT5Cc8s+LlhmxcSj3z5lIvt9OFfMoR4Bas3CCW4
-	 NMMNmz37u09hscyn+jxFO0ZmwUeqjQNZN5fogMSMyLN4Q3/ub9rSSPgZNn6tyVXkXPNqz
-	 G14iFgIYJHltvilUzxtSP6JUV8Rc8nN+qiCtmfElZQ9Bwx2csEX8tgrjJpVyBgqFidj2c
-	 zo67QP0WRxcP/POvMtfNmXRaRcXafWHqzFClZRtrflqSb7HVfvKlwgf/OvvnpOQRBaQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794986200;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=bXRfep9ii60xjZWxRvZixwkuF31snfOPXcPr6rJucR4=;
-	b=NQcrkruHm8hhIi/+MURgmmEHW9dYKZ1K8YpPyFE9/EnzkER+Jgo5UMqHO0yJGMdGhxFN
-	 qSgVdIV9SMLtuP3H0uH7H/O/TV1QsZdJYuIkVBnP/XtPc2MK3LBNdIlKxiZ0kaaYtAphY
-	 buEkS18PiItEw+aJ5S5AM7ReeebDfX4CMzOf/VK2Xnz5m+B+XdKAi9Rm47p8HyG7/ftpO
-	 IuxpooGXfI42Lx2Eb3nEfYF6o9JO+KYDouXK94hB1AAX52Ee+7jqR9N5ssxfUbCwQ7zgy
-	 2wmPmilV9cANheoq60YK/H96jEFkIgbw2okAlDKknnPgcZob8HNAIiQ2QUrlTOLfERg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u0MKK6xC;
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794986207;
+	b=gKYHpiDEYx1WEGRdHV46hpdUyA2/kvkWUlBE8qdlOMb2vx1jZZEv8pjVRGNrNZSVJjSs
+	 WF06RsgiuGm6SWiyO9UO8vUa1o7oQbFIx70ssTFfTnS1sN9Fd1AMStGoiXU/QnL97unej
+	 yvTurB9DoHMac/kLrrcXhpQzSAk9XPg6faup6+FDMGLn6FG7qNzDNmpQobte0/kDXic+s
+	 hADTT7FGzn3d/VZy//UT7prOFR3aDEr3h9GPqeBUVwGxi0Tt54P42F0liRdPb26rKLYd4
+	 QCIgKa4Su8jNI/cp8UspCo6OUxpOBPnJzUET7J6ktNiDPnEzYEEXTZKS8liQuDIYEBQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794986207;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=jtSp0ZB7sgXukH75sBJBAz125XSdL/1mzf9dQU9FxRU=;
+	b=DMKkyMj+vjrDQXWTaBULSYhyP6i70qCNlYZHvE+oQ4wrksukeuJhib4nOu+nKsHz7++D
+	 FgKM4V+uCruiWsq/G8LHjzj992T2LJkfI61nqKzBBQJj+aBxXimIV8L2GgfnhnlQgPthM
+	 0hCubdyYrQTNFiS7fktO82C+mJflcQhjNbt2uVFEAtEjRFrnenEpmb+hrGIAPpcYv9s0j
+	 1cbtXRa+aMDKHSQq0ZCpDBUtGQb4m0u8KSCifj6/uZi/aQGuBTx+YPYI4m00QIvhdqwy6
+	 gt+7JqFKAOd1wcZTDZ4RRxBL4fbdvCTtPs3tZBgb1C9z/5sBHeDHofxxeNhrAVrgPTQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amlogic.com;
+	spf=pass smtp.mailfrom=amlogic.com;
+	dkim=pass header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=jbTWAW23;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.126.112
+Received: from TYPPR03CU001.outbound.protection.outlook.com (mail-japaneastazon11022112.outbound.protection.outlook.com [52.101.126.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC4AB606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:16:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC4AB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EAF9606A31C;
+	Wed, 18 Nov 2026 07:16:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EAF9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amlogic.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amlogic.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u0MKK6xC
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso390931a12.3
-        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:16:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794986199; x=1795590999; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bXRfep9ii60xjZWxRvZixwkuF31snfOPXcPr6rJucR4=;
-        b=u0MKK6xCdB9Xtg+RHpB9d5vpdp3Bv+ny+2fsq0I2S37zOY27Q/KCJEZMjXeFFXSRgS
-         QdlVkAhQZ/WzCSQYvAbdl8N5maQydawGymR7bi59ZQ4yei4osXMTVcXAaBckWMqPosNh
-         1c8InnmKwfw4M4YVnPFlfi+17Ihj/CDjv8NQ+VDk5/OCmpwTA+oZhOTwPLGuab0zBV64
-         wGPSDq4lj5+4/7s7GPNiJgplgD/lu0usp0rZSmTQqRmN12ql2Q8YO6l0oPlFhigvQjMo
-         pAtQt0Qaa07qdea4eXRhxiBZnU0JRG9/rr0qUpPHo9ju8R/QdiClBhUMsQS4IsWrL6PQ
-         6M4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794986199; x=1795590999;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bXRfep9ii60xjZWxRvZixwkuF31snfOPXcPr6rJucR4=;
-        b=RORsacRXpikytDXPbq3Ywgox/rTt5Gepf7IYmuIRu+LlhmRWp4NYsDiPxxljWPmuat
-         4L5UXSbssg6L1lanbHfrT7CHypTLtICL+8RwYGr0YAS7smneA4VTm2pCUJjKmBCh5UJ/
-         oQ54Q6CMuUJXE8OZoGxIglnSYU9queAeDicKuLYx/JoNrSMoVYFV2/wkhrMweT58flp3
-         UZ1J+NGUVDo+274TCbEZ6+nY4g/JJ327wBVgltKfS3s6iCNyMyj0pN8iRhGqHq+FOVvF
-         bgwtFAmJGVKXj+6YrwPzh5sD1KpJiMR9nhNiEPeDmLH//nfTp08tMoVzS5ltgwQCEWji
-         6iDA==
-X-Forwarded-Encrypted: i=1; AL+hErG5395uX6KXMTHBBXMXukKqDLdYvww2sYGo/KWi9u2/A5UUSiYAzwBJUBsPlubFGRxj5JjbZGS1h4p8pfk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87+TGfXXdi4xRXa2aTvQrH6sziEdWX2rHf9eXqx0YooIAH06gx
-	llM3ofnIFfebfRw4DgExlwH71t4MSPDL1WF7/BpIBEqUsHtML3wv/NQt
-X-Gm-Gg: AZFdTZfcTuE/0QHZl6Hw4b7IRpLxm9VfZqXkUwu31xA5vj0gAoEt2M8VZSms8UTH+h2
-	kMJBZFZbe3ug3A1hnaGC6PG9Vp9wkXodP4tDYZ2hGreY1Ofnvt6OKiWxmeDnYeWg8eo0v9O9Q47
-	WpaSwjFOc1G9KTBR/dq6hf7Me5A/OkLxGddJXFpiGRgoqfXaLYynlU1lInVFC0Y3kJ2OX/39Q6k
-	34kEe29rqjzWMJFe3p16ppeBL8RON7dx1UtMJZetAm7gLFQ7x1b8aqq2TZgSi3Qxapsoi9Mp6RM
-	9Gxd8fzbY3X3maL+Jd+osxiADOVyCWLcTO0TWIkOV+9MzNiwkhtHP9F+cec9Wh2iidWT1F0sliM
-	2qSVoAmRe4A9egcncTppPHb0e42xV2tWJwxOoPQE08WaiuWhzOpCnBS2qP+0qFWLFxsT9QS5pmG
-	ZNdl021IZwNgJZVsZ4mw16RI8+UNZSnTzLfI5axQ4u/HqnqeuWm1xYbQpVi/RjvOitNoboqNrmm
-	GZyKds3Nuc1Un8H3THpDpVBqMGo8xP5/+dHsm/oI8GujG/MlQhpUY4JBO3wQYqgY2Rj3gGZv1d9
-	pS9DJV52Vd0HcqGEnchsHc89FQ67Y7+DdACYFaoxL41l/WX7
-X-Received: by 2002:a17:90b:4410:b0:3b3:ba43:54c0 with SMTP id 98e67ed59e1d1-3b3d07a2075mr1795121a91.15.1794986198705;
-        Tue, 17 Nov 2026 23:16:38 -0800 (PST)
-Received: from lenoq.localdomain ([49.43.112.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d187dc82sm3143928a91.6.2026.11.17.23.16.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 23:16:38 -0800 (PST)
-From: Priyanshu Singh <singhpriyanshu9838@gmail.com>
-To: Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>
-Cc: Julian Braha <julianbraha@gmail.com>,
-	"Yann E . MORIN" <yann.morin.1998@free.fr>,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Priyanshu Singh <singhpriyanshu9838@gmail.com>
-Subject: [PATCH] kconfig: warn about malformed KCONFIG_SEED values
-Date: Wed, 18 Nov 2026 07:15:57 +0000
-Message-ID: <20261118071557.791279-1-singhpriyanshu9838@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=jbTWAW23
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NO9jaa0wwOOetdn8OJcupFMslSzTOSjSlf5r8eRhPBQstEm+QE/H5W86VR++BdNYmiNHE1hQ80hSjRChlOaCHS7qiLwAwk+Pq9WnWUjj/kL3FNPq8EcLPSORqpsiyt+sF+oxFEVAG2Bo4KyY+r9GpU3OnTrsZ6z8+LFXwnhICTEoGZE4G1dbqBZc9/i1TcPajPkYSrrSnDG0Ur79fstmvW0xazLrqSzYKERqVMA1tmXoZg90+Qg6is9MPvcFd2qzj7pKVA4xEf93iLKpUpUFz6twz4DhMF1SsMBXdfdQmhtmGcP0jva//pGkVxGrIUS3K/i7vnVM/0PUnirVHZuCcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jtSp0ZB7sgXukH75sBJBAz125XSdL/1mzf9dQU9FxRU=;
+ b=XXOWW0IPk23ZJo/3fvZkkLWLY3rcVzu9S1WZ/IgUNPib7WABTSkiXBcmrRdOF2itaWlZVQbjB9ZAwDYGWPPu6iTyb5Oq6AphwwbH9gj4ikU1pI2CIZ7lPyxskP4vmF/vLUyM/zwc3MuImAxhySEl1/1mfJQUd0Pz6VxWgsv11/nJdyavd9XXhQzzv7sw7Zp0KnzWAs77/4dnXf2P31EGHZpFzkRJbUcGkHVQeZb0NobBLTxSZvJK0F4sNYW8lD1zY6y+b4cHNQAfMXKs/R2wFhyBhPJTuvR/qBpT0kfrZCm4BFJLdufROmBAP86CGE6S6LcX2fQIx9VmQbXW4r3xMg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jtSp0ZB7sgXukH75sBJBAz125XSdL/1mzf9dQU9FxRU=;
+ b=jbTWAW23DwKT5m4DHyyx4H3DUyp68MaMFwiJFNTGtVmIH/iG/dDcem7t584ZtNOehC9nrpAcL5A3N3ir0jGSaHFnlaG1I4IkZpGrJ0TZ4tJFK4TEm6AkGin4wHfL7xvzNLkfVUNxaT/F7ekWSSEh6TKmlEXCIQprswaF7HTxbxVOlv2doQMuhKU4UClHLd9c/fYrlxrBwV8uiWIoz/WIvxA80M9hbhLVmC54eRjfZBCaY86/PP38q1O3abwt/qkefLtsUtXKGxlwDQhDjrGyxQ4Y2NI15rhhMX6bWNTNT4Ublx2nvvyU2va9Pibnz8PF2boI/6UEONOuz/puaXDsBg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by SEYPR03MB7889.apcprd03.prod.outlook.com (2603:1096:101:165::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 07:16:43 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4%7]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 07:16:42 +0000
+Message-ID: <1282161c-f1fe-40fa-a539-f95fbdeb46e5@amlogic.com>
+Date: Wed, 18 Nov 2026 15:16:38 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 2/2] i2c: amlogic: Add Amlogic A9 I2C controller
+ driver
+Content-Language: en-US
+To: Markus Elfring <Markus.Elfring@web.de>,
+ Junyi Zhao <junyi.zhao@amlogic.com>, linux-amlogic@lists.infradead.org,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ Andi Shyti <andi.shyti@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>
+References: <20261117-a9-i2c-v10-0-33ea9aefce20@amlogic.com>
+ <20261117-a9-i2c-v10-2-33ea9aefce20@amlogic.com>
+ <23a72c5e-7eb7-4a4e-9f06-fdc4976b05bc@web.de>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <23a72c5e-7eb7-4a4e-9f06-fdc4976b05bc@web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TYCP286CA0200.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:385::6) To TYZPR03MB6896.apcprd03.prod.outlook.com
+ (2603:1096:400:289::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,398 +103,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SEYPR03MB7889:EE_
+X-MS-Office365-Filtering-Correlation-Id: 773ada8c-fea2-469c-7c3c-08df4543e57e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|10067099003|11063799006|56012099006|4143699003|261026121527099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	lHJ5pYciV/9IbPES7D4RCI0aDhU8CofcZdjKHlyovqF9AampdVa/a8qKhap4OOuQpNtwtpg5obPW4Fa3Tb/YNhFi6iunTtYN0KFNqNKFXYRAV4UCRqHjuOuXxWo4Nk3mNZI+eB+5yGO6AebVH1xxxTKp9KIoMSet9gOpmQzf4fXx0I9IYRkc9d7DRyLOV1KzSRhqUd2c4Q2qVVk86Y9QLNzIkVkMofSpSyDzTD57qt5lsrLX6ZV3dEIiH5jy/EU8xLD/G2jBOv8W5Kzn7i0FWR1zuTykvg3F7va3o1JgA9e5lD3jVIctiRD64CP5rJUXGZrLJv3rXOVkuM6sapr5u4CE//cCZvvZSiZhyZSmbgLOCKxHnIs7eSMqdjczFeOS88AgSBt/YhNwm/Hy4qkDHbR6uM8zEdShDrw8mBc4sdgdZdSX2Syzlxcncnkhz8PNwnTrkCSIZjUc7Nz5ILAfl8Qv3+5vheCRtBfSfXXbhlyc5QIGnSwXH6AXi0Ih1HN4sd2A9Ie7VlhR93k5i8liPt+ewI1b1sjaaqnSngoxrr5+RfQmaAFdW/jEZhUXUjELGyiB6g6Uf+YCNT4nVnLGv4L1Lub4bis/s25nDzo8ujkctkqp4TC0jmVo8Kwoaqvg
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(10067099003)(11063799006)(56012099006)(4143699003)(261026121527099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?RmJYV1BzWStwYjhBWTRjOUdJWGMyeWg5RDBpS214V3ZqYmxzRURZeWNCMzVC?=
+ =?utf-8?B?TmFNMEU0TEFoMUlCdVIyZHRzWVdUeE00cUoxRWZVL2MxeHEzcFlWNnN1V3pq?=
+ =?utf-8?B?R1A5ZTBqTHRpZG5mVXVzN1RVZU5kQ2lnWTJ3am1ob3JiV0NlWnBpTVAxcmpu?=
+ =?utf-8?B?emhkbjJzeklUbWswR1RYNkNac2tpdXhiZExmWHc2TWtzUzhoRTZRQ1BVeTVW?=
+ =?utf-8?B?YURLWEJQUlV0NHRISnpjMnBLKzJ3WFNrYm55K2RBOGkxVDd0WHVWRnU4cUxw?=
+ =?utf-8?B?bjArRFZVSXBDTlJDUG9aNFhtRC8vNlRIZzRaSjROQm5tN0hoNkpUdVpWeU1r?=
+ =?utf-8?B?aW5EcTU4UW1yenR2bTdBMFJjdVVBMFhleGR0dTZ6K1B1dXhHdko5cUhNUHF6?=
+ =?utf-8?B?NXA0YkhqNjVlZ2tmUFVRV0tZWEZHVGVIai81TDZpRmY0bCtXUXBac21RSWZp?=
+ =?utf-8?B?VGFTNXUyRXI2S1ZBSmovRnQzeHRWNDBUUHRQR1V2VGx1aEFiWE1HZ0pDSDNJ?=
+ =?utf-8?B?SURQNmt6Lzc5dHlDTzlnUlJUdkFRNGYra1hEL1BwckpOWFBvcVB6c3RHaU1X?=
+ =?utf-8?B?NEMrOVZqV2dwVGdKMzRhSmVyZGlQc05Rd0N2R3BLeXYxZkRwTVQ4WmltYzdz?=
+ =?utf-8?B?U3kzd0tpb2dONW90U2NPY3lQcU4wNW5EdVphcE96NzF6ZTUrZFR3RHVXUUpQ?=
+ =?utf-8?B?ZVozMTU5WUJaUjlxb3ZBb1drM2V0M1MwNjBGMmsxOFRMenk1Nnh0dmhHOWlw?=
+ =?utf-8?B?MlNEblhaY21QV0YrcEhyZzRZMlI3RFlGMzR1Z3FZb1NVWC9NMG13R0VMemZ6?=
+ =?utf-8?B?Mk03c2FqWkd6Qk9PaUtNK2ZaNmM0Vk9aTnJDMGJaNUJIeU9rVzg4VVJ6SFFv?=
+ =?utf-8?B?bVM0UU43cDlpTVZoYnR6WmYwOHQ4dEdkUUZOWExlODRDcm1XMWVQODdSNEpx?=
+ =?utf-8?B?M2FFbldjV2FjUElQcW5hNWNGZ045UUxESWRrOSsydHFzSGNJcmpnZlVuU09K?=
+ =?utf-8?B?bCtYSjc0UDdWLzZjSW1zazNuYmZxSFRaS1BndGlVTG5XSWdWZ2ljUkxFQWhR?=
+ =?utf-8?B?S2RZSGQwVTFMclNqNk5mbEZ4dnVqTE9wVGpzU2doeTBwNG8yUkkxMTdReGNl?=
+ =?utf-8?B?U0ZQOFdkSUJJR2hPU0syU01xV2hic2NuRlBFMzI1VGYwOVhoaUJwK2tjRTFr?=
+ =?utf-8?B?NU1IYVJZYWZkeWNmYzRVeFRTRXhLQXlqOWJnQVBGaTBzOGxpTGsyUFQyekdT?=
+ =?utf-8?B?eTJzUFB2YlJmVnhSZDBqL2oyaEwyZ1cwSDNsQzY1MFVzS2FLNU9tVERGak10?=
+ =?utf-8?B?TEEwbzFVZE9SVjVMVVMwMm11cmVKcFR6N0doQ2RxUi9aY09aeFlhbDZzNkhp?=
+ =?utf-8?B?dGxwNEFJc2RnNy9RVUVqcDFNMmVFa1NpUWtOWStBQmh5Vm9nVlZDVWhwbWlq?=
+ =?utf-8?B?SVV0VmtnU0pXeDc2VS9NTlpNV3hrTUsycW9KWVdOenFJUTc5MDEwUmNOSncw?=
+ =?utf-8?B?R2NKSW9CSkJDdVI1R3RITkJiNTF0MXF6c3krdnJVd3lOL0JPL0hrb09sOGhj?=
+ =?utf-8?B?TnFYVUkycXg2Q1NzSkFhY1EwTVVkSGZ0Y1UrbXk3R3FMUytEK3ZQeFAvNGs1?=
+ =?utf-8?B?eExzWWlDeDNyV2F0a1orSUF1b0VqS0gxTnlaQzMyTUxyS2o4MkNUc1dFeDhq?=
+ =?utf-8?B?UjkxelhUNHEwdFY5bWp3bW9lN1daWjBzbldVc1FwZzhvMytacktlSXJWamxO?=
+ =?utf-8?B?ZFZCc01NbmFncFB1N1JCbUZRWERtd0o2a211amNQUE1xYVJMN1ZxM21oeDkv?=
+ =?utf-8?B?R01nY1BJUWlIT281ellNbGxHUGF6SlFldW1UTGlhTFhudmwzNGtHZTZ0Nk1y?=
+ =?utf-8?B?WDloUmM1K1F0dHBCU2ZwNjFXa3EvWkZUb1ArYmp1b3NSODZUZmc1K1FDZnpp?=
+ =?utf-8?B?eDBxWmtoaGJGU3p2aG5KVTJGR2k3amIweUxSZm5tZnZmR3JpSm1sY3g3T0tU?=
+ =?utf-8?B?RlpwbUFsWnkva01vUGJad3pyb3NFZldYd0xZbWZnbEE5NkdLZk1OMi85Z3JI?=
+ =?utf-8?B?c2dKMUIzZVpQK1MybXhrbUVPOEM0R0NSSDFvZjVycDBveVJobDY3dllvSnU2?=
+ =?utf-8?B?WFlqOEpJQXRRTHZhS2cxSGsyWkdzZXI5ZzFkYWE5MnMzL3pOOXg0YmFUNDhq?=
+ =?utf-8?B?WDhuOTJldTFHWjRGa043SnhPUjlXc1EwOGIvQllHTy8yQW9sNnVRTTV3NWFr?=
+ =?utf-8?B?c3NOVGxFNldhcFN2dGEzQ243aURhZno5RkZTdTNYeE9FYUVqbGJVMkZ0Z3VH?=
+ =?utf-8?B?M3R5d0V5WEZ1QWVKSVJzS1UyVVhBcC8vcGdOeS9ESk5renBPdHJMMzF4VG50?=
+ =?utf-8?Q?BqbomX3WwNUf1b9A=3D?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 773ada8c-fea2-469c-7c3c-08df4543e57e
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 07:16:42.7044
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ivnb1lWTgOt0u57gScIFRYKdL6o6rJXkn1sCTZcnj/P0dnEYaK0hdIGjy10bCX2QmN95fD2GdA1D+oPBL2wJAsZEfLzIMvtPn/hUsycEzjs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7889
 
-randconfig parses KCONFIG_SEED with signed strtol(), causing several
-validation and cross-architecture bugs:
+Hi Markus,
 
-- Artificial constraints and portability issues:
-  32-bit seeds in [0x80000000, 0xFFFFFFFF] and values > UINT_MAX
-  are capped to LONG_MAX (0x7FFFFFFF) on 32-bit hosts instead of
-  matching 64-bit host behavior.
-- Whitespace handling asymmetry: Trailing whitespace leaves
-  *endp != '\0', discarding the seed in favor of gettimeofday()
-  while leading whitespace is accepted.
-- Garbage handling: Invalid strings (e.g., "xyz", "42_foo") fall back
-  to the clock seed and exit with status 0, ignoring KCONFIG_WERROR.
+On 2026/11/17 21:21, Markus Elfring wrote:
+> …
+>> +++ b/drivers/i2c/busses/i2c-amlogic-a9.c
+>> @@ -0,0 +1,428 @@
+> …
+>> +static int aml_i2c_xfer_msg(struct aml_i2c *i2c, struct i2c_msg *msg, bool last)
+>> +{
+> …
+>> +     spin_lock_irqsave(&i2c->lock, flags);
+>> +     i2c->state = (msg->flags & I2C_M_RD) ? A9_STATE_READ : A9_STATE_WRITE;
+> …
+>> +     /* Start the transfer */
+>> +     aml_i2c_do_start(i2c, msg);
+>> +     spin_unlock_irqrestore(&i2c->lock, flags);
+> …
+>> +     if (!time_left) {
+>> +             guard(spinlock_irqsave)(&i2c->lock);
+> …
+>> +     }
+>> +
+>> +     return i2c->error;
+>> +}…
+> Will development interests grow also for the application of another scoped lock guard?
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/cleanup.h#L325-L328
+> 
 
-Switch to strtoull(..., 0) and consume trailing whitespace so
-whitespace-padded seeds are not discarded. Reject 0b/0B prefixes
-explicitly so C11 and C23 builds behave identically.
+Will do.
 
-Emit a warning whenever KCONFIG_SEED deviates from a canonical unsigned
-32-bit integer, and exit(1) if KCONFIG_WERROR is set. Otherwise, retain
-modulo 2^32 truncation for parseable 64-bit integers and fall back to
-the clock seed on unparseable inputs or ERANGE overflow.
-
-Add regression tests in scripts/kconfig/tests/randconfig_seed/.
-
-Fixes: 0d8024c6ebad ("kconfig: allow specifying the seed for randconfig")
-Signed-off-by: Priyanshu Singh <singhpriyanshu9838@gmail.com>
----
-Notes for reviewers:
-- 0b/0B guard: Under glibc 2.38+ with -std=gnu2x/-std=c23, strtoull()
-  maps to __isoc23_strtoull() which accepts 0b/0B binary prefixes in
-  base 0, whereas C11 stops at 'b'. Rejecting 0b/0B prior to strtoull()
-  keeps behavior identical across toolchains.
-- Backward compatibility (KCONFIG_WERROR unset): Non-canonical but
-  parseable 64-bit integers (whitespace, signs, -1, or > UINT_MAX
-  timestamps like `date +%s%N`) emit a warning and truncate modulo 2^32
-  across both 32-bit and 64-bit hosts, while unparseable strings or
-  > 64-bit ERANGE overflows fall back to gettimeofday().
-
-Input                   Pre-Patch (64-bit)    Pre-Patch (32-bit)    Post-Patch (32 & 64-bit)
-----------------------  --------------------  --------------------  ------------------------------------
-"42" / "0x2a"           0x2A (quiet)          0x2A (quiet)          0x2A (quiet)
-"0x80000000"            0x80000000 (quiet)    0x7FFFFFFF (clamp)    0x80000000 (quiet)
-" 42"                   0x2A (quiet)          0x2A (quiet)          0x2A + warn (WERROR -> exit 1)
-"42 "                   Clock fallback        Clock fallback        0x2A + warn (WERROR -> exit 1)
-"-1"                    0xFFFFFFFF (quiet)    0xFFFFFFFF (quiet)    0xFFFFFFFF + warn (WERROR -> exit 1)
-"4294967296" (2^32)     0x0 (quiet)           0x7FFFFFFF (clamp)    0x0 + warn (WERROR -> exit 1)
-"18446744073709551616"  0xFFFFFFFF (clamp)    0x7FFFFFFF (clamp)    Clock fallback + warn (WERROR -> 1)
-"0b1010"                Clock (C11)/10 (C23)  Clock (C11)/10 (C23)  Clock fallback + warn (WERROR -> 1)
-"xyz" / "42_foo"        Clock (ignores WERR)  Clock (ignores WERR)  Clock fallback + warn (WERROR -> 1)
-
-Tested via `make testconfig` (40 passed).
-
- scripts/kconfig/conf.c                        |  40 +++-
- scripts/kconfig/tests/randconfig_seed/Kconfig |  44 ++++
- .../kconfig/tests/randconfig_seed/__init__.py | 222 ++++++++++++++++++
- 3 files changed, 303 insertions(+), 3 deletions(-)
- create mode 100644 scripts/kconfig/tests/randconfig_seed/Kconfig
- create mode 100644 scripts/kconfig/tests/randconfig_seed/__init__.py
-
-diff --git a/scripts/kconfig/conf.c b/scripts/kconfig/conf.c
-index 31c6fd25e6ec..bccf1d591990 100644
---- a/scripts/kconfig/conf.c
-+++ b/scripts/kconfig/conf.c
-@@ -92,11 +92,45 @@ static void set_randconfig_seed(void)
- 
- 	env = getenv("KCONFIG_SEED");
- 	if (env && *env) {
-+		const char *p = env;
-+		const char *digits;
- 		char *endp;
-+		unsigned long long val = 0;
-+		bool has_bin_prefix;
-+		bool warned = false;
-+
-+		while (isspace((unsigned char)*p))
-+			p++;
-+
-+		digits = (*p == '+' || *p == '-') ? p + 1 : p;
-+		has_bin_prefix = digits[0] == '0' &&
-+				 (digits[1] == 'b' || digits[1] == 'B');
-+
-+		errno = 0;
-+		if (!has_bin_prefix)
-+			val = strtoull(p, &endp, 0);
-+		else
-+			endp = (char *)p;
-+
-+		if (p != env || !isdigit((unsigned char)*p) || *endp != '\0' ||
-+		    errno == ERANGE || val > UINT_MAX) {
-+			fprintf(stderr,
-+				"warning: KCONFIG_SEED has malformed format\n");
-+			warned = true;
-+		}
- 
--		seed = strtol(env, &endp, 0);
--		if (*endp == '\0')
--			seed_set = true;
-+		if (endp != p && errno != ERANGE) {
-+			while (isspace((unsigned char)*endp))
-+				endp++;
-+
-+			if (*endp == '\0') {
-+				seed = (unsigned int)val;
-+				seed_set = true;
-+			}
-+		}
-+
-+		if (warned && getenv("KCONFIG_WERROR"))
-+			exit(1);
- 	}
- 
- 	if (!seed_set) {
-diff --git a/scripts/kconfig/tests/randconfig_seed/Kconfig b/scripts/kconfig/tests/randconfig_seed/Kconfig
-new file mode 100644
-index 000000000000..28d5cb225b04
---- /dev/null
-+++ b/scripts/kconfig/tests/randconfig_seed/Kconfig
-@@ -0,0 +1,44 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config MODULES
-+	bool
-+	default y
-+	modules
-+
-+config BOOL1
-+	bool "Bool 1"
-+
-+config BOOL2
-+	bool "Bool 2"
-+
-+config BOOL3
-+	bool "Bool 3"
-+
-+config BOOL4
-+	bool "Bool 4"
-+
-+config TRI1
-+	tristate "Tristate 1"
-+
-+config TRI2
-+	tristate "Tristate 2"
-+
-+config TRI3
-+	tristate "Tristate 3"
-+
-+config TRI4
-+	tristate "Tristate 4"
-+
-+choice
-+	prompt "Choice"
-+
-+config CHOICE_A
-+	bool "Choice A"
-+
-+config CHOICE_B
-+	bool "Choice B"
-+
-+config CHOICE_C
-+	bool "Choice C"
-+
-+endchoice
-diff --git a/scripts/kconfig/tests/randconfig_seed/__init__.py b/scripts/kconfig/tests/randconfig_seed/__init__.py
-new file mode 100644
-index 000000000000..7f9e1e5e7ef4
---- /dev/null
-+++ b/scripts/kconfig/tests/randconfig_seed/__init__.py
-@@ -0,0 +1,222 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+"""Validate KCONFIG_SEED handling in randconfig."""
-+
-+import time
-+
-+
-+def test_malformed_warns(conf):
-+    seeds = [
-+        'invalid', ' ', '\t', '\n', '+', '-',
-+        '0x', '0X', '0xg', '0x-1', '0x+1', '0x1g', '0b', '0b1010', '0B1010',
-+        '+0b1010', ' 0b1010 ', '08',
-+        '123foo', '10 20', '-1_junk', '-1 junk', '-1xyz',
-+        '4294967296_junk', '4294967296 junk', '4294967296xyz',
-+        '0x100000000xyz', '-0x100000000xyz',
-+        '--0', '+-0', '-+0', '++0', '++42', '+ 42', '- 0', '- 42',
-+        '42 ', '0x2a ', ' 42 ', '0 ', ' 0', ' 0 ', '+0x0', ' 0x2a', ' 0x2a ',
-+        '-0', '-0x0', '+0', '+42', '+0x2a', ' 42', ' \t0x2a',
-+        '-1', '-42', '-0x1', ' -1', ' -42 ', '-42 ', '-0x80000000',
-+        '-2147483648', '-4294967295', '-4294967296', '-18446744073709551615',
-+        '4294967296', '+4294967296', '4294967296 ', ' 4294967296 ',
-+        '0x100000000', '040000000000', '1763362020123456789',
-+        '18446744073709551615', '18446744073709551616', '-18446744073709551616',
-+        '0x10000000000000000', '-0x10000000000000000',
-+        '999999999999999999999999', '-999999999999999999999999',
-+        '999999999999999999999999xyz', '-999999999999999999999999xyz',
-+    ]
-+    for seed in seeds:
-+        context = 'seed={!r}'.format(seed)
-+        assert conf._run_conf('--randconfig', extra_env={
-+            'KCONFIG_SEED': seed,
-+        }) == 0, context
-+        assert ('warning: KCONFIG_SEED has malformed format' in
-+                conf.stderr), context
-+        assert conf.stderr.count('warning:') == 1, context
-+        assert 'KCONFIG_SEED=0x' in conf.stdout, context
-+        assert conf.config is not None, context
-+
-+
-+def test_malformed_preserves_config(conf):
-+    pairs = [
-+        # In-range whitespace & signs
-+        (' 0', '0'),
-+        (' +0', '0'),
-+        (' -0', '0'),
-+        ('-0', '0'),
-+        ('-0x0', '0'),
-+        ('+0', '0'),
-+        ('+0x0', '0'),
-+        ('+42', '42'),
-+        ('+0x2a', '0x2a'),
-+        (' 42', '42'),
-+        ('42 ', '42'),
-+        (' 42 ', '42'),
-+        ('0 ', '0'),
-+        (' 0 ', '0'),
-+        (' 0x2a', '0x2a'),
-+        ('0x2a ', '0x2a'),
-+        (' 0x2a ', '0x2a'),
-+        (' \t0xdeadbeef', '0xdeadbeef'),
-+        ('0xdeadbeef ', '0xdeadbeef'),
-+        (' 0xdeadbeef ', '0xdeadbeef'),
-+
-+        # Negative integers (modulo 2^32 backward compatibility)
-+        ('-1', '0xffffffff'),
-+        (' -1 ', '0xffffffff'),
-+        ('-0x1', '0xffffffff'),
-+        ('-42', '0xffffffd6'),
-+        (' -42 ', '0xffffffd6'),
-+        ('-42 ', '0xffffffd6'),
-+        ('-2147483648', '0x80000000'),
-+        ('-0x80000000', '0x80000000'),
-+        ('-4294967295', '0x1'),
-+        ('-4294967296', '0x0'),
-+        ('-0x100000000', '0x0'),
-+        ('-18446744073709551615', '0x1'),
-+
-+        # 64-bit > UINT_MAX integers (modulo 2^32 backward compatibility)
-+        ('4294967296', '0x0'),
-+        ('+4294967296', '0x0'),
-+        ('4294967296 ', '0x0'),
-+        (' 4294967296 ', '0x0'),
-+        ('0x100000000', '0x0'),
-+        ('040000000000', '0x0'),
-+        ('4294967338', '0x2a'),
-+        ('0x10000002a', '0x2a'),
-+        ('1763362020123456789', '0x23dfb515'),
-+        ('18446744073709551615', '0xffffffff'),
-+    ]
-+    for malformed_seed, canonical_seed in pairs:
-+        context = 'malformed={!r}, canonical={!r}'.format(
-+            malformed_seed, canonical_seed)
-+        assert conf._run_conf('--randconfig', extra_env={
-+            'KCONFIG_SEED': malformed_seed,
-+        }) == 0, context
-+        assert ('warning: KCONFIG_SEED has malformed format' in
-+                conf.stderr), context
-+        assert conf.stderr.count('warning:') == 1, context
-+        malformed_stdout = conf.stdout
-+        malformed_config = conf.config
-+
-+        assert conf._run_conf('--randconfig', extra_env={
-+            'KCONFIG_SEED': canonical_seed,
-+        }) == 0, context
-+        assert 'warning:' not in conf.stderr, context
-+        assert conf.stdout == malformed_stdout, context
-+        assert conf.config == malformed_config, context
-+
-+
-+def test_unparseable_falls_back_to_clock(conf):
-+    forbidden_targets = [
-+        ('999999999999999999999999', '0xFFFFFFFF'),
-+        ('-999999999999999999999999', '0xFFFFFFFF'),
-+        ('18446744073709551616', '0xFFFFFFFF'),
-+        ('0b1010', '0xA'),
-+        ('42foo', '0x2A'),
-+    ]
-+    for seed, forbidden_hex in forbidden_targets:
-+        target_forbidden = 'KCONFIG_SEED={}\n'.format(forbidden_hex)
-+        matched_forbidden = True
-+        for _ in range(3):
-+            assert conf._run_conf('--randconfig', extra_env={
-+                'KCONFIG_SEED': seed,
-+            }) == 0, 'seed={!r}'.format(seed)
-+            assert ('warning: KCONFIG_SEED has malformed format' in
-+                    conf.stderr), 'seed={!r}'.format(seed)
-+            if target_forbidden not in conf.stdout:
-+                matched_forbidden = False
-+                break
-+            time.sleep(0.002)
-+        assert not matched_forbidden, (
-+            'seed={!r} unexpectedly matched forbidden static seed {!r}'.format(
-+                seed, forbidden_hex))
-+
-+
-+def test_werror(conf):
-+    seeds = [
-+        ('', 0), ('0', 0), ('42', 0), ('052', 0), ('0x2a', 0),
-+        ('0x80000000', 0), ('0xffffffff', 0),
-+        ('invalid', 1), ('123foo', 1), ('0x', 1), ('0b1010', 1),
-+        ('42 ', 1), (' 42', 1), (' 42 ', 1), ('0 ', 1), (' 0', 1),
-+        ('-0', 1), ('+42', 1), ('+0x0', 1), (' 0x2a', 1),
-+        ('--0', 1), ('+-0', 1), ('++42', 1), ('+ 42', 1), ('- 0', 1),
-+        ('-1', 1), ('-42', 1), (' -42 ', 1),
-+        ('4294967296', 1), ('4294967296 ', 1), ('1763362020123456789', 1),
-+        ('18446744073709551616', 1), ('999999999999999999999999', 1),
-+        ('-999999999999999999999999', 1),
-+    ]
-+    for seed, status in seeds:
-+        # Test with KCONFIG_WERROR unset: all seeds succeed (malformed warn)
-+        context = 'seed={!r}, werror=unset'.format(seed)
-+        assert conf._run_conf('--randconfig', extra_env={
-+            'KCONFIG_SEED': seed,
-+        }) == 0, context
-+        if status:
-+            assert ('warning: KCONFIG_SEED has malformed format' in
-+                    conf.stderr), context
-+            assert conf.stderr.count('warning:') == 1, context
-+        else:
-+            assert 'warning:' not in conf.stderr, context
-+        assert conf.config is not None, context
-+
-+        # Test with KCONFIG_WERROR set
-+        for werror in ['', '0', '1']:
-+            context = 'seed={!r}, werror={!r}'.format(seed, werror)
-+            assert conf._run_conf('--randconfig', extra_env={
-+                'KCONFIG_SEED': seed,
-+                'KCONFIG_WERROR': werror,
-+            }) == status, context
-+            if status:
-+                assert ('warning: KCONFIG_SEED has malformed format' in
-+                        conf.stderr), context
-+                assert conf.stderr.count('warning:') == 1, context
-+                assert conf.config is None, context
-+            else:
-+                assert 'warning:' not in conf.stderr, context
-+                assert conf.config is not None, context
-+
-+    # Verify unset KCONFIG_SEED succeeds under KCONFIG_WERROR
-+    for werror in ['', '0', '1']:
-+        context = 'unset seed, werror={!r}'.format(werror)
-+        assert conf._run_conf('--randconfig', extra_env={
-+            'KCONFIG_WERROR': werror,
-+        }) == 0, context
-+        assert 'warning:' not in conf.stderr, context
-+        assert 'KCONFIG_SEED=0x' in conf.stdout, context
-+        assert conf.config is not None, context
-+
-+
-+def test_valid(conf):
-+    groups = [
-+        ('0x0', ['0', '00', '0x0', '0X0', '0x00000000']),
-+        ('0x2A', ['42', '052', '0x2a', '0X2A']),
-+        ('0x80000000', ['2147483648', '020000000000', '0x80000000', '0X80000000']),
-+        ('0xFFFFFFFF', ['4294967295', '037777777777', '0xffffffff', '0XFFFFFFFF']),
-+    ]
-+    for expected_hex, representations in groups:
-+        expected_config = None
-+        for seed in representations:
-+            context = 'seed={!r}, expected_hex={!r}'.format(seed, expected_hex)
-+            assert conf._run_conf('--randconfig', extra_env={
-+                'KCONFIG_SEED': seed,
-+            }) == 0, context
-+            assert conf.stderr == '', context
-+            assert 'KCONFIG_SEED={}\n'.format(expected_hex) in conf.stdout, context
-+            assert conf.config is not None, context
-+            if expected_config is None:
-+                expected_config = conf.config
-+            else:
-+                assert conf.config == expected_config, context
-+
-+
-+def test_unset_and_empty(conf):
-+    for base_env in [{}, {'KCONFIG_SEED': ''}]:
-+        for werror in [None, '', '0', '1']:
-+            extra_env = dict(base_env)
-+            if werror is not None:
-+                extra_env['KCONFIG_WERROR'] = werror
-+            context = 'extra_env={!r}'.format(extra_env)
-+            assert conf._run_conf('--randconfig', extra_env=extra_env) == 0, context
-+            assert 'warning:' not in conf.stderr, context
-+            assert 'KCONFIG_SEED=0x' in conf.stdout, context
-+            assert conf.config is not None, context
--- 
-2.53.0
-
+> Regards,
+> Markus
