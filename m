@@ -1,89 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794978892;
-	b=ZttXMXXMT21y2ZQK+ZeGbzf9cQ/+AujZCxMFeRS2NRnc9doSy6826yjYIaztUVS19d2o
-	 tXA+pQCvODk6OBoYD+mWIETopMTXSS2Q7Rqfw4O5Rjpp+DSMVBAQVxqP32L5BkfRBWvYi
-	 nU+HvO8DWZ8vT+9Hn7Te5U4zFbdotPaI6gEMyGOvag0o7vKXgwdhakzXjc0N+Lxbiu38J
-	 gQQWYwj0oK2oa/TPO3SRYeWVP+TGD5IHQVEIAFTwQ/wNtHOOaY1D8LeUcNdD9cRUHDLzB
-	 JnbA5vb+myDZ94X1dQB42dG10Oh9CO6eoulje9UfQv3Vx09B50e0Ke3bXUEOGsDHhrQ==
+	t=1794978897;
+	b=qqFgTiXPNzLCs+3JJA1pfUwUtAaaLBFDr6TJQJgT4BiufkwNqgYUw88RHdWhUpN79GaU
+	 ryz8Fo/CcSCxrzrZBr/vY3869Ds1pFi83818/dzUiYHt/JKbcFOH3ZJuK17198+6iRFrH
+	 SJsX8FyqeNMbwam338EJPwkvgdvpmjd+ewYijDsTkEfPb2rXoI5FZeU8JFJN/4AJLox4K
+	 5SLN4wKcQMGTiwx4Y5fr8/nFgdvbjfp+Cm/oLVzVWzIQbvohfX7XnucPhNsiX4oKNrvv/
+	 xE4x5PAPUG7Kv4fgVpMcfwYZG+xq2nQClAPNarHRgzn2hHZ2pY26C/QvO463gLvM3QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794978892;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794978897;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
 	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
 	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=ComRRml0ZzynV3ARoUry0O9EESmxNStjxfOKpHuXfew=;
-	b=VpeXMjdcCnvwXVp9tY+YqfVHbmh+CBovLwjY/rTy44KfAyxZiB7BkKc16t1bob4uJnZN
-	 /2UQCb0i4nF1stvigpAPZQOTyjlDnC3dowRqVehqDumX5tjsXSEYSFZwP8U2M0JEA4Y0d
-	 ohmAoH+7U1Enb5KWo1IxsqRZ9VWXbKGBxztr0JUrfbTTVS0ajSeO1n6r4YvDYStUgE49/
-	 Hc/1TdkPTHh3sDQ55m1YeypZkhEIV330FSfAcHj2u8ptK1GrWBp2rnc7OgAloEJ4zcNPS
-	 ABS5ya2qEPootoQNOSnfWH9mnkDNdKCDkXwDwdVh0nITn5JNoZ/cZBGnFOpvnK5N4Cw==
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=/6KaE7xGisRHQL2pZ5XkTkcDmLT7cT0gvLUNhjy8lPk=;
+	b=Mq3hdGcbUVx0wJJM9F0hhZk5FrAlqvOuBa0hZhuScj7hlExe5xgw//5H28nh8m2eSvjs
+	 YqiadEfYqHeaHZN5j02sEJEbHtPUSStb3VuvkrdprGpq99td9HA0N6c0KiLYAmyCtBC4W
+	 wSBo6VI/yHkfc/xr+4p2747A2tkbmbsdtNcLIKSDxKuaTyqatyaUSThF07F3tMd7yTyaw
+	 NU02dX9WKBBWUI3Ao+w4XSG4xQPrzkUH211pQXUABN70dBMyl3OH3RAIkExLc07Dv/tW5
+	 jP+5pus6IUsFe4TQ+4PqRKwKvd8TfwDZ0WBw7jbqhbXWJ9/5+t9bjWSUeu5gCJWuZrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.ibm.com;
 	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="on/4JbEu";
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=AaCXAoKJ;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FC95606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:14:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FC95606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5C32606A330;
+	Wed, 18 Nov 2026 05:14:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5C32606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=on/4JbEu
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2RuAW4062985;
-	Wed, 18 Nov 2026 05:14:34 GMT
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=AaCXAoKJ
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2SHqK4045002;
+	Wed, 18 Nov 2026 05:14:39 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=ComRRml0ZzynV3ARoUry0O9EESmxNStjxfOKpHuXf
-	ew=; b=on/4JbEuoL/+CjWlEo00BA0nJGe7N0+ZWo3zhzBU6ObdwxoHmv+sks8I0
-	gUW/4jVNnK6l98F/UFyXOVaUeALJ8uN/nPnL42/uJNIWycugL7BwU67sIJ8NdVuf
-	xcsjCb875XAS225Jlu3wHLYJMSyXdAfI193vV274rv8F9oqkaZ3eR5NNA8lMDGTM
-	LHFDqjphg+OPk62C2WbwHf7+sR4yC1RyIk8847p/ufL5NCPI/BthrN0NPg3jJ/5+
-	e/lXIl3zGEXlKYlZEQOvJs6SmdRvJpmUlqJskF3mqz8+oLz1OfQ3FXtzesm2Oxhy
-	VGImPISD/Z/S3Zsp8RwNPoZPFr6fg==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t0yp1-1
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=/6KaE7xGisRHQL2pZ
+	5XkTkcDmLT7cT0gvLUNhjy8lPk=; b=AaCXAoKJw4gbH/0NR0Jn5GP/t3hyrYkR+
+	bnZiBdRh8gD1m3HUFOrjVfVKcaHxzzOR59cOOmXTp9JfaGUqvx03b4RYdK2DR4eV
+	5Jmf3jrS8BL0MkEz8M6QkUu5fmD2o6PmtdTajDfZxnNtPeHREzNwMn5IT30OrqGc
+	y9j8B85VAebvJB0U10d4nhLhFvf5yVhk0jdDjvbrcSLEewc36XUpiPZouPMW4wCX
+	W3WUrN5loutpc5sFffI6Al0AQB9jONWynS91qcFfxXW++7gY6cDPUeLgufdKRxX2
+	ALJCNPw/wUSKQGbPogf9gC2RB29q3+v4+YmzKVPRLzbE/rmvhqhdg==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105wrxrq-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 05:14:34 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2nt6M680839;
-	Wed, 18 Nov 2026 05:14:33 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvgugx-1
+	Wed, 18 Nov 2026 05:14:39 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2YtBM1428861;
+	Wed, 18 Nov 2026 05:14:38 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j02dffwyg-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 05:14:33 +0000 (GMT)
+	Wed, 18 Nov 2026 05:14:38 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI5ESLC39059904
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AI5EYOB49152304
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 18 Nov 2026 05:14:29 GMT
+	Wed, 18 Nov 2026 05:14:34 GMT
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D10AB20043;
-	Wed, 18 Nov 2026 05:14:28 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 66DB62004B;
+	Wed, 18 Nov 2026 05:14:34 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CB59120040;
-	Wed, 18 Nov 2026 05:14:23 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 6361320040;
+	Wed, 18 Nov 2026 05:14:29 +0000 (GMT)
 Received: from li-7bb28a4c-2dab-11b2-a85c-887b5c60d769.ibm.com.com (unknown [9.39.20.10])
 	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 18 Nov 2026 05:14:23 +0000 (GMT)
+	Wed, 18 Nov 2026 05:14:29 +0000 (GMT)
 From: Shrikanth Hegde <sshegde@linux.ibm.com>
 To: maddy@linux.ibm.com, linuxppc-dev@lists.ozlabs.org, chzigotzky@xenosoft.de
 Cc: sshegde@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
         christophe.leroy@csgroup.eu, linux-kernel@vger.kernel.org,
         msuchanek@suse.de, ritesh.list@gmail.com, harshpb@linux.ibm.com,
         gautam@linux.ibm.com, amachhiw@linux.ibm.com, venkat88@linux.ibm.com,
-        nnmlinux@linux.ibm.com, mkchauras@gmail.com
-Subject: [PATCH v5 0/3] KVM: PPC: BookE: Fix boot hang on preemptible kernels
-Date: Wed, 18 Nov 2026 10:44:16 +0530
-Message-ID: <20261118051419.783878-1-sshegde@linux.ibm.com>
+        nnmlinux@linux.ibm.com, mkchauras@gmail.com, stable@vger.kernel.org
+Subject: [PATCH v5 1/3] PPC32: Fix hard_irq_disable to follow tracing and lockdep state
+Date: Wed, 18 Nov 2026 10:44:17 +0530
+Message-ID: <20261118051419.783878-2-sshegde@linux.ibm.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261118051419.783878-1-sshegde@linux.ibm.com>
+References: <20261118051419.783878-1-sshegde@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,85 +99,77 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afd343a cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+X-Proofpoint-ORIG-GUID: IGLee--yC3Poim3REU9BzHMxsnhCM6D8
+X-Proofpoint-GUID: 41sXIPfRQR4BugZCTOdVkLi2TVB7lRVB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX02FdU2ZEwabr
+ cq27CazAXapoft0c95T2P6nTwxQqFY0QYYjtLDPeOBreSCJEMJAF8Dko/k8ietmMhFYyBl40ZnP
+ jMId4+1UgJOjppwiHBMdJHMwShwhLlQahnIRKDzlWlDn6ntgnXH0c5POm33Kb43NhCtv7SeRybK
+ MfECpLe+MPXB5+gKP3rJ4mC6e856EEKOq7OQ4YwgM5wLimLYlSSD0c6HOrBoqEGsNaTdnY2DFd+
+ Oby8H78xjySNAWYnTzt87A/J5RUkU4/LUpbW8H0B2pZkVQ75OPlQa97d/l6MTFx49m3sb1C3muX
+ 3Ui+htBuJu027Iw8CbdKoIHUxiKHssNYYOMRmA0tvLdUZdsSM/glfK0nzjkHeu0iQExhdB2/Jk3
+ /t/NDFvIBL/w2EJehhHYRqfJSwehows7RdLgBc7qBb1iGBoEwuw+t3WqIBKmuNCMAe1oIrjv4XJ
+ Wxo94GSOOIbB2fxjIXw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfXzjaY+llNeAu2
+ fU1bN/e0/lcUwE51U8s7Aikoq/0uc9UesKAC3P06JCX+vriVktkNlndZuEMsKw2lMpUWh3Cm7hF
+ E+vcexlRK/vGYL60D73KIiHJV4VncV4=
+X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afd343f cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
  a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
- a=4M4rjlPIC_omUXLxwSAA:9
-X-Proofpoint-ORIG-GUID: _FAZnjFIzeN-a8vdkVqegOlU-Q2ZS0UB
-X-Proofpoint-GUID: AWPUZCe4tdD6RDAW4nXxPz1YetxgyF0d
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX/4cOi/7WqLDI
- DoA813Z8croph3KK8Po1k4KC32DNEpAx9sACtFZW6unOpdg8XCyKEFpggIm2VINjNF4xmzP0wIr
- yJuR3+UGs8H94ZNBrvXMcJXwBPaL6Swb25PDrd6QHJGxkuwr4X61MuQdtVsWqbB8PzJGae4+C2v
- ECoGWVAubGV5TwqebemkXhNWhu1CG/fkJYuxCRckPb8ltkj++NGnQ1vudBf+QOpqTcVXDsyJWwR
- p3n/by5ADr1vgUT9KgfarwkSSJD/20p2qE6ObJekRzmsobm3bd9hvkEe+qNMb3PAs1Bq9Nx2jgl
- SXNd2nH/5oB7og0BPLjBKS9GzWr5RID334oL0Lvszx/Dlt92cNWbCM/fd1t/LqIng7B8nYt5pCU
- prAgSrHpdT7/Ga2L5nPP6EpxjE+L114UYE1tAZmjTRJhMnm5oylBz1At+hlrHKJPSlhfK+g2nBH
- r2H4sZV+WEKFTpbvtsw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAxOSBTYWx0ZWRfX2vs4yp0Hw8Gy
- tmc7RygorD/sn3Tgt7fmSsxUXmQHGOqzqmRIA8zm7MkypBIkh9wF85KZDjpOHBh0Y4PvxhetJIL
- LwfDTy7kl5bvox1urOIe/sBvp8TZlK4=
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=VnNF1IyMAAAA:8
+ a=UTOWjhEXSVwx40Q-rnQA:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
  definitions=main-2611180019
 
-Christian Zigotzky had reported that preemptible kernels don't boot on
-his FSL Cyrus+ board. The board freezes on running either full/lazy
-preemption and has been an issue for a while now (years!).
+On PPC32, the code for hard_irq_disable has diverged and it doesn't
+do lockdep/tracing anymore, leading to use of both local_irq_disable
+and hard_irq_disable on PPC32 to overcome those.
 
-https://lore.kernel.org/all/b897b0fd-90f2-4215-bcd4-3714e497d773@xenosoft.de/#t
-More details in cover-letter of v2[1]
+That is un-necessary, instead simply calling local_irq_disable is
+enough. It disables EE bit and does lockdep tracking.
 
-v4->v5:
-- Removed fixes tag for patch 1 as backports could be
-  complicated and added stable instead.
-- Collected tags.
+Subsequent patch uses this API in KVM code to avoid the warnings.
+Wider use of it is possible, but it will be taken subsequently.
 
-v3->v4:
-- Modify hard_irq_disable for PPC32 to simply call
-  local_irq_disable which does tracing/lockdep in addition
-  to actually disabling the EE bit. (Ritesh Harjani)
-- Modify the guest entry code to use the above (Ritesh Harjani)
-- Collected tags. Thanks to Ritesh Harjani, Narayana Murty N.
+Cc: <stable@vger.kernel.org> # v7.2+
+Suggested-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Signed-off-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+---
+PS: New warnings would have started since commit 
+12013e3d4695 ("KVM: powerpc: Use generic xfer to guest work function")
+which added local_irq_disable for 32 bit. The proper fix may date back
+years ago. To avoid backport complications, keeping it backported till
+7.2. So removed fixes tag and cc'ed stable.
 
-v2->v3:
-- Comment removal (Mukesh Kumar Chaurasiya)
-- Add missing booke change (Sashiko)
-- Collect tags (Thanks to Mukesh Kumar Chaurasiya, Christian Zigotzky)
+Also, 32 bit shouldn't need hard_irq_disable. But that can only be taken
+up subsequently.
 
-v1->v2:
-- Re-order to avoid preempt count dance (Narayana Murty N)
-- Do only hard_irq_disable on PPC64 to avoid second warning. On PPC32
-  use local_irq_disable to acheive the same. (Ritesh Harjani)
-
-v2: https://lore.kernel.org/all/20261110053238.3794500-1-sshegde@linux.ibm.com/#t [1]
-v4: https://lore.kernel.org/all/20261117131612.707038-1-sshegde@linux.ibm.com/
-
-Apologies in case any nitpicks are missed.
-I'm surviving on half a night's sleep these days.
-
-As said in v2, remaining usecases of hard_irq_disable will be taken up
-later, which are in:
-arch/powerpc/kexec/core_64.c
-arch/powerpc/kvm/book3s_hv.c
-arch/powerpc/platforms/85xx/smp.c
-
-Shrikanth Hegde (3):
-  PPC32: Fix hard_irq_disable to follow tracing and lockdep state
-  KVM: PPC: BookE: Load FP and Altivec before enabling the interrupts
-  KVM: PPC: Hard disable interrupts before guest entry
+Also, below fix isn't needed anymore.
+https://lore.kernel.org/linuxppc-dev/a14571be1897955f43d9994f0e093de3ada6ecde.1793447880.git.ritesh.list@gmail.com/
 
  arch/powerpc/include/asm/hw_irq.h | 2 +-
- arch/powerpc/kvm/booke.c          | 4 +---
- arch/powerpc/kvm/powerpc.c        | 8 --------
- 3 files changed, 2 insertions(+), 12 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/powerpc/include/asm/hw_irq.h b/arch/powerpc/include/asm/hw_irq.h
+index b7eee6385ae5..ddb850e62abd 100644
+--- a/arch/powerpc/include/asm/hw_irq.h
++++ b/arch/powerpc/include/asm/hw_irq.h
+@@ -464,7 +464,7 @@ static inline bool arch_irqs_disabled(void)
+ 	return arch_irqs_disabled_flags(arch_local_save_flags());
+ }
+ 
+-#define hard_irq_disable()		arch_local_irq_disable()
++#define hard_irq_disable()		local_irq_disable()
+ 
+ static inline bool regs_irqs_disabled(struct pt_regs *regs)
+ {
 -- 
 2.54.0
 
