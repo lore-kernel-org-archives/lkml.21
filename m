@@ -1,99 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795041340;
-	b=dwUCtdjILRoi2vjbfl74EvcYqh/JKE6s6CjgY4HFUathM5R/FWokw2Lp1//JIHFKnfKu
-	 Va1gcwftO6ck1wM1F12sqH6Vb3zUmmXKXRt8xj9HNcyExZ6+xYSQsGygnn8e9w9RcsbhT
-	 /0DChsHhw7wW1jVo3SG/w74yT1XUbBJ6qMJ+YuFWFiajoRDD1t63LltnOUZ1fkgGxIbwA
-	 A3Viz7iYRIdlYcQdBdBjMTQPg/9wN8awRJH2957qzNUlwsRL0xU8T6vmyBoM4/XH7B+Ct
-	 qrwTFy1hhriHRSY2aAFS0lXsLr05+KmtnTtnDusaqz+p8l8L3vagOsczeV/bLvywVfA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041340;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795041354;
+	b=sWYEBNo0bbCx1UEf1w0pnz5Swwz7XPmhfWitnxNZuIq789RHavFV6nDjlfR0ELeOGEjP
+	 x6ttcUkfOjuIKjjZ8ygQGDdCOGBhvaIBS0/thk2Km6fxfvfB2yJOtTayNgXk88HmwGCDx
+	 X1ADFJKwtOO/T18deIFv1t2ZJ741ThYmkAbJ3POW12U/4gtqo0SESfqKo/gDQqw8OqY7J
+	 bd4S5NbKu2xjgH9UVF++lppUNhp4n1WAYEpRhRywYsNhrT8oPbRx03yPlbAYkL6TMOOX4
+	 DU4Ff685zdDnnNjCOAFYqXVNY6sykiONAnkTXE+vcJaoOVsozxoIUPv5RBNwZmzTX3g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041354;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=023EV3UmscqrU+3CKH4pWC/ZjtyGVf4mSMvlqbUYUjk=;
-	b=e0IryLrKhlPhKIyHtF6LoNfgmoj0sNZk+pKGcw2B7rSgY2msA5j8hnrhCShO/M6Bwbwy
-	 KniM7M+Gz0pUX7VfI/HMd7uaB6A7KigdhYSwycLtB+IpMKtynoa11DZzPIiySYEHjtxEI
-	 BEpAbpUv1xRJ/UptU4SvK7MIJ238BVkDt9v+IeKbDgMlCoaRPvxY3ETqt/Rdsb9Odhu4l
-	 3YEH7F7FMVJVhS7Hk+iAzwjhGpnR/03H9rr2SVlbYB8Fe42bSHOORh+c+jgy9nfXiPV3I
-	 +8Y19E1Pi0GJErGyMe30iX0MCage5P+WOo3BkwkKawf29h8Nacg6uyzxxsCC0rbfvvg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/1QlJHCek+NUM+XDDyqHX4umCUytIfs6olrzBCKAfC8=;
+	b=2bkgDUcjOQdQd4adJWqZ+OmbQ0eomQj4s20ewi5EpccYi7sdXXLQ5NWXIaSQ1tRUb2Nq
+	 /vCsJ+4UsBVAe+SxOkak3WgiOmwH9zBg15LbEKjMvlunZ3+LpvUcw8n301c/5JedIViWH
+	 mIfNxnhz8vDwmVAx+Z79H6GpTvbA4KD7Jm3gBKNQ9W82pn45pmTCTkhcrCP4IoANsWGpE
+	 MIJNz1X0go4Ext+rI4/32uykAwkAUhTbMPzO306J5Doo5d6FJ/SxwscT5uTisL5Av87NI
+	 m8yZIs25aMbZjXWku23X1OPPR/zckUfTmBDq4ypkKjSL1qaXS2xBfrJ1G3MPp7115Mw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XwVUoa5Z;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.170
-Received: from mail-qk1-f170.google.com (mail-qk1-f170.google.com [209.85.222.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z2k9Aopr;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 582F7606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:35:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 582F7606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC984606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:35:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC984606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XwVUoa5Z
-Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-94965745d92so170875885a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:35:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795041338; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gH9B5THRPKyuTdhlYHPprnQ8ga5xbKpE2shZnp4sIZvxLCtjcD14O5cPk0IIaI1wFv
-         ThnmA9ELpKRvA8dqzyI+4+eNGZ3GIJ8Uh5/EkTMLw3BZCjNMBegghU2yeIs1ghI7Tb0W
-         vuuMuWfKLbLFKE/3vIhlXqf88/Bkky5K1HSB1KfD3E/WRX8elLxox7oeUIEBzKN1lww4
-         OT+/o0ZLqVAzDxvOUyGvrVEQFxgc5kb+XOn9mc9y/GJE/kHgl9/hxZ7KnEGTMhK5Z8F6
-         88jVWlZnNuJVKWyyVlXbpY6NRui6boLk4LqIstSsF+xcsMR8VwSOG5pHJPClsK1oTKkq
-         l2OQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=023EV3UmscqrU+3CKH4pWC/ZjtyGVf4mSMvlqbUYUjk=;
-        fh=/rZD9FUICe6dQ8ro/t8/Hw2se+vSCuKbi9T3ecU6NXo=;
-        b=LGj+Rzb1UN6JrUEOw0NG48h3Qz+/8fo7aWDvzPzK8cX+4GZ8WoWPzFbevYXgWePKta
-         Ea3hNfCs7S5DraFRInf4jBSlG5tV1bJgNMiC1TKjrfq1iqK/SSoir7SEqRg8ochR3ydU
-         TO3cOOBGKgci5HlAPdvyi/9eemOaeYmsz7QzNb3yapamx4efwjy94LHU+mSz1rfJC+l4
-         RR9TuttDZOuJgg4+mkBZnjoOmg/XdM1SBHPs8jHqZBqYsk0Wdsb/1bDjDg21VgFlgZsz
-         ercumfA1R/Ooeg1lEQPPShZqspCso4Z5g32T14ZoX4soOxMEqm51HbqPFcHcGqRFDNKX
-         ujsw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z2k9Aopr
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-49465892f7bso1212375f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:35:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795041338; x=1795646138; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795041352; x=1795646152; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=023EV3UmscqrU+3CKH4pWC/ZjtyGVf4mSMvlqbUYUjk=;
-        b=XwVUoa5Z1PkpCT1shvK5SdUUXkKK+eEUYdgzrnRNEyXqKvgHH6w7chNW6irOO41If/
-         dpeTUBhuDOog+KPqv7WnIXObrFR8ZcfFic5Knf1t1wBIYJSo8a99mMhVsWvTG//ZAISA
-         EHjTBuyUQiRRkKvWRnc/E2I95zxxA0cDsXYI8+iUV7A9Yg+iK7opxpFUphyxBbHprXkJ
-         clL7Wso4YDLT5q75I8rG4RixcPuO8QavRuf1W+pDTU1DQRDLBSRFgIu/FdSna7rFJknE
-         QNOgeh4hbFIKVeQFr1TU/oE0JAajZzJS+bi7vw0fE0qVriUvfcvOU14bbvMAVJkJezsp
-         fr/w==
+        bh=/1QlJHCek+NUM+XDDyqHX4umCUytIfs6olrzBCKAfC8=;
+        b=z2k9Aopriz/s/DdJBcHB96CxFi9cWMysyIavKi0+kegv2HKMstRYQHOC4Mqo4PI5Gn
+         nx9x91MTbTNzLMdNMBz1NseyiIRkYsrxrzMxd3V4SEunBHQtBJ4G5YDTDpLtgZixhWkq
+         /qqdYESS27oMnu+7KoFJmoqbfFphM2TMYu7OFKQrMvy03ZSKipNikKNgbb9+M7VVGfnq
+         0uc2YV1r3hvRw7bKWswIqb/2A0JI9uxhQML48EA0ZY5plsnH2mZO5N52dJzG+K9LAYLL
+         EGDe3kRWWQy5ukKqvoPA8gxeUKHc/GaIjXURRfPAXyn+6obt8fC5G7ETRYPzYFUGEFW3
+         TxHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795041338; x=1795646138;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=023EV3UmscqrU+3CKH4pWC/ZjtyGVf4mSMvlqbUYUjk=;
-        b=bMm7+jK7BeBAd5PQ15cn153/nvLh5G7qJZKgjJ6NCCq96pdHz1jDxuBjHk6iqvgr+o
-         HLE+7LsIoDkqVac+PphmdFxUYQKHH9tNYBNKRmlF+DGdpln1GoT34vmNgIEk0DVBel3h
-         gExB5dCGvk5iRmJdGS2VI1sLky8O75YcFOsYwZg8dP+t72BEmYIAd7kIOM0DpOsK8FKv
-         /fy2yXp/gsB/gA5MV0NrY7lqsCSDMk/FruMnuvyuFARozAE66isD24i1BE+iHY6KNPyv
-         O5Pw4wyfoR0fDfxMGEFYLDexU34yKvg0mnXkSEkCZdtqMgfNWug64bAgZ8kR1irsNdKn
-         /zVA==
-X-Gm-Message-State: APuU4Z+F+wN4VgKfm1bYT1H3Y8XKvH5gXH91cPN6VctszHKeRinQMT6s
-	rvdVWUQ90pHoDeoIsFBz3TUMJQcctBB6+xV5N6+ZhnDn/ZSRMEiif1lsTrlYTPxbkKorQzmAxXv
-	JKIyJYorQLfDHKh7XK9/mzWMiDlcr4dP56w==
-X-Gm-Gg: AYBFou05kehm5Ar3kxDY47aCVIIfQDI0V+SendnFqHwra2PKb+srnf4Jz/KHLaHDIL1
-	ZV98F6zMRe3ipoqWsYh4tvEj/JH5DUlc9/+CI8naiG8iN0YvmGnVnzJmGHTB0ucOeRl9iHNhbtb
-	xq0bUjC2of0snxJi+xPErupYtkbgk6p2g8hUzcwjiKkgLy8X+baocCrqB+FpT2zGN8c7eNb7Csm
-	AZNYDs8cMnccjm+7A5ddCs6Jl8yLb6gLrD5iIs4iDAgRiCGXQH3fV2Ek70QQDStEOmunTorwoft
-	QgqsX0u6gp3A38/bSODU8iIA5t+pCNaIEFeqpB0jnapOwgm7SKzN3Sb9KZq6TEbnZUP8o1K6toM
-	MQNjIk7/PCAieOfyj1rlE9ntJynI3yry9qRFy1gWoXqikY+rreYpl4KD53qjfQN/mqsA+gd0djV
-	8VzNGmkPZM6eqfvSonYT900g==
-X-Received: by 2002:a05:620a:8388:b0:944:12d5:fd45 with SMTP id
- af79cd13be357-949996075d7mr688897285a.70.1795041338269; Wed, 18 Nov 2026
- 14:35:38 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795041352; x=1795646152;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/1QlJHCek+NUM+XDDyqHX4umCUytIfs6olrzBCKAfC8=;
+        b=yDvTe80MMN+eD0VLH2oC6cq4q00tbA77egBX4EsD12pfSgoH25jwBiyCfiMhSTWVcw
+         bVDiCeZHeTp3km9bJSwIDM1JBUNcxAIy/KpzpxTCdoe/apVikgNuyXBRBGVx96UV34g4
+         E4z6PzfyED5rzUBS8YUdczklm/Hpd9H+7AovFWyaTWVzkXUse4+ToN5UHZnHD2vldkP/
+         Wp5lw8v9hNdnVau2Che/eUZ90qIm+31hCSUhPnp0GPqHwYMLmqNZANaIxsdCrw3Jb+v3
+         J1GlM+GQjxll4b1T9nmLXcLRRf+vS3zT7qN2gMJfWFMdF+7xnSvVuLB5nl4eM0TJ+fqC
+         xkpg==
+X-Forwarded-Encrypted: i=1; AL+hErEKKqAl1+bcDJbOtF1RESWlArxqxmaCPM/c2Hsvn76nirHWjwP/tcE2Irc2ZoMG71Y/hTGL7dhFBKeGLos=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lT/wJM7WAhXA8WIpISOLYk85iJohXsJGnfdmRMUfLjK8s95ow
+	CzH/6LH1NvTUA1IkgWkcoyr7i0oTTNz0LGIg9xs3MJ2/CZK3a68nPz8W
+X-Gm-Gg: AYBFou06u79hbmYtsrr+jiHKOzqXel5mZgyo/8sbnMkzjD/kTT72UaQe+nGElIdjG2z
+	0sEtHkBD65k8BzY5pwCkeM8T6XxaY5XsVfBNaApB1WKMl0VhrQfzDy6sGBmkEo2rBkqNvEl+az8
+	05NzK0Q54eGsQ105JzmkgE4qpSxKmMR5aYYUvPrtxlfqZMF7r5pdvGkIqbR1UnzbKtLupYCyYNh
+	3ZPgeBw5nBLtWfFMKK83o+SUiFCaj0WlYbsafh3b0yJfWrCF59+dTS5GK5ArRkczAI4H3JYuYlF
+	Gx3FHUAKazNZKNpotGbqU1NECPYFHzNYgmYlQv/ihzlFxkLbWex3YtGKLFP461DTimKE7WZqhcv
+	kPUe3+Yse9iyOBBZ0/j44lhy2xEmb72E6ijn4Owke2Xjgz/CeQVdXeGKNUBVqpJFgdWJzJz6Zc+
+	UGBtiHKoP3EuTwfJAu/xsRhS2THmgG51DI/SWki4s58j+cP+C79Nx1ycGXqMp/ve06Ai3qVY+cf
+	8vwoS+l5BskRlTvoMOjWO0IPuq4bEtxa+cMK+owmlMNWAwJts08oBjU+CncBeUpUHaNvjilN71P
+	CPE5cfZuG9E7B28iNjHo9n12
+X-Received: by 2002:a05:600c:4f14:b0:4ac:da92:2bd4 with SMTP id 5b1f17b1804b1-4bb7d6cc934mr90494465e9.1.1795041352279;
+        Wed, 18 Nov 2026 14:35:52 -0800 (PST)
+Received: from [192.168.1.22] ([83.231.69.9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb844ee2absm4881495e9.13.2026.11.18.14.35.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 14:35:51 -0800 (PST)
+Message-ID: <ad22c01a-dfd0-46ac-bd51-ac5d331c9a89@gmail.com>
+Date: Wed, 18 Nov 2026 23:35:49 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,71 +92,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117214352.337961-1-mohamedahmedegypt2001@gmail.com>
-In-Reply-To: <20261117214352.337961-1-mohamedahmedegypt2001@gmail.com>
-From: Dave Airlie <airlied@gmail.com>
-Date: Thu, 19 Nov 2026 08:35:26 +1000
-X-Gm-Features: AclHuK9S7MBiqC4XDYhBqJgsIJRtApfI62TZ3NiNQFPjGFLLLvtd6Ud3s9pP4tA
-Message-ID: <CAPM=9twShVfc2XGzi2EcSKAxuCE1TN2Unf_Dv_ey0z8nH+BxBA@mail.gmail.com>
-Subject: Re: [PATCH 0/3] drm/nouveau: fix instmem io_mapping faults and slowdowns
-To: Mohamed Ahmed <mohamedahmedegypt2001@gmail.com>
-Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Simona Vetter <simona@ffwll.ch>, Mary Guillemard <mary@mary.zone>, 
-	nouveau@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] mm/vmscan: flush deferred writable TLB entries before
+ unlocking the folio
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, "Borislav Petkov (AMD)" <bp@alien8.de>,
+ =?UTF-8?Q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>,
+ Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
+ Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
+ Youngjun Park <youngjun.park@lge.com>, Mel Gorman <mgorman@suse.de>,
+ Sasha Levin <sasha.levin@oracle.com>, Rik van Riel <riel@redhat.com>,
+ Ingo Molnar <mingo@kernel.org>, Peter Xu <peterx@redhat.com>,
+ Hugh Dickins <hughd@google.com>, Axel Rasmussen <axelrasmussen@google.com>,
+ Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
+ <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
+Content-Language: en-US
+From: "Jose A. Perez de Azpillaga" <azpijr@gmail.com>
+In-Reply-To: <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Applied to drm-misc-fixes with stable cc.
+On 11/18/26 10:20 AM, David Hildenbrand (Arm) wrote:
+> try_to_unmap() with TTU_BATCH_FLUSH transfers the PTE dirty bit to the
+> folio and defers the TLB flush.
+> 
+> Reclaim must flush the TLB before unlocking the folio, otherwise stale
+> writable TLB entries might be left behind temporarily: writeback started
+> by other mechanisms (e.g., fsync) will not find any mappings in
+> folio_mkclean(), so it will neither write-protect nor flush anything.
+> 
+> A write through a stale TLB entry after the folio was cleaned gets lost
+> once the folio is reclaimed.
+> 
+> However, reclaim currently does not flush the TLB if the now-dirty folio
+> does not get written back (e.g., gets activated or kept instead). Fix it
+> by flushing right after try_to_unmap() if the folio is dirty, which makes
+> the existing flush before pageout() unnecessary.
+> 
+> For dirty page-cache folios that reclaim activates, we will now flush the
+> TLB immediately after unmapping them instead of batching the flush, which
+> is the right thing to do. Performance-wise, it shouldn't really matter
+> much, because folios with dirty PTEs are usually young and reclaim won't
+> even try to unmap them.
+> 
+> Fixes: d950c9477d51 ("mm: defer flush of writable TLB entries")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Dave.
+LGTM:
 
-On Wed, 18 Nov 2026 at 07:44, Mohamed Ahmed
-<mohamedahmedegypt2001@gmail.com> wrote:
->
-> After the instmem io_mapping commit, some people noticed that some VK CTS
-> tests became much, much slower, while others started running into apps
-> MMU faulting. This was because of two issues that combine together.
->
-> A synchronous VM_BIND waits for its job with an interruptible wait and
-> ignores the result. On a signal, the ioctl returns 0 before the page
-> tables are written. Userspace can then use the new mappings, and the
-> channel takes an MMU fault. This was an old pre-existing bug.
->
-> On the GSP path, the BAR code keeps an ioremap() of the first page of
-> BAR2 to flush BAR2 writes with a read while flushFBZero is not mapped.
-> The instmem io_mapping covers all of BAR2 and overlaps it. However, PAT
-> gives the new mapping the type of the older mapping it overlaps,
-> uncached-minus, so instmem was now uncached without write-combining and
-> bind jobs became much slower. This is what caused the slowdowns, and the
-> slowdowns in turn made it easier to hit the pre-existing VM_BIND bug.
->
-> Patch 1 fixes the faults. A synchronous VM_BIND now waits uninterruptibly
-> for its job.
->
-> Patch 2 takes the flush pointer from the io_mapping which allows us to
-> skip the ioremap entirely. Nothing maps BAR2 before instmem does, so the
-> io_mapping is write-combined again.
->
-> Patch 3 sizes the io_mapping to the part of BAR2 that the driver uses.
-> This is technically not required, but this matches OpenRM and makes more
-> sense. It also guarantees that a similar issue can't happen again if
-> something changes in the upper half.
->
-> Mohamed Ahmed (3):
->   drm/nouveau: do not return early from a synchronous VM_BIND
->   drm/nouveau/bar: take the GSP-RM flush pointer from the BAR2
->     io_mapping
->   drm/nouveau/instmem: map only the part of BAR2 that is used
->
->  drivers/gpu/drm/nouveau/nouveau_sched.c       |  6 +++-
->  .../gpu/drm/nouveau/nvkm/subdev/bar/gf100.c   |  6 ++++
->  .../gpu/drm/nouveau/nvkm/subdev/bar/priv.h    |  1 +
->  .../drm/nouveau/nvkm/subdev/gsp/rm/r535/bar.c | 32 ++++++++++++++-----
->  .../drm/nouveau/nvkm/subdev/instmem/nv50.c    | 19 ++++++++---
->  .../drm/nouveau/nvkm/subdev/instmem/priv.h    |  3 ++
->  6 files changed, 53 insertions(+), 14 deletions(-)
->
-> --
-> 2.56.1
->
+Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+
+-- 
+cheers,
+jose a. p-a
