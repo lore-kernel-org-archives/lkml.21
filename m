@@ -1,103 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991576;
-	b=zyaEb3CKg9EAnBbjO/q6u3UC2vIjUTMFjy7K4vmQE3KO/bQiR9znJ1Mdm5mJdLufqN0G
-	 nT6N4z06fyxXp4u0eiJtxJWdxV1Ayen9My3UgwHBHuIdZOth/MVjP5FR1XoCTr3q9pPFB
-	 QE/ijRFfWMq/xbVfAft4zHdrhaX07NN9QO6945O3txm2/dCgB5lLqIpqBrjbZskRiw9Mo
-	 Cd3GoH8iH6bo5S0dEdKQ5tDu5wgyZSaMhnMuUqB9ii7gSdkDcMjE3ktJn5wwvMAKqMDov
-	 VlP//KsccwsGKaIxaMqV06tasmZ5lKn70IxXGrKkpiri2OJH0wW5vXEAP03c8vsi3gg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991576;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pxkuXdERaykwMOPQlF5CucoOr0fRF5ezQY9VTtl8AFo=;
-	b=sk92vtpgSx5DkMbL5g6NYjvm8Dfa4ekcdhEtJvIfGRpWNI6jntr2ErTdYmdG/0KraSI2
-	 bt1wVdwsSkYwe1A6jv+yaOYyQgUnUAPZDWe4ilTLVVcqyF5bc1KJS8N41HmIVpCrP2q/c
-	 zweiTTmV2zOm8HmBDZ+oy3Qv3HzryXPAHlSayRC+MZTcPT8AEo0Fl06IWOZQtl4HTPHQm
-	 jr82dH2FrJ5TrccuQNaATau/QdJ860yuq13XpvX+jjTB5FR9SLeZPzM8MLSnm3EZ6lLGs
-	 JZ6iO6l7oMHvfq5WqynleDewYl7gkAPoQ/X9cpIiW5UZu1gKQnVkBcec6zhcUkFIHhw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZpVGaUt0;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794991601;
+	b=GX6UXunYjbpD0Obmmy9rxTdl1gDsOdEgRrRebGlwP8uq+5yGjOlepHe1bhB/ImoHCqRa
+	 jYaXWT079hyydBvdt5di6pwoiuaiyMCOElc9yIlim28YHvA4qpInKtGhKiKpemybQ9OzQ
+	 8kttD8A0LNDtGS72hGG7VsZI755eaM1GT3iL3HcnlWNuKhQJZSnf86n24um+fqJvexB27
+	 4vVl/eHluQMWvgwhM1+rmMb4jeaceW5bprJH4oKmvEGeZvIlzDTm9RIJMIvUu7PD9D7Ec
+	 hU7BY3ooLTwHFfDiEPYD3NoAvkV5jGFqxWZ9ZppPscge0M9IVHjtaCHN7qEn3X/pmeA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991601;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/qDOWgOn8mFmbMn9GBQQa8f/i72Iyr5wPvGMAomQO28=;
+	b=Zrsu58yULarZ4KEWhPsmxrIkedE6eProQKp/neMou5C4+kgLjAgRk1XUhzLgIdDl9X4J
+	 mXecQb32/2tH0DwPWA35kDInJYMKkHNRyxus0gT3bn0bANUxuLCLhTX4tQN8rCteLZjlm
+	 aXebbPu0oPc2OH4q0Ot3wZ6E9mn78RJgS2iDcKQQ86t474X6NsHCn9brBdBFnB5UXPAFP
+	 gCvR5qRIVYo8//l0fr5KaNFQZ1Zwb1IGBxVZCw7770KePk2m7A+dVIra0Go3wzqoDx/5N
+	 La7A19021cy44bablMS7yOf294c60WLYmmap4GpZkLYggrN6LpPr3KSOmzX4YdOuNBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S0e554dH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF68606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:46:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CF68606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A73F606A31C;
+	Wed, 18 Nov 2026 08:46:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZpVGaUt0
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-15ea896ddc8so1339089c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 00:46:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991576; x=1795596376; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pxkuXdERaykwMOPQlF5CucoOr0fRF5ezQY9VTtl8AFo=;
-        b=ZpVGaUt0qFX+fY8g64e6lfSZ6qDUG93vsf8J1YDKaJ//YYszq+CA7ztgrzDEG9cOt1
-         WvUtFbMadc7JV+Vfz7dMqS3VNrppTwPCAfMUqjXCRMf+Xmzn/cA3k1VV6wDRtIFUoHHe
-         5C8eDEEk4jKPUr5tDtaRFkBWw320hZjP2fePVtOA3YI1cmnu+KUOcpvS33oV+ermFd+W
-         ZopHhKSa8ddS5XUHTfsLuTMs5bAhUqttDM1zqstvA9RmVI5BHbvs/O8JWrwxbOIcN7CD
-         JiBGRmgNg7lblyYyO4QFX6Ozuq4O8JFPXGKHT6HM+hy0rII/NvC0J0NskiVWESPU9VgR
-         BQHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991576; x=1795596376;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pxkuXdERaykwMOPQlF5CucoOr0fRF5ezQY9VTtl8AFo=;
-        b=TbVgnAx8ngYxHrspVbtsegGLXm7qV30qDKMqd4/f7HzF1dwyhPS65rnUv9vwyeUKEe
-         2ixYkuiwI5V8wQYEkZra+I2JTc/plv0c+a5JxT/potVzDkzrITaWqQiTP8+vyAee5u+0
-         L7IdmRudZb66rZuVNU/By0X3JtoM98pVNKzApJNVMAwpF7wpq+d+EBiBoHwttPKSXB5L
-         RXkFcv8tdP9LPGbEqg/VZSw7rkor0w2Ao5snNDq5Xmq2wFJKlnlPOEzPN84Pf6F7pOXh
-         ct30aqW0WbIjRwfqqc0crNocUbxXrHCfG00mNVa2wgkwtV1nJKSLmHKwEr3fO72bm941
-         8zkA==
-X-Forwarded-Encrypted: i=1; AL+hErFJ542XQfIotZmgEIxyG5jadSB26IxLiHCak30uvcnLTzi0ZyV8B9vBh1swNeN6jztFZjTNbltIVqTouB4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8spY728uc5xQ7cLfwkuM3qOQDnNfsJYS6spbKN9qVaEzryfg+3
-	ZI3aAdR8UWmIbuKZsxz/JUApT/L18FRoUE/czNwsDopU50A+nc7cEYDr
-X-Gm-Gg: AYBFou2sG5a/9mmN3FOIsKKfmFL9NmlS0yd5Jkv/ZQl2qDTursLt4iglrA3DNfin1vl
-	Movp7Znxvu7GrYPJRERYuqk3+LVRVYgissbjyULpkgc9kmz87NnIwe0cTWhdzc7vCLF+FzUmCiz
-	kDuU713Y3b0mI1HxPPDnn+EontO5Cf7Mtey1PsRnsv1uZd2+Qf0nfimPjc6sAWDIvl9o8H0MBu+
-	nH+ROsvc1GM1D+QGI1yNi3AmxtFmBttHmp98IhcMMOuLkScx8pac/9vNRg0Gg7B+Zo9wUGBVRYs
-	aY3MaUZar+i7AcHKCkckUHzwsBVmgJYUm0GbnXcL6rzMeUHsTcfsFU324xDvdUkJHySDSIzd5qg
-	FOaeCNGwLp+Apyy1F1PFJN//UHbMxRtye9IMlzlqR5GxEwkbrFEPEinJEDFTLVWvFYQhWXSCbPF
-	S1cQg8SxscyFPToeanReLDSc1x5hPUa2JqjzxkogT96qT7DnVc3WI7VI2bNYSV8hO3rbqUh7LbL
-	a/0nXbPGG+Zmd9rJaSb0JPx0DIYnbYOQM0HITkw0VV51jBxslLcJtcMlXH6YE+SJwMeZnr/W/HR
-	azqHzQGmtTmLLmmWrs8MqM41WJuuB15Mx/LiyLPFZEspIixjzMI4vsKG
-X-Received: by 2002:a05:701b:4649:b0:144:fa57:c617 with SMTP id a92af1059eb24-1b543d32afemr1728596c88.34.1794991575630;
-        Wed, 18 Nov 2026 00:46:15 -0800 (PST)
-Received: from zypulse-in-radeon-MS-7E24.lan ([2406:da18:1601:7200:e02b:e41c:8db0:668d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm7220671c88.11.2026.11.18.00.46.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:46:15 -0800 (PST)
-From: Yuen Su <zypulsecore@gmail.com>
-To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-api@vger.kernel.org
-Subject: [PATCH net 2/2] selftests: net: test flushing IPv4 nexthop routes in compat mode
-Date: Wed, 18 Nov 2026 16:45:10 +0800
-Message-ID: <20261118084510.332821-3-zypulsecore@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261118084510.332821-1-zypulsecore@gmail.com>
-References: <20261118084510.332821-1-zypulsecore@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S0e554dH
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=90.182.112.124
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794991601;
+	b=MnB6SLOBSgo+4R3oGP2I1r150u6DWV2JnxYUCvBGgJnboij0+LvdPCAJtDIufEn0vOIl
+	 Fv7YnaFDozGpS3x135Wku5mcKxCS+lB/RWPVtNzqzf86/0Y+xRjwlxYRGq7KuK+Y9RXro
+	 H3UhASQhAKWQjmdGg3AaCKkzCFLkuhBkwsB5iBA60b3S0MVUBdGgznCdWD0uFwje9mJMt
+	 D+z06s1g1fScwV8bydipB9ypAvx0pPEPny/k6ePry509B7vDKHUnEUGUP/TSpopVxyWMD
+	 1H1UVkmTGwDGLrCHR6RTIF+wYE42g3WCIafhqcmsvlst/27Is41j3ikNU8Su4ff3RsA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794991601;
+	h=DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:In-Reply-To:
+	 References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/qDOWgOn8mFmbMn9GBQQa8f/i72Iyr5wPvGMAomQO28=;
+	b=Exg5bDANeq24AFuYgu4qM6WtI/2m/O/Nj8aW9njNMO1o5gGXgWO/cJ0/xk2oQitDIVVi
+	 4Dnom+/fNP2XppRsxxXQpEEdHAL+FUOo3tExvY0vHX7e12sX15sraBt1GIKva3xRqT7xQ
+	 nLuq+1EdlL4nXu0CNSIEFo3QZFJ/MTQMwWdL8FFAZ1EfErW9RqqksxjhQ4oQ4Yvey9nEu
+	 ls2SxpukZ8wF5TI5IMOyDuymXj140eZHjqZuhncIiftxwkbsHvAhZV360SbnZCDniAeuU
+	 fVWGkUzLe8LxJQygqca99sfTiFWnasL+VAioX+nyMR+A0rONC3juuLcBYZhF66H72IQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=90.182.112.124
+Received: from localhost (90-182-112-124.rcp.o2.cz [90.182.112.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPSA id 0F8481F000C4;
+	Wed, 18 Nov 2026 08:46:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794991600;
+	bh=/qDOWgOn8mFmbMn9GBQQa8f/i72Iyr5wPvGMAomQO28=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=S0e554dHPu21NsC390huysZw5iGFp9W3m3GBKMry0NphjlCP9zdCuFlpRslFPsdyf
+	 xIEKi8J3BTbbWGGcjnsD9fjffBYY1KDjo/aP3xSDjODMI13iKL6Qp3s1Tn7SIZDI/M
+	 98iEG6xJGLhROPh23zRNkE5o/Y5HzRgdgal6A3Q6Q8ToE1RiIttXxyltjYEVclySpa
+	 5EnlkJNEWjuHq0H9Fu8FI1roTmh6ZQhAOQmKx7Wx0leK0/V1vc5/qXasRDzqsvoocc
+	 xs+sQEaLPcpnji0G97wLj10y11vPcpBvONO/Gu2oLFL5sGDnxP3G9TBGAqqUcPsE89
+	 ANGyqW4E5LzTA==
+Date: Wed, 18 Nov 2026 09:46:29 +0100
+From: Joshua Crofts <crofts@kernel.org>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: linux-iio@vger.kernel.org, David Lechner <dlechner@baylibre.com>, Nuno
+ =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Andy Shevchenko
+ <andy@kernel.org>, linux-kernel@vger.kernel.org, Martin Tuma
+ <martin.tuma@digiteqautomotive.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, linux-media@vger.kernel.org, Gustavo Silva
+ <gustavograzs@gmail.com>, Marcelo Schmitt <marcelo.schmitt@analog.com>,
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, Michael Hennerich
+ <Michael.Hennerich@analog.com>, Ramona Alexandra Nechita
+ <ramona.nechita@analog.com>, Tomislav Denis <tomislav.denis@avl.com>, Jorge
+ Marques <jorge.marques@analog.com>, Petre Rodan
+ <petre.rodan@subdimension.ro>, Dan Robertson <dan@dlrobertson.com>,
+ Jianping Shen <Jianping.Shen@de.bosch.com>, Gwendal Grignou
+ <gwendal@chromium.org>, Maxwell Doose <maxwell@maxwelld.cc>, Tomasz
+ Duszynski <tduszyns@gmail.com>, Esben Haabendal <esben@geanix.com>, Narcisa
+ Ana Maria Vasile <narcisaanamaria12@gmail.com>, Jiri Kosina
+ <jikos@kernel.org>, Srinivas Pandruvada
+ <srinivas.pandruvada@linux.intel.com>, Vasileios Amoiridis
+ <vassilisamir@gmail.com>, Abhash Jha <abhashkumarjha123@gmail.com>,
+ Puranjay Mohan <puranjay@kernel.org>, Nishant Malpani
+ <nish.malpani25@gmail.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Linus
+ Walleij <linusw@kernel.org>, Jonathan Cameron
+ <jonathan.cameron@oss.qualcomm.com>
+Subject: Re: [PATCH 00/35] iio: closing default trigger handling leaks
+Message-ID: <20261118094629.00007514@kernel.org>
+In-Reply-To: <20261116014823.3132576-1-jic23@kernel.org>
+References: <20261116014823.3132576-1-jic23@kernel.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,36 +104,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Exercise ip route flush on a route with a nexthop group while the dump
-includes both the group's ID and the expanded paths. Check that the
-flush succeeds and that the route is gone.
+On Mon, 16 Nov 2026 01:47:48 +0000
+Jonathan Cameron <jic23@kernel.org> wrote:
 
-Both checks fail before the IPv4 delete fix and pass after it in a
-QEMU/KVM guest with unmodified iproute2. Codex assisted with adding
-the case to the existing compatibility selftest and running it.
+> From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> 
+> Note this is compile tested only!  I definitely want a few people
+> to test that I didn't break everything.
+> 
+> This is the first part of what I think is a long term solution to the
+> currently really fragile ordering constraints around setting default
+> triggers. Today these are set by iio_dev->trig = iio_trigger_get(trig).
+> The reference is only released on the iio_dev.release callback and
+> only if we have set the mode to include one that means there might be
+> a trigger set. That mode set only occurs when a buffer is registered.
+> Thus trigger release only works if we have already registered a buffer.
+> 
+> One solution would be to reorder so that the default trigger is always
+> set after the buffer registration (we have had various recent proposed
+> patches to do that for individual drivers) but that is non obvious and
+> fragile.
+> 
+> The solution here is easier to reason about. Decouple the setting
+> of the default trigger from the acquisition of a reference. Thus
+> we can acquire the reference in iio_device_register() when we know
+> all the conditions for it's release have been achieved.
+> So that's all we do in this part 1 series.
+> 
+> Part 2 will address immutable triggers and those that are effectively
+> immutable but predate that logic. That is those that set a one to one
+> relationship between device and trigger.  That change is rather less
+> mechanical than this one and 35 patches is really a bit big anyway
+> even if most of them are small!
+> 
+> Part 3 and beyond will move to a situation where the iio_dev->trig
+> will become opaque. That should stop anyone manipulating that directly.
+> I have a few related cunning plans to test out before we get to that,
+> not because the particular challenge is hard, but because they will
+> trample on the same code.
+> 
 
-Signed-off-by: Yuen Su <zypulsecore@gmail.com>
----
- tools/testing/selftests/net/fib_nexthops.sh | 7 +++++++
- 1 file changed, 7 insertions(+)
+I went through the set and only have one nit (an incorrect fixes tag),
+otherwise seems fine.
 
-diff --git a/tools/testing/selftests/net/fib_nexthops.sh b/tools/testing/selftests/net/fib_nexthops.sh
-index adbec51..d3c8cf8 100755
---- a/tools/testing/selftests/net/fib_nexthops.sh
-+++ b/tools/testing/selftests/net/fib_nexthops.sh
-@@ -2183,6 +2183,13 @@ ipv4_compat_mode()
- 	stop_ip_monitor $ipmout 3
- 	log_test $? 0 "IPv4 compat mode on - nexthop change"
- 
-+	run_cmd "$IP route add 192.0.2.1/32 nhid 122"
-+	log_test $? 0 "IPv4 compat mode on - add route for flush"
-+	run_cmd "$IP route flush to exact 192.0.2.1/32"
-+	log_test $? 0 "IPv4 compat mode on - route flush"
-+	check_route "192.0.2.1" ""
-+	log_test $? 0 "IPv4 compat mode on - route removed by flush"
-+
- 	sysctl_nexthop_compat_mode_set 0 "IPv4"
- 
- 	# cleanup
+Reviewed-by: Joshua Crofts <crofts@kernel.org>
+
+-- 
+Kind regards,
+Joshua Crofts
