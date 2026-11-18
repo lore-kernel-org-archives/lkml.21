@@ -1,80 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1794986999;
-	b=g7875/v8KvvVhGZMG7ej8h3Xg3gVpqBk57Ih6kKr6NRlDBDdQze0IyhZ69rSB6apf+3l
-	 JsMxoImmnBaYz4Famt0sw4vYXQ/k/e50s+8zzTr4G4sb+vf6+s6dm9QhhZzlj0aQYoANP
-	 ge8RSgAU0L7ignzNelV/zjXtpGiXjMey5/ADaKztvU/w83VPuNRrHNiS6S5qbNn3BN4SC
-	 IME7ALtZg8JsYCDyF5bRq3TvE7TEvzowfMvgj+YLTRSVoRqZhOSf8COuwHJoMOySNJsIJ
-	 8F23296rjlYTOkb0M2CCzqppEGtxI/OSw16jsVTNc3rAjuHgRW2iKTR15eOttVW4EXg==
+	b=pNFjJS0StA1Ds7QlboPKCDhIN9WfvvbTNJ89CnFeAAD286xRsqp9saZPBJ36RbktvNva
+	 tquRHpwjHh3hwAPZ3hMMFq+jt6Dq9RhfGpTxt9YCdMCc/bn2/26suYaFD1LLjz16mPJmk
+	 g4BhTzIBSlzPgSyq9px+Ifnc5r06wrfelBm+aHqwkPXE901qGf65sGO1Zetl/Bb/IwWoW
+	 pG0T1kOe7ItvOe1I5cif00oAucXCpiUkzkfE74wcG9ds7XVD9gL6IdfW3KNopWRBM8sZB
+	 3eYhJlzmurN6xcR/9hrlagQnmJGRuP8Na9UpAaFYhbb/wsQD6nRP2tPguSFo4Hl43dA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794986999;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=8pAcxWfno/7/g7pSv79K8iAv+1vskTE6m/4qAyuVt5Y=;
-	b=GqXWqdxnw9bRzMp8sylOQGpHfCf1kA/reXdGweE56KFV/tWRl8kPLH7VHpYCCRyFCHiz
-	 1p4ihMaYT/B/0PFQEgfJk7eSext4Pqz31sP72dEluofurkrxtIYp+0HCX6gwQ6RDmDubZ
-	 9kFs7vOxoHIzPHJmL0n9uknorsxSlSonWajaALTj18/sZOxiThg9rEXLnl80HMtyyQQrY
-	 zwngCEP2QE/SxdmogzI0fYMtLWiWrbi1k8qeylnq+xIzyabTlRI3czLWVrI0xn4dIre4X
-	 seqsBw67a3rO9Cy11XjxVYK8EHkfvAXio3+nadfCiwfSw+iyUFhn4NfV6irRIX1aOWA==
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=fYeKCFr17a4V/OB8ghJ5oXVnr7NbQWC0hZeUiNcoBuo=;
+	b=RPxVAMXTQlAtKMR2DnETo1qCrcoEO7zKhh5ArfP/fvMOamqXhS8/L6kD0qfQmmmFM6w2
+	 Z7q/kWyuLCxOGmooMbklBPqdTm0Ng1Ib+dHpcc5pFEaKwYzswkpvGa7LHqTub0tKGih7O
+	 PpsgY5lF3m6SYTzM8fPGNKHkktvT7BFnnpTBqWwimCMUfefc/GoNwXgKGXP6IZp5ogccq
+	 1jVyd7m5WazHvHND9w4rdZPvXo4Ep5oWTeT03fgFwfwwqzzxmY0ea9uTTxdDHLOMSrIss
+	 LzaPrAxq/edP676etTZS3NjVcIzVjYxIgJ/Cz6zs8Gujf6xlKQER7y6vyJy1S85wrZQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BB98MlFP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QjwtnMUP;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66EE3606A31C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66F91606A325;
 	Wed, 18 Nov 2026 07:29:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BB98MlFP
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QjwtnMUP
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794986998;
-	b=FnjptiHKVk4FqRefdUK7YaV7qlq4TAnetF6MQ5I6J/Uiqo5sz1hsNPaC0ddPuKItgTfa
-	 K0gepVIM+l3gz8TT8b6NNhnSY8WhuDxknUMurQjyRAePADjF7vMgtrZqxNRhmQGnMeTkO
-	 e2PKyN/VSJXrucK+6v1cRpoePiaqWW1V5gy1izSYue4vbe6DeXST1Lcz9LqDswAnf+pGr
-	 5brWFeKyRyMiy/Jbs4QKAh2jbBFz3BSRqx3Nfnwzavxl/5P2j/gT9cFts8U8FXvI6gs/V
-	 TJGYlZgL0aib/I/8r26kghmw1n8kWRv+hB6zO9DMyhvxXb/1V5SjfV4gT/BdNShrw+w==
+	t=1794986999;
+	b=kva0T8LClztZ4oHuED5UVQS+pgUtai19V01hFXz08P019ep7z6bWm+fikQNWiVCXc1J7
+	 TeeSQvqs8+Yf4T6fXs6nnFP80yOFMYmyJnxRntNqHg8/vRieYmv6NWBEAp0etiv7lPm9N
+	 XeiwWad6l5xm/dxix8iJ4/bI0ZALBaTkNiGdDRXSFCNh1Hu4UKPvkxlM/IuqD/IOGfNWS
+	 CMCdL43G4Az6JodH9kE5X1PhqtR8TfYQdJzjuwKRPMx/tLjxhGjg+Ee1VKhRXIWZKkppx
+	 ab1eA4ozJif7hJYjwt8O3dVYDdiKJ5JcWNBbk34yJoZ7/ALaqIZXA8by+9m9dXEnIhg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794986998;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=8pAcxWfno/7/g7pSv79K8iAv+1vskTE6m/4qAyuVt5Y=;
-	b=YHylD5TdY56kFJbhuvsxm3xY6slxoCxF90TsMWD7nE6zSeRezps0Q65w/hs1FqbuGbGs
-	 mv4IdAPepu+zQwwJlMhUbhn6N25oQlDTJWKvD4FG/qixYP4RwJV3Zm1lGWoGQraWhAo4t
-	 7PqLd0tKS0r74m3zw3OvnaB6c1SJKW4vyuEh/0MGHz3vEEwU1R69hOKPRWONd5OLKCesu
-	 SAi7KZGdu4GDcGCkWiWijq7AzVyY0w6piG/3Cp8tjtDPXH/qmi+ULr+zOODU0UVMaJNtA
-	 2ZTZzYvOZR+uYX+XO3iexcEbd9BskURymNoJ+0cDiJFypgimJd7R1UJkdV4EhordCQQ==
+	c=relaxed/relaxed; t=1794986999;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=fYeKCFr17a4V/OB8ghJ5oXVnr7NbQWC0hZeUiNcoBuo=;
+	b=m9nih/JuMyRC14pCNscgm3UwKV96Wrzss0YqI/BFh7ge4x1Pol16O85yunk+iyXRn8IX
+	 +il3HfCIUDMWC1P2Zz8Utj1BuL0zObml1xk99kbzIA0mT4PIMmhb7SbQPcbM7rFeZEyHl
+	 YX8DaTxHqsJLkMNmZ42AO6103TihVkQVMGJBxcLceg0uGwjYiHvtCgFez60j/z7Or9/44
+	 tu3q5HzZ3ijBACY0MyWRB+gyXu687ZzEx2xtoHYfKv8NL34zBbcvFWUwYM7/Hdto5DPEi
+	 rrQRBrT+DJW0PhlKpTSQK3VWklPDhRrI/Ffu/10QsSBQdYm4UZfiKjxWQmUGuWuxkwQ==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6B9711F000C4;
+	by smtp.kernel.org (Postfix) with ESMTPS id 797341F000C5;
 	Wed, 18 Nov 2026 07:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794986998;
-	bh=8pAcxWfno/7/g7pSv79K8iAv+1vskTE6m/4qAyuVt5Y=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=BB98MlFPE2b5lxTwH6Nq8HMcuGRLyll2iUyQCml0MMeJGHYeYMFxy6vm/5sR+dhfJ
-	 +NM5GrdTJ9uwIXpP2dwne4T32aZHvyZd4gpuxn6RQ+SDtF75fDfta3/yYXxfJT+Iae
-	 OSGtbLchWWy37aM5to5ADmb07NeH/bHHX9grV4D2pCEWhCqhfm5YYoET0tJlhNdY//
-	 270EQ3b2rWyO3KxlgbqNPpT2TFvK2Z/xayiKivV1Tyiu8e8PlMLe7wK3kN2e9oY913
-	 UsHIvHIK4/71lEnhq+lS2QRFohkb5E33d4Rrs0TzU05zR+STmvjTMkPwPNQQYfWqco
-	 3IsmfKmNI/T6Q==
+	s=k20260515; t=1794986999;
+	bh=fYeKCFr17a4V/OB8ghJ5oXVnr7NbQWC0hZeUiNcoBuo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=QjwtnMUPqCtWEVHPdIHOwEqq1WpDUL1UpSG1DThWMmVDeHU/eAEl2wYSMEXP0MAZc
+	 Cx4/ntFjKkJcmo7rGUzRPD8gm0Th34gV8o3F5BIaIwld3nmfxaLlTNZ8m4zJKMvvPo
+	 7+5mRtUzBQOIDQRm/MwJ8F919oOdKNhYSgKr8EwzH1e1L5S3z9QIoo5OVL8C9oNHJ4
+	 /MwCjoM1/yHn59VlogByckXC/+F1+BRX31fs44FaoMDp0I6OOVawx2t5hVfrl+kcG8
+	 rTQ2Zpzv7ZxX2XMZuB8Fq8nJZbNZhSqYgqhdMKPLLIJbM1oZKUVA+5JvOCGHhO2Ohw
+	 cc6D5EKtjzTBw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id DF13E4AC48;
-	Wed, 18 Nov 2026 07:29:57 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 06AD24AC47;
+	Wed, 18 Nov 2026 07:29:58 +0000 (UTC)
 From: Raffaele Tranfaglia via B4 Relay <devnull+raffaele.tranfaglia.gmail.com@kernel.org>
-Subject: [PATCH v3 0/2] iio: light: adux1020: guard() conversion and
- follow-up cleanup
-Date: Wed, 18 Nov 2026 07:29:53 +0000
-Message-Id: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
+Date: Wed, 18 Nov 2026 07:29:54 +0000
+Subject: [PATCH v3 1/2] iio: light: adux1020: use guard() to simplify lock
+ handling
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,12 +84,9 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6CMBQFr0K6tua3oG1deQ/jorQfqBEwLTQYw
- t2luCExLid5M28mAb3DQC7ZTDxGF1zfrZAfMmIa3dVInV2ZcOBnxkBSbceJAQdaj9pbmksOBoU
- qZJGTVXp5rNy0BW/3L4exfKAZUiUtGheG3r+3x8jS7m88MsqoLZU5SV4xRH2tW+2eR9O3JMUj3
- +lM/OicApVKgKg0CDBqry/L8gE3ffc7/QAAAA==
-X-Change-ID: 20261108-adux1020-guard-3820ce794843
+Message-Id: <20261118-adux1020-guard-v3-1-2c6a18954fc7@gmail.com>
+References: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
+In-Reply-To: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
 To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
  Michael Hennerich <Michael.Hennerich@analog.com>, 
  Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
@@ -101,60 +97,266 @@ Cc: linux@analog.com, linux-iio@vger.kernel.org,
  Joshua Crofts <crofts@kernel.org>, 
  Andy Shevchenko <andriy.shevchenko@intel.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794986997; l=1839;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794986997; l=6315;
  i=raffaele.tranfaglia@gmail.com; s=20261011; h=from:subject:message-id;
- bh=RXUFbqMqVQo9jZv0Us7HCxZkFucYXq5iLDMq628Oc0k=;
- b=nxO0SD52gnUGe73c9OUMJStq8JsN9On8kXyP7UxtGE8EFxtrSqvl/0OeZxnloSAemDwHs1O+6
- tgKzkORU2NFAOeQUAdtbbu5vySThxbBjygb+90ItmeVW6VuM0UCRexh
+ bh=DMtHrOaeoSbk69l93gv+SBOwCJ/sq3BfFEE9UbzKpVM=;
+ b=fEXS8coQDCkDBlpSSLJkLT1MpCdBCZyfdktBYJRrZ1oXuDMfUB6XPy27wYJxxW55Owokn1FPd
+ f+pyeGHhXGmDUR6KylinD9g8mTcaNlC1GEkUR438ZfS1LdQwCHxkZbI
 X-Developer-Key: i=raffaele.tranfaglia@gmail.com; a=ed25519;
  pk=mweuSGNM6vguCTdqa+aiHwMXdgk70suj2wolzCp6XGM=
 X-Endpoint-Received: by B4 Relay for raffaele.tranfaglia@gmail.com/20261011
  with auth_id=1160
 X-Original-From: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
 Reply-To: raffaele.tranfaglia@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Patch 1 converts the driver to guard(mutex), as Jonathan suggested
-when applying the sampling frequency hardening patch. Patch 2 uses the
-direct returns this allows to flatten the channel type checks in
-adux1020_read_raw() and adux1020_write_raw().
+From: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
 
-Tested on arm64 QEMU with i2c-stub and lockdep enabled: reading and
-writing the sampling frequency (valid and invalid values), reading the
-LED current, reading in_proximity_raw and enabling the threshold
-event. No lockdep warnings and no hangs after the error paths.
+Use guard(mutex) in adux1020_read_raw(), adux1020_write_raw() and
+adux1020_write_event_config() so the lock is released automatically on
+return. This allows returning directly instead of jumping to a common
+unlock label, and lets adux1020_write_raw() drop its ret variable.
 
-I prepared these patches with the help of an AI coding assistant, and
-reviewed and tested them myself.
+No functional change intended.
 
+Suggested-by: Jonathan Cameron <jic23@kernel.org>
+Reviewed-by: Joshua Crofts <crofts@kernel.org>
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
 ---
-Changes in v3:
-- Patch 2: add a local regmap pointer in adux1020_read_raw() and
-  adux1020_write_raw(), and use 'if (ret)' for regmap_read() errors
-  (Andy)
-- Patch 2: split the adux1020_find_index() arguments logically (Andy)
-- Link to v2: https://patch.msgid.link/20261117-adux1020-guard-v2-0-89707fa070c9@gmail.com
+ drivers/iio/light/adux1020.c | 104 ++++++++++++++++---------------------------
+ 1 file changed, 39 insertions(+), 65 deletions(-)
 
-Changes in v2:
-- Drop the unreferenced Link tag (Andy)
-- Move ret to the end of the declarations in adux1020_read_raw() (Andy)
-- New patch 2: return early on unsupported channel types instead of
-  nesting (Jonathan)
-- Link to v1: https://patch.msgid.link/20261108-adux1020-guard-v1-1-db9c582f1eea@gmail.com
+diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
+index 6b32c5be4753..b595faf4abc5 100644
+--- a/drivers/iio/light/adux1020.c
++++ b/drivers/iio/light/adux1020.c
+@@ -9,6 +9,7 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/cleanup.h>
+ #include <linux/delay.h>
+ #include <linux/err.h>
+ #include <linux/i2c.h>
+@@ -362,10 +363,10 @@ static int adux1020_read_raw(struct iio_dev *indio_dev,
+ {
+ 	struct adux1020_data *data = iio_priv(indio_dev);
+ 	u16 buf[3];
+-	int ret = -EINVAL;
+ 	unsigned int regval;
++	int ret;
+ 
+-	mutex_lock(&data->lock);
++	guard(mutex)(&data->lock);
+ 
+ 	switch (mask) {
+ 	case IIO_CHAN_INFO_RAW:
+@@ -373,69 +374,56 @@ static int adux1020_read_raw(struct iio_dev *indio_dev,
+ 		case IIO_PROXIMITY:
+ 			ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
+ 			if (ret < 0)
+-				goto fail;
++				return ret;
+ 
+ 			ret = adux1020_measure(data, ADUX1020_MODE_PROX_I, buf);
+ 			if (ret < 0)
+-				goto fail;
++				return ret;
+ 
+ 			*val = buf[0];
+-			ret = IIO_VAL_INT;
+-			break;
++			return IIO_VAL_INT;
+ 		default:
+-			break;
++			return -EINVAL;
+ 		}
+-		break;
+ 	case IIO_CHAN_INFO_PROCESSED:
+ 		switch (chan->type) {
+ 		case IIO_CURRENT:
+ 			ret = regmap_read(data->regmap,
+ 					  ADUX1020_REG_LED_CURRENT, &regval);
+ 			if (ret < 0)
+-				goto fail;
++				return ret;
+ 
+ 			regval = regval & ADUX1020_LED_CURRENT_MASK;
+ 
+ 			*val = adux1020_led_currents[regval][0];
+ 			*val2 = adux1020_led_currents[regval][1];
+ 
+-			ret = IIO_VAL_INT_PLUS_MICRO;
+-			break;
++			return IIO_VAL_INT_PLUS_MICRO;
+ 		default:
+-			break;
++			return -EINVAL;
+ 		}
+-		break;
+ 	case IIO_CHAN_INFO_SAMP_FREQ:
+ 		switch (chan->type) {
+ 		case IIO_PROXIMITY:
+ 			ret = regmap_read(data->regmap, ADUX1020_REG_FREQUENCY,
+ 					  &regval);
+ 			if (ret < 0)
+-				goto fail;
++				return ret;
+ 
+ 			regval = FIELD_GET(ADUX1020_PROX_FREQ_MASK, regval);
+-			if (regval >= ARRAY_SIZE(adux1020_rates)) {
+-				ret = -EINVAL;
+-				goto fail;
+-			}
++			if (regval >= ARRAY_SIZE(adux1020_rates))
++				return -EINVAL;
+ 
+ 			*val = adux1020_rates[regval][0];
+ 			*val2 = adux1020_rates[regval][1];
+ 
+-			ret = IIO_VAL_INT_PLUS_MICRO;
+-			break;
++			return IIO_VAL_INT_PLUS_MICRO;
+ 		default:
+-			break;
++			return -EINVAL;
+ 		}
+-		break;
+ 	default:
+-		break;
++		return -EINVAL;
+ 	}
+-
+-fail:
+-	mutex_unlock(&data->lock);
+-
+-	return ret;
+ };
+ 
+ static inline int adux1020_find_index(const int array[][2], int count, int val,
+@@ -455,9 +443,9 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
+ 			      int val, int val2, long mask)
+ {
+ 	struct adux1020_data *data = iio_priv(indio_dev);
+-	int i, ret = -EINVAL;
++	int i;
+ 
+-	mutex_lock(&data->lock);
++	guard(mutex)(&data->lock);
+ 
+ 	switch (mask) {
+ 	case IIO_CHAN_INFO_SAMP_FREQ:
+@@ -465,15 +453,13 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
+ 			i = adux1020_find_index(adux1020_rates,
+ 						ARRAY_SIZE(adux1020_rates),
+ 						val, val2);
+-			if (i < 0) {
+-				ret = i;
+-				goto fail;
+-			}
+-
+-			ret = regmap_update_bits(data->regmap,
+-						 ADUX1020_REG_FREQUENCY,
+-						 ADUX1020_PROX_FREQ_MASK,
+-						 ADUX1020_PROX_FREQ(i));
++			if (i < 0)
++				return i;
++
++			return regmap_update_bits(data->regmap,
++						  ADUX1020_REG_FREQUENCY,
++						  ADUX1020_PROX_FREQ_MASK,
++						  ADUX1020_PROX_FREQ(i));
+ 		}
+ 		break;
+ 	case IIO_CHAN_INFO_PROCESSED:
+@@ -481,24 +467,19 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
+ 			i = adux1020_find_index(adux1020_led_currents,
+ 					ARRAY_SIZE(adux1020_led_currents),
+ 					val, val2);
+-			if (i < 0) {
+-				ret = i;
+-				goto fail;
+-			}
+-
+-			ret = regmap_update_bits(data->regmap,
+-						 ADUX1020_REG_LED_CURRENT,
+-						 ADUX1020_LED_CURRENT_MASK, i);
++			if (i < 0)
++				return i;
++
++			return regmap_update_bits(data->regmap,
++						  ADUX1020_REG_LED_CURRENT,
++						  ADUX1020_LED_CURRENT_MASK, i);
+ 		}
+ 		break;
+ 	default:
+ 		break;
+ 	}
+ 
+-fail:
+-	mutex_unlock(&data->lock);
+-
+-	return ret;
++	return -EINVAL;
+ }
+ 
+ static int adux1020_write_event_config(struct iio_dev *indio_dev,
+@@ -510,16 +491,16 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
+ 	struct adux1020_data *data = iio_priv(indio_dev);
+ 	int ret, mask;
+ 
+-	mutex_lock(&data->lock);
++	guard(mutex)(&data->lock);
+ 
+ 	ret = regmap_write(data->regmap, ADUX1020_REG_INT_ENABLE,
+ 			   ADUX1020_INT_ENABLE);
+ 	if (ret < 0)
+-		goto fail;
++		return ret;
+ 
+ 	ret = regmap_write(data->regmap, ADUX1020_REG_INT_POLARITY, 0);
+ 	if (ret < 0)
+-		goto fail;
++		return ret;
+ 
+ 	switch (chan->type) {
+ 	case IIO_PROXIMITY:
+@@ -535,7 +516,7 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
+ 			ret = regmap_set_bits(data->regmap,
+ 					      ADUX1020_REG_INT_MASK, mask);
+ 		if (ret < 0)
+-			goto fail;
++			return ret;
+ 
+ 		/*
+ 		 * Trigger proximity interrupt when the intensity is above
+@@ -544,20 +525,13 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
+ 		ret = regmap_set_bits(data->regmap, ADUX1020_REG_PROX_TYPE,
+ 				      ADUX1020_PROX_TYPE);
+ 		if (ret < 0)
+-			goto fail;
++			return ret;
+ 
+ 		/* Set proximity mode */
+-		ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
+-		break;
++		return adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
+ 	default:
+-		ret = -EINVAL;
+-		break;
++		return -EINVAL;
+ 	}
+-
+-fail:
+-	mutex_unlock(&data->lock);
+-
+-	return ret;
+ }
+ 
+ static int adux1020_read_event_config(struct iio_dev *indio_dev,
 
----
-Raffaele Tranfaglia (2):
-      iio: light: adux1020: use guard() to simplify lock handling
-      iio: light: adux1020: return early on unsupported channel types
-
- drivers/iio/light/adux1020.c | 189 ++++++++++++++++++-------------------------
- 1 file changed, 77 insertions(+), 112 deletions(-)
----
-base-commit: d922ed738439e1d5b4701df7f4cdd49a09925624
-change-id: 20261108-adux1020-guard-3820ce794843
-
-Best regards,
---  
-Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
+-- 
+2.56.0
 
 
