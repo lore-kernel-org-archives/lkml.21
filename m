@@ -1,59 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794986183;
-	b=Dfb+z2SUwGTDppFgzirQC7fdT/HlAkz9p6sxbyKRGcCck3zlfsLRl6rLbDkauhgwAuKB
-	 jX71uCB7wkNhBiQvHpvCWkbvRuEFaaAQ7YvHpzdLSKnujVPmcHKQnoFlM/9YUgVeRKoQP
-	 SRme5Opdxe+ry6nOvGwl8ycIEcIPdqVCuzTg4wkiswYilpjjczGC811Du27uGlzJ3q6Uy
-	 14T/lnfp2/CMYF3ZrUpcEY7V2SYHsyBTGIpQFeKos3yBS1XJHZhvs3X+8Mt9wO8E+nVVy
-	 42hkNQZMrwmpSjaCbw7JxRn8T/zl9y/CF6QULbwRVcS/ah0MKIs9KIcPAyqw1SIXvSg==
+	t=1794986200;
+	b=4RU5yhVmJCC0C5eCp7EwHdspGV76DVaFn1VwufUKkQsxp7PXCR5s0rUTBuLTYll2bZSe
+	 qYaPSJeqoB7QCUHxLIqPZC7naEpzIXvT5Cc8s+LlhmxcSj3z5lIvt9OFfMoR4Bas3CCW4
+	 NMMNmz37u09hscyn+jxFO0ZmwUeqjQNZN5fogMSMyLN4Q3/ub9rSSPgZNn6tyVXkXPNqz
+	 G14iFgIYJHltvilUzxtSP6JUV8Rc8nN+qiCtmfElZQ9Bwx2csEX8tgrjJpVyBgqFidj2c
+	 zo67QP0WRxcP/POvMtfNmXRaRcXafWHqzFClZRtrflqSb7HVfvKlwgf/OvvnpOQRBaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794986183;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=kaexjUtFicZ1cLfZvFYvCV6EhhBzE7PFQief6DawvLI=;
-	b=dQsB/NWNlLAlyS7fUcOu36S/KNX4XzA67ATwDtOuNICgiCYViQAcRBYNWB/JRCJj640t
-	 kkMriq+qrgQ3NUhO6lM7wFimWCrgWEPfsBTa/n0SxP5m8WMKx02Zo/N3ueuHgPUrDmDOm
-	 Q+7x9XFC2H/3RU+njaSaGoPLo8qqC4y8JkC0eaMwiEzmfpdIA49k5QUJaHtwxOyfcEywQ
-	 Rx8442neSRmGtrV1Q8lD0Ryya22GJdxDu82S3p/KRBv0NYrnHPPcuCHtAxKo9LQaJzZLi
-	 UFAtLsWbcY47r/Hrg4G2UeLI8bQ0QzQNEw5ALsCETxQkGqEFI6Dnf5hSVlyuzj/zEcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794986200;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=bXRfep9ii60xjZWxRvZixwkuF31snfOPXcPr6rJucR4=;
+	b=NQcrkruHm8hhIi/+MURgmmEHW9dYKZ1K8YpPyFE9/EnzkER+Jgo5UMqHO0yJGMdGhxFN
+	 qSgVdIV9SMLtuP3H0uH7H/O/TV1QsZdJYuIkVBnP/XtPc2MK3LBNdIlKxiZ0kaaYtAphY
+	 buEkS18PiItEw+aJ5S5AM7ReeebDfX4CMzOf/VK2Xnz5m+B+XdKAi9Rm47p8HyG7/ftpO
+	 IuxpooGXfI42Lx2Eb3nEfYF6o9JO+KYDouXK94hB1AAX52Ee+7jqR9N5ssxfUbCwQ7zgy
+	 2wmPmilV9cANheoq60YK/H96jEFkIgbw2okAlDKknnPgcZob8HNAIiQ2QUrlTOLfERg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T8Z2dnHw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u0MKK6xC;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2781606A31C;
-	Wed, 18 Nov 2026 07:16:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC4AB606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:16:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC4AB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T8Z2dnHw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28FCC1F000C4;
-	Wed, 18 Nov 2026 07:16:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794986182;
-	bh=kaexjUtFicZ1cLfZvFYvCV6EhhBzE7PFQief6DawvLI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T8Z2dnHwtv2C5A3iKD7OLr3STo58t9Jz/qzLWUpfFRAUB0g7c9P21KZZP0PynjDX+
-	 xYMuln3xXjpJgmVnW5YrsaodRASHPK5WiEjH3XgCzX4hwltmuBe+vjlV82bUxK/XVd
-	 GGPt4Z8buD7+Of0a4WotucsSqcr+Cnjq2dsaTEhHLCjO16kOY2atVY0G21S0d/TiUE
-	 Q2ezdhnwoWgXeGy+haqQci+z/tI73lPXnmCVsy5QqN9inaUeAKQM6/2vjIlikFGRKz
-	 MkNEHoBf0lJXz9C0X0Eteb9h3wiAQ6NqqmxsWIDXt7WMIRn7AVWvkk1NLBZBcqV15H
-	 c/35BvefB6uEA==
-Date: Tue, 17 Nov 2026 23:16:20 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v6 07/13] perf tests: Exercise data type resolution from
- a register
-Message-ID: <av1QxJZA36xcbcEL@google.com>
-References: <20261117200433.45174-1-acme@kernel.org>
- <20261117200433.45174-8-acme@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=u0MKK6xC
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso390931a12.3
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:16:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794986199; x=1795590999; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bXRfep9ii60xjZWxRvZixwkuF31snfOPXcPr6rJucR4=;
+        b=u0MKK6xCdB9Xtg+RHpB9d5vpdp3Bv+ny+2fsq0I2S37zOY27Q/KCJEZMjXeFFXSRgS
+         QdlVkAhQZ/WzCSQYvAbdl8N5maQydawGymR7bi59ZQ4yei4osXMTVcXAaBckWMqPosNh
+         1c8InnmKwfw4M4YVnPFlfi+17Ihj/CDjv8NQ+VDk5/OCmpwTA+oZhOTwPLGuab0zBV64
+         wGPSDq4lj5+4/7s7GPNiJgplgD/lu0usp0rZSmTQqRmN12ql2Q8YO6l0oPlFhigvQjMo
+         pAtQt0Qaa07qdea4eXRhxiBZnU0JRG9/rr0qUpPHo9ju8R/QdiClBhUMsQS4IsWrL6PQ
+         6M4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794986199; x=1795590999;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bXRfep9ii60xjZWxRvZixwkuF31snfOPXcPr6rJucR4=;
+        b=RORsacRXpikytDXPbq3Ywgox/rTt5Gepf7IYmuIRu+LlhmRWp4NYsDiPxxljWPmuat
+         4L5UXSbssg6L1lanbHfrT7CHypTLtICL+8RwYGr0YAS7smneA4VTm2pCUJjKmBCh5UJ/
+         oQ54Q6CMuUJXE8OZoGxIglnSYU9queAeDicKuLYx/JoNrSMoVYFV2/wkhrMweT58flp3
+         UZ1J+NGUVDo+274TCbEZ6+nY4g/JJ327wBVgltKfS3s6iCNyMyj0pN8iRhGqHq+FOVvF
+         bgwtFAmJGVKXj+6YrwPzh5sD1KpJiMR9nhNiEPeDmLH//nfTp08tMoVzS5ltgwQCEWji
+         6iDA==
+X-Forwarded-Encrypted: i=1; AL+hErG5395uX6KXMTHBBXMXukKqDLdYvww2sYGo/KWi9u2/A5UUSiYAzwBJUBsPlubFGRxj5JjbZGS1h4p8pfk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87+TGfXXdi4xRXa2aTvQrH6sziEdWX2rHf9eXqx0YooIAH06gx
+	llM3ofnIFfebfRw4DgExlwH71t4MSPDL1WF7/BpIBEqUsHtML3wv/NQt
+X-Gm-Gg: AZFdTZfcTuE/0QHZl6Hw4b7IRpLxm9VfZqXkUwu31xA5vj0gAoEt2M8VZSms8UTH+h2
+	kMJBZFZbe3ug3A1hnaGC6PG9Vp9wkXodP4tDYZ2hGreY1Ofnvt6OKiWxmeDnYeWg8eo0v9O9Q47
+	WpaSwjFOc1G9KTBR/dq6hf7Me5A/OkLxGddJXFpiGRgoqfXaLYynlU1lInVFC0Y3kJ2OX/39Q6k
+	34kEe29rqjzWMJFe3p16ppeBL8RON7dx1UtMJZetAm7gLFQ7x1b8aqq2TZgSi3Qxapsoi9Mp6RM
+	9Gxd8fzbY3X3maL+Jd+osxiADOVyCWLcTO0TWIkOV+9MzNiwkhtHP9F+cec9Wh2iidWT1F0sliM
+	2qSVoAmRe4A9egcncTppPHb0e42xV2tWJwxOoPQE08WaiuWhzOpCnBS2qP+0qFWLFxsT9QS5pmG
+	ZNdl021IZwNgJZVsZ4mw16RI8+UNZSnTzLfI5axQ4u/HqnqeuWm1xYbQpVi/RjvOitNoboqNrmm
+	GZyKds3Nuc1Un8H3THpDpVBqMGo8xP5/+dHsm/oI8GujG/MlQhpUY4JBO3wQYqgY2Rj3gGZv1d9
+	pS9DJV52Vd0HcqGEnchsHc89FQ67Y7+DdACYFaoxL41l/WX7
+X-Received: by 2002:a17:90b:4410:b0:3b3:ba43:54c0 with SMTP id 98e67ed59e1d1-3b3d07a2075mr1795121a91.15.1794986198705;
+        Tue, 17 Nov 2026 23:16:38 -0800 (PST)
+Received: from lenoq.localdomain ([49.43.112.194])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d187dc82sm3143928a91.6.2026.11.17.23.16.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 23:16:38 -0800 (PST)
+From: Priyanshu Singh <singhpriyanshu9838@gmail.com>
+To: Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>
+Cc: Julian Braha <julianbraha@gmail.com>,
+	"Yann E . MORIN" <yann.morin.1998@free.fr>,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Priyanshu Singh <singhpriyanshu9838@gmail.com>
+Subject: [PATCH] kconfig: warn about malformed KCONFIG_SEED values
+Date: Wed, 18 Nov 2026 07:15:57 +0000
+Message-ID: <20261118071557.791279-1-singhpriyanshu9838@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,217 +98,398 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261117200433.45174-8-acme@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 05:04:25PM -0300, Arnaldo Carvalho de Melo wrote:
-> From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> 
-> At -O2 a struct pointer lives in a register (with DWARF describing it with
-> a register location on register-argument ABIs), while the unoptimized
-> workloads the data type tests profile keep their variables on the stack.
-> 
-> Add a regptr workload with a noinline function that takes the pointer from
-> a volatile global, so the compiler cannot constant-propagate the object
-> address, and check that its three member accesses are resolved from that
-> register.
+randconfig parses KCONFIG_SEED with signed strtol(), causing several
+validation and cross-architecture bugs:
 
-Thanks for adding the workloads for data type profiling.  I was unsure
-if it's ok to add since it'd requires many test cases to cover various
-aspect of binary patterns or compiler/language differences.  But having
-a seperate repo for the test programs would be cumbersome too.
+- Artificial constraints and portability issues:
+  32-bit seeds in [0x80000000, 0xFFFFFFFF] and values > UINT_MAX
+  are capped to LONG_MAX (0x7FFFFFFF) on 32-bit hosts instead of
+  matching 64-bit host behavior.
+- Whitespace handling asymmetry: Trailing whitespace leaves
+  *endp != '\0', discarding the seed in favor of gettimeofday()
+  while leading whitespace is accepted.
+- Garbage handling: Invalid strings (e.g., "xyz", "42_foo") fall back
+  to the clock seed and exit with status 0, ignoring KCONFIG_WERROR.
 
-Thanks,
-Namhyung
+Switch to strtoull(..., 0) and consume trailing whitespace so
+whitespace-padded seeds are not discarded. Reject 0b/0B prefixes
+explicitly so C11 and C23 builds behave identically.
 
-> 
-> Reviewed-by: Ian Rogers <irogers@google.com>
-> Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> ---
->  tools/perf/tests/builtin-test.c              |  1 +
->  tools/perf/tests/shell/data_type_register.sh | 60 +++++++++++++++++++
->  tools/perf/tests/tests.h                     |  1 +
->  tools/perf/tests/workloads/Build             |  2 +
->  tools/perf/tests/workloads/regptr.c          | 61 ++++++++++++++++++++
->  5 files changed, 125 insertions(+)
->  create mode 100755 tools/perf/tests/shell/data_type_register.sh
->  create mode 100644 tools/perf/tests/workloads/regptr.c
-> 
-> diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-> index 8fc425d470c17dbf..fe4d4cd54f85d502 100644
-> --- a/tools/perf/tests/builtin-test.c
-> +++ b/tools/perf/tests/builtin-test.c
-> @@ -215,6 +215,7 @@ static struct test_workload *workloads[] = {
->  	&workload__false_sharing,
->  	&workload__global_data,
->  	&workload__flex_array,
-> +	&workload__regptr,
->  
->  #ifdef HAVE_RUST_SUPPORT
->  	&workload__code_with_type,
-> diff --git a/tools/perf/tests/shell/data_type_register.sh b/tools/perf/tests/shell/data_type_register.sh
-> new file mode 100755
-> index 0000000000000000..0d4a420cad9475cd
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/data_type_register.sh
-> @@ -0,0 +1,60 @@
-> +#!/bin/bash
-> +# perf data type profiling tests for register variables
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +set -e
-> +
-> +perfdata=$(mktemp /tmp/__perf_test.perf.data.XXXXX)
-> +perfout=$(mktemp /tmp/__perf_test.perf.out.XXXXX)
-> +
-> +cleanup()
-> +{
-> +	rm -f "$perfdata" "$perfout"
-> +	trap - EXIT TERM INT
-> +}
-> +
-> +trap_cleanup()
-> +{
-> +	echo "Unexpected signal in ${FUNCNAME[1]}"
-> +	cleanup
-> +	exit 1
-> +}
-> +trap trap_cleanup EXIT TERM INT
-> +
-> +if ! perf check feature -q dwarf; then
-> +	echo "Skip: no DWARF (libdw) support"
-> +	cleanup
-> +	exit 2
-> +fi
-> +
-> +# No point in recording if the PMU cannot do memory events.
-> +if ! perf mem record -o /dev/null -- true 2>/dev/null; then
-> +	echo "Skip: cannot record memory events on this PMU"
-> +	cleanup
-> +	exit 2
-> +fi
-> +
-> +if ! perf mem record -o "$perfdata" -- perf test -w regptr 1 > /dev/null 2>&1; then
-> +	echo "FAIL: perf mem record"
-> +	cleanup
-> +	exit 1
-> +fi
-> +
-> +if ! perf annotate --code-with-type -i "$perfdata" --stdio \
-> +		--percent-limit 1 > "$perfout"; then
-> +	echo "FAIL: perf annotate"
-> +	cleanup
-> +	exit 1
-> +fi
-> +
-> +for member in "+0 (a)" "+0x8 (b)" "+0x10 (c)"; do
-> +	if ! grep -Fq "# data-type: struct node ${member}" "$perfout"; then
-> +		echo "FAIL: member ${member} not resolved from the register"
-> +		tail -n 30 "$perfout"
-> +		cleanup
-> +		exit 1
-> +	fi
-> +done
-> +
-> +echo "register held access resolved"
-> +cleanup
-> diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-> index 0cf33d91804f19c4..b03c56d5e4c98aaf 100644
-> --- a/tools/perf/tests/tests.h
-> +++ b/tools/perf/tests/tests.h
-> @@ -275,6 +275,7 @@ DECLARE_WORKLOAD(callchain);
->  DECLARE_WORKLOAD(false_sharing);
->  DECLARE_WORKLOAD(global_data);
->  DECLARE_WORKLOAD(flex_array);
-> +DECLARE_WORKLOAD(regptr);
->  
->  #ifdef HAVE_RUST_SUPPORT
->  DECLARE_WORKLOAD(code_with_type);
-> diff --git a/tools/perf/tests/workloads/Build b/tools/perf/tests/workloads/Build
-> index 74a0cbe49dc93533..17189458032c0a17 100644
-> --- a/tools/perf/tests/workloads/Build
-> +++ b/tools/perf/tests/workloads/Build
-> @@ -19,6 +19,7 @@ perf-test-y += callchain.o
->  perf-test-y += false_sharing.o
->  perf-test-y += global_data.o
->  perf-test-y += flex_array.o
-> +perf-test-y += regptr.o
->  
->  ifeq ($(CONFIG_RUST_SUPPORT),y)
->      perf-test-y += code_with_type.o
-> @@ -39,3 +40,4 @@ CFLAGS_callchain.o        = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->  CFLAGS_false_sharing.o    = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->  CFLAGS_global_data.o      = -g -O0 -fno-inline -U_FORTIFY_SOURCE
->  CFLAGS_flex_array.o       = -g -O0 -fno-inline -U_FORTIFY_SOURCE
-> +CFLAGS_regptr.o           = -g -O2
-> diff --git a/tools/perf/tests/workloads/regptr.c b/tools/perf/tests/workloads/regptr.c
-> new file mode 100644
-> index 0000000000000000..441202b61ae7b2e6
-> --- /dev/null
-> +++ b/tools/perf/tests/workloads/regptr.c
-> @@ -0,0 +1,61 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * A struct pointer that -O2 keeps in a register, so the member accesses
-> + * have to be resolved from the register's type state and not from a
-> + * stack slot.
-> + *
-> + * See tests/shell/data_type_register.sh.
-> + */
-> +#include <signal.h>
-> +#include <stdlib.h>
-> +#include <unistd.h>
-> +#include <linux/compiler.h>
-> +#include "../tests.h"
-> +
-> +struct node {
-> +	long long a;
-> +	long long b;
-> +	long long c;
-> +};
-> +
-> +static struct node n;
-> +static struct node *volatile vp;
-> +static volatile unsigned long long reg_sink;
-> +static volatile sig_atomic_t done;
-> +
-> +static void sighandler(int sig __maybe_unused)
-> +{
-> +	done = 1;
-> +}
-> +
-> +static noinline long long touch(struct node *p)
-> +{
-> +	long long sum = 0;
-> +
-> +	sum += p->a;
-> +	/* A load too, or a load-only PMU never resolves b. */
-> +	p->b += sum;
-> +	sum += p->c;
-> +	return sum;
-> +}
-> +
-> +static int regptr(int argc, const char **argv)
-> +{
-> +	unsigned long long sum = 0;
-> +	int sec = 1;
-> +
-> +	if (argc > 0)
-> +		sec = atoi(argv[0]);
-> +
-> +	vp = &n;
-> +	signal(SIGINT, sighandler);
-> +	signal(SIGALRM, sighandler);
-> +	alarm(sec);
-> +
-> +	while (!done)
-> +		sum += touch(vp);
-> +	reg_sink = sum;
-> +	return 0;
-> +}
-> +
-> +DEFINE_WORKLOAD(regptr);
-> -- 
-> 2.56.0
-> 
+Emit a warning whenever KCONFIG_SEED deviates from a canonical unsigned
+32-bit integer, and exit(1) if KCONFIG_WERROR is set. Otherwise, retain
+modulo 2^32 truncation for parseable 64-bit integers and fall back to
+the clock seed on unparseable inputs or ERANGE overflow.
+
+Add regression tests in scripts/kconfig/tests/randconfig_seed/.
+
+Fixes: 0d8024c6ebad ("kconfig: allow specifying the seed for randconfig")
+Signed-off-by: Priyanshu Singh <singhpriyanshu9838@gmail.com>
+---
+Notes for reviewers:
+- 0b/0B guard: Under glibc 2.38+ with -std=gnu2x/-std=c23, strtoull()
+  maps to __isoc23_strtoull() which accepts 0b/0B binary prefixes in
+  base 0, whereas C11 stops at 'b'. Rejecting 0b/0B prior to strtoull()
+  keeps behavior identical across toolchains.
+- Backward compatibility (KCONFIG_WERROR unset): Non-canonical but
+  parseable 64-bit integers (whitespace, signs, -1, or > UINT_MAX
+  timestamps like `date +%s%N`) emit a warning and truncate modulo 2^32
+  across both 32-bit and 64-bit hosts, while unparseable strings or
+  > 64-bit ERANGE overflows fall back to gettimeofday().
+
+Input                   Pre-Patch (64-bit)    Pre-Patch (32-bit)    Post-Patch (32 & 64-bit)
+----------------------  --------------------  --------------------  ------------------------------------
+"42" / "0x2a"           0x2A (quiet)          0x2A (quiet)          0x2A (quiet)
+"0x80000000"            0x80000000 (quiet)    0x7FFFFFFF (clamp)    0x80000000 (quiet)
+" 42"                   0x2A (quiet)          0x2A (quiet)          0x2A + warn (WERROR -> exit 1)
+"42 "                   Clock fallback        Clock fallback        0x2A + warn (WERROR -> exit 1)
+"-1"                    0xFFFFFFFF (quiet)    0xFFFFFFFF (quiet)    0xFFFFFFFF + warn (WERROR -> exit 1)
+"4294967296" (2^32)     0x0 (quiet)           0x7FFFFFFF (clamp)    0x0 + warn (WERROR -> exit 1)
+"18446744073709551616"  0xFFFFFFFF (clamp)    0x7FFFFFFF (clamp)    Clock fallback + warn (WERROR -> 1)
+"0b1010"                Clock (C11)/10 (C23)  Clock (C11)/10 (C23)  Clock fallback + warn (WERROR -> 1)
+"xyz" / "42_foo"        Clock (ignores WERR)  Clock (ignores WERR)  Clock fallback + warn (WERROR -> 1)
+
+Tested via `make testconfig` (40 passed).
+
+ scripts/kconfig/conf.c                        |  40 +++-
+ scripts/kconfig/tests/randconfig_seed/Kconfig |  44 ++++
+ .../kconfig/tests/randconfig_seed/__init__.py | 222 ++++++++++++++++++
+ 3 files changed, 303 insertions(+), 3 deletions(-)
+ create mode 100644 scripts/kconfig/tests/randconfig_seed/Kconfig
+ create mode 100644 scripts/kconfig/tests/randconfig_seed/__init__.py
+
+diff --git a/scripts/kconfig/conf.c b/scripts/kconfig/conf.c
+index 31c6fd25e6ec..bccf1d591990 100644
+--- a/scripts/kconfig/conf.c
++++ b/scripts/kconfig/conf.c
+@@ -92,11 +92,45 @@ static void set_randconfig_seed(void)
+ 
+ 	env = getenv("KCONFIG_SEED");
+ 	if (env && *env) {
++		const char *p = env;
++		const char *digits;
+ 		char *endp;
++		unsigned long long val = 0;
++		bool has_bin_prefix;
++		bool warned = false;
++
++		while (isspace((unsigned char)*p))
++			p++;
++
++		digits = (*p == '+' || *p == '-') ? p + 1 : p;
++		has_bin_prefix = digits[0] == '0' &&
++				 (digits[1] == 'b' || digits[1] == 'B');
++
++		errno = 0;
++		if (!has_bin_prefix)
++			val = strtoull(p, &endp, 0);
++		else
++			endp = (char *)p;
++
++		if (p != env || !isdigit((unsigned char)*p) || *endp != '\0' ||
++		    errno == ERANGE || val > UINT_MAX) {
++			fprintf(stderr,
++				"warning: KCONFIG_SEED has malformed format\n");
++			warned = true;
++		}
+ 
+-		seed = strtol(env, &endp, 0);
+-		if (*endp == '\0')
+-			seed_set = true;
++		if (endp != p && errno != ERANGE) {
++			while (isspace((unsigned char)*endp))
++				endp++;
++
++			if (*endp == '\0') {
++				seed = (unsigned int)val;
++				seed_set = true;
++			}
++		}
++
++		if (warned && getenv("KCONFIG_WERROR"))
++			exit(1);
+ 	}
+ 
+ 	if (!seed_set) {
+diff --git a/scripts/kconfig/tests/randconfig_seed/Kconfig b/scripts/kconfig/tests/randconfig_seed/Kconfig
+new file mode 100644
+index 000000000000..28d5cb225b04
+--- /dev/null
++++ b/scripts/kconfig/tests/randconfig_seed/Kconfig
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config MODULES
++	bool
++	default y
++	modules
++
++config BOOL1
++	bool "Bool 1"
++
++config BOOL2
++	bool "Bool 2"
++
++config BOOL3
++	bool "Bool 3"
++
++config BOOL4
++	bool "Bool 4"
++
++config TRI1
++	tristate "Tristate 1"
++
++config TRI2
++	tristate "Tristate 2"
++
++config TRI3
++	tristate "Tristate 3"
++
++config TRI4
++	tristate "Tristate 4"
++
++choice
++	prompt "Choice"
++
++config CHOICE_A
++	bool "Choice A"
++
++config CHOICE_B
++	bool "Choice B"
++
++config CHOICE_C
++	bool "Choice C"
++
++endchoice
+diff --git a/scripts/kconfig/tests/randconfig_seed/__init__.py b/scripts/kconfig/tests/randconfig_seed/__init__.py
+new file mode 100644
+index 000000000000..7f9e1e5e7ef4
+--- /dev/null
++++ b/scripts/kconfig/tests/randconfig_seed/__init__.py
+@@ -0,0 +1,222 @@
++# SPDX-License-Identifier: GPL-2.0-only
++"""Validate KCONFIG_SEED handling in randconfig."""
++
++import time
++
++
++def test_malformed_warns(conf):
++    seeds = [
++        'invalid', ' ', '\t', '\n', '+', '-',
++        '0x', '0X', '0xg', '0x-1', '0x+1', '0x1g', '0b', '0b1010', '0B1010',
++        '+0b1010', ' 0b1010 ', '08',
++        '123foo', '10 20', '-1_junk', '-1 junk', '-1xyz',
++        '4294967296_junk', '4294967296 junk', '4294967296xyz',
++        '0x100000000xyz', '-0x100000000xyz',
++        '--0', '+-0', '-+0', '++0', '++42', '+ 42', '- 0', '- 42',
++        '42 ', '0x2a ', ' 42 ', '0 ', ' 0', ' 0 ', '+0x0', ' 0x2a', ' 0x2a ',
++        '-0', '-0x0', '+0', '+42', '+0x2a', ' 42', ' \t0x2a',
++        '-1', '-42', '-0x1', ' -1', ' -42 ', '-42 ', '-0x80000000',
++        '-2147483648', '-4294967295', '-4294967296', '-18446744073709551615',
++        '4294967296', '+4294967296', '4294967296 ', ' 4294967296 ',
++        '0x100000000', '040000000000', '1763362020123456789',
++        '18446744073709551615', '18446744073709551616', '-18446744073709551616',
++        '0x10000000000000000', '-0x10000000000000000',
++        '999999999999999999999999', '-999999999999999999999999',
++        '999999999999999999999999xyz', '-999999999999999999999999xyz',
++    ]
++    for seed in seeds:
++        context = 'seed={!r}'.format(seed)
++        assert conf._run_conf('--randconfig', extra_env={
++            'KCONFIG_SEED': seed,
++        }) == 0, context
++        assert ('warning: KCONFIG_SEED has malformed format' in
++                conf.stderr), context
++        assert conf.stderr.count('warning:') == 1, context
++        assert 'KCONFIG_SEED=0x' in conf.stdout, context
++        assert conf.config is not None, context
++
++
++def test_malformed_preserves_config(conf):
++    pairs = [
++        # In-range whitespace & signs
++        (' 0', '0'),
++        (' +0', '0'),
++        (' -0', '0'),
++        ('-0', '0'),
++        ('-0x0', '0'),
++        ('+0', '0'),
++        ('+0x0', '0'),
++        ('+42', '42'),
++        ('+0x2a', '0x2a'),
++        (' 42', '42'),
++        ('42 ', '42'),
++        (' 42 ', '42'),
++        ('0 ', '0'),
++        (' 0 ', '0'),
++        (' 0x2a', '0x2a'),
++        ('0x2a ', '0x2a'),
++        (' 0x2a ', '0x2a'),
++        (' \t0xdeadbeef', '0xdeadbeef'),
++        ('0xdeadbeef ', '0xdeadbeef'),
++        (' 0xdeadbeef ', '0xdeadbeef'),
++
++        # Negative integers (modulo 2^32 backward compatibility)
++        ('-1', '0xffffffff'),
++        (' -1 ', '0xffffffff'),
++        ('-0x1', '0xffffffff'),
++        ('-42', '0xffffffd6'),
++        (' -42 ', '0xffffffd6'),
++        ('-42 ', '0xffffffd6'),
++        ('-2147483648', '0x80000000'),
++        ('-0x80000000', '0x80000000'),
++        ('-4294967295', '0x1'),
++        ('-4294967296', '0x0'),
++        ('-0x100000000', '0x0'),
++        ('-18446744073709551615', '0x1'),
++
++        # 64-bit > UINT_MAX integers (modulo 2^32 backward compatibility)
++        ('4294967296', '0x0'),
++        ('+4294967296', '0x0'),
++        ('4294967296 ', '0x0'),
++        (' 4294967296 ', '0x0'),
++        ('0x100000000', '0x0'),
++        ('040000000000', '0x0'),
++        ('4294967338', '0x2a'),
++        ('0x10000002a', '0x2a'),
++        ('1763362020123456789', '0x23dfb515'),
++        ('18446744073709551615', '0xffffffff'),
++    ]
++    for malformed_seed, canonical_seed in pairs:
++        context = 'malformed={!r}, canonical={!r}'.format(
++            malformed_seed, canonical_seed)
++        assert conf._run_conf('--randconfig', extra_env={
++            'KCONFIG_SEED': malformed_seed,
++        }) == 0, context
++        assert ('warning: KCONFIG_SEED has malformed format' in
++                conf.stderr), context
++        assert conf.stderr.count('warning:') == 1, context
++        malformed_stdout = conf.stdout
++        malformed_config = conf.config
++
++        assert conf._run_conf('--randconfig', extra_env={
++            'KCONFIG_SEED': canonical_seed,
++        }) == 0, context
++        assert 'warning:' not in conf.stderr, context
++        assert conf.stdout == malformed_stdout, context
++        assert conf.config == malformed_config, context
++
++
++def test_unparseable_falls_back_to_clock(conf):
++    forbidden_targets = [
++        ('999999999999999999999999', '0xFFFFFFFF'),
++        ('-999999999999999999999999', '0xFFFFFFFF'),
++        ('18446744073709551616', '0xFFFFFFFF'),
++        ('0b1010', '0xA'),
++        ('42foo', '0x2A'),
++    ]
++    for seed, forbidden_hex in forbidden_targets:
++        target_forbidden = 'KCONFIG_SEED={}\n'.format(forbidden_hex)
++        matched_forbidden = True
++        for _ in range(3):
++            assert conf._run_conf('--randconfig', extra_env={
++                'KCONFIG_SEED': seed,
++            }) == 0, 'seed={!r}'.format(seed)
++            assert ('warning: KCONFIG_SEED has malformed format' in
++                    conf.stderr), 'seed={!r}'.format(seed)
++            if target_forbidden not in conf.stdout:
++                matched_forbidden = False
++                break
++            time.sleep(0.002)
++        assert not matched_forbidden, (
++            'seed={!r} unexpectedly matched forbidden static seed {!r}'.format(
++                seed, forbidden_hex))
++
++
++def test_werror(conf):
++    seeds = [
++        ('', 0), ('0', 0), ('42', 0), ('052', 0), ('0x2a', 0),
++        ('0x80000000', 0), ('0xffffffff', 0),
++        ('invalid', 1), ('123foo', 1), ('0x', 1), ('0b1010', 1),
++        ('42 ', 1), (' 42', 1), (' 42 ', 1), ('0 ', 1), (' 0', 1),
++        ('-0', 1), ('+42', 1), ('+0x0', 1), (' 0x2a', 1),
++        ('--0', 1), ('+-0', 1), ('++42', 1), ('+ 42', 1), ('- 0', 1),
++        ('-1', 1), ('-42', 1), (' -42 ', 1),
++        ('4294967296', 1), ('4294967296 ', 1), ('1763362020123456789', 1),
++        ('18446744073709551616', 1), ('999999999999999999999999', 1),
++        ('-999999999999999999999999', 1),
++    ]
++    for seed, status in seeds:
++        # Test with KCONFIG_WERROR unset: all seeds succeed (malformed warn)
++        context = 'seed={!r}, werror=unset'.format(seed)
++        assert conf._run_conf('--randconfig', extra_env={
++            'KCONFIG_SEED': seed,
++        }) == 0, context
++        if status:
++            assert ('warning: KCONFIG_SEED has malformed format' in
++                    conf.stderr), context
++            assert conf.stderr.count('warning:') == 1, context
++        else:
++            assert 'warning:' not in conf.stderr, context
++        assert conf.config is not None, context
++
++        # Test with KCONFIG_WERROR set
++        for werror in ['', '0', '1']:
++            context = 'seed={!r}, werror={!r}'.format(seed, werror)
++            assert conf._run_conf('--randconfig', extra_env={
++                'KCONFIG_SEED': seed,
++                'KCONFIG_WERROR': werror,
++            }) == status, context
++            if status:
++                assert ('warning: KCONFIG_SEED has malformed format' in
++                        conf.stderr), context
++                assert conf.stderr.count('warning:') == 1, context
++                assert conf.config is None, context
++            else:
++                assert 'warning:' not in conf.stderr, context
++                assert conf.config is not None, context
++
++    # Verify unset KCONFIG_SEED succeeds under KCONFIG_WERROR
++    for werror in ['', '0', '1']:
++        context = 'unset seed, werror={!r}'.format(werror)
++        assert conf._run_conf('--randconfig', extra_env={
++            'KCONFIG_WERROR': werror,
++        }) == 0, context
++        assert 'warning:' not in conf.stderr, context
++        assert 'KCONFIG_SEED=0x' in conf.stdout, context
++        assert conf.config is not None, context
++
++
++def test_valid(conf):
++    groups = [
++        ('0x0', ['0', '00', '0x0', '0X0', '0x00000000']),
++        ('0x2A', ['42', '052', '0x2a', '0X2A']),
++        ('0x80000000', ['2147483648', '020000000000', '0x80000000', '0X80000000']),
++        ('0xFFFFFFFF', ['4294967295', '037777777777', '0xffffffff', '0XFFFFFFFF']),
++    ]
++    for expected_hex, representations in groups:
++        expected_config = None
++        for seed in representations:
++            context = 'seed={!r}, expected_hex={!r}'.format(seed, expected_hex)
++            assert conf._run_conf('--randconfig', extra_env={
++                'KCONFIG_SEED': seed,
++            }) == 0, context
++            assert conf.stderr == '', context
++            assert 'KCONFIG_SEED={}\n'.format(expected_hex) in conf.stdout, context
++            assert conf.config is not None, context
++            if expected_config is None:
++                expected_config = conf.config
++            else:
++                assert conf.config == expected_config, context
++
++
++def test_unset_and_empty(conf):
++    for base_env in [{}, {'KCONFIG_SEED': ''}]:
++        for werror in [None, '', '0', '1']:
++            extra_env = dict(base_env)
++            if werror is not None:
++                extra_env['KCONFIG_WERROR'] = werror
++            context = 'extra_env={!r}'.format(extra_env)
++            assert conf._run_conf('--randconfig', extra_env=extra_env) == 0, context
++            assert 'warning:' not in conf.stderr, context
++            assert 'KCONFIG_SEED=0x' in conf.stdout, context
++            assert conf.config is not None, context
+-- 
+2.53.0
+
