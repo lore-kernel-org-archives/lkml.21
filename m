@@ -1,64 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794965678;
-	b=X6raP8z+ImHfqsAADMnt/vsUZUi3XG6mYjm7Qj0WZ/bLz52JSLvLOGPB+TjuQ9zCyQwr
-	 G8MQaTETCoOwBljJF3F52c/7pNvFVLgTqkd46Qjr8amy8F8KxxTENpGrUU+0ovXFp+6a9
-	 T67oGCLpIodfsgGcYzCORlkdqcBWipgrgbBy1bi739N4jJvjta0MHNV65ALxmy4KbpqO4
-	 LPEsiycwEPaXPbwzXkPohr+ALktaH4Zaih4M9uf7PoPmWVehzh8MUvpKF2beXBXQZZCQH
-	 38b46QWAeF+3VzwMUY0uU0djBNIuWw8NiC0+PYrTGf7MBeYMsKWjx+oS3lvcHAg2whw==
+	t=1794965766;
+	b=SJ+ApHNrjfdvvfVov7mKc1mLtUjfFZ/sXo08TxD038CJsBYz3ZPABa1Pj4iiSTFUvE94
+	 OhfWroTVLTNDiWkqE8xzJwilm5B5hgsmVpttYrs2GpwImuX1a+R6jgvUQhAxBM/wxHOXX
+	 czReY385h/Kcdmb+oxSfxgzF4kNoFf6YtUP3i+dwMPiWluJFfrd2zcJNnyLFmz27/tmuI
+	 LWTNWXcP6B1LtIQY4YoDKq896E0yYgjGYja96Ezj5g/lpozYU/0RPT8xdTrcbp8PWatfR
+	 FqCy6i4cbNUjfPE5slEIHTjGf96uXfKZdV/WXh7hq/UpH6hChZD64fKouKuZ6KPcE4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965678;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:X-Originating-IP:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version;
-	bh=jV6t6PWYU+gRY85PqmOrSMCX0RHQP5nPRKS2mctQx70=;
-	b=OKbDDk4NnvZXNQXco3sqJhMQ00Ha76Y4a8HqWgLmdGMnZ6iAPe0ez6fQvScbAzoYzVdL
-	 eGTM6JztS+VrKPdOlztXKUxTATSBkQb8gQ4ezRBWQnSH7eld7VBsZBiT126bEZAj7LZwe
-	 SlbOuxbG1a3UrfARx+Qbh3YR46Wl8K2S1ExUT//mGgo0frqAh0BqyzSZH5LTXcMtt5J2c
-	 oeC2Zhiz2TlwkzZ1T4DFcSc3fq0u7jPDsyR19mzSeTXDIBh6rQA6Zv2WF8BAKnTKxh5Kb
-	 U6WLG7dcbnVJC1m4I0Y31XiFRzrCwi1XLDLaO5gFrxwxNvxZviwxoOYZ4WfOoEli6eQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794965766;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=tqwg86cWIOWTdLp/+zgu2PQN+ZFQzUG8gHBzc4KE4M0=;
+	b=xI5g9juCqGp74BHxZmtXFhkmfhVpL50MUuNNkWy0Jm6sG5bhwpYHv2uUSbfD1yTfDwXg
+	 z1aqvgmnJdPGAzKddU0Sh2KYB0xkIWN7Nh+RE6qBtEf31g7OufdPGoNG1pNZAVsKmTfLi
+	 0M8ynhkxvHirupitMNrPZ3f+005MFkfGqoquwRNIewcKGquOaHq4+/XlMC11hGHQcfFu8
+	 +EZOq/xBFQ5reqHofXUYER/YEPeNtIGXbu/2Uebc8sXHt7VAc60+kUV9zOS4IE57CKR3o
+	 inGcZAzerCQZw8TQ4SDJ0Cvcll94cmLUiJBvu38UtJ2zp1Dw64zm1ddzYzsyPYRYAmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=YzXKbEcn;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Y3ac5Jzu;
+	arc=none smtp.remote-ip=113.46.200.223
+Received: from canpmsgout08.his.huawei.com (canpmsgout08.his.huawei.com [113.46.200.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8078606A32A;
-	Wed, 18 Nov 2026 01:34:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8078606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2195606A31C;
+	Wed, 18 Nov 2026 01:36:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2195606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=YzXKbEcn
-Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI11sU62326271;
-	Tue, 17 Nov 2026 17:34:21 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=jV6t6PWYU
-	+gRY85PqmOrSMCX0RHQP5nPRKS2mctQx70=; b=YzXKbEcntQQ187NavHnJepn7j
-	IbXisjvcPsRN6/HhS0EXpz5iopQh3jTJ42ABfPOqTN8RUgHDfEAIBbS49U8zIri3
-	F6TjjWPCmI4cCu6N/FNeUpNP+1sfQWtzn3r5+2zTCFWEwXpimNJt1dV63fQBI2mR
-	Sf1CUM4jyUESt4Iq9PkVjGq5w3psadn5AZEIO3NHbtxquPCAoVupHZP3LUY5Vxlg
-	rxaoFmYbGFrh+AcYDZxtdudMAVu1xstgdLPqBTNzP4+78unh7GJNEhXE/Pn4Tm/h
-	Uf+iudjSLnAE+k/hCFCVGIZEgyFfc1vG4+MKfzMniG9oLmUrub6YalzyJTDAg==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0yu7s7pv-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 17 Nov 2026 17:34:20 -0800 (PST)
-Received: from localhost (2620:10d:c085:108::4) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Wed, 18 Nov
- 2026 01:34:19 +0000
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-Date: Tue, 17 Nov 2026 17:34:09 -0800
-Subject: [PATCH net v2] vsock: only undo SS_CONNECTING when connect() fails
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Y3ac5Jzu
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=tqwg86cWIOWTdLp/+zgu2PQN+ZFQzUG8gHBzc4KE4M0=;
+	b=Y3ac5Jzu6yLgCPjrYvSSfvTBZMclbKslhpdkAeKnkb46hAfozJ5JM3APP9Q4wTtlsPyLv4/nd
+	5/XBTe3Fn4XZS/XDEhjDvNJOAHtcaeAw1ErihSARznWIIDy5NjYj18WWj6vgTEr0G2zcKiAVkjU
+	uf6Af4jCw9cVrkoJ67DTgPY=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jTkgx4c74zmV6w;
+	Wed, 18 Nov 2026 09:35:41 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id DC16840565;
+	Wed, 18 Nov 2026 09:36:00 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 18 Nov
+ 2026 09:36:00 +0800
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+To: <rafael@kernel.org>, <viresh.kumar@linaro.org>
+CC: <linuxarm@huawei.com>, <zhanjie9@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>, <xuwei5@huawei.com>,
+	<zhenglifeng1@huawei.com>, <christian.loehle@arm.com>, <yubowen8@huawei.com>,
+	<pierre.gondois@arm.com>, <sumitg@nvidia.com>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <zhangpengjie2@huawei.com>,
+	<mojunjun4@huawei.com>
+Subject: [PATCH v4] cpufreq: CPPC: Enable boost by default
+Date: Wed, 18 Nov 2026 09:35:58 +0800
+Message-ID: <20261118013558.3075038-1-zhangpengjie2@huawei.com>
+X-Mailer: git-send-email 2.33.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,140 +72,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
-X-B4-Tracking: v=1; b=H4sIAJAA/WoC/33NQQrCMBBA0auEWXfESW2DXXkP6aKZTm3QJpKEo
- JTcXegBXH94f4ck0UmCQe0QpbjkgodB6UYBr5N/CLoZBgX6rHsi6rGkwE/k4L1wRn6FJEhWrGH
- bkZgJGgXvKIv7HOodvGQYGwWrSznE73EqdKS/aCEkvLSLJd1dTTvPt03ydOKwwVhr/QGmtvkQu
- gAAAA==
-X-Change-ID: 20261116-vsock-connect-close-1beb7cb51e7a
-To: Stefano Garzarella <sgarzare@redhat.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>,
-        George Zhang <georgezhang@vmware.com>, Andy King
-	<acking@vmware.com>,
-        Dmitry Torokhov <dtor@vmware.com>
-CC: <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Kyle Zeng <kylebot@openai.com>,
-        Michal Luczaj
-	<mhal@rbox.co>, Bobby Eshleman <bobbyeshleman@meta.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNiBTYWx0ZWRfX9h6p7cNXFu97
- b5KhZx8l92XbScr/7OFTnbjdWe9bojwjowK73sCdL7c60quLyEm5UJ6BP+Ycu8OWklJ+WvcXvcw
- iJNbpInrC6N4RpXItHjehY1XvoATRwE=
-X-Authority-Analysis: v=2.4 cv=OcANnRTY c=1 sm=1 tr=0 ts=6afd009c cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=wpfVPzegXHpEFt3DAXn9:22 a=VwQbUJbxAAAA:8
- a=VabnemYjAAAA:8 a=LG5T7v2SAAAA:8 a=dWtmrrPeSTUMx1N8XlQA:9 a=QEXdDO2ut3YA:10
- a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-ORIG-GUID: 1lAp7PZUHP2yHb_dgvSE_tBsFEe7YuzA
-X-Proofpoint-GUID: 1lAp7PZUHP2yHb_dgvSE_tBsFEe7YuzA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNiBTYWx0ZWRfX7vSPbx5BqbDL
- WplZBoWXo+w+X8Nem9tgijngINBH7fZAyaado+Qd6RlaK+Sl1kXFIvxwZz5WibCHdrsUht0im1r
- ds7yw41aSfSuxcDL26NDpGH8no5HtnlFjmSDg2HX/cF8slWp7ikUGvGknsyBH1yYIwIUlywLp2N
- O2Ndmuv3dwufNuTeheM1aJAfQOKVlLgD6lYb9HmV0PxJ05CFQti7zz2d++QlN5fjEPuP1JZ5kYz
- WuqCljfYSM1qi8/OHXgtc3AvuvKOeZffYZyjjbXzQpggGPNdbXDi37vjEy9T9PoES2O1F15ZMlh
- hDhUbtaUBR17oiLwdLBoyt6OTVYy9H7ytIFiYt2ZK3oN+R32NtZ1TwejOy+P8SXht6pEDKMFrNf
- ZiiPzw7TTuRgNoXZEpnJ6YUX6ZAsKaNp1qaqRusF3WgH5QOf2Wf2PNrJEW8iX1uN1hQ+leiKuVa
- m+Uy4rDi+5zJuBCbdKA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 
-vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-can complete the handshake, setting sock->state to SS_CONNECTED, and then
-reset the connection, e.g. in vhost_vsock_reset_orphans(),
-virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-connect() gets the lock back, it finds sk_err set and moves the socket
-back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-and a connect() to a CID on another transport makes
-vsock_assign_transport() release the transport the socket was connected
-on.
+The CPPC driver leaves boost disabled by default when Highest Performance
+exceeds Nominal Performance. Userspace must explicitly enable boost
+before governors can use the full advertised performance range.
 
-Only move the socket back to SS_UNCONNECTED if it is still
-SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-another connect() fails with -EISCONN.
+For user convenience, set .boost_enabled = true in cppc_cpufreq_driver.
+Since cppc_cpufreq_cpu_init() sets policy->boost_supported when
+highest_perf > nominal_perf, the cpufreq core will enable boost by
+default only for policies that support it.
 
-Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-Otherwise a second thread blocked in connect() on the same socket can
-time out after the first one failed and called listen(), and overwrite
-TCP_LISTEN.
+Reviewed-by: Christian Loehle <christian.loehle@arm.com>
+Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
 
-Fixes: d021c344051a ("VSOCK: Introduce VM Sockets")
-Reported-by: Kyle Zeng <kylebot@openai.com>
-Link: https://lore.kernel.org/netdev/20260909-vsock-connect-reset-closing-v1-1-50298b9ccfbf@rbox.co/
-Suggested-by: Michal Luczaj <mhal@rbox.co>
-Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
 ---
+Changes in v4:
+- Rebase onto linux-pm/bleeding-edge.
+- Link to v3: https://lore.kernel.org/all/20261117105240.1113405-1-zhangpengjie2@huawei.com/
+
+Changes in v3:
+- Drop cppc_cpufreq_default_boost_init() and set .boost_enabled = true
+  statically in cppc_cpufreq_driver (Christian).
+- Link to v2: https://lore.kernel.org/all/20261022075901.3436021-1-zhangpengjie2@huawei.com/
+
 Changes in v2:
-- Only reset sk_state if it is still TCP_SYN_SENT, so a concurrent
-  connect() caller that times out late doesn't overwrite TCP_LISTEN
-  (Sashiko).
-- Drop Michal's Reviewed-by since the code changed.
-- Link to v1: https://lore.kernel.org/r/20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com
+- Drop "even" from the commit message (Christian).
+- Link to v1: https://lore.kernel.org/all/20261015015812.867988-1-zhangpengjie2@huawei.com/
 ---
- net/vmw_vsock/af_vsock.c | 22 ++++++++++++++++------
- 1 file changed, 16 insertions(+), 6 deletions(-)
+ drivers/cpufreq/cppc_cpufreq.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
-index 1d7d53542724..ce958b48295b 100644
---- a/net/vmw_vsock/af_vsock.c
-+++ b/net/vmw_vsock/af_vsock.c
-@@ -1704,6 +1704,19 @@ static void vsock_connect_timeout(struct work_struct *work)
- 	sock_put(sk);
- }
- 
-+/* Avoid breaking the socket when another thread has changed its state while
-+ * we were asleep.
-+ */
-+static void vsock_connect_close(struct socket *sock)
-+{
-+	struct sock *sk = sock->sk;
-+
-+	if (sk->sk_state == TCP_SYN_SENT)
-+		sk->sk_state = TCP_CLOSE;
-+	if (sock->state == SS_CONNECTING)
-+		sock->state = SS_UNCONNECTED;
-+}
-+
- static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
- 			 int addr_len, int flags)
- {
-@@ -1862,8 +1875,7 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
- 			 * sk_state == TCP_SYN_SENT, which hereby we break.
- 			 * In such case VIRTIO_VSOCK_OP_RST will follow.
- 			 */
--			sk->sk_state = TCP_CLOSE;
--			sock->state = SS_UNCONNECTED;
-+			vsock_connect_close(sock);
- 
- 			/* Try to cancel VIRTIO_VSOCK_OP_REQUEST skb sent out by
- 			 * transport->connect().
-@@ -1877,10 +1889,8 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
- 	}
- 
- 	err = sock_error(sk);
--	if (err) {
--		sk->sk_state = TCP_CLOSE;
--		sock->state = SS_UNCONNECTED;
--	}
-+	if (err)
-+		vsock_connect_close(sock);
- 
- out_wait:
- 	finish_wait(sk_sleep(sk), &wait);
-
----
-base-commit: 533ec433efdc11196f438da90d683053a57257ff
-change-id: 20261116-vsock-connect-close-1beb7cb51e7a
-
-Best regards,
+diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+index 29b93780219a..2c67c55a3ab7 100644
+--- a/drivers/cpufreq/cppc_cpufreq.c
++++ b/drivers/cpufreq/cppc_cpufreq.c
+@@ -1774,6 +1774,7 @@ static struct cpufreq_driver cppc_cpufreq_driver = {
+ 	.offline = cppc_cpufreq_cpu_offline,
+ 	.suspend = cppc_cpufreq_cpu_suspend,
+ 	.resume = cppc_cpufreq_cpu_resume,
++	.boost_enabled = true,
+ 	.set_boost = cppc_cpufreq_set_boost,
+ 	.attr = cppc_cpufreq_attr,
+ 	.name = "cppc_cpufreq",
 -- 
-Bobby Eshleman <bobbyeshleman@meta.com>
+2.33.0
 
