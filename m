@@ -1,79 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.51
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795022748;
-	b=k3sFh6bS85kSCWo1Nc+sxLv7yXkfTuxzdtsFioaDjtnrH7oLlxExrfFoqRJiqxBPtbSJ
-	 V2YlJ6yzIU9VQgNL4srZlBFAAknHD8nxDJYq1Utjz/4OAS9FHCuQ4pEORS6HxS49NYQBw
-	 bSpOiRnjWIffLSCWSOSmTIvJugByvp8F93EtAOlFLS1vMOfQwC+h5JJZF6RRczreAmrmH
-	 2BQUwCzN1caibnPlFP595tBBI//Aqr+WMy3vnQhtrPgsI+ZU1bFDgPTKsAjFnEPdRxK9F
-	 Bat/LgpVD9SWAkKAGVNjLe1kSYGQWI8GD01gOdDha2BarUvzkI6elXysqHlZwWv6uzA==
+	t=1795022745;
+	b=GuEfXaYOVyj71TlU+DMsMfbsjqZrRBroSfod+WhsIdP/+DyZA6f4UI5/GXE1fesTe5Qd
+	 NAsOKWWeBlmP6HeL/hm/dIa98U+WYucLR8qx9VH7noyHl+XgjZJ30UWCb6vObeGfAiRNO
+	 pbM3O3RacyJo+dvkReIXGKPAny96pI4iZJmT9a2VYiMwEn7scyxCRugoa0C0ylk3cAGfL
+	 clE9+nuHojLT0dP1DBgIcbi9486NuEEz4DiR2oN7LPyxxO0uWq2YfKh+eT1af9VzOPf6d
+	 WvWs9i0jacnB7DsgiN7I+vEUANznjLI57Hw6H82rJTm6yXURv61A0i41fnIxFQT/2sA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022748;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=HSCUWDSJEqkYX38VOL+ytbHQvfr3sRJ7rJar/F/Nk2I=;
-	b=0cj9H34dcjc1A1n0lVd7WTI8qq4M7lTu3r2cjWH5Wqefb+bvMrHME/FYv17GlZsWiMcV
-	 tln6h3ZZ0KgREEOlpiAt/Wj898FCGX+M0uovf/LerlAhGrp2bMrb75q4f1jfiLyJtIvZr
-	 URlKl0C3ro6hVc2YuN0dpNEa+blDcuwalIJqefBcaNlH+tOTVBrWEC7adWpa2baGrAv/w
-	 Zl7nNHeZhiiKERNmITLXpg/V+7aBr7joBRK89avR22xvEPh2QeUhZHBPDTuGqCqqc0+Kh
-	 KYhsy6gIB/mJxOiBTBr+4qWiqoqiIDR5p1vNxTOJzqmHrYn6p33ZwdAyewz3KoTW+kQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022745;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type;
+	bh=TwJFoll/UcGtAeAt1MH9NvExxOjtP3mBxYd68V58F9g=;
+	b=xHvrjRrxNpCKjIQhTxNqGbw/rmg1XFspQ9RawatTeFjCtoSJpv8WW4jV54zGIYoSHqWE
+	 0bY24FLPwm0TEmHJ7Xh5+Fl5YJuqI4wqGiTZoBnX0IJRurZmU8vdOPTV1AK3v5dJcqKY9
+	 Ckyy/P4Ag59azkmEFuxVlh7XfgD4MQyL/g4toQIw59ZBV/eqya2C6orR6dtcTB0t8bG3l
+	 pT1V1LTcnBqB7SVn31pTTTSl/FMIFWbmL4jJHIGf0/WUNKANytf9X4D69HSBGnCyQj95U
+	 EPkFrt0LlPlXTsChMKTlJ0FTWUWPUxthhEiXcSwGBHWn3g26/Bu3tjIoWM49RkgGtdw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F5A2VSXE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D92F60A5BD1;
-	Wed, 18 Nov 2026 17:25:48 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F5A2VSXE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795022748;
-	b=tXllFHDjEURiGAmWYhPEA4PtK1siTXBTXLOjSirLbZ88xgbG40xmm276A7tMZI9WipaM
-	 7sxmLCLgSy0SQy7KwhD1nhc3VU+AfW9sTTSrXGGcWcrpXpjNL3hvvGLTI2/0BPorxLOlC
-	 aZpb16tPOrFLT3wlkv0w6nj4JFXcaOTWv558mSxZZXMnFkjpeRjpHFn0+SheFNDa0/dcQ
-	 oEPaxV3tL+IXQro6FtW90Ue+nM0ZoTfAl+C9/VN1HXTC6SjrbGqJqmgT97wXQ//LXEBvI
-	 RA8mv3CcTChpI9ABC+LaBk6Dw2r0RmqAyvZS8GGAjGWZ4idK2DFF/IhB9uxnuRs501A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795022748;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=HSCUWDSJEqkYX38VOL+ytbHQvfr3sRJ7rJar/F/Nk2I=;
-	b=1DRqaCgHxjSJG+JJi6VVCqhH+EomtrYgQYzJQKb1Qipebf5JCdxXuVX2XpGIrWKG9X6t
-	 7SkU25hafeoQDbBfb+hzTFYqE4h8jG8sWLpAm0gV3C8PcG6oDfaP4B62N3BOsM1p2VCWQ
-	 WKQdk4cbTRFTtmbLRLmvZeM5WQU4tl49aq+Zc4LKhK56lWMLaGNeIf4Au8umoUDKz3tzM
-	 vg6Nu5mzJN+yH7tZVtOkFCNNZuREybxveFwgFJISYN4nkdRFg9eTmYDGx2xKl3iyl2Ztj
-	 btv2J2gUlywFvtfhr4McsxySmcBt1aSpSL49SQdwbvl8Y3hhDnDz11k3BUu5YjW8UKQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	dmarc=pass header.from=goldelico.com;
+	spf=pass smtp.mailfrom=goldelico.com;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=mu2p2HqZ;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=X0nvg4DR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.51
+Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 435F51F000D0;
-	Wed, 18 Nov 2026 17:25:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022748;
-	bh=HSCUWDSJEqkYX38VOL+ytbHQvfr3sRJ7rJar/F/Nk2I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=F5A2VSXEP3PcRheDvrXpkB+3IdaPmF1ZdGWN0WK4swC4NMUHurZz/JOlH5Zisx/Gy
-	 SHbMsPg27U9s+sK7jfkxv/DuA+U9ogHcmlUBhHvSxtnfkUDlK75LW+oNeTV8E4hE+Q
-	 aqgi31sZfCWbzNbaVptE8lAdysKV+Qztkv/jmOPHW8pGxFLv0Bu0vjhunAAe8VawmA
-	 VCCSwOhqqs9vudNNYCCnnl7arfjRjdcK0zQP3k817qQ9x1fjmxkBDfyF3me5MZ7ER+
-	 LBThu9hvLvt+5XAW+RBhQkpksxLUbcgzIodwnkvb2p3Yxzt5rip3kjxiGNntuG+BV6
-	 40Aq0VajaGrSQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id DD4C44AF01;
-	Wed, 18 Nov 2026 17:25:45 +0000 (UTC)
-From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Date: Wed, 18 Nov 2026 18:25:44 +0100
-Subject: [PATCH v2 11/12] arm64: dts: qcom: sdm845-xiaomi-beryllium: Enable
- vbus support
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15CF6606A320;
+	Wed, 18 Nov 2026 17:25:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15CF6606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=mu2p2HqZ;
+	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=X0nvg4DR
+ARC-Seal: i=1; a=rsa-sha256; t=1795022739; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=pfFjUePlYtqB6BPaZGBvb3/YQPjh16xbPELrbww9fRMILtYHKRTSVm6/sRz4eCJX6y
+    cgUW9/jQoRK0RLUHVoaknQKLEOLiAZfWOsVvvqCt1NqoKj6SEf4pIb1Y2IjEkY0dNaJa
+    fOHT4gErt9w9H4OUq93aAjdi7dcNoPfLEjde4uiyoDJgSkp7IdP4AyhHXlnFJF4yEq7n
+    vtHLqFe5+CAxvB7lPiumCUODBbATFJEyK0RKE4X675EQNRLmat4iAyxH44UvdZCYYwJV
+    gyyXWNinZ61tgpjZFEdbHc0hqpIpBpI+jF1DR6dLDcDdf70WC+lSrfd9a3eGsxITPEpJ
+    hBxg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795022739;
+    s=strato-dkim-0002; d=strato.com;
+    h=Message-ID:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=TwJFoll/UcGtAeAt1MH9NvExxOjtP3mBxYd68V58F9g=;
+    b=mdbGu5NlWU+8f2sDKJnLqy5MuOMTvFOT68Qz25PhfQ54hhSrE2L258OhjYlxiCfnm+
+    MsamrgSxhw18opOZGzWz7tlj3bws6Zsb+F4uSSkSigyDGX7+hTukFS/OlcoqisBdaCcF
+    aYxJCZ3ZSto/33HK5x9409nxLoQutE8IqI/FoRdS8rIF0L5IeGrrHW2s4yvm7KbclDwL
+    4VoETSh/KyhYDAWRV4cNy9Ds40LDwSEUCEMp30QQ6Y/6DpRhGGFA+jBhqLiolQ68PKLV
+    WpkZQ3UKwF6fJNC+tWsXZil9xLoNsiD1BwblamhrT1gipSpBgZpSjLthpzmmcr6fq/6F
+    Q1Qw==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795022739;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=Message-ID:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=TwJFoll/UcGtAeAt1MH9NvExxOjtP3mBxYd68V58F9g=;
+    b=mu2p2HqZc8C0EOhceyucorKgb9YSltNnv3kEtVU0Wu1Lyi2McENbJxUeN44SsJo9Lc
+    PFQLFD3RsezW4XQ9aMhI3O8wmRYmxtEahhqDWtJJrzYh4AkxKneMYFDIDs0Acu9EwGUb
+    O5jNPauuJOtGLEHk+g3x5QVrJz7n9meRkuUE/9lDn+VjolgiKnGEiHKJkZqNIo5ZL9qq
+    aA6qK21qCf8VxySA+YTQxsk16GJsGHs/FmqRd5y0OaIZiCfShYyjTsM8x+CsOp3yh/tx
+    7jPyom4d0SjSk5rPy3c+EsWY3QzZtYq7OKdoOKmyWOIA2inhnJLt8e2AZ8fQoVGHzFIS
+    0gBw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795022739;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=Message-ID:Date:Subject:Cc:To:From:Cc:Date:From:Subject:Sender;
+    bh=TwJFoll/UcGtAeAt1MH9NvExxOjtP3mBxYd68V58F9g=;
+    b=X0nvg4DR3uzry19z86Oa3efJQ21GxI49YPEN4iXt7qiSKzXIDaFMYUyHs9k75g2lSc
+    +0NnkXng7gcXnSy1WUDg==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrV2Jpcm8iNZLZ2IBizV+3wFb55dglUeZzcEX9J"
+Received: from iMac.fritz.box
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Qb56a22AIHPcdiS
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Wed, 18 Nov 2026 18:25:38 +0100 (CET)
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	letux-kernel@openphoenux.org,
+	"H. Nikolaus Schaller" <hns@goldelico.com>
+Subject: [PATCH v4 0/7] pinctrl: ingenic: Add X2600 support
+Date: Wed, 18 Nov 2026 18:25:30 +0100
+Message-ID: <cover.1795022736.git.hns@goldelico.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,97 +106,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-pmi8998-vbus-v2-11-3c77a72b280a@ixit.cz>
-References: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
-In-Reply-To: <20261118-pmi8998-vbus-v2-0-3c77a72b280a@ixit.cz>
-To: Alexey Minnekhanov <alexeymin@minlexx.ru>, 
- Robin Snyders <robin@snyders.xyz>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>, 
- Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Casey Connolly <casey.connolly@linaro.org>, 
- Sebastian Reichel <sre@kernel.org>
-Cc: Richard Acayan <mailingradian@gmail.com>, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- linux-pm@vger.kernel.org, phone-devel@vger.kernel.org, 
- David Heidelberg <david@ixit.cz>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1319; i=david@ixit.cz;
- h=from:subject:message-id;
- bh=/Lj3TGFexa5AfzuS/I1Uhtld+K5vTju4obeOh3yWZrc=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBq/d+XlZGDgGZoz0iSr3s6ex4mRpEIhqUZGBxp+
- 1ZJCxpTckeJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCav3flwAKCRBgAj/E00kg
- cq+EEADLvJzKhZRpu+5LyYC9tSlFmKR0zlyaDNa2Mj6LtKIDkysLAiI20OPDn3NsKzhV7zLrzpI
- 3mHCEwoZi4IhgrpTsdnWZQ85lJr2UydKl8dtn0tV2Fmtlj0udVyEIW89kwxBFuedvluPYVjX4eq
- ynSJmSNPNm3o4Tqj7mCUAZ5KpzZj4pSA6q8+Iv+bZYxW5whj4YYEkbXosEKAmtH2ratIIHQZ+ha
- hGDNxJfefCTEmz0fGctH1h0yhfWzEADXsh1F+B1YDQJE/8opCZVB1vYeEd2TOQj+m8jG0SMhMrP
- 9B8USfeseQsjXBfkqQetQZplwto3brFCt4gaMaSiwxzbhhUsZ4gnnFAyKws/LbYzp0sVtyoH5So
- +/ijmXpCTFoC9jNf+cAeuQxSMQdgJBKxDbMl4z/fBRnb/ErMh7b3uGxZgs42g1+7pnGGkA6HKvh
- XYwBLLfyYScLcksaw6dcVVlAW7aJwfHTRkRq1K3EShcZJRlcJpkozrB/jLCA9lSjQiZOXA7YQz2
- FicoGv9jBsgA1MU8lo8UuMql1X9PrRsqoqpSUpRS6E+PLgJjwvdf9xIvLyFPwq8Az4UKWP2VUP7
- kRzElwwHW5Se2Huvqczo39yHcNr1bp4pyzN1GKfDqcKfBXI+4ig+xLxKWQM36MtupP4J9KGjedz
- qD0LjtOki2MBOpA==
-X-Developer-Key: i=david@ixit.cz; a=openpgp;
- fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
-X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
-X-Original-From: David Heidelberg <david@ixit.cz>
-Reply-To: david@ixit.cz
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
 
-From: David Heidelberg <david@ixit.cz>
+PATCH V4 2026-11-18 18:25:36:
+This series adds pinctrl and GPIO support for the Lumissil X2600 SoC.
+It extends the devicetree bindings, supports the X2600 GPIO register
+layout with 0x1000 bank spacing and per-port shadow registers, and adds
+pin groups and mux functions.
 
-On this device, vbus was setup and switched off by the charger driver.
-Enable proper driver.
+The series also fixes hardware dual-edge GPIO interrupt handling on
+X1600 and X2000 in a separate patch, following review feedback.
+X2600 Port E uses different pull enable/selection semantics and has
+an additional Schmitt trigger control bit; these are handled separately.
 
-Signed-off-by: David Heidelberg <david@ixit.cz>
----
- arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+Hardware testing reported by the author:
+  X1600: GPIO button press/release and dual-edge register readback
+  X2000: GPIO button press/release and dual-edge register readback
+  X2600: GPIO button press/release and dual-edge register readback
+  JZ4780 (CI20): regression testing
 
-diff --git a/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi b/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi
-index d57851b0b9419..aab5738253914 100644
---- a/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sdm845-xiaomi-beryllium-common.dtsi
-@@ -418,16 +418,23 @@ led-1 {
- 	};
- };
- 
- &pm8998_resin {
- 	linux,code = <KEY_VOLUMEDOWN>;
- 	status = "okay";
- };
- 
-+&pmi8998_vbus {
-+	regulator-min-microamp = <500000>;
-+	regulator-max-microamp = <1500000>;
-+
-+	status = "okay";
-+};
-+
- /* QUAT I2S Uses 1 I2S SD Line for audio on TAS2559/60 amplifiers */
- &q6afedai {
- 	dai@22 {
- 		reg = <QUATERNARY_MI2S_RX>;
- 		qcom,sd-lines = <0>;
- 	};
- };
- 
-@@ -682,9 +689,8 @@ &wifi {
- 	vdd-1.8-xo-supply = <&vreg_l7a_1p8>;
- 	vdd-1.3-rfa-supply = <&vreg_l17a_1p3>;
- 	vdd-3.3-ch0-supply = <&vreg_l25a_3p3>;
- 	vdd-3.3-ch1-supply = <&vreg_l23a_3p3>;
- 
- 	qcom,calibration-variant = "xiaomi_beryllium";
- 	qcom,snoc-host-cap-skip-quirk;
- };
--
+Changes since v3:
+- Correct Fixes: and Cc: stable trailers following review
+  feedback from Paul Cercueil and Sashiko.
+- Consolidate the common shadow-register paths and simplify
+  hardware dual-edge IRQ handling, as suggested by Paul Cercueil.
+- Simplify GPIO port indexing for the legacy global shadow-load
+  register, as suggested by Paul Cercueil.
+- Merge the shadow-load correction into the X2600 register
+  support patch.
+- Retest X1600 and X2000 hardware dual-edge IRQ handling using
+  evtest and devmem2. Both button transitions are detected, while
+  PAT0, PAT1 and EDG remain unchanged.
+
+PATCH V3 2026-11-18 08:41:40:
+Changes since v2:
+  - suggested by https://sashiko.dev/#/patchset/cover.1794940166.git.hns@goldelico.com?part=2
+    - add Fixes: tags
+    - remove redundant check for is_soc_or_above(jzgc->jzpc, ID_X2000)
+
+PATCH V2 2026-11-17 19:29:26:
+Changes since v1:
+  - Reorder the X1600 and X1830 IDs using Paul Cercueil's change.
+  - Isolate hardware dual-edge corrections from X2600 support.
+  - Correct GPIO mux function associations and remove empty lcd-none.
+  - Adjust UART mux selectors and SLCD pins following review feedback.
+  - Extend X2600 pull capability masks to documented GPIO pin ranges.
+  - Handle X2600 Port E pull enable/selection and Schmitt controls.
+  - Remove redundant X2600 IRQ flag-clear special case.
+  - Add JZ4780/CI20 regression test coverage.
+
+Thanks to Paul Cercueil for the SoC ID reordering proposal and review,
+and to Hunter Laux for reviewing the pinmux definitions and identifying
+several incorrect pin assignments. Thanks also to the Sashiko bot for
+additional automated review findings.
+
+This series is based on the pinctrl-ingenic driver after Brian Masney's
+subsys_platform_driver_probe() conversion, which has already been accepted
+upstream.
+
+The author used ChatGPT to assist with source review, patch organization
+and commit-message wording. Development and hardware testing was performed
+by the author.
+
+PATCH V1 2026-11-13 09:13:47:
+
+This series adds pinctrl and GPIO support for the Lumissil X2600
+SoC.
+
+It introduces the devicetree bindings, adapts the register access
+and GPIO interrupt handling to the X2600 hardware, and adds the
+pin groups and mux functions.
+
+The changes also correct hardware dual-edge GPIO interrupt
+configuration on X1600 and X2000.
+
+The updated driver has been tested on X1600, X2000, and X2600
+hardware including GPIO dual-edge interrupt handling by a
+gpio-button.
+
+The code has been tested by ChatGPT which also helped to formulate
+the messages.
+
+H. Nikolaus Schaller (6):
+  pinctrl: ingenic: Fix hardware dual-edge interrupts on X1600
+  dt-bindings: pinctrl: ingenic: Add X2600 support
+  pinctrl: ingenic: Add X2600 register and GPIO IRQ support
+  pinctrl: ingenic: Add X2600 pin groups and functions
+  pinctrl: ingenic: Handle X2600 Port E Schmitt trigger
+  pinctrl: ingenic: Handle X2600 Port E pull configuration
+
+Paul Cercueil (1):
+  pinctrl: ingenic: Swap ID_X1600 and ID_X1830
+
+ .../bindings/pinctrl/ingenic,pinctrl.yaml     |  10 +-
+ drivers/pinctrl/pinctrl-ingenic.c             | 646 +++++++++++++++++-
+ 2 files changed, 624 insertions(+), 32 deletions(-)
 
 -- 
-2.55.0
-
+2.56.0
 
