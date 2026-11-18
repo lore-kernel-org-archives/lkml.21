@@ -1,61 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025621;
-	b=WyjCOcVFLnYiD2yA10nwwJ4bBVT44RVlr1qkvsL+0NsdCb9+fuYb7tdkh+8se0xiVW9B
-	 zupIvFMoEyzTXu5dMiEu1BorlYvbfvW8wDa+8U8DxdftPzoUx82PYvR5AA8VYIw7+4Wrs
-	 mSCpRSnO81j/GL9b4tIpw4/O4ioSQniemRcNOW+ps0erSZrWNbaYZgDbsSt9gZwgHx1LZ
-	 21qycYYbNAIkVuV99lULGfS29XgN0o+xr421PT7OShAHDADgoXcyJcIvDoiXitt7G0HjB
-	 TofZX0kYrxt8h99wTB22EY7W9RwsAERzk4GAhE50QIp3PAkUYIsX7kyE7Y9ZORAEQEg==
+	t=1795025650;
+	b=xcCi14T0RKzaMOdq2KUTDNQbtg35vEItefWVsBGomOMC3S/1lVwY52lZ6xo+PRsGwmrP
+	 xxuKvIp+XW65SV/BQHPcHb5fZTZPeoScspefXVvUqN8klIlz7hXDC24nfIDaRskRYoNZY
+	 NOLT9VjKAwKzrLh556CmBlKxBeIJb4BY42edoXbL1tHGvWErp/Qr6IMc3WXQfNxvJHV8a
+	 u6gMEi1IzauPLrunRFBliHrTPmDDQM0ciuj7rxc48kn06BagiEKpBT/YvW0qTaLRA79LY
+	 08Rj6quqIdJRq5HBFJWIEw5DnMP7CIpbPvPve6dBvViQNwa4VMHyKdDhvE5AT69Q/mg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025621;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=RNHYn9Uwf55o6irSeRoRJDXCOCtcjhiRfm7mwVUfGnQ=;
-	b=g0Cl86D8jJP+tGfAzKyUrqcq6e4q9MTdlp/n8mch1vu74PlOoUYghcbxcCxw4yuyRe4Y
-	 dWuuD7wDP3+ggpQqpk016lBJIJXiYWtnNcT6aNrX9raMTfKSUKSQaBsR9ipgev1kYME72
-	 xlHdLlFTq1+CpnHPCMEkZri1BMH2a5ns1kXh4KSqkEaGeV8D3Lsz5ZaJQQ3eYBXxioWaA
-	 AG/rkT9Po8zwtld1/kX/rncXQHPjJhNDBwRW06nq7zpdVI0IRY5wDxQ2p1+MgbPb5qABr
-	 0uwYnDYt8Zi/K+cutt03k7nlLxeDFCDI4EqKVXFkbDHmLPCivgyMEL2Vfx0maf7N00A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025650;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=1ruXTHkCetMraDuq0NO8uW2/frG1fK6TaoKDogox4c4=;
+	b=hLMXcYI9UTdXnERsY0+nQasQAq82RIV2aiYTkO73bpi7TMldwAZP+laG0kMs7SnlNnmv
+	 9sKD2k8WI3WxXWo9/OQb6LhcOan23MQWfWBZ6uOF6Xk9AhHKx7cIZ0U+JTZ1nHMLt7NSO
+	 HaXLE60jv0KHGXUhfPRE7+MkJ3wwcCEy001ePmiKQgjxqinzA/R0w99LUYq5dsVZ4Fc4U
+	 NYOHhZ+PcoFCpgWN8rUl5NL3X0zi7EVXAHOI0n6x18e9A4V28ht61XybNYQacxv/tFMH+
+	 hbjOHdW6XaWlXK9wLaqedTyyTner5QNYui7GBYOkm9Q3V6jCQiP1MIAh1q+OPORQeww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bWehsiFL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoSjgBgV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1FB9606A325;
-	Wed, 18 Nov 2026 18:13:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9E94606A32A;
+	Wed, 18 Nov 2026 18:14:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bWehsiFL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F6D11F000C4;
-	Wed, 18 Nov 2026 18:13:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoSjgBgV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B621F000C5;
+	Wed, 18 Nov 2026 18:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795025621;
-	bh=RNHYn9Uwf55o6irSeRoRJDXCOCtcjhiRfm7mwVUfGnQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bWehsiFLMVL0rkfPobD94C5KM6JS/oObv9+Vx/5V6XdQrotyi6Iag/90eFPhO1c1m
-	 hqJfAXOP+rSusgETD+FEEw0+6JZQUnShPwdL8vRwdbCy/LzxB/pMm7BiYrQdrgHULm
-	 kGn5sjZT7nDzfA00fV/qKumkjHqqOIpumyoP/+p54s6W/oFoPnD024TiOzBnoCpzkl
-	 wVEvoHyKKWOT0G3o9qJl9709ScwEB12rIhzid65Maxjtk5/OqWSlPXJGFIvD3WvzhM
-	 SqZzblacmfn4JMP5Viqen8/pwZeuL2/7q29MwKd6X4c/s4SGlrcbVxWom0ODQtYIfi
-	 KUqCNopVDur+g==
-Subject:
- Re: [PATCH net-next] net: mlx5: Allow police as the last action of a TC rule
-From: netdev-bot+sashiko@kernel.org
-To: mohsin.bashr@gmail.com
-Cc: netdev@vger.kernel.org, saeedm@nvidia.com, leon@kernel.org,
- tariqt@nvidia.com, mbloch@nvidia.com, cjubran@nvidia.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 18 Nov 2026 18:13:40 +0000
-Message-ID: <179502562008.3136.323213503024507641@kernel.org>
-In-Reply-To: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
-References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795025649;
+	bh=1ruXTHkCetMraDuq0NO8uW2/frG1fK6TaoKDogox4c4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=ZoSjgBgV5mGs5czaFsrET/69bbnJvqSGh1XOplpDVprZzXDbKna1p9ji0a+kIFZ8H
+	 XidtqyIoNcQGDjXa5nlVSX6fwzGHjaEGC14ZVOhmzbWu64qRRHVTcN8hS80Ibs4Moz
+	 TVgqVgtV/Ov2z/35uA1bkEiLBWEEhSskx3HTD2Jcpe1mcMcuJo/z78Ni99x3gKVfuB
+	 iw0HR1s2eE78qFtDivE/26jAk0Kd9TTXzWytln2AXwJXzq7BcQENWu0i+xKBSy0Gb7
+	 84fL8C4K3z+Ntxji7ZxFM8dx2xUqlhrIj5ZJBMCgpIDSS9apaS2Xgf9B6ayoM9t0Vl
+	 5JL69t8WzYwow==
+Date: Wed, 18 Nov 2026 12:14:08 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Habil Eren =?utf-8?Q?T=C3=BCrker?= <habilerenturker@hotmail.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] x86/quirks: Cast PCI_D0 to u16 in apple_airport_reset()
+Message-ID: <20261118181408.GA625801@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,137 +62,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261118161559.63617-1-habilerenturker@hotmail.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+[+cc Andy since he's fixed similar issues and may have better ideas]
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+On Wed, Nov 18, 2026 at 04:16:03PM +0000, Habil Eren Türker wrote:
+> PCI_D0 is defined as pci_power_t, whereas pmcsr & PCI_PM_CTRL_STATE_MASK
+> evaluates to a u16 integer.
+> 
+> This causes Sparse (make C=1) to report:
+>         warning: restricted pci_power_t degrades to integer
+> 
+> Add (__force u16) casts on PCI_D0 to explicitly eliminate warnings.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+We have a bunch of similar sparse warnings in drivers/pci, but I'm
+kind of hesitant to just throw in a cast at each one to avoid the
+warning.
 
-- [High] This patch makes a rate police allowed as the last action.
-- [Low] The `FLOW_ACTION_ACCEPT` change in `alloc_branch_attr()`
-  (en_tc.c:3894-3897) changes how already-deployed police rules forward…
+About a third of the sparse warnings related to pci_power_t are
+similar to this, where we're extracting the power state using
+PCI_PM_CTRL_STATE_MASK and assigning to a pci_power_t variable or
+comparing for equality with PCI_D0.  I think we can fix these with an
+accessor something like this (better name ideas welcome):
 
---
+  static inline pci_power_t pci_power_t_get(u32 csr)
+  {
+    return (pci_power_t __force) FIELD_GET(PCI_PM_CTRL_STATE_MASK, csr);
+  }
 
-net: mlx5: Allow police as the last action of a TC rule
+There are a few more we could fix with an analogous pci_power_t_set()
+or similar.  Most of the rest are arithmetic comparisons (>, <, >=,
+etc).
 
-In switchdev mode, this commit lets mlx5 offload a TC rule whose only or
-last action is police. tc_act_parse_police() now sets
-MLX5_FLOW_CONTEXT_ACTION_FWD_DEST for rate police as well as mtu police,
-so verify_attr_actions() no longer rejects the rule. The police ok result
-now goes to the end of the TC chains instead of being treated as pipe.
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-> index 1bd1c94fb9776..52295f5d644c5 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
->  		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
->  			return -EOPNOTSUPP;
+> Signed-off-by: Habil Eren Türker <habilerenturker@hotmail.com>
+> ---
+>  arch/x86/kernel/early-quirks.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/x86/kernel/early-quirks.c b/arch/x86/kernel/early-quirks.c
+> index 6b6f32f40cbe..7459a073c74d 100644
+> --- a/arch/x86/kernel/early-quirks.c
+> +++ b/arch/x86/kernel/early-quirks.c
+> @@ -644,13 +644,13 @@ static void __init apple_airport_reset(int bus, int slot, int func)
+>  	/* Card may have been put into PCI_D3hot by grub quirk */
+>  	pmcsr = read_pci_config_16(bus, slot, func, BCM4331_PM_CAP + PCI_PM_CTRL);
 >  
-> -		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->  		attr->flags |= MLX5_ATTR_FLAG_MTU;
->  	} else {
->  		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
->  		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
->  	}
+> -	if ((pmcsr & PCI_PM_CTRL_STATE_MASK) != PCI_D0) {
+> +	if ((pmcsr & PCI_PM_CTRL_STATE_MASK) != (__force u16)PCI_D0) {
+>  		pmcsr &= ~PCI_PM_CTRL_STATE_MASK;
+>  		write_pci_config_16(bus, slot, func, BCM4331_PM_CAP + PCI_PM_CTRL, pmcsr);
+>  		mdelay(10);
 >  
-> +	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-> +
-
-[Severity: High]
-Every rate police now sets FWD_DEST, so verify_attr_actions() accepts a
-police-last rule whatever its conform/exceed results are. What happens
-when the result is pipe or jump? For example:
-
-  action police rate 100mbit burst 1m conform-exceed drop/pipe
-
-alloc_branch_attr() still sends PIPE and JUMP through set_branch_dest_ft().
-That function only points the branch at the post_act table:
-
-  attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-  attr->dest_ft = mlx5e_tc_post_act_get_ft(post_act);
-
-It does not write FTEID_TO_REG. Only mlx5e_tc_post_act_set_handle() writes
-that register, through mlx5e_tc_act_set_next_post_act().
-alloc_flow_post_acts() calls that only when a following attr exists:
-
-  if (next_attr && !(attr->flags & MLX5_ATTR_FLAG_TERMINATING)) {
-          err = mlx5e_tc_act_set_next_post_act(flow, attr, next_attr);
-
-The jumping_attr case set up in dec_jump_count() also needs a later attr.
-When police is the last action, neither path runs.
-
-The post_act rules match only on the register:
-
-  mlx5e_tc_match_to_reg_match(spec, FTEID_TO_REG, handle->id, MLX5_POST_ACTION_MASK);
-
-On chain 0 the register is 0 and ids start at 1. The lookup misses and the
-packet falls through, which happens to behave like accept.
-
-If the packet reached this rule through an earlier post_act hop, though,
-nothing clears the register. Take a CT pipeline: chain 0 has "ct zone Z
-pipe action goto chain 1", and a chain 1 rule has "ct_state +trk+est
-action police ... conform-exceed drop/pipe".
-
-In that setup, couldn't green packets go back to the post_act table, match
-the chain 0 rule's entry again, repeat its actions (goto chain 1), hit the
-same meter, and loop? Any mirror, redirect or counter in that earlier entry
-would also run again.
-
-mtu police already set FWD_DEST before this patch, so it had the same gap.
-This patch now exposes it for rate police too.
-
-Should pipe at the end of the action list, and jump past the end, also go
-to the end of the TC chains as ACCEPT now does? Or should they be rejected?
-
->  	return 0;
->  }
->  
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-> index 1d35c97aea0bc..8685e41487f39 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
->  		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
->  		break;
->  	case FLOW_ACTION_ACCEPT:
-> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
-> +		break;
-
-[Severity: Low]
-This isn't a bug, but the change also affects existing offloaded rules
-where other actions follow police, not only police-last rules.
-
-Before, ACCEPT fell through to PIPE (from commit f86488cb4685 "net/mlx5e:
-TC, initialize branch flow attributes"). An ok branch went to the post_act
-table and ran the following actions.
-
-Now MLX5_ATTR_FLAG_ACCEPT makes esw_setup_dests() call
-esw_setup_accept_dest(), which sends the branch to the chains end table.
-
-tcfp_result defaults to TC_ACT_OK when TCA_POLICE_RESULT is absent, so the
-common form is affected too:
-
-  police ... conform-exceed drop action mirred egress redirect dev X
-
-Conforming traffic that was redirected in hardware now goes to the end of
-the chains.
-
-This matches software TC semantics. Could it be split into its own fix
-with a Fixes: f86488cb4685 tag? Could the commit message also say that
-existing offloaded rules will forward traffic differently?
-
->  	case FLOW_ACTION_PIPE:
->  		err = set_branch_dest_ft(flow->priv, attr);
->  		if (err)
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117031337.4126403-1-mohsin.bashr%40gmail.com
+>  		pmcsr = read_pci_config_16(bus, slot, func, BCM4331_PM_CAP + PCI_PM_CTRL);
+> -		if ((pmcsr & PCI_PM_CTRL_STATE_MASK) != PCI_D0) {
+> +		if ((pmcsr & PCI_PM_CTRL_STATE_MASK) != (__force u16)PCI_D0) {
+>  			pr_err("pci 0000:%02x:%02x.%d: Cannot power up Apple AirPort card\n",
+>  			       bus, slot, func);
+>  			return;
+> -- 
+> 2.47.3
+> 
