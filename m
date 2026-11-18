@@ -1,79 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794986999;
-	b=pNFjJS0StA1Ds7QlboPKCDhIN9WfvvbTNJ89CnFeAAD286xRsqp9saZPBJ36RbktvNva
-	 tquRHpwjHh3hwAPZ3hMMFq+jt6Dq9RhfGpTxt9YCdMCc/bn2/26suYaFD1LLjz16mPJmk
-	 g4BhTzIBSlzPgSyq9px+Ifnc5r06wrfelBm+aHqwkPXE901qGf65sGO1Zetl/Bb/IwWoW
-	 pG0T1kOe7ItvOe1I5cif00oAucXCpiUkzkfE74wcG9ds7XVD9gL6IdfW3KNopWRBM8sZB
-	 3eYhJlzmurN6xcR/9hrlagQnmJGRuP8Na9UpAaFYhbb/wsQD6nRP2tPguSFo4Hl43dA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794986999;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=fYeKCFr17a4V/OB8ghJ5oXVnr7NbQWC0hZeUiNcoBuo=;
-	b=RPxVAMXTQlAtKMR2DnETo1qCrcoEO7zKhh5ArfP/fvMOamqXhS8/L6kD0qfQmmmFM6w2
-	 Z7q/kWyuLCxOGmooMbklBPqdTm0Ng1Ib+dHpcc5pFEaKwYzswkpvGa7LHqTub0tKGih7O
-	 PpsgY5lF3m6SYTzM8fPGNKHkktvT7BFnnpTBqWwimCMUfefc/GoNwXgKGXP6IZp5ogccq
-	 1jVyd7m5WazHvHND9w4rdZPvXo4Ep5oWTeT03fgFwfwwqzzxmY0ea9uTTxdDHLOMSrIss
-	 LzaPrAxq/edP676etTZS3NjVcIzVjYxIgJ/Cz6zs8Gujf6xlKQER7y6vyJy1S85wrZQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QjwtnMUP;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794987126;
+	b=47jCbIA9lOs87AnFbR93sJh9zY18UBcVXAPq6DJNK1vVZENFyxV6gf4C4Ty767zm4uYd
+	 /EWArFmPpiVcFD+62mwhSZayvJVMmv79g8oS8bL7Y4KNBJ1ASctJ/T4+FCjWO4CyR3oWA
+	 NqRFTNtGwUnKtaLYIv1R5sydXkMkng5U9YpEGfPsqul28LoRaj3/KtolFHTiNxnjRGuZX
+	 ZrUf6Q9wIqBsP4aktq5CjCSoXyCgxwS77KyZaxsQeTXpW78uxhM9hMVqAxBMz/sfOFeZo
+	 YqI28aaC04WQKPZVEbH3G5JR/PxD3BCsTL+7QmpdME6/H/ocVONXCrzM8ifG35Hh92A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794987126;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ZJ+tzoNeQbwJaxzE6IqF470/57tlUDZlSxrmF/lpad4=;
+	b=TO3jDefjKNQLiNrsz606dPAyxKnMsRDRrsDSYC85FssKRKTNmy/++1WJ/6poon2w6Ukq
+	 sdEOhdoxtOMrnyCXPKW84BqUouCJai308bpt8v95N9VA5kzZtblBNFa20gCwh9RqkVJQK
+	 376S8CaCy6oVtxlETtdgzdMKYxvN3Bz+blyb0sB1UlpwsyHppIU5Aqkj7jJhnXThHKgcE
+	 rAj7TvlXrknNnifcNYYEjpj1q9QWBVqYi3yIyIYJDMMGIdok9BGso5PRyIlHuDmIXf+vO
+	 2s6oKQczaAToky3qLZtqGF5RhHUFZUFBTDdkdvqdGbbzgJvBSnvm+mPdJitmfuwTO1w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="N6Tn3xa/";
+	arc=none smtp.remote-ip=162.62.57.252
+Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66F91606A325;
-	Wed, 18 Nov 2026 07:29:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1A4B606A31C;
+	Wed, 18 Nov 2026 07:32:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1A4B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QjwtnMUP
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794986999;
-	b=kva0T8LClztZ4oHuED5UVQS+pgUtai19V01hFXz08P019ep7z6bWm+fikQNWiVCXc1J7
-	 TeeSQvqs8+Yf4T6fXs6nnFP80yOFMYmyJnxRntNqHg8/vRieYmv6NWBEAp0etiv7lPm9N
-	 XeiwWad6l5xm/dxix8iJ4/bI0ZALBaTkNiGdDRXSFCNh1Hu4UKPvkxlM/IuqD/IOGfNWS
-	 CMCdL43G4Az6JodH9kE5X1PhqtR8TfYQdJzjuwKRPMx/tLjxhGjg+Ee1VKhRXIWZKkppx
-	 ab1eA4ozJif7hJYjwt8O3dVYDdiKJ5JcWNBbk34yJoZ7/ALaqIZXA8by+9m9dXEnIhg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794986999;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=fYeKCFr17a4V/OB8ghJ5oXVnr7NbQWC0hZeUiNcoBuo=;
-	b=m9nih/JuMyRC14pCNscgm3UwKV96Wrzss0YqI/BFh7ge4x1Pol16O85yunk+iyXRn8IX
-	 +il3HfCIUDMWC1P2Zz8Utj1BuL0zObml1xk99kbzIA0mT4PIMmhb7SbQPcbM7rFeZEyHl
-	 YX8DaTxHqsJLkMNmZ42AO6103TihVkQVMGJBxcLceg0uGwjYiHvtCgFez60j/z7Or9/44
-	 tu3q5HzZ3ijBACY0MyWRB+gyXu687ZzEx2xtoHYfKv8NL34zBbcvFWUwYM7/Hdto5DPEi
-	 rrQRBrT+DJW0PhlKpTSQK3VWklPDhRrI/Ffu/10QsSBQdYm4UZfiKjxWQmUGuWuxkwQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 797341F000C5;
-	Wed, 18 Nov 2026 07:29:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794986999;
-	bh=fYeKCFr17a4V/OB8ghJ5oXVnr7NbQWC0hZeUiNcoBuo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=QjwtnMUPqCtWEVHPdIHOwEqq1WpDUL1UpSG1DThWMmVDeHU/eAEl2wYSMEXP0MAZc
-	 Cx4/ntFjKkJcmo7rGUzRPD8gm0Th34gV8o3F5BIaIwld3nmfxaLlTNZ8m4zJKMvvPo
-	 7+5mRtUzBQOIDQRm/MwJ8F919oOdKNhYSgKr8EwzH1e1L5S3z9QIoo5OVL8C9oNHJ4
-	 /MwCjoM1/yHn59VlogByckXC/+F1+BRX31fs44FaoMDp0I6OOVawx2t5hVfrl+kcG8
-	 rTQ2Zpzv7ZxX2XMZuB8Fq8nJZbNZhSqYgqhdMKPLLIJbM1oZKUVA+5JvOCGHhO2Ohw
-	 cc6D5EKtjzTBw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 06AD24AC47;
-	Wed, 18 Nov 2026 07:29:58 +0000 (UTC)
-From: Raffaele Tranfaglia via B4 Relay <devnull+raffaele.tranfaglia.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 07:29:54 +0000
-Subject: [PATCH v3 1/2] iio: light: adux1020: use guard() to simplify lock
- handling
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=N6Tn3xa/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794987114; bh=ZJ+tzoNeQbwJaxzE6IqF470/57tlUDZlSxrmF/lpad4=;
+	h=From:To:Cc:Subject:Date;
+	b=N6Tn3xa/pKKDXQopCVZck6Ty4OGB3ZK40DuopE+6uYu8L9CcCAYIN1jFLXI3BsPIb
+	 jVL6F7nEyXK0L6JP55kYSnELw6mJwLZT2YPlMybYhGVM/ANkXCXrjCL+gXLdBWzwAf
+	 EsyKptnlRrPc0/BbN/JGDJTKqKQ7KtIRkTspq+lc=
+Received: from [172.18.4.77] ([202.113.185.209])
+	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
+	id 7F49606C; Wed, 18 Nov 2026 15:31:52 +0800
+X-QQ-mid: xmsmtpt1794987112tm8p4f34k
+Message-ID: <tencent_0CFF1B64C4CB09D8F436EAC6272D8A215505@qq.com>
+X-QQ-XMAILINFO: NGZp1yYNf7Y+QME67ve7kj+sazgtgCHtjTXsVFdyqeQ1UIk1VCVnNFaw2EUQDJ
+	 mzAlGGoAxo0aCt/MtxlKnGp8h0dUF87iXZX/XpFRwBBc79TEJesANwzw+lfZbaqTgPG2DrFRVt1V
+	 tKlIpA6jTH6pLlCFgstvLuG4fTagc4mX6Pqb8OVoQFOwMZ9AEdTqIegiJe+8zx6Z99nPW9iy1k29
+	 kTQDRrnAHy68pKSPIma918amSFTo/+9XjbMe3MHM5FdRdZhwHNGwQZDUP4rbRqavdiAv37s4rzzl
+	 QxuXPm1A0kO2rPwDua9ExSApMrlfogqmDTBlqzLJY2gJevC6/LTiwLoBYLMSEv6+fFMgK4NUd4SM
+	 te2sbcaca/3QamFaVdNrRHuEGe16XrPu0Dm/7ILfmttu1K/zxAZ2NL1TAMQwlCRHx0FVnwreW3OC
+	 xNSMFV38qsj0+esGha8KOEfhiJ0mAOWI26DeiSZ+mczHyVx2FUa/9STt0PkHeefiDnQUtfWslvOs
+	 mQH1iPf2+GMPrwvzf3Nkg3t7tNNzR+52MQdwSWwZcygxna3+8G6NxQFmxsOVk0mAQ4bSpuFfS+YR
+	 3ffC0ivUBqHRSCyF8zDhFytzezhz59MTzD5DUzKhROgSZK5g/yHfeaKMyB5ROoLGDbhKHjSLm5Ll
+	 WF0yH4uMnhtxsuCcuR248iGIdo8hws05GOuB2FypKL7WZ/QTO0kYAkVcnX7sm4CUI9rzE4W44ARn
+	 r52+oP8Fm008RWW9a+BrbN9BAMfI00V8BxacujQy+vxMRMw00HtdT3f8VshCxFR81BfEKAsjtyP/
+	 /B93HYoPYOxdfU/Saw5pvY5YYRtT4Ep8bP9FCF/xgjYXcbC1XlIkGhbjt4wdIFm45RKm45Mb3Cs0
+	 vW65OQEKEjG4CQUsjuAiPtVVsS86D/KLoK2k1RF4FcQPxLz+URR/B/2GwFD6FizX/GA8KNSGhZuE
+	 QBXV8udqy+sRUoyIQUcgK+qdaUDx+neb6h0mPP5ZLhw1pMEXI0AEu1PJsHTWIdSxaz0VSxZEb92I
+	 84ziEtsa9coaJQBIP/up++lxi4xBJYel5jH8jyJRruby95PASfbV06mbmvXu0=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+From: Guikun Yang <yangguikun19@qq.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] ufs: bound the cluster summary index in ufs_clusteracct()
+Date: Wed, 18 Nov 2026 15:35:00 +0800
+X-OQ-MSGID: <patch-ufs-contigsumsize-20261118@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,279 +75,68 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-adux1020-guard-v3-1-2c6a18954fc7@gmail.com>
-References: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
-In-Reply-To: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
-To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Michael Hennerich <Michael.Hennerich@analog.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- Andy Shevchenko <andy@kernel.org>
-Cc: linux@analog.com, linux-iio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>, 
- Joshua Crofts <crofts@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794986997; l=6315;
- i=raffaele.tranfaglia@gmail.com; s=20261011; h=from:subject:message-id;
- bh=DMtHrOaeoSbk69l93gv+SBOwCJ/sq3BfFEE9UbzKpVM=;
- b=fEXS8coQDCkDBlpSSLJkLT1MpCdBCZyfdktBYJRrZ1oXuDMfUB6XPy27wYJxxW55Owokn1FPd
- f+pyeGHhXGmDUR6KylinD9g8mTcaNlC1GEkUR438ZfS1LdQwCHxkZbI
-X-Developer-Key: i=raffaele.tranfaglia@gmail.com; a=ed25519;
- pk=mweuSGNM6vguCTdqa+aiHwMXdgk70suj2wolzCp6XGM=
-X-Endpoint-Received: by B4 Relay for raffaele.tranfaglia@gmail.com/20261011
- with auth_id=1160
-X-Original-From: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
-Reply-To: raffaele.tranfaglia@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
+fs_contigsumsize is read from the on-disk superblock into
+uspi->s_contigsumsize with no validation, and c_clustersumoff is read
+from each cylinder-group header with no validation.  In
+ufs_clusteracct() the two combine into a derived array index:
 
-Use guard(mutex) in adux1020_read_raw(), adux1020_write_raw() and
-adux1020_write_event_config() so the lock is released automatically on
-return. This allows returning directly instead of jumping to a common
-unlock label, and lets adux1020_write_raw() drop its ret variable.
+	i = back + forw + 1;
+	if (i > uspi->s_contigsumsize)
+		i = uspi->s_contigsumsize;
+	fs32_add(sb, ubh_get_addr(UCPI_UBH(ucpi),
+			ucpi->c_clustersumoff + (i << 2)), cnt);
 
-No functional change intended.
+The clamp itself uses the attacker-controlled value as its bound.
+ubh_get_addr() expands to ubh->bh[begin >> s_fshift], so a crafted
+pair indexes bh[UFS_MAXFRAG] past the end of the 136-byte
+ufs_cg_private_info allocation:
 
-Suggested-by: Jonathan Cameron <jic23@kernel.org>
-Reviewed-by: Joshua Crofts <crofts@kernel.org>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
+	UBSAN: array-index-out-of-bounds in fs/ufs/balloc.c:892
+	 index 15 is out of range for type 'buffer_head *[8]'
+	KASAN: slab-out-of-bounds Read of size 8
+	 0 bytes to the right of 136-byte region [ffff...,ffff...)
+	 allocated by ufs_load_cylinder
+	Kernel panic - not syncing
+
+Reproduced 3/3 with a crafted 44bsd image (clustersumoff = 440,
+fs_contigsumsize = 0x20000, giving i = 1880 and begin = 7960, so
+begin >> s_fshift = 15).  A negative image differing only in the
+fs_contigsumsize byte (0x20000 -> 0) writes 4096 bytes cleanly.
+Both 7.3 and mainline are affected; syzbot has no report for this.
+
+This is distinct from the earlier "five unvalidated cylinder-group
+offsets" report: that fix bounds the offsets against s_cgsize and the
+reproducer set fs_contigsumsize to 0, disabling cluster accounting.
+Here all five offsets are in range, cgsize passes the bound added by
+the fs_cgsize fix, and the overflow comes from the (i << 2) derived
+index with a large s_contigsumsize.
+
+In a valid FFS layout the cluster summary array sits immediately
+before the cluster bitmap, so c_clustersumoff + 4*(i+1) must fit below
+c_clusteroff.  Check that invariant before the update and skip the
+accounting otherwise.
+
+Reported-by: Guikun Yang <yangguikun19@qq.com>
 ---
- drivers/iio/light/adux1020.c | 104 ++++++++++++++++---------------------------
- 1 file changed, 39 insertions(+), 65 deletions(-)
+ fs/ufs/balloc.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/iio/light/adux1020.c b/drivers/iio/light/adux1020.c
-index 6b32c5be4753..b595faf4abc5 100644
---- a/drivers/iio/light/adux1020.c
-+++ b/drivers/iio/light/adux1020.c
-@@ -9,6 +9,7 @@
-  */
- 
- #include <linux/bitfield.h>
-+#include <linux/cleanup.h>
- #include <linux/delay.h>
- #include <linux/err.h>
- #include <linux/i2c.h>
-@@ -362,10 +363,10 @@ static int adux1020_read_raw(struct iio_dev *indio_dev,
- {
- 	struct adux1020_data *data = iio_priv(indio_dev);
- 	u16 buf[3];
--	int ret = -EINVAL;
- 	unsigned int regval;
-+	int ret;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 
- 	switch (mask) {
- 	case IIO_CHAN_INFO_RAW:
-@@ -373,69 +374,56 @@ static int adux1020_read_raw(struct iio_dev *indio_dev,
- 		case IIO_PROXIMITY:
- 			ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
- 			if (ret < 0)
--				goto fail;
-+				return ret;
- 
- 			ret = adux1020_measure(data, ADUX1020_MODE_PROX_I, buf);
- 			if (ret < 0)
--				goto fail;
-+				return ret;
- 
- 			*val = buf[0];
--			ret = IIO_VAL_INT;
--			break;
-+			return IIO_VAL_INT;
- 		default:
--			break;
-+			return -EINVAL;
- 		}
--		break;
- 	case IIO_CHAN_INFO_PROCESSED:
- 		switch (chan->type) {
- 		case IIO_CURRENT:
- 			ret = regmap_read(data->regmap,
- 					  ADUX1020_REG_LED_CURRENT, &regval);
- 			if (ret < 0)
--				goto fail;
-+				return ret;
- 
- 			regval = regval & ADUX1020_LED_CURRENT_MASK;
- 
- 			*val = adux1020_led_currents[regval][0];
- 			*val2 = adux1020_led_currents[regval][1];
- 
--			ret = IIO_VAL_INT_PLUS_MICRO;
--			break;
-+			return IIO_VAL_INT_PLUS_MICRO;
- 		default:
--			break;
-+			return -EINVAL;
- 		}
--		break;
- 	case IIO_CHAN_INFO_SAMP_FREQ:
- 		switch (chan->type) {
- 		case IIO_PROXIMITY:
- 			ret = regmap_read(data->regmap, ADUX1020_REG_FREQUENCY,
- 					  &regval);
- 			if (ret < 0)
--				goto fail;
-+				return ret;
- 
- 			regval = FIELD_GET(ADUX1020_PROX_FREQ_MASK, regval);
--			if (regval >= ARRAY_SIZE(adux1020_rates)) {
--				ret = -EINVAL;
--				goto fail;
--			}
-+			if (regval >= ARRAY_SIZE(adux1020_rates))
-+				return -EINVAL;
- 
- 			*val = adux1020_rates[regval][0];
- 			*val2 = adux1020_rates[regval][1];
- 
--			ret = IIO_VAL_INT_PLUS_MICRO;
--			break;
-+			return IIO_VAL_INT_PLUS_MICRO;
- 		default:
--			break;
-+			return -EINVAL;
- 		}
--		break;
- 	default:
--		break;
-+		return -EINVAL;
- 	}
--
--fail:
--	mutex_unlock(&data->lock);
--
--	return ret;
- };
- 
- static inline int adux1020_find_index(const int array[][2], int count, int val,
-@@ -455,9 +443,9 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
- 			      int val, int val2, long mask)
- {
- 	struct adux1020_data *data = iio_priv(indio_dev);
--	int i, ret = -EINVAL;
-+	int i;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 
- 	switch (mask) {
- 	case IIO_CHAN_INFO_SAMP_FREQ:
-@@ -465,15 +453,13 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
- 			i = adux1020_find_index(adux1020_rates,
- 						ARRAY_SIZE(adux1020_rates),
- 						val, val2);
--			if (i < 0) {
--				ret = i;
--				goto fail;
--			}
--
--			ret = regmap_update_bits(data->regmap,
--						 ADUX1020_REG_FREQUENCY,
--						 ADUX1020_PROX_FREQ_MASK,
--						 ADUX1020_PROX_FREQ(i));
-+			if (i < 0)
-+				return i;
-+
-+			return regmap_update_bits(data->regmap,
-+						  ADUX1020_REG_FREQUENCY,
-+						  ADUX1020_PROX_FREQ_MASK,
-+						  ADUX1020_PROX_FREQ(i));
- 		}
- 		break;
- 	case IIO_CHAN_INFO_PROCESSED:
-@@ -481,24 +467,19 @@ static int adux1020_write_raw(struct iio_dev *indio_dev,
- 			i = adux1020_find_index(adux1020_led_currents,
- 					ARRAY_SIZE(adux1020_led_currents),
- 					val, val2);
--			if (i < 0) {
--				ret = i;
--				goto fail;
--			}
--
--			ret = regmap_update_bits(data->regmap,
--						 ADUX1020_REG_LED_CURRENT,
--						 ADUX1020_LED_CURRENT_MASK, i);
-+			if (i < 0)
-+				return i;
-+
-+			return regmap_update_bits(data->regmap,
-+						  ADUX1020_REG_LED_CURRENT,
-+						  ADUX1020_LED_CURRENT_MASK, i);
- 		}
- 		break;
- 	default:
- 		break;
- 	}
- 
--fail:
--	mutex_unlock(&data->lock);
--
--	return ret;
-+	return -EINVAL;
- }
- 
- static int adux1020_write_event_config(struct iio_dev *indio_dev,
-@@ -510,16 +491,16 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
- 	struct adux1020_data *data = iio_priv(indio_dev);
- 	int ret, mask;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 
- 	ret = regmap_write(data->regmap, ADUX1020_REG_INT_ENABLE,
- 			   ADUX1020_INT_ENABLE);
- 	if (ret < 0)
--		goto fail;
-+		return ret;
- 
- 	ret = regmap_write(data->regmap, ADUX1020_REG_INT_POLARITY, 0);
- 	if (ret < 0)
--		goto fail;
-+		return ret;
- 
- 	switch (chan->type) {
- 	case IIO_PROXIMITY:
-@@ -535,7 +516,7 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
- 			ret = regmap_set_bits(data->regmap,
- 					      ADUX1020_REG_INT_MASK, mask);
- 		if (ret < 0)
--			goto fail;
-+			return ret;
- 
- 		/*
- 		 * Trigger proximity interrupt when the intensity is above
-@@ -544,20 +525,13 @@ static int adux1020_write_event_config(struct iio_dev *indio_dev,
- 		ret = regmap_set_bits(data->regmap, ADUX1020_REG_PROX_TYPE,
- 				      ADUX1020_PROX_TYPE);
- 		if (ret < 0)
--			goto fail;
-+			return ret;
- 
- 		/* Set proximity mode */
--		ret = adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
--		break;
-+		return adux1020_set_mode(data, ADUX1020_MODE_PROX_I);
- 	default:
--		ret = -EINVAL;
--		break;
-+		return -EINVAL;
- 	}
--
--fail:
--	mutex_unlock(&data->lock);
--
--	return ret;
- }
- 
- static int adux1020_read_event_config(struct iio_dev *indio_dev,
-
+diff --git a/fs/ufs/balloc.c b/fs/ufs/balloc.c
+index 628edfde3..3858699db 100644
+--- a/fs/ufs/balloc.c
++++ b/fs/ufs/balloc.c
+@@ -889,6 +889,9 @@ static void ufs_clusteracct(struct super_block * sb,
+ 	i = back + forw + 1;
+ 	if (i > uspi->s_contigsumsize)
+ 		i = uspi->s_contigsumsize;
++	if (ucpi->c_clusteroff < (i + 1) * sizeof(__fs32) ||
++	    ucpi->c_clusteroff - (i + 1) * sizeof(__fs32) < ucpi->c_clustersumoff)
++		return;
+ 	fs32_add(sb, (__fs32*)ubh_get_addr(UCPI_UBH(ucpi), ucpi->c_clustersumoff + (i << 2)), cnt);
+ 	if (back > 0)
+ 		fs32_sub(sb, (__fs32*)ubh_get_addr(UCPI_UBH(ucpi), ucpi->c_clustersumoff + (back << 2)), cnt);
 -- 
-2.56.0
-
+2.53.0.windows.1
 
