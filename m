@@ -1,67 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.199.235.221
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022173;
-	b=gzEaLxrTwnznsnqGO5lZZ+9gh9m4Zzi/fxe7zy6nn2texGP+jD9puFfQVXJP6845NF5H
-	 mF3ytcIesXc5+GS+OO2irjaP1RHEG6/4l1/wq4P/iU78cZ0CbZv0xDcCMQepfI6Fe/Wp1
-	 NLe1X4xYbkQZVrGiynL5DLaGU1xbvZwy5IIQNB69WohZDZC5wwQ9h95aIqT7bvHtTXOTM
-	 djgqbwKBjPiSJy7a4H3MsyYdfhaNcr3d4TqIaucnjUjpb2xF4fi3jY+PV4d2kOUc9Qz3o
-	 YqJrFiZye3G9Dpy5gnPEuoDHavtA0z8gaRwc8wn3H2Hrv5wEVntVGnH4hmHFhsnhtxw==
+	t=1795022190;
+	b=CvHP4wcN5ZOkCjkmNpOt4E8juo8iKqIgk4rLc1LAJvMLj8rTfN1qr0Ztti5fX6T5p0Kq
+	 lJ81HSmQhcrz+gX5Ak2kIjm/xqU0hO9QeSyzfBEJ3UGdH6q2yMOXdqP8BmseGOF/q8VJV
+	 l/NLdLxkEqVkx5FsDNVcrtX4kbuc7qM897JTAXYBb5n5d4F/04FMgClu2wnlGSD3oW3gx
+	 lS/FMWlROq8MVGBIHhutGIYkU3lS+NqJdT3sAYD+KUZ3d9uTpop9QiceYDkpXRkutXlKW
+	 SiyFoicv2LJG6uh9d3kZRya7VBvA4/iGwMGT/xdKHV7iOj2Tcl8IwBOhdOeVW4YQzog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022173;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=uQgs/LnSsb7T5Yqdh//B4nhVbzY1sGg8qFnrYeg3TTk=;
-	b=v8eVBFfSgCkWLs8Fflr4pAi68DlOsOJtW/vE0Sv737foMUnAnP8Jd7fvJfqIOr0fQB0c
-	 xARPyO7o3khnQsUGV6U7L/y8iS8USc93CdmT21bTicgXyYkf1/fE4mIcxIhSCiDx99LGL
-	 PcQOr99Pk3qXv45RpI1OHnyzk9vND7IE3nGHYjFxMWB6Hk0R4aWfvC2chOmKmu3v/cPeM
-	 WglVZgvGGkowBTybm74gBNvdhi7q2JdsKvC7uXlPHlVhqmjSN42cDs1tg2+bn/n80Fci7
-	 Xw7ZXP/bdJm4seIvYK6ZfT58tCcj3shAFsxOE22FFImJpZ00QG0ns5WSmrIW4kt0qaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022190;
+	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:
+	 X-Virus-Scanned:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=JcG5i3n/enYidgqlQ6vBgqJiTw2tRlwgEdU7NIgWq/M=;
+	b=Cq0+fWWur9bVYzAVIZXo/MyJT/0fSs9Us/KpwwvIEm+HWHKmJK0MQL4epiBudUd3oPK+
+	 VrOVL7A+cM59iMrCmjw/EWRJkKEmw1f8eRLW1aTIo+de1T1t7x/g01lGuOUFZWILGnJza
+	 0Qjhc6dO1Byf2fIvUusKZYvUSnSyzscBXsBa+HbsTm4imqZSf0BkwxEprQDrq2ZncW4+C
+	 OgKmeelSpBD8kNMzhu5Lx3RItRk5j7+FUFA5Z3Klm96lr1x+Etc+32SaaBBQ5Urophz1T
+	 WlC4V0FQBVMHu3XMcLwhX4ekjkc8+e5nJAx/bh8e2pQIYNhN6ybO1RBxQG/zhgzttdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iiTjJUjV;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=cirad.fr;
+	spf=pass smtp.mailfrom=cirad.fr;
+	dkim=pass header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=MDMIV7gp;
+	arc=none smtp.remote-ip=194.199.235.221
+Received: from retz.cirad.fr (retz.cirad.fr [194.199.235.221])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 130A7606A32F
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:16:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 130A7606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75AD5606A325;
+	Wed, 18 Nov 2026 17:16:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75AD5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cirad.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cirad.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iiTjJUjV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795022172;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uQgs/LnSsb7T5Yqdh//B4nhVbzY1sGg8qFnrYeg3TTk=;
-	b=iiTjJUjV0siAR1LiqPb/KhNZ0l1qyfO2ZH6mpm4+QXolFfqOdSX+N/sfBJ4kX/nkBAVvRW
-	u0cr+wwCgfqbba2tskzznFESWu1wQ16nRP3IoUlZSPg3NVt6kmZeUxVycvjg5OVxHcvaWJ
-	2Zw45nywK/v5MTQlu2aRn2NYC9RK3yo=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-465-V9WYMYi8MFSwRBdgCDsq2g-1; Wed,
- 18 Nov 2026 12:16:08 -0500
-X-MC-Unique: V9WYMYi8MFSwRBdgCDsq2g-1
-X-Mimecast-MFC-AGG-ID: V9WYMYi8MFSwRBdgCDsq2g_1795022165
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D79B919560B1;
-	Wed, 18 Nov 2026 17:16:04 +0000 (UTC)
-Received: from [10.17.16.204] (unknown [10.17.16.204])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 361F31956088;
-	Wed, 18 Nov 2026 17:16:01 +0000 (UTC)
-Message-ID: <a27dac16-f5c0-459b-9153-7caec3feb8a1@redhat.com>
-Date: Wed, 18 Nov 2026 12:16:00 -0500
+	dkim=pass (2048-bit key, unprotected) header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=MDMIV7gp
+Received: from retz.cirad.fr (localhost [127.0.0.1])
+	by retz.cirad.fr (Postfix) with ESMTPS id D5B9920DC666;
+	Wed, 18 Nov 2026 18:16:20 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by retz.cirad.fr (Postfix) with ESMTP id B40A120D4CAF;
+	Wed, 18 Nov 2026 18:16:20 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.10.3 retz.cirad.fr B40A120D4CAF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirad.fr;
+	s=573E3878-7916-11F1-BF4B-F68474317960; t=1795022180;
+	bh=JcG5i3n/enYidgqlQ6vBgqJiTw2tRlwgEdU7NIgWq/M=;
+	h=From:To:Date:Message-ID:MIME-Version;
+	b=MDMIV7gpFlG4nWKnXQsyR2H8laq+en+JwUex05lJFXzBzE0m+pZAMpTmHq/mYFnhX
+	 ETt2+pNDvKWDTSFUo+QIDbBiH5KXmQ/ESS/M8HGhZpr35hqRj9md3ip3C1KlgZb5eZ
+	 vUBQ5j4R3PV8UE2Y4TaqWB2pjPohKozY+8duYsblm5XGZDmTbZtWNT66SaQP6mPk/+
+	 zV9JEGy4wvx/EKCF/SFdcMG2MibDwPegaIXv/gBw52RmACqBES8sxqAJBZGZNiLe2m
+	 Zg0qEf9Lnc2jIs6CIlT0liTD241SrtMPfIrAGKUrwQGzk5+NXbTZE8YYCgewBmLOBR
+	 FT2Ro6bq5hdCg==
+X-Virus-Scanned: amavis at retz.cirad.fr
+Received: from retz.cirad.fr ([127.0.0.1])
+ by localhost (retz.cirad.fr [127.0.0.1]) (amavis, port 10026) with ESMTP
+ id BA7VGU8kKTYl; Wed, 18 Nov 2026 18:16:20 +0100 (CET)
+Received: from localhost.localdomain (78-196-243-100.subs.proxad.net [78.196.243.100])
+	by retz.cirad.fr (Postfix) with ESMTPSA id 9AC0920DC666;
+	Wed, 18 Nov 2026 18:16:19 +0100 (CET)
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>
+To: Yixun Lan <dlan@kernel.org>
+Cc: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Yao Zi <me@ziyao.cc>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@4d2.org>,
+	Hung-Chun Tseng <alan.tseng.cs@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/6] clk: spacemit: k1: Keep pll1_aud_245p7 enabled
+Date: Wed, 18 Nov 2026 18:15:35 +0100
+Message-ID: <20261118171536.197538-1-frederic.mahe@cirad.fr>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118111528-GKD156369@kernel.org>
+References: <20261117205951.140146-3-frederic.mahe@cirad.fr> <20261118111528-GKD156369@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,87 +95,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under
- cpuset_mutex
-To: Frederic Weisbecker <frederic@kernel.org>, Ridong <ridong.chen@linux.dev>
-Cc: tj@kernel.org, peterz@infradead.org, mingo@redhat.com,
- juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
- rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
- vschneid@redhat.com, kprateek.nayak@amd.com, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
- guopeng.zhang@linux.dev, mathieu.desnoyers@efficios.com,
- Ridong Chen <chenridong@xiaomi.com>
-References: <054a53a3-c038-48fe-ac01-fc24fd8065d0@linux.dev>
- <20261117083915.2971979-1-ridong.chen@linux.dev>
- <av20QrLUdOC_ysS0@localhost.localdomain>
-Content-Language: en-US
-From: Waiman Long <longman@redhat.com>
-In-Reply-To: <av20QrLUdOC_ysS0@localhost.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Yixun,
+
+Thanks for forwarding it to SpacemiT.
+
+On Wed, Nov 18, 2026 at 11:15:28AM +0000, Yixun Lan wrote:
+> Access which register? is the PWM register in RCPU2?
+
+No, the hang comes before any PWM register access. The PWM probe
+first deasserts the reset and enables the clock, both in
+RCPU2_PWM2_CLK_RST (0xc0888008, in the syscon_rcpu2 range), and that
+access hangs. The PWM registers (0xc0888300) are never reached. I
+have not tested each register on its own (every hang needs a power
+cycle), but I can do it if that helps.
+
+> It just happen to fix the issue, but doesn't sound like a correct fix,
+> usually, it can be fixed with correct clock topology
+
+Agreed. The vendor kernel never gates this clock either
+(CLK_IGNORE_UNUSED in ccu-spacemit-k1x.c). If pll1_aud_245p7 is the
+bus clock of the RCPU2 block, it could become a clock of the
+syscon_rcpu2 node, and the CCU driver would enable it before its
+first register access. I will wait for SpacemiT's answer before v2.
+
+> maybe just "Assisted-by: LLM"
+
+That tag was removed (1e035297ffda), so in v2 I will move the note
+to the cover letter, as Yao Zi suggests.
+
+Fr=C3=A9d=C3=A9ric
+
+From frederic.mahe@cirad.fr Mon Sep 17 00:00:00 2001
+From: =3D?UTF-8?q?Fr=3DC3=3DA9d=3DC3=3DA9ric=3D20Mah=3DC3=3DA9?=3D <frede=
+ric.mahe@cirad.fr>
+To: Yao Zi <me@ziyao.cc>
+Cc: Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@kernel.org>, Troy Mi=
+tchell <troy.mitchell@linux.spacemit.com>, Brian Masney <bmasney+clk@redh=
+at.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kern=
+el.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt=
+@kernel.org>, Haylen Chu <heylenay@4d2.org>, Hung-Chun Tseng <alan.tseng.=
+cs@gmail.com>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dab=
+belt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti=
+.fr>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@=
+lists.infradead.org, spacemit@lists.linux.dev, linux-kernel@vger.kernel.o=
+rg
+Subject: Re: [PATCH 0/6] riscv: spacemit: k1: RCPU2 PWM clocks and the BP=
+I-F3 fan
+In-Reply-To: <av3MI0wgou3pbab8@pie>
+References: <20261117205951.140146-1-frederic.mahe@cirad.fr> <av3MI0wgou3=
+pbab8@pie>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=3DUTF-8
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On 11/18/26 9:20 AM, Frederic Weisbecker wrote:
-> Le Tue, Nov 17, 2026 at 04:39:15PM +0800, Ridong a écrit :
->> From: Ridong Chen <chenridong@xiaomi.com>
->>
->> Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
->> holding cpus_read_lock") calls housekeeping_update() after dropping
->> cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
->> switched and freed outside of those locks. But readers holding either
->> lock may still access it without rcu_read_lock() as allowed by
->> housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
->> for them:
->>
->>    CPU A                                  CPU B
->>    rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
->>                                             mutex_unlock(&cpuset_mutex)
->>                                             cpus_read_unlock()
->>      mutex_lock(&cpuset_mutex)
->>      p = housekeeping_cpumask(DOMAIN)
->>                                             housekeeping_update()
->>                                               rcu_assign_pointer()
->>                                               synchronize_rcu()
->>                                               kfree(old)
->>      access p <- UAF
->>
->> Fix it by moving the pointer switch into housekeeping_publish(), which
->> is called before dropping the locks. Then CPU A either finishes before
->> CPU B switches the pointer, or only sees the new cpumask:
->>
->>    CPU A                                  CPU B
->>                                           cpuset_update_sd_hk_unlock()
->>                                             housekeeping_publish()
->>                                               rcu_assign_pointer()
->>      mutex_lock(&cpuset_mutex) <- wait
->>                                             mutex_unlock(&cpuset_mutex)
->>                                             cpus_read_unlock()
->>      p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
->>          <- new cpumask                       synchronize_rcu()
->>                                               kfree(old)
->>
->> The rest of housekeeping_update(), including the workqueue flushes,
->> still runs without those locks.
->>
->> Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without holding cpus_read_lock")
->> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
-> Ok that should work but, IIRC this whole locking puzzle is there because
-> cpuset_handle_hotplug() can change isolated partitions. Why is it the case
-> since cpuset.cpus shouldn't care about offline CPUs?
->
-> I remember Waiman said it could be fixed in the long run. I don't remember
-> the details though.
+Hi Yao Zi,
 
-cpuset_handle_hotplug() has to remove the newly offlined CPU or to add 
-back the newly online CPUs to the effective_cpus of all the cpusets that 
-include the affected CPUs whether it is in an isolated or root partition 
-or not. In the worst case that the last online CPU in an isolated 
-partition is offline, we have to disable it. That is the main reason why 
-hotplug can affect isolated partitions. I don't remember saying it is 
-something that can be fixed long term. Perhaps, it is not something 
-related but not exactly this.
+On Wed, Nov 18, 2026 at 04:02:43PM +0000, Yao Zi wrote:
+> I think spacemit,k1-syscon.yaml should probably be updated to make
+> '#clock-cells' property mandatory for rcpu2 node? And probably also
+> the other blocks capable of clock stuff as fix...
 
-Cheers,
-Longman
+Right. In v2, #clock-cells will be required for
+spacemit,k1-syscon-rcpu2 (on its own, since rcpu2 takes no
+osc/vctcxo inputs). For the other blocks, I will check which ones
+provide clocks and send a separate fix.
 
+Fr=C3=A9d=C3=A9ric
