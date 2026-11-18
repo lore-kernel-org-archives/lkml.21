@@ -1,72 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.130.186.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999221;
-	b=XZAXftso5qfbzxaIO3aSVGyjfUtkcPe6MCv6mbsXrg96Dl/6dXjh316zyhOLvUFEKCjZ
-	 sJqD4fRBNc9/pKxEPFTvPwkS/bus977ISAkqkx2VQqq0cKuwJeuSRRkhLUGlAzkomjKnM
-	 Tam6PyLHfMLYkkDkbqq6YVo6Uty1s7mMSYM8Xg+8pRiOn0vC/igwiPTXBB4IsSIe2e/Ub
-	 L9r35AS1nEXUFsk8weaI0DZ5+8oNLNuTj5pf2AgSefNrlzP5TlKF0QGbFhBpzcT8wS7Wu
-	 3HAAdtks6BSc1YyLalPgOj+EHm6NZdRauWJc5fbVqzDJPn2JVuLd40jjJ98hC7gXWRw==
+	t=1794999265;
+	b=xJhz8TPtaKdLEhn9J7auShBIufqUKu13U0KobQOpF6tIiDE597RJKxdHkgEHGl3gOy80
+	 Wj+PwxCceC7n9YHbr0BAn0hIHiRONHwV7T1UfAgg+Bp0cI7gob0/Z+uwgfXo32S9JZFJA
+	 R83+cLHXVZipursLlGN+ln91DtlrBo3d4syrvhkB5w+Uanlc+Xr7POYcITP6H7b71DtWG
+	 VFL9bKWhzvGBfeGtVotW9FuQd1PjESOlZHJeusowUXkGC3R5ucIAnoc5b4wnHi4SfwzDC
+	 OkBTWJQju5l5E8h7DfEQx+7LrFOvlSPL/GYaBMFtUwR4SjulqBisai8JXe1FTdpRnQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999221;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Originating-IP:Date:
-	 X-CM-HeaderCharset:From:To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:
-	 References:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-Coremail-Antispam;
-	bh=1GWz7PWblm2gA5atOtwgD3ptxY94U1LVqgOB9jwnuOs=;
-	b=ADS6/xlp9U6k40/FZOtJvkv4oFYECow6e1UVZiJdtdGG9FPH/eFpvJ8Q1ndHpt5u2X1X
-	 iLqYPGXPcB9Uzhf3Rd858P+AavVXgsLNKQgB60rBNq6Q6JIafKUD414RQwtQu1GlZXPjm
-	 cXRIeAQZkJG9VYCDr/Q14Bk+6Rn8Ep3Lt6rH4aQeyjJw86U1wgOg5gyqtCL6ZDXR1ufO1
-	 RuvsX1uWRWO8EVij2Ejho6A3uV/0GG3TNLJ0AnQzFibyJERdHKEmWq+YdB6a5KnoWtEU2
-	 r8vyVDfn+7eh13wd17sNznnJPzZ9Mk6eWpZimo+fr5YfhhYk+XwIYm3qEEtB/jGHMjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999265;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=QiyXyxSrpIPdaIYUZ2ZqMEmklUEYSfa+mvgQR6lbI78=;
+	b=X28LPUCUO2s0HS78A87MbuqGQ15qRuQ6tooEWryouKa7h5H93RxQ/E1QouhgGtfLxweQ
+	 NE7dIDqCXvl9wMvIQjcf6cBFaL0XFMMXga47wFgCxIz/Q0riwv9pS45D8U10bqEN4IxFT
+	 g2n/UIMWgvRrtETroT6jXPWz+Dc6Em8MaLGUCQZ01H5pjt0InkAOAsnEUkEnS38dzwth2
+	 /e2h7xz4RYE6GQl/eitYVMuHKLU2tt+UE0jthO7EVkz5bxXYzjqYOcgoKZygwbGcpDNzg
+	 OOXdcLbUFvxsg+Qh0vQDh3i/CBUHn61jBKPG637Md5Y2oRWPRdnRIjSUQsnJ3m4v2ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=eswincomputing.com;
-	spf=pass smtp.mailfrom=eswincomputing.com;
-	dkim=fail reason="signature verification failed" header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=WHse8gfk;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 65AB3606A320;
-	Wed, 18 Nov 2026 10:53:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65AB3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=eswincomputing.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=eswincomputing.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=WHse8gfk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=eswincomputing.com; s=dkim; h=Received:Date:From:To:Cc:Subject:
-	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Message-ID; bh=jyUdO8NArwox8upk55rTXcu8YDiH0SVJfXRR
-	WHshHVw=; b=WHse8gfkle6IdY/Ue+IlJrE4Wwkd96ifEaMm3Cq7kFcsLmKnOTrC
-	sa9NW2qjgWKQKpP2t4wFlykoveBu56AvzNwsFJjow/ss3t6Lh6XEVmbUtjpJdP/f
-	H20eBMFv5/5tcJC4KZ14X51HSGkpfIMiJ12Q5nZxF31QTCxpYlKeJlo=
-Received: from yuanxiaofeng$eswincomputing.com ( [10.12.96.78] ) by
- ajax-webmail-app2 (Coremail) ; Wed, 18 Nov 2026 18:52:56 +0800 (GMT+08:00)
-Date: Wed, 18 Nov 2026 18:52:56 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?6KKB5pmT5bOw?= <yuanxiaofeng@eswincomputing.com>
-To: "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>
-Cc: "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
-	"Albert Ou" <aou@eecs.berkeley.edu>,
-	"Alexandre Ghiti" <alex@ghiti.fr>,
-	"Masami Hiramatsu" <mhiramat@kernel.org>,
-	"Oleg Nesterov" <oleg@redhat.com>,
-	"Peter Zijlstra" <peterz@infradead.org>,
-	"Guo Ren" <guoren@kernel.org>, "Pekka Enberg" <penberg@kernel.org>,
-	=?UTF-8?Q?Patrick_St=C3=A4hlin?= <me@packi.ch>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	"Palmer Dabbelt" <palmerdabbelt@google.com>,
-	Sashiko <sashiko-bot@kernel.org>, "Nam Cao" <namcao@linutronix.de>
-Subject: Re: [PATCH v4 0/3] riscv: probes: reject probes inside an LR/SC
- sequence
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com>
-References: <20261115-probes-in-lrsc-v4-0-48b9b036bd1d@mobileye.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	dmarc=none header.from=hardeman.nu;
+	spf=pass smtp.mailfrom=hardeman.nu;
+	arc=none smtp.remote-ip=94.130.186.121
+Received: from thor.hardeman.nu (thor.hardeman.nu [94.130.186.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9D7F606A31C;
+	Wed, 18 Nov 2026 10:54:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9D7F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hardeman.nu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hardeman.nu
+Received: from thor.hardeman.nu (thor.hardeman.nu [IPv6:fd27:2a41:8fcb:2::a])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+	 client-signature ECDSA (secp384r1) client-digest SHA384)
+	(Client CN "thor.hardeman.nu", Issuer "Hardeman Internal Mail Relay CA" (verified OK))
+	(Authenticated sender: nullmailer@odin.hardeman.nu)
+	by thor.hardeman.nu (Postfix) with ESMTPSA id 4jTz4P1jRMzFpbP;
+	Wed, 18 Nov 2026 11:54:13 +0100 (CET)
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=hardeman.nu;
+	s=202608-ed25519; t=1794999253;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QiyXyxSrpIPdaIYUZ2ZqMEmklUEYSfa+mvgQR6lbI78=;
+	b=g4fOa7IjwZPVb/OPT3WSpvig/YvdLfosUd2E1JaMdWxJfGpKP1C70n3Mrhrp8JrL3VM5PJ
+	fPob5ULiUjFtShCg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hardeman.nu; s=202608-rsa;
+	t=1794999253;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QiyXyxSrpIPdaIYUZ2ZqMEmklUEYSfa+mvgQR6lbI78=;
+	b=UpU9e86m1FP1M1gSA+Sox/q6nelj5nTl3SiUCdk7d84RFjV+XWZgjJ6ipNG8oxMGdV4G6C
+	M1ck+Nd2a8jHNLOsLtedhybOHLFifLbIjbBQTm5/RuBf1JXYOicx2ivKf4b731Tz4CVZUr
+	9IQjde52QsDMbnqUouKxIz8MpF2QkyGuKS5W90QVAnX/AywEyfOX/xgLFUtrgJR/FcMcUn
+	rGL6WYidyyAGbxetPOuM/8oiomGYlDc1HMn8+UEne8wl6mvWvr8hZZqzzCGjAGNLC4tN9u
+	lSpo2hCKVTLMVlKyPzunfhL5tUcThz0OSItmnX8YNr3VRAPIYtEf/5oQ2B+24g==
+Received: from odin.hardeman.nu ([fd27:2a41:8fcb:2::a])
+	by thor.hardeman.nu with ESMTPSA
+	id yZi9AdWD/WrYOikAWTs42w
+	(envelope-from <david@odin.hardeman.nu>); Wed, 18 Nov 2026 11:54:13 +0100
+Received: (nullmailer pid 548010 invoked by uid 2002000001);
+	Wed, 18 Nov 2026 10:54:12 -0000
+Date: Wed, 18 Nov 2026 11:54:12 +0100
+From: David =?iso-8859-1?Q?H=E4rdeman?= <david@hardeman.nu>
+To: Luka Gejak <luka.gejak@linux.dev>
+Cc: Ping-Ke Shih <pkshih@realtek.com>, "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Leonard Lausen <leonard@lausen.nl>, Alastair D'Silva <alastair@d-silva.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, Bitterblue Smith <rtl8821cerfe2@gmail.com>
+Subject: Re: [PATCH rtw-next 0/5] wifi: rtw88: sdio: faster and fairer TX for
+ the 88xx chips
+Message-ID: <av2D1PomsLbjVaWo@hardeman.nu>
+Mail-Followup-To: Luka Gejak <luka.gejak@linux.dev>,
+	Ping-Ke Shih <pkshih@realtek.com>,
+	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Leonard Lausen <leonard@lausen.nl>,
+	Alastair D'Silva <alastair@d-silva.org>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Bitterblue Smith <rtl8821cerfe2@gmail.com>
+References: <20261116190145.2736364-1-david@hardeman.nu>
+ <4c0d81f7a207468d8bca3c3c1a5b8dc5@realtek.com>
+ <avxoWTaI2G8aklLk@hardeman.nu>
+ <03BBDDF6-2ACB-4B06-827D-69811DF5664A@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,137 +95,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <178ccbf1.a40.1a1ee49cebb.Coremail.yuanxiaofeng@eswincomputing.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:TQJkCgA38xyIg_1qkSAAAA--.107W
-X-CM-SenderInfo: h1xd05xldrwv1qj6v25zlqu0xpsx3x1qjou0bp/1tbiAgEPE2r8gi
-	4dYAAAsY
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWDJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <03BBDDF6-2ACB-4B06-827D-69811DF5664A@linux.dev>
 
-4oCLSGkgVmxhZGltaXIsIE5hbSwgTWFzYW1pLAoKCgoKVGhhbmtzIGZvciBkcml2aW5nIHRoaXMu
-IE5hbe+8jE1hc2FtaSBhbmQgSSB3b3JrZWQgb24gdGhlIHNhbWUgcHJvYmxlbSBpbsKgCmFuIGVh
-cmxpZXIgc2VyaWVzIFsxXSwgd2hpY2ggTmFtIHJldmlld2VkIG92ZXIgc2V2ZXJhbCByZXZpc2lv
-bnMgYW5kIE1hc2FtacKgCmFja2VkIG9uIHRoZSBkZXRlY3Rpb24gc2lkZS4gVmxhZGltaXIsIHlv
-dXIgZm9yd2FyZCBzY2FuIGFsc28gY292ZXJzIHVwcm9iZXPCoAphbmQgZG9lcyBub3Qgc3VmZmVy
-IGZyb20gdGhlIGxvbmUtbHIgZmFsc2UgcmVqZWN0aW9uIHRoYXQgb3VyIHdpbmRvdy1iYXNlZCBj
-aGVjayBoYWQswqAKc28geW91ciBhcHByb2FjaCBpcyB0aGUgYmV0dGVyIGJhc2U7IEkgd291bGQg
-cmF0aGVyIGNvbnRpbnVlIHRoZSBmaXggb24gdG9wIG9mCnlvdXIgc2VyaWVzIHRoYW4gcHVzaCBv
-dXJzLgoKCgoKRm9yIHdoYXQgaXQgaXMgd29ydGgsIEkgYXBwbGllZCB0aGUgdjQgcHJvYmUgbG9n
-aWMgYW5kIHRoZSAzLzMgdGVzdCB0byBhCmNsZWFuIHRyZWUgYW5kIHRoZSBrcHJvYmVzIEtVbml0
-IHBhc3NlcyAocGFzczoyIGZhaWw6MCksIHNvIHRoaXMgaXMgbm90CmFib3V0IGJyZWFrYWdlIC0t
-IGp1c3QgYSBmZXcgdGhpbmdzIGZyb20gb3VyIGV4cGVyaWVuY2UgdGhhdCBtYXkgYmUgd29ydGgK
-YWxpZ25pbmcuCgoKCgoxKSBXaW5kb3cgc2l6ZQoKCgoKwqAgwqBTcGVjIDEzLjMgZGVmaW5lcyB0
-aGUgY29uc3RyYWluZWQgTFIvU0MgbG9vcCBhcyB0aGUgTFIvU0Mgc2VxdWVuY2UgcGx1cwrCoCDC
-oHRoZSBjb2RlIHRvIHJldHJ5IGl0LCBhdCBtb3N0IDE2IGluc3RydWN0aW9ucyBpbiB0b3RhbC4g
-VGhhdCBsZWF2ZXMgYXQKwqAgwqBtb3N0IDE0IGluc3RydWN0aW9ucyBiZXR3ZWVuIHRoZSBsciBh
-bmQgdGhlIHNjIChmZXdlciBvbmNlIHRoZSByZXRyeQrCoCDCoGJyYW5jaCBpcyBjb3VudGVkKS4g
-UklTQ1ZfTFJTQ19NQVhfQk9EWT0xNiBpcyBsYXJnZXIgdGhhbiB0aGF0OyBjb3VsZCB3ZQrCoCDC
-oGFsaWduIHRoZSBib3VuZCB3aXRoIHRoZSBzcGVjPyBXZSBoYWQgYW4gb2ZmLWJ5LW9uZSByb3Vu
-ZCBvbiB0aGlzIHdpdGggTmFtCsKgIMKgaW4gb3VyIHNlcmllcy4KCgoKCjIpIFRlc3Qgc3RydWN0
-dXJlCgoKCgrCoCDCoEFtb25nIE5hbSdzIGNvbW1lbnRzIG9uIG91cnMgd2FzIHRoZSAiY291cGxl
-ZCIgb2Zmc2V0c1tdICsgcmVqZWN0W10gdGFibGU7CsKgIMKgdGhlIHNlcGFyYXRlIGFsbG93ZWRb
-XS9yZWplY3RlZFtdIGFycmF5cyB5b3UgYWRvcHRlZCBjYW1lIG91dCBvZiB0aGF0CsKgIMKgZGlz
-Y3Vzc2lvbi4KCgoKCsKgIMKgVGhyZWUgc21hbGxlciB0aGluZ3M6CgoKCgrCoCDCoC0gS1VOSVRf
-RVhQRUNUX0xUKHJldCwgMCkgYWxzbyBhY2NlcHRzIC1FSUxTRVEgKG9yIGFueSBvdGhlciBuZWdh
-dGl2ZQrCoCDCoCDCoGVycm9yKSwgc28gaXQgY2FuIHBhc3MgZXZlbiB3aGVuIHRoZSBMUi9TQyBy
-ZWplY3Rpb24gZGlkIG5vdCBoYXBwZW4uCsKgIMKgIMKgLUVJTlZBTCB3b3VsZCBwaW4gdGhlIHNw
-ZWNpZmljIHJlYXNvbi4KwqAgwqAtIFRoZXJlIGlzIG5vIGFsbG93LWRpcmVjdGlvbiBib3VuZGFy
-eSwgc28gYSB3aW5kb3cgdGhhdCBpcyB0b28gd2lkZQrCoCDCoCDCoHdvdWxkIHN0aWxsIHBhc3Mu
-IEEgY2FzZSBqdXN0IG91dHNpZGUgdGhlIChzcGVjLWNvcnJlY3QpIHdpbmRvdywKwqAgwqAgwqBl
-eHBlY3RlZCB0byBiZSBhY2NlcHRlZCwgd291bGQgcGluIHRoZSBib3VuZCBmcm9tIGJvdGggc2lk
-ZXMuCsKgIMKgLSBUaGUgbWF4LWxlbmd0aCBjYXNlIGlzIGxyICsgMTYgbm9wcyArIHNjLCB3aGlj
-aCBpcyBuZWl0aGVyIGEgbG9vcCBub3IKwqAgwqAgwqB3aXRoaW4gdGhlIDE2LWluc3RydWN0aW9u
-IHNwZWMgYm91bmQuIEEgcmVhbCBsb29wIChsciArIDEzIGluc3RydWN0aW9ucwrCoCDCoCDCoCsg
-c2MgKyByZXRyeSBicmFuY2gpIHdvdWxkIHRlc3Qgd2hhdCB0aGUgc3BlYyBhY3R1YWxseSBjb25z
-dHJhaW5zLgoKCgoKMykgRGVjb2RlIE9PQiByZWFkIChwYXRjaCAxLzMpCgoKCgrCoCDCoFdlIGFs
-c28gc2VudCBhIHN0YW5kYWxvbmUgZml4IGZvciB0aGlzIGVhcmxpZXIgWzJdLiBZb3VyIG9uZS1s
-aW5lCsKgIMKgJnAtPm9wY29kZSBjaGFuZ2UgaXMgZXF1aXZhbGVudCBhbmQgc21hbGxlciwgc28g
-cGxlYXNlIGdvIHdpdGggeW91cnMuCgoKCgpXZSBhcmUgc3RpbGwgbGVhcm5pbmcgYW5kIGhhdmUg
-Y2VydGFpbmx5IG1pc3NlZCB0aGluZ3MgaGVyZS4gTmFtLCBNYXNhbWkgLQpzaW5jZSB5b3UgYm90
-aCByZXZpZXdlZCBvdXIgZWFybGllciBzZXJpZXMsIHdvdWxkIHlvdSBtaW5kIHRha2luZyBhIGxv
-b2sgYXQKdGhpcyBvbmUgdG9vPwoKCgoKWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4
-LXJpc2N2LzIwMjYxMDE5MTM0MTIxLjE3NjMtMS15dWFueGlhb2ZlbmdAZXN3aW5jb21wdXRpbmcu
-Y29tLwpbMl0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyNjEwMjExMDAw
-NTguMzIyLTEteXVhbnhpYW9mZW5nQGVzd2luY29tcHV0aW5nLmNvbS8KCgoKClRoYW5rcywKWGlh
-b2ZlbmcKCgoKCj4gLS0tLS3ljp/lp4vpgq7ku7YtLS0tLQo+IOWPkeS7tuS6ujogIlZsYWRpbWly
-IEtvbmRyYXRpZXYiIDx2bGFkaW1pci5rb25kcmF0aWV2QG1vYmlsZXllLmNvbT4KPiDlj5HpgIHm
-l7bpl7Q6MjAyNi0xMS0xNSAyMDozNzozMiAo5pif5pyf5pelKQo+IOaUtuS7tuS6ujogIlBhdWwg
-V2FsbXNsZXkiIDxwandAa2VybmVsLm9yZz4sICJQYWxtZXIgRGFiYmVsdCIgPHBhbG1lckBkYWJi
-ZWx0LmNvbT4sICJBbGJlcnQgT3UiIDxhb3VAZWVjcy5iZXJrZWxleS5lZHU+LCAiQWxleGFuZHJl
-IEdoaXRpIiA8YWxleEBnaGl0aS5mcj4sICJNYXNhbWkgSGlyYW1hdHN1IiA8bWhpcmFtYXRAa2Vy
-bmVsLm9yZz4sICJPbGVnIE5lc3Rlcm92IiA8b2xlZ0ByZWRoYXQuY29tPiwgIlBldGVyIFppamxz
-dHJhIiA8cGV0ZXJ6QGluZnJhZGVhZC5vcmc+LCAiR3VvIFJlbiIgPGd1b3JlbkBrZXJuZWwub3Jn
-PiwgIlBla2thIEVuYmVyZyIgPHBlbmJlcmdAa2VybmVsLm9yZz4sICJQYXRyaWNrIFN0w6RobGlu
-IiA8bWVAcGFja2kuY2g+Cj4g5oqE6YCBOiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-LCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBsaW51eC10cmFjZS1rZXJuZWxAdmdlci5r
-ZXJuZWwub3JnLCAiUGFsbWVyIERhYmJlbHQiIDxwYWxtZXJkYWJiZWx0QGdvb2dsZS5jb20+LCAi
-VmxhZGltaXIgS29uZHJhdGlldiIgPHZsYWRpbWlyLmtvbmRyYXRpZXZAbW9iaWxleWUuY29tPiwg
-U2FzaGlrbyA8c2FzaGlrby1ib3RAa2VybmVsLm9yZz4sICJYaWFvZmVuZyBZdWFuIiA8eXVhbnhp
-YW9mZW5nQGVzd2luY29tcHV0aW5nLmNvbT4KPiDkuLvpopg6IFtQQVRDSCB2NCAwLzNdIHJpc2N2
-OiBwcm9iZXM6IHJlamVjdCBwcm9iZXMgaW5zaWRlIGFuIExSL1NDIHNlcXVlbmNlCj4gCj4gUGF0
-Y2ggMSBmaXhlcyBwYWdlIGZhdWx0IHJlcG9ydGVkIGJ5IHNhc2hpa28tYm90QGtlcm5lbC5vcmcg
-dGhhdAo+IGV4aXN0ZWQgYmVmb3JlIHRoaXMgcGF0Y2ggc2VyaWVzCj4gCj4gUGF0Y2ggMiByZWpl
-Y3RzIHByb2JlcyBpbnNpZGUgdGhlIExSL1NDIHNlcXVlbmNlLiBUaGlzIGNvbW1pdCB3YXMKPiBp
-bml0aWFsbHkgc3VibWl0dGVkIGFzIHBhdGNoIDEgb2YgdGhlIHNlcmllcyBbMV0uCj4gRGV0YWNo
-aW5nIGl0IGZyb20gdGhhdCBzZXJpZXMgYmVjYXVzZSBpdCBpcyBub3QgZGVwZW5kaW5nIG9uIG90
-aGVyIHN0dWZmLgo+IAo+IFBhdGNoIDMgYWRkcyBLVW5pdCB0ZXN0LCBzdWdnZXN0ZWQgYnkKPiBY
-aWFvZmVuZyBZdWFuIDx5dWFueGlhb2ZlbmdAZXN3aW5jb21wdXRpbmcuY29tPiBpbiBbMl0KPiAK
-PiBbMV0gaHR0cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYxMTEwLWxyc2Mtb25seS12Ni0wLWJh
-ZmMzY2MwZmNhZUBtb2JpbGV5ZS5jb20KPiBbMl0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGlu
-dXgtcmlzY3YvMjAyNjEwMTkxMzQxMjEuMTc2My0zLXl1YW54aWFvZmVuZ0Blc3dpbmNvbXB1dGlu
-Zy5jb20vCj4gCj4gLS0tCj4gQ2hhbmdlcyBpbiB2NDoKPiAtIEFkZCBLVW5pdCB0ZXN0IGFzIHN1
-Z2dlc3RlZCBieSBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4sIGJhc2VkIG9uCj4gICB3b3Jr
-IGJ5IFhpYW9mZW5nIFl1YW4gPHl1YW54aWFvZmVuZ0Blc3dpbmNvbXB1dGluZy5jb20+Cj4gLSBT
-Y2FuIGZvciBTQyB1cCB0byBtYXhpbXVtIHBvc3NpYmxlIHNlcXVlbmNlIGxlbmd0aC4gU1BVIGRv
-ZXMgbm90IGtub3cKPiAgIGFib3V0IHN5bWJvbHMsIGl0IGlzIG5vdCBjb3JyZWN0IHRvIHN0b3Ag
-c2Nhbm5pbmcgYXQgdGhlIGVuZCBvZgo+ICAgc3ltYm9sLiBHbG9iYWxseSB2aXNpYmxlIHN5bWJv
-bCBwbGFjZWQgd2l0aGluIExSL1NDIHNlcXVlbmNlIHNob3VsZAo+ICAgbm90IHR1cm4gcHJvYmUg
-d2l0aGluIHRoZSBzZXF1ZW5jZSBpbnRvIGFjY2VwdGFibGUuCj4gLSBMaW5rIHRvIHYzOiBodHRw
-czovL3BhdGNoLm1zZ2lkLmxpbmsvMjAyNjExMTItcHJvYmVzLWluLWxyc2MtdjMtMC1hOTUwODk4
-NTJhMTdAbW9iaWxleWUuY29tCj4gCj4gQ2hhbmdlcyBpbiB2MzoKPiAtIEZpeCBsci9zYyBsb29w
-IGRldGVjdGlvbiBsb2dpYyBmb3IgbHIgYXQgcHJvYmUgcG9zaXRpb24KPiAtIEFkZCAiRml4ZXMi
-IHRyYWlsZXJzIGFzIHN1Z2dlc3RlZCBieSBzYXNoaWtvLWJvdEBrZXJuZWwub3JnCj4gLSBMaW5r
-IHRvIHYyOiBodHRwczovL3BhdGNoLm1zZ2lkLmxpbmsvMjAyNjExMTEtcHJvYmVzLWluLWxyc2Mt
-djItMC1iMjUyNWI3ZTFlOGVAbW9iaWxleWUuY29tCj4gCj4gQ2hhbmdlcyBpbiB2MjoKPiAtIEFs
-bG93IGtwcm9iZSBvbiB0aGUgTFIgaXRzZWxmIHVubGVzcyBpdCBpcyBwYXJ0IG9mIHRoZSBMUi9T
-QyBsb29wLgo+IC0gRml4IGVycm9yIChyZXBvcnRlZCBieSBzYXNoaWtvLWJvdEBrZXJuZWwub3Jn
-KSB3aGVyZQo+ICAgYXJjaF9wcmVwYXJlX2twcm9iZSgpIHJldHVybnMgLUVJTFNFUSBmb3IgTFIv
-U0MgcHJvYmVzLgo+ICAgTWFrZSBjb2RlcyByZXR1cm5lZCBieSBhcmNoX2NoZWNrX2twcm9iZSB0
-byBpbmRpY2F0ZSAtRUlOVkFMCj4gICBpZiBwcm9iZSBmYWxscyB3aXRoaW4gdGhlIExSL1NDIGxv
-b3AsIGNvbnNpc3RlbnQgd2l0aCB0aGUgY2FzZSB3aGVuCj4gICBJTlNOX1JFSkVDVEVEIHJldHVy
-bmVkIGJ5IHJpc2N2X3Byb2JlX2RlY29kZV9pbnNuCj4gLSBhZGQgcGF0Y2ggZml4aW5nIG91dC1v
-Zi1ib3VuZHMgcmVhZCBpbiByaXNjdl9wcm9iZV9kZWNvZGVfaW5zbigpCj4gICByZXBvcnRlZCBi
-eSBzYXNoaWtvLWJvdEBrZXJuZWwub3JnIChhcyBwYXRjaCAxKQo+IC0gTGluayB0byB2MTogaHR0
-cHM6Ly9wYXRjaC5tc2dpZC5saW5rLzIwMjYxMTExLXByb2Jlcy1pbi1scnNjLXYxLTEtNGY5OWRk
-ZWE1ZjY4QG1vYmlsZXllLmNvbQo+IAo+IFRvOiBQYXVsIFdhbG1zbGV5IDxwandAa2VybmVsLm9y
-Zz4KPiBUbzogUGFsbWVyIERhYmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KPiBUbzogQWxiZXJ0
-IE91IDxhb3VAZWVjcy5iZXJrZWxleS5lZHU+Cj4gVG86IEFsZXhhbmRyZSBHaGl0aSA8YWxleEBn
-aGl0aS5mcj4KPiBUbzogTWFzYW1pIEhpcmFtYXRzdSA8bWhpcmFtYXRAa2VybmVsLm9yZz4KPiBU
-bzogT2xlZyBOZXN0ZXJvdiA8b2xlZ0ByZWRoYXQuY29tPgo+IFRvOiBQZXRlciBaaWpsc3RyYSA8
-cGV0ZXJ6QGluZnJhZGVhZC5vcmc+Cj4gVG86IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+
-IFRvOiBQZWtrYSBFbmJlcmcgPHBlbmJlcmdAa2VybmVsLm9yZz4KPiBUbzogUGF0cmljayBTdMOk
-aGxpbiA8bWVAcGFja2kuY2g+Cj4gQ2M6IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-PiBDYzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+IENjOiBsaW51eC10cmFjZS1rZXJu
-ZWxAdmdlci5rZXJuZWwub3JnCj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJkYWJiZWx0QGdv
-b2dsZS5jb20+Cj4gU2lnbmVkLW9mZi1ieTogVmxhZGltaXIgS29uZHJhdGlldiA8dmxhZGltaXIu
-a29uZHJhdGlldkBtb2JpbGV5ZS5jb20+Cj4gCj4gLS0tCj4gVmxhZGltaXIgS29uZHJhdGlldiAo
-Myk6Cj4gICAgICAgcmlzY3Y6IGtwcm9iZXM6IGZpeCBvdXQtb2YtYm91bmRzIHJlYWQgaW4gcmlz
-Y3ZfcHJvYmVfZGVjb2RlX2luc24KPiAgICAgICByaXNjdjogcHJvYmVzOiByZWplY3QgcHJvYmVz
-IGluc2lkZSBhbiBMUi9TQyBzZXF1ZW5jZQo+ICAgICAgIHJpc2N2OiBrcHJvYmVzOiBhZGQgS1Vu
-aXQgdGVzdCBmb3IgTFIvU0Mgc2VxdWVuY2UgcmVqZWN0aW9uCj4gCj4gIGFyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vaW5zbi5oICAgICAgICAgICAgICAgICAgICAgIHwgMjggKysrKysrKwo+ICBhcmNo
-L3Jpc2N2L2tlcm5lbC9wcm9iZXMvZGVjb2RlLWluc24uYyAgICAgICAgICAgICB8IDkxICsrKysr
-KysrKysrKysrKysrKysrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2RlY29kZS1pbnNu
-LmggICAgICAgICAgICAgfCAgNyArKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jl
-cy5jICAgICAgICAgICAgICAgICB8IDI4ICsrKysrLS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvcHJv
-YmVzL3Vwcm9iZXMuYyAgICAgICAgICAgICAgICAgfCAzMSArKysrKysrKwo+ICBhcmNoL3Jpc2N2
-L2tlcm5lbC90ZXN0cy9rcHJvYmVzL3Rlc3Qta3Byb2Jlcy1hc20uUyB8IDU4ICsrKysrKysrKysr
-KysrCj4gIGFyY2gvcmlzY3Yva2VybmVsL3Rlc3RzL2twcm9iZXMvdGVzdC1rcHJvYmVzLmMgICAg
-IHwgMzIgKysrKysrKysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvdGVzdHMva3Byb2Jlcy90ZXN0LWtw
-cm9iZXMuaCAgICAgfCAgNiArKwo+ICA4IGZpbGVzIGNoYW5nZWQsIDI3NCBpbnNlcnRpb25zKCsp
-LCA3IGRlbGV0aW9ucygtKQo+IC0tLQo+IGJhc2UtY29tbWl0OiBjMDNjMWExNDUwN2RmYWY4Yjg1
-NmMyNjA4ZjlhYzIxNjAyMWZjMjIyCj4gY2hhbmdlLWlkOiAyMDI2MTExMS1wcm9iZXMtaW4tbHJz
-Yy00Y2NkZTZjYmY0MzYKPiAKPiBCZXN0IHJlZ2FyZHMsCj4gLS0gIAo+IFZsYWRpbWlyIEtvbmRy
-YXRpZXYgPHZsYWRpbWlyLmtvbmRyYXRpZXZAbW9iaWxleWUuY29tPgo=
+On Tue, Nov 17, 2026 at 04:27:28PM +0100, Luka Gejak wrote:
+>I think the closer capture would still help, with the data frames and BA
+>bitmap for the same TID around a scan. The client trace shows what its
+>firmware passed up, and the per MACID failure count does not identify
+>which MPDU failed. Matching those to the air capture would help check
+>what happened to the particular hole.
+
+(Full disclosure: mostly LLM-generated content here, I tried to edit it
+down to a reasonable length, but I'm not 100% sure which parts to keep
+and not, sorry about the wall of text).
+
+Thanks, the capture helped a lot. Short version: when a client is
+off-channel for longer than the chip's retry chain lasts, the chip
+discards the MPDU, nobody learns about it (rtw88 reports SDIO frames
+as acked), no BAR is sent, and the client's BA window stays at the
+hole. How long the chain lasts depends on the BE contention window:
+with hostapd's default for the AP's own BE queue (CWmax 63), the 32
+retries are over after about 85 ms, shorter than a scan dwell here
+(110-150 ms). With CWmax 1023, which is what rtw8822c.c initialises
+before mac80211 configures the queues and what Realtek's vendor
+driver keeps using, the retries outlast the dwell and the holes
+mostly go away. Details below.
+
+Setup: an MT7915 (mt76) sniffer 1 m from the AP, an iwlwifi client 2 m
+away, a TCP download through the AP, a client scan forced every 20 s,
+60 s per run. The sniffer passes up only part of the A-MPDU subframes,
+but practically all BlockAcks. On the client I logged the frames
+iwlwifi drops at its PN check (a kprobe), which gives the hole's SN
+for each loss burst; clocks were synced to within a few ms.
+
+1. What happens to a hole. Example, SN 2971 (TID 0, seconds into the
+   run):
+
+     22.0063  last BA before the scan: everything up to 2970 acked
+     22.0065  client sends a QoS Null with PM=1 and leaves the channel
+     22.0092  A-MPDU starting with SN 2971, no BA
+              ... 2971 at the head of the A-MPDU 31 more times, about
+              2.5 ms apart (rate falling to 6 Mbit/s), never a BA
+     22.0926  last transmission of 2971; it is never sent again
+     22.1205  client back (PM=0), 28 ms too late
+     22.1607  first BA: SSN 2939, 2971 missing, 2972..3002 received
+     22.1652  the AP sends SN 3035 (= 2971 + 64)
+     22.1853  BA SSN 2990: the client's window has moved past 2971
+     22.196   iwlwifi drops 63 frames (the bug I sent fixes for)
+
+   This is the common case: in two runs where I matched every loss
+   burst to the capture (18 holes, stock driver), 14 looked like this
+   (1 + 32 transmissions during the dwell), 2 weren't in the capture,
+   and no run had a single BAR.
+
+2. It isn't the series and it isn't the client. The stock rtw-next
+   driver shows the same pattern (the series has about half as many
+   holes: 3.5 vs. 6.7 per run over 11 runs each). With an mt7915 client
+   instead of iwlwifi, the AP's firmware TX statistics count failed
+   MPDUs only during forced scans (9 in 9 scans, 0 without).
+
+3. The retry chain is too short for the dwell. With REG_RETRY_LIMIT at
+   48/48 the hole's retries last about 112 ms and end a few ms before
+   the client returns; at 60/60, chains of 36-48 transmissions (up to
+   about 125 ms) were acked after the client came back and the holes
+   went from 4.3 to 2.6 per run. (63/63 stalls the chip's TX, so
+   that's not a fix.) Putting the MACID to sleep from sta_notify
+   doesn't help either: the register write is done within about 1 ms,
+   but the chip keeps retrying the A-MPDU it has started.
+
+4. What the vendor driver does differently. Realtek's vendor driver
+   (rtl88x2cs v5.14.0.2-0-g4c549b2.20210914, built from
+   https://github.com/friendlyarm/rtl8822cs, branch nanopi-r2, which
+   FriendlyElec ships for this board) on a second board of the same
+   kind has about one hole per run. Neither its firmware (9.13.0; with
+   rtw88's 9.9.15 patched into its module it behaves the same) nor its
+   power save handling (it only moves queued frames to a sleep queue)
+   explains that. What does is its turbo EDCA (rtw_hal_turbo_edca()
+   in hal/hal_dm.c, run from the driver's 2 s watchdog): it overrides
+   REG_EDCA_BE_PARAM with CWmax 1023 (0x005ea42b with mostly TX,
+   0x0000a42b with mostly RX), while rtw88's __rtw_conf_tx() writes
+   mac80211's value, 0x005e642b (CWmax 63) with hostapd's defaults.
+   Swapping the value on both drivers, alternating runs:
+
+     rtw88 + series, CWmax 1023 (hostapd
+       tx_queue_data2_cwmax=1023)          4 holes in 32 scans
+     rtw88 + series, CWmax 63 (default)   25 holes in 26 scans
+     vendor driver, CWmax 1023 (default)   3 holes in 16 scans
+     vendor driver, CWmax 63              83 holes in 17 scans
+
+   Throughput was the same with both values on both drivers.
+
+A smaller second pattern remains with either value: when several MPDUs
+of an A-MPDU are outstanding, the chip retries them together about 7
+times and then drops the older ones after about 8 transmissions,
+independent of REG_RETRY_LIMIT (WLAN_RA_TRY_RATE_AGG_LIMIT?).
+
+I don't think rtw88 is wrong to apply CWmax 63: it's the value
+hostapd documents as the AP's own default for BE, and mac80211 passes
+it on as it should. CWmax 1023 only makes the retry chain long enough
+for typical scan dwells; a client that stays away longer would still
+lose the MPDU. The real gap is that the discard isn't reported: if
+mac80211 learned that the MPDU failed, it would send a BAR itself and
+the client's window would move on right away.
+
+Ping-Ke, can the chip or the firmware report MPDUs it discards after
+the retry limit (or send a BAR itself), in a way rtw88 could use
+without requesting a TX report for every frame? Until there is a
+fix, tx_queue_data2_cwmax=1023 in hostapd is a workaround for users.
+
+>I checked the mac80211 status path, and it does send a BAR with the next
+>sequence number for that QoS status. The current rtw88 report helper does
+>not set AMPDU_NO_BACK, so requesting the reports alone would not exercise
+>that recovery path.
+
+Right. My experiment had an option for the driver to call
+ieee80211_send_bar() itself when a report said the frame had failed,
+but with so few reports coming back, that wasn't a usable path.
+
+>One detail that might affect this experiment is that the sn passed to
+>rtw_tx_report_enqueue() is a report cookie, rather than the frame's
+>802.11 sequence number. It has six usable bits:
+>
+>        pkt_info->sn = (atomic_inc_return(&tx_report->sn) << 2) & 0xfc;
+>
+>As far as I can see, it repeats after 64 requests, and
+>rtw_tx_report_handle() takes the first skb with a matching cookie. If an
+>older request is still pending when its cookie is reused, a report for
+>the newer frame can complete the older skb.
+>
+>Was the 7% figure from raw C2H events or from completed skbs?
+
+From raw C2H events. That experiment didn't use rtw_tx_report_enqueue():
+it put the low six bits of the frame's 802.11 sequence number into the
+report field instead of a cookie, and counted every TX report the
+firmware sent, before any matching.
+
+An earlier test, which requested a report for one in 16 QoS data frames,
+did use the normal cookie path, and there you're right: at that rate
+the cookies wrap after about 50 ms, so its numbers (3-9 % answered) may
+well be off. They agree with the raw count, though.
+
+>This would
+>affect frame attribution, but would not explain a shortage of raw C2H
+>events. Maybe a short run with one request outstanding at a time,
+>logging the cookie, QoS TID and seq_ctrl, would help check that part.
+
+I tried that: a debug build that requests a report through the normal
+path for one unicast QoS data frame at a time, and only sends the next
+request once the report has arrived, or after 500 ms without one. The
+client was a phone streaming video, for three minutes per run:
+
+                                  run 1   run 2
+  requests                          337     808
+  answered                          258     750
+  given up (no answer >= 500 ms)     79      58
+    of these, answered later          0       6
+  reports with another cookie         3       8
+
+All answers reported success; in the second run the median time to the
+report was about 4 ms. So even with only one request outstanding, 7 to
+23 % of the reports didn't arrive within 500 ms, and nearly all of those
+never arrived. I couldn't tie the missing ones to periods of heavier
+traffic.
+
+-- 
+David Härdeman
