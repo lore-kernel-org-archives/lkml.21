@@ -1,103 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795037833;
-	b=QHdNuEoXRq+bxZzlvhre59fULdHSergcAYCQTYogoNTWEiGXYqryhHCVSHQl6wPTN1pc
-	 2fx4F/iMn1KPbY/EIvxOZKhY73mMSL2ILR2OeOsbYREOyuxA/CFsD3YXYFsxNEE7JI+ws
-	 p7U8AxWmyd1BJGNu8Tifm4riehM8EQ+yMqYwU/F7Y0rm3dA/xcX7d2zIfpuGM7wQkKKgD
-	 aix1uLgXrO3aWYhidUx5bsNwb7hr4noE8P5v30X1p2dn23vgu3UeBk/O3gqc7cwxCD+wf
-	 1VRB/pQUDOGJbv495CTzubaft8PjNuvDZRl/xNHUCrwRk9QFOSeb1+OiGF0lo7d7MbQ==
+	t=1795037846;
+	b=lX75spA6seHLWxDgj30e79JU4b2TqARCPZiji0cz+niWYJcx6LP+W/P6Qtn7L0CyQyYo
+	 Uwt//r1PWewY/gayJtXmQZZis58Reb3e4577jr/w0c1bIhDJXNrSfcXDMo89gNepa5UdN
+	 /CG0KmwqNPS4XJWMBmekL+KVyBnFJKesdlYH9XqJkTVWBp48IV9fYCC2syn4eZwJHFK5E
+	 OX8Z65ivJ/Qou+yw/Hrt/LtaLduxDnG9Ef4OWLc+CIydj4ha8dzOpY9m31Hoxbcn1eQmK
+	 8Zm3iZX/ettFTde26inUt6n/PeRyMfVcu//11U601Xu0CT4OFMoCdzjawUE6w2NiOlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795037833;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=vnbJtG27pIY995fyqbhJH3BDZH2+CKUmjSvhuUbO5lA=;
-	b=GnSRmL5B9FLsPUAi9/nnlr3GXiLMNgArByKvcpqKYD3BYN8LmFvWqlvEpdY4E9wYduWt
-	 1/kIB1RLNSTs17Gl7bvsXOAp4k5qZtShYTmnrpBlulwzF5ruZMiwe0EnfoSOHaUxh3x5L
-	 mttxo30qaGoExvJpxv9K3CI0/jdqJsjpDSkHbQpq7aVtuTDkld/2ja+SFNOwmhkM5TPmR
-	 1Y6AdjvnHanTU3Vfvil3mYZOZmfMqHPWoL1995m9ezdF4pfk2VJfAqce0OmiN60/Ejd3R
-	 UHr1eYsnFfOZ43eXqOup55lIEXWmYj2M+OOJifK9LHZUkoYdmGSrNGsCjdgNYjYhkcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795037846;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=sjUB08oz3FeVpN/HDPa4HHY9IfRB4b/+glhwpbFwjMg=;
+	b=krFufyTgyt4TdeWzDzkEOWRpESR+oBFNI+Uh5+KYOBx2Lx2JHhOtJs0uzvNu/lOXBMkJ
+	 1tM52M/7bGmR0g8tmYxMHP/ysdi3+G7L8j1jcnwu3kcNRH3gBI4b1jKv8PG91qZ7MpuGl
+	 xl+y0DkUl8f/nUoTVhoj/JOldf7bG1J9DK6La9EJnAtkYTd0ikbpbrYsfZfUcmZ0R8qQ/
+	 XU1pYY7uLCYhT56vfBM42gl2186yWRNxca6yCDBsJcnKWxxJqmXTzxVt82fSbvxkfs9ca
+	 2SpSwmGa2GchDE/7QoQYJ8UF2TsyqwMbCSCOXmldiNjjt4U45iXKvxh6Fw7gaEvdymw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rCEIiHK1;
-	arc=none smtp.remote-ip=209.85.128.174
-Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F19YdPyI;
+	arc=none smtp.remote-ip=91.218.175.135
+Received: from mta0.migadu.com (out-135.mta0.migadu.com [91.218.175.135])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20CF3606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:37:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20CF3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0379E606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:37:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0379E606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rCEIiHK1
-Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b4e04eda5aso13528817b3.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:37:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795037832; x=1795642632; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vnbJtG27pIY995fyqbhJH3BDZH2+CKUmjSvhuUbO5lA=;
-        b=rCEIiHK1j+9F+/7njnTEtrXp0zGyIP9MO667HkATGBYY//stBY4Nddtg87xJ/errRL
-         LmNSNNg9qUTodUPHGJlbcwYe8UR3qL9JA8CEAj7EsNZbdjH2TVoz3OH2F1XPRJDFUbtc
-         NOAZBXfIcWrklLeewObr/5D/UKth1lJnAeiaLuF1bmVaw5ZI8ByrOTf7ZjJEUe7LgEv0
-         3k0CfKahU8pl5sUvVyVZXDH1uLJoI4EDl1mnLNuO7zSUDfTOFnyL6t4aSe+A4qmKR9Cu
-         IzpL5cndaVmWZkYSvYsn+FqZ5buL2D5QWGv6W7SFXy4CVKPmCXwLcKXkPKNZ/+g5KTLC
-         08kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795037832; x=1795642632;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vnbJtG27pIY995fyqbhJH3BDZH2+CKUmjSvhuUbO5lA=;
-        b=RMLJvoGllST4Z5p+TMpk+vexTBgWLeTh0lMHXC02CDFNaFbVLsJ5FvuFZWONuXx4ij
-         1lf3rvLmwCfFlcsq7aOHHgD4wjKcEqEQYP1MtPKPj7tw13sBngsCD5OK6CRDfLyVyWjN
-         VC/JXVLKNjNS/CTIyX6ciEtIZ4B/CswNu3meQYUUrQ7CRqMerALvtjhTF+eqHyvfusLh
-         C0L4DFUjhfmP3f7Ne8zKzR6NPhS+bvEwupuZ4MdrCqYmUgskjN8h0YblCoiTKFL+307M
-         +DMuaH5Y7SRj5PhCf+6DqRN+2R3b0mWOezjVSIByGo3iqb2l/Xo12P+nytwfAuhkRZhS
-         EcVQ==
-X-Forwarded-Encrypted: i=1; AL+hErEMVxwkURt80/hmDCowtSf6UJC0gL439O7o2Bnx1Y7KlLj0QW4wBcO/g6rlUkIi5I29ANR6RMVDvNJopk8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/PHhBJNPzXpuuLEoNSPWD4NJAkmCwLFA4Sg8edJRQ5oxarlBib
-	PeRKofj7C0mSjHZq3xfWnJ2qVOLwf21sTZH+cSVgZiTVw95nOEfGOwu+
-X-Gm-Gg: AZFdTZeNO1rtXskmvYc2hmq03x51BVXJLRvQIZiA10NCs6eLtbnEqqYGDV6U2LZEyUE
-	T9ccVXdl6Ut5yETVqPstYbq3FxssFoem+xBF4FeBNoZL2f4IKQSFdaJW7HYpntZIt2r2iCxj6tt
-	QsVMjK3qecFzv7NivwM0YhIyrykwEYu6Tptga+/AmwrFW8zr3Wuc8G8Q4Nfpk0G81gTgmpMzCXH
-	3Ax4Tv1LgC5tsC2lY5Q1f9WYcoH2lh6RW28WkXMtiZQj7CvX52qPKmdoK02whdydi7oz+IYJEmI
-	/maIIuJ1DUcq8FK33Z8Yl/CZfBJjrPBV59+iB5P80BsshAxLKJfSLhlzyR55Q1bLuUlM8dobaf7
-	FTG1c/rO6HGuSejh+J3e6glsNMVLiTIQfIabpk2Z3cwT9MHIxxUu/3mQOhdlknxNH8EDcPIMuJb
-	eMCWVQ7IbtU1/EhdEgrqGGsZCgmu3LrPnbgp1VZ210GJaY5QO0pnbIC4mQwD0FTceJEng3GIls1
-	TeTJ5jMqNAR2hVzCYGawmLno+xuzsFEjNkFCGl+IBwgq6qwtF1o1cgvxcAGv5SNp9tbN4UJ4eTN
-	kciRRj3npVap/OjT5IF0f2q+V96SQUmsscm+4+TURoM1JGOIcGwuynQ=
-X-Received: by 2002:a05:690c:7486:b0:8b0:c71d:2b2b with SMTP id 00721157ae682-8b4fedae487mr20653577b3.45.1795037832273;
-        Wed, 18 Nov 2026 13:37:12 -0800 (PST)
-Received: from 5163NRD-SPrabh2.ssi.samsung.com ([50.205.20.42])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4fe030be2sm24565697b3.10.2026.11.18.13.37.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 13:37:11 -0800 (PST)
-From: Swarna Prabhu <sw.prabhu6@gmail.com>
-To: akpm@linux-foundation.org,
-	david@kernel.org,
-	jgg@ziepe.ca,
-	jhubbard@nvidia.com,
-	viro@zeniv.linux.org.uk
-Cc: linux-mm@kvack.org,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dave@stgolabs.net,
-	riel@surriel.com,
-	yeoreum.yun@arm.com,
-	hch@lst.de,
-	Swarna Prabhu <s.prabhu@samsung.com>
-Subject: [PATCH 5/5] iov_iter: extract bvecs of user-backed iters from folio ranges
-Date: Wed, 18 Nov 2026 13:34:58 -0800
-Message-ID: <20261118213458.377258-6-sw.prabhu6@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261118213458.377258-1-sw.prabhu6@gmail.com>
-References: <20261118213458.377258-1-sw.prabhu6@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=F19YdPyI
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=u7k8Mlc6Fymhtj+FfIGlaOLuMxhse5NF2Wwfz/aIR2I=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795037844; v=1; x=1795642644;
+ b=F19YdPyIE+1qxZagD4FO+d2TukDaLriVWQqI4YW6kYpDsN/E8NJE3hZgHwGtkppX3zx/s0Gf
+ 74/ahag/47nZlTqHcJxH54Kj0s6oTpJeMt3Irkmg9OgbSMsyvFyhM/InjHbYImV06bfh7IE1tiA
+ NmXSVbs47mePU0pUbDgzXLCE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 4af51873c45a5690;
+	Wed, 18 Nov 2026 21:37:23 +0000
+X-Mizu-Trace-ID: 4af51873c45a5690
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <6a1b6f05-448e-461c-bd79-0acd67fb7edc@linux.dev>
+Date: Wed, 18 Nov 2026 14:37:19 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,159 +58,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc flavors
+To: Eduard Zingerman <eddyz87@gmail.com>, Alexei Starovoitov
+ <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alan Maguire <alan.maguire@oracle.com>,
+ Emil Tsalapatis <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>,
+ Song Liu <song@kernel.org>, Tejun Heo <tj@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
+References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
+ <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
+Content-Language: en-US
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+In-Reply-To: <df72a9ab1ebcebff573485a808e45cd493665e75.camel@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-From: Swarna Prabhu <s.prabhu@samsung.com>
+On 2026-11-18 2:12 p.m., Eduard Zingerman wrote:
+> On Tue, 2026-11-17 at 12:21 -0700, Ihor Solodrai wrote:
+>> An incompatible change to a kfunc's prototype, such as an added
+>> parameter, breaks BPF programs built against the old one. libbpf
+>> ignores the ___<flavor> suffix of a kfunc declared in a BPF program,
+>> but makes an exact name look up on the kernel side, so the kernel
+>> can't keep the old prototype available under the kfunc's name.
+>>
+>> sched_ext ran into this. cded46d97159 ("sched_ext: Make
+>> scx_bpf_dsq_insert*() return bool") kept the old prototype as
+>> scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
+>> it, and broke them. 2dbbdeda77a6 ("sched_ext: Fix scx_bpf_dsq_insert()
+>> backward binary compatibility") reversed the naming. A ___v2 kfunc
+>> declared as vmlinux.h spells it doesn't bind: 56bbc91219c0
+>> ("sched_ext: Fix scx_bpf_dsq_move_to_local___v2 compat detection")
+>> fixed a compat macro that silently dropped enq_flags because of this.
+> 
+> Please prefer examples to prose in cover letters.
 
-iov_iter_extract_bvecs() pins a page array placed in the bvec array and
-then walks it with get_contig_folio_len() to merge pages that turn out to
-belong to the same folio back into one bvec.
+The sched_ext story above narrates the commit history to illustrate
+the motivation for the feature.  Would you like to see code samples
+from there, or are you suggesting to drop the paragraph?
 
-For user-backed iterators, have GUP fill folio ranges straight into the
-free part of the bvec array instead. A folio range has the same size as
-a bvec and becomes exactly one bvec, so each range is converted in its own
-slot and trimmed to the requested byte range on the way. This removes the
-page array and the merging pass. Ranges that are not converted are still
-folio ranges and are unpinned with their exact page count.
+The documentation patch includes code examples of the new binding
+rules, I didn't want to duplicate that in the cover.
 
-Since one range covers many pages, the number of pages pinned per call is
-no longer limited to one page per bvec entry; it is bounded by the bvec
-array, plus a cap on how many pages a single GUP-fast walk looks at.
+> Also, please de-Claude the included prose.
 
-Memory that is not backed by folios, such as pages a driver inserted
-into a VM_MIXEDMAP vma, makes pin_user_folio_ranges_fast() fail with
--EOPNOTSUPP when no pages were pinned; such iterators fall back to the
-page array path.
+Please be more specific. Which "included prose"?
 
-Each extraction requests at most 1024 pages, bounding the amount of work
-performed by a single GUP call.
+> 
+>> With this series, if the kernel's bpf_foo kfunc is missing or its
+>> prototype is incompatible with the declaration, libbpf binds the
+>> bpf_foo___<flavor> that has a compatible prototype. So a changed kfunc
+>> can keep its name, and the old prototype stays available as foo___v1.
+>>
+>> resolve_btfids fails the build if two of bpf_foo and its flavors have
+>> compatible prototypes, unless both have foo's exact prototype
+>> (aliases), so the fallback finds at most one match.  This ensures at
+> 
+> Why is an exception for kfuncs with identical prototypes necessary?
 
-Block direct I/O picks this up through bio_iov_iter_get_pages() without
-any change to the block layer.
+For example, when the void scx_bpf_dsq_insert() is deprecated, the
+kernel side can do this:
 
-Signed-off-by: Swarna Prabhu <s.prabhu@samsung.com>
----
- lib/iov_iter.c | 100 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 100 insertions(+)
+   Today:       void scx_bpf_dsq_insert(...)
+                bool scx_bpf_dsq_insert___v2(...)
 
-diff --git a/lib/iov_iter.c b/lib/iov_iter.c
-index fa4fe2e92383..457e226c0251 100644
---- a/lib/iov_iter.c
-+++ b/lib/iov_iter.c
-@@ -1919,6 +1919,95 @@ static unsigned int get_contig_folio_len(struct page **pages,
- 
- #define PAGE_PTRS_PER_BVEC     (sizeof(struct bio_vec) / sizeof(struct page *))
- 
-+/*
-+ * Upper limit on the number of pages a single GUP-fast walk is asked to look
-+ * at to cap spending too much time in the GUP-fast path.
-+ */
-+#define EXTRACT_MAX_PAGES	1024
-+
-+/*
-+ * Extract bvecs from a user-backed iterator.  GUP fills folio ranges straight
-+ * into the free part of the bvec array, one range per run of consecutive pages
-+ * of a folio.  A folio range has the same size as a bvec and turns into
-+ * exactly one bvec, so each range is converted in its own slot.
-+ *
-+ * Returns -EOPNOTSUPP, with @iter left untouched, if the memory at the start of
-+ * @iter is not backed by folios, so the caller can extract it as pages instead.
-+ */
-+static ssize_t iov_iter_extract_user_bvecs(struct iov_iter *iter,
-+		struct bio_vec *bv, size_t max_size, unsigned short *nr_vecs,
-+		unsigned short max_vecs, iov_iter_extraction_t extraction_flags)
-+{
-+	unsigned short entries_left = max_vecs - *nr_vecs;
-+	unsigned int gup_flags = 0, nr_frs = 0, i;
-+	unsigned long addr, nr_pages;
-+	struct folio_range *frs;
-+	size_t offset, left, len;
-+	long res;
-+
-+	max_size = min_t(size_t, min_t(size_t, max_size, iter->count),
-+			 MAX_RW_COUNT);
-+	if (unlikely(!max_size))
-+		return -EFAULT;
-+	if (WARN_ON_ONCE(!entries_left))
-+		return -ENOMEM;
-+
-+	if (iter->data_source == ITER_DEST)
-+		gup_flags |= FOLL_WRITE;
-+	if (extraction_flags & ITER_ALLOW_P2PDMA)
-+		gup_flags |= FOLL_PCI_P2PDMA;
-+	if (iter->nofault)
-+		gup_flags |= FOLL_NOFAULT;
-+
-+	addr = first_iovec_segment(iter, &max_size);
-+	offset = addr % PAGE_SIZE;
-+	addr &= PAGE_MASK;
-+	nr_pages = min_t(unsigned long,
-+			 DIV_ROUND_UP(max_size + offset, PAGE_SIZE),
-+			 EXTRACT_MAX_PAGES);
-+
-+	/*
-+	 * Range i is converted into slot *nr_vecs + i, which is the memory it
-+	 * lives in, so converting cannot overwrite a range that has not been
-+	 * converted yet.
-+	 */
-+	BUILD_BUG_ON(sizeof(struct folio_range) != sizeof(struct bio_vec));
-+	frs = (struct folio_range *)(bv + *nr_vecs);
-+
-+	res = pin_user_folio_ranges_fast(addr, nr_pages, gup_flags, frs,
-+					 entries_left, &nr_frs);
-+	if (unlikely(res <= 0))
-+		return res ? res : -EFAULT;
-+
-+	/* We may have pinned fewer pages than asked for. */
-+	max_size = min_t(size_t, max_size, res * PAGE_SIZE - offset);
-+	iov_iter_advance(iter, max_size);
-+
-+	for (i = 0, left = max_size; left && i < nr_frs; i++) {
-+		/* Copy it out first: bv[*nr_vecs] is the same memory as frs[i]. */
-+		struct folio_range fr = frs[i];
-+		struct page *page = folio_range_page(&fr);
-+
-+		if (*nr_vecs > 0 &&
-+		    !zone_device_pages_have_same_pgmap(bv[*nr_vecs - 1].bv_page,
-+						       page))
-+			break;
-+
-+		len = min(folio_range_size(&fr) - offset, left);
-+		bvec_set_folio(&bv[(*nr_vecs)++], fr.folio, len,
-+			       folio_range_offset(&fr) + offset);
-+		left -= len;
-+		offset = 0;
-+	}
-+
-+	/* Not overwritten, so still folio ranges; no-op once i == nr_frs. */
-+	if (unlikely(i < nr_frs))
-+		unpin_user_folio_ranges(&frs[i], nr_frs - i);
-+
-+	iov_iter_revert(iter, left);
-+	return max_size - left;
-+}
-+
- /**
-  * iov_iter_extract_bvecs - Extract bvecs from an iterator
-  * @iter:	the iterator to extract from
-@@ -1966,6 +2055,17 @@ ssize_t iov_iter_extract_bvecs(struct iov_iter *iter, struct bio_vec *bv,
- 		return -EINVAL;
- 	}
- 
-+	if (likely(user_backed_iter(iter))) {
-+		size = iov_iter_extract_user_bvecs(iter, bv, max_size, nr_vecs,
-+						   max_vecs, extraction_flags);
-+		/*
-+		 * Memory that is not backed by folios cannot be pinned as folio
-+		 * ranges; fall back to pinning it as an array of pages.
-+		 */
-+		if (size != -EOPNOTSUPP)
-+			return size;
-+	}
-+
- 	/*
- 	 * Move page array up in the allocated memory for the bio vecs as far as
- 	 * possible so that we can start filling biovecs from the beginning
--- 
-2.53.0
+   Later:       bool scx_bpf_dsq_insert(...)
+                bool scx_bpf_dsq_insert___v2(...)  /* calls 
+scx_bpf_dsq_insert() */
+
+Existing schedulers declare scx_bpf_dsq_insert___v2___compat.
+
+libbpf strips the last suffix, so the bpf progs still call
+scx_bpf_dsq_insert___v2(). The wrapper keeps them working during the
+transition, including with older libbpf.
+
+The exception allows to do this.
+Otherwise we break the ___v2___compat trick.
+
+> 
+>> kernel / module build time that no ambigous kfunc flavors exist.
+>> Documentation/bpf/kfuncs.rst describes the rules.
+>>
+>> Compatibility is determined by bpf_core_types_are_compat(), the check
+>> libbpf already applies to kfuncs. Of the 70 same-name kfunc prototype
+>> changes between v6.6 and bpf-next, it finds 8 incompatible (arity,
+>> return kind, callback prototype). The other 62 (const, typedefs,
+>> parameter names, integer widths, pointee struct names, annotation
+>> suffixes) were made in place without breaking old callers.
+> 
+> Do you mean that without this series programs referring old prototypes
+> are broken?
+
+Yes, if the kernel changed the prototype in place and the BPF program
+still expects the old one. For example, 8fe4dc4f6456 ("bpf: change
+prototype of bpf_session_{cookie,is_return}") added a ctx argument to
+bpf_session_is_return() in v7.0. libbpf can't resolve an object's old
+no-argument declaration on that kernel.
+
+This series alone doesn't fix this, but with it the kernel *can*
+provide bpf_session_is_return___v1(void) for the old callers.
+
+> 
+> ...
 
