@@ -1,70 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794978481;
-	b=rMIk1WFHkzXPm3DkrEJAJuIMt0tKZApbGqD8RumM/MUC1QbisVT2ysjrDqWtcUTZdM8z
-	 Wa11e6gn9eTbHDEZvQcb1of1+lWVm8OTMzGOgOO88DTGf8/D77zzaxbVdIvUEm+mKYgb1
-	 8cNqGnbEjiWD6whPJw14kHmfHQYiztCb0lxkxYpLZtuXsD4x9uI5gJJG4yhimDnV1PjJU
-	 Y6w4kiDrkxHGwwYdOUAfw4FOwJpdP1WB0lgfPiB31IV/bvpS6g8bzkaIcigtxX0HTKY+9
-	 OBNyIU9AX7mzwFVnUczD+Xzak0lIu7Ok6ptFDH19GxvxBZIMeiheIzQ9MiXB92A1PjA==
+	t=1794978558;
+	b=2ZhlhBb1GgYkIY7Z+lIb987RiceWLNYY+Ej1OYaf8QcC3Gw07+jnnlMqUF2nAKa1DrAp
+	 melf0K2lkoP3FAKFhuyWnPqk7h/PisZhbttOiAhSHk5h5blcH5XZu6fc/UBLRBqp4bqpl
+	 jSy6ihHIcKnJ/+7bH6lxN0O62mnUo5nwqv5vyDV3Wh6qnXUZ2aQRGTkPHRKPqrnnVm+tH
+	 lKt+gv98fGcXbJNDDPV1YnOKaPsTFe5362t3GK0qvUYOavhpxa4UZLj6QNnhEaCfnGBhH
+	 GC3mxrQzS1z6RvgDq0DkNMVXX5Z2z0Mgk6BpQWk4biU8biMtmarlK40Y8XHr5pZ0sBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794978481;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=mGkb+EjOSlLHs2Hp50X4VPuLXnV4T0Mq79/QyiPYW5E=;
-	b=Q81ObXOAfbQI7NVklFsJY+c2GzUSt1dgOFuyRIkYU0LQZPQGRtrSlAZUnd7rujkN+/EB
-	 Fry3kYgvBsMuneYe55fy1kaMKHusTyKf7hsRHUnFlQLkvuDQcJVBnsTp+QaamKEO5R6GO
-	 rIzqvIGf7BEPlsRla6bBH2Xo4RMoGAlfjOUGFbEpyZWW7R/UJo5JDFCf8ePfqAPzyeRRX
-	 1paa/OEEeDkzrWO0zHAfC2Kg5f21F/tE1cKYFynQUP2QM1mgv0D/fPstt5DKNI4QmzdZM
-	 FM96S+InehVfAxQSXc9mQmiJM4gEZGLeT8gW6AUDYKoSlehzIoHZNorqOXI0xHPnigQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794978558;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=fpWc9hELHB51C84PlD2yWzhLQPgr2lWImiEogCRjFzI=;
+	b=nvFq4+Qr0z95Jwtmb1mxw22fosXCyzc3bicTW/bm6jNepJTiM39Ts1wPI0h4ueyqr1K7
+	 DzYqrp3Ab2+CYkVJL0/joXOXbXQgfFNVSCEZSKftGMEBnO43RNhXIThu22Mk9EYCyXG+b
+	 WDDabgb5t3j9rOe/iNtfQPnXYTjGAq1WMZRmlkIadR4z/eP+cNTnW6XGnAw7hIRZzVgVn
+	 DveX3U0kCRBMTCucGr+SosdVwJzefTv2wt8XeshgHVt0kZVaLGV8W7ifRMIKYY2LFj+r3
+	 cATtcTg5G9SBkwf0kf3/t1309Z80N8NLNex/xC3qiglTNXmU9R4Lk2hr085I/DridFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXeiifdf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="d//ALsih";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95FF3606A31C;
-	Wed, 18 Nov 2026 05:08:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50A6D606A31C;
+	Wed, 18 Nov 2026 05:09:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXeiifdf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 675D71F000C4;
-	Wed, 18 Nov 2026 05:08:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d//ALsih
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B231F000C4;
+	Wed, 18 Nov 2026 05:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794978481;
-	bh=mGkb+EjOSlLHs2Hp50X4VPuLXnV4T0Mq79/QyiPYW5E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YXeiifdf0c/VhG5hMZSwUNR54qAqBFdaXyJZbh5XcO/2sqRss6CDwRKOn3GvreXYA
-	 N8sol7JhMY1rQdccZSTvUitx5wYvboW86yXgWSWAqMyOJFFfLQaulb3z3D+J1KKGNj
-	 KDMuYXlqz5Q94NnaURODLkdhuwDGTuqKRTVpXT3y3saAU73g2ANCWZTuKGPqc7N+23
-	 Q8zu1NrpoUOL6Gvlb3JNFhApR/lkmZ4+eUo6/6hPvi61HJLTfYG85N7R02b51F/fjT
-	 iEBaFvS4e9nIPbqwTLRgJSI+dEhsnuXdSkDG8vMrQvHYn8169Rt/V6pDb5vdckAerd
-	 hjtaO/DrnzNPA==
-Date: Tue, 17 Nov 2026 21:07:58 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Weinan Liu <wnliu@google.com>, Jens Remus <jremus@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, linux-crypto@vger.kernel.org,
-	llvm@lists.linux.dev, Josh Poimboeuf <jpoimboe@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Indu Bhagat <ibhagatgnu@gmail.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	live-patching@vger.kernel.org
-Subject: Re: [RFC PATCH 11/12] arm64, crypto/lib: annotate leaf functions
- with CFI info
-Message-ID: <20261118050758.GD3400@sol>
-References: <20261117043504.1021063-1-dylanbhatch@google.com>
- <20261117043504.1021063-12-dylanbhatch@google.com>
+	s=k20260515; t=1794978557;
+	bh=fpWc9hELHB51C84PlD2yWzhLQPgr2lWImiEogCRjFzI=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=d//ALsih2yv4fcWzrqtlL+iWobbYQjq4eCIQtv+BiKEEDPx5KBehqZOhEsXITy1J1
+	 mXWN+Zw1ws5Y3d7oDnMIj3dRnCZxMFlV2q26h0ktYLWgfYpXsf/1FChCNDjfd7LZrO
+	 DPOUHRt8TJn7fFFUrOOwscfD/hAcuseVBMiqQU8Jbnb0/0RQfhcFUtLjcQ2H2xLz62
+	 p5RoVAgDykpfwZ8JQZxw6WJabhbqDE+uK3D1xRDMEQXsh95ldDlNlRp6sSb9HebOI/
+	 dqcKvOWSxbp/VE1J3Jz8iyXi5Ww4b/TDiweZJBk1Jlg7QoQDV3FZQmDxHBUocPoFS7
+	 v71kvWURDmyNg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id ADC9ACE0C35; Tue, 17 Nov 2026 21:09:17 -0800 (PST)
+Date: Tue, 17 Nov 2026 21:09:17 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Guikun Yang <yangguikun19@qq.com>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] srcu: Validate ___srcu_struct_ptrs entries against the
+ module range
+Message-ID: <896b4a31-642a-453c-8a35-3dad576bb921@paulmck-laptop>
+Reply-To: paulmck@kernel.org
+References: <srcu-struct-ptrs-wildwrite-20261114@qq.com>
+ <tencent_0836A27053A7BED946E49CE04D27A31E7D09@qq.com>
+ <tencent_E038DD9BFA4429F88047A5A4367D578DB80A@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,46 +64,80 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117043504.1021063-12-dylanbhatch@google.com>
+In-Reply-To: <tencent_E038DD9BFA4429F88047A5A4367D578DB80A@qq.com>
 
-On Tue, Nov 17, 2026 at 04:35:03AM +0000, Dylan Hatch wrote:
-> Several arm64 assembly functions are leaf functions (they do not call
-> other functions and do not modify x30). Add SYM_[TYPED_]LEAF_FUNC_*
-> macros in <asm/linkage.h> that emit .cfi_startproc / .cfi_endproc so
-> that .eh_frame entries are generated for these leaf functions and LR can
-> be recovered by the unwinder when an exception is taken from one of
-> them.
+On Tue, Nov 17, 2026 at 10:00:00AM +0800, Guikun Yang wrote:
+> As discussed, here is the formal patch. Exactly as you presumed:
+> srcu_module_going() needs the same check, because a module whose
+> coming() fails the validation still gets a MODULE_STATE_GOING
+> notification via the robust call in prepare_coming_module().
 > 
-> Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 > ---
->  arch/arm64/crypto/aes-ce-ccm-core.S    | 12 +++----
->  arch/arm64/crypto/aes-neonbs-core.S    | 16 +++++-----
->  arch/arm64/crypto/ghash-ce-core.S      | 20 ++++++++----
->  arch/arm64/crypto/sm4-ce-ccm-core.S    | 16 +++++-----
->  arch/arm64/crypto/sm4-ce-cipher-core.S |  4 +--
->  arch/arm64/crypto/sm4-ce-core.S        | 44 +++++++++++++-------------
->  arch/arm64/crypto/sm4-ce-gcm-core.S    | 16 +++++-----
->  arch/arm64/crypto/sm4-neon-core.S      | 12 +++----
->  arch/arm64/include/asm/linkage.h       | 33 +++++++++++++++++++
->  arch/arm64/kernel/entry.S              |  7 ----
->  arch/arm64/lib/clear_user.S            |  4 +--
->  arch/arm64/lib/copy_from_user.S        |  4 +--
->  arch/arm64/lib/copy_page.S             |  4 +--
->  arch/arm64/lib/copy_to_user.S          |  4 +--
->  arch/arm64/lib/memchr.S                |  4 +--
->  arch/arm64/lib/memcmp.S                |  4 +--
->  arch/arm64/lib/memcpy.S                |  8 ++---
->  arch/arm64/lib/memset.S                |  8 ++---
->  arch/arm64/lib/mte.S                   | 28 ++++++++--------
->  arch/arm64/lib/strchr.S                |  4 +--
->  arch/arm64/lib/strcmp.S                |  4 +--
->  arch/arm64/lib/strlen.S                |  4 +--
->  arch/arm64/lib/strncmp.S               |  4 +--
->  arch/arm64/lib/strnlen.S               |  4 +--
->  arch/arm64/lib/strrchr.S               |  4 +--
->  arch/arm64/lib/tishift.S               | 12 +++----
 
-Presumably you'll need to update lib/crypto/arm64/*.S and
-lib/crc/arm64/*.S as well.
+I have pulled this in for review and testing, thank you!  And with
+Bradley's Reviewed-by, however, Joel is doing the upcoming merge window,
+so its eventual disposition is up to him.
 
-- Eric
+The next time you send a patch, please skip the first paragraph and
+the "---".  These cause the automation to keep the above paragraph
+and to throw away the real commit log below.
+
+Which I compensated for, so no harm done.  This time.  ;-)
+
+							Thanx, Paul
+
+> The entries of the ___srcu_struct_ptrs section are absolute pointers
+> emitted by DEFINE_SRCU() in module .data. load_info() hands the raw
+> section to RCU (kernel/module/main.c), and srcu_module_coming()
+> dereferences each entry and writes through it:
+> 
+> 	ssp = *(sspp++);
+> 	ssp->sda = alloc_percpu(struct srcu_data);
+> 	ssp->srcu_ctrp = &ssp->sda->srcu_ctrs[0];
+> 
+> A malicious or corrupted module image can point an entry anywhere in
+> the kernel address space; nothing on the load path validates it, so
+> this is an arbitrary-address write primitive (an 8-byte percpu
+> pointer at offset 8 of the target).
+> 
+> The static-key loader already handles the same shape of section with
+> a range check (kernel/jump_label.c):
+> 
+> 	if (within_module((unsigned long)key, mod))
+> 
+> Apply the same check to both module-notification paths. coming()
+> rejects the module load outright; going() skips the entry, because
+> going() runs even for modules that never passed coming(), and those
+> entries never got per-CPU data allocated.
+> 
+> Signed-off-by: Guikun Yang <yangguikun19@qq.com>
+> ---
+>  kernel/rcu/srcutree.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/kernel/rcu/srcutree.c b/kernel/rcu/srcutree.c
+> index 2b0e2b2d2..412265757 100644
+> --- a/kernel/rcu/srcutree.c
+> +++ b/kernel/rcu/srcutree.c
+> @@ -2498,6 +2498,8 @@ static int srcu_module_coming(struct module *mod)
+>  
+>  	for (i = 0; i < mod->num_srcu_structs; i++) {
+>  		ssp = *(sspp++);
+> +		if (WARN_ON_ONCE(!within_module((unsigned long)ssp, mod)))
+> +			return -EINVAL;
+>  		ssp->sda = alloc_percpu(struct srcu_data);
+>  		if (WARN_ON_ONCE(!ssp->sda))
+>  			return -ENOMEM;
+> @@ -2521,6 +2523,8 @@ static void srcu_module_going(struct module *mod)
+>  	srcu_defer_flush();
+>  	for (i = 0; i < mod->num_srcu_structs; i++) {
+>  		ssp = *(sspp++);
+> +		if (WARN_ON_ONCE(!within_module((unsigned long)ssp, mod)))
+> +			continue;
+>  		if (!rcu_seq_state(smp_load_acquire(&ssp->srcu_sup->srcu_gp_seq_needed)) &&
+>  		    !WARN_ON_ONCE(!ssp->srcu_sup->sda_is_static))
+>  			cleanup_srcu_struct(ssp);
+> 
+> -- 
+> 2.34.1
+> 
