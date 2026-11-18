@@ -1,79 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794965130;
-	b=Ti9z2SXMGTAKm4XQnzWJHAlERrBF8qGSyFWKk2nVgCYK1u6tcgp8gmwJ7cTPBXQRxDjQ
-	 B12cdtyBTG7v5PLXLvdi3ikSVsIhTQgrKoecuwEclWjieN/k2Ai0OCpjqlFAtfR/Gf9Yg
-	 ieUOndCgEWzoK6mI5k302F/lsLqJX2eggD6Nv8CnsSUdNx9R8xB7xJ9KP/sBsR78DjNPS
-	 BGQg23tUmDR/ZcHsnH/cnHlBQbpd6aU63HyS0KS61VvWChnEr/waxGeQyBNY3uxg/gTgK
-	 YQ4MyWptNljYTgxtO2MGec9tMj6aIAH+qJzoY9s1kKEKeUgPXnnEhBPaa8K4En07uwQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965130;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=savT1NQUMXc5EKxPUj2lCIipe5ZvsTIstXbCVAOb+ck=;
-	b=5O1dZPvw+FH1ODwdfc1Hn/pTlSMxOnzILo1wF8U+ilnwo8n00wOTH35W0qK+jjRPm1/n
-	 Xu6dfvrRGUc91UyQ1R1k9f0+X3xj1zALp0mxRQQaoKRNtt5H9orHpZXr0+8jqKONfwpJR
-	 r8MG9LPRgZ5MJhBOrX9uNuQjTitBAx9b2DA036Mpe85p+nEWe4Kdsbw2hDL4aZ1LxA2Lg
-	 llOKtLXl2fb4kaobwnUuonJalxm2vZsduWeChxjckR8SBq+qVcpRziCPIYjYNtddp9dZe
-	 7RhuzyusFF9CF3fNungJWnZHoC1hgCQsS5tirxCyy3kysK6Djw08S+MGfefq+OyWN4A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Evf4aKWw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B13AB606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:25:30 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Evf4aKWw
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794965130;
-	b=FdFSA3OnyT04HXpSk9/nU7vXQbeDi3dTcPiqQkVt1tHVZICobQ/DRsjW6qCNYY23xERk
-	 SSWSTjslBqrrrgJOQrRTwXEn1rcFRcRVceQDQBef+RBFPq+ef9oXBMKMRXB0nyb2M7WFd
-	 xaQxqLxZTlW2gf+9lN7VO3tAGiSe6fyLugzkmhDTaItyDyZA9qdG9n6oYzOnOPkB58pLf
-	 L9nJd3hkQ2bzR1GsCVPoPxnXnFZeYrFmh3U11Jg5EDwj6q/Qvvu2EiJXBOM3L9I57Zmwh
-	 qVqN/QPx64thzh6TxoyiR4Y7D5G0xUO3hc64es/5UOxrNJsavXdqgE5optvLgrDl4mg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794965130;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=savT1NQUMXc5EKxPUj2lCIipe5ZvsTIstXbCVAOb+ck=;
-	b=CH9/rRnq6QiCKW21YlZ4AFjgHbMvgR6vYNWJJLhHXgB2H20B4o/z6KV2WfuwA4p0jTTA
-	 5UKncLAu2ncz1RC4Pwsfnn5DZc+Uk/IUZuBeoR4DjQGIZKIA566EMdynMZM2lgHPi9sDn
-	 +d2maUmQSGa6whu19gmcJqqwgAkOF466X24ZK2nMPpKsD2A1TA+UY639y5R+O3jfBPsfR
-	 gMIHBvpQ6wdSRo0hrmLHhjFv5RzX29AGDNA2t1jf8ZArHU7OodpNt/3Gk7mEu7thO8gNI
-	 EROysKXbOla1BCyMiYnMbmNww+BmNtJL7T6jQqTzMA6SgmCTIFLtK+MFbn2K1MAoFjQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.151
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794965161;
+	b=0crs9VEXCYZRC6j6aT9iCkOv9FxSRVc/gwfvjoz55qUkcgLiycGOuohkyNEgTxVHIVL+
+	 cbK5mzBhg8r82+QPOvOGtnyEbufmN2+2s2x+zV0/xKEyYYz1pGuD0C8NNT685qQhm/jgD
+	 iPVumjoPRfSlTyBTBCIcZeB2tNC5qJa2cWk1jjqhLs9Q7m5gX3+/MzWeVGQvk93tD4tCL
+	 EX44vw13oIuXrtnKqmsmMrQhTWo7yJXMiXF1v0FOpRU5b9O6hQeBvd0uR9DP0cVRElbxl
+	 2Qhxd1feX2a3vv7CAsLHq2P8yN9Pgh7nW1SAm/n0IUFZTvMO5tREdpFbXnGqvRocR4w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794965161;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=V1hKfhmnnJW04pZBP599zW5HZ4qCTwkqtrvykmPMZq0=;
+	b=DiuNOCiUwMdn6MZLpExMQrgmzN6slw6D0WUWVufnQLMCoCv2i1hEjiZDwTd0tNC+jJpE
+	 sMIKL0p8no+zYtYfKXNOxIqn4DDSR8d6AJI0LZvVw8CsIa1n2hl95vn2eJEpTG+z1XqEA
+	 sHqD5KqpnRMjxreKJWW67ZwBHNs/KvWw3HzOTai3beNNIdNlSnfRMGXQ8Ha2pHAd9RXjy
+	 XKFuU5du9cUXSGI9Td8Qad71fLqf7K+oS4q3kEp/2E8AgM85ohMDkdkGlNZnFZQ+yF9U0
+	 h0e0UlXrzoPCswJizb6H1NQ1EoJJCzsJg78YApGFv9r8ArIUgntCr6Ik146WeAL3OYg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=timdoug.com;
+	spf=pass smtp.mailfrom=timdoug.com;
+	dkim=pass header.d=timdoug.com header.i=@timdoug.com header.a=rsa-sha256 header.s=fm3 header.b=RU747gsO;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=bfFWz0bD;
+	arc=none smtp.remote-ip=103.168.172.151
+Received: from fout-a8-smtp.messagingengine.com (fout-a8-smtp.messagingengine.com [103.168.172.151])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 06ED71F000C4;
-	Wed, 18 Nov 2026 01:25:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794965130;
-	bh=savT1NQUMXc5EKxPUj2lCIipe5ZvsTIstXbCVAOb+ck=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Evf4aKWwXD6FnbomEzIViDwLr+j9kKcQ4QLt5ZsvWEkKZ2vp3zAzTEwdbBuSoeyzO
-	 eNMbPeVVcOUSefDgAMtzmMcgMBQmJbVYF1cww93S+aPtkGg3F57UVifiR0ezJKIqQA
-	 5NXuQra188K2VFVNjldDEoCHhPE0Iv6MbjGb6LIasAi90HlBtLb91GyMFjWB/E5FVL
-	 dPATX5jgSB3WSCY34CTQ3SRpkFF4jvloZRrmsARW9aM/UEAMC0djIg2EiRyLegUiTY
-	 INuu/GoP1qG1xQDVMEzwGUmhOrP2yprp/SzpkzTEz89TIqA5YlQfXMhbVAWWb2MlJV
-	 14M3VGRoW7ULg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5D1B14AB8A;
-	Wed, 18 Nov 2026 01:25:29 +0000 (UTC)
-From: Zi-Hao Huang via B4 Relay <devnull+zi-hao.huang.mediatek.com@kernel.org>
-Date: Wed, 18 Nov 2026 09:25:18 +0800
-Subject: [PATCH] drm/mediatek: dsi: Don't let a signal cut the IRQ wait
- short
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 022FC606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:26:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 022FC606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=timdoug.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=timdoug.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=timdoug.com header.i=@timdoug.com header.a=rsa-sha256 header.s=fm3 header.b=RU747gsO;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=bfFWz0bD
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id E9695EC08B4
+	for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 20:25:59 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Tue, 17 Nov 2026 20:25:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=timdoug.com; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm3; t=1794965159; x=1795051559; bh=V1hKfhmnnJW04pZBP599z
+	W5HZ4qCTwkqtrvykmPMZq0=; b=RU747gsOaY1rrQrmPOd0GyiVb/9frpE21rXCs
+	u6g1vgBE6nynj7vLEG/8Eh0pl0yDeL1IXmtlGTm77J+7KDYNnf7xi62aAWrFSsrn
+	fXY8KBVgGY6fqvdq3mIie0OvwYlpH07VhiNAxX7ACmtrHej8qJx2I3RjRxgDalqY
+	kJBMj9dWyZj4jZPS8GpZRJRyABJ8n3XDHJV5OKHrcHyMcAv2EaT47CAqBccmhcPN
+	aujZYHNE/JHseFpFhD9OJ7eDqzqCK/oEyskb0beEXm4lo5up55diQWAq9MVWtnpA
+	wfmeE3OsP5omr8avILfqO3S1wKRpC51EtdoHlLarTTAV1Skug==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1794965159; x=1795051559; bh=V1hKfhmnnJW04pZBP599zW5HZ4qCTwkqtrv
+	ykmPMZq0=; b=bfFWz0bDRtF/Q7U1AOAPOk5KWx5k846vmk18Sb4+v98iJqezZwa
+	FeOln7z2PoKbFzsptLojTxmElUPl8AYgx/kfhzkVCn4GMVacLzW3FSM++XfX8m7r
+	Yt4LUVPq6X9hbyF+mTtxmpPy0bBO5pcJXqrb0WJrBcqLwyvbI/OFufuvzvyqiYJb
+	lZRmtVf6GHj9hM21qMRiEsRueHcqQNwyF40Ec1vfXrzcvMCHQE3Ic7kAEKaDCtyg
+	XxPRy+H2qWv5H0F4g2jODefIHKFi2hUq4NrnB6uu/pQs6J3H47oYdrO2voriEQkM
+	EB2Sk/RWsM3QDix7XjbNrgS9GkxYKXOg2LQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=timdoug.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794965159; d=timdoug.com;
+	mf=PG1lQHRpbWRvdWcuY29tPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:MAy3bZVX+oGUjTYXw4vFI8y142Yf/EDd7FAejjeIuV+D3Hv
+	L393VTcs2nlEDiFeq1gXQVeTXRfufOd1j9c9cMeECphY+M1Vked09aypJ4HuaQwR
+	hbRXJWgjhH4E/r8d0ZNg12VNfvDHhsp4nR69zrCQmR2jleFt/IJNRbwfI/7Pv5Bo
+	OZA0OgssoPTpaHhj+44avSii1WIu82FceAwulWA8bWWjVc2IS26nrBiWOjUDI1GV
+	llKXyo5sJbIEVe4MYCP55mwLyPPwW3WyzZGYYtE87yUK4y/uha56pYVhikwmDlk3
+	hqvrZ/OQAu51yWwxJbnkdd+TkYG8R2HWvTbDK/g==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=9;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:bFVWRwZ60VfMatr1Orbc8eKiAyY7rTsF9KUbBWBNOEQ=:CPje0uR992FUBO4z3Opk1Q8PCdb1C3Ri59egfWzKny4=;
+X-ME-Sender: <xms:p_78ai-uCSyR0PYgY6btYczQBTyfRsJKrKWRk18_M9GZbC95qu7pew>
+    <xme:p_78auKxhxYgAR9Q_HEBSnkM-dOf7_vQl3QyNRucICrrpK9aZqYWF4aia0UWIPCkv
+    pd5NkPuEpyPrV9aXDZkBtlJAPMmJ0I0VC17JdD0uV9xNY-KyZc-nA>
+X-ME-Received: <xmr:p_78arjc2gF5Rx63a-heuL4ozbJ2bD9mEI_LtoT4VMfHtwDnp3t2PnZb0L3d>
+X-ME-Proxy-Cause: dmFkZTEKT77cM9davhckAK3Z4/jhSI5D2dnaIj5jXAkpPjrx7VpnkZCtRyAVHRQWnuum13
+    8Qd400MJoky3xnskuDztTavCwCQpMN+udMGKjW7kb0s4GyqTer5K5ph8rtNevsEdY0JzKB
+    CkyF3OzC9HKM7vgXPxvshuTLiZMSqTm7fWfTrQGuN+tEDvv5E2lR1IL2XNElMevqEsAvad
+    f4QIP9cm3+nMVC5nBzD3KW44Pd337lwAeocRejOB73SHHyjG3gX+4EvK8UEvz074W6pz2f
+    7EDTUZqUJca36lO/dZlJqSG0uFvdyzuS4qpXEwiXlbpWEqJH+UaPHdWWArj9SwJ5JYvTMA
+    iP9XaDn/k09JapVlQCnSZAz7aA+niD4wcpCn9Y4MRaMC4Jmm5P6E48jDswaSGcMf5JXuZA
+    gDUzbYz2Z45Z1RTKXXsTx78+fChEbxAe4zWHwY0tj9RsRvO3eSGqFh567mBhDqKXfhkx4F
+    W+TRXtLgEdq7XdW6ael9Qw/CUCPvXRkehsZhZOuKPpeOzwDsR1Sdsv8PhK98u8EXKjopHM
+    xni9wzRIffiLksHVA4n0K/K04NMV3Scxg8WllTQ3r4Ioa9E4DKVRm5ZoBXTpmNc5ZY9+2G
+    GEpfGEzREdzrr+ZVkq35O6AUTFscaw7y3gAl38JA+8F1al9ImYOs+K9DaT4A
+X-ME-Proxy: <xmx:p_78au4wSpHdisGSzZ650E-ncOn3l0RQXAqedLtzbjQfbTfvvoVcVg>
+    <xmx:p_78ajY8B6eCchKd7O_OscDCg-es4hqK00MzreyqHfmrRQGS7GT5Kg>
+    <xmx:p_78aj5Rlnmsj3hTehm50__N-yCZ9wvFOEVeI_YaEeV8axl1b-MwQA>
+    <xmx:p_78amAIPLCLhZeEZX2q9KYrpn0g9GVgllI6Qq_BIJBBs-9-YvBWxQ>
+    <xmx:p_78ag-YIM58ipz3EXcYhZmYs2__Op45CrpY5in0gwZyWlCxdDiD25TO>
+Feedback-ID: i12bc4175:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 17 Nov 2026 20:25:59 -0500 (EST)
+From: Tim Douglas <me@timdoug.com>
+To: deller@gmx.de
+Cc: linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] fbdev: macmodes: compare the pixel clock of each candidate mode
+Date: Tue, 17 Nov 2026 20:25:57 -0500
+Message-ID: <20261118012557.79419-1-me@timdoug.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,99 +122,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-mtk-dsi-irq-wait-v1-1-205f25fac8b2@mediatek.com>
-X-B4-Tracking: v=1; b=H4sIAH3+/GoC/x3MzQpAUBBA4VfRrE2ZSciryGJyB5P83SuUvLub5
- bc454Gg3jRAnTzg9bRg6xJBaQLdKMugaC4aOOOCiCqcjwldMDS/4yV2oHBeEouTgkuI2ea1t/t
- fNu37fkZKzT5iAAAA
-X-Change-ID: 20261118-mtk-dsi-irq-wait-a24712ada627
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- shaoming chen <shaoming.chen@mediatek.com>, dri-devel@lists.freedesktop.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Zi-Hao Huang <zi-hao.huang@mediatek.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794965128; l=2609;
- i=zi-hao.huang@mediatek.com; s=20261112; h=from:subject:message-id;
- bh=mBD6dS6d064X8Z2NA64EwiPmxgRAZHmv32EB6c3egAE=;
- b=h0n34iq4oweQpJL4Q1/996A0FU3QFKpqo/f4lya6mqbzxROzBIxyGIe0y5Q1hebLNaOvGCuh6
- Uzd8VWv4YnTCLk29wrnRg3YlOT4kPhXxSEBsbUMS+exxPHW/ApTnAvr
-X-Developer-Key: i=zi-hao.huang@mediatek.com; a=ed25519;
- pk=tbMIVegYSSBtz5MaQSUCX9RJO88MA/AI5cbmQKbaoIc=
-X-Endpoint-Received: by B4 Relay for zi-hao.huang@mediatek.com/20261112
- with auth_id=1493
-X-Original-From: Zi-Hao Huang <zi-hao.huang@mediatek.com>
-Reply-To: zi-hao.huang@mediatek.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Zi-Hao Huang <zi-hao.huang@mediatek.com>
+In the second pass through the mode table in mac_var_to_vmode(),
+the requested pixel clock period was compared with the first mode's
+period at every step. The last mode at that resolution was therefore
+returned even when its period was too short. Compare against the
+current candidate's period.
 
-mtk_dsi_wait_for_irq_done() waits for the DSI IRQ with
-wait_event_interruptible_timeout(). If it returns early, for example
-with -ERESTARTSYS when a signal is pending, both callers still treat the
-command as done, because they only handle a return value of 0 as a
-failure.
+Tested on a Performa 6200CD using a kernel with local platform
+support. With video=valkyriefb:vmode:10 (800x600 at 60 Hz), the
+measured refresh rate was about 72 Hz before the fix and 60 Hz
+afterward. At 640x480, 67 Hz was also selected for a 60 Hz request
+before the fix.
 
-On an MT8196 board this led to a hard lockup during shutdown. The wait
-returned before the IRQ arrived, the panel disable sequence went on and
-restarted video mode, and the late CMD_DONE interrupt was then handled
-by mtk_dsi_irq(). The handler writes RACK and loops until DSI_BUSY
-clears, but DSI_BUSY stays set while video mode is running, so the CPU
-never leaves the handler until the watchdog fires. Forcing the wait to
-return early reproduces the lockup every time, and it no longer
-happens once the wait cannot return early.
+AI assistance was used to investigate the mode-table walk and draft
+the fix.
 
-The wait is made from the driver's own context to synchronise with the
-hardware, not on behalf of a userspace request, and it is bounded by its
-timeout. Use wait_event_timeout() so that it only ends on the IRQ or the
-timeout.
-
-wake_up_interruptible() cannot wake a task in uninterruptible sleep, so
-switch mtk_dsi_irq() to wake_up(). Without it every wait would last
-until its timeout.
-
-Fixes: dd5080a54df8 ("drm/mediatek: add dsi interrupt control")
-Signed-off-by: Zi-Hao Huang <zi-hao.huang@mediatek.com>
+Signed-off-by: Tim Douglas <me@timdoug.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dsi.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/video/fbdev/macmodes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index f82506e10fd5..1315dd31a834 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -627,9 +627,8 @@ static s32 mtk_dsi_wait_for_irq_done(struct mtk_dsi *dsi, u32 irq_flag,
- 	unsigned long jiffies = msecs_to_jiffies(timeout);
- 	struct drm_device *drm = dsi->bridge.dev;
+diff --git a/drivers/video/fbdev/macmodes.c b/drivers/video/fbdev/macmodes.c
+index b16a9d9be..7ea40fd34 100644
+--- a/drivers/video/fbdev/macmodes.c
++++ b/drivers/video/fbdev/macmodes.c
+@@ -342,7 +342,7 @@ int mac_var_to_vmode(const struct fb_var_screeninfo *var, int *vmode,
  
--	ret = wait_event_interruptible_timeout(dsi->irq_wait_queue,
--					       dsi->irq_data & irq_flag,
--					       jiffies);
-+	ret = wait_event_timeout(dsi->irq_wait_queue,
-+				 dsi->irq_data & irq_flag, jiffies);
- 	if (ret == 0) {
- 		drm_warn(drm, "Wait DSI IRQ(0x%08x) Timeout\n", irq_flag);
- 
-@@ -656,7 +655,7 @@ static irqreturn_t mtk_dsi_irq(int irq, void *dev_id)
- 
- 		mtk_dsi_mask(dsi, DSI_INTSTA, status, 0);
- 		mtk_dsi_irq_data_set(dsi, status);
--		wake_up_interruptible(&dsi->irq_wait_queue);
-+		wake_up(&dsi->irq_wait_queue);
- 	}
- 
- 	return IRQ_HANDLED;
+ 	    if (mode->xres != clk_mode->xres || mode->yres != clk_mode->yres)
+ 		break;
+-	    if (var->pixclock > mode->pixclock)
++	    if (var->pixclock > clk_mode->pixclock)
+ 	        break;
+ 	    if (mode->vmode != clk_mode->vmode)
+ 		continue;
 
----
-base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
-change-id: 20261118-mtk-dsi-irq-wait-a24712ada627
-
-Best regards,
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-Zi-Hao Huang <zi-hao.huang@mediatek.com>
-
+2.39.5
 
