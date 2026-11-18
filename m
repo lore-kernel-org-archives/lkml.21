@@ -1,70 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016832;
-	b=hR1ckGNCd+DR52NEQ/Q/V2zxfl+oX12BZWdNMkLKfwfQ/enT0zL6BYRVkOc4Ku0M9nzQ
-	 kZxpYip7CB/k+KXM72s1k94r0qBcbT6efL0LYlcjM17CLLl7wB0QcerM28WERlMMcKRCr
-	 YEvnCB1orxThqmj/b/SS7dBvBtmGM4+L/dZ4ue7QRglrrzwotX/t+h3Qqg76lVPNSPv03
-	 RqxKra2/IftW1Bf56Ji17V3L+3WdbZ2vUFIeDYQ0GZ6hPu7UkNWWa0h8n51oTnG62OF6P
-	 EKIQ5Wfp86aKlJJqsz1nQ2VqD4BCJ0ObQ5h3s9nHBmIg+Y+21eQLvIDJVl2fiYQuOCA==
+	t=1795016858;
+	b=AYK88ZXgCipRnNjZ3uJNk3VPLLRXWZf9FQAY5TohrsWu7wk4tRfYkR3Wivr7xMB9NsPF
+	 cfiKSuQ6mxDPdTAmMeoAnCNbq3Tsp59bE0V5/ERFgIA3o5WQjAScq4gldKaE5BJP0h+Fl
+	 vWlQeSfP/DwIIgcA6Y92uytGy9Sh9Wpr0OVBWxCy/WKDUkwVfOgigpBrqObv8tYxaHHHa
+	 u3KE3Es68qmonT6QhgC7ic251uG5PHgZ138jElc6rlDNPiMQ6rxrl7AgdijNDJW41+lx2
+	 MQqxh2ii1m5zvOdi4jNr+qxsnznHzGcS6ENzTERMextxlsnMEbzfZtJWnMXpboJR4TQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016832;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Rspamd-Pre-Result:
-	 X-Rspamd-Server:X-Spamd-Result:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
-	 X-Rspamd-Queue-Id:X-Rspamd-Pre-Result:X-Rspamd-Action;
-	bh=flMGPLDMTpq68z1lJ74ODL+EiAGhlUNC3nFdUWIDwBE=;
-	b=n/+lCBkNWBFu0jLHajKOPrG/TN+giYEFpzhI6B2xNxZBE32mrnXE6Ly++sTxnsiRg6ma
-	 z4vb3Ur1+3WDEmUXYpCpZm3eha1BPQ7alsylOq3JwDNNsloYjTKk1x1pu+Kf1FEgTX2jI
-	 Nm0ZLBpy7AyvavOYOgIhumpdT53ofxEx/kQ9ZXfjmwRiTEhAtFcju/dGX4FZYNXY6SSJr
-	 yzufikrVtrX7AgZUty0qrhJbmafW6z6dHTT8pwuNph5XGENezJqUXVFVlxQy3KTHudzvB
-	 ESooXWG2zyKI+M/l5aaOagwtGdINma9EqxOoO6+XcdQV5xheWQaDOxde0Ov90qTChxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016858;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=JhR61aYjNj6PZ8Va97FkLX9v3sWRWtbAP/NE9nbfsiA=;
+	b=M+7+SWaHIZIJT85h7aHCml9GcbSsUyWbfzQ/qz2bti4R1PgHcL2alKlyGrbTNmOcnUV+
+	 ZTvG6XOQaDHzAhKB+pJzbNRQnAj1XLl7Q6ZjfEIApjHmr8CEZFahi7dUzPglKyWO0CccO
+	 bBA6Q/B1yFR/Cr9BQJ7bc/4AXXxdOxx6wsVG4/rQYFMzwQK/OUqKzV3ujScCnroIFhj39
+	 8p5gOxZ4yJORiITj92rozqO5fcGqKmkXrOycCrhgAqrmz1WY+CnLnX1JbaDugGHJXd1fR
+	 PFAXVeiPeP4yRZeBIVOyyr/qMT2UW9bQehz6pWyUMYpNcpgr0p+BT6kbRjw9ZgzXUHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P6Svp0TQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 468B9606A320;
-	Wed, 18 Nov 2026 15:47:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 468B9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
-Received: from kunlun.suse.cz (unknown [IPv6:2a07:de40:b306:2000::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 5A73A1F798;
-	Wed, 18 Nov 2026 15:47:10 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
-	none
-Date: Wed, 18 Nov 2026 16:47:09 +0100
-From: Michal =?iso-8859-1?Q?Such=E1nek?= <msuchanek@suse.de>
-To: Renzo Davoli <renzo@cs.unibo.it>
-Cc: linux-kernel@vger.kernel.org, Oleg Nesterov <oleg@redhat.com>,
-	Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@amacapital.net>,
-	Will Drewry <wad@chromium.org>, Thomas Gleixner <tglx@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Shuah Khan <shuah@kernel.org>, "Dmitry V . Levin" <ldv@strace.io>,
-	Alexey Gladkov <legion@kernel.org>,
-	Eugene Syromyatnikov <evgsyr@gmail.com>,
-	Davide Berardi <berardi.dav@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, strace-devel@lists.strace.io
-Subject: Re: [PATCH v11 0/3] PTRACE_SET_SYSCALL_INFO: add support for seccomp
- syscall skipping
-Message-ID: <av3Ifd4saO2_6Slq@kunlun.suse.cz>
-References: <20261114181923.370930-1-renzo@cs.unibo.it>
- <av2PKIf8YsEPro8O@kunlun.suse.cz>
- <av2i9kbZyMRJE9D6@cs.unibo.it>
- <av2pRG1JT9te8IiM@kunlun.suse.cz>
- <av2yDgdBWfTxvZca@cs.unibo.it>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 498EB606A325;
+	Wed, 18 Nov 2026 15:47:38 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P6Svp0TQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 835021F000C5;
+	Wed, 18 Nov 2026 15:47:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795016858;
+	bh=JhR61aYjNj6PZ8Va97FkLX9v3sWRWtbAP/NE9nbfsiA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=P6Svp0TQv9MlwXEuOAg9asd7uA00k9aOCDZJq7Mxg5UUO7Pfd/7HOiPH7vzIhlHwM
+	 mHJLG4wHXrpB3lGY6VJVbBcyy7vwLPTePFDj7L9VufCEbcdHfn3FiaAa7Y8Rb+xFHh
+	 4mdmsTz7b9sF59I+HI1UY2lAT4Y9b/0+0ZCITMoc2Nbwmx4JX2AqSHfndG3Oydss0O
+	 6u8j+lDU4YGBFDPFtqCW379PkUJo/I7RpDTZ6Va51qgx10f/sJOKqtCZWJvQM5P3Mx
+	 W0wEXj2fi/hA0VUFWoEkmsKrGeH+yrVriQ4DdIUCwSTNT6JDFV8AGHE1lATaBTRWzj
+	 OfK+jzwVYoM0w==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Rajan Yadav <rajanyadav0307@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20261103-a100-thermal-trips-v1-1-73bce7ff0767@gmail.com>
+References: <20261103-a100-thermal-trips-v1-1-73bce7ff0767@gmail.com>
+Subject: Re: [PATCH] arm64: dts: allwinner: a100: Add CPU thermal trips and
+ cooling maps
+Message-Id: <179501685630.182728.3865040956316474278.b4-ty@kernel.org>
+Date: Wed, 18 Nov 2026 23:47:36 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,63 +63,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <av2yDgdBWfTxvZca@cs.unibo.it>
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[];
-	TAGGED_RCPT(0.00)[]
-X-Spam-Flag: NO
-X-Spam-Score: -4.00
-X-Spam-Level: 
-X-Rspamd-Queue-Id: 5A73A1F798
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 
-On Wed, Nov 18, 2026 at 03:11:26PM +0100, Renzo Davoli wrote:
-> On Wed, Nov 18, 2026 at 02:33:56PM +0100, Michal Suchánek wrote:
-> > As I understand it the new s390 code resolves the problem by storing the
-> > syscall number outside of the registers. Then the return value can be
-> > set directly. It does not depend on using the generic entry but on the
-> > architecture adding storage for the syscall number in struct pt_regs,
-> > and implementing the code to determine where to get/set the syscall
-> > value depending on the syscall stage.
+On Tue, 03 Nov 2026 03:09:04 -0600, Rajan Yadav wrote:
+> The CPU thermal zone in sun50i-a100.dtsi has a sensor but no trip
+> points, so nothing throttles the CPU as it heats up and nothing shuts
+> the system down before it overheats. On a KickPi K5C (A133) without a
+> heatsink, the CPU reaches 90 C within minutes of full load.
 > 
-> Right, thanks for the correction: what matters is a separate storage
-> for the syscall number on the architectures where it shares a register
-> with the return value, not the generic entry code.
+> Add a passive trip at 90 C that throttles all four cores through
+> cpufreq, and a critical trip at 110 C, using the same layout as
+> sun50i-h6.dtsi.
 > 
-> > However, it seems that extending struct pt_regs breaks userspace ABI
-> > (probably because kernel refuses to transfer partial pt_regs to/fom
-> > userspace) which makes it unclear how the int_code that is used by this
-> > new code could be added to the s390 struct pt_regs in the first place.
-> 
-> On s390 int_code is not new: it has been in the kernel-only part of
-> struct pt_regs, after user_pt_regs, since aa33c8cbbae2 ("[S390] cleanup
-> trap handling"), and the user ABI (s390_regs, user_regs_struct) does
-> not include it. Heiko's patch only redirects the ptrace accesses to
-> gpr2.
-> 
-> On architectures where struct pt_regs is itself the user ABI (e.g.
-> alpha), the storage does not need to be in pt_regs: MIPS already keeps
-> the syscall number in thread_info.
-> 
-> This is also why this series uses a per-task flag at the seccomp stop:
-> it does not depend on where the architecture stores the syscall
-> number.
+> [...]
 
-It does not have to know where the architecture stores the syscall
-number when using syscall_get_nr and syscall_set_nr. However, the
-storage for the syscall number has to be somewhere, and for powerpc
-there is AFAIK no such storage.
+Applied to sunxi/dt-for-7.5 in sunxi, thanks!
 
-Thanks
+[1/1] arm64: dts: allwinner: a100: Add CPU thermal trips and cooling maps
+      https://git.kernel.org/sunxi/linux/c/90e0d3fd460e
 
-Michal
+Best regards,
+-- 
+Chen-Yu Tsai <wens@kernel.org>
+
