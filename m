@@ -1,55 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014957;
-	b=FnJGvSi0oMgvp5DQ4mNoPb/PHTvq8kNB37wHfUFcztLjvaq3W535ht6pxIbVpzEnim7l
-	 Iifcc2pUCbcLxOdykFLwg2pwR6isTLEYjTbVmKMm2iIOOqix81zCs03b60ZK6MfZBfTP9
-	 KDsdlAgQNx86wrIjQcUVUWe9iwXFiL6HXHrMvVWwXekXeZix2SJW9gRboQded7B7XcmLJ
-	 6Ax7yAeXwkha6WLN6oZAGd4XHckjx7ChgjFVmBt57PQPAD4pj8LSWH8M05POB0Cnxzhpo
-	 6GgrUAwuU2aStC/ycMkY/WV9EUEjQp/dvxMM8ScQnvZixcXZCJM8XwugG/mMGsIHoIA==
+	t=1795014969;
+	b=1MztOJome2HG7D4DQVb5U9xp7r82vf3YZkcaO4kdMFuJxDPy+56ki+prBeHSPh8b4vVM
+	 OeppxtiDiTyLfbVMEOQ5wMN02ZM+/Vu8VIA6UDq+RfEB0EvGaLWQKyjpRHLt6DdQuXAkX
+	 musel8sBhchnv4GnR4PgZCDvSU5KgWjIdAEdrbpyi5BysQOGAunybY7ShgDoNCJx4GDGk
+	 u2m1oJmJ6XsIGhTrPwQ1XoAYFlZn2el+M/SkgMuoeAQHtcqGj3CFTdle/zVfwqKfjlp1U
+	 3XVVdyTrQfTfAf8RtpjWEcGzZUhVG9Q8Ztlm0qvi68v6U9JsTxNbm5cLa/E4uw6xEnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014957;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iom0u3S5srgZxMd5fGMlRcfbzcBMCeh6+MQIM8fT0s0=;
-	b=Ux6EVhGLB3cWM4tU7soA2Uw0ioS1IOzVOYHodKgrVY8ZBfX8YmWrkXCQx+7QwWOoxFvW
-	 npTAEbJWZfQ6u7KvFXFBWypMlJlcHjILBdUkuR7/r5kQBeYj7bDoZLkxT4yoynWwHAltB
-	 jWVmfTFR5atty1w42wuWfVSVQefeac5dxzsfrcgDhVV01ihM+/+ABtKKFjfpFDM3VoTxv
-	 S42UG7FJLzXuVUURMJePFiODs93fYdbuGcn1Ro5VG0kBmLySeI/2q7PzEXyK+LK56Nh5H
-	 HaQseSDJFlheVd5c3Dj/IgCkZNpfjN3f/XPZ0RQrILndZCtPNyIjCEhH6Hp450K4nXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014969;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:User-Agent;
+	bh=VJRW+Ov1+hJWYf0GjjALdvkeKgyKhKIHCpws0o2fknE=;
+	b=JjmTaWPzzZRSkdbhDvyRrNGHMWHvq6Cm9QAAivPz214NS+FrGPckFyVXks961ayY8GB8
+	 w89z+FLjIHnqDqMuVmLkD3sDcd0Q0jh0dhHcqU52NOIOW5Fj/R3Hafq2xj8wxEASNs/KI
+	 PEkI53FB7q/RkS3P255xUurhQJYjvqncsmSXxKO76SLPoM86V5peiB6CwHZ7u3voq2Uw3
+	 muS0cGrDK/fUPfTnba+s4pMBZ3sAhwlbMFwM1hxaaoR0ZXa5bhvM7+jKeXNavauVymCgD
+	 h+u6VMUTMMX03pHpG34A+ACEoIRxmEGZR2xOHbSjvlJ66ZtINbi5R5XzkttrCI/88tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFGvrbE5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSlE7NJ2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0897D606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:15:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98318606A31C;
+	Wed, 18 Nov 2026 15:16:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KFGvrbE5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DE091F000C4
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:15:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSlE7NJ2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D381F000C5;
+	Wed, 18 Nov 2026 15:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795014956;
-	bh=iom0u3S5srgZxMd5fGMlRcfbzcBMCeh6+MQIM8fT0s0=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=KFGvrbE5zzoFlhSAxcalNFZLVXxGZLks3il/HIaBrVcZdITr0tuR9pSRgXpLn/UY0
-	 MM/QxqnbnrUPu4mmD3y+gUt+DSxaxjdBb2OLnG7H7FC1wPfHJ7JQI2qf03IjQwvr4p
-	 4m++1udlAKFSpoVUSBEBa0pdHWVOrJW2GzdOUe36L9Sk1Gu0IRPQBnF/+yb7lGINsQ
-	 J6vqGUWKy8jJkol+UOK7r6mexwx72ll7hqrev+pvPgF0jea+w1wkGV6J6qDIy5kl7Q
-	 ySTXTL32Fe4QpFzP/A4tD033hA7MAAMLUYC8mdM2FnSIcUPlERTeOXjjJRMFWHW/Nn
-	 thViwsxVBV7AQ==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso717084e87.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:15:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFQxklIFxswpWTUYjnK5i3kULbfYnz9v5dZa1LP0BWDKcsfg1jJLh8NhPzjvgAgmNzRVpGev6i6dtv4tE8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9m4+KTZ8PTxt/fbdhxpYt4WqAjcR8SGJrMqIL0whx6aoS9ZkwR
-	KNzn207lfpoMZRS25MzHyj8MljhPRwRND/J8tAbi3BJlPrbM6T+7swXrC7ufURvP59PxCt9o4We
-	LuaONJX/5n+HRkVZQP8IY200OENgvy+M=
-X-Received: by 2002:a05:6512:2206:b0:5c1:4dba:f748 with SMTP id
- 2adb3069b0e04-5c1aa04bfb1mr1142250e87.10.1795014954886; Wed, 18 Nov 2026
- 07:15:54 -0800 (PST)
+	s=k20260515; t=1795014969;
+	bh=VJRW+Ov1+hJWYf0GjjALdvkeKgyKhKIHCpws0o2fknE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TSlE7NJ24ZHrQjqby7BRumprQ+X4+8LqupeU9Ic0A3522Ds17DPzXVFZwe0JBd6ho
+	 GubLLYFIVNsVAPkFJEvH648kigG7kxnWoxItJWVuGvXDtAx4ld9RpbXs2YF/i/pHvg
+	 IoJDOWDprbfsVrCrmYBi1JtGbscpSjFHgPu7D9ywJ1hYx1lAHMMhOR3mSl4KulHKpe
+	 fhpajsplHwzdx8QTl+uVQSdbOq7HlfNFgYkCBr2s9W1RH2pLT9VZRBVaMQu/2EN3Lh
+	 S10sgG+OG9bMfh1RookXtJuizdsgEup+XRBW62lyyeePfaTh9PHAuvEFSXv7+XdBtx
+	 FZ53ZvVrlCnDQ==
+Received: by pali.im (Postfix)
+	id 9787F846; Wed, 18 Nov 2026 16:16:05 +0100 (CET)
+Date: Wed, 18 Nov 2026 16:16:05 +0100
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: koraynilay <koray.fra@gmail.com>
+Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>,
+	Sungjong Seo <sj1557.seo@samsung.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Trond Myklebust <trondmy@kernel.org>,
+	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>,
+	Jeff Layton <jlayton@kernel.org>,
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>,
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>,
+	Yuezhang Mo <yuezhang.mo@sony.com>, Jan Kara <jack@suse.cz>,
+	NeilBrown <neil@brown.name>,
+	Olga Kornievskaia <okorniev@redhat.com>,
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>,
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
+	Shyam Prasad N <sprasad@microsoft.com>,
+	Bharath SM <bharathsm@microsoft.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>,
+	"Darrick J . Wong" <djwong@kernel.org>,
+	Sean Smith <defendthedisabled@gmail.com>,
+	Andrey Albershteyn <aalbersh@kernel.org>,
+	Pedro Falcato <pfalcato@suse.de>,
+	Amir Goldstein <amir73il@gmail.com>, linux-btrfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	exfat@lists.linux.dev, ntfs3@lists.linux.dev,
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org,
+	linux-api@vger.kernel.org
+Subject: Re: [RFC PATCH v4 00/10] add provenance time (ptime)
+Message-ID: <20261118151605.lqtn5fz423kuswk5@pali>
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261118142613.be3r3s6kobkkxnz4@pali>
+ <DMYFBDIV4Y08.35ZKR5G86U1H7@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,241 +86,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112-a733-fwclk-v2@gmail.com> <2374cc08-fd47-435a-b1e8-c7e9a61954c4@arm.com>
- <CAGb2v66w9XYO7CUFrvJq2HL7ELABptg=3Bs4XbZxMh7VU0pepw@mail.gmail.com> <124bb855-f2f6-4b10-b0be-99fb53cc2ee8@arm.com>
-In-Reply-To: <124bb855-f2f6-4b10-b0be-99fb53cc2ee8@arm.com>
-Reply-To: wens@kernel.org
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 18 Nov 2026 23:15:42 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65A4rAFTFYyB_sZBC9O7fb0TJWE1YRjdGrLeNgwyVzcSw@mail.gmail.com>
-X-Gm-Features: AclHuK_h8I6R1NB2_rRQH2fTPyAFCMaG4sd-3_UUxudP7Hows23f9WUVAAbR40Q
-Message-ID: <CAGb2v65A4rAFTFYyB_sZBC9O7fb0TJWE1YRjdGrLeNgwyVzcSw@mail.gmail.com>
-Subject: Re: [PATCH v2] clk: sunxi-ng: a733: Keep SCP firmware bus clocks enabled
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Enzo Adriano <enzo.adriano.code@gmail.com>, sboyd@kernel.org, bmasney+clk@redhat.com, 
-	jbrunet+clk@baylibre.com, jernej.skrabec@gmail.com, samuel@sholland.org, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Junhui Liu <junhui.liu@pigmoral.tech>, 
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DMYFBDIV4Y08.35ZKR5G86U1H7@gmail.com>
+User-Agent: NeoMutt/20180716
 
-On Wed, Nov 18, 2026 at 10:51=E2=80=AFPM Andre Przywara <andre.przywara@arm=
-.com> wrote:
->
-> Hi,
->
-> On 11/18/26 14:41, Chen-Yu Tsai wrote:
-> > On Wed, Nov 18, 2026 at 1:18=E2=80=AFAM Andre Przywara <andre.przywara@=
-arm.com> wrote:
-> >>
-> >> Hi,
-> >>
-> >> the patch itself looks fine, but the comments and the commit message a=
-re
-> >> not entirely correct, I think.
-> >>
-> >> On 11/12/26 22:38, Enzo Adriano wrote:
-> >>> The A733 PRCM's bus-r-riscv and bus-r-msgbox gates have no Linux
-> >>> consumers, so unused-clock cleanup gates them. With vendor SCP firmwa=
-re
-> >>> running on the E902 as shipped on Cubie A7S, warm reboot then stalls.
-> >>
-> >> Please note that we don't support "vendor firmware" with mainline Linu=
-x.
-> >> That was mostly incompatible in the past, and while it might work thes=
-e
-> >> days, this is not something we control and want to endorse.
-> >> So we would be quite reluctant (to put it mildly) about merging patche=
-s
-> >> that are solely needed for BSP firmware bits.
-> >>
-> >>> Keep both critical until remoteproc/mailbox drivers can claim them.
-> >>
-> >> I don't think this "until" is an argument. Even if we'd have Linux
-> >> driver support, they would be optional to use (not compiled, not
-> >> loaded), and would only be needed to *communicate* with the firmware.
-> >>
-> >> But those clocks are actually there to drive the RISC-V core clock, an=
-d
-> >> also the "RISC-V side" of the peripherals, due to a lack of separate
-> >> clock controls in the SoC in the Allwinner design. So the kernel shoul=
-d
-> >> not care about or touch those clocks at all - which is what
-> >> CLK_IS_CRITICAL does.
+On Wednesday 18 November 2026 15:58:02 koraynilay wrote:
+> On Wed Nov 18, 2026 at 3:26 PM CET, Pali Rohár wrote:
+> > Hello,
 > >
-> > No. CLK_IS_CRITICAL also tells the kernel to turn it on, and you then
-> > can never turn it off. You get a big warning if you try to defeat the
-> > refcounting, but nothing else happens.
->
-> Good point, so is CLK_IGNORE_UNUSED a better flag? As far as I can see,
-> it only prevents turning it off if unclaimed, it doesn't turn it on if
-> it was off initially, and it doesn't disallow turning it off.
-
-Yes. It's like an uncoordinated simplefb? :p
-
-> > So what if the *real* remoteproc driver needs to turn the clock off to
-> > pause the RISC-V core? It can't
->
-> I guess this depends on the use case, which isn't very well defined. If
-> this E902 is really a remoteproc device entirely controlled by Linux,
-> then sure: Linux should have full control over its clock.
-> But if it's running some kind of firmware component, then the kernel
-> shouldn't mess with it, IMHO. But I think there is still the arisc on
-> the A733, so this would more likely run the management processor (SCP) co=
-de?
-
-Even if it had firmware already running, if it provides some interface to
-the OS (other than PSCI / SCMI), then you'd probably still have a remotepro=
-c
-driver claiming and somewhat controlling it, plus rpmsg or something else
-to bridge the firmware interface.
-
-OTOH, AFAIK some SCP, such as crust, are pretty much transparent to the OS,
-i.e. the OS doesn't know about it. The RISC-V core is probably useful beyon=
-d
-just being the SCP. You could offload control of various hardware blocks to
-it if you wanted, or you could have it be an always on sensor hub. Either w=
-ay
-the OS would have some control over it and some defined interface to it.
-
-
-ChenYu
-
-> Cheers,
-> Andre
->
-> > So, not a fan of this. If the loaded firmware somehow needs some resour=
-ces
-> > then perhaps the software that loaded it needs to somehow tell the kern=
-el
-> > they are needed, like the bootloader patching the DT passed to the kern=
-el.
+> > I have just one issue with the userspace API. It does not allow me to
+> > figure out what is the source of statx btime field. If it is fs ptime or
+> > fs btime because this RFC implementation is mixing both fs ptime and
+> > fs btime into the statx btime field.
 > >
-> > If the firmware needs a piece of DRAM, you don't say in the kernel that
-> > this piece of DRAM is off-limits. You let the bootloader tell the kerne=
-l.
-> > Static DRAM carve outs with reserved-memory nodes in the DT source is a=
-lso
-> > ugly, as you could end up with mismatches if the firmware somehow chang=
-ed.
+> > I have feeling that this is quite a mess in API and I would like to see
+> > a clear distinguish between btime and ptime in the API, like there is a
+> > difference in the fs storage.
 > >
-> > IMO CLK_IS_CRITICAL should be used for things that the kernel knows it =
-needs
-> > but there's nothing to claim it.
+> > If the btime is used for forensic analysis then somehow I would expect
+> > that the statx would not report / not fill changeable ptime value into
+> > the statx btime.
+> 
+> Hi, for native linux filesystems it will report ptime as PTIME and btime
+> as BTIME (also semnatically).
+
+That is fine.
+
+> for the windows-like ones that only have
+> ptime (semantically) I think it's reasonable to not expect btime to be
+> immutable, since they are meant to be used with other OSs who lack btime
+> semantics.
+
+The problem is here that the RFC statx API does not provide this
+information that the fs lacks btime semantics and instead it fills
+non-immutable ptime value there.
+
+I'm pointing only about this inconsistency.
+
+> > It would be really helpful if the statx API on inode can differ between:
 > >
+> > 1. btime is present and its value is ..., ptime is not supported
+> > 2. btime is not supported, ptime is set to value ...
+> > 3. btime is present and its value is ..., ptime is set to value ...
+> > 4. both btime and ptime are not supported
 > >
-> > ChenYu
+> > This should cover all cases of different filesystems and also allows
+> > userspace to do proper backup of both ptime and btime fields (if it want
+> > to do forensic analysis or anything else).
+> 
+> These should already all be covered by STATX_BTIME/PTIME and their
+> fields in struct statx, the only problems are windows-like filesystems,
+> which IMO shuold be handled as mentioned above.
+
+Exactly, I pointed out about these problems. I somehow expect that the
+new API would be generic and uniform across filesystem. IMHO it does not
+matter if the filesystem is windows-like or not (there are also FreeBSD
+fs and also others which allows to modify that time). So better
+description is fs belongs to category 2. from my above description.
+
+> Of course, as in the other discussion, I'm open to changing ptime
+> NTFS/exFAT/... support to remove btime altogether and only use ptime for
+> their own crtime if that's what wanted (I'm fairly impartial on this
+> specific issue).
+
+I'm giving some ideas how to possible handle this situation:
+
+1. do not fill btime it at all when it is not available (remove btime
+   altogether - the case like you wrote above)
+
+2. when userspace ask both ptime and btime, then do not fill btime
+   (remove btime altogether - but only for that new case)
+
+3. fill btime with ptime value, but add a new output flag indicating that
+   the btime is not present at all and instead kernel filled ptime value
+   into the statx btime field
+
+4. let statx btime as currently is, and add two new statx fields:
+   immutable_btime and ptime. immutable_btime would be filled only if the
+   fs supports real btime (so not for ntfs/extfat crtime) and ptime would
+   be what is currently in RFC
+
+Ideas 2. 3. and 4. should be fully backward compatible as it would
+affect statx output only when called with new flags.
+
+> Thanks,
+> koraynilay
+> 
 > >
-> >>> This follows A523 bus-r-cpucfg in commit 1dba74abf3e2 ("clk: sunxi-ng=
-:
-> >>> Mark A523 bus-r-cpucfg clock as critical") and the temporary SCPI fir=
-mware
-> >>> clock protection for Meson AXG fclk_div3 in drivers/clk/meson/axg.c.
-> >>>
-> >>> On Cubie A7S with vendor boot0/BL31/SCP/U-Boot and without
-> >>> clk_ignore_unused, warm reboot returns with both clocks critical and
-> >>> stalls without them. Vinicius found either flag alone insufficient on
-> >>> Cubie A7Z. Power-off, suspend, single flags on A7S, other
-> >>> boards/firmware and upstream TF-A were not tested.
-> >>>
-> >>> Link: https://lore.kernel.org/r/20261005183038.417798-1-vinicius.edua=
-rdo.pedrosa@gmail.com
-> >>> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
-> >>> ---
-> >>> Changes in v2:
-> >>> - Drop r-timer0, bus-r-timer and bus-msgbox0: A7S warm reboot works w=
-ith
-> >>>     these at 0/0. Keep only the two E902/mailbox bus gates after Junh=
-ui's
-> >>>     review, pending remoteproc/mailbox ownership.
-> >>> - Rebase on CCU v7; its PRCM clock definitions are unchanged from v6.
-> >>>
-> >>> v1:
-> >>> https://lore.kernel.org/r/20261031020640-263f7b05-a7s-clock@gmail.com
-> >>>
-> >>> Base: v7.4-rc1. Depends on CCU v7 (all eight patches):
-> >>> https://lore.kernel.org/r/20261112-a733-clk-v7-0-db7c5451ffa2@pigmora=
-l.tech
-> >>>
-> >>> November 12 board test: two RAM boots and warm reboot -f returns on
-> >>> Cubie A7S with vendor boot0/BL31/SCP/U-Boot, without clk_ignore_unuse=
-d.
-> >>> Both retained clocks were 1/1; all three dropped clocks were 0/0.
-> >>> The no-flag stall was observed with CCU v6 on Nov 10; PRCM code is
-> >>> byte-identical in v7, where the no-flag control was not repeated.
-> >>> Runtime used DT v3 and its dependencies (all four UART v2 patches),
-> >>> with the PMIC identifier and pinctrl IRQ-map context adapted to the b=
-ase:
-> >>> https://lore.kernel.org/r/cover.1794227241.git.enzo.adriano.code@gmai=
-l.com
-> >>
-> >> I don't think there is any need for those longish test descriptions,
-> >> especially if they pass.
-> >>
-> >>>
-> >>>    drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c | 7 +++++--
-> >>>    1 file changed, 5 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c b/drivers/clk/s=
-unxi-ng/ccu-sun60i-a733-r.c
-> >>> index b8f6e8c6e507..f2965daba0d3 100644
-> >>> --- a/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-> >>> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-r.c
-> >>> @@ -108,7 +108,9 @@ static SUNXI_CCU_DUALDIV_MUX_GATE(r_spi_clk, "r-s=
-pi", r_spi_parents, 0x150,
-> >>>                                  0);
-> >>>    static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi", &r_ahb_clk.co=
-mmon.hw, 0x15c, BIT(0), 0);
-> >>>
-> >>> -static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_cl=
-k.common.hw, 0x17c, BIT(0), 0);
-> >>> +/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox=
- driver claims it. */
-> >>
-> >> Please change this comment. Something like the msgbox clock is shared
-> >> between the E902 core and the Arm APs.
-> >>
-> >>> +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox", &r_ahb_cl=
-k.common.hw,
-> >>> +                      0x17c, BIT(0), CLK_IS_CRITICAL);
-> >>>
-> >>>    static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0", &r_apb1_c=
-lk.common.hw, 0x18c, BIT(0), 0);
-> >>>    static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1", &r_apb1_c=
-lk.common.hw, 0x18c, BIT(1), 0);
-> >>> @@ -146,8 +148,9 @@ static SUNXI_CCU_MUX_DATA_WITH_GATE(r_riscv_clk, =
-"r-riscv", r_riscv_parents, 0x2
-> >>>                                  24, 2,        /* mux */
-> >>>                                  BIT(31),      /* gate */
-> >>>                                  0);
-> >>> +/* Vendor SCP firmware on E902 needs this until a remoteproc/mailbox=
- driver claims it. */
-> >>
-> >> and this. Just note that the E902 might be running on its own, in a pu=
-re
-> >> firmware role, or even completely separate from the main kernel.
-> >>
-> >> Oh, and also please put somewhere that this is based on the linux-sunx=
-i
-> >> for-next tree, aside from just having the base-commit ID below.
-> >>
-> >> Cheers,
-> >> Andre
-> >>
-> >>>    static SUNXI_CCU_GATE_HW(bus_r_riscv_clk, "bus-r-riscv", &r_apb0_c=
-lk.common.hw,
-> >>> -                      0x21c, BIT(0), 0);
-> >>> +                      0x21c, BIT(0), CLK_IS_CRITICAL);
-> >>>    static SUNXI_CCU_GATE_HW(bus_r_riscv_cfg_clk, "bus-r-riscv-cfg", &=
-r_apb0_clk.common.hw,
-> >>>                         0x21c, BIT(1), 0);
-> >>>
-> >>>
-> >>> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> >>
->
->
+> > Pali
