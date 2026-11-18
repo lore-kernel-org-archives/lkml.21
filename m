@@ -1,163 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.137
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795013702;
-	b=HKw+zk5+XrqG9rtOT4QG2RIkBwazx9MpydNFFY9jrAAU/f6TbBgtHr+Bae71i3P73guT
-	 otA3LiybqP8LtGMfVtx0Ccy9Fbb8xDPw6AcxtBxMbMG/oTF4O2tzwhMwsJyPTw2retsrh
-	 mKxeAlUlspUx5JdkK4SIKMj3lmwnQIQTpcVecO9xTm61umjRi6G+e8W3MAaRK9JvcVUOL
-	 U87D55W2SZrO9vurE2CnxnBH67lN49yqhj+vmH/cPoyf9xUZlElvJSK1s2r5wlAcosGFi
-	 saU4xFlmC0Q9ozkaJNpHuSLBnS/8iQPfcZTymB0B4Tp1CToZQbdPBhQHIbMEnXJQKVw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013702;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7oCCgjYzZJzbpaZ05GSgn3Hf0a4eBKBCp07jqv/ifLs=;
-	b=3upnd2wuJywLs2fJQbKA9l3twQLX+QY2SVqiNJx4tijVDTlxoHaSZ8OpSd8qS+CCPi6f
-	 DyHbSXbCiyE121u3khcbYtdgW+vU6PXPp1CdKLEBEn0agI9mI6mhTOv6ft1HzHAGeIigU
-	 ghdvQ2mZA02IpeAyw111Qu7ymoFMYwHa+p4OBCJDhLyo2v/SoKCKnf1OPtta69E82MOSF
-	 ny+eKUDsjqo6NQauaCe3FQuPSLxm9tDQMh7uFOZ2R1OVQw6d+KU9TAZPIb2OApAKUQTY6
-	 /9MAQ+V8gTPORQ2byymNJ4fmvoFtqubEpCDs3Pyk/T5/XDa77JtZlJaxHLY92KEc3bg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=htecgroup.com;
-	spf=pass smtp.mailfrom=htecgroup.com;
-	dkim=pass header.d=htecgroup.com header.i=@htecgroup.com header.a=rsa-sha256 header.s=selector1 header.b="Ou5xa/PD";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.137
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11020137.outbound.protection.outlook.com [52.101.84.137])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795013715;
+	b=vv9ihEPyTJmmlpkhkhG1NbCnat7Wcat73Ui1qK1YMnQx6z1Q521nAQI2KOS/22bNmWGv
+	 o8m9o+c60rBEP641TSh8wZg+kAVn3NGWzRZqZpX7iumt7f2KFpwFrKo2Nm/y9AP9z3GMI
+	 Kd6ZeoyWOElaH9h6/TJiXa4yO8QXna2YnN7awaaPJSEFVQeH9sZ9mvVmgkEyoiEv7Uhub
+	 68L0Q1hdM3QI1zHdz5tptNZpf8Q4PLTXzgsjTGnO1kxQSOIIY0LC4NcXh8kL4OOrcLVyS
+	 xf0hjUGYHFtsf21BW0LqglyzGgI6p1AGkGAWXyVstJqotSWFrGYwQc1QP41DEYlSJgQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013715;
+	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
+	 X-CM-SenderInfo;
+	bh=9hLOX2ldWRjXSOq88kJMEaSZ341mJ22wqd5n5mLUX0Q=;
+	b=dqisJdHjrWd/P4ZwQQ4vtMpgGnPW1VQylro090pDjurGWNOVD0CiPFALM4m7OTJn9UhL
+	 gW3VLhzkChSELVEmXFXNLPfJil5coZb42lgFsXyg7+oR8rSU5ZKmyxPEiV9b0tya+TI/6
+	 EAcr7Hdp4Bf6tJdx7Al3yY4sFuYxQsMdMPXi9/G+o5zfrpG1Fm/d5+GbvrMGlledgjel0
+	 IuS4QC9W4zxU092uTz+o+7pJjitnjPLXb0G4oHTN61IQODPCs+dcdIQ5brk+1LbGn/+9L
+	 qqEXCEXqmsKlXoa++c6mnqfaB+R/U38OpTCx5vZOn5rdufmCGd9m7axKBfdWsdDWQWA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=iscas.ac.cn;
+	spf=pass smtp.mailfrom=iscas.ac.cn;
+	arc=none smtp.remote-ip=159.226.251.25
+Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BEA9606A31C;
-	Wed, 18 Nov 2026 14:55:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BEA9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=htecgroup.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=htecgroup.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=htecgroup.com header.i=@htecgroup.com header.a=rsa-sha256 header.s=selector1 header.b=Ou5xa/PD
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=obSnnoDm630C4ywQYCIPRAQ3DkJXv+bcHetc/ACqNiSlW/cb4XgjM56W7SbIrMioGrWuGdAyd6HCTq0eMT0P36zvUm7+jVxUUVZHOTfHlR7rurI6lDQpeABu92X8rCnmidbRltB6HsDgYZ3fVTPNMcTUaWAIWhm93UsLficX/4nbDsJwjQSL6Z+ym1lToKu2F6QN0kCpXJNEp/z2+Gw4mlIDtsQPk1XhMehjPx3UGbwR1TBlyebCFi1CbwjevFY+WRZOKGrIWW8Y6rzL1XOMtQkqcowpnV/AloaP5bczmxO/4Oe/kaLxgfl74yEIj8DsU1ArPA2nx5NTNDk2/p6DMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7oCCgjYzZJzbpaZ05GSgn3Hf0a4eBKBCp07jqv/ifLs=;
- b=k1JZWT0qZlg3dK5Ft5fLWfrAHEiCjAzrhNS9WyeULQ3hib44W6W/ljGDTeRUCJWWxue5P2TQzAHSTTAUQOKyFvzNBz+lASa6uke8i1llFdHfVBocDpiq7LypUtAmlb6XCAMwWEFT1glQcPAFpDPGf0V/xzx102yZanFwUkOBxqKlrm66HzKJzeuTqa8cFEG1FwY/xatpXKdYBwwhskOkkwPChKd/JmJ9+pczAFY0UKyiNgni3BYhvxXxZWX0D8ewYMapQtnZ1W5MYXmPQuDX6Epy+fvt44Yg1canmSt+JSdBrbdVtPLDeIBLiskdF/ZdrMrfnDDWJG0mwEVnR6EjqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=htecgroup.com; dmarc=pass action=none
- header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7oCCgjYzZJzbpaZ05GSgn3Hf0a4eBKBCp07jqv/ifLs=;
- b=Ou5xa/PDsRifGS4ev8tAbBmRwWjT6DGCqoons3jZPAVAn89KR67PvUhNyuAeGBavT8nMJ3d6q5i31DoSZqhjStpetFmkxE6TKIsbuL6ZqmB07kSZ7ijd+eqXHZcZwYg79obO5SP3Qr4duaMrTzYOMLdQlhMO9cz/xoFxMJajlCASvxrYjJrCb/zhud4QV3JIsmHrZGZWQ0jR/0bClzqQn6U0CpGLCO0c9D4VUiuUTcT58otbKiu8PlKi4LKtKr6rmnlL3SuRfKqdjJItELt1AGGJw/VwzLT60RAqtZBV41YvtkLCRXSB/uCEEShFpa+n3Tz9Xmj7GR4iFJ4waz/bKg==
-Received: from MMZPR09MB547520.eurprd09.prod.outlook.com
- (2603:10a6:190:56::10) by PA4PR09MB4559.eurprd09.prod.outlook.com
- (2603:10a6:102:f3::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 14:54:55 +0000
-Received: from MMZPR09MB547520.eurprd09.prod.outlook.com
- ([fe80::5b5:f191:1ccc:f9ee]) by MMZPR09MB547520.eurprd09.prod.outlook.com
- ([fe80::5b5:f191:1ccc:f9ee%7]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 14:54:55 +0000
-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-To: "conor@kernel.org" <conor@kernel.org>
-CC: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>, "alex@ghiti.fr"
-	<alex@ghiti.fr>, "anup@brainfault.org" <anup@brainfault.org>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "daniel.lezcano@kernel.org"
-	<daniel.lezcano@kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Djordje Todorovic
-	<Djordje.Todorovic@htecgroup.com>, "inochiama@outlook.com"
-	<inochiama@outlook.com>, "joel@jms.id.au" <joel@jms.id.au>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"palmer@sifive.com" <palmer@sifive.com>, "paul.walmsley@sifive.com"
-	<paul.walmsley@sifive.com>, "pjw@kernel.org" <pjw@kernel.org>,
-	"radu@rendec.net" <radu@rendec.net>, "robh@kernel.org" <robh@kernel.org>,
-	"tglx@kernel.org" <tglx@kernel.org>, "vladimir.kondratiev@mobileye.com"
-	<vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH v3 5/8] dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
-Thread-Topic: [PATCH v3 5/8] dt-bindings: timer: Add MIPS P8700 ACLINT MTIMER
-Thread-Index: AQHddcFlASPgk19b/0evbbBIkPjnvbcw9NAAgAL5NwA=
-Date: Wed, 18 Nov 2026 14:54:54 +0000
-Message-ID: <b441b559-9070-4265-a720-035ebef702e8@htecgroup.com>
-References: <20261116-exquisite-taco-e48371fe6912@spud>
-In-Reply-To: <20261116-exquisite-taco-e48371fe6912@spud>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=htecgroup.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MMZPR09MB547520:EE_|PA4PR09MB4559:EE_
-x-ms-office365-filtering-correlation-id: 14d5cb51-69c2-4043-5aec-08df4583e847
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|38070700021|261102123227099003|10067099003|11063799006|56012099006|261026121527099003|261021121427099003|22082099003|6133799003|18002099003;
-x-microsoft-antispam-message-info:
- Jug8pBBl3iPLqIRMWpPsjL0kJU17ZaJd/CFDRrOxymG303Zt9Lg6fHtcHINhVv0OJM3/X9s62NAfe/0h2BGHMUCa4gbeztOAPE1nSCM06kG2khLOER0YVfmp/TXRTiy6QO28FcJi5oH4UgSfmM8GzDZ/sGvJ6mmf4udwVR/A5JRU5pI5AM2+kWhN4w6MnKKZwTkzDf58j3UlZsQtvOAehbPEjMW/HCcTnmQ9XdJ8Tv6jSQ97HQptE2k23ChIzfVUMm9LwOCzgof8vQKNpexjlf451uyN1guBnh7p+Hdh8gf/+4AVNupLJxIxd1v4zOOMtg60Zw6/HZGaK5vIPVlF+xu8ClR0flMO/StBF6+ls71Jsjv3nNCT24UoPjzyBPsA+EFkLIjyjay3l/FXlNcEjDT/pnm6gDmaPeSvDt+DbxsSQsRgVuOCizaECK2sTs+2BTjd2/7tvfauOCGTYhl461PK3Fsr+3E4vHPhW0ab5+hA9EhfNmw4xE4aMk22Iw3+u+Ev7/Bx42IQNDg5ljBdfJG+hGwhZGVnfVBFJ9NdNejBStyyoVtgt+J7VwB5cahIOzsZNeSeajp6gACLb82IYlL9eXlrOC+G0DYUDl5heDU2/dDV/zgnAtsL3jbhUyRx60rUh3CohReIXzNcx0k+R7pZ3Eb4Bz34GK3jjjYDiFyEcD/wJsMH1f3te0eqMJceccqk0RSKwuCIR7+CQ9j5fw==
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MMZPR09MB547520.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(38070700021)(261102123227099003)(10067099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?VlZQOUxyOUdmWGd3SjNpajhabkk0STdpSVNHcGJtUzdncXR2NzhibzBQVFpT?=
- =?utf-8?B?VDVzank5M2wycDhzanFNUWtSdndtc2Z5ZVBoOGQ0clFHZTNKMzFoZElyWCtT?=
- =?utf-8?B?WFdCRDhOY25QQWQ4Ukg0WGdjaTFYeU83RFNsOXN3dk1iNVFJNlEvNmgxZVVP?=
- =?utf-8?B?anNPMnVmb28yNmZpaW9FYTNDQlhRQmxaQjh0ZWhVQ2ppOW9MOW9obEhBSHMr?=
- =?utf-8?B?MWJpMUR0eUo3M1UzMlR6RnZaU1VjYXdwbUJaY0pEZlM4RkpkS3dkSDlwUTI0?=
- =?utf-8?B?VFVlNGY3VmlGYTdUWFlGTGhwT0dUaEdvbVF3TU05a2pXczIySXhjamlCZzBm?=
- =?utf-8?B?TzlwYldCNUVVaXMwaTlza2tuemRMeWN4M0VQNVgyaktQVy9qMXhoY1J4QTZ0?=
- =?utf-8?B?NjNpNG5CV2UwVVg3YnpFeVRDcS9qb0pHT29ndjFqYUlTR1JhMUdKeXprcUdr?=
- =?utf-8?B?L1VaYVJtMEhJU2EyZm5sM3FzVkJWc085YlRIZnhUbDlGNzRGTTZVRW94Zlor?=
- =?utf-8?B?TXlLVHordWxad0FOM3ZWMEFNUXJTS1dnRUFveE5UUXJBOEpvb2FsV09vRE9q?=
- =?utf-8?B?ZTA0YzFJR1RCV1dRYkJjZ01KSDR0RCtoR1dUSTl6OVNYdktZdm9weEcrNjAr?=
- =?utf-8?B?MFphM1J3ZjRyb1BVbkVXcy91NHNpT0ZISTRpWUZFdGMwOE1kMU8zQ2xvYWQz?=
- =?utf-8?B?aFF6anh5SHQ5TUlZY3pzMGRDVWttRFdldDE0NTlRc1lSd1V6VFNhRnlWK0I4?=
- =?utf-8?B?cGRRbnBmWUF1QUhsQ2dhVFFsUk14cVBVVXN6NFkxY28vekUvekFPeGRiQU5j?=
- =?utf-8?B?NjdNejhjSVdxVDcyRUJlZ0lwZlpEUUdubU1qNjRscFlqeDhIdWRnYjcrMG1z?=
- =?utf-8?B?UklCa1FxVDZBdUg5MHY1SnBScDEwb2ozdHJ4U2RUcGNLeU9FeWRvdUZ6Vlph?=
- =?utf-8?B?WWRPVE1jTENBZWlLVVh4WHFTbnhkRlJ5R0RJNFNDL0RyS2gwMlRYdFljY1Jk?=
- =?utf-8?B?N1AraHJRVWhWSkxkS3A1Ym1wREFlWWFYNW51NnZzcEVuQ1ZwaTJnejZCbFU1?=
- =?utf-8?B?Q09zUHZsVzBLZndzT2JtR081eVhHVHRjY3loQWloc1BRU2tVRXJwS1N1RnZ2?=
- =?utf-8?B?MlRvcEJBQnZPWWtybHErVm5wbDBMVnZYbWpRajlLdkorMXZGbGVtc1RmS2xL?=
- =?utf-8?B?OHNKT1Z0QmExZzVVZ3Z0NGZFZWFkRTZPU2tvY290ZHBQVHQxS25SaElHdkNk?=
- =?utf-8?B?TXc5SVVIUVgrd0hxcXg1emFFYXRDY1lhd2xyMi9LcW93cjdaWGVmaERvU3VB?=
- =?utf-8?B?TGhFakpyK2NodVpsZWtUM2VHNXc1Y2Y1YnhNS0t5VHJlZVRYY2tpL1dac1Bi?=
- =?utf-8?B?MmlHaFl3WGw2d3phdEo1dkVFclc3bVc5b2JWcjcrMExCODAwRUxEalozek5M?=
- =?utf-8?B?UWVGWHdaQ1RiTWRBRWdkeHgyUXd1cEs2bmkwZzVvVnkwU0tndWJpT2RwNG9S?=
- =?utf-8?B?blBjMjQ3QllXNjYxNGNTVjNlMEVkTXNaVEcwNGdESEd2YndrendLSlVCQXFI?=
- =?utf-8?B?SENpRldLMWpDTTl0d2YzR09sQWhzQjllaFd3b05oNHMzVTJFdVNETXVjcGd4?=
- =?utf-8?B?ZHl2UHk5Y3RiQzRGcUlxcnV5cnIrTHFqai8yYXR4YlhMdnlOVEZVYURCVzRU?=
- =?utf-8?B?RnEyd2VxZEtyUURlOEtHWmVKd05rZmkzL1JOUGg5UmNvN2wwVklJZGdSeVRw?=
- =?utf-8?B?N2JCMzhYR2NnTkVnYXVsYnJjeEdMTGtZNUVFenVKZmZ3QmNMeU92SHh0M1J5?=
- =?utf-8?B?aFZEWWk1cUxLVlltTUV4VlQxcnNMYkNOeGVWaUNNRnErVjVqSFBuQk13RXpQ?=
- =?utf-8?B?c3RKTnFYaVF1dDBNWVRHNUZ3UzF6c2N3VGVhZC9uQklGeFh4SHN3OXNIWlJX?=
- =?utf-8?B?QnJrSUpFbFBlQ0pLQktxY0NjZXB2TmVRai93djROeHRMUWlnNGMyazcwaHBC?=
- =?utf-8?B?RDNVUW9mbmZRM0Z1dlpUMmRYUlJ2NXBKNFc4MHlabTZuV3RLd0VneXRoaG9a?=
- =?utf-8?B?TmZnY3NlZnhsenRhNnFvclNzbThRSm1qaUFjS3Q2US9xbldicHZYRkIvelZt?=
- =?utf-8?B?ZVRSSzBHN2puSmIzQkw2KzNZMytCalpnYWhydGREVmRSSXRoWWhGbStWdER1?=
- =?utf-8?B?b2dGQnJ0ejJ4UTdFODg3VG4wclJwUUtVdXBjTU9LWk0zYndnYlRuOE44WFFh?=
- =?utf-8?B?cm5oK0RFUFovdjdwQndhTmcwT0lDaDRHNHh0ODM5cWQrb2t6TW05WjBJeFVK?=
- =?utf-8?B?aHM2Vk9XYUJLWGNrZjJhNDhnQ004TVRiSEFSK2prY2Q3UVRaZTcwdHNQZmpo?=
- =?utf-8?Q?48zT52HnlHsbMYkQ=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <0CD0E314CD83D34788E600509D0A98F1@eurprd09.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3052C606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:55:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3052C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
+	by APP-05 (Coremail) with SMTP id zQCowAAXrrM7vP1q8AppAQ--.6503S2;
+	Wed, 18 Nov 2026 22:54:51 +0800 (CST)
+Message-ID: <14e5c5d17414562b36b1650955dc440a68a83e71.camel@iscas.ac.cn>
+Subject: Re: [PATCH v2 2/4] drm/verisilicon: nuke planes' atomic_enable hooks
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Thomas Zimmermann <tzimmermann@suse.de>, Maarten Lankhorst
+	 <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Joey Lu
+ <a0987203069@gmail.com>, Han Gao <gaohan@iscas.ac.cn>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 22:54:50 +0800
+In-Reply-To: <4404265c-ae14-4d17-82ad-46ed6c123c6b@suse.de>
+References: <20261102075710.1286456-1-zhengxingda@iscas.ac.cn>
+	 <20261102075710.1286456-3-zhengxingda@iscas.ac.cn>
+	 <8e3b36c6-e2d8-4746-aefe-462bba1a4b05@suse.de>
+	 <5830251f1420c152b2efc2ee37248057bdfc901d.camel@iscas.ac.cn>
+	 <55991183-ab5f-4445-afce-37a79310ef27@suse.de>
+	 <83aa9fb5be26fb407c7f1393bc01099d374cf51f.camel@iscas.ac.cn>
+	 <7e4b4fd185f47404bb5f18e7c2c8086d24e673f4.camel@iscas.ac.cn>
+	 <a96e7813-6918-44f5-82e2-ca40051abea0@suse.de>
+	 <73f4e371c37c36581240ff355fef3de2afaaa033.camel@iscas.ac.cn>
+	 <4404265c-ae14-4d17-82ad-46ed6c123c6b@suse.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -167,30 +67,322 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: htecgroup.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MMZPR09MB547520.eurprd09.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14d5cb51-69c2-4043-5aec-08df4583e847
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 14:54:54.9447
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: NA7dGWLfmtEE7PirZFuKm01fPQlgCo+T1Ne4w+P+X9q09MtWqOvBJJ+2iB1NfE7F42ixOByPjcofz3GQAuCWQ74VY82LQgZADWx6oVSjZZE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR09MB4559
+X-CM-TRANSID:zQCowAAXrrM7vP1q8AppAQ--.6503S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3XFWfXrWxur4kGr1fWFW7Jwb_yoWfKFyxpr
+	WktF18KrWrXry8Jry7tw4jyFWaqr4Ut347Xr15JF1jqrn0krnrWF18trnruF48Xr48G3Wx
+	Jr47AF9rZr18AF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvSb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43
+	ZEXa7IU56yI5UUUUU==
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-T24gMTEvMTYvMjYgMTg6MzAsIENvbm9yIERvb2xleSB3cm90ZToNCj4gT24gTW9uLCBOb3YgMTYs
-IDIwMjYgYXQgMTI6NTU6MTJQTSArMDEwMCwgQWxla3NhIFBhdW5vdmljIHZpYSBCNCBSZWxheSB3
-cm90ZToNCj4+IEZyb206IEFsZWtzYSBQYXVub3ZpYyA8YWxla3NhLnBhdW5vdmljQGh0ZWNncm91
-cC5jb20+DQo+Pg0KPj4gRG9jdW1lbnQgdGhlIE1JUFMgUDg3MDAgQUNMSU5UIE1USU1FUi4NCj4+
-IEV4dGVuZCBzdXBwb3J0IGZvciBib3RoIG10aW1lY21wIGFuZCBtdGltZSByZWdpc3RlcnMNCj4+
-IHdpdGhpbiB0aGUgQUNMSU5UIE1USU1FUiwgaWRlbnRpZmllZCB2aWEgcmVnLW5hbWVzLg0KPj4N
-Cj4+IFNpZ25lZC1vZmYtYnk6IEFsZWtzYSBQYXVub3ZpYyA8YWxla3NhLnBhdW5vdmljQGh0ZWNn
-cm91cC5jb20+DQo+IFBlcmhhcHMgd29ydGggbWVudGlvbmluZyB0aGF0IHdlIGFyZSBkb2luZyB0
-aGlzIHRoaXMgd2F5IGJlY2F1c2Ugb3BlbnNiaQ0KPiBleHBlY3RzIHRoaXMgYmVoYXZpb3VyLCBh
-cyBkb2VzIHUtYm9vdCwgZm9yIHRoZSByaXNjdixhY2xpbnQtbXRpbWVyDQo+IGNvbXBhdGlibGUg
-YW5kIHdlIHdpc2ggdG8gYWxpZ24gdGhpcyBkZXZpY2Ugd2l0aCBpdC4NCj4NCj4gQWNrZWQtYnk6
-IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3JvY2hpcC5jb20+DQo+IHB3LWJvdDogbm90
-LWFwcGxpY2FibGUNClRoYW5rcyENCj4gKElmIEkgZW5kIHVwIGFwcGx5aW5nIHRoaXMsIEkgd2ls
-bCBhbWVuZCB0aGUgY29tbWl0IG1lc3NhZ2UpDQpJIGNvdWxkIGRvIHRoYXQsIHNpbmNlIEknbSBz
-ZW5kaW5nIG91dCB2NCBhbnl3YXkuwqANCg0KQmVzdCByZWdhcmRzLA0KQWxla3Nh
+=E5=9C=A8 2026-11-17=E4=BA=8C=E7=9A=84 08:39 +0100=EF=BC=8CThomas Zimmerman=
+n=E5=86=99=E9=81=93=EF=BC=9A
+> Hi
+>=20
+> Am 17.11.26 um 08:34 schrieb Icenowy Zheng:
+> > =E5=9C=A8 2026-11-17=E4=BA=8C=E7=9A=84 08:25 +0100=EF=BC=8CThomas Zimme=
+rmann=E5=86=99=E9=81=93=EF=BC=9A
+> > > Hi
+> > >=20
+> > > Am 17.11.26 um 06:19 schrieb Icenowy Zheng:
+> > > [...]
+> > > > > > Sure, but is that a problem for this hardware?
+> > > > > For the cursor plane, the unchecked coordinate might be
+> > > > > improper
+> > > > > for
+> > > > > the registers.
+> > > > >=20
+> > > > > For the primary plane, if the plane is found to be totally
+> > > > > off by
+> > > > > drm_atomic_helper_check_plane_state(), the check for
+> > > > > can_position,
+> > > > > which is below the code snippet I referenced, would be
+> > > > > bypassed,
+> > > > > and
+> > > > > such plane would be programmed to be visible by the
+> > > > > atomic_update
+> > > > > hook
+> > > > > even if it shouldn't be visible.
+> > > > Well I am now thinking that bound-but-invisible situation is
+> > > > commonly
+> > > > ignored by drivers.
+> > > >=20
+> > > > For drm/verisilicon, maybe I'd remove both atomic_disable and
+> > > > atomic_enable; however I think the atomic helpers may need some
+> > > > flag to
+> > > > consider bound-but-invisible planes when calling
+> > > > atomic_{dis,en}able.
+> > > I don't think I really understand what you're up to, but it seems
+> > > you're
+> > > overthinking the whole thing. Other drivers only care about plane
+> > > on/off
+> > Well I don't know whether I am overthinking...
+> >=20
+> > Enabled but invisible planes are explicitly allowed in
+> > drm_atomic_helper_check_plane_state(), and even the can_position
+> > check
+> > is bypassed in such case (so such a configuration can even appear
+> > on
+> > primary planes). In addition, in most implementations for
+> > atomic_check,
+> > the invisible situations have the validity check explicitly
+> > skipped, so
+> > just disallow enabled-but-invisible planes in atomic_check would
+> > make
+> > the behavior quite different with most drivers.
+> >=20
+> > Maybe I should craft some "evil" programs to check for this
+> > situation.
+>=20
+> If you can make an igt test case for broken plane coordinates, go for
+> it.
+
+Well the behavior here is possible to be examined with modetest.
+
+My conclusion is that off-screen plane coordinates is really something
+needed to be handled. I think I am not overthinking, but I will drop
+both atomic_enable and atomic_disable for symmetry in the next revision
+of this patchset.
+
+In the following tests, connector 48 is connected to a HDMI sink (a
+capture card) with a preferred mode at 1280x720@60, CRTC 46 is second
+CRTC (which is hardwired to the HDMI connector), plane 41 is the
+primary plane of CRTC 46 and plane 43 is the cursor plane of CRTC 46.
+
+`modetest -s 48:1280x720 -P 43@46:64x64+200+200@AR24` properly creates
+a 64x64 overlay at (200, 200).
+
+`modetest -s 48:1280x720 -P=C2=A041@46:1280x720@XR24` changes the whole
+primary plane to a overlay pattern.
+
+`modetest -s 48:1280x720 -P 41@46:1280x720+200+200@XR24` displays SMPTE
+pattern (instead of overlay pattern) on the primary plane, and the
+plane operation fails with `failed to enable plane: Invalid argument`
+error message (which means an offseted position of the primary plane is
+rejected).
+
+With no patch applied to v7.4-rc3 drm/verisilicon:
+
+`modetest -s 48:1280x720 -P 43@46:64x64+2000+2000@AR24` crashes the
+kernel with NULL pointer dereference caused by
+vs_cursor_plane_atomic_disable() called by
+vs_cursor_plane_atomic_update().
+
+With vs_cursor_plane_atomic_disable() call removed from
+vs_cursor_plane_atomic_update():
+
+`modetest -s 48:1280x720 -P 43@46:64x64+2000+2000@AR24` leaves dirty
+state in the cursor configuration registers, and the cursor is fully
+visible when it shouldn't (when running after setting the cursor at
+(200, 200), the cursor is left at (200, 200) instead of being hidden).
+
+Even `modetest -s 48:1280x720 -P 43@46:40x64+2000+2000@AR24` in this
+case shows the cursor plane despite the hardware only accepts squared
+cursors because of the validity check of off-screen planes is skipped
+(which means programming registers in atomic_update callback is now not
+safe).
+
+Then, with PATCH v2 3/4 from this patchset applied:
+
+`modetest -s 48:1280x720 -P 41@46:1280x720+2000+2000@XR24` leaves a
+black screen, without any error message (because the off-screen
+position of the primary plane isn't rejected and makes the plane
+invisible).
+
+Then, with vs_primary_plane_atomic_disable() call removed from
+vs_primary_plane_atomic_update():
+
+`modetest -s 48:1280x720 -P 41@46:1280x720+2000+2000@XR24` displays
+SMPTE pattern (instead of overlay pattern) on the primary plane, and no
+error message is shown.
+
+Thanks,
+Icenowy
+
+>=20
+> Best regards
+> Thomas
+>=20
+> >=20
+> > Thanks,
+> > Icenowy
+> >=20
+> > > and the contained image. That's also what the 3 callbacks are
+> > > for. It
+> > > usually works nicely. Hence me asking. But maybe verisilicon is
+> > > different, IDK.
+> > >=20
+> > > My suggestion is therefore to remove _enable and _disable and
+> > > keep
+> > > all
+> > > logic in _update.
+> > >=20
+> > > atomic_update()
+> > > {
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 if (plane_state->visible) {
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 // do update
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 // enable hw plane
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 } else {
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 // disable hw plane
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 }
+> > > }
+> > >=20
+> > > If you have any special cases where you want visible to be false
+> > > (or
+> > > true), detect them in atomic_check and set the flags accordingly.
+> > >=20
+> > > atomic_check()
+> > > {
+> > > drm_atomic_helper_check_plane_state() =C2=A0 =C2=A0 if (awkward coord=
+s)
+> > > =C2=A0=C2=A0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0plane_state->visible =
+=3D false;
+> > > }
+> > >=20
+> > > Best regards
+> > > Thomas
+> > >=20
+> > > > Thanks,
+> > > > Icenowy
+> > > >=20
+> > > > > Thanks,
+> > > > > Icenowy
+> > > > >=20
+> > > > > > Best regards
+> > > > > > Thomas
+> > > > > >=20
+> > > > > > > The end of drm_atomic_helper_check_plane_state() says:
+> > > > > > >=20
+> > > > > > > ```
+> > > > > > > 	if (!plane_state->visible)
+> > > > > > > 		/*
+> > > > > > > 		 * Plane isn't visible; some drivers can
+> > > > > > > handle
+> > > > > > > this
+> > > > > > > 		 * so we just return success here.=C2=A0
+> > > > > > > Drivers
+> > > > > > > that
+> > > > > > > can't
+> > > > > > > 		 * (including those that use the primary
+> > > > > > > plane
+> > > > > > > helper's
+> > > > > > > 		 * update function) will return an error
+> > > > > > > from
+> > > > > > > their
+> > > > > > > 		 * update_plane handler.
+> > > > > > > 		 */
+> > > > > > > 		return 0;
+> > > > > > > ```
+> > > > > > >=20
+> > > > > > > Thanks,
+> > > > > > > Icenowy
+> > > > > > >=20
+> > > > > > > > [1]
+> > > > > > > > https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/=
+drm/drm_atomic_helper.c#L3030
+> > > > > > > >=20
+> > > > > > > > Best regards
+> > > > > > > > Thomas
+> > > > > > > >=20
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=20
+> > > > > > > > > diff --git
+> > > > > > > > > a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+> > > > > > > > > b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+> > > > > > > > > index 8e94491693019..fca692f4f7d5c 100644
+> > > > > > > > > --- a/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+> > > > > > > > > +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane.c
+> > > > > > > > > @@ -59,25 +59,6 @@ static void
+> > > > > > > > > vs_primary_plane_commit(struct
+> > > > > > > > > vs_dc
+> > > > > > > > > *dc, unsigned int output)
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0			VSDC_FB_CONFIG_EX_COMMIT=
+);
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 }
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=20
+> > > > > > > > > -static void vs_primary_plane_atomic_enable(struct
+> > > > > > > > > drm_plane
+> > > > > > > > > *plane,
+> > > > > > > > > -					=C2=A0=C2=A0 struct
+> > > > > > > > > drm_atomic_commit *atomic_state)
+> > > > > > > > > -{
+> > > > > > > > > -	struct drm_plane_state *state =3D
+> > > > > > > > > drm_atomic_get_new_plane_state(atomic_state,
+> > > > > > > > > -
+> > > > > > > > > 					=09
+> > > > > > > > > =09
+> > > > > > > > > 	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 plane);
+> > > > > > > > > -	struct drm_crtc *crtc =3D state->crtc;
+> > > > > > > > > -	struct vs_crtc *vcrtc =3D
+> > > > > > > > > drm_crtc_to_vs_crtc(crtc);
+> > > > > > > > > -	unsigned int output =3D vcrtc->id;
+> > > > > > > > > -	struct vs_dc *dc =3D vcrtc->dc;
+> > > > > > > > > -
+> > > > > > > > > -	regmap_set_bits(dc->regs,
+> > > > > > > > > VSDC_FB_CONFIG_EX(output),
+> > > > > > > > > -			VSDC_FB_CONFIG_EX_FB_EN);
+> > > > > > > > > -	regmap_update_bits(dc->regs,
+> > > > > > > > > VSDC_FB_CONFIG_EX(output),
+> > > > > > > > > -		=09
+> > > > > > > > > VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
+> > > > > > > > > -		=09
+> > > > > > > > > VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
+> > > > > > > > > -
+> > > > > > > > > -	vs_primary_plane_commit(dc, output);
+> > > > > > > > > -}
+> > > > > > > > > -
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 static void
+> > > > > > > > > vs_primary_plane_atomic_disable(struct
+> > > > > > > > > drm_plane
+> > > > > > > > > *plane,
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0					=C2=A0=C2=A0=C2=A0 str=
+uct
+> > > > > > > > > drm_atomic_commit *atomic_state)
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 {
+> > > > > > > > > @@ -144,13 +125,18 @@ static void
+> > > > > > > > > vs_primary_plane_atomic_update(struct drm_plane
+> > > > > > > > > *plane,
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	regmap_write(dc->regs,
+> > > > > > > > > VSDC_FB_BLEND_CONFIG(output),
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	=09
+> > > > > > > > > VSDC_FB_BLEND_CONFIG_BLEND_DISABLE);
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=20
+> > > > > > > > > +	regmap_set_bits(dc->regs,
+> > > > > > > > > VSDC_FB_CONFIG_EX(output),
+> > > > > > > > > +			VSDC_FB_CONFIG_EX_FB_EN);
+> > > > > > > > > +	regmap_update_bits(dc->regs,
+> > > > > > > > > VSDC_FB_CONFIG_EX(output),
+> > > > > > > > > +		=09
+> > > > > > > > > VSDC_FB_CONFIG_EX_DISPLAY_ID_MASK,
+> > > > > > > > > +		=09
+> > > > > > > > > VSDC_FB_CONFIG_EX_DISPLAY_ID(output));
+> > > > > > > > > +
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	vs_primary_plane_commit(dc=
+, output);
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 }
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=20
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 static const struct drm_plane_he=
+lper_funcs
+> > > > > > > > > vs_primary_plane_helper_funcs =3D {
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	.atomic_check	=3D
+> > > > > > > > > vs_primary_plane_atomic_check,
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	.atomic_update	=3D
+> > > > > > > > > vs_primary_plane_atomic_update,
+> > > > > > > > > -	.atomic_enable	=3D
+> > > > > > > > > vs_primary_plane_atomic_enable,
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	.atomic_disable	=3D
+> > > > > > > > > vs_primary_plane_atomic_disable,
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=20
+
