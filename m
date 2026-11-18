@@ -1,74 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033057;
-	b=3s0m31S9+LFJr4yoNr2DODL1vltJaaqoujtjhBCeoFWHGenlLiunZPJBp6WJlIy1CFnQ
-	 VbqvuPO0dATkbwquDS/9tH4tmup087MREqc5nXX5fVBtlZ1QfYyRnziCkDuQ0GfbuR5m4
-	 a3+IyvLIxMQrLTbrahgHCua1ZdLzeqGMMP6PJFMIpWTA4dfJwqKajI7/h88fKL70sM0OZ
-	 M70USbN8Bvn13nacs8bDq2a8U9G2vEH1NzN3GW7hDNCLr6lwxxShj5EIjj8bX3eHD1+wb
-	 K/DpVjSEIwBOhm+0VPBxtvO/7/0J1nTQIgJFXnR2d/duQ1pFMnoB2A2NZrEdQKDdn7w==
+	t=1795033064;
+	b=FfZ3NIBCA/AO75lRjD6MhCLEwSrR6a3jBXttBYjuhGPvzxbC0dO1oSpfg1fPDxxmsjWi
+	 /k6cl+47H6vtrkcByINV+XIhj3eoVWGBYvTmKCCjDUBxnbPkEWKHOvpKpbHk62LvrX8BX
+	 Bhn/uI1FBA+Ju/Vt389PgA0q7s2KVEvi9gxiUW7Zwtq+frR9+WR9O6GgdqJbMFRIRgNa0
+	 lQSUyNKs5FR+FcaolnjcbDA2VD8fc0RJ/0Bk8YXWTv5bQPp17DS0Nv1jE9WQ5pe2e5uJE
+	 f/cgTBk5jYNL5CDzE+llaEXvjMPEUUc/6mE3ts0wEUZEx3My4zl1YcJTmowVsJ5k66A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033057;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mVKoPdMSwhZTZlNTmmoGkN3w0L7rZ4fmniowdnKasL8=;
-	b=tfgBxrm3ZKShXTBJmfVD39XFvQw1FR1/C+UdBbxZT7XTGARoon0ClDVwKdfrRUqqUOaa
-	 y8Z9W7ADN6J3S1watRrCEih2ipwvucXlPUH1ryl8sEjuAfhON6cby0kWdgxhWZmQW8p4M
-	 0zrvW5DRdtHhcVvGwjZUo4D0netUl9VKzy40B2bpx6fHt5UnQJfjMfojigqPIXaNgJe8J
-	 i4Y7mVOwBX6aW3nutiLzOGe3FdxKmL+glQqJzUWFa0HmreeFrndHdXACcyJe9H0QdhcYF
-	 7H1F0A40qDWiOVtMxQDvE0qzluxOyKTxvw4V+4l4RgqNRzViUcBogznITM6KxTYKlCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033064;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=4w1sLbHtXNKQIDExclAzAeH6BlhvUXb49HGCBRm8AM4=;
+	b=hil9/o872QskvL7qa9TCWNgbo0r8Ke08ftSQnHjX2znrBMTP5TqOS6jWEXdLOv6FiYJZ
+	 2U10VXQ4ERF/z2RuieIGYb1/yN/UbLIb1dvSOCMtXiOFiQxXZRxiKBaa+vfomUUfKVAWB
+	 7vxEEUo8O9K+embI2ociyUiQnBzvjsLOQ8prASogRnNUIMyEv102a0lSMlnaDZhq2MgfP
+	 4WR4EfG6tBS4X/mU7yKFgQRrBDhmP3ApwIsp+h1Adgx6i8aZRBiVxgoc4gLYCold55csv
+	 t54lFT2oeAv9zUGbcqPqcHGOsop59IWbrTwDxYVaFpMyqz6y48L2ky48uZW1scGIuuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=beDKPYGP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="d/OZsNj7";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31A9F60A2602;
-	Wed, 18 Nov 2026 20:17:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10437606A334;
+	Wed, 18 Nov 2026 20:17:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=beDKPYGP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE8341F000C7;
-	Wed, 18 Nov 2026 20:17:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d/OZsNj7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E0961F000C4;
+	Wed, 18 Nov 2026 20:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795033057;
-	bh=mVKoPdMSwhZTZlNTmmoGkN3w0L7rZ4fmniowdnKasL8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=beDKPYGPep6s5kZbcTpNzbPBGelfYYwJQX6xK4lL4gSNE0x6CH+gKjVOdA9SVmNaF
-	 EFYsCmTMH2K7XZmpsiepqr/FflIzKX2yvXmXBxzieXGu/Yg4Op50JpppR58y4hMhOr
-	 gxRvQWKN+1Uu/YsnaRceSzATK+5zMhJYNIUJuJm3bEhTvlC4n0HkvwPz+89zXUclKx
-	 zTSI+B1Jd58xjMI/cZSNq9L7JonxRc/hpfODsDcu87j7fuOPOq+drZ++9v73W7GEd8
-	 OC7JDx6iVDYSLA0S43DhlYyrwrfp1+7v03nfEykZaJ9Y46uTRD9PddKSQLmRNu1Isq
-	 mlQ8EPrQCrDYw==
-Date: Wed, 18 Nov 2026 20:17:22 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
- James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>, Hanjun Guo
- <guohanjun@huawei.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai
- Xue <xueshuai@linux.alibaba.com>, Mahesh J Salgaonkar
- <mahesh@linux.ibm.com>, "Oliver O'Halloran" <oohall@gmail.com>, Bjorn
- Helgaas <bhelgaas@google.com>, Maciej Wieczor-Retman
- <maciej.wieczor-retman@intel.com>, Pawel Chmielewski
- <pawel.chmielewski@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>, Radu
- Rendec <radu@rendec.net>, Avadhut Naik <avadhut.naik@amd.com>, Kai-Heng
- Feng <kaihengf@nvidia.com>, "Fabio M. De Francesco"
- <fabio.m.de.francesco@linux.intel.com>, Dave Jiang <dave.jiang@intel.com>,
- Breno Leitao <leitao@debian.org>, Dan Williams <djbw@kernel.org>, Terry
- Bowman <terry.bowman@amd.com>, linux-acpi@vger.kernel.org,
- linux-edac@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-pci@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v1 16/19] ACPI: extlog: Report error severity using GHES
- bindings in MCE
-Message-ID: <20261118201722.2e449ec9@jic23-hlaptop>
-In-Reply-To: <20261117111444.4185512-17-pierre.gondois@arm.com>
-References: <20261117111444.4185512-1-pierre.gondois@arm.com>
-	<20261117111444.4185512-17-pierre.gondois@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795033063;
+	bh=4w1sLbHtXNKQIDExclAzAeH6BlhvUXb49HGCBRm8AM4=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=d/OZsNj78xygzusxevCB7fBQ5VsT+YhWeEeYoMp1S9hmO5rPROIBT0eEvmySyqH30
+	 K+UxeJClfBapD+oz0VY+h2QmSpdeobGonuaMMrn0TETkT8C0O1gRxDLQBRt8Gxh7PE
+	 FpvgYdkGHqQTWVYJmW+x2gcd+n/6CMbaPm72MdN/r+lgAIc45naDDWgn/e60pyxSKJ
+	 Ns9Ckz5tovrC/o00KvK+IX4ALyWR08ms+nOI5FMFUq8hg6mRUXveRzXDqOx/gVopZO
+	 DuPHohGXGcR18TjdBY3bKTf3fkBb87AJnJMufolOCw2/Ub2sdNnbCVwMrI9PF1GRQb
+	 HEmSj4mAfUoDA==
+Message-ID: <sashiko-outbox-221922@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH 06/16] sched: Take cpuset_mutex for a deadline policy
+ change only with pi
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <9194486f15bb0cb36b51e4525f471d1150c0d58b.1795031605.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795031605.git.mathieu.desnoyers@efficios.com>
+ <9194486f15bb0cb36b51e4525f471d1150c0d58b.1795031605.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 18 Nov 2026 20:17:43 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,41 +60,110 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 12:10:26 +0100
-Pierre Gondois <pierre.gondois@arm.com> wrote:
+Thank you for your contribution! Sashiko AI review found no new issues
+in this patch, but noticed 1 related pre-existing issue it does not
+introduce:
+- [High] sched/deadline: bandwidth leak in __sched_setscheduler() on
+  TASK_DEAD task [1]
+--
 
-> MCE extended logs report raw CPER severity values to
-> log_non_standard_event(). GHES relies on the GHES bindings in
-> ghes_do_proc(). The rasdaemon interprets the severity
-> as a GHES_SEV_* value.
-> 
-> Translate the CPER severity with ghes_severity() before reporting
-> the event.
-> 
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-Bug? Fixes tag 
+commit eb6bc35bf21202354f98c206678837ac0c913d54
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-+ Upstream this sooner rather than later so drag to start of patch set.
+sched: Take cpuset_mutex for a deadline policy change only with pi
 
-> ---
->  drivers/acpi/apei/extlog.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/acpi/apei/extlog.c b/drivers/acpi/apei/extlog.c
-> index 8cae5bdacf1c6..bd407436928b4 100644
-> --- a/drivers/acpi/apei/extlog.c
-> +++ b/drivers/acpi/apei/extlog.c
-> @@ -216,7 +216,7 @@ void acpi_extlog_report(const struct acpi_hest_generic_status *estatus)
->  			void *err = acpi_hest_get_payload(gdata);
->  
->  			log_non_standard_event(sec_type, fru_id, fru_text,
-> -					       gdata->error_severity, err,
-> +					       ghes_severity(gdata->error_severity), err,
->  					       gdata->error_data_length);
+This commit avoids taking cpuset_mutex in __sched_setscheduler() when pi
+is unset, and retries under the runqueue lock if the target task entered
+SCHED_DEADLINE after the unlocked policy check.
+
+> diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+> index cb115aa9b0b33..9b04e77297aeb 100644
+> --- a/kernel/sched/syscalls.c
+> +++ b/kernel/sched/syscalls.c
+> @@ -561,9 +561,11 @@ int __sched_setscheduler(struct task_struct *p,
+> =20
+>  	/*
+>  	 * SCHED_DEADLINE bandwidth accounting relies on stable cpusets
+> -	 * information.
+> +	 * information. Do not take cpuset_mutex when pi is unset: the
+> +	 * caller is normalize_rt_tasks(), which holds tasklist_lock and
+> +	 * cannot sleep.
+>  	 */
+> -	if (dl_policy(policy) || dl_policy(p->policy)) {
+> +	if (pi && (dl_policy(policy) || dl_policy(p->policy))) {
+>  		cpuset_locked =3D true;
+>  		cpuset_lock();
+>  	}
+> @@ -643,7 +645,13 @@ int __sched_setscheduler(struct task_struct *p,
 >  		}
 >  	}
+> =20
+> -	/* Re-check policy now with rq lock held: */
+> +	/*
+> +	 * The caller gave no policy (SETPARAM_POLICY): the request was
+> +	 * derived from an unlocked read of p->policy above. If the task
+> +	 * changed policy since, re-derive the request from scratch, and
+> +	 * release cpuset_mutex: the re-derived request re-decides whether
+> +	 * it is needed.
+> +	 */
+>  	if (unlikely(oldpolicy !=3D -1 && oldpolicy !=3D p->policy)) {
+>  		policy =3D oldpolicy =3D -1;
+>  		task_rq_unlock(rq, p, &rf);
+> @@ -654,6 +662,18 @@ int __sched_setscheduler(struct task_struct *p,
+>  		goto recheck;
+>  	}
+> =20
+> +	/*
+> +	 * The caller gave an explicit policy, so the request needs no
+> +	 * re-derivation (oldpolicy is -1 above). But the decision to
+> +		 * take cpuset_mutex used the same unlocked read: the task
+> +	 * entered SCHED_DEADLINE since, and the change below would take
+> +	 * it out of the class. Retry to take the mutex.
+> +	 */
+> +	if (unlikely(pi && !cpuset_locked && task_has_dl_policy(p))) {
+> +		task_rq_unlock(rq, p, &rf);
+> +		goto recheck;
+> +	}
+> +
+>  	oldprio =3D p->prio;
+> =20
+>  	newprio =3D __normal_prio(policy, attr->sched_priority, attr->sched_nic=
+e);
 
+[Severity: High]
+This problem wasn't introduced by this patch, but can
+__sched_setscheduler() leak deadline bandwidth and cpuset deadline task
+counters if called on a zombie task [1]?
+
+A task that has reached TASK_DEAD and been deactivated from its runqueue
+remains reachable by PID until reaped.  If sched_setattr() sets
+SCHED_DEADLINE on it, sched_dl_overflow() adds the requested bandwidth to
+dl_b->total_bw and rq->dl.extra_bw, and switched_to_dl() increments
+cs->nr_deadline_tasks via inc_dl_tasks_cs() and adds the bandwidth to
+rq->dl.this_bw:
+
+kernel/sched/deadline.c:switched_to_dl() {
+	...
+	inc_dl_tasks_cs(p);
+
+	/* If p is not queued we will update its parameters at next wakeup. */
+	if (!task_on_rq_queued(p)) {
+		add_rq_bw(&p->dl, &rq->dl);
+
+		return;
+	}
+	...
+}
+
+Because a TASK_DEAD task never wakes or runs again and release_task() does
+not release deadline bandwidth or decrement cs->nr_deadline_tasks, the
+bandwidth and cpuset task count are leaked until reboot, blocking cpuset
+changes and eventually causing __dl_overflow() to reject all new
+SCHED_DEADLINE admissions with -EBUSY.
+
+[1] https://sashiko.dev/#/bug/linux-6b520332-dcc7-4d6b-b09a-5ec47df1d3cc
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795031605.gi=
+t.mathieu.desnoyers@efficios.com?part=3D6
