@@ -1,57 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033905;
-	b=vIxCv2dpDqBXXZpPviSKEXC6z5Z3b//tzGsTJNtIJ5nii5/iXQBCCZ2IEk/xazpXZoHO
-	 PgK741mSzMiqlSj+PmvrLqGTO/fL5QXvkutUQldKA268TiyDpEGsK7XcTYnW6rs5fBsge
-	 Je0d2w4/IzdYabuvyzVBKVlv2xCQ+K/VCUv5swiC5YyOWViri4o7wqNqVbxy8UvugRdn0
-	 mmdNhz3b4A502vT+nYQ8CNbxOjiuDfKnAxXDMjPX68pcogQpzqFS5Q2VIWQaU2VOeU9B/
-	 7hmLCYS3mWdze7+n96fXye9XT3kVOyzcBN4fra9V36owUFo26VoOGt615e3I21tuDzw==
+	t=1795033946;
+	b=YKS4vMDc+bAByx/DWBYLR5Az/cfVdLRwLJuO/4/+ViVmGaojaf/2rzGPmS+GHReUAkCm
+	 choiMcNXW4Mrnp2rGQHAtg+T76JutzKSLLVbNWCldx5MkexgzPnzHg9zVRUusLRrVyf6P
+	 V1gac6GmAtuTGyZGKClMYsWtwpQkNGYO6wiEFdwhO2/JTmlvny7qL2rzpem+uUqsBxeS1
+	 oPuWAF3iVcUfcuCmGE7zLaGSg1OJCvONrqWzbPilPm5OJQo2eVr26aSpvt5oYYxUa0oJj
+	 8MfimsAXFMTWrPiI082epAqR2KHX38jTUn1nfy8GdHMQG1zCx8N+Mvpj85iDysgNRIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033905;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=H/aL6lukz4c67uN1ZyxEvz7Fvl4SSelgui/rUbM7Swk=;
-	b=vnVskiC8EuaryGtAz4GdRmI8hYBGVS32bVP8/nM1Q1aGq4ObL8zfM473iOmHEdlsVZnI
-	 rIwP6Dmjx031a+vUUoTGMcZvNpwf2l15rooVz3/mZ6E1sS1RG/M4RySR/wzmp7h+gknJv
-	 b0SSPCT0zywZ2fMU22SUKFSzBJiAo9GONbzZx02DjVwZjkF+ADeaORi/QBQJm10bRJBw6
-	 IiRCwDZPjVutc5ldQZrSG3H0pXIMM+4Y/Y1svvxVnEJwuhGFEFnOpDRw8fjQFXzFUd4jo
-	 /2wgHgUIVvMPcMBk7vEQ1IaR+LUjcDN7W5xwlW/12XD7id7XXEKGsOvH3Yw+WRqugcA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033946;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=oKvaPy0lIh3ckFW6p5LBHOOwcup0EIqtLrLFD9khroo=;
+	b=1pjv6VcjZvj6rOWZE+k9G5kTkjP73ARJTpPcHQXf+QvrnmK6Cs/3a4RvIju0py7DxiII
+	 UzSpMfpLHfqYzNMJwg0pAr6B9y4zx3hvN/RyIX5DsIYf6cPcaw4RrzWqgpfsJiudaSfDV
+	 XZtwVcDa7B9NTm/d42NMRWEbdhocqTs8KkuEee1IPZpkmwtceimmA/ZQc4WYzJdiNUXvo
+	 q2+xVoO3zFTCXo4h4CujKmqri+Spa2gZ5E2XNRJN+Mt4sstNqyBLVrChzbzaYvK9+7Ly7
+	 WqFHBXTNa3w/GF4qWoxbfG4So296DrPXPer/D7WohDXjaxg286W6Z0w8lebTpFSG3VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YrTHte3v;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=h8EKwDq7;
+	arc=none smtp.remote-ip=216.40.44.13
+Received: from relay.hostedemail.com (smtprelay0013.hostedemail.com [216.40.44.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7C87606A32A;
-	Wed, 18 Nov 2026 20:31:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C16E606A31C;
+	Wed, 18 Nov 2026 20:32:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C16E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YrTHte3v
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 715BC1F000C5;
-	Wed, 18 Nov 2026 20:31:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795033904;
-	bh=H/aL6lukz4c67uN1ZyxEvz7Fvl4SSelgui/rUbM7Swk=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=YrTHte3vPzuilbZ2aCH2/GVIJa1qEe76m36slFhbs8Wif+SlAX5SswmEZxPCMlyiU
-	 ux2L2+EI4Xx1M/ffjRWEsnCNauB2jD9dMs/FtOVF4XgOnM39jYviYBr1qJ9NJeFYjc
-	 xPCXXe8h7ZM0z9PeganqRURczvlzS6DzUXfFlOWCBW6ykRDiprbzI6tJFRQfS7yvBN
-	 TE3bJR2M8NVwt+pelSSTKUW4Im/KCsbMLKsQY84vKyK3daXKZkKt3yBlapg6TWeMXB
-	 yAyM5UCN82F1Y49EPcO6I4RgQBQwaHGojFLfa7EdTFqWQQALq3KYEEmNBQXILVgT8p
-	 MfdwHm31MwrIg==
-Message-ID: <sashiko-outbox-221937@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH 07/16] sched/deadline: Do not lose a throttled task
- switched out and back
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <e58738e763010632a024a6874a97f1d980b90ce3.1795031605.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795031605.git.mathieu.desnoyers@efficios.com>
- <e58738e763010632a024a6874a97f1d980b90ce3.1795031605.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 18 Nov 2026 20:31:43 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=h8EKwDq7
+Received: from omf18.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay05.hostedemail.com (Postfix) with ESMTP id 8410C4086E;
+	Wed, 18 Nov 2026 20:32:23 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf18.hostedemail.com (Postfix) with ESMTPA id B1A7833;
+	Wed, 18 Nov 2026 20:32:21 +0000 (UTC)
+Date: Wed, 18 Nov 2026 15:32:20 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: David Carlier <devnexen@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, linux-trace-kernel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] tracing: Reject .function on the function trace event
+Message-ID: <20261118153220.15542786@gandalf.local.home>
+In-Reply-To: <20261114195914.2678414-1-devnexen@gmail.com>
+References: <20261114195914.2678414-1-devnexen@gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,82 +59,71 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: rspamout03
+X-Rspamd-Queue-Id: B1A7833
+X-Stat-Signature: q9faisecotch4ibgz7tjniy1wnrgd7ko
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/AM9kBChS00RDKpvMDzSCB8eK9Xxc9hgk=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=oKvaPy0lIh3ckFW6p5LBHOOwcup0EIqtLrLFD9khroo=; b=h8EKwDq73i9O4XxvjwmIisd2ObSMhM/rCdn2aNwHMwiaUBUVzd1xnIYak7UjweEGnrw9AB964qLOmc172QNEB3tE11E9FSkk98njsbGZPQs1ARZS6hNvl6Fmy+QUk7M5EdPHLcRh8LX/SI40JU7btkc2DhyrykM1SodiaVyVmfk=
+X-HE-Tag: 1795033941-994633
+X-HE-Meta: U2FsdGVkX18+9pwbS/sGlAPJpJbi0SLDIvZuhM7I8xhRlVTz292KWaqeIr2lUnAb5eEZQT0JqEo8i//AakzknduJOD3KTyvskFDnzHEJWQZBBn6AoxR4wI3NLt/maduHUMOUpWRP8y4EIKTv9rNYKrpPmcWUXajl2SM0nmWoW1ivc1ebwUXXHx7Sn2DZvsJllRepfhBWqCuOpKGj71ZiF6K4D1cTE9enzEvruWQRHv5YuY3uBIwg7kWHJu4hJopxMjgargA72phWfYX6afM76rNvJj7ReZZsQgsQbt5AvhJzAYj3Fr8VRWUxNghDggTQvKEce+i1qyitC2LizOfq8S+eU5x8vAUGQ7iELSx+UtJoMw9qaW7ZV7ggrA/6k2X+KIFbnMTiBCs=
 
-Thank you for your contribution! Sashiko AI review found no new issues
-in this patch, but noticed 1 related pre-existing issue it does not
-introduce:
-- [High] sched/deadline: stale dl_timer and deadline after
-  __dl_clear_params() [1]
---
+On Sat, 14 Nov 2026 19:59:14 +0000
+David Carlier <devnexen@gmail.com> wrote:
 
-commit e6978eb9fe65441d4ddb2d45bfc7400e644913a5
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-sched/deadline: Do not lose a throttled task switched out and back
-
-This commit replenishes a throttled SCHED_DEADLINE task in dl_task_timer()
-if the task has switched to another scheduling policy, so that it can be
-enqueued if it switches back to SCHED_DEADLINE before its 0-lag time.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index b614d5fc1a1ac..e4d7cbf4861de 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -1233,9 +1233,18 @@ static enum hrtimer_restart dl_task_timer(struct h=
-rtimer *timer)
->  	/*
->  	 * The task might have changed its scheduling policy to something
->  	 * different than SCHED_DEADLINE (through switched_from_dl()).
-> +	 * It keeps its parameters until its 0-lag time. If it comes back
-> +	 * before then, nothing else would lift its throttle. So replenish
-> +	 * it now, as the !queued case below does. Its return enqueues it.
->  	 */
-> -	if (!dl_task(p))
-> +	if (!dl_task(p)) {
-> +		if (dl_se->dl_throttled && !is_dl_boosted(dl_se)) {
-> +			sched_clock_tick();
-> +			update_rq_clock(rq);
-> +			replenish_dl_entity(dl_se);
+> For the function event, parse_pred() handles the .function suffix
+> before the ftrace_event_is_function() case, so "ip.function == schedule"
+> builds a predicate with no regex. Setting it through perf then
+> dereferences the NULL pred->regex in ftrace_function_set_filter_pred().
+> 
+> The "ip" field of that event already takes a function name, so reject
+> the suffix there.
+> 
+> Fixes: e6745a4da964 ("tracing: Add a way to filter function addresses to function names")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: David Carlier <devnexen@gmail.com>
+> ---
+>  kernel/trace/trace_events_filter.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
+> index c10951bcfc5f..11bb751c4388 100644
+> --- a/kernel/trace/trace_events_filter.c
+> +++ b/kernel/trace/trace_events_filter.c
+> @@ -1743,6 +1743,12 @@ static int parse_pred(const char *str, void *data,
+>  	pred->op = op;
+>  
+>  	if (function) {
+> +		/* Function events already take a function name on 'ip' */
+> +		if (ftrace_event_is_function(call)) {
+> +			parse_error(pe, FILT_ERR_ILLEGAL_FIELD_OP, pos + i);
+> +			goto err_free;
 > +		}
->  		goto unlock;
-> +	}
+> +
+>  		/* The field must be the same size as long */
+>  		if (field->size != sizeof(long)) {
+>  			parse_error(pe, FILT_ERR_ILLEGAL_FIELD_OP, pos + i);
 
-[Severity: High]
-This problem wasn't introduced by this patch, but in the opposite order
-where the 0-lag time elapses before dl_se->dl_timer fires [1], does
-__dl_clear_params() leave a stale dl_se->dl_timer armed along with stale
-dl_se->deadline and dl_se->runtime values?
+Instead of rejecting it, why not just ignore it?
 
-When a task calls sched_yield() with remaining runtime (or a
-constrained-deadline task overruns slightly), its 0-lag time is earlier
-than dl_next_period(dl_se).  If the task then switches out of
-SCHED_DEADLINE, task_non_contending() or inactive_task_timer() calls
-__dl_clear_params(), which clears dl_se->dl_throttled without cancelling
-dl_se->dl_timer or resetting dl_se->deadline and dl_se->runtime:
+diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
+index a1c298210059..e64c44ab3ee5 100644
+--- a/kernel/trace/trace_events_filter.c
++++ b/kernel/trace/trace_events_filter.c
+@@ -1742,7 +1742,9 @@ static int parse_pred(const char *str, void *data,
+ 
+ 	/* See if the field is a kernel function name */
+ 	if ((len = str_has_prefix(str + i, ".function"))) {
+-		function = true;
++		/* Ignore if event is already a function */
++		if (!ftrace_event_is_function(call))
++			function = true;
+ 		i += len;
+ 	}
 
-kernel/sched/deadline.c:__dl_clear_params() {
-	dl_se->dl_runtime		=3D 0;
-	dl_se->dl_deadline		=3D 0;
-	dl_se->dl_period		=3D 0;
-	dl_se->flags			=3D 0;
-	dl_se->dl_bw			=3D 0;
-	dl_se->dl_density		=3D 0;
+The above fixes the issue as well, and allows things to work as expected. 
 
-	dl_se->dl_throttled		=3D 0;
-	dl_se->dl_yielded		=3D 0;
-    ...
-}
-
-If the task switches back to SCHED_DEADLINE before the old period ends,
-enqueue_dl_entity() with ENQUEUE_MOVE sees dl_se->deadline still in the
-future and skips setup_new_dl_entity(), running the task with stale
-runtime and deadline values.  If the task then throttles under its new
-reservation while the old dl_se->dl_timer is still queued,
-start_dl_timer() sees hrtimer_is_queued(&dl_se->dl_timer) and skips
-reprogramming it, delaying replenishment until the old timer expires.
-
-[1] https://sashiko.dev/#/bug/linux-5f16aeeb-544a-4da3-a8a9-3a7be85e8892
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795031605.gi=
-t.mathieu.desnoyers@efficios.com?part=3D7
+-- Steve
