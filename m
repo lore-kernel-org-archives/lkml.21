@@ -1,60 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013484;
-	b=Wz3lKEdodVqYPxR2ReZMvwmVfXbuxtAjaOz49Mm2lbhrJmqvdUJqSQjcSFAMLuUpbGzk
-	 nI/akmcmZOZX+lATZxCDBtPxXGx6QTvZDCT5Wccfs5y5g6EvxgUF7YO3CJg9kGHDQjWgy
-	 QkW7AaAxNI6pSuugdu3zyOKjHZCuzKWHe+tDxPSouXKSGXsl+rSyB6EOc3hUY8BtrSEWD
-	 P+cCxyf4jVVAcnr8CZG2TFUPzYrj9dv0tDchO0omka/orE210SXjKbbj9havXLg3cqgx0
-	 Y1dgpPFSIs58KpHEJNG8GjL26o67fxrG5Fq17GWB6K1CrHg0Kdl9mbFRGrqmUARcFBw==
+	t=1795013496;
+	b=UtlbX8jVtkz+TLEynVaDDR8ulITGjnqwYllRdUROuaXW6Pisnh/pzinp6L26NuUg0Hur
+	 MF4cU1e0ts5LWpSbPe7KQV2qZ1gDvUQQmuZM43tBxRW1b7FnosDq8CVTi9ie0VanJ0ib8
+	 /FHhWxprhYPf0t1Cwi+3+bxCYoyKFG6Tv4TQTlt97NVokL9juueVtBKOH0+ivE5ofyc1S
+	 ek4CFwC3IZXY/YKOwp96/cRVaPvv/g45ZmzJoxYu6zyN58+RanWXdwhoP7WGQqWSwZAPm
+	 63K1zFfLSeJ22CgiNKjoqONVzTmlinRMV0hpRZwpbordForHeCV2a0ks03Jcnp043vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013484;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=eY4Iukd9tnjFhKXxywz21kAw07HDovdZxf/3jteIVpk=;
-	b=W5S3ctZcm5w/kgcM84/bwJ3dHIl+Sx9fZ4BryyRxb8o5NTWA0+cbmvcbOGRf+l+n0S+f
-	 2VdBkyEP69z2OYOPeATG9TQZ/mzXIB6Q0m/HydSkhnGSW/qtKin1HnlKUvkqC+Wbfj2Zl
-	 pDLlNcx8byz1N3op7vOzq4ULD/XXfhT19eJaFT4EKOop6MonHgXWZS6OPTcbpVJPGCbrH
-	 InJxRbXsapygUyb1ymEtkxu9vbg++v+LeNR8x8CMkAFgQDrf8H6jypbR38T6fv8AiJMgm
-	 niz57Ke6M/wrp7K5XPGiT56GCFWO2FZf3OyNqURGhpc5hpxQZtldGK+h8nl8pRj8/QA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013496;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-WP-MailID:X-WP-AV:X-WP-SPAM;
+	bh=U6FPJeVp8t/tfRRICPjUoC6PNDNnsdUBwnuvnfAniPQ=;
+	b=acG+yIITXVsZweeWU9E3sHCHAKiG98j5aqsxRZ4eaA0aB/7rE7wwzpi0/SKARI0Ys44h
+	 Xe/lyxfMQqfokdfbi2TnMkypFP34+P8ozH338u+VCT2IehTouOUk5fRpSp+fm/K6u2ntg
+	 UmdfYc3yeeJ8QA0lwyQ3X7QXy5qb9RNl3wtLSxpwhPStC14STr80DQFx5/HTmfGUNg7Gm
+	 4feQMuzq/rZhRyii8QzYSPg6igvrljqwdWs3B4kzUu0TIk7n34tAr2UH+3+hsNIVEGkDn
+	 9AaCDxJe1J2NMNL7enT3TqgS92RKNFg22HY/jMuyKICSh7OHJo5s1Ext04SY/vDPSGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b="rZ/PnwSS";
-	arc=none smtp.remote-ip=79.135.106.97
-Received: from mail-10697.protonmail.ch (mail-10697.protonmail.ch [79.135.106.97])
+	dmarc=pass header.from=wp.pl;
+	spf=pass smtp.mailfrom=wp.pl;
+	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b="di0/IsXl";
+	arc=none smtp.remote-ip=212.77.101.9
+Received: from mx3.wp.pl (mx3.wp.pl [212.77.101.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE171606A33A;
-	Wed, 18 Nov 2026 14:51:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE171606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB4A5606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:51:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB4A5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=rZ/PnwSS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795013480; x=1795272680;
-	bh=eY4Iukd9tnjFhKXxywz21kAw07HDovdZxf/3jteIVpk=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=rZ/PnwSSZ1nVthbPy1h4qRvgQHEffarDlEReR+yx4dBjD7tO5dpXE3Yk0xZ/gp/Qo
-	 v9LxmsS4Tk4xS1FeiH9Ni1c2yU4mo0nDfJx3t4DZZcjLk99IGRTyeLh4zYyxZis8tk
-	 vxaDOHxwwY3IXTw6LEaQLh2GsMiHC3nzYf+unvtdTUV4fDe9iiN1nWWtsj0VkFTkH5
-	 kzfktF8ZQWifZDoNYSY3TzUB3NBZGhx5jl12r/wi6ikVxb3krMi5GcGH2dyBmFPQGj
-	 rFA+nffQYoDiNiapYqKhIviuE65hFotW5iIRO1rxM+lApx3lC876DbwXXAt75lzQKx
-	 tcTciGWpaIh7w==
-Date: Wed, 18 Nov 2026 14:51:13 +0000
-To: Alexey Charkov <alchark@flipper.net>
-From: Ryan Leung <untilscour@protonmail.com>
-Cc: Rob Herring <robh@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Michael Walle <michael@walle.cc>, Miquel Raynal <miquel.raynal@bootlin.com>, Finley Xiao <finley.xiao@rock-chips.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] nvmem: Derive Rockchip MAC addresses from the OTP CPU ID
-Message-ID: <AQpdyd6hRl9cLAxBK-fEdzq0dcZsWpHP63dbDpOxcNQWCdaNIc4D3Mfi9Ll86jBVsbEVhr5-9EZzFHbkF6efBDcRUT7nXx9TH5Aeffy5DyU=@protonmail.com>
-In-Reply-To: <CAKTNdwH6E5=9gZHB6tdianC2+1aDv4wnLmvL59kDW-dR3a12bg@mail.gmail.com>
-References: <20260902-rk3576-otp-cpuid-mac-v2-0-e4b7fe2ab13f@flipper.net> <CAKTNdwH9QAgreJ-6+t1j_P1di4VyoMBSsFkf_g=mCi_-M8g9Pw@mail.gmail.com> <20260917221857.GA4056431-robh@kernel.org> <CAKTNdwH6E5=9gZHB6tdianC2+1aDv4wnLmvL59kDW-dR3a12bg@mail.gmail.com>
-Feedback-ID: 184418679:user:proton
-X-Pm-Message-ID: f72cf6b7ff069e62495bd32a905a304144d1643e
+	dkim=pass (2048-bit key) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=di0/IsXl
+Received: (wp-smtpd smtp.wp.pl 40525 invoked from network); 18 Nov 2026 15:51:26 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
+          t=1795013486; bh=U6FPJeVp8t/tfRRICPjUoC6PNDNnsdUBwnuvnfAniPQ=;
+          h=From:To:Cc:Subject;
+          b=di0/IsXluofWfm0hHiB73a751u+lebaxE2SjivjCmiz3iwLNehq1jhxcj/K3tcP0a
+           w7BxeCqff72LAKUoL7LXouni3ZBdDOpIYsAPCvFL29/8PYovrahgQpystFuacQdvug
+           qL1JrHc/brT4QV+N4hNudjpayTowpGVhZ3jQhJ635QAFb8o4BPVsM/qtjlmFaNMuuD
+           IpKtYSXNcSE8X5ilDnqtEJuruh6VTizrjldwr2yJ/6VqrGl+qZguaf6pJOi4AYazeS
+           pZOSInJbyFe5noVau1zowxG/dxyQHxDTvhCYcojrZh5M14ri2WyL9Wy4B/MxDSfG8k
+           e3n2RxiM3meOQ==
+Received: from localhost (77-236-5-223.static.play.pl [77.236.5.223])
+          (envelope-sender <stf_xl@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <linux-modules@vger.kernel.org>; 18 Nov 2026 15:51:26 +0100
+From: Stanislaw Gruszka <stf_xl@wp.pl>
+To: linux-modules@vger.kernel.org,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Aaron Tomlin <atomlin@atomlin.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Jordan Rome <linux@jordanrome.com>,
+	Viktor Malik <vmalik@redhat.com>,
+	Petr Mladek <pmladek@suse.com>
+Subject: [PATCH v3 1/3] module/kallsyms: include empty names in is_ignored_kernel_symbol()
+Date: Wed, 18 Nov 2026 15:51:23 +0100
+Message-ID: <20261118145125.29399-2-stf_xl@wp.pl>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20261118145125.29399-1-stf_xl@wp.pl>
+References: <20261118145125.29399-1-stf_xl@wp.pl>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,125 +77,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-WP-MailID: 1a637cc0d3fd4a139767f2d741e40bcd
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 000000A [UbNk]                               
 
-On Friday, September 18th, 2026 at 3:08 PM, Alexey Charkov <alchark@flipper=
-.net> wrote:
+Both modpost and find_kallsyms_symbol() reject empty symbol names.
+Handle them in the shared helper to avoid duplicating this check.
 
-> Hi Rob,
->=20
-> On Fri, Sep 18, 2026 at 2:19=E2=80=AFAM Rob Herring <robh@kernel.org> wro=
-te:
-> >
-> > On Thu, Sep 10, 2026 at 06:48:33PM +0400, Alexey Charkov wrote:
-> > > On Wed, Sep 2, 2026 at 5:08=E2=80=AFPM Alexey Charkov <alchark@flippe=
-r.net> wrote:
-> > > >
-> > > > Rockchip SoCs are shipped with a unique CPU ID in their internal OT=
-P
-> > > > memory, and Rockchip bootloaders use it to give boards which have n=
-o
-> > > > dedicated storage for a MAC address a stable one anyway: they hash =
-the CPU
-> > > > ID and patch the resulting addresses into the device tree they hand=
- over.
-> > > >
-> > > > Kernels started without that fixup, e.g. straight from the SPL in F=
-alcon
-> > > > mode or by any other loader which does not implement Rockchip's der=
-ivation,
-> > > > fall back to random MAC addresses which change on every boot.
-> > > >
-> > > > Formalize the derivation in the DT binding and add a Linux kernel d=
-river
-> > > > implementing it, so that a Linux image can use the same stable addr=
-esses
-> > > > regardless of the boot flow.
-> > > >
-> > > > Only RK3576 is wired up here, that being the SoC I can test on. Oth=
-er
-> > > > Rockchip SoCs keep the same CPU ID at a different OTP offset - 0x7 =
-rather
-> > > > than 0xa on RK3588, for instance - which makes supporting them a tw=
-o-line
-> > > > addition to the driver's match table plus the layout node.
-> > > >
-> > > > Patch 1 is a prerequisite fix. The OTP hardware has its own interna=
-l state
-> > > > machine which only works correctly with serial access, but the curr=
-ent
-> > > > driver serializes nothing, which results in timeouts and/or corrupt=
-ed
-> > > > reads (e.g. returning splicing a TSADC trim value into the buffer o=
-f a
-> > > > caller asking for the CPU ID, or mixing up trim values of different=
- TSADC
-> > > > callers). Hence the Fixes: tag and Cc: stable.
-> > > >
-> > > > Cross-checked on an RK3576 board: the addresses fixed up into the F=
-DT by
-> > > > U-Boot match the ones derived by the new driver, and the driver cor=
-rectly
-> > > > assigns them to the network interfaces when the kernel is booted wi=
-thout
-> > > > U-Boot proper at all (via Falcon mode).
-> > > >
-> > > > Sashiko also rightly pointed out a use-after-free in the nvmem core=
- when
-> > > > a layout driver is unloaded leaving its sysfs nodes and the postpro=
-cessor
-> > > > function pointer dangling. This is fixed separately in [1].
-> > > >
-> > > > [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-2d=
-16bebeb518@flipper.net/
-> > > >
-> > > > Signed-off-by: Alexey Charkov <alchark@flipper.net>
-> > > > ---
-> > > > Changes in v2:
-> > > > - Switched from a scope-based guard to explicit lock/unlock calls i=
-n the
-> > > >   OTP driver to avoid mixing styles in a function using goto error
-> > > >   handling (Sashiko)
-> > > > - Link to v1: https://patch.msgid.link/20260901-rk3576-otp-cpuid-ma=
-c-v1-0-ea9135270fc2@flipper.net
-> > > >
-> > > > ---
-> > > > Alexey Charkov (4):
-> > > >       nvmem: rockchip-otp: Serialize reads
-> > >
-> > > Incidentally, patch 1 of this series also fixes CPU thermal throttlin=
-g
-> > > on my RK3576 device: apparently, the mis-read OTP-programmed thermal
-> > > trim values broke the thermal governor logic, which now works
-> > > correctly with properly serialized OTP reads. So it would be great to
-> > > have these merged.
-> >
-> > It would be great to have the sashiko comments analyzed and replied to
-> > as well if you would like this to be reviewed.
->=20
-> Of course. One code-related comment Sashiko raised has been addressed
-> in a separate patch [1] which is still pending review. The
-> binding-related comments will need to be revisited, as I'd like to
-> first explore the idea Ryan proposed in the adjacent thread [2], as it
-> will change the approach somewhat if it works out.
->=20
-> Best regards,
-> Alexey
->=20
-> [1] https://lore.kernel.org/all/20260902-nvmem-layout-unreg-v1-1-2d16bebe=
-b518@flipper.net/
-> [2] https://lore.kernel.org/all/20260916123355.4507-1-untilscour@protonma=
-il.com/
+This also lets is_core_symbol() reject empty names referenced by a
+nonzero st_name. The reserved ELF null symbol at index 0 is preserved
+before calling the helper.
 
-Hi Alexey,
+Signed-off-by: Stanislaw Gruszka <stf_xl@wp.pl>
+---
+ include/linux/module_symbol.h | 6 ++++--
+ kernel/module/kallsyms.c      | 7 +------
+ scripts/mod/modpost.h         | 2 +-
+ 3 files changed, 6 insertions(+), 9 deletions(-)
 
-Have you had a chance to explore this? I have got a working proof of
-concept [1] for the format I suggested, tested on RK3576 (NanoPi M5) and
-RK3528 (NanoPi R28S).
+diff --git a/include/linux/module_symbol.h b/include/linux/module_symbol.h
+index 698d3db2b37e..b93ef616a3f1 100644
+--- a/include/linux/module_symbol.h
++++ b/include/linux/module_symbol.h
+@@ -8,11 +8,13 @@ enum ksym_flags {
+ };
+ 
+ /*
+- * Ignore local labels (.L*, L0*) and mapping symbols ($*). These symbols are
+- * not useful for the kernel, for example, they should not appear in kallsyms.
++ * Ignore empty names, local labels (.L*, L0*) and mapping symbols ($*).
++ * These symbols are not useful for the kernel and should not appear in kallsyms.
+  */
+ static inline bool is_ignored_kernel_symbol(const char *str)
+ {
++	if (!str[0])
++		return true;
+ 	if (str[0] == '.' && str[1] == 'L')
+ 		return true;
+ 	if (str[0] == 'L' && str[1] == '0')
+diff --git a/kernel/module/kallsyms.c b/kernel/module/kallsyms.c
+index 1ff8ce857d92..5dae0832714a 100644
+--- a/kernel/module/kallsyms.c
++++ b/kernel/module/kallsyms.c
+@@ -292,12 +292,7 @@ static const char *find_kallsyms_symbol(struct module *mod,
+ 		if (sym->st_shndx == SHN_UNDEF)
+ 			continue;
+ 
+-		/*
+-		 * We ignore unnamed symbols: they're uninformative
+-		 * and inserted at a whim.
+-		 */
+-		if (*kallsyms_symbol_name(kallsyms, i) == '\0' ||
+-		    is_ignored_kernel_symbol(kallsyms_symbol_name(kallsyms, i)))
++		if (is_ignored_kernel_symbol(kallsyms_symbol_name(kallsyms, i)))
+ 			continue;
+ 
+ 		if (thisval <= addr && thisval > bestval) {
+diff --git a/scripts/mod/modpost.h b/scripts/mod/modpost.h
+index 666beca685e4..eb01108702be 100644
+--- a/scripts/mod/modpost.h
++++ b/scripts/mod/modpost.h
+@@ -196,7 +196,7 @@ static inline bool is_valid_name(struct elf_info *elf, Elf_Sym *sym)
+ {
+ 	const char *name = elf->strtab + sym->st_name;
+ 
+-	if (!name || !strlen(name))
++	if (!name)
+ 		return false;
+ 	return !is_ignored_kernel_symbol(name);
+ }
+-- 
+2.52.0
 
-Best regards,
-Ryan
-
-[1] https://github.com/untilscour/openwrt/commit/a622c1cf292f7a4bb7093521e2=
-5436be324fc1a4
