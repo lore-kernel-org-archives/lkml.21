@@ -1,68 +1,154 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.81.71.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998122;
-	b=RsnRW0/LcJRPQFL/A3C55s6fVj8oDo1qxJtMfrFXeZPjIssiJpxoXNqR/RDMO8nTIYpB
-	 ioEf9vzj4f3Lmrrx9EiVmn3Qv8/qVZT5lStb2QKd9gemaPSaAnyzLmobLk5n1xlKiuaAz
-	 33AE4ca3rowliv/TkMGTezg2ED150DeP2wUSkYJE/V0t0+RoTRhnF404lIhGLeH5ifalg
-	 uh2De8fKaf+wRMZkzw0qa5PuSgHE1ib8C8rQzqs8p+zb1gAaMTy4ftxX6wodKuuF02h8G
-	 SIrzJFPPzx0GKzyQeFr/ty34HF5hzzpiYcNqlGeFF26imzOwTRn2alw60pxqjoTETVg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998122;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Message-ID:
-	 x-ms-reactions:Date:MIME-Version:From:Subject:References:
-	 Content-Language:To:Cc:Autocrypt:In-Reply-To:Content-Type;
-	bh=dReN6za/momLtfkgoBoloBUmgkXM0SZOHsPUXaY5RNg=;
-	b=IKuSgpj9VhumWIIM5yLzzb0rsej4kTZojUkAV4DKYdekbe3jr/C09XCPzaX/fQvI6UP2
-	 m9uPF1laooyWRqvbEw62GDb0hGsziuNPfpVsM8nmMmhe8MIP5++q35m2d890IQGYLqAhK
-	 qGQy1o4w5QYIkkZ53YCkGxoLXzcZ3VWt4Ou7tcBlcID6QNf8x3xxPtWSWJVppFn3UA+u4
-	 aWNFgywqodauQzPAZc5gXKmimZEVxlIOxQXdsD0qqfDumjAAqFTZ67Ke0pNP4gUbSQg8/
-	 TPqrFSCn7edBEuojyNK/a7R/ZHhxjRj1hg7TqFYFpAvzXHnWN/t244Qzm2EwMiCMLOA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=puzzle.ch;
-	spf=pass smtp.mailfrom=puzzle.ch;
-	dkim=pass header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211230 header.b=wOTuQu5a;
-	dkim=pass header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211209 header.b=mWX8lchq;
-	arc=none smtp.remote-ip=45.81.71.124
-Received: from mx03.puzzle.ch (mx03.puzzle.ch [45.81.71.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.159.12
+ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794998151;
+	b=qK7dEiNHL1nHm8L6t7vwZqWlL4Ecq1K+NuJtYqzpr/o5qqg0+V2MT5EjAWmsoyZOHc0d
+	 txvm7yFVFLNKXRfNbwlHJxm4idOorQLJttveETZ6qSJaisSoqSbcES3qwztK13WJ50+0k
+	 lU2waNRhep3Vii4+02PxRYsDCZuKfPlA58x2vQnovfgRmmEvyFEHrWSemnI4D++HJo5nV
+	 EjkLlkHpKxdkQw6GbDqMhSRCY9ggI5+RWLiayFqq+O5cZDaVYTvWV1K1yCduSGYHTSv3P
+	 dO5ojbfVkL/7t3TbPcFdo28qEXjyHBJepNJ+ilaBpvM662fmhXtweyHo6akhv1pk2BQ==
+ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998151;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
+	 DKIM-Signature:Authentication-Results-Original:Received:Received:
+	 Message-ID:Date:User-Agent:Subject:Content-Language:From:To:Cc:
+	 References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-ClientProxiedBy:MIME-Version:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 x-checkrecipientrouted:NoDisclaimer:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam-Untrusted:
+	 X-Microsoft-Antispam-Message-Info-Original:
+	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-EOPAttributedMessage:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=J/oIae6BkVX4KeS4B3DqR8471TqCDjkqdv8F6iCMP2s=;
+	b=gh3uKIam8iTBELA4ubxnOua+GQGBczBin7m2O6s/KfkKHOuaKxWlyT/dotd8tOluy+a6
+	 Qo3CPjxg73Y/WnQ4Nb0G6Up7LpblxDHqtKUv/EhumLUs6tsyDaIRdU5I0p4VPiUJR+/k8
+	 c7hp5cQKcn9TpA03d9PI4Owpp5JDPY0NudpTUzFiE4fG72EQjyrRBiaD3wdvga7g9uUcu
+	 7C0j8tIs1MZarqUIPhoMjUfpBgDlYlD7foDjePnDdEuc3eclMZAWdFm6d1YQO12yFu1t3
+	 TxNlkOdRdd3eRej5VYy9nVAi6FReM3h7lvZFz9ArP0epqYgvUaXsbqcNEf/YSgIzahg==
+ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=J0ljBrCT;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=J0ljBrCT;
+	arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.159.12
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013012.outbound.protection.outlook.com [40.107.159.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5440606A31C;
-	Wed, 18 Nov 2026 10:35:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5440606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=puzzle.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=puzzle.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB97606A31C;
+	Wed, 18 Nov 2026 10:35:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EB97606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211230 header.b=wOTuQu5a;
-	dkim=pass (2048-bit key, unprotected) header.d=puzzle.ch header.i=@puzzle.ch header.a=rsa-sha256 header.s=20211209 header.b=mWX8lchq
-Received: from mailstore02.cloud.puzzle.ch (mail.puzzle.ch [45.81.71.99])
-	by mx03.puzzle.ch (Postfix) with ESMTPS id 63B96F1;
-	Wed, 18 Nov 2026 11:35:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=puzzle.ch; s=20211230;
-	t=1794998113;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dReN6za/momLtfkgoBoloBUmgkXM0SZOHsPUXaY5RNg=;
-	b=wOTuQu5aU9pcMYXpJm+8WtyjuvOj6/01tSYywSwrL2/kbEWrbKsdVpA3AnrXofn8OS0QeO
-	Vq1x2GO2BR9Aoni9OhCJh5KhxKNM2S4DCYpHhhMfurMTnH/tx5dTYoGv5aSVoQuF5oI+gv
-	zCb5TLwRGRQn1oxUKvwsmX7uSJhX0UnXHz/pV8VlQPXeswQfn5Jd1j3trn1jmpqOQ8rhuv
-	mE4ZQPlU6SmZN6YNKK/dmtQwJseK2/X+oLVCQaosczuaFkhhCqqb/u5yogup0t85o7UdCN
-	H2spPtnySIGbhlk7NHxv9I1RQhhaGcA+eoFxAXZFYce5WDjAii3CpvFRkHSJPg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=puzzle.ch; s=20211209;
-	t=1794998113;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=dReN6za/momLtfkgoBoloBUmgkXM0SZOHsPUXaY5RNg=;
-	b=mWX8lchqtIlI8TfCDlnYkb7bEIbxtii3KAqRHlN9QgMW5j5GIm0PeFXNNeDgSVw4bPqSq6
-	jh21M/ZXT79unfAnThfpgSYxnOiYoG5tVmNdKDopR3fXJkG1ewwKEc4AWtRjeKyHftn1iT
-	UUIcvkPbzsiMLDzTV00KxHIfZ/6xeDpMLo9oVYS0tWPDQB6qQRA86hrUT2CYVDD3siQ/sQ
-	TNH+CFnyR7rZc36xINzvhru5JjfGinEm3rX88Wo72FvKEPHooBQAM3i1+2NqThq/nYTShF
-	EypV5duSBjH56Q6tdHa1Pi0Kr8BXybrIeQoNTGkpB7L5bBC1j6lpiV0vOq48zQ==
-Message-ID: <f0a598b9-3160-437c-9ed1-8529cbf07cff@puzzle.ch>
-x-ms-reactions: disallow
-Date: Wed, 18 Nov 2026 11:35:12 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=J0ljBrCT;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=J0ljBrCT
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ays59tgfcp2eLgNQIIDvlP12zQq3i6d5PnELnk+Ld+nVPEWfyy9zRtRizitlF9+WrrpABSRYKQJYLb/4CH8HoYPhuIvyCman0V4azZ0Uq9KmvzfOXu54A5oijns/neJTYKYsetHoKErgGU+ZtWySMVSmJ18t+QA42rYSKJV443VNZVy73N1BgtYXxdxWFCc7V4sRKqL9oLMnXwZBGA416ycaptiVxATzq6pIfMTYACdycXf0HnBEmBKM2Hqf1zem144GLlpXTJ967aAgY9HI5uN6GsK0G0SvMxyxJHWVj9G3bwfqk+/QMyMojstSZFTmv2rtYyjy6D26fqgxhgjSlA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J/oIae6BkVX4KeS4B3DqR8471TqCDjkqdv8F6iCMP2s=;
+ b=VECAnWqEs6hi5aMjXQi/Xc1MGqask7LM2BprS57p0EYbvtwb4fxLvsDep9oNfUreS3YxwRGxTuMCfPNDu68kH6DZZFyKcLe3yw3Pjrx9MLSysMCLJ79mA2hHxxOcBtnZP0jG2EY2CqM7f/brPS9XlZH0+zcU1bpuw583Px8SrKYjrqP4sMomBjrmSi8J6cNSTcE/NYwR72PQLuD0p088H6kTLPUREBzpz+oHe1C1lUHH6eKjMjtXDjl2R38ZbKttSI1hMsgisLQHabQyBAEgp85JmwSBGNAyRqxid5bWDPBK74I/9XLoeQaq14k9RaRD1iu11ZMJysQMfETaaSZw0g==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J/oIae6BkVX4KeS4B3DqR8471TqCDjkqdv8F6iCMP2s=;
+ b=J0ljBrCTxIpdj4YLKw7h59FYQIHKON4aqj1jDn6Ijnw/GkBT2iIWcaZLoNzCG3/pxxZ0TOisyzy+B7oMywQSd66hB8Ck8seOR8BcvaksuRQW1aPu6sHF+k/pgc12WEBGI2mUCTAInTQcNgdpVi7i9BygcQF0e098F4zVDLiikr4=
+Received: from PA7P264CA0156.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:36c::20)
+ by PAVPR08MB9040.eurprd08.prod.outlook.com (2603:10a6:102:32d::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 10:35:43 +0000
+Received: from MI3PEPF00008486.eurprd02.prod.outlook.com
+ (2603:10a6:102:36c:cafe::69) by PA7P264CA0156.outlook.office365.com
+ (2603:10a6:102:36c::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Wed,
+ 18 Nov 2026 10:35:41 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ MI3PEPF00008486.mail.protection.outlook.com (10.167.240.133) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4
+ via Frontend Transport; Wed, 18 Nov 2026 10:35:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bmjkxZzjmAC6S4rg2m01DMEUA3iMLZr+x4r//D58GuZO8QY8yUrFdMx+fjzF8VwOF589IFTueaJGN+qId5yTQx8V9ZR79iHfHG2CC8O9mKCTLmZ1cXTTHuj6k7o/u2myuCAgLkYyduV5fp7nFsaCs9yblHKlhwA0SJdx+gi9ibOOHOVj5vob/psbc852CehuD/m8IRxh+MRvNeRPKSxmqfQGq/jhmMytAF6ibQ+viteXaPlolORKXyWiA1UW5acEKwU0CYOBS8PhNH1eiO7Hyx26xkDP6k8lmIVLa838DfP5dFBHM5/0idMNcr6efZLUmZYIAL3i9LKilEgmCUPRKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J/oIae6BkVX4KeS4B3DqR8471TqCDjkqdv8F6iCMP2s=;
+ b=Wj8NnWMWVX86SZPVjvfb0J/9t/Neqqa38vGKXq1poZhoJN43J+EbDAxj+52XU6xoc6grfxjnoTsBij2wiDbTIKb+TrUPcHjc0s1nOoie+bsoSGwvaoAtxYCF5/YFyazJO0k7XBPh8ujCBz8Dkj98e+ySSDGXKSMK2CfQwwlea/84VcR7JvIT7svQt962i2lF7AvTY/UiU6v7FqcT0AiBGs9F5FZ+c8cbmkE3XJO3vxmuzJ/b9zHVTlqgYXAjPPIIs4VJGwJg27uNrqFW8qcqe/FFhzf4GzdB0XZ5o6KxV1QDtmpi4bk8JoxahrtIJLblYW3EcmzgCSRehVUHrJLj6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J/oIae6BkVX4KeS4B3DqR8471TqCDjkqdv8F6iCMP2s=;
+ b=J0ljBrCTxIpdj4YLKw7h59FYQIHKON4aqj1jDn6Ijnw/GkBT2iIWcaZLoNzCG3/pxxZ0TOisyzy+B7oMywQSd66hB8Ck8seOR8BcvaksuRQW1aPu6sHF+k/pgc12WEBGI2mUCTAInTQcNgdpVi7i9BygcQF0e098F4zVDLiikr4=
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from MIWPR08MB568805.eurprd08.prod.outlook.com
+ (2603:10a6:290:e9::16) by ZR6PR08MB999902.eurprd08.prod.outlook.com
+ (2603:10a6:910:d1::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 10:35:08 +0000
+Received: from MIWPR08MB568805.eurprd08.prod.outlook.com
+ ([fe80::be50:76ed:509a:b9f2]) by MIWPR08MB568805.eurprd08.prod.outlook.com
+ ([fe80::be50:76ed:509a:b9f2%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 10:35:08 +0000
+Message-ID: <90ddbc9b-c2ae-4132-9c89-57c877a79b72@arm.com>
+Date: Wed, 18 Nov 2026 10:35:05 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/28] dt-bindings: gpu: panthor: Document AM system
+ bindings
+Content-Language: en-GB
+From: Karunika Choo <karunika.choo@arm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, nd@arm.com,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ linux-kernel@vger.kernel.org,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org
+References: <20261110153907.3241978-1-karunika.choo@arm.com>
+ <20261110153907.3241978-12-karunika.choo@arm.com>
+ <20261111-grumpy-carp-of-superiority-eddeb9@quoll>
+ <d74eb465-554b-43d6-bbfa-3fb671931462@arm.com>
+ <3c6fd46a-8666-408d-8866-f2bb1f293c05@kernel.org>
+ <ede42635-1164-4190-b0bb-954125686108@arm.com>
+In-Reply-To: <ede42635-1164-4190-b0bb-954125686108@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0287.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:195::22) To MIWPR08MB568805.eurprd08.prod.outlook.com
+ (2603:10a6:290:e9::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,231 +158,400 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Michael Grzeschik <grzeschik@puzzle.ch>
-Subject: Re: [PATCH 1/2] usbip: stub: reference count struct stub_device
-References: <20261111-usbip-v1-0-da5217ac71d7@puzzle.ch>
- <20261111-usbip-v1-1-da5217ac71d7@puzzle.ch>
- <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
-Content-Language: en-US, de-DE
-To: Shuah Khan <skhan@linuxfoundation.org>,
- Valentina Manea <valentina.manea.m@gmail.com>, Shuah Khan
- <shuah@kernel.org>, Hongren Zheng <i@zenithal.me>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-usb <linux-usb@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-Autocrypt: addr=grzeschik@puzzle.ch; keydata=
- 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
- brFdynih
-In-Reply-To: <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------uSGHclwRkkBen2TpjlsFmj8l"
+X-MS-TrafficTypeDiagnostic:
+	MIWPR08MB568805:EE_|ZR6PR08MB999902:EE_|MI3PEPF00008486:EE_|PAVPR08MB9040:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8fb2e0be-79b2-4b0f-1989-08df455fb16f
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|11063799006|4143699003|5023799004|56012099006|10067099003|261022113327099003|261021121427099003|261022105027099003|261009223027099003|261026121527099003|261022075727099003|261102123227099003|261026140227099003|261028144727099003|18002099003|22082099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info-Original:
+ rAKLyv9G2NzMiXmaU9NZ+ryn3p8HXA8rmRt6ToyngFZ7SLOUU+U/ICI95t0qrttoxKQDuuibtX91WOrZBcmu19FUnlT9CqDZbC2n3pFdDbjpK+6+wCb4Thrs5xJzaHuXGOkTIy2DrhyI/imvnwfABunsY1vx/vu9rqW055p8u/mt+QjLkB6bZaQt/pVRcUeIA7wRwXcmGpUOpJX06wOnXZpROSxIx2rkn12CmmDTgxd4E9UK8Hx/t02mHfwT3o8hlmfKsBVJtogFzBKxGBSOk+M2vrNd+a40Mi1ifWnbdD+Bo6aZUddqVdYKZKBFd6ozxrPcPRqiLNfhV2cqbpAfRd3isziL9tEM3yTkGbVOfwHSoU6W+KHc3i1sQqHSoHUd/s09wIQSnViooTbkL2ydDUASX+5EFSVNPWB1okxr9z86aF4jwUpPy9oQ7fvsmsfDB+UJsXtIFt2xVe0/3vRGkazynLbliRpw9otKgOdunrPe+WRV4oqH/92v/cWQ+nMKUDOfIgePHcQJ9hiCVm3JE5s8BgMonTXwMHTphHOOYEDK1z+LeoXfnqEmTSkQM8gbWX46w0tPw4lsYdVIsYhT0KfK/nt6oh53rtyNmTJbyfc=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MIWPR08MB568805.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(11063799006)(4143699003)(5023799004)(56012099006)(10067099003)(261022113327099003)(261021121427099003)(261022105027099003)(261009223027099003)(261026121527099003)(261022075727099003)(261102123227099003)(261026140227099003)(261028144727099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked:
+ CTD03viI6OEWs2o/9EbwZdAgGv4ch4oqKCNJvbY36KvEKDlMN3vcGbYXesYr9VYoevn0CBo9nV20rjCcKW2urajad+vj3WwNHnAZ4zhW8exG4/CRURytXMWwMfdMBGebS9uBly0uLvpRjpdRpgn7XgNxTIh1kxuAp8mK1OUFBX3xVZg3K3vnoM1cQQPKrI+WJF/Ks9A4kL8ACc7bL2YMjblFJ2WUdLe0WPuP8HVr4cSlVOiDPQdUDOfml2AlT5nDHQtjXbcgDj7RKdiLeTnKc0Af8IWdtY1j2NULe2ewx3ltaQ1AZAspV04qnRnxhZItYRDjnYykBjtJFRCEuE2GTg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR08MB999902
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ MI3PEPF00008486.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	0ecd3745-2545-4196-5182-08df455f9d96
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|35042699022|14060799003|1800799024|82310400026|36860700016|376014|7416014|10067099003|5023799004|56012099006|11063799006|4143699003|261026140227099003|261026121527099003|261028144727099003|261022075727099003|261022105027099003|261022113327099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003|13003099007|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	/iH6L49tas0jYZ5Ru9baHOmtLe0hAkvO/rr3psIL301+VzIV9ChNpkigoZHz+QtLcu+2KCnKUtcytTCu6aMMaaVA5DLmZnEdlLl2/83SEuL8JRSTTFrABtpeWced1fqP60VUD6unZhVn0Jl22icfv96BjUipXBPE71gZlCLb49ipFdp6iSIotuOT7Mx4sn6Lr4RREI1AAfX7RFJ9CCGBjtOxFdBWhggolt2Q47UrZtMNhoZRYPL9KEpuUxcISBepiqDZCMG8p99GKE1Wq7Ovt88JrMXMARaE50yAdR0012BDyViZ4xjvaiN01qkm3SmyWjYKr6JhxD7ZdFvIdQ8z3aVzsVijNXrVJYQBY3FMQOxRgb/w2E2hUYowSUOjH1D7z9NgPzTvLzNmH4Gr6lKhpacmk9NAMXvyKdc17zbgt465RcM1Xm1PMKsVHVMkQkbvGh6ljJ4Oi/Qb7K/zHP7gEn82HPZYDxpYyHw2/jz3PzvAb1Yx9hOa7Op7zsWTHRjcY2RAyIuQTrmalo1dS2/MpAciG494S9+ltXpNsBROm7oGNEKwdj7KZI+C5YPaCXL9FngW9eROE962vBGdHkQrXwLBO1lVdATHOnBVdVWASn16J6EiIS0xQuzJ+gLWueTO59FyKNgncJN3eA8MLojrQg==
+X-Forefront-Antispam-Report:
+	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(35042699022)(14060799003)(1800799024)(82310400026)(36860700016)(376014)(7416014)(10067099003)(5023799004)(56012099006)(11063799006)(4143699003)(261026140227099003)(261026121527099003)(261028144727099003)(261022075727099003)(261022105027099003)(261022113327099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	5UCH7rCM2xsFfNKPy0Td7av0AZs07jZWPcEac4jvOX3Gc8da+N3HBn87iEcsTa+GscqfgEi6Gsb2yVGigAQ6qszndxiYv8VwnNkQmkzFbSVNWH0D7PjiY2k0lZ+9U3RdtGAT2udfXRZsPzVM1wfmRSgeMtjuHzXQgCpSbOqXZtk1h5/4RUTnyYjiIb9TzC4Wn96hMKXSGX6/2XL878oC3pKsh2rF6kxxMvdRh16OnrOG3nerjyQ7RVQTisLbhCf2z1J+q7TVWEvIkJPaBn3P31TTnYyYVEpKCah1uzgDL1RwHEyOYnnkuD8uLRi/rZyWxJM2vywSSPUfaK61elurafZ5BUV/f915mSh9q6rmQXdnfMdK1pFL/nLaFZAgo4KntTqxggizWir6yW7knc+n3UcpLHNbZvDu9jLF7v/yKjMmtioQc08Nt8h4hthoiepv
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:35:40.8998
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fb2e0be-79b2-4b0f-1989-08df455fb16f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MI3PEPF00008486.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9040
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------uSGHclwRkkBen2TpjlsFmj8l
-Content-Type: multipart/mixed; boundary="------------B8kdL2CbB8dnEg1rm6Q8F6AU";
- protected-headers="v1"; hp="clear"
-Message-ID: <f0a598b9-3160-437c-9ed1-8529cbf07cff@puzzle.ch>
-Date: Wed, 18 Nov 2026 11:35:12 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Michael Grzeschik <grzeschik@puzzle.ch>
-Subject: Re: [PATCH 1/2] usbip: stub: reference count struct stub_device
-References: <20261111-usbip-v1-0-da5217ac71d7@puzzle.ch>
- <20261111-usbip-v1-1-da5217ac71d7@puzzle.ch>
- <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
-Content-Language: en-US, de-DE
-To: Shuah Khan <skhan@linuxfoundation.org>,
- Valentina Manea <valentina.manea.m@gmail.com>, Shuah Khan
- <shuah@kernel.org>, Hongren Zheng <i@zenithal.me>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-usb <linux-usb@vger.kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-Autocrypt: addr=grzeschik@puzzle.ch; keydata=
- xsFNBFNEPygBEADUzaV/L4aNDJcOlrv6osKx8p8IUx9NW0VtHaHLCjsWL8jtyGAEJ8cErUBt
- XvUK1C5SYliYR/LazdoB3+z/atr3ZI1lwaV2HdqVPsMhGgz+oolCWEZYq1mrLMI5madJp+pr
- pMK0YdBPflzJ3mvd4REroW0kejbG5QtwAKc3hwb/4PT0LlafifhiBMDxDjXHIlyTfhWxHyCW
- cc1ymG30/h+k87aIsvKZGBB/rPX6m0Apu7rJMTvMPPi1x6ct3lh3VH3Nles/dHn8gTfQ+7wx
- qnDiwjEVED46dv+fCLfpmnFs3TcEFAWpGpc1BDZzKN9KJfWwvsxEyEHjQkHcEaNvKJZlTju8
- sI5ykGzfPmfQCE2ZFoB8c0k0OuZDuPdXnGAG16wCDpaV+rXVS35PeLpM1cCrrAhxyEnISh3s
- ytCB27SdoKFJwCchMIasm2MzWrOsg/aBCmaliNiSiF2Up01IVlZWuSRUyTO0awLB/gq6shyz
- dVQXqHXLF2rHCHL2f7V+Uw00GaqFEoYj9SwKvNmyMCQcVtk1QmqKyOugzVS0RoInPoPJXnEN
- yilZjIe9F3gJPTyEwwsGZ19qKTS20Z2jS9OcxllwoLVrKYthpXEcGXSdQ+sJCsMvNKeFwfVP
- ZWOmAtDkN8kPMPkYdL4WrwCejqDD5jtFyRZ5JqkrZIg+cyoazwARAQABzSdNaWNoYWVsIEdy
- emVzY2hpayA8Z3J6ZXNjaGlrQHB1enpsZS5jaD7CwZcEEwEKAEECGwMFCR5yMakFCwkIBwMF
- FQoJCAsFFgIDAQACHgECF4AWIQSVe8RSzpU9fqYM9PwL6eMVeh4sZAUCafiQZwIZAQAKCRAL
- 6eMVeh4sZPlXEADJfcjrYrW3vaY0AUYyF4FKO8sj86xf5fdqIDl9Q1akQtIyumPlQIf1jwKq
- dkxYudpxzY3zNzTWqNGH5VfY+Wke5UInEIyu8d/Ndc8mikpnbrLpYp7PQ9moefhxQnJLDb0Q
- YTIrnU6F4h40jAaxqAFmkHogTKATkBepjb96nTxrD8KHaRjf9JLaGYop7Sn4xrL8GpVgoMtn
- mmcILeX7U8ANP51uu4SvlBuetjTeDmoKxe6YxUzFRv0uQPWaKzKESLAJc4CNyCShcbaAyzyj
- AsJLG24y9HDcDFvkuDdAJEw1EfjrgoOSxjoqWdxfZhd12grAel2+tIa2f5VtXi5D9ZcGR6/d
- EuLHjbBl8n0qqBeevLQl9GTHTLWpBUaf0GWCmRgGkgc3nX9bfgd+6Nk/V4sU6RGH9SpGNNzO
- LHPzrfPspLv3B1q/BNq+JmK0OsKiJ8Hdn/AK1sk4juf6f7TWPArGUhQB09nkBVRKPRbASyGd
- gn0k22jzkk2kyxx1zX1lMPRQgf1bTseYSF4Ai8/ll8nNBwGhDJbvi+lPS2Dc/bisbjsiHMXV
- elOgNsrZuh3hDKEHSE6wLnzAWm+ovs12bO1WrAwglWt6sIquL7Xxeh/NFWIYX4CHLFX+6Lpp
- IsA32aF1GseA3IXX4q1I5Z50gLaU68LHT10YCmnvUu6/AiEs887BTQRTRD8oARAA1jmMfEpE
- oODmGix1n+pDjKht+FsIJr4B29qEHL9dO/2y9sgJqhbbbakKtqOw61l/A5uZ+l+PVm8NuS42
- 4gRslIzik5jbfMPczcb4eqjYHRbSUDUcKD7u9EulUhdVPFjVFI2rbFC9Wxz4c7u36VwWPLPP
- aIP402iGk55QsD8Af9JeGhih7XcUt0U2dVfLupDpDa0TZdo0ATGRocashOERjJJkvTk/8r7d
- uhC+z2q1H4gZjG6fhqc4xVGz0fjYtJDjWXgebPkJnzBLj/S/M+exaD5WJjA6/vf16FKZzMwA
- CIeE7LFsg0ZXPve7eccAH1w+HqaMjKgw+H5lhcsX0gH7YbdGk/4mbOVfuEWzHwcKEGJvIsus
- 7FTt3aI6nXlSvR7AUSYISuxvc+Q7ghB5Ve+QfUb6hUjZd2I6f/XSIX39I/xljiQ+uRJe2N9z
- cNVijfCiX9vDMV/izZfHdftx4Ax2ytW03gbWJ/TnNTkTPeqHmlNj/toSW5Anxi1pXgUjOTci
- L0xibN4WekYA4PRkV/g5pyLSZJ1ttOiAf0UFDKoPP0fiu/fSHfAjAVq68RjXkRGyF5meIKEM
- nFYJikXonzo0fVCC/TcOfaNtKyqvkQTTupPo/fgwH+Q+83u2yOTPKI1F9bwfC49PYl4mzIAP
- jBF6HQskfGQR0rhBXecNvJJ4xiMAEQEAAcLBfAQYAQoAJgIbDBYhBJV7xFLOlT1+pgz0/Avp
- 4xV6HixkBQJoUG+WBQkecjHuAAoJEAvp4xV6HixkRS4P/3nOYIL0A7/+yK/xzI0DBIhhhn0M
- Qo2GeaMPIAeY930ty6jFBBObXMXxBhZkdyG2ut3uyq9cTVT+/RxZZf3kY/kQqQfowrtxDhbz
- gXdpLZxdUNnizSYcFq02jV4oTBbqxzz7+i0Ne478w3/90Ul8KGgcA1GOYAtMVDsQ+uTKaOMq
- YR/nT5zl4wUQ87lX7P0L3LAyLYUy8ZxkI0uhEcJYgclbI+J8p9CfqdF0DCsPe+/NU8l+WPg5
- dCU5RBrJbkkt1ojs4p826rhTbXBSFh+kCH8UcjT/D2rEIpbTXRw7dmLFrIzzbnQ1NVI6RpMT
- 1k/rCtiJmz6DsindMSX+mcqMuKdPy92KOBPseNjeaIYlkRjd15QOyBxVNFAMkoUHiSgy7Qsz
- 8w90je7mWTNJsKsmV+BT234mUm4snzjXntLxHIi+9tpcWysE6iC1+oRAdX23UkVRqGWOV+80
- F6gwa7Ksq/jGknEnDTbEUCgJkrr1RzbBy43VoS8wPm0R+6fMaNXrIlZrTzPz0p5rM7j+BYz/
- +eDjIkXXPseiq3xSHuP3rQb6PPBFKf8t6vFlQv/FoR7U4/OQ6fQg/gz7qH398e+KBAWVCDil
- wG0O0sQmDFRvlRtLQqJJnyt5g9EQECkedjobyBP0tN8xl5/K+++oEJXS3Bh9oi1pCpZghIKz
- brFdynih
-In-Reply-To: <24cb7bb7-100b-45ad-b1ea-afbb6bf41976@linuxfoundation.org>
+On 13/11/2026 14:35, Karunika Choo wrote:
+> On 12/11/2026 08:32, Krzysztof Kozlowski wrote:
+>> On 11/11/2026 11:43, Karunika Choo wrote:
+>>> On 11/11/2026 08:29, Krzysztof Kozlowski wrote:
+>>>> On Tue, Nov 10, 2026 at 03:38:32PM +0000, Karunika Choo wrote:
+>>>>> Mali 5th-Gen AM GPUs expose an AM_SYSTEM block for GPU-wide control and
+>>>>> the AM_ASSIGN block for HW resource assignment outside the GPU
+>>>>> job submission register window.
+>>>>>
+>>>>> Document the system node compatible, register and interrupt resources,
+>>>>> GPU clock, and assignment properties for HW resource assignment.
+>>>>>
+>>>>> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
+>>>>> ---
+>>>>> v2:
+>>>>> - Add an optional AM_ASSIGN register range. Require this range when the
+>>>>>   assignments node is present.
+>>>>> - Describe resource-group assignments for AXI buses, partitions, slices
+>>>>>   and access windows on partition-capable GPUs.
+>>>>> - Allow gpu-arbitration child nodes and the #address-cells, #size-cells
+>>>>>   and ranges properties.
+>>>>> - Remove the panthor-system node-name restriction.
+>>>>> - Remove gpu-supply from the schema and example.
+>>>>> - Add an example with assignments for partition-capable GPU with four
+>>>>>   resource groups.
+>>>>> - Move the MAINTAINERS update to the GPU schema patch.
+>>>>>
+>>>>>  .../bindings/gpu/arm,mali-gen5-am-system.yaml | 196 ++++++++++++++++++
+>>>>>  1 file changed, 196 insertions(+)
+>>>>>  create mode 100644 Documentation/devicetree/bindings/gpu/arm,mali-gen5-am-system.yaml
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am-system.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am-system.yaml
+>>>>> new file mode 100644
+>>>>> index 0000000000000..9e0477b8b723a
+>>>>> --- /dev/null
+>>>>> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-gen5-am-system.yaml
+>>>>> @@ -0,0 +1,196 @@
+>>>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>>>> +# Copyright 2026 ARM Limited. All rights reserved.
+>>>>> +%YAML 1.2
+>>>>> +---
+>>>>> +$id: http://devicetree.org/schemas/gpu/arm,mali-gen5-am-system.yaml#
+>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>> +
+>>>>> +title: ARM Mali 5th-Gen GPU System Device
+>>>>> +
+>>>>> +maintainers:
+>>>>> +  - Liviu Dudau <liviu.dudau@arm.com>
+>>>>> +  - Boris Brezillon <boris.brezillon@collabora.com>
+>>>>> +
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    items:
+>>>>> +      - const: arm,mali-gen5-am-system
+>>>>> +
+>>>>> +  reg:
+>>>>> +    minItems: 1
+>>>>> +    maxItems: 2
+>>>>
+>>>> Why is this flexible? There is no description in the binding which would
+>>>> explain oddities in choices of hardware representation.
+>>>
+>>> I will restore the description that was previously asked to be dropped.
+>>
+>> Hm, let me open the cover letter to find lore link to previous
+>> discussion and check... ah wait, no cover letter!
+>>
+>>>
+>>>>> +
+>>>>> +  reg-names:
+>>>>> +    minItems: 1
+>>>>> +    items:
+>>>>> +      - const: system
+>>>>> +      - const: assign
+>>>>> +
+>>>>> +  interrupts:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  clocks:
+>>>>> +    maxItems: 1
+>>>>> +
+>>>>> +  dma-coherent: true
+>>>>> +
+>>>>> +  "#address-cells": true
+>>>>> +
+>>>>> +  "#size-cells": true
+>>>>
+>>>> Both need to be const or enum.
+>>>>
+>>>>> +
+>>>>> +  ranges: true
+>>>>> +
+>>>>> +  assignments:
+>>>>
+>>>> Do not mix nodes with and without bus addressing. That's mess.
+>>>
+>>> Hi, I was asked to use a more generic DT such that should the
+>>
+>> By whom?
+>>
+>>> hardware registers change in the future we can still retain
+>>> some compatibility. Is it necessarily a problem?
+>>
+>> Bindings are not generic, but specific.
+> 
+> Apologies, this was discussed internally with a Panthor maintainer
+> previously. Would the following example DT be more acceptable?
+> 
+> --8<-------------------------------------------
+> panthor_system: gpu-system@68000000 {
+> 	compatible = "example-vendor,example-soc-mali-system", "arm,mali-gen5-am-system";
+> 	reg = <0x68000000 0x10000>,
+> 	      <0x68010000 0x10000>;
+> 	reg-names = "system", "assign";
+> 	interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
+> 	clocks = <&mali_gpu_clk>;
+> 	dma-coherent;
+> 	arm,am-resource-group-bus = <0x1100>;
+> 	arm,am-partition-resource-group = <0x3210>;
+> 	arm,am-slice-resource-group = <0x33221100>;
+> 	arm,am-aw-resource-group = <0x33332222 0x11110000 0x0 0x0>;
+> 
+> 	panthor_arbitration: gpu-arbitration@68040000 {
+> 		...
+> 	};
+> };
+> -->8-------------------------------------------
+> 
 
---------------B8kdL2CbB8dnEg1rm6Q8F6AU
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+Hello, thank you for your patience. Would the following layout address
+your concern about mixing bus-addressed devices and non-addressed
+configuration nodes?
 
-T24gMjAyNi0xMS0xNyAxMjoxNSBBTSwgU2h1YWggS2hhbiB3cm90ZToNCj4gT24gMTEvMTEv
-MjYgMDQ6MzQsIE1pY2hhZWwgR3J6ZXNjaGlrIHdyb3RlOg0KPj4gQSBzdHViX2RldmljZSBp
-cyBmcmVlZCBieSBzdHViX2Rpc2Nvbm5lY3QoKSByaWdodCBhZnRlciB1c2JpcF9zdG9wX2Vo
-KCkNCj4+IHJlcG9ydGVkIHRoYXQgdGhlIGV2ZW50IGhhbmRsZXIgaXMgZG9uZSB3aXRoIGl0
-LiBUaGUgcnggYW5kIHR4IHRocmVhZHMNCj4+IGFuZCB0aGUgZXZlbnQgaGFuZGxlciBjYW4g
-c3RpbGwgdXNlIGl0IGF0IHRoYXQgcG9pbnQ6DQo+Pg0KPj4gwqAgLSBUaGUgZXZlbnQgaGFu
-ZGxlciBjbGVhcnMgYW4gZXZlbnQgYml0IGFmdGVyIGl0IHJhbiB0aGUgaGFuZGxlciBmb3IN
-Cj4+IMKgwqDCoCBpdC4gQSBTSFVURE9XTiByZXF1ZXN0ZWQgd2hpbGUgYSBwcmV2aW91cyBz
-aHV0ZG93biBpcyBydW5uaW5nIGlzIGxvc3QsDQo+PiDCoMKgwqAgc28gdGhyZWFkcyBzdGFy
-dGVkIGFmdGVyIHRoYXQgc2h1dGRvd24gYXJlIG5vdCBzdG9wcGVkIGJlZm9yZSB0aGUNCj4+
-IMKgwqDCoCBzdHViX2RldmljZSBpcyBmcmVlZC4NCj4+IMKgIC0gQW4gZXZlbnQgcXVldWVk
-IGZvciB0aGUgZGV2aWNlIHdoaWxlIGFub3RoZXIgb25lIGlzIGhhbmRsZWQgbGVhdmVzIGFu
-DQo+PiDCoMKgwqAgZW50cnkgaW4gdGhlIGV2ZW50IGxpc3QuIE9uY2UgdGhlIGV2ZW50IGJp
-dHMgYXJlIGNsZWFyLA0KPj4gwqDCoMKgIHVzYmlwX3N0b3BfZWgoKSByZXR1cm5zLCB0aGUg
-c3R1Yl9kZXZpY2UgaXMgZnJlZWQsIGFuZCB0aGUgaGFuZGxlcg0KPj4gwqDCoMKgIHRoZW4g
-bG9ja3MgdGhlIHN5c2ZzX2xvY2sgb2YgdGhlIGZyZWVkIGRldmljZS4NCj4+IMKgIC0gVGhl
-IHN0dWJfZGV2aWNlIG5vIGxvbmdlciBob2xkcyBhIHJlZmVyZW5jZSB0byB0aGUgdXNiX2Rl
-dmljZSwgc28gYQ0KPj4gwqDCoMKgIHRocmVhZCBvdXRsaXZpbmcgdGhlIGRpc2Nvbm5lY3Qg
-dG91Y2hlcyBhIGZyZWVkIHVzYl9kZXZpY2UgdG9vLg0KPj4NCj4+IFRoaXMgd2FzIHNlZW4g
-ZXhwb3J0aW5nIHRoZSBzZXJpYWwgcG9ydCBvZiBhbiBTVC1MaW5rIGZyb20gYW4NCj4+IFNU
-TTMyTVAxLURLMiBvbiBhIEtpcmt3b29kIChBUk12NSkgaG9zdC4gQWZ0ZXIgcmVwZWF0ZWQg
-ImVuZHBvaW50IDUgaXMNCj4+IHN0YWxsZWQiIC8gdXNiX2NsZWFyX2hhbHQgY3ljbGVzIHdo
-aWxlIGEgY2xpZW50IG9wZW5lZCBhbmQgY2xvc2VkIHRoZQ0KPj4gcG9ydCwgc3R1Yl9yeCBj
-cmFzaGVkIGluIGRldl9lcnIoKSB3aXRoIHRoZSBkZXZpY2UgcG9pbnRlciBjb21wdXRlZCBm
-cm9tDQo+PiBhIE5VTEwgc2Rldi0+dWRldiBvZiBmcmVlZCBtZW1vcnk6DQo+Pg0KPj4gwqDC
-oCBVbmFibGUgdG8gaGFuZGxlIGtlcm5lbCBOVUxMIHBvaW50ZXIgZGVyZWZlcmVuY2UgYXQg
-dmlydHVhbCBhZGRyZXNzIDAwMDAwMGI4IHdoZW4gcmVhZA0KPj4gwqDCoCBQQyBpcyBhdCBk
-ZXZfZHJpdmVyX3N0cmluZysweDAvMHgzOA0KPj4gwqDCoCBMUiBpcyBhdCBfX2Rldl9wcmlu
-dGsrMHgyMC8weDZjDQo+PiDCoMKgIENhbGwgdHJhY2U6DQo+PiDCoMKgwqAgZGV2X2RyaXZl
-cl9zdHJpbmcgZnJvbSBfX2Rldl9wcmludGsrMHgyMC8weDZjDQo+PiDCoMKgwqAgX19kZXZf
-cHJpbnRrIGZyb20gX2Rldl9lcnIrMHg0MC8weDc0DQo+PiDCoMKgwqAgX2Rldl9lcnIgZnJv
-bSBzdHViX3J4X2xvb3ArMHg1ZDgvMHhkNjggW3VzYmlwX2hvc3RdDQo+PiDCoMKgwqAgc3R1
-Yl9yeF9sb29wIFt1c2JpcF9ob3N0XSBmcm9tIGt0aHJlYWQrMHgxMDAvMHgxMjANCj4+DQo+
-PiBSZWZlcmVuY2UgY291bnQgdGhlIHN0dWJfZGV2aWNlIGluc3RlYWQgb2YgcmVseWluZyBv
-biB0aGUgZXZlbnQgaGFuZGxlcg0KPj4gZm9yIGl0cyBsaWZldGltZToNCj4+DQo+PiDCoCAt
-IHRoZSBiaW5kaW5nIChwcm9iZSB1bnRpbCBkaXNjb25uZWN0KSBob2xkcyB0aGUgaW5pdGlh
-bCByZWZlcmVuY2UsDQo+PiDCoMKgwqAgc3R1Yl9kaXNjb25uZWN0KCkgZHJvcHMgaXQgaW5z
-dGVhZCBvZiBmcmVlaW5nIHRoZSBkZXZpY2UNCj4+IMKgIC0gdGhlIHJ4IGFuZCB0eCB0aHJl
-YWQgaG9sZCBvbmUgZWFjaCB3aGlsZSB0aGV5IHJ1biwgdGFrZW4gYmVmb3JlIHRoZXkNCj4+
-IMKgwqDCoCBhcmUgd29rZW4gYW5kIGRyb3BwZWQgd2hlbiB0aGV5IGVuZC4gSWYga3RocmVh
-ZF9zdG9wKCkgcmVwb3J0cyB0aGF0IGENCj4+IMKgwqDCoCB0aHJlYWQgbmV2ZXIgcmFuLCBz
-dHViX3NodXRkb3duX2Nvbm5lY3Rpb24oKSBkcm9wcyBpdCBmb3IgdGhlIHRocmVhZC4NCj4+
-IMKgIC0gdGhlIGV2ZW50IGhhbmRsZXIgaG9sZHMgb25lIHBlciBxdWV1ZWQgZXZlbnQgdW50
-aWwgaXQgaXMgY29tcGxldGVseQ0KPj4gwqDCoMKgIGRvbmUgd2l0aCB0aGUgZGV2aWNlLCB0
-aHJvdWdoIG5ldyBvcHRpb25hbCBnZXQvcHV0IGV2ZW50IGhhbmRsZXINCj4+IMKgwqDCoCBv
-cGVyYXRpb25zLCB3aGljaCB2aGNpIGFuZCB2dWRjIGRvIG5vdCBzZXQNCj4+IMKgIC0gdGhl
-IHN0dWJfZGV2aWNlIGhvbGRzIGEgcmVmZXJlbmNlIHRvIGl0cyB1c2JfZGV2aWNlIGFnYWlu
-LCBkcm9wcGVkDQo+PiDCoMKgwqAgd2l0aCB0aGUgbGFzdCByZWZlcmVuY2UNCj4+DQo+PiBU
-aHJlYWRzIHRoYXQgbWlzcyB0aGVpciBzaHV0ZG93biBub3cgZW5kIHdoZW4gdGhlIGNvbm5l
-Y3Rpb24gZ29lcyBhd2F5DQo+PiBpbnN0ZWFkIG9mIHVzaW5nIGZyZWVkIG1lbW9yeS4NCj4g
-DQo+IEkgcmVhbGx5IG5lZWQgYSBzaW1wbGVyIGNoYW5nZSBsb2cgdGhhdCBleHBsYWlucyB0
-aGUgcHJvYmxlbSBhbmQgdGhlIGZpeC4NCg0KU29ycnksIHRoYXQgSSB0b29rIHRoZSBzbG9w
-dHJhaW4gaGVyZS4gQXMgeW91IHNlZSwgdGhlIEFJIHdhcyBzdWdnZXN0aW5nDQpzb21lIGNv
-bXBsZXgga3JlZiBtZWNoYW5pc20sIGZvciBhIG9idmlvdXMgdXNlIGFmdGVyIGZyZWUuDQoN
-ClRoZSBtYWluIHRha2V3YXkgb2YgdGhlIGlzc3VlIGhlcmUgaXM6DQoNCiAgICBXaGVuIGEg
-c3R1YiBkZXZpY2UgaXMgdW5ib3VuZCwgc3R1Yl9kaXNjb25uZWN0KCkgYXNrcyB0aGUgdXNi
-aXAgZXZlbnQgaGFuZGxlcg0KICAgIHRvIHNodXQgdGhlIGNvbm5lY3Rpb24gZG93biBhbmQg
-ZnJlZXMgdGhlIGRldmljZSBhcyBzb29uIGFzIHVzYmlwX3N0b3BfZWgoKSByZXR1cm5zLg0K
-ICAgIEJ1dCB1c2JpcF9zdG9wX2VoKCkgb25seSBjaGVja3Mgd2hldGhlciB0aGUgZGV2aWNl
-4oCZcyBldmVudCBmbGFncyBhcmUgY2xlYXJlZCwNCiAgICB3aGlsZSBldmVudF9oYW5kbGVy
-KCkgbWF5IHN0aWxsIGhhdmUgYSBzZWNvbmQgZXZlbnQgZm9yIHRoZSBzYW1lIGRldmljZSBx
-dWV1ZWQuDQogICAgVGhlIGhhbmRsZXIgdGhlbiBwaWNrcyB1cCB0aGF0IGxlZnRvdmVyIGV2
-ZW50IGFuZCBydW5zIHN0dWJfc2h1dGRvd25fY29ubmVjdGlvbigpDQogICAgb24gdGhlIGFs
-cmVhZHkgZnJlZWQgZGV2aWNlLCB3aGljaCBjcmFzaGVzIGluIGRldl9wcmludGsoKS4NCg0K
-SG93ZXZlciwgYWZ0ZXIgdGFraW5nIHRoZSBzYXNoaWtvIHN1Z2dlc3Rpb25zIGludG8gYWNj
-b3VudCBhbmQgdW5kZXJzdGFuZGluZw0KdGhlIG92ZXIgYWxsIHBpY3R1cmUsIEkgc3BpbiBh
-bm90aGVyIHBhdGNoIHdpdGggaG9wZWZ1bGx5IGxlc3MgY29tcGxleGl0eS4NCkFkZGluZyBy
-ZWZlcmVuY2UgaGFuZGxpbmcgc2VlbWVkIGxpa2UgdGhlIG9idmlvdXMgY2hvaWNlIGhlcmUs
-IGJ1dCBpdCBzaG91bGQNCmFsc28gYmUgcG9zc2libGUgd2l0aCBwcm9wZXIgbG9ja2luZyBh
-bmQgc29tZSBjaGVja3MgaW4gdGhlIHVzYmlwX3N0b3BfZWgoKS4NCg0KU29ycnkgZm9yIHRo
-aXMgYWdhaW4uIFBsZWFzZSBpZ25vcmUgdGhpcyB0aHJlYWQgYW5kIHRha2UgSm9obnMgdmVy
-c2lvbiBvZiBteSAyLzIuDQoNClRoYW5rcywNCk1pY2hhZWwNCg0K
+The resource-group and partition configurations are moved into a separate
+gpu-assignments node outside the MMIO hierarchy. This node would be
+documented in a separate arm,mali-gen5-am-assignments.yaml.
 
---------------B8kdL2CbB8dnEg1rm6Q8F6AU--
+Each entry in the assignment property contains a configuration-node 
+phandle followed by the hardware resource-group or partition index.
+The example below illustrates the proposed structure.
 
---------------uSGHclwRkkBen2TpjlsFmj8l
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+--8<-------------------------------------------
 
------BEGIN PGP SIGNATURE-----
+/* Will be documented in a separate arm,mali-gen5-am-assignments.yaml */
+gpu-assignments { 
+  compatible = "arm,mali-gen5-am-assignments";
 
-wsF5BAABCAAjFiEEFdvthaW6nen779Bov2lYRPlx9KsFAmr9f2AFAwAAAAAACgkQv2lYRPlx9KvE
-FhAAslQVts0d+DUjr59+LIwaApQQB1czqjothH3u+HAdiC+JhPpfS6xjUZMq1n/GQepPjnpGm4Fc
-drgbIpmAkuMIgoAJ+W4xfbR9TgX6XFGfApyW4pxKThU52uLwtYNOyLGwC+0lX6RVtDuW6tzFsUd6
-ISQUPd4H31t+r9NdIZMOUJjRwTz3q3pVbnn3cuEki/oGfvahs91MuSNRJl37ElefOTvMISy8yRIC
-lhF+SoDmWbvjuDJfW2mcSa/h/ChdmTmTquoF4yHNh4fXxlqx3vEwe/hJxOfFzEMfQpAImb+CVWmN
-mbIEJnT9otHNf6CggqlXjPW9JjJHi5ACfQAVKGU/6JSLh4iKOlfsw3bqW4NmvaJwDnOpCZ0lg5Pz
-eg1ZJeWJ0K2mTTghteRd5p1RVqUW3cLPiMuIF5KG/6oQAZBrJztmsNyPkyeaor1JZWm2LPqdMWuU
-chJCO1ZIodrWyp0Bc4DC+in570Z/o1OpPjKnYJs3O86Ep1m866arTIixvkZogEsLBwVBsh+4Fnao
-UuuXMf6CASsf6tp2ah7EQm7Il42haxlXxSAUiVbuhr74wsv7H33ug5VLM3kkK8rkbZkTlzciGuVP
-GC85XF0X8J1gO97wSN07X2JtcUzwIYTEZ96pLKmFIyPtELy779nSQrdjaWHy+f8QNvYdddfUdeF7
-7dU=
-=XxWc
------END PGP SIGNATURE-----
+  rg0: resource-group-0 {
+    arm,axi-bus = <0>;
+    arm,partition-mask = <0x1>;
+    arm,slice-mask = <0x3>;
+    arm,access-window-mask = <0x3>;
+  };
 
---------------uSGHclwRkkBen2TpjlsFmj8l--
+  rg1: resource-group-1 {
+    arm,axi-bus = <0>;
+    arm,partition-mask = <0x2>;
+    arm,slice-mask = <0xc>;
+    arm,access-window-mask = <0x4>;
+  };
+
+  pc0: partition-0 {
+    arm,access-window-mask = <0x3>;
+    arm,slice-mask = <0x3>;
+  };
+
+  pc1: partition-1 {
+    arm,access-window-mask = <0x4>;
+    arm,slice-mask = <0x8>;
+  };
+};
+
+gpu-system@68000000 {
+  #address-cells = <1>;
+  #size-cells = <1>;
+
+  compatible = "vendor,soc1-mali-system", "arm,mali-gen5-am-system";
+  reg = <0x68000000 0x10000>, <0x68010000 0x10000>;
+  reg-names = "system", "assign";
+  interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
+  clocks = <&mali_gpu_clk>;
+  arm,resource-assignments = <&rg0 0>, <&rg1 1>;
+  dma-coherent;
+  ranges;
+
+  gpu-arbitration@68040000 {
+    #address-cells = <1>;
+    #size-cells = <1>;
+    
+    compatible = "vendor,soc1-mali-arbitration", "arm,mali-gen5-am-arbitration";
+    reg = <0x68040000 0x10000>,
+          <0x68050000 0x10000>,
+          <0x680C0000 0x10000>,
+          <0x680D0000 0x10000>;
+    reg-names = "pc0", "pc1", "rg0", "rg1";
+    interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>,
+                 <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>,
+                 <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>,
+                 <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH>;
+    interrupt-names = "pc0", "pc1", "rg0", "rg1";
+    arm,partition-assignments = <&pc0 0>, <&pc1 1>;
+    ranges;
+
+    /* access-window 0 */
+    gpu@68100000 {
+      compatible = "vendor,soc1-mali", "arm,mali-gen5-am";
+      reg = <0x68100000 0x480000>;
+      interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+                   <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+                   <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+      interrupt-names = "job", "mmu", "gpu";
+      iommus = <&smmu_700 0x0>, <&smmu_700 0x1>;
+      clocks = <&gpu_core_clk>;
+    };
+
+    /* access-window 1 */
+    gpu@68580000 {
+      compatible = "vendor,soc1-mali", "arm,mali-gen5-am";
+      reg = <0x68580000 0x480000>;
+      interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+                   <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+                   <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+      interrupt-names = "job", "mmu", "gpu";
+      iommus = <&smmu_700 0x0>, <&smmu_700 0x1>;
+      clocks = <&gpu_core_clk>;
+    };
+
+    /* access-window 2 */
+    gpu@68a00000 {
+      compatible = "vendor,soc1-mali", "arm,mali-gen5-am";
+      reg = <0x68a00000 0x480000>;
+      interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+                   <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>,
+                   <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+      interrupt-names = "job", "mmu", "gpu";
+      iommus = <&smmu_700 0x0>, <&smmu_700 0x1>;
+      clocks = <&gpu_core_clk>;
+    };
+  };
+};
+-->8-------------------------------------------
+
+Kind regards,
+Karunika
+
+>> ...
+>>
+>>>>> +patternProperties:
+>>>>> +  '^gpu-arbitration@[a-f0-9]+$':
+>>>>> +    $ref: arm,mali-gen5-am-arbitration.yaml#
+>>>>
+>>>> There is no such file. You did not really test it.
+>>>
+>>> Sorry, this was included from a later patch that
+>>> introduces this file. I will move it there in v3.
+>>>
+>>>>
+>>>>> +
+>>>>> +required:
+>>>>> +  - compatible
+>>>>> +  - reg
+>>>>> +  - reg-names
+>>>>> +  - interrupts
+>>>>> +  - clocks
+>>>>> +
+>>>>> +additionalProperties: false
+>>>>
+>>>> This goes after allOf: block.
+>>>>
+>>>>> +
+>>>>> +allOf:
+>>>>> +  - if:
+>>>>> +      required:
+>>>>> +        - assignments
+>>>>> +    then:
+>>>>> +      properties:
+>>>>> +        reg:
+>>>>> +          minItems: 2
+>>>>> +        reg-names:
+>>>>> +          minItems: 2
+>>>>> +
+>>>>> +examples:
+>>>>> +  - |
+>>>>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>>>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>>>> +
+>>>>> +    gpu-system@68000000 {
+>>>>> +      compatible = "arm,mali-gen5-am-system";
+>>>>> +      reg = <0x68000000 0x10000>;
+>>>>> +      reg-names = "system";
+>>>>> +      interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
+>>>>> +      clocks = <&mali_gpu_clk>;
+>>>>> +    };
+>>>>> +  - |
+>>>>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>>>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>>>> +
+>>>>> +    gpu-system@68000000 {
+>>>>> +      compatible = "arm,mali-gen5-am-system";
+>>>>> +      reg = <0x68000000 0x10000>, <0x68010000 0x10000>;
+>>>>> +      reg-names = "system", "assign";
+>>>>> +      interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
+>>>>> +      clocks = <&mali_gpu_clk>;
+>>>>> +
+>>>>> +      assignments {
+>>>>> +        #address-cells = <1>;
+>>>>> +        #size-cells = <0>;
+>>>>> +
+>>>>> +        resource-group@0 {
+>>>>> +          reg = <0>;
+>>>>> +          arm,axi-bus = <0>;
+>>>>> +          arm,partition-mask = <0x1>;
+>>>>> +          arm,slice-mask = <0x3>;
+>>>>> +          arm,access-window-mask = <0xf>;
+>>>>> +        };
+>>>>> +
+>>>>> +        resource-group@1 {
+>>>>> +          reg = <1>;
+>>>>> +          arm,axi-bus = <0>;
+>>>>> +          arm,partition-mask = <0x2>;
+>>>>> +          arm,slice-mask = <0xc>;
+>>>>> +          arm,access-window-mask = <0xf0>;
+>>>>> +        };
+>>>>> +
+>>>>> +        resource-group@2 {
+>>>>> +          reg = <2>;
+>>>>> +          arm,axi-bus = <1>;
+>>>>> +          arm,partition-mask = <0x4>;
+>>>>> +          arm,slice-mask = <0x30>;
+>>>>> +          arm,access-window-mask = <0xf00>;
+>>>>> +        };
+>>>>> +
+>>>>> +        resource-group@3 {
+>>>>> +          reg = <3>;
+>>>>> +          arm,axi-bus = <1>;
+>>>>> +          arm,partition-mask = <0x8>;
+>>>>> +          arm,slice-mask = <0xc0>;
+>>>>> +          arm,access-window-mask = <0xf000>;
+>>>>> +        };
+>>>>
+>>>> Your example is incomplete.
+>>>
+>>> Could you clarify what specifically is missing?
+>>
+>> ll the properties you added in the binding.
+>>
+>> Best regards,
+>> Krzysztof
+> Thanks. I'll add that in v3.
+> 
+> Kind regards,
+> Karunika
+
