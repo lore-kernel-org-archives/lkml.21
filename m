@@ -1,75 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795028061;
-	b=lgbAfyEKrnQO9L8JbdmxYmjfZhdV0Uow7gIsJBWYrGT4M9V7KMJEpIq0kA5ydUOsshmy
-	 IYn1yqbJoYMQNl78kWtIaabb07hB5r6wSiXGIp1kW+Oy8qGO8+ZyjD7XNOM5k9QR02w/N
-	 HgiJd/O3v+MUCz2ax3lQDQRnwdsgTvnsFgGVtCutHN9FzQOiYU1FqH0Oe1hUNNQUypxv9
-	 vKq7sUAHnboghaa8xfM+DOCh5sCiYgiDvTFQ7I9A1g6z+NusXZQ9yQsJbNov8wUP2VU9k
-	 J8FvLRGccuFM1k9GPvhYZe8DURYl10y1DpVg9IObxISZLH1KkXyl22qKsRB40FyQP4w==
+	t=1795028070;
+	b=ggDkOCT84zLJ6MPx6jCTui7JShCN6zv+HLuM+wnIng63LtgjuGRFQMyxnMzi9/slXRUm
+	 hPr6cmiw7MSgEl755wNYSziAit788fXlti3bgT8VslbbAGAPlDOeKFJEkAl50kV1nKArG
+	 83Z/RcefjBLiXAOdnwzwEIJajndaqk+Ri2Kn5fGLKZ+z+T2UeLwKDS9pn4cz430nrnyTT
+	 HxwVEK/Qt6iYkKCIoPNFA9XTTK3WWxPElzGA3g6TrtJCB48X0AgiMrhyybTa4qlbwP60e
+	 e6NclSs47N/LnpEma2ZLt5vDGRybeuU9zP3QjJFm0oXqMGdzwFykW/3KsnJvf2j21Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795028061;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=TZsTikxfxLhewEbP2xR/h7zJwb5pgHnbb8uIv7AdPeo=;
-	b=tG/lmY27jSfnj/P60XHkWRjR9zrfF7yzzPfi1ol+vycfptBO8Gee3qxmasTAEReTWB7e
-	 a6/graVdojNoiKCLyGJT8BOUCxAK7jZ/lVtzCNc1j/gFtsupQ5otB8NVgGi9QCP83elR/
-	 K7mV72qwvV4/98aS0d1/HiLmamaNXmPfwagsTStuA3xMsQcYNb0vQz2GNvVtzqxwSiUDE
-	 b/+AtzpFWhQudUPyV4SDhskXfM2vyW9Idc+G85bGYDqgqw1b8LPOVzqHribMDl0iMX6+Z
-	 VXRLj1bB6Ih5gDeAu+HK/Q449mffBxzVsBoAaq/HP7+o/udHIkxrD63ZpttkNuQm6yw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795028070;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ZPQs9bB5EZrcS0gSU2DORmi4XRfA7RSLq+quDBDfcEo=;
+	b=SqnYu3VIYGJsnzT0MYDjgoIqRBIyNl5YqhDiBupiH+wSjZDjjSFARsIshcNlqzyCOlVB
+	 XzC4GVWDcN/ywwTqBxPhrhIAQk5m852MounRXhvI0tGHHI48v22NddxcJwMw/npTxVRo4
+	 RcTWoNliTnQMEX9gkEiY46qQn//uYNW/Q9vu8R8zaWA+xf5KYAi3Gduy5E7nlbbHvRSpd
+	 ZeOrNvBnjqax02uUc14rH8OwTNoyQ2ruVF415xlCKxjkowq/wS5M0tGp/uXrrgBJ4e8dR
+	 JhX3rtNGQ5iuPdqMoTprSloNWchsZBg0xu+Qps9V4u/HygLJls/0F5/setbnB+WiaGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CAVBtdBK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="l12pjYJ/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52F7A606A325;
-	Wed, 18 Nov 2026 18:54:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4420606A320;
+	Wed, 18 Nov 2026 18:54:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CAVBtdBK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DD461F000C4;
-	Wed, 18 Nov 2026 18:54:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l12pjYJ/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C0EA1F000C4;
+	Wed, 18 Nov 2026 18:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795028060;
-	bh=TZsTikxfxLhewEbP2xR/h7zJwb5pgHnbb8uIv7AdPeo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CAVBtdBKiBua6AQR1YohOwJUX4aO/2Q0tv9TEF+7XlxUgb8/hTMAcTjU1BRo9mNhM
-	 vXlXljYJ68uR0nta3BcJzXxhizkEaFpau8HtwwTpAMB9EpYrh7caZXxus/c58QuuJY
-	 OxQVkJTcj1AU9jmeUw5z+Xmix19MT+e/a7VRcvEgtTgCWDxrCx5CLRGY2oJVGilPrG
-	 aIR6R36xz2meISdE12Fj3Lz8mjYuedoWR31zdi66bRgzItaXpNzih99tvTnHEOYx4z
-	 3XvTuBvys9gsXyDPTo2lbtBEFr+VVVG264RmidGpNQZXHyWiy/OI5CEwB/o4aShiAP
-	 GkmDQRva+xv1A==
-Date: Wed, 18 Nov 2026 18:54:06 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
- James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>, Thomas
- Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>, Hanjun Guo
- <guohanjun@huawei.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Shuai
- Xue <xueshuai@linux.alibaba.com>, Mahesh J Salgaonkar
- <mahesh@linux.ibm.com>, "Oliver O'Halloran" <oohall@gmail.com>, Bjorn
- Helgaas <bhelgaas@google.com>, Maciej Wieczor-Retman
- <maciej.wieczor-retman@intel.com>, Pawel Chmielewski
- <pawel.chmielewski@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>, Qiuxu
- Zhuo <qiuxu.zhuo@intel.com>, Radu Rendec <radu@rendec.net>, Avadhut Naik
- <avadhut.naik@amd.com>, Dave Jiang <dave.jiang@intel.com>, "Fabio M. De
- Francesco" <fabio.m.de.francesco@linux.intel.com>, Kai-Heng Feng
- <kaihengf@nvidia.com>, Breno Leitao <leitao@debian.org>, Dan Williams
- <djbw@kernel.org>, Terry Bowman <terry.bowman@amd.com>,
- linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
- acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v1 01/19] x86/APEI: Extract common CPER memory error
- reporting helper
-Message-ID: <20261118185406.21700e81@jic23-hlaptop>
-In-Reply-To: <20261117111444.4185512-2-pierre.gondois@arm.com>
-References: <20261117111444.4185512-1-pierre.gondois@arm.com>
-	<20261117111444.4185512-2-pierre.gondois@arm.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795028069;
+	bh=ZPQs9bB5EZrcS0gSU2DORmi4XRfA7RSLq+quDBDfcEo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=l12pjYJ/IBU8hubWgNrR4F+qs1zEvIJByKiyPJKUIjWKAYSeN5UbknVL2wdTDMa53
+	 kiqEmJCRWakqs4Ch0lPHkS9nzWINjtl28zpU7ON28OzabD09rIk9iY8tG2v88k4b67
+	 bekxI9jVxeK+eGdkoq7pigi9eExJmrbR9apvkqslnWaa5n3kA+7kALfSexqIGmnf0H
+	 3p5IFMJ+jMItpKmAdBeco9Fx24k9Uduyt2m3o4Y1Zw0DjgknUJVz2e8SLXXXYlN9/U
+	 WGoqtdAPpIwsx+tXJTZxaB1TqbujWEYDYBpzUkTe5EZ3fWJ8ttPDiKUXqGdimP0w8y
+	 VEpnTGrQI+dIA==
+Message-ID: <73224e5f-e47e-49d7-aa41-8bd1338c831c@kernel.org>
+Date: Wed, 18 Nov 2026 12:54:23 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,95 +51,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] iommu/amd: Enable PerfOpt automatically for integrated
+ GPUs
+Content-Language: en-US
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Vasant Hegde <vasant.hegde@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Alex Deucher <alexander.deucher@amd.com>, Joerg Roedel <joro@8bytes.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ amd-gfx@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20261022-superm1-perf-opt-next-v5-1-dfef0b78b7b9@kernel.org>
+ <179502782208.3845434.3028303849229899926.b4-review@b4>
+From: Mario Limonciello <superm1@kernel.org>
+In-Reply-To: <179502782208.3845434.3028303849229899926.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On Tue, 17 Nov 2026 12:10:11 +0100
-Pierre Gondois <pierre.gondois@arm.com> wrote:
-
-> Prepare for reporting CPER Memory Error Section 2 records through MCE
-> by extracting apei_mce_report_mem_error_common().
+On 11/18/26 12:50, Jason Gunthorpe wrote:
+>> PerfOpt is usable by integrated GPUs in identity mode. Enable it from
+>> the IOMMU driver's domain attachment paths instead of requiring an
+>> amdgpu policy knob and exported enable/disable interfaces.
+>>
+>> Mark supported integrated GPUs as PerfOpt-eligible when selecting their
+>> default identity domain. Skip GCR3 setup and ATS/PRI/PASID enablement for
+>> these identity attachments, then enable PerfOpt after installing the DTE.
+>> Clear PerfOpt before attaching an eligible GPU to a translated or blocked
+>> domain, including unmanaged domains used by VFIO. Propagate failures to
+>> clear bypass, but keep a completed identity attachment successful if the
+>> optional PerfOpt enable fails.
+>>
+>> Clear inherited PerfOpt state during initialization, including when a crash
+>> kernel reuses device tables. Read feature support directly from hardware
+>> because cached features may not be available yet, and stop initialization
+>> if the initial clear fails.
+>>
+>> Each IOMMU has at most one PerfOpt-eligible GPU, so track activation with a
+>> boolean under the IOMMU lock. Preserve this state while clearing hardware
+>> at suspend and shutdown, and restore the bit on resume only where it was
+>> active. Do not enable PerfOpt unconditionally during early IOMMU
+>> initialization.
+>>
+>> Remove the amdgpu parameter, driver callbacks, and exported interfaces.
+>> Translated attachments retain their normal device capability setup.
+>>
+>> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+>> Signed-off-by: Mario Limonciello (AMD) <superm1@kernel.org>
+>> ---
+>> Changes in v5:
+>>   * Enable PerfOpt after identity attachment instead of during early IOMMU init
+>>   * Clear PerfOpt before translated or blocked attachments, allowing VFIO use
+>>   * Drop require_direct and retain normal capability setup for translated domains
+>>   * Replace refcounting with a per-IOMMU activation boolean protected by its lock
+>>   * Clear inherited PerfOpt during init, including crash-kernel device-table reuse
+>>   * Read hardware feature support before cached features are available and fail
+>>     initialization if the initial clear fails
+>>   * Preserve activation across suspend and restore it on resume only if active
+>>   * Keep identity attachment successful if optional PerfOpt enablement fails
+>>   * Link to v4: https://lore.kernel.org/linux-iommu/20261001182410.1525285-1-superm1@kernel.org/
+>> ---
+>>   drivers/gpu/drm/amd/amdgpu/amdgpu.h        |   1 -
+>>   drivers/gpu/drm/amd/amdgpu/amdgpu_device.c |  50 ------
+>>   drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c    |  12 --
+>>   drivers/iommu/amd/amd_iommu.h              |   3 +-
+>>   drivers/iommu/amd/amd_iommu_types.h        |   6 +-
+>>   drivers/iommu/amd/init.c                   |  91 ++++++-----
+>>   drivers/iommu/amd/iommu.c                  | 252 +++++------------------------
+>>   include/linux/amd-iommu.h                  |  11 --
+>>   8 files changed, 95 insertions(+), 331 deletions(-)
 > 
-> No functional change.
+> Vasant are you going to pick this up? It seems good to me
 > 
-> Signed-off-by: Pierre Gondois <pierre.gondois@arm.com>
-One curious question + trivial comment inline.
-
-Otherwise, this is a simple refactor and seems clean to me.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-> ---
->  arch/x86/kernel/cpu/mce/apei.c | 31 +++++++++++++++++--------------
->  1 file changed, 17 insertions(+), 14 deletions(-)
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 > 
-> diff --git a/arch/x86/kernel/cpu/mce/apei.c b/arch/x86/kernel/cpu/mce/apei.c
-> index 0a89947e47bc8..b993ac78a3b36 100644
-> --- a/arch/x86/kernel/cpu/mce/apei.c
-> +++ b/arch/x86/kernel/cpu/mce/apei.c
-> @@ -26,24 +26,15 @@
->  
->  #include "internal.h"
->  
-> -void apei_mce_report_mem_error(int severity, struct cper_sec_mem_err *mem_err)
-> +static void apei_mce_report_mem_error_common(int severity, u64 physical_addr,
-> +					     u64 physical_addr_mask)
->  {
->  	struct mce_hw_err err;
->  	struct mce *m;
->  	int lsb;
->  
-> -	if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))
-> -		return;
-> -
-> -	/*
-> -	 * Even if the ->validation_bits are set for address mask,
-> -	 * to be extra safe, check and reject an error radius '0',
-> -	 * and fall back to the default page size.
-> -	 */
-> -	if (mem_err->validation_bits & CPER_MEM_VALID_PA_MASK)
-> -		lsb = find_first_bit((void *)&mem_err->physical_addr_mask, PAGE_SHIFT);
-> -	else
-> -		lsb = PAGE_SHIFT;
-> +	/* Missing or zero masks default to page granularity. */
-> +	lsb = find_first_bit((void *)&physical_addr_mask, PAGE_SHIFT);
 
-Silly question.  What stops it being bigger than a page?  I appreciate you
-aren't changing what is already here but it made me curious.  It's 8 bytes
-so limiting it to page size seems odd.
-
-That larger usecase came up last year for how to handle error injection
-into a VM that was running smaller pages than the host.
-
-I guess on x86 it simply isn't ever bigger than one page?
-
-
->  
->  	mce_prep_record(&err);
->  	m = &err.m;
-> @@ -60,9 +51,21 @@ void apei_mce_report_mem_error(int severity, struct cper_sec_mem_err *mem_err)
->  		m->tsc = rdtsc();
->  	}
->  
-> -	m->addr = mem_err->physical_addr;
-> +	m->addr = physical_addr;
->  	mce_log(&err);
->  }
-> +
-> +void apei_mce_report_mem_error(int severity, struct cper_sec_mem_err *mem_err)
-> +{
-> +	u64 mask = 0;
-> +
-> +	if (!(mem_err->validation_bits & CPER_MEM_VALID_PA))
-> +		return;
-
-I'd add a blank line here given that return is a mite hard to spot.
-
-> +	if (mem_err->validation_bits & CPER_MEM_VALID_PA_MASK)
-> +		mask = mem_err->physical_addr_mask;
-> +
-> +	apei_mce_report_mem_error_common(severity, mem_err->physical_addr, mask);
-> +}
->  EXPORT_SYMBOL_GPL(apei_mce_report_mem_error);
->  
->  int apei_smca_report_x86_error(struct cper_ia_proc_ctx *ctx_info, u64 lapic_id)
-
+FWIW - it was picked up in b32ecac779bba6e7ac7caeae8c40db4280941634.
