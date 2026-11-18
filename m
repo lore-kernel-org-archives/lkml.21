@@ -1,77 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.56.165
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794987820;
-	b=OMRFmRdZKjqUlUDvWx7zsOe1hBxmcnlVrTP8Fun89K8UdvEEFV8jwA3Os110RAABSmVL
-	 PnY7g9dGCuoBkpUgFbyFDK5HYpvXhDLb2qMb/o5bkMbfDlILzeF4PGoRfjyzH8W/jkny9
-	 rdngvZICwbPyAU0iXAPuXSdkfzCkBi7HrkRUuVnsnmYrmB0CZAYd5gGVAxfLODtVsVKeF
-	 9jNyYSxe8wyrDKECBdAaifH/tPu5qO8pz6TghrAVUatGf508OllkrnaRZ4vjHt/AhpeR6
-	 c0c1M/14v9IUizqoTvL6o2QHNeRCmTNPaZM+ri4BgLOhzdJ/aXCRWTD0ph/hbEcvLyg==
+	t=1794987826;
+	b=qB78Bm3lDBrDyexOJpeZpPytMn9RwnQukKPgj8BJjj6fmIiK2NAl3Cqvu2f88If48jRo
+	 RARB43/qFjqhmozJNqUHB2dPuRTtpHOcaP1p1zfwpIkiOHTd5Nkn8ahxO1EF6a55DFbKf
+	 6jRhBnI+x37bhxKh1XKDuTFzK4KV8+ayPEFWohJqMiFziQMwSdAo8MhvnNDeS6jvKeKAP
+	 ATjH/ELor7BTIusbdxb4tpUPuLljzWmGjZXu54sPANzSygdDMNplaR1jL5JihEOJhrsLy
+	 BIyW8s3dDNIGbHkuGmS1sOn35g5CvdUqAW2eNRDJlenzwBYbzSUqMQ1TE0XrPHNj5vQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794987820;
-	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=b737YrD1Vuqp1UqKoujfmzIBpXH+TGHVeB6r5nqOeC8=;
-	b=ZGrJv9uMiulx+my1VzJuAQN/1Mxf0/Zd2r/stJtek1uLOm7Du0mTb+6Adc4btqwMWMht
-	 C23o/3Oy7f9vlrzs09UnCqN7p7IlaOV+afR8Xmjc7pjEmrcBPTz1JnWv4MxQb2btp5CAD
-	 iUqPU+3cjoLuaawLLblSuflb2kIIW8OEJVUGHsD/4Rs79vYxMXWP8ntmK7FrIG8wefEDq
-	 jQb4zett2qJ3WQTNMZ05hy9bJXDNpw28RlAHtnhC0rKIDdppfZ+erC4rVGAqJ4dQojp1j
-	 rVYgZJ1jVv6H3CnJLH96lGTFGYG6cAu0ViBih5PMFE8acUZkqNthWaF4gjHp/6hGhSQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794987826;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=/qN+6LtVRqzfP3UHzEAgHQks8jfWwjKEKIfLOFdp7dY=;
+	b=PuOtcVqrV+3opWxsEYTWwVvjYh4oIt/PekNBgeYVf4VcVJHU1zJFh7Un5dL5pkgHJKDN
+	 HPtyjbQHFL1pN+Gi+KFENzS2TCQeUVbqyQ9I+BmoxetNdJtawGni7AGyLYKAA1DGK5uU7
+	 0iD7wFYMsmGpnaqFxfgAJmElnEmTPLu09lvt/40U8UDctV+PqLJxkt6yCpPA/wej7Lx7U
+	 A9C0pJccBls06PAAGEv6vohoLRtUJRYqMeWZH4LzrrhbisOWE/feoA7oNoTxgeGtFoLh8
+	 EgjK3MGUa/k1ZtHE++vVw0HFlsLCVFjMq+R4hhqXXnY3mVFUJaEfcg5zHdmWyknpFGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideco.ru;
-	spf=pass smtp.mailfrom=ideco.ru;
-	dkim=pass header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=OlGon56e;
-	arc=none smtp.remote-ip=51.250.56.165
-Received: from smtp.ideco.ru (smtp.ideco.ru [51.250.56.165])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BuW/Sl7f";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C405606A32F;
-	Wed, 18 Nov 2026 07:43:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C405606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ideco.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideco.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D7B0606A325
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:43:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ideco.ru header.i=@ideco.ru header.a=rsa-sha256 header.s=ics header.b=OlGon56e
-Received: from [169.254.254.254] (localhost [127.0.0.1])
-	by smtp.ideco.ru (Postfix) with ESMTP id E6B1126BC2;
-	Wed, 18 Nov 2026 12:43:36 +0500 (+05)
-Received: from fedora (5cfcd9fa.dynamic.mv.ru [92.252.217.250])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.ideco.ru (Postfix) with ESMTPSA id 6D97826BC0;
-	Wed, 18 Nov 2026 12:43:34 +0500 (+05)
-DKIM-Filter: OpenDKIM Filter v2.11.0 smtp.ideco.ru 6D97826BC0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ideco.ru; s=ics;
-	t=1794987816; bh=b737YrD1Vuqp1UqKoujfmzIBpXH+TGHVeB6r5nqOeC8=;
-	h=From:To:Cc:Subject:Date;
-	b=OlGon56eLuA3hxxuXUg/EEofiMCJVx7s7td7yv5E5/fOSwI40q7kSKBS6mAuBk/Ym
-	 bzkIXrbTes/dmu2fefJvees6SgRgB8FivU+RMqg6tYpLE5vGp3BA0ReEBBwk+d1Ukg
-	 LO7U6FqVg7D92aUWqzu732a/jtuYJ8cN46AuRra6mwMGHmGgH4Qz9w8M9c+ECYT09d
-	 bB+mwT0jeo4BJSDlEFU+6Brc4uvUOiXvHxDfO+s49J6LI0uLt3sVwLpwGx3/BrspqC
-	 ZM2Zz6aJRrKVemyzHA60ZXbClukilCzbzDd+JCSkG70jnaH4MVYwnPB8/IwbHKkGN0
-	 iNQMCzcTUjuCw==
-From: Alex Kazinsky <a.kazinsky@ideco.ru>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>
-Cc: Alex Kazinsky <a.kazinsky@ideco.ru>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Pawel Chmielewski <pawel.chmielewski@intel.com>,
-	Wojciech Drewek <wojciech.drewek@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	stable@vger.kernel.org
-Subject: [PATCH net] ice: Avoid tracing bridge ports after initialization failure
-Date: Wed, 18 Nov 2026 11:42:59 +0400
-Message-ID: <20261118074324.1583964-1-a.kazinsky@ideco.ru>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BuW/Sl7f
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D9A1F000C6
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 07:43:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794987825;
+	bh=/qN+6LtVRqzfP3UHzEAgHQks8jfWwjKEKIfLOFdp7dY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=BuW/Sl7fLdIK7h5FbOk8PcU1Ls2wIFrmkLJqlyrHBJv6Y9rMXd7f5jL86LaMqP2Fv
+	 la7qi5e2oJe2osDafmmCGnZIiy9AI1FR1qAxhzw2HAJ1If2to0egBqCJHTteUn/HVQ
+	 6MPCR6iKg0Bfecoafi3BrqDlbpCCobiet5rUkMncu56nlelQu4tUXjiuy0BcwJeo28
+	 JW9XkUt6O/xBznxycAYAiAfaIeaG9gGWScTMfeLphwCIMSJ2TEAkeez/zvMkYegNei
+	 DnYyOcttFgZyp7NMkXdzLheHflJtAo1/YC6No9Vah3s+ML2iEUKKi8O7cMjUWTgkD9
+	 puwmFBvlBGwPQ==
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b88d143160so570760a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 17 Nov 2026 23:43:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF9rF5CZkU48/CC1htKhnP7xrnKxQOFA0c1qrTE7vwWL8GVbulkwGD1RXalEGPNq8qvD4qHDmoybikHpoM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NpQKgB1NEXZ2coTMBPhyziVN/t0E9DOS4hffv6hv88xg8sL2m
+	pHHSqfl4mu7srGwrO1ObY50auc56jtPiNav2wORaGkHg+GAw2GId9LqvdoR74OHBnNp8nrNWij1
+	voAfH5hsRL+pezZ5FejTxfhqsM+oxlOs=
+X-Received: by 2002:a05:6402:a510:20b0:6b6:8ed8:765a with SMTP id
+ 4fb4d7f45d1cf-6b887ec9568mr795186a12.38.1794987824468; Tue, 17 Nov 2026
+ 23:43:44 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,53 +59,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261111113738.862-1-yangtiezhu@loongson.cn>
+In-Reply-To: <20261111113738.862-1-yangtiezhu@loongson.cn>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Wed, 18 Nov 2026 15:43:34 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4WtgeVh2TDYd_g7t6M=uHHzA+8hm2YcuUSZ4GY2vfB5g@mail.gmail.com>
+X-Gm-Features: AclHuK_h8JNTX-5Meu7QfVVVQqwUSxk0h8ch28jLABiFynCybHXEvnfXl6-LMUc
+Message-ID: <CAAhV-H4WtgeVh2TDYd_g7t6M=uHHzA+8hm2YcuUSZ4GY2vfB5g@mail.gmail.com>
+Subject: Re: [PATCH] LoongArch: Fix preemptible warnings in cacheinfo and
+ local TLB flush
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: loongarch@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-ice_eswitch_br_port_link() traces representor and uplink bridge ports
-before checking whether their initialization succeeded. If allocation
-fails, the port pointer remains NULL. If xa_insert() fails, the cleanup
-path clears the pointer and frees the port.
+Hi, Tiezhu,
 
-With the ice_eswitch_br_port_link trace event enabled, its handler
-dereferences the NULL pointer while reading the port fields.
+On Wed, Nov 11, 2026 at 7:37=E2=80=AFPM Tiezhu Yang <yangtiezhu@loongson.cn=
+> wrote:
+>
+> When CONFIG_DEBUG_PREEMPT is enabled on a Non-SMP kernel, calls to
+> smp_processor_id() (including via current_cpu_data) in preemptible
+> contexts trigger many "BUG: using smp_processor_id() in preemptible"
+> warnings during cacheinfo setup and local TLB flushes.
+The cacheinfo part is fine, but the tlb part can just use
+raw_processor_id(). For the SMP case, tlb functions are already
+protected, and for the UP case, migration is impossible.
 
-Call the tracepoint only after successful port initialization.
+Huacai
 
-Found by Linux Verification Center (linuxtesting.org) with SVACE static
-analysis tool.
-
-Fixes: d129c2a245bf ("ice: add tracepoints for the switchdev bridge")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
----
- drivers/net/ethernet/intel/ice/ice_eswitch_br.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/intel/ice/ice_eswitch_br.c b/drivers/net/ethernet/intel/ice/ice_eswitch_br.c
-index 1d8a6b95ccda..6d07c15ba9d8 100644
---- a/drivers/net/ethernet/intel/ice/ice_eswitch_br.c
-+++ b/drivers/net/ethernet/intel/ice/ice_eswitch_br.c
-@@ -1118,7 +1118,8 @@ ice_eswitch_br_port_link(struct ice_esw_br_offloads *br_offloads,
- 		struct ice_repr *repr = ice_netdev_to_repr(dev);
- 
- 		err = ice_eswitch_br_vf_repr_port_init(bridge, repr);
--		trace_ice_eswitch_br_port_link(repr->br_port);
-+		if (!err)
-+			trace_ice_eswitch_br_port_link(repr->br_port);
- 	} else {
- 		struct net_device *ice_dev;
- 		struct ice_pf *pf;
-@@ -1134,7 +1135,8 @@ ice_eswitch_br_port_link(struct ice_esw_br_offloads *br_offloads,
- 		pf = ice_netdev_to_pf(ice_dev);
- 
- 		err = ice_eswitch_br_uplink_port_init(bridge, pf);
--		trace_ice_eswitch_br_port_link(pf->br_port);
-+		if (!err)
-+			trace_ice_eswitch_br_port_link(pf->br_port);
- 	}
- 	if (err) {
- 		NL_SET_ERR_MSG_MOD(extack, "Failed to init bridge port");
--- 
-2.56.0
-
-
+>
+> Moreover, accessing current CPU data without preemption disabled in
+> local TLB flushes is also unsafe on SMP systems.
+>
+> Fix the callers properly:
+> - Use the passed-in 'cpu' parameter to index cpu_data[cpu] directly
+>   in init_cache_level() and populate_cache_leaves().
+> - Protect the critical sections with get_cpu()/put_cpu() and reuse
+>   cpu_data[cpu] in local_flush_tlb_{range, page}().
+> - Also convert local_flush_tlb_mm() to use get_cpu()/put_cpu() for
+>   consistency.
+>
+> This eliminates the warnings on Non-SMP builds while ensuring strict
+> preemption safety on SMP systems.
+>
+> Fixes: b61a40afca16 ("LoongArch: Refactor cache probe and flush methods")
+> Fixes: 09cfefb7fa70 ("LoongArch: Add memory management")
+> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+> ---
+>  arch/loongarch/kernel/cacheinfo.c |  8 ++++----
+>  arch/loongarch/mm/tlb.c           | 22 +++++++++++-----------
+>  2 files changed, 15 insertions(+), 15 deletions(-)
+>
+> diff --git a/arch/loongarch/kernel/cacheinfo.c b/arch/loongarch/kernel/ca=
+cheinfo.c
+> index 8e231b0d2cd6..334d116e4c29 100644
+> --- a/arch/loongarch/kernel/cacheinfo.c
+> +++ b/arch/loongarch/kernel/cacheinfo.c
+> @@ -11,11 +11,11 @@
+>
+>  int init_cache_level(unsigned int cpu)
+>  {
+> -       int cache_present =3D current_cpu_data.cache_leaves_present;
+> +       int cache_present =3D cpu_data[cpu].cache_leaves_present;
+>         struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
+>
+>         this_cpu_ci->num_levels =3D
+> -               current_cpu_data.cache_leaves[cache_present - 1].level;
+> +               cpu_data[cpu].cache_leaves[cache_present - 1].level;
+>         this_cpu_ci->num_leaves =3D cache_present;
+>
+>         return 0;
+> @@ -67,10 +67,10 @@ static void cache_cpumap_setup(unsigned int cpu)
+>
+>  int populate_cache_leaves(unsigned int cpu)
+>  {
+> -       int i, cache_present =3D current_cpu_data.cache_leaves_present;
+> +       int i, cache_present =3D cpu_data[cpu].cache_leaves_present;
+>         struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
+>         struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
+> -       struct cache_desc *cd, *cdesc =3D current_cpu_data.cache_leaves;
+> +       struct cache_desc *cd, *cdesc =3D cpu_data[cpu].cache_leaves;
+>
+>         for (i =3D 0; i < cache_present; i++) {
+>                 cd =3D cdesc + i;
+> diff --git a/arch/loongarch/mm/tlb.c b/arch/loongarch/mm/tlb.c
+> index aaf7d685cc2a..ea52a55ca85e 100644
+> --- a/arch/loongarch/mm/tlb.c
+> +++ b/arch/loongarch/mm/tlb.c
+> @@ -40,25 +40,21 @@ EXPORT_SYMBOL(local_flush_tlb_kernel);
+>   */
+>  void local_flush_tlb_mm(struct mm_struct *mm)
+>  {
+> -       int cpu;
+> -
+> -       preempt_disable();
+> -
+> -       cpu =3D smp_processor_id();
+> +       int cpu =3D get_cpu();
+>
+>         if (asid_valid(mm, cpu))
+>                 drop_mmu_context(mm, cpu);
+>         else
+>                 cpumask_clear_cpu(cpu, mm_cpumask(mm));
+>
+> -       preempt_enable();
+> +       put_cpu();
+>  }
+>
+>  void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long sta=
+rt,
+>         unsigned long end)
+>  {
+>         struct mm_struct *mm =3D vma->vm_mm;
+> -       int cpu =3D smp_processor_id();
+> +       int cpu =3D get_cpu();
+>
+>         if (asid_valid(mm, cpu)) {
+>                 unsigned long size, flags;
+> @@ -67,9 +63,9 @@ void local_flush_tlb_range(struct vm_area_struct *vma, =
+unsigned long start,
+>                 start =3D round_down(start, PAGE_SIZE << 1);
+>                 end =3D round_up(end, PAGE_SIZE << 1);
+>                 size =3D (end - start) >> (PAGE_SHIFT + 1);
+> -               if (size <=3D (current_cpu_data.tlbsizestlbsets ?
+> -                            current_cpu_data.tlbsize / 8 :
+> -                            current_cpu_data.tlbsize / 2)) {
+> +               if (size <=3D (cpu_data[cpu].tlbsizestlbsets ?
+> +                            cpu_data[cpu].tlbsize / 8 :
+> +                            cpu_data[cpu].tlbsize / 2)) {
+>                         int asid =3D cpu_asid(cpu, mm);
+>
+>                         while (start < end) {
+> @@ -83,6 +79,8 @@ void local_flush_tlb_range(struct vm_area_struct *vma, =
+unsigned long start,
+>         } else {
+>                 cpumask_clear_cpu(cpu, mm_cpumask(mm));
+>         }
+> +
+> +       put_cpu();
+>  }
+>
+>  void local_flush_tlb_kernel_range(unsigned long start, unsigned long end=
+)
+> @@ -112,7 +110,7 @@ void local_flush_tlb_kernel_range(unsigned long start=
+, unsigned long end)
+>
+>  void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long page=
+)
+>  {
+> -       int cpu =3D smp_processor_id();
+> +       int cpu =3D get_cpu();
+>
+>         if (asid_valid(vma->vm_mm, cpu)) {
+>                 int newpid;
+> @@ -123,6 +121,8 @@ void local_flush_tlb_page(struct vm_area_struct *vma,=
+ unsigned long page)
+>         } else {
+>                 cpumask_clear_cpu(cpu, mm_cpumask(vma->vm_mm));
+>         }
+> +
+> +       put_cpu();
+>  }
+>
+>  /*
+> --
+> 2.42.0
+>
