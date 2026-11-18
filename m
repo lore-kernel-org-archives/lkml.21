@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043416;
-	b=lJcZTi3EPy1blTxMOWyCfSAq1w/T8B0w0QAT891s7tJSOrC1c3e1NHZ7dxzXLvVgQUEl
-	 dqKL8QqIEQwOQMynfHfyiDM/Ckh9YjokNUb5wEHQR9v9W07HocnmBPTHcKc46ChllxH2d
-	 Y7X6Ae0PvInUJUYOUep1kLyzGVNWsrSCLqf7zbS9UhYNd0E0Vx6e+2PnQI+l6hUwt4UqR
-	 wEvDwhyz8XrbPPn1DOW22AJeiq05/lh5VDFWyNJeLdtPqMXxy49QnJVx3hEebC5XXnIxl
-	 pgpKBJJHXz13oXRTN2MDXfSRW/wPyUWDCE2nZCJ8IkMIIZEd+TkGou035VdARJUbfCg==
+	t=1795043411;
+	b=y6SdJMn1nt0UePZEVbM3ZSI22bLo1r77qH1BUffjLmLxAOmpYS3CYei9GsiXULrg4jlq
+	 NSvZ3xlEXrtB9gK84HM2dRXc5isDpnhl+FzOb6oQ05rjO/pxXttQZVj0MwB4OTZpkTB+2
+	 h86TWy3qkMzkM1xxo43uUBVCpFzsPIQAnHjrMdCL+IQXxjDY4ZiQdMRZdV6PKtvkP8g0Q
+	 HC+K56H300kUMLeHTavBKGUsoYiVpCi9yyPDQrk/2VjQZANwc/iXKoHJtOIyP1m6Ppox1
+	 MCBaXYkJml9lB0hHnnl+4hKJ5J7zSvfWfc+X4JdAbY0B5Rmo6WaG3IZpUar7gGh6vUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043416;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043411;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=lCORn1V52AHs1JTiH6PZyHNYOtYlzdKJZh6WhMxEQyg=;
-	b=DsY2iF8wDFToiEE+/O0pkhONljCm1Lx1mMzWX34HoeJcN3HsqXFOG/2gi/PyCcTIShya
-	 y5B0z6ynQnTGARVaSUhQZL+HW4le+ATJ7zlErkgNSbnwyPRpMHwDfOJvb9lgqPnq4MNOX
-	 T8tzpkkvUc1moPpgVaTiMU4AY5BK+h/FbFNFjKf8nfvK+DOYRNkQQUxU+mf3RhpB9vW1c
-	 NRT7zgIXe7iN7vB6v4aR82n/ALnmRoOANrFZav+Dc+Rz19UBUQU4AhXUgPj6wM29mwsAE
-	 R/Cp7t6s+FzjDqysxE+7TpUZYznWIXFgFTS3828EW1YiNqgzp/Cdi6y+JFWXr469+UA==
+	bh=E5/pucnNMI/c2ojblg/G0Oa6lamaWazaHZpn915p/WM=;
+	b=a+mqq0US80k02U0451eNKTl+9MVkxfoSbc1XKq2CjZ48ek/cGgPpeA3v/xHRCC6KiiSS
+	 ddb5ykreFRyHYkj22KmYfdzvPnEHWqngkTYhj1oeyvxKH+NJX7fq64yoU+4VWu0IBNkfO
+	 2d7kk0JxVlAX3NOX6EKVqXh4vQYTcZmjiv6aPiua8dRxKId70Eknw2REcPTIee9/fX87F
+	 PdM2qfGdJocVatISUhf0PkYFoE66kvOY5MvUroHPkix/1fbTxWbGhllS4VEM878ECDc/Q
+	 vseHfEaTcN6XqaE5UQDW1AgW5+X97XqyEGycyTh5Ev6AJVyjP8ENNRQ9XM7RD3xUQhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="a9QZ//H2";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BZvxGWAY;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B04E606A337;
-	Wed, 18 Nov 2026 23:10:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB669606A331;
+	Wed, 18 Nov 2026 23:10:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a9QZ//H2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99DB71F00927;
-	Wed, 18 Nov 2026 23:10:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BZvxGWAY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 256831F000C6;
+	Wed, 18 Nov 2026 23:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043416;
-	bh=lCORn1V52AHs1JTiH6PZyHNYOtYlzdKJZh6WhMxEQyg=;
+	s=k20260515; t=1795043411;
+	bh=E5/pucnNMI/c2ojblg/G0Oa6lamaWazaHZpn915p/WM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=a9QZ//H2pA+fxcVUZww5B3e3Xxp6fA1OLNhNZp5tlFnKSnhfEXO7joPMQ0agETrYv
-	 HLEkDTylyCevWVvzFplFPrhQu7U7Hilp+r6fhQnz81j0ojBhoPcg8FlzDKljKE1F7m
-	 8Ksedoyr8iUPw43J56PlYhodPjTjm1LGtSdrxkULyioJaJ5IWeGE6xTrOPJ8cX/+qp
-	 DbWIp2yKLZEd89jGLSaXBM3vOCxcyMImDqa3W8leGh0wexF8FWcfBJmGfYvymTWV/U
-	 FR5bFeioxinp1AHCgZmev2t+9RjbnHHYz8awgieUGrkqOSdh3x/hB78l5M4S6w0PXS
-	 Irc3PIWunswuA==
+	b=BZvxGWAYDoXj3WfvktNcbkQwI9/VCpuuIkzJzDTyo9RucZy+eGfc4E41LxP0sCsOp
+	 apNhVJzmC7qrPIoPleCoRZ5/jsPwwr1iGh8tstb25YhVMbEr+kslLJfdhPOyOfIACn
+	 0bgpt5JV0/nQ5wecCekvgU+oyC7q/RFTWH8mnJsKlI4B9Gm+l7jwXRG2bMGzMd+En1
+	 ftLLt0Trwa6iAsGTiOANhAEHDEzGnrYzUX9ZfIC97gcGSUBtIUCM8guqHk4L3k+LsR
+	 hgmVjNcR49N7wQLWzvgDF7Pqz6epnuW3bqM9Bw/laI6543HlaI8ymg7tu5+NYoqEiA
+	 kxU7pOoLXovRg==
 From: Jeff Layton <jlayton@kernel.org>
-Date: Wed, 18 Nov 2026 15:10:06 -0800
-Subject: [PATCH v3 09/11] scsi: mpt3sas: Serialize interrupt-time sdev
- block with hostdata teardown
+Date: Wed, 18 Nov 2026 15:09:58 -0800
+Subject: [PATCH v3 01/11] scsi: mpt3sas: Don't leave requeued firmware
+ events pending at teardown
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-sas-abba-v3-9-5562d690cf61@kernel.org>
+Message-Id: <20261118-sas-abba-v3-1-5562d690cf61@kernel.org>
 References: <20261118-sas-abba-v3-0-5562d690cf61@kernel.org>
 In-Reply-To: <20261118-sas-abba-v3-0-5562d690cf61@kernel.org>
 To: Sathya Prakash <sathya.prakash@broadcom.com>, 
@@ -71,161 +71,165 @@ Cc: Keith Busch <kbusch@kernel.org>,
  linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Jeff Layton <jlayton@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5427; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=Q6lma4UbxR9komlJMg2JmbOO32FmedfzbBaipPExT1M=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBq/jBR2aPb30+SjLRmDOmWnsm4Lk8iEvHZq2EVl
- zDY+9OU96CJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCav4wUQAKCRAADmhBGVaC
- FSLfD/oDd3qehe73v96YpAb7le9w3m6d3CQgVPicb+qFvrnH0ubOUKP9aGLElEVheOgu32PBrKC
- 3NYNjaKN220S5ldyHazEBZREr3rXGAMc0BPdvywDfAmi7tHX1U+OUlAgQ+hLHbxl6Ic1bYpkcHf
- a8urbjUxkGW1q2UMwXNlw3IiIsC44MXwpCWIqNuQ3Q9TaP2DUJVPkdwlZdNUiW+Jst2v3R9tIuG
- 7pn5iXZ7ttGu+8Ib+6skhI/VjY5olfnUV2j3y986lqD6s5TrQWsKTthLQlUuPdcUnkNWPEH9Fbl
- t9hfWn/TTvxCYD0nF7sZ9TWHjfVdNHj0dSzG5rT69GjOustSuLijiPi0R8OI43RAABVloX+Qlp0
- hHGkHN2L0HJKHP0eKPdJqBlbXCqyYclvCrwEqJcNms98PT2ZqeD6e0PEq57Q/drHGYIzhf/f7Ap
- tEdWa8A/G8KDD5wSFGK6Hu3dr3kQ48J9htWx3WPPBUa/rxqpe2mLVR/kimKVIjTM0RTdp/mvR3c
- v3KK1idJHbMrkHejktXTHig7uf+UHoennMTTRGU3hwNl+AH+RuDl8gnloE+b3fF/onRDXOzQmc4
- z6uY2Y+fUl9ngQmgkjEuEB57nl/BrEdLUtwcj6MNI3bXY+wREfh70ui6BYmf62IePoSOCiwOKPY
- AIdoLACqHTI+y+A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5227; i=jlayton@kernel.org;
+ h=from:subject:message-id; bh=13z5+kTDnv8IEmsjpCIo3UEfpOKkYSck2pI/NA8WCjI=;
+ b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBq/jBQPCcoIcOb4S7VvS+BMTQUzlKJV+GtaZ6L6
+ 27OJTfpd2+JAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCav4wUAAKCRAADmhBGVaC
+ FYbCEACx79sN5qaZwim867A3PgMGW2wM1PErEAXOGWTF5uCguXKLBSBhxUN/DKZ96ThQYV3o9Tl
+ 0tgGvnZBh7erahHifsNwKJLqOC5UIdS3V3AxtqVcjEPfIj9ey6EA30wuMse7C8Vg/Za8Rj2MAqx
+ Ws+4Q6/1vun7/g1sQTui+E2MiVYLFhZUwhAfrcHbaNjT+vPrlRC9cQD2f8Iy93/WSou+kNiyfTG
+ 33f80dvJINrUrImhcdQ3caQ2mCFJMFxk+tD5BcEo/EIuuEu5PDCKT1h2aR9QTu+th+BzfO42c5J
+ NcK4F0Xod0pTO8IzcEGuLewSK9OoLHfmFJ7dXT/clpAwYzReQ2idKIjRa+w9mnjIk5xKSKgYXOU
+ xbBJO06zJkNS10+9hk+U5H89VaRvq+dfcjH+he/ok9j15zdFDQRGanvyuMicVbDWuqG9CCWTx/l
+ 3L9E/mU63sfqfE6KkxoE/+3sYpjP6cGi4cIkFd0SP+LoMikcUMyjFmFsphJtt57rfFZPO6wQeis
+ IfOEKic9loml/5gaztRFlxG+JMXk7eWCUuoUk8ADdKgCl9givJ7z+ykvXfLal93UeZUrXTsEKtv
+ vFv4WVl0cTAjNnhsW/SrrNa7xenlvHekFj4ORZZDNBtK4B6gSccCxHzeF+tgypx5uoBPwN6MVp3
+ 4kcu3zlHc10r3DA==
 X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
  fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
 
-On DELAY_NOT_RESPONDING, the event callback runs
-_scsih_block_io_device() at interrupt time. This function walks the
-sdevs with shost_for_each_device(). It uses sdev->hostdata and its
-sas_target, and holds no lock.
+When a topology change event finds a busy device,
+_scsih_fw_event_requeue() retries the event. It queues the event's
+delayed_work on firmware_event_thread, with a one-second delay.
+_scsih_fw_event_cleanup_queue() cancels only the event's work, not its
+delayed_work. Thus the timer stays armed. Then scsih_remove() destroys
+the workqueue. After the workqueue is freed, the timer queues
+_firmware_event_work_delayed() on it:
 
-The sdev reference pins only the scsi_device. __scsi_remove_device()
-can still call ->sdev_destroy() at the same time, for example when a
-scan fails to probe a new LUN. scsih_sdev_destroy() frees hostdata,
-which causes a use-after-free. scsi_target_reap() frees the hostdata of
-the target, after sdev_destroy.
+  BUG: KASAN: slab-use-after-free in __queue_work+0xa12/0xb50
+  Read of size 4 at addr ffff88814fefd1c0 by task swapper/10/0
+   __queue_work
+   call_timer_fn
+   __run_timer_base
+   ...
+  Allocated by task 11:
+   __alloc_workqueue
+   alloc_workqueue_noprof
+   _scsih_probe [mpt3sas]
+  Freed by task 0:
+   kfree
+   rcu_core
+  ...
+  workqueue: cannot queue _firmware_event_work_delayed [mpt3sas] on wq fw_event_mpt3sas0
 
-Add ioc->block_lock. Take it:
+The cleanup does not wait for a running topology change event. If such
+an event finds a busy device, it requeues itself. This can occur after
+the cleanup passes the event.
 
- - in _scsih_block_io_device(), for each sdev
- - around the code that sets and clears sdev->hostdata in
-   scsih_sdev_init() and scsih_sdev_destroy()
+Fix this:
 
-The sdev is on shost->__devices before sdev_init. Because the driver
-publishes hostdata under the lock, the lock also orders the sas_target
-store. While the lock is held and hostdata is non-NULL, hostdata and
-its target are live.
+ - In the cleanup, cancel the delayed_work of a requeued event.
 
-Fixes: f92363d12359 ("[SCSI] mpt3sas: add new driver supporting 12GB SAS")
+ - Do not requeue an event while the cleanup runs or while the driver
+   removes the host. Do this check under fw_event_lock, which the
+   cleanup also takes.
+
+ - Instead of a requeue, drop the reference that the work held.
+   Previously, this reference leaked when firmware_event_thread was
+   NULL.
+
+ - Also drop the reference if the delayed_work cannot be queued.
+   Cleanups can overlap. Thus one cleanup can clear fw_events_cleanup
+   while another cleanup cancels the delayed_work. The cancel disables
+   the delayed_work.
+
+ - Initialize the delayed_work when the driver allocates the event, not
+   at the first requeue. Thus a cleanup never cancels the delayed_work
+   before it is initialized.
+
+Fixes: ad5957193107 ("scsi: mpt3sas: Add firmware event requeue support for busy devices")
 Signed-off-by: Jeff Layton <jlayton@kernel.org>
 ---
- drivers/scsi/mpt3sas/mpt3sas_base.h  |  2 ++
- drivers/scsi/mpt3sas/mpt3sas_scsih.c | 30 ++++++++++++++++++++++--------
- 2 files changed, 24 insertions(+), 8 deletions(-)
+ drivers/scsi/mpt3sas/mpt3sas_scsih.c | 49 ++++++++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/scsi/mpt3sas/mpt3sas_base.h b/drivers/scsi/mpt3sas/mpt3sas_base.h
-index 47255bf9cdda..419fdf164fc6 100644
---- a/drivers/scsi/mpt3sas/mpt3sas_base.h
-+++ b/drivers/scsi/mpt3sas/mpt3sas_base.h
-@@ -1249,6 +1249,7 @@ typedef void (*MPT3SAS_FLUSH_RUNNING_CMDS)(struct MPT3SAS_ADAPTER *ioc);
-  * @pcie_device_list: pcie device object list
-  * @pcie_device_init_list: pcie device object list (used only at init time)
-  * @pcie_device_lock:
-+ * @block_lock: serializes sdev blocking against sdev hostdata teardown
-  * @io_missing_delay: time for IO completed by fw when PDR enabled
-  * @device_missing_delay: time for device missing by fw when PDR enabled
-  * @sas_id : used for setting volume target IDs
-@@ -1482,6 +1483,7 @@ struct MPT3SAS_ADAPTER {
- 	struct list_head pcie_device_list;
- 	struct list_head pcie_device_init_list;
- 	spinlock_t      pcie_device_lock;
-+	spinlock_t	block_lock;
- 
- 	struct list_head raid_device_list;
- 	spinlock_t	raid_device_lock;
 diff --git a/drivers/scsi/mpt3sas/mpt3sas_scsih.c b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-index 1269446eec4e..09dfa3124ebf 100644
+index 04255286a2a6..545913123d01 100644
 --- a/drivers/scsi/mpt3sas/mpt3sas_scsih.c
 +++ b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-@@ -2132,12 +2132,17 @@ scsih_sdev_init(struct scsi_device *sdev)
- 	sas_target_priv_data = starget->hostdata;
- 	sas_target_priv_data->num_luns++;
- 	sas_device_priv_data->sas_target = sas_target_priv_data;
-+
-+	shost = dev_to_shost(&starget->dev);
-+	ioc = shost_priv(shost);
-+
-+	/* _scsih_block_io_device() may already see this sdev */
-+	spin_lock_irqsave(&ioc->block_lock, flags);
- 	sdev->hostdata = sas_device_priv_data;
-+	spin_unlock_irqrestore(&ioc->block_lock, flags);
- 	if ((sas_target_priv_data->flags & MPT_TARGET_FLAGS_RAID_COMPONENT))
- 		sdev->no_uld_attach = 1;
+@@ -320,6 +320,11 @@ static struct fw_event_work *alloc_fw_event_work(int len)
+ 		return NULL;
  
--	shost = dev_to_shost(&starget->dev);
--	ioc = shost_priv(shost);
- 	if (starget->channel == RAID_CHANNEL) {
- 		spin_lock_irqsave(&ioc->raid_device_lock, flags);
- 		raid_device = _scsih_raid_device_find_by_id(ioc,
-@@ -2189,6 +2194,7 @@ scsih_sdev_init(struct scsi_device *sdev)
- static void
- scsih_sdev_destroy(struct scsi_device *sdev)
- {
-+	struct MPT3SAS_DEVICE *sas_device_priv_data;
- 	struct MPT3SAS_TARGET *sas_target_priv_data;
- 	struct scsi_target *starget;
- 	struct Scsi_Host *shost;
-@@ -2231,8 +2237,11 @@ scsih_sdev_destroy(struct scsi_device *sdev)
- 		spin_unlock_irqrestore(&ioc->sas_device_lock, flags);
- 	}
- 
--	kfree(sdev->hostdata);
-+	spin_lock_irqsave(&ioc->block_lock, flags);
-+	sas_device_priv_data = sdev->hostdata;
- 	sdev->hostdata = NULL;
-+	spin_unlock_irqrestore(&ioc->block_lock, flags);
-+	kfree(sas_device_priv_data);
+ 	kref_init(&fw_event->refcount);
++	/*
++	 * Initialize the delayed_work up front: a cleanup may cancel it
++	 * while the event is being requeued.
++	 */
++	INIT_DELAYED_WORK(&fw_event->delayed_work, _firmware_event_work_delayed);
+ 	return fw_event;
  }
  
- /**
-@@ -4384,26 +4393,30 @@ _scsih_block_io_device(struct MPT3SAS_ADAPTER *ioc, u16 handle)
- 	struct MPT3SAS_DEVICE *sas_device_priv_data;
- 	struct scsi_device *sdev;
- 	struct _sas_device *sas_device;
-+	unsigned long flags;
+@@ -3696,6 +3701,9 @@ _scsih_fw_event_del_from_list(struct MPT3SAS_ADAPTER *ioc, struct fw_event_work
+  *
+  * Context: This function will acquire ioc->fw_event_lock.
+  *
++ * The reference held by the work that ran @fw_event passes to the delayed
++ * work.  If the event can't be requeued, that reference is dropped.
++ *
+  * Return nothing.
+  */
+ static void
+@@ -3704,20 +3712,31 @@ _scsih_fw_event_requeue(struct MPT3SAS_ADAPTER *ioc, struct fw_event_work
+ {
+ 	unsigned long flags;
  
- 	sas_device = mpt3sas_get_sdev_by_handle(ioc, handle);
+-	if (ioc->firmware_event_thread == NULL)
+-		return;
+-
+ 	spin_lock_irqsave(&ioc->fw_event_lock, flags);
++	/*
++	 * Don't rearm the event while the queue is being flushed or the
++	 * host is going away.  _scsih_fw_event_cleanup_queue() may already
++	 * be past it, and the timer could then fire after the workqueue
++	 * has been destroyed.
++	 */
++	if (!ioc->firmware_event_thread || ioc->remove_host ||
++	    ioc->fw_events_cleanup)
++		goto drop;
++	fw_event->delayed_work_active = 1;
++	/*
++	 * Cleanups can overlap, and one can clear fw_events_cleanup while
++	 * another is cancelling, and so disabling, the delayed work.
++	 */
++	if (!queue_delayed_work(ioc->firmware_event_thread,
++	    &fw_event->delayed_work, msecs_to_jiffies(delay)))
++		goto drop;
+ 	fw_event_work_get(fw_event);
+ 	list_add_tail(&fw_event->list, &ioc->fw_event_list);
+-	if (!fw_event->delayed_work_active) {
+-		fw_event->delayed_work_active = 1;
+-		INIT_DELAYED_WORK(&fw_event->delayed_work,
+-		    _firmware_event_work_delayed);
+-	}
+-	queue_delayed_work(ioc->firmware_event_thread, &fw_event->delayed_work,
+-	    msecs_to_jiffies(delay));
+ 	spin_unlock_irqrestore(&ioc->fw_event_lock, flags);
++	return;
++drop:
++	spin_unlock_irqrestore(&ioc->fw_event_lock, flags);
++	fw_event_work_put(fw_event);
+ }
  
- 	shost_for_each_device(sdev, ioc->shost) {
-+		spin_lock_irqsave(&ioc->block_lock, flags);
- 		sas_device_priv_data = sdev->hostdata;
- 		if (!sas_device_priv_data)
--			continue;
-+			goto next;
- 		if (sas_device_priv_data->sas_target->handle != handle)
--			continue;
-+			goto next;
- 		if (sas_device_priv_data->block)
--			continue;
-+			goto next;
- 		if (sas_device && sas_device->pend_sas_rphy_add)
--			continue;
-+			goto next;
- 		if (sas_device_priv_data->ignore_delay_remove) {
- 			sdev_printk(KERN_INFO, sdev,
- 			"%s skip device_block for SES handle(0x%04x)\n",
- 			__func__, sas_device_priv_data->sas_target->handle);
--			continue;
-+			goto next;
- 		}
- 		_scsih_internal_device_block(sdev, sas_device_priv_data);
-+next:
-+		spin_unlock_irqrestore(&ioc->block_lock, flags);
+  /**
+@@ -3869,9 +3888,17 @@ _scsih_fw_event_cleanup_queue(struct MPT3SAS_ADAPTER *ioc)
+ 		 *
+ 		 * If it did execute, we wait for it to finish, and the put will
+ 		 * happen from _firmware_event_work()
++		 *
++		 * An event requeued by _scsih_fw_event_requeue() is pending
++		 * on its delayed_work instead, and its timer must not fire
++		 * after the workqueue is destroyed.
+ 		 */
+-		if (cancel_work_sync(&fw_event->work))
++		if (fw_event->delayed_work_active) {
++			if (cancel_delayed_work_sync(&fw_event->delayed_work))
++				fw_event_work_put(fw_event);
++		} else if (cancel_work_sync(&fw_event->work)) {
+ 			fw_event_work_put(fw_event);
++		}
+ 
  	}
- 
- 	if (sas_device)
-@@ -13697,6 +13710,7 @@ _scsih_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	spin_lock_init(&ioc->raid_device_lock);
- 	spin_lock_init(&ioc->pcie_device_lock);
- 	spin_lock_init(&ioc->diag_trigger_lock);
-+	spin_lock_init(&ioc->block_lock);
- 
- 	INIT_LIST_HEAD(&ioc->sas_device_list);
- 	INIT_LIST_HEAD(&ioc->sas_device_init_list);
+ 	ioc->fw_events_cleanup = 0;
 
 -- 
 2.56.1
