@@ -1,98 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795036004;
-	b=zUMiBWTA70RoHfHqjjnbPAIyI2a26pRfgIoFYOioaBZJWMFbWMGUag38G7+dHaZTlxaY
-	 vr5lf3YexDao6LWkPTp8k0dALWvklN1/G+E2CxGxbXg6tymQiPLyFGpRfw73XZr+aHrT6
-	 hsPxoqYm90f7wTV9XkIsSZd4TZ0SYcbMPmQmE03Sgx+hHPct/uL+nOHyZ1Sp54bscco8S
-	 wG/HrBMgNlsBAebQNYEwwIJnIfJ7X5KCPfltvnlyPEQjx3jkZwoOjsEigp2yQfOUT4GoV
-	 po8VeC0BFBNufkiO6ZCDmVwTzwumv7qUUdtPbIjIcCY09t3iBNng3GOZTmpztthPK/Q==
+	t=1795036103;
+	b=fir0Fdyq/4ktRrriZphS0NB/69S/dfKV4Tad6UlWADr6MifFDonBPi/uXS7QZhRqlvq0
+	 HVVXBaqfr5wd7QNpZOfd31HMDxwgHoToIdwrQbQRHqhWw9NDDqeSeq/DgZCkiHs/LZWLb
+	 tOuTGK4oBmToHYTwoPdMxRp8ZOoL9QUydEEaIe5IcCOMpLE/Gq3yzk885M5ZbeFBHxVQZ
+	 Ua1rhahk3Tclm57sioFNHmii/IKyKeQVRnhPUCAkCarGk3i+Md96ANI/C9+N4Pe16lUas
+	 wsrWSwKKytR3DaTUINFv1s0BExWsp4oL7Xd3OQ03w0AL2kTAvBc9q5E6JaXsuH97t1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036004;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=QcdoykT7wYwH64NiHJnoPRkjFYtZrVANXbTjbGgP68s=;
-	b=BU6mxSfvRnxx9oR2i6JrBXEL2fglu/pcvIICDHRLAqJMCfTIyG9dPh0yp+J1IOFdPo0r
-	 KDNovYL7b/Fm2BWq8GZK8nET/1BJoEJEu8aUw9y+lzFEbsjp6AUMguf06KzLGBSaQcRLL
-	 oDMWd1z54VuasNqF/UeJhTdXKRrDbGKexEfMEk5dEPvbhfKE78KJTbTW8XWPCj+winByc
-	 0ZhiqkfSwF5DzapUA+S/QYGgN0GbHMPhAaxymQ8Q2KZNkTUXos07XEnA6sm92UhWmOfMd
-	 EfM4xs0n7q8WMc47rJqlovQEUE1QAiIWpCwRR7QheJ2+BmCp0KHgz27J3h8QYPFc6bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036103;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=1v260OT69H55l4pPpHqX5ZIgboqZUsGVMtlBm+leSH4=;
+	b=Y4vp3jDwiIZlEdAZwh1lbKSBQnkF9tZ0aWNG3ngebpoQaPj1V45Bm3qXgr+Dz5yV0uBs
+	 XK0eWN7WYAGbYVCfmWH43LQQhbHyBYvQpnLamVxtlRRffqaFnFYU2V95KrPFlkEscxea9
+	 FbIQzTk6IibY0mrbhlrdOrZrwwr89sLxUHF+akC8jcuCnoHLTkvdVUKscB/IrvJ829juI
+	 DCaGnVxfviIVUpAQMz7pWUlFbwiedSYeurgr4YWolZoqwKURcP6boJihwLEB8UJgOZBSN
+	 mI6t3DU1Q6X3qTCdAytDNNMZAqansvZX0LqkPbobemMADTWiqiaazDm5/UKU/TFy0SQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="UpKi7B/0";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aMtKPAWq;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22AFF606A32C;
-	Wed, 18 Nov 2026 21:06:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3ACB606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:08:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UpKi7B/0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C6B81F000C7;
-	Wed, 18 Nov 2026 21:06:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aMtKPAWq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F521F000C9
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795036004;
-	bh=QcdoykT7wYwH64NiHJnoPRkjFYtZrVANXbTjbGgP68s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UpKi7B/0rBCYX/nY6Jz+aDxC3oaQEMDYkDs+aZgD+uQm1Ob/FaLUnDS+VC8rPjnBp
-	 vkaF1O/n1A26L03g0MMXM23H7BKQNSjrNrWux+k3wVksqrOlMYs4hbRGxb/0/AvkFz
-	 Aah19WcWHEbQ5N8nTrQlB5WMqIn+kJlC8oQ2cqggEzj3c1FVvPuyLLq+7lcza5UQKN
-	 gqMcRWvgg3dvfJCv+0Y2RTJy1zEKeWV7WxZcmUuSJnPsVaV9JdOb84SI3sC4WS49j9
-	 5kv4OV3nAOggVayD7JIXHDYgQ9T2t9ddX8N01RHCI6U9TJUQbtWytFDmeAss8Z0QOO
-	 /GEXb+FEwfEKw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 74E17F40068;
-	Wed, 18 Nov 2026 16:06:42 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Wed, 18 Nov 2026 16:06:42 -0500
-X-ME-Sender: <xms:YhP-ahF0xGaLJjQTPNDwoZaCXRwMTnC6Rk81rRAnIvKWVx1qnf5IrA>
-    <xme:YhP-alnpTiQM444SY2WW_BMaHqPlbtqBTY_qeX8kYe_DZl4KbKEqDBlizX8Pcu1P4
-    NQ8NmmR4cZjxcxjapFlvhgfxgVelNnoLhajGrR0Ws7GxXF3cHkvOXc>
-X-ME-Received: <xmr:YhP-al9FqsEim7rHDm9gEcW1Rs2pqG-79pBAQlg73yEMIst5oNVQDoAHqz6K28whZ6SDm0zr1Dh-AobTOVIK7OWGcDymjCZv>
-X-ME-Proxy-Cause: dmFkZTEBaqTySe0wNL78njswhLR6PyMpnjMwmJKjGUrTkM+Oe0HsPVQTNp/x2OgyHRdGI2
-    0TZ5HlEM3gdmwHwtq2f2qFu0/5zzQpamvIg/VqADwmqbHuaVXKsbmfHnlXi/789qV+IN5h
-    v8Pg8UJC+mZhXqmH89qeiXq1QUaslvVidTobZCIRk8fyAqek/dmmFmjtiSUdIbtWpcgOrD
-    7MS1/sB7Zh8Fhf5NxR1qRcQEJWD93pZp3s89b80gdI7DDoq9h+OBN3wpqK6u+T/L+lwcx2
-    nsuCPqaL9xtx96boYuZotJynFjNTWT14i2pFLlzfNGG6COxk4fe1twZVx+c8xdH/lfYldf
-    V+kyUAeRSC+dqvMJvOeqncSIhfyQkJHHhGsS58u6jXUs6ReY7e59MDJbVj+txBt5y2Vb8R
-    HS4pnANeLQANZMzZxCpA9s0m7+8Za+JdFf3lAArPWgx4MEsbVPa6IVaSlc6axBKrAEJISa
-    k9s427jdRW7VVySNbJBwpeBXVcoq8obZNQnAy2C6aXvaKFtMf4MTI16P4Mim9WNua3y6qq
-    B2ImwFcxw1UvjLxAIJZbzqWjnbESFFuH7i1LGrV86MpsirbdCCVrpLW3/R8292JIT90f/k
-    ZgLZLc89QmC+Z83RkB3fHQZ564V7c5qus0aSPr6slNBsoV4IiGba+Gpd2Eiw
-X-ME-Proxy: <xmx:YhP-aum6OEIb38kNQeS_ifZ1YRiGH4EeSrkHXjkIKQxnVqvk5rFWDg>
-    <xmx:YhP-arkzLboiVCzz6MIH9iDOVwE5hzJRqZDF61tLzJPL2rsdwlaF7w>
-    <xmx:YhP-aquKRtpLYbOTyI3HA632QhzExiYCOcswr6urPKMtYDlKzQP6vg>
-    <xmx:YhP-atKTVnnST1TuTi0NM2NhaI2I6alMmmxmY56OP3CP7-v70WXsLQ>
-    <xmx:YhP-aniGtidSo19Tc7FNvBtb1MZoZr179hSA2Xm3aWdeYbw9MN1fkl_P>
-Feedback-ID: i8dbe485b:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 16:06:41 -0500 (EST)
-Date: Wed, 18 Nov 2026 13:06:40 -0800
-From: Boqun Feng <boqun@kernel.org>
-To: Gary Guo <gary@garyguo.net>
-Cc: Andreas Hindborg <a.hindborg@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Waiman Long <longman@redhat.com>, Alice Ryhl <aliceryhl@google.com>,
-	Lyude Paul <lyude@redhat.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v3] rust: sync: export lock::do_unlocked
-Message-ID: <av4TYDj2-mEhIZS5@tardis.local>
-References: <20260929-export-do-unlocked-v3-1-f7000684178f@kernel.org>
- <N1IBV5ko8VdO1uPeg7myJ5jVnnfJI-s5phM0IuhjOxWo1AvKFtlvojnvOBY1fnhKJpl9GKVkN0dD6GEM3f1FKQ==@protonmail.internalid>
- <DLRXW31Y0IVK.3A3NJVS2BG39M@garyguo.net>
- <87zex0rl3r.fsf@t14s.mail-host-address-is-not-set>
- <ar0SaUYCeGvi2fTD@MacBook-0RXW5>
- <DLSPFJ7IF2XC.1KZBWTARDIG1I@garyguo.net>
+	s=k20260515; t=1795036103;
+	bh=1v260OT69H55l4pPpHqX5ZIgboqZUsGVMtlBm+leSH4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=aMtKPAWqv/9NpkWPUxD4QcmJvVdUClTFWGkif1c7/N6d4sm0sFskJb0B9DHB1/N63
+	 HTJh/0PLD4F6dZaHs9MenIlX0vZoLUwDEaawhyzrl08RY98KcmGIczJ4OsDjKdeFwS
+	 Da75NJqCx0xJgQMA1fyT2nJAalcfrx5/oZG09/QDMVrPxB0wIe5E1LwuO+Z/snqmBt
+	 ORDO44Zp7WyBCU8sobMyCF4OlnUDcNTGnm9jjvHbC+Hp52DffluZxasmLZqDyBQGk1
+	 Jb9CANWl0YFQjpZg8KxH7wFZUKKseDa9Dw34YymJbW7VS7lbYPlgf2wR7/xEgKvnal
+	 +quEpvvipzzqg==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3adfc004920so15691111fa.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:08:23 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGDVrkLYy0SaVi2oubMpgXQVT1v8+k+fCrjeL6JKiJJ1wGaZh+auDGn0RWkbCz11j0EcY8usuPz8bC3cpc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98ayr1fnJCJi/AjS+1MQbokEYIbB+qOfgBvQtv+VM3BVxZs7AT
+	xe1wP/gKB21NjozrErH3u/vQhtx5VN77Eq90vDEQJxX9h7P9mjAc2OwZ5Vk8Vl77JmZ7LAUbJBZ
+	BVJpAYG/skMX+jDlMHRTceY4KTEOb4Vk=
+X-Received: by 2002:a05:6512:a352:b0:5c1:ad4b:4bc8 with SMTP id
+ 2adb3069b0e04-5c1ad5a9200mr672182e87.33.1795036102287; Wed, 18 Nov 2026
+ 13:08:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,98 +59,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DLSPFJ7IF2XC.1KZBWTARDIG1I@garyguo.net>
+References: <20261110083253.1525-1-laixiangwu@cmss.chinamobile.com>
+In-Reply-To: <20261110083253.1525-1-laixiangwu@cmss.chinamobile.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 18 Nov 2026 22:08:09 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkUqc1Bm-34_5ocG7Qw4oJjSNu=B93CvANba-3LNMo-9Q@mail.gmail.com>
+X-Gm-Features: Aa3M54pzy5iXCZO2yGpkbAFpLnZT71qI2PdQXtRpY5tdOhwtfxvX4H4dr9ZLAU0
+Message-ID: <CAD++jLkUqc1Bm-34_5ocG7Qw4oJjSNu=B93CvANba-3LNMo-9Q@mail.gmail.com>
+Subject: Re: [PATCH v2] pinctrl: stm32: Fix reset control leak in
+ stm32_pctl_probe() error paths
+To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: antonio.borneo@foss.st.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Sep 30, 2026 at 03:01:41PM +0100, Gary Guo wrote:
-> On Wed Sep 30, 2026 at 2:45 PM BST, Boqun Feng wrote:
-> > On Tue, Sep 29, 2026 at 08:03:20PM +0200, Andreas Hindborg wrote:
-> >> "Gary Guo" <gary@garyguo.net> writes:
-> >> 
-> >> > On Tue Sep 29, 2026 at 3:45 PM BST, Andreas Hindborg wrote:
-> >> >> Export lock::do_unlocked publicly. Add documentation for the method.
-> >> >>
-> >> >> Reviewed-by: Benno Lossin <lossin@kernel.org>
-> >> >> Reviewed-by: Alice Ryhl <aliceryhl@google.com>
-> >> >> Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
-> >> >> ---
-> >> >> Changes in v3:
-> >> >> - Rebase on v7.3-rc5.
-> >> >> - Do not import prelude in example (Alice).
-> >> >> - Link to v2: https://msgid.link/20260605-export-do-unlocked-v2-1-e23001390231@kernel.org
-> >> >>
-> >> >> Changes in v2:
-> >> >> - Drop spurious space before `guard.do_unlocked` in the doc example (Benno).
-> >> >> - Un-hide the imports in the doc example so the rendered docs no longer have a spurious blank line after them (Alice).
-> >> >> - Link to v1: https://msgid.link/20260215-export-do-unlocked-v1-1-f5cd2203b20f@kernel.org
-> >> >> ---
-> >> >>  rust/kernel/sync/lock.rs | 26 +++++++++++++++++++++++++-
-> >> >>  1 file changed, 25 insertions(+), 1 deletion(-)
-> >> >>
-> >> >> diff --git a/rust/kernel/sync/lock.rs b/rust/kernel/sync/lock.rs
-> >> >> index 10b6b5e9b024..edfff9e10199 100644
-> >> >> --- a/rust/kernel/sync/lock.rs
-> >> >> +++ b/rust/kernel/sync/lock.rs
-> >> >> @@ -238,7 +238,31 @@ pub fn lock_ref(&self) -> &'a Lock<T, B> {
-> >> >>          self.lock
-> >> >>      }
-> >> >>
-> >> >> -    pub(crate) fn do_unlocked<U>(&mut self, cb: impl FnOnce() -> U) -> U {
-> >> >> +    /// Temporarily unlock the lock to execute the given closure.
-> >> >> +    ///
-> >> >> +    /// This method unlocks the lock before calling the closure `cb`, and re-locks it afterwards.
-> >> >> +    /// This is useful when you need to perform operations that are not allowed while holding
-> >> >> +    /// certain locks, such as allocating memory (which is prohibited while holding a spinlock).
-> >> >> +    ///
-> >> >> +    /// # Examples
-> >> >> +    ///
-> >> >> +    /// ```
-> >> >> +    /// use kernel::new_spinlock;
-> >> >> +    /// use pin_init::stack_pin_init;
-> >> >> +    ///
-> >> >> +    /// stack_pin_init!{
-> >> >> +    ///     let lock = new_spinlock!(())
-> >> >> +    /// }
-> >> >> +    ///
-> >> >> +    /// let mut guard = lock.lock();
-> >> >> +    /// let mut buffer = KVec::new();
-> >> >> +    /// // Temporarily unlock to allocate memory, which should not be done while holding a spinlock.
-> >> >> +    /// guard.do_unlocked(|| {
-> >> >> +    ///     buffer.push(5u32, GFP_KERNEL)
-> >> >> +    /// })?;
-> >> >> +    /// # Ok::<(), Error>(())
-> >> >> +    /// ```
-> >> >> +    pub fn do_unlocked<U>(&mut self, cb: impl FnOnce() -> U) -> U {
-> >> >
-> >> > Do we want to keep the name `do_unlocked` now this is public?
-> >> >
-> >> > I think we can drop "do_" and just call this `unlocked`, consistent with popular
-> >> > Rust ecosystem crates like parking_lot and spin.
-> >> 
-> >
-> > I didn't find a unlocked() in spin. You mean
-> > https://crates.io/crates/lock_api ?
-> 
-> Right, both of them share the common interface via lock_api.
-> 
-> > To me, `do_unlocked()` is better, since it indicates something is going
-> > to be done after the lock being dropped.
-> 
-> I think that indication is usually "with". So `guard.with_unlocked(|| action)`.
-> 
-> From my experience in Rust code "do_" is quite commonly the internal helper for
-> a public API.
-> 
+On Tue, Nov 10, 2026 at 9:32=E2=80=AFAM Xiangwu Lai
+<laixiangwu@cmss.chinamobile.com> wrote:
 
-After some thoughts and asking for suggestion, I do want to keep the
-name as it is (i.e. using do_unlocked()), the major reason is
-`unlockded()` is not necessary a better name. But of course, in kernel
-we can always change the name later.
+> stm32_pctl_probe() acquires an exclusive reset control for every GPIO
+> bank with of_reset_control_get_exclusive(), but none of the error
+> paths release them again: the bank loop returns directly on
+> -EPROBE_DEFER and on a failed clock lookup, and the
+> clk_bulk_prepare_enable() failure and the err_register path also
+> leave the already acquired reset controls behind.
+>
+> On success the reset controls are kept for the lifetime of the device
+> and are never released either (the driver has no .remove), but that
+> is harmless.  On a failed probe, and in particular when the probe is
+> retried after -EPROBE_DEFER, every attempt leaks another set of
+> reset control references.
+>
+> Release the acquired reset controls on all error paths.
+>
+> Also release the clocks of the already processed banks on the
+> -EPROBE_DEFER path, which was missed by the earlier clock leak fix
+> dfd8259507c5 ("pinctrl: stm32: Fix clock reference leak in
+> stm32_pctl_probe()").
+>
+> Fixes: 2254e77665d5 ("pinctrl: stm32: defer probe if reset resource is no=
+t yet ready")
+> Signed-off-by: laixiangwu <laixiangwu@cmss.chinamobile.com>
+> ---
+> Changes in v2:
+>
+> - Point the Fixes tag at 2254e77665d5, which introduced the reset
+>   control acquisition in the stm32_pctl_probe() bank loop and the
+>   -EPROBE_DEFER return path; bb949ed9b16b only replaced the child
+>   node iteration helper (suggested by Sashiko AI review).
+> - Also release the clocks of the already processed banks on the
+>   -EPROBE_DEFER path, which was missed by dfd8259507c5.
+>
+> Link: https://lore.kernel.org/all/20261110065722.1340-1-laixiangwu@cmss.c=
+hinamobile.com
+>  drivers/pinctrl/stm32/pinctrl-stm32.c | 15 +++++++++++----
+>  1 file changed, 11 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm3=
+2/pinctrl-stm32.c
+> index 98cf9c6f4..2a54a0176 100644
+> --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
+> +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> @@ -1966,15 +1966,18 @@ int stm32_pctl_probe(struct platform_device *pdev=
+)
+>                 bank->rstc =3D of_reset_control_get_exclusive(np, NULL);
+>                 if (PTR_ERR(bank->rstc) =3D=3D -EPROBE_DEFER) {
+>                         fwnode_handle_put(child);
+> -                       return -EPROBE_DEFER;
+> +                       clk_bulk_put(i, pctl->clks);
+> +                       ret =3D -EPROBE_DEFER;
+> +                       goto err_put_rstcs;
 
-Regards,
-Boqun
+Looks like a bulky fix, what about just stop using
+of_reset_control_get_exclusive()
+and use devm_reset_control_get_exclusive(&pdev->dev, ..) hmm?
 
-> Best,
-> Gary
-> 
+Yours,
+Linus Walleij
