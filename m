@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794972254;
-	b=j9ZQPKmfhsfFDtpTrLLikMu1hiwbIDyizwwgVC7rdZmspTcMW1+4olxpUW/0jTcTedl9
-	 VOoVXbxByOPG+Sr88O6DPbOszL4PaY4JXmKM9aVpsNTfGT/iOhojE+DxOL8V1Sh33fVdh
-	 f6s0F/iffDuas2uLiXNgEPiQz7JpoTb36Rrw4w7Aip+d+UZ+e1F4+D1nI0jZ0IBiAWa4Z
-	 57bEFyokpB9jAjwOhkdRSfgK6iiKIO4gL6cbvgEheqvwNaiku1xoXb+xqErwznHPDRTSK
-	 oBHOdxUzncORrIN5j1T+ruHx/O0+HAvkpmSgneE1STHcEt4fCdFsbc22pDmts2UcvmA==
+	t=1794972249;
+	b=GD4WAQQovsdyYvqzJUCdQYxcQjZrotR2v3qinVYWS0pqZHhZ+cjskGYPI+QSxn6JVoRN
+	 b/HfQ5KxDx2PZ0/6buYgj5jC2m9sy4T30Q74G15XnSDI3xF+LcsIuGIj7KuPeNeN98CSy
+	 APESqFF6dKK1lAsRd053Gr69dPprYnYM1aYOv9C4DG0Nqbj5V5UzZ29MFSVX1UFmZ2ZiP
+	 OBQ8D/CYTAvLTE3JigF38ZxGg6PjkW0yS9CNCN6qUXJBdCAQLul6BupWtfotKnOya44h2
+	 paRCjWJYFqeyJYOnenf+oLlucv5kXIkYd/+KaELn/kkCiIh9vFQLHlu8ARUiTHAQVNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794972254;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794972249;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=oV+IIDpK5tI05A8Du6BzRhsI35JY/bRV8Mh9TRlzCng=;
-	b=nzv9f6sR4e5p9DNWz9+Adycyag0u6NcJtVlG8ausW+J8FI3yWm8XawGzHUwJQ6AmAghV
-	 gUGVfJBa6evDN0Wj7jdhn6KvzMi9Ibj0T18aJ4B6HBcau1CKDZu/0o5SfuMj8n0FQFQO4
-	 CpyRt6rbUWX5im/saMuZlfxc/OSHEyITqWEShDbgCaLuEq/0MaEZsKM69HLQB5oNiANZ8
-	 t4YxPDRp8WSCFsQRyvNr8OmdevjOMTmBf1KboyF4Xp5z820pJt7u0kRuJD4kNZCCM6lxF
-	 20ap0KxKQw5j2eA3H23A7fKaEmRsM8b3x74U5orn7Q85nxy1vYDeLojX1MRMjvROqdQ==
+	bh=da3Lils9OD3A5OqTLMQepFpLKjdzomZlXg5qA/2Jk94=;
+	b=ilp02iMwGxvzYlqrHSqn5rcrS0HP94IRFqnAOpevKqDoJ/lSQ3s91d3gVQTxDXF1iTqk
+	 gbg/OyxjCE2LNh8RklnJDzgNShT19BUXuFZu505kV+84BMLooKILYEr7ayP3nr2vKaIco
+	 vpmHIaqQ5hRcrXquT05zBXoBwjBWKd9kh4tsVVYsKAdz5nYzIYoNT2iFfEavK5yIw5XUD
+	 ZwQwx6A1EBbLosB1hzvTdBfnHJT8k6IF/5RT1xM+XIyVi7rr0uJOO/JKm9l//V2F3ryjL
+	 QXoDFht+fnn3tVR54qH6QPfrSrWu/e45URPq9lDEb/afYgjYo78vHpxrHbAuE65wzcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.intel.com;
 	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K7CXeT7l;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=k7Pb203d;
 	arc=none smtp.remote-ip=192.198.163.7
 Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7472606A338;
-	Wed, 18 Nov 2026 03:24:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7472606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37731606A31C;
+	Wed, 18 Nov 2026 03:24:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37731606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K7CXeT7l
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=k7Pb203d
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794972254; x=1826508254;
+  t=1794972250; x=1826508250;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=rCFokyLp+EsScfCTAXd/Ud8hvRtF1fAXz9fNFmcrE4c=;
-  b=K7CXeT7ldeMiUO7qj+SOAKUg5m+Ak1TPXb4fRGvoAxisZMmfNfD2K04f
-   SL1QYfsMbA1Qf1g0GXf3pDk7OPU6z/kdyIFvJ7Y3RnvPm95pAszEMKZyu
-   ISxiXUiOLN1buVXlEYlJL3fqeDyPiyheEhlDDHireq+JZsaVUlvSqlAq6
-   3BfIyd92o2MLeCRoajsW3TXAhyR0gg0D+K4NqXUVQJXJ7RVOchlNrKIJk
-   zJ51Ptb64iKWoVp3uuc6LqeMFv1KiQ83ienjZyIG54KyI+Y44icJY6Zmj
-   bA8Ul7m+sQMKGeBohbLjeA9ksnnMcc/HasRkg8z+KkofTLHrZTskHyg+N
-   A==;
-X-CSE-ConnectionGUID: UZCT89a5QGSl8lgAJYcaiQ==
-X-CSE-MsgGUID: SYDXnCMSROqWaIyIbAIsbw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3629989"
+  bh=y+BiEYO4DEY/hSKCQD2gRpr6Q795tZnY/9LHgg1LUdE=;
+  b=k7Pb203dmUn7sWkiHSjONAUgJXZdlt53xaEa6u7nEqcSxdelQxnqcWCT
+   mzqXWLWJItoJ67BuAMedacAWLEIBLkSmCAHeTIhfZjUmEdOb4wqpBJThW
+   CtLC7nbkNM3H9u9549qEKKQIckLPYDMrKsi/coECSJMdZ5HbTjlFYjTv6
+   1R04LCCXNsHk2EazF7iIApI2uHAp9KUH5ilNww0bSLYrFD27wKpSouaRe
+   YH4xinInVVL55mEDPsY15P1W31Mdpn3XUk2NjY8MIlCEVcsRTJ8Pkr+jk
+   1hka6ulVMGyHdZu9aZq+1+jv9Blc7mw3cgdWUEl1MYOmQYw5vS3QKxCGL
+   Q==;
+X-CSE-ConnectionGUID: GJ4fvRBJR4CjEO3PnufFeQ==
+X-CSE-MsgGUID: YmggwBbESyWhlhsLD4H+wA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3629969"
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3629989"
+   d="scan'208";a="3629969"
 Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 19:24:14 -0800
-X-CSE-ConnectionGUID: WbFSkYjSQNaQsoLaCp6clg==
-X-CSE-MsgGUID: QNb9CDhWRFq5eZJOC1fARA==
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 19:24:09 -0800
+X-CSE-ConnectionGUID: CnlObg09Qg2nSghK50EVQg==
+X-CSE-MsgGUID: iUo7/IgcRyuR+o7kveqNNw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="9894332"
+   d="scan'208";a="9894322"
 Received: from spr.sh.intel.com ([10.112.229.196])
-  by orviesa004.jf.intel.com with ESMTP; 17 Nov 2026 19:24:09 -0800
+  by orviesa004.jf.intel.com with ESMTP; 17 Nov 2026 19:24:05 -0800
 From: Dapeng Mi <dapeng1.mi@linux.intel.com>
 To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -83,11 +83,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Zide Chen <zide.chen@intel.com>,
 	Falcon Thomas <thomas.falcon@intel.com>,
 	Xudong Hao <xudong.hao@intel.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [Patch v7 18/24] perf/x86/intel: Fix draining of un-overflowed PEBS buffer in PMI handler
-Date: Wed, 18 Nov 2026 11:14:47 +0800
-Message-Id: <20261118031453.1353625-19-dapeng1.mi@linux.intel.com>
+	Dapeng Mi <dapeng1.mi@linux.intel.com>
+Subject: [Patch v7 17/24] perf/x86/intel: Refresh LBR stack for non-PEBS LBR events when needed
+Date: Wed, 18 Nov 2026 11:14:46 +0800
+Message-Id: <20261118031453.1353625-18-dapeng1.mi@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261118031453.1353625-1-dapeng1.mi@linux.intel.com>
 References: <20261118031453.1353625-1-dapeng1.mi@linux.intel.com>
@@ -102,66 +101,96 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When a regular counter which is read by a PEBS counter-event group
-overflows, handle_pmi_common() drains the pending PEBS records to
-ensure the stale counter snapshots are processed before handling the
-counter's overflow. Currently this is done by invoking the
-x86_pmu_drain_pebs() static call with a non-NULL regs argument.
+PEBS and non-PEBS events share the same LBR stack in cpuc->__lbr_stack.
+In the PMI handler, the non-PEBS path refreshes the LBR state before the
+PEBS buffer is drained.
 
-This is incorrect. At this point the PEBS buffer has not reached its
-interrupt threshold yet (a real PEBS buffer overflow would have
-already been handled earlier), and the PMI being serviced belongs to
-the regular counter, not to the PEBS events. With a non-NULL regs,
-the drained records are processed with perf_event_overflow(), which
-charges a PMI to the PEBS events via __perf_event_account_interrupt().
-These spurious interrupt counts may falsely trigger the PMI throttling
-and unexpectedly disable the PEBS events.
+When PEBS and non-PEBS LBR events overflow in the same PMI, draining the
+PEBS buffer can overwrite the shared LBR stack with the PEBS snapshot.
+This leaves stale LBR data from the PEBS record in place, so userspace
+can see the wrong branch stack instead of the live LBR state at PMI
+entry.
 
-Call intel_pmu_drain_pebs_buffer() instead. It passes a NULL regs to
-x86_pmu_drain_pebs(), so the records are emitted with
-perf_event_output(), which skips the overflow handling and throttle
-accounting.
+Track whether the LBR stack still contains the live state from PMI entry
+with a cpuc->lbr_stack_live flag. The flag starts out clear on each pass
+of the PMI handler and is set once the live LBR state has been read.
+Draining PEBS records with LBR data clears it again, so a non-PEBS LBR
+event re-reads the stack only when it is needed. Since the LBR state is
+frozen for the duration of PMI handling, it only needs to be read once
+for multiple non-PEBS LBR events in the same PMI.
 
-Fixes: e02e9b0374c3 ("perf/x86/intel: Support PEBS counters snapshotting")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
+Fixes: c22497f5838c ("perf/x86/intel: Support adaptive PEBS v4")
 Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 ---
- arch/x86/events/intel/core.c | 2 +-
- arch/x86/events/intel/ds.c   | 8 ++++++++
- 2 files changed, 9 insertions(+), 1 deletion(-)
+ arch/x86/events/intel/core.c | 18 ++++++++++++++----
+ arch/x86/events/intel/lbr.c  |  1 +
+ arch/x86/events/perf_event.h |  1 +
+ 3 files changed, 16 insertions(+), 4 deletions(-)
 
 diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
-index aa7034c5ea41..67275a873dba 100644
+index 5491cd4f4c6f..aa7034c5ea41 100644
 --- a/arch/x86/events/intel/core.c
 +++ b/arch/x86/events/intel/core.c
-@@ -4045,7 +4045,7 @@ static int handle_pmi_common(struct pt_regs *regs, u64 status)
- 		 * The PEBS buffer has to be drained before handling the A-PMI
- 		 */
- 		if (is_pebs_counter_event_group(event))
--			static_call(x86_pmu_drain_pebs)(regs, &data);
-+			intel_pmu_drain_pebs_buffer();
+@@ -4054,8 +4054,14 @@ static int handle_pmi_common(struct pt_regs *regs, u64 status)
  
- 		last_period = event->hw.last_period;
+ 		perf_sample_data_init(&data, 0, last_period);
  
-diff --git a/arch/x86/events/intel/ds.c b/arch/x86/events/intel/ds.c
-index 332754e1da4f..9fe84e4880d9 100644
---- a/arch/x86/events/intel/ds.c
-+++ b/arch/x86/events/intel/ds.c
-@@ -1262,6 +1262,14 @@ int intel_pmu_drain_bts_buffer(void)
- 	return 1;
+-		if (has_branch_stack(event))
++		if (has_branch_stack(event)) {
++			if (!cpuc->lbr_stack_live) {
++				intel_pmu_lbr_read(cpu_lbr_stack(cpuc),
++						   cpuc->lbr_counters);
++				cpuc->lbr_stack_live = true;
++			}
+ 			intel_pmu_lbr_save_brstack(&data, cpuc, event);
++		}
+ 
+ 		x86_pmu_clear_perf_regs(regs);
+ 		x86_pmu_update_perf_regs(event, &data, regs, false);
+@@ -4111,12 +4117,16 @@ static int intel_pmu_handle_irq(struct pt_regs *regs)
+ 
+ 	loops = 0;
+ again:
++	cpuc->lbr_stack_live = false;
+ 	/*
+-	 * No need to read the LBR stack when all LBR users are PEBS events,
+-	 * since the PEBS handler updates it.
++	 * If PEBS can't record LBRs, draining PEBS can't overwrite the
++	 * LBR stack, so read it here at PMI entry. Otherwise, it is read
++	 * after PEBS draining when needed.
+ 	 */
+-	if (cpuc->lbr_users != cpuc->lbr_pebs_users)
++	if (cpuc->lbr_users > 0 && !intel_pmu_has_pebs_lbr(cpuc->pmu)) {
+ 		intel_pmu_lbr_read(cpu_lbr_stack(cpuc), cpuc->lbr_counters);
++		cpuc->lbr_stack_live = true;
++	}
+ 
+ 	/*
+ 	 * Keep the LBR state frozen throughout PMI handling so that the PMI
+diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
+index 3a282352b0d2..740d5a5ba4c3 100644
+--- a/arch/x86/events/intel/lbr.c
++++ b/arch/x86/events/intel/lbr.c
+@@ -1317,6 +1317,7 @@ void intel_pmu_store_pebs_lbrs(struct lbr_entry *lbr)
+ 
+ 	intel_pmu_store_lbr(lbr, cpu_lbr_stack(cpuc));
+ 	intel_pmu_lbr_filter(cpuc, cpu_lbr_stack(cpuc), cpuc->lbr_counters);
++	cpuc->lbr_stack_live = false;
  }
  
-+/*
-+ * Drain the pending PEBS buffer for the current CPU.
-+ * This helper should only be used to drain a PEBS buffer which
-+ * hasn't overflowed yet, e.g. on a context switch with large PEBS,
-+ * because the NULL regs argument passed to x86_pmu_drain_pebs()
-+ * makes the records be processed with perf_event_output() rather
-+ * than perf_event_overflow().
-+ */
- void intel_pmu_drain_pebs_buffer(void)
- {
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+ /*
+diff --git a/arch/x86/events/perf_event.h b/arch/x86/events/perf_event.h
+index 8d64bfcdc82d..4e6cf5c1e865 100644
+--- a/arch/x86/events/perf_event.h
++++ b/arch/x86/events/perf_event.h
+@@ -525,6 +525,7 @@ struct cpu_hw_events {
+ 	/*
+ 	 * Intel LBR bits
+ 	 */
++	bool				lbr_stack_live; /* If LBR stack holds the live LBR state */
+ 	int				lbr_users;
+ 	int				lbr_pebs_users;
+ 	u64				__lbr_stack[LBR_STACK_SIZE / sizeof(u64)];
 -- 
 2.34.1
 
