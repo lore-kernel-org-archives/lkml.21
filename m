@@ -1,104 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795035811;
-	b=dV6/864Gq4VEoguFqT3gUwKB3PbrdFVLVVgI6z9eD3HrtgmjAvnKWKaouhzQDfVrpSyn
-	 W56EyYVP5e78CO2DVIJA0eU9vScM9sXJP4b5HCK+NzIwiN9lByn8BDdWykGzpc828fhbY
-	 lKLjACNXf+N3xw/IIQ0spv1RBsPw+6biJQ22GRjGddOruF+hPWPpsKm0f8vtV0rFzGmCJ
-	 tJtuWMlwOy+HnHlNKH3MVXadBLVgSndBFlrQdsi011YLcw0APsBqXOv1PV5NnnDRKKj9d
-	 4vO9f4eVb7xLiWmp3Le0QpS8i16QXj8E7DF4uvo27GPm/PvhlauFW3eTg9J3bQXqbww==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795035811;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=w0jYyrDAiZ6sNDtwFNEu2KIWwBGTIoWsrMaXe5k+QPo=;
-	b=qORIChTKu84VF5uOB+F7j3xtYMHjDHWGCXrFbqC2fvFV8IbNF/eW7tOw5Go6xlgEXY/l
-	 /f7MjmfbgKL4MDj/4aD7a4ejH/Lknk9tlkiOV62uGTjVOQsSiaTyN9lr8wn2g1I05PlZu
-	 VTvdVTjytFBUWwzKJwSWNMzf7CXE6qVW2zK2CgB2A9A/6MN814Cx+rklFVOgfAhxWhQ1b
-	 U8YP+kDgF0yaQa3nXcnjG0L2gEFG6xjFSUbQPnSUJpJ7F6U44ncpwJXCpFjgGxSrIXB7Z
-	 wPF+jOOdIagw9Wq74EQAU1J+8xqMqKcJ4lZ2x7JoGBM8ParWOW5Bd6BqimWOw9ee9NA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xbq4KvQu;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795035827;
+	b=lLq+XsCcQgIGQsDDMrKhQwXUXmJ99M5iYjiDrpzvOfjFb46nBwOtqPLW1uiwp2G4GuBU
+	 zLRtQx1UWWO3pAqh0j1MQOWvNlEpFl/g/I8cS+9zIJvXrPVgtgI9TyaDOSKPI2R62GMtk
+	 MVms7I38GEct8tk+54y9k3Nk7OyDNNkMIWEJCPLKsp+proiqHZ7pBpVvZjKXBpl9hgTvW
+	 XMm/BDUOgBWUdWLy6Vnc3enIIQIGQDLkKgLogAl6sSnKWcD/C99AWaE46brHHzY/0ljh1
+	 hEN7yuXPIYPgdHA6SYhToPd9f/CV3djCJfePUwZRhkYMJHOtj0rzxamcPLuo1m+QhlA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795035827;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Rn/XVV3lJb0TjTij3sIrE+aEoTpSeaOajKlzbk7waNE=;
+	b=4fi0iY38PsLu8uxP/H0z2nEdRatJlHmaxQagwb3ukPQrqWVgT1/nn8xjzZ6gOTIeViPs
+	 Cemtj5XQ+gepP0buhMht6ZncdAM1HllwkuUPbh12QR0cR042K8UqHeNOitn1bxXW2JGol
+	 r7qm8VWwyoatguARf+72+O/m8Z8kH1C7L0x7ZTsUN1SgzPs/8yWlPpEdbdn1wjWflpTm8
+	 IjgkwqWr/Q209arz/j4W97Z/rLBw4kRIbHc9TP1FKNAGCXvHP6qQCXwrq3R02GboLMhzA
+	 /oalRU+8zQIMuk/sHwy+KJ49a+3xUxLCG51DCUbKvLNZgtJgakzn18HwK7qFHN5HoKA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j8ZB35oU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAD5960A2606
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:47 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j8ZB35oU
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795035827;
+	b=ySZj+2kiiPVcvPJHs2L6nRfKxlAqsoKglkc6KRqUTVfAPz6fb77cXz0xD0h/W3I9gAOB
+	 6fqRwyjiyK/xBQ0zgKnZucZ0Ok3dTrKLgyM2bNKeW9EIiagI4t86uKHQf4G1j8uYgAInF
+	 +0zLslmTx+jXvDP88mFVzJW7jdXh8GCGH0avVdLmQ9mnrNIjrSZ53TgRmWjsM3uJyNQCR
+	 twF71WMkkRx5tWaPahjlFH70Ov0MpY4qpBenMZqMPGRZAX4JYG6slAh3JZZ78xwJBfRrn
+	 CHWLNqgwyH34TAC1x06w6dh0D+qsQyeiRkZQ36nmbz9x2CE7gPEwcO9QIh1jePSW9Tw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795035827;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Rn/XVV3lJb0TjTij3sIrE+aEoTpSeaOajKlzbk7waNE=;
+	b=thKwjAJpHQLk7imeBagChkHhSDt1YGIsN1NfdfqTXGvWfNCZM4/UhwdcE79a5YEUTkIg
+	 8JtgQghAoM7inWCDIdEIOVp3VZmpWycvuAw07GnynDNzwt0pKP25EZm4YcFLk0/8P3v1P
+	 tRGF4vpSnL5mIvmMX/JFBeWjx024pwqVSGPT4vfRAFOT9FSVNSIQ5N6wTdsTQmwBDwpUa
+	 4GUFXQ1iON8IWm6oPYiJwgRdZ7/DmD9eNlyjGiAn0kupeMxg7hUYxnM6h1Bj1uQvRSIFs
+	 3dBKCVKoDqrLUknL4LoDuYwRkTjjxLzfNqYva1dDKqc4Pduf88awllEi/mu5Mq9DSEA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92926606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:03:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92926606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xbq4KvQu
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-49a92144733so718130f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:03:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795035810; x=1795640610; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=w0jYyrDAiZ6sNDtwFNEu2KIWwBGTIoWsrMaXe5k+QPo=;
-        b=Xbq4KvQuV6fhATdw3BaCQSkYtthk+zY+Y0RxPPoCSYFlu5aUgbXP5sy6JWZDD2HPDN
-         7+vI0HnfrVp8apUNp/nDrq6sxG55AmGhLEY150whxkIfFUkD8R7FHRvSD8+RRvsYTdtD
-         OxWJ6JPzaIubVspnVIwdAkWCxrFnIf+Cnr5lqZmlUH3dqbJ9XSsRE6FCUM+qZa6272Lg
-         Z5CDkUn6Ch4EoomWkV8AKi9dwSXvmR2N1dAlhQo07XSDy2JGjZL59GV9y8N/Mn8s7UnJ
-         Rq6l94Dxk3tizYWawsWSvQMcssTNiMvRfB3w/0nh6CpBxlGXSneTUU+CQJqcwQlB6kj4
-         /RSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795035810; x=1795640610;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=w0jYyrDAiZ6sNDtwFNEu2KIWwBGTIoWsrMaXe5k+QPo=;
-        b=OahERw2A1SQgcLQvyLjgRvgzqFQ1qOfEndy3qnbzQfN4tgWShTa+XAllMXzSCYUvUT
-         edjihmRidDGWf6sJTM/7gfZl+zSD12+oUllOjTszkQBRE6PaqzPfBNjdQMuPTFg8fD0d
-         MpNBcUTClezd+7+UyLqUTniqxFI1jLb+hftQt4fPjFcM0VzPrLsdV4O/kU2eWDHxhR/r
-         lde8noxbDaQ4phtLpoDQ7Zm+TUCaPIHImscGzpIOSC/U/GdCB9w5ZNXUNN6F5Thw9KZs
-         BN1QQI/8ifjDen9Wa9QjzR6d1aVsiDs8FT2aPNg/HOd4gXuiStvf29wUdfULS3ykNswz
-         cBUQ==
-X-Forwarded-Encrypted: i=1; AL+hErFLIEI336KcPK3euavE576/2/7jRh9G+zWTAVUhMBt2rdo28t0v8xZb05gHq8pbnR+02VknD3RBKELqVvQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bA1fAyAxrH2alOzx9rWiO3sMpZvJ3dhV4+jesfQsXSMCAU/Pu
-	lwUhADLnO8hUMKrg1XJlSA7j8AI/1y/UhIXSXw2Oo9Xb+54FU8reFk98
-X-Gm-Gg: AZFdTZd3XLgvmZ/7sa7tvqd77rvE10gbbPIU7KdFQQ78/0Ik9AaSHZYTUaeB9Nq0JnP
-	euNpKQFhYAY1wS+kFOn7weNcw6lip5BlCuOF0lEjFVBZBy6jOrtV+D1yqa2qZM7wUl5Pa+VA2/Q
-	RddngPjEMFPJKR87ogJucV1DBNm0krluoHIHTOwe3sQbcpHFzZafyhrqs9zuDG+8RVwIO8VEbrA
-	hsBLQ2WKtjnpd9eulPGAd4dFwub5o7mRO63U2vMFLE68ZdF09VYJ0TWVqEthtqttlzhF80lXh7H
-	JW6+GW0CgR1tPdIXF1hb+IwdvV+n77MIecfUOJcaJskK10qj+zHmUWxaDv1sgQRC7cfytZNRiSC
-	melPpaU/HX9P5zk2qTS3+DRI9+VA6TZSj9egujhEafDZ3n4ysLwH+DSSjPQIb4qh8VbxAogxC2F
-	3FpNL9pvrzpa5GXVpGUXyg4ln/TrCBSM0ibF4heTjPN0yNXzzS4fRPuT/hk2GxQLJB3sVh9rYpk
-	l7oWWwHa4K4KMeQxX3cTKiQ7eICrkh4Mw29kdUeSyIn7BSgLU7jQOr25KgVYS4ETN/6il4T5o1w
-	gs+8+3Qv57NBkwI7Ohqb8GvuBkFKeChke61+jCLZkoE1YNzKj03znuZahXA8mNaPP7njtEryHBt
-	lCfoLNpVGnyyvn62t
-X-Received: by 2002:a05:6000:46c7:b0:48e:17d1:16c9 with SMTP id ffacd0b85a97d-4a63bea7098mr5034017f8f.40.1795035809787;
-        Wed, 18 Nov 2026 13:03:29 -0800 (PST)
-Received: from aura.rhinoceros-company.ts.net ([185.238.221.186])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656095e98sm6137397f8f.42.2026.11.18.13.03.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 13:03:29 -0800 (PST)
-From: Mark Street <streetster@gmail.com>
-To: seanjc@google.com
-Cc: pbonzini@redhat.com,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	Mark Street <streetster@gmail.com>
-Subject: Re: [PATCH] KVM: x86/mmu: Defer TDP MMU RCU callback barrier
-Date: Wed, 18 Nov 2026 21:03:11 +0000
-Message-ID: <20261118210311.103455-1-streetster@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <av4Mlz7fOP-EeFA5@seanjc-mac.roam.internal>
-References: <av4Mlz7fOP-EeFA5@seanjc-mac.roam.internal>
+	by smtp.kernel.org (Postfix) with ESMTPS id E92C81F000C5;
+	Wed, 18 Nov 2026 21:03:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795035827;
+	bh=Rn/XVV3lJb0TjTij3sIrE+aEoTpSeaOajKlzbk7waNE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=j8ZB35oUQuWCDXJwYRu8CMI0Zp8kPRn//xfoxUrCBlmE3BLEp1ir2lzJAtHrLc8Qb
+	 ig7ul0ZCLj07TKk4ZAFIeAZwPXMhdmwt9Hg7h9Xu585wcG1GV1Bj9bmS0h2rEACWAO
+	 shp2cbhQx7RbPQnHGZhsZYJXjVxttGAOW1U1y+J066x4QW1NDlG7UfxpoKnjfXIksm
+	 fOXUcM3qbZriQIRmb4l4+cEgVdUsADpxQD8FEKzH0LFrgpEVDasGwZz8ag/WbvzLoA
+	 3VjJphFyhPnnq4P1BNIhZjPhwUQfkMyr87yhtDyFC0ocWHwbIHuqDLOvOfCrHATeXp
+	 xjhnguhnqhLQA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 44A1D4AF8C;
+	Wed, 18 Nov 2026 21:03:43 +0000 (UTC)
+From: Kairui Song via B4 Relay <devnull+kasong.tencent.com@kernel.org>
+Date: Thu, 19 Nov 2026 05:03:34 +0800
+Subject: [PATCH v5 02/17] mm/memcontrol: allow update of LRU statistic
+ without holding LRU lock
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,12 +83,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-mglru-fg-v5-2-9eee2fe97a2d@tencent.com>
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+In-Reply-To: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+To: linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+ Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
+ Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, 
+ Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>, 
+ Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>, 
+ Zicheng Wang <wangzicheng@honor.com>, Chen Ridong <chenridong@xiaomi.com>, 
+ Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, 
+ Xiang Liu <liuxiang.277@bytedance.com>, 
+ Ehab Ababneh <ehab.ababneh@intel.com>, 
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+ Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
+ linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+ damon@lists.linux.dev, linux-doc@vger.kernel.org, 
+ Kairui Song <kasong@tencent.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795035819; l=1182;
+ i=kasong@tencent.com; s=kasong-sign-tencent; h=from:subject:message-id;
+ bh=G0nnA5K3vgx6DnvgX5PBKRNHiMmd0ZDMM0I+7unVnUs=;
+ b=Or384oTYmhezGr12VgUCqXcg3RIjHRi1VIREbML7u8xdTtJvzi8P8v1XYtrkZ/MyxcN22pjLV
+ ZU7Emfb4fcGBc4PgU9uzX0rG1VNuzCTFopsvPnTDBNOyD35qOIS9jAr
+X-Developer-Key: i=kasong@tencent.com; a=ed25519;
+ pk=kCdoBuwrYph+KrkJnrr7Sm1pwwhGDdZKcKrqiK8Y1mI=
+X-Endpoint-Received: by B4 Relay for kasong@tencent.com/kasong-sign-tencent
+ with auth_id=562
+X-Original-From: Kairui Song <kasong@tencent.com>
+Reply-To: kasong@tencent.com
+Content-Transfer-Encoding: 7bit
 
-Thanks for the review. I've been sitting on this for about a month,
-waiting for Steffen's file-based-reference-counting change to merge
-before sending my patch. If someone has already posted the same
-RCU-barrier change, that's great; I'll leave it to that patch. You're
-also right that the stats/debugfs .owner changes are unrelated and
-shouldn't have been included.
+From: Kairui Song <kasong@tencent.com>
+
+To enable moving file pages in folio_mark_accessed directly and lazily
+for MGLRU, allow updating the LRU statistic atomically without holding a
+lock. It may cause temporary counter underflow, which should be fine as
+the counter is eventually consistent and only serves as an estimate.
+
+Signed-off-by: Kairui Song <kasong@tencent.com>
+---
+ include/linux/mm_inline.h | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+index 2395ca8ee305..2edb9beef6d3 100644
+--- a/include/linux/mm_inline.h
++++ b/include/linux/mm_inline.h
+@@ -47,12 +47,11 @@ static __always_inline void __update_lru_size(struct lruvec *lruvec,
+ {
+ 	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
+ 
+-	lockdep_assert_held(&lruvec->lru_lock);
+ 	WARN_ON_ONCE(nr_pages != (int)nr_pages);
+ 
+ 	mod_lruvec_state(lruvec, NR_LRU_BASE + lru, nr_pages);
+-	__mod_zone_page_state(&pgdat->node_zones[zid],
+-				NR_ZONE_LRU_BASE + lru, nr_pages);
++	mod_zone_page_state(&pgdat->node_zones[zid],
++			    NR_ZONE_LRU_BASE + lru, nr_pages);
+ }
+ 
+ static __always_inline void update_lru_size(struct lruvec *lruvec,
+
+-- 
+2.56.1
+
+
