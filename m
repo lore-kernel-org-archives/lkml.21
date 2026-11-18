@@ -1,85 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991134;
-	b=E736qGqbpUPyZAHMOtI8c2zwoCUyzqDy751sDkjhFI9fPw/IFRzc0ys0lcRndEHsltJ3
-	 5C7iwjFmrrp26sPJC5XtR0GSIxZuxNqpeII985atGjMdk5UgIJZnJiEXVwi+LGp83+mMH
-	 oo8TeZD4yW+muOMhdQvHRmshWGLoVHVhOdfB78zGKF1xPH+EFuQsUAN2CkF9kiXJ8Z/C9
-	 xojER2KbC34gBsWj2bBknxE8cyStUe8VSZ/j/0bp9ujR43Sj1lcjd4DShzBZ/zwYwaZKC
-	 WPah1omlSqMzucCHUzqlaC6g/GHMvcaKQ9Xcn4KN0uzhigGs1oqvBTLATCdknReJXZA==
+	t=1794991155;
+	b=ibkhvCLEASHQ7uMiNSl3b5ULtZ57/naKrInS5WcPOmmnIEq8Vks8wAY6WV88llDkLV8h
+	 zkQzh8p45zBNdfeD8CvRe3u8Cd8aYKBnLhq/gnvpOISpBU85TmEaqn7Dc+X7R3xgjWecc
+	 daWY8Z4amtyViaOWLIJ37pJggkxfdY6xvLdlx/+hfbe6hA4weqVcg54BA7boAeND/Q0c3
+	 nY3eMs8HSOs0qXzcxc86EcNEMrIJK8MrUqyp1JpWZChVRlIx6o0JamPZoMW4uydpW0FyU
+	 XKrB1g1QgcOE2G/Ik6W8ESEF/KhMxuMPPIRflarvAn0kT6l6Z0TCFm1o+1HFVQMi5tQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991134;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=yTaC3kglV/CRr/khGG/rEda/XWAoN+VFABgn6XUjuZc=;
-	b=TCic1r5pcZyGasmNpiFJfMY4iYONOdToYz68Qy+7Jx7D252Zqnm+Vyw+GPJz/u7boxZJ
-	 ZxeKliYRqSEXJESDRHuuLcqOy8WWGkFtCowFLEAH/GL8YIM+tKZ9UaBSBgDT2x5EIjW3R
-	 Mwd38TvTOstxbqZqZuFWmi/CnxwBsZN+jA5GSvq4v+W26cIRedW8AC+53v32Sz0J+44Wr
-	 o3iY9f3cJs/QLeezjOErpmh4IIXgrTYVyqtiKZKDCsutCgPp5m34PuZ0CxqkOfuZO2DUZ
-	 0j/P5BSW/DnYhUzAJl9UfRbmdPp/23ZUq31fuBj2oOFsYvkclRnEa6vcQKjzXYCyxgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991155;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
+	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=93JD4oOl8RigguqAzYS0DanPg4ZmNzSu7c7ItgKEQWw=;
+	b=fkggn4cE/qtqsAW7cS7Q7N/dGkkIG44O2Wv/wxeSShLPcQx5GjbjYiGAafuaSu6Hulii
+	 DMaL3PhRULLAipWx+89UlTVu4yzkP73A4zCJ8XmS/G3hn0T3HS8jDxV66bXJCA76WbtaQ
+	 /gsqPddg2Ao6FNSQbPfTo0SVTjn41eOtVs8sx64fb9fe11b9qLyWsV8KHQ4y7uHjVtVll
+	 V7QSLtZAZ95cxjs5L+LGFc2UhO6VpEb+dN5hAIIXpBZmxA8Pf3kIJKDdgoBiS2WTJZmPr
+	 YBuwXNTbsx8Zpw6x+qa8IcikwpaJGMc/aWhwLK8o8QV2Q39BlzpFLyOGtk00yPUoK3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=OcCslqf3;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IeUyPOXA;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21DCD606A31C;
-	Wed, 18 Nov 2026 08:38:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21DCD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E455606A31C;
+	Wed, 18 Nov 2026 08:39:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E455606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=OcCslqf3
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI8c6oR51187651, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794991086; bh=yTaC3kglV/CRr/khGG/rEda/XWAoN+VFABgn6XUjuZc=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=OcCslqf3J8buj3P91sni+Xoh/sYgJlrd9PQMZKFhugrVeb1rAkGvGNoAw4lZ6ujvW
-	 0SQsVFCso2/zaAaCMDesXCZL7sWLekR7D5SXrepH1yB6yPZMhmfHtM4VbPCGYNDLnC
-	 3mhZsLmCN3U8XzIU1J2L++uJAlMxhdIfehNJHwEgHa37AFpWD1bikPFaUoRr1E1wSV
-	 9B7aR5hoy6RJgsdEdNG4EZ+JWcg0jvjychMo8vIywOlSrwrFkVuXMWetlR7h4sXnZq
-	 a69rRFNfn7FH7IxyG6dfZdj4P8pH9ZYmFOZ6ABfKHVVAmRcCvjZ2FKU2WHK+c+M9jm
-	 boFJ68MtXgkFw==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI8c6oR51187651
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 16:38:06 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 16:38:06 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 16:38:06 +0800
-From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
-	<kuba@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	nic_swsd <nic_swsd@realtek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "edumazet@google.com" <edumazet@google.com>,
-	"bjorn@mork.no" <bjorn@mork.no>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "mail@birger-koblitz.de"
-	<mail@birger-koblitz.de>
-Subject: RE: [PATCH net-next v8 06/11] r8152: add new init writes for
- RTL8156/8156B/8157/8159
-Thread-Topic: [PATCH net-next v8 06/11] r8152: add new init writes for
- RTL8156/8156B/8157/8159
-Thread-Index: AQHdcML+sJzPbTRchkm8kmytHOT0SbcszWcAgAa/nnA=
-Date: Wed, 18 Nov 2026 08:38:06 +0000
-Message-ID: <cf7f59fa1e624344a0f86fbd8280c239@realtek.com>
-References: <20261110032416.16968-7-nic_swsd@realtek.com>
- <179464851473.2199510.6808488710116582608@kernel.org>
-In-Reply-To: <179464851473.2199510.6808488710116582608@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IeUyPOXA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794991156; x=1826527156;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GVuehxEYhnaikefPNV5ljoAX+GlBmLt5R6g/hv9W6+o=;
+  b=IeUyPOXAR6u0FTTYruGF0h1qMgH6lzTO3iwr5ortIjMUL6T1sRhAsD5+
+   jnIZMZ9o8pN3VRH/Rq47W/MW7IwwcOOOlqYKubxkjFxzHFnsJhYCADVhz
+   evtPXtCM0ZbY/6v3JPqb5eKStjao2H0ws76NRNNwB856FeaeA3plALzzI
+   BiX0ZAuefdkrkvWsrPjkp33Njx0DFEoxK7vhD9Ql6/E+aYMBD6w63iww3
+   grlBo/O2kotzu8/jZGxFzhyOrmK6Nb0SJI73YalXB7onwn0stndGjuIDZ
+   f87T1lLSFxCQyWN7b0upeuKeh+Ekuf9HakZTDz9hh/g7x1ZdUt4EJi+Hv
+   A==;
+X-CSE-ConnectionGUID: wI3PixhmR1W6YDqfRxoYmw==
+X-CSE-MsgGUID: 9XRF66UYRHG7VJsUEXoCmg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3815944"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3815944"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 00:39:13 -0800
+X-CSE-ConnectionGUID: SqGI4Z6rRNalVSS/yeo4pg==
+X-CSE-MsgGUID: ISFbWIJcTEKqKk3Lni9sZw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10094903"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.183])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 00:39:11 -0800
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 5A7A4121B6F;
+	Wed, 18 Nov 2026 10:39:08 +0200 (EET)
+Date: Wed, 18 Nov 2026 10:39:08 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Linux PM <linux-pm@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Brian Norris <briannorris@chromium.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Subject: Re: [PATCH v1] PM: runtime: Update last_busy before calling
+ rpm_suspend() in rpm_idle()
+Message-ID: <av1kLCLk9dIzKxQD@kekkonen.localdomain>
+References: <4789427.LvFx2qVVIh@rafael.j.wysocki>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,99 +86,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4789427.LvFx2qVVIh@rafael.j.wysocki>
 
-PiBUaGFuayB5b3UgZm9yIHlvdXIgY29udHJpYnV0aW9uISBTYXNoaWtvIEFJIHJldmlldyBmb3Vu
-ZCAyIHBvdGVudGlhbA0KPiBpc3N1ZShzKSB0byBjb25zaWRlci4NCj4gDQo+IENyaXRpY2FsOiAw
-IMK3IEhpZ2g6IDAgwrcgTWVkaXVtOiAxIMK3IExvdzogMQ0KPiANCj4gSWYgeW91IGJlbGlldmUg
-bm9uZSBvZiB0aGUgaXNzdWVzIGFyZSBsZWdpdGltYXRlLCBwbGVhc2UgcmVwbHkgdG8gZWFjaCBp
-c3N1ZSBvZg0KPiBNZWRpdW0gc2V2ZXJpdHkgb3IgaGlnaGVyIGFuZCBleHBsYWluIHdoeSB0aGUg
-QUkgaXMgd3JvbmcuDQo+IElmIGFueSBvZiB0aGVtIGFyZSBsZWdpdGltYXRlIGFuZCB5b3UgcGxh
-biB0byByZXNwaW4sIHBsZWFzZSBsZXQgcGF0Y2h3b3JrIGtub3cNCj4gYnkgaW5jbHVkaW5nICJw
-dy1ib3Q6IGNyIiBhcyBhIHNlcGFyYXRlIGxpbmUgYXQgdGhlIGVuZCBvZiB5b3VyIHJlcGx5IChv
-bmUgc3VjaA0KPiByZXBseSBwZXIgc2VyaWVzIGlzIGVub3VnaCkuDQo+IA0KPiAtIFtNZWRpdW1d
-IHI4MTU2X2luaXQoKSAoUlRMX1RFU1RfMDEvVkVSXzEwLzExLzEyLzEzLzE1KSBhbmQgcjgxNTdf
-aW5pdCgpDQo+ICAgKFZFUl8xNi8xNykgbm93IGFsd2F5cyBjbGVhciBSTVRfV0FLRV9FTiAoQklU
-KDApIG9mIFBMQSAweGUwYzgpLg0KPiAtIFtMb3ddIFRoZSBjb21taXQgbWVzc2FnZSBsaXN0cyBl
-YWNoIG5ldyByZWdpc3RlciB3cml0ZSBidXQgZXhwbGFpbnMNCj4gICBvbmx5IG9uZSBvZiB0aGVt
-IChSWF9FTkRfVFJBTlNGRVJfRU4pLg0KPiANCj4gLS0NCj4gDQo+IHI4MTUyOiBhZGQgbmV3IGlu
-aXQgd3JpdGVzIGZvciBSVEw4MTU2LzgxNTZCLzgxNTcvODE1OQ0KPiANCj4gVGhpcyBjb21taXQg
-YWRkcyByZWdpc3RlciB3cml0ZXMgdG8gcjgxNTZfaW5pdCgpIGFuZCByODE1N19pbml0KCkgc28g
-dGhleSBtYXRjaA0KPiB0aGUgdmVuZG9yIGluaXQgc2VxdWVuY2UuIEJvdGggZnVuY3Rpb25zIG5v
-dyBjbGVhciBQUkVCT09UX09QVElPTiBhbmQNCj4gUk1UX1dBS0VfRU4sIGFuZCBSVEw4MTU2QiBn
-ZXRzIGEgdTJwaHkgYmFja3VwLiByODE1N19pbml0KCkgYWxzbyBkaXNhYmxlcw0KPiBpbnRlcnJ1
-cHQgbWl0aWdhdGlvbiBhbmQgQVVUT19TUEVFRFVQLCBjbGVhcnMgdGhlIHJlc2V0IGV2ZW50IGZs
-YWcsIGFkZHMNCj4gVkVSXzE3IHNwZWNpZmljIHdyaXRlcywgYW5kIGNsZWFycyBSWF9FTkRfVFJB
-TlNGRVJfRU4gZm9yIGFsbCBjaGlwcy4NCj4gDQo+ID4gQnJpbmcgdGhlIHBlci1nZW5lcmF0aW9u
-IGluaXQgZnVuY3Rpb25zIGluIGxpbmUgd2l0aCB0aGUgdmVuZG9yIGluaXQNCj4gPiBzZXF1ZW5j
-ZSBieSBhZGRpbmcgd3JpdGVzIHRoZSBzaGFyZWQgcjgxNTZfaW5pdCgpIG5ldmVyIHBlcmZvcm1l
-ZC4NCj4gDQo+IFtTZXZlcml0eTogTG93XQ0KPiBUaGlzIGlzbid0IGEgYnVnLCBidXQgY291bGQg
-dGhlIGNvbW1pdCBtZXNzYWdlIHNheSB3aHkgbW9zdCBvZiB0aGVzZSB3cml0ZXMgYXJlDQo+IG5l
-ZWRlZD8gT25seSBSWF9FTkRfVFJBTlNGRVJfRU4gaXMgZXhwbGFpbmVkLiBUaGUgcmVzdCBhcmUg
-bGlzdGVkIHdpdGggbm8NCj4gc3RhdGVkIHB1cnBvc2Ugb3IgZWZmZWN0Og0KPiANCj4gICAtIGNs
-ZWFyaW5nIFBSRUJPT1RfT1BUSU9OIGluIFBMQV9JTkRJQ0FURV9GQUxHDQo+ICAgLSBjbGVhcmlu
-ZyBSTVRfV0FLRV9FTiBpbiBQTEEgMHhlMGM4DQo+ICAgLSB0aGUgcjgxNTZiX3UycGh5X2JhY2t1
-cCgpIHZhbHVlcyB3cml0dGVuIHRvIFVTQiAweGQzY2UuLjB4ZDNkYw0KPiAgIC0gY2xlYXJpbmcg
-VVNCIDB4Y2YwNCBiaXRzIDAvMS8yLzcgKGludGVycnVwdCBtaXRpZ2F0aW9uKQ0KPiAgIC0gY2xl
-YXJpbmcgVVNCIDB4Y2QwNiBCSVQoMTEpIChXYXJtIFJTVCAvIEJ1cyBSU1QgZXZlbnQgZmxhZykN
-Cj4gICAtIGNsZWFyaW5nIFVTQiAweGI5YTYgQklUKDApIGFuZCB3cml0aW5nIDB4MDQ0OCB0byAw
-eGI5YTIgb24gVkVSXzE3DQo+ICAgLSBjbGVhcmluZyBBVVRPX1NQRUVEVVANCj4gDQo+IFNldmVy
-YWwgb2YgdGhlc2UgbG9vayBsaWtlIGZpeGVzIGZvciBzcGVjaWZpYyBmYWlsdXJlcy4gRXhhbXBs
-ZXMgd291bGQgYmUgcHJvYmxlbXMNCj4gYWZ0ZXIgYSB3YXJtIG9yIGJ1cyByZXNldCwgYWZ0ZXIg
-YSBVU0IyL1VTQjMgUEhZIHBvd2VyIGN1dCwgb3Igd2l0aCBpbnRlcnJ1cHQNCj4gbWl0aWdhdGlv
-biBlbmFibGVkLiBPdGhlciBwYXRjaGVzIGluIHRoZSBzZXJpZXMgYXJlIG1hcmtlZCBhcyBmaXhl
-cy4NCj4gDQo+IElzIHRoZXJlIGEgdXNlci12aXNpYmxlIHN5bXB0b20gYmVoaW5kIGFueSBvZiB0
-aGVzZSB3cml0ZXM/IElmIHNvLCBjb3VsZCBpdCBiZQ0KPiBkZXNjcmliZWQsIHdpdGggRml4ZXM6
-IHRhZ3MgYWRkZWQ/IFRoYXQgd291bGQgc2hvdyB3aGV0aGVyIHRoaXMgYmVsb25ncyBpbiBuZXQN
-Cj4gYW5kIHN0YWJsZSByYXRoZXIgdGhhbiBuZXQtbmV4dC4NCg0KT2suIEkgd2lsbCBhZGQgc29t
-ZSBkZXNjcmlwdGlvbnMuDQoNCj4gDQo+IENvdWxkIHRoZSBtZXNzYWdlIGFsc28gc2F5IGhvdyBj
-bGVhcmluZyBSTVRfV0FLRV9FTiByZWxhdGVzIHRvIFdvTCBhbmQgdG8NCj4gcmVtb3RlIHdha2V1
-cCBmcm9tIHJ1bnRpbWUgYXV0b3N1c3BlbmQ/DQo+IA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJz
-L25ldC91c2IvcjgxNTIuYyBiL2RyaXZlcnMvbmV0L3VzYi9yODE1Mi5jIGluZGV4DQo+ID4gMzY0
-YTA1NzNmNmNkMS4uYTFjMmUxZTA4YjE2MSAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL25ldC91
-c2IvcjgxNTIuYw0KPiA+ICsrKyBiL2RyaXZlcnMvbmV0L3VzYi9yODE1Mi5jDQo+IA0KPiBbIC4u
-LiBdDQo+IA0KPiA+IEBAIC04NTI4LDExICs4NTQzLDI0IEBAIHN0YXRpYyB2b2lkIHI4MTU2X2lu
-aXQoc3RydWN0IHI4MTUyICp0cCkNCj4gDQo+IFsgLi4uIF0NCj4gDQo+ID4gICAgICAgcjgxNTNi
-X3Bvd2VyX2N1dF9lbih0cCwgZmFsc2UpOw0KPiA+ICAgICAgIHI4MTU2X3Vwc19lbih0cCwgZmFs
-c2UpOw0KPiA+ICAgICAgIHI4MTUzX3F1ZXVlX3dha2UodHAsIGZhbHNlKTsNCj4gPiAgICAgICBy
-dGxfcnVudGltZV9zdXNwZW5kX2VuYWJsZSh0cCwgZmFsc2UpOw0KPiA+DQo+ID4gKyAgICAgb2Nw
-X2J5dGVfY2xyX2JpdHModHAsIE1DVV9UWVBFX1BMQSwgUExBX0lORElDQVRFX0ZBTEcsDQo+ID4g
-KyBQUkVCT09UX09QVElPTik7DQo+ID4gKw0KPiA+ICsgICAgIG9jcF9ieXRlX2Nscl9iaXRzKHRw
-LCBNQ1VfVFlQRV9QTEEsIFBMQV9STVRfV0FLRSwNCj4gUk1UX1dBS0VfRU4pOw0KPiANCj4gW1Nl
-dmVyaXR5OiBNZWRpdW1dDQo+IERvZXMgdGhpcyBsZWF2ZSBSTVRfV0FLRV9FTiBwZXJtYW5lbnRs
-eSBvZmYgb24gdGhlc2UgY2hpcHM/IHI4MTU2X2luaXQoKQ0KPiAoVEVTVF8wMSwgVkVSXzEwLzEx
-LzEyLzEzLzE1KSBjbGVhcnMgaXQgZXZlcnkgdGltZSwgYW5kIHNvIGRvZXMNCj4gcjgxNTdfaW5p
-dCgpIChWRVJfMTYvMTcpLiBOb3RoaW5nIGVsc2UgaW4gdGhlIGRyaXZlciB1c2VzIFBMQV9STVRf
-V0FLRSBvcg0KPiBSTVRfV0FLRV9FTiwgc28gdGhlIGJpdCBpcyBuZXZlciBzZXQgYWdhaW4uDQo+
-IA0KPiBpbml0KCkgcnVucyBhdCBwcm9iZSwgcmlnaHQgYWZ0ZXIgdGhlIHdha2Ugc3RhdGUgaXMg
-cmVhZDoNCj4gDQo+IGRyaXZlcnMvbmV0L3VzYi9yODE1Mi5jOnJ0bDgxNTJfcHJvYmUoKSB7DQo+
-ICAgICAuLi4NCj4gICAgICAgICBpbnRmLT5uZWVkc19yZW1vdGVfd2FrZXVwID0gMTsNCj4gDQo+
-ICAgICAgICAgaWYgKCFydGxfY2FuX3dha2V1cCh0cCkpDQo+ICAgICAgICAgICAgICAgICBfX3J0
-bF9zZXRfd29sKHRwLCAwKTsNCj4gICAgICAgICBlbHNlDQo+ICAgICAgICAgICAgICAgICB0cC0+
-c2F2ZWRfd29sb3B0cyA9IF9fcnRsX2dldF93b2wodHApOw0KPiANCj4gICAgICAgICB0cC0+cnRs
-X29wcy5pbml0KHRwKTsNCj4gICAgIC4uLg0KPiB9DQo+IA0KPiBJdCBhbHNvIHJ1bnMgYWdhaW4g
-b24gZXZlcnkgcnRsODE1Ml9yZXNldF9yZXN1bWUoKS0+dHAtPnJ0bF9vcHMuaW5pdCgpLg0KPiAN
-Cj4gVGhlIFdvTCBhcm1pbmcgcGF0aCwgX19ydGxfc2V0X3dvbCgpLCBvbmx5IHdyaXRlcyBQTEFf
-Q09ORklHMzQsDQo+IFBMQV9DT05GSUc1IGFuZCBQTEFfQ0ZHX1dPTCwgdGhlbiBjYWxscyBkZXZp
-Y2Vfc2V0X3dha2V1cF9lbmFibGUoKS4gVGhlDQo+IHJ1bnRpbWUtc3VzcGVuZCBwYXRocyB0aHJv
-dWdoIHJ0bF9ydW50aW1lX3N1c3BlbmRfZW5hYmxlKCkgYW5kDQo+IHI4MTUzX3F1ZXVlX3dha2Uo
-KSBuZXZlciB0b3VjaCBQTEFfUk1UX1dBS0UgZWl0aGVyLg0KPiANCj4gV2hhdCBoYXBwZW5zIGlm
-IFJNVF9XQUtFX0VOIGNvbnRyb2xzIHdoZXRoZXIgdGhlIE1BQyBjYW4gc2VuZCBhIFVTQg0KPiBy
-ZW1vdGUgd2FrZXVwPyBUaGVuIFdvTCBmcm9tIHN5c3RlbSBzdXNwZW5kIGFuZCByZXN1bWUgZnJv
-bSBydW50aW1lDQo+IGF1dG9zdXNwZW5kIG9uIGEgbGluayBjaGFuZ2Ugd291bGQgc3RvcCB3b3Jr
-aW5nIG9uDQo+IFJUTDgxNTYvODE1NkIvODE1Ny84MTU5LiBTb2Z0d2FyZSB3b3VsZCBzdGlsbCBy
-ZXBvcnQgd2FrZSBhcyBhcm1lZA0KPiB0aHJvdWdoIHNhdmVkX3dvbG9wdHMgYW5kIG5lZWRzX3Jl
-bW90ZV93YWtldXAuDQo+IA0KPiBJZiB0aGUgYml0IGlzIG9ubHkgbGVmdG92ZXIgc3RhdGUgZnJv
-bSBhIFVFRkkvUFhFIHByZWJvb3QgZHJpdmVyLCB3aGljaCBpdHMNCj4gcGxhY2VtZW50IG5leHQg
-dG8gUFJFQk9PVF9PUFRJT04gc3VnZ2VzdHMsIHRoZSBjbGVhciBpcyBoYXJtbGVzcy4NCj4gTmVp
-dGhlciB0aGUgY29kZSBub3IgdGhlIGNoYW5nZWxvZyBzYXlzIHdoaWNoIGNhc2UgYXBwbGllcy4g
-Q2FuIHRoaXMgYmUNCj4gY29uZmlybWVkPw0KPiANCg0KUk1UX1dBS0VfRU4gY29udHJvbHMgVVNC
-IHJlbW90ZSB3YWtldXAgaW4gdGhlIGRldmljZSwgYW5kIGl0IGlzIG1hbmFnZWQgYnkNCnRoZSBm
-aXJtd2FyZS4gVGhlIGZpcm13YXJlIHNldHMgaXQgd2hlbiBpdCByZWNlaXZlcyBTRVRfRkVBVFVS
-RShGVU5DVElPTl9TVVNQRU5EKQ0Kb3IgU0VUX0ZFQVRVUkUoREVWSUNFX1JFTU9URV9XQUtFVVAp
-IGZyb20gdGhlIGhvc3QsIGFuZCBjbGVhcnMgaXQgaXRzZWxmLg0KVGhlIGRyaXZlciBpcyBub3Qg
-c3VwcG9zZWQgdG8gc2V0IGl0Lg0KDQpUaGUgY2xlYXIgYXQgaW5pdCBvbmx5IHJlbW92ZXMgYSBz
-dGFsZSB2YWx1ZSB0aGF0IHdhcyB0aGVyZSBiZWZvcmUgaW5pdCgpLCBzbyBpdCBjYW5ub3QNCmNh
-dXNlIGFibm9ybWFsIGJlaGF2aW9yLg0KDQo+IC0tDQo+IFNhc2hpa28gQUkgcmV2aWV3IMK3DQo+
-IGh0dHBzOi8vbmV0ZGV2LWFpLmJvdHMubGludXguZGV2L3Nhc2hpa28vIy9wYXRjaHNldC8yMDI2
-MTExMDAzMjQxNi4xNjk2OC0xDQo+IC1uaWNfc3dzZCU0MHJlYWx0ZWsuY29tDQoNCkJlc3QgcmVn
-YXJkcywNCkNoaWgtS2FpDQotLS0NCnB3LWJvdDogY3INCg==
+On Fri, Nov 13, 2026 at 02:27:23PM +0100, Rafael J. Wysocki wrote:
+> From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+> 
+> When rpm_idle() is about to call rpm_suspend(), there are no reasons
+> preventing the device from being suspended, but if the device uses an
+> autosuspend delay, it needs to be taken into account.
+
+Reviewed-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+
+-- 
+Sakari Ailus
