@@ -1,112 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.149.156.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011058;
-	b=T0oNQRPWgPL8DFgFCNbxLH3eSCm6x9hX8zgiGtnETC684nHO/fPKUlxwBQFbk7KW1JuJ
-	 3wx7gUM61AIEpJEAJT+5gfWqpOjy07XxS4d6IFTpFcT3gZyip/ysjA6vEjpFKLZhLC18/
-	 ME9dDVxEHnZCR8ZB7fprrYXyM8JqsRUy3NG2F3CoHeI5k77sqNaWL8ZxGdealoj+dxiKb
-	 uI+EwNR245E7BPXA180YAasYpT+jqrrVx4huWU1hdeT8a/048H3trY/moXH7jy78ZCWjs
-	 HVOQiz7POP3R9I4qTCW5QX6o9uCg1qiqRGLQnmfuORuu+szT23Ux/Ac9uomQ2E6/WwQ==
+	t=1795011063;
+	b=P9vzAXeDydKLNyGCC4hUi1aVC4+2koF5foyM2iYFxQkyS57NqL+JH2gG3G11SmLqcoFQ
+	 ys10JzyWrRmUNfgmJGjirX1u7+JiRt2hm9Um8r/JOerJiuc2hjFqidEqAD1O13zsS4CoT
+	 aKnwJKikvjkgZnZd0VU4tsR3v2EhABck/2XYTE3yE9/aPkL4+EKMWtm76McGvv6Sp6oQr
+	 ZaxvGWCNOFc7DfPTj750qSfy5qDbTumfM3TyP31FUQ7MsC35xsfsggsjp3xYOSNgLM9xD
+	 VgDpUxOoIDF8ELRRvyYXhDu+mjq+4dj9ZAzvJJgIJ52bGw9mE8V3kXJTlKyb3pK+PMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011058;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=vVgoxX8wQpYAnqrIzdoNyOx27ZT+lPcYdylsPsy37/E=;
-	b=kiuxICgq3YyOrww1C+nN/3FVfy4xHe0+F8kakzyDBkGTifxdBgMsn7EWYVj1dA/iFKfM
-	 Xy2hCgRpWfsx9OoLsAXTGyf9N53PwDSnDktmTur5EHqx4PXDLs2Mkg1yLIU7z/WxzvbOW
-	 TzcEEVJY171wYlLSw+YQbYluOWeEI0LegDXWVqmTyGOp2UK+kYtvq6ehJDJ/cRsGI4U9R
-	 QU/k1ZJjP6gEJXRyD1bqU3Nn1aseAEzPPhdKYk+2rifiCDfDk/6tC7zLZzW+hTpU9KkIF
-	 y4cwLcCbig1QnRSwgCmkJkrCzuLv6KeSXD94elOie1mIRqvedOxAfaaugJuiNdKnS9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011063;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CMAE-Envelope;
+	bh=fKl8MNySZ88IUVeu2UU7VcrqEn+ayXaw8/l2vB54HEo=;
+	b=u8mclgNY3GQliCSBEYLoEZemngodBz5dBOGP/R/znPI9DZFjI82r7YdoEzpzYWUn9adD
+	 d1hE1aPXwE2TZP+LwG6fzJ0/FZjp8qzttsVCbtQPlVkbfFQMtywQ1lewKLpMiIJ/8AG1W
+	 sNw2A7zoyfCAvYDLc/Iri8vpqEqKuSAcmDpEGWiscPTiA1YhUc4Ud5TGZUc2CMGHbPw2K
+	 I23paopQ8s5PTyYJyKNoH7anAo0ugNXdkJ+hAbE+NX5x39yV+pua++CQqoazWAjeeqWID
+	 GdN/MpdTbTQo5pYp80pVW9pIHWN+pO/F9xRQ2M1UDf8zrec6scpYSN9fa0F3QtFlN0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="pw0tKQz/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SpwEBh3O;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=enneenne.com;
+	spf=pass smtp.mailfrom=enneenne.com;
+	dkim=pass header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=eJWb9UxQ;
+	arc=none smtp.remote-ip=62.149.156.116
+Received: from smtpcmd11116.aruba.it (smtpcmd11116.aruba.it [62.149.156.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 846B7606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:10:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 846B7606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB6B960A261D
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:11:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB6B960A261D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=enneenne.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=enneenne.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pw0tKQz/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SpwEBh3O
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIDoilv3501119
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:10:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vVgoxX8wQpYAnqrIzdoNyOx27ZT+lPcYdylsPsy37/E=; b=pw0tKQz/q0AmQYbp
-	PcdexN8Ph2was0Tv+9jM1/I41OLhj8swhql6Qc2GMtTjngAZ+okU+XGXnBX2aLfN
-	FOGF5bo5ddV9YGEQxFa4kmiGZB0m2GXRxVtdIOLLSFFc6g31oTN3Zjw8fH1pqgjv
-	FpLTlm6choInrpH20Om1bztq6xYKtku02b92ks4/vCTPa16Boq09z3tMCe0EBO2r
-	Ra2qhhqrBjJZElRpyR163vlXuKXR3ifxhFCwMnG/N2/IgLBmnlqFN2KTO6UsifFa
-	6zgEZ7/ZgmWKN9lbM0GPG5bYKZ26AuolUc8mARbi38j5t+0Ga640Q/74n0xNCPTT
-	ET9ZAg==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8kbpr-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:10:56 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc4216aee8fso1287657a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:10:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795011055; x=1795615855; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vVgoxX8wQpYAnqrIzdoNyOx27ZT+lPcYdylsPsy37/E=;
-        b=SpwEBh3Ooc9818abou6YAoH+kcXEV+aYMyT4Xic+E8+NIAl5IkgGV2Sg2Owouw4Ki9
-         sM+jRz+44Ad2Xqfud7IDcsgjLcXz1YkhgV0el14OThrubp2TXGzEwUEXoGZTxSawjmo0
-         lzfUmS69CGIkgKbAn5pJ8AHZRUZruTj3LdYN2hljcHHYtPloof0PY6LWaFHXVzcOig99
-         m+hALDJVtrXltAl0gMLCpEWckgaWwtTJBASQki5O+e43odJgeJ4wP4Re0poRMlvgwvu6
-         xMgBGw/83eijNhkv9QzasdSYM6L9QlZvPldfh0SROWCvcUYSYjbahKxmdaCwk+K2GQz0
-         nMWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795011055; x=1795615855;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vVgoxX8wQpYAnqrIzdoNyOx27ZT+lPcYdylsPsy37/E=;
-        b=c6CqD/MSV5JYqESju0jzk0cWEzV/qLJOJkVDEg5VbdcU5p6wbii4MRwXJEcDBmNAUw
-         V8oh74QpeVBUBQX9WCttFqqo5HO9xRPEF4Z5BSaPdmjur+mGt3hObRPfJxj10FCBmXLs
-         s2TiXhGnLdXw0qPpQgZBkXY6U9y2phGl7FTVwkAE6DsBr+pcs8WcgUMooBy9p0yDmIqS
-         OE9zjnTN35K5bImm2Ssukc4GhpBmeIv9wuIkFxe4L+Eh6Cws7eh4chp8iAeDizbsKHBa
-         1ts7NjV7Idg7VC4cmm3y6wjxJMYdXQaIk/GNPitW5Gcnci4sYOnIRwweXJZg9lhv7t56
-         zhdA==
-X-Forwarded-Encrypted: i=1; AL+hErH6O2cJn9etWqja4QIvvLc9rt4Zg5AoWYE5Y3RZwnrNa6jeFC/gAokUhvu4QrgZdhFV6TfqHcJLYstTc6Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XZ8dEY3HH6kPzuk/SNRYb/FuUSepjvaHIvcOO9DUVghTh/6h0
-	u3NNYJYL//n/fN1GTJTjnA3DOF1Er7R6f6g/qhkU1dM9bSuHfUXcYU2Gd2EH/SonV/VIxRjbzCH
-	YTPrtMWmxQpAQHWNqCwNX9A9S/bfYKNArDVjzWiNio6YlZpvnakGN5O4uCJvBxSS40Q==
-X-Gm-Gg: AZFdTZe9/SPHWhJZxIf4NF5X9CHU6fO9+uZL/MbWP313tpni2LyauIwq0etVV3EPCg6
-	xQtb3OCK3aDqvfWQaQODrASQFKy6/+7I2IQDMquyMfu0uNvnTWlwynRdbMPMxIuR4dyMx6Q+cVj
-	zYVofX1LRoqd9cH+4nUBdoHHT6Fo+eeXgfUwnw/YG9+/KI1p3YmfQf/ZpjpilpSVfFsbheW3xDB
-	fNCytwlOglR+COjDm+YQo0LPukAN/kpha5/DwioqCWncc/IP8BMwnCrae7k/kxFJ/uUjoRGCZVw
-	zx9jvNxouUuKL2fLQdp3HN2oAXWVRw+b7wmcGuaJdlwKGiw9x1iVEggHpXcUzKUkS2GwyCwE9Ak
-	QldKTqbaSB3CU0SfiOImVjsurYjmZHGfSq72rJAMP3nxS2RPSbc9REaHkwpfiiSj7pDX+DRJL3U
-	L6MDsW
-X-Received: by 2002:a17:90b:4a8f:b0:3ac:a203:e0a5 with SMTP id 98e67ed59e1d1-3b3d074e290mr2948076a91.11.1795011055156;
-        Wed, 18 Nov 2026 06:10:55 -0800 (PST)
-X-Received: by 2002:a17:90b:4a8f:b0:3ac:a203:e0a5 with SMTP id 98e67ed59e1d1-3b3d074e290mr2948053a91.11.1795011054570;
-        Wed, 18 Nov 2026 06:10:54 -0800 (PST)
-Received: from [192.168.0.104] ([49.206.14.199])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm1930170a91.0.2026.11.18.06.10.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 06:10:54 -0800 (PST)
-Message-ID: <d32a30ed-77b6-45f2-abf1-25ffaf4f6c4e@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 19:40:50 +0530
+	dkim=pass (2048-bit key) header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=eJWb9UxQ
+Received: from polimar.tail4f75e6.ts.net ([101.57.122.26])
+	by Aruba SMTP with ESMTPSA
+	id TgNAx52bt6VShTgNAxMwjf; Wed, 18 Nov 2026 15:10:53 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
+	t=1795011053; bh=GvPGRQ87Mt+BUKvr7jj3/S+NK4dYrqykH+GKaaPi5aQ=;
+	h=From:To:Subject:Date:MIME-Version;
+	b=eJWb9UxQhFL46ix3TFV/rWxZQYgNwDgvkzEXGxx+dAa0fIKa9nl6xxcu9R1sqUsQU
+	 70TNopPpMPKX8+sMA7PxML6zXGo20jAZEARneS5fgPEgSsBK6yI0iJ+QjgFO+wi+Xm
+	 7F9YW8NuDMvNxEiKMV1M0U1Dt1kpDYpVLyRWH323K3W5oa+SPn0cCsrgX9NbKMZEUF
+	 QI/6X+293T3J0m+tatOCHPQJa0Jwu2SiFIKOGj39lP0nc5Ta9jCtldrqtp8gDoJsDH
+	 2NspoD23D3W/ZaYc7jgdodUkPwwTrocn7clOezUpe7y/vQbj8OgGjNA/7uqrdFjVHp
+	 Er5lI35K1r0Ew==
+From: Rodolfo Giometti <giometti@enneenne.com>
+To: David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	keyrings@vger.kernel.org
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jens Wiklander <jenswi@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	op-tee@lists.trustedfirmware.org,
+	=?UTF-8?q?Horia=20Geant=C4=83?= <horia.geanta@nxp.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>,
+	Sahil Malhotra <sahil.malhotra@nxp.com>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Richard Weinberger <richard@nod.at>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Demi Marie Obenour <demiobenour@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-crypto@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-api@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Rodolfo Giometti <giometti@enneenne.com>
+Subject: [RFC PATCH 7/9] crypto: caam - add an internal cbc(paes) taking the blob's key modifier
+Date: Wed, 18 Nov 2026 15:10:47 +0100
+Message-ID: <20261118141047.616989-1-giometti@enneenne.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118140421.584086-1-giometti@enneenne.com>
+References: <20261118140421.584086-1-giometti@enneenne.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,92 +94,248 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH wireless-next v4 08/21] wifi: nl80211/cfg80211: pack SMD
- dynamic context along with frame
-To: Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261106-smd-v4-0-62e39487f51a@oss.qualcomm.com>
- <20261106-smd-v4-8-62e39487f51a@oss.qualcomm.com>
- <db523e851beda07c6f52f3c094b5ea2bf718af03.camel@sipsolutions.net>
- <338b21e4-b23e-4cc9-930a-8f043538f881@oss.qualcomm.com>
- <cef0d4146270d9f01384129f72259f9eceb08a36.camel@sipsolutions.net>
-Content-Language: en-US
-From: Pooventhiran G <pooventhiran.g@oss.qualcomm.com>
-In-Reply-To: <cef0d4146270d9f01384129f72259f9eceb08a36.camel@sipsolutions.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: mcHvjewySLNnVbaWI_4VOIkc-FvZe0ut
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA1NiBTYWx0ZWRfX9HxMCgJOMNJb
- ikYnOKyIInGzXMQweOEPIsGlntSEHL1JxbjO4zPCDRDmvMs2Fi63ydzuoASIq0A16NDQDC+m5yT
- XGBfk8aUZaR4/ywahPzE/v761Q5Lluk=
-X-Authority-Analysis: v=2.4 cv=c60+0h9l c=1 sm=1 tr=0 ts=6afdb1f0 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=S4TnAKnbd+bQPtf57r7XhQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=GHX8rU4FTOl6s0DoZrYA:9 a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA1NiBTYWx0ZWRfX4qu9io+vh2d3
- QrGjkPm6/bLXFn7bTYQEswDLyiv44SJ5UetA+n9QvYMQxffaRAK/2PDYRx+Fn/PgsqBq+yiTGOt
- C7JPPOBcHM9TCLOh1CpuxR3wffVzzb7MxmIs3aVKp4d1wSPkelNPagfRKSVEzqyEICU7u5MnSkS
- UuD00nf78k05V9IyGQFNVMgRtZWJKEWeal81wd9A10o8NtPSL+PnWd5nv/WgGG1Q4Utn13zC+M/
- Cy6fGef1R9X/B7j0qxNGrymY9tv6Zy8TTv3KZdBDpJ3GFBLc6l9bbcndhkPCaki+Kzrly8wVJ2+
- eKcnfvr2L+MtgYG40yoTXtvCmHW2AXHd8rFf765GmkmB/11c6hO8m07ZKYdbF53RM2ADYNm1Tbu
- IRfMW51dLUcK13b6PqrZpMYF87BtStLSVmOE9b5b/IwqA7vJF/q7IzMVZFAssUXADorDPmswv5e
- RuJILTqQULl52qAKBLA==
-X-Proofpoint-ORIG-GUID: mcHvjewySLNnVbaWI_4VOIkc-FvZe0ut
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_04,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1015 impostorscore=0 bulkscore=0 phishscore=0
- adultscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180056
+Content-Transfer-Encoding: 8bit
+X-CMAE-Envelope: MS4xfE5OpqY75Ap3Fw41rg59MeMfDJL8VLBXfB7grLmJrcheJpfdBBjwj4/o3/jJ+Oq/GidTZ5rPY+KvdqwBHB0smNkdNjPlFYZQ/YMI66SfBxOdEt7QQmuJ
+ VxyiSgTYAk6BtCBqQJ4PJc/1GFqvSANx4AQ7GBzWENhF/z1l/fUyGnUY9UVdgfmMtcV5fB/gT3qg4t60O8gkg/AZ5klrgiJk+94IiD8iv8e1an81pI8cY/3B
+ iPsu7US/wz9binHbc+L1ce3G8HBgP6gu1qPrGRY94h1XBiuYRKdBjzV+qrlnssejxIQklBlk6wDsbfy/+hQPAOmJuOalB51CIE78GPs9BvDU9c1VYtQNUGPN
+ FaNzJTBwYs1vnylakFLkGjXrcDuZ6ElzzijYPmMU/8mxaZ/iXnoJo0noL3UEDlTEoWvFgthTjooPrgwq9r5An5SWmuvA5jhcpDaWjGNPeVpJX/X4mZykjMP9
+ dROwmsgDD7Ky0w87+5in9Kr0JTdltoisiZvcKxAp7sqzZ55KrkvjaqH5wQIi1o8veWwci7KpRx48j9G74P4yQsT4ES7thJ21J8gZNqzkeSPFsgIMZb/jKX6S
+ Iu4VZmJ1++s2x6l/0cEWtRphuW3Rt6RFezF7qhecDIgg60M/qwsf5E3zKFQ9BnYLobNFEcAg0HY/9d8CPS3USBlzD3aw+5sjpU2cGD9mgzXNZjzz3FRjJQQf
+ t6zFocVmFWMtja1S4fFwN4AmjrcFmaTfoniARPlzw7HZd8PS+BC6sMjTOqpFycfcAcpUKbkSVJgxscf8zaWY0TpQlK4L+VtMiqA0QkMh3WPmB83rA3V+W5oi
+ NCJCAYKLYHIkbxIhj8o5jILr/DS6haFVdy1dUUBurNJ3NVEhx/7Vl88aA8W6T1sH03o37BahwRPZn9W3PWKa0+F0AMmPB3Zkttbaf03m96JKwG76aRUeJBj8
+ 5xtJMj/9ikF/QABBS2kBAMsoYo8Yi0R3vwwVn00LXawbU+eDbEq1DkfZAknqDK5dl5fgvTfDZQO1i3pGoqY90YcSZxgFrGTDxXyD3hnj7fi+90DdqodpZhRD
+ xqXY4AaXY6IIpB208HEZi3ndRW+e0hAGd5fM6+65sHfl5qcu1IoMhDjUbotryYDCK8E1dTajC7Xq5L32ML6B9xgnWnsyHAD1r24tb3fl9RGugkZlWZCRow/y
+ RufAhx/8Z1aOsTca/tWcherpNmTt7Qw1IVKhW9m2lo+VBNWml7Hskh/nR2lJSEzgI7V0Z0OAjTkr5i/h03plD6qzcTX5PETQI/AeHui6KZd5h/lpfc/YAH9d
+ e+lQLGjp76Zpu9yJ4OG4//vtWGgSPc4Cx0hei1rRAjgeKvmCvQ0=
 
+cbc(paes) decapsulates every blob with the fixed key modifier
+"SECURE_KEY", the one trusted keys use for their "pk" keys, and is
+reachable from AF_ALG: a blob made for either can be used through the
+other by whoever holds CAP_NET_ADMIN or CAP_SYS_ADMIN (with AF_ALG's
+default restriction), for whatever operation they choose. A kernel
+user that wants its blobs bound to something of its own, such as the
+metadata of the key they protect, has no way to say so.
 
+Add a second cbc(paes), cbc-paes-km-caam, flagged CRYPTO_ALG_INTERNAL
+so that only kernel code asking for that flag can allocate it, as the
+DCP's paes is, which trusted keys allocate by driver name with that
+flag; its key names the key modifier to decapsulate with.
+caam_encap_blob() already takes a caller's key modifier, so a kernel
+user can now bind its blobs to a value of its own.
 
-On 11/16/2026 04:30 pm, Johannes Berg wrote:
-> On Fri, 2026-11-13 at 23:47 +0530, Pooventhiran G wrote:
->>
->> We moved to computing the size instead of having a fixed value because we
->> transfer an almost dense context in one phase but just a very sparse one in
->> another and thought this would save space on the nlmsg skb.
->>
-> 
-> It saves allocation, not actual space in the message or for the
-> userspace copy. I'm not sure it's worth doing.
-> 
-> The biggest problem with this is that it's basically not maintainable.
-> We already see this in many places, with fixes to these things, if we
-> have allocation and building the frame separately.
-> 
+Its only user is the keycrypt CAAM backend, which is a proposal, and
+so is this.
 
-Agreed.
+Signed-off-by: Rodolfo Giometti <giometti@enneenne.com>
+---
+ drivers/crypto/caam/caamalg.c      | 89 ++++++++++++++++++++++++++----
+ drivers/crypto/caam/caamalg_desc.c |  3 +-
+ drivers/crypto/caam/caamalg_desc.h |  1 +
+ include/soc/fsl/caam-blob.h        |  8 +++
+ 4 files changed, 89 insertions(+), 12 deletions(-)
 
->>  If we transfer
->> data as D2.0 says, we will transfer about 330 bytes in Prep while only about
->> 70 bytes in Exec. This assumes all 8 active data TIDs and without nlhdr
->> overhead. Is it okay to define the max size (~400 bytes + nlhdr overhead)
->> nevertheless to avoid this size computation?
-> 
-> If it's really that small just allocate NLMSG_GOODSIZE or whatever that
-> is, which is a bit under 4k so it just takes one page? Don't think it
-> matters here much, it's also short-lived (if not you have much bigger
-> problems).
-> 
-
-Sure, will move it to a fixed size allocation. And yes, it is short-lived.
-
->> Ahh, I think I misreferred some examples (like cfg80211_net_detect_results())
->> to cancel the inner nests but are pointless to an skb that is going to be
->> freed. I will remove them.
-> 
-> It's also pointless to cancel inner nests when cancelling an outer, but
-> I'm sure we have plenty of code like that because the mere existence of
-> that API seems to make people think it should always be balanced ;)
-> 
-
-:)
-
-> johannes
+diff --git a/drivers/crypto/caam/caamalg.c b/drivers/crypto/caam/caamalg.c
+index d00caa9cdf8e..f34717f312b8 100644
+--- a/drivers/crypto/caam/caamalg.c
++++ b/drivers/crypto/caam/caamalg.c
+@@ -125,6 +125,8 @@ struct caam_ctx {
+ 	dma_addr_t key_dma;
+ 	u8 protected_key[CAAM_MAX_KEY_SIZE];
+ 	dma_addr_t protected_key_dma;
++	u8 key_mod[CAAM_BLOB_KEYMOD_LENGTH];
++	unsigned int key_mod_len;
+ 	enum dma_data_direction dir;
+ 	struct device *jrdev;
+ 	struct alginfo adata;
+@@ -784,18 +786,19 @@ static int skcipher_setkey(struct crypto_skcipher *skcipher, const u8 *key,
+ 	return 0;
+ }
+ 
+-static int paes_skcipher_setkey(struct crypto_skcipher *skcipher,
+-				const u8 *key,
+-				unsigned int keylen)
++static int paes_set_blob(struct crypto_skcipher *skcipher,
++			 const struct caam_pkey_info *pkey_info,
++			 const u8 *blob, unsigned int keylen,
++			 const u8 *key_mod, unsigned int key_mod_len)
+ {
+-	struct caam_pkey_info *pkey_info = (struct caam_pkey_info *)key;
+ 	struct caam_ctx *ctx = crypto_skcipher_ctx_dma(skcipher);
+ 	struct device *jrdev = ctx->jrdev;
+ 	int err;
+ 
+-	ctx->cdata.key_inline = false;
++	if (WARN_ON(key_mod_len > CAAM_BLOB_KEYMOD_LENGTH))
++		return -EINVAL;
+ 
+-	keylen = keylen - CAAM_PKEY_HEADER;
++	ctx->cdata.key_inline = false;
+ 
+ 	if (pkey_info->is_pkey != 1) {
+ 		dev_dbg(jrdev, "not a protected key\n");
+@@ -842,19 +845,52 @@ static int paes_skcipher_setkey(struct crypto_skcipher *skcipher,
+ 	/* Retrieve the length of blob*/
+ 	ctx->cdata.keylen = keylen;
+ 
+-	/* Retrieve the address of the blob */
+-	ctx->cdata.key_virt = pkey_info->key_buf;
+-
+ 	/* set command option */
+ 	ctx->cdata.key_cmd_opt = KEY_ENC;
+ 
+-	memcpy(ctx->key, ctx->cdata.key_virt, keylen);
++	/* The key modifier the blob is decapsulated with, at every job */
++	memcpy(ctx->key_mod, key_mod, key_mod_len);
++	ctx->key_mod_len = key_mod_len;
++
++	/* Retrieve the address of the blob */
++	memcpy(ctx->key, blob, keylen);
++	ctx->cdata.key_virt = ctx->key;
+ 	dma_sync_single_for_device(jrdev, ctx->key_dma, keylen, DMA_TO_DEVICE);
+ 	ctx->cdata.key_dma = ctx->key_dma;
+ 
+ 	return 0;
+ }
+ 
++static int paes_skcipher_setkey(struct crypto_skcipher *skcipher,
++				const u8 *key,
++				unsigned int keylen)
++{
++	const struct caam_pkey_info *pkey_info =
++		(const struct caam_pkey_info *)key;
++
++	return paes_set_blob(skcipher, pkey_info, pkey_info->key_buf,
++			     keylen - CAAM_PKEY_HEADER, KEYMOD,
++			     sizeof(KEYMOD) - 1);
++}
++
++/*
++ * The internal cbc(paes): the blob comes with the key modifier it was
++ * encapsulated with, which only kernel code can choose; a caller that
++ * picks a modifier of its own keeps its blobs apart from those of
++ * cbc(paes) and of trusted "pk" keys
++ */
++static int paes_km_skcipher_setkey(struct crypto_skcipher *skcipher,
++				   const u8 *key,
++				   unsigned int keylen)
++{
++	const struct caam_pkey_info *pkey_info =
++		(const struct caam_pkey_info *)key;
++
++	return paes_set_blob(skcipher, pkey_info, key + CAAM_PKEY_KM_HEADER,
++			     keylen - CAAM_PKEY_KM_HEADER,
++			     key + CAAM_PKEY_HEADER, CAAM_BLOB_KEYMOD_LENGTH);
++}
++
+ static int aes_skcipher_setkey(struct crypto_skcipher *skcipher,
+ 			       const u8 *key, unsigned int keylen)
+ {
+@@ -1398,7 +1434,9 @@ static int init_skcipher_job(struct skcipher_request *req,
+ 		edesc->desc_dma = desc_dma;
+ 		edesc->desc_dma_bytes = desc_bytes(desc);
+ 
+-		cnstr_desc_protected_blob_decap(edesc->hw_desc, &ctx->cdata, desc_dma);
++		cnstr_desc_protected_blob_decap(edesc->hw_desc, &ctx->cdata,
++						ctx->key_mod, ctx->key_mod_len,
++						desc_dma);
+ 	} else {
+ 		sh_desc = encrypt ? ctx->sh_desc_enc : ctx->sh_desc_dec;
+ 		ptr = encrypt ? ctx->sh_desc_enc_dma : ctx->sh_desc_dec_dma;
+@@ -2031,6 +2069,30 @@ static struct caam_skcipher_alg driver_algs[] = {
+ 		.caam.class1_alg_type = OP_ALG_ALGSEL_AES | OP_ALG_AAI_CBC,
+ 		.caam.is_paes = true,
+ 	},
++	{
++		.skcipher.base = {
++			.base = {
++				.cra_name = "cbc(paes)",
++				.cra_driver_name = "cbc-paes-km-caam",
++				.cra_blocksize = AES_BLOCK_SIZE,
++				/* kernel users only: never from AF_ALG */
++				.cra_flags = CRYPTO_ALG_INTERNAL,
++			},
++			.setkey = paes_km_skcipher_setkey,
++			.encrypt = skcipher_encrypt,
++			.decrypt = skcipher_decrypt,
++			.min_keysize = AES_MIN_KEY_SIZE + CAAM_BLOB_OVERHEAD +
++				       CAAM_PKEY_KM_HEADER,
++			.max_keysize = AES_MAX_KEY_SIZE + CAAM_BLOB_OVERHEAD +
++				       CAAM_PKEY_KM_HEADER,
++			.ivsize = AES_BLOCK_SIZE,
++		},
++		.skcipher.op = {
++			.do_one_request = skcipher_do_one_req,
++		},
++		.caam.class1_alg_type = OP_ALG_ALGSEL_AES | OP_ALG_AAI_CBC,
++		.caam.is_paes = true,
++	},
+ 	{
+ 		.skcipher.base = {
+ 			.base = {
+@@ -3812,6 +3874,11 @@ static int caam_cra_init(struct crypto_skcipher *tfm)
+ 		 * AF_ALG refuses ALG_SET_KEY once an op socket exists, so
+ 		 * concurrent jobs all decapsulate the same blob into the same
+ 		 * black key.
++		 * In-kernel users of the internal cbc(paes) set the key once,
++		 * before any request, as well. It also relies on the black
++		 * key being decapsulated identically by every job, which ECB
++		 * black keys are; CCM ones, with their random nonce, would
++		 * need a buffer per request.
+ 		 */
+ 		ctx->protected_key_dma = dma_map_single(ctx->jrdev,
+ 							ctx->protected_key,
+diff --git a/drivers/crypto/caam/caamalg_desc.c b/drivers/crypto/caam/caamalg_desc.c
+index 04c1105eb1f5..db3bbba67c8b 100644
+--- a/drivers/crypto/caam/caamalg_desc.c
++++ b/drivers/crypto/caam/caamalg_desc.c
+@@ -1410,6 +1410,7 @@ void cnstr_desc_skcipher_enc_dec(u32 * const desc, struct alginfo *cdata,
+ EXPORT_SYMBOL(cnstr_desc_skcipher_enc_dec);
+ 
+ void cnstr_desc_protected_blob_decap(u32 * const desc, struct alginfo *cdata,
++				     const u8 *key_mod, unsigned int key_mod_len,
+ 				     dma_addr_t next_desc_addr)
+ {
+ 	u32 protected_store;
+@@ -1417,7 +1418,7 @@ void cnstr_desc_protected_blob_decap(u32 * const desc, struct alginfo *cdata,
+ 	init_job_desc(desc, 0);
+ 
+ 	/* Load key modifier */
+-	append_load_as_imm(desc, KEYMOD, sizeof(KEYMOD) - 1,
++	append_load_as_imm(desc, key_mod, key_mod_len,
+ 			   LDST_CLASS_2_CCB | LDST_SRCDST_BYTE_KEY);
+ 
+ 	append_seq_in_ptr_intlen(desc, cdata->key_dma,
+diff --git a/drivers/crypto/caam/caamalg_desc.h b/drivers/crypto/caam/caamalg_desc.h
+index 323490a4a756..ae673b596a6d 100644
+--- a/drivers/crypto/caam/caamalg_desc.h
++++ b/drivers/crypto/caam/caamalg_desc.h
+@@ -117,6 +117,7 @@ void cnstr_shdsc_xts_skcipher_encap(u32 * const desc, struct alginfo *cdata);
+ void cnstr_shdsc_xts_skcipher_decap(u32 * const desc, struct alginfo *cdata);
+ 
+ void cnstr_desc_protected_blob_decap(u32 * const desc, struct alginfo *cdata,
++				     const u8 *key_mod, unsigned int key_mod_len,
+ 				     dma_addr_t next_desc);
+ 
+ void cnstr_desc_skcipher_enc_dec(u32 * const desc, struct alginfo *cdata,
+diff --git a/include/soc/fsl/caam-blob.h b/include/soc/fsl/caam-blob.h
+index 922f7ec3e231..13c21c7e4c2e 100644
+--- a/include/soc/fsl/caam-blob.h
++++ b/include/soc/fsl/caam-blob.h
+@@ -38,6 +38,14 @@ struct caam_pkey_info {
+ /* sizeof struct caam_pkey_info */
+ #define CAAM_PKEY_HEADER		4
+ 
++/*
++ * A key of the CAAM's internal cbc(paes): struct caam_pkey_info, the
++ * CAAM_BLOB_KEYMOD_LENGTH-byte key modifier the blob was encapsulated
++ * with, then the blob
++ */
++#define CAAM_PKEY_KM_HEADER		(CAAM_PKEY_HEADER + \
++					 CAAM_BLOB_KEYMOD_LENGTH)
++
+ /**
+  * struct caam_blob_info - information for CAAM blobbing
+  * @pkey_info:	 pointer to keep protected key information
+-- 
+2.43.0
 
