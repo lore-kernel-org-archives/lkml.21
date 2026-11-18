@@ -1,69 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994200;
-	b=cbWoPaRVsuRJySzt5uyBxJSZvZJ7XJBlt2FCYaMbWADds9h7rR2lmWrKHr2cOZz2lpat
-	 wF289UDzY4JwLl9roncT7hFnKnqX3fZFLvz8XAFLe9hMU3iltNTbwZYQ41YJLKrkysw2f
-	 xYBt6QyV/GNluTB6dEbmrxZOCrBCdA/EP0yvOY/KPOl3QxVGeGrebKUe4Rz+gIYYSP8NN
-	 NxX8yzdUY8PoVjc0oVMpP8Jy2IMioX60WuW5nFqCHolpoNPg6yCxoCffAf8XbVoYy99gd
-	 uYOSknJra+w73cU9DAmtxBl3q7B3kR+Ik6QQo1kUZAQE/e3BIqzG4vUy9RZeRzegeNQ==
+	t=1794994217;
+	b=Pxl5g3tNX9avq6/59MzzBgxs8Igw9jr143ZbuSMjbuYVVf6iU6ysGZ/M2UlP5XLL1Pxk
+	 EpaYisWb4R33p+N3NxJ7yXxjMSOC6DPrMq/wp5C65VIeh89/+XaUm7Qod5mDQJHZ628KX
+	 1tlIUb7U+G93B9ZzQ2gSLFobG44VfwXn6n5sC80mRaE5UPoMyt0nmiTthXCMEK2OgHSAK
+	 Q+Pqr2Sx52vq9V8Yjs8upXMDZCq0cCXfvHhC3hxVPiZ9uxg/Uu81KFjl/+r+alV6QsvTm
+	 YI/rVHYWw22y79ZyGB6pP9eoewDFtb2aUmNDA1LfKVXmLNUJFywydmWVqgXOr5NCmPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994200;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=voptK8eT+WsHOSo6pPGL3uudEvaomLPBqr7xSbzHqQQ=;
-	b=2YFX+a7SgEoQxnV8hslesgFH+0V+AJMweq7NCRUpHgZg+su+6L++6QOgM450mgPzqxNn
-	 z9ceNkaRVj+uZWZTKFZhmAgLQfBBtJZ4A7fbotJ+r9Z14k9RZhlG8AEomfDW0ma4m3zPS
-	 h+tCKZHo6OgB8VEhCcVYqE6HOMLsLQuH5D3mT8dww/d/lEB3mzIcEjvLQZD8g0ZbQuXUG
-	 3qL/cyHEN0f/85EuTp3B1BzReMVvFiltLRkDkhcj8I9MZu/Xij46PSSSGGYZZW1a+qaas
-	 20pIik0oTBMyn4kwziwxzo3PC2PyQMN47V12rl3kn/sN675yU++ghQYKX3/irL6LsaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994217;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=I137t/b2HCf/JgYtsEMky8nuvLyX5jojfAj0ADTMjuU=;
+	b=ZH26t9MEeB/BEBMQHfChAnzKe2pHD1vohD2/XMr6Yq44S76Fa48R/mgphWHkjQEKdTeK
+	 8wmMEeRJo7VVS9CdIQ57DqcdnggEusfjlN2aea7vlkHZgHPg2ESbJeucFkaAGWwoLP/kU
+	 nKvfUeZzUQfSATFufgGfJmCxZ4/JXmF1xZOs8fTafyBj2gt2s5zSOOh6QJNXDfNyolFnu
+	 R2AVkgXID7Vkp1DJ1jkUh0S7sTuZJdAUr4+b4CKq7XLsujssUCnQN3+Qe//k56i56Lilm
+	 MWqdmL1gqZfFKD0qbze0HwVWVj8iDSIMGNVe5VQXNEJUlh8KeVVHdioRgllCh8AMgvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="K/kCWAmA";
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mBREJxG9;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CAD0606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:29:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CAD0606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C403606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:30:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C403606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=K/kCWAmA
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 94A42C4CBDB;
-	Wed, 18 Nov 2026 09:30:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CCC355FE9B;
-	Wed, 18 Nov 2026 09:29:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7FD9011BC0D09;
-	Wed, 18 Nov 2026 10:29:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794994197; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=voptK8eT+WsHOSo6pPGL3uudEvaomLPBqr7xSbzHqQQ=;
-	b=K/kCWAmAi5/EAT9d0c7bVZS4fvoWoMIOM11w4Djgw4sCdjz90Jb4IDEf+jwv6+XU+8voc+
-	JcHIxWdL+RWUxSAkbmMjBNqPVZDQ/vT8fqTt8ANikMzGJIkeKiFCeK9yMZJByJgaz4dx16
-	g/AXBEnk849LmR/iC2LR/0tMAkX2zC7vKh94FIK1WkiRRM3fjSFgrW+s5YpcO9ZN+I/Ba5
-	v6CpKaKD86pBeZ8y8ThA7dqD1j4/RDEVem1dA+r4Q3DXB9tzxFUxj6Z/h950ySVy/wdC5A
-	CQSC/v89vQb57dDi4kztGXBxA8hnmX5kIEuGSFxCM2+eMFNMB1/EM8CgqJIOyg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Yaohan Li <shunsheng1218@gmail.com>
-Cc: rafael@kernel.org,  daniel.lezcano@kernel.org,  rui.zhang@intel.com,
-  lukasz.luba@arm.com,  linux-pm@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  edubezval@gmail.com
-Subject: Re: [PATCH] thermal/drivers/armada: free the overheat IRQ before
- the zones are gone
-In-Reply-To: <20261118072339.1259719-1-shunsheng1218@gmail.com> (Yaohan Li's
-	message of "Wed, 18 Nov 2026 15:23:39 +0800")
-References: <20261118072339.1259719-1-shunsheng1218@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 18 Nov 2026 10:29:54 +0100
-Message-ID: <87ld6qjxm5.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mBREJxG9
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-49412eb1474so373522f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 01:30:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794994216; x=1795599016; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=I137t/b2HCf/JgYtsEMky8nuvLyX5jojfAj0ADTMjuU=;
+        b=mBREJxG9FkN4FznRWb5Z1HhMrY/Xv0FwWRZ0H+ctq5p7521GuELpcri+gGNR/be/07
+         DUHccy3El/HTEV5xmYRkB14D51VpO4EKG7e41K1s5viehU4LEHdZnICNY6SgKdCV3SEt
+         LALAanhpIPNVNB3GkigBWwQ3hmjPTR0N/ECZSV7qiz5D2H+pOcAPGz8HYQPYBzESHPB5
+         l0hmpsTp9/fN/tVMK5TTJFn+B4hAyQPTOjxgkWVxRvkPQ1MlcWciDF8FKrt/v49LMlki
+         sZ4cmfXNyswBgzwycWuZdkZXxhaALQwMtKGkCbJmbv3iIQ5vg4v0tEud11j/wDgwcwYG
+         Z+7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794994216; x=1795599016;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I137t/b2HCf/JgYtsEMky8nuvLyX5jojfAj0ADTMjuU=;
+        b=aWGTx1aLiSRetBjxiDal3rPtz+BdZPYKO7qm2ZbWeDNQn4CU8D6KfVTqQUMSa1rotI
+         mCGOwK0YREfB5qDHfBJvsuKZC7oaH43wLk4u/h83kcEfV7cO22m4DCcAR+CAwAWIY1Lt
+         sCwsqBw18maNJFeNG+/NMLbLruzqxtvODqvcv62Cjea9q6y/X1mCgVujpfPKFC+Fn+UM
+         x7XL57dYYD8bbGMPP7LGUbA0yoZ9bcT3XyAfgSBxV03DWuhWtFxXCP+Vnven79WtFiZY
+         0UUC5+n/1+YSvw0c/EbqvSdnqsmRTmiHxjP6ZXSA0C9gZ6KxzzWTRIDUUDRWph82h4g9
+         QeFA==
+X-Forwarded-Encrypted: i=1; AL+hErGsG5kttSzjmY6Llh0KAXz4fMu764+O5Way3ukPLEOxNyLVoVgLApyAe7Fnhpnvi2pNPlVwmn3fIA8U5aM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Rr7rGk8hFATK27mtBojC7M4efWIgWPWAHQ7xZ9wrtl0sZ+vxB
+	K2w1uPwjzpc9tB3UQbkGXbCpMVlRTXT0pKMzczyupquYlzWXM2uEtQwV
+X-Gm-Gg: AZFdTZeSGGx9TwJ6+yYUDJix3Nik4h3E2OQIdOYtoNeY7Ce1YiI/VkxygxIwBkVCZ1p
+	LkN8ikId24XPAW20ZRIEZI4qYxspDKhrKNnCpCKc3qhBYAF0mvVVBO0sdxNDV9xwSHptXfRYxXP
+	GDaG0pqosUc7GXt7A74+vU0K/ZimlavlbSydqh8lkFF4NeefJPPaCs6vXoyXG+RuJCRl/zCnXfo
+	pDlYkVpnjdwoQD6EB8+ZLeawRO8PTkst9Sx9cm+61n8HTbbSq7x2LTcEzicOwQwaDV1NZS1xl+9
+	JrJ8PtLP+rb6UCwS70gjKdaMloJpahH2BROtVEfQ72WLtAI95pvdzWFK/iHgU9SD38MxjXXzhOW
+	aMDuK2pK4RLqPNk/uDy3RZvcykdsYT7ANXaqcI5z+GH9iBJXAdhUK7QxJIFopWln/8OZvAgOplj
+	PMoEAyE1YYLEShTYaNNlhaqPjvIk74UQ9sq/8JdEuzU3V6/vEiZ2mHxFVJ+cgz/N5c1bO5QaDGT
+	C5YBzCeUY3kgpJqQoL7pngSVqKPB5l44eziosNxf33fefAAcAzbL92uae2hGJCCx93Dr1ZWuXv1
+	vXlqzTBBChzdS8W/6NgZtI0x6Ku+azaao8Xe4Yq6q2s+jhDCFAmFJIiq4UOMkZN3qWIfMgFjS55
+	ok6jgXsgfh55SQAetrTZwe1Xdk1F83W6oI4kn5ZNd+SRz2BcmAWRipJVZeAq6GHZR4Ize2GM6go
+	ZioVlRTmVXhPrx/dY3cybXXsF3iPqAB96DmltxFxhBsKhkAJuGpSs6
+X-Received: by 2002:a05:6000:40c6:b0:493:4426:96c7 with SMTP id ffacd0b85a97d-4a63ecb5478mr4038646f8f.57.1794994215650;
+        Wed, 18 Nov 2026 01:30:15 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-c049-d359-3a47-0198.ipv6.o2.cz. [2a00:1028:8388:a84e:c049:d359:3a47:198])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 01:30:14 -0800 (PST)
+From: Josef Schlehofer <pepe.schlehofer@gmail.com>
+To: netdev@vger.kernel.org
+Cc: marcin.s.wojtas@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	maxime.chevallier@bootlin.com,
+	w@1wt.eu,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v4 0/6] net: mvneta: fix the TX queue arbitration and the mqprio offload
+Date: Wed, 18 Nov 2026 10:30:06 +0100
+Message-ID: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,49 +103,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-On 18/11/2026 at 15:23:39 +08, Yaohan Li <shunsheng1218@gmail.com> wrote:
+The NETA TX arbiter is left at its reset default, fixed priority.
+Under load a busy TX queue starves the others. OpenWrt has worked
+around this since 2017 by sending all TX traffic of its 32-bit boards
+through queue 0 [1].
 
-> The overheat interrupt is requested before the thermal zones are
-> registered, so devres releases the zones first and the interrupt
-> afterwards.  armada_overheat_isr_thread() calls
-> thermal_zone_device_update() on priv->overheat_sensor, which by then has
-> been unregistered and freed, and thermal_zone_device_update() locks the
-> zone mutex unconditionally.
->
-> The handler also polls the sensor once per second until the temperature
-> drops below the threshold.  If that poll is still running when the
-> device goes away, free_irq() waits for it and the removal is blocked for
-> as long as the sensor stays hot.
->
-> The same handler runs while priv->overheat_sensor is still NULL, because
-> the interrupt is requested before the zones exist and a spurious
-> interrupt in that window passes a NULL zone to
-> thermal_zone_device_update().
->
-> Move the teardown into armada_thermal_quiesce_irq(), which disables the
-> interrupt, frees it and tells the poll loop to give up, and call it from
-> ->remove().  The same helper is called from the probe rollback once the
-> interrupt has been requested: the driver core does not run ->remove()
-> for a probe that fails, while devres still frees the zones and the
-> private data of an interface whose handler is registered.
->
-> Read the zone once at the top of the thread and bail out when it is not
-> published yet or the driver is shutting down, and reuse that pointer for
-> both thermal_zone_device_update() calls.
->
-> Fixes: 879d7362d1d0 ("thermal: armada: add overheat interrupt support")
-> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+Patch 6 serves the TX queues in weighted round robin, as mvpp2 does.
+With an mqprio offload the fixed priority stays, so a class that fills
+the link still starves the lower classes. With the default priority
+map this includes ARP, which is in class 0.
 
-Your solution is over-engineered. For a case simple like that, you would
-need to just move the IRQ registration (not the get_irq()) after the
-zones registration.
+Patches 1 to 5 fix older bugs in the mqprio offload, found while
+working on patch 6. All of them need an admin to set up an mqprio
+offload, and the oops fixed by patch 3 also needs mvneta.txq_number
+below rxq_number (both default to 8). v4 therefore targets net-next.
+If patches 1 to 5 should go to net instead, I can send them as a
+separate series.
 
-Maybe you need a shutdown boolean as well, but clearly not all the extra
-complexity you are trying to add.
+With patch 2, replacing an offloaded mqprio qdisc under a new handle
+loses the traffic classes of the new qdisc. Patch 2 explains why.
 
-Thanks,
-Miqu=C3=A8l
+Tested on a Turris Omnia (Armada 385) as net f56daaadfeca plus this
+series, which applies unchanged to net-next. Without an offload four
+TCP streams got 23.5 Mbit/s each on a 100 Mbit/s link and 232 Mbit/s
+each on a 1 Gbit/s link. With an offload the higher class got 94 and
+926 Mbit/s. Only the Armada 385 was tested, the version 1 registers
+for the Armada 370 and XP come from their manuals, and suspend and
+resume were not tested.
+
+Changes in v4:
+- Retargeted from net to net-next.
+- Patch 5 replaces "unwind a failed mqprio setup" and checks the whole
+  setup before writing, so a rejected replace keeps the hardware setup
+  of the attached qdisc (Sashiko). Reviewed-by dropped.
+- Patch 3 is new and checks the TX queue range without a shaper too.
+- Patches 3 and 4 come before patch 5, so they apply without it.
+- Patch 6 also writes the version 1 arbiter registers and keeps the
+  fixed priority when a setup is rejected.
+- Patches 1 and 2 keep their code and their Reviewed-by tags.
+- v3: https://lore.kernel.org/netdev/20261104224518.66487-1-pepe.schlehofer@gmail.com/
+- v2: https://lore.kernel.org/netdev/20261103125021.70845-1-pepe.schlehofer@gmail.com/
+- v1: https://lore.kernel.org/netdev/20261102112816.12322-1-pepe.schlehofer@gmail.com/
+
+[1] https://github.com/openwrt/openwrt/blob/a5e96c837ead549820867bb83c1ad471e39f5ace/target/linux/mvebu/patches-6.18/700-mvneta-tx-queue-workaround.patch
+
+Josef Schlehofer (6):
+  net: mvneta: lift the per-queue TX rate limits
+  net: mvneta: fix the removal of the mqprio offload
+  net: mvneta: check the TX queue range of an mqprio offload
+  net: mvneta: keep the TX rate limits across open and MTU change
+  net: mvneta: validate an mqprio setup before applying it
+  net: mvneta: serve the TX queues in weighted round robin
+
+ drivers/net/ethernet/marvell/mvneta.c | 184 +++++++++++++++++++-------
+ 1 file changed, 137 insertions(+), 47 deletions(-)
+
+
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+-- 
+2.54.0 (Apple Git-157)
+
