@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794999767;
-	b=gsjOBCIUYY1VuChrgmShJNphTVyA//R9EoF2V/C1bo4ZgdValTJiYyuFe4m/qsHYP/jJ
-	 eZ1EFgmILWSksbZ8wR5I4Cj1Vcc9r5Lgqk80dJ9Mneg4vIY4KVLSDyAVcnxIBnBMaEkKR
-	 eo8Rls3G/oslY0IoW7mPvTXII2qs4w02JAqTjI39p0oWv/9D7nx6n0iNgo9dwk0pFx45l
-	 UkRW0bQSvEMdMdMMVRTORb0l9dOO9WGQ9AucuwFrbhCUb2DaIM5gBuVOZNsulfUrYXtMM
-	 69dcD4qVdmOepAxUyAaRCWcZg9TOY0cm6MUb88Wuqm3kPxZ1SjhZtlnowsdxad4FxvA==
+	b=MUZnHt/lXTaJ3LjNOAftgjWblZ0gp8s+Y/29mjp+rmAficV1p60BYFRv/WfILhPCLcio
+	 arsI0doRxJqklLHGNauZRyaLi1J5U1SUe+BvwVun+zp+v8B/po0lT3wOjBameID7826Fp
+	 /O7UOvY0p1lPCZLjVtbC3RqL7KGC1IhURISJVzYys7ST/oQBeaoO1sBEm29JBDPf2Ohoc
+	 x4CE7BzaIyJyloXd6zCRPEmQXGCxB/HfoFWX3cKLAGazfnK+n8/HUpMHVjujcVTTb8Bsd
+	 K+oHvczX1UeQYoJzDHV+omEK4f3y45tdZaX561HnGbLwZIpR3mZTB5VaqfmnoaAmL7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794999767;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=SqV4Jv6wNfUGVd/YP57RFpsT3eJh+v6vOgo/2e6RqII=;
-	b=fX5Df1zxlArQdsShY3AmOIG6ZCOudxzvfQca3FaFE4+ZqT/MVxUlesD+L7bIlXSWWxh+
-	 kbAZq5/aA9lnhEQz3NWFaHqxtZ/UUB42QcnoWyp82uTeGCcxLmDKpcTcK4ruJC2He12H5
-	 3pQ0wJYGk6kD/Q/r2iY44kPX0NdyXZYRBqoWh5AZa9L3jwF8dzLiSkFHVkzXyF8wLv2l9
-	 X7/pWrRcmt0eM5sWnErunt/h+CmqWGfuNw9kwmAw86CxBMvBEPCmH9hRKbSll7/QuiAoT
-	 VpVjIQUt84YUQPB9BVwBgIp+c6bm10XDEmK3+7GmirMz0fXdjdNuFDdkfQlsyIVrvgg==
+	bh=aaVCz9shF8ZFyzO5/5N6GKpW3bexM2Ih05SHuYmSwNk=;
+	b=oa1e0jnl8JPfVRvgQ86DJ9wiU3oC1r7EN1qWn1sG+h3OCg9wojqMjII60/6gsuRhDVhZ
+	 FlTE9whKScBzD7pmHI0OAs92/0jfzlmHww8oAJQuuLWnN6oKCaBYeH3Yw8b4DqYym0JPh
+	 77ZX7Qhg2SJLMsQyP/YpYy3Eb9XqgmXJQKBP4h6q0APyOiW0207qIK4lPI5F5Qo3bE8du
+	 lek6oguS+uhIhLAlRxUTttyBS2FC0sVTt/2ha6LhbNeNDnKO/yEWui7+Bc6JOoW4jsCce
+	 wZYnRQwUDVjPVgttZ1UeRmGYIPTwLrfPHFjEgb/ttNi3w+Tfh9vvR5QM1Ed+GJhc0RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=openvz.org;
 	spf=pass smtp.mailfrom=openvz.org;
-	dkim=pass header.d=openvz.org header.i=@openvz.org header.a=rsa-sha256 header.s=google header.b=c1Nip5xs;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	dkim=pass header.d=openvz.org header.i=@openvz.org header.a=rsa-sha256 header.s=google header.b=n219RArY;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 920BF60A2601
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:02:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 920BF60A2601
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 850A460A2604
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:02:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 850A460A2604
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=openvz.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openvz.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=openvz.org header.i=@openvz.org header.a=rsa-sha256 header.s=google header.b=c1Nip5xs
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so8572195e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:02:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=openvz.org header.i=@openvz.org header.a=rsa-sha256 header.s=google header.b=n219RArY
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a357b1c649so444178f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 03:02:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openvz.org; s=google; t=1794999765; x=1795604565; darn=vger.kernel.org;
+        d=openvz.org; s=google; t=1794999766; x=1795604566; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SqV4Jv6wNfUGVd/YP57RFpsT3eJh+v6vOgo/2e6RqII=;
-        b=c1Nip5xsyTHC0xGWwW3Bb2WmpVhPiD3B24SZrfsIxPhHbI4aIKmUngZA/nkDZ97KXq
-         rvK3wYysqPwFB+RsrPMtRHpCjwEsFbvCxHEqjSYPOfz2UXfBTtOiOW0Ujn0aNsjohLJr
-         3x68RfmSjhC/MS0zdU4CcqaUksM1VHcBjPV6MQNb3BZ1lyJkxrcjnM/UA7TAdvSr+bJi
-         MdocO7/j90Yq6+LSQyrCWuVo7nGAH+ZMoYTtN/6w+M6Rmybk2UE1k7PVnhDTg+BOZ2Am
-         mVDeZhiX+A2jN9DRCTyXerZG2fcD71dUck6FdGmeXmUxhgbl9trxFGcdptmF1dqM+T3x
-         uZvg==
+        bh=aaVCz9shF8ZFyzO5/5N6GKpW3bexM2Ih05SHuYmSwNk=;
+        b=n219RArYjaYdvkIMwO9ir3M3eWTlY0YtYTxXjc0cqfUMh5PydaRebzWDnFAhRA1xEg
+         4vBuLRpcbhklUVXM0RpBGXT2IFnZI7oiu+3c0j1/JKIEzJ8aOelpykadn7HDCLqescXV
+         5I82zgZQO6UKKFmspRCUvQYMeGeRnlwgZx79dSNJZF4L41/nrxTRt0ZmlgTS8tj/97E7
+         QqMIZBAKLnaIDFfYN0ssze5vBs2ONVuUThN0JIAb5huBu0Qc2KcEsfGIXGYY7+0Z6VzS
+         3HE3sEmEsj3aKjr7T6DTbvn+hkEI2Y/lpVf3oC1QZCdrp8Y25vY2hb01mJPELcfB1EBi
+         w8KQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794999765; x=1795604565;
+        d=1e100.net; s=20260707; t=1794999766; x=1795604566;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SqV4Jv6wNfUGVd/YP57RFpsT3eJh+v6vOgo/2e6RqII=;
-        b=WX/Vqmg5ilRQPXRbnx8lqYLzsZHJaelrNlEsBlxr+LEh1coC7y6Po1tina2Yphgjbz
-         ov0aBcq5/2S0e7IMEvChDrZvLw0WvSpdhX+XUCb/InZtKNK0K1q3w9gV2WpNeVD+WLfa
-         bldgArWohsgLFSVR1hqwBKcCmhGSyS1y/uj3v1NSxEP8rslcASeAhR1JLUDXhYmGT0ug
-         FKRsAmyX2YcXHazE871ZceSO0MlD3gznAb6HCV5GjzPGwMyT6w0bRMc38NthztsMwCAH
-         PK/SnDPRhIHm9LBSZr1CbeMAJbibx8E1tfQK4UntGJd5QqKoaVfESiYd0W4kUykke2zG
-         Yz8A==
-X-Forwarded-Encrypted: i=1; AL+hErHOocdO2+OzaMtT0VIThW5Jw20pkooy9+FStV8E4SZF+Rj6Nvil7MW7JXlcnLwf7CTzoXO5QdfiWhvde48=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8UbXYoRJ4zlJbqHdwmOjRuUk3pIzlKxX9/uoKtSTIfJmsL1V0i
-	0pEBZ9aPYc4wPJiEKKobXHpgRIHvmzqrt6b2WwPuUVXXdsqhmX82S5ZzhhVh99zuVMc=
-X-Gm-Gg: AYBFou1WAXpcwiyxPRojUXHssO29qbz0ha4N0dufQWqluasHeoeK4rCC9v0m1VI2nOv
-	DJAnX5jzbipOKMc6bR/dIpWBhsQvYB0aaPFKBiFHOMVZ9FcgXJ4EgUtcWeX9ctBbAVYzWAHevCP
-	8Zc5dAhLRfTgBC+M1XP13oeQExpgKMYmr2CP8Hos5yxXLVU4Qcwi3INa6T8rWBhoNqgTYIXczVJ
-	HD2XY43XypP81S34Pnu9fHJvJ5nVPP2qC/D02D9aavYIUYQMyFqwM2l5BnKpJwc/t48SlzsL9Nd
-	RivozJFQBHo3rYerExcbM9krWezsUdOSHYfIg1IEObEaWc68z/lQHrEafxa/JyIMGQ5zaTJW4L9
-	DYBlKU9nAHSpoBuAD9T+QPZda0F4RitmWBmEMZKLYbV5cGfmpI6r6cdir5mOXJh9HvS0buzEP01
-	Yy3xXn1U6E95a5vu2youEBpmz5o0LCMXS3hu9biAovMK5x2Rj+9YrO+VPRKcka8JbDhi8Iz5dqr
-	P081H2Tb/jb8QVQ62CnvRxxCsn1h1H118IPESRNH9HO06oqtoWqrt7hPP3ihOrHICQgHVOrhmQt
-	XXw9Jdb0xiHffesChPnZtgiXHYss
-X-Received: by 2002:a05:600c:3b8b:b0:4a2:526b:d410 with SMTP id 5b1f17b1804b1-4bb7da1b581mr53254625e9.13.1794999764776;
-        Wed, 18 Nov 2026 03:02:44 -0800 (PST)
+        bh=aaVCz9shF8ZFyzO5/5N6GKpW3bexM2Ih05SHuYmSwNk=;
+        b=cxFuvx3lNZ91Wg62TlgZDDOv+gTmDctJIX9htDsGG+d/IAsrpvwQ4MaZ7VL4twy1Ll
+         0jP6yeGUwKAbquWJHZ38IHFUW4vgo/oH7OiwX9xmCWApQ7nXqtpKtqWbrKW9laoDIotF
+         K4GEX0oN7s0Gz9kyC4QIIan6ZMR5nFWDoQPzb5qF5wWhZVT8ZFT+qjpGG1IOMW3HrBBQ
+         ZJ6UaphKaMz7mtUYavRbGNDEbJ0f1LT6X6wZNVUE5WBkqhvHG+qQitBpe4nTyUu+sAQh
+         4mN6saOcruk6tm5YHM/Wrnv5WikLM57R0WcfmRR5O1u+COffAfWmOxKVjCFr/hqAFEZM
+         G1iQ==
+X-Forwarded-Encrypted: i=1; AL+hErFJkA28ncEGlaQEpC4OK5HsPKr14+Jhtm9/LiETXb6fooOio2L0IqfDaXZyjExxLWbpWisgNM7rvJqfbOQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Kwx8llNNPyjXchG31cq3kJ5Jf6hDU27/Nc/qHdbxKPbrf048V
+	kOtIEOp+H0lqHxhkmQ38e7ukFPQ5ICRKvRIlHHLaqcUTX0X2aUALXbxnGIRXfunYHJk=
+X-Gm-Gg: AZFdTZdC36Rv+k5wpwagJtqsLEsHxZixxJIMJUvSP2QlJFQHY40uMF+Sgz5Xn+5k6zr
+	+aO9SiZQIGEg3+JNxeGX1bGUlfjPUmQR2YOfGU3EKumUa/eASzYpW+/Wet9naQwIQvGytpeDH+v
+	EgDk/T/MVb+2BI89oOksk6Kk41XfDKCYrQrXP/XRQuZ5e+tzMEApk5R/yvpDISQEZRgRxt8p7RL
+	7SwjUsr7YUY2TtpxmPcXj2MeflKBcVzXp1F6s4mvt5A2JrrXCg/e+Tlr/GnIigliocrHa2hCn1u
+	ho/oe9js/doMiCWxvYH2fGLyfsjga8211oQn04hGB2JOfXyl7+80S9Tw9KenUNyyCrNo3ugAXKy
+	ubteh/bJgiwBJ6P3NDQewKF/uVkcLSjJ0f3fKflj0pjZ4mV0l+toJ8sxrfJ872jlE/VZzdEtafA
+	D+joFHFhC1x6Z8iW+wjCS1k2/lD6Vqne6ag3i2lXk6Iq6Zn3OMR9bFo7ZJDjqpXcH6EIiCQnZ9J
+	VyoSNZ+q3n8Crxo50p1PyuB/K9lrql8K1CTf7TzMdFEiXwqP+ahR7fSHSEcLuzY5YdrlZRZTAeO
+	hmONY/0toJclN2pPHheKvVHNV3k=
+X-Received: by 2002:a05:6000:40ce:b0:4a4:6669:7f9 with SMTP id ffacd0b85a97d-4a63cd0f053mr5455559f8f.49.1794999765938;
+        Wed, 18 Nov 2026 03:02:45 -0800 (PST)
 Received: from artemis.sw.ru ([2a06:5b06:b600:300:8c09:3cc3:6efa:ac1f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c1145esm3943277f8f.52.2026.11.18.03.02.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c1145esm3943277f8f.52.2026.11.18.03.02.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 03:02:44 -0800 (PST)
+        Wed, 18 Nov 2026 03:02:45 -0800 (PST)
 From: "Denis V. Lunev" <den@openvz.org>
 To: agk@redhat.com,
 	snitzer@kernel.org,
@@ -88,9 +88,9 @@ Cc: bmarzins@redhat.com,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org,
 	den@openvz.org
-Subject: [PATCH 2/3] dm era: refuse metadata rpcs once the target is suspended
-Date: Wed, 18 Nov 2026 12:02:38 +0100
-Message-ID: <20261118110239.2910290-3-den@openvz.org>
+Subject: [PATCH 3/3] dm era: construct the target suspended
+Date: Wed, 18 Nov 2026 12:02:39 +0100
+Message-ID: <20261118110239.2910290-4-den@openvz.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261118110239.2910290-1-den@openvz.org>
 References: <20261118110239.2910290-1-den@openvz.org>
@@ -107,74 +107,51 @@ Content-Transfer-Encoding: 8bit
 
 From: Denis V. Lunev <den@openvz.org>
 
-An rpc reaches the worker in two steps: the caller puts it on the rpc
-list, then wake_worker() queues the work unless the target is
-suspended. stop_worker() raises that flag and drains the workqueue with
-no ordering against either step, so an rpc can land on both sides of
-the drain.
+era_preresume() resizes the era array and commits the metadata in the
+thread that resumes the device, and starts the worker only once that is
+done. That is safe only while the worker cannot run, and nothing makes
+it so: struct era is zeroed, so era->suspended reads as running from
+the moment the target is constructed, and an rpc arriving before the
+resume wakes the worker alongside the resize. Both allocate from the
+same space map and take the same metadata block, which corrupts it:
 
-An rpc queued before the flag is raised, whose wake_worker() runs after
-it, is never served. The caller waits for a completion that only the
-next resume can deliver, and it waits holding the table srcu, so a
-reload blocks in dm_swap_table() and the device can no longer be
-reloaded or removed.
+ device-mapper: block manager: validator mismatch (old=array vs new=index)
+ device-mapper: space map common: unable to decrement block
+ device-mapper: era: metadata_commit: pre commit failed
 
-An rpc whose wake_worker() read the flag as clear can instead queue the
-work after drain_workqueue() has returned. The worker then commits the
-metadata beside the commit era_postsuspend() runs in its own thread.
-Both commits allocate from the same space map and take the same block,
-which corrupts it, and every commit after that fails:
+Every commit after that fails the same way, the target reports "era
+Error", and the writes it tracks fail, which takes the workload's
+filesystem read-only.
 
-  device-mapper: space map common: unable to decrement block
-  device-mapper: era: metadata_commit: pre commit failed
+Userspace gets there without trying. multipathd asks every
+device-mapper target appearing on the node for its status, over its own
+uevent socket, to learn whether the target is a multipath map, so a
+target is asked exactly while it resumes.
 
-Add the rpc and queue the work under the rpc lock, take that lock to
-raise the flag, and refuse an rpc that arrives once it is raised. An
-rpc that made it onto the list is then queued before the drain waits
-for it.
+Mark the target suspended when it is constructed, which is the state
+start_worker() already assumes it is leaving. The resize and the commit
+then run with the worker held back, as they must, and a status query in
+that window is refused rather than served beside them.
 
-Userspace sees one change. A status query on a suspended era device
-used to block until the device was resumed, and now reports the target
-in error.
-
-Fixes: eec40579d848 ("dm: add era target")
-Cc: stable@vger.kernel.org
+Fixes: cca2c6aebe86 ("dm era: only resize metadata in preresume")
+Cc: stable@vger.kernel.org # v5.12+
 Signed-off-by: Denis V. Lunev <den@openvz.org>
 ---
- drivers/md/dm-era-target.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/md/dm-era-target.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/md/dm-era-target.c b/drivers/md/dm-era-target.c
-index ea499adca4ce..29b0602e7849 100644
+index 29b0602e7849..d40a98169b04 100644
 --- a/drivers/md/dm-era-target.c
 +++ b/drivers/md/dm-era-target.c
-@@ -1389,10 +1389,14 @@ static int perform_rpc(struct era *era, struct rpc *rpc)
- 	init_completion(&rpc->complete);
+@@ -1557,6 +1557,7 @@ static int era_ctr(struct dm_target *ti, unsigned int argc, char **argv)
  
- 	spin_lock(&era->rpc_lock);
-+	if (atomic_read(&era->suspended)) {
-+		spin_unlock(&era->rpc_lock);
-+		return -EBUSY;
-+	}
- 	list_add(&rpc->list, &era->rpc_calls);
-+	queue_work(era->wq, &era->worker);
- 	spin_unlock(&era->rpc_lock);
+ 	spin_lock_init(&era->rpc_lock);
+ 	INIT_LIST_HEAD(&era->rpc_calls);
++	atomic_set(&era->suspended, 1);
  
--	wake_worker(era);
- 	wait_for_completion(&rpc->complete);
- 
- 	return rpc->result;
-@@ -1427,7 +1431,10 @@ static void start_worker(struct era *era)
- 
- static void stop_worker(struct era *era)
- {
-+	spin_lock(&era->rpc_lock);
- 	atomic_set(&era->suspended, 1);
-+	spin_unlock(&era->rpc_lock);
-+
- 	drain_workqueue(era->wq);
- }
- 
+ 	ti->private = era;
+ 	ti->num_flush_bios = 1;
 -- 
 2.55.0
 
