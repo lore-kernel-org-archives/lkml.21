@@ -1,58 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.224
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993434;
-	b=SZjtEk4+03rUjxb6jpY8KjvCwW8Iu9cWIZJGAu0BCSaRC33vxYDYr385MdAePDR3Zerv
-	 Y1b5/3TBUCenZ9ipuVeHPvFdMSyiHXu54geZHeojvBy305gS2w/NQWV2HVOldhBko47S9
-	 p+T09XKMxkpGq0ghzD7NxwMKDtjYRh8HNs5Ng8SCYFiqVwRq/uyShKvZDhdnzKCmOSV1z
-	 4LEiWkgnP6h1o7XO19bvcGiG8Tj0/SV7kms6nk5801SGtxCefPloGDCDnocHqmzzrL92m
-	 GzpKa7aA2hCXsm5dMSAn8yucmFz19jEtHcY7vZUyouEoZdRbPIy7KJfr5G/LEkvMR7A==
+	t=1794993511;
+	b=ry9dfCMnQN4Su9GGhkisjlch3YnSreSTs7JFVtwg/JVkbTczqYlAB6lwuxXhNOI4hhEe
+	 7Bu7TyxDTWth8j6v/BPVLM7solqB0rbn62LGefS3N1mfosySUIfG8x0zH7Ro8Xfb1A5w8
+	 jHEYpF6GuTYZLigIQXL/lN8y0C8R/6mNUqeOQRhyc2os5lAD9kM6PZ6W1R4dgJrL9dy3K
+	 Y5NUZiVG4IHBV7CaSScCFQUtILvGyftwO0i9F2p3bNr1NvLCp58xqQzE4J5g57xoQda4O
+	 vj5oh/v6HSbC2aSv61+5vMT3DVgAw0zk11Vg+Z1ixk09bPWDF6hl6Ym8OQI4bBdyYuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993434;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=xsIsDZiCZyB7+lKhnSB47LX6hbKq7VMg+O30s3v8xU0=;
-	b=5gGwX4qeeuNA0xE4XiLnTNe6+OuoMxrBar7wo0rKhrIQrXUKaBJopV7ClykQyawWgYIN
-	 QTpUaGXNPCc3yb7/JoDRa1MsRVwohSgje4p8jcGXiTjR4zcK7NKTa57UzhYs2PXVaBMFC
-	 ICDAAG50uvl95Mr1Mu/pcFX/Dg+Nop555aSZx7VK0TbOnx9uJpJrgRTUI5cQqt3k1xt+M
-	 jgE+p96MvtX8QNUXtaR3INblbJEAyrWl8sfJDkI7ZzIBzp/cAZG/1ciAuLzD5XR9it8nw
-	 wXMiFbKPZ0jWoBX+xYXyGGj1CosrE1v2c58A/yJEmldtupyd90BNDO+hmqBsXPBBPyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993511;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=dyqwQBwZ3SD4vMEgEKYtXA6f1/do37C7TEOPdZ8eRqk=;
+	b=f2Uez2aGnCo/4yiH4LcQg4WwnCVq1fUuHdrBEIjt9eFR6BUljK6igGUV+Mokh7GVEULJ
+	 mrnggS2mMwb/WVnTZVR8hrWFPHuEgXR0twHmKDIviIA7jthyRv7d6za3ai5ozLPQuhERz
+	 n+3e4ko7L2wsrbju5j1dGgLprjOKu11JHjDxW3in93oHL4P+MK4faTFzZKJ7lc99F69ix
+	 29LRWySOUxFSEXhFSiRidz0uLhRZBpKnj/Emc+uFIqfcuqgaULccFdcpV799ahZ2gmIKB
+	 JtQcpb9RST41X78QdRrOQL6sQlp5r4S8zuK63INbbLUD0nOPOykA/7vPafnzS1oRylw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=PV3E+oEf;
-	arc=none smtp.remote-ip=113.46.200.224
-Received: from canpmsgout09.his.huawei.com (canpmsgout09.his.huawei.com [113.46.200.224])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PSCYH15R;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0925606A31C;
-	Wed, 18 Nov 2026 09:17:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0925606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3483606A32C;
+	Wed, 18 Nov 2026 09:18:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=PV3E+oEf
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=xsIsDZiCZyB7+lKhnSB47LX6hbKq7VMg+O30s3v8xU0=;
-	b=PV3E+oEfe6GWTlN7IzcOZNtMuGokpGaMaE5HT+w5Vk98jOWnb53YzhdAAkTed93AvGp6D+ngZ
-	ftGk2P047j6/rbz8Ke0Kewk86yZLKYBKuM/FH/uksdfAvh6qdTvxfoyU41EsmNujsw5oLc+20hb
-	oGEWnwe8RZuneZEt42a2+8c=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jTww23GW7z1cySm;
-	Wed, 18 Nov 2026 17:16:50 +0800 (CST)
-Received: from whupemk100010.china.huawei.com (unknown [7.152.184.41])
-	by mail.maildlp.com (Postfix) with ESMTPS id 41D7540586;
-	Wed, 18 Nov 2026 17:17:10 +0800 (CST)
-Received: from [10.67.110.140] (10.67.110.140) by
- whupemk100010.china.huawei.com (7.152.184.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 18 Nov 2026 17:17:02 +0800
-Message-ID: <61823b38-032d-4e4c-bcbb-82fe83c34ade@huawei.com>
-Date: Wed, 18 Nov 2026 17:17:01 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PSCYH15R
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBF021F000C4;
+	Wed, 18 Nov 2026 09:18:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794993511;
+	bh=dyqwQBwZ3SD4vMEgEKYtXA6f1/do37C7TEOPdZ8eRqk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PSCYH15R55+wFO6np0puKmRUuRkA4qM6nfhSnhaWgsm+sPd4EQKmY9mVvyvjZudT9
+	 sAH0IeCiXA66KvfJYMPGc2KuppaY4yYTEBdXaFD/0Ya/tHLCkJCH4qWtfFoQPcfa+1
+	 eFfmnQTyZU7fP/h0MTdbigG9Th0Srb1OW8fig1t2VsPjaXQsWMQftyaT6xs0c6bGsl
+	 t7dUgFIdcV5JWwMlJRvxBHOvoxFFTHdbHahxIYh3sH3CTMXfd3NLQCsOT3XaWX9JzL
+	 1+5c/IxgjK7CbJJQyv3EcdizuJY3z2G8G1aGUDm8wTv6Np9ahJDOCz5m+kefzlQZtx
+	 lT0wafRw1GsYw==
+Subject: Re: [PATCH net-next 1/2] net: stmmac: dwmac-motorcomm: quiesce the
+ device at shutdown
+From: netdev-bot+sashiko@kernel.org
+To: magnusleatti@kernelriot.com
+Cc: me@ziyao.cc, maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ g.nespolino@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 09:18:30 +0000
+Message-ID: <179499351041.3136.14889707783816630750@kernel.org>
+In-Reply-To: <20261116091757.1656602-2-magnusleatti@kernelriot.com>
+References: <20261116091757.1656602-2-magnusleatti@kernelriot.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,63 +66,165 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -next -v4 01/17] fs: pass struct path to notify_change()
-To: Al Viro <viro@zeniv.linux.org.uk>
-CC: <mic@digikod.net>, <gnoack@google.com>, <paul@paul-moore.com>,
-	<brauner@kernel.org>, <jack@suse.cz>, <amir73il@gmail.com>,
-	<andrii@kernel.org>, <apparmor@lists.ubuntu.com>, <ast@kernel.org>,
-	<axboe@kernel.dk>, <bpf@vger.kernel.org>, <casey@schaufler-ca.com>,
-	<cel@kernel.org>, <cem@kernel.org>, <chenxiaosong@chenxiaosong.com>,
-	<code@tyhicks.com>, <corbet@lwn.net>, <Dai.Ngo@oracle.com>,
-	<dakr@kernel.org>, <daniel@iogearbox.net>, <dhowells@redhat.com>,
-	<dlemoal@kernel.org>, <dmitry.kasatkin@gmail.com>,
-	<driver-core@lists.linux.dev>, <dsterba@suse.com>,
-	<ecryptfs@vger.kernel.org>, <eddyz87@gmail.com>, <emil@etsalapatis.com>,
-	<eric.snowberg@oracle.com>, <exfat@lists.linux.dev>,
-	<georgia.garcia@canonical.com>, <gregkh@linuxfoundation.org>, <hch@lst.de>,
-	<hirofumi@mail.parknet.co.jp>, <hyc.lee@gmail.com>,
-	<ihor.solodrai@linux.dev>, <jlayton@kernel.org>, <jmorris@namei.org>,
-	<johan@kernel.org>, <john.fastabend@gmail.com>,
-	<john.johansen@canonical.com>, <jolsa@kernel.org>, <kpsingh@kernel.org>,
-	<linkinjeon@kernel.org>, <linux-api@vger.kernel.org>,
-	<linux-block@vger.kernel.org>, <linux-btrfs@vger.kernel.org>,
-	<linux-cifs@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-integrity@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-nfs@vger.kernel.org>, <linux-security-module@vger.kernel.org>,
-	<linux-trace-kernel@vger.kernel.org>, <linux-unionfs@vger.kernel.org>,
-	<linux-xfs@vger.kernel.org>, <liubaolin12138@163.com>,
-	<martin.lau@linux.dev>, <mason@kernel.org>, <mathieu.desnoyers@efficios.com>,
-	<matt@bobrowski.net>, <memxor@gmail.com>, <mhiramat@kernel.org>,
-	<miklos@szeredi.hu>, <neil@brown.name>, <netfs@lists.linux.dev>,
-	<ntfs@lists.linux.dev>, <okorniev@redhat.com>, <omosnacek@gmail.com>,
-	<penguin-kernel@i-love.sakura.ne.jp>, <rafael@kernel.org>,
-	<rdunlap@infradead.org>, <roberto.sassu@huawei.com>, <rostedt@goodmis.org>,
-	<selinux@vger.kernel.org>, <senozhatsky@chromium.org>, <serge@hallyn.com>,
-	<sj1557.seo@samsung.com>, <skhan@linuxfoundation.org>, <song@kernel.org>,
-	<stephen.smalley.work@gmail.com>, <takedakn@nttdata.co.jp>, <tom@talpey.com>,
-	<yonghong.song@linux.dev>, <yuezhang.mo@sony.com>, <zohar@linux.ibm.com>,
-	<utilityemal77@gmail.com>, <lujialin4@huawei.com>
-References: <20261117150542.1169451-1-caixinchen1@huawei.com>
- <20261117150542.1169451-2-caixinchen1@huawei.com>
- <20261117183059.GP989762@ZenIV> <20261117183440.GQ989762@ZenIV>
-Content-Language: en-US
-From: Cai Xinchen <caixinchen1@huawei.com>
-In-Reply-To: <20261117183440.GQ989762@ZenIV>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- whupemk100010.china.huawei.com (7.152.184.41)
 
-Yes.  ovl_do_notify_change() passes
-ovl_upper_mnt(ofs) together with the real upperdentry, so the sb matches,
-and the idmap handed down is ovl_upper_mnt_idmap(ofs), i.e. taken from
-that very mount.  It runs under with_ovl_creds(), like the other ovl_do_*
-forwards, so an LSM sees a genuine upper-layer path instead of a merged
-dentry whose mount we cannot name - which is the point of converting the
-metadata helpers.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-On 11/18/2026 2:34 AM, Al Viro wrote:
-> Incidentally, will the mount reference you are supplying in case of overlayfs
-> upper layer be any good for LSM users?
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] motorcomm_shutdown() (drivers/net/ethernet/stmicro/stmmac/dwmac-
+  motorcomm.c) tries to stop stmmac_suspend() from running a second time…
+- [Medium] motorcomm_shutdown() calls stmmac_suspend() from the PCI
+  .shutdown hook without holding rtnl_lock.
+
+--
+
+net: stmmac: dwmac-motorcomm: quiesce the device at shutdown
+
+This adds a PCI .shutdown hook to the Motorcomm dwmac glue. The hook calls
+stmmac_suspend() to stop the DMA, MAC and PHY before reboot, kexec or
+power-off, then turns PME back off with pci_wake_from_d3(). It skips all
+of this when the netdev is not present, so that stmmac_suspend() does not
+run twice after a failed resume.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> index 42f0b11a7b606..1e142ad39e33a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> @@ -204,6 +204,27 @@ static int motorcomm_resume(struct device *dev, void *bsp_priv)
+>  	return 0;
+>  }
+>  
+> +static void motorcomm_shutdown(struct pci_dev *pdev)
+> +{
+> +	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
+> +
+> +	/*
+> +	 * A failed resume leaves the netdev detached with NAPI disabled, and
+> +	 * stmmac_suspend() must not run on it a second time.
+> +	 */
+> +	if (!netif_device_present(ndev))
+> +		return;
+
+[Severity: High]
+Does this check catch a failed resume when the interface was down at
+suspend time?
+
+stmmac_suspend() only detaches the netdev on the netif_running() path:
+
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_suspend() {
+	if (!ndev || !netif_running(ndev))
+		goto suspend_bsp;
+	...
+	netif_device_detach(ndev);
+	...
+suspend_bsp:
+	if (priv->plat->suspend)
+		return priv->plat->suspend(dev, priv->plat->bsp_priv);
+	...
+}
+
+With the interface down, system suspend goes straight to
+stmmac_pci_plat_suspend(). That calls pci_disable_device() and drops
+enable_cnt from 1 to 0, and the netdev stays present.
+
+Resume can then fail in motorcomm_resume()->stmmac_pci_plat_resume() if
+pci_enable_device() returns an error. In that case
+pci_enable_device_flags() decrements enable_cnt back to 0 and the device
+stays disabled. stmmac_resume() returns the error and leaves the detach
+state alone.
+
+At reboot the guard above does not fire, and the sequence is:
+
+motorcomm_shutdown()
+  stmmac_suspend()
+    /* !netif_running(), goto suspend_bsp */
+    stmmac_pci_plat_suspend()
+      pci_disable_device()
+        dev_WARN_ONCE(..., "disabling already-disabled device")
+        atomic_dec_return(&dev->enable_cnt)   /* enable_cnt is now -1 */
+
+Isn't this the case the commit message describes as "Skip the hook in
+that state: stmmac_suspend() must not run a second time."? With
+panic_on_warn set, this would panic instead of rebooting.
+
+Being detached is not the same as having a failed resume. Would a
+different state check fit better here, such as pci_is_enabled(pdev) or a
+driver-owned flag set when resume fails?
+
+The follow-up commit "net: stmmac: dwmac-motorcomm: support Wake-on-LAN
+from S5" does not change this guard.
+
+> +
+> +	/* Stop the device before reboot, kexec or power-off */
+> +	stmmac_suspend(&pdev->dev);
+
+[Severity: Medium]
+Can this race with dev_close() and hang the reboot?
+
+device_shutdown() runs without the freezer, so userspace and priv->wq
+are still active. stmmac_suspend() checks netif_running() without rtnl.
+It disables NAPI under priv->lock only and takes rtnl afterwards:
+
+	mutex_lock(&priv->lock);
+
+	netif_device_detach(ndev);
+
+	stmmac_disable_all_queues(priv);
+	...
+	mutex_unlock(&priv->lock);
+
+	rtnl_lock();
+	phylink_suspend(priv->phylink, !!priv->wolopts);
+
+The ndo_stop path, stmmac_release()->__stmmac_release(), runs under rtnl
+only. It does not take priv->lock or check netif_device_present(), so it
+calls stmmac_disable_all_queues() a second time.
+
+napi_disable_locked() loops in usleep_range() while NAPIF_STATE_SCHED is
+set. A disabled NAPI keeps that bit set, so the second napi_disable()
+never returns.
+
+One possible interleaving:
+
+CPU0                                  CPU1
+motorcomm_shutdown()
+  stmmac_suspend()
+    stmmac_disable_all_queues()
+                                      ip link set down, or
+                                      stmmac_reset_subtask()
+                                        rtnl_lock()
+                                        dev_close()
+                                          __stmmac_release()
+                                            stmmac_disable_all_queues()
+                                              napi_disable() spins
+    rtnl_lock() blocks forever
+
+After the hook returns, the netdev is still IFF_UP, detached, with NAPI
+disabled. Any dev_close() before the machine halts would spin while
+holding rtnl. Any later .shutdown hook that takes rtnl, such as
+rtl_shutdown() in r8169, would then hang.
+
+Other drivers serialize shutdown with rtnl, as rtl_shutdown() does:
+
+	rtnl_lock();
+	rtl8169_net_suspend(tp);
+	rtnl_unlock();
+
+Others make ndo_stop a no-op on a detached device, as igb_close() does by
+checking netif_device_present(). Is something along those lines needed
+here?
+
+The follow-up commit "net: stmmac: dwmac-motorcomm: support Wake-on-LAN
+from S5" does not change this either.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116091757.1656602-1-magnusleatti%40kernelriot.com
