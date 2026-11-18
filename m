@@ -1,62 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997922;
-	b=jfAFy4q6AfDuXyOiB7P1e5V4PugEHuJ0RYtang3PDl+s/JFElYUe0bHILg1Kn9RyRi61
-	 FOMvLjULgenhUx4FH7Uhl6f6cRDwmnL3VrqmibaLUUNvNKy66j1VgRHOkItpSz7dcQ+sC
-	 d1nH0u3ggJDblsXhPJmMBFO4RO6Ml0yIcNexS4kpnuchIInsQ2WitDUCJzZmPv4g9tNtN
-	 G1RW4sZ2bzn0s6AvYeNEZrFQ5ArQUOVnVttzNnpgDE8ZDqZmMTFP0QY1ZyouXch7gxLec
-	 I5bju2G7HYcBNJYiXFBEZuR+NHJOqg9169LpkcSQ89T5fp5wn8yG3dO/wU6HPoGS7KQ==
+	t=1794997923;
+	b=FLq96TYZUKHA82WeuaBM4fsCEmUDzjsPb6rjakIiekTZRqO8YQ1Rpdz1EQ4r9dhfEwwU
+	 qadyzYeLjmpD6hjmnHeebCzYHvNiGsTVg5hNG23aaNWeOy14WR2eny8X0tIQzsmxtHTVr
+	 BFJifJvSVD9gHSEg1J/W6/7pCXoUI4xPJjA1ZgbwissBa/tbWgkitD2WBXvhsv8YuL0js
+	 +gaskfFp5Teat1iN2xH4KaNfSvRzt7FYGQg3eI3k07cTNXZVM7w6hgH0frKMUA2AjJ6TU
+	 wmqBwfi5eoACV6cGjH4Atjtnfv3zYUOK0VTVNVRyKO9fvSt/wUuWf3lpW3G9t7VCGRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997922;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=l1SThaicy8EwL0o4BRq1EqzA9aHY8uKfLxMAmpMfikE=;
-	b=VvVW5pmcvCDi2p7i89iN+ZWiTcza4PrGf+j4qqyPOLj/6K62Ke21nKFtDBwp1vdT6qd3
-	 /bM5U5nbLRXw8IFhxjwHxK0s3/yYx/eZVZlzfMVlAPpNzPi9sBUh6eEjNB4Mk0PkTUVXr
-	 ZVnb8oyId2F9cVGbcWJyhzebDto+AkARIDSLJIOiJcDmlAzU/3Iejz6BR/4lVCghMuqom
-	 Zr8PlCeJ6agA5zmLfON2vWWgHptELCj0XoJbKt7h3T2mCQ2IJN0uSfXCyqpdJR+zRUFQK
-	 IqTtVqutcfboDvlv/EcCZpBc6MObpb+DfwOdeTwXh9z4iVUVuwWnM4JKo/7DyH3XonQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997923;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zp8KDvfQnedhc5dWWrFnI8zt16YP/phqo55Fqv1pHj8=;
+	b=lCBIVm201ed/KmS+rGAFXa+jaj47YLSSCaZ8pTfYL/BhhBNGRHjhu5bJTZb+lVbdnAQQ
+	 uAeLDce5z6PXNRSz22v0EcNBZDecc2j5dvbdP0WCWzBUkTh9KHCsmoifcoDJV7+5aKTuv
+	 styzymHIuGpFMkbCupcSpWJ5TnPGYtyE8nYvO7UKbUN5BPQouMxeUfS+Ym/L8QA27WIIo
+	 sDXGTlD+uXXPbpYCrFiKm9tgProq5ouiuHVlhpy2K9b/YvIoBqfQ+SFRBZVXNLrqU6eXv
+	 QG84HhbiDfxcFxqAsupvvRpwPqmTfnSJGxRnKYbCE8EfOvffT5APiaTaMmJv4PkvDeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=brbBree5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sIAmVEWX;
+	arc=none smtp.remote-ip=209.85.167.53
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4C92606A336;
-	Wed, 18 Nov 2026 10:32:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C9A360A261A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:32:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C9A360A261A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=brbBree5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FDE51F000C5;
-	Wed, 18 Nov 2026 10:32:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997922;
-	bh=l1SThaicy8EwL0o4BRq1EqzA9aHY8uKfLxMAmpMfikE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=brbBree53Opl20i5po3ljgiWv+k1RE6Sl7PQiqd4f6nc/jtoYK7+14PWQMoGJ0fYX
-	 GCL52q54ZP1OjTNqs8lfBdULhReIFgMcxkkbPhuzxFmMRLVfotX9awvQsSdgxsg7OR
-	 UnNBCgBUckJ/HcT4DtNNGdtDL5kVs65YKtdV418DKpfg0Go+oOsBw+vfK5eSCqrkwR
-	 r8ypwBkg0/7unmPHNIOcuAUrFzXKTNT+UJeGfpUZh4Cix38+kU28pyhaItGH8znehY
-	 3XLXvsYLPMDYs1CP7xm1SsNVVuC/uY0mTJr6cb1lygyT0YV0fJv24d4T54WExZFc/7
-	 I0VHyXbc09WnQ==
-Subject: Re: [PATCH net-next V2 10/10] net/mlx5: LAG, do not add a device to
- an already-active virt LAG
-From: netdev-bot+sashiko@kernel.org
-To: tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- cjubran@nvidia.com, cratiu@nvidia.com, gal@nvidia.com, leon@kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
- moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
- shayd@nvidia.com, udar@nvidia.com
-Date: Wed, 18 Nov 2026 10:32:00 +0000
-Message-ID: <179499792089.3136.10061962693179545978@kernel.org>
-In-Reply-To: <20261116103010.1129666-11-tariqt@nvidia.com>
-References: <20261116103010.1129666-11-tariqt@nvidia.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sIAmVEWX
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5bcdae234ecso913651e87.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:32:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794997921; x=1795602721; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zp8KDvfQnedhc5dWWrFnI8zt16YP/phqo55Fqv1pHj8=;
+        b=sIAmVEWXig+xreMoQRKV26QS1AdelvXoSpodOL8/hIhZw3yXevIgOofeE82qc45x9V
+         gb0+TeVEbMp5qUfLvsRH91VnVe9lmEnEWia8Jf5bE+3Sicn4ymkTybOBHPsS5EMOMRLB
+         yYvDBfz0+ZOe4f0xgAshhx/RIsOCf2LidpM66yiq+ONm8N6l2BgvceOGmmv4WvWH1OJq
+         GT0lPQbSZ1Np6B9gCKXgpSpJgaOpDK1I8+iNQrRDCPW/3K73CJ5MVjOV7EWRsVFpMfIZ
+         yfRCk4Z4fGUmjx6pVG6/HPRnikQxXMLX6Wd2Z95ArP+LbXVOeIIq5bzA147dEKw/ZlK0
+         numA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794997921; x=1795602721;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zp8KDvfQnedhc5dWWrFnI8zt16YP/phqo55Fqv1pHj8=;
+        b=mQGxsXRVtHMfxkfS5OZGxadJhwsvlKPABY3WwFS/0MuCe+lPE+K5LrpK/UH9a4Y64V
+         h+SEz2VcfeVVK4TaoydSDEqTY3leSBQ5E6TJEBzxAf9L5Uw476JTIze1zZTTMslGYCdM
+         lZlIgED6V03J4bQKeQ3GyPWU2fZ/3ZK/c4fUBv6e3N2rTpwm48CSj2DNZ1scVLFrD+8s
+         JH8z9vxzAZOuT71ShW3jFh6/IzVSiPviDNEah8BXT/RI2lF7O6/W9gfbffKQ1TskFexS
+         kGL2CdGu2j6H1FQYSU+wv87/nFoPymbQKGpIobxeeqk6F+llEMrYT9KcxA8oY1AeL7Va
+         ixQg==
+X-Forwarded-Encrypted: i=1; AL+hErHQlykfPkvSi/abVfZd6aClM9loAw+LY8xwffS4O61YLtYqZPkNjL7vn9H3xbO2ARkUh85Cl31ck1HRvUA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+hGlZwxk5MyhaBiitQF+3+1fa1CzUFCnzMhk55YH66WPIMHQ4
+	zocNbs8wMmP6oskJwrMF/b6tliFmVCr6nEsgIK2Zx4h+38Bl3RiiFFqt
+X-Gm-Gg: AYBFou2/QGsw/EdHkTunTB6R2HJL2ZK7q2oUtP+edXgKcDsobBXBN/Qt5DAqq5VnGc4
+	vP5zNoZUZMqGrR2AUp1ZjXAE/1EL/61QPZwNoCs7M1s/uIzMi63QH13A2rryse7SzSP1LSLLmpd
+	8Y0VWtu8y0xoLLhtK3IBMU+LJue85eKMnCS476Pqhfi3r8Ih5SdQ47nvhmLMlR1ZlFxiuOOzO6W
+	yqkHYObar7sdK9RrqZM1f2rviSqJnMMA58tPamnBUidIc9Z3zJlWntg+o3Yb//MoFMmmTsTR/Wa
+	ivaNVXxapGsT6SraY5vyHu+Z2hMMm4a70UafU+bhO6snKbGbXJfZld9NshOsrRNPLqa25CkmGPj
+	Ia3yACMJGRfA0jKbijoBCNM2J75IAPr9sz6oMyTWTiEWfEgK5wtvNZi7uuL2KBUcItett8i4d74
+	3jk+BZZ6QBaa/81yweZcRCHnK78roy9bNsv8yAIpd9efCmpMViHGZl8wCxzmPKXJloBICnvIuN1
+	VSIClKzXDX9aBQzJidb4vl8ZELP+wn517GSrfS5om0+yEERJ8lDauEPOcllie/geSgS0CsytRM/
+	Aa99JpdGMCw/LNLe3z259uglHns3301zsJAEBww2694ycccT8ohPvOzPWi7491+AWof2vyTdgKR
+	duOZ6pnk7eQ==
+X-Received: by 2002:a05:6512:1596:b0:5bf:b144:fcbb with SMTP id 2adb3069b0e04-5c1aa067108mr678419e87.28.1794997921160;
+        Wed, 18 Nov 2026 02:32:01 -0800 (PST)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1aa77e5ebsm420005e87.46.2026.11.18.02.32.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 02:32:00 -0800 (PST)
+Message-ID: <820865f9-2ef5-4316-abbe-5c44c7df55ce@gmail.com>
+Date: Wed, 18 Nov 2026 12:31:59 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,184 +93,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iio: light: bh1745: fix 16-bit register accesses
+To: Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Arnav Kapoor <kapoorarnav43@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Mudit Sharma <muditsharma.info@gmail.com>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261117110327.198084-1-kapoorarnav43@gmail.com>
+ <avxi4BBJ_Ztg-aN7@ashevche-desk.local>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <avxi4BBJ_Ztg-aN7@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 17/11/2026 16:21, Andy Shevchenko wrote:
+> + Cc: Matti (even he is not listed as maintainer) for possible another pair of
+> eyes and/or having an answer why this was missed at the time of the driver
+> submission (from my perspective this patch is correct).
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
+Thanks for the heads-up Andy. Unfortunately, I have never worked with 
+this IC, and I don't think we have it in the ROHM Finland office (but 
+I'll check this just in case. It'd be nice to have this covered in my 
+test setup).
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+What comes to missing this in reviews... Well, I suppose the reviewers 
+are just humans, or if they're not, then they might have concentrated on 
+other important things, like styling, instead of the real functionality.
 
-- [Medium] In this tree, both parts of the patch hit a predicate
-  mismatch.
+On my own behalf, I was away for 1.5 months when the series was applied, 
+and I only looked at the GTS-helpers usage when I did my shallow and 
+badly belated review. (Furthermore, I am 100% human, so I might have 
+just missed this even if I had all the time in the world to do the review).
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch now
-  cleans up the HCA devcom component on its own new -EOPNOTSUPP path…
-
---
-
-net/mlx5: LAG, do not add a device to an already-active virt LAG
-
-This patch stops a virt LAG capable function from joining a LAG whose mode
-is already active. In that case __mlx5_lag_dev_add_mdev() returns
--EOPNOTSUPP, and mlx5_lag_add_mdev() then unregisters the HCA devcom
-component. The patch also makes mlx5_esw_offloads_devcom_init() skip eswitch
-devcom registration for a non-PF virt LAG capable function that has no ldev.
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
-> index 3e88b3f51612e..abcab76fced0b 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
-> @@ -2448,6 +2448,11 @@ static int __mlx5_lag_dev_add_mdev(struct mlx5_core_dev *dev)
->  		mutex_unlock(&ldev->lock);
->  		return -EAGAIN;
->  	}
-> +
-> +	if (mlx5_virt_lag_is_supported(dev) && __mlx5_lag_is_active(ldev)) {
-> +		mutex_unlock(&ldev->lock);
-> +		return -EOPNOTSUPP;
-> +	}
-
-[Severity: Medium]
-
-Can this condition ever be true in this tree?
-
-mlx5_lag_add_mdev() is the only caller of __mlx5_lag_dev_add_mdev(). It
-returns early unless mlx5_lag_is_supported() passes:
-
-mlx5_lag_add_mdev() {
-	if (!mlx5_lag_is_supported(dev))
-		return;
-	...
-}
-
-mlx5_lag_is_supported() requires num_lag_ports >= 2:
-
-	if (!MLX5_CAP_GEN(dev, vport_group_manager) ||
-	    !MLX5_CAP_GEN(dev, lag_master) ||
-	    MLX5_CAP_GEN(dev, num_lag_ports) < 2 ||
-	...
-
-mlx5_virt_lag_is_supported(), on the other hand, requires
-num_lag_ports < 2:
-
-	if (!MLX5_CAP_GEN(dev, multi_uplink_eswitch) ||
-	    !MLX5_CAP_GEN(dev, lag_master) ||
-	    MLX5_CAP_GEN(dev, num_lag_ports) >= 2)
-		return false;
-
-No device can satisfy both, so this -EOPNOTSUPP return and the new cleanup
-branch in mlx5_lag_add_mdev() look unreachable.
-
-The commit message says:
-
-  "mlx5_ldev_add_mdev() would add a newly probed device to the LAG even
-  when the LAG is already active"
-
-Can that happen today for a virt LAG capable function? If this check only
-prepares for a later series that enables virt LAG, could the commit message
-say so?
-
-The same mismatch seems to affect the eswitch change. A non-PF virt LAG
-capable function never reaches mlx5_ldev_add_mdev() here, because
-sd_lag_init() only handles PF SD secondaries. So dev->priv.lag stays NULL
-for it, and mlx5_virt_lag_nonmember() is always true:
-
-static inline bool mlx5_virt_lag_nonmember(struct mlx5_core_dev *dev)
-{
-	return mlx5_virt_lag_is_supported(dev) && !mlx5_lag_dev(dev);
-}
-
-As a result, the new early return in mlx5_esw_offloads_devcom_init() fires
-for every such VF/SF eswitch:
-
-	if (!mlx5_core_is_pf(esw->dev) && mlx5_virt_lag_nonmember(esw->dev))
-		return;
-
-Before this patch, a VF/SF eswitch with merged_eswitch would register
-MLX5_DEVCOM_ESW_OFFLOADS and send ESW_OFFLOADS_DEVCOM_PAIR. The existing
-MLX5_VPORT_MANAGER() / !mlx5_lag_is_supported() gate further down does not
-stop a non-PF, because MLX5_VPORT_MANAGER() requires mlx5_core_is_pf().
-
-Does this drop eswitch devcom pairing for those VF/SF eswitches? That would
-contradict "it is a no-op for existing configurations".
-
-The commit message also limits the devcom change to "such a device", meaning
-one rejected from an active LAG. The condition, however, matches any virt LAG
-capable VF/SF that has no ldev.
-
-Once virt LAG joins are allowed, devices that are left out because
-mlx5_lag_dev_alloc(), mlx5_ldev_add_mdev() or
-mlx5_lag_register_hca_devcom_comp() failed would also be treated as
-non-members. Is that intended?
-
->  	mlx5_ldev_get(ldev);
->  	err = mlx5_ldev_add_mdev(ldev, dev, 0);
->  	if (err) {
-> @@ -2536,6 +2541,10 @@ void mlx5_lag_add_mdev(struct mlx5_core_dev *dev)
->  	err = __mlx5_lag_dev_add_mdev(dev);
->  	mlx5_devcom_comp_unlock(dev->priv.hca_devcom_comp);
->  
-> +	if (err == -EOPNOTSUPP) {
-> +		mlx5_lag_unregister_hca_devcom_comp(dev);
-> +		return;
-> +	}
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but this new path unregisters the
-HCA devcom component, while the nearby failure paths in
-__mlx5_lag_dev_add_mdev() still leave it registered.
-
-If no peer ldev exists and mlx5_lag_dev_alloc() or mlx5_ldev_add_mdev()
-fails, __mlx5_lag_dev_add_mdev() returns 0 with dev->priv.lag still NULL:
-
-	if (!ldev) {
-		ldev = mlx5_lag_dev_alloc(dev);
-		if (!ldev) {
-			mlx5_core_err(dev, "Failed to alloc lag dev\n");
-			return 0;
-		}
-		err = mlx5_ldev_add_mdev(ldev, dev, 0);
-		if (err) {
-			mlx5_core_err(dev, "Failed to add mdev to lag dev\n");
-			mlx5_ldev_put(ldev);
-			return 0;
-		}
-		return 0;
-	}
-
-mlx5_lag_add_mdev() treats that as success, sends LAG_DEVCOM_PAIR and keeps
-dev->priv.hca_devcom_comp. On teardown, mlx5_lag_remove_mdev() returns
-before it reaches mlx5_lag_unregister_hca_devcom_comp():
-
-	ldev = mlx5_lag_dev(dev);
-	if (!ldev)
-		return;
-
-The comp_dev's data still points at this mlx5_core_dev. Does that comp_dev
-stay on the shared component list after the core dev is freed?
-
-If so, a peer with the same key that probes or reloads would get the freed
-dev back from mlx5_devcom_get_next_peer_data() in __mlx5_lag_dev_add_mdev().
-It would then call mlx5_lag_dev(tmp_dev) on freed memory.
-
-A peer's LAG_DEVCOM_PAIR/UNPAIR event would likewise call
-mlx5_lag_devcom_event() with the freed dev. That reads dev->priv.lag and can
-call mutex_lock() on a garbage ldev.
-
-Could the component also be unregistered on those allocation failure paths?
-
->  	if (err) {
->  		msleep(100);
->  		goto recheck;
-
-[ ... ]
+Yours,
+     -- Matti
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116103010.1129666-1-tariqt%40nvidia.com
+Matti Vaittinen
+Linux kernel developer at ROHM Semiconductors
+Oulu Finland
+
+~~ When things go utterly wrong vim users can always type :help! ~~
