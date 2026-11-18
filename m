@@ -1,107 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.135.74
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031409;
-	b=ikYFEbZ10kE5kn2xlX880oqTqloorkPq+yeFpuUs2R30VgbnK5J6EHQVQ1Vw4IX8h3H+
-	 cFynLQMx5Ukvh5aAgpxRvaTHlVYYi1v9uWOVMj5mB3zdqXbMxTKYCPMr1RC5es+lA8dJ/
-	 xCwmeLC93ZKOhH2rdw13TfyPj8L97/wby6ZSmERdig0gYlAjaKIyK2PQEj0UTcOWoB/OZ
-	 1pNL6s6uoCiheBZlTP+RS5mhRJbSd9gFJvQF6wa+p31moUR9HvyT76SO9fKZhzXS/DtaK
-	 klo/PdqHrMA3vCSg9gbpKtGp8b5jq3SgGXpDc5bhL8ZijgGjOUW1ptk9byTGQfiHeBg==
+	t=1795031434;
+	b=RJz41Ls40GGQpvSvGj4fz8/BNwMhEtvDiag4D/Uk6eTBMHKZumWobjxKr803Fnf5Lxbq
+	 7KLycGA1ajb5ZHLV9HHkixuwTr8VbMv3xnBEYv2Jd9HVXGi5TbwyQdc/5cWcOAYl5n8o1
+	 c0dz4Sjg3hp17hlHLVJ3Sm5m+VHNVvhQygaguRw6z8J565JDHIHBTwu6K9BIZJplikVw/
+	 Kwht4eQJjVIFni7iBo7q7lI2GDGhThEBTBLVIska/Gg1PG9CUakCroJX4PNDYWiMe2MsM
+	 SWpyzlH+W01ELkd13qAx6sm0lIr0t5m7qzlFZ91iyAOsDW54FWeJpBvDc8uB5Ybh4nQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031409;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=E4a1CfB+dLHAk/zicRP0eJek0KQqRlij9qTOmYyyyD0=;
-	b=PvuLlNFcsozG/7H1sKkzsDQr3AduExh38XdbsTwXPDI2A1Mk5+/W4M5SH2JIwiL7D+0s
-	 QuOgaAAndL1pSq5Ky/CAxMtSIoQwnpZSA4vPyg1PVtbSCyhmNO2kM56uwAUq4yzHy7YgY
-	 i/OIa7b8CmU169BZNsFBMXTdlkJBwH2otMAkYfQe46pm12xESK5V8tc7QC/Ljc3horBA3
-	 caWJYcSZupEDytYtuyuIRTySUbZFLKanZw20CvoTR0It48cmxdML7Jwcv5tGXbNGgqD/1
-	 mxp++YAg/ITURQvVaims4ZOXBegbCRbvFNP8Y/qhHxY0AOw6qbV4x+/iIqorr0z0hbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031434;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=r7xQEq0S5madAXrgChKTKdPfHb7gKwfhdlAPY6R8vGQ=;
+	b=pODTBu4UMupqkgENQtrURo6sKdckErx9Yomg/p1OaCC9J0Q41+OH9fEFZh8epxAxwwvT
+	 fK7P4CPMhNAzeImYXLaMU0MSyv3x/gwgwB1ma8Jbbnlpsm4O92WXtLOE+so6gDNsyoMHQ
+	 x59mFO5zKHHTJjz7Xtss3XKhVGIzqoyZEtKzTrOZgTSo+SeenHBa87YVFrzDyKJhfMCz0
+	 pSnNZ39vRVLZLk0oDlzJM4X41rvjZxFfaRPHMgVfw8F/HXA02pBalhs9v1JYT8eY8tg2T
+	 3qwWADjqQV3eXRVLeiMc5PnrWaWaYPMHW2QSNwyT9L0C/TSyLzVtPY/u/MywvsBbKdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYFwSWju;
-	arc=none smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=columbia.edu;
+	spf=pass smtp.mailfrom=columbia.edu;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=AvcKfCxg;
+	dkim=pass header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=YHVVVoWA;
+	arc=none smtp.remote-ip=148.163.135.74
+Received: from mx0a-00364e01.pphosted.com (mx0a-00364e01.pphosted.com [148.163.135.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58C36606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:50:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58C36606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6826A606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:50:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6826A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=columbia.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=columbia.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GYFwSWju
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c5118deebcfso153332766b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:50:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=pps01 header.b=AvcKfCxg;
+	dkim=pass (2048-bit key) header.d=columbia.edu header.i=@columbia.edu header.a=rsa-sha256 header.s=lionmail header.b=YHVVVoWA
+Received: from pps.filterd (m0167068.ppops.net [127.0.0.1])
+	by mx0a-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIJYVN21749910
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:50:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps01; bh=r7xQ
+	Eq0S5madAXrgChKTKdPfHb7gKwfhdlAPY6R8vGQ=; b=AvcKfCxgh2FO1dLQ8zx+
+	4vXb/ToMs6lkdoSyUzHR7J5mA8oTJ80Evn6C7DQAcQmCKyyCXCcVPXC1AY2BPV+D
+	PrxnrOdal+rGAkWkiyrbM+AqOwlZAQ1nJhZU5MP+bzgPUyn08QXjS82Qla/J+pPH
+	iCcg3Jt/KcqKZ5SUTzgJwHBANnntnyE+Pl4ScFWubQmhtGSgKuvD11x55l/MrryD
+	qpYkODcKqypwoTWy8gK5UZs7YAS4kt/NOgHbNYfZYGtlH43Z2m+cRpG1dhxCVAtF
+	QizC4R1HjcRvzV9dgt1KKEHn2w9dfl+PcmY3Jg7zuQba4dl/aGh85fAhkp4sBQiD
+	SA==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-00364e01.pphosted.com (PPS) with ESMTPS id 4j1fkg20bd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 14:50:32 -0500 (EST)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-55bf3e01e65so33329511cf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:50:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795031407; x=1795636207; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=E4a1CfB+dLHAk/zicRP0eJek0KQqRlij9qTOmYyyyD0=;
-        b=GYFwSWjuh3K+nbaTuIkNFTsVTwFlqCSBqArb7Qm7R0fshhmO0RjUM3dKpZWX3tacJW
-         Mw/lhE4Z3XTuQz9rG3SSSlnKEmLilijEfveHxdVhGTqoAcX9hepAZqvEYqnbUaoDlQbB
-         ONfCBCq3N3s0E2Uk0RE9D7L8+SKS4dlCHd4yIE89WpKlimajdW4hwBI6s6K3UpVE3KRs
-         VrFNGrRXoFEITeSdNeAXL8lqNvbYTa0dz+EWwI4bqSs/2FUFt80VyEgCiAmQNICfqdvO
-         7ZAugzwUxHo2v7XqFS2VpVhTGZ2RKn0q5sCibNXoiMQPkv/xyQ4Fc0w/8isKsgoZ3AJM
-         iIQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795031407; x=1795636207;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=columbia.edu; s=lionmail; t=1795031431; x=1795636231; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=E4a1CfB+dLHAk/zicRP0eJek0KQqRlij9qTOmYyyyD0=;
-        b=q5naFsI6ADYq7gkuLrxkMkT0gCca6/xIlYcLWXZ0c6MjAI41E7hOGp1LIsgozD5cgE
-         zADEOs/t1Pce8KUivFKYX/orQXLEaVpV4D7z71PVwA0VHzitE0z/EGXlpNLapFksUBPa
-         if4flj1C5gVaKj+Lu9KPkIrhKwv7VwxgQnWPzzQw7GrwpWqo2+F2/fFCcdoKyGzJKdy4
-         SFosoXrewBh08feUV2TzeMcEs1F6RDK3rWu9s3Y5PEcbt+uXBFGzyPAYO3Xz9zwuDn01
-         0Rn8onNwlKe/NN0VgUJnT2gEBav7yKgXj3dnbFoxJRVAsqa3/uI7NV35844LCCccwpAx
-         Iu9Q==
-X-Forwarded-Encrypted: i=1; AL+hErGP316WkEA+QZ4uEizi6Dij99aDcoGxXRbglSf29KfnFpAizNDoIRaOWB4QOOOsODs0nqGZAtUtIHro+HA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8xkDLeJuuP/RDm5CSs0qIS4iQ6fWwQ1Igz9ynwvD0QZGrpzD5y
-	49cUWtYkEn1h+euxhKau2kvSuK46VGgcrzCmT+UxrVplGfGBxnOhDAGB
-X-Gm-Gg: AYBFou1lTvz3MTT+09yUpmXYNeaPWxuSnUmu/+ZxDhZ4kXHnkki/YT53I8fvb6a6Uvr
-	pgI2JjdxGwkIVsnzO1WY4YQH99UYRGQeYzwvR1EF45kCg49q7OEUXES6CyXYCuTIL744dKyNkH6
-	Ee/Vsh+RYsN8bpYfaf8zp9JPQxv2a2nNxxFvhVwIRoq5fTmUn96iNT1Q/F+wdCYUV5D16MnDz/8
-	k3zefMUp85huMa+UM4qaqhQ1tKBtpuANz5ZTpGh00ss/HJnV1fQFIgV+gtTSINl/sTmc2sAWCnc
-	C7Tz6XRJ6JFhAsTG+7/dEw6ETpEB/TKQg1IgZCzrGNEGxV999yz8PkYnF4v3dTapzErglrVnhCR
-	U3MOZXcQXPfQMriXHl1gCJ04GX9R7rcSVOoihbU2V7ygWE6jrv/mgKtG7OsAUJUY1+PeGqTAQ2f
-	d68pe+8jaYJZDeGuJxHu+WZyqtPvfuBE8loumFQZ2FItSGI3MacrPamp3/PfaaOGDlOnzJDRi06
-	BepfIL7dcsg1/pCAgDQgPvRGzskv6trNYO1jwdpUpkQFOfrxeY5wXuouTLpCvI7WbK8qg==
-X-Received: by 2002:a17:907:9348:b0:c51:aa6:605a with SMTP id a640c23a62f3a-c510e1a6382mr365802366b.27.1795031407273;
-        Wed, 18 Nov 2026 11:50:07 -0800 (PST)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c512341a3bdsm33510666b.32.2026.11.18.11.50.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 11:50:06 -0800 (PST)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Wed, 18 Nov 2026 20:50:04 +0100
-To: Hao Ge <hao.ge@linux.dev>
-Cc: Suren Baghdasaryan <surenb@google.com>,
-	Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Alexander Potapenko <glider@google.com>,
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
-	linux-mm@kvack.org
-Subject: Re: [PATCH v5 06/11] mm/vmalloc: undo what vmap_page_range() mapped
- on failure
-Message-ID: <av4BbLb6SxEcRe-8@milan>
-References: <20261116071325.263682-1-hao.ge@linux.dev>
- <20261116071325.263682-7-hao.ge@linux.dev>
+        bh=r7xQEq0S5madAXrgChKTKdPfHb7gKwfhdlAPY6R8vGQ=;
+        b=YHVVVoWANcVc83FlR+/D5H6u0kCJP7B/v0FdTstDGgjgb0pwh232znaxg7S4pKVFWq
+         nJ0Zs8nMR+JMfcLnfTnICG34bvhannwOXI+kHG/izds4p7Mg6WoCoMhSeKa1UMHqGqAO
+         BOZkbvRckKzDqyqxLB4IUfOSuCNpX+w/YsUmvSmnrqYiqyn5qs6YqITbcji6w0AtixWi
+         kLPS8JKO0pNIzIokc6iGXxUe1JjOsGh14cufcqzZ/l5e1P0+dpuf/3oW1Y1wDxbgF3Hc
+         a3IkbkHKTdYYlXlvhmxArcBhbHpQuuPH9bINVI0tpH7x8vZalR4N1k2PE+4zwfwgOK9j
+         fbTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795031431; x=1795636231;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r7xQEq0S5madAXrgChKTKdPfHb7gKwfhdlAPY6R8vGQ=;
+        b=P80/XEXUgVrVP5OpofxnUHgfgQoxRdixpocxwyS3sfUFU8teMNDyD9QOlHkn2dX0/L
+         y9YRL19JeZ0YJOMOGjS494g5vGglF1M5spRvLpMqqV2ztyi1I+G4NgWG+Dd2KX0eqI0f
+         uKNrdv9edZzDraAPFMNfJVSnCgTJ2vl8vD0QZJqskVfDpAeRKGatnjS/BhYTcgxAK/Rv
+         uu4QYXrKoQSiT6vATSUHpmef5U800DrNKWPflRkp9FZpC2qehGwwznTbbqK7HH2l52VB
+         eMz6ZbVnDxXexaNyvihkG81cYW3I6oNYU6aJa7Gfy8Gl5wf57nElo6kV3PhlIM4EyIoj
+         Xn8Q==
+X-Forwarded-Encrypted: i=1; AL+hErH+lxdqhIiTYHmy3T41GCl4Fp815sEX9j0qJPTKZPJcHkpJvgrbKcpUOxlY7ZsnhpS7ovgdP5pwauW4RWc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HXNvYKc9k/bHLd9LQHtWk7Mvg//n5RCB50WqvXOkj7MxfNSx9
+	u8mA45S6GezW2Nh5CZX831mVGqj+Ka2aFuxqd7xURhPyUUbRaUz7CdZFD/6YYiKwXhch0LNZfAu
+	7K/XagYgtQrj8dzF59BouKXv9aF+7s5BLUXxpx9I5v+jrgdzqz4BI6dTC5iMhPA==
+X-Gm-Gg: AYBFou1AaddRLnGDchjnDvRrCsOyn5jy+EZUBB+tIPzNNh1TDI0ao6ETYXszhQu2d4q
+	Uh5kiZXTECnNNa55F9/+95lUhqOslX6weBvPgZoa9IVKWfU2mo9M1htw1J6XY3r6JznJe3Pn3U4
+	S8s4TcSQxNHWIZhc1MLMXX5fzmTwO0OcIgn7srnozzcYJu0638wrOgYpBtNUcwcZPRnw0eaQMIK
+	NlWyjKoqKDSo3IhZkJCVCkunUx7L0Lxhg/4rwgj+X2eS7mPUm6wVsUh7NnRMHek/ot5nq7GFL4W
+	9mI+Qh8bhCw2siL1kdZUQ9t8ZfQCQV5gUhFx3VHvWfuFWjnUEFjqqHMrqeGBqtXEgZSvo6sz6ah
+	StCQtM1yhNOCybOvLE04pgOO2J9rCbgkV7j7nFWfO3bcOPCr75ySYv7kbA6CtoQ6QXSUGTjrMjj
+	3cMZ8wRkBnge8vMSy73Ig8Xg==
+X-Received: by 2002:a05:622a:5807:b0:536:252a:dbf8 with SMTP id d75a77b69052e-55d5a537991mr56617321cf.14.1795031431369;
+        Wed, 18 Nov 2026 11:50:31 -0800 (PST)
+X-Received: by 2002:a05:622a:5807:b0:536:252a:dbf8 with SMTP id d75a77b69052e-55d5a537991mr56616931cf.14.1795031430933;
+        Wed, 18 Nov 2026 11:50:30 -0800 (PST)
+Received: from [10.207.2.125] (nat-128-59-176-14.net.columbia.edu. [128.59.176.14])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66c24503sm7189751cf.20.2026.11.18.11.50.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 11:50:30 -0800 (PST)
+Message-ID: <9a6599cc-f47a-4a27-ae8e-91c8a1a523b5@columbia.edu>
+Date: Wed, 18 Nov 2026 14:50:28 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,60 +116,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116071325.263682-7-hao.ge@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v3 0/9] userfaultfd: assorted fixes (part 1)
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Mike Rapoport <rppt@kernel.org>, Peter Xu <peterx@redhat.com>,
+        James Houghton <jthoughton@google.com>,
+        Andrea Arcangeli <aarcange@redhat.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Balbir Singh <balbirs@nvidia.com>,
+        "Liam R. Howlett" <liam@infradead.org>,
+        Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>,
+        Jann Horn <jannh@google.com>, Pedro Falcato <pfalcato@suse.de>,
+        Michal Hocko <mhocko@suse.com>,
+        =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
+        Andrei Vagin <avagin@gmail.com>,
+        Muhammad Usama Anjum <usama.anjum@arm.com>,
+        Stephen Rothwell <sfr@canb.auug.org.au>, Arnd Bergmann <arnd@arndb.de>,
+        Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+        Joshua Hahn <joshua.hahnjy@gmail.com>,
+        Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>,
+        Ying Huang
+ <ying.huang@linux.alibaba.com>,
+        Alistair Popple <apopple@nvidia.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>,
+        Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>,
+        Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+        Kiryl Shutsemau <kas@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+        Oscar Salvador <osalvador@suse.de>,
+        =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,
+        Breno Leitao <leitao@debian.org>,
+        =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+        Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>,
+        Felix Kuehling <Felix.Kuehling@amd.com>,
+        Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
+        dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+        nouveau@lists.freedesktop.org, amd-gfx@lists.freedesktop.org
+References: <20261117-uffd-state-fixes-v3-0-b617009d1a4a@columbia.edu>
+ <179501525761.13527.5348420494097607881.b4-ty@b4>
+ <d05636be-5a37-46e1-b6d2-30950b7778b5@kernel.org>
+Content-Language: en-US
+From: Tal Zussman <tz2294@columbia.edu>
+In-Reply-To: <d05636be-5a37-46e1-b6d2-30950b7778b5@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=aIdlOr9m c=1 sm=1 tr=0 ts=6afe0188 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=2zM0HjzktFauw5hoOd8SpA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=usPcmh10W0ubT8QP8_c3:22
+ a=VwQbUJbxAAAA:8 a=b7hxIIQ5yigvctP09d0A:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: FnOoGaS7oPtf3R2yfKb--1IDTKsu7Ugy
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA3NiBTYWx0ZWRfXybAFRpcCzXw1
+ I+kQCSiuQ+ltqe3f6CySOL/jvAoxvqKvfzVJurxX2itSGM9KbaED7IXmfwXeauIbnRdwy8Y1mnq
+ G95yYJbj7Jcu40Vs2qbpNZSa1FfHFfHcbuB3nBmx7l4rNGhUDIJ0
+X-Proofpoint-GUID: FnOoGaS7oPtf3R2yfKb--1IDTKsu7Ugy
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA3NiBTYWx0ZWRfX6MIdqzG1vASN
+ JDQ3J97IQrFFUOJc4+KX5/g1lePpiVPibiB1OOVVDDQz4tvBf7w0sAOxId502iRcPun2GO5gqs7
+ T5AfogB5Cb4baSYZBUPls/ZAEE7ygH46pMTW3t3vlPITJjdTkEQcUcqtj+UXFSR/Nbz1I2plMg6
+ sdw5GPQOyhApM6epkH/40Xux9V6TCN7BfOSbqETSBihcY2t94z2eMM+s5XwfmtsmYI3Iu1LI+VD
+ 3cwY5IUbglLC5G6wk1RFDUXZM4yZrSflb6oJOXYA4cIGAORrboUPUaldEW4VJ8ApoiSQOrlHFMv
+ 1uXqDzK5uoewtYq0cT9895UT9DuH/B9ySZ5F/x59PM2/MmxHFVhx5l/8ny23z2bRJNxA0sgiwQ3
+ CMPZsB2DBiL07XxWjCrcH+TGare6gKYo4RB1DK+W90cRKiNBHmffG1ZytYTSOQkYLJYsT35kYbs
+ C9vLKw8fMc4QpXuLibQ==
+X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11970
+ signatures=596817
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=10 adultscore=0 phishscore=0 impostorscore=10 suspectscore=0
+ clxscore=1015 malwarescore=0 spamscore=0 bulkscore=10 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180076
 
-On Mon, Nov 16, 2026 at 03:13:20PM +0800, Hao Ge wrote:
-> ioremap and arch setup code map their ranges with vmap_page_range().
-> When the walk fails half way, or the KMSAN metadata fails after the
-> walk, the ptes installed so far stay behind. The caller frees the
-> vm_area on the error path, so the next mapping that lands on the same
-> range trips the BUG() in vmap_pte_range().
+On 11/18/26 10:37 AM, David Hildenbrand (Arm) wrote:
+> On 11/18/26 16:20, David Hildenbrand wrote:
+>> On Tue, 17 Nov 2026 23:28:40 -0500, Tal Zussman wrote:
+>>> This is a first batch of userfaultfd fixes, with more to come.
+>>>
+>>> These were found by a mix of regular old LLM review and by having an LLM
+>>> write a TLA+ model of uffd interactions with PTE bits and other state
+>>> and seeing what issues fell out.
+>>>
+>>> Most of these fix places where mm code loses uffd-wp or RWP protection
+>>> while moving or migrating an entry. Userspace then either misses writes
+>>> and accesses, or gets pages reported that nobody touched.
+>>> There is also a hang in UFFDIO_MOVE, and UFFDIO_ZEROPAGE modifying a
+>>> file through a private mapping.
+>>>
+>>> [...]
+>> 
+>> Applied, thanks!
+>> 
+>> tree: mm/core.git
+>> branch: thp-7.5.misc
+>> 
+>> Applied patches will appear soon in mm-next, followed by linux-next.
+>> 
+>> Please report any outstanding bugs that were missed during review, so we
+>> can either drop the patch series or decide how to fix it up.
+>> 
+>> It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
+>> though the patches have already been applied. If possible, patch trailers
+>> will be updated.
+>> 
+>> Note that commit hashes shown below are subject to change due to rebase,
+>> trailer updates or similar. Further, this is not a guarantee that the
+>> patches will go upstream. If in doubt, please check the listed branch.
+>> 
+>> [6/9] mm/huge_memory: build the moved huge zero PMD from the destination VMA
+>>       https://git.kernel.org/pub/scm/linux/kernel/git/mm/core.git/commit/?id=ec36bf72
 > 
-> vmap_range_noflush() now takes a mapped_end argument that the walk
-> levels advance as they install, and vmap_pte_range() BUG()s before
-> it installs over a pte that is already set. The ptes below mapped_end
-> are therefore all ours, while a pte above it can only have been put
-> there by somebody else, for example when the caller's range overlaps
-> an existing mapping. On a walk failure the undo is limited to
-> [addr, mapped_end), going further would clear ptes that are not
-> ours. If the walk completed and only the KMSAN metadata failed, the
-> whole range was installed by this call and all of it is undone.
 > 
-> All callers are sleepable, the teardown passes can_resched = true.
+> Aaaaaand undone. :)
 > 
-> Signed-off-by: Hao Ge <hao.ge@linux.dev>
-> ---
->  mm/vmalloc.c | 52 +++++++++++++++++++++++++++++++++++++++-------------
->  1 file changed, 39 insertions(+), 13 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index d99d7710e1ba..5c1eacc2a0ac 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -117,7 +117,8 @@ static __always_inline unsigned long vmap_set_ptes(pte_t *ptep,
->  
->  static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->  			phys_addr_t phys_addr, pgprot_t prot,
-> -			unsigned int max_page_shift, pgtbl_mod_mask *mask)
-> +			unsigned int max_page_shift, pgtbl_mod_mask *mask,
-> +			unsigned long *mapped_end)
->  {
->  	pte_t *pte;
->  	u64 pfn;
-> @@ -143,6 +144,7 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
->  
->  		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
->  		nr_pages = PFN_DOWN(size);
-> +		*mapped_end = addr + size;
->  	} while (pte += nr_pages, pfn += nr_pages, addr += size, addr != end);
->  
-vmap_pte_range() either s=install everything or nothing. At least if i
-do not miss anything.
 
---
-Uladzislau Rezki
+Thank you David!!
 
---
-Uladzislau Rezki
+> -- 
+> Cheers,
+> 
+> David
+> 
+
