@@ -1,70 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022169;
-	b=DRTokOEl00PzkJAw7jygL5+o0pPGrErxtO9C/ziYfbqpgPjH5cm+FA9EQ9GWF/UEokl8
-	 /gUquZHKCe1fSgxg+RXPL9P3O/L5Az58dGdTh3QsEWUe59Irbnjcz/DYcp9hqgdvNimdH
-	 ZNMKfR0NoB/XbLFlY42D5SephUCbLC0y6q5pKjHUmF+iMFz3AOsb8lttNiAk9lNZ7ooEA
-	 r6Gy81+hrjZT0lBXVrivg3dSgAqqP7ANB7rJhOQuuPjCYHFmuB7fdfuXQuXDI9qmyDbvE
-	 GFmzutSeYXVSKy28XXBbl1+Zwo5w5vG6XC1CNjcf9ms8MDYknEWr/6sBCd59lXm5svA==
+	t=1795022173;
+	b=gzEaLxrTwnznsnqGO5lZZ+9gh9m4Zzi/fxe7zy6nn2texGP+jD9puFfQVXJP6845NF5H
+	 mF3ytcIesXc5+GS+OO2irjaP1RHEG6/4l1/wq4P/iU78cZ0CbZv0xDcCMQepfI6Fe/Wp1
+	 NLe1X4xYbkQZVrGiynL5DLaGU1xbvZwy5IIQNB69WohZDZC5wwQ9h95aIqT7bvHtTXOTM
+	 djgqbwKBjPiSJy7a4H3MsyYdfhaNcr3d4TqIaucnjUjpb2xF4fi3jY+PV4d2kOUc9Qz3o
+	 YqJrFiZye3G9Dpy5gnPEuoDHavtA0z8gaRwc8wn3H2Hrv5wEVntVGnH4hmHFhsnhtxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022169;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=azMjNdYADYprUFTQqXnXRt+Qw7yDyykdEbBxtGqlwkg=;
-	b=d7UKgBBMQO7KJR8L+3VPvx89cOJKosiujPWvRIWlQMpgAl5DNbiz0TZPF72RP6PIVLTU
-	 8qelBUJqNp3x1nkIgmndF8fk+wvH+5EwvmSqnybP+2GoUAAQvJqAaXGiJ2oHp3lmwtVoU
-	 Yya4Q+H8SaS0nZWMhHZm4oK7nx7j734aV1J/Nk9klN41cYIFEL48huMh7DG2i3BEWnh/q
-	 0TEB04swQkVvwVhWBR+eTHRtgm77A7SVp8HBYFFY1Nl9COlNAkOWPKtrYSFdoTftiLgTs
-	 K1KzwsL3mYcoMdJqWYvftw5NR/y+WQys6SsDCFPHj7MgvJSbhpTR8LPk6524bEmNAYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022173;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=uQgs/LnSsb7T5Yqdh//B4nhVbzY1sGg8qFnrYeg3TTk=;
+	b=v8eVBFfSgCkWLs8Fflr4pAi68DlOsOJtW/vE0Sv737foMUnAnP8Jd7fvJfqIOr0fQB0c
+	 xARPyO7o3khnQsUGV6U7L/y8iS8USc93CdmT21bTicgXyYkf1/fE4mIcxIhSCiDx99LGL
+	 PcQOr99Pk3qXv45RpI1OHnyzk9vND7IE3nGHYjFxMWB6Hk0R4aWfvC2chOmKmu3v/cPeM
+	 WglVZgvGGkowBTybm74gBNvdhi7q2JdsKvC7uXlPHlVhqmjSN42cDs1tg2+bn/n80Fci7
+	 Xw7ZXP/bdJm4seIvYK6ZfT58tCcj3shAFsxOE22FFImJpZ00QG0ns5WSmrIW4kt0qaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ubvuxvkU;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iiTjJUjV;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C70F8606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:16:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C70F8606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 130A7606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:16:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 130A7606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ubvuxvkU
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 597A24E40B00;
-	Wed, 18 Nov 2026 17:16:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 231C45FE9B;
-	Wed, 18 Nov 2026 17:16:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FFA211BC2A6E;
-	Wed, 18 Nov 2026 18:15:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795022162; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=azMjNdYADYprUFTQqXnXRt+Qw7yDyykdEbBxtGqlwkg=;
-	b=ubvuxvkUmYhT7rBjFh7+hL3MGn/EZTSrIeC279f/6wUx9rBSNHIkKD93l+HtgnF9zbyz+y
-	h6gOmUC7+Cng+BsfY5/UUGXD7EgAVR8ZqQQAloAd08tRmnrDbKC/M1k/IT8K1kR2OOYH2P
-	LcBDhHqO+iX8XxgIBsRhlMg/vSQ1WTp9JtnZIFJy/tfCTx9S10g/gqVNytFIzTbWAL4Ej6
-	qn6coN94CLK3MSHKKGXt8gol9lLe0ITQAUFMmHo65hANA5yssndwfrVd0tSvXGwKr+GLPa
-	u/P8XV6IyRzU+W+/U54Aps6qyZdJYVH70tD6TM077S2B6yGLztzsJ4S+ENvjWA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Boris Brezillon <bbrezillon@kernel.org>,
-  linux-mtd@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mtd: rawnand: propagate timing-mode recovery failures
-In-Reply-To: <CADvTj4or-XBJCp3oUh2T438Tf5kB0vfecNzOV+haisVrLKW9vA@mail.gmail.com>
-	(James Hilliard's message of "Wed, 18 Nov 2026 09:49:52 -0700")
-References: <20261103-submit-rawnand-timing-recovery-v1-v1-1-1cc33723e052@gmail.com>
-	<874idejux6.fsf@bootlin.com>
-	<CADvTj4or-XBJCp3oUh2T438Tf5kB0vfecNzOV+haisVrLKW9vA@mail.gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 18 Nov 2026 18:15:58 +0100
-Message-ID: <871p8igiwh.fsf@bootlin.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iiTjJUjV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795022172;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uQgs/LnSsb7T5Yqdh//B4nhVbzY1sGg8qFnrYeg3TTk=;
+	b=iiTjJUjV0siAR1LiqPb/KhNZ0l1qyfO2ZH6mpm4+QXolFfqOdSX+N/sfBJ4kX/nkBAVvRW
+	u0cr+wwCgfqbba2tskzznFESWu1wQ16nRP3IoUlZSPg3NVt6kmZeUxVycvjg5OVxHcvaWJ
+	2Zw45nywK/v5MTQlu2aRn2NYC9RK3yo=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-465-V9WYMYi8MFSwRBdgCDsq2g-1; Wed,
+ 18 Nov 2026 12:16:08 -0500
+X-MC-Unique: V9WYMYi8MFSwRBdgCDsq2g-1
+X-Mimecast-MFC-AGG-ID: V9WYMYi8MFSwRBdgCDsq2g_1795022165
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D79B919560B1;
+	Wed, 18 Nov 2026 17:16:04 +0000 (UTC)
+Received: from [10.17.16.204] (unknown [10.17.16.204])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 361F31956088;
+	Wed, 18 Nov 2026 17:16:01 +0000 (UTC)
+Message-ID: <a27dac16-f5c0-459b-9153-7caec3feb8a1@redhat.com>
+Date: Wed, 18 Nov 2026 12:16:00 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,57 +71,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] sched/isolation: Publish new HK_TYPE_DOMAIN cpumask under
+ cpuset_mutex
+To: Frederic Weisbecker <frederic@kernel.org>, Ridong <ridong.chen@linux.dev>
+Cc: tj@kernel.org, peterz@infradead.org, mingo@redhat.com,
+ juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
+ rostedt@goodmis.org, bsegall@google.com, mgorman@suse.de,
+ vschneid@redhat.com, kprateek.nayak@amd.com, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org,
+ guopeng.zhang@linux.dev, mathieu.desnoyers@efficios.com,
+ Ridong Chen <chenridong@xiaomi.com>
+References: <054a53a3-c038-48fe-ac01-fc24fd8065d0@linux.dev>
+ <20261117083915.2971979-1-ridong.chen@linux.dev>
+ <av20QrLUdOC_ysS0@localhost.localdomain>
+Content-Language: en-US
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <av20QrLUdOC_ysS0@localhost.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On 18/11/2026 at 09:49:52 -07, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
-
-> On Wed, Nov 18, 2026 at 3:28=E2=80=AFAM Miquel Raynal <miquel.raynal@boot=
-lin.com> wrote:
+On 11/18/26 9:20 AM, Frederic Weisbecker wrote:
+> Le Tue, Nov 17, 2026 at 04:39:15PM +0800, Ridong a écrit :
+>> From: Ridong Chen <chenridong@xiaomi.com>
 >>
->> On 03/11/2026 at 23:13:18 -07, James Hilliard <james.hilliard1@gmail.com=
-> wrote:
+>> Commit a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without
+>> holding cpus_read_lock") calls housekeeping_update() after dropping
+>> cpus_read_lock and cpuset_mutex, so the HK_TYPE_DOMAIN cpumask is now
+>> switched and freed outside of those locks. But readers holding either
+>> lock may still access it without rcu_read_lock() as allowed by
+>> housekeeping_dereference_check(), and synchronize_rcu() doesn't wait
+>> for them:
 >>
->> > When GET_FEATURES succeeds but the chip does not acknowledge the reque=
-sted
->> > timing mode, nand_setup_interface() falls back to mode 0. Both the
->> > controller-interface reset and the NAND RESET command can fail, but th=
-eir
->> > return values are discarded. The function then returns the successful
->> > GET_FEATURES status even though the fallback did not complete.
->> >
->> > Check the controller reset before issuing RESET and propagate either
->> > recovery error when there was no earlier error. Preserve an earlier
->> > GET_FEATURES failure and keep returning success when a timing mismatch
->> > is recovered by a successful mode-0 fallback.
+>>    CPU A                                  CPU B
+>>    rebuild_sched_domains()                cpuset_update_sd_hk_unlock()
+>>                                             mutex_unlock(&cpuset_mutex)
+>>                                             cpus_read_unlock()
+>>      mutex_lock(&cpuset_mutex)
+>>      p = housekeeping_cpumask(DOMAIN)
+>>                                             housekeeping_update()
+>>                                               rcu_assign_pointer()
+>>                                               synchronize_rcu()
+>>                                               kfree(old)
+>>      access p <- UAF
 >>
->> You are carrying a return value in an error path of an error path. If
->> the reset actually fails, the very next attempt will fail and probe will
->> be aborted anyway. So while the fix is not inherently wrong, the title
->> and commit log overstate the problem.
+>> Fix it by moving the pointer switch into housekeeping_publish(), which
+>> is called before dropping the locks. Then CPU A either finishes before
+>> CPU B switches the pointer, or only sees the new cpumask:
 >>
->> My proposal:
+>>    CPU A                                  CPU B
+>>                                           cpuset_update_sd_hk_unlock()
+>>                                             housekeeping_publish()
+>>                                               rcu_assign_pointer()
+>>      mutex_lock(&cpuset_mutex) <- wait
+>>                                             mutex_unlock(&cpuset_mutex)
+>>                                             cpus_read_unlock()
+>>      p = housekeeping_cpumask(DOMAIN)       housekeeping_update()
+>>          <- new cpumask                       synchronize_rcu()
+>>                                               kfree(old)
 >>
->> mtd: rawnand: propagate mode-0 fallback failures
+>> The rest of housekeeping_update(), including the workqueue flushes,
+>> still runs without those locks.
 >>
->> When a chip does not acknowledge the requested timing mode,
->> nand_setup_interface() falls back to mode 0 by resetting the controller
->> interface and issuing a NAND RESET. Either step can fail; returning
->> success will likely lead to any later attempt at talking to the chip to
->> fail.
->>
->> Make sure the error path propagates those failures in the mode-0
->> fallback case.
+>> Fixes: a84097e625f2 ("cgroup/cpuset: Call housekeeping_update() without holding cpus_read_lock")
+>> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
+> Ok that should work but, IIRC this whole locking puzzle is there because
+> cpuset_handle_hotplug() can change isolated partitions. Why is it the case
+> since cpuset.cpus shouldn't care about offline CPUs?
 >
-> There is also a caller outside probe: nand_do_write_oob() calls
-> nand_reset(), which calls nand_setup_interface(). If GET_FEATURES
-> reports a different timing mode and the fallback fails, nand_reset()
-> currently returns success and the OOB write continues past its reset
-> check. Propagating the fallback error lets the write stop there.
+> I remember Waiman said it could be fixed in the long run. I don't remember
+> the details though.
 
-If you are at using nand_do_write_oob() there is no reason you would end
-up in the error path of the setup interface step. This reset is super
-legacy anyway, the comment says August 1999. This path is also not so
-useful anymore. You can mention it at the end of the commit log though.
+cpuset_handle_hotplug() has to remove the newly offlined CPU or to add 
+back the newly online CPUs to the effective_cpus of all the cpusets that 
+include the affected CPUs whether it is in an isolated or root partition 
+or not. In the worst case that the last online CPU in an isolated 
+partition is offline, we have to disable it. That is the main reason why 
+hotplug can affect isolated partitions. I don't remember saying it is 
+something that can be fixed long term. Perhaps, it is not something 
+related but not exactly this.
+
+Cheers,
+Longman
+
