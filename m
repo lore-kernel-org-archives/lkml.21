@@ -1,69 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.154.239.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997625;
-	b=a7iCUXPWlj/5WQPaHzisyG5p35WnJ6ScWcAh60+sBA8r4+ozP0r2elRRP2gQTwIELcuj
-	 WIin+NWgCSVjbO2YofivkS+fk3WLuNUauG7VcHqYspPLtCsjpR48KoDu9Zbrp9VTFyblw
-	 AeXiTUgsNQOUTJC8Uu/j6myLVbbSnDkXQJ8+5kSIweagoKZRHXGPtiVSCW7ImkYtXP4mW
-	 5by5pejJLzswsCPG2fKJezjiY0K51rZWzmKuVn6MKD/B9zS8gEVq9xZBUeciwlnPrvN4M
-	 Bxcwrn1e1P7fHBaCuzp/H2Cv958dz9hhXNgPRpd3mX+OZUiM7592hXbebUl3w7K8dww==
+	t=1794997630;
+	b=Aj5qAkqIlBBx+cfyWoXlwb1gmb3lgGJkZxSH1ErFF30FUo4p6S6mrlxyEJwkdgcVcMU8
+	 P6lf9GZeLTdSf/u6NEAancEzVT+RhspoTtL/iWdlX/0tcv4qBmcTfkm5U+RIh576843O8
+	 G8x6F/nsjJdQr0jI+uKZ/aHpC8dn6Pp/k2XLyTUY7KThXnGjCxZ/Nf+9ShtFthGIG/ael
+	 oY4ychF+9m4hZPLlBD7mkchHgtjIFJnupRRpAhWInyspqSHRD4NdEUikGCFi2A2Kb7TlP
+	 AIJKZsRbZddjSQm9RIX2t1LaunJHD2JNj/rklzdbYwkeoXlM7M0oPmLYEqKwnAuAciA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997625;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
-	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=i9D3FjkLfYPSTdei45bQlEx7WvqZqfPDZxNohyDEg1k=;
-	b=NWgkZgaqLmW08d2FAOkoKfpKTL1aSIiLZOQg0Oovlz918sHFOiFmdG+oLYdxzAJReTqK
-	 23BKtDAU5uWsh8Rug5JkfH63a6MSS387ryor+p3GjsnIWsrqYpF42Nq+T0a6N12q9Xmrg
-	 1/AtdX6u925PLsTzaL+5fb3rNFq6S0YlFrBDlU3152D6uIodaWcvNfU/835Y4EwW54Cvp
-	 Epn63IH6apx1J1uYyao6lzabfugMleC86BcjuWNT39ADSMluEppxajTZdN+E6w9yjSJ68
-	 Sm1BRdqCaKCNMJy56VCwvcN0xcc2ng6I2imTq9ejE4AQO4Iachqodya+gpv/XKXscsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997630;
+	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=lgBgYjBwxx/0h1itT1vxtcD9+XMGMAnJpI+uws+wlmE=;
+	b=s/fh2Vg+sZ5JSlN4No5qRgBrqWV9GtffVlhb5O38Aau7LcJFoOMbyI5X9ufYxmW0hjF5
+	 dxJ6ONWDJXikJk4UMPZZNxQniU9x6P04GA2NVcU1B0gF4gSlVZqzLljs3EkB6KltqBY9D
+	 eDW92DTlv7dPDkyrkZlRjjhyi+8QyAqFrcAV2I15KBGRLzP3NT11oyEHVwhpr7YQoYujF
+	 U26urJ/gScoiGZVKxdW1MtdBm6ywbuwY23MBiE3CmqFmJhAo4bInJveLd3twyvk1DAEFd
+	 4n6LVFqr5AR7yneFOufFxS2FDM9qORNjvTz2g5w0sKOvduQwJ2iTwZbUWfY/P//yzfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=sang-engineering.com;
-	spf=pass smtp.mailfrom=sang-engineering.com;
-	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=aRTvwNsx;
-	arc=none smtp.remote-ip=194.117.254.33
-Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
+	dmarc=pass header.from=yandex-team.ru;
+	spf=pass smtp.mailfrom=yandex-team.ru;
+	dkim=pass header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=CH0ELNzD;
+	arc=none smtp.remote-ip=178.154.239.72
+Received: from forwardcorp1a.mail.yandex.net (forwardcorp1a.mail.yandex.net [178.154.239.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87DF9606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:27:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87DF9606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15FA1606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:27:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15FA1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex-team.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex-team.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=aRTvwNsx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=i9D3
-	FjkLfYPSTdei45bQlEx7WvqZqfPDZxNohyDEg1k=; b=aRTvwNsxNWSIAQKnbg8y
-	CREq05UiAMceZGfiRN20p7OOOml+GunXax3jFBwsGP3H85Zs6Bt1HERjMxhA+L0z
-	h3fWiLM7ISIHhK+BDsaH977cujSzjLGgqivalts34j59dnQ1rfz01wgv/BaSONgU
-	cof2oFyLY72SHwVc5REEFSKCRVGineSB/xYqHL3QLBbRkliwaAKasuMFemxDdu/D
-	pd1B2T9TKEmZoRH9GEPohMX8onrO9x6Gnm70HdcfIRlygq7lv3zSDQcmZJdy+1Fz
-	+FiBoqIb7mQKGl7wQajfSXqfKefAqXJ1hYH6GNk7ouH0slyVpl+a9HFxbOEPuDzQ
-	ZQ==
-Received: (qmail 613653 invoked from network); 18 Nov 2026 11:27:02 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 18 Nov 2026 11:27:02 +0100
-X-UD-Smtp-Session: l3s3148p1@K7Cjc4pgZsoujnsi
-Date: Wed, 18 Nov 2026 11:27:02 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Paul Louvel <paul.louvel@bootlin.com>
-Cc: Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-edac@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Subject: Re: [PATCH v8 3/3] ARM: dts: renesas: r9a06g032: add EDAC node
-Message-ID: <av19dZeraUiSEzyi@shikoro>
-References: <20261118-paul-v7-3-rc1-edac-v8-0-ed791084cc19@bootlin.com>
- <20261118-paul-v7-3-rc1-edac-v8-3-ed791084cc19@bootlin.com>
+	dkim=pass (1024-bit key) header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=CH0ELNzD
+Received: from mail-nwsmtp-smtp-corp-main-66 (unknown)
+	by forwardcorp1a.mail.yandex.net (postfix) with ESMTPS id 01BB4C01B0;
+	Wed, 18 Nov 2026 13:27:00 +0300 (MSK)
+Received: from [IPV6:2a02:6bf:8080:d4b::1:2a]
+	by mail-nwsmtp-smtp-corp-main-66 with ESMTPSA id vQXVM51WmuQ0-e6VOJhIF;
+	Wed, 18 Nov 2026 13:26:59 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex-team.ru;
+	s=default; t=1794997619;
+	bh=lgBgYjBwxx/0h1itT1vxtcD9+XMGMAnJpI+uws+wlmE=;
+	h=From:In-Reply-To:Cc:Date:References:To:Subject:Message-ID;
+	b=CH0ELNzDFEWRRsummb5x9cX8/IIhLQzKFNgUrby7/D8EmYSyal4QdK+xgpE5LwmFl
+	 d0Bk6WhzDFrRRCp/MXhw3KeJX4DeLQ+XCwG4LBqO5Ot0Ygte360VyPZ3DPQggYC5DR
+	 LK/Cfw4d/OxxMFyqsiaUmkbGGrilmrwMp9/Jtqn4=
+Authentication-Results: mail-nwsmtp-smtp-corp-main-66; dkim=pass header.i=@yandex-team.ru
+Message-ID: <464d793e-19e5-42d2-b695-c8124fbb9b34@yandex-team.ru>
+Date: Wed, 18 Nov 2026 13:26:57 +0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,46 +60,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VBm/YAgMbcVHdp09"
-Content-Disposition: inline
-In-Reply-To: <20261118-paul-v7-3-rc1-edac-v8-3-ed791084cc19@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm/page_alloc: don't undo another caller's pageblock
+ isolation
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Vlastimil Babka <vbabka@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20261118000014.1474617-1-d-tatianin@yandex-team.ru>
+ <17456889-f94b-438f-85b3-45e9d51272ee@kernel.org>
+Content-Language: en-US
+From: Daniil Tatianin <d-tatianin@yandex-team.ru>
+In-Reply-To: <17456889-f94b-438f-85b3-45e9d51272ee@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
---VBm/YAgMbcVHdp09
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 11/18/26 12:50 PM, David Hildenbrand (Arm) wrote:
+
+> On 11/18/26 01:00, Daniil Tatianin wrote:
+>> start_isolate_page_range() fails with -EBUSY when a pageblock in the
+>> range is already isolated, after it has undone the isolation it did
+>> itself. Commit 2c7452a075d4 ("mm/page_isolation.c: make
+>> start_isolate_page_range() fail if already isolated") made it work this
+>> way, so that users of overlapping ranges, such as CMA, memory offlining
+>> and gigantic hugetlb pages, can use pageblock isolation to stay out of
+>> each other's way.
+>>
+>> Since commit b2c9e2fbba32 ("mm: make alloc_contig_range work at
+>> pageblock granularity"), alloc_contig_frozen_range() handles this
+>> failure by jumping to its common exit path, which calls
+>> undo_isolate_page_range() on the whole range. What is still isolated
+>> there at this point belongs to the other user, so this takes the
+>> isolation away while that user is still working on the pageblock. The
+>> page allocator can then hand out its free pages again.
+>>
+>> Return right away instead, like offline_pages() does when
+>> start_isolate_page_range() fails.
+>>
+>> Fixes: b2c9e2fbba32 ("mm: make alloc_contig_range work at pageblock granularity")
+>> Signed-off-by: Daniil Tatianin <d-tatianin@yandex-team.ru>
+>> ---
+>>   mm/page_alloc.c | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+>> index 12fac9084c48..151a8d64783d 100644
+>> --- a/mm/page_alloc.c
+>> +++ b/mm/page_alloc.c
+>> @@ -7335,8 +7335,9 @@ int alloc_contig_frozen_range_noprof(unsigned long start, unsigned long end,
+>>   	 */
+>>   
+>>   	ret = start_isolate_page_range(start, end, mode);
+>> +	/* After a failure, whatever is still isolated belongs to someone else */
+>>   	if (ret)
+>> -		goto done;
+>> +		return ret;
+>>   
+>>   	drain_all_pages(cc.zone);
+>>   
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7d9c29ed8feec8bfbe5e5f673ba2b5926da11375
+
+Oops, my bad, should've checked. Thanks
 
 
-> +		edac: memory-controller@4000d000 {
-> +			compatible = "renesas,r9a06g032-ddr-edac", "cdns,ddr-edac";
-> +			reg = <0x4000d000 0x1000>;
-> +			interrupts = <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&sysctrl R9A06G032_CLK_DDRC>, <&sysctrl R9A06G032_HCLK_DDRC>;
-> +			clock-names = "ddrc", "pclk";
-> +		};
-
-Dunno if we still want to keep the 'edac' label. Currently not needed,
-but might be in the future? I'll leave this to Geert.
-
-
---VBm/YAgMbcVHdp09
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmr9fXUACgkQFA3kzBSg
-KbaMvA/7B8Z4dcvBaxxcDL55zgR3FmtZ5EbUnUKeq6FHDZjiEYOVIhv2O723ghhO
-QJGp2KwPBb4ahYSp0+0/w79DDSdctY5ZljsOhvRj9jFK1EgqOqoibmbWmdOY5zft
-WoRWzvX5zwHaq3Wdrs3RoP3vTACIcQBOiXc+rf5gamHuG67YGQHHH23BSGaB9Fmy
-76qDyCAGUQPpq3mg/yrwuikaJLT0NV+fxLTXQ54NXUgfuKMaxiiwYsCWdnehhLmN
-Zz/j+/tm58sRbC/dQ4y1dB7cnbu2kNygC5j+YM6J1RvVK7RCDtA8ZbqM+0e9mipy
-0sEKEImcjkrr+ADGInt916OQb09dbXFxy+37qFuOn7j6fmv7pfzBezWLRV8UY/t9
-heRObcuRvus7l45V4JgeitJeASdZy+jlBblXiFnfwlT3R+JqPh3eoFiEmLXUZwKa
-7iXoZzF28rO2YTNBGncZ4Jig9AoEfoDQf/8dC5Di0QVXmqunbMM1C5XeRTKnK6ij
-Ad1Fr18FH6VP8om5/kK6406+yShfnGc+m3o4lOYk0Ov+oBctOf1WL4iVY7XYj9fv
-l9vOpgR7HkL4BsCd+38ZnWkF4pU1NcHIIER0t9Gv/NVObnEnlCHmUzHSx3jxCgt+
-n4SrabWdXl4IDZ1zIIz4zlkQZjE/GHS6VDMhgVhtcD/DbE5V01c=
-=zwkY
------END PGP SIGNATURE-----
-
---VBm/YAgMbcVHdp09--
