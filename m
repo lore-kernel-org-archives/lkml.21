@@ -1,65 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.67.36.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795001003;
-	b=HzYUwzqRozMjyb47TvbuS39p/6HsWug3wjJsbJcN25nEoA8OoWgIC7r2hLepb0W08vJG
-	 mJPpHn+ZHgUEEmfxNaNw6EZ2aBuY4ChUPe9iP/v58+0be6B+3oOPcGq716e5pqidFq8nJ
-	 nka3Qt37jJbfLsayql7nJsfdRiuGYCnfSEIRkzuwlKZ1DY8Y40kDw0HMBsIHpUmVg/d0c
-	 dx6t7Pap87rVUHeIPbmoXKjlc/BueiSNBD0mCQW248VvcQ8LUGMZya1psDhHWqW87CGSD
-	 euq303o7YLWRAbcWqxlm1ylQAn2XmLzrP70Nq/wJ3taZ1nq2l9syz+Z4z5Nb+F+2nig==
+	t=1795001016;
+	b=oDCDvniEBFCVEXjaHjE14/+QXVqD4kIRaQ5PdnWsCHBqfnIgZr2DmfBMcDIf/wsM+JKk
+	 29VhojTSOuoL4v7J3Lk9+HEDvNB3J2eoNwrfA41Guv908PnILs4qXFIVIt5ooDkYV49QL
+	 pDg6J/65QFe+pR4Qn1Co6azZTNZ8OrT4rFmNUtz0s26mqAK2YQNm2qFPF3YjIbWGfvKhx
+	 x42W7GUe5fpGhhZmB8Ge7Hz5vIC6+dgTBFyD1PjuyX6dPKQuCXEIGfOYOC7lOer90xE/T
+	 dSJocMkFqVF+rY95FuToQJCOtMSs/Cw7sHELOqiqB5FxMXyuq0nsEAQ0ZtNv+4ikqdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001003;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=W6x2pelBr3wYOCPRTKHiPfM5HE9jBdaWLd+H8cG1qSs=;
-	b=EIGNgW8sYZnElvWCkhaekFJNXbHOcJ2WPsztaJ4cVIqgn899yKSZunKqM5M4JTN4nZ5S
-	 KM11aGuqBvDr0WaBi0Vqz5uf8mK5kSOYB45R8i8rjV5qUJ1ss4U135AIz5Cr2AojsHOOU
-	 J1k0DXnhDf41Yoyw6+pGPtxLz66xgGuYUiiQozEJt9RcI7UlkdPZe+R3bz//6kbbeNnJB
-	 Wh8WJrgu4u4L8UvTvIxxnS7ICnLsZ6cnlsdb2GtsWIKx+npDvYvh9mkQtff9tO/OGIOY6
-	 4PMC/o+fc2sODF8usTbTPwqtTIRc7rXGyMSnFQ8J/LmBiy6Sb256iv201CQDePfR3bw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001016;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=h6c56GT5dZlNnGdRFZuOaR/Ayh1c+jZksN9Ebs1SvYQ=;
+	b=rFxHXE9h6e78RoFVmYavnzwwCIdLjZWBg7XZddDGUQ5g0fOXGdG5PsnVZ5tpfosU/Bpl
+	 DVoQqZWnhhHRjlWSO4ByxlrhMtbFL/twS6/dEoIsW2vlndJj7NnVm8mX/9PKrS9DT7OyS
+	 nx6qL2UVeEcEkOLksbfgvNbIbRcMurr1Ohs00wyIDnu+0qWEVJSFBxmet2sFQdydYuLor
+	 pFFT4B+MRhbRgbBuLxJ9THYfDacWYleCeA5dpA8gOCigmkzaTgILqt8/T+t6lqiWSWALB
+	 uop9cNMtrD9WBLJV45kuAsDfRc0dL8j3NPiCXonQrHC9vIHQIPL0acg0t/QeclyY7hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=posteo.de;
-	spf=pass smtp.mailfrom=posteo.de;
-	dkim=pass header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=h7i9IytE;
-	arc=none smtp.remote-ip=185.67.36.66
-Received: from mout02.posteo.de (mout02.posteo.de [185.67.36.66])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UvR5lEin;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F3AE606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:23:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F3AE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=posteo.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=posteo.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87A2F606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 11:23:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=h7i9IytE
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id B9293240101
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:23:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1795000994;
-	bh=W6x2pelBr3wYOCPRTKHiPfM5HE9jBdaWLd+H8cG1qSs=;
-	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 From;
-	b=h7i9IytE/1gaX3YfY32QyXasyHloxSLIWgiFlf/gIlmFEow9rjvE+AwtqWLWF2B1X
-	 bG5gqP10n8Jlq4dyuxsmU+JB2t9ZkPV+D16pjmL8yeAnkIjUy8qrz8MkBwXw1UkK49
-	 rGhRa7COC9VQ4Kiq0U+AUvCRCHHp4fM2oUJ01KvjOmy19jkuJTDibnhFg5ssxxzOHw
-	 uI/QBk/dHaNJ2zlAwFjZhUg0t5UPoGpuV6KP/Ofk6tDUrXj1TWgGNFlQhGVLuQg0eX
-	 skCrQGlLggBIRn4e6QnIy/yWSX+08dhqXDq8qRvpDc/85RYk0OiyZDI3wg+RfdCpS+
-	 rAFacqO68BF9A==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4jTzjs49lrz9rxF;
-	Wed, 18 Nov 2026 12:23:13 +0100 (CET)
-From: Freimut Diener <freimut.diener@posteo.de>
-To: Yang Siyuan <hsyysy@163.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] usb: phy: generic: request the vbus supply only when
- it is described
-In-Reply-To: <20261117094539.13527-1-hsyysy@163.com>
-References: <20261117091956.12103-1-hsyysy@163.com>
- <20261117094539.13527-1-hsyysy@163.com>
-Date: Wed, 18 Nov 2026 11:23:14 +0000
-Message-ID: <87a4n6v0wv.fsf@theta.mail-host-address-is-not-set>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UvR5lEin
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE1D1F000C5;
+	Wed, 18 Nov 2026 11:23:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795001016;
+	bh=h6c56GT5dZlNnGdRFZuOaR/Ayh1c+jZksN9Ebs1SvYQ=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=UvR5lEinR/ZxBKNvTMqyeIca9oIRlRYm74h0Q+eHeK2wH0g0ZGbw9NlrUiDBDuXRa
+	 UqLbuJVjxYoOetryJCXTVgr6u1UjHth1GXq9Z7yRsxxrXWP4dEzNfCcOCPOCTbty7H
+	 L2cFA6nBFDVxkU8sJpfVun9/bNbA+g/9bgFYTBTUGNv/kaF86vDzU2G672xs0r8XoJ
+	 ebk6cHmf8McidA2XEJ+OAhf86R99NkOvPvr1k9yxqIPZiCC2eR//EVa3M7HPhJGEAT
+	 1MJsAvzYo2ujhMQrFzBHYMDWLazQ8gbFgOrEKO3g+JnjxAVTQ2fm0vX7TH+B80+Y6g
+	 GHNwrTbJz1rDQ==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 1B7F4198003A;
+	Wed, 18 Nov 2026 06:23:34 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Wed, 18 Nov 2026 06:23:34 -0500
+X-ME-Sender: <xms:tIr9ahZq1ocmpwxIXhf-F80q3Uqxpfl_nFNfgz_Fky-D8gIOqkC8SA>
+    <xme:tIr9ajPDcTWR7KOSvCXjEwIlgFgnKqkA1FyuWOro1lgXSPZHYIxQiMKCjFD9fuQ66
+    coK_Rs9DxYGrPH8Eyyvlza9o6XW9bGZDs64K7ycYcFeMDe7pwsblQM>
+X-ME-Proxy-Cause: dmFkZTGQ3AIt8NkRlhwKOE2eLriF3euVo9ccg3+yQhNtzKQQDQ+5Y3+pVP1WbG+Z1/jm/m
+    OdOoypG7G2yzbPAnAmvhBZVk8MexoB6VPdpuUc94cvmZ4OUYCqrg/nTCbYWhsGiKU29yLu
+    ZTjc8AxSoKJ2+rnXmW2kfu6GTB5ccVobPoBfmn/zj6p5tp/uKeLn8f06SThNTSxBptz9Tu
+    h3NY/5+5Gl3cyD4mZWe+byhNpgaSKxYCUlVcFRFoUHN9g/RN4lN6t4TcsJQvTjRG/tt9c1
+    e0lTTBn99Fgy5hB8/NrRerA4AwqUoON9QpWPlpOxpa7feHUvFvmtL7TSqPDef9MH7sb8V6
+    CTDFCKAdCwCiCkWcTT0JDFFm2zN9JJmX4pT9bBh+jvVXUkNAdHjpjjaGX5YmgCrMDYWzNM
+    YMY7TMRH/K7PRr5zxW5YjiTu0KrklU2/Bp3G8vTbexb7rBNnW/uTtnX1VQPjD1ula48yP5
+    M1iVExLoD58Sm9RFIVv35757JSzf9rjS+XNVAZ6wxmIAWf8WpYrtHSkBxX2UwCJI2ijSiS
+    KraXsoNvCeK2auoRyrm2LVqvbTE5LIVAd5WY+FSHQ98IbKfPZ0SxMC/xIo9hHF6YWiUWhx
+    KyyV7V4IqBnPkmVJrEB2BFdAL+Z+n0AKDbgUEWjDDUJMlb7Xs0P/mW1GGlYg
+X-ME-Proxy: <xmx:tor9aumJ4c57iawxLzY_XPZWkNUNz59dudMW98kvKLuACKHX5gegdw>
+    <xmx:tor9auxnt-ziUJMO5RtwehssH3ehYOed5lhUYdNWDrevxGe2yvzAdw>
+    <xmx:tor9aoOPPl1KyXkXsTlPgS-my2KkEOJ8m8hxWGFcYWSBcUeMCCVp3Q>
+    <xmx:tor9aioOyMYsWqlWpcEvVR065RjIEMlVn-sphs6kYQq5l8EmEuETTQ>
+    <xmx:tor9apEeYyNfzzLEPqzMCMNAdHsRvKmOOGj2I_38veWoLSsgUk4HrGF1>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 9FF41F8008E; Wed, 18 Nov 2026 06:23:32 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,9 +77,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Date: Wed, 18 Nov 2026 12:23:12 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Ard Biesheuvel" <ardb+git@google.com>, x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+ "H . Peter Anvin" <hpa@zytor.com>
+Message-Id: <f15c5920-a624-4758-bd69-221d658d1ffe@app.fastmail.com>
+In-Reply-To: <20261111091843.3621782-2-ardb+git@google.com>
+References: <20261111091843.3621782-2-ardb+git@google.com>
+Subject: Re: [PATCH] x86: Make the 64-bit bzImage always physically relocatable
 Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Tested on the NXP i.MX93 FRDM board. The patch eliminates the spurious
-dummy regulator warning.
 
-Tested-by: Freimut Diener <f.diener@pengutronix.de>
+On Wed, 11 Nov 2026, at 10:18, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+>
+> On x86_64, the physical placement of the kernel is independent from its
+> mapping in the 'High Kernel Mapping' range. This means that even a
+> position dependent kernel built without boot-time relocation support can
+> run from any suitably aligned physical address, and there is no need to
+> make this behavior dependent on whether or not the kernel is virtually
+> relocatable.
+>
+> On i386, the situation is different, given that the physical and virtual
+> load offsets must be equal, and so only a relocatable kernel can be
+> loaded at a physical address that deviates from its build-time default.
+>
+> Clarify this in Kconfig and in the code, and advertise the 64-bit
+> bzImage as loadable at any physical offset regardless of whether
+> CONFIG_RELOCATABLE is set. In practice, this makes little difference,
+> given that it defaults to 'y' and is a prerequisite for EFI_STUB and
+> RANDOMIZE_BASE, but it will help with some future refactoring of the
+> relocation code.
+>
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/x86/Kconfig                   | 40 ++++++++++++++++++------------
+>  arch/x86/boot/compressed/head_64.S |  4 ---
+>  arch/x86/boot/compressed/misc.c    |  8 +++---
+>  arch/x86/boot/header.S             |  8 ++----
+>  4 files changed, 29 insertions(+), 31 deletions(-)
+>
+
+Ping?
