@@ -1,49 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015929;
-	b=NffLcEq2gdp+WMSWNRSK9iT1xIgAyHTuvZLxyf90bMSK+kUJb9ylVSra1RoLYvAttrqo
-	 xcJuOFeLQR4EYvU3Az39zpms33JjCWDkFO0WMjw7LxTemHoI1YXmgW5FRNyh7UpnGPXfu
-	 SxbE2rd5FV2G1xWu8zWWdcKA7noLlGdcFInlC82URgPT+riJQJUF6bLWlv2Pg4cISwdv7
-	 OKvF22Skk8bNyp9GLq6AyitajJmI0Uqh0uJpNhedFiPKVtz7g+3vvAmqWBkMUhbmIxsK7
-	 KxfqknY1AZjyRc/Cf+88itxAXuquBtfHULL4NvdUQPrtF+p6m+bVHQxvoNUbtzWrAcw==
+	t=1795015930;
+	b=1XSCvXwhXNGuoT61nJsT8pNvF76lthXbq/CNPY1F9IyBNzTBoRtGgymgW1Nk0pXxBdH6
+	 RPOL1I9Nb8f/UzluOMkjH41+NaIc4RuWn0gwHlXbMQE3Q6qmWML6nDIgLANIKn+D6++v4
+	 kznmWY8M9IscfQtaYQVy7+kEy291R9vtQff1VsItsLgbvrFOoJ7bnXxcokt7h/qkpmFxj
+	 5BrOam3QYajYZyxhc3nHRAaSKe3knt48PQ8sIDzId2uADKk/CtXkXhf0ECsmnuZnWROT/
+	 nB4+5VQyF8rqqFetZCIxYUM8DwFjoJ4jEQysqHJHjrS0ND9IZP118P0H3wBvFW/Tgfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015929;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=oBaZhfIZKNZSnkGezQQoQRmFPWDP0xuSJkratO6Q5Fc=;
-	b=Og/cHs2qtVgR2z0/Qe4pkhVElvaq5898+rtxchsZrL6CLLNj8ELYzdbEVEH9jJ8vWsOM
-	 drPjh2vaGVIccpmK3s7tI7Fpv87ekRvM0wYAtrfELFKFq6sM2dYDYR/0kZdy529I9NndE
-	 uG2eEm3hoWPta8Semch5ki7SOdl9GLVf0NXwjNPN1j90soXel0v5qlapJo5LpYYQgmWLo
-	 uCqEx3EbzH7KM6bwnoLjgv8UrdzNGo+/j+SkdU5NCBE9yslbc7oUBNcq5OUmsGDXoU0Mm
-	 ubZNlAxaIlhp//4wBlGzfcNPpDFzujTSfA6sglpEA47e1+/IYrhBddObSvSnvSGtArQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015930;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=AzhI44GUXY0kG5+XemeJo+l/ioZCGN//mKUp3IL0c+M=;
+	b=gKcmPsw6s2DjqVzPHHBRgcRtRU1/6u7NPKSeXLVgtMgkQDxtUZyH0NP4tmdzk0raUmP8
+	 8gTOwMqYP1j9phT+VhaAv04N5fM+Mm6JZV5zw0op2htuvPtXzLjwLi1jijcEdYUZC3L2s
+	 uWswOvWwf0nTx9bhwJanX5rXlmp8crBqM8qoHsyrNaLyvocGQmplhIAwGmKcp1Dc0ykn1
+	 RLFe2LIGHtLScLAijo4IHm6hSU1rlUlWcHeICTWAMeuMY9u3ZhIZNFjqzxEFiJ+Gt+5Br
+	 aTANNIKbe16oUKOB19Q2qf4bugQDh7PsOyzG0JKxws6OSQT4qatzU1idVkiVCM85SMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mDcMBZ6u;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CA5FC606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 15:32:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA5FC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PEVXg1NA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F750606A331;
+	Wed, 18 Nov 2026 15:32:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=mDcMBZ6u
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2EE631477;
-	Wed, 18 Nov 2026 07:32:05 -0800 (PST)
-Received: from [10.0.136.98] (M0PRX50XMG.cambridge.arm.com [10.0.136.98])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D29803F632;
-	Wed, 18 Nov 2026 07:32:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795015928; bh=qqsOJXhjc7KGseviJFfoBepAbNPKz5HEgBQK3Rxo5CI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mDcMBZ6uIzblwoex4pmjAZkPte64ymXkD/W8nELo8+8vdiyb5Afcpq9ipXs0zL6Sz
-	 aWtPYmrYZAu23cuZjjfdDaEDkrUkYBBPmc2XPmNmu/Vl2fH/JOKTCs6DEc9CWBmgod
-	 wOkgTE2G2wYt/nDpukuvtwK5jD8Z3Irp79BzIO8Q=
-Message-ID: <5a92090f-cf42-4767-a089-29969aad0a13@arm.com>
-Date: Wed, 18 Nov 2026 15:32:05 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PEVXg1NA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F56C1F000C5;
+	Wed, 18 Nov 2026 15:31:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795015930;
+	bh=AzhI44GUXY0kG5+XemeJo+l/ioZCGN//mKUp3IL0c+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=PEVXg1NAl8AaS4XRZvjTZEyQR99R6RzFKI+94RBwwdZuSzRxiVBl7OYuOoU5oDE9P
+	 lnw7yHbCisMbC65Bg+9HaVme93wOy6D9s0V6PBwZ/fTvzTqi9cRjy/QQKrF92vOENa
+	 WtePMA/g07fIOBOD4QQkL3pSxK5bnQuoM171u/cuwG4Y/1i7LVoWUNNKpPMFpZA/hT
+	 LFERVHuEDLjqalMUr5cN+Q7C3SCzuy8mjlRX2WQBBGJHtvn1EKJkxDtge7T2hGGYyb
+	 Be7EvRH6dkgU90LiFEtkKvBqQDBamU3JNJYq8iuZNlRpoO7YiLISrUP/Z2ZmT7SP6c
+	 FMxrqfGQM+SBw==
+Message-ID: <5650b972-700d-44d0-87b4-029f0327eacb@kernel.org>
+Date: Wed, 18 Nov 2026 16:31:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,79 +52,111 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/10] irqchip/gic-v5: Reject SPIs not backed by an IRS
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261104-host_gicv5_fixes-v2-0-e47ad20ea3c8@arm.com>
- <20261104-host_gicv5_fixes-v2-1-e47ad20ea3c8@arm.com>
- <auwxtSfBOeKXC6w_@red-moon>
-Content-Language: en-GB
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-In-Reply-To: <auwxtSfBOeKXC6w_@red-moon>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v2 07/13] mm/migrate_device: look up fault folio after a
+ split
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Nhat Pham <nphamcs@gmail.com>, Johannes Weiner <hannes@cmpxchg.org>,
+ Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang
+ <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
+ Usama Arif <usama.arif@linux.dev>, Kairui Song <kasong@tencent.com>,
+ Balbir Singh <balbirs@nvidia.com>, =?UTF-8?B?SsOpcsO0bWUgR2xpc3Nl?=
+ <jglisse@redhat.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Yu-cheng Yu <yu-cheng.yu@intel.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
+ Peng Fan <peng.fan@nxp.com>, Josef Bacik <jbacik@fb.com>,
+ Chris Mason <mason@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, "Borislav Petkov (AMD)" <bp@alien8.de>,
+ Mark Brown <broonie@kernel.org>,
+ "Dennis Zhou (Facebook)" <dennisszhou@gmail.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Josef Bacik <josef@toxicpanda.com>, stable@vger.kernel.org
+References: <20261113-mason-migrate-et-al-fixes-v2-0-50a2ed382b61@kernel.org>
+ <20261113-mason-migrate-et-al-fixes-v2-7-50a2ed382b61@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261113-mason-migrate-et-al-fixes-v2-7-50a2ed382b61@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 05/11/2026 07:35, Lorenzo Pieralisi wrote:
-> On Wed, Nov 04, 2026 at 05:47:55PM +0000, Sascha Bischoff wrote:
->> It is possible to build a multi-IRS GICv5 system where there are gaps
->> in the global SPI range that are not backed by any IRS. In the current
->> incarnation, this results in dereferencing a null pointer.
->>
->> Reject cases where the firmware attempts to use those SPIs during IRQ
->> allocation by catching the case where there is no chip_data associated
->> with the irq (meaning that there is no IRS to back it). Spit out a
->> warning about broken firmware when this is encountered as it shouldn't
->> be using non-existent SPIs in the first place.
->>
->> Fixes: 5cb1b6dab2def ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
->> Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
->> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+On 11/13/26 22:45, Lorenzo Stoakes (ARM) wrote:
+> From: Josef Bacik <josef@toxicpanda.com>
 > 
-> https://docs.kernel.org/process/maintainer-tip.html
+> migrate_vma_collect_pmd() looks up the folio of migrate->fault_page once,
+> when it is entered, at which point the folio is locked.
 > 
-> "Ordering of commit tags", if there is a v3.
-
-Have fixed this. I hadn't caught the fact that b4 (re)ordered tags 
-differently by default! Thanks for catching it.
-
+> The fault folio is assumed not to change after this, however if
+> migrate_vma_split_folio() splits a PTE-mapped large folio which contains
+> the fault page, the fault page ends up in a different folio.
 > 
-> Lorenzo
-
-Thanks,
-Sascha
-
+> Resolve the issue by looking up fault_folio again after each restart of the
+> walk.
 > 
->> ---
->>   drivers/irqchip/irq-gic-v5.c | 9 +++++++++
->>   1 file changed, 9 insertions(+)
->>
->> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
->> index 8c0303af71e7d..f3cce2bd28cc3 100644
->> --- a/drivers/irqchip/irq-gic-v5.c
->> +++ b/drivers/irqchip/irq-gic-v5.c
->> @@ -727,6 +727,15 @@ static int gicv5_irq_spi_domain_alloc(struct irq_domain *domain, unsigned int vi
->>   
->>   	irqd = irq_desc_get_irq_data(irq_to_desc(virq));
->>   	chip_data = gicv5_irs_lookup_by_spi_id(hwirq);
->> +	/*
->> +	 * The global SPI range may contain IDs not covered by any IRS, i.e., it
->> +	 * may have gaps, in which case there is no IRS to back the SPI. Catch
->> +	 * broken firmware trying to use any of those SPIs.
->> +	 */
->> +	if (!chip_data) {
->> +		pr_warn("Firmware bug! Unimplemented SPI (0x%lx)!\n", hwirq);
->> +		return -EINVAL;
->> +	}
->>   
->>   	irq_domain_set_info(domain, virq, hwirq, &gicv5_spi_irq_chip, chip_data,
->>   			    handle_fasteoi_irq, NULL, NULL);
->>
->> -- 
->> 2.34.1
->>
+> Fixes: 022a12deda53 ("mm/migrate_device: handle partially mapped folios during collection")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+> [ ljs: pared down commit message ]
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
 
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+
+-- 
+Cheers,
+
+David
