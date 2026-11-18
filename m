@@ -1,68 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794984503;
-	b=RZ42tVfZfuz86hQ1hbMy50Qs/3XvFyNFi7P2q/Gv3OnZQWc+iEm0gVJlaO2cYYPt+nfP
-	 v4nFpi0MAY3rJ5qw+MlzeERuJS9HvnOtXgAZHJeLtQKCFPqqqBJyCpdczRg49vVcG9N1z
-	 4Z17xWRFdLufmb55/eRQxvanIYaT6RxMm6LP6BPCilJE/pc9SfdomcoUm+ySWEdLEB7dh
-	 qAztm17OC2Ej+Xe+ZHwPz9evRe82Bh741MgA3BNT1Ng46GbpM7ubmf785cvp+a9MMY/qa
-	 ++l5Gy0GE0vDO7PaI85pV/umL9HdBq2qJH3Me5sNoMgEDIaEEKnwA0EhCm5aVxm09hA==
+	t=1794984545;
+	b=iBP+Zjk+n3d4gciR5EqQkNaBO4Kgq97R090r+dnrXm7Yq+EQDgT09jNuUG0y6sUWxU+y
+	 FYntsVjoIb+YnUJRCT3mwArAePywx5g0hRBSpkT/Ht7ix4Cimu8yhoJUrdDpp0xnBWE2t
+	 rd4xQGjcvmFG4vDrknUkAiR3brHTlfVpyUHpu/QK4yNb3Wp39+xKbDbBig/Ofw9UeXZ4F
+	 6dVBD5HwBz3ZmiUoTHjzC5VAD3+a8YpVHnXwJ72xTLRIpzbHPGZf/t2Oy0jQgKWO/fRSe
+	 5MVvdnyKrFEXm98Zy+8JN6lyAeP4HVdIv2abh7DQm4h1u7aOMw5XtWNu0dHlemfy2cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794984503;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=vgwgCvpswtJRWR2a83jgVRcIOlLkVvQPyoIjj5/btfw=;
-	b=mDn/ocMlAYUzFN55QLTMSvSsNzApAmvL47M/K41SmmkJqCBSNu1LmUPd1harkllpkGZ8
-	 gABCaVXdXxRFCIynOddMLkDAQaEhPieVZRucRyZSAa7ssz6gnytOb68Zd3soCEUaPWRNo
-	 RRc465Y9rh71WapqRqNI3MKj5Ju0iHZXu/ILrPocJfakSocefU11CxDGTxYpVzu/NPoRW
-	 3uwDxNRujrIuvYhioONluW85Tqw32Yz8cxJgJOf3DXW09zNOix0Tnzl2ZOsgd3hui7fSP
-	 MrGxvN0mDYxHY259pX4LMqEqQj4u5MPcaai5PDZFDf3IhbjpB0ucqf6fBSnFGk3tovQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794984545;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=xxWKMH6BY+Z09D/5F5m0IFSeEDfCXNxKdZmc2UOHg20=;
+	b=n3W/j9qe99mTr+5/O8WEVMITwDY/CacsuMRaa4Ue4CmQigxl2/iv6osDF9bKnGZBUBLC
+	 O1lC5O+Yf4dI+nAY4AdqP30ICsqty6gdEUpkGk01gbvlEeBr1b/7stzYI1aPSZqBlCtPs
+	 OOgGLwVWlebUDksrfA4+99tnbruD1XF/Y6upNEZSr/UhJdo1ezu6uxWCiuJd5ytLqXkK9
+	 +iagLvQoGjSRHUKpyyfNaV7r+uqZssr8mCzyfm54D9H9g8PLO8yi+ol9LW/HnxMsbdvXS
+	 9BUtj5FDP3w4I7boMiPZwrLTxjBNGgHauW9Jw9c2SabQPMf6/J0GmfvT6TwGWm7ltCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="mB/5QKel";
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=OAW0E20z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B458606A32A;
-	Wed, 18 Nov 2026 06:48:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B458606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6931606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 06:49:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mB/5QKel
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794984503; x=1826520503;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=mZA3G0uEhW7Xobr9BK0nooFcChQvCLwKszT8JnEeXW8=;
-  b=mB/5QKelnfmZjXHyxEEAy0DHU+2/FIMmWVhirZPfWFDSBb6XMcvQ16fR
-   99ai+0HTl8yozuNFboBKEV7YB/CyNcgulp/J0mrvST7b0WAFd1iYQ1t7M
-   zfKMiwimne2COGrngJlxlt0DKX96znR2STD3MQKe0nWdxBWBwBrHRx2Wc
-   a40+1Wjqqe7yUgCB0HYPHJ/hRhV+lCq7yf45cIJ7mQjsWWGNj7TjSQqyy
-   WIMnKdpzvrPZWQIsDk7je9bsT2ykUwg6fSkVrB+JCKVI3vEt5+v0xG/7S
-   d07WepQo9NdXjZoiCFLy78icCeQyzfib9+nlJfhC3dkpvRi7pNfprKWqX
-   Q==;
-X-CSE-ConnectionGUID: t7QL/xr4SOakb6j+f8OPyw==
-X-CSE-MsgGUID: OA8+tGh0QVCwZzLKH9YJHQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3772828"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3772828"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 22:48:22 -0800
-X-CSE-ConnectionGUID: ZA24Y1gqSOytFHBaUOYmKw==
-X-CSE-MsgGUID: WSI4gld1RRO9UN6hj7Rmmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10434622"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.241.239]) ([10.124.241.239])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 22:48:14 -0800
-Message-ID: <acbc31bb-d752-4394-a0bc-5cf24ffc7300@linux.intel.com>
-Date: Wed, 18 Nov 2026 14:48:11 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=OAW0E20z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A45D21F000C4;
+	Wed, 18 Nov 2026 06:49:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1794984545;
+	bh=xxWKMH6BY+Z09D/5F5m0IFSeEDfCXNxKdZmc2UOHg20=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OAW0E20zRI04KRDo6EGVkgEmQnUifBijI3BXdyIJEJrLFydbQ6KJF9U/H7zfKMeae
+	 Me0j/n9bBj9HZw+Bd8HPo2N4//96VymwdsnC9G9nKu6vdKwZBP4IcUenxQLhyFaX9/
+	 0p9JN+ck5OoX5lKdx/yOAuzeypVa63swGqvp5Jko=
+Date: Wed, 18 Nov 2026 07:49:02 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: desobei <desobei@outlook.com>
+Cc: Ian Abbott <abbotti@mev.co.uk>,
+	H Hartley Sweeten <hsweeten@visionengravers.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] comedi: ni_routing: fix SyntaxWarning in
+ convert_csv_to_c.py
+Message-ID: <2026111830-writing-dripping-428d@gregkh>
+References: <PH7PR19MB66587C2BE5E8E94F693B4F14AF7A2@PH7PR19MB6658.namprd19.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,94 +55,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Patch v7 20/24] perf/x86/intel: Clear raw LBR counters in the
- LBR stack
-To: bot+bpf-ci@kernel.org, peterz@infradead.org, mingo@redhat.com,
- acme@kernel.org, namhyung@kernel.org, irogers@google.com,
- adrian.hunter@intel.com, alexander.shishkin@linux.intel.com,
- ak@linux.intel.com, eranian@google.com, andrii@kernel.org, song@kernel.org,
- ravi.bangoria@amd.com, ananth.narayan@amd.com
-Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- bpf@vger.kernel.org, dapeng1.mi@intel.com, zide.chen@intel.com,
- thomas.falcon@intel.com, xudong.hao@intel.com, sashiko-bot@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, martin.lau@kernel.org,
- eddyz87@gmail.com, yonghong.song@linux.dev, mason@kernel.org,
- ihor.solodrai@linux.dev
-References: <20261118031453.1353625-21-dapeng1.mi@linux.intel.com>
- <cc3a05a38e308aa20c6b9886b4cd3e5f403287627b44f30ce07cb7607329ea13@mail.kernel.org>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <cc3a05a38e308aa20c6b9886b4cd3e5f403287627b44f30ce07cb7607329ea13@mail.kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PH7PR19MB66587C2BE5E8E94F693B4F14AF7A2@PH7PR19MB6658.namprd19.prod.outlook.com>
 
+On Wed, Nov 18, 2026 at 12:09:49AM -0500, desobei wrote:
+> convert_csv_to_c.py validates register values against the regex
+> '[VIU]\([^)]*\)', written as a plain string literal. "\(" and "\)" are
+> not valid Python escape sequences, so with Python 3.12 and later every
+> run of the script (e.g. "make c-files") prints:
+> 
+>   convert_csv_to_c.py:47: SyntaxWarning: "\(" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\("? A raw string is also an option.
+> 
+> Python currently keeps unrecognized escapes verbatim, so the regex still
+> works, but the script will stop compiling once this warning becomes an
+> error.
+> 
+> Use a raw string. The resulting string is identical, so there is no
+> functional change.
+> 
+> The problem was found by compiling all in-tree Python files with Python
+> 3.14 and SyntaxWarning promoted to an error. The search and this patch
+> were done with the help of an AI coding assistant (Claude Opus 5.5).
+> Tested by checking that the script now compiles cleanly with warnings
+> as errors, that its compiled bytecode, constants and names are
+> unchanged, and that the regex still accepts all 95 register values used
+> in the ni_route_values tables.
+> 
+> Signed-off-by: desobei <desobei@outlook.com>
 
-On 11/18/2026 11:54 AM, bot+bpf-ci@kernel.org wrote:
->> perf/x86/intel: Clear raw LBR counters in the LBR stack
-> TL;DR: Clearing raw LBR counters in the shared stack may zero them before a
-> later branch-counter event in the same PMI reads them, giving all-zero counter
-> samples until a later commit fixes it.
->
->> diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
->> --- a/arch/x86/events/intel/lbr.c
->> +++ b/arch/x86/events/intel/lbr.c
-> [ ... ]
->
->> @@ -1001,6 +1013,7 @@ void intel_pmu_lbr_save_brstack(struct perf_sample_data *data,
->>  		return;
->>  	}
->>
->> +	intel_pmu_lbr_clear_raw_counters(cpu_lbr_stack(cpuc));
->>  	perf_sample_save_brstack(data, event, cpu_lbr_stack(cpuc), NULL);
->>  }
-> Can this clear the counters before a later event in the same PMI has
-> consumed them?
->
-> handle_pmi_common() reads the LBR stack only once per PMI and reuses it for
-> every overflowing branch event:
->
->     if (has_branch_stack(event)) {
->         if (!cpuc->lbr_stack_live) {
->             intel_pmu_lbr_read(cpu_lbr_stack(cpuc), cpuc->lbr_counters);
->             cpuc->lbr_stack_live = true;
->         }
->         intel_pmu_lbr_save_brstack(&data, cpuc, event);
->     }
->
-> Suppose event A is an ordinary LBR event on counter 0 and event B is the
-> sampling event of a branch counters group on counter 1, and both overflow in
-> the same PMI.  A is handled first, and intel_pmu_lbr_save_brstack() calls
-> intel_pmu_lbr_clear_raw_counters(), which zeroes entries[i].reserved in the
-> shared cpu_lbr_stack().
->
-> When B is handled, lbr_stack_live is still true so the stack is not re-read,
-> and intel_pmu_lbr_counters_reorder() reads reserved == 0 for every entry.
-> B's sample then reports all-zero branch counters.
->
-> Before this patch the non-counters path left reserved alone, so B got the
-> correct counters in this ordering.
->
-> The later commit 57fc5222dbd3 ("perf/x86/intel: Refresh LBR stack for LBR
-> counter events in PMI handler") addresses this case by re-reading the LBR
-> stack before a branch counters group event once an earlier LBR event has
-> cleared it.  Until that commit, a bisect landing on this patch would see
-> wrong branch counter samples in this scenario.
+Hi,
 
-Per my understanding, we'd better keep current patch order. Without this
-patch, the LBR stack needs to be refreshed only when there are two and more
-LBR counter events, so the patch 57fc5222dbd3 needs to refresh LBR stack
-only for the cases that there are 2 and more LBR counter events, and we
-have to add a new patch to relax the condition, the LBR stack should be
-refreshed as long as there are 1 LBR counter event and other LBR events. 
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
 
-It introduce unnecessary complexity. Thanks.
+You are receiving this message because of the following common error(s)
+as indicated below:
 
+- It looks like you did not use your "real" name for the patch on either
+  the Signed-off-by: line, or the From: line (both of which have to
+  match).  Please read the kernel file,
+  Documentation/process/submitting-patches.rst for how to do this
+  correctly.
 
->
->
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
->
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44231525404
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
