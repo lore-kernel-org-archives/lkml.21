@@ -1,78 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795024323;
-	b=40SZ04K9LPMYbtGzE11Tw+AX7Rg0m/3dVD7iNmI2rLU9PmzqOjtUPzOdFj92VaDwv5iX
-	 kdbpX64cm7zbb+vPLpLmzLGbzLGwNu9UlZdbSJzjGHRO5213q0eXN9/QQsfFobhAVMnPG
-	 dg4FVr8nDa1oppjFi8xYOYN9wNekuaOev8XuYeHBNXdrQPgtqUwCDNTvud2zYKn6RJ/2A
-	 GzR1PryILT5l8CgeN+zvdb1tZIHKwDmTfcNd/GUBD0wcPst/XBDznAOHCywmr5KiivByF
-	 IZYZwAlK69CNn9Cx3cub5KJ5/xUZuBICQOjl0ax6l3f+fUirhpJuazZQc/UXmWM2M4Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024323;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=qK+Ek9AkOSYvJ6aZwpqXO1SfrR+8IC10f7yTJkf7Xs0=;
-	b=lpIJxjmOtTZcMPh+rQUAt0X/0L3JR20/f5CXJfoSLhmy26Nxmz9o7u9yjD1h5xPgC98Z
-	 uSB9QydKD7PIyiBuu6gzcbU2GLF4QGfWE8yLd4pk6RMsg7a5bGg7Qccz2tZX8Uq/uKnGD
-	 E1/O9mntDEx2GK21sWcuAUOyJnpKe3NDtNxljUIaO5nUFnE8XvqphmV0IqZeo9ovIvmMC
-	 NPJOjzcszL4y3k6sykolbP1ARETzD1EA30thiJsooqjSHHo5fWOIvZLm6JvUeu4QNshZH
-	 O4/f6ffRRJ7o6KkjfVVIWbtlmORUKC6Rq8cTdLpReP3fM5irmUSGVxLsM2YifVdEIPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="CqYpjXe/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46A09606A335;
-	Wed, 18 Nov 2026 17:52:03 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CqYpjXe/
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795024323;
-	b=APUEygMK4icpVHn5eL/zXaS0QH0/Vh+QCE26SKqJZDW1ChzlZ1wwfsGd7G0tm7Gv3C15
-	 5j9EiZDCxCfh2hOnrWralZXG/6EVlfTbnKjigocfN9Uh3jyMItyVh8W7d4FEgNrHu/JP0
-	 uTSkiXlxoro0oktWR7WdKqYbs7RkQk8HjprrnZoKpFh+/ybnfqH7DHhi5qeHxq9UxI+pi
-	 a7S9XN80yJI5m9yjVjuPJI1wbXIQgj/RH08c35irxCKJEyoj0V3VitC//PYhueHlPqUpm
-	 SytHeFlSQ9/gY+qYDwJKoPF61s5yO/qWWtnNSimAtnAUL4Itu68Na0FamOpcR/ofBxg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795024323;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=qK+Ek9AkOSYvJ6aZwpqXO1SfrR+8IC10f7yTJkf7Xs0=;
-	b=jmSda/tRKL9mvtPuOBXQqIm6tQgGSX2mLuY3ZJB/Cqfs+niFQ4HbtwX0H6Rz3gmffSwL
-	 +e1l4vQgsAZ3YI8vlDK42zwM0qM2TEDcc1S8ebTY3TzGAX3zwxEYZ4+gUcpLQERInsCRt
-	 oKANbpsExMSuoLbxqDtYQ1WDhopObiMZW+ad8VpwtlVUD94LkPwGlkpka85zqZ+ioGDkA
-	 6/hqGzYplyS2pXWjEEdN0B4IO+Klj1qDX0jE9FGQVSouK8Ro8ghr2nXbNIYFUQcbXjsWA
-	 /+GOCyO784kRAFPNQ4IA577J1KWrFQOmyr6S6Kt1gKBD1UrHCAug6B1IqVNlTb97+Eg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795024360;
+	b=cNMuijCptXHLrAvSgraKiOrc8aPqi4b7jnktWtGczjM4u6LYR4q0IysSfVdm08t2icmn
+	 B6Aq43RrFTQ4jKfjwyhDYmzfQF0vtH+1U/6EhXdIjbTknf/6wBfHx6K5aBoDkDT1TIYuv
+	 hbyqvOfT2lK9A/rE4p4rv/7kh+Ij82Srgxi22AhRn8Ce15C20qcverYURc9nscTGuMq1p
+	 lRnO+5Rr0v2gzCXcqI5joipEfYn3ZPpKWVrhczVGgMkJhXuzRpiZ7hC2+2rGVYjgnliO2
+	 xF4VXZEVP7NoCmUC1SF+eDdy1rPDsS5QzolsRgx7BTlbCDlKf0L0GvUCDyAQlwQ8K/Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024360;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=aKUtxq3JGEiVMt66Bm6OtfCap3a4xkXQXSy7MpwOvJg=;
+	b=45353IxU6WC6Kmm3xNj1c+kA5yosZfpadfvAQYJ7/A3MrFmn6DopD3ki0HvXyjLl7gLR
+	 /PesmxswidZ4emgomQ4UmA5VyGKDRGvs53Gec5QWHS9oZC8De4tlTU1cDn9EwLwroUoaL
+	 mYRQ1/2dwSe7Rovo4YcI4De5lgq5X6VgFcRjecOmyX5SIhAvp3SKr00wsEQZiQSARrvDE
+	 ytsZwKpIeyhvrh4orNEczFUTPsdw3gNR2L79hDz4yz6nT5BOZ5RATlw3bDdKJdKOFR5+I
+	 W/l0gavqRC/npSzWhnhjBY3yXKi0lhgT5BBFHsP24Eo7CWS2XLoIb82uhT3qf+shE9Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cC+HBATH;
+	arc=none smtp.remote-ip=209.85.167.172
+Received: from mail-oi1-f172.google.com (mail-oi1-f172.google.com [209.85.167.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 34E491F000C7;
-	Wed, 18 Nov 2026 17:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795024323;
-	bh=qK+Ek9AkOSYvJ6aZwpqXO1SfrR+8IC10f7yTJkf7Xs0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=CqYpjXe/mGimCtwdqiHi8Qp+glhN1Muw38ow75pQjkMZHL8Mpwv+Fw9vbr8EysgPX
-	 sk7i0ODUp6SFW/aAce1/jdnS1R35Z6h6OI5Xq0QZVGq4BmQazx+BhQQdQH/zh3lBXn
-	 gF4eAoakUyxIV816D/S64ngGDdj6U00qg8tay7gOwMkT7BFDrE9QIPoJwF1L+rykpj
-	 /6pJsRuKRfblpYd/UV6eUwYPmMW2j6esgcioi6ELg24ZhwS6SyHt0pusbCtYGI7b9N
-	 4PSs0hfmFgcVMZbus5Q1iTy5jdiyf86I3ah8FMO+I5F7GxOCrdlNFE02HOJxi90ECd
-	 uIcN7ILxvcGQw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A530A4AF0D;
-	Wed, 18 Nov 2026 17:52:01 +0000 (UTC)
-From: Alex Ousherovitch via B4 Relay <devnull+aousherovitch.rambus.com@kernel.org>
-Date: Wed, 18 Nov 2026 09:51:45 -0800
-Subject: [PATCH v9 1/5] dt-bindings: crypto: add Rambus CryptoManager Hub
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC78D606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:52:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC78D606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cC+HBATH
+Received: by mail-oi1-f172.google.com with SMTP id 5614622812f47-4b28d9537bcso61474b6e.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 09:52:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795024359; x=1795629159; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=aKUtxq3JGEiVMt66Bm6OtfCap3a4xkXQXSy7MpwOvJg=;
+        b=cC+HBATHSVHNRRJABnciF3e3gYl0avw3F11ef09tXNShn6SB5ytDKKdkWE0tXVxJ2f
+         Fs3b5wg5re22Wnxvo/q84RPb/tFkym6QkWTXVTCsxxxpuWtHEqVjqFf24dy2zNSNH9Zp
+         HzYSTg5NObhMACfw9MnOwC23j4t0naYB/vdpqgSvo7PSRu4cqd2Pcvk2EllPRgtwKPuf
+         W4ewcv3HY9rZ6waB2+VCMml4yPRLRhY2k5IxJCJUoSUFicTBUpvQAlvj3otIOkjuXGwh
+         LOAo3l5Y5EW2vEiI0NbHyrcvUOOnX9tOcWsK/wt3E2cd4YafJ6sXctM9K9/h61WbFW/i
+         1AIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795024359; x=1795629159;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=aKUtxq3JGEiVMt66Bm6OtfCap3a4xkXQXSy7MpwOvJg=;
+        b=GC7VTofDFtmW0nI6pYhiI6wz4B6pXapl0S7zdL0nsviz4CJN5M1l7/1JWPQLsabE9N
+         /orLEc9kob+a+X7MclFZRrzmlkyoZsu2BGwTF5Vg1z4Fc9XEnW3eidSS3cUgaodsxArB
+         /xD9QzQHp6/073qQYOGUO8gCxaf7bXMQQ7jr2v0CMOYD6ZogFLPr0zSe+U2Qk9r5cXZH
+         jRBi9RBCuqjGHu72RDZ/vroSfuVTooa4/1Gzf7BCb83AMi70Ms4BWejnxcb8wLKUxkrq
+         VT3H+AJM81XdXG546YQWXUKW5eCRAViRsY4Go/pvYLuZq0nhgp6eRUcgViJUoBj8u7I5
+         CAXw==
+X-Forwarded-Encrypted: i=1; AL+hErHgKkQylVl6gxGEsbCg1oCaU5IuYayhwySULzGKboX5TgEq7jqTh2ZNHKyAct7rR5Bkaf0D/f5qehvpBGw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z81La3Fvf0cvaRhLu6/pg6s8ttLLPmTEwOK0PRGSz+c4GMtdy8x
+	pGFJ9FvJGhA0xiz/IsIbMElv0u4VqhWdxzF3GSmBDg0hxoADJD7gxnjlmL2wLZtV
+X-Gm-Gg: AYBFou3KHwrgOWkQ/JES9ekIlZUtY1MWXX6B+3S/yXKHfViYWlrdMPlfUqQPRaVwmgU
+	pkn3c6r3MU2Mh9+vQ5HJi3F4JD9KFmP2BxtlKqkazeZNG0NdaZDbYumCcmfUKgKE0Owo/9hkQXd
+	atHrMpBudshxpD3a57hzpsysfx58X4PSPnS8fgo7ISwZuu8okrZnsIFOOpPxoga8ZMZ350D8+rl
+	22F0wIedG7tU3jATMmMafHnElu1nO4fqKenCrPeflEKnqcWHa11YBN1xzVYnzR5opm6scBqajgR
+	DO2kiSQJE2yiBTArDYS3Rc81914QQubexF7AHSgvNhemLxErLmpNvFimeV1BbQlpfYtpwk5rTyp
+	I9OOiCRsNUxAK7PCZ7W8nrZuQVzSfZFlR2PoaC5EbwGi5JwtcRp6WA0BcqM5EOB/DkZ2f+Cv6ct
+	NkOTn3LZB4edSfdbSIHwQwl3WQiew5UAZS2Q0NnWBK4C/vZiJsXEsMeRRsB994ORFWq6gRcW5oJ
+	vXlYgVPKfRRcv27KHXQQOjCoEtskMEvYwLunaejtLo5bt7MPjxiPbrVC/sul1KMLQ998ljbsCxZ
+	l7th99JhpTyQPh1zaayoFneubv2yjpxJxRaLoqkm3VOtOjD5JLuag/bVKK2Y+u0Ke4rGA8QkO8R
+	Zc5afFRcXBS26cr9Qj0KFvc7XVRvzKTgTQKf2meVWDFRLhBWruJuq7buQPGsLhRYZ3A8EtsypsG
+	JS2kQOfvIbAhNFy3N3hyDxwgWEC8oJZf2W2bvTUupXpoq9Ip8UF6dD
+X-Received: by 2002:a05:6808:6d8e:b0:4b8:46e3:e229 with SMTP id 5614622812f47-578b95284a6mr194814b6e.21.1795024358723;
+        Wed, 18 Nov 2026 09:52:38 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777a2bbc1bsm2095003b6e.5.2026.11.18.09.52.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 09:52:38 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 18 Nov 2026 10:52:25 -0700
+Subject: [PATCH v2] mtd: rawnand: propagate mode-0 fallback failures
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,222 +93,80 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-cmh-b4-a-v9-v9-1-70385613fd50@rambus.com>
-References: <20261118-cmh-b4-a-v9-v9-0-70385613fd50@rambus.com>
-In-Reply-To: <20261118-cmh-b4-a-v9-v9-0-70385613fd50@rambus.com>
-To: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>, 
- Joel Wittenauer <Joel.Wittenauer@cryptography.com>, 
- Thi Nguyen <thin@rambus.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-crypto@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Alex Ousherovitch <aousherovitch@rambus.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795024320; l=7443;
- i=aousherovitch@rambus.com; s=20261026; h=from:subject:message-id;
- bh=7iiMQPyRWynqu4obzn8t+asKj9IqfTP68DrOqnS4y5U=;
- b=MpHh35nUWYJn1Yvb1P3TiKeA4ineY5dhk+pPLhIXDT1cr3Hp8GXlEyIQokzcQPMXI16ZGSTpn
- vis7Wo592WpBqGuEyuRKGTziE3nMLHJVZM51sFB1btEP1XlfEPYTNA+
-X-Developer-Key: i=aousherovitch@rambus.com; a=ed25519;
- pk=ECFtTdQUPAolK+qGZ6v7Xm3sRf7rnM7wxpTeFzbqpmA=
-X-Endpoint-Received: by B4 Relay for aousherovitch@rambus.com/20261026 with
- auth_id=1330
-X-Original-From: Alex Ousherovitch <aousherovitch@rambus.com>
-Reply-To: aousherovitch@rambus.com
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-submit-rawnand-timing-recovery-v1-v2-1-d14d4b79e543@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQrCMBBFr1KydqSZ1AquvId0EdNpO2ISSWJUS
+ u9uWk8g8zcPPu/PLCIFpihO1SwCZY7sXQHcVcJM2o0E3BcWWGMrZa0gPq+WEwT9ctr1kNiyGyG
+ Q8ZnCB7IE3TaNwgHbQRlRPI9AA7+3jUv34yK5kUmreG1MHJMPn+2JLNfeP3sl5YxR6oiK6gOeR
+ 6v5vjfeim5Zli+Q+qbI5AAAAA==
+X-Change-ID: 20261103-submit-rawnand-timing-recovery-v1-a64432f26f3c
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Boris Brezillon <bbrezillon@kernel.org>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.17-dev
 
-From: Alex Ousherovitch <aousherovitch@rambus.com>
+When GET_FEATURES reports a different timing mode than requested,
+nand_setup_interface() tries to restore mode 0 by reconfiguring the
+controller and issuing a NAND RESET. It ignores both return values and
+returns success even if the fallback fails.
 
-Add device tree binding schema for the Rambus CryptoManager Hub (CMH)
-hardware crypto accelerator.  The binding describes the parent
-SoC-level node with its SIC register region and one queue@N child
-node per mailbox the host owns, each carrying a reg (mailbox instance
-index), an optional interrupt, VCQ ring geometry (rambus,num-slots /
-rambus,slot-stride-bytes) and a rambus,cores affinity list.  Which
-crypto cores are present is discovered from the SIC CORE_ENABLE
-register at probe, not described in the device tree.
+Return the fallback error in that case. If GET_FEATURES itself failed,
+keep its error.
 
-Register the 'rambus' vendor prefix for Rambus Inc.
+This also lets nand_do_write_oob() stop before programming OOB data if
+nand_reset() cannot restore mode 0.
 
-Co-developed-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-Signed-off-by: Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-Signed-off-by: Alex Ousherovitch <aousherovitch@rambus.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Fixes: 415ae78ffb5d ("mtd: rawnand: check ONFI timings have been acked by the chip")
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- .../bindings/crypto/rambus,cmh-v1030.yaml          | 145 +++++++++++++++++++++
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- 2 files changed, 147 insertions(+)
+Changes in v2:
+- Narrow the subject and rationale to a failed mode-0 fallback.
+- Link to v1: https://patch.msgid.link/20261103-submit-rawnand-timing-recovery-v1-v1-1-1cc33723e052@gmail.com
+---
+ drivers/mtd/nand/raw/nand_base.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml b/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
-new file mode 100644
-index 000000000000..eef82c2d7179
---- /dev/null
-+++ b/Documentation/devicetree/bindings/crypto/rambus,cmh-v1030.yaml
-@@ -0,0 +1,145 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/crypto/rambus,cmh-v1030.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+index fe8c6dcc9c07..e050b27aa578 100644
+--- a/drivers/mtd/nand/raw/nand_base.c
++++ b/drivers/mtd/nand/raw/nand_base.c
+@@ -840,7 +840,7 @@ static int nand_setup_interface(struct nand_chip *chip, int chipnr)
+ {
+ 	const struct nand_controller_ops *ops = chip->controller->ops;
+ 	u8 tmode_param[ONFI_SUBFEATURE_PARAM_LEN] = { }, request;
+-	int ret;
++	int ret, reset_ret;
+ 
+ 	if (!nand_controller_can_setup_interface(chip))
+ 		return 0;
+@@ -909,12 +909,15 @@ static int nand_setup_interface(struct nand_chip *chip, int chipnr)
+ 	 * Fallback to mode 0 if the chip explicitly did not ack the chosen
+ 	 * timing mode.
+ 	 */
+-	nand_reset_interface(chip, chipnr);
++	reset_ret = nand_reset_interface(chip, chipnr);
++	if (reset_ret)
++		return ret ?: reset_ret;
 +
-+title: Rambus CryptoManager Hub (CMH) Hardware Crypto Accelerator
-+
-+maintainers:
-+  - Alex Ousherovitch <aousherovitch@rambus.com>
-+  - Saravanakrishnan Krishnamoorthy <skrishnamoorthy@rambus.com>
-+  - Joel Wittenauer <Joel.Wittenauer@cryptography.com>
-+
-+description: |
-+  The Rambus CryptoManager Hub (CMH) is a hardware cryptographic accelerator
-+  accessed via a mailbox-based VCQ (Virtual Command Queue) interface.  The
-+  host writes VCQ command sequences into per-mailbox DMA queue buffers and
-+  rings a doorbell; the CMH eSW processes them and signals completion via
-+  interrupt.
-+
-+  The management host statically partitions the hardware mailboxes across
-+  the SoC's host interfaces at integration time; the set of mailboxes a
-+  given host owns is therefore fixed and not runtime-discoverable (a
-+  mailbox locked to a host reads as unavailable in the SIC availability
-+  register).  Each owned mailbox is described by a child node.  Which
-+  crypto cores are present is a fixed silicon-build property indicated by
-+  the SIC CORE_ENABLE register, so cores are not described in the device
-+  tree.  Clock and reset are owned by the management host; a node
-+  describing a non-management host has no clock or reset provider of its
-+  own, so clocks and reset-gpios are optional.
-+
-+  CMH gates access to a locked mailbox by a hardware HOST ID presented on
-+  the bus with every access, permitting only the owning host's ID.  An
-+  integration must present a single, stable HOST ID for all accesses to a
-+  given mailbox, independent of the issuing CPU (relevant on SMP hosts
-+  whose interconnect encodes the issuing CPU in the HOST ID).
-+
-+properties:
-+  compatible:
-+    items:
-+      - not: {}
-+        description: SoC-specific compatible, e.g. vendor,soc-cmh
-+      - const: rambus,cmh-v1030
-+
-+  reg:
-+    maxItems: 1
-+    description:
-+      SIC (System Interface Controller) MMIO region.  The registers of
-+      mailbox instance N are at offset N * 0x1000 within this region.
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 3
-+    description:
-+      The "core" functional clock, and optionally the half-rate "core-div2"
-+      clock (present only on configurations with side-channel-protected
-+      cores) and/or the "rt" real-time tick clock.  See clock-names for the
-+      valid combinations.
-+
-+  clock-names:
-+    minItems: 1
-+    items:
-+      - const: core
-+      - enum: [core-div2, rt]
-+      - const: rt
-+
-+  reset-gpios:
-+    maxItems: 1
-+    description:
-+      Host-controlled reset for the CryptoManager Hub.  The hub has two
-+      external, active-low reset inputs -- a power-on reset and a hard
-+      reset; where a board routes one of them to a host GPIO, that line is
-+      described here.
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+patternProperties:
-+  "^queue@[0-9a-f]+$":
-+    type: object
-+    description:
-+      One node per hardware mailbox (VCQ command queue) this host owns.
-+      The set of owned mailboxes is fixed by the management host at
-+      integration time and enumerated here.
-+    properties:
-+      reg:
-+        items:
-+          - maximum: 63
-+        description:
-+          0-based mailbox instance index (0..63).  The instance's
-+          registers are at reg * 0x1000 within the SIC region.
-+
-+      interrupts:
-+        maxItems: 1
-+        description: Completion/error interrupt for this mailbox.
-+
-+      rambus,num-slots:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        enum: [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192,
-+               16384, 32768]
-+        default: 64
-+        description:
-+          Number of VCQ ring slots for this mailbox's command queue in
-+          host DMA memory.  This is a per-board, per-mailbox host-memory
-+          ring geometry -- boards built around the same SoC (hence the
-+          same compatible) may use different ring sizes, so it is
-+          described per mailbox rather than derived from the compatible.
-+
-+      rambus,slot-stride-bytes:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        enum: [512, 1024]
-+        default: 512
-+        description:
-+          Stride in bytes between consecutive VCQ ring slots for this
-+          mailbox's command queue.  Like rambus,num-slots this is a
-+          per-board host-memory ring geometry, not derived from the
-+          compatible.  A slot must hold a complete command sequence,
-+          which needs at least 512 bytes.
-+
-+      rambus,cores:
-+        $ref: /schemas/types.yaml#/definitions/string-array
-+        items:
-+          enum: [hc, aes, sm4, sm3, hcq, qse, pke, ccp]
-+        description: |
-+          Core-affinity list: the crypto cores whose work is dispatched to
-+          this mailbox.  A core may appear on at most one mailbox.  Work
-+          for cores not listed on any mailbox may be dispatched through
-+          any mailbox.  Optional (default: none -- the mailbox only
-+          serves unlisted cores).
-+
-+    required:
-+      - reg
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+additionalProperties: false
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 5471a06f93f1..66537d8f52e6 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1411,6 +1411,8 @@ patternProperties:
-     description: RaidSonic Technology GmbH
-   "^ralink,.*":
-     description: Mediatek/Ralink Technology Corp.
-+  "^rambus,.*":
-+    description: Rambus Inc.
-   "^ramtron,.*":
-     description: Ramtron International
-   "^raspberrypi,.*":
+ 	nand_select_target(chip, chipnr);
+-	nand_reset_op(chip);
++	reset_ret = nand_reset_op(chip);
+ 	nand_deselect_target(chip);
+ 
+-	return ret;
++	return ret ?: reset_ret;
+ }
+ 
+ /**
 
--- 
-2.43.7
+---
+base-commit: 292f737382d3913d0d9addf220b7170fedd7a04f
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next
+change-id: 20261103-submit-rawnand-timing-recovery-v1-a64432f26f3c
 
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
