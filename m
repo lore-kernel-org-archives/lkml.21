@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999125;
-	b=cQp9JI5tUlaPIAvn3WpmKgf5MyNhhscpksekE4Pna7yZ3tKssQRD150KNIWILJvMFTmQ
-	 Rl7bSCk99DKnLUBshum6ImepG+hXYLof0i7cGwkFpBIeRUvFrQ0FWE2bukkwpgeqNNF/J
-	 MUD76+Gx8aEucOBRkJsRMiP7gtC2aSfDj6r4sYZp3TRj8FFmdZsR6LpUwBa6HeX4yFclZ
-	 gpgpVQekBPh2K+6zdgGo+zBfDC4Q6TSIaHobXGbnE3pJ5h64paObuuD1wVLaoFYnwx7oH
-	 pDkHDaBiLGUIlUENikJLPN2292Mw2LAGTtiGlCjdPoZ+K7sEFRORsvRRq8CEeIenUOQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999125;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=FE7v7dHvmS75LoRvG3gK/6EpuUCCumSYtyu9zFwPn9E=;
-	b=FdUFv0zGTchYhuVEI10B7lTgNzrWSOnfLRULlmgJIFNEhRfG8nAm9MLfve2H+SGtazR+
-	 rRiFiWnMzfwpwkI7wj0fNbaXF9epDAo3M8o9sFsBj9/pZjkMLk5mK8mvOmyiej27yucfz
-	 nmY1uKLiqZUdCkxHyH8i64h+AVOEvVHeAP+UfO5GoLRVAX8tEsGDsOPwh5hOTghQVu9TS
-	 zYcvqc7s/U9urwCTFdgEdVPsEh/Av8S1vvplgR9Zs7BNKgowImC41xYpQpRCTe2tX5e2D
-	 w3pymzYVHpG1QWfFVCp+h4oc11bBIejQS0lV0mh7ZBmelDJmlTYedoJtU0rNE38KeVQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=IqNDTQ05;
-	arc=none smtp.remote-ip=209.85.216.99
-Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794999147;
+	b=zGiUmCfLalJBBJD86gDBo3SlRJAbhO2HBJnN5eIUxNUeFc78V6CQTjUiVsPeOZ3O5pAi
+	 HW5bFVEQ84qiKlwchxF8PaDkuTYm+l7XQhbohTSryPXoTdh80abBt/pxU7iwLabzNCicl
+	 OlPnMO9V1lTa1NPcF5uIzYgzCRSJGxk5S/7JKz9Mt4ojzAB4RcayicdR6Knz8dret0w27
+	 1SX592JKt5wxMymo4NT+/qNHYYDmLCQCHiF3GZRqxn09DpnVygU9j+b2SUXjgcUDS6Tm2
+	 De3fhOWy2pHEVCTpVy/yTlq8iqs37gSKVUcloz1AvckLVtxDGALX0ncn7PMY+JdpSmw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999147;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=E3osvfmeF/jQrh3Wedc0Un28ejx+8cAJcxtwjUsQUnc=;
+	b=bZS9RZ4b6iUcMO6nlDQ7frDrX9L8vdR2mHJOpg622CPECOSZWgDtkWsOOd74aMRSwIPb
+	 RG+H/C0SN5VP4INz5iPBtc2+Qic2w48N6NsCI+wEDtQGdg0t+Z+7S1akb9SEQZERQKRgt
+	 gB16bV6c1X5X9Iz0QdHtKlviLGKad1RiOxf+UIbaucC5wCdZ8qQsMXydqTcugDD1cvcdj
+	 gUX9TEpzs9tLD4jduAleE1BhsHpsqkm/o8T43xT5Ph35J5MWyYhQXMj2ELvvNcV09gJRz
+	 q4gQ9uk4mIO3BD69nn0K3NHlRDKqaVTNZdwEOYOgHpDf5t8TGPoGsICLZ2v+198uhPw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KGNY2nH/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 803E6606A33A;
+	Wed, 18 Nov 2026 10:52:27 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KGNY2nH/
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794999147;
+	b=KyeEJLZug1bVLrzp9ukOsnDz4NJ3WBQmD9LaDUdlvfUcxErdnInchGVpeDSKK+sm5TtN
+	 iq1gUzXazwGLBazJxDGZhjcolnYlqHjAfc3GEqIk3beFCSJr/xMPFEBYulxNXcuEGWG+E
+	 5IPiTCUeY16sCII/K/12BKmSkYTVS9Xn+3GoNcmcWkOMrB+7C9JR9X8V4uRhbwwcX+U0v
+	 lyzfkfd0lzqvLeSAwPPwmRK5NefQbfr48xipra/g3MRl9Wj9EYW4z/cOrCPYjyY6N2tcT
+	 f0P5W5mdB/iD0dbiPluUERtjWlBL/pJf7tdXqy1r/uyx06jDre5KWvM8oJ5xEpXPgjQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794999147;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=E3osvfmeF/jQrh3Wedc0Un28ejx+8cAJcxtwjUsQUnc=;
+	b=Sipv9VaGTkINXx0fAzF/iyO9Dh2wtOybLo7pJ7PLqmoCEBBGwjM9krvaUMChoBIngtqw
+	 6tdelS/C0l2+fycgMHvCdGKxcB8/HiMz7hvWgrgqAreM9U8r3svqiCWlnA0fxHEY61eL3
+	 5DY/RUhlLyG7+IOnhzDsYEyY0pAh5xhgFPTQ6rvrTA2LRQI0BGy2561dKeB2uSZS0T8YF
+	 iXZfZC9+zvjpyK1TszaR7UphvKVpwmG0xDkSndb5ANcJ8xKCGv+3qv2jSGc6I6qo6QS6B
+	 J0E6yarlUd/J3TMP7g6OWl+Ca4ppoJfWvcwyLv25OKJtKa8B7+c4tBDsgBHlW+VE+Tw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 190D1606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:52:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 190D1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=IqNDTQ05
-Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b16896b8ceso347650a91.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:52:04 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794999124; x=1795603924;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=FE7v7dHvmS75LoRvG3gK/6EpuUCCumSYtyu9zFwPn9E=;
-        b=zPR3iB21eEIL7dv/2fmAX92HEuabZOS3HaksASjg0DcWax+2szrYQ7npHHaLJb1QpT
-         dMGqTcZNj+pTo4frzndjsJou3Cl8GdqYyvMaKWOIw/WirUWxJjqojAWk8xavV1a6iAnV
-         Mqem4NZZ9shbdLZ92TevU+Um0LPdg1Qr7HT1MoULMszbQH2B6heNBA/nbtehpq5T6yh0
-         3xJgR3nkQ+P5ioUptNNYdPqC9sg4qpSUOYSRKv9aXBrbiYY0mCocCLHBu3sJppxF6v+B
-         s4Xhut/K9WTyHBXWltgSxn1IHUGC5ALLok/URv2QbEzU5uj723+msCm9MF2J+dQsGIkE
-         RneQ==
-X-Forwarded-Encrypted: i=1; AL+hErEwf5LGGOWGwOZT0z/UtqJvpvK3wRiZx7ynL+/8ajdR5Zz2OLjmJ5RQ/wkvl1J2ulkjnpCZZ/fdK+R7AUE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/dHE/mTUB+93Knnuvp+0pmefW9xwjYZvaI9t6hHW9KspqPg9ls
-	hymoGF9+CIUMnyR9fu2mXu2cv86chffRDwLrV6aHdphbSt+Gp05d9DEKIHwH5kkqeWi8b8XUMvh
-	Kx7TM3nHn067pdQOxAO31U9xq4vaiC0Sqk9euYzNNQR0bHUHtg7kk2BkOHxLsoWH2R0+Q58Q9gq
-	+yH+q7/RirhoJtoE5uhPfNcOl6z+mFwQ7ofOqfUiM63Utq9H6EatwAE7etzpwXKmLaJkwMCH/hw
-	KssiNBQAy6vvRsBHZfEjgD6oQ==
-X-Gm-Gg: AZFdTZdhwhR5ADZ1ESetieHEKIgR/LF1Ge7jgIgkT5j6p/ylDmwzMQ4+QVi+lNTyxXo
-	UFdHTYQFHgImZMv4hK/saXd4XZvCJVl+EBTRBeMqdbPGm0VkYK+chJoSWOAv0MNTKCb0MPSmeRD
-	tPoqo5OD5Cove7sV8YQntdZm1wlgot+aRhD1OA9WixWRGh+xroJhzhr/y+n4D0qGCpgaf4/NcZI
-	HBCHFDG6MdX/NiE1mKrAjfZDaVonu64njetTE443+3R8SrzhBwMhNivRdE15p2EH541ssxvty00
-	YVnj/+AfEIoMF1ISfV8S6D5v8fJkJTX7/YRIjhzA78g02GwkMo0jOrrt9QRJZvauowAEt9bf4+1
-	2mxplpAlRz6/gIqsCrmOuOklfOAbsV9mL0AvFMS+UZ4m+vLUl5RSS+hlXYTRBCD8tRhcM3+tRIv
-	+Z9Kbfk0337rSe75+P20Y16DEasmSq/0D3+beSZ3g=
-X-Received: by 2002:a17:90b:4c90:b0:3b3:c18f:d8e3 with SMTP id 98e67ed59e1d1-3b3d07a2117mr2028357a91.20.1794999124232;
-        Wed, 18 Nov 2026 02:52:04 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d1423d6asm1715370a91.4.2026.11.18.02.52.03
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 02:52:04 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-542fc61841eso15024201cf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:52:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794999123; x=1795603923; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FE7v7dHvmS75LoRvG3gK/6EpuUCCumSYtyu9zFwPn9E=;
-        b=IqNDTQ05FJIptEe9YxBZgFuRv5PC+iqEKRyGoZsSOEgEaauyQ/TS84C9wCaPX98Lc7
-         I6l7hqEbu9rQKC/9eTln/pva6P/49+yIiCdUKGAirt1C8bdrQoaXC+f2r2DCDgmEk6DB
-         Alk58Pm5ImE1jnT5kc7DmNuGnvAsQoRqOYKBc=
-X-Forwarded-Encrypted: i=1; AL+hErEZPyOwkl0OsJu64Vtn+8i+BzB0QfMInDSwKmsll5R4uslGmB08OeQR1wy5pqpo4r6nUIPNk3NRXj+PP7Q=@vger.kernel.org
-X-Received: by 2002:a05:622a:5b8c:b0:536:5004:6347 with SMTP id d75a77b69052e-55d5a57e275mr32115761cf.25.1794999122904;
-        Wed, 18 Nov 2026 02:52:02 -0800 (PST)
-X-Received: by 2002:a05:622a:5b8c:b0:536:5004:6347 with SMTP id d75a77b69052e-55d5a57e275mr32115451cf.25.1794999122352;
-        Wed, 18 Nov 2026 02:52:02 -0800 (PST)
-Received: from [10.176.2.72] ([192.19.176.227])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d5907bb80sm19852041cf.17.2026.11.18.02.52.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 02:52:01 -0800 (PST)
-Message-ID: <84585c89-9f57-42ce-8127-6a4b2da205c6@broadcom.com>
-Date: Wed, 18 Nov 2026 11:52:01 +0100
+	by smtp.kernel.org (Postfix) with ESMTPS id EBFF61F000C6;
+	Wed, 18 Nov 2026 10:52:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794999147;
+	bh=E3osvfmeF/jQrh3Wedc0Un28ejx+8cAJcxtwjUsQUnc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=KGNY2nH/wdEXd9FAhwn/Cf88a0tEcwXRE9VSnO2cqeHhgAUZ6Zy1k2JFi+ZR66mbk
+	 wK85vOHBY2K8czhTBOq9qNgiVXyOk51B28jX2dbka4YTo9ZvqhUFRNZJp3/ih4geoH
+	 VIA1wnzmrX2JyZfccwJ6wLgaDWOpF7rFARri3IpyBvFSruqAD20MjxkCmwzRLv1Pti
+	 4J5iJNEMl5YYajHx3oHrIrMaZ4xjiENV8wmuFHQsIEifKOMq+RdrGrCdZ0a1JWtCGR
+	 xf3CzRIauydj6wJuENzos1GKB8r3j+gYFodoxPZqaguN4R6jE+QUQAbLMGOKgeq0+q
+	 UZ3fkCCqYaecQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 78CCE4AD14;
+	Wed, 18 Nov 2026 10:52:25 +0000 (UTC)
+From: Rajan Yadav via B4 Relay <devnull+rajanyadav0307.gmail.com@kernel.org>
+Date: Wed, 18 Nov 2026 04:52:25 -0600
+Subject: [PATCH v2 2/6] cpufreq: sun50i: Move nvmem cell reading into a
+ helper
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,50 +83,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/7] wifi: brcmfmac: AWDL for AirDrop on Apple T2 Macs
-To: Aditya Garg <gargaditya08@live.com>, Andre Eikmeyer <dev@deq.rocks>,
- Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-wireless@vger.kernel.org, brcm80211@lists.linux.dev,
- brcm80211-dev-list.pdl@broadcom.com, linux-kernel@vger.kernel.org,
- Sasha Finkelstein <k@chaosmail.tech>, Sven Peter <sven@kernel.org>,
- Janne Grunau <j@jannau.net>
-References: <20261104151547.70333-1-dev@deq.rocks>
- <c93fa1b2-9d05-4536-9025-6c4d1e6e6b5f@broadcom.com>
- <PN2PPFCAA8F915813E84B62E1B2B919F11BB8712@PN2PPFCAA8F9158.INDPRD01.PROD.OUTLOOK.COM>
-Content-Language: en-US
-From: Arend van Spriel <arend.vanspriel@broadcom.com>
-In-Reply-To: <PN2PPFCAA8F915813E84B62E1B2B919F11BB8712@PN2PPFCAA8F9158.INDPRD01.PROD.OUTLOOK.COM>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261118-a133-series-v2-2-8bcec9c9aadf@gmail.com>
+References: <20261118-a133-series-v2-0-8bcec9c9aadf@gmail.com>
+In-Reply-To: <20261118-a133-series-v2-0-8bcec9c9aadf@gmail.com>
+To: Yangtao Li <tiny.windzz@gmail.com>, Viresh Kumar <vireshk@kernel.org>, 
+ Nishanth Menon <nm@ti.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Alexander Sverdlin <alex@sverdlin.org>, 
+ Cody Eksal <masterr3c0rd@epochal.quest>, 
+ Paul Kocialkowski <paulk@sys-base.io>, kernel test robot <lkp@intel.com>, 
+ Rajan Yadav <rajanyadav0307@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794999144; l=3315;
+ i=rajanyadav0307@gmail.com; s=20261103; h=from:subject:message-id;
+ bh=vQMAtGZJDRtx69UU5Evyhp22Ohka9g8vqRSa6Av0uww=;
+ b=/iR630XagWCGKfxs4w50SDK7/FVOhyuA5FzDZPxddcU6aWe/8piODyfVMs7rA3b/D4urOCi82
+ 64oUMcsnWoBAn6Jv6brrnV5NomY/KceOQyiYDxirESf4l6e+iIJd57/
+X-Developer-Key: i=rajanyadav0307@gmail.com; a=ed25519;
+ pk=4ZPeiP5qrv2b44q/Obxi2koUS70Q6npbttJnpUoTlgg=
+X-Endpoint-Received: by B4 Relay for rajanyadav0307@gmail.com/20261103 with
+ auth_id=1391
+X-Original-From: Rajan Yadav <rajanyadav0307@gmail.com>
+Reply-To: rajanyadav0307@gmail.com
 Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On 11/11/2026 15:28, Aditya Garg wrote:
-> Hi Arend
-> 
->> I really have no idea how to deal with this series. AWDL is not part of the IEEE 802.11 so I can imagine the kernel wireless subsystem does not care to support this. From driver perspective I am not keen on supporting this upstream either. My limited understanding of AWDL was that it was Apple's variant of TDLS (802.11z).
->>
->> So what does AWDL provide to user-space and could the same be accomplished by TDLS? From the explanation above it seems AWDL provides more knobs to user-space, but not sure whether the awdl%d interface is merely a control interface or actually passing data through it (patch 5 implies it does). If my memory does not fail me then adding vendor commands is generally pushed back.
->>
->> Regards,
->> Arend
-> 
-> There has been a lot of Apple specific code in the kernel, be it HID, DRM, EFI etc. So why not a small bit of code in brcmfmac. We have never faced complaints from those maintainers in getting code upstreamed which is different from the standards, but is needed for the hardware to work. While the concern of unable the understand the code is valid, I believe the author can be questioned to clear doubts before upstreaming. Getting code rejected just because of inability to maintain is heartbreaking when people work hard to make something good. Also the patches are just for Apple Macs, and not for supporting AirDrop on random hardware, so it shouldn't be that difficult to maintain.
+From: Rajan Yadav <rajanyadav0307@gmail.com>
 
-You are reading stuff between the lines that are not there. My concern 
-was mostly related to the new vendor commands. The vendor commands are 
-out of favor as it was used to avoid defining an generic nl80211 command 
-and thus avoid true collaboration in building a device independent 
-wireless subsystem. In brcmfmac we currently have one vendor command 
-which allows user-space to interact directly with firmware for debugging 
-purposes.
+The A133 speed grade needs several efuse cells, but the cell reading
+is open coded in sun50i_cpufreq_get_efuse() for a single cell. Move it
+into sun50i_cpufreq_read_cell(), which takes the cell name, so the next
+patch can read the A133 cells by name.
 
-Also AWDL support is not about making the hardware work. It is a 
-software feature providing the transport layer for AirDrop (and 
-apparently t2-drop). I would say the same experience could be provided 
-with another transport layer, eg. by using NAN or P2P. I get that 
-downstream users are happy with the AirDrop-like experience, but that 
-does not make it a must-have in upstream linux.
+No functional change: the existing users read the first cell, as
+before, with the same length check, byte order and error message. The
+raw bytes are now held in a __le32, the type le32_to_cpu() expects,
+which also removes the sparse warning "cast to restricted __le32" that
+the kernel test robot reported.
 
-Regards,
-Arend
+Claude Code (Anthropic) drafted this refactor and its message; I
+reviewed and tested it.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202603021703.aBD0w99y-lkp@intel.com/
+Reviewed-by: Alexander Sverdlin <alex@sverdlin.org>
+Tested-by: Alexander Sverdlin <alex@sverdlin.org>
+Signed-off-by: Rajan Yadav <rajanyadav0307@gmail.com>
+---
+ drivers/cpufreq/sun50i-cpufreq-nvmem.c | 55 ++++++++++++++++++++--------------
+ 1 file changed, 33 insertions(+), 22 deletions(-)
+
+diff --git a/drivers/cpufreq/sun50i-cpufreq-nvmem.c b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+index 9261d148a16..34c0897c22c 100644
+--- a/drivers/cpufreq/sun50i-cpufreq-nvmem.c
++++ b/drivers/cpufreq/sun50i-cpufreq-nvmem.c
+@@ -31,6 +31,34 @@ struct sunxi_cpufreq_data {
+ 	u32 (*efuse_xlate)(u32 speedbin);
+ };
+ 
++static int sun50i_cpufreq_read_cell(struct device *cpu_dev,
++				    struct device_node *np, const char *id,
++				    u32 *value)
++{
++	struct nvmem_cell *cell;
++	void *buf;
++	size_t len;
++	__le32 tmp = 0;
++
++	cell = of_nvmem_cell_get(np, id);
++	if (IS_ERR(cell))
++		return dev_err_probe(cpu_dev, PTR_ERR(cell),
++				     "Could not get nvmem cell\n");
++
++	buf = nvmem_cell_read(cell, &len);
++	nvmem_cell_put(cell);
++	if (IS_ERR(buf))
++		return PTR_ERR(buf);
++
++	if (len <= 4)
++		memcpy(&tmp, buf, len);
++	*value = le32_to_cpu(tmp);
++
++	kfree(buf);
++
++	return 0;
++}
++
+ static u32 sun50i_h6_efuse_xlate(u32 speedbin)
+ {
+ 	u32 efuse_value;
+@@ -191,12 +219,9 @@ static bool dt_has_supported_hw(void)
+ static int sun50i_cpufreq_get_efuse(void)
+ {
+ 	const struct sunxi_cpufreq_data *opp_data;
+-	struct nvmem_cell *speedbin_nvmem;
+ 	const struct of_device_id *match;
+ 	struct device *cpu_dev;
+-	void *speedbin_ptr;
+-	u32 speedbin = 0;
+-	size_t len;
++	u32 speedbin;
+ 	int ret;
+ 
+ 	cpu_dev = get_cpu_device(0);
+@@ -214,25 +239,11 @@ static int sun50i_cpufreq_get_efuse(void)
+ 
+ 	opp_data = match->data;
+ 
+-	speedbin_nvmem = of_nvmem_cell_get(np, NULL);
+-	if (IS_ERR(speedbin_nvmem))
+-		return dev_err_probe(cpu_dev, PTR_ERR(speedbin_nvmem),
+-				     "Could not get nvmem cell\n");
+-
+-	speedbin_ptr = nvmem_cell_read(speedbin_nvmem, &len);
+-	nvmem_cell_put(speedbin_nvmem);
+-	if (IS_ERR(speedbin_ptr))
+-		return PTR_ERR(speedbin_ptr);
+-
+-	if (len <= 4)
+-		memcpy(&speedbin, speedbin_ptr, len);
+-	speedbin = le32_to_cpu(speedbin);
+-
+-	ret = opp_data->efuse_xlate(speedbin);
+-
+-	kfree(speedbin_ptr);
++	ret = sun50i_cpufreq_read_cell(cpu_dev, np, NULL, &speedbin);
++	if (ret)
++		return ret;
+ 
+-	return ret;
++	return opp_data->efuse_xlate(speedbin);
+ };
+ 
+ static int sun50i_cpufreq_nvmem_probe(struct platform_device *pdev)
+
+-- 
+2.34.1
+
+
