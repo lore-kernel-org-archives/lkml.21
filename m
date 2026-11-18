@@ -1,59 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027221;
-	b=g5iAD176MRdvN98Lk8gYzNsRqlNWL+1krMryXohh39ZrZaYerZxyZVd7Z9m2rPD2fAkd
-	 3+ei0Wy9IuglrCdbzdVoIjVzqzBkU0M5OlwPim0UFiB0utom83VgyuvxsZ6f2K8IhE1PM
-	 XtakAVfIIv5h7ccR1hd23vNlEbVCISBOasTevW0lz0jZul2/4r6JE09GPhgyZYOTwxmPG
-	 nC0bj8sp0qHuqcsRePexYW4Oge85GTMwZPSdcMCVOEy6q3YCNyMyjkNWg1i6tnS47rnGG
-	 HsBSmTYbBSN1OdJKMqO06tIm28XGTtKiJY77q8cXqxiKi+Ms2blx6xiOcgtAIpPRUsg==
+	t=1795027224;
+	b=ZAt+5xlFn+mNpVDNuxO7ryJPURaigTXMy1iIgeh3/wvdgeoPWD54oAwak4WMj8urpv2U
+	 KN6kduQYVfhT9/NjY6ZLjaJqMbIh8TNqBpTm0JKGDbHt6rSterzfZTHxMVerWIfK2OOzh
+	 D6K4FpkTvfuDLm2c7+GD85d+MQAuiDLVbnONPAGf36c5LZNWD727XFJczjfNkVtrUzmuU
+	 XWmNoHMrZvG0ww83BZGslTdvGVrfVi0EJWYvvxKnE/1dYhqAAuyZIa+pUFw6IT1dn6OHv
+	 lTv2yMV6lthBjHA9V3ANNq4dJvjhfyG5hPpNpiDOho3jU/Glimfi9jDs1Bnic7YsSUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027221;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027224;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=BDmwc0kdIKYcN4IQu/MGzbY7v+It/Ud+2qPynIMmjSQ=;
-	b=TJ9tUg7f/HO5EbXAX2Ae1VsihCejjg32BpG5y4DwDpuYZbWvvYgJJ1EvEzrBBbmqvdZR
-	 Qg+zbXQfP4mB96/hYjJrSNqmr3l7wuFfI1kxAQ6gSmw91OcX3IXmO2PjSY00ITav92qa6
-	 PfNUX4WeTZaADCbsKCSfYSjQPPzLKt5jfo0QPjQF9FItY8k/mP4ruXtpp1jn0eW9TLvXU
-	 1po3AKvzoEj8ItyH1VaGbDzy6oY6gM9P03SwMoC7z7hWOdaKF7malM3idTosyX9vHiE4C
-	 /20jiLh8vUzg4A2Yo46Vcf1a+4IbEB9c5PDJv0iKPPb4FNNNZoWksZRAKyKul/k/bEg==
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=Sr7vf+SFkssrnc9KbqlXYbg5jl/Kfa3M9hZnigDcNWM=;
+	b=P+Hyr9McqddN0mnaj/MhZhwaXMs1lET0fPAHdlQ1uOxr2TA+oTyhEF8UGxglbZrDyAZD
+	 hRl/OSeFqg5/pThQ6KyWpoM3ak6Vrytw+/Sv+npExuWZbPyPnaalY/sSRTQiJ6/P4Az3u
+	 aBxBIFykXpm7ZpLoSVcpbR9Uh2uiyvmXREPBksKeouachjeKADDTf5suwkKg3daENCTS0
+	 xfpCYNo0xKTkAjyJBI98XnOPPynyU467LGoDQVTp2Phtzikv++Zdna4I1Bhf4afCs/9Ab
+	 c4UtpbM3K9pFzuzFKO/Y4tDeU8kl0cTvKa4gGJwbI2uaBKgLsk38h7geavOWCB8ZmeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=JcQRgfdZ;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=hKL4rXvr;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821B6606A31C;
-	Wed, 18 Nov 2026 18:40:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 821B6606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C6F660A261D;
+	Wed, 18 Nov 2026 18:40:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C6F660A261D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=JcQRgfdZ
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=hKL4rXvr
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id A774EE83AA4;
-	Wed, 18 Nov 2026 19:40:12 +0100 (CET)
+	by szelinsky.de (Postfix) with ESMTP id 4A83FE83AB1;
+	Wed, 18 Nov 2026 19:40:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795027212;
+	s=mail; t=1795027215;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BDmwc0kdIKYcN4IQu/MGzbY7v+It/Ud+2qPynIMmjSQ=;
-	b=JcQRgfdZ01IWd8gU2J1loUONaPKrm28loAvrV7R/poVqWOJOXW0Y65J68NnUyK/UWJbT3i
-	n9W55wryhk6mNji6Xhc8PA2CrL5LW5EhwsOQY0EZUG8EtFjmz1cJ2w/ahSRKBw9b7ISB8a
-	40VTc2G3kBOMFmlvhyLkZTylycrprz4WSGhZuEVOuQGY1D32cWtOj8NWpS6eHMCOAxVWxr
-	kirIF+KpL4+BO2Ae4K13mt86xoxAg6TqqZC+bTCiGb1bCHXP5BdGLuHs1g0Q1Zq0dziln1
-	PljS9q3CQ395cj+mayq64MgVpyvi+EiwkesrSGAq04m9WYsOYMOWwfh8956JgA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Sr7vf+SFkssrnc9KbqlXYbg5jl/Kfa3M9hZnigDcNWM=;
+	b=hKL4rXvrZXxViDWACLjgRLUkBwVwikzEivCjNaDzNsIMF+zOYIxw3SXDMmfMd3ZkUjYDfS
+	S/3u7qNbq/cQiJU1FgdToofKZYrpAlhxoJISKEYfLJHu6gAYlYJ6kpcfZBAFrXyrMdUTUv
+	tw6fR8oKhSiEViT4udo/0GBgrm3uMWSrfT9zC82P3NCTiIYuImmWQ58WVTmuk4CzjbB8Tv
+	huacMV/Ub71i7Iwn8NoW+yJFrf5UfXrAqR2cPGq2Ysm1IXlbuLS8w8tPIQ0LeUbaipTPNh
+	/U0y3YSQlyvQOixCcqhyLddUxRU+l9a/3o8Mrwy2rCa7RGhSiOVF53quG+HCXg==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id XdoCS_HWgmZZ; Wed, 18 Nov 2026 19:40:12 +0100 (CET)
+ id 1KkhodlPozkt; Wed, 18 Nov 2026 19:40:15 +0100 (CET)
 Received: from p14sgen5.. (unknown [91.25.97.186])
 	by szelinsky.de (Postfix) with ESMTPSA;
-	Wed, 18 Nov 2026 19:40:12 +0100 (CET)
+	Wed, 18 Nov 2026 19:40:15 +0100 (CET)
 From: Carlo Szelinsky <github@szelinsky.de>
 To: Oleksij Rempel <o.rempel@pengutronix.de>,
 	Kory Maincent <kory.maincent@bootlin.com>,
@@ -72,10 +73,12 @@ Cc: Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Carlo Szelinsky <github@szelinsky.de>
-Subject: [PATCH net v5 00/14] net: pse-pd: assorted lifetime and error-path fixes
-Date: Wed, 18 Nov 2026 19:39:43 +0100
-Message-ID: <20261118183957.2031311-1-github@szelinsky.de>
+Subject: [PATCH net v5 05/14] net: pse-pd: do not reach a freed PHY from the notification worker
+Date: Wed, 18 Nov 2026 19:39:48 +0100
+Message-ID: <20261118183957.2031311-6-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118183957.2031311-1-github@szelinsky.de>
+References: <20261118183957.2031311-1-github@szelinsky.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,165 +90,138 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Fixes for the PSE core and the pd692x0 driver, found while working on
-the PSE controller teardown. Most of them are about what happens when a
-controller unbinds or fails to register.
+The notification worker holds a reference on the pse_control, but not
+on the PHY that psec->attached_phydev points to. If the PHY is removed
+while the worker runs, the pse_control survives and the worker reads the
+freed PHY. The same happens without a race when two PHYs share one PI:
+attached_phydev keeps pointing at the first PHY after it is removed.
 
- 1  The kfifo is too small: podl-pse-regulator and any controller with
-    0 or 1 lines cannot register.
- 2  Removes two checks that can never be true. Not a fix; it makes 3
-    smaller.
- 3  A module reference leaks when reading the port state fails.
- 4  A failed IRQ request stays in pcdev->irq, so unregister disables a
-    line another device may own.
- 5  The notification worker can read a PHY that was already freed.
- 6  Setting a power limit checks the PI state without the lock.
- 7  A power domain shared by two controllers is freed when the one that
-    created it unbinds, or when registration fails part way.
- 8  Unregister frees the PI array before it stops the IRQ handler and
-    the notification worker. The worker can also be queued again
-    during unregister.
- 9  Unregister frees the PI array while a lookup can still find the
-    controller.
- 10 The PI regulator ops can run after the PI array is freed.
- 11 A failed registration leaks the kfifo.
- 12 A shared power domain's supply handle goes stale when the controller
-    that created it unbinds.
- 13 pd692x0 leaks its manager power budget when probe fails.
- 14 pd692x0 crashes on a manager supply that is not resolved yet.
+pse_control_put() unlinks and frees a pse_control under pse_list_mutex,
+and phy_device_remove() calls it before the PHY is freed. So instead of
+taking a reference, let the worker look the pse_control up and use
+attached_phydev under pse_list_mutex. This nests pse_list_mutex inside
+rtnl; nothing under pse_list_mutex takes rtnl.
 
-Some patches need earlier ones: 7 needs the locked check from 6, 10 to
-12 build on 7 to 9, and 14 relies on 13 to give back a budget that was
-already reserved.
+For a PI shared by two PHYs there is no single netdev to report to, so
+clear attached_phydev when a second PHY takes the pse_control, and warn.
+Events for that PI are then no longer reported, even after one PHY goes
+away. Failing the second PHY instead would fail its whole MDIO bus.
 
-Testing: every patch builds on its own with W=1 and is checkpatch
-clean. 1, 5, 7, 10 and 12 were tested in QEMU (arm64, KASAN, lockdep,
-kmemleak) with test-only fake PSE controllers: without the patch, the
-failure in its commit message shows up; with the whole series, the
-tests are clean, except for the older lockdep report and the reserved
-budget, both listed below. For v5, the whole series was tested again.
-The check that 8 adds to pse_set_config_isr() is not covered by these
-tests, because the fake controllers have no IRQ. The other patches
-were found by code inspection and are build-tested only.
+Triggered in QEMU (arm64, KASAN) with a test-only PSE controller:
+removing a PHY while the worker waits for rtnl, and removing one of
+two PHYs on a shared PI, both give
 
-I also tested v4 on real hardware: a Hasivo S1300WP-8XGT-4S+ switch
-(RTL9313, two HS104 PSE controllers with an out-of-tree driver, eight
-PIs), running OpenWrt with 6.18.55 plus this series:
- - Power delivery, enable and disable with ethtool --set-pse, and the
-   delivering LED triggers all work, also on a cold boot where the PSE
-   controllers probe after the PHYs.
- - Unbind/bind and rmmod/modprobe of the PSE driver with PHYs attached:
-   the PHYs drop and get back their pse_controls, the module refcount
-   goes back to 0, and there are no warnings.
- - 50 rounds of unbind and bind of both controllers, while ethtool
-   --show-pse/--set-pse loops and LED sysfs reads run on the same
-   ports: all ports come back, and dmesg is clean.
-v5 only rebases and changes text, so I did not run it again.
+  BUG: KASAN: slab-use-after-free in pse_send_ntf_worker+0x2b0/0x2bc
 
-Ross Cawston's "net: pse-pd: don't enable a PI again while disabling
-it" [1] applies on top of this series without conflicts. The tests
-also hit two older bugs that this series does not fix:
- - With the static strategy, turning off a PI to make room for a
-   waiting one retries the waiting PI from inside its own allocation,
-   which recurses until the kernel stack overflows. [1] removes that
-   retry.
- - pse_isr() and setting a power limit hold pcdev->lock and then take
-   the supply's regulator lock, while regulator_enable() on a PI takes
-   them the other way round. Lockdep reports it when the supply lock
-   is contended. Kyle Swenson's RFC [2] removes the PI regulators, so
-   the second order goes away.
+With this patch both are gone.
 
-Older problems that reviews of this series found, not fixed here:
- - A pse_control held by a PHY can outlive its controller. The PSE
-   notifier series for net-next fixes this.
- - When a controller unbinds, its PIs are not switched off, and the
-   budget they hold stays reserved on the supply. This should use the
-   normal disable path, and belongs with the fix above.
- - The notification worker uses the net_device without holding a
-   reference to it.
- - Setting a power limit changes the budget and the hardware limit
-   under two separate locks, so pse_isr() can run in between.
- - On tps23881, pse_controller_unregister() calls disable_irq() after
-   devres has already freed the IRQ.
- - A PI that waits for budget, or was turned off to make room for
-   another one, can get budget reserved by a power limit change; that
-   budget is not freed when the PI is powered later.
- - The PI regulators are visible before their power domain is set. A
-   PI enabled in that short time skips the budget check.
- - pse_control_get_internal() reads the PI state from the hardware and
-   sets admin_state_enabled without pcdev->lock.
- - In the regulator core, regulator_request_power_budget() first
-   reserves the budget on the parent supply. If the request then fails
-   on the regulator itself, the parent's part is not given back.
+Fixes: fc0e6db30941 ("net: pse-pd: Add support for reporting events")
+Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Signed-off-by: Carlo Szelinsky <github@szelinsky.de>
+---
+ drivers/net/pse-pd/pse_core.c | 42 ++++++++++++++++++++++++-----------
+ 1 file changed, 29 insertions(+), 13 deletions(-)
 
-Changes in v5:
- - Rebased on the current net/main. 7: only the context changed, after
-   the devm_kmalloc_obj() conversion; the code is the same.
- - 6: the commit message says the budget is lost, not only reserved,
-   and a comment no longer says "powered" (Sashiko).
- - v4: https://lore.kernel.org/netdev/20261111211731.3193796-1-github@szelinsky.de/
-
-Changes in v4:
- - Rebased on the current net/main.
- - 5: shorter comments; the locking rule is now in the kernel-doc
-   (Kory, Sashiko).
- - 8: pse_set_config_isr() does not try to power a PI once unregister
-   has started, so it no longer reports a false power control error
-   (Sashiko). Kory's Reviewed-by is kept, as this is a small change.
- - 9: the comment in pse_controller_unregister() no longer promises
-   more than the code does.
- - 10: the commit message names the patches it needs (Sashiko).
- - Collected Reviewed-by tags.
- - v3: https://lore.kernel.org/netdev/20261103220217.1131971-1-github@szelinsky.de/
-
-Changes in v3:
- - Rebased on the current net/main.
- - 7 now also gives back the power domains when pse_register_pw_ds()
-   fails part way, moved here from v2 11. The release asserts that
-   pse_pw_d_mutex is held (Oleksij).
- - 8 now sets pcdev->unregistering, moved here from v2 10, so the
-   worker cannot be queued again after the drain (Sashiko, Oleksij).
-   With that, it has a Fixes: tag again.
- - 10 only keeps the PI array until the PI regulators are gone.
-   Switching off the PIs on unbind is dropped (Oleksij); this also
-   drops the lock order problem Sashiko found in it.
- - 11 only frees the kfifo now, so its subject changed.
- - 12: asserts that pse_pw_d_mutex is held in pse_pw_d_leave(),
-   renames pse_pw_d_release_locked() to pse_pw_d_release() (Oleksij),
-   and wraps two lines to 80 columns.
- - Collected Acked-by tags. Dropped the tags on 7 and 8, as their code
-   changed.
- - v2: https://lore.kernel.org/netdev/20261020171249.853085-1-github@szelinsky.de/
-
-[1] https://lore.kernel.org/netdev/20261019220835.613-1-ross@r-sc.ca/
-[2] https://lore.kernel.org/netdev/20261020-pse_regulator_fixes-v1-1-fd6084a22cba@est.tech/
-
-Carlo Szelinsky (14):
-  net: pse-pd: size the notification kfifo after defaulting nr_lines
-  net: pse-pd: remove dead pi_get_admin_state() checks
-  net: pse-pd: fix module refcount leak in pse_control_get_internal()
-  net: pse-pd: do not keep a failed IRQ in pcdev->irq
-  net: pse-pd: do not reach a freed PHY from the notification worker
-  net: pse-pd: check the PI state under the lock when setting a power
-    limit
-  net: pse-pd: do not tie a shared power domain to its creator's devres
-  net: pse-pd: stop async event sources before freeing PI data in
-    unregister
-  net: pse-pd: unregister from the controller list before freeing PI
-    data
-  net: pse-pd: keep the PI data until the PI regulators are gone
-  net: pse-pd: free the notification kfifo when registration fails
-  net: pse-pd: use each PI's own supply handle for the power budget
-  net: pse-pd: pd692x0: release the manager power budget through devres
-  net: pse-pd: pd692x0: defer probe while a manager supply is unresolved
-
- drivers/net/pse-pd/pd692x0.c  |  31 +++-
- drivers/net/pse-pd/pse_core.c | 303 +++++++++++++++++++++++-----------
- include/linux/pse-pd/pse.h    |   5 +
- 3 files changed, 235 insertions(+), 104 deletions(-)
-
-
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
+index 0894613515e0..b8cba6f86a7f 100644
+--- a/drivers/net/pse-pd/pse_core.c
++++ b/drivers/net/pse-pd/pse_core.c
+@@ -31,7 +31,9 @@ static DEFINE_MUTEX(pse_pw_d_mutex);
+  * @list: list entry for the pcdev's PSE controller list
+  * @id: ID of the PSE line in the PSE controller device
+  * @refcnt: Number of gets of this pse_control
+- * @attached_phydev: PHY device pointer attached by the PSE control
++ * @attached_phydev: PHY device pointer attached by the PSE control, or NULL
++ *                   when several PHYs share the PI. Read it only under
++ *                   pse_list_mutex.
+  */
+ struct pse_control {
+ 	struct pse_controller_dev *pcdev;
+@@ -238,24 +240,22 @@ static int of_load_pse_pis(struct pse_controller_dev *pcdev)
+  * @pcdev: a pointer to the PSE
+  * @id: index of the PSE control
+  *
+- * Return: pse_control pointer or NULL. The device returned has had a
+- *	   reference added and the pointer is safe until the user calls
+- *	   pse_control_put() to indicate they have finished with it.
++ * Must be called with pse_list_mutex held. No reference is taken: the
++ * pointer is only valid until pse_list_mutex is released.
++ *
++ * Return: pse_control pointer or NULL.
+  */
+ static struct pse_control *
+ pse_control_find_by_id(struct pse_controller_dev *pcdev, int id)
+ {
+ 	struct pse_control *psec;
+ 
+-	mutex_lock(&pse_list_mutex);
++	lockdep_assert_held(&pse_list_mutex);
++
+ 	list_for_each_entry(psec, &pcdev->pse_control_head, list) {
+-		if (psec->id == id) {
+-			kref_get(&psec->refcnt);
+-			mutex_unlock(&pse_list_mutex);
++		if (psec->id == id)
+ 			return psec;
+-		}
+ 	}
+-	mutex_unlock(&pse_list_mutex);
+ 	return NULL;
+ }
+ 
+@@ -263,11 +263,14 @@ pse_control_find_by_id(struct pse_controller_dev *pcdev, int id)
+  * pse_control_get_netdev - Return netdev associated to a PSE control
+  * @psec: PSE control pointer
+  *
+- * Return: netdev pointer or NULL
++ * Must be called with rtnl and pse_list_mutex held.
++ *
++ * Return: netdev pointer, or NULL if no single PHY is attached
+  */
+ static struct net_device *pse_control_get_netdev(struct pse_control *psec)
+ {
+ 	ASSERT_RTNL();
++	lockdep_assert_held(&pse_list_mutex);
+ 
+ 	if (!psec || !psec->attached_phydev)
+ 		return NULL;
+@@ -1014,13 +1017,18 @@ static void pse_send_ntf_worker(struct work_struct *work)
+ 		struct net_device *netdev;
+ 		struct pse_control *psec;
+ 
+-		psec = pse_control_find_by_id(pcdev, ntf.id);
++		/* pse_control_put() frees the pse_control under
++		 * pse_list_mutex before its PHY is freed, so the mutex
++		 * keeps attached_phydev valid.
++		 */
+ 		rtnl_lock();
++		mutex_lock(&pse_list_mutex);
++		psec = pse_control_find_by_id(pcdev, ntf.id);
+ 		netdev = pse_control_get_netdev(psec);
+ 		if (netdev)
+ 			ethnl_pse_send_ntf(netdev, ntf.notifs);
++		mutex_unlock(&pse_list_mutex);
+ 		rtnl_unlock();
+-		pse_control_put(psec);
+ 	}
+ }
+ 
+@@ -1410,6 +1418,14 @@ pse_control_get_internal(struct pse_controller_dev *pcdev, unsigned int index,
+ 
+ 	list_for_each_entry(psec, &pcdev->pse_control_head, list) {
+ 		if (psec->id == index) {
++			if (psec->attached_phydev &&
++			    psec->attached_phydev != phydev) {
++				dev_warn(pcdev->dev,
++					 "PI %u shared by several PHYs, not reporting its events\n",
++					 index);
++				psec->attached_phydev = NULL;
++			}
++
+ 			kref_get(&psec->refcnt);
+ 			return psec;
+ 		}
 -- 
 2.43.0
 
