@@ -1,98 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007732;
-	b=hPDn9TDNPJritgIg+VKvJwk1OOnLkddqx3REb0f2+UibI6kx/2oidHG5bNjAaGQli3v/
-	 /Sx+F1mjbLwbKjjqFv2VTKCgJMUSf3/1zkbWaYPMZeSIFQF1tneJE8wxGFzkqu3P8qlWL
-	 mUKCcViMSc5vfdHcVbTlNrqxHo4tKiXgfA3rNsWQ7qFpeL+xvZiucbd0TnWCytE9cdHKJ
-	 4nunN3V0GqtFAkrxTXt1FfZN7K+vrp8el2ulYo5qk0oEVJgAQS2cAc7c2YzQj+m3JIDJg
-	 8OBECbzW5zPHPmAxRk2Oqg/3NIGgiMRLulgxOaKZBrxARZPum15mSGfVatc6s0haDBg==
+	t=1795007737;
+	b=CT6ONhbPw/UjO/juTWM4TG9c17Xska0flul22rGVB275AUpm3AILYLl9WT4HkRLVfpfI
+	 jTtUSyegctfrjlR0ZY0I1V1MRjPgz+zmjpLVkEGDN/+nRBGIGxhmINv0Y/P1j6WsJi49/
+	 2dTEJ9ckFgAfPz8LOCjxyI8svDKFsqktg+xQ1Fy6k9CB1hOm4aMxlTTAnLTiWg1tnJnvv
+	 77KE9fLgEoXaxUSw+3M1MOmhvE4ffr8f981tPBvyDOa13ZXqQelh69RU9tPOUOj7twvfy
+	 1fnFhgYLZr7KjWr6SC7RhXIRFWnhdTJAlrAm1U/i+iZG52UjN0yXkkLoSH2VqfFqxIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007732;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=/TyJXkm2vpWoT51loq346JyUhuDruv4LPJ1ahbEZXZ4=;
-	b=YiPsXyfKwWOl1At0M5LdHSRPXY2LpIclbt6yP5SF9iB/R2dtcu8jCekxvpRtBHAzB/fH
-	 NJH4zyIeRJIdIO2RKTB1oihDVlgXhMISDWJjF5TA6mLAkZp0G3xdFSNezHfGmNHUO/7PI
-	 7+WuwlEvMyifhlfo/yAjI7q9rU7uX3s/aDtf9bU340q76lXx365CE4UeOQzogLFjH0r7d
-	 CbAhKNuHnagGcZAF42YF7jAtsi6Bxut8FxL43DKZukt9I4kYfsl72F8iWHxRNOOSv4VFR
-	 E8jofpl0VmT1Du1fjuR8IDritMIOtuWM4x8THs8cGFNH6d2ATWj9b6FC9jaGyzwXU8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007737;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
+	b=k01nXQ5jux+5KhjuHth5OvME2FVcmNPZ2/gkXi3q1231x2FqW9Ok80YQ4T2rqmHkqiwx
+	 U2+/4bja8p41FypEMVWPUgZ91V7wJLCaNeqyaBhKWpTYO5Tac1mGzaye0ihPdezSvvmDk
+	 TGIVyz5X8VjGAaZWFRxQO9CaeyeuXpCh9Ui6rusKPr6RTJ1be53HQhzF3uu5jNCL6qRsm
+	 ybG4bsWz/PKdAJWxG45oyN6bbRUtUAHTuZ8bRe7mEG9TJr5d5C3XLKYCCpIgpKu8THbH9
+	 VaWq1/P67djN1JDE3sVnfxmUdCnH+0VZ6Ck07v/0cC3hg3pWQNM3CKr79dU2SE6dsvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=resnulli.us;
-	spf=pass smtp.mailfrom=resnulli.us;
-	dkim=pass header.d=resnulli.us header.i=@resnulli.us header.a=rsa-sha256 header.s=google header.b=hjycwbIO;
-	arc=none smtp.remote-ip=209.85.208.171
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dw2tFieo;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aZ71aw2n;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6CB7606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:15:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6CB7606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=resnulli.us
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=resnulli.us
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C15D606A32F
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 13:15:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C15D606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=resnulli.us header.i=@resnulli.us header.a=rsa-sha256 header.s=google header.b=hjycwbIO
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3ae25d9e2fdso10718391fa.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:15:31 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dw2tFieo;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=aZ71aw2n
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795007735;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
+	b=dw2tFieoV2fUktIlo0TDK4I8UddhaWCMjQ0RpJmBwGRrUxLeTyC9lJV2MMZi1yZ2WLP5dN
+	pYIHMhX/LR1ysEbldW1KdHlw3RLwaNPw0TzqV/TIiPnEsZUkO+pvdhAz3n0nYk9jaOC8r7
+	gfhq3iKct+gLMo+hhnQF3t0piot4PT8=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-388-J9Eik7G6PXKiYnodd98ClQ-1; Wed, 18 Nov 2026 08:15:34 -0500
+X-MC-Unique: J9Eik7G6PXKiYnodd98ClQ-1
+X-Mimecast-MFC-AGG-ID: J9Eik7G6PXKiYnodd98ClQ_1795007733
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-4a7c864000eso314187f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 05:15:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=resnulli.us; s=google; t=1795007730; x=1795612530; darn=vger.kernel.org;
+        d=redhat.com; s=google; t=1795007733; x=1795612533; darn=vger.kernel.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=/TyJXkm2vpWoT51loq346JyUhuDruv4LPJ1ahbEZXZ4=;
-        b=hjycwbIOyvQrtyBMWNnhVJEWJBwdjlEA5Rvyz1eNWYwmnxttiufHtMTo1C4mMepjlW
-         ieE3sgvVtGrErSqaWC2nOZxiaCHT0Ac9j89oPsu2nDct0nubQg13z64ZJnvNFVqibbhH
-         Bssl7Bekzs4AoVLMeule1aRmXk2lDI8Fck7HI628EQlIFVkq5YF9FQa+PdaTM4yCOvg2
-         8sSuNzh5wCxCMJS0g7BjKDKcxEDR7qdJsZUl+OpUo8HTzRzb7VPsUZb+gmrj0LqYMFCZ
-         fvSd8Cike1jGWLPP6cDliszDr2Y64nw3FRNzOC1FWZVjHDtSTgm33VNqwRaLAWUsmTlD
-         iH6w==
+        bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
+        b=aZ71aw2n8oHteORzK1U/UStkmYdaD98yxYzrW+hkEZQEEtPaFjB1Y6q4hV4xCJpCwx
+         cnsqw71jhW44xU/UIWFXJtPXRLw4bJe7KtTVNGUFrYhkQnPGngKWt/+mC5OstdzU++IZ
+         3esEFjloz3o/Os0RkoqXLx1TvuAQaBu/u2lN74HCh7hgrmNG/xNaJqA9FbFy0HgdA7nK
+         z7CBcJCq1Ij9WGdnNevbF+o45xuwfsprrcxTiqlKYd1kwpeDIUB1wezCjoL3DRNyTmcS
+         zbFa1C2XKYOstvughcn84NKIzTZKoeQ3bIV7C7lTMtIuXJRm1gWKJiRRKp8JxjYdbzRS
+         PNkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795007730; x=1795612530;
+        d=1e100.net; s=20260707; t=1795007733; x=1795612533;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/TyJXkm2vpWoT51loq346JyUhuDruv4LPJ1ahbEZXZ4=;
-        b=eCMoMOuQUN25dqsmBIuhkVehTd4BhoxWUgOItIl/lZFSpINtpu6GgcBTnyZsgNg/TV
-         jzBm5yi1r5eVxE6HRj5YCOnR9XlfNpCw28ju27p3I2y4uazrfMHBWeJ7ftud79+M5Rg3
-         jfFZxHTgIWs+usxCTDceF+lZybpCvWthpGhtXXpXDw0AecXCnDeINc20Mdu7vVGcPxlp
-         /X6XxtyS7+DBtJGMX+wAHxDDOsdJWy8E0/xnFP4sJK3tJveB1ww3Zte237gwe6G9FC5B
-         TZZXgGXKadNgkkHgmOeIATenpBDTyBrNLMvmth7KRt/w9vkiM/zh0RHXmYmAg+xXA+O6
-         LGrA==
-X-Forwarded-Encrypted: i=1; AL+hErGWMqiJU44a2AqDh/Ja3n9popM5m2IILAVUrhmzWxpzYpXP0ZjEpNvSceWiLVoG500Ml1mq5sJ18yN7u/g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CPQVctN+7mYJ4Z708wxK5vlsHdJh6OQB4Jn9J/v4KeWKwIK0W
-	Ds72qW6XZ92lyc9gNX5TKU5cHJg3+Ccwi/+pRSf9FmLYoy/RFyJOkZnJgtwZsqiqX9Q=
-X-Gm-Gg: AYBFou3AwaKCBIqvFdUG3tWWwu1DLbqnvvzhPE8E1/pPvww8yTkHH4zoq0hWv9+UCEF
-	sC+bLwqepbNTuwEZD6d4suL4rzPcpXq9zyYa7VesvJUiyUpA38f7INtjRwHCbQebipRYL0lKWQX
-	/ItRKVV1AKyZpE8GQKQm6FhUAehru2/WiVXKmduytLpGR0QwbC2X2ayad5++MA+15iTHR7ajK6w
-	thoNEhiCd9H/a+pyQpb1sXMbzaOemsh52tagIm1So2pD90SpEEYEvNz1+nMLRrFjU5JC3i1CyDM
-	wL+ll95zygMxaP67YH52pEpbs78SBlFx9u62kSiHRoLuEDn77FVaLIB5EXf/8HsIBtrCPHV7Vr8
-	zvZoeCSSOP1WTfMgM0wNRDw/D0IkkGISuHlfMwGj7wkU9agqzLPh5F14GwWwgbtL4YMiAeZjU3T
-	Z6jLEx0wQqQpGMXkqCt9jwY9LfTZ1omNGXUH9XIkn7r+WoYGzap9lcxt/rMCoyB+LDCGcfzRAyj
-	HOA6bq11Sq7ffTIKwalfOhr1xvtYhK8593v8JtqUSG6LFunqsXBaKLyYU+dSkjZp7EikI03n2dZ
-	cUaW7rBNl6qiHGaMmaU0Fy9D0xOTK1wsVMaVWjeNaCEEZ6Tyh3zh1gA42zWecg==
-X-Received: by 2002:a05:651c:a148:b0:3ab:3607:df9e with SMTP id 38308e7fff4ca-3ae670d1664mr9301141fa.13.1795007729556;
-        Wed, 18 Nov 2026 05:15:29 -0800 (PST)
-Received: from localhost ([140.209.217.211])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae67a38db8sm5617761fa.4.2026.11.18.05.15.25
+        bh=GDBgSBwB9SZv912xAYmFSFm0+XZuKPzPjOZZNdWEPXQ=;
+        b=QM8WaHRigEc5z/qXD4PiGJajtlWNuvWgB1CeTFAQaOv5LS6Q4OH+bBC+Q8JHlfAYso
+         sQ/wboB+c++buLH3fQwe99bL5Y1VipuCq/8S3vA5ahH2ssOcrp2lRaoh9qJvENeXJFbx
+         k0f6QL5tBpPLPlNRZ/QR6BBIGygPFVFB0sPbiMhYZKP2xXD3wfhd55Q6DkCV4qUWe6wd
+         Xxl1ouTMyL5N0AwKr6giIDOTONWjhGnbX9kKT9ZEOBJJ5tRTyj4Z4ekkABQexM1cn2W3
+         aequtLW1PWsBTmUMXUNH+Eq4MFovAlFTp2zoUxuD9CS501fCKnicOo/xW72CUslqPsyR
+         V1pA==
+X-Forwarded-Encrypted: i=1; AL+hErE/CbT1SrMEuqwk1s5IqTbNthc5b2QxYkPy6M84eHhxTqSmNPruqSA2E/6JroWsVmx5R5lVUdm0CtsDsiU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9n6CfMbhuUA+8yzVC+aSor4Rf3CZGdG1jxjGAIW/bnOY7ibEGL
+	bAqCMSlnrFMj8Rt1JQQyGhYXSHU4rV4isFvknzMIgMiJHr+maBooqQ4voX5EIy405uN6uGfZO1k
+	+Hl46+P/HHK00YABhcSjbpSkaatPr2KEBOvEMy60FvbFsalyH4C7zmSfxgBzzY7nN0Q==
+X-Gm-Gg: AZFdTZfAD9XXV/oAOvHRgHRYDMl/zik15RFo7UmDXGQj9RTABvADMJV8Sg6f1sQfVZI
+	bSWYmcKVM9E9EjOASAmwNSSuB6mN+tQpTpMqaIDzL02c/xpEKA6PizmwE5BG9OGf/qY9UbkURMS
+	jQgA/H/XyHgQPkiNnBB4WFLgIVi30wR1nGbQ/J8PAoO0E6CQtF5Pgx2xTuygvsfD+YLsPWFyq+O
+	z2I7YCDzMQADma0aRFjAfG8h6Hh1NU411NpxbNJ8zAfJSXIurhJQZ64+iBXGb19Ps1gbpzB7n+J
+	oqZwKOe+u3HOfQnbojoRfot+UI1gptMs91Fk/3K7K2uJrTEc+B9gKpzx7pd0s5fKxj+EyS1uggl
+	PKsoe2Ef6NtMXmqN6zK/sogNR0Wqok1Ptsi0WWadLRCckpox8y1S50QDRrT/svByRfKEe1NM7iE
+	Adqn4=
+X-Received: by 2002:a05:6000:1889:b0:4a8:714:7ad4 with SMTP id ffacd0b85a97d-4a807147c78mr1864897f8f.32.1795007733067;
+        Wed, 18 Nov 2026 05:15:33 -0800 (PST)
+X-Received: by 2002:a05:6000:1889:b0:4a8:714:7ad4 with SMTP id ffacd0b85a97d-4a807147c78mr1864799f8f.32.1795007732558;
+        Wed, 18 Nov 2026 05:15:32 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a64b60940csm4651876f8f.0.2026.11.18.05.15.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:15:26 -0800 (PST)
-Date: Wed, 18 Nov 2026 14:15:21 +0100
-From: Jiri Pirko <jiri@resnulli.us>
-To: Ying Xiao <eagleshaw@google.com>
-Cc: Sumit Semwal <sumit.semwal@linaro.org>, 
-	"T . J . Mercier" <tjmercier@google.com>, Jiri Pirko <jiri@nvidia.com>, Jason Gunthorpe <jgg@nvidia.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, Philipp Stanner <phasta@kernel.org>, 
-	Jacob Moroni <jmoroni@google.com>, Xuehao Hu <xuehaohu@google.com>, dri-devel@lists.freedesktop.org, 
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dma-buf: heaps: system: zero pages after
- set_memory_decrypted()
-Message-ID: <av2jgIDyawKNS1BA@FV6GYCPJ69>
-References: <20261117155431.1654298-1-eagleshaw@google.com>
+        Wed, 18 Nov 2026 05:15:31 -0800 (PST)
+Date: Wed, 18 Nov 2026 14:15:28 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
+	linux-kernel@vger.kernel.org, tglx@kernel.org, will@kernel.org,
+	boqun@kernel.org, dietmar.eggemann@arm.com, rostedt@goodmis.org,
+	bsegall@google.com, mgorman@suse.de, vschneid@redhat.com,
+	kprateek.nayak@amd.com, luca.abeni@santannapisa.it,
+	mathieu.poirier@linaro.org, longman@redhat.com,
+	ridong.chen@linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+	mkoutny@suse.com, shuah@kernel.org, bigeasy@linutronix.de,
+	clrkwllms@kernel.org, parri.andrea@gmail.com,
+	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com, cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v7 08/40] sched/deadline: Do not replenish a boost from
+ cleared parameters
+Message-ID: <av2k8JlLvUcBBOhn@jlelli-thinkpadt14gen4.remote.csb>
+References: <cover.1794922146.git.mathieu.desnoyers@efficios.com>
+ <cefacab5f1c0e7617f17e050af4ef5f6db01700a.1794922146.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,21 +130,118 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261117155431.1654298-1-eagleshaw@google.com>
+In-Reply-To: <cefacab5f1c0e7617f17e050af4ef5f6db01700a.1794922146.git.mathieu.desnoyers@efficios.com>
 
-Tue, Nov 17, 2026 at 04:54:31PM +0100, eagleshaw@google.com wrote:
->system_heap_allocate() allocates pages via order_flags[] with __GFP_ZERO
->while the direct map still has the memory encryption bit set. For the
->system_cc_shared heap, set_memory_decrypted() subsequently clears the
->encryption bit without re-zeroing, leaving ciphertext in DRAM on
->confidential computing (CoCo) guests instead of plaintext zeros.
->
->Skip __GFP_ZERO during alloc_pages() for cc_shared allocations, and zero
->the pages once in system_heap_set_page_decrypted() after
->set_memory_decrypted() succeeds.
->
->Fixes: 78b30c50a7ac ("dma-buf: heaps: system: add system_cc_shared heap for explicitly shared memory")
->Reviewed-by: Jacob Moroni <jmoroni@google.com>
->Signed-off-by: Ying Xiao <eagleshaw@google.com>
+Hello,
 
-Reviewed-by: Jiri Pirko <jiri@nvidia.com>
+On 17/11/26 09:10, Mathieu Desnoyers wrote:
+> When a SCHED_DEADLINE waiter boosts the owner of an rt_mutex, the owner
+> runs on the waiter's parameters, through dl.pi_se. Commit 2d3d891d3344
+> ("sched/deadline: Add SCHED_DEADLINE inheritance logic") calls this a
+> temporary solution. The owner is never throttled. When its runtime runs
+> out, replenish_dl_entity() refills it at once from the waiter's
+> dl_runtime.
+> 
+> The waiter can leave SCHED_DEADLINE before the chain walk deboosts the
+> owner. Its parameters can be cleared in between, at its 0-lag time.
+> replenish_dl_entity() then loops forever on a dl_runtime of 0. It
+> holds the rq lock with interrupts off, so the owner's CPU locks up.
+> 
+> O is a SCHED_OTHER task that holds the rt_mutex L. W is a SCHED_DEADLINE
+> task. T is any other task:
+> 
+>   CPU 0 (O)                         CPU 1 (W)                     CPU 2 (T)
+> 
+>   locks L
+>                                     blocks on L
+>                                       rt_mutex_setprio(O, W)
+>                                         O->dl.pi_se = &W->dl
+>                                     sleeps
+>                                       task_non_contending()
+>                                         arms W's inactive timer
+>                                                                   sched_setscheduler(W)
+>                                                                     W leaves SCHED_DEADLINE
+>                                                                     task_rq_unlock(W)
+>                                     <W's inactive timer>
+>                                     inactive_task_timer()
+>                                       __dl_clear_params()
+>                                         W->dl.dl_runtime = 0
+>   <tick>
+>   update_curr_dl_se()
+>     enqueue_task_dl()
+>       replenish_dl_entity()
+>         runtime += W->dl.dl_runtime
+>         loops forever
+>                                                                     rt_mutex_adjust_pi(W)
+>                                                                       rt_mutex_setprio(O, W)
+>                                                                         spins on O's rq lock
+> 
+> Fix this by reading the inherited runtime, deadline and period once, and
+> by not refilling from cleared ones. They are cleared under the waiter's
+> rq lock, not the owner's. So test all three. The owner stays runnable.
+> It gets no runtime. A negative runtime is reset to 0: the owner's own
+> reservation does not pay for the boost. An owner with no parameters of
+> its own gets a deadline of now. A deadline of 0 would mark its dl_rq as
+> empty. The wakeup of a boosted task already gives that deadline when its
+> donor is cleared. The owner runs until the chain walk deboosts it, or
+> until it releases the lock. That also covers sysrq-n:
+> normalize_rt_tasks() changes the waiter without a chain walk. The
+> warning stays for an entity that is not boosted.
+
+The above paragraph is a bit hard to decipher. :)
+
+Maybe something like the below?
+
+---
+Fix this by not refilling from cleared parameters. The donor's
+parameters are cleared under the donor's rq lock, not the owner's, so
+replenish_dl_entity() can see them change under it. Read dl_runtime,
+dl_deadline and dl_period once, and bail out if any of them is 0.
+
+On bailing out, the owner gets no new runtime, but stays runnable and
+unthrottled. It runs until the chain walk deboosts it, or until it
+releases the lock. Keeping it runnable also covers sysrq-n:
+normalize_rt_tasks() changes the waiter without a chain walk, so a
+throttled owner might never get to release the lock.
+
+The bandwidth the owner consumed while boosted belongs to the donor, so
+a negative runtime is reset to 0 rather than charged to the owner's own
+reservation. An owner with no parameters of its own gets a deadline of
+now. Its deadline must not stay 0: the dl_rq uses an earliest deadline
+of 0 to mean that no deadline entity is queued (see inc_dl_deadline()).
+
+Until the deboost (which should happen "soon enough"), such an owner
+sorts first on its CPU's dl_rq and runs ahead of the other deadline
+tasks there.
+
+The warning is kept for an entity that is not boosted.
+---
+
+> The reset bounds the overrun. But a runtime of 0 still counts as
+> exceeded. So until the deboost, update_curr_dl_se() still requeues the
+> owner at each update. An owner with SCHED_FLAG_DL_OVERRUN still gets
+> SIGXCPU.
+> 
+> With a 300ms debug delay before rt_mutex_adjust_pi(), v7.4-rc2 locks
+> up in 8-CPU VMs. A kernel with this patch does not.
+> 
+> The Sashiko AI review of the third posting found the lockup. Juri Lelli
+> suggested this fix in place of a larger one.
+
+Also for other changelogs, I am not sure this kind of info adds much, as
+I fear it will be hard to track down in history anyway.
+
+> Fixes: a5e7be3b28a2 ("sched/deadline: Clear dl_entity params when setscheduling to different class")
+> Suggested-by: Juri Lelli <juri.lelli@redhat.com>
+> Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/all/avL8oOtjKqVNR7-l@jlelli-thinkpadt14gen4.remote.csb/
+> ---
+
+For the implementation,
+
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+
+Thanks,
+Juri
+
