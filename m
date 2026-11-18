@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018404;
-	b=QJ/Xm4Vfc3y1N60HeFHUngguSWaeuSd8fxYy/WfDygTMbfn47f+J4wWzFTYPzUuRAz0Q
-	 2uxO06pBBXTpOcUvQTZLnjKQwQD6dPKNZAYlMbsIEykOO8mxgJSBLZhXlwoWlh8Poje5z
-	 90Ft49+flFr2Ga+uZnZcWdix3cmoectD1F7OBfTtGLq3lyFYD5tfgdJhlRkkBBpIHfoXP
-	 Qb2/uk0ZFyWV6BB3o7s3DSZPqg6PPMTXEyfDV1CK+1lFAFfjayku9iLqt3BrP3U8L6lfg
-	 O1w54wXzqiPpsKFqnj642jJjCJBMvdEe4M8JY3Di8ZDvx/ZlVSQMNO/+5mJuNdWbDEw==
+	t=1795018417;
+	b=LKfRog6RWG64l5q6uaGHX4rX9iDSbhpEHQxfFuQIoWTIF0ThXSOdS7zyTBi5t5nqE3Nx
+	 BeuCzCSoOyCpuKfl/pfwIuTp+99peWyAQ1e7MydGp10BUacimhk3nZ4LCwX6k0PwtDu45
+	 e34qP169w1cqnvYXHo8UJTaYqIOcs8REGYN5/IiOMiEpjh6ZzHvQEGWehZUDygAkYpw1A
+	 O6nRV7I1uI8Lvn0/1VS8tCGXuO9VpoLGjX+pPaFwg23eWXjcUs49oVpSBgulAD519y7MK
+	 FI4mmTneoWnz2TltsIAHDDrPZ4mOmrnLuuRXJHDXXmsBQje8z0NkHuNNHzwFuqzk2UQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018404;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018417;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=3Lq/7sTlAJbfIIqLa7wmAuF2tMNPuQ+wGipfJEmlBdE=;
-	b=BJeezhvVkKXGChevrF2MM4qBnPRgy5AR+IHbt3fVfBkTCQB1EAzROzoukBp9N8WadT/x
-	 +o5ATehX6GkO5wH/by8kABeGPSF2VVySHDHV6y1qSI+NrzjbyAosqRscFCqI2e8mIVRZk
-	 HqhaQMli0gL26rcmc6o2SRc+rna5PZBoswV78MIivnFwZtj+ApGTLcm3dj1gBZDIzeWm7
-	 xpT/UHhbEEYcMQpQmMoEUZMQyME8KguQ0yQN/WUctwrdQYmV6c0K05rNex1zoc5XXLD/j
-	 XdWPcBUARk8zhKLjlbjvWedeunK60kcvPDAfWSSwnRyDJEC4GEVUpvdTZbvdu0Fi//g==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=0FM4FQIqQtreZz9AMQxrrTMs14QrvVaeC8B90V412GA=;
+	b=YBXdU2jvANrVhoigvrXG4hV+jlGsDWWc0hhNZjg3nrc7i5SYJq1fiFBF9vQTw5kVUZMA
+	 DS/TFHIUwT6cJ60AUoHbhQxXwlUkAmdYBzAQId92McWxtEo64PDp758PvixedB1TE0p6O
+	 Xq0TTvera4QeEjGAx9657B34WIlE2vPefOeS8Uftl2uJDuhQOxs5psk0zlmENF/3C1SZs
+	 SYtUCSEw8wdPDuOWLTNFVLh1V+RyNgynnwqkh2hsUHpCcNQkpbKpVxEF4QVbcRhvWsciS
+	 nd7iqbsLGahWBHkkL4xRL+ZN2OM49RAO0+QBU5jGK/rvIok2+O14tDZrfTjpOByE3LA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fairphone.com;
-	spf=pass smtp.mailfrom=fairphone.com;
-	dkim=pass header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=FV0bltX0;
-	arc=none smtp.remote-ip=209.85.208.42
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
+	dmarc=pass header.from=linuxfoundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=aJFjctBm;
+	arc=none smtp.remote-ip=209.85.210.41
+Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com [209.85.210.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16590606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:13:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16590606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fairphone.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fairphone.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22438606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:13:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22438606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fairphone.com header.i=@fairphone.com header.a=rsa-sha256 header.s=fair header.b=FV0bltX0
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b8815693e2so1638164a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:13:22 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=aJFjctBm
+Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-833e671ee9fso1077233a34.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 08:13:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fairphone.com; s=fair; t=1795018401; x=1795623201; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=3Lq/7sTlAJbfIIqLa7wmAuF2tMNPuQ+wGipfJEmlBdE=;
-        b=FV0bltX0oekj6/9f3wa9B0/l8zl9COMFFyQ5EAruEn6+3u8/cdTM5/fAof+ws1va0+
-         9V7ZDTR58f1agBhb7jH2ZL23CYfYjNxO9GWe5UnzWp/TDmnnGY2nLr8Kic0Ewgy0cvoj
-         0YFwCl6ZFhMviqdtHWJ7uNUE7iVBQ9qja0BQtawatKhVTmELVv/qTlkkbMn7FFPzE7+t
-         eXoRoWgCAjRLWh80ANeC3KOnPoeMh687hvXa8XsLwshJmADDY3F0N9ej++7BVjTBWgni
-         JzCzrJrBRgmsz6I5zgmhaUZ9e6xoF5WOnjD/Gel1Oxr/msrr91dJmbK9CBW/d0LiXQ9B
-         CBhw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795018401; x=1795623201;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linuxfoundation.org; s=google; t=1795018415; x=1795623215; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3Lq/7sTlAJbfIIqLa7wmAuF2tMNPuQ+wGipfJEmlBdE=;
-        b=gUn3tFMhnGihWlgsrcBKl1EaQU8vaa52MKEpM87uxiLGmAzRZt5/AHN2uCdbd61wBs
-         vQ0LApg9uwp1lAWBTpujyuLONhtDVLXF2xE+44FT+zXItOu6uXIcQgkS7vcEv0+nBmOV
-         4FlHGfKlhogfdh2WMwEXMh+HIWj/fA/fDOjjw9iqC0WIaubNgQx0h5O6nwUoFzsfltjw
-         AArAcOJrR5hFSChIbXYWfOBDtyGUP9CjpIkpqgbOG5gE+5LAyO3wKBGaA9ctqXpXjfF7
-         nptyiMZ18pO7ZbAErB68wKmTdT/fs9coQ4WmAsUttu0kucr6Ld+1K3K0peaZPqhSJNU7
-         UFkQ==
-X-Forwarded-Encrypted: i=1; AL+hErEY/V/ghSWG031s+RrAU8Aj8QJ5ltHbCymliTw3o6VR94qAV281mAWurcRee/Zlh0jVKGXz5nHOKDFHloo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Ii7PPW7Tcau2rlFpidNC/aHb9nXmAlp9oW1QFJrUYoqiWO8Zt
-	OAbA66hVUFm3SL26jCwAV6kSiirB03DP+Hxu6ngxgbWIe+sGA+0ccSLZS23Id+lbaY4=
-X-Gm-Gg: AYBFou0Z8uFFerR8DKC+iSRctyOxkBhPyfzBXhBtp028nbEpIbuM+6phw7XfAHHZ+tj
-	zRyXKBgg7/YhtRTEmnv1e/2+oLMpTapn4aR8nEo8q9PyWzRheg33U3+p27zsTl1ad1A/yfTXaZT
-	cS2fpJdSH8w3VKYgGNXmprGuiW6biVBKa7SvH0xpWsrE0xq7JgAqQuTmByKQeybUVyS0wkjbV7x
-	otbnVCCKepJv3deGYz1jp5EcoawTQrbaFc8ZBBOXARYH7hy8tXZNnEuuVg/n1c7oRSiChRyRXhg
-	+jTKhhpX5dGlDcDEHokoSTIuES2Oum7JiZ71WTgBMXY+efIT9cPiMwQQf1hX8lWgeKLn9gBWJnn
-	SVyyXaIr8zcqmf+rVsQE5tf3JnKO2WD1PL3XhpRRy7cgD5ib5iNZk1pabf9/fxM7HRxg/in0P71
-	80U82TnYbl3dqy32eV1NNon9JVB1iOpCXmZqcnrHGhpcztSgv2ozdE2UzNzBgWIpWFWvG/VLb+Y
-	qgObFFeZ1g1C7xK1pH2eZnFzVQGfp2StAO5ElM5NGUvnlWquX9jAJng8oCD/QQysznTO7O839c7
-	R/fZ2hKSPbZ7eBPy9oKB3aa2BXCr6uauYK94HcDV6muiUBCo0GMFLlH5ZwGvl+uk+cc8DvCyhQ=
-	=
-X-Received: by 2002:a05:6402:693:b0:6b7:5712:f13e with SMTP id 4fb4d7f45d1cf-6b887e9a998mr2171788a12.21.1795018401363;
-        Wed, 18 Nov 2026 08:13:21 -0800 (PST)
-Received: from localhost (144-178-202-142.static.ef-service.nl. [144.178.202.142])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a6fc230sm1256698a12.36.2026.11.18.08.13.20
+        bh=0FM4FQIqQtreZz9AMQxrrTMs14QrvVaeC8B90V412GA=;
+        b=aJFjctBmNOdAbnnUsAixe5ZWeGLsRzqrg5gmvs857dlS7eolt5uI2uCMueOecgSXFc
+         UYcuK5utz3v+GnQKgRjfats8gyuVklykTU1i7OkVQ9Z6y2/uh9X2ZqrbsTmNTyWl9Boh
+         i8xqr/C3fJfjRjtOdfzp1XloKPoRcSiKV7fLI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795018415; x=1795623215;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0FM4FQIqQtreZz9AMQxrrTMs14QrvVaeC8B90V412GA=;
+        b=FIsnQIzqx+Sayz94SvNoJ61FVqMKLVlOrvEoI0Cqe0aH4DoJ2EN70sksNIg4cLg4kP
+         akZqXjnJCHnUJFC7IaKwJB42bS0UJhNHtwAxxJ2VqYdywxP5PZvE1snllF01yQSdt1cL
+         uD/A4u51pJ6kTcfqY+ljy4qp/eAZUaAJDu818l1xXKORh5zZJEw+w/TXSgu1ySNVOTJ7
+         AfGngJJKmZpwm3rdq+dlW17e7p9A7UeCykKFDir6aptgx//0WzcD+vx0BlCNiAHJHLtk
+         kzc9/Pv/0uRM1MxDQIT/jzyk4fQM/V1evtZdoxPb0PA0yzoY8etCpB2N+xIpbrS/uR/x
+         ibBA==
+X-Forwarded-Encrypted: i=1; AL+hErE7bjAytcsjWmphxo7c/6d82ccnaT8K1gyvZsr0w8W0X6OSK1kO4R4CXQeNlr12izY0eIyjTuKKIVpeRgI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8f38RYkU1jglvrgHiG3j3f4GsPmwZTkg1MSuAJQcRWWinh39ub
+	sqvmah3bb5AIumOBFyDxLBoqaB5ArrcoPj8YlS9oKQSLlpxqSjPzMnvni+V9hslpXNU=
+X-Gm-Gg: AYBFou1VQOch26Dh54UCL4EjqqSEBzYct13dvdl4ExpAT0bmWfai4znoPJLhcY8n5BJ
+	BOrT/un9laIi4vwr0KkB3rwq7Nqz7uab0YexiP1N0gPEn4eiSDl6IdtnqWC3ZeQtuoRBnzmdWnf
+	6yx8opAtc6f3u6xyqcNTsqEPcG/YPEhlGnLUPD1MScNj5ffCLeoNlJEHxTTOrJozCHPajX8zZMe
+	bSNQlMUYlTxkEDGZt3kzZYuxPL+Rbk/t3F/xqYUfklMbwUBz+v0jC7ZxSr72zrR6/CW8M2dEIVa
+	YZOhDdoLn4cGnNJq+puSXG29tU0zySIa4jO4Q7fCqTs7KLewoEtX6bXhWbEOpMTy64bd1HOrtNX
+	df4JMeamo9StNuFHyOvP0tkbf1PtexNcY9eQ1FjnTaVEaQbzRy5nBoWt6n3wOdmFZqGl2TuLsZr
+	b18bitr6OYlXkZwJu81tw+lrxxYC/vnIq6nENy/A436mrrl2oENYJe/2v1qGjWNyg97l64rF+LA
+	QyVF0OeNOyFUu61qqWQPW0nFrvcgL5Oyxo/yPyq01U+Pw7f/7ZZ+pdSsADl7/P5TwAb+smwkFly
+	lu/W/KwUoh6mmQ9i+fsLiq0OqQflZJByX/XiCQSn
+X-Received: by 2002:a05:6830:4420:b0:862:a48e:24e2 with SMTP id 46e09a7af769-862f0954f8bmr3199401a34.16.1795018415078;
+        Wed, 18 Nov 2026 08:13:35 -0800 (PST)
+Received: from [192.168.1.128] ([38.15.57.99])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f00891e6sm2271527a34.0.2026.11.18.08.13.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 08:13:21 -0800 (PST)
+        Wed, 18 Nov 2026 08:13:34 -0800 (PST)
+Message-ID: <8a436334-d306-4a34-bb7b-efc713aed0f8@linuxfoundation.org>
+Date: Wed, 18 Nov 2026 09:13:30 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,73 +88,141 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 17:13:20 +0100
-Message-Id: <DMYGX16XPQEY.PD4MUZN1IINL@fairphone.com>
-Cc: <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <wcn36xx@lists.infradead.org>,
- <linux-wireless@vger.kernel.org>
-Subject: Re: [PATCH 2/3] wifi: wcn36xx: Do not enforce interrupt trigger
- type
-From: "Luca Weiss" <luca.weiss@fairphone.com>
-To: <arapaille@atlr-engineering.com>, "Bjorn Andersson"
- <andersson@kernel.org>, "Konrad Dybcio" <konradybcio@kernel.org>, "Abel
- Vesa" <abelvesa@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Loic Poulain" <loic.poulain@oss.qualcomm.com>, "Luca Weiss"
- <luca@lucaweiss.eu>, "Eugene Krasnikov" <k.eugene.e@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3-dirty
-References: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com> <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
-In-Reply-To: <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] selftests: use local variables consistently in
+ runner.sh
+To: "Jori Koolstra (CIQ)" <jkoolstra@xs4all.nl>, Shuah Khan
+ <shuah@kernel.org>, David Ahern <dsahern@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Hangbin Liu
+ <hangbin.liu@linux.dev>, =?UTF-8?Q?Ricardo_B=2E_Marli=C3=A8re?=
+ <ricardo@marliere.net>
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
+ <20261118-kselftest-run-timer-v1-1-53a838b2d62b@xs4all.nl>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20261118-kselftest-run-timer-v1-1-53a838b2d62b@xs4all.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed Nov 18, 2026 at 3:58 PM CET, Alexandre Rapaille via B4 Relay wrote:
-> From: Alexandre Rapaille <arapaille@atlr-engineering.com>
->
-> Forcing IRQF_TRIGGER_HIGH over the DT type makes the re-probe after a WCN=
-SS
-> restart fail ("type mismatch, failed to map hwirq"). Rely on the DT, as
-> commit 1ee6c5abebd3 ("ath10k: do not enforce interrupt trigger type") did=
-.
+On 11/18/26 06:40, Jori Koolstra (CIQ) wrote:
+> run_one() and run_many() assign their working variables without
+> declaring them local, so they leak into the global namespace of
+> whichever shell sources runner.sh, i.e. run_kselftest.sh or the
+> RUN_TESTS recipe in lib.mk.
+> 
 
-Worth noting, that all upstream dts files that use qcom,wcnss-wlan
-(apart from msm8974.dtsi which is getting updated in this series) are
-already using IRQ_TYPE_LEVEL_HIGH, so this should not change behavior
-for any other SoC.
+Hmm. so if a timeout value of say 60 seconds comes from a test
+settings file, does it persist? Can you see that if you run a
+few tests using TARGETS variable?
 
->
-> Fixes: 8e84c2582169 ("wcn36xx: mac80211 driver for Qualcomm WCN3660/WCN36=
-80 hardware")
-> Signed-off-by: Alexandre Rapaille <arapaille@atlr-engineering.com>
+> Declare these variables local so that local is used consistently
+> throughout the file and the sourcing shell's namespace is not polluted.
+> This does not add a new requirement on the shell: local is already used
+> in run_many(), in_netns() and run_in_netns().
+
+Makes sense.
+
+> 
+> Also, obey the convention to use upper case names for variables that are
+> constant once assigned.
+
+Can you elaborate on this convention?
+
+I don't want to see these changes combined. We don't combine
+cleanup and convention changes with real changes.
+
+> 
+> Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
 > ---
->  drivers/net/wireless/ath/wcn36xx/dxe.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/net/wireless/ath/wcn36xx/dxe.c b/drivers/net/wireles=
-s/ath/wcn36xx/dxe.c
-> index 801f1218ef..7852f71368 100644
-> --- a/drivers/net/wireless/ath/wcn36xx/dxe.c
-> +++ b/drivers/net/wireless/ath/wcn36xx/dxe.c
-> @@ -552,14 +552,14 @@ static int wcn36xx_dxe_request_irqs(struct wcn36xx =
-*wcn)
->  {
->  	int ret;
-> =20
-> -	ret =3D request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete,
-> -			  IRQF_TRIGGER_HIGH, "wcn36xx_tx", wcn);
-> +	ret =3D request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete, 0,
-> +			  "wcn36xx_tx", wcn);
->  	if (ret) {
->  		wcn36xx_err("failed to alloc tx irq\n");
->  		goto out_err;
->  	}
-> =20
-> -	ret =3D request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, IRQF_TRIGGER_HIG=
-H,
-> +	ret =3D request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, 0,
->  			  "wcn36xx_rx", wcn);
->  	if (ret) {
->  		wcn36xx_err("failed to alloc rx irq\n");
+>   tools/testing/selftests/kselftest/runner.sh | 29 ++++++++++++++++++-----------
+>   1 file changed, 18 insertions(+), 11 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kselftest/runner.sh b/tools/testing/selftests/kselftest/runner.sh
+> index 45fb8ec38493..9b1dad5441ea 100644
+> --- a/tools/testing/selftests/kselftest/runner.sh
+> +++ b/tools/testing/selftests/kselftest/runner.sh
+> @@ -58,13 +58,18 @@ tap_timeout()
+>   
+>   run_one()
+>   {
+> +	local DIR TEST BASENAME_TEST BASENAME_SANITIZED SETTINGS TEST_HDR_MSG
+> +	local line field value interpreter stdbuf cmd rc
+> +
+>   	DIR="$1"
+>   	TEST="$2"
+>   
+>   	BASENAME_TEST=$(basename $TEST)
+>   
+>   	# Reset any "settings"-file variables.
+> -	export kselftest_timeout="$kselftest_default_timeout"
+> +	local kselftest_timeout="$kselftest_default_timeout"
+> +	# Make kselftest_timeout variables available to tests
+> +	export kselftest_timeout
+>   
+>   	# Safe default if tr not available
+>   	kselftest_cmd_args_ref="KSELFTEST_ARGS"
+> @@ -91,8 +96,8 @@ run_one()
+>   	fi
+>   
+>   	# Load per-test-directory kselftest "settings" file.
+> -	settings="$BASE_DIR/$DIR/settings"
+> -	if [ -r "$settings" ] ; then
+> +	SETTINGS="$BASE_DIR/$DIR/settings"
+> +	if [ -r "$SETTINGS" ] ; then
+>   		while read line ; do
+>   			# Skip comments.
+>   			if echo "$line" | grep -q '^#'; then
+> @@ -100,8 +105,8 @@ run_one()
+>   			fi
+>   			field=$(echo "$line" | cut -d= -f1)
+>   			value=$(echo "$line" | cut -d= -f2-)
+> -			eval "kselftest_$field"="$value"
+> -		done < "$settings"
+> +			eval "local kselftest_$field"="$value"
+> +		done < "$SETTINGS"
+>   	fi
+>   
+>   	# Command line timeout overrides the settings file
+> @@ -164,8 +169,8 @@ run_one()
+>   
+>   in_netns()
+>   {
+> -	local name=$1
+> -	ip netns exec $name bash <<-EOF
+> +	local NAME=$1
+> +	ip netns exec $NAME bash <<-EOF
+>   		BASE_DIR=$BASE_DIR
+>   		source $BASE_DIR/kselftest/runner.sh
+>   		logfile=$logfile
+> @@ -175,9 +180,9 @@ in_netns()
+>   
+>   run_in_netns()
+>   {
+> -	local tmplog="/tmp/$(mktemp -u ${BASENAME_TEST}-XXXXXX)"
+> -	local netns=$(mktemp -u ${BASENAME_TEST}-XXXXXX)
+> -	local rc
+> +	local tmplog netns rc
+> +	tmplog="/tmp/$(mktemp -u ${BASENAME_TEST}-XXXXXX)"
+> +	netns=$(mktemp -u ${BASENAME_TEST}-XXXXXX)
+>   
+>   	ip netns add $netns
+>   	if [ $? -ne 0 ]; then
+> @@ -198,8 +203,10 @@ run_in_netns()
+>   
+>   run_many()
+>   {
+> +	local DIR TEST BASENAME_TEST
+> +	local pids pid rc
+> +
+>   	DIR="${PWD#${BASE_DIR}/}"
+> -	local rc
+>   	pids=
+>   
+>   	for TEST in "$@"; do
+> 
 
-
+thanks,
+-- Shuah
