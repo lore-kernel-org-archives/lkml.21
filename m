@@ -1,49 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.87.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017702;
-	b=VgUip/u2ifK5rtlr+npRQNJwd11gwf+6OtS9233ogC0ju0EpDIHN4Dyhhgy1MOWqPGCS
-	 HaWthpe07pUV0ocAvGk4qtTsotGyAvScMuy7IKiaRrxMmsCL8eMa65jbY+r/W6C8h+L3d
-	 7cCpdjHsRHeZBWhxcWHQOt3WnNSVsvP8Rhn+EwoBECrpXuQvPCoKcpEFV+ejk/100VR65
-	 uRpOuYGGfddRLoIHCTj7FHbYTtyNRrf2LjD+LX/tcfFjYnBBGaXLSlQjg0NiwZqhlRM3S
-	 N8onXosVkpy/gV0XTHiqaWow+1DlvL8kN5nJ0TSDfhz3oV9ofNbxGz7Tka5kkCQmyag==
+	t=1795017709;
+	b=t4tjWrzMskYqKTjSVIX2uf0vUDwnUnrQOjoVzDErPxD+h9MuQ0P8DwJkPdrn+yTj/fSB
+	 B3Wpbf98B/IGHdJ+is6EmnP/i8m5S9Kcv77k8Zbi7mipKYNl8L/+skfLo1ZB6LeUYlPGu
+	 4hRavxSVlugGstxluT92Wu0Tca4f8ddjtEOuZ+JKfG1LrUf2z8WkhHw0+E9hy+JsmLNLd
+	 RoVMVS84iuE5jLT1DitVbc/AD5omTc+2ZL4M4m5cOnLT7R2CYqaLoY9J6IIk+TAof0YY3
+	 51F9y8cQQa43GV8KDCPDnQihe8AIRIZAUF3oOvoJID5K5DlY+I+w7gRQc9DHTxJVxQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017702;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=LY5KnYEg62Pp1LvL2umBEQ+TtbgoJI72sal+2fBuBKo=;
-	b=WiYIpHkiB81S5N7xOmRrUbiK7p00ktJD4czZ6A0K4rBSzbJhQ2MfMO9JzTLlxoi1PYCp
-	 vGITP7VttS6OTEPLBDjybqPio9CPL/SM1DlWgSgEFGjg5hEmyIm7osp5XJ/BmuPpi1vJM
-	 4wM314Yr4ejAG7nNdztyuKci2vAKP3PUXe8iuQ+lwfUSNO1ET2Y/KACQYT++lUUiy633i
-	 0cv8/v9mb1AMvV8ahO5jHsblkxIuTiFkpRbfJnvsiWs0ciGqLaKP5Bop+JJ5McYnFVmSD
-	 FEDWp6PLQKxMftZX2XNuQqf6RGYgASgJ5AONI1YVUdbzD354CA4TK45h5AVOf8RUMRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017709;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Info-Out:
+	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
+	bh=J4x7vG2kgvMTwSisv2CKrXIxEnzvTohn05JwlURcXCo=;
+	b=RTC+o70/rwG6Exo8dt7n3tfpr7KEiePQLphjADQ1+JwR0eKC4DQKHVtyEVgVtHF8QQ8C
+	 PBoi0p6Dkk7OGMkoJJ1YD01aad5mz3CL9iMNLc6MSyisVmK3INU+75TuvdKiNiAcIotSu
+	 QHLwq1QqMGUTcOyV8hZPRY4x+uGRpmqR8fFoggMcoxa8oq3TXio6/CLmZJKhg4voaaKPW
+	 VhiMVh2TDKTtJN+OIGqwfT/P9E+836fbtL0UjuwfP/YhC1+5YU/JBx24qeFVxDCeicG0o
+	 3uCqOop1kjagxPZ0081RPmlpeUnTxiZjgbiiXr69nzyVBOmFu2KnXj9244xUhq8lP5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OzEu8UrK;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 965B1606A31C
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 965B1606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=icloud.com;
+	spf=pass smtp.mailfrom=icloud.com;
+	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Ne4oErZJ;
+	arc=none smtp.remote-ip=57.103.87.181
+Received: from outbound.qs.icloud.com (qs-2002e-snip4-11.eps.apple.com [57.103.87.181])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0D64606A31C
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:01:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0D64606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OzEu8UrK
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C135339;
-	Wed, 18 Nov 2026 08:01:38 -0800 (PST)
-Received: from [10.163.128.4] (unknown [10.163.128.4])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 214843F632;
-	Wed, 18 Nov 2026 08:01:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795017701; bh=hkXZYgY3e5AOogVCwFiSPcIssJ7tU5GIgVmY2/vcSPw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OzEu8UrKkTwbKYrQaFm5nAwdhmP5LhADhtVLtftu+FWwlL+6u/SoOj/j2smR5D+qY
-	 Hm6S3yq97wLpReP+9UdpiZXJtzV/jJrmpfIL7OgwVDEA7it3Ox58btH8isXP0rCtIR
-	 ptUOeqN8o0c9d5YHL/MQuUOz20H8BVhdms3QcOuQ=
-Message-ID: <8cc96362-462e-4033-8e37-f9fc9128f6b0@arm.com>
-Date: Wed, 18 Nov 2026 21:31:32 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Ne4oErZJ
+Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-2d-100-percent-3 (Postfix) with ESMTPS id BD27C18001F4;
+	Wed, 18 Nov 2026 16:01:46 +0000 (UTC)
+X-ICL-RepId: 01a1ef64-8cc4-787a-a372-8a9489bfca27
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795017707; x=1826553707; bh=J4x7vG2kgvMTwSisv2CKrXIxEnzvTohn05JwlURcXCo=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=Ne4oErZJVllgniKkEZqqeI3i5oHtxbwR0j3gnBM1iBbaS3WOZouB/hu3ZSwm/j1hjDycLHzd8wrpjFvdYEM03ViPfDgwX/DKACt+w4B8uh8BJXwRJhYsj7fsI15O/6snbJjEOZQhJkGPgAXlS4Uz/7cn8DEtdC9pg5XHQHdwcK8pV+pNwvPIS95Q1LyqbhpgvpEBnrXq56P8Vvbls8ef7ynozAj8+xdIGd7YF7x7PNLEamFcy3NZws6WA7wgc3gZY4VpLpp7FDtuUV5S6V9brHlgGma5tYhMqcwtgm5HCdzcfB/1pc2GskVx3C6mbvDN0DCzjuKbvamOz5h/YAxHoA==
+Received: from archlinux (unknown [17.57.155.37])
+	by p00-icloudmta-asmtp-us-east-2d-100-percent-3 (Postfix) with ESMTPSA id 5BD481817E9A;
+	Wed, 18 Nov 2026 16:01:45 +0000 (UTC)
+From: Philipp Prell <philipp.prell@icloud.com>
+To: dtwlin@gmail.com,
+	johan@kernel.org,
+	elder@kernel.org,
+	gregkh@linuxfoundation.org
+Cc: greybus-dev@lists.linaro.org,
+	linux-staging@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Philipp Prell <philipp.prell@icloud.com>
+Subject: [PATCH] staging: greybus: uart: convert from IDR to XArray
+Date: Wed, 18 Nov 2026 17:01:41 +0100
+Message-ID: <20261118160141.341572-1-philipp.prell@icloud.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,77 +65,151 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mm/page_ext: remove unused page_ext_iter_get()
-To: Shivank Garg <shivankg@amd.com>, Andrew Morton
- <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Johannes Weiner <hannes@cmpxchg.org>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Luiz Capitulino <luizcap@redhat.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20261117-unused-sym-page-ext-v2-1-900f4c3c6856@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA2MyBTYWx0ZWRfX2VVr9tfHB6WA
+ xPjjeTs8LLrbOlq1VpzCatu+xX72uu8saRICRC5F8wrfmt9wrFW0HmcISCSTm7CNOtHZo3ybmn7
+ PuGEKpfVvZBhkgkUv2JSo4h1k9wjBLw=
+X-Proofpoint-GUID: zpouYMdnh7fsXqy3pQeu1wojZ1_-jmPP
+X-Proofpoint-ORIG-GUID: zpouYMdnh7fsXqy3pQeu1wojZ1_-jmPP
+X-Authority-Info-Out: v=2.4 cv=b5QncdGx c=1 sm=1 tr=0 ts=6afdcbeb
+ cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
+ a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=zJRp6_cAMcgA:10 a=x7bEGLp0ZPQA:10
+ a=BXpT7KiN_MIA:10 a=VkNPw1HP01LnGYTKEx00:22 a=kibvr5HLtuNvmma_iept:22
+ a=EmTZQha9bAnfYDchpHGQ:22 a=v3ZZPjhaAAAA:8 a=159dhF2HwaxKWhnN5oEA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA2MyBTYWx0ZWRfXxeBgeLv0fVcX
+ oUlXFMAIP/y11rtSG9oNtvT6UrD81fmBubkKDW7Iawn3l+DhLq+QQ/bjdTm3xCT3EZaqzBnbUZn
+ +gTqCc1GGWpQAMhq41ol7JLgbBck414wYR9S4pyQh8oFxLDpobxxRvUr6uYUq00FAH/kVjWcKIF
+ 80IbBaGDtKYO0vVnxwx175XXk0F8yaBwB8HwGyXIbnjs7kRDhvMdSd3Jj+SN/zjuItAWkE3QRPK
+ vKPFAifDy15OhwTNEwdYgLRZsEQXbQL5Q5P8z3thEb4Aj6YuYqn9Rk0jccwKUk3hqphkPhcFD6L
+ MWIkCwxa/zUeFzGx5xbod9DbSlD3cyToFf7+YiDhAufIXce5MrYPW0vpQVslDo=
+X-JNJ: AAAAAAABy/kXVw5OtEtl1t3Kimj6KzQPlcY5KEyITMdpz7aVa9LhprsjjjbBaJnyniA1U6
+ IZgvKKJ8U6ccqv8FPE4ixUvZgTNGcvEqJSjcv8Z0+nktYfC2ytqsVlM0ypbiAASR6lSaCo
+ xmNnjqbi+fUMyE5LuhZvoML/a1S279a+VKc5koQDy302i+Jk26jQbbVXhWZYozJZdR4A5s
+ l10gON4+CDhDyGi8GQFP5TamqCaHoVl7dGXuFUA3jm2ELEI28UC/xT/6SwMieMYxH4JCwm
+ p3Ol5xPXWjEm5yvbluxVATHLotRUE5oJC6iR2c3WyRFK5DnduQyLWw2aeJa4DjZeb6H1Tr
+ MyX3jWztueIxYL2PE810tSJfhiihx0W2qvzHN9N437OHXePSz727AVf7T1QykcRCRk4NFy
+ qX4igZ7GO8PddOl0HQS4eo2AT1UMmmTUniPLD+wi0Dzr2waHjc1YOVDC6RqTVVwQOMr8mZ
+ lOeuDUYqeIJimJ2h4/E8eFkZiXbkmLUTw6ygidWQEvc37SsiFjcv7dHY2OfMo5lkZwFghx
+ TrlG/mT97EjUgjVdKgfTqAj1tHCbdPWYe1/bd+TQOXalhXJeOfo14Ua7KSHuZv1mveuHAD
+ +C5/jcpozzuufB4vJCRkSNY6JJKH+uPQVEOQIkbFKkMLqnWSTac3C/i/SynMUr38/V8bwr
+ 3txfCmw7CfVe3ins/1DWtmZF57YjxiGWj3YY57kUDYomzjqupkxL26VvjBlAD6uZHzHOc1
+ PK47MImPWD3MOG5eCtEj94S+hHfy7T4UuNvdVX7tTdOtSROhaF/IpqEQfL69tyExhG1+it
+ AFZRu8OXprL2KPt5zNwMzDbUJUbTsjm2WHNMa2xpJNMPmQqzZ3qEVCei12saltwOv6HD+1
+ QuPx6UD2hJAn4rbMKvvhF5IgJORZebpSRDVkORq7engF4VoNBSG/veVigMHRuCPSF7nu/L
+ 5ZonatHE436ZU0ieIJp942su+fVY9zyuMOR61O7iWfIeIv643fuZ+lRyBW8GqI0ntpWc+9
+ ghU+pRde7JOW7Ob3KA71GvCDDNXiGr1c4PWcPxD7tjXvxLElc3XYX8uIDnoWNQFh4T+ay5
+ 6gzp3qkKJJ1AmUN+o0MI9H+xn16cqC/5f6jwaAXIue66vc9kCtgssivU/vKi6pQPHIBEtj
+ KNPRxWBGy7ZG+NgVVttJ9dZUGHsVswazooOoq3f2Wcaapiis9Bf6hTA/xNoJqWR04Jr8l1
+ Pv7GRh1eFBSz12kXQFRmqGpjw6r9KWm5KK7uynXN76Ua7OOdJpRfVA+pEC96PnsqoOBr
 
+The IDR API is deprecated in favour of XArray, see
+Documentation/core-api/idr.rst. Convert the
+minor table accordingly.
 
+XA_LIMIT is inclusive, so the upper bound becomes
+GB_NUM_MINORS - 1 in alloc_minor(). xa_alloc()
+returns -EBUSY instead of -ENOSPC when full;
+adjust the check in gb_uart_probe().
 
-On 17/11/26 9:56 pm, Shivank Garg wrote:
-> It was added in commit 9039b9096ea2 ("mm: page_ext: add an iteration API
-> for page extensions") but has never had a caller.
-> 
-> Signed-off-by: Shivank Garg <shivankg@amd.com>
-> ---
-> I found this with the kunused scripts [1], which I wrote with LLM's
-> help. The v1 cover letter [2] has more details on the scripts and
-> how LLM was used.
-> 
-> Changes in v2:
-> - Split out of v1 [1], as David suggested, and based on
->   page_alloc/for-next. No changes to the patch itself.
-> 
-> [1] https://github.com/AMDESE/linux-mm/tree/shivank/kunused
-> [2] https://lore.kernel.org/r/20261026-unused-sym-v1-0-82ca2dceabe1@amd.com
-> ---
+table_lock is kept: it prevents the entry from
+being freed, while get_gb_by_minor() uses it,
+whereas the XArray lock only protects the array
+itself.
 
-Reviewed-by: Dev Jain <dev.jain@arm.com>
+Signed-off-by: Philipp Prell <philipp.prell@icloud.com>
+---
+Compile-tested only (W=1, C=1); I do not have the Greybus hardware.
 
+An AI assistant (Claude) was used to review my changes and to point
+out bugs in earlier drafts and to help with the wording of the commit message.
+The code changes were written by me.
 
+ drivers/staging/greybus/uart.c | 25 +++++++++++++++----------
+ 1 file changed, 15 insertions(+), 10 deletions(-)
 
->  include/linux/page_ext.h | 11 -----------
->  1 file changed, 11 deletions(-)
-> 
-> diff --git a/include/linux/page_ext.h b/include/linux/page_ext.h
-> index 79c53ec45dfa..52a8b70c525a 100644
-> --- a/include/linux/page_ext.h
-> +++ b/include/linux/page_ext.h
-> @@ -167,17 +167,6 @@ static inline struct page_ext *page_ext_iter_next(struct page_ext_iter *iter,
->  	return iter->page_ext;
->  }
->  
-> -/**
-> - * page_ext_iter_get() - Get current page extension
-> - * @iter: page extension iterator.
-> - *
-> - * Return: NULL if no page_ext exists for this iterator.
-> - */
-> -static inline struct page_ext *page_ext_iter_get(const struct page_ext_iter *iter)
-> -{
-> -	return iter->page_ext;
-> -}
-> -
->  /**
->   * for_each_page_ext(): iterate through page_ext objects.
->   * @__page: the page we're interested in
-> 
-> ---
-> base-commit: 3a99594e62fce8c646e8aac01d38af16d6833a40
-> change-id: 20261109-unused-sym-page-ext-3fb8316ac777
-> 
-> Best regards,
+diff --git a/drivers/staging/greybus/uart.c b/drivers/staging/greybus/uart.c
+index e1b73db6a17c..ff33991562f5 100644
+--- a/drivers/staging/greybus/uart.c
++++ b/drivers/staging/greybus/uart.c
+@@ -22,7 +22,7 @@
+ #include <linux/serial.h>
+ #include <linux/tty_driver.h>
+ #include <linux/tty_flip.h>
+-#include <linux/idr.h>
++#include <linux/xarray.h>
+ #include <linux/fs.h>
+ #include <linux/kdev_t.h>
+ #include <linux/kfifo.h>
+@@ -66,7 +66,7 @@ struct gb_tty {
+ };
+ 
+ static struct tty_driver *gb_tty_driver;
+-static DEFINE_IDR(tty_minors);
++static DEFINE_XARRAY_ALLOC(tty_minors);
+ static DEFINE_MUTEX(table_lock);
+ 
+ static int gb_uart_receive_data_handler(struct gb_operation *op)
+@@ -341,7 +341,7 @@ static struct gb_tty *get_gb_by_minor(unsigned int minor)
+ 	struct gb_tty *gb_tty;
+ 
+ 	mutex_lock(&table_lock);
+-	gb_tty = idr_find(&tty_minors, minor);
++	gb_tty = xa_load(&tty_minors, minor);
+ 	if (gb_tty) {
+ 		mutex_lock(&gb_tty->mutex);
+ 		if (gb_tty->disconnected) {
+@@ -358,13 +358,18 @@ static struct gb_tty *get_gb_by_minor(unsigned int minor)
+ 
+ static int alloc_minor(struct gb_tty *gb_tty)
+ {
+-	int minor;
++	u32 minor;
++	int ret;
+ 
+ 	mutex_lock(&table_lock);
+-	minor = idr_alloc(&tty_minors, gb_tty, 0, GB_NUM_MINORS, GFP_KERNEL);
++	ret = xa_alloc(&tty_minors, &minor, gb_tty,
++		       XA_LIMIT(0, GB_NUM_MINORS - 1), GFP_KERNEL);
+ 	mutex_unlock(&table_lock);
+-	if (minor >= 0)
+-		gb_tty->minor = minor;
++
++	if (ret)
++		return ret;
++
++	gb_tty->minor = minor;
+ 	return minor;
+ }
+ 
+@@ -374,7 +379,7 @@ static void release_minor(struct gb_tty *gb_tty)
+ 
+ 	gb_tty->minor = 0;	/* Maybe should use an invalid value instead */
+ 	mutex_lock(&table_lock);
+-	idr_remove(&tty_minors, minor);
++	xa_erase(&tty_minors, minor);
+ 	mutex_unlock(&table_lock);
+ }
+ 
+@@ -860,7 +865,7 @@ static int gb_uart_probe(struct gbphy_device *gbphy_dev,
+ 
+ 	minor = alloc_minor(gb_tty);
+ 	if (minor < 0) {
+-		if (minor == -ENOSPC) {
++		if (minor == -EBUSY) {
+ 			dev_err(&gbphy_dev->dev,
+ 				"no more free minor numbers\n");
+ 			retval = -ENODEV;
+@@ -991,7 +996,7 @@ static void gb_tty_exit(void)
+ {
+ 	tty_unregister_driver(gb_tty_driver);
+ 	tty_driver_kref_put(gb_tty_driver);
+-	idr_destroy(&tty_minors);
++	xa_destroy(&tty_minors);
+ }
+ 
+ static const struct gbphy_device_id gb_uart_id_table[] = {
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.56.0
 
