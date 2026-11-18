@@ -1,127 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795004958;
-	b=AdV4o1RRXllCbke4eDGHNSx9eMztHcK+nHV+2ps9OSLqTrJAUDd2y+a0SEq1jbzIgk/O
-	 oQw6Em57JvIINv9zbn83PybYVBMmnoh63o+A+wqEO1dizoopLKWL8DwEt+3SDoMXNBHsy
-	 Rvfqcbn8KO4QrdmDNZhaA1IwCuPfyP+csCRjmC+g2hEx+jq5KONIpdSSl/nRDnV3uS/wu
-	 65mC/PFbDpEUOK19Z4ZGJgxy9Uy4MEhA2bFH0tQp3zT3/c7kxIyQ6LwTn6e5Uc9ZuQVW4
-	 Gz9MR7yR1Vz7nELHStKNHk+58v9xoYkkcjPLJRnWeqIBZ80e4Mplu3M52BCfyzPpCpg==
+	t=1795005045;
+	b=Epoa//UGYNHamamLB2Sqy54ME6ZFbn5txZywfx3bwUYz7DUh5uV2fhTrNt6Y4pjMvlEp
+	 1htbdMOgzLqmWW5iMpwIZiW5OsrG9dn7lnXwhleVPr1mw1sUeOl3anLjGTGDsatm6GvOC
+	 iVwvm4D8Ni/gdPEpjaJ81xjcUjSDTLcUhff3OJOFoFB9LChDMmvfN43YfGGuiRCt3SVnM
+	 53T0TU+jYVFsBpM24NTwcBM8x2rkXoffv97PCZjM39+FAt/4jXn9Gg/xbKlQnPd3Jrp1z
+	 vlr1ERst7Ry5Zh1uLa2oKlKgKy8u1CMjYtjQ47qDGm8Lt+rHnH6FcxGxIOJbv0jSxRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795004958;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=r1aEh9iw/n3stMcXke9+RzCCoMnaI0siNAVC+UxOzus=;
-	b=YykffbvTmBFEv6H5kvy9CpadKvIInpvgD4xmu+Urb6AMl/qyOt34yIOOmAso3Mun9+7M
-	 hPHg6b9bihOazbrp6RQLHGRzqYuZzfxvYxd9MjmZi0HwwdEMXbC20IgdBvAVL69jle/Cb
-	 TCzA4V1IBFkkQDPrLepRA9eoTpUGaMpLzDXoxk/WkZgjsO+nMq1rCL8EchxAuvGY+Hddq
-	 8CY9NQvNbeykZToQFe9QRi94gLKbrPKER9l3ns1FWSXsh38VmQZLA1v3l4O5D4d5YrjIv
-	 Tq04Q1zXn//UkpYkp2gtHKNrCH86snb0HapEhS5IzlHupbjHMG2D127X41weBQtj13A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005045;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=m6c/qR56253imWhk36Gac7berOasezUTnHhNbfxYNQs=;
+	b=pJnNUTaXMZnVv82h/Lf1oqpAVu77/Cob4SepJXtA6bwpr5qPj99Ez47UajK7unWcrj4k
+	 jsoLEVr0NEwhg26UbEHit8QShl8YhHJ1maDv/+zf7G4QB6/KXB05DhKhegJ4Byxxy+Rw3
+	 xQqj1zfuTebG6s//FepRWJx+P4KlaXF5gtCU1s56KoFgMeamxta/tpI+U0Yqazk6qucJy
+	 MYxCLjLi4zwLyfROZIYAca9xWUvsVT/Kg9+WN8kUpmq/7BpQvhCOM5iYtGubZlZQTvIte
+	 9DMnvMhfw4VpbMzIjgXknLlGsSeVBS1gYRDZ4OLMd1g6cuuz/Sjtr4B30LkbPBzHnug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CQm0MQ5V;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hnAtXpBj;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=J6xF+Kr0;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 578EE606A320
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:29:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 578EE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D85CC606A31C;
+	Wed, 18 Nov 2026 12:30:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D85CC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CQm0MQ5V;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hnAtXpBj
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AICLGrr236007
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:29:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=r1aEh9iw/n3stMcXke9+RzCC
-	oMnaI0siNAVC+UxOzus=; b=CQm0MQ5VZHhrIvKijDhSQge1uHiB8pqJN7Ja80Pj
-	6EPizmuw1wK89eTY9NepxLXkWTZeyO0sLnpExq3VYsiWYn7HLnbrh9Uai7SMHV0S
-	cfiSARmryPqJMnuaMhiqUwt7U1bAcy/4mrY4lz2EGEfwqVGK0hhSQPu3PrCL0Qvf
-	2f+ntDSrXhW/nQCoYhe2bi1oqQALiZXLQPYYRvb/Jv/+H860E1kEKbUj3YAy11wR
-	XpzszwHLz9Z5Kn46VdJKNFTi2ehgHrKYQ/XaEIAeq3cw7TxsApPz+qarZo/R6c2z
-	7wq5orjQpK5i09Z1d9I2ZdbuR4g2+qg788qj2INu0vp5OA==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv9jxpp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 12:29:17 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2efdc35736bso13569735ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 04:29:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795004956; x=1795609756; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=r1aEh9iw/n3stMcXke9+RzCCoMnaI0siNAVC+UxOzus=;
-        b=hnAtXpBji0SolI6LWpL2lFk9arC2oThfzm08JMgwf3us0mtuS1Wffvp4MIuDaGkBY4
-         S6bxhb2+YSqjwy0WRGmz0dfDCyrXwa1HugHDJ6Kn6FkfTRQRJHxpm/iDWdDpmFaxSm0X
-         lB/weEnx16nQJENz8mqblK1IqB5B8TGyHFJn4l+hF+gQzeiIuwANgsqUIfQGv3XqG8Lv
-         vzGUFKH6iebmEg1z6iDzBogZVTabyCFUf4+XhHcgM39/dS6MX7oogUwu8I7zZH3fxPUb
-         4ps8w9HYrxHT9ZFDaiNtlVMrnb/M10uKlNEf5boeN4o867lY5E1alggwyE3wYzoo1D7d
-         0+jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795004956; x=1795609756;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=r1aEh9iw/n3stMcXke9+RzCCoMnaI0siNAVC+UxOzus=;
-        b=CnAeO/2Qx7/l+3l7ztxU39yG+qP7cfKiy4QOj7Q8zDn3z7SM9FSnEdmMdjkBGTkCUc
-         +GCXXWu6KO5ozmg9zxfKxN2UMhaMr7K86AVSzvHg6BbuPWtKPfZJnEXdimg0FmFKQOJG
-         DhLolUC3OfqTXyNL5dl/ixiaz9W0zY3P3QDa6XQI94vs4Ah8zNj9W82SNMgTDV4xBGx8
-         3kwJmFHssVOCC4x0dyH1QIxZuCO+hJNOaHaG5++qlPXbEaDff3hQ7Zr07QYzhGLLJtnB
-         3QZlrL7R9gdF6kQATKLGKGj1CBaO9SONyRdwaWxpViBfAk8KZ8xIz433c15eoxkWOVSD
-         C6ag==
-X-Forwarded-Encrypted: i=1; AL+hErEz1ia1EQnYDufynUwlBv38xZpsxLdkMAKW0apIJj4xMa7jkqlymaXPlpJqa/1uwyYtBkG5n36s8wI+0Tc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9faP++7w+7U3XNrllOCWyN64NLk9c2ca0XJGpweyhIVLlERpwL
-	FLeFZ4ewot3IARHWW8XSLbVMqOxx2vHFsOyrC1d0yZi/NG08lCbo8cFsp3moSCSYpZVY6ACcTKY
-	ZVp5VTyljNS9uGeqSHoeWCs+a65WD5z/Erk1BFQElbHdYKC7AjiYT3ol24oeKsSLVRZM=
-X-Gm-Gg: AZFdTZcFXXXAodGVZUlnIFivemRnIJOmR5sNcVPnWIIgfHASoMok1ouxtvPQ4naqffY
-	Y1udEPZmvqCFrnm0Pnj5+T5L3D4E3/5O45smAcRhhRdNg05vt53P7nI1tx9zqDBI2DFr7Fpt3o3
-	Q1M9iHmopnArfv9fG7D3PyXamZUQP9e9dl56nfxtqX96/jHLYCYjgq1pZfmCMwdukJllpM1LxbZ
-	+eXxHKaeZQqlodGJYTHw7Zbw49WZmZfiM0Ogft7SJDaK/WLtMVHZgv/LnPiiZlxHN9gof5C9mhD
-	QAgUnPIcrI/Dx4B/MXrKNoR1y8PD0M3rfE3DFK4LB9D6AJhDWu4vFv7saEbyJeAYouAj69SFCsB
-	3c1ZG/+/X/OyA/RPHHRYcHv0hvuUUAe2fLoEKgnX++Eouv1z6PdpBAJeen+Kllz9706B0OCSbIM
-	i2xsnyYX65oNgc3CH/M+RU4ecbD5VUc55CNKcgluvLaTK1ZupoOovy79MiPDKTMAJd
-X-Received: by 2002:a17:903:4547:b0:2ef:da24:e76d with SMTP id d9443c01a7336-2eff752e549mr23380145ad.35.1795004955897;
-        Wed, 18 Nov 2026 04:29:15 -0800 (PST)
-X-Received: by 2002:a17:903:4547:b0:2ef:da24:e76d with SMTP id d9443c01a7336-2eff752e549mr23379855ad.35.1795004955369;
-        Wed, 18 Nov 2026 04:29:15 -0800 (PST)
-Received: from hu-anancv-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff5ed0d2esm13113715ad.10.2026.11.18.04.29.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 04:29:14 -0800 (PST)
-Date: Wed, 18 Nov 2026 17:59:09 +0530
-From: Ananthu C V <ananthu.cv@oss.qualcomm.com>
-To: Viresh Kumar <viresh.kumar@linaro.org>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Danilo Krummrich <dakr@kernel.org>, Jie Zhan <zhanjie9@hisilicon.com>,
-        Pierre Gondois <pierre.gondois@arm.com>, linux-kernel@vger.kernel.org,
-        driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
-        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-        Oleg Keri <okerixx@gmail.com>
-Subject: Re: [PATCH v3 2/2] cpufreq: fix policy max not returning to
- non-boost freq on boost disable
-Message-ID: <av2aFWw3kh11U68A@hu-anancv-blr.qualcomm.com>
-References: <20260929-schedutil-boost-frequency-handling-v3-0-68de169498c7@oss.qualcomm.com>
- <20260929-schedutil-boost-frequency-handling-v3-2-68de169498c7@oss.qualcomm.com>
- <auhMD2-5FD4BqImG@vireshk-B250M-D3H>
- <avRiWsxCEAuBouBZ@hu-anancv-blr.qualcomm.com>
- <avwtsmp7Mqacbbtl@vireshk-B250M-D3H>
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=J6xF+Kr0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795005043;
+	bh=OrEqqezQnIfFeKtDs9yFRb0TBIDDG9P+MV5KTuORKgA=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=J6xF+Kr0e06RAg6AcR/bhID/hpKlAsFDZ3vGBMYsF1DG5vepCedI4aFuAGOxfK1TK
+	 z8rtXYQuMimFfItjbiBz3XpHDwND6lj3um2VekcpWy59DG7Bb5aVeXTJuGfURRgZQw
+	 tyxn/wJfMzaypwoG1xRi/mr+sGWDVqxVptc2XAES6Nn7GqXMm+eJtjGpPip4IvChLQ
+	 yqda27wlsuZpe4DRGIK7UF32JDAZGjjFph5YFtmF5fzZbpaSq3iPPWg8CfgM7ZNnbb
+	 i8uEXKd3z1SGE+V3/ejDI9dfBiG3EHvrCTHcbUhkxWzVrRwhiXR4QIqns5o+4ZE2fx
+	 JG6r0/f8W3Nsg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B43F917E052F;
+	Wed, 18 Nov 2026 13:30:42 +0100 (CET)
+Message-ID: <68df102e-66e0-4049-9ffd-8e2746db8403@collabora.com>
+Date: Wed, 18 Nov 2026 13:30:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,154 +61,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avwtsmp7Mqacbbtl@vireshk-B250M-D3H>
-X-Proofpoint-GUID: DZbFt665pcqOvgvlmsSh_Zh9yChOPYT1
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0OSBTYWx0ZWRfX+IMYAkH1Kjto
- B94KZbO3QSWtM8mqFWbdmwB9dLVEbb6vXPJ2EucmUGz8gtyWApafTz+7HyHNCcW6QLiPVkKwF6P
- G72LMVW8T5sPnJD9HHMLJAkcHPC9fec=
-X-Proofpoint-ORIG-GUID: DZbFt665pcqOvgvlmsSh_Zh9yChOPYT1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0OSBTYWx0ZWRfXyC98JeLGdfsT
- vfIe/CHu6fAofyXUKBI9bZ42e4liDIZMvrCFTHLEzt+s0Vn0og7mTkM126QCuIFT5TtjczwlhGC
- gn5hls6uniCxNqmsbALWAI+e4lNDLPD/OkVLsG1GdlowoIK3BdOKTYZJjjmNPDvrLP9PrQAC/Ce
- h7SHkZUnnNipYXJjx8uDwx+db6qP6Al8n29+8iYT/6sCQpnOn5rn1Y/49t3st+5jkuzMHa2Gz0K
- 0ep21jvatdcp4ar+ltO6xrMBx2oDkmzC9Ln+zFwdlk2g8kfGHdHG6hng2zPZeRA9oRukpvLYhjC
- ljGk+wwBUg6hYwE9MEaBra8kWz1iD4sEWWyYEekyC4yV9m0MlXhb1VCiMRLbh604G8RIRL4ehL6
- +FDLi7NVkuF/FftvWDNaujNvfFg37GYXFXGlrWYGkxanizuuLQOlwzEMNeapOV0lyW+Z1NVFZJ5
- hXjFckcvUA9PbHKv5EA==
-X-Authority-Analysis: v=2.4 cv=RYIFmFtv c=1 sm=1 tr=0 ts=6afd9a1d cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=53p13Wp-lvFfL8JyHH4A:9 a=CjuIK1q_8ugA:10 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_03,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 priorityscore=1501 phishscore=0 impostorscore=0
- adultscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180049
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: mediatek: Remove undocumented, unapproved
+ aliases
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20261117130556.234785-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <3882ec4d-9f99-4419-8914-19c3a2a3cc46@collabora.com>
+ <96e3cc39-d10b-4743-bd9a-d683a91fdf34@oss.qualcomm.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <96e3cc39-d10b-4743-bd9a-d683a91fdf34@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 04:04:26PM +0530, Viresh Kumar wrote:
-> On 11-11-26, 18:10, Ananthu C V wrote: 
-> > I am pretty sure we can maintain the policy->min status quo and only touch the
-> > policy->max updation; which from a passing glance simply seems inconsequential.
-> > Potential side effects, if any, aside, this would at least fix the issue at
-> > hand, which is the frequency getting stuck on a higher value without being able
-> > to come down. What do you think about this?
+On 11/18/26 13:09, Krzysztof Kozlowski wrote:
+> On 17/11/2026 15:06, AngeloGioacchino Del Regno wrote:
+>> On 11/17/26 14:05, Krzysztof Kozlowski wrote:
+>>> The ovl, aal, color, dsi, gce, rdma, split and other aliases were never
+>>> approved by Devicetree maintainers, because they were never documented
+>>> as actual ABI.  Drop them, because no new custom aliases are allowed for
+>>> years now.
+>>>
+>>> This might break users of this undocumented ABI, so these should be
+>>> updated to use only documented and approved ABI.
+>>>
+>>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>>
+>> That'll just break everything.
 > 
-> So a change like this also fixes the issue ?
+> True, almost everything. I suppose few aliases are not used, but rest are.
 > 
-> @@ -49,15 +49,16 @@ int cpufreq_frequency_table_cpuinfo(struct cpufreq_policy *policy)
->                         max_freq = freq;
->         }
+
+Would still create regressions, and that's not acceptable - the cleanup can be
+done only - and exclusively - after addressing the situation elsewhere so that
+no regressions are seen.
+
+Still, a question mark remains on "new DT on old kernel" compatibility which would
+miserably break - that may not be something to care about in this case, and I don't
+think that it's time to start thinking about that.
+
+> Well, it's a start of a discussion. :)
+
+Yes, I like this spirit.
+
 > 
->         policy->cpuinfo.min_freq = min_freq;
-> +       policy->max = max_freq;
->         /*
->          * If the driver has set its own cpuinfo.max_freq above max_freq, leave
->          * it as is.
->          */
->         if (policy->cpuinfo.max_freq < max_freq)
-> -               policy->cpuinfo.max_freq = max_freq;
-> +               policy->max = policy->cpuinfo.max_freq = max_freq;
+>>
+>> I do have a mediatek-drm restructuring series that is partially resolving this
+>> situation, at least for some SoCs it's getting 0 and 1 hw instance id dynamically
+>> recognized, but with some caveats that could be unacceptable (as in, if 0 is
+>> disabled and 1 is enabled, 1 becomes 0, so it's not actually resolving anything
+>> for real, it's just making it tick right when stars in the sky align in the
+>> right way, which for some SoCs is reliably possible without side effects).
+>>
+>> In any case, all of the ones that have only instance 0 (and all of the instance
+>> 0s) can be removed even right now already (still needs some testing to make sure
+>> that there's no regression), but everything else can't, at least not until the
+>> whole restructuring thing is merged as that'd break things.
+>>
+>> Worst part is we have two new SoCs (MT8196, MT8189) ready to be upstreamed here,
+>> which took almost a year of development... and it also does rely on the aliases.
+>> I was in the process of slowly cleaning up those (as I said, there's already a
+>> restructuring that makes things a little better in this regard), but at this point
+>> that'll need to be done with the highest possible priority.
+> 
+> That's unfortunate and still new DTS/DTSI should not come with these
+> aliases.
+> 
 
-This does fix the issue of policy->max not being able to drop down back
-to non-boost values after boost disable, but I found another caveat.
+Indeed.
 
-The commit 8c83947c5dbb added the following change a few months ago;
+Since conversations went on in the other thread, though, if we have to spend any
+other word on this topic, I think it's a better idea to continue on the other one
+( 94ed1340-94bd-49ee-ba31-9bb63164c89a@kernel.org ) and let this one go.
 
- static int cpufreq_policy_init_qos(struct cpufreq_policy *policy)
- {
-+       unsigned int min_freq, max_freq;
-        int ret;
-
-+       /* Use policy->min/max set by the driver as QoS requests. */
-+       min_freq = max(FREQ_QOS_MIN_DEFAULT_VALUE, policy->min);
-+       if (policy->max)
-+               max_freq = min(FREQ_QOS_MAX_DEFAULT_VALUE, policy->max);
-+       else
-+               max_freq = FREQ_QOS_MAX_DEFAULT_VALUE;
-
-this max_freq is then subsequently used to update max_freq_req constraint
-for the policy. This means, assigning a value to policy max in freq table
-directly will cause the same to be kept as the max_freq_req, which if
-boost is not enabled will be stuck at a non-boost value. The boost will
-still work, as policy max is set directly, but the value will be above
-the allowed qos max;
-
-# echo 1 > ../boost 
-cpufreq: cpufreq: policy12 boost=1 policy->max=4723200 qos_max=4454400
-cpufreq: cpufreq: policy6 boost=1 policy->max=4723200 qos_max=4454400
-
-This also means if at any later point any limit refresh happens, the
-value will be brought back to that qos max, which is a non-boost value,
-even when boost is enabled;
-
-(e.g. here with a refresh_frequency_limits(policy); call after the boost)
-
-# echo 1 > ../boost 
-cpufreq: cpufreq: policy12 boost=1 policy->max=4454400 qos_max=4454400
-cpufreq: cpufreq: policy6 boost=1 policy->max=4454400 qos_max=4454400
-
-tldr; is that it will fix the issue of the freq not dropping down from
-boost, but it will introduce a new potential problem of boost state
-potentially dropping back to non-boost freq while still in boost.
-
-So this alone can't be a fix at the very least. At the bare minimum it
-will need update to how max_freq_req is calculated/updated, etc. If
-nobody assigns values to policy->max before cpufreq_policy_init_qos
-is called, max_freq_req can simply use FREQ_QOS_MAX_DEFAULT_VALUE,
-which is S32_MAX, as its value, and not cause this problem, so the
-solution proposed in the current series will not run into this.
-
-> Also, can you please explain the issue again in detail. I am not very
-> sure how you are reaching to this issue over current mainline (without
-> the first patch).
-
-There are two issues the series is trying to address;
-1. freq can go upto boost values, but they cannot be actually used
-2. once a policy is using a boost value, that value cannot go back to a
-   non boost value.
-
-So with or without patch 1, which addresses the first issue, the freq
-can still go to boost values, which can trigger the second issue. The
-logs relevant to the second issue, reusing from the cover letter, is;
-
-\# cd /sys/devices/system/cpu/cpufreq/
-\# ls
-boost  policy0  policy12  policy6
-\# cat boost
-0
-\# cat policy6/scaling_max_freq
-4454400
-\# echo 1 > boost
-\# cat policy6/scaling_max_freq
-4723200
-\# echo 0 > boost
-\# cat policy6/scaling_max_freq
-472320
-
-The reason why this is happening is;
-
-from freq_table.c:
-
-if (policy->cpuinfo.max_freq < max_freq)
-    policy->cpuinfo.max_freq = max_freq;
-
-and from cpufreq.c:
-
-freq_qos_update_request(&policy->boost_freq_req, policy->cpuinfo.max_freq);
-
-so cpuinfo.max_freq is only updated upwards, and that value is used to update
-boost_freq_req, which is a FREQ_QOS_MAX request. On boost enable and disable
-the cpuinfo.max_freq value stuck at the top will be used to update the qos
-max, and the value never comes down.
-
-> -- 
-> viresh
-
-Best,
-Ananthu
+Cheers!
+Angelo
