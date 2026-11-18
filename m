@@ -1,49 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967208;
-	b=SB5VtGCYs+FRO4p+//6+Kuzv4P2um7gv4QHJIqKmjazpWDam/N6jFcSmnyUQ+SqkvvaY
-	 J4HNJ76qOeb2pjf4rIREbxTvYaLhrv7/CqjM5Dol9qE7d8TBURKZNO2fs2zM8ibKrS1c7
-	 znC9OsApoKMSMCTioCUf0l1xW244+uWKcQUqu0lu2gvGEorzG6iPhEw6PTkfmfpJ6EC5Z
-	 k4L/Fl3m7SoZvLUnrwFeMdYvOMrBKO/qZfgvNeKKnf/oOrE8EZpIPrWwHwmj/72aZR8p0
-	 LvBY/ToYTswSLMzGp7AeZSP+A7ZCN7XejljYud4pFIcvQ2+rG4EJInso5okQjruiKag==
+	t=1794967232;
+	b=In3YcW7QxeWh/lLN/k4sWgempZu+RsZoFZjHoL/29rzmoSpgAYHhczfYjQHkLik4s8Je
+	 HbVna4HPvUhF/LEFJ2io2zHYf5GKc/UT6/Y8fzenfFT1XYMDBHB5Tl766u2nzzjUjt6CU
+	 aWym/LBhrzxsrgdqDBjIXv2bvXaaAyOxNxRkvGL1ZPAzaAJ4mirf3wQwgNBWkuVbjOloQ
+	 F8KLxowF85nvUSR5M2kRPivCVUNHHbE5sqbkddg3FseX4RmspQu9Nsdudlwm+oeV7eM3w
+	 ak2JDOkPWLCcJVnauAoABg6SmsUYMQ/7U3BkogSZqP73SbMMhuDaAhPnm+xUXEKjGaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967208;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=rysQnyo3q2q1PCSB5zwI+CF9MYiqYHtXoPwnkzo0XVs=;
-	b=Klx0O2rimbg1lVo3yjxQUtQi5VlemBMIRKnXuyYxHwimdwAGHqCSDK7MjksGDNZbiV+2
-	 PcXtV/aazW41f7EHcuwMF5hwSwUY+jWt0/XecfLW3lYyubAcnqnk9m0kFEvkYFiI+LN/i
-	 fI/MDjH78UxUs3VLuDeth25IW9KqgchkfR6+kQ+r8+ujZwOm4CP7L0Tcx3O8UzZn5qabz
-	 z84pq3eIMizdlyzOVTt7cw64Sk1xvgt/PFl312BjyiIb66iOONgolW6A75uFEalPhxZJy
-	 F0CngJ73qSCNstUarFPPe8MSyk39GdvKM3Z27gKUd5I34klJ6zaZ0SzyWKU9xQXtK/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967232;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=2gdho5K/JlFD0r0e2kCZivjc5YfVDRgpJ3DbV/tzMlg=;
+	b=kC/QPfA6DpUt8H+voiF66e6a0TLaDygIouDV5moA1zS73asqnuz1MAgKmTp1ipgnyyQ1
+	 uN05CcnQhjyjMVQxWS6ooNsUaA6V4/DRDsbZn1Uwyssve1kWj1oGqmAGl44ww0SZWUkoD
+	 ZdYh6m80XlBYYSJJ/klBSmJ8T3OaJLfYbPCVkwKl8BXq05Nn107HifuP7THlucuygBzfq
+	 vzCdVt7D6Rkmri6w0qU5LmEPIK5pKEzpP334HOq3KEUEgGiod1eXqLQhQmqqsvGAkoF/5
+	 hTHdbvc2Ypu7mZX/5lmXYO2+ODwp12kPac0rmBwY1qgNxniZ3GPqP/UBar0l6paSaBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hKILQxMm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mYXsdtTD;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8F2A606A31C;
-	Wed, 18 Nov 2026 02:00:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A982A606A325;
+	Wed, 18 Nov 2026 02:00:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hKILQxMm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5371F000C4;
-	Wed, 18 Nov 2026 02:00:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mYXsdtTD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D1C1F000C4;
+	Wed, 18 Nov 2026 02:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794967208;
-	bh=rysQnyo3q2q1PCSB5zwI+CF9MYiqYHtXoPwnkzo0XVs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hKILQxMmbL6IeQNW2Gh+AJLNiaRgwPTb4uEKnMxgqzGhzZBGKAo+0/11wqAkQr76E
-	 VkhmGiaWNWICew/29sChe9irFbze6kvie9BDTlaJhQsSj6mAYb5uyIW5yr1GvoxNiv
-	 uZ7ontFdoMX3HLQbtsfZlo4R366jjUOgfyQqdx28sEq0D75yhv1L2fRC3ljrf91hNn
-	 jqKe3gtTlkeyUBVoPIbXxRgdkId+8Hx4g/RiyWcrhUIDReYhZR94wvwsYZ6wUsSGcp
-	 K8NvgGg1kwKevzeA9DVgj3M/Zi3nHd8OMrQrWKMPnrU9D5bljkvaJoR2H0V94hxfPO
-	 7c2+Y4zXAjD1g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1470392B1FF;
-	Wed, 18 Nov 2026 02:00:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1794967232;
+	bh=2gdho5K/JlFD0r0e2kCZivjc5YfVDRgpJ3DbV/tzMlg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mYXsdtTDCsA/G2cB9aWifx3HlZtcFdP0G3GuyTu4fNiJ91gDGzT7qe+QSEpAipXew
+	 omLKf1qYKxxyuJYgsLiL182a5d/bHFbTFl5sqQGObEQ25s5IT2vRuDOATmUVCjsg2s
+	 1q1ujRTsCp3KKkeY/Wuq9RanKG+0mBqj77nslOZpbHBW/hwQN4oXB34ZSLzPHytAkk
+	 mcoXCApif23tP70qMPjGSx0/PU+Ae5hQZdJ3WvHS0jlSVlNzLIv86kc/bcDd6WgtDk
+	 ZVugnoINPfkhST/kRQVuzJ78oJdydcPiOsd6ipYOY23LjOCntukhABVPTPPbI7Y0QN
+	 CdzNiHSrH2JRg==
+From: SJ Park <sj@kernel.org>
+To: Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org>
+Cc: SJ Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	damon@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Mattathias Pinchover <mattathias.pinchover@uber.com>
+Subject: Re: [PATCH v2 4/6] Docs/mm/damon/design: update for sz_ops_filter_passed_last
+Date: Tue, 17 Nov 2026 18:00:24 -0800
+Message-ID: <20261118020025.97097-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261117-damon-sz-ops-b4-v2-4-439888fa04ac@uber.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,52 +67,21 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: stmmac: re-enable on-chip parity checkers for
- XGMAC
- ASP 0x2
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179496720653.1405006.4159910100773001022.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 02:00:06 +0000
-References: <20261114015554.2187341-1-zxyan0222@gmail.com>
-In-Reply-To: <20261114015554.2187341-1-zxyan0222@gmail.com>
-To: zhu xin <zxyan0222@gmail.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, horms@kernel.org,
- 0x1207@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
 
-Hello:
+On Tue, 17 Nov 2026 23:22:18 +0000 Mattathias Pinchover via B4 Relay <devnull+mattathias.pinchover.uber.com@kernel.org> wrote:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Sat, 14 Nov 2026 09:55:54 +0800 you wrote:
-> Commit 669a55560e4b ("net: stmmac: Check more MAC HW features for XGMAC
-> Core 3.20") made dwxgmac3_safety_feat_config() bail out early for
-> asp == 0x2, assuming that configuration has no parity protection.
+> From: Mattathias Pinchover <mattathias.pinchover@uber.com>
 > 
-> Per the DWC_xgmac databook, the ASP field of MAC_HW_Feature3 selects:
+> Update DAMON design document for the newly added DAMOS stat,
+> sz_ops_filter_passed_last.
 > 
->   0x1 (AS_EPPE):  all automotive safety features, with ECC and parity
->                   ports on the external application interface
->   0x2 (AS_NEPPE): all automotive safety features, without ECC or
->                   parity ports on the external application interface
->   0x3 (AS_PPE):   all automotive safety features, with parity ports
->                   on the external application interface
-> 
-> [...]
+> Assisted-by: Claude:claude-opus-5-5
+> Signed-off-by: Mattathias Pinchover <mattathias.pinchover@uber.com>
 
-Here is the summary with links:
-  - [net] net: stmmac: re-enable on-chip parity checkers for XGMAC ASP 0x2
-    https://git.kernel.org/netdev/net/c/9c9863f9b9f1
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Reviewed-by: SJ Park <sj@kernel.org>
 
 
+Thanks,
+SJ
+
+[...]
