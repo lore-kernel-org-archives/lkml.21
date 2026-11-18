@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.130.12
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.83.36
 ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795024483;
-	b=5Zp3WFFufVKNd4YVp9nan+YkOvC8QippUBmser+zCO2UbmcKYAGqVTmh6NstlXAUa7uU
-	 x3Qd1OaNccP7Ih99XXZbTlcO8r81zqYp78oRtxLXdklXMGXf9Ro3KZwEKUKJFW1uXXdU9
-	 w8cZ+fmsVFkAq7YVY98ejOWgM3UwoFmH07mJxdldxXcu+I/myNa9wPB2IpPgbb0qjWqoP
-	 VX9tUMroQkv6n8PJVLpzJyROIRdi3vDcms1B7qYyaHsGTpGRZ3QH3mFJzxoqzjrofTvoN
-	 XDBDpjZ/DFWI+IF1nYgiqQ9YQYkz4N7gyflcHK+o9FlYSkvYB4Zq8mAkYu7tdhmG6aw==
+	t=1795024480;
+	b=lXrOp4JOz7U930G5f2KN5Kgi4eVAOtICPJiZtdzEbXAk9qBrOvy0cqEcZgMH+5ObFK5F
+	 YSwAWecSSutRttjvzJJwPXHRyEueAKMMvBgmEjZkEC3XUf/hvpaOehvonEshVtiTMHU4M
+	 Q4mgHfpn/MYWrFcyW/p50beClfimsU76XZ/foG+J4gdc/Jo67EY5gIu9+tWyA7a0n7gV0
+	 nqmlDxqN/XL/uX4uJP47utEBpDfZjAQttmVbui3m3k3TyIQg0Mo8RErWpcDlkDC8iA8IJ
+	 mU+4zOCYi1B+Dy9yAskVimiLNzxbwysArierRO+3O76HhfMxLth4tRoI/EGVfDvFCzg==
 ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024483;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024480;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
 	 DKIM-Signature:Authentication-Results-Original:Received:Received:From:
@@ -34,37 +34,37 @@ ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=oCLIJIJtEybAX4dINgpMesqj+mtcfEXtr7qHysa+eTk=;
-	b=g7AUqp0PL/IlbH6QmsXft2LEjyATiC3ou801I3ROCngP1n4ZJz6n68qDqABZmn7RgxKm
-	 dW2GJbsnmDfLbXyJBZQ3ChCYLIe62bSyjAehKgegMMWcnCXSkYzOq+J1ElfnwN3E2zbnf
-	 /Wh377B3sOY0fs66j+FKhQeqlHBFQ28QIVDev1vR3iscQAbEar/2eGPP5bCVqqU7v2i4w
-	 BW4b8R0mikTf03liDu2bbgmQYlfI/hpJHfzmVtCcezfgFzCgxa9uzDmm+b96YJ3Tk1nWv
-	 f+7xvB0QWJPMLYRPmdln3qh1CHMRJh0bOdNe8peuTYgLeil6v7lrmjjtozir9l9ruCA==
+	bh=k2YiVRnWmyATmc28SgWdX+V85E+XV+ukNLiV/gAd2ls=;
+	b=iqdwQJ6As+gKjLVdYVOj0GceaJdQTJgdA64lRAoUan0udWvdB5tQ7wA76dl+QXor+p3g
+	 U/9AUZvH+2YxtphF9FhVMJ9OdAHmk3YiaXU8rPElnr9884+0xnwrAV2NUb97APPztP8fx
+	 NyMmo6erSKfEFWqucpLDLMZAMcOt+b4tRSPlmAVPJ0UczxGoe908DAa5Cq5R93xEI6qjE
+	 r+gP7QbZDFyTl/3Xj8K/XChzr9DS1voZZpzo9c7eIWWM40+EpO9o0Kk+eaZbUwX1cw+7E
+	 rAieSV6XPXsax5NL/+8Jb10bAfnYJ2edzxyxwthoevtbDK5y8VwF0vqOhzxfuZu2stw==
 ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=rETH6i7+;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=rETH6i7+;
-	arc=pass header.oldest-pass=2 smtp.remote-ip=40.107.130.12
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011012.outbound.protection.outlook.com [40.107.130.12])
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b="BYYlj/7U";
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b="BYYlj/7U";
+	arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.83.36
+Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11013036.outbound.protection.outlook.com [52.101.83.36])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 715C4606A325
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:54:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 715C4606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16E2A606A31C;
+	Wed, 18 Nov 2026 17:54:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16E2A606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=rETH6i7+;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=rETH6i7+
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=BYYlj/7U;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=BYYlj/7U
 ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Q2CnwvZUsHUygIcsXVy5CGVyFilrCPlo4/12L57/f18OYDAFYrFzFbTCNIaRJ2goZ4kqGFLUxF8Zy1gnqE4d/TcajWQzMynHGd80rv/HSdgATZAspTIMBME01wCj9xlCmAb91ajtDrFdD8dcquDVCcEXF1lEMW+vDjRdUdy8IImQHt7f1qQ5AjLf9iScy/boH/Oou11ki4JjnkvxwFpzrWjPIQeFdevWOd5WYpjpyyk0MiUqD40B54ckZQ80Fdeay5DqjCp4I2Y0KNn2ibCN2SmrhujlgeuND5kZRAWa9B5KB4oWrCbEUpiY45Y4qX58xIXgdCWjQ4OPN84VlYVkuw==
+ b=jSbmB5JVQDQ73wEC10wv1CeMZb0KV/rMzkWJM9j3KYCOTJg80QrS+VljM2RHcpbbYqIq13JW0LrYfm+1D53z148cxlMhmMzAdiUZyYLKhrvo+ZWwfglJi//9ccxk7JBSUyAaYzND5OS53m7dEk1sCFJFpqS1Mi/S8wdfmHXo+URZ9ytRfpH4x5XY6ygxA36rt9V+1Cm0qSSInQp9yQNjQqFWqhukBus8PsJmkHySh0oqb/TY/jD44JqboZTGtOBe1+fELF/ybNUza9Izvr/39gObcv51z16FoGNriikxp1VPnQwnNqukfErIGqlBXmNSfHmHE+lmWHVuJjW8X/siAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oCLIJIJtEybAX4dINgpMesqj+mtcfEXtr7qHysa+eTk=;
- b=abGFBSTgCeTpz73sUkNFTn52Q4Qu/6jYpcLbBPsMJBvZWz1P6wL9RZm3j6J1CUt63bLLXbvz+JOTPZex1KQXr/uW8ePP/2FQWLTzGhO0n+5boICA7ecA0YgWkZTjd2DjR66L/dKeSv53pEh7sjo3TsPJsZO785+i3igr30XIz9yGjYUHNpw0SlfyXoIg452H4zZujMhVGg8HFTrMizC8whf9NrzFn6OLqmCQEW+ZoigEOHThk7eymskJKyytoN52z+4OhFYLBCK1FuYOmWTmGyFSHCyozsBPHv66J4idGMUYBuohiAm+cSFon1agSTxd7BWCOKKRVv0egxZ44s/zrQ==
+ bh=k2YiVRnWmyATmc28SgWdX+V85E+XV+ukNLiV/gAd2ls=;
+ b=eXjWjdnzNG7cm7LUOdIjKUlFUN9laUFjs9DBfbr/HLMPz/CQLOYjPU+Kkz8tPXlo+gHu//frY24agndhTBdr61RdXfCFHhRYFKatmn29wp576Z4eRpg97GBjT/uyQPJwzKz+ypU9khR/1ILXRuNe1TyuHl4XVKF/RjskwAoMo7GWcTwdZNrluq8qmTBNWFkOPYI1IiDNrmqYsfmamuWXiSYLAVGUCHovZm9qQ2myJ46l7GV2nS56z+8OwlZ1Z5thk0129bOBs401NdafSIUUBlhFKCWmhoBS5J3XCcuz04rV4w+/NtgNpVfrtHt7Vt/PDXzZzrKkAwlYVk320iyKdg==
 ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  4.158.2.129) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=arm.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
@@ -73,18 +73,17 @@ ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
  dmarc=[1,1,header.from=arm.com])
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oCLIJIJtEybAX4dINgpMesqj+mtcfEXtr7qHysa+eTk=;
- b=rETH6i7+w8RxdYXqJWhPmLxXrL1mT/V9lxTAYZ5ZsdhIwvyIHOLzr54TSlxYP8e3SgxzsvHxymg/cvGoq6bsRP43fxXylh3HnMyyo4iZ4RAxraExrFjr8qxPeqngKANdEpufzgXIYHFBE+3JZhrMe+AiZjUaI+N1Xo16Pj+0ujA=
-Received: from AS4P190CA0010.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5de::20)
- by DBBPR08MB10461.eurprd08.prod.outlook.com (2603:10a6:10:535::20) with
+ bh=k2YiVRnWmyATmc28SgWdX+V85E+XV+ukNLiV/gAd2ls=;
+ b=BYYlj/7UXSs4wStG+k3RU4jTPolG19YvL3JzzHltSqoDN941xu3LnWQgoQmZVtBcMZqepQ1U6bTnmpKk7fbF+EsVzCq54HxSEw+9xRug4oA6pZhfUL77uSuxUeiE/F25ni31B8Cfk1QhP3qniC9kZk2qbgPEFvF+heGC2/MJS10=
+Received: from WA2PEPF000008BD.POLP291.PROD.OUTLOOK.COM (2603:10a6:1d8::68e)
+ by AMCPR08MB999914.eurprd08.prod.outlook.com (2603:10a6:20b:77e::24) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 17:54:36 +0000
-Received: from AM7PEPF00000054.EURPRD83.prod.outlook.com
- (2603:10a6:20b:5de:cafe::2f) by AS4P190CA0010.outlook.office365.com
- (2603:10a6:20b:5de::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Wed,
- 18 Nov 2026 17:54:36 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.16; Wed, 18 Nov
+ 2026 17:54:34 +0000
+Received: from WA1PEPF000099CC.eurprd04.prod.outlook.com (2603:10a6:1d8::164)
+ by WA2PEPF000008BD.outlook.office365.com (2603:10a6:1d8::68e) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13
+ via Frontend Transport; Wed, 18 Nov 2026 17:54:34 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
  header.d=arm.com;dmarc=pass action=none header.from=arm.com;
@@ -92,34 +91,34 @@ Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
  4.158.2.129 as permitted sender) receiver=protection.outlook.com;
  client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
 Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM7PEPF00000054.mail.protection.outlook.com (10.167.242.40) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.0
- via Frontend Transport; Wed, 18 Nov 2026 17:54:35 +0000
+ WA1PEPF000099CC.mail.protection.outlook.com (10.167.242.20) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.4
+ via Frontend Transport; Wed, 18 Nov 2026 17:54:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jc2+cKBuSPZvIL+d8ACBXVtU84eaHwv10nZiKkp6rK4mCIMENd41lJ2B9MWzPxWdb6qgVqlRkllrOAX2GkE8rmL0CUCvH8sy94BnwTAw13+yXS1Ln/tvos9QUlhzDDzC8e05SvKruqhtog6AqEIIT+iENBZoDqeRq2N0wEM9wpUl3mb8D16dObut5pLskLX6X2HN6dU/F7NxpQoDi5DlJ7AXU8M11bETH2t7SSdOUHf5927PJ9SlK9QQ3oBL2rGTO4SNEr30qL/Hju8y5gkuUkPvEe9EpoqFZW1rV3AY3lhXuktyDNOVIQnzLitFOYdJSr6X9uuVR+BXozLXG+hlxg==
+ b=K8f85Pj3AY2RaxpG4wx913WEUv4apKVgWF+BvSTv2pO0uGzAIT+d7M62J+cLqfrgOV+mVb4c7UpaiiivSyBYcfRB2zWF922zXPF0ifIj5DLnxmJUPzoPHCLzXEn99xHpfASnHSF2jLwlE8J8fW6JbccIxxLGgQeb8dxEps3qrNhAZ2yKiZmitw7ZXPvOHQfmwQBlLwwEWA36IWkLVFCNeJ5Y8z/O6kdKBrvl9a+rDrN+c0ud2HOyqPUV7GSDN69/NvCBpMlqdh8ie5JhbuymUo6jyEKd4t1CCfPHjakEC8vaw5yJCSw0ZFpNSAMrPCZ+MvnWCF0sKgtX+wDgX2Pd/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oCLIJIJtEybAX4dINgpMesqj+mtcfEXtr7qHysa+eTk=;
- b=aq7wyiKT/pZxQJThKYp81daNsAlxm9vWD+ebzaHg7qEo/vfbsibxM1Oz7RZvjQki1S8o8xP+DQkKRewGCyxWOhPSYvkT79SFShePgov04i7vu7/87DjDEhmVinrzl9YAYOtbp3qSDOTvUXwqsZXMPEY1KzQ36IZ88uWYIwtotRQoyMUXM+1R/IF7jl68qkzLG+jwVTbkEYttaueOlfXUVjd+81OLLibagS2CqSOhvNvbT+73asqrfrJl5pI7xMPQCLUqxjybeqpOSyEVhXzHJHdavlp3KikWScrAKZ8gqXPOfUYFdSoKw8odMnbTFxuNZwTlKlKnLgQ6eSxzHMJFlg==
+ bh=k2YiVRnWmyATmc28SgWdX+V85E+XV+ukNLiV/gAd2ls=;
+ b=JmKEN5eMu7IKuipNFUi1q2++6Xpzt7mWUPSy6aGM+FUNsoFzq/IrumDh9npWV66R3QT7WzLEdCnBcHzq5j0+ZDShidRXppczgHzqpPXZE1NZl473qSNrTQ2HSOi6qZTwLs6F2FDdHWmxvN5ouSmUJPrxWBpIBOQ0DMWk3XKOLQnuuh4EfGqxQHbNMTjIJ35MNzAZzdIKMBj3B0uJuXznodcNTbaFRlfGmgWNr48cmwh3BIQikfYWlZde5OYZV1KyJ/CcJPDcK18030pw6+smbS4s5XNxc1Fnk64V+cv1ANTgzYkMHDzm7FbyLCdH3fqIPE3CQzl+TYtmUy88lbZTOw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
  header.d=arm.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oCLIJIJtEybAX4dINgpMesqj+mtcfEXtr7qHysa+eTk=;
- b=rETH6i7+w8RxdYXqJWhPmLxXrL1mT/V9lxTAYZ5ZsdhIwvyIHOLzr54TSlxYP8e3SgxzsvHxymg/cvGoq6bsRP43fxXylh3HnMyyo4iZ4RAxraExrFjr8qxPeqngKANdEpufzgXIYHFBE+3JZhrMe+AiZjUaI+N1Xo16Pj+0ujA=
+ bh=k2YiVRnWmyATmc28SgWdX+V85E+XV+ukNLiV/gAd2ls=;
+ b=BYYlj/7UXSs4wStG+k3RU4jTPolG19YvL3JzzHltSqoDN941xu3LnWQgoQmZVtBcMZqepQ1U6bTnmpKk7fbF+EsVzCq54HxSEw+9xRug4oA6pZhfUL77uSuxUeiE/F25ni31B8Cfk1QhP3qniC9kZk2qbgPEFvF+heGC2/MJS10=
 Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
  signed) header.d=none;dmarc=none action=none header.from=arm.com;
 Received: from MIWPR08MB568805.eurprd08.prod.outlook.com
  (2603:10a6:290:e9::16) by DU0PR08MB7739.eurprd08.prod.outlook.com
  (2603:10a6:10:3bd::14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Wed, 18 Nov
- 2026 17:54:02 +0000
+ 2026 17:53:58 +0000
 Received: from MIWPR08MB568805.eurprd08.prod.outlook.com
  ([fe80::be50:76ed:509a:b9f2]) by MIWPR08MB568805.eurprd08.prod.outlook.com
  ([fe80::be50:76ed:509a:b9f2%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 17:54:02 +0000
+ 17:53:58 +0000
 From: Karunika Choo <karunika.choo@arm.com>
 To: dri-devel@lists.freedesktop.org
 Cc: nd@arm.com,
@@ -134,17 +133,20 @@ Cc: nd@arm.com,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Subject: [PATCH v3 06/10] drm/panthor: Move register base offsets to the HW description
-Date: Wed, 18 Nov 2026 17:53:22 +0000
-Message-ID: <20261118175332.519657-7-karunika.choo@arm.com>
+	Simona Vetter <simona@ffwll.ch>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	rust-for-linux@vger.kernel.org
+Subject: [PATCH v3 05/10] drm/panthor: Add 64-bit GPU_ID decoding for v15 GPUs
+Date: Wed, 18 Nov 2026 17:53:21 +0000
+Message-ID: <20261118175332.519657-6-karunika.choo@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118175332.519657-1-karunika.choo@arm.com>
 References: <20261118175332.519657-1-karunika.choo@arm.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: LO4P123CA0524.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:2c5::9) To MIWPR08MB568805.eurprd08.prod.outlook.com
+X-ClientProxiedBy: LO4P123CA0651.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:296::17) To MIWPR08MB568805.eurprd08.prod.outlook.com
  (2603:10a6:290:e9::16)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -156,269 +158,238 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-TrafficTypeDiagnostic:
-	MIWPR08MB568805:EE_|DU0PR08MB7739:EE_|AM7PEPF00000054:EE_|DBBPR08MB10461:EE_
-X-MS-Office365-Filtering-Correlation-Id: 433101a8-6446-4553-4adb-08df459d0217
+	MIWPR08MB568805:EE_|DU0PR08MB7739:EE_|WA1PEPF000099CC:EE_|AMCPR08MB999914:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5ada2456-7e94-41b3-c16a-08df459d0151
 X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
 x-checkrecipientrouted: true
 NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam-Untrusted:
- BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|261022105027099003|261022075727099003|10067099003|11063799006|56012099006|261026140227099003|260925021911599003|260925021311599003|260925022911599003|261028144727099003|261021121427099003|261021123027099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
+ BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|261022105027099003|261022075727099003|10067099003|11063799006|56012099006|261026140227099003|261026121527099003|261028144727099003|261021121427099003|261021123027099003|261022113327099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003|3023799007;
 X-Microsoft-Antispam-Message-Info-Original:
- wATj49zeq0i0SMrCYzOLbEmJBUaeMPFEvEcgkunIH/XxDP4H3ibVm02PBI7ihv2Nf+6mQKrW/ilvz92KNtO0P5DEFfB6uS6zcMzU0NRxl7Av7HlHmgw4LszLOTQXbxmoMj/iofYaghZiX3p2sWJ2Onj3eMO1sjR19/Hnjr20z0wKf9iVITZa7RK9E9kKtDSTINMK0ulxNtudTAKBXvr/UXZSeobQobK2Irr1h6lZsMUBh37dBP3ldkBVouFURCFvyqXSBYOboDn8iOpnT3uQ7Kog1jGmeso99FqsJIKlqHAc+JVSMSpbFLG6WZYb1hSA1LYThKJkk6G8J7jwOMmOZhXZBrmO5AsWapR1Gno1DhUeFkXJ1kvIImOJzq/V/LlfwxRz1yLyOubEwpWeoB4HlwxjDk6W6iiBCEa8haIHkfc8HjHXLCRZ3vRpXHseJbN0Jr8owv0WZKyQ+CJDGFvLsO3+4a937jA01/rIOIZbTZy8wQVHmX4txCFR+TCOoZY4TAutSArgAtQMyve5mxgUYxPcVLmPUCdJ/IRmhJAtKFGNU0S9wQgkm3LMdjlr1ojIqNcomJ0XGurcZlVF3HjMaaejS5XJepDDYBBhMU6+AOh2GwnNeXsFyVeHFedC8Us3bHODSKpe4kn1jV65VhnEKTkO9uPCjyq1Q7GYnP8VtOg=
+ Q2cOrD709VrVmYqPGJ30N+lheN6BYdUM3IxKPgehSwbl3i12NwtK2cr2tl4bIHJjQUA9aINtL6w1u3EkzlCmclfL+4KRs77HfrYRO5RjgzlCnBwLPW6EXGoTGMnM4sHG6rMnXLWvQwzGlJcKBlGdjoHM56UrIFCNMvVMgPmyMRamAsbT5q9fjMBVUn2jXzhdCEv+FgFFqN5zvQDoBIbtIKlX95CBBhk9I9RXTRmFbpl/uTezmSOsZLzvqBqzLJGc4Dez5H3S3O6BgMxJgToB+Y32B8M2HBfNRSw00i/bFBtxzcHxFTeH3z6l9i5moSKEf/criBdXtuRADVLS7fOKMExRrFXAqlfWUM9JqA/b033WSQVDSYibosHJNYT16MBi27W6eSSFRjA0q+/hk7kTocdWFFfN58h+7aUbBUac4J75rF2rI4SG3tNAgOOi0CaAvP6+IMn7HvRe2Mo4/VbgBRW5/QbOuhs1AJmg0XxKocs6P4NLJKmuW5IL83UZC3LBhjfzNgjGSnaQoHNbYQXm3Qpef3b5fg74kP16Um8j+AxlyKfed2hFOqdLhbdZHnLtF6TzEmwhgZjo4lV3aQvgnfQuAutVGVj0yIkKZfQviZo=
 X-Forefront-Antispam-Report-Untrusted:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MIWPR08MB568805.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(261022105027099003)(261022075727099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(260925021911599003)(260925021311599003)(260925022911599003)(261028144727099003)(261021121427099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MIWPR08MB568805.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(261022105027099003)(261022075727099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261026121527099003)(261028144727099003)(261021121427099003)(261021123027099003)(261022113327099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
 X-Exchange-RoutingPolicyChecked:
- Y/MbTPRRkj0EuseiCaV124eCl3y6vgso7M7m302w66QopjIRQS22Dbfm/VbiVXRP9NolvzmJ3R50/V8BwMYQRN1NWsABkkGh/5bO+PyhUpmsNhXFkh+qvYyR894LbGbO7iWW/VkAVrF1dvJ5Zv2ovAbCS/5mx0VzeyshXbYhCWnQtaYbpEZWcD01JOM4s6opyUbFVkXuKYqGIc58p7uJFBBXkeo6nwD+uwILWW7ppAg3ZFWsFvPzenEkicZpjbWqQR+g4i/UH/VGIHyP77RCJTeWheR14cvaZmWuDxMIzMVxOUjZI1TZlNr0gaDt773s5h+oYu0L2383AajTdZfOew==
+ U/mKjpcyTI8zAArSAVjI9C/xF3bLOQmbhjJjlmWuIYqdXsW7XKVs43Hi3K8z8v2iUqtx7N0TB+3/2emhmbYysqR9Po71HUeIAy3LTyHsjycpkYECdUk6fi+KddgeVfo8Lqym0NH5CyEKGZgElfKAxWLV4SPJkblLqoftVYaX+rrDtmJ8CXwxVCsax4EiVgCxOL0239ebELrirFi9DthCz2HDPZXYzP4HlfyvS9taq9KleortqAchcOA7Qvn2HvYB5jHlq48hhxIlxs6QrNIF3xeUf6Ol8MPzTrjDKoMh80gPNMC+b0HF2t5cF3urP/U3mUebi/Yq9gGmnu4c3BtTmQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7739
 X-EOPAttributedMessage: 0
 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
- AM7PEPF00000054.EURPRD83.prod.outlook.com
+ WA1PEPF000099CC.eurprd04.prod.outlook.com
 X-MS-PublicTrafficType: Email
 X-MS-Office365-Filtering-Correlation-Id-Prvs:
-	b6d82e95-713b-459d-04ff-08df459cee20
+	36047dba-77d6-4993-14c7-08df459cebc3
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|376014|23010399003|14060799003|35042699022|1800799024|18002099003|22082099003|6133799003|56012099006|11063799006|261022105027099003|261022075727099003|261028144727099003|261026140227099003|261021121427099003|10067099003|261009223027099003|261102123227099003|261021123027099003|260925022911599003|260925021311599003|260925021911599003;
+	BCL:0;ARA:13230040|82310400026|1800799024|14060799003|35042699022|36860700016|376014|7416014|23010399003|22082099003|18002099003|6133799003|261009223027099003|3023799007|13003099007|11063799006|56012099006|261028144727099003|261102123227099003|261026121527099003|261026140227099003|261022113327099003|261021123027099003|261022105027099003|261022075727099003|261021121427099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	qJFhLG6+a/TU7fFgAua3DYDQuDr86AJcA2CICPF+Pj1Q5sGTjpVAqjdjTP7kfqfym+hWtdCEhj/fBdKM3CJVaGLI1tVTCo5mflY3I7sAtSwm5dZ4Vebck9Wj42dN0tUpac4EscY12TdA0eOk2gxOhyHynUyJLJsRvp2MFf4WdwwIUtiee/KpiKX4FrcUco4rYkWjmiR7OokeHqNWdtXgdj4QXQEpOJ2J78p19852MjwfJjjoAsY5co/S11Dx+I1O7kasSTT3AHlBf8yoQzAUYwNr+NNA4Q8M/0NbSOyBxjDGwpGZTdY79U1CQBW0m3pxobk3y58e1SyI71FtxhSXYWgCUdHy9BPsPjF36/Q3k8vIPsrP7l/shNREirlXeP6wxeEORfGBlK4w7rRUcufl6lcNEkry36/cGGOpYOhgvRJgnT6UA6WhOJb88qQyBQzDip7iiLkYCLnM9eF7iRSQW8dDbwy84V/WUzl7xvOdBeHcl5N3L/rpisrZ3VQ3/voiOlL5fbTz/GrD8pCEFJR9nc+AWt8ZjTduNYP7gGAKf8jKNuvHrrs9I7w7hmc2+3OGIZY6Zu8Gzf+96gIN4+cLZKwDBdCDYvynZXAUkkaJAGDOq1Na66UeKJFkDf+5iggiU5mb97IrbFts06Y1Q43paB5NgjhyEk2Bfa3eg/E3oR9tqokh8u3cBCU3IWl7LgzVAuxvaiXw1PDGwHOhUNuxLA==
+	o0p+vZC2K2soVuKfO0MZHVEZ3cWoLgakD9OZq6BiGXq90zSEVR7q2I7gJZznwzpMRy4e6NIUPES5LHro3ViYBlubgm8fvwR13mfBRZKWRlXGVMLXXfY0VPE8cN+M1s1pHHQRCjxhgfC+B7jzVNSK+mmty88obk6MoqRWu/mqwkLsI2V6afNgrZ+pk7apVsDjdYjNFQIcVrLC193zJtf4I2dE9/r16xZbXM/3Sv1FDP1YeaP6LnoVlIqSjSVrWGb8jrzxsiGMZJR+m5itveFqH9Z6tJFq/Z3dFvJGLo057eJjfaDm7Ui/MiD+MNl9HS99Sr4Hco/4xtmzJXw5AnoA20M2rFA37IKlSMTknZentz2+bmbAIIIMd+VgNpbwx1xiJ8NhQpr7OJXYHVgP3HEOa1qskSV6hsEWPDOrztOzbKCdT6nHuOlrquWHkDvvqOryhe0XV58giaQ5z72FcMARHy+nsa6tculn2Wlg6gJJ4gFbeDJQBy0zF97pI0UPTNZ8SklLj8IlFLNJjCVp0aqSuQiMsD21Fno6LWwAOvwxcjOITkOadRCXn4gyVoVuqKXJnpy0T8EAWLOGdSjfHY44Dsw3bu4JgYTPIHEtIPWCmN1my5qVnvpFTLqKk6WMTYFx/1qimA89MEOAOWZAD+PUUg==
 X-Forefront-Antispam-Report:
-	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(23010399003)(14060799003)(35042699022)(1800799024)(18002099003)(22082099003)(6133799003)(56012099006)(11063799006)(261022105027099003)(261022075727099003)(261028144727099003)(261026140227099003)(261021121427099003)(10067099003)(261009223027099003)(261102123227099003)(261021123027099003)(260925022911599003)(260925021311599003)(260925021911599003);DIR:OUT;SFP:1101;
+	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(14060799003)(35042699022)(36860700016)(376014)(7416014)(23010399003)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(13003099007)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261026121527099003)(261026140227099003)(261022113327099003)(261021123027099003)(261022105027099003)(261022075727099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	r0lnkSKaWwzUJeOEOsl/sLhzQuWf6tJyGe03ZEvyjKZ32np5io6P2Drl7THQ5Xu/L2BtqbVc6ktbScdalJ3goW6JDOC9pWYKKfMQCulKfcrTSJ5EO8rxReX8lxgsPZDELULgqpEvSoGAaWTQQPihLO7mRAQphQZ4ZEE6Wr2WQpBM8XTSEH0KROdxJ89k1xSKr4pFlndYzGnf4GJu8XM/8QlluQQNN0UGIsNp3hlizcD0cg6hJrEoxn2p4OWhyTn7tSd8cewYri42LXZ1LnjM0LR5EArxSm6b2J1PQAlxFk1nYY9DrWBoLgr/Pb6k3N5+jckxiohPWbx3+eR7kSkA0yJuvPtEeYjeeAWMFVJMs3IwF9F/WqYqXubwdXNwvimHxhMuC62pfrPUhOqMNNysyj2p+chfc28INj0FZC8h/DP0kOIuGhyqjPS7I3ufucRl
+	gJgC3o1Y5r2AmADIkYrDbiQm2HrFvTApITy44nZifo9pDNlMdiz4OZzsqA5AdqaBIkZzDy98nbCAJFhiL7k7QQAsg2OXz1oupi4YUHhiqQyeYJ9icshq2SlI/uKBLGKNfkP/jpLzrD6zI2xMJB9wsUNINYJZ0XbLINATQyw3+9NSaktlNjyzuWLePPKKy53GEcVH/UnvuwKuS6mF+qITI2+Ipih5C3S7LsdAS6Rmtfe/hmgEBto5CdCD7a/yMc29kLb4RkmWMKwXBBga0A9yRd7HRAcxQMkkQmMdgEPeSUaAVU3Aduqek9c3IAUtiGeN0BloKJpYKJGOSGkfRq38VX7GrILZ6ApC6td8AYCyA1rFm7r55S6Yaqc6VdlyrBXWl+ou04LZUaitMtkLlj1R65cDrvrR9/XR5gA7muSgIV7ykSeV5ZjpXrHOIki5BAXj
 X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:54:35.6197
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 17:54:34.2072
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 433101a8-6446-4553-4adb-08df459d0217
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ada2456-7e94-41b3-c16a-08df459d0151
 X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	AM7PEPF00000054.EURPRD83.prod.outlook.com
+	WA1PEPF000099CC.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10461
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMCPR08MB999914
 
-Mali v15 reorders several register regions, including GPU_CONTROL,
-MCU_CONTROL and PWR_CONTROL, so the driver can no longer assume a single
-fixed base layout across all supported GPUs.
+Mali v15 exposes a 64-bit GPU_ID register with a different field layout
+from earlier GPUs.
 
-Add per-GPU register base offsets to the panthor hardware description
-and switch the GPU, FW and PWR local iomem setup to use those stored
-values. With the base addresses now owned by the hardware description,
-drop the corresponding fixed base-offset definitions from the register
-headers.
+Add the register definitions and decoding helpers for the new format,
+read GPU_ID_WIDE when the compatibility value indicates a v15 GPU, and
+populate both the cached GPU_ID fields and the uAPI gpu_id_wide field.
 
-This prepares the driver for GPUs with different register layouts
-without changing the existing behaviour on currently supported parts.
+This allows userspace and the driver to identify v15 GPUs correctly.
 
 Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 Signed-off-by: Karunika Choo <karunika.choo@arm.com>
 ---
+v3:
+- Fix the missing blank line after declarations in GPU_ID decoding.
 v2:
-- Picked up R-b from Liviu
+- Picked up R-b from Liviu.
+- Rename the register macro from GPU_WIDE_ID to GPU_ID_WIDE.
+- Rename the uAPI field from gpu_wide_id to gpu_id_wide.
+- Print the upper 32 bits of GPU_ID_WIDE as the logged 'id' for v15 and
+  later GPUs. Keep the existing output for earlier GPUs. Continuation
+  fix for previous sashiko comment.
+- Link: https://lore.kernel.org/all/20260922205659.3C4F21F000FF@smtp.kernel.org/
 v1:
-- rebased on drm-misc-next
-- use a generic panthor_hw_regbank structure for all register offsets.
+- Decode selected GPU_ID format after checking compatibility value.
+- Document GPU_DISCOVER and GPU_CONTROL register offset differences
+  between GPUs.
+- Fix mask generation in panthor_gpu_discover_regs.h
 
- drivers/gpu/drm/panthor/panthor_fw.c       |  2 +-
- drivers/gpu/drm/panthor/panthor_fw_regs.h  |  2 --
- drivers/gpu/drm/panthor/panthor_gpu.c      |  4 +--
- drivers/gpu/drm/panthor/panthor_gpu_regs.h |  2 --
- drivers/gpu/drm/panthor/panthor_hw.c       | 23 +++++++++++++++--
- drivers/gpu/drm/panthor/panthor_hw.h       | 29 ++++++++++++++++++++--
- drivers/gpu/drm/panthor/panthor_pwr.c      |  2 +-
- drivers/gpu/drm/panthor/panthor_pwr_regs.h |  2 --
- 8 files changed, 52 insertions(+), 14 deletions(-)
+ .../drm/panthor/panthor_gpu_discover_regs.h   | 19 ++++++
+ drivers/gpu/drm/panthor/panthor_hw.c          | 63 ++++++++++++++-----
+ include/uapi/drm/panthor_drm.h                | 13 ++++
+ 3 files changed, 81 insertions(+), 14 deletions(-)
+ create mode 100644 drivers/gpu/drm/panthor/panthor_gpu_discover_regs.h
 
-diff --git a/drivers/gpu/drm/panthor/panthor_fw.c b/drivers/gpu/drm/panthor/panthor_fw.c
-index 13efed3a2ea72..679ea1d233d53 100644
---- a/drivers/gpu/drm/panthor/panthor_fw.c
-+++ b/drivers/gpu/drm/panthor/panthor_fw.c
-@@ -1500,7 +1500,7 @@ int panthor_fw_init(struct panthor_device *ptdev)
- 	if (!fw)
- 		return -ENOMEM;
- 
--	fw->iomem = ptdev->iomem + MCU_CONTROL_BASE;
-+	fw->iomem = ptdev->iomem + ptdev->hw->regs.mcu_control.offset;
- 	ptdev->fw = fw;
- 	init_waitqueue_head(&fw->req_waitqueue);
- 	INIT_LIST_HEAD(&fw->sections);
-diff --git a/drivers/gpu/drm/panthor/panthor_fw_regs.h b/drivers/gpu/drm/panthor/panthor_fw_regs.h
-index b2e59cfc22b00..a3492f7f913f9 100644
---- a/drivers/gpu/drm/panthor/panthor_fw_regs.h
-+++ b/drivers/gpu/drm/panthor/panthor_fw_regs.h
-@@ -4,8 +4,6 @@
- #ifndef __PANTHOR_FW_REGS_H__
- #define __PANTHOR_FW_REGS_H__
- 
--#define MCU_CONTROL_BASE				0x700
--
- #define MCU_CONTROL					0x0
- #define   MCU_CONTROL_ENABLE				1
- #define   MCU_CONTROL_AUTO				2
-diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
-index c5c37f22993d6..ab54119314da0 100644
---- a/drivers/gpu/drm/panthor/panthor_gpu.c
-+++ b/drivers/gpu/drm/panthor/panthor_gpu.c
-@@ -159,7 +159,7 @@ int panthor_gpu_init(struct panthor_device *ptdev)
- 	if (!gpu)
- 		return -ENOMEM;
- 
--	gpu->iomem = ptdev->iomem + GPU_CONTROL_BASE;
-+	gpu->iomem = ptdev->iomem + ptdev->hw->regs.gpu_control.offset;
- 	spin_lock_init(&gpu->reqs_lock);
- 	init_waitqueue_head(&gpu->reqs_acked);
- 	mutex_init(&gpu->cache_flush_lock);
-@@ -176,7 +176,7 @@ int panthor_gpu_init(struct panthor_device *ptdev)
- 		return irq;
- 
- 	ret = panthor_irq_request(ptdev, &ptdev->gpu->irq, irq,
--				  ptdev->iomem + GPU_INT_BASE, "gpu",
-+				  gpu->iomem + GPU_INT_BASE, "gpu",
- 				  panthor_gpu_irq_threaded_handler);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/gpu/drm/panthor/panthor_gpu_regs.h b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-index c7581b6d4c5be..60819c4ace428 100644
---- a/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-+++ b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-@@ -4,8 +4,6 @@
- #ifndef __PANTHOR_GPU_REGS_H__
- #define __PANTHOR_GPU_REGS_H__
- 
--#define GPU_CONTROL_BASE				0x0
--
- #define GPU_ID						0x0
- #define   GPU_ARCH_MAJOR(x)				((x) >> 28)
- #define   GPU_ARCH_MINOR(x)				(((x) & GENMASK(27, 24)) >> 24)
+diff --git a/drivers/gpu/drm/panthor/panthor_gpu_discover_regs.h b/drivers/gpu/drm/panthor/panthor_gpu_discover_regs.h
+new file mode 100644
+index 0000000000000..6896c263f76b6
+--- /dev/null
++++ b/drivers/gpu/drm/panthor/panthor_gpu_discover_regs.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 or MIT */
++/* Copyright 2026 ARM Limited. All rights reserved. */
++
++#ifndef __PANTHOR_GPU_DISCOVER_REGS_H__
++#define __PANTHOR_GPU_DISCOVER_REGS_H__
++
++#include <linux/bits.h>
++
++#define GPU_ID_WIDE					0x0
++#define   GPU_WIDE_COMPAT				0xF
++#define   GPU_WIDE_ARCH_MAJOR(x)			(((x) & GENMASK_U64(63, 56)) >> 56)
++#define   GPU_WIDE_ARCH_MINOR(x)			(((x) & GENMASK_U64(55, 48)) >> 48)
++#define   GPU_WIDE_ARCH_REV(x)				(((x) & GENMASK_U64(47, 40)) >> 40)
++#define   GPU_WIDE_PROD_MAJOR(x)			(((x) & GENMASK_U64(39, 32)) >> 32)
++#define   GPU_WIDE_VER_MAJOR(x)				(((x) & GENMASK_U64(23, 16)) >> 16)
++#define   GPU_WIDE_VER_MINOR(x)				(((x) & GENMASK_U64(15, 8)) >> 8)
++#define   GPU_WIDE_VER_STATUS(x)			((x) & GENMASK_U64(7, 0))
++
++#endif /* __PANTHOR_GPU_DISCOVER_REGS_H__ */
 diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
-index a26fe42e14f78..f72cff260065e 100644
+index 854874a9f322a..a26fe42e14f78 100644
 --- a/drivers/gpu/drm/panthor/panthor_hw.c
 +++ b/drivers/gpu/drm/panthor/panthor_hw.c
-@@ -38,6 +38,14 @@ static struct panthor_hw panthor_hw_arch_v10 = {
- 		.power_changed_off = panthor_gpu_power_changed_off,
- 		.power_changed_on = panthor_gpu_power_changed_on,
- 	},
-+	.regs = {
-+		.gpu_control = {
-+			.offset = 0x0,
-+		},
-+		.mcu_control = {
-+			.offset = 0x700,
-+		},
-+	},
- };
- 
- static struct panthor_hw panthor_hw_arch_v14 = {
-@@ -46,6 +54,17 @@ static struct panthor_hw panthor_hw_arch_v14 = {
- 		.l2_power_off = panthor_pwr_l2_power_off,
- 		.l2_power_on = panthor_pwr_l2_power_on,
- 	},
-+	.regs = {
-+		.gpu_control = {
-+			.offset = 0x0,
-+		},
-+		.mcu_control = {
-+			.offset = 0x700,
-+		},
-+		.pwr_control = {
-+			.offset = 0x800,
-+		},
-+	},
- };
- 
- static struct panthor_hw_entry panthor_hw_match[] = {
-@@ -197,7 +216,7 @@ static int panthor_gpu_info_init(struct panthor_device *ptdev)
+@@ -3,11 +3,13 @@
+
+ #include <linux/nvmem-consumer.h>
+ #include <linux/platform_device.h>
++#include <linux/wordpart.h>
+
+ #include <drm/drm_print.h>
+
+ #include "panthor_device.h"
+ #include "panthor_gpu.h"
++#include "panthor_gpu_discover_regs.h"
+ #include "panthor_gpu_regs.h"
+ #include "panthor_hw.h"
+ #include "panthor_pwr.h"
+@@ -238,21 +240,30 @@ static int panthor_gpu_info_init(struct panthor_device *ptdev)
+
+ static int panthor_hw_info_init(struct panthor_device *ptdev)
  {
- 	unsigned int i;
- 
--	void __iomem *gpu_iomem = ptdev->iomem + GPU_CONTROL_BASE;
-+	void __iomem *gpu_iomem = ptdev->iomem + ptdev->hw->regs.gpu_control.offset;
- 
- 	ptdev->gpu_info.csf_id = gpu_read(gpu_iomem, GPU_CSF_ID);
- 	ptdev->gpu_info.gpu_rev = gpu_read(gpu_iomem, GPU_REVID);
-@@ -223,7 +242,7 @@ static int panthor_gpu_info_init(struct panthor_device *ptdev)
- 	ptdev->gpu_info.gpu_features = gpu_read64(gpu_iomem, GPU_FEATURES);
- 
- 	if (panthor_hw_has_pwr_ctrl(ptdev)) {
--		void __iomem *pwr_iomem = gpu_iomem + PWR_CONTROL_BASE;
-+		void __iomem *pwr_iomem = ptdev->iomem + ptdev->hw->regs.pwr_control.offset;
- 
- 		/* Introduced in arch 14.x */
- 		ptdev->gpu_info.l2_present = gpu_read64(pwr_iomem, PWR_L2_PRESENT);
-diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
-index c4a490bc39de6..0a82152d772ad 100644
---- a/drivers/gpu/drm/panthor/panthor_hw.h
-+++ b/drivers/gpu/drm/panthor/panthor_hw.h
-@@ -27,14 +27,39 @@ struct panthor_hw_ops {
- 	void (*power_changed_off)(struct panthor_device *ptdev);
- };
- 
-+/** struct panthor_hw_regbank - Register offset and instance stride information */
-+struct panthor_hw_regbank {
-+	/** @offset: Register offset relative to &struct panthor_device.iomem */
-+	u32 offset;
+-	u32 major, minor, status;
++	u32 prod_id, major, minor, status;
+ 	int ret;
+
+ 	ret = panthor_gpu_info_init(ptdev);
+ 	if (ret)
+ 		return ret;
+
++	/*
++	 * The logged 'id' contains four 4-bit architecture and product fields
++	 * in pre-v15 GPUs. In v15+ GPUs, this is now four 8-bit fields.
++	 * Preserve the pre-v15 format for compatibility. Tools decoding these
++	 * fields must handle the wider format for v15+ GPUs.
++	 */
++	if (ptdev->gpu_id.arch_major < 15)
++		prod_id = upper_16_bits(ptdev->gpu_info.gpu_id);
++	else
++		prod_id = upper_32_bits(ptdev->gpu_info.gpu_id_wide);
++
+ 	major = ptdev->gpu_id.ver_major;
+ 	minor = ptdev->gpu_id.ver_minor;
+ 	status = ptdev->gpu_id.ver_status;
+
+-	drm_info(&ptdev->base,
+-		 "%s id 0x%x major 0x%x minor 0x%x status 0x%x",
+-		 get_gpu_model_name(ptdev), ptdev->gpu_info.gpu_id >> 16,
+-		 major, minor, status);
++	drm_info(&ptdev->base, "%s id 0x%x major 0x%x minor 0x%x status 0x%x",
++		 get_gpu_model_name(ptdev), prod_id, major, minor, status);
+
+ 	drm_info(&ptdev->base,
+ 		 "Features: L2:%#x Tiler:%#x Mem:%#x MMU:%#x AS:%#x",
+@@ -296,18 +307,42 @@ static int panthor_hw_bind_device(struct panthor_device *ptdev)
+ static int panthor_hw_gpu_id_init(struct panthor_device *ptdev)
+ {
+ 	struct panthor_gpu_id *gpu_id = &ptdev->gpu_id;
+-	ptdev->gpu_info.gpu_id = gpu_read(ptdev->iomem, GPU_ID);
++	u32 gpu_id32 = gpu_read(ptdev->iomem, GPU_ID);
+
+-	if (!ptdev->gpu_info.gpu_id)
++	if (!gpu_id32)
+ 		return -ENXIO;
+
+-	gpu_id->arch_major = GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id);
+-	gpu_id->arch_minor = GPU_ARCH_MINOR(ptdev->gpu_info.gpu_id);
+-	gpu_id->arch_rev = GPU_ARCH_REV(ptdev->gpu_info.gpu_id);
+-	gpu_id->prod_major = GPU_PROD_MAJOR(ptdev->gpu_info.gpu_id);
+-	gpu_id->ver_major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+-	gpu_id->ver_minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+-	gpu_id->ver_status = GPU_VER_STATUS(ptdev->gpu_info.gpu_id);
++	if (GPU_ARCH_MAJOR(gpu_id32) == GPU_WIDE_COMPAT) {
++		/*
++		 * GPU_DISCOVER register block always starts at offset zero,
++		 * so does the GPU_CONTROL register block on pre-v15 GPUs.
++		 */
++		void __iomem *discover = ptdev->iomem;
++		u64 gpu_id64 = gpu_read64(discover, GPU_ID_WIDE);
++
++		if (!gpu_id64)
++			return -ENXIO;
++
++		ptdev->gpu_info.gpu_id_wide = gpu_id64;
++
++		gpu_id->arch_major = GPU_WIDE_ARCH_MAJOR(gpu_id64);
++		gpu_id->arch_minor = GPU_WIDE_ARCH_MINOR(gpu_id64);
++		gpu_id->arch_rev = GPU_WIDE_ARCH_REV(gpu_id64);
++		gpu_id->prod_major = GPU_WIDE_PROD_MAJOR(gpu_id64);
++		gpu_id->ver_major = GPU_WIDE_VER_MAJOR(gpu_id64);
++		gpu_id->ver_minor = GPU_WIDE_VER_MINOR(gpu_id64);
++		gpu_id->ver_status = GPU_WIDE_VER_STATUS(gpu_id64);
++	} else {
++		ptdev->gpu_info.gpu_id = gpu_id32;
++
++		gpu_id->arch_major = GPU_ARCH_MAJOR(gpu_id32);
++		gpu_id->arch_minor = GPU_ARCH_MINOR(gpu_id32);
++		gpu_id->arch_rev = GPU_ARCH_REV(gpu_id32);
++		gpu_id->prod_major = GPU_PROD_MAJOR(gpu_id32);
++		gpu_id->ver_major = GPU_VER_MAJOR(gpu_id32);
++		gpu_id->ver_minor = GPU_VER_MINOR(gpu_id32);
++		gpu_id->ver_status = GPU_VER_STATUS(gpu_id32);
++	}
+
+ 	return 0;
+ }
+diff --git a/include/uapi/drm/panthor_drm.h b/include/uapi/drm/panthor_drm.h
+index a2ff0f4ec6915..09b7f7931e4f4 100644
+--- a/include/uapi/drm/panthor_drm.h
++++ b/include/uapi/drm/panthor_drm.h
+@@ -376,6 +376,19 @@ struct drm_panthor_gpu_info {
+
+ 	/** @gpu_features: Bitmask describing supported GPU-wide features */
+ 	__u64 gpu_features;
 +
 +	/**
-+	 * @stride: Register offset between instances, or 0 for non-instanced
-+	 * registers
++	 * @gpu_id_wide: 64-bit GPU ID for v15 and later GPUs. @gpu_id is 0 when
++	 * this is populated.
 +	 */
-+	u32 stride;
-+};
-+
-+/** struct panthor_hw_regs_layout - Hardware register bank layout */
-+struct panthor_hw_regs_layout {
-+	/** @gpu_control: GPU_CONTROL register bank layout */
-+	struct panthor_hw_regbank gpu_control;
-+
-+	/** @pwr_control: PWR_CONTROL register bank layout */
-+	struct panthor_hw_regbank pwr_control;
-+
-+	/** @mcu_control: MCU_CONTROL register bank layout */
-+	struct panthor_hw_regbank mcu_control;
-+};
-+
- /**
-  * struct panthor_hw - GPU specific register mapping and functions
-  */
- struct panthor_hw {
--	/** @features: Bitmap containing panthor_hw_feature */
--
- 	/** @ops: Panthor HW specific operations */
- 	struct panthor_hw_ops ops;
-+
-+	/** @regs: Hardware register bank layout */
-+	struct panthor_hw_regs_layout regs;
++	__u64 gpu_id_wide;
++#define DRM_PANTHOR_WIDE_ARCH_MAJOR(x)		(((x) >> 56) & 0xff)
++#define DRM_PANTHOR_WIDE_ARCH_MINOR(x)		(((x) >> 48) & 0xff)
++#define DRM_PANTHOR_WIDE_ARCH_REV(x)		(((x) >> 40) & 0xff)
++#define DRM_PANTHOR_WIDE_PRODUCT_MAJOR(x)	(((x) >> 32) & 0xff)
++#define DRM_PANTHOR_WIDE_VERSION_MAJOR(x)	(((x) >> 16) & 0xff)
++#define DRM_PANTHOR_WIDE_VERSION_MINOR(x)	(((x) >> 8) & 0xff)
++#define DRM_PANTHOR_WIDE_VERSION_STATUS(x)	((x) & 0xff)
  };
- 
- int panthor_hw_init(struct panthor_device *ptdev);
-diff --git a/drivers/gpu/drm/panthor/panthor_pwr.c b/drivers/gpu/drm/panthor/panthor_pwr.c
-index b1000001325ea..1cfd4b658c81b 100644
---- a/drivers/gpu/drm/panthor/panthor_pwr.c
-+++ b/drivers/gpu/drm/panthor/panthor_pwr.c
-@@ -502,7 +502,7 @@ int panthor_pwr_init(struct panthor_device *ptdev)
- 	if (!pwr)
- 		return -ENOMEM;
- 
--	pwr->iomem = ptdev->iomem + PWR_CONTROL_BASE;
-+	pwr->iomem = ptdev->iomem + ptdev->hw->regs.pwr_control.offset;
- 	spin_lock_init(&pwr->reqs_lock);
- 	init_waitqueue_head(&pwr->reqs_acked);
- 	ptdev->pwr = pwr;
-diff --git a/drivers/gpu/drm/panthor/panthor_pwr_regs.h b/drivers/gpu/drm/panthor/panthor_pwr_regs.h
-index 80d8e1e522298..e1f3153285bd7 100644
---- a/drivers/gpu/drm/panthor/panthor_pwr_regs.h
-+++ b/drivers/gpu/drm/panthor/panthor_pwr_regs.h
-@@ -4,8 +4,6 @@
- #ifndef __PANTHOR_PWR_REGS_H__
- #define __PANTHOR_PWR_REGS_H__
- 
--#define PWR_CONTROL_BASE				0x800
--
- #define PWR_INT_BASE					0x0
- #define   PWR_IRQ_POWER_CHANGED_SINGLE			BIT(0)
- #define   PWR_IRQ_POWER_CHANGED_ALL			BIT(1)
--- 
+
+ /**
+--
 2.43.0
 
