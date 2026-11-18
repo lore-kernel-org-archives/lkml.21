@@ -1,102 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998476;
-	b=XjkB1Q6QtzOm+8N0RkvrB1l2ukNaTGxUnp1E4vaKHcZvBoXR71i7CDy9ISItCNLhlQg1
-	 R9Muta5VqmTpULj8YgxxgVBiFhxKy2hQrAdpL5fvC3VTubZGJ1xVzjgIS854oZ9rX7BF1
-	 Ke+B1xQmMOCl/T+ZsdVoFtedVxkGyfIK53x80+Zo9Cvykx9/su9NGuxa9xP2g7sMZyGJX
-	 c2hDVOhQ02aIIxznTmVbGZ8RKNlYJ3mOPmhJKAd6wcEZDIm1RF+VyyQhDg6jYLKKPql1n
-	 CT5+2pvplR2ZAM5LVc8Pb7/cWoGqpWPQ2Yu/cXPVslJ6utgXaUkQhTw8i0uJUzR959w==
+	t=1794998487;
+	b=d6mxaCRU5/+q+NU63fql4ausVUlGEOZDsheuHyejS10DcsyYC483tSZh7Q+VyZ231MB0
+	 gH3qYQr4rworTYDg44fVcd9LWB0CngZWwtPamIuvudeL2G5axuR1FL3TT0K6fZS3PD+7d
+	 4s+b6V9XqRDd3dF5K7puth+KKIs/2wsgleiSus5spWkiQPC94oiVeM/OQXlKUCUxwGOqQ
+	 Q5XzDG1W/9MTX2kOFkGWoR03dP5t4xElgF7XD75a2Au7CUE7UX248LKwPpAsuZkVCJNCG
+	 fxh/ldTHDpbCPSGK15hDKuUZSNVMIYQ/qLYvPli454pJB/AxZJ8K0K0Lz/j0+ANC2Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998476;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=01DBsGBZa1VYYjKfFfNmmb/bgs6SOiz9S6VzXEyzx0k=;
-	b=zuvT/TydecG3TXfUaWiBYVkkpSFnD8oLT0oRbJ5VWbgI07eZfg58u1EPDKJoflr7YvVo
-	 z7J8wLVlFS76Dc306ZAER/yY88pa0IDZLfUMd9PwPuKQwsnFKPOJ/oe7sc8jW7XlsZlc/
-	 MMXOkhftUMr/YS5LgWABXDWOzLPzZNq6ZrY1j8zWohmzgTY/D9LniP1Ekfq/Ys2rp0Qfv
-	 k7fzzARN9ahTSTYpj+nLySPViBpcD6kIuubib/ZAmKFpSmjdAgwy4aYR7jiSpaNZPvBhE
-	 wbvQDAVUrjcFvrtQfsDZGffNL/vOwvCBSJVw9Nf0SbA8Q87UZXr36ZiWJP2Gaewyw9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998487;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=eA5bJYl2DX4B2F944LFo8gIjbAOwIGsts+2iJmGpa8o=;
+	b=JtIgB0uWoMhcAoltRaA8ZRE2niTz70TzrAtIR71JW171j08Xr1kWc8953cyHNL7g/oNX
+	 klLgqycnSjEFNSOHjn+yTvUzmni5cQwfF2C/AvuUdTFDN5ZJuy+dqp3KeUF2ruHjaNu8m
+	 h8Uxg2tdZkElK2tsIqqXWPnglsVV45k3P2x7ZzQ+o/l5GLf1fPXkl5CIRN3FeZwaCywiD
+	 lBpyO0iQhuh4AsmZvWU0B9XAjLYdJLysWfM+khLrwxc7NUiDem9RsxkKPLACRIaFC3e0R
+	 WZmeDCjLXI5dVM5VLII98j1mqCvXNFve1fsRth8ai/N2h8/W7OaMexcbvCbn9huCaEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="i5aog/b1";
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aHzdJmhr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D34760A262E
-	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 10:41:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D34760A262E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98F5D606A331;
+	Wed, 18 Nov 2026 10:41:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i5aog/b1
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-492f0a1b685so526899f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 02:41:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794998473; x=1795603273; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=01DBsGBZa1VYYjKfFfNmmb/bgs6SOiz9S6VzXEyzx0k=;
-        b=i5aog/b1DiiziDmBI1wQWH4FbeyiZghU5cavMqPm0LrleZxya0Ybfs6QgKOF+6g4fG
-         5ofQ4k/AhH3sJGDYtIEMHNZ62lVjRU/uR5sXqTW1pb2eRwA3MY0eg1wBEn/cD8s6NFj7
-         mjnY6T2n7M7/+Gjy+xODf2cGw5aiW+Z1Rhq3XzmkqN7KZj9ZCNQf5CVhoDchsXGf64KZ
-         ciFKJ/R0z+flN6nwsc/aUHBEWWvKFFoplUH+lAflfY/l51+TGG8zYNrRpeJBhh8jMTkh
-         YZd2saFXFUj1LBJoTIdW1xDKPvhGmT8U57DaICsHFv5CGPEtgwv54PIUkSvYjAid9uN4
-         EzDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794998473; x=1795603273;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=01DBsGBZa1VYYjKfFfNmmb/bgs6SOiz9S6VzXEyzx0k=;
-        b=ox2u5Hh6OISUqkMqgF6vfuEhuMKgBj3nqxxb3YfJ0iUYUjjnhmznoHr+5WaO/Lu9WA
-         mmC4NyE7qx2w/nNEbZ/OFgLnFgvPJvgQ6utRxy9gb7OIB7piRtOuTlaEwD+EkmBxwW0Z
-         HhohNorQsaEKPQHygHldltbrViQjPP1FTfhzL16wx82TFIgmlyGP9yYtJDCkJOhClMGl
-         2Jf6y/Bxj05MewqMmeFbK63WvbfUJr+UwtSNmDOFHZ8XqB5M6v7+fjxB2yWq4+FriL/z
-         tOHZF6OdD7ry0NUA9bNxLotC71eSx3V8uFAHm3mXBn1+N0VgOVSxbOS5mAzKUyWC1uXi
-         BQzw==
-X-Forwarded-Encrypted: i=1; AL+hErGq3D31mNSxTfK9NPTSZBWvqdlc6FpiMeBmF8xSDelm66d6Rq+I+AuKAjXpXZB+Rnr2ld79Vow7FpRDo8w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ThpT8u/AmzN7U2FZ2nKeUDafKN8b25PaXtWRE7R+0KbFijeQf
-	8jz41zotuWrEnSjap2PcDyEArKwv8Kj4guNobWIMx+N1/aZmOJfIapE3
-X-Gm-Gg: AZFdTZdmQQqYX25z+Hri2XYXL3jMNcxg9PwHjkBbyO2QUuTGFcpU171hPWLOnZEDFfI
-	ZY8DNs+MbvEmHcyhMqYLP437vVogvmw0KJUINZ0zgqhJZKgaEjNghFfqJNmprRM9K/IYoUt7IIH
-	snNMJO0CxhtZ/fZLPXEBme3Zmiz0T+maXY+JfxXg6Jo7QFYQzbCWRypR2IRRc462hJ/os29Epuo
-	EhTeAmu/ZN3lv39c5AYgGw/q6Jd+4AYxjngSzeel91Z6sf3rKcFb/6yAxYNM4XSSzxKbq8E3j+6
-	8FaQVqn1fupeNcKcTktFpGmTiYowg2EwD8FN083XOf8+NZlc16zZUqzcDauZeuF10XX+BeL15dB
-	8XfgSgUpyyImlevJdGdiE1dfQGHfz8//0X2i9prK6/PPn89+KkBX4/7bK/BhSfgQSOBkX5V4rs2
-	l8qFPA4xIrm4ZQSRIs/6O1aLgjxaZtrEboNlXq3ApJXB/JyHH2SjhQfIVDrslvDSqcdu5jiIgNn
-	3YfXbpt1AQIR86c61xIMyd6xlu22v+/9GEOMXlDEn2h+l5/C6pgQlJ7LUdTTSpIHVxcVziMapd1
-	NPlGJAZb1jQKvKFkTvOrn8khO9d4YtXNLaZyTNyMhNhwtIeyEjiLX2r9qNha7OswcTgjSQOKLxp
-	SgHF/UKbiNSWCdg==
-X-Received: by 2002:a05:6000:2f85:b0:491:92e5:b5c2 with SMTP id ffacd0b85a97d-4a63947578dmr5156475f8f.15.1794998473400;
-        Wed, 18 Nov 2026 02:41:13 -0800 (PST)
-Received: from VivoBook-ASUS-X712UA-M712UA.lan (user-46-112-114-48.play-internet.pl. [46.112.114.48])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6573ba95csm4320525f8f.56.2026.11.18.02.41.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:41:12 -0800 (PST)
-From: Stanislaw Pal <kuncy7@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Yongzhao Chen <yongzhao.derek@gmail.com>,
-	Alexey Immoreev <luixo-public@luixo.me>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v3 4/4] net: dsa: qca8k: bound the data of a management ack frame
-Date: Wed, 18 Nov 2026 11:41:04 +0100
-Message-ID: <20261118104104.26684-5-kuncy7@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118104104.26684-1-kuncy7@gmail.com>
-References: <20261118104104.26684-1-kuncy7@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aHzdJmhr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 050011F000C4;
+	Wed, 18 Nov 2026 10:41:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794998487;
+	bh=eA5bJYl2DX4B2F944LFo8gIjbAOwIGsts+2iJmGpa8o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aHzdJmhrk8AvQMP52KBWR3kJhhJe6X/JHFc7uTrs9EDvrY43MMWzcSg5DDKNd2TY5
+	 6o2+AfxvyYC0wvWPhtioeeS0TzXrzwWBeqs4qeehRlvKjTFHoihcYFt2rJyz3FOJ22
+	 Mdx+krFvoBCZYVDZZo/aZrQMAxJCfP46uOBojDxMd58fnNCzkhB1hUeGBypRZRzuk7
+	 ZjZtgXSsIL5Hexl/KsBsLkpP+UD5XrRX0Z+GIhhXcpKvC9oOh9SxGH8qo0vp6w/mYt
+	 soRJFkgckm2aA04YpxiUPCsy/LEeKZ+g5LJEkC1NYrxwuiqH7Qfb22CTIHU40+qbpi
+	 Yq01+xFRqcPzg==
+Subject:
+ Re: [PATCH net-next v3 1/2] dt-bindings: net: rockchip-dwmac: Add RK3572
+From: netdev-bot+sashiko@kernel.org
+To: 1579567540@qq.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, david.wu@rock-chips.com,
+ alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, joabreu@synopsys.com,
+ maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Date: Wed, 18 Nov 2026 10:41:25 +0000
+Message-ID: <179499848555.3136.11343853995146230295@kernel.org>
+In-Reply-To: <20261116-add-board-ok3572-c-net-v3-1-a957fdcd9c7a@qq.com>
+References: <20261116-add-board-ok3572-c-net-v3-1-a957fdcd9c7a@qq.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,104 +68,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-qca8k_rw_reg_ack_handler() answers a management read by copying the
-data that follows the Ethernet header into mgmt_eth_data->data. It
-trusts the frame for both the length and the layout: the length field
-of the frame allows up to 32 bytes while the buffer holds 16, so a
-frame announcing more than three registers writes past the buffer into
-the fields that follow it in qca8k_priv; and qca_tag_rcv() made only
-the 2 byte tag linear, so the copy reads skb->data without checking
-that the frame has the bytes it announces. The handler runs for every
-ack frame, whatever its sequence number.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Size the buffer to what a management frame can carry, and pull the
-announced data into the linear area before reading it. A frame that
-is too short is left unacknowledged, so the read fails and the caller
-falls back to MDIO.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-An LLM assistant (Claude, claude-fable-5-1) helped write the change
-and this description; I reviewed both and built them with W=1 on
-arm64. The management path was exercised on a QCA8337 behind an
-IPQ5018 (GL.iNet GL-B3000) with tag_qca.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Fixes: 90386223f44e ("net: dsa: qca8k: add support for larger read/write size with mgmt Ethernet")
-Signed-off-by: Stanislaw Pal <kuncy7@gmail.com>
----
- drivers/net/dsa/qca/qca8k-8xxx.c | 21 ++++++++++++++++-----
- drivers/net/dsa/qca/qca8k.h      |  3 ++-
- 2 files changed, 18 insertions(+), 6 deletions(-)
+- [Medium] In rockchip-dwmac.yaml, this patch adds an allOf block that
+  sets `rx_delay: false` and `tx_delay: false` for rockchip,rk3572-gmac.
+- [Low] Under the subject "Add RK3572", the patch adds `deprecated: true`
+  to the top-level tx_delay and rx_delay definitions in rockchip-…
 
-diff --git a/drivers/net/dsa/qca/qca8k-8xxx.c b/drivers/net/dsa/qca/qca8k-8xxx.c
-index 76c0f7c97b..cd3569902f 100644
---- a/drivers/net/dsa/qca/qca8k-8xxx.c
-+++ b/drivers/net/dsa/qca/qca8k-8xxx.c
-@@ -170,6 +170,7 @@ static void qca8k_rw_reg_ack_handler(struct dsa_switch *ds, struct sk_buff *skb)
- 	struct qca8k_mgmt_eth_data *mgmt_eth_data;
- 	struct qca8k_priv *priv = ds->priv;
- 	struct qca_mgmt_ethhdr *mgmt_ethhdr;
-+	int data_len = 0;
- 	u32 command;
- 	u8 len, cmd;
- 	int i;
-@@ -190,6 +191,17 @@ static void qca8k_rw_reg_ack_handler(struct dsa_switch *ds, struct sk_buff *skb)
- 	/* We can ignore odd value, we always round up them in the alloc function. */
- 	len *= sizeof(u16);
- 
-+	if (cmd == MDIO_READ && len > QCA_HDR_MGMT_DATA1_LEN)
-+		data_len = min_t(int, QCA_HDR_MGMT_DATA2_LEN,
-+				 len - QCA_HDR_MGMT_DATA1_LEN);
-+
-+	/* The tagger made only the tag linear. Leave a frame that is too
-+	 * short for the data it announces unacknowledged: the read fails
-+	 * and the caller falls back to MDIO.
-+	 */
-+	if (data_len && !pskb_may_pull(skb, data_len))
-+		goto complete;
-+
- 	/* Make sure the seq match the requested packet */
- 	if (get_unaligned_le32(&mgmt_ethhdr->seq) == mgmt_eth_data->seq)
- 		mgmt_eth_data->ack = true;
-@@ -199,13 +211,11 @@ static void qca8k_rw_reg_ack_handler(struct dsa_switch *ds, struct sk_buff *skb)
- 
- 		*val = get_unaligned_le32(&mgmt_ethhdr->mdio_data);
- 
--		/* Get the rest of the 12 byte of data.
--		 * The read/write function will extract the requested data.
-+		/* Get the rest of the data.
-+		 * The read function extracts what it asked for.
- 		 */
--		if (len > QCA_HDR_MGMT_DATA1_LEN) {
-+		if (data_len) {
- 			__le32 *data2 = (__le32 *)skb->data;
--			int data_len = min_t(int, QCA_HDR_MGMT_DATA2_LEN,
--					     len - QCA_HDR_MGMT_DATA1_LEN);
- 
- 			val++;
- 
-@@ -217,6 +227,7 @@ static void qca8k_rw_reg_ack_handler(struct dsa_switch *ds, struct sk_buff *skb)
- 		}
- 	}
- 
-+complete:
- 	complete(&mgmt_eth_data->rw_done);
- }
- 
-diff --git a/drivers/net/dsa/qca/qca8k.h b/drivers/net/dsa/qca/qca8k.h
-index 79754755f1..b7aa0d832e 100644
---- a/drivers/net/dsa/qca/qca8k.h
-+++ b/drivers/net/dsa/qca/qca8k.h
-@@ -396,7 +396,8 @@ struct qca8k_mgmt_eth_data {
- 	struct mutex mutex; /* Enforce one mdio read/write at time */
- 	bool ack;
- 	u32 seq;
--	u32 data[4];
-+	/* The data a management frame can carry */
-+	u32 data[(QCA_HDR_MGMT_DATA1_LEN + QCA_HDR_MGMT_DATA2_LEN) / sizeof(u32)];
- };
- 
- struct qca8k_mib_eth_data {
+--
+
+dt-bindings: net: rockchip-dwmac: Add RK3572
+
+This adds the rockchip,rk3572-gmac compatible, with snps,dwmac-4.20a as
+the fallback, and requires rockchip,php-grf for it. It also marks
+tx_delay and rx_delay as deprecated and disallows them for RK3572.
+
+> diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> index e8dda1961ab31..d7b7bb0082357 100644
+> --- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+
+[ ... ]
+
+> @@ -112,6 +114,7 @@ properties:
+>      minimum: 0
+>      maximum: 0x7F
+>      default: 0x30
+> +    deprecated: true
+>  
+>    rx_delay:
+>      description: Delay value for RXD timing.
+> @@ -119,6 +122,7 @@ properties:
+>      minimum: 0
+>      maximum: 0x7F
+>      default: 0x10
+> +    deprecated: true
+
+[Severity: Low]
+These deprecated: true lines are on the top-level tx_delay and rx_delay
+definitions. Doesn't that deprecate them for every Rockchip GMAC compatible
+(px30, rk3128 through rk3588, rv1108, rv1126), and not only for RK3572?
+
+The binding doesn't name a replacement. dwmac-rk.c also doesn't read any
+standard alternative such as rx-internal-delay-ps or tx-internal-delay-ps.
+On the older SoCs, a board that needs MAC-side RGMII delay has no
+non-deprecated way to describe it.
+
+If a DT leaves the properties out, rk_gmac_setup() logs errors and falls
+back to hidden defaults:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_gmac_setup() {
+    ...
+	ret = of_property_read_u32(dev->of_node, "tx_delay", &value);
+	if (ret) {
+		bsp_priv->tx_delay = 0x30;
+		dev_err(dev, "Can not read property: tx_delay.");
+    ...
+}
+
+Could this binding-wide deprecation go in a separate patch with a rationale
+and a successor that the driver supports? Alternatively, could it be limited
+to compatibles where a replacement exists?
+
+> @@ -141,11 +145,22 @@ required:
+>  allOf:
+>    - $ref: snps,dwmac.yaml#
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3572-gmac
+> +    then:
+> +      properties:
+> +        rx_delay: false
+> +        tx_delay: false
+
+[Severity: Medium]
+With rx_delay and tx_delay set to false, how does an RK3572 board control
+the MAC-side RGMII delay? phy-mode isn't restricted, so "rgmii",
+"rgmii-rxid" and "rgmii-txid" still pass validation.
+
+The companion commit "net: stmmac: dwmac-rk: Add RK3572 support" binds
+rockchip,rk3572-gmac to rk3572_ops. That uses the shared rk_gmac_setup()
+and rk_gmac_powerup() paths. rk_gmac_setup() always reads both properties.
+On a valid RK3572 DT they are always missing, so it falls back to 0x30/0x10:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:rk_gmac_setup() {
+    ...
+	ret = of_property_read_u32(dev->of_node, "tx_delay", &value);
+	if (ret) {
+		bsp_priv->tx_delay = 0x30;
+		dev_err(dev, "Can not read property: tx_delay.");
+		dev_err(dev, "set tx_delay to 0x%x\n",
+			bsp_priv->tx_delay);
+    ...
+	ret = of_property_read_u32(dev->of_node, "rx_delay", &value);
+	if (ret) {
+		bsp_priv->rx_delay = 0x10;
+    ...
+}
+
+That gives four dev_err() lines on every probe of every RK3572 GMAC,
+rgmii-id included.
+
+Then the set_mode switch in rk_gmac_powerup() passes those fallbacks into
+ops->set_to_rgmii():
+
+	case PHY_INTERFACE_MODE_RGMII:
+		...
+			bsp_priv->ops->set_to_rgmii(bsp_priv,
+						    bsp_priv->tx_delay,
+						    bsp_priv->rx_delay);
+	...
+	case PHY_INTERFACE_MODE_RGMII_RXID:
+		...
+						    bsp_priv->tx_delay, 0);
+	...
+	case PHY_INTERFACE_MODE_RGMII_TXID:
+		...
+						    0, bsp_priv->rx_delay);
+
+In the companion commit, rk3572_set_to_rgmii() does:
+
+	u32 val = GRF_FIELD(14, 8, rx_delay) | GRF_FIELD(6, 0, tx_delay) |
+		  GRF_FIELD(15, 15, !!rx_delay) | GRF_FIELD(7, 7, !!tx_delay);
+
+So the non-zero fallbacks switch on the php_grf IOC delay lines. The delay
+values are fixed, and the DT can't tune them or turn them off. Before this
+change, tx_delay = <0> was how to turn the delay off, and the schema now
+rejects that. Only phy-mode = "rgmii-id" ends up with zero MAC delay.
+
+The commit message says the goal is "so new designs do not use the legacy
+delay properties". The schema does that, but the driver still applies
+legacy delay values through its hidden defaults.
+
+The standard tx-internal-delay-ps and rx-internal-delay-ps properties
+validate through snps,dwmac.yaml and ethernet-controller.yaml. But
+dwmac-rk.c never reads them, so setting them does nothing and gives no
+error.
+
+Would it make sense to either restrict RK3572 to rgmii-id (with the driver
+skipping the reads and dev_err() calls for RK3572), or to add driver
+support for tx-internal-delay-ps and rx-internal-delay-ps before banning
+the legacy properties?
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a%40qq.com
