@@ -1,53 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794965037;
-	b=nD3+DGGJz0k9x9j/BsTa+DzaEMs6Rz4VdhU9z9BVPxy8dRFng1GQnucS9IP1RGxXkjm+
-	 qyFTzu4it8y9qoVfdMvx2aMSxH8qnRHxsjX/ruGKQCrh/OPHZbDKrwvj4nxFq42aIfD12
-	 eeupwkJtCxiD6AnDGE+Mdlvrc7rOeWRWFC+vcvxY4atOhKKSxjOvIf1oD8U8tSRGFamvD
-	 VLJMO5hv5rxWuHlPdM/y8YDwJgOhkYqFT4szXpI5UaFGtfQ9wyIoY3F+7hYJNv9YmINZw
-	 EjgceBBl5bxC2TpvN9Yt7xGBeemMotlBE8XEYEEjGjpehF52exVHLVKOUPdi229S26A==
+	t=1794965074;
+	b=jrn1u4ID34W0SojRXWVmm3wqwYUEsExEzjQgmcsTMoa4YqgK7JJWlYdsg+2d/9gMaFYq
+	 mEqN2lowArW+0eLKVjZlV0POGotr9CtbHVb7mhM4nR3GG2ugco/OO6HU8glDblny/p/YM
+	 qWYWsD/NmOk5o9+TDKJikcnODpnvagzZlsEDQPVE5mnMeGQLXu7sTsBFK9I+dvmOhmPXg
+	 iE7hpZP7H1vORQXhQRdkNIpiNdGrluuglXSSlx8wy94t5RkKG/Qkbi2e8fwg0Fk0wXuWv
+	 acIYY3hI7nHNjJE9SfSYgXSyTyoVru8KKFH0gOHm47tqdf/qNHIMPn2j88oq6BxBdSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965037;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Aeuj1XORvRNWwYZiO+GU+hpCMVTTxF/hdQNgM2s/vsE=;
-	b=3Qkh/2LoQGUPr+Y/80V7seb9L86aLDGpyVCJ38vYrljoC0Uy+7B8zu0C/OfNwrMzjFj5
-	 7RxYcqwXOMcnGWSZNzosA8HfoMWl3b+wo5A7BLykRllD+dDxlId28WbQWYz3xl9r4I00E
-	 122fjcByycJKKRCArOXJzE98eG7bG1GenJbfP0xkwPR71fPkIuyDnWrnh0R/AFlJMCNfg
-	 qAJ/cZupacSc2RzBm8TaEQuwr6x5pe8Nafxj7dkn0k/kS912SBt6U1Tpqm176vdPxBM9o
-	 i6y+wFNA7m4kHgh2rdmNoQSNQYr7TduotRLJxFuQnA/ZqPYhzKcbj857Lx0wBBiv9Jw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794965074;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:Sender:
+	 X-CM-SenderInfo;
+	bh=wVUD4AMG0HTk5nXX4SIaUFe4wc7cwNUF2GBpWRtajn0=;
+	b=xRoCuFuJgxjagwkk/cMSZund6Qn4GAxu5CUGNLby2yOYL2Wh8SacQsXdM+MAHOsg3caH
+	 uFW01StoH9McgCB+aBbfj256rGQ3ZfFCIhR7C3ctuEI9HfmGlo9leWgBFYZXy0T1KN7QJ
+	 a/we4AGnwTygTie/rqQJLm+f6kEPlygeSSSZieH8o/sclbPgakxMhIUkKPCm6a2XpD0gD
+	 EXupGfoQcJPVXv7kN4HpN9sDmtew8O+mml//cQon26XBgr9G4XdtNiSJh/ha7uHzAgm5n
+	 8adufUQY22ApEl3RmsuncME6QH06BBQrl8F50RtxZJILD34jRkMxzmRGI0b/n4a9ryw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YZ5m22WC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="XjfI/O0d";
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC94606A31C;
-	Wed, 18 Nov 2026 01:23:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA2C2606A31C;
+	Wed, 18 Nov 2026 01:24:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA2C2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YZ5m22WC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7794E1F000C4;
-	Wed, 18 Nov 2026 01:23:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794965036;
-	bh=Aeuj1XORvRNWwYZiO+GU+hpCMVTTxF/hdQNgM2s/vsE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YZ5m22WCEHUJWjW4KadcCdcEHVajSTne9h8ct9PWsChMd5r+RzGqhPwZx0bG4HiV1
-	 /E/s5pq9J8nS4N2sV8WK4cvBHTTN+LmctVgKyfu3Ghrz9tfRdjzdmVbPMhzslzeot6
-	 o4oTpSjfwUzp3g2Cl6GUL8EPKTQz3c2lISxx0xeMAAh3wtPFdjSe9GxoLsmA4spd1C
-	 wmb6QfjsQAhneF7YY5IWGXWbx9Ixg7PvYXud9rCMYky40K6lf4Qpess+UyC5tXnOsV
-	 dMv30zvwMPAzi0G1TnffcOZqt/hKRtukalT7GXnkncdq1A8B/uR/9xZMm4x31Vfh1R
-	 0wI5JXcIpPT4w==
-Date: Tue, 17 Nov 2026 17:23:55 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Elad Nachman <enachman@marvell.com>
-Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] MAINTAINERS: update switchdev e-mail address
-Message-ID: <20261117172355.5a9307e7@kernel.org>
-In-Reply-To: <20261115174131.4065032-1-enachman@marvell.com>
-References: <20261115174131.4065032-1-enachman@marvell.com>
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=XjfI/O0d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=wV
+	UD4AMG0HTk5nXX4SIaUFe4wc7cwNUF2GBpWRtajn0=; b=XjfI/O0dvQ8JWF6sNP
+	ZjXYqMZhQzY4FJBVpZbYb37YCJFQzI09oW301Pm1mqwoYZUd7F+0tOoMz94Eutzy
+	BCamHM+jlAA+ZMQbJJ1SFP1Q9f8TLTSK9SCpZ12jCUb++kDbcPGimvrbtyrfn+sP
+	c2nVGixX/8PGnMQJnZeii+UAg=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgB3Lj0S_vxq+benGg--.52811S2;
+	Wed, 18 Nov 2026 09:23:48 +0800 (CST)
+From: Yongxin Yang <yangyongxin@kylinos.cn>
+To: Alison Schofield <alison.schofield@intel.com>
+Cc: Dave Jiang <dave.jiang@intel.com>,
+	Ben Cheatham <benjamin.cheatham@amd.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Ira Weiny <iweiny@kernel.org>,
+	Dan Williams <djbw@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	Borislav Petkov <bp@alien8.de>,
+	linux-cxl@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7] cxl/core: Create EINJ debugfs files regardless of EINJ init order
+Date: Wed, 18 Nov 2026 09:23:30 +0800
+Message-Id: <20261118010644.7308635-reply-yangyongxin@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <26224876-7946-4284-9f3a-5c90411b37d0@intel.com>
+References: <1a5ceda1-f039-4946-b8d7-2bc97ed48c00@amd.com> <20261104061256.1449275-1-yangyongxin@kylinos.cn> <avzPbtCq9CedwCZt@aschofie-mobl2.lan> <26224876-7946-4284-9f3a-5c90411b37d0@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,15 +73,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PigvCgB3Lj0S_vxq+benGg--.52811S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuF1rWFWkuw48ArW3Zw1fWFg_yoW5Xw47pF
+	Wagw15trs8CFWIkr4xZw1UAFyYvrs3GFZ8ZFykC343Cwn8CrWSyF9xtF4j9FW8Crs5ZF1Y
+	qw48A34xCayqyaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UFkskUUUUU=
+Sender: yang_yongxin123@163.com
+X-CM-SenderInfo: 51dqwsp1rqw5tlqrjji6rwjhhfrp/xtbC-wSiQGr8-iRRwwAA3H
 
-On Sun, 15 Nov 2026 19:41:31 +0200 Elad Nachman wrote:
-> Subject: [PATCH] MAINTAINERS: update switchdev e-mail address
+Hi Alison, Dave,
 
-Hi Elad! Looks like this patch did not make it to lore or patchwork.
-Could be a backend problem, see:
-https://lore.kernel.org/all/20261115110210.4a3f0177@kernel.org/
+Thanks for catching this.  You are right, and v7 trades one wrong state
+for another: on a host without an EINJ table the files would be created
+and every access would fail with -ENODEV, which is exactly what
+4ed7952b9e87 set out to avoid.  Since ndctl uses the presence of those
+files as the signal, the compile time check is not a fix.
 
-You'll need to repost, and when you do please toss "prestera"
-into the subject? switchdev itself is a different entry..
+Let me describe what I think the real fix has to look like and check the
+direction with you before I post v8.
+
+The root cause is ordering.  cxl_core_init() is a subsys_initcall and
+einj_init() is a device_initcall (module_init), so with cxl_core built
+in, the EINJ state is simply not known yet at the point where the files
+are created.  Whatever condition is evaluated there is a guess: the
+runtime check always answers "not up" (the original bug), and the
+compile time check always answers "up" (the regression you found).  So
+the creation has to move to where the answer exists, not the condition
+be rewritten.
+
+Planned for v8:
+
+1. Revert both IS_ENABLED() uses.  The files are again created only
+   when einj_cxl_is_initialized() is true at creation time, so nothing
+   appears on a host where EINJ never comes up.
+
+2. Move the EINJ debugfs setup out of cxl_core_init() into a callback
+   that runs once EINJ is actually up: cxl core registers it from
+   cxl_core_init(), and einj invokes it right after einj_initialized is
+   set.  The callback is idempotent, and cxl_core_init() still creates
+   the files directly when EINJ is already up, which covers the module
+   load order (einj.ko is a dependency of cxl_core.ko, so it is always
+   initialised first).
+
+   I did not use a late_initcall() for this because port.c already has
+   subsys_initcall(cxl_core_init), and for modules every initcall macro
+   expands to module_init(), so a second one in the same file does not
+   build.  A separate file would not help either, since it would need
+   access to cxl_debugfs and to the port list.
+
+3. The dport directories have the same window.  With the runtime check
+   restored they are created as before for ports registered after EINJ
+   comes up, and the callback above walks the ports that were already
+   registered and creates the directories that were skipped.
+
+4. On your second point, I will put the check in all three helpers so
+   einj_cxl_inject_error() and einj_cxl_inject_rch_error() no longer
+   depend on their caller.  One small detail: the !CONFIG stubs return
+   -ENXIO while this series used -ENODEV.  Do you want the helpers to
+   follow the stubs, or the stubs to follow the helpers?
+
+I also see that the patch was dropped from cxl/fixes, and I take the
+point about threading: v8 will be posted as a thread of its own, not as
+a reply to v7.
+
+This is only a design check, no code yet.  Does that direction look
+right?  If so I will send v8 along those lines.
+
+Thanks!
+Yongxin
+
