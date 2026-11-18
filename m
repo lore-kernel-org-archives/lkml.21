@@ -1,56 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010847;
-	b=O9UKfVeIs+d4jfO2WjhZwze49+qbUWAmJ8hWY6kF7Swbsc5SO1Df75Qb92fNSMIt3NgS
-	 F435Fs9waIKlnx4+frpUYSTIAlrb87m9vNJDF5nE4W2fPMrCKKYzi9UOACdKsw98Y/Rs5
-	 hRdeWp//zKTt9XXJiHnjU9n/XzgHYDBF8sN/qy61NZ4EdxzEog5WK73OH+fMcFH5dGznQ
-	 NkAl9gzrGG1al4QipDdbYLVueahbdWPlS5XeS/SfBpuPqxPUIkZbQGST0e2rvo09cnnYq
-	 6LLPhT/xBCYAEDcVKQxx2f0fKoXFp6vtxSpWkyDT2YwM9By03Gb3Zo3r4R9hAALZGEQ==
+	t=1795010848;
+	b=aQsjoIf7b6Ct7thTlLVWi95n5HkRHV2lLZyOHWRyhah6YGkTDWXiaN4JxLA201hqQuaG
+	 fN6F0ehavSpiNtdVs651g48ZF9MWC2W5tTIHUn56PF38dz3OUcTNF8gwMde/mcu9uj8ZZ
+	 +8eRsvHc1Ro4Yf6DIQHXGjjHiDO1PaSyMlPOfT4iGxPU48GXWs3x8L7QpSrQh+3B5U5p0
+	 A+43TuC1uap5d0B6bsUOH4zjD74ieHTXBwenx7vCzw+Iph4U3S3JErfz/CLNz7Z87sEQy
+	 +DFyj09q1+Zx+dECzdJYVL9s9FumPRSoLeT3jiE8lMjoW1aJfLi2buE3HGgmNT7d+Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010847;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=UGHrxT+hP9jIn28HjHtz0gbo1j8kTyfn+d+CbhJ66fw=;
-	b=t5KvbDbmEjBl3YG+pBg+Hx93jhiY3oj2fTzHCqWUnSOYuJfyLsPZUm1fX1UuzME8IckQ
-	 YyJxlwKn9hUklK++Ab0/IOmR1Zb4NgtUA520vEMcl2aFrJWDbFzVgr84GIcrkyF891jTj
-	 DTS87ZHajSnZxLydzL/2ePI1k8eIS1gTAKIis+Z0eaEgVIzhsIT3hYWXVyP6U6clZDIaw
-	 Zlv8MmaNu3Fy6/xx/ZGJ3CMpcu+udt5yU06ni/aVoes0+fUY0GTHnr5S65SN0SchMbqyl
-	 epznCd0K4acJxHPj5Y6AIqb/wREiqf5Yei0qL5f47WwW1TuJ9P3hEqsbOk8330PU/lA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010848;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=k5lNlxAoGPg806PTxIoKtyPv+dx1Gfpw3t9P/RGtzac=;
+	b=cS+g2y0V4uhGu5TX4lceJJtDuzybOvtqtjiXwbEXlOYiR7YZBF119wzijjPKfL/CWcaF
+	 bIzGcuqK4T6hZL1Oy06dxFXvPLH7m+g1BaaFKGNisyFT9g04anYWExkFvSeaZ7LJvNKRg
+	 M9uBoG69J5EYEfM2ewCcK+Hv9SKv9a4HQc4RNRld09sFSD9sYHWfHxLlG7ZYk+0EQLKOQ
+	 cN7FLQhZMgXKmWchg3+TAjFNvwx6oX8KTVG4zI6AoVDa2YY1cRt0jjtsU8kph8q5bfTrt
+	 vJAPr8rwz5TpPwUegkO6MCOboJy8inYP3wr6v1gVOUwbm3srBTz0+JTcvV8ODUUGA9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XOcMvlVy;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="i/qK1c/w";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B1C8606A31C;
-	Wed, 18 Nov 2026 14:07:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27BA8606A332;
+	Wed, 18 Nov 2026 14:07:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XOcMvlVy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 672FF1F000C5;
-	Wed, 18 Nov 2026 14:07:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i/qK1c/w
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8272C1F000C4;
+	Wed, 18 Nov 2026 14:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795010847;
-	bh=UGHrxT+hP9jIn28HjHtz0gbo1j8kTyfn+d+CbhJ66fw=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=XOcMvlVynyOk6DMn031HgoBwWA/5rO+fK2IdWKTfEnRjhbyn55Sa0N38ohZbIfG2c
-	 uMX0QVq7XtW7A120YgvBGGK9hxlEYHJFgGa5rFz/lSrrPl0fGGLYrNpUZgVGEMNMzB
-	 U3+BAglvaC4CxQMeqevQfJaEYwmlujFv1GDigj4P4XPram2kU0V/8gY6o6bCBbPCoK
-	 3onSEff7xyvkURf2lCfsguswU82dgDrCS+wEUdu27VaqGaUb26XzzINMypXZL+xv2J
-	 Jhu+zHCsYCGd+qTrtn8f4vzAt4XlacLh7bYNXCXq0RyObgLVY/aMz0kYWbfYu9Mfcn
-	 /Cv/Xvnzy7AIA==
-From: Mark Brown <broonie@kernel.org>
-To: Haowen Tu <tuhaowen@uniontech.com>
-Cc: david.rhodes@cirrus.com, rf@opensource.cirrus.com, lgirdwood@gmail.com, 
- perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org, 
- patches@opensource.cirrus.com, linux-kernel@vger.kernel.org
-In-Reply-To: <31EF1D727C977B5E+20261118082325.3915977-1-tuhaowen@uniontech.com>
-References: <31EF1D727C977B5E+20261118082325.3915977-1-tuhaowen@uniontech.com>
-Subject: Re: [PATCH] ASoC: cs42xx8: Restore cache-only mode on resume
- failure
-Message-Id: <179500723460.124542.16243013578958627645.b4-ty@b4>
-Date: Wed, 18 Nov 2026 13:07:14 +0000
+	s=k20260515; t=1795010848;
+	bh=k5lNlxAoGPg806PTxIoKtyPv+dx1Gfpw3t9P/RGtzac=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=i/qK1c/wDYDTdZDrhx9JaMqoN3swoPbXUD1ba1bvT++6dL51gYeXNUGjk906z7mNR
+	 N5LunQHFijq2OsxbhpkGl8x4vTEiTlogtfEGDocavH0SHDxxHzu+3TQnqlGkS4omm+
+	 +bDmYrQ7QInWgvSb4LnBz3ATcFuc6vOu9bGerA1kydBbmytp+KpFquhRzIieBKQNLv
+	 IiHenjryKZh7DyXL4y22k4yfRthPyz+rcx4g6d1LtDFw/RoLtW4FYfzBjne5gVwMdP
+	 ymyrHvS04VW8CQJVKsqBG8FzSxG2TImUyo17+tALc1Og71joQgK18heBqZHYLkE/bw
+	 lnVG3mtOmkRxQ==
+Date: Wed, 18 Nov 2026 14:07:18 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, Peter Xu <peterx@redhat.com>, 
+	Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+	Roman Kisel <romank@linux.microsoft.com>, Saurabh Sengar <ssengar@linux.microsoft.com>, 
+	Naman Jain <namjain@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, Eliav Farber <farbere@amazon.com>, 
+	"Jose A. Perez de Azpillaga" <azpijr@gmail.com>, "Gregory Price (Meta)" <gourry@gourry.net>
+Subject: Re: [PATCH v2 0/4] mm: fix races between huge and non-huge faults in
+ PFN mappings
+Message-ID: <av2cagI4ccMR7jJz@gremlin>
+References: <20261117-huge-pfnmap-fault-races-v2-0-276007e73bcb@kernel.org>
+ <d7edeec8-d9c8-4516-8426-de2d8854ae06@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,46 +68,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1127; i=broonie@kernel.org;
- h=from:subject:message-id; bh=zpmJTdGXDZXnDkpjAsVPS76KmdOeGibjcYfxZr3NjY8=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+bpTmKxVn1nzyyXAB47rkZK1oDsUTtndZApn3BJncl
- d7Guy+7o5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABP5+ZWRofVSSf7qpcyv/BrC
- S/Y8iFbvb/7/8YZ1eeRVizXbntzcsJDhf1xFiYLnc7/STS9T9red/NV8V+N55o/vZvYnmoVtSpW
- W8QAA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7edeec8-d9c8-4516-8426-de2d8854ae06@kernel.org>
 
-On Wed, 18 Nov 2026 16:23:24 +0800, Haowen Tu wrote:
-> ASoC: cs42xx8: Restore cache-only mode on resume failure
+On Wed, Nov 18, 2026 at 10:47:48AM +0100, David Hildenbrand (Arm) wrote:
+> Lorenzo,
+>
+> all of these are not super urgent and can wait for the next merge window, right?
 
-Applied to
+Sure.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
-
-Thanks!
-
-[1/1] ASoC: cs42xx8: Restore cache-only mode on resume failure
-      https://git.kernel.org/broonie/sound/c/1e7c013d46b9
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+--
+Cheers, Lorenzo
