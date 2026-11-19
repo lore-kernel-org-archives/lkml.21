@@ -1,112 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.70
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795057456;
-	b=WwjIUlD6gcrTiZCqiS/jinpjXFEY/I1lM34wZA/cQvjeuzgxxdaP+aeRnk/EcOKhmBjX
-	 EL21vu9tbfw1TXZKi5+G3PqlDMRRW9OGz38iD6IAA+oJ6iKjqfYvQ/hSVHkt/Lzw6k5aK
-	 L8svdl8gyDMRBG27qhnbIuhXHK6KDFs/VaOeNaYLf2Qf6HqOSggBhwu9R5+nnxNFYLkWd
-	 JFREL/qX7r1gXgrDjG3N9U5OFmpcv9uxtPJIc6vdx2m12s5cEjswceYD6GhHTKiGFv3mI
-	 1l97oZWvOhHDzIzplf+lFe8kA2KTSUglNEKykD86nLcI6kondVQ/ob6EZ9AO2rD28RQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057456;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Hc+daP5Wc7vjgit6jpDbcovc86JHC/tXHaNpw3bCka8=;
-	b=md2Tp8glKKLgcEQyG7bNOxixtSyjwciVE7WgQs5awVKXXp+ySnfX+mZNPT0k91F0V925
-	 xdlyQa2+eJr4GzNG1q9ubdLe4LsH6YAhN22C1RuZx54UvpFeY0QwLk6UbHbFAjObAIv2W
-	 icpdU78BiA3oe8qBcf2puaffEYAd0Kkv9cRO1BsqT0hrTkvhoEd/XgjRIhuqVHki4G9X6
-	 IWNQ6/Yj8eaB8Igx7f0bbTix56lv8YqcJhFewfzggFmaXFRKxROh1FLD8zMyiOcOa1Zr6
-	 t/ZrHlaNgABpN/eUdIPVVIN3NHeSc0SuueAonAxMR0F0LdRWGbW2Z7YUjx2+nYc3HLw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=t1DFahr7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.70
-Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013070.outbound.protection.outlook.com [40.93.196.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.111
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795057464;
+	b=CY7FpJQ7HsDfmaypy20XRkt8WluldaaUmLh53Em7cUlOisnnodo4DwOy8YzEeYj5v2ry
+	 22I4WvOKcmr9D2DgK+wG/Fb6RjnBpiTzpUspyfhmcP/RLU9x35vdm89TAQBm36TfLV27F
+	 tzRkc0/kQNeUa4jQJiFBGrq+yIxPb3IJaFwf5KJYmFjLQoj87l2Pz/HlaTaQNOm+E1GA5
+	 CjiEWx+ljtjl3COvuPeC7It4w4mQ96xwltPXB9DbEQQGIhPMySW13ork9xl+EqaQtjLN5
+	 K+EyDogHDVcAV37tO3VwHzwM8Hla7kIW1gJv239GjYauNTKEmpxgWvc/DmHnxxCTDqA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057464;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=0SbJDsJK4PSjk5SKz/IpSKiXp0UG0peF0ib+V6K/eBE=;
+	b=oByPQx/ngbQ+k3FNKM/EL1uAyxk9hHSd7RrO66p8ibQpAkN5F7lkQAYZiKiozEiE8AoT
+	 XTJsaaTbNZUQuiS3l6l+tQ4hSUgjB83o9jFg53WNJgD3IZvok8lVaP7PjqCbG7unDU4+q
+	 7Nw5/3C0HyWBeqKPw4k13K5RGr1hP4ckxTzxncjZeuIgzuZsAFccbpHJpF6kPyhs2qLOb
+	 Bb8c6/5x+cWQX1Vf/HvvjVKNm/gBepB8DrUYtoen5X0wo59pTlVcjigIr6AVrJekHwrdY
+	 XKDNn+WKHZvSd+1tJIlnUy75+o/KzAcJyMFcFyxq7IlowRSuxzA3/X8zsGXrtzfCe0g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DWK3GpEt;
+	arc=none smtp.remote-ip=91.218.175.111
+Received: from mta0.migadu.com (out-111.mta0.migadu.com [91.218.175.111])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30595606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30595606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E118060A2618
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E118060A2618
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=t1DFahr7
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=okKNa/6it+RDdckSokqEVMvsiqmZ8v/VJ7adesZprnBtXMkSVbF96ddAWXf9NrvllvMJhjFNfBaH+U7tReduFamWz4s54QhOkKdYHxEdSWFCJ5SbQXS2qFaVL8kqMAiNBb3C/UAg1FXhbZH9NS+2ShrTaZYXeg/UeBT4++2oCr1pXJVpyhy6PGHyuwKXHyhZPBiACzFcJ6OxN6G9FDVOpVDTq1znNev0RuTqUeDxo7gWQcywDl8k6TgRsRmdQpMRW2oqk+pbjSckBrbb1DhF62hnRyd47/MMiH/9D4d0Tjq3HJhKf4O69qM6lsty1xZOAUL++PYrbtGL1tiFneHnGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hc+daP5Wc7vjgit6jpDbcovc86JHC/tXHaNpw3bCka8=;
- b=aVhiXiv88bDxHkzMaNbT/mE39vhC7CO0VZ51NBAGK08+2ui3IFotHyt1g/u5B9ESZqzDYRU7yZ84kevj7IBgxeGGHAOewTtJ+49V6KUW8ziig2fcNkqVo+00cXim1X9WVYQOvlm1BaJsXEBW43SPC/K3RNDX2m0oX5nAmvy06r/xpX/OW5S3ca8daKPC0Fqw9hLrCsOfpXy5VXSP+DARJrd42HnuwiLLiiYAzV6mK4jhAYyRKhK5ujkXDcgnkQkaz0Dhqsf59RBbll+8DRe/Nf0ilKYvD9zt8nXhtnBdyVdFWkP1N88b4o2B9wl75n6L08r49CrrufFrXhGuIV4L+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hc+daP5Wc7vjgit6jpDbcovc86JHC/tXHaNpw3bCka8=;
- b=t1DFahr7jJ8TlvnIiz3mWiyOPHo71kByBqueAMWQPsotQwUhftFh9R+nJZZrSUo6OK+TUjB0FoB0JIf3zc08olVNNrin6ZprD/OiQh8xRx7HHxC4NIFwsfExVx02R24rzeR2PVtxBYxNg+mh7VG5Hov8domQqK89tXMGUzENn0A=
-Received: from SJ2P221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:a03:5db::12)
- by SA3PR12MB7807.namprd12.prod.outlook.com (2603:10b6:806:304::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
- 2026 03:04:06 +0000
-Received: from PH5PEPF0000002F.namprd04.prod.outlook.com
- (2603:10b6:a03:5db:cafe::3b) by SJ2P221CA0002.outlook.office365.com
- (2603:10b6:a03:5db::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
- 19 Nov 2026 03:04:06 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH5PEPF0000002F.mail.protection.outlook.com (10.167.243.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Thu, 19 Nov 2026 03:04:06 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 21:04:05 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
- 2026 21:04:05 -0600
-Received: from wayne-dev-lnx.amd.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 18 Nov 2026 21:04:02 -0600
-From: Wayne Lin <Wayne.Lin@amd.com>
-To: <amd-gfx@lists.freedesktop.org>
-CC: Cooper Morgan <ext-github@cwooper.dev>, =?UTF-8?q?Eren=20=C3=96zen?=
-	<erenozen@protonmail.com>, <oss@oysterdaisuki.com>, <harry.wentland@amd.com>,
-	<alexander.deucher@amd.com>, <sunpeng.li@amd.com>, <siqueira@igalia.com>,
-	<christian.koenig@amd.com>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/2] drm/amd/display: Fix FreeSync infopacket refresh rates above 255 Hz
-Date: Thu, 19 Nov 2026 11:05:04 +0800
-Message-ID: <20261119030504.3849327-1-Wayne.Lin@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <HftAWPKURVjBtK_2BmUiLXOb8ghZxaEzAJSg0tlsmy5L3ckJyDWc6g65vrsVGdA3ZcytB6mPuyxaQbsPawfOZmdC1dyAo4lCbaK3Tj7Tm-U=@protonmail.com>
-References: <HftAWPKURVjBtK_2BmUiLXOb8ghZxaEzAJSg0tlsmy5L3ckJyDWc6g65vrsVGdA3ZcytB6mPuyxaQbsPawfOZmdC1dyAo4lCbaK3Tj7Tm-U=@protonmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=DWK3GpEt
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=KazbasjxrRYbBydSTs2O2Ixd8P66DwsGYWpJXQkSjv4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795057450; v=1; x=1795662250;
+ b=DWK3GpEtx6OslLzkWCdUk612hJfK1YdzajCAowfM8hDrqAFe2bKFYuds5eoDrvpUlrsaZ2N+
+ oHrUc2j0j2jxSiTk8FBWrOM3BjM3laE7T2Ge+x1PKYn+99dnkBn/K9WzoI+X70uVs8pvPT+b1h3
+ cfV/KvH/aizE0w6QBEPiN/4Q=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 57bbc1b48389dcb3;
+	Thu, 19 Nov 2026 03:04:10 +0000
+X-Mizu-Trace-ID: 57bbc1b48389dcb3
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <79797479-029f-4e9b-8076-6a92a2a70cdd@linux.dev>
+Date: Thu, 19 Nov 2026 11:04:02 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,84 +58,171 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Betterbird (macOS/Intel)
+Subject: Re: [PATCH bpf-next v2] selftests/bpf: Fall back when
+ memcg_proactive_reclaim data lands in shmem
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Kurt Lin <lylin1023@gmail.com>, Hui Zhu <zhuhui@kylinos.cn>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ Jiri Olsa <jolsa@kernel.org>, Ihor Solodrai <ihor.solodrai@linux.dev>,
+ Emil Tsalapatis <emil@etsalapatis.com>, Barry Song <baohua@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261117170704.1146730-1-lylin1023@gmail.com>
+ <DMY136RTAL9Q.2WQSZ57W1YLV2@gmail.com>
+Content-Language: en-US
+From: Hui Zhu <hui.zhu@linux.dev>
+In-Reply-To: <DMY136RTAL9Q.2WQSZ57W1YLV2@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH5PEPF0000002F:EE_|SA3PR12MB7807:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7c01cbb-781a-4802-43fd-08df45e9c600
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|23010399003|18002099003|261009223027099003|22082099003|11063799006|261026140227099003|56012099006|261021123027099003|261021135927099003|261022105027099003|261021121427099003|261028144727099003|10067099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	430rJwjDlFAN9/5stwXIIdpUjUQDTMtK5BOISqacvKUDXWXo33r3+PRUAm3cmA5+pp1V6XCaHjkXlaktNPv7HeTBHvoW6FSgAj4jBF5dxJ/y8EFOuC8AxuB3NH2F4zPza5K7i25ogEnPukL6mCAtpjHkw8LXzs0Tl6jIKzpPiuOYeS653Xn0uogM6f5KNZOAmr5On8/Oxw1uQvKNxnnhg9rKGp+3F1l1GJi9XQbAdTS5puYCl4LHfSwJKGwEhJhdXya3hGxc2msJI/cwt8VqEnXIJLfPhVQ/BFvZeui+IBO+vF8VRvLkURria+V6VQrSt/FmYzOZJw2ptWFHjQhDr07+wQrym3INULIjwAsuZIL3uk1XjGLMTaXs5rcU1RiSdKUrqajRAhWRJ5xQebV0Jq8kJno5dydKPBL0SkNCRKMdFGDxnzIiiXPakgko15cZjSLZ2yzUDObhqeSf9TnGjCxrRdrjBIeTMKJmx4ZMGEEAXhup5W6QZYJNJ+5p0BD7Ttt9v3pKM2ZZ0/NOEnug4fzfJw2mN0LAPh62moGjy+erlfqfVuUnmQp+awm+oiL1Z0aGDFL7w8jdRJV1rJaWUMm2tS/PnajVD9FVz5aaYuSSbVWZGt6ZHtbtI3QTtVr9G/OlsiWXTuFh7HXLvVvkZC8BAYxzIEwov41q5dTBm6X//toXnrKxFOj9vS3ooFMIBR3YugfQbzRq6T1TGuuU6A==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(23010399003)(18002099003)(261009223027099003)(22082099003)(11063799006)(261026140227099003)(56012099006)(261021123027099003)(261021135927099003)(261022105027099003)(261021121427099003)(261028144727099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	9n/N2lnlHO2wKNv5+E1lQhWWVfa2TBfmLkaRkBnRwHfxXLhTzHfKjsgNu+8SJyVIQKfgfkYtoARWWbmgQVAnjfaONHayclwVD+A8XXOcV7jtpk+JCH2XvZ7huRijIIF/SGYUonN5uYwnZb1uK127IqOXOIfPfY6S8SjWM4Vb0Y7JSGmgV1KByfCtJAWGasAgpETx1ZWaF77zEAzo2iF0K+cmJ2WMXywXBOqmTls3hFXpxwiSbmNjolb1nRlA++gitDeN7BuBqqirNKzkcJvsl03mrH92QqDmUUL9thaqr1+dZZR9yZPCuwW3VHYLE/LkcgQZ4+u0VgpSOwdzgRCqsVV/hv8gAYMMQCCWP75bFiVCZYF5sde9o3GSPkBBMH/NR8l3KcJP2SrbrwZBCPBQLhfgHquozqU9n09aOdDnjd4eOs5uzMUiuGxf3Pz73abN
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 03:04:06.0685
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7c01cbb-781a-4802-43fd-08df45e9c600
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH5PEPF0000002F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7807
 
-On Wed, 18 Nov 2026 12:46:45 +0000, Eren Özen wrote:
-> Hi Wayne, Cooper,
->
-> One more difference worth knowing about if v2 gets swapped in:
-> ae60ec4dcfc4 ("drm/amd/display: Use FreeSync v3 infopacket for sinks
-> above 255 Hz") is missing the amdgpu_dm_connector.c hunk of patch 2/2.
-> The posted patch changes four files (92 insertions, 1 deletion) in both
-> v1 and v2, but the commit only changes three (91 insertions).
->
-> The missing hunk is the one that stores the AMD VSDB version for every
-> DP/eDP sink:
->
-> 	get_amd_vsdb(amdgpu_dm_connector, &vsdb_info);
-> +	amdgpu_dm_connector->vsdb_info.amd_vsdb_version = vsdb_info.amd_vsdb_version;
->
-> 	if (vsdb_info.replay_mode) {
-> 		amdgpu_dm_connector->vsdb_info.replay_mode = vsdb_info.replay_mode;
-> -		amdgpu_dm_connector->vsdb_info.amd_vsdb_version = vsdb_info.amd_vsdb_version;
->
-> Without it, a native DP sink without Replay never records VSDB v3, so it
-> never gets the v3 packet, and the DP side of the >255 Hz fix has no
-> effect. The KUnit test added by the same patch catches this on
-> amd-staging-drm-next 8dd68a79583a:
->
->   # dm_test_fs_caps_dp_vsdb_version: EXPECTATION FAILED at drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/tests/amdgpu_dm_connector_test.c:9925
->   Expected ctx->aconnector->vsdb_info.amd_vsdb_version == 3, but
->       ctx->aconnector->vsdb_info.amd_vsdb_version == 0 (0x0)
->
-> The failure is easy to miss right now, because the amdgpu_dm KUnit run
-> panics earlier in dm_test_i2c_xfer_no_ddc_pin() (I've reported that on
-> the "Route connector DDC over AUX" thread). With that test fixed and
-> this hunk restored, all 1931 amdgpu_dm tests pass here. Patch 1/2
-> (bedad38a7ddf) landed complete.
->
-> Thanks,
-> Eren
->
 
-Hi Cooper, Eren,
+2026/11/18 11:49, Alexei Starovoitov:
+> On Tue, Nov 17, 2026 at 09:07 AM Kurt Lin <lylin1023@gmail.com> wrote:
+>> After writing the file, check memory.stat and move on to the next
+>> candidate directory if most of the data was charged as shmem; skip only
+>> when none is left. Give each candidate its own cgroup so that stale
+>> stats from a previous attempt cannot interfere, and poll memory.stat
+>> until the write shows up, as reading it does not force a stats flush.
+>> Fail the test if memory.stat cannot be read or never shows the write.
+> This is overkill.
+>
+>>      To exercise the polling, FILE_SIZE was temporarily cut to 2 MiB in a
+>>      128-vCPU guest, which keeps the write below the flush threshold.
+> So the test with 32 MiB didn't hit it.
+> Pls don't add code just because a bot said so.
+>
+> Here is what I mean. I didn't compile it:
+>
+> diff --git a/tools/testing/selftests/bpf/prog_tests/arena_memcg.c b/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
+> index c76a7eb..334bfa6 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
+> @@ -53,8 +53,12 @@ static int alloc_pagecache(size_t size)
+>   	fd = open(".", O_TMPFILE | O_RDWR | O_EXCL, 0600);
+>   	if (fd < 0)
+>   		return errno == EOPNOTSUPP ? -EOPNOTSUPP : -1;
+> -	/* tmpfs hands out shmem pages, which are not reclaimable without swap */
+> -	if (fstatfs(fd, &stfs) || stfs.f_type == TMPFS_MAGIC) {
+> +	/*
+> +	 * tmpfs hands out shmem pages, which are not reclaimable without swap.
+> +	 * overlayfs hides the type of its upper layer, which can be tmpfs.
+> +	 */
+> +	if (fstatfs(fd, &stfs) || stfs.f_type == TMPFS_MAGIC ||
+> +	    stfs.f_type == OVERLAYFS_SUPER_MAGIC) {
+>   		close(fd);
+>   		return -EOPNOTSUPP;
+>   	}
+> diff --git a/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c b/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
+> index c22dcfa..2ba0791 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
+> @@ -30,7 +30,8 @@ struct reclaim_args {
+>    * being available, and a read-only mount cannot host the file at all (EROFS
+>    * applies to root too). /tmp is tmpfs on many systems, and test_progs is
+>    * routinely run from a tmpfs working directory, so both candidates need the
+> - * check.
+> + * check. overlayfs hides the type of its upper layer, which is tmpfs for /tmp
+> + * in virtme-ng guests.
+>    */
+>   static const char *workload_dir(void)
+>   {
+> @@ -40,7 +41,8 @@ static const char *workload_dir(void)
+>
+>   	for (i = 0; i < ARRAY_SIZE(dirs); i++)
+>   		if (!statfs(dirs[i], &st) && st.f_type != TMPFS_MAGIC &&
+> -		    st.f_type != RAMFS_MAGIC && !access(dirs[i], W_OK))
+> +		    st.f_type != RAMFS_MAGIC &&
+> +		    st.f_type != OVERLAYFS_SUPER_MAGIC && !access(dirs[i], W_OK))
+>   			return dirs[i];
+>
+>   	return NULL;
+>
+> pw-bot: cr
 
-Cooper, I am sorry. I missed the latest revision, and an older one
-landed on amd-staging-drm-next instead. Since the patches are already
-merged, those tags will not be added.
+Hi Alexei,
 
-Eren, thank you for the report. The hunk was accidentally left out of
-ae60ec4dcfc4. I will send a follow-up patch to restore it and Cc you
-both.
+What about two things: only check when the test fails, and check
+KPF_SWAPBACKED instead of f_type?
 
-Thanks!
+1. Check only when the test fails.
+What the test needs is "these pages are reclaimable", not "these pages
+are not shmem": with swap available shmem reclaims fine, and then
+reclaimed == 0 is a real regression that must not be skipped. So probe on
+the failure path only -- nothing is paid when the test passes, there is
+no polling, and a regression cannot be masked.
 
-Regards,
-Wayne
+2. Probe with KPF_SWAPBACKED.
+f_type is a blacklist, so the next stacking filesystem repeats this.
+shmem-ness is a property of the pages rather than of the mount, so ask
+the pages: /proc/self/pagemap for VA -> PFN, /proc/kpageflags for
+PFN -> flags, then test bit 14.
+
+     #define PAGEMAP_PRESENT(e)  (((e) & (1ull << 63)) != 0)
+     #define PAGEMAP_PFN(e)      ((e) & ((1ull << 55) - 1))
+     #define KPF_SWAPBACKED      (1ull << 14)
+
+     /* 1 if fd is backed by shmem, 0 if not, -1 if it could not tell */
+     static int file_is_shmem(int fd)
+     {
+             unsigned long ps = getpagesize();
+             uint64_t ent = 0, flags = 0;
+             int pfd = -1, kfd = -1, ret = -1;
+             char *addr;
+
+             addr = mmap(NULL, ps, PROT_READ, MAP_SHARED, fd, 0);
+             if (addr == MAP_FAILED)
+                     return -1;
+             *(volatile char *)addr;
+
+             pfd = open("/proc/self/pagemap", O_RDONLY);
+             kfd = open("/proc/kpageflags", O_RDONLY);
+             if (pfd < 0 || kfd < 0)
+                     goto out;
+             if (pread(pfd, &ent, sizeof(ent),
+                       ((uintptr_t)addr / ps) * sizeof(ent)) != sizeof(ent))
+                     goto out;
+             /* unprivileged readers see PM_PRESENT with the PFN zeroed */
+             if (!PAGEMAP_PRESENT(ent) || !PAGEMAP_PFN(ent))
+                     goto out;
+             if (pread(kfd, &flags, sizeof(flags),
+                       PAGEMAP_PFN(ent) * sizeof(flags)) != sizeof(flags))
+                     goto out;
+
+             ret = !!(flags & KPF_SWAPBACKED);
+     out:
+             if (pfd >= 0)
+                     close(pfd);
+             if (kfd >= 0)
+                     close(kfd);
+             munmap(addr, ps);
+             return ret;
+     }
+
+     if (!skel->bss->reclaimed) {
+             struct sysinfo si;
+
+             sysinfo(&si);
+             if (!si.totalswap && file_is_shmem(data_fd) == 1) {
+                     test__skip();
+                     goto out;
+             }
+     }
+     ASSERT_GT(skel->bss->reclaimed, 0, "reclaimed");
+
+What it buys: it sees through any stacking filesystem instead of only the
+listed ones, it is per-page rather than inferred from a magic number, it
+needs no polling and no extra cgroup, and it costs nothing on the success
+path. Returning -1 when it cannot tell keeps the caller conservative --
+a failure beats a silent pass. Both files are root-only, which these tests
+already are, and selftests/mm/vm_util.c already pairs pagemap with
+kpageflags.
+
+Best,
+Hui
+
+
