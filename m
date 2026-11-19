@@ -1,86 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795083758;
-	b=V+CrOGuoEfF9bC8dRSK5zP0unYyRCv3uvJ/D8QjkherCiy8+HwjsPQmGqHaBhuOlpOVX
-	 0EI4le1ZTfbfsOCBiRyOwCX3GofncvP67I4o83+5A4fMj+YkUvNKid3e+LWrAP+6y+pT7
-	 WVybBqVcmYcVaKn4JtvtcMaT5z8jHrOKG7ESFV+YyeISaYz2SjNsCSSEyaJNXcZtOou+y
-	 Ijxfn2ZGFhb7jOGVwYEXphON2IVQzGUtIRudm4xZ8FWPXGJ5/u53zKMMkuw/Bf+8kRwXE
-	 Y+ImT+JXvBxrN/EKIea5p7ayjTwB/6RMLLt1PokuzsV0thq6DDgAMt/TwSKuwn95Afw==
+	t=1795083772;
+	b=OZSoe+kLjf0Zzc/CMQZDWBckasK0rFE3DvG+39s3PORjutFWkX1bGYSWKu2vqKZWSfpP
+	 FQtVZJehhLfjfnPkYdhVXKD+ND5YveZjzCXs0A3H736wTuKyk7O0pZRwp5/QV+kp3jdS7
+	 6EzFDC3U+xg5qzAscIDO4Nela98vHM9sJ7GLHblm2ycCwtp1glGFxHg1sms6pNHAb+aDr
+	 PaTDJmiYusm7t4ceAAkS2g6waD6zmnRXUg5IxTy4T0L6ITCL+unerz3PhmyDgeMZEnz8m
+	 az+nIhRJQ/Dg5qPfLpDERDwnPljpBpCRb02UMt5ClHiPP+GWgWg0f+MDCSJ7mqS4+4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083758;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=/6d8JpJvsm5E+CxxvIOJP8Z2ErAigEBUqVsjQpPuLoU=;
-	b=bACdqf/EHwuwVNcEdqcChC9c+uZYPBONcqVYwB5J2k8x1iN2dwet3Gim2F+PobPyGXQQ
-	 fD3P3U7wIB71gBDl4ogme/t/49I7hIGRUrESKWCFy1W0wfYbHcfaeHyjs48FIwGR+qP/1
-	 kz6YHuawxMeRdcICVMd6TCWEgTnBbcRCSz65jDmZVa5bF6/r3ajutTu7uyUG2SJ6HAOJ+
-	 vtT2hrUPx7VkDSQdyOD/kEU1r8+2H7YYLS4Wdh8/yMO4nunN37kWHR7tjmC1G34eN7eXk
-	 CaIKJkUAIT6Cibzc3FmTiGNtzk+cwf/xXPCgWlOJQbrMjXMpZsYbelStUdV4B5oqopQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083772;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=wPVIvL96HjIC/G5XUmS2oSnBr5CQE3262Q+aEFqOucA=;
+	b=xMINKDJ3cJQFfn0AKEY6jS8zynu59FIrcHGPMVtqMg+0WfoqL7/iw4mvX7snNYJGYtME
+	 klzCBJAyhq6bzLemEAfCdKFi2yBISTivRx5Kjio3akY395lTjISJ5BD5A7APTKtjimoJw
+	 ZcRa68M9eAY2fOFrZV18vZlX7jhHQz1xoKE6oDoHMAmzXyIOjLyt0LxrBZuUaImlzZS0O
+	 YZ5XsEji7sAAuq1LKvlYIZ6hh317uWRVM/lZ95bH4OW8hVd3rRYYUwehPzUV0NltryssG
+	 Uv92N94dd5Jrvu4nis1495RvkDZrcIrU4wfRoLb9D4ZgyzWZxP75IjweyV9NhtKE/pQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWjn9KWH;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oBviKqwO;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22DC4606A320;
-	Thu, 19 Nov 2026 10:22:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22DC4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C300606A334;
+	Thu, 19 Nov 2026 10:22:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lWjn9KWH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795083757; x=1826619757;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sxqRokLTTP1WzLKQkGtBUXqw1JiewEaY5o+OWISfVtU=;
-  b=lWjn9KWHUe/gVt9dZCB/F7gndvUukupi1Kj8Md7yJjDAiyAtsJ0DC3wi
-   wWYFLeERJxfsD3VSF+xgfaDvgMjs+w/ASrsZVYp1JoFELXVevzO6BYJqz
-   4uSAGBcObhbj+ETklXPGRpf3cUT1lG4j/N3r21kSd2YY7kicUOiTq0koD
-   NeJHlpqQLY7blshYyh7NI0JNbPul++n7YiS5M2b7XWT5+csq4UvR7KfMS
-   pRuWNHoQP8p/p+99Da1EOj1vfmVlyzq+LK/IbhDDq6WLKL6jN8000rSJn
-   5ZlMnjRQZHkPn3XGwbZQnkK0gTp6IJxTkNlTWTq7vKShwdxyasMG8lKa5
-   g==;
-X-CSE-ConnectionGUID: VaEIFkP2ROucnPDjwUuRCA==
-X-CSE-MsgGUID: cYgSYDRjTNeGJ1kB50POHQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3966033"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3966033"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:22:36 -0800
-X-CSE-ConnectionGUID: 12qW9BOATrS2WfXj5AnY4Q==
-X-CSE-MsgGUID: 5EN8y2AHQxerqRKpFqhD2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10731979"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:22:32 -0800
-Date: Thu, 19 Nov 2026 12:22:29 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org,
-	Brian Masney <masneyb@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 4/6] clk: ambarella: add CV75 RCT clock controller
-Message-ID: <av7N5VMXS6OiNYrh@ashevche-desk.local>
-References: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
- <20261119-cv75-soc-v12-4-e5a03cca8b05@ambarella.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oBviKqwO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B386C1F000C5;
+	Thu, 19 Nov 2026 10:22:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795083772;
+	bh=wPVIvL96HjIC/G5XUmS2oSnBr5CQE3262Q+aEFqOucA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=oBviKqwO4UPllqvcmE/GMQO2l40xuUnH+AscQfq5vQDk7NFfLuII67SLofbeC8Y1k
+	 EqVJNnHebWlJKuNgYusA1LDqrmcIiNrJHlXWdx+gwvTNCcJ5nksDIwAx1W3xWIygqk
+	 MVTddbm9zT4rOkJbNA6bIN7VU3f0EKj/bWrnrM1XQmygHMaS96KudiYiE5T7cB+Lfv
+	 UPzStIIWJ2Hy4JFvCSuFE5ZJ4botZJ4mWHepAeArIZx4zgyz3C77BFweB2U1eaQ1gK
+	 qno2EL5d69vgzP/FGGzeHnFKCpJzEFTzEZhPHXm759JLqh8QzPiX2xQkNSaKDQTqqx
+	 uIHrvWVqFzDWw==
+Subject: Re: [PATCH net-next v2 2/2] net: sgi: ioc3-eth: take the MAC address
+ from a device property
+From: netdev-bot+sashiko@kernel.org
+To: kaloz@kernel.org
+Cc: tsbogend@alpha.franken.de, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 10:22:51 +0000
+Message-ID: <179508377126.3136.8138823841306639675@kernel.org>
+In-Reply-To: <20261116102115.27574-3-kaloz@kernel.org>
+References: <20261116102115.27574-3-kaloz@kernel.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,53 +63,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-cv75-soc-v12-4-e5a03cca8b05@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Thu, Nov 19, 2026 at 06:13:22PM +0800, Long Zhao via B4 Relay wrote:
-> 
-> Add a table-driven CCF driver for the CV75 root clock tree. Register
-> the core PLL, AHB/APB fixed factors and UART0 composite clock, with
-> osc supplied via clk_parent_data.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-...
+Critical: 0 · High: 0 (2) · Medium: 2 · Low: 0
 
-> +config CLK_AMBARELLA_CV75
-> +	bool "Ambarella CV75 RCT clock controller"
-> +	depends on ARCH_AMBARELLA || COMPILE_TEST
-> +	default ARCH_AMBARELLA
-> +	help
-> +	  Say Y here to enable the Ambarella CV75 RCT clock controller.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Tell a bit more when it's required. For example, if it's necessary to boot the
-system or if it's just a bunch of some peripheral clocks that don't affect any
-basic stuff. Note, checkpatch complains if the help text is less than 3 lines.
+- [Medium] The new fallback in ioc3eth_probe()
+  (drivers/net/ethernet/sgi/ioc3-eth.c:861-863) calls…
+- [Medium] On a board that has a 1-wire MAC PROM and also gets the new
+  device property, which MAC address ioc3eth_probe() uses depends on…
 
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  ioc3eth_probe() never calls platform_set_drvdata(pdev, dev), while…
+- [High] This problem wasn't introduced by this patch, but
+  ioc3eth_probe() requests the IRQ with devm_request_irq(&pdev->dev,…
 
-...
+--
 
-> +static const struct cv75_pll cv75_plls[] = {
-> +	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100,
-> +		 0, &cv75_ccu.core),
-> +	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528,
-> +		 0, &cv75_ccu.enet),
-> +	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4,
-> +		 0, &cv75_ccu.sd),
-> +};
+net: sgi: ioc3-eth: take the MAC address from a device property
 
-Now it can occupy less LoC.
+This commit adds a device_get_mac_address() fallback to ioc3eth_probe().
+It is used when the MAC address can't be read from the 1-wire PROM, so
+that boards without a PROM no longer defer probing forever.
 
-static const struct cv75_pll cv75_plls[] = {
-	CV75_PLL(CV75_GCLK_CORE, "core", 0x000, 0x004, 0x100, 0, &cv75_ccu.core),
-	CV75_PLL(-1, "pll_enet", 0x520, 0x524, 0x528, 0, &cv75_ccu.enet),
-	CV75_PLL(-1, "pll_sd", 0x4ac, 0x4b0, 0x4b4, 0, &cv75_ccu.sd),
-};
+> diff --git a/drivers/net/ethernet/sgi/ioc3-eth.c b/drivers/net/ethernet/sgi/ioc3-eth.c
+> index 25139cf5ff62c..fa844267c325a 100644
+> --- a/drivers/net/ethernet/sgi/ioc3-eth.c
+> +++ b/drivers/net/ethernet/sgi/ioc3-eth.c
+> @@ -857,8 +857,9 @@ static int ioc3eth_probe(struct platform_device *pdev)
+>  		dev_err(&pdev->dev, "Invalid resource\n");
+>  		return -EINVAL;
+>  	}
+> -	/* get mac addr from one wire prom */
+> -	if (ioc3eth_get_mac_addr(regs, mac_addr))
+> +	/* get mac addr from one wire prom, or from a device property */
+> +	if (ioc3eth_get_mac_addr(regs, mac_addr) &&
+> +	    device_get_mac_address(&pdev->dev, mac_addr))
+
+[Severity: Medium]
+Can device_get_mac_address() succeed for this device on any in-tree board?
+
+Only ioc3_eth_setup() in drivers/mfd/ioc3.c creates the ioc3-eth platform
+device, and it does so from this cell:
+
+drivers/mfd/ioc3.c:
+static struct mfd_cell ioc3_eth_cells[] = {
+	{
+		.name = "ioc3-eth",
+		.resources = ioc3_eth_resources,
+		.num_resources = ARRAY_SIZE(ioc3_eth_resources),
+	},
+
+The cell sets neither .swnode nor .of_compatible, and IP27/IP30 have no
+DT or ACPI. So mfd_add_device() never gives the child a fwnode.
+dev_fwnode() returns NULL and fwnode_get_mac_address() fails.
+
+The second step, nvmem_get_mac_address(), ends up in
+nvmem_cell_get_from_lookup(), which is keyed by dev_name(). The child is
+registered with PLATFORM_DEVID_AUTO ("ioc3-eth.N.auto"), so board code
+can't target it reliably. Nothing in tree registers such a lookup either.
+
+As far as I can tell, boards without a 1-wire MAC PROM still defer
+forever, which is the problem the commit message says this fixes.
+
+Which board is this meant for? Is there a companion change to
+drivers/mfd/ioc3.c, for example a software node with "mac-address" or
+"local-mac-address" attached to the ioc3-eth cell?
+
+The previous commit in the series mentions "IP35 support will hand it
+window addresses", so the user may be out of tree or not posted yet. Could
+the commit message say so?
+
+[Severity: Medium]
+What happens on a board that has the 1-wire PROM and also gets the
+property?
+
+ioc3eth_get_mac_addr() passes the nvmem_device_find() error through
+unchanged:
+
+	nvmem = nvmem_device_find(prefix, ioc3eth_nvmem_match);
+	if (IS_ERR(nvmem))
+		return PTR_ERR(nvmem);
+
+nvmem_device_match() in drivers/nvmem/core.c returns
+ERR_PTR(-EPROBE_DEFER) whenever the PROM's nvmem device isn't registered
+yet. So "no PROM fitted" and "PROM not enumerated yet" give the same
+error here.
+
+The PROM's nvmem device only appears after the w1 master kthread
+(w1_process()->w1_search_process()) finds the slave and the family driver
+binds. Also, the "ioc3-eth" cell comes before "sgi_w1" in
+ioc3_eth_cells[], so the first ioc3-eth probe can run before the 1-wire
+master exists at all.
+
+Before this patch, any PROM failure deferred the probe, so a board with a
+PROM always ended up using the PROM address. Now the first failed lookup
+falls back to the property and probe succeeds. eth_hw_addr_set() and
+ioc3_init() then program that address into EMAR_H/EMAR_L for the rest of
+the boot.
+
+Could the MAC address then change from boot to boot, depending on w1
+enumeration timing? The new comment suggests the PROM takes priority, but
+that only holds if enumeration finishes first.
+
+A PROM with a bad CRC (-EINVAL) also falls back to the property without
+any message, and nothing logs which source supplied the address.
+
+>  		return -EPROBE_DEFER; /* not available yet */
+>  
+>  	dev = alloc_etherdev(sizeof(struct ioc3_private));
+
+[Severity: High]
+This isn't a bug introduced by this patch, but ioc3eth_probe() never calls
+platform_set_drvdata(pdev, dev), while ioc3eth_remove() relies on it:
+
+drivers/net/ethernet/sgi/ioc3-eth.c:ioc3eth_remove() {
+	struct net_device *dev = platform_get_drvdata(pdev);
+	struct ioc3_private *ip = netdev_priv(dev);
+
+	unregister_netdev(dev);
+	timer_delete_sync(&ip->ioc3_timer);
+	...
+}
+
+After a successful probe, won't platform_get_drvdata() return NULL here?
+If so, unregister_netdev(NULL) oopses. The timer_delete_sync() and
+dma_free_coherent() calls would then work on a bogus ip pointer, and the
+netdev, DMA rings and timer never get torn down.
+
+This path is reachable through /sys/bus/platform/drivers/ioc3-eth/unbind
+(suppress_bind_attrs isn't set), or by removing the parent IOC3 MFD
+device.
+
+Because this patch lets probe succeed on more boards, more systems can
+reach this remove path.
+
+[Severity: High]
+This is also a pre-existing issue, but ioc3eth_probe() requests a shared
+IRQ with devm and passes the net_device, which isn't devm-managed, as
+dev_id:
+
+	if (devm_request_irq(&pdev->dev, dev->irq, ioc3_interrupt,
+			     IRQF_SHARED, "ioc3-eth", dev)) {
+
+Every error path after that ends here: rx/tx ring allocation failure, the
+"Didn't find a PHY" case, and register_netdev() failure.
+
+out_free:
+	free_netdev(dev);
+	return err;
+
+The netdev was never registered, so free_netdev() frees it right away.
+The IRQ stays installed until devres_release_all() runs after probe
+returns. ioc3eth_remove() has the same ordering: it calls free_netdev(dev)
+before devres frees the IRQ.
+
+Can ioc3_interrupt() run on the freed net_device in that window?
+
+static irqreturn_t ioc3_interrupt(int irq, void *dev_id)
+{
+	struct ioc3_private *ip = netdev_priv(dev_id);
+	struct ioc3_ethregs *regs = ip->regs;
+	u32 eisr;
+
+	eisr = readl(&regs->eisr);
+	writel(eisr, &regs->eisr);
+	...
+
+An interrupt from another device on the shared line can trigger this.
+With CONFIG_DEBUG_SHIRQ it always happens, because __free_irq() calls the
+handler one extra time for IRQF_SHARED actions.
+
+Either a plain request_irq()/free_irq() pair, with free_irq() called
+before free_netdev(), or devm_alloc_etherdev() would avoid this.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116102115.27574-1-kaloz%40kernel.org
