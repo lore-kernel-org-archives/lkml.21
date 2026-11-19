@@ -1,69 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.9.28.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099691;
-	b=bb/mZvzD23JOPrfm1arkeBXsS7V6awyZY+LrvVqMCGQc560rIgkVxt2eOdQrmvKff6To
-	 +rSnHnBa6df1Ov7SYzhZoCSt5E3J/AxWAgn2mcjRvKW8V5mqEfurnt9Z50yikrXFKXjhZ
-	 zmmaorDTT9vcHK7HSE+opAxxbZqYEJTrd7AGRcZnlOWS3fMp1SFBmew4kaJn3bZQh3FPA
-	 mF6PodhJ39UeiB5pitgVRjQynsCombWlPSFiWeyvrTJ4aMxgWLArcO8NjGM/ORoZBbYxp
-	 yyEwiQvqgc9ysg03QmsLuKaa+SYMiPrGbyyDleNenfQBdbII2MqaFvfxb2ltofp+LpA==
+	t=1795099703;
+	b=1k1cBxYQK6K34CuQfsFyl27CEq6l07YsBg1qsGd9lonZbG20vi7R5xoA1IfPPaj7c02a
+	 Lh0/dybp33p1n/g+xIxToQ2nljrpI8Aa6ImYRA6y1le1Dq5XJTUoWp+GcxEBJilBsacNe
+	 7CX49rwXGx4YzzkPlffTPpAiHq/anfkaFDIAQXs7P+yOI/ecPUg2oBXT7Im3dkDuJ7xOZ
+	 azCLtu6uXnwmXbwtw9VjYAdSXNkk5QrUAa6mBq0y6dSpGRC07vo7gwe28Q6DdmxJkqOXl
+	 J133oAxZ/VwKkJxyMQYWf73o+Ozsh0YvSUIxDFQaD7jux26XA8Ypz11d6cUj2gTH2yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099691;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099703;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=O6gRNTYxms5NJYh1H6e+b86VMQtiJrvze8fWfJuIGYg=;
-	b=xxwyF/acb9p9VY5D8Q4/TV5CpStDvxBqSdQt8i5piK7ns9p0mCSGW9ob7pvnQZaSl7Ao
-	 YUlKTYokf7UnzjRD0GYXK+7xrgEonYTd1BJDkP1gqxJwd/xBmfIVA2OBEjiJ8wBQmWqWK
-	 C8krbLstF528xXXtxKWQoyfp5ABVflNkGxTl0aL0DrDTD5i3jRGUdQx5SfDd+LiaU2SMP
-	 D7LhvR11WwpcEl+XRSbcVIk9a3DUYkIyGBDa8GmwSxtfqItRGWdFi9bfg7Vw/MflsByPw
-	 55kNIkxsMUXzUWuWdmYyfT0y75t0F0qb30qrTggedm+fEaVPeLf2/FTrLKaVyBhW7Wg==
+	bh=T3vSSCG3nDSVHiHTKgUz4Oge4REQVEiV7vanpzDz560=;
+	b=rPp/tobykoEuru3S314pOSEpAY4gslzUsBPgrPITMP9aKNdV2o5/4eI3mkndcdoIVCqw
+	 641m5H1IvFIuPfP+G6Fc6uEcMcF/83RCJvioLJZHzItOzFiqo3h4h+eongwDwBSaJ/Bnb
+	 kh2th1l2ZT5mtdNQvrPO8zybdvcZZLWSLitb0BhVyIyzAEArpm6GeTzrOplwCtstn1bQo
+	 Sk1U2JqNll01yr/zz+gR2Sp2AwmlSh/+mfyFhxSA79Mv7z+ovscDf/oEGezK+9/nn86F8
+	 aeHiem3tu/yadEVygAefoL8nFbJjf5q8QMY5xZGyxrVkrsVOaITdiGZEZKBAbL0e8Gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mit.edu;
 	spf=pass smtp.mailfrom=mit.edu;
-	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=TipCgdHu;
+	dkim=pass header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=WX4MedJb;
 	arc=none smtp.remote-ip=18.9.28.11
 Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu [18.9.28.11])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B721606B062
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:48:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B721606B062
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08ED4606F4E4
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:48:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08ED4606F4E4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mit.edu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mit.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=TipCgdHu
+	dkim=pass (2048-bit key) header.d=mit.edu header.i=@mit.edu header.a=rsa-sha256 header.s=outgoing header.b=WX4MedJb
 Received: from trampoline.thunk.org (pool-173-48-114-214.bstnma.fios.verizon.net [173.48.114.214])
 	(authenticated bits=0)
         (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElcnZ018018
+	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 6AJElgqT018265
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:47:39 -0500
+	Thu, 19 Nov 2026 09:47:43 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1795099661; bh=O6gRNTYxms5NJYh1H6e+b86VMQtiJrvze8fWfJuIGYg=;
+	t=1795099666; bh=T3vSSCG3nDSVHiHTKgUz4Oge4REQVEiV7vanpzDz560=;
 	h=From:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	b=TipCgdHummTbeWKleXn1GQCVWQ+CcwdOPz6CrrGNJq9yJNoEHfAJXulhz8owatlU5
-	 cu7huE+s74VZMpoKcfvQ88prvMh5UPjbFqFRRf+3KoMPY3+ukDZ9goaGeHTdhDeb4T
-	 HXEON8klRHiWzXYF6qxCM8Yzb0voQc/vlVUuEmfp0Wkk6Cxnmb/OJRuj1zVr+MEw6K
-	 NReWVqr4mNVecMEu+rsJIjAvoYz41htVm/PEcELIUeuwPekDp96CjaQmYlTZCqAT5J
-	 2RZyZ7cpuSykSGa/paXYKNXZGwmWI769Jcy3c2zJLhTdCfkPjAZZOpey/Ev1O6Ld1F
-	 8/tlDxmggn22A==
+	b=WX4MedJbJdIL78aoFBT9P0brpEumjGLvCHT7A0vM+Y+BCKpFSdHgl0NmiiEmyt5pg
+	 qd2kcHfgYht0hKbYZOZAPPJ2iMBxR6z7P3SVl3vQThEothU5fJJdurWhIZOc9GTaH1
+	 01D1w7tioqBH9KbkMUvM0VvxqxRhUWB1+EB8L+8JlBIQxuCxpLh4WR7dC//QaR4olP
+	 MU2VIU/HIsLdv49uf1w39nOI2hjaST8Z9zIfmZWw1e+el0R+9eDdvwtOGd0+CXP2Cu
+	 YkCwOlbNTC2drtusZ+QsVSDcgKcZqKs7hl2KZguyYKUd6SgS4j/rUrx4PByyyh5HfG
+	 Dyww/f37blLDw==
 Received: by trampoline.thunk.org (Postfix, from userid 15806)
-	id 0F8F22E015E; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
+	id 73D532E019B; Thu, 19 Nov 2026 09:47:33 -0500 (EST)
 From: "Theodore Ts'o" <tytso@mit.edu>
 To: Ext4 Developers List <linux-ext4@vger.kernel.org>,
         Andreas Dilger <adilger.kernel@dilger.ca>,
-        "Aneesh Kumar K . V" <aneesh.kumar@linux.vnet.ibm.com>,
-        guolingxing <guolingxing@tju.edu.cn>
-Cc: "Theodore Ts'o" <tytso@mit.edu>, Baokun Li <libaokun@linux.alibaba.com>,
-        Jan Kara <jack@suse.cz>, Ojaswin Mujoo <ojaswin@linux.ibm.com>,
-        Ritesh Harjani <ritesh.list@gmail.com>, Zhang Yi <yi.zhang@huawei.com>,
-        linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] ext4: record writeback error when discarding pages on failed delalloc
-Date: Thu, 19 Nov 2026 09:46:55 -0500
-Message-ID: <179509948709.1938961.11162343670709084796.b4-ty@b4>
+        Baokun Li <libaokun@linux.alibaba.com>, Jan Kara <jack@suse.cz>,
+        Ojaswin Mujoo <ojaswin@linux.ibm.com>,
+        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+        Zhang Yi <yi.zhang@huawei.com>, Christoph Hellwig <hch@lst.de>,
+        John Garry <john.garry@linux.dev>,
+        "Darrick J. Wong" <djwong@kernel.org>,
+        Tal Zussman <tz2294@columbia.edu>
+Cc: "Theodore Ts'o" <tytso@mit.edu>, linux-block@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH RFC v2 0/3] ext4: don't complete atomic writes through buffered I/O
+Date: Thu, 19 Nov 2026 09:47:24 -0500
+Message-ID: <179509948702.1938961.13602175294944718049.b4-ty@b4>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261016110311.71391-1-guolingxing@tju.edu.cn>
-References: <20261016110311.71391-1-guolingxing@tju.edu.cn>
+In-Reply-To: <20261012-ext4-atomic-no-fallback-v2-0-c4b30c60e500@columbia.edu>
+References: <20261012-ext4-atomic-no-fallback-v2-0-c4b30c60e500@columbia.edu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,25 +80,31 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
 
-On Fri, 16 Oct 2026 11:03:11 +0000, guolingxing wrote:
-> When mpage_map_and_submit_extent() gives up on a failed block mapping,
-> it sets give_up_on_write so that mpage_release_unused_pages() discards
-> the remaining dirty folios. However, the error is not recorded in the
-> mapping's writeback error state.
+On Mon, 12 Oct 2026 13:17:39 -0400, Tal Zussman wrote:
+> ext4_dio_write_iter() has two ways to finish a write through the page
+> cache: the fallback for inodes that can't do direct I/O at all, and the
+> completion of a short direct write. Neither provides torn-write
+> protection, and neither refuses IOCB_ATOMIC.
 > 
-> If this happens during background writeback, a later fsync() may
-> report success even though the dirty data was discarded and never
-> written. Returning the error from ext4_writepages() is not sufficient
-> to notify a later fsync(). In addition, ext4_do_writepages() may clear
-> -ENOSPC when committing the journal and retrying, even after the
-> affected dirty folios have been discarded.
+> Patch 1 fixes a reachable bug: an atomic write to a data-journaled
+> inode is advertised by statx() and then silently done as a buffered
+> write. Patch 2 makes a short atomic direct write fail with -EIO instead
+> of falling back. That path should be unreachable today, so this is
+> defensive. Patch 3 closes the same kind of gap for DAX inodes,
+> which ext4_file_write_iter() hands to the DAX path before any atomic
+> write handling. No DAX-capable device advertises atomic write limits
+> today, so this one is defensive too, and matches XFS.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] ext4: record writeback error when discarding pages on failed delalloc
-      commit: bc6d92e3cd19ec6b20e66c8cfee3e1ecb5f6e778
+[1/3] ext4: reject atomic writes on inodes that can't do direct I/O
+      commit: 44805e53d2cab4cfc58faaae9c70fde0206eecb6
+[2/3] ext4: never fall back to buffered I/O for atomic direct writes
+      commit: 4562556caa2bedd549038690a4a1481c6446ec41
+[3/3] ext4: don't advertise atomic writes for DAX inodes
+      commit: 078b328cafee53d4284528a3b07454e0cab955a4
 
 Best regards,
 -- 
