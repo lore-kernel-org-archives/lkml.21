@@ -1,84 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123839;
-	b=jcPNOq3hJKdDLIV5RXx5Tjzt5Q9P+xv2P/QgUCdB1FV+6iCTrzvqTP9TeqUwvFQO2Hz/
-	 PH7RSyiQY+tRePRT6Lt/C2hzGdlVhYAQmvkzJOZpfE42+GIBBlxTkwyO/QCwiZL73c1b/
-	 txeoCj9L1On0qE2q0FmMBK7BOu7NC+3a97fyuAMFpXavF9zwEcrtxoo/qMgZt5LOZxNRD
-	 3a9V956nTNsZjVsAPmgHBpaHLTrNsu7nC0L5Ty7eqyYssBA1bfF1/IjbcJdLWljwNC+T4
-	 4cpSp3n92vMtuhcZrl8EplTmZ6lBP7iEisuoD/0TQRSunIdJ1lXZrE8VVLWxHlN1Cog==
+	t=1795123847;
+	b=RDvago+Hif6ce4YHBvEjJGKA2d03EeKnvbgug548Kay3ZNY5JQGYNmf84zbMGn7dWes/
+	 wxzeo5g/cj0Og4up2+mG3i7HXmDIFb5Kcj7pzTTjP+Zxl5HPLhOGPEHAljjJT0y7hEL0J
+	 voMX3z6rlPbyDtWOB0HAiA60AVawVFwZU/of/KBQtSE4/RnBBFfhsxGeiasLD/INcJYEv
+	 LtsbO2e2H/XKJWsud5irgNqc9LtnEYCW49dOjXJWGGaT4O3KKifivWM7Cb0Yo/dOkd7qo
+	 1nFbun/95LcVCH/fojcQs6OGpU1fh5OGkveADx1P5zrZEtU8VkH058xwVTLPEfncYMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123839;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=0oZlDx8Vv+0nCck+Zhk2G9X4wk2IXUKlcAG+gSxafiY=;
-	b=loGR6PTMnlY52KOtPdIH3b3hSAsYhwx5m+DNB6y16kuf/o8avz5atrYdHlKbPxMl5FuA
-	 o6KX77EbTg4lnxPCbaF+35y65SnA2LQhBPghq9yEQfSlhH39kjwYyXE7yhxMrOQWG1BeL
-	 OKeK+suX9Gh4kDQUch7T//kKA+Wx8mzEkSLDIrx21s1U8kESHmgpO79okChvcXotUZpMa
-	 bKC0IXrRgxK73fif/7zEiSJmMH1z72jXIjudizUBQoil95XSgnbC/8iSeybPs5b65jFGJ
-	 h93c6qBDlBQWfs9j258GkSqP4h5bac+SbmptZkNqhA408bR6s/8IT1gNpH+Us3HskVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123847;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Xk1kv/Ctd3PlqbSpT6yLqdl6pmb3Zw8L64Vom2TNBMs=;
+	b=PQmwuXeEQ5GMKQ30Z/SpcbDUiCI+QoB0SuBH3mHBU9AmNOucqZBcCbk/x7qOOtcoC2cL
+	 rZ5bNt9pmA7OPFv0zVYtziIIaoIy5i93V2cb7idDi/dl8fHsgTDQgOASM2QYhr8axPiCl
+	 mc7y6wI1Sm5PsGVqp0P/2OU+5J/GIDQ0sqg2Z/6drFJPBcAseM5e/NtX1GEZ0MtGXSTCQ
+	 18Kz4x6LnfPQQ19u6bxkrwmsn/S90hGO9clJx9b/Pi6m5KL1vjofT3y8RuXKGd0aBxuza
+	 7hLOL87IFJmxqWClRe9LV1j/3b2VjwLLAgOBl5sCA6a0qtTVz4S9K6c/jJUEDu+AX6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GfhE6Xad;
-	arc=none smtp.remote-ip=192.198.163.10
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WB5Z/aFs";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BC96606A320;
-	Thu, 19 Nov 2026 21:30:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BC96606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE3E6606A32A;
+	Thu, 19 Nov 2026 21:30:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GfhE6Xad
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795123838; x=1826659838;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mogHG+qkA4LZoztNkMUoZeinOmAAZ6RrtIKMGQTKNCI=;
-  b=GfhE6XadhsQAWq0NaOAc0qhCC7CwyGPBB9wBWbNxWRzXyH1C7A3XsFoX
-   MeupyXceQutM45VPYEGSi3pLRxyI5v9v6Pgt15Biyokezi5i9taxnxSN7
-   IaYMBreRlbPHd+rf8yd832lLWNzliio+yKkrXldPncL45ul7VyaI2EFwK
-   EgFgE1OxvC0H8j+Yxe+sm71aW3EQW5y2xIOzWrr8/KcvDj/R4/jWYOsuh
-   X+yEnfOc0o6EpjUb4bcT3RrdicnbzQwgKQN3bFci6vsPda0lK+TVVszyo
-   ILyw2ypwaH9p4C6C7GrgFIKSK88DnQqTZLAa+x7gUy++REc2Di0QX0Z35
-   Q==;
-X-CSE-ConnectionGUID: 7Rf8tOAFSEerTi+ZAbpJmA==
-X-CSE-MsgGUID: t1e4Zl4SQb6IZX7oABRhFw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3880870"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3880870"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 13:30:37 -0800
-X-CSE-ConnectionGUID: ayvu9HVvTmaAM6/6QPPqcQ==
-X-CSE-MsgGUID: 51LNhAD2TfeB6SnxF/DqhA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10434913"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 19 Nov 2026 13:30:15 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xU9ht-00000001GbD-0pE8;
-	Thu, 19 Nov 2026 21:30:13 +0000
-Date: Fri, 20 Nov 2026 05:29:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Prakriti Sharma <Prakriti.Sharma@synopsys.com>,
-	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
-	Siddhant Kumar <Siddhant.Kumar@synopsys.com>,
-	Prakriti Sharma <Prakriti.Sharma@synopsys.com>
-Subject: Re: [PATCH 6/6] spi: dw-g2: Add XIP support
-Message-ID: <202611200501.mzDpyxlW-lkp@intel.com>
-References: <20261119100513.433044-7-prakriti@synopsys.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WB5Z/aFs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C23441F000C0;
+	Thu, 19 Nov 2026 21:30:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795123847;
+	bh=Xk1kv/Ctd3PlqbSpT6yLqdl6pmb3Zw8L64Vom2TNBMs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WB5Z/aFsbCXGNYoBHDEh2EZeYlGp6ulxUbVFT9FBbtxXmYoHR9V9QYZS+rDP5ahpc
+	 aEZH07F6xP3S1+P79btN2PCmnOQDMTZwVc2+9tpddrVYQUbi9qzZcGP/U8j3sZ3hKn
+	 EfjZIx3M9g2NKr8AdZOn7St+alyET+cgjJFMXZo0qpnSNvuJDvrgFSyp/u2qu4kT/u
+	 +27fiU1THOlEkOWrCWmGPBjWT0f7GHK/9+F6w+kcvoMnFQP2GmBgx5I8395WTVa4WL
+	 m7ocoSl8y6rtsv78Y5OR3bWgUVUEucMIONDNbepYffhHy7t2sLATVAyDyCy7Dqx6Nj
+	 f/8tmkondbYvQ==
+Subject: Re: [PATCH net-next v2] net: dsa: b53: mirror CPU-bound frames to
+ port 5 when port 8 is unused
+From: netdev-bot+sashiko@kernel.org
+To: joseph@telaak.dev
+Cc: florian.fainelli@broadcom.com, jonas.gorski@gmail.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 21:30:46 +0000
+Message-ID: <179512384634.3136.13428964502385964682@kernel.org>
+In-Reply-To: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
+References: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,44 +64,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119100513.433044-7-prakriti@synopsys.com>
 
-Hi Prakriti,
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-kernel test robot noticed the following build warnings:
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-[auto build test WARNING on broonie-spi/for-next]
-[also build test WARNING on robh/for-next linus/master v7.4-rc3 next-20261116]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Prakriti-Sharma/dt-bindings-spi-Add-Synopsys-DWC-SSI-v2-02a-binding/20261119-153508
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-patch link:    https://lore.kernel.org/r/20261119100513.433044-7-prakriti%40synopsys.com
-patch subject: [PATCH 6/6] spi: dw-g2: Add XIP support
-config: sh-randconfig-1000-20261120 (https://download.01.org/0day-ci/archive/20261120/202611200501.mzDpyxlW-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 14.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261120/202611200501.mzDpyxlW-lkp@intel.com/reproduce)
+- [Medium] The commit message says the problem and the fix apply to
+  "boards that leave port 8 unconnected".
+- [Low] The Fixes: attribution is incomplete.
+- [Low] `b53_setup_cpu_mirror()` programs global switch state that
+  nothing ever restores: `B53_PORT_CTRL(8)` = `PORT_CTRL_DIS_STATE`, the…
+- [Low] `b53_setup_cpu_mirror()` hard-codes the IMP state override for
+  port 8 to `PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |…
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611200501.mzDpyxlW-lkp@intel.com/
+--
 
-All warnings (new ones prefixed by >>):
+net: dsa: b53: mirror CPU-bound frames to port 5 when port 8 is unused
 
->> Warning: drivers/spi/spi-dw-g2-core.c:588 Incorrect use of kernel-doc format:  * dw_spi_g2_cmd_only_setup - Configure controller for command-only operation
->> Warning: drivers/spi/spi-dw-g2-core.c:596 function parameter 'dws' not described in 'dw_spi_g2_cmd_only_setup'
->> Warning: drivers/spi/spi-dw-g2-core.c:596 function parameter 'op' not described in 'dw_spi_g2_cmd_only_setup'
->> Warning: drivers/spi/spi-dw-g2-core.c:596 expecting prototype for Command(). Prototype was for dw_spi_g2_cmd_only_setup() instead
->> Warning: drivers/spi/spi-dw-g2-core.c:895 This comment starts with '/**', but isn't a kernel-doc comment. Refer to Documentation/doc-guide/kernel-doc.rst
-    * Indirect read operations
-   Warning: drivers/spi/spi-dw-g2-core.c:1082 This comment starts with '/**', but isn't a kernel-doc comment. Refer to Documentation/doc-guide/kernel-doc.rst
-    * Indirect write operations (Page Program)
+This patch applies when port 5 is the CPU port and port 8 is unused in
+DT. In that case b53 uses the switch's single mirror to copy frames to
+the bridge group address from user ports to port 5. It also copies all
+port 8 egress to port 5, with port 8 enabled and its link forced up, and
+refuses tc mirroring while this is active.
+
+> to port 8: BPDUs, the IGMP/MLD copies b53_enable_mcast_snooping()
+> enables, and most traffic of standalone ports. On boards that leave
+> port 8 unconnected these are lost, so STP never sees its peers and a
+
+[ ... ]
+
+> Fixes: 8fab459e69ab ("net: dsa: b53: Enable Broadcom tags for 531x5/539x families")
+
+[Severity: Low]
+Is this Fixes: tag complete? The loss of "most traffic of standalone
+ports" seems to come from commit 4227ea91e265 ("net: dsa: b53: prevent
+standalone from trying to forward to other ports"). That commit added this
+to b53_setup_port():
+
+	if (dsa_is_user_port(ds, port))
+		b53_set_eap_mode(dev, port, EAP_MODE_SIMPLIFIED);
+
+Its commit message notes that "effectively this redirects all incoming
+traffic to the CPU port". In dual-IMP mode (GC_FRM_MGMT_PORT_M, set by
+b53_brcm_hdr_setup() for CPU port 5), that redirect target is port 8.
+
+Before 4227ea91e265, standalone traffic followed the PVLAN/ARL path, which
+b53_imp_vlan_setup() points at port 5.
+
+8fab459e69ab is older, so this doesn't lose stable coverage. Would it
+still help to also name 4227ea91e265, so that the standalone breakage on
+these boards can be traced?
+
+> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+> index b7aff5e238e85..f82139b0c501c 100644
+> --- a/drivers/net/dsa/b53/b53_common.c
+> +++ b/drivers/net/dsa/b53/b53_common.c
+
+[ ... ]
+
+> @@ -1326,6 +1330,42 @@ int b53_setup_devlink_resources(struct dsa_switch *ds)
+
+[ ... ]
+
+> +static void b53_setup_cpu_mirror(struct dsa_switch *ds)
+> +{
+> +	struct b53_device *dev = ds->priv;
+> +	int cpu_port = 5;
+> +
+> +	dev->cpu_mirror = false;
+> +	if (dev->tag_protocol == DSA_TAG_PROTO_NONE ||
+> +	    dev->imp_port != B53_CPU_PORT || B53_CPU_PORT >= ds->num_ports ||
+> +	    !dsa_is_cpu_port(ds, cpu_port) ||
+> +	    !dsa_is_unused_port(ds, B53_CPU_PORT))
+> +		return;
+
+[Severity: Medium]
+The commit message says this is for "boards that leave port 8
+unconnected". Can dsa_is_unused_port() tell such a board apart from one
+where port 8 is wired inside the SoC and only disabled in DT?
+
+On Northstar (BCM5301x) and NSP (BCM58xx), port 8 is wired inside the SoC
+to a GMAC. arch/arm/boot/dts/broadcom/bcm-ns.dtsi has:
+
+	port@8 {
+		reg = <8>;
+		ethernet = <&gmac2>;
+
+and gmac2 stays enabled. Boards such as bcm4708-netgear-r6250.dts and
+bcm47094-luxul-xwr-3100.dts use port 5 as the CPU port and set port@8 to
+status = "disabled", so they pass all of these checks.
+
+On those boards, the code below clears RX/TX_DISABLE on port 8 and forces
+its link up at 1000/full. Before this patch, b53_disable_port() left port
+8 with RX/TX disabled.
+
+Port 8 then transmits the frames the switch traps or redirects to the CPU
+(BPDUs, IGMP/MLD copies and, with EAP simplified mode, all standalone
+ingress). They go to an internal MAC that DSA does not own and that
+bgmac may have probed as an ordinary netdev.
+
+The early return added to b53_disable_port() keeps port 8 enabled for the
+life of the switch, with no way to opt out. b53_mirror_add() now also
+returns -EOPNOTSUPP on all of these boards.
+
+Should this be limited to chips where port 8 can't be wired internally?
+If not, should the commit message say that 5301x/58xx boards with port 8
+disabled in DT are affected too? Because of the Fixes: tag, this may also
+be picked up for stable.
+
+> +
+> +	/* Rx/Tx on, STP disabled: only trapped frames leave port 8 */
+> +	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_CTRL(B53_CPU_PORT),
+> +		   PORT_CTRL_DIS_STATE);
+> +	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_OVERRIDE_CTRL,
+> +		   PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |
+> +		   PORT_OVERRIDE_FULL_DUPLEX | PORT_OVERRIDE_LINK);
+
+[Severity: Low]
+Is a fixed 1000/full override valid for every chip and IMP strapping that
+reaches this point? Everywhere else, the driver derives
+B53_PORT_OVERRIDE_CTRL from phylink data in b53_force_link() and
+b53_force_port_config().
+
+Mirroring port 8 egress only works if port 8 actually transmits what is
+queued for it. Suppose the IMP is strapped to a mode whose TX clock comes
+from the missing link partner (MAC-mode MII), or the forced speed doesn't
+match the strapped interface. Could port 8 then fail to drain, leaving
+CPU-bound frames in its egress queue instead of being mirrored?
+
+That depends on whether the mirror copy is taken at enqueue or at transmit
+time, which I couldn't confirm from the driver. The patch covers all
+dual-IMP chips, but it was only tested on one BCM53125 board.
+
+> +
+> +	b53_write48(dev, B53_MGMT_PAGE, B53_IG_MIR_MAC,
+> +		    ether_addr_to_u64(eth_stp_addr));
+> +	b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL,
+> +		    (MIRROR_DA << MIRROR_FILTER_SHIFT) |
+> +		    (dsa_user_ports(ds) & MIRROR_MASK));
+> +	b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, BIT(B53_CPU_PORT));
+> +	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, MIRROR_EN | cpu_port);
+> +	dev->cpu_mirror = true;
+> +}
+
+[Severity: Low]
+Is anything meant to undo this configuration? b53_teardown() only does
+this:
+
+static void b53_teardown(struct dsa_switch *ds)
+{
+	dsa_devlink_resources_unregister(ds);
+}
+
+b53_setup() doesn't roll it back if b53_enable_mcast_snooping() or
+b53_setup_devlink_resources() fails afterwards. The early return above
+also clears only dev->cpu_mirror and leaves the registers as they were.
+
+On BCM531x5 parts without a reset GPIO, b53_switch_reset() issues no soft
+reset; only is539x() and BCM58XX/BCM583XX get one. So this mirror and
+port 8 override state can survive an unbind/rebind with a different DT,
+or a kexec into another kernel.
+
+Later, with cpu_mirror false, b53_mirror_add() only read-modify-writes
+BIT(port) in the mirror control register and the capture port in
+B53_MIR_CAP_CTL. Would a tc ingress mirror then inherit the MIRROR_DA
+filter and the STP MAC, and copy only STP frames?
+
+The stale BIT(8) in B53_EG_MIR_CTL would also copy all port 8 egress to
+the user's capture port. And since B53_EG_MIR_CTL never becomes empty,
+can b53_mirror_del() ever clear MIRROR_EN?
+
+Separately, dev->cpu_mirror is set to true without checking any of the
+b53_write*() return values. A failed bus write would leave the mirror
+partly programmed, while tc mirroring is refused and port 8 stays enabled.
+The rest of the driver also ignores b53_write*() errors, though.
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-b53-bpdu-mirror-v2-1-c39ab745730f%40telaak.dev
