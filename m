@@ -1,101 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795046737;
-	b=xcriaMWz7KMstiN/OnsMgqfSBPgegaLibKeK7HkJ9OmUSZbGQnXjWA7mcBNqysWqEEpz
-	 GkQyAwiaZGJ65vJpVy534CL1Tcc/2+QTROZUe5Kzv8irK17E8Cz2RKJt6JqFSQdf7vq2K
-	 yYcsyVKlB6lNigJ4d9PH9+bYXvMjKTnxxvYupF/8c3QoSL0ia0PSzn9cxNzWEpAfFMk4b
-	 BdhReWfoDvQ4/azWcqR5FTVZRWC8UF20XDzP70QvPGYuSKufZjQ/xy2Irr45iw4CF4S79
-	 vBkhHCeUexcu/AzrfzLZ9mRMJbHLfqeykUEZJ0ZkiJJCHYWKcWHWxD4RMLgvjCow2fA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046737;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
-	b=rKCpmLuA+HK8V0vT2zsvItUZopBgTHMRFLuWi7q1RuvpzUM28/8X5GZekDlI6j6auFXh
-	 JXLtg7jsNETzt4EhdAkipuPSJ526lFrwdVTNby7Tj82NkQ2RNvHY+o0URDW+RL0TUx/pC
-	 2i3k32J/74kVLU/PHN5eFRtfz5+jchU5eDr2HchKeWjqFv2Udi3fMzjGy2QGC8cljyJLM
-	 N7vxLK7QFBZofWOYVhZDuqu/OV8Ix0y3TBJLRSK7zht5VGGoWjID2xzzLIIhW2J6XUpCU
-	 XE6SWuTULKCaumy/YMNlujuH3XMZ916EuQ7olXopRxp9SwcUeXcxBCkNQQ41b+FbSpw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mlSNUh+q;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795046743;
+	b=VsNNgPuD/E+3bVWbHYidAGUZNnKUBUOJqJ/x98IL0wkYbKt3LWfJ4cYnN304UugB6vvY
+	 EvBt4iybcQsZf2DdX+YcH9jcnQ6qvO/SpHXz0b+moE8qupjnnJZuZ3KEk/yALj2eJtLCa
+	 OmUz8Y3Mw2e2RxkDXwTcV93KRdDE5IRdRe0oSdr/YxfslF/sUj9Kxk+gZ6IKzwWCJ8Wtc
+	 FTNm8X6ZmTCvNojTsdYiSXXumAXYnXLqqlfS3LFPGJLoNsuRU5SfrPh35AutSvSdH3PB7
+	 uNeaav8SFg7iqdKjWHKnyfJG7Wr0uw9HCDgk1gQl7xQ5HbirJuOJa3hTsc1Gsio1KIw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046743;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Date:From:To:Subject:
+	 Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 X-Scanned-By;
+	bh=3ZLR5Xm0QEt+rShTQLBvnsAfT6oRZ1fJCpUNYLZ7EAQ=;
+	b=cR8gp4VxRDIdYPV2h32rmF/FST6Ml8LWXe/F539hEa8HRvEGNNa50rxoKAcB5W25TdaM
+	 3IxIXjrAirEYQcgkVv+F2fVSBAMa/Ty4zY07PlHYS4HvRtq5HpU8F9XpXlL0/nNX/yO8R
+	 yt1X8iGKFWgt7Bewpfmp9i56mHujeTj2eFRQ5PGRGT7ZdMPmE1B7xx5BV/PqcQb3xngse
+	 TvJY1p+3rXpd5cP2Vq8bbItOl1XEhYoDO01XqByV3RE7Tus/rNTw7FKEVKu0vW+jM9mjr
+	 k48sXU5bvk+H0LeC5TRCUhBftf+XynnIBh8L4L7ZhuK46mHcPMXmL5z1lYeA4uLTciw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f64LOTlq;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2BC3606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:05:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2BC3606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F4F606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:05:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77F4F606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mlSNUh+q
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-492f563d1c6so617965f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:05:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795046735; cv=none;
-        d=google.com; s=arc-20260327;
-        b=P4g3Durl5zu9mKMMUY2Hn/5vXM6YY8amn1g5gTF5hs1ftr++3K83ZUmfvntz6EKRMd
-         6edKM8UgMEk1kiFXbM+EUGx313g8cH0k3d7xVKpt/W6UvnrF02Pv3/V0TNrAEYFwV2v2
-         6Q/DxK9SYBx8SeOORAKQSXO61BVKxjtn2Ii+cY1PGwIsBfKYkSAGM/DDfz5nWXggJlET
-         bq7cTPtittfvxHQlwGWOpti/j0vycj6WC7YCtXaJTt19K4XCZyswmQ75pCLBmAsH4BCI
-         w/LmNQkRfiPl/TbuLtP1zOV87H9NPw5uGIs3c981aYZREkYmTHLJDpdvWJHPC39Z2cgx
-         /Yjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
-        fh=4TukisgtE/r2Xd/kb3I9oqWIQtvYdVE/7ZvDmL44YNQ=;
-        b=A/X+X8QMxPg67sptBMgyBGKPOysMeHZIcOZtMyGays30U6QGM8uWMPJui2+Pn4DlgZ
-         alwYjstOhiLK7a3Dweu6n7D47yen9lDaMgIiR3WxycNk5ajDTZrEzePPdodwFq3hul/q
-         FEWPCwQD3NkLieF+VTgYBZ1qLvDTeRW2eV7oZeTHO8CX99I1HxuHU1nF58YR5B52SR5S
-         RXI9AUh1csAe+08NUAgZdBlxNIECm9ye8Do0qyRaB/zSCWKYcakeukplwa6XeSXpmfRF
-         NHTMjncXgzwXALISaxXbhJb7QScqLhYopjO6HOwjA5WSq4vaX30TTAJTbPRh8OIcp/tw
-         M3Xg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795046735; x=1795651535; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
-        b=mlSNUh+qEThAmoYBnCSmjXkVGJip1b+KHtYsv1hZIFRn5g9lNUkXJziQ+IsrvZxDOm
-         JC0nrs2S0LMH8+dx2n9zDizIoiSJHl/FgAYMzWxJGWzf8mE2E7TLY6V/Q8SLaw2zj1mV
-         nyr8A/meIcjalPfDET3aMXgPigz7hzKg3vuVNXqnCkVXJAAeCCwQGT+x6VJ9AgXvS86l
-         tno3FVEaAG2Om8RNJ6R3u041ds5tE/rhmvHZnoxDOn7ysC5ni2gII0dw9gihu7BkzRb4
-         mFAgp7MU/t/nzAMNLtrlteobV8x57UJ7rG0WYyiapt6ac0h1jbaCEmVhXqxfK+5T1YJ4
-         CwVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795046735; x=1795651535;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
-        b=Nil3qqAn4bpiIRlZI6UQ5uOFNvdQT/TIcH+yLoHcR1rnsDr2gyhTtJZNxTQ24eQ5F5
-         XSzi1IFJuegeuJFemFinAdPfhXE0/wvf8w/S1F5pgivfoAanusagqbewA1qalsIg9ZZ6
-         B+6rY1YZDygiakwj3ZzKrur28JBtX2/3JW0DYXVWpl959EPiULp/pAqpSlJwaBGDv82j
-         +DatY8qegIpjqA0glU70lEcx2717nMhem2KbnqyXesva7UxRWwxMRpgWhldd4EDDzxH/
-         tSLOzfpbr2vBdXmYEQQo1XMdP5l8b7VwG32eebfG2knFmPP0q1ZKQiTZx0qkBXKn6qUX
-         hDPg==
-X-Forwarded-Encrypted: i=1; AL+hErEi7ChkwlStVKjRIpusopNl42o54ewkpo3bEIu5Gqqk+yXxFm+GUk8wEirKCZ4hyT7q8ROZzA2TqO6UT/c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pFGD9UBVuU/OXz1eqAeoOCtgNwHf2FlMo5LPTe/KmvPdsYEhJ
-	LPxBhwEc5GE/3Ri53PvuPx7Dh+lckvTGGxxqxOHgvFh2KhmbmruVYho/2T31OK1kH5fSGXWbOkI
-	38D+4lDb9/4wEhp9+o3JSyuGoHlCnyhA=
-X-Gm-Gg: AZFdTZeVEjpuTA54EX8RpJlKL6wQYkI6osHv+mlRm4tfBvYe+1O+Svoe45MolUrlqYe
-	fW0wSGo1nCss30aCtUpefLxbU038PSiDwZ68HxTJvgd252thyP/jJMVaN7xCjgcFGnpBixuJXkK
-	ZZjKOg3Izqya7blDmlkPPkskokDuCrJF2kUCPUPOB1cGLJrgwY7r/g01n3mysliCWhVYWGTIPOf
-	r/zmAlzCiNNt9WjPIvPBXgNBXos6mS6ZqkOFBErQk+eg9YTQiZ3JNUaM1Zd0jR49EdsywFpYOib
-	5rcszlyKa817FM9VzNL9XLCWVhHQ3X5gk8R1qxoqjcoBAzvHg8eTklVxP5d8pYCRW+JZ29KbkDb
-	Hhnp7xDr96hIqHw5vi8q/1C1erQrfzo3qTYfIYsazRz/66iKYWOixy0fiNSzPUqPrdsZHbTVGjd
-	J5h9V2uuAZXfQVKoqScDE=
-X-Received: by 2002:a05:6000:1a8d:b0:4a4:f86e:d97 with SMTP id
- ffacd0b85a97d-4a6337865c9mr9535095f8f.1.1795046735028; Wed, 18 Nov 2026
- 16:05:35 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=f64LOTlq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795046741;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type;
+	bh=3ZLR5Xm0QEt+rShTQLBvnsAfT6oRZ1fJCpUNYLZ7EAQ=;
+	b=f64LOTlqT9OHCbe0c3dsuASMB3lv9P55lPxfkAxRa01ReQUVjhmaxyvsGaWjj38niYs9fb
+	VtrELSYxn2ntJKK454VrpGUxuHbDoA3W7NNovyKmq12riXSmsNQVvZfaN1j0z1Oeo1nc7+
+	fnlQtsnm9j/itI5jzjj2lR6Ni38I+gQ=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-477-ZUVCGgeAPZewB0HbaIFCtQ-1; Wed,
+ 18 Nov 2026 19:05:38 -0500
+X-MC-Unique: ZUVCGgeAPZewB0HbaIFCtQ-1
+X-Mimecast-MFC-AGG-ID: ZUVCGgeAPZewB0HbaIFCtQ_1795046736
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C4E531955F7A;
+	Thu, 19 Nov 2026 00:05:35 +0000 (UTC)
+Received: from localhost (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id AFF6441F;
+	Thu, 19 Nov 2026 00:05:34 +0000 (UTC)
+Date: Wed, 18 Nov 2026 21:05:33 -0300
+From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+To: Joseph Salisbury <jsalisbury@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-rt-users <linux-rt-users@vger.kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Carsten Emde <C.Emde@osadl.org>, John Kacur <jkacur@redhat.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Daniel Wagner <daniel.wagner@suse.com>,
+	Clark Williams <williams@redhat.com>, Pavel Machek <pavel@denx.de>,
+	Joseph Salisbury <josephtsalisbury@gmail.com>,
+	Luis Goncalves <lgoncalv@redhat.com>
+Subject: [ANNOUNCE] 5.15.225-rt107
+Message-ID: <av49TSuHbtteaepq@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,65 +82,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261023124157.75524-1-puranjay@kernel.org> <0f97689d-fdec-4cf4-b6ca-4365aced16d6@amd.com>
-In-Reply-To: <0f97689d-fdec-4cf4-b6ca-4365aced16d6@amd.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Wed, 18 Nov 2026 16:05:24 -0800
-X-Gm-Features: Aa3M54psv0NDDiF9QLJFrAAgoAs2e4Ba4LlnjZXH_a2-VlxejVTzfB_OynEoxK0
-Message-ID: <CAEf4BzaPDnopvSoS=AwN-gNPdzD0Bs4PvVPP+qCrdBFQ8CyJsg@mail.gmail.com>
-Subject: Re: [PATCH] perf/x86/amd/lbr: Freeze LBR on PMI only when kernel
- branches are recorded
-To: Ravi Bangoria <ravi.bangoria@amd.com>
-Cc: Puranjay Mohan <puranjay@kernel.org>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrii Nakryiko <andrii@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-On Fri, Nov 13, 2026 at 7:48=E2=80=AFPM Ravi Bangoria <ravi.bangoria@amd.co=
-m> wrote:
->
-> On 23-Oct-26 6:11 PM, Puranjay Mohan wrote:
-> > On CPUs with X86_FEATURE_AMD_LBR_PMC_FREEZE the LBR is always frozen on
-> > PMI, so the branch stack ends before the IP and callchain, which are
-> > taken when the NMI is delivered. IBS rejects branch-stack events, so
-> > there is no precise alternative.
-> >
-> > The freeze only keeps the PMI handler's branches out of the stack, whic=
-h
-> > matters only when branches into the kernel are recorded; without it the
-> > stack fills with the handler's own branches. A user-only filter does no=
-t
-> > record them, and parts without the feature are never frozen (see commit
-> > 598c2fafc06f ("perf/x86/amd/lbr: Use freeze based on availability")).
-> >
-> > Freeze unless the value written to LBR_SELECT, which is shared by all
-> > events on the CPU, suppresses branches into the kernel.
-> >
-> > With perf record -e ex_ret_brn_tkn:u -j any,u on a Zen 5 part running
-> > CPython, the function of the sampled IP differs from the function of
-> > LBR[0].to in 84.3% of samples with the freeze and in 0.1% without it.
-> >
-> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
->
-> Reviewed-by: Ravi Bangoria <ravi.bangoria@amd.com>
->
+Hello RT-list!
 
-Thanks, Ravi!
+I'm pleased to announce the 5.15.225-rt107 stable release.
 
-Do I understand correctly (from [0]) that we'll just stick to this
-patch and there is nothing from Puranjay's side to follow up on?
-Thanks!
+This release is just an update to the new stable 5.15.225 version and
+no RT-specific changes have been made.
 
-  [0] https://lore.kernel.org/all/5cf60aaf-2ee4-482f-9054-dff823710431@amd.=
-com/
+You can get this release via the git tree at:
 
-> Thanks,
-> Ravi
->
+  git://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-stable-rt.git
+
+  branch: v5.15-rt
+  Head SHA1: f3d59c0fe6c62c4f6cfe7ab67318dcbcae56af18
+
+Or to build 5.15.225-rt107 directly, the following patches should be applied:
+
+  https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.15.tar.xz
+
+  https://www.kernel.org/pub/linux/kernel/v5.x/patch-5.15.225.xz
+
+  https://www.kernel.org/pub/linux/kernel/projects/rt/5.15/older/patch-5.15.225-rt107.patch.xz
+
+This release has been tested under KernelCI as:
+
+  https://dashboard.kernelci.org/tree/stable-rt/v5.15-rt-next/v5.15.225-rt107-rc1
+
+Signing key fingerprint:
+
+  9354 0649 9972 8D31 D464  D140 F394 A423 F8E6 7C26
+
+All keys used for the above files and repositories can be found on the
+following git repository:
+
+   git://git.kernel.org/pub/scm/docs/kernel/pgpkeys.git
+
+Enjoy!
+Luis
+
