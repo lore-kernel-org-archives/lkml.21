@@ -1,55 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081107;
-	b=qdBq/VNJbTX7ZqYLCpT2BaSqlOBpNHilSZLkZtIuRkBOL8qZTfV8MVW7HsIYAzhFyMHM
-	 PsrQ2TsgENfHPpDmw9/EEejNz2FiJRw8BjIJ30SuN/1lvNITtMKsD2aFw0R7PIPKvitnR
-	 011OHFPWamcWE8x3Pe/10Cbvu0OXSb4A0K//W0Of5KkpbZWha3JxrZI5X2lZ7Q52hQHNo
-	 3Q8WbJ6Gj+fWLemi78QD5dcGAjZMIiiL09a4nnVPUaUzkPLk8BdGjrq8Fjrg/kSy9wCXh
-	 ec6NCx6lrVXKf2ILdQgpiWTl/7dWRm0Nb28QMO4EyT6y8ZLr86HTinU1hn9X2CL4pdg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081107;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=uzPlcHId7TW7FWgqbyn6Wh6K3YuV+RZW/v5XhOuWFmc=;
-	b=Uk7HFuVQzBO5vfgEnK2i2X/nqCjlwC8XysuuWZyyjspwkhhhnOL7naDXUGJFy0FlOBlT
-	 +Bhtv2rwErLIxi/K50lwsfsqVOREbLZLjl7Q919mtwDguslY59UkY2e2lrn7CzpTghszB
-	 K5nq0NwIjo+KOXBcu9MgLQPN1QEs4x0rp3/rAcgmYA4HVGmAitiNBBOgLekjz2/K6DdS2
-	 7rZEppka/TPRNp8HtwUra7RfcuZrWynt0dCtBZbyaDx/vKrcqICaX3oM8ql8pP0VD38co
-	 Q9gPeoMe9WocSPuW2MapU//CqYgIOTD+mI1DsFAv30gpeY6a8lNHm6riuteq+lGGi3g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmJ3A6Y8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795081113;
+	b=kDNL/MKl/83McNQw+KeT4Acneeogrw6rfX8ZXufA5ZbBeR7quKuCdGewkbgCIHkWGIbL
+	 ZngzJnhl6jTMs5GlEQ8oR9e4VFmMGZfs21i8ZOkZUeewv2Y9HgO1afHhVMYDWdbVqPxbL
+	 vpzJWye13duaxTN4Y7+LOQ4lZrfmxD+BrVOYrhPfyx6YtTo1IYBgoazCahMxK8I3YVVSM
+	 nIEzNfvN5ffUIxdKSsbGMEARk02dVyFYdhXU+5NAv7hxijWFynN2a8fHcto1yEmgHIwIX
+	 zSF2UmFAzfDjvxU+g/94IvPAdMxaGE5MqpXz/LElm5nD9zkZMThW+r8a/b9VuuZ6+0Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081113;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=s8nhpF/5t21tllE4kNr5hlFkBROVgPAv06E0/X8d27k=;
+	b=Ac6e1EUoPRRtYOFNNPQzFLNX2bUOwJn8DfjD/cizyHWt2bS6t1xcoJFuu+DBuL41A7wa
+	 A7XhYrftGuOU4qdP5OhE86krJpRm50soicWRQ95+zG4GpGZY2puZqNJMX2s9H/RxmXYLg
+	 x1GBinq8bxh6qDmG7WcRoirQ83YcYREOXxawUBvxuacqeoZTA8mP6cnxnhxRr+Ot6lYWb
+	 xduERXDB4lK4+TDfdzRlRI6Ws2qrYAB/mK3QmftOvJwg+U88b5z5bRo5Bf+QuXvPPN/eK
+	 XPMPAyuuXS/FDFuMJcsU+3SRxMrkAd00skgF3rcGSsMy/I/yQPT9yjwojwOLXEDI5Kw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RhUbtoZF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.174
+Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com [209.85.222.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 182EC606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:38:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5190606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:38:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5190606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EmJ3A6Y8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924DB1F000C8
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:38:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795081106;
-	bh=uzPlcHId7TW7FWgqbyn6Wh6K3YuV+RZW/v5XhOuWFmc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EmJ3A6Y8ndCXMiHCdM4vfBefqqfsNiLmz150UnFRUVpwc6rR2ECWRVqVnLoVf6Ewj
-	 gwUfo/ckSHBM5/3tEsp3GuDP1djM6c7OWmF+MmgkUxX8omCx2hgIQ5d3hbEowPfCpz
-	 XsfAXuXvYE39X8Dp3++9XxNLAqECiyzCdxjqWg/18Md3tvK41c5VpnFj7jbGvhTYjI
-	 Adlmei6aWcauoYpmGJgDzboQpZ3ZKbBjOAnd+WRvYeCTlnoK7dtymUPrgOrHOfs/Nb
-	 4/EoiagX7x2+TuOeZVIc0aeVSlGanGL24kjzfk58gWx0GeCJzWfwmz5RolD/RrvKTy
-	 hP7tcXTDwWCzg==
-Received: by mail-oo1-f54.google.com with SMTP id 006d021491bc7-71aed54d4c5so1329632eaf.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:38:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFrtLNE91otblcaNc0d7+BM4jt9u1RuJAi6T3uDBB7rWLdvkmzmK+Mo75xLmpIr8o80lNeGtJGKaX1MQ+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pa4HIMzp/jvwHDHvMyMxPfTCcekoumNHMhFE9WVZ2veZGMtAl
-	mwmyT1EoIZEsC61NRdKhLJvGBSdmIVtShjaRALWe8SnisXRz6RfejygfCXyCdoru3oRhG6A401c
-	j1lvV0brQe0+Jp1orezJKNf6eT31Abmo=
-X-Received: by 2002:a05:6820:1517:b0:716:d827:9ecb with SMTP id
- 006d021491bc7-71b1842dcd8mr3807739eaf.30.1795081105843; Thu, 19 Nov 2026
- 01:38:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RhUbtoZF
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-945e6d9ceeaso179372485a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:38:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795081112; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J8KX0+3XOkVt4jvmxki69gkqDSWV6OZepis63a1FExhwAr2aJLwjLx41ZrSvuPnfZQ
+         w32Bv0lnHapFroFMF30QzzN3n1TNrDK2a8fJqw1BpIWsSAJSK4FpY8Ux3bkD6XuR/SUo
+         pGMzp/+9kg45bwAZoUS/7Ke1hjpRKbeKktZIhqaCQJuE0CEIFKDHH2FujOwK8ln8Ohqr
+         HDb3ZhlQ0lsERKrAPd3FthXhZBE2E+zVG0ZWAnlhB3zNk4Hkv5wNqLC1wEIe8g74Tigs
+         QHWmoW/Cfsi5PUI3tnMAj+zapk4/L6QOIcr0ifyO9RVpxJLpsshGDjN8dg3t3d/NgLDm
+         uLDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=s8nhpF/5t21tllE4kNr5hlFkBROVgPAv06E0/X8d27k=;
+        fh=V4c4oyMs7byVfZKqQBBt+yXV/XyrOUgan/BuAsKpmnM=;
+        b=L9ljMTtzNGu65ST3cjZR0RTinr6Lw81iJRYwz4IyoYzQZ/jEohVVqtTbkQdre2I+bH
+         JE5BGH6g8866JvLQ7IoWAd/JOu4DjWISGQ95kNi5S43JotsuUrDuaDLCN5PRwd7xDO3n
+         G+mIRYFqhmsO1TYsHf/JT3XS6NvU47QZ/e06Svw3k6gJzcBYzKHIlxbfTOIU6g1sjtAa
+         EGB8xCdK5IOK7F1P9sFlLf0NhXa9xEJm+4anydwPjzs44+IPvIcBR3rqll9XcFzri3gI
+         DTK3+L4lZi3XylLiQfJ3P9aBRk49spq40hprH/e7qLTjjznRSn2mjwE7KnB0K31BoPFg
+         7Uyw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795081112; x=1795685912; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=s8nhpF/5t21tllE4kNr5hlFkBROVgPAv06E0/X8d27k=;
+        b=RhUbtoZFnCx4f3nDvRvAhBnEbrdNbG6ReO09HJgNDE6J1s0dQDS6DmgGEthF0nnUDH
+         +MT7B/6jWOHyCxuyVT5n5gthTGGacMJtr5xNy7n+9Pye2dSyDONfWAf7ocVDSRO9H0Ic
+         0PqGWS1CP73icUv/g4sNSK61hip8/NkihkzcfSA52ycSvN/ZrZmefhubhbl7NXQqQE5z
+         bwQEZcrlgFceL4vOAWmlXZBIgepATeGu18lDM7PdBr0ZB6NF4hCEHZLM2bIE0k3abtmp
+         GAMm6a1SaUT/xMcIrmWo+B8ny+OMG6y788KBum85uAmlyFLf8gFrUFzkH8MICxvxHodm
+         XsQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795081112; x=1795685912;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=s8nhpF/5t21tllE4kNr5hlFkBROVgPAv06E0/X8d27k=;
+        b=Tly3TyoDAF/0fYdNrC6iGNdFm5F0d06iHMIbp1vzh9xBsVG2lFX+8OHJqRTvWCl+ax
+         5WinimBLkqz01FNXX+U0Pf8aCNAiwoxqs69rqn/niZX1eRF7GSNT9dq0x8V+R0b66xk7
+         LsyiHhM2GDQlnCO/beCINsYzpPjuZ9OXUMXz/zs7M4SeuoQzYE4SgQJUjsGNnTuj4Cfw
+         ocRxSneNNBOUwMzkTUhbzdOAtrJaMXIF18/OVnj/4BmNZnSq9BmU1TDCXr1Yhw+KxqRU
+         2BXdlMJ9BhAS4m5Qv+FkCV+xlkky35AOJ6yhTgU7Ed0QwRuLLa3n8y5ZWkwpQ+KZbY9L
+         LNDA==
+X-Forwarded-Encrypted: i=1; AL+hErFY7nd8UcnFe5HwA4Oahv/uzt7a+R/ZxxlL7hGKZiLsJ+jDiB/iDuDdaOEZrAXexDvMoDY/3tXUbyK/NjQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9M2NLGQN0hk/n6unkIcEGy3Dj/R/G8WiLL4rjfRc4YmHzuCoQS
+	fzqG6hd5qpG4+pv1Rv5opjaFAze+zBgryT5UPVS3xJ6tvF+0QJDWPVgACMS5MYaUPyjOr/QRZgl
+	jE39lyZ1WhmtiXZkK8K1tdTzgliRHZnA=
+X-Gm-Gg: AYBFou2kM3OsPg4HdvpxTvl9iEf6H4xQbyACVLtqtILwp1laxboxa6HV5PerB+xeRGd
+	wFynMnWIJhg+YR/nVP91s8SGE7P1mVeIb7PJTGOSh4gULtZ/f57Y9U6myBn9WrvWTN4fsoSP8/u
+	INUWjYiXKQzVmAjgMTptToFFcfIhWPTM+/DOs3/i59eQJW5QXA+hmxV4zG7K12Jn17NIbHG1wPa
+	Uv5Dra7+qWu8M5si2xXKl33FkzkKAQdu95ePXzHCVy0Gqt2q1u38WouVUUrxZR863fhKqP+QyJN
+	Pr7vHc2Y6VjKCn4AVSYrxuSt6fVjJZ9m8/33kSzprQnoSUHEEaKvDf/Vpe51C+/5IcBsb8d0NZU
+	626P1emNLPXMkwf/n5xOVh59OJMV066W43cw6xhx7RolFn5mxPmASEEXgFJ5/e2nbBWjnKv8=
+X-Received: by 2002:a05:620a:4809:b0:944:d79:c02 with SMTP id
+ af79cd13be357-949994a8215mr964986285a.10.1795081111763; Thu, 19 Nov 2026
+ 01:38:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,100 +103,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
- <20261118235055.1225115-5-vladimir.oltean@nxp.com> <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
- <av62HrrrRs8qwiHw@skbuf>
-In-Reply-To: <av62HrrrRs8qwiHw@skbuf>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 10:38:14 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiiq29baq2c6X9YV6Vj8ymc4n6sTuvBUSHU5e=kPa2iFkKw@mail.gmail.com>
-X-Gm-Features: AclHuK8vBJaJIv6TzFRAeRooYkV2ys6qCen-d_QhtxFZU_RN-wm6gOtvFUynZaU
-Message-ID: <CAL4Wiiq29baq2c6X9YV6Vj8ymc4n6sTuvBUSHU5e=kPa2iFkKw@mail.gmail.com>
-Subject: Re: [PATCH v2 net 4/4] net: enetc: let core segment GSO skb when
- headers exceed TSO_HEADER_SIZE
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Claudiu Manoil <claudiu.manoil@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
-	Clark Wang <xiaoning.wang@nxp.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, imx@lists.linux.dev, 
+References: <CAAi4Z-d5eV8FM5sYJj1gqudWyioF++fG8P6uGX_LxbiKSXjekw@mail.gmail.com>
+ <avyZM-6gM4amnQMT@lizhi-Precision-Tower-5810>
+In-Reply-To: <avyZM-6gM4amnQMT@lizhi-Precision-Tower-5810>
+From: Alex Guo <alexguo1023@gmail.com>
+Date: Thu, 19 Nov 2026 17:38:20 +0800
+X-Gm-Features: AclHuK9v7LJbhjVCrFOjeIf_qPnWAg5u9Sv5E5RixcPyL74qGSwBar9TYvQiOSA
+Message-ID: <CAAi4Z-eE=16GBivyAz7=ucsD2eBxR3-qG2KebRvKGJUE=VkLHA@mail.gmail.com>
+Subject: [PATCH v2] dmaengine: owl: Check IRQ lookup result
+To: vkoul@kernel.org, afaerber@suse.de, mani@kernel.org
+Cc: Frank.li@oss.nxp.com, Frank.Li@kernel.org, dmaengine@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le jeu. 19 nov. 2026 =C3=A0 09:44, Vladimir Oltean
-<vladimir.oltean@nxp.com> a =C3=A9crit :
->
-> Hi Eric,
->
-> On Thu, Nov 19, 2026 at 01:03:16AM +0100, Eric Dumazet wrote:
-> > > Bizarrely, enetc is the only affected driver, because the core
-> > > accidentally protects most other drivers against this bug in
-> > > gso_features_check(). There, we have this logic that saves the day:
-> > >
-> > >         /* NETIF_F_IPV6_CSUM does not support IPv6 extension headers,
-> > >          * so neither does TSO that depends on it.
-> > >          */
-> > >         if (features & NETIF_F_IPV6_CSUM &&
-> > >             skb_has_ipv6_extension_hdr(skb))
-> > >                 features &=3D ~(NETIF_F_IPV6_CSUM | NETIF_F_TSO6 | NE=
-TIF_F_GSO_UDP_L4);
-> > >
-> > > enetc is the outlier because it only advertises the more complete
-> > > NETIF_F_HW_CSUM, so for it, this fixup does not clear the NETIF_F_TSO=
-6
-> > > and NETIF_F_GSO_UDP_L4 bits.
-> > >
-> > > [ astute reviewers may ask: what if we disable NETIF_F_IPV6_CSUM at
-> > >   runtime, via ethtool -k, so as to bypass this fixup, don't we make
-> > >   all drivers vulnerable?
-> > >   No, because netdev_fix_features() will trigger the code path which
-> > >   also prints "Dropping TSO6 features since no CSUM feature.\n".
-> > >   So TSO skbs will now be segmented in the stack. ]
-> > >
-> > > Surveying every driver that uses TSO_HEADER_SIZE:
-> > >
-> > >  Driver  | TSO6 | Checksum feature    | Core guard fires? | Verdict
-> > >  ---------------|---------------------|-------------------|---------
-> > >  enetc   | yes  | NETIF_F_HW_CSUM     | no                | vulnerabl=
-e
-> > >  bnxt    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> > >  nicvf   | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> > >  otx2    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
-> > >  fec     | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> > >  mvneta  | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> > >  mvpp2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
-> > >  mv643xx | no   | NETIF_F_IP_CSUM     | n/a               | safe
-> > >  dpaa2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe (*)
-> > >
-> > > (*) dpaa2 also uses a fixed-size kmalloc(TSO_HEADER_SIZE) per segment=
-,
-> > > so the identical overflow would apply if it ever gained NETIF_F_TSO6.
-> > >
-> > > The above survey is what influenced the decision to make a localized
-> > > patch in enetc_features_check() rather than create a huge disturbance=
- in
-> > > the core, even though, IMO, TSO_HEADER_SIZE is a huge foot gun.
+owl_dma_probe() passes the result of platform_get_irq() to
+devm_request_irq() even when the lookup fails. The request can replace
+the original error with -EINVAL.
+
+Return the lookup error before requesting the DMA interrupt, so a
+deferred probe can be retried.
+
+Fixes: 47e20577c24d ("dmaengine: Add Actions Semi Owl family S900 DMA driver")
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Alex Guo <alexguo1023@gmail.com>
+---
+Changes in v2:
+- Drop the paragraph referring to the similar Tegra QSPI fix.
+- Add Frank Li's Reviewed-by tag.
+
+Build-tested the affected driver object with Clang 18 for arm64.
+No hardware test was performed.
+
+ drivers/dma/owl-dma.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/dma/owl-dma.c b/drivers/dma/owl-dma.c
+index 31a6c6e01a75..daea82718229 100644
+--- a/drivers/dma/owl-dma.c
++++ b/drivers/dma/owl-dma.c
+@@ -1156,6 +1156,9 @@ static int owl_dma_probe(struct platform_device *pdev)
+         * simplification.
+         */
+        od->irq = platform_get_irq(pdev, 0);
++       if (od->irq < 0)
++               return od->irq;
++
+        ret = devm_request_irq(&pdev->dev, od->irq, owl_dma_interrupt, 0,
+                               dev_name(&pdev->dev), od);
+        if (ret) {
+--
+2.43.0
+
+On Tue, 17 Nov 2026 13:13:07 -0500, Frank Li <Frank.li@oss.nxp.com> wrote:
+> On Sun, Nov 15, 2026 at 02:45:05PM +0800, Alex Guo wrote:
+> > owl_dma_probe() passes the result of platform_get_irq() to
+> > devm_request_irq() even when the lookup fails. The request can replace
+> > the original error with -EINVAL.
 > >
-> > I should probably rework my series :
-> > https://lore.kernel.org/netdev/20260403043237.3909226-1-edumazet@google=
-.com/
+> > Return the lookup error before requesting the DMA interrupt, so a
+> > deferred probe can be retried.
+> >
+> > A similar issue was fixed in commit 47c3e06ed95a
+> > ("spi: tegra210-quad: Fix missing IRQ check in tegra_qspi_probe").
+> >
 >
-> Do you disagree with my analysis that only enetc risks corruption? I mean=
-,
-> for a second layer of defense, having tso_features_check() everywhere
-> TSO_HEADER_SIZE is used probably makes sense, but I opted for a targeted
-> fix because I couldn't justify it for the other drivers.
-
-I agree with your analysis, I could not find another driver where
-headers can exceed TSO_HEADER_SIZE today. Your targeted fix is fine
-for net.
-
-The other drivers are only safe as a side effect of the
-NETIF_F_IPV6_CSUM rule in gso_features_check(), and none of them
-bounds the header length in an ndo_features_check(). I might respin
-the tso_features_check() series for net-next as a second layer
-(calling vlan_features_check() this time), and enetc can be
-converted on top.
-
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+> Drop this paragraph.
+>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>
+> > Fixes: 47e20577c24d ("dmaengine: Add Actions Semi Owl family S900 DMA driver")
+> > Signed-off-by: Alex Guo <alexguo1023@gmail.com>
+> > ---
+> > Build-tested the affected driver object with Clang 18 for arm64.
+> > No hardware test was performed.
+> >
+> >  drivers/dma/owl-dma.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >
+> > diff --git a/drivers/dma/owl-dma.c b/drivers/dma/owl-dma.c
+> > index 31a6c6e01a75..daea82718229 100644
+> > --- a/drivers/dma/owl-dma.c
+> > +++ b/drivers/dma/owl-dma.c
+> > @@ -1156,6 +1156,9 @@ static int owl_dma_probe(struct platform_device *pdev)
+> >          * simplification.
+> >          */
+> >         od->irq = platform_get_irq(pdev, 0);
+> > +       if (od->irq < 0)
+> > +               return od->irq;
+> > +
+> >         ret = devm_request_irq(&pdev->dev, od->irq, owl_dma_interrupt, 0,
+> >                                dev_name(&pdev->dev), od);
+> >         if (ret) {
+> > --
+> > 2.43.0
