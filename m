@@ -1,68 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087462;
-	b=AsaX0k6d4tJYn/UIzAkE7irPMWEfTa9skE3DmWKDpXDwy7epLPpJYLrpzJUushdLGNJt
-	 tcnQTWYZA+AWpBjMZZSeM9VnSuGhHUC0+jWuMCUG84q7YLflXgpN2H3ajOgs0N9GW8Ktp
-	 Xan9xCavFISpU0RgUtCltdjZGUYmAi6I9HYpz2vEZI/ppVBCMnPcMPb2izyw18mb4uvJF
-	 /WWaHSP4MEP2uVKCNmLmy/ieiuTuZrs46ph2igp8MCW3gUCZDlm12zOVnn5t7rhrvsxZM
-	 f4lfWLmDoZisznVZ+JzvsOKokXShIFbPnwEy6yayAvEVUrmL1MbXGdna9k37YMp8ptg==
+	t=1795087467;
+	b=pq4W8D0Ir1xOWL86UMeZ8ZmGep7j7JQ8iubaIWKW+2fGDM9/XYR1Mvteg5xaqNSRLP3f
+	 lwAFAheWp9axo7eBx2YVxbjj47+42oQhhoh668R1+1cHUNxnRLhpVFcAaJFrTEeruy0Cy
+	 ECnRmF/rU81OIJe93HQTkMJQ8363UMppaGTe7SEYyY21gIn43et+eYe6mx90RXgH7LXoo
+	 ffULFTznF1oJkBErE9ps4fWQA/HXdPUizUGvfe2SFQZE99lfm9PnYt4gjzp9/czvCHah2
+	 9ra06ll+iIiNPjUvUWEl3uyi/DqK0d8z76qdsx7bKJaK91MxMqNzGcNGtuYKaWRsomg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087462;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=C0IL/gZULmmunVCkG+wwatC97Ea87uojf7XYGjE5oR0=;
-	b=PppjR6oAUW8g3ismOjQeMumjwYl4Y1zPucjDvnHGH5LWfct6DEWHYJKIRQxAJxczEDiN
-	 yur3Wv90LJguhFxE81HahtI4q3yUeY7t7WVag5XBF8nVHQoS57Y+lA5AwLIpjuZGVznt6
-	 IbScMczmC9xa7o+5M3ZDS/DkrH+JoHfPPZPVB0LYvbdnKxYO9oFpHlaVD/Jwu3yYipbd4
-	 7MsQTxjrqZyrRkfrjHhS0lHFxMkVv0M7EGXs934oDwbXMdzER2gJ6z1oFohGvmBdof1Z6
-	 KZxWBrXdM1AMFWkkCJgkz3t1CjOIMtbxnXCN3NsI1bo+jLQWCDi+ey5CS2nSdKbrHfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087467;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=/1a2zhpdMOBK0mOqw/Tno4RXP4oEFs74drCisxFYseU=;
+	b=k8r/YndrH1aJrNpdjtkxk4o1hy9NX32LEkmLqZWrgJoFABo5hEnjKg2quaKBTh701ZC8
+	 ziV/Z05umxnKotUCYkEdxme5RhrZLk/ApbgH+DgFqk7wal9AIWECyAqDwYqQM8i9X2VBY
+	 HrOYxW2NRyusWxKRVVpAXCOpdqLWkMBOmfmf6+yzt65PBLYZXq5Qqllyg5RFBO+MWUUd+
+	 SHGqgvr9dnmvKSRhpyEOoOLVyIpGuRNNkpUfM1oQKUWNIJclO3yj6bII1dziJRBnMQ0mp
+	 1qmGfkrTHjbEL57ysfF+0bYfEAlu4Jn/37yQg/CEF4ToQfPOLqUfu2stJPBjRT1tnVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U6Ku37ox;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ISpxDJ5D;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 947B9606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:24:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 947B9606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A49D5606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:24:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A49D5606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U6Ku37ox
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795087462; x=1826623462;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=PjpxK6WrqEEBYL6Z8XZgE+0SFDlXh2SA57IY/mgRaC8=;
-  b=U6Ku37ox9y9NA2QEY+C1RRqHsfF9HEfn44RwAfn/ylbyRi8hZ3RXULEf
-   y4EROgKftQQsrdaixPNo0qT4+cW2plg4TZTMYtOiBjQgUjlXlxTH+IuCW
-   jPPFZd6UtRQ9spd27FIwX8UMSopsj3uxEUvFhhIJc+JEgaABjiuUZygw9
-   nGOxgBUshGwsrIbqb1MgGraaDnPkSLTeYYI1QWsPdOiJOlCAQzV3fFlTJ
-   x+zVeZN+5WVwE2pRrinw+iz1OgK1NEJT/kpIHKYrJv2Dn6KBdD2txwJ9G
-   /2Bixzh4D3tqwgvP2NHno6tNPSlqZekuN88kZR0PF4dm6n81IUX6cFitn
-   g==;
-X-CSE-ConnectionGUID: to/rOVb3Q1emZ7u65U1jCg==
-X-CSE-MsgGUID: BUSk41PDTSagTjARFeDR9w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="4011768"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="4011768"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:24:22 -0800
-X-CSE-ConnectionGUID: kPUesuG2TKKl3coXlgrgeA==
-X-CSE-MsgGUID: zkmILSsIQKWO8IE5T8qJxA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10273791"
-Received: from unknown (HELO [10.238.0.68]) ([10.238.0.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:24:16 -0800
-Message-ID: <eb3a3d57-fd98-4167-b6fb-27025e737097@intel.com>
-Date: Thu, 19 Nov 2026 19:24:13 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ISpxDJ5D
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2f037bc348dso1434525ad.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:24:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795087466; x=1795692266; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/1a2zhpdMOBK0mOqw/Tno4RXP4oEFs74drCisxFYseU=;
+        b=ISpxDJ5DVGF8N/aDoxpxQdXM4+cJL6qMmIH5RKsZQMoGzMcIXLk4VJfefJXnTwINzV
+         4Ku7wouKuWuV0Dzw8z1IBDzEC2rtaKEJtKIj/Px36IRP/VBEOsFy7B0la+qImczYSi2u
+         T/rq4CNWanmRV600ZLKCDKttYVJdniPRZ4bc2ZaJx6kfkNn7YaAYUUh3RM0sRNMapcr0
+         SugVjQMLwU/9Faln1uxt/pC72FprBdrkp1SXmTJrJcdo45jpoy+FfWJVf68cwBspkjWQ
+         NQgHgLIJ+USu0JknlFUXV2LIqLOWAwma8/dQm6dy9mrlGYI9qHEUABczO4OoMpuUYcgy
+         PxOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795087466; x=1795692266;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/1a2zhpdMOBK0mOqw/Tno4RXP4oEFs74drCisxFYseU=;
+        b=se9oefApL0z5e5c2UbaOaeK27fpzkUSdos8FVdssySYtb0Cub41AQ8mmCLqOlLt5NR
+         Oz3eiV4VXtXMpOfrny1pp4eLPHoLuhwSuDIOQL6Ebg4mDq1sLPkXK0tsn1t4122Q/r+2
+         kTbwV/XkJs2kFa6Ia8gMGRrc/rrgIYXhPs7n9w0gY63LPQ+AtPGgyt9cHPbiyQedqgAn
+         iNFjOIJeCQVKKOGvYxY+NMLLTZL5J6WQjc/s7jDZ4pD06jZv9ahY/hXNZlfm/i8yjbOK
+         vibwJmfIjzRow19ZxbNWB2Yyjp8GW/C5IjOkiChyuWhK+MubNtD+RrkbxYwMh0/3OruA
+         g5sQ==
+X-Forwarded-Encrypted: i=1; AL+hErE+c8ynW/fP++h/Rm5pmQcS3DtN3pYAc8kFD5J5y9RZmEbqnODJlUvcR+fw7Zh+CniSxttmauVTFRprN00=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/oeMbQeAAJ8O0EdEWVS4QiA4tQpOjIab1UChXn/6nFHDqaaj7x
+	J00EluvNIZcpFeeeBbQRQl5Ubw6p8Ybt9XocJDpNSqbqXhsj9fekzuZQ7DjqbQ/yuro=
+X-Gm-Gg: AZFdTZfTNmkqfnZGAc0s8Ncb5aMk7uuqLjm5+CMrsnbt6bc79HlHYjb6gQ+LrwDY1I/
+	rgvVZcx+bAbAJyDiFVl3wbPZ+TtdMcRagc9WArlrbN7RedI2A7bpEnfPu/BMDHLzLcZ57/RRVXb
+	6M++Fz720NBruroKKiHMM3J7/JLIQv4NO0HR1nSp0I1j9N3mqSwpOu9Ut8CYe6itQCj2/fy5Mlo
+	faH8N36F2yXvxk6o9cUhMs4I3lypvc552MGWs1DkAiSl/GMFsCOcX0lRAI7Y7jzuGqm3DvHS3ru
+	toOIJXHNwGaBpHEKT29bEpqO0zikHAsnDfXVv4swETk/uSiCEjLi507OD71EYcT/c5DTFJ73/ix
+	jgJ99BFFtYcriYYK+63wkMjUpFY658FmnfPu9DA/t5zTSDidphHp2+o4YguZKp72b9WGwFvJdol
+	C+bzc8w+dIBpGUyt/UreNTcVh1N49gMjKd/S/OImVRXJYmloc6FQ6CHtM/aYb8KFbyDqJ3I1yo0
+	mU+lJbq7Hn1iwPyZdzoamq8cuudjJHtz9rQS8KL7v/gfQOzvfRu/1I4YBUXh93N73EP8fZdcmVF
+	xmIZfFbt85318ZV4CGKFcduesyJWI10FMxdhWk9Py764E6MNxoj5sq5IsKRY/L/Gdxd9AIcgfrw
+	E
+X-Received: by 2002:a17:902:d2c7:b0:2ed:2305:5244 with SMTP id d9443c01a7336-2eff752ec1dmr60082795ad.46.1795087465193;
+        Thu, 19 Nov 2026 03:24:25 -0800 (PST)
+Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:84c0:a687:3d35:47b0])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62876a6sm28540805ad.63.2026.11.19.03.24.19
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 03:24:24 -0800 (PST)
+From: Zhao Li <enderaoelyther@gmail.com>
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Zhao Li <enderaoelyther@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] Bluetooth: MGMT: Retain the selected legacy advertising schedule ID
+Date: Thu, 19 Nov 2026 19:23:59 +0800
+Message-ID: <20261119112359.34543-1-enderaoelyther@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,76 +98,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/15] virt: tdx-guest: Set up and accept private MMIO
- ranges
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Duan, Zhenzhong" <zhenzhong.duan@intel.com>, "x86@kernel.org"
- <x86@kernel.org>
-Cc: "Hansen, Dave" <dave.hansen@intel.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "kas@kernel.org" <kas@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
- "seanjc@google.com" <seanjc@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "Peng, Chao P" <chao.p.peng@intel.com>,
- "Verma, Vishal L" <vishal.l.verma@intel.com>, "jgg@nvidia.com"
- <jgg@nvidia.com>, "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
- "Tian, Kevin" <kevin.tian@intel.com>, "hpa@zytor.com" <hpa@zytor.com>,
- "tglx@kernel.org" <tglx@kernel.org>,
- "nicolinc@nvidia.com" <nicolinc@nvidia.com>, "bp@alien8.de" <bp@alien8.de>,
- "Gao, Chao" <chao.gao@intel.com>, "aik@amd.com" <aik@amd.com>,
- "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>
-References: <20260924041032.1096569-1-zhenzhong.duan@intel.com>
- <20260924041032.1096569-11-zhenzhong.duan@intel.com>
- <328109e1-2848-42a4-891d-7c7c5b40fed7@intel.com>
- <IA3PR11MB9136CAD09013FD9A79EB06ED926E2@IA3PR11MB9136.namprd11.prod.outlook.com>
- <a3ee7e7be28462bff75383f0ca3af1cb8275d125.camel@intel.com>
-Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <a3ee7e7be28462bff75383f0ca3af1cb8275d125.camel@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/3/2026 6:38 AM, Edgecombe, Rick P wrote:
-> On Thu, 2026-10-29 at 09:56 +0000, Duan, Zhenzhong wrote:
->> After thinking about this further, a second .run() attempt cannot recover
->> from partial MMIO acceptance with the current implementation. It starts
->> accepting ranges from the beginning, so it will encounter a re-acceptance
->> error on the first range successfully accepted by the previous attempt,
->> before reaching the range that originally failed.
-> 
-> How does MMIO acceptance fail? Whose fault is it?
+Updating the currently advertised legacy instance can schedule that same
+instance again instead of the next selected instance. Add Advertising
+stores the selected ID in the original request after mgmt_pending_new() has
+copied it, so the queued callback still reads the requested ID. Add
+Extended Advertising Data never passes the selected ID to its callback.
 
-According to the Completion Status Codes defined for TDG.TDI.MMIO.ACCEPT in TDX
-Connect ABI spec, it can fail due to various reason. I think most of them are
-the fault of the host, and a few are guest fault.
+Pass the selected ID to both callbacks in the pending command's user
+data, and keep the request ID for the replies and completion cleanup.
+Extended advertising controllers do not rotate instances in software, so
+keep scheduling the requested instance there, as both callbacks do now,
+without cancelling the rotation timeout or looking up the next one.
 
-The most interesting one is the TDX_OPERAND_BUSY due to contention on some
-locks. E.g., when host is operating on the TDI, it fails to acquire the TDIMT lock.
+Found by code review.
 
-For most of the lock contention, we can simply return error to userspace. The
-interesting one is the contention on the GPA. If host is setting up the sept
-mapping for the same gpa, do we want to retry in the guest kernel? or exit to
-userspace with -EAGAIN to tell the .run() can be invoked again? or -EBUSY/other
-error code?
+Fixes: cba6b758711c ("Bluetooth: hci_sync: Make use of hci_cmd_sync_queue set 2")
+Cc: stable@vger.kernel.org # needs adjustments for <= 6.5
+Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
+---
+Tested in QEMU on bluetooth-next f42f5cae154b with vhci controllers and
+four new mgmt-tester cases. On an LE-only controller with instances 1
+and 2, updating the advertised instance 1 through Add Advertising or
+Add Extended Advertising Data now makes the next LE Set Advertising Data
+carry instance 2's data; without this patch it carries instance 1's new
+data again. On an extended advertising controller, updating the current
+instance 2 sends LE Set Extended Advertising Data for handle 2 with the
+new data, with and without this patch. The rest of the mgmt-tester suite
+shows no difference beyond one LL Privacy case that times out
+intermittently on both kernels.
 
->>
->> When .run() fails, the device is not accepted for driver attachment, so
->> there should be no driver MMIO accesses. Therefore, removing the
->> guest-side MMIO resource entries and freeing the descriptors in
->> tdx_tdi_mmio_teardown() should be safe. However, this cleanup does not
->> undo the MMIO acceptance already performed by the TDX module.
->>
->> There is no TDG.MMIO.UNACCEPT ABI to roll back those successful
->> acceptances. Recovery therefore requires unlocking the device through
->> the UNBIND hypercall, which asks the host to tear down the associated
->> MMIO mappings, before locking and accepting the device again.
+No new W=1, sparse or smatch warnings.
 
-The UNBIND is invoked by userspace. What if userspace doesn't do it? Do we need
-to harden it that driver attachment will always fail when the TDI is locked but
-not accepted?
+AI assistance was used.
 
+ net/bluetooth/mgmt.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
+diff --git a/net/bluetooth/mgmt.c b/net/bluetooth/mgmt.c
+index 6ed3bf6f1738..075252d72cbb 100644
+--- a/net/bluetooth/mgmt.c
++++ b/net/bluetooth/mgmt.c
+@@ -9099,9 +9099,9 @@ static void add_advertising_complete(struct hci_dev *hdev, void *data, int err)
+ static int add_advertising_sync(struct hci_dev *hdev, void *data)
+ {
+ 	struct mgmt_pending_cmd *cmd = data;
+-	struct mgmt_cp_add_advertising *cp = cmd->param;
++	u8 instance = PTR_UINT(cmd->user_data);
+ 
+-	return hci_schedule_adv_instance_sync(hdev, cp->instance, true);
++	return hci_schedule_adv_instance_sync(hdev, instance, true);
+ }
+ 
+ static int add_advertising(struct sock *sk, struct hci_dev *hdev,
+@@ -9185,7 +9185,9 @@ static int add_advertising(struct sock *sk, struct hci_dev *hdev,
+ 	if (hdev->adv_instance_cnt > prev_instance_cnt)
+ 		mgmt_advertising_added(sk, hdev, cp->instance);
+ 
+-	if (hdev->cur_adv_instance == cp->instance) {
++	if (ext_adv_capable(hdev)) {
++		schedule_instance = cp->instance;
++	} else if (hdev->cur_adv_instance == cp->instance) {
+ 		/* If the currently advertised instance is being changed then
+ 		 * cancel the current advertising and schedule the next
+ 		 * instance. If there is only one instance then the overridden
+@@ -9232,7 +9234,7 @@ static int add_advertising(struct sock *sk, struct hci_dev *hdev,
+ 		goto unlock;
+ 	}
+ 
+-	cp->instance = schedule_instance;
++	cmd->user_data = UINT_PTR(schedule_instance);
+ 
+ 	err = hci_cmd_sync_queue(hdev, add_advertising_sync, cmd,
+ 				 add_advertising_complete);
+@@ -9461,6 +9463,7 @@ static int add_ext_adv_data_sync(struct hci_dev *hdev, void *data)
+ {
+ 	struct mgmt_pending_cmd *cmd = data;
+ 	struct mgmt_cp_add_ext_adv_data *cp = cmd->param;
++	u8 instance = PTR_UINT(cmd->user_data);
+ 	int err;
+ 
+ 	if (ext_adv_capable(hdev)) {
+@@ -9475,7 +9478,7 @@ static int add_ext_adv_data_sync(struct hci_dev *hdev, void *data)
+ 		return hci_enable_ext_advertising_sync(hdev, cp->instance);
+ 	}
+ 
+-	return hci_schedule_adv_instance_sync(hdev, cp->instance, true);
++	return hci_schedule_adv_instance_sync(hdev, instance, true);
+ }
+ 
+ static int add_ext_adv_data(struct sock *sk, struct hci_dev *hdev, void *data,
+@@ -9537,7 +9540,9 @@ static int add_ext_adv_data(struct sock *sk, struct hci_dev *hdev, void *data,
+ 				  cp->data + cp->adv_data_len);
+ 
+ 	/* If using software rotation, determine next instance to use */
+-	if (hdev->cur_adv_instance == cp->instance) {
++	if (ext_adv_capable(hdev)) {
++		schedule_instance = cp->instance;
++	} else if (hdev->cur_adv_instance == cp->instance) {
+ 		/* If the currently advertised instance is being changed
+ 		 * then cancel the current advertising and schedule the
+ 		 * next instance. If there is only one instance then the
+@@ -9579,6 +9584,8 @@ static int add_ext_adv_data(struct sock *sk, struct hci_dev *hdev, void *data,
+ 		goto clear_new_instance;
+ 	}
+ 
++	cmd->user_data = UINT_PTR(schedule_instance);
++
+ 	err = hci_cmd_sync_queue(hdev, add_ext_adv_data_sync, cmd,
+ 				 add_ext_adv_data_complete);
+ 	if (err < 0) {
+
+base-commit: f42f5cae154b90a0cb6d8232dc84c7614ca2e6a0
+-- 
+2.56.1
 
