@@ -1,108 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795078997;
-	b=jLnR5bFsqAyFyNW3Z91ou9Ggs4wuLHTD90ZxiDJSdSIVySmMH1QSWcCDE34CC89sGnF2
-	 EC233ekAP8gIBSWB6lGMQo8JqD5vID9Qv5opzh/TlMf3832s000mMlBvfsF7f4G1eGZ1h
-	 n2qHjU7SFdRNkXxFs+B71XUX16z8IgLE9pFSMDGjCOYtYqEUZvuClGWPnHkcxXWISF8QY
-	 WGcAXNn4g61pdWJZT9zPBXjNVf/RhDJhu0G86SdBzYzYA36M0Sez5hG+0Z1Hvx7lDFZMA
-	 nf09uCTWKSXl86yY5ic0usFlBvGLuEZMSslHdVXR7sgshaykXw64gdGi2Ph+jRegI2w==
+	t=1795079106;
+	b=StKtw4eCiMXI5CBsvuvnZ7TnuOGQaroAupoeCQrhMj45mxWYCdNDHBilUteCOKaJbiSl
+	 fXMwZVUinaWIF55pna/tzoC7Fcz6wkkXQLXpplBOMh73ZeLkxckHFc2faLGg3USkFKcU7
+	 tRTydFrP9KPuh+7Bqsi1SqHsBGGzsh+7QcT41FyTIktzyTHcG1kBfpOQeDEtkRDv0YoV4
+	 +qd3TeWtpSV3Icyz+t86Kre5f4pAsBaYCs36LT7CE4eb5yxZKEAToxoWMVuskWWAMirGi
+	 N057wxU5L8JQJbdD+yAACCCVZatwGhgW8bStnNxNlzNNgVPN6LBY6jiCWgk8sEHNDYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795078997;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Ev1ALMDJ9rqPsDXSnREH7pDpCBz175oayjjOjbBvQOI=;
-	b=HhNxzNdlVULfelC7KvDCzMhSfY4vVvNnlexI70lbl7ox6Ev5J1BgfYlA1uWUNdmp3QQj
-	 n358H0b/hClEkzdpg9L5L+IwRsj6J5iBg2eELys9ONVMdQ0Er0oS9JTfeLjwav7TIxaoL
-	 B4+4u+50FJLUkjqZZ1SBpxfoPNm+hrWHdr+JmFmOXJaxdL51K3+KDY2GvFhQ4iEFU24fX
-	 dvJ0e8DG6YZBUALz6nNJjvBJ7QYgnHyMGcrad366wmRswLffgDCIVwGbFCqwLYBhLSplH
-	 h/cXgWp/lCTGdAGKVApLp0lOknidwpJx2N6UhC3TF0S2yjK5tZ5j9OFazf21C+qKO2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079106;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=d6kA/1xsJAWmvsFQBc9q8FWAGrD7HMA1X8iHy6g3vR4=;
+	b=rnI8fbVuENutzYOg4nf8zlvX/S2m1+8pGyB1qiQAC36hKMmdiKUmLAaRDzD+fCnZBNPV
+	 rpRfATTXH6Mqz4TbASlCoBg8J/u9gsLNaxp1fjWdWnK81FPyzxo7HuRgyWWNocloftB95
+	 FkDmmGfst6PqJgRO55MRjdoj/S+lkWo5cSYYypnhwbKksYIbEPYYB6aN18YaYImW5wKOH
+	 hoPs5FYgRE/A50Ama+JRZBS+fis3bRO5/JVyizn7MWgceq/uLcQiOBwW8BqSx6Qn5yGA/
+	 tsF19NBJVf8Lmn616LN4MRKlR1s74mtYQbUwhzhhw0NEgBjfCDG7y/7JnbE61xqoeyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XzJyUlZd;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=NDy7OuQA;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VqGidOOd;
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D09860A2600
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:03:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D09860A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C6C60A2610;
+	Thu, 19 Nov 2026 09:05:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C6C60A2610
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XzJyUlZd;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=NDy7OuQA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795078995;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ev1ALMDJ9rqPsDXSnREH7pDpCBz175oayjjOjbBvQOI=;
-	b=XzJyUlZdvOEvO2tepLebN83cQqiQIRozPgN13M9xjpZuJij95PA+RjISxIAMujcc88nDt8
-	I9TQor4SFo8rI3L8adDZtBtO+tiVbHo846/ZWh3ikXD8LewNvHdJPd9dL2QBlazCbIHAgg
-	HYq3bYbdciaTRZki8sAJ07oBuxUGmaw=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-120-KCIq70iZN0-l57WEsurr5Q-1; Thu, 19 Nov 2026 04:03:14 -0500
-X-MC-Unique: KCIq70iZN0-l57WEsurr5Q-1
-X-Mimecast-MFC-AGG-ID: KCIq70iZN0-l57WEsurr5Q_1795078993
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a70b42bab0so6207105e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:03:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795078993; x=1795683793; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ev1ALMDJ9rqPsDXSnREH7pDpCBz175oayjjOjbBvQOI=;
-        b=NDy7OuQAYN725puRZGYMqK1SPlFc6PbWY2Mk8+q0b5T27jWFi01d0o8UYL9sETK1uM
-         ebNwCyzECEWNUhrJzteVE2FPpw1j+l5wHE5jXO4CQoK59II9NbxR47jNBUoBcSoGGQDE
-         GA9R4IQ4DRbjUJvVVcjlxXVG+LUvQhYrcPi9tLHe1iUTObvyysDaD24mNLBAnYv73fzQ
-         quZZxXQ8g2oEE/pJgEzVgNyA4iuUgofNiS2fZx3P6IjzpM9a2ZyGmlq2CfQytwjRsRn2
-         7Mze0crl74fZvW/X1qiBatVWkaq8M2AfrZPvxrNi5FuCWbHw+wtDNk2u1MvK6H1XdFH8
-         TGig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795078993; x=1795683793;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ev1ALMDJ9rqPsDXSnREH7pDpCBz175oayjjOjbBvQOI=;
-        b=fMVMU4au+Fy2H+JQLb/APrelmZUuj+hv5i4YTtIR+Nz7OxLxxjwuDgCKmCofP8IaYM
-         lwkaBFk4EGkHP/vEKJIDXc+zNu19VCl3sTyLRA5Hk5umUm+6lUDrtSj5+DgBju9u+Gqd
-         ppdddLDqUAjNsgsXRDD8xVlTtjLLl6HwI3Q515J8fyw01FExqedmmdjv7f9aSnf+IQNK
-         jqFFdkck7cd8yGrGEZdTNnRBnxtAXwqIYM9EvG6R0qKrrIX3Qo8CCNaSNcylzqp49XSH
-         xlXMptrWQ2SWYSLm3X+G7pAnaFU0BiymeJTMh6JHRzFV8vcPgP/3zW27E4cqdJEzhbA3
-         5NnA==
-X-Forwarded-Encrypted: i=1; AL+hErGfDkWguJlj9RIHkN527FMLbH6Zv1nV8W80NRSwQy7yfZn1UeVgHUQvu11WaoeZQp7c9lL3nSqC2wNt3fQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DFaKqVCj417Jhs9l/+MlzROLVHsOTmfi1PoUBTo2YfuB+mYvj
-	n5nqJq2Ky+0CLnjiO0DDyRK1baM2A05v+eHcQxYgIkfefI2O1g6sfLS40r9OeUpX5qG4IbhIXjR
-	aXnmAv+L1iVyid5ldKVFtTEZUoex6cDuogbgaN6odPEwBwC61XGoCVVlKGlTHtM9gug==
-X-Gm-Gg: AYBFou3tcR1+OAl2OLVP8iQykuOnznW53j/YVPdTq7EOnYoa5nsZsiF3FOcIGMuKrpP
-	lW2tbdH4F3r9e6/OH9EqXogC4GbzavTJuEdd679eFf+Ee35HSUlKXDqN92Q/MfNbXhWE2d19lT0
-	3YLkwVMcQ2pmMRMlfF5Xqze2X6G6lRMqxdaJuMhy9YW96GbSsp+D62qxRgXuBldnw8Hgq1gagPP
-	BvBUr107hTrYPG0ra9Smjz87Ch6BtySybCRnJ1e4NaPtLmv6+BGy7MGrtlrvNJMgR1y78QfxpHb
-	XP0k12viAWnKQtIf83Vt5z/RHoRf+BXBn7tfKrR0r21CT+q80OYOkukobd/X3tI1dVQ9YGWhNe1
-	hKsYPhPXxgrffl04KfdOJJm/GLNbPX6F4PPgsfPDdhOKfvW4DW7Pxj/nQ/ZVfpZ0dOt9Vo7S2qB
-	Gs1hlVId0aqCTmpheInBmJug3VRNQSwZFreJ+2LfSaBsbP
-X-Received: by 2002:a05:600c:b90:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb860f622cmr10713985e9.1.1795078992821;
-        Thu, 19 Nov 2026 01:03:12 -0800 (PST)
-X-Received: by 2002:a05:600c:b90:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb860f622cmr10713525e9.1.1795078992313;
-        Thu, 19 Nov 2026 01:03:12 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm29541955e9.0.2026.11.19.01.03.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 01:03:11 -0800 (PST)
-Message-ID: <a3049b70-fae9-488c-9de7-0c1613e6c480@redhat.com>
-Date: Thu, 19 Nov 2026 10:03:10 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VqGidOOd
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795079106; x=1826615106;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=FQL8eV4sRkL61iCN0vkwUyVt/9ZbkgRxf+TN5O34HLs=;
+  b=VqGidOOdVKZTixg0fVdkuMR5tBmc0AJmZ98Z+58KcaVHSC0iBpbQ9QY6
+   u8IbKBp9TR4sHIbcXYCMKEXr1OhRz9bwKVbJtHXraRtwQAwPJ/EELrSc1
+   ppOND5o9xth9opCzO+refz2R2zcOelmQF2/cWUtu7pdjNv6ntlAi69Xoj
+   JTTjffB6RhekNLLdKrAMSEMvB59J9wAh9T+VyOlTFjIYK3htQRnq+QyvR
+   wyFXy86W30DvO9G/pxqPCxso9sV7mXiN1+HQPe6vvi2cVIt68mEqj/pUv
+   m+yvO7vMmajlppw78RG/yW9fA+YgBbz2qE3bq1a/SaBw0I+l+7xiN+iIv
+   w==;
+X-CSE-ConnectionGUID: jKcU2wrJRXS9okr4wTcPjA==
+X-CSE-MsgGUID: zj7LmG90QBaxQZBjueUD4g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3946797"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3946797"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:05:05 -0800
+X-CSE-ConnectionGUID: h2v3AucXRfqq5fed2bRS6w==
+X-CSE-MsgGUID: 6mtu8x2AQ36gVprPng12qw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="12334238"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 01:05:01 -0800
+Date: Thu, 19 Nov 2026 11:04:59 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"x86@kernel.org" <x86@kernel.org>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] x86/quirks: Cast PCI_D0 to u16 in apple_airport_reset()
+Message-ID: <av67u5GSVL0KWolF@ashevche-desk.local>
+References: <20261118161559.63617-1-habilerenturker@hotmail.com>
+ <20261118181408.GA625801@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,58 +87,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can reach
- the device
-To: Bobby Eshleman <bobbyeshleman@meta.com>, netdev-bot+sinfo@kernel.org
-Cc: Stefan Hajnoczi <stefanha@redhat.com>,
- Stefano Garzarella <sgarzare@redhat.com>, "Michael S. Tsirkin"
- <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>,
- =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
- Xuan Zhuo <xuanzhuo@linux.alibaba.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
- kvm@vger.kernel.org, virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
- <179487315810.3291.12142099363352099423@kernel.org>
- <avur4Uwbv27bGG67@devvm29614.prn0.facebook.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <avur4Uwbv27bGG67@devvm29614.prn0.facebook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261118181408.GA625801@bhelgaas>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On 11/17/26 02:20, Bobby Eshleman wrote:
-> On Mon, Nov 16, 2026 at 11:52:38PM +0000, netdev-bot+sinfo@kernel.org wrote:
->> Hi!
->>
->> This is an automated message. This series looks like a fix, but its
->> commit messages seem to be missing some information:
->>
->>   - How the issue was discovered, e.g. hit in production, hit during
->>     development, syzbot report, manual code inspection, LLM or static
->>     analysis tool scan.
->>
->>   - Whether the issue was actually triggered, or is only theoretical
->>     (e.g. found by LLM and not proven at runtime). If it was triggered
->>     please include the symptoms, like the stack trace or kernel messages.
->>
->> Please do not repost the series just to address the above. Instead,
->> reply to this email with the missing information, so that reviewers
->> can take it into account.
->>
->> *IMPORTANT*: If you do repost (for other reasons) - please include
->> the relevant info in the cover letter or commit messages.
->> -- 
->> The evaluation is done by an LLM so it may be wrong, if you think
->> that is the case please reply and explain.
+On Wed, Nov 18, 2026 at 12:14:08PM -0600, Bjorn Helgaas wrote:
+> [+cc Andy since he's fixed similar issues and may have better ideas]
+
+Thanks! Yes, bitwise types in sparse are interesting thing, but since we want
+to continue using them the easiest way out is to cast to pci_power_t.
+
+> On Wed, Nov 18, 2026 at 04:16:03PM +0000, Habil Eren Türker wrote:
+> > PCI_D0 is defined as pci_power_t, whereas pmcsr & PCI_PM_CTRL_STATE_MASK
+> > evaluates to a u16 integer.
+> > 
+> > This causes Sparse (make C=1) to report:
+> >         warning: restricted pci_power_t degrades to integer
+> > 
+> > Add (__force u16) casts on PCI_D0 to explicitly eliminate warnings.
 > 
-> This is a known issue and has come up in review of the guest netns
-> series (so via code inspection).
-My reading of the above is this feels like more an improvement than a
-regression fix. As such I'll move this to net-next. Please scream out
-loudly very soon if you disagree.
+> We have a bunch of similar sparse warnings in drivers/pci, but I'm
+> kind of hesitant to just throw in a cast at each one to avoid the
+> warning.
+> 
+> About a third of the sparse warnings related to pci_power_t are
+> similar to this, where we're extracting the power state using
+> PCI_PM_CTRL_STATE_MASK and assigning to a pci_power_t variable or
+> comparing for equality with PCI_D0.  I think we can fix these with an
+> accessor something like this (better name ideas welcome):
+> 
+>   static inline pci_power_t pci_power_t_get(u32 csr)
+>   {
+>     return (pci_power_t __force) FIELD_GET(PCI_PM_CTRL_STATE_MASK, csr);
+>   }
+> 
+> There are a few more we could fix with an analogous pci_power_t_set()
+> or similar.  Most of the rest are arithmetic comparisons (>, <, >=,
+> etc).
 
-/P
+So, we basically need only two (the rest can be derived with negation.
+_eq() [equal to] and _gt() [great than]. It may lead to have code in
+a better shape from readability point of view.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
