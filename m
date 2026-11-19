@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795095738;
-	b=RvJjLTccRo3ER8Olsts+iQzCOpygmn0oveJaD48XsegEq/IN87Bcs8mx1U0LV1RKsBuE
-	 lf+/EgtB2o7nc0wlAMjjUEiSyd30zfa0ryqPOSbAaOdkKrO8yMoj69owztvVtUbIREsTi
-	 iEBaLXUN4HYNV+TullZjd9gCjGRSVZeMcwVM281SVKeORy9/jxNcciDPI28S/AtC/YqG+
-	 2kGFax/tSdGfKsCsXMF6EUy53oMcRpT+c+FurnZng44oJ2aGT7NK94KsoUMiEmIeQwdL0
-	 K7Rs/EzbEfBDj1OIACDl1+YWDH/eyVW8fzWu4sSznHW4HuCS8LM8+7vE/BEO7rDMBCA==
+	t=1795095740;
+	b=lbdpxx0VjRlzNLoNJRLqHysiELeOCIWfCZAXvl/b059M4ArbrJuBVGJ1T0fULF7Sm9D+
+	 M+mRNodgQq2flWVBXn/lwvH9qraPVDO9L2OpIeisKDtYQHUU3/mPapA4/uhzc9mqb66xu
+	 YIKMErRRN7rUp9reP4m/9+5IWIES89jGYZcauwVRKeeVUw7tLCVoXaSlcNSOZvYOL8ZTf
+	 KPMcGwjshJUu5cRwElCxIOTfkeA04BTLZYQ9GDKQVJ5M07g+0YyVfC2FWICBzSAhX6iBE
+	 2TG0iJi8gZRzDyNuo3aBa3hhZA4Sx/Az9x89Ew/v98N+CLGO55YD5jaeGkN7pRRaAow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095738;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
-	 X-QQ-RECHKSPAM;
-	bh=93JGExmDvLbuW+oC4tjK7kMLorNu6gupm5sqCUxSJas=;
-	b=VVzZIPsd3KZUDdzbib2wwc0xPiMl7HFR8StoipI63bWes3ib7bPHGtYOsM50ROdCqAE9
-	 HPENhwH4Be3bLzrGmePRvkFKmHatYoLk9NZ7FJ3LTxeIOxFkCBRZaG1OemfqZWYH3TqFb
-	 H4cQ9jD7vgmNl7RAb75J1Rx5XqUUFl7E80pj9vZTKzbHqJwxDTOernLPrrfEwj64riBmc
-	 Dg2BRuI/FTlUune26mHz1yLsEuJhtRIJ2ESLQH0tIno4Y0lopdRMM+DoJICow87zDxUmX
-	 ydopnseo/vszBCXYK4/pMg44qIGK3JjNDJZBX3ETuF+wdoqxp6YBSdbwYFmUlPJLdrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095740;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=LsU8Zjx85+8Bc4fkBL6bsA4+NBo/da2SQz5szSsymVw=;
+	b=P1QMa8GwM158cwZlC7yHktr/IpqAQdqEewlNXW93Uj7xRQzLyZnjp5fgPp0oB5m0U7KS
+	 si7Wb2ztf5NjWLdQDQxfiRHMTqHrnpXK09u8bGRNdNH1mf+0nFjmnaBwMSYS4qckO5NDi
+	 KWVHzpCHCp+OGwuy5xvW1TY0+F/0c1EjpNqbS441zD4za5nUl7Pt+j+vPBTCOFhhSJCRl
+	 AVc/8/Wtg34mwbVta6TGV/Gf1qfFBgbeBwlBXzLhQXGssftB1bbdBfFsk0PdwYhcFu+pN
+	 hv3352ynrcDGcBdJH1ifGU6a4PYDU3wlLmfvuLCceiTqIO2kN+/gKQnRTV+/8d7Vcdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux.spacemit.com;
-	spf=none smtp.mailfrom=linux.spacemit.com;
-	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=gDtSumDQ;
-	arc=none smtp.remote-ip=54.206.34.216
-Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZEpM7oQ9;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B28060A262B;
-	Thu, 19 Nov 2026 13:42:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B28060A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1815606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:42:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1815606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=gDtSumDQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
-	s=mxsw2412; t=1795095717;
-	bh=93JGExmDvLbuW+oC4tjK7kMLorNu6gupm5sqCUxSJas=;
-	h=From:Subject:Date:Message-Id:MIME-Version:To;
-	b=gDtSumDQ8hu+B9WIeBWbQxzuQv7PXIRF8UUKXtHU6TB6B86UXq6RlT8TYdIZtoklF
-	 qEZae5DI17xmFK517BGJOQAm8kbUPsyjJRouY5NWP8SIHAnxvubfE24UQt830Xz2iu
-	 ZnhS7Ml4kSg5Rot4UyBAobwBIe3llD9o8JAFqtMI=
-X-QQ-mid: zesmtpgz7t1795095712tffd6494b
-X-QQ-Originating-IP: dLUPNlyNIbcztw6i3WSgaEvFS/vMwOSwntm0pZqPxsU=
-Received: from LT-PANJUNZHONG.dc.com ( [120.237.158.181])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 21:41:50 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17830256423621997771
-EX-QQ-RecipientCnt: 16
-From: Junzhong Pan <panjunzhong@linux.spacemit.com>
-Subject: [PATCH v6 0/5] Add SpacemiT K1 USB2.0 controllers support
-Date: Thu, 19 Nov 2026 21:41:49 +0800
-Message-Id: <20261119-b4-spacemit-k1-usb2-v6-0-4a9add848728@linux.spacemit.com>
+	dkim=pass (2048-bit key, unprotected) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ZEpM7oQ9
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so20533365e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:42:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795095738; x=1795700538; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=LsU8Zjx85+8Bc4fkBL6bsA4+NBo/da2SQz5szSsymVw=;
+        b=ZEpM7oQ9F48EoPJ/3iQMrQUiqSXJxvckMmoaQM0X6ue6VQrsD2bzvMPbJuI3lzYt+l
+         qNg7bMquBuJPUrMKac9sQY4E3sSv+fEcqJdzpmxc0ETpzivfk8n1NYXlXh8xO3YVLfW1
+         aNSfIHH170nuIwcc6Ba9wWVDoyqwwwDCQ8nWWxEwiZooHarblvJG+EIoLbkXr/PxpvtX
+         HhCUmTHLrR2eTkmy//Rfx3aH26h1m0nF9uc5VbT6bCQg/UYtxze4js7R7BFkK9we8TWJ
+         e/3FjVCYRDWcz2yEiE4zKo8eEFsm4kxNcIR8MvsfGPLAt6w0H4yxe3bY8yAwAQbtgcH9
+         +Xsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795095738; x=1795700538;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LsU8Zjx85+8Bc4fkBL6bsA4+NBo/da2SQz5szSsymVw=;
+        b=C3D9y7jQ23wzAJw27OnFc5I1PNZvFV1VJaUIgQnEksqNMptZSRauuLLe/d2CkbMZfw
+         QFNlR/H+ezsRrFwrU4XS8She6kfXDm6xGNNqrEjmROCOeAjDYNqb+K9QH/2s07biE4nN
+         wH2DymZ1McyWsctaFC8feuINhqOiPyTBei4AMrsAl+4cl2eqBtc912JfukhhguGc3cX/
+         4mDjxJIQrD18lWB8Ok/NFqXLtCKelxtLnqQIYHldnGLs8NLJZkr78l1pjHlHTVqaXPW4
+         Ty87Jf7cRMzZA1OKkYGkHzg5Eny/m3M5prY5R9xeEKR7Phgi0FMLCXQlkREcIIKwGDao
+         JHAA==
+X-Forwarded-Encrypted: i=1; AL+hErExUBx87P8kEoie4sxpd+3uB2IvEoUmHGIAuFyXFhl6fZhORSZwIdKUYN1mPanQltTPMRha78agbzYs9SI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+bz6Ql8pNlo/wGJ/12JAqfW61qJhQaHOlYXMDCTveXpJ3t5Iys
+	nfQHzdCWa9LSu5yjXhV3MDCsjblvKvip4i3Desn4Xr6ssDDjsKCz/Ve3LWukypZh9/56
+X-Gm-Gg: AYBFou3Tp+ANba1af+BrJ55W1JBAWHF84wOoIkRQv8MK9xYc3ul8Z2ufb22vBvLfu/X
+	5Gic/CUnOZTuxIJwQUpgo7/vdYfOmfHNo7h7ZawjjHGHBZGoarN2/Q5Hm7SWFIS2yUxtkLbQJNF
+	A1pTsKd/UdwfeLQQJ19WtJaGnh+3ix8PFkAEU97xQVfHwPMMQNBPhtGVp5DUQuMyh8Dr3EeQaRk
+	LHZWXu0jMXrbVMuXzFQo7Hgw/SLDDozSX+5eVC2tWmTy2VlewNLlrAsmOB/IgMDDq8n0r7gKuXP
+	gdLwAS4SGzUKbdvKV6V45+/h8BD4gRXljiv+h6gwjWgM/M5+7ARUjsJ3iRNWLadFf+50JrTto1p
+	HIm8PIPDN5Kmv5tApxJ+inKkILXVlhUxrAIUaC+U/0iCLXfarfxQ1BATzI/uguLLIN1ZmraVTxN
+	XNAUw9Y6feAOCRM4j8mK1x0V81jE6ip7vllVPXFV2LQZ08BAdwpTMOkhzojYuAHLncNQYjv7yb9
+	TUSDh9Wl6C/Qwnr0Zx0u52dLwjmY6OQQcXuJEcpUmGUsB8a+ex8hHvh8vWTwn0+LSDAktFAO61x
+	SXSOQEUY8qqcVux8BKJP+68hGsLfUtFOrfjJXpvfbqjMvuxx2tpagoiEh6F07SneOMwzTr6L0ay
+	7z5WCAWyg3ragpekAjgndsIMsy4PMLD66H4ZZBrZinXO2fBYG/m1Igw==
+X-Received: by 2002:a05:600c:4e93:b0:4bb:5c92:ce12 with SMTP id 5b1f17b1804b1-4bb7da12f06mr122414505e9.17.1795095737895;
+        Thu, 19 Nov 2026 05:42:17 -0800 (PST)
+Received: from ?IPv6:2003:cf:572c:2800:677:1cd6:7e14:6fa6? (p200300cf572c280006771cd67e146fa6.dip0.t-ipconnect.de. [2003:cf:572c:2800:677:1cd6:7e14:6fa6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85372b67sm39429045e9.13.2026.11.19.05.42.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 05:42:17 -0800 (PST)
+Message-ID: <3e4103cbcf7b76535e2f957762174515ef00f08d.camel@amutable.com>
+Subject: Re: [PATCH] pidfd: restrict pidfd_getfd() to the caller's pid
+ namespace
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: Jiwoo Kim <arpe1618@gmail.com>, Christian Brauner <brauner@kernel.org>
+Cc: Sargun Dhillon <sargun@sargun.me>, Arnd Bergmann <arnd@arndb.de>, Jann
+ Horn	 <jannh@google.com>, Chen Linxuan <me@black-desk.cn>, 
+	linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 19 Nov 2026 14:42:16 +0100
+In-Reply-To: <20261117152332.1221-1-arpe1618@gmail.com>
+References: <20261117152332.1221-1-arpe1618@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,120 +104,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJ38/moC/33OwU7DMAwG4FeZciaT4yRtzIn3QBzSxGERrJ2ar
- Rqa+u6kk2AcWo6/ZX/+b6LwmLmI591NjDzlkoe+huZpJ8LB9+8sc6xZIGADTqHsjCwnH/iYz/J
- DyUvpUFLrYwrodLRO1MvTyClf7+rrW82HXM7D+HV/Mqll+r83KQkyoQsJiS1i9/KZ+8t1/7O4D
- 8NRLPCED4zArWO4YNBqgyl5sGoT038wbNcxXbHALZB11ICmTcz8YgqA1jFTMYzk2Go0kfwmZh+
- YUhvNbMUsBu2QQvDNerN5nr8Bt1ZucPMBAAA=
-X-Change-ID: 20260812-b4-spacemit-k1-usb2-97adfc283d58
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Peter Chen <peter.chen@kernel.org>, 
- Xu Yang <xu.yang_2@nxp.com>, Peng Fan <peng.fan@nxp.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@kernel.org>, 
- Troy Mitchell <troy.mitchell@linux.spacemit.com>, spacemit@lists.linux.dev, 
- Junzhong Pan <panjunzhong@linux.spacemit.com>, 
- Conor Dooley <conor.dooley@microchip.com>, Ze Huang <huang.ze@linux.dev>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795095710; l=3014;
- i=panjunzhong@linux.spacemit.com; s=20260306; h=from:subject:message-id;
- bh=TqluRmT/VQB7LfSLhpDGI5y1zKrDzvzJhnZexVT50xs=;
- b=bdUeE/ceXJs7e8o00nWPNNac+fn8nBAqapatdHquoFv7z/unRMxfetBfGUn5zNQEV2ylmXgvy
- TyMtGcpo1ROC+cAW/rdSS0DP90HgdbTlk+vM+m8Td9IiLVmDfC8lHaW
-X-Developer-Key: i=panjunzhong@linux.spacemit.com; a=ed25519;
- pk=bY08BOg2T9H93/jG8fEE/tVmdXoQQMp9M2rtzPFoyJg=
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz5b-2
-X-QQ-XMAILINFO: Mw4SyGTR9S7/ifJaahEXGtfygspmIv2nnf3mQVlIRRGrK6OjMG8UDB0V
-	0OBPp83u7Z+icFIMRR4Wf17Twhx5/XjsOx0t+PfzyKsTt9lE7Yob6sU9wNSFyHruH3KibNk
-	qBkv3OgKB+qphPwSdXUS2UA/9UxyE0qoecZsCyBvEbO29PM8IEyo3g+mUnQq7lFzmni0dNn
-	Oldiw6Ipsq9ZchriejBa4p9xPIbJ3vpqffmunGKICPQ+gyn2GPuk1GdHGxoK+ssSXAZPQGU
-	+zxP/9XdAK1vTm9EdufdgvRBkwtQrveiz4n39S7jWzL9ZbHgjKdelawXH6HvgOT6suzqGFz
-	4tSBAYiU3+mb+MB0tmFgMYcVCz33JxBa6p20DcOUgWzsP4d+IURuGVao6P3pdFw3I0Wh6j+
-	hBqJ01Un1RIyveSBwnVZjjc3KVgmT7caBIzASkqTRM3kZ/bpbh/aSwpEdDu8FcGot//94/z
-	ZqIHobwS2B0b4ukS+jqOk0UKfM2DGby0K0lOYUb+oVqnS4v7HGw/nFQzmYOEwcl2Rxf1fdR
-	5P8pue32BdYJV56iXhphaYyoNFZQcHpdC6N14MzpysTNiyokB/2HABtWyhgKwRoyQRTlNJ2
-	E3b7BuVuPYFpyPIpKP41DLR11Ros9XSj0evCQqZwPATnUb9ogBXWGBh0R8kcoawp8VFbhe+
-	fEPK8U0KnkeFsHxvdPRjjGm8+vCUo1v9rz3rxpYAro8hM8TnnF9rvoBupIJUPR96YPQruGL
-	k0s24URWFD6JZ3eIUkOvdQFkElxPqLRanctjEKUqpQYFNYKmPRQlWg8YivS+5gztxwnFPrj
-	w91rJvQn+QWgLM2PG/xbxzGAH3bHU1TXfnYnlNrv1+l5xn0U31KAj9+dRW0DEk3oXYHPIDs
-	dX6s/RgRFmkbA6mM/KrAQjVyRDGThL6XAZXXoyixJ1kq43LxTwDsoABZ84KsRQi8Yh/DaV9
-	Kp4ZnEwC6nrnT3LxWM6+FE1fJZ0fGnpd2Yf/95ooUGn89pVdoYWKw0caspNIaE6nRviK9zD
-	xSjCmdiOVxCXuHiScfkNzVGGL2xO+kBAeJa9j+1kY/tNQ7unUHSPNwlO6umurKVNCCFK6aC
-	+9Pszaw0wSy8kzZGYPNbeA=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-X-QQ-RECHKSPAM: 0
 
-The SpacemiT K1 SoC has two USB2.0 controllers, one has Dual-Role
-support, but the hardware has no internal OTG registers, the other is
-Host only. These controllers are compatible with Chipidea USB2 driver
-with some flags set and reset control support.
+On Wed, 2026-11-18 at 00:23 +0900, Jiwoo Kim wrote:
+> pidfds can cross pid namespace boundaries: a task can obtain one for
+> a
+> process outside of its own pid namespace hierarchy through
+> SO_PASSPIDFD
+> or SO_PEERPIDFD, via SCM_RIGHTS, or through file descriptor
+> inheritance.
+>=20
+> Commit ee8323fdc827 ("pidfd: restrict task access ioctls to the
+> caller's
+> pid namespace") made the pidfs namespace ioctls fail with -EREMOTE
+> unless the target is visible in the caller's active pid namespace, as
+> PIDFD_GET_INFO already does, following the rule that operations which
+> grant access to additional resources of the target require this [1].
+>=20
 
-This series is based on 7.4-rc3 and has been tested on Banana Pi F3
-development board.
+Hi Jiwoo,
 
-The devicetree and defconfig patches for this controller were previously
-part of this series. They are now sent separately against the SoC tree,
-so this series only contains the binding and the driver.
+> pidfd_getfd() grants access to the target's open files, but it only
+> performs the ptrace access check, which does not take the pid
+> namespace
+> relationship between the caller and the target into account. With the
+> caller in a child pid namespace and in the same user namespace as the
+> target, PIDFD_GET_INFO and PIDFD_GET_UTS_NAMESPACE fail with -EREMOTE
+> for such a pidfd, while pidfd_getfd() on the same pidfd returns a
+> duplicate of the target's file descriptor.
 
-A self-powered USB device/hub is needed to test the host function of the
-dual-role controller on Banana Pi F3, a MINI-PCIe USB2.0 module (a
-cellular module e.g.) is needed to test the host only controller.
+It it an interesting point, because pid namespace itself it not a
+security boundary. While user namespace and capabilities are mechanisms
+to manage permissions.
 
----
-Changes in v6:
-- split the devicetree and defconfig patches out into separate series
-- rebase on 7.4-rc3 to pick up the devm_kmalloc_obj() treewide, which avoids
-  a conflict in ci_hdrc_usb2.c
-- Link to v5: https://lore.kernel.org/r/20261117-b4-spacemit-k1-usb2-v5-0-52c3829cca69@linux.spacemit.com
+Currently, you can do something like this on your machine:
 
-Changes in v5:
-- rebase on 7.4-rc1
-- drop the ci_hdrc_usb2_priv struct as sashiko suggested
-- Link to v4: https://lore.kernel.org/r/20261009-b4-spacemit-k1-usb2-v4-0-2d98e5324d9a@linux.spacemit.com
+# Terminal 0
 
-Changes in v4:
-- drop irrelevant Tested-by tags collected by b4
-- collect Reviewd-by from Yixun
-- Link to v3: https://lore.kernel.org/r/20260927-b4-spacemit-k1-usb2-v3-0-ce7095896039@linux.spacemit.com
+echo $$ # note this PID we will use it in "Terminal 1"
 
-Changes in v3:
-- collect tags
-- merge the two dt-binding commits
-- use local variables when acquiring devm managed clock/reset
-- drop manual clk_disable_unprepare() from the remove path
-- enable related drivers as modules in defconfig
-- Link to v2: https://lore.kernel.org/r/20260908-b4-spacemit-k1-usb2-v2-0-f07342ffa051@linux.spacemit.com
+# Terminal 1
 
-Changes in v2:
-- rebase on 7.3-rc1 and collect tags
-- reorder the usbphy and usb nodes in k1-bananapi-f3
-- add constraint for spacemit,k1-usb2 in dt-binding
-- add OrangePi RV2 device-tree change
-- use devm_clk_get_optional_enabled() for driver according to sashiko's advice
-- Link to v1: https://lore.kernel.org/r/20260812-b4-spacemit-k1-usb2-v1-0-f28cf29e522b@linux.spacemit.com
+sudo unshare -f -p=20
+echo hello > /proc/<PID>/fd/0
 
-Signed-off-by: Junzhong Pan <panjunzhong@linux.spacemit.com>
+and this will actually print hello in the Terminal 0, while the process
+doing that lives in nested pid namespace. But this is not a problem
+because this guy is a root:
 
----
-Junzhong Pan (5):
-      dt-bindings: usb: ci-hdrc-usb2: add spacemit,k1-usb2 compatible
-      usb: chipidea: usb2: use devm_clk_get_optional_enabled()
-      usb: chipidea: usb2: drop the ci_hdrc_usb2_priv wrapper struct
-      usb: chipidea: usb2: add optional reset support
-      usb: chipidea: usb2: add SpacemiT K1 support
+# Terminal 1
+cat /proc/self/status | grep CapEff
 
- .../devicetree/bindings/usb/ci-hdrc-usb2.yaml      | 15 ++++++
- drivers/usb/chipidea/ci_hdrc_usb2.c                | 59 ++++++++++------------
- 2 files changed, 43 insertions(+), 31 deletions(-)
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20260812-b4-spacemit-k1-usb2-97adfc283d58
+So please understand me right, I'm not saying that your point is not
+valid, but I'm not sure what was the intention behind pid_getfd() API
+in the first place and we might want to have semantics and model close
+to the one procfs has.
 
-Best regards,
--- 
-Junzhong Pan <panjunzhong@linux.spacemit.com>
+Speaking about other cases, where we *do* have this check:
+- for exportfs operations it completely makes sense, because filehandle
+  contains an inode number and user space may accidentally (due to the
+memory corruption or purposefully craft it). When I call
+open_by_handle_at I *do* expect to get something from my own PID
+namespace.
 
+- pidfd_ioctl since ee8323fdc827c580425644db605a4be776cace57 ("pidfd:
+restrict task access ioctls to the caller's pid namespace") doesn't
+allow to open namespace files, while procfs has no problem with this
+(it works you can try)
+
+- pidfd_info() also forbids cross pidns information retrieval and for
+part of it functionallity we can do it through procfs, but for exit
+info or coredump we can't
+
+To conclude, it looks like we have a little bit of inconsistencies
+around here :-) [ But please, don't go and change anything in procfs as
+we might break some tricky use-cases like CRIU and SCM_RIGHTS users. ]
+
+IMHO.
+
+Kind regards,
+Alex
+
+>=20
+> Apply the same rule to pidfd_getfd() and fail with -EREMOTE unless
+> the
+> target is visible in the caller's active pid namespace. Callers in
+> ancestor pid namespaces are unaffected.
+>=20
+> This was found with an AI coding assistant, which also drafted this
+> patch and its changelog. The problem was reproduced in a QEMU guest,
+> and the fix was tested there.
+>=20
+> Link:
+> https://lore.kernel.org/all/20260925-gewischt-auftrag-tierzucht-c153cb3f9=
+f74@brauner/
+> =C2=A0[1]
+> Fixes: 8649c322f75c ("pid: Implement pidfd_getfd syscall")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jiwoo Kim <arpe1618@gmail.com>
+> ---
+> -EREMOTE is a new error for pidfd_getfd(). The check is done before
+> the
+> task lookup, so, as with PIDFD_GET_INFO, a reaped target outside of
+> the
+> caller's pid namespace hierarchy gives -EREMOTE rather than -ESRCH,
+> and
+> the check comes before the ptrace access check.
+>=20
+> setns() also accepts such pidfds without this check, but it requires
+> CAP_SYS_ADMIN over the namespaces being joined, so it is left alone
+> here.
+>=20
+> A reproducer is available on request.
+>=20
+> =C2=A0kernel/pid.c | 14 +++++++++++---
+> =C2=A01 file changed, 11 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/kernel/pid.c b/kernel/pid.c
+> index adf721606768..4f9a29eb29de 100644
+> --- a/kernel/pid.c
+> +++ b/kernel/pid.c
+> @@ -893,6 +893,13 @@ static int pidfd_getfd(struct pid *pid, int fd)
+> =C2=A0	struct file *file;
+> =C2=A0	int ret;
+> =C2=A0
+> +	/*
+> +	 * Require the target to be visible in the caller's pid
+> namespace,
+> +	 * like the pidfs ioctls that grant access to its resources.
+> +	 */
+> +	if (!pid_vnr(pid))
+> +		return -EREMOTE;
+> +
+> =C2=A0	task =3D get_pid_task(pid, PIDTYPE_PID);
+> =C2=A0	if (!task)
+> =C2=A0		return -ESRCH;
+> @@ -917,9 +924,10 @@ static int pidfd_getfd(struct pid *pid, int fd)
+> =C2=A0 *
+> =C2=A0 * This syscall gets a copy of a file descriptor from another
+> process
+> =C2=A0 * based on the pidfd, and file descriptor number. It requires that
+> - * the calling process has the ability to ptrace the process
+> represented
+> - * by the pidfd. The process which is having its file descriptor
+> copied
+> - * is otherwise unaffected.
+> + * the process represented by the pidfd is visible in the caller's
+> pid
+> + * namespace and that the calling process has the ability to ptrace
+> it.
+> + * The process which is having its file descriptor copied is
+> otherwise
+> + * unaffected.
+> =C2=A0 *
+> =C2=A0 * Return: On success, a cloexec file descriptor is returned.
+> =C2=A0 *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 On error, a nega=
+tive errno number will be returned.
+>=20
+> base-commit: 44cc27050381e92de64cc3d7836376eda4d92a5f
