@@ -1,50 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.111
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124427;
-	b=NOgySd+aQtIaHjSuIGvrX08NnSb8kcq5E1O4D7B+O+N3Jm51HVeNQwJPD44L/rVZ3d6U
-	 6fl/vjHMYOyCLY15ndfPba3Hcw77Z/mHTWG7BYQ1n0i4ykaSmQG00zGZlwqDnFdvVer8F
-	 PXM+U2+zbHLevXTUO32Qg0SC+BQvdkwBydBHpMktnIkBR3H4HZg+OTRgLkhoEg2Vue3ys
-	 8J8ACWw0DA5NTG3vpw9WF06kTahOWiS9PCEXTMnNE971+z9sq1KsEVj7ZHyOnLycxsmgV
-	 M/D9z9cAubhwdTJnni05AsG14S3qKoRp3Q/ySb24hp6NtakRqpVSaRN9T932jebCxaw==
+	t=1795124434;
+	b=oQHv0ysDRbIMb/a4w1WR3arsdrdiHBYZfuwjP/9s0RL73cePnAHM5uLxcaxvxuHAOnqv
+	 iNnEH2huAEazlLfhLyXp6eltiajW2iWO6m9Jbhl3IpCDtjiWaO3wby2PqwtoPKx5HX8Eo
+	 Y4LuyA4McRvvJNi0rKFRfTB8N7F6l8gOOlSL2VNp31qyyh7XNtewuYseVoel2+TdSEAxd
+	 4oVDuEO0Lv1Ql2QM9B/r3DlkfCiqJHk9G9Zc4EOkVWcrpyVBBN/HOTvo1ELXSNochp33A
+	 tekXnLQG/6esT01B3Z3uym3knwAy312k2gWOhLy7diKERd1wy0zGqalh0uLTQirqtzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124427;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124434;
 	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=nslFzgOpgAUKSjlgHfW9KAAolSPNb0dICXbeo/+kYUI=;
-	b=GSP7u/n9CJIM7rIkxGQ1bFoqGHyNgqDskpLbk8yy44WbrF42DggoZd9YZopx49U0g3NK
-	 I8ePOzDIWsmQJ1sBF47rztQQg1P/+zVtbe6TLnJSgSLBRKnV9FbQOCSIcus0CYQdXRtoQ
-	 Q1XAt3u7042oxuS6d7FQzR8TrVCUA5iSuVMuGo6hFcIyIlfCDVC6AX9Goc9MgQkJqYd11
-	 i5HOdPSQ6k2RK8QeaYE8Y1LRBY6wEeOzJxrw0ZW2aXEAbIouD6B1YSDQrjlDcKRoE2Xzy
-	 MjwRWIUKyoKTXsvdyYEO/i98+gcbVpXFeXwI+OLPUG8oTT2AC+qG9Z9nrE8/QP9OPDw==
+	bh=vF7ekkbhzw0sIXjPLBq5g9RE6+l5S7Zg7YNXTWY9lqo=;
+	b=AhVzZEpyTS4TKI2pli76kHD//gLxQZUPalCUTH74TU91xnZpHEJu30uhAZo5I/4B2fIB
+	 wlhS2YG2nv7Hp0XQ6L/qW3YXc/ljpQQ8G7jlcs43DGtehe8DZTBi6QrD3CiWR33k8CVde
+	 PyIZBQwUI+NUuUdCww5w4DSMJFcaVyVOvYh76bddZooe3EKwxOg12Zv+ew6krrtWgA2YB
+	 qiJLEEzYPNJlRMyQRJsAXPoUjpdORPXQmjpbPT1izqAkzSvMf4AVkqQbgwIPuKc3Rx73+
+	 /fwa4AoG17HmwvOmsLW3Ag/pNCb+vBA92pmP45TMxasqh+k3PDdru3Pvf9yNCDPZlaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=raidlab.org;
 	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=urGNTDGG;
-	arc=none smtp.remote-ip=79.135.106.111
-Received: from mail-106111.protonmail.ch (mail-106111.protonmail.ch [79.135.106.111])
+	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=MX+kM9Vw;
+	arc=none smtp.remote-ip=185.70.43.171
+Received: from mail-43171.protonmail.ch (mail-43171.protonmail.ch [185.70.43.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27600606A33C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:40:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27600606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9617606A324;
+	Thu, 19 Nov 2026 21:40:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9617606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=urGNTDGG
+	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=MX+kM9Vw
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795124424; x=1795383624;
-	bh=nslFzgOpgAUKSjlgHfW9KAAolSPNb0dICXbeo/+kYUI=;
+	s=protonmail; t=1795124431; x=1795383631;
+	bh=vF7ekkbhzw0sIXjPLBq5g9RE6+l5S7Zg7YNXTWY9lqo=;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
 	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=urGNTDGGpNCWzLAIYx77iwe1cw2Hs7nNFN+4EkgeTqX99NqHYZHdAxnauuKJUTMis
-	 Qf0lcHuVTmmXD5UQeqnTJ95Uk5xuTGNAIMXhgUUnykDfoKGrgUI68rx3r4TZ5ZcF7I
-	 MVdFA0mt2+NKNmlRnwU3U/iDOw5gUHcZ2EC0VbyjkI9Yxums1UQY0wMmmAsZY4LbCN
-	 fRw5BZIJZ0HujYZLxUNZXAd5XTtctL9fecsuVZv0Ukgxeo/C7NGz7KvZY0qwHoxXm2
-	 3xf/5kTDMmUPVCq73PiaYNwx7t83/yvXD0RtDOsc4D5H6bHtNiLXMNSnTFvgStWIuN
-	 ZTrY6q9kespIw==
-X-Pm-Submission-Id: 4jVsMV0fLsz1DDqy
+	b=MX+kM9VwLZtagNbz5n2EsO8bZAEdDLpRnasVP35dovqKDaaj6FAWBD3OvFJ83aRRp
+	 qj2z0vdpT7gs6g2+0H0vDRJv197tOEvsTdSejMhOX7WZ2GS+7NXWf9QcjFzVeJMoGB
+	 XDyr7GguTtxS+CP7QrqVWFN/OKmjNz9tqaKmaE96g+GMkGrP51SIu7/X25P6K64f9M
+	 fn6PoP289tV/3xIyq6AK0ohZGSTYBLJY7wK2iesGwOQm2ULJ5PYDEMYGc7XmMiiaM0
+	 Hyj1D8l5xowQg2gvmlFV+xiGfFaxcN5qeQlIc9sX1xz2NwcGtihdMgsxwX32nik5yO
+	 251J2Iv8nhfJw==
+X-Pm-Submission-Id: 4jVsMZ4s92z1DDqy
 From: Miroslav Cimerman <mc@raidlab.org>
 To: linux-btrfs@vger.kernel.org
 Cc: David Sterba <dsterba@suse.com>,
@@ -52,9 +52,9 @@ Cc: David Sterba <dsterba@suse.com>,
 	Naohiro Aota <naohiro.aota@wdc.com>,
 	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/4] btrfs: zoned: take the RAID1 active state from the first present stripe
-Date: Thu, 19 Nov 2026 21:38:32 +0000
-Message-ID: <20261119213835.103131-2-mc@raidlab.org>
+Subject: [PATCH 4/4] btrfs: tests: zoned: add degraded RAID1 cases
+Date: Thu, 19 Nov 2026 21:38:35 +0000
+Message-ID: <20261119213835.103131-5-mc@raidlab.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261119213835.103131-1-mc@raidlab.org>
 References: <20261119213835.103131-1-mc@raidlab.org>
@@ -69,104 +69,138 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-btrfs_load_block_group_raid1() compares the active state of each
-present stripe's zone with stripe 0's. A missing device has no active
-zones, so with stripe 0 missing, an active zone of a present stripe
-always mismatches, and a degraded mount neither activates the block
-group nor marks it active. It is then not on the list of active block
-groups, while its zones are active and count against their devices'
-active zone limits.
+Add cases for the previous patches. On a degraded mount: RAID1 with the
+first device missing, which has to be marked active, RAID1C3 with the
+first and the last and with the first two devices missing, and RAID1
+and RAID1C3 with different write pointers, which take the highest one.
+On a regular mount: RAID1 with the first zone offline, which now loads.
 
-If it is a data block group, writing data to it tries to activate it,
-which fails when the active zones left are reserved for metadata. With
-no other data block group with room left, the allocation then returns
--EAGAIN, and the write waits for a zone finish forever:
+Give missing devices a zone capacity of 0, as btrfs_load_zone_info()
+does, and check the zone capacity and the active state where a case
+asks for it. All six cases fail without the previous patches.
 
-  task:dd              state:D
-   btrfs_new_extent_direct
-   btrfs_dio_iomap_next
-   iomap_iter
-   __iomap_dio_rw
-   btrfs_direct_write
-   btrfs_do_write_iter
-   vfs_write
-
-If it is a metadata block group, writing tree blocks to it activates it
-with a warning:
-
-  WARNING: fs/btrfs/zoned.c:2451 at btrfs_zone_activate+0x72a/0xa60, CPU#1: btrfs/157
-   btrfs_check_meta_write_pointer
-   write_meta_extent_buffer
-   btree_writepages
-
-Compare with the first present stripe instead.
-
-Fixes: 568220fa9657 ("btrfs: zoned: support RAID0/1/10 on top of raid stripe tree")
-CC: stable@vger.kernel.org # 6.7+
 Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
 ---
-Found by an LLM while testing the next patch. The fix and the commit
-message were prepared with the help of an LLM, which also tested it. I
-reviewed everything.
+Prepared with the help of an LLM, which also ran the tests. I reviewed
+everything.
 
-A mismatch between present stripes, like a stripe behind the others on
-a degraded mount, is not changed. Depending on which stripe comes
-first, the block group is marked active at load without the zone of the
-other stripe accounted, or activated at its first write if it has room
-left, which can fail as above when no active zone is left. Both happened
-before too. I can look at the active zone accounting for these zones
-separately.
+ fs/btrfs/tests/zoned-tests.c | 82 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 81 insertions(+), 1 deletion(-)
 
-btrfs_load_block_group_raid10() compares the active state with stripe
-0's too, but activates the block group on a mismatch instead of
-skipping it. With stripe 0 missing, that warns at mount for a metadata
-block group, and can fail the mount for a data block group when no
-active zone is left. RAID10 also adds a zone capacity of 0 for a
-missing first stripe of a pair, which fails the degraded mount once a
-block group holds more than the capacity that is left. Neither is
-changed in this series. I will send fixes for both.
-
- fs/btrfs/zoned.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/fs/btrfs/zoned.c b/fs/btrfs/zoned.c
-index e6ce6f05ad75..8eac6e2283a2 100644
---- a/fs/btrfs/zoned.c
-+++ b/fs/btrfs/zoned.c
-@@ -1522,6 +1522,7 @@ static int btrfs_load_block_group_raid1(struct btrfs_block_group *bg,
- 					u64 last_alloc)
- {
- 	struct btrfs_fs_info *fs_info = bg->fs_info;
-+	int first = -1;
- 	int i;
+diff --git a/fs/btrfs/tests/zoned-tests.c b/fs/btrfs/tests/zoned-tests.c
+index bb9969210444..9cc5b32bb2ee 100644
+--- a/fs/btrfs/tests/zoned-tests.c
++++ b/fs/btrfs/tests/zoned-tests.c
+@@ -27,6 +27,8 @@ struct load_zone_info_test_vector {
  
- 	if ((map->type & BTRFS_BLOCK_GROUP_DATA) && !fs_info->stripe_root) {
-@@ -1555,6 +1556,9 @@ static int btrfs_load_block_group_raid1(struct btrfs_block_group *bg,
- 		if (zone_info[i].alloc_offset == WP_CONVENTIONAL)
- 			zone_info[i].alloc_offset = last_alloc;
+ 	int expected_result;
+ 	u64 expected_alloc_offset;
++	u64 expected_zone_capacity;
++	bool expected_active;
  
-+		if (first < 0)
-+			first = i;
-+
- 		if (unlikely((zone_info[0].alloc_offset != zone_info[i].alloc_offset) &&
- 			     !btrfs_test_opt(fs_info, DEGRADED))) {
- 			btrfs_err(fs_info,
-@@ -1562,13 +1566,13 @@ static int btrfs_load_block_group_raid1(struct btrfs_block_group *bg,
- 				  btrfs_bg_type_to_raid_name(map->type));
- 			return -EIO;
- 		}
--		if (test_bit(0, active) != test_bit(i, active)) {
-+		if (test_bit(first, active) != test_bit(i, active)) {
- 			if (unlikely(!btrfs_test_opt(fs_info, DEGRADED) &&
- 				     !btrfs_zone_activate(bg))) {
- 				return -EIO;
- 			}
- 		} else {
--			if (test_bit(0, active))
-+			if (test_bit(first, active))
- 				set_bit(BLOCK_GROUP_FLAG_ZONE_IS_ACTIVE, &bg->runtime_flags);
- 		}
+ 	const char *description;
+ };
+@@ -77,7 +79,9 @@ static int test_load_zone_info(struct btrfs_fs_info *fs_info,
+ 	for (int i = 0; i < test->num_stripes; i++) {
+ 		zone_info[i].physical = 0;
+ 		zone_info[i].alloc_offset = test->alloc_offsets[i];
+-		zone_info[i].capacity = ZONE_SIZE;
++		/* A missing device has a capacity of 0. */
++		if (zone_info[i].alloc_offset != WP_MISSING_DEV)
++			zone_info[i].capacity = ZONE_SIZE;
+ 		if (zone_info[i].alloc_offset && zone_info[i].alloc_offset < ZONE_SIZE)
+ 			__set_bit(i, active);
  	}
+@@ -101,6 +105,19 @@ static int test_load_zone_info(struct btrfs_fs_info *fs_info,
+ 		return -EINVAL;
+ 	}
+ 
++	if (!ret && test->expected_zone_capacity &&
++	    bg->zone_capacity != test->expected_zone_capacity) {
++		test_err("unexpected zone_capacity: zone_capacity %llu expected %llu",
++			 bg->zone_capacity, test->expected_zone_capacity);
++		return -EINVAL;
++	}
++
++	if (!ret && test->expected_active &&
++	    !test_bit(BLOCK_GROUP_FLAG_ZONE_IS_ACTIVE, &bg->runtime_flags)) {
++		test_err("block group not marked active");
++		return -EINVAL;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -244,6 +261,69 @@ static const struct load_zone_info_test_vector load_zone_info_tests[] = {
+ 		.degraded = true,
+ 		.expected_alloc_offset = SZ_1M,
+ 	},
++	{
++		.description = "RAID1: missing first device on DEGRADED",
++		.raid_type = BTRFS_BLOCK_GROUP_RAID1,
++		.num_stripes = 2,
++		.alloc_offsets = {
++			WP_MISSING_DEV, SZ_1M,
++		},
++		.degraded = true,
++		.expected_alloc_offset = SZ_1M,
++		.expected_active = true,
++	},
++	{
++		.description = "RAID1C3: missing first and last device on DEGRADED",
++		.raid_type = BTRFS_BLOCK_GROUP_RAID1C3,
++		.num_stripes = 3,
++		.alloc_offsets = {
++			WP_MISSING_DEV, SZ_1M, WP_MISSING_DEV,
++		},
++		.degraded = true,
++		.expected_alloc_offset = SZ_1M,
++	},
++	{
++		.description = "RAID1C3: missing first and second device on DEGRADED",
++		.raid_type = BTRFS_BLOCK_GROUP_RAID1C3,
++		.num_stripes = 3,
++		.alloc_offsets = {
++			WP_MISSING_DEV, WP_MISSING_DEV, SZ_1M,
++		},
++		.degraded = true,
++		.expected_alloc_offset = SZ_1M,
++		.expected_zone_capacity = ZONE_SIZE,
++	},
++	/* A stripe behind the others: the highest write pointer on DEGRADED. */
++	{
++		.description = "RAID1: different write pointers on DEGRADED",
++		.raid_type = BTRFS_BLOCK_GROUP_RAID1,
++		.num_stripes = 2,
++		.alloc_offsets = {
++			SZ_1M, SZ_2M,
++		},
++		.degraded = true,
++		.expected_alloc_offset = SZ_2M,
++	},
++	{
++		.description = "RAID1C3: first missing, different write pointers on DEGRADED",
++		.raid_type = BTRFS_BLOCK_GROUP_RAID1C3,
++		.num_stripes = 3,
++		.alloc_offsets = {
++			WP_MISSING_DEV, SZ_2M, SZ_1M,
++		},
++		.degraded = true,
++		.expected_alloc_offset = SZ_2M,
++	},
++	/* An offline zone has no write pointer on a regular mount either. */
++	{
++		.description = "RAID1: first zone offline",
++		.raid_type = BTRFS_BLOCK_GROUP_RAID1,
++		.num_stripes = 2,
++		.alloc_offsets = {
++			WP_MISSING_DEV, SZ_1M,
++		},
++		.expected_alloc_offset = SZ_1M,
++	},
+ 	/* Error case: having different write pointers. */
+ 	{
+ 		.description = "RAID1: fail: different write pointers",
 -- 
 2.53.0
 
