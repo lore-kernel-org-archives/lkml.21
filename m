@@ -1,54 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064581;
-	b=V8yov6ni/UQyeZn5d5HZF7oZYTig3v6IWh7sgYxgRhN5+MOERmah2M1yafPKU4mthARi
-	 3z3guA7Cb56GuQkn4ad7bafc7qAVJ+HLTWkyAR210pbtnpY5DlicwaQfZwNB6a6LKstch
-	 OeFGlCEFjPUlyAaUKHtP1p5Q+iNCnFZgDXDSC0MmpQ7DdwPIBNRhsP+jy6FSVtfjIX8TA
-	 /xUn3cIC65pVLSJtx5N389fdXN5gZ2Fncngu29RhOTEQ2FKTOsLYuhZiBL8Z0UOOr/bPk
-	 mTYz83n6UM5IYy3x83ypCd/dCdWKHq7yDcNWzX+tVW5m22YA5oDJLEwoExFxSTwdYJQ==
+	t=1795064686;
+	b=T8zKCvxu52fP8mYGg3JZG5fM9OJ8kHRhXnRgLbF/AD1iBuuQ7tH3rVO5La4v5eIqCnU/
+	 HEdeZhDfM99Pt9nAHnUU5nQGTXX16beQ9jfgbegbcv7HN4LuhbIrT+TjHjv6Vn5IzEjE7
+	 vONm5+TjrzuukmKCvqTrtrYPxyuLXh1IwPOnjdDbmVHbhJOKeXjewKhiiuSA+HsNZEMa4
+	 7sHeojZTZRxVrQlQO1j83N/sevMXPlBZR4VzZpgDgJ5tnXMHPRb759QrrMmIVwj49A6mk
+	 sO58L8oHRxHpf07gLikjtnJBVFJfxIuFTpUt+tW70dTaWt7uZhQWk1xb/+qeI8ZzRiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064581;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=BT7+1r2EbCQwN3k5fIH4q6qWDyQXDFrNj9A0BO8ZTQs=;
-	b=yeIEd7XQqh9zc15ymbPVaFPwwOPidruKv6l/0na1NWdVEivZPSq7LLUJt0M4Kk48d913
-	 GHBlHlQJ5XpjntLw8NdVrCdI7acpoRQZDWoIr/NPYkhndf4VQ3379qa1Zr08anplX5trf
-	 bqtgw+RvaT1XswPvEJ2PTHAADm7cEDFpfwu2DrSqq0UKU9piaWkCBZcG5vhJYP4hWmuub
-	 7DWNkupvhhWYiFv2rmXuLNdXX7vQJmzq8f6Aqbq7ZIUlxdRSaYeamNRrn9TO4ZNjEE9OM
-	 NThevqQvwjamqcNKdnQpavXp266YBE66jxX2GzzhGJa6Dht+WPh5Wuf7UBQkJkjHlwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064686;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=HdjBVi+t78AKEXqFGcFEr3Jdy2Bsa5tMpWA/POOsSkU=;
+	b=kW259qyTvw+hMKfm/IfiE6O3xBz0wf7eaQG3Nfb8xcQJs45xdVyeLYW9XRSEtqJW6TXb
+	 JLt1noO4Mlet0hpABlB1wEmPOuPe1C0EIlFqchPZX4lwKtu/7mgPTWpQmMtGFgV3MELdo
+	 X8hOZopJB7Zri9ruVOChu/LxSq2RVFTWl1cPXDahvfEXKv46O4/KZ03/UgVcwBuZXvHQK
+	 G8UexJ84o+UTOJDTJUNQTGPmXG0t0VetKbI4rYpu4oYG02xGbN7vv0ukzmnRO59nzI9o/
+	 qT56dj3gTHU5E4lGxVcQ4TXXxwWycVA1MSTXhM5TumwYnDviVAwrkhc4lCSibgmmjWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FalkxcAs;
-	arc=none smtp.remote-ip=95.215.58.48
-Received: from mta1.migadu.com (out-48.mta1.migadu.com [95.215.58.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b="ChAAtRN/";
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 029E2606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:02:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 029E2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 388A3606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:04:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 388A3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FalkxcAs
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=J5rUZ6TR2jk9ww8i3KV8RMWzlPBWx7p9zVMYCEJba0U=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795064578; v=1; x=1795669378;
- b=FalkxcAss1D7NsKzdTmRxfYXpEAHTaDAYkX6+jLZEvhm2ANlYeHknp2/pvQ3uBnVFWgrg+z3
- T/+JBOl5SNmWeEmM9zjQ4z5SgtSu5xX9siTeRCtGWH/HobdKTNO2Z6e61lLBZnZjezWPp/OvTYN
- J9tvP9ZSzazGjZcK67cQwv1c=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b2ce2cbeb8803d33;
-	Thu, 19 Nov 2026 05:02:57 +0000
-X-Mizu-Trace-ID: b2ce2cbeb8803d33
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <9a47ede3-24fa-4fa3-8d7e-50f221de0929@linux.dev>
-Date: Wed, 18 Nov 2026 21:02:52 -0800
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ChAAtRN/
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=HdjBVi+t78AKEXqFGcFEr3Jdy2Bsa5tMpWA/POOsSkU=; b=ChAAtRN/xnQPWj2FLPM+mdY8M1
+	p+QNPXBJk8BKOOgM1+NAghkjyTVnOfARVrsXDQVu1clYfc5JK4/BGNb8bt3V39PtbG6d2C7PAMANc
+	iNwDtAG6Eyb/pHQHpIx3BnpVA1kbBR3s1KZYAad9s4LKGJbYmpowukfO2ly8rIsGICaHjXEwVmZfL
+	nqBEmVzRm8eAJlutLdeM4ix5sJFlgIEfNhZ8GdoGKl9YmYwB0GSNJRenBktTzQCTjEMf4UXCH6nA2
+	eeF2wNXvqjt1Hh7lFIq96c31Dd6Pzvbt94UO8Y2qI2OV6ur2bXoSAlMEt5EEfa9VhM4BXggvGOwPm
+	QTg8FLrg==;
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTuKD-0000000ArIo-308A
+	for linux-kernel@vger.kernel.org;
+	Thu, 19 Nov 2026 05:04:45 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Subject: [PATCH v2 00/12] docs: ioctl-number: update entries
+Date: Wed, 18 Nov 2026 21:04:25 -0800
+Message-ID: <20261119050444.249752-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,114 +62,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
- preemptible programs
-To: mikeba@sentinelone.com, bpf@vger.kernel.org,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>
-Cc: Martin KaFai Lau <martin.lau@linux.dev>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
- Martin Kelly <martin.kelly@crowdstrike.com>,
- Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>,
- tyler.wilson@crowdstrike.com
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
-Content-Language: en-US
-From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
-In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi Mike,
-On 11/17/26 3:29 AM, Mike Bazov via B4 Relay wrote:
-> fentry, fexit, raw_tp and syscall tracepoint programs can be preempted
-> while they run, but their recursion check is a per-CPU counter:
-> 
->   task A enters prog on CPU 0       prog->active = 1
->   task A is preempted inside prog
->   task B enters prog on CPU 0       dropped, counted as recursion miss
-> 
-> Nothing recursed, but B's event is lost. Since 7.0, x86 and arm64 have
-> only lazy and full preemption, so this happens on stock kernels. Our
-> fentry/fexit probe on inet_sendmsg() and inet_recvmsg() loses 9,254 of
-> 8 million runs under HTTP load on a 4-CPU VM. With the series it loses
-> none.
-> 
-> The series checks recursion per task instead: a program is recursing
-> only if the current task is already inside it.
-> 
-> v2 did that for every program, which breaks a program that uses a
-> per-CPU map as scratch space: the second task overwrites its buffer,
-> and nothing counts that. So in v3 the verifier marks the programs that
-> keep per-CPU state, and those keep the per-CPU counter and behave
-> exactly as today:
-> 
->   - per-CPU maps, bpf_this_cpu_ptr(), bpf_per_cpu_ptr()
->   - tail calls: the target has no recursion check of its own
->   - timed may_goto: its budget is per CPU
->   - a private stack
-> 
-> Trade-offs:
-> 
-> - Marked programs are not fixed. A program with a per-CPU map or a
->   tail call loses runs to preemption as it does today.
-> - The verifier can't see everything. A program that keeps per-CPU
->   slots of its own, like array[bpf_get_smp_processor_id()], is not
->   marked. Today the counter keeps its runs apart. With the series two
->   runs can write one slot, and nothing counts that.
-> - raw_tp is about 2% slower in bench, see the table below. fentry and
->   fexit are within noise.
-> - Tracing, raw_tp and tracepoint programs lose the private stack
->   (patch 1). It is already unsafe for them: two raw_tp programs that
->   tail-call one handler let two tasks share its stack today. A program
->   with two 2000-byte frames no longer loads.
-> - A marked freplace program can't be attached to an unmarked raw_tp or
->   tracepoint program: -EINVAL.
-> 
-> One question: the marking is automatic. A flag that the program's
-> author sets would avoid the second trade-off, but existing programs
-> would keep losing runs until they are rebuilt. Which do you prefer?
-> 
->   1. bpf: Avoid per-CPU private stack in preemptible tracing progs
->   2. bpf: Mark programs whose runs must not overlap on a CPU
->   3. bpf: Check program recursion per task via bpf_ctx
->   4. selftests/bpf: Add preemption recursion test for tracing programs
-> 
-> Testing, x86-64 VM with 4 vCPUs:
-> 
-> The selftest pins two tasks to one CPU and makes B enter the program
-> while A is preempted inside it, 20 rounds per subtest. With the series
-> all 19 subtests pass. On bpf-next 7 fail: B is dropped in every round
-> (fentry, fentry_s, raw_tp, raw_tp_s, tp_syscall), A's stack is
-> overwritten (two_dispatchers), and the freplace attach is not rejected
-> (ext_attach).
-> 
-> bench -w2 -d12 -a trig-<x>, M/s, median of 10 runs [min-max], lazy
-> preemption, in boot order, on bpf-next 0fb18ce8a2e9:
-> 
->                trig-fentry          trig-fexit           trig-rawtp
->   bpf-next     41.65 [40.81-42.14]  38.89 [37.58-39.41]  42.62 [41.95-42.80]
->   series       42.40 [41.87-43.04]  39.33 [35.24-41.68]  41.31 [40.48-41.74]
->   bpf-next #2  41.64 [40.87-41.74]  39.29 [35.18-40.62]  42.05 [41.24-42.35]
->   series #2    42.34 [42.12-42.78]  39.87 [39.46-41.38]  41.53 [40.79-41.75]
+Update file names that define ioctls and update the range of
+ioctl function numbers that are used where they have changed.
 
-We tested this series and wanted to share the data. Overall unmarked LSM/fentry
-hooks previously affected went to zero. Marked hooks remained about the same or
-regressed slightly. Normalized data:
+[Since having multiple maintainers trying to merge these would
+cause some conflicts, it would be more manageable for Jon to
+take all of these through the docs-next tree.]
 
-category		before	after
-raw_tp (marked)		240	213
-fexit (marked)		61	135
-fentry (unmarked)	3	0
-other (unmarked)	805	0
+ [PATCH 01/12 v2] docs: ioctl-number: update MM entries
+ [PATCH 02/12 v2] docs: ioctl-number: update sound entries
+ [PATCH 03/12 v2] docs: ioctl-number: update block entries
+ [PATCH 04/12 v2] docs: ioctl-number: update networking entries
+ [PATCH 05/12 v2] docs: ioctl-number: update video/fbdev entries
+ [PATCH 06/12 v2] docs: ioctl-number: update SCSI entries
+ [PATCH 07/12 v2] docs: ioctl-number: update MTD entries
+ [PATCH 08/12 v2] docs: ioctl-number: update USB entries
+ [PATCH 09/12 v2] docs: ioctl-number: update virtualization entries
+ [PATCH 10/12 v2] docs: ioctl-number: update FS entries
+ [PATCH 11/12 v2] docs: ioctl-number: update platform entries
+ [PATCH 12/12 v2] docs: ioctl-number: update DRM entries
 
-It's nice to see the series progressing since we are affected by the same issue.
-See some comments on the individual patches.
+ Documentation/userspace-api/ioctl/ioctl-number.rst |   91 ++++++++---
+ 1 file changed, 72 insertions(+), 19 deletions(-)
+
+v2 changes:
+- address sashiko review comments
+- drop addition of arch/x86/kvm/x86.c (Sean Christopherson)
+- drop moderated mailing lists
+
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-doc@vger.kernel.org
+Cc: David Hildenbrand <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Leon Romanovsky <leonro@nvidia.com>
+Cc: linux-mm@kvack.org
+Cc: Jaroslav Kysela <perex@perex.cz>
+Cc: Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org
+Cc: Jens Axboe <axboe@kernel.dk>
+Cc: linux-block@vger.kernel.org
+Cc: Marcel Holtmann <marcel@holtmann.org>
+Cc: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: linux-bluetooth@vger.kernel.org
+Cc: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+Cc: Jason Wang <jasowangio@gmail.com>
+Cc: David Heidelberg <david@ixit.cz>
+Cc: oe-linux-nfc@lists.linux.dev
+Cc: Chas Williams <3chas3@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org
+Cc: Helge Deller <deller@gmx.de>
+Cc: linux-fbdev@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: MPT-FusionLinux.pdl@broadcom.com
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: "Martin K. Petersen" <mkp@kernel.org>
+Cc: linux-scsi@vger.kernel.org
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Zhihao Cheng <chengzhihao1@huawei.com>
+Cc: linux-mtd@lists.infradead.org
+Cc: Neill Kapron <nkapron@google.com>
+Cc: Andrey Konovalov <andreyknvl@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org
+Cc: Juergen Gross <jgross@suse.com>
+Cc: Stefano Stabellini <sstabellini@kernel.org>
+Cc: xen-devel@lists.xenproject.org
+Cc: Hans de Goede <hansg@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: Eugenio Pérez <eperezma@redhat.com>
+Cc: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Cc: kvm@vger.kernel.org
+Cc: virtualization@lists.linux.dev
+Cc: Jan Kara <jack@suse.cz>
+Cc: linux-fsdevel@vger.kernel.org
+Cc: "Theodore Ts'o" <tytso@mit.edu>
+Cc: linux-ext4@vger.kernel.org
+Cc: Mike Marshall <hubcap@omnibond.com>
+Cc: devel@lists.orangefs.org
+Cc: Paulo Alcantara <pc@manguebit.org>
+Cc: Namjae Jeon <linkinjeon@kernel.org>
+Cc: linux-cifs@vger.kernel.org
+Cc: Jaegeuk Kim <jaegeuk@kernel.org>
+Cc: Chao Yu <chao@kernel.org>
+Cc: linux-f2fs-devel@lists.sourceforge.net
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Tzung-Bi Shih <tzungbi@kernel.org>
+Cc: Benson Leung <bleung@chromium.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org
+Cc: Alex Deucher <alexander.deucher@amd.com>
+Cc: Christian König <christian.koenig@amd.com>
+Cc: amd-gfx@lists.freedesktop.org
+Cc: Jani Nikula <jani.nikula@linux.intel.com>
+Cc: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
+Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>
+Cc: Tvrtko Ursulin <tursulin@ursulin.net>
+Cc: intel-gfx@lists.freedesktop.org
+Cc: Matthew Brost <matthew.brost@intel.com>
+Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
+Cc: intel-xe@lists.freedesktop.org
