@@ -1,49 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.81
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795052406;
-	b=hhHJAeMW4dCSycHhxElzdiH+hN9cIlM50sRlxK7C95QgN7656Bh6Kc8KmQh9oVb4K8mG
-	 tcubf/OX4XDghF6bfjs6Ir7jft/ScfPw9C2MGCC1fLBYX6Lte8PPg+shhoPJjgZVjhi5e
-	 E9GXMzt48VRNfTvl23VvgWo5IjOUha0bpXUOPEMnl6A7WuSFPG9i0slWyRpO/Bph6TDqk
-	 rS62Gygz92k1OjTX6kltEEMZUw3SY+irME/g4jBtyTIUysbOShuWqTpDhP6+A9Mz0Ojn7
-	 OD1koMl+ST7KD3Ldzwut9aQf+bLLrfFKRJ4ShC0nD02SiG7TjzxMYJheow0cItuPUKA==
+	t=1795052501;
+	b=odxIpUzk2ZOmNTPiasMS+3AEIoZQ4HJuvBZknkJG79Airs7PYnOTNQYMmCMM/Sf7AIsb
+	 Pmgurjq19xl1DH55FX2/6erIh4yjRqU7/vT1JHAUbcOktOvhvGg2O/hOwkWeQOyuulJMx
+	 w1L0A1YCClpCAP7uCEaiHoBBNVxc/H934esyP8nuPIwrn0pz7ViqpwKjuesT2LDWuznV8
+	 mQmEpE1V0mZ7pEDHMfYQiCFWpaMa67N+i7fXbHsFKe+/+Fj1E2BvOiVDKAefKeiN0rvsR
+	 94SAXjn5UqEaHvQvlZR81c0zFo/x0c6GLHQgxCAUgg2sF9QLfy4tIDRVTB5cg/2szVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052406;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=W7SHR72+LdBhjeUJUmQ+DyimP5GUte92DHKvYCVcaho=;
-	b=QEV0PtvkLkX4yu8TuY0OPAMhIEj1eLMz638JHhhlcDdo3RNSsRdAaH6xAomM1wo0b3qV
-	 aJ+nplmNPpqLsDbpky9ltcTwGJqBSlkeFmGts9kMl+OSjbiua8YY5JxR+8PlvCY6gjVuo
-	 f8xlmwblY4i7nb6d3yT2GCfDbn5AykbdE8VhMfmFlkaIEi5tgQj1kMKqV0rhlQb3J3Kd5
-	 i6upeME1ur398IX8s7vEBNOK8PIUrl7c8lY32lUVObDwWAXC6fzA61dpve6R6FUHeMCbA
-	 mUEQ4W+MQvOJl2DhG09LhX3mdzeCTKkCyi8kRoiXSiQUl2Uo1ixBKxxCHYlk6mijXBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795052501;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=78jCQYAj/2CHdToyXerZ0OobA/hCp5b2KM82DylRDl4=;
+	b=Z4xRkMfz1lbHDdVAWPhOjYKGLEU/F/Vkl+qGposQbCmU71mwxNsj/DGxUARo2u9KlRns
+	 D2fUtpIB0vaQGtG2U7hYynXnXwlYOSCUecgIvzMdES18VkySVRtIulJhdxlXYxo6OvTWe
+	 FGytVTTFeb6S3Yp+MWwkPjT5gDj62LAh30RvjeBUdGOMhk1U9pgxuvzhIGTsPP+A3p0s9
+	 tl1ksryN8qW+G+j2SPL7zTZUNDXXTDK8jPdS2QHrTIGsmApAKaQBfNsapkTYEgxDcYwNb
+	 4x+AxrTyk+2/JKFUQjYpwZzBerzU55avxzcviyb1E9VuZXzTQDQqoGpdey6IWz5zpzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R100wCR5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cwooper.dev;
+	spf=pass smtp.mailfrom=cwooper.dev;
+	dkim=pass header.d=cwooper.dev header.i=@cwooper.dev header.a=rsa-sha256 header.s=key1 header.b=UIbUL5QA;
+	arc=none smtp.remote-ip=91.218.175.81
+Received: from mta0.migadu.com (out-81.mta0.migadu.com [91.218.175.81])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE133606A320;
-	Thu, 19 Nov 2026 01:40:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07AEA606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:41:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07AEA606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cwooper.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cwooper.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R100wCR5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEFB61F000C5;
-	Thu, 19 Nov 2026 01:40:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795052405;
-	bh=W7SHR72+LdBhjeUJUmQ+DyimP5GUte92DHKvYCVcaho=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=R100wCR5n8JHCXvur07olBqP/QQ0m9fb3HaM7lVlSQyc+kLUySaDEyP2VvbosTF8s
-	 CFauVw10qXn/eIAbUzL0eOFBdnIk3tfXoTHjlPkrqJhitjPKL18jQjjOHWVZ8muMX4
-	 Ma53hAqMSKk1ciZJnWkvoWl0Q/mTtb6OowJESVe6L8tc92lFpbN5m1JyaAlbNTBHFy
-	 XDLKNTeRtPp2w0gwKUt1hpr12tyTDn9HrKsMYc6YCaO94MugonBIrRorz63andOag4
-	 Th9j4uL9MpZAAGTeURKc9Q2Qr+JvU60I8mqI8jH52/XNtzjJxqpZsJpDRULXDYEfpO
-	 II/H1j/pdRP+g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45CB3808210;
-	Thu, 19 Nov 2026 01:40:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=cwooper.dev header.i=@cwooper.dev header.a=rsa-sha256 header.s=key1 header.b=UIbUL5QA
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=78jCQYAj/2CHdToyXerZ0OobA/hCp5b2KM82DylRDl4=;
+ c=simple/simple; d=cwooper.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795052498; v=1; x=1795657298;
+ b=UIbUL5QA34LJwuz3zSQy2uAcDuzMEov18RuPQGx7FRJtWedCa6gslMJXjHTGD72349JchNYe
+ 3FxbwODUIeiAESe0FqF01x8Dt+hxAtpM8hLezIMjm4Vvyi3vuiMDdjMVGQCrkOvXdZ1F2/R8od1
+ O+Kyjv5JYQf6F9a9m2A1gEuvkH5K1Efeb/CLuqZoeI498BIp+emWgebj9LxHy8Xs994FfzWvYt/
+ I9WNRqHRx7csEDpYcnTfi2HCzNZgxU4uM5fZjjZz3tM7nvscjDc0Jpwgy0Om8P+LivNURt3HCIE
+ VEAt4ts2bFPszQ5Q2SKzBQ83bKLEFAxfmWmm4HIidgG6g==
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 4d7e63b37adc295c;
+	Thu, 19 Nov 2026 01:41:37 +0000
+X-Mizu-Trace-ID: 4d7e63b37adc295c
+X-Migadu-Flow: FLOW_OUT
+From: Cooper Morgan <ext-github@cwooper.dev>
+To: Alex Deucher <alexander.deucher@amd.com>
+Cc: erenozen@protonmail.com,
+	Wayne.Lin@amd.com,
+	oss@oysterdaisuki.com,
+	harry.wentland@amd.com,
+	amd-gfx@lists.freedesktop.org,
+	sunpeng.li@amd.com,
+	siqueira@igalia.com,
+	christian.koenig@amd.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] drm/amd/display: Fix FreeSync infopacket refresh rates above 255 Hz
+Date: Wed, 18 Nov 2026 17:41:15 -0800
+Message-ID: <20261119014116.3632450-1-ext-github@cwooper.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <HftAWPKURVjBtK_2BmUiLXOb8ghZxaEzAJSg0tlsmy5L3ckJyDWc6g65vrsVGdA3ZcytB6mPuyxaQbsPawfOZmdC1dyAo4lCbaK3Tj7Tm-U=@protonmail.com>
+References: <20261113010529.11514-1-ext-github@cwooper.dev> <20261117183440.552477-1-ext-github@cwooper.dev> <HftAWPKURVjBtK_2BmUiLXOb8ghZxaEzAJSg0tlsmy5L3ckJyDWc6g65vrsVGdA3ZcytB6mPuyxaQbsPawfOZmdC1dyAo4lCbaK3Tj7Tm-U=@protonmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,50 +79,16 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v5] net: ethernet: adi: adin1110: mask the RX IRQ of
- the
- port being stopped
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179505240453.2706708.1042366992857276470.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 01:40:04 +0000
-References: <20261111-adin1110-net-stop-v5-1-yuehongwu@cmss.chinamobile.com>
-In-Reply-To: <20261111-adin1110-net-stop-v5-1-yuehongwu@cmss.chinamobile.com>
-To: Yuehong Wu <wuyuehong@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, kees@kernel.org,
- nuno.sa@analog.com, hkallweit1@gmail.com, nichen@iscas.ac.cn,
- alexandru.tachici@analog.com, lennart@lfdomain.com,
- linux-kernel@vger.kernel.org
 
-Hello:
+Hi Alex,
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The copies in drm-fixes-7.4 and drm-next have the same problem Eren
+found. Patch 2 there (6a9d5e2f, e1c26823) is missing the
+amdgpu_dm_connector.c hunk, and its connector test went with it, so
+nothing fails on those branches.
 
-On Wed, 11 Nov 2026 10:30:00 +0800 you wrote:
-> adin1110_net_stop() programs the RX-ready interrupt mask of the wrong
-> port: it uses ADIN2111_RX_RDY_IRQ (the second port's bit) when stopping
-> port 0 and ADIN1110_RX_RDY_IRQ (the first port's bit) when stopping
-> port 1, while adin1110_port_rx_ready() uses the opposite mapping, port 0
-> -> ADIN1110_RX_RDY and port 1 -> ADIN2111_P2_RX_RDY.
-> 
-> The port being stopped therefore keeps its own RX interrupt enabled while
-> the peer's is masked.  On ADIN2111 that stalls RX on the peer port; on
-> ADIN1110 the RX interrupt is never masked at all.  As the interrupt is
-> level triggered and adin1110_read_frames() skips the FIFO while
-> netif_oper_up() is false, the stopped port also keeps re-raising its
-> interrupt with nobody draining the FIFO.
-> 
-> [...]
+Could you swap in v2 before the fixes pull goes out? It has the hunk,
+plus oystersuki's Tested-by and Suggested-by tags.
 
-Here is the summary with links:
-  - [net,v5] net: ethernet: adi: adin1110: mask the RX IRQ of the port being stopped
-    https://git.kernel.org/netdev/net-next/c/8199da5970cc
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks,
+Cooper
