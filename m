@@ -1,47 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094408;
-	b=DDZD10v1nrtu5XxD/XYYaUltI7Pp/TfQ6QAJK1zqvoV7+NojLzlb2eKbZpYiDDhYr/+f
-	 J4zybaXDJNhCBy8RjdzPswrQ00DPnWWb3exQRZS797wBMGaXNwR652DI+RPJ1vOiiplY7
-	 iwuQYDYhk8Dr37Vn+8YgDj9FPEDUgTslHmb2+8Vqku+SzG2IuOPiCY0rt4DpAug5aU2RC
-	 3Hz1nCfmn8CI1UU90lV1x4458NpMwGROSvyXRNIBbAxo5UeIWK8tNBJYqvt+Q4T/cBP9p
-	 221hLHdXR+Wv6AlSk9cjRinAyCFVS10OD01zZ9jWqjDkuE+yRmV17ddo0yYLsgzxE5g==
+	t=1795094439;
+	b=zSYcgsKjTh3iSaRAASGgzU7YgIwdi6fyHATWW+9Mg4YEBl6JazsprSVk6xpcVdBBBYWr
+	 wQjDDcy1o6aEVPOMBDOnc+k/pVwyE0HPyN7u0yZ794awLyXqrkqj8sYqkknY6WOmbN/Yq
+	 5u54p9DtdjuaDBYtfqBptt73pFe5ile9ZBk5G5jAFFHeqYlkJwvHzjldARehXm2Nn5f0U
+	 tWLGB+Z0YxeiZT+BzldTiSc6Fmm9sEpUb4NHbCJPfDCoaYNAV72CWjxrDFHLqLl7JyUy9
+	 tQYTI58Q5pVCH8i/65MCkBuibBFwbMHg7K3MBHu5xKs8GJ3hqWLGOKLxOBekKPWG6oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094408;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=uY2PPIMBqoVI5/qTGl4Vqr1h4cnYz6gEe8ywnrYUsEw=;
-	b=Uw9h1S3UvBMbQvtkQ9j0rk04oZdkR6oiOTLpG1Za7+385s2cGh31lttdqbbEWJqfwJfc
-	 /XwqjfLVZOXC1Nsd1+npbBCI0HijH4aBfF7gUrwl1cX8tKVbD26Gg9qIEuDph/4ZZE1zx
-	 BZCNRk0HisE6c9IIxfUUq2yBn6i+7JVDafXRUZHeyM0j/E2CWMA3qNMW+pIYtUTs14Iok
-	 B9YkSJyMxGhQIMC4N4Mjx4TGTN8X3m3bAzhNSeM8Zc4ikVNS+WR0q2l4hxcIfk8w0uKb6
-	 nCKaDMdUDjScyEO0X4TyO8KTD0Vw/7g+UYP4FrqsrylfJcTeILwBOG2DNhkYrbN+wng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094439;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=dNGD8cBwQpd0VbuT805npGlElNBu5pYxhINVSOb0jkU=;
+	b=fnUoYNVvM+4EpHssVMJzEVZMODnNWepri80WWPsGWzdt7O5M0daMjoA999D/f/hT6kGx
+	 kuDMWMBTJEH34HRvxtWemhhMCXi4p6Rri6nZlLxeZsi9mXwJjFb0jd+gwnRpgcL0KPTCK
+	 NWmZ5gvUerJBeWhxpHX0Amgh0FyIeLX8rXddSmKhld3QXC+DCcmwskiq++7QAdtlGllqr
+	 KyAvIYXIhgU1+MJ/8/GUFsow06k9nXWrVLyZChQ6QP+5z6B8wi6L0XIWsO6MwODJlUhwT
+	 vCrt9d23Cg3rvgB0IdzVU/KDOtPsm/8xSObkV4uHtBcM4r6Qy1gZHiC7DZm9kWR1NQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D0Ie0cpg;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N+cIGwMZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E98C60A261C;
-	Thu, 19 Nov 2026 13:20:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA2CE606A320;
+	Thu, 19 Nov 2026 13:20:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D0Ie0cpg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C56A1F000C5;
-	Thu, 19 Nov 2026 13:20:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N+cIGwMZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 309E91F000C5;
+	Thu, 19 Nov 2026 13:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795094407;
-	bh=uY2PPIMBqoVI5/qTGl4Vqr1h4cnYz6gEe8ywnrYUsEw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=D0Ie0cpgY5adUG8F5DWmqtHk4kwVh8WPWXby+pI8HUfOyB9WIro5z37LcwAR5zY4Z
-	 qN4aJPvkeHEJfvg+OwWSez9IFn+OimHHC2EAN8+mP7Ni7mNbUgrJoNXJnzacltkzxN
-	 /dPDZ0PbK1il1+O4gldBtAs+9xuCKBq9lpe1YNPrVxQ698zLpiN/YGQ9ngsUMr9+ko
-	 /hCvILfjSnG+oV+lfHX/8uVj/qKtx/zYy7rcT6i1v3/wxfN7IYFP07olbUeeldLXvb
-	 uhRRpUXp4I69V5PxwJF+0XURDyf2TsQITDDGhOrOv4RRz8eiGN/XHWzYNnGKfUVwp2
-	 MB7QAdU9gfxzw==
-Message-ID: <7e207fea-8aae-4271-9e94-331464442ae9@kernel.org>
-Date: Thu, 19 Nov 2026 14:20:03 +0100
+	s=k20260515; t=1795094439;
+	bh=dNGD8cBwQpd0VbuT805npGlElNBu5pYxhINVSOb0jkU=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=N+cIGwMZJyqVaA2RhU4nUz0Il07IadwPgCiGeEpBf0lObBdxOrI312C2M5zPyjnaY
+	 u0V6YL/y1Y1FLyreIkS9ZTvGG266e2pD7fgK6Pay+d8c3ETR6LfvDOxYP3mh2pe7G9
+	 MkXxG2T7zODtLRHYfXIx5MRFI3snRU0jZhaKR71/ySFW7XA6i49Xioa617xBIeA58b
+	 kOolQdxLPH17h+6ZcN3FEB+CdMaM6/k2WuRoRNbXRTPrThncT1dCEhcRwIq6KZXmYS
+	 8gK8wijyZHjP+P1roUOteVf82y2yjch5/9Mc1PErKzOz4OfOZnyDluVtPVMSU68jKm
+	 Sr03CpDz+01tQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,72 +49,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: rtc: haoyu,hym8563: document vdd-supply
-To: pjh456 <pengjunhao409@gmail.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261119125125.75912-1-pengjunhao409@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20261119125125.75912-1-pengjunhao409@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 3/3] media: qcom: iris: Improve diagnostics for system
+ and session failures
+From: bod@kernel.org
+To: Dipayaan Roy <dipayaan.roy@oss.qualcomm.com>
+Cc: linux-media@vger.kernel.org, vikash.garodia@oss.qualcomm.com, 
+ dikshita.agarwal@oss.qualcomm.com, abhinav.kumar@linux.dev, bod@kernel.org, 
+ mchehab@kernel.org, p.zabel@pengutronix.de, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261106153126.120858-4-dipayaan.roy@oss.qualcomm.com>
+References: <20261106153126.120858-1-dipayaan.roy@oss.qualcomm.com>
+ <20261106153126.120858-4-dipayaan.roy@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 13:20:34 +0000
+Message-Id: <179509443445.2846709.5391146135790819802.b4-reply@b4>
+X-Mailer: b4 0.17-dev-e3fc9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=562; i=bod@kernel.org;
+ h=from:subject:message-id; bh=D30r3ot83GPgYIP7ptT78+SN1sH5pIpDAbdquT+XSG0=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/vei2PzAT55W7kadPXDHOBvTRqzR2JfNhZ6qW
+ XnUY7+TRsyJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav73ogAKCRAicTuzoY3I
+ OtnJEAC5sVDGLRL3UQ3TuO9kU+XnruFH8y+KWGEQa26y8/huuUgXg08b21Dk2bouFJlawja/BbM
+ VSRhV5Ab1j8x1OaD3qonA0aC2zSMXOGatK61wjGq2dNibRL/MkRIVKTb3PKXYWFDh4NqgvLm9cS
+ E2jJ/TFHTstUSV6Ute4fJoao9baJmFSl2qZYQXK9DZq8/2JF9Q+Nbr2A359KROMnXpw0tLIG8tH
+ OEsZpkzAjTqKGleHGHmmALGPUIqhB+EHL3DzY67ODONgoFMshWaGorfLU3MoE7bKPrbVbeXCITF
+ Q/IJ5IWBc+VpU0ngHo9rYtQcQtCtMQLSw6OV6vG6vpnMJURAnqPWu+KoyCmfshKz4+sn/P3oOBd
+ Q4IgiWMvcsc9b3bm2STi3xoqZ2SHOg5u358N++UnF6awufn2o4REv7883qBM72TxGEUEkwlQljJ
+ C3RU6vwS/HuNvuCRUxexceAa9uC+4FeBqI6JXF6+S4HNmPpDjLRrUu3trp2pRMsdcz3E5eKDDyt
+ PVN0bYahpP6I+emZEEmmokvi71ieNjknY5lE/O1yUggkgkdpox72+lNA9s3W1WIz3q4+B1Nz6DV
+ K68Qn/7PX3bkqwyHjqyWbEY93AzxpENmqJEdCrAxj0F3Xs+QhM6+h3zFDp8LlYl+5SHDKQr+0fd
+ R+L2xkPmvsCMbkg==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-On 19/11/2026 13:51, pjh456 wrote:
-> the submitter reviewed every line, validated the result with
-> dt_binding_check and on the affected board, and takes full
-> responsibility for it.
->
+On 2026-11-06 15:31 +0000, Dipayaan Roy wrote:
+> Log system and session response timeouts, firmware-reported failures,
+> and failed recovery attempts so the cause of an error is visible.
+> 
+> Add debug messages for unknown sessions, invalid state transitions,
+> and successful recovery. Avoid a redundant system init timeout message
+> after firmware reports an error, and rate-limit Gen2 session response
+> errors.
+> 
+> Signed-off-by: Dipayaan Roy <dipayaan.roy@oss.qualcomm.com>
 
-"The submitter"? So LLM wrote it for the "submitter" and you just
-blindly send it :/
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+---
+bod
 
-Best regards,
-Krzysztof
