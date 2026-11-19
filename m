@@ -1,56 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177138;
-	b=Fvtn+/Dan5YeUMJw4Weua73Riza9Ju6inFP4P8dfJmT9G35iQx+xloAT0vD9zfN6f0wv
-	 QxfnmCT9UoBfGdYjo8HLBLIC7o+UWAuxHl0oO14vx2nZ4yzkiB5+WZyfRl5sId5zrl0iT
-	 lJqh2PBN0g5y2TuppQVKVCnm/O0h2zmw8GLgOKMYvFRJsFjrk89S/+5708F+1ggm3OQ7g
-	 KJ8JiYTUjJoEbFhCmE5A+xgFRwN9As9N2RUpmO2l6qNhqsdDT6VQfhn2umtvgiuR7Eleu
-	 cJx5rQmn+7BkqYnbPFevAxx6Mu8ZhCegCUocyXGu5z3Un0IzwlUfNyakrosqb2DcUtQ==
+	t=1795177157;
+	b=exabZIaXXS+NjP5bdOnZXd4E4cDev0APKfh59hDlsFp/193doUpju7NpaOFYGbUjhcFN
+	 I18dhljuf5PU6dE/Ih/SoCefA7+7zP9ra0NvFZBTHOvX8DjJpAAcIXfBcZ+NJONRhk1ZC
+	 CUpV5mbzG9dpU3OOZ8S0IfV/Cd/vYvuDciwcB2INoyWrbhSatfVPFOPCHYqiwQedZX4/h
+	 qyZ/kuZWRzjSNd94T6a0bp9yYpFSkyPj7PVAeXkzIznTKQRvTUJUC2AqlRM2A+Hi/t0S2
+	 ypDjBIVPRV0stOLQ6BDC9S8yHqRyautqYS13BkPRpXn6jMMVMS/9EOka/Wt8q3LeaYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177138;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177157;
 	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
 	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=mZEICrAhupddlgOdV5bn1RCsWtol68HHCTnzdH0gBfQ=;
-	b=mtUVOfNXN15t6XLWeuUDrNr+SPXl/LAR/ymoBu4N/VGQegtFasShAY1Lg/r2BhDCeOZs
-	 WNo2cM5L8YWQXqR7qIO04cZyJuM/Y2xxjLE8g9QzbIVnxVbNI/p2zafTL2iO4+dh6SNtJ
-	 Im8xCsvCsPNuy0/5ZKJXJil26pbCpoNY2AwIV1F2En4lEPuONszadisj6Ki3DWb5yxWyH
-	 m5eNx94xU3na367zZcQKAq/jEmAPKKa34sdjWvshCn2gFt7co1tWgno4D/1vi/Bni/2ZG
-	 22t16X5Iig+t6K/5rJOX3vjT0apI/4x2rpF8T+f4aGkgHcG46I3mtl/cZ3h1R8+P2Zw==
+	bh=yqJ6autPf42TqNCHcqj3CPDE8lU7aJA8+oXBhABuOYk=;
+	b=0T36Nm/sJGeX4uoaQwoXAHVyAsXJJSqUmW4EzDXzXAUuMyvjBayqEq6PjKu4A/Jzz4kT
+	 Ha7yGhQ0zx8eTSTp5x2hTDL/XO7QJAm0aD9Gbh1YML5G53knYXiUL6k0I9aipJIUogpmZ
+	 wj1/sekboaS6h52q7YLK0grVu7nNdyJderZZqhGLMcdKnnL9h9xg/SPhYxPMKzzvDgRhP
+	 HJrK7V4USUrhvAOCugNTZSSgG93NDIFT3X5lvXn9Gyy/fVE51Ds/Ig1pLl2R3p1G9YYhw
+	 QoZiuX3br3od87qazXHFbaEyflLl2TV9vm7NBHmPaNooWKSwPS0n5Uj2MJ4zzOF7eqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CmFWMpUp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e79GUPHd;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D592606A32A;
-	Fri, 20 Nov 2026 12:18:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A1DC606A320;
+	Fri, 20 Nov 2026 12:19:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CmFWMpUp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1C1D1F000D1;
-	Fri, 20 Nov 2026 12:18:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e79GUPHd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910B11F000CA;
+	Fri, 20 Nov 2026 12:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795177137;
-	bh=mZEICrAhupddlgOdV5bn1RCsWtol68HHCTnzdH0gBfQ=;
+	s=k20260515; t=1795177156;
+	bh=yqJ6autPf42TqNCHcqj3CPDE8lU7aJA8+oXBhABuOYk=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=CmFWMpUpuTu4QERkgn5sLzdq5O3pUdnrY7rYEooEpJEVX69q12zG4lhzKaYs/KkRl
-	 mhOObrK8/6IrCk+VMbwMZER9uNXCtG5hsPeMJ2LAy0LyZUDZ3tzVPMGfYyFOjmftkf
-	 nXlKVsvY6vF3ZxSs68V5pdCDJYWTNTTdFhIpjwhtq4FvCoPZgcsC2JoEyjX8lyduNk
-	 RZPMsSgYNBF+kFu6ktD0E3HC/1v0unekOhA+yCqmcOniUtTkRCNYKZ+CuA4+gC2S/t
-	 J53L4t9KkCt4E3iphZ7M+zgnVtz7NOZ7CQbm11FUTbJSjXAmHjdxDqmWV9TmFQa493
-	 3GH7FBfXqHDCw==
+	b=e79GUPHdhEjJ/DCGhwHlIPFTpSAP5QgWrn/ZLbIW+LxrPMhMlw5zDSV0Wtn1SLRoL
+	 HmqDYYsYMJc5jRbPKnlz+fiKYywxy7cPUo7pvv1CMW8C5Z8fbXBy+XuJi8aCO3GCSU
+	 ILl1jPp9/7CCI7rwmRbzo0v2JMom7XFnlu2pq3RkNSHF+V0u+FaABsf3XqJgv6CILi
+	 tccSoe/EQRslBzYg/DfOr973LKVs/bYdVZxHNjn0MQKJGbulaVaqv4BKPQJ7XKqdBw
+	 FlmvdKQBxJX3GnR+UTcTrSVV1MVbfc75RhzP7z9g1QkjDV2kDpHgINfNXl/VZbpG+L
+	 9bnmrPZs9h0Fw==
 From: Mark Brown <broonie@kernel.org>
-To: Temitope obabi <obabitemitope765@gmail.com>
-Cc: cezary.rojewski@intel.com, amadeuszx.slawinski@linux.intel.com, 
- rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
- linux-sound@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261117220558.2702-1-obabitemitope765@gmail.com>
-References: <20261117220558.2702-1-obabitemitope765@gmail.com>
-Subject: Re: [PATCH v3] ASoC: Intel: Remove unused intel-sst.h trace header
-Message-Id: <179513023706.116416.8935403949115258253.b4-ty@b4>
-Date: Thu, 19 Nov 2026 23:17:17 +0000
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: lgirdwood@gmail.com, kuninori.morimoto.gx@renesas.com, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261119075815.50155-1-zhujun2@cmss.chinamobile.com>
+References: <20261119075815.50155-1-zhujun2@cmss.chinamobile.com>
+Subject: Re: [PATCH] ASoC: audio-graph-card2: Release multi-link ports
+ references
+Message-Id: <179512998731.116416.4021623671226003375.b4-ty@b4>
+Date: Thu, 19 Nov 2026 23:13:07 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,17 +62,17 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1122; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Xc74yjRN7L91m2yL17CAgtOasZ8emRvBy+0bQIc/pts=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZrNZpOawwvaZYK/aKmavpgsnGr7HXq84vFxXZYZVuJ
- H70k395RykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACbCNIORYQfrFP+1+i/WTAwy
- XJny67FD+av8K2t1pPvzjsp+Mloa9JeR4eelnMmMHOuXRL455rFHU817z6St5zbtsHKqqdBhL5J
- nZgYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1133; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=GAGdtZrnsp2smoBxMsIOhu9//Ifqn0E3k7jzouArsd4=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZrA4GCmjdvdZcH8iudp575o+FsZ/Ti54Ez9nHGPSg+
+ +5NKaHIjlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAEwkT4WR4WPEWvln3EWej1m+
+ nbNneW+cePLWv8O3atZGOB6YcuLWo3+MDI9OPJZxsndSTj+Q1djIkhB2mFdYNt8su2Tenb1xreF
+ 3+QA=
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-On Wed, 18 Nov 2026 00:05:57 +0200, Temitope obabi wrote:
-> ASoC: Intel: Remove unused intel-sst.h trace header
+On Thu, 19 Nov 2026 15:58:15 +0800, Zhu Jun wrote:
+> ASoC: audio-graph-card2: Release multi-link ports references
 
 Applied to
 
@@ -81,8 +80,8 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: Intel: Remove unused intel-sst.h trace header
-      https://git.kernel.org/broonie/sound/c/fdf2a24354c5
+[1/1] ASoC: audio-graph-card2: Release multi-link ports references
+      https://git.kernel.org/broonie/sound/c/a0344bdd4636
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
