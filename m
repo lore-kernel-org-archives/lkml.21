@@ -1,74 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=5.135.140.105
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106458;
-	b=1j8UHBuVs4ctqNYxyRyhLZoYz7uq+rGoFcnku/gvjTABM1a6KxoShNkuQsHGMbqVHv5l
-	 nnltKS6rSxrUT3v1mKnAr1gclcv3vM+kDUZXmRPIkCgy1663hHAz7MKNUeNFSI1MbQzTu
-	 UzEFXTLfrIBrPcgrvCA4oQm5qWurJyTaI06znavYiRHv7aBFilTQ6rajcAnwiMP+Ln2cF
-	 +pgtQCD5+kxgX6eauWrAYnjaOttcHdFpm+JEKXqqtDkjxXkaAL0vQqjsAGOHlMjes+nhM
-	 ET7kbze4AMvLXBAS6/D9BQRjs0w8q5gVX4vlbHOb6wOzzSJRaWx9o3Z2fAM5V3fVJrA==
+	t=1795106461;
+	b=fOzCM4NcuCxIBrDuewSoKey0+hC0lc/IJbYgPDtILRboe22mKcyLzGV7VAzUjqPlHcpS
+	 WizZ4/q0/8ubVq6SUA/KnDWS/LhMrhfRzLHnvexTvGnSGY9hgr1tBWvtdY0OlI++wdoVI
+	 /XIyCBOIJjZM3o4OIMf+OFrbrVRzNGX1KTFTKMswMiQOuPnJPXWY1iOc353Ag99C4Z8Y+
+	 o5STjoQ2ScwGm7QrUVv0kNlXApcMbMknpH77jfmZ9Pp8VhHAg7WfQNX8oSoFFvT7wOrm8
+	 GT3NvcAPhFKlxjHwcsm46T8vdKe1TkVPkJo9ilJzRl5/xRHlaR7/4dCCju++w0z7eJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106458;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=wePpJw0HNaMbflQQO4AfvdusE7cePFyR3nwvKhTtJUo=;
-	b=piWqyKhkzHCbi+z3n3GQyUXo+AbRiZ3kCDVxmRgYQyqVhRia8YucCY0uwqQdQmEH0JO1
-	 20ffJl5hyUgsBwyw4cCvfmeyvZAfNuSL8Z+JmgtwJUYG/BpFZ9T9V1NP8ox7Cyq42OIGF
-	 STQ/Y3aEUa+I4goa1JnbtPCoL/UmmEaEEEK4EKaTQN80iLkalAK3sppPd/yNiSloKnBOW
-	 7QuNxi75XYehzwimQDcOcPCA1F/ozVWwN383YAGWO8Bs/Vvk7M9ToK4PR9AhOQjS2glUe
-	 AZxIcgmo2yic0iavmARN8O+0SLO2N31vED3Nz7OvdW0MmTsfzdnlKlk3ajHzcKeEjNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106461;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-Id:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=ScFT/OtpxKSo3knUou8IYhnwGsI32WdaoJ4b5AsUsn0=;
+	b=Rs6GI1YVwyZZqpEqkhqJEChcOZ2EdZY5pqBWdzI2rcv4BQEASxexEq4IxPZQQNend+88
+	 fZrNYse7hzKUw5RHAqK+ObWoQOgEazwakjACrxJoG/45cwawDkvRElYleNsWRlBYIph99
+	 5VCRW9giQ8a3UPdDcVWUhup8hmPSrk8RPuXLUcDY1qP82KAhL3twH9LGDThzIfGwZ/q+I
+	 VLT1/w/KzAGu8aW4lwsDXlavIBPwTnwSBvUv9od2HUWel1NG+J6ifqoDUQuivGTiPSWgd
+	 DHlgXFNBmNkMEtULZkdWeMd9us+1ODhPi0mM/BwLeIzXElY1k2yxOYEddbnXAMzMSVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=YW4ZQx12;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	dmarc=pass header.from=cjdns.fr;
+	spf=none smtp.mailfrom=cjdns.fr;
+	dkim=pass header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=pDkUyqW0;
+	arc=none smtp.remote-ip=5.135.140.105
+Received: from mail.cjdns.fr (mail.cjdns.fr [5.135.140.105])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FAC4606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:40:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FAC4606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2900D606A320;
+	Thu, 19 Nov 2026 16:41:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2900D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cjdns.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=cjdns.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=YW4ZQx12
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wePpJw0HNaMbflQQO4AfvdusE7cePFyR3nwvKhTtJUo=; b=YW4ZQx12ODm8ed3iKFcLC0SS2o
-	2RU3NUf4CHitm4jhcaDWhxqL4HGMWxEqtUbx8/x+5G+zgctz0w1NURbJ7fQjM8cNQlnsXWuuJYGSP
-	zzo/mk7oxtxMI13j93Aygp4fhPSzCDRg5vIpPb1ac6wTpj+dLwlXY5qSmXTIcgnaUY/4sJLd43DNb
-	XK37pOUw4BpQmMTDZu/1G3VF3fF0sstZs73ab9B0sS70Nyzr/kMHoOjykYea1qJ9z19GdgTybXxbk
-	6K8QLRa9HnnBbbx82UEpeYfxV6rFkOjn0mQd2bWR7rdYrhOGt21kYe3OZ7Xi7jPfpZ86bs+0UyiEb
-	wtMnw9fA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU5Bt-0000000HSbY-1xsO;
-	Thu, 19 Nov 2026 16:40:53 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6176130072F; Thu, 19 Nov 2026 17:40:50 +0100 (CET)
-Date: Thu, 19 Nov 2026 17:40:50 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mel Gorman <mgorman@techsingularity.net>
-Cc: Ingo Molnar <mingo@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Seiji Nishikawa <snishika@redhat.com>,
-	Mian Yousaf Kaukab <ykaukab@suse.de>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] sched/rt: Do not account migrate-disabled tasks as
- pushable
-Message-ID: <20261119164050.GJ1922751@noisy.programming.kicks-ass.net>
-References: <20261113160655.2909479-1-mgorman@techsingularity.net>
- <20261117152026.GI1813469@noisy.programming.kicks-ass.net>
- <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
- <av1q-2D_tdi9oNEj@techsingularity.net>
- <av7Pj6uBsSVAoxbZ@techsingularity.net>
- <20261119150812.GT2668200@noisy.programming.kicks-ass.net>
- <20261119151739.GF2669272@noisy.programming.kicks-ass.net>
- <20261119152827.GG2669272@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=pDkUyqW0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6FB3057727C;
+	Thu, 19 Nov 2026 17:40:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1795106453; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ScFT/OtpxKSo3knUou8IYhnwGsI32WdaoJ4b5AsUsn0=;
+	b=pDkUyqW05WKCxSsJVLoK9XaiqWAtEkKz6crQuWs/4qzCMnyvIe/weziSyHmWGqHNK9QbG1
+	smmYmdl3CqOpPj8TKaLg2y5DgQZFVO7Uwdi1EvzhS7j2q+qzV1XuXqbexgn1cmH3XQ246v
+	Lq+HPukbnQ0nTIL1JDctLARKxBVRu4NPPVpkDo4N0PNx37yRVjo1Gpvi/khb8TfvA+qDT4
+	nyDkRaJJd4YAk+COtLwSuAi047+E7IuPafoYqwDQxMzgxoZ++rQ/LACOFVEEn8WR+hZfrL
+	UA/tgQClPJfqUmgxu/DJthw+4BRSHc6roAOiVEBlDBuZurKURG6zKmiOgdQ+Uw==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: linux-i2c@vger.kernel.org
+Cc: sr@denx.de,
+	andi.shyti@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [PATCH 1/2] i2c: mt7621: support big endian processors
+Date: Thu, 19 Nov 2026 16:40:39 +0000
+Message-Id: <20261119164040.2400580-2-cjd@cjdns.fr>
+In-Reply-To: <20261119164040.2400580-1-cjd@cjdns.fr>
+References: <20261119164040.2400580-1-cjd@cjdns.fr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,56 +68,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119152827.GG2669272@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 19, 2026 at 04:28:27PM +0100, Peter Zijlstra wrote:
-> On Thu, Nov 19, 2026 at 04:17:40PM +0100, Peter Zijlstra wrote:
-> > On Thu, Nov 19, 2026 at 04:08:12PM +0100, Peter Zijlstra wrote:
-> > > On Thu, Nov 19, 2026 at 12:06:21PM +0000, Mel Gorman wrote:
-> > > 
-> > > > > > > Suppose:
-> > > > > > > 
-> > > > > > >   migrate_disable();
-> > > > > > >   ...
-> > > > > > >   schedule()
-> > > > > > >     migrate_disable_switch()
-> > > > > > >       // switches p->cpus_ptr and p->nr_cpus_allowed
-> > > > > > >     pick_next_task()
-> > > > > > >       p = class->pick_task();
-> > > > > > >       put_prev_set_next_task(rq, rq->donor, p);
-> > > > > > >       return p;
-> > > > > > > 
-> > > > > > > So any task that ends up in put_prev_task_rt() wlll have passed through
-> > > > > > > migrate_disable_switch(), which have updated nr_cpus_allowed.
-> > > > > > > 
-> > > > 
-> > > > Short summary, this assumption is wrong, nr_cpus_allowed is not updated
-> > > > in that path.
-> > 
-> > > Bah, and I cannot remember either. Let me have a poke, see if something
-> > > bubbles up.
-> > 
-> > So this version did update nr_cpus_allowed:
-> > 
-> > https://patch.msgid.link/20200921163845.769861942%40infradead.org
-> > 
-> > And the next version it did not:
-> > 
-> > https://patch.msgid.link/20201005150921.859981475%40infradead.org
-> > 
-> > But I can't seem to locate quite yet why it changed.
-> 
-> Tada!
-> 
-> https://patch.msgid.link/20200924123527.GJ2628%40hirez.programming.kicks-ass.net
-> 
-> I'm leaning towards "we got it wrong" on this.
+Data is copied to and from I2C by way of a pair of IOMEM registers.
+When sending, the data is copied to an intermediare buffer and then
+written to the registers. However, the data is nominally little endian
+but the registers are in CPU byte order. Make the buffer explicitly
+little endian and use little endian read/write to support I2C on big
+endian CPUs.
 
-One issue seems to be concurrent set_cpus_allowed_ptr(); the current
-rule is that nr_cpus_allowed is the number of bits in p->cpus_mask.
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+---
+ drivers/i2c/busses/i2c-mt7621.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-I'm not sure changing this is going to be 'trivial', so perhaps
-sprinkling more is_migration_disabled() is the simple solution for now.
-Dunno.
+diff --git a/drivers/i2c/busses/i2c-mt7621.c b/drivers/i2c/busses/i2c-mt7621.c
+index 826abb9252e31..c79a47b293ef4 100644
+--- a/drivers/i2c/busses/i2c-mt7621.c
++++ b/drivers/i2c/busses/i2c-mt7621.c
+@@ -185,7 +185,8 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
+ 
+ 		/* transfer data */
+ 		for (len = pmsg->len, j = 0; len > 0; len -= 8, j += 8) {
+-			u32 data[2] = { };
++			__le32 data[2] = { };
++			u32 val;
+ 
+ 			page_len = (len >= 8) ? 8 : len;
+ 
+@@ -194,9 +195,12 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
+ 					SM0CTL1_READ : SM0CTL1_READ_LAST;
+ 			} else {
+ 				memcpy(data, &pmsg->buf[j], page_len);
+-				iowrite32(data[0], i2c->base + REG_SM0D0_REG);
+-				if (page_len > 4)
+-					iowrite32(data[1], i2c->base + REG_SM0D1_REG);
++				val = le32_to_cpu(data[0]);
++				iowrite32(val, i2c->base + REG_SM0D0_REG);
++				if (page_len > 4) {
++					val = le32_to_cpu(data[1]);
++					iowrite32(val, i2c->base + REG_SM0D1_REG);
++				}
+ 				cmd = SM0CTL1_WRITE;
+ 			}
+ 
+@@ -205,9 +209,12 @@ static int mtk_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
+ 				goto err_timeout;
+ 
+ 			if (pmsg->flags & I2C_M_RD) {
+-				data[0] = ioread32(i2c->base + REG_SM0D0_REG);
+-				if (page_len > 4)
+-					data[1] = ioread32(i2c->base + REG_SM0D1_REG);
++				val = ioread32(i2c->base + REG_SM0D0_REG);
++				data[0] = cpu_to_le32(val);
++				if (page_len > 4) {
++					val = ioread32(i2c->base + REG_SM0D1_REG);
++					data[1] = cpu_to_le32(val);
++				}
+ 				memcpy(&pmsg->buf[j], data, page_len);
+ 			} else {
+ 				if (!(pmsg->flags & I2C_M_IGNORE_NAK)) {
+-- 
+2.39.5
+
