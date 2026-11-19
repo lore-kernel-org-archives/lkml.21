@@ -1,100 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069388;
-	b=e29WYbTal12Dv2B8mq+GSyJqvgGTJ3z/8Ya16I8SIw9xTCg3ogolgwH39yivgcCK9Rrt
-	 k31eMoaQYFAcUCPH6vxOuS/Y32PUWcW6VkcYNmBt40fcLQ0MK641IBs4ZUAMY4BiGfX1q
-	 k5BSyaMKzgtl62wbA83+O5UwjwXuDarM9sMkxIygsL49aCmcYgjum94mq9+cH8OYld5Zn
-	 JUvwTNwZAWzoyKfmVrwCU9jTNOytO7iqWC+1udLoCUA+JoUnNqw6pvb5rvin2UNhcWWoV
-	 xp3FDQq0PQg2UpNABedSj3Yi09pI7eeKpfaMDrEq+Jn9Abeou7qZuiHjivg8Rl7nwWA==
+	t=1795069394;
+	b=hFx+qqGQAeYBBTzjl/wF1yCD+1vqxAw3Zc3sQ74o9M/4I2FpYDz3ByNsNfYEwe5Xb5Ox
+	 cBoDMnjh0IFVUUfJBcuo5XaWqMWK2nf2SNtaqb7w0XkScbB1BiLIGHxbdOAwBrleXNQFU
+	 6kr4pShkPFIWwgrdA113EK2R4sAzf3YrG30uTrRIK5TlJ0GuY5ztlXB6h7VLCwhDxbaL3
+	 cJ+ZHLPR57qKpbRLjFYt9Tip9VSHZqy7OSmlgyz4fAcAalGQGVhMDY544R7fJPE5r5UnI
+	 yMDj/36DMCnKDiv1XcofRNS7i9ASs7c4K5Pwj+0puLOVM0iq71OlOaVNT9K7a6OBl4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069388;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vIyXTGC5+88ay5cdcjaG1P2/fm08Yk80tNUxmrQFq58=;
-	b=lykdwRp+wIdqjEBsOhqvptBU+PsW9VelyT7Ytj5c2jAlgQlbgnughJBpeqaR03n42uTm
-	 qR5TI+frhNOBvdyZ47vboA3LaLnDnXi8yTqOrByBSrmDL6RPyjEmYDnPXUINKSs3It8k0
-	 pToHu7zxEbwLlNdruTsas/7P9NZdAeGuonDD1w2cpDPXZVnwqe45QSF4Y38fVBcUuPzDP
-	 auEbLVvOUCNvpGa+LchB1Ni8yYWXD96Srm0nu/UETgoeKCihV4ma8kIVqG8S8pQ9+I/YU
-	 qXMtPsClntlFNTwcNsRy3YCsMNvsrFeHzSlCkf8UJoFCiQ1nV69NrmzF03x5nY18JMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069394;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=puzUkQ2hTfY+cHN+MMoEyRYAem8Ra1RSFNJumDklOsE=;
+	b=BocpECWIOeMYxLLp6oOEoQ2GrwsGGGEYXyXWPalcABO7nuS2S0CTzouLuKIXmW++FsXv
+	 Vb8Zfha9ajU5RIzHBoFz0LxLNYCAuIP1yBE/E5RM167wkOkUaEVkGDpFuVd7OFJLdzVmO
+	 1ePDsmCgc1BAxszDX0nhxk8LywoQcHYKhwTJbOhMkqqH8x9TTn7i+WEmmBOp34lvktJir
+	 VemyNehHu7iDZRbNhFuktykZW7MDiZA0UWkG3wzAxZFMRXFI0rRMs3p7Scgnlyjz95Bcp
+	 rpiY9/RbAOEfvWzxy7YB1ZDZNU8Hjz+2Zv8uX1OIJENmtLmAZUs7E8Cqjq6EJb6HJow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jclark.com;
-	spf=pass smtp.mailfrom=jclark.com;
-	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UyVLaBqk;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=MV8+4srj;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836A8606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:23:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 836A8606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F8AC606A326;
+	Thu, 19 Nov 2026 06:23:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F8AC606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UyVLaBqk
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2eb18f4da15so8208165ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:23:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795069387; x=1795674187; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vIyXTGC5+88ay5cdcjaG1P2/fm08Yk80tNUxmrQFq58=;
-        b=UyVLaBqkrV0X2/16uNN8x6WOswDS5t2rgnTki+/9On3Qck3Rs15i9NTQL3f3QcpaCr
-         pGAOqpC8cQlxclpKz9r8bgvCyDz9j3skaovLtSjfnhtj3cIm9ocKWCtHSqW7Hi9uRcPm
-         FAbWQqs6ey1BcKREJZd386R1YNgEOxpuktbkKBWsAU5RnGMuiPUQKf1w7jQ3jz7BWUE8
-         FpjiyNIHb/vch4tQccmtP05urAj+9xAFCR63zXKicpLMR+aGCRja53SXZsl2VVYghtBM
-         quPM/Uior9TZdk4asHeXcsuXebgUEoKEFMsWq+LBs61AA2tz+bY9BfZWUL5894T+yQhe
-         eLag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795069387; x=1795674187;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vIyXTGC5+88ay5cdcjaG1P2/fm08Yk80tNUxmrQFq58=;
-        b=qxdIpsAgBTiO1HaSdF8uM6LY5K/DvvyG42ZPowyaWfRnMP5UDQNtH2BRBD9DtGv58L
-         +tOvP29q6/BpmAM8tZMzBY6ezwVFfVVSHjdarVZR+npQMEha4HEZw34EYnhvo/s66o0I
-         9Rs/lOT2TezOqx/iiHkuyPBuQLo6p4Veqx5hqtAyG8E4y8G+BOkrulCjd0m1/2eoInHB
-         h/mIcmktTBmXtsVmhmwkcganHuBVZTUZ7hgyQnZgDAPvkQvx3KD2117xWuA8YGIRlvjJ
-         kvj0Uii++e1ZV628RZHw+C2Rorx9rB2/IqofDkPlB2zMybP7tcsGxkMmh+NTNG1L6MFz
-         WOlA==
-X-Forwarded-Encrypted: i=1; AL+hErHohwZqMnVwXG5FPj6Fsy29qXxO5iMDykWH4leW0xtQS/qrzkuT8G2+B7+ViGeL72owSnLeK8BF/zNL3Fc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bH3xiyq+NEHo+KSL1HSkIAvj4cHlCl691psvcanZ7xmZWBI5V
-	j3+gdSdjXjrhJ3XHAbUkozR1eEn1qowDcLx0B1J2kZO7YcO2PraY5vhlZ3HVMDsFkw==
-X-Gm-Gg: AZFdTZep9l3kJIyYBBZxNldMs445l9ux4+69K6XY+EWBqlDXqu5sm5dQIRe0Cn4YS4e
-	La2PCUu1BM0j7c93GoBCwStzhj53MlYGBkCHbR70A7Z84Xbt4+E1Tcblhhkcn/ATKoN6Nig33yo
-	/qsbmKzG+a5k/t622HxhdH34Zq0G0lrnKJ3Du4Z7moSp3wKTolzSuKlgIJe6uK9qPxxGRpTzyev
-	miFJ47eU2uiN+DesDriFJV/aQzGNbApka8tLPxuxh8/u7oGHS0QbgfX3geJZ2hxsCCUaxW3O9un
-	E9pDOr0lZWdkbF0o+XowOX7CQyq0Z9h9RcukCPGptJ3F7//RuvVrE+EWCdtIm8p2Sx7tHSOhY7N
-	C5vVszIe+2DOkWPpsKksTJ8b4bJRp76XDsZg+MES5EemKQj/IB1cKqs+R/QRqRdIO6D5whGoW9i
-	9Pudnyl17tAsCEIvTvkii4vKjTadTcs4hCfZWOncdSfGsf3D6XmpITzaOZuWt8qSYGFnaYAL+xI
-	R0nzUvpRpDTxY1EVhUYzicTVDMAsYAvy1Y8MK/nkXBV59GimWpSZbTnMjMbRdxPLuK9YcB6gvJ3
-	EyU9NXF3I3H3RxkLiRpW00Ap38LZxfl2gRaVa5apgw720Hgw5EMZ6tdO64R7EN5XER1IhXRcHi2
-	R4VrUWZLp8fgpAFTXxFWWv3B1ndRI6QflKi7wJA==
-X-Received: by 2002:a17:902:d48e:b0:2f0:20cc:32fd with SMTP id d9443c01a7336-2f020cc33e9mr13953395ad.51.1795069386749;
-        Wed, 18 Nov 2026 22:23:06 -0800 (PST)
-Received: from cantal.lan ([58.136.72.57])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff627f421sm24292605ad.57.2026.11.18.22.23.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 22:23:06 -0800 (PST)
-From: James Clark <jjc@jclark.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: imx8mp-frdm: Add overlay for EQOS PTP event pins
-Date: Thu, 19 Nov 2026 13:23:01 +0700
-Message-ID: <20261119062301.1778558-1-jjc@jclark.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=MV8+4srj
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4jIDQ3160376;
+	Thu, 19 Nov 2026 06:22:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=puzUkQ
+	2hTfY+cHN+MMoEyRYAem8Ra1RSFNJumDklOsE=; b=MV8+4srjt30YwvEoIf2Dbh
+	MlIAG7di+0408kgbHkdkdSBfghHrRs7xerJJR02Fvnc1fEbZGMqsvqB+bYFV6GGt
+	Jed9lBlleM02zKUMeiO+vk0clNSU9d5OFd8zcLJ9Tf4FO9mVxVGSoZBLnxqmfjh+
+	m34w//vFKSZgXMA6uYws3Y0Lznbwy0h79iAbzTt9JukV5r2AYuSQGkrLaKWGJoDn
+	V+EZ+aI9bVG8vyrrtxrthzqnviR2HzRTSsUEUQ9x9SVFhvGLfMamcx56UI8GkZRH
+	mVNRDmvw1RlWEJjxlJSwN5cMj6b96seRO1qJnwDF8yzmwHeIbjAUPy1+TcWoHIhw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105t6ygb-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 06:22:33 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ4XlJv2162899;
+	Thu, 19 Nov 2026 06:22:32 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvnsp6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 06:22:32 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ6MSNg40370502
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 06:22:28 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4260E2004B;
+	Thu, 19 Nov 2026 06:22:28 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D671220040;
+	Thu, 19 Nov 2026 06:22:20 +0000 (GMT)
+Received: from [9.124.217.219] (unknown [9.124.217.219])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 19 Nov 2026 06:22:20 +0000 (GMT)
+Message-ID: <1556d3b0-1c89-4d3d-b9e5-5921c5c9158b@linux.ibm.com>
+Date: Thu, 19 Nov 2026 11:52:19 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,82 +86,220 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/7] virt: steal_governor: serialize sampling against CPU
+ hotplug
+To: Yury Norov <ynorov@nvidia.com>, Peter Zijlstra <peterz@infradead.org>,
+        Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@kernel.org>,
+        Juri Lelli <juri.lelli@redhat.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Yury Norov <yury.norov@gmail.com>,
+        "Rafael J. Wysocki"
+ <rafael@kernel.org>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andrea Righi <arighi@nvidia.com>, Ben Segall <bsegall@google.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Johan Hovold <johan@kernel.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        K Prateek Nayak <kprateek.nayak@amd.com>,
+        Maxim Kuvyrkov <maxim.kuvyrkov@grdncc.com>,
+        Mel Gorman <mgorman@suse.de>, Mete Durlu <meted@linux.ibm.com>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Steven Rostedt
+ <rostedt@goodmis.org>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Valentin Schneider <vschneid@redhat.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, linux-kernel@vger.kernel.org,
+        linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
+        linux-s390@vger.kernel.org
+References: <20261113184257.621707-1-ynorov@nvidia.com>
+ <20261113184257.621707-5-ynorov@nvidia.com>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <20261113184257.621707-5-ynorov@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afe95aa cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=Ikd4Dj_1AAAA:8
+ a=RNFODHZklxBg7YJVFhcA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: 5QmSlD6ZkKM8ZZj26W2boOBVbTdbFjBl
+X-Proofpoint-GUID: Zn19TAfC3VfxQS4eNZ_abzonEMfRlKhJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAyMyBTYWx0ZWRfXxRyPjTB6Zucd
+ ThUELYVhwn4c0txy/NjqHCVch4178BCM2xRwK7z7LyLo1QRglafWr5iHc9vKojj0d40UOgSxSUq
+ Zei+Huxe/wrbNMVNdkBQbMmhZHHrkY7ZIl7yGdBVE8BS3JWyFqEjlJa7TmfW7qCJ+nX00Rl5GUh
+ sNY1esuYlJyISPTcivJhC5tLSE+QxGk385SDSXx34DQzsVudBhVNIhvwv5bwdhkzWm24f13UrbK
+ 79wXi8nM12es9Gin6knihba7Ge/jX4OZg3qfVjZ9MzOxLRP3opvX5n4SYBEu6pafrnDcwQEiMKN
+ CG2wNSmMjjicd+eWPw51x2Lgb2J6tcsfVqXViS9Ox7CbVfZh+txhSFr7FkVwtCsIiV2VFgrwUAl
+ TdIYseZt4EhJb3tRs3fTKkrlte2E6RwPTMsPjkfip43b8iC58mZ2e/E4byM1QJCLHJhWcabVPkP
+ 3sb4Zj074pbtZrVYsxQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAyMyBTYWx0ZWRfX73l9/gEQ8ZA+
+ 3FE0bRIuLnFI1uWGEF3N9VSQ5ywNck5Bt5tDYbijkmjzyofLkoWXhcEPwqa0f8mkUtfidvKZjJA
+ lkpiC/Zq7XGRpEhhh6XnnCUdHfyJkSI=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611190023
 
-On the FRDM-IMX8MPLUS, pins 13 and 28 of the J18 expansion header are
-wired to the SoC pads GPIO1_IO08 and GPIO1_IO09. Very few boards
-bring PTP event signals out to a header, so this is a valuable feature
-for PTP work. Add an overlay that connects the two pads to PTP event
-channel 0 of the EQOS Ethernet controller:
 
-  J18 pin 13 (GPIO1_IO08): ENET_QOS_1588_EVENT0_AUX_IN, external
-                           timestamp input
-  J18 pin 28 (GPIO1_IO09): ENET_QOS_1588_EVENT0_OUT, periodic output
 
-The input must be EVENT0_AUX_IN, not EVENT0_IN: the stmmac driver
-timestamps external events with the auxiliary snapshot; with EVENT0_IN
-no timestamps are captured.
+On 11/14/26 12:12 AM, Yury Norov wrote:
+> Steal governor is not safe against a concurrent CPU hotplug operation
+> because it can change active and preferred cpumasks during the governor
+> sampling.
+> 
+> To address the race, the governor would take the cpus_write_lock(). But
+> that may be impractical for the loadable module.
+> 
+> Instead, implement the following locking policy:
+> 
+>   - if the code takes cpus_write_lock(), it's enough to write-access
+>     the preferred cpumask;
+>   - if the code takes cpus_read_lock(), it must also take
+>     cpu_preferred_mutex in order to modify the preferred mask.
+> 
+> The core scheduler and hotplug paths already modify the preferred cpumask
+> under the cpus_write_lock(), so no change in core logic is required.
+> 
+> This provides a common update protocol for multiple policy drivers
+> without requiring writers to take the broader CPU hotplug write lock.
+> 
 
-Tested with pin 28 wired to pin 13: a 1 Hz periodic output on channel
-0 was timestamped on external timestamp channel 0.
+This is also necessary if there are multiple writers outside of core hotplug No?
+So should it go with the write interface series?
 
-Signed-off-by: James Clark <jjc@jclark.com>
----
-I used an LLM coding assistant to help prepare this patch.
-
- arch/arm64/boot/dts/freescale/Makefile        |  5 ++++
- .../dts/freescale/imx8mp-frdm-eqos-ptp.dtso   | 26 +++++++++++++++++++
- 2 files changed, 31 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index cfd548284358..5cdad9dbda8c 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -633,6 +633,11 @@ imx8mp-evk-flexcan2-dtbs += imx8mp-evk.dtb imx8mp-evk-flexcan2.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-evk-flexcan2.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm.dtb
-+
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm-eqos-ptp.dtbo
-+imx8mp-frdm-eqos-ptp-dtbs += imx8mp-frdm.dtb imx8mp-frdm-eqos-ptp.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm-eqos-ptp.dtb
-+
- DTC_FLAGS_imx8mp-hummingboard-iiot := -@
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-iiot.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-hummingboard-iiot-panel-dsi-WJ70N3TYJHMNG0.dtbo
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso b/arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso
-new file mode 100644
-index 000000000000..15d0efc30243
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-frdm-eqos-ptp.dtso
-@@ -0,0 +1,26 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Overlay for the NXP FRDM-IMX8MPLUS board: connect PTP event channel 0
-+ * of the EQOS Ethernet controller to the J18 expansion header.
-+ *
-+ *   J18 pin 13 (GPIO1_IO08): external timestamp input (EXTTS 0)
-+ *   J18 pin 28 (GPIO1_IO09): periodic output (PEROUT 0)
-+ */
-+
-+#include "imx8mp-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&eqos {
-+	pinctrl-0 = <&pinctrl_eqos>, <&pinctrl_eqos_1588_event>;
-+};
-+
-+&iomuxc {
-+	pinctrl_eqos_1588_event: eqos1588eventgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO08__ENET_QOS_1588_EVENT0_AUX_IN	(MX8MP_PULL_ENABLE | MX8MP_HYS_SCHMITT)
-+			MX8MP_IOMUXC_GPIO1_IO09__ENET_QOS_1588_EVENT0_OUT	(MX8MP_DSE_X6 | MX8MP_FSEL_FAST)
-+		>;
-+	};
-+};
--- 
-2.56.0
+> Fixes: 27d47ebce4d6 ("virt/steal_governor: Implement steal_governor policy loop")
+> Signed-off-by: Yury Norov <ynorov@nvidia.com>
+> ---
+>   drivers/virt/steal_governor.c | 17 +++++++++++++----
+>   include/linux/cpumask.h       | 11 ++++++++++-
+>   lib/cpumask.c                 |  5 +++++
+>   3 files changed, 28 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/virt/steal_governor.c b/drivers/virt/steal_governor.c
+> index 26b6bcca27ed..8cd5c0f3e3ef 100644
+> --- a/drivers/virt/steal_governor.c
+> +++ b/drivers/virt/steal_governor.c
+> @@ -23,6 +23,7 @@
+>   #include <linux/ktime.h>
+>   #include <linux/math64.h>
+>   #include <linux/module.h>
+> +#include <linux/mutex.h>
+>   #include <linux/sched/isolation.h>
+>   #include <linux/topology.h>
+>   #include <linux/types.h>
+> @@ -139,7 +140,8 @@ static void decrease_preferred_cpus(void)
+>   	int target_cpu = nr_cpu_ids;
+>   	int cpu;
+>   
+> -	guard(cpus_read_lock)();
+> +	lockdep_assert_cpus_held();
+> +	lockdep_assert_held(&cpu_preferred_mutex);
+>   	cpu = cpumask_first_and(housekeeping_cpumask(HK_TYPE_KERNEL_NOISE),
+>   				cpu_preferred_mask);
+>   	if (cpu >= nr_cpu_ids)
+> @@ -179,7 +181,8 @@ static void increase_preferred_cpus(void)
+>   {
+>   	int first_cpu, cpu;
+>   
+> -	guard(cpus_read_lock)();
+> +	lockdep_assert_cpus_held();
+> +	lockdep_assert_held(&cpu_preferred_mutex);
+>   	first_cpu = cpumask_first_andnot(cpu_active_mask, cpu_preferred_mask);
+>   
+>   	/* All CPUs are preferred. Nothing to increase further */
+> @@ -193,6 +196,9 @@ static void increase_preferred_cpus(void)
+>   
+>   static bool preferred_cpus_valid(void)
+>   {
+> +	lockdep_assert_cpus_held();
+> +	lockdep_assert_held(&cpu_preferred_mutex);
+> +
+>   	if (cpumask_empty(cpu_preferred_mask)) {
+>   		pr_err("empty preferred mask. stopping\n");
+>   		return false;
+> @@ -213,6 +219,9 @@ static void steal_governor_loop(struct work_struct *work)
+>   	u64 curr_steal, delta_steal, delta_ns, steal_ratio;
+>   	ktime_t now;
+>   
+> +	guard(cpus_read_lock)();
+> +	guard(mutex)(&cpu_preferred_mutex);
+> +
+>   	now = ktime_get();
+>   	delta_ns = ktime_to_ns(ktime_sub(now, sg_ctx.time));
+>   
+> @@ -238,8 +247,6 @@ static void steal_governor_loop(struct work_struct *work)
+>   	 * module restores to active if CPU hotplug breaks those assumptions.
+>   	 */
+>   	if (!preferred_cpus_valid()) {
+> -		guard(cpus_read_lock)();
+> -
+>   		reset_preferred_cpumask();
+>   		return;
+>   	}
+> @@ -276,6 +283,8 @@ static void __exit steal_governor_exit(void)
+>   {
+>   	disable_delayed_work_sync(&sg_ctx.work);
+>   	guard(cpus_read_lock)();
+> +	guard(mutex)(&cpu_preferred_mutex);
+> +
+>   	reset_preferred_cpumask();
+>   	pr_info("disabled\n");
+>   }
+> diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
+> index b13d099474bc..3716213d0730 100644
+> --- a/include/linux/cpumask.h
+> +++ b/include/linux/cpumask.h
+> @@ -124,6 +124,14 @@ extern struct cpumask __cpu_dying_mask;
+>   
+>   #ifdef CONFIG_PREFERRED_CPU
+>   extern struct cpumask __cpu_preferred_mask;
+> +
+> +/*
+> + * Drivers must take cpus_read_lock(), then cpu_preferred_mutex and
+> + * hold both across mask validation and updates. If cpus_write_lock()
+> + * is held, it guarantees the exclusive access to the mask, thus
+> + * holding cpu_preferred_mutex isn't necessary.
+> + */
+> +extern struct mutex cpu_preferred_mutex;
+>   #else
+>   #define __cpu_preferred_mask __cpu_active_mask
+>   #endif
+> @@ -1199,7 +1207,8 @@ void init_cpu_possible(const struct cpumask *src);
+>    * reset_preferred_cpumask - reset preferred CPUs to the active mask.
+>    *
+>    * Callers must serialize against CPU hotplug and other preferred cpumask
+> - * writers.
+> + * writers. Requires cpus_read_lock() and cpu_preferred_mutex; or
+> + * cpus_write_lock().
+>    */
+>   static inline void reset_preferred_cpumask(void)
+>   {
+> diff --git a/lib/cpumask.c b/lib/cpumask.c
+> index 5adb9874fbd0..2e16e19a2bdb 100644
+> --- a/lib/cpumask.c
+> +++ b/lib/cpumask.c
+> @@ -166,3 +166,8 @@ unsigned int cpumask_any_distribute(const struct cpumask *srcp)
+>   	return next;
+>   }
+>   EXPORT_SYMBOL(cpumask_any_distribute);
+> +
+> +#ifdef CONFIG_PREFERRED_CPU
+> +DEFINE_MUTEX(cpu_preferred_mutex);
+> +EXPORT_SYMBOL_GPL(cpu_preferred_mutex);
+> +#endif
 
