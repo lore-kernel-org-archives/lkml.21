@@ -1,118 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795071555;
-	b=yO5snZEhW5vNw0/lmw24yyLesmTEajry6RcydhJ+KIeBHVJn6qmI2ZwtHFZmV410qZM1
-	 ZqnzODg0xsp8V1X8+doEt49Ab1/xphFa9DWXNyvIQCxcldf84sNegH9zV5kh/ovo8d6M4
-	 uSXZya2F/JMJtMOnixl5OwDrmY2/6zm2veF2pBOhXeTEIfBodhMrrGrXsCHa7LriGF8mg
-	 9nIR6OyujwhIFjM8dTO2JZafSU/8DefjDogHqgcVk1eXjSxlNWimn+z2uRMy2vgDDn5ft
-	 v8XkMysB9GsA7oyClJMy0yMFPWDiE+9+spWpfaAhvLdKPdTbXqPLAr5MEfCfKAr5eAA==
+	t=1795071571;
+	b=B1bnGEldEIAQqjkgJ/7H/4NNWIT0gXL2KXEG+Sh2wUv2AezyeijdrBcvAmUkGoSnQSQI
+	 508nR3OzWNtOG/EqInFTeWqV78h+jtYFr+OCGr5ytS047mH+M9i88DufcgmMPOFNzNhRY
+	 BX7Gzlu7KCC/CgyRoOPDOxfjzJKErKt6mJeSGcv1WNBAk8XQy0q64NZxd/iCsOg4wkTEc
+	 lFPJSiJiWnjUdmYmdH099r8UHe+rZF6iblXlAjijI+G6Gr9s1BoIFtmoKZ2YqhjSUAX0i
+	 PiSx7rI6YUDxk3nhIvMu342yCamOvUCDOMXZF0SALwTwt7+VJiD46xvHaQUUKEfLz6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795071555;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=EpkpAe8MEN5BuQD0iXz34+1elSDBS0pp25xEYHL3/ks=;
-	b=M+Ta25eu4ApyD/OgtbHk0rfJUxkckurTqqz7TcDe0qA39C69jGgC9i9zDefbFgTVXW3f
-	 FyPmOKJzHj7cXpJG6ATHo4gyoVO5tVf4YQ65G193II43CR0RNUnr8DEpyAxBUK8oRIT4K
-	 aAiQci+b2xQrA3+ekSbS73b00MefIZyrtJzdEbOT/HLdaGsMY+1v1JYL17lV4kPPGYrjj
-	 xiOPjByRaN6qXzeaiTYcZZomHjmVBa74qY7rjiYSxZXd6INBen/ObQ2EvkZeu8XWRE9BK
-	 JJi4twWVuWX/qUYgsuBcSh5Nay4yDrJBZS6A2u59AXAg6tjBEv1te7N/NovlhxhkmQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795071571;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=JtxaAGlAPvYqJWwVU+/bBzfLRLBaPLHwCoCpjeQC2h8=;
+	b=zy16CvY/V1LFTcdI45Q21/OyqMxac5Q2VtX1GHXGx/c8RMYPnUzEj4GtyUwmM60uvdQx
+	 vSfvhUo+Qmi/LzSQvq+hIgl6wUtyCh11/xfjjYTA+c3H4VkbBhAOIm9gXr1a9lxVLa+JH
+	 DVBJMYGze9HzdyHriBVhv8LpqT6I+Fx4tpPTq56oOOA35XJhHpyHaYqpr9Ynegj8jl2MU
+	 9UK3OR0T9QLz+WSYjag1tHDvsc9jQWfR2VyH5lXXHbmY1w6nGjMhOmDNMJvlEV03rxEFW
+	 NQBO4UPeXnGjkJ00FvO/0GYkG0M4nQLlwgOQ3tmE5c3MnBzotJLVkfQsegGLo0x70yA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=Rn8IstEl;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE491606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:59:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE491606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=Rn8IstEl
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b08a162d4bso1104141a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:59:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795071554; x=1795676354; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EpkpAe8MEN5BuQD0iXz34+1elSDBS0pp25xEYHL3/ks=;
-        b=Rn8IstElCPGCJXfmKbA2/cCAR9Ln8L3tdEsLJTVvjD32rri1ZAD8W3XEEDtJxYDlKT
-         Ic2tzXcdG1z7WmGAYft0HUoPrd62eRdzvjIkmFg9OuwgnLH3qbxu66d8QD1u7iZ5ITOU
-         ngIR/cA0VHv8xfo18aNjjUi1ZiD3BhE//91Jmwh86iHEQeVWbC1P7K3YfQww6wogHhUi
-         nJIy6HUgla1oFRXGDS2clN2+Qus3Fv1sBU1xadxteaXndpRDAh9d4i0OF3dtWD9aPvOL
-         J3BYXzMQ11K7eFWTAst4mj5vCvrxmjsSPe+ZDvlzP40vVyvD18/tdGGSziddZsQ6jFa3
-         NWeg==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C985F606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:59:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C985F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-5727b04b81eso1184080b6e.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:59:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795071554; x=1795676354;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EpkpAe8MEN5BuQD0iXz34+1elSDBS0pp25xEYHL3/ks=;
-        b=MwbIYo/9Kqy59p9r9QaACaQ3DKGRw78OxCIeyDSLhGwsB0x7hIljNJH7ueVhloLxkS
-         xT+BIO8kqZisAmXf4DJ1Vj57ncfcg3Dj183IrSfBvSwu2sl51Xp56QSL4G/Ubz5b4D+s
-         C3gev1pycrMo77Fv0LnI/h1OvYwvjHAqsGx1Eib6qr3Nh8oXHCqX+r0ddykm26V27QCc
-         krZrpmzXjhyQzOULsUCFeBQe4LjUWL6hH/pE5iTtobdVqYT44d9ehY+fSmMzsdvkDvCl
-         7QWJ6t/3BRHg0E+MdIcsUi3kmcYqX1ce2iNopvlUolzhbgIEcyScp2iZZ7tsDu/Tgo6q
-         D+wQ==
-X-Forwarded-Encrypted: i=1; AL+hErGxvIV7KdloUkjEjZPR+b1JlPdQCFdE1h1ojmgjdqSgvX9wX10+AD8P3C9nXFvrQl8niv/rfnTTInhHQzU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9hfLxKdy8EYA8s81DKn2drmErke9UWiI/ZoyCvoeYhgE5Pqz5M
-	FUsBniXQRBzHsjorHu9t7SZqllZruEZiM/1sdNYwTcHjvI+cDAmRILXiCIB++U8nY9U=
-X-Gm-Gg: AZFdTZdZMKmW1np3Rg/o5tyv8wpUf9QboHsXc5btz2LYLgpjGALXDXGWECoR8LuseS1
-	WMGpiwV6ML2fOiMUT13pVfRakJz7qe3neqr2/Y7mGxzEDb5d+638+7pjFhRGxwxemWbVBuUrunQ
-	MwZ54J5/VjnVG3eD4vBESXc/295j1DWg5duwRGRfYBSDXkDSXfBEQzp6xDK0D8jzY1Bi4ksrhEC
-	JMicPsC6zK0DCQ87zrz/j+1lhlixaZvfdN4Osnp5H4JMdBg4uHr6mVh6dmRF4PkU1ceAVpO7+U3
-	Gx4FF4y7UW1Dd5mu1ce5AGEgTOADUnzaJKUi6jePadcd2e3AABqb7oZRmo1slxhHLWqy3ZPonUg
-	K0sANRnOs81SAVaRkSMGIZbf5p/7MVnJ1WAND8c951cyGbNcf/V8i0HPitfCzl1if2h6VJUyqEL
-	5acFvOZhIv49euFUvEpYqnEvB1otajCP8L5RqdJyictZnszpDsNuQgAwClstPbBrnxml6WBWTGa
-	zTjGUjJZmo0KOnItG8MKFME1FFcvYGQ7ErKdMLIkAz2AolOLr9E19qqD/sO7sggJA0bJNLjt09e
-	h/2lMOPByoCxWKL4GANEXyz+xd7v2vfYQLyCI3D0IWmCaoetMQiB4GjewxM=
-X-Received: by 2002:a17:90a:d60f:b0:3b0:a7b5:c037 with SMTP id 98e67ed59e1d1-3b3d063e959mr4839420a91.1.1795071553983;
-        Wed, 18 Nov 2026 22:59:13 -0800 (PST)
-Received: from G6L4RL2QG9 ([2408:8440:c38:5ca5:3175:932a:757b:716a])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402e75223sm597488a91.4.2026.11.18.22.58.52
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 22:59:13 -0800 (PST)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Chris Down <chris@chrisdown.name>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ketan <ketan.kishore@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sashiko <sashiko-bot@kernel.org>,
-	kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v3 0/7] KMSAN: Move per-page metadata out of struct page
-Date: Thu, 19 Nov 2026 14:58:05 +0800
-Message-ID: <20261119065812.89959-1-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
+        d=1e100.net; s=20260707; t=1795071570; x=1795676370;
+        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=JtxaAGlAPvYqJWwVU+/bBzfLRLBaPLHwCoCpjeQC2h8=;
+        b=EEJAqL6j8IVdW86GMB2Vpz/1Jo2dbiJB9JmEs0i/t5ff/LrJR1WsrljoHKv/abSHl+
+         rBz6XzASgCfkncHNhBvL0rehHmgd8p/qCmMdylnmg4o0v62vduMnDAUGjt/1u7qHuTs+
+         WlqkRYlQbj3a1cHbH+K6xzUYco0zMoCe9inblLIQRHdJzgTEh0W+RUS1/bYvfPAkFQRR
+         VAAqjYsQ4fA2VNW9mdo1aMHC8AYm+Z8icc1/irhg3hkIA6TVQvtbxYzTtL2osobKZtU+
+         bwgbJy0aTiWhuAn1YS9HGhhmvWN602PcOh7izvfq2mxM2JfTDOqNvgda9PWdxGfZTNXa
+         n5eg==
+X-Forwarded-Encrypted: i=1; AL+hErGHdj6PwEe104JwpgV9FIwquazN8GeVVcF4t93x58cfyptHEPwm6YunibdxIztkNsU7BioBSzNOjYFGgQs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+liK6uKM5CnsMVAszWdT7S7oR6awYW7vmNui6B/QbkUYAe41Rm
+	FR/zhLCPYMtmf9EuSraq1o8HYUqA+3pizyQ37BsHubx5TWQKjPXq1P7dvUgN+myOMxnxmpgRJrd
+	SGtNRVE8fU3kQTjA5QlSaXzEsniHWcg4guUKxM1WF07ryeg3AJqfPHLtIC8s=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,88 +58,252 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:50a5:b0:4ec:d580:2440 with SMTP id
+ 5614622812f47-5773d832984mr6120735b6e.54.1795071569762; Wed, 18 Nov 2026
+ 22:59:29 -0800 (PST)
+Date: Wed, 18 Nov 2026 22:59:29 -0800
+In-Reply-To: <20261115024455.1465726-1-zhaonanzhe@xiaomi.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afe9e51.6dd4714a.145012.0000.GAE@google.com>
+Subject: [syzbot ci] Re: mTHP-friendly compression in zsmalloc and zram based
+ on multi-pages
+From: syzbot ci <syzbot+ci5f7ebc1818317786@syzkaller.appspotmail.com>
+To: akpm@linux-foundation.org, axboe@kernel.dk, 
+	bala.seshasayee@linux.intel.com, baohua@kernel.org, chengming.zhou@linux.dev, 
+	chrisl@kernel.org, david@kernel.org, hannes@cmpxchg.org, 
+	kanchana.p.sridhar@intel.com, kasong@tencent.com, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, minchan@kernel.org, 
+	nphamcs@gmail.com, ryan.roberts@arm.com, senozhatsky@chromium.org, 
+	surenb@google.com, terrelln@fb.com, usama.arif@linux.dev, 
+	wajdi.k.feghali@intel.com, ying.huang@intel.com, yosry@kernel.org, 
+	zhangbo56@xiaomi.com, zhaonanzhe@xiaomi.com, zhengtangquan@oppo.com
+Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-This series fixes a KMSAN metadata-loss bug triggered when boot-time
-gigantic HugeTLB pages reinitialize their page descriptors after
-kmsan_init_shadow(). KMSAN currently stores each page's shadow and
-origin pointers in struct page, so the later initialization drops the
-metadata mappings and leaves their backing pages unreachable.
+syzbot ci has tested the following series
 
-Preserving the pointers around the HugeTLB initialization would add
-KMSAN-specific state handling to the memmap path. Moving
-kmsan_init_shadow() later is not viable either, because it allocates
-metadata from memblock while gigantic page descriptors are initialized
-after memblock teardown.
+[v4] mTHP-friendly compression in zsmalloc and zram based on multi-pages
+https://lore.kernel.org/all/20261115024455.1465726-1-zhaonanzhe@xiaomi.com
+* [RFC PATCH v4 1/4] mm: zsmalloc: support objects compressed based on multiple pages
+* [RFC PATCH v4 2/4] zram: support compression at the granularity of multi-pages
+* [RFC PATCH v4 3/4] zram: backend_zstd: use multi-page size for zstd parameter setup
+* [RFC PATCH v4 4/4] mm: swap: allow direct reclaim for synchronous multi-page swapin
 
-Move the metadata pointers to page_ext instead. page_ext storage is
-independent of struct page contents and is made available before
-kmsan_init_shadow(), so later page-descriptor initialization cannot
-erase the mappings.
+and found the following issues:
+* KASAN: vmalloc-out-of-bounds Read in zram_submit_bio
+* WARNING in __mod_zone_page_state
 
-The series first decouples KMSAN metadata access from its storage, then
-makes page_ext safe and available during early boot, and finally moves
-the metadata pointers. The move also shrinks struct page from 80 to 64
-bytes on x86-64 KMSAN builds, allowing HugeTLB Vmemmap Optimization to
-be used with KMSAN.
+Full report is available here:
+https://ci.syzbot.org/series/fbfb33eb-ef1c-41ea-aa01-54cbecf7c03c
 
-v3:
-- Fix page_ext client alignment on 32-bit architectures by using u64
-  alignment as the cap (reported by Sashiko).
-- Open-code the lowest power-of-two factor and use a local for the u64
-  alignment (suggested by Andrew Morton and Mike Rapoport).
-- Use DIV_ROUND_UP() for page_ext accounting instead of relying on the
-  caller's size alignment (suggested by Mike Rapoport).
-- Simplify the page_ext alignment commit message.
-- Collect Reviewed-by and Tested-by tags from Chris Down for patches
-  1-4, 6, and 7, and Reviewed-by for patch 5.
-- Collect Reviewed-by tags from Mike Rapoport for patches 3-5.
-- Rebase onto mm/mm-new.
+***
 
-v2: https://lore.kernel.org/20261117120627.50601-1-songmuchun@bytedance.com/
-- Fetch shadow and origin through one masked metadata resolver
-  (suggested by Chris Down).
-- Add a fix for pre-existing page_ext client misalignment.
-- Use vmalloc for runtime SPARSEMEM page_ext backing
-  (suggested by Mike Rapoport).
-- Unify page_ext allocation and initialization entry points and document
-  the later FLATMEM callback timing (noted by Chris Down).
-- Allocate all boot-time SPARSEMEM page_ext from memblock
-  (suggested by Mike Rapoport).
-- Keep memblock allocations above DMA and suppress per-section free
-  messages (suggested by Chris Down).
-- Inline the unchecked page_ext lookup while keeping page_ext.c
-  instrumented (suggested by Chris Down).
-- Update the KMSAN metadata documentation and describe HVO enablement
-  (suggested by Chris Down).
-- Expand the series from three to seven patches.
-- Drop all v1 Reviewed-by tags because the affected patches were
-  substantially reworked and split.
+KASAN: vmalloc-out-of-bounds Read in zram_submit_bio
 
-v1: https://lore.kernel.org/20261114104150.58424-1-songmuchun@bytedance.com/
+tree:      mm-new
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/akpm/mm.git
+base:      40a41254dc1cf8babbd9178a1c87535695255bf1
+arch:      amd64
+compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+config:    https://ci.syzbot.org/builds/0826548c-74e7-4858-8bd7-d0550838a241/config
+syz repro: https://ci.syzbot.org/findings/50cc4432-dd6a-4eee-9faf-f854d755d423/syz_repro
 
-Muchun Song (7):
-  kmsan: encapsulate per-page metadata access
-  mm/page_ext: fix client data alignment
-  mm/page_ext: always use vmalloc for section page extensions
-  mm/page_ext: use common allocation and initialization entry points
-  mm/page_ext: allocate page extensions early for SPARSEMEM
-  mm/page_ext: inline unchecked page extension lookup
-  kmsan: fix metadata loss during HugeTLB struct page reinitialization
+zram0: detected capacity change from 0 to 8
+==================================================================
+BUG: KASAN: vmalloc-out-of-bounds in test_slot_flag drivers/block/zram/zram_drv.c:118 [inline]
+BUG: KASAN: vmalloc-out-of-bounds in __test_multi_pages_comp drivers/block/zram/zram_drv.c:2836 [inline]
+BUG: KASAN: vmalloc-out-of-bounds in test_multi_pages_comp drivers/block/zram/zram_drv.c:2864 [inline]
+BUG: KASAN: vmalloc-out-of-bounds in zram_bio_read drivers/block/zram/zram_drv.c:3094 [inline]
+BUG: KASAN: vmalloc-out-of-bounds in zram_submit_bio+0x2593/0x2790 drivers/block/zram/zram_drv.c:3164
+Read of size 4 at addr ffffc9000343c018 by task syz.1.18/5883
 
- Documentation/dev-tools/kmsan.rst |   8 +-
- include/linux/kmsan.h             |   2 +
- include/linux/mm.h                |  12 +-
- include/linux/mm_types.h          |  12 --
- include/linux/page_ext.h          |  61 +++++++--
- lib/Kconfig.kmsan                 |   1 +
- mm/kmsan/shadow.c                 | 199 +++++++++++++++++++--------
- mm/mm_init.c                      |  11 +-
- mm/page_ext.c                     | 221 ++++++++++++------------------
- 9 files changed, 290 insertions(+), 237 deletions(-)
+CPU: 1 UID: 0 PID: 5883 Comm: syz.1.18 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ print_address_description+0x55/0x1e0 mm/kasan/report.c:378
+ print_report+0x58/0x70 mm/kasan/report.c:482
+ kasan_report+0x117/0x150 mm/kasan/report.c:595
+ test_slot_flag drivers/block/zram/zram_drv.c:118 [inline]
+ __test_multi_pages_comp drivers/block/zram/zram_drv.c:2836 [inline]
+ test_multi_pages_comp drivers/block/zram/zram_drv.c:2864 [inline]
+ zram_bio_read drivers/block/zram/zram_drv.c:3094 [inline]
+ zram_submit_bio+0x2593/0x2790 drivers/block/zram/zram_drv.c:3164
+ __submit_bio+0x27f/0x340 block/blk-core.c:682
+ __submit_bio_noacct block/blk-core.c:725 [inline]
+ submit_bio_noacct_nocheck+0x4f2/0xb10 block/blk-core.c:793
+ bh_submit fs/buffer.c:1150 [inline]
+ __bh_read fs/buffer.c:2944 [inline]
+ bh_read_nowait include/linux/buffer_head.h:504 [inline]
+ __block_write_begin_int+0x147c/0x1930 fs/buffer.c:2060
+ iomap_write_begin+0x1075/0x1530 fs/iomap/buffered-io.c:1105
+ iomap_write_iter fs/iomap/buffered-io.c:1233 [inline]
+ iomap_file_buffered_write+0x494/0xbb0 fs/iomap/buffered-io.c:1318
+ blkdev_buffered_write+0xee/0x160 block/fops.c:739
+ blkdev_write_iter+0x4f5/0x820 block/fops.c:829
+ new_sync_write fs/read_write.c:595 [inline]
+ vfs_write+0x612/0xba0 fs/read_write.c:687
+ ksys_pwrite64 fs/read_write.c:794 [inline]
+ __do_sys_pwrite64 fs/read_write.c:802 [inline]
+ __se_sys_pwrite64 fs/read_write.c:799 [inline]
+ __x64_sys_pwrite64+0x210/0x2c0 fs/read_write.c:799
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x166/0x520 arch/x86/entry/syscall_64.c:84
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f06c93a8fd9
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007f06ca353028 EFLAGS: 00000246 ORIG_RAX: 0000000000000012
+RAX: ffffffffffffffda RBX: 00007f06c9625fa0 RCX: 00007f06c93a8fd9
+RDX: 0000000000000001 RSI: 00002000000007c0 RDI: 0000000000000004
+RBP: 00007f06c9437fed R08: 0000000000000000 R09: 0000000000000000
+R10: 00000000000000c4 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007f06c9626038 R14: 00007f06c9625fa0 R15: 00007ffe748226b8
+ </TASK>
+
+The buggy address belongs to a 1-page vmalloc region starting at 0xffffc9000343c000 allocated at zram_meta_alloc drivers/block/zram/zram_drv.c:2043 [inline]
+The buggy address belongs to a 1-page vmalloc region starting at 0xffffc9000343c000 allocated at disksize_store+0x11d/0x430 drivers/block/zram/zram_drv.c:3304
+The buggy address belongs to the physical page:
+page: refcount:1 mapcount:0 mapping:0000000000000000 index:0xffff888170b2c000 pfn:0x170b2c
+flags: 0x57ff00000000000(node=1|zone=2|lastcpupid=0x7ff)
+raw: 057ff00000000000 0000000000000000 dead000000000122 0000000000000000
+raw: ffff888170b2c000 0000000000000000 00000001ffffffff 0000000000000000
+page dumped because: kasan: bad access detected
+page_owner tracks the page as allocated
+page last allocated via order 0, migratetype Unmovable, gfp_mask 0x2dc2(GFP_KERNEL|__GFP_HIGHMEM|__GFP_ZERO|__GFP_NOWARN), pid 5883, tgid 5882 (syz.1.18), ts 56638265335
+ set_page_owner include/linux/page_owner.h:33 [inline]
+ post_alloc_hook+0x1f9/0x250 mm/page_alloc.c:1858
+ prep_new_page mm/page_alloc.c:1866 [inline]
+ get_page_from_freelist+0x2224/0x2290 mm/page_alloc.c:3939
+ __alloc_frozen_pages_noprof+0x1fe/0x410 mm/page_alloc.c:5463
+ __alloc_pages_noprof+0x10/0x100 mm/page_alloc.c:5498
+ alloc_pages_bulk_noprof+0x67a/0x8a0 mm/page_alloc.c:5322
+ vm_area_alloc_pages mm/vmalloc.c:3948 [inline]
+ __vmalloc_area_node mm/vmalloc.c:4123 [inline]
+ __vmalloc_node_range_noprof+0xad1/0x16f0 mm/vmalloc.c:4323
+ __vmalloc_node_noprof mm/vmalloc.c:4384 [inline]
+ vzalloc_noprof+0xb2/0xe0 mm/vmalloc.c:4462
+ zram_meta_alloc drivers/block/zram/zram_drv.c:2043 [inline]
+ disksize_store+0x11d/0x430 drivers/block/zram/zram_drv.c:3304
+ kernfs_fop_write_iter+0x3a4/0x540 fs/kernfs/file.c:345
+ new_sync_write fs/read_write.c:595 [inline]
+ vfs_write+0x612/0xba0 fs/read_write.c:687
+ ksys_write+0x150/0x270 fs/read_write.c:739
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x166/0x520 arch/x86/entry/syscall_64.c:84
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+page last free pid 5883 tgid 5882 ts 56638249897 stack trace:
+ reset_page_owner include/linux/page_owner.h:26 [inline]
+ __free_pages_prepare mm/page_alloc.c:1402 [inline]
+ __free_frozen_pages+0xc97/0xd90 mm/page_alloc.c:2956
+ __kasan_populate_vmalloc_do mm/kasan/shadow.c:393 [inline]
+ __kasan_populate_vmalloc+0x1a8/0x1c0 mm/kasan/shadow.c:424
+ kasan_populate_vmalloc include/linux/kasan.h:587 [inline]
+ alloc_vmap_area+0xd10/0x1410 mm/vmalloc.c:2190
+ __get_vm_area_node+0x24a/0x330 mm/vmalloc.c:3334
+ __vmalloc_node_range_noprof+0x36e/0x16f0 mm/vmalloc.c:4283
+ __vmalloc_node_noprof mm/vmalloc.c:4384 [inline]
+ vzalloc_noprof+0xb2/0xe0 mm/vmalloc.c:4462
+ zram_meta_alloc drivers/block/zram/zram_drv.c:2043 [inline]
+ disksize_store+0x11d/0x430 drivers/block/zram/zram_drv.c:3304
+ kernfs_fop_write_iter+0x3a4/0x540 fs/kernfs/file.c:345
+ new_sync_write fs/read_write.c:595 [inline]
+ vfs_write+0x612/0xba0 fs/read_write.c:687
+ ksys_write+0x150/0x270 fs/read_write.c:739
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x166/0x520 arch/x86/entry/syscall_64.c:84
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+Memory state around the buggy address:
+ ffffc9000343bf00: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+ ffffc9000343bf80: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+>ffffc9000343c000: 00 00 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+                            ^
+ ffffc9000343c080: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+ ffffc9000343c100: f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8 f8
+==================================================================
 
 
-base-commit: 3dfc09a9493ddaa5e7722a29165d8450b55b4d3f
--- 
-2.54.0
+***
 
+WARNING in __mod_zone_page_state
+
+tree:      mm-new
+URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/akpm/mm.git
+base:      40a41254dc1cf8babbd9178a1c87535695255bf1
+arch:      amd64
+compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+config:    https://ci.syzbot.org/builds/0826548c-74e7-4858-8bd7-d0550838a241/config
+syz repro: https://ci.syzbot.org/findings/02951484-1645-42b3-8301-7ebe9e49ee59/syz_repro
+
+------------[ cut here ]------------
+IS_ENABLED(CONFIG_PREEMPT_COUNT) && __lockdep_enabled && (preempt_count() == 0 && this_cpu_read(hardirqs_enabled))
+WARNING: mm/vmstat.c:361 at __mod_zone_page_state+0xfc/0x140 mm/vmstat.c:361, CPU#0: syz.0.21/5857
+Modules linked in:
+CPU: 0 UID: 0 PID: 5857 Comm: syz.0.21 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
+RIP: 0010:__mod_zone_page_state+0xfc/0x140 mm/vmstat.c:361
+Code: d3 e8 09 65 43 88 1c 34 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc 48 89 df 4c 89 fe 89 ea e8 59 00 00 00 31 db eb ce 90 <0f> 0b 90 eb 8b 48 c7 c7 00 44 26 90 4c 89 f6 e8 70 4d 10 03 e9 34
+RSP: 0018:ffffc90003a2e2e8 EFLAGS: 00010202
+RAX: 0000000000000001 RBX: 0000000000000001 RCX: ffff888103b33c00
+RDX: 0000000000000001 RSI: 0000000000000009 RDI: ffff88815fffbb00
+RBP: 0000000000000009 R08: ffffea000080de07 R09: 1ffffd4000101bc0
+R10: dffffc0000000000 R11: fffff94000101bc1 R12: ffffffff94e3d1c0
+R13: dffffc0000000000 R14: 0000000000000009 R15: ffff88815fffbb00
+FS:  00007fca0f3e26c0(0000) GS:ffff88818be05000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fca0e471a20 CR3: 00000001bab1c000 CR4: 00000000000006f0
+Call Trace:
+ <TASK>
+ __zone_stat_add_folio include/linux/vmstat.h:437 [inline]
+ zpdesc_inc_zone_page_state mm/zsmalloc.c:346 [inline]
+ alloc_zspage+0x73c/0x1510 mm/zsmalloc.c:1121
+ zs_store+0x906/0xd50 mm/zsmalloc.c:1407
+ zswap_compress mm/zswap.c:953 [inline]
+ zswap_store_page mm/zswap.c:1542 [inline]
+ zswap_store+0x12aa/0x2230 mm/zswap.c:1657
+ swap_writeout+0x9bc/0x1700 mm/page_io.c:248
+ pageout mm/vmscan.c:619 [inline]
+ shrink_folio_list+0x3135/0x4e90 mm/vmscan.c:1392
+ reclaim_folio_list+0x141/0x4a0 mm/vmscan.c:2176
+ reclaim_pages+0x452/0x530 mm/vmscan.c:2213
+ madvise_cold_or_pageout_pte_range+0x1b7e/0x2390 mm/madvise.c:574
+ walk_pmd_range mm/pagewalk.c:147 [inline]
+ walk_pud_range mm/pagewalk.c:237 [inline]
+ walk_p4d_range mm/pagewalk.c:278 [inline]
+ walk_pgd_range+0x102d/0x1dc0 mm/pagewalk.c:319
+ __walk_page_range+0x16d/0x720 mm/pagewalk.c:427
+ walk_page_range_vma_unsafe+0x309/0x410 mm/pagewalk.c:735
+ madvise_pageout_page_range mm/madvise.c:633 [inline]
+ madvise_pageout mm/madvise.c:658 [inline]
+ madvise_vma_behavior+0x2db7/0x47f0 mm/madvise.c:1393
+ madvise_walk_vmas+0x576/0xb10 mm/madvise.c:1751
+ madvise_do_behavior+0x385/0x540 mm/madvise.c:1947
+ do_madvise+0x33a/0x3c0 mm/madvise.c:2045
+ __do_sys_madvise mm/madvise.c:2054 [inline]
+ __se_sys_madvise mm/madvise.c:2052 [inline]
+ __x64_sys_madvise+0xa6/0xc0 mm/madvise.c:2052
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x166/0x520 arch/x86/entry/syscall_64.c:84
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fca0e5a8fd9
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fca0f3e2028 EFLAGS: 00000246 ORIG_RAX: 000000000000001c
+RAX: ffffffffffffffda RBX: 00007fca0e825fa0 RCX: 00007fca0e5a8fd9
+RDX: 0000000000000015 RSI: 0000000000600003 RDI: 0000200000000000
+RBP: 00007fca0e637fed R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fca0e826038 R14: 00007fca0e825fa0 R15: 00007fff2ba215c8
+ </TASK>
+
+
+***
+
+If these findings have caused you to resend the series or submit a
+separate fix, please add the following tag to your commit message:
+  Tested-by: syzbot@syzkaller.appspotmail.com
+
+---
+This report is generated by a bot. It may contain errors.
+syzbot ci engineers can be reached at syzkaller@googlegroups.com.
