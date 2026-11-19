@@ -1,45 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091328;
-	b=rjIFD78N0sH94APdF/d9VnX0G3Qz7tPgVGf5amGiQuaXuyc83PW4MYcFf6yhvHLU+vTC
-	 vZa0QxEuw6TISNfH9NBi1IwluQhdAi45PwMdEq3RClTK6q1I4DMY4jlSqgB9rvq4HhKX0
-	 akTqgLTwW/tv9jK3PygvTZmF0mDPouP3IeAk+9+POwGe38n8AoTpQvRx7U3PxkmtVKTeQ
-	 y1eTL5UkAW69wFXdHlppKhdy6MfmDoP8KhVhe6uhw0+1zMJcSGu9n6qBvqC5MCUqqQ3cx
-	 aQXmJuJLr5M7xMuFg5lBpx80XHZMcPPs4Y7+XD8Zzml7NzDF9Vp2ofxDdXmr8h/KH9g==
+	t=1795091370;
+	b=0h5y74bSqhAhW2Ed1TKm2Gb/tUzyKB9ylblbCnqWShNZKx13Nyaleiw+iLnfyebl3Ofl
+	 AxDCu1u3eS+CSu92PccM1wDImCFC7JZYJx3FPcHL0PEkCi1kBrgMqt2TnBwqNMJOEXAz7
+	 YirhIL4WzQNOyv5/ntnxVKqi6wd0bmzzXv7S3z/476gF9ake0VTj85SlqC3FffTau8EGh
+	 NzW0OQ3+Kcb3NI3H8Jbm4dOgT15a1JEVWYVisHS3XwY70sOVwTzEsPNTO+Gadcahxa6uz
+	 w+w0ZBu3E46jIwKX324y0DX2+XK/EL1ZyQH4Sjro92kP6xCf5js+ViOZQLIOqcVatuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091328;
-	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:To:From:Subject:Cc:References:
-	 In-Reply-To;
-	bh=OYKLKa88kqYxtvXJjLZgL4uoSuTqh7GrrX11eW0zc38=;
-	b=nziVY83q/YgnvcknYpMDexCrosQxS3sQ3Nb9KO6ofjC6fnvCjWIX9JXcd1aqjOptCz0c
-	 Crh8FTTMQgmRinh74hrCFD4S+V47q1G640lbmyqEzXVd2hSGnP6ZiXDbqADv9YQf82DIi
-	 CjpwEdtPcLqWn8l7FOPgkhauKGgMljG0yImBN6A+4PUnxUCp/KZSRIBLVI2TaMvBiROAa
-	 RoTWQfwwOzRIzGnJ8xUUP8tBKGu9Wxf1JiPdO857JvtW8X5IEFdXVP6tIg6QR9TrOb10t
-	 w0Asx/yEyVR4mK0eKyy034BF0XFvvb1puWKNGrL2Ubx+LM4EMxJTuD8lOWq7XSariCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091370;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=26aI3dIJvKPWaIP7OH1UV6UOwwhdI4DXg4en2db6lzQ=;
+	b=dfZOKtoIO0mjGs/lxMGym7PfpAwzNffcg/a/BzzCrApyTnYvlI3JWVExxSs9Q/h75lPW
+	 Mq35GEsx1PzoczS6QaNjTN5EeFPOLSO0i0/6puUSC5R6Qa5SLZiCcFuDcA7i6jNQCuSI9
+	 JIldM6m02ZnYyuULu6dTFgd5aOFUti+PclEONvidDerlj3N/ek0HKpt/trMbV0KOQ8Axj
+	 It2LY+jgqcszfCzBJFZ7unilJseOPcBLKnL0O6lqs61M5v1CfrLqPtvuNrFwTNOAPkYDH
+	 vGyOdzs5qyPgM8grCvKQXN7jXN8NOCLsE2kBSFkJ1bjBP9ipOEzLIwfUET5cWF53Aug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NVvNh44c;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="Vdf/x4vk";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 066A0606A320;
-	Thu, 19 Nov 2026 12:28:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8E1F60A2603
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:29:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8E1F60A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NVvNh44c
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D5831F000C4;
-	Thu, 19 Nov 2026 12:28:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795091327;
-	bh=OYKLKa88kqYxtvXJjLZgL4uoSuTqh7GrrX11eW0zc38=;
-	h=Date:To:From:Subject:Cc:References:In-Reply-To;
-	b=NVvNh44cVzTMlynElex+ufbnZilXmrZ5yfrUBv7GCk+AjBzidEaRvibb/QLHEtZ89
-	 Rk4nz/j315rI5DLnJDrgi7LQ9cz5PXTN/UJDejlo3btteojzKtnG0SEBkUDxYwqXst
-	 5DrcqIAxFKlso8tCEGhQyfFJlTMth/TmftrGdtbL7wIysUvrmrzjhMxzeUz1x17Ycl
-	 WwPUrhwadRdDHWMX9s9cePEYRrprNhU/gbaPSHxk6PgIv8bSY/ImXLwilyDbmizZ+s
-	 DhGl3KfpxnsX6luWq8+llr7qzEIWDN/yFp50yfN0wy4vpEFYVd0cpTACf25bGkdh92
-	 iOnsWgnkw58Hg==
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Vdf/x4vk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795091368;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=26aI3dIJvKPWaIP7OH1UV6UOwwhdI4DXg4en2db6lzQ=;
+	b=Vdf/x4vkw1KHSgrK6VYBj5QclK0GSUGQmjNFhQeUFlh5PaF9b1uEAuC2li8b78W5L5j8Hs
+	HEuAH8hSINZRTdvzqX9EA2ZR42jLIKrCJMyWh6Mr+T9vX07NbnR6gD12hnREaYuOO4fkz8
+	ybf7QXJXJwEiSXfC6HNlFRK9JzO+1II=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-668-F6N0bqgfOKGGCYzO7xJ5Cg-1; Thu,
+ 19 Nov 2026 07:29:23 -0500
+X-MC-Unique: F6N0bqgfOKGGCYzO7xJ5Cg-1
+X-Mimecast-MFC-AGG-ID: F6N0bqgfOKGGCYzO7xJ5Cg_1795091360
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C195218004DF;
+	Thu, 19 Nov 2026 12:29:19 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id BEA221956041;
+	Thu, 19 Nov 2026 12:29:12 +0000 (UTC)
+Message-ID: <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
+Date: Thu, 19 Nov 2026 13:29:11 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,105 +70,113 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 13:28:42 +0100
-Message-Id: <DMZ6RL5X2UXE.33EY9MDLO2AJA@kernel.org>
-To: "Gary Guo" <gary@garyguo.net>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH 1/4] drm/tyr: name resource lifetimes after their types
-Cc: <aliceryhl@google.com>, <daniel.almeida@collabora.com>,
- <airlied@gmail.com>, <simona@ffwll.ch>, <lossin@kernel.org>,
- <ojeda@kernel.org>, <boqun@kernel.org>, <bjorn3_gh@protonmail.com>,
- <a.hindborg@kernel.org>, <tmgross@umich.edu>, <tamird@kernel.org>,
- <acourbot@nvidia.com>, <work@onurozkan.dev>,
- <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-References: <20261118233727.3147222-1-dakr@kernel.org>
- <20261118233727.3147222-2-dakr@kernel.org>
- <DMYTKRS80NRC.18PBQHK9SZ8K9@garyguo.net>
- <DMZ4C3GGD9U0.360KJBSFLEK61@kernel.org>
- <DMZ5HM326EKD.1I8KUFD65L91Y@garyguo.net>
-In-Reply-To: <DMZ5HM326EKD.1I8KUFD65L91Y@garyguo.net>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+ Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
+ Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ Petr Oros <poros@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+ <20261116181612.107a4b57@kernel.org>
+ <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
+ <20261118174424.32e9f130@kernel.org>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <20261118174424.32e9f130@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On Thu Nov 19, 2026 at 12:28 PM CET, Gary Guo wrote:
-> On Thu Nov 19, 2026 at 10:34 AM GMT, Danilo Krummrich wrote:
->> On Thu Nov 19, 2026 at 3:08 AM CET, Gary Guo wrote:
->>> On Wed Nov 18, 2026 at 11:37 PM GMT, Danilo Krummrich wrote:
->>>> The firmware, buffer, VM and MMU types use 'drm for their resource
->>>> lifetimes, even though each parameter is local to its type.
->>>
->>> This doesn't make any sense, a lifetime on a type by definition cannot =
-refer to
->>> a scope of itself.
->>>
->>> `'sec` is not the lifetime of `Section` and `'fw` is not the lifetime o=
-f
->>> `Firmware` and I think this is just confusing.
+On 11/19/26 02:44, Jakub Kicinski wrote:
+> On Wed, 18 Nov 2026 16:29:23 +0100 Ivan Vecera wrote:
+>> A step of the zl3073x PHC, which ptp4l and ts2phc do at start and after
+>> a large offset, waits for the next 1 PPS edge, up to 1 s, with the
+>> channel lock held. A phase step can hold it for up to 3 s while it
+>> waits for the previous one. A dpll callback of that channel waits for
+>> the lock under dpll_lock, and every other DPLL request and notification
+>> in the system waits behind it. With ToD writes running, requests to an
+>> ice DPLL took 1448 ms in median and 3.9 s at most. With the series they
+>> took 0.2 ms and 0.3 ms, the same as idle.
 >>
->> Yes, this was badly phrased. What is actually meant is that e.g. 'fw con=
-strains
->> how long a Firmware instance can be used.
->
-> I think this is weird still. Any lifetime on a type would constrain how l=
-ong an
-> instance of that type can be used, that's just type wellformness.
->
-> I think what you're saying is basically "I couldn't think of a good name =
-so I
-> use the name of the type instead". To me I think using `'a` has the same =
-effect
-> and is less confusing because reader knows that it is a generic name and =
-is not
-> tied to any specific scope.
+>> The bigger reason are zl3073x callbacks we are working on, which have
+>> to wait for the hardware themselves:
+>>
+>> - a device reset with resync waits for the fast lock, up to 1 s with a
+>>     1 PPS input
+>> - a glitchless stop or start of an output completes on an output edge,
+>>     so it takes up to one period, 1 s for a 1 PPS output
+>>
+>> Holding the global dpll_lock for that long would stall every DPLL
+>> device in the system. For the output state we tried an asynchronous
+>> implementation, but then the callback returns success before it knows
+>> the result.
+> 
+> Right, for these level of waiting async seems like the right direction,
+> at least naively/without knowing the HW.  Why does the device wait until
+> PPS to apply the step change? Is the programmed time supposed to
+> correspond to the pulse?
 
-Oh, I agree, 'a technically achieves the same thing.
+Yes. The device has no immediate ToD write, it can only write the ToD
+on the next internal 1 Hz edge, the next input sync edge or the next
+internal 0.5 Hz edge. The written value is the time at that edge, so
+the seconds stay aligned with the 1 PPS outputs.
 
-With self-referential pin-init, several lifetime roles appear together. In =
-the
-Firmware example below, 'fw describes its external borrows, 'res is the (hi=
-dden)
-invariant device resource lifetime, and 'vm describes the borrow of the emb=
-edded
-VM.
+Looking at it again, the zl3073x holds the channel lock while it waits
+for the edge, although the dpll callbacks do not touch the ToD, TIE or
+phase step registers, and they already run while the device applies
+such an operation, because the PTP ops return right after issuing it.
+I will look at narrowing the lock in the driver.
 
-	pub(crate) struct Firmware<'fw>
-	where
-	    exists<'res>: 'fw,
-	{
-	    /// Iomem need to access registers.
-	    iomem: &'fw IoMem<'fw>,
-=09
-	    /// List of firmware sections.
-	    #[uses('res: invariant)]
-	    sections: KVec<Section<'vm, 'res>>,
-=09
-	    /// MCU VM.
-	    #[pin]
-	    #[uses('res: invariant)]
-	    vm: Vm<'fw, 'res>,
-	}
+For the resync, async is not only about reporting the result. Fast lock
+is a setting of the DPLL, not of a reference, and forcing it makes the
+DPLL ignore its frequency and phase error monitors. While an
+asynchronous resync is pending, everything else done to the DPLL runs
+in forced fast lock. A reference switch, whether from a priority or
+state change, a manual reference or the device itself in automatic
+mode, would follow the fast lock phase rate instead of the configured
+phase slope limit, and the resync would then report success on another
+reference. A switch to NCO would keep the force bit set until the work
+clears it. So every request changing the DPLL configuration would have
+to fail with -EBUSY, cancel the resync, or wait for it. With a lock per
+chip they simply wait, for at most 1 s.
 
-	pub(crate) struct Vm<'vm, 'res> {
-	    as_data: Arc<VmAsData<'res>>,
-	    mmu: &'vm Mmu<'res>,
-	    dev: &'res Device<Bound>,
-	    #[pin]
-	    gpuvm_unique: Mutex<UniqueRefGpuVm<GpuVmData<'res>>>,
-	    gpuvm: ARef<GpuVm<GpuVmData<'res>>>,
-	    va_range: Range<u64>,
-	}
+>> A failure can only be reported by a later notification, and
+>> the next request gets -EBUSY until the change completes. With a lock
+>> per chip the callback can simply wait, and one chip cannot do these
+>> operations in parallel anyway.
+> 
+> Do the failures only happen because of "unforeseen circumstances" / EIO,
+> or there may be more common errors reported? If it's just the former
+> a devlink health reporter could be an option.
 
-I find naming the external borrow parameter after the containing type easie=
-r to
-follow when reading these definitions.=20
+For the output start and stop, only EIO. The device does not report a
+stopped output and the driver can only wait for one period, so a health
+reporter would work there.
 
-I thought we did settle on this convention in the past; am I misremembering=
-?
 
->> (In the following patch, in TyrDrmRegistrationData, Firmware borrows Mmu=
-. That
->> borrow has its own lifetime, distinct from TyrDrmRegistrationData's 'drm
->> parameter.)
+For the resync, no. The wait ends with -ETIMEDOUT when the DPLL does
+not enter fast lock, for example because the selected reference lost
+its qualification in the meantime. That is a result of the input
+signal the user needs in the reply, not a device fault.
+
+Beyond the zl3073x, with the global lock any callback that waits for
+its device, for example an mlx5 firmware command with its 60 s timeout,
+stalls the DPLL devices of every other driver in the system.
+
+Thanks,
+Ivan
 
