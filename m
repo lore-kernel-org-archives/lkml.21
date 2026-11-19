@@ -1,106 +1,106 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081661;
-	b=ovRGfstvw+ZBLhwlx92h6ajn07hob998OwVs0ygcSInfccV3b9Ycjy0MdrFQ4gahBzyX
-	 thmWuK6tB9/o+W/qNK9r/uyfnGtLIUtOK3e34FjkpKQV4faHZtW/p7koI2mmsJHzINKGt
-	 ciq36y+kyjdZ00UOH1hz5MLxutGiWXo3ZAtPHQxtqiqacIrmodFitMsH1AaQudaIk/LzW
-	 OUnOlDYAY1mkERjNSdn0AFpJ96MIAz6LyS/X9sPO6eYDaVOQuY2PsDPwpnJK/xpS4iSBC
-	 kkqRIVOskkib+7RVJFpPCWkwmH8ZMp9J5LcunMdmQOGyvY29CEugRvCrN9allA6Ttig==
+	t=1795081667;
+	b=BaEXpuWvVfw9sbkmKu1khIAd+UGyDFhrobMNXaCx+K+8ZAFMv9+qQ2tW7xZOx+Lf0fT+
+	 i0WnrU/bv0sdC292MoqGf52L/daHRerF7tY3v8uSJr3d8p8c9y5deu7CJklNCkLACN7EV
+	 YuEXXrDXmt4yjhBLJwicyl4chml/W0nyW4MiXg/YOJexAM+R1msatvDY5lmCWpclQe6Vu
+	 CkRs15uHWxILmYbj/JTalfP8RLCSe4eINdQ7gI5qcFET6IELCwsfwKVPqkzpvFU0t+juf
+	 MTld2nCuxvuJafkKdORRWUyWkC84d6XMS++sKLufNRcjKDgHA3Rb/bsvDHDDGRb5dRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081661;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081667;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Analysis:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=kQ09RfFpt/7TSUf6vYtxBT4XsWexinP0sVkBp8S2BrM=;
-	b=mt1Ghk94VgdtuIZlyUUdekDxe71Nf2STwJpS93B4oD+qTsdr0Obyqjmse9ex3sqQEvXf
-	 cfW9q/BGONeZriJMRh6jPhJdVuYQ0NgL+dZ717X6Mb129taVVjjkBu06VjG5s2/Oc50Pe
-	 WD03V6fcDN/QSXHx1VVZ/eBBr9IlEPCD39JrcBGXc2YCVZcL2iJAfgMakAm9uvsbcyBPr
-	 Bmfmg2AIjnwFnQ9X5zMiDT8nzoIcWQZeuf/0ZgcgDyjQri300Khscch0clKtBTDJD3cnS
-	 zu4mcyras/eNLz3LmFPoD9xd4b8j8uyJesbV8Dtqw0FX248uDG5WvxjYNRmObpvitCg==
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=0piZuT8O17sCzBuMxolM1mTBSJ9b8cd8dmW/GEv2Rts=;
+	b=Dt+wENfyD7aFW7KF4G/gZDkEqMBzFSmYEFaiRzzag74tcH2728Sf2mZxufIFADbIrbL7
+	 PhIQAMfDxVhfJCM4GSoBfqqkmit1sTt7lk4vwXLgK9qBlJE6mGAvduJAHjWndX/5p8eJc
+	 3MaFlKVc7KcCu1nDVsnlh/EPYNFgB+lYN2d7V73RY08evjlh9mrMfKgMygvd0GgrIWRWd
+	 sVHyoMeCN982s7AgmChDdBVtvYjNj33grALUmwqEMuo0Ho47aBDOLqvD8wgbvHLtgTu1X
+	 O/fDystt1UlEyMGMYhdF+4EauI4Yp/a3z+/LtPDP9eRmexyM9yIo+qe2Fi68e9f5Rsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MIYEVFEl;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KmwXWqVa;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=d80D7KrX;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HcJ2BbWK;
 	arc=none smtp.remote-ip=205.220.168.131
 Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 091D8606A33F
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:47:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 091D8606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E69F60A2631
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:47:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E69F60A2631
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MIYEVFEl;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KmwXWqVa
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ9IRZs2514235
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:47:40 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=d80D7KrX;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HcJ2BbWK
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6vWm4330695
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:47:46 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=kQ09RfFpt/7
-	TSUf6vYtxBT4XsWexinP0sVkBp8S2BrM=; b=MIYEVFEltmEqfyiITMokusBn6Ip
-	UTovlinGpiD4kRfXbJQ21cj2s0bp4BYqHVtTOhrmxzw4UI1d6PPQ4Vke8oeAgrYz
-	v4EawULtn8GLL3BWndy51LzRJFu8zt2GxdI6Ya8FzIQSiEQ4QcX/hOECUT1cacOQ
-	TyHZYpiF0AJSYF78WBTcAt47ZbyPTc7WBJZcHK6k6qwCVvKQuR3x0XnpBoQeAFqr
-	rdYoPvAKFw/pgjWZB1TsMzshGITQ394JgPYNbBUr823G21M1RxIN0y+M6ROZfGMH
-	pye5HnDlc7XC103vOVPzC18NhLIur0bLq/9+UGvNuKeWyo/max5CgG8VhhA==
+	:mime-version:references:subject:to; s=qcppdkim1; bh=0piZuT8O17s
+	CzBuMxolM1mTBSJ9b8cd8dmW/GEv2Rts=; b=d80D7KrXhh1h0R1ZvKPOVnoGHHj
+	FcZgp0veL5+qJRCVZA193rw3uOrOThAgZjdsbgWKl4LUBR6jjNddUBnkEYx79ZoL
+	EhvKrwSUvZZF2bSIgy3Pm+PvhIgPcDq/Li/Kk1tN+0io1XYhL3cKf7KZr8eIhw9G
+	BMwxWh6BxEPrQqhzU3fzeVJUCvNVKtSbnR6rHzvxtBs+RiuxcXsyvMDPTCawjUau
+	vKhGhlwNiexPTm4jrptzR0edYSRGX6kLKO7xirT6P5c48RkWCoSn0DkGLOerP3Xr
+	CCQiT3Pnv2xF1TH0byfT3ceiKv7k1EZAM8wGxsbSm+Udsl4KupWcpk81ntQ==
 Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1xc6r4dq-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1fpnkvgc-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:47:39 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f559420f3so242624185a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:47:39 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:47:46 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f20addba1so369828985a.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:47:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795081659; x=1795686459; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795081665; x=1795686465; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=kQ09RfFpt/7TSUf6vYtxBT4XsWexinP0sVkBp8S2BrM=;
-        b=KmwXWqVaQK6+TR4ZqnQt06OCiL09E3Si6wL22boSUy/i5PamgPnqOxGEZdhdP8c4ui
-         +rSGGWHQRGepm+eeZ0OnQbdQ44UMcborFEB1OeAbb8rbOstTV6hsrzNUz5Rkgoc5HGCB
-         F+Pxf/A4mOHRtCuD0pxxpFjhAd1kzTzKnzsw8vrIQJ3ecirSdV1lHVJGsYpSID/wTcmR
-         VfJTS85DmzhoEQKEaX4Iwvt90t9IczkKSdeahiL+qGZ2zTtCxuo86+6nondqvSBQZ73l
-         SWwenF8Olg2tsdhlw7zXAL8YkarIaV6EoxQ6As/m8HU4aR+nGylPS1cezi3PzR9+QPcG
-         FNEA==
+        bh=0piZuT8O17sCzBuMxolM1mTBSJ9b8cd8dmW/GEv2Rts=;
+        b=HcJ2BbWKzetvTYlP/kG7E/Xaojgu5VF7o9S3YNToRFm6FEZ4dta9vvPgJ36JxZEw5R
+         caGRtsrFoEZHuVEHc7NhMAt6RkqgJaqx/5uxNcEuaaUhysi1LiPjGx9Hm2iobcXpTTLn
+         GO9s/PTspaDqJdfN120Ds6pDtzGoUTCPXp3Xpo2bue4x2EgZ5Orpyk9W8gT+Tb9fpPsz
+         //uz8OwweqBi2c5aOFxTuVhYqoeHufLPw7cYH+EoBHE/X+D0DkoKj6YBTtE6kGYragJg
+         ou5gSo0xXCYoVFDdpzG/ccEeYqXX3c33BFRDLUEF4akdjRK93Do2d9zXLG9FMHRkC2Mk
+         sdaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795081659; x=1795686459;
+        d=1e100.net; s=20260707; t=1795081665; x=1795686465;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kQ09RfFpt/7TSUf6vYtxBT4XsWexinP0sVkBp8S2BrM=;
-        b=v9o5mG/1c1v1kQu5rjoiHyGeYNTSQX3IOQDCU3yRqO5CafZ3oHono5tUUthaD8Zqgk
-         e1nD0FDxoRc9xY6qJpLKJrXUJ6ZRAvMyV+sBW6+so6D7JmJAIRLijZ0/fP/4/ZDnk+FY
-         poyjozQtnVZYhXDZ4K9GrwtpGYI6rqfHCqwrZnW5Y3GElBbTFKZm9AypGxK2AmEZVEhB
-         exGIO8yZvYnSbDFkXnuBlGZfcTCOSepy9X8i+Uri7+oQNcJiih/c1bipDhbA3KY7x25J
-         FKf+zgD7CDVWnnOjrRIZ2yK2CRbQKWJYCNI6ouArG3HOuO1eg2HEPs9tqdv5hnIluy3+
-         oT+Q==
-X-Forwarded-Encrypted: i=1; AL+hErGNUqH3sMxDXWHvH97A+a+UDhdvWhL//R1GlLurSkAAW5dw1scMzc+n4uVwqvIe7nn0FgM+0+3WhW3PIeo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9EqRlhaLqJkzbuhFchotZr6bsK7LJhkIQIPddPBmIlZDfV7cV5
-	Ck0EHmO+m0lMWJSlxuEXKLSvVBrtPSAXW9/Bq4A9sxPKqrZVYzKL5+scF0owNVGpX1P5WWyJPNG
-	WRW+TfPyaCqos9ihznqGSfnbsibmNoVYcZwQQ8lQTOxExLybBJS/TvXvu9U6AMAxN/M4=
-X-Gm-Gg: AYBFou3ZWJ9/be6NwmzZNeHRUmtmKooy3F9JbFrn96w+lNB1vBQxGkVA4pUHH55vIlT
-	5/lwO4iir0GpBPumcTtOD2LOxFQSTfJyMOWHZFQCYktBsTbMvI7J4G6Zd3pW7d15j/KjE0g4KK0
-	XXbL06HY+xldJHB+73Kbqi/rRNhuMkoubnY47njGhJJKVIyd+NzO8zFQS/12mXLNf8P4mDYfZ+H
-	2guQm3h6Ae1n6tG/Co5Ow4WUjBW9bpaYIsF1wbjC/y3D6WobC8wETGII++Nb3YCir3mi9N2RVMs
-	t4ViTcRhZqdlnxQpWFqjtXJamdCSCUbQJwafXp+4vILOypQ0Q9RoCjc4H54lPZA029GkS/sOEUd
-	mbadAnzbaITZN/V3nJzqWNnumHvSBkDt30xCPyOJQiJ6XGcAYXxP2aiAv2qjGR05iXKpLJ5kI1i
-	nA
-X-Received: by 2002:a05:620a:2b4d:b0:949:33a9:8eea with SMTP id af79cd13be357-94999357739mr868564085a.0.1795081658298;
-        Thu, 19 Nov 2026 01:47:38 -0800 (PST)
-X-Received: by 2002:a05:620a:2b4d:b0:949:33a9:8eea with SMTP id af79cd13be357-94999357739mr868561285a.0.1795081657561;
-        Thu, 19 Nov 2026 01:47:37 -0800 (PST)
+        bh=0piZuT8O17sCzBuMxolM1mTBSJ9b8cd8dmW/GEv2Rts=;
+        b=Fz9qby2vaejt+oh99IMnru+Imdt8wldOiFfxw1Vfuxzsu8IdVhQ+4daRwznLtzz9wO
+         TaQ2qib540IEtwB8nhFSVLwERvQ9xX6s4MdgD+ANTj9Ocf1D9fxciFRFlP+tR357PH4H
+         93cAQqr3fR0rTSerfAPe5tEGt83UMGpjphONMhGV+XilUNoXiG/W/TS21AgxbCKZYKAP
+         aZqNJEVKgWzS8UlRiySj0MrrTFd92/BRcwmdIY52FtTfMNYm+Oqq4ehkvezJ4yuuuCDm
+         n9YnD7yhhHud2J5p6C6zyMgsoR0z7n2xV7wAB14vU21AsztuFTFdxE4PbRDq7/CiosEV
+         nrqg==
+X-Forwarded-Encrypted: i=1; AL+hErGaJAGK3slRlqQiiqZ+r6l3YnF3slgRgxLWmfyCmz785TV1SS2yftdlA6zdUL85V9fRzAZeg65Sd3hG4OE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96R9d1mUrpDTtBtY7WTCmmRNOiuzZ3Kv71vaHX2VlFlnbLkKCK
+	yI8GvbwRGjLbcmKtZdBsjV6+dBz2SiXyBOe/R8R9K+VMMhfgGc3X96xW3Bb9Ij9cnuq8ite+MVu
+	a4T1jc7J1kIY3+IqdgFQWCvwpTJoQTN1nTMrmG1CWZ9PmU6dGOkjAVhlyu1s8b44n0/0=
+X-Gm-Gg: AYBFou34c5QoBgNbr+LZGwGW83OH8ACuInsDUufDzuOqmgF4cjoDZBOF1e69sSYSkl7
+	pYGhHDXHj4DzRmZwoHuDjYA6q/Bdn8QAxpBzUtnipQubpvs0eCGnVWDhhr3gK5jXuRZot1SFtxQ
+	+h90d8pmyh9XIw2hb8bonqckZ0Y/R1dRPUPy05Dez5o+/DW++4ZPbGc6mR9mw8t7W3bYyb8tpFb
+	LdrrzJ0Hf2rJ/qqWEoiLKvJbyKXF1qYpVMIoDuVquX8xFEB6wn4JYGlf8Gg4f+hA0/VLEkRLEm3
+	ZgDBx04A5/Of8Xg6OYFWQKiwQIkGiddPUoqbsV57pl5+Z3bZjHLPFt4ON3B7dkJ8jp3B4cy/wGk
+	S34YbqfdMnl/YheX5UdJA2Hlm745VInqzQDGlUHbRTAg8KFVPLfpcAy8EKoAkOLEsChjoPMD98a
+	bF
+X-Received: by 2002:a05:620a:8710:20b0:949:99e1:42d7 with SMTP id af79cd13be357-94999e14369mr685328185a.73.1795081665133;
+        Thu, 19 Nov 2026 01:47:45 -0800 (PST)
+X-Received: by 2002:a05:620a:8710:20b0:949:99e1:42d7 with SMTP id af79cd13be357-94999e14369mr685326785a.73.1795081664652;
+        Thu, 19 Nov 2026 01:47:44 -0800 (PST)
 Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:d162:32b4:dec2:8b31])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c1145esm9652992f8f.52.2026.11.19.01.47.36
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c1145esm9652992f8f.52.2026.11.19.01.47.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 01:47:36 -0800 (PST)
+        Thu, 19 Nov 2026 01:47:43 -0800 (PST)
 From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 To: daniel.lezcano@oss.qualcomm.com, rafael@kernel.org
 Cc: Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
@@ -110,9 +110,9 @@ Cc: Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
         Ulf Hansson <ulf.hansson@oss.qualcomm.com>, linux-pm@vger.kernel.org,
         Daniel Lezcano <daniel.lezcano@kernel.org>,
         linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v1 03/12] thermal: core: Validate thermal zone aggregation descriptions
-Date: Thu, 19 Nov 2026 10:46:45 +0100
-Message-ID: <20261119094706.3439040-4-daniel.lezcano@oss.qualcomm.com>
+Subject: [PATCH v1 08/12] thermal: of: Separate zone parsing from sensor lookup
+Date: Thu, 19 Nov 2026 10:46:50 +0100
+Message-ID: <20261119094706.3439040-9-daniel.lezcano@oss.qualcomm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119094706.3439040-1-daniel.lezcano@oss.qualcomm.com>
 References: <20261119094706.3439040-1-daniel.lezcano@oss.qualcomm.com>
@@ -126,179 +126,172 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=ef+o7LEH c=1 sm=1 tr=0 ts=6afec5bb cx=c_pps
+X-Proofpoint-GUID: VzCUrOKzV43lfwuTCm_AI1rRLWu1VgDV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzOCBTYWx0ZWRfX0XDuFthFvPe4
+ 0t6+9t/gGy0mRII2wKCaL0mNI5gJ6+Edl4gC1bKt6/9TJjgY3M+/xj/qqdF0C0d3cqJWrgTxCR+
+ OBhWJjEEEoS72D2B5MxTrLf1gIGPF8u82+DioEkl4y5lgcmgLyOWltTk8ol0fKmZL79YLoX9U89
+ k+63ovxjoKympwB1cIfKyQ1tn6rHq9JS7J2qznOGmNzndfgKKZHiRIyXi8d5FxbdNLM2ts3zTG2
+ b1UO1AdzstH+doa7WrOgZ6hpfZaKNt/skpzJLwee25+R3E1FGFMC/B+zNUxxCV/mKzh+iVhxBvi
+ WqdtziWiw9nE52K0Yy663w+eTjaEShk0caPCjCpnwYZClgMCz4ntJgv1RTLfNYjJxn1qiGq9woq
+ JT0prqkGI/MYYJp6azNqRSpRq6YMV0VCkF6t/Phs69oTZNUvWvCCzE70s70/X7jwfj737tEJvDl
+ 4SxLnnCE9Z+bok1CVnw==
+X-Proofpoint-ORIG-GUID: VzCUrOKzV43lfwuTCm_AI1rRLWu1VgDV
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzOCBTYWx0ZWRfX3JCtMrsC4Vdd
+ P3hYdHWJhDQT5AeGVLjhYoBv8rFlLGYJ+iT4kwwuoCq7ij6PAH+3W+0bX3iFU8zcqs27K6xjfGb
+ sbUlGKRYHkaOtZTnM0fFmV6NRONE+fk=
+X-Authority-Analysis: v=2.4 cv=PJ6aavqC c=1 sm=1 tr=0 ts=6afec5c2 cx=c_pps
  a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10
  a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=Um2Pa8k9VHT-vaBCBUpS:22 a=EUspDBNiAAAA:8 a=X8vhqgn2fEPoIbAfx2EA:9
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8 a=p39lXgXYR0dHnsPWrG8A:9
  a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzOCBTYWx0ZWRfX8mkrY8grr2UN
- QYwthoCrmg9EGFpM5XtBb0o724eFqrGjPU4ncMqkzBfTxc59dhtmdoitMVsrZJvN35fObn3DUWu
- Z2gPUVQdbRjcEAL6OYDrDlx2JqJ+u1y43l0cgF5EEEg5iGctLjyIX7tStjDEtBp0U/hw96yiWz4
- YAzOMS7tv34gdwfglWzHSLDTJlj1Dx9bcxwcAjyCPSSyzTC3rKDHDXtUUHGmaBdH+EjsbnCd34R
- LUJTvo0okMC7ozSAuXM6qZ1v3HdPstv61gLw6qbA0TjXy4iR/8Cg0gXK8eUvh8gxAozUL2/i1m8
- l1DBhakjnhWsIm2dfNdlAoZV6WuM9nC/KaXfOdeN1dCE2k7YKpw2vem9V1T1iftOurD74Mg7l05
- YVo/MKAFuWImbRbVIj7FJeEPy6RqZWwUzGJQTfjKbMMN+KHIlZDvCwmpZwIagh0ZNMOFaiXkz7d
- rMiz165jV9ZeOU93I4w==
-X-Proofpoint-ORIG-GUID: N62xkzaLNbG28X2PdwtBpx-dno3zk4Dk
-X-Proofpoint-GUID: N62xkzaLNbG28X2PdwtBpx-dno3zk4Dk
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzOCBTYWx0ZWRfX0yRrlJEfX7ue
- +7BJg/7/KUwcer9ZkKV3kSEublP3i4M7KRg1ZOA2awwSn+7b6xKJfASgMO4yXt2V29v+epeyVMt
- 4CQlYraliXUVthevfRXdUmckcdlIAko=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- malwarescore=0 clxscore=1015 impostorscore=0 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190038
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
+ priorityscore=1501 phishscore=0 spamscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611190038
 
-Add a private helper to validate aggregation descriptions before
-coefficient initialization and publication. Introduce thermal_aggregation.c
-and build it as part of thermal_sys when CONFIG_THERMAL_AGGREGATION
-is enabled. Keep aggregation optional and independent of OF support. Check for nonempty entries, valid
-source zones, and sources that have not started exiting. Registered
-non-aggregated sources already have a temperature callback, so there
-is no need to check it again.
+Extract node-based thermal zone registration so subsequent aggregation
+support can reuse trip, monitoring, cooling-map and critical-action
+handling. Pass initialized zone parameters into the shared helper and
+keep legacy slope and offset parsing in the hardware sensor path.
 
-Accept the destination operations and reject set_trips because an
-aggregate temperature window cannot directly program hardware
-thresholds on its individual sources.
-
-Before initialization, use zero to identify unspecified coefficients.
-Accept either a complete nonzero coefficient set or an all-zero set
-requesting averaging defaults, and reject partial specification. Keep
-this check in the validator. Do not apply the presence check after
-initialization, where zero is valid for temperature calculation.
-
-Reject aggregated sources because aggregations of aggregated zones are
-not supported yet. Inspect each source under its zone lock and document
-that callers must hold valid source references and preserve the validated
-configuration. Validation does not acquire references or prevent removal.
-
-Leave invocation to the subsequent aggregation initialization changes.
+Keep device node ownership in the lookup wrapper and preserve existing
+source registration and enablement behavior.
 
 Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
 ---
- drivers/thermal/Kconfig               |  8 +++
- drivers/thermal/Makefile              |  1 +
- drivers/thermal/thermal_aggregation.c | 76 +++++++++++++++++++++++++++
- 3 files changed, 85 insertions(+)
- create mode 100644 drivers/thermal/thermal_aggregation.c
+ drivers/thermal/thermal_of.c | 70 +++++++++++++++---------------------
+ 1 file changed, 29 insertions(+), 41 deletions(-)
 
-diff --git a/drivers/thermal/Kconfig b/drivers/thermal/Kconfig
-index 810eeccedfba..b5185084eac1 100644
---- a/drivers/thermal/Kconfig
-+++ b/drivers/thermal/Kconfig
-@@ -17,6 +17,14 @@ menuconfig THERMAL
+diff --git a/drivers/thermal/thermal_of.c b/drivers/thermal/thermal_of.c
+index 9e96fb1b033e..710ff25140e7 100644
+--- a/drivers/thermal/thermal_of.c
++++ b/drivers/thermal/thermal_of.c
+@@ -363,55 +363,27 @@ static void thermal_of_zone_unregister(struct thermal_zone_device *tz)
+ 	thermal_zone_device_unregister(tz);
+ }
  
- if THERMAL
+-/**
+- * thermal_of_zone_register - Register a thermal zone with device node
+- * sensor
+- *
+- * The thermal_of_zone_register() parses a device tree given a device
+- * node sensor and identifier. It searches for the thermal zone
+- * associated to the couple sensor/id and retrieves all the thermal
+- * zone properties and registers new thermal zone with those
+- * properties.
+- *
+- * @sensor: A device node pointer corresponding to the sensor in the device tree
+- * @id: An integer as sensor identifier
+- * @data: A private data to be stored in the thermal zone dedicated private area
+- * @ops: A set of thermal sensor ops
+- *
+- * Return: a valid thermal zone structure pointer on success.
+- *	- EINVAL: if the device tree thermal description is malformed
+- *	- ENOMEM: if one structure can not be allocated
+- *	- Other negative errors are returned by the underlying called functions
+- */
+-static struct thermal_zone_device *thermal_of_zone_register(struct device_node *sensor, int id, void *data,
+-							    const struct thermal_zone_device_ops *ops)
++static struct thermal_zone_device *
++thermal_of_zone_register_node(struct device_node *np, void *data,
++			      const struct thermal_zone_device_ops *ops,
++			      const struct thermal_zone_params *params)
+ {
+ 	struct thermal_zone_device_ops of_ops = *ops;
+ 	struct thermal_zone_device *tz;
+ 	struct thermal_trip *trips;
+-	struct thermal_zone_params tzp = {};
+-	struct device_node *np;
+ 	const char *action;
+ 	int delay, pdelay;
+ 	int ntrips;
+ 	int ret;
  
-+config THERMAL_AGGREGATION
-+	bool "Thermal zone aggregation"
-+	help
-+	  Allow thermal zones to calculate their temperature from multiple
-+	  existing thermal zones using signed coefficients and an offset.
-+	  This also enables discovery of multi-source zones in Device Tree.
-+	  If unsure, say N.
-+
- config THERMAL_NETLINK
- 	bool "Thermal netlink management"
- 	depends on NET
-diff --git a/drivers/thermal/Makefile b/drivers/thermal/Makefile
-index 3b249195c088..d059ca528908 100644
---- a/drivers/thermal/Makefile
-+++ b/drivers/thermal/Makefile
-@@ -7,6 +7,7 @@ obj-$(CONFIG_THERMAL)		+= thermal_sys.o
- thermal_sys-y			+= thermal_core.o thermal_sysfs.o
- thermal_sys-y			+= thermal_trip.o thermal_helpers.o
- thermal_sys-y			+= thermal_thresholds.o
-+thermal_sys-$(CONFIG_THERMAL_AGGREGATION) += thermal_aggregation.o
+-	np = of_thermal_zone_find(sensor, id);
+-	if (IS_ERR(np)) {
+-		if (PTR_ERR(np) != -ENODEV)
+-			pr_err("Failed to find thermal zone for %pOFP id=%d\n", sensor, id);
+-		return ERR_CAST(np);
+-	}
+-
+ 	trips = thermal_of_trips_init(np, &ntrips);
+ 	if (IS_ERR(trips)) {
+-		pr_err("Failed to parse trip points for %pOFP id=%d\n", sensor, id);
+-		ret = PTR_ERR(trips);
+-		goto out_of_node_put;
++		pr_err("Failed to parse trip points for %pOFP\n", np);
++		return ERR_CAST(trips);
+ 	}
  
- # netlink interface to manage the thermal framework
- thermal_sys-$(CONFIG_THERMAL_NETLINK)		+= thermal_netlink.o
-diff --git a/drivers/thermal/thermal_aggregation.c b/drivers/thermal/thermal_aggregation.c
-new file mode 100644
-index 000000000000..f85f5a487d60
---- /dev/null
-+++ b/drivers/thermal/thermal_aggregation.c
-@@ -0,0 +1,76 @@
-+// SPDX-License-Identifier: GPL-2.0
+ 	if (!trips)
+-		pr_info("No trip points found for %pOFP id=%d\n", sensor, id);
++		pr_info("No trip points found for %pOFP\n", np);
+ 
+ 	ret = thermal_of_monitor_init(np, &delay, &pdelay);
+ 	if (ret) {
+@@ -419,8 +391,6 @@ static struct thermal_zone_device *thermal_of_zone_register(struct device_node *
+ 		goto out_kfree_trips;
+ 	}
+ 
+-	thermal_of_parameters_init(np, &tzp);
+-
+ 	of_ops.should_bind = thermal_of_should_bind;
+ 
+ 	ret = of_property_read_string(np, "critical-action", &action);
+@@ -432,7 +402,7 @@ static struct thermal_zone_device *thermal_of_zone_register(struct device_node *
+ 	}
+ 
+ 	tz = thermal_zone_device_register_with_trips(np->name, trips, ntrips,
+-						     data, &of_ops, &tzp,
++						     data, &of_ops, params,
+ 						     pdelay, delay);
+ 	if (IS_ERR(tz)) {
+ 		ret = PTR_ERR(tz);
+@@ -440,7 +410,6 @@ static struct thermal_zone_device *thermal_of_zone_register(struct device_node *
+ 		goto out_kfree_trips;
+ 	}
+ 
+-	of_node_put(np);
+ 	kfree(trips);
+ 
+ 	ret = thermal_zone_device_enable(tz);
+@@ -455,10 +424,29 @@ static struct thermal_zone_device *thermal_of_zone_register(struct device_node *
+ 
+ out_kfree_trips:
+ 	kfree(trips);
+-out_of_node_put:
++	return ERR_PTR(ret);
++}
 +
-+#include <linux/errno.h>
-+
-+#include "thermal_core.h"
-+
-+/**
-+ * thermal_zone_aggregate_validate() - check an aggregation before initialization
-+ * @aggregate: aggregation description to validate before coefficient initialization
-+ * @ops: operations of the destination thermal zone
-+ *
-+ * The caller must hold valid references to the source zones and keep the entries
-+ * stable. Take each source lock separately to inspect its parameters and state;
-+ * the caller must not hold a thermal zone lock.
-+ *
-+ * Aggregations of aggregated zones are not supported yet: every source must be
-+ * a registered, non-aggregated thermal zone. This also rejects
-+ * a source whose parameters already reference this aggregation description.
-+ * Source membership and non-aggregation must remain unchanged after validation.
-+ * Validation does not acquire references or prevent subsequent source removal.
-+ *
-+ * Before initialization, zero denotes an unspecified coefficient. Either all
-+ * coefficients must be supplied or all must be zero to request averaging
-+ * defaults. This presence check must not be applied after initialization:
-+ * zero is valid in the temperature calculation.
-+ *
-+ * Return: 0 on success, -EINVAL for an invalid description, partial coefficient
-+ * specification, aggregated sources or destination set_trips,
-+ * or -ENODEV for missing or exiting sources.
-+ */
-+static int __maybe_unused
-+thermal_zone_aggregate_validate(struct thermal_zone_aggregate *aggregate,
-+				const struct thermal_zone_device_ops *ops)
++static struct thermal_zone_device *
++thermal_of_zone_register(struct device_node *sensor, int id, void *data,
++			 const struct thermal_zone_device_ops *ops)
 +{
-+	unsigned int initialized = 0;
-+	unsigned int i;
++	struct thermal_zone_params tzp = {};
++	struct thermal_zone_device *tz;
++	struct device_node *np;
 +
-+	/* An aggregation needs a description and at least one source entry. */
-+	if (!aggregate || !aggregate->entries || !aggregate->num_entries)
-+		return -EINVAL;
-+
-+	/*
-+	 * Destination operations must exist, but cannot program hardware windows:
-+	 * aggregate temperature boundaries do not directly map to source thresholds.
-+	 */
-+	if (!ops || ops->set_trips)
-+		return -EINVAL;
-+
-+	for (i = 0; i < aggregate->num_entries; i++) {
-+		const struct thermal_zone_aggregate_entry *entry = &aggregate->entries[i];
-+		struct thermal_zone_device *source = entry->tz;
-+
-+		/* Reject unresolved sources before inspecting their zone state. */
-+		if (IS_ERR_OR_NULL(source))
-+			return -ENODEV;
-+		/* Before initialization, zero requests a default contribution. */
-+		initialized += entry->coefficient != 0;
-+
-+		guard(thermal_zone)(source);
-+		/* A reference protects lifetime, but does not prevent source exit. */
-+		if (source->state & TZ_STATE_FLAG_EXIT)
-+			return -ENODEV;
-+		/* Nested aggregation, including a direct self-dependency, is unsupported. */
-+		if (source->tzp && source->tzp->aggregate)
-+			return -EINVAL;
++	np = of_thermal_zone_find(sensor, id);
++	if (IS_ERR(np)) {
++		if (PTR_ERR(np) != -ENODEV)
++			pr_err("Failed to find thermal zone for %pOFP id=%d\n", sensor, id);
++		return ERR_CAST(np);
 +	}
 +
-+	/*
-+	 * Require either a complete explicit combination or all-zero coefficients
-+	 * for averaging defaults; there is no defined default for a partial set.
-+	 */
-+	if (initialized && initialized != aggregate->num_entries)
-+		return -EINVAL;
-+
-+	return 0;
-+}
++	thermal_of_parameters_init(np, &tzp);
++	tz = thermal_of_zone_register_node(np, data, ops, &tzp);
+ 	of_node_put(np);
+ 
+-	return ERR_PTR(ret);
++	return tz;
+ }
+ 
+ static void devm_thermal_of_zone_release(struct device *dev, void *res)
 -- 
 2.43.0
 
