@@ -1,62 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.117
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795129395;
-	b=WLbEiO/gSDC/qa6Hz2mGDYNvNbVawoo0ecYsUXuQFuVRmTpNs3SuBTNiMF/vyStOrR9Y
-	 EcE6UoBXGmg9OGnCTIkD9OPujbV9xQn290LTbY1S6fhOyerwoqfKYKWXHp5tsAB7xVA1A
-	 xlprKVf/ZnZt7enGNukcPlTwa0DiMyCePHQP5t2ywE8v8+qHXn2NYJiuGGw+1L0I5MI0c
-	 SiSATWLJHjEY8tk3p7sMM05NSCo0mv8dTp9bgZRqZ1yQuwSTp4ZzvdNeV7ln4AlcMUNPl
-	 bgNl1btCns0pX1J9FC0cLHkPEVSZLjMaAThNHYlSuy/ZLJsw03P21fCQMSuHqgDdX7w==
+	t=1795129416;
+	b=GpirF+ntiQtH8/1bS6x3BI2BQz6MnBD8LqrWcycbqn//+A4jDRkLVggkdGnQNxGSbpR8
+	 mXQj1xZq+fJYqQ2gNHJPAqf6jNc+lXj+mMsqyvD9UN0+es3+Y5ppXRffoYoZBe3iVxeHh
+	 ZxFxXJhSn8P6kLpfV6kS1/apBBS5QXgTP1vTUaaWHair3O0otKMkDO+/BPoRXfKTcuotq
+	 hF/bU7GWHJaJk4XknwHjC3oN6zIcGpxHqNuFOZBpiL9PpLyAtwdiOvJQO6ikYy7RMCJPz
+	 hqrP2iq7IRYXOrNc21JxPNPE9wibG4gJmKb8HpOYEI+iBr7ubhpLeEUiKLhr2LYO2yg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795129395;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=Zd5y4/iKVR8cIRL5xSomMHsnhEvzs0tFOB3YXKd6Dto=;
-	b=KQvC+Cd71arkts1Flh3XVJh8R/NEu31tHPSDeAufiSJ7SeYwS4HO+EoTfllQB9GV1S9G
-	 /CAa3+UqydLKoDkJi69tk/SbmPexWsB9LinMnnD5C5zBAmwyI+vzWLompXhMhi8kd4Y1Q
-	 QSYckmW/UvWJjXCmFbykJc4rj24cyeqyM1vg1ESCdVuwxT1U9mmsWM1fAFCXvLKsIJZxs
-	 pON06nmylaVICbBxwrEpxvfIKufJuSIc6DJwQWJErVIEqeRLd58+b3pAw2B0XmCZhaeUN
-	 SGXDHzUlmbFBdyYuY3HIe/AbEWiTUQqqHC6C1SPGApvhFSzstKvTgvENf/gZFTmFvgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795129416;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ldOaBTLY4uCQrQ5Yn8ZzHpIxSvzO3a3EA9r85vz2zgI=;
+	b=yWG4LAeSsSIQHaVaFbNIEmykrU8rAPExSErOZGoiQ6FrPPDvTXHJU0UrA3RHGseKH5K3
+	 VxnzzOL6Od/7xM39ZOGwSXWdeq5N4Vl51HOL3EXe6gOSMZ6zyjmB6Jbn9oQEi4oEzCthZ
+	 jXo/myr7vIslBb/vzNoU3aLTxJGPz7Ss3f5oZZ3j09G35C5xVb5i1K2/EiI8hWEKGg9Gm
+	 s13NoQfAk5YWdATS2BR0D17vf/ZvkXyrn8tgwDyLnxkKUwEGUN5gdOXK3iqTY+PK9lRzF
+	 oGCp+ek/BWQkMGzaHdfEo8GexNVS181GeIa7D++Q2Yw3OEJKwyQ9p1rVZILUE4iUpwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIZt2S04;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=a7snv.com;
+	spf=pass smtp.mailfrom=a7snv.com;
+	dkim=pass header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=UaiKyIKT;
+	arc=none smtp.remote-ip=109.224.244.117
+Received: from mail-244117.protonmail.ch (mail-244117.protonmail.ch [109.224.244.117])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01379606A320;
-	Thu, 19 Nov 2026 23:03:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08E81606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:03:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08E81606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=a7snv.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=a7snv.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AIZt2S04
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B73B1F000C4;
-	Thu, 19 Nov 2026 23:03:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795129394;
-	bh=Zd5y4/iKVR8cIRL5xSomMHsnhEvzs0tFOB3YXKd6Dto=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AIZt2S04HsqBdjUj8LQzR5dJNwK1YywkqDmC/aeovDrNCPKjqLA0/uhaIfmPHAaWF
-	 eIl20UPXqPNBAE5VSm5VOCae3HAXxDyk0+7WL73MgFETZ6ZjA87bIzgJ9LOGDeetuJ
-	 FuAEGRUfBrSxqi83tULgQmNbgPrcBg4rO3m7k6GYSPre9r7j3/oD9Bu+ItyB3vArjP
-	 RyxBjsnhY1XoVt72SETxdsXHzsp9YNwLI7L96XtjTLBeFw1AMFuJiKz9z+XIbcWtTw
-	 q7IZuA2Ftp8RXrcrxIU8I9lVDN5yDuJ+nnvEZaNDxNOXoXuENnYVwD4phhe/6KAQLc
-	 P655iNDbFJOPw==
-Date: Thu, 19 Nov 2026 23:03:05 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/8] regulator: core: Add "enable and wait" functions
-Message-ID: <7d52cef3-03ca-481a-a554-3a1002e2b8d7@sirena.org.uk>
-References: <20261103043734.2179858-1-wenst@chromium.org>
- <20261103043734.2179858-2-wenst@chromium.org>
+	dkim=pass (2048-bit key, unprotected) header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=UaiKyIKT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=a7snv.com;
+	s=protonmail; t=1795129411; x=1795388611;
+	bh=ldOaBTLY4uCQrQ5Yn8ZzHpIxSvzO3a3EA9r85vz2zgI=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=UaiKyIKTNndO+ypSJ7++frHDGwXYjQZ+6Kt24eyOQOAkfsY4d0aPYoFppjdDGSd/1
+	 TctQ/1g9PdyaFmFPKMYi81nEl5+dDN8hmadaYcyKfEEY4CG3sOSZxBNQehPobIZ2Yb
+	 i/DuYkSmZRaddhB9t1f89ypVo6m75fcdNpGcLpwHAIdSQqFiV/8+xnhlybZ+sJLFhj
+	 UqDuuH3DjfOh68hPS6NboCdhbiuQYWivBzaQignoHFfUemRaZdSd3HaZGzgEmjnmEg
+	 pd7UPBNeHp7eXLhaJBap73hdugWP1itO12urM6+r8QBZPxadzKBw+tJ0ZZPCUnQbOv
+	 ebvzt4lgnUkpw==
+Date: Thu, 19 Nov 2026 23:03:25 +0000
+To: Bernd Schubert <bernd@bsbernd.com>
+From: Yun Wang <arsenova@a7snv.com>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] fuse: don't wait for a sync-init mount in fuse_uring_cmd()
+Message-ID: <179512937453.1413003.12323605080434867679@a7snv.com>
+In-Reply-To: <7b2d361d-86f1-4064-a905-954a2dfe4ccf@bsbernd.com>
+References: <20261117075632.59959.p12-0-arsenova@a7snv.com> <20261116235814.60702-1-arsenova@a7snv.com> <7bb720d9-30ef-4d3f-8ab8-81c5fe2e0fe1@bsbernd.com> <179509410286.1113694.13152766226405003077@a7snv.com> <7b2d361d-86f1-4064-a905-954a2dfe4ccf@bsbernd.com>
+Feedback-ID: 235448903:user:proton
+X-Pm-Message-ID: 99e23ef6d96195ca25c9535bb02f1885b9b19096
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,65 +64,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="guRl6a/jxrclhYOU"
-Content-Disposition: inline
-In-Reply-To: <20261103043734.2179858-2-wenst@chromium.org>
-X-Cookie: HAIR TONICS, please!!
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+On 11/19/26 15:36, Bernd Schubert wrote:
+> I think only with an old version of libfuse that was sending REGISTER
+> before FUSE_INIT was processed. That was the reason I had added the
+> -EAGAIN handler into libfuse.
 
---guRl6a/jxrclhYOU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Thanks, that matches today's code.  Released libfuse (3.18.x) doesn't
+use sync init at all, and master sends REGISTER after the mount with
+sync init since b584cdfd.  Just before that commit, master with sync
+init still got -EAGAIN loops, but from a different window than the one
+patch 2 changes: after the FUSE_INIT reply was written and before the
+mount thread had set initialized.  I traced that libfuse with bpftrace
+on 7.4-rc2 with and without the patches: every -EAGAIN found the device
+installed and the connection not yet initialized; none found the device
+not installed yet.  That window is the same with or without this
+patch.
 
-On Tue, Nov 03, 2026 at 12:37:25PM +0800, Chen-Yu Tsai wrote:
-> In device power sequencing and initialization use cases, it is common
-> for the driver to enable the regulator and then wait for a certain
-> period of time to pass before continuing.
+> Well, if libfuse isn't affect, why is this patch needed? If you have
+> another fuse server, fix your fuse server? (And it confirms my personal
+> opinion that we should aim for one userspace library.)
 
-The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
+Because of what the kernel does while a REGISTER waits for the mount.
+io_uring_enter(2) issues the command inline with IO_URING_F_NONBLOCK
+while holding ctx->uring_lock, and fuse_uring_cmd() then sleeps in
+fuse_get_dev() until the device is installed.  Any other thread that
+submits to the same ring blocks on uring_lock in D state meanwhile,
+whether or not the fd is O_NONBLOCK.  On 7.4-rc2: thread A sends a
+REGISTER before the mount, thread B submits a NOP to the same ring
+100 ms later; B stays in D state in io_uring_enter() until the mount
+400 ms later, and when there is no mount, until thread A gets a signal.
+With patch 2 both return at once.
 
-  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
+So a server that sends REGISTER that early is buggy, but I don't think
+the kernel should sleep in the non-blocking issue path with uring_lock
+held because of it.  For such a server, patch 2 turns that sleep into
+the -EAGAIN that fuse_uring_cmd() already returns until FUSE_INIT has
+completed.  Would you be fine with keeping patch 2 as it is, with the
+changelog fixed as discussed?
 
-are available in the Git repository at:
+Thanks,
+Yun
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git tags/regulator-enable-wait
-
-for you to fetch changes up to 9f9bcca6adc314d35818fc903a2d73898c169062:
-
-  regulator: core: Add "enable and wait" functions (2026-11-07 16:42:09 +0000)
-
-----------------------------------------------------------------
-regulator: Add enable and wait functions
-
-Add helpers which smooth and optimise the process of powering on a
-regulator then giving the device time to stabalize after it has come up,
-taking into account if it was already powered.
-
-----------------------------------------------------------------
-Chen-Yu Tsai (1):
-      regulator: core: Add "enable and wait" functions
-
- drivers/regulator/core.c           | 129 ++++++++++++++++++++++++++++++++-----
- include/linux/regulator/consumer.h |  21 ++++--
- include/linux/regulator/driver.h   |   2 +
- rust/helpers/regulator.c           |   5 +-
- rust/kernel/regulator.rs           |   2 +-
- 5 files changed, 135 insertions(+), 24 deletions(-)
-
---guRl6a/jxrclhYOU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr/gCgACgkQJNaLcl1U
-h9A1rggAhuZF29Wh+qc2EFGYh5zC2YrRDm05Yr9iUHO8DE2x+DAQLvxONEKLyWKd
-hKGejRYBe12LmUet8wpvLHTPZXCrHXmgpK8Q8WzjpsQ4KVbwtechoDUL9uYdOgpq
-Cqf4QUpaTYrBN+VIQLC3qBwTkk4PViEkdd+3IP3srRUurwAdLczvWQW1rn+6goXE
-/MeZP5Nr0E5gELLlZ72PxJ8GeVKXMCAlh3I61PelsRYl3yZMnBekDyugOf69UO2u
-jof5/kkk4xGdHCK342b8idblZ6E6+Fwq8fYX/IxuNzNoGuDgG5rD88EoVJ+cIoeV
-dM0dbJKQqVV98NAV6CkLRJTQw7+AWw==
-=NHAI
------END PGP SIGNATURE-----
-
---guRl6a/jxrclhYOU--
