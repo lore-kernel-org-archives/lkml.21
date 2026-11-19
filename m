@@ -1,59 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096669;
-	b=xJf0XgzHXI65xZqky9vFlbcVRCGHwO12J/A57kU9AUWfNxp1ad1MuiPvGQ9vmY72/IvU
-	 J889v8Ngg8ZItm3yG+yyvSlvRb4SRet4pMUd8YtzinamCV3WYqIxYADRqr7AC/V2a8Pas
-	 4YabhumiHxO3NCO4krkVPb+q9cq9Io5lp4eomt1zp/mMBTkoqyvujMSSG8mu5PPfGgD+v
-	 PuHBdd8nbIkjPylNBq4GQ5FP3b/Irsj1NC+5pmUtBepvF/2+i4bbjkDRH6OTqLrA4Ow9N
-	 lVe94j+GBEqKDcq7qM1QmzZchY9C2tlzz6/0ZQpiSQpSGSDJEy6RmhMSWbET111LJUw==
+	t=1795096680;
+	b=UbX/TlDe0j+fAjm8Byd5dKqPDjO39KxELW+glGFBbGq2hGYcRlfKb6K8FYoRFNIZCLem
+	 pIjYN6BFbLpc2Ox93HeDnqC6lANfSbtK50EHmuDkiTiH1imG6ScgAeoZ5CRA1UaF4Vs+i
+	 7jCw/Bq25kkEhgvgsFmF6ihAR/R+izJBaz8mPUKcwb5qiXzBEyiOUWm0uHXwdbIEycEEi
+	 7UJNpAATlq3nZVYADvdPMgDrjgg/rN4IMnjDurSPcuue8o6tZPEK7hezJSR0Rsl6FaH1g
+	 TrE0FQLU7g25+XyVsfq6UPWddqRzu/LlAsGAqDUne2DKW2TcnVVd2vxGeSwaBosGgYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096669;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=S0tdVInouOdohOf3y3ROcnEUNe5cSySDwSAP8SJS+UY=;
-	b=TFMRX4wXP0V9hIDaTC/JLFZQot8fe8dar9aAxb8P3ip01HF1SisBcR8P2O/5AZjJ935v
-	 iwSeMZJgRbxEn46fFBwOijN4YpoAoI/xjyhko8S33A9IHccbP0rNbKqzV0l46duvj95Ic
-	 NMt/p/HGaLpNWZERs7ZP4l9OGsln5yzkvs8ud0QxCOMK/rQ2DBgIW60Jp91QQj5va4CiO
-	 YtH6QyliquaJzky6XETdRlnt/Xu8wqpaLX/XHmlyPX2kXimas9he6+5+4X+x/cpor2e5J
-	 czYvqgYdL9V/qQFrbpAgbmQnIACHx9INYzz0geslJVm2lCbdShUaZXkLcKUVjN/n4Yw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096680;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=x9Y9tQjBdLrfIJ3ZnwR1GSvIi6f1WsQxYqUW4NGAlF8=;
+	b=tMtPvX6OatPvOBLu61roI1KlERTkfjucwClZoy9ZJ1mICJm5O030norFbj7xZxSnPrvS
+	 RipmgaKSipfgTw2M4g6Zum7RjpsiJBj/h7GydsKEFnYDst/VWLtK/fhxs41aCSqSOxvE/
+	 tr550GjOOt7LfbjClPN4hBwfreSzmfNQSSdcRFq9dJstaU5ZhMOrvXW8yQBrD+n0Bf+0K
+	 sfh1LrAFulhO6iWgABe/4mfcDfOQZIUe9yEfmhtWlOBaDCVZCxfpkq0NUuXi3k2+6qeqR
+	 CyPBmMdegTEdLX4EvJg2QTwp2lMoDqHQuLG3cbxw6m87rV6TRLvZpvsBFrB7qHJHVAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VTG05IaB;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CnikS7YZ;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 937EF606A336;
-	Thu, 19 Nov 2026 13:57:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26ECB606A32C;
+	Thu, 19 Nov 2026 13:57:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26ECB606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VTG05IaB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 988861F000C5;
-	Thu, 19 Nov 2026 13:57:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096669;
-	bh=S0tdVInouOdohOf3y3ROcnEUNe5cSySDwSAP8SJS+UY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VTG05IaBXiNOGB/UkOhNVLsvEyO1G3aax/eBEIJw9xXmsKjV6/n5DSpfuj9mDebv0
-	 dxQVA8CW32RvLNpK2dEueLPZLmwmldzvE6lEigS0dfr82/2clgcwsYzgQBftx7n14t
-	 pbkqPDWlSLY+b0qLHIXigaWQfBwFn5QV20gw6/J3TXcfgjDRllgZ8v1Se5REO1upH9
-	 GFuzBvRUejwpN3SyhXUHRLhLasaMVZrK1kcwxHs1LbSQfdhUOHC+EsjL0cgvsGIpdE
-	 oMB9nZu68h8x5RA3aHlOhrW6mARVPeFPsWOZ1zYHYR8jvwCzmIl0Qw/RmBzdvT/oCG
-	 WJaj1eJ7ISgsw==
-Date: Thu, 19 Nov 2026 14:57:43 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Vincent Mailhol <mailhol@kernel.org>
-Cc: Jens Axboe <axboe@kernel.dk>, Davidlohr Bueso <dave@stgolabs.net>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org, 
-	linux-block@vger.kernel.org, linux-efi@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	Dave Hansen <dave.hansen@intel.com>, James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Matthew Wilcox <willy@infradead.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 0/7] init: discoverable root partitions
-Message-ID: <20261119-grauhaarig-wachleute-rockkonzert-696e45cdc27d@brauner>
-References: <20261102-discoverable-root_partitions-v3-0-27f04b69b7ab@kernel.org>
- <20261110-fachlehrer-anhaften-unkenntlich-86fc48b56f8f@brauner>
- <182e7cc2-43cd-4858-99ca-5f243e2c9eb5@kernel.org>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=CnikS7YZ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=x9Y9tQjBdLrfIJ3ZnwR1GSvIi6f1WsQxYqUW4NGAlF8=; b=CnikS7YZ/nww+ymXTnk4rS2AND
+	Ozq/uS0+TxbH6PcdAZ+CMR6Uqd2qu2vXPGPKp4eScjwvACqrwByTupKm0/CFHvbEfCcnegp7LUP61
+	PDs/1JpAyn+pgPXHInSH86i9SOIr04sW9HVsYzy32HFfXAuXTCFq1ySvDr+R4VmlTt1Y=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xU2e8-0002yB-OT; Thu, 19 Nov 2026 14:57:52 +0100
+Date: Thu, 19 Nov 2026 14:57:52 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chih Kai Hsu <hsu.chih.kai@realtek.com>
+Cc: Birger Koblitz <mail@birger-koblitz.de>,
+	"netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	nic_swsd <nic_swsd@realtek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"bjorn@mork.no" <bjorn@mork.no>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>
+Subject: Re: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
+ RTL8157 and RTL8159
+Message-ID: <1543707c-c121-4c35-8849-c4db1a71fb57@lunn.ch>
+References: <20261110032416.16968-11-nic_swsd@realtek.com>
+ <179464851836.2199510.10154643847175029122@kernel.org>
+ <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
+ <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
+ <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
+ <b53ecd5dc96f4890956f051959b74e32@realtek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,31 +77,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <182e7cc2-43cd-4858-99ca-5f243e2c9eb5@kernel.org>
+In-Reply-To: <b53ecd5dc96f4890956f051959b74e32@realtek.com>
 
-On Wed, Nov 11, 2026 at 04:24:35PM +0100, Vincent Mailhol wrote:
-> I would appreciate hearing whether these use cases and the limited
-> scope address your concerns.
+On Thu, Nov 19, 2026 at 07:18:16AM +0000, Chih Kai Hsu wrote:
+> On 19/11/2026 12:42 pm, Birger Koblitz wrote:
+> > On 18/11/2026 2:42 pm, Andrew Lunn wrote:
+> > >> I plan to add two new functions, rtl_nway_restart() and
+> > >> rtl8152_get_link_ksettings, to replace mii_nway_restart() and
+> > mii_ethtool_get_link_ksettings, respectively.
+> > >
+> > > Ideally, you should port this driver to phylink.
+> > >
+> > >        Andrew
+> > 
+> > Indeed, all of the (integrated) PHYs on the adapters supporeted by r8152 I
+> > looked at are already supported under drivers/net/phy/realtek/ It should be
+> > straight-forward with many immediate benefits.
+> > 
+> > Birger
+> 
+> I agree that a phylink conversion is a better long-term direction. I'd like to
+> keep it out of this series. This series fixes and completes the existing RTL8157/59
+> support. The phylink conversion is a larger change. r8152 has no MDIO bus and 
+> accesses PHY through OCP registers.
 
-I don't think they do. The scope was never the problem. DPS is userspace
-policy and a subset of it in the kernel is still policy in the kernel.
-It seems just wrong.
+It does have an MDIO bus, it just used OCP registers to access it. But
+there is no reason you cannot export it using a normal Linux MDIO bus
+driver.
 
->   This is useful for booting a kernel manually, for example from the edk2
->   file browser, or recovering from a lost or corrupted bootloader
->   configuration without having to supply the correct root= argument or
->   load an initrd from the bootloader shell. Finally, it allows systems
->   that otherwise need no initrd to discover their root partition through
->   DPS without introducing an early userspace environment solely for that
->   lookup.
+> , and the MAC code also does PHY configuration,
 
-The kernel can already find the root partition without an initrd though?
-For example, via root=PARTUUID= and root=PARTLABEL=.
+Which is a layer violation.
 
-And if you want to pick something in the edk2 file browser and have it
-boot then pick a UKI. It carries its command line and its initrd in the
-PE binary so there's nothing to type and no second file to find. And
-that initrd can do DPS just fine. Everything beyond that is bootloader
-or early userspace policy.
+> firmware patching, UPS and EEE handling that would need to move or coexist with
+> the phylib drivers.
+
+Or just thrown away because the it already works in the PHY drivers
+and phylink.
+
+> The two helpers here are self-contained and will be removed by
+> the phylink port.
+
+phylink_ethtool_nway_reset and phy_ethtool_nway_reset exists, so there
+is no need to add yet another version. phylink_ethtool_ksettings_set &
+phylink_ethtool_ksettings_get and phy_ethtool_get_link_ksettings &
+phy_ethtool_set_link_ksettings already exist, so there is no reason to
+add new ones.
+
+I'm tempted to just NACK it. The best pressure i can apply to make you
+move to phylink is to not merge your patches. If you are adding stuff
+which should really by done by phylink, i think it should be rejected.
+
+      Andrew
