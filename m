@@ -1,83 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080112;
-	b=zKZfx1a4jQ5J/G0OHu2AUTdeu+0lG+cIevKypVhjjNLfVfzqs6+mS0qrwTUpElLS2MLG
-	 EptaSMDfLgHkK/9tqYvhplj2TrbsWajdNNSrM2r1KuK7bU1WWIULchkZ2/af+89AdMyqH
-	 B0Bac7P9+PpMRSfDxtVapi9Wpq6i7YwiXquY+4hbGrjcXDyp4THzDHULG+ie0HjXnXEpC
-	 O34acrsCgbe4uT+NPadBmMw11ELzBka1LV8Fyh2oHqjbxetl4Dc9gxgoPh1aH220ntriQ
-	 iuvSJVTt97+0JVCF7sFhG0lb0TVzJMIePy6RBDQwKWDxMeQ6CPQnKl9iRv0EY6Vhluw==
+	t=1795080151;
+	b=hg5DsgYbNNhHy8VbW4g8XRYD2HdWskLIspgqTzNBS3DIU8/mhm8KRBwcx1TPnL/DQGhV
+	 6RddxVxt0e0b60GGDxQruJE0GG65T1/YlH0GMASG2qZAU6GnpueXNB1aKnBtD0sVPUunB
+	 qc51vt5xzh+Xwj5WXJJEAezpUem2r74PV0yjX2/9yfJt6xFxXxRJFmzsA9kpxTkINfEoo
+	 H1tGyjUg/Bb0gkv8+w8NY2a22dUUmFhpR3evCABDF6DzOhBo5ywjzSSFzQPs76uKhffhA
+	 YG/nfqQ1UkN8mVjsP+blacRTtFD3YuULloNqz9dEW9nW+jsu7GFaURct3D5E7o3w90Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080112;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=5Wr5mBmCRIZACCxxVm/06jDLVb0/ss7nm5ggZMozLNA=;
-	b=22WEEWvPMycouyAI2i8tgxrm1nzj6Yfx6RD7r/9OlaKsweiAH709oNu1x1NNzcO7dDhF
-	 jaSszUZN2htz3Y/sJ0Edb0NIo2FlVqQIv5Dg3UJdE4EH3i4iHitE1ksBu1nVFvF+Votxv
-	 57xwpaMg61EuDqCFtMEn6RzGrWWGeaVlghpzW/eqnc63VMZf384j5USY+j6pTkvTeySDG
-	 c0KvhCh+V/ZqdSjD/vHuCf7cHq7c/BmWHuSJNzW1lt4d7nhjdgSojMF8vmc/8RpKX2yqd
-	 w5YK3hgdYo1GyAc4e0J1aitPnfjL2uicRhQNNM5C8DYqpU+TCv9PPqqvkWhvwAL1MWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080151;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=9IebbM/CrE1KAXTiPPp7lFp488j2ib1AnDlFm7+FEB4=;
+	b=LpNOngkZGJsgPGmAFHkM4y/6hlUngtcwoAwqc/CPivuVNp8hRby0w1c4t+AWpQZAz6FS
+	 pghFEOx5PnNIyFtpLTbRgfE/sJS+L+gvB/dF59Zl8KPGqAqHWabG3rb+m1S9NXRckcOiY
+	 /3qFW7YAbFFMfhwARTqFt9jCXD+g3CmzrrMX0z0GgjLMF3bXDXjrj9MPIPlxSwuRIz9Cf
+	 kFIg/N380EuGR5c9PxPMkFHvCYyc2UPIh+9t3DYuRu0pAMN9JKEn1RF5dOcIfb4ik8b4F
+	 n6pNlloOjR3ZiNJjDPPJtmMNqA5EqngtKoL0XhhIDc3bqshATnlL9wD5F/NzBWOAlwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nsjvME0P;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=cVQTfpPD;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1696F606A32A;
-	Thu, 19 Nov 2026 09:21:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50C72606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:22:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50C72606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nsjvME0P
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9CEF1F000C5;
-	Thu, 19 Nov 2026 09:21:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795080111;
-	bh=5Wr5mBmCRIZACCxxVm/06jDLVb0/ss7nm5ggZMozLNA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nsjvME0Pz0scMadhgpwHZPUo0otG94zFoSunBqCc/ZSA51ayJFG8XqUgDzzVs9Kfq
-	 3P+ziEEQQJWx3OysvzemIRFFeoie9jwxaDw22jftfAxZgwFDyhMCvLx5A4P3f8620s
-	 1eWHtIXTDL1mhK8xJXXRt4XlGQI/HnGU3ZC/PIv/tfgU6XMBYyWP+YwFXlhGUaJCg4
-	 ZOdBHhg+WiQFjUzLs9J5RL8/A/ACyTs7vPnDwfbaENEsz0bqTu2Jtq8PFV1wXKxqIC
-	 lEi+uM3OYdUCpyTUH1K3L12s49gJNUVKHPYKHuEktEtvpC35sURPiFFyWMN6vajWEG
-	 E2Ax/gq4PoIng==
-Date: Thu, 19 Nov 2026 10:21:39 +0100
-From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
-	Naoya Horiguchi <nao.horiguchi@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Mel Gorman <mgorman@suse.de>, Andy Whitcroft <apw@canonical.com>,
-	Miaohe Lin <linmiaohe@huawei.com>, Michal Hocko <mhocko@suse.com>,
-	Rik van Riel <riel@surriel.com>, Hugh Dickins <hughd@google.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dave Airlie <airlied@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Peter Xu <peterx@redhat.com>,
-	Breno Leitao <leitao@debian.org>, Will Deacon <will@kernel.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Nick Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Gerd Hoffmann <kraxel@redhat.com>, linux-doc@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
-	Chris Mason <mason@kernel.org>, stable@kernel.org,
-	"Gregory Price (Meta)" <gourry@gourry.net>
-Subject: Re: [PATCH v2 12/15] mm/hugetlb: keep surplus folios that are
- reserved
-Message-ID: <av6_o6kr6Thpc0ds@localhost.localdomain>
-References: <20261116-fixes_hugetlb-v2-0-4dd9e94ea9ac@kernel.org>
- <20261116-fixes_hugetlb-v2-12-4dd9e94ea9ac@kernel.org>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=cVQTfpPD
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6ugeN3470125;
+	Thu, 19 Nov 2026 09:22:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=9IebbM
+	/CrE1KAXTiPPp7lFp488j2ib1AnDlFm7+FEB4=; b=cVQTfpPD8PiGQ6TeaDhmYv
+	ZRXseZNNGYPnVwGY8Xpvkwf3z3B5T1Oq6qw35+6GvqDeNVeivvg7+3qmiqoNDfVs
+	s7hGsYp/ITjhc+efVOysZ3zddqUKtfmIBmA4TPA5duicYHHcdkOhn86ezcgoMCme
+	XrKxrdyh8vIWhJ4jfgs6FwOpxfhXJezZO0hVrGNvGRUc63L8xQ1sXPeHQFhprhf0
+	1TlXBAjUBDr4A60PPWq/SCLEZsj5pubU6XM/O7UlPDye5hSpR7wvGZvTTCNfzvc+
+	Kn02/RS+qa1OWDgY0epEvwRAd3kdSU/3VYafKR+Mnx24ZfFKJeKvzchkG7hoFHRQ
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vqrsm-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 09:22:16 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ756sl2161149;
+	Thu, 19 Nov 2026 09:22:16 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9x8pd6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 09:22:15 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ9MC3j37028200
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 19 Nov 2026 09:22:12 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0BBCB20043;
+	Thu, 19 Nov 2026 09:22:12 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D372E2005A;
+	Thu, 19 Nov 2026 09:22:08 +0000 (GMT)
+Received: from [9.124.217.219] (unknown [9.124.217.219])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 19 Nov 2026 09:22:08 +0000 (GMT)
+Message-ID: <40484542-eb1d-4a9e-824c-f931a713328e@linux.ibm.com>
+Date: Thu, 19 Nov 2026 14:52:07 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,47 +86,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116-fixes_hugetlb-v2-12-4dd9e94ea9ac@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] cacheinfo: Support unified caches described by
+ d-cache properties
+To: Srikar Dronamraju <srikar@linux.ibm.com>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev, christophe.leroy@csgroup.eu,
+        maddy@linux.ibm.com, gregkh@linuxfoundation.org, rafael@kernel.org,
+        dakr@kernel.org, johan@kernel.org, sudeep.holla@kernel.org,
+        ritesh.list@gmail.com, tim.c.chen@linux.intel.com, yu.c.chen@intel.com
+References: <20261118163639.890546-1-sshegde@linux.ibm.com>
+ <20261118163639.890546-3-sshegde@linux.ibm.com>
+ <av6a6sRqMgMXE73n@linux.ibm.com>
+Content-Language: en-US
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+In-Reply-To: <av6a6sRqMgMXE73n@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: -EwAufk-Okzs8V5O55c77B5c3JpRl27L
+X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afebfc9 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
+ a=E6V6OdINfws53FR3KKgA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: w2jB3gfNTagrZSv0EnkjvexbDGNRGHYM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX3LtphBDLJgX1
+ olPVJo74wnGn/5e5Ezh1WRYhosGqA82P3MwPKC1Zgi1kmbPDlKQtAQ2O991E9PMyERyMLyaNnRV
+ km6bv3FasuWlmUSNjqj2gsGuk0DAMz9BuqjYImW4QMgjN1HrGeCsA+a29Hmo1JKLOTj/YO3xYSo
+ PB5JugkUnufX4MRpzXlp1LbhLQE/DB7V4dpYSkYGP9AVDvfb2/k+ajogI11uyyqKZWlhz1CfXNp
+ WoNjYpXH5wc03YFtbUVb3uRc6WOWb1FKCS886LiF7BJ6EhNl7zrtrDNXinWsmuoIZHqY2Opuver
+ U468oCsWShKja1MF3kX9qKD/iNhTwcP/kW4glrftGgXRJJwO3IpT3Y80gJ1vILIlVEsX7FoRH61
+ /bXCU5Ow+sLtnHBgJtPp2838Q3ffseLA2RcYj4t7Afyc4CqrTOy1xfdNi0VvevR0232IGb5q1Jm
+ TxAjaGCp0+NOcU+9YYA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX29m1+3cT+tQv
+ ZjBWV+9ciDGglafufbn7FGEbjCFtV5c139gtmKd2dOPfjd5g5QzbDhWrqerpSs3fokGqOq5D+dB
+ yIWn5wntVs3wB/HA21eVIQ7Tgz95pZo=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
+ adultscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190035
 
-On Mon, Nov 16, 2026 at 07:29:33PM +0100, David Hildenbrand (Arm) wrote:
-> From: Chris Mason <mason@kernel.org>
-> 
-> free_huge_folio() may restore a reservation, but still returns the folio
-> to the page allocator if its node has surplus huge pages.
-> 
-> For example, start with no hugetlb folios and allow one surplus 2 MiB
-> folio:
-> 
->   1. Mount hugetlbfs with pagesize=2M,min_size=2M. This allocates and
->      reserves one surplus folio: free=1, reserved=1.
->   2. Create a 2 MiB file and write to a shared mapping of it. The fault
->      consumes the folio and its reservation: free=0, reserved=0.
->   3. Unmap the file and truncate it to zero. The mount's reservation is
->      restored, but the surplus folio is freed: free=0, reserved=1.
-> 
-> Besides losing a hugetlb folio that is required for a reservation, this
-> can also make available_huge_pages() underflow and cause other issues.
-> 
-> Keep the folio in the pool if it is needed to cover reservations,
-> including any reservation we just restored.
-> 
-> Fix generated by an LLM and sent by Chris Mason in private.
-> 
-> Fixes: 07443a85ad90 ("mm, hugetlb: return a reserved page to a reserved pool if failed")
-> Cc: stable@kernel.org
-> Signed-off-by: Chris Mason <mason@kernel.org>
-> [ david: simplify comment and description ]
-> Acked-by: Muchun Song <muchun.song@linux.dev>
-> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
-> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+Hi Srikar.
 
-Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+On 11/19/26 12:14 PM, Srikar Dronamraju wrote:
+> * Shrikanth Hegde <sshegde@linux.ibm.com> [2026-11-18 22:06:36]:
+> 
+>> PowerPC device trees commonly describe a unified cache using d-cache-*
+>> properties.
+>>
+>> For example, Power11 L2 and L3 cache nodes have cache-unified together
+>> with properties such as:
+>>
+>>    d-cache-size
+>>    d-cache-line-size
+>>    d-cache-sets
+>> ---
+>>   drivers/base/cacheinfo.c | 24 +++++++++++++++++-------
+>>   1 file changed, 17 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+>> index 10a9bbce899e..4a23377e9312 100644
+>> --- a/drivers/base/cacheinfo.c
+>> +++ b/drivers/base/cacheinfo.c
+>> @@ -148,11 +148,21 @@ static const struct cache_type_info cache_type_info[] = {
+>>   	},
+>>   };
+>>   
+>> -static inline int get_cacheinfo_idx(enum cache_type type)
+>> +static inline int get_cacheinfo_idx(enum cache_type type, struct device_node *np)
+>>   {
+>> -	if (type == CACHE_TYPE_UNIFIED)
+>> -		return 0;
+>> -	return type;
+>> +	if (type != CACHE_TYPE_UNIFIED)
+>> +		return type;
+>> +
+>> +	/*
+>> +	 * Some device-tree bindings describe unified caches using
+>> +	 * d-cache-* properties. Select the data-cache property set
+>> +	 * without changing the cache leaf type.
+>> +	 */
+>> +	if (!of_property_present(np, "cache-size") &&
+> 
+> Is it better to check if the device node np is NULL before doing the
+> of_property_present?
 
- 
+When it arrives here, np is not NULL. So we don't need additional checks.
 
--- 
-Oscar Salvador
-SUSE Labs
+> 
+>> +	    of_property_present(np, "d-cache-size"))
+>> +		return CACHE_TYPE_DATA;
+>> +
+>> +	return 0;
+>>   }
+>>   
+>>   static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
+>> @@ -160,7 +170,7 @@ static void cache_size(struct cacheinfo *this_leaf, struct device_node *np)
+>>   	const char *propname;
+>>   	int ct_idx;
+>>   
+>> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
+>> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
+>>   	propname = cache_type_info[ct_idx].size_prop;
+>>   
+>>   	of_property_read_u32(np, propname, &this_leaf->size);
+>> @@ -172,7 +182,7 @@ static void cache_get_line_size(struct cacheinfo *this_leaf,
+>>   {
+>>   	int i, lim, ct_idx;
+>>   
+>> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
+>> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
+>>   	lim = ARRAY_SIZE(cache_type_info[ct_idx].line_size_props);
+>>   
+>>   	for (i = 0; i < lim; i++) {
+>> @@ -194,7 +204,7 @@ static void cache_nr_sets(struct cacheinfo *this_leaf, struct device_node *np)
+>>   	const char *propname;
+>>   	int ct_idx;
+>>   
+>> -	ct_idx = get_cacheinfo_idx(this_leaf->type);
+>> +	ct_idx = get_cacheinfo_idx(this_leaf->type, np);
+>>   	propname = cache_type_info[ct_idx].nr_sets_prop;
+>>   
+>>   	of_property_read_u32(np, propname, &this_leaf->number_of_sets);
+>> -- 
+>> 2.54.0
+>>
+> 
+
