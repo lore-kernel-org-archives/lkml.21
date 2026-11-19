@@ -1,85 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.210
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795051464;
-	b=ZEXifr93R1G7IPiSsW6GI54dMwzt0vLcdZ+Be4OveF2ejmTMq+iUdDOon/4XvdbNob8d
-	 rriYllFZpylph35bMRuLrSa1o4EckfqLRr8NYu0/RpIMmev4HcMzx/RrvobCF+yyHdYi1
-	 ZcVAAje17eEELYG/Q8i/3g8FIddWdyC1zhfLPEl8nsENG4LFLHpAAwwo1txncg7c4n2J9
-	 pB4aRdxsIC+X2j8DXZYmDDceVFA8QtJBvnHaO33DxwDCHmgHZJ9eyZ6vyN3ls04lVaMgZ
-	 ZE/GcH7z8niYIVI4bnEvd7XXrWwIEeBaad8JSa9e+9hOFjcHE2X/I+F/Vet45bg/aoQ==
+	t=1795051582;
+	b=is29ilEwpUSNY0TEiSsqS2JdmLg+7rWFdyZF52i30UCV01AeKyRiCXmCdmfWKfawoyEl
+	 t2lgU9g0boF6W53NKhD6VzqvxMsi0HDsZmwKQj5kgMOg90SZDodP/mU14nrqaSvDbunxW
+	 cegeN/7CQbSpibXqzf/U+A0K5WOwsB7cZ3hXydtmL4EDOue2jVpdEYTWH4sqT3Ap8l95m
+	 6ghs7xROFmUGZWEyIykToXwB496LMbHVwTAakl8m6vbtJOGODWRADrb6XllzHYv+1Sllz
+	 YnkqTa5SlnZfEkwK2KV9yD79H+38j+z1AytNE98GDpQvycL6+D0BzPwBNpXoRilEHWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795051464;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=OmyQOfyTjGdM8xfyGFI74begtamX5Hd2NCop4lVP+rk=;
-	b=S0SL+Gj8hV/GxgJ7wEgoP80hOCMPPrz9RsfzcmGLW1Qpdz5WZ1KkwSox01BkxLq18rne
-	 4lfgm0YRQbAZhJoX+pNddGDlfNVKCj6OwBBEff4fBhoKfJhbkEFmF6t2q2DLI3tROl5i3
-	 SmwIxyXroO9zV4faolVE+uu0CzkrUVn4KkF+aEoUicMboJeBZdOj2GZ3WlEZo0e6DCYlx
-	 7ksySmbl2AsgNWTpb6A4oKI4tZK4ztXgZ0rNBY3tYCvFc9Nu5gfrIJz9cv5FSc4pBOjim
-	 cNWIsi+/RsaO7AaWYAbs4n/SDtsH7ugYt14YjdrcpwikIaz6y7eiR5iJx/5bKUs9Arw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795051582;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=EuvcXYCLEDhBXkV/gZ9Tv3es2XAWMz1+RvXTNS35cPs=;
+	b=ufP9TJllZPfbeIJQdkZCKyDuB03Q59cFvMaQTiIuIoN9jCpQgBpQfAc47skY9dE5szqt
+	 qeqpEwAwVM47a49FNKddwQDRhmmGJvhvmlvZuxC3zb+wHI2En8Rp5b3iW5z2WydRddZN8
+	 1gAAI+yAiMTL6/forx019T3M8EYnzKkGE5Poz0F2hADIxPQWJ89HBVAAr/F6O2lzswq20
+	 iq/OYufI9L4Qo63pXhft5pJu7LW7NqrE/KiZgeoscdhBcDj6JoOhgB5oUGzrCaFgCJKms
+	 CGxxrqwNRQK4kod9lS2psq+mzwPYFJfJRv7DuWTD3oj02VNNxBCmN9rW2+2zYhrNAiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jLllVLhG;
-	arc=none smtp.remote-ip=162.62.57.210
-Received: from out162-62-57-210.mail.qq.com (out162-62-57-210.mail.qq.com [162.62.57.210])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FQDus7hz;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dwlbyQF5;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4EB0606A320;
-	Thu, 19 Nov 2026 01:24:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4EB0606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A6CC606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:26:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A6CC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jLllVLhG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795051458; bh=OmyQOfyTjGdM8xfyGFI74begtamX5Hd2NCop4lVP+rk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jLllVLhG+WTHiXoj/oWDT3d5sC3jJThLbAzZIqQQNlrn1V7Tjzj3KuhyTaDHiLd8M
-	 EXwOmW6NA9qulJDg6wmIge/C/16ckqtFvS9lgFh7Lc56JCTnWTSeLfwIEwJofP9XQn
-	 6Pt4dL2hJCordlVw87pjYtv2nNjA/PmFEzrwbcgM=
-Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.198])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 60F84486; Thu, 19 Nov 2026 09:24:15 +0800
-X-QQ-mid: xmsmtpt1795051455ty011zs6a
-Message-ID: <tencent_EC124B80BC53531B2EAB18DD04B37BAE7406@qq.com>
-X-QQ-XMAILINFO: M+LbSN6IdDJLPI2xR/RX/zobdXc1EBLawdeXCEfqnUDblmTzKeLg6eEvznj92v
-	 aUiC3ZlhSPVy99oQZgfmI0EaLdDmZqkNHyL0boy6oY0xMRDoJ2bUIK5iSIH1ygrkiWzb2xuybJLQ
-	 zRaS1Os+67oq9B15m6Jg/fGnVj8495eJ/J09QHg11qd3BUiQkr9ecZAFJKqbk/4AOzgO2jYJyZuJ
-	 CCvgNyEXOS07evAcjTbhTsZ6zWImwG5LyWr5Hd009DqtSHBow2Bx/sP9We9ZdGLfoO+wHhqfNUGr
-	 XzTINdb6Ps3DYox5RE/aHrSRwDtgoa+DGWpIPs8floaN3WbqSkqW4Wdp/1Ojlvo7PnjO2n6Pe9M1
-	 QCtknj1t1SdVlfR5Txr+v7vyT7k2er87S9Qo/OezBzJEAuuG91M2/6/B1gvCHqRg/pFFKrYg+lDv
-	 KS3jOTPC/TjjaN+BmVHJNVX2RP/r7z2+diwfO3g4/JTTkIlBT4ej4aO25z7R9G0uzVGEuRpU20ty
-	 lIz51DvTkM3ubMR0AfZ/+7XW82p39N2I/rEfZ4zWoeWM98oGx4WhX1Jz5JBG4mBRHaT9XSauXoO7
-	 swKY5ardaLDjz5raEG1Mq5wGi815RPapNY8ADMBB6Wc9WkziFLjM6aQVijfFqca35A0GXly/Kzs5
-	 6byrqdRXGsfOLpiDK9EL3m/flqip26IrJEvMUasW9tx0JD8XeFmkuY5PS/hlmoSddiyRKwLQ+WjH
-	 4u34BUEeT7wZ6T8wgZ/Y+oHoDKFhfyRTeRk1iwgd87u75hQ4zW2GeK+NyYjrG/6j595raudrp6cX
-	 t/9TJw+uGjq8nz/8NzHhTO53809AtllRh9itiegrBXyfKt9ObiPmloQUPiXXBkdQxUgyucQAPQi5
-	 E6kVseDPr+ux8xATir3cbKdtUA/ftnswcMvU7ycfpzr8ML/Li6j6Rg0kQNvwtYyl6bynuNcq2WMo
-	 00AWgolNRyPWFpuZJkitee1B4fjIPWLm15dV/+0ZnEbemHYVGCgJkHSdRIW71htpth1FY/+EtxyO
-	 Q1ww4/sMEKqJhIB2Fryf5WZeSTrtXra8bY2Ig3Qq+2c9WfXaM9uz57EzJiUCF4rBXcxJFTQg==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: Shuai Liu <847807867@qq.com>
-To: ms@dev.tdt.de,
-	linux-x25@vger.kernel.org
-Cc: netdev@vger.kernel.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
-	linux-kernel@vger.kernel.org,
-	847807867@qq.com,
-	netdev-bot+sashiko@kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] x25: defer socket cleanup on link termination to process context
-Date: Thu, 19 Nov 2026 09:24:15 +0800
-X-OQ-MSGID: <20261119012415.1393808-1-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179502692151.3136.18288735873132919768@kernel.org>
-References: <179502692151.3136.18288735873132919768@kernel.org>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=FQDus7hz;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=dwlbyQF5
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ1AtZE3780129
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:26:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	EuvcXYCLEDhBXkV/gZ9Tv3es2XAWMz1+RvXTNS35cPs=; b=FQDus7hzHmJYdFA9
+	ugqq7Bi1lDsehwZXb3jn7XoAhsKuArd+GLHrt0ijPUXRfw3eKexI3wScbJCSWwR3
+	vv4DjQtk3EozzVOrMZsj+WV8L6ve/fJ0NzUVU+iVhFBusgV0XWVpBoq4uKCmZzhr
+	g/VvKdZGYzNOXHcW9GOk79mFm17T2ekf12K1pdySgwbpDmeIW5IdUDMgwF1ZIvNi
+	y4YNrlrQ7z8PNeWhzZy6OrMBuMBSiq4pTupkIHF7C8/JgtNO3gZiaMObw7chX9O9
+	iU2BOrZOzJfRe2Fuq7GaTzkGLeMAlFcmfrqkuDWJDlhPRBaoR0F3SiLm0b1GTIGV
+	Vw3Ihw==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1fpnj01d-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:26:20 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso1177321a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:26:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795051580; x=1795656380; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EuvcXYCLEDhBXkV/gZ9Tv3es2XAWMz1+RvXTNS35cPs=;
+        b=dwlbyQF5mg48RpUhuDCTkrRGhtwh9P84DgQZi/n1OmR+1cSm8DFNeii/1f2bvlD2r8
+         f29n5UhWo9DPyKGYrKN7iLPk1UJ7V5c89awyc1aKi16aDknmhMNIY+tpH3NiOKtcY3Ju
+         busnX1o2xIw5Z4K5ImmYo0SDPVslXT8DxoHQC83dR67hNyVpm/jurb7yvqnbtj6GktO1
+         1QNc2CWcyLwzKOhzF9Y0kzldIcQ1qAjSECCUh6ic/RtiwkGKOj6BVZcBZrmXQ/MUciKz
+         amYPnPc5AUnA9MmqWCnVw00Rjksdb/ESEy7e4ayCEyuthyJZqGd2XLkmpFf9dMtxF4Q4
+         cMMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795051580; x=1795656380;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EuvcXYCLEDhBXkV/gZ9Tv3es2XAWMz1+RvXTNS35cPs=;
+        b=HM8QIUsDp47LrXu73ihTtK4ZbvdRGp50iUHhP0FZY49eXZgVN5vZlpdaOb28I2Jr7c
+         qINlendjP8OM4tutodQUXOKWAdR9p2xi+4tUI77F46aCRLAOG/YPzfVG90mPYjPwjcHL
+         TtL+nKx2/Tw40xFpWOt9iVqTHaBCYWf5pHTTS5hF+vAnW1hcuOs9bmX4ya1QHXtPtImp
+         QxUH0WeWjuWT+gxHiKlBoOTgs3a8ySGfSky6GTaHXhX1BRQ7hs/0u0NYjTjQjJXsDyvn
+         yUbnVUi/MAGQ/98UogJFULEGIFLCkQeEHwskERz8i88NBGUmZNVyE9cFjtRAsKjPuIMv
+         zR1A==
+X-Forwarded-Encrypted: i=1; AL+hErFErebfcsv1t+TAuu7d9ip6QOebLOgcoTpsDV7b8/zgpV5UJeLRWIcRQure9PmX38vUfRiWm7BE5EJNgGc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8adQqKAcdWoIuxN9vLteAuw7PCqp4JU/T5TuNa4A9bI8M010QD
+	RXPcLP8cggtBCGGeXGRxyeXHMsa/JbOMMvu3G/7Mw+cgJCnWKNtYwkMaA3T/S7yEGhHDhYxNW18
+	DO4KgWcUWohxxT3uRj8i1CFu3kBzfu1t4GTlNZ2LZ+AHzbce/MxnKAuzc9nGQ94PLTg==
+X-Gm-Gg: AZFdTZdFLpa9nGq3wJfnnQLfCjvph5g6Zw8gBg5gNkvW7Ys2bk/vs0uz9B20vLNlDYy
+	IU2bJ8x6/YvVg/ny/taYMuZ/IBsskTtXaCBcJIzDZDSyS16Rsvpo045xhsHzcmKL6ZH9XKF0k4p
+	Ow75CN0WLqheNnKkyJzy6dTuXBkthP5pXI0QcSCrHBFTF2gS9Ygf5REctpawKkcs7QUC9qcquns
+	GJB1RLhjrfIRq87cVjwfczwUtc/NPGggnqq25DZDyY7Fz9cy6pRjfT0tAIa2U2W8tXKn/KUIyP+
+	RZRu+hKG50jUSGEBmtx4zqnoomdBdMwUQJihjK7SjwkNPDSE2Ut11H/5a5pUzy2vL38HMA6T0XB
+	lMVkeaVTrRQClemV8hhii0HubFaDv8nukit9szQ0uITyOuanoUACXesgay7MgFwZYCTfAHJ1gvV
+	xB4C38
+X-Received: by 2002:a17:902:e550:b0:2ef:ddd6:7176 with SMTP id d9443c01a7336-2eff7574d13mr38070055ad.70.1795051579738;
+        Wed, 18 Nov 2026 17:26:19 -0800 (PST)
+X-Received: by 2002:a17:902:e550:b0:2ef:ddd6:7176 with SMTP id d9443c01a7336-2eff7574d13mr38069695ad.70.1795051579197;
+        Wed, 18 Nov 2026 17:26:19 -0800 (PST)
+Received: from [192.168.1.86] ([65.181.12.75])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6215032sm21140545ad.45.2026.11.18.17.26.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 17:26:18 -0800 (PST)
+Message-ID: <4f2c1975-966c-4e7c-97df-854c37bb90df@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 12:26:12 +1100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,215 +116,361 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/7] tee: qcomtee: Add support for registering QTEE
+ services on TEE bus
+To: Harshal Dev <harshal.dev@oss.qualcomm.com>,
+        Jens Wiklander <jens.wiklander@oss.qualcomm.com>,
+        Sumit Garg <sumit.garg@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+        Basant Kumar <basantk@qti.qualcomm.com>,
+        Apurupa Pattapu <apurupa@qti.qualcomm.com>,
+        Arun Kumar Neelakantam <aneelaka@qti.qualcomm.com>,
+        op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20261105-qcom_uefisecapp_migrate_qcomtee-v6-0-c7d68ce05c51@oss.qualcomm.com>
+ <20261105-qcom_uefisecapp_migrate_qcomtee-v6-5-c7d68ce05c51@oss.qualcomm.com>
+Content-Language: en-US
+From: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
+In-Reply-To: <20261105-qcom_uefisecapp_migrate_qcomtee-v6-5-c7d68ce05c51@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: zIWi1Q3xNapbeGFOE-OCCvO7JJDZe6hL
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAwNSBTYWx0ZWRfX/0xmj2UwNBUe
+ MBNfiUREGwxPpaoJi2jJdeA6r9Mhb9Vy4bssaUXD6WnsJSJRDPjprpKirqM1gNSgw0y0qrufPAI
+ Xdot7HSNhyTEbA41OMAmTKFt548fq9zP3aJ4qfzz+H43rHrZphxwJ0L7aXjU5CqeeEsyWsqxHLU
+ t0kfriv/X2ubx2ver5aKaCw5+lvcTCcFXB6Fy8gpehX62nJe3xtZt8l7SaL2GVEvj7vPutfgHcX
+ atjBwlB8ZvtqH8tBFOggitjWuQIctWPgNVJNc8Vl6Oh/rh938f100qBzaS4n9MBt/niCMYP8kZy
+ WnzVsUMSdIeNU5tXDTc/pwSEQsJjq0yhDufJMe3TZqw9TE55sS95zD1VX6akYvSyuO8CSXiN62K
+ lSwpHsmHDd4Ewa8gm7wAOwVskmbGKE1xBXLUxQgSVII/6zBDy5+kK2QE8RWnTScGMcYenZpC9cx
+ WRKQatfsGxcHcSVNqng==
+X-Proofpoint-ORIG-GUID: zIWi1Q3xNapbeGFOE-OCCvO7JJDZe6hL
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAwNSBTYWx0ZWRfX0IRSWqFqAS1M
+ dbD3Ls9rbrFE8wow/m1AkYHcrLO5BVmSSuIL4w26h95EjVNAbK8xf4GG3IrirlUzEnJzP7ndscd
+ YZOOS8N04mGgtzjSs4sip4UPTj7nTPo=
+X-Authority-Analysis: v=2.4 cv=PJ6aavqC c=1 sm=1 tr=0 ts=6afe503c cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=BZS24S1BcHTaWDmu2ykUCg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=I3J3X--Ozs3p5lJzdqUA:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
+ priorityscore=1501 phishscore=0 spamscore=0 adultscore=0 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611190005
 
-x25_kill_by_neigh() walks all sockets bound to a neighbour and calls
-lock_sock() and x25_disconnect() on each one.  It is invoked from
-x25_link_terminated() and x25_link_control(), which both run in softirq
-context when the LAPB link goes down or a restart frame arrives, e.g.
-from the lapbether NAPI poll path.
+Hi Harshal,
 
-lock_sock() takes a mutex in its slow path, so calling it from softirq
-sleeps in atomic context:
+On 11/5/2026 10:14 PM, Harshal Dev wrote:
+> QTEE exposes certain secure services implemented either within the QTEE
+> kernel or via pre-loaded Trusted Applications (TAs). Such always-available
+> services can be readily accessed by TEE client drivers via QTEE's
+> object-IPC protocol if the service is registered as a device on the TEE
+> bus.
+> 
+> One such service is the EFI-variables service, implemented by the
+> uefisecapp TA which enables kernel clients to access EFI variables at
+> runtime.
+> 
+> Maintain a static list of such always-available secure services and add
+> support for the QCOMTEE driver to register these services as devices on
+> the TEE bus during probe.
+> 
+> Tested-by: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com> #on Glymur-crd
+> Signed-off-by: Harshal Dev <harshal.dev@oss.qualcomm.com>
+> ---
+>  drivers/tee/qcomtee/call.c           | 160 ++++++++++++++++++++++++++++++++++-
+>  drivers/tee/qcomtee/core.c           |  10 ++-
+>  drivers/tee/qcomtee/qcomtee.h        |  10 +++
+>  drivers/tee/qcomtee/qcomtee_msg.h    |   1 +
+>  drivers/tee/qcomtee/qcomtee_object.h |   3 +-
+>  5 files changed, 177 insertions(+), 7 deletions(-)
+> 
 
-  BUG: sleeping function called from invalid context at net/core/sock.c:3839
-    in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 14, name: ksoftirqd/0
-    ...
-    lock_sock_nested+0x66/0x70
-    x25_kill_by_neigh+0x90/0x110
-    x25_link_terminated+0x18/0x50
-    x25_lapb_receive_frame+0x1c2/0x1f0
+Looks fine to me.
 
-and lockdep flags the sk_lock-AF_X25 usage violation because the same
-lock is registered in process context by x25_bind():
+Reviewed-by: Amirreza Zarrabi <amirreza.zarrabi@oss.qualcomm.com>
 
-  WARNING: inconsistent lock state
-  inconsistent {SOFTIRQ-ON-W} -> {IN-SOFTIRQ-W} usage.
-    ksoftirqd/0/14 [HC0[0]:SC1[1]:HE1:SE0] takes:
-    ...
-    x25_kill_by_neigh+0x90/0x110
-    x25_link_terminated+0x18/0x50
-    x25_lapb_receive_frame+0x1c2/0x1f0
+- Amir
 
-Defer the neighbour socket cleanup to a per-neighbour work item so it
-always runs in process context.  The work item holds a reference on the
-neighbour and on its net_device, so the deferred cleanup cannot race
-with neighbour or device teardown; both references are dropped again if
-queueing fails because the work is already pending.  A dedicated
-workqueue is drained in x25_exit() so that the module stays loaded until
-pending work has run, and NETDEV_DOWN flushes the work to keep device
-teardown synchronous as before.
 
-Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
-Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
-Cc: stable@vger.kernel.org
-Signed-off-by: Shuai Liu <847807867@qq.com>
----
-
-Changes in v2:
-  - Use a dedicated workqueue and drain it in x25_exit() so the module
-    stays loaded until pending work has run (Sashiko)
-  - Hold a reference on the neighbour's net_device for the deferred work,
-    and drop it again when queueing fails because the work is already
-    pending (Sashiko)
-  - Flush the work in NETDEV_DOWN to keep device teardown synchronous
-    (Sashiko)
-  - Explicitly request WQ_PERCPU to satisfy the workqueue API
-  - Add Fixes tag and Cc stable
-
- include/net/x25.h  |  3 +++
- net/x25/af_x25.c   | 11 ++++++++++-
- net/x25/x25_link.c | 28 +++++++++++++++++++++++++---
- 3 files changed, 38 insertions(+), 4 deletions(-)
-
-diff --git a/include/net/x25.h b/include/net/x25.h
-index 414f3fd993454..125803d4f0ee7 100644
---- a/include/net/x25.h
-+++ b/include/net/x25.h
-@@ -13,6 +13,7 @@
- #include <linux/x25.h>
- #include <linux/slab.h>
- #include <linux/refcount.h>
-+#include <linux/workqueue.h>
- #include <net/sock.h>
- 
- #define	X25_ADDR_LEN			16
-@@ -143,6 +144,7 @@ struct x25_neigh {
- 	struct sk_buff_head	queue;
- 	unsigned long		t20;
- 	struct timer_list	t20timer;
-+	struct work_struct	kill_work;
- 	unsigned long		global_facil_mask;
- 	refcount_t		refcnt;
- };
-@@ -317,6 +319,7 @@ extern struct list_head x25_forward_list;
- extern rwlock_t x25_forward_list_lock;
- extern struct list_head x25_neigh_list;
- extern rwlock_t x25_neigh_list_lock;
-+extern struct workqueue_struct *x25_wq;
- 
- int x25_proc_init(void);
- void x25_proc_exit(void);
-diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
-index f45c9ec7d2c68..a1a8bc203a24f 100644
---- a/net/x25/af_x25.c
-+++ b/net/x25/af_x25.c
-@@ -222,6 +222,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
- 			nb = x25_get_neigh(dev);
- 			if (nb) {
- 				x25_link_terminated(nb);
-+				flush_work(&nb->kill_work);
- 				x25_neigh_put(nb);
- 			}
- 			x25_route_device_down(dev);
-@@ -1790,9 +1791,13 @@ static int __init x25_init(void)
- {
- 	int rc;
- 
-+	x25_wq = alloc_workqueue("x25", WQ_PERCPU, 0);
-+	if (!x25_wq)
-+		return -ENOMEM;
-+
- 	rc = proto_register(&x25_proto, 0);
- 	if (rc)
--		goto out;
-+		goto out_wq;
- 
- 	rc = sock_register(&x25_family_ops);
- 	if (rc)
-@@ -1825,6 +1830,8 @@ static int __init x25_init(void)
- 	sock_unregister(AF_X25);
- out_proto:
- 	proto_unregister(&x25_proto);
-+out_wq:
-+	destroy_workqueue(x25_wq);
- 	goto out;
- }
- module_init(x25_init);
-@@ -1843,6 +1850,8 @@ static void __exit x25_exit(void)
- 
- 	sock_unregister(AF_X25);
- 	proto_unregister(&x25_proto);
-+
-+	destroy_workqueue(x25_wq);
- }
- module_exit(x25_exit);
- 
-diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
-index d1e8cd81c2143..424044c1cf974 100644
---- a/net/x25/x25_link.c
-+++ b/net/x25/x25_link.c
-@@ -31,6 +31,8 @@
- LIST_HEAD(x25_neigh_list);
- DEFINE_RWLOCK(x25_neigh_list_lock);
- 
-+struct workqueue_struct *x25_wq;
-+
- static void x25_t20timer_expiry(struct timer_list *);
- 
- static void x25_transmit_restart_confirmation(struct x25_neigh *nb);
-@@ -58,6 +60,25 @@ static inline void x25_stop_t20timer(struct x25_neigh *nb)
- 	timer_delete(&nb->t20timer);
- }
- 
-+static void x25_kill_by_neigh_work(struct work_struct *work)
-+{
-+	struct x25_neigh *nb = container_of(work, struct x25_neigh, kill_work);
-+
-+	x25_kill_by_neigh(nb);
-+	dev_put(nb->dev);
-+	x25_neigh_put(nb);
-+}
-+
-+static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
-+{
-+	x25_neigh_hold(nb);
-+	dev_hold(nb->dev);
-+	if (!queue_work(x25_wq, &nb->kill_work)) {
-+		dev_put(nb->dev);
-+		x25_neigh_put(nb);
-+	}
-+}
-+
- /*
-  *	This handles all restart and diagnostic frames.
-  */
-@@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
- 			break;
- 		case X25_LINK_STATE_3:
- 			/* clear existing virtual calls */
--			x25_kill_by_neigh(nb);
-+			x25_defer_kill_by_neigh(nb);
- 
- 			x25_transmit_restart_confirmation(nb);
- 			break;
-@@ -97,7 +118,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
- 			break;
- 		case X25_LINK_STATE_3:
- 			/* clear existing virtual calls */
--			x25_kill_by_neigh(nb);
-+			x25_defer_kill_by_neigh(nb);
- 
- 			x25_transmit_restart_request(nb);
- 			nb->state = X25_LINK_STATE_2;
-@@ -254,7 +275,7 @@ void x25_link_terminated(struct x25_neigh *nb)
- 	x25_stop_t20timer(nb);
- 
- 	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
--	x25_kill_by_neigh(nb);
-+	x25_defer_kill_by_neigh(nb);
- }
- 
- /*
-@@ -269,6 +290,7 @@ void x25_link_device_up(struct net_device *dev)
- 
- 	skb_queue_head_init(&nb->queue);
- 	timer_setup(&nb->t20timer, x25_t20timer_expiry, 0);
-+	INIT_WORK(&nb->kill_work, x25_kill_by_neigh_work);
- 
- 	dev_hold(dev);
- 	nb->dev      = dev;
--- 
-2.43.0
+> diff --git a/drivers/tee/qcomtee/call.c b/drivers/tee/qcomtee/call.c
+> index c97afaa1b4aa..96badaf98795 100644
+> --- a/drivers/tee/qcomtee/call.c
+> +++ b/drivers/tee/qcomtee/call.c
+> @@ -676,9 +676,13 @@ static void qcomtee_get_qtee_feature_list(struct tee_context *ctx, u32 id,
+>  
+>  	/* Get ''FeatureVersions Service'' object. */
+>  	service = qcomtee_object_get_service(oic, client_env,
+> -					     QCOMTEE_FEATURE_VER_UID);
+> -	if (service == NULL_QCOMTEE_OBJECT)
+> +					     QCOMTEE_FEATURE_VER_UID,
+> +					     &result);
+> +	if (service == NULL_QCOMTEE_OBJECT) {
+> +		if (result)
+> +			pr_err("FeatureVersions Service unavailable (%d)\n", result);
+>  		goto out_failed;
+> +	}
+>  
+>  	/* IB: Feature to query. */
+>  	u[0].b.addr = &id;
+> @@ -698,6 +702,155 @@ static void qcomtee_get_qtee_feature_list(struct tee_context *ctx, u32 id,
+>  	qcomtee_object_put(client_env);
+>  }
+>  
+> +/**
+> + * is_qcomtee_service_available() - Check if the QTEE service identified by the UID
+> + * is available.
+> + * @oic: context to use for the current invocation.
+> + * @client_env: Client environment object.
+> + * @service_name: Name of the QTEE service.
+> + * @uid: 32-bit UID of the service.
+> + *
+> + * Returns true if the service exists and is available.
+> + * Returns false if a service is not exposed by QTEE.
+> + */
+> +static bool is_qcomtee_service_available(struct qcomtee_object_invoke_ctx *oic,
+> +					 struct qcomtee_object *client_env,
+> +					 const char *service_name, u32 uid)
+> +{
+> +	struct qcomtee_object *service;
+> +	int error;
+> +	bool ret = false;
+> +
+> +	/* Get service object corresponding to the uid. */
+> +	service = qcomtee_object_get_service(oic, client_env, uid, &error);
+> +	if (service != NULL_QCOMTEE_OBJECT) {
+> +		qcomtee_object_put(service);
+> +		ret = true;
+> +	}
+> +
+> +	/* When we fail to get the service, QTEE provides the reason. */
+> +	if (error)
+> +		pr_debug("%s is unavailable (%d)\n", service_name, error);
+> +
+> +	return ret;
+> +}
+> +
+> +/*
+> + * QTEE Service UUID name space identifier
+> + *
+> + * A random UUID that is allocated as a name space identifier for forming UUID's
+> + * representing secure services exposed by QTEE.
+> + */
+> +static const uuid_t qtee_service_uuid_ns = UUID_INIT(0xe1b48857, 0x6154, 0x49f9,
+> +						     0x93, 0x4e, 0xa2, 0xf2,
+> +						     0x0a, 0xba, 0x98, 0x42);
+> +
+> +static const struct qtee_service qtee_services[] = {
+> +	{ "qcom.tz.uefisecapp",
+> +	   QCOMTEE_UEFI_SEC_UID }
+> +};
+> +
+> +static void qtee_release_service(struct device *dev)
+> +{
+> +	struct tee_client_device *qtee_service = to_tee_client_device(dev);
+> +
+> +	kfree(qtee_service);
+> +}
+> +
+> +/**
+> + * qtee_register_service() - Register a given QTEE service on the TEE bus as a
+> + * TEE client device.
+> + * @oic: context to use for the current invocation.
+> + * @client_env: Client environment object.
+> + * @service_name: Name of the QTEE service to be enumerated.
+> + * @uid: 32-bit UID used by QTEE to identify the service.
+> + *
+> + * Returns 0 on success and < 0 on failure.
+> + */
+> +static int qtee_register_service(struct qcomtee_object_invoke_ctx *oic,
+> +				 struct qcomtee_object *client_env,
+> +				 const char *service_name,
+> +				 const u32 uid)
+> +{
+> +	struct tee_client_device *qtee_service;
+> +	uuid_t service_uuid;
+> +	int rc;
+> +
+> +	if (!is_qcomtee_service_available(oic, client_env, service_name, uid))
+> +		return -EOPNOTSUPP;
+> +
+> +	tee_generate_uuid_v5(&service_uuid, &qtee_service_uuid_ns, service_name,
+> +			     strlen(service_name));
+> +
+> +	qtee_service = kzalloc_obj(*qtee_service);
+> +	if (!qtee_service)
+> +		return -ENOMEM;
+> +
+> +	qtee_service->dev.bus = &tee_bus_type;
+> +	qtee_service->dev.release = qtee_release_service;
+> +	if (dev_set_name(&qtee_service->dev, "qtee-svc-%pUb", &service_uuid)) {
+> +		kfree(qtee_service);
+> +		return -ENOMEM;
+> +	}
+> +	uuid_copy(&qtee_service->id.uuid, &service_uuid);
+> +
+> +	rc = device_register(&qtee_service->dev);
+> +	if (rc) {
+> +		pr_err("QTEE service registration failed, err: %d\n", rc);
+> +		put_device(&qtee_service->dev);
+> +		return rc;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * qtee_register_services() - Register the secure services exposed by QTEE
+> + * as mentioned in 'qtee_services' list.
+> + * @ctx: TEE context.
+> + *
+> + * Not all versions of QTEE support a given service. Hence, we try to
+> + * enumerate as many services from the 'qtee_services' list as possible.
+> + * Not being able to enumerate a service shouldn't cause the driver probe
+> + * to fail since none of the services in the list are mandatory for
+> + * establishing communication with QTEE.
+> + */
+> +static void qtee_register_services(struct tee_context *ctx)
+> +{
+> +	u32 idx;
+> +	struct qcomtee_object *client_env;
+> +
+> +	struct qcomtee_object_invoke_ctx *oic __free(kfree) =
+> +		qcomtee_object_invoke_ctx_alloc(ctx, true);
+> +	if (!oic)
+> +		return;
+> +
+> +	client_env = qcomtee_object_get_client_env(oic);
+> +	if (client_env == NULL_QCOMTEE_OBJECT)
+> +		return;
+> +
+> +	for (idx = 0; idx < ARRAY_SIZE(qtee_services); idx++)
+> +		qtee_register_service(oic, client_env,
+> +				      qtee_services[idx].name,
+> +				      qtee_services[idx].uid);
+> +
+> +	qcomtee_object_put(client_env);
+> +}
+> +
+> +static int qtee_unregister_service(struct device *dev, void *data)
+> +{
+> +	if (!strncmp(dev_name(dev), "qtee-svc", strlen("qtee-svc")))
+> +		device_unregister(dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void qtee_unregister_services(void)
+> +{
+> +	bus_for_each_dev(&tee_bus_type, NULL, NULL,
+> +			 qtee_unregister_service);
+> +}
+> +
+>  static const struct tee_driver_ops qcomtee_ops = {
+>  	.get_version = qcomtee_get_version,
+>  	.open = qcomtee_open,
+> @@ -779,6 +932,8 @@ static int qcomtee_probe(struct platform_device *pdev)
+>  		QTEE_VERSION_GET_MINOR(qcomtee->qtee_version),
+>  		QTEE_VERSION_GET_PATCH(qcomtee->qtee_version));
+>  
+> +	qtee_register_services(qcomtee->ctx);
+> +
+>  	return 0;
+>  
+>  err_dest_wq:
+> @@ -808,6 +963,7 @@ static void qcomtee_remove(struct platform_device *pdev)
+>  {
+>  	struct qcomtee *qcomtee = platform_get_drvdata(pdev);
+>  
+> +	qtee_unregister_services();
+>  	teedev_close_context(qcomtee->ctx);
+>  	/* Wait for RELEASE operations to be processed for QTEE objects. */
+>  	tee_device_unregister(qcomtee->teedev);
+> diff --git a/drivers/tee/qcomtee/core.c b/drivers/tee/qcomtee/core.c
+> index 60fe3b5776e3..737d1d9ca18d 100644
+> --- a/drivers/tee/qcomtee/core.c
+> +++ b/drivers/tee/qcomtee/core.c
+> @@ -898,19 +898,21 @@ qcomtee_object_get_client_env(struct qcomtee_object_invoke_ctx *oic)
+>  
+>  struct qcomtee_object *
+>  qcomtee_object_get_service(struct qcomtee_object_invoke_ctx *oic,
+> -			   struct qcomtee_object *client_env, u32 uid)
+> +			   struct qcomtee_object *client_env, u32 uid,
+> +			   int *result)
+>  {
+>  	struct qcomtee_arg u[3] = { 0 };
+> -	int ret, result;
+> +	int ret;
+> +	*result = 0;
+>  
+>  	u[0].b.addr = &uid;
+>  	u[0].b.size = sizeof(uid);
+>  	u[0].type = QCOMTEE_ARG_TYPE_IB;
+>  	u[1].type = QCOMTEE_ARG_TYPE_OO;
+>  	ret = qcomtee_object_do_invoke(oic, client_env, QCOMTEE_CLIENT_ENV_OPEN,
+> -				       u, &result);
+> +				       u, result);
+>  
+> -	if (ret || result)
+> +	if (ret || *result)
+>  		return NULL_QCOMTEE_OBJECT;
+>  
+>  	return u[1].o;
+> diff --git a/drivers/tee/qcomtee/qcomtee.h b/drivers/tee/qcomtee/qcomtee.h
+> index f39bf63fd1c2..b1fe1d317150 100644
+> --- a/drivers/tee/qcomtee/qcomtee.h
+> +++ b/drivers/tee/qcomtee/qcomtee.h
+> @@ -39,6 +39,16 @@ struct qcomtee {
+>  	u32 qtee_version;
+>  };
+>  
+> +/**
+> + * struct qtee_service - A secure service exposed by QTEE identified by a 32-bit UID.
+> + * @name: Name of the QTEE service.
+> + * @uid: 32-bit UID used by QTEE to identify the service.
+> + */
+> +struct qtee_service {
+> +	const char *name;
+> +	const u32 uid;
+> +};
+> +
+>  void qcomtee_fetch_async_reqs(struct qcomtee_object_invoke_ctx *oic);
+>  struct qcomtee_object *qcomtee_idx_erase(struct qcomtee_object_invoke_ctx *oic,
+>  					 u32 idx);
+> diff --git a/drivers/tee/qcomtee/qcomtee_msg.h b/drivers/tee/qcomtee/qcomtee_msg.h
+> index 5d7b21fdd368..9278a361dc70 100644
+> --- a/drivers/tee/qcomtee/qcomtee_msg.h
+> +++ b/drivers/tee/qcomtee/qcomtee_msg.h
+> @@ -105,6 +105,7 @@ union qcomtee_msg_arg {
+>  #define QTEE_VERSION_GET_MINOR(x) (((x) >> 12) & 0xffU)
+>  #define QTEE_VERSION_GET_PATCH(x) ((x) >> 0 & 0xfffU)
+>  
+> +#define QCOMTEE_UEFI_SEC_UID            413
+>  /* Response types as returned from qcomtee_object_invoke_ctx_invoke(). */
+>  
+>  /* The message contains a callback request. */
+> diff --git a/drivers/tee/qcomtee/qcomtee_object.h b/drivers/tee/qcomtee/qcomtee_object.h
+> index a241ab657318..e2f2508aad8f 100644
+> --- a/drivers/tee/qcomtee/qcomtee_object.h
+> +++ b/drivers/tee/qcomtee/qcomtee_object.h
+> @@ -317,6 +317,7 @@ qcomtee_object_get_client_env(struct qcomtee_object_invoke_ctx *oic);
+>  
+>  struct qcomtee_object *
+>  qcomtee_object_get_service(struct qcomtee_object_invoke_ctx *oic,
+> -			   struct qcomtee_object *client_env, u32 uid);
+> +			   struct qcomtee_object *client_env, u32 uid,
+> +			   int *result);
+>  
+>  #endif /* QCOMTEE_OBJECT_H */
+> 
 
