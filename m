@@ -1,82 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.239.133.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795091376;
-	b=NpsSYSDB98JJQ6nTm3Aq7Ri9vZgShz3yt5zGsdXagktF+ucgndGpcO41gPNOlUW+NAPO
-	 3binshyWIzVPIX0He8vxJ9VYN4JeHaMLNKqPiHeobFT2Ycs/mXHHz3irSGXRrpFRUhUlr
-	 3oT94Qbsl2GcRy27DnXUyu1TNnStav4/XvOEtIa4o4ul178q2zH83KIbh6ApZ3apKryNn
-	 anlkyS8U0GWTG1/aB51q8Gkjh05MhuPkaO1VGIwVX30QpfPVA/SzCQUZgKJP0ZLhHrTlW
-	 eNub2oXERpM+3/i0Ob8y/wdUTsnrIvHJb+4JwlOxc/3YlD3Fr5bG3Up62Qsl7x/d3ug==
+	t=1795091369;
+	b=EeFXe1JHxYC8lzbC1wdHL5w9HfsZ+txeyz4KXzifoAR8DD1IZqmPwdz6TJJw+my0Zb7l
+	 Q3ypMfDLSx827mI6q6+5iCJsL318JAzaBemgAU3p1W/sqNzaXJ9+ci2yoebFdvgiNMl5C
+	 FX1vet4J2pDtfpdkgiSx8Eq1YSs19r4yX/bdH5NEt0QSa/oiobG0+eG4TSktx6X/XNfwA
+	 SvtIB/YKDXV1Tqt48yklZZn17XGS1KihaYNAIIX4MmSV0EwqdEMvVSvtSgY+tvvCfWR3R
+	 4S8JaRQsOFHuSGgRrJsyKuBGzCeohm5c+9iK1Zukp3zmb3VDtqesh02u+LXneF6TnWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795091376;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=I5kM6fRDA3G9Ft88zbwbvx681/qfCITq2LFIa1aGdno=;
-	b=O7+vcaoQOlq0X8BfNCMmQ21VpQSDKlNy5x+8Lhof0ndV9K6JHJ4IkEJR0vDfmj6EqUsi
-	 YdCM9wAqrWJfn7iTmfN33q7ojJn/sYFmt9sQxldpoT1a6143iVb/V1Ob+sr+LJfCP0fel
-	 HSnJLxH1G01kPZWfpRLhtiHapmPhhjuG57bqHQQJ41qnQPZsCdFLeSSQJXZ6DlQeJv95p
-	 tnsskYCGbCFFOaUgWUbk3RfqzcMfFuJZcOuIMrSiZ3mRb2004ZbRxlwlYkGbETyxO7hjE
-	 J8XFbyz0v4bpo7c7SEGiiwP5Sz144dkpYmFzFMhBQlI1GtRcq5ECqA7kTCIKXZtLmrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795091369;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-Authenticated-Id;
+	bh=Q0+FiVv1KNhpet7pyzkRxe46PeVX79jJKB0dtJFKUXY=;
+	b=rhkh2H2tm5a3nq5iCoXflOKDaLLmZqm/ESc282SSLuiYBq7ToOuS8qZQ71cicsP+toEy
+	 vcYXLHhULSVEwksjr74w9T1l8qUyCUXYadSE5QBZn+QgxqGuBI2JHT9Jk3NXZPV589zWi
+	 oy9uzUHu3hE6ghrYVCFmMxSpa/AM80JtiuCtWMpCRqTRX86AOWrHy6AyI19PA/+pFlbav
+	 xYtxPY0DQi/1KOtacM9cRk2sXprMtBGFJgOHQI257kAkIp41Tz0QR0sJu/wstoNo03Wb+
+	 IaHCM1QZchvkXsXUH/G4SYZ+N4Zn7iM1giilPXluVUxA954DaFPAFP+D2pej43NdRfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gE+OYUHR;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=pass header.from=kubik.pl;
+	spf=pass smtp.mailfrom=kubik.pl;
+	arc=none smtp.remote-ip=213.239.133.37
+Received: from mail-e842.seohost-mail.eu (mail-e842.seohost-mail.eu [213.239.133.37])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79BF7606A339
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:29:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79BF7606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gE+OYUHR
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 1D34BC4CBEF;
-	Thu, 19 Nov 2026 12:29:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BC42360237;
-	Thu, 19 Nov 2026 12:29:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DDAF011BC03CF;
-	Thu, 19 Nov 2026 13:29:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795091372; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=I5kM6fRDA3G9Ft88zbwbvx681/qfCITq2LFIa1aGdno=;
-	b=gE+OYUHRuCH4EyQw9q30u+uHjHAX8yoadHzMdng8XO8JLrnll2Rr+IRFc1d8hotzsbhsTL
-	+GBazhJVI4CYk0a45zBJbc0QEqX+SAFTFd7QVaS+M2BduBq4/WpfVZZ/c8EG8XKh8wyCjD
-	D7397fJqui0aqyGhn5F6pEH8gv+1YDALeaGGHMUOmxwsfOHnOpkegu11bY/BbEO0nyYdnd
-	Jv9W5K+At6XZhv+ei9pQx8cHo2aHfl4tShWhbB4jCpCpqpo42t6emVBc5oWETuKtXubi6K
-	YvKgeULuHE1TBIcZPxKUeaK6t/7yqm+pimhdC4yT2Sg0UocVQaRt7eac23h8SQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: sashiko-bot@kernel.org
-Cc: "James Hilliard" <james.hilliard1@gmail.com>,  "Richard Weinberger"
- <richard@nod.at>,  "Vignesh Raghavendra" <vigneshr@ti.com>,  "Sebastian
- Andrzej Siewior" <bigeasy@linutronix.de>,  "Clark Williams"
- <clrkwllms@kernel.org>,  "Steven Rostedt" <rostedt@goodmis.org>,  "Rob
- Herring" <robh@kernel.org>,  "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-  "Conor Dooley" <conor+dt@kernel.org>,  "Philipp Zabel"
- <p.zabel@pengutronix.de>,  sashiko-reviews@lists.linux.dev,  "Chen-Yu
- Tsai" <wens@kernel.org>,  "Jernej Skrabec" <jernej.skrabec@gmail.com>,
-  "Samuel Holland" <samuel@sholland.org>,  "Maxime Ripard"
- <mripard@kernel.org>,  "Richard Genoud" <richard.genoud@bootlin.com>,
-  "Boris Brezillon" <bbrezillon@kernel.org>,  "Masahiro Yamada"
- <yamada.masahiro@socionext.com>,  "Brian Norris"
- <computersforpeace@gmail.com>,  linux-mtd@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-rt-devel@lists.linux.dev,
-  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 01/26] mtd: rawnand: sunxi: centralize OOB handling
-In-Reply-To: <sashiko-outbox-199823@kernel.org> (sashiko-bot@kernel.org's
-	message of "Thu, 05 Nov 2026 19:13:20 +0000")
-References: <20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-0-dca1f6ed29a8@gmail.com>
-	<20261105-submit-sunxi-nand-vendor-oob-layout-v1-v10-1-dca1f6ed29a8@gmail.com>
-	<sashiko-outbox-199823@kernel.org>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 19 Nov 2026 13:29:23 +0100
-Message-ID: <877bi9dmxo.fsf@bootlin.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71CBB606A320;
+	Thu, 19 Nov 2026 12:29:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71CBB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kubik.pl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kubik.pl
+Received: from static-46-238-236-132.awacom.net ([46.238.236.132] helo=localhost)
+	by h84.seohost.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <piotr@kubik.pl>)
+	id 1xU1GQ-00000000NtP-3R8n;
+	Thu, 19 Nov 2026 13:29:18 +0100
+From: Piotr Kubik <piotr@kubik.pl>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Oliver Neukum <oneukum@suse.com>
+Cc: Piotr Kubik <piotr@kubik.pl>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Francesco Lavra <francescolavra@interfree.it>,
+	stable@vger.kernel.org
+Subject: [PATCH] USB: cdc-acm: restore the line coding after a reset-resume
+Date: Thu, 19 Nov 2026 13:28:42 +0100
+Message-ID: <20261119122842.3611681-1-piotr@kubik.pl>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,71 +56,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-Authenticated-Id: piotr@kubik.pl
 
-On 05/11/2026 at 19:13:20 GMT, sashiko-bot@kernel.org wrote:
+A device that loses power during system suspend comes back at its
+power-on line coding. With USB persist, the USB core then resets the
+device and calls acm_reset_resume(), but acm->line still holds the line
+coding that the driver sent last. acm_tty_set_termios() sends
+SET_LINE_CODING only when the termios differ from acm->line, so an open
+with the same settings sends nothing. The port then runs at the wrong
+rate until the termios change or the device is probed again.
 
-> Thank you for your contribution! Sashiko AI review found 2 potential issu=
-e(s) to consider:
-> - [High] mtd: rawnand: sunxi: premature oob_ops selection in sunxi_nand_a=
-ttach_chip()
-> - [Medium] mtd: rawnand: sunxi: unaddressed maintainer NACK on vendor OOB=
- layout ops
-> --
->
-> commit 8fda5c99d9befa1771418516828f040de60c5845
-> Author: James Hilliard <james.hilliard1@gmail.com>
->
-> mtd: rawnand: sunxi: centralize OOB handling
->
-> This commit centralizes hardware ECC result interpretation, protected OOB
-> retrieval, erased-chunk checking, and user-data layout reservation behind
-> per-chip sunxi_nfc_oob_ops callbacks for both PIO and DMA paths.
->
->> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/su=
-nxi_nand.c
->> index f41feebe42571..80006d1a33d68 100644
->> --- a/drivers/mtd/nand/raw/sunxi_nand.c
->> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> [ ... ]
->> @@ -2066,6 +2096,58 @@ static int sunxi_nfc_maximize_user_data(struct
->> nand_chip *nand, uint32_t oobsize
-> [ ... ]
->> +/*
->> + * Both modes use the same layout and ECC policy. Scrambled transfers a=
-lso
->> + * compensate the first two user bytes to keep the on-flash BBM unmodif=
-ied.
->> + */
->> +static const struct sunxi_nfc_oob_ops sunxi_nfc_plain_oob_ops =3D {
->> +	.min_user_data =3D sunxi_nfc_oob_min_user_data,
->> +	.init_user_data =3D sunxi_nfc_oob_init_user_data,
->> +	.read_batch =3D sunxi_nfc_oob_read_batch,
->> +	.finish_read =3D sunxi_nfc_oob_finish_read,
->> +};
->> +
->> +static const struct sunxi_nfc_oob_ops sunxi_nfc_scrambled_plain_bbm_oob=
-_ops =3D {
->> +	.min_user_data =3D sunxi_nfc_oob_min_user_data,
->> +	.init_user_data =3D sunxi_nfc_oob_init_user_data,
->> +	.transform_bbm =3D sunxi_nfc_randomize_bbm,
->> +	.read_batch =3D sunxi_nfc_oob_read_batch,
->> +	.finish_read =3D sunxi_nfc_oob_finish_read,
->> +};
->
-> [Severity: Medium]
-> As reported by Miquel Raynal on v6 [1], the series adding support for the
-> vendor-specific Allwinner randomized OOB layout was declined due to
-> maintainability concerns and kernel policy against vendor-specific NAND
-> layouts, with an invitation to submit only the standalone fixes outside of
-> the randomized layout support.
+Send the cached line coding from acm_reset_resume(). Send it only for
+the control interface, because the USB core calls reset_resume for the
+data interface too. Use the variant without the autopm reference,
+because reset_resume also runs in a runtime resume of the device, where
+usb_autopm_get_interface() would wait for that same resume and never
+return. Ignore the result, as acm_probe() does, because a device without
+USB_CDC_CAP_LINE need not support the request.
 
-I hereby confirm that I do not which to merge the support for this
-layout.
+I saw the fault on my workstation while using serial consoles.
+Claude Code agent (Opus 5.5) traced the cause to the cached
+acm->line and wrote the first draft of this patch and this commit message.
+It also wrote and ran the test: a QEMU guest with the adapter passed
+through, and a USB power cut while the guest was in S3.
+Two other Claude instances reviewed the patch, the message and the test
+record. I reviewed the patch and I understand the change.
 
-Please drop it from your series.
+Fixes: a91b0c502285 ("cdc_acm: add reset_resume method")
+Cc: stable@vger.kernel.org
+Signed-off-by: Piotr Kubik <piotr@kubik.pl>
+---
 
-Thanks,
-Miqu=C3=A8l
+Notes:
+    Reproduced and tested on v7.4-rc3-178-g20eef29b7c84 in a QEMU 10.0.13
+    q35 guest (TCG, qemu-xhci) with a WCH CH344 quad UART (1a86:55d5) passed
+    through from the host. Port 0 is wired to a 115200 8N1 console that
+    answers a carriage return with a 24-byte login prompt. The guest holds
+    the port open and suspends to RAM. While the guest is suspended, the host
+    cuts VBUS of the hub port of the adapter for 3 s and then wakes the
+    guest, which reset-resumes the adapter. The host's own cdc-acm binds the
+    adapter between the power cut and the wakeup, so the adapter is at 9600
+    or at its power-on line coding when the guest resumes.
+    The patch is based on usb-linus f11fe7603df0, where cdc-acm.c and
+    cdc-acm.h are the same as in the tested tree.
+    
+    Without this patch (3 runs): the read after the resume returns 1 byte
+    and no prompt, and usbmon shows no SET_LINE_CODING after the resume.
+    With this patch (3 runs): the read returns the prompt, and usbmon shows
+    one SET_LINE_CODING per port, with the cached line coding of that port.
+    
+    Also with this patch: S3 without the power cut, and a runtime resume
+    with the RESET_RESUME quirk set for the adapter, both send the line
+    coding once per port and complete. Without the power cut the CH344 keeps
+    its line coding, so the unpatched driver shows no fault in those cases.
+    
+    Build: make W=1 drivers/usb/class/cdc-acm.o gives no new warnings.
+    checkpatch.pl --strict reports no errors, warnings or checks.
+    
+    Not tested:
+    - a device that rejects SET_LINE_CODING (no USB_CDC_CAP_LINE)
+    - a device with a combined control and data interface
+    - this patch on bare metal; the fault itself was seen on a 6.12 host
+      after S3
+    - a port that is open during a runtime reset-resume
+    - an autopm reference in reset_resume: the wait without end comes from
+      reading rpm_resume(), not from a test
+
+ drivers/usb/class/cdc-acm.c | 35 ++++++++++++++++++++++++++++-------
+ 1 file changed, 28 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/usb/class/cdc-acm.c b/drivers/usb/class/cdc-acm.c
+index 666969ffd194..2e6710baa170 100644
+--- a/drivers/usb/class/cdc-acm.c
++++ b/drivers/usb/class/cdc-acm.c
+@@ -108,15 +108,11 @@ static void acm_release_minor(struct acm *acm)
+  * Functions for ACM control messages.
+  */
+ 
+-static int acm_ctrl_msg(struct acm *acm, int request, int value,
+-							void *buf, int len)
++static int __acm_ctrl_msg(struct acm *acm, int request, int value,
++			  void *buf, int len)
+ {
+ 	int retval;
+ 
+-	retval = usb_autopm_get_interface(acm->control);
+-	if (retval)
+-		return retval;
+-
+ 	retval = usb_control_msg(acm->dev, usb_sndctrlpipe(acm->dev, 0),
+ 		request, USB_RT_ACM, value,
+ 		acm->control->altsetting[0].desc.bInterfaceNumber,
+@@ -126,9 +122,23 @@ static int acm_ctrl_msg(struct acm *acm, int request, int value,
+ 		"%s - rq 0x%02x, val %#x, len %#x, result %d\n",
+ 		__func__, request, value, len, retval);
+ 
++	return retval < 0 ? retval : 0;
++}
++
++static int acm_ctrl_msg(struct acm *acm, int request, int value,
++			void *buf, int len)
++{
++	int retval;
++
++	retval = usb_autopm_get_interface(acm->control);
++	if (retval)
++		return retval;
++
++	retval = __acm_ctrl_msg(acm, request, value, buf, len);
++
+ 	usb_autopm_put_interface(acm->control);
+ 
+-	return retval < 0 ? retval : 0;
++	return retval;
+ }
+ 
+ /* devices aren't required to support these requests.
+@@ -1743,6 +1753,17 @@ static int acm_reset_resume(struct usb_interface *intf)
+ 	if (tty_port_initialized(&acm->port))
+ 		tty_port_tty_hangup(&acm->port, false);
+ 
++	/*
++	 * The device can lose its line coding, for example when it loses
++	 * power during system suspend, and acm_tty_set_termios() sends the
++	 * line coding only when it differs from acm->line. Send it once, for
++	 * the control interface. In a runtime resume of the device, an autopm
++	 * reference here would wait for this resume and never return.
++	 */
++	if (intf == acm->control)
++		__acm_ctrl_msg(acm, USB_CDC_REQ_SET_LINE_CODING, 0,
++			       &acm->line, sizeof(acm->line));
++
+ 	return acm_resume(intf);
+ }
+ 
+
+base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
+-- 
+2.55.0
+
