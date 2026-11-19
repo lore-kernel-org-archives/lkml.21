@@ -1,60 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795129681;
-	b=K07jt8FCvhCR42jqB9XRH0tr++ehK5t5sTKIuDtj6VqNoRkHIixzCPE88tNGo7lpMjgE
-	 rCwjxFEeavnPKC8SRIRwXDkgs2XMurIXBk2hrmOdtON9OFzQ3+WFSAO2du7D9Yi5dy38L
-	 X+9xn2f4KfOaDQbTX65n//NwlzMCk/JbnQNrWpU+j0dW6yQdcnndZY3X2y2/w79MamBi5
-	 DlyRisVpoT9sX3f1TWtza511WKyLt0e7rfHgejrR/ot3lFWAjQWpxO8PFLqJWRYRW7EdZ
-	 mxuAvn7YNRpfQiBjcqQStMldHfpWlAU0ymyLQFQtkLH5D3YCgNHlSqJ085mtfMiP20w==
+	t=1795129731;
+	b=onYu42PXAe98kWkgmmkPl0cj9Nv8+mUFgLBwNyetq73MkgNuzG5vNE14/Am7r/QDCX5b
+	 omgan7SDSsRB7SK7wWsvnDHCS07H2Gp1N8vJrE82uoCXuI/7aXlb6gjdAFzPo+n8wAoVO
+	 d07Gs8BoD9ml4/c+XceS9JVXRx+ZlrG215kBewwwnwQNnJD5i/Bdg2Oxbq/Th4PoNqN4U
+	 iwaH4Z/xLEVtEiD4lYJ+9L491O+gYqcSHmYLks1Fr7M6FJdNlJmXHcbTqbUX5meLUP9XU
+	 YLZ5cwv6l+ga5JcZsd65yTty1fVT24BetJgOA0K16ZTknYSu7xZOjtsU2Ex/1h5PArA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795129681;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ac2bxO4Xse6K+kejCnJOueIlO7M24eds47j2TEmWTxE=;
-	b=ZhXTv2N9sMkltPXdOE91aWOGXlfrGZiGoOckBE4z34g/j/B8Er6/De3fYxJmzvvq/yvE
-	 ZEejpWUSZWPfaNwDwfRJGAPNnEhb8DTlAHurxr18EkIOjzEy2efS/Owe8dcOkinBsyDiI
-	 v3E+eSBhgXVjnxAxzE1By9T9Nlm+b69WQ9De2h94Xa9od6E5j03bQnhK4R2XYBGs7gbxF
-	 MjE8QBpnxvBjVchiStJ6mtxDXyM86GDk1AcdlsBMhgWOYWVntnSouuI0OCwBHma3vEtnO
-	 3Ud1resqHjSskGMNjEH+mjGUIv+Nilfo738myy908tLbgmZwFz+MMRpb57dNH9gSrMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795129731;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=wEZkBab7UqRfMrX7O5m1ZmNVlSf+C6CU+1tcpFcU1rY=;
+	b=m3pW0lm7xZ15XjoU9TJl3b9x3h2mjngh9dDanyj8q28/VZ9yhQUjrKEfV4ChyfyyNmgq
+	 zrCbN41QW8gX0WQTmD93p3TL1YGFHUkBPCrMbjp2Ne80j3eU203uYT0s+j7nnFWgLXC4k
+	 n9A/D0moj19JMFQBAHufeEV5tGGYEaq3Jqmv2f4klZ2QlLiQ0obPd/Bes1WLeOeemrisc
+	 W1r5Ku+j7w+04M9Xry/bqrBNLY5kQJtWLGd9O8sMZGBVz/QLSJxbYzIPVh5H6aUQxPCjo
+	 IenEM9aXUQ6XGb8cC6KJqzuqLgU1Fg/Oy0DNN6kQAfBux0R891VsgtCLHjfq0VnLtdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=a7snv.com;
-	spf=pass smtp.mailfrom=a7snv.com;
-	dkim=pass header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=jj56wXxR;
-	arc=none smtp.remote-ip=185.70.43.17
-Received: from mail-4317.protonmail.ch (mail-4317.protonmail.ch [185.70.43.17])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Aog1mzOk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E68F9606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:08:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E68F9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=a7snv.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=a7snv.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A198606A326;
+	Thu, 19 Nov 2026 23:08:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=jj56wXxR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=a7snv.com;
-	s=protonmail; t=1795129679; x=1795388879;
-	bh=ac2bxO4Xse6K+kejCnJOueIlO7M24eds47j2TEmWTxE=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=jj56wXxRzn2nBMmiU9wnKYSUUcJUspfOwRTLfTWvzZq5b6VIy/GZC1Kj2UpWwb5rj
-	 WuvcbH7e5SHyN9U8SZazkBhMO3zAKw8G4qgf8Ds7IGT4blgGR5Yd6pSXD9a42/IQTv
-	 ErBqIGBphpP7daHWmr+m9y2dnayCHYJOZflrHnb9sxV80/eXzyXtH/kpWWLzNtGMWR
-	 ocwJQmKTDjl00tQOxbaTkzVCHOrx3099dbwlBpW9cS8xDoDaMDA2zAwvR9xPNrPnsx
-	 M/96BPZcrKcw2NC0Kszi2Gjy5Kro8gdpfZiVnKY/R0XI4wmZux4bwx+EZh12J/+JZ/
-	 +6I7aS/vDkzKw==
-Date: Thu, 19 Nov 2026 23:07:53 +0000
-To: Bernd Schubert <bernd@bsbernd.com>
-From: Yun Wang <arsenova@a7snv.com>
-Cc: Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] fuse: don't wait for a sync-init mount in non-blocking reads
-Message-ID: <179512965571.1415130.10806233580012611206@a7snv.com>
-In-Reply-To: <5f5d6c24-2bb0-4af9-8ece-d53cc6e612f6@bsbernd.com>
-References: <20261117075632.59959.p12-0-arsenova@a7snv.com> <20261116235747.60403-1-arsenova@a7snv.com> <5f5d6c24-2bb0-4af9-8ece-d53cc6e612f6@bsbernd.com>
-Feedback-ID: 235448903:user:proton
-X-Pm-Message-ID: 656148638c9aba8ba6a0f4cd5d12ee4e45386918
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Aog1mzOk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2B1C1F000C4;
+	Thu, 19 Nov 2026 23:08:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795129731;
+	bh=wEZkBab7UqRfMrX7O5m1ZmNVlSf+C6CU+1tcpFcU1rY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Aog1mzOkqQ7jjJze7fklA8q3RYQyFc/V/VGL2lGoDxtnIEvuRiN1jtsoDOe3JR1TF
+	 rVMlxWqL7l+83figGswkTV59u9kYatrwfuKm1GshDpR5KWrRUfVg2EEV3Wz60NTYwl
+	 jcOHCbXM3YXCXQF/8HW0iZqbmVSHlYdW95XbbDwyzpGJPZpusVjHJ4Fw5EoPN3aJNb
+	 Rny2BGnqhQtv3sTwoXa3whMioqYCykBKgAYtakYLsf3tJPDsCOnPhVx3pCjlz6jsr1
+	 N8faTCTvcs++TO2e0wEnJRgfmftOoIsqgybQ/iL+p7ig+h9GHz3qDJbE4VEUY+zPYo
+	 PsDcQYtr5IwIA==
+Date: Thu, 19 Nov 2026 23:08:44 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abel Vesa <abelvesa@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: sound: qcom,q6apm-dai: allow Shikra
+ compatible
+Message-ID: <edf0e84b-9512-4fcb-8ca9-ada287d2a00d@sirena.org.uk>
+References: <20261119164705.1594066-1-mohit.sharma@oss.qualcomm.com>
+ <20261119164705.1594066-2-mohit.sharma@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,48 +72,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IUg61mMA2sBAk5Yq"
+Content-Disposition: inline
+In-Reply-To: <20261119164705.1594066-2-mohit.sharma@oss.qualcomm.com>
+X-Cookie: I'm into SOFTWARE!
 
-On 11/19/26 12:57, Bernd Schubert wrote:
-> On 11/19/26 12:36, Yun Wang wrote:
->> +/* read(2) and splice(2) of an O_NONBLOCK device don't wait for the mou=
-nt */
->> +static struct fuse_dev *fuse_get_dev_read(struct file *file)
->> +{
->> +=09if (file->f_flags & O_NONBLOCK)
->> +=09=09return fuse_get_dev_nowait(file);
->> +=09return fuse_get_dev(file);
->> +}
->> +
->
-> This is just a style comment, for me "fuse_get_dev_read" sounds weird.
-> Maybe call this fuse_get_dev() and rename the other to _fuse_get_dev()?
-> And both could be in the header file?
 
-Sure, I'll do that in v2.  The O_NONBLOCK-aware lookup becomes
-fuse_get_dev(), a static inline in fuse_dev_i.h next to
-fuse_get_dev_nowait(), and the waiting one becomes _fuse_get_dev().
-The other callers (poll, fasync, the clone and backing ioctls and
-fuse_uring_cmd()) switch to _fuse_get_dev(), so that only read and
-splice change behaviour.  _fuse_get_dev() itself stays in dev.c, as it
-waits on the static fuse_dev_waitq; only its declaration moves to the
-header.
+--IUg61mMA2sBAk5Yq
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-_fuse_get_dev() then sits next to __fuse_get_dev(), which doesn't wait
-and returns NULL, so the underscores don't say much about which one
-waits.  If you or Miklos prefer, I can call it fuse_get_dev_wait()
-instead.
+On Thu, Nov 19, 2026 at 10:17:02PM +0530, Mohit Sharma wrote:
+> Shikra's q6apm DAI needs a SoC-specific compatible so that the Qualcomm
+> SMMU implementation can select the identity domain required by its
+> firmware ABI.  The ASoC driver continues to bind using the generic
+> fallback compatible.
 
-> Besides of pure style comment (and Miklos might have a different
-> preference), looks good to me.
->
->
-> Reviewed-by: Bernd Schubert <bernd@bsbernd.com>
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-Thanks for the review.  I'll keep your Reviewed-by on the renamed patch
-unless you object.
+--IUg61mMA2sBAk5Yq
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-Yun
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr/gXsACgkQJNaLcl1U
+h9DLegf8Dmpq6RqPrhHE1XLwNIHftQu0DFDGB1QevWyLOXMc+yCPYPFwtNjtCP41
+/iRlczHbACudNwezzaxEiZ/NFXHV4PUWctEzx5LROtVcpDAgOJMIRtYgWTNixBKP
+6ZwVa76xyyDTmVRKgzGxTn4tJdwSHi2KFVTHT/FRktaQHUUpbbVDcqHZ84eMKskG
+HamZ5V8UEypMC2xZXpGh82IobL2yhOjkTG3gQQlJT5xodnWg075N+II3lGIv1a1a
+QZGP1LbjEy75eyXuXqkxphAqZyagRGXCvS26O9++t3D2gK6nqaJ0QRtaUb+MvYZB
+B99IzWATW9svq8SLEUNiiMpbOKZPsA==
+=0Oos
+-----END PGP SIGNATURE-----
+
+--IUg61mMA2sBAk5Yq--
