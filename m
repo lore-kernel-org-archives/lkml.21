@@ -1,87 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109748;
-	b=SRmu+Tv7KjoX01Cj5wm55NJBVoFToF83fN40YK+HC1N46RZR90IdGFRmSW7Y4/+yJkBE
-	 mmCm+JCIz4LS8Q1mBlEJOkGc02pAguJOSO1m+jzdRLxg4bivea/W5J3gfBOWZBlk/FET5
-	 iBPpBm8WoXVf05sAxg7k2NezpWGnxcza2lwXUeSkqSYYYkVtp35caoyraDOcHEi+0qnie
-	 KmURKY9sEm1m6NxSI/IWQ+nYPN8qn6G2SrJgh++dUoHaxgnMYjHr8IswpXVYbsjsakCHg
-	 o3yHJlFzPTrzpfKo57Nv6MwyFzUSVB8lcZhitXZ5OdcRgMeSTEM91fTvznG7BEESFIw==
+	t=1795109774;
+	b=rqtXcamH7l0UGAWDQl5/3xyGpLpdPY0UEn6rIiAUDbHsLF5+ADVNE5DQbTK5anjf9IBi
+	 IGGZAHGYqxUTIHhiNOsV+BUSE4IBE128No4EOb6ScVd7uacHGDTZ+Zw36EU2CwohhTxST
+	 NpQscLXKnvXcH2WQOMbXaVQ8VLbV8Ou1MBaLmCljLEdF2LCS9/NwG43lrBQQKLfKSfDsq
+	 KpocQGvuGgyczmloa2CZnM0Bcuu8luT8ocGmWqwM7Lm9iGBd66QucmTlEKoqgV4D+SXTt
+	 F/uIUJWCuJmuVPXjce+cSrxJcTzOVEhtYKdT3pou0Wmadi4JDk9e5NewkOlNG2kqJ4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109748;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=62yMPuLvuNHDTEn7DCclIB1obRkzwr1eicwWTfCp6QQ=;
-	b=XBRnOqyHy0AUBmafEZvI+Csi6WijcN8G8aaPyMha+XTu/GIdxXGmMEW3GpOSUZjdvTpr
-	 Al8RfySA5OnKGQtCUh88X0yIaadSxCL84F0I8N2d35RZaOPf0ctsr+9GlfkHG97blPIz1
-	 muHm9uDNxXc0CFyWGu3EpdtFv/DILS/chktNUg23WgteFXMGnm0AiCGCwacKXRe+oqf+7
-	 u7OoLWOLwI67suyebxQ5hx54uOeanbgFe5JyO18vU9MlsB81/BybzPBSbc4aWsggnn7VA
-	 YWlP9zeHose9paFHuvaYF9jBDv5Xgsp1Bze/MGl6WN/rqlfhwoZuT8+5AtKiUXoSUIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109774;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=7lPp38yQqapWLynzBVA4CU5EykvtBLNogGxWpp56dPo=;
+	b=xb3jzM/IbTbr/jqdj3UTFlEujchwnIiDcNh0xnh0SM0tNlx6rZLa+98M4sasvtiS1z4D
+	 Ybh4XUktPnU8im3Hys4KmJpEwLiNQ0549xxmwnCpObK7NgV1A9moDG9ETjz0nSSm4brMP
+	 t4xoRAL2nAM88YuJS+onsZlDmgG08r6Cd3V/Ppa594Tyo1Sltqce3I18/1sLn4xq4pdiH
+	 oxzjRLgGBsPN2KPWoed74eBzjpmAqP3EeiZbEO3HY9KiytmJo5jW6wqjDUJ2pi5eq2AEN
+	 wcv+og2V2Xa5SP/BBO1CU8Abrl1S/phSNfvi81nJ/cbl0VarDTjgniJYo/Btku9U92w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=jTp7YByt;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lcJ0pmwW;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E39AC606A324;
-	Thu, 19 Nov 2026 17:35:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E39AC606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAACB606A320;
+	Thu, 19 Nov 2026 17:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAACB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=jTp7YByt
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795109746;
-	bh=62yMPuLvuNHDTEn7DCclIB1obRkzwr1eicwWTfCp6QQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=jTp7YBytXbg/Nrf1EWXt56qs+S96LAUOMsD15Ye8mO4ROTgyAmEtlNT92FL/R1cxD
-	 a4L4aBDbVLzaD2pkFmZKBeVZUbdmPuOcZBabKj/LrQxfI25U8N3Hevuirwm+3irxw7
-	 xcHL+NHe2UyLWn9nYTT9sv0jaNkSRi4NvThHgSnYCoqU6mp1d5JTdzKP/WwvbvDXZm
-	 B/Jn/tMK+9NDXwlptpI3s4PhkOwSIkv/6ID3Qs9RtxS/x3roMgI73xhDVxuqp4VYTC
-	 DCxzOmx+4KU08+Bie/KzdaGTcfUzanoDUv/erID1gVYgMP30C2DBWkQuAVjqs/en9f
-	 1VbUDwcWGeqcQ==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CF44617E0406;
-	Thu, 19 Nov 2026 18:35:44 +0100 (CET)
-Message-ID: <c0da8a7d22c6b837c2c8d62e6d267b54d6ed28f4.camel@collabora.com>
-Subject: Re: [PATCH v2 2/5] media: rkvdec: Remove unused need_reset
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Hans Verkuil <hverkuil+cisco@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>
-Cc: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, 
-	kernel@collabora.com, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Date: Thu, 19 Nov 2026 12:35:43 -0500
-In-Reply-To: <20260810-rkvdec-multicore-v2-2-986f89d22cdc@collabora.com>
-References: <20260810-rkvdec-multicore-v2-0-986f89d22cdc@collabora.com>
-	 <20260810-rkvdec-multicore-v2-2-986f89d22cdc@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-V6UIdoLb9tMLLBSKPyyL"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lcJ0pmwW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795109774; x=1826645774;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=o3BRdW+dhH4bRD+XBAD22OyQPZBgW+FL4Lkn+B4t/XA=;
+  b=lcJ0pmwWV+rm9QbPhUTjNowq60hyYpadLatalTkCT5lcBWkBpCmcuzKE
+   2CyyXHIrMlyj7ZPMiE4/fKQ4GTkhLZdPCfPJQnuzeTsSG/EtkBgcvq8fu
+   v+lfWSRBaQbBbgPT7Gwfb+yhkWIC5avcIBCZcdRZjY3w9TEUUzHo2wi7P
+   7kWlMqyMHx2mCwGO+o6XQjGhn2FhEv7xQW23oKgReAhCDdZnu4skVzn6E
+   70eIvtjgYmkKJFB/vOlGddlnZjK2K9WgHjLYd9pEsvKm4ERTnpapwtMXi
+   +MaEHR44s5iaXVpg1blIo7JTxGR/OiNxrhMsl0tMtyeNXc0CrYhei4NCO
+   w==;
+X-CSE-ConnectionGUID: 1V6chUxAShC6voNCnd+EkQ==
+X-CSE-MsgGUID: TYmFrrw6STyxG5UhUCyVsw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3869130"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3869130"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:36:13 -0800
+X-CSE-ConnectionGUID: IBi2LnLRTb2Dbbhdws001Q==
+X-CSE-MsgGUID: AzJMLJM3R5W6DgJUYjiX8A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10384610"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:36:11 -0800
+Date: Thu, 19 Nov 2026 19:36:08 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: dmaengine@vger.kernel.org, Frank Li <Frank.Li@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, Viresh Kumar <vireshk@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	kernel-janitors@vger.kernel.org
+Subject: Re: dmaengine: dw: Use devm_clk_get_optional_enabled() in dw_probe()
+Message-ID: <av8ziPUCh4wZPyr6@ashevche-desk.local>
+References: <8e3534b7-ae64-4c1f-819d-0ba390737b84@web.de>
+ <av8u_xgva8ORkzaC@ashevche-desk.local>
+ <c5e756c6-2449-4079-a924-15a6bfdef848@web.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,39 +83,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <c5e756c6-2449-4079-a924-15a6bfdef848@web.de>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
---=-V6UIdoLb9tMLLBSKPyyL
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Thu, Nov 19, 2026 at 06:27:40PM +0100, Markus Elfring wrote:
+> >> Reuse existing functionality from devm_clk_get_optional_enabled()
+> >> instead of keeping duplicate source code.
+> >>
+> >> The source code was transformed by using the Coccinelle software.
+> > 
+> > Something is wrong with your tools or scripts. It now brings a regression.
+> Would you like to extend background information?
 
-Le lundi 10 ao=C3=BBt 2026 =C3=A0 11:22 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> A left-over from the iommu restore mecanism was forgotten.
-> As need_reset is never set to true, the if has no use.
->=20
-> The actual restore function is called above it vase the IRQ isn't in a
+You are not the first year in this project, find the answer yourself.
+Hint: what devm_*() actually do and when?
 
-Tell me what you wanted to say instead if "it vase the IRQ", or define the =
-verb
-"to vase"?
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/clk.h#L680-L699
+> …
+>  * devm_clk_get_optional_enabled - devm_clk_get_optional() +
+>  *                                 clk_prepare_enable()
+> …
 
-> success status.
->=20
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Reviewed-by: Nicolas Duresne <nicolas.dufresne@collabora.com>
 
---=-V6UIdoLb9tMLLBSKPyyL
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav8zcAAKCRDZQZRRKWBy
-9FkTAP4t0zz/QIqw8O9VGTFTciZv8LQgBYP0Ptnu7sIg/btKQAEAuGbMsnVBoii7
-IwuNwpYNoEWl5izIjIGttWzlVY4oqgk=
-=HPL9
------END PGP SIGNATURE-----
-
---=-V6UIdoLb9tMLLBSKPyyL--
