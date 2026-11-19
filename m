@@ -1,59 +1,52 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100986;
-	b=TS/XfK0722+2BLvgnIqYYJD22ZEaBIQU2aIspDw/jyso8iYS9BnfHP1aLbm3Odf0snsQ
-	 Nmc7nZLmA+1q+rTZtC8U6EyBo2HN/n05GLXBgnNY/F1mEdKqdhmRPGIuvw6RdyjA3Kohw
-	 +9fj0DnGGHINtsS/sdVa0LwgzRLm/I+suzLp2FBs9H/BCZuat7I8417ghh2O0L42ib8HW
-	 9XVRederWdfsANaOPF77vpIIH8cT2FSeoCqhJgICirRciBClBttjZt0cN51r3S+B2ShKE
-	 W1qLhQdrda3qcxrKQ4N6N1Yhk5dCxKggenlN0nBJLFLNpgkDL15vg+5l423EoN06MGA==
+	t=1795101006;
+	b=3mTVcPxDtSw7sn0D9SofA5Pb/803JqGdHis1iEeY9hrr3me6e4eGFOv+nfCpg5rP6PsJ
+	 NdezVCkB8n48RKAPWq8PQzU8t6AFD09aOXR8gof9dX1iO9P0tn5wN0fUUIqv32cbcKUMd
+	 kaTdy/rKvOrTwUvHGYRgIGYaJoZRGdwRK/XHa4UYd/NnIdh7Y2URdWnM12cfWnowy1A+B
+	 EO8WfbUKpD1o4jE0Qm8JAHPogxkCW5b/e3tp5pZr002N/c6LJuQ9bg5LYJRaIeib9nHBC
+	 sMbkHBKDcDZMfIDEPW+QWmqGK9+WLhOqMsMdwusFlSZsRhGabnhYx9QtNs/iGRjYS7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100986;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=itmh28cvNAL6dJYtrjYa4fc1UlzlKqtHtZSTzw5oYKA=;
-	b=GffyX4yhFwO455CFglEnEMMbZvFl1k0TeQHoQzLbJ2PsFrI33Fh+snUfTC+bJpKhkITD
-	 ltUmuoZ0DheZwIjBXXwKwcoySMnqvJoxNf+yn1wXr9WYBRhGQOM+SsNRmI60WbeUjlFyT
-	 YADGd4PCe9Mu7Qn8asr06ht4p/6b4aFgCbfSR6trsWgs7caqf6bIKwDLDQgxCYGX0FkNI
-	 +RhndAqellfP1cAPiJVMU1aPJQQ5OUymLUv4gcRnOL4LI127LY+fA4HfRBf91/Cdq3Qo8
-	 bXNAT1CzLmE1yliJo3j4raUGOcx9Z2w+d4ju1JzdCSLV5oDmNDhVJyd9Xam9/ntyYcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101006;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=RyuDBlQj+p4iLBEgjEysj+ffCHoI0uxKXMeog5rn1Ko=;
+	b=WJ2vWTXGYyETnJrgOAJuVs3p5/O+RK4Oz/7vEfnamWROwTP/UYedMYreAtAg6NnBtJMi
+	 vhV6E2rIQHE8IDrMP3EmBkJoVPZcSf48NaflPPanYQU90SgFDwkAnpVU+F4oUhGoeMW6O
+	 TloJWBzy116LaHuHMsOu9joSFzc5YQES6AqbA2kBlLpydofsn/VH6NaagSbdBKNH0bkZZ
+	 7rHUKjm2ASaiHGShRu24FwauO9/eHN2TNPwilIJS9KB3oZAKFhAId3098svgrtgbbawNc
+	 RFQgyyZ/d46S9tJRsomJTinEVFss3V4LA5J+PdEbkXT4c+wUdjR/bxPZBtgAECgf3UA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Ri4qu/Oq";
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=anilXYKM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3846606A337;
-	Thu, 19 Nov 2026 15:09:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54ACF606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:10:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ri4qu/Oq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3257D1F000C4;
-	Thu, 19 Nov 2026 15:09:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795100986;
-	bh=itmh28cvNAL6dJYtrjYa4fc1UlzlKqtHtZSTzw5oYKA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Ri4qu/OqG5PS5v8xCg8IgrW60M+8TSO+n53JCNqUalLCP80H9gEIBcsMYf5y56OKL
-	 NwkQpvmXKh9nb3x7qBEdJ8zBTpILVOExiphKWVaEm3AbinP4om8Ap2Mx4yOTNREyg7
-	 6hqptaVoJLyUbN6zHY3bMQneJ64tWdwFMZV3+7AQ8PQy49b3IGN8w99bUgymk3FJ3Y
-	 c7Vi8QtqN8cD9hlnODR+DeZttk+huNKeSa/x+3xKEcJRIZYLhi8+EEU13J1w43VDSq
-	 n5NUQJ5oSgS+05imrTmaiB9nnjJCebsuQrc4JjixFsvtM8uHbihM+yqv5VR0xCENo9
-	 dPapHp/4SpuYw==
-Subject:
- Re: [PATCH net-next v2 3/5] net: rnpgbe: Support copper link configuration
-From: netdev-bot+sashiko@kernel.org
-To: dong100@mucse.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, yaojun@mucse.com
-Date: Thu, 19 Nov 2026 15:09:45 +0000
-Message-ID: <179510098578.3136.17685116330600350297@kernel.org>
-In-Reply-To: <E783BBD6D9CACAEF+20261116031032.1330270-1-dong100@mucse.com>
-References: <E783BBD6D9CACAEF+20261116031032.1330270-1-dong100@mucse.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=anilXYKM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F3BA1F000C4;
+	Thu, 19 Nov 2026 15:10:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795101006;
+	bh=RyuDBlQj+p4iLBEgjEysj+ffCHoI0uxKXMeog5rn1Ko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=anilXYKMBkC76ShgbbpejKFraPrmJWR5M3JpJurCAaNTLLJyn8IfzSGYxdD1fJ4UH
+	 ID153pUxwNS1MdVylXeUR3TVxUbqC9TosoOda5tPByOvrPdiRLAZHf6ceFNNJVs3xp
+	 KRbWgmA8zlqIsTPXZEkM4nxcn9Eb2d2lPvRi4+oQ=
+Date: Thu, 19 Nov 2026 16:02:07 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Habil Eren =?iso-8859-1?Q?T=FCrker?= <habilerenturker@hotmail.com>
+Cc: Clemens Ladisch <clemens@ladisch.de>, Arnd Bergmann <arnd@arndb.de>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com" <syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com>
+Subject: Re: [PATCH RESEND] char/hpet: Fix missing TASK_RUNNING before
+ put_user() in hpet_read()
+Message-ID: <2026111926-finisher-captivity-64ce@gregkh>
+References: <20261117111633.52928-1-habilerenturker@hotmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,113 +56,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117111633.52928-1-habilerenturker@hotmail.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 11:16:37AM +0000, Habil Eren T�rker wrote:
+> hpet_read() sets the current task state to TASK_INTERRUPTIBLE within
+> the read loop. However, when data becomes available, it exits the loop
+> without restoring the TASK_RUNNING state. The subsequent put_user()
+> operation may go to sleep due to a page fault, which triggers:
+> 
+>         do not call blocking ops when !TASK_RUNNING; state=1 set at
+>         [<ffffffff85b6d1eb>] hpet_read+0x21b/0x6a0 drivers/char/hpet.c:285
+> 
+>         WARNING: kernel/sched/core.c:9187 at __might_sleep+0x94/0xc0
+>         kernel/sched/core.c:9187, CPU#0: syz.0.873/9126
+> 
+>         Call Trace:
+>         __might_fault+0x8b/0x140 mm/memory.c:7480
+>         hpet_read+0x56f/0x6a0 drivers/char/hpet.c:309
+>         do_loop_readv_writev fs/read_write.c:848 [inline]
+>         do_loop_readv_writev fs/read_write.c:836 [inline]
+>         vfs_readv+0x5d8/0x8d0 fs/read_write.c:1021
+>         do_preadv+0x1ac/0x270 fs/read_write.c:1133
+>         do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+>         do_syscall_64+0x123/0x790 arch/x86/entry/syscall_64.c:84
+>         entry_SYSCALL_64_after_hwframe+0x77/0x7f
+> 
+> Restore TASK_RUNNING before breaking out of the loop.
+> 
+> Reported-by: syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=fc3a448093c17a792368
+> Signed-off-by: Habil Eren T�rker <habilerenturker@hotmail.com>
+> ---
+>  drivers/char/hpet.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/char/hpet.c b/drivers/char/hpet.c
+> index 285c6037417a..7ad319c6d942 100644
+> --- a/drivers/char/hpet.c
+> +++ b/drivers/char/hpet.c
+> @@ -290,6 +290,7 @@ hpet_read(struct file *file, char __user *buf, size_t count, loff_t * ppos)
+>  		spin_unlock_irq(&hpet_lock);
+>  
+>  		if (data) {
+> +			__set_current_state(TASK_RUNNING);
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Shouldn't this be set_current_state(TASK_RUNNING) instead?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+And why hasn't this ever been noticed before, what changed to cause it
+to show up now?  And because of that, why is there not a Fixes: tag?
 
-- [Medium] rnpgbe_set_link_ksettings()
-  (drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c) only updates its…
+thanks,
 
---
-
-net: rnpgbe: Support copper link configuration
-
-This adds set_link_ksettings support for copper ports, covering
-autonegotiation, advertised link modes, forced 10/100 speed/duplex and
-MDI/MDI-X selection. Requests to change the firmware-reported port type
-are rejected. PHY_LINK_SET is also switched to the event-coalescing
-mailbox transport.
-
-> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c
-> index 0afeda19f4ea9..d856b970e5a50 100644
-> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c
-> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_ethtool.c
-
-[ ... ]
-
-> +static int rnpgbe_set_link_ksettings(struct net_device *netdev,
-> +				     const struct ethtool_link_ksettings *cmd)
-> +{
-
-[ ... ]
-
-> +	if (!mdix)
-> +		mdix = mucse->hw.mdix_ctrl;
-> +	if (mdix != ETH_TP_MDI && mdix != ETH_TP_MDI_X &&
-> +	    mdix != ETH_TP_MDI_AUTO)
-> +		return -EINVAL;
-
-[ ... ]
-
-> +	err = mucse_mbx_set_link(&mucse->hw, advertising, autoneg,
-> +				 autoneg ? 0 : cmd->base.speed,
-> +				 autoneg ? 0 : cmd->base.duplex, mdix);
-> +	if (!err) {
-> +		mucse->hw.mdix_ctrl = mdix;
-> +		mucse->hw.link_config.advertising = advertising;
-> +		mucse->hw.link_config.speed = autoneg ?
-> +			SPEED_UNKNOWN : cmd->base.speed;
-> +		mucse->hw.link_config.duplex = autoneg ?
-> +			DUPLEX_UNKNOWN : cmd->base.duplex;
-> +		if (autoneg)
-> +			mucse->hw.link_config.status |= MUCSE_LINK_AUTONEG;
-> +		else
-> +			mucse->hw.link_config.status &= ~MUCSE_LINK_AUTONEG;
-> +	}
-> +
-> +	return err;
-> +}
-
-[Severity: Medium]
-What happens to the cached link settings if mucse_mbx_set_link() fails
-only because the ack poll timed out?
-
-By the time the poll starts, the PHY_LINK_SET request has already been
-written to shared memory and the doorbell rung:
-
-mucse_write_mbx_pf_coalesce_event() {
-    ...
-	for (int i = 0; i < size_in_words; i++)
-		mbx_data_wr32(mbx, MUCSE_MBX_FWPF_SHM + i * 4,
-			      le32_to_cpu(msg[i]));
-
-	hw->mbx.fw_ack = mucse_mbx_get_fwack(mbx);
-	mucse_mbx_inc_pf_req(hw);
-	mucse_release_mbx_lock_pf(hw, true);
-    ...
-}
-
-After that, mucse_write_mbx_coalesce_event() calls mucse_poll_for_ack(),
-which can time out after mbx->timeout_us. The error goes straight back to
-the ethtool caller.
-
-If firmware still applies the request late, the driver keeps the old
-hw.mdix_ctrl, link_config.advertising/speed/duplex and the
-MUCSE_LINK_AUTONEG bit. Would rnpgbe_get_link_ksettings() then report
-settings that differ from what the PHY is running?
-
-A later set call that leaves eth_tp_mdix_ctrl at ETH_TP_MDI_INVALID falls
-back to the cached value:
-
-	if (!mdix)
-		mdix = mucse->hw.mdix_ctrl;
-
-Could that send the stale MDI/MDI-X setting back to firmware?
-
-Before this patch, mucse_mbx_set_link() was only called during probe,
-where a failure aborts probe. This patch makes it a runtime ethtool
-operation, so the mismatch can now be reached.
-
-Would it make sense to invalidate or re-sync the cached configuration
-when the command was sent but no ack came back?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/BD205A7832D36E7D%2B20261116030917.1329989-1-dong100%40mucse.com
+greg k-h
