@@ -1,89 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795066117;
-	b=0x4zqo/Zyry3SPtO3bq0NHTjMvnyQwo5FRnktQRVfwhhPWi2VoTdSc0f/p/srUFKOQLi
-	 fEXvDyRsKp0o/AnURZ0K3dJsNn0/u2zi+O82hAF/dFL7+yrxAK95cegCYN9IEBIt6ReGZ
-	 bF0m7JBhkBhD8ZPzyz9Pe0A+yi1UdY3MXa4mVGK8KoZd+b3tsl4UcnalQTr+Ro3Hs3Bwp
-	 bEOoLr/zj2JERhmtPSe91HqbMD++USN9xKVw0o14rdS2zooYGNJaWoVtFIa3mFShV5MyM
-	 zVtxzOJbBQArhq1G09zFHEoN3r/q0d2iJSgiYvTMlTig3FQDz6MKQ0C34fq3EXhhSEQ==
+	t=1795066133;
+	b=NxeI3ZOUvugxMBKf/XB9/68/znhdkQdmRcs+GUO1GPkBGA91uQrGpX/ixtEtzSZcEZlb
+	 4IpxmRdFQzQ/Zo6+outjbtHJvNQsnK5q+MAuivuSNkdXwoN4uRsFDlfMATj5X6XU4Gy4u
+	 odirWeyg8l9qxakEuVbO/EAGTNsqba+0quVjgHvk/JOCyDs41bmTR4isYyXsBaA76DeE/
+	 1x/gq6p2IS8jUG86/dWBmgqLnQgF0U0DugpP1usE56NNs+Q5v1t4pewLsD3A18bmtMCdD
+	 KTiQnh+eVJ/vmGFwl4fx+ANA2FIjlz1BJHsLd54bzaYitvdrJbeoTh9UFZoxrGH9UKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795066117;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=5NdA5plpjeGZJ4MZvQ0AvaZ11dLbUCDpOgqJBqsguU8=;
-	b=1fsD0/9YEPv5QZ5GajhSleVrOwU7falEIrbF0L0pJWNWCcyesGI0Z1RJqSp2zhsXTPe7
-	 1DWdYcLcQaR6jPxXPRyEV9/U4gStDOyP7/GH/h56J2UECh/ZYliu80C5RRdn14Iuy2saO
-	 mnYpm07w7t64QcjcjXNK00JjI9hQqZOu4kuG8X+e+mKxwzujLAq3arr5T8+q9dSGxlo4r
-	 tE8GzOnWlmrriIC1k0SCIqHJ0OLz0CNLSMle9YOzZ/Dkacml2wbctInKRm33fhGGGe+u/
-	 +Z1+qO4g1dpW0BDf0jM6KrzkfOpLVsVWY3zgjtSOhjvCrjhxV/p9+dot8wHgIZEzLTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795066133;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-Originating-IP:X-CM-SenderInfo;
+	bh=bD2ax/aLK3TbiC+MuA5c3fv1Msqgl3zH1491fFdGzOw=;
+	b=1UGj2e7KH7VxqegJHjiIjQl47aLoAY86+rSanFJgnCYjkds7qDPbBrEyfTy6lYmCL++t
+	 dNACP73TsMyb+CbC6GCc8FaQWkc2vjX/Rf0HyVTpiCcmrlgDo+GuKO1jd0Ks6jm6Tf++7
+	 6QH5GbEIbKohZxLCLygg/8eQzC/bducQpEoQbUf9PZiz5RpczZ6QhvvozNMqhygw54OWg
+	 JgcLwUIftfObyGCHyt1MthLpfd5mVwOywNyFUhWpXdte65NM11+8F8hacL03ccKWS+fD2
+	 3Lup3gqiv2iuBbxB3vVH02iw0JbbxD0evXwHwkCyvBcyMo1Ezb33sc+Hfz3Ra2xwAtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=pYJ537UY;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="j///4p1S";
+	arc=none smtp.remote-ip=117.135.210.5
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10917606A320;
-	Thu, 19 Nov 2026 05:28:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10917606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DE55606A325;
+	Thu, 19 Nov 2026 05:28:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DE55606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=pYJ537UY
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ5SMTw82039852, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795066103; bh=5NdA5plpjeGZJ4MZvQ0AvaZ11dLbUCDpOgqJBqsguU8=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=pYJ537UYw24gNSV4dReh+bk2gzWwqyv+vmZ/oD+cmqhI7wa1C2zJB72pomoPqoWmQ
-	 lvjLPVgWpoYBAyUuouEBD3WMic6Igzh13Whxvdx8izqKxRpQCv1iqoT/VTnZiIGEPB
-	 ug3WHBij3NHUoHsa69jyM4wx6YN5vcnUO+SEDQyvcvrTUr8a1JJpuM4LlXKOUBi0AC
-	 0E66sQ8gfymIx3So/Y6LgTGhFrRK4CKGoURCBYIxCJHlk426XtFsg7vx2em8kIueHd
-	 3XKDR4JEGHvuzvogIThLYW+CJKSDGZTqkMQE0Ejk7tZGIiHARb9+XbcZvTg3TpkCyL
-	 9Mo8BGHfT86XA==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ5SMTw82039852
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Nov 2026 13:28:22 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 13:28:22 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 13:28:22 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Thu, 19 Nov 2026 13:28:22 +0800
-From: Ping-Ke Shih <pkshih@realtek.com>
-To: Luka Gejak <luka.gejak@linux.dev>, Mehmet Fide <mehmet.fide@gmail.com>
-CC: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	"linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"mehmet.fide@screeningeagle.com" <mehmet.fide@screeningeagle.com>
-Subject: RE: [PATCH rtw-next v12 2/3] wifi: rtw88: support channel switch in
- AP mode
-Thread-Topic: [PATCH rtw-next v12 2/3] wifi: rtw88: support channel switch in
- AP mode
-Thread-Index: AQHddusUlFkb3JLAC0icESyq6ktwKbcy9ygAgAAD3QCAAJC3wP//hh0AgAF9CuD//73xAIAAkWxw
-Date: Thu, 19 Nov 2026 05:28:22 +0000
-Message-ID: <799edf0befac4164b0a45c59ab0b8c66@realtek.com>
-References: <9BC4FC13-5723-4711-9798-11E3C285C7F1@linux.dev>
- <20261118083328.1984956-1-mehmet.fide@gmail.com>
- <d55a09e0accd42f39f476d3abba1cdca@realtek.com>
- <658FDA93-1E44-45D3-BBAA-37FBBAF9954A@linux.dev>
- <9340ef0716924e229396aa1b595aa458@realtek.com>
- <7485BFDD-E895-4A73-AB29-8F3CB4712115@linux.dev>
-In-Reply-To: <7485BFDD-E895-4A73-AB29-8F3CB4712115@linux.dev>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=j///4p1S
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=bD
+	2ax/aLK3TbiC+MuA5c3fv1Msqgl3zH1491fFdGzOw=; b=j///4p1Sm4iOx1f1x/
+	ZNKs/kBmJhb7QO9N11NByMfu2yCyj/HW7XhsIcavU8JsyGZ9gJAfnu6clN0ZXrVc
+	YUDUGvEAbeWEGJwvenUSV9LO2vSW10pwUNQWUsSFbj/ChKdi2z/1Q675HABETJVu
+	h5HZG/u0AmXYR/y/R9laKmaLo=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDX3+zviP5qaWbXIA--.59393S4;
+	Thu, 19 Nov 2026 13:28:18 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: viresh.kumar@linaro.org,
+	rafael@kernel.org
+Cc: zhongqiu.han@oss.qualcomm.com,
+	hector.yuan@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>
+Subject: [PATCH v2 2/2] cpufreq: mediatek-hw: Clean up on frequency table creation failure
+Date: Thu, 19 Nov 2026 13:28:11 +0800
+Message-Id: <20261119052811.2877720-3-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261119052811.2877720-1-haoxiang_li2024@163.com>
+References: <20261119052811.2877720-1-haoxiang_li2024@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,60 +70,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDX3+zviP5qaWbXIA--.59393S4
+X-Coremail-Antispam: 1Uf129KBjvJXoW7JrWfZw43Gr17GF45trW7CFg_yoW8JrW7pF
+	W09FWUAry5JFsrXw4kAa1UWas8Aan29rW5ur47W3sIvwnxJFWYva4Fga4jqFZ3urWkAr1Y
+	vrWqyay7uFWUJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ztjg7bUUUUU=
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7RK4J2r+iPJhUwAA38
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogTHVrYSBHZWphayA8bHVr
-YS5nZWpha0BsaW51eC5kZXY+DQo+IFNlbnQ6IFRodXJzZGF5LCBOb3ZlbWJlciAxOSwgMjAyNiAx
-Mjo0MyBQTQ0KPiBUbzogUGluZy1LZSBTaGloIDxwa3NoaWhAcmVhbHRlay5jb20+OyBNZWhtZXQg
-RmlkZSA8bWVobWV0LmZpZGVAZ21haWwuY29tPg0KPiBDYzogQml0dGVyYmx1ZSBTbWl0aCA8cnRs
-ODgyMWNlcmZlMkBnbWFpbC5jb20+OyBsaW51eC13aXJlbGVzc0B2Z2VyLmtlcm5lbC5vcmc7DQo+
-IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IG1laG1ldC5maWRlQHNjcmVlbmluZ2VhZ2xl
-LmNvbQ0KPiBTdWJqZWN0OiBSRTogW1BBVENIIHJ0dy1uZXh0IHYxMiAyLzNdIHdpZmk6IHJ0dzg4
-OiBzdXBwb3J0IGNoYW5uZWwgc3dpdGNoIGluIEFQIG1vZGUNCj4gDQo+IA0KPiBFeHRlcm5hbCBt
-YWlsIDogVGhpcyBlbWFpbCBvcmlnaW5hdGVkIGZyb20gb3V0c2lkZSB0aGUgb3JnYW5pemF0aW9u
-LiBEbyBub3QgcmVwbHksIGNsaWNrIGxpbmtzLCBvciBvcGVuDQo+IGF0dGFjaG1lbnRzIHVubGVz
-cyB5b3UgcmVjb2duaXplIHRoZSBzZW5kZXIgYW5kIGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZS4N
-Cj4gDQo+IA0KPiANCj4gT24gTm92ZW1iZXIgMTksIDIwMjYgMTo1MTowNiBBTSBHTVQrMDE6MDAs
-IFBpbmctS2UgU2hpaA0KPiA8cGtzaGloQHJlYWx0ZWsuY29tPiB3cm90ZToNCj4gPkx1a2EgR2Vq
-YWsgPGx1a2EuZ2VqYWtAbGludXguZGV2PiB3cm90ZToNCj4gPj4gT24gTm92ZW1iZXIgMTgsIDIw
-MjYgMTA6MTQ6MTcgQU0gR01UKzAxOjAwLCBQaW5nLUtlIFNoaWgNCj4gPj4gPHBrc2hpaEByZWFs
-dGVrLmNvbT4gd3JvdGU6DQo+ID4+ID5NZWhtZXQgRmlkZSA8bWVobWV0LmZpZGVAZ21haWwuY29t
-PiB3cm90ZToNCj4gPj4gPj4gPiBJIHRoaW5rIHRoZSBwcmVzZW5jZSBjaGVjayBpcyBiZXR0ZXIg
-Zml4ZWQgaW4NCj4gPj4gPj4gPiBydHdfY29yZV9jaGVja19zdGFfYWN0aXZlKCkuIEl0cyBjYWxs
-YmFjayBvbmx5IHJlYWRzIGludGVyZmFjZQ0KPiA+c3RhdGUsDQo+ID4+ID5zbw0KPiA+PiA+PiA+
-IGNvdWxkIGl0IHVzZSBhbiBhdG9taWMgaW50ZXJmYWNlIGl0ZXJhdG9yIHdpdGhvdXQgYWxsb2Nh
-dGluZw0KPiA+ZW50cmllcz8NCj4gPj4gPj4NCj4gPj4gPj4gUmlnaHQsIHRoZSBjYWxsYmFjayBk
-b2VzIG5vdCBzbGVlcCwgc28gcnR3X2l0ZXJhdGVfdmlmc19hdG9taWMoKQ0KPiA+d29ya3MNCj4g
-Pj4gPj4gdGhlcmUuIFRoZSBjaGVjayBpcyBvbGRlciB0aGFuIHRoaXMgc2VyaWVzOiBzaW5jZSBj
-b21taXQgOTZmYmI4NGRlNGZmDQo+ID4+ID4+ICgid2lmaTogcnR3ODg6IGhhbmRsZSBzdGF0aW9u
-IG1vZGUgY29uY3VycmVudCBzY2FuIHdpdGggQVAgbW9kZSIpIGENCj4gPj4gPj4gZmFpbGVkIGFs
-bG9jYXRpb24gYWxzbyBtYWtlcyBydHdfY2xlYXJfb3BfY2hhbigpIGRyb3AgdGhlIG9wZXJhdGlu
-Zw0KPiA+PiA+PiBjaGFubmVsIG9mIGFuIGFzc29jaWF0ZWQgc3RhdGlvbiwgb24gQlNTX0NIQU5H
-RURfQlNTSUQgYW5kIGluDQo+ID4+ID4+IHJ0d19vcHNfc3RvcF9hcCgpLg0KPiA+PiA+Pg0KPiA+
-PiA+PiBQaW5nLUtlLCBMdWthOiB3b3VsZCB5b3UgdGFrZSB0aGF0IGFzIGEgc2VwYXJhdGUgZml4
-IGZvciBydHctbmV4dCwgb3INCj4gPmFzDQo+ID4+ID4+IGEgcGF0Y2ggYmVmb3JlIHRoaXMgb25l
-IGluIHYxMz8NCj4gPj4gPg0KPiA+PiA+SSB0aGluayBydHdfY29yZV9jaGVja19zdGFfYWN0aXZl
-KCkgaXMgdXNlZCB1bmRlciB3aXBoeSBsb2NrLCB3ZSBjYW4NCj4gPj4gPm1pZ3JhdGUgdG8gdXNl
-IGZvcl9lYWNoX2FjdGl2ZV9pbnRlcmZhY2UoKSB3aXRoIGxvY2tkZXBfYXNzZXJ0X3dpcGh5KCkN
-Cj4gPj4gPmFzIGEgc2VwYXJhdGUgcGF0Y2guDQo+ID4+ID4NCj4gPj4NCj4gPj4gV29ya3MgZm9y
-IG1lLg0KPiA+DQo+ID5UaGluayBtb3JlIGFib3V0IGZhaWxpbmcgdG8gYWxsb2NhdGUuIEkgc3Vw
-cG9zZSBrZXJuZWwgd2lsbCB0aHJvdyBvdXQNCj4gPmEgT09NIG1lc3NhZ2UsIHNvIHdlIGNhbiBq
-dXN0IGhhbmRsZSB0aGUgcmV0dXJuIE5VTEwgcG9pbnRlciB0byBwcmV2ZW50DQo+ID5jcmFzaC4g
-VG8gZW5zdXJlIGZ1bmN0aW9uIHN0aWxsIHdvcmtzIGFzIG5vcm1hbCB1bmRlciBPT00gc2l0dWF0
-aW9uLA0KPiA+aXQgaXMgbm90IHNvIGVhc3kuIEkgZ3Vlc3Mgd2UgbmVlZCB0byBhZGQgbWFueSAi
-c3BlY2lhbCBjb25kaXRpb25zIiwNCj4gPmFuZCBkcml2ZXIgYmVjb21lcyBoYXJkIHRvIHJlYWQu
-DQo+ID4NCj4gPlNvLCBteSBvcGluaW9uIGlzIHRvIGRvIG91ciBiZXN0IHRvIGtlZXAgZnVuY3Rp
-b24gd29yayB1bmRlciBPT00uDQo+ID5ObyBuZWVkIHRvIGVuc3VyZSBldmVyeXRoaW5nIHdvcmsg
-cGVyZmVjdC4NCj4gDQo+IEkgYWdyZWUuIEkgdGhpbmsgdGhlIGJlbmVmaXQgb2YgaGFuZGxpbmcg
-YW4gYWxsb2NhdGlvbiBmYWlsdXJlIG5lZWRzIHRvDQo+IGp1c3RpZnkgdGhlIGV4dHJhIGNvbXBs
-ZXhpdHkuIEknbGwga2VlcCB0aGF0IGluIG1pbmQgaW4gZnV0dXJlIHJldmlld3MuDQo+IA0KPiA+
-Rm9yIHRoaXMgY2FzZSwgaXQgaXMgbm90IHRvbyBoYXJkIHRvIGF2b2lkIHRoZSBPT00gY2FzZSwg
-c28gSSBhZ3JlZQ0KPiA+dGhlIGNoYW5nZS4gQnV0IHdlIGRvbid0IGFsd2F5cyBuZWVkIHRvIGhh
-bmRsZSB0aGUgY2FzZSBmb3VuZCBieSBMTE0uDQo+ID4NCj4gDQo+IERvIHlvdSBtaW5kIGV4cGxh
-aW5pbmcgd2hpY2ggTExNIGFyZSB5b3UgcmVmZXJyaW5nIHRvPyBQZXJoYXBzIHNhc2hpa28/DQoN
-CkknbSBub3Qgc3VyZSBpZiB5b3UgZmluZCB0aGlzIGFsbG9jYXRpb24gZmFpbHVyZSBjYXNlIGJ5
-IExMTSBvciBub3QsIGJ1dA0KSSdtIHN1cmUgTExNIGNhbiByZXBvcnQgdGhpcyBraW5kIG9mICJw
-cm9ibGVtcyIuIEp1c3Qgd2FudCB0byByZWNvcmQNCnRoYXQgd2UgZG9uJ3QgbmVlZCB0byBwcm9j
-ZXNzIHRoZW0gcGVyZmVjdGx5LiANCg0KQnkgdGhlIHdheSwgZXZlcnlvbmUgdXNlcyBMTE0gcmVn
-dWxhcmx5LCBzbyBJIGRvbid0IG1pbmQgcGVvcGxlIHVzZSB0aGVtLg0KSG93ZXZlciwgSSBuZWVk
-IHRvIGxlYXJuIGhvdyB0byBjby13b3JrIHdpdGggTExNIGFuZCBwYXRjaGVzIGdlbmVyYXRlZA0K
-YnkgTExNLg0KDQoNCg==
+If mtk_cpu_create_freq_table() fails, mtk_cpu_resources_init() returns
+without unmapping the registers or releasing the memory region it has
+already requested.
+
+Unmap the registers and fall through to the existing memory-region
+cleanup before returning the original error.
+
+Fixes: d776790a5536 ("cpufreq: mediatek-hw: Fix double devm_remap in hotplug case")
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+ drivers/cpufreq/mediatek-cpufreq-hw.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/cpufreq/mediatek-cpufreq-hw.c b/drivers/cpufreq/mediatek-cpufreq-hw.c
+index 65f15fe935db..3ab139d1a552 100644
+--- a/drivers/cpufreq/mediatek-cpufreq-hw.c
++++ b/drivers/cpufreq/mediatek-cpufreq-hw.c
+@@ -277,13 +277,17 @@ static int mtk_cpu_resources_init(struct platform_device *pdev,
+ 	ret = mtk_cpu_create_freq_table(pdev, data);
+ 	if (ret) {
+ 		dev_info(dev, "Domain-%d failed to create freq table\n", index);
+-		return ret;
++		goto unmap;
+ 	}
+ 
+ 	policy->freq_table = data->table;
+ 	policy->driver_data = data;
+ 
+ 	return 0;
++
++unmap:
++	iounmap(base);
++
+ release_region:
+ 	release_mem_region(res->start, resource_size(res));
+ 	return ret;
+-- 
+2.25.1
+
