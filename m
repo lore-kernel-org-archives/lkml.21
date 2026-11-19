@@ -1,57 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096609;
-	b=VJyOGp6bMQWBDsV2aotSQXUBDU/FcZe632O+0gcvClaYgaVkfjcxL5SRu5tgrOSAam7I
-	 HQQPy/2lyP4wJvscohKXI9lymg5iy0/Su7taJ/F1QnoN9F050S0X/ztk/IrpeVDNSnX6+
-	 zsVOa0BSB8FiSsGNnP6HiXuyLnyOyul4TV6HD7hy8bvtCNAAxfMYcEeUQdOMxoWgS/U45
-	 CX/O8+ObaB+KgZx+B4u3uh4pAg4mgZv/1qcztkHzsJmjzKi5MfHr2I7lre/UyQDpRf/cl
-	 8NrAOIrYPS9kKTZKqo/3C9FsDrP/8NWr57n9mB7osRqBFzRLZ4Dk4UJHhc6u93F3JMA==
+	t=1795096647;
+	b=2JuUxWVlNyoVusILiEdFiLV1gvF1/gd/YFwNxAdMRClJ6spJ7458ecj++PmjbPHQOSmu
+	 x22v+xhudyjXfiVYLCWTFlVkk6N+65RV6Cr9j3bTQxrgMzEM8BgPfTs4Tl4TxhGKFCREY
+	 zqnucuLhQ5qWEv5XUFcdFGfRq0BhneWvYZkngrDjxQMjYQV6zn4JGQ0FfDZ+BZxiHqCQu
+	 Fjsc7fHSqVfqcBPL2eG6BJK068zWbFhorgnk8plwfuZlN9Qr7+xBjDZWjhpRw8TUoqtOA
+	 Njdtf/IkTXgbu+/gd1ZeZmGR4AjeXqaqjD8kTftTUFFVVStRIx6SSaB33NCQQ/kADlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096609;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=JaH2ERcOdqXe22GDDVQwmxv1pTLrLmRw/kARhV4jLxQ=;
-	b=cLFu9XoR8m+L17yrQj7vRki0FUhSQmYm/W2/wjbnQ9Y+n8QkQdenq5nW0BAs9T9XWDAS
-	 XCvy9iEp0r9hymYEP2S+Zu4m2/QTMTPKvEFpxWbg0bEM9DaD9it/typd9wSEL5Eba5uHr
-	 fD3MI4n1+sqgP6fUkCUQPkaB8agkg8jL2cu3tz1OzZkC8LlaQbbrn1WAmpZmkdQ1dAC4G
-	 cWTjncseI/PBsd86W8fnso78Ol+CuV01gaHl+786GuxDa+TuijWLMb0x5Rrh7GE4KjWNy
-	 Om7jEhYwJo9TcZplMJ+bTLPSQDSIKmlIBxvYM6/8TuuGSyIc2nYPntgva7Lih8K4IRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096647;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-SNPS-Relay:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=onYMe7z45MNHNaZv+QbTHmbUjD9ItNkD2Eo0MoSvp60=;
+	b=w6xrnZsOkIRxXTtz+hbzeMoDkdFeTAENQwpXZbUSpaoaqVJOJCcNCpvA3/rj0gMlRbLj
+	 82Viy2E54tm3oC157tPgbHH7TvuISfuTWCl8CEnTJUDkbBrfV9Mj13yoXpCcvDIF+k6bw
+	 aDLTDtgrGqDW05wQW93LEIFPh0t7wwZ/85hUDDmRWfld2/O7jwX8QlK7wayzQEN74/9iS
+	 FPL53IF8zlNN5VwkUWtMAo6TYb24/F1vtZ5z+HoJ6XSCiWOLSpZGcvzKC27Ni3c52rO15
+	 OU4/MvvEGMEW3emzj3zi84l8VhUxV6WhbGYDcO7du5ePzsh3SLu1IQBIrjnMcnbKM/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gp8rIV0N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=synopsys.com;
+	spf=pass smtp.mailfrom=synopsys.com;
+	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=oGIGjE11;
+	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=AOIzVdJj;
+	arc=none smtp.remote-ip=148.163.158.9
+Received: from mx0b-00230701.pphosted.com (mx0b-00230701.pphosted.com [148.163.158.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 977FD606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:56:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A31E606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:57:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A31E606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=synopsys.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=synopsys.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gp8rIV0N
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 829561F000C6;
-	Thu, 19 Nov 2026 13:56:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096609;
-	bh=JaH2ERcOdqXe22GDDVQwmxv1pTLrLmRw/kARhV4jLxQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gp8rIV0NTptIohMnJQ05QaiSObOkq3exz3L/SdW/PqMI6BPddaWWIsIEnpQWOQ/SH
-	 iFKIN/DNagn/mKnYeay8ptBSslceV4SLQU6kQ4vtaIc05BJMFRKIAjPqwu5i8QJ/cP
-	 ibgVMkpEhNwZ0qSiZqUjl71o4d7mYIe7Oulz+oblkpNqnlKO4rR+FCI7AYFeZy+PaM
-	 scwzo0vUtbaGfcPdLDco6Z2ySCtTuo2I+rLGfUfqDNfXxqM7Zoxff++K6Ix7nHF7DF
-	 u25v2+8TuA5Hl6Vpfe9Cgm9Qd7s3Mrad5o8b9MprsxllXQ2dA7INrTEfAENpw3HAKr
-	 DFVXiN0monb+A==
-Date: Thu, 19 Nov 2026 14:56:46 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, 
-	Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, Michael Walle <mwalle@kernel.org>, 
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Paul Cercueil <paul@crapouillou.net>, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH 02/11] nvmem: drain keepout and cell post-processing
- accesses
-Message-ID: <fhmks2ykxm7dtt2qsm7q2d4b25l7pft6tmmzl5bwlefpzg4usm@i7aqkq6w6fne>
-References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
- <20261117-submit-nvmem-provider-lifetime-v1-v1-2-3cfbd48812b5@gmail.com>
+	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=oGIGjE11;
+	dkim=pass (2048-bit key) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=AOIzVdJj
+Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
+	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJDGrUS2521117;
+	Thu, 19 Nov 2026 05:57:16 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pfptdkimsnps; bh=onYMe7z4
+	5MNHNaZv+QbTHmbUjD9ItNkD2Eo0MoSvp60=; b=oGIGjE11xNIazy4c0yrVeUvo
+	Qas/GKCtfwnlKFTfic3XxfwJJK8oeRBz5ITeXknWNHt27HjoCnaidZs8Rdgc8ohK
+	gkYsRlu1OaV3CQZ+pxOKwCzxA5DtmWgul3/HtNoS78AjCSSEYhNHdLxIfQl6i1wX
+	qb5REE0+pZQXklD1S8zVXYRozaejMN2JcsLC1tYQEcWNF6NhEag/b2gRQ793qG/J
+	e1jM1fXibHD7NYU8/vJmr7pW3G33C0MUcBlVWXVfgGAxNXOG4dsIqP+/Ts+SIU35
+	6Lj0p2D4LufYBUsSdWG6q+8OAm+4+ojI4aXxQZno+qS+haL5XPVKOF0eRiXMYw==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
+	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4j1ny44agb-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 05:57:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1795096635; bh=+4f0NTweHkkjxxVxq8bcb7YppIRlVgUdeTIheSnclQU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AOIzVdJjFMSOqqk4jOLde35yRzaBL9cZe8PGJqgpvhapoIu9qKtwS/397XyjdFPLZ
+	 C4XLrddkxyu244ovoAN7DsMT3l1NvVCoace66MYEeeRd5wRgntwEFxSCeGRCuv0dLl
+	 DafPgqllyBfkt4OJezAoa4c91z2JG2ChWc/bxbAfM/z82gkFGBxsgAeFTA1Ngpdjey
+	 YVPCyDyBV5VhEIXZgyslcRoc+UP5aoDSSRJE2kiCx0Eqq5NcY98ymYGGqBKskcjau8
+	 b8TCJiBf6OGfMC4fyXtLu/wiCa4OoqeHJFKGzhooCIdE/mumzTmEha7obD+AdLUQY4
+	 DX3jr17Q4c2nQ==
+Received: from mailhost.synopsys.com (sv1-mailhost1.synopsys.com [10.205.2.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id AD47C401E8;
+	Thu, 19 Nov 2026 13:57:14 +0000 (UTC)
+Received: from Ubuntu.internal.synopsys.com (unknown [10.150.8.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mailhost.synopsys.com (Postfix) with ESMTPSA id 8A9ADA0883;
+	Thu, 19 Nov 2026 13:57:11 +0000 (UTC)
+X-SNPS-Relay: synopsys.com
+From: Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
+To: Dineshkumar.Parameswaran@synopsys.com
+Cc: Frank.Li@nxp.com, alexandre.belloni@bootlin.com,
+        linux-i3c@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Dineshkumar Parameswaran <Dineshkumar.Parameswaran@synopsys.com>
+Subject: [PATCH v4] i3c: master: dw-i3c-master: Add HDR-DDR support to Designware Controller.
+Date: Thu, 19 Nov 2026 19:27:03 +0530
+Message-Id: <20261119135703.22729-1-parame@synopsys.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261111021151.58380-1-parame@synopsys.com>
+References: <20261111021151.58380-1-parame@synopsys.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,71 +98,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-2-3cfbd48812b5@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=PMeaavqC c=1 sm=1 tr=0 ts=6aff003c cx=c_pps
+ a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
+ a=zJRp6_cAMcgA:10 a=qPHU084jO2kA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22 a=jIQo8A4GAAAA:8
+ a=6ICTioi8pyFgEHTiPqgA:9 a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA1NSBTYWx0ZWRfX9WhEFf2ByOpr
+ ZvEADCr2cXoci/pzIodQqCOinw7Ec50eNJOlLhNFMfB/9GamIORUixbdK2QNT4Q0Z7XOQ33fqRH
+ u+95CbOOvDfDp3HXKe8Hl2VV8+VbawDNTNjHbYrCeYkfNS+U73WLQUZG+GuPpXoflrN7Lwisz/N
+ 95/rkLJ1JMvUKzZp0d0FxGvx06ONODWenoUDxUnLcOAuFqjopuxQMtFIcYFYyY1yfCZeUyW3dW8
+ +Ppn5nsZaSb80u+iSflRQQ1EB0tYFid2mgZePCz3226Ks3MY8uFhJMGfbDJjMLJq8lexPzLYdw0
+ dWDBWeBopCMs8vxuU/7bgNHxhg+LD/wMJCrWs1BdJxD6AtN5la+IR2YnUW5oMAPmDrK1bMwskrK
+ oYpiC4zr/+Xh8u3Sv8sp6rz/KNrEU7MU5SA2QU8WYA3HqEG8fjCnKWzkeH64jJKDhrigkPhOurb
+ PFrWSCh0WM1uxYSVJTQ==
+X-Proofpoint-ORIG-GUID: Dn0O0Q3-ywMTXZBx0QwpVDPBMEFNZ41E
+X-Proofpoint-GUID: Dn0O0Q3-ywMTXZBx0QwpVDPBMEFNZ41E
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA1NSBTYWx0ZWRfXxAI8bA9V+1Bd
+ RO9R8n29mhs3aDvk9ewMI5tI/Yqof0opGWRtMKNWmehofcLLTDDamCqxUT4ZlW0s/rBHivBdXI+
+ lLnqVbLBqCTjALo7MXd3k1NAQ4zUQiM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
+ policy=outbound_active_cloned score=0 malwarescore=0 suspectscore=0
+ bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501 impostorscore=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.22.0-2611040001 definitions=main-2611190055
 
-On Tue, Nov 17, 2026 at 12:38:09PM -0700, James Hilliard wrote:
-> The register callbacks are protected by SRCU, but keepout traversal and
-> cell post-processing take place outside that protection. Unregister can
-> finish draining a register read and return while its caller still uses
-> a provider-owned keepout table or invokes a post-processing callback.
-> 
-> Hold the SRCU read lock across the complete access, including keepout
-> handling and post-processing. Reject accesses after the operations pointer
-> has been cleared, including reads satisfied entirely by a keepout.
-> 
-> Fixes: 6a7b4134fb7a ("nvmem: protect nvmem_device::ops with SRCU")
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  drivers/nvmem/core.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-> index 802637f375f8..73aa53145f0b 100644
-> --- a/drivers/nvmem/core.c
-> +++ b/drivers/nvmem/core.c
-> @@ -164,6 +164,10 @@ static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
->  static int nvmem_reg_read(struct nvmem_device *nvmem, unsigned int offset,
->  			  void *val, size_t bytes)
->  {
-> +	guard(srcu)(&nvmem->srcu);
-> +	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-> +		return -ENODEV;
-> +
->  	if (!nvmem->nkeepout)
->  		return __nvmem_reg_read(nvmem, offset, val, bytes);
->  
-> @@ -173,6 +177,10 @@ static int nvmem_reg_read(struct nvmem_device *nvmem, unsigned int offset,
->  static int nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
->  			   void *val, size_t bytes)
->  {
-> +	guard(srcu)(&nvmem->srcu);
-> +	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-> +		return -ENODEV;
-> +
->  	if (!nvmem->nkeepout)
->  		return __nvmem_reg_write(nvmem, offset, val, bytes);
->  
-> @@ -1651,6 +1659,10 @@ static int __nvmem_cell_read(struct nvmem_device *nvmem,
->  {
->  	int rc;
->  
-> +	guard(srcu)(&nvmem->srcu);
-> +	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-> +		return -ENODEV;
-> +
->  	rc = nvmem_reg_read(nvmem, cell->offset, buf, cell->raw_len);
->  
->  	if (rc)
-> 
-> -- 
-> 2.53.0
->
+Implement HDR-DDR transfer support for the DesignWare Controller.
+Only support for private transfers and does not support sending CCC
+commands in HDR mode.
 
-With that, you always double the SRCU critical section. I'd prefer to
-see the existing SRCU guards in lower-level functions removed. If this
-is not possible, then we may need to shuffle the code around and
-introduce "unlocked" helpers that don't take the SRCU lock.
+Key differences:
+- Sets the speed to HDR_DDR_SPEED(6) and COMMAND_PORT_CP to do
+data transfer in HDR-DDR mode. Hardware will generate the ENTHDR0
+based on this.
+- HDR exit pattern will generated from the hardware when it sees
+the TOC on HDR-DDR mode.
 
-Bart
+Signed-off-by: Dineshkumar Parameswaran <parame@synopsys.com>
+---
+changes in v4:
+- Fixed using HDR-DDR cmd direction instead of using rnw directly.
+
+ drivers/i3c/master/dw-i3c-master.c | 41 ++++++++++++++++++++++++------
+ 1 file changed, 33 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
+index 05584ddaf104..d94e7a6d28f9 100644
+--- a/drivers/i3c/master/dw-i3c-master.c
++++ b/drivers/i3c/master/dw-i3c-master.c
+@@ -65,6 +65,8 @@
+ #define COMMAND_PORT_DEV_COUNT(x)	(((x) << 21) & GENMASK(25, 21))
+ #define COMMAND_PORT_ADDR_ASSGN_CMD	0x03
+ 
++#define HDR_DDR_CMD_READ		0x80
++
+ #define RESPONSE_QUEUE_PORT		0x10
+ #define RESPONSE_PORT_ERR_STATUS(x)	(((x) & GENMASK(31, 28)) >> 28)
+ #define RESPONSE_NO_ERROR		0
+@@ -232,6 +234,8 @@
+ #define I3C_BUS_I2C_FMP_TLOW_MIN_NS	500
+ #define I3C_BUS_THIGH_MAX_NS		41
+ 
++#define DW_I3C_HDR_DDR_SPEED	6
++
+ #define XFER_TIMEOUT (msecs_to_jiffies(1000))
+ #define RPM_AUTOSUSPEND_TIMEOUT 1000 /* ms */
+ 
+@@ -381,6 +385,11 @@ static void dw_i3c_master_read_ibi_fifo(struct dw_i3c_master *master,
+ 	i3c_readl_fifo(master->regs + IBI_QUEUE_STATUS, bytes, nbytes);
+ }
+ 
++static bool dw_cmd_is_read(u32 rnw_cmd, enum i3c_xfer_mode mode)
++{
++	return (mode == I3C_HDR_DDR) ? (rnw_cmd & HDR_DDR_CMD_READ) : rnw_cmd;
++}
++
+ static struct dw_i3c_xfer *
+ dw_i3c_master_alloc_xfer(struct dw_i3c_master *master, unsigned int ncmds)
+ {
+@@ -726,6 +735,8 @@ static int dw_i3c_master_bus_init(struct i3c_master_controller *m)
+ 	memset(&info, 0, sizeof(info));
+ 	info.dyn_addr = ret;
+ 
++	info.hdr_cap = I3C_CCC_HDR_MODE(I3C_HDR_DDR);
++
+ 	ret = i3c_master_set_info(&master->base, &info);
+ 	if (ret)
+ 		goto rpm_out;
+@@ -962,7 +973,8 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
+ 	struct dw_i3c_i2c_dev_data *data = i3c_dev_get_master_data(dev);
+ 	struct i3c_master_controller *m = i3c_dev_get_master(dev);
+ 	struct dw_i3c_master *master = to_dw_i3c_master(m);
+-	unsigned int nrxwords = 0, ntxwords = 0;
++	unsigned int nrxwords = 0, ntxwords = 0, rnw_cmd;
++	bool rnw;
+ 	int i, ret = 0;
+ 
+ 	if (!i3c_nxfers)
+@@ -972,7 +984,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
+ 		return -EOPNOTSUPP;
+ 
+ 	for (i = 0; i < i3c_nxfers; i++) {
+-		if (i3c_xfers[i].rnw)
++		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
++		rnw = dw_cmd_is_read(rnw_cmd, mode);
++
++		if (rnw)
+ 			nrxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
+ 		else
+ 			ntxwords += DIV_ROUND_UP(i3c_xfers[i].len, 4);
+@@ -995,28 +1010,36 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
+ 	}
+ 
+ 	for (i = 0; i < i3c_nxfers; i++) {
++		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
++		rnw = dw_cmd_is_read(rnw_cmd, mode);
+ 		struct dw_i3c_cmd *cmd = &xfer->cmds[i];
+ 
+ 		cmd->cmd_hi = COMMAND_PORT_ARG_DATA_LEN(i3c_xfers[i].len) |
+ 			COMMAND_PORT_TRANSFER_ARG;
+ 
+-		if (i3c_xfers[i].rnw) {
++		if (rnw) {
+ 			cmd->rx_buf = i3c_xfers[i].data.in;
+ 			cmd->rx_len = i3c_xfers[i].len;
+-			cmd->cmd_lo = COMMAND_PORT_READ_TRANSFER |
+-				      COMMAND_PORT_SPEED(dev->info.max_read_ds);
++			cmd->cmd_lo = COMMAND_PORT_READ_TRANSFER;
+ 
+ 		} else {
+ 			cmd->tx_buf = i3c_xfers[i].data.out;
+ 			cmd->tx_len = i3c_xfers[i].len;
+-			cmd->cmd_lo =
+-				COMMAND_PORT_SPEED(dev->info.max_write_ds);
+ 		}
+ 
+ 		cmd->cmd_lo |= COMMAND_PORT_TID(i) |
+ 			       COMMAND_PORT_DEV_INDEX(data->index) |
+ 			       COMMAND_PORT_ROC;
+ 
++		if (mode == I3C_HDR_DDR) {
++			cmd->cmd_lo |= COMMAND_PORT_CMD(rnw_cmd) | COMMAND_PORT_CP |
++				COMMAND_PORT_SPEED(DW_I3C_HDR_DDR_SPEED);
++		} else {
++			cmd->cmd_lo |= (i3c_xfers[i].rnw) ?
++				COMMAND_PORT_SPEED(dev->info.max_read_ds) :
++				COMMAND_PORT_SPEED(dev->info.max_write_ds);
++		}
++
+ 		if (i == (i3c_nxfers - 1))
+ 			cmd->cmd_lo |= COMMAND_PORT_TOC;
+ 	}
+@@ -1027,8 +1050,10 @@ static int dw_i3c_master_i3c_xfers(struct i3c_dev_desc *dev,
+ 
+ 	for (i = 0; i < i3c_nxfers; i++) {
+ 		struct dw_i3c_cmd *cmd = &xfer->cmds[i];
++		rnw_cmd = (mode == I3C_SDR) ? i3c_xfers[i].rnw : i3c_xfers[i].cmd;
++		rnw = dw_cmd_is_read(rnw_cmd, mode);
+ 
+-		if (i3c_xfers[i].rnw)
++		if (rnw)
+ 			i3c_xfers[i].len = cmd->rx_len;
+ 	}
+ 
+-- 
+2.34.1
+
