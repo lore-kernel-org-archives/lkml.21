@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795093972;
-	b=eSnKsVME5vtIbbV3CNqT183ZrPS9Z3Ui4v/NaSZZ2AIy4xXouhXGnbElfB5kdRDH93MR
-	 R1Ybf2Iv3f4caCPcnu7Gebbyyfybc7+LbCDn3a8Yp2K+mGBnLAFCARPwoLQOHKo3On9v7
-	 CM8Fv2DVCp8EeJB9fjDc64RZHQcEE/d7ZHB3/oygibSgMdgKMuvTBziPXNeb8D3ZsGdAK
-	 77neqV5YWntIZsxrrwVQpIpOHiK2JxH1tl1SgF51S7j3GE1MEpLJRh/xq/XHuVsDivAnK
-	 uL3ssr+kEBt+V1oZdeElujR7s19ionN7ufvAE6FZTu0PJlQ+GqSnvb27M8OqI1XH+YQ==
+	t=1795093974;
+	b=TRHoZRJn7IKvwK0CwIoPgE8D4LunC7IPW0bmEtpi7d0njhk2P1t7ITTZftlGAY3bEsw5
+	 fHQFg5LTaNfeFkezCv2Xx8/nq0cCjdWyqAmM/CPUG3LQlgEmLURcUpBAoS3FeNjGz+qfA
+	 NG2fpawAy+E526CIDlMqcH1YdgiAMlR40qA5fzbzBGR7tM8J9zVh3YmB1vIpOoz1CrrbU
+	 EwvSP6EHawvN9wb+TKSXOVFgSvg2q4aciyCloi3gjJ0eJTjdoLKi9uyo37/imyjJYqU/1
+	 uUbSU+2imDSfF+gjtm244HMLfsmu+v8OU071aKBz2Qg43P/bC5IhMa3kyb3Sjg+PLOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795093972;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795093974;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=ukzA+tidxl/pC0CHkRorSuH0akKAZ+OPpvDSyn/yS9I=;
-	b=Y6frIb/eBDzQplOg7Rluk5o1BtfFdkUOfwa/uPpciKwc8ucp2LY2yXQkz81hU3aMXTGi
-	 9mZ5vcaZizxFHWr68MWIb5ZW/45OOIVgSIviUyUBmDnq7AKiqUw+kK1KubWpAxWtMPGGP
-	 C5o0Cf2Qw+lPdnSxQkca0lEBupjA2oL05XbD7EDlWCorXREPIzikyQ+A3P3eFKwtgeMtP
-	 BlxXQ52ivmQoJf8iocvLmXEQpO1qtDyPovj4BnOQrVDsjVdly9U9+/KSCHxpDPc2SX21D
-	 2VewAOfB6JfTNTnQJgVTrqERoAcKJrXQA0VxWfMZZztHL2tSzhma3YDu9R8SWg/lbAg==
+	bh=594xmkQi1EzZuFVwgIAsPQJhrxzAupoR0I5ZsOI+SEY=;
+	b=QgxHgLKP/Vjx0/f5zVEHkC9oagOutO6EItgzP4ZOG2rCuwTW7Nr4tv7l5VDpMfUHXFhe
+	 WWx18752BajWsJtA7Wah6ORWOIt2Qexbt0O+JTL3cCtEFixJRLkvx6+owINBtKzSKHGFx
+	 K1SxM7+Vs3TYnzHzo8WLzpJYGWR50+QGjxjGd6y12mSk8mbQVaqW7UWfI2tUcaubKYDYs
+	 NxBtx7nmTVrLYrIkP35MAIIWORMZYRev0uLhhu6AS1kdzd8V4bE80QxLAsQbgBq/qH3Av
+	 eSIOvywb4cO6uCqlec9ZdauOGdl01CQWLRknqkPBHup2XtvxjHnWlFLnSDiulNc9MgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8kYBDP0;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="hq/fsKHg";
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54C24606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:12:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54C24606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA8A760A2612
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:12:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA8A760A2612
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8kYBDP0
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso16865255e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:12:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hq/fsKHg
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so22758805e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:12:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795093971; x=1795698771; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795093972; x=1795698772; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ukzA+tidxl/pC0CHkRorSuH0akKAZ+OPpvDSyn/yS9I=;
-        b=D8kYBDP00anbBIK5f/BJyhFVH28MkDXqVjA9becq/6GFmBzvtngIpmuOskxTZar4Ka
-         b0wvzsQoU9WxM7SFVhoiZ9xiNOTgp1q4kQy6rqUXK/bYFjAztlUfxtRqCQlkZ79e/QBT
-         kTy0f9fJTZPT08Ww83eBE3N7kA+6pmSrpgQ2XkLoELwMkijR3zfnJz20y2C8kWTcFwSp
-         74O49l//ZBJaFr4a9hYJW46NtxZ/UlXKS/NupoRlUG6xrZqMepq6TR7guz1nCm/obOY3
-         S0oYEetqB4ToiaaznziNKZm34IuugyHtS3H0ZGBloGfvYLXqjxt+EExxsl7rQwVJycL+
-         0S4A==
+        bh=594xmkQi1EzZuFVwgIAsPQJhrxzAupoR0I5ZsOI+SEY=;
+        b=hq/fsKHgUKVEgzfA3lbngaIiVkw5fuZENcLOZMopbth1nqI4pv0olS1rBZa/heveLD
+         qI1ygezeQMTQ+DPNO800x9zD66hi59EffUoK8+uxjtm0N/V4/EC3re3Hg/H23+KqSvQh
+         cAKvTsLbKZuBdu5P4n6oY3FoQZqV2jeGLLcZA/dFhwbAzthSOiGsnLK2QPHMYkUVXFqQ
+         4ArU+gsCeWRAEO4lH2qUTscE0ZXqleR6msZ1lKqbeKsK486YVJy+3a7QqqsGHGe1gdna
+         akQfIpXQLNRSB6DVTjMXcllHo2LXIu6pp+GKDfvp9rKT4k84CQMn1mD7guMINSEYix07
+         1xAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795093971; x=1795698771;
+        d=1e100.net; s=20260707; t=1795093972; x=1795698772;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ukzA+tidxl/pC0CHkRorSuH0akKAZ+OPpvDSyn/yS9I=;
-        b=at0XL+F3PasSl6Kyi8jR9XJE5oaqsYj3Op34ybzXjv7VxNX2vgHdbjjK5mjhNYFUcA
-         1VuhEaswBz1jKFnuVVJZBmRaKWvPTUOk7bzSvI2SaNOSXZVNQ2oOUKMFPT0rhUam8Uis
-         GSD/fj0nhVFPkuxKhq39BEoHRYuaIIQpt3pJwv7iH5BxL3ZFdHGkhmFTsvWZg5emlZNq
-         7drbec2SIkLtHcznyYlsn1JFZrUCQs6r1TeVgZTc8/vAhrhxOhPF66Ef3SPaVg07Jeo+
-         NrM79QH58nLCBk06D4eDnnCkwz3v2JWMF3Ww9+QVQQUzX8Lu69B3lYdJFipFD6GUxnky
-         3Rvg==
-X-Forwarded-Encrypted: i=1; AL+hErFxD+w4NTOSpm5E2OFeQpt+BE2X7CsjRxayQRu9CpUbBcs9i9SsKdtXq1efAkbGjL5atowK3Mhh8/8kHFE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XFEPKcZeCRkaYoyNVciGwVED7ZYrWGqEslBsmPnICJwUXz0EF
-	YloKksd5k8mfsyCgQcw2gDUdRogaRnHeT+Tn7y2to6EdvEx+UgJOLRaG
-X-Gm-Gg: AYBFou2kHWFfcfyYc2T5+fj+gLAwR7409zh8j3qqQ+iWpVrx4bqwL0HzDAjkDgHiA8x
-	5IMAXnnnGI5M4gOqb5o0X6rF5JZdv3Xi9cSU/i4GmK4ulIe49F/bGB6HE6bNcyswOQN15irvYKH
-	VcFez9XEF5vB2b+aHNjagsU3Y+bXGIGRuiPm4WCsjBPwLlZO6vn79mMHSsZlvwPERkiwXFXVS/F
-	zY2u/MthQOCVp48HTVDl1n3xs58bb1kn9D5cKRogcRk2lERFmgXZfyzEiLcXs6+l8FZrqlMFbco
-	DsmXRt3rYcwvJYwnUvjjPoD+UtcDQUaLbhey3vMOzrQvFr1kE6710UumeKFQnuh9WZpixk126YY
-	gSjtQv9aTlTcy3WU1w1xy7RQutLKvpg5IX+m+vrwCmaUpISCtfRCQH0gWhrHVrffT67M7DsQky3
-	fBL+tRi8G9EZFPUhPYtW2SPRmadnmdGLyawD6jTgNSRLJ+KC1/dAnBYN8G+h2rZoLDUgCWBg1OR
-	BsS8xwU8y94iG03VqK6o6H2cFfqLhMS+/POWQSm2FTVdVD7CzOt7GnM9fZ1hLFKEOlzxpA92R1B
-	i1zpf5rn586txo6df2LAR6AusEouuwbOR4o=
-X-Received: by 2002:a05:600c:3509:b0:4a3:59ee:86b with SMTP id 5b1f17b1804b1-4bb7d5d66efmr124123865e9.4.1795093970512;
-        Thu, 19 Nov 2026 05:12:50 -0800 (PST)
+        bh=594xmkQi1EzZuFVwgIAsPQJhrxzAupoR0I5ZsOI+SEY=;
+        b=wc9kLlo9mbglQM4JdCIc0YPeWNECgJNQB0CE7KhVMkm+pxY212l7LsACqo8OMCq123
+         mroH1gnwBrgSc8ZrrE8O7j5SUp56b6mBv/og5bv9mytc/XosdtZjvRlfi7oEMuW7oiMO
+         RrFfc6bqZ60JaHS187ruYhF1BVdq78kjNJwKqVRO/bsyGZez5xGyjdpuOGgzMEkOu+3n
+         RMfE1iHPjYbQC1tCm4Aw1iI9FxMCKE5BUrv4EeE/RhsNUVXM8ackJ6qmL6x4YdQm4hZL
+         73sNFWI5O51bI99ZxbpccHTNjYuG2H6n6FuiDVIxq3ZBvZPyRMafpGxYdGcxdHjRu1xa
+         aNRw==
+X-Forwarded-Encrypted: i=1; AL+hErHl3dFaMK3cIBJFj3RGXEnhIZylOhSM7+IPP5dnRC0mk7S4bZnSmCXyuGqXf/LDSH7y6/+qO0DYIqeJiRc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FLyLxwJm5LPXaobku6jcGlO1Yc5wmaGOjkVBeWhaNHWfZXfMV
+	kz7kUzVwaK9/u/nWFEcfWn7igg/+ZbJXSzkblUqQ2aJ+gG4Qi8iBffzI
+X-Gm-Gg: AYBFou3/bKUIlCgmc+KTk5kAJr9cWJFQjZyzIwiog7xs9WZRePGDTpx1i3pkIKPuGQB
+	N1jwMWAHmTxbW4Lo8Vn21gnfd7b/SvrPxRPrWbYUxkgLwGf3V8sG4UUyhT/gUSpySq0ODN1n41u
+	qhrOAm9WkzyamANmagfNe6KjXxAwgSJqFkgYH42qMk2nfjX9o+l3M4ObvMHLzMtbuDm6xn7Dbjh
+	WAbeD+qLTLQuoWBuycpKmcxUZ+SBNfZkJvrlgsa6gCuPtOxJb0YzzIefXNZiUVXnw6RgoOsefar
+	SYyOfHAZdJOhngXrmy74ge2XgIf62trGzpPVwuw8KpJ1NjazyC8Ipyczaa5ww/1zVNKjTT2tkpM
+	j0cDiKJ+b1dU4yuJUmHq6efeM/0J6DOaRagtnLQgTZyD8fOnb0U2cHuJ7E2Eet5apBOCo7SuwcG
+	AOi9pwRE08eD7OWVJqWwftw7KCquEoFWK7DBayrNk4+fP3XE2HDsBfxF3qa7FbueS8rMppHz3jF
+	AhYLneweyV/cPQ2fSlmqE7pGwP4Rhkvn4HbAnlDR6205BhhQHlu7WHNcjATclxvlQLKefOdHNSy
+	70rLblcV1UZYtl+AX6pN0DipAkEn06PFMMA=
+X-Received: by 2002:a05:600c:354b:b0:4b6:5dac:b61e with SMTP id 5b1f17b1804b1-4bb7da47513mr113467925e9.32.1795093972307;
+        Thu, 19 Nov 2026 05:12:52 -0800 (PST)
 Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85343645sm38588485e9.5.2026.11.19.05.12.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85343645sm38588485e9.5.2026.11.19.05.12.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 05:12:50 -0800 (PST)
+        Thu, 19 Nov 2026 05:12:51 -0800 (PST)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
 Cc: Stefan Agner <stefan@agner.ch>,
@@ -89,9 +89,9 @@ Cc: Stefan Agner <stefan@agner.ch>,
 	linux-mtd@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	mehmet.fide@screeningeagle.com
-Subject: [PATCH v3 2/3] mtd: rawnand: vf610_nfc: keep a timed-out command from completing the next one
-Date: Thu, 19 Nov 2026 14:12:45 +0100
-Message-ID: <20261119131246.187406-3-mehmet.fide@gmail.com>
+Subject: [PATCH v3 3/3] mtd: rawnand: vf610_nfc: return an error when a command times out
+Date: Thu, 19 Nov 2026 14:12:46 +0100
+Message-ID: <20261119131246.187406-4-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261119131246.187406-1-mehmet.fide@gmail.com>
 References: <20261119131246.187406-1-mehmet.fide@gmail.com>
@@ -108,69 +108,140 @@ Content-Transfer-Encoding: 8bit
 
 From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-A command that timed out can still finish later. Its interrupt then
-completes cmd_done and leaves NFC_ISR[IDLE] set, so the next command
-returns before the controller is done: the completion is already done
-or, if only the completion is reinitialized, enabling the idle interrupt
-raises it again at once.
+A command that times out only prints a warning. The callers carry on,
+copy whatever the SRAM buffer holds and report success.
 
-On a timeout, disable the idle interrupt and wait for a running handler
-to return. Before a command is started, clear the status flags and
-reinitialize the completion.
+Return -ETIMEDOUT from vf610_nfc_done() and pass it up through
+->exec_op() and the page read and write hooks. The page read counts
+only -EBADMSG of the raw re-read as an ECC failure, so that a timeout
+there is returned as well.
 
 Fixes: 456930d80a2d ("mtd: nand: vf610_nfc: Freescale NFC for VF610, MPC5125 and others")
-Cc: stable@vger.kernel.org
 Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
 ---
-Applies as is down to 6.6.y. 6.1.y and older differ in the probe context
-around platform_get_irq(), I can send a backport for those.
-
- drivers/mtd/nand/raw/vf610_nfc.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/vf610_nfc.c | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/vf610_nfc.c b/drivers/mtd/nand/raw/vf610_nfc.c
-index acc9ff282083..547eb1513893 100644
+index 547eb1513893..488e63b301b7 100644
 --- a/drivers/mtd/nand/raw/vf610_nfc.c
 +++ b/drivers/mtd/nand/raw/vf610_nfc.c
-@@ -154,6 +154,7 @@ struct vf610_nfc {
- 	struct device *dev;
- 	void __iomem *regs;
- 	struct completion cmd_done;
-+	int irq;
- 	/* Status and ID are in alternate locations. */
- 	enum vf610_nfc_variant variant;
- 	struct clk *clk;
-@@ -291,6 +292,9 @@ static void vf610_nfc_done(struct vf610_nfc *nfc)
+@@ -288,9 +288,10 @@ static inline void vf610_nfc_clear_status(struct vf610_nfc *nfc)
+ 	vf610_nfc_write(nfc, NFC_IRQ_STATUS, tmp);
+ }
+ 
+-static void vf610_nfc_done(struct vf610_nfc *nfc)
++static int vf610_nfc_done(struct vf610_nfc *nfc)
  {
  	unsigned long timeout = msecs_to_jiffies(100);
- 
-+	vf610_nfc_clear_status(nfc);
-+	reinit_completion(&nfc->cmd_done);
-+
- 	/*
- 	 * Barrier is needed after this write. This write need
- 	 * to be done before reading the next register the first
-@@ -301,8 +305,11 @@ static void vf610_nfc_done(struct vf610_nfc *nfc)
- 	vf610_nfc_set(nfc, NFC_IRQ_STATUS, IDLE_EN_BIT);
- 	vf610_nfc_set(nfc, NFC_FLASH_CMD2, START_BIT);
- 
--	if (!wait_for_completion_timeout(&nfc->cmd_done, timeout))
-+	if (!wait_for_completion_timeout(&nfc->cmd_done, timeout)) {
- 		dev_warn(nfc->dev, "Timeout while waiting for BUSY.\n");
-+		vf610_nfc_clear(nfc, NFC_IRQ_STATUS, IDLE_EN_BIT);
-+		synchronize_irq(nfc->irq);
-+	}
++	int ret = 0;
  
  	vf610_nfc_clear_status(nfc);
- }
-@@ -885,6 +892,7 @@ static int vf610_nfc_probe(struct platform_device *pdev)
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
- 		return irq;
-+	nfc->irq = irq;
+ 	reinit_completion(&nfc->cmd_done);
+@@ -309,9 +310,12 @@ static void vf610_nfc_done(struct vf610_nfc *nfc)
+ 		dev_warn(nfc->dev, "Timeout while waiting for BUSY.\n");
+ 		vf610_nfc_clear(nfc, NFC_IRQ_STATUS, IDLE_EN_BIT);
+ 		synchronize_irq(nfc->irq);
++		ret = -ETIMEDOUT;
+ 	}
  
- 	nfc->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(nfc->regs))
+ 	vf610_nfc_clear_status(nfc);
++
++	return ret;
+ }
+ 
+ static irqreturn_t vf610_nfc_irq(int irq, void *data)
+@@ -331,8 +335,8 @@ static inline void vf610_nfc_ecc_mode(struct vf610_nfc *nfc, int ecc_mode)
+ 			    CONFIG_ECC_MODE_SHIFT, ecc_mode);
+ }
+ 
+-static inline void vf610_nfc_run(struct vf610_nfc *nfc, u32 col, u32 row,
+-				 u32 cmd1, u32 cmd2, u32 trfr_sz)
++static inline int vf610_nfc_run(struct vf610_nfc *nfc, u32 col, u32 row,
++				u32 cmd1, u32 cmd2, u32 trfr_sz)
+ {
+ 	vf610_nfc_set_field(nfc, NFC_COL_ADDR, COL_ADDR_MASK,
+ 			    COL_ADDR_SHIFT, col);
+@@ -348,7 +352,7 @@ static inline void vf610_nfc_run(struct vf610_nfc *nfc, u32 col, u32 row,
+ 		"col 0x%04x, row 0x%08x, cmd1 0x%08x, cmd2 0x%08x, len %d\n",
+ 		col, row, cmd1, cmd2, trfr_sz);
+ 
+-	vf610_nfc_done(nfc);
++	return vf610_nfc_done(nfc);
+ }
+ 
+ static inline const struct nand_op_instr *
+@@ -370,6 +374,7 @@ static int vf610_nfc_cmd(struct nand_chip *chip,
+ 	int op_id = -1, trfr_sz = 0, offset = 0;
+ 	u32 col = 0, row = 0, cmd1 = 0, cmd2 = 0, code = 0;
+ 	bool force8bit = false;
++	int ret;
+ 
+ 	/*
+ 	 * Some ops are optional, but the hardware requires the operations
+@@ -448,9 +453,9 @@ static int vf610_nfc_cmd(struct nand_chip *chip,
+ 
+ 	cmd2 |= code << CMD_CODE_SHIFT;
+ 
+-	vf610_nfc_run(nfc, col, row, cmd1, cmd2, trfr_sz);
++	ret = vf610_nfc_run(nfc, col, row, cmd1, cmd2, trfr_sz);
+ 
+-	if (instr && instr->type == NAND_OP_DATA_IN_INSTR) {
++	if (!ret && instr && instr->type == NAND_OP_DATA_IN_INSTR) {
+ 		/*
+ 		 * Don't fix endianness on page access for historical reasons.
+ 		 * See comment in vf610_nfc_rd_from_sram
+@@ -463,7 +468,7 @@ static int vf610_nfc_cmd(struct nand_chip *chip,
+ 	if (force8bit && (chip->options & NAND_BUSWIDTH_16))
+ 		vf610_nfc_set(nfc, NFC_FLASH_CONFIG, CONFIG_16BIT);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ static const struct nand_op_parser vf610_nfc_op_parser = NAND_OP_PARSER(
+@@ -572,7 +577,7 @@ static int vf610_nfc_read_page(struct nand_chip *chip, uint8_t *buf,
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
+ 	int trfr_sz = mtd->writesize + vf610_nfc_spare_size(mtd);
+ 	u32 row = 0, cmd1 = 0, cmd2 = 0, code = 0;
+-	int stat;
++	int stat, ret;
+ 
+ 	vf610_nfc_select_target(chip, chip->cur_cs);
+ 
+@@ -587,8 +592,10 @@ static int vf610_nfc_read_page(struct nand_chip *chip, uint8_t *buf,
+ 	cmd2 |= code << CMD_CODE_SHIFT;
+ 
+ 	vf610_nfc_ecc_mode(nfc, nfc->ecc_mode);
+-	vf610_nfc_run(nfc, 0, row, cmd1, cmd2, trfr_sz);
++	ret = vf610_nfc_run(nfc, 0, row, cmd1, cmd2, trfr_sz);
+ 	vf610_nfc_ecc_mode(nfc, ECC_BYPASS);
++	if (ret)
++		return ret;
+ 
+ 	/*
+ 	 * Don't fix endianness on page access for historical reasons.
+@@ -610,6 +617,8 @@ static int vf610_nfc_read_page(struct nand_chip *chip, uint8_t *buf,
+ 	stat = vf610_nfc_correct_data(chip, buf, chip->oob_poi, page);
+ 
+ 	if (stat < 0) {
++		if (stat != -EBADMSG)
++			return stat;
+ 		mtd->ecc_stats.failed++;
+ 		return 0;
+ 	} else {
+@@ -651,8 +660,10 @@ static int vf610_nfc_write_page(struct nand_chip *chip, const uint8_t *buf,
+ 	cmd2 |= code << CMD_CODE_SHIFT;
+ 
+ 	vf610_nfc_ecc_mode(nfc, nfc->ecc_mode);
+-	vf610_nfc_run(nfc, 0, row, cmd1, cmd2, trfr_sz);
++	ret = vf610_nfc_run(nfc, 0, row, cmd1, cmd2, trfr_sz);
+ 	vf610_nfc_ecc_mode(nfc, ECC_BYPASS);
++	if (ret)
++		return ret;
+ 
+ 	ret = nand_status_op(chip, &status);
+ 	if (ret)
 -- 
 2.56.0
 
