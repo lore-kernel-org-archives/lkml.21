@@ -1,62 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795061842;
-	b=e4/XNHvmiwJ7WKxr4BF2XPrYiJGc2xqeCRmR5MUrXbh2j562m+RQEBhuH148xGxXn0NQ
-	 1hcnnAGjZ1NvBARG/81yCGkMnXQlUWU5CASjHhl4FYxQ41W8DwyEywb/ET8bEYgkFE+Nz
-	 qnhifc8DDbEh0nADp9R4H3KAG2eprg6hyn8rnMRM3PAg1CU/uvndJeJI7iAPKhK1LdN0/
-	 46VL1026tglQ2jPGUoBC+zzRJpYHzVc45eH06g4na2of+twaMbucAARt5y1+iyW12whc0
-	 cwxf5r3dUyY0klZs4f6UPIxVO/+MwqlUBmnDJvRz6KgKUwyKC7rxczxa6gVuEk1wdKQ==
+	t=1795061868;
+	b=WNZXwLhU8ZWi3vgcxq6vNglkFT0ma6ZrK037Yw9FA40rx6id4jTAM6CxURp6jQyrS263
+	 jrRdLBuuv08raEjxzIyX4ZZsPF6znkRa0UIBy9ng4Su7EYvvW1Hb8+ohHdMoV6Nt5gyFR
+	 d4cnTSeJkObYW3Jlfrj9ehd6XGZMiuCa9/6rvJRdCOK5CA0U72kdWXy3POMdUa9cLxUbi
+	 bcWRzjWkSkoqRTkOKoCVM7X72DFgPqO64YKK+i5o9UyDdgD0w6hD0/sqw70rOqgOC6EfX
+	 k8zaqK0HhtJLIxe8lO6KxZNr+999vYP9fdzheUS8tVc+ZFYvpnl7QuFrRgeAue+4pZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061842;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=bime9q+xt/mMyBljVd8JNlkAWoM91LP/FgSUS7yT3ek=;
-	b=kKqeHev/vWQuv0xYgLkvkvmx5X7NfmvCHAd8ir7m0+xXbTQd5tywn3qp5f3/xv7vkE6v
-	 wxvlEvQVtuf1iHC5V/yMun7N0MsgeUTBIYbZAbo9Lsb16KmfgC88xF2I4iQBDJe9KVH4Z
-	 +9QnHI1VvuByy6dbrzlZ1RCuT2tj4iP0fhSFA8Nfyi1cA//1f9Qq95/QvevqdCfrvRlCk
-	 jIsImuspAswT3gmfo4D4IYik+CK/+s9sWKBSxosjEguuaCpzUral8qpQIBh3NZPmleDGH
-	 zpcXIafBnaR68yiM7q36Jq43jT9WtuoCvNn1B/dOoWBYWGXAAZUTvtb67jf5soP/+Zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795061868;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=iwOG8aMkU8Xz2AEC6SLQXw7rEKoyBeNEE/LagbloY/o=;
+	b=xOUQeSeM9yNs0Dh4oAzElnx4jU9MGYbx2mDfnYBQlsKD51Jupkhr41LilelNpuPqtzUs
+	 K59S/2FtAedqYBzkpB3BMdA7RclqiE1vVS47EkvFLVD6pNoj2Lv2IziBHGqI2m1ZcZNAY
+	 UTl2Q8A4CjIL+zVv6Pf/s1nYhvPRfFOxY23zW/cgUkHfVsUjvKIii/DvWzwAKwx4vOywp
+	 KxezComXbZRHmQjq8H9JIGPsYepk2SkS3aCzdNnnoAWCBrLkDY5oWAfbJM3ZNgW7w2cX4
+	 rw6ig7dNgiGhAsREuxJZoGqIDI228+sHEMyb6Lofsbhx5UGqqHp2hqqNn6zYNO5809w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hB4mqCxl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="kr/XbSUo";
+	arc=none smtp.remote-ip=35.89.44.35
+Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76DC9606A326;
-	Thu, 19 Nov 2026 04:17:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EAB6606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:17:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EAB6606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hB4mqCxl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F6301F000C4;
-	Thu, 19 Nov 2026 04:17:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795061842;
-	bh=bime9q+xt/mMyBljVd8JNlkAWoM91LP/FgSUS7yT3ek=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hB4mqCxlbre1uxuf/1qmW6YA6JfyokrzDz1UjD7wtFh1PQudHZTk7DrSZ4tjUgkqz
-	 D136E46di7e139AmptrOn51NWoCU/EJSGnOD9o3+1bnwpxzf5qtCRQfAUTj1O6+UGx
-	 cFJlsX0cF8NyFKuQO67dQ6p/sQoR+8NRLX/rRufXSS9BVwgqYdQRh13/2r7aame2H6
-	 RCstza6l9RuGTdHsId4ci17KiFmsF7sB+eAi/jqNCcSxNnZuNPh63Acln7fKTLOg2v
-	 ZIMGpY4pKdF61CaQzOQ1OFH8xDllWo1HHcsyC2KWp41M+kEmsXKsFuIKJCtBnCx35U
-	 epDWiXFaaYjoQ==
-Date: Wed, 18 Nov 2026 21:17:17 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Ingo Molnar <mingo@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-tip-commits@vger.kernel.org,
-	"Borislav Petkov (AMD)" <bp@alien8.de>, stable@vger.kernel.org,
-	x86@kernel.org
-Subject: Re: [tip: x86/urgent] x86/build: Do not allow X86_NATIVE_CPU to be
- enabled when compile testing
-Message-ID: <20261119041717.GB1218811@ax162>
-References: <179480914308.3191731.6125228756396043444.tip-bot2@tip-bot2>
- <avrPcQ4sOkgJPbkZ@gmail.com>
- <20261116130159.GA1327949@ax162>
- <CAHk-=wgmkoWHWwaQ6nsGoCiBp0hrpJuiwmoVbQ=Efun8JyUNKw@mail.gmail.com>
- <20261116223628.5a6139a7@pumpkin>
- <20261118072848.GA325225@ax162>
- <20261118090035.15ced20c@pumpkin>
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=kr/XbSUo
+Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
+	by cmsmtp with ESMTPS
+	id TpGQxaPsaRiNxTtagxpTB7; Thu, 19 Nov 2026 04:17:42 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id TtafxjdBAlaNKTtafxi3P2; Thu, 19 Nov 2026 04:17:41 +0000
+X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6afe7865
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
+ a=_jlGtV7tAAAA:8 a=SxDrggpomWqlGV9BuskA:9 a=QEXdDO2ut3YA:10
+ a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=iwOG8aMkU8Xz2AEC6SLQXw7rEKoyBeNEE/LagbloY/o=; b=kr/XbSUow+KH
+	SX8zB1gvreI5QV+lul7xDp21jd4UG1I7qz/GdWwyQdaWHtb1wmN3dyM2gKL3EJNuWkkK47YPO5IJw
+	6FtZt15TZkY2DayBcCBFeu8sWuW2ZQKmyQDxtLbGoPbonKbYhy/V2xieNX7hC8+jHYTE67lodM+Ij
+	4FV+MNU8C9TNG2cy2Rd/E61pb9ELdMCfR+vX0yJnC8oHaqtQfM6V5pgTzQ7n/8+Ljoz10c+JjY6ry
+	e8pi8FTUIvyjlHyg9vKIuwHlKA5RYots0iT605XIgp9ruDCkYMCyNJS9mY1dHP9LJ1zfZCRQw/AtN
+	CP+JW/sENK0vQLf0+xvdzQ==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:55370)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xTtaf-00000001z9Z-0EJc;
+	Thu, 19 Nov 2026 09:47:41 +0530
+Message-ID: <c212df8a-6ff7-4a4f-a90e-7bb6c073f617@roeck-us.net>
+Date: Wed, 18 Nov 2026 20:17:39 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,39 +76,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118090035.15ced20c@pumpkin>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/7] hwmon: Add driver for Marvel AlphaServer
+ environmental sensors
+To: Matt Turner <mattst88@gmail.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Magnus Lindholm <linmag7@gmail.com>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
+ <20261118-marvel-env-v4-6-200317e496c2@gmail.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20261118-marvel-env-v4-6-200317e496c2@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xTtaf-00000001z9Z-0EJc
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:55370
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 3
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfCpU7ZZitrSUSa2bfX3lD10y9Dml7NDFPXk6xBJScxDqNpdcIUTk8e8uwe1pBCT8Xvq95u7ug+0r/694B9MQS3rdUSwTVbtdzfLqW0YI6Vg5Pz44AjTI
+ L16KHgOCn+hdnd8Q1pnNkn/LsR88GrMRH+BYMWS3rZuXgPH67biGY0fWtgUyqqjkOSQL4T8MK6n51LcLL2zQIBaI47l0/rS0N0XhzYAdhp4Gy1MF5dGqVDH/
 
-On Wed, Nov 18, 2026 at 09:00:35AM +0000, David Laight wrote:
-> On Wed, 18 Nov 2026 00:28:48 -0700
-> Nathan Chancellor <nathan@kernel.org> wrote:
-> >   $ make ARCH=... LLVM=1
-> > 
-> > is generally all you need to do nowadays.
-> > 
+On 11/18/26 16:09, Matt Turner wrote:
+> The management firmware of the Marvel (EV7) AlphaServers, the GS1280,
+> ES80 and ES47, monitors temperatures, fans, voltages and power supplies.
+> The SRM console describes each sensor as a packet in a power and
+> environment node of its config tree (GCT), and fills in the readings
+> when asked to refresh the node. The packet layout was taken from Tru64
+> UNIX.
 > 
-> That requires that you also get the correct clang on $PATH.
-> I'm sure I remember that not being as easy as it might seem.
+> The firmware gives each temperature, fan and voltage sensor a warning
+> limit and a failure limit, and reports the sensor in the warning or
+> failure state once its reading reaches one. Neither state means that the
+> sensor is broken: a temperature past its failure limit is too high, not
+> faulty. Power supplies are either working or failed, with the cause
+> (AC, POK, overtemperature, fan) logged by the firmware.
+> 
+> Export the sensors through hwmon. A temperature's warning and failure
+> limits become max and crit, with max_alarm set in either state and
+> crit_alarm in the failure state. A fan's warning limit becomes min, with
+> min_alarm set in either state and fault in the failure state, which is
+> when the firmware counts the fan as failed. A voltage exports its
+> reading, with min_alarm or max_alarm set in either state and lcrit_alarm
+> or crit_alarm in the failure state, depending on which side of its
+> nominal voltage it reads. The console gives the nominal voltage and only
+> one other limit, so the voltage limits are not exported. A power supply
+> is a voltage channel with only a fault attribute.
+> 
+> A refresh keeps the boot CPU in the console with interrupts disabled for
+> up to 300 ms per node, so refresh a node at most once every 10 seconds.
+> The hwmon core serializes the callbacks, which also
+> serializes the refreshes.
+> 
+> The console callback lives in core_marvel.o, which generic kernels
+> built with ALPHA_LEGACY_START_ADDRESS leave out.
+> 
+> Signed-off-by: Matt Turner <mattst88@gmail.com>
 
-Since
+Acked-by: Guenter Roeck <linux@roeck-us.net>
 
-  e9c281928c24 ("kbuild: Make $(LLVM) more flexible")
+I assume thqat the series will be applied through an Alpha tree.
+Please let me know if I should apply this and the next patch
+through the hwmon-next tree.
 
-in 5.18, you can pass a full prefix to clang, which can help ensure you
-are using the right toolchain since the build will error if you do not
-point it to the right path:
+Thanks,
+Guenter
 
-  $ make -skj"$(nproc)" ARCH=arm64 LLVM=/doesnt/exist/bin/ mrproper defconfig
-  make[3]: /doesnt/exist/bin/clang: No such file or directory
-  make[3]: /doesnt/exist/bin/clang: No such file or directory
-  /bin/sh: line 1: /doesnt/exist/bin/clang: No such file or directory
-  make[4]: *** [scripts/Makefile.host:114: scripts/basic/fixdep] Error 127
-
-I use that when I am building with the kernel.org toolchains because
-they live on disk in my home folder then I have clang tip in my path
-that I can use with just LLVM=1.
-
--- 
-Cheers,
-Nathan
