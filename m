@@ -1,122 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.71.230
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795115444;
-	b=vM2lREkRhSos0h6sg6VDGiW+U/zoISlYJ4YQDXwzfM2Hzi6gTg+CYz+0jv8h1dcPjVzl
-	 vsZ1wf5vaMX6Cb30F1RDctkmkMPflpHFUtepCaPUO9l6Wt8mEe+8Yp1x1BCY3hZ9YQuDm
-	 LM3+fRbOs1gPU87xbxiWMp1ftV+EY4sb4k1wWCuR6BGYII9dpUmWCSpFKqpcpb+Hm8C+d
-	 P8RRPxaX2zkxo1wnUWs/ctvhQIvWcbajYnkAuFmpHb5z041RewMw37AkfY43qddkTBJMU
-	 buUlXQndyrD74AxgwIk4gA51li/xmUcBJiXjidJeyb/ckeRc67z6PwQ/ssssRo4J70g==
+	t=1795115454;
+	b=mpl2a1f2YyoexpbpRvqWtyzIXUyVD4SpWIJuOCn670ArcmCwPmPYHls2bjwqbh8XWHXR
+	 YIR6FaMdoh3fwC+m81d2tsDJWaXmxgQohVr/h7t+JvfSstaPdoDBPqoErB5jrm130V3MT
+	 jOptidIkFZtgfrgklDraewoQaNUgDxbaC8qANBgaNByOVSoLcwR81e9KhACeb9VwCT11q
+	 WoQBi/uvoTB0k8dYIvKYagWL5i8JBa4ud6Havzgu9WO2HWyu0IYHpc105UuTm3J6jzCsn
+	 IScmKRUrrvRfQyVHC2BYQESAcAbpwIOZ7ksg9GeLOIa93qQ/SUPHattxZCwHqpawg9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115444;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=QhS3+5ZWFz6FmTqcuqu7zzkTtZ4CAdsfKAs5TGkgHgU=;
-	b=IVzNNt/aJ7GTDNjcZ7gb5wDCabtDxiXg0WOZ5s0pA8pUvBQmwPZDsBWm9PcPlZ3WNWfc
-	 3JvTZhZO/zXwJccX+gG+Scc6Nun/vr6XY4HumVLzVYHUKMOFI4QJ6MCHc5ey8LB917YvG
-	 jWLtwo+zEh5vcWf3+eAsCZY0S0iETlSFSq780aBVk6VeSvvsQ9pCZjJ6BkLUlTOzcMSmy
-	 LFO8BiFeSW3T+5bGjHgxpv96hXWOEjuMu8438gQnZcmjK/TZw4mhqG5NuzRTU5wybEjwN
-	 HuSTOwGloAlgcPgXQJ/B9va5/i6uutFPOEUSMlLHBGV01YaM0cPu+rWgC61L2mPkCrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115454;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Content-Language:From:Subject:To:Cc:Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Report-Abuse:Feedback-ID:
+	 X-smtpcorp-track;
+	bh=ulgge/POPns5GuwdKsEodR0EWat9soZYf5RlEilOCYI=;
+	b=pKcB5KZ5L/GJdGanAawy4riMApE7VRaMMpadFg5+Za24KCx9yF2UCK3UvsFZyAOrF2G4
+	 rYAF2VttP0OzZO75TQxtY5WKSfcBdYFvbveSup7B5BELV00Xm7kNwx+sMx2AlQBFk8gSB
+	 ixoCduaO5OhwkLksSqTE5kovtT9CS9TNtUkRJz7G7sTTWO/pVmlz8Q5LfThL8kmOCYfaA
+	 F/Vs0AhqiWkJEqnYgUQbxwYG3Z+QQnhR2BUMKcsKdsdOhegJvyypZLBwhrx59mXsxZXXs
+	 9Qa1t1efXhefSA3CWdF244bMPXN0wuAOmX/QRtzW4V3VT/lHMfiKm6AaxUB7mzw48Eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.org;
-	spf=pass smtp.mailfrom=fastmail.org;
-	dkim=pass header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=ZNzHW0nW;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RdwjBXeA;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
+	dmarc=pass header.from=performanc.org;
+	spf=pass smtp.mailfrom=em1228580.performanc.org;
+	dkim=pass header.d=performanc.org header.i=@performanc.org header.a=rsa-sha256 header.s=s1228580 header.b=WpAyy4eH;
+	arc=none smtp.remote-ip=170.10.71.230
+Received: from a5i230.smtp2go.com (a5i230.smtp2go.com [170.10.71.230])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34995606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:10:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34995606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82A660A2604
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:10:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82A660A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=performanc.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=em1228580.performanc.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.org header.i=@fastmail.org header.a=rsa-sha256 header.s=fm3 header.b=ZNzHW0nW;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RdwjBXeA
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfout.phl.internal (Postfix) with ESMTP id 56F81EC05AB
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:10:41 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Thu, 19 Nov 2026 14:10:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795115441; x=1795201841; bh=QhS3+5ZWFz6FmTqcuqu7z
-	zkTtZ4CAdsfKAs5TGkgHgU=; b=ZNzHW0nWAAfboU8EyKQwwgw1uQks0clxMbXAf
-	9VIyKmBsupWzAbiR1OQ1MsyBmleCW7qMR6u4MkkNIpOejcxoumhYPlblXXNmGxK8
-	BvvqBJs622jDLLTtejIkRTqEvAQgjfApgsMYcht/bllL64xsEHHxlv+5m2PNfLZD
-	/Yq3HC+12K1ZhtFCtiyydxIcXtThxVgF2pUjx1nZaBXHe8sPVd2tl/C15bc+1kiG
-	1Usw9hulVGMClOt4Rrj0jOM0mbBl8pova78yU2mdjaiaT0OumpLRWMevOmPIVsT7
-	O25jS8lU3n/gvqhJ/PsOaKFB3DoO4wBWpj/WZQLoECwIvqGHg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795115441; x=1795201841; bh=QhS3+5ZWFz6FmTqcuqu7zzkTtZ4CAdsfKAs
-	5TGkgHgU=; b=RdwjBXeAofrvIM3iV5eVbF7DfiEvObND7GwRBVljJ2zUvaKNHJ5
-	T7RAcbZWQIZfLh8/i6Ii4nNnZr4ToYUORgXYReTpv6DNvf1pP9rtSbTm9CNMCIsm
-	8lVD9WTEZbvy3wDPKMmQF4SU1q0RnWclQBlqLI7BU1CcYbgNFDVMLSR/DVln5E5K
-	NtJNa0gcWrlxodydwWapFIMulahvJhB79dXCZtcxQyXAmCr1OHiKSER5R4ODU7dY
-	IHLsmO8Mp+iEjBHpP9VGwGiKNoG1Jvy9kuwtZDLatQCPHY7cr4J/Am4YGswsSegk
-	IJC7DI0t8/mhyJyalgesm+30IgF2vALeGjA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795115441; d=fastmail.org;
-	mf=PGljYkBmYXN0bWFpbC5vcmc+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:sWLXE2mhYN6OlKzwrZJn1TPC/JiLU6z7vOOJ/ocl57G1VtT
-	Yh6OvBsq/7kVTy1hUagw1InDdN0N5c9mGEToyxcZQXx/HhH1jaGJ96dAWZ8ueeLg
-	RylV6ydU9ZM7yJlVxItltudN0qUmaOsAYvJjv0lavKzjkR7NT4WgBkyZmWGNIHGK
-	8r9B0+XGOj83b/OPa7mud/4ZjmGbrFUgenQ8idYo8xShxMAUm8I4RBtCPDYFOaea
-	HyOBJr9W90JrI5BW8DHOaYMx15fkanBsDnbvfasliFhwQUPJR20gQasbI3gl850u
-	2IicGuLfoFerjz8fpiXtF/MBNOAsPcuIkERE1Mg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:wlB2svHdKyZa1viQV5vX71PPiuMCapCRlfsHesGu8zs=:9fqV3LrC0at5NyGG27h8nb7q9IdGyAW/RBSfSqamxE0=;
-X-ME-Sender: <xms:sEn_atjXM_dSoO7dM3vRa_wm0JW2PjMl2BpJ3oeF0GiBSITZLvO5uA>
-    <xme:sEn_aoxH4qINCH6s9Uz0c7JuC5mkkO3jzt5WzQnkOJR83m_9Yl-OdTjJMjOwm5HVX
-    VePdaCjbtNlGN7OgZgEUIigf2Ha0KxhLioORJ_4jF4XLjBmxqCWhR71HQ>
-X-ME-Received: <xmr:sEn_au0eZDY7xi-csq2vmSyqHUSW79Tw-Q_mjW9ML-skeOLfgA6eRPw1I8est_Q8>
-X-ME-Proxy-Cause: dmFkZTGUt+/3QKC1CH1vRfgQM6ezMSGdit/xsisMl79bbyGJuqdQRHAHbQ0xVFcvlX2FwK
-    Pyg0tyLLdzZ3sF9Uwqa2uCeuhpqdFrJroejVz/rwAKhVxzQKf/zf1WIoRSHDe5ZcAlP2sN
-    c6SsS0w3zV9GKmXzZz1vNFcCPgjlN8DNVJbAMuxyJ3iTj9wFLB9gRYJ8ptfNackdAaflN7
-    p4RNzDS2YwDjD4JPWnSquPXlzz9lPTIka6YJPjkFzVNP+P9gX0If7erpvBIA5hcvVcK8oQ
-    Lmv+VxNNcwNX/nfqxzOLsKvkixmdluwg0yrI0kYfkj/F+8SpujIfimcbJCPVriKKyYHYsn
-    5gYei5oi7C/PcFBQAKita9XQh72RgG2Af+oQJp+plQ9vwbmbZ6jFlaQHnNjV+Zi/qkCIic
-    eEicZF/7TdZbljaxuqXWqB4BatOub8NWpK0erAgje5GzYo6eU15HYWXvsMQ5symtvfGy8o
-    Pkbow55yktakEp0C2RpWhi49bfrLxWJF1fpGG48J8TscxhNJSZtHoD6f3SLzZjkur/5mRs
-    zcC4AUkCPR5HgX1yNQc6HaBJfjelx7E8zRmclj9uEr1S72Y1fQCLd21GZDa1IdHzHYN/kq
-    as64TPHNvwXvVGFMoijI3UzO1np3c6HcNacZyX20xGHxbhvvsDbQTcDAroPw
-X-ME-Proxy: <xmx:sEn_at_tA6wh6FVM1UuXlNQU0DiOOptAyHLUjge3QFfCq9f_mcKrcg>
-    <xmx:sEn_ampXg37vyS3pUlhZR1V9_q3B40tUZuTCO5LpYvmRnsDjCz1LbA>
-    <xmx:sEn_avSjreEGNleRkSrGaiqBPXyJ9Z79kwB8190m0IZDJ0B2JbRTIg>
-    <xmx:sEn_ahO9zeZ6xeyXqqugg3s1cOow10loBbvV7ojIIjgg_q1fmpCdZA>
-    <xmx:sUn_aiwF_bYQYNIRIgU5mN9DIpev5DSDM983oLEcYigvAku1WRdUouho>
-Feedback-ID: ib53e4b78:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 14:10:39 -0500 (EST)
-From: Ian Bridges <icb@fastmail.org>
-To: linkinjeon@kernel.org
-Cc: senozhatsky@chromium.org,
-	tom@talpey.com,
-	chenxiaosong@chenxiaosong.com,
-	linux-cifs@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ian Bridges <icb@fastmail.org>,
-	stable@vger.kernel.org
-Subject: [PATCH] ksmbd: compare the whole SID when adding POSIX ACL entries to a DACL
-Date: Thu, 19 Nov 2026 13:10:36 -0600
-Message-ID: <20261119191036.197225-1-icb@fastmail.org>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key, unprotected) header.d=performanc.org header.i=@performanc.org header.a=rsa-sha256 header.s=s1228580 header.b=WpAyy4eH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=performanc.org;
+ i=@performanc.org; q=dns/txt; s=s1228580; t=1795115444; h=from :
+ subject : to : message-id : date : list-unsubscribe :
+ list-unsubscribe-post;
+ bh=ulgge/POPns5GuwdKsEodR0EWat9soZYf5RlEilOCYI=;
+ b=WpAyy4eHptKucEi4lOeI2dInTBSJM6T/DgxTXM6pj7Uc8uk4K4/wxBMwaSlFkqh0Faooe
+ LYcsycowmECP/nq4qTfqyuOmHHv+0ZIPTBZHApM8bPng/sAtt6uxkI7WLqMLnmibxehU5Sc
+ dMM1m8CHvkdET7RAjZKI3LCKtjUxnUq5DXhIxnIcVIJPxF+U+2OgL90hRvJP8CatBSJIkhC
+ W9QoAv1OlCh6E4TjB66wYcXwCOW348uuIiYfd1chYmBVZ88M/xDU2cM4jsHf8WX0PRjEXaC
+ VRihvw8wf8T/91WBigtOTks50enlX1Y/vJEULPoYdsjnWysRh9PYUXI7LJMQ==
+Received: from [10.45.250.102] (helo=[192.168.15.8])
+	by smtpcorp.com with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128:X25519)
+	(Exim 4.100.1)
+	(envelope-from <pedro@performanc.org>)
+	id 1xU7Wr-FnQW0hPr4rj-J4Pf;
+	Thu, 19 Nov 2026 19:10:41 +0000
+Message-ID: <a3b7a3f3-4da6-4a41-b842-cf9778dd7ba1@performanc.org>
+Date: Thu, 19 Nov 2026 16:10:38 -0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,96 +61,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+From: ThePedroo <pedro@performanc.org>
+Subject: [PATCH] drm/panfrost: fix stuck reset.pending on JOB_BUS_FAULT
+To: dri-devel@lists.freedesktop.org
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>,
+ =?UTF-8?Q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>,
+ linux-kernel@vger.kernel.org
+Reply-To: pedro@performanc.org
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Report-Abuse: Please forward a copy of this message, including all headers, to <abuse-report@smtp2go.com>
+Feedback-ID: 1228580m:1228580aqfTDtk:1228580ss_2YaxMnk
+X-smtpcorp-track: 9V9NqnRTxCd8.UXRX0Mq9Ok39.jx76Ig4ahUY
 
-When a query returns a stored DACL, set_posix_acl_entries_dacl() adds
-an ACE for each POSIX ACL entry that the stored DACL does not already
-have. It checks that by comparing only the last sub-authority of the
-SIDs. A POSIX entry is then left out when a stored ACE for another
-principal ends in the same number. For example, a stored ACE for unix
-group 1300 hides the POSIX entry for the user with uid 1300, so the
-query does not show that this user has access.
+From: Pedro Olímpio <pedro@performanc.org>
 
-Compare the whole SID. A POSIX entry for uid 0 is shown as S-1-22-1-0,
-but sid_to_id() maps the domain SID with RID 0 to uid 0, so a stored
-ACE with that SID also counts for it.
+panfrost_job_handle_err() signals job->done_fence and then calls
+drm_sched_fault(), which just queues the scheduler timeout work.
+panfrost_job_timedout() bails with DRM_GPU_SCHED_STAT_NO_HANG when it
+sees the already-signaled fence:
 
-Fixes: e2f34481b24d ("cifsd: add server-side procedures for SMB3")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ian Bridges <icb@fastmail.org>
+	if (dma_fence_is_signaled(job->done_fence))
+		return DRM_GPU_SCHED_STAT_NO_HANG;
+
+so the reset never runs and reset.pending stays stuck at 1. Every
+later job is then enqueued in pfdev->jobs but never started ian
+panfrost_job_hw_submit(), until it hits the 500ms timeout.
+
+Queue the existing ordered reset work instead, which runs
+panfrost_reset() unconditionally (when pending is set), even though
+the fence was already signaled.
+
+Fixes: 030761e097b4 ("drm/panfrost: Queue jobs on the hardware")
+Signed-off-by: Pedro Olímpio <pedro@performanc.org>
 ---
+ drivers/gpu/drm/panfrost/panfrost_job.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Tested on ksmbd-for-next 4616bbc5389a with KASAN. A file whose stored
-DACL has an ACE for unix group 1300 and whose POSIX ACL has an entry
-for uid 1300 now shows both in a query. A stored ACE for uid 0 with the
-domain SID still covers the POSIX entry for uid 0. Queries of the
-other tested files are unchanged. smbtorture results match the base.
-
-This patch was developed with LLM assistance.
-
- fs/smb/server/smbacl.c | 27 ++++++++++++++++++++++++---
- 1 file changed, 24 insertions(+), 3 deletions(-)
-
-diff --git a/fs/smb/server/smbacl.c b/fs/smb/server/smbacl.c
-index 2651214c939a..03d771ea6676 100644
---- a/fs/smb/server/smbacl.c
-+++ b/fs/smb/server/smbacl.c
-@@ -628,6 +628,25 @@ static int parse_dacl(const struct mnt_idmap *idmap,
- 	return ret;
+diff --git a/drivers/gpu/drm/panfrost/panfrost_job.c b/drivers/gpu/drm/panfrost/panfrost_job.c
+index d59b4863b8ad..8c45ffec1107 100644
+--- a/drivers/gpu/drm/panfrost/panfrost_job.c
++++ b/drivers/gpu/drm/panfrost/panfrost_job.c
+@@ -497,10 +497,8 @@ static void panfrost_job_handle_err(struct panfrost_device *pfdev,
+ 
+ 	pm_runtime_put_autosuspend(pfdev->base.dev);
+ 
+-	if (panfrost_exception_needs_reset(pfdev, js_status)) {
+-		atomic_set(&pfdev->reset.pending, 1);
+-		drm_sched_fault(&pfdev->js->queue[js].sched);
+-	}
++	if (panfrost_exception_needs_reset(pfdev, js_status))
++		panfrost_device_schedule_reset(pfdev);
  }
  
-+/*
-+ * Whether a stored ACE is for the principal of a POSIX ACL entry. The entry
-+ * for uid 0 is shown as S-1-22-1-0. sid_to_id() also maps the server domain
-+ * SID with RID 0 to uid 0, so a stored ACE with that SID counts as well.
-+ */
-+static bool ace_is_for_entry(const struct smb_sid *ace_sid,
-+			     const struct smb_sid *sid, bool root)
-+{
-+	const struct smb_sid *dom = &server_conf.domain_sid;
-+
-+	if (ace_sid->num_subauth == sid->num_subauth &&
-+	    !compare_sids(ace_sid, sid))
-+		return true;
-+
-+	return root && ace_sid->num_subauth == dom->num_subauth + 1 &&
-+	       !compare_sids(ace_sid, dom) &&
-+	       !ace_sid->sub_auth[dom->num_subauth];
-+}
-+
- static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
- 				       struct smb_ace *pndace,
- 				       struct smb_fattr *fattr, u16 *num_aces,
-@@ -646,6 +665,7 @@ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
- 	pace = fattr->cf_acls->a_entries;
- 	for (i = 0; i < fattr->cf_acls->a_count; i++, pace++) {
- 		int flags = 0;
-+		bool root = false;
- 
- 		sid = kmalloc_obj(struct smb_sid, KSMBD_DEFAULT_GFP);
- 		if (!sid)
-@@ -656,8 +676,10 @@ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
- 			unsigned int sid_type = SIDOWNER;
- 
- 			uid = posix_acl_uid_translate(idmap, pace);
--			if (!uid)
-+			if (!uid) {
- 				sid_type = SIDUNIX_USER;
-+				root = true;
-+			}
- 			id_to_sid(uid, sid_type, sid);
- 		} else if (pace->e_tag == ACL_GROUP) {
- 			gid_t gid;
-@@ -672,8 +694,7 @@ static void set_posix_acl_entries_dacl(const struct mnt_idmap *idmap,
- 		}
- 		ntace = pndace;
- 		for (j = 0; j < existing_nt_aces; j++) {
--			if (ntace->sid.sub_auth[ntace->sid.num_subauth - 1] ==
--					sid->sub_auth[sid->num_subauth - 1])
-+			if (ace_is_for_entry(&ntace->sid, sid, root))
- 				goto pass_same_sid;
- 			ntace = (struct smb_ace *)((char *)ntace +
- 					le16_to_cpu(ntace->size));
+ static void panfrost_jm_handle_done(struct panfrost_device *pfdev,
 -- 
-2.47.3
-
+2.53.0
