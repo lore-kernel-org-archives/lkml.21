@@ -1,116 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119055;
-	b=SS3+mCYGkS3F0PRifhM/i2o0ngJwl2VxDq1hzd2dP8yq+dobiwATzsyp2qq+dlBl88CQ
-	 e0MAASY4t7CcdfFPMpyKYP0AQj57FiwQoo3d79JChd39AgFGHAJ8Uei/ANE8E01VUGYnN
-	 XV3piHgn/0HQ9a4fuJz0uIzoP2KZQ1hcoinBcusoSWYhIMCi5NDPbsBdWwJcR7h6j+71c
-	 pmqP5ufAdbaCm4kW9PhQxZkBE2/x9Pfmu+88hmBo/i800T8oSzaC+Ou+fakdCvEJxOt0n
-	 0UoTz1L8Om422gKOHPXLeH1Ok/OMWTqRt7tghzZ95JGpFnlUJt5KYn5G/WoPQ/DxuYw==
+	t=1795119081;
+	b=kFo2reWjPgyLn1+jKei+qKWlfRn8J+KIEj3eABjHL4oY+MoWJ56zXO3KieTMoyFI8Zo0
+	 wErefXSHCMR/xXGKjntmo546c7i61X8ks7xa0KUFOOwbn15mDxMjBUNQHLGVRn7hP8pFE
+	 i8DOBkEaP7JoZ023lbDOKmeSnacXTWPGL3OWCtxfuP03gKHQLd8Mu58sQ++QD1XfkI4T5
+	 A8zvWmJyT00CdG1ROeOxhbrZRXzBglbRMSpTq+V/dTqkniujawMhUU8dDoDkeG+D/1ovX
+	 8G7iLcTs2/dxdjYCPlVXgVjc4ubEbZOkAZwuQ0HmpqGavUuCtK9/v09sNfcCV21IqCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119055;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=8aqv+DwVQzSb2PSvDQkheb2OINfUMuqmq/Dn5ckO2bU=;
-	b=2ASdXgccNeiOrtpkaross9gPtFFmIi+G5hbTr51xCPYbCrAfsaVg+gAUz/3JZl1e30L3
-	 Uiur45mrjkAb93mSqWH0ipJPk9Ile8RjvU8jt6b5dlwhna5NTadkrT/0B7lUR0ashnNhA
-	 scnT6nW0xqV41vny07wGs7Du9cnUvAG5j2AOp/yistbHcBGVhVhwybpLw6cam8sHB4xGR
-	 Zdk2T5XYYJRuda2hmjpGNC3gFsoBzwdmJOdy+DVv/wKOzGYxEj1lFDumoI8Jnd2XnbLft
-	 hRULEFYr6WyFXE4HEoygNl4fcEUWEOlaF0GpPNORht4938Sbljj7Xtk4aMVdxpy8+aQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119081;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:
+	 X-Spam-Score;
+	bh=uO/73pEQQIy9LNgk43pvXgxG7QnNaIlPQRRcRPUpu9Y=;
+	b=P510qtHSG0hgEVSweGD/IHYxefmTNFHsK3qWEfL/T0PRdJ0//Tco61fihGcg+4yxGi98
+	 n7RwxRtxbJUSR3WcvXuGewAajVRK6C7VihwiJ2sx2lfUaiGic6wW4xxOYDn4mDGVTnDDU
+	 ZaRJmvpANOVgGcywDAGeMo9TaYmQ6qHzivZyzVGQZ9PAtzpCgsc15XjV/FgVTW+QJLr4N
+	 mrR/VcZdCAUcbf1Z4YKxrqbeQrTR+nwVzZqRljWO0lJIobOryaOYDdY54sgD6uBP+uQ5v
+	 P9ZI9dE66abCRoDpLqNA/8tnJJSbkVQfuYMH6qkmV0sXeu4a0WiXNFmsGffv1YevYww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=hyGQcQ+k;
-	arc=none smtp.remote-ip=209.85.222.182
-Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com [209.85.222.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wZQwmvk1;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=wnMVpHge;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wZQwmvk1;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=wnMVpHge;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F097606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:10:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F097606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4188D606A320;
+	Thu, 19 Nov 2026 20:11:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4188D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=hyGQcQ+k
-Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-93f2049ea7aso14431985a.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:10:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795119054; x=1795723854; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8aqv+DwVQzSb2PSvDQkheb2OINfUMuqmq/Dn5ckO2bU=;
-        b=hyGQcQ+keDK2b+poWfXaBz3rTfz1FyheOYiUzJEERYAMhFZyAu6PuvsqtyX6pjeesS
-         RPo/zf+sr9tDJlWK7LXyI/JwnAF7qkNwpYO+juoobzUbk0BUFczoNvQWEGADycDW2iwF
-         y7jXJjMSOIhu/MUmTcjReZe3qIh+eFzLgqwR6LVOhkzMf0koL12QfW68TIcDa6ESyTAX
-         A9hpOxUza4P7LOMWuFbIYg7gicCapbN+ffcwUDGx9yF0j4jjlLHoiZI6aajcrdXNLT9q
-         oyXtSD7jOBruYl34nyNNIo/0UAbvOlzJE8VI6uN8Ph4wXC/te+u0l1swEJRdwwPBFBRP
-         Hcrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795119054; x=1795723854;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8aqv+DwVQzSb2PSvDQkheb2OINfUMuqmq/Dn5ckO2bU=;
-        b=19Z7gvSpvhweBvjvTLLUsrflloFVIGBEJG3fPQgf7YYtgutc/dN8W5KPpu6l8gBryf
-         /yKfvDS2sgGNquHNAWWnT8V+etF9fXzMP4tKkeK7o1gl6osVhEmH0cFvkT29YRJSLmX6
-         /0BO8Fchxdx8WSWMHJL7fZCIFMShzIxABCAH5c0gJT5Q6lNkuIz/W6o3NJlZQU4kOc7H
-         +S0M3WRfnOgvvU4AxW+lvdP6KU0C6qu1ycfGNaFnTmnTIfIuWaL5fD5Zo/6+nAN7YHb3
-         beZ9cv7lEIjta0F4OsHsuuvcml5OuDK7tGpq6XoOm4yC1XxuO4FhZM2paZxzRDkhTUc9
-         F1VA==
-X-Forwarded-Encrypted: i=1; AL+hErHztpSZqV6+5zylCNq/YZZn69O2wDCoP/pRahn4YDbqpByV5jKFaPCsYcVxvb0fQMOvmlqW60/gOmwaREU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+5tqli26MKQN1h/SQpQ7hCZ8M9QxEwZcBRqRzdMkzO7IDVzrl
-	B6nN0wLOBOpJj/AZSMs+ItZxRXNDi1+2AIWjQsRK233UteRz5PHmt+/cDtzuvqEGR0lHmZw6CDO
-	TgBDaRRo=
-X-Gm-Gg: AYBFou0buiPWvTJychF/mKusFT1o8DS1GbL46axOKEYSubrv3Cvx0IhQJj/XS/g9wZd
-	brX2c1LpXm8lCUTQUzrnVnkWnl85kFZE2TBRZH6GksomW+fBdgQJlnckyQSQPhQWECfFyV1wCNH
-	MkdJKZXHPsNKLUY796oFAD+GwWkf6o04kHVGYV8raxJGIzVHsqltbXIuAkCO6QOEMfI2I0Lq4WD
-	AXsV8ahP9oUlGV80h9WnFqkoOn4LIgc0xt5xNrPrOCP6isT2Zr65WP29wLQJ4FUYiX/8kkZl1ZN
-	5CRMYj/LqhEi5FVILThcAT4V8FYVK+QemqhCuboSMRRuirc3wpusnSmYU79G4XmYwlyfWu9rQ5M
-	WyDyUkaPGU0YXLADMzAYWR2vCtemXFPaHRmnUzU8tx1nlJUYvE1k3W38QwfYTvqqxpO3telvEC8
-	KT38CKhEbEVtypsIVoF2+TGi+Oq7YjUummAR4FJayDHhhziyo2sMAvdsb4w+tuXJE7bXV9FNkT4
-	LxaB+OBMaeqfJehoGnmtZ1Uxiz6Ww6PZTgTnrA7QfGi/vkIOwc68OrFc77MXTvfUXEXf1dAvQhi
-	InPZvsE0brfGa+Q1MvYTh6vq6sFifCuoLW3tJiT+KeOE5lNAGE7VGwE=
-X-Received: by 2002:a05:620a:480e:b0:949:7502:6a5 with SMTP id af79cd13be357-949bab2275emr133918285a.57.1795119054458;
-        Thu, 19 Nov 2026 12:10:54 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3ba04bsm37578685a.24.2026.11.19.12.10.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 12:10:53 -0800 (PST)
-Message-ID: <91e8a132f2ddff24b30c244dff0a8389afa313fa.camel@ndufresne.ca>
-Subject: Re: [RFC PATCH 03/28] media: mali-vpu: register V4L2 decoder device
- and add querycap ioctl
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Charvi Mehta <charvi.mehta@arm.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Vincenzo
- Frascino <vincenzo.frascino@arm.com>,  Rathinavel Sankaralingam
- <rath.sankaralingam@arm.com>, Shobhit Pandey <shobhit.pandey@arm.com>
-Date: Thu, 19 Nov 2026 15:10:51 -0500
-In-Reply-To: <20261119153758.1426673-4-charvi.mehta@arm.com>
-References: <20261119153758.1426673-1-charvi.mehta@arm.com>
-	 <20261119153758.1426673-4-charvi.mehta@arm.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-68tdt8CJA0v7u8ZWQyHT"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (1024-bit key, unprotected) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wZQwmvk1;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=wnMVpHge;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=wZQwmvk1;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=wnMVpHge
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DBBA121DE6;
+	Thu, 19 Nov 2026 20:11:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795119078; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=uO/73pEQQIy9LNgk43pvXgxG7QnNaIlPQRRcRPUpu9Y=;
+	b=wZQwmvk1rBkHTOGo0aaJmNHq3PmqE9nd/LDfPHCgQW+ssoFkA7fEGg8LOAZfzZzaDwd6iw
+	zxTIboIlb4U8dQIxDYNADVhgO+Of6UaAXJH+3rQ6iLiUXeIDpCVG6VzQWcTpV4vPkw9SCi
+	/av7zxFVW2ds8MrBpwky9ITiRW8MB2Q=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795119078;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=uO/73pEQQIy9LNgk43pvXgxG7QnNaIlPQRRcRPUpu9Y=;
+	b=wnMVpHgek02PbsETbBVemF6lgfm1Fsk4bBIq9tRzTup6j8Y0Me5JaFXw+2l4lKIx40xr7j
+	x//LK/PqLjgitlAQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795119078; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=uO/73pEQQIy9LNgk43pvXgxG7QnNaIlPQRRcRPUpu9Y=;
+	b=wZQwmvk1rBkHTOGo0aaJmNHq3PmqE9nd/LDfPHCgQW+ssoFkA7fEGg8LOAZfzZzaDwd6iw
+	zxTIboIlb4U8dQIxDYNADVhgO+Of6UaAXJH+3rQ6iLiUXeIDpCVG6VzQWcTpV4vPkw9SCi
+	/av7zxFVW2ds8MrBpwky9ITiRW8MB2Q=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795119078;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=uO/73pEQQIy9LNgk43pvXgxG7QnNaIlPQRRcRPUpu9Y=;
+	b=wnMVpHgek02PbsETbBVemF6lgfm1Fsk4bBIq9tRzTup6j8Y0Me5JaFXw+2l4lKIx40xr7j
+	x//LK/PqLjgitlAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C3C581334C;
+	Thu, 19 Nov 2026 20:11:16 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id OqV1JuRX/2pPYQAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Thu, 19 Nov 2026 20:11:16 +0000
+From: Pedro Falcato <pfalcato@suse.de>
+Subject: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
+Date: Thu, 19 Nov 2026 20:10:43 +0000
+Message-Id: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,44 +104,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQ0Mz3fTSAt2UzKKSSt3yjMQS3SRz45REcxOLNNMUQyWgpoKi1LTMCrC
+ B0UpBbs5KsRDB4tKkrNTkEpBRSrW1APU/QoF3AAAA
+X-Change-ID: 20261116-gup-dirty-what-b73da748f5d1
+To: David Hildenbrand <david@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Lorenzo Stoakes <ljs@kernel.org>, John Hubbard <jhubbard@nvidia.com>, 
+ Peter Xu <peterx@redhat.com>, Johannes Weiner <hannes@cmpxchg.org>
+Cc: linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+ Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+ Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, 
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, 
+ Pedro Falcato <pfalcato@suse.de>, stable@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-13.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RL8d8xedm6iu8o66torxsk6bwd)];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email]
+X-Spam-Score: -13.30
 
---=-68tdt8CJA0v7u8ZWQyHT
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Sooo.... It turns out GUP dirty and ->release_folio() interact really
+weirdly. This was initially reported by some AI agent, and David let me
+know.
 
-Le jeudi 19 novembre 2026 =C3=A0 15:37 +0000, Charvi Mehta a =C3=A9crit=C2=
-=A0:
-> Register a V4L2 M2M decoder video device for the Mali VPU.
-> Add open and release file operations that allocate a per-file session.
->=20
-> Implement VIDIOC_QUERYCAP to report the driver and decoder identity.
->=20
-> Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
-> ---
->  drivers/media/platform/arm/mali-vpu/Kconfig   |  1 +
->  drivers/media/platform/arm/mali-vpu/Makefile  |  3 +-
->  .../platform/arm/mali-vpu/mali-vpu-device.h   | 15 ++++
->  .../platform/arm/mali-vpu/mali-vpu-probe.c    | 59 +++++++++++++-
->  .../platform/arm/mali-vpu/mali-vpu-session.h  | 26 +++++++
->  .../platform/arm/mali-vpu/mali-vpu-vidioc.c   | 78 +++++++++++++++++++
->  .../platform/arm/mali-vpu/mali-vpu-vidioc.h   | 15 ++++
+The basic issue is:
+ - ->dirty_folio() relies on buffers/IFS/etc being attached to the
+   folios. It _cannot_ attach them itself, as dirty_folio() cannot
+   block.
+ - certain MM paths (reclaim, khugepaged, folio split, etc) are very
+   trigger-happy when it comes to asking filesystems to release them. In
+   most cases, barring any dirty folios, buffers, it will just drop
+   them.
+ - there is no problem in usual IO submission, but issues start to pop
+   up with GUP, where the code flow (roughly) becomes:
+        [get_user_pages(), etc]
+           ->page_mkwrite() called here, or before
+             ->private correctly populated with whatever the filesystem
+               expects.
+             folio is marked as dirty, initially.
+       *write finishes*
+       folio_lock();
+       folio_mark_dirty();
+         ->dirty_folio()
+              dirty_folio expects ->private to be populated by
+              ->page_mkwrite(), ->write_begin().
+       folio_unlock();
 
-nit: I'd say rename to mali-vpu-v4l2.c to be consistent with nearly all oth=
-er
-drivers.
+What happens if any filemap_release_folio() runs (and succeeds) between
+the initial dirtying (plus eventually writeback) and the write to the
+folio completes? Welp, it's unpredictable. ext4 for example will
+WARN_ONCE, and likely drop data (see ext4_dirty_folio()).
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+So, what can we do about it? It's complicated, hence why this is an RFC.
+For the possible solutions:
+ - ->dirty_folio() attaching this FS information itself is not really
+   possible in many cases. ->dirty_folio() can't block, nor is it even
+   guaranteed to hold the folio lock while being called.
+ - Can pincount help? Kind of. Things like folio_maybe_dma_pinned() are
+   rough, and don't deal with the usage of get_user_pages(FOLL_WRITE).
+   pincount itself isn't available in the common order-0 case, and not
+   available on order-1 as well on 32-bit, but who cares about that^W^W^W^W^W
+ - Could get_user_pages() ban FOLL_WRITE? Mayhaps. I would not be
+   opposed to that, but that's probably a larger change than ideal for stable,
+   and I'm not familiar enough with GUP requirements to decide to go that way.
+   This would require migrating all FOLL_WRITE users to
+   pin_user_pages().
+ - Can the whole system be reworked? Probably, but not for stable.
 
---=-68tdt8CJA0v7u8ZWQyHT
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+This patch series is really rough but kind-of works. Instead of using
+folio_maybe_dma_pinned(), which only interacts with pin_user_pages(), I
+introduce a new helper that helps places deal with the folio refcount
+directly. In that case, we can also deal with GUP. On the other end,
+moar problems:
+ - NFS private data itself takes refs on folios. Now private data (that
+   we could perhaps release if only we tried) is keeping us from
+   releasing that same data. What?
+ - ext4 data=journal has some funky usage of buffer_heads. Data journalled
+   filesystems will not, in any way, dirty BHs. Instead it will,
+   *only if it was DMA pinned*, set the checked flag. ext4 skips
+   dropping those buffers if the checked flag is set.
+ - ext4 move_extents seems to have suspicious usage of
+   filemap_release_folio() as well.
 
------BEGIN PGP SIGNATURE-----
+Many of these have suspicious Fixes: (which are definitely wrong). I
+targeted these patches to complement Jan's original fix. Anything before
+that (or which is missing that patch) is hopelessly broken anyway.
+Proper Fixes: can be added, but many of them go back quite far.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav9XywAKCRDZQZRRKWBy
-9Gk9AQClEgbrQYsilxSJEOtw7LEwCrwtEVoSpQ1tbx+me1p3KwEA6yr3WzRocwTb
-/VnV9DMVgAS6/9EfRVX6UUJhsXdqnAI=
-=Gwtb
------END PGP SIGNATURE-----
+Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+---
+Pedro Falcato (5):
+      mm/khugepaged: fix filemap_release_folio() interaction with GUP dirty
+      mm/huge_memory: fix filemap_release_folio() interaction with GUP dirty
+      mm/vmscan: avoid releasing FS metadata for !FOLL_PIN gup folios
+      mm/vmscan: be more careful when releasing FS metadata if buffer_heads_over_limit
+      mm/filemap: refuse releasing maybe_dma_pinned folios
 
---=-68tdt8CJA0v7u8ZWQyHT--
+ mm/filemap.c     |  3 +++
+ mm/huge_memory.c | 22 +++++++++++-----------
+ mm/internal.h    | 48 ++++++++++++++++++++++++++++++++++++++++++++++++
+ mm/khugepaged.c  | 19 +++++++++++++------
+ mm/vmscan.c      | 18 ++++++------------
+ 5 files changed, 81 insertions(+), 29 deletions(-)
+---
+base-commit: 9663aa0da7070d958e333477ce0720512e9fa016
+change-id: 20261116-gup-dirty-what-b73da748f5d1
+
+-- 
+
