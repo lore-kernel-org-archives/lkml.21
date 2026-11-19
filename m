@@ -1,52 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050692;
-	b=pCbkctgkFH0HRB+ubNhLysyS/y6c4YWsa3kOiPj1c8DY96uaUcUHAFatQrteZWhKS9hX
-	 gcPi8zVfD6XSh5kX8wgVuYuauQhGTUYvXyG6kM/CVCD5pr2oYnGgtgGXse8Bzg/CwVdnb
-	 kBWxwaRXdZo643ojzsY4ttPEnPI6DVpgqFqwGyk/EB25sl+Jc8PgnKbW1Kkv/U/uiQToN
-	 kzURHUdcqMo9gZHYFW+3kg+imnjjDbpP+FaiyxJI1nep3scdbQL6CGyyxrOE8JdhKdn7z
-	 T+ADvYf5DcEHWU2fKqHSZ/X85Hl+hvWFGZU+G3PpfKqF9w/hQNeWwVstboFd/dY8RPw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050692;
-	h=DMARC-Filter:Received:Received:Subject:To:Cc:References:From:
-	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
-	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=dqweL7BsG9XRQRfrzEERF8eiQCXHDKK+nX4SLZICRgY=;
-	b=PMYNsb0Fx8bGyWkFGTPMzil35c6AjnP73U44v5KnuNOEukjFpmwLi5xFUIJZHup8IyNN
-	 XeGbRUibDNIk5dgPx90X2hO+an9s6g2W9LdTS2YL1lyKWciroQOjMbnQIvPyHu5+wfZXL
-	 bYuYY9d1hK0rFYyANX3wyhMdM8T33i1mEn13KRU5e67BrUHDZm886+8TkAU6+qa49Hfug
-	 JNcy/cYSt9m+y78V99pKMimpCEAA7RFQydlfUmOzxRKHa+VMtF4hf77M4QUXMmDjjmtgB
-	 OL4VMBZhpwo15tq3v+FpJO7lBRig6ubLFh+7OTFJ6sEvVvF6mtb+PhSmhBAPSjijRxg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=loongson.cn;
-	spf=pass smtp.mailfrom=loongson.cn;
-	arc=none smtp.remote-ip=114.242.206.163
-Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9709B606A31C;
-	Thu, 19 Nov 2026 01:11:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9709B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
-Received: from loongson.cn (unknown [123.138.236.242])
-	by gateway (Coremail) with SMTP id _____8DxTNK+TP5qFwAhAA--.28957S3;
-	Thu, 19 Nov 2026 09:11:26 +0800 (CST)
-Received: from [127.0.0.1] (unknown [123.138.236.242])
-	by front1 (Coremail) with SMTP id qMiowJCx9cy7TP5qNr41AA--.14754S2;
-	Thu, 19 Nov 2026 09:11:25 +0800 (CST)
-Subject: Re: [PATCH v2] LoongArch: BPF: Fix the offset of stptr.w and stptr.d
- stores
-To: Huacai Chen <chenhuacai@kernel.org>, George Guo <dongtai.guo@linux.dev>
-Cc: hengqi.chen@gmail.com, guodongtai@kylinos.cn, bpf@vger.kernel.org,
- loongarch@lists.linux.dev, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261118071444.10258-1-dongtai.guo@linux.dev>
- <CAAhV-H4TNuXk60LyzZhFwQTfNtdzLEFQTwS84u3ZMQ6b=8S0NA@mail.gmail.com>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <0f79389b-ceb3-8c2f-16bb-1111ac40fc43@loongson.cn>
-Date: Thu, 19 Nov 2026 09:11:23 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795050713;
+	b=RtX9R2p72YnYcG9xcNvhoYLRe4IywT7rLtP/eNsizn7ojdxrVRCHsfcx+u4+0vHwekAr
+	 bzw51iE8KU3no/kmJA6IV18dCp6tOLPlMJfd22dMkvTvljWZrx+GUzuJryf0NV2XYS3Cr
+	 1H6/yg794vq9aQKc9eVOK4KtkxLvZQ5LdZIYxsNfbPIXMx0NwcyRZbYHvTKIvzTGIcYCr
+	 zud6S1Q5GpJBffP9KDoMZ8pevY6Iv8zGlfdD+4l22EOON60DWLHBTnjCIVOaBvWuEsAXd
+	 5s6j5QLVKiPQbYbBtrZBkK1JTrA3BHEc3qdZF6YOwCyDhmJ/5JXFEHGAgZ/3N73NGkg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050713;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=zFbr6eHg9xAfwCJ+yPPFuSKuvOw6SPSCEC37J1T1mfY=;
+	b=vD+5NDZ1XHIRK3PVc6fF547QxKXH0CfPHjiuRlm8YPjxBusHGQb5nFfQ8i2R7HEQ6Rvi
+	 TphXHrrThlhqQGqM6qvGcP3tAc15kFYRo7K1k0L2ru0h0PsCbeewBYJaB1uRIgi5daUPn
+	 +Qd/rS7+ccAGMARvd7hwdgXX3u/yP2Icmjgs6l6bVq3CotpaT9QbdR8dkuY4vdcdkyk+s
+	 iSqwg975PEZA4tPuV2+MoJkiYdIAzA2t9JE0576bhHOpkPUKC9jPrZ0J+Tqs+O9YcwZUf
+	 NmTxG3Iemfby0ELznR/t/yKyVXUc0mV3jELW77Nhb/7ye81E8dFWplAm2RA22UW5TJg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=multikernel.io;
+	spf=pass smtp.mailfrom=multikernel.io;
+	dkim=pass header.d=multikernel-io.20260707.gappssmtp.com header.i=@multikernel-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="Rmz/xlIy";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.48
+Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEA14606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:11:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEA14606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=multikernel.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=multikernel.io
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=multikernel-io.20260707.gappssmtp.com header.i=@multikernel-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Rmz/xlIy
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b8786bb305so2526058a12.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:11:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795050711; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ui6Qx6lZCqttWzO3PH17OvCjEfl/Hkpc5ckkoj9aEHaro7L6Z+5Yw8rJNOSXRNf9cr
+         sNudWLiuJ4m37Xv1EYZ1ib/oZsnV/hLS06AjdJ6SDON/drUtEJuZ5YBLoTfkZuzoOPcV
+         9ZbSSzvZgF41BIfJO/jJnFW2htBuVzJcbt0WBa+Z9S9Ufseb2PUP4PWcfk4YLhl+fm8s
+         h+GXVSZgSWi+PlWbdkcvoRvGgZV7YpQL+TiOTPY1fxigSvAOnk2Z/PGSD4R2uWtTBz77
+         B/IYt4td78MQaawnDu5Yy1urSkkhxbSF0E0kErHS5p/IOVtFrbr+kW9AkyLPWOq0GLkM
+         P4Nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zFbr6eHg9xAfwCJ+yPPFuSKuvOw6SPSCEC37J1T1mfY=;
+        fh=EE6AN3esCYrQYofF/vgXC6kDMMM4ImkKwpfQ3cK1W5s=;
+        b=gAAW2P+vdFw/8jpuA2VBG81CRaPnj4vdKDlqSEb+RzUnSilTuVXFl9QR/Djp62yR8B
+         /6W728JScpvdvSIlQhSVEKNAv+QBBSO1u3BRQlh2B4e6xEQX7fjYuIQv0DsP3QJaXey3
+         hAnEzFB5vZ5/8AK2CB9ub/PYb3d2b8p+29iZjkjg6M4oXVxd9J3NFnXlLR5D5iU+BTsu
+         ut+mfWWtPrHapnOZm0dnxfAO0OI7RM2SZPLxOqtVOWsUx+MvIjj9kW2xyLksG2Si5rUl
+         wmLmaAsRiSUaf4ycnnOIPnhof9uchEhMU7CpKggkcgt3zVCOeXnRhVUxg+EOeJS87y63
+         SwJA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=multikernel-io.20260707.gappssmtp.com; s=20260707; t=1795050711; x=1795655511; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zFbr6eHg9xAfwCJ+yPPFuSKuvOw6SPSCEC37J1T1mfY=;
+        b=Rmz/xlIy4jpyCp7u4ys8em+AZLVdldkEXTn1nJib0gmUcKUqOilcLGwf9lGc1+L1m1
+         xyi7x7qJ88lRumztWnhKtl39EskLYHysZJ/gFpSRb5dIZ3jbxu4J0NGSpciOpVRPHerj
+         YmbsHueQtyr6c3cqbi2C/+W89LjChuo1puAuZxdrPFpDHJR41Dddw81LiZXqwaS3gRlQ
+         eQMPHA4UF3euqCKalY7p1Y2V/j1cumbCfKJxOrLWDidW6kurXDSeUskIA0vhuqhh9wZS
+         mNun9m+aFbE+0ux+3UpYlgrgI9d/y81d9XPnW1AYe4tBqiFZGle6/inyPVazgD53QSw5
+         MAXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795050711; x=1795655511;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zFbr6eHg9xAfwCJ+yPPFuSKuvOw6SPSCEC37J1T1mfY=;
+        b=QUqH3HNdpQlUezZ2MalVaiS1VSbxJulUx2nrAU+Eg/js5RH+M2hEeMlZvwusmmKd6G
+         OWKjNm4lm/WOvl3pvnpj2yQrn7M08QzlxwcGtL+RFje3uF5r+oHDCKijvLCuuvGwZHhv
+         frVOBrM6YfEzx0rTqECH6L67K4yEVN8WNqjRZfKGXoeBfwqpfOey/llGKqsbu9ZlRrSc
+         L8eA+2IT5JHku5TPC1tUvEes0mvPR7pJEAdR8sX4ypW3mch1Xxdu5oVFr86SwaMBFGc5
+         hBCHlxutsk6qofq2C0wcMpNdRl5dXpwUE8YNroODhKMOq8fhVLCHbcF/BbDOO7Xtgab7
+         it1w==
+X-Forwarded-Encrypted: i=1; AL+hErE68PkBCYQ/3g5H+QwAIE8muq4qqV0VgVF8HxU+C4HlalwUjuRR//qbbNt80eVaNMhawCr9LIerW3pxy1g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9BOfropBZCJE2JYDu4p/k8c1nwHCVIfiq/SzhB0pqjEorngLr/
+	k374f3SXAbO+DlE7VJWOLG54MaVZc8izxvm/CNj92L2xLx7RHroyELG1CkvARPsdrPaDhJbnFM0
+	NTtbDLdKJ6F8iZcv1vkYvtA5ULqi5RohRNlm6wCv1Rw==
+X-Gm-Gg: AYBFou0bA+Zby7CtFkifcoY2ssgictswvONZWGhvhBjY5jLIAAWSTvyZcA2UAhrKbIl
+	FJT1rNfVRbwskapWCqkvoO2vIaLTGgnSm7bt29eCdwexNNhKSypWfGTHT/5vshu8wxxvUJftVtr
+	RD/g8oA2UIzUimZPbekaZWplRGRUOJj328XN/gsKpuxfhsNVEuTRT0ShfstzI6lpWxt7pKtu2+J
+	LvGWojMbM4tyGJ4eJq/5luJJHdHVXjXWn4LB1qgzfAVO2UjPxJrM1GTdLGO/P0uWafbDc6+aP+A
+	4syHxtUqdJGTLwRa0rcwnpat5AZV75zJzlB3bCJbvJvKW1iQhw+dVok/VdkApNJPGB1DEpm3xyw
+	bpZLmYUS3JM3bo7wVfEc1Ur8FHtKtjbeYaAwmzBKTHH2fU8RoyqE7M5Tf5v8kXxUwLndhDIY1WX
+	8Ce22seeA11cCZ4c0MsV6htFFc/Q==
+X-Received: by 2002:a05:6402:1d4c:b0:6b9:c43e:19df with SMTP id
+ 4fb4d7f45d1cf-6b9c43e2326mr963366a12.41.1795050710871; Wed, 18 Nov 2026
+ 17:11:50 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,62 +105,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <CAAhV-H4TNuXk60LyzZhFwQTfNtdzLEFQTwS84u3ZMQ6b=8S0NA@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qMiowJCx9cy7TP5qNr41AA--.14754S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoW7WrW5XryxZry8ZFWUKFy8Zwc_yoW8Jw4kpw
-	4DKw4SyrykArZ3twnxXwn5J3WIyw45Kr45WrW3t34DAw15WFyIgFyxKFW5Kay5XrZ5Zw1U
-	ZFWxtw1xua9xJacCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUBjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
-	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWU
-	AwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
-	k0xIA0c2IEe2xFo4CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_
-	Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67
-	AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8I
-	cVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI
-	8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v2
-	6r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jepB-UUUUU=
+References: <20261118013729.576325-1-xiyou.wangcong@gmail.com> <av3Q8pAVt6nb-RBc@kernel.org>
+In-Reply-To: <av3Q8pAVt6nb-RBc@kernel.org>
+From: Cong Wang <cwang@multikernel.io>
+Date: Wed, 18 Nov 2026 17:11:38 -0800
+X-Gm-Features: AclHuK87b_shKwat8_ZEwNyuTNtkbEeG4EoWTL7eT71aa9I3nE0EPfXoTHuPeag
+Message-ID: <CAGHCLaTb1HhPXMqakdErKhrCTWcQ0arqKDbo++vp5jOkmjQ93w@mail.gmail.com>
+Subject: Re: [PATCH] riscv: kexec_file: Verify the signature of Image files
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Cong Wang <xiyou.wangcong@gmail.com>, linux-kernel@vger.kernel.org, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Morton <akpm@linux-foundation.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, kexec@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/18/26 7:59 PM, Huacai Chen wrote:
-> On Wed, Nov 18, 2026 at 3:15 PM George Guo <dongtai.guo@linux.dev> wrote:
->>
->> From: George Guo <guodongtai@kylinos.cn>
->>
->> When testing bpf selftests "jit_insns" and "jit_insns_blinded", the
->> "ldst_offsets" subtest fails for word and doubleword stores:
+On Wed, Nov 18, 2026 at 8:23=E2=80=AFAM Mike Rapoport <rppt@kernel.org> wro=
+te:
+>
+> Hmm, looks like we already have plenty of those. I believe before enablin=
+g
+> those on riscv we need something like this:
 
-...
+Yes, that is a good cleanup. I am happy to rebase my patch on top
+of yours.
 
->>   #define is_signed_imm12(val)   signed_imm_check(val, 12)
->> -#define is_signed_imm14(val)   signed_imm_check(val, 14)
-> Is there instructions really take a 14bit imm (not something like
-> ldptr.d/stptr.d)?
-> If yes, I suggest keeping is_signed_imm14() because maybe we need it in future.
-
-According to the LoongArch Reference Manual, there are 8 instructions
-in total that take a 14-bit signed immediate (si14):
-ldptr.{w,d}, stptr.{w,d}, ll.{w,d}, and sc.{w,d}.
-
-All of them implicitly shift si14 left by 2 bits when calculating the
-virtual address (vaddr = GR[rj] + SignExtend({si14, 2'b0}, GRLEN)),
-so none of them take an unscaled 14-bit immediate directly.
-
-In the JIT, byte offsets for all these instructions should be validated
-with is_aligned_signed_imm16() and encoded as (off >> 2). Removing the
-unused is_signed_imm14() macro also helps prevent similar misuse in the
-future.
-
-So there is no need to keep is_signed_imm14(), and v2 should be good
-to go.
-
-Thanks,
-Tiezhu
-
+Regards,
+Cong
