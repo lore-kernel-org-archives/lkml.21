@@ -1,104 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795070610;
-	b=bVrjM9yyOsnvxEuhS3R/AzlNjTd0Eh96GtQLStYs0TPQ2NiOOKasbqSsu6v3drlJr076
-	 r39yXLa6lIQCTco1NgUquZ15IbiO0vuYAzgirKayZhUBHEsKtnNQz6MC/KDX8NCsGtTmf
-	 H/2z4lVaXw7m0aoQeN/aYbmF0OJ9L7V5GNQfzE2wt7J0GRHhhen/w7O23dtmSv+Lu8EGf
-	 hJL7TkN/uoamHaKCBwn4dfTyD6Dt60EaenJxZmJOIoP6sIWfP8bTFT8keEn7z/ts4dGRJ
-	 owwi66D+BBb6QAB1Al01tqWiCMOtU5QZWwCjlfabvxT/KD6P/+irXRoqpbF85+zeeNA==
+	t=1795070697;
+	b=cQT9hKuqX7T0tVv3BuEYrxeonZbtbW+IowCecfLuIrHX9cNF0vkQVVRkO8EaS0nJ9x/p
+	 +geue40EPq2Bb0XYtvHMB3sUuIE0GezJVRuYAMYzZpKyD4kTv4b0zHiKhZS63MlHQ+ahV
+	 UCuZrdB+c7vuLxXnCJGgHlOHN4tmfFwURoVJQMQZrYoCJNtzK0UsUWHb60UOtxlyLwA8f
+	 9VLmuF4Z+K1+I8zawSwAUv7R3jy/DWKuO6b4PxQ/ViD98RoWkJT5ozSsZJODNK+UIc6UP
+	 FsCjuHpM36BM/fne+L0ifgkpeyH3cnyg8wwdiEanB90gpNkW3zBkrpRSlZaAF4OE2UQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795070610;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070697;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=tlw/MFAgR3dlvJ1uhPp3TNx4s72LXZKJq2RTq8GSaTM=;
-	b=mzz4qdZoLkZM1fHOTBjSW3ptV1ashlm7+h8B8VhGEffqRVQszVy3lD43z2JqKfSX3egx
-	 JanFsnrisBjAMzESnpNsfkfABvcK5eI6qjQKLsrI5oOXxqQVV7iOE2CbtOeyvtXyYBitZ
-	 /jTziqApBc7kRsuBBBHsxQgP4T6dcvBY2AJ6O12E6sg8kUp0dRtQAVrE+d/gp9aPGZQ+h
-	 XKatdwJs8jlmJf3V6akHG1ndKUNCg72tAk7mAp273dK7cxtptZYBBLVh9qI3YL/Ng2oVu
-	 cGO3R9gLSdDXPlk/qxsvVc8Ze50tRyxWKNZA9v5aGlKFQOd8M11nWHhN05dKa3Fha8A==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
+	bh=gx3IKd3H/J7FeV0UbqNeO9FYoO/jP2uhAsiBT/hJXZs=;
+	b=p512HWQi+s+H+uFRUz+xKGLa29Ky4FJTtCWXuxEG3q9+Aqe25g4RWNVdn/unDRTZoNsQ
+	 34vMSuzh5gCFzSBhDL2KEy/OXA8DNlbDeFKEiiG7rYRqJCvtGVY4GScFFAPOSdNcT8oCB
+	 fioHNrUzOKqRki64uXhxGETF6k9B0mU952/kxCDxAuLUGkOM3flm13D52dtQ+Xr2Jjqeu
+	 k3kTFgPbUjsHHwAfhAI1XZcyoM2KJgQ+tt7JQo52MwJxqmA7LTs8O//BPZvV+sgYqP+zH
+	 6NXdd4nfhy+/BQ0BL7lRF2Td4zSik/LNOT531BCUr51tkRaM0OLuGlGTmckTvDSqraA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="M791bM/E";
-	arc=none smtp.remote-ip=209.85.216.44
-Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=APohbNvx;
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47673606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:43:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47673606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9577606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:44:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9577606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M791bM/E
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b3e85baf7cso748691a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:43:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=APohbNvx
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-491846221ffso1481335f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:44:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795070609; x=1795675409; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tlw/MFAgR3dlvJ1uhPp3TNx4s72LXZKJq2RTq8GSaTM=;
-        b=M791bM/EJ6YDr7z6lKX8YSF22UffBSA9Fa+DCJFUleFbxsXZiFoAi/xfZ9BehWd6M3
-         WEGlD7o0/6flrw6VTWLQkXt321yG8isfrs/CcFfMx0n2hH9Z3F9mRMVUazJ2yfBiCPWS
-         hH/FT7nomy0RwanfVtrUClrQHnca6PGaz1ifwKiOmPzFq6oeij7XUORx5LEnN7jw2Rqs
-         IoF99aZldktmoceKhLx8wl2r6RWj4L98OcDS79PkOqsLhTjOradqe5FH7rSiQl9tvu+o
-         5jQsjGa7plxWJoBYUjldy2c6EKvRuSWUm9jTMCXu+uTinAH+/xOZUFtnIExS0EQWCjAU
-         tdrw==
+        d=suse.com; s=google; t=1795070695; x=1795675495; darn=vger.kernel.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gx3IKd3H/J7FeV0UbqNeO9FYoO/jP2uhAsiBT/hJXZs=;
+        b=APohbNvxkAo6cTnwPqPwz5C10yWXSHFAKYuVO+bnoLPkG0Ht6L8SU1HC7AdtfTkmPG
+         Ogpxq16+gmx7VBJn2vYZz9Hl7/KyOqDZyRbV90aVIFdIcAKy/+AP8IgaPEVC3/u99mhU
+         NJRXN5Bz+zRNy7tRJDU1q4GZEMyIDpMJ3usDgiiQZPiSzBVOoRWV1i9qdelZEhoA715U
+         wcTs8ujsJo7mSWb8lTvpZPag+xVg7raHKNqEZJ3mqaAM1VQ3qIG5JTuHLvAkA5nRaXJJ
+         HNXuqv1g7C+QtIQggKRslPfgvHGlI6YPfG9ixnzAyD7aeh808OKE3yYcIUgvnKnHUeQg
+         eWkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795070609; x=1795675409;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tlw/MFAgR3dlvJ1uhPp3TNx4s72LXZKJq2RTq8GSaTM=;
-        b=rur06RMOmmHgrQyKPTNV4/zYjKAoQbWKhKuHNMG+6bl1yIsHW2BbJeaIWTT1kCt0WU
-         gygzDtUSxTx0ExRZX4WgZlukmxiiVWh7WkmNB5cn1aQuGTVjVwTtfTmqQ7ED7jWwm89J
-         FIbAPTCqzEYHRk6Fvs9SIHho9ERXpfnucmHtNDTvhORVD/zoz+mU9rO5RPIKgADQW2/H
-         bFNhVPeMRTiFojShqDJPOJfPDZiCMvIIs79hYLTU8U3hkhb6ujSnofqxXLxfhN8ePy9W
-         ZHwM3uratDYGDPKWERShAcYHj5qqLa22u54Qa0xUpghqZMCnDE0TUMaIbFGAkYzTiLcR
-         BcHQ==
-X-Forwarded-Encrypted: i=1; AL+hErHqjTTnlhEfuAaw3ix6HkhvLSxKVTRltOe5N9vuboQjKUFP2qlWRKsyXgDGdixmY3LnnL72HxFLWYEuLCQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DuwoJH/u2l7SyRzDb5hvBvmSJbiN4Q+bKe7IbeWcxdXelzpuq
-	K3Vga2aoJi7lJVgoe47BGAs68EmbXSTvVSK4dywA047p7L+YfFP5H89r
-X-Gm-Gg: AZFdTZev2iZUcdnwMRhfR7bQPTU/9HDIh2J6z5Bij6KrFbIEAChhrxhoRWbhUw4KOm4
-	8ZdG9MkujmFDM8+OwJUfriIeswoQWirSdr1a1wU9B7k8Wmx24nh/rXgSflg/8zy+VDtxGOOfQoz
-	mnEk8SQKvwjcVs5EW3/iTzwgB3dUsRDgctvQZeEVBgQcOdn62RHXV/OVMlwCGPsIskdjsKBGmdk
-	gQapBgTuRDcPCf8OOUGZNKrF6AwOKjg+FEhA5sDPlBHLJFLcDKn6yPrAydiEkHRtIYp+6AtFsJQ
-	pEhtZJrG/YfUO4DdIW4tgN0/HAo5dwC4n3Gya0Pa3eqVH2kErYf5TmM5O+V9p760/YnH/c8tSdr
-	gwojXj4aXHPNzprTukzSvqlidqb8Xz2R5lgR9qkdqFsqcbxdydApGhLvlU3CEzvvyM8ILKqrFWR
-	6WWYNN4TbyFfwdBUIdzXMSLkIpqrdLM+ssaxyw4xPBV7GDUL5aVpwAUPO/XS3AV8EG0TGeBFVWT
-	Mcl+zrOfFxzTxs3lB8iFsjtOtVjJsLnjaVVnQ19iwFcKbHtD0xI7vDUeSx+7GCN3MzHaZO8CNZX
-	vxWrpmxy6OboIOm2CsYEE/jQiuAMyJ4zJExykHLiyEGw15ZFqIejSC+t5bagXNDItZr+4Ii1j4w
-	h31b7lsefbz0QBnR9rsh3st8d14IeIEDrq4Hai3E=
-X-Received: by 2002:a17:90b:390c:b0:3aa:548f:eb77 with SMTP id 98e67ed59e1d1-3b3d07bfff2mr5487494a91.56.1795070609562;
-        Wed, 18 Nov 2026 22:43:29 -0800 (PST)
-Received: from LAPTOP-UUUVNN1I.localdomain ([129.126.57.197])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0114fd607sm13890335ad.73.2026.11.18.22.43.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 22:43:29 -0800 (PST)
-From: Wei Jie Law <98lawweijie@gmail.com>
-To: dmitry.torokhov@gmail.com
-Cc: andrew.smirnov@gmail.com,
-	bentiss@kernel.org,
-	e.velds@gmail.com,
-	gideonheinz02@gmail.com,
-	hadess@hadess.net,
-	hansg@kernel.org,
-	jikos@kernel.org,
-	lains@riseup.net,
-	linux-input@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stuart.a.hayhurst@gmail.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 22/33] HID: logitech-hidpp: shut down G920 force feedback on input unregister
-Date: Thu, 19 Nov 2026 14:43:02 +0800
-Message-ID: <20261119064303.274901-1-98lawweijie@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261110-hid-logitech-hidpp-v2-22-30743e91d83b@gmail.com>
-References: <20261110-hid-logitech-hidpp-v2-22-30743e91d83b@gmail.com>
+        d=1e100.net; s=20260707; t=1795070695; x=1795675495;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gx3IKd3H/J7FeV0UbqNeO9FYoO/jP2uhAsiBT/hJXZs=;
+        b=LqV23Fg2SszD8c1VhNhc8PFhSjKNkTyQ7D2S+eG7Qk78TLQQA9fNhicpYuQKMBIUdC
+         A4uGRdWDypuYjy/heLTTUmdZoyIkNc3aPX70ypJwzuRNl3bG85ccYJ8KG85ruEKLTisV
+         pT2xYaar6nKVFMW80h6+caLfAYhS/nRAh24D3+gHbNA82nyZZsA/yXbylQ98ijse14mP
+         Tj+PdSLA3hy9YETp0jKMQEIveLuoYRFiVX4CuPuUioCkefH31St2TSPZwzFeOHmFxdzl
+         OD4bHYnU5UmGYhiTf8DQDGurZTQ3VuxuQmW3ZJe0TEhPwH9KxT3JRKSo3OR0A/ZFVqOE
+         cBKw==
+X-Forwarded-Encrypted: i=1; AL+hErGfwNZBAZ9Plq/cqktJEmSxYiVdjjlx4TqWGGpxgOB97ZvJxv7UiXhs3ygY6CLtKhAQSaEOf09vpF96hPg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z95TYc6GcDEuo9k90WvPl4r3094ZCJoeAfvYY8EdFAEkPPd+6OI
+	ccL3xQkK4PAeNBLLeRXj+IxPxyZhrpj4GZCgvZRUwuOykEKUJmitgJD/brTD6nzE97Y=
+X-Gm-Gg: AZFdTZc7E7bUakAfAB4HGal1OiiCeJN9qF2zwyA0cAPN+sy5DqiHiIRy88c19J4XiKW
+	RB33oPj/ie/QJUli1N1yraLReRECWHXJ1MBmTzaiMJ3JBxwcNHU4lsJi+NHg/Bnx06Ajowo5vv/
+	peN6dVGnrXOmYijJVPMSWgxHIclWJ6Ym4ewTP6dzjjGFCol6hOyuVfBFBMP0NeydrO8D9XsH1Lv
+	GP50hZvCi8TN/HowI0xRgeaTgHe9AyfIc/JhvZe3R7hNFnEQCqmMXraRLSb5utF8tYEqkr4aN0u
+	jcyuyxI2VXp5rB/Pbkl0rfbSlxEHSjP9585ZLM1lIXZXuKR25aeOlx/3yYh449lurI3JKkeQ2MN
+	PauGYvmRyQh3zNMyK+MA+MC/LWkxCkYyKknjPpxKNYQrH/7/nNTN3n0jt3ck/oRFwTRnHQf29AN
+	E8MnyqjqrZVE0L/6O16kdgxHoHicIEgNeSSLD7ypwqyp5Th6QSDzimpSf3gnkEP0CGKEnZx7FNZ
+	oB4+TqT/mqFbj9s6LXmvYrdMMv/IjX/G1dyNevXarsx/MFucfGYTLpVTrkRM0uE/m0NqnAZPX1l
+	yg0CpBYTTtSDa+Z4+nEUww/plDCKkNYgsaNz7RL2bJlnmMG0Gv5REZDQhXYlN9+2yom2B8XcsGj
+	B6qKRN8HkouvkbYOK6zRqOq3Vz8TJa+9kzdCdsspQDM/Wu+naXb90
+X-Received: by 2002:a05:6000:4617:b0:487:27f9:840 with SMTP id ffacd0b85a97d-4a63d6a459fmr9772581f8f.53.1795070695314;
+        Wed, 18 Nov 2026 22:44:55 -0800 (PST)
+Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a656c11f1csm9437350f8f.53.2026.11.18.22.44.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 22:44:55 -0800 (PST)
+Message-ID: <c906fcbd-8671-4257-8250-9c09d38f6b53@suse.com>
+Date: Thu, 19 Nov 2026 07:44:54 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,51 +91,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] xen/swiotlb: Bounce mappings that cross the segment
+ boundary
+To: Lin Liu <lin.liu01@citrix.com>, sstabellini@kernel.org
+Cc: oleksandr_tyshchenko@epam.com, andrew.cooper3@citrix.com,
+ ross.lagerwall@citrix.com, xen-devel@lists.xenproject.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+ <4a2d59f8d5a2b1399fc8bdf6e49202c9c2f394a7.1795069501.git.lin.liu01@citrix.com>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <4a2d59f8d5a2b1399fc8bdf6e49202c9c2f394a7.1795069501.git.lin.liu01@citrix.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------LIGiRNSFugMGqSq0b2MFddW7"
 
-On Tue, 10 Nov 2026 22:48:20 -0800, Dmitry Torokhov wrote:
-> Force-feedback teardown currently runs only in the force-feedback
-> destroy callback, which is deferred until the last open event handle
-> is closed. If userspace holds an open handle across USB disconnect or
-> driver unbind, device removal frees driver state and destroys the
-> command mutex while queued force-feedback work is still active, causing
-> use-after-free errors.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------LIGiRNSFugMGqSq0b2MFddW7
+Content-Type: multipart/mixed; boundary="------------Xemoc0Pv264QPqL109RvJbGz";
+ protected-headers="v1"; hp="clear"
+Message-ID: <c906fcbd-8671-4257-8250-9c09d38f6b53@suse.com>
+Date: Thu, 19 Nov 2026 07:44:54 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] xen/swiotlb: Bounce mappings that cross the segment
+ boundary
+To: Lin Liu <lin.liu01@citrix.com>, sstabellini@kernel.org
+Cc: oleksandr_tyshchenko@epam.com, andrew.cooper3@citrix.com,
+ ross.lagerwall@citrix.com, xen-devel@lists.xenproject.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <807c3b040b02d7d89f1cac76eb137afbee91015d.1794573814.git.lin.liu01@citrix.com>
+ <4a2d59f8d5a2b1399fc8bdf6e49202c9c2f394a7.1795069501.git.lin.liu01@citrix.com>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <4a2d59f8d5a2b1399fc8bdf6e49202c9c2f394a7.1795069501.git.lin.liu01@citrix.com>
 
+--------------Xemoc0Pv264QPqL109RvJbGz
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
-Hi Dmitry,
+T24gMTkuMTEuMjYgMDc6MzgsIExpbiBMaXUgd3JvdGU6DQo+IFRoZSBibG9jayBsYXllciBh
+cHBsaWVzIGEgZGV2aWNlJ3MgRE1BIHNlZ21lbnQgYm91bmRhcnkgdG8NCj4gcHNldWRvLXBo
+eXNpY2FsIGFkZHJlc3NlcywgYnV0IGluIGEgWGVuIFBWIGRvbWFpbiB0aGUgYnVzIGFkZHJl
+c3MgaXMgdGhlDQo+IG1hY2hpbmUgYWRkcmVzcy4gIEEgc2VnbWVudCB0aGF0IGlzIGNvbnRp
+Z3VvdXMgaW4gYm90aCBzcGFjZXMgY2FuIHN0aWxsDQo+IGNyb3NzIHRoZSBib3VuZGFyeSBp
+biBtYWNoaW5lIHNwYWNlIGFuZCByZWFjaCB0aGUgZGV2aWNlLiAgQUhDSSBkZWNsYXJlcw0K
+PiBhIDQgR2lCIGJvdW5kYXJ5LCBhbmQgY29udHJvbGxlcnMgdGhhdCBkbyBub3QgY2Fycnkg
+YWNyb3NzIGl0IChlLmcuDQo+IE1hcnZlbGwgODhTRTkyMzApIHRoZW4gRE1BIHRoZSB0YWls
+IG9mIHRoZSB0cmFuc2ZlciA0IEdpQiB0b28gbG93Lg0KPiANCj4gQm91bmNlIHN1Y2ggc3Ry
+ZWFtaW5nIG1hcHBpbmdzLiAgQ29oZXJlbnQgYWxsb2NhdGlvbnMgbmVlZCBubyBjaGVjazoN
+Cj4gdGhleSBhcmUgbmF0dXJhbGx5IGFsaWduZWQgaW4gYnVzIHNwYWNlIChyYW5nZV9yZXF1
+aXJlc19hbGlnbm1lbnQoKSksIHNvDQo+IHRoZXkgY2Fubm90IGNyb3NzIGEgYm91bmRhcnkg
+dGhleSBmaXQgaW4uDQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBMaW4gTGl1IDxsaW4ubGl1MDFA
+Y2l0cml4LmNvbT4NClJldmlld2VkLWJ5OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5j
+b20+DQoNCg0KSnVlcmdlbg0K
 
-I was auditing some HID drivers and found this exact same use-after-free.
-My analysis agrees with yours, but I am replying as I think there is
-a stable-tree gap -- this patch does not have Cc: stable and your cover
-letter also only explicitly mentions the "first 14 patches". This UAF is
-worse than a crash and can lead to LPE if exploited.
+--------------Xemoc0Pv264QPqL109RvJbGz--
 
-I realised this patch cannot be applied to any released stable tree as-is,
-which explains the stable-tree gap. It needs ff->stop, added by
-ef166ce08801 ("Input: stop force-feedback timer when unregistering input
-devices") in v7.2-rc1, and it also needs context from earlier patches in
-this series: g920_input_open() from 03/33, hidpp_dev_groups from 20/33 and
-the reshaped hidpp_ff_destroy() from 18/33. So the UAF fix cannot reach
-stable as this patch, and each tree would need a hand-written backport.
+--------------LIGiRNSFugMGqSq0b2MFddW7
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
-Every LTS kernel is affected: 6.18.y, 6.12.y, 6.6.y, 6.1.y, 5.15.y and
-5.10.y. In all of them hidpp_ff_destroy() still destroys the workqueue
-while hidpp_remove() never drains it, g920_get_config() still runs from
-hidpp_probe() so FF init succeeds and the workqueue exists, and none of
-them has ff->stop.
+-----BEGIN PGP SIGNATURE-----
 
-Note that I only mention LTS kernels as 7.2.y is EOL. 7.3.y is a special
-case and only needs the driver-side context from 03/33, 18/33 and 20/33
-since it has the necessary commits brought over from 7.2-rc1. To resolve
-the LTS kernel gap, I would suggest writing a minimal stable-only fix to
-resolve the UAF in the remaining LTS kernels.
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmr+muYFAwAAAAAACgkQsN6d1ii/Ey9L
+HAf/X0Pm4J7+wBBKEjrIufQWB6suG5g7l9JkTCLi7GWNeLxMhwGj/TklDgnzrB+Ob2euHI5rLASO
+g//lwldmRx37r1spQYDFdcgdYmWwvCmEbiBCFaffMZln2/u1G0rkEX/aNTagnomlkblqnQRYZADJ
+9UwPjzh+DvvOEP6epdxoUK9n9YHQEMeRO67SBL8bhStv1HTfzdknZGC87RVxxcPkt2maPCi+oDcB
+fsRMJaTF0SR+Ng71IdBN5Emke0k39vp7R+W2Na8bDmLnY642R5OCVvZ7cw1JT/JL+l2F1WG/dIUd
+ncfCfbUfFbuxu9W69Rn945V8vvcVVj2UOWNqa8WyHQ==
+=+1hD
+-----END PGP SIGNATURE-----
 
-The alternative is a hand-written backport of 22/33 plus its necessary
-context (ef166ce08801, 03/33, 18/33 and 20/33) -- which seems like a mess
-to do.
-
-If you'd like, I already have a patch for stable trees that I can
-contribute. Let me know your thoughts, thanks!
-
-Cheers,
-Wei Jie
+--------------LIGiRNSFugMGqSq0b2MFddW7--
