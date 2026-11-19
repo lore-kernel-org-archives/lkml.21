@@ -1,65 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103823;
-	b=Wtrpe7CvOBgB2vkm78X1yd3fGt1GUNSZif5YJFMnf6Hw+uy61TcNFZ7dzwQVfYTIF7Pe
-	 6FZlvmEAtPPikd8Nt300Xu1Pa9WI25f6rcttGylMGZEl4gjmofaZB1suvYy25saTz+Ygx
-	 whmlOhCjdzZUNGmobIsgnnOWHsNZZcmXBwjhzd75Jt/EUKkZTT1sXeTIzQH7pI74H7gaw
-	 XQ5Q4k2OgaRxXpxKB+CtgTJH0ckWVD88IPhVv1svIixOK8FO+Qpllvz8393IPEW3bbU4A
-	 ddMqzQ0awgfyZpW9zmMfO3XYQwungvxvZOcCZC2MtHjvNj6L9kAViK6tYTfzkSYc/5g==
+	t=1795103844;
+	b=X9kBVbl9m0YpjwdZnX0r6YWQdQALH692KPyCKng/4Z/o2qu8v06nGHSruOqzvAir2nSo
+	 6T2MpGP7fUQHcj1WhKnMXSGx1/Be6EpVxlqecAOyrb1R1F4SG+56vhJcoc/DdiU5Owvzw
+	 +wa4p8SmMjJIe9X07p+a9aB2p8nMXuLrSlBRfnt3Xl7NhNwGEKzVoQ5n4yUOZwTQVN8So
+	 mN87scueRW1haJfsr3lU+RmrFOlCIfh6Bf/nLG3+qZ938BETgp5sYRCvgv5yXIQnvB6Qk
+	 elH0klbiR9coiY3uCSDIP5/aI7P0NCFA1UIj2YtxignHLG1SWL3k7MKbktDiIQ73W9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103823;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=gnXK3eI0LzM5e0oAZdia117Au3H1x4p+Ro2fs0XpX74=;
-	b=N5t83PFLjP9CULoD5mMYXw75ayDQL0j768g8PISRZCTRPK5FqYEnhd18xiojQW93EdWV
-	 vNRbVnrSCN4+ZpntG9NyjNgEGSzS/jdTRmWvt0hniTwp8CmPgwIl4X5jYQIjXup6jXqG1
-	 QBeqtKYyjRKKnTEeeFYJq9QchWYMY4ajPBJBwdlygnFgvaAEAH8Y1mSgFP/0hwZQetV1M
-	 njfS4sCS578SALIkkVnQoOXR/x0SCXGtFUH2Z2WEHv75Kr4PjDh0+TwnqX3+KUHSKhc60
-	 eMOL8KgcLBxJUDGkr8RW97UGtzxLIZkMZ4bnE1wuxCfhwKDVpRFJIfrADfSB+JeutWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103844;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=wL9zRdjFVzJ6psamOgPyoRa5vDWjyqfaLzG25PcBd7c=;
+	b=PUC/rgEBw39Lkaw2dy64t9BDy93Odv44Nbuq4Fous7HtxUKtBT9QfOneI1yhO4Zy27YI
+	 XxMoQ3gilOFqXABiwzlvAwDWxrppCUYRNT6vCju34Bbh6A7kZ3HYwYrOjY1jVgxNc91MF
+	 yzG15D9evJVfVz/TleYYCoG3/Ia3nsrbLhfCLnJE9oE5UbbNb6H5bwh6K3VwqCuDAaqqy
+	 Omn8YF2m8xu0PMuQU01dlVrIeRcpGZCF99CIGuWuKu1ZCeHQG66buBVq2vimPN995S8R2
+	 Uawask9p1Ln2zjMJ6St1/UmU1SndBL7m+QYysodmBg9iEfmHOuH3sx52e7X3LNL5Lgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=rHUmJS27;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	dmarc=pass header.from=surriel.com;
+	spf=pass smtp.mailfrom=surriel.com;
+	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=b7biwU9a;
+	arc=none smtp.remote-ip=96.67.55.147
+Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95209606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:57:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95209606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88404606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:57:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88404606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=rHUmJS27
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=gnXK3eI0LzM5e0oAZdia117Au3H1x4p+Ro2fs0XpX74=; b=rHUmJS27i5nH1M5iciNxKFw+Zv
-	IUWEq21qEYdjOT8T0tUnLOajdQpHSPshHUjHXEFbdnaVzLUJ7l/fsEoQuQwz83A9VcyIJNAGAwKwp
-	K/Pigksnvm8QuQQSpnaUFeGk+tlXtTGTGUD3c24walAKbS7UPOR5dfhd22HMCtH4d5ayhrmfGvb3M
-	3I9+AZCfsdfLU+aRCIKMvm1cUyu3NZrRsq1HdcW9TaG0RKxrdsEaMcBY4wGkN9rRmYkEU7uUB+Hgi
-	gwA1+gQpUVm0Uae4pMHYNi/2vy7WBAsjTqVLowHB+M3h29wwU21kbK+lgrVI+rxDiR3hfhJ20ejOS
-	wwI1H+AA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xU4VQ-0000000HQXz-1Ifp;
-	Thu, 19 Nov 2026 15:57:00 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 0A88F30072F; Thu, 19 Nov 2026 16:56:59 +0100 (CET)
-Date: Thu, 19 Nov 2026 16:56:59 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	"David Hildenbrand (Arm)" <david@kernel.org>
-Subject: Re: [PATCH] locking/rwsem: don't let a read lock steal from a queued
- writer
-Message-ID: <20261119155659.GB1779021@noisy.programming.kicks-ass.net>
-References: <20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=b7biwU9a
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References; bh=wL9zRdjFVzJ6psamOgPyoRa5vDWjyqfaLzG25PcBd7c=; b=b7
+	biwU9atXWkfGHRDy9IQKAM74YE2OHdt0FTL8f2EerLj33tga+sRKjHR0LB8BaxNVVph1T50++h+dX
+	5u5M9hoBaL0KfC/jfrgDRj9T7/wRtJrwmSo23gp/vnO+Ik4xNpZYmL9KsZ+TLHCucloLETqBDnbDc
+	XfBFApDeoDTNjsdxCZBQuy5kKQWOq3s0sKRK+mtYZday6jScF5i6VbP6+3rbV8Id69y4DVn/Pg2FH
+	fHYGPN8ev7ydD6FOcTo7b7ZhDwEDm41KwkK17ylat6jQ2od9Qd9PXcs4DNONLC2hlp2VIVW4GpezA
+	Dli9MRIfaoE1GjEIsO9+Qh1f2b0OxBDw==;
+Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708] (helo=fangorn)
+	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <riel@surriel.com>)
+	id 1xU4VS-00000005VOH-1Ol8;
+	Thu, 19 Nov 2026 15:57:02 +0000
+Date: Thu, 19 Nov 2026 10:57:01 -0500
+From: Rik van Riel <riel@surriel.com>
+To: David Hildenbrand <david@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, John
+ Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, Andrew Morton
+ <akpm@linux-foundation.org>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>, Suren
+ Baghdasaryan <surenb@google.com>, Peter Xu <peterx@redhat.com>, "Liam R.
+ Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, Michal
+ Hocko <mhocko@suse.com>
+Subject: [PATCH] mm/gup: unshare-check every page of a pte batch
+Message-ID: <20261119105701.3f57ac54@fangorn>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,122 +71,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 05, 2026 at 08:24:27PM +0000, Lorenzo Stoakes (ARM) wrote:
-> Since commit 1a728dff855a ("locking/rwsem: Enable reader optimistic lock
-> stealing"), a racing read lock can steal an rwsem from under a queued
-> writer whose handoff timeout hasn't expired yet.
-> 
-> This is most problematic when an rwsem read lock is released then
-> reacquired in order to relieve lock contention, as instead it will simply
-> have the lock handed right back to it ahead of the intended beneficiary.
-> 
-> Naturally, this behaviour rather defeats the object of doing this kind of
-> thing, so this is less than ideal.
-> 
-> Fix this by updating the optimistic read lock stealing code in
-> rwsem_down_read_slowpath() to explicitly check whether the first queued
-> lock is a waiting writer, and to not allow the theft if so.
-> 
-> When a steal is disallowed, keep the existing sem->wait_lock held when
-> jumping to the queue code to avoid useless lock acquisition/release.
-> 
-> In order to perform this check, sem->wait_lock is acquired whenever there
-> are queued waiters in the steal code, rather than the previous behaviour of
-> only doing so when the reader count is 1.
-> 
-> Since failing to steal a read lock unconditionally results in acquisition
-> of the sem->wait_lock, this doesn't seem likely to be a significant
-> overhead.
-> 
-> Also update the comment describing optimistic read lock acquisition
-> conditions to include this newly introduced behaviour.
-> 
-> Care is taken to ensure correct ordering of lock acquisition, lock waking
-> and marking the lock reader-owned.
-> 
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+A write pin over a PTE batch can hand back pages that a later
+write fault replaces under the pin holder: the process writes to
+the copy, the holder keeps the old page:
 
-So conceptually this is indeed what I meant -- ACK on that respect.
+    pin holder                          process (mm owner)
+    pin all 16 for write
+      batch passes unchecked
+                                        write to a tail page
+                                          fault copies it elsewhere
+    read pinned page -> stale
 
-It would however be good if we can get this ran through some CIs to see
-if there's some obvious regressions and whatnot.
+For every FOLL_WRITE call the helper returns the whole run on
+the head page's credentials, never reaching the per-page loop below.
+After fork, a FOLL_FORCE write unsharing only the head leaves
+the tail pages read-only and non-exclusive behind identical
+PTEs, which batching (PTE bits only, never the exclusivity flag)
+covers at once.
 
-> ---
->  kernel/locking/rwsem.c | 30 ++++++++++++++++++------------
->  1 file changed, 18 insertions(+), 12 deletions(-)
-> 
-> diff --git a/kernel/locking/rwsem.c b/kernel/locking/rwsem.c
-> index b9c180ac1eee..cdb3dd6260bf 100644
-> --- a/kernel/locking/rwsem.c
-> +++ b/kernel/locking/rwsem.c
-> @@ -59,7 +59,8 @@
->   * A fast path reader optimistic lock stealing is supported when the rwsem
->   * is previously owned by a writer and the following conditions are met:
->   *  - rwsem is not currently writer owned
-> - *  - the handoff isn't set.
-> + *  - the handoff isn't set
-> + *  - a writer isn't at the head of the wait queue.
->   */
->  #define RWSEM_READER_OWNED	(1UL << 0)
->  #define RWSEM_NONSPINNABLE	(1UL << 1)
-> @@ -1034,31 +1035,36 @@ rwsem_down_read_slowpath(struct rw_semaphore *sem, long count, unsigned int stat
->  	 * Reader optimistic lock stealing.
->  	 */
->  	if (!(count & (RWSEM_WRITER_LOCKED | RWSEM_FLAG_HANDOFF))) {
-> -		rwsem_set_reader_owned(sem);
-> -		lockevent_inc(rwsem_rlock_steal);
-> -
-> -		/*
-> -		 * Wake up other readers in the wait queue if it is
-> -		 * the first reader.
-> -		 */
-> -		if ((rcnt == 1) && (count & RWSEM_FLAG_WAITERS)) {
-> +		if (count & RWSEM_FLAG_WAITERS) {
->  			raw_spin_lock_irq(&sem->wait_lock);
-> -			if (sem->first_waiter)
-> +			first = sem->first_waiter;
-> +			/* A writer at the head of queue takes precedence. */
-> +			if (first && first->type == RWSEM_WAITING_FOR_WRITE)
-> +				goto queue_locked;
-> +			rwsem_set_reader_owned(sem);
-> +			/* If first reader, wake other readers in queue. */
-> +			if (first && rcnt == 1)
->  				rwsem_mark_wake(sem, RWSEM_WAKE_READ_OWNED,
->  						&wake_q);
->  			raw_spin_unlock_irq(&sem->wait_lock);
-> -			wake_up_q(&wake_q);
-> +		} else {
-> +			rwsem_set_reader_owned(sem);
->  		}
-> +
-> +		lockevent_inc(rwsem_rlock_steal);
-> +		if (!wake_q_empty(&wake_q))
-> +			wake_up_q(&wake_q);
->  		return sem;
->  	}
->  
->  queue:
-> +	raw_spin_lock_irq(&sem->wait_lock);
-> +queue_locked:
->  	waiter.task = current;
->  	waiter.type = RWSEM_WAITING_FOR_READ;
->  	waiter.timeout = jiffies + RWSEM_WAIT_TIMEOUT;
->  	waiter.handoff_set = false;
->  
-> -	raw_spin_lock_irq(&sem->wait_lock);
->  	first = sem->first_waiter;
->  	if (!first) {
->  		/*
-> 
-> ---
-> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-> change-id: 20261105-rwsem-dont-steal-from-queued-writer-04b11d9d406b
-> 
-> Cheers,
-> -- 
-> Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> 
+A page pinned for write must be exclusive to the pinning process,
+and one vetted PTE proves that for one page only. FOLL_GET and
+single-page FOLL_WRITE keep the shortcut; multi-page callers run
+the per-page check. Writable batches and GUP-fast are unchanged.
+
+Without this fix, the pin holder sees stale page content,
+with it the pin and program address map the same page.
+
+Signed-off-by: Rik van Riel <riel@surriel.com>
+---
+This fix applies on gup-7.5-ptebatch in mm/core.git
+
+ mm/gup.c | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/mm/gup.c b/mm/gup.c
+index b0a0019de80a..6b6e4c6f8144 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -639,15 +639,25 @@ static unsigned long gup_pages_not_requiring_unshare(
+ {
+ 	unsigned int i;
+ 
++	/* A short term reference does not need the pages to be exclusive. */
++	if (!(flags & FOLL_PIN))
++		return nr_pages;
++
+ 	/*
+-	 * FOLL_WRITE is implicitly handled correctly as the page table entry
+-	 * has to be writable -- and if it references (part of) an anonymous
+-	 * folio, that part is required to be marked exclusive.
++	 * FOLL_WRITE for a single page is checked by the caller, which
++	 * checked that the page table entry is writable, or FOLL_FORCE
++	 * on an exclusive anonymous page; if it references (part of) an
++	 * anonymous folio, that is exclusive.
+ 	 */
+-	if ((flags & (FOLL_WRITE | FOLL_PIN)) != FOLL_PIN)
++	if ((flags & FOLL_WRITE) && nr_pages == 1)
+ 		return nr_pages;
+ 
+-	/* folio_test_anon(folio) is stable until folio gets freed. */
++	/*
++	 * Check each page for suitability below. The caller may have
++	 * only checked the page tables.
++	 *
++	 * folio_test_anon(folio) is stable until folio gets freed.
++	 */
+ 	if (!folio_test_anon(folio)) {
+ 		/*
+ 		 * We only care about R/O long-term pining: R/O short-term
+-- 
+2.56.0
+
