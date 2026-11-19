@@ -1,63 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.86
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050202;
-	b=lLMxKqLkOvERo1CkNNOWhsEKsEsS+1xHG/zhXtXuOBvQlnw+tVHQ5MIwdrsqx9XePJ3E
-	 +VylBdzjEOrH9gPGdI8sp2RIoVvMXowEzd1Fucors4L2Qoi6Y2jIEsC3ImIJn52ZY18/x
-	 xku/cHaRx41Qobhu4wIoTnpFXfJT7ODlr6cYLlBfz+fomhRcbOb2hbrQhx0ih7qjJP60D
-	 l7OpFvOFAb2yI3wP2VoOzkeuZqP0Z/FBJ2YljLFGCmscFBvuN3Gt76HYEjPL+ga97c0K6
-	 ZV1fy+MISkldgdz7wEEAUhvPCKHnE1T+6mz/pXZUDtRDA4j9Anz+LcMoRMj99ivyeOw==
+	t=1795050466;
+	b=J3/4rO7ZWpGBjqMTxpfubNrxRwwSH32vaKdOuwIQbidYY1c8LOB88ISs+xI6elRk1luV
+	 vmN2GBkzVifSeGRAExn/XcM3ewxFS7nHUBVk+/y+nWLv+spLBxIUq/+sBG3Q9po+rMEVn
+	 JocFZN8d4xFEVV4cfuwP8h/Ne2kMYbARpgpp1AJTXdGX+idkqeqiWUVbN4mEEHO9clzY/
+	 /NHIde6+vP+2dyDChQTQAzBcHDvbUb9LmtYdkdZ6eMNs40mY9RoC0gqaZ+BdnsAja+fA7
+	 18GYKZrp2KbXabgDWqrY9hrJL+PpKtzpTYIhkFeubj/yxzJWae22vPgv5xGm1VG6W+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050202;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=yj8w3KZ+9k9eyPUUUCjfHPBSRxLysZwBaI+r7y6xQCY=;
-	b=2pFbqs7K8p+irnDBlSmyZfYYOA5hO0dhGW8+TXY7l4otjrQnJpHibhhIfl1LYAvST6AQ
-	 Dq/JSyOsplSY32KWAoghj3+JtGOkYaPaY8+GXwiexq023LOHmzL4fqGxjlCKEPg6rSMhb
-	 0mN5AOylQ/UDkr2f7r9e1+b9tO3goHdjxAw5YXyCioamsjHOCoyIA4Rqi9wKBOHjqTzCj
-	 XhxKDKha6kxAX4FwHDznvl+n31DQkpzJbgFZ7kWZS4NRKhhz/E/NAocYrx88SHV20ui2H
-	 Zgapnm2YKbkvKveB7jyp3u6cLpsR/TO+AechXoxGNE42R116SNR2Jnc8jSfZ0/mGF+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050466;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HINsME+iXYJtTjFPv+yuivxQq/X+Lpd6mIVAkSLmihQ=;
+	b=nD+v159KGE6QGbQfVjpIb/EEmCRcVNk/K6tLt0uJ900LeMPYp6DuUUGmSOQZ+XyB3eX/
+	 h8A8mUtMblq2BA/aqoMW4fChODjfS+YgtB5uzMEvyL9hvDa31gsUQRR5bbkshJICdXDzf
+	 vAbQZtPwlizEFH6v8ao4v3J5hlUE43UilpB+HAyJkcFJ1qSAWpKmbZvtCjGoTxwUalS8l
+	 GN9Lr1LYtkU1IlII01SBSYZFlg4FirT/eZeotgEpJcodCYZSd/TY0nRZ36B+LDOnvUDuC
+	 c1MagL0hQhxo4OnjQmJZhO412dMrIcalZ3LShTrASxZ3NwzkCElCn/fQ4mmt7LYmWgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AlEKYU3t;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XiHBymb7;
+	arc=none smtp.remote-ip=95.215.58.86
+Received: from mta1.migadu.com (out-86.mta1.migadu.com [95.215.58.86])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E797606A31C;
-	Thu, 19 Nov 2026 01:03:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48D95606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:07:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48D95606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AlEKYU3t
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 164451F000C4;
-	Thu, 19 Nov 2026 01:03:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795050202;
-	bh=yj8w3KZ+9k9eyPUUUCjfHPBSRxLysZwBaI+r7y6xQCY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AlEKYU3tCPhT+g7iRyEC2mBGoDnkAz/uM+yApRkV1+DzFOFaqWerDObQ01qh33VmI
-	 h2HRMCgQp7bRw5SXMV2cxhpooacuralLXEaxhB3CK+dakDGpvJSC55/tdLKejSbZ2O
-	 O67Q488ixgLLhyXIpoA3qOX5bg575g3uQrZF8I6IBH/HDVrvWcI/17oWagEkLEsdPh
-	 gUME5kdh2IOpKST72CttO0g+HOGqpLN1FZAEKMsG8RTQKELMKnWHxgjQL//9vMhl8e
-	 DGA0eeoSEU3oYwJVR/8vbvpv8knsJj2vzUrIi55PNprFxLuHXuLye9eLaTpTFU+n9g
-	 Dz8iBYQtdHWLg==
-Subject: Re: [PATCH net-next v3 1/3] net: dsa: microchip: ksz9477: apply a
- shorter ageing time at once
-From: netdev-bot+sashiko@kernel.org
-To: o.rempel@pengutronix.de
-Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, arun.ramadoss@microchip.com,
- jiri@resnulli.us, linusw@kernel.org, f.fainelli@gmail.com,
- vivien.didelot@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- jensemil.schulzostergaard@microchip.com
-Date: Thu, 19 Nov 2026 01:03:20 +0000
-Message-ID: <179505020064.3136.4475163541276513628@kernel.org>
-In-Reply-To: <20261117-ksz-stp-ageing-v3-1-135de6b9f8ad@pengutronix.de>
-References: <20261117-ksz-stp-ageing-v3-1-135de6b9f8ad@pengutronix.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XiHBymb7
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ev8iubwzB9gJIKDmBRQcGMapM70UHKFSQ4HST5j9XkA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795050463; v=1; x=1795655263;
+ b=XiHBymb7+evCbuL7RUwbRiwejYVNNR/hnchCub46hbyquGO1xF1WwAxEgQrPYc26MeSRbJsn
+ XO4ROre2E0r2Ueutg624X66Idae8Z/W6LPL1rdxgocOGFtoyp+r8tvjyRSIUxqbko3WpJeN3r4d
+ fE+7lKT6EE2zXxWOXOcibNik=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 03252fbf95683bbe;
+	Thu, 19 Nov 2026 01:07:43 +0000
+X-Mizu-Trace-ID: 03252fbf95683bbe
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Ming Lei <tom.leiming@gmail.com>,
+	Nilay Shroff <nilay@linux.ibm.com>,
+	Hannes Reinecke <hare@suse.de>,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH v2 0/2] block: make changing to the current I/O scheduler cheap again
+Date: Wed, 18 Nov 2026 20:07:33 -0500
+Message-ID: <20261119010733.7312-1-qiliang.yuan@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179501805754.17649.16701221943802051712.b4-ty@b4>
+References: <20261114-bug-block-elevator-unchanged-v2-0-5a1fe7d72fa0@linux.dev> <179501805754.17649.16701221943802051712.b4-ty@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,130 +72,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Wed, 18 Nov 2026 09:07:37 -0700, Jens Axboe wrote:
+> Applied, thanks!
+>
+[...]
+> [2/2] block: return early when the elevator doesn't change
+>       commit: 375a88c6176ffe05e521c2df31b1ceaf4ae5fbaf
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+This one went in from v2, whose Fixes tag Christoph pointed out was
+wrong. v3 changed it to the commit that added the freeze, with the code
+unchanged:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Fixes: af2814149883e ("block: freeze the queue in queue_attr_store")
 
-- [Medium] The fix depends on a fixed Fast Aging pulse length
-  (KSZ9477_FAST_AGE_PULSE_US = 2 ms, ksz9477.c:1293) that was found by…
-- [Low] ksz9477_set_ageing_time()
-  (drivers/net/dsa/microchip/ksz9477.c:1359-1371) now pulses the switch-…
+Could you update it in for-next?
 
---
+v3: https://lore.kernel.org/r/20261116-bug-block-elevator-unchanged-v3-2-cb4dda2dadf4@linux.dev
 
-net: dsa: microchip: ksz9477: apply a shorter ageing time at once
-
-This patch makes ksz9477_set_ageing_time() pulse the switch-wide Fast
-Aging bit in REG_SW_LUE_CTRL_1 when the programmed ageing time gets
-shorter or the Age Count gets smaller. Without the pulse, stale FDB
-entries outlived an STP topology change on a KSZ9893. The bit is held
-for a fixed 2 ms and then cleared.
-
-> diff --git a/drivers/net/dsa/microchip/ksz9477.c b/drivers/net/dsa/microchip/ksz9477.c
-> index 8d4647e23cda1..972703fe7454f 100644
-> --- a/drivers/net/dsa/microchip/ksz9477.c
-> +++ b/drivers/net/dsa/microchip/ksz9477.c
-> @@ -1289,13 +1289,16 @@ static void ksz9477_phylink_get_caps(struct dsa_switch *ds, int port,
->  	ksz_phylink_get_caps(ds, port, config);
->  }
->  
-> +/* The datasheet gives no pulse length. A 2 ms pulse worked on a KSZ9893. */
-> +#define KSZ9477_FAST_AGE_PULSE_US	(2 * USEC_PER_MSEC)
-
-[Severity: Medium]
-Is a fixed 2 ms pulse enough on every chip in this family and for every
-stored Age Count?
-
-The value was found by trial on one KSZ9893, where the entries stored Age
-Count 4. Each ALU entry holds a 3-bit stored age count
-(ALU_V_PRIO_AGE_CNT_M, decoded in ksz9477_convert_alu()). That count is
-copied from SW_AGE_CNT_M when the entry is learned or refreshed, so it can
-be as high as 7.
-
-The pulse matters most when the old count (mult) was larger, and that is
-exactly when entries hold the highest counts. One example: 1785 s
-(7 x 255), then an STP topology change to 8 s. That gives data = 1 and
-triggers the pulse.
-
-Suppose Fast Aging here speeds up ageing rather than purging the table at
-once. Could entries with stored counts 5 to 7 then survive a 2 ms pulse?
-The same question applies to the other chips that use ksz9477_switch_ops
-(KSZ9477, KSZ9897, KSZ9896, KSZ9567, KSZ9563, KSZ8563, LAN9646 and so on).
-
-ksz9477_set_ageing_time() sets SW_FAST_AGING, sleeps, clears the bit and
-returns 0. It never checks that the dynamic entries are gone. If they
-survive, the stale FDB after a topology change would still happen, and
-nothing would report it.
-
-The KSZ8995XA path in ksz8.c describes an "800 us fast-age cycle", which
-hints at sweep behaviour. It doesn't show how the KSZ9477 family behaves.
-
-[ ... ]
-
-> +	old_secs = mult * old_period;
-> +	new_secs = data * new_period;
-> +	if (new_secs >= old_secs && data >= mult)
-> +		return 0;
-> +
-> +	ret = ksz_rmw8(dev, REG_SW_LUE_CTRL_1, SW_FAST_AGING, SW_FAST_AGING);
-> +	if (!ret)
-> +		fsleep(KSZ9477_FAST_AGE_PULSE_US);
-> +
-> +	/* Clear the bit even after an error. */
-> +	err = ksz_rmw8(dev, REG_SW_LUE_CTRL_1, SW_FAST_AGING, 0);
-> +
-> +	return ret ?: err;
->  }
-
-[Severity: Low]
-Can an ageing time change in one bridge now flush the dynamic FDB entries
-of every other bridge on the same switch?
-
-The value programmed here comes from dsa_switch_fastest_ageing_time(),
-which takes the minimum over all ports of the switch. Before this patch,
-one bridge could only shorten the ageing timer for the others, and entries
-still in use kept being refreshed. With the pulse, entries still in use in
-unrelated bridges are removed too. Their unicast traffic floods until the
-addresses are learned again.
-
-Nothing limits the flush to one bridge or limits how often it runs. Here
-are two ways to trigger it again and again.
-
-With kernel STP, __br_set_topology_change() lowers the ageing time when
-received BPDUs or TCNs set TC, and restores it when TC clears:
-
-net/bridge/br_stp.c:__br_set_topology_change() {
-    ...
-		if (val) {
-			t = 2 * br->forward_delay;
-    ...
-		} else {
-			t = br->bridge_ageing_time;
-    ...
-		err = __set_ageing_time(br->dev, t);
-    ...
-}
-
-For example, 300 s (4 x 75) -> 30 s pulses. Going back to 300 s
-(2 x 150) does not. The next TC (30 s = 2 x 15) pulses again, so every
-TC on/off cycle causes one switch-wide flush.
-
-DSA user ports are not netns-immutable. A CAP_NET_ADMIN holder in another
-netns that owns a bridged switch port could toggle IFLA_BR_AGEING_TIME.
-Each toggle would flush the FDB of bridges owned by the host or by other
-tenants. The same happens when a port joins a bridge with a shorter
-ageing time, since the attribute is replayed on join.
-
-The commit message says Fast Aging is a control for the whole switch.
-Was the effect on other bridges sharing the switch intended?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-ksz-stp-ageing-v3-0-135de6b9f8ad%40pengutronix.de
+Thanks,
+Qiliang
