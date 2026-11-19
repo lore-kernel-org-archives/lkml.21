@@ -1,66 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075099;
-	b=GU/3BLBl1bEMN7ZozNI3IMM19siyDz6CKf4BdrH+dFPy5LrapLp8tSpRzxS9hADEYl4i
-	 DeNB0s+h8wk/08h/0vikaqgXRSumMnj1MpOS1dVKxKQoMyCae//Sopwlgwp5Ap+Ca7Rd8
-	 obXKoBGA/AqOb5pVqai35EIqT8dMj/+fbCR6osobneIiYtWsh4mZbhdLGEcGHRgKlfJNQ
-	 Av0DfZMeZmy28RuzQPGYJJw3Z5egHe1eCGbBGLZaNTyfVzwu6mP3FY2HiSOKLuJJ/iPiM
-	 J5Joaq+SEeBx9Y8plq5Wpi344M14gO1AQHeN+gMuWGAQbMJGJAtvhpF7fIuA4vF0w9Q==
+	t=1795075100;
+	b=zT1gbZc0RnZkM1xEH/9aQyYKkIdTgfnG/qFMyhhvL40aMOPZ4ZUiQYKJNvtE7Iz4qL5A
+	 AjSobnYPUyeBsq1TFBpKdQ79haWekyBBnXfS+dWGkwFmI/ly6HFDfpdxP1G7wsVlrYmwK
+	 dP/LZvUxIL0k9DVzVGP/03PNv5DhZnrhw123V3q7WdG0kd+szZwxyUkEmqCAoo56dqP5V
+	 IkD9zOKH5SYfNEy3/XjLkBx8GQr/gcUBu5IRW4eXy/fRJiieB2Mn4IJgyNvF0vT3ElihW
+	 AprN9X2pFtpjx6fY0NVJLKou20yuEEWuUstyV5OjLSLUxvlOCl/ki4x2Paq41/Z0MdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075099;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=v3ccLLF7atNWblKk/enk9BxIoPVTWQSChaAEQnlXYAA=;
-	b=ffeiKkP0VWgChZWjGAXP8mdj0xPpSnz4aehoxOR6q8NCigcgP82Deq4FTZokgDvjW49s
-	 yA7oPoLfM112ZOeDkcpgWyT5doHKwWz/eZAw5x2W9F+Pq31hq0MKhzpbdmRICU+iuaiGu
-	 pOj/HrmwFWlOZnhX/h5+VmshRaHIcDOlFGiJTFHx4vSzQAO+GQHWJLc9M3bp335AjgOAQ
-	 qAkPA4Aq6v/it8FD63fP4m2lZwA5fUMtW+c47ku+AtOF+32YPlQuOb1JA/9e7Z0h4bsGJ
-	 ofxFLp1bv++Xp0kSOxJ8P4CIAIaqcbEm5PxD/lplcLlPZn3v2XXjfXsOV4QWUSwtS/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075100;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:From:Reply-To:Subject:To:Cc:
+	 References:Content-Language:Autocrypt:Organization:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=pdQlb2CsGbWPGWlbFcx6D3f/AbXcJrTux+zl7o+qrMU=;
+	b=c+CmGKvIWIoJRG8ZsgBY6qIveFG/7y6VQNLKVNcvrBwq1/FInKAmgSg/iRWHQmz/qKf3
+	 YmjkK5te7iFlaYokPyRHu5yKB0zKHvoMYbSR2E3QMW9PAQ2gXSeNU+7ZIkjntJWr/018h
+	 r646kHJXjPFabEaKxi5qVsxopzFKJxAEvvSIXDh24eKZ4VYziy5/AfHKdyQJ+bxEChVcw
+	 qJcsPCN78PEqkczx6sRzfwO4c2WBTjc6UC6suBB712XC14kdY5iHuPESxeNz5baPWP1DX
+	 SHgNze7Y2QwP0lyTJKySmO7GQbZM7VMV/6pt9qu6pp6y4TVbgIW7I8kNBp3hHc0yj8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b="mVX/+Z5j";
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 51718606A320;
-	Thu, 19 Nov 2026 07:58:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51718606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=obzcTnY7;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CDCD606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:58:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CDCD606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=mVX/+Z5j
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=obzcTnY7
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so3989085e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:58:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=mVX/+Z5jvEtW38QSHDp2bY0u9FHDndjid98mEhdfrXFMdcqJqxdijl+fMxMQ4Db4BqNKa0B/lOLk/
-	 +wk74XiLTM946E4DY/68NW4v6qOBKtpFvmZUFW+swGXFe9cocdC+d3iP0t8eFz75FxffW/tJZk/+E9
-	 GGbOJCkaJqgEZjTE=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86afeac0c3b3-bba6d;
-	Thu, 19 Nov 2026 15:58:16 +0800 (CST)
-X-RM-TRANSID:2ee86afeac0c3b3-bba6d
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from devin-VMware-Virtual-Platform (unknown[223.108.79.97])
-	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26afeac17c71-f5877;
-	Thu, 19 Nov 2026 15:58:16 +0800 (CST)
-X-RM-TRANSID:2ee26afeac17c71-f5877
-From: Zhu Jun <zhujun2@cmss.chinamobile.com>
-To: broonie@kernel.org
-Cc: lgirdwood@gmail.com,
-	kuninori.morimoto.gx@renesas.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhu Jun <zhujun2@cmss.chinamobile.com>
-Subject: [PATCH] ASoC: audio-graph-card2: Release multi-link ports references
-Date: Thu, 19 Nov 2026 15:58:15 +0800
-Message-ID: <20261119075815.50155-1-zhujun2@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.51.0
+        d=linaro.org; s=google; t=1795075098; x=1795679898; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pdQlb2CsGbWPGWlbFcx6D3f/AbXcJrTux+zl7o+qrMU=;
+        b=obzcTnY7fGwAiNjMoQONcwqMOC2Pz6h2x2/gdO9ehVt5BQgEwpHevwnoBeGRJ4ThQf
+         EljRAFqrPCxntrGC3TSvkhA3+LAthBcvKwo9caK0Ju0PMWhiPvEB9l1y6yRovNOXkh6V
+         lc8BL5oOBbtADVElfW5NDqGLF4HQjhzsZhUVThTCCNAQZkhFbdQxmm/u0xg4bdQjxh23
+         mxLZokUQmXpphYm1HJ85/1yT6lGPzddefcHJykK9ImBlqEvQl3Mvf3OZ1MjC5sWNOERD
+         J3yJLBxBem/qodsZ01YZKO0PwQQQ6pNGqwSzYfRpTEcuv0U8lLYYIeC4pUVqF0DKyDYd
+         e+vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795075098; x=1795679898;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pdQlb2CsGbWPGWlbFcx6D3f/AbXcJrTux+zl7o+qrMU=;
+        b=EU6+YVieT1rhGCwE0g5AosMUbh9VQHKaBk2pxTMvgh8KpEMZMJn6QkLyyJWVjsEQJk
+         Q7IRQXxjWqbRBSLrRiRi4L5s/gl/jOHAzx5zOGMxTw9BbMCZ57fQWFWxrDG7sxQ8h7bT
+         NYb4sS4Vq5XAQp7XeZCPFiz3YlI1qudNkDyTAmmoPJK2/m8kvA+W7tLA8Y9QP3od75nb
+         aDWhojtcE1eYllP27ZBZG4m7PgEGJz3MWmZut8vktYKbDqKg9PR6IKUcrCk4cEz1HvTr
+         FYLRc2SluA/0yLwT6l31K8WXPtgRYGPW0wVmJU/CAOkZPbXdw2RCmd2cQ/zaAAq0kPAO
+         iwlA==
+X-Forwarded-Encrypted: i=1; AL+hErGIaJwaNH13Dz+v2OQAzu+Z7/Do9vch/i5QmIK12zq/UQzLAYQ6RcW/g5lae3LQN2n/1sil6/Elog7nFlM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94g+KTJQlz2I8YzTIBN/xVKUU3+ZVh4qWDGYp2vUYpCfLSYRoW
+	bWSavfbriwxOAEQgzE1mPwvpm9cUqY58q+5pQflqS2s27fNz0I/qPtt9bA0hqfL9mmA=
+X-Gm-Gg: AYBFou3QOur0D8z3BaAFlo54rknRYjtivoEWwPIkzg8CVxRW6ithGlqhfv/tv/uushM
+	0qaVPthOeaD+Mq9P8pVY4duYWyslLYOXb+ojuXoTJKypV9XPLncIcOEl7etrfXsdVzjOO4DkFiX
+	4RfhRSpsHXFFtjR9qe01L4v2YhfKfoRam8PSpfUB6kD+Ek+S66McmTgUhj9l3PO9YIFYqeFkiY3
+	X032BPL+yIMm/Z6JjOs9ts0y5c3+q26JPjHKx76Bv8e+tIZkkMdxXD9Ubwyi7XlFql1DOBzngwM
+	Bo+kYBWM/vD2+9dOacrNMcRtzRzAge5E6KwCGcjdfCRz1NiSNJzTXp7yvoOrpQPXWdWjAXnZKZ1
+	edToL2lKIpvT21Lo7Ynmf237J6u3hOiZN5j6Z43k7UQKklsaG9FLjjmnZsQljEFWKmBkE1ZzVVx
+	Su2q+xoTNwXsAPW3fQ/LHYV0nLwSW3W7D+Mn98bfYA+YHH/NYOEFYbhORRcBY6M7voOWm7+qcJr
+	Q80e3/KJ6hqnXx8Zvq7IeMc0WqVYcIe9RdcWckDGAn/D7vklXTJTJEJaycEwbJqoaMgY9gz5IHH
+	JuALDwWzzo9ofYVnJa+WDBFzJbipSwQ7HwgBuEuxSj5quzYbgO25vhewzLMRzSQB22eES5s/Hu3
+	TnxGZkC3+
+X-Received: by 2002:a05:600c:4e86:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb8609ad6dmr6876015e9.0.1795075097389;
+        Wed, 18 Nov 2026 23:58:17 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:106d:1080:3611:76ad:c4e1:77e7? ([2a01:e0a:106d:1080:3611:76ad:c4e1:77e7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8532f1a9sm15704175e9.3.2026.11.18.23.58.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 23:58:16 -0800 (PST)
+Message-ID: <04447713-32bb-46ff-8dd9-ba00bce186db@linaro.org>
+Date: Thu, 19 Nov 2026 08:58:15 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,46 +93,174 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 00/10] phy/drm: amlogic: Extract Meson HDMI TX PHY into a
+ dedicated driver
+To: linux-kernel-dev@aliel.fr
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+References: <20261117-meson-drm-create-hdmitx-phy-v1-0-9e0ac931381c@aliel.fr>
+ <51831581-525f-418c-86ea-3b5c6a80709b@linaro.org>
+ <bb027d3b-6a43-4dd3-9771-3448c86996b5@aliel.fr>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <bb027d3b-6a43-4dd3-9771-3448c86996b5@aliel.fr>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-port_to_ports() returns a referenced ports node. graph_counter() drops
-the pointer after counting the ports, while graph_parse_node_multi_nm()
-compares it with the expected codec ports node and discards it. The
-references remain held after card parsing, including across reprobes.
+On 11/18/26 20:35, linux-kernel-dev@aliel.fr wrote:
+> On 11/18/26 13:38, Neil Armstrong wrote:
+>> Hi,
+>>
+>> On 11/17/26 20:33, Ronald Claveau via B4 Relay wrote:
+>>> This series moves the Amlogic Meson HDMI TX PHY handling (covering GXBB,
+>>> GXL, GXM, and G12A SoCs) out of the meson_dw_hdmi DRM driver and into a
+>>> dedicated generic PHY driver.
+>>>
+>>> Until now, meson_dw_hdmi directly manipulated the HHI system controller
+>>> registers (HHI_HDMI_PHY_CNTL0..5) to configure analog parameters, toggle
+>>> resets, and manage power states, as well as manually ungating HDMI
+>>> clocks and power domains already described in the DT.
+>>>
+>>> By extracting this logic into a standalone PHY driver under
+>>> drivers/phy/amlogic/:
+>>> - Hardware representation in the DT is cleaner, modeling the HDMI TX PHY
+>>>     as a child node of the HHI syscon referenced via standard "phys" and
+>>>     "phy-names" properties.
+>>> - The DRM bridge driver relies on the standard generic PHY API
+>>>     (phy_init, phy_configure, phy_power_on/off, phy_exit) rather than
+>>>     touching syscon registers directly.
+>>> - Legacy DTs lacking the "phys" property remain supported via a
+>>>     temporary fallback helper (meson_hdmi_phy_create_legacy) to preserve
+>>>     backward compatibility to be removed on next phase of component
+>>>     removal.
+>>>
+>>> Overview of the series:
+>>> - Patches 1-3: Fix compatible matching in meson-gx-hhi-sysctrl bindings,
+>>>     add the new amlogic,meson-hdmi-tx-phy DT schema, and allow the
+>>>     "hdmi-phy" child node under the HHI syscon.
+>>> - Patch 4: Add the new Meson HDMI TX PHY driver implementing the HDMI
+>>>     PHY configuration ops, along with the temporary legacy creation
+>>>     helper.
+>>> - Patch 5: Document the optional "phys" and "phy-names" properties in
+>>>     the amlogic,meson-dw-hdmi binding.
+>>> - Patches 6-7: Clean up manual HHI clock/power-domain writes in
+>>>     meson_dw_hdmi (relying on runtime PM instead) and convert the driver
+>>>     to use the generic PHY framework.
+>>> - Patches 8-10: Add the "hdmi-phy" child node and wire up the "phys"
+>>>     phandle for G12, GXBB, and GXL Device Trees.
+>>>
+>>> Tested on:
+>>> - Khadas VIM1 (GXL)
+>>> - dtbs_check and dt_binding_check run cleanly with no new warnings.
+>>>
+>>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>> ---
+>>> Ronald Claveau (10):
+>>>         dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Fix compatible
+>>> matching in conditionals
+>>>         dt-bindings: phy: amlogic: Add Meson HDMI TX PHY binding
+>>>         dt-bindings: soc: amlogic: meson-gx-hhi-sysctrl: Add hdmi-phy
+>>> child node
+>>>         phy: amlogic: Add Meson HDMI TX PHY driver
+>>>         dt-bindings: display: amlogic,meson-dw-hdmi: Add phys and phy-
+>>> names
+>>>         drm/meson: dw-hdmi: Drop manual HHI clock and memory PD setup
+>>>         drm/meson: dw-hdmi: Use the generic PHY framework for the HDMI
+>>> TX PHY
+>>>         arm64: dts: amlogic: Add HDMI TX PHY node for G12
+>>>         arm64: dts: amlogic: Add HDMI TX PHY node for GXBB
+>>>         arm64: dts: amlogic: Add HDMI TX PHY node for GXL
+>>>
+>>>    .../bindings/display/amlogic,meson-dw-hdmi.yaml    |   8 +
+>>>    .../bindings/phy/amlogic,meson-hdmi-tx-phy.yaml    |  33 +++
+>>>    .../soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml  |  43 ++-
+>>>    arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  |   7 +
+>>>    arch/arm64/boot/dts/amlogic/meson-gxbb.dtsi        |   7 +
+>>>    arch/arm64/boot/dts/amlogic/meson-gxl.dtsi         |   7 +
+>>>    drivers/gpu/drm/meson/Kconfig                      |   1 +
+>>>    drivers/gpu/drm/meson/meson_dw_hdmi.c              | 203 ++++++--------
+>>>    drivers/phy/amlogic/Kconfig                        |  11 +
+>>>    drivers/phy/amlogic/Makefile                       |   1 +
+>>>    drivers/phy/amlogic/phy-meson-hdmi-tx.c            | 309 +++++++++++
+>>> ++++++++++
+>>>    include/linux/phy/phy-meson-hdmi-tx.h              |  19 ++
+>>>    12 files changed, 513 insertions(+), 136 deletions(-)
+>>> ---
+>>> base-commit: 6d582d78fad9d828e575ca0cdcff8ea47a77220b
+>>> change-id: 20261115-meson-drm-create-hdmitx-phy-4ac40a654d09
+>>>
+>>> Best regards,
+>>> -- 
+>>> Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> Overall it's very good, but I would've prefered a more sequencial move
+>> to the PHY driver, with an exact copy of the code and simplification
+>> towards the current PHY code.
+>>
+>> Anyway, the sashiko review comments are good, especially the one on
+>> patch 6 to keep the driver working on old DTs, sorry my bad...
+>>
+>> Neil
+> 
+> Thanks for your feedback, I am analyzing/testing sashiko feedback.
+> 
+> About the suspend/resume unbind/bind, I do not have any issue on my
+> side, but I can change the orders.
+> 
+> About patch 6 and the old DTs, I will reintroduce them with the legacy
+> check. Do you know what would be a good timeline to add a require on
+> those elements and drop the fallback code ?
+> 
 
-Use the existing device_node cleanup pattern at both call sites, so
-the temporary references are released when their scopes end.
+The problem is not necessarily the kernel DT but the U-Boot DT which
+could be used by the kernel.
 
-Fixes: e2de6808df4a ("ASoC: audio-graph-card2: add CPU:Codec = N:M support")
-Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
----
- sound/soc/generic/audio-graph-card2.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+The U-Boot DT was using v6.2 before v2024.07 and after it uses the synchronized
+DT from Linux, which coincides with the v6.11 DT which contains the DT clocks
+changes.
 
-diff --git a/sound/soc/generic/audio-graph-card2.c b/sound/soc/generic/audio-graph-card2.c
-index 4708bbba1a3c..210c789d4b7c 100644
---- a/sound/soc/generic/audio-graph-card2.c
-+++ b/sound/soc/generic/audio-graph-card2.c
-@@ -559,9 +559,10 @@ static int graph_parse_node_multi_nm(struct simple_util_priv *priv,
- 
- 		struct device_node *mcodec_ep_n __free(device_node) = of_graph_get_remote_endpoint(mcpu_ep_n);
- 		struct device_node *mcodec_port __free(device_node) = ep_to_port(mcodec_ep_n);
-+		struct device_node *ports __free(device_node) = port_to_ports(mcodec_port);
- 
- 		ret = -EINVAL;
--		if (mcodec_ports != port_to_ports(mcodec_port))
-+		if (mcodec_ports != ports)
- 			break;
- 
- 		for_each_of_graph_port(mcodec_ports, mcodec_port_i) {
-@@ -1117,7 +1118,7 @@ static int graph_counter(struct device_node *lnk)
- 	 * ignore first lnk part
- 	 */
- 	if (graph_lnk_is_multi(lnk)) {
--		struct device_node *ports = port_to_ports(lnk);
-+		struct device_node *ports __free(device_node) = port_to_ports(lnk);
- 
- 		/*
- 		 * CPU/Codec = N:M case has many endpoints.
+It seems most of the SBCs distro uses recent U-Boot versions, and some nice distro
+ships older U-Boot version, so it could break on those if a new kernel was deployed.
 
+But, U-Boot already set HHI_HDMI_CLK_CNTL and HHI_MEM_PD_REG0 when probing dw_hdmi
+since 2019.04 so considering that I thing the risk is super low.
 
+Add this to your commit message and send a v2.
+
+Neil
