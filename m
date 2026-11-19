@@ -1,73 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795094339;
-	b=kR/RM209F1a+3kiT3MIH2b4B5kAu/OiGR2/h3PUoHfQlhMKL5Rbtu+b41EtARWTSPtJR
-	 tiz2nd3DyO5z2HTj2S4INK1LX2CzdRRthj/AVW3R3FrQURZbu0AaCbPYZKEE7GHHnvZlq
-	 U1sKbTAgHlKn0N+H1xSEs7L9BcQ8mzkrseLMfOvnvrp7wdN9ItE0xwYhyxtMutjqES16A
-	 8OFUrbYzkVPpgWlQaSF2jSiNszigCHnhH/MEWU0YBCAVhxuGvSP83OnvEThGOqqSrB+z9
-	 uCQsbO//LlNx2JIheyNG8+L0ldh3eFsUEeCbe5PQgW7rKCRyzXN7Q9kD6JlJQbyQ/AA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094339;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=Y5QljIJzJ2EvsPCbBU99vVrmRlTnuD78DuUYhuPJum4=;
-	b=oFYw3XqMaG/X4Na28P4bXPX2mFI3H9LiMpWzHfGWCaNORvwkGgAV8cMIRURWcTaRadju
-	 np2S4S0BMx6r2vjs37Qyu8tc8fc7ljXl46gqaXwNckNB5CAS2toZI/XPobTye/ejx3XKa
-	 Rsb8HmEHMPvDouiPf67GsPvBM3kr0uEt/cGkuOlTDJLJzcEf34wKaC1lBEwA75rR0P92w
-	 fglqYzcmidTiLffNxQB17NAUNuvxpyfEVupTI11aljqyM0HEWLC/CXLfC2HkB+wBSWIUf
-	 D01BCYEL4y+CnLx0EMk5JioOPwldjAcv9DsL2nkckdeWTjnmaVJHjgLYOayXBpaj7aA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=I8OG2BDR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795094363;
+	b=YQT4nyRUFGLxSoVSICqiLilUk1jeY5DaegPu6bhSUGb7uh0beXYYdO8f5Gspzb4j92A+
+	 Kw/JFeWpIYwZVjTsW0VK+8gt8QjPs4AQF/rWUTwowYv2ehMeMsY1JKBdwwqT6ZZ5JzPvB
+	 Ngcj59OoVeA5X3wBN430ZrNODbcZDlonZG/OxVdExhpRLlhYho1ha4O8hgV/gCf6maidi
+	 6peEUJO1m5MhsZ3KKwrnipXlYzoi7CETK4TGLWv+faz3EgAF8kMFS8i/ZVYLcdtRC3YAZ
+	 zOKA3JIiGj+RZyP6ENv4siWwMMN+Le7gm2cz9tsEyTU6NShVihTPxzvGIbctPnm75kg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094363;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Y1OVXSHvlvZEo/9tU0mtIh7APp20mcVAytWRmOeHWk8=;
+	b=lYqOGiogh8F8y4Y39OkGGgb9n2w2knSULHK5+Ypklgbfoz82fGkHA5jUs2W1eWN1/CTV
+	 uUh8bIC/ZEFY1135sQrUsT6TgEydS4hLZMMf/LGQeJAiiy1Jcf0kgn/N5mu17ThjLf6lK
+	 CyLY0Pp9Jgi1uI2/nzjIkQLjXCZnzB8IO76quzgWLSulGBNgJS/NzJIEQure2+eMGKVzt
+	 BoSKRxONq9NNtC3Im/FpL7eUwtSEsdGXIODYtFl90LafpvrOUYVV54aTDtZ4seMywG4oo
+	 qAq436uBiim3ZD1AzF78RmeFcYkdbjrDp3UyDNuHrFVBRrk2zo6Z4yo3OGMmYIOVD2A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ko2+EvCa;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00999606A324;
-	Thu, 19 Nov 2026 13:18:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00999606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FB1E606A320;
+	Thu, 19 Nov 2026 13:19:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=I8OG2BDR
-ARC-Seal: i=1; a=rsa-sha256; t=1795094307; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NRLgq3lY11xn3AieWMMsUd10Y3yZ4lLHny2rJmCypVUOWTjgBM8CQVs7UDr6afLZO0Rs1CZOZ7E9eo7TlGSDiMjn14DPw03yiIZQcMi6aWJ9DYrYdlV5RNHuELcP51LVBAT6vX6XZHr3eQN/mFK7vZwX6OBB2whrhBxYjCIBCl4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795094307; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Y5QljIJzJ2EvsPCbBU99vVrmRlTnuD78DuUYhuPJum4=; 
-	b=e5UmJ1w2MAuy6KqWU49WdR9Y3a74MBU5eb6Ct+giVCy8SJ1CK76eSItiqjn9Q+AGJTPj3MfSQvqwaUzdxkBqyRdWejJVHcF/YM6QhsS92OiDrAC6Z4zcBFYOWvemElj6gCIf9acFfEQGHMajcUb8r9oTW4OBeojDDNVf/wUsyCw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=I8OG2BDRwE2dzG6r6V7ebAzn+3BJrPySr2t/auA+Wvbx/E8HeZAyqm/m3ipSz+7Zstf5lEDs9QJcC4sArfwlo8iz2k8Xr5ShKUzpGNEmkdubtus8gxSJDeOF8wTb2h6QY/zQt7XMG/EiVbcLJAKHCzVrhZxaMuL+/XNJGnf6cMB4kxEnLx0fiFBZVdG9/1SltpMqhcodru8wf7LZRnnvdJTuDpIhjWhzHQN9su0ITRXv1sDBL+oXO5q5IyEZdb8TGfA1WKas7Mggt5FHrXX0b4e9z4SYeQn/sCzwh80d0dIKSz5MsQhvVuoHWUp/ETho4TbLiCd4s7ihnjBuPi5mDw==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=Y5QljIJzJ2EvsPCbBU99vVrmRlTnuD78DuUYhuPJum4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 17950943035410.2615982106077581;
-	Thu, 19 Nov 2026 05:18:23 -0800 (PST)
-Message-ID: <73a6179232b6db07014d78508c441a6013912e69.camel@rong.moe>
-Subject: Re: [PATCH v4] platform/x86: asus-wmi: fix camera key LED on
- Zenbook S14
-From: Rong Zhang <i@rong.moe>
-To: Devin Bayer <dev@doubly.so>, Denis Benato <denis.benato@linux.dev>, 
- skyedryv <skyedryv@gmail.com>, git@turtledev.nz, Corentin Chary
- <corentin.chary@gmail.com>, "Luke D. Jones" <luke@ljones.dev>, Hans de
- Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=	
- <ilpo.jarvinen@linux.intel.com>, platform-driver-x86@vger.kernel.org
-Cc: =?ISO-8859-1?Q?Jos=E9?= Guilherme de Castro Rodrigues
-	 <jose.guilherme.cr.bh@gmail.com>, linux-kernel@vger.kernel.org
-In-Reply-To: <9cbdb61b-9c49-4b31-a28d-022500b271a5@doubly.so>
-References: <20261019-asus-wmi-camera-led-v4-1-7744c125bcc9@turtledev.nz>
-	 <e212e07006249d68aa7b9df25c95581b307b10e2.camel@rong.moe>
-	 <395209cded20a0bdc069b7bc19a68366b62a3f39.camel@rong.moe>
-	 <a35a487b-7932-41f7-bbd5-0d0fad2035c4@linux.dev>
-	 <4c7d100f18820cba7c4fe6f6fe50c6e3324504cc.camel@rong.moe>
-	 <9cbdb61b-9c49-4b31-a28d-022500b271a5@doubly.so>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 21:12:26 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ko2+EvCa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 388051F000C4;
+	Thu, 19 Nov 2026 13:19:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795094362;
+	bh=Y1OVXSHvlvZEo/9tU0mtIh7APp20mcVAytWRmOeHWk8=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=ko2+EvCaly/s61/qAxmLcjbIxYuzlmKCn6Ia1C/N0oHUt46E4ZFllw3UQEDipu7vK
+	 iB3gN2tcltYzbdYdB3A5j2/l0Q9EZxDtBd+cGXqogw2j+Sv3lYTct0mU7T1UPMJRci
+	 d9Ij9cfFoZBksYOEHLxrbkqsCTcP2rh40bXFj44Jq3p52LsG/+2sXigZePq4LPk+2z
+	 g9JxLTskPe36Fe+C9NWh3A8vsl58l6lgIWgjNJ4x1HsSBKAYFr+ahbeuj+R07z2SoP
+	 LMYR4uqnAjCaKkBMBKksIHSIZ0rWVnqK3tgAPmqckRqPKcBpOFxY+0WQrO+pDvR+f8
+	 uX3B37sQzPytw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,89 +49,264 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-3 
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 2/3] media: qcom: iris: add error and status details to
+ diagnostics
+From: bod@kernel.org
+To: Dipayaan Roy <dipayaan.roy@oss.qualcomm.com>
+Cc: linux-media@vger.kernel.org, vikash.garodia@oss.qualcomm.com, 
+ dikshita.agarwal@oss.qualcomm.com, abhinav.kumar@linux.dev, bod@kernel.org, 
+ mchehab@kernel.org, p.zabel@pengutronix.de, linux-arm-msm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261106153126.120858-3-dipayaan.roy@oss.qualcomm.com>
+References: <20261106153126.120858-1-dipayaan.roy@oss.qualcomm.com>
+ <20261106153126.120858-3-dipayaan.roy@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 13:19:17 +0000
+Message-Id: <179509435732.2846709.9192164322227229466.b4-reply@b4>
+X-Mailer: b4 0.17-dev-e3fc9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9975; i=bod@kernel.org;
+ h=from:subject:message-id; bh=A9d48vBT/5/HBnNwBb3hxeJq9iMxThbJEbUzCCnkZuE=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBq/vdV+Lrr/tqnJ/VCEeaZiA+ANyfYo65KflLpW
+ yxMoXVBMgKJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCav73VQAKCRAicTuzoY3I
+ OlVKD/4sY8ocPVGx4RYVDTE2VLk8d/ltmyMKL3XfDKnJk6gquhIIeKNvrKWKSKW0YeA74ozUOO5
+ zltrzij820ekRVt/82h46ljZb31i5BQvTr5sw/J/kv+bjUOX2nSEvFrKVaoPzEsoIaTml8MMmpf
+ txJ8yYJmG6TnPcWB0IMbRmidwhWJZEZnLwHd0Sd9qlclhoGLbDzQVdFT+fRjl7Nt4PcJUiIz58S
+ b7XU/1OYX0ZTzm9TQ4FlUMFB3iG/bD58HWJmDNeSiSY7TvNGCOs5IGYFlP1DgTgotxfK1Va2c/a
+ ASDuHyDOwaHlCjv9jYP+kI35QGJz5eCYPF0VpmL4es16rqzBFo22GyphYn5roIOsWUtx+v+FiTw
+ B1kSsL4WjZuMm64Cj7Ntf3Y0HMT9ZDJktZYkg58r7Z1YD3U2XWxvYQXPGemn7S4kvTOND50YT4D
+ IT9BNkBCKkOT8+/iCUZOb5VoRiK6Ir39gtDhQcz1Q4UXPQ0h8y45r0T+14uo+hKRYE5BBPFjOUu
+ pqJ/hnS9iikY9+Gg44bw1u1PBXCQWAUHMluT/s7ux7cPlKbv0b92TOwwAFW8/qQiPp67TDQnB/n
+ 41wTrG9X4qu1ei1E6XU2ixhB2pa9KZp+F0PjKQhv2LC7yx3ZbO1IuRh7ecmjGhloXHE+MXQW5he
+ oQwZ7liqBNcxZ8A==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-Hi Devin,
+On 2026-11-06 15:31 +0000, Dipayaan Roy wrote:
+> Several Iris error messages identify a failed operation without showing
+> the return code or state that caused it, making failures difficult to
+> diagnose.
+> 
+> Include available return codes, hardware status, queue positions, and
+> packet or session identifiers in these messages. Also report the header
+> details when an HFI response fails validation.
+> 
+> Error handling remains unchanged.
+> 
+> Signed-off-by: Dipayaan Roy <dipayaan.roy@oss.qualcomm.com>
+> ---
+>  drivers/media/platform/qcom/iris/iris_hfi_common.c |  4 ++--
+>  .../platform/qcom/iris/iris_hfi_gen1_response.c    |  9 ++++++---
+>  .../platform/qcom/iris/iris_hfi_gen2_response.c    |  5 ++++-
+>  drivers/media/platform/qcom/iris/iris_hfi_queue.c  | 14 +++++++++----
+>  drivers/media/platform/qcom/iris/iris_vb2.c        |  2 +-
+>  drivers/media/platform/qcom/iris/iris_vdec.c       |  3 ++-
+>  drivers/media/platform/qcom/iris/iris_venc.c       |  3 ++-
+>  drivers/media/platform/qcom/iris/iris_vidc.c       |  2 +-
+>  drivers/media/platform/qcom/iris/iris_vpu3x.c      | 23 +++++++++++-----------
+>  drivers/media/platform/qcom/iris/iris_vpu4x.c      |  6 ++++--
+>  drivers/media/platform/qcom/iris/iris_vpu_common.c | 15 ++++++++------
+>  11 files changed, 53 insertions(+), 33 deletions(-)
+> 
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_common.c b/drivers/media/platform/qcom/iris/iris_hfi_common.c
+> index dad906d03fdc..1fd4cecd7956 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_common.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_common.c
+> @@ -138,7 +138,7 @@ int iris_hfi_pm_suspend(struct iris_core *core)
+>  	return 0;
+>  
+>  error:
+> -	dev_err(core->dev, "failed to suspend\n");
+> +	dev_err(core->dev, "failed to suspend: %d\n", ret);
+>  
+>  	return ret;
+>  }
+> @@ -179,7 +179,7 @@ int iris_hfi_pm_resume(struct iris_core *core)
+>  err_power_off:
+>  	iris_vpu_power_off(core);
+>  error:
+> -	dev_err(core->dev, "failed to resume\n");
+> +	dev_err(core->dev, "failed to resume: %d\n", ret);
+>  
+>  	return -EBUSY;
+>  }
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen1_response.c b/drivers/media/platform/qcom/iris/iris_hfi_gen1_response.c
+> index ffa98139f0eb..1ce7f97d4087 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_gen1_response.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_gen1_response.c
+> @@ -301,7 +301,8 @@ iris_hfi_gen1_sys_get_prop_image_version(struct iris_core *core,
+>  	u32 i;
+>  
+>  	if (req_bytes < IRIS_FW_VERSION_LENGTH - 1 || !pkt->data[0] || pkt->num_properties > 1) {
+> -		dev_err(core->dev, "bad packet\n");
+> +		dev_err(core->dev, "invalid firmware version packet (size %u, properties %u)\n",
+> +			pkt->hdr.size, pkt->num_properties);
+>  		return;
+>  	}
+>  
+> @@ -382,7 +383,8 @@ static void iris_hfi_gen1_session_etb_done(struct iris_inst *inst, void *packet)
+>  
+>  error:
+>  	iris_inst_change_state(inst, IRIS_INST_ERROR);
+> -	dev_err(inst->core->dev, "error in etb done\n");
+> +	dev_err(inst->core->dev, "ETB done without input buffer (session %#x, tag %u)\n",
+> +		inst->session_id, pkt->input_tag);
+>  }
+>  
+>  static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
+> @@ -530,7 +532,8 @@ static void iris_hfi_gen1_session_ftb_done(struct iris_inst *inst, void *packet)
+>  
+>  error:
+>  	iris_inst_change_state(inst, IRIS_INST_ERROR);
+> -	dev_err(core->dev, "error in ftb done\n");
+> +	dev_err(core->dev, "FTB done without output buffer (session %#x, tag %u, offset %u)\n",
+> +		inst->session_id, output_tag, offset);
+>  }
+>  
+>  static enum iris_buffer_type iris_hfi_gen1_buf_type(struct iris_inst *inst, u32 type)
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
+> index f0782c4b1e6e..b82f50458fe1 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
+> @@ -980,8 +980,11 @@ static int iris_hfi_gen2_handle_response(struct iris_core *core, void *response)
+>  	int ret;
+>  
+>  	ret = iris_hfi_gen2_validate_hdr_packet(core, hdr);
+> -	if (ret)
+> +	if (ret) {
+> +		dev_err(core->dev, "invalid HFI response (size %u, packets %u): %d\n",
+> +			hdr->size, hdr->num_packets, ret);
+>  		return iris_hfi_gen2_handle_system_error(core, NULL);
+> +	}
+>  
+>  	if (!hdr->session_id)
+>  		return iris_hfi_gen2_handle_system_response(core, hdr);
+> diff --git a/drivers/media/platform/qcom/iris/iris_hfi_queue.c b/drivers/media/platform/qcom/iris/iris_hfi_queue.c
+> index bf6db23b53e2..ef556e54f6f1 100644
+> --- a/drivers/media/platform/qcom/iris/iris_hfi_queue.c
+> +++ b/drivers/media/platform/qcom/iris/iris_hfi_queue.c
+> @@ -112,14 +112,18 @@ static int iris_hfi_queue_read(struct iris_iface_q_info *qinfo, void *packet)
+>  int iris_hfi_queue_cmd_write_locked(struct iris_core *core, void *pkt, u32 pkt_size)
+>  {
+>  	struct iris_iface_q_info *q_info = &core->command_queue;
+> +	int ret;
+>  
+>  	if (core->state == IRIS_CORE_ERROR || core->state == IRIS_CORE_DEINIT)
+>  		return -EINVAL;
+>  
+> -	if (!iris_hfi_queue_write(q_info, pkt, pkt_size)) {
+> +	ret = iris_hfi_queue_write(q_info, pkt, pkt_size);
+> +	if (!ret) {
+>  		iris_vpu_raise_interrupt(core);
+>  	} else {
+> -		dev_err(core->dev, "queue full\n");
+> +		dev_err(core->dev, "command queue write failed: %d (size %u, read %u, write %u)\n",
+> +			ret, pkt_size, q_info->qhdr->read_idx,
+> +			q_info->qhdr->write_idx);
+>  		return -ENODATA;
+>  	}
+>  
+> @@ -254,7 +258,8 @@ int iris_hfi_queues_init(struct iris_core *core)
+>  						    &core->iface_q_table_daddr,
+>  						    GFP_KERNEL, DMA_ATTR_WRITE_COMBINE);
+>  	if (!core->iface_q_table_vaddr) {
+> -		dev_err(core->dev, "queues alloc and map failed\n");
+> +		dev_err(core->dev, "failed to allocate HFI queues (%u bytes)\n",
+> +			queue_size);
+>  		return -ENOMEM;
+>  	}
+>  
+> @@ -262,7 +267,8 @@ int iris_hfi_queues_init(struct iris_core *core)
+>  					  &core->sfr_daddr,
+>  					  GFP_KERNEL, DMA_ATTR_WRITE_COMBINE);
+>  	if (!core->sfr_vaddr) {
+> -		dev_err(core->dev, "sfr alloc and map failed\n");
+> +		dev_err(core->dev, "failed to allocate SFR (%u bytes)\n",
+> +			(unsigned int)SFR_SIZE);
+>  		dma_free_attrs(core->dev, queue_size, core->iface_q_table_vaddr,
+>  			       core->iface_q_table_daddr, DMA_ATTR_WRITE_COMBINE);
+>  		return -ENOMEM;
+> diff --git a/drivers/media/platform/qcom/iris/iris_vb2.c b/drivers/media/platform/qcom/iris/iris_vb2.c
+> index 8faf709c26c1..b770cd5349b6 100644
+> --- a/drivers/media/platform/qcom/iris/iris_vb2.c
+> +++ b/drivers/media/platform/qcom/iris/iris_vb2.c
+> @@ -135,8 +135,8 @@ int iris_vb2_queue_setup(struct vb2_queue *q,
+>  
+>  		ret = inst->hfi_session_ops->session_open(inst);
+>  		if (ret) {
+> +			dev_err(core->dev, "session open failed: %d\n", ret);
+>  			ret = -EINVAL;
+> -			dev_err(core->dev, "session open failed\n");
+>  			goto unlock;
+>  		}
+>  
+> diff --git a/drivers/media/platform/qcom/iris/iris_vdec.c b/drivers/media/platform/qcom/iris/iris_vdec.c
+> index 0dd33ff447bb..d359d3716ba1 100644
+> --- a/drivers/media/platform/qcom/iris/iris_vdec.c
+> +++ b/drivers/media/platform/qcom/iris/iris_vdec.c
+> @@ -529,7 +529,8 @@ int iris_vdec_start_cmd(struct iris_inst *inst)
+>  			clear_sub_state |= IRIS_INST_SUB_OUTPUT_PAUSE;
+>  		}
+>  	} else {
+> -		dev_err(inst->core->dev, "start called before receiving last_flag\n");
+> +		dev_err(inst->core->dev, "start before last buffer (sub-state %#x)\n",
+> +			inst->sub_state);
+>  		iris_inst_change_state(inst, IRIS_INST_ERROR);
+>  		return -EBUSY;
+>  	}
+> diff --git a/drivers/media/platform/qcom/iris/iris_venc.c b/drivers/media/platform/qcom/iris/iris_venc.c
+> index 2f2c56bf9122..a7a0f14a78d1 100644
+> --- a/drivers/media/platform/qcom/iris/iris_venc.c
+> +++ b/drivers/media/platform/qcom/iris/iris_venc.c
+> @@ -602,7 +602,8 @@ int iris_venc_start_cmd(struct iris_inst *inst)
+>  			clear_sub_state |= IRIS_INST_SUB_OUTPUT_PAUSE;
+>  		}
+>  	} else {
+> -		dev_err(inst->core->dev, "start called before receiving last_flag\n");
+> +		dev_err(inst->core->dev, "start before last buffer (sub-state %#x)\n",
+> +			inst->sub_state);
+>  		iris_inst_change_state(inst, IRIS_INST_ERROR);
+>  		return -EBUSY;
+>  	}
+> diff --git a/drivers/media/platform/qcom/iris/iris_vidc.c b/drivers/media/platform/qcom/iris/iris_vidc.c
+> index 05aab6e3005d..80f0a56712bf 100644
+> --- a/drivers/media/platform/qcom/iris/iris_vidc.c
+> +++ b/drivers/media/platform/qcom/iris/iris_vidc.c
+> @@ -168,7 +168,7 @@ int iris_open(struct file *filp)
+>  
+>  	ret = iris_core_init(core);
+>  	if (ret) {
+> -		dev_err(core->dev, "core init failed\n");
+> +		dev_err(core->dev, "core init failed: %d\n", ret);
+>  		pm_runtime_put_sync(core->dev);
+>  		return ret;
+>  	}
+> diff --git a/drivers/media/platform/qcom/iris/iris_vpu3x.c b/drivers/media/platform/qcom/iris/iris_vpu3x.c
+> index c3b760730c98..cd22534c0904 100644
+> --- a/drivers/media/platform/qcom/iris/iris_vpu3x.c
+> +++ b/drivers/media/platform/qcom/iris/iris_vpu3x.c
+> @@ -17,14 +17,12 @@
+>  #define NOC_HALT				BIT(0)
+>  #define AON_WRAPPER_SPARE			(AON_BASE_OFFS + 0x28)
+>  
+> -static bool iris_vpu3x_hw_power_collapsed(struct iris_core *core)
+> +static bool iris_vpu3x_hw_power_collapsed(struct iris_core *core,
+> +					  u32 *power_status)
+>  {
+> -	u32 value, pwr_status;
+> +	*power_status = readl(core->reg_base + WRAPPER_CORE_POWER_STATUS);
+>  
+> -	value = readl(core->reg_base + WRAPPER_CORE_POWER_STATUS);
+> -	pwr_status = value & BIT(1);
+> -
+> -	return pwr_status ? false : true;
+> +	return !(*power_status & BIT(1));
+>  }
 
-On Wed, 2026-11-18 at 10:02 +0100, Devin Bayer wrote:
->=20
-> On 17/11/2026 14.52, Rong Zhang wrote:
-> >=20
-> > > > > When a device has both ASUS_WMI_DEVID_CAMERA_LED and
-> > > > > ASUS_WMI_DEVID_CAMERA_LED_NEG implemented, camera_neg_led_availab=
-le is
-> > > > > false and the LED device can't benefit from brightness_hw_changed=
-.
-> > >=20
-> > > Does such device even exists? Can it exists?
-> >=20
-> > (+CC Devin)
-> >=20
-> > Both macros were added together, i.e., in commit 4bf1ea3fc914
-> > ("platform/x86: asus-wmi: support the disable camera LED on F10 of
-> > Zenbook 2023") for Zenbook UX3404VC, so I assume it has both implemente=
-d.
-> >=20
-> > Plus, the name "_NEG" sounds like it was concluded through trial-and-
-> > error.
-> >=20
-> > I suspect that the two devids were defined for different purposes, i.e.=
-,
-> > 0x00060078 for notification and 0x00060079 for query.
->=20
-> Hello Rong,
->=20
-> I can tell you what I know. I discovered the arguments from the ACPI=20
-> metadata, and found that writing to both the CAMERA and CAMERA_NEG does=
-=20
-> the same thing, as far as I know, but NEG 1 =3D other 0.
->=20
-> They control the LED and the camera.
->=20
-> I don't know about query=C2=A0and notifications.
+This is another example. Your patch says "capture status and return codes
+print them" but this change right here is not that.
 
-Could you test if any event is emitted when you press the camera key? See
-is_camera_toggle() in Zane's patch for the corresponding event codes.
+Please separate out changes like this.
+---
+bod
 
->=20
-> The hardware key doesn't do anything if it's remapped, at least in my set=
-up.
-
-How to "remap" the "hardware key"? Isn't the LED device only "remaps" the
-status LED?
-
-Thanks,
-Rong
-
->=20
-> > > > > It'd be better to decouple the brightness_hw_changed path from
-> > > > > !ASUS_WMI_DEVID_CAMERA_LED, since devices with both IDs should be=
- able to
-> > > > > emit the WMI event.
-> > > > >=20
-> > > > > With that, how about adding a wrapper function that dispatches ca=
-ll to
-> > > > > either asus_wmi_get_devstate(ASUS_WMI_DEVID_CAMERA_LED) or
-> > > > > asus_wmi_get_devstate(ASUS_WMI_DEVID_CAMERA_LED_NEG) according to=
- the
-> > > > > IDs' presence? Then you can share the same brightness_hw_changed =
-path by
-> > > > > calling the wrapper function and eliminate the need of adding a d=
-edicated
-> > > > > brightness_get() callback in the same manner.
-> > >=20
-> > > I'm not understanding this: first the discussion moves toward "what i=
-f one
-> > > device has both" and then you ask about reusing the code for the non-=
-neg
-> > > dev id.... What am I missing here?
-> >=20
-> > Because I assume such devices exist. Perhaps Devin can give us some
-> > clues...
-> So it has both, I don't know which is more correct. I just documented it=
-=20
-> for posterity.
->=20
-> Cheers,
-> Devin
