@@ -1,78 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795083213;
-	b=fHAejCeO2oHIBMUd0hT37Gkwjl28DBAky+4eDraYZ4UcHZLsMyTPxajORuwKMXd54cPp
-	 rUXWANTXff1JX59oniZRh/2+etGaYobynabsbPWREQA7ehfscrRv1rf1ckw8ZitWFQMI3
-	 1mc8Cmaq4kHrhrO9qt245SueooPWTd6fIvRXF/vTo2AAjjLxhj0ZdRanN++w7xJi9eZ4a
-	 UHvNPOV+Ax8KfXZJgHlN1Jbmk3wnDJ/IOe2S85cXObBGeaRZoYNAaC1aiD+l15SUQ/c6p
-	 eLPtSxhLmPu2SREzAn3SQ+zySEvSDp3iWF7lY/r+f63FmDAdyKccNVS8fbUL6qnjoNw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083213;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=0yDZOAIm8/Q3QD8+C6s41Grxf2KSvFAj+qQW3BIcQGs=;
-	b=mrSd4WubYUlKoFgDTocDCZOn60jVxgaliQz2MNHpC0ZNTVrL3PSMnChgVSWzmNM6h1tf
-	 3LWS9CwsE8LWyp/5xzePWvATrL/Yl62LupdK1BVS5X1TxqoJNTyTglyoGIZB2eHjqOGN0
-	 ZNa52gj4JFKEmpYWo9NdZZsYyU1GdVQtWKNSWCjvm9fOW+9kFqCFwS/CBOLQl8KWrlPhP
-	 UyXMKkNHThrthSb+H8Qm77n91oOydunl/ygKt9/3uY6w4Ue+YVonUbPV77z7yshhYB1rl
-	 i1i+OiLma5yoHXFMaEf2UV/taJfU7/UD4w4n5ilPWkh5GJTqnQCf26JMYHOQhHWJWDQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Omd55L/W";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795083217;
+	b=qC5rq21/hSh+fzHZtkWA3bBbnUt06seLDICJtaEQB32Bd2kQwOTKh+1/SSGWxnhx+kHv
+	 /pzHtte+WY3vhm7apf138DUiPyOHVhn9xli78JilBXCnLk7cNEMVK60Y889n5MuTp8A6/
+	 EBW9LohGbRBCCgnCN7HHKrXWmgcbVJI1jOcoxP8zTy25Y1TsFtKdBC76yMjBoYoBjbOJq
+	 fa+AnyDnz02BZcpiPwQX5tqlKDGE05YHnlkhYofnGGBgbh1OEICFv62a2ivPkf2V9iCWY
+	 gXryPEMXqo7JFcm+Cw5VEvpAEwaZCpyelouLNFsbJMqqBrmdNPt/n7NwQ1vkdz3gmAw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083217;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=6DuZj7rpCDJ4RLnqAO8W7jTcTFXU6SWSY1XFYNYKyWY=;
+	b=uNpKkOH0yCTt0W8y1czGZofRTSOj3WyQG9kX92DA3dVGDuyDDZrpMAw1kyMNkHw/r4hd
+	 ARDxmeznmKIkDhsDauCpYFj+86711tI22mdgemzTNv0riLZ6X5P9q6EQwKUlE2ItlwAul
+	 27KI61ZT2lBKIhmcKtuVlYiDq9wnPaO5wAf8MUIBVyTGBEqwm8bH2MDFiFXb1qBbjBA3n
+	 ubTHIekM2wTsjUrNp1huyWtUT6ZOldpK0gHf71oQCHIgdanjxSEO5fT1hHltlcQPm4V5n
+	 xW+XozFP1uUwj7O+7NA1eiwoRX9+aTRs4vpbKYGCJGUsRF6LwzJs9C4RPD/CKUznrfA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kSgXT4UZ;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2008606A335;
-	Thu, 19 Nov 2026 10:13:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A10060A2631
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:13:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Omd55L/W
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795083212;
-	b=CQVcfEUlluf6m7QkbleFbHG3mVnQ9p6SNeU4q3TaRV9D9LrOWoQyIHTXgFJ3ENkRI56n
-	 /M7KpLqZ2NBq8wwkB1/Vb9ZCF7Gr/TVXwS6F0FR0nzleyJX3YEgIlG8jHl45NEBAo72rM
-	 thohQEJwoTcjEHKuVh3PR8LQpMM8+RjI9Lg1yLxjJ3e2HQyUNN9wbefZLS0x7TcZ/PijB
-	 lqmQzMAgx3Wm8oCjNEOTxhcCjLvPThQu9pFFM+7TDxQe0eJxnpg/BIaC3WfrdbWLEW19p
-	 6vzQ/r/fM29oQowSvcyURcG6dk3a1XTRswKijAWKyRIPeCS1CT+qkGsBN1mh/65BoZA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795083212;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=0yDZOAIm8/Q3QD8+C6s41Grxf2KSvFAj+qQW3BIcQGs=;
-	b=PnRJik2H5cRb6RGERTyvT4LmvLyV+tyvBvPBw457xT5GZ90F/Xc7GQE4tzl/XsCcIEy0
-	 n0CbfwG1AgmEtfE/m5+nKaqlr2TwSKCLHPaUXP6mtmwFZvNXL+70t0nW+fyQrbZR3pjzq
-	 8Y8y7a/q6Eu0fIOhYi4kGFU4NWKFfRXuvrYrew5dxp+Szs55wVL4g10C2tJ8kO+FF2Ogb
-	 vohaNiO4i3/SzxOW06GD8TsOllBUPd1VZXl+dahOHeEb0tyJqRwtl2w04hxXWsq6+dctF
-	 5PUWQNKK/dItMOQYQXflE+iR+FNIZQJA9becCLv/Tn1T7J44A6LRGNSNXNQgGu6yaYA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 778D81F000C7;
-	Thu, 19 Nov 2026 10:13:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kSgXT4UZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 653821F00930;
+	Thu, 19 Nov 2026 10:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795083212;
-	bh=0yDZOAIm8/Q3QD8+C6s41Grxf2KSvFAj+qQW3BIcQGs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Omd55L/WcsAFHm9t8HcW+l9StqzGto+/+soS66zl4fR0XHE76UNv+AWBrEwoKt+ML
-	 CIIySWvtOrg24dt3fkgIoXX9Gk+pVZvMuQUmM7bY4vwG9X6p+WtKQ6Okv6bFt5YSEx
-	 vQZAGtqLjYgFutqpn6F8SfkmjVEFfQsBRaOU7jqd6MqncEBXT8ZqrIhm0vBqkVmBwM
-	 8Wh/s4MwwQ8ooCmL0xzOR0lbqqIByFUGL2d2Ja5FPlucV7Abr+Yhjp6dyT2fl97+qb
-	 BIK0GjJj48xJXFgjSB6xiVHLB4fgERUoVNI3b5yJzM9ap4bycaO8GbopEhKa/Vbmt/
-	 iiFcfktbS+MBA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 034F44B230;
-	Thu, 19 Nov 2026 10:13:31 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 19 Nov 2026 18:13:20 +0800
-Subject: [PATCH v12 2/6] dt-bindings: clock: add Ambarella CV75 RCT
+	s=k20260515; t=1795083217;
+	bh=6DuZj7rpCDJ4RLnqAO8W7jTcTFXU6SWSY1XFYNYKyWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kSgXT4UZxO4V1tQsElmCQVnTzGLg/D1NFK8Ql8iz/O/dvvjAYKDsKPeHj4sK4Y0Cn
+	 yRIq6V5QcOhzvt4hASgD+jNOqQs2GkRTh8+oLn3y55zJXIvfFjB1tI1crzzsO3AW9F
+	 wkZ3Ze+me/QgQsFYS8Iq2V5VIp0R9xOLBop+IZZzPmqT1asxSgLVmC45VN/BfQ3LXP
+	 mx24GzFkc3YClfRp4+74alZIFFeDew+fndyg3NTNBhuz1A9Kx88n95mLsqVZDIGnDr
+	 CINZDCPkQTrM8eKXrD2xqOQxAm4pbIsETyowT2iAqnRCKzZ47B87I6BVcoPV/OWmbI
+	 bh+E5gNG7r0bg==
+Date: Thu, 19 Nov 2026 11:13:31 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Radu Rendec <radu@rendec.net>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v3 14/14] irqchip/gic-v5: Invalidate the L1 DTE when
+ allocating an L2 device table
+Message-ID: <av7Ly_iLyiOAXQUR@red-moon>
+References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
+ <20261118-host_gicv5_fixes-v3-14-13c1859e8aa3@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,146 +64,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-cv75-soc-v12-2-e5a03cca8b05@ambarella.com>
-References: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
-In-Reply-To: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org, 
- Brian Masney <masneyb@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- devicetree@vger.kernel.org, Long Zhao <longzhao@ambarella.com>, 
- Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795083209; l=2969;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=gEKr05f9YAOrNVHJfKB47io9QNiMkJyDyO/ZJBUGYg0=;
- b=58uMAGWcQmK7e+q9qH51Q2wkf2o1yGI2IKPDLtuuTKZSKItyEvIuyKH/lmwpzVj9WtyaiX2fN
- qZRLAExgDOMBwUTRDLcF8ULmrpekQEragLfmCjSbfinK9XTYQ1EwttB
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
-Reply-To: longzhao@ambarella.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-host_gicv5_fixes-v3-14-13c1859e8aa3@arm.com>
 
-From: Long Zhao <longzhao@ambarella.com>
+On Wed, Nov 18, 2026 at 05:35:43PM +0000, Sascha Bischoff wrote:
+> Allocating an L2 device table makes its parent L1 DTE valid, but the
+> single-device invalidation performed during device registration does
+> not invalidate that L1 DTE. An ITS that cached the L1 DTE while it was
+> invalid can therefore continue dropping events for DeviceIDs in its
+> range.
+> 
+> Invalidate the L1 DTE and wait for completion immediately after
+> publishing the new L2 table. This also covers a registration that
+> subsequently fails, leaving the L2 table allocated and its parent L1
+> DTE valid. Keep single-device invalidations for device registration
+> and teardown when updating individual L2 DTEs.
+> 
+> Fixes: 57d72196dfc85 ("irqchip/gic-v5: Add GICv5 ITS support")
+> Reported-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/r/20261112145814.853424-1-fuad.tabba@linux.dev
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 26 ++++++++++++++++++++------
+>  1 file changed, 20 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index 7fff2db9ae08e..a05417bdd3a19 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -365,17 +365,17 @@ static __le64 *gicv5_its_device_get_itte_ref(struct gicv5_its_dev *its_dev,
+>  	return &l2_itt[l2_idx];
+>  }
+>  
+> -static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
+> -				      struct gicv5_its_dev *its_dev)
+> +static int __gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
+> +					u32 device_id, u8 event_id_bits, bool l1)
+>  {
+>  	u32 devicer;
+>  	u64 didr;
+>  
+> -	didr = FIELD_PREP(GICV5_ITS_DIDR_DEVICEID, its_dev->device_id);
+> +	didr = FIELD_PREP(GICV5_ITS_DIDR_DEVICEID, device_id);
+>  	devicer = FIELD_PREP(GICV5_ITS_INV_DEVICER_I, 0x1)	|
+>  		  FIELD_PREP(GICV5_ITS_INV_DEVICER_EVENTID_BITS,
+> -			     its_dev->itt_cfg.event_id_bits)	|
+> -		  FIELD_PREP(GICV5_ITS_INV_DEVICER_L1, 0x0);
+> +			     event_id_bits)			|
+> +		  FIELD_PREP(GICV5_ITS_INV_DEVICER_L1, l1);
+>  
+>  	guard(raw_spinlock_irqsave)(&its->inv_lock);
+>  
+> @@ -385,6 +385,19 @@ static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
+>  	return gicv5_its_cache_sync(its);
+>  }
+>  
+> +static int gicv5_its_device_cache_inv(struct gicv5_its_chip_data *its,
+> +				      struct gicv5_its_dev *its_dev)
+> +{
+> +	return __gicv5_its_device_cache_inv(its, its_dev->device_id,
+> +					    its_dev->itt_cfg.event_id_bits, false);
+> +}
+> +
+> +static int gicv5_its_device_l1_cache_inv(struct gicv5_its_chip_data *its,
+> +					 u32 device_id)
+> +{
+> +	return __gicv5_its_device_cache_inv(its, device_id, 0, true);
 
-Document the CV75 RCT clock controller and the clock ID header used by
-DT consumers.
+I would highlight why event_id_bits is set to 0 (actually it is irrelevant,
+let's explicitly say so).
 
-Document #reset-cells for the RCT reset-provider role. Soft-reset line
-IDs and the reset provider driver are deferred; this series has no
-resets= consumers.
+> +}
+> +
+>  /*
+>   * Allocate a level 2 device table entry, update L1 parent to reference it.
+>   * Only used for 2-level device tables, and it is called on demand.
+> @@ -424,7 +437,8 @@ static int gicv5_its_alloc_l2_devtab(struct gicv5_its_chip_data *its,
+>  		FIELD_PREP(GICV5_DTL1E_VALID, 0x1);
+>  	its_write_table_entry(its, &l1devtab[l1_index], l1dte);
+>  
+> -	return 0;
+> +	/* Invalidate the cached L1 DTE before using the new L2 table. */
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- .../bindings/clock/ambarella,cv75-rct.yaml         | 64 ++++++++++++++++++++++
- include/dt-bindings/clock/ambarella,cv75-rct.h     | 14 +++++
- 2 files changed, 78 insertions(+)
+Nit: it is not a given that it is cached.
 
-diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-new file mode 100644
-index 000000000000..be89bd75f9e2
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-@@ -0,0 +1,64 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Ambarella CV75 RCT Clock Controller
-+
-+maintainers:
-+  - Long Zhao <longzhao@ambarella.com>
-+
-+description: |
-+  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
-+  PLLs, clock muxes, dividers and soft-reset controls for on-chip
-+  peripherals.
-+
-+  The same register region is also exposed as a syscon for other SoC
-+  blocks (e.g. pin drive-strength), hence the "syscon" compatible.
-+
-+  Clock indices are defined in include/dt-bindings/clock/ambarella,cv75-rct.h.
-+
-+properties:
-+
-+  compatible:
-+    items:
-+      - const: ambarella,cv75-rct
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    description: Reference crystal oscillator (typically 24 MHz)
-+    maxItems: 1
-+
-+  clock-names:
-+    const: osc
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    clock-controller@ed080000 {
-+        compatible = "ambarella,cv75-rct", "syscon";
-+        reg = <0xed080000 0x1000>;
-+        clocks = <&osc>;
-+        clock-names = "osc";
-+        #clock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/ambarella,cv75-rct.h b/include/dt-bindings/clock/ambarella,cv75-rct.h
-new file mode 100644
-index 000000000000..b3e965b4ff2e
---- /dev/null
-+++ b/include/dt-bindings/clock/ambarella,cv75-rct.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
-+#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_RCT_H
-+
-+#define CV75_GCLK_UART0		0
-+#define CV75_GCLK_CORE		1
-+#define CV75_GCLK_AHB		2
-+#define CV75_GCLK_APB		3
-+
-+#endif
+> +	return gicv5_its_device_l1_cache_inv(its, l1_index << l2_bits);
 
--- 
-2.34.1
+Nit: this l1/l2/deviceid bits/index dance is a bit clumsy (I mean, in
+current code, without taking into account this patch) but we can rework it
+in a follow-up patch to keep this one as simple as possible.
 
+Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 
+>  }
+>  
+>  static __le64 *gicv5_its_devtab_get_dte_ref(struct gicv5_its_chip_data *its,
+> 
+> -- 
+> 2.34.1
+> 
