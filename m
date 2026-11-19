@@ -1,56 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073770;
-	b=wdIrfFnypsqMT1mMFEIyWVr0tqaOlZH0AbWigExgEa7vCTivPhQ/tKRXRPzKE3j9G738
-	 RufICfkmuYIlAao7fp6tuLiGtu1t92ArC4FW3yR+tlryENcpFYQottaKbEhnTyqWOC4qQ
-	 mj3yqFNLYjVFTVaqHwii6kKvgtaIn9qdFho6HOHePRm03zjdNl3L0pj6INL+STQReuOhq
-	 YdpvmRLlic7lQkRih7b5C2SBUAkDfaOxMupR5Hjr928puLVV9hs8mgwSBxJ7KVIb3L8/u
-	 gfNA+sPXCf+S24bNTFSvZelru1PAOwL/DTkVTRuDWMy/Ndx8ntIpp9JKWSKn++RJuwA==
+	t=1795073812;
+	b=PwA/EhHRdsjAYpILxoUJJ1MZONuyYVMtKGJlt489bb2huxOcytbeF4vw1NSF+bMOXFYd
+	 Epeou9m9whfHoRLQj/GO6Bva/6HNgEKWLkcC9/wle4X3KpuhufqM+xRxysPiLYyfS6QEF
+	 pUVRgBo9RQUJMgnUOIyjEl13xiabMEH4sbgKJM6Msnka0l6mTZUnhCDevq5PjIK/7DCm9
+	 Ssq3CxP/kbGhJtkcoadqTUTBHZqhANrjazm6ll2GbjioAqOwWr7yJFKFx1Xpq58ODfEZf
+	 LzZrRjSOh8AnHxNVp/I2UV+dG855/XW94aWWH6JQ8f9M8Fs6h/mZccUJ1JBylhptT+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073770;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TYXQVdddJMJhgchsWgkvy/MvJAjZnwkHSiuLmFLtt2c=;
-	b=VT6PgG2J0q4vCV9f8LdnzvUWUPbbfbN/uPizS6EpeCDBv/0uVNQsjJ9V3rKE6oRJt6uS
-	 4oyYwxHKTuuY6AqJf3Hzgwguhr9rkJ8cRC6likRyzf93iaLkKsIEWabuevb1+jqrI5D5i
-	 vvMfbFfP/4M7yfT/hFDmztk0Apo1nfrcPxWNoxsKXTN1c0kuoDkufCOJogjKB7eksa6c3
-	 aAnRs9IO0KyHdU0kV9YAoszWBwxag4mMXsV4AYWWi9fb4Wf4G/EbB4ptN8uwVrnU49N1G
-	 p1GThjhUcknA1rP5erlgv446BoYcgJYof+qQGTC+on3ktjrvXpJrHoHKR73jn8vfObw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073812;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=Xz9x+nu8iFDsD3oN41PdfcdXcq5+MFZLlOOhZlyWh6I=;
+	b=mItm8WPWc80F9gr/fSN9r7HHeQtt+50uQ7+Zd4MX6fZzNVWjHAe4xTvBgpCHhr206rFL
+	 C1068xPb2YhnHPAyESuszOFzpzofLBz3LGC+8SzrtTV/RI/5y23RKne4SHJGQ7FYJpVX1
+	 RyNNvIV5C4PBZvn2nOpJG6Gg1ExNGrDsue483jyMP8uBCHh3Hul0xzGP634dPx98z3ZZG
+	 6lS83BWslL/21NDOVI8EzPLWe2eYjMM+S8jnHgQhRnYIcxJkk/ZZuxBxBmTvPK4BI5AlD
+	 R7kq7AwpIJhewGBEp4qdgiMHisoKLT498jspeJT2qXlvHuwe2/bLNITbc9A1NcU3kmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="A/hzQNo+";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fsCZGmzt;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27D5C606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:36:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 261A0606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:36:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 261A0606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A/hzQNo+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0F0C1F000C4;
-	Thu, 19 Nov 2026 07:36:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795073769;
-	bh=TYXQVdddJMJhgchsWgkvy/MvJAjZnwkHSiuLmFLtt2c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=A/hzQNo+xCwvXgKK2H7WPL+/+TuZkNqeVUTjGQ15SgSf9JQR4byzRy+16HIRYORcR
-	 1nHKUf0MWnl+LiPIxK286nvsMFhM0O/9HxRrdYhboemO7RrusvmZ8HldFWHfcv4cZ9
-	 WMGbTIXTNG76T+MJdlAaudlQ7lD4Xhi5HXV6SahVqmg9s+hom0hYSrgX9PTuqdKIkz
-	 Nl7TXTBtVpusPvzDuMLc7J9i5yOFN7f2bYSOPR3REHGVfmm5U5j4aWeN/hkc4KYhl1
-	 o9tf/GsebHCqqeZ3wRzUUfs7mI9GU4nJ7VZ3NxXsYbOI3xltdpRsFUUKlYKfomWsrF
-	 HqpNyOvDVnq2w==
-Date: Thu, 19 Nov 2026 09:36:03 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: "Baek Kyu, Kim" <pocj8ur4in@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Lorenzo Stoakes (Arm)" <ljs@kernel.org>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/secretmem: Keep locked memory accounting until inode
- eviction
-Message-ID: <av6m4wU7iDOGviIa@kernel.org>
-References: <20261030152407.113568-1-pocj8ur4in@gmail.com>
- <45ce0b42-d45a-44e3-b300-607989e618c5@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fsCZGmzt
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 46CDE1A16F4;
+	Thu, 19 Nov 2026 07:36:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1AF9C60237;
+	Thu, 19 Nov 2026 07:36:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CAABA11BC2D6A;
+	Thu, 19 Nov 2026 08:36:35 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795073803; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Xz9x+nu8iFDsD3oN41PdfcdXcq5+MFZLlOOhZlyWh6I=;
+	b=fsCZGmzt+fC0fzp4kR6Qre+ME9xwJCzkqh2RMfEnsYfUQKcvoDvE8tGbXLrlkh55jKY0wk
+	5aSIs3r14a2766AwiOGXKd5X8Esp0S3LdhNw5H0O+KcHGY7t9NUxsm/9sU8eyuFiAK+0X/
+	RSfYX2BTfMqT2n1Fx8aT0dE6hI2by+F8Ei3o1j5gNHWVByze0bPXtho48ya36PMQcmiuLV
+	LkYm2qBpXPafvuJjzwLpwY7JciQMJlyDNALWWuSx2mUE/be/meyTvzvQ8Baj0LHGZYFp0f
+	VBzZZRVNttSVa0sSGvlDUJZUm2vxcs2Jtr2wlPfKjGd8zBKSz0TW2hb0ciWArg==
+Message-ID: <c811598d-28e9-4d9b-9929-b434878b90ff@bootlin.com>
+Date: Thu, 19 Nov 2026 08:36:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,96 +62,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <45ce0b42-d45a-44e3-b300-607989e618c5@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
+ from the descriptor
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+ Joseph Steel <recv.jo@gmail.com>,
+ Muhammad Nazim Amirul Nazle Asmade
+ <muhammad.nazim.amirul.nazle.asmade@altera.com>,
+ thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
+ <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
+ <a2518e0794b8b9c79a97cb6c768dded6@tipi-net.de>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <a2518e0794b8b9c79a97cb6c768dded6@tipi-net.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 18, 2026 at 11:59:57PM +0100, David Hildenbrand (Arm) wrote:
-> On 10/30/26 16:24, Baek Kyu, Kim wrote:
-> > A secretmem inode can outlive its original file. An O_PATH descriptor
-> > opened through /proc/self/fd keeps the inode and its unevictable folios
-> > alive after the mapping and original descriptor are closed. The file
-> > release path nevertheless drops the locked-memory charge, allowing the
-> > same user to reuse RLIMIT_MEMLOCK while those folios remain allocated.
-> > 
-> > Move private-state and locked-memory accounting cleanup to inode eviction,
-> > after truncating the page cache. Keep secretmem_users active over the same
-> > lifetime so that the hibernation guard covers retained secret pages. Let
-> > iput() handle file-creation failures and tolerate an inode with no private
-> > state.
+HI,
 
-I don't like the last part, see below.
-
-> > Fixes: 97d34aa65c29 ("mm/secretmem: properly account locked pages")
-> > Signed-off-by: Baek Kyu, Kim <pocj8ur4in@gmail.com>
+On 11/18/26 21:09, Nicolai Buchwitz wrote:
+> Hi Maxime
 > 
-> Lorenzo, Mike, this problem seems real to me. Can you take a look?
+> On 18.11.2026 17:21, Maxime Chevallier wrote:
+>> Stmmac's double VLAN handling hasn't been working great for a while,
+>> it's been recently reworked for dwmac4 by Ovidiu Panait. In that work,
+>> it was found that the tag stripping hardcodes the 8021Q tag type for
+>> XGMAC while stripping the tag, while the IP actually reports the outer
+>> tag type in the descriptor.
+>>
+>> The tag type can be one of 6 different values (note inner/outer is
+>> reversed in the macro names):
+>>
+>>  - XGMAC_ET_LT_VLAN_STAG       single S-tag
+>>  - XGMAC_ET_LT_VLAN_CTAG       single C-tag
+>>  - XGMAC_ET_LT_DVLAN_CTAG_CTAG outer C-tag, inner C-tag
+>>  - XGMAC_ET_LT_DVLAN_STAG_STAG outer S-tag, inner S-tag
+>>  - XGMAC_ET_LT_DVLAN_CTAG_STAG outer S-tag, inner C-tag
+>>  - XGMAC_ET_LT_DVLAN_STAG_CTAG outer C-tag, inner S-tag
+>>
+>> Report that tag type through a dedicated desc ops and report it to the
+>> stack.
+>>
+>> We keep the 8021Q fallback when we don't have the ops, as we don't
+>> set NETIF_F_HW_VLAN_STAG_FILTER on the cores that don't support that.
+>>
+>> This has been tested on AgileX5 with the vlan.py selftest.
+>>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> 
+> Isn't this a fix too? I mean xgmac advertises STAG_RX but still
+> reports S-tags as 802.1Q. Then again nobody seems to have hit it
+> so far, so net-next is probably fine.
 
-Yep, it's real and the fix is correct.
- 
-> > ---
-> > On an arm64 QEMU guest with an 8 KiB RLIMIT_MEMLOCK, an O_PATH reference
-> > retained two secretmem pages. The baseline dropped the charge to zero and
-> > allowed a further one-page fault; the patch kept both pages charged and
-> > rejected that fault until the last path reference closed. The Image
-> > was built with KASAN and lockdep. Hibernation, other architectures,
-> > and long-running concurrency were not tested.
-> > 
-> >  mm/secretmem.c | 31 ++++++++++++++++++-------------
-> >  1 file changed, 18 insertions(+), 13 deletions(-)
-> > 
-> > diff --git a/mm/secretmem.c b/mm/secretmem.c
-> > index 384f5cfc457f..fa8be360bd2a 100644
-> > --- a/mm/secretmem.c
-> > +++ b/mm/secretmem.c
-> > @@ -185,18 +185,14 @@ static void secretmem_destroy_inode_priv(struct inode *inode)
-> >  {
-> >  	struct secretmem_inode_state *state = inode->i_private;
-> >  
-> > +	if (!state)
-> > +		return;
-> > +
+Yeah not only was this discovered while working on something else, it
+seems no-one noticed and it's always been broken... I wanted to avoid
+spamming net too much, both options are fine for me TBH,
 
-Its really not obvious how we can get here with state == NULL. 
+Thanks for the review :)
 
-And since it is needed only for error path in secretmem_file_create(), I
-suggest rearranging the initialization so that we never get here with NULL
-state. 
-Allocate the state before creating the inode and adjust error handling in
-secretmem_file_create() so that we always get to iput with valid i_private.
+Maxime
 
+> 
+> Anyway:
+> 
+> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+> 
+> Thanks,
+> Nicolai
 
-> >  	secretmem_unaccount_all_folios(state);
-> >  	free_uid(state->user);
-> >  	kfree(state);
-> >  	inode->i_private = NULL;
-> > -}
-> > -
-> > @@ -296,7 +292,7 @@ static struct file *secretmem_file_create(unsigned long flags)
-> >  				 O_RDWR | O_LARGEFILE, &secretmem_fops);
-> >  	if (IS_ERR(file)) {
-> >  		err = PTR_ERR(file);
-> > -		goto err_free_priv;
-> > +		goto err_free_inode;
-> >  	}
-> >  
-> >  	mapping_set_gfp_mask(inode->i_mapping, GFP_USER);
-> > @@ -309,11 +305,7 @@ static struct file *secretmem_file_create(unsigned long flags)
-> >  	inode->i_mode |= S_IFREG;
-> >  	inode->i_size = 0;
-> >  
-> > -	atomic_inc(&secretmem_users);
-> > -
-> >  	return file;
-> > -err_free_priv:
-> > -	secretmem_destroy_inode_priv(inode);
-> >  err_free_inode:
-> >  	iput(inode);
-> >  	return ERR_PTR(err);
-> > @@ -335,6 +327,18 @@ SYSCALL_DEFINE1(memfd_secret, unsigned int, flags)
-> >  	return FD_ADD(flags & O_CLOEXEC, secretmem_file_create(flags));
-> >  }
-
--- 
-Sincerely yours,
-Mike.
