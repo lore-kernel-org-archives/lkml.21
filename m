@@ -1,101 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795069961;
-	b=Dy1f1P15nn8s5or55g+GwbkEun99s31WbCIl9yHRCNDgE6D588pNMJetm9XQ/LkmzHOl
-	 th6UmsSJOqwxefKmF++cgiD53TtHDyG6HEGJIEaSfC/DGFTRlS6HhtL0z7P3C9xmpAUZx
-	 jlr+Fupqz7NyO/FmwiDEzbJQ80FfcBqa4U+96sskxvUKlXOh9UmEB+7HQS9FSiNblntDH
-	 PA9R5KfSjw2syxVuDGZgFBMTEWNd70eTKs1hoFiuHED3hnp8L4ssFink4Fhu+5sf/GTzS
-	 aJUm6STeo1s0SgQ8VyZTfTkUAQLTkTWNqTdJqetanhH8bFdf3CS9PcPoWHvEYBgfNBA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069961;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
-	b=HENZWZIOdV7Jw3Ch/nXUOiyuLLj4f7CVy/+BTHmJ8Nw75IrYboiquFxTerHtI7HZoxSN
-	 FbMaY1SY8HFI9bLk3bm4UAMXjrGzuXDn4d9K5hNbVSj42v7Lq/NHLnvNH6Y8AC9bcN9qn
-	 rxSd6QEkdB3UGDPseiF5N0ClidF4cLseuhwSSa6shDN5XhIhFEjgI3KInbPevfobtyNIi
-	 atyFl45n78TYR7znScnjbt4YBFg/fmFOoaYX9jNM0eS7WoeKOGxR8JO+y187pSxYPJZsF
-	 DJFdt+CmzVX3HZa51gnzgxShOXSpNiqSyOkxFg+5p8RzTb5wIvGSNp3jTNRRgUrTnPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P1Sup+RU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795070029;
+	b=eMFKH4rUYnRQ4t88pW/ET1R+NYKFdzpAftq5LkWCNjGWxR/xdXY+wNU0wXP5QVki2TsP
+	 JOaY3pcr+f7w7VMXE4B5+U/O3pM70tRLcfZW9k3O97/XBogwgQlDmfUrB/zfaCgbWU2vi
+	 JdoqtwtYGZDng2BQzlE79DEebaAbw5Dafy/viV+6FnpGKYIK1M/2fvxfZnop4FV5Skx7d
+	 GRVW2lciYgVYkWTg4iMtyaGv4yJRx+E4jWCHaJjS6fLMf1Cto4K64UMFb8glpqd3RNnQO
+	 ZFy1g8JthHobU8LpOeQ4RMulpYHzA8rjjZ1WEmFROrIj/MLd3LTRDuQHVRhL4Y0hktg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795070029;
+	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=Z6U9zB+kVSL5/rIaYC5amOQy+hf11/wJMrdBLlaOUtQ=;
+	b=Cddi5d9qgD9qZodmEDQxFI+fpOTfFWJpwgUraioqQgWVLMl1dFJdU/4zLQ0CMPC7T5xY
+	 w8QhSJXu2B1G297j0Tl+llPrqwnjV1NiViexmW7kUQXa/7k7DQLMUuzjsflT/C55v8T38
+	 g75JAE6Ku5PHepjiQQTEj166W75RjfYoaekveWx2lr7yhqNoa+wm8i+i8NuQjfHONYavd
+	 A96LdhNiy5q5/0fuUJ36Sn0cFMdlYpcl2g7G/FFuthz23+2gp2BxLCOWLhSK5vnsfA5r6
+	 UsyJ6Ld+TfFYHkdDRSDo8XKIoCCU+FkRSyRRvZMFKeiyGKAAfKuNioiveHquCnmh1mg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CF+ERc+H;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E49B8606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:32:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E49B8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D80F606A320;
+	Thu, 19 Nov 2026 06:33:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=P1Sup+RU
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8a52db5f9so1710824a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:32:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795069959; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kb9700RCzx7mJ5kSj0NORz3Ehrs6woSHr4JpCeE9/JqPE94vnaE9kB5hvQflWAJSli
-         dg6qctTt2S9hwwetUlsXDzU/Fky1UTS2OTEsK5F46/tDuaaSknibHFMuSweRNFl1UXR3
-         CwNDnmrIPgeGeZmFwkD/2lP7Zm2KnxkpGDgj9iKeSthQivQ4AlWpethkvbphT2rGcwLp
-         E97OEA02h2vZDxOoS7QfTRMTgnCOKAOpbFzcY3b24JJpm85IVKpMo4w1QRex3+ldxXPP
-         0ZjWLdbHt85mDB0RGAYk520I6jgUVC/oWwo29tk2jPlFAavw4B7d2gv/wYHLkj0v2sPA
-         Vjxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
-        fh=V9AeBafJgTW96HdC48wsxGAfd7Fe9P2uAL8tLCjpUN4=;
-        b=TT0JADaQTUhlPNE6NNGI8/iVGnNNWgZRF59bvSrD6L3Kqt/bNWlDFq1UeM61Ajc6Ls
-         2pORWN989LVhijKBjf+fbXcNO/xi0iX2zJ/lY3ouxNcPZOfIPuSyFDa3/DSjIz+yBg7x
-         IpQnAmBtuHpLn7AWsVzqsUEPCtzgZSEUX5DIWHxOBKX6YbI8j5giqc4VVoJW6/YikxwD
-         gl2h5EyaI6NgP0ru8yn6DiNq0faLKg4DI8oN0wcCO36JG5n2rfGUZF2u7MxNaK2q+zLn
-         XuEtWa2642/l9aYJI0Mrj+hTXXa2LauavNj4Cs/rcs69hqm/sN4K3zA7KI0rVl60PRDz
-         3qJg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795069959; x=1795674759; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:to:subject:message-id:date
-         :from:reply-to:in-reply-to:references:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
-        b=P1Sup+RUWMjceHTThfrMQOhus92ni7q9tRGMA2TtG/S4gq7MXTdY+GxPL9Jw4Xpref
-         T5sxDWsFMEvtEKW/Qi+FYsPeUSTPAaqTgR/WIDUg7zhDaOPQ6J3fOPHSsHBRj2xnQbwl
-         BAmSe5mK47bmjAp0GX3iTNPoxsLMiwfHZUWQfhosSmLn0eP0xxAiTxRI7FWoxjyqmIH1
-         h8LEcsCDm/jwvGAoPK9dbGLWhzIeVEGIPZby4RCv1TAjEk0gjCfkhDXR0NStTn50jfIt
-         IFbUVnq/q7tj7Kb1swSYBCNPyjBAzH4izlAAKbetfV/So14CRdhvmg6nUlFowzcf/6+Z
-         1n7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795069959; x=1795674759;
-        h=content-transfer-encoding:content-type:to:subject:message-id:date
-         :from:reply-to:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kxV6lqe7HwKB+P7LT88Ydq7YjplBVGfV12LwKaDDBYw=;
-        b=x+cB2S5mDi6PLl2DP1kZhT/57i0NR+J3jgU+XzVgbp1NqMdUmf2fPSsBxF/C2+Ut71
-         WO9UJCIOtBXm7x8wqCv41+WsW1kmowKkO2EaMnL1MH6NdAH7Ssc8Ybl+ueBSxMjciaZ+
-         vpcPSs5g+mVe//JGflEQxlOWea6IPZnaeNawFI5MxslISwv52aU01ckXUJ3DVjueSFmP
-         IieJi3ioMKOe+dn5EdupgcAlmlKYYJ/i5eBg/n8BMX5FF0SL3mQUw67gQH0uCbebnaX1
-         5IAWaa/mTW9/O+b1mobpb3LWz8smwaZ0I9au2txeIHMb6hx7ZRk/9SXbyIgMJFRimnJ1
-         OiRg==
-X-Gm-Message-State: APuU4Z/Or7UcU9fom42ofDNg0miuhN257lyEP6qmoemor8yzD3u0I4ud
-	fN58FMYuHOkKuD9QwA3yvLA24+a/Sc1QsQZaAN/1Ja4HR34valMNmtaC7MbxuMWUUQvKRWurvzr
-	b4dJxl8Mlm8IMCoKbGgtMzkwvw35Vwhfg7pu2
-X-Gm-Gg: AYBFou2yV4FTRONti2PzQ242hIVuUK8S5qK0Z/ndhPbldC+8U1jG4HWM5X260Nmhsn/
-	krvmTuYPvzaqRi/hbWm874ci7J1EBDSoFp4fzeMQMpiRFcZQxTSHLU8Z0nsiMQcEX6KYYj+D+zA
-	ZNEF6ObqoebqFlA2xA1cIu6bVlNe9Y6a/2jTx2VUC2ZJDaJzxcJKfobHPnCdHqa2+H81cmMtn/f
-	M0vFCDglYpSTTgViRlBeNuFCWi956s0pqTTAJV1jIdobwZlmGDDWJosgn8ezsS8J/TTuxACuX7p
-	reYjEmjCP5zsly0sse+yB53+vH72MNDjTKAB82xRhKwrjEIytPnO1SbXd6y4PlcVQG64d7qItlR
-	RgeTJ38RQCL/WfYgxGdUeXA7E8cSINxfx99ecoqdpPPaDXe6B4w6ZQ4wBlarhmg2NB+IC+opwze
-	/Ap0b6jQggBqib3IjrICQzN87CkWB2yLHAoGB1Rzke7zMHjmTkAS1D3UVOPfeFSre71Bh2Ze5+B
-	lkb
-X-Received: by 2002:aa7:d65a:0:b0:6b8:ff64:fc16 with SMTP id
- 4fb4d7f45d1cf-6b8ff64fe10mr1611544a12.42.1795069959291; Wed, 18 Nov 2026
- 22:32:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CF+ERc+H
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B931F000C4;
+	Thu, 19 Nov 2026 06:33:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795070028;
+	bh=Z6U9zB+kVSL5/rIaYC5amOQy+hf11/wJMrdBLlaOUtQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=CF+ERc+HuHNVBCVPKikPUJcJfXWyZJ04AVdcXtH8iTv8jb/uM/O5TsqoD0HkKxIU/
+	 boMUuS6NBbgSsXEqM2F93H5KtSzUu7AmddHMi5PLWS+koXCLUU/5CmmD8Gh216NhEo
+	 yOUqQfZ1oZX73mltJH/e6tDs+42laVW3D4eyNLnWufbs4br248xC6EOeWqAronSp9h
+	 JFegFBjHCrpgIzoKRZzHogcbdOeyn6an1wS3ndk+ULJezB2WAELQ35aW5r6lcpGaM3
+	 IcNnYy42AN3RPQlxiDb6S2/Wh4Iqvn9o7OGWXte7twqmKNqGZ7wvDYxn4lkA9QRPsY
+	 X8ko7gZHrwuSg==
+Message-ID: <1065d21dbab9fdcbe3a34e2f3b1deac934b4a5ce.camel@kernel.org>
+Subject: Re: [PATCH net v2] net/rds: defer CM id destruction to a workqueue
+From: Allison Henderson <achender@kernel.org>
+To: netdev-bot+sashiko@kernel.org, chenaibing@cmss.chinamobile.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com,  horms@kernel.org, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org,  rds-devel@oss.oracle.com,
+ linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 23:33:47 -0700
+In-Reply-To: <179490452051.3136.18322831263977968329@kernel.org>
+References: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
+	 <179490452051.3136.18322831263977968329@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,48 +64,186 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAKSQd8X1AJ-rjkj82258Ofk_T3NLspyFzDtbyO4T8W80KzS0Bw@mail.gmail.com>
-In-Reply-To: <CAKSQd8X1AJ-rjkj82258Ofk_T3NLspyFzDtbyO4T8W80KzS0Bw@mail.gmail.com>
-Reply-To: ludloff@gmail.com
-From: Christian Ludloff <ludloff@gmail.com>
-Date: Wed, 18 Nov 2026 22:32:27 -0800
-X-Gm-Features: AclHuK8tAY2tTGs5KA1smMzBpkg5DSmUWI66T4DGO5Gn28Atamz7HBkIE1ozOmI
-Message-ID: <CAKSQd8W1XCHBmtjDRrnipDPM-swngTfuwPmK52S5hch7iVXb7A@mail.gmail.com>
-Subject: Re: x86 VERW clarification required from AMD
-To: linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 10, 2026 at 5:36=E2=80=AFPM Christian Ludloff <ludloff@gmail.co=
-m> wrote:
->
-> With AMD SB-7029 refreshed by AMD SB-7073
-> and with AMD SB-3055 out as well, the updated
-> AMD TSA doc [1] continues to state that...
->
->   "Execution of VERW at non-CPL0 will not clear
->   the relevant microarchitectural data structures."
->
-> Intel doesn't seem to document such a limitation
-> for VERW. Can AMD please spell out how CPL3
-> code can transition between trusted vs untrusted
-> without a roundtrip through the OS or HV?
-
-Does anyone have a solution for AMD CPUs this?
-
---
-C.
-
-> Also, if VERW is CPL-dependent, then so should
-> its CPUID flag, ext.21h.EAX[5], be... right?
->
-> Thanks in advance for the required clarifications!
->
-> [1] https://www.amd.com/content/dam/amd/en/documents/resources/bulletin/t=
-echnical-guidance-for-mitigating-transient-scheduler-attacks.pdf
->
-> PS: That doc tries to portray 3055 as theoretical,
-> which it is not. Please get patched... asap.
->
+On Tue, 2026-11-17 at 08:35 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>=20
+> - [High] The lock cycle this patch is meant to fix can still happen.
+> - [Medium] After this patch, each probe RDMA CM id created by
+>   rds_ib_laddr_check_cm() stays alive after bind() returns, until=E2=80=
+=A6
+>=20
 > --
-> C.
+>=20
+> net/rds: defer CM id destruction to a workqueue
+>=20
+> The patch moves rdma_destroy_id() on the probe cm_id in
+> rds_ib_laddr_check_cm() onto rds_wq. The goal is to break the lockdep
+> cycle between rds_trans_sem and handler_mutex. If the work item cannot
+> be allocated, the id is still destroyed synchronously, and rds_ib_exit()
+> now flushes rds_wq.
+>=20
+> Closes: https://syzkaller.appspot.com/bug?extid=3Dccdb5058c3df2d94811c
+>=20
+> > diff --git a/net/rds/ib.c b/net/rds/ib.c
+> > index 4ea9838d090c3..66af4a72a5595 100644
+> > --- a/net/rds/ib.c
+> > +++ b/net/rds/ib.c
+>=20
+> [ ... ]
+>=20
+> > @@ -419,6 +434,15 @@ static int rds_ib_laddr_check_cm(struct net *net, =
+const struct in6_addr *addr,
+> >  			       NULL, RDMA_PS_TCP, IB_QPT_RC);
+> >  	if (IS_ERR(cm_id))
+> >  		return PTR_ERR(cm_id);
+> > +
+> > +	/*
+> > +	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls t=
+his
+> > +	 * function with rds_trans_sem held for reading, and rdma_destroy_id(=
+)
+> > +	 * takes handler_mutex, which the CM callback path acquires before
+> > +	 * taking rds_trans_sem.  If the allocation fails, fall back to the
+> > +	 * synchronous destroy.
+> > +	 */
+> > +	w =3D kzalloc_obj(*w, GFP_KERNEL);
+>=20
+> [Severity: High]
+> If kzalloc_obj() fails here, the out: label calls rdma_destroy_id()
+> directly. Doesn't that still run inside the down_read(&rds_trans_sem)
+> section of rds_trans_get_preferred()?
+>=20
+> rds_bind()
+>   rds_trans_get_preferred()
+>     down_read(&rds_trans_sem)
+>     rds_ib_laddr_check()
+>       rds_ib_laddr_check_cm()
+>         kzalloc_obj() fails
+>         rdma_destroy_id()
+>           mutex_lock(&id_priv->handler_mutex)
+>=20
+> That is the same rds_trans_sem -> handler_mutex dependency that lockdep
+> reported. The other half of the cycle is handler_mutex -> rds_trans_sem,
+> taken via cma_ib_req_handler() -> rds_conn_create(). If a writer such as
+> rds_trans_register() or rds_trans_unregister() is queued on the rwsem,
+> this can also hang.
+>=20
+> The commit message says:
+>=20
+>     if the allocation fails, the id is destroyed synchronously as before.
+>=20
+> "As before" is the behaviour that produced the original report. The
+> allocation failure is also easy to trigger with failslab, which is what
+> syzbot uses.
+>=20
+> Could the work item be allocated before rdma_create_id(), with -ENOMEM
+> returned if that fails? rds_trans_get_preferred() already treats any
+> non-zero laddr_check() result as "not this transport". rds_bind()
+> already maps that to -EADDRNOTAVAIL or -ENOPROTOOPT, so no new error
+> handling should be needed.
+>=20
+> >  	ret =3D rdma_restrict_node_type(cm_id, RDMA_NODE_IB_CA);
+> >  	if (ret)
+> >  		goto out;
+> > @@ -484,7 +508,13 @@ static int rds_ib_laddr_check_cm(struct net *net, =
+const struct in6_addr *addr,
+> >  		 cm_id->device ? cm_id->device->node_type : -1);
+> > =20
+> >  out:
+> > -	rdma_destroy_id(cm_id);
+> > +	if (w) {
+> > +		INIT_WORK(&w->work, rds_ib_destroy_id_work);
+> > +		w->cm_id =3D cm_id;
+> > +		queue_work(rds_wq, &w->work);
+>=20
+> [Severity: Medium]
+> With the destroy deferred, each probe cm_id stays alive after bind()
+> returns, until rds_ib_destroy_id_work() runs. What limits how many of
+> these can be pending?
+>=20
+> rds_threads_init() creates rds_wq with
+> create_singlethread_workqueue("krdsd"). That makes it an ordered queue
+> with one worker, shared with the connection, shutdown and free work for
+> all of RDS.
+>=20
+> An unprivileged user can call bind() on AF_RDS sockets in a loop. The
+> call reaches laddr_check() either through rs_transport (set via
+> SO_RDS_TRANSPORT) or through rds_trans_get_preferred().
+>=20
+> A failed bind leaves the socket unbound. Each attempt with an IPv6
+> address, or with an IPv4 address not yet in rds_ibdev->ipaddr_list,
+> queues another item. Producers on several CPUs feed one consumer. That
+> consumer also contends on the global cma lock mutex and sits behind any
+> slow RDS work.
+>=20
+> Each pending item holds the rdma_id_private and the
+> struct rds_ib_destroy_work. The latter is allocated with GFP_KERNEL and
+> no __GFP_ACCOUNT, so it is not charged to the caller's memcg.
+>=20
+> If rdma_bind_addr_dst() got far enough, the item also holds two more
+> things:
+> - a cma_dev reference from cma_acquire_dev_by_src_ip()
+> - an ephemeral port in the shared RDMA_PS_TCP space from cma_get_port()
+>=20
+> Before this patch, all of these were released before the syscall
+> returned.
+>=20
+> Could a backlog here pin memory, use up ephemeral RDMA_PS_TCP ports
+> needed by other in-kernel users (NVMe-oF/RDMA, iSER, NFS/RDMA), and
+> delay IB device removal? cma_process_remove() waits here until every
+> pending destroy has run:
+>=20
+Hi Aibing,
+
+Thanks for the quick response on this, v3 takes care of the fallback,
+but the second sashiko finding on v2 applies to v3 as well since nothing
+limits the pending probe ids there either.  So likely we'll need to
+bound it somehow.
+
+I think the easiest fix would be an atomic counter that is incremented
+when a probe is queued and decremented in the worker.  Check it at the
+top of rds_ib_laddr_check_cm(), before the allocation, and return
+-EAGAIN if it's above a defined cap (say 64 pending probes).  Remember
+to decrement it on the -ENOMEM and rdma_create_id() error paths too.
+
+If you'd like to take it a step further, the probes could go on their
+own workqueue so they don't get stuck behind slow connection shutdowns
+on rds_wq.  rds_ib_exit() could then call destroy_workqueue() on it
+after rds_trans_unregister() instead of flushing rds_wq.
+
+Please also mention the port exposure and the cap in the commit
+message, so the reasoning stays with the patch.
+
+The sashiko review for v3 is still queued, so let's wait for it to
+land before sending v4. That way we can address anything else it finds
+in the same version:
+https://patchwork.kernel.org/project/netdevbpf/patch/20261117082145.1737-1-=
+chenaibing@cmss.chinamobile.com/
+
+Thanks for working on this!
+Allison
+
+> 	wait_for_completion(&cma_dev->comp);
+>=20
+> > +	} else {
+> > +		rdma_destroy_id(cm_id);
+> > +	}
+> > =20
+> >  	return ret;
+> >  }
+>=20
+> [ ... ]
+>=20
+
