@@ -1,90 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069291;
-	b=v6H8Eqr0fnYg7hU+LXloUuVLfsJJTLJITJsjVeeaHlDZyMUyKz5GW7+4GjAhwIL2/tuW
-	 Z/J5H9olDGIiIpfp4ET8IbmXlCpwFhxUvMm+lR+2vPiQAzM5xzl2IAdCSh09obDRoDZTW
-	 SeeDSP7OiUj9Y14u+oQcKdeJjyUNwJ8T/qEt6BOWsqH23A1NFQHWCxxQva87+TWbbutvQ
-	 oquDkCSfgv3+smy38YWUTKeELad0tojT47fnzTEQLpVgDdSyUIZ1Jze9Ay174vZUURBih
-	 RUK70gSCwOIGARYNdtuxBhvUsubxIsmUwENWp3NE95efwygaTtI8F/lghl7smzzaZag==
+	t=1795069329;
+	b=AW4PZAT3y4qKqqHiP/bhtZLbJGgw8c1OajODuzbBUH7ZrYc0PvWCjDgJkZBgwU3IycHa
+	 6mgxKdmvnVwksXdNNCLMC9SUVn3fGb7zoT8ZSiE46hBYK31bDx/SIWqPfA5YXTzarjO9x
+	 8MQ8iaI3rUa2Q14RYWIt12Yx7cIoh5FowOR+n/xZymYIyCekD9Z8oaOKY3efPkZz0NLvj
+	 NFzTlL9qPkcVpl+cMZkQlzStyB1qnag8LMBDP+Gk8sNNUSmTa/veeaDmyjBrz8YWJRnVV
+	 lATTWQ8m194d4aWD/rj0KdaF6BJCmiAk2Kcr/8TVHPF5Z67c6dwUZgTfeyEhEfXEfeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069291;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=btZ2TprQHQojMwnDwVX6xxEuU+pesarzzPhbHJEdoGg=;
-	b=aJhdrYDTVGM+hZ5EhauuarR1r7QtwsyMYPlZBm22siHWZpzkvfod8UQvMai9lFeMEml0
-	 K+LQkFNoBQX9cti8KLJJj8dr/Q9oS4+MCTMoisiwPbwJOr2siT+9Jnyeol/5u/iheBMhQ
-	 tXmnsGyKQsGo3cVD68Zt3SsG2QZEwYz7NUxeb+f1xx7kA3iRlpLXDO6UvSk5GkS43We4m
-	 k9hcw2QysNvYO9kyRG+EetuV6xJZC0KsLO7hGUu2ebkqq+sdr5H8SewU628korMVxwLEv
-	 7WsaU87pfFO7DPYkji3W+JriQ0jhszjK7dB/7IfPsZByVLWOWAISDISNjsrowcCALww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069329;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=Ao9DeZ00W1Ha8SrPgtgKIsZ+z4rQpKJ/lpe4GpJWBWw=;
+	b=HWotFlX+4pP0GplJpJhe7jmnwjeUqw5ilgXuPhJytM3lu2I2uonkLnrr3RaO1SdcK8Rx
+	 q9WVvyBTRgRyXQ6kEmuRrjx6EwpKze61ls2vw83yEhCE5cCv2QkPa1do2YIb+zVzdKfXV
+	 jnaEfNir6GxisR8vjj07HASBYH93z0/lGveTfMjUCBlCd9Xkub8oXd1sZ2ryywI7ZIyNJ
+	 Xtq7p2fDuhW4sGmWQuKu7lPqdJu0N/SbLVohdnpitX7/n07VHkpfNrQV1I0UQlnxXMFbR
+	 yoKAxnbHBBXQgubfghypE3ZnIC/m1tZIGEqmZjG16yosemo2piLFIcJTSQWhKoRXbpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7xa1Dpj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=TWjGzZTa;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=lcOephla;
+	arc=none smtp.remote-ip=103.168.172.148
+Received: from fout-a5-smtp.messagingengine.com (fout-a5-smtp.messagingengine.com [103.168.172.148])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7CC20606A32A;
-	Thu, 19 Nov 2026 06:21:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E973606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:22:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E973606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e7xa1Dpj
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 99E921F000C4;
-	Thu, 19 Nov 2026 06:21:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069291;
-	bh=btZ2TprQHQojMwnDwVX6xxEuU+pesarzzPhbHJEdoGg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e7xa1Dpj4IV+gGquktCuwkP8uLbLXtGks3wuXwt/tSMkOsmBjJ/0z/lSi6xpEE1if
-	 M+ClMf07lAH8kSdnFi7nUiv7E1oRGPNtacMDB0C9ZyZ9nVvpOERjMX8QaAKZ7lKRn4
-	 M1z2+y5hTJxFCzzBM0zcOMJWoXKpQIZjVMenn5ZU2BG85Fmxa/pgerSdcdz7kbKLdA
-	 QCVfwXzNN8zWPDBlSNSXrmUbYCk3O1GsxodMLXYujCtnvsjSw4DQj4SWvGVet8sWJk
-	 gjUyqjq21Sc89moWlZp69HUgI6J3icvNRaTO40aErPOsiyV3xe7t6GSDpp7+hZ+Auj
-	 I9xdx3hVfOiUQ==
-Date: Thu, 19 Nov 2026 08:21:27 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Paul Moore <paul@paul-moore.com>
-Cc: linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Ben Segall <bsegall@google.com>,
-	Christian Brauner <brauner@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Jan Kara <jack@suse.cz>,
-	John Johansen <john.johansen@canonical.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Manfred Spraul <manfred@colorfullife.com>,
-	Mel Gorman <mgorman@suse.de>, Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v3 00/13] Namespace for namespace roots
-Message-ID: <av6VZ5NQG4GwYvPl@kernel.org>
-References: <20261118193539.240065-1-jarkko@kernel.org>
- <av4CdM-eW73oO4wB@kernel.org>
- <av4NonrcCxzMoDyz@kernel.org>
- <av5-Zc4xhgkPxb7p@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=TWjGzZTa;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=lcOephla
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id DC646EC0013
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:22:06 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Thu, 19 Nov 2026 01:22:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795069326;
+	 x=1795155726; bh=Ao9DeZ00W1Ha8SrPgtgKIsZ+z4rQpKJ/lpe4GpJWBWw=; b=
+	TWjGzZTayvGpDTkOTyxAMxTQml2VKD5NoBIVs2ZVUXoOISYaA3Uc1LxG+dXllhYe
+	J8FxZsBsdvL6tFO56+d7HUXPzKgi7IAmgs6o/cm/15Jka4G+tfW8HRtGFX4GIjyB
+	lZ5vRV85egHGbxXBKii+j+pzNZEkGZA0caU8pwv50zf/hZMXkvrGK+19K8rROrHL
+	YHc1wturLPZzyL+fhyxeP1rPMvW3j1/wHAVDiovnXcibtM0N2Kvm3tPwH0yFDZXc
+	3s1Wf6CQjtnsU+buz0OMiJulwT9v8/9vdNXTaCy0NFs5D/pM+pRWzNS292Nj6zoB
+	AgmT9AcQSU2LUhLgWL0opw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795069326; x=
+	1795155726; bh=Ao9DeZ00W1Ha8SrPgtgKIsZ+z4rQpKJ/lpe4GpJWBWw=; b=l
+	cOephlaTHHsTmFyYdCBarj12KrWZh1ErZD47QUWRBMVJQHRfyGAfeCgckDcmDfMx
+	lwItmwwZD3exyzG2ZlFwSyBbAEuUBWaqLf/WMkk1NCvDrC4RVG4AFbEqowlX5giT
+	Iz0dri6yfXj1yKeNjSOU3areLB5YT0uOThBeHwSRyn/Pdb3yktdi3kRhcGFSABRz
+	R5QkwH2B22KyKKQS5EJidcBYobWfh4mEFpEK8pnuNK0i3W3o7LS6dWEI4xw4Hfl/
+	8escvIj1iduDwB/Mudh0k6CU7skSRGR7bPFOof1K1fs5fKmSES8pkLTGMDNilCxY
+	6ssyyc74sIMXxWxTeZVVA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795069326; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:NSGSsXLH40oRmN1NGG+hEIVjEIl7X3Z0tVmHFWW+OA08vdU
+	DdQdcjOQXkF9SEHKJf9vqB9Y9FLiODdYbT7SFYqSl+PSyZWtKZlEcjQwJ6jbefL4
+	DYCgdAxAlR8n1gbUEUa+mI8b6AAgb21INpWHlXsZa/nbo6iuxMLuI0vDJeJ+kasI
+	eJju4lmW+xZx6R85RzuBYby46JT3cU91055Xhhrv3AMkMZzx4n7KpCXf4+QAllJ/
+	n4euhEQSY4L7QLAAAS62uL2GIEdpKUbckmN54F0/NMShmsIREwDMz6qCKae8W6tr
+	g5V3pMiq0LYQ0Ytc66jfEKnkdnqDgKk82lkPajg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:3XkK0W35CgOH/ZKPpusMqfDFNQ2k6j18tYK4xGXexXE=:OYBDagLCE9VvBKeXfkcgoMdANKiUxPGnsTXCyxnNgpU=;
+X-ME-Sender: <xms:jpX-avr6WfwOaKp5-CrTkbIiwg4maxTIUS_vQEGJWEYV7uDSAU9rIg>
+    <xme:jpX-alhLKWuI-Jy6crLHmRN7U6VJ1DpCgo44gSJzEQ1b14aoa2rh28cNRk42C9eYl
+    pd5wpuyJ8OcZJ9_WRqctxdUOkSwIckazz8MYXRCyVXQGiw-2DExEIuK>
+X-ME-Received: <xmr:jpX-apM_MU8rJFz7JdA5m7AjT4n3r2V1YOm3uT5I-bh7Qi-djzTfFhlacZ3RGB04dDi5RNAAKnRlDZM7JNcxjy0U0gr6Bdc>
+X-ME-Proxy-Cause: dmFkZTEr95tSe0kNh6fNcC5bhVppNT54ROS1KzDK27rEScZTj0CiDDhAyE11Awns4Ey0B9
+    qHzt1YKEmltWC2LNLmlF2H7jBw6N9O/U0Mehub4MnUYFmd8MXWqxgD/gnfqXeGDPviTjE6
+    7AFDcBirkYMwrJ+33dS9TLg0sT6pNCsY34FbAFHriDmay+kg16sXd95o9IddWnMexW+DMx
+    Eswel8V7dM5fpdTdBBDM+dfI9FZ7P8MGsXFEJliPVUDSFnUDz1mnyB7vOWxp/j2HxcpgrW
+    LtmmbBP+ZKsh+8zyPukLfBKo8USZ+7c9+KZUi7mRPkhKC6wUGbkqFH+feU3XKIfUu/rdFN
+    UIEQyyseZte0Ip3Z0avPDf9G3iSad95WuoHwMQ3tLtO3GsZYz5TGCbp2z7WCSUNKQRHIPC
+    MZk32fhhaZbNbA0DSaF+XB48FdnGxQ5H+sn9Y3vjDEUO2M9MKnspKj4kJwaAyLGUWbP36w
+    rpfaXKtL9Kuvu0jaNBouHIBw69N0uoaYYJCPoSi7UHMHu05oitgCYLP06/8SdJIECOBgm+
+    abvytkYTadp/EgXJi24ADPBWJkzJEVv6gtTzeE3Lj0F4JiDmSwZVvKD+nB5rxM/Ao+jRNT
+    Qk93dlGlf34nUcdtfMxYVtuPm1VsqXyzxoKe6OxCTt4FaVm6067ta88V8DzQ
+X-ME-Proxy: <xmx:jpX-anyOy8nHWpG9B1jshvHE1Y-x9qIKWeN8Snlq4Wa1V-egfUIE8Q>
+    <xmx:jpX-ajpMUHgMC8u7xylUrAP5l78eb4vV0WBJ6lYZAZ8qgcHT_IjFxA>
+    <xmx:jpX-avPN0iI9JLjDZRVdZYSVaSGrYWOQrSRXAhBw1Y5TGSHvqLczcA>
+    <xmx:jpX-aveYWBX8zQ5w-OAw4prvIuIAkLaCm09NpHtDe4QuKITXBKeZZA>
+    <xmx:jpX-ar-SlIw2jrk4tj-DQVQzslSUB-B_dvegZH4ouZl2Zxjs0eToXMyc>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 01:22:05 -0500 (EST)
+Date: Thu, 19 Nov 2026 07:22:03 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com,
+	lukasz.luba@arm.com, geert+renesas@glider.be, magnus.damm@gmail.com,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, edubezval@gmail.com
+Subject: Re: [PATCH v2] thermal/drivers/rcar_thermal: disable the work before
+ masking the interrupt
+Message-ID: <20261119062203.GC2300348@ragnatech.se>
+References: <20261118072321.1259639-1-shunsheng1218@gmail.com>
+ <20261119022903.1493494-1-shunsheng1218@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,70 +129,179 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <av5-Zc4xhgkPxb7p@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261119022903.1493494-1-shunsheng1218@gmail.com>
 
-On Thu, Nov 19, 2026 at 06:43:21AM +0200, Jarkko Sakkinen wrote:
-> On Wed, Nov 18, 2026 at 10:42:10PM +0200, Jarkko Sakkinen wrote:
-> > > I.e. before PID 1 and /proc/<pid>/ns/* existss, nsfd for namespace other
-> > > than root nsfd can be acquired as follows:
-> > > 
-> > > 	int mnts_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
-> > 
-> > 
-> > Unprivileged caller becomes the owner of rootns->user_ns. Each mount
-> > syscall then just checks CAP_SYS_ADMIN against rootns->user_ns.
-> > 
-> > The user space wiring goes along the lines of:
-> > 
-> >         int root_fd = rootns_create(ROOTNS_KILL_ON_CLOSE | ROOTNS_CLOSE_ON_EXEC);
-> >         int mntns_fd = ioctl(root_fd, ROOTNS_GET_NSFD, CLONE_NEWNS);
-> > 
-> >         int tmpfs_fd = fsopen("tmpfs", 0);
-> >         fsconfig(tmpfs_fd, FSCONFIG_SET_ROOTNS, NULL, NULL, root_fd);
-> >         fsconfig(tmpfs_fd, FSCONFIG_CMD_CREATE, NULL, NULL, 0);
-> >         int rootfs_fd = fsmount(tmpfs_fd, 0, 0);
-> > 
-> >         move_mount(rootfs_fd, "", mntns_fd, "/", MOVE_MOUNT_F_EMPTY_PATH | MOVE_MOUNT_T_MNTNS);
-> > 
-> >         struct clone_args args = {
-> >                 .flags  = CLONE_INTO_ROOTNS,
-> >                 .rootns = root_fd,
-> >         };
-> >         pid_t pid = clone3(&args, sizeof(args));
-> 
-> 
-> [BTW, this patch set is pointed out to David and not fsdevel mailing by a
->  mishap, apologies.]
-> 
-> I reduced syscalls can be further to only a single syscall: rootns()
-> 
-> The complete API after this:
-> 
-> 1. rootns(flags)
-> 2. ioctl(rootfs_fd, ROOTNS_GET_NSFD, ns)
-> 3. ioctl(rootfs_fd, ROOTNS_WAIT, NULL)
-> 4. ioctl(rootfs_fd, ROOTNS_KILL, signum)
-> 
-> An updated version of the patch set is available over here:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=rootns
-> 
-> In order to find more evidence that the API is trimmed and code has no
-> extra fat, I tried how LSM hooks size-fit.
-> 
-> Attached are the experimental LSM hooks and while possibly not exactly
-> right they should not be at least in the ballpar (Paul?).
-> 
-> Not perfect, but very usable, and there's a steady track of convergence
-> where resolving a bottleneck leads into a better symmetry and coherency
-> overall.
+Hi Yaohan,
 
-Orthogonally, solely fd-local security model (as all is tied to fd) is
-the best thing ever when defining mandatory access control policies  as
-the full flow can be meaningfully described; i.e. roonts(), sendmsg()
-and other calls track the fd's data flow with almost the highest
-achievable granularity.
+Thanks for your work.
 
-Br, Jarkko
+On 2026-11-19 10:29:03 +0800, Yaohan Li wrote:
+> rcar_thermal_remove() masks the interrupt sources and then cancels the
+> delayed work of each sensor.  rcar_thermal_irq() drops common->lock before
+> it walks the sensors and queues priv->work for those whose status changed,
+> so a handler that read the status before the mask was written can still
+> queue the work after cancel_delayed_work_sync() has returned.  The work
+> then runs after ->remove() has finished and devres has freed common, priv
+> and the thermal zone.
+> 
+> Waiting for the handler alone is not enough either: rcar_thermal_work()
+> re-enables its interrupt source once it has updated the temperature, so a
+> work that is still running when the removal starts undoes the mask that
+> ->remove() has just written.
+> 
+> Disable the work before the source is masked.  That makes the
+> queue_delayed_work() calls in rcar_thermal_irq() no-ops and guarantees
+> that the re-enable in rcar_thermal_work() has already happened, so the
+> mask that follows cannot be undone.
+> 
+> The interrupt line is shared, so waiting for the handler once does not keep
+> it from running again later; unregister it in ->remove() instead of only
+> calling synchronize_irq().  devm_free_irq() waits for a handler that is
+> running right now as well, and the slot is marked unused so that the probe
+> failure path, which also ends here, cannot release it twice.
+> 
+> Every sensor that the removal walks has been through INIT_DELAYED_WORK()
+> before it is linked into common->head, so no uninitialised work is touched.
+> The interrupt numbers are recorded in an array whose unused slots stay
+> negative, instead of being counted separately.
+> 
+> Fixes: 697ee786f15d ("thermal: rcar_thermal: Prevent doing work after unbind")
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> 
+> ---
+> Prepared against v7.4-rc1-1969-g666539eecdf4.
+> 
+> Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4, CONFIG_RCAR_THERMAL=y.
+> No hardware was available, so the removal path was not exercised and no race
+> injection was run.
+
+Ohh, could you test this please. It's a rather large change and while it 
+looks correct it could behave differently then expected.
+
+> 
+> AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
+> author reviewed the reasoning and takes responsibility for the content.
+> 
+> Changes in v2:
+>  - Drop the shutdown flag and the separate IRQ count.  Niklas asked for less
+>    state, so the removal now disables the delayed work before the source is
+>    masked and unregisters the shared IRQ instead of waiting for it once.
+>  - Keep the interrupt numbers in an array whose unused slots stay negative.
+> ---
+>  drivers/thermal/renesas/rcar_thermal.c | 37 ++++++++++++++++++++++++--
+>  1 file changed, 35 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/thermal/renesas/rcar_thermal.c b/drivers/thermal/renesas/rcar_thermal.c
+> index af6d09a75bb6..3310ed4a8bda 100644
+> --- a/drivers/thermal/renesas/rcar_thermal.c
+> +++ b/drivers/thermal/renesas/rcar_thermal.c
+> @@ -39,11 +39,15 @@
+>  /* THSSR */
+>  #define CTEMP	0x3f
+>  
+> +/* .nirqs of every supported chip is at most this */
+
+.nirqs is not really needed here. Just say something along the line of 
+max number of supported interrupts or some such.
+
+> +#define RCAR_THERMAL_MAX_IRQ	2
+> +
+>  struct rcar_thermal_common {
+>  	void __iomem *base;
+>  	struct device *dev;
+>  	struct list_head head;
+>  	spinlock_t lock;
+> +	int irqs[RCAR_THERMAL_MAX_IRQ];
+>  };
+>  
+>  struct rcar_thermal_chip {
+> @@ -376,10 +380,34 @@ static void rcar_thermal_remove(struct platform_device *pdev)
+>  	struct rcar_thermal_common *common = platform_get_drvdata(pdev);
+>  	struct device *dev = &pdev->dev;
+>  	struct rcar_thermal_priv *priv;
+> +	int i;
+
+unsigned.
+
+>  
+> -	rcar_thermal_for_each_priv(priv, common) {
+> +	/*
+> +	 * Stop the work from being queued again and wait for a running one to
+> +	 * finish before the interrupt source is masked: rcar_thermal_work()
+> +	 * re-enables its source when it is done, so it has to be gone before
+> +	 * the source is disabled for good.
+
+I think you can make this less verbose and more to the point.
+
+> +	 */
+> +	rcar_thermal_for_each_priv(priv, common)
+> +		disable_delayed_work_sync(&priv->work);
+> +
+> +	rcar_thermal_for_each_priv(priv, common)
+>  		rcar_thermal_irq_disable(priv);
+> -		cancel_delayed_work_sync(&priv->work);
+> +
+> +	/*
+> +	 * The handler is shared, so waiting for it once is not enough: another
+> +	 * user of the line can invoke it again after that, when the zones and
+
+line?
+
+> +	 * the sensors it walks are already gone.  Unregister it here; that
+> +	 * waits for a handler that is running right now as well.
+
+I don't understand this.
+
+> +	 */
+> +	for (i = 0; i < RCAR_THERMAL_MAX_IRQ; i++) {
+
+Please declare the loop variable in the for () statement to reduce 
+scope.
+
+> +		if (common->irqs[i] < 0)
+> +			continue;
+> +		devm_free_irq(dev, common->irqs[i], common);
+> +		common->irqs[i] = -ENOENT;
+> +	}
+> +
+> +	rcar_thermal_for_each_priv(priv, common) {
+>  		if (priv->chip->use_of_thermal)
+>  			thermal_remove_hwmon_sysfs(priv->zone);
+>  		else
+> @@ -413,6 +441,9 @@ static int rcar_thermal_probe(struct platform_device *pdev)
+>  	spin_lock_init(&common->lock);
+>  	common->dev = dev;
+>  
+> +	for (i = 0; i < RCAR_THERMAL_MAX_IRQ; i++)
+
+Here you can't declare the loop variable as the function already 
+declares it at the function level. This is likely because this function 
+pre-dates when it was OK to declare it directly in the loop definition.  
+
+No need to update old tested code en-mass, but lets use the better way 
+in new code.
+
+> +		common->irqs[i] = -ENOENT;
+> +
+>  	pm_runtime_enable(dev);
+>  	pm_runtime_get_sync(dev);
+>  
+> @@ -449,6 +480,8 @@ static int rcar_thermal_probe(struct platform_device *pdev)
+>  		if (ret)
+>  			goto error_unregister;
+>  
+> +		common->irqs[i] = irq;
+> +
+>  		/* update ENR bits */
+>  		if (chip->irq_per_ch)
+>  			enr_bits |= 1 << i;
+> -- 
+> 2.34.1
+> 
+
+-- 
+Kind Regards,
+Niklas Söderlund
