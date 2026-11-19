@@ -1,100 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795114788;
-	b=qMtVLC5X5g58GPHA/eUcr3o+piZ1phABz/sJKv9P3M13O3hnw2tIqeTeygHHgYXAfYwW
-	 V8LIBf/pg3/XgqyOC594CWNNETTEAchtTDks+msvgNDkfRYwWGdm+9jpDVhMDU79dc/ig
-	 3VNCCjCuJ3pEOO64/xxnlmzudYm+W9GJpS/A4Xr0HL8kAepdZ8+XjTd4MLEzJewRH4bkF
-	 ZujiK91+kDF3NJBFaEfDtYk8epEGLRZTqiXAjpo6/ViT1/+mvBjtGGW6vDP3ll8qIhEbJ
-	 5ksJFxQsTE50sDAdU3zcVDBvbtKl2oL78NQRAzzLZ/V1ZNlEQBB2+kWQYaQmULCphjg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795114788;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=wbxe7kLubw9u1wufA+gD9vxLgwISeFpqRh3SSGVI7cw=;
-	b=L/GvSva9biVd09jsC5s6OQN/IHmybLWbbyH0Q8KYFcoXJvKwcz6O/VrlP9BSYpFEBE1d
-	 lrfxt2yKcBioq3GkC+lHddVxgIHgz9I2gLQxbS68t/2Ax1xIfUWNE/8tNHR1ApyGUDID5
-	 lN+rpdVXHc2ITiQ1HbQ77vz7tkiEbltXsltnP6IGtsGKMbhit2ukK69iSQVh26AlfLECl
-	 o40TSjeG1nc28zlW0G/KAMrmnSWizKBKcmE9JuVU35qEadTS/lbjlJ8ChcCwzGoCN/t2a
-	 CzLBtGy1JK5MXCWUWts2RJnIKSbznA1GoiGGK2fY+jo4ATcwJVJp57KpJ3PDT4zfc9A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b06SVsdc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795114802;
+	b=QVTQKp+3XEimTt+YK4iWYrP++VG9Hg0t/kE/ipXTQu2mNxOTPLGBmbHvQp3p7ztUatev
+	 ZULxIqZD8c5kZgUO/WUujm78lJrSK83E5XTgZwJq6MrVbOOM16XdSLgnOHiVAkNKtskks
+	 7uJfKqzrqiimmYznNNB5aD/GKNZtGht8qfXI0dU5zRBXu9YFfZHhbitOVKNjLS771N/69
+	 l4yXv3KUtMpwOGLZqWnv4wGPhG1sk6fgBqapH8ySIcWnRApezdSaKA9mawYoQArN7KyTG
+	 dQwwQKhG3KPhlnd+0RRR9OCPCpPdBG5y4JJsrijRjUMLD9dLyDY4Q6/6NE6XBB492Sg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795114802;
+	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Rc3Y1zAg/nSiG5dvIx58BgnYoMQ372vHx7okRL2qhjE=;
+	b=dbjuUsYViIMFxdHSkVTs+9F+teobjHH2UMvIRrgTzyiEgrZuYsKgILw4/xQU18f9jJ2s
+	 XPmoA0ML4emD+FeytZAo/q8ITsDBPzVpEfgau7m1X7JghUkoGYLje+bhjHfxbXl0GL9cQ
+	 Ece6Tbh65Vv/wg4VbEVfoOrp7PjVl9aAVyIzNElCETRlolkUBtsgP5TVPIJnmIARTMt5j
+	 RhQdeU3p6JRia6fe0W7/a5o7UpMcKGwcC55KJtwcaEie2k/PonV6oRc5HNFSpZuVtsu0S
+	 56v7hvaxM4CJlV1WYHawTxHBQoNJhFQ4D+GmYdUt10rds0aHjueWdmZXBqx6BBkwyDg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X6ZLywbI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5932606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:59:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5932606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22B63606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:00:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b06SVsdc
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso75940eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:59:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795114787; cv=none;
-        d=google.com; s=arc-20260327;
-        b=g7BNQp5/ejLCibyLOhP6wVxSnO4ijGtVwpPXITU8EwtRIe9Ot1ZqqqMDjT/y+859zl
-         oS7iYWJvYRer5CmC/255YrhBTB3KshKNFctD18WMhWxyrKB027YDPDlMHcvmwos+5Irw
-         AbyYY5TMGuOVoc6xfZFmNLH/oJ4vVcBzXiJvXptVvBXlRgp/MdgI1GfsmYOFWTOoBHgh
-         iXm4zJwKtU0u+BvKlCliKc59R6OKAaiH6x0JiT/ZzhW8dhs4N39WRR3FkwxjN3PTR9fk
-         Vhe/LPFo5vxnR8ad3TORnF/C1sjnaUVIu5123bL+ufZvLRqhumPNyak5wsxEii0Pfxor
-         xfDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=wbxe7kLubw9u1wufA+gD9vxLgwISeFpqRh3SSGVI7cw=;
-        fh=PPpVtxsjwkCw2Vm8NCBvMPaOen5zC5eqFJG8mjUpx6M=;
-        b=aBflSWF3yMgWIHrf/DwSVEHyNK3pQ8gmk+ME9FD1f4maUptjKj/zUxeNc09a18lR6l
-         zeozZvfmWHFOvoOW+3Ehiiae3wtzDlfkjNzopTpR6TqLCaKSdosF+485s/CF2PvvXTOU
-         5wjoDy9kp8+KQTcbKbzyuvNHNMuWWondSfdlKaxTijhkmpp+9e8eqRxbBS+5vHGk9WG+
-         QFnIQv9EXtzK3lLTyutqxxmC1ykgq7ZiQBUz/IG7R/36hX1Bpk/OoSMdODXxYCf/XXsZ
-         BujqniYWJp9XJOQle9mPIY+7xxygPYLCs36rejUbaSvMZsqM1M4dtz7uQpZ3UqeJKjU+
-         osLA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795114787; x=1795719587; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wbxe7kLubw9u1wufA+gD9vxLgwISeFpqRh3SSGVI7cw=;
-        b=b06SVsdcaDcUIiqLafzT/utdQ/iCjsDIoPHheymBP14C9oVM+Nij/QnTatPmo5MLd7
-         VWBwzL6foEyhbglKHqywrYsDot3ltlNUz3u3/RxZcXrSwaQqK0r7pphL3G80HqysQJOr
-         RwuwmOjSc3g4F9xMvGEAuyWvzy3Ttht94JwG3wRz1UyFb0Yoehvd14U3X/FaQHODbnNz
-         UbH54uyTHEJIi3O+qLH3rX689h1ixmJHiGMEmfZGg0ICYydBD9ccP+r2c39K7hFPbzWc
-         IrNzaT5Z2aJKpIyzCz/I6Lj5uMjJ3JPS/SEhCliplYtOTnP13itNDhlUdUiBB7kCz7L/
-         Cm+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795114787; x=1795719587;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=wbxe7kLubw9u1wufA+gD9vxLgwISeFpqRh3SSGVI7cw=;
-        b=w1Cr51tLeZS9gTv1xhIrd6o387NiUdAPSvMpyUwY+T0aoFSC55xIaNeoVrVqV5S/Da
-         CkUQ8EpHL97Hw68b/RG3WSCp9scndKHp3mVPrcsitMbY4D4bqJqOG+3FxvEb94FgHlu8
-         +Lp/DkeUVvTruDOng4uJ645vGAEWSiUPM5chzw6gpgq53979UA0Ca1ecvbzUUWF0C0gf
-         kFQHwe2Nmd3EfhDxCUw5iQYTU7Bw/KV/9mhzkSbxBYiaviVZLMD/KEmeRw4qCAx12VNE
-         mhnsoRUKOk6YuCfJIMYbUpPOwmHpoPBEZYw93KIw/E7zU7KdbF5NRkXeDrUhZVsUrLHT
-         WyCA==
-X-Forwarded-Encrypted: i=1; AL+hErFcN/tZtgOq4PdNsLKbgy79w/87poyZkdWvYmKUYw1u2VxdN1UaXKilVkMbIbqyYr6R3ldCz5nxH6dYfGw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8xvvKh0h9uYTZfWWmIBJiipZbkFKZVu6MVQesU1zK+m858hAVG
-	UOQ5U9wL6W4JGwTbeCFf0WEZVDaNcY74eDrKn1ZWdmgQfBUr2mfpDfo4aK3tP5rHdiGIpGT8/yK
-	C/wbAXbCkgrsko9xqfOEKs5cdLjhYH+o=
-X-Gm-Gg: AZFdTZeCjlT/i4t4GGY+BpOzbPObd9jLhk/A8J5hDqqLR741mIsda7+No4N6cO4bBEa
-	SbxnnASZoAobBBMxx1SubX64rcb//zthWNR9gOCc56TnVoVIXlmYOV+sF2FuSAHOug0p8fZVV5T
-	do7o8dp8YSPOl4onIuuGiPkWPivioSUB0CH39fgBDJ7oNM5q9GXssuOtYb0PpoWhOXAFOF6tB5A
-	G6LDlxSj0ZEkvNOdSDHM6BvmF4SW3xvVuke9MPnne19D2u/9wiA89qoIQnif8K04nDfOv0yxB6V
-	JIyVIgEbuddDXAO4fIXbTkO1WKQH3YZBTFU2QiJ2NznOFYtssC0m+4+sFOL4RGbK+pdeRrazD2/
-	gdebTHMRxQ5WAUWQcy5dkSWZq8JENazegB2a4wqeb4MZAdah2yBBhZmQYbKkfswsETvuqHtzQzA
-	trW4D5Vqtd5p8mE7G0xw==
-X-Received: by 2002:a05:7300:f491:b0:37b:7bba:8199 with SMTP id
- 5a478bee46e88-3856fd5cc92mr183443eec.6.1795114786784; Thu, 19 Nov 2026
- 10:59:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X6ZLywbI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AAEC1F00927
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:00:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795114801;
+	bh=Rc3Y1zAg/nSiG5dvIx58BgnYoMQ372vHx7okRL2qhjE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=X6ZLywbI0i82S0QHqex9fxprVdpeGcA9KdylXNFR4xXsD0/GFrMyjwjzn6+IfQhOC
+	 oYybgn7wNP6PK1gCC+uVvGx7unnko3w886I5K5u4DX/UAJDqKGB2bCC1JVIFVrDRP2
+	 qs/bbHFr2WFZQLDtEUf5RvUPUOVniTtZubxQf5DozquXaR5QxPl0czRl0k004I5w8O
+	 +dv4Wn0b6VwmS4AnzSJyprMO/Q31vqWHTIfqjperhynwfdxilUwKksXoxSjwHjZp3n
+	 hVykgBi6cVM1f3RALwvgRuR32SuBaVEJUrAbh2+JFHNvu448Ub2SXIMOvapd68gCJL
+	 WhGbnH27eu9lA==
+Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-6d68de53053so59847eaf.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:00:01 -0800 (PST)
+X-Gm-Message-State: APuU4Z+IrzmgSQxvyJ7b117GaMNFGjfifroLNa6IcL/pE6P+ZK/zmNAT
+	it8Z35UCTXzY+CMVQ6xMK92JVW+Fmrph7kyGR7sct9CpwtL4R8kcT4hZUSJrhhpltRR/j5oBvFI
+	ULkaTKqVLHEOBva3++Dqm0pCqyU0AP0g=
+X-Received: by 2002:a05:6820:6703:b0:71a:fe11:aa36 with SMTP id
+ 006d021491bc7-71b3953f6b9mr422997eaf.63.1795114800358; Thu, 19 Nov 2026
+ 11:00:00 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,23 +58,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119012707.555494-1-lcy8047@gmail.com> <7e94f48f-f352-4809-a96e-d5363b8be273@nvidia.com>
-In-Reply-To: <7e94f48f-f352-4809-a96e-d5363b8be273@nvidia.com>
-From: Changyul Lee <lcy8047@gmail.com>
-Date: Thu, 19 Nov 2026 13:59:35 -0500
-X-Gm-Features: Aa3M54po2B1r57yvjEB-PRSHSy7gIA46Bx8WGdBCs9hXYwC8qE8ue_MB7q0s0UE
-Message-ID: <CAKefsHt0MC47dMy++wZS7SJ_yZVYeOMdKmG8RvkNtqCoGn2_qA@mail.gmail.com>
-Subject: Re: [PATCH net] net/mlx5e: Skip hairpin entries not ready in debugfs dump
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Mark Bloch <mbloch@nvidia.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Gal Pressman <gal@nvidia.com>, netdev@vger.kernel.org, linux-rdma@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20261119180143.2912138-1-chia-yu.chang@nokia-bell-labs.com> <20261119180143.2912138-3-chia-yu.chang@nokia-bell-labs.com>
+In-Reply-To: <20261119180143.2912138-3-chia-yu.chang@nokia-bell-labs.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 19:59:49 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqgAmakzRozSD8RvieAyriXJQSJ57kpD35ja6Tz5BB8BQ@mail.gmail.com>
+X-Gm-Features: AclHuK8alF_Zi8-LdHVyoUThH9UYxh9ZHTwY_58OAO9Dp6AN7IPwd1H37_FgiNw
+Message-ID: <CAL4WiiqgAmakzRozSD8RvieAyriXJQSJ57kpD35ja6Tz5BB8BQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 2/4] tcp: rename ECN transmit helper function
+To: chia-yu.chang@nokia-bell-labs.com
+Cc: linux-kernel@vger.kernel.org, kuba@kernel.org, netdev@vger.kernel.org, 
+	pabeni@redhat.com, davem@davemloft.net, kuniyu@google.com, ij@kernel.org, 
+	ncardwell@google.com, koen0607@gmail.com, g.white@cablelabs.com, 
+	ingemar.s.johansson@ericsson.com, mirja.kuehlewind@ericsson.com, 
+	cheshire@apple.com, rs.ietf@gmx.at, Jason_Livingood@comcast.com, 
+	vidhi_goel@apple.com, Mike_Rudolph@comcast.com, Jeff_Howe@comcast.com, 
+	srichard@netapp.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for the review and the corrections :)
-I will send a v2 patch with the fix tag.
+Le jeu. 19 nov. 2026 =C3=A0 19:01, <chia-yu.chang@nokia-bell-labs.com> a =
+=C3=A9crit :
+>
+> From: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
+>
+> Rename INET_ECN_xmit_ect_1_negotiation() to
+> INET_ECN_xmit_negotiation_ect(). The previous name suggests that the
+> helper always uses ECT(1), while it actually chooses the ECT codepoint
+> to be used during the ECN negotiation.
+>
+> This renaming also prepares for the introduction of a similarly named
+> helper function for established connections in the followup patch.
+>
+> Signed-off-by: Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>
+>
+> --
+> v3:
+> - Rename helper to better reflect its behavior
+> ---
+>  include/net/tcp_ecn.h | 6 +++---
+>  net/ipv4/tcp_cong.c   | 4 ++--
+>  2 files changed, 5 insertions(+), 5 deletions(-)
+>
+> diff --git a/include/net/tcp_ecn.h b/include/net/tcp_ecn.h
+> index 865d5c5a7718..9ca016d98972 100644
+> --- a/include/net/tcp_ecn.h
+> +++ b/include/net/tcp_ecn.h
+> @@ -33,7 +33,7 @@ enum tcp_accecn_option {
+>  };
+>
+>  /* Apply either ECT(0) or ECT(1) based on TCP_CONG_ECT_1_NEGOTIATION fla=
+g */
 
-Best,
-Changyul
+While you are renaming it, please expand this comment, it is rather
+cryptic. Something like :
+
+/**
+ * INET_ECN_xmit_negotiation_ect - set the ECT codepoint used before CA ini=
+t
+ * @sk: TCP socket
+ *
+ * Mark the socket ECN-capable for the packets sent while ECN is still bein=
+g
+ * negotiated (SYN, SYN-ACK), i.e. before tcp_init_congestion_control() run=
+s.
+ *
+ * The codepoint is chosen by the congestion control module:
+ * ECT(1) if it sets TCP_CONG_ECT_1_NEGOTIATION, ECT(0) otherwise.
+ *
+ * This does not decide whether ECT should be sent at all: callers only use
+ * it when the module (TCP_CONG_NEEDS_ECN) or a BPF program asked for ECT
+ * on these packets.
+ *
+ * This changes the socket TOS/tclass, not a single packet, so the codepoin=
+t
+ * stays in effect until tcp_init_congestion_control() or tcp_ecn_send()
+ * selects the one used for the established flow.
+ */
+
+The helper added in patch 3 (INET_ECN_xmit_established_ect()) would
+deserve the same treatment, so that the split between the two is clear.
+
+
+> -static inline void INET_ECN_xmit_ect_1_negotiation(struct sock *sk)
+> +static inline void INET_ECN_xmit_negotiation_ect(struct sock *sk)
+>  {
+>         __INET_ECN_xmit(sk, tcp_ca_ect_1_negotiation(sk));
+>  }
+> @@ -583,7 +583,7 @@ static inline void tcp_ecn_send_synack(struct sock *s=
+k, struct sk_buff *skb)
+>                 TCP_SKB_CB(skb)->tcp_flags &=3D ~TCPHDR_ECE;
+>         else if (tcp_ca_needs_ecn(sk) ||
+>                  tcp_bpf_ca_needs_ecn(sk))
+> -               INET_ECN_xmit_ect_1_negotiation(sk);
+> +               INET_ECN_xmit_negotiation_ect(sk);
+>
+>         if (tp->ecn_flags & TCP_ECN_MODE_ACCECN) {
+>                 TCP_SKB_CB(skb)->tcp_flags &=3D ~TCPHDR_ACE;
+> @@ -618,7 +618,7 @@ static inline void tcp_ecn_send_syn(struct sock *sk, =
+struct sk_buff *skb)
+>
+>         if (use_ecn) {
+>                 if (tcp_ca_needs_ecn(sk) || bpf_needs_ecn)
+> -                       INET_ECN_xmit_ect_1_negotiation(sk);
+> +                       INET_ECN_xmit_negotiation_ect(sk);
+>
+>                 TCP_SKB_CB(skb)->tcp_flags |=3D TCPHDR_ECE | TCPHDR_CWR;
+>                 if (use_accecn) {
+> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
+> index e3f462f161dd..3331679c81d7 100644
+> --- a/net/ipv4/tcp_cong.c
+> +++ b/net/ipv4/tcp_cong.c
+> @@ -228,7 +228,7 @@ void tcp_assign_congestion_control(struct sock *sk)
+>
+>         memset(icsk->icsk_ca_priv, 0, sizeof(icsk->icsk_ca_priv));
+>         if (ca->flags & TCP_CONG_NEEDS_ECN)
+> -               INET_ECN_xmit_ect_1_negotiation(sk);
+> +               INET_ECN_xmit_negotiation_ect(sk);
+>         else
+>                 INET_ECN_dontxmit(sk);
+>  }
+> @@ -258,7 +258,7 @@ static void tcp_reinit_congestion_control(struct sock=
+ *sk,
+>         memset(icsk->icsk_ca_priv, 0, sizeof(icsk->icsk_ca_priv));
+>
+>         if (ca->flags & TCP_CONG_NEEDS_ECN)
+> -               INET_ECN_xmit_ect_1_negotiation(sk);
+> +               INET_ECN_xmit_negotiation_ect(sk);
+>         else
+>                 INET_ECN_dontxmit(sk);
+>
+> --
+> 2.34.1
+>
