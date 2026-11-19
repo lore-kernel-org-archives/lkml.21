@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795061868;
-	b=WNZXwLhU8ZWi3vgcxq6vNglkFT0ma6ZrK037Yw9FA40rx6id4jTAM6CxURp6jQyrS263
-	 jrRdLBuuv08raEjxzIyX4ZZsPF6znkRa0UIBy9ng4Su7EYvvW1Hb8+ohHdMoV6Nt5gyFR
-	 d4cnTSeJkObYW3Jlfrj9ehd6XGZMiuCa9/6rvJRdCOK5CA0U72kdWXy3POMdUa9cLxUbi
-	 bcWRzjWkSkoqRTkOKoCVM7X72DFgPqO64YKK+i5o9UyDdgD0w6hD0/sqw70rOqgOC6EfX
-	 k8zaqK0HhtJLIxe8lO6KxZNr+999vYP9fdzheUS8tVc+ZFYvpnl7QuFrRgeAue+4pZQ==
+	t=1795061910;
+	b=lyV9oxG5oha0BT9RTp/KUEwfuHu69SFuDIp7tbvhwPt9ND35qpmN55grb3ixDRtDmpOr
+	 UjYo9pQi6uG2JtONTcslb6ryZV1neR8EbtS7YSZLGqg14wV50pVaTwwzZELF7B07AO43m
+	 Cb0AoRk4IQ8o/CMIXvfBHl2CE0EusB8O2L2zh0lpzgVZUL8zKLXnCgIYHzb9vpr8QwmuH
+	 eLpvaZ7cUGcG8sQal7iyyVrFM6zy/LatplPUitsK+bDLn4q1NSqqQy2cszKZ94zQkg/ZB
+	 xR5999l+ZEYzpr0xUZRWzjCPyQhef5uJN9FLIHEniKbxxHxqqKiS3ZpPX2vbDsZgDdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795061868;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795061910;
 	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
 	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
 	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
@@ -15,37 +15,37 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
 	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
 	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=iwOG8aMkU8Xz2AEC6SLQXw7rEKoyBeNEE/LagbloY/o=;
-	b=xOUQeSeM9yNs0Dh4oAzElnx4jU9MGYbx2mDfnYBQlsKD51Jupkhr41LilelNpuPqtzUs
-	 K59S/2FtAedqYBzkpB3BMdA7RclqiE1vVS47EkvFLVD6pNoj2Lv2IziBHGqI2m1ZcZNAY
-	 UTl2Q8A4CjIL+zVv6Pf/s1nYhvPRfFOxY23zW/cgUkHfVsUjvKIii/DvWzwAKwx4vOywp
-	 KxezComXbZRHmQjq8H9JIGPsYepk2SkS3aCzdNnnoAWCBrLkDY5oWAfbJM3ZNgW7w2cX4
-	 rw6ig7dNgiGhAsREuxJZoGqIDI228+sHEMyb6Lofsbhx5UGqqHp2hqqNn6zYNO5809w==
+	bh=Cok5Cu9cFU2HVdMQYGpD+jR2ETA6MYjVlABZpVIRlGE=;
+	b=z+DvwTCO68Zp8IC7ioLr8ZXRwe9kKBqEy08S2Pn70PaTILYmrG/RNr+O+nmumm2BVC6f
+	 ZbTkUOJreAvc6uCY6fAY3cMEmdK75Zs1Y1+f0/RlB0GQzJqQKxNbygQTEX7J8ALldd2AO
+	 2cVwpTAmo0IOCIt1jn4fhO4HfL/VYDWsy974ljewquLlHT6uDMUew2kqHfbhbneY26F4l
+	 mDbryKhVG1wxIsg4R+rfVhgtp0ymbyTrsBCOb63wy6U6WFQdAYDWJoe8TXLCcBNXLW6OK
+	 Pqjxk0ScUw/s9pvOrG+cv4QlhzMpQ5RJmGwPJ6K0PVgXgLHvb3cNQeVZu8xuPQ5AIOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=roeck-us.net;
 	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b="kr/XbSUo";
-	arc=none smtp.remote-ip=35.89.44.35
-Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=IaJjgSJj;
+	arc=none smtp.remote-ip=44.202.169.39
+Received: from omta040.useast.a.cloudfilter.net (omta040.useast.a.cloudfilter.net [44.202.169.39])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EAB6606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:17:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EAB6606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBB9D606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:18:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DBB9D606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=kr/XbSUo
-Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=IaJjgSJj
+Received: from eig-obgw-6007b.ext.cloudfilter.net ([10.0.30.166])
 	by cmsmtp with ESMTPS
-	id TpGQxaPsaRiNxTtagxpTB7; Thu, 19 Nov 2026 04:17:42 +0000
+	id TodIxx7o5OOJnTtbRxYM9l; Thu, 19 Nov 2026 04:18:29 +0000
 Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
 	by cmsmtp with ESMTPS
-	id TtafxjdBAlaNKTtafxi3P2; Thu, 19 Nov 2026 04:17:41 +0000
-X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6afe7865
+	id TtbQxUxwg3nNNTtbQxhTTC; Thu, 19 Nov 2026 04:18:28 +0000
+X-Authority-Analysis: v=2.4 cv=TuLmhCXh c=1 sm=1 tr=0 ts=6afe7894
  a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=_jlGtV7tAAAA:8 a=SxDrggpomWqlGV9BuskA:9 a=QEXdDO2ut3YA:10
+ a=_jlGtV7tAAAA:8 a=KGKPhaFNMVq1mND5Qr0A:9 a=QEXdDO2ut3YA:10
  a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
@@ -53,20 +53,20 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=iwOG8aMkU8Xz2AEC6SLQXw7rEKoyBeNEE/LagbloY/o=; b=kr/XbSUow+KH
-	SX8zB1gvreI5QV+lul7xDp21jd4UG1I7qz/GdWwyQdaWHtb1wmN3dyM2gKL3EJNuWkkK47YPO5IJw
-	6FtZt15TZkY2DayBcCBFeu8sWuW2ZQKmyQDxtLbGoPbonKbYhy/V2xieNX7hC8+jHYTE67lodM+Ij
-	4FV+MNU8C9TNG2cy2Rd/E61pb9ELdMCfR+vX0yJnC8oHaqtQfM6V5pgTzQ7n/8+Ljoz10c+JjY6ry
-	e8pi8FTUIvyjlHyg9vKIuwHlKA5RYots0iT605XIgp9ruDCkYMCyNJS9mY1dHP9LJ1zfZCRQw/AtN
-	CP+JW/sENK0vQLf0+xvdzQ==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:55370)
+	List-Archive; bh=Cok5Cu9cFU2HVdMQYGpD+jR2ETA6MYjVlABZpVIRlGE=; b=IaJjgSJjCV97
+	PUPuDM5qm0iT2CmGGoH5g3YNzVVYT5I8h8pby4/40WHdDhGLjQLHtNEVHu5YDJJZ8wLgktGqqdS0s
+	7ZhpStRi7MZhm1NwWB+mfGzpqlhCzcUY0Nptnw/5Z4lNX2vhz9HO9FdKM04YL0iTSsPcrgBe9CDcM
+	lUN5Km7O9Vd6x7LOMkY88mqTfGhRRKlMckU8mmN2qX34OBhRdTIvg25L/daZLp1NSnw0RcUPde0lA
+	aMJqVaEguMyP0dDn/SgbGlXE3MAHIBC2eynITzu9V9XbO4MvPVBnagHJz3sICIAxhsWws5I8O6FOR
+	8Q+1BruUCf/h5elSCJ2Fig==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:35128)
 	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <linux@roeck-us.net>)
-	id 1xTtaf-00000001z9Z-0EJc;
-	Thu, 19 Nov 2026 09:47:41 +0530
-Message-ID: <c212df8a-6ff7-4a4f-a90e-7bb6c073f617@roeck-us.net>
-Date: Wed, 18 Nov 2026 20:17:39 -0800
+	id 1xTtbP-00000001zPt-3T3c;
+	Thu, 19 Nov 2026 09:48:27 +0530
+Message-ID: <03605d5d-43cf-4b24-bd21-3e29b18e590e@roeck-us.net>
+Date: Wed, 18 Nov 2026 20:18:26 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,15 +77,15 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] hwmon: Add driver for Marvel AlphaServer
- environmental sensors
+Subject: Re: [PATCH v4 7/7] hwmon: (marvel-env) Notify userspace of
+ environmental events
 To: Matt Turner <mattst88@gmail.com>,
  Richard Henderson <richard.henderson@linaro.org>,
  Magnus Lindholm <linmag7@gmail.com>
 Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org
 References: <20261118-marvel-env-v4-0-200317e496c2@gmail.com>
- <20261118-marvel-env-v4-6-200317e496c2@gmail.com>
+ <20261118-marvel-env-v4-7-200317e496c2@gmail.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -131,7 +131,7 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
  FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
  np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20261118-marvel-env-v4-6-200317e496c2@gmail.com>
+In-Reply-To: <20261118-marvel-env-v4-7-200317e496c2@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
@@ -142,61 +142,29 @@ X-AntiAbuse: Sender Address Domain - roeck-us.net
 X-BWhitelist: no
 X-Source-IP: 108.223.40.66
 X-Source-L: No
-X-Exim-ID: 1xTtaf-00000001z9Z-0EJc
+X-Exim-ID: 1xTtbP-00000001zPt-3T3c
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:55370
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:35128
 X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 3
+X-Email-Count: 10
 X-Org: HG=direseller_whb_net_legacy;ORG=directi;
 X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfCpU7ZZitrSUSa2bfX3lD10y9Dml7NDFPXk6xBJScxDqNpdcIUTk8e8uwe1pBCT8Xvq95u7ug+0r/694B9MQS3rdUSwTVbtdzfLqW0YI6Vg5Pz44AjTI
- L16KHgOCn+hdnd8Q1pnNkn/LsR88GrMRH+BYMWS3rZuXgPH67biGY0fWtgUyqqjkOSQL4T8MK6n51LcLL2zQIBaI47l0/rS0N0XhzYAdhp4Gy1MF5dGqVDH/
+X-CMAE-Envelope: MS4xfHMY2zRuI3XOO5eAhT3NbiD3oPTwbfQ0dQm0Kv8Fh3ZKbVAjl3C3UoAi65BEu+bKiHDpEqyU3ABYpu5n1oAWBw3ac4tDGtf8eNqJ2Dav/zPqaS1c68Hp
+ j05Hb4YdNNlhuRglm8Tt+5Xa1EWAW09gQvRu1nd49s70egYo80AvE0ejs6kYwf0N0apW4kadvlElpZv13RvniJJ1wh6q0NhtggvFtUTQQe3PDOnDT5dyFckp
 
 On 11/18/26 16:09, Matt Turner wrote:
-> The management firmware of the Marvel (EV7) AlphaServers, the GS1280,
-> ES80 and ES47, monitors temperatures, fans, voltages and power supplies.
-> The SRM console describes each sensor as a packet in a power and
-> environment node of its config tree (GCT), and fills in the readings
-> when asked to refresh the node. The packet layout was taken from Tru64
-> UNIX.
-> 
-> The firmware gives each temperature, fan and voltage sensor a warning
-> limit and a failure limit, and reports the sensor in the warning or
-> failure state once its reading reaches one. Neither state means that the
-> sensor is broken: a temperature past its failure limit is too high, not
-> faulty. Power supplies are either working or failed, with the cause
-> (AC, POK, overtemperature, fan) logged by the firmware.
-> 
-> Export the sensors through hwmon. A temperature's warning and failure
-> limits become max and crit, with max_alarm set in either state and
-> crit_alarm in the failure state. A fan's warning limit becomes min, with
-> min_alarm set in either state and fault in the failure state, which is
-> when the firmware counts the fan as failed. A voltage exports its
-> reading, with min_alarm or max_alarm set in either state and lcrit_alarm
-> or crit_alarm in the failure state, depending on which side of its
-> nominal voltage it reads. The console gives the nominal voltage and only
-> one other limit, so the voltage limits are not exported. A power supply
-> is a voltage channel with only a fault attribute.
-> 
-> A refresh keeps the boot CPU in the console with interrupts disabled for
-> up to 300 ms per node, so refresh a node at most once every 10 seconds.
-> The hwmon core serializes the callbacks, which also
-> serializes the refreshes.
-> 
-> The console callback lives in core_marvel.o, which generic kernels
-> built with ALPHA_LEGACY_START_ADDRESS leave out.
+> The firmware reports each change of a sensor's state as a system event
+> machine check. On one, reread every node from a workqueue and notify
+> userspace of each alarm attribute whose value changed. The notifier runs
+> in machine check context, so it only queues an irq_work, which queues
+> the work. The work takes the hwmon device lock to serialize the refresh
+> with the sysfs callbacks.
 > 
 > Signed-off-by: Matt Turner <mattst88@gmail.com>
+> Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
 
 Acked-by: Guenter Roeck <linux@roeck-us.net>
-
-I assume thqat the series will be applied through an Alpha tree.
-Please let me know if I should apply this and the next patch
-through the hwmon-next tree.
-
-Thanks,
-Guenter
 
