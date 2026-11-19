@@ -1,66 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.101.248.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795053152;
-	b=unpYjmH4sZcHx/VySl/N6dJFR/yDFm76nIBWHszMkFJTiFfuZkk6IUfpWbAewjWUUiv2
-	 t4rIbAsvkWlXRP+ouqxPc8h1V4W84rXZYbM3Hq98kbxxIKvhA9Xa9VJquAysOBYNOqEGY
-	 ko5FUH00BmJvrF42+Jz12Swj8U6LettPIpHt6n8LJ0AHUJcL+DiDQRC31DdQq5tkqSpF2
-	 lXBw0VTS3o9+X3+f6mvTQKDDxvVpunPWTqnxKmnabUKxl2KZm6t585qqd2OqcRi0voojJ
-	 +jI3igA04400ym5jRR8Iq/dYC0jd9KGS9DZ7j5tMRCbtGi2jY/7h5BuBNLCyqzrkJsQ==
+	t=1795053174;
+	b=PDY45IJ9HRqxMyiq9c7OFUobT6Pg7fxjWYo5P1I2/ZX9FAQ0OAwVeHo24Ep4qfmpqH3j
+	 9HfCrZ4bpynh/I20JFLj9fJ/hhuISg9anBBaLNC/uCxFAgsoZTKyWKIWWgjdij+8hDvOt
+	 Y8IcTuS8TxfGowQbaOcLxg9XlApOzJe0w5B5kowTnZtq/cwD3T9YUwr8IZ/ZXrZkGIgRP
+	 SsYDhP5hVQYe7pzM09nhtq6DCDx0Kpo5KuWGgi8CocMRtzsqwPaeO5PrU8q92hqFprsk0
+	 vKSKiDP3BgMg2fPQglyJtfwM22tdGNcO0gnSMBi7JMRN1ig78Do5/lma+XbW8AsSkJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053152;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=drBI2u3l/Qu8rjPECXBquJdYCnYIjDkd28tJ2CdOoKs=;
-	b=mUJiAWdSbU/Jm5okaSd4uC7pKKtuFHhZmEnvAuVUvaritRusMm/FuZOXfccSAPQTJzrw
-	 pz8Hh3PGB8yXdd113pYEBKif25nhXJ1cosRvEbrYJAkuSvwaB3sXFOMArUAGMQ23sGKLy
-	 yVtc4ScUW2EdnDFsW+uqB9nLyQFdk8CdKryERRpTtdGs1v+Ur8id/EYCLlKfFr2oKPCtq
-	 7bBcPyY4YbucZXaVglKjmbziqWCT4M6IQ3wPY9BJf3VnTlzj//dnkXvBWblZPsSb5YZQs
-	 /IUfsnHD3IA1ZYMvzkgVUc0WYkZZ3JdfPvmtSUX8SDFmuH/xBC4Bz96mbDLmIlZzDMg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795053174;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Originating-IP:Date:
+	 X-CM-HeaderCharset:From:To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:
+	 References:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=5M/5lxJkM0TyI7QXLtWHuq57KaIWU5NZYtWYB5EtOKI=;
+	b=i7jnIIuajsC3V+nsJfqhVu/Pd2JVhtit4CDILqLpvrc49lliushRsq3p328xhvpE6aR5
+	 iriNjgTzYYC2EDG+v0JpmIAxLz5oSppk+Sy0M/0J26KsAflRYP9QJqXGhVN6wi7zjeotN
+	 zd7YHp8rLtkvl7AwqVdX6sPBKuGnkW+VHKmJJqIOm+9jizDJwUkAL8xF0WNkNZVm/TjLk
+	 2v9hZV8dPqARpO+c6EzGFNHCh14MRZ5a8yVoqXasZSXVAgxTUkCAhNYZ1btjUKyKvp6AW
+	 7pCgmM5HyRP5mrO6LboGj/7MjbF5wy2gGhzj4WlDAqxe18bBKg20xIL6h9WZUQrmJrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codewreck.org;
-	spf=pass smtp.mailfrom=codewreck.org;
-	arc=none smtp.remote-ip=62.210.214.84
-Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15917606A32A;
-	Thu, 19 Nov 2026 01:52:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15917606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id 833F014C2D6;
-	Thu, 19 Nov 2026 02:52:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1795053135;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=drBI2u3l/Qu8rjPECXBquJdYCnYIjDkd28tJ2CdOoKs=;
-	b=RbGZKsMg3K0nhkZzfOhmSz6iE2G0Rh+N2AqKr/x4uCwbP8OAc8claHsfHkIBbSq8cuLCq9
-	kmHHU1z9ocF2Gg/1QbOfzmRsmoPQvUNOKmRHEtfANO6rlMS7nRDFVlcG9n9kBtoXmLNboB
-	1JhvROInVB/XGOosCq2F7TTjugGuGTCFb+vQCXFCqEKnRf3m+ffrtIfL52D91tvfmxKHXH
-	KR+ifJuXsGuZoi+r+x3I5jHmYz7wJir2GObUPiyUAloXttvmeNhs3cp8hV6ZfsoFfebv3v
-	sdccBULoblMHKny7Q2yzE15+SelLIY0p8WhU4ziHZzoFdxrQFcAs52JItJGAVg==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id c4e01d75;
-	Thu, 19 Nov 2026 00:52:07 +0000 (UTC)
-Date: Thu, 19 Nov 2026 09:51:52 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.12 0000/1756] 6.12.119-rc1 review
-Message-ID: <av5IKItmzhDUp-Zd@codewreck.org>
-References: <20261118150007.957976754@linuxfoundation.org>
+	dmarc=pass header.from=eswincomputing.com;
+	spf=pass smtp.mailfrom=eswincomputing.com;
+	dkim=fail reason="signature verification failed" header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=GcNzir3O;
+	arc=none smtp.remote-ip=46.101.248.176
+Received: from zg8tndyumtaxlji0oc4xnzya.icoremail.net (zg8tndyumtaxlji0oc4xnzya.icoremail.net [46.101.248.176])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4E963606A325;
+	Thu, 19 Nov 2026 01:52:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E963606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=eswincomputing.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=eswincomputing.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=eswincomputing.com header.i=@eswincomputing.com header.a=rsa-sha256 header.s=dkim header.b=GcNzir3O
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=eswincomputing.com; s=dkim; h=Received:Date:From:To:Cc:Subject:
+	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-ID; bh=AtyI6ok3Vi6DM9HN4m7xODIlo4sq1C3Mwjjp
+	S7DX8MQ=; b=GcNzir3OMybN36pC9Rb1efXHqgzIRLNyT9470N0pz/pHEWGBooSC
+	y/ZgE/73OWkrEMT4JiIostIx8taYEBG1IgVOSXTxjLOplYPpJL0UI+x9VQz9SA+A
+	DS4EAQc/36vt9CdGFSGWA1bsCiCHjeyZYRMOVpIF0iiTl5+o0JUpv4E=
+Received: from linmin$eswincomputing.com ( [10.10.96.205] ) by
+ ajax-webmail-app2 (Coremail) ; Thu, 19 Nov 2026 09:52:37 +0800 (GMT+08:00)
+Date: Thu, 19 Nov 2026 09:52:37 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: "Min Lin" <linmin@eswincomputing.com>
+To: gaohan@iscas.ac.cn
+Cc: "Pinkesh Vaghela" <pinkesh.vaghela@einfochips.com>,
+	"Pritesh Patel" <pritesh.patel@einfochips.com>,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Paul Walmsley" <pjw@kernel.org>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>,
+	"Albert Ou" <aou@eecs.berkeley.edu>,
+	"Alexandre Ghiti" <alex@ghiti.fr>, "Han Gao" <rabenda.cn@gmail.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] riscv: dts: eswin: Add Milk-V Megrez board
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <20261118-eic7700-megrez-v2-2-0113ebc5b670@iscas.ac.cn>
+References: <20261118-eic7700-megrez-v2-0-0113ebc5b670@iscas.ac.cn>
+ <20261118-eic7700-megrez-v2-2-0113ebc5b670@iscas.ac.cn>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,87 +75,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261118150007.957976754@linuxfoundation.org>
+Message-ID: <7edd04e5.a5d.1a1f1817c2c.Coremail.linmin@eswincomputing.com>
+X-Coremail-Locale: en_US
+X-CM-TRANSID:TQJkCgA38xxlVv5qBywAAA--.133W
+X-CM-SenderInfo: 5olqzx3q6h245lqf0zpsxwx03jof0z/1tbiAgEQCWr9068ImgAAsj
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-Greg Kroah-Hartman wrote on Wed, Nov 18, 2026 at 03:35:27PM +0100:
-> Adam Ford <aford173@gmail.com>
->     phy: freescale: fsl-samsung-hdmi: Fix 64-by-32 division cocci warnings
->
-> Aristo Chen <aristo.chen@canonical.com>
->     phy: freescale: fsl-samsung-hdmi: initialize default rate
-> 
-> Pei Xiao <xiaopei01@kylinos.cn>
->     phy: freescale: fsl-samsung-hdmi: Use helper function devm_clk_get_enabled()
-> 
-> Adam Ford <aford173@gmail.com>
->     phy: freescale: fsl-samsung-hdmi: Support dynamic integer
-> 
-> Adam Ford <aford173@gmail.com>
->     phy: freescale: fsl-samsung-hdmi: Simplify REG21_PMS_S_MASK lookup
-> 
-> Adam Ford <aford173@gmail.com>
->     phy: freescale: fsl-samsung-hdmi: Replace register defines with macro
-
-I'm getting a boot failure around one of these on i.MX8MP:
-
-2026-11-19 09:01:29.454251 [    0.587255] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-2026-11-19 09:01:29.459125 [    0.596076] Mem abort info:
-2026-11-19 09:01:29.460122 [    0.598879]   ESR = 0x0000000096000004
-2026-11-19 09:01:29.465853 [    0.602641]   EC = 0x25: DABT (current EL), IL = 32 bits
-2026-11-19 09:01:29.470643 [    0.607973]   SET = 0, FnV = 0
-2026-11-19 09:01:29.471565 [    0.611036]   EA = 0, S1PTW = 0
-2026-11-19 09:01:29.476941 [    0.614190]   FSC = 0x04: level 0 translation fault
-2026-11-19 09:01:29.481849 [    0.619077] Data abort info:
-2026-11-19 09:01:29.487329 [    0.621961]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-2026-11-19 09:01:29.492669 [    0.627455]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-2026-11-19 09:01:29.498347 [    0.632518]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-2026-11-19 09:01:29.504076 [    0.637842] [0000000000000000] user address but active_mm is swapper
-2026-11-19 09:01:29.509800 [    0.644207] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-2026-11-19 09:01:29.510695 [    0.650479] Modules linked in:
-2026-11-19 09:01:29.521321 [    0.653542] CPU: 2 UID: 0 PID: 12 Comm: kworker/u16:0 Not tainted 6.12.119-rc1-at0-g8f03b6a4b095 #43
-2026-11-19 09:01:29.527214 [    0.662683] Hardware name: Atmark-Techno Armadillo-IoT Gateway G4 Board (DT)
-2026-11-19 09:01:29.533048 [    0.669734] Workqueue: events_unbound deferred_probe_work_func
-2026-11-19 09:01:29.542857 [    0.675584] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-2026-11-19 09:01:29.544070 [    0.682548] pc : phy_clk_recalc_rate+0x4/0xc
-2026-11-19 09:01:29.549398 [    0.686828] lr : __clk_register+0x4f0/0x8e0
-2026-11-19 09:01:29.554271 [    0.691021] sp : ffff8000800bb9e0
-2026-11-19 09:01:29.560182 [    0.694336] x29: ffff8000800bb9e0 x28: ffffa1893c634720 x27: ffff6d82c32ac080
-2026-11-19 09:01:29.566395 [    0.701486] x26: 0000000000000000 x25: ffff6d82c32ac080 x24: 0000000000000001
-2026-11-19 09:01:29.576245 [    0.708635] x23: ffff8000800bba88 x22: ffff6d82c32a16a0 x21: 0000000000000000
-2026-11-19 09:01:29.582449 [    0.715784] x20: ffff6d82c20f8100 x19: ffff6d82c32a3800 x18: 0000000000000fdf
-2026-11-19 09:01:29.588353 [    0.722932] x17: 0000000000000cf0 x16: 00000000000003fa x15: ffff6d82c214af10
-2026-11-19 09:01:29.594281 [    0.730081] x14: 000000000000014d x13: ffff6d82c214af00 x12: 0000000000000000
-2026-11-19 09:01:29.604441 [    0.737232] x11: 00000000000000c0 x10: 0000000000000000 x9 : 0000000000000000
-2026-11-19 09:01:29.610325 [    0.744381] x8 : 0101010101010101 x7 : 0000000000000000 x6 : 8080808080808080
-2026-11-19 09:01:29.616546 [    0.751528] x5 : ffff6d82c32ac080 x4 : 0000000000000000 x3 : ffff6d82c200a700
-2026-11-19 09:01:29.622413 [    0.758677] x2 : ffffa1893b813740 x1 : 00000000016e3600 x0 : 0000000000000000
-2026-11-19 09:01:29.627125 [    0.765829] Call trace:
-2026-11-19 09:01:29.632409 [    0.768277]  phy_clk_recalc_rate+0x4/0xc
-2026-11-19 09:01:29.633534 [    0.772208]  devm_clk_register+0x5c/0xbc
-2026-11-19 09:01:29.638814 [    0.776137]  fsl_samsung_hdmi_phy_probe+0x1dc/0x310
-2026-11-19 09:01:29.643768 [    0.781024]  platform_probe+0x68/0xdc
-2026-11-19 09:01:29.644748 [    0.784693]  really_probe+0xbc/0x2bc
-2026-11-19 09:01:29.650181 [    0.788278]  __driver_probe_device+0x80/0x14c
-2026-11-19 09:01:29.655274 [    0.792643]  driver_probe_device+0x40/0x130
-2026-11-19 09:01:29.660501 [    0.796831]  __device_attach_driver+0xb8/0x140
-2026-11-19 09:01:29.665772 [    0.801282]  bus_for_each_drv+0x88/0xe8
-2026-11-19 09:01:29.666809 [    0.805125]  __device_attach+0x9c/0x19c
-2026-11-19 09:01:29.671945 [    0.808966]  device_initial_probe+0x54/0x74
-2026-11-19 09:01:29.677003 [    0.813155]  __bus_probe_device+0x34/0xa0
-2026-11-19 09:01:29.678308 [    0.817171]  bus_probe_device_deferred+0x2c/0x78
-2026-11-19 09:01:29.683731 [    0.821795]  deferred_probe_work_func+0x7c/0xb4
-2026-11-19 09:01:29.688826 [    0.826335]  process_one_work+0x164/0x2bc
-2026-11-19 09:01:29.693854 [    0.830355]  worker_thread+0x180/0x2f4
-2026-11-19 09:01:29.694736 [    0.834109]  kthread+0x110/0x114
-2026-11-19 09:01:29.699938 [    0.837345]  ret_from_fork+0x10/0x20
-2026-11-19 09:01:29.705576 [    0.840932] Code: d503201f d503201f d503201f f9400c00 (b9400000) 
-2026-11-19 09:01:29.709069 [    0.847029] ---[ end trace 0000000000000000 ]---
-
-I need to check further where the problem is exactly, will reply to this
-mail again in a couple of hours as I'm not sure I can recover the board
-remotely to check right now
-
--- 
-Dominique
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2VzLS0tLS0KPiBGcm9tOiAiSGFuIEdhbyB2aWEgQjQgUmVs
+YXkiIDxkZXZudWxsK2dhb2hhbi5pc2Nhcy5hYy5jbkBrZXJuZWwub3JnPgo+IFNlbmQgdGltZTpX
+ZWRuZXNkYXksIDE4LzExLzIwMjYgMDQ6MDA6MDYKPiBUbzogIk1pbiBMaW4iIDxsaW5taW5AZXN3
+aW5jb21wdXRpbmcuY29tPiwgIlBpbmtlc2ggVmFnaGVsYSIgPHBpbmtlc2gudmFnaGVsYUBlaW5m
+b2NoaXBzLmNvbT4sICJQcml0ZXNoIFBhdGVsIiA8cHJpdGVzaC5wYXRlbEBlaW5mb2NoaXBzLmNv
+bT4sICJSb2IgSGVycmluZyIgPHJvYmhAa2VybmVsLm9yZz4sICJLcnp5c3p0b2YgS296bG93c2tp
+IiA8a3J6aytkdEBrZXJuZWwub3JnPiwgIkNvbm9yIERvb2xleSIgPGNvbm9yK2R0QGtlcm5lbC5v
+cmc+LCAiUGF1bCBXYWxtc2xleSIgPHBqd0BrZXJuZWwub3JnPiwgIlBhbG1lciBEYWJiZWx0IiA8
+cGFsbWVyQGRhYmJlbHQuY29tPiwgIkFsYmVydCBPdSIgPGFvdUBlZWNzLmJlcmtlbGV5LmVkdT4s
+ICJBbGV4YW5kcmUgR2hpdGkiIDxhbGV4QGdoaXRpLmZyPgo+IENjOiAiSGFuIEdhbyIgPHJhYmVu
+ZGEuY25AZ21haWwuY29tPiwgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcsIGxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcsIGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmcsICJIYW4g
+R2FvIiA8Z2FvaGFuQGlzY2FzLmFjLmNuPgo+IFN1YmplY3Q6IFtQQVRDSCB2MiAyLzJdIHJpc2N2
+OiBkdHM6IGVzd2luOiBBZGQgTWlsay1WIE1lZ3JleiBib2FyZAo+IAo+IEZyb206IEhhbiBHYW8g
+PGdhb2hhbkBpc2Nhcy5hYy5jbj4KPiAKPiBUaGUgTWlsay1WIE1lZ3JleiBpcyBhIE1pbmktSVRY
+IGJvYXJkIGJhc2VkIG9uIHRoZSBFU1dJTiBFSUM3NzAwWCBTb0MuCj4gCj4gQWRkIGEgbWluaW1h
+bCBkZXZpY2UgdHJlZSB0aGF0IGVuYWJsZXMgVUFSVDAsIHdoaWNoIGlzIGNvbm5lY3RlZCB0byB0
+aGUKPiBVU0ItQyBkZWJ1ZyBwb3J0IHRocm91Z2ggYSBDSDM0MCBVU0ItdG8tVUFSVCBicmlkZ2Us
+IGFuZCB1c2UgaXQgYXMgdGhlCj4gc2VyaWFsIGNvbnNvbGUuCj4gCj4gU2lnbmVkLW9mZi1ieTog
+SGFuIEdhbyA8Z2FvaGFuQGlzY2FzLmFjLmNuPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRz
+L2Vzd2luL01ha2VmaWxlICAgICAgICAgICAgICAgICB8ICAxICsKPiAgYXJjaC9yaXNjdi9ib290
+L2R0cy9lc3dpbi9laWM3NzAwLW1pbGt2LW1lZ3Jlei5kdHMgfCAyNSArKysrKysrKysrKysrKysr
+KysrKysrCj4gIDIgZmlsZXMgY2hhbmdlZCwgMjYgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2Vzd2luL01ha2VmaWxlIGIvYXJjaC9yaXNjdi9ib290
+L2R0cy9lc3dpbi9NYWtlZmlsZQo+IGluZGV4IDIyNDEwMWFlNDcxZThkODk5OTZmN2NiZmM2MTY0
+MjVmNzA0YWYzN2UuLjVkYWFkZTgyMmUxNWVkYTQzZWVlMTExY2JmODliYzM4NmJiMDZmMzIgMTAw
+NjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9lc3dpbi9NYWtlZmlsZQo+ICsrKyBiL2Fy
+Y2gvcmlzY3YvYm9vdC9kdHMvZXN3aW4vTWFrZWZpbGUKPiBAQCAtMSwyICsxLDMgQEAKPiAgIyBT
+UERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICBkdGItJChDT05GSUdfQVJDSF9FU1dJ
+TikgKz0gZWljNzcwMC1oaWZpdmUtcHJlbWllci1wNTUwLmR0Ygo+ICtkdGItJChDT05GSUdfQVJD
+SF9FU1dJTikgKz0gZWljNzcwMC1taWxrdi1tZWdyZXouZHRiCj4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3YvYm9vdC9kdHMvZXN3aW4vZWljNzcwMC1taWxrdi1tZWdyZXouZHRzIGIvYXJjaC9yaXNj
+di9ib290L2R0cy9lc3dpbi9laWM3NzAwLW1pbGt2LW1lZ3Jlei5kdHMKPiBuZXcgZmlsZSBtb2Rl
+IDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAu
+LmE1N2NiNjExNzEwODdiMjBhMzllYjk2MmY5YzQ1ZDljOGRlZDM5MjUKPiAtLS0gL2Rldi9udWxs
+Cj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9lc3dpbi9laWM3NzAwLW1pbGt2LW1lZ3Jlei5k
+dHMKPiBAQCAtMCwwICsxLDI1IEBACj4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BM
+LTIuMCBPUiBNSVQpCj4gKy8qCj4gKyAqIENvcHlyaWdodCAoYykgMjAyNiBIYW4gR2FvIDxnYW9o
+YW5AaXNjYXMuYWMuY24+Cj4gKyAqLwo+ICsKPiArL2R0cy12MS87Cj4gKwo+ICsjaW5jbHVkZSAi
+ZWljNzcwMC5kdHNpIgo+ICsKPiArLyB7Cj4gKwljb21wYXRpYmxlID0gIm1pbGt2LG1lZ3JleiIs
+ICJlc3dpbixlaWM3NzAwIjsKPiArCW1vZGVsID0gIk1pbGstViBNZWdyZXoiOwo+ICsKPiArCWFs
+aWFzZXMgewo+ICsJCXNlcmlhbDAgPSAmdWFydDA7Cj4gKwl9Owo+ICsKPiArCWNob3NlbiB7Cj4g
+KwkJc3Rkb3V0LXBhdGggPSAic2VyaWFsMDoxMTUyMDBuOCI7Cj4gKwl9Owo+ICt9Owo+ICsKPiAr
+JnVhcnQwIHsKPiArCXN0YXR1cyA9ICJva2F5IjsKPiArfTsKPiAKPiAtLSAKPiAyLjQ3LjMKPiAK
+CkFja2VkLWJ5OiBNaW4gTGluIDxsaW5taW5AZXN3aW5jb21wdXRpbmcuY29tPgoKCkJlc3QgcmVn
+YXJkcywKTWluIExpbgo=
