@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064546;
-	b=yiaaACxgQCVUDe11mjJgBE5t/kzoVJ9u53LM/cB3EvsPtfn2ec0RhAa8QL1Q28f+he+w
-	 lPP0D9wr6ecgVms+JrD8knOqULR6YnsbbpTuKdUBiTPKgDAsfmg3rDB8gxYKoERkse+Dc
-	 5R/DDcJ91O5xQ7p9LjW0cH59e+f+uKZb4uxCd/bv4qufuehX9YKF5hv8O7v66DMrFWpuu
-	 3K4UUYCF4q7vdGjaD6hyPtgO9UhocF7o62zynL64jbMrVOtFXyL6c5VSyLDgo4LuXMy4B
-	 WXaNJe+DIQKJ4U9P3UNvawCD2TAFr9ljSZuWsl68lo1QJUgJRWFKrKU2b0IFBEXE5fg==
+	t=1795064581;
+	b=V8yov6ni/UQyeZn5d5HZF7oZYTig3v6IWh7sgYxgRhN5+MOERmah2M1yafPKU4mthARi
+	 3z3guA7Cb56GuQkn4ad7bafc7qAVJ+HLTWkyAR210pbtnpY5DlicwaQfZwNB6a6LKstch
+	 OeFGlCEFjPUlyAaUKHtP1p5Q+iNCnFZgDXDSC0MmpQ7DdwPIBNRhsP+jy6FSVtfjIX8TA
+	 /xUn3cIC65pVLSJtx5N389fdXN5gZ2Fncngu29RhOTEQ2FKTOsLYuhZiBL8Z0UOOr/bPk
+	 mTYz83n6UM5IYy3x83ypCd/dCdWKHq7yDcNWzX+tVW5m22YA5oDJLEwoExFxSTwdYJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064546;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=gMHu40HPB2BKy7MquzF3lmOkVTKUayEImgeIr9c7qLA=;
-	b=q498WWOwv9GTYo9ZlhOhntI+TLdAIBk008pptveiGQA6/hrWZZIXPq4hPhf8bmNfYiH8
-	 6GHMBK0RyCIM5hBRjGdmFpyOjEKyN+c+2sSw5lUPPUqWRyctZo+/quvml/3WkK/sQuy2Z
-	 r+Nbne0iuusQv4tUc9Z91yd8MOZxeNcX/8guRZfssXDn5JClLO9rkpbc9xZ5uyZmg0sUi
-	 jQsHb8O1lan6WtEXmVyBLvDu3z0BiAyue0+TSUj4ap6U6n8obHe+Bj6mF7ofjwCKcengD
-	 khRDmt3UMJvKEIzemyIn0q/0xDhOmppH7gCyMr774ksBGijPsqQDfT0cizog3gW7SBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064581;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=BT7+1r2EbCQwN3k5fIH4q6qWDyQXDFrNj9A0BO8ZTQs=;
+	b=yeIEd7XQqh9zc15ymbPVaFPwwOPidruKv6l/0na1NWdVEivZPSq7LLUJt0M4Kk48d913
+	 GHBlHlQJ5XpjntLw8NdVrCdI7acpoRQZDWoIr/NPYkhndf4VQ3379qa1Zr08anplX5trf
+	 bqtgw+RvaT1XswPvEJ2PTHAADm7cEDFpfwu2DrSqq0UKU9piaWkCBZcG5vhJYP4hWmuub
+	 7DWNkupvhhWYiFv2rmXuLNdXX7vQJmzq8f6Aqbq7ZIUlxdRSaYeamNRrn9TO4ZNjEE9OM
+	 NThevqQvwjamqcNKdnQpavXp266YBE66jxX2GzzhGJa6Dht+WPh5Wuf7UBQkJkjHlwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=I8VeSSrv;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FalkxcAs;
+	arc=none smtp.remote-ip=95.215.58.48
+Received: from mta1.migadu.com (out-48.mta1.migadu.com [95.215.58.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1799606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:02:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1799606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 029E2606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:02:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 029E2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=I8VeSSrv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=gM
-	Hu40HPB2BKy7MquzF3lmOkVTKUayEImgeIr9c7qLA=; b=I8VeSSrv/NomH3j4d7
-	hc20yi8TVjYVNmVTJlakLrWEcPlrdgNAwMR3umALxhMMwYNRsm/RzwWCjgbRBOes
-	yM+Tp8n62ujI5NGAH65LnisjHUUIE6iHStSyShEKT7Wj9LsjvnPyTSCistxGR5jP
-	j2stBUFYbIhHpbTqMf7DctoAw=
-Received: from 5219-2604 (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3_1CEgv5qfDulIg--.27439S2;
-	Thu, 19 Nov 2026 13:00:55 +0800 (CST)
-From: Xionggui Chen <evers_chen@163.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Xionggui Chen <chenxionggui@lanxincomputing.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Muchun Song <muchun.song@linux.dev>,
-	"Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>,
-	Troy Mitchell <troy.mitchell@linux.dev>,
-	Nam Cao <namcao@linutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: mm: Disable GCOV instrumentation in set_satp_mode()
-Date: Thu, 19 Nov 2026 05:00:41 +0000
-Message-ID: <20261119050049.174124-1-evers_chen@163.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FalkxcAs
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=J5rUZ6TR2jk9ww8i3KV8RMWzlPBWx7p9zVMYCEJba0U=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795064578; v=1; x=1795669378;
+ b=FalkxcAss1D7NsKzdTmRxfYXpEAHTaDAYkX6+jLZEvhm2ANlYeHknp2/pvQ3uBnVFWgrg+z3
+ T/+JBOl5SNmWeEmM9zjQ4z5SgtSu5xX9siTeRCtGWH/HobdKTNO2Z6e61lLBZnZjezWPp/OvTYN
+ J9tvP9ZSzazGjZcK67cQwv1c=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id b2ce2cbeb8803d33;
+	Thu, 19 Nov 2026 05:02:57 +0000
+X-Mizu-Trace-ID: b2ce2cbeb8803d33
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <9a47ede3-24fa-4fa3-8d7e-50f221de0929@linux.dev>
+Date: Wed, 18 Nov 2026 21:02:52 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,59 +58,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3_1CEgv5qfDulIg--.27439S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Aw1fXFy7GF1DuFWDWFy5twb_yoW8CFWxpF
-	WrCan3G3yUXrykKFn7Cry8XrW7J3Z5KrW3CrWDt34kWw4qyFyrta1ayw1Yv34DWrWxZa4r
-	WayYgry3uFWDA3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uq38OUUUUU=
-X-CM-SenderInfo: xhyh22pbfkv0i6rwjhhfrp/xtbC6wccJmr+goc2rQAA3c
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
+ preemptible programs
+To: mikeba@sentinelone.com, bpf@vger.kernel.org,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>
+Cc: Martin KaFai Lau <martin.lau@linux.dev>,
+ Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
+ <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Martin Kelly <martin.kelly@crowdstrike.com>,
+ Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>,
+ tyler.wilson@crowdstrike.com
+References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
+Content-Language: en-US
+From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
+In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-From: Xionggui Chen <chenxionggui@lanxincomputing.com>
+Hi Mike,
+On 11/17/26 3:29 AM, Mike Bazov via B4 Relay wrote:
+> fentry, fexit, raw_tp and syscall tracepoint programs can be preempted
+> while they run, but their recursion check is a per-CPU counter:
+> 
+>   task A enters prog on CPU 0       prog->active = 1
+>   task A is preempted inside prog
+>   task B enters prog on CPU 0       dropped, counted as recursion miss
+> 
+> Nothing recursed, but B's event is lost. Since 7.0, x86 and arm64 have
+> only lazy and full preemption, so this happens on stock kernels. Our
+> fentry/fexit probe on inet_sendmsg() and inet_recvmsg() loses 9,254 of
+> 8 million runs under HTTP load on a 4-CPU VM. With the series it loses
+> none.
+> 
+> The series checks recursion per task instead: a program is recursing
+> only if the current task is already inside it.
+> 
+> v2 did that for every program, which breaks a program that uses a
+> per-CPU map as scratch space: the second task overwrites its buffer,
+> and nothing counts that. So in v3 the verifier marks the programs that
+> keep per-CPU state, and those keep the per-CPU counter and behave
+> exactly as today:
+> 
+>   - per-CPU maps, bpf_this_cpu_ptr(), bpf_per_cpu_ptr()
+>   - tail calls: the target has no recursion check of its own
+>   - timed may_goto: its budget is per CPU
+>   - a private stack
+> 
+> Trade-offs:
+> 
+> - Marked programs are not fixed. A program with a per-CPU map or a
+>   tail call loses runs to preemption as it does today.
+> - The verifier can't see everything. A program that keeps per-CPU
+>   slots of its own, like array[bpf_get_smp_processor_id()], is not
+>   marked. Today the counter keeps its runs apart. With the series two
+>   runs can write one slot, and nothing counts that.
+> - raw_tp is about 2% slower in bench, see the table below. fentry and
+>   fexit are within noise.
+> - Tracing, raw_tp and tracepoint programs lose the private stack
+>   (patch 1). It is already unsafe for them: two raw_tp programs that
+>   tail-call one handler let two tasks share its stack today. A program
+>   with two 2000-byte frames no longer loads.
+> - A marked freplace program can't be attached to an unmarked raw_tp or
+>   tracepoint program: -EINVAL.
+> 
+> One question: the marking is automatic. A flag that the program's
+> author sets would avoid the second trade-off, but existing programs
+> would keep losing runs until they are rebuilt. Which do you prefer?
+> 
+>   1. bpf: Avoid per-CPU private stack in preemptible tracing progs
+>   2. bpf: Mark programs whose runs must not overlap on a CPU
+>   3. bpf: Check program recursion per task via bpf_ctx
+>   4. selftests/bpf: Add preemption recursion test for tracing programs
+> 
+> Testing, x86-64 VM with 4 vCPUs:
+> 
+> The selftest pins two tasks to one CPU and makes B enter the program
+> while A is preempted inside it, 20 rounds per subtest. With the series
+> all 19 subtests pass. On bpf-next 7 fail: B is dropped in every round
+> (fentry, fentry_s, raw_tp, raw_tp_s, tp_syscall), A's stack is
+> overwritten (two_dispatchers), and the freplace attach is not rejected
+> (ext_attach).
+> 
+> bench -w2 -d12 -a trig-<x>, M/s, median of 10 runs [min-max], lazy
+> preemption, in boot order, on bpf-next 0fb18ce8a2e9:
+> 
+>                trig-fentry          trig-fexit           trig-rawtp
+>   bpf-next     41.65 [40.81-42.14]  38.89 [37.58-39.41]  42.62 [41.95-42.80]
+>   series       42.40 [41.87-43.04]  39.33 [35.24-41.68]  41.31 [40.48-41.74]
+>   bpf-next #2  41.64 [40.87-41.74]  39.29 [35.18-40.62]  42.05 [41.24-42.35]
+>   series #2    42.34 [42.12-42.78]  39.87 [39.46-41.38]  41.53 [40.79-41.75]
 
-When CONFIG_GCOV_PROFILE_ALL is enabled, GCC instruments
-set_satp_mode() with GCOV counter updates.
+We tested this series and wanted to share the data. Overall unmarked LSM/fentry
+hooks previously affected went to zero. Marked hooks remained about the same or
+regressed slightly. Normalized data:
 
-The function temporarily enables an identity mapping to probe
-supported SATP modes. GCOV instrumentation may access counters
-outside this temporary mapping while SATP is enabled, causing
-a Store/AMO page fault during early boot.
+category		before	after
+raw_tp (marked)		240	213
+fexit (marked)		61	135
+fentry (unmarked)	3	0
+other (unmarked)	805	0
 
-On QEMU virt with Linux 7.4.0-rc1, the fault occurs immediately
-after writing satp. The faulting instruction is an amoadd.d
-updating a GCOV counter in set_satp_mode().
-
-Mark set_satp_mode() with __no_profile to prevent GCOV counter
-accesses during SATP probing, while preserving GCOV coverage
-for the other functions in init.c.
-
-Without this change, QEMU fails during early boot. With this
-change, the kernel reaches root filesystem mounting.
-
-The fix was also verified on RISC-V hardware with Linux 7.2.0.
-
-Signed-off-by: Xionggui Chen <chenxionggui@lanxincomputing.com>
----
- arch/riscv/mm/init.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 070ee69eabb3..f1c778a82157 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -833,8 +833,11 @@ static bool __init is_vaddr_valid(unsigned long va)
-  * The maximum SATP mode is limited by both the command line and the "mmu-type"
-  * property in the device tree, since some platforms may hang if an unsupported
-  * SATP mode is attempted.
-+ *
-+ * GCOV instrumentation must be disabled because the temporary identity
-+ * mapping does not cover GCOV counters while probing SATP modes.
-  */
--static __init void set_satp_mode(uintptr_t dtb_pa)
-+static __init __no_profile void set_satp_mode(uintptr_t dtb_pa)
- {
- 	u64 identity_satp, hw_satp;
- 	uintptr_t set_satp_mode_pmd = ((unsigned long)set_satp_mode) & PMD_MASK;
--- 
-2.53.0
-
+It's nice to see the series progressing since we are affected by the same issue.
+See some comments on the individual patches.
