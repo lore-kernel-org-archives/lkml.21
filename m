@@ -1,45 +1,67 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795097252;
-	b=0ErYpsMkSiiAwe5X8VIFjM+6WbHDLeCphNlyeyjS3T4GhC5xMKlzcP26QI2abuLP+qjz
-	 zuQ5ipo0JaAh0LPOGF1/VOYTtyGfNP3zSifedm8r7Qha8SJhbFbz8h1OZQodyrFXHUzhI
-	 GDHw8a81dvw/weWg2xnVfTYde95WurNDPYTJDIgpyxU76LwSCO1FQ83isYID12sbXxZTG
-	 4DfROrrkM1WDHV91zAdz0cjMjaDfMQ6gmFqsRhFRs/x5LhGWLPU0X+sxEGAS/JFXSlnGy
-	 eK4bH2gLyTsIp7S4Jgwaqf8dAEP5H5BAx0GDs6Ni7MfA54Hh6H8X/VgYYRIvWeG3Yrg==
+	t=1795097275;
+	b=pRd8l8XeH6oHj3Be6jDLWtvhEceqswEK+fzjCxJ7dqDI3/qhs5jJ3B7exLNMi8AZSO9H
+	 bEzI7OSm1fKMzI65DBJyE9kwHrrghUXcvC6zkHLX3AN5zP1jyR1rg6vrKtwza0PCSyQgg
+	 Kd0bzS9H3xGGpuZaHAW+wHo6X4+1zNWvyKHeo6EJLCTw8WEF7V8NuzfwHzYsyETJzA8zz
+	 Z6nOjfcUS35a1660TVrRmiPElcsGagI2FLrxIQGTLSkRapKyVDkaRytSkYPFGukprDY8f
+	 dYQPQnvqD7ZhWJFRYKVbn1N4X6lbPi0C7aTuCZF4rQAH98DKsULqaG2axDNdcNx57Pw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097252;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=CrmcpCex4fbHUrfhAFeTHYutNYioKuausMFQcYEbaLU=;
-	b=Yx7oqoKPRwVc0cSs0xj0Sd59pSR4lD73ZBK+X2iC+WSxBUQY8Zpevt5pE/Xlutxyo+BJ
-	 QSQatGQs1R/jPOJdSJQZ7jlwuD26zCaw1lV1CtfDVv005CzOx2cvqea2uxkSrr2JTmaQI
-	 WHbkOOLMHxcQFssNuSRAGMuK9q80utNYxsZm9APT69mN8grBMDA/791kCIh4MbP+lxwXV
-	 1qBBqHp+MRCFR4i68Xigenz8na7AEvA/dpH30WV/Lh745EMGMyAwtmQfY0vlZ4oWVQ+KQ
-	 IGB4w0oYnlHMl6eO1dKPiqkL3y4OMCrGZY8hbev2OEnwQw9fPcd7gmwZ6iAw97Tpgxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097275;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=h4WEBZt8zvJPkIGFlDBBDtrAGaCS/Hic2L8pvEkBCJM=;
+	b=RAmaa64AdlrCPIYsCOljjgv69uquerAJGpio/5edtijIm7XGzftvqINhXjC6K3E9E4XF
+	 ayUxVdLZp5YSRJ5d0IYTI3NNSYOJ0k4tME/ljL38E+AoWlzUnzhEXJ1kGdCD9R0mahUy2
+	 ioKa7mYaR+3W5m8vj/rDTyKx2xUacWW7OpNE+6y9RISmLJO2rup95YFW0tWv7JYIVMb9X
+	 /uhQalk1MYgPWzhnPxVJppVbvMAImXEwUpyDNnQXOI1pofUrNidlWHmMym57FBA/6MiX7
+	 iye7De3/h/d9FELAmaE8eSrRpoba3JnVKg2Vqww9h/Mjp85LGz5jZ0frb283Sbw4kkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K6r0XnPi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BR6MmYw3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13B74606A333;
-	Thu, 19 Nov 2026 14:07:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AAC8606A325;
+	Thu, 19 Nov 2026 14:07:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K6r0XnPi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C98081F000C5;
-	Thu, 19 Nov 2026 14:07:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BR6MmYw3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 763A01F000C5;
+	Thu, 19 Nov 2026 14:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795097251;
-	bh=CrmcpCex4fbHUrfhAFeTHYutNYioKuausMFQcYEbaLU=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=K6r0XnPiowhgFn2627B3i4MyZRiDxO47ZDdRhfCzqHJNBCq7yjbapdhGipDr0IihN
-	 YKKnxE8cRj/wabv0XC1sN+gHpkC7a6t85DiirTdVH6rNS2VYLKhd6qLz2o1i1aURD7
-	 7m3OtKmK4cqsM2VxkbWpCP2mrb4dRtOuLj4ejADaRSAwisKf34AX1ryXAVwmvke2zD
-	 vjjXxCzn87xmJMiD359g8P6prYbTV0qsSSGX7DjmhGbmEQg6r8Tw/n7/gGbecVYsug
-	 XaafrS/WRx2ajc1I4O5KpUo66LDyHFPLs6Oe8msUOFHVpEoEDg2qNh1avAnR9nNgMP
-	 oN79F5D5N8ycA==
+	s=k20260515; t=1795097275;
+	bh=h4WEBZt8zvJPkIGFlDBBDtrAGaCS/Hic2L8pvEkBCJM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BR6MmYw31vFoQaf3bfXZOOR30u8VFq0hzmApgVeCIYowgJyGnA33pKhkgxf5XQDxf
+	 4Mus+YH/JRjlIFqE2l7OAj4G7BtMaj9H0ltUjsoH69zjV3dgq525Q90Dr2/PiUUaHP
+	 a3xHM1UNsizW7OJ+W1HomsIdgudbncYBw/ZrRc+HSx4qYmLkPhZ7kRsGMgTUixwcWb
+	 MBWQfgA2H1WHh2ZAzUODQ8OlQGatDt1dizgr8Z9TfFdPf5JUu5RiFuQY94IbHqOdMc
+	 9dnuiNQa3ldR3I9Gsr2Qh9zMcFxHIKxocOQUGw3nxcqI1pblbyvAOtpgBUJhnjL+jc
+	 GakSfd0MetoHQ==
+Date: Thu, 19 Nov 2026 16:07:50 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Willy Tarreau <w@1wt.eu>, Sasha Levin <sashal@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
+ user-visible impact
+Message-ID: <20261119140750.GL162713@unreal>
+References: <20261116200515.352387-1-sashal@kernel.org>
+ <20261117092723.GA124972@unreal>
+ <220c5818-ad59-4003-9955-9821d09c0279@kernel.org>
+ <20261119111902.GH162713@unreal>
+ <04ff90ba-296a-4618-9d25-390f84f856ae@kernel.org>
+ <av7tY64O34gbJvH_@1wt.eu>
+ <20261119125450.GJ162713@unreal>
+ <6baae2d0-f0d5-4528-b885-220605350349@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,47 +71,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] ASoC: codecs: wcd934x: drop the MCLK on every disable
-From: Mark Brown <broonie@kernel.org>
-To: Ivan Verbovoy <ivanverbovoy@gmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
- linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261110-wcd934x-mclk-v1-1-c62956792a3f@gmail.com>
-References: <20261110-wcd934x-mclk-v1-1-c62956792a3f@gmail.com>
-Date: Thu, 19 Nov 2026 14:07:26 +0000
-Message-Id: <179509724666.116416.15851195764740977182.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=930; i=broonie@kernel.org;
- h=from:subject:message-id; bh=OPTfJIFUXKisHBNvjvMBZZnAD+Q6NVj/03XvBIsbR68=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+M823vKf2r1EoxSFUSn6dctGKu7asR2/fdLqjOZlVP
- TGjUWVbRykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACayRJWR4RjjC+bpCcF/Uvm1
- K9s+13/6YlnyWP/K39vPY+MyhS6sDWJkWJtyIeC86TrxrQ33osSC5q290st5xPiz8EK/YzeCf4o
- v5wAA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6baae2d0-f0d5-4528-b885-220605350349@kernel.org>
 
-> __wcd934x_cdc_mclk_enable() takes a reference on every enable: it
-> prepares and enables the external clock and counts a user of the
-> analog bias and system clock (sysclk_users). On disable it returns
-> early while the SoundWire controller's clock is enabled, so neither is
-> dropped. Each DAPM MCLK power-down or MBHC micbias release during
-> SoundWire activity therefore leaks one reference, and the MCLK stays on
-> for good.
+On Thu, Nov 19, 2026 at 02:16:30PM +0100, Krzysztof Kozlowski wrote:
+> On 19/11/2026 13:54, Leon Romanovsky wrote:
+> > On Thu, Nov 19, 2026 at 01:36:51PM +0100, Willy Tarreau wrote:
+> >> On Thu, Nov 19, 2026 at 01:04:32PM +0100, Krzysztof Kozlowski wrote:
+> >>> On 19/11/2026 12:19, Leon Romanovsky wrote:
+> >>>> On Thu, Nov 19, 2026 at 11:13:57AM +0100, Krzysztof Kozlowski wrote:
+> >>>>>>> v1: https://lore.kernel.org/r/20261116191436.188098-1-sashal@kernel.org
+> >>>>>>>
+> >>>>>>>  Documentation/process/coding-assistants.rst  |  6 +++--
+> >>>>>>>  Documentation/process/submitting-patches.rst | 23 ++++++++++++++++++++
+> >>>>>>>  2 files changed, 27 insertions(+), 2 deletions(-)
+> >>>>>>
+> >>>>>> Sasha,
+> >>>>>>
+> >>>>>> Since you're already making changes in that area, could you add a sentence
+> >>>>>> asking reporters to provide the full dmesg stack trace?
+> >>>>>
+> >>>>> If so, then trimmed. We do not need all addresses and registers and the
+> >>>>> [time markers], but rather the calltrace from decode_stacktrace.sh.
+> >>>>
+> >>>> Regarding time markers, I agree. However, addresses are an important part of
+> >>>> debugging information. These bugs are rare, but addresses are still useful for
+> >>>> identifying incorrect pointer arithmetic or pointer assignments.
+> >>>
+> >>> Depending on the case, e.g. some driver lockdep reports don't need them.
+> >>> NULL ptr usually as well. The point is that dmesg should be trimmed to
+> >>> relevant and useful information. If that includes addresses for that
+> >>> particular case, then of course these should stay. But 75% of data here
+> >>> in commit like 5b4bd13e0552926648a46c2c9a12a24dfaee3715 is not really
+> >>> helping. In the same time undecoded call trace is useless, because these
+> >>> addresses depends on the build. The dmesg should simply be the decoded
+> >>> stacktrace ONLY for this case.
+> >>
+> >> Then just the 2-3 lines capture inline, and the full log attached could
+> >> please everyone ?
+> > 
+> > I don't think so, because this information is also important to preserve in the
+> > Git history. I received offline feedback that the full stack is useful for
+> > backporting and customer support, too. Sometimes the dmesg output is similar
+> 
+> Just like we do not mark commits as fixing CVEs/security issues, which
+> plenty of downstream distros would like us to do, we do not write commit
+> msgs for backporting or customer support. Just look at that commit I
+> pointed out - 5b4bd13e0552926648a46c2c9a12a24dfaee3715 - the addresses
+> are making things less readable and the readability is important.
 
-> The early return is not needed: wcd934x_swrm_clock() takes its own
-> reference before it enables the SoundWire clock and clears that clock
-> before it drops the reference, and sysclk_users keeps the bias and the
-> system clock on while any user remains. Drop the check.
+I looked, but nothing stood out as distracting. I've been reading these
+stacks for nearly 20 years.
 
-Are you absolutely sure there are no other paths that could do this, for
-example take a look at wcd_mbhc_adc_detect_plug_type() and the rest of
-the jack detection code?
+> 
+> If you need something for customers, then that is what Link tag is for.
+> It can point to your bugzilla or email report with everything.
 
--- 
-Mark Brown <broonie@kernel.org>
+You missed my point, I'm not asking customers to dig into the kernel. An FAE
+or customer comes to me with a crash, and I need to determine whether it's
+a known issue (and point them to the relevant patch) or a different one.
+
+Thanks
+
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
