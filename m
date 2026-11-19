@@ -1,112 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795078469;
-	b=iff3HjKhnn0fHwRMVy2rZ19Rg8M/h9X5Ot8hON3Pbz4QNmOLKoQilERAVpi+Eawf2dpv
-	 XGKAC5bhygYz3tZpJGnyd8OugDWDq3B89xTokvhluf0veObujuntYdommr6u0OQ0dEXwH
-	 mJWCRxKcGsl8JvKPr/VKPO/yPy+hU6QEqaQIR/zQ0AdaAOBNd1jmg4903PfqWNvw489p6
-	 MLVMzyCVGgs00NH1bQuPxU/7rWddPLmPubAFQJjLW0gcS0HcihXmpOwbwyV1e9XC8N7II
-	 AKXqv21fqnZIKEG4z4ZdAPwVQUhf62BrZ79OmBEORiqpw7UZBgbz6b6JBMQQmfXtqeA==
+	t=1795078491;
+	b=fy8+QU3HMGwVosbRyeA0zXCpWF60hk/i5PVS6GxSopt/u+X3Mi+RcWMp+gjhosAKxgj/
+	 wgB7S2AjCv9cKHLFs5aEYEBIw1LnIL+4pEkFGV+vqwO+xHzJZ9Fupy6+bAyMIVgPyn6Ql
+	 3vGrARzN/kR4Vzh7KscHIuimNKCHTyJxTMQaemShICR3IxS45H5kLk0iG8oKRWUplBlko
+	 XucQHCytsBi/LqBOc1K82T6TQrZ+kkk34EvflODJRJN9cYyw7CuRInbbTmrBICJcvZDBZ
+	 51xRfe/Ot/m9guGGef+Qc7VSeVc7ua7GhgTmrsUpGl+xZ8HzMoRv3TMIzg3ZG9OEsKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795078469;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=loH97Efk9dLDDTkm9svLgLvPkthPGP0mGuzEjGhs0Rc=;
-	b=QvIuvn0T6ozhhLZy5niWhs1zXBcM+9tSdvzJnH/PsNxTNb2MeCqMemi9CeFIb8Rba8mw
-	 O1xfQbPmFYBXZX8TCdVXPyeHpu2BYOp70w0M3oe2FXd3nImvlOp2Cmb2JyHDbWn5RCWvW
-	 dK1+r/3qyk13le1kbnenqGVtD9q5oM8+RTgEatokrUSd1pua8JOaUPJuJyPyomAY2wVSO
-	 cCJZpe0N0A9dR1teYpYrqAJUyMBbFxo7R1S8GCXroQJZrgsKjDu722McRmfADizwNnmjK
-	 O7yBeEYT+AwxVgIdaeJyjaRPMBR0cgczzZjaQ9911wnEgieaNzSIxND44FLX1s8JTgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795078491;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version;
+	bh=64Bnh0XnQvHfVPMjYIHDspfblr4PSillIZ1ca/z8plM=;
+	b=QiCZ6oxfW0Y84HAxgpY2a90tE6oPN8ApE4k+vi7Z0oHrhkxAil6UQ7RlbKlOGd9A3rZE
+	 03O+jtzRrmuMaQSGeQtXOURVsYt31WrUpY4rtjXQXOCxMeK1nc+YCO2aOSbWed4kiTd+i
+	 6iXrzYv0eYtYT/Rcajf/cgnhE3hgnvfR77pbaEDkEVgXMbxgw3ahHNVxTVgP2gOXPlvxM
+	 V0TCfuF3UgrXJjRE+Fks7Zk12euXgZvr2oL7nI8QvfBaJqRMO7+kopnnL//KlT5Mnd4vl
+	 O3HwFjDVSGJyrPRCrrz4rxDxksdsfcBuov85SxbY2HLhYbU/Odi24837RViaJy/e6fQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DHwqRmdc;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Mc8zwV1E;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=EPNzxRsx;
+	arc=none smtp.remote-ip=67.231.148.174
+Received: from mx0a-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 944C6606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:54:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 944C6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD109606A320;
+	Thu, 19 Nov 2026 08:54:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD109606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DHwqRmdc;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Mc8zwV1E
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6v6Yt2030633
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:54:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	loH97Efk9dLDDTkm9svLgLvPkthPGP0mGuzEjGhs0Rc=; b=DHwqRmdc4bLCjK4Q
-	a8KDPCDbypmuJqtrITZ3djK1j2aCrAKdbMm5pmQEbwlizFGsSy6fROjERKzWLgcL
-	K2yKeQmIM/AkZ3KXFb9FMVDdIJOece2QgoPTWjpRB3VUh67OuAGIFWAkglZWHAfZ
-	6wlFGKI4hDz4seFFYAwznJpE5TlDlqc3+fJCBcfCSbxMmPLQhuKBbVpkLcdviBEt
-	Ior7yYgdfYtiXcEoXSUX7bwo3mZv1cPPN8zPul1WAeR6o8HYaOC/D9Q1LBI+7dwa
-	tsFTaDTZb+su+2jiRV9aqwSeksvi9E44y6fAsm7wVU4lDPG55sA5WNunWtW9rn4r
-	5/ahIA==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1g3kujwe-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:54:27 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b3c459a35eso2085074a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:54:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795078466; x=1795683266; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=loH97Efk9dLDDTkm9svLgLvPkthPGP0mGuzEjGhs0Rc=;
-        b=Mc8zwV1E8hc5CQkn6eKo+4uwj546X1llsvhnsASADAPGk5JXPDMS33Pu9rGHaFV4o2
-         q0FDiF9FwWlVj7TBUKvKXFFdEnVNpMuvgxuUfY+3USM7es659aTxG4Ty6W2brUy7BZxL
-         7exQx23N0HQrruME/wxeVWgx+IPsp0JB7cn7eM6NqpfirWiMdszsRYvqx+HfoWz7dn8a
-         gNd2pUbg35orNVQasj5L1MQUSRne702d8T5tWbyGS4/6v6JDluEoT5tGJmCZVKEFo4PJ
-         K3SR30+2vnQlXZmTGBzpsNCQKwRCaVhG75LAFRNSgGcFFXxCkJX0vM+OiFuFPVtKYBiT
-         Q3zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795078466; x=1795683266;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=loH97Efk9dLDDTkm9svLgLvPkthPGP0mGuzEjGhs0Rc=;
-        b=M66PDfgPafemWTy3xzChmGfhLhW3CYN4SjzFDvnfY6JVJ4+7v47SwGTVwAa9JB3ns2
-         g4FeXpU38lDswqSeWBhXNtOf095JqIXLFgI+8oLXElg1NYZzOSeBtLJ/uy73ea1Dmxk5
-         BfDAJQaFg1qgHYHNnYYMPO4aDJB7o8XDvEjcWcXJNKBN2Awe5SI9dWWbjPTitAwwJu8N
-         uRbB6Uwu/nb2OXgjn/tFk44BXPYQ4LRoUmYgqoCxAZHO/CBa8/az+NREqqMrc0wy2TJv
-         jorwtLBksG0ufkit6x0uF1h0aXUjSCv9NPixxMPLoADJyRijAOb+WY4o8wu/72X/7dlW
-         beAA==
-X-Forwarded-Encrypted: i=1; AL+hErF1ibXfV0ldQYuac/TRQzRKz45zXq5xlDb6lpQucKoTKlIWwvr/2lTM+kFhWylSa4dxU8Aj2qZzcIh8K4M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5kFDy4ZBw1UKh/qu0DiAWyIJt98oSFOrhjLsgyXrXt80lTLPQ
-	5OZTkd26YPhdeu7ZspLYfVbADAZTLHD2vn47f3xvsEIpzn8Ibx2gsTHxFIx329UmBW1jspWVQx3
-	18NLCyAz8MUrA9C+cxhOOg9f1LoSb0Fzis2V7FLTdL8zHXX5+sBFFVXVrkoolS8xnj04=
-X-Gm-Gg: AZFdTZcejt30KDFJCWKcqKoi1aLBskjZsOBt2K19y214k7dqzgIpHkmfpyrC9xKf7wc
-	+ls81xEDfXasiwzPHvAZbuxaQDuuusbzkXuCo75Ts8s6YgF2ARm0cua8GymozDji7aw/+DIOjtc
-	S6S3VSnYbBfMO5XKWm0utKICTT7YIIoSomB4uaXA7NHjSGgz1TFdOBHAOkAT6MUEBQlJHlUqjGY
-	mvqbdSudAzKZDKdm73mzEP1cXiXyjFCTSiDgWz8uI+o9Cn8mIXRfLmT4f/nhGsw4j5S9it1NCp4
-	gcQzI4qIuOctgTeZGh/aWSR4wNle5WPD/ESI4octg7+ymGkGvb655SPW0QC8VoZoWKDaGLiMIdb
-	67+lmSBLnY1mdavW89++n05gBUqH4KOmfpdQhZ57shrnJ4L3jilWhAz6TOUjJ/onD/3kXnYl+a5
-	jKGqtjVg==
-X-Received: by 2002:a17:90b:3d8f:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b3d07c687emr4589759a91.40.1795078465875;
-        Thu, 19 Nov 2026 00:54:25 -0800 (PST)
-X-Received: by 2002:a17:90b:3d8f:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b3d07c687emr4589724a91.40.1795078465152;
-        Thu, 19 Nov 2026 00:54:25 -0800 (PST)
-Received: from [10.218.24.187] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm1656162a91.16.2026.11.19.00.54.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 00:54:24 -0800 (PST)
-Message-ID: <06758809-6748-4f7b-b7e6-c862936a961c@oss.qualcomm.com>
-Date: Thu, 19 Nov 2026 14:24:19 +0530
+	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=EPNzxRsx
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6wZHc230397;
+	Thu, 19 Nov 2026 00:54:40 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=64Bnh0XnQvHfVPMjYIHDspf
+	blr4PSillIZ1ca/z8plM=; b=EPNzxRsxwabPTOmU1UGK+K7Es3SYI/TWqFP9eBm
+	eKtA11sEuVfmzmgKXVjPh8mG//Toi2rZlCoVCMC50Pbhg4WoitK60tiEL6wZ4HuO
+	5dFHMsQcHPZMSE1qIqcwcZCFaaHDXo3vy3jbxKY0R2JtdCKFUQ7hLXzmIAmND215
+	K2G9D0JOOwiEGEDJy60A7vSFbmIMUhtqOxqw346u/m3it+6DszRNYgwqdg/PTtEg
+	nlSjjDO9qt0HwiW+khnrPYYqbhF2SvNwRvAc6J9wcKs9Xo+XgaUyb1iYhUi0QSEo
+	Uc02Lg0Dep7no66hQfk6Dioiuip1qzcWZQPy/n+88QTItJQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j1v1yrcpe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 00:54:40 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Thu, 19 Nov 2026 00:54:28 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 19 Nov 2026 00:54:27 -0800
+Received: from nitinsj-apex-workbox.marvell.com (unknown [10.28.40.177])
+	by maili.marvell.com (Postfix) with ESMTP id C5B7C5B6949;
+	Thu, 19 Nov 2026 00:54:35 -0800 (PST)
+From: <nshettyj@marvell.com>
+To: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Rakesh Kudurumalla <rkudurumalla@marvell.com>,
+        Nitin Shetty J
+	<nshettyj@marvell.com>,
+        Sunil Goutham <sgoutham@marvell.com>,
+        "Ratheesh
+ Kannoth" <rkannoth@marvell.com>,
+        Geetha sowjanya <gakula@marvell.com>,
+        Subbaraya Sundeep <sbhatta@marvell.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, "Simon
+ Horman" <horms@kernel.org>
+Subject: [PATCH net v4] octeontx2-af: Fix BPID leaks in NIX backpressure enable/disable
+Date: Thu, 19 Nov 2026 14:24:34 +0530
+Message-ID: <20261119085434.2598197-1-nshettyj@marvell.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,191 +89,303 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf: Reject group leaders detached by CPU hot-unplug
-To: Daniel Wade <danjwade95@gmail.com>, Peter Zijlstra
- <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim <namhyung@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        James Clark
- <james.clark@linaro.org>, Kyle Zeng <kylebot@openai.com>,
-        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261119014730.2074-1-danjwade95@gmail.com>
-Content-Language: en-US
-From: Aditya Chillara <aditya.chillara@oss.qualcomm.com>
-In-Reply-To: <20261119014730.2074-1-danjwade95@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfXwNtCFjvWz/VL
- VcSrNmCIZcay4HpCbQaSnXjiJqZofB7tF9hRDtiM83qNF6pWvm2+iGyYXwZnyzSyB/uxMLjs4Ah
- 4vbkN5yq+fOLljRg3ueK29MLMLcVjVOr6kRv260ygNMow8uEIxZzewEarSgJaCNTPmpvv50rvJI
- pyHgafhHDngN/QxK91AaKyUEZuNItltpp5DmBB8GFPhtlgaBmtx4vMSNYpNX/pgQIZbGlQvwI1z
- OBPosUhZ7HumqZ3OKxBPbVufmd10XSzA/nmQIpIbaOiqdIttp7dJ6sGQVEoqGQbCft0UKxIRN+o
- +eyxkiO9q7YVhQ874tQyzMul4++JGhq3fqJExZcbQoFkpgwX/EBWmz8N8OcXq7Z6E+oi4wYs8VV
- UOfrDeoQPRygIZSNdd/MLcw95Hy00XHUMIbxtzxphXY5gg2HqfLNY/EbFJ9cWlsQqOIurbJNDs0
- BnyMj+uOQ/53KyrGHhQ==
-X-Authority-Analysis: v=2.4 cv=Wom+otfv c=1 sm=1 tr=0 ts=6afeb943 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=JfrnYn6hAAAA:8 a=EUspDBNiAAAA:8
- a=yrwFlzbl_MS6vLvGJOEA:9 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX5/b9/NxkFZW3
- 6NEUjoO96d6IjthJ3cXyaRI9PHok7OWRMWSVz7PtgWE0FSqPCpWf/dCfHmKTmrGcPlM89GkObgL
- dgeCyxpZEFmlxMGzRJi2jvUGZAv8pp4=
-X-Proofpoint-ORIG-GUID: yqEiw3D7vf4gGMmdrY3dPGr8Fi3MQVr6
-X-Proofpoint-GUID: yqEiw3D7vf4gGMmdrY3dPGr8Fi3MQVr6
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfXxZmSpXAqJCac
+ B5pM/R2nIurTh7LS4o5KDVYOcyv91EiC9aDu04+y/2U509f+neYvLWK9zRPfmtkh6eSxEzqiRSH
+ APcfd7vmmFFVVk+u6XP6JZQvNpkW0LAkNkZczgC2mGhpmhvLm0JbkHHRGpPc3zJDZYTu0iE/gzs
+ NfqHPaJog/SKnf8w0t5f8tWNNR14GT4iHTcmUsj7Sza87OIP2UDe85xw7pwjGIkMAdjdL4yx5OJ
+ a00OoOA1qGn3Evu0zwpP4G9LdYCUTdC9WIuNvUbBb/1wsvDf7BcZ8UxHzkrWyki471E1Km2kawj
+ kAjgU7kRyvVuOUN111qNLSDZIG4dEGezlykAXeU0JvjvEGuWnWM8Zs21kSZuwjaylchSyK9C+eO
+ r80nRkWZOFhujCshkannXvkXbYuq3xk3DZrjhUU6otrfDwsm2/xCcVhU6XUm0Qv9LaQCImIfgby
+ 9dkgL+psmLafVPviSUg==
+X-Proofpoint-GUID: zblN8hw60Vao-CkXmZlkBfjwJn8Rwq5I
+X-Proofpoint-ORIG-GUID: zblN8hw60Vao-CkXmZlkBfjwJn8Rwq5I
+X-Authority-Analysis: v=2.4 cv=d6lgWhjE c=1 sm=1 tr=0 ts=6afeb950 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
+ a=TtqV-g6YmW1Jfm2GSLaY:22 a=9R54UkLUAAAA:8 a=M5GUcnROAAAA:8
+ a=SL9uSZ3G0BghoLyiZY8A:9 a=YTcpBFlVQWkNscrzJ_Dz:22 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfXyn1MFmCvhubA
+ TY6EQ5ztVzetkyZdZYBqj7hvfAH+S9SBj8CqhPoPPh8ALyh+0OUo/BlpdKGgQcC3ExArWMCWkj+
+ UsVr5sT7JiRlw6ygLkAmsMg6633Vj8Q=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
- spamscore=0 clxscore=1015 phishscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190035
 
-On 11/19/2026 7:17 AM, Daniel Wade wrote:
-> CPU hot-unplug detaches the events of a CPU context but leaves them in
-> OFF or ERROR, so once the CPU is back a detached leader is still accepted
-> as group_fd. perf_group_detach() does nothing for a leader that is
-> already detached, so closing it frees it with the new sibling still
-> linked, and closing the sibling is a use-after-free.
-> 
-> Detach them with DETACH_EXIT as well, so that they end up in
-> PERF_EVENT_STATE_EXIT and are rejected by the check from
-> commit fa091f46c383 ("perf: Reject exited events as group leaders").
-> 
-> Side effect: poll() on a hot-unplugged event now reports EPOLLHUP, and it
-> is refused as group_fd even with PERF_FLAG_FD_NO_GROUP.
-> 
-> Fixes: 226424eee809 ("perf: Fix corruption of sibling list with hotplug")
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Daniel Wade <danjwade95@gmail.com>
-> Cc: stable@vger.kernel.org
-> ---
-> v2: use DETACH_EXIT at hot-unplug instead of a new check, as Peter
-> suggested.
-> v1: https://lore.kernel.org/all/20261116081248.21059-1-danjwade95@gmail.com/
-> 
-> Tested on mainline b3dfbde62cf1, x86-64 with KASAN and PROVE_LOCKING,
-> 2 vCPUs under KVM. Without the patch a sibling is accepted on a
-> hot-unplugged leader and the close gives 15 KASAN reports. With it the
-> open fails with ENODEV and no report appears.
-> 
->  kernel/events/core.c |    6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index f5f2261f1fe6..2de4c3cc37ac 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -15342,8 +15342,10 @@ static void __perf_event_exit_context(void *__info)
->  
->  	raw_spin_lock(&ctx->lock);
->  	ctx_sched_out(ctx, NULL, EVENT_TIME);
-> -	list_for_each_entry(event, &ctx->event_list, event_entry)
-> -		__perf_remove_from_context(event, cpuctx, ctx, (void *)DETACH_GROUP);
-> +	list_for_each_entry(event, &ctx->event_list, event_entry) {
-> +		__perf_remove_from_context(event, cpuctx, ctx,
-> +					   (void *)(DETACH_EXIT | DETACH_GROUP));
-> +	}
->  	raw_spin_unlock(&ctx->lock);
->  }
+From: Rakesh Kudurumalla <rkudurumalla@marvell.com>
 
-The patch itself LGTM.
+For LBK interfaces, rvu_nix_get_bpid() allocates a BPID from the free
+pool on every call. nix_bp_enable() called it once before the channel
+loop and then again after programming each channel, including the last
+one, so every NIX_BP_ENABLE request leaked one BPID whose result was
+never used.
 
-Reviewed-by: Aditya Chillara <aditya.chillara@oss.qualcomm.com>
+Fix the leak by allocating one BPID per programmed channel. Also fix
+these related problems in nix_bp_enable() and nix_bp_disable():
 
-PatchWise AI code review (gpt-6-astra) flagged the following though:
+- In nix_bp_enable(), allocate the BPIDs up front, before touching any
+  channel register. If an allocation fails, release the LBK BPIDs
+  obtained so far and return, leaving the channels unmodified.
+- Report the BPID actually programmed for each channel in the
+  response instead of deriving it from the first channel's BPID. LBK
+  BPIDs come from a shared pool and need not be contiguous.
+- In nix_bp_disable(), release only the BPID read back from the
+  channel, and only if it lies in the LBK free pool and is owned by
+  the requesting pcifunc. Previously the BPID was freed without a
+  range check, and fn_map/ref_cnt were cleared for every BPID owned
+  by the function, so FLR could no longer reclaim the rest.
+- Iterate over chan_cnt with a counter instead of a u16 channel
+  number, which wrapped and never terminated when chan_base +
+  chan_cnt went past 0xFFFF.
+- Reject requests whose channels fall outside the function's RX
+  channels (NIX_BPIDS_PER_LMAC for CGX, rx_chan_cnt otherwise). LBK
+  had no such check.
+- Keep a request with chan_cnt == 0 a successful no-op that allocates
+  nothing, as SDP VFs can legitimately have 0 rings.
 
-[medium] Adding DETACH_EXIT makes is_event_hup() true, but this path never
-wakes event->waitq. __perf_remove_from_context() changes the state and
-detaches the event without calling perf_event_wakeup(), unlike
-perf_event_exit_event(). A thread blocked in poll/epoll on a disabled,
-mmap-backed CPU event can remain asleep indefinitely after CPU unplug,
-even though a fresh poll reports EPOLLHUP. Arrange a wakeup in an
-appropriate context after publishing the terminal state so existing
-waiters receive the hangup indication.
+The per-channel release logic is factored into nix_bp_free_lbk_bpid()
+and nix_bp_chan_disable().
 
---
+Fixes: d6212d2e41a0 ("octeontx2-af: Create BPIDs free pool")
+Signed-off-by: Rakesh Kudurumalla <rkudurumalla@marvell.com>
+Signed-off-by: Nitin Shetty J <nshettyj@marvell.com>
+---
+Changes in v4:
+- Address Sashiko AI review comments on v3:
+  https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928065718.3378580-1-nshettyj%40marvell.com
+- nix_bp_enable(): allocate all BPIDs up front and program the channels
+  afterwards. On failure only the LBK BPIDs obtained so far are
+  released and the channels stay untouched. This replaces the v3
+  nix_bp_enable_unwind(), which disabled already-programmed channels
+- nix_bp_enable(): a request with chan_cnt == 0 is a successful no-op
+  (rsp->chan_cnt = 0) again instead of returning
+  NIX_AF_ERR_INVALID_BPID_REQ, since SDP VFs can have 0 rings
+- nix_bp_enable() and nix_bp_disable(): iterate on a counter bounded by
+  chan_cnt instead of a u16 channel number, which wrapped and never
+  terminated when chan_base + chan_cnt went past 0xFFFF
+- Reject requests whose channels go past the function's RX channels
+  (NIX_BPIDS_PER_LMAC for CGX, rx_chan_cnt otherwise). LBK had no such
+  check
+- nix_bp_disable(): release only the BPID read from the channel, and
+  only if it is in the LBK free pool and owned by the requesting
+  pcifunc. v3 still cleared fn_map/ref_cnt for every BPID owned by
+  the function, so FLR could not reclaim the rest
+- Factor the per-channel release logic into nix_bp_free_lbk_bpid() and
+  nix_bp_chan_disable()
+- Use GENMASK_ULL() for the 64-bit channel config
+- Reorder local variable declarations and update comments
+- Expand the commit message to cover the above
 
-To be clear, this is not a regression: before your patch these events went
-to OFF and poll() never reported a hangup at all, so a waiter slept just
-the same. But the EPOLLHUP the patch advertises does not reach tasks that
-are already waiting:
+Changes in v3:
+- Address Sashiko AI review comments on v2:
+  https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260910031604.1045397-1-nshettyj%40marvell.com
+- Free allocated BPIDs on allocation failure in nix_bp_enable()
+- Report the BPID written per channel instead of reconstructing it
+- Validate the BPID range in nix_bp_disable() before freeing it
 
-                          task already asleep in poll()   a fresh poll()
-  before your patch       stays asleep                    no data
-  your patch              stays asleep                    EPOLLHUP
-  your patch + wakeup     woken, sees EPOLLHUP            EPOLLHUP
+Changes in v2:
+- Address Sashiko AI review comments on v1:
+  https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260901102500.1534911-1-nshettyj%40marvell.com
+- Move the rvu_nix_get_bpid() call for LBK from before the loop into
+  the loop body
+- Validate req->chan_cnt before allocating BPIDs
+- Update commit message and Fixes tag
+---
+ .../ethernet/marvell/octeontx2/af/rvu_nix.c   | 128 +++++++++++++-----
+ 1 file changed, 91 insertions(+), 37 deletions(-)
 
-perf_event_exit_event() kicks perf_poll() with perf_event_wakeup() after
-moving events to EXIT, but this path doesn't, so a task already sleeping
-in poll() is not woken and only sees EPOLLHUP when its timeout runs out.
-
-Deferring the wakeup to the event's irq_work, as merge_sched_in() does,
-seems enough. Something like this, on top of your patch:
-
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index c1f3e1f013ec..885b6594139a 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -15350,6 +15350,9 @@ static void __perf_event_exit_context(void *__info)
- 	list_for_each_entry(event, &ctx->event_list, event_entry) {
- 		__perf_remove_from_context(event, cpuctx, ctx,
- 					   (void *)(DETACH_EXIT | DETACH_GROUP));
-+		/* Kick perf_poll() for is_event_hup(). */
-+		event->pending_wakeup = 1;
-+		irq_work_queue(&event->pending_irq);
- 	}
- 	raw_spin_unlock(&ctx->lock);
+diff --git a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+index 199723d5ec94..274662086d2a 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
++++ b/drivers/net/ethernet/marvell/octeontx2/af/rvu_nix.c
+@@ -599,18 +599,56 @@ static u16 nix_get_channel(u16 chan, bool cpt_link)
+ 	return cpt_link ? chan | BIT(11) : chan;
  }
-
-Tested in a 4-CPU x86_64 QEMU/KVM guest (virtme-ng), 7.4.0-rc3+ with
-lockdep enabled, using perf record -C 1 and then taking CPU 1 offline:
-
-  perf record -C 1 -e cpu-clock -o /tmp/hp.data &
-  echo 0 > /sys/devices/system/cpu/cpu1/online
-  jobs
-  perf report -i /tmp/hp.data --stdio | head
-
-A) Your patch only. perf keeps running after the unplug and needs Ctrl-C:
-
-  # perf record -C 1 -e cpu-clock -o /tmp/hp.data &
-  [1] 149
-  # echo 0 > /sys/devices/system/cpu/cpu1/online
-  # jobs
-  [1]+  Running                 perf record -C 1 -e cpu-clock -o /tmp/hp.data &
-  # fg
-  perf record -C 1 -e cpu-clock -o /tmp/hp.data
-  ^C[ perf record: Woken up 1 times to write data ]
-  [ perf record: Captured and wrote 0.040 MB /tmp/hp.data (283 samples) ]
-  # perf report -i /tmp/hp.data --stdio | head
-  ...
-  # Samples: 283  of event 'cpu-clock'
-  # Event count (approx.): 70750000
-
-B) Your patch plus the wakeup above. perf gets EPOLLHUP at once, flushes
-   and exits by itself:
-
-  # perf record -C 1 -e cpu-clock -o /tmp/hp.data &
-  [1] 151
-  # echo 0 > /sys/devices/system/cpu/cpu1/online
-  [ perf record: Woken up 1 times to write data ]
-  [ perf record: Captured and wrote 0.065 MB /tmp/hp.data (737 samples) ]
-
-  [1]+  Done                    perf record -C 1 -e cpu-clock -o /tmp/hp.data
-  # perf report -i /tmp/hp.data --stdio | head
-  ...
-  # Samples: 737  of event 'cpu-clock'
-  # Event count (approx.): 184250000
-
-Thank you,
-Aditya
+ 
++static void nix_bp_free_lbk_bpid(struct rvu *rvu, struct nix_bp *bp,
++				 u16 bpid, u16 pcifunc)
++{
++	int idx;
++
++	/* Skip channels never enabled (reset value 0) or not using an LBK bpid */
++	if (bpid < bp->free_pool_base ||
++	    bpid >= bp->free_pool_base + bp->bpids.max)
++		return;
++
++	idx = bpid - bp->free_pool_base;
++
++	/* Only release the bpid if it is owned by this function. */
++	mutex_lock(&rvu->rsrc_lock);
++	if (bp->fn_map[idx] == pcifunc) {
++		rvu_free_rsrc(&bp->bpids, idx);
++		bp->fn_map[idx] = 0;
++		bp->ref_cnt[idx] = 0;
++	}
++	mutex_unlock(&rvu->rsrc_lock);
++}
++
++static void nix_bp_chan_disable(struct rvu *rvu, struct nix_bp *bp,
++				int blkaddr, u16 chan, bool cpt_link,
++				int type, u16 pcifunc)
++{
++	u16 chan_v = nix_get_channel(chan, cpt_link);
++	u64 cfg;
++
++	cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
++	rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
++		    cfg & ~BIT_ULL(16));
++
++	if (type != NIX_INTF_TYPE_LBK)
++		return;
++
++	nix_bp_free_lbk_bpid(rvu, bp, cfg & GENMASK_ULL(8, 0), pcifunc);
++}
++
+ static int nix_bp_disable(struct rvu *rvu,
+ 			  struct nix_bp_cfg_req *req,
+ 			  struct msg_rsp *rsp, bool cpt_link)
+ {
+ 	u16 pcifunc = req->hdr.pcifunc;
+ 	int blkaddr, pf, type, err;
+-	u16 chan_base, chan, bpid;
+ 	struct rvu_pfvf *pfvf;
+ 	struct nix_hw *nix_hw;
+ 	struct nix_bp *bp;
+-	u16 chan_v;
+-	u64 cfg;
++	u16 chan_base;
++	int i;
+ 
+ 	pf = rvu_get_pf(rvu->pdev, pcifunc);
+ 	type = is_lbk_vf(rvu, pcifunc) ? NIX_INTF_TYPE_LBK : NIX_INTF_TYPE_CGX;
+@@ -629,26 +667,19 @@ static int nix_bp_disable(struct rvu *rvu,
+ 		return err;
+ 
+ 	bp = &nix_hw->bp;
+-	chan_base = pfvf->rx_chan_base + req->chan_base;
+-	for (chan = chan_base; chan < (chan_base + req->chan_cnt); chan++) {
+-		chan_v = nix_get_channel(chan, cpt_link);
+-		cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
+-		rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
+-			    cfg & ~BIT_ULL(16));
+ 
+-		if (type == NIX_INTF_TYPE_LBK) {
+-			bpid = cfg & GENMASK(8, 0);
+-			mutex_lock(&rvu->rsrc_lock);
+-			rvu_free_rsrc(&bp->bpids, bpid - bp->free_pool_base);
+-			for (bpid = 0; bpid < bp->bpids.max; bpid++) {
+-				if (bp->fn_map[bpid] == pcifunc) {
+-					bp->fn_map[bpid] = 0;
+-					bp->ref_cnt[bpid] = 0;
+-				}
+-			}
+-			mutex_unlock(&rvu->rsrc_lock);
+-		}
++	/* CGX may use up to NIX_BPIDS_PER_LMAC channels (PFC) */
++	if (type == NIX_INTF_TYPE_CGX) {
++		if ((u32)req->chan_base + req->chan_cnt > NIX_BPIDS_PER_LMAC)
++			return NIX_AF_ERR_INVALID_BPID_REQ;
++	} else if ((u32)req->chan_base + req->chan_cnt > pfvf->rx_chan_cnt) {
++		return NIX_AF_ERR_INVALID_BPID_REQ;
+ 	}
++
++	chan_base = pfvf->rx_chan_base + req->chan_base;
++	for (i = 0; i < req->chan_cnt; i++)
++		nix_bp_chan_disable(rvu, bp, blkaddr, chan_base + i, cpt_link,
++				    type, pcifunc);
+ 	return 0;
+ }
+ 
+@@ -750,13 +781,17 @@ static int nix_bp_enable(struct rvu *rvu,
+ 			 struct nix_bp_cfg_rsp *rsp,
+ 			 bool cpt_link)
+ {
+-	int blkaddr, pf, type, chan_id = 0;
+ 	u16 pcifunc = req->hdr.pcifunc;
+ 	struct rvu_pfvf *pfvf;
++	struct nix_hw *nix_hw;
++	int blkaddr, pf, type;
+ 	u16 chan_base, chan;
+-	s16 bpid, bpid_base;
++	struct nix_bp *bp;
+ 	u16 chan_v;
++	s16 bpid;
+ 	u64 cfg;
++	int err;
++	int i;
+ 
+ 	pf = rvu_get_pf(rvu->pdev, pcifunc);
+ 	type = is_lbk_vf(rvu, pcifunc) ? NIX_INTF_TYPE_LBK : NIX_INTF_TYPE_CGX;
+@@ -771,35 +806,54 @@ static int nix_bp_enable(struct rvu *rvu,
+ 	if (cpt_link && !rvu->hw->cpt_links)
+ 		return 0;
+ 
++	if (!req->chan_cnt) {
++		rsp->chan_cnt = 0;
++		return 0;
++	}
++
+ 	pfvf = rvu_get_pfvf(rvu, pcifunc);
+-	blkaddr = rvu_get_blkaddr(rvu, BLKTYPE_NIX, pcifunc);
++	err = nix_get_struct_ptrs(rvu, pcifunc, &nix_hw, &blkaddr);
++	if (err)
++		return err;
++
++	bp = &nix_hw->bp;
++
++	/* CGX may use up to NIX_BPIDS_PER_LMAC channels (PFC) */
++	if (type == NIX_INTF_TYPE_CGX) {
++		if ((u32)req->chan_base + req->chan_cnt > NIX_BPIDS_PER_LMAC)
++			return NIX_AF_ERR_INVALID_BPID_REQ;
++	} else if ((u32)req->chan_base + req->chan_cnt > pfvf->rx_chan_cnt) {
++		return NIX_AF_ERR_INVALID_BPID_REQ;
++	}
+ 
+-	bpid_base = rvu_nix_get_bpid(rvu, req, type, chan_id);
+ 	chan_base = pfvf->rx_chan_base + req->chan_base;
+-	bpid = bpid_base;
+ 
+-	for (chan = chan_base; chan < (chan_base + req->chan_cnt); chan++) {
++	/* Get all bpids first so a failure leaves the channels untouched */
++	for (i = 0; i < req->chan_cnt; i++) {
++		bpid = rvu_nix_get_bpid(rvu, req, type, i);
+ 		if (bpid < 0) {
+ 			dev_warn(rvu->dev, "Fail to enable backpressure\n");
++			if (type == NIX_INTF_TYPE_LBK)
++				while (i--)
++					nix_bp_free_lbk_bpid(rvu, bp,
++							     rsp->chan_bpid[i] & 0x3FF,
++							     pcifunc);
+ 			return -EINVAL;
+ 		}
+ 
++		rsp->chan_bpid[i] = ((req->chan_base + i) & 0x7F) << 10 |
++				    (bpid & 0x3FF);
++	}
++
++	for (i = 0; i < req->chan_cnt; i++) {
++		chan = chan_base + i;
++		bpid = rsp->chan_bpid[i] & 0x3FF;
+ 		chan_v = nix_get_channel(chan, cpt_link);
+ 
+ 		cfg = rvu_read64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v));
+ 		cfg &= ~GENMASK_ULL(8, 0);
+ 		rvu_write64(rvu, blkaddr, NIX_AF_RX_CHANX_CFG(chan_v),
+ 			    cfg | (bpid & GENMASK_ULL(8, 0)) | BIT_ULL(16));
+-		chan_id++;
+-		bpid = rvu_nix_get_bpid(rvu, req, type, chan_id);
+-	}
+-
+-	for (chan = 0; chan < req->chan_cnt; chan++) {
+-		/* Map channel and bpid assign to it */
+-		rsp->chan_bpid[chan] = ((req->chan_base + chan) & 0x7F) << 10 |
+-					(bpid_base & 0x3FF);
+-		if (req->bpid_per_chan)
+-			bpid_base++;
+ 	}
+ 	rsp->chan_cnt = req->chan_cnt;
+ 
+-- 
+2.53.0
 
