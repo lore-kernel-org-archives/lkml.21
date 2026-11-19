@@ -1,95 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057191;
-	b=c/BDHpQUoZSmEofOUwETkb6wOUEnUYhCMbyFh38NnqnVsaXC/fS1tkH5rlSu595hhAfd
-	 sBEwdkEKvvb/RVP44Ib6oFtr5Sb7lNS8BzwwcQaSkhm7kjk/YSCuxHE1fMgjlUAsnVVOl
-	 D79pOOHjrgZmZVoWMZJ1Y75DWXoytGtfrQSF1jOMWpdCJ3W4wEV9w/uZIjHTLJH9AflNS
-	 KXe+OV1jPzLKGUVn60ykw8+mwytnb6aNfyitbUi5jhbNB9mW2pnaQsjY9QMLHA2gsH6tF
-	 tmhg9A9uuJrTb105ZdnJzSkiMPn85eRI3PBYsgPMXQp2sdg80n8J+TCOXj7cNEMRJ5Q==
+	t=1795057196;
+	b=INtz+TjgCYU5vmQm8WMUmr1x85T8QaAvezNYXUoNYQwCFdApWxSpnqaOgkHglPFJAlRc
+	 N6z39OHmXlL2EMsub0l9Dqs2U6DVKD5Ykn89tJQYhl9ZrSHcab17ixZYe/F+67YA9DL19
+	 1xX2GjYnWUtfDniUMvjKLrBIbjOZ4TPJ40lEYllvClGxnC3F73zvq49aRoLWPPRHcxWMd
+	 iKbOsyvEgNv1UvJ2VsEsljLXMNKalJkXUZtDaGBEvCuhfvviT3VirEKkjRAznTCPPTpkn
+	 QqATjF8tiLOXWtfjbAqGwIJH/qwNcBP8XcUhOYWhr1u/jIvpGQD9ozc6RHxvDoAle5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057191;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057196;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=BemN4KAEIv94JTaM/LB9CfX7xPFFKwFGGLfkDjDGM5Q=;
-	b=24My0X6XGrg9EhB9Wt1mSBBmNI69zksehmX2c5Upf7MEG4ZN4XpDPHnIXTfKgM8exPf+
-	 +dEtRk4PXmYGNAO5xGspWvJyrjDj5LYp4W+xmlN30M1GlnqOc5btGw9N2AN5HKCIXx2yi
-	 ZK20ua6VodcjYS5iZoftAJgAWRhi+801mYmmZE0XvXsTWAaADnHK7M8a/bGYqRbali17J
-	 En/pGuO+DA1vMBH84aE0xIJN8AhVdfAwk4nATIETXrlMkual7xHx2QJcjg3P/+IsflZJ1
-	 6lhiYcETHMlILABA+8IHNJioTfFXCwW+YHPlliy/289dW/mACMQNSGXTOqxpfFiSZag==
+	bh=GWjdwg97jtKYZUSdtxJMhSsjE1aTAuzLSMKha3trRwE=;
+	b=zngHMBdy2wiKR84CLDa9FgUYIYUv82uBNqwFkuf6/sqaFmQ1tEtbmbDj/zYJc6CJXGq5
+	 QVsCqoxEyCNQgV3ruazW4Ob/OFj6hp7riN91SO3HDz4LphahcoNBjLhh6DK4mCOadggzs
+	 yVKAXL5gvlgLPVAHrNwTtOSoznEwBtHjF8MqOAC0sz0vNtwjArlbasEFmcaqrTeaqF2Cq
+	 qVu/WDnCJ0IK5/Eq1GTvfHLPgO9aM0O/0otS/dfjhi/Ys2Z+jHPNUG1A0eUkWe6DjMPah
+	 P6tNDteHEfieRdDxbJ0eP7YwUfDDwuXr0y3HAtfBAkAUDHEOMhXZ9fGgaGArek8bQ7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vUwIT1Vg;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FkwVPbfQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97A76606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:59:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97A76606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FAAA606A331;
+	Thu, 19 Nov 2026 02:59:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vUwIT1Vg
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-381f65e4e4bso2777045eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:59:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057190; x=1795661990; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BemN4KAEIv94JTaM/LB9CfX7xPFFKwFGGLfkDjDGM5Q=;
-        b=vUwIT1VgurTA5PcH58CV+OidjaQlZarrpDkxokT5Dc2FKUvEj1pnfPS32bbDNcWXOI
-         iS7TSFfQuJszS1B/dTp2aGKTksWm1ccF7NBWe8lXiANy+kQGZqppOBJQkkvXLqHddlz7
-         Z4mCYbXH/JPRElL7Qy5Zlgy3IQABFFNg90T0B9+tmiXAQqRc6Uo8kR2rMXxdHIM4sVLX
-         dASfsJFLI2rMl3+D0xOmaQ17kXymY53zTt17yYv2R+gDZUBsekaZ/W+po1ydfdaEYZOb
-         5ZeozYdnX+OMDnyYLCSuvB2clE5P4cp87sv7dwEy1QBvFPJMRTa/EarhKESF/D/jnC0I
-         b9FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057190; x=1795661990;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BemN4KAEIv94JTaM/LB9CfX7xPFFKwFGGLfkDjDGM5Q=;
-        b=17UE8kXdLamsatkrieWyeN59tu8IwnGBeyAXE8CcUUU+99lm0DW6cZMT+WfeZDoYp+
-         MFblPf4KCFZrVYSYC1gh0pWgw6A8KYJt+y0YNtqbC0tM6/aRpYv+oZxuLTOTmHyKLgYe
-         835wf9Kr2gpmwBkRtBDaRk13XGkOxYn0UZqQqTGqp+f6peIuayzOiNeKFa4EG5FsWu3y
-         XQIJQqvhiQeRIxKrfAf7/bU8VI9VRVJMbLWU/BrCfZ0mXcnO3R9waHGDHxgVgz/eRF87
-         Nr5Q5gOD/cs1D2vCarTOcvA/pZxKM2VblUPmlD+y8ENpkMo3a2kgvwRqnmwgz11gz5TI
-         Y/qw==
-X-Forwarded-Encrypted: i=1; AL+hErFkAMQpt63OaO+/sDcCSyeOYLAJDMMe9RmeY9xxawCorzLu9czZpegkv5fFmkppCOID25WqJfyXDGP3ScE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+vljTJslcgGvcjCT7fahy6WoMtuN35twS0w3JshKe5SnYV9FuG
-	NBMLE8Uo+rGKjN0IP94uV7GJWD6ku2FVpMj8GmSeeW9hcNZaVZaSTSTe
-X-Gm-Gg: AZFdTZcHGuSt77XhIGTc0TR5Vzy++1Xf5aY8xpg6tclGZ313vLxlF3bBQwfAyjz5tas
-	TWLau8PbeftkMjvSl62rOneuM3LmgO46jfTfEP2myJpDtHMgFfUilxHkm4X7sgxI6XNq6EaJkA+
-	OkOEF/W0F4uAXzupeeamSmtRgi8LjhqgZegM5A5a3nAUx3isjPhkYCLvyDXSAJEZfzs0bx5sTzk
-	4ZOT5nGkDftnx/dlBQnE19dmR10FRbqY3ai4z5k66QotIcE0iidejjalWrbhl97r4rdX7Uw+IVZ
-	gLwsw6x9+o/TRF9bMyEgdzIvwgXNUe01RehP17EFNiPuwgEkMr7b73wiS3EJGAeChHSiaTZmVyL
-	xDSzkXjYb24Ewh8cktkiFIvKxN+/7NdDhlGTP75LssgWrbeKENZ9uL6tErmh//Pn+fKA0XJE3/y
-	fVOtZK8U1oprnqh6mLmd28cF9kzDQB9au1ixz47nXycB2I3CmmeS9C/nPYWkcXEjqVgU8lUnuwL
-	OCA95c23S9pLex6IleDGnRlqkIzVzTvPBf6Yztc1bbNFE/hrHOxxbaWDiEwe6qiMtyk8a8MBLWL
-	TXavky5ljWtdIjlVEyTpm38n1zxNE678xOGsV27Al61SFjJi0g1x7K/Ol80j84ruelZnWIZnwiT
-	q3w==
-X-Received: by 2002:a05:693c:2805:b0:36c:a1ef:f8f7 with SMTP id 5a478bee46e88-3827dd05b5emr4256126eec.4.1795057189615;
-        Wed, 18 Nov 2026 18:59:49 -0800 (PST)
-Received: from Desktop ([182.161.246.158])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059f8sm19658301eec.9.2026.11.18.18.59.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 18:59:48 -0800 (PST)
-From: JunYoung Lee <ljyoung04@gmail.com>
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] tracing: Require kallsyms permission for the .function filter modifier
-Date: Thu, 19 Nov 2026 11:59:41 +0900
-Message-ID: <20261119025941.87102-1-ljyoung04@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FkwVPbfQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 117C71F000CB;
+	Thu, 19 Nov 2026 02:59:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795057195;
+	bh=GWjdwg97jtKYZUSdtxJMhSsjE1aTAuzLSMKha3trRwE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=FkwVPbfQsC1oUR3dy3XVEUSqOZv+yA7uwi5cSr3A0f/IP6b84eUaXbFH7VkEb3mgZ
+	 14rqUvwpokWJRDF8pNwqQMeD2kkM41pq+Gj/JwonxzwMpcHxBpPwz4n9pKu9wJY+kE
+	 dZ3HSxv3aDZhGWw8GHtjLWAeCy8InXPxeahPC9aXGJqZCCljDY1RhT93xtCCo0Nb6E
+	 iN3eek/tR1L+VWDaQ5K+4OYgkeHURh0FBHBQgHLwt/di/TFa+bKitf5qFS/0zjC3kd
+	 qEHeTlPlG/LEYy84ZSNJda1G38tY20zVEyzZVaI8DxkP4MnHYjnqviTxwcxBHTiftA
+	 9ZI6kEeV/vVKw==
+Date: Thu, 19 Nov 2026 02:59:50 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Marcelo Schmitt <marcelo.schmitt@analog.com>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux@analog.com,
+ Michael.Hennerich@analog.com, nuno.sa@analog.com, eblanc@baylibre.com,
+ dlechner@baylibre.com, andy@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, olivier.moysan@foss.st.com,
+ marcelo.schmitt1@gmail.com
+Subject: Re: [PATCH v1 4/5] dt-bindings: iio: adc: Add ADA4355
+Message-ID: <20261119025950.456dc645@jic23-hlaptop>
+In-Reply-To: <20261118-liver-decompose-434eedb257b8@spud>
+References: <cover.1795003864.git.marcelo.schmitt@analog.com>
+	<c7be62089d2b54dbf7fb57cdea189bdb1cade7c5.1795003864.git.marcelo.schmitt@analog.com>
+	<20261118-liver-decompose-434eedb257b8@spud>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,103 +65,165 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Steven, Masami,
+On Wed, 18 Nov 2026 17:39:46 +0000
+Conor Dooley <conor@kernel.org> wrote:
 
-An unprivileged user can locate the kernel image (KASLR bypass) with
-PERF_EVENT_IOC_SET_FILTER at the default perf_event_paranoid=2.
-parse_pred() accepts "<field>.function == <addr>" only if the address
-resolves in kallsyms, and the perf path has no permission check, so the
-ioctl result tells whether an address is kernel text. The details and
-the fix are in the patch below.
+> On Wed, Nov 18, 2026 at 10:04:13AM -0300, Marcelo Schmitt wrote:
+> > The ADA4355 is an integrated analog front-end and 14-bit analog-to-digital
+> > converter with a serial LVDS data interface.
+> > 
+> > Document how to describe ADA4355 devices in device tree.  
+> 
+> Please explain why the 4356 differs rom the 4355 such that it cannot use
+> a fallback compatible.
 
-Affected (reproduced as uid 65534, KASLR on), since e6745a4da964 (v6.3):
-- mainline 4405c18c95d2 (v7.4-rc3-230)
-- stable 6.12.118
+Also mention it in the patch description!
+I was briefly very confused at Conor's comment :)
 
-Example on mainline: a counting event on ftrace:print (field "ip") and
-561 probes return image_start=0xffffffffa1000000 and
-image_end=0xffffffffaae30000. These equal _stext and _end in
-/proc/kallsyms as read by root; the same user sees zeros there. No
-tracefs and no capabilities are needed. Not affected:
-perf_event_paranoid > 2, or perf_event_open blocked.
+> 
+> Thanks,
+> Conor.
+> pw-bot: changes-requested
+> > 
+> > Signed-off-by: Marcelo Schmitt <marcelo.schmitt@analog.com>
+> > ---
+> >  .../bindings/iio/adc/adi,ada4355.yaml         | 104 ++++++++++++++++++
+> >  MAINTAINERS                                   |   7 ++
+> >  2 files changed, 111 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml b/Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> > new file mode 100644
+> > index 000000000000..d169619fef25
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> > @@ -0,0 +1,104 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/iio/adc/adi,ada4355.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Analog Devices Transimpedance Current to Bits Receiver
+> > +
+> > +maintainers:
+> > +  - Marcelo Schmitt <marcelo.schmitt@analog.com>
+> > +
+> > +description: |
+> > +  ADA4355 programmable transimpedance, current to bits receiver and similar data
+> > +  converters.
+> > +  Specifications can be found at:
+> > +    https://www.analog.com/media/en/technical-documentation/data-sheets/ada4355.pdf
+> > +    https://www.analog.com/media/en/technical-documentation/data-sheets/ada4356.pdf
+> > +
+> > +$ref: /schemas/spi/spi-peripheral-props.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - adi,ada4355
+> > +      - adi,ada4356
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  spi-max-frequency:
+> > +    maximum: 50000000
+> > +
+> > +  spi-3wire: true
+> > +
+> > +  spi-cpha: true
+> > +
+> > +  vcc-supply:
+> > +    description: 3.3V power supply.
+> > +
+> > +  vea-supply:
+> > +    description: 1.8V analog power supply to ADC.
+> > +
+> > +  ved-supply:
+> > +    description: 1.8V digital power supply to ADC.
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  adi,vld-en-gpios:
+> > +    description: GPIO connected to the VLDEN pin for VLD output enable.
+> > +
+> > +  adi,gsel-gpios:
+> > +    description:
+> > +      GPIOs connected to the GSEL0 and GSEL1 pins, in that order, for
+> > +      transimpedance gain selection.
+> > +    minItems: 2
+> > +    maxItems: 2
+> > +
+> > +  adi,lfp-gpios:
+> > +    description:
+> > +      GPIO connected to FSEL for internal low pass filter bandwidth selection.
+> > +
+> > +  io-backends:
+> > +    description:
+> > +      The AXI ADC IP block connected to the D+/- and DCO+/- lines of the
+> > +      ADC. An example backend can be found at
+> > +      http://analogdevicesinc.github.io/hdl/projects/pulsar_lvds/index.html.
+> > +    maxItems: 1
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - vcc-supply
+> > +  - spi-3wire
+> > +  - spi-cpha
+> > +  - clocks
+> > +  - adi,vld-en-gpios
+> > +  - adi,gsel-gpios
+> > +  - adi,lfp-gpios
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/gpio/gpio.h>
+> > +    spi {
+> > +        #address-cells = <1>;
+> > +        #size-cells = <0>;
+> > +
+> > +        adc@0 {
+> > +            compatible = "adi,ada4355";
+> > +            reg = <0>;
+> > +            spi-max-frequency = <100000>;
+> > +            spi-3wire;
+> > +            spi-cpha;
+> > +            vcc-supply = <&supply_3_3V>;
+> > +            clocks = <&ref_clk>;
+> > +            adi,vld-en-gpios = <&gpio0 89 GPIO_ACTIVE_HIGH>;
+> > +            adi,gsel-gpios = <&gpio0 86 GPIO_ACTIVE_HIGH>,
+> > +                             <&gpio0 87 GPIO_ACTIVE_HIGH>;
+> > +            adi,lfp-gpios = <&gpio0 88 GPIO_ACTIVE_HIGH>;
+> > +            io-backends = <&axi_adc>;
+> > +        };
+> > +    };
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 02015eaec312..692f1e6d56ec 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -1794,6 +1794,13 @@ W:	https://ez.analog.com/linux-software-drivers
+> >  F:	Documentation/devicetree/bindings/iio/amplifiers/adi,ada4250.yaml
+> >  F:	drivers/iio/amplifiers/ada4250.c
+> >  
+> > +ANALOG DEVICES INC ADA4355 DRIVER
+> > +M:	Marcelo Schmitt <marcelo.schmitt@analog.com>
+> > +L:	linux-iio@vger.kernel.org
+> > +S:	Supported
+> > +W:	https://ez.analog.com/linux-software-drivers
+> > +F:	Documentation/devicetree/bindings/iio/adc/adi,ada4355.yaml
+> > +
+> >  ANALOG DEVICES INC ADE9000 DRIVER
+> >  M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
+> >  L:	linux-iio@vger.kernel.org
+> > -- 
+> > 2.39.2
+> >   
 
-A C reproducer is available privately on request.
-
-Testing of the patch on mainline with KASAN: for an unprivileged user
-every .function form now fails with -EINVAL, and ordinary filters still
-work. Root keeps .function via perf and tracefs (it is refused under
-kptr_restrict=2, like kallsyms values). ftrace selftests test.d/filter
-pass 4/4. checkpatch --strict and W=1 are clean. A 6.12.y backport is
-available.
-
-A separate issue seen while testing: as root, a .function filter on the
-perf function event (ftrace:function) crashes the kernel with a NULL
-dereference in ftrace_function_set_filter_pred(), because pred->regex
-is not set on the .function path. It needs CAP_PERFMON. I can send
-details if useful.
-
-Found with AI-assisted code analysis. All results come from test runs.
-
-Thanks,
-JunYoung Lee
-
--- >8 --
-"<field>.function == <operand>" resolves the operand to a kernel symbol
-range. parse_pred() accepts the predicate only if
-kallsyms_lookup_size_offset() succeeds, so the result of setting the
-filter tells whether an address lies inside the kernel image (or a
-module).
-
-perf_event_open() allows any user to open a tracepoint event for
-counting at the default perf_event_paranoid=2, and
-PERF_EVENT_IOC_SET_FILTER passes the string to the same parser without
-a permission check. An unprivileged user can therefore probe addresses
-one ioctl at a time and recover _stext and _end exactly (about 560
-ioctls on x86-64, under two seconds), while /proc/kallsyms shows that
-user zeros.
-
-Apply the rule that /proc/kallsyms uses, kallsyms_show_value() on the
-current credentials, before the operand is looked at, so both the
-numeric and the symbol name form are refused to callers who may not
-see kernel addresses. Root and CAP_SYSLOG keep the modifier under the
-default kptr_restrict. With kptr_restrict=2 it is refused to everyone,
-the same as kallsyms values are hidden from everyone.
-
-Fixes: e6745a4da964 ("tracing: Add a way to filter function addresses to function names")
-Cc: stable@vger.kernel.org
-Signed-off-by: JunYoung Lee <ljyoung04@gmail.com>
----
- kernel/trace/trace_events_filter.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-index c10951bcfc5f..895ef6d7652a 100644
---- a/kernel/trace/trace_events_filter.c
-+++ b/kernel/trace/trace_events_filter.c
-@@ -118,6 +118,7 @@ struct filter_pred {
- 	C(IP_FIELD_ONLY,	"Only 'ip' field is supported for function trace"), \
- 	C(INVALID_VALUE,	"Invalid value (did you forget quotes)?"), \
- 	C(NO_FUNCTION,		"Function not found"),			\
-+	C(FUNCTION_PERM,	"Not permitted to filter on kernel addresses"), \
- 	C(GLOB_WITHIN,		"'within' filter cannot take glob expressions"), \
- 	C(ERRNO,		"Error"),				\
- 	C(NO_FILTER,		"No filter found")
-@@ -1743,6 +1744,16 @@ static int parse_pred(const char *str, void *data,
- 	pred->op = op;
- 
- 	if (function) {
-+		/*
-+		 * Whether the operand is accepted, and which events then
-+		 * match, tells where kernel text is. perf lets unprivileged
-+		 * users set filters, so apply the /proc/kallsyms rule.
-+		 */
-+		if (!kallsyms_show_value(current_cred())) {
-+			parse_error(pe, FILT_ERR_FUNCTION_PERM, pos + i);
-+			goto err_free;
-+		}
-+
- 		/* The field must be the same size as long */
- 		if (field->size != sizeof(long)) {
- 			parse_error(pe, FILT_ERR_ILLEGAL_FIELD_OP, pos + i);
