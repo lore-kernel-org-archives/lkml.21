@@ -1,83 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795125091;
-	b=cv/gyZKPF4R0s+8/aUpLjqBMWjlYPAXk7KjTiH+QSJPThpt7+7qKSAKyGNbmhjtVlNN3
-	 uBGE28xlAKond+VVk+N0u2M+3ch7JtNMuQGhOWOZjiv7rC5yOAsLqrqG/m4v5WV7ALX70
-	 vB25Y7ybg3H1Z26PmOwwudR6aNw3ok8xRYzLtmZjSE26OnF6ES23t/F7+O/kvrB6bn5Id
-	 izjqddvWwQSKnPIjdx6fVPCr5VvipSFoD1NFlR7lNuUxjED+qbAL5rsaFv2ryBnFa3agm
-	 DgBa54mksZcK7OEOBYv55cER+YRXHFyMubtsS6vgElTF2yIgjn3+RrHnieHOKCg5n5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795125091;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
-	 References:In-Reply-To;
-	bh=Ny3Sl9Bn6sHIvah8OWFokkLcjHbV6BwIAehQvpJWiOM=;
-	b=BiZwmnpsn1blbIo9c5oev/DG0gcXAkl9mLReBpSQERXuTIt+JJyr4sd/ax4vZWA1odMp
-	 sPgOGA1zopw9AIuVk9CUiVHlXV7zX56ee1P51SFQCwkLL8/4qESWbT99Hv1f33daPuaZ7
-	 rqZYd4LI0WE6VTnkVMVAgHS/RBV63d3peWuj2f6OT+lWjIG0ZH1TWIU/0U/zNQkOuKQIW
-	 KBlYiAiaVdGK9KzdJuJ3BJk4Fgfy00zfFBI8bpLrrTq2GuD53tOZ6kTb3+cj45RQqcGDG
-	 XfMPud08AwvWIXBcxhxhWB4+Shp/9cx3Bh7OZmElOjeMbzyf6/AZhlT6A/5u69gNcwg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IlZfXAdV;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795125102;
+	b=DvIuPqE4ao9TQ0YRG2xiVhEl0QAZhaMqT6lN0Bz8DPio6MQr+N02mOOCRdiRPeQUFzfd
+	 aAXQS2bYy+iHoTmUMKL/Gfmat9dcYcjUN8ckyw7LphrhWm9lC+AXrabHuj84gBVHqswqb
+	 W/N6vtaqIqLn/dJP6ol7zFoeTV1jA23vq8KDcD36s/Cx8QcAsbqj44M7g3ADkTeER1hbC
+	 bv3RuX/FiTNXUqN3Kj7Ah7y+GHyRalgXK2m1HMC798p+ox0L4VsqhPKR454SIi0yMfWjs
+	 nY4JVWaDM2EMrhXuMpvwj/WzhIKm+1dj6iN8GP2mf9QcUYP2iujY3eaRwFKIB7DopNw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795125102;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=6o9bhW8wsOAIhuGp90K6EKBhtONIi3POQwWye2/rpog=;
+	b=f/5E9TSLVVSTKqZrq/3koQXi7UemvGzEmUqrLUo5LbX4cXdkftTk4kbN+0ipc2WWFOV4
+	 iXlET04U+f5BxDkJHYOWzQTUtrDYerpZG92NfqjhULg4+ElcczJn0jQXqHrqRxn4FLmEa
+	 T2dhpdQQzvGc69YMYhfOdnR7+vTNg2Hiw1decE88Lj+v2Sv88vDiCN1TB5WI/4RRB8YdH
+	 zyfFIpvEyClqJ3oVlkB88h1NRGo8bLzL0Lz8jU5Yf3lpcMrpmBViVcR8m68cOrFthGput
+	 BYj18GHR3WSzJ7EDD5zaRVQAXbHHKMp1Tmqv1NExFUZokgHepPhE7w4f0SUNiICkW3Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=riAMdQGn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.15
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010015.outbound.protection.outlook.com [52.101.85.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07C80606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:51:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07C80606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 479AC60A2608;
+	Thu, 19 Nov 2026 21:51:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 479AC60A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IlZfXAdV
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4b467581b98so2359675e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:51:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795125089; x=1795729889; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Ny3Sl9Bn6sHIvah8OWFokkLcjHbV6BwIAehQvpJWiOM=;
-        b=IlZfXAdVqjbuXw7jCUzgBXdPvunc6N0Mgo0wFLsi18PRIXDg8h5ImWiXqqG9r5Z3nz
-         mMCiHUUIjL1nanBAy+gmMMgf3P/DYPfNI/EhxL6VmuCltURwD+QgSpN5wH9Ap5okdiWa
-         y1/JXPn/JLNw5xRoGTUzFUnMvRCF7c7CMfNmwx5ikxXdmn96ekaYhxXTtb8MRXhNYeaS
-         5grEbe59oWK77G5W0OdmQ9pOUNCM7ixvwCJgXOuUiJiLHN4zyLRjXQj9XiUl5nqIEgCk
-         mpXfVFfEyeVkldYSBLUdPMoMK3O4rNrOnb4CWeh8R4q5zrhhEuhtuEtenWRCvjHT14FL
-         k9gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795125089; x=1795729889;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Ny3Sl9Bn6sHIvah8OWFokkLcjHbV6BwIAehQvpJWiOM=;
-        b=WbWVuncNCN6AOEsEicdwfkBZAtFKZIwDO5Ysz38mV1eVE1kAIRDFO3xmHW5h3EQIQ/
-         Q+AxW8ZGMULbXF3JNGXXRMoT/Vl6HNte3tYqYMvvKX7w0nN04Z93kHSacH3Y+ZLzKrnx
-         XqMOzgWc7ItLeV+0CRTCIujwrhqS5ZJDFxsTpMmHmJ1sLvaVWFcBWvPTCWh5a5gUlAps
-         JDgGwCPNIeCbxHsSkUEgYUMMH4efpRB+gcFF+6StMh2v/fImtSzojNDpL24EHuapC0n7
-         9OA6yyjn5+jWUxfBZ+KpmpOHOzj1Gv9koJpE6vPJtoUf6bPLwp3UzZjx24+vJg4p3IiV
-         hceg==
-X-Forwarded-Encrypted: i=1; AL+hErE/n6PXI804OFbxYgO8kenF+jcj57glxLZ1nnzkX4mk8Mzm0fFFAmLfcOnwHHij3Hp/3xakK8/6gx2j9+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+hN+/ngG/W8kmQrVGzKzmVpr3LkPZTscNu3vnk+KezEshxk/Kh
-	SGCLbeu4WVETpBImgq6LsAAJBkTNAy9qy5Sje9N3vHIfB5p6zI6U+um+
-X-Gm-Gg: AYBFou3gT6km0MD8dYrRfOrREwUcAulb47pvnht55Klv18OeCu59pKHo8Xl8g53gJZG
-	mtUrI2LA3ftVB2x6bzm4iMh1tjQSAtQdQiSZ5ijOUlG9mm+MrRsmyS4QWVa879K4OTpL34UETR6
-	jH5MGfLKK1WSLtSSrUhxzyA3gn9YYWrjMdQHqtNH4yAYmtXe6pa89ZkbmUEOvFdodp6EJU9BXrm
-	8UAyw2yZ0SJjOpJ4NWsRzL5qJ1+cTDs1lHRma88P2Fh6at5hhgfa18gRpldoepsDm/K/iagBfxs
-	sEwoGko22RSsKYedOtjL3JmMKAHdSFDAnE2YrszlOz+ZqEn+ZWT6Q2cNC8gznMXXirQuv9QsBSn
-	iH1g+CQtMvsrMlDPmOs39A72w9NvlKmpBRzAtypA5bVa0JmzGNUaoce0Pen5Y+tuHBr3wqIYQWX
-	fiLebOjKFf+q72JxtqhBcfpCXIeRRw4c6HhC6EtDCawDWlUgA4bMkFhBKHkofG+CfcafuOp9hdp
-	CT2teacRZdC/uGAshZ+a4bAf0r1b0JOccro3xfSrTrgwle3PMnpd33c0ZyP6Y5BwWy360HuCq4V
-	Ip01EK6mzht9JnGnbWb79MdFWP+wKOJWUqsEq5xtULzTffM=
-X-Received: by 2002:a05:600c:4f48:b0:4a6:44b:2593 with SMTP id 5b1f17b1804b1-4bb8893ab9cmr20069015e9.29.1795125089289;
-        Thu, 19 Nov 2026 13:51:29 -0800 (PST)
-Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm24821245e9.10.2026.11.19.13.51.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 13:51:28 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=riAMdQGn
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CugFW7Fjtj8p3lkiSZT6paq2yXu8aWrBKY/0wuuqEGiSF5ares02n6jSS4LhR/eEiPEDK9AfwIBg5oQ1wcynYXIzM1RUOBJasXYZml6qABflOQNJus0XSZ8yHasITWfL+E2OXL4m8bkIE+xQU4XsL4ZVlRtnwnt4Bf54wR8EUR7l5o/JfSszzVBtaJaQsjxCJjCCviNEebhoBI+Q6/+DfQYbHfaT0DXwkV1W3R5KqP+XTz1voJmQWIc7Lho0qptx3q+i9Q5CAw9m4iNIAJjjB7PdDeoavuGxV5H+DV3qwTLTSRbHqb44Y6ZHNY7AVGQWpgkRJR4pfDYgIcUNDDvtfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6o9bhW8wsOAIhuGp90K6EKBhtONIi3POQwWye2/rpog=;
+ b=O0zY4Q7N9tHCUubbSsFeWpP/3vbA86DumZBhS2OzyjSI+KCZkZmiRJTz0Fj3mTBTNJGVkoaByXHl5xGcYoQbkF7XTvUde988mm+2KSW8HTp8laOQrrv/SYvxWwLEHOMyKIE8pfA0d3Js97P1PVrCWkAOIYinqPKfLSjxGyqDEB5L+o34bFAIICdriDiXrAHUAIHrIPZmfxq1OBVsBzZ8jISfHNiULbMX9fsYVzUp1GicHfNWrP9O2tWvZquSGt5MgztLgoER4VuvO9uqNurSbd1YM6jebIYWs/IxzUw6sPE/G0Q3NTKvPK07J3J3gfH1U4Vgsz7li2BkWtTcIZfBQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6o9bhW8wsOAIhuGp90K6EKBhtONIi3POQwWye2/rpog=;
+ b=riAMdQGnREZlCJMGrghVnTix1XUa38wvf3X9lLgqqpUtbq1D3qtkggp4CGP0i9VyTaM9Zgczi8WJjx6qQVTBxd7a0NUL6LjN/gr3MnmDBcScWw0CI9E0eSSnkLLh+lMFNFHLnFhy+M4IL4fupcqtIIWQdmLkzUmKrPT7m41T1KG6DMR7yh2ZEus2O9bqeHzh7l6ZlAP82Gn7QHrBQArE+OVnDzBSbALJRIHVJMMCX6zSkP5i0IpE4zGxjkP3lutmugvhfmL/z3iqiCnJKp8Zr058vonrEV3FCuNe0324jNFIw0CT30/ostneJLMHG6OGuWmKHpnVC5qbcv0jbhuGmQ==
+Received: from MW4PR04CA0223.namprd04.prod.outlook.com (2603:10b6:303:87::18)
+ by SN7PR12MB7023.namprd12.prod.outlook.com (2603:10b6:806:260::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 21:51:37 +0000
+Received: from MWH0EPF000C6187.namprd02.prod.outlook.com
+ (2603:10b6:303:87:cafe::58) by MW4PR04CA0223.outlook.office365.com
+ (2603:10b6:303:87::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Thu,
+ 19 Nov 2026 21:51:36 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MWH0EPF000C6187.mail.protection.outlook.com (10.167.249.119) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 21:51:36 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 13:51:11 -0800
+Received: from xinmengs-dev-vm-linux.nvidia.com (10.126.230.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Thu, 19 Nov 2026 13:51:09 -0800
+From: Simon Song <xinmengs@nvidia.com>
+To: <dakr@kernel.org>, <acourbot@nvidia.com>, <kvm@vger.kernel.org>,
+	<rust-for-linux@vger.kernel.org>, <nova-gpu@lists.linux.dev>,
+	<linux-pci@vger.kernel.org>
+CC: <alex@shazbot.org>, <jgg@nvidia.com>, <yishaih@nvidia.com>,
+	<skolothumtho@nvidia.com>, <kevin.tian@intel.com>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <ojeda@kernel.org>, <alex.gaynor@gmail.com>,
+	<boqun.feng@gmail.com>, <gary@garyguo.net>, <bjorn3_gh@protonmail.com>,
+	<lossin@kernel.org>, <a.hindborg@kernel.org>, <aliceryhl@google.com>,
+	<tmgross@umich.edu>, <jhubbard@nvidia.com>, <ecourtney@nvidia.com>,
+	<cjia@nvidia.com>, <smitra@nvidia.com>, <kjaju@nvidia.com>,
+	<alkumar@nvidia.com>, <ankita@nvidia.com>, <aniketa@nvidia.com>,
+	<kwankhede@nvidia.com>, <targupta@nvidia.com>,
+	<linux-kernel@vger.kernel.org>, <zhiwang@kernel.org>, <zhiw@nvidia.com>,
+	<boqun@kernel.org>, <daniel.almeida@collabora.com>, <tamird@kernel.org>,
+	<work@onurozkan.dev>, <jgg@ziepe.ca>, <bhelgaas@google.com>,
+	<kwilczynski@kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<peter@colberg.org>, <xinmengs@nvidia.com>
+Subject: [PATCH v3 3/9] rust: pci: allow drivers to manage DMA ownership
+Date: Thu, 19 Nov 2026 13:50:38 -0800
+Message-ID: <20261119215046.2892839-4-xinmengs@nvidia.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20261119215046.2892839-1-xinmengs@nvidia.com>
+References: <20261119215046.2892839-1-xinmengs@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,111 +124,101 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=305c4db69b4b7682b4927e5c7245ccd497c3eba9918a22ec95937c8c862e;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 19 Nov 2026 22:51:26 +0100
-Message-Id: <DMZIQG4U1NTH.2IN0S2YIWEYTG@gmail.com>
-Cc: "David Sterba" <dsterba@suse.com>, "Namjae Jeon"
- <linkinjeon@kernel.org>, "Sungjong Seo" <sj1557.seo@samsung.com>,
- "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
- <brauner@kernel.org>, "Trond Myklebust" <trondmy@kernel.org>, "Anna
- Schumaker" <anna@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff Layton"
- <jlayton@kernel.org>, "Konstantin Komarov"
- <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
- <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
- <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
- <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
- <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
- <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
- "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
- <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
- "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
- <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
- "Pedro Falcato" <pfalcato@suse.de>, =?utf-8?q?Pali_Roh=C3=A1r?=
- <pali@kernel.org>, <linux-btrfs@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
- <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
- <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
- <linux-api@vger.kernel.org>
-Subject: Re: [RFC PATCH v4 09/10] ksmbd: add provenance time (ptime) and map
- it to CreationTime
-From: "koraynilay" <koray.fra@gmail.com>
-To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
- <koray.fra@gmail.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261115180343.576773-1-koray.fra@gmail.com>
- <20261115180343.576773-10-koray.fra@gmail.com>
- <CAOQ4uxhjxp5sxYphWoB=8sgX3XHOv9zLVYf+8ZjYbS_gQDxO3w@mail.gmail.com>
-In-Reply-To: <CAOQ4uxhjxp5sxYphWoB=8sgX3XHOv9zLVYf+8ZjYbS_gQDxO3w@mail.gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000C6187:EE_|SN7PR12MB7023:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90b591c2-8414-4082-be3c-08df468748c6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|82310400026|1800799024|7416014|376014|23010399003|6133799003|22082099003|18002099003|261009223027099003|261022115727099003|56012099006|11063799006|261102123227099003|261026121527099003|261021130227099003|261028144727099003|261022105027099003|261021121427099003|261026140227099003|261022113327099003|10067099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info:
+	QfnbcTfXAax130Hzz3KUgyBRsLusMkf20Ne6E0A5WRHMV73jiyLhccxR/WpZW52JC4ke3mNEVXYFE6nxlisUeZaBZ+XEdCf8LJ4n7pNo0DlYazrgXJw3vZKet/bVcivfYmLrwmM0lg9zQweFWCCNHdJoKtVV56PLpx5vPgMSU/gqyDLZ0MwGN6tn/Scsqxa8iFqhq/Jia0ljPEs3oPJvmy7uCGZXM7CqQcQLqShyUezfKHrI4DMLYVCKMdx1e4SPiVkfcH0ac7t7t1mUMFWNMsQbsjBPdlyJQ8+Dk/5Hj5OAE6Vi7Q/OjZKxsXWwcysQw5r8eUUMfPGjLbUG4T7hDIDm8nz+iQ1UUgiscnhS+uNXPUfsY+MTUajQZYa/hUOweQmm9x02DDe3HdrxNlTgIdyDbPwpj/BTXujvm0NbLWeTxmUDzYV/gxBxC/QNfWaajLdBhTSIjLM1R/O1dDJXOORjm2st6v4gRW0BlkJE2jypZsjuJZ3g/5moZJgg0KQRjbuy4L2RVQP6e16amqPXVGY8J6g50k8d9m1pNXYs3cVzcKEO7kasrtSwVIrOgL+OYcoVi4FIMIYDS7mXhTztqAHcPbqJGBDHn7cYmDDVCU4Bv67pAJVJ//I1EBRclZ/DRkvllGL0aLg1MFpW21zu/ex23A/ZgzG8qrO9RXscXRjDuJczLXYKITdvVzC+DhW9FCXePxBKc819mt4M4DUGGg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(7416014)(376014)(23010399003)(6133799003)(22082099003)(18002099003)(261009223027099003)(261022115727099003)(56012099006)(11063799006)(261102123227099003)(261026121527099003)(261021130227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261026140227099003)(261022113327099003)(10067099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	lcNTWsD4pZnlb+qn/fPRtvrO0cPgn6AhjzEWx/3rUQ/aKR3k/tTJMlgE6S0BOpigDzpoO0hGo0PlhxC6oZg/RGUcJXa2uxAVj/cYar0UHALWQ+e9CI03F2jUpIDohJYcjjVjxMx+GNpCDRCG41o7OlVreoIMFKbxP+s+K6iUjbpkhwfdPk6mmSBNPcWfKg/JhdbUQZGFagABVrJ1aagOyoL9X7Qm+wQNCR0V1lnElYfbqiwVhPiAUAimUoQVQ4/zz9NqR5oGXobgtfXxuYjRasWAGRmyr1sVXJF1OEYeEajBrm9mXSEqr7K9az8jyHF3CuftD0HZoi5aZaI2Tj66ny9V3+GEVujODWd6bCR2UzjQNlKOVYmM05eQ5g8B2egKwg9O4GMDbtOiWLnMCX+1xWpFQILUhuF4fENNeD6d5tffO72ubhCZKNc80TmYrwxe
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 21:51:36.4904
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90b591c2-8414-4082-be3c-08df468748c6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MWH0EPF000C6187.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7023
 
---305c4db69b4b7682b4927e5c7245ccd497c3eba9918a22ec95937c8c862e
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+From: Danilo Krummrich <dakr@kernel.org>
 
-On Thu Nov 19, 2026 at 6:34 PM CET, Amir Goldstein wrote:
-> On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
-wrote:
->>
->> Implement provenance time (ptime) in ksmbd, as introduced in a
->> previous commit ("vfs: add provenance time (ptime)").
->>
->> Map it to SMB's CreationTime, making it settable by SMB clients. When
->> reporting CreationTime to clients, prioritize ptime over da.create_time
->> memorized in the user.DOSATTRIB xattr.
->
-> That doesn't sound like the right thing to do.
->
-> If the server stored a CreationTime that client had set, you cannot
-> override this.
+VFIO manages DMA ownership through the userspace IOMMU interface. Its
+PCI variant drivers must opt out of the driver's default DMA domain.
 
-Ah, yes, but how would we handle older files which get a custom
-CreationTime both before (in the xattr) and after (in ptime) a kernel
-upgrade?
+Add Driver::DRIVER_MANAGED_DMA and pass it to the PCI core. Make it an
+unsafe marker as suggested, until the DMA setup tokens exist.
 
-> When the client sets CreationTime, the server can decide if it can and wa=
-nts
-> (may be a policy decision) to store CreationTime in PTIME and not store
-> it in user.DOSATTRIB.
+Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+Signed-off-by: Zhi Wang <zhiw@nvidia.com>
+Signed-off-by: Simon Song <xinmengs@nvidia.com>
+---
+ rust/kernel/pci.rs | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-To fix the above problem we should probably keep storing it in both
-ptime and the xattr though.
+diff --git a/rust/kernel/pci.rs b/rust/kernel/pci.rs
+index fa67f2fc26bf..6013c89bfb5e 100644
+--- a/rust/kernel/pci.rs
++++ b/rust/kernel/pci.rs
+@@ -105,6 +105,7 @@ unsafe fn register(
+             (*pdrv.get()).probe = Some(Self::probe_callback);
+             (*pdrv.get()).remove = Some(Self::remove_callback);
+             (*pdrv.get()).id_table = T::ID_TABLE.as_ptr();
++            (*pdrv.get()).driver_managed_dma = T::DRIVER_MANAGED_DMA.is_some();
+             if T::HAS_SRIOV_ENABLE {
+                 (*pdrv.get()).sriov_configure = Some(Self::sriov_configure_callback);
+             }
+@@ -293,6 +294,24 @@ unsafe impl RawDeviceIdIndex for DeviceId {
+     const DRIVER_DATA_OFFSET: usize = core::mem::offset_of!(bindings::pci_device_id, driver_data);
+ }
+ 
++/// Marker for a driver that manages DMA ownership of its devices by itself.
++///
++/// The driver core does not claim the default DMA domain for the devices of such a driver. See
++/// [`Driver::DRIVER_MANAGED_DMA`].
++pub struct DriverManagedDma<D: ?Sized>(PhantomData<fn() -> *mut D>);
++
++impl<D: ?Sized> DriverManagedDma<D> {
++    /// Declares that driver `D` manages DMA ownership of its devices by itself.
++    ///
++    /// # Safety
++    ///
++    /// The caller must ensure that devices bound to `D` are not used for DMA allocations or
++    /// mappings through the kernel DMA API, directly or through helpers.
++    pub const unsafe fn new() -> Self {
++        Self(PhantomData)
++    }
++}
++
+ /// `IdTable` type for PCI.
+ pub type IdTable<T> = &'static dyn kernel::device_id::IdTable<DeviceId, T>;
+ 
+@@ -356,6 +375,10 @@ pub trait Driver {
+     /// The table of device ids supported by the driver.
+     const ID_TABLE: IdTable<Self::IdInfo>;
+ 
++    /// Set if the driver manages DMA ownership of its devices by itself, instead of using the
++    /// default DMA domain. Construct with [`DriverManagedDma::new`].
++    const DRIVER_MANAGED_DMA: Option<DriverManagedDma<Self>> = None;
++
+     /// PCI driver probe.
+     ///
+     /// Called when a new pci device is added or discovered. Implementers should
+-- 
+2.43.7
 
-> Fun fact: the user.DOSATTRIB format also has a mask so storing the
-> creation time inside it is also optional.
-
-With my current patch series applied, when CreationTime gets set by a
-client, ksmbd writes it to ptime and fixes/heals the xattr (=3D removing
-the CREATE_TIME flag created by older kernels, see the other fun fact
-below).
-
-And another fun fact: until [1] ksmbd ignored the flags and just
-read/wrote the attribs every time :) so that can only be honored for
-files that have been written to/updated with newer kernels.
-(That's why there is the ((flags & CREATE_TIME) || da.create_time > 0)
-in my patch, and not just the flag check)
-
-Thanks,
-koraynilay
-
-[1]: https://lore.kernel.org/linux-cifs/20261115155308.415734-1-koray.fra@g=
-mail.com/
-
-> Thanks,
-> Amir.
-
-
-
---305c4db69b4b7682b4927e5c7245ccd497c3eba9918a22ec95937c8c862e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCav9vXgAKCRDmj22qf5IG
-XM7AAPsG6qghsrCfCEnMzpWg6QyG3mDtqVzO2LuI2Jbx+5MdmwEAqDTU6SUvXvP1
-4H1OcrcMro3Ek7i+OVcH9ZQ2xF4lngw=
-=LZNw
------END PGP SIGNATURE-----
-
---305c4db69b4b7682b4927e5c7245ccd497c3eba9918a22ec95937c8c862e--
