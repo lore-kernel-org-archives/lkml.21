@@ -1,69 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077868;
-	b=bHLz7AV+WGGhU4iT4xLpL6y6nOygEdmi8Cbu088qQgSjeLMIwuLfk80JJUv6jGvL/gFw
-	 jf4w+57eMQVyVuGcYjFg6VaVA+KEQPksa8TwqoLV3VpPkMkjEYeMqQ0MIZj2sb9uCyhQ+
-	 cCkJMRwrsXXJm0Im5MWSmpA+Y/GqEahy88mCokLCMH3acOPgW/TdwGAVBAsVP1FdgTmF0
-	 kzeAnXupkq1FxFwWtKdp7GV050FBxMqiAmgtP67nEdbGa3jvxKiLW9oBPo95dXXgIEZ2d
-	 w7yKLACH0d+vm8FQR2lQtI47fC6FOheej19cgTVgoPP84zlIhxZQqtxObP3nkmZpuWw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077868;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=q4NGyillcyoqnay5MXZUaXZNKCEgxlMjgB2VdLSJAjE=;
-	b=3CZeF1oTMh4yip19+KSO15suaIGvdGzLbXEKC0AUV7WOPKVwD/xIMj7KX9yfgdnqRvgF
-	 33PMw25/E4OaAYVa9kdhBjKbO++F46/4ZN5ZGequcS/nTznAAz0XBrGhPDIdfD6Rn7Vxp
-	 Wp+bm388nxtM/jbVMT9XX7POHdZIL58Hae5KzCsYvwWGir2DnXMJOKbJlUVWfol3MttU4
-	 w6nEoJ/Ex0lZBet2nDje1dzmgoAmcYfFPJzKyIm+tgE/Znb78sdf33/fTlHj30eNncZZW
-	 HqCLWUeEXPXIP7AuOHmhVxhKQn3aGo1vYjqLKZ9P+m7n4hmH5TsiwGwKtH9ayB9XlTw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Bs9eBu14;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795077881;
+	b=jH7A2y/vtZI980N6/AjfWYdzf+UdgS9FbIUK/0BsIZsu6lwNK9QXzQ7spuxvY/3vSk+M
+	 OGcFKbhpsRfxb198zLOHrSsGyW9VEt2feT0CVL3KNfcWC4WSNZuQrfF26KayKpYp0upa7
+	 Ov2ffku2wsMCcViNtJ/f2UrgbDXvWzDA7X41emm91vlhjOltvIxbvJ0tb6TxdzTpIJcJR
+	 yjxJxGWI6BjzZP/dd+4RzXbCPNJSUPiS4mVpp1LsVXSEAH6TWwA390yBdsrwUZ9qEtRav
+	 cb5iK6peOXzr7ZTHQn2Ac5GLXA0UdEgEUw5FrcZqeHTaQaWOVC+oaUKA8oRNuJCwhsA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077881;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=aLlUZT059MSLq9CO/oh2NcBBnG/ct5JsOOYoDZECi7U=;
+	b=ganQuVUk4S3mWd05oAmTBZBpsxOXBXDmfpzkkDUe/CQZMB72eLF8UslanbtpuOWsGzjR
+	 7i9Xw+i4bxsT/H9zgwzAXDStHlk9RLG3vWdwG4Ne8oT80YCzflovx1ckgjTt8jwvPKAbF
+	 UkWjyNZx5yWLjf75E2InQKn4iAncZevZYt5ResFBoNnCLRXTag9IvxweQTAL8E1SBvNTY
+	 ah2zHeRxrc/NdArn2ZdsuGJ+R+BStopA4JLxtKdaebbBxVzBiJ+LN2cJKbRhjwLnE5PRB
+	 f8Sqt2gX74gvgvI92BDtTFMEZ3DirVuT/iAhlxlSPRFkvp6vUyEBL+IV3cq6K9Hvc+w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=T2o0nE7E;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.51
+Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013051.outbound.protection.outlook.com [40.107.162.51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3271606A324;
-	Thu, 19 Nov 2026 08:44:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3271606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BEF1606A320;
+	Thu, 19 Nov 2026 08:44:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BEF1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Bs9eBu14
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=q4NGyillcyoqnay5MXZUaXZNKCEgxlMjgB2VdLSJAjE=;
-	b=Bs9eBu14YapuxyW5ZIt4BnZMGw/jUENlfyObiYOW04qus9jxOI75myDiytgeY7dVryy5DzhP2
-	ilUjN8GYRYF4M407qOKx6ntBAC3omZzJkiXq55WHKg66LZcJM6QmlO291QaXShOjTqDjf39Gqdr
-	LpZcwJxctM94eDLDVQICiqM=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jVX7L4fJvz1T4Gf;
-	Thu, 19 Nov 2026 16:43:42 +0800 (CST)
-Received: from kwepemo200015.china.huawei.com (unknown [7.202.195.27])
-	by mail.maildlp.com (Postfix) with ESMTPS id BCFF54056E;
-	Thu, 19 Nov 2026 16:44:23 +0800 (CST)
-Received: from huawei.com (10.67.174.69) by kwepemo200015.china.huawei.com
- (7.202.195.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 19 Nov
- 2026 16:44:22 +0800
-From: Chen Yuxi <chenyuxi19@huawei.com>
-To: <broonie@kernel.org>, <lgirdwood@gmail.com>
-CC: <peter.ujfalusi@linux.intel.com>, <yung-chuan.liao@linux.intel.com>,
-	<daniel.baluta@nxp.com>, <kai.vehmanen@linux.intel.com>,
-	<pierre-louis.bossart@linux.dev>, <Vijendar.Mukunda@amd.com>,
-	<ranjani.sridharan@linux.intel.com>, <perex@perex.cz>, <tiwai@suse.com>,
-	<sound-open-firmware@alsa-project.org>, <linux-sound@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
-	<yeweihua4@huawei.com>
-Subject: [PATCH] ASoC: SOF: Intel: hda: Fix NULL deref in hw_params and hw_free
-Date: Thu, 19 Nov 2026 08:25:06 +0000
-Message-ID: <20261119082506.2485543-1-chenyuxi19@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=T2o0nE7E
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IMr8ECWkxftinoD5BLaghe0seu4HfixjFRsMMkR4xL1x0wuup/JqJpNRfMp4Ox3btdSx2rfZvWDQqxD+iDgvZjxBLOLwf61kJdRL7jJM8KGJTVljZ4qRppX7ca7fldCUUOAR0CWhsg4BaK+sk+0+Pn1ni05eU0J5UZjJxwq7f+DvlzDgmGZRvX7mjLlmb39WwDYVbqA/gGU/n3u4HEQsAgwZTYT3NgfoJ+AkLHs3qbn5uQwS2h52p6wwCO+2QnTh83L7+3n8+YamubTUowlugwZ2uOGS6HfxHb71pTqpwWiur+UJlGY1EaO5UNdQyGvMRxAIhBR60vXoBK00CHip6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aLlUZT059MSLq9CO/oh2NcBBnG/ct5JsOOYoDZECi7U=;
+ b=Ct9YIe32TIvn18Jnmcdss9qtzvo6XBt6+ujyOPaXNUwgHHOWIxFumZJlZDlBGKMpzrALS+jCoaD3Cq8rLbrxvZNYfLcGTbvrxc90dkngOz0sEwIfDJbOXY7u7vwSV0qibG/8jj3NISQ/7QxuWkuP8mg2vHgAy0SD+++4CXzblTy7rkQdJFfYncUC3BaZJgqMlLNM+uOMUN1ghUhQVXBN9pI5F6+L1aCxMQ+EytOsP++FdOdNZaYGvF0j1Ho3Dx5B0k3HW4U9BzHgc3bXMpW2HPBE/j5CqZmOMrjjcDxiCWFEEQWkUROXQzd6KtA+exIpJuhElbEXPZb8bLkCg0lCdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aLlUZT059MSLq9CO/oh2NcBBnG/ct5JsOOYoDZECi7U=;
+ b=T2o0nE7EIpLulHs7lpwa8dnxF4MOwiRiLXvR2bpqD5JiWme7kXyV2WtsQZU385WksINyo4sKYS6WBxvBkXvO7PmJRL8i3S+OAPC2NXjyZp280h4Ph65tjG8wgbIn9xAVgi3jJa++TaItgVdNGfD0GNwFAUQLuN4Lf8tB8b3m1+5wlBxLmw0myc2VTPOwvjOrV1PUvYQBDWFK18vkSb4menPputV4CcX7nUJMgD2cj0JY4Skm8qCYTTQAeHyszNSpbP7sd3ZcpPpfnQQp91JHHyv/NC19nyorlLfN7Un9VyKe6AonYh7ckJG1kKgj9AbmD6HQ/M7EBRm+gEgccXviag==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by DB8PR04MB6908.eurprd04.prod.outlook.com (2603:10a6:10:116::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Thu, 19 Nov
+ 2026 08:44:36 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 08:44:36 +0000
+Date: Thu, 19 Nov 2026 10:44:33 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Claudiu Manoil <claudiu.manoil@nxp.com>, 
+	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>, 
+	Ioana Ciornei <ioana.ciornei@nxp.com>, Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 net 4/4] net: enetc: let core segment GSO skb when
+ headers exceed TSO_HEADER_SIZE
+Message-ID: <av62HrrrRs8qwiHw@skbuf>
+References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
+ <20261118235055.1225115-5-vladimir.oltean@nxp.com>
+ <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
+X-ClientProxiedBy: VI1PR09CA0096.eurprd09.prod.outlook.com
+ (2603:10a6:803:78::19) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,69 +102,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemo200015.china.huawei.com (7.202.195.27)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|DB8PR04MB6908:EE_
+X-MS-Office365-Filtering-Correlation-Id: 387d6844-89c6-4e93-2148-08df46195769
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|10070799003|19092799006|261021135927099003|261022075727099003|10067099003|5023799004|56012099006|11063799006|4143699003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261026121527099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	Mwt0/8kN9TisZ7cd7QS8/LdynKPkQJTmdYr7H3qZeerQKe9QcV1vdUe5NijfkG/UzqH8s44n1lgAZEr+Ni3RomerXW4GR0zzCIkKsGZKBbU0P5+NVRTSQHIRsdM+x7PDAAXZfJsOWyUcFqxMoAeVIApwQgsKW2lKkSFGWjNHlUpgNKrqEnlM/JNuVGtCponWWCVDK/8IKnl3Np6rEeM75zlC/zoiU72nTEaWtyz0roVgFzZVPestc7Qr3HaW2SwGDhiFKDBP/uUJLTUYJ8OVt4THSIFXbpugjmXOdX5ZrSs/mgVO+l2Zb4Sfb8lO5g6LSjGVUv5r5Ms3ONEhtro8KAJJKY3alAq/NsOr8lMrZvOwUQKMRPsodWBOyJgvD7dcEEIktQPXu4dWEgSrftS/PiiNk9YL3kesNSRBtH983NBR74G+uhSEXvQLIqP7VfTs6ygazWldKaOkz4V+kXxbrjG1X1BngTgJj1i56ndzjvmrtf/0aN2XR2V8hVrP7gLV4cVGPvxhMLfdJPLw8YJH/3uq5EcVYcrIb9VUMpHcMBCG60UNEqvvl1XSY6lUEO3OxBuwdHxxoKpGhu6yGTGKvfrST/CQuGcxQU6Qkzjq+FU=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(10070799003)(19092799006)(261021135927099003)(261022075727099003)(10067099003)(5023799004)(56012099006)(11063799006)(4143699003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261026121527099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?ZzM4q6jAO4y6JOxMjsK9Titcx954hcklnvoVeB44i+uYuTNC67MnULCd8WJk?=
+ =?us-ascii?Q?9oVJgT2XS9EpP0GcLd9L7jZtI/GMfKYsfXkLsuJANQtfooc+93UAxeNd9vOP?=
+ =?us-ascii?Q?0OF0elWBEdRd02GmNXoGKEYMD9edBYyRkl/hS6Kas3I5YW0CEzFZPQE0ty/O?=
+ =?us-ascii?Q?242FoQd/B5VofEHRZ4dam2NQ+GLZhJYwQKMDgXbsuWU3cKJc47KgLsjmVV44?=
+ =?us-ascii?Q?z4JfpUtIi9v2xBOrXp9iusk4sNuo3LkPdFpJbMK0IH/gp4Fp5rorLMoH4Hqw?=
+ =?us-ascii?Q?l1fd4bq3BCb/obSU0Tzy37SnKY5S3dXRzo84rSbeystiw1OCs835MKR4MBn4?=
+ =?us-ascii?Q?nTaACtEpCK+GVW87r+CeqLfHnKroVIGI7WKYlrz1pRYalpe7VovVImeJ0F+r?=
+ =?us-ascii?Q?1YTrvSmmayBI21XW2qf0L15uGCSbznNm1oI8Us6Zyflo3Yj5lgL9LTRHPuyZ?=
+ =?us-ascii?Q?x9+dPLeQ83wU2eZ8WbKnUuDY2b+4PzLbXyMNH4C8V8UptEj23XUKNW1CoSV7?=
+ =?us-ascii?Q?Tu2pAe999Tath2SbKmkRZB+9mXbRnz3RdCadfH/m85VX2nMgxrZs2g3vuIsw?=
+ =?us-ascii?Q?V3gErJHxr+5xSy301ZAi/5pkd3L+d2+fshvNqMXt7neFtA2/t2yPjlUhByj1?=
+ =?us-ascii?Q?dPsPYnB+y++3owa3bDGdkpquTyre9H8iUSZHs3gdm1f86M30WDMwhiBmmyCv?=
+ =?us-ascii?Q?dO8n2W+Vu0JlQsMQkVNi0EsLzus4Uk23g2XC8lE4C9Uid5YrLaoHKW4ZPvPO?=
+ =?us-ascii?Q?OdCcKw9HKm7FDg5pX0ShelRzeoNn8qT6bbskclwbxjSNIK5ZKd/jXVHcc8Fq?=
+ =?us-ascii?Q?N2Q431AOa/LpcSj19h89kRajhI8Qy29F4gfQPRL9NWPiQGpf/UIiPbZco8E3?=
+ =?us-ascii?Q?xtAt9B+W0LTKvxLFXkkAGDM0oEjmqwBavHia/mbnRA4/B5631YGeW7bVHXTp?=
+ =?us-ascii?Q?rtuiosMMtjHPKHgWPzAC7UWu0+elAfhMWhBMgXD9Ed415ggEp4Qs9Ym/IYxv?=
+ =?us-ascii?Q?VQ3dfiuGdObR2yJKGN8SIonzz2hgNz4bNl8UwlWwYlHJSwGim9B6q9AOhPCN?=
+ =?us-ascii?Q?DS4YmTS0/9Dxu9K01VPF4XHvA2JzLJzqr8hxNUZh3MiqMmDnVD4fy1tsr3rg?=
+ =?us-ascii?Q?QpJ0WkkmVYZD0dZWsgsYPxqi+HngkfihB2hdhkuJx8e8Bi7AI4anni+wljzW?=
+ =?us-ascii?Q?z1v/7QRLOIjfwBvTx1OXgRIDFepNyIR8FfzWohYwLlcSGH7IByybOlKZfEAw?=
+ =?us-ascii?Q?PHCnoKiq15z7QtepHe41toTGyiQSwNZQ/2abBxO4OqwwkeEIStghJ8NEVX2T?=
+ =?us-ascii?Q?I2FPQyFqMGxRBKLpdq+4HxWZ4OW9QgZHvzdQhJITRk5X9o2tb6yGoR6BNUru?=
+ =?us-ascii?Q?qQVl5RMLGmMw70J29/h7cOWk+0ejQS8Tvyi0kpx8wq4h9jGY3FJxWVPhep9w?=
+ =?us-ascii?Q?n9JiXV3OenzzRCwcx6Qqd6z4AxKfCacARSHGFyzZ8cChU2L8l0zL5oSEwoDd?=
+ =?us-ascii?Q?S9b0vGFWLgcPuK76MCmCmD+RNsV18gbmoFZPbxuQR1LjA4W8xQIqykuce4c9?=
+ =?us-ascii?Q?e1bY9Lxv4Ew7lK4/aXlvxxwbQu3M12x3PMp4lZ4GibrlDE8d9DLcYLAJiCtd?=
+ =?us-ascii?Q?qyOS6cfG6cvJ2kXfW2DTKrcbO1rYHGktBHnkbCXDVpkvOAlydUBHuhrhAHmK?=
+ =?us-ascii?Q?s95BSN5TkXEtIuHmhErcmFAIo3durnY46yP72d2iILxFWuoyGMo4iEeXjERx?=
+ =?us-ascii?Q?O02XdfFP6F4AWdnEsB310VHaa35YUW6Zc6PiQCT1fB1OvmWTFk+i8TuakhZR?=
+X-MS-Exchange-AntiSpam-MessageData-1: LCiV0+KcIKTBBckuOmnHjBBQ5M8s6YFu2ys=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 387d6844-89c6-4e93-2148-08df46195769
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 08:44:36.6231
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tBffFt/7kuSBt0S25WtZtrw7BySNLOOE7Im27w7B9P9Ir7naRi0y/An63jYX/Yj27PSD6Ec3BiBekaGyLr2xVg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6908
 
-When the topology and the machine driver DAI links do not match,
-the DAI widget may be missing and hda_dai_get_ops() returns NULL.
-However, in hda_dai_hw_params_data() and hda_dai_hw_free(), the sdev
-pointer is obtained by dereferencing the DAI widget at declaration
-time, before the ops check, so a NULL widget is dereferenced before
-the intended error path can run.
+Hi Eric,
 
-Move both sdev assignments after the ops check. Also use dai->dev
-instead of sdev->dev for the error message in hda_dai_hw_params_data(),
-since sdev cannot be obtained when the DAI widget is missing.
+On Thu, Nov 19, 2026 at 01:03:16AM +0100, Eric Dumazet wrote:
+> > Bizarrely, enetc is the only affected driver, because the core
+> > accidentally protects most other drivers against this bug in
+> > gso_features_check(). There, we have this logic that saves the day:
+> >
+> >         /* NETIF_F_IPV6_CSUM does not support IPv6 extension headers,
+> >          * so neither does TSO that depends on it.
+> >          */
+> >         if (features & NETIF_F_IPV6_CSUM &&
+> >             skb_has_ipv6_extension_hdr(skb))
+> >                 features &= ~(NETIF_F_IPV6_CSUM | NETIF_F_TSO6 | NETIF_F_GSO_UDP_L4);
+> >
+> > enetc is the outlier because it only advertises the more complete
+> > NETIF_F_HW_CSUM, so for it, this fixup does not clear the NETIF_F_TSO6
+> > and NETIF_F_GSO_UDP_L4 bits.
+> >
+> > [ astute reviewers may ask: what if we disable NETIF_F_IPV6_CSUM at
+> >   runtime, via ethtool -k, so as to bypass this fixup, don't we make
+> >   all drivers vulnerable?
+> >   No, because netdev_fix_features() will trigger the code path which
+> >   also prints "Dropping TSO6 features since no CSUM feature.\n".
+> >   So TSO skbs will now be segmented in the stack. ]
+> >
+> > Surveying every driver that uses TSO_HEADER_SIZE:
+> >
+> >  Driver  | TSO6 | Checksum feature    | Core guard fires? | Verdict
+> >  ---------------|---------------------|-------------------|---------
+> >  enetc   | yes  | NETIF_F_HW_CSUM     | no                | vulnerable
+> >  bnxt    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
+> >  nicvf   | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
+> >  otx2    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
+> >  fec     | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
+> >  mvneta  | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
+> >  mvpp2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
+> >  mv643xx | no   | NETIF_F_IP_CSUM     | n/a               | safe
+> >  dpaa2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe (*)
+> >
+> > (*) dpaa2 also uses a fixed-size kmalloc(TSO_HEADER_SIZE) per segment,
+> > so the identical overflow would apply if it ever gained NETIF_F_TSO6.
+> >
+> > The above survey is what influenced the decision to make a localized
+> > patch in enetc_features_check() rather than create a huge disturbance in
+> > the core, even though, IMO, TSO_HEADER_SIZE is a huge foot gun.
+> 
+> I should probably rework my series :
+> https://lore.kernel.org/netdev/20260403043237.3909226-1-edumazet@google.com/
 
-Fixes: de8e2d5d8024 ("ASoC: SOF: Intel: hda-dai: remove use of cpu_dai->component drvdata")
-Cc: stable@vger.kernel.org
-Signed-off-by: Chen Yuxi <chenyuxi19@huawei.com>
----
- sound/soc/sof/intel/hda-dai.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
-
-diff --git a/sound/soc/sof/intel/hda-dai.c b/sound/soc/sof/intel/hda-dai.c
-index 7d920d43ef2a..987a4deeee28 100644
---- a/sound/soc/sof/intel/hda-dai.c
-+++ b/sound/soc/sof/intel/hda-dai.c
-@@ -223,13 +223,15 @@ static int __maybe_unused hda_dai_hw_free(struct snd_pcm_substream *substream,
- {
- 	const struct hda_dai_widget_dma_ops *ops = hda_dai_get_ops(substream, cpu_dai);
- 	struct hdac_ext_stream *hext_stream;
--	struct snd_sof_dev *sdev = dai_to_sdev(substream, cpu_dai);
-+	struct snd_sof_dev *sdev;
- 
- 	if (!ops) {
- 		dev_err(cpu_dai->dev, "DAI widget ops not set\n");
- 		return -EINVAL;
- 	}
- 
-+	sdev = dai_to_sdev(substream, cpu_dai);
-+
- 	hext_stream = ops->get_hext_stream(sdev, cpu_dai, substream);
- 	if (!hext_stream)
- 		return 0;
-@@ -246,14 +248,16 @@ static int __maybe_unused hda_dai_hw_params_data(struct snd_pcm_substream *subst
- 	struct snd_soc_dapm_widget *w = snd_soc_dai_get_widget(dai, substream->stream);
- 	const struct hda_dai_widget_dma_ops *ops = hda_dai_get_ops(substream, dai);
- 	struct hdac_ext_stream *hext_stream;
--	struct snd_sof_dev *sdev = widget_to_sdev(w);
-+	struct snd_sof_dev *sdev;
- 	int ret;
- 
- 	if (!ops) {
--		dev_err(sdev->dev, "DAI widget ops not set\n");
-+		dev_err(dai->dev, "DAI widget ops not set\n");
- 		return -EINVAL;
- 	}
- 
-+	sdev = widget_to_sdev(w);
-+
- 	hext_stream = ops->get_hext_stream(sdev, dai, substream);
- 	if (hext_stream && hext_stream->link_prepared)
- 		return 0;
--- 
-2.34.1
-
+Do you disagree with my analysis that only enetc risks corruption? I mean,
+for a second layer of defense, having tso_features_check() everywhere
+TSO_HEADER_SIZE is used probably makes sense, but I opted for a targeted
+fix because I couldn't justify it for the other drivers.
