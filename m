@@ -1,115 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795111750;
-	b=W26Gkt0A71Z19WLku4mwjSNLyNwgYSK2OxeVUfdYXYI9EmkwDryNk6NIjYrQzg8fmGJz
-	 tsjSHHuolAi7MY3HlqQieav8uchaUtcuBwapP+rLznqcx4SRgW545YcQkQd/0QY1STNmO
-	 pglUSoP6mGV9uNXkAoqEsY6iZnNCU0C0ts/qet7fCtqUWYkc0CTU741ZW6e8w/MiS2cki
-	 LMRHJGbDs+9KDokIAHGtTY5zxwdHTEbTWdYiB2W7uEU+3eCWs2ICSXQPcmJAg+vvla4cW
-	 JLB1p4St6vY506itLldH2KoGWDeHck6oJpDoGMds0i3KJupt7mIbJicCS0yyRc+Jq0Q==
+	t=1795111756;
+	b=ZOqOsJpojMfgB14ai+zuudR0Lk+fn0L0E2t11BIvFSe4RUFXhPivpjS7dYnwpLCsdzJX
+	 Il8E8Feq9lX17LfpUV9vTxkw+RknirrJ1VOYi0cM5+bIEuvzwr+zgLCNQxa9CHikgbLR4
+	 wAiKVYsJK4nT4fkYeBUQ9ct3csVhX1Ad4ZGfhGsaLGvUPSypD5GcDaeE41twFTq9R6p8s
+	 F2kOU+GICZQEEtx2OfUzG6DMd9Db91c2Jiu0/2yZ6GvYe8FsIG2DHCQXHKasihZTdMkJE
+	 09WeRhNMhcippkw9nIUijiEC8TEv+nnufHxF8ORadijvW6jQkFMr53dmlLxhvcLvR/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795111750;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795111756;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=+4eRzERlyL4Gy5rKxVPXgPLOnhYhfMOqFyyRiszmgR8=;
-	b=lJ+Gf7+Z5tk6ysI14mlv3veaK4eNunyJNZb1tvvH2c7pxVho1CXaMNs7Z4mDNXbdXu/M
-	 C2gtPtKdpm/n5axTF1ZL6v/onlWbSVWhRlxP1L3fpiwKSYE/QIkKKdSyaK23O28mbiKW9
-	 KTZ1lyUxLHvZG2XPZidzp32FHk2r3AUeGmpdnJl8W8Si4KkPoVjPIVEoMdFmIW1k423vA
-	 bQ2qLX7Uwocowt6jiHCQHsRuNxMfi0NVYc2jeEoPiQ1HkeUXW5RoUBj9Rp9ALR8B6Ez/0
-	 YpKvZY2W0vc4faS8Lp2+I3i7vzzJVt8Pi2x4WBRR/K2ZYnAwhtbFl7YGQjO323d9PyQ==
+	bh=eqGeXaKgskH76AWGvxlQS6K/15vXQQ9IhK4LOBED4PI=;
+	b=vuKu0dyDeS3u2jITG+0cQZbN1ZB8QQqhmb98LIYe89znkmF8azhafKwJxmtsGQVCc5cH
+	 Gjeu2zrONI04S468qKYDwu/QUvzmVBYWwFBc3rZlqpYWCgE3BbDBh45Ta1ovzeUT+a/tr
+	 7UauM5Yvsx3pb8q3qJ+me1P7pcljO9fGUgvytoCFy0OtHYwrQ3gwBck4CE01KWJT5JBnu
+	 /LmI9Toj2pEwPe40TQeGV3T1pbTa4S37t+S4x2aYwJ+lXv57vt8g5KcHej9u5uj0uKAu4
+	 b/5Y8I+mMwFt+BAMgfp5OcnVmPz7YYXAGFq9DgYBGS17/A9XAEVmf1fOcwQTYtclBdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pobox.com;
-	spf=pass smtp.mailfrom=pobox.com;
-	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=SqBm91O+;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=NCHxG0UE;
-	arc=none smtp.remote-ip=202.12.124.151
-Received: from fout-b8-smtp.messagingengine.com (fout-b8-smtp.messagingengine.com [202.12.124.151])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hv6TyWgg;
+	arc=none smtp.remote-ip=209.85.160.51
+Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com [209.85.160.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2F75606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:09:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2F75606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18B61606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:09:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18B61606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=SqBm91O+;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=NCHxG0UE
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfout.stl.internal (Postfix) with ESMTP id 805E71D002AC
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:09:09 -0500 (EST)
-Received: from phl-frontend-01 ([10.202.2.160])
-  by phl-compute-12.internal (MEProxy); Thu, 19 Nov 2026 13:09:09 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795111748;
-	 x=1795198148; bh=+4eRzERlyL4Gy5rKxVPXgPLOnhYhfMOqFyyRiszmgR8=; b=
-	SqBm91O+lP0+gsBnyoixdjXmTTwLZs2T3qSsBWHMDWv9zT+BFAozNyCVakIOC97m
-	CWVNQNJb7Ykiy4tW7S5vNvzBkDe8UpoGiuaSSC8FNq20bm7YG4MrI5GqEBvoBJAr
-	OFZ3xGMsOy8LfqzJIrIeKtE8sV7jyFyWe1oRkJsX+XEDqMEJsWwajJRttW6Qo37l
-	ii3txkxndQh67kqOWOafm9PexvldglPDvZ4SFr1ToacVAhFupcP6NDx1PTM2Vrxo
-	+t4/oJqCJ7JP91XvmaSq/+rvX+xeAsbR+L/1pXkEY73SrlOgNMfbGXrYiZ2A71G7
-	gspB8NyyM2cgp5V+pEj0cA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795111748; x=
-	1795198148; bh=+4eRzERlyL4Gy5rKxVPXgPLOnhYhfMOqFyyRiszmgR8=; b=N
-	CHxG0UE1py/mtAkRGPYRs9vLSYvKP+1iy2+QmLbqmEvP1I3rEE4CKaBEKVi8NSDL
-	RVVSw7Z7y7oqT43q+ELw51vjiOaPY77W607cIIujuvP9+YN8nbpkFsMUDDCMacEB
-	2Qm+jTBoInRmvkspkWb58Skn+ZGMVJ3nPboyLV6+nGRrjQraXLPybObsCobRc3zY
-	8FofEgNUMIB18UYYZ6sAkih2W4S2iXdbhifx5NRnzqE0h7KSWchRB4PxQkns6Bmb
-	0o7HTCl+AkRgnVX9v/YJVoXn0CI6jHY0S8jMlhj8rwVaFlZCE/VGKwPQ2EAYNalY
-	0zz4siyFjnZUWD/xLmsYg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=pobox.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795111748; d=pobox.com;
-	mf=PGJhcnJ5bkBwb2JveC5jb20+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:Vun/heREG459tUEPPYHazkEBgeatwYR+Fkuf64yuwNClrP7
-	1Py9wPQQVqkJuVn00RSc7nKcHjc0GMboc+30vrQWbSgdNgwsAFmPqwQ08VPrBlsC
-	8n9umC6pdT55Dz3j1kAuDdOHGEjLpAVSuUkxaV8qJVac3a6pVJrUlZ/nRmiOC4q6
-	nLAh8Nr7gduROKXcUEv5E6LiCGtK+iRwaF+d3qTJvC1T0KA8J1Q1QnCElUWqqNGk
-	7pj+9RuPEpzKpgiRCX5u4gINQsNEgsopZNYG0Ew6QsKrYsQrgoPUtdfHUxO/22gg
-	rR8y7fF0HcAwLhTROcl6K0YFSG+lSYwfLSU6WQQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:DBiyysXeh3c5Ruv7qum0t68PgBpu1m+BgYdalJ+J7mU=:baWaKOdOcLIRGOCrJ9MBilqhkD1lsr6cnkcEGPI1F8I=;
-X-ME-Sender: <xms:Qzv_agPGsLutWPTzO0oMOR-AXXtKlKeUzyjZOwNH_n264itKmf3-0Q>
-    <xme:Qzv_ai1Q8rxdiuxNChjuFRud7xLKndmBzP8TtXMGiEGoWHcX38wrIRVGsswfOHAnU
-    HQqTkxZ18uU_UEBbfqK_5q98qPRtBYlm75Pa-qGwPKuvZSrvpx44qpa>
-X-ME-Received: <xmr:Qzv_aix4xB8FDf663b7_KoTeK_ciWihB0RVFa9DPL4fYFHyzHO_wiFIPTfCq25_iq3oF-bpPqMGze1tNx6dikFNFwKkRbmO7>
-X-ME-Proxy-Cause: dmFkZTGCbh3eUcpMmC+HGc/3W3sfQrJEuu0WVwf+7chX6bsEJSd2CtoeCQiLQCAst38BVJ
-    rqp08lkzWflDLaKMxwKA07BA2W1yZJHsedXnKGHBLDhs000yZKFuBI9CDaoLw38NBB0TcC
-    PJeYvOXShHphnwriWtuBC9iJH9vd+dka/xrQz2HnwZ5259z1r6/keY/mIl+59CaAj4mpc6
-    rRDGTjp7jaddghaDZkfADNMsq5/P1JBlajWZbL8D2w71yAlX/Krf7+RGYp0zrV8tAhc/7r
-    9kHp0/vplmqNrbOi2C4C30iYU+VeeTessG7XYCAtx4tx2Pn0qzfhRHww+P6rtkkJiIgFFH
-    qOrwyBJlrRHdN7SNKtA2Bt0XDVe0X/DhE9ih9/w8NNEkX241svkpEUl9SGctbEg87GmQEk
-    zWvbYITfdmMwzSW2ETdArrKTVW4MrjrFKd7DDjJrOqzxOR2+cXBKsNt6dAd55y1yWcBHTb
-    jI8TkeL4z7PrM3rBGvCaHRW9bSZmc5xQspiOJTrLg71j+VaFT7ncrRgQf59lBtNFon3uie
-    xjCYjeFAHoiqD4Zb8klKK0PkHGpEdvv4Kin6B46cMM8yWYITgmDZoQ/UKhyv3z9s4GF2Yo
-    KS7VL4BFqS5TURtXFvCltuEPvHwnA77C40EUVqyZVoTHThtu1+pthCsl/iVg
-X-ME-Proxy: <xmx:Qzv_asqcoU4IfiolIG5TYCxAk6ro4mzppz9raJmezvwZ9iQSPHhkhQ>
-    <xmx:Qzv_agX3UN9zeasS-A9Wy_6BJt3OMiagAzFupUj_-ZwkL2d1doPBmw>
-    <xmx:Qzv_arpBX6Kb4U9VMQkEPRl6b5-kkhsruKmXzHmRfrmBYzFIxp61Pw>
-    <xmx:Qzv_asE53qSpnsnhNo38D_utQ3I1OlsYIKdEZXcWfrTg9dj4uIfhjw>
-    <xmx:RDv_aihmTi5i8GSP57dImLskvHIvDn8d9psP9SX-0ytucB7LY0BSdhrI>
-Feedback-ID: i6289494f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 13:09:05 -0500 (EST)
-Message-ID: <143834b1-d430-4e5f-8140-3e17fbed3b14@pobox.com>
-Date: Thu, 19 Nov 2026 10:09:04 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hv6TyWgg
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-48ed0b68895so89796fac.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:09:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795111755; x=1795716555; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eqGeXaKgskH76AWGvxlQS6K/15vXQQ9IhK4LOBED4PI=;
+        b=hv6TyWggD0il6OvPOSZjruj4SbRvPRlqpZjDRcNFCT5JmoYcUt6tARO3G0IJ+yfiQJ
+         GV9yMQ9fS+/EVJZM3W9HVCMhh24hiXiPqi0SRoP4xql2QBTC433xdffk+npG/NW8mxv3
+         skrOWHFc1XNrFkYzN2dlAFlauEf+U5qdeDEVH/EK1spvBIkh62yDxO+axxEIWZzgk2qH
+         xvCtB9OXLnU3rUaXNOK091AK8dZBpLuQ7tN6sCash7hUMD0wXJtSfZaYCEz/QbsyXVzq
+         nNonHL0k/yiyxyZVWMbAN6FJyno1I+1aSlKxb48aKAsI1aOc63gIQgBbToOeuGqKA3a8
+         ++mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795111755; x=1795716555;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eqGeXaKgskH76AWGvxlQS6K/15vXQQ9IhK4LOBED4PI=;
+        b=tfgLE2/k6BOBCN234XMWZUASLSUgBvLBUw6TokIkOiXdv6VPQ7AjTd+Dzzc9+8ATwo
+         q6I2xoFSO71dDrdW9f7PsbIbZ9BiFaXs5V2HvwhvRFTTXHwoqbwWf0iiVZfJYWMBsk/T
+         ciyrjf4hGLezCpBLgOLrGfJiKu0L7Rf2L6f3RFvMg+71bSEAqOC1EtW7JwjuFmYPcnS1
+         KJMUS2dn91VFYYZU6U/h13x+zXrzWmrybqLgf/vN1zb3rzxLQG9CNhGRpHjI9R2ZWIY1
+         7qR4aCDiYhyRMvZ8nlf0eGr+6Hm0htfm/CwY5wszGk9Do+lR3QoR9/WhL70MryXhKxdT
+         kZBg==
+X-Forwarded-Encrypted: i=1; AL+hErEKZMVmZ6ICAw4lJbsKya2fyRhndq6sfVltHwQpMZgfzkxzgoo8IwNH1/jvPKsg0qvsxpxARWnOpCUrx+w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/N93w+Md5NKueHzCnwBMu8bCRLmTL3/mDzj9/nWHm5ICtFt/MD
+	u0+ofvghWjJYzDWRHoFmZbKmthxukO6tPdQyNxQeYR86K8vCRdYjwi4uPuUxY3Rf
+X-Gm-Gg: AYBFou1i8mrjzl5oL9Dp3zM9WqLVcoRlwpdKrMXrs4xhS2r8fWDY9CldnRuWmZ71Of7
+	TswpO+VGCNgajkQoj+7geyx1JmBlPzoZldv1zKRU4U++mnzCfPu+uM3PE6nRTw5wMLaJNuagc7m
+	7fONDqwcYEdh/E+qwQAsgCNe+Hmgn5U6tx2EfbYOyiFOiPx44OKZPT3uGtirPe7WkK+gC+ltNSe
+	pJukv03bFE1smkWGTsrCYayeAv13bH2OTrg7NIzDvyFFRd/KThkcwmowfcZVPQgsEfQC9/QuvG6
+	2jGkwGOForPBXwR69R6kqhc3ML0Y3DZ+ZRbMTUduYIQEKSyTDsZdabzq2u/SFpbaVgPmHPN5s0x
+	Y2hgkqQ7nYxCVS+cf+bn2FumvhK6WPcvKbSjO8/rKrXa7AHibo+Dhsh5u+0D1JPmc2pyws/C7ww
+	g96tHVYHZ8l/nuPGywuJbEe9Bkd26gfm2Da6X0VgRnO+2xIGw+4VZFfLAVqiDyKlDJ9Kg9Md5zW
+	XiMXOHQCw4iHXbcKupAoO5QHSLRG7iRqNxOxlettxdrb9NkWtWkCCrKAVlS2DbB1ucB8y41PXlV
+	wDFzeADVNo4O/V8hYB+RaFGLwdnripsAEytAgeMCvWlcAHdelxPcjExrbKgczpNnyKgcedteP0M
+	m
+X-Received: by 2002:a05:6870:51ce:b0:47b:cd37:f931 with SMTP id 586e51a60fabf-4bc81aa2294mr384102fac.13.1795111754944;
+        Thu, 19 Nov 2026 10:09:14 -0800 (PST)
+Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc60491337sm446604fac.12.2026.11.19.10.09.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 10:09:14 -0800 (PST)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: andre.przywara@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: Maxime Ripard <mripard@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Junhui Liu <junhui.liu@pigmoral.tech>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Pablo Mazzini <pmazzini@gmail.com>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	Jun Yan <jerrysteve1101@gmail.com>,
+	Lukas Schmid <lukas.schmid@netcube.li>
+Subject: [PATCH v4 0/3] arm64: dts: allwinner: add A733/Cubie A7S support
+Date: Thu, 19 Nov 2026 13:09:12 -0500
+Message-ID: <cover.1795034153.git.enzo.adriano.code@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,46 +111,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.6 0000/3318] 6.6.163-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261118150313.527275416@linuxfoundation.org>
-Content-Language: en-US
-From: "Barry K. Nathan" <barryn@pobox.com>
-In-Reply-To: <20261118150313.527275416@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 6:10 AM, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.6.163 release.
-> There are 3318 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:42 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.6.163-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.6.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
+This series adds the initial Allwinner A733 and Radxa Cubie A7S device
+trees for UART0, the AXP318W PMIC and 3.3 V microSD.
 
-Tested on an amd64 laptop (Lenovo ThinkPad T14 Gen 1). Working well,
-no regressions observed.
+Base: sunxi/for-next (03b3355ed7a39b4416f0d0a39061479b1aa13196).
+Previous posting (v3):
+https://lore.kernel.org/r/cover.1794227241.git.enzo.adriano.code@gmail.com
 
-Tested-by: Barry K. Nathan <barryn@pobox.com>
+Changes in v4:
+- 1/3: Carry Alexander Sverdlin's Reviewed-by.
+- 2/3: Add a one-cluster CPU map and A55/A76 PMUs on PPI 7, using
+  GIC ppi-partitions. Change #interrupt-cells from 3 to 4 and add a
+  fourth cell to every GIC interrupt specifier. Drop Vinicius Pedrosa's
+  Tested-by because of the interrupt encoding change.
+- 3/3: Sort root nodes and put status last. Move boot history below ---.
 
--- 
--Barry K. Nathan  <barryn@pobox.com>
+Runtime dependencies in application order:
+[1] AXP318W PMIC v8
+https://lore.kernel.org/r/20260910-axp318-regulator-v8-0-e906a61a7f3d@baylibre.com
+[2] Pinctrl IRQ-bank v3
+https://lore.kernel.org/r/20261025142412.112216-1-pmazzini@gmail.com
+[3] A733 8250_dw v2, patches 1-4
+https://lore.kernel.org/r/cover.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
+[4] Firmware-clock v2 for vendor-firmware warm reboot
+https://lore.kernel.org/r/20261112-a733-fwclk-v2@gmail.com
+[5] Pinctrl voltage-mode v3
+https://lore.kernel.org/r/20261109-a733-pinctrl-v3@gmail.com
+
+A7S DTB/schema checks need [1] 3/5, [2] 2/3 and [3] 3/4 before v4.
+
+Validation: clean git am, arm64 defconfig Image, arm/sunxi.yaml binding
+check and warning-free A7S W=2 CHECK_DTBS=y. The compiled DTB has one
+eight-core cluster and two disjoint PMU partitions.
+
+A November 18 RAM boot on Cubie A7S with vendor firmware used the base
+and runtime dependencies above. Two context-only adaptations were needed:
+PMIC v8 regulator allocation context and pinctrl voltage-mode v3 IRQ-bank
+map context. CPUs 0-7 came online in one cluster. The A55 PMU covered
+CPUs 0-5 and the A76 PMU CPUs 6-7; cycles and instructions counted and
+PPI 7 overflow samples were observed on each CPU. The timer, console,
+AXP318W probe and MMC0 read-only transfers worked; warm reboot returned
+to vendor Linux unaided.
+
+Untested: PMIC/NMI interrupt delivery, card writes, hotplug, suspend,
+power-off, CPU capacity, 1.8 V switching, other UART/I2C and storage
+instances, RTC alarms, EL2/ITS/MSI, and physical BLDO2 voltage.
+
+Enzo Adriano (3):
+  dt-bindings: arm: sunxi: document Radxa Cubie A7S
+  arm64: dts: allwinner: add A733 SoC description
+  arm64: dts: allwinner: add Radxa Cubie A7S board
+
+ .../devicetree/bindings/arm/sunxi.yaml        |   5 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+ .../dts/allwinner/sun60i-a733-cubie-a7s.dts   | 287 ++++++++
+ .../arm64/boot/dts/allwinner/sun60i-a733.dtsi | 657 ++++++++++++++++++
+ 4 files changed, 950 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7s.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733.dtsi
+
+base-commit: 03b3355ed7a39b4416f0d0a39061479b1aa13196
