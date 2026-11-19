@@ -1,78 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.59.177.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074625;
-	b=MP0Fs2clidzEUpKeWnyTIl/kpS79DNvGRmUxVDfPFepOTFR0YCZu2w3UvSt1L55rqKth
-	 EhVhxBGvDKyONRni06GIiq5yL4hV9Uhh3mBqDx7CgyONXK6IZDzMFRORsNP+lvg9yGZr5
-	 joWtgtLAUZzo2dwfWo7xTdKj2Vj9zAt8ALh4Z5hb9kfWbEyUTSsCnewoDf/Ve0GurNEcW
-	 ed6NqYvzKYYbZwa4yLgLXEoB+Wa6jfSz1dwRxJX6vIR5xJg1cloAMpYOalReiqHcJsMsn
-	 OdRms0J68F/MCmauagYC8yA4vWe60AiCme8X3FDOVdqBfmKFcvB9WZZ2xK1ThWerJWQ==
+	t=1795074651;
+	b=sZzWVpfBytC8e2rOu4fkUDen5guGlIchcjdMjvurW1lE4tm4n5wG6PSMj8Kwp7wG1pFD
+	 pQ5q3R82lSxCn4ju1qIW9UIziVZ2s0hOIkjT5ox8wOhDpPSfP7xnLaYya8dmr55ycIuGE
+	 yqvC3Zu/orI30W0QSZUJ2+qW9VPeNLcyYwXcFvjZVSfepbOIbXEpjv+ZqFJX/cqfU/wkx
+	 UukuLMu6CZWRBMCR9gRfm4oy5ZRWHn0+pjwETN+BOEXVzxxrXk8Ii2NTrJBB7RLqjbLPM
+	 MUI1wAPB5KA/B/o+RZj2ZdJtgwR3e5jaVGiq9pdYuAyCOxLkVi85lrKTT72SSB2lLxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074625;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=Ba+Nnv4ioOHEAc+i4gjL1aVglKq6uZ57iPLZC0JP+/0=;
-	b=D8/GTi/zSn0C2OOWXRfgIcvPOggjbCZsCuAZx2ZZ8JURTLUrNxarGA6eRacv9yzWLsrt
-	 aySlHqiKIDk3lk8T/kAJ9qnZI5IocCZ0wJpeztOduVEmM+WqXSc1B/DhlfPbVoI0op2aR
-	 aqzEiEl0LMXiRs+aTOY6BSqB4c0H6A5ZEkx1WhLftOC3ILtVUlsR20F2FEWHYQynrwlUA
-	 Z2TDJd3ltp//JikulfQAMbQ3lt71ZWMlX2LovGd/rKPNhFVylnNYS+Wymxd297H4Yvm2Y
-	 S+g7SJHtnPlcQRGgXC4NvhwsiXrCmD9Lzr/CmDEr0sBP7wuI2QK3hk6MWhHxgbcDvdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074651;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=1bSCI/XIOeTN3HJGqPVny1POob1k11pyWM+WJGvjzJg=;
+	b=uyBCK1S7Qghj3ytuksGq2thuvgPc7GT4vukxarhYuWzcBS0fzjg0PAaYKSYRK08aoG8v
+	 xL6fVwOzgA3DJXk5Qtwu2KN7yR8c+dNEbkpm8hCf1GWAGmDHjSgpOW7gjHD19Mc4XLeWl
+	 /UY6GMoReXjoO3EZgNgPVNDqYh7TkCD+mTcQZN+Gc/VTWdCiUkPlJckWowvOMb09ATWA1
+	 MG7wEGhv5ISut884M6r3i3119QpEzoVDJnQSnNN7AYu4H9tYYx/YKaaMwgmnK6XJuzImV
+	 GIulqlInu4TKksKci1xNYiB1Xpsi0k1UO653I/sbBKXSu4bHmGmesJJ905E9pal3uLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=mSQMNIms;
-	arc=none smtp.remote-ip=52.59.177.22
-Received: from smtpbgeu1.qq.com (smtpbgeu1.qq.com [52.59.177.22])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PVQ4PJH4;
+	arc=none smtp.remote-ip=209.85.160.178
+Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E487606A320;
-	Thu, 19 Nov 2026 07:50:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E487606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87F17606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:50:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87F17606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=mSQMNIms
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795074578;
-	bh=Ba+Nnv4ioOHEAc+i4gjL1aVglKq6uZ57iPLZC0JP+/0=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=mSQMNIms6b2a847Jv0CgJNJV6Yl+BsggwHWjh9g2APDz6npLJmeQTsJjoBAl8zBU9
-	 6xlhSRnv4OXGNVqp4Rjxep8LZXJJtV7C4cr3+MsaSsBBmZVkxxPZ9Ow0BOQKbOlRIJ
-	 /KjHyZtvBlohbGVHlBemOYJe/2lyZpuolJq54c3w=
-X-QQ-mid: esmtpsz20t1795074573t21a8dba9
-X-QQ-Originating-IP: g/JHC0RTM9WfBbnsRPMGVVkJ0qD18o0qUXMwBFz46jY=
-Received: from PECI3347 ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 19 Nov 2026 15:49:25 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 6967146943735712994
-EX-QQ-RecipientCnt: 18
-From: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
-To: linux-mm@kvack.org,
-	linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	zhaozhengzhuo <zhaozhengzhuo@uniontech.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Qi Zheng <qi.zheng@linux.dev>
-Subject: [PATCH] Docs/mm: fix stale split page table lock references
-Date: Thu, 19 Nov 2026 15:48:53 +0800
-Message-ID: <32FBD023F945BCCE+20261119074854.252609-1-zhaozhengzhuo@uniontech.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PVQ4PJH4
+Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-55be673e029so142591cf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:50:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795074649; x=1795679449; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1bSCI/XIOeTN3HJGqPVny1POob1k11pyWM+WJGvjzJg=;
+        b=PVQ4PJH4kHFTI/LCIdThr4c40lQofYBLVh9WFs5KFgpTdjarUyOVfd+wQlyn+6BgUb
+         70F7Q5FOlWlsaJWjlbvvgB4owQr7SNhFUsLc69IPYg6yCqmM4IwWVBSMRkwa3ZC816ZR
+         70BiMGiLoW1r6TIKqDWWrjX9XyMLwj6joirK2ELvDtdUKbBeCQc1K+T9YxUQbvb61dYr
+         WfyBzMqH8bemFPln4LFSgqD7DHsKC3KTCD+WRmipWu0I+M0OWz5WCGX8vf1ssA3K+4JN
+         KPRyDyNr8FQzLziyZ/Nrx2ewmXSdSt4P0BmInl1OPrCBO/h6gALHrNNjrW3ffRQi0S7r
+         ajtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795074649; x=1795679449;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1bSCI/XIOeTN3HJGqPVny1POob1k11pyWM+WJGvjzJg=;
+        b=p4j0iWMDcEIMZpqadeisrRKlAtlLZfB0ZKlovjlILx0i/s492UmJdIQ+/WHSExj9q4
+         WkwIX7iw1ASyrCCS9K01/f2ZD/hHt4WghNsHSzHlTihABxTq2af2ovXo0IDBzKysnDIa
+         1RSI34m+GuLFsW7ObOrXHxuxpGA8AkQz8cDdx8Z02LKzWrVihHmJPiOkB+yPjJ7ybi0e
+         BTWY27P3kiyWSFsMgLTQDtdpxi/iCoIzyxMb6twnglI1O1bBMEy7LY3QO1tJs6+vjoOz
+         D1yzsBOToKT50SMT+A6tMvJL50YzEKJOoK+hC7k2kmMiJinYFe+sjpUrwHXY/QwL56O+
+         wRdw==
+X-Forwarded-Encrypted: i=1; AL+hErGi5o0F/gm7ZTTWTqgvj0NQqSkuG8oip3xER+ZNziF1K7M/DQxc7NYac3Prs0P5dhf5j8e6Z+vHo2mOzoI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9giItrEyQuIzqutZriLk7xusEPLiA/2AFqnheCDycR5yioy5gK
+	5QLHp/z93DtxAS1XMs9Q8umVrA43c9oRxBZ/0hAcWX1PPsH5AId1yNT+WYtw5m50bw==
+X-Gm-Gg: AYBFou2fAoOTkqnoM6diSNFPVBm0QMN2gZacc4du21BZTPcLdc2Hmwuhda8Po8zskWP
+	1G1ndLtsuyaaGosImwjy1hRiBowAd8Qywr/+lo1gnsAm2Kgx1qJIeD+s0vWIcclgc1j5vnD643T
+	birGkm420eT3iWHq+4R9RMEyAa/p1r3Ck4m2++KmbyzWBCG3HtCHb812vtXzu2X+1vsOV4CUliA
+	gqpWbqGYdQqJDTTWDf+D6EL87NWbfXgUNqFwnrFkzYnjCmvA4oJHg1qscayHyuMtjzSHZc4r3gE
+	1d+KLfsOUkhRJmaAodIeWqokmg5GEcOKRq1oTLJ5r1L/+7EkZeGuqUDeK5dRQcaQO0UVCtl5Bpc
+	GrvToPQNWFXlI9ziRtYizXcX/o4rqw4mzOa6mHPCUcryeui854pDYW5I+0W+8pu83CzvPQy3DrL
+	CeulDtkWr3cWmOUU86oP9nzlVBQxmgXtDel49BcYvbssAZ5QH003EwW8A0Swx7MP3q+HssdYKNN
+	8RtZJeiIozVJbyW0lhVnN4K45sbcXwLib+7bzV3yBNfV2tAVFt4ny1W0+SDGoeNEtn6oqKJGMUG
+	mwsgEd3voaQw3E+vgZ/kyBRnWy2VkumLgfPnvs2u7QboYoxYOEkCDEJtPMkj6NSWxOmVxEw=
+X-Received: by 2002:a05:622a:2615:b0:536:6ea4:e6a0 with SMTP id d75a77b69052e-55d6f1c71fdmr4256331cf.11.1795074648713;
+        Wed, 18 Nov 2026 23:50:48 -0800 (PST)
+Received: from google.com (228.209.197.104.bc.googleusercontent.com. [104.197.209.228])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777ae93f99sm3603366b6e.14.2026.11.18.23.50.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 23:50:48 -0800 (PST)
+Date: Thu, 19 Nov 2026 07:50:45 +0000
+From: Andrei Vagin <avagin@google.com>
+To: "Chang S. Bae" <chang.seok.bae@intel.com>
+Cc: Daniel Wade <danjwade95@gmail.com>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] x86/fpu: Put non-enabled dynamic features into init
+ state on sigreturn
+Message-ID: <av6qVXvdezQgH7BW@google.com>
+References: <20261117112640.1435-1-danjwade95@gmail.com>
+ <a0c51547-a354-4dbb-9194-0b359ea604cf@intel.com>
+ <av5TI7uMazFmWYid@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,75 +101,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz5b-2
-X-QQ-XMAILINFO: Mm9+kw7CRHgtaCNgk3Cgk5q5SSsOeK9N31OUB2j7DF06rfUIfU1wYusX
-	WYQkII7pOcehQX/2q2x6URQ1FDXX0NZXm0jtQqLY0SexuaLw8zIwe4lx/xS0WKQxRYeDRSA
-	fQu5jV2405FbF5MvvpHFjLNtmZ24/C3twZlMeQBh/DjljXiXMqZ7vUaMZUBJj/R3hjmIBlP
-	Aon5bsYoo70VBVoOzVxgGpTQ+vSUUZfonrWPIxKJctLJfJ+a03VzO4+ymT+NfcwvsaR+6nY
-	boJOe/qffO8UoOvoinGK9cVInPLUKD8Mb5TJd8+05i6rXuhwqNiCNd8AHCXN5guL54PQXNO
-	gbLyspD3NxhwLoaFxVuHx4sSHQq3DalPdAFJCmBMI7+V2b2GxRH/TZY84VXFHPSdc7cAv/j
-	kcPQRzP4CIBt6UeDmy4kQHqTrTcAE3EwPAvhIqI+/LpvdkkG1TOgKvl62Z8JL87OoDv/O63
-	Lw1/obeutwP39p08hBd9qAT4hXicfKIbBSwQtDSlIuk0W6KWh1Dnf5eS2jc2A7P3lGlZjk9
-	vS7tt+esDw4pV2F5dme0yDbaR/76xa63CfxnvB7+hypsHzTMouzk/rwIp+QKf6eIgP4tMLf
-	1IBF1KOxevb65AETcq4tt01wYN5zi4oDEw+Sb1qe5v2WHfdFlT6E61l4WiiMGsvn0M1yUl+
-	qJ2cdjpafxSFM20FZz+yKAr8YMcqru1AicOKRejqUx6z+wBiiMugXEZBptT+Awtqd5cCQMW
-	PO2EjxKUC4VJin7736tJbDSc3JsiocsaQbTl4wSYzy6/9234WNCuwA2o6rJkJAXtAk/1D6v
-	uKqNYpTUKffhbx1yjVZJOZeUbJl9+KXr0PsO9xEMRBmhlOTaC+m8ncdTuLKvq8nulBwcWh4
-	8XLQHv3dkczdNLIwBB39+jXl5s8PZlMOkrbG/aQIJHVOuIF0XQAGa8CTRT10fu5yB+J1p9c
-	NrfF9+voXwhs9XvFIQyI2clGN9ygztyiz9vg6kX1lRv6+f0AWH+YOih0EZfjEnKbPyISLiK
-	ugknwHLaftJKQXnfINn6daH2eHN7DrOGJeJCY7NnN3z8VsH7zCG1KdtAIdsujrTel8Kq6zr
-	xTzMxdN7n6ZUS0lDRXnohD5pdRxiCZGLszBEJZIOdIgBOJnfWy1xX7Y7bZhylqSl0ac5k+x
-	Lpq1
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av5TI7uMazFmWYid@google.com>
 
-The USE_SPLIT_PTE_PTLOCKS and USE_SPLIT_PMD_PTLOCKS macros were turned
-into Kconfig options, and CONFIG_SPLIT_PTLOCK_CPUS was replaced, but two
-Documentation/mm files still refer to the old names.
+On Thu, Nov 19, 2026 at 01:38:43AM +0000, Andrei Vagin wrote:
+> On Wed, Nov 18, 2026 at 12:19:02PM -0800, Chang S. Bae wrote:
+> > On 11/17/2026 3:26 AM, Daniel Wade wrote:
+> > > On sigreturn restore_fpregs_from_user() restores the features the signal
+> > > frame carries and inits the rest, but both masks are limited to
+> > > fpstate::user_xfeatures. If the task lost the registers earlier in the
+> > > syscall, a dynamic feature it has not enabled yet -- XTILE_DATA before
+> > > its first AMX use -- still holds the previous task state, and
+> > 
+> > How could that happen?
+> 
+> The code relies on this: while a task owns the FPU registers, a dynamic
+> feature it has not enabled is in its init state.
+> restore_fpregs_from_fpstate() maintains that by restoring with
+> fpu_kernel_cfg.max_features (the comment there describes exactly this
+> case), and fpu__clear_user_states() does the same on signal delivery.
+> 
+> The 64-bit sigreturn path doesn't. restore_fpregs_from_user() restores
+> from the user buffer with RFBM and init_bv both limited to
+> fpstate->user_xfeatures, then calls fpregs_mark_activate(). That clears
+> TIF_NEED_FPU_LOAD, so the full restore on exit to user, which would have
+> put XTILE_DATA into init state, never runs.
+> 
+> If the registers still belonged to current, that's fine. But the task
+> can lose them inside rt_sigreturn: the first XRSTOR from the frame
+> faults and fault_in_readable() sleeps, or the task is simply preempted.
+> Switching out only saves the registers. It doesn't clear them, so the
+> next AMX user leaves its tiles there:
+> 
+>   CPU0
+>   A: rt_sigreturn()            A has AMX permission, XTILE_DATA not enabled
+>        sleeps / preempted      A's state saved, TIF_NEED_FPU_LOAD set
+>   B: runs, uses AMX            B's tiles are now in the registers
+>   A: back in rt_sigreturn()
+>        restore_fpregs_from_user()
+>          xfd_update_state()    XFD[18] set: B's tiles hidden, not cleared
+>          XRSTOR(frame, RFBM)   bit 18 not in RFBM or init_bv: untouched
+>          fpregs_mark_activate()
+>   A: exit to user              no reload, B's tiles still in the registers
+> 
+> 
+> Here is the selftest to rerpoduce the issue:
+> 
+> Subject: [PATCH] selftests/x86/amx: Check that sigreturn does not expose stale
+>  XTILEDATA
+>
 
-Update both references.
+The next patch should be applied on top of the previous patch:
 
-Fixes: 394290cba966 ("mm: turn USE_SPLIT_PTE_PTLOCKS / USE_SPLIT_PTE_PTLOCKS into Kconfig options")
-Signed-off-by: zhaozhengzhuo <zhaozhengzhuo@uniontech.com>
----
- Documentation/mm/process_addrs.rst         | 2 +-
- Documentation/mm/split_page_table_lock.rst | 8 +++++---
- 2 files changed, 6 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/mm/process_addrs.rst b/Documentation/mm/process_addrs.rst
-index 04b649818cc1..0b6355e6d1d5 100644
---- a/Documentation/mm/process_addrs.rst
-+++ b/Documentation/mm/process_addrs.rst
-@@ -659,7 +659,7 @@ acquired in :c:func:`!__p4d_alloc`, :c:func:`!__pud_alloc` and
-    references the :c:member:`!mm->page_table_lock`.
+diff --git a/tools/testing/selftests/x86/amx.c b/tools/testing/selftests/x86/amx.c
+index 31268193c4cd..17fc113eda5c 100644
+--- a/tools/testing/selftests/x86/amx.c
++++ b/tools/testing/selftests/x86/amx.c
+@@ -895,8 +895,13 @@ static void test_sigreturn_stale_tiledata(void)
+ 		attacker = fork();
+ 		if (attacker < 0)
+ 			fatal_error("fork");
+-		if (attacker == 0)
+-			_exit(stale_tiledata_attacker(cpu, helper_cpu));
++		if (attacker == 0) {
++			int ret = stale_tiledata_attacker(cpu, helper_cpu);
++
++			/* _exit() does not flush stdio buffers. */
++			fflush(stdout);
++			_exit(ret);
++		}
  
- Allocating a PTE will either use the :c:member:`!mm->page_table_lock` or, if
--:c:macro:`!USE_SPLIT_PMD_PTLOCKS` is defined, a lock embedded in the PMD
-+:c:macro:`!CONFIG_SPLIT_PMD_PTLOCKS` is enabled, a lock embedded in the PMD
- physical page metadata in the form of a :c:struct:`!struct ptdesc`, acquired by
- :c:func:`!pmd_ptdesc` called from :c:func:`!pmd_lock` and ultimately
- :c:func:`!__pte_alloc`.
-diff --git a/Documentation/mm/split_page_table_lock.rst b/Documentation/mm/split_page_table_lock.rst
-index cc3cd46abd1b..ce7908bebce9 100644
---- a/Documentation/mm/split_page_table_lock.rst
-+++ b/Documentation/mm/split_page_table_lock.rst
-@@ -37,9 +37,11 @@ There are helpers to lock/unlock a table and other accessor functions:
-  - pmd_lockptr()
- 	returns pointer to PMD table lock;
+ 		if (waitpid(attacker, &status, 0) != attacker)
+ 			fatal_error("waitpid");
+diff --git a/tools/testing/selftests/x86/xstate.h b/tools/testing/selftests/x86/xstate.h
+index eedf0cab7ccb..7229f3e5c6d4 100644
+--- a/tools/testing/selftests/x86/xstate.h
++++ b/tools/testing/selftests/x86/xstate.h
+@@ -93,7 +93,8 @@ static inline void xrstor(struct xsave_buffer *xbuf, uint64_t rfbm)
+ 	uint32_t rfbm_lo = rfbm;
  
--Split page table lock for PTE tables is enabled compile-time if
--CONFIG_SPLIT_PTLOCK_CPUS (usually 4) is less or equal to NR_CPUS.
--If split lock is disabled, all tables are guarded by mm->page_table_lock.
-+Split page table lock for PTE tables is enabled at compile time when
-+CONFIG_SPLIT_PTE_PTLOCKS is enabled.  This option requires CONFIG_MMU and
-+CONFIG_SMP, with CONFIG_NR_CPUS set to at least 4 (see mm/Kconfig for
-+architecture-specific restrictions).  If split lock is disabled, all
-+tables are guarded by mm->page_table_lock.
+ 	asm volatile("xrstor (%%rdi)"
+-		     : : "D" (xbuf), "a" (rfbm_lo), "d" (rfbm_hi));
++		     : : "D" (xbuf), "a" (rfbm_lo), "d" (rfbm_hi)
++		     : "memory");
+ }
  
- Split page table lock for PMD tables is enabled, if it's enabled for PTE
- tables and the architecture supports it (see below).
--- 
-2.50.1
+ static inline uint64_t xgetbv(uint32_t index)
 
+--
+I pushed all changed in https://github.com/avagin/linux-task-diag/commits/wip/fpu-sigreturn-init-xtiledata/.
+
+Thanks,
+Andrei
