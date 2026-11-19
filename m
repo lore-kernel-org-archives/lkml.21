@@ -1,54 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.82
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795053922;
-	b=VKRnQoLE+IXwrKCihB8+jMdMf9lxRXxQ6k5SkaCnWOu4IL5p5zjrD8o0un4zkUMXhuve
-	 tkRD4xAJHVl9hs+TF94W2FKiB8uKngdgBPy8GCMEhgrXIMdt6rf50GW9LGUSNpIWXlbDk
-	 B23MVnTNh1EyLky1D1iRnp6kuP81RU6I1puQBLGwj+1D12O6CD4PAxMk/d3XOVf8aXCfM
-	 d0mqLnHPh9CxtTHwkP2sHh72kq+SgnI/ThwtTk0+DCZP9fbgNFuGEfgGisJ6a/OW/S45Q
-	 KBZKdl+p4yZ5Sq66xLMvizKQS26Y4Hc2f+y15c87zDSrBNRP0wF+Kt7fkvOzZP+C1Sw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795053922;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=4tgWbt2Z1SnQ+uqrEBj9Epjmo8yeetyzDn0kN1B/Hto=;
-	b=tWD+CXiwmEAA0+Eh9nMRDb9+JLXzN9VDbz/+OJOkpZHbgyYFfNUzaarsp9820Ykd8ulh
-	 exFOp0hTB2i9T7SfSQJODZFuzqvpICzN+D6ghhiY18XKokr5bjldPQRFEXYwoYNHgFhDH
-	 3tphLdZFnI4LKh1z+2tRGTCnGY5CfilY9P08ymceGqZEEUZW9JgiENfUDupwolANGNor/
-	 JlN5eYDszApkgNAFGBBDmk7+DBxfSyTpJkt5TEwpluRGJLo0GbabpcV1zCcsn798+AG4f
-	 0y9t/pdA+uYbtdB4uZcfBAkygAuKfWeR6QlJwIOJpW/dtEmHfG1qKAiuDogU+PURzXg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vXNZMZ8C;
-	arc=none smtp.remote-ip=95.215.58.82
-Received: from mta1.migadu.com (out-82.mta1.migadu.com [95.215.58.82])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795054011;
+	b=nzdK0UzIPYj+61ZtFMh47ThGlj1eqom4d+811lj1EcUZYWPqeH73FSa8H7RrxYMcNO6n
+	 o2IGnRiRX+YUh5tvdBb334cDVq95o8LDxv0Z/+Z5k63x77/OY/y38AaehMDE7eZoTLSPZ
+	 Z6loAW4doMzO7M4p3lkve6BEopqAgq9MW85y2arwvi1xtME9imnhTt3BuQUsUeQqs0n4s
+	 ZYRNC3DelkJ12sRZlD4ETuq7IC6LFygA1QWK4odVyw85D/LzUgcby68gtNzua2CfFO0jh
+	 DIuRu2pgLBcJdteT47cDh3TZtjdfllia6yQy5aVe2pgIaJlcplrX5uHBr/YjuIBTHkQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795054011;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=NCO/dWkf50AZTb5CSt4Ge8e/B88cMhBm74UQ+F1PYOU=;
+	b=Ery6F+fVa3nNScOEw9sElYEU8/MF7HkJ4/eSBRxIJe9lotw4Ml2Z7v+uMvBIKIe2IBXo
+	 pH5iwRHau2yUWDhCQ97zHEbAnPLc7+GoUxVR4ZG4FNDsIjHPOGcJTHMQeNoqUYrpbFjJZ
+	 nTG8PlrVY+N22OamIr4px3AmhtNk1Bg/EbzA6BdIsHIDoMkApKL/92PjerVMfxD+JqGkG
+	 NyXJXNcQo4QhWgX3tU1V61WU/XnkU+a7QhFnXQqyGZDDBs8mWFwyR8sp5TFHSBXGW1XmS
+	 fSxfnjYhkm/NAyow8EGXQxyjmqCIrrwvkMIjsvbWstapFhy8EBNeCelda+o9E/zZ9sg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MUQcBVty;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.174
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F831606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:05:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F831606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 719F9606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:06:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 719F9606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vXNZMZ8C
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=bDmNCJobEh3kLoFNq205gwpfko5U2ASzt8zgMKTUjKY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795053919; v=1; x=1795658719;
- b=vXNZMZ8C96ZXrS+cOPJ/LiaKBfRy+NFncMsZeB+TkOvtEhnQcFdqI13phRE9o4MHBHa2BcLk
- tRqon18yvq718CTWV9C03z116i6ETIDLM7sr9pGy+IAKRs+0hbKmOOk7n6iC+xfE30GZiFC/QXC
- HYsKqJHUnuiG2wbwAoT6wTL8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 09ad55c582dccd0b;
-	Thu, 19 Nov 2026 02:05:18 +0000
-X-Mizu-Trace-ID: 09ad55c582dccd0b
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <ec86fecf-0919-4da7-b675-3a9be49b50f5@linux.dev>
-Date: Thu, 19 Nov 2026 10:05:13 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MUQcBVty
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b360828905so15902937b3.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:06:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795054010; cv=none;
+        d=google.com; s=arc-20260327;
+        b=WUE+G/lY3UwhWKT7K9l66U4vETxtmyhqCIxIM2eoJmUI+Pt1BmCSttU5avVef1u+ki
+         7p+GeAIVKzaE6/vWxhZ74eNee6HSrArKrVkWAupAfflYNngoa92tDx5GAd+g+AaRVYOF
+         NQJ65aN7ztmao0DKeAyK6rrK3wJhJHznwi0+PlDceL6JNksgKW9tm5jZs5Iosgv6yWUA
+         z61vdlfTb8nxqKj19ur0OEYaIFdg4PspIveeIwc+7LMhTSGCTbjRFxi921ae1rdf7hY5
+         ShWTz14EeyTaNU4Jx0Q/wlemWMBUUuD9PToTl8HZvGGBZrXGOVEBof3LqQS4n59I+yxN
+         Vnxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=NCO/dWkf50AZTb5CSt4Ge8e/B88cMhBm74UQ+F1PYOU=;
+        fh=vQBu7XFdIBPd32S52hs4vY/UeFuqMqGFWw+KPtKFsX4=;
+        b=hzaVpEZlK1UB1GpUF0ezcl7tvaBG25/Hle+DIzCrZEMqh+QCxRZZkaTNLzA8OP8iX8
+         Se4Zp9vORR7ryhbV53tf/5vSKyta2+giMOwXqQ/Q6v/UJqcFRpTbah10Ie3tORLVT0b7
+         GM/EesQkkytfutUERyLRIs2z+UWr3NaO2nGq2yAS4SJTpNjEfx8hdH2S9tfwuQpbTYaE
+         xMG3Za9ou8O5q3oR/tVutt4OGEpxrxqIBr1cH8HjETs4L0m8ATyAQdfAXIWEKj/4POk8
+         XBvR+e9uLnj6f3xjVu3oUPFXU19RlmThtEsq+82i1Pvrdzrt3AP+wX0qXKVP96xGM3kk
+         R2iw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795054010; x=1795658810; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NCO/dWkf50AZTb5CSt4Ge8e/B88cMhBm74UQ+F1PYOU=;
+        b=MUQcBVtyUzJRoojUTrNjL9onWir2Px+mfjnx9u5ppxEgtV3YoVXn2MzDdacL8r9Jff
+         gqPF/5wAbOw/Y9EW7iRyd/xtMQFgTzjZGeR7ifufm0KHL6WQJFiIEfa4XiS/bUqciqv2
+         mVci2TRWXo9JiyXyM4bgGC8FxtoJzIO9pYrk847STndlMI/6jzVh4whOq4NtJGgmX8Pp
+         JrIU+OPASOJ6UmNioXJ82x5XY7vfGhrdXXJK9lbMMeEHUGL/urUB/zoDq0wYlxmsPJy2
+         iC99SGdpcwrI7F/G2RalchDIbKl4Nz7QKMJNw79WFNyyXSw/z1IpwWLNI17yeKfWdvlZ
+         urJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795054010; x=1795658810;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NCO/dWkf50AZTb5CSt4Ge8e/B88cMhBm74UQ+F1PYOU=;
+        b=Yb3KBAg8cwTJ+F8fQe6h0m4Lonec7UvX4BtFq5mCKGwsreEcAIs6r+NvMMqMsiiP3E
+         mgjB/G5u1zs0DL8dxGa91RPLkzyVpemnKkkxgTUssb4rZ+ayK3LADbD6Q3by0qzUUmbn
+         /mw5sIC76t+/wgRqlFWfgCikpOJW8SRMoe6LPjBPZhSjrHjz+I4/heWiMjLDwjLgiigN
+         RZ9mYGWZsZFMhT8B3iDqMi/7cNBo+Q/oO4L+Dqy4/9G4Wr3Cgu170zPb7C72dhgbRy2p
+         XWecKMzGpqiBjsUT69nP3URabPVMfPif42BS3aK0MMdbMmhgRhLrzCwCxdNGILK9D0yr
+         mfjQ==
+X-Forwarded-Encrypted: i=1; AL+hErEPsgcvRMCBGycO5MDgH3gPoIqVuAFZdXHoM+73FQO7F/rBUpetD/5BeEnlAs5EUDRzv+Z6GHxmBm3hyPQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8i+4+FAH9BRDJDlAaw/P+7ANA+z7eOuS8jH1jq0lwwWcCMeocZ
+	88m2ugxTEzxVEeYliWuj/q2b/kfshVLSLwRaNzROKdx6tzd9t4spPFEqmkcsBXS4kQVeiLheTqn
+	B9kgRzWKozDfdOzO82tVRAezkhonxvf4=
+X-Gm-Gg: AZFdTZejr/VuchfCblZEJHczpi97k7JVw2DbbPBjvk7IUs90eTO3VeGHFa7cx0cG9pD
+	QL4bTC9usred66JPOwQFvYEB9VusWbtoS/iTxSJgGjnR5Y+hCkXd43iA8jZ8Xo40PYB87YTSYsi
+	Lu/O6CCoHBVX7XV0UYTXBF/c6mzh6u5jQvOfDy/1sQnLEzlSA1VUq3fqSU9Aihkzrhk6aaNfo3F
+	g0gGbvp9QWRUYP1MzReOwcj/jAu56HpylzVHa68iTCEWH3dRdnHqPuq0WlJ2PBbRt68LnSDJWXz
+	+FEU155ozpLLyrcb8+kyz23ADbIqMPqEq75HAoJGH+d4e8kXH2vLm8NPeYjkA3uukRPW2Xk4JYE
+	IUagXKmlqNUyHVkPG371eSHc926s54pbf29nMuxFyu05dtBIPt7oGel4VTq4=
+X-Received: by 2002:a05:690c:799:b0:8b4:ef8d:88a9 with SMTP id
+ 00721157ae682-8b4febd6644mr15765197b3.12.1795054010454; Wed, 18 Nov 2026
+ 18:06:50 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,114 +104,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] mm: hugetlb: fix CMA-related issues
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, muchun.song@linux.dev,
- akpm@linux-foundation.org, osalvador@suse.de, azpijr@gmail.com,
- lance.yang@linux.dev, Qi Zheng <zhengqi.arch@bytedance.com>
-References: <cover.1794046188.git.zhengqi.arch@bytedance.com>
- <b1c1c835-180a-49e2-86c0-bc3f65981728@kernel.org>
- <7e733c3b-2aa2-406e-a5ca-cd9a2c872f9f@bytedance.com>
- <bc6ffcff-3aaa-43da-91b4-82f27513c761@linux.dev>
- <1e0aa28d-f81b-411f-92a3-6038c3961443@kernel.org>
- <c3906ff3-c5ee-4672-8bab-2318185268c8@linux.dev>
- <3e4b8ed8-c435-4fb6-ac74-b3a9eb40504d@kernel.org>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <3e4b8ed8-c435-4fb6-ac74-b3a9eb40504d@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261101073700.1261966-1-gye976@gmail.com> <179490829262.50223.600134266125251477.b4-ty@b4>
+In-Reply-To: <179490829262.50223.600134266125251477.b4-ty@b4>
+From: Gyeyoung Baek <gye976@gmail.com>
+Date: Thu, 19 Nov 2026 11:06:39 +0900
+X-Gm-Features: AclHuK95wjyOSL3USWJSLiddXMHlAMqUxucxyJ8PocUeHdqhrsCSx-8gPf2yb_w
+Message-ID: <CAKbEzntg_+A6rERcgBmYNwDEz0_Ta6F_N8YGQP1uH1ETNgYiUg@mail.gmail.com>
+Subject: Re: [PATCH v2] accel/rocket: Fix drm_mm UAF on close vs in-flight job
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Cc: Oded Gabbay <ogabbay@kernel.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, LKML <linux-kernel@vger.kernel.org>, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thanks!
+(Re-adding the lists)
+
+On Tue, Nov 17, 2026 at 10:05=E2=80=AFPM Tomeu Vizoso <tomeu@tomeuvizoso.ne=
+t> wrote:
+>
+>
+> On Sun, 01 Nov 2026 16:37:00 +0900, Gyeyoung Baek wrote:
+> > The drm_mm and its mutex live in rocket_file_priv, which
+> > rocket_postclose() frees on fd close.  But a BO held by an
+> > in-flight job is only freed after close, from the drm_sched
+> > free_job worker, and its destructor then accesses the already
+> > freed drm_mm and mutex.
+> >
+> >   BUG: KASAN: slab-use-after-free in __mutex_trylock_common+0x90/0x1e8
+> >   Workqueue: <NPU>.npu drm_sched_free_job_work [gpu_sched]
+> >   Call trace:
+> >     __mutex_lock
+> >     rocket_gem_bo_free
+> >     rocket_job_cleanup
+> >     rocket_job_free
+> >     drm_sched_free_job_work [gpu_sched]
+> >
+> > [...]
+>
+> Applied, thanks!
+>
+> [1/1] accel/rocket: Fix drm_mm UAF on close vs in-flight job
+>       commit: c3fe8795ecd844d0bf76102217bec01cce01b715
+>
+> Best regards,
+> --
+> Tomeu Vizoso <tomeu@tomeuvizoso.net>
 
 
 
-On 11/18/26 11:24 PM, David Hildenbrand (Arm) wrote:
-> On 11/17/26 07:55, Qi Zheng wrote:
->> Hi David,
->>
->> On 11/16/26 8:07 PM, David Hildenbrand (Arm) wrote:
->>>
->>> Hi,
->>>
->>> sorry somehow I missed your mail.
->>>
->>>
->>>
->>> Ugh, what a hacky mess people created.
->>>
->>>
->>> That would be cleanest. Would it break existing setups?
->>
->> Yes, this requires an existing user to explicitly configure a 32M memory
->> pool.
->>
->> But in practice there shouldn't be such a user today, otherwise the
->> misalignment issue would have surfaced long ago, wouldn't it?
->>
->>>
->>>
->>> Another quick-fix idea could be to always allocate larger folios first.
->>>
->>> That way we should avoid any holes, right>
->>
->> Ah, this looks feasible. How about the following?
->>
->> (If that looks good, this could go as a stable-first fix.)
->>
->> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
->> index 6fba92b0f6749..32e65ce347c90 100644
->> --- a/mm/hugetlb.c
->> +++ b/mm/hugetlb.c
->> @@ -4556,6 +4556,22 @@ void __init hugetlb_bootmem_set_nodes(void)
->>    		node_set(nid, hugetlb_bootmem_nodes);
->>    }
->>
->> +/* Return the largest early-CMA hstate below the given order. */
->> +static struct hstate * __init
->> +hugetlb_next_early_cma_hstate(unsigned int order)
->> +{
->> +	struct hstate *h, *next = NULL;
->> +
->> +	for_each_hstate(h) {
->> +		if (!hugetlb_early_cma(h) || huge_page_order(h) >= order)
->> +			continue;
->> +		if (!next || huge_page_order(h) > huge_page_order(next))
->> +			next = h;
->> +	}
->> +
->> +	return next;
->> +}
->> +
->>    void __init hugetlb_bootmem_alloc(void)
->>    {
->>    	struct hstate *h;
->> @@ -4571,9 +4587,19 @@ void __init hugetlb_bootmem_alloc(void)
->>    	for_each_hstate(h) {
->>    		h->next_nid_to_alloc = first_online_node;
->>
->> -		if (hstate_is_gigantic(h))
->> +		if (hstate_is_gigantic(h) && !hugetlb_early_cma(h))
->>    			hugetlb_hstate_alloc_pages(h);
->>    	}
->> +
->> +	/*
->> +	 * CMA ranges are aligned to the largest supported size. Allocate larger
->> +	 * sizes first to keep the early reservation cursor aligned without gaps.
->> +	 */
->> +	h = hugetlb_next_early_cma_hstate(UINT_MAX);
->> +	while (h) {
->> +		hugetlb_hstate_alloc_pages(h);
->> +		h = hugetlb_next_early_cma_hstate(huge_page_order(h));
->> +	}
->>    }
->>
->>    /*
-> 
-> I think this should do. Best to send out a proper patch.
-
-Okay, will post a proper patch.
-
+--
 Thanks,
-Qi
-
-> 
-
+Gyeyoung
