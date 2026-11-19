@@ -1,100 +1,148 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.181
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.124
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795071584;
-	b=QMQqrqqK/2OlxMZ1mBS+T3NNl5D8avG7XwdR931BcWH7chLDiNVPLTFNHoYxWnIFuHsA
-	 LrLgnNCp0xJ7uUIkfi1nokT3RU3rIBaCRjd4KQVC0TA4ftLLYxLahFuwVkAICsbwC66fL
-	 cUpFRkTz8ziou/ABCNpVOobcn0OdbwKxlGb4pfeqh/7uOwZjUra1u6mNRK5Da+utKlfkd
-	 fv35IFg4GFbn0RGIvhi7iHguTPDHU4CO6zRWVuvq4f5nml6N0Um58Dj5tqEvuHpzBZHwl
-	 DyEM/2TWE9c2DR0hy3nPKiDVHJTNnScdm2F3hh67yYo+FWhZ2XKjW6YC9L9++Xy2BFQ==
+	t=1795071594;
+	b=KyEzfuXHOg8uLTbXjVjoa2TMoG/995aWEZOuwAUC23JlDSk2lUfmRdmEVQAImfAyhrXB
+	 MbeqcSf+dsUW2pFzduyYa6LKNq15BWZTTFGslREPmiT49p+ZOFNK6Oy9LgqJoqizUD4pm
+	 vtbv9jqxrMyLn865S1ePB0sWbGBDjKO8/0NXxcvMZ/4xVu3ksHDKRk2PY+Hthir3Bp2A3
+	 PpmTBctg8xTMyxDD0+h7DR/JLdICHBOd+Dpk9sFWschC3Ashvde7LRq+YgE5Oy1zOg8u/
+	 R+ek+11h6aC/TEr0EluhkRoe9aUaDTEURkn/c9+v1qOJhoZxSIXIUgB93cZrxByodAg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795071584;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-	b=HVFgQ3ZKa5qyCKfXu/LY9ZWygpwLZmJZLUGEJkf7ObzkadClJbmydML0aWYYsQv632F+
-	 STQABrZEsAOng84fTmui7sBZH3AEUBVdE5sRbWLhPcKnaMp1nQJSuNSB5R7z8QmXYY9F1
-	 1syoghY0pleTCUzOeOrcUE/daiJGwt9yXCcUMOxcQC/dC6LbGo9g18injqzEm+Wj5J/B0
-	 KPSXvQ79vHEJG0lw3a7crK6lD2gbaviIuprwEbtP4hbHpYQQ+zh2pj0FSw5W+p24BWbUD
-	 18LZ2b95iOBDSagT6U2n8BMtdFq1fh+FNqwBCGgzhnAlY59Q/nC4Sy9aRMzwfXkiR8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795071594;
+	h=DMARC-Filter:Received:Received:From:To:CC:Subject:Thread-Topic:
+	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:msip_labels:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:
+	 x-ms-exchange-antispam-messagedata-1:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=2iS1DGsCPHvLKaAO0gx3boP1NEZSwGlLfIy67H5hClU=;
+	b=vjhtjl06zYkCI37sOd1gtovAOjPY0ZX39SN/MRLhYbKR8ynhsMyj4M3fxBRh5t9DSMUv
+	 4OVBONE3EL0iiJlPfP91OhMnm4g93uC8xs5hrCuFzx32dqPFuXvTDb6OpBkEsdH+oYaQs
+	 YtgEoGB0XsNrx3jTc/KdDklhlaZXVX0uXG4VWDNPEd22zqw8o2xsYH4rfXR9vUuU+Xxwl
+	 yIISE6OIqWPnQCfk21iG1zTBPUYJjjyQ+SF/hLTsibCaG6xlqDL4+eF0WupCc6re2qCKr
+	 4uHz6UV6pxx5Z9+LU1GghMnplen2W086mvv1CGRNXpOgTKKpkT8wiZGr8LMskwV9YYw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CfefhvgJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.181
-Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=atlr-engineering.com;
+	spf=pass smtp.mailfrom=atlr-engineering.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.124
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11021124.outbound.protection.outlook.com [52.101.70.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48617606A33E
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:59:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48617606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CfefhvgJ
-Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cde5a7d79b0so107273a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:59:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795071584; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sey5s8wArpsvs8XKiDxQIMBVEf6Zdz98QvNzdyLKw0VZ/P8etOWUa0KicOtyV/2PEF
-         U+JANeVtY0RRSkr0dGEt+VOXtQJdAuFU4dSwi9MpCpXt1SWhqzwzCB4tPsvuiaODfZ39
-         V0FeJtKjXPzbsteewhlZ6IlkBCieZ+z6rbok6iOcjUAABCoX+kziMyAv1Eu8Zj8NfzmT
-         nTr3mReOmgesF+kr+VinkT1I8SXYJyaTY601H3ZM64lVsJBeh516nNvs+7DNff96pprb
-         4a4VRht0jnUchBVYyXx1XUkEd0xv4GZXRBUlNTc6u5yig55kMysMLkvahwY8+8f0fzSw
-         42vg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-        fh=UQ/LkoBaGeQqgdqxoUsobzoKqwxjzqiep2T/VeysUHc=;
-        b=AAwyiG5xoeUMXoS/ZZlufPBrq2zg7sRlI3+bYTBHtEGjC/25eywSI/M+breLgsRLUM
-         98mJ8h2hKBeSk6M4gaJAIW0gmrQSRblzJtcWkwEhk984AXPDHecMjrgcbhK5RAX552U1
-         gkZhBBuRbJtPA46bVaRfUvKszaGHRA+7iebu0CMRSsCa6dW/6JHRB1vQ0wjfoCmDrcHQ
-         wItwRdDgNr/xVsqgZ8HnTwiHukroOirM5IqAlsctQ621zF0dAJMa3WyV1jR1gtoSKzPi
-         OSamA/DdU8XcsmyKHPX2J/tc8SyzgY24R4/Te2vGBirSMPKA4HNW/BCxGeS1Esb4V6e6
-         kpKw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795071584; x=1795676384; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-        b=CfefhvgJKboZ4DCkGtAZ6foSmOAIxCHUgayvLTdqAAOjYG0/2C5N7ZZguVUjLRKkSa
-         ee4e6auDggLchvLQ1CNIpvJGvY1bJGQ04/F+aHpGIw6opujN6EAf3c79JmagEZOp+IQp
-         S5ZenmrAN+AWERADuvNt3gjxgL0LOoG0yFc09l/NRfzI9KlK7lGGMpGY/piYRO7nRNdG
-         KRov6NznqPXnzPVlsyC5nPiVqmlpUGEEePUtN4ixRpJHftSt+qAL+1L2olsqxCJwYBhC
-         NVtj8t2s7wDWuuXA9ji1kw4uicwmVZgFtRkEsj4tmn73H2HwgW0rjMn+5hRmdWI9duf1
-         tjWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795071584; x=1795676384;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
-        b=F0Mx1mQ9HFabphd4Dnb3rdkN/O31DV6Z2yjyslv/D+bgl9mwG1eeDe3Fh9rlaN3Sej
-         jzkpsEKdUVhymf3APlK3mebQTFF6wz4KzU9QBpvJXkLN1/PdBcAPcqr81tcRK1I/KsNs
-         3FKxSmqu5McsJ3Eunu15ScsPKVtOrFZOcCDIb4usojCXiS3WDKJwRlRygkJAwGDiHCCV
-         0bEY5mPJ2Brv8+67QIFRzFo8czlLdnd/enMstSA+haryrpci349Sn+ZEc27iHMG9Asfx
-         rMLHliIA9BAsbgjRwk7ilvabyB4J5p9WgE8VHv/UMgvdUmL6o1Z0PBuTia6W2hZCUbn1
-         ilXA==
-X-Forwarded-Encrypted: i=1; AL+hErEfliQogEQEybNTMqidSuSqsKFv7e0mcT9hrPQh/jbq3u0SP7kYqpDfnR4/cp8gWfFuq2XXHuHdhsWx/xk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8jjFRDlzW+HcpeVScg8t8p8nqBsxNYCbx/Kzv2Bi6vkiv+MA1D
-	yVJX/PeSK3Xl3lyVXc/TvIOf0N0dYQRyi3oEN8f+NdChlptKxLrTFsBfkYaY1ZPYLc37HJUE2E1
-	rf/Bo0mZSTCnXLPSgSH/IJ+EQugC2KR3ieUykYTOs
-X-Gm-Gg: AZFdTZcW9ZtVqbjl3EQsvveJ1FsrGnl3kkpYmGeJb0Q389XsXOuqsvq9kO3Qe/rown6
-	TviaLwjPsIs2uHUJyEQnzzWhl3EQp//DI8EZckHn1vJgVIoajpPOgsdSJthCx8SLj9wL8rd2WNQ
-	HE3xDWB5LbaOCBnubqh6r8Y0fQIxN81DjGubPu4sddX+9vT/Scuxgk3g6R4WxfBjqbA/BpzU+c6
-	KQo9FqV0yQQLRwEQhEQLroTxgmi0Od550es7CrruekYkbwygToqF628xpaU5cdXCrGc2zu5IDAP
-	Az4xKWn/hAUkCtg0WhwrLRKKDH1X7Bzb31tBygJSrWRkS8OhhBojMNMJfcnaQiR/cVa8WloUhWk
-	/yTdDK+9PgyMsbo4GW1lYPLivPKj4oUd+LXo=
-X-Received: by 2002:a17:90b:56d0:b0:3b0:9a2e:b491 with SMTP id
- 98e67ed59e1d1-3b3d07d4e32mr4811737a91.66.1795071582990; Wed, 18 Nov 2026
- 22:59:42 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6196606A324;
+	Thu, 19 Nov 2026 06:59:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6196606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=atlr-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=atlr-engineering.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZtMMaPOTMn0XwxepGKE7NsxX97qDJga8aaK//59XT2bemY2PM5cneEuQ5kIavQkm34QXvDtxoFhG0J0/rFVdW858c//oRcfV+/37HJd6VFSIK4pJqR91QCs2AJnCIRfGBaZNS0kQsKK+CERDyGKWJnDEgPrc+XzIs+Y8yKfeCyOPxURursgjfEPd9kKTX1ARDpx43piN3FjGabm+iq1oniBRTxO9J8PPQJg45LwLKOM8sPuTAhh7D3RZdCVU+aj17qWWZXKFQeojQAcVsw9UhG9X1Mefcj4KihP2Feu7NCos4/qLwLPFCSYDkes6d+iPqVL/F+APbTyHS32FY9Su+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2iS1DGsCPHvLKaAO0gx3boP1NEZSwGlLfIy67H5hClU=;
+ b=gKjgVxSyPePoRHNHaBjCW4xm4blPHnggg3jSAWCBflex8z1E8MicKFlZ4FEGbudle/fLNMCG22LoZ8YeByZmakdv7X6v/BzaxxyuU452faLwhgk3KMsTO8ZKecHMjSy1hr1gQdOoykiIxqoF2+zro2zJyERqewTScXws0Nz7522mTbTQT8gT1jjvDk+5mz4AKG3pD3k4myHXIowVA4/ByViEeVbP9G6VlfbhwbLjZS0PTQkgNxhlNiyRZKHmiZXrlqMW0nG2RMVI/vyQaaC+jJgbzJOJflfo31tWuYPsrRD5tqkOatZvXfLKZlfdDisPAQP1qv8KEk0j4fj+eqBZiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=atlr-engineering.com; dmarc=pass action=none
+ header.from=atlr-engineering.com; dkim=pass header.d=atlr-engineering.com;
+ arc=none
+Received: from DB7PR06MB5324.eurprd06.prod.outlook.com (2603:10a6:10:73::22)
+ by AS8PR06MB8364.eurprd06.prod.outlook.com (2603:10a6:20b:447::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.16; Thu, 19 Nov
+ 2026 06:59:51 +0000
+Received: from DB7PR06MB5324.eurprd06.prod.outlook.com
+ ([fe80::b923:2ab6:f430:9f47]) by DB7PR06MB5324.eurprd06.prod.outlook.com
+ ([fe80::b923:2ab6:f430:9f47%2]) with mapi id 15.21.0615.012; Thu, 19 Nov 2026
+ 06:59:51 +0000
+From: Alexandre Rapaille <arapaille@atlr-engineering.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+CC: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio
+	<konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Luca Weiss <luca@lucaweiss.eu>, Eugene Krasnikov
+	<k.eugene.e@gmail.com>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "wcn36xx@lists.infradead.org"
+	<wcn36xx@lists.infradead.org>, "linux-wireless@vger.kernel.org"
+	<linux-wireless@vger.kernel.org>
+Subject: RE: [PATCH 2/3] wifi: wcn36xx: Do not enforce interrupt trigger type
+Thread-Topic: [PATCH 2/3] wifi: wcn36xx: Do not enforce interrupt trigger type
+Thread-Index: AQHdd21AqhKF/7D/YEy/7l8pIEzC+rc0RcuAgACx9E0=
+Date: Thu, 19 Nov 2026 06:59:51 +0000
+Message-ID:
+ <DB7PR06MB53249C2E9D190088A52CF72A85792@DB7PR06MB5324.eurprd06.prod.outlook.com>
+References: <20261118-wcnss-series-v1-v1-0-a64d82e151bf@atlr-engineering.com>
+ <20261118-wcnss-series-v1-v1-2-a64d82e151bf@atlr-engineering.com>
+ <CAFEp6-0sYs0mEm+4E_zEgXcSjoYKwtW_YJSa601gb=717Gec4A@mail.gmail.com>
+In-Reply-To:
+ <CAFEp6-0sYs0mEm+4E_zEgXcSjoYKwtW_YJSa601gb=717Gec4A@mail.gmail.com>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=atlr-engineering.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DB7PR06MB5324:EE_|AS8PR06MB8364:EE_
+x-ms-office365-filtering-correlation-id: 148eef9e-09cc-4b87-774d-08df460ab52e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|10070799003|22082099003|18002099003|6133799003|261009223027099003|3023799007|4143699003|56012099006|261102123227099003|261026140227099003|261028144727099003|261026121527099003|261021121427099003|261022105027099003|38070700021|10067099003;
+x-microsoft-antispam-message-info:
+ qIsOupeDMKg9uDC1XjKNrjioPz0+9UPmTD1coLGKN87Wqhgd2MWRFUzo2t4LEcpFk25TvymXEV5ww7EJW58qiMie2MUizBVy4Eg9ezmm/s40BqAIx3RxCUzM5hHUmDjYjdDBf9Ga4yCwyH5hbIdx1FBI8fIosRCO/fr5C8ZxHh5XJ5Hz+OHhV7kq6U48decGaHWnkflDDFHcm1BKbGb7kRvs6HeTL2UtzRSh0v2VJ1ud5WOV53gbK5cIMsm9LDCMawXNqiLDpIeK2HI4JTKCFiwda+3r8K0IMXtcIlhUaSHxSQtId7HyTDL2MoOOKCsKswcK4nowBQHGdzkOB8TedU6zCaAqnvZ9xpPwtQcmqhXUkf+MOUcBtSG0H0zQw1R1LFkd4ezgMA3NW4465F5TrWtQU0rsvWQ3MNr6Xj0IKfJaCu9sSyO0bH5P7rxjPDRBjACN/XKVmlHA1npIQFHno4ttrMxcrIFpopLthwJdcZki4eYPIh8N562CBnQdrGHxutENwyeD/4OyVkxEqV34E1mchu9/BbSf8IHQShtMhZWPuPtbjn18FtUQmsHrBswIH79dPflwFip9NVGY0IVaAM2QWob6wTBgDD8W2GT0wcC6M4CMEG0FJFG9wOC+MgyuR46LEFm89/X+gRcfPUNXIQrhB1fsOB7en4rjiBa2QnIAUUZ++Wvs3Ax/oOMLiUY7lVy7XUMLiMqAGuaf1mPjC2eM0rxMVo33xU2HxJRRPQY=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB7PR06MB5324.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(10070799003)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(4143699003)(56012099006)(261102123227099003)(261026140227099003)(261028144727099003)(261026121527099003)(261021121427099003)(261022105027099003)(38070700021)(10067099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 2
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?Nq16aMnaGOoWH6/OHw9jGYDVwoh+W2mMntDn0XTdR9qEoTf8k5mNkOqhix?=
+ =?iso-8859-1?Q?MqriLAmM9l7ddUtqKaeLK7KHZMxt9pxYad8SWtBckzVCJcqrcBX656wH/k?=
+ =?iso-8859-1?Q?SPb5Py5YViXx34HkNdOXVFLg7nQiQawuv1kr4XOE0hoBSauYSTpXOJYq+9?=
+ =?iso-8859-1?Q?r5LI6mp7MEIFxA/RpMPGb+VmKcV8kpAG05CJ8aBWnlXyuTAW7aRNvHK4ym?=
+ =?iso-8859-1?Q?I/osYeQ+o1wTZaazYTJqANQNsBv1Wz2A1ETjxtMlD76cxfo7yA4Av9HWJY?=
+ =?iso-8859-1?Q?NsKlA62tk1ERm0Al8o2yk42FA+0KduQYQMkqdbOux/BoTqlOvQP5wpJr1V?=
+ =?iso-8859-1?Q?47dkqNrNIWgVHkU4P0RVDB666AMzXNlWhAeGLWWuvR5NcTuXTGZZmNzGEa?=
+ =?iso-8859-1?Q?VAJANQhYymvq4PsVfi3FmGXg2ppqslaPUta0Mwb+cDllp+dci8ue2SMDcd?=
+ =?iso-8859-1?Q?B494H1m7NBsDdgs31hI58/6JDPyh//fnnv3E7+uBtOsx1cNMXY5jdHro6H?=
+ =?iso-8859-1?Q?eMimxPl6X6vCAhBmkbaLrNz6tGESEk4lATO14v3xhXwkE/qLl9fdMl+y9k?=
+ =?iso-8859-1?Q?RglExSC+GVqCn4rVfnoLajNrL8ihmeW4dBHdbbCY4tGcJVg29D8ap8r/U8?=
+ =?iso-8859-1?Q?2kMzDUGobS6Jdy+wEgwnvtAiq2uEFzVsdPvb8gPpSiSkxkwj6laZ0t9zWO?=
+ =?iso-8859-1?Q?nTAEu0wore6MmYPQgBNK2WtkhNotYMyZus0TJWMvUbMx5+q/LcqTNqBltq?=
+ =?iso-8859-1?Q?NKtQvxMeW136DbvLNzDdD1DT11SPz7XscGb3zI8UwcmBozyherTIlaI2Ag?=
+ =?iso-8859-1?Q?jZGcHO/dzd4OAHxF2dq+5NCs0yVuSgrrC3IDUpkRgxlSzJyKlYkvLdtH8y?=
+ =?iso-8859-1?Q?ydAbcXhw9m0Rnr3Bj1fJc7ipQ5SVnrqJABt3aqGcyLJ3kxZCzxeiXbgDwh?=
+ =?iso-8859-1?Q?kFe1ICwWdF6kBDs3BOjNOaLMge9p/p59Fdyw2XgcTQyWOOAdTLA6g7LcAB?=
+ =?iso-8859-1?Q?8lpKRjOeOfoYLxkk2wXyIu7ZV2X/l5TAysFktq2Grk6GKpB/p0mZel/FUr?=
+ =?iso-8859-1?Q?0RLT1sYZdXr+cySLOFVvYNv41x7viIFKEciz+a5FCETPKuHqs+UvP9cF1+?=
+ =?iso-8859-1?Q?WtjCfjR3M934YZNceW6YsRtuMwWuv5qKcBiJeDi06hA4JYPXPsXYwZUkrp?=
+ =?iso-8859-1?Q?2m7+brZ0vkTJWtYySpk4Dgx+GcZmwjb7GzKNjMCxcwD8yiJWHwbnl1Icue?=
+ =?iso-8859-1?Q?acbFjQhKzuWsrAd2P/32KCwHGv3ktHfXOmyOwYsL64b0OV2zDCJOj3YW7E?=
+ =?iso-8859-1?Q?MZRlopJZy0fInNPOq2tTaqOcybN8oIbEhRbreQK9ppHLIEZto6SozHwiMg?=
+ =?iso-8859-1?Q?SwoHpWGW76wmJd7zMeh8+4j3XPlXNsAfmwcxi89irFNWgo4el5FY8yrCkE?=
+ =?iso-8859-1?Q?OOyA59IOsxv7DUkyXyfgbl2hYHTFnmtr+d88KHYzFLE7ZEPsm3kfEjJd15?=
+ =?iso-8859-1?Q?jXi9oL7m2wwzGhOZ8wxF6PCKGXIDA62eeta01U/G2d1pZEXFig/vp8eBQ3?=
+ =?iso-8859-1?Q?b2GQfpo+utG+wwglckbDy2zNaRdcQt8lNsPcLb3wHZQu5i1o2U/xo3BFIl?=
+ =?iso-8859-1?Q?ccJkrWGwQrjTP0oneestlGymR+AxYEbOnNvPaJLY3GdcKaoPZdxiIcKntw?=
+ =?iso-8859-1?Q?LHYZH4GLjCJ3mVbIQHq/p3BDg9/tL9B7lSZV1koQzm/Msj7juKGOAALIEC?=
+ =?iso-8859-1?Q?OhYF8dt70Gyo+np+QOYfB0CwvJEbpDp70zTG7djUCMKGJTolkMFSpdo8Kc?=
+ =?iso-8859-1?Q?nsX3VkXr4PslkG8nAy5BdL1/qOa7UHbgQT5YX1ZEOY9aUog+cTP1fXHkMO?=
+ =?iso-8859-1?Q?J3?=
+x-ms-exchange-antispam-messagedata-1: y61/fNwHJhz+WXt0KgB4hA8fQXwXQm9BGgI=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,187 +152,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112014942.2946303-1-treapking@google.com>
- <avaewOJD7tX1UYfE@fedora> <avanVkILHDYdpond@fedora> <CAHwYsio=qtCY10EPnh+qvWpdgtQUG5mw1b3WKMt9_Kytcc7h9A@mail.gmail.com>
- <avwBrbJfp4ET9ifT@fedora> <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
- <av1hWxGIlZUJDUpl@fedora>
-In-Reply-To: <av1hWxGIlZUJDUpl@fedora>
-From: Pin-yen Lin <treapking@google.com>
-Date: Wed, 18 Nov 2026 22:59:31 -0800
-X-Gm-Features: AclHuK8wS87JOe1h2N3kmc2gHdWKNu393jcuOZJmbei73u2w3z7QQLjva2_sguc
-Message-ID: <CAHwYsioz+MJoFkABmub0_9QtKpneiJyi0-=Syc98zRy8KJXTOw@mail.gmail.com>
-Subject: Re: [PATCH net] selftests: bonding: fix failover race in
- bond_options.sh prio test
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Bjoern Doebel <doebel@amazon.de>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, 
-	Matthieu Baerts <matttbe@kernel.org>, linux-kernel@vger.kernel.org, 
-	Jonathan Toppins <jon.toppins+linux@gmail.com>, linux-kselftest@vger.kernel.org, 
-	Hangbin Liu <liuhangbin@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: atlr-engineering.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DB7PR06MB5324.eurprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 148eef9e-09cc-4b87-774d-08df460ab52e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Nov 2026 06:59:51.2935
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: ba695f87-644d-4185-a9a0-94d2dfd2f6c9
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mcMSe0nulw/A0Gb2Ptekyforwz7D69wfOSKQsByyqsP46g9SyWHWjQl73uX45KuBv2k3AjaEXJT5MNL8KZLLS1sivaqwXHrjp9T7cQlpnS0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR06MB8364
 
-Hi Hangbin,
-
-On Wed, Nov 18, 2026 at 12:27=E2=80=AFAM Hangbin Liu <hangbin.liu@linux.dev=
-> wrote:
->
-> Hi Pin-yen,
-> On Tue, Nov 17, 2026 at 06:32:52PM -0800, Pin-yen Lin wrote:
-> > Hi Hangbin,
-> >
-> > On Mon, Nov 16, 2026 at 11:26=E2=80=AFPM Hangbin Liu <hangbin.liu@linux=
-.dev> wrote:
-> > >
-> > > Hi Pin-yen,
-> > > On Mon, Nov 16, 2026 at 05:30:28PM -0800, Pin-yen Lin wrote:
-> > > > Thanks for the pointer, but I believe Bjoern's patch addresses a
-> > > > different problem.
-> > >
-> > > I think they are the same issue, as you comment also said
-> > >
-> > > The ARP/NS monitor marks a slave down when it has received nothing fo=
-r
-> > > too long.
-> >
-> > This is the existing behavior of the bonding driver, and the prio test
-> > uses it to check which backup slave takes over. Slaves being marked
-> > down is not the root cause of the test failure. Instead, the root
-> > cause is the ping replies described below.
->
-> If the backup slaves are not mark down, we can active the correct slave
-> based on the priority, right? I think that's the root cause. The ping tes=
-ting
-> is just for checking connectivity.
-
-Yes, I get your point now. If we keep backup slaves up all the time,
-the ping reply packets won't affect the test result.
-
->
-> >
-> > >
-> > > >
-> > > > Bjoern's patch keeps the traffic flowing so that idle slaves are ke=
-pt
-> > > > alive between the test steps. This patch fixes the case where the p=
-ing
-> > > > replies from bond_check_connection() only arrive on the active slav=
-e
-> > > > right before it is set down. The active slave's failure is then
-> > > > detected one monitor interval late, when the backups have also time=
-d
-> > > > out.
-> > >
-> > > The reason is we set arp interval to 100ms, and slowwait also check e=
-very
-> > > 100ms. If the backup slave down at the same check point, e.g.
-> > >
-> > >   t=3D300  monitor: eth1 idle 230ms -> still up
-> > >   t=3D400  monitor: eth1 idle 330ms -> down
-> > >                   eth2 idle 400ms -> down too
-> > >
-> > > The test failed.
-> >
-> > I don't think the slowwait interval makes a difference here.
-> >
-> > The ARP monitor decides which slave becomes active, and slowwait only
-> > reads the result afterwards. The test expects the active slave and the
-> > backups to time out in different monitor runs, so that a backup can
-> > take over. In the example above, eth2 is already down when the bond
-> > picks the new active slave, no matter when slowwait polls.
->
->
-> My idea is, by extending the arp interval, there is a larger gap. e.g.
->
->    t=3D300  monitor: eth1 still up
->                    ^^ slowwait check, incorrect active slave
->    t=3D400  monitor: eth1 down
->                    eth2 still up, should become active slave
->    t=3D500  monitor: eth1 down
->                    eth2 still up, active slave
->                    ^^ slowwait check, correct active
-
-Shouldn't eth2 become the active slave at t=3D400? In the failing case,
-eth2 is also down at t=3D400 so it can't be picked.
-
->
-> > >
-> > > >
-> > > > The ARP requests triggered by Bjoern's ping are sent only about onc=
-e
-> > > > per second, which isn't frequent enough for this failure. I tested
-> > > > Bjoern's patch and confirmed that it didn't fix the issue in our
-> > > > testing environment. We also can't simply use arping instead becaus=
-e
-> > > > iputils arping doesn't support sub-second intervals.
-> > > >
-> > > > If you're worried that the 200ms sleep is too short, would increasi=
-ng
-> > > > it to 0.5s or 1s work for you?
-> > >
-> > > It's not about the sleep time before setting active slave down. I'm a=
-fraid
-> > > about the slowwait checking time. Even we sleep 1s, with arp interval=
- 100,
-> > > we still only have 100ms checking window. Before the window, the acti=
-ve slave
-> > > is up, after the window, the backup slave also down. With a debug ker=
-nel, this
-> > > time is a little tight.
-> > >
-> > > So, either we have some background arp traffic, or let's extend the a=
-rp
-> > > interval to a larger one.
-> > >
-> > > What do you think?
-> >
-> > I agree that a 100ms ARP interval could be too short in environments
-> > like a debug kernel.
-> >
-> > Background ARP traffic doesn't widen that window, though: it is sent
-> > through the active slave, so once the active slave is set down,
-> > nothing reaches the backups. It could only help with the ping reply
-> > race if it were very frequent; Bjoern's patch triggers about one ARP
-> > request per second and didn't fix the failures in our testing.
->
-> For background traffic, I mean let the client send the arp requests,
-> not from active slave of server. With arp_validate 0, the backup slaves
-> will update last_rx and won't be down with idle.
-
-I see. If the ARP requests are sent from the client, the backup slaves
-can receive them and will stay up during the test.
-
->
-> >
-> > Increasing the ARP interval alone won't address the ping reply race,
-> > but it should help in environments like a debug kernel. I'd prefer to
-> > keep this patch focused on the ping reply race and send the ARP
-> > interval change as a follow-up, but I can fold it into v2 if you
-> > prefer.
->
-> Doesn't extending the arp_interval (e.g. to 500) resolve your issue?
-> Are you still able to reproduce the problem?
-
-Yes, I can still reproduce this. Simply extending the arp_interval to
-500 does not fix our issue. I still saw failures in 9 of 20 runs.
-
-However, with arp_interval=3D500 and a background arping from the
-client, the issue no longer reproduces. Both of them are needed:
-arping only sends one request per second, which is enough for the
-~1.75s backup timeout at arp_interval=3D500 but not for the ~350ms one
-at arp_interval=3D100.
-
-Bjoern's v1 patch sends the ARP requests from the server, so it
-doesn't fix our issue. I can prepare a v2 to remove the sleep,
-increase the arp_interval to 500, and add a background arping from the
-client, unless Bjoern prefers to include the client-side arping in his
-v2. How would you like to proceed?
-
->
-> Thanks
-> Hangbin
-
-Regards,
-Pin-yen
+> Can you explain why it fails? Is the fix at the right layer here?=0A=
+=0A=
+On the first probe, request_irq() with IRQF_TRIGGER_HIGH overrides the=0A=
+DT's edge type and stores level on the mapping, which outlives the=0A=
+driver. On the re-probe after a WCNSS restart,=0A=
+irq_create_fwspec_mapping() finds that mapping with a type different=0A=
+from the DT's and refuses it ("type mismatch"), so=0A=
+platform_get_irq_byname() returns -ENXIO.=0A=
+=0A=
+The fix for that is patch 1: with the DT saying level, both agree and=0A=
+recovery works without this patch (30/30 forced crashes). This one only=0A=
+stops the driver overriding the DT, as ath10k does; as Luca noted,=0A=
+every other qcom,wcnss-wlan DT already uses level high. Happy to drop=0A=
+it if you'd rather keep the flag.=
