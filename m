@@ -1,54 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795132457;
-	b=ABqX/6totY9WQFzOXTToP57WQEKTBeLtdNzBp2mkqMMEtzUEwp7Aq/kiLd+nxeVmmbKx
-	 /OMSoNHqQf3iswj8+Ks2S9Hvj/E44nMqgBxagnUMq0Znz7NiutrNaTxZtoOaw9ttezo06
-	 h7u/brwc88wPjpetccsVzN5LtR1e9PWokENOTqM6l92TxRbUYf4Tx57y+3mmtlIPm3/P7
-	 xniEV8MQK7Q9HnsIpTNMgrlb+BvTghIrFpxfeP3r/iUxxgEbc5AyTo3HgeCoXwEaNRASu
-	 IDAAJI6wVcL0Bv4fDj/C4ZJ2GefPQCXL8vam1UODOzX2PKosUwKNVZj8CNmQF2DYjKA==
+	t=1795132478;
+	b=UN44YPXNTgarfxogASNDealoFq3bi4wDBBvdMsFMkYuKCkFovg3UYxoDHNLkPk9ppk+s
+	 swNWyk1DFfC7LZo9iV5ylc1SZuprAn1x2Nbz42ubHCDFghdWyawnHZlHhYOf4iOhh94+8
+	 8+DVY6xgstrob/SPCRuW0MnnIXGGTBo+UHjUSDqGpb/O/AtJGVxLm3AwY0/6lvVMOVlHs
+	 gownw1YWGIwEww6uw9gHh4X9uaEYy6N3xiE3S0+CB0yXKg4TfLWlcObCqgEpxMoojbpFV
+	 uh+01Kze0tYUcc5JPgcWv5sqbMJ4fmtNHYuxVyYzsx5cD3Np2NaEUH+awHVDzJKYncw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795132457;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=o8Jkl3D6PyKBQ9flRwdsQA2PhUfjW1xzSb0OsieXFqU=;
-	b=CT2u8FurcsZQpv2ww+WTj9M+UEukbgTE2nNMAz6xXDtKZBS0MA7HfgPQmEnBR8cHlCrE
-	 SKzZOK7KaamUiaxPp/VIdGK8JbgMmElieYyCQ3ayrgOcweUuweoVpEAHyta87X655Fu50
-	 Pi7pWFEoAhUyUN+6yVpzxTbPMwGxjITzxU3qkZoCtGRWAVMkL7ly4wGnYiJN6a3seTByw
-	 w80u2RUw9uT5vn9p/HTKwQgWITnxb2RMz2w9RQ1ydHSQWO6q1tCDEW4nHDxrn72s3B6Rf
-	 nL0M0wUOHO5RGnR2xS9ZywAS5rez+fAAKqp/5RQLUYg2Eh+iy9R2ysVWxx3LgUloGmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132478;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=12ZSxNtzN2/RK0wVV1a0rB4b6IXbcwkOy/ggx5peZS8=;
+	b=WJhS6ZSmylw/B60tp7pDmeIuCIaEPhz30BAgHiREtwAaF7Oaw6RUEHV9qc9euxv/MVnU
+	 lRP9oLbTaK53pxR0oCaDryJfbBQ+H/W/MZ40o2ogEnGy4NCg2YFxAoSGQZiTM5BEQIPwz
+	 XzZ1cJhF6ELdWL/Ewj/LBbAvdcxZYmwXYFckYqMCrcYj9WjE+2p6/FzGCE2zO7IxsqQtB
+	 mpChqF4vT6GH+E3j2TpW6icmc9QugTrtlVGB7A8IkO0LvrEID6vy7j0hzF1DZGdjf+sRE
+	 I2n1c/7YJ1R1o5pvGf8r9sl6b4pUgpESj4iIYMC4KAVgNtKidO6441/1J4saqSZCOdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q70IX0lu;
-	arc=none smtp.remote-ip=95.215.58.171
-Received: from mta1.migadu.com (out-171.mta1.migadu.com [95.215.58.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a9ZlWS1P;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D883606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:54:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D883606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26F37606A325;
+	Thu, 19 Nov 2026 23:54:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q70IX0lu
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=SVZrlJks8sXPVt3xrpYdTAoVZmdk9CSrl7P148bcFmU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795132454; v=1; x=1795737254;
- b=q70IX0luUcbU6FCiJYBpmUfdNrXaCDzDyverVa5nohERhVo++3RcTQWOyKaGqDjVgz3oc5Fx
- VBY96WxGxsdaNk3gHTfIfp6AF/YK/SO2tPRF0sI/OQFkm0I4B33qwJ5F3URCKw0ij+tnYR3yJa0
- Gw0mzX4e9eiXeXHZeFdigyFI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id eca0a2cac3c52e86;
-	Thu, 19 Nov 2026 23:54:14 +0000
-X-Mizu-Trace-ID: eca0a2cac3c52e86
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <1ea66d73-4d40-4d95-855f-4235cbd1d809@linux.dev>
-Date: Fri, 20 Nov 2026 07:53:53 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a9ZlWS1P
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 451291F000C4;
+	Thu, 19 Nov 2026 23:54:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795132478;
+	bh=12ZSxNtzN2/RK0wVV1a0rB4b6IXbcwkOy/ggx5peZS8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=a9ZlWS1P7Ku8B8lKMPE3IOzC8ySlc3z+93UsUAgIeUMg5IsveXaIw3Qy9wFcZU4HS
+	 zm92zwiLiBdJObY0wz5othEcP3qEQeevULXHTgJhfQUnotB9gHWdfNDDFpG1IbPuou
+	 ERJpUHeIoECUwcQLJHLlQnEpcy3APbLvTX/vnKGitsrylJXTE1HmJMpKu6tVytojRT
+	 QIVtesCv0MXZz4f2ZMJF5gpiZiBlRsAUfb2lHmCmrNybR9Lhjq/VLShpws94IJUMt6
+	 +1zfesNub7oc+G92az7RWCpN6NeFc2OqNnoVb2v4AtXmEgrAK5GoE3ulFnrCrhL30H
+	 WzuK1nYrCdHGw==
+Subject: Re: [PATCH can-next v4 2/9] selftests: can: add J1939 test helper
+ header and library
+From: netdev-bot+sashiko@kernel.org
+To: o.rempel@pengutronix.de
+Cc: robin@protonic.nl, socketcan@hartkopp.net, mkl@pengutronix.de,
+ shuah@kernel.org, kernel@pengutronix.de, linux-can@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ fmaurer@redhat.com, mailhol@kernel.org, alexander.hoelzl@gmx.net,
+ quchaosheng000406@163.com, penguin-kernel@I-love.SAKURA.ne.jp,
+ kuba@kernel.org
+Date: Thu, 19 Nov 2026 23:54:36 +0000
+Message-ID: <179513247684.3132.16965169120419676697@kernel.org>
+In-Reply-To: <20261118-j1939-selftests-v4-2-756768d32ff2@pengutronix.de>
+References: <20261118-j1939-selftests-v4-2-756768d32ff2@pengutronix.de>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,187 +66,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: cui.tao@linux.dev, akpm@linux-foundation.org, dgilbert@interlog.com,
- mkp@kernel.org, loberman@redhat.com, jmeneghi@redhat.com, kraxel@redhat.com,
- vivek.kasireddy@intel.com, jasowangio@gmail.com, eperezma@redhat.com,
- stefanha@redhat.com, sgarzare@redhat.com, rostedt@goodmis.org,
- vdonnefort@google.com, mhiramat@kernel.org, jgg@ziepe.ca,
- kevin.tian@intel.com, axboe@kernel.dk, linux-mm@kvack.org,
- James.Bottomley@hansenpartnership.com, sumit.semwal@linaro.org,
- christian.koenig@amd.com, phasta@kernel.org, joro@8bytes.org,
- will@kernel.org, linux-scsi@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
- linaro-mm-sig@lists.linaro.org, kvm@vger.kernel.org,
- virtualization@lists.linux.dev, linux-trace-kernel@vger.kernel.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- linux-kernel@vger.kernel.org, bobbyeshleman@meta.com,
- mathieu.desnoyers@efficios.com, robin.murphy@arm.com, mason@kernel.org,
- aesteve@redhat.com, tjmercier@google.com, harry@kernel.org, vbabka@suse.cz,
- cuitao@kylinos.cn
-Subject: Re: [PATCH 3/7] vhost: account the per-device kernel allocations to
- memcg
-To: "Michael S. Tsirkin" <mst@redhat.com>
-References: <20261106131829.3228926-1-cui.tao@linux.dev>
- <20261106131829.3228926-4-cui.tao@linux.dev>
- <20261119101239-mutt-send-email-mst@kernel.org>
-From: Tao Cui <cui.tao@linux.dev>
-In-Reply-To: <20261119101239-mutt-send-email-mst@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-Hello, Michael,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-在 2026/11/19 23:12, Michael S. Tsirkin 写道:
-> On Fri, Nov 06, 2026 at 09:18:25PM +0800, Tao Cui wrote:
->> From: Tao Cui <cuitao@kylinos.cn>
->>
->> Everything except the worker struct is allocated with plain GFP_KERNEL:
->> the per-vq iovec and log arrays at VHOST_SET_OWNER, the memory table at
->> VHOST_SET_MEM_TABLE whose size follows the user supplied region count,
->> the pending message nodes, and the vhost_net/vhost_vsock device structs
->> with their fallback to vmalloc.  The worker has been accounted since the
->> vhost_task conversion.
->>
->> A container that can open /dev/vhost-net or /dev/vhost-vsock, which
->> device plugins hand out with passthrough, holds roughly 150KB of
->> resident kernel memory per device after SET_OWNER.  Charge the rest the
->> same way the worker already is.
->>
->> Signed-off-by: Tao Cui <cuitao@kylinos.cn>
-> 
-> 
-> Acked-by: Michael S. Tsirkin <mst@redhat.com>
-> 
-> should each patch be merged individually?
-> 
-Yes, I think merging them individually is the cleaner path here: the series spans six subsystems, and each maintainer taking their own piece keeps things simple. Jason has already taken patch 5 into iommufd.  Please feel free to take patch 3 through your tree.
+Low priority / nit picks for your consideration:
 
-Thanks,
-Tao
-> 
->> ---
->>  drivers/vhost/net.c   | 14 ++++++++------
->>  drivers/vhost/vhost.c | 16 ++++++++++------
->>  drivers/vhost/vsock.c |  5 +++--
->>  3 files changed, 21 insertions(+), 14 deletions(-)
->>
->> diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
->> index 4570a4ffbab2..bab6597c696d 100644
->> --- a/drivers/vhost/net.c
->> +++ b/drivers/vhost/net.c
->> @@ -249,7 +249,7 @@ vhost_net_ubuf_alloc(struct vhost_virtqueue *vq, bool zcopy)
->>  	/* No zero copy backend? Nothing to count. */
->>  	if (!zcopy)
->>  		return NULL;
->> -	ubufs = kmalloc_obj(*ubufs);
->> +	ubufs = kmalloc_obj(*ubufs, GFP_KERNEL_ACCOUNT);
->>  	if (!ubufs)
->>  		return ERR_PTR(-ENOMEM);
->>  	atomic_set(&ubufs->refcount, 1);
->> @@ -302,7 +302,8 @@ static int vhost_net_set_ubuf_info(struct vhost_net *n)
->>  		if (!zcopy)
->>  			continue;
->>  		n->vqs[i].ubuf_info =
->> -			kmalloc_objs(*n->vqs[i].ubuf_info, UIO_MAXIOV);
->> +			kmalloc_objs(*n->vqs[i].ubuf_info, UIO_MAXIOV,
->> +				     GFP_KERNEL_ACCOUNT);
->>  		if  (!n->vqs[i].ubuf_info)
->>  			goto err;
->>  	}
->> @@ -1344,17 +1345,18 @@ static int vhost_net_open(struct inode *inode, struct file *f)
->>  	struct xdp_buff *xdp;
->>  	int i;
->>  
->> -	n = kvmalloc_obj(*n, GFP_KERNEL | __GFP_RETRY_MAYFAIL);
->> +	n = kvmalloc_obj(*n, GFP_KERNEL | __GFP_RETRY_MAYFAIL |
->> +			 __GFP_ACCOUNT);
->>  	if (!n)
->>  		return -ENOMEM;
->> -	vqs = kmalloc_objs(*vqs, VHOST_NET_VQ_MAX);
->> +	vqs = kmalloc_objs(*vqs, VHOST_NET_VQ_MAX, GFP_KERNEL_ACCOUNT);
->>  	if (!vqs) {
->>  		kvfree(n);
->>  		return -ENOMEM;
->>  	}
->>  
->>  	queue = kmalloc_array(VHOST_NET_BATCH, sizeof(void *),
->> -			      GFP_KERNEL);
->> +			      GFP_KERNEL_ACCOUNT);
->>  	if (!queue) {
->>  		kfree(vqs);
->>  		kvfree(n);
->> @@ -1362,7 +1364,7 @@ static int vhost_net_open(struct inode *inode, struct file *f)
->>  	}
->>  	n->vqs[VHOST_NET_VQ_RX].rxq.queue = queue;
->>  
->> -	xdp = kmalloc_objs(*xdp, VHOST_NET_BATCH);
->> +	xdp = kmalloc_objs(*xdp, VHOST_NET_BATCH, GFP_KERNEL_ACCOUNT);
->>  	if (!xdp) {
->>  		kfree(vqs);
->>  		kvfree(n);
->> diff --git a/drivers/vhost/vhost.c b/drivers/vhost/vhost.c
->> index ea127af58ada..d1274106ad5d 100644
->> --- a/drivers/vhost/vhost.c
->> +++ b/drivers/vhost/vhost.c
->> @@ -526,11 +526,14 @@ static long vhost_dev_alloc_iovecs(struct vhost_dev *dev)
->>  
->>  	for (i = 0; i < dev->nvqs; ++i) {
->>  		vq = dev->vqs[i];
->> -		vq->indirect = kmalloc_objs(*vq->indirect, UIO_MAXIOV);
->> -		vq->log = kmalloc_objs(*vq->log, dev->iov_limit);
->> -		vq->heads = kmalloc_objs(*vq->heads, dev->iov_limit);
->> +		vq->indirect = kmalloc_objs(*vq->indirect, UIO_MAXIOV,
->> +					    GFP_KERNEL_ACCOUNT);
->> +		vq->log = kmalloc_objs(*vq->log, dev->iov_limit,
->> +				       GFP_KERNEL_ACCOUNT);
->> +		vq->heads = kmalloc_objs(*vq->heads, dev->iov_limit,
->> +					 GFP_KERNEL_ACCOUNT);
->>  		vq->nheads = kmalloc_array(dev->iov_limit, sizeof(*vq->nheads),
->> -					   GFP_KERNEL);
->> +					   GFP_KERNEL_ACCOUNT);
->>  		if (!vq->indirect || !vq->log || !vq->heads || !vq->nheads)
->>  			goto err_nomem;
->>  	}
->> @@ -2053,7 +2056,8 @@ static long vhost_set_memory(struct vhost_dev *d, struct vhost_memory __user *m)
->>  		return -E2BIG;
->>  	if (max_iotlb_entries <= 0)
->>  		return -EINVAL;
->> -	newmem = kvzalloc_flex(*newmem, regions, mem.nregions);
->> +	newmem = kvzalloc_flex(*newmem, regions, mem.nregions,
->> +			       GFP_KERNEL_ACCOUNT);
->>  	if (!newmem)
->>  		return -ENOMEM;
->>  
->> @@ -3405,7 +3409,7 @@ EXPORT_SYMBOL_GPL(vhost_disable_notify);
->>  struct vhost_msg_node *vhost_new_msg(struct vhost_virtqueue *vq, int type)
->>  {
->>  	/* Make sure all padding within the structure is initialized. */
->> -	struct vhost_msg_node *node = kzalloc_obj(*node);
->> +	struct vhost_msg_node *node = kzalloc_obj(*node, GFP_KERNEL_ACCOUNT);
->>  	if (!node)
->>  		return NULL;
->>  
->> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
->> index 0cb87971d749..600daeb05e7b 100644
->> --- a/drivers/vhost/vsock.c
->> +++ b/drivers/vhost/vsock.c
->> @@ -721,11 +721,12 @@ static int vhost_vsock_dev_open(struct inode *inode, struct file *file)
->>  	/* This struct is large and allocation could fail, fall back to vmalloc
->>  	 * if there is no other way.
->>  	 */
->> -	vsock = kvmalloc_obj(*vsock, GFP_KERNEL | __GFP_RETRY_MAYFAIL);
->> +	vsock = kvmalloc_obj(*vsock, GFP_KERNEL | __GFP_RETRY_MAYFAIL |
->> +			     __GFP_ACCOUNT);
->>  	if (!vsock)
->>  		return -ENOMEM;
->>  
->> -	vqs = kmalloc_objs(*vqs, ARRAY_SIZE(vsock->vqs));
->> +	vqs = kmalloc_objs(*vqs, ARRAY_SIZE(vsock->vqs), GFP_KERNEL_ACCOUNT);
->>  	if (!vqs) {
->>  		ret = -ENOMEM;
->>  		goto out;
->> -- 
->> 2.43.0
-> 
+- [Low] Baseline decision: false positive.
 
+--
+
+selftests: can: add J1939 test helper header and library
+
+This commit adds the shared code for the upcoming J1939 selftests: the C
+helpers in j1939_helpers.c/.h, the harness glue in j1939_tests.h, and the
+j1939_lib.sh vcan setup and runner. It also adds j1939_gw, which sets up
+CAN gateway rules so that the CAN_RAW peer can sit on its own vcan,
+separate from the J1939 sockets.
+
+> diff --git a/tools/testing/selftests/net/can/j1939_lib.sh b/tools/testing/selftests/net/can/j1939_lib.sh
+> new file mode 100644
+> index 0000000000000..796022760e487
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/can/j1939_lib.sh
+
+[ ... ]
+
+> +setup()
+> +{
+> +	vcan_setup "$CANIF"
+> +
+> +	# shared or none: no second vcan
+> +	[ "$j1939_peer" = gateway ] || return 0
+> +
+> +	if [ "$CANIF_RAW" = "$CANIF" ]; then
+> +		echo "SKIP: CANIF_RAW is CANIF ($CANIF); set another CANIF_RAW or J1939_SHARED_IF=1"
+> +		exit "$ksft_skip"
+> +	fi
+> +
+> +	vcan_setup "$CANIF_RAW"
+> +
+> +	# rtnetlink does not load can-gw on demand
+> +	modprobe -q can-gw 2>/dev/null
+> +
+> +	if ! "$(dirname "$0")/j1939_gw" "$CANIF" "$CANIF_RAW"; then
+
+[Severity: Low]
+This isn't a bug, but at this patch tools/testing/selftests/net/can/config
+still contains only:
+
+CONFIG_CAN=m
+CONFIG_CAN_DEV=m
+CONFIG_CAN_VCAN=m
+
+In the default gateway mode, setup() needs CAN_GW. The checks in
+j1939_test_main() need CAN_J1939, and CAN_RAW too when a test passes
+J1939_NEEDS_RAW:
+
+	if (can_proto_missing(SOCK_DGRAM, CAN_J1939)) {
+		fprintf(stderr, "# kernel lacks CAN_J1939\n");
+		return KSFT_SKIP;
+	}
+
+A kernel built only from this fragment would skip every J1939 test.
+
+At this patch nothing goes wrong. TEST_PROGS is still only
+test_raw_filter.sh, so no test reaches j1939_lib.sh or j1939_test_main()
+yet.
+
+The next patch in the series, "selftests: can: add J1939 base functional
+tests", adds the first J1939 test. In the same patch it adds
+CONFIG_CAN_GW=m, CONFIG_CAN_J1939=m and CONFIG_CAN_RAW=m to the fragment,
+so this is resolved later in the series.
+
+Would it be clearer to add those options here, next to the library and
+j1939_gw that depend on them, or is the current split intended?
+
+> +		echo "SKIP: cannot route $CANIF <-> $CANIF_RAW (can-gw?); try J1939_SHARED_IF=1"
+> +		exit "$ksft_skip"
+> +	fi
+> +}
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118-j1939-selftests-v4-0-756768d32ff2%40pengutronix.de
