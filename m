@@ -1,111 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101428;
-	b=JsLKpdrdQJVd0T7Vp0GLQWGWAelzH5OYw679O48nrhN5XxuH16D6OiZylTGC5I8sJoRv
-	 9Vj39hVXUDdFn3JWL7tXpJjC5lVzqZrKfIYVFMAi1JCZwhfwGlZRWCP5NoAAPgODyvxKE
-	 NlsFZIP2P/QTX5F+FcucgiZFywdAbeK7/bVZ7ZHZSnomrNCDJSneWHDOWCmOp+YDcqyM/
-	 xidEQ3UMMLFtpBuhCspUX/h2an/U5457j0w2uMSlDIJzKgdrlgO+NC7UyF39iMA82fWRo
-	 Qtm8jcSqcpoSDzOABlVpQ1eM7S2ln5lutahh/4V+PYJkEy/kFeu4vF4G6wpthUINsMQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101428;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795101434;
+	b=b7BN8IrW0mFB/wUBeQf5YrueoJ3V2l3BBQCM3YIiF0Lt/eXK8dkNcftdmQ/EhDRCweuN
+	 bH1R8GQVPbeXoXm1elwnyp6vWJZe1GuMK+0d5wP+YEXdOyCdxDC922saybXBKk7878kkO
+	 lhQEKXav3p/R98Ho+/MO1Sq5e9feiNoCgwnEonRXFfXUJjUmi7GnXuRe57W+TYaLkDtQo
+	 Fl5vT2rUpj8wyO+EgqK8JFX3wB8UVh7kly6AwQ9OGBvBgUPooWTzDD8JKTDzhpxLNvRbq
+	 smj2RzLl3DFRJRoMmcE/d1iHKsnkSJghUXENO+3Qn+Vq4tSpy/3q0kD6BK37C0t5Okg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101434;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=mjCxSf15mAPakEhD7vh/i5/i7+CcuyVlsLkCJ9N8WsQ=;
-	b=dAMGuUvyD1YIWDAkFsnHfXomhciJb1DAG2Md3Hj9sQeoahtf1DH4wL872PzBF8S0SP46
-	 t2UT6ic2S0rA1xyyqbyhNzHd8GeoilMwDe7wni9IE6asfEtzKlQfi+K7FIypGlAioDhHe
-	 ZxcJLKJV3FyXqsMC87iAgpyzJ2YVGG93xgWI9N4qjbY8nwMOVa5H6p1xre9ecAer4C6Fn
-	 SrF02u/acTK1iFb05877MacJ8g8G2S8kr2lv2Ul8MwzAZYjwhfANujX6DNGdlalZt1T/T
-	 AzB7+TlTTHVzN792pw3WgpJBfX6is1dOBDhAFrVcvbxgnBqugpupDq9Y/2T+ENu8cjw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EXDMKD6y;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=IUWlH+K9;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=s1nV4pJB/Pg9LULexQxieGs66dNhcFkD3Zb94PHOxG0=;
+	b=b9MBJtLuFoUjJ1ZvkBkYVCaLALb/iQECQPpl3dYqqKkHX90p9g+AAPvmFUdYs+lunwT+
+	 ehIu/dCFXm2+8NUwKMFG6uO04jMph4upb1TyIDIsge8iHVlu/+V3gW/xuTHg0bHoG2IpY
+	 eO7zHeqprCeOg0My35fJFn4kINcnL/49U5YKQETyobWdZp0NUNHGxZZv9psCofs5TfyZW
+	 xlHPdtRq+IH8azDFeGvPm/3xYOECxaHeYuIR1dvXd83DI9iMlqE0in0hklVq+JH57nnoL
+	 tHuBW3XqGXw/SnW65uCqZ58eFwF2oKgkFP8H58SUPnFCMA0eD2AF8hbdBSYPdz+wNug==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=brainfault.org;
+	spf=none smtp.mailfrom=brainfault.org;
+	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EqLKk95M;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 662A6606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:17:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 662A6606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34A27606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:17:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34A27606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EXDMKD6y;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=IUWlH+K9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795101427;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mjCxSf15mAPakEhD7vh/i5/i7+CcuyVlsLkCJ9N8WsQ=;
-	b=EXDMKD6yqKFvkXbYVx/MdSNdc8a+6Q90BNwrR2g7ckKOVn4s7V/hShdXN+KN46YQxBRZYB
-	K2mwp0OJMdu6Wjf4ITxn2Fbl8968cXtYQoT4YpQXWAdooqAhfzKiohCHCvHiyYOKuWG4C9
-	1dettkrgYMruBDA9zOOMFFzz4DqllSc=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-282-5tle8kNdPnasRfzHhNc8Lw-1; Thu, 19 Nov 2026 10:17:05 -0500
-X-MC-Unique: 5tle8kNdPnasRfzHhNc8Lw-1
-X-Mimecast-MFC-AGG-ID: 5tle8kNdPnasRfzHhNc8Lw_1795101424
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4bb66fc3aa6so24910395e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:17:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=EqLKk95M
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so14358185e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:17:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795101431; cv=none;
+        d=google.com; s=arc-20260327;
+        b=WfPIqRb9aPpM7ckvkrfWgUhHqbc3yryQYvDGpi/4cylusLTydhiHj6HWiipniYtg71
+         qroq7L4oe2j98tH15GSfQ4ZhsGjZRaThv+qOFwHVU7tXEhcRFz9nMl+IetWCrHQWwpGg
+         rIbDVTgSthTSsS/kXJzzOcXAbIQyy3G5CmvYhz67zI4U5wqBQrK9jOWkM1xtouAGYsXd
+         4JpaOliVeIKm7iS1fl6Ob3ZrVNfkxzCl39ERky9hF9uEQU6epm/H5I0CEwFuj+IFFvFF
+         2sGL9bkCrMLn/tdv0uL656BYwGi1EH5AO0WZQmzHT6LoYurhj67MYZI5VbuGq6iuWghG
+         EMyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=s1nV4pJB/Pg9LULexQxieGs66dNhcFkD3Zb94PHOxG0=;
+        fh=tFIGsD5EdLKNzOctkA37NxlehuAGOLcw/wl+88ZVmtU=;
+        b=ATfY67Su6lY0DlMZsq9YXR4ZAgREyCqceHRG2dkf5XHxV40jchhqJ9FN8xMCMJ8pSj
+         3io+i8vDbGfKB1A0VMuDRHPUVCdEP3HoK8e9HDlWHcL31JYxU0eJtUms3hOqaFvmBWTt
+         O4MMSy0YeMKepGvQvQds23r+rqvd/lWjV7CwUCZGA639EndxJ/Rr6cHtJM9XpnjB8O+J
+         /U0eQpaYpg5h6m1GXZbRstOKTUUzILrsmL0YCEM3lq3zCIQiIVyvV92xS/GQAxMgRAX5
+         h9GSUEiRJbIBLhDTfnO6HPuHlqe+YCZY/s0zZOsq6tetyFWl5DpLZsz5GMRz4LDE0jR9
+         JDkQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795101424; x=1795706224; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=brainfault.org; s=google; t=1795101431; x=1795706231; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=mjCxSf15mAPakEhD7vh/i5/i7+CcuyVlsLkCJ9N8WsQ=;
-        b=IUWlH+K9m4dAZ99xhZkMm66CDHfQQpuhK7inqhjwnJcph+H/r0YQE344/dAseahaMS
-         xUjhHtovxFHAbvYsihdu8qXKez2hpG6v+4aOTHwuhTegH05gJgXbn8kjYS6MKVj3ZoS8
-         n3YcE4lPOSF42mi5t6CjZsP4wiSSQJ7fObtAkqUSFrPdXyzGiQLdx1Zn2hyBAdUYsz9X
-         nVAP1yu/Fl+CTeIZj0s8c1wpBdyLGkTR/A6x4e1sLPbFU4hSj2VHSaU2C5IKq16z/lJn
-         sax/k0MDQBGfyXmTRfvh2qTzUjoGVbPov6Eh1dBsUD6sRi744WwcCdVTchlClgU9uNFV
-         S3yA==
+        bh=s1nV4pJB/Pg9LULexQxieGs66dNhcFkD3Zb94PHOxG0=;
+        b=EqLKk95MuL23AxC5kk0f9B/+c8l7zuzfV35+7PQZcewvu8NBRCyJhTnAnTgUF+eW7W
+         QhCQ4ESv1BPBMzj2LpFl+T/Bv+tlhZbf88kl63Ah2E1E3f6zMtAWHTLxvx934Q/a5mjE
+         prcyke/LDZWphgODmG/mLb2d7TgR6+bBEqy5Ccpooipu16YuaFabUQ227oLFDi/fcry9
+         yEVfvxgj6Bn0LkRr49zGglNIgVsipN/OzHBzL0yOo7riEao4hYfRZa12qkllc1TwEkhE
+         q38yPnE18Ihuy/X1waYZ9sNXwsIetbWvtqnNVt4Y6XRkih71XtRN57SiTIr83LiUI7Wy
+         u1DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795101424; x=1795706224;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795101431; x=1795706231;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mjCxSf15mAPakEhD7vh/i5/i7+CcuyVlsLkCJ9N8WsQ=;
-        b=waKEhPHPBEzulKJZRLQOxu9K/MwNs8AZST3SDf6s4LrDRWebqb0ZQS4g5h3xrfhVo3
-         ox9YiMOFzE2RD155kNmK7OVopd+mQYqYcvKGXumotta2lFWixAy/lj75JjL5CIFAJ7Dd
-         GC1F/8mf+gPNxlNETT/nAjoO2a/qsHdBjKnCwUirHDYEFKhe5U8WJ4B1Q3NRKjOx0ZAX
-         /0xakTOJwtcc3+9lqUsIEbe6fz/GrzwPX4UfnPosmOehzUm8xc0exAtwxsmPUub96hkG
-         mLOCigFEKBeBGkb1AOwVTXBINRQ28TmOCCUshtFHXgjCPbqzIg8F5DK7xdRITOH/yqjy
-         ZjTQ==
-X-Forwarded-Encrypted: i=1; AL+hErFiCuTEojvcY4guHtH5CBztMdPVgd04H5coziOJ0DtgZ3YI8n1Bc6JJEmjn2nR2Op9wpxAQsuEHjiedx8Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/yatVxixd74w9ouZknguJ7XIb/TV/NoE2pa3l4m7l+V6ivv47T
-	nVQ4XD+LeGGW6KEgA3xCj98NRwfMzzfYWLBgIt8uJj3+x1Tzj17FyzAKy5imgi3EM9jNNCn3qv0
-	DnbP5lCoLONFYPdR4+uBoMxznUb2Q3iN2OnWWv8lx5mEVqiUfrZetsGER3u+BSgibPA==
-X-Gm-Gg: AYBFou12qJdCnYAd8y7eTeOd85IwZ+DMaSQd6Vab6Zx6aUqEHQEAwXVGQbCmkIF0KX1
-	Qr3IWo8r9iLBPaOmhhFCvmririAFVH/uEGCrqmMViLKf+zSO/+OjMSB079PZg6e4WD8rMk3Rcey
-	GVvVPqByTof7E8G1lbxBjodE7JYuMUICfvWv1xqeLvYowxs0P04sbHkI1OoNJeiYxr5u4TOm1Vr
-	WZZXjyhM6cxXGzaj4OJkgRqcaegRhgujdLf3hZVvqJO0hQVarLqK05T6M5DSYmBBQTFrsGEOlai
-	QxcmUW/GtpSgb8Hu09P256a9ksUVxAXv3tRdpEUUGKNN+XA3Md+fTcCkiUbH1yJmsNkegxDW8kc
-	82eCXmlBcLcU3i039keRST+/iNnaTYgJJFqG1Qc04YQ==
-X-Received: by 2002:a05:600c:4583:b0:4a7:9025:5c3b with SMTP id 5b1f17b1804b1-4bb7da2633emr133918265e9.19.1795101423922;
-        Thu, 19 Nov 2026 07:17:03 -0800 (PST)
-X-Received: by 2002:a05:600c:4583:b0:4a7:9025:5c3b with SMTP id 5b1f17b1804b1-4bb7da2633emr133917645e9.19.1795101423444;
-        Thu, 19 Nov 2026 07:17:03 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1522:6500:ac93:c62:f076:48c6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e47177sm29776395e9.2.2026.11.19.07.17.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 07:17:02 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:16:59 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: raoxu <raoxu@uniontech.com>
-Cc: jasowangio@gmail.com, eperezma@redhat.com, kvm@vger.kernel.org,
-	virtualization@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] vhost/net: Fix receive queue test in busy poll
-Message-ID: <20261119101645-mutt-send-email-mst@kernel.org>
-References: <005FA5F7354482C7+20261110051642.249640-1-raoxu@uniontech.com>
+        bh=s1nV4pJB/Pg9LULexQxieGs66dNhcFkD3Zb94PHOxG0=;
+        b=Vmj11B9q94Y+/Vp3VGYtUw6Om4vwlRuTbIN5NMxna7XHjHcATtjDJ55AwCOvFNWaDL
+         BVKHYTW48fofwwCSYy5H3wEYdk4oFzPyV7H5SvTPfBCM9A1djnvO4YgjVUJQb7FdDeiD
+         fsOh36cCkXfjiUehqmgp5TgyHwHe4Piy9ojvxpVbLWFRbJ2munlf8qP690OvKK7dzvo0
+         Te6i1D+ZaH3E7oRYCCA2O6WvjkHRxv8zmSKCelzinHiKzW4YqQxPxqt2XEUZ+JAiMV1Q
+         l9bwCi4VSbOphaqytdsaM30iVYHUkhzvy8tKi1nhFRZ/Qm003Jfw5Bys5g67pZKPU6Nr
+         M1nA==
+X-Forwarded-Encrypted: i=1; AL+hErFwcZ+LXz3eFWK5MNY0MRvJpsstJNhZjX7KCNYpHJNo0eB8QDpaKxl0PvEiDxjEpB/GuiCutGdyr+MMS/o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qAPHJiU+C0MrsttfuNt6qMefJaVwAAQ/zhYHJ1VfgN/7SV9cH
+	FXbWoeWkdpMtNuk13OpyOv9igkv8g0f0WMupBE5EItTAsss0hCy8odXP/tXFI1+CQfBUL8eIivM
+	AxjRQtfHuydLuKEz+1Ed2JUXb9MMhzL+sQkvgFh6Tjw==
+X-Gm-Gg: AYBFou09LHMojaResjpwBTNEIgEPZam2V46XP5IvZEZIS1HR96MKUQTFkUFw8e88Qw1
+	d7lx7uODPmHAQVBPHO2VtSf96UiHQMVORzPp/uMtWQhbDKu+kGA9AJwHjJ5zDF64VkhGJBV5dpG
+	/pzEQ4jHSOqeW0uMnKnMDm3A8snmPDu9N6MfF+LbRHpI+sdsb5Pq/b2V2RoKxFPyWpVFl48pFQQ
+	T5U2uVeqrC+F8t7UllSEY+8WtYoTpTGZL8r/wtfzyE6+iKN/DHdSFhO1hOqmyVoS0KLySiLNs1t
+	LnrCCJB+OEqCHFELSF/blZ/10ZEPgiEJQT3DC57RTU1OBBJ6x9W6Nz9pIHJnNyrPOKxaUWEaHi2
+	52aU/cDfhMFIoVw2tCeXoVHiFkEVtrQvUEU0Kr7zPd73cxvzWaL75UfEmZm+Pr190R19tGTK1NN
+	0wIMhLaAQCc/caPmRpUokyIIYnRRQWvkdO6b2oodlHaJ5azkBmj7+LZqU=
+X-Received: by 2002:a05:600c:314f:b0:4a1:c6f5:2450 with SMTP id
+ 5b1f17b1804b1-4bb8612e0ecmr32385565e9.17.1795101431510; Thu, 19 Nov 2026
+ 07:17:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,45 +105,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <005FA5F7354482C7+20261110051642.249640-1-raoxu@uniontech.com>
+References: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com> <20261118095053.3871267-3-vikram.singh3@oss.qualcomm.com>
+In-Reply-To: <20261118095053.3871267-3-vikram.singh3@oss.qualcomm.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 19 Nov 2026 20:46:59 +0530
+X-Gm-Features: Aa3M54rT33sHedk6b52_SmmeeC6_QwQxOJWE_LlMaSuUzG5nqW2zaQJ7Y3n50ik
+Message-ID: <CAAhSdy1YOv2hBe9zi+yJ=fmVEfWi9iGSxxKJ7uZbSHowTj7NOg@mail.gmail.com>
+Subject: Re: [PATCH v5 2/7] riscv: pmu: Add Control transfer records CSR definations.
+To: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
+	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
+	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com, 
+	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	beeman@rivosinc.com, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor@kernel.org>, 
+	devicetree@vger.kernel.org, Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 10, 2026 at 01:16:42PM +0800, raoxu wrote:
-> From: Xu Rao <raoxu@uniontech.com>
-> 
-> sock_has_rx_data() returns a positive result when receive data is
-> available. Socket implementations with a peek_len() callback follow
-> that convention, but the fallback for sockets without one returns
-> skb_queue_empty(), which has the opposite meaning.
-> 
-> This makes busy polling stop when a raw packet socket has no queued data
-> and fail to recognize queued data through the fallback path. Return the
-> negated queue-empty result so the fallback matches the callback and its
-> callers.
-> 
-> Signed-off-by: Xu Rao <raoxu@uniontech.com>
+On Wed, Nov 18, 2026 at 3:21=E2=80=AFPM Vikram Singh
+<vikram.singh3@oss.qualcomm.com> wrote:
+>
+> Adding CSR defines for RISCV Control Transfer Records extension [0]
+> along with bit-field macros for each CSR.
+>
+> [0]: https://github.com/riscv/riscv-control-transfer-records
+>
+> Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+> Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
+> Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
+> Link: https://lore.kernel.org/r/20261106173942.3175069-3-vikram.singh3@os=
+s.qualcomm.com
+> Signed-off-by: Anup Patel <anup@brainfault.org>
 
-
-do u want to send v2 addressing review?
+As mentioned in PATCH1, drop the "Link:" and the subsequent
+"Signed-off-by:" lines.
 
 > ---
->  drivers/vhost/net.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
-> index 4570a4ffbab2..10ed2d55ff07 100644
-> --- a/drivers/vhost/net.c
-> +++ b/drivers/vhost/net.c
-> @@ -538,7 +538,7 @@ static int sock_has_rx_data(struct socket *sock)
->  	if (sock->ops->peek_len)
->  		return sock->ops->peek_len(sock);
-> 
-> -	return skb_queue_empty(&sock->sk->sk_receive_queue);
-> +	return !skb_queue_empty(&sock->sk->sk_receive_queue);
->  }
-> 
->  static void vhost_net_busy_poll_try_queue(struct vhost_net *net,
+>  arch/riscv/include/asm/csr.h | 95 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 95 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 621f84d1898f..063351d9b406 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -350,6 +350,97 @@
+>
+>  #define CSR_SCOUNTOVF          0xda0
+>
+> +/* M-mode Control Transfer Records CSRs */
+> +#define CSR_MCTRCTL            0x34e
+> +
+> +/* S-mode Control Transfer Records CSRs */
+> +#define CSR_SCTRCTL            0x14e
+> +#define CSR_SCTRSTATUS         0x14f
+> +#define CSR_SCTRDEPTH          0x15f
+> +
+> +/* VS-mode Control Transfer Records CSRs */
+> +#define CSR_VSCTRCTL           0x24e
+> +
+> +/* xctrtl CSR bits. */
+> +#define CTRCTL_U_ENABLE                _AC(0x1, UL)
+> +#define CTRCTL_S_ENABLE                _AC(0x2, UL)
+> +#define CTRCTL_M_ENABLE                _AC(0x4, UL)
+> +#define CTRCTL_RASEMU          _AC(0x80, UL)
+> +#define CTRCTL_STE             _AC(0x100, UL)
+> +#define CTRCTL_MTE             _AC(0x200, UL)
+> +#define CTRCTL_BPFRZ           _AC(0x800, UL)
+> +#define CTRCTL_LCOFIFRZ                _AC(0x1000, UL)
+> +#define CTRCTL_EXCINH          _AC(0x200000000, UL)
+> +#define CTRCTL_INTRINH         _AC(0x400000000, UL)
+> +#define CTRCTL_TRETINH         _AC(0x800000000, UL)
+> +#define CTRCTL_NTBREN          _AC(0x1000000000, UL)
+> +#define CTRCTL_TKBRINH         _AC(0x2000000000, UL)
+> +#define CTRCTL_INDCALL_INH     _AC(0x10000000000, UL)
+> +#define CTRCTL_DIRCALL_INH     _AC(0x20000000000, UL)
+> +#define CTRCTL_INDJUMP_INH     _AC(0x40000000000, UL)
+> +#define CTRCTL_DIRJUMP_INH     _AC(0x80000000000, UL)
+> +#define CTRCTL_CORSWAP_INH     _AC(0x100000000000, UL)
+> +#define CTRCTL_RET_INH         _AC(0x200000000000, UL)
+> +#define CTRCTL_INDOJUMP_INH    _AC(0x400000000000, UL)
+> +#define CTRCTL_DIROJUMP_INH    _AC(0x800000000000, UL)
+> +
+> +/* sctrstatus CSR bits. */
+> +#define SCTRSTATUS_WRPTR_MASK  0xFF
+> +#define SCTRSTATUS_FROZEN      _AC(0x80000000, UL)
+> +
+> +#ifdef CONFIG_RISCV_M_MODE
+> +#define CTRCTL_KERNEL_ENABLE   CTRCTL_M_ENABLE
+> +#else
+> +#define CTRCTL_KERNEL_ENABLE   CTRCTL_S_ENABLE
+> +#endif
+> +
+> +/* sctrdepth CSR bits. */
+> +#define SCTRDEPTH_MASK         0x7
+> +
+> +#define SCTRDEPTH_MIN          0x0 /* 16 Entries. */
+> +#define SCTRDEPTH_MAX          0x4 /* 256 Entries. */
+> +
+> +/* ctrsource, ctrtarget and ctrdata CSR bits. */
+> +#define CTRSOURCE_VALID                0x1ULL
+> +#define CTRTARGET_MISP         0x1ULL
+> +
+> +#define CTRDATA_TYPE_MASK      0xF
+> +#define CTRDATA_CCV            0x8000
+> +#define CTRDATA_CCM_MASK       0xFFF0000
+> +#define CTRDATA_CCE_MASK       0xF0000000
+> +
+> +#define CTRDATA_TYPE_NONE                      0
+> +#define CTRDATA_TYPE_EXCEPTION                 1
+> +#define CTRDATA_TYPE_INTERRUPT                 2
+> +#define CTRDATA_TYPE_TRAP_RET                  3
+> +#define CTRDATA_TYPE_NONTAKEN_BRANCH           4
+> +#define CTRDATA_TYPE_TAKEN_BRANCH              5
+> +#define CTRDATA_TYPE_RESERVED_6                        6
+> +#define CTRDATA_TYPE_RESERVED_7                        7
+> +#define CTRDATA_TYPE_INDIRECT_CALL             8
+> +#define CTRDATA_TYPE_DIRECT_CALL               9
+> +#define CTRDATA_TYPE_INDIRECT_JUMP             10
+> +#define CTRDATA_TYPE_DIRECT_JUMP               11
+> +#define CTRDATA_TYPE_CO_ROUTINE_SWAP           12
+> +#define CTRDATA_TYPE_RETURN                    13
+> +#define CTRDATA_TYPE_OTHER_INDIRECT_JUMP       14
+> +#define CTRDATA_TYPE_OTHER_DIRECT_JUMP         15
+> +
+> +#define CTR_ENTRIES_FIRST      0x200
+> +#define CTR_ENTRIES_LAST       0x2ff
+> +
+> +/* Temporary addresses for Sspesa (Precise Event Sample Attribution) CSR=
+s. */
+> +#define CSR_SHPMSPC            0x5d0
+> +#define CSR_SHPMSDATA          0x5d1
+> +
+> +/* shpmsdata fields */
+> +#define SHPMSDATA_CNTRID       GENMASK(4, 0)
+> +#define SHPMSDATA_MODE         GENMASK(6, 5)
+> +#define SHPMSDATA_V            BIT(7)
+> +#define SHPMSDATA_METADATA_SHIFT       8
+> +#define SHPMSDATA_MODE_U       0
+> +#define SHPMSDATA_MODE_S       1
+> +
+>  #define CSR_SSTATUS            0x100
+>  #define CSR_SIE                        0x104
+>  #define CSR_STVEC              0x105
+> @@ -563,6 +654,8 @@
+>  # define CSR_TOPEI     CSR_MTOPEI
+>  # define CSR_TOPI      CSR_MTOPI
+>
+> +# define CSR_CTRCTL    CSR_MCTRCTL
+> +
+>  # define SR_IE         SR_MIE
+>  # define SR_PIE                SR_MPIE
+>  # define SR_PP         SR_MPP
+> @@ -593,6 +686,8 @@
+>  # define CSR_TOPEI     CSR_STOPEI
+>  # define CSR_TOPI      CSR_STOPI
+>
+> +# define CSR_CTRCTL    CSR_SCTRCTL
+> +
+>  # define SR_IE         SR_SIE
+>  # define SR_PIE                SR_SPIE
+>  # define SR_PP         SR_SPP
 > --
-> 2.50.1
+> 2.43.0
+>
 
+Otherwise, LGTM.
+
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
