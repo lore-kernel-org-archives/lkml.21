@@ -1,90 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795106849;
-	b=sz9EvatA25EO+7J2HLS2pUHtyJs0lkTHKexGUqngT9Qj6QnfG4mT9sGeLu2MMe+NWXYT
-	 jtzXz+gILj5RxpgF1UBUbyp5mGhutE/qbq+DqtGttJFQjkJ8tD61bJtKj2pYqC33TSLvC
-	 h/6rDAdidRfFDJIc4Q8NtYPhVDaxa76Yrnowy3smjcNOMPiqR72afP+b3DjHC9BRv4Eks
-	 kdCrc1DwWbZuRWx2M0m1XUFFunoRoWr+oXcgF/wVTrKcVwYmaCe23alX9FT83kCTURDcr
-	 wWxWjC1H2GGMIPwPSu/OUh3BytYgYMYTndr9PpvHCHAmWIvWLx/9L+G5HH57WE30tQQ==
+	t=1795106881;
+	b=TDQJSgvfU5/0b82yvHHFmIycLZ+27Xoih/E7dm4TjhPe0DAd2Ks3c5o2W0PBGu+pD7Il
+	 NWCoh+N87u0TJ1WjAFhHgZBtTLEe8sCvBOhxzM47b4ngA6kosjkalR7tqU9KYFSaaqq5Z
+	 e85WmR3GXPzlt4EbhybGWpV1ES2ImpO5ZWMwdnX9ofhWxoInjqOPW/SEebwHuKilGXF+J
+	 ppS3i2hBHIcuqc7MhO0dHzgnqdNbyWSCOC+xobxhNRPsK2cstppuZq0cv4LkoPr5OoOgn
+	 lqr8HRTpQnP5SbM4HpKpr5nZsr9b/LsA34hpquFJnjCI0qBjkUYfpmgeqS/nCeGSz0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106849;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:
-	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=I3IzgjoqgRpYlsjMaETodoIBxBsclUkysdCAkbOuipo=;
-	b=HAALj6L38vrHXvbAaRSkKGMWkuUceNRA9sIg0LZ913y2nCT3eryM95jDKwrYLvLUNn2f
-	 9+Dlom1tWqQi3X3lMvSpkVwkFhWbuq79BiSSCSp/uXF8PVecJhiCDHRX+dieAlmc8+lGt
-	 jzTqllBhEzjqUp0MX+bAbqyKz5N3tkEbMDU4U1DpwL3V8HaTqDNRYBFYr7YOCewBMOgfT
-	 XWmBeJSvqtaht7UxJxm4bGfu1Of7uDHYaXLzq+DCuBaSj0xpsrTjSQtshTmJwFqeyEpq2
-	 4nWHY97u+DgbhlsX5ezY9+L4Q+0VHuoVhX5sW7bondVjh1E+Y4A8VIe8nbvmUXGrvUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106881;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ZEcHC6MMC7MCebnxoFXV3ICRjGzCONOlrR9aOhluDQY=;
+	b=MPeBTCoOszkQ2G/1AP7BdDlIGssc/KG3yPBTGEVOz9zSOsL8uLtDArowjICFNVIBJskl
+	 uMpvdQsc+wzaQpFMZ6tpCh/mqi48PZQK9IGXM9VFmLPWFhfIHf/c0HBdRRO9NkLpQ534d
+	 eODHgQB+SfS/jRz/oQ1UgSUtr9yvecdyXnQyhBCurFtp9McvwwBqEK7HNtpf7ZmIaHDDy
+	 IyOkeIRzg65q8l6Se3sjdnYvOxRSP4FOvNSSOBc/m+tDOlxX1JcHAc60PMzCl2oDfskzE
+	 dXC8dduV9M1s/F1khWmCzWlzLI9O1RG6U/JmCTrjowr4ArfdsnQ2aGAcQvDDUmuzZcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=mzmYZtu7;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jp4+SqDL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C384606A325;
-	Thu, 19 Nov 2026 16:47:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C384606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91076606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:48:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=mzmYZtu7
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJFockb2761886;
-	Thu, 19 Nov 2026 16:47:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=I3IzgjoqgRp
-	YlsjMaETodoIBxBsclUkysdCAkbOuipo=; b=mzmYZtu7oVUdH4ReJ1tf2EV1QFt
-	8EXKS+LQ/eGt75xTadGbyYonSSzyeuAEXF2mpfl3U4w7Fg+DwZm3Sv0rxt+IQ/P5
-	3GlO+VzBCbwntu1LEciia3WWFYpVHD5GyS+kLB/K4aVB0Xfd+gHcuogfUfPqEvu2
-	tajBlHQvzzhBpM40moSCcn9eqSm8LIBNNWxPezaTR4cyfyiblGQkdJLgwV0rbSsD
-	hGe1MgcJNBhWAeLzapu13vhtsemy8p8L9rIQtFId/a6LhMwFrexdrRU3sf1G4D9o
-	mGny+utPCpEFfuxpoDGsJljRs9CdvLDWzbe6WRHR/EWQ/97pGOCLt8xE87A==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1uuxaqe1-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 16:47:10 +0000 (GMT)
-Received: from pps.filterd (apblrppmta01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJGl7E01031922;
-	Thu, 19 Nov 2026 16:47:07 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mohis-hyd.qualcomm.com [10.147.253.64])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AJGl7PT1031908
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 16:47:07 +0000 (GMT)
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4840500)
-	id 05B076A8; Thu, 19 Nov 2026 22:17:06 +0530 (+0530)
-From: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
-To: Srinivas Kandagatla <srini@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Mark Brown <broonie@kernel.org>
-Cc: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-        Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        Mohit Sharma <mohit.sharma@oss.qualcomm.com>
-Subject: [PATCH 3/4] arm64: dts: qcom: shikra: add q6apm DAI compatible
-Date: Thu, 19 Nov 2026 22:17:04 +0530
-Message-Id: <20261119164705.1594066-4-mohit.sharma@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119164705.1594066-1-mohit.sharma@oss.qualcomm.com>
-References: <20261119164705.1594066-1-mohit.sharma@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jp4+SqDL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F3FE1F000C4;
+	Thu, 19 Nov 2026 16:47:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795106881;
+	bh=ZEcHC6MMC7MCebnxoFXV3ICRjGzCONOlrR9aOhluDQY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Jp4+SqDL56/zI9zTKkHLhNWhuHMCLWwNwPy6errsexfCx8j1+4Ey4o/67c2t7cLdm
+	 Yi/6pJ8+59d9mEwu/n1L4TUUnbmHNzeN+3occHw3/hqJmqb2vI2EkdOpfob/hIKEsE
+	 bF7VlkuKKUi9jWY40TgoAZv8rO395PH1/F4+hTanzMWXrnpSR9DOfrVMueRoza6CBK
+	 Ewlnv+kQ7IfiFOdmowArQwusZFJvfw/2L9EA6YYOJNH5hdsqtwfoW71nJgmq53LOpe
+	 kCh0KU4nBqjVfNrFzoC7FJEPdW0y7Tta/PWqeamQNdcHowLKhUxuxoKzk+iVSQP1pk
+	 PcaHFm7O27CSg==
+Message-ID: <c1225518-70b9-445e-9b6a-7f0e80cbc62d@kernel.org>
+Date: Thu, 19 Nov 2026 17:47:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,62 +51,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-ORIG-GUID: cCbHEqWiiuopsuelBigcTaqef3Hss5Hk
-X-Proofpoint-GUID: cCbHEqWiiuopsuelBigcTaqef3Hss5Hk
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA2NiBTYWx0ZWRfX6j1gfv5dmzV5
- YMjtltIBZ2yNrujPunWzhkl/Et2pFgEXU0jtYv8YYXNDtsXu6ODI9S3UODH1T4/Qe1y11ben+7B
- mmCo9kdLJ6IN/e0GmoPzz2F9q+eAyRc=
-X-Authority-Analysis: v=2.4 cv=Q89HcI2a c=1 sm=1 tr=0 ts=6aff280e cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8 a=0_GNQTBepOQCxTtxIJwA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA2NiBTYWx0ZWRfX59RtMkbs8AJ5
- YjLg8dkCNDeY3LPzn0rrDSsFijwrKROUlOnbb1HFSaLq0PV07NzuMf8FMEGv1F58WjHZT9/hlt/
- I8q9Lad+2f4IDPRF/8xvS0FwqyNa2OZVReQQWr7RpOwaf/xLYLAvYajDSR+TLR0EXINDLVRnwwL
- myZUOOhy1bEUyt4ysTIbCigM/2vgQKuzVrNjn3Pb9cF3chwXb4dHCbkKGHc6aG+S9GQ09h3CrMF
- jY3k4ubwcHwPKiDEF2iCamImRpyKI/+bN6alWsPw/vkP4b/Mau8xh2iAqem8RN0JOA+1b2SgeDo
- aR05odgwD39xTCKqnDX3cLF1nPic6rx8p5VLcDUoW3AIZOTBN8eAunuM9RDbsaOOiuusBOw9bnH
- Y+7QfxCY8YbXkB76QwUXbmPTgBDJWmwEG4jWMjA4Ii1aEHnHHLxrXkntVdXUdK4kEDTMIk7Kwhk
- 203m15fpZDK+9RmBUOg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_04,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 malwarescore=0 adultscore=0 clxscore=1011
- priorityscore=1501 spamscore=0 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190066
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mm/memfd: drop redundant hugetlb allocation mask
+ narrowing
+To: Hongfu Li <hongfu.li@linux.dev>, Hugh Dickins <hughd@google.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Hongfu Li <lihongfu@kylinos.cn>
+References: <20261119-for-memfd-v2-1-59f2d8c9752d@kylinos.cn>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261119-for-memfd-v2-1-59f2d8c9752d@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Add the Shikra-specific compatible to the q6apm DAI node while retaining
-the generic fallback used by the ASoC driver.  The specific compatible
-lets arm-smmu-qcom select the identity domain required by the firmware
-ABI when the EL2 overlay describes this stream to the SMMU.
+On 11/19/26 10:49, Hongfu Li wrote:
+> From: Hongfu Li <lihongfu@kylinos.cn>
+> 
+> memfd_alloc_folio() derives its allocation mask from htlb_alloc_mask()
+> and then clears __GFP_HIGHMEM and __GFP_MOVABLE. This mask handling was
+> introduced by commit 89c1905d9c14 ("mm/gup: introduce memfd_pin_folios()
+> for pinning memfd folios"), when the fallback path in
+> alloc_hugetlb_folio_nodemask() could still call
+> alloc_migrate_hugetlb_folio() and reach the buddy allocator, so the mask
+> decided the zone and migratetype of freshly allocated pages.
+> 
+> Since commit 26a8ea80929c ("mm/hugetlb: fix memfd_pin_folios
+> resv_huge_pages leak"), this call site uses alloc_hugetlb_folio_reserve(),
+> which only dequeues folios from the existing hugetlb pool and never falls
+> back to the buddy allocator. The mask therefore no longer decides where
+> any page comes from.
+> 
+> Long-term pinning safety no longer depends on the mask either:
+> memfd_pin_folios() obtains its folios (dequeued from the pool, or freshly
+> allocated) under memalloc_pin_save(), so PF_MEMALLOC_PIN makes
+> dequeue_hugetlb_folio_node_exact() skip any folio that fails
+> folio_is_longterm_pinnable(), and current_gfp_context() already clears
+> __GFP_MOVABLE from any page allocator request made under PF_MEMALLOC_PIN.
+> 
+> Clearing __GFP_HIGHMEM was a lowmem constraint for these folios, which
+> were meant to be accessed by a DMA driver. It is not required any more:
+> the users of memfd_pin_folios() work on pages and scatterlists, which
+> support highmem, as does the shmem path with its default
+> GFP_HIGHUSER_MOVABLE mask.
+> 
+> Drop the narrowing, which has had no effect since 26a8ea80929c.
+> 
+> Signed-off-by: Hongfu Li <lihongfu@kylinos.cn>
+> ---
 
-The EL2 stream description is part of the prerequisite Shikra EL2
-overlay series.
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Co-developed-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
-Signed-off-by: Ajay Kumar Nandam <ajay.nandam@oss.qualcomm.com>
-Signed-off-by: Mohit Sharma <mohit.sharma@oss.qualcomm.com>
-
-diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
-index f096469fb984..09b268af9eef 100644
---- a/arch/arm64/boot/dts/qcom/shikra.dtsi
-+++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
-@@ -2983,7 +2983,8 @@ q6apmbedai: bedais {
- 						};
- 
- 						q6apmdai: dais {
--							compatible = "qcom,q6apm-dais";
-+							compatible = "qcom,shikra-q6apm-dais",
-+								     "qcom,q6apm-dais";
- 							memory-region = <&audio_heap_mem
- 									 &audio_mdsp_carveout_mem>;
- 						};
 -- 
-2.34.1
+Cheers,
 
+David
