@@ -1,52 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082131;
-	b=gJUaCRF8U3sE+XDDGt73tsRS2lCRPKYQkUmdLiVaK+kZhXXx91eiGAVubRTxBgUBFbzq
-	 1v5tUBCU8xOa7V9Mpk3YGoY6+nR6UTQ+QA50aafLflOKU+OH7YZvYtGxP53szog5mqgTB
-	 IDc9JHbRA3UBraVcYt1cx/5oIZtbRoizA8Vjlzx4R2rORQp01OY9o7YEDIWozWNszETrL
-	 DE09lBop2bR78lLoQ4J802tW8ky1CtbeuMH5PzyP6tCIHR1T4xlIiu6XFnIYtiLrteNPT
-	 +xIiveh+bmj9m1C3tHwoDMQ24v8sKBBXlCbqCTB5XfXyWVul5q7ZFD1Vvj/nYZVS5kw==
+	t=1795082132;
+	b=K3vSiDCH6zITXvJUAEOOiyJltKem156QrsDsJSM0EiVEyjY+5SMtgjI4GlRTxEhUPEsX
+	 SNevyg6KAXloCy0E+WNc+kv2ROqDkThhJPGPG/G6cwU1zExT2Oz4Gc2U6W9hBhSmUiSWt
+	 6C/o67yAOsygEllbtEbW6tZ6wPqlkBVUXIz0VtCZrlaGFo/6n80FGArxKPocEEVDFiwZM
+	 yjBgDIlhrhGER3p35AEAnHTtr934+oFqXeYYbLPThn/ftnpK9rQgPAvHR9t/P+wUyjlEd
+	 IHPaKufaXSMOLJgFhFY5SY3hXoAyp6+bEH7o06PAm0Pywqj6KgKIlU77S09j8Frhg6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082131;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Subject:Date:
-	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key;
-	bh=AxSC+w8x0YAa+WYP18l1ZPv/YFow1+6R8vR4hxYt+Bw=;
-	b=XFZitNFn0zJIvAM1G0CH0PF6TTfCju/pUK+QyjSXOjk8CSpMP4KOm6yFOf5m9QCBRn50
-	 FtMoVTbdXIQmJzmnI20Tn00TPyIvpxSpwdv3djTLPB71udiJkCFHKX9KTy9zlRzOl8l7C
-	 3XVtYJma2939agyNMvEezBUksjpRlNUp1TQoCa4pSku1ukIZJu4JPYM5Af6DF1R+CnW8B
-	 jwAx/zyjYrvxUi57XRKC35ftCvgCQ+ftUTgYCNURk02xyNsn+kyBtpWqcTU+VF2Ofugjy
-	 SPL8Vk/XB47xNFk82QRTpNLvmCkquNDzGcbgVn6AKXgir+9TF7dWY4s9LLretRAO89A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082132;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=pm7Hd0hzUtoHByqnTKuK22z9l6hq5ZK5lAdKqbbdMJM=;
+	b=Iec9qwypHPsjoP+TWcQf2FCf7Z87RtBAQJ7Mjd0roOF/Mm86Tok+6aYDd3JURysVZWbm
+	 t0sfzfjWLA5gmntTiQYVDemYKnqbhHbK2o/JtbYEwhInvgDkFdAw9wUscSyGRp9Dl13ta
+	 BBZmxGtEtPt7Yh5nFBzsmIdsz/gF2PXUHqfoSRrqmo95q3u3+4Rq/BfjycfJ8jKwjc+7A
+	 MKY1Sgq9xuB7YI43wymATKJF9y9wBSsvN7JicVNMXlQr2Jmv7y2XYYum4WVXhQDHrbevz
+	 AUYao03Qb3zBXCd7MGmVn6IW34e9s28Mpe7aLBLSQ3dqnXZD/pgZ5QUJP8bqxK/PK9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tKQ+e8VU;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 249DA606A335;
-	Thu, 19 Nov 2026 09:55:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 249DA606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0Z63CXzV;
+	arc=none smtp.remote-ip=74.125.228.135
+Received: from mail-ej2-f7.google.com (mail-ej2-f7.google.com [74.125.228.135])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02094606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:55:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02094606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tKQ+e8VU
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28F5B1575;
-	Thu, 19 Nov 2026 01:55:26 -0800 (PST)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C47B63F882;
-	Thu, 19 Nov 2026 01:55:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795082129; bh=XnvXsUW1gUuUzwBbY6mC1a/ISYdUqQlfMdRPPyf+7Wg=;
-	h=From:Subject:Date:To:Cc:From;
-	b=tKQ+e8VUbuWgfkDx6ru6jIval1/jR7JAZfOJiuTz3yv2IWpBPoD4au4HjJGxxC5a8
-	 69u0NrknPInh9hz4V1RjaMChsSc/K1sm3uMMnkEQuN6fA4CjEet2cQUzJa79sROpqJ
-	 N9+dW3kYN6Pg8AW/FwDR9crF8i7Igj0xOsJGpjwo=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Subject: [PATCH v2 0/2] Add test for atomic uaccess with permission overlay
-Date: Thu, 19 Nov 2026 09:54:36 +0000
-Message-Id: <20261119-poe_futex-v2-0-244c7a01f788@arm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0Z63CXzV
+Received: by mail-ej2-f7.google.com with SMTP id a640c23a62f3a-c5119f642fdso116392466b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:55:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795082130; x=1795686930; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pm7Hd0hzUtoHByqnTKuK22z9l6hq5ZK5lAdKqbbdMJM=;
+        b=0Z63CXzV/fH5a34Jotdt0MnvMwqjxY6PcxChoNhMzhHjMrg1eswYkQrQnN3Qc8+Cd9
+         hz2hrDa4u+BxaE5V26eKyv087GVqb17CtdsPpF2w21x9Tu1yVLM2F/1nCksmOj0Y7YQR
+         ba54pVPjCxKuCzHUU/4/T/+xn98Fdn8ZgrzXPRByjzsGxyYM4+bWuwTWSCSwhoJ0wd9r
+         N+bJ6zfNGdZplI/087Ekwg5al3Go3PuNwZQSmM+Q7p8whDKafFWCZlplARIDewFbvcBY
+         dkGRQtbTewigBXNDIAQ1D4JuUWqrbgP1TPBfS98gjlsUy9hd+dPWDkbN1DdNxJYwpIfz
+         STKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082130; x=1795686930;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pm7Hd0hzUtoHByqnTKuK22z9l6hq5ZK5lAdKqbbdMJM=;
+        b=BIPxBirX2snVXnyB9zTa/YwX9UQirE5elZZJAlhJJqIEDueZepQeoNxdAa4/dzI4wo
+         UJwgQTTCcXOzkuOvqx2+Mn6R+5Pm0GclQiiX7xtPkPnd/hH9kcLBWpGCK7ylTj8nuS6I
+         YAlbENgygoGb74NTOQd2ntrPINbap1dfxt1pYtzuUrW1DM0uwgxVLaMT/TCCJRVTUUQu
+         JNGA28ApLtmS5TNBk07h5SqlWak0fbGPWX5INrbkrcxmt3Uh9+raQ//2fUb3o9QpmJol
+         VVZNEk1ZFXO1j20jXI7/9QM3lX02CpLP/o7mkn7kluFucSU9NcJCkR6kZkMSrNTwqNoo
+         afYA==
+X-Forwarded-Encrypted: i=1; AL+hErFqM0zRu4zlF2VCQMGIpvUzdHXd7QnH182lNyPHDAbDKgiuPEaq6x00LaKGgBhW9gbwE0B3EBRl8wtXZQY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8RvDwR2XG9q+fCKpww/7yvDHFPctNn4DzEmnwAafy0/imIpFSC
+	4qeb6Q/sjIgmY4wUJUQZkQcKeXIJW72M+Y67tXZlG3k9yTXxKmYd5xB9
+X-Gm-Gg: AYBFou1GNhs0c/DUcICA9gR5E9rSQjCwAmS9JkSDJzSMd6ug1lD6/nskIjcJ4YqrFWm
+	EPnHMpYPdN2E44/crp863gVJF1PpQUFXwcDh8Y+wUOMPcLWhsF1R7B3Qf46X9rYUsPSTk8f0jN1
+	pa0BUqgzcqQZto9z+gCOatUD9ZdDJ2xw2iC1+arcpnbkMXfSYt92Vj01SIdjkZ21bsWbXpm8kvL
+	LrBg8Snz67eIbr9Pc91bmGVi/e8VdGZ9OnDHJlh0HW52MYkBbb7zfLtYbZ6MrCGS1FZ/tX7t7og
+	CoHwViYRF24Xa1fDy6Vs+Fl3i65jAb9vQ6VXlhAu1T3N5YqiJdu9NUVS9Hhyr33lu9Er8i522F8
+	fVCTaZt3WxDrKCe/rFdM3HjiO9xyNSJ7uWerhfz7abFu7exO/frOnJ4pXBahbtQUn+FB+70s6Ew
+	N38bylP/6c2wM5LgTh4LrTV1BqCeeHejlFHsPBfjPf4y7fAe6x5/LavVMQEwkrzpIOnzyl64b8W
+	8lT/LUqKICGbrxbIZa5/BR7xOV2TjRVescdGQvc/zarYwE/AcI4C2EiBhzKWp1WDoBaFnvatLgL
+	bnJ9TIvtygHtEl/bOTQkscSp1cpBCcGe3LFJtii0JLwyCV2+gIZf7pSxrXB0635F24jrf8Szvd5
+	9VvjJibnDnQy1hDdgPWKECzW4eGMqVh9O4/1/3Ul5jnPbrARy9CP0is1h
+X-Received: by 2002:a17:907:2d13:b0:c3e:34fa:611d with SMTP id a640c23a62f3a-c510e330f13mr490422466b.35.1795082130315;
+        Thu, 19 Nov 2026 01:55:30 -0800 (PST)
+Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51231baa96sm95238666b.4.2026.11.19.01.55.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 01:55:29 -0800 (PST)
+Date: Thu, 19 Nov 2026 10:55:27 +0100
+From: Thilo Zirnstein <thi.zirnstein@gmail.com>
+To: Anandu Padinhare <Anandu.Padinhare@electrifex.com>
+Cc: "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"andrew@lunn.ch" <andrew@lunn.ch>,
+	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@kernel.org" <edumazet@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net v1 1/1] net: phylink: keep initial advertising
+ settings
+Message-ID: <av7Hj_S_B2qSpNsk@thi-server.fritz.box>
+References: <PNYPR01MB1144420346F647D64C23775D2FD732@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,98 +105,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/02N0QqCMBRAf0Xuc4vtUmv21H+ExDbvcoFONhVD/
- PecEfR44HDOAomipwTXYoFIk08+dBvgoQDb6O5JzNcbA3KU/Iyc9YEebhxoZmSNsogXqcoTbH4
- fyfl5b92rL6fRvMgOOZCNxqchxPc+m0T2fl3x150E40zUGpU0ypUGbzq2RxtaqNZ1/QBf+LZFs
- gAAAA==
-X-Change-ID: 20260520-poe_futex-ecb8c2276894
-To: linux-arm-kernel@lists.infradead.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
- Linu Cherian <linu.cherian@arm.com>, Mark Brown <broonie@kernel.org>, 
- Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795082127; l=2982;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=XnvXsUW1gUuUzwBbY6mC1a/ISYdUqQlfMdRPPyf+7Wg=;
- b=KzXi28O/LORXd1ZnBo5RRf+ai10+nAvgWThW6Ufdj9lweOHQhENbuK3911HITCreWAAeySeji
- XkqMNd4OCKmAOczY1/RA/G79vqnZ3jPnCv4e7kPzm0FhWlRrCLV1MjF
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PNYPR01MB1144420346F647D64C23775D2FD732@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
 
-POE is not currently enabled at EL1, but my series [1] protecting
-page tables does exactly that, and it has revealed an interesting
-issue.
+On Mon, Nov 09, 2026 at 09:58:33AM +0000, Anandu Padinhare wrote:
 
-Regular uaccess uses unprivileged loads/stores, which have overlays
-applied and are checked against the user's POR_EL0 as intended (same
-restrictions as when accessing memory from userspace). In some
-cases, such as atomic operations when FEAT_LSUI isn't available, we
-need to use privileged L/S with PAN disabled instead; overlays are
-not applied in that case.
+Hi Anandu, 
 
-Once POE is enabled at EL1, we have to ensure that overlays are
-still not applied to these accesses. Otherwise, they will be checked
-against POR_EL1, which is completely invalid as kernel
-pkeys/POIndices are unrelated to user pkeys.
+Thanks for testing this nad giving feedback.
 
-If PIE is used, then we have to ensure that user memory types do not
-have overlays applied in POR_EL1, as Sashiko reported [2] on an
-earlier version of my series protecting page tables. Patch 1 tries
-to preempt such errors by adding a comment. If PIE isn't available,
-then... we're out of luck, as Sashiko reported later on [3]: we
-cannot prevent overlays from being applied to user memory. We'll
-most likely have to require PIE at least when POE is enabled at
-EL1.
+...
 
-To avoid accidents in the future, patch 2 adds a kselftest to ensure
-that atomic futex uaccess (which uses privileged loads/stores unless
-FEAT_LSUI is available) does work on memory mapped with a
-non-default pkey. 
+> Hi Thilo,
+> 
+> Results from an ADSP-SC598 board (stmmac, RGMII, TI DP83867 PHY) with
+> a 6.18-based kernel, with and without this patch.
+> 
+> 1. The case in the commit message is fixed, with both the dp83867 and
+>    the generic PHY driver:
+> 
+>      ip link set eth0 down
+>      ethtool -s eth0 speed 100 duplex full autoneg on
+>      ip link set eth0 up
+> 
+>    Without the patch the link comes up at 1000 Mb/s; with it, at
+>    100 Mb/s.
+> 
+> 2. In that same case the pause bits are lost: with the patch the link
+>    comes up with flow control off; without it, pause stays on. Same
+>    with both PHY drivers. While the interface is down, ethtool shows
+>    no advertised modes and no pause, before and after the
+>    "ethtool -s" (phylink_ethtool_ksettings_get() reports none when no
+>    PHY is attached), and the AND then drops the pause bits the PHY
+>    advertises.
+> 
+> 3. Sashiko's sequences (a) and (b) both reproduce with the dp83867
+>    driver:
+> 
+>    (a) advertise 100baseT/Full while up, ifdown/ifup: 100 Mb/s.
+>        advertise 10/100/1000baseT/Full while up: 1000 Mb/s.
+>        ifdown/ifup: back to 100 Mb/s, advertising only 100baseT/Full.
+> 
+>    (b) continuing, advertise 1000baseT/Full while up: 1000 Mb/s.
+>        ifdown/ifup: "Advertised link modes: Not reported", and the
+>        link stays down (NO-CARRIER).
+> 
+>    Without the patch, both keep the last setting: (a) comes back at
+>    1000 Mb/s, and (b) at 1000 Mb/s with 1000baseT/Full advertised.
+> 
+> Happy to test a v2 on this board.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Ack, I have to rethink how a proper solution should look like.
+This has some issues.
 
-[1] https://lore.kernel.org/r/20261109-kpkeys-v10-0-aa6c4d9603bc@arm.com
-[2] https://sashiko.dev/#/patchset/20260505-kpkeys-v7-0-20c0bdd97197%40arm.com?part=3
-[3] https://lore.kernel.org/r/sashiko-outbox-207324@kernel.org
+Kind regards, 
 
----
-v1..v2:
+Thilo
 
-* Reworded the cover letter and the commit message of patch 2 in
-  light of Sashiko's new findings (when PIE isn't available).
-* Rebased on v7.4-rc3
-
-v1: https://lore.kernel.org/all/20260521-poe_futex-v1-0-1da286b8f9b2@arm.com/
-
----
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Linu Cherian <linu.cherian@arm.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Shuah Khan <shuah@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
-
----
-Kevin Brodsky (2):
-      arm64: mm: Add note about overlays in PIE_EL1
-      kselftest/arm64: Add test for atomic futex uaccess with POE
-
- arch/arm64/include/asm/pgtable-prot.h         |  7 +++
- tools/testing/selftests/arm64/Makefile        |  2 +-
- tools/testing/selftests/arm64/poe/.gitignore  |  2 +
- tools/testing/selftests/arm64/poe/Makefile    |  6 +++
- tools/testing/selftests/arm64/poe/poe_futex.c | 62 +++++++++++++++++++++++++++
- 5 files changed, 78 insertions(+), 1 deletion(-)
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20260520-poe_futex-ecb8c2276894
 
