@@ -1,55 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795118010;
-	b=P15cQW6otwHv07Nr9eR+BtEOAkPM0qd0NwqmUkY38VyttmSYjnMW9Ljlclv/mpov1C9G
-	 4A66vTPpEfN2CteNPoWm8Hi4+IWb4B8h+MX4FWfAtNLUtUyMGKb5oRRSrwWVZOK0tyWi5
-	 RPjNbNtvWNrhapyMAs1uC0U7Y6auT6GpERNP4fekNrOw1U0LH8hk13BSn4HdF5y6L558N
-	 EyAJ0MlKrKc7a8lOV68Fnbt9NqnevUpIVj42uEcBRwk2O8+fnmUU8VpewSkevdVnuxitS
-	 cbck5eGcQoTEbxYKxz1gAG2D5mXJxDkV8CNpdP/2kMgQENZLDmEdeDYJx2fUE4+YTvg==
+	t=1795118075;
+	b=ub+cPrMQs4LXMZjSLH3XnjE8O8dGuM6JUg0A/KzZmiJEV44FnQqtkvqCRyp6akiz5fD/
+	 rGQTkCnVN1q/gs5yzQyaRX4uSEkFn3h5ygBwNqqfBRKZ04ArZwTNMY27qotHakHvkyHxc
+	 fqwwIXUjK6NOLzfebqO+vmtn9H24FLvB+MY+oppzMidFRR7Y90/SGTmEjUxPcV9Cv9HJm
+	 XC1CwMU2p9fXuxVleKHgSpf1kLfqWYNO/r21EoatrjCecyS5KpzO6tenZH1IKBAM1ekQ8
+	 KW4lx/eApcyKeHxS5P47B+lxu3rzMLfrCDt5yhXQSqHSxoE1XL9WyLUFpZ68Hwv5jAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118010;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=pQDnLm0FK9Jvhj7aq4owvaesn+IKHrmfTxnaUHYSxz0=;
-	b=SyNSocf++TUvgDEwi0FhT2UW+M1dj2UJjufWqnKbQ8aolBs4Z+zGWMFY+YKbUMT4lI1h
-	 nufMp+jeoldGPfwEk64P+a626TQJmerCRgFV71Kf+7+jYnHBIB1MvaoVJ+brtJ8VLSThB
-	 2uga6hlLQQcPvmotZBXOShAh4jVqlGiN8TgFDXlrgKLGZ8aW3UCiPx/5ygBAEn0PT9Lqp
-	 qDICZIeLKrniR7P3AhHs1nNdztfyhB+IvsfG0PF5nkyC2kafT36tpPRZTC88GctEgCHRd
-	 y4fG2SvUS4Cj4GSRyyDxvgIZlkOKtexQ9zExILYohZ69ZdInlAQC2msdVUl2sg1RndQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118075;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
+	bh=Ru1e4Dsl9fl+y7pyjbXE8FmfV8fA53Dqg3REoaqq96c=;
+	b=Of+PzFnZjHaP0CY+Ql3SQZ9l3R2Uz23nUmtIO/VvEhm1KcutgaRPbvxi2X1QePCSePGr
+	 ArBU2kE5BnQLdU/cn0HT1dkNFLD1uFDxQQYdH9RbK06Nre1yLzatL7PIEMnU7c2CVuVE7
+	 KW/63qE/Ye0Jzi5CUHQn2yTpgckb3CqcpOlwoqldAZvbwALPtynJjyygj6obniaME6icH
+	 VUWRgQuWguZkvj+m6rrSV0D/soPyIi4+7XWMpeKEY652Zc2TkPovqBuKmBsd8fsgNRjYI
+	 wja60+2GjwLi7OZb9w88naLSnxCnTk/KC/pKqXjc8PD9imxpphmW/gQ2v71EbCUT7Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPna7ikH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 109E7606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:53:30 +0000 (UTC)
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=C2bFQ6Ti;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 392F3606A320;
+	Thu, 19 Nov 2026 19:54:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 392F3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPna7ikH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20711F000C6
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:53:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795118009;
-	bh=pQDnLm0FK9Jvhj7aq4owvaesn+IKHrmfTxnaUHYSxz0=;
-	h=From:Date:Subject:To:Cc;
-	b=lPna7ikHz8R9uH/ITlieIGBW8nsK/6/2s4pl3WUEWq8FE0ZQZ2C3+vimc3xUCd4SU
-	 fR7FDoPMN8BFb+lBt2R+eKiFBzULfiJ2nWuKTqu/esuOnH0WgC/8DaJwoKv6exVQzS
-	 PBcaEv6qPq3PYGnJvW4FHSOliYZoCYAk4cyrAMwBwkNyhV9LvkSX+yMXs/jjSlSb4g
-	 HQFJ1HAgeYmXsHB0KkshBG7Mcp5GPTtg8QNJt0CndkcY3Q+IWrMBXqa/iqrR5f/WnR
-	 EQCco/y1nDSGKYL0R5d4+MsI8JB51MD8B70q+Y91pAh+s2MXgTNY6ysB9p7h0DZ6Xo
-	 t327Uoqmy5DQg==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso28835e87.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:53:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEcv7IMFxweDYdXCX68OSpcHKGWruVCVSR+BYnXDmdbXtgbzbyW8OEm0YoUpHlmrgSmdKJMPuUxrKiv4tk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9VVQfO89eLtJiyJWtjjpHA7dkZQ3007xsbzJrEQ9+xJcWvXgmK
-	rBNlyGerFE1Cev7/rABMcXnFnf4PMxjBVFdpGw0yXj3bYhOcF9mboxzVAUlDFs37u1XQWceU+/9
-	5bqN6UfOpbZuE9YTYmqCnipGtCgWYynw=
-X-Received: by 2002:a05:6512:3d29:b0:5c1:47d6:8258 with SMTP id
- 2adb3069b0e04-5c1bc80120bmr201929e87.41.1795118008368; Thu, 19 Nov 2026
- 11:53:28 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=C2bFQ6Ti
+Received: from jeffbarnes-ThinkPad-P14s-Gen-2i.corp.microsoft.com (unknown [52.179.129.152])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 8445920B7166;
+	Thu, 19 Nov 2026 11:54:31 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8445920B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795118073;
+	bh=Ru1e4Dsl9fl+y7pyjbXE8FmfV8fA53Dqg3REoaqq96c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=C2bFQ6Tim8TiwuK+dwri9qk9tnRZFNLVTvyRPcP/ZglzAc2H+6gnYFtvhYokJgg0V
+	 9ecOdngXXTDEWTRQUkVetktbRW1VW25g5UknhamBnnpZxbj3cBYigee3ucM4ISpIFt
+	 GcuCSui0XEZq0NCJQvvd+QBBgfQ2HY3VMs9tEz+k=
+From: Jeff Barnes <jeffbarnes@linux.microsoft.com>
+To: herbert@gondor.apana.org.au
+Cc: horia.geanta@nxp.com,
+	pankaj.gupta@nxp.com,
+	sahil.malhotra@oss.nxp.com,
+	changwei.zou@canonical.com,
+	gaurav.jain@nxp.com,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 1/1] crypto: caam - fix in-place RSA payload DMA mapping
+Date: Thu, 19 Nov 2026 14:53:50 -0500
+Message-ID: <20261119195350.812246-1-jeffbarnes@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <avRJW9494fF7Pyf4@gondor.apana.org.au>
+References: <20261020192511.3389133-2-jeffbarnes@linux.microsoft.com> <avRJW9494fF7Pyf4@gondor.apana.org.au>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,49 +66,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 19 Nov 2026 20:53:16 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0iug8To5GYw_S_1=t+LAO6+tqYG0To7f1RtuONLiv9ehQ@mail.gmail.com>
-X-Gm-Features: AclHuK9yuJhXQvYWr9sAG943Uq1MBovF9U6BwVzMr-CX2J2FeddBtM4pWlZJSH0
-Message-ID: <CAJZ5v0iug8To5GYw_S_1=t+LAO6+tqYG0To7f1RtuONLiv9ehQ@mail.gmail.com>
-Subject: [GIT PULL] Thermal control fix for 7.4-rc4
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Linux PM <linux-pm@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Linus,
+Hi Herbert,
 
-Please pull from the tag
+> Sashiko has some comments on this patch:
 
- git://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git \
- thermal-7.4-rc4
+Thanks for pointing me to the review, and sorry for the delayed response.
+The prepared v2 addresses two concerns, but the short-input SEC4/PDB
+accounting concern remains. Here is the disposition of each finding:
 
-with top-most commit 22139b5a46353184f43d120b569b01447843d363
+1. PVF1: rejection of multi-segment in-place requests
 
- thermal: int340x: processor_thermal: Fix Nova Lake-S PCI device ID
+   Agreed. The RFC's -EOPNOTSUPP containment is not suitable as the final
+   fix. V2 removes it. An aligned exact alias retains one bidirectional
+   mapping only when dma_map_sg() returns a single DMA segment.
 
-on top of commit 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+   If it returns multiple segments, v2 releases that mapping using the
+   original entry count, then maps the source DMA_TO_DEVICE and a separate
+   destination bounce buffer DMA_FROM_DEVICE. This follows Sahil's
+   recommendation and reuses Changwei's destination-bounce infrastructure.
 
- Linux 7.4-rc2
+   The padding/layout observations also included in PVF1 overlap PVF2
+   below; I am not claiming those are fixed by destination bouncing.
 
-to receive a thermal control fix for 7.4-rc4.
+2. PVF2: short-input padding and PDB source/table selection
 
-This fixes the Nova Lake-S PCI device ID in the int340x thermal
-driver (Sankara Tankala).
+   The source shows the accounting mismatch described in the review.
+   The allocator reserves an extra SEC4 entry when diff_size is nonzero,
+   but edesc->mapped_src_nents does not include that entry. The private
+   PDB setters select a source S/G table only when that stored count is
+   greater than one. Their destination-table offset also uses that count.
 
-Thanks!
+   I checked the unpatched baseline used by Sashiko,
+   178aff4cf425b3fc51ff09c571fa1bfbc1eb8ea4. It already contains these
+   allocation/count/selection rules, before applying this RFC. The issue
+   is therefore not introduced by the shared-mapping change, but it
+   remains present in the prepared v2 and needs separate treatment.
 
+   In particular, fixing the private padded-input view and auditing the
+   public input-length/table handling must not be conflated with simply
+   changing payload DMA ownership. I have not hardware-reproduced or
+   fixed this finding, and do not claim the public-operation tests below
+   validate private signing or decryption.
 
----------------
+3. PVF3: zero-length source passing the RFC's negative-only check
 
-Sankara Tankala (1):
-      thermal: int340x: processor_thermal: Fix Nova Lake-S PCI device ID
+   Agreed. V2 patch 1 rejects src_nents <= 0 before payload mapping or
+   SEC4 construction, returning -EINVAL for zero and propagating negative
+   extent errors. It applies the same checks to the destination extent.
+   A zero-length source therefore cannot reach the shared-mapping path
+   merely because the destination extent is nonempty.
 
----------------
+> Please also explain how your patch interacts with the other
+> patches on caam:
 
- drivers/thermal/intel/int340x_thermal/processor_thermal_device.h   | 3 +--
- .../thermal/intel/int340x_thermal/processor_thermal_device_pci.c   | 7 +------
- drivers/thermal/intel/int340x_thermal/processor_thermal_rfim.c     | 3 +--
- 3 files changed, 3 insertions(+), 10 deletions(-)
+The prepared v2 is based on both patches of Changwei's v6:
+
+https://lore.kernel.org/linux-crypto/20261114060032.872141-1-changwei.zou@canonical.com/
+
+His error-path fix provides the operation-appropriate unmap dispatch.
+His alignment fix provides fixup_dst, destination allocation, and
+copy-back/free handling. V2 reuses that infrastructure rather than
+adding another destination-buffer implementation or modifying req->dst.
+The payload is unmapped before destination copy-back.
+
+The ordering is Changwei's two patches, then the separate SG-extent
+validation patch, then the in-place DMA ownership patch. The latter also
+records req->src == req->dst before leading-zero stripping and forces a
+destination bounce if the effective source advances.
+
+A backport of that combination was tested on an arm64 system with CAAM
+behind an SMMUv2, a translated IOMMU domain, and DMA-API debugging
+enabled, running kernel 6.6.160.4. All 12 RSA-2048 public-operation alias
+tests passed, with no DMA-API, ARM-LPAE/IOMMU, or scatterlist-iterator
+warnings observed.
+
+Those tests used direct and backlog-enabled submission; they did not
+establish that requests entered the backlog, test private operations, or
+cover noncoherent/dma-direct hardware.
+
+The test run also included the independent iterator-boundary correction
+now submitted separately:
+
+https://lore.kernel.org/linux-crypto/20261119192007.786827-1-jeffbarnes@linux.microsoft.com/
+
+On the maintenance concern, Sahil has provided substantive review and
+offered noncoherent/dma-direct testing. I have copied the CAAM maintainers,
+but cannot speak for them regarding ongoing maintenance.
+
+GitHub Copilot assisted with the implementation, regression tests,
+source comparison, and drafting this response.
+
+Thanks,
+Jeff
