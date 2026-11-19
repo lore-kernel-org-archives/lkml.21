@@ -1,60 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109002;
-	b=ioe9cGuyHQOxWT/5ncIJqgBtoE+8JtFt8moLuS2a90oVSlmx1w+JKkYYXFX/XUjFP8TN
-	 Kq5aemc2yG0oLaydjoI6ghogLggngTygQKC3y+g9/U6fI8lYG/btWLjoOyRBDxX3L5//Z
-	 GdR1jit3WDW4cFr/ULtwVms2j+/PmZlpAbNe96gZm93y03OZUUZOa7ejzjBOlk5DZJJcW
-	 P+3NXJEOzsC0EihS2BS6p3fbK3iiVllM0RCJ7E/SMLS8L1k2NFrZhoHfhMO017nz23wJS
-	 UNM9mThRCTS4eWAMwGy6OQzM+gy7LGTjXnidPgC0DlTT5+zhBekAas9Ac0MY6caX9IQ==
+	t=1795108998;
+	b=wPQwDOOJC8z7/BuwdyM7/ArrRA2vQudzj1ksELcamYv8X4d/yR9+O8IzgAdqb34l+ETO
+	 ydnnhnxUBdP+9fPE5ZUW10g7cYiElp8h2XOvUimkCkbcgmaMSOs40OQk/K4Rt0kZsOUuK
+	 FHBMwyn/aieLkhucxYCqJUJGITe4wHj8GtnG0q6DTY4u+QyiUcIX9cJnxlUoGc3wJuOAW
+	 BrXb201cQn/cVVKvBlgInQ+jWlBdWiN4L6uPRFoH64qCNuW99VNBvbDVS+uXhQDos+YyE
+	 VJv2Wk69paYTFoL9EPMQllXdrYykRA3CjMsjSjz2p9NJA6AOWXOhdepqwLY1wfwEeWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109002;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=oG15c41ZCpZQNvxF6sTCZaD3NnnBG9uH9Ql0/dc+j8c=;
-	b=AAxdZmkZ3IRYbJv1m1THQ/+0A5wQJJMz5QHLdLEodaNpKo1wzMb8dk/swYeCFy+It1hA
-	 jkqJrCmK2ZpnS8stpgQ4OMzwAxMXnSQaALwN4Cm5jZf7Q3sBgdn9f+Xd4hKsF7ncVd/oa
-	 SPk3F7rCJe2psQ08w61RUxRwilGDCJ3Fh3cVXPbkFXtMw4fCfPBtkhFfiXa2t0TZ6xIoa
-	 3ZOTncTOaE1SNXSo+U8vxkijkbF+LiG3dDl4M9o2VGEISlvbEmsYL7rdvNNikYvlc9P81
-	 qH/7j1y4i67NhKy46CwPwyEQA8V0Zg7YaLNB8O9ryhmQd1Otwzft6PwK+R942lN1NyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108998;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=T/doD335ORQ2aR4heO4AYNHnuzIPWGmhftw39sxPBYA=;
+	b=VGtHsntSsLRHt/Z8EYMEQPzidwtuZG6CJPz66g+nKP/1nPIOmLpY6jCUM+Ml6UMcrofI
+	 VZFmqou/iDBmqh1WfjRyOd9eHDYAI16ym9Z7lVuC2Gc+7jHpa40gzEaGJ5bMX9xdSQ9wg
+	 jm06H8wFX4sP7mTdN64gwC8GYRo6o7aA9chLJWR/1RkL0GyXadcnOcclAdiJ0+fMsMXaC
+	 Ohso/c61RC2FdhO51QB41+znureHTNFORPH7amnqfqiVsxANzLSsqgGzUeWOOjwSG4oSV
+	 vNXvTGRbxmLLI+AV1Cvn7KDasof41qF9hsaYcAKdxhARTMDL76oZ1XsaOECvcldGr2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RjDs61XI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YWFW2jy2;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3020C606A33F;
-	Thu, 19 Nov 2026 17:23:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106F8606A337;
+	Thu, 19 Nov 2026 17:23:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 106F8606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RjDs61XI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C1591F000CD;
-	Thu, 19 Nov 2026 17:23:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795109001;
-	bh=oG15c41ZCpZQNvxF6sTCZaD3NnnBG9uH9Ql0/dc+j8c=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=RjDs61XIgonkH9vpbrzUGLyj7OEgV93wQ8sNJNIkNmHJX72C7dMHidRR8ZtvFTGVY
-	 OHhvrqF3jft4IBlmwc1dD6OQeG9BLW/1457VsJdjCHVn/fwl1IgQ26tUaNIqpcQ7Qr
-	 okPp7AMoPlEqxo1CaxEOmoiHUwfCLTl4X1Q7way7djNyIwZcPORyWPkG4GFDsx3T/8
-	 CCzDgr7bpQ8AcSyPMneLUpmPZ+pF08RBuBUAI2Vei1ySKZNKSO7Sr7exEGFDj4pF/t
-	 kGgQSfKvdWL89pQHrfX45+RxB5hDhpUpa3SMSavd/K+AQ9lrw+/vjjZSs/oX2m/qVI
-	 d2y/6vSVxEaWA==
-Date: Thu, 19 Nov 2026 11:23:20 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Habil Eren =?utf-8?Q?T=C3=BCrker?= <habilerenturker@hotmail.com>
-Cc: "bhelgaas@google.com" <bhelgaas@google.com>,
-	"andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v2 1/4] PCI: Add pci_power_t helper functions
-Message-ID: <20261119172320.GA817954@bhelgaas>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YWFW2jy2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795108997; x=1826644997;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rbeulK9tHwSJXS4GzNoiB5ScFduP8tzxNEkcrLh/28w=;
+  b=YWFW2jy2/5BjRUbVprN2UxlTPZR3cAlx54OhKMgyldhxo6VFfBdgvTX/
+   pXkQbQEweBrVVdm9uLUWMyA0QxfMCZ6wGC2AmiiEumu7Nb5dpon6dkvTy
+   hx79aoLZM+Y2pVg3pOmcx2BrmzViynTNcbP+tB+CtnNLSHoaY1Zh+lS6H
+   1kkn/ylH1Za++QN6VUdMMXsFY28t/c0wtceVnNpdKyP9YRGIKxPCDi4QT
+   ySrkM1ksHwL4pDpPSTxGn/iDvOI1lhqFTUCVPpbdtiK0LtMh++4H+U/sM
+   vXgZVsESP5sHsDivH7RwA5eIcWyCrJ9C49nyvIqUeG58AzgvV+qFvYUh0
+   A==;
+X-CSE-ConnectionGUID: CrgmSbswTUms7nPrj6o/lg==
+X-CSE-MsgGUID: 1rvKQaLWTBGk9q26W0f5Rw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4014145"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="4014145"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:23:14 -0800
+X-CSE-ConnectionGUID: 4dDni44YSrK+KNrtBlUfGQ==
+X-CSE-MsgGUID: /0+wv7ofQxy15cnzuEHhag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10576996"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 09:23:09 -0800
+Date: Thu, 19 Nov 2026 19:23:07 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Lucas Stankus <lucas.p.stankus@gmail.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Alexandru Ardelean <ardeleanalex@gmail.com>, linux@analog.com,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 03/10] iio: accel: adxl313: Reject sub-base ODR codes in
+ adxl313_read_raw()
+Message-ID: <av8we4c71xsdi7-6@ashevche-desk.local>
+References: <20261119153151.1397003-1-lee@kernel.org>
+ <20261119153151.1397003-4-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,79 +87,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <29fcfa729d7f687f66578781c2e23db9e3367c86.1795097970.git.habilerenturker@hotmail.com>
+In-Reply-To: <20261119153151.1397003-4-lee@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Thu, Nov 19, 2026 at 02:35:46PM +0000, Habil Eren Türker wrote:
-> Add helper functions to extract, set and compare PCI power
-> states in the Power Management Control/Status register.
+On Thu, Nov 19, 2026 at 03:30:36PM +0000, Lee Jones wrote:
+> When reading IIO_CHAN_INFO_SAMP_FREQ, adxl313_read_raw() extracts the
+> 4-bit rate field (0..15) from ADXL313_REG_BW_RATE and subtracts
+> ADXL313_RATE_BASE (6) to index adxl313_odr_freqs[].
 > 
-> This follows the discussion with Andy Shevchenko and
-> Bjorn Helgaas in response to:
+> ADXL312 and ADXL314 support sub-6.25 Hz rate codes 0..5 and do not
+> perform a soft reset during setup, and debugfs register writes or a
+> faulty bus read can likewise yield codes below ADXL313_RATE_BASE.  When
+> that happens, subtracting ADXL313_RATE_BASE produces a negative index
+> and reads before the start of adxl313_odr_freqs[].
 > 
-> "[PATCH] x86/quirks: Cast PCI_D0 to u16 in apple_airport_reset()"
-> https://lore.kernel.org/lkml/20261118161559.63617-1-habilerenturker@hotmail.com/
+> Return -EINVAL if the rate field is below ADXL313_RATE_BASE.
 
-Andy had good comments about the style of references like this, but
-IMO if your cover letter includes links to previous versions of the
-series, that's enough of a breadcrumb, and previous review comments
-and suggestions don't need to be explicitly called out.
+...
 
-https://lore.kernel.org/all/20261112-vfct-regression-v7-0-69b1e0cf45c2@amd.com
-is a good example of the previous version link documentation in the
-cover letter.
+> -		ret = FIELD_GET(ADXL313_RATE_MSK, regval) - ADXL313_RATE_BASE;
+> +		regval = FIELD_GET(ADXL313_RATE_MSK, regval);
+> +		if (regval < ADXL313_RATE_BASE)
+> +			return -EINVAL;
 
-> @@ -2953,4 +2954,31 @@ void pci_uevent_ers(struct pci_dev *pdev, enum  pci_ers_result err_type);
->  	WARN_ONCE(condition, "%s %s: " fmt, \
->  		  dev_driver_string(&(pdev)->dev), pci_name(pdev), ##arg)
->  
-> +/* Helper functions for PCI power management */
+Here seems ERANGE is good.
 
-I think these should go right next to the pci_power_t definitions,
-e.g., right after pci_power_name(), so they are easy to find when
-using PCI_D0 etc.
+> +		ret = regval - ADXL313_RATE_BASE;
 
-> +static inline pci_power_t pci_power_t_get(u32 csr)
-> +{
-> +	return (pci_power_t __force)FIELD_GET(PCI_PM_CTRL_STATE_MASK, csr);
-> +}
-> +
-> +static inline void pci_power_t_set(u16 *csr, pci_power_t state)
-> +{
-> +	*csr &= ~PCI_PM_CTRL_STATE_MASK;
-> +	*csr |= FIELD_PREP(PCI_PM_CTRL_STATE_MASK, (__force u32)state);
+-- 
+With Best Regards,
+Andy Shevchenko
 
-FIELD_MODIFY().
 
-> +}
-> +
-> +static inline bool pci_power_eq(u32 csr, pci_power_t state)
-> +{
-> +	return pci_power_t_get(csr) == state;
-> +}
-> +
-> +static inline bool pci_power_gt(u32 csr, pci_power_t state)
-> +{
-> +	return pci_power_t_get(csr) > state;
-
-I'm not a __bitwise expert, but I'm surprised this works.  I expected
-that __bitwise values would not be ordered, so only testing for
-equality would be legit.
-
-I do think these should take two pci_power_t values instead of a PMCSR
-value and a pci_power_t.  The extra internal conversion on one
-argument feels a little bit non-intuitive.
-
-> +}
-> +
-> +static inline bool pci_power_lt(u32 csr, pci_power_t state)
-> +{
-> +	return pci_power_t_get(csr) < state;
-> +}
-> +
->  #endif /* LINUX_PCI_H */
-> -- 
-> 2.47.3
-> 
