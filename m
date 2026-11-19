@@ -1,56 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795124206;
-	b=nWdDhsjI3kBwGAZ6q/BpSKR9AlahGLqXpVPaBA/Efl7vXCr3FqBs5mzYhxAvsS6r+5Kg
-	 xTrnKK4gtw4UFnq/GolATMj7EWIzGa6YnpUe314MKMmyOQxR/75bGgbkvjk7KsxkRNuW8
-	 DWX5jymKMt5pVN6XyaIlM02yVxPkjj7/2R1hnB3DuDrAbSi9nom3CAcTGOUi+Xs1xFfoR
-	 3bruxt55oB34YdnAthEAfCTYCW/OOfKOeDGByDKoc+2B54Rypd49heN+J15gGsnRrMq/l
-	 LmwOh2S22uNdgID6dBOiyWJJCndn0QJc1oem5CvD3ZueTSbHWEBJJilajJKvUV82cNw==
+	b=nar7m78OyeEY8hEC/yr3G+YGVyD0Dtv/HY8TK/SlBnWULOZegRsSIrRBB5pqO8p0nXpW
+	 hZJN919gRIy2OJAZyIyqI20j/kDiCqOKa+DHyNDugoIdnE3fLe0RyLWZEow6vVJCcrA6Z
+	 qPvUJW9em1kh/i8Auf0pt9saKOEOIBp1eWaEVowuzYDo8ODJez68PdiTx1iGWpGV9PInW
+	 FxaFMvXJXqhL/VYNSROMk0ZIP/PfeNWo8Wu3+p8/2jnWwqlGgDXW1b8JiCt8lbOvDLzpj
+	 NRX1g5VbGoYelETb3tO6iAUr0jNif4PhT/2IWz5tdrJzRo2hH/7HxT0i5BTmCCbLOPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795124206;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=LML88oLR/JHS1tEWSCvh0L02QsPi7WMgIFrwWVKms/M=;
-	b=KY3ArKph8LLOGacZUSc/QDnJeOWGKGYahVE7zfFgjmjeizeo/su9CFatkuOzPY88qi4W
-	 Z23Z+2W+z2oOdKMFIVlI504bm0A8eDPImCuh4KiQH+7KhXoonC/sHKnQwrECP35q2X4gL
-	 rJwDmItuLe63NCJtAbp7oY8kvQ/Ks1mGdf9HxC946jtJrKo9uoFQJlhbmRQbqIPR9rflF
-	 knkPbjtevX0PeMrbbW2JXjFjDrEvcbxGT9HDVwHWtlKtk1VCE+kjUPw1lRxSUciNAAoDW
-	 JwfaHLZEp+DZRWgt4HM1qsE0z/Hui3E78w50/tGcWo3h8k4vWa3p7SWpR2ZYnt9ZmSQ==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/Nnjeweui3avycZQATZWVLsZTORv/zwe44xpEAn0znc=;
+	b=b+wYchUVyHbd5S4FYSJ2H/pHhofGErAURETNeNYe8OE24WYqHvFU0UuqA5catRtpKXVh
+	 s9NPNZS8pBK8DwBMo5x1P9OiYNWlmFpLHBUWuzt38JTc8n3EvGO/x71Aw/lAoIsjNxZPo
+	 hwdjdGMSkZJTntwPspO9BdP+o7u/aXlFrkWIlg/p5R4BYAcjb9n8nEGkm8lrsGu9ha1f6
+	 ulCYOaEn4O5eiDnmn/jXXn7mMH2L2hxT/mbIlvkUH/B4vIgcvfax7WT9CFRIMuChCO1v8
+	 0qk/dij2NSmcHAda8dt/iXQ6gDenixWsFHtILX3ixVm+ZSMKSoYzblrg4D6PP7tYqqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="O/TgTy+s";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=rNdFJ6Av;
+	arc=none smtp.remote-ip=199.89.1.14
+Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62CD9606A324;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F1AD606A320;
 	Thu, 19 Nov 2026 21:36:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F1AD606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O/TgTy+s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADDFC1F000CA;
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=rNdFJ6Av
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jVsHK64z0z1XLwXN;
 	Thu, 19 Nov 2026 21:36:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795124206;
-	bh=LML88oLR/JHS1tEWSCvh0L02QsPi7WMgIFrwWVKms/M=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=O/TgTy+sLb1MSXnkpbF0WehAIrZR/vY7UOJEHvHD5p0QO8fdODWxouMv2mzEQSyiW
-	 lNUVvMwCYR4R13NMdQR/0BXYNtJzyges6Vg+8rthsGRY9630gqarqIdywRLMhqQQag
-	 cujl1vNX9cLs8Qh9cSL+zER2pvFOMBKOqlUp6gGb71/R2CFZDu4i7wlueGTJ0o3WiY
-	 kQ+5wtmGBFjrYI8Lyo6KON+RPWUT/UszrF28D2QBPZUorbX4frCaTQK47msynr7QnK
-	 py6IgYLUl30n77eQ24+joDBTNbcjUXeV1Umm/XzLZCUtTaafKX48JecML6gQP2U5jq
-	 Ew/G02yAO5low==
-Date: Thu, 19 Nov 2026 22:36:43 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: David Cemin <dcemin@nvidia.com>
-cc: Benjamin Tissoires <bentiss@kernel.org>, 
-    Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-    linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    linux-tegra@vger.kernel.org
-Subject: Re: [PATCH] HID: asus: map Consumer brightness usages on I2C
- keyboards
-In-Reply-To: <20261020220919.611287-1-dcemin@nvidia.com>
-Message-ID: <99s8sr4o-0498-824o-n90p-2rs7o0r40s87@xreary.bet>
-References: <20261020220919.611287-1-dcemin@nvidia.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1795124203; x=1797716204; bh=/Nnjeweui3avycZQATZWVLsZ
+	TORv/zwe44xpEAn0znc=; b=rNdFJ6Av0UYbHfMOpTLM2vWe/2mKEdDbr/YqbYj/
+	ys++HzPFEBFY1PzInAe4gbHeErPe7sAo/Ic/GNfyJwjdAcKJ8UekjeQngFWtHwWy
+	IXlA4zfm5761nMhXR10YutLpeJlQqMCptuSLmoGzVvVlK2th8exH/7L1A+INJ9Ob
+	YVz7hlSSs6oolUd4J7voH2M2HYY7mZH4MrT8mjsfsfrzip9121KekfLCH+2QOo3l
+	X2Ldp61kQuuA6k11TYJTfGI2oRx2pL5BaAeFSjMwHMbPOkoU20zFy+o8TN0qfkHm
+	dYubb+HP14KieCRGcB5SPHELudjjodRbGVRDdB91ISgRgg==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id ZUPXLgBYtz6e; Thu, 19 Nov 2026 21:36:43 +0000 (UTC)
+Received: from [IPV6:2a00:79e0:2ed2:d:3bd4:4c06:4b28:5d89] (unknown [104.135.182.41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jVsHH2y95z1XM6J6;
+	Thu, 19 Nov 2026 21:36:43 +0000 (UTC)
+Message-ID: <68585ebd-db20-4277-9c45-3ee44ab2302d@acm.org>
+Date: Thu, 19 Nov 2026 13:36:42 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,36 +70,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] scsi: core: release legacy ioctl request before
+ user copyback
+To: Yingjie Wang <x-professor@outlook.com>,
+ "Martin K. Petersen" <mkp@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ Yang Xiuwei <yangxiuwei@kylinos.cn>, James Houghton <jthoughton@google.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <cover.1794990780.git.x-professor@outlook.com>
+ <26e7d8d4f0648e572e6042c0ae14c1c36a83e850.1794990780.git.x-professor@outlook.com>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <26e7d8d4f0648e572e6042c0ae14c1c36a83e850.1794990780.git.x-professor@outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue, 20 Oct 2026, David Cemin wrote:
+On 11/18/26 12:33 AM, Yingjie Wang wrote:
+ > +	blk_mq_free_request(rq);
+ >
+ > -		if (!copy_to_user(hdr->sbp, scmd->sense_buffer, len))
+ > -			hdr->sb_len_wr = len;
+ > +	if (sense_len) {
+ > +		if (!copy_to_user(hdr->sbp, sense_buffer, sense_len))
+ > +			hdr->sb_len_wr = sense_len;
+ >   		else
+ >   			ret = -EFAULT;
+ >   	}
 
-> Several ASUS laptops carry their keyboard on an I2C-HID device with ID
-> 0B05:4B42, the same ID as the Zenbook A16 (UX3607OA), so they bind to
-> hid-asus with I2C_KEYBOARD_QUIRKS since
-> commit 206107536018 ("HID: asus: support the Zenbook A16 (UX3607OA) keyboard").
-> 
-> Unlike the A16, which reports its brightness hotkeys on the ASUS vendor
-> page, these keyboards report them as the standard Consumer usages
-> Display Brightness Decrement (0x70) and Display Brightness Increment
-> (0x6f) on report 3. I2C_KEYBOARD_QUIRKS includes QUIRK_NO_CONSUMER_USAGES,
-> whose input mapping ignores every Consumer usage except mute and volume,
-> so the brightness keys never produce input events. The keys work when
-> the keyboard happens to be bound to hid-generic, which maps those usages
-> by default, and stop working as soon as hid-asus claims the device.
-> 
-> Let the two display brightness usages through the filter so hid-input
-> maps them to KEY_BRIGHTNESSUP and KEY_BRIGHTNESSDOWN. Keyboards that do
-> not report them are unaffected.
-> 
-> Tested on two ASUS laptop models with this keyboard: with the keyboard
-> bound to hid-asus, the brightness keys now adjust the panel brightness.
-> 
-> Signed-off-by: David Cemin <dcemin@nvidia.com>
+[ ... ]
 
-Applied, thanks.
+ > -	ret = scsi_complete_sghdr_rq(rq, hdr, bio);
+ > +	return scsi_complete_sghdr_rq(rq, hdr, bio);
+ >
+ >   out_put_request:
+ >   	blk_mq_free_request(rq);
 
--- 
-Jiri Kosina
-SUSE Labs
+With this patch applied scsi_complete_sghdr_rq() frees the request that
+has been allocated by its caller. Nothing in the name of that function
+nor in the code of sg_io() makes that clear. Please either add a comment
+above scsi_complete_sghdr_rq() that explains that it frees @rq or keep
+the blk_mq_free_request() call in sg_io(), e.g. by splitting
+scsi_complete_sghdr_rq() into a function that saves the request state
+and a function that copies that state to user space.
 
+Thanks,
+
+Bart.
