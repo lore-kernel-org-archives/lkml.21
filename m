@@ -1,58 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795073812;
-	b=PwA/EhHRdsjAYpILxoUJJ1MZONuyYVMtKGJlt489bb2huxOcytbeF4vw1NSF+bMOXFYd
-	 Epeou9m9whfHoRLQj/GO6Bva/6HNgEKWLkcC9/wle4X3KpuhufqM+xRxysPiLYyfS6QEF
-	 pUVRgBo9RQUJMgnUOIyjEl13xiabMEH4sbgKJM6Msnka0l6mTZUnhCDevq5PjIK/7DCm9
-	 Ssq3CxP/kbGhJtkcoadqTUTBHZqhANrjazm6ll2GbjioAqOwWr7yJFKFx1Xpq58ODfEZf
-	 LzZrRjSOh8AnHxNVp/I2UV+dG855/XW94aWWH6JQ8f9M8Fs6h/mZccUJ1JBylhptT+Q==
+	t=1795073844;
+	b=fD82g5D+HP1cCYPBrboOWmt+f45JpjN1r83YaBiVKSJiU8Dg0MXZWdhpy6Xpbv+YTzPT
+	 5+YeXMJz5I2Vn7ZEeuuqJ9sjCdJf69WOX+6cTvDDx3x7HU6NpcsN4WgH5Hr9fKT0JRy6m
+	 0kwcOsJds8XQ8BF4t3gwqNZ4eSP7rHz9D/3gPaB3r1rwlq3zYWViEWX+/unoWwaCTchXv
+	 xP4Y6Wzkj8AH+iMzqGcXFKLjMBKN9wQLnFY6MR2Sx9P2ZmaUayfJ6ETyBLmOYcWLS7YZj
+	 SBWTLR41jzyhqKBCymiLM1blCOLPyeALzl7aMhvJDE0g+unVMbHo0/ALnDHgUHmFQew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795073812;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=Xz9x+nu8iFDsD3oN41PdfcdXcq5+MFZLlOOhZlyWh6I=;
-	b=mItm8WPWc80F9gr/fSN9r7HHeQtt+50uQ7+Zd4MX6fZzNVWjHAe4xTvBgpCHhr206rFL
-	 C1068xPb2YhnHPAyESuszOFzpzofLBz3LGC+8SzrtTV/RI/5y23RKne4SHJGQ7FYJpVX1
-	 RyNNvIV5C4PBZvn2nOpJG6Gg1ExNGrDsue483jyMP8uBCHh3Hul0xzGP634dPx98z3ZZG
-	 6lS83BWslL/21NDOVI8EzPLWe2eYjMM+S8jnHgQhRnYIcxJkk/ZZuxBxBmTvPK4BI5AlD
-	 R7kq7AwpIJhewGBEp4qdgiMHisoKLT498jspeJT2qXlvHuwe2/bLNITbc9A1NcU3kmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795073844;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=SREqdNPk3JQsCTcSiofLF5qVyqSl8hjBAsQ727rgaKI=;
+	b=bwJ8LnDLqV6veWK4KolZ39biz/GVg0q38Dv4I9qbivlt4BhHJ8BAn0CcgfRQt+34lGod
+	 UaGCIQP3u5EqEn0t9hKHJkY8T6DvLAsjF6ABzvvO34iZnquYYtG7uxOD7EfQLZLfxBLMr
+	 kQDBC062HRHrK0wB979gW9aWwAP3/s2QZmu7B7817rp1vwAkEsKwqjdBruSxINMsLg1oq
+	 mOTXLLuW8iUpyPjcjPK5S2dTqssoUU1jzQSspS49PdNcuIiwbW6exlLSlNwCW070rS22d
+	 tLTtErljPIrVBFOs4XQGmr5OYv1Lsz8Q2TzUR1O8JfuCvsAvjPcLikTOZzg0ZeZZskg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fsCZGmzt;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=asJKNSmf;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 261A0606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:36:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 261A0606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB18B606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:37:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB18B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fsCZGmzt
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 46CDE1A16F4;
-	Thu, 19 Nov 2026 07:36:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1AF9C60237;
-	Thu, 19 Nov 2026 07:36:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CAABA11BC2D6A;
-	Thu, 19 Nov 2026 08:36:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795073803; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Xz9x+nu8iFDsD3oN41PdfcdXcq5+MFZLlOOhZlyWh6I=;
-	b=fsCZGmzt+fC0fzp4kR6Qre+ME9xwJCzkqh2RMfEnsYfUQKcvoDvE8tGbXLrlkh55jKY0wk
-	5aSIs3r14a2766AwiOGXKd5X8Esp0S3LdhNw5H0O+KcHGY7t9NUxsm/9sU8eyuFiAK+0X/
-	RSfYX2BTfMqT2n1Fx8aT0dE6hI2by+F8Ei3o1j5gNHWVByze0bPXtho48ya36PMQcmiuLV
-	LkYm2qBpXPafvuJjzwLpwY7JciQMJlyDNALWWuSx2mUE/be/meyTvzvQ8Baj0LHGZYFp0f
-	VBzZZRVNttSVa0sSGvlDUJZUm2vxcs2Jtr2wlPfKjGd8zBKSz0TW2hb0ciWArg==
-Message-ID: <c811598d-28e9-4d9b-9929-b434878b90ff@bootlin.com>
-Date: Thu, 19 Nov 2026 08:36:34 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=asJKNSmf
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-381d542bc29so3568446eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:37:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795073843; x=1795678643; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SREqdNPk3JQsCTcSiofLF5qVyqSl8hjBAsQ727rgaKI=;
+        b=asJKNSmfC/rYASbeVtVcrb9AOR6+tw96/vwikRFL8m9+s/0CWE9k/1sgC9/nTB8P/3
+         D7q/IQrHMOp30NSEWkPaYIEs4nYYLv0bnGT4hwhMIvLx9afMTb6MPBWoWQNr09nG6Bjg
+         REHIJv9TA3Q0yYaC/HEa303Hdyq3HODXQx58/j8h8LshxwbZfchVnbw4psExPrAA9AXc
+         2lW1f4oGPpJdRBoUuhJAf8n2JQjKq9pGMb9IIZD3yYjQPwyujKINSH/CvY5XxVM/37IY
+         5DXEWht6jPlqSxGHPEDiXXqANKIw0vx+nyZIsc7yaa++67mhZdZDd6gN7JHlZcvPrZfh
+         JiLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795073843; x=1795678643;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SREqdNPk3JQsCTcSiofLF5qVyqSl8hjBAsQ727rgaKI=;
+        b=L2W73PJSoPZoaOztKLvvlbidWLvMJ1cJLvwyzYciRjDC/i+N+rp5NrK2sBE3x6K8Jy
+         BYejRRTKOndEakGpU/tHcipkHA0+2eOTR0h56LGs/WIDhO/sxhtW78rF/SdtIE2XTMzX
+         Xi1z2a1XvPJmUyK1EO6ub0ik72VwfYqpOIRAOhAjSHZmOzaMFAicitchjD0LvBRPOX4G
+         nUss5TDjzDAqKSR1zd5BZ3zUG3xQ6T3q3TZPpn1iV59/ek7a4TQtJ+htYa0+E6Tgx94P
+         hxd6egwg/Od3CiqRi+9CNncqulBwt2R7oBTk+nik7X9jUdYkFj6qOQN8Gu+xWYo+ZQh6
+         CJ4A==
+X-Gm-Message-State: APuU4Z+FVxjH4sItyFxTF0A4cMYK1WWWaWkkUxdnffYjQ8UH/i8CsmV7
+	nbOD3mYmdBbXtPdz0pfqJnpNY2q05blWGewmj27AJdDN557y8kBMSpJX
+X-Gm-Gg: AZFdTZfl4Ng+cCOBXZcMcy2hZ4N5oA3BMVv6QK3lcAvBP7QcOjXCKjKGh07of4MVU22
+	WPmznNS7h+qdvDEAuLmEYQ+GKu6ghSHBr/92d4rFy4e3jeYWn58GkJJRArfCBX6LnXcbZPL997H
+	+5dx3TD4fRV8cjpXjWWC8LIfN/MCyUHflQgcZCwA1qQW38RcH4IjVMkFQn6t3CRoBgqPw95/kdT
+	plKhsxIcWsNjh38O/S0MAYxghS2zoNu7DZpjK4M6N3Ud5VcCQ9HiL9UvAAllLV52ux3xgFrm0R6
+	+J5GP8md611PV+wYB24MCw19Lw+0Wsjd/r9VIfNBAnKSAtFa+eI54Wun6b7T5xNNGUSmO7t5IkD
+	VDGshJCzTKP2fW12ECWOWraKXFo9/iZrNSWkwosSiZ1IFBOY/lvdCCrmeHMY3solnubVKfsxgGv
+	of71lqUJkcxG8P2eyHE21I2lfEwUWu6C5y6eVNRRbo6vaBWTTPaOecCqM7Xclprn68PgxxDqiKG
+	MGyWtJQyw5sFkhgydmylfQF4OLDPSiJVFZrgl1cL2zReNAO6tUTJV1prnqICozAiOA751e5Lj8o
+	HFNjhjvGfMjTCGVhfMUhbeVFh+0u0UovNCJ8OHpwqm6FtmCL4qb2Zw==
+X-Received: by 2002:a05:693c:83dc:10b0:384:a0cb:a6b3 with SMTP id 5a478bee46e88-384a0cbaa15mr467087eec.13.1795073842990;
+        Wed, 18 Nov 2026 23:37:22 -0800 (PST)
+Received: from localhost.localdomain ([103.149.158.188])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3848dc19705sm2663207eec.23.2026.11.18.23.37.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 23:37:22 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: sreekuttan2156239@gmail.com,
+	lars@metafoo.de,
+	perex@perex.cz,
+	tiwai@suse.de
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v2] ALSA: dmaengine: Check DMA submission errors
+Date: Thu, 19 Nov 2026 07:36:53 +0000
+Message-ID: <20261119073653.2632-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261119071043.2943-1-sreekuttan2156239@gmail.com>
+References: <20261119071043.2943-1-sreekuttan2156239@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,82 +99,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
- from the descriptor
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>,
- Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
- Joseph Steel <recv.jo@gmail.com>,
- Muhammad Nazim Amirul Nazle Asmade
- <muhammad.nazim.amirul.nazle.asmade@altera.com>,
- thomas.petazzoni@bootlin.com, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
- <a2518e0794b8b9c79a97cb6c768dded6@tipi-net.de>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <a2518e0794b8b9c79a97cb6c768dded6@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-HI,
+The dmaengine_pcm_prepare_and_submit() function does not check
+the return value of dmaengine_submit().
 
-On 11/18/26 21:09, Nicolai Buchwitz wrote:
-> Hi Maxime
-> 
-> On 18.11.2026 17:21, Maxime Chevallier wrote:
->> Stmmac's double VLAN handling hasn't been working great for a while,
->> it's been recently reworked for dwmac4 by Ovidiu Panait. In that work,
->> it was found that the tag stripping hardcodes the 8021Q tag type for
->> XGMAC while stripping the tag, while the IP actually reports the outer
->> tag type in the descriptor.
->>
->> The tag type can be one of 6 different values (note inner/outer is
->> reversed in the macro names):
->>
->>  - XGMAC_ET_LT_VLAN_STAG       single S-tag
->>  - XGMAC_ET_LT_VLAN_CTAG       single C-tag
->>  - XGMAC_ET_LT_DVLAN_CTAG_CTAG outer C-tag, inner C-tag
->>  - XGMAC_ET_LT_DVLAN_STAG_STAG outer S-tag, inner S-tag
->>  - XGMAC_ET_LT_DVLAN_CTAG_STAG outer S-tag, inner C-tag
->>  - XGMAC_ET_LT_DVLAN_STAG_CTAG outer C-tag, inner S-tag
->>
->> Report that tag type through a dedicated desc ops and report it to the
->> stack.
->>
->> We keep the 8021Q fallback when we don't have the ops, as we don't
->> set NETIF_F_HW_VLAN_STAG_FILTER on the cores that don't support that.
->>
->> This has been tested on AgileX5 with the vlan.py selftest.
->>
->> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> 
-> Isn't this a fix too? I mean xgmac advertises STAG_RX but still
-> reports S-tags as 802.1Q. Then again nobody seems to have hit it
-> so far, so net-next is probably fine.
+dmaengine_submit() can return a negative DMA cookie if the
+submission fails. However, the function currently returns
+success unconditionally.
 
-Yeah not only was this discovered while working on something else, it
-seems no-one noticed and it's always been broken... I wanted to avoid
-spamming net too much, both options are fine for me TBH,
+This makes the PCM trigger path believe that DMA has been
+successfully submitted, even when the submission has failed.
 
-Thanks for the review :)
+Use dma_submit_error() to check the returned DMA cookie and
+propagate the error to the caller.
 
-Maxime
+This ensures that DMA submission failures are properly
+reported instead of allowing the PCM stream to continue
+as if the DMA transfer had started successfully.
 
-> 
-> Anyway:
-> 
-> Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
-> 
-> Thanks,
-> Nicolai
+Fixes: e7f73a161356 ("ASoC: Add dmaengine PCM helper functions")
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+v2:
+ - Add Fixes trailer.
+
+ sound/core/pcm_dmaengine.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/sound/core/pcm_dmaengine.c b/sound/core/pcm_dmaengine.c
+index 1306b04be171..5b9fdad4d9a4 100644
+--- a/sound/core/pcm_dmaengine.c
++++ b/sound/core/pcm_dmaengine.c
+@@ -154,6 +154,7 @@ static int dmaengine_pcm_prepare_and_submit(struct snd_pcm_substream *substream)
+ 	struct dma_async_tx_descriptor *desc;
+ 	enum dma_transfer_direction direction;
+ 	unsigned long flags = DMA_CTRL_ACK;
++	int ret;
+ 
+ 	direction = snd_pcm_substream_to_dma_direction(substream);
+ 
+@@ -172,6 +173,9 @@ static int dmaengine_pcm_prepare_and_submit(struct snd_pcm_substream *substream)
+ 	desc->callback = dmaengine_pcm_dma_complete;
+ 	desc->callback_param = substream;
+ 	prtd->cookie = dmaengine_submit(desc);
++	ret = dma_submit_error(prtd->cookie);
++	if (ret)
++		return ret;
+ 
+ 	return 0;
+ }
+-- 
+2.55.0
 
