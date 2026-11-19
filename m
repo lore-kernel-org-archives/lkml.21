@@ -1,100 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795088987;
-	b=RzAmw68inTHYN+FwWS/w/IxuTfb9LYJ89vQ79QXSj4n+iCmkppJ8kEfcHr+VVUiX8lZV
-	 a5AOnQoErcCBOi1i69FJH5FLNxqIh8zigi44OgKflCwn/XzOEOknMTjIrJD0omuyLdCa/
-	 pqRotxxHmRt14cx1E6eR77IeigOiGJ5hy+reGB3Lae7irkRiRdmgakO06KYLinomCrWQS
-	 wu+Xd/0SkZqwT0E1U6QDtfMZSeonEa7NZMX2Cd3W7N3EHojYNAy4wFpTZ8wj9E6Jia7M4
-	 bLbHTAI35rs5ws3blEcOsOJDi3poR7s2pw+6CutA/+NKn80itnEIiTHsP0+ibC8g1aw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088987;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=0v8Qwz2j1gJFY6/8JHaQ0pCMABY6UQgwRHSnLdGgoSo=;
-	b=3Z/McQwRMhw33pxn+BRSRXf+kGyBGd/LJrdYV9berhIPbEC936Vw24gKShH3vtB/8LU4
-	 OaQyZCitVNGxRbh5VRXZ3GQHSA2hhIvO6vHf5epfGfdB20GKyVCfxUf81weYb5Qw1+c+b
-	 v+w88qetCzBf2nvArdfi7dMwo8szbL45GoqAwURmD6vssRfxGZBsTE8FbFBJhrWyTM8qv
-	 qlOMHaMQzBE88bLaD2rHZdJDtxg/U/DNwEcaHu7HYlVQtuIb0Ye4nNs3nLSVr9akdjr3d
-	 WI54uLzwSeEwUxeru6fP6JVgTL02LWw2BX1OomSvhK1Ah/Nit4bSUAcEz2L8qSPHsqA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z23fiON6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.169
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795088988;
+	b=L9hpShlbqa15TCtMzjEJytuT7CzHgQurUOpnzUHYZyMDBFR8y5OuJ/gCqziOMUNDmMWK
+	 xahVg6E29Gxtu2NUHwNoYQLBYGSwrm6NL0EZzqFr4NRZt4ieJrYvO3hpI8zVxqXMshhsU
+	 9GqrinfC6wBNC7NnJ7Vk9QlV9yxQu6F/QD4PufeG+WeQhSBz7/vqJ/jqFPZKWjx2KchAO
+	 lPzzLShVaKV/vXdByL8RjLkQW8wAY+7J9ycYPDT9lhoJki6fqS0Lz6cAilDaX5SQ0Sk6T
+	 DFS/3eJBytVNE6xgGct4QVPr2DEcLF9ItFvdoOMpH7NGZAycOBCO0u60vk+xe0j0q+A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088988;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=O95fuT/hByszdcGnSYNlRTqiDcHHAEJOmaLksYsfbos=;
+	b=bWKIvSXjgzdxjKZelwPf+HuBISxh/p+UFX0QCtufuJe/nurjjjC6AEISjFlv/ZhpTv5k
+	 zVMEdQ7JVWK43lyIMgf69z564KMZacbLxhpe8aOTISub0rEBhLHKXwyaq1AdL63WGcVbB
+	 p6NrQT0FyQXHnYAYKmErUD4AS+iclF3/c6xEQ1rmmWpLbQfP4k0dNCiCVq5ryClGqLQZq
+	 cCgM/cdu5iZWNpQs8NE5uxdTsI2rh/VRR2BvpJf4J1mMcelE8OdU9WH81NqWg9MxaNz7/
+	 i0ZlNCTSWpv4xWPN0Cj9oqbHwYL34s3A8QxY8WIgPTaGx/Oja8R+JOjwqOgBTauwbCw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=hpPLAHSC;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9208606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:49:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9208606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E65E606A32C;
+	Thu, 19 Nov 2026 11:49:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E65E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z23fiON6
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3ad3ef75223so2416541fa.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:49:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795088985; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QqDA+Me4nKFt865AM0b43/pwRQMloEGnMIPxqlWYroNDJp5+d+EP2CYt+mAw6jk9rx
-         eGQUdr8CLT29erylv+4/rIX7K8TBjaRdnS9t1ltQnTBnkAtMaxdgiP6ZHiWZDe2QN0/t
-         W/Kjzo+f6k4qO9g0ztvc99VEoHwjcKs74EMOsEurOzjRWrq0fDz70N9QCawzlebzl9wS
-         ZEf8YBKRA9B1Bp3pirHATpCSSc7Hh/PmujtjJxJ0otBUvY9DeWxeD29l8Q3jHMzJukL3
-         nxrKKgmXug2qaMUzP0aB8sACtMKhBsmWN9eKAoIdK47EJrklT6oRDlDohpQeLBQPbRlh
-         4AAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0v8Qwz2j1gJFY6/8JHaQ0pCMABY6UQgwRHSnLdGgoSo=;
-        fh=gGd/GRNbjLiuQEi07bwDB6V1hYvbM3mhmA251TTEL9o=;
-        b=ALFOHRDhk5YeRI2sQTwXnFhpldJ/aC3fV7XXnkaLF3ovwgXMUsLbnoSPjQL/gww+Lh
-         rBFPzNks3MfjnTxzJgH8qr4gBonJqcA8ILegENNl/Q484runyIbEcvA1WnEmkKi2c6IY
-         qs231u+ZFEYuBb1pXX5FUbgKA2XQknOhDvqu1UpC2mlR7RCLi4LGPFwzq0TCniB2Aebh
-         I2xIwc5GBlJ2Lpn+iQ3S4GX2G+m96L8ttS87Na6hd2ZXYAiPKI30giLLMs4QoI42+Qys
-         wxpLIfwZbuO6Jw/sWZVVOEuvX1vkzMZRG5WtmOwCXWl+s4uQhZHa7sIcoPNgE7mG75wj
-         BPbQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795088985; x=1795693785; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0v8Qwz2j1gJFY6/8JHaQ0pCMABY6UQgwRHSnLdGgoSo=;
-        b=z23fiON60VDqRZJVWbZ1efJNn/LOmgGSb3qJoydq7gra7IPdLTFjElS8MzhzTZk3oF
-         ATDPMr7JAZiVz4J4GvNGB3fvZy03S4txliQw9YWFLb5oPjuhZp3VP9Rdv8ZC00pwwROV
-         KmXIbyvdPtGeMsZNUQLocoIXSzxG8Yq//8OdahAWyfWrRtUej3dLXmrQ9uKNwlTX/E7b
-         Tw3oXiFldyOl5oIzWXrt5ODq54ExhLvKbMNId7hrPsWODYp748RFqhbF0p/oNJveRmMI
-         55YF/caa1kHgv7ZU+4zhbPDOn7S18N7AtZfWHnjfdojffeySUOTDoagmd5LW+R4Kn0q6
-         2vAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795088985; x=1795693785;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=0v8Qwz2j1gJFY6/8JHaQ0pCMABY6UQgwRHSnLdGgoSo=;
-        b=voApDqpKHSp+1pleHy7pNticZHWy1ixjmYCyk/8m3NFXrxJSlW6yeLmvJS68NpMqg2
-         JRLp3EYo4pgCseAaWkZMeZYNZEJSAz0n0IkvtgTAFS5oq/q+ET8vEc4DVL4FAB4Rxd51
-         2nOuDq+Hj7LKx+76qugpn4XCs9SHmokdLoCS3Sj/iawyyjApC0bsxje/9kIrwbHZL0Tf
-         zdewNygxKWQquq6l4S18MNGDPRND3UDrreldBrvq7pTrdXs6kPyTBELM5OmMjdAs8COf
-         3Tzu7cCBufudRCsMsdRWv2HNP4zxhqBnpZfOEmfda9/hua8I1KH1Bz1J87C3eqrhqPBx
-         WQOw==
-X-Forwarded-Encrypted: i=1; AL+hErGO2eQMXQaDJZ8qjYX9QfjYWHTsJlmiyOdRRu5AON2nv2bA7SZyFdW7vjHhaMNKhr9uH/tDPsK1XQeNq+M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZJzODuCVPpyCC0kAUzIfpRpHsBQfa9Wr2NCly/MML0bz+Hka7
-	mYjia+pidulBnFr6PHQizXwbaBuBJO1lNaMu4LR10Mu6P0LVv/XeyJse6sWv3RbhYfJUQb1yuNG
-	QA8G/bXQZ1vIDfMycmpZe5xb6k+vr5yM=
-X-Gm-Gg: AYBFou1tPXQXCrmXSAfThH/atLbnip0OxoIWfXeA++8s6qP3CjJc/GSLUi9FE8RI2H9
-	qI6aqyunsUXfR1P4LTZCVvqUDN7qGWpORO+meoSpn45mUSlTqPeyvUZw6z/qQaAImTOsKxxpxBO
-	QTeAASKIEA+KUHuGzuBki+CzRGpuepxfurNXGd1xl+CBpSO1/vp7zFVD+L8HlO8MjM2fTJkj20p
-	0JzdevEhx8a3z7yet3/o+fQSTHuXhr6sU4nHzFSNvu8ssG1n0j8tsG9le0wAI1QHusrlW1NqI0X
-	Rlz80AHRwg/cKe1dzqqC6cY0W5XfWZvxKyVgDrPiZ5Z5fDbZ6nlNKKFNT0hOTwxN1LxGat6vOKe
-	JGic9wBPiYmbyrMVUFZARfIJesg7gyQBVmNu/NrSMZOOLZ2E+Y/d7+nG7XjKaUto/65Dm9t0Pk3
-	KQppXRc+Eo7R+sWFAAlA==
-X-Received: by 2002:a05:6512:3a8d:b0:5c1:57b9:90b2 with SMTP id
- 2adb3069b0e04-5c1a9bfdecdmr2184343e87.1.1795088984723; Thu, 19 Nov 2026
- 03:49:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=hpPLAHSC
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 716C5A11AF;
+	Thu, 19 Nov 2026 12:49:44 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795088985; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=O95fuT/hByszdcGnSYNlRTqiDcHHAEJOmaLksYsfbos=;
+	b=hpPLAHSCrwQrSD/G9ycqd7DIsbzUmIBurKWCe5HUcdwHWd5UmFONwGcHn4IRbgUR2Weg8O
+	qU38EH6hf2xOBL468Kbs0YIosp6SUY2GPGIN9zGrWvIflxG/RmdDJZJoT5eeG6e0uFQLe7
+	OxjHJAN50uQWRmHiQ34Kf4+8wVzd4q7/dtM3IgEIudSMkPWFgM2gcF+RC+lTqqknu1xPI3
+	koxE7iuR1NL62txT1zuslBcEnkjwlVDVpwKWPHrwBe0Hl7p2gCfNRymwp+iHYTk4aB8k0Z
+	CxiRfSdawDI+M5WNa3U3cI5ar2kC1UTNJWBo4nONt2LbcKpyaT59/HsqEP1C7Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,41 +53,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261106113142.706783-1-chenyou910331@gmail.com>
- <20261106113142.706783-3-chenyou910331@gmail.com> <avR8baubOL7Aoeh9@wyuan.org>
-In-Reply-To: <avR8baubOL7Aoeh9@wyuan.org>
-From: =?UTF-8?B?6JGJ5a645L2R?= <chenyou910331@gmail.com>
-Date: Thu, 19 Nov 2026 19:49:33 +0800
-X-Gm-Features: AclHuK9EM5hdpbT3TNdOeN-dnx4idoMkonl-YP0dj0CdZKOeHCEG-FJzfj6Fq-U
-Message-ID: <CAKspUhKRkx_UW9mep2h2HuDy5Rj7OwurdsmEe6+1f04Rv=2YWw@mail.gmail.com>
-Subject: Re: [PATCH 02/25] docs/zh_TW: process: sync 2.Process.rst with the
- English original
-To: Weijie Yuan <wy@wyuan.org>
-Cc: Alex Shi <alexs@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Dongliang Mu <dzm91@hust.edu.cn>, 
-	Yanteng Si <si.yanteng@linux.dev>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Date: Thu, 19 Nov 2026 12:49:44 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Paolo Valerio
+ <pvalerio@redhat.com>, Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
+ <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?=
+ <benoit.monin@bootlin.com>, Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH net-next v7 1/3] net: macb: cache ENST config across link
+ down/up
+In-Reply-To: <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
+References: <20261118-macb-set-channels-v7-0-2dbc00f686af@bootlin.com>
+ <20261118-macb-set-channels-v7-1-2dbc00f686af@bootlin.com>
+Message-ID: <b8bbd8e8078d9c27ccfaad2ac5001e42@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 11, 2026 at 10:32:13PM +0800, Weijie Yuan wrote:
-> The Enlish version uses tab here, not space.
->
-> Is this a big deal that requires a reroll?
+On 18.11.2026 21:53, Théo Lebrun wrote:
+> Currently, ENST is not explicitly restored across interface close/open.
+> If HW keeps its register state then ENST is kept, otherwise it is lost;
+> but we do not write the ENST schedule again on open.
+> 
+> This causes trouble if the config is not compatible with the new open
+> and link-up. The two issues that can occur are a link speed change (as
+> all timings are configured in a unit relative to the link speed) or a
+> change in the # of queues.
+> 
+> The latter is the main reason we do this change before implementing
+> ethtool -L support.
+> 
+> If on link-up, the cached ENST config is invalid (link speed changed),
+> then we drop the cached config, log a warning and explicitly override
+> all ENST timings previously configured in the registers. If it is
+> valid, we explicitly re-apply it.
+> 
+> Take this opportunity to replace a kmalloc in
+> macb_taprio_setup_replace() with a simple and tiny (104b) stack value.
+> 
+> Drop the old hack of checking for pm_runtime_suspended(), which has
+> little value because we could race with the runtime_suspend() call.
+> 
+> Synchronise our config using the existing bp->mac_cfg_lock mutex, taken
+> by macb_taprio_setup_replace() and macb_taprio_destroy(). To avoid an
+> ABBA deadlock between bp->mac_cfg_lock and phydev->lock taken by
+> phylink_ethtool_ksettings_get(), cache the link speed as 
+> bp->speed_mbps.
+> 
+> Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
 
-You're right, the English text uses tabs there and I expanded them. The
-rendered output is the same, but the translation differs from the
-original for no good reason, which also makes future syncs harder to
-compare.
+> [...]
 
-Since I need a v2 anyway (see my reply to 03/25), I'll restore the tabs
-on the lines kept verbatim from the English text, i.e. the URLs and
-Andrew Morton's quote. For the two tables I'd like to keep spaces, as
-their rows contain CJK text: editors and docutils don't agree on where a
-tab stop falls after double-width characters, so tab-aligned rows easily
-end up misaligned. Does that sound OK to you?
-
-> For the label thing, as discussed before, let's clean up after finishing
-> our goal.
-
-Agreed.
-
-Chen-Yu
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
