@@ -1,68 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074540;
-	b=HoEHuazaZfFkLQcqSIwhbRcbXfuTci4q9LVG4m1E4DxhwXUxU4ckl8k68mB1kKoA4JRX
-	 2NLPHIN0lVxvzqJ/StSXHQbO90UULyCrzsz0ekQYPLfrURY9IKXBF05dijdTN0jdvV6Ya
-	 9nnRlOz8ZGr4juyoZhwAvHNt6WN11AguDMTZb90SJzVwOXzfd2TBrDszzfxTJwNst7M59
-	 Ik9JwRdNmMAcq0RTjB2LUh/HjDqUYcHCeaNf2fK+Qg2pn67ub4Yo+FdH46ZvqLj417e7T
-	 bjyMhwEgStxKjpwifM5sdupZ6oXmKWWRteac0X4Jz3FiDv+DqUfExN+gyF5pyEVYQbg==
+	t=1795074616;
+	b=yhvm5M4u7RaET8hFTwSYaunbn0TkqCMzsfaMa4s8qoR6N+9vJ2FxKCh2b6N/3kM54j+l
+	 sBxFJ9K7l7xupDF9zeGdSF1APvRwhxEWOCKrrWaRwWlrfQeyi1i1fIpJchDIDVbQuqusB
+	 DbfD0BzXrHD6Dc/PqqdEvyzPOQKDxbXkWgF5lvkmFzEqhjOteOtHjztmucBRXZnEB2icQ
+	 gYMv+xNgs7HnOdysZBhOj4i6S4mpkz0AgiedGNa1mFUlipp6vs21e9X1hemzD1Eg1UjAJ
+	 5r2J0iNgmjrTmK9s/Cq6RG++OMcmQ97YLD40ZEB2JdN6z3mWi9wnoHafzmVw6xlKHiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074540;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=2EGfK2lZXx7T9MpCgqV5Sq8wrQL5YL7OFsfI7ZoTz+Y=;
-	b=d4L7aMDLd27oh7yuGpIy9SePbi1giW0B7g1uMFv8xk9bdQdvDl3VpGYdJO/YziTX2ONT
-	 8QcNGjlOr8Ild+4cWFJfFy4SWyxbnXR3SKICmEFft9m/OABqyISWnL5o9Ml4JztGYpl3+
-	 PgE2CcRyPIoDt0Mbsk/RJ7cofzSldtnsi1DqOvFYLFX1vm4xq9lIe0Z/v95StfFRZRF5K
-	 UCPRYoI02ZQY8Uxjs6Bf0b7VAjtLddpKLNKa7E6R9vZy5jxvsTuFo/8XMpCuAD4i+vvV7
-	 yv5xYX7QYl47ZMcRvvuuxC7BHciXp1qKUDhkgNGN6oIZpAGBvtgznj8d8TfxQOsw2Hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074616;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=YK7Q5AGYD5X7mb5K/vaLkSYnqHBLTOag7oVBX3R6fSI=;
+	b=rZ2pwo0S8j8Q3VZ2ztG/UzK6zgTGKgCfjVKnk7qNyeNWIVkYkASARAJvszPSLJwkYcAt
+	 yxZuDCoqhWQw3JlcuL6z1vnfw0GOgFm6ncQ/Vgi/7UVX1SlxXbZnpT5dKFj5lA593ZLB3
+	 WUwciBxPfnGowspqyluME+/cdmuc9trAy2QMNIFqzSNWhHYNVy0GFkIeURROByE+6YHWr
+	 sVt8dRk9VVnZZFIP/ePVcVJQMGjK4zTuQTbayVejPmQVw+IkjJghV3TGslnb4jEj0Sonh
+	 xWu/KoRVOdeeZmasTTm/sXn19stUj//SDLXND5ZhL7j1Ba9Ugybd8tzb/2OMx/086ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JlbLmPyJ;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3F5C5606A326;
-	Thu, 19 Nov 2026 07:48:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F5C5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=JlbLmPyJ
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 486481575;
-	Wed, 18 Nov 2026 23:48:56 -0800 (PST)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE43F3FA7A;
-	Wed, 18 Nov 2026 23:48:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795074539; bh=S1M79WGliP/lxWdN+K7Fd2XbTpS9t6SGFAKJuLVpW88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JlbLmPyJJnCwhWQbsry7xcElMDKIhNCUUl6erCKn7pRLZbkCdGQQ+ASHpd8HVfCma
-	 Vcv6JGFy2v761ROTPdp1/lUnSccJhUDU2BoPDgH4QFTGLcA4xQk5euxGcJlKmSoudW
-	 jqf5AlATFXena9creXGOsHunLkTfsZpKybqEtW34=
-Date: Thu, 19 Nov 2026 07:48:42 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Kohei Enju <enju.kohei@fujitsu.com>
-Subject: Re: [PATCH v3 09/11] KVM: arm64: CCA: Support runtime faulting of
- memory
-Message-ID: <hwmtiumovuqyu7js5eqd4xt3h2zsuhjwkcygnw62hp5rrar5ph@5fhmv46iio2r>
-References: <20261116164358.142785-1-steven.price@arm.com>
- <20261116164358.142785-10-steven.price@arm.com>
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BEBC606A320;
+	Thu, 19 Nov 2026 07:50:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BEBC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: d65f8368e3ed11f19a56ed5b684f684d-20261119
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_PRE_RE, HR_SJ_WS, HR_TO_COUNT
+	HR_TO_DOMAIN_COUNT, HR_TO_NAME, IP_UNTRUSTED, SRC_UNTRUSTED, IP_UNFAMILIAR
+	SRC_UNFAMILIAR, SA_UNTRUSTED, SA_UNFAMILIAR, SN_UNTRUSTED, SN_UNFAMILIAR
+	SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS, CIE_BAD, CIE_GOOD_SPF
+	CIE_UNKNOWN, GTI_FG_BS, GTI_RG_INFO, GTI_C_BU, AMN_GOOD
+	ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:698003bd-e3c6-4df3-a8cb-788b68fb5408,IP:10,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:10
+X-CID-INFO: VERSION:1.3.19,REQID:698003bd-e3c6-4df3-a8cb-788b68fb5408,IP:10,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:10
+X-CID-META: VersionHash:7db8b62,CLOUDID:d3243e08d7160a42ecc393c04f771288,BulkI
+	D:261119155009ZBQBSZKZ,BulkQuantity:0,SF:19|38|64|66|72|78|80|81|82|83|102
+	|127|136|153|841|850|865|898|915,TC:nil,Content:0|15|50|99,EDM:-3|-100,IP:
+	-2,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LE
+	S:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FSD
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d65f8368e3ed11f19a56ed5b684f684d-20261119
+X-User: maguicai@kylinos.cn
+Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
+	(envelope-from <maguicai@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 641219735; Thu, 19 Nov 2026 15:50:06 +0800
+From: Guicai Ma <maguicai@kylinos.cn>
+To: Florian Bauckholt <florian.bauckholt@cispa.de>,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Lukas Wunner <lukas@wunner.de>,
+	Ignat Korchagin <ignat@linux.win>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>
+Cc: Paul Moore <paul@paul-moore.com>,
+	James Morris <jmorris@namei.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Hui Peng <benquike@gmail.com>,
+	Stefan Berger <stefanb@linux.ibm.com>,
+	Rodolfo Giometti <giometti@enneenne.com>,
+	keyrings@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Guicai Ma <maguicai@kylinos.cn>
+Subject: Re: [PATCH v2 1/2] KEYS: fix signature length passed to KEYCTL_PKEY_VERIFY
+Date: Thu, 19 Nov 2026 02:50:04 -0500
+Message-ID: <20261119075004.689388-1-maguicai@kylinos.cn>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261119-keyctl-pkey-fixes-v2-1-9e2d1c7db7ec@cispa.de>
+References: <20261119-keyctl-pkey-fixes-v2-1-9e2d1c7db7ec@cispa.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,244 +98,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116164358.142785-10-steven.price@arm.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Steven,
+On Wed, Nov 18, 2026 at 11:19:28PM +0000, Florian Bauckholt wrote:
+> As a result keyctl_pkey_verify() ignores the signature length passed by
+> the caller and always reads max_sig_size bytes from the signature
+> pointer. A shorter signature is extended with whatever follows it in
+> the caller's memory, or the call fails with -EFAULT if that memory is
+> not readable.
 
-On Mon, Nov 16, 2026 at 04:43:55PM +0000, Steven Price wrote:
+Verified the union usage in struct kernel_pkey_params and reproduced both
+failure modes on arm64 with an RSA-2048 PKCS#8 key (enc=pkcs1 hash=sha256):
 
-[...]
+- A truncated 200-byte signature with the remaining 56 bytes still intact
+  in userspace memory was falsely accepted (0) before this patch, and is
+  now rejected with -EINVAL.
+- A 16-byte signature placed right before a PROT_NONE guard page (as well
+  as a 0-byte signature at the page boundary) returned -EFAULT before this
+  patch, and now returns -EINVAL without faulting.
 
-> @@ -1791,12 +1799,18 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd,
->  	void *memcache = NULL;
->  	gfn_t canonical_gfn;
->  	int ret;
-> +	bool is_private = false;
->  
-> -	if (!perm_fault) {
-> +	if (KVM_BUG_ON(!kvm_slot_has_gmem(s2fd->memslot), kvm))
-> +		return -EINVAL;
-
-I feel this is being too cautious, gmem_abort is always run after a
-kvm_slot_has_gmem() check.
-
-> +
-> +	if (!perm_fault || kvm_arch_has_private_mem(kvm)) {
->  		memcache = get_mmu_memcache(s2fd->vcpu);
->  		ret = topup_mmu_memcache(s2fd->mmu, memcache);
->  		if (ret)
->  			return ret;
-> +	}
-> +	if (!perm_fault) {
->  		if (kvm_is_nested_s2_mmu(kvm, pgt->mmu)) {
->  			mapping = kmalloc_obj(struct kvm_guest_s2_mapping, GFP_KERNEL_ACCOUNT);
->  			if (!mapping)
-> @@ -1805,7 +1819,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd,
->  	}
->  
->  	s2vi.vma_pagesize = PAGE_SIZE;
-> -	s2vi.gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi.vma_pagesize) >> PAGE_SHIFT;
-> +	s2vi.gfn = gpa_to_gfn(kvm_gpa_from_fault(kvm, s2fd->fault_ipa));
->  	canonical_gfn = get_canonical_gfn(s2fd, &s2vi);
->  
->  	write_fault = kvm_s2_fault_is_write(s2fd);
-> @@ -1817,13 +1831,35 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd,
->  	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
->  	smp_rmb();
->  
-> +	if (kvm_arch_has_private_mem(kvm)) {
-> +		switch (kvm->arch.vm_flavor) {
-> +		case VM_REALM:
-> +			is_private = kvm_realm_is_private_address(&kvm->arch.realm,
-> +								  s2fd->fault_ipa);
-> +			break;
-> +		default:
-> +			break;
-> +		}
-> +
-> +		if (is_private != kvm_gmem_is_private_gfn(kvm, canonical_gfn)) {
-> +			if (!result)
-> +				kvm_prepare_memory_fault_exit(s2fd->vcpu,
-> +							      gfn_to_gpa(canonical_gfn),
-> +							      PAGE_SIZE,
-> +							      write_fault, exec_fault,
-> +							      is_private);
-> +			kfree(mapping);
-> +			return -EFAULT;
-> +		}
-> +	}
-> +
->  	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, canonical_gfn, &s2vi.pfn, NULL);
->  	if (ret) {
->  		/* If result is non-NULL this is a synthetic fault. */
->  		if (!result)
->  			kvm_prepare_memory_fault_exit(s2fd->vcpu, gfn_to_gpa(canonical_gfn),
->  						      s2vi.vma_pagesize, write_fault, exec_fault,
-> -						      false);
-> +						      is_private);
->  		kfree(mapping);
->  		return ret;
->  	}
-> @@ -1846,6 +1882,16 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd,
->  		goto out_unlock;
->  	}
->  
-> +	switch (kvm->arch.vm_flavor) {
-> +	case VM_REALM:
-> +		prot &= ~KVM_PGTABLE_PROT_X;
-> +		ret = realm_map_ipa(kvm, s2fd->fault_ipa, s2vi.pfn,
-> +				    PAGE_SIZE, prot, memcache);
-> +		goto out_unlock;
-> +	default:
-> +		break;
-> +	}
-> +
->  	if (perm_fault) {
->  		/*
->  		 * Drop the SW bits in favour of those stored in the
-> @@ -2047,7 +2093,8 @@ static int kvm_s2_fault_get_vma_info(const struct kvm_s2_fault_desc *s2fd,
->  	 * mapping size to ensure we find the right PFN and lay down the
->  	 * mapping in the right place.
->  	 */
-> -	s2vi->gfn = ALIGN_DOWN(s2fd->fault_ipa, s2vi->vma_pagesize) >> PAGE_SHIFT;
-> +	s2vi->gfn = kvm_gfn_from_fault(kvm, ALIGN_DOWN(s2fd->fault_ipa,
-> +						       s2vi->vma_pagesize));
->  
->  	s2vi->mte_allowed = kvm_vma_mte_allowed(vma);
->  
-> @@ -2227,7 +2274,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->  	 * possible.
->  	 */
->  	if (mapping_size == PAGE_SIZE && s2vi->max_map_size != PAGE_SIZE) {
-> -		if (perm_fault_granule > PAGE_SIZE) {
-> +		if (perm_fault_granule > PAGE_SIZE && !kvm_vm_is_realm(kvm)) {
->  			mapping_size = perm_fault_granule;
->  		} else {
->  			mapping_size = transparent_hugepage_adjust(s2fd, &pfn, &gfn);
-> @@ -2242,12 +2289,15 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
->  	if (!perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
->  		sanitise_mte_tags(kvm, pfn, mapping_size);
->  
-> -	/*
-> -	 * Under the premise of getting a FSC_PERM fault, we just need to relax
-> -	 * permissions only if mapping_size equals perm_fault_granule. Otherwise,
-> -	 * kvm_pgtable_stage2_map() should be called to change block size.
-> -	 */
-> -	if (mapping_size == perm_fault_granule) {
-> +	if (kvm_vm_is_realm(kvm)) {
-> +		ret = realm_map_ipa(kvm, s2fd->fault_ipa, pfn, mapping_size,
-> +				    prot, memcache);
-> +	} else if (mapping_size == perm_fault_granule) {
-> +		/*
-> +		 * Under the premise of getting a FSC_PERM fault, we just need to relax
-> +		 * permissions only if mapping_size equals perm_fault_granule. Otherwise,
-> +		 * kvm_pgtable_stage2_map() should be called to change block size.
-> +		 */
->  		/*
->  		 * Drop the SW bits in favour of those stored in the
->  		 * PTE, which will be preserved.
-> @@ -2306,15 +2356,16 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
->  	/*
->  	 * Permission faults just need to update the existing leaf entry,
->  	 * and so normally don't require allocations from the memcache. The
-> -	 * only exception to this is when dirty logging is enabled at runtime
-> +	 * exceptions are when dirty logging is enabled at runtime
->  	 * and a fault needs to collapse a block entry into a table.
-> +	 * Realms can also require new RTT levels when replacing a mapping.
->  	 * Under pKVM a permission fault can also collapse pages into a block,
->  	 * which needs a fresh mapping object, and the hypervisor requires the
->  	 * min-pages memcache even when the install allocates nothing.
->  	 */
->  	memcache = get_mmu_memcache(s2fd->vcpu);
->  	if (!perm_fault || memslot_is_logging(s2fd->memslot) ||
-> -	    is_protected_kvm_enabled()) {
-> +	    is_protected_kvm_enabled() || kvm_vm_is_realm(s2fd->vcpu->kvm)) {
->  		ret = topup_mmu_memcache(s2fd->mmu, memcache);
->  		if (ret)
->  			return ret;
-> @@ -2340,12 +2391,22 @@ static int user_mem_abort(const struct kvm_s2_fault_desc *s2fd,
->  	return kvm_s2_fault_map(s2fd, &s2vi, prot, memcache, result);
->  }
-
-I see that the changes to gmem_abort() and kvm_s2_fault_map() are more
-significant, and can possibly be turned into its realm version leaving
-the original unchanged. With this can we give realm_vm_s2_ops its own
-.vm_mem_abort? Something like:
-
-First, make user_mem_abort() take a function pointer, call it at the
-current kvm_s2_fault_map() place.
-
-Then realm_vm_s2_ops.vm_mem_abort = realm_mem_abort()
-
-And in realm_mem_abort() do:
-
-realm_mem_abort()
-  if gmem slot:    realm_gmem_abort()
-  if regular slot: user_mem_abort(kvm_realm_fault_map)
-
-realm_gmem_abort() and kvm_realm_fault_map() are just the realm version
-of gmem_abort() and kvm_s2_fault_map(). For example they won't need NV
-related code, and vm_flavor switch case.
-
-Proposing this because I think we would like the CCA changes more
-self-contained.
-
-Thanks,
-Wei-Lin Chang
-
->  
-> +static bool private_ipa_fault(struct kvm *kvm, phys_addr_t fault_ipa)
-> +{
-> +	return kvm_vm_is_realm(kvm) &&
-> +		kvm_realm_is_private_address(&kvm->arch.realm, fault_ipa);
-> +}
-> +
->  static int kvm_vm_mem_abort(const struct kvm_s2_fault_desc *s2fd)
->  {
->  	VM_WARN_ON_ONCE(kvm_s2_fault_is_perm(s2fd) &&
->  			!esr_abt_is_write_fault(s2fd->esr) &&
->  			!kvm_s2_fault_is_exec(s2fd));
->  
-> +	if (private_ipa_fault(s2fd->vcpu->kvm, s2fd->fault_ipa) &&
-> +	    !kvm_slot_has_gmem(s2fd->memslot))
-> +		return -EINVAL;
-> +
->  	if (kvm_slot_has_gmem(s2fd->memslot))
->  		return gmem_abort(s2fd, NULL);
->  	else
-> @@ -2458,10 +2519,10 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
->   */
->  int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  {
-> +	struct kvm *kvm = vcpu->kvm;
->  	struct kvm_s2_trans nested_trans, *nested = NULL;
->  	unsigned long esr = kvm_vcpu_get_esr(vcpu);
->  	struct kvm_s2_mmu *mmu = vcpu->arch.hw_mmu;
-> -	struct kvm *kvm = vcpu->kvm;
->  	phys_addr_t fault_ipa; /* The address we faulted on */
->  	phys_addr_t ipa; /* Always the IPA in the L1 guest phys space */
->  	struct kvm_memory_slot *memslot;
-> @@ -2554,8 +2615,9 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  		nested = &nested_trans;
->  	}
->  
-> -	gfn = ipa >> PAGE_SHIFT;
-> +	gfn = kvm_gfn_from_fault(kvm, ipa);
->  	memslot = gfn_to_memslot(kvm, gfn);
-> +
->  	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
->  	write_fault = esr_abt_is_write_fault(esr);
->  	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-> @@ -2598,7 +2660,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->  		 * of the page size.
->  		 */
->  		ipa |= FAR_TO_FIPA_OFFSET(kvm_vcpu_get_hfar(vcpu));
-> -		ret = io_mem_abort(vcpu, ipa);
-> +		ret = io_mem_abort(vcpu, kvm_gpa_from_fault(kvm, ipa));
->  		goto out_unlock;
->  	}
->  
-
-[...]
+Reviewed-by: Guicai Ma <maguicai@kylinos.cn>
+Tested-by: Guicai Ma <maguicai@kylinos.cn>
