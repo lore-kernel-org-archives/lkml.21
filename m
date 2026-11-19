@@ -1,52 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.143
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795103782;
-	b=2QbIYMpvbVGYbKyIUdQ7Y0tvuEQBQ6ouqq+iAta8e5Tw0LPv7xaJgVAbUqdVO6tonXLS
-	 LEURxBFY42JV+9t4J2xjrycM38pN9tG17vJtkYIcZWrG4kIdl6p4+JUu6sLpZwMqdYNy8
-	 SKaKCiRi2cdOxtjYncue05vJC9Thxxm3X0R5fG+8pL22gPP2byIJQsXkYWgcvfkl0zrkx
-	 8kdo8rg90b4FUZiYfsjWtSJkvUK53VoBSbBO7Ct8mYznR3DWVSuU5NvR9PL8idq4V0N8F
-	 x/yK+mRREdzahplhBSrqYlRJ9XinVhm3U0zEUiO2RRStkRPXThPkobMDU/ite91lKcQ==
+	t=1795103823;
+	b=Wtrpe7CvOBgB2vkm78X1yd3fGt1GUNSZif5YJFMnf6Hw+uy61TcNFZ7dzwQVfYTIF7Pe
+	 6FZlvmEAtPPikd8Nt300Xu1Pa9WI25f6rcttGylMGZEl4gjmofaZB1suvYy25saTz+Ygx
+	 whmlOhCjdzZUNGmobIsgnnOWHsNZZcmXBwjhzd75Jt/EUKkZTT1sXeTIzQH7pI74H7gaw
+	 XQ5Q4k2OgaRxXpxKB+CtgTJH0ckWVD88IPhVv1svIixOK8FO+Qpllvz8393IPEW3bbU4A
+	 ddMqzQ0awgfyZpW9zmMfO3XYQwungvxvZOcCZC2MtHjvNj6L9kAViK6tYTfzkSYc/5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795103782;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=n+k74e9867nRhb8ulyLRle75AgKH2rav4a8VKiRxz7g=;
-	b=PZrhEl5oKXnpArzB14l7UyaM0cLqdqr0YQuFED6gxCMFKoOrbtxRTxOWvY4olfrij9qI
-	 FP0KVK0wF94oxyUwj9JflndlVgqeKNRzrG4wjMIOaIDsuHphpcicDw4QYfLDF8GvYoAOk
-	 eMbszweuZY8/kLB7wcG0hEBAUM1oMmfFdWiMKYhY3LZr6bHHcHGoDPL3l52FZBBwLiQFC
-	 d6LXhO+ID1YPLWxI3y+H32MlWZZmVgp32N2GTUO/PgavOCUOHyIMppdquFN+cDW+Bo3WC
-	 4WERc45o11s6DShVoH7OqFU9wMgIVJHhF1oN4Fwx1pwuyJ4z6nwPc++gsy3rcGb/7lQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795103823;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=gnXK3eI0LzM5e0oAZdia117Au3H1x4p+Ro2fs0XpX74=;
+	b=N5t83PFLjP9CULoD5mMYXw75ayDQL0j768g8PISRZCTRPK5FqYEnhd18xiojQW93EdWV
+	 vNRbVnrSCN4+ZpntG9NyjNgEGSzS/jdTRmWvt0hniTwp8CmPgwIl4X5jYQIjXup6jXqG1
+	 QBeqtKYyjRKKnTEeeFYJq9QchWYMY4ajPBJBwdlygnFgvaAEAH8Y1mSgFP/0hwZQetV1M
+	 njfS4sCS578SALIkkVnQoOXR/x0SCXGtFUH2Z2WEHv75Kr4PjDh0+TwnqX3+KUHSKhc60
+	 eMOL8KgcLBxJUDGkr8RW97UGtzxLIZkMZ4bnE1wuxCfhwKDVpRFJIfrADfSB+JeutWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=klsxY4PJ;
-	arc=none smtp.remote-ip=95.215.58.143
-Received: from mta1.migadu.com (out-143.mta1.migadu.com [95.215.58.143])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=rHUmJS27;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15DC2606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:56:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15DC2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95209606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:57:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95209606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=klsxY4PJ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ccsxT6du60e05bc+5yqFYQ0nZGJ4mi0+0AzsLneGKZo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795103780; v=1; x=1795708580;
- b=klsxY4PJMl4Ikgo+XQKCm7RtgIevP/q/v5kRoZWFqtjJ092Y0vbMrBbA4cCeHgEKgUd9+Co0
- gn/CVJdvsGwuro+UMNi/q5MOuM8fZtlc5G9qjm2CclVAVNTd+IbEtXxN5xDT1EMSJ8GbFB+TIVu
- E3LrltzHOAK3lrK3ZXJABywA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4a01da6eccbc7804;
-	Thu, 19 Nov 2026 15:56:20 +0000
-X-Mizu-Trace-ID: 4a01da6eccbc7804
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=rHUmJS27
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=gnXK3eI0LzM5e0oAZdia117Au3H1x4p+Ro2fs0XpX74=; b=rHUmJS27i5nH1M5iciNxKFw+Zv
+	IUWEq21qEYdjOT8T0tUnLOajdQpHSPshHUjHXEFbdnaVzLUJ7l/fsEoQuQwz83A9VcyIJNAGAwKwp
+	K/Pigksnvm8QuQQSpnaUFeGk+tlXtTGTGUD3c24walAKbS7UPOR5dfhd22HMCtH4d5ayhrmfGvb3M
+	3I9+AZCfsdfLU+aRCIKMvm1cUyu3NZrRsq1HdcW9TaG0RKxrdsEaMcBY4wGkN9rRmYkEU7uUB+Hgi
+	gwA1+gQpUVm0Uae4pMHYNi/2vy7WBAsjTqVLowHB+M3h29wwU21kbK+lgrVI+rxDiR3hfhJ20ejOS
+	wwI1H+AA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xU4VQ-0000000HQXz-1Ifp;
+	Thu, 19 Nov 2026 15:57:00 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 0A88F30072F; Thu, 19 Nov 2026 16:56:59 +0100 (CET)
+Date: Thu, 19 Nov 2026 16:56:59 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH] locking/rwsem: don't let a read lock steal from a queued
+ writer
+Message-ID: <20261119155659.GB1779021@noisy.programming.kicks-ass.net>
+References: <20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,70 +69,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 19 Nov 2026 15:56:19 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Kunwu Chan" <kunwu.chan@linux.dev>
-Message-ID: <6e04aec6ca71cd754ace7ccae8284edb472b6528@linux.dev>
-TLS-Required: No
-Subject: Re: [RFC PATCH v4 01/18] mm/swap: remove unused parameter for
- reading swap header
-To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
- <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
- <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
- <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
- Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
- "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
- <tglx@kernel.org>, linux-hardening@vger.kernel.org
-In-Reply-To: <f42af36d7ec66fb36fb7024966f4a7114f338a77.1794666741.git.lianux.mm@gmail.com>
-References: <cover.1794666741.git.lianux.mm@gmail.com>
- <f42af36d7ec66fb36fb7024966f4a7114f338a77.1794666741.git.lianux.mm@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261105-rwsem-dont-steal-from-queued-writer-v1-1-275e070f426f@kernel.org>
 
->=20
->=20From: Kairui Song <kasong@tencent.com>
->=20
->=20The swap_info_struct argument to read_swap_header() is unused. Remove=
- it
-> and update the swapon() call site.
->=20
->=20No functional change.
->=20
->=20Signed-off-by: Kairui Song <kasong@tencent.com>
-> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+On Thu, Nov 05, 2026 at 08:24:27PM +0000, Lorenzo Stoakes (ARM) wrote:
+> Since commit 1a728dff855a ("locking/rwsem: Enable reader optimistic lock
+> stealing"), a racing read lock can steal an rwsem from under a queued
+> writer whose handoff timeout hasn't expired yet.
+> 
+> This is most problematic when an rwsem read lock is released then
+> reacquired in order to relieve lock contention, as instead it will simply
+> have the lock handed right back to it ahead of the intended beneficiary.
+> 
+> Naturally, this behaviour rather defeats the object of doing this kind of
+> thing, so this is less than ideal.
+> 
+> Fix this by updating the optimistic read lock stealing code in
+> rwsem_down_read_slowpath() to explicitly check whether the first queued
+> lock is a waiting writer, and to not allow the theft if so.
+> 
+> When a steal is disallowed, keep the existing sem->wait_lock held when
+> jumping to the queue code to avoid useless lock acquisition/release.
+> 
+> In order to perform this check, sem->wait_lock is acquired whenever there
+> are queued waiters in the steal code, rather than the previous behaviour of
+> only doing so when the reader count is 1.
+> 
+> Since failing to steal a read lock unconditionally results in acquisition
+> of the sem->wait_lock, this doesn't seem likely to be a significant
+> overhead.
+> 
+> Also update the comment describing optimistic read lock acquisition
+> conditions to include this newly introduced behaviour.
+> 
+> Care is taken to ensure correct ordering of lock acquisition, lock waking
+> and marking the lock reader-owned.
+> 
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+So conceptually this is indeed what I meant -- ACK on that respect.
+
+It would however be good if we can get this ran through some CIs to see
+if there's some obvious regressions and whatnot.
+
 > ---
->  mm/swapfile.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
->=20
->=20diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index fcda5eba1714..c41c4d26a7e6 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -3630,9 +3630,8 @@ __weak unsigned long arch_max_swapfile_size(void)
->  return generic_max_swapfile_size();
->  }
->=20=20
->=20-static unsigned long read_swap_header(struct swap_info_struct *si,
-> - union swap_header *swap_header,
-> - struct inode *inode)
-> +static unsigned long read_swap_header(union swap_header *swap_header,
-> + struct inode *inode)
->  {
->  int i;
->  unsigned long maxpages;
-> @@ -3863,7 +3862,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, spec=
-ialfile, int, swap_flags)
->  }
->  swap_header =3D kmap_local_folio(folio, 0);
->=20=20
->=20- maxpages =3D read_swap_header(si, swap_header, inode);
-> + maxpages =3D read_swap_header(swap_header, inode);
->  if (unlikely(!maxpages)) {
->  error =3D -EINVAL;
->  goto bad_swap_unlock_inode;
->
-
-Looks good, thanks!
-
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+>  kernel/locking/rwsem.c | 30 ++++++++++++++++++------------
+>  1 file changed, 18 insertions(+), 12 deletions(-)
+> 
+> diff --git a/kernel/locking/rwsem.c b/kernel/locking/rwsem.c
+> index b9c180ac1eee..cdb3dd6260bf 100644
+> --- a/kernel/locking/rwsem.c
+> +++ b/kernel/locking/rwsem.c
+> @@ -59,7 +59,8 @@
+>   * A fast path reader optimistic lock stealing is supported when the rwsem
+>   * is previously owned by a writer and the following conditions are met:
+>   *  - rwsem is not currently writer owned
+> - *  - the handoff isn't set.
+> + *  - the handoff isn't set
+> + *  - a writer isn't at the head of the wait queue.
+>   */
+>  #define RWSEM_READER_OWNED	(1UL << 0)
+>  #define RWSEM_NONSPINNABLE	(1UL << 1)
+> @@ -1034,31 +1035,36 @@ rwsem_down_read_slowpath(struct rw_semaphore *sem, long count, unsigned int stat
+>  	 * Reader optimistic lock stealing.
+>  	 */
+>  	if (!(count & (RWSEM_WRITER_LOCKED | RWSEM_FLAG_HANDOFF))) {
+> -		rwsem_set_reader_owned(sem);
+> -		lockevent_inc(rwsem_rlock_steal);
+> -
+> -		/*
+> -		 * Wake up other readers in the wait queue if it is
+> -		 * the first reader.
+> -		 */
+> -		if ((rcnt == 1) && (count & RWSEM_FLAG_WAITERS)) {
+> +		if (count & RWSEM_FLAG_WAITERS) {
+>  			raw_spin_lock_irq(&sem->wait_lock);
+> -			if (sem->first_waiter)
+> +			first = sem->first_waiter;
+> +			/* A writer at the head of queue takes precedence. */
+> +			if (first && first->type == RWSEM_WAITING_FOR_WRITE)
+> +				goto queue_locked;
+> +			rwsem_set_reader_owned(sem);
+> +			/* If first reader, wake other readers in queue. */
+> +			if (first && rcnt == 1)
+>  				rwsem_mark_wake(sem, RWSEM_WAKE_READ_OWNED,
+>  						&wake_q);
+>  			raw_spin_unlock_irq(&sem->wait_lock);
+> -			wake_up_q(&wake_q);
+> +		} else {
+> +			rwsem_set_reader_owned(sem);
+>  		}
+> +
+> +		lockevent_inc(rwsem_rlock_steal);
+> +		if (!wake_q_empty(&wake_q))
+> +			wake_up_q(&wake_q);
+>  		return sem;
+>  	}
+>  
+>  queue:
+> +	raw_spin_lock_irq(&sem->wait_lock);
+> +queue_locked:
+>  	waiter.task = current;
+>  	waiter.type = RWSEM_WAITING_FOR_READ;
+>  	waiter.timeout = jiffies + RWSEM_WAIT_TIMEOUT;
+>  	waiter.handoff_set = false;
+>  
+> -	raw_spin_lock_irq(&sem->wait_lock);
+>  	first = sem->first_waiter;
+>  	if (!first) {
+>  		/*
+> 
+> ---
+> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+> change-id: 20261105-rwsem-dont-steal-from-queued-writer-04b11d9d406b
+> 
+> Cheers,
+> -- 
+> Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> 
