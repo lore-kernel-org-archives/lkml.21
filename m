@@ -1,111 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.150
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795123145;
-	b=NN4LpluR2woVVdhLZAn5goJ5FbX022+TAYz4r0T3cpk0DPNslJL8cO6eZv18UIaSb8go
-	 xJ8Bc9lmDHs2wbi35QhlBPQKDYVJ3B7E2XP4tM/8phFLAssiAiUea6RJ4ar0uh7GFXEPE
-	 9MAWNqmupmD7DCHxh+nzY8C4cUdU+QtbADCmG1Zb1x1Kg2OhJRJim6wr/TcnrcmGP/V8W
-	 9tB62obZ0gN8z+lUhVu3BDddL1H0JUacYWKFkymatHn8IHF7bxu+8GgpbbkgVfAWivreT
-	 1owvVN7VGhl8VbvNFyHHJhR6Jw2KgvtG+r8VWd3144aeu5pbEJnQe/7Dquh84O3oLAA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795123145;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=f1xc6QKYWxzMdEDsaK55KwIygScu9T598+Hsd69AjTM=;
-	b=0CQ09qIdWoEdJyaNJLdP/RW+39cvKyof5BdyEbUCg3JXgL+zT60ORqMkfpSf3DtliZd3
-	 O/FeJtqL02f2Kc/7YWqTYGpBJGu5oTeo2ls7D3brrutW2qSk80YXIlvveYRuodk5f0zzv
-	 AXLQsmUK8UUux+HYTDRvcxL0V3SslDSXxcATUyzOHGc+yAqTWdYrIfB6/0u1feNgRFlbq
-	 rp6Xtvcsi/FYh/50DCCs/aQEWe4JZ1/o5oJffsUnUqZn0lb3NqK27y2zUm16DBsZoPmx2
-	 LqWIDi3AIwfm3EKT9Eoe37qPOpNEkzJ0VTEbmVHfZj5Cn4ID8DzAxh6akrISyYy4v0g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=FFCKhUI3;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Cpy2EaXC;
-	arc=none smtp.remote-ip=103.168.172.150
-Received: from fout-a7-smtp.messagingengine.com (fout-a7-smtp.messagingengine.com [103.168.172.150])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795123188;
+	b=r2PUf1Qz81vThTDr98zRzK+i+wbfuuIh3KQ8vtP4V3ZaY4algiLpdko+gqvDVCbX+1Z/
+	 fAj3bBGEbR/suS9siueseG1GDZXTz69tBbs+5qW1s2RGr+i/y5tMlDt+Q7YuB6c57iVNR
+	 t9cHtRx7dkMbp4eFB6zfhAnsxHW1aN4Tos9bT/NpkcQbgyiG68M51B4r+9HFZk7JiVO/e
+	 79HBh1FHg2tlH8bVrInUh68dAHsnkbqFwz3wNFTm7IJvLFiLe8/G1WmcSOlwuiF/rUClO
+	 /cA39RdQeC8UTDyP9DmZxMNJzfzI7V5N1dcsBnHC1q17j+ueZbNtvhQ8d5CwIPfT7vg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795123188;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=RRAMHZ4S62Yo6hlTBa8X3X3JUkjgdwr/B0EvJfR6wag=;
+	b=U5fuL3ITghYjCPevCetPvUzDPYmhSA2mvbxub+x0846A2sA05DEKKcPXSnruyhZI9HCb
+	 nennoIeTQjI1lGbI867L31kKwUIOMl1q/uXtA2fPFHai/D0jKgZv2rESuYwHlvZA+GOQe
+	 l8gt6CG0frcdsGBDzBsBPFj1PK08V0q4ICLtbw6siR55928//0llo6c1SeXCNz457oSCl
+	 MQFP7iLrKkzlV6ZpC9BzYjw0Fr9FWqvMT7fpIIuv9xyrzOzdwwvVnIyTg3zFeEakQpxmE
+	 uUYJX7RpIQHf1306cf2Vik+1Y7L5ZmwN5NDSuPffccqwCvIbMBHYfNa8WAEYNqSgBGA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=laV1PA5+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BE5E606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:19:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BE5E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93FCE606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:19:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93FCE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm2 header.b=FFCKhUI3;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Cpy2EaXC
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 41884EC08B6
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:19:03 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Thu, 19 Nov 2026 16:19:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795123140;
-	 x=1795209540; bh=f1xc6QKYWxzMdEDsaK55KwIygScu9T598+Hsd69AjTM=; b=
-	FFCKhUI3bYNr/Ellq5LvnWTplxrarVjHuV6AFsiy8VEHhqfK1QUk5N3oSN/q1SB0
-	jgURT3xL5vd2A1pRMaYUiHKxSzIFx+v3Riy35ZpMGnPhFX+bF8cBxcdObyL4J5uP
-	Qf42cvVbI8dK8mItyIxoovdfwSF+7LMYQX21ZFNSc5SlBTOy+v36IDcf9ejdGUbw
-	z3JnKi33dWbqIJvuku3f7Ct7Z4IqZJtmFutOZPOx9RNtSVolmK05Z9lZcAWU6j9e
-	h2EoazHvaZnQNSlKKcjOU2POsBCqvM3aZAXLgF5M8tjrN8pmR1kozAuPNnZvCr0v
-	DfP+kaaBnsc6ojUGBBtR4g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795123140; x=
-	1795209540; bh=f1xc6QKYWxzMdEDsaK55KwIygScu9T598+Hsd69AjTM=; b=C
-	py2EaXCoAfxoGVzkAIU4f3381bL7pF+Qk2gOP3OxFyfC+o5ZOAgJ6WYElDBje6tV
-	pCNpmrqbtUhkji8hCRoZIrDZkPoFUZFMAyIjn2VWvbdhFTfJFugnw1FqbZqE6qaS
-	OYbNS2oAqw2IORSHv0DG5fZp7CgB6IhzLX3y3MfH3/mUtmMMD6YsDH3GBZyIOot2
-	JCc3trq0pmZhK/pAhXde7zVIoLZcthtXV3jKfZWZ2rxtvA/aRTvZi+CeilLHt9qn
-	fqenIpQPh8C6jyQrcD8mUnkVsb2GfAcfLcutsqSVDAi+II0Noc9fbFaLMyNTZc47
-	aMjVFVAib/8r5+sSDiBdQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795123140; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:mj60MQTJuWiN9xekYxCiTeej3M4LDk5NEiw2C/EU+OsN/m+
-	p5IbFBVp7gjqL5XV75e8dRYkDqC+NNyKp5cVYjLbrQdUnDocH17PtDt+ruqokG8/
-	dwE66qF7rBENMJBEpcxXDXNfzwhTRqYE+n5/c3m8wkXZTBUP6b35G/cyldzo3ON5
-	lxT8XtSLekFbaWBNjsCJ4474Z4ropq8bCDkxGqF/oKYfzYYdCK695djl4UZajgJE
-	CNqOdk3WjII0QIbI1/cuZ0sSDtz2WPRYIEpYjoAnh8VIA294lb1gsKwh53Mz/yPx
-	JZ6zbjRNmX+mV0q9FMqDDc3gQitq5lJjGH5KtrQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:yZtsF58g/AwmNRbGZGaRDUC+Flth2dqWGKAO1SGxHAk=:KIVDHBoDulu/CO+epFvrUh/8/iSmmRURFWtec+Vn3PU=;
-X-ME-Sender: <xms:wWf_ahdXLNichf4BPW-orZ2X3Ba-kdT9bboSL4JeIjPUMY9DYh6W8g>
-    <xme:wWf_aqCS4vcgB63MZbZsNv-0PAOjJRZ1G25mzXmhfh_gnjapWTNk4ngJzyIIBPJ6J
-    o-lzOUNimumvxrZ1eG0-e5vna1JU5Eqpirok-tOIatRRjyFDcZmrwU>
-X-ME-Proxy-Cause: dmFkZTGjssvH/KnefxLUC5DdWFJHOIQQq7yFLnoTwtQolQcaSMAtfZX9TfiIsfz0kn2oZS
-    xMEDG6K39cOEF/aJOvCLdhCMB3hkXGhknSByDHWrUQ6N1lF1HSOSSaOYo02/MMSBDSbzrl
-    Vns3pIP0XhlmR/YwpwXDjsV8hHm66qzzejNvgON19OxTlPeJeNHYjdmahR+d+4gJRdvUm4
-    L0ISqwZgvk4mnOH8QHF+jRzcfnmEMedtorgbzcheoj4JiBwxxxZYRr14Ueenvuqz8v3LK4
-    NpwfBHXqOQtA5hRSNfHE8g42pJuoJaojZdsKz9N0F2gF3He/lrbZJu9KC6Ml4v+kh4q6lD
-    rX8J1uDKa6fY/TsA5SOaxxR4mb1c+NcU3rdb0FyRvRYpncvCEupoSvLZc0D9seFmQulPQk
-    +CWqjUFJEObNjCV3uCPg+VwXiQXnQalYbi2eL3CBO+EZv6dUkyLXD8wGnNIhh/xW0kUnoV
-    1Rk4P2EdoklS2czwWkiqv/Ww1Zz1uIQ1JiZToxBk5tbdIhXK1nHrhuXwmb1MykzyJKfbO4
-    Zh0flpHlzvozLBOmOWj+I4hRJqF3PBDgiAM3mAlsjGDLA/cDEeDKjl+K0EoV//EdGGQZ5F
-    pY9jJuHcAoAO3lQyzRHaOnG1TkUfwPzyrlZ/+6NHJC+XGVW/OQMblSu7Jj0w
-X-ME-Proxy: <xmx:wmf_anoCshz6tR_7dnEpE1dx_N9W1waSGMsjVxHzrmM6piqfm20Cpg>
-    <xmx:wmf_aqkDeT7S0sUbdsX39P9W2GuHUNG4MyM6h8OicP1ELjZRmUAaqg>
-    <xmx:wmf_avys1ZYYK32t8QChF2bFwd2Fbpr30lKNcpZujKVPkObsilXMVQ>
-    <xmx:wmf_aq9QJip6w-tlJaB-hsQFX_Np3kFiaWE6-cyaUoMX_IJmfdu09A>
-    <xmx:xGf_amVrR8m7k-UQzN-1s2BO0CeARV4vuKDAkoiTcu_mTUeZxHn7tbQ9>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 4048332A0099; Thu, 19 Nov 2026 16:18:57 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=laV1PA5+
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b887ca9f5cso294447a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:19:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795123186; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mj7NR4Za38E3LdcrUs4PBSdfSUdqgiiw0yVGpsoHTS8NhfJpQuZaQ0+t3v58oS3OnW
+         pC4ZAKGkAXOpUuDwvToXFfPqwO7T2IJWu0F7DVjJkeACEghp1ghUCSYFjGubEM+Qyjt3
+         WosYh7nzX4EoB3OyQz6amHwOlLMi933pxsO4z3db2AkwND/7sMt24OtkeXhowkdnGXIB
+         gnRE1nsCx7lQFmoaGfQ6CVEKoCEwaG3DfGszu5J9CPs+NyHQRdpw/C6IKJmtmkcv/yLe
+         103XrXe8LHQHoA8WYa5XRHgE/bSPx7mQHO7xYT62ywknmI1CwCs0BoCTpyq5CGipdQpt
+         XTPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RRAMHZ4S62Yo6hlTBa8X3X3JUkjgdwr/B0EvJfR6wag=;
+        fh=gnLb/01MZOgz4OZ/GTx9//7++QhtXdx8DkvgjlfFLFo=;
+        b=OnPBQA9QLiVCJ8Er9nG+r/AwKA1AOzDAoIPdaOPvnGw71Y/5dVvKU0jxwEfh/fCCgx
+         7N8AMQ8nHdCc3GIJejjdgMvHnEoUp8ymytkvEZq9+H5tRpOcoZXa53Due5WA0PvJQhVZ
+         6gjV//S1NFijV/xElZRXm9dydGDNXihWy3F0hpBST3aZEORKX1BuC/UttuiCxKbFbiON
+         rzpQHXfq/rVafjwQ7m0QO9BEXu5+FlfJEbsYnP7frROlIQ5SyG+uBmcf8Wgyzpb5d3Tz
+         SPL0Byqpk5U8mcgsEqMTp4mCPc7XJ3djzsYG4o4fA7OawEPELu/HunUUDj7gRd9oeyFZ
+         jBzA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795123186; x=1795727986; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RRAMHZ4S62Yo6hlTBa8X3X3JUkjgdwr/B0EvJfR6wag=;
+        b=laV1PA5+3hmc33X0BGaxCjFqIr5MqJ14e9KVgBgQUD6w5FPHWNELug37pi66yNshOO
+         UtoE7UWwEKSpcQzNeUxWJAM3bhT7HkJCAiU7OdWbJ79b6RYYSVd09QkI4F3kjHNd4uIJ
+         A0KOX+/nviYNRwIn7i1u3U6DQtbJdNgm4kx11uMbKZBHvDHA07UCEtp+8s8J/3ftTkyD
+         0b33uNay84cp3nATACTYqENsjxWmuERBUTYceTcNXmaT6SW5O3j5ZxtuAh/nT+jMUBp5
+         kDvnqi6gOWlZGQrvzdF6yRmGtb/ByUm74fSXPlcNdy0Xq9hzQ1JF4+mE/rkIADt6bUc/
+         F0sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795123186; x=1795727986;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RRAMHZ4S62Yo6hlTBa8X3X3JUkjgdwr/B0EvJfR6wag=;
+        b=YSXkKovMWQv2vdd4RSl3XvJ4sGL63lzX0g7lRnA7gLDkEuqAMonCrszdpAUxy325N8
+         F6iqf6eiJMPWxtEgBUOEfCrgD/iYDxAygR53iKVeSpNT9eK8xz7EWslmSJ4GXrX6KxY8
+         3bbQ5XtbLvkJZoP9KQjPDKHTzvg8UN8Dtb3TRilcbjAPMZzbdOpIi8rLSugt/GsXJENt
+         HpnXgJrfVPueA4sT/1n3I21tfgJP4fBCULViMdUXm3do8kFh5Efz+vKS3X6YOToHTdzv
+         vEKg6ZaLllgczXXYYHkULiaitaEyeSCFeBoomwo8XlQmLCgiNZzQzZTxP2IS5VTTE94P
+         gdsw==
+X-Forwarded-Encrypted: i=1; AL+hErEaq6RNTisTBOrmSLQmC1RavL1Rs1sZcPIvWBM2WcZgCuIc1W7/TWnJGUamdzflgd8KRs+THhX4b45aYOw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82I3A7EefE+dYA3xcQJyVsrCMcXlcfAt5oPv1lj3ZCtpW/bG56
+	vn03gaLSz3qqgNQQg2v7zysKbmniq1wZoTxGcPoa/7/uuS8jCm94rcHEsJWdsmiqKXDNyKVYeCA
+	4y7fMmb+0gdvSo88oxIyzDD8GrK8ULq46jXcMUOY=
+X-Gm-Gg: AYBFou0Ny2k2QBOH2hZNEJZFSrJMK+EsIg1eLkp6IjAn/FAeyuLVZFLfMssSzPeAgqF
+	luORlGiHFsBVcgcZOWThR4JjYfFLUTKh3unFIcNAjhDcUkkMfrlE7jg0oSqgyl3B/xz3ZckayK6
+	bsKeJ/YT0wDsjxkBVs8evv5ZbM3/G0BpDCQ9KPZeX84GUk2xoAGuF2XCjW2zkT9oQ4NaMuRp+JY
+	V7yGmiyVfF1wQtThdD+Husj5DxxM+TlDyORsXim307oX2WhhLrFJj3V2RLIo6WOP4NQUf29FJHs
+	iILurxJ8nHb677oifX/zeDtJctLfmbc/nAyQPUd0O2VhMNVT21e9DUYS+Wo/mQAttusvlNUuCwi
+	p9RYGRL9bf3uR7C0GPMmbWlsSbD9mpWkMh22YIT2heyoR+JqsvK+nSgj9mdTeXvfWUCCmrQ==
+X-Received: by 2002:a05:6402:4052:20b0:6b5:876c:a98f with SMTP id
+ 4fb4d7f45d1cf-6ba37ee52e4mr405100a12.34.1795123185728; Thu, 19 Nov 2026
+ 13:19:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,49 +104,363 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A5k84M8y1DL-
-Date: Thu, 19 Nov 2026 22:16:48 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Habil_Eren_T=C3=BCrker?= <habilerenturker@hotmail.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>
-Cc: "Clemens Ladisch" <clemens@ladisch.de>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com" <syzbot+fc3a448093c17a792368@syzkaller.appspotmail.com>
-Message-Id: <0efc7469-55fd-4295-bea2-04881f2758a2@app.fastmail.com>
-In-Reply-To: <20261119182822.60160-1-habilerenturker@hotmail.com>
-References: <2026111926-finisher-captivity-64ce@gregkh>
- <20261119182822.60160-1-habilerenturker@hotmail.com>
-Subject: Re: [PATCH RESEND] char/hpet: Fix missing TASK_RUNNING before put_user() in
- hpet_read()
-Content-Type: text/plain; charset=utf-8
+References: <CAOQ4uxjHwtZEHu9xMM6zg9niSgNdLXhAu65jA8Ai_SKVg-W2nw@mail.gmail.com>
+ <20261119183039.1505892-2-ptikhomirov@virtuozzo.com>
+In-Reply-To: <20261119183039.1505892-2-ptikhomirov@virtuozzo.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Thu, 19 Nov 2026 22:19:34 +0100
+X-Gm-Features: Aa3M54qPR6beAzPiPDvVeM7eC1sDIvJDE2oypEtexE164vDya4GKLsVUqI-JH_g
+Message-ID: <CAOQ4uxjj9inY=n-WP83_sYpuZBLKumxqiVACpseKuB2hkW-Auw@mail.gmail.com>
+Subject: Re: [PATCH] selftests/cachestat: add overlayfs test cases
+To: Pavel Tikhomirov <ptikhomirov@virtuozzo.com>, Christian Brauner <brauner@kernel.org>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, Ding Feng <dingf3ng@gmail.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Shuah Khan <shuah@kernel.org>, linux-fsdevel@vger.kernel.org, 
+	linux-unionfs@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 19, 2026, at 19:28, Habil Eren T=C3=BCrker wrote:
-> On Thu, Nov 19, 2026 at 03:02:07PM +0000, Greg Kroah-Hartman wrote:
-
->> And why hasn't this ever been noticed before, what changed to cause it
->> to show up now?  And because of that, why is there not a Fixes: tag?
+On Thu, Nov 19, 2026 at 7:34=E2=80=AFPM Pavel Tikhomirov
+<ptikhomirov@virtuozzo.com> wrote:
 >
-> My initial clone was shallow, so I fetched the full history and repeat=
-ed
-> the investigation. I traced the history of hpet_read().
-> The TASK_INTERRUPTIBLE state handling followed by the put_user() call =
-is=20
-> already present in the earliest available Git history, in the initial =
-Git
-> import (1da177e4c3f4). I couldn't identify a later commit that introdu=
-ced
-> this behavior.
+> Run cachestat() on overlayfs files in four variants. The file is written
+> either to the lower dir of an overlayfs or through its mount, so its
+> page cache is in the lower or in the upper dir. Then it is opened
+> read-only, so it is not copied up, and checked:
 >
-> The 2010 (54066a57c584) and 2024 (4e60131d0d36) changes I examined do =
-not
-> appear to have introduced the issue. I couldn't identify a suitable co=
-mmit
-> for a `Fixes:` tag.
+> - through the overlayfs mount: the page cache is one stacking level
+>   down;
+> - through a second overlayfs mount, which has the first one's merged dir
+>   as its lower dir: the page cache is two stacking levels down.
+>
+> Overlayfs does not cache file data in its own inodes, so cachestat()
+> sees the pages only if it is forwarded to the real file.
+>
+> Add a check_cached argument to test_cachestat() to check the pages of a
+> file the test did not write itself, and bump NR_TESTS to the actual
+> number of tests (it was 9 while ten were already run).
+>
+> The test rework and the changelog were drafted with the help of an AI
+> coding assistant (Claude); the result was reviewed and tested by me.
+>
+> Link: https://lore.kernel.org/r/20261118123105.1247627-1-amir73il@gmail.c=
+om/
+> Signed-off-by: Pavel Tikhomirov <ptikhomirov@virtuozzo.com>
+> ---
+> v2:
+> - Rework of patch 3/3 of v1 on top of Amir's ->f_real() patch; the
+>   ->cachestat() file operation from patches 1-2 is replaced by it.
+> - Add lower file and nested overlayfs cases, and a check_cached argument
+>   to test_cachestat().
+> v1: https://lore.kernel.org/r/20260623111533.2285005-1-ptikhomirov@virtuo=
+zzo.com/
+>
+> The nested cases pass only with Amir's ovl_f_real() recursion fix
+> (https://lore.kernel.org/r/CAOQ4uxjHwtZEHu9xMM6zg9niSgNdLXhAu65jA8Ai_SKVg=
+-W2nw@mail.gmail.com/)
+> plus EXPORT_SYMBOL(__file_real) when overlayfs is a module; on Amir's v1
+> alone they fail with "Cached: 0".
 
-I think the warning came from 8eb23b9f35aa ("sched: Debug nested sleeps"=
-),
-the behavior seems to be older. Maybe by that time user had moved
-on from /dev/hpet to posix timers?
+Posted v2 with your Tested-by:
 
-     Arnd
+https://lore.kernel.org/linux-fsdevel/20261119211542.1509119-1-amir73il@gma=
+il.com/
+
+Christian,
+
+Please apply Pavel's test along with the file_real() patch.
+
+Thanks,
+Amir.
+
+> ---
+>  .../selftests/cachestat/test_cachestat.c      | 172 +++++++++++++++++-
+>  1 file changed, 163 insertions(+), 9 deletions(-)
+>
+> diff --git a/tools/testing/selftests/cachestat/test_cachestat.c b/tools/t=
+esting/selftests/cachestat/test_cachestat.c
+> index 542cd09cb4434..af8fa21c90ca1 100644
+> --- a/tools/testing/selftests/cachestat/test_cachestat.c
+> +++ b/tools/testing/selftests/cachestat/test_cachestat.c
+> @@ -4,27 +4,42 @@
+>
+>  #include <stdio.h>
+>  #include <stdbool.h>
+> +#include <stdlib.h>
+>  #include <linux/kernel.h>
+>  #include <linux/magic.h>
+>  #include <linux/mman.h>
+>  #include <sys/mman.h>
+> +#include <sys/mount.h>
+>  #include <sys/shm.h>
+> +#include <sys/stat.h>
+>  #include <sys/syscall.h>
+>  #include <sys/vfs.h>
+>  #include <unistd.h>
+>  #include <string.h>
+>  #include <fcntl.h>
+>  #include <errno.h>
+> +#include <limits.h>
+>
+>  #include "kselftest.h"
+>
+> -#define NR_TESTS       9
+> +#define NR_TESTS       14
+>
+>  static const char * const dev_files[] =3D {
+>         "/dev/zero", "/dev/null", "/dev/urandom",
+>         "/proc/version", "/proc"
+>  };
+>
+> +static const struct {
+> +       bool lower;
+> +       bool nested;
+> +       const char *desc;
+> +} ovl_tests[] =3D {
+> +       { false, false, "an overlayfs file" },
+> +       { false, true, "a nested overlayfs file" },
+> +       { true, false, "an overlayfs lower file" },
+> +       { true, true, "a nested overlayfs lower file" },
+> +};
+> +
+>  void print_cachestat(struct cachestat *cs)
+>  {
+>         ksft_print_msg(
+> @@ -117,10 +132,14 @@ static bool is_on_tmpfs(int fd)
+>   * Open/create the file at filename, (optionally) write random data to i=
+t
+>   * (exactly num_pages), then test the cachestat syscall on this file.
+>   *
+> + * If write_random =3D=3D true or check_cached =3D=3D true, check that a=
+ll num_pages
+> + * pages of the file are cached or evicted.
+> + *
+>   * If test_fsync =3D=3D true, fsync the file, then check the number of d=
+irty
+>   * pages.
+>   */
+> -static int test_cachestat(const char *filename, bool write_random, bool =
+create,
+> +static int test_cachestat(const char *filename, bool write_random,
+> +                         bool check_cached, bool create,
+>                           bool test_fsync, unsigned long num_pages,
+>                           int open_flags, mode_t open_mode)
+>  {
+> @@ -161,7 +180,7 @@ static int test_cachestat(const char *filename, bool =
+write_random, bool create,
+>         } else {
+>                 print_cachestat(&cs);
+>
+> -               if (write_random) {
+> +               if (write_random || check_cached) {
+>                         if (cs.nr_cache + cs.nr_evicted !=3D num_pages) {
+>                                 ksft_print_msg(
+>                                         "Total number of cached and evict=
+ed pages is off.\n");
+> @@ -294,6 +313,122 @@ bool run_cachestat_test(enum file_type type)
+>         return ret;
+>  }
+>
+> +static int mount_overlayfs(const char *lowerdir, const char *upperdir,
+> +                          const char *workdir, const char *merged)
+> +{
+> +       char opts[4 * PATH_MAX];
+> +
+> +       snprintf(opts, sizeof(opts), "lowerdir=3D%s,upperdir=3D%s,workdir=
+=3D%s",
+> +                lowerdir, upperdir, workdir);
+> +       if (mount("overlay", merged, "overlay", 0, opts)) {
+> +               ksft_print_msg("Unable to mount overlayfs (need root?): %=
+s\n",
+> +                              strerror(errno));
+> +               return KSFT_SKIP;
+> +       }
+> +
+> +       return KSFT_PASS;
+> +}
+> +
+> +/*
+> + * Write a file to an overlayfs, either directly to its lower dir (if lo=
+wer)
+> + * or through the overlayfs mount, so that its page cache is in the lowe=
+r or
+> + * upper dir. Then open the file read-only, so it is not copied up, thro=
+ugh the
+> + * overlayfs mount or, if nested, through a second overlayfs mount on to=
+p of it
+> + * (using the first one's merged dir as its lower dir), and run cachesta=
+t on
+> + * it. Overlayfs does not cache file data in its own inodes, so cachesta=
+t sees
+> + * the pages only if it is forwarded one (or two, if nested) stacking le=
+vels
+> + * down, to the page cache belonging to the real file.
+> + */
+> +static int run_cachestat_overlayfs_test(bool lower, bool nested)
+> +{
+> +       char tmpl[] =3D "/tmp/cachestat_ovl.XXXXXX";
+> +       char lowerdir[PATH_MAX];
+> +       char upper1[PATH_MAX], work1[PATH_MAX], merged1[PATH_MAX];
+> +       char upper2[PATH_MAX], work2[PATH_MAX], merged2[PATH_MAX];
+> +       char cmd[PATH_MAX + 16], file[PATH_MAX + 16];
+> +       const char *write_path, *read_path;
+> +       char *base;
+> +       int ret;
+> +
+> +       base =3D mkdtemp(tmpl);
+> +       if (!base) {
+> +               ksft_print_msg("Unable to create overlayfs base dir: %s\n=
+",
+> +                              strerror(errno));
+> +               return KSFT_FAIL;
+> +       }
+> +
+> +       snprintf(lowerdir, sizeof(lowerdir), "%s/lower", base);
+> +       snprintf(upper1, sizeof(upper1), "%s/upper1", base);
+> +       snprintf(work1, sizeof(work1), "%s/work1", base);
+> +       snprintf(merged1, sizeof(merged1), "%s/merged1", base);
+> +       snprintf(upper2, sizeof(upper2), "%s/upper2", base);
+> +       snprintf(work2, sizeof(work2), "%s/work2", base);
+> +       snprintf(merged2, sizeof(merged2), "%s/merged2", base);
+> +
+> +       if (mkdir(lowerdir, 0755) || mkdir(upper1, 0755) ||
+> +           mkdir(work1, 0755) || mkdir(merged1, 0755) ||
+> +           mkdir(upper2, 0755) || mkdir(work2, 0755) ||
+> +           mkdir(merged2, 0755)) {
+> +               ksft_print_msg("Unable to create overlayfs dirs: %s\n",
+> +                              strerror(errno));
+> +               ret =3D KSFT_FAIL;
+> +               goto cleanup;
+> +       }
+> +
+> +       if (lower)
+> +               write_path =3D lowerdir;
+> +       else
+> +               write_path =3D merged1;
+> +
+> +       if (nested)
+> +               read_path =3D merged2;
+> +       else
+> +               read_path =3D merged1;
+> +
+> +       snprintf(file, sizeof(file), "%s/cachestat", write_path);
+> +
+> +       /* Write the lower file before mounting overlayfs over it */
+> +       if (lower) {
+> +               ret =3D test_cachestat(file, true, false, false, false, 4=
+,
+> +                                    O_CREAT | O_RDWR, 0600);
+> +               if (ret !=3D KSFT_PASS)
+> +                       goto cleanup;
+> +       }
+> +
+> +       ret =3D mount_overlayfs(lowerdir, upper1, work1, merged1);
+> +       if (ret !=3D KSFT_PASS)
+> +               goto cleanup;
+> +
+> +       if (!lower) {
+> +               ret =3D test_cachestat(file, true, false, false, false, 4=
+,
+> +                                    O_CREAT | O_RDWR, 0600);
+> +               if (ret !=3D KSFT_PASS)
+> +                       goto umount;
+> +       }
+> +
+> +       if (nested) {
+> +               ret =3D mount_overlayfs(merged1, upper2, work2, merged2);
+> +               if (ret !=3D KSFT_PASS)
+> +                       goto umount;
+> +       }
+> +
+> +       snprintf(file, sizeof(file), "%s/cachestat", read_path);
+> +       /* Look at that page cache through the overlayfs layer(s) */
+> +       ret =3D test_cachestat(file, false, true, false, false, 4,
+> +                            O_RDONLY, 0);
+> +
+> +       if (nested)
+> +               umount(merged2);
+> +umount:
+> +       umount(merged1);
+> +cleanup:
+> +       /* Best-effort recursive cleanup of the temporary tree. */
+> +       snprintf(cmd, sizeof(cmd), "rm -rf %s", base);
+> +       if (system(cmd))
+> +               ksft_print_msg("Unable to clean up %s\n", base);
+> +       return ret;
+> +}
+> +
+>  int main(void)
+>  {
+>         int ret;
+> @@ -317,8 +452,8 @@ int main(void)
+>         for (int i =3D 0; i < 5; i++) {
+>                 const char *dev_filename =3D dev_files[i];
+>
+> -               if (test_cachestat(dev_filename, false, false, false,
+> -                       4, O_RDONLY, 0400) =3D=3D KSFT_PASS)
+> +               if (test_cachestat(dev_filename, false, false, false, fal=
+se,
+> +                                  4, O_RDONLY, 0400) =3D=3D KSFT_PASS)
+>                         ksft_test_result_pass("cachestat works with %s\n"=
+, dev_filename);
+>                 else {
+>                         ksft_test_result_fail("cachestat fails with %s\n"=
+, dev_filename);
+> @@ -326,16 +461,16 @@ int main(void)
+>                 }
+>         }
+>
+> -       if (test_cachestat("tmpfilecachestat", true, true,
+> -               false, 4, O_CREAT | O_RDWR, 0600) =3D=3D KSFT_PASS)
+> +       if (test_cachestat("tmpfilecachestat", true, false, true,
+> +                          false, 4, O_CREAT | O_RDWR, 0600) =3D=3D KSFT_=
+PASS)
+>                 ksft_test_result_pass("cachestat works with a normal file=
+\n");
+>         else {
+>                 ksft_test_result_fail("cachestat fails with normal file\n=
+");
+>                 ret =3D 1;
+>         }
+>
+> -       switch (test_cachestat("tmpfilecachestat", true, true,
+> -               true, 4, O_CREAT | O_RDWR, 0600)) {
+> +       switch (test_cachestat("tmpfilecachestat", true, false, true,
+> +                              true, 4, O_CREAT | O_RDWR, 0600)) {
+>         case KSFT_FAIL:
+>                 ksft_test_result_fail("cachestat fsync fails with normal =
+file\n");
+>                 ret =3D KSFT_FAIL;
+> @@ -361,5 +496,24 @@ int main(void)
+>                 ksft_test_result_fail("cachestat fails with a mmap file\n=
+");
+>                 ret =3D 1;
+>         }
+> +
+> +       for (int i =3D 0; i < ARRAY_SIZE(ovl_tests); i++) {
+> +               const char *desc =3D ovl_tests[i].desc;
+> +
+> +               switch (run_cachestat_overlayfs_test(ovl_tests[i].lower,
+> +                                                    ovl_tests[i].nested)=
+) {
+> +               case KSFT_FAIL:
+> +                       ksft_test_result_fail("cachestat fails with %s\n"=
+, desc);
+> +                       ret =3D 1;
+> +                       break;
+> +               case KSFT_PASS:
+> +                       ksft_test_result_pass("cachestat works with %s\n"=
+, desc);
+> +                       break;
+> +               case KSFT_SKIP:
+> +                       ksft_test_result_skip("overlayfs not available fo=
+r %s\n",
+> +                                             desc);
+> +                       break;
+> +               }
+> +       }
+>         return ret;
+>  }
+> --
+> 2.56.0
+>
