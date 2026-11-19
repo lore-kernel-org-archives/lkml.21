@@ -1,60 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.11.138.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.59.177.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090978;
-	b=TJHok1hR4ooA1KHOmEUwZ9f71xKyi0JB70Qpa20XsZbtWXbRmBhUrrXM/WCpaMmV9+kB
-	 Z2bZYKcPk5n+3jmoj5sz1MvpBBrcxlCl7WlBT6RMgzFntJPPhRLAb3wN0sKCh7gkZfHsw
-	 x413npzHk2ExLL5C+Z44t0LwqQLtXcAzz99Xo0XvGURORJBnRoJ1XaxTnaxvAzsvdxLtE
-	 7HmYso5ZVdEemcM6ZJMHzaOxTKiVBJPI87osf66nzPaPRwx7xW2NC6GWnlMNjYVzf9Bzv
-	 T2TjDi5QGiGD8SB1/B5H9CXoWkxE114HMICbibppmlZPm7tNtMjX595rjKplcKnqO9g==
+	t=1795090989;
+	b=gBXms8UFbxP+Cs7pcTy0hAagVreCRA3lg/2n1ThkbuU+CkrDR9gAa8wxLDaXqorf/Xvl
+	 UmX7hUN9oL3AE5MkCiXkCxwCG+7GCJv7ChEZb2emqb7BK3GPP62jyOGfOIKzx5NKbKHjy
+	 Js0l+mvBcTsDRELVIBiEe/r1OOdOvSwZWXROWo5wuPsBzYEw2OAsoOEfKnclWwPKVBJt7
+	 c2eON0k/Q33AbJLJ+kDkeldELHBfTGKQ2YskTEgXCRjSc3BV+Y7RspErOxkkoFIAw9TnX
+	 eZkPJznQ/TDkW4k+A9ZjfqAputBbODf14bCIeQRia6q8DsqOpd0OFvzwOo30dsxeE1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090978;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type;
-	bh=SXp9CsGNZ9198vKxlERJhM6rRFDt3TB+h3sLDmsTvqY=;
-	b=cn/U8uZ5DomSH71KiADVK2O7u6JYCXXfcjvPuy6VZGC84WPZ0OSFuaMxwsAklZFUq9lx
-	 fr6cl/OgvcJdNPvRMPNcaY1cyparo4kk4IR8/55uR6iq+SdHudPXVxu1uuoPq1aPlvDw1
-	 4Vq49A/J9+5kRvoKFUT0q+dCJPWHMxwcN3UZ4kTJHyAWcizIF9GEEsUhXhfxHHNqCGo5q
-	 YO+HhsXEn6Z/i0GNTJWOkNdyug4FW0Y5Gen1E6AyLyBEgqaecQDNBLIxilulUArL47Qq3
-	 pQzLbzHPy3kAxYKBz56/3xdUMxQRvixzZBJ4LlCKWYa3mfg8wDHOLY+chpCBV1kdGdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090989;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=6W4tTNb+kgDIVSWyfMU6HSxB+Dr8oZihxHB4spQItl0=;
+	b=0ePh6j5LnhYKYNkObADXjg2wMq5gz1CD/4S9yH8EbB2AqbHIVqpCf6liQYS4XNTLvaWx
+	 r9E3gWzprxsggp2xIhQo41cRO7LAkOhNQ2jWQspW2KLV2dD84JglTWc6JIu6ewOUK+8Fa
+	 TlCN4juK12GcwwuPQZOd78KRH2j1ABmXdLIZHrtBQlzGxMcjhiboI18lRITg+PgG7yTnG
+	 tHelc4TQU4pUhkW8zK6VCNKyihvkHaIRGCdc6BnIpb5e6R2pNK7Tu4V9QS9jQy095iRzl
+	 Lyf/Zuo8riVSG0+JPEi13E/GbQMmGSb7XCq4EbEW1rOeI8nhsYsaAvEYFR1H4z5zUWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=sntech.de;
-	spf=pass smtp.mailfrom=sntech.de;
-	dkim=pass header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nTyJfWrW;
-	arc=none smtp.remote-ip=185.11.138.130
-Received: from gloria.sntech.de (gloria.sntech.de [185.11.138.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=kylinsec.com.cn;
+	spf=pass smtp.mailfrom=kylinsec.com.cn;
+	arc=none smtp.remote-ip=52.59.177.22
+Received: from smtpbgeu1.qq.com (smtpbgeu1.qq.com [52.59.177.22])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B98BF606A32A;
-	Thu, 19 Nov 2026 12:22:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B98BF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=sntech.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sntech.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=sntech.de header.i=@sntech.de header.a=rsa-sha256 header.s=gloria202408 header.b=nTyJfWrW
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=SXp9CsGNZ9198vKxlERJhM6rRFDt3TB+h3sLDmsTvqY=; b=nTyJfWrWs9J3Bu0dcnPPw1Xcqx
-	ZO2GJv25OsuW9y9A57I18j8nIIfCDI7VHEQv86ieSX7TES3LM+hYTzU7SymfMmFvB9BdEeM2gqV6r
-	HTu2YbhRKfMz6brmeSa/unjcrRJAO8UCQyFKRExx3QqpOLnpwcNSJh8UKqO1eKB4HF6JgbwH5FLi+
-	1+ORZqXIYASY4NsdhOC8TfulyD9jNrTj8Qf6J7mKNhjp/n/mkfSC4HUK5YOykRaLQPupkehsn67LI
-	osXstr2pmhNujJ5cis957d8XLpXXkoBMvjBCxBp+NSqHha4HCFUFTXaSeV9OZH3XtUCrjFersvJEL
-	zfMJGMVQ==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Coia Prant <coiaprant@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Coia Prant <coiaprant@gmail.com>
-Subject:
- Re: [PATCH net-next] net: stmmac: dwmac-rk: split gmac_clk_enable into
- enable/disable
-Date: Thu, 19 Nov 2026 13:22:38 +0100
-Message-ID: <Jocs6e4zRiOpvEViMS_OjA@sntech.de>
-In-Reply-To: <20261117182502.3045841-2-coiaprant@gmail.com>
-References: <20261117182502.3045841-2-coiaprant@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D22B606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:23:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D22B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
+X-QQ-mid: esmtpgz14t1795090890tb815eca8
+X-QQ-Originating-IP: fwc4cfVGoeIqaBRjxMZyyuwBKLkTal6gSF2+iLTfqKM=
+Received: from arch ( [175.0.188.152])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 19 Nov 2026 20:21:28 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 14019034921868307575
+From: Luo Qiu <luoqiu@kylinsec.com.cn>
+To: Jianmin Lv <lvjianmin@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Yao Zi <ziyao@disroot.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
+	Zixing Liu <liushuyu@aosc.io>
+Cc: loongarch@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] platform/loongarch: laptop: Fix backlight device lifetime on unload
+Date: Thu, 19 Nov 2026 20:19:37 +0800
+Message-ID: <C3361EF435F90A22+20261119121937.2447021-1-luoqiu@kylinsec.com.cn>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,37 +60,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NSQm2ODd9qLZII/S/l8bWgzRXko93qEWUfhnrgep9CloUGqKKaBujEIz
+	UG8uxRE5fXmCfwj+561+xp3MMqY8w/aD2L8hF4WsVeu7lE4TdAPGuzkrScOHBRdgkrvZJyw
+	P35hFGSahPwrkMcnri2CcMTbFP2aiWa6rGjOnRWH3pqNAhaLhu/uYUY1SjKP5YPKKHk/4LO
+	vKfZdfOlbRoeOqOFPw8byS4XvwWndIxpTW0QXWB7JUM15EJviRPvki8/+R/N/nCpTX8oZO0
+	TE0DH6vJ1s8LFtmTuABunOyUg6Qu0RvHNK28OjYo7ckem2XRWGhmLHMfkY5LNKDIpOx2w9k
+	9W4c7+PHESMX/Wc8I2zCSA+CVYGGqe0Ij+9QIjYAfHfL5e9JzA0R5KtJwPy6Ox5hkyzdtNn
+	jQFNqIwbmwDIiLgqGbzaTiLOAK+RdQPjpAXGGEwHlEEdwi5Z6w2phsH4JESrnl2Cg9+UV1+
+	cIwB0f60biNAzI/q72FmTA1hzy1Rx16PEwcqFd1skH4yShX89sjSwVO6OUz54erELWHMlPX
+	mRJ5P+1jygdWtDkAEUgn7YdbszVVl+vgKV3LnqcrRX6gyQsvI+E/isGxBmGzvmFesoZ6z8n
+	mEibocJReyE6nnRGdbviRhJlDsmeE2885m4fN2frhGK1N674QKCo/uX1AqCeEt9/BUdRPqL
+	cHKcH8qt044QrN0zOF8mNIknKB4gUSWXP1pioNanP9599yeE0i7QnTNcE56RVpUE7jjPWQl
+	k9yPFo8ZSfQBosikipHjPbgLAaQLO2k/zY5EHhN7Sipchv+OEm5y7xNljPsastSVVB/y0wV
+	7wbmBvQqAEcT1Q3exHvkGk7Fpl4blejVCm/iiAIIfKgbGWgcdg/TQddql99Uigzr0PpDtrm
+	8ym5SmiviqCZ8OVXno/mwnBUKIL3OBSoTloacK/kK7BVRGuI2YjrwYIKYN2HnJh2gVviiNK
+	iipOw30hmFtjSFblGOnze6hbiGQpykYhB1QF2sQ5WW9XSh1ZRTdOewd0LN1F94rG5I90=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-RECHKSPAM: 0
 
-Am Dienstag, 17. November 2026, 19:25:03 Mitteleurop=C3=A4ische Normalzeit =
-schrieb Coia Prant:
-> As the great Linus Torvalds once said in
-> Documentation/process/coding-style.rst:
->=20
->   "If you need more than 3 levels of indentation, you're screwed anyway,
->    and should fix your program."
->=20
-> The gmac_clk_enable() function previously used a 'bool enable' parameter
-> to handle both clock enabling and disabling. This resulted in deeply
-> nested if/else blocks, which made the error handling and rollback paths
-> cumbersome and prone to bugs.
->=20
-> This complexity has led to bugs, such as the bulk clock leak fixed by
-> commit 8db67bb6a1ff ("net: ethernet: stmmac: dwmac-rk: fix bulk clock lea=
-k when the PHY clock fails").
->=20
-> Split the function into two distinct helpers: gmac_clk_enable() and
-> gmac_clk_disable(). This flattens the code, removes the boolean flag,
-> makes the caller's intent much clearer, and simplifies the error
-> unwinding logic.
->=20
-> Additionally, this refactoring aids compiler inlining and CPU branch
-> prediction (trust me). The reason is simple: no branch, no prediction.
-> While the compiler might optimize it, there's no guarantee it will :P
->=20
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+The driver registers a platform backlight device during module init but
+discards the returned pointer. Consequently, the device is never
+unregistered when the module is removed, leaving its ops callbacks
+pointing into freed module text. After module removal, reading the
+backlight's actual_brightness attribute can call the stale callback and
+crash the kernel. Registration failures are also silently ignored.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Store the returned pointer, use it for resume, and unregister it on
+module exit. Propagate registration failures to avoid silently
+continuing without a backlight device.
 
+Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop driver")
+Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
+---
+ drivers/platform/loongarch/loongson-laptop.c | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/platform/loongarch/loongson-laptop.c
+index 4ec56621db24..ec0742e5ed46 100644
+--- a/drivers/platform/loongarch/loongson-laptop.c
++++ b/drivers/platform/loongarch/loongson-laptop.c
+@@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
+ static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX];
+ 
+ static bool bl_powered;
++static struct backlight_device *backlight_dev;
+ static int loongson_laptop_backlight_update(struct backlight_device *bd);
+ 
+ /* 2. ACPI Helpers and device model */
+@@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct device *dev)
+ {
+ 	int status = 0;
+ 	struct key_entry ke;
+-	struct backlight_device *bd;
+ 
+-	bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
+-	if (bd) {
+-		loongson_laptop_backlight_update(bd) ?
++	if (backlight_dev) {
++		loongson_laptop_backlight_update(backlight_dev) ?
+ 		pr_warn("Loongson_backlight: resume brightness failed") :
+-		pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
++		pr_info("Loongson_backlight: resume brightness %d\n",
++				backlight_dev->props.brightness);
+ 	}
+ 
+ 	/*
+@@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
+ {
+ 	int status = 0, ret;
+ 	struct backlight_properties props;
++	struct backlight_device *bd;
+ 
+ 	memset(&props, 0, sizeof(props));
+ 
+@@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
+ 	props.power = BACKLIGHT_POWER_ON;
+ 	props.type = BACKLIGHT_PLATFORM;
+ 
+-	backlight_device_register("loongson_laptop",
++	bd = backlight_device_register("loongson_laptop",
+ 				NULL, NULL, &backlight_laptop_ops, &props);
++	if (IS_ERR(bd))
++		return PTR_ERR(bd);
+ 
++	backlight_dev = bd;
+ 
+ 	return 0;
+ }
+@@ -622,6 +626,9 @@ static void __exit generic_acpi_laptop_exit(void)
+ 				generic_subdriver_exit(&generic_sub_drivers[i]);
+ 		}
+ 	}
++
++	backlight_device_unregister(backlight_dev);
++	backlight_dev = NULL;
+ }
+ 
+ module_init(generic_acpi_laptop_init);
+-- 
+2.56.1
 
