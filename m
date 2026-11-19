@@ -1,64 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077636;
-	b=sWkz1GakQKUATspMCJiYPypLy5rms4qG1Qm13KTnjdMrUtI6RUP70sV0j1nk7kPEXyop
-	 Cgt/vmR+z9vm/E7yvrkiRhT09TGJaCn96PxZvwyT6cp6gMQvlovJgSIn2/BScOoPagxpC
-	 yIp8HKD+5IrP+XTKvjhqV9bd9gnlDUKmMrBAhoohEiD7x6NVF1dM4yoPkDuHEAFQB6HO+
-	 tymHIuSnaqbiqN42xXYN9JmND9z7H5TeRZgno2g/rgPVFxTo8rmicDZlifnnsUKTa+xs1
-	 /9grC/w9KviowNlx0SSolnGQfN+hRQ0bif21VwwzfSbSZ+kqq26wOq6kgb7SQA0IU/g==
+	t=1795077632;
+	b=OjA5eBprC0XxnG4S8m33sKjRm6lk3vtY2ggul7brwoPO3BHxvIKvoVB6rwjl5bkhg+74
+	 a1hyuQGR//AdcI8L2AK9WBnGLPkJk8N5h/DxHxr+81VxTfQT4UpnIfyuQQWEnQC1KDjHb
+	 VApA3mz/9VjtMJ18RLBAo1v5Ej/21xGJ16PIOdSb/32PaMFkHGoswMfH9LsMwlqwUgWvX
+	 HPW2PIfYqCoEfn6TJGrFQIg1+m/k/A+LA80guvr6uGoBToHmanTn62rGTgSkW9HMxEmjV
+	 fiqltd8VtKxiVNhYyYIngQ7++I4GV2W1uKQ9x5lnr3nO7gePyzi+sLDetsgWRQeFjyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077636;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=D16q10jNQz3j41y6OLUFp2rQtz+cs22n6LUDewWC+pU=;
-	b=3naTqGOWr7KtMKoBhHfm/PvAK62UU+4hwPBx2Rmo3df5nQiF0yyuSZV0uo7Oa2k86Iec
-	 8phmXvPcdaTXcO9I8T6B5y68u9AMakUAc6YHluTYMIhGMFwhmxTTNUz9hzdPCfCDme8kL
-	 Tm7V0DMut0NVq65pKXmyEonnfyy109Aayh5vf3lZhNO7F4pxZhK25NaC0x7Yabh1B+Wy1
-	 CoUe0jns4wcA5R+GM6buu4yyTwsL4T9mqIKxkrQ4DacVHUF/picPYs95Kx8DiMFRm71Cp
-	 eIA1Skm0xwCkLwuT/GSbLr24FOYSKHrcCM4n8ApmxrCDPcJ06DrKiEjFjtccXp4UoRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077632;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=4d05bKQoIzvdgeJHvCKenuVt28QcuBw0j8usYWXhLrI=;
+	b=dFW1qqfUyEZLvqCVs/VtnON42+6W3N94Rk4ywrwShz5cZJmjovfpzEMUQF9zok0bb9cD
+	 IXhwiowocuPuftGyiyJWlCzRUrQnX/+IbonkP7sQks48zrVy7XlcdqpMPyqNsHaF9RyhX
+	 ORPZV5GTqU5ybVN5LsHLR6oqxokCaS4Zo677HP5UrGDrvygBVwsB42jrDm1N8/37DEOoE
+	 8dfHDd7kjko78Lj2N2hNE2WZkymWxKofCfZEzQ+3zXuGo6tMlai5cK6TcvsZLAqvwnf0a
+	 LkjyGUG/CbWsgOingVYhGLjC2xky0mZ3+htkYqBjDkMouhtI61hOG/6UFpwgEBcWUFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=SckUuL3t;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 54ADF606AF06
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:40:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54ADF606AF06
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SZ1lbAaP;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D2B460A5BE9
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:40:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D2B460A5BE9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=SckUuL3t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=SckUuL3tKGCRPUlDAH3wEBmIfDOUaValrh2REAngflboGe0eUgxrs0llPFZpwaRSSqrsEhphl0jte
-	 PlhKh/bL5qIhnkZhz3J9s9bAgkycIVqT0FSDfoI8l95XiRb1BMqgQrMNqCYAI/ACWv8jPVjzeUseFq
-	 sNfpl/pVE9UFdRuo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46afeb601e52-bc36f;
-	Thu, 19 Nov 2026 16:40:34 +0800 (CST)
-X-RM-TRANSID:2ee46afeb601e52-bc36f
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from [25.255.2.225] (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86afeb600b5e-5f3a7;
-	Thu, 19 Nov 2026 16:40:34 +0800 (CST)
-X-RM-TRANSID:2ee86afeb600b5e-5f3a7
-From: Jiahao Xu <xujiahao@cmss.chinamobile.com>
-To: David Hildenbrand <david@kernel.org>
-Cc: linux-mm@kvack.org, Jason Gunthorpe <jgg@ziepe.ca>, linux-kernel@vger.kernel.org,
-	Jiahao Xu <xujiahao@cmss.chinamobile.com>
-Subject: Re: [PATCH 1/2] mm/gup: add memfd_pin_folios_supported() helper
-Date: Thu, 19 Nov 2026 16:35:33 +0800
-Message-ID: <20261119163533.523210-1-xujiahao@cmss.chinamobile.com>
-In-Reply-To: <8f2a0f78-6f76-4a5e-a6c9-b36638addc78@kernel.org>
-References: <20261119104417.312237-1-xujiahao@cmss.chinamobile.com> <8f2a0f78-6f76-4a5e-a6c9-b36638addc78@kernel.org> <8f2a0f78-6f76-4a5e-a6c9-b36638addc78@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=SZ1lbAaP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795077630;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4d05bKQoIzvdgeJHvCKenuVt28QcuBw0j8usYWXhLrI=;
+	b=SZ1lbAaPTFGneB45geVBizj0M2Ohm2U8umTcc0AAJ+0e7VYkuAnx9eQjESnMZ9W+9XBxAH
+	No6roS3z7rWpF2Pj1kHij4+wTd51KEEXkh0jQa+yoL2uR9u4rHZZIxrEt8gMLu85RmSQPl
+	rVWDuMTzWrSaLrNq9UUWISbkqKyCW0E=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-445-S4IykWetOOyA3aRCBLGF4A-1; Thu,
+ 19 Nov 2026 03:40:26 -0500
+X-MC-Unique: S4IykWetOOyA3aRCBLGF4A-1
+X-Mimecast-MFC-AGG-ID: S4IykWetOOyA3aRCBLGF4A_1795077622
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7FBB71956096;
+	Thu, 19 Nov 2026 08:40:22 +0000 (UTC)
+Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7A95B1956088;
+	Thu, 19 Nov 2026 08:40:18 +0000 (UTC)
+From: David Howells <dhowells@redhat.com>
+To: Christian Brauner <christian@brauner.io>
+Cc: David Howells <dhowells@redhat.com>,
+	Paulo Alcantara <pc@manguebit.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Namjae Jeon <linkinjeon@kernel.org>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	Stefan Metzmacher <metze@samba.org>,
+	Eric Van Hensbergen <ericvh@kernel.org>,
+	Dominique Martinet <asmadeus@codewreck.org>,
+	Ilya Dryomov <idryomov@gmail.com>,
+	netfs@lists.linux.dev,
+	linux-afs@lists.infradead.org,
+	linux-cifs@vger.kernel.org,
+	linux-nfs@vger.kernel.org,
+	ceph-devel@vger.kernel.org,
+	v9fs@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Shyam Prasad N <sprasad@microsoft.com>,
+	Tom Talpey <tom@talpey.com>,
+	Christoph Hellwig <hch@infradead.org>
+Subject: [PATCH v19 15/17] smbdirect: Remove support for ITER_FOLIOQ from smbdirect_map_sges_from_iter()
+Date: Thu, 19 Nov 2026 08:38:46 +0000
+Message-ID: <20261119083851.3306418-16-dhowells@redhat.com>
+In-Reply-To: <20261119083851.3306418-1-dhowells@redhat.com>
+References: <20261119083851.3306418-1-dhowells@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,31 +97,123 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On 11/19/26 08:48, David Hildenbrand (Arm) wrote:
-> It's odd that you would be asking an interface specific for "memfd" whether some
-> random file would be supported. It's in the name: memfd.
-[...]
-> file_is_memfd_compatible ?
->
-> Maybe there are better suggestions.
+netfslib now only presents an bvecq queue and an associated ITER_BVECQ
+iterator to the filesystem, so it isn't going to see the ITER_FOLIOQ
+iterator.  So remove that code.
 
-Adopted as file_is_memfd_compatible(), and I have no better suggestion:
-the helper is handed a struct file, so the file should be the subject of
-the question.
+Netfslib also won't supply ITER_BVEC/KVEC iterators, though smbdirect
+might; further in future, it won't supply iterators at all, but rather a
+bvecq slice (that can be used to construct an iterator).
 
-You are also right that "compatible" is the accurate word rather than
-"is_memfd": shmem_file() matches every shmem file, not only the unlinked
-ones memfd_create() produces, and file-hugetlb files are not memfds at
-all.  I wrote that distinction into the kdoc so the next reader does not
-have to rediscover it.
+Signed-off-by: David Howells <dhowells@redhat.com>
+Acked-by: Stefan Metzmacher <metze@samba.org>
+Reviewed-by: Paulo Alcantara <pc@manguebit.org>
+cc: Namjae Jeon <linkinjeon@kernel.org>
+cc: Stefan Metzmacher <metze@samba.org>
+cc: Shyam Prasad N <sprasad@microsoft.com>
+cc: Tom Talpey <tom@talpey.com>
+cc: Christoph Hellwig <hch@infradead.org>
+cc: Matthew Wilcox <willy@infradead.org>
+cc: linux-cifs@vger.kernel.org
+cc: netfs@lists.linux.dev
+cc: linux-fsdevel@vger.kernel.org
+---
+ fs/smb/smbdirect/connection.c | 68 -----------------------------------
+ 1 file changed, 68 deletions(-)
 
-Both patches were resent as v2 with that name:
-
-  <20261119163531.788514-1-xujiahao@cmss.chinamobile.com>  [PATCH v2 1/2] mm/gup: add file_is_memfd_compatible() helper
-  <20261119163531.315791-1-xujiahao@cmss.chinamobile.com>  [PATCH v2 2/2] iommufd: only hold references to files memfd_pin_folios() can pin
-
-Thanks,
-Jiahao
-
+diff --git a/fs/smb/smbdirect/connection.c b/fs/smb/smbdirect/connection.c
+index a196c3844d95..fdfcc5e0910a 100644
+--- a/fs/smb/smbdirect/connection.c
++++ b/fs/smb/smbdirect/connection.c
+@@ -6,7 +6,6 @@
+ 
+ #include "internal.h"
+ #include <linux/bvecq.h>
+-#include <linux/folio_queue.h>
+ 
+ struct smbdirect_map_sges {
+ 	struct ib_sge *sge;
+@@ -2143,70 +2142,6 @@ static ssize_t smbdirect_map_sges_from_kvec(struct iov_iter *iter,
+ 	return ret;
+ }
+ 
+-/*
+- * Extract folio fragments from a FOLIOQ-class iterator and add them to an
+- * ib_sge list.  The folios are not pinned.
+- */
+-static ssize_t smbdirect_map_sges_from_folioq(struct iov_iter *iter,
+-					      struct smbdirect_map_sges *state,
+-					      ssize_t maxsize)
+-{
+-	const struct folio_queue *folioq = iter->folioq;
+-	unsigned int slot = iter->folioq_slot;
+-	ssize_t ret = 0;
+-	size_t offset = iter->iov_offset;
+-
+-	if (WARN_ON_ONCE(!folioq))
+-		return -EIO;
+-
+-	if (slot >= folioq_nr_slots(folioq)) {
+-		folioq = folioq->next;
+-		if (WARN_ON_ONCE(!folioq))
+-			return -EIO;
+-		slot = 0;
+-	}
+-
+-	do {
+-		struct folio *folio = folioq_folio(folioq, slot);
+-		size_t fsize = folioq_folio_size(folioq, slot);
+-
+-		if (offset < fsize) {
+-			size_t part = umin(maxsize, fsize - offset);
+-			bool ok;
+-
+-			ok = smbdirect_map_sges_single_page(state,
+-							    folio_page(folio, 0),
+-							    offset,
+-							    part);
+-			if (!ok)
+-				return -EIO;
+-
+-			offset += part;
+-			ret += part;
+-			maxsize -= part;
+-		}
+-
+-		if (offset >= fsize) {
+-			offset = 0;
+-			slot++;
+-			if (slot >= folioq_nr_slots(folioq)) {
+-				if (!folioq->next) {
+-					WARN_ON_ONCE(ret < iter->count);
+-					break;
+-				}
+-				folioq = folioq->next;
+-				slot = 0;
+-			}
+-		}
+-	} while (state->num_sge < state->max_sge && maxsize > 0);
+-
+-	iter->folioq = folioq;
+-	iter->folioq_slot = slot;
+-	iter->iov_offset = offset;
+-	iter->count -= ret;
+-	return ret;
+-}
+-
+ /*
+  * Extract page fragments from up to the given amount of the source iterator
+  * and build up an ib_sge list that refers to all of those bits.  The ib_sge list
+@@ -2237,9 +2172,6 @@ static ssize_t smbdirect_map_sges_from_iter(struct iov_iter *iter, size_t len,
+ 	case ITER_KVEC:
+ 		ret = smbdirect_map_sges_from_kvec(iter, state, len);
+ 		break;
+-	case ITER_FOLIOQ:
+-		ret = smbdirect_map_sges_from_folioq(iter, state, len);
+-		break;
+ 	default:
+ 		WARN_ONCE(1, "iov_iter_type[%u]\n", iov_iter_type(iter));
+ 		return -EIO;
 
