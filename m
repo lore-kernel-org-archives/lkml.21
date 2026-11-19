@@ -1,78 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795083213;
-	b=cwV5XSQle7EPBrGCnH4RTFNHKAf3O5F10e/evY6R98nbgio+VRlLymgawRgIbVsI5t4l
-	 GthDkwD4OD67et3iWIEE3Aem9LNwRPM28dv989DeqTyR9CmvG8H3Ud5JNnWPxTjGHLcNH
-	 k8ooTDenu6izKoGxDfxsp8niYLJnviyorrO29aMA0EQR9FykR1jv17meEFlZkmGEkv98L
-	 7BcUDy/NFl/E7jJNqyNUcelyRda3z3vacy6j6xYG2Pk+FJX7UEhfDSCrx3R4d8TXxEGu7
-	 hCsD/Di25HMpp+ndXYTjQdapQ/brWd1QAun0sBxzFXPXrpOEdZB1HSJWWNWIDbmVYLA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795083213;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VIgL/O6urWB2GHhIUk6aGQm3b52JD8HwlkLDLPdkbqI=;
-	b=B/htSOae12338ehmgBThBh5So2fs2k9Q8ga4YRLTAbHAkCRgZjzdFAsgK4Tv4sGzzAkL
-	 nl2Y+5zsGJxkyPeWMklxGSRN+Ny6dSyPLLh2lRMyL14hxIaZljsqVNu6DKOYF7LHv/zxe
-	 U+bdGuZQV0mKaowatZnGbBSQ41dJV+H3gN/Ot1JhoAOeizqR4A9pRzXGUQ78SVXAk66Qd
-	 gJlSBzj3fEY5IJwdbXZUJaobOXnVcDwyky2EJuhaZfT6Bl6wEKtOpbGNGFW97y24prWAf
-	 9S8JQF5M5XKH7iRIy8MyDZR1gZkBYlqxlSdKaDiuTLkjJ4y2qKSAss14qRMxb8G/Waw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVKaS6YL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795083242;
+	b=mllknsZ4C4R6xw2OJt7vwqHdtxkknkXC6G3ooj8oHE84DJ2vFqBTJ07gfbka1PT6w4Ur
+	 7iZ8GPLzTt7fFC76R/QnX55El8ipeHTMaNhRoy85vEM+cJ5KOrxFIfvCYwmIJmqyIyDwl
+	 yPqFFT/j8KzIgLDTrb4H842eeZtdwqX7UaGMGzb+UCDhIKCRQyMx3CVHO2ZBr1OEsG9Mm
+	 NliH4w/h4ZopMHZZtPutiinGee5XXV43ifApKqzw0u2ifvr1e3o6pjbEFX4+iFXLNy4QH
+	 5fayTKXoOW+ufCewsEwSPUtWEReSIgZ2WQCJpd73/552POH2Ymxk7ngLvQ5bINWnR6Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795083242;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=DWt3CLOh3ZYbzS8NVJmfBMxyc/YHy7CMAqMHtrI2Wqc=;
+	b=GLwrYGwRL06muHJOSvHFqvIm084wEd9FJL82BH807vcIfyITA03XyCQc5VJo6IsgSmvV
+	 17RHaZKDx/ysn2zq0f58U6HMocq4j02g1oTLQ+/0LBT1BF6+2JZ5npiVimsga1uzt8/B/
+	 ouRF2WKaEyb43kSMDk1nZg6nUsJx8nnPkQmHXmDpNzo7yyBS4scecBhWNxSCgj+MCD3C8
+	 DfUnxcK5GeqeunVWSothBkQ4iKcTrmUqSoTjvBMucNTr/72p0LRCtfkdWXM8sjZE703nT
+	 OhD0MccPc4/hwFja9f3dmWiJrnqfeardJOMH7604+ie/tP2C4q+MMaFuvGUVrYRcehg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E3qLMLfb;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46A73606A33E;
-	Thu, 19 Nov 2026 10:13:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ACEB606A320;
+	Thu, 19 Nov 2026 10:14:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVKaS6YL
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795083213;
-	b=XVw1DT81GshVIb+isaOMvcpriVYQPIdGQ/msIr2Vquud0cGhGOCDMbeQAraCIHVGZq0D
-	 7R3TtbXNBqoRmiy2HOOGlsHThwXI878lafLIzVZvegnm/3HxHzHuATW6YTgWgkvAcJUF8
-	 jUmdrt3xBUpdBJFhmF94isffqemVF12bEUyv3ZB/3vkFyRsKzaxQuDex8OZ26ekrEkZK1
-	 rZ3GyUEVExwBrUUWSbVFi3ga6W6w457gjzhnnDvXhfVvaJY/tYFN4AMu/06tYtK7ms6Ir
-	 IixFAkO+QDpShPBO8V0CkPTT9juGyOuw4BNXS+Rpp+Jd66g9/lgkRN0X9JrnTNy5ISw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795083213;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VIgL/O6urWB2GHhIUk6aGQm3b52JD8HwlkLDLPdkbqI=;
-	b=WIW/nwe+XKRSWhNvGVs1wOqwEnmvyypdR7Yaq7R4kqd2CAtGaBkg8SX5i6U09tmHwNh0
-	 4avgYNht/M0wqaOWco2jl30oB0Kegee/2fY88w0tRRkg1uH8TXoSa939Ji3WDFzvSW7jp
-	 nvamTExLb9vMrd6MbFwUA5tI94YJAcdQ/v8Ngtwt9smPnFtoifzQC5/COfk3Xm4QeDbjv
-	 m6pHC4C+58vb9M4QC/EPEgZHFNqX2bJpXWGOT9tnQ1fsVHyvPlwoc4JRNEHmjsre0Z5Dc
-	 BEmLXhFcYPo78XMK7Nkck/Ml5Lu+3gCZTRiHdCwG7UzcJK1EXuEYIexWPRwbWb134Mw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 91AE71F000C8;
-	Thu, 19 Nov 2026 10:13:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E3qLMLfb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C3AD1F000C4;
+	Thu, 19 Nov 2026 10:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795083213;
-	bh=VIgL/O6urWB2GHhIUk6aGQm3b52JD8HwlkLDLPdkbqI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=hVKaS6YLmCCbkaFSCfQQwwpPWUZR+UL3rtY9alKJQR+q7S63b7tbSI7TNTOL0JPzv
-	 H9z6AVPatiwWqafO5MK53jgOCFwDtqzZMVuqwP7OH3je8PjT2xYUtOAfdhFUvNZSnF
-	 g4sVW4ceCTF9CXskZxlIlHLyno6eVpeZPaQI/giD94TaZJIyQzkpdsR4KWjna3tqSk
-	 va7iB5aO+BJfV7V2ui0EExSMUxd5vtKdXgMUEsocDMSdV+BAg1aadX6rfKqOwEIZ9H
-	 vDT5kuXzIwZJan5zVHWc4Ro4t+Q1SNB4eZ8D3Vhyg0k6uDDoI2Kt0cASlmQx5Iohcb
-	 e+PbMQzA2mahw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1BFCE4B234;
-	Thu, 19 Nov 2026 10:13:31 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 19 Nov 2026 18:13:21 +0800
-Subject: [PATCH v12 3/6] arm64: add ARCH_AMBARELLA
+	s=k20260515; t=1795083242;
+	bh=DWt3CLOh3ZYbzS8NVJmfBMxyc/YHy7CMAqMHtrI2Wqc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=E3qLMLfbJneDL0wnoBI3JVlT+y02b12RXX9KG3nngkyZuspQNMY43k/AiZemdFgmY
+	 rYh9VcIGD3M0dA5CoyIcXfW0WR7+3Yyc0LhYIjjTs3zfwmu2Mj0jK/gRa/K5VgL03p
+	 6zSEYuyMK7NxoTLs6W3x+ntuZe7z+0WygXGiB3gGHZAdvg/iICGjxCUPMocFZmNgGN
+	 mcdqTXeTycylpSpfPZcn9DBEh2eF+Le4SKJIQyptHicLmuXLOQO8fZqbAzyup6vTCm
+	 JVHH1ZhKnxQjcksZR7AqVXIGG4qFzpUbs4CUZt2q+qCDjMGJR6OyXqyRhn4b46MxKT
+	 8IrRgq1MHiheg==
+Message-ID: <220c5818-ad59-4003-9955-9821d09c0279@kernel.org>
+Date: Thu, 19 Nov 2026 11:13:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,68 +51,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-cv75-soc-v12-3-e5a03cca8b05@ambarella.com>
-References: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
-In-Reply-To: <20261119-cv75-soc-v12-0-e5a03cca8b05@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org, 
- Brian Masney <masneyb@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- devicetree@vger.kernel.org, Long Zhao <longzhao@ambarella.com>, 
- Long Zhao <zl020895@163.com>, linux-kernel@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795083209; l=797;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=TcxFa2qICxsx+3aVN3CSUHlAvke6t5Kh1BAcv+g84sg=;
- b=kZFuSRx1rCDEBf0F6XJRQOn0urtsVM+m+d/A0Hg3dQg4s56a+VThpSwPDPHmG1mxypFOd/0c4
- GgGrgiUx0HpA3p9Fb84ysUlsA4I3zmUnsZKdxYsu/i4rGEf0lbd5ufd
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
-Reply-To: longzhao@ambarella.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] docs: submitting-patches: ask bug fixes for their
+ user-visible impact
+To: Leon Romanovsky <leon@kernel.org>, Sasha Levin <sashal@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+ Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Theodore Ts'o <tytso@mit.edu>, David Hildenbrand <david@kernel.org>,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261116200515.352387-1-sashal@kernel.org>
+ <20261117092723.GA124972@unreal>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261117092723.GA124972@unreal>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-From: Long Zhao <longzhao@ambarella.com>
+On 17/11/2026 10:27, Leon Romanovsky wrote:
+> On Mon, Nov 16, 2026 at 03:05:15PM -0500, Sasha Levin wrote:
+>> "Describe your changes" already asks for the user-visible impact of a
+>> change, but changelogs for fixes still tend to say what the code does,
+>> why that's wrong and what the patch changes, and stop there. Whoever
+>> has to decide if the fix needs backporting is left to work out what
+>> the bug does to a running system.
+>>
+>> Say what that means for a bug fix, in two parts. For users who aren't
+>> looking for the bug: what a normal workload is likely to run into, and
+>> separately the worst case and what it takes to get there. For someone
+>> triggering it on purpose: whether an unprivileged user could do it and
+>> what that would take, since a race that no real workload loses can
+>> still be won by a program written to win it. Give the paragraph a
+>> label so people can be pointed at it.
+>>
+>> Coding assistants are told to commit a fix with a message that
+>> describes the problem and the solution. Add the user-visible impact to
+>> that list and point them at the section.
+>>
+>> Suggested-by: Andrew Morton <akpm@linux-foundation.org>
+>> Link: https://lore.kernel.org/r/20261111171055.527b4bf3da705367bc78a64c@linux-foundation.org
+>> Signed-off-by: Sasha Levin <sashal@kernel.org>
+>> Acked-by: Andrew Morton <akpm@linux-foundation.org>
+>> Reviewed-by: Willy Tarreau <w@1wt.eu>
+>> ---
+>> Changes since v1:
+>> - Split the bug-fix paragraph into users who aren't looking for the bug
+>>   and someone triggering it on purpose (Andrew, Willy).
+>>
+>> v1: https://lore.kernel.org/r/20261116191436.188098-1-sashal@kernel.org
+>>
+>>  Documentation/process/coding-assistants.rst  |  6 +++--
+>>  Documentation/process/submitting-patches.rst | 23 ++++++++++++++++++++
+>>  2 files changed, 27 insertions(+), 2 deletions(-)
+> 
+> Sasha,
+> 
+> Since you're already making changes in that area, could you add a sentence
+> asking reporters to provide the full dmesg stack trace?
 
-Add the platform symbol for Ambarella SoCs.
+If so, then trimmed. We do not need all addresses and registers and the
+[time markers], but rather the calltrace from decode_stacktrace.sh.
+That's often review feedback, btw, people just paste huge bunch of dmesg
+without thinking what is useful there.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- arch/arm64/Kconfig.platforms | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index d2acfac73003..16d7e3a4c2d6 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -26,6 +26,12 @@ config ARCH_SUNXI
- 	help
- 	  This enables support for Allwinner sunxi based SoCs like the A64.
- 
-+config ARCH_AMBARELLA
-+	bool "Ambarella SoC family"
-+	select PINCTRL
-+	help
-+	  This enables support for the ARM64 based Ambarella SoCs like CV75.
-+
- config ARCH_ALPINE
- 	bool "Annapurna Labs Alpine platform"
- 	select ALPINE_MSI if PCI
-
--- 
-2.34.1
-
-
+Best regards,
+Krzysztof
