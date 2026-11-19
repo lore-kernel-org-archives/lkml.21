@@ -1,97 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795131683;
-	b=K8xNKzBQUUecA1dlRQZjtuRpv8JHLHmRop5O4mOTvXyxKUkY0XVsuLfzp2tHnWE352wR
-	 dEw1y0KSbSv7vxl5EsRoqhFhKwxys2THnFm6GuBEiiS7hIQz5tvxTLejoiwQMXBMxuY6u
-	 gcwKXM2pWmkx1WglcKWzGsCVXo4/tRbMxqPo12a8jixB2qrZqkXoqfezjXATYlPxsvx1v
-	 LpdwD1JE556GqaVB64/zRYIUssKbKRIWZalv/VmOrRCTh37OJmpt5pyJhzoysUPbJqMDp
-	 rhl7UGO8rpg8Sr76RWpB9LRlDulGEdgKnlDwbDNhDAMF515/3QKj/i2cOvly5n+7pag==
+	t=1795132002;
+	b=oPBba1Fnb/X5CByYoWFH4byA6y6Qcq+xqxwoaZKPfm0cxHrvoPFQX/si17igF79WfQOV
+	 B0hxGM914OrCey/PA67E/fgH358UINW77j3NO4DWU0ZpTDmQd4zLQP5B4BErDBZMLW+rw
+	 LgshCCS8QtN05nlcBLW3xhsWS9ZvN/5k/4kWvMB96fmclKy2FDjptyEcl8d5TlLC0eq8g
+	 vLyiMABvrFdKx9xqkWUT7T8PD2rZPXUC7xW9t4rDMuR6q/SrP9XbvssIIsj9yepPuTi4x
+	 +AXE/tYu0LN8pDWvuHkwV4xYmv9uu4AOY1Nv6pizwUEFDyMfzxlfQmqObVS+GtpsuiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795131683;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/bBpAqV6vKIYvVAXxXWFQ3lwfUYXqc1KvZzM1h1nZSo=;
-	b=o0VWywQAXJd8AcjO+rm5Ep+z+rIVX+ZW5puGdUFDoeQgm0jNl+RUikCzkp2v7F7VJy7C
-	 a2VjsG7mgyoge/6LG1xpBU+yKjZsEeUSPjoOxpQN+vPdPbKoQAeP+U4SKY1rlHxR7zjNY
-	 pB0BOTU9xDdmms3oICwwW2O4cpCt3nBT6rmj299q7umiMRfxM/piyct/8CkcSYvDqHUAG
-	 NVBkEXJvfxZHavk1UmyuW94B70HmbKj7plc/2LtJ57Yiez8RandoJ/oP8qvaNff8RjSHx
-	 oxRmXFPlvZzSrLpn9YkqJ3UgwqIKJ6YtzP1T2wkaejvtYLxV6jBx/oIc/gbX9Cz6bNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132002;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=rQB34CXlJwcWdBt45rejxcfsByac8tggb9Dt3exb3D8=;
+	b=FyukuafbzYPhYMk+QfRgMHLrkf4ZmqmPoDRWnHxWi+x7xYd3iOk0HvU10DAWOE3X6uSX
+	 KuH5ex33iobB/kMp62yY8tI7ojtgbUItbcOc7tuEDT6XZdL0RjNMVjrNNw0xuamnv/+n8
+	 g9bcmu1fcCbTVQDVPtpmur1cCDNuXpelNESSWiGqvC5tG/bF/SPT8SffVSK0GitaNSNV9
+	 nFGD1jXC8KaHUXnzYSDIf7n+dk9XpGil3+n3crA35XOKyUCLtBTx58ze4arqzza4Z/x5D
+	 gS+JGHDfU4/MF2j9OjrExZmleZKH/It469JApNfSelYQVTpX9E5uD4q/pLSL2jtKsPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dubeyko.com;
-	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=auFLyBTn;
-	arc=none smtp.remote-ip=74.125.224.46
-Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com [74.125.224.46])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.160.70
+Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42822606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:41:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42822606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=auFLyBTn
-Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-67da69e7c31so414149d50.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:41:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795131682; x=1795736482; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/bBpAqV6vKIYvVAXxXWFQ3lwfUYXqc1KvZzM1h1nZSo=;
-        b=auFLyBTnc+OU0Af5z2ALEYZwf+jLBIma9RB4NffGVhAWF64YbWiXh2L8BhkEttnzc5
-         TGmfG7/5Eh2DAXYwmOWiuqqlNeCdtuJPeApkpm9S4f9oOuoNXvKA64puEIZkAXRoTgaC
-         R6w43OfpNbaqrXXiBLmqpLkUpf0NOyElgB31YXPoYZEy3trjUoNakJfpZtCo8mZNxykq
-         gHx8yP3ZTvW7Z9qqKdIfiTLB7PwKt3DcnVb1MEslTAJnhg2eSLHMfvxoLd7Lhv+1+eKw
-         69WH7W+O5HLISkT1/EohyVQmRk0Hj7mqZ4LTsYmhl4lIew9jEqDZMZ7Mq8yoUGQy2fIX
-         svrw==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F785606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:46:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F785606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-469debb526fso401961fac.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:46:41 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795131682; x=1795736482;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/bBpAqV6vKIYvVAXxXWFQ3lwfUYXqc1KvZzM1h1nZSo=;
-        b=Ppmni2PtFNI0HbsLqZMuhojpwC4vbYeUuvnaUNwHA5CN64nieipYrxdf1Kc1hoIkZl
-         zSEZw4gOkd11NFHRdcvcSLJSosMtNXkt6RhYxT7NFPD7gfymvzkJ0w+2NLO8V1jeA89s
-         SAHaLRlv+bpVGmCo++gHNCZP0x/MvLqXVIL5sQa7nLtsDhrcQflwz11i2hGdLiSQmcpr
-         jR8qStNl0TGJy8h8K7W0xJytsSbsMdCIxiqZpBVu0c883U8AScsNdeFNn6Q3MNzfGa0w
-         sQqpRrwuA0B3QzmrmaurLI+lMAbca8QqAY6IyDuP4ubAuChwavT/KbYWx/XPPG8ULLhf
-         I68Q==
-X-Forwarded-Encrypted: i=1; AL+hErE44Zu5vG10ADFzVmnt3FgAR0mALKtwgqhcUy+Jz/VkOPhSYgk27FBuMGrkVWRlFbVMxJBoX67NJ2kwjoo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+gv8pqGFL/gg4aU/lvBlWEKzF0GB/Gwc/5br039BIqdRWgBYyQ
-	t0Z7tbbS+/Ley7VHHEcuGWiFQqh8yloiE6GPSGZgW149zIdnFArUzK3DEAIZvpkN0ZU=
-X-Gm-Gg: AZFdTZeaID3mJuVldlWQzK506BHM1Pb1/2Cfyfwjew8n0ctqOk0an65R1HTbpWWiqHw
-	PH1hzd70QVtEr4qgd2NjfNdZELjMvVQuI8UVOl+e/WDj3Xsn0rpbSSzuu9kS9crgjnbcQkc5970
-	gisbTX6R8q7l1iWIAZ6vGW8AFZOrBWqd6WGuyx3tt91VdvHEMCeZeRr5qrtL916kXMsOyIjmtyC
-	icgdSzdWhyzT4flYf2olaeXPLm1mhgVSuw+7mbUaOBxh/hWcEC157PrsJrZMW1cUyJevRi4Ke+e
-	VhnLf1s/J2bjTeGgSzepLpRGZS0HoqfO+hkOwLk0JRIdUVSQnL1tI8ww3VGc3G9cB1tZV3YTZQS
-	oAZLWtgFqEhckBnpaGCl8kX2HqfS/8p77Sx+kW3oJEoDpmfXHdiFMj2rfc60Zq1INjpbn1S6cMq
-	99CTwQ8XGWu7sgxmKGAw3M+GRTBWp/kwA+rQsRzR/TdlCfFFb6ezrCqDFhqK+KMoAZ6JkwvWDmw
-	yfF75gdKlwVOkOVk3d+dTM0ou6FflpbMiNBlQR8rSqQ0RmmQxyWp0/eIwHGefdzGc6JO90mQApB
-	/DQI5O5JDHoV3uHgJ4DKVodDcbLcpJmhVCKwHWCO08iW+YVDVIdZCIEXS94LAgqhHfQbHCXJO0B
-	ZyjSYQI+//idbB1MsPRAmxXnfuLA+eREePlb1nSyRuXrVc2J9IQURbPGUzY2/Wi4I0rNTkeo=
-X-Received: by 2002:a05:690e:1489:b0:679:5bea:d3fb with SMTP id 956f58d0204a3-67df44ff2a3mr507091d50.98.1795131682495;
-        Thu, 19 Nov 2026 15:41:22 -0800 (PST)
-Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:1932:ad09:1827:11fb])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df338e8fesm796893d50.16.2026.11.19.15.41.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 15:41:22 -0800 (PST)
-From: Viacheslav Dubeyko <slava@dubeyko.com>
-To: glaubitz@physik.fu-berlin.de,
-	frank.li@vivo.com
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vdubeyko@coreweave.com,
-	Viacheslav Dubeyko <slava@dubeyko.com>
-Subject: [PATCH 5/5] hfsplus: name the constants of the allocation bitmap check
-Date: Thu, 19 Nov 2026 15:41:12 -0800
-Message-ID: <20261119234112.720963-6-slava@dubeyko.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119234112.720963-1-slava@dubeyko.com>
-References: <20261119234112.720963-1-slava@dubeyko.com>
+        d=1e100.net; s=20260707; t=1795132001; x=1795736801;
+        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rQB34CXlJwcWdBt45rejxcfsByac8tggb9Dt3exb3D8=;
+        b=ZwquF2iTbSJE0XWcQoVZUK8e0eCjf8iF50Sd/q3aPiMNIi3c41ETNdjTqmM010cuHq
+         1MsHLpwgPXzyTI9cKbDokpsFEmugB0rtBSJe00cRulCAmaeAEvoyGWz5f2jk6P6fZ7+B
+         /P+fKYZBva0qzGCDlKIvhtq9gyizI8MFANcWt5/itouWCBSPBD49/7x9IxSMQlCNxLEO
+         wlXYSs9J655+0okJk0AlEynsuP5hLS+0YrZdS9RrgE3LNvsRT8GDmD69yygg2auNrJyu
+         5IZ16HGOqQskst3wfjMqgfMo8c69XKDTD0jQb2ezzJ2ymdhPGYnF1Ce3xPYzt3enfLhw
+         W4Qg==
+X-Forwarded-Encrypted: i=1; AL+hErENoQy5y2oeR/50Mn1Vi/aI68j6Bmh+qlZSoP97OWjmGf8+sTlQJoTdVPrR0msJa3W7+6fNCNqvsn9Y7t0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8TeEh8Fclap4Jgq5tngrp6IrJ6xXz2nopfErDiyMUrkk2PK1c0
+	vjOGmGM9G/85a8TslNWFLowYingEMJ09qey8bYSjJLk82cC04Fg8B0E5VHhYqMipmkcSGio3QpP
+	O+IVIIlQCkO0H+6kYwHGLMt5w17t612stbLMewfutadNnQtN5fWBEPlvNUgo=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,76 +58,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6809:18:10b0:57a:5851:f586 with SMTP id
+ 5614622812f47-57a5851f5b7mr578539b6e.49.1795132001018; Thu, 19 Nov 2026
+ 15:46:41 -0800 (PST)
+Date: Thu, 19 Nov 2026 15:46:40 -0800
+In-Reply-To: <av-KXoa9oozbmHa8@seanjc-mac.roam.internal>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6aff8a60.6ea51c61.12eec.0000.GAE@google.com>
+Subject: Re: [syzbot] [kvm-x86?] WARNING in __nested_vmx_vmexit
+From: syzbot <syzbot+483ee9b97423483ca602@syzkaller.appspotmail.com>
+To: seanjc@google.com
+Cc: bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, mingo@redhat.com, 
+	pbonzini@redhat.com, seanjc@google.com, syzkaller-bugs@googlegroups.com, 
+	tglx@kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-hfsplus_file_extend() refuses to allocate when the allocation bitmap
-has fewer than eight bits beyond the blocks in use, written as
+> On Thu, Nov 19, 2026, syzbot wrote:
+>> Hello,
+>> 
+>> syzbot found the following issue on:
+>> 
+>> HEAD commit:    7475ea8b5861 Linux 7.4-rc2
+>> git tree:       upstream
+>> console output: https://syzkaller.appspot.com/x/log.txt?x=12372a4e580000
+>> kernel config:  https://syzkaller.appspot.com/x/.config?x=1cf189394a856f11
+>> dashboard link: https://syzkaller.appspot.com/bug?extid=483ee9b97423483ca602
+>> compiler:       gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
+>> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1360d4d9580000
+>> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=17839409580000
+>> 
+>> Downloadable assets:
+>> disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/d900f083ada3/non_bootable_disk-7475ea8b.raw.xz
+>> vmlinux: https://storage.googleapis.com/syzbot-assets/db4e8a9a4461/vmlinux-7475ea8b.xz
+>> kernel image: https://storage.googleapis.com/syzbot-assets/2abcfcabee20/bzImage-7475ea8b.xz
+>> 
+>> AI-generated root cause summary:
+>> When an L1 vCPU encounters a hardware VM-Fail on VM-Entry, `vmx_handle_exit()`
+>> processes the failure and returns KVM_EXIT_FAIL_ENTRY to userspace without
+>> clearing the `vmx->fail` flag. If userspace then calls KVM_SET_NESTED_STATE with
+>> KVM_STATE_NESTED_GUEST_MODE set, the vCPU enters guest mode without resetting
+>> `vmx->fail`. If the VM is subsequently torn down without another KVM_RUN,
+>> `vmx_leave_nested()` synthesizes a nested VM-exit where `__nested_vmx_vmexit()`
+>> observes the stale `vmx->fail == 1` and reads VM_INSTRUCTION_ERROR from vmcs02
+>> (which was never launched), triggering a WARN_ON_ONCE because
+>> VM_INSTRUCTION_ERROR is not VMXERR_ENTRY_INVALID_CONTROL_FIELD.
+>> 
+>> full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=483ee9b97423483ca602
+>> 
+>> IMPORTANT: if you fix the issue, please add the following tag to the commit:
+>> Reported-by: syzbot+483ee9b97423483ca602@syzkaller.appspotmail.com
+>> 
+>> kvm_intel: set kvm_intel.dump_invalid_vmcs=1 to dump internal KVM state.
+>> ------------[ cut here ]------------
+>> vmcs_read32(VM_INSTRUCTION_ERROR) != VMXERR_ENTRY_INVALID_CONTROL_FIELD
+>> WARNING: arch/x86/kvm/vmx/nested.c:5149 at __nested_vmx_vmexit+0x2734/0x4000 arch/x86/kvm/vmx/nested.c:5149, CPU#1: syz.0.17/6007
+>> Modules linked in:
+>> CPU: 1 UID: 0 PID: 6007 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
+>> Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+>> RIP: 0010:__nested_vmx_vmexit+0x2734/0x4000 arch/x86/kvm/vmx/nested.c:5149
+>> Code: ff ff e8 0f a0 67 00 90 bf 0e 44 00 00 e8 c4 ed f8 ff 90 31 db e9 01 ec ff ff e8 f7 9f 67 00 e8 f2 1b 48 0a e8 ed 9f 67 00 90 <0f> 0b 90 e9 6a ff ff ff e8 df 9f 67 00 90 bf 00 44 00 00 e8 94 ed
+>> RSP: 0018:ffffc9000338f960 EFLAGS: 00010293
+>> RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+>> RDX: ffff88802c514b00 RSI: ffffffff81a6e113 RDI: 0000000000000005
+>> RBP: ffffc9000338fac0 R08: 0000000000000007 R09: 0000000000000000
+>> R10: ffff888035f7003f R11: 0000000000000000 R12: 0000000000000001
+>> R13: ffff8880382442ec R14: 0000000000000000 R15: ffff888035f70000
+>> FS:  00005555645d0500(0000) GS:ffff8880d4571000(0000) knlGS:0000000000000000
+>> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>> CR2: 000055b5cc929ff0 CR3: 000000003db67000 CR4: 0000000000352ef0
+>> Call Trace:
+>>  <TASK>
+>>  nested_vmx_vmexit arch/x86/kvm/vmx/nested.h:46 [inline]
+>>  vmx_leave_nested arch/x86/kvm/vmx/nested.c:6895 [inline]
+>>  nested_vmx_free_vcpu+0xb3/0xd0 arch/x86/kvm/vmx/nested.c:389
+>>  vmx_vcpu_free+0x94/0x340 arch/x86/kvm/vmx/vmx.c:7519
+>>  kvm_arch_vcpu_destroy+0x159/0x3e0 arch/x86/kvm/x86.c:9558
+>>  kvm_vcpu_destroy virt/kvm/kvm_main.c:477 [inline]
+>>  kvm_destroy_vcpus+0x24e/0x3c0 virt/kvm/kvm_main.c:497
+>>  kvm_arch_destroy_vm+0xc7/0x230 arch/x86/kvm/x86.c:10129
+>>  kvm_destroy_vm virt/kvm/kvm_main.c:1313 [inline]
+>>  kvm_put_kvm+0x556/0xc00 virt/kvm/kvm_main.c:1350
+>>  kvm_vm_release+0x65/0x80 virt/kvm/kvm_main.c:1375
+>>  __fput+0x3fb/0xb50 fs/file_table.c:512
+>>  fput_close_sync+0x118/0x250 fs/file_table.c:618
+>>  filp_close_sync+0x75/0xa0 fs/open.c:1574
+>>  __range_close+0x4a6/0x8b0 fs/file.c:919
+>>  __do_sys_close_range fs/file.c:1003 [inline]
+>>  __se_sys_close_range fs/file.c:954 [inline]
+>>  __x64_sys_close_range+0x1f8/0x430 fs/file.c:954
+>>  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+>>  do_syscall_64+0x123/0x7b0 arch/x86/entry/syscall_64.c:89
+>>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>> RIP: 0033:0x7f5f6ab9fb19
+>> Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+>> RSP: 002b:00007fff0931e598 EFLAGS: 00000246 ORIG_RAX: 00000000000001b4
+>> RAX: ffffffffffffffda RBX: 00007fff0931e680 RCX: 00007f5f6ab9fb19
+>> RDX: 0000000000000000 RSI: 000000000000001e RDI: 0000000000000003
+>> RBP: 000000000000e232 R08: 0000000000000001 R09: 0000000000000000
+>> R10: 0000001b2fb20000 R11: 0000000000000246 R12: 0000000000000000
+>> R13: 00007f5f6ae25fac R14: 00007f5f6ae25fa8 R15: 00007f5f6ae25fa0
+>>  </TASK>
+>
+> Oh, _now_ you find it on an upstream kernel? :-D  This presumably the same thing
+> that was fixed by:
+>
+> #syz test https://github.com/kvm-x86/linux.git 40c0e9dd6b6dfbdbbdbf5d7936d2819b2d84d25c
 
-  i_size * 8 < total_blocks - free_blocks + 8
-
-where the first 8 is the number of bits per byte and the second one is
-a margin. Use BITS_PER_BYTE for the first and a new constant,
-HFSPLUS_ALLOC_BITMAP_SPARE_BITS, for the second, and name the two sides
-of the comparison. The number of blocks in use plus the margin is now
-computed in 64 bits, as the bitmap size already was; there is no other
-functional change.
-
-Tested on a KASAN and lockdep kernel: filling a volume whose allocation
-file is exactly as large as the volume needs fails with -ENOSPC at 0
-free blocks and fsck.hfsplus reports the volume as OK; generic/001,
-002, 013, 075 and 112 pass.
-
-cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-cc: Yangtao Li <frank.li@vivo.com>
-cc: linux-fsdevel@vger.kernel.org
-Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
----
- fs/hfsplus/extents.c    | 9 +++++----
- fs/hfsplus/hfsplus_fs.h | 6 ++++++
- 2 files changed, 11 insertions(+), 4 deletions(-)
-
-diff --git a/fs/hfsplus/extents.c b/fs/hfsplus/extents.c
-index da6ab85a64ae..f910699338e5 100644
---- a/fs/hfsplus/extents.c
-+++ b/fs/hfsplus/extents.c
-@@ -552,15 +552,16 @@ int hfsplus_file_extend(struct inode *inode, bool zeroout)
- 	struct super_block *sb = inode->i_sb;
- 	struct hfsplus_sb_info *sbi = HFSPLUS_SB(sb);
- 	struct hfsplus_inode_info *hip = HFSPLUS_I(inode);
-+	u64 bitmap_bits = (u64)sbi->alloc_file.inode->i_size * BITS_PER_BYTE;
-+	u32 used_blocks = sbi->total_blocks - sbi->free_blocks;
- 	u32 start, len, goal;
- 	int res;
- 
--	if (sbi->alloc_file.inode->i_size * 8 <
--	    sbi->total_blocks - sbi->free_blocks + 8) {
-+	if (bitmap_bits < (u64)used_blocks + HFSPLUS_ALLOC_BITMAP_SPARE_BITS) {
- 		/* extend alloc file */
- 		pr_err_ratelimited("extend alloc file! (%llu,%u,%u)\n",
--				   sbi->alloc_file.inode->i_size * 8,
--				   sbi->total_blocks, sbi->free_blocks);
-+				   bitmap_bits, sbi->total_blocks,
-+				   sbi->free_blocks);
- 		return -ENOSPC;
- 	}
- 
-diff --git a/fs/hfsplus/hfsplus_fs.h b/fs/hfsplus/hfsplus_fs.h
-index 9a304d946297..4f604c664cb9 100644
---- a/fs/hfsplus/hfsplus_fs.h
-+++ b/fs/hfsplus/hfsplus_fs.h
-@@ -120,6 +120,12 @@ struct hfsplus_alloc_file {
- 	struct hfsplus_overflow_extents overflow;
- };
- 
-+/*
-+ * Bits the allocation bitmap must have beyond the blocks in use for
-+ * hfsplus_file_extend() to allocate more blocks.
-+ */
-+#define HFSPLUS_ALLOC_BITMAP_SPARE_BITS	8
-+
- struct hfsplus_sb_info {
- 	void *s_vhdr_buf;
- 	struct hfsplus_vh *s_vhdr;
--- 
-2.53.0
+Patch testing via #syz test is temporarily disabled.
+See https://github.com/google/syzkaller/issues/8122 for details.
 
