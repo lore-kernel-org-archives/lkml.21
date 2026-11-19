@@ -1,47 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090000;
-	b=PM2D6q6CSJetFjDXb4ydPHBPHviSf5W+79FwegLn8YeBAoqm5bqcpSkXkI0eFComgTd+
-	 0Q5Cc9iBzYWQUesPkCyUqUBPguWlEREOpDecNzbNmxWA9IHAhRYYuRhp6ax3V0m9usBzj
-	 ynay7ZPBn1gfdFAr7O7T2+YknL86OZ+nYczHj4CSPWFN2osVNK50VZMSHZogEK9MVw69m
-	 Y6ORBMZlRN3NHj6DazDc6spABGvPg3R730OD8Sqr0N13bN7Hrtu6EzdjJ7Akv6tPXyHAG
-	 yeolVpRWWHYWr8DXzPaLBs4ANMmF+di86Rx/LM0gDKjwVvlSQ8FeopP7L0l4RudR6BQ==
+	t=1795090023;
+	b=alG11WF447TMSetNApOldEb5CiyoTQiVCsOdTRG0USR0HDp/0AfqQXyMmYfp+tgcNiPH
+	 8iUzoSrOeE0SUyb4xZ16FaX22RTP5gZt4/5AowxNAlS3wVOV1II5wDglhwvPH+NWfE6Re
+	 sAyuLOgBGOudZudJd1dv4S8tPtklmCiMlyaAgW4QojH0Z7vMm+SbHhmOThwPC/DM5nt9w
+	 7Wa7V2j7ulULjIYv/b79DWLtQMhPszY7jeFSQUUFQ+8iEnL0BlJOycE+bWhaWYBeNtWKx
+	 afMM2v62X+YrNqhUc8lyh0WGUdwYi4xYnQg3D5oSaATT1hHzsZ8zYjwDcjoXWfBh3Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090000;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=7YOuzXDEw+rkcmBi95+83IbwhlceUdsO0O5u8keZMqg=;
-	b=nrEY+ynHyp+PDzB7K/GGUUgY1CizmDpmMNESMqSaS0w7kyjjWoCIatT6GcrUXDmh5kO1
-	 PEmPqTfhUO/jKzdElojdGit3+KJtRjyHj1HJeWSAqszvogclARBzY8gyaECbMtN7f7eZg
-	 QLiYpbyuYytE/Ul+BD3lnUooKebzW9LFM+q4w6thPd7VTGNUJI0wZnEyIs3yRYOtGT1Ir
-	 FzYdW9PfXQMs/vvlQMbde/bdw3bIc27yiFIG8UkW+Ia8SvL3HT6mxpymwlzapcJ3UkJMd
-	 hARbV61MC0khjDcy7HwhUn+WJD58iW8melg7vCD5b3mfYLJT/kjoGwnOpHeG2R5MpXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090023;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=kbnABEqj47FPQ4dABzs+jDJQ6NL1Axc8aBPEjacCJCU=;
+	b=o3rrB0gjaVbUXNVxoASc1R9/Tjd6cZECVPXVAR7cFHLr3yBVQD7g3APHxr4PxR9be70i
+	 Ii5NXp36KXjG5w0RNPVVc9EkPRn4MR+CLgf8Ti3LVgpUaMKPkVKTxaP+lxhbbdf5Hrf61
+	 WJFCSecH5OPxGpOpoaHqaw+s42WXNuu2zUF/6icrDpuT1suEZfbUZcmUmAYfQALpacY/z
+	 cZVrAYXsFeuwYaqDdT9XDH00J5JNXqdZzUOd7SxZQ1niKupNAVVjoSzwX2mZEV5vvWQ3q
+	 619AlsK2tU/LGmMjffkQ+Ttic8zyGemyV8/yrppLej6c9PWZD0/I+6FkE6U4f2bTrpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IokQDEy9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DBBI85WQ;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4252606A335;
-	Thu, 19 Nov 2026 12:06:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B137606A320;
+	Thu, 19 Nov 2026 12:07:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B137606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IokQDEy9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D7421F000C5;
-	Thu, 19 Nov 2026 12:06:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795089999;
-	bh=7YOuzXDEw+rkcmBi95+83IbwhlceUdsO0O5u8keZMqg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IokQDEy9FFPAqn76OIIITvZMgmibs49pav/hDDUvS2JKMTA7o8CbFdY5PYwoPOvmo
-	 pi35wQzheSexYax/2PQRMtG3H++zLtWcjE8HNOJI8ldMfw5bHQHBqudgM+QdMBo/PQ
-	 oUxKsb5UaGb15TZ0tNPmMohXUBI7WcI5TcNK0rxtaqhJs4h+r/naB4+/rkWIXwjhOg
-	 zz+VhpS9vuKOM0e2mG3dWdRCiSLeTQJ7RG5KYrhPttbOv6otLcKT/mgx4HBU/ONPQK
-	 E9ouLHncTMloI46SMfCeRNOFYrDdhjpMb3lxxvYi1yZ53gvi5DujXLzy+zEr6GpAwA
-	 bLXdlQ+r6D6Kg==
-Message-ID: <d741093d-345d-4cdf-a48d-2c5e55be2129@kernel.org>
-Date: Thu, 19 Nov 2026 13:06:32 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DBBI85WQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795090024; x=1826626024;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=BTWUer8OEDqo97tY5wtj0OJ8SoMKQqyxH8oQM/MJ1Es=;
+  b=DBBI85WQy22HtpUVEUFsmiuYZGx7md3r/xMx7A7BRiELFlSoFETXLQdg
+   Fud7u5CL+VBmaTYuWCnKBZHyXa5dN2ILknawXY1o8qZJXDWwd4Vht7EXx
+   47GqTiYsr5IbvWXMLxrhzY9EKCYvkX/8o27Yd3v3IthKJYskjWmkE+T4e
+   e63lrki827GdSQylnPl1TYn5CVsaSl1I5Qr1zy04VkVv++BI8/T6aay//
+   LKKuSJxydRmvylYy3Y4pKYAsoLXjm6pdBw2d+CtcBWNwv5lULEY4S1eqM
+   2F4dSnOVafADx+k8srWVeFXYY10CYsD1qz7zviNDy0AFHCln7wVGi3OPW
+   g==;
+X-CSE-ConnectionGUID: B5/IG/t5Sjy+atiEtucRjg==
+X-CSE-MsgGUID: LcaNDb8NTN2+AFUCL0qCtA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3826265"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3826265"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:07:03 -0800
+X-CSE-ConnectionGUID: NdDRmPNMSeCtUp3gq+nUbQ==
+X-CSE-MsgGUID: lGkhzaaQSd+UkqQ0nyKkjA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10328310"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:06:55 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Thu, 19 Nov 2026 14:06:51 +0200 (EET)
+To: Ehab Ababneh <ehab.ababneh@intel.com>
+cc: Hans de Goede <hansg@kernel.org>, tony.luck@intel.com, 
+    ashok.raj.linux@gmail.com, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, tglx@kernel.org, mingo@redhat.com, 
+    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+    rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+    linux-trace-kernel@vger.kernel.org, peterz@infradead.org, 
+    sathyanarayanan.kuppuswamy@linux.intel.com, pengfei.xu@intel.com, 
+    ravi.v.shankar@intel.com
+Subject: Re: [PATCH v2 12/17] platform/x86/intel/ifs: Add new sysfs interfaces
+ {status, details, cpus_ran}_list
+In-Reply-To: <20261118193259.519568-13-ehab.ababneh@intel.com>
+Message-ID: <7a3f0d3e-291a-6498-f605-8465cc5bf963@linux.intel.com>
+References: <20261118193259.519568-1-ehab.ababneh@intel.com> <20261118193259.519568-13-ehab.ababneh@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,95 +85,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: media: qcom,glymur-camss: Drop port@3
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Cc: Bryan O'Donoghue <bod@kernel.org>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Suresh Vankadara <svankada@qti.qualcomm.com>,
- Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-References: <20261113-glymur_camss-v2-0-b1b76509c744@oss.qualcomm.com>
- <20261113-glymur_camss-v2-1-b1b76509c744@oss.qualcomm.com>
- <20261116-vegan-amphibian-muskox-3c8a55@quoll>
- <de0bd55f-9b80-414f-adb6-eece067d92ff@oss.qualcomm.com>
- <8e8300f1-d837-495b-b947-a3b52f44b4d6@kernel.org>
- <d90f6dc5-bd8b-4fa3-a17a-e00470a9b8a8@oss.qualcomm.com>
- <88467521-f50d-4c87-8206-4a3249f65212@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <88467521-f50d-4c87-8206-4a3249f65212@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
 
-On 19/11/2026 12:37, Nihal Kumar Gupta wrote:
-> 
-> 
-> On 16-11-2026 18:02, Nihal Kumar Gupta wrote:
->> On 16-11-2026 17:52, Krzysztof Kozlowski wrote:
->>>> It was not used in-tree yet. 
->>> That's different question. You added ABI and that ABI could have been
->>> used. Was the ABI ever correct in the first place?
->> The documented ABI was not correct: port@3 came from the old X1E80100
->> resource-table mapping, not from the Glymur CAMSS port layout.
-> 
-> Hi Krzysztof ,
-> 
-> How would you prefer this ABI issue to be handled, or should I
-> send the next version incorporating Loic's comments?
+On Wed, 18 Nov 2026, Ehab Ababneh wrote:
 
-Commit msg should be clear that ABI is changed, whether that ABI was
-ever working or even correct/possible to work in the first place. You do
-not answer my question really, because if description was not correct
-but everything was working fine, then clearly IT WAS correct to some level.
+> From: Jithu Joseph <jithu.joseph@intel.com>
+> 
+> Problem
+> =======
+> The current legacy interface for Intel In-Field Scan is designed to
+> simultaneously test all CPUs in a group [1], but it only reports the
+> status of the primary CPU in this group and doesn't indicate that
+> secondary CPUs have been tested. This results in the following issues:
+> 
+>   - All CPUs in a group can hold different statuses, but the user can
+>     only see the status of the primary CPU, as any errors observed by
+>     secondary CPUs are ignored.
+> 
+>   - The topology of a group of CPUs may vary across systems. For example,
+>     in a Hyper-Threading (HT) system, the group consists of all CPUs in
+>     a core, while in a Dual-Core Module (DCM) based system (e.g., Intel
+>     Diamond Rapids CPU), two cores in a module form a group. The user may
+>     be unaware of the group topology and test each CPU of the system
+>     individually, leading to duplicate test runs.
+> 
+> Solution
+> ========
+> The user continues to write a single value to run_test, and while the
+> legacy sysfs reports results for the tested CPU to ensure backward
+> compatibility, new sysfs interfaces {status, details, cpus_run}_list
+> provide results for multiple related CPUs tested as part of a group.
+> The user can check for the presence of new sysfs interfaces to
+> understand that multiple results are available, read them, and identify
+> which CPUs have been tested to avoid duplicate tests.
+> 
+>   intel_ifs_0
+>   +---- run_test	<--- Same legacy file
+>   +---- current_batch
+>   +---- details
+>   +---- details_list	<--- Details for all CPUs in the group (new)
+>   +---- dev
+>   +---- image_version
+>   +---- status
+>   +---- status_list	<--- Status for all CPUs in the group (new)
+>   +---- cpus_ran_list	<--- CPUs in the group tested along with CPU written to run_test (new)
+>   \---- uevent
+> 
+> Example of reading the cpus_ran_list to see the CPUs tested:
+> 
+>   echo 0 > run_test
+>   cat cpus_ran_list
+>   0,96
+> 
+>   cat status_list
+>   pass pass
+> 
+>   cat details_list
+>   0x8086 0x8087
+> 
+> [1] Indicated by bits [20:16] of MSR_INTEGRITY_CAPABILITIES when bit 21 is set.
+>     E.g., in Hyper-Threading (HT) systems, a group includes all threads in a core;
+>     in Dual-Core Module (DCM) system, a group includes all CPU cores in a module.
+> 
+> [ Qiuxu: wrote the commit message. ]
 
-Best regards,
-Krzysztof
+Not among Signed-off-by members?
+
+> 
+> Signed-off-by: Jithu Joseph <jithu.joseph@intel.com>
+> Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
+> Tested-by: Yi Lai <yi1.lai@intel.com>
+> ---
+>  drivers/platform/x86/intel/ifs/sysfs.c | 60 ++++++++++++++++++++++++++
+>  1 file changed, 60 insertions(+)
+> 
+> diff --git a/drivers/platform/x86/intel/ifs/sysfs.c b/drivers/platform/x86/intel/ifs/sysfs.c
+> index 287f96bb033e..e96faf7bf0fa 100644
+> --- a/drivers/platform/x86/intel/ifs/sysfs.c
+> +++ b/drivers/platform/x86/intel/ifs/sysfs.c
+> @@ -135,6 +135,63 @@ static ssize_t image_version_show(struct device *dev,
+>  
+>  static DEVICE_ATTR_RO(image_version);
+>  
+> +static ssize_t status_list_show(struct device *dev, struct device_attribute *attr, char *buf)
+> +{
+> +	struct ifs_data *ifsd = ifs_get_data(dev);
+> +	struct ifs_test_output *pcpu_state;
+> +	int lcpu, len = 0;
+> +
+> +	for_each_cpu(lcpu, &ifsd->grp_cpumask) {
+> +		pcpu_state = per_cpu_ptr(ifsd->result_ptr, lcpu);
+> +		len += sysfs_emit_at(buf, len, "%s%s", (len > 0) ? " " : "",
+> +				     status_msg[pcpu_state->test_result]);
+> +	}
+> +
+> +	if (!len)
+> +		return sysfs_emit(buf, "%s\n", "none");
+> +
+> +	len += sysfs_emit_at(buf, len, "\n");
+> +
+> +	return len;
+> +}
+> +
+> +static DEVICE_ATTR_RO(status_list);
+> +
+> +static ssize_t details_list_show(struct device *dev, struct device_attribute *attr, char *buf)
+> +{
+> +	struct ifs_data *ifsd = ifs_get_data(dev);
+> +	struct ifs_test_output *pcpu_state;
+> +	int lcpu, len = 0;
+> +
+> +	for_each_cpu(lcpu, &ifsd->grp_cpumask) {
+> +		pcpu_state = per_cpu_ptr(ifsd->result_ptr, lcpu);
+> +		len += sysfs_emit_at(buf, len, "%s%#llx", (len > 0) ? " " : "",
+> +				     pcpu_state->test_details);
+> +	}
+> +
+> +	if (!len)
+> +		return sysfs_emit(buf, "%s\n", "none");
+> +
+> +	len += sysfs_emit_at(buf, len, "\n");
+> +
+> +	return len;
+> +}
+> +
+> +static DEVICE_ATTR_RO(details_list);
+> +
+> +static ssize_t cpus_ran_list_show(struct device *dev, struct device_attribute *attr, char *buf)
+> +{
+> +	struct ifs_data *ifsd = ifs_get_data(dev);
+> +	int len;
+> +
+> +	len = sysfs_emit(buf, "%*pbl", cpumask_pr_args(&ifsd->grp_cpumask));
+
+Why doesn't this format string just add \n and return immediately?
+
+> +	if (!len)
+> +		return sysfs_emit(buf, "%s\n", "none");
+> +
+> +	return len + sysfs_emit_at(buf, len, "\n");
+
+> +}
+> +
+> +static DEVICE_ATTR_RO(cpus_ran_list);
+>  /* global scan sysfs attributes */
+>  struct attribute *plat_ifs_attrs[] = {
+>  	&dev_attr_details.attr,
+> @@ -142,6 +199,9 @@ struct attribute *plat_ifs_attrs[] = {
+>  	&dev_attr_run_test.attr,
+>  	&dev_attr_current_batch.attr,
+>  	&dev_attr_image_version.attr,
+> +	&dev_attr_status_list.attr,
+> +	&dev_attr_details_list.attr,
+> +	&dev_attr_cpus_ran_list.attr,
+>  	NULL
+>  };
+>  
+> 
+
+-- 
+ i.
+
