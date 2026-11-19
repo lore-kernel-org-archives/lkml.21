@@ -1,61 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.88
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795064687;
-	b=DZ+qZ7AMcWBuhtoklFaKAdgOsl4YCNVnZfZCkBcVODbqxEDci0f+bFdcn7gMu8iBDoMn
-	 N+Ka2rdYqi5cJUWFJeY7IG9PDVgxxN/c/Xnjg0V4+lutfCKg4M3GRyRYYAqyYMyzk7z85
-	 vujgi9K8GEQ3xJ7rxJZGsxqF7SCXQfrcYkApsLPFE6K09BCmLTMQez467a7zBRqKBB0Gd
-	 Pbuk4FQTTMCyoUwSgxjKquCPFFcAMFDlsWJfY4ckZuKg72PWvZaYJ3MRzC/YqqVxGQqlb
-	 cEPmhBJPtjnp57CeORI4QU9ze8UAlgPmc3SIhXd8QtQ5RGieptYDj/l5Mq6B5kE59fA==
+	t=1795064751;
+	b=ZHXHQyMnm0hLIKFb3FVzPCdvOWVRhsuLnm7aVaBVPbQ+mv/Vx7Cur4fpjdpLBsYXi+Bf
+	 HF2Sq4zh7s2aytJsdTRT2W1bV255aweZt7lSg7OGZULf+Re2cPXWtQp3SYjrjuZ8kNyIX
+	 0CtQsTpYRCn5GkgvDfVW1mMBkcO7e4P7P+DzqpSpi/BQHe2InV34GdfRSSwaUo/h25Dx4
+	 B/9RIke0zWj6nYjZ8gFfgec4DUU+W10S1DMwNRrdqBpOhlVVbZIMioC5SfV0kotK0Ell1
+	 C2LSekSfaPSyjzsAO1IOGmZm75txvO5GjJPcTR5uqPHpaHXxIK2Nh/DK5kgVgmMKgEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795064687;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ELh5lc2aPOWRUhM5D4IHCHtXzMf4oMgv7S6UUVSFuJE=;
-	b=j2N1cHWLIfav4DOh/pO/yXHsB3DlSc/JjXiATZ3DW6w8MZfyiWkVJHR/yn99mtIXAckd
-	 bQhB9PIYnXHpbSiHfXAK0kckybUPnVS0Q0ZiKSaEfespCyJoV8MbzihWElxePeQOlCV3T
-	 WUYRus9rA1mYPW9h0IRUHA7JaKyZYFW6gozrL9QYnoH8rq7L/GAjCAoTG6EWphLxlLwJ+
-	 w/y7i+9ITyS3JIIBzYv3tA5iHlvvoeUbFv3Hf4ZVEHFymlSu65467sSda8BcC2bkLbFTc
-	 sd4toxaWa7uR10poRJBfJ7RdPz9D7T8FaRytzeKjAAfiIKegGcJvjAjj0AnADgloEag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795064751;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=K94dwbn70eq8hG+dDuDYRflKUmSDK0/4JQhZf6rr1Hg=;
+	b=37YE5Vvyf3QCZbAQpOLeRKjc3AJDVhVPX3n7SpxqX7oApsf0Pn5mHk68R0BP2T06+3eH
+	 QvTm+AV4mDNTvgVBIiMuQ3xI55QSr/hf+f9NzPf4/EicuE+o6M4pLleXvh+2m/W5binI/
+	 sdAI91UD9zd7JfDDr7MWk76vHMo4HYG4irlHCgIi2GUz8q4nkDfmlQJJW3kOYaneEUTt4
+	 apPOhogYNJQAfHW31ILgHKzXvTeMS/hQTuIa6t3q2XfDT+tpIudAISvELGeJl8vNYJm1c
+	 WGlLMWJdFjdtQ1H5U/iZ3hhowbuH9bRerXtxpr9ryLdgj1vlm1/U46mIAbg5WAtqVXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nZVFW9l9;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qqqMHzq+;
+	arc=none smtp.remote-ip=91.218.175.88
+Received: from mta0.migadu.com (out-88.mta0.migadu.com [91.218.175.88])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F19560A260B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:04:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F19560A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B441606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:05:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B441606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=nZVFW9l9
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ELh5lc2aPOWRUhM5D4IHCHtXzMf4oMgv7S6UUVSFuJE=; b=nZVFW9l9MBJp64q8stBvK61xSf
-	yzQu/r8dHBe5E7AJedwLqsaR2yDs+yZ9hgF0O5Uhr4BRS0HjgqL7gPCQWGBlCd9oxprJW6AlI1hGG
-	Jv+lGP5DQchkPnzBDI68kTfdRpuiLsGmD+pGDkwosqY7IbduWqCVLhc8aifXnouWav4hgpLC8pBD7
-	eDub/JfVqgxWSyDTONB+sp/MB+Y0wOELPBOJquKhoCuO8WWyiRz6fkO0soyF44nOaioVJrRFMHiMo
-	2S+8MSq4WY2oxziZxq5dMMHw+VFsyjsdesb4ZsMylSiDJFgpZExhdPzpGesI/oyh1gfV7AG6syhTb
-	pao1vdyA==;
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xTuKF-0000000ArIo-12kP;
-	Thu, 19 Nov 2026 05:04:47 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>
-Subject: [PATCH v2 09/12] docs: ioctl-number: update virtualization entries
-Date: Wed, 18 Nov 2026 21:04:34 -0800
-Message-ID: <20261119050444.249752-10-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119050444.249752-1-rdunlap@infradead.org>
-References: <20261119050444.249752-1-rdunlap@infradead.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qqqMHzq+
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=FvbWH/2AI2iL1qC7Fj3d9ZSMtTLeOIOXTVNruSRaiek=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795064748; v=1; x=1795669548;
+ b=qqqMHzq+gRWuTH2Drz937KTgPjAlfxFA4zcwDXFbpnsD2d5exJ3efwhvBILOD3ZWzP8ZdeSD
+ /mX1p7HfHtlGn9yyjYynBD8sLwEP90Ylt70tCNfgEOJAFzgdI3IsO5AGGvD301IK98LOw6nXZRz
+ wB6EsWWsIqKv3LgE4Gc4d9Cg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a611c37a4c7a49c8;
+	Thu, 19 Nov 2026 05:05:34 +0000
+X-Mizu-Trace-ID: a611c37a4c7a49c8
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <8fa7eb35-950f-49c4-b60a-c00b52cc6e4d@linux.dev>
+Date: Wed, 18 Nov 2026 21:05:29 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,72 +58,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 3/4] bpf: Check program recursion per task via
+ bpf_ctx
+To: mikeba@sentinelone.com, bpf@vger.kernel.org,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>
+Cc: Martin KaFai Lau <martin.lau@linux.dev>,
+ Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
+ <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Martin Kelly <martin.kelly@crowdstrike.com>,
+ Andrey Grodzovsky <andrey.grodzovsky@crowdstrike.com>,
+ tyler.wilson@crowdstrike.com
+References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
+ <20261117-bpf-preempt-v2-r2-v3-3-586376ec3672@sentinelone.com>
+Content-Language: en-US
+From: "JP Kobryn (CrowdStrike)" <jp.kobryn@linux.dev>
+In-Reply-To: <20261117-bpf-preempt-v2-r2-v3-3-586376ec3672@sentinelone.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-Update the list of files where virtualization ioctls are defined.
+On 11/17/26 3:29 AM, Mike Bazov via B4 Relay wrote:
+> From: Mike Bazov <mikeba@sentinelone.com>
+> 
+> Trampoline programs (fentry, fexit, fsession, fmod_ret and their
+> sleepable variants), raw tracepoint programs (raw_tp, raw_tp.s, tp_btf)
+> and tracepoint programs on syscall tracepoints run preemptibly, but
+> their recursion check is a per-CPU, per-program counter. When a task is
+> preempted inside a program, the counter stays raised, and every other
+> task that enters the program on that CPU is dropped and counted as a
+> recursion miss, although nothing recursed. A program can't avoid that:
+> the counter is checked before its first insn.
+> 
+> Since commit 7dadeaa6e851 ("sched: Further restrict the preemption
+> modes") x86 and arm64 have only lazy and full preemption, so this
+> happens in normal operation. A security agent that pairs fentry and
+> fexit programs on inet_sendmsg() and inet_recvmsg() loses one half of a
+> pair with every drop. With 200,000 HTTP requests and four CPU-bound
+> tasks on a 4-CPU VM, 9,254 of 7,966,760 runs of these programs were
+> dropped on bpf-next, and none of 7,975,426 with this series.
+> 
+> Check recursion per task instead. The runners already link a
+> stack-allocated bpf_run_ctx into current->bpf_ctx. Move saved_run_ctx
+> into struct bpf_run_ctx, so every frame links to the outer one, and
+> record in each frame the program it runs. A program is recursing if a
+> frame in the current task's chain already runs it. Interrupts and NMIs
+> run on top of the interrupted task's chain, so recursion through them
+> is still caught.
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-v2: drop 0xAE, C6, arch/x86/kvm/x86.c (covered by line above;
-    Sean Christopherson)
-
-[Since having multiple maintainers trying to merge these would
-cause some conflicts, it would be more manageable for Jon to
-take all of these through the docs-next tree.]
-
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-doc@vger.kernel.org
-Cc: Juergen Gross <jgross@suse.com>
-Cc: Stefano Stabellini <sstabellini@kernel.org>
-Cc: xen-devel@lists.xenproject.org
-Cc: Hans de Goede <hansg@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>
-Cc: Jason Wang <jasowangio@gmail.com>
-Cc: Eugenio Pérez <eperezma@redhat.com>
-Cc: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>
-Cc: kvm@vger.kernel.org
-Cc: virtualization@lists.linux.dev
-
- Documentation/userspace-api/ioctl/ioctl-number.rst |    5 +++++
- 1 file changed, 5 insertions(+)
-
---- linux-next-20261116.orig/Documentation/userspace-api/ioctl/ioctl-number.rst
-+++ linux-next-20261116/Documentation/userspace-api/ioctl/ioctl-number.rst
-@@ -198,6 +198,7 @@ Code  Seq#    Include File
- 'M'   01-03  drivers/scsi/megaraid/megaraid_sas.h
- 'M'   00-03  drivers/video/fbdev/mb862xx/mb862xxfb.h
- 'M'   00-0F  drivers/video/fsl-diu-fb.h                                conflict!
-+'M'   01-03  xen/interface/xen-mca.h                                   conflict!
- 'N'   00-1F  drivers/usb/scanner.h
- 'N'   40-7F  uapi/linux/nvme_ioctl.h
- 'N'   80-83  uapi/linux/ntsync.h and uapi/linux/nvme_ioctl.h           conflict!
-@@ -238,6 +239,7 @@ Code  Seq#    Include File
- 'U'   64     drivers/usb/misc/usbtest.c                                conflict!
- 'V'   all    linux/vt.h                                                conflict!
- 'V'   all    linux/videodev2.h                                         conflict!
-+'V'   00-1F  linux/vboxguest.h                                         conflict!
- 'V'   C0     linux/ivtvfb.h                                            conflict!
- 'V'   C0     linux/ivtv.h                                              conflict!
- 'V'   C0     media/si4713.h                                            conflict!
-@@ -356,6 +358,7 @@ Code  Seq#    Include File
- '|'   80-9F  samples/                                                  Any sample and example drivers
- 0x80  00-1F  linux/fb.h
- 0x81  00-1F  linux/vduse.h
-+             drivers/vdpa/vdpa_user/vduse_dev.c
- 0x89  00-07  asm-generic/sockios.h
- 0x89  06-07  linux/sockios.h
- 0x89  0B-DF  linux/sockios.h
-@@ -399,6 +402,8 @@ Code  Seq#    Include File
-                                                                        <mailto:kvm@vger.kernel.org>
- 0xAE  20-3F  linux/nitro_enclaves.h                                    Nitro Enclaves
- 0xAF  00-1F  linux/fsl_hypervisor.h                                    Freescale hypervisor
-+0xAF  00-8F  linux/vhost.h                                             conflict!
-+0xAF  31-32  drivers/vhost/test.h                                      conflict!
- 0xB0  all                                                              RATIO devices in development:
-                                                                        <mailto:vgo@ratio.de>
- 0xB1  00-1F                                                            PPPoX
+There are some questions outstanding from previous revs.
+Was a limit on chain length considered?
+Also, did you try the array-based approach mentioned and compare perf?
