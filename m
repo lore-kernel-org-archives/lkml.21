@@ -1,58 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116930;
-	b=vS+OTim4UpuapBeMYX9n0ZBzQpIQBRuW3XuErx+9dE/U/U7irYv2554TCH5E4/VdfVOq
-	 2PHbtXJCUV8xRV7QFTU/AmTaGCvwYukZpB8+RpCng/pykghKMF1t7eoFEyg/HgwdOZSGs
-	 98bj5kcj7kAxZE1W6VXIoCzj1clrHtWkpMPeuTroaoPAaikKLulDTWjdrcLRTgWUwZrU8
-	 LjUNBFGaVwlOeGmFljyOYlLIXdLgtQrkeG+NXRbUPDbt6sNzzpHfn1EDfeTfI7z0y4rT1
-	 MDA0t9/MwxrBFLEu1ALzAd/FYd1JD4pkEfaU0bZUBG/OMAXgn5kNxmCEhY6HK9NE31A==
+	t=1795117020;
+	b=t26zMsAlj0P4mYjRENuJq0HIx3WapxjtnIVjdrR0BfxGDT35duvQ7kL9yekBR9LVI7rJ
+	 Qp/tdMGNK5BJwETUdmARn179UpkkcIWe0ikBJRwCdbbD5ayqWz0gXTFa40edcSqgiE+cZ
+	 PiJe8unO3bcevt0sJX9Jr1IGvyK1AlxhEj7J4qggcEilah6V7zVp32b+XwSKW+o+/TdbQ
+	 a3KuxcvyjjLJll3khaowuzrcJiQ9cYK6q7YmN/e8TjrMFo2I30Cs7qpYt+4XIrpg6/Sx9
+	 vxqZGP8MJILR7zpoOsZ8rJn3Kpz4uGuuT8xKX5l0wV/SIlhvJKGGBA2fqUewr5MHbRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116930;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 User-Agent;
-	bh=XKkr8NiBSfAxaPY+xmJ+lmd22XwqR6e5oteLmwQ0jc4=;
-	b=EPkOKhuVoDfq2fVsPi/smWTfv8mvr39fRH6WXDuUkyi1pCDCECCHjRkLPE3o8wCmnIAD
-	 g3HfNXR/x1cFmxFfZKaVZZwKwQEZvZ8UfGIDXJxc1zWZ0llNVHGOyldw7oloNVku58ULU
-	 S1W+C6dT36l0JG/Y2xxpWD+94Ra/h1xWMJk+4YHLeq2alLZozDJ4v4anAtMBitY7Oibmc
-	 jx/ZYFMo5M7pjFagO0a+8vb44NDCXPmcR0dOZ6oQXVLpKGBiJ3Nq0stzN0yTYSy5OhUCs
-	 Lz1kER22NqE5fx9qudmC36Bz3FfYZeNalWSokCMpa+uDukeVZhE9Pg7yGphreCVTkow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117020;
+	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=nbSaTv00XrnS3z4ynTuPVvGI4QPJtySnEbRJHnCVwLg=;
+	b=5Lt3CVXDjgoiMnaUEGuVxK8JcXEtfpYOcvWAhFn5o7SJmG1vYeRxYcSRJnwSi5vo6DiV
+	 s9YB9zMVZFLwH88CrJVfs5dglsSGCP65qnv3QLK86phugVKqNBJTULzEzCSmqsWfwcgmu
+	 aLwDEOhTFSWrn1EqmeePeKzknKMR2biwMNGhObG/C+r1ElGU3lrY3gmS8A74vxqN56E2Z
+	 MTFiGKTBGPRX+ynLWkb5pV61omw8ouCdq6SnCoooBAzP2BjWEJNzfhG6m8O9YxkeUbTxZ
+	 T7QhvWljLhG1kvlBI6GtGU9czWS3B59PgdAgaBlvJcX8RxLGEAKpCAFbwT5vTiXtXtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TLBmGYo5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GjEL9/j9";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D24E606A330;
-	Thu, 19 Nov 2026 19:35:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3731E606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:37:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TLBmGYo5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5740E1F000C5;
-	Thu, 19 Nov 2026 19:35:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GjEL9/j9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7701F000C5;
+	Thu, 19 Nov 2026 19:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795116930;
-	bh=XKkr8NiBSfAxaPY+xmJ+lmd22XwqR6e5oteLmwQ0jc4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TLBmGYo5ak00zcdtdDmARhL65KF/0mgK42lYCvBTVNRxq8Ar2HJ81SIE/9GiJsv+a
-	 rtzLqtoqA9DG6De6jfFrDLAxz556XX2xDetpNeFDOK1EjBMNAxwR9BmY0YnYiBNrt8
-	 HP8rLPUUdACSH/eTiw2cArBwzQ65gfKKyCybIHVLUcwO05Nt81TwPDZq0ACtcve4wf
-	 hSlt1oNu8MIVN5QT4JKN+weM2JPC58G3hIqRD7fJ4flnXrxRlwEZdyGynBB+9Lk+Ie
-	 DYJFLl/x2XjP9Jm7XRMzkRD/xfSHY1s5aoEJ5NkDGJCnRPkDazjj0jqUAJ6MHhoYkt
-	 wAKkWbb7igOJg==
-Date: Thu, 19 Nov 2026 14:35:28 -0500
-From: Brian Masney <masneyb@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>, linux-clk@vger.kernel.org,
+	s=k20260515; t=1795117020;
+	bh=nbSaTv00XrnS3z4ynTuPVvGI4QPJtySnEbRJHnCVwLg=;
+	h=From:To:Subject:Date:In-Reply-To:References;
+	b=GjEL9/j9g/k9ifKAZo2phRjhiZdSeIum7AHbliPM4QvstJODJ614SblVkVz1CDAQQ
+	 mC60F3WehuYdg9PEm4VBCOns83QhMyw+5s1EO68ffsj9JwjknZ8kNxp7LiNm3Qeq0U
+	 ryCMByRFIolAID10nuVBJJyVUkv+nMW/F1TpQVpsTQuQ2DVrKn3A6s5/me+lTXmJ05
+	 LB2jQsm9epFt3tXqUZRxOeZeDz6bxJbCU3jIixUiujHf9KL9akYsvRLE+5Bgch4wx1
+	 3HrW6+tcJxGKYOjTpf+sWgNLsoELEN7ILuwjmXzfcjF3DeeraQ3haE2tEFZpO+0ZjZ
+	 ccmSiT/beQvww==
+From: Chris Mason <mason@kernel.org>
+To: hughd@google.com,
+	david@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	akpm@linux-foundation.org,
+	qi.zheng@linux.dev,
+	qinyuntan@linux.alibaba.com,
+	shakeel.butt@linux.dev,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] clk: en7523: convert to full clk_hw
- implementation for en7581
-Message-ID: <av9PgKqFIjNPSkTt@x1g10>
-References: <20261110001128.1041-1-ansuelsmth@gmail.com>
- <20261110001128.1041-2-ansuelsmth@gmail.com>
- <179444135864.1126566.17591616173966524369.b4-review@b4>
- <6afc8629.c6df0648.3437b8.c961@mx.google.com>
+Subject: [PATCH 1/1] mm/shmem: don't use the memcg of an uncharged folio
+Date: Thu, 19 Nov 2026 14:36:57 -0500
+Message-ID: <20261119193656.88678-2-mason@kernel.org>
+In-Reply-To: <20261119193656.88678-1-mason@kernel.org>
+References: <20261119193656.88678-1-mason@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,112 +63,121 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6afc8629.c6df0648.3437b8.c961@mx.google.com>
-User-Agent: Mutt/2.4.3 (2026-10-09)
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi Christian,
+The shrinker for unused huge tmpfs folios can dereference a NULL memcg
+if it races with the migration of the folio at the end of a file.
 
-On Tue, Nov 17, 2026 at 05:51:50PM +0100, Christian Marangi wrote:
-> On Wed, Nov 11, 2026 at 06:55:58PM -0500, Brian Masney wrote:
-> > > In preparation for support of .set_rate, convert the clock register
-> > > logic from fixed clock implementation to full clk_hw implementation with
-> > > dedicated OPs for Airoha EN7581 SoC.
-> > > 
-> > > This is just a rework and no behaviour change is expected.
-> > > 
-> > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> > > ---
-> > >  drivers/clk/clk-en7523.c | 75 +++++++++++++++++++++++++++++-----------
-> > >  1 file changed, 55 insertions(+), 20 deletions(-)
-> > >
-> > > diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-> > > index 24fdec2e6198..6640e814d36a 100644
-> > > --- a/drivers/clk/clk-en7523.c
-> > > +++ b/drivers/clk/clk-en7523.c
-> > > @@ -126,6 +126,12 @@ struct en_clk_gate {
-> > >  	struct clk_hw hw;
-> > >  };
-> > >  
-> > > +struct en_clk {
-> > > +	struct regmap *map;
-> > > +	const struct en_clk_desc *desc;
-> > > +	struct clk_hw hw;
-> > > +};
-> > > +
-> > >  struct en_rst_data {
-> > >  	const u16 *bank_ofs;
-> > >  	const u16 *idx_map;
-> > > @@ -742,42 +748,71 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
-> > >  				     en7581_rst_ofs);
-> > >  }
-> > >  
-> > > +static unsigned long en7581_recalc_rate(struct clk_hw *hw,
-> > > +					unsigned long parent_rate)
-> > > +{
-> > > +	struct en_clk *c = container_of(hw, struct en_clk, hw);
-> > > +	const struct en_clk_desc *desc = c->desc;
-> > > +	struct device *dev = clk_hw_get_dev(hw);
-> > > +	struct regmap *map = c->map;
-> > > +	u32 val, reg;
-> > > +	u32 rate;
-> > > +	int err;
-> > > +
-> > > +	err = regmap_read(map, desc->base_reg, &val);
-> > > +	if (err) {
-> > > +		dev_err(dev, "Failed reading fixed clk rate %s: %d\n",
-> > > +			desc->name, err);
-> > > +		return 0;
-> > > +	}
-> > > +	rate = en7523_get_base_rate(desc, val);
-> > > +
-> > > +	reg = desc->div_reg ? desc->div_reg : desc->base_reg;
-> > > +	err = regmap_read(map, reg, &val);
-> > > +	if (err) {
-> > > +		dev_err(dev, "Failed reading fixed clk div %s: %d\n",
-> > > +			desc->name, err);
-> > > +		return 0;
-> > > +	}
-> > > +
-> > > +	return rate / en7523_get_div(desc, val);
-> > > +}
-> > > +
-> > > +static const struct clk_ops en7581_clk_ops = {
-> > > +	.recalc_rate = en7581_recalc_rate,
-> > > +};
-> > > +
-> > >  static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
-> > >  				   struct regmap *map, void __iomem *base)
-> > >  {
-> > >  	struct clk_hw *hw;
-> > > -	u32 rate;
-> > >  	int i;
-> > >  
-> > >  	for (i = 0; i < ARRAY_SIZE(en7581_base_clks); i++) {
-> > >  		const struct en_clk_desc *desc = &en7581_base_clks[i];
-> > > -		u32 val, reg = desc->div_reg ? desc->div_reg : desc->base_reg;
-> > > +		struct clk_init_data init = {
-> > > +			.ops = &en7581_clk_ops,
-> > > +		};
-> > > +		struct en_clk *en_clk;
-> > >  		int err;
-> > >  
-> > > -		err = regmap_read(map, desc->base_reg, &val);
-> > > +		en_clk = devm_kzalloc_obj(dev, *en_clk);
-> > > +		if (!en_clk)
-> > > +			continue;
-> >
-> > return -ENOMEM;
-> 
-> Hi Brain,
-> 
-> as you pointed out in the previous revision, returning would change the
-> behaviour so I currently skip the clock in such case...
+folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
+But it is NULL until the folio is charged, and a migration target can be
+in the page cache before charging.
 
-It's ok if it changes the behavior to make things interact with the
-framework correctly. I just pointed out that the commit message says
-there is no behavior change. You can drop that sentence and just
-describe the behavior change in the commit message.
+shmem_unused_huge_shrink() looks the folio up without the folio lock,
+so we can race with migration:
 
-Brian
+    __migrate_folio()               shmem_unused_huge_shrink()
+    =================               ==========================
+    __folio_migrate_mapping()
+      xas_store(newfolio)
+                                    filemap_get_entry()
+                                      returns newfolio
+                                    folio_trylock() fails
+                                    shmem_unused_huge_requeue()
+                                      folio_memcg_list_lru_alloc()
+                                        folio_memcg() is NULL
+                                        memcg->kmemcg_id
+    folio_migrate_flags()
+      mem_cgroup_migrate()
+        commit_charge(newfolio)
+
+Fix it by keeping the original objcg around while the inode is isolated.
+
+Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
+Signed-off-by: Chris Mason <mason@kernel.org>
+---
+ mm/shmem.c | 29 ++++++++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 7 deletions(-)
+
+diff --git a/mm/shmem.c b/mm/shmem.c
+index 10cef89b00b0..4465a43d6f74 100644
+--- a/mm/shmem.c
++++ b/mm/shmem.c
+@@ -758,6 +758,13 @@ shmem_unused_huge_alloc_lru(struct shmem_sb_info *sbinfo, struct folio *folio,
+ {
+ 	int ret;
+ 
++	/*
++	 * A migration target is in the page cache before it is charged. Once
++	 * charged, its objcg can't change while we hold a folio reference.
++	 */
++	if (!mem_cgroup_disabled() && !folio_memcg_charged(folio))
++		return ERR_PTR(-EAGAIN);
++
+ 	ret = folio_memcg_list_lru_alloc(folio, &sbinfo->shrinklist, gfp);
+ 	if (ret)
+ 		return ERR_PTR(ret);
+@@ -887,12 +894,11 @@ static enum lru_status shmem_unused_huge_isolate(struct list_head *item,
+ 		return LRU_REMOVED;
+ 	}
+ 
++	/* keep shrinklist_objcg, requeue may need it */
+ 	list_lru_isolate(lru, item);
+-	objcg = shmem_get_and_clear_objcg(info);
+ 	set_shmem_unused_huge_isolated(info);
+ 	list_add_tail(&info->shrinklist, &scan->list);
+ 	spin_unlock(&info->lock);
+-	obj_cgroup_put(objcg);
+ 
+ 	return LRU_REMOVED;
+ }
+@@ -928,32 +934,41 @@ static bool is_shmem_unused_huge_match(struct folio *folio,
+ static void shmem_unused_huge_drop(struct inode *inode)
+ {
+ 	struct shmem_inode_info *info = SHMEM_I(inode);
++	struct obj_cgroup *objcg;
+ 
+ 	spin_lock(&info->lock);
+ 	list_del_init(&info->shrinklist);
++	objcg = shmem_get_and_clear_objcg(info);
+ 	spin_unlock(&info->lock);
++
++	obj_cgroup_put(objcg);
+ }
+ 
+ static void shmem_unused_huge_requeue(struct inode *inode, struct folio *folio)
+ {
+ 	struct shmem_inode_info *info = SHMEM_I(inode);
+ 	struct shmem_sb_info *sbinfo = SHMEM_SB(inode->i_sb);
+-	struct obj_cgroup *objcg;
++	struct obj_cgroup *objcg, *old_objcg;
+ 	int nid = folio_nid(folio);
+ 
+ 	objcg = shmem_unused_huge_alloc_lru(sbinfo, folio, GFP_NOWAIT);
+-	if (IS_ERR(objcg)) {
+-		shmem_unused_huge_drop(inode);
+-		return;
+-	}
+ 
+ 	spin_lock(&info->lock);
++	old_objcg = shmem_get_and_clear_objcg(info);
++	/* The lists for old_objcg exist, the inode was queued under it */
++	if (IS_ERR(objcg)) {
++		objcg = old_objcg;
++		old_objcg = NULL;
++	}
++
+ 	/* Requeue the inode to shrinklist */
+ 	list_del_init(&info->shrinklist);
+ 	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid, objcg);
+ 	info->shrinklist_objcg = objcg;
+ 	info->shrinklist_nid = nid;
+ 	spin_unlock(&info->lock);
++
++	obj_cgroup_put(old_objcg);
+ }
+ 
+ static unsigned long shmem_unused_huge_shrink(struct shmem_sb_info *sbinfo,
+-- 
+2.55.0
+
