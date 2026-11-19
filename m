@@ -1,57 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795112265;
-	b=XGA2Kcr41LPnc98HKsiqnDin4RmyrRIG+c9k43llUrokVjOsY7agOhXzcn580+hQDgza
-	 lRuZ/InqXmlhyzlXuCIEPR7gA0rmSzUPlOMDEoTaOP3Ift+GyQyGkGgxyAxA64jiM5t+R
-	 s0oPqn+vU5UgIeLoNX6QzZD10TKkFNAwz9uS11oFx2zoSFPg7wZWVvm3rRMfX7FSlnN7L
-	 WtgyYAyhfe5cTOvaaFZEbRn1RfhBHroC22dWuecN/1BzN+ZjEHHLKFpLDDUuKNVwjbnm9
-	 WmsBR9o64JXrRN6TtG1lOa2Frgy3awwRSHKb2pz7nasMeM4Aeon/1S5Y6KqFZIHKkdQ==
+	t=1795112409;
+	b=geOABKR3WQWth4u8LbyUGqibxLBmryFPLnOVXmWCvgyzQbODEbRRfLIRZZeeikH5Erjx
+	 8uL79Yl+HWcO1EO8MfEWeS6vm4TnGLwAf6YlekY8rKwi+3sJk6IGtFWgybiZaGtrSjWtb
+	 w7bVc/Uo8dez0yco0LplUA9mIPKXOS9bzYbhiKp8jI/995sp2KT8Y9PTQY1wxL2WPnZX/
+	 L+klirFaZtiK+P97TIu7Yd2ctvjbUEVdG2mvN6vFf2lorqT+UNX7ETB1AbJrAHfH8mCA8
+	 XBsWNJdWO9NGyHFXK1Yj1rt2cr2S2AZRzFIaWCAAGglauE6cQtLjSvo+Xer1RtWdnnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112265;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=e+AX9yzcvXvTArcpWr8bJrqXCoCx5CQaHwc1HEsiISk=;
-	b=PRKUWbdiEB57U99fu2Sj8m3Gu5BQrfmSOL4aFBhAES8RxjG2AEtiYwGyRqW946lCLmvw
-	 6+DvZtagyvwx0/iyQwqwdKWtZN95pg+XJqTeHbmo4KCPKgvRS8h0K+6TJjK9/sj4DDB1E
-	 42GTcGWIYNYdqrrwFOeytsteXSxWtmdrz+PRturixQyuUa9l7ypF42ri5KiD2JGThjMJr
-	 6BlvBPKlTSmqOkuCcH7mm8KrPWyAgzuK5VUQzPS8ryqYFaHD73CuwATam4bm5zWXDf9TB
-	 lmoKmEtpGcKbTHhJHoUYhj9+kH5woctOUY7y50BzU39/ZlXx7jIbzytCOpAj3KAR37Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112409;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=i5hy4P4exgctsWNbL/FQFw8EeR2kORRjAFNQsoHveUE=;
+	b=HKlcEpyRYaT6VTxoSDoahtzj6hWbPWcToB3Pse0XnLuwviiQkNax8t6DeWDRcOlc7L5F
+	 pWP2+zqdQX//lRPJd6adFJ3k4LKIQTDhgVGCtAwmlw+n/Pfj8KYx9a5U+q3yCKg6shD+5
+	 kzxiEn9a4ZlNThnkUxWaqMAst7U8OZti1pZu+INc6aZpHwNoXU+fzZ85yRnxWVM4G+ko1
+	 twAbXq8Ehnzs3sVGvouWUlrc4Vqm4nyRK5PB7kRl3B85uP87sOQVV6eFo9WQGC42iQZX4
+	 kXy8nT3HhquRHg0fYUS9DeWO8Khu0xJRqbLwiv+H1EjxJU+kQJ3qmGxd8Br3vAq72Jg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OPQcy0SO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=IaW7XsJT;
+	arc=none smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5D39606A33C;
-	Thu, 19 Nov 2026 18:17:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F2C606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:20:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F2C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OPQcy0SO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14E351F000C7;
-	Thu, 19 Nov 2026 18:17:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795112265;
-	bh=e+AX9yzcvXvTArcpWr8bJrqXCoCx5CQaHwc1HEsiISk=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=OPQcy0SORt3QYZ+79bAYyITbCrhdx/hDnYZzAPsVMvWNvXZYFTgb+HdySPjUzkMgZ
-	 ZfyEJf238yzUGRqcQ5tokhUlQCxXsm1m7X+uOmPumjCpRJY65OXaDwxaBs3cWC/AhX
-	 4tWbh/zAGHyuMkv1cyYL+Xbl1BvjYLIQJ6h5EiqGOiYq2ubgHgKgvDE0i8FshWY0Pd
-	 cEulgOzEERD2BcyTsP1L+irnvAkNTR7542TLU91+5QDQ7InvFyDuhnL9AKKIU5stxe
-	 7G67F2DRGeNqvLx7ye5KZcj0l1PHwNNDZR+bPu6rTRHLYM2xKVZoFaheqQc1Tu+D7N
-	 x7iVtXFuE81PQ==
-Message-ID: <sashiko-outbox-223763@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v3 5/7] perf: add MIPS Coherence Manager 3 (CM3) PMU
- driver
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>
-Cc: linux-rt-devel@lists.linux.dev, devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org, robh@kernel.org, conor+dt@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261119-i6500-cm3-pmu-v3-5-c86410934b51@mobileye.com>
-References: <20261119-i6500-cm3-pmu-v3-0-c86410934b51@mobileye.com>
- <20261119-i6500-cm3-pmu-v3-5-c86410934b51@mobileye.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 18:17:44 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=IaW7XsJT
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c40e30c26a4so264666566b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:20:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1795112407; x=1795717207; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i5hy4P4exgctsWNbL/FQFw8EeR2kORRjAFNQsoHveUE=;
+        b=IaW7XsJTep8I4VUFC5bPuLhX6Kgj6po7k00Tj5RHys5QDBwgt9vIWwYE2WPpM7lasg
+         N2BjFZ7T6MUt0kh/vkWQDbJgKNc7Fc1q+bCFDeC5MRcbM2y65vJUTbYoESuLdvreZaZk
+         SCGBnuFI3/g+t/zEtPLD7k7zEpY6cwCox8hpY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795112407; x=1795717207;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=i5hy4P4exgctsWNbL/FQFw8EeR2kORRjAFNQsoHveUE=;
+        b=ERsigHxEHCMGKYH2w8PpDbvWy9lpoPlHTboNqZA42qUH5DNq9hNejOozp0fZ0TLScK
+         eCFF2eXAFuPjzdgNcPdGnKswgPu013EBZ9ic9Y/BssGuMMfPnC0WIm8sSforBaW6US7q
+         2C8sr4cEuBDeU8JML7ypyvm48r9IpZO06EmW9ThaOAOH737lUdzCnsntbjlGQsZzTRSy
+         3m0J9A/stjZEi/w3OXEqITzfm5PYGeosiyd1HUFiQ90+rMiGF5jfopgP7IiXCDHQl2tm
+         YrWTzlQYZAho8+Z+7TcphbHNr/9CVqLX7pm4b6vzj1AgIKJayrcV+7Al0LF0Zu1Z41/U
+         E5Fw==
+X-Forwarded-Encrypted: i=1; AL+hErG/nqVAXsn+WtGt/dAyrVflsTBOMf0AHoCdSrCqal3EYEFVcLoyf2+GqiGE3zUDV3xhkN3GxTEEPR1dHjM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8S/FbS7eBd7eEJGLjrEjSHA1TGoZWM4PXJLrIRpFSZL7ffuwHF
+	RzT67Zk7SxB75KTlaSdEXX2/S/q4bGyQlifDFTpVYAh9G/A9pK0kc10mgDh1MpvnKgP4FrkTvOe
+	bTVpSGQ4=
+X-Gm-Gg: AYBFou0Sn5hEShMoKtu/augC40ptHP5LnQrupeKtQl25/S7FlVM14ER7VVa+H6FqtC6
+	hERGHr6HrpljQUiyqo8M7I1rOb9+kPmKomEKJbBgyc9QJIm/TVYF/PPJ+Eyubrv2stJybGUIyVQ
+	WyIAObGilfxsWbYHflQfpkj7uzWS8L2ZhM7NQY4ACY4Uj385Lp8MWoicUFra8Cg+mKoYmiIfDEw
+	N1aE5spysfiLrXj0S9/NzRk/FIoZ3gKdyvjCl/JVpGGbcT1//9AbDuVAY4YBNHqt0HzdjrFIWgG
+	wTsvwsJcWXzpXetVxE3pa7XXhF+CguOXfq/jdnhqRmdqHz40TlnXT+PlQHpp45svHEfEY5FA7sH
+	McBjpJsHrKPY/Ni/9Rx3ADtFE8OUcI+9rnNVZWoavHpoNcQx8thkR73lijkxSSib0HoYfnYUh/X
+	XNWANXFO1sbyoJQA56ewOaoagZaBsThwqOCp0Kv4rZfQICIjAyYj1CBOK0kSMLCkl3d3ksit4Ez
+	bgyaNW86b3BlxVPnVOol2KGN8qRUFlYRR0Ig4ykAbueOGFzo/ArxvjuzxGCGf/cVx6c83o/FYaX
+	EknoesaSRyhdRetLVyvOcfskkmzLPqqOJ/4abOXZh8UdJM7WwoF4HdQWomotiQXzBmoMZdu19Wv
+	VtPI=
+X-Received: by 2002:a17:906:ad8:b0:c2e:4397:7c82 with SMTP id a640c23a62f3a-c513a5e6a7fmr63813566b.6.1795112406772;
+        Thu, 19 Nov 2026 10:20:06 -0800 (PST)
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com. [209.85.218.49])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afeca8dsm21536766b.75.2026.11.19.10.20.05
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 10:20:06 -0800 (PST)
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso309420766b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:20:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEcyAqfJzGcZednC3fRhkVWx/OKXBEiugwj5SmL5/0az8YGYrakXkIeO0a9qbasYDmYNBnXTUkOGg7Uar4=@vger.kernel.org
+X-Received: by 2002:a17:906:394e:b0:c40:9b35:ad91 with SMTP id
+ a640c23a62f3a-c513a854929mr60584466b.13.1795112405562; Thu, 19 Nov 2026
+ 10:20:05 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,123 +93,47 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+References: <avxpkXiyWwLqqAuu@sirena.org.uk>
+In-Reply-To: <avxpkXiyWwLqqAuu@sirena.org.uk>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Thu, 19 Nov 2026 10:19:47 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wg2n=x77DKc2Z2sWSysTmQ25_S+EGa65Equvj+KtWkVCg@mail.gmail.com>
+X-Gm-Features: Aa3M54oLOxQwnMku_wqvDfSMTe9hGLPtKFwHEgAVaLJ7Yldu6AOkOEZlATZLzY8
+Message-ID: <CAHk-=wg2n=x77DKc2Z2sWSysTmQ25_S+EGa65Equvj+KtWkVCg@mail.gmail.com>
+Subject: Re: linux-next: manual merge of the mm-fixes tree with the origin tree
+To: Mark Brown <broonie@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Daehyeon Ko <4ncienth@gmail.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] perf: mips_cm3_pmu: counter overflow double-counting in
-  cm3_pmu_update()
-- [Low] perf: mips_cm3_pmu: WARN_ON() in cm3_pmu_online_cpu() when
-  !CONFIG_SMP
---
+On Tue, 17 Nov 2026 at 06:50, Mark Brown <broonie@kernel.org> wrote:
+>
+> Today's linux-next merge of the mm-fixes tree got a conflict in:
+>
+>   lib/assoc_array.c
+>
+> between commits:
+>
+>   2dafc9bc491da ("assoc_array: find and collapse in deletion without gotos")
+>   4a5db94ad9b76 ("assoc_array: move deletion's collapse into a function of its own")
+>
+> from the origin tree and commit:
+>
+>   37ff457ec4679 ("assoc_array: discard shortcut when collapsing a leaf-only node")
+>
+> from the mm-fixes tree.  My fix below just drops Daeheyon's patch which
+> I don't think is the correct resolution
 
-commit 51299d17e3e40c4c71d192990c0a48a22c2de2cb
-Author: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+It does end up being the correct resolution - 37ff457ec4679 is fixing
+the same issue that commit 48691075b0ad ("assoc_array: don't chain a
+new shortcut onto an existing one") did.
 
-perf: add MIPS Coherence Manager 3 (CM3) PMU driver
+And the conflict looks bad just because the whole re-org to make that
+code readable (with a couple of other less important fixes).
 
-This commit adds an uncore PMU driver and documentation for the MIPS
-Coherence Manager 3 (CM3) performance counters.
+I htink Andrew already removed the patch from his queue.
 
-> diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> index 245e7bb763b99..2dbed2fc7b030 100644
-> --- a/drivers/perf/Kconfig
-> +++ b/drivers/perf/Kconfig
-> @@ -75,6 +75,18 @@ config ARM_XSCALE_PMU
->  	depends on ARM_PMU && CPU_XSCALE
->  	def_bool y
-> =20
-> +config MIPS_CM3_PMU
-> +	tristate "MIPS Coherence Manager 3 (CM3) PMU"
-> +	depends on MIPS_CM
-
-[Severity: Low]
-Should MIPS_CM3_PMU depend on MIPS_CPS (or SMP) rather than just MIPS_CM?
-
-MIPS_GIC selects MIPS_CM even when CONFIG_SMP=3Dn and CONFIG_MIPS_CPS=3Dn.
-On a !CONFIG_SMP build, cpuhp_state_add_instance() still invokes
-cm3_pmu_online_cpu() on the boot CPU, where the !CONFIG_SMP stub for
-irq_set_affinity() returns -EINVAL and triggers WARN_ON() whenever an
-overflow IRQ is present.  Without CONFIG_MIPS_CPS, cps_smp_setup() also
-never populates the cluster ID in cpu_data[].globalnumber.
-
-> diff --git a/drivers/perf/mips_cm3_pmu.c b/drivers/perf/mips_cm3_pmu.c
-> new file mode 100644
-> index 0000000000000..6d53535473b96
-> --- /dev/null
-> +++ b/drivers/perf/mips_cm3_pmu.c
-[ ... ]
-> +static void cm3_pmu_update(struct perf_event *event)
-> +{
-> +	struct cm3_pmu *cm3_pmu =3D to_cm3_pmu(event->pmu);
-> +	struct hw_perf_event *hwc =3D &event->hw;
-> +	u32 ov_bit =3D cm3_pmu_overflow_bit(hwc->idx);
-> +	u64 delta, prev, new;
-> +	bool overflowed =3D false;
-> +
-> +	/* Counts were harvested when the cluster went down, nothing since */
-> +	if (READ_ONCE(cm3_pmu->paused))
-> +		return;
-> +
-> +	/*
-> +	 * When polling, the counter cannot wrap twice between two reads and
-> +	 * the 32-bit difference tells the whole story. With the overflow
-> +	 * interrupt the counter is only read on demand and may have made a
-> +	 * full turn since the last read, which the overflow status tells.
-> +	 * It is read and cleared before the counter so that a wrap seen
-> +	 * here is also reflected in the counter value; a wrap happening in
-> +	 * between is accounted by the next update, which the interrupt it
-> +	 * raises makes sure happens. In interrupt mode every access to the
-> +	 * event runs on cm3_pmu->on_cpu with interrupts disabled, so the
-> +	 * status and the counter are read consistently.
-> +	 */
-> +	if (cm3_pmu->irq > 0) {
-> +		overflowed =3D CM3_PMU_READ(cm3_pmu, pc_ov) & ov_bit;
-> +		if (overflowed)
-> +			CM3_PMU_WRITE(cm3_pmu, pc_ov, ov_bit);
-> +	}
-> +
-> +	do {
-> +		prev =3D local64_read(&hwc->prev_count);
-> +		new =3D cm3_pmu_read_counter(cm3_pmu, hwc->idx);
-> +	} while (local64_cmpxchg(&hwc->prev_count, prev, new) !=3D prev);
-> +
-> +	/*
-> +	 * If the counter wrapped and now shows a value not below the
-> +	 * previous one, it made a full turn on top of the 32-bit difference.
-> +	 */
-> +	delta =3D (new - prev) & CM3_PMU_COUNTER_MASK;
-> +	if (overflowed && new >=3D prev)
-> +		delta +=3D CM3_PMU_COUNTER_MASK + 1;
-> +
-> +	local64_add(delta, &event->count);
-> +}
-
-[Severity: Medium]
-Can cm3_pmu_update() double-count a counter wrap in interrupt mode and
-add an extra 2^32 to event->count?
-
-If hwc->prev_count holds a non-zero value prev (from an earlier read) and
-the counter wraps past 0xffffffff to a small value new < prev right after
-pc_ov is read as 0 but before cm3_pmu_read_counter() runs, then:
-
-1. This call sees overflowed =3D=3D false and new < prev, so
-   delta =3D (new - prev) & CM3_PMU_COUNTER_MASK already accounts for the
-   wrap across 0xffffffff -> 0, and hwc->prev_count becomes new.
-2. Because the wrap happened after reading pc_ov, ov_bit remains latched
-   in pc_ov and the overflow interrupt fires next.
-3. cm3_pmu_handle_irq() -> cm3_pmu_update() now sees overflowed =3D=3D true
-   and new >=3D prev (relative to the already post-wrap prev), so
-   if (overflowed && new >=3D prev) adds CM3_PMU_COUNTER_MASK + 1 a second
-   time for the same wrap.
-
-Also, Documentation/admin-guide/perf/mips_cm3_pmu.rst notes that the CM3
-asserts so_cm_perf_cnt_int when a counter reaches 0xffffffff.  If
-cm3_pmu_update() reads the counter while it is still at 0xffffffff with
-overflowed =3D=3D true, new =3D=3D 0xffffffff satisfies new >=3D prev for a=
-ny
-32-bit prev, adding 2^32 before the counter actually wraps to 0 on the
-next event.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261119-i6500-cm3-=
-pmu-v3-0-c86410934b51@mobileye.com?part=3D5
+             Linus
