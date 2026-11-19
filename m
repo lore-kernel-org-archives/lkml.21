@@ -1,70 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.161
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068363;
-	b=tMG5crCN40uStwWpE9rPusCbfll2VwFHZfa0kVfjaLwAt8rGid9lRU+wDh5MiPmVUYbS
-	 rfWqi6WMq9ChKlEdiVTROeLtjtgaixslogbU9IXw0i8jdXHqurE+iYNJXCTtuY5rdiAoz
-	 0BOUkcSAONLBNj6aYad1Cm7MsrAp5bChAboqlhwbhVi9u9Q+EGy+YBDal7qTWPCZfncfM
-	 DggMKDBhHdxGgLmOaYXobgm9vf8f34B1dwme+CG3GmP29JsUwpmDrH1ZIp1W7BJguNVJ9
-	 +X0TvjdgecUnuTlKNXPsZD9A+K+WzRYYj2MQJMG0irSi1zseDijh21X0mXIEtFkp5aA==
+	t=1795068379;
+	b=2wH5usxp+ZAgTi9GkhzpcYUBFdSLca9ldfz9G9c2AcNCe11j5r8OqqC6hyTUh0yxCfLR
+	 A8LFES7bXQcRpsBkJRjfxRHwo2BVOKADoADzZO30Y7nF947uVnWhYF8blaJ1ZRDI4oJOU
+	 Fsb7v537zzKyle0a6RZTL63tadsKkck2/oEB+uoH/Lt8Eqo40OGfFX+NkA19Xo4LXPFAf
+	 ealFFhOcWxbozeo8rRt0hNlf9ZgK4Y3PLFkQrFolLCNCjeSGofw0Lv19H6fmStpbl6h9F
+	 Gep8zcoFYaSekKSILXRRDsOrKdruH2cyBMSFt/wfFeQl+HAgz/y6hFvZQU3r/kSyCLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068363;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/5rIHAfqRqd8MBoUEzsiuW3HhhEoDxIjxePKjQSRiAI=;
-	b=pKfOiLdTdJCmauhAQonNtQLfsTkLaFKH9EXbO4d9st0aqP3QNOkzqSavoMSp2u3YBPtt
-	 3MZOOnhPRVrrIRY5eI3RYl72li5xWbBg2jhQuAygc91V99+/SURm3eF1U7tgVShR36mK6
-	 jRZDp8w9NJCOqByhNb1DkNKHNPyo17n0xlZU8vXp4ANQe7fuRam6xsp+ta58vsggiYiTL
-	 2bjEjQCqqDqmSbhcE4kHFakQOa72VT1AIKSpXjW/YIjKZilMR3sCnCRpcziHqZwyp//2N
-	 fep6VF89Kltui6vEsdKVzepgzz2eneBEIm1t4siwSdNuL6DqoW1O4HH7BkyT/z7UGFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068379;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-MBO-RS-META:X-MBO-RS-ID;
+	bh=dW+VUg9v/e5geYFGw2JxdiEx+wEvGmgCJzKLLn8Gwys=;
+	b=rVli0PjPXtdOXAWwVIolysIHV5wcnpW3qAcfaMsSXlhBZpqE3Z4LrZl7HcuESNNtPV6r
+	 3z3doCF19mmijAt5MOrlikgVQa7cB0FI59jcWFTfXADvdrGlunEO3KuZ0agKP4FWDe7OJ
+	 YbwMPCLeAKYL9qzhzHMAcYyS/gRmzhsg8QVFL7tll6QMLQNZPh1r1tYSQ50wMeLXMF14u
+	 9am2HjDR2HIuOU+z8QZRX60AdBkxbCNJfrIRAOMEZ4OFxWHPDOMAKRrPGpsKCCQPYIBb6
+	 zfPJUgEdrP2B7EhBLr95hk0wJ/qBYhJTjqsxM/AU0OcTHnWMFZZYS/R8zqoCy4ftInw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Qkwx0+12;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3A350606A320;
-	Thu, 19 Nov 2026 06:06:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A350606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=Hav5w7Mu;
+	arc=none smtp.remote-ip=80.241.56.161
+Received: from mout-p-103.mailbox.org (mout-p-103.mailbox.org [80.241.56.161])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C729606A320;
+	Thu, 19 Nov 2026 06:06:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C729606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Qkwx0+12
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=Qkwx0+12pC61tyHlcsA9ASNEWJjUEADOCqxYfSbMcLKZeTE/4nsTrE9QFCmwAJw//VgI7U3Gr7S9/
-	 2FNEnXKO72B/eD88BjfG2MkI3V771vcLyXMjDOG6FimFMcLocU//trzR7Ko83mXeT6E8qI/9aTpoYq
-	 1bJxlHy7jrrcrGLU=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96afe91c70c0-1fa31;
-	Thu, 19 Nov 2026 14:06:00 +0800 (CST)
-X-RM-TRANSID:2ee96afe91c70c0-1fa31
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76afe91c6ea1-f1aaf;
-	Thu, 19 Nov 2026 14:06:00 +0800 (CST)
-X-RM-TRANSID:2ee76afe91c6ea1-f1aaf
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: andrew@lunn.ch
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=Hav5w7Mu
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4jVSdf2F3jzKp2p;
+	Thu, 19 Nov 2026 07:06:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795068374;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=dW+VUg9v/e5geYFGw2JxdiEx+wEvGmgCJzKLLn8Gwys=;
+	b=Hav5w7Mu+HNRUIet3v6svKrVTDBZFt8i7a9Sl5z9EAJYvwhFshazS3ayp3/s8uqdpNSjnJ
+	YengwcJxTk2WZTX8CbX5msY7kmE+se6wiYu9AeBzhSPwHR2iyE/1A2fs+Llzmrp6keblC9
+	bYQeDOyWs9miAZu9C2ezNKpUbjPp7im+N7byCLUp9qgkO3RzyC1CN5F1QJ92jt2tUSpTo8
+	h6uwhvyqQuQPrQCTu7mQpBgyuCcDn0vEhJ/6JcRo4YgSBPdrA8Z+iNEqm/wpupVZvuBn6F
+	BLytbzHKo0Ay0I0U6TuBH2QVi6eEhBS1Icdju6fK0eRl5LPxhQS6xbxci1NuVg==
+From: Manuel Ebner <manuelebnerli@mailbox.org>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>
+Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Date: Thu, 19 Nov 2026 14:05:58 +0800
-Message-ID: <20261119060559.658-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <7c6bcbbe-bcca-4294-a54c-320b26a9d3da@lunn.ch>
-References: <7c6bcbbe-bcca-4294-a54c-320b26a9d3da@lunn.ch>
+Subject: [PATCH v2] docs: doc-guide: add hint to review patch
+Date: Thu, 19 Nov 2026 06:54:03 +0100
+Message-ID: <20261119055403.1294471-2-manuelebnerli@mailbox.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,49 +71,46 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: 64kajandain6ekyc8iqxk58rioa8qirn
+X-MBO-RS-ID: e2ad8fd8cc69de20cae
 
-Hi Andrew,
+For the case of a duplicate patch, review the other patch instead of
+sending own patch.
 
-thanks for the review.  For the record, this replies to "[PATCH] net:
-dsa: mt7530: fix regulator leak in mt7530_setup()":
+Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
+---
+I was considering
+>If the other patch hasn't been applied to _mainline_ yet it's good
+>to review it and state that by replying with the 'Reviewed-by:' tag.
+which is better?
 
-https://lore.kernel.org/all/20261118014114.1855-1-laixiangwu@cmss.chinamobile.com/
+[v2]
+ 'send review' -> 'review and send reviewed tag' (Jonathan Corbet)
+ 'applied ' +'to next'
 
-On Thu, Nov 19, 2026 at 12:36:27AM +0100, Andrew Lunn wrote:
-> > Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
->
-> Does this bother anybody?
->
-> https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+[v1]
+ https://lore.kernel.org/all/20261116082209.1100175-2-manuelebnerli@mailbox.org/
+---
+ Documentation/doc-guide/contributing.rst | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-The quoted subject is the exact title the commit has in mainline: the
-"net-next: " prefix is part of the commit subject itself, Sean Wang's
-2017 patch went in with the list prefix kept in the subject, and
-"git log --format=%s b8f126a8d543" prints it that way.  I kept the
-tag verbatim so that it matches the tree, which is what the stable
-rules ask for.  There is nothing to change on my side here unless the
-stable maintainers say otherwise.
-
-> It is unusual to have two different goto labels with return. Normally
-> cleanup is structured similar to the code which went wrong.
->
-> So something like:
->
-> > +err_powers:
-> > +	if (priv->id == ID_MT7530)
-> > +		regulator_disable(priv->io_pwr);
-> > +err_disable_core_pwr:
-> > +	if (priv->id == ID_MT7530)
-> > +		regulator_disable(priv->core_pwr);
-> > +	return ret;
-
-Agreed, that is the better structure.  v2 follows as a new thread
-with exactly this fall-through cleanup and a Suggested-by: tag for
-you:
-
-https://lore.kernel.org/all/20261119060424.1476-1-laixiangwu@cmss.chinamobile.com/
-
-Best regards,
-Xiangwu Lai
-
+diff --git a/Documentation/doc-guide/contributing.rst b/Documentation/doc-guide/contributing.rst
+index ee2f896a21..3657408a5e 100644
+--- a/Documentation/doc-guide/contributing.rst
++++ b/Documentation/doc-guide/contributing.rst
+@@ -129,9 +129,9 @@ looked like this::
+ The entire process only took a few minutes.  Of course, I then found that
+ somebody else had fixed it in a separate tree, highlighting another lesson:
+ always check linux-next to see if a problem has been fixed before you dig
+-into it.  If the other patch isn't applied yet it's good to give it a
+-'Reviewed-by:' tag to help it get applied.  This way your effort is not in
+-vain.
++into it.  If the other patch hasn't been applied to linux-next yet it's good
++to review it and state that by replying with the 'Reviewed-by:' tag.  This
++helps getting the patch applied, so your effort is not in vain after all.
+ 
+ Other fixes will take longer, especially those relating to structure
+ members or function parameters that lack documentation.  In such cases, it
+-- 
+2.56.0
 
