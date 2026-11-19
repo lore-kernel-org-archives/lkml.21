@@ -1,45 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795052575;
-	b=IsAODSoGcBQkHiwDTliF7gZtRZEmnnI++2GL/kPkDPp+nPW5WGN7Dz79OQDKoN4PHLK2
-	 4JW2qTNgEm2F90aDzMjOxglpeIlQeVPNEbqQnLCredhoPDDv6lrHgX9369tTC88ETBsnu
-	 ZwOhGl3dcySlyThUusQPtWVilt1K1FJouKBd0MAL4+GM8Z/2ndyN7dwdfm4+UOAeM0TsF
-	 FqYsC8cgASqJVSzttboMOw6gmKwtYOkiyPoswKbOTW5oNkk2zFr+RUfIptbGoOKlGY6fX
-	 kOvCEOU3yesbiC+PQIRiWab/a8FHzcOVYMO1caB3nvOA76gpqTrdfHFwAEhfoFJNNxA==
+	t=1795052580;
+	b=nvAk9RUIOwerQ+2/VvkMcPfa8ItbhvL4m6wh+KIi44HuwVAEntoWMkoZS5fPIi51iI/T
+	 DtDb74yKvF/6oqfgcaHU2BdWqNHkP/YdpTROQbVARGGSq5YVMA9piKMNdd2bxKsu6aiw1
+	 PvovR0jD5tV+quvGJ5rHmjBXMu1NBaVKUodK2+hs9kCB9BJQG1qBwIbHPmSAcbovzDzft
+	 HIivzjcNH1n11ELrlbsehQHMyGgY1P/3ulLnYwcq4QUfdEzSFjkWAfaH2Nk3HTAUc0Umw
+	 +hpWuS2quHOgjMnzkfJErgU8Vfqon74PHFWbV8UPuQeXj6bZkn1m0qfqZTGM5z/ZKHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052575;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=TNJqWRDLQtqezoNq5nZn5mof+TYc54a++ODP8eRnVHc=;
-	b=H4HC2fi8hkpnU+kMry5ivvgCW6ZE1tCfz4IkG+Nri6F91LLCsm0J7CzhT829Qgbpzc1S
-	 1J/eYvtbtyV5PUgy/fAUEuvgzy8pMEsL4PJ3rYex692N8TEwSkHzcqMtyuw7zxoVs+Bic
-	 SQkbBaFNTDLkGHmL/8YFq8SkN6P6okwXYkwVza/mlBUhjo4Ld7bGpHP7mf5qBhNptzvRp
-	 zY9qBh+18MZjlZhhXwOYKT/SEp0R1WioptlBy46WvAP5VNqNnI60ObwUCnR6FoCkKCtd7
-	 2wwWJd21U9hCnqtaTI2LvkEOSYShNRye8QCMQXJIjM4v7NknXFyOJyAgp2PtilmspDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795052580;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=uNFMtGegQbyx2nsp7e9y5ycgaKcKYuwzocjWkIqM9lc=;
+	b=PMCicCLzbazA5dyms3LZN8/x+9nyKlTWe7V8rvuC7+sq8bFv7QVWvrC4/ATod2tm1GMP
+	 MwjXsi0b0RrrqJe1sbKYSPCmpxilJftNoIcGIrhLpN2K9z2h7S8heWNGvVWACve8ushez
+	 zgjncuKp+slpVUak8rwD+aNMyAPODfhCujCEA3t8BxDGEdbSqpKMsoz68odjqHIi2tgKC
+	 5uF//Y0qcn7sODTJvMiiWj/F7OHMqhVnm+Jp1M3ilUOaiT83n7BhQeUoh0brXIthCGsj9
+	 Hsqwp3l4CivKq1sf1JgQBazDDf//I58EtTooKFRqckMlJQKN3IJpTWQ8GoEvy/4Ikcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YbqZ2o6L;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ogTMimAN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1515E606A31C;
-	Thu, 19 Nov 2026 01:42:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7FF7606A335;
+	Thu, 19 Nov 2026 01:42:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YbqZ2o6L
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55C3D1F000C4;
-	Thu, 19 Nov 2026 01:42:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ogTMimAN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 796FC1F000C9;
+	Thu, 19 Nov 2026 01:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795052574;
-	bh=TNJqWRDLQtqezoNq5nZn5mof+TYc54a++ODP8eRnVHc=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=YbqZ2o6LybiBta1rVCuHeCUhjeSQM4UAwL8chwlTCTSEP/ugY8MEYxDAT6M7UieQO
-	 U4optAag57zlP6HGMestwOoBI1eaiT0pOUB9CR0Y5P1f4xWXEHQ/xXnvUiXaKZMEAK
-	 8Lcc3M9Cu00ikxCZES/uCbMiA7qiFsdDNfDA/FO2VWnVDUUhUQXP4D53jVnQ/krk+m
-	 AlfjgqJJRuNRjX3LzXj+//gi7dTWPThK6PIUfBgCAJxkAZ6ooxHQ2bsmNBTUUPZuMP
-	 iI6bpL21zUuzj1oLwoxIGzjvFkJbiUnLLxUqQi0uxWoWjKwiy99MdycmpuJXt5swlu
-	 s5DTv37MSkGCQ==
+	s=k20260515; t=1795052579;
+	bh=uNFMtGegQbyx2nsp7e9y5ycgaKcKYuwzocjWkIqM9lc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ogTMimANOmUqTobBj3k5z8Ybv4Sh/Xzn9W2Y46iWRHZAq8ZB8I05tso9X74qShZT6
+	 C0JLDe2ZFWfOypRJIf1IBHloNLxCqdjWfad7+raqfL051GS39hofagtpNq07QEUzFD
+	 0TTduLSQhFZ9HYYyLbRcglWv7hjStpr+TpmPl54iPaOgU4lfQzL5aYOZqrQwGy8icy
+	 Uv6UQPQV7ri40GIlYw/8UiVUQn3YHyBvNsnct20EQxRsGxjZ8R6lPRskGd836tWDB3
+	 NWOmghVmQMAqI8eKNcurb4kPqlL/lnk86fcWwOeMeGUuFHCm26LaDV9vc6Oji563JJ
+	 wMbx9qswO7urw==
+From: SJ Park <sj@kernel.org>
+To: Yifan Feng <evanfengff@gmail.com>
+Cc: SJ Park <sj@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	damon@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] mm/damon/core: fix damos_walk() hang with zero watermarks interval
+Date: Wed, 18 Nov 2026 17:42:46 -0800
+Message-ID: <20261119014247.119946-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118235012.14859-1-evanfengff@gmail.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,189 +62,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 3/5] clk: cix: Register the Sky1 AUDSS IRQ auxiliary
- device
-From: Brian Masney <masneyb@kernel.org>
-To: Jelly Jia <Jelly.Jia@cixtech.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, robh@kernel.org, 
- krzk+dt@kernel.org, conor+dt@kernel.org, robin.murphy@arm.com, 
- sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com, 
- tglx@kernel.org, devicetree@vger.kernel.org, 
- cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-clk@vger.kernel.org, joakim.zhang@cixtech.com, radu@rendec.net, 
- Brian Masney <masneyb@kernel.org>
-In-Reply-To: <20261117094408.1393837-4-Jelly.Jia@cixtech.com>
-References: <20261117094408.1393837-1-Jelly.Jia@cixtech.com>
- <20261117094408.1393837-4-Jelly.Jia@cixtech.com>
-Date: Wed, 18 Nov 2026 20:42:47 -0500
-Message-Id: <179505256752.187996.952601612639868708.b4-review@b4>
-X-Mailer: b4 0.17-dev-8145e
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4931; i=masneyb@kernel.org;
- s=20250903; h=from:subject:message-id;
- bh=aXJ9C26UieRByax4ACS+gov5jq9nofkOwnsEGr9engA=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGLL+hUiEcaTk/F45R5EtfaKBzzS9SQLKDzkW/XLqqIn1l
- j3i+P5DRykLgxgXg6yYIsuSXKOCiNRVtvfuaLLAzGFlAhnCwMUpABNZJ8Hwv5C1M+SA6PnfQYyP
- vq+c2pon8E9T00sp87RwxCzxTdpCrQz/c2rrq1Vbb3ntWBFsN32me9/bIKNF5lnCm9a1KZ+XLH/
- CAAA=
-X-Developer-Key: i=masneyb@kernel.org; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+Content-Transfer-Encoding: 8bit
 
-Hi Jelly,
+Hello Yifan,
 
-> Register an auxiliary IRQ device for CRU nodes declaring an interrupt
-> controller, following the existing reset device pattern. Share a raw-lock
-> regmap with the IRQ driver and preserve gate/reset context while powering
-> down the CRU. Restore the parent before child IRQ delivery resumes using
-> noirq system-sleep ordering.
+On Wed, 18 Nov 2026 15:50:12 -0800 Yifan Feng <evanfengff@gmail.com> wrote:
+
+> kdamond_wait_activation() cancels damos_walk() requests while all
+> schemes are deactivated by their watermarks.  But it returns without
+> waiting when the watermarks check interval of a deactivated scheme is
+> zero, which is the default of the DAMON sysfs interface.  The kdamond
+> main loop then runs with all schemes deactivated.
 > 
-> The existing reset-sky1-audss.c is unchanged. Auxiliary child teardown must
-> run before parent regmap/runtime-PM cleanup.
+> In that state, kdamond_apply_schemes() finds no scheme to apply and
+> returns before it calls damos_walk_complete().  The walk request is
+> neither completed nor cancelled, so damos_walk() waits until the
+> watermarks activate a scheme again, possibly forever.
 > 
-> Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+> For example, with a scheme that has the free_mem_rate metric, zero
+> interval_us and a high watermark below the current free memory rate,
+> writing update_schemes_tried_regions to the kdamond state file never
+> returns and cannot be killed.  The writer holds damon_sysfs_lock, so all
+> other DAMON sysfs writes including "off" fail with -EBUSY meanwhile.
+
+Thank you for finding and sharing the issue.
+
+> 
+> Do not skip the deactivated schemes when deciding whether
+> kdamond_apply_schemes() has something to do.  damon_do_apply_schemes()
+> still skips them, so no action is applied, and the walk is completed
+> with no region for them, as it already is when another scheme is
+> activated.
+> 
+> Fixes: bf0eaba0ff9c ("mm/damon/core: implement damos_walk()")
+> Cc: <stable@vger.kernel.org> # 6.14.x
+> Signed-off-by: Yifan Feng <evanfengff@gmail.com>
 > ---
->  drivers/clk/cix/clk-sky1-audss.c | 37 +++++++++++++++++++++++++++++---
->  1 file changed, 34 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/clk/cix/clk-sky1-audss.c b/drivers/clk/cix/clk-sky1-audss.c
-> index e096b8121df3..fa51cdf4f4bd 100644
-> --- a/drivers/clk/cix/clk-sky1-audss.c
-> +++ b/drivers/clk/cix/clk-sky1-audss.c
-> @@ -2,6 +2,7 @@
->  // Copyright 2026 Cix Technology Group Co., Ltd.
+> QEMU: the write hangs before, returns after; kunit and 13 selftests pass on both (2 need drgn, not run).
+> Found and written with the help of an AI coding assistant.
+> 
+>  mm/damon/core.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/mm/damon/core.c b/mm/damon/core.c
+> index b8678a53b0a9..12578fc3280c 100644
+> --- a/mm/damon/core.c
+> +++ b/mm/damon/core.c
+> @@ -3498,11 +3498,11 @@ static noinline_for_stack void kdamond_apply_schemes(struct damon_ctx *c)
+>  		if (time_before(c->passed_sample_intervals, s->next_apply_sis))
+>  			continue;
 >  
->  #include <linux/auxiliary_bus.h>
-> +#include <linux/bits.h>
-
-This doesn't appear to be needed.
-
->  #include <linux/clk.h>
->  #include <linux/clk-provider.h>
->  #include <linux/device.h>
-> @@ -18,7 +19,9 @@
->  #define INFO_CLK_GATE				0x10
->  #define INFO_CLK_DIV				0x14
->  #define INFO_CLK_MUX				0x18
-> +#define INFO_AP_IRQC				0x54
->  #define INFO_MCLK				0x70
-> +#define INFO_SW_RESETN				0x78
->  
->  #define SKY1_AUDSS_CLK_PARENTS_CNT		4
->  #define SKY1_AUDSS_NUM_CLKS			(CLK_MCLK4 + 1)
-> @@ -28,7 +31,9 @@ static u32 sky1_reg_save[][2] = {
->  	{ INFO_CLK_GATE,  0 },
->  	{ INFO_CLK_DIV, 0 },
->  	{ INFO_CLK_MUX, 0 },
-> +	{ INFO_AP_IRQC, 0 },
->  	{ INFO_MCLK, 0 },
-> +	{ INFO_SW_RESETN, 0 },
-
-This, along with the defines should go in a separate commit.
-
->  };
->  
->  static const char * const sky1_audss_clk_names[SKY1_AUDSS_CLK_PARENTS_CNT] = {
-> @@ -519,6 +524,7 @@ static const struct regmap_config sky1_audss_regmap_config = {
->  	.reg_bits = 32,
->  	.val_bits = 32,
->  	.reg_stride = 4,
-> +	.use_raw_spinlock = true,
->  };
->  
->  struct sky1_audss_clks_priv {
-> @@ -928,6 +934,21 @@ static int sky1_audss_clks_enable(struct sky1_audss_clks_priv *priv)
->  	return err;
->  }
->  
-> +static int sky1_audss_irq_controller_register(struct device *dev)
-> +{
-> +	struct auxiliary_device *adev;
+> +		has_schemes_to_apply = true;
 > +
-> +	if (!IS_ENABLED(CONFIG_IRQ_SKY1_AUDSS) ||
-> +	    !of_property_present(dev->of_node, "interrupt-controller"))
-> +		return 0;
-> +
-> +	adev = devm_auxiliary_device_create(dev, "irq", NULL);
-> +	if (!adev)
-> +		return -ENODEV;
-> +
-> +	return 0;
-
-The reset registration code currently has:
-
-    #if IS_ENABLED(CONFIG_RESET_SKY1_AUDSS)
-
-    static int sky1_audss_reset_controller_register(struct device *dev)
-    {
-    ...
-    }
-    #else
-    static int sky1_audss_reset_controller_register(struct device *dev)
-    {
-    	return 0;
-    }
-
-I don't care which pattern you use but make it consistent within this
-driver.
-
-> +}
-> +
->  static void sky1_audss_clks_disable(struct sky1_audss_clks_priv *priv)
->  {
->  	const struct sky1_audss_clks_devtype_data *devtype_data = priv->devtype_data;
-> @@ -1110,6 +1131,13 @@ static int sky1_audss_clk_probe(struct platform_device *pdev)
->  		goto fail_pm;
+>  		if (!s->wmarks.activated)
+>  			continue;
+>  
+> -		has_schemes_to_apply = true;
+> -
+>  		damos_adjust_quota(c, s);
 >  	}
->  
-> +	/* Remove auxiliary children before the parent runtime-PM cleanup. */
-> +	ret = sky1_audss_irq_controller_register(dev);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "failed to set up AUDSS DMA IRQs\n");
-> +		goto fail_pm;
-> +	}
-> +
->  	pm_runtime_put_sync(dev);
->  
->  	return 0;
-> @@ -1125,6 +1153,7 @@ static int __maybe_unused sky1_audss_clk_runtime_suspend(struct device *dev)
->  	const struct sky1_audss_clks_devtype_data *devtype_data = priv->devtype_data;
->  	unsigned long flags;
->  	int i;
-> +	int ret;
 
-The ret can be folded into the line above.
+But, this could make has_schemes_to_apply has false positive.  How about
+calling damos_Walk_cancel() when has_schemes_to_apply is false, like below?
 
->  
->  	spin_lock_irqsave(&priv->lock, flags);
->  	for (i = 0; i < devtype_data->reg_save_size; i++)
-> @@ -1132,7 +1161,9 @@ static int __maybe_unused sky1_audss_clk_runtime_suspend(struct device *dev)
->  			    devtype_data->reg_save[i][0], &devtype_data->reg_save[i][1]);
->  	spin_unlock_irqrestore(&priv->lock, flags);
->  
-> -	reset_control_assert(priv->rst_noc);
-> +	ret = reset_control_assert(priv->rst_noc);
-> +	if (ret)
-> +		return ret;
+'''
+--- a/mm/damon/core.c
++++ b/mm/damon/core.c
+@@ -3849,8 +3849,10 @@ static noinline_for_stack void kdamond_apply_schemes(struct damon_ctx *c)
+                damos_adjust_quota(c, s);
+        }
 
-Should this be a separate patch?
+-       if (!has_schemes_to_apply)
++       if (!has_schemes_to_apply) {
++               damos_walk_cancel(c);
+                return;
++       }
 
->  
->  	sky1_audss_clks_disable(priv);
->  
-> @@ -1170,8 +1201,8 @@ static int __maybe_unused sky1_audss_clk_runtime_resume(struct device *dev)
->  static const struct dev_pm_ops sky1_audss_clk_pm_ops = {
->  	SET_RUNTIME_PM_OPS(sky1_audss_clk_runtime_suspend,
->  			   sky1_audss_clk_runtime_resume, NULL)
-> -	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> -				pm_runtime_force_resume)
-> +	SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> +				      pm_runtime_force_resume)
+        max_region_sz = damon_region_sz_limit(c);
+        mutex_lock(&c->walk_control_lock);
+'''
 
-The IRQ driver uses the new pm_ptr(). Please use that.
 
-Brian
+Thanks,
+SJ
 
--- 
-Brian Masney <masneyb@kernel.org>
+[...]
