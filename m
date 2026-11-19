@@ -1,66 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795069438;
-	b=0zuA7kfWieMu0R233MA8Q/fWHDvGC/Ms7wmn2KQIb4bEjXVheojlROz2iDHWFEX+tsO9
-	 rqvs1Cjez43QnIqWZtrmKJxbEHg4gxfaTxYOr7uybgzrr8MkIThJcTRggAXMjI9SzfFaG
-	 vinsISY4RdL8MYKQUKeHeYBsk9rbtJao/FVl/g73rsMKlCGPfcg7G01UpdvzxIW8xkpRp
-	 jMdQ1CnOnxySQfW2V18tLOg58BnxMVhQAOlQ51Zt+h94ryG1wTx5+JXhY7yD5LLbW/4G/
-	 baynKQWz1i8/WLhToinXpQ8h/FL9pFKhwnXkLL9ne4Oc5aowlQsPQlVxr12I50jerMw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069438;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=s3tkgzYJkcpsUA+Nw1aGNm4ArJbdTfhLKelINm5eGy6N/Ym74E48BAfUn9itCETiCTU2
-	 YcfcbKDa7+K9TfU0C+JnpuDhP7WmCklwJ0uMgi3XJfOcETYsXzInw4V9kJVw8OqSBMUpH
-	 UcRp3tWSJnSIPPHLJNxvSAguVc8brajohVDENEakRaeBHBynLzvU4bVJQOeY9D/G8k4eb
-	 GgtG1fBitq1QBkw1qXxLUfEA8BOazq37DYAFK72gA/j9GKCCz429jJ3A6hMzA3Udrct/x
-	 5WEyx7QTF2ldn+vdJFkQ1RLQ858wKxNij4jcYKtfurXP+XCRiAJPvAdwf9PbIkdRS6A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmobXEA8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795069456;
+	b=FaA/xof81uqad8EX4siCWgEwYvp4VjMuftujfCSqy9VPHbDAE/vjFUsYSL+UJC+D+YkY
+	 iAE6CZ0zGBTMnnfgSGP9YwZ25CGYrslrdRnkcfmCAZd/rfsXPgfwjXonfJ8q3evxeAbEu
+	 E5dNVQXqBYIKJErlcdq1VTWzgrtTCMCouvjVCADxVUEfkKgJMfRcwXBJXPQpoloFe4bVi
+	 XHViIwQn2rY9n/tWax51RxwBwBVHJyPQRSdbm9gVCyJt8ez3cv/azlaTP302xfpRvTtKH
+	 w/ncxbJyTFDNjaWWfo50BrsJuRt0Fk7/I+IZezN39zsDhDEUpDfjsdqLTNH4KxMNyPA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069456;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=DE8O97+cLTb2fOL+TR06WyWM36lYsEezlYTIeuQx1X4=;
+	b=OGIstq48ScOkyj+IQ0+YQg1bZ3SbjYJWlt55v939ir/NEyH5yITKu/aN6wMvNZC1590K
+	 Nq9Kv+ahU59amZb82ftJkjnTxCIq3rPsg3yuhPmzLN28wymv1jGoGkWSBqrTOmcHH66Mf
+	 hzmh2fcUFChMNZTImZ2WdotdW6pDXrDqzDX+k2XAe5RrrLw0OBHVc7FIgCKuBD2dr95wD
+	 kjKXRINzvXH0QRLNHVJGgn+ZSg+puwwN1N1tDuBS5Mvsfh29i/bHV8yco1AFSpT0shyY9
+	 qtr63PX29sqKeIJYoL6lDgJa9NRIRA5lo/21CK5+SrlwBClxDJAI+j0OxIGVuzeu/9A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=iav.lv;
+	spf=pass smtp.mailfrom=iav.lv;
+	dkim=pass header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=DfBt5dy8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.17
+Received: from sender-op-o17.zoho.eu (sender-op-o17.zoho.eu [136.143.169.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D3E7606A326;
-	Thu, 19 Nov 2026 06:23:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EA6C606A325;
+	Thu, 19 Nov 2026 06:24:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EA6C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iav.lv
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iav.lv
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmobXEA8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4498D1F000C4;
-	Thu, 19 Nov 2026 06:23:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795069438;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nmobXEA8BY8H8yKoYGfvS0Ym1tOcAYN3VYvO3aifoMfyvBhEffu08cnHXGZi90qJq
-	 QPPnALrqPsdSGnpUqLFx1U1BLh6b2xbWNFj6sYAX60Zij//ti3LZ5PCp4v6DB11nAX
-	 qyr1iV3XTig+OHxucPEbnM/2ky0hnz4S35tShrs+zNPWYLezw70BpRORDfL9jmKywi
-	 cMcisIhbu0W1ZRg2B/wamV6+reVmqxe4N+ctPFYMCD20aPx+kDnrtMLJv5U3vpKUlh
-	 dImjPnrVV/n21OrQmhXY8XIQNGX3d4Ak14Cls9ddcWn69aJlkO648bBJOwhgLBk9lh
-	 qK47uGlQ7L36g==
-From: netdev-bot+sinfo@kernel.org
-To: Fang Xieyan <fangxy@xiaopeng.com>
-Cc: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Sergey Ryazanov <ryazanov.s.a@gmail.com>,
- Ilpo =?utf-8?q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- netdev@vger.kernel.org, Liu Haijun <haijun.liu@mediatek.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Lin Qiaojie <linqj@xiaopeng.com>
-Subject: 
- Re: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
-Date: Thu, 19 Nov 2026 06:23:56 +0000
-Message-ID: <179506943682.3291.10326179398413921657@kernel.org>
-In-Reply-To: <20261119062044.72261-1-fangxy@xiaopeng.com>
-References: <20261119062044.72261-1-fangxy@xiaopeng.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=DfBt5dy8
+ARC-Seal: i=1; a=rsa-sha256; t=1795069423; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=dtRWGpjk7C/pH1f81J5merSCphSkEokQv/E8YaSkNF4k7a9/7qYEp8t960nhaVwg+eTDXlSYWuFXbK9poDVZSQuHwY4HPQka6PxrWpR6SXnzgNUgNc9+CRw/VHis4kjcQnF1/XE3tWxEBxkKCpJG7wNJCbGqlte/CRAyRQN5XD8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1795069423; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=DE8O97+cLTb2fOL+TR06WyWM36lYsEezlYTIeuQx1X4=; 
+	b=Ie00+LxniYfy5vjl7DO1UNTBoLmgX48CSWYC8PwVqMag/G4TuzDxYbZVX3UdC4yXe6WbdVccTyBUKfuABcHwBMXrhsR9cqfmkg+vrJQfOASVX9d2pa9BTEH1K4qJIPQYo2XusckmACB+yY/B2X0mKNologMFCW2X2lWDOxcjthE=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: a=rsa-sha256; b=DfBt5dy8/PibWVPur2s+Bn5rh5CwcSYwxqhCP3s2WuzOOGnnyNePpGxC8dPueCpaqaRGgaLLNBgI3gcnl8ldp5MxxHGROxl87QvNH5PzJWUaN504uu+fGlMI6HoCyn+YsQtkFoaDY5UzcJC5ZbWhx5FB9IEdYuPcIqa90BYiSRE=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=DE8O97+cLTb2fOL+TR06WyWM36lYsEezlYTIeuQx1X4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1795069422691713.2242534782733;
+	Thu, 19 Nov 2026 07:23:42 +0100 (CET)
+Date: Thu, 19 Nov 2026 08:23:41 +0200
+From: Igor Velkov <iav@iav.lv>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, iav@iav.lv
+Subject: Re: [PATCH] PCI: rockchip-host: Support hibernation with endpoints in D0
+Message-ID: <20261119-re-anand-rockchip-hib-rails@iav.lv>
+In-Reply-To: <CANAwSgRaHubdh8o5Zd3k5Sa_jf5fWuEuCXqbQu7gGL71MwC+8g@mail.gmail.com>
+References: <20261119-b4-rockchip-pcie-hib-v1-1-05df24cc77e6@iav.lv> <CANAwSgRaHubdh8o5Zd3k5Sa_jf5fWuEuCXqbQu7gGL71MwC+8g@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,26 +64,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Hi!
+On Thu, 19 Nov 2026, Anand Moon wrote:
+> It looks like we aren't disabling all the PCIe regulators (0.9V, 1.8V,
+> 3.3V, and 12V)
+> during suspend and re-enabling them during resume.
+> Shouldn't we power down all of them on suspend and bring them back up on resume?
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+This patch keeps the rails as they are: suspend_noirq() already turns
+off only vpcie0v9, and the other rails stay on from probe to remove.
+The 3.3 V and 12 V rails power the endpoint; cutting them in suspend
+loses the state that the PCI core and the endpoint driver expect to
+keep in D3hot. Doing that would be a separate change.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+--
+Igor Velkov <iav@iav.lv>
