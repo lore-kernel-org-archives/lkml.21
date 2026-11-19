@@ -1,72 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108145;
-	b=xWAqM/sV6DeKf8vcz5pjnkjNl3TcLIkCaY6aVmkKMqzRaiLBc6mZMrqaX9Ng6HnNZ4+9
-	 /YkeWFjiLWcCBYs3r3UySlQcaxpJkVpl5ZpXXJgCAFiOueePBqVW9btLkM3LAIVvqLdL9
-	 iPLqSy+UmyiqPSvBhzVPfNRVOsl/grxaM42QkmgSc3DSsQ4RCB2bMiKIGgO/D0qVrvZZe
-	 QsMcfq+cEm8JnsUJIauLn5ZxwrpMZRjFl+rHkLzYOKFXtxO9Z0l1nN61NH0cGeb+SqdGT
-	 0DLDfLmhE34u4cOO1+0K0Uoz/erdGRCA2Adi1a1oz8ck1aLWzbkqzc/0xvJ8ZyDXo7A==
+	t=1795108146;
+	b=ufrPDNOnzmA/VX4QONQBZc9wYN29Yi2bVYTLVcGlwwtvrfpEtw13614yvmEtrTHkPg6a
+	 /9cwNl2z/O48pd/e3eNqmcnhrKLhCnqj66jwPMuEtkbCeL153JOeBvGOJmc9RdNv7kRVN
+	 UmQb8SehOi/4BJH0iJ4+VAzpllyd3BsgNz2MNyamAj0fu02vIQ0uymPepIhfLv1vnb3qd
+	 QtN/RYpSqdB1BT2yTFZvrzjfv8v1YEOw1tHo7ayDVOnWe5KaFmWKh2BzpOz10F9G1DVZc
+	 rQPFgN97bkmA821+PV2OhZTJ4jeFzmspTf/sz3dLK+R+LXjKjAslBqgOtoO3c23ow8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108145;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=qewKek18Cekp1MLnhZnBB0dbzkIZGz1GDnRfqgtaoNs=;
-	b=wSznuLTdouP+/eDLneKNBnIEJOP+s5m8nMJHd97WiD4Zjzn8IuHice4IIPBugT8pa6Fs
-	 s+KSVMA67icqtdQcYa9iJLUtQTtjMMYexE7lXv513Rv6Op+IvtfGPFLZbiDAxg5fXRUMX
-	 ivspC2Lhy8dL1Xouf+UZgPJOnWzc9U6K3kdV7an9HBRg+P44bxe+SnIe+Rgy3X+G2Ktg4
-	 biQxKk7on/ve3nsRmK5T/Smn4/dDsyNbonCWYrcMk1xr2M/WT2wWpApLN6URREpiBsPtf
-	 canTB/gmsuD6Elz+SDZ78U66FNyqkeFOraUgErLfhSIlooLGU4ySqWvkW0LBKGADc6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108146;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ZUBsQmWkWkBRXV1DDphKivlgIT9QM0m/AuyF/6NoUao=;
+	b=k7HxNiIs8KwMB40INRXHhAnW/MhrhqLS9qEVVy4ia9sYo0mukX681vrjt9qCDgmT1Y26
+	 6GkYtfIN8PPMsXNAC9Sq1c3TFKumlvqglTIm2WzbVkUGo8eD/tfvh2+e+wlzyCNSVhqlk
+	 KN2Ldf95AEhYWN8K0Cz/LsI3uhoWCNOMR8lpJCdS92DIbXp7KLeQMDMf/42ln2Jx1OD+d
+	 5f66sPSwoPoO4HUpm41Qexw5UTRmvsomI8vZECuW6+gZuQq9SIMkmSbtORN11yfraccNm
+	 HrCuS9LLORHTZNgQziW2ZiJGURvbdl0495IkrpZxOzjG1bmWmRwhM6e39NCo+tYSiDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=N74sIDFY;
-	arc=none smtp.remote-ip=74.125.82.72
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HgsZFH7a;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78DC8606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:09:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78DC8606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4742A60A2627;
+	Thu, 19 Nov 2026 17:09:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=N74sIDFY
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1a5005fd0f8so4496776c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:09:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108144; x=1795712944; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qewKek18Cekp1MLnhZnBB0dbzkIZGz1GDnRfqgtaoNs=;
-        b=N74sIDFY0/fHHVeLR7dz4ES+V7XEejLnR66eM6sSdiLUEv2UqFBSbh1NMPWj9h7HZw
-         Q+8Y+ESw0Vc9tTad5B/t9KclZmTPS80HQ+ZAM3FUnjER4OygzRqwqlKh1av3OqmVaxqx
-         1mT4ZdjZO4sE+O9yWqy5eiVvFwngVvYcHCcaJKgjRMHO5De4rpJjc/Bw/gyZO7HIxz96
-         aXxOcRw48POpZiBoVacBnGS0v8O7BugQI6yjpyYh2Llo566sk/yv9XMYvsLEH1imxmxu
-         wQSR1JYMfJGePVANSFkzDz5rSniNlXXuRM34cI7IonLVTjM6SA+8etbyZwi5E5X91BKd
-         +/oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108144; x=1795712944;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qewKek18Cekp1MLnhZnBB0dbzkIZGz1GDnRfqgtaoNs=;
-        b=mWt5zvGuGT7WwBIA/wg9J748mu5KMVGEUKnhF0d55XzUlWc4i/4gzo2Ps2KUjwPyE9
-         WirL29ygArFcRlGtIEip5oOlF/ASQUnrERHYZC+HiBnLW0WxzCQKxfRjaUiXZ0xG8gY4
-         6j3+ibWwlFREHdyUV0EDw1Wx1ajsh7ZfMmUqBSLbqXi7FTGzl53C69q8kkK3pkYIR1Rk
-         EWIDBNDttzrxpLCMNA99lTNtfyvk8HNz8ZY0Zc6p1K536CvFuCCuEFBVJt9t4OAdy34p
-         yWdYDDCoCxDUwltfU/G/JkkSEZpz7uD/Z0BaZPyAth2DJf9OnhJ/GDYLLpDgWH0t8uSs
-         khrg==
-X-Forwarded-Encrypted: i=1; AL+hErGfo8s2Job0ZFUUk3sRxlL8AboS+ydYjzmwD4AZ1etEv6IIhwGHw2cBPqgBguv5phSYcP+n+euMjtK0Uo4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8TQeeyBfqgs2xvSshH1Wn4WCg3XOiLQWON5Vr6ONDBxsO2pSnb
-	R8dDyHxOGFL3uZ1Vu4DHS/jkMLnKD1V2REjTwqmV1iLkEfa9kPIDKi62QVJiGv5FSOlIDFbhLKQ
-	qrM1n7jzVyA==
-X-Received: from dlep8-n1.prod.google.com ([2002:a05:701b:4588:10b0:161:df69:3983])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:5f08:b0:144:c112:5f24
- with SMTP id a92af1059eb24-1b5568f9e24mr242758c88.25.1795108143195; Thu, 19
- Nov 2026 09:09:03 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:09:00 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HgsZFH7a
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A9531F000CA;
+	Thu, 19 Nov 2026 17:09:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795108145;
+	bh=ZUBsQmWkWkBRXV1DDphKivlgIT9QM0m/AuyF/6NoUao=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HgsZFH7aE1GVTP7GqcxUrV3ajwhNRY1bei0kfn4+Tx9ycK9Hc/1tgSsdlr9T3tQAi
+	 wZsSaakrtgcRCBcih1RVAX9w2DXR2Ke9McgqFEmrH/E3gc2w8HNgduyyddoJ63Ofbp
+	 wKSEhBoF/YEwTVClXOBoy9UHevI6+R60DCO8dmkt00kBp3aGD3ROS55DgNqesi8eGy
+	 N3xa9NnjyX4PmAkbVANv0KGs6mbz3E3hLwwIr/FyPMy1xfVk2hAcUM6mWD7waztyql
+	 4Vg+3USsAGfcpO+wn58kYkecuUWlwzTKeLemgDEKizWVJodk6tVFLkIQKv4gOtHlXH
+	 MjP8REzj78ATA==
+Subject: Re: [PATCH net-next v8 02/10] bnge: add NTUPLE/ARFS VNIC
+From: netdev-bot+sashiko@kernel.org
+To: vikas.gupta@broadcom.com
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bhargava.marreddy@broadcom.com, rahul-rg.gupta@broadcom.com,
+ vsrama-krishna.nemani@broadcom.com, rajashekar.hudumula@broadcom.com,
+ dharmender.garg@broadcom.com, ajit.khaparde@broadcom.com
+Date: Thu, 19 Nov 2026 17:09:04 +0000
+Message-ID: <179510814465.3136.8399207150280899643@kernel.org>
+In-Reply-To: <20261116140653.1685797-3-vikas.gupta@broadcom.com>
+References: <20261116140653.1685797-3-vikas.gupta@broadcom.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,132 +64,238 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170900.1530138-1-irogers@google.com>
-Subject: [PATCH] scsi: mpi3mr: Fix start_time and error return in mpi3mr_bring_ioc_ready()
-From: Ian Rogers <irogers@google.com>
-To: Sathya Prakash Veerichetty <sathya.prakash@broadcom.com>, Kashyap Desai <kashyap.desai@broadcom.com>, 
-	Sumit Saxena <sumit.saxena@broadcom.com>, Sreekanth Reddy <sreekanth.reddy@broadcom.com>, 
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>
-Cc: mpi3mr-linuxdrv.pdl@broadcom.com, linux-scsi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
 
-mpi3mr_bring_ioc_ready() has three bugs in its failure and retry
-handling:
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-1. start_time is only assigned after MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC
-   when retry == 0, after three earlier 'goto out_failed' paths. If
-   soft reset, reset-state polling, or admin queue setup fails on the
-   first attempt, out_failed computes elapsed_time_sec from an
-   uninitialized start_time, and if a retry occurs (retry == 1),
-   start_time remains uninitialized for the ready-polling loop as well.
+Critical: 0 · High: 1 · Medium: 0 · Low: 3
 
-2. In 'elapsed_time_sec < (mrioc->ready_timeout - 60)', ready_timeout
-   is u32, so values below 60 wrap around in 32-bit unsigned arithmetic
-   before zero-extending to u64, spuriously retrying past the timeout.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-3. After mpi3mr_setup_admin_qpair() sets retval = 0 (or on entry where
-   retval is initialized to 0), controller fault/reset-history checks,
-   ready-state timeouts, and early unrecoverable or device-not-present
-   exits return retval == 0 (success) to mpi3mr_init_ioc() and
-   mpi3mr_reinit_ioc() even though controller bringup failed.
+- [High] At the target commit, bnge_reserve_rings() writes
+  bd->tx_nr_rings (361), bd->tx_nr_rings_per_tc (363), bd->rx_nr_rings…
+- [Low] At this commit, bnge_set_dflt_rfs() (bnge_netdev.c:3310-3315)
+  sets NETIF_F_NTUPLE in netdev->hw_features and netdev->features, and…
+- [Low] The commit message mentions only adding bnge_set_dflt_rfs() "to
+  configure the default NTUPLE feature state".
+- [Low] The patch adds the prototype `bool bnge_arfs_capable(struct
+  bnge_dev *bd, bool new_rss_ctx);` to bnge_resc.h:78.
 
-Initialize start_time = jiffies at function entry for pre-enable failure
-exits, reset start_time = jiffies the first time
-MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC is written so pre-enable waits do not
-drain ready_timeout, rewrite the retry window check as
-'elapsed_time_sec + 60 < mrioc->ready_timeout', and ensure retval = -1
-on all failure exits.
+--
 
-Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-build. Verified by building drivers/scsi/mpi3mr/mpi3mr_fw.o with
-LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized, and with a
-standalone C logic reproducer under ASan/UBSan; not runtime-tested on
-physical MPI3 hardware.
+bnge: add NTUPLE/ARFS VNIC
 
-Fixes: 59bd9cfe3fa0 ("scsi: mpi3mr: Code refactor of IOC init - part2")
-Fixes: 0a319f162949 ("scsi: mpi3mr: Wait for diagnostic save during controller init")
-Fixes: 9634bb07083c ("scsi: mpi3mr: Enhance the Enable Controller retry logic")
-Fixes: 4616a4b3cb8a ("scsi: mpi3mr: Improve wait logic while controller transitions to READY state")
-Fixes: fb6eb98f3965 ("scsi: mpi3mr: Handling of fault code for insufficient power")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- drivers/scsi/mpi3mr/mpi3mr_fw.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+This patch allocates a second VNIC for NTUPLE/aRFS, which brings the VNIC
+count to BNGE_BASE_VNICS (2). bnge_reserve_rings() now also requires the
+matching RSS contexts from firmware. The patch adds ndo_fix_features and
+ndo_set_features handling for NETIF_F_NTUPLE and turns the feature on by
+default via bnge_set_dflt_rfs().
 
-diff --git a/drivers/scsi/mpi3mr/mpi3mr_fw.c b/drivers/scsi/mpi3mr/mpi3mr_fw.c
-index f0d3cd398dd0..b92b2467e995 100644
---- a/drivers/scsi/mpi3mr/mpi3mr_fw.c
-+++ b/drivers/scsi/mpi3mr/mpi3mr_fw.c
-@@ -1582,8 +1582,9 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 	int retval = 0;
- 	enum mpi3mr_iocstate ioc_state;
- 	u64 base_info;
-+	bool enable_started = false;
- 	u8 retry = 0;
--	u64 start_time, elapsed_time_sec;
-+	u64 start_time = jiffies, elapsed_time_sec;
- 
- retry_bring_ioc_ready:
- 
-@@ -1595,6 +1596,7 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 
- 	if (!mpi3mr_is_fault_recoverable(mrioc)) {
- 		mrioc->unrecoverable = 1;
-+		retval = -1;
- 		goto out_device_not_present;
- 	}
- 
-@@ -1621,6 +1623,7 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 		if (!pci_device_is_present(mrioc->pdev)) {
- 			mrioc->unrecoverable = 1;
- 			ioc_err(mrioc, "controller is not present while waiting to reset\n");
-+			retval = -1;
- 			goto out_device_not_present;
- 		}
- 
-@@ -1654,6 +1657,7 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 				if (!pci_device_is_present(mrioc->pdev)) {
- 					mrioc->unrecoverable = 1;
- 					ioc_err(mrioc, "controller is not present at the bringup\n");
-+					retval = -1;
- 					goto out_device_not_present;
- 				}
- 				msleep(100);
-@@ -1690,8 +1694,10 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 	ioc_config |= MPI3_SYSIF_IOC_CONFIG_ENABLE_IOC;
- 	writel(ioc_config, &mrioc->sysif_regs->ioc_configuration);
- 
--	if (retry == 0)
-+	if (!enable_started) {
- 		start_time = jiffies;
-+		enable_started = true;
-+	}
- 
- 	timeout = mrioc->ready_timeout * 10;
- 	do {
-@@ -1731,7 +1737,7 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 
- out_failed:
- 	elapsed_time_sec = jiffies_to_msecs(jiffies - start_time)/1000;
--	if ((retry < 2) && (elapsed_time_sec < (mrioc->ready_timeout - 60))) {
-+	if (retry < 2 && elapsed_time_sec + 60 < mrioc->ready_timeout) {
- 		retry++;
- 
- 		ioc_warn(mrioc, "retrying to bring IOC ready, retry_count:%d\n"
-@@ -1739,6 +1745,8 @@ static int mpi3mr_bring_ioc_ready(struct mpi3mr_ioc *mrioc)
- 
- 		goto retry_bring_ioc_ready;
- 	}
-+	if (!retval)
-+		retval = -1;
- 	ioc_state = mpi3mr_get_iocstate(mrioc);
- 	ioc_err(mrioc,
- 	    "failed to bring to ready state,  current state: %s\n",
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+> index 31ca314fd52b8..e79e05be25e11 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+
+[ ... ]
+
+> @@ -3051,6 +3056,11 @@ static int bnge_close(struct net_device *dev)
+>  	bnge_hwrm_if_change(bn->bd, false);
+>  	bn->sp_event = 0;
+>  
+> +	/* netif_running() is false now. Apply an NTUPLE change that
+> +	 * bnge_fix_features() held back while the interface was up.
+> +	 */
+> +	netdev_update_features(dev);
+> +
+>  	return 0;
+>  }
+>  
+> @@ -3133,6 +3143,36 @@ static const struct netdev_stat_ops bnge_stat_ops = {
+>  	.get_base_stats		= bnge_get_base_stats,
+>  };
+>  
+> +static netdev_features_t bnge_fix_features(struct net_device *dev,
+> +					   netdev_features_t features)
+> +{
+> +	/* NTUPLE can only be changed while the interface is down. */
+> +	if (netif_running(dev)) {
+> +		if (dev->features & NETIF_F_NTUPLE)
+> +			features |= NETIF_F_NTUPLE;
+> +		else
+> +			features &= ~NETIF_F_NTUPLE;
+> +	}
+> +	return features;
+> +}
+
+[Severity: Low]
+This isn't a bug, but the commit message only says:
+
+  Add bnge_set_dflt_rfs() to configure the default NTUPLE feature state
+  at netdev allocation time.
+
+The patch does more than that. It adds .ndo_fix_features and
+.ndo_set_features, silently holds back NTUPLE changes while the interface
+is running, applies them later from bnge_close() via
+netdev_update_features(), and turns ntuple-filters on by default.
+
+Could the commit message describe the down-only policy for NTUPLE changes
+and the new netdev ops? Right now that policy is only explained later in
+the series, in "bnge: add aRFS flow steering ndo support".
+
+> +
+> +static int bnge_set_features(struct net_device *dev, netdev_features_t features)
+> +{
+> +	struct bnge_net *bn = netdev_priv(dev);
+> +	u32 flags = bn->priv_flags;
+> +
+> +	flags &= ~BNGE_NET_EN_NTUPLE;
+> +	if (features & NETIF_F_NTUPLE)
+> +		flags |= BNGE_NET_EN_NTUPLE;
+> +
+> +	if (flags == bn->priv_flags)
+> +		return 0;
+> +
+> +	bn->priv_flags = flags;
+> +
+> +	return 0;
+> +}
+> +
+
+[ ... ]
+
+> @@ -3265,6 +3307,13 @@ static void bnge_init_ring_params(struct bnge_net *bn)
+>  	bn->netdev->cfg->hds_thresh = max(BNGE_DEFAULT_RX_COPYBREAK, rx_size);
+>  }
+>  
+> +static void bnge_set_dflt_rfs(struct bnge_net *bn)
+> +{
+> +	bn->netdev->hw_features |= NETIF_F_NTUPLE;
+> +	bn->netdev->features |= NETIF_F_NTUPLE;
+> +	bn->priv_flags |= BNGE_NET_EN_NTUPLE;
+> +}
+
+[Severity: Low]
+Is NETIF_F_NTUPLE meant to be advertised and enabled at this point in the
+series?
+
+At this commit, drivers/net/ethernet/broadcom/bnge/ has no
+get_rxnfc/set_rxnfc ethtool ops, no ndo_rx_flow_steer and no rx_cpu_rmap.
+BNGE_NET_EN_NTUPLE is written by bnge_set_dflt_rfs() and
+bnge_set_features(), but nothing reads it.
+
+As a result, ethtool -k shows ntuple-filters as on, while ethtool -N
+returns -EOPNOTSUPP. The NTUPLE change that bnge_fix_features() holds back
+and bnge_close() later applies also has no effect.
+
+Later patches in the series add the missing code: "bnge: add NTUPLE filter
+support in ethtool", "bnge: add aRFS flow steering ndo support" and "bnge:
+add cpu_rmap support for IRQ affinity". Could the feature bit be set in
+the patch that makes it work, so intermediate commits don't advertise a
+feature they can't use?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+> index 01205b161d822..506ceee775e19 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+
+[ ... ]
+
+> @@ -237,8 +241,12 @@ static void bnge_copy_reserved_rings(struct bnge_dev *bd,
+>  
+>  static bool bnge_rings_ok(struct bnge_hw_rings *hwr)
+>  {
+> -	return hwr->tx && hwr->rx && hwr->nq && hwr->grp && hwr->vnic &&
+> -	       hwr->stat && hwr->cmpl;
+> +	/* The default and the NTUPLE VNICs each need a full set of RSS
+> +	 * contexts for the final number of ring groups.
+> +	 */
+> +	return hwr->tx && hwr->rx && hwr->nq && hwr->grp &&
+> +	       hwr->vnic >= BNGE_BASE_VNICS && hwr->stat && hwr->cmpl &&
+> +	       hwr->rss_ctx >= bnge_cal_nr_rss_ctxs(hwr->grp) * BNGE_BASE_VNICS;
+>  }
+
+[ ... ]
+
+> @@ -358,6 +369,10 @@ int bnge_reserve_rings(struct bnge_dev *bd)
+>  	bd->rx_nr_rings = rx_rings;
+>  	bd->nq_nr_rings = hwr.nq;
+>  
+> +	/* One ring group per rx ring, so rss_ctx is checked against the final
+> +	 * rx ring count.
+> +	 */
+> +	hwr.grp = rx_rings;
+>  	if (!bnge_rings_ok(&hwr))
+>  		return -ENOMEM;
+>  
+
+[Severity: High]
+Can this -ENOMEM return leave bd->rss_indir_tbl stale?
+
+With this patch, bnge_rings_ok() can fail depending on what firmware
+grants: fewer than BNGE_BASE_VNICS VNICs, or fewer than
+2 * bnge_cal_nr_rss_ctxs() RSS contexts.
+
+By the time the check runs, bnge_reserve_rings() has already updated
+bd->tx_nr_rings, bd->tx_nr_rings_per_tc, bd->rx_nr_rings and
+bd->nq_nr_rings. The early return then skips the indirection table reset
+that follows:
+
+	if (old_rx_rings != bd->hw_resc.resv_rx_rings ||
+	    old_rx_nr_rings != bd->rx_nr_rings)
+		bnge_set_dflt_rss_indir_tbl(bd);
+
+Suppose a retry gets the same RX grant but enough RSS contexts. Then
+old_rx_rings matches resv_rx_rings, and old_rx_nr_rings matches the
+already reduced bd->rx_nr_rings. So bnge_set_dflt_rss_indir_tbl() is never
+called.
+
+bnge_fill_hw_rss_tbl() then uses the table to index rx_ring[] without a
+clamp:
+
+		else
+			j = bd->rss_indir_tbl[i];
+
+		rxr = &bn->rx_ring[j];
+
+The table may still hold entries computed for the older, larger ring
+count. It may also never have been initialized, since
+bnge_alloc_rss_indir_tbl() kmallocs it. In either case, can
+bnge_init_chip()->bnge_setup_vnic()->...->bnge_fill_hw_rss_tbl() read
+past the end of bn->rx_ring[] and pass bogus fw_ring_id values to
+firmware?
+
+A later patch in the series, "bnge: add ethtool support to manage RSS
+contexts", appears to fix this. It moves the bnge_rings_ok() check ahead
+of any bd-> updates and adds a j >= bd->rx_nr_rings clamp in
+bnge_fill_hw_rss_tbl(). Could the reordering be folded into this patch,
+since this is where the new failure conditions come from?
+
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_resc.h b/drivers/net/ethernet/broadcom/bnge/bnge_resc.h
+> index c0b6992d7f828..97e8ef08974c7 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_resc.h
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_resc.h
+> @@ -75,6 +75,7 @@ void bnge_aux_init_dflt_config(struct bnge_dev *bd);
+>  u32 bnge_get_rxfh_indir_size(struct bnge_dev *bd);
+>  int bnge_cal_nr_rss_ctxs(u16 rx_rings);
+>  bool bnge_aux_has_enough_resources(struct bnge_dev *bd);
+> +bool bnge_arfs_capable(struct bnge_dev *bd, bool new_rss_ctx);
+
+[Severity: Low]
+This isn't a bug, but bnge_arfs_capable() is declared here with no
+definition and no caller in this patch.
+
+Later in the series the prototype is removed, and bnge_rss_ctx_capable()
+in bnge_resc.c is used instead. Could this declaration be dropped from
+this patch?
+
+[ ... ]
+
 -- 
-2.56.1.708.g77570a6a1d-goog
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
