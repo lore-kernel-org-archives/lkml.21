@@ -1,56 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088158;
-	b=fW+2l4UbhivT/LKRQ21QPupMT3kTe9pQjs9iSVsjJuNoLFKLOtBcpwEwjZdjNSl8u8zo
-	 1ovbNkDUbf4vz1pGJqRwaauswPfRV8HJuenrMKISSsPJuJF5xM4ZX5LgvdTmu0V4qset6
-	 EFTQlCJNn7qsTiK9R2+aq98VmlXa8NlymNDoI18Ut4aaqzeBqf+JpSkdEZncOWLfkkC2e
-	 H87yPsQsG4TrNN5Vn/SrvJZ52WQ752BoLcWOE9WxLcRWL+nV0yDtzgS7ZpY2YgtjH81Nq
-	 PGiQgg14YYI/Z9HE9MkzA2zej83g6mmq9RjV1k5j+EAL5sgV0WQdC8+F1i2JugmyHog==
+	t=1795088156;
+	b=m+k0yTknk8T8LxRaUpafvbDCpn51J28pMnKtxiSVwfc1jn0lHjgZMfDBBw2WIMO2mbrJ
+	 5Vyd/c8iKteLj1IxuG4uyyheNor9u7OJ+qz+EkWQKjSNy+r5EtUJUe4kGLJGRBurou4Kg
+	 Hfx7rPaqHgbu6HWLvMP1Su2RXtHoeapwtzePBHHjTISbGrEAvwNZwmWwN24RkklxqUT/V
+	 PuvD++WBfVUDS1syGnyysXilFtlAEgD3kA173ZTiiCuB5I3JT0YvqUaJscznnIAKqcbaR
+	 NWS8HzLvo1iFTJAciVnNcOmKmk6O97QfT5Cj5EPpaPHaPslG+FUUlPggH/GKq3ckdng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088158;
-	h=DMARC-Filter:DKIM-Signature:Date:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088156;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=MvxY/Y9Zvo6fORE1fBiO1lDxDydacUgKXmHewgYKNac=;
-	b=E8gpdQ3poCTe+44MhrBeBFEfAX2dxu5CwBfS1mfaYvKUQCtiapoB4dGNl7Tk+Lth7cN1
-	 PTwZGQL6bhcykUIkr8dh2Gq8EKBYXNfs1RmzMgiSzuwfBOACVSUn46HE3aeXeaKxUxVf3
-	 4PN8wlyMQ6QTNVgXc970JYuu4iymxJRMJTBjGiuE56CT8ONStHg+wNrDtuBqTVnc7mUnv
-	 Bl4IIt+yGeUTgZwoeyyS+fMnV9VtBjkrGOLRkigFgXsHFf6pABZzzP1C6dtl9lTYmmHuB
-	 FLXNfT0hFwdKm9zyQqaR7kNqC+chAjCRwFAZXi+ivKVUP8BcyodOzaMrqLgoFexYqTQ==
+	bh=0xOBOT0gDusjmerYyN4EGHv21gPd4kXF2wk4FIm2TDk=;
+	b=a5O8KZwfrTs2lMsA0IHt4K2xBULDJt/ATkSxFjbXvkCYPTo8+43mZ/QNm9dMJjOb+tnu
+	 WNXGgD4yO1NwPbaXnu4Ojyfbed+fuQahar2oR5RLSvRukxLdjE1xO5rmBX2GcewBNCNHQ
+	 B9aOG1Yj1zUlUDGPdi7oBVriF5+PkCNJ3j1ulMc5hjHmITfHZOdNQQOmACexs1MWmfRu0
+	 F5T1SUNfaBQ1K8WyeMeUhiv8JYM5eVWfGJ9IkTfLBRKRQleZSiS5FBzTeI08vJiMwo57p
+	 oS1lwD4vxpiYb1d12X83RZ9loxpDBgvlxTslDyY8NLSYx+kzvQ3Ym9Gg+6Du9t4Xn3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=a7snv.com;
-	spf=pass smtp.mailfrom=a7snv.com;
-	dkim=pass header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=Zjr1zLzZ;
-	arc=none smtp.remote-ip=185.70.43.20
-Received: from mail-4320.protonmail.ch (mail-4320.protonmail.ch [185.70.43.20])
+	dmarc=none header.from=nebula-matrix.com;
+	spf=pass smtp.mailfrom=nebula-matrix.com;
+	arc=none smtp.remote-ip=115.124.28.220
+Received: from out28-220.mail.aliyun.com (out28-220.mail.aliyun.com [115.124.28.220])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD69260A2602
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:35:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD69260A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=a7snv.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=a7snv.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=Zjr1zLzZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=a7snv.com;
-	s=protonmail; t=1795088153; x=1795347353;
-	bh=MvxY/Y9Zvo6fORE1fBiO1lDxDydacUgKXmHewgYKNac=;
-	h=Date:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=Zjr1zLzZrcajPiYOXjyQtihS2aFpYjeMFDNh3dqDbGHx7Da1+HgcouQqkiBha7fhI
-	 JbkPJcy6R1mGmwtdj1h6C3CAs7Vh3zsfHtfoV9LFD9HJI9yCPNhwu8SAIhrwcd8/Z+
-	 uuE732bUw26xhVSfKgeihhCzZ8G9bNtlESVdGlk91m/qR/SEmhaZ+wntPUqgSjvVjM
-	 GPyzcOWP+cBvR8IctkcG8XAFrjXRZ1y9PP5ax3lZveJ1MxToB7TPwbS/e+wUYU1qtA
-	 xmyOAsYccb+njbY1DG5r0RWwGb1rxpW/ALscKDKyb2YdNQKGPFcK6kgy1TRVX3+Mn2
-	 L99L1/EFFxD6A==
-Date: Thu, 19 Nov 2026 11:35:50 +0000
-From: Yun Wang <arsenova@a7snv.com>
-Cc: Bernd Schubert <bernd@bsbernd.com>, Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] fuse: don't wait for a sync-init mount in non-blocking reads and uring_cmd
-Message-ID: <20261117075632.59959.p12-0-arsenova@a7snv.com>
-Feedback-ID: 235448903:user:proton
-X-Pm-Message-ID: 7ca99a876ca8338cbb4a5bc2b1437c54610f9a79
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99588606A324;
+	Thu, 19 Nov 2026 11:35:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99588606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=nebula-matrix.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebula-matrix.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06712908|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_social|0.0628202-0.00136269-0.935817;FP=15444775313274979602|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034017;MF=illusion.wang@nebula-matrix.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k5kCyD1_1795088148;
+Received: from localhost.localdomain(mailfrom:illusion.wang@nebula-matrix.com fp:SMTPD_---.k5kCyD1_1795088148 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Thu, 19 Nov 2026 19:35:49 +0800
+From: "illusion.wang" <illusion.wang@nebula-matrix.com>
+To: dimon.zhao@nebula-matrix.com,
+	illusion.wang@nebula-matrix.com,
+	alvin.wang@nebula-matrix.com,
+	sam.chen@nebula-matrix.com,
+	netdev@vger.kernel.org
+Cc: kuba@kernel.org,
+	andrew+netdev@lunn.ch,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	horms@kernel.org,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v35 net-next 6/8] net/nebula-matrix: dispatch: add mailbox RPCs for msix map, mailbox irq and vsi/eth id
+Date: Thu, 19 Nov 2026 19:35:19 +0800
+Message-ID: <20261119113530.32107-7-illusion.wang@nebula-matrix.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
+References: <20261119113530.32107-1-illusion.wang@nebula-matrix.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,75 +61,740 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Since commit dfb84c330794 ("fuse: allow synchronous FUSE_INIT"), a
-/dev/fuse fd with FUSE_DEV_IOC_SYNC_INIT waits in fuse_get_dev() until
-the mount installs the channel.  That suits a blocking read, but
-fuse_get_dev() is also called from O_NONBLOCK reads and from
-fuse_uring_cmd(), so these sleep before the mount as well, until the
-mount or a signal:
+From: illusion wang <illusion.wang@nebula-matrix.com>
 
- - read(2) and splice(2) with O_NONBLOCK.
- - IORING_OP_URING_CMD, from the task that called io_uring_enter(2),
-   also with fuse-over-io-uring disabled.  Other submissions on the
-   same ring wait as well.
+Add request and response handlers for five dispatch operations:
+cfg_msix_map, destroy_msix_map, set_mailbox_irq, get_vsi_id and
+get_eth_id.  Each op is resolved by capability level: a function with
+has_ctrl calls the resource op locally, a function with has_net forwards
+it to the management PF over the channel, and a function with neither
+leaves the op pointer NULL, so the caller must not invoke it.  The
+channel framework itself - send_msg, the ACK plumbing and handler
+registration - is already in place from the channel layer patch; this one
+adds the five message handlers on top of it.
 
-It happens on every kernel I tried since v6.18: v6.18 to v7.3 in QEMU,
-7.2 and 7.4-rc2 on bare metal.  v6.17 has no FUSE_DEV_IOC_SYNC_INIT.
+A request builds the payload, sends it synchronously and checks the ACK
+length before parsing; a short ACK returns -EBADMSG.  A responder rejects
+VFs and out-of-range source PF ids with -EPERM, checks the payload length
+before parsing, and forwards the resource layer's errno verbatim so the
+requester can tell a protocol error from a failed operation.  If the
+resource op is not installed the responder answers -EOPNOTSUPP.  A peer
+PF is treated as trusted: hardware and firmware forbid PF passthrough to
+guests, so every peer runs this host driver, and the resource layer
+bounds the requested vector counts by the global pool.
 
-The same wait has caused trouble before.  a8dd5f1b73bc ("fuse: create
-fuse_dev on /dev/fuse open instead of mount") made fds without sync
-init wait there as well, and LTP's read_all, which reads every file
-under /dev with O_NONBLOCK, then hung on /dev/fuse [1].  9f6f44aa5a58
-("fuse: don't block in fuse_get_dev() for non-sync_init case") fixed
-that by returning -EPERM again for those fds.  A sync-init fd still
-waits, as dfb84c330794 intends for a blocking read; these two patches
-take the wait out of the non-blocking read paths and fuse_uring_cmd()
-and keep it for the others.
+The cfg_msix_map, destroy_msix_map and set_mailbox_irq requests carry a
+caller precondition: clear the mailbox IRQ_RDY flag and use the polling
+send path, because the responder changes mailbox MSI-X routing and an
+interrupt-driven ACK wakeup cannot be relied on while routing is in
+flux.  The precondition is documented on struct nbl_dispatch_ops, which
+is what callers program against, not only next to the static helpers.
 
-Patch 1 makes O_NONBLOCK reads before the mount return -EAGAIN, the
-same as after the mount while no request is queued.  Patch 2 makes
-fuse_uring_cmd() return at once the -EAGAIN it returns before FUSE_INIT
-anyway.  fuse_get_dev() itself is unchanged.
+No serialization is added here.  The resource layer serializes
+concurrent callers itself through intr_mgt->lock, and the dispatch layer
+has no mutable state of its own to protect; the read-only
+get_vsi_id/get_eth_id paths only touch static init metadata.
 
-->poll has the same problem: poll(2), epoll_ctl(2) and io_uring reads
-of a sync-init fd sleep before the mount too, which is what libfuse's
-sync-init worker ran into [2].  That fix is bigger, since a poller that
-registers before the mount has no fiq->waitq to wait on, so I will
-send it separately, together with a selftest for all of these paths.
+This is also the first path that lets a sibling PF tear its MSI-X map
+down on the control PF at runtime.  That teardown runs while the control
+PF is still bus master, which is why the interrupt layer keeps each
+coherent map table for the function's lifetime and releases it only in
+nbl_intr_mgt_stop(), instead of relying on the per-destroy quiesce
+window.
 
-Tested in QEMU (virtme-ng) on 7.4-rc2 (067c5c24cef2): with both patches,
-O_NONBLOCK read(2) and splice(2) and IORING_OP_URING_CMD on a sync-init
-fd that is never mounted return -EAGAIN at once, a blocking read still
-waits until a signal, and an fd without sync init still gets -EPERM.
-The poll, epoll and mount tests still wait, as expected without the
-->poll fix.
+The five responders are registered with the channel layer and owned by
+it: they live in the channel's handler xarray and are freed with it, so
+nbl_disp_remove() has nothing to undo.  Nothing can enter them in this
+patch because no mailbox queue is running yet.  Once a queue is brought
+up, the invariant they rely on is that it must be torn down before
+nbl_res_remove_leonis() runs, so no responder can outlive the resource
+layer it forwards into.
 
-The patches are against 7.4-rc2 (067c5c24cef2) and also apply to
-fuse.git for-next (ab9787d7e66a).  The Fixes tags point at
-dfb84c330794 because the wait goes back to v6.18, but the patches only
-apply from v7.2 on; older trees would need their own version.
+Signed-off-by: illusion wang <illusion.wang@nebula-matrix.com>
+---
+ .../nebula-matrix/nbl/nbl_core/nbl_dispatch.c | 496 ++++++++++++++++++
+ .../nbl/nbl_include/nbl_def_channel.h         |  40 ++
+ .../nbl/nbl_include/nbl_def_dispatch.h        |  45 +-
+ 3 files changed, 578 insertions(+), 3 deletions(-)
 
-[1] https://lore.kernel.org/all/3c9f8396-41f4-4c88-b883-34bede72b427@sirena=
-.org.uk/
-[2] https://github.com/libfuse/libfuse/pull/1633
-
-Yun Wang (2):
-  fuse: don't wait for a sync-init mount in non-blocking reads
-  fuse: don't wait for a sync-init mount in fuse_uring_cmd()
-
- fs/fuse/dev.c        | 12 ++++++++++--
- fs/fuse/dev_uring.c  | 10 ++++++++--
- fs/fuse/fuse_dev_i.h | 14 ++++++++++++++
- 3 files changed, 32 insertions(+), 4 deletions(-)
-
-
-base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
---=20
-2.56.1
-
-
-
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+index 58f6ac834..d256394a5 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_core/nbl_dispatch.c
+@@ -6,6 +6,163 @@
+ #include <linux/pci.h>
+ #include "nbl_dispatch.h"
+ #include "../nbl_hw/nbl_chip.h"
++#include "../nbl_hw/nbl_interrupt.h"
++
++static int nbl_disp_chan_get_vsi_id_req(struct nbl_dispatch_mgt *disp_mgt,
++					u16 type, u16 *vsi_id)
++{
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_common_info *common = disp_mgt->common;
++	struct nbl_chan_param_get_vsi_id result = { 0 };
++	struct nbl_chan_param_get_vsi_id param = { 0 };
++	struct nbl_chan_send_info chan_send = {0};
++	int ret;
++
++	param.type = cpu_to_le16(type);
++
++	nbl_chan_fill_send_info(&chan_send, common->mgt_pf,
++				NBL_CHAN_MSG_GET_VSI_ID,
++				&param, sizeof(param), &result,
++				sizeof(result), 1);
++	ret = chan_ops->send_msg(disp_mgt->chan_ops_tbl->priv, &chan_send);
++	if (ret)
++		return ret;
++	if (chan_send.ack_len != sizeof(result)) {
++		dev_err(disp_mgt->common->dev,
++			"get_vsi_id: short ACK, ack_len=%u expected %zu\n",
++			chan_send.ack_len, sizeof(result));
++		return -EBADMSG;
++	}
++	*vsi_id = le16_to_cpu(result.vsi_id);
++	return 0;
++}
++
++static void nbl_disp_chan_get_vsi_id_resp(void *priv, u16 src_id, u16 msg_id,
++					  void *data, u32 data_len)
++{
++	struct nbl_dispatch_mgt *disp_mgt = (struct nbl_dispatch_mgt *)priv;
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct device *dev = disp_mgt->common->dev;
++	struct nbl_chan_param_get_vsi_id result = { 0 };
++	struct nbl_chan_param_get_vsi_id param = { 0 };
++	struct nbl_chan_ack_info chan_ack;
++	int err = 0;
++	u16 vsi_id = 0;
++	u32 rel_pf_id;
++	int ret;
++
++	ret = nbl_common_func_id_to_rel_pf_id(disp_mgt->common, src_id,
++					      &rel_pf_id);
++	if (ret) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (rel_pf_id >= disp_mgt->common->max_pf) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (data_len < sizeof(param)) {
++		err = -EBADMSG;
++		goto ack_out;
++	}
++	memcpy(&param, data, sizeof(param));
++
++	ret = nbl_res_func_id_to_vsi_id(disp_mgt->res_mgt, src_id,
++					le16_to_cpu(param.type), &vsi_id);
++	/* Forward the resource errno verbatim to the requester */
++	if (ret)
++		err = ret;
++
++	result.vsi_id = cpu_to_le16(vsi_id);
++ack_out:
++	nbl_chan_fill_ack_info(&chan_ack, src_id,
++			       NBL_CHAN_MSG_GET_VSI_ID, msg_id, err,
++			       &result, sizeof(result));
++	ret = chan_ops->send_ack(disp_mgt->chan_ops_tbl->priv, &chan_ack);
++	if (ret)
++		dev_err(dev,
++			"channel send ack failed with ret: %d, msg_type: %d\n",
++			ret, NBL_CHAN_MSG_GET_VSI_ID);
++}
++
++static int nbl_disp_chan_get_eth_id_req(struct nbl_dispatch_mgt *disp_mgt,
++					u16 vsi_id, u8 *eth_num, u8 *eth_id,
++					u8 *logic_eth_id)
++{
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_common_info *common = disp_mgt->common;
++	struct nbl_chan_param_get_eth_id result = { 0 };
++	struct nbl_chan_param_get_eth_id param = { 0 };
++	struct nbl_chan_send_info chan_send = {0};
++	int ret;
++
++	param.vsi_id = cpu_to_le16(vsi_id);
++
++	nbl_chan_fill_send_info(&chan_send, common->mgt_pf,
++				NBL_CHAN_MSG_GET_ETH_ID,
++				&param, sizeof(param), &result,
++				sizeof(result), 1);
++	ret = chan_ops->send_msg(disp_mgt->chan_ops_tbl->priv, &chan_send);
++	if (ret)
++		return ret;
++	if (chan_send.ack_len != sizeof(result)) {
++		dev_err(disp_mgt->common->dev,
++			"get_eth_id: short ACK, ack_len=%u expected %zu\n",
++			chan_send.ack_len, sizeof(result));
++		return -EBADMSG;
++	}
++	*eth_num = result.eth_num;
++	*eth_id = result.eth_id;
++	*logic_eth_id = result.logic_eth_id;
++
++	return 0;
++}
++
++static void nbl_disp_chan_get_eth_id_resp(void *priv, u16 src_id, u16 msg_id,
++					  void *data, u32 data_len)
++{
++	struct nbl_dispatch_mgt *disp_mgt = (struct nbl_dispatch_mgt *)priv;
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_chan_param_get_eth_id result = { 0 };
++	struct nbl_chan_param_get_eth_id param = { 0 };
++	struct device *dev = disp_mgt->common->dev;
++	struct nbl_chan_ack_info chan_ack;
++	int err = 0;
++	u32 rel_pf_id;
++	int ret;
++
++	ret = nbl_common_func_id_to_rel_pf_id(disp_mgt->common, src_id,
++					      &rel_pf_id);
++	if (ret) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (rel_pf_id >= disp_mgt->common->max_pf) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (data_len < sizeof(param)) {
++		err = -EBADMSG;
++		goto ack_out;
++	}
++	memcpy(&param, data, sizeof(param));
++
++	ret = nbl_res_get_eth_id(disp_mgt->res_mgt, src_id,
++				 le16_to_cpu(param.vsi_id), &result.eth_num,
++				 &result.eth_id, &result.logic_eth_id);
++	/* Forward the resource errno verbatim to the requester */
++	if (ret)
++		err = ret;
++ack_out:
++	nbl_chan_fill_ack_info(&chan_ack, src_id,
++			       NBL_CHAN_MSG_GET_ETH_ID, msg_id, err,
++			       &result, sizeof(result));
++	ret = chan_ops->send_ack(disp_mgt->chan_ops_tbl->priv, &chan_ack);
++	if (ret)
++		dev_err(dev,
++			"channel send ack failed with ret: %d, msg_type: %d\n",
++			ret, NBL_CHAN_MSG_GET_ETH_ID);
++}
+ 
+ static void nbl_disp_deinit_module(struct nbl_dispatch_mgt *disp_mgt)
+ {
+@@ -17,6 +174,326 @@ static int nbl_disp_init_module(struct nbl_dispatch_mgt *disp_mgt)
+ 	return nbl_res_chip_init_module(disp_mgt->res_mgt);
+ }
+ 
++static int nbl_disp_cfg_msix_map(struct nbl_dispatch_mgt *disp_mgt,
++				 u16 num_net_msix, u16 num_others_msix,
++				 bool net_msix_mask_en)
++{
++	struct nbl_common_info *common = disp_mgt->common;
++
++	/*
++	 * No core-layer lock is taken here: the resource layer serializes
++	 * concurrent callers itself (intr_mgt->lock), and the dispatch
++	 * layer has no mutable state of its own for this op to protect.
++	 */
++	return nbl_res_intr_cfg_msix_map(disp_mgt->res_mgt, common->mgt_pf,
++					 num_net_msix, num_others_msix,
++					 net_msix_mask_en);
++}
++
++/*
++ * Precondition: caller must disable mailbox IRQ_RDY and switch send_msg
++ * to the polling path before issuing this RPC. The responder rewrites
++ * the requester's mailbox MSI-X routing during the resource op, so the
++ * ACK cannot rely on interrupt wakeup while routing is in flux.
++ */
++static int
++nbl_disp_chan_cfg_msix_map_req(struct nbl_dispatch_mgt *disp_mgt,
++			       u16 num_net_msix, u16 num_others_msix,
++			       bool net_msix_mask_en)
++{
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_common_info *common = disp_mgt->common;
++	struct nbl_chan_param_cfg_msix_map param = { 0 };
++	struct nbl_chan_send_info chan_send = {0};
++	int ret;
++
++	param.num_net_msix = cpu_to_le16(num_net_msix);
++	param.num_others_msix = cpu_to_le16(num_others_msix);
++	param.msix_mask_en = cpu_to_le16(!!net_msix_mask_en);
++
++	nbl_chan_fill_send_info(&chan_send, common->mgt_pf,
++				NBL_CHAN_MSG_CONFIGURE_MSIX_MAP,
++				&param, sizeof(param),
++				NULL, 0, 1);
++	ret = chan_ops->send_msg(disp_mgt->chan_ops_tbl->priv, &chan_send);
++	if (ret)
++		return ret;
++	return 0;
++}
++
++static void nbl_disp_chan_cfg_msix_map_resp(void *priv, u16 src_id, u16 msg_id,
++					    void *data, u32 data_len)
++{
++	struct nbl_dispatch_mgt *disp_mgt = (struct nbl_dispatch_mgt *)priv;
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct device *dev = disp_mgt->common->dev;
++	struct nbl_chan_param_cfg_msix_map param = { 0 };
++	struct nbl_chan_ack_info chan_ack;
++	int err = 0;
++	u32 rel_pf_id;
++	int ret;
++
++	ret = nbl_common_func_id_to_rel_pf_id(disp_mgt->common, src_id,
++					      &rel_pf_id);
++	if (ret) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (rel_pf_id >= disp_mgt->common->max_pf) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (data_len < sizeof(param)) {
++		err = -EBADMSG;
++		goto ack_out;
++	}
++	memcpy(&param, data, sizeof(param));
++
++	/*
++	 * The vector counts come from the peer PF.  A peer is
++	 * trusted: hardware and firmware forbid PF passthrough to
++	 * guests (see nbl_get_func_param()), so every peer runs this
++	 * same host driver, and the resource layer bounds each count
++	 * and their sum by the per-function map table size.
++	 *
++	 * No per-function quota is enforced: the mailbox is an
++	 * internal interface between instances of this same driver,
++	 * not a boundary against untrusted code.  The only outcome of
++	 * an oversized request within those bounds is -EAGAIN for the
++	 * functions that configure afterwards; it cannot corrupt
++	 * state.  The request's slow path (an allocation plus a
++	 * quiesce wait under intr_mgt->lock) is bounded per request
++	 * and sits inside the same trust boundary.
++	 */
++	ret = nbl_res_intr_cfg_msix_map(disp_mgt->res_mgt, src_id,
++					le16_to_cpu(param.num_net_msix),
++					le16_to_cpu(param.num_others_msix),
++					!!le16_to_cpu(param.msix_mask_en));
++	/* Forward the resource errno verbatim to the requester */
++	if (ret)
++		err = ret;
++ack_out:
++	nbl_chan_fill_ack_info(&chan_ack, src_id,
++			       NBL_CHAN_MSG_CONFIGURE_MSIX_MAP, msg_id,
++			       err, NULL, 0);
++	ret = chan_ops->send_ack(disp_mgt->chan_ops_tbl->priv, &chan_ack);
++	if (ret)
++		dev_err(dev,
++			"channel send ack failed with ret: %d, msg_type: %d\n",
++			ret, NBL_CHAN_MSG_CONFIGURE_MSIX_MAP);
++}
++
++/*
++ * Precondition: caller must disable mailbox IRQ_RDY and switch send_msg
++ * to the polling path before issuing this RPC. The responder retargets
++ * the requester's mailbox MSI-X routing during the resource op, so the
++ * ACK cannot rely on interrupt wakeup while routing is in flux.
++ */
++static int nbl_disp_chan_destroy_msix_map_req(struct nbl_dispatch_mgt *disp_mgt)
++{
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_common_info *common = disp_mgt->common;
++	struct nbl_chan_send_info chan_send = {0};
++	int ret;
++
++	nbl_chan_fill_send_info(&chan_send, common->mgt_pf,
++				NBL_CHAN_MSG_DESTROY_MSIX_MAP,
++				NULL, 0, NULL, 0, 1);
++	ret = chan_ops->send_msg(disp_mgt->chan_ops_tbl->priv, &chan_send);
++	if (ret)
++		return ret;
++	return 0;
++}
++
++static void nbl_disp_chan_destroy_msix_map_resp(void *priv, u16 src_id,
++						u16 msg_id, void *data,
++						u32 data_len)
++{
++	struct nbl_dispatch_mgt *disp_mgt = (struct nbl_dispatch_mgt *)priv;
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct device *dev = disp_mgt->common->dev;
++	struct nbl_chan_ack_info chan_ack;
++	int err = 0;
++	u32 rel_pf_id;
++	int ret;
++
++	ret = nbl_common_func_id_to_rel_pf_id(disp_mgt->common, src_id,
++					      &rel_pf_id);
++	if (ret) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (rel_pf_id >= disp_mgt->common->max_pf) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	ret = nbl_res_intr_destroy_msix_map(disp_mgt->res_mgt, src_id);
++	/* Forward the resource errno verbatim to the requester */
++	if (ret)
++		err = ret;
++ack_out:
++	nbl_chan_fill_ack_info(&chan_ack, src_id,
++			       NBL_CHAN_MSG_DESTROY_MSIX_MAP, msg_id,
++			       err, NULL, 0);
++	ret = chan_ops->send_ack(disp_mgt->chan_ops_tbl->priv, &chan_ack);
++	if (ret)
++		dev_err(dev,
++			"channel send ack failed with ret: %d, msg_type: %d\n",
++			ret, NBL_CHAN_MSG_DESTROY_MSIX_MAP);
++}
++
++/*
++ * Precondition: caller must disable mailbox IRQ_RDY and switch send_msg
++ * to the polling path before issuing this RPC. The responder rewrites
++ * the requester's own mailbox MSI-X routing (MSIX_IDX / MSIX_IDX_VALID)
++ * before the ACK is sent, so the ACK cannot rely on interrupt wakeup
++ * while routing is in flux.
++ */
++static int nbl_disp_chan_set_mailbox_irq_req(struct nbl_dispatch_mgt *disp_mgt,
++					     u16 vector_id, bool en_msix)
++{
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_chan_param_set_mailbox_irq param = { 0 };
++	struct nbl_common_info *common = disp_mgt->common;
++	struct nbl_chan_send_info chan_send = {0};
++	int ret;
++
++	param.vector_id = cpu_to_le16(vector_id);
++	param.en_msix = !!en_msix;
++
++	nbl_chan_fill_send_info(&chan_send, common->mgt_pf,
++				NBL_CHAN_MSG_MAILBOX_SET_IRQ,
++				&param, sizeof(param), NULL, 0, 1);
++	ret = chan_ops->send_msg(disp_mgt->chan_ops_tbl->priv, &chan_send);
++	if (ret)
++		return ret;
++	return 0;
++}
++
++static void nbl_disp_chan_set_mailbox_irq_resp(void *priv, u16 src_id,
++					       u16 msg_id, void *data,
++					       u32 data_len)
++{
++	struct nbl_dispatch_mgt *disp_mgt = (struct nbl_dispatch_mgt *)priv;
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_chan_param_set_mailbox_irq param = { 0 };
++	struct device *dev = disp_mgt->common->dev;
++	struct nbl_chan_ack_info chan_ack;
++	int err = 0;
++	u16 vector_id;
++	u32 rel_pf_id;
++	bool en_msix;
++	int ret;
++
++	ret = nbl_common_func_id_to_rel_pf_id(disp_mgt->common, src_id,
++					      &rel_pf_id);
++	if (ret) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (rel_pf_id >= disp_mgt->common->max_pf) {
++		err = -EPERM;
++		goto ack_out;
++	}
++	if (data_len < sizeof(param)) {
++		err = -EBADMSG;
++		goto ack_out;
++	}
++	memcpy(&param, data, sizeof(param));
++	vector_id = le16_to_cpu(param.vector_id);
++	en_msix = !!param.en_msix;
++
++	ret = nbl_res_intr_set_mailbox_irq(disp_mgt->res_mgt, src_id, vector_id,
++					   en_msix);
++	/* Forward the resource errno verbatim to the requester */
++	if (ret)
++		err = ret;
++
++ack_out:
++	nbl_chan_fill_ack_info(&chan_ack, src_id,
++			       NBL_CHAN_MSG_MAILBOX_SET_IRQ, msg_id,
++			       err, NULL, 0);
++	ret = chan_ops->send_ack(disp_mgt->chan_ops_tbl->priv, &chan_ack);
++	if (ret)
++		dev_err(dev,
++			"channel send ack failed with ret: %d, msg_type: %d\n",
++			ret, NBL_CHAN_MSG_MAILBOX_SET_IRQ);
++}
++
++static int nbl_disp_destroy_msix_map(struct nbl_dispatch_mgt *disp_mgt)
++{
++	struct nbl_common_info *common = disp_mgt->common;
++
++	return nbl_res_intr_destroy_msix_map(disp_mgt->res_mgt, common->mgt_pf);
++}
++
++static int nbl_disp_set_mailbox_irq(struct nbl_dispatch_mgt *disp_mgt,
++				    u16 vector_id, bool en_msix)
++{
++	struct nbl_common_info *common = disp_mgt->common;
++
++	return nbl_res_intr_set_mailbox_irq(disp_mgt->res_mgt, common->mgt_pf,
++					    vector_id, en_msix);
++}
++
++static int nbl_disp_get_vsi_id(struct nbl_dispatch_mgt *disp_mgt, u16 type,
++			       u16 *vsi_id)
++{
++	struct nbl_common_info *common = disp_mgt->common;
++
++	return nbl_res_func_id_to_vsi_id(disp_mgt->res_mgt, common->mgt_pf,
++					 type, vsi_id);
++}
++
++static int nbl_disp_get_eth_id(struct nbl_dispatch_mgt *disp_mgt, u16 vsi_id,
++			       u8 *eth_num, u8 *eth_id, u8 *logic_eth_id)
++{
++	struct nbl_common_info *common = disp_mgt->common;
++
++	return nbl_res_get_eth_id(disp_mgt->res_mgt, common->mgt_pf, vsi_id,
++				  eth_num, eth_id, logic_eth_id);
++}
++
++static int nbl_disp_setup_msg(struct nbl_dispatch_mgt *disp_mgt)
++{
++	struct nbl_channel_ops *chan_ops = disp_mgt->chan_ops_tbl->ops;
++	struct nbl_channel_mgt *p = disp_mgt->chan_ops_tbl->priv;
++	int ret = 0;
++	int _ret;
++
++	_ret = chan_ops->register_msg(p, NBL_CHAN_MSG_CONFIGURE_MSIX_MAP,
++				      nbl_disp_chan_cfg_msix_map_resp,
++				      disp_mgt);
++	if (_ret < 0 && !ret)
++		ret = _ret;
++
++	_ret = chan_ops->register_msg(p, NBL_CHAN_MSG_DESTROY_MSIX_MAP,
++				      nbl_disp_chan_destroy_msix_map_resp,
++				      disp_mgt);
++	if (_ret < 0 && !ret)
++		ret = _ret;
++
++	_ret = chan_ops->register_msg(p, NBL_CHAN_MSG_MAILBOX_SET_IRQ,
++				      nbl_disp_chan_set_mailbox_irq_resp,
++				      disp_mgt);
++	if (_ret < 0 && !ret)
++		ret = _ret;
++
++	_ret = chan_ops->register_msg(p, NBL_CHAN_MSG_GET_VSI_ID,
++				      nbl_disp_chan_get_vsi_id_resp,
++				      disp_mgt);
++	if (_ret < 0 && !ret)
++		ret = _ret;
++
++	_ret = chan_ops->register_msg(p, NBL_CHAN_MSG_GET_ETH_ID,
++				      nbl_disp_chan_get_eth_id_resp,
++				      disp_mgt);
++	if (_ret < 0 && !ret)
++		ret = _ret;
++
++	return ret;
++}
++
+ static void nbl_disp_set_ctrl_bit(struct nbl_dispatch_mgt *disp_mgt, u32 lvl)
+ {
+ 	set_bit(lvl, disp_mgt->ctrl_lvl);
+@@ -26,9 +503,22 @@ static void nbl_disp_refresh_ctrl_ops(struct nbl_dispatch_mgt *disp_mgt)
+ {
+ 	struct nbl_dispatch_ops *disp_ops = disp_mgt->disp_ops_tbl->ops;
+ 
++	memset(disp_ops, 0, sizeof(*disp_ops));
+ 	if (test_bit(NBL_DISP_CTRL_LVL_MGT, disp_mgt->ctrl_lvl)) {
+ 		disp_ops->init_module = nbl_disp_init_module;
+ 		disp_ops->deinit_module = nbl_disp_deinit_module;
++		disp_ops->cfg_msix_map = nbl_disp_cfg_msix_map;
++		disp_ops->destroy_msix_map = nbl_disp_destroy_msix_map;
++		disp_ops->set_mailbox_irq = nbl_disp_set_mailbox_irq;
++		disp_ops->get_vsi_id = nbl_disp_get_vsi_id;
++		disp_ops->get_eth_id = nbl_disp_get_eth_id;
++	} else if (test_bit(NBL_DISP_CTRL_LVL_NET, disp_mgt->ctrl_lvl)) {
++		disp_ops->cfg_msix_map =
++			nbl_disp_chan_cfg_msix_map_req;
++		disp_ops->destroy_msix_map = nbl_disp_chan_destroy_msix_map_req;
++		disp_ops->set_mailbox_irq = nbl_disp_chan_set_mailbox_irq_req;
++		disp_ops->get_vsi_id = nbl_disp_chan_get_vsi_id_req;
++		disp_ops->get_eth_id = nbl_disp_chan_get_eth_id_req;
+ 	}
+ }
+ 
+@@ -94,9 +584,15 @@ int nbl_disp_init(struct nbl_adapter *adapter)
+ 	adapter->core.disp_mgt = disp_mgt;
+ 	adapter->intf.dispatch_ops_tbl = disp_ops_tbl;
+ 
++	ret = nbl_disp_setup_msg(disp_mgt);
++	if (ret)
++		return ret;
++
+ 	if (common->has_ctrl)
+ 		nbl_disp_set_ctrl_bit(disp_mgt, NBL_DISP_CTRL_LVL_MGT);
+ 
++	if (common->has_net)
++		nbl_disp_set_ctrl_bit(disp_mgt, NBL_DISP_CTRL_LVL_NET);
+ 	nbl_disp_refresh_ctrl_ops(disp_mgt);
+ 	return 0;
+ }
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
+index bf971121d..5aa16d4cd 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_channel.h
+@@ -7,6 +7,7 @@
+ #define _NBL_DEF_CHANNEL_H_
+ 
+ #include <linux/types.h>
++#include <linux/build_bug.h>
+ 
+ struct nbl_channel_mgt;
+ struct nbl_adapter;
+@@ -30,6 +31,11 @@ typedef void (*nbl_chan_resp)(void *, u16, u16, void *, u32);
+  */
+ enum nbl_chan_msg_type {
+ 	NBL_CHAN_MSG_ACK = 0,
++	NBL_CHAN_MSG_CONFIGURE_MSIX_MAP = 17,
++	NBL_CHAN_MSG_DESTROY_MSIX_MAP = 18,
++	NBL_CHAN_MSG_MAILBOX_SET_IRQ = 19,
++	NBL_CHAN_MSG_GET_VSI_ID = 21,
++	NBL_CHAN_MSG_GET_ETH_ID = 67,
+ 	/* mailbox msg end */
+ 	NBL_CHAN_MSG_MAILBOX_MAX,
+ };
+@@ -39,6 +45,32 @@ enum nbl_chan_state {
+ 	NBL_CHAN_STATE_NBITS
+ };
+ 
++struct nbl_chan_param_cfg_msix_map {
++	__le16 num_net_msix;
++	__le16 num_others_msix;
++	__le16 msix_mask_en;
++	__le16 rsvd;
++};
++
++struct nbl_chan_param_set_mailbox_irq {
++	__le16 vector_id;
++	u8 en_msix;
++	u8 rsvd;
++};
++
++struct nbl_chan_param_get_vsi_id {
++	__le16 vsi_id;
++	__le16 type;
++};
++
++struct nbl_chan_param_get_eth_id {
++	__le16 vsi_id;
++	u8 eth_num;
++	u8 eth_id;
++	u8 logic_eth_id;
++	u8 rsvd[3];
++};
++
+ struct nbl_board_port_info {
+ 	u8 eth_num;
+ 	u8 eth_speed;
+@@ -46,6 +78,14 @@ struct nbl_board_port_info {
+ 	u8 rsv[5];
+ };
+ 
++static_assert(sizeof(struct nbl_chan_param_cfg_msix_map) == 8,
++	      "nbl_chan_param_cfg_msix_map size must be 8 bytes");
++static_assert(sizeof(struct nbl_chan_param_set_mailbox_irq) == 4,
++	      "nbl_chan_param_set_mailbox_irq size must be 4 bytes");
++static_assert(sizeof(struct nbl_chan_param_get_vsi_id) == 4,
++	      "nbl_chan_param_get_vsi_id size must be 4 bytes");
++static_assert(sizeof(struct nbl_chan_param_get_eth_id) == 8,
++	      "nbl_chan_param_get_eth_id size must be 8 bytes");
+ static_assert(sizeof(struct nbl_board_port_info) == 8,
+ 	      "nbl_board_port_info size must be 8 bytes");
+ 
+diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
+index c90dd4e11..f73d32ec2 100644
+--- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
++++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_include/nbl_def_dispatch.h
+@@ -12,6 +12,7 @@ struct nbl_dispatch_mgt;
+ struct nbl_adapter;
+ enum {
+ 	NBL_DISP_CTRL_LVL_MGT,
++	NBL_DISP_CTRL_LVL_NET,
+ 	NBL_DISP_CTRL_LVL_MAX,
+ };
+ 
+@@ -31,16 +32,54 @@ enum {
+  *               mailbox DMA before calling it.
+  *               Returns void.  Control-PF exclusive, same NULL rule as
+  *               @init_module.
++ * @cfg_msix_map: configure function msix mapping table.  On a non-control
++ *               PF this is an RPC, and the caller must have cleared
++ *               NBL_CHAN_IRQ_RDY and switched the channel to its polling
++ *               send path first: the responder rewrites this function's
++ *               mailbox MSI-X routing, so the ACK cannot depend on the
++ *               interrupt being reprogrammed.
++ * @destroy_msix_map: tear down msix mapping resource.  Same caller
++ *               precondition as @cfg_msix_map.
++ * @set_mailbox_irq: bind mailbox interrupt to specified msix vector.
++ *               Same caller precondition as @cfg_msix_map.
++ * @get_vsi_id: resolve VSI ID by type
++ * @get_eth_id: resolve eth port info from VSI ID
+  *
+  * These callbacks are not dispatch-layer setup/teardown: the dispatch
+- * structures are devm-allocated in nbl_disp_init(), and nbl_disp_remove()
+- * only documents why no explicit teardown is needed. They forward
++ * structures are devm-allocated in nbl_disp_init(), so nbl_disp_remove()
++ * has nothing to undo. The five responders registered by
++ * nbl_disp_setup_msg() live in the channel layer's handler xarray and go
++ * away with it, so they need no explicit unregistration either. Nothing
++ * can enter them until a mailbox queue is running, and a queue must be
++ * torn down before nbl_res_remove_leonis() runs: nbl_chan_teardown_queue()
++ * stops the RX path and nbl_chan_remove_common() frees the handler nodes,
++ * so once the resource layer starts disappearing there is no responder
++ * left that could still be running, or be entered. They forward
+  * chip/firmware control down to the layers below instead: a control-PF
+- * function calls the resource helpers directly.
++ * function calls the resource helpers directly, a non-control function
++ * sends a mailbox request over the channel layer.
++ *
++ * Warning: init_module/deinit_module are control-PF exclusive. The five
++ * resource operations (cfg_msix_map, destroy_msix_map, set_mailbox_irq,
++ * get_vsi_id, get_eth_id) are PF-only and resolve to either a local
++ * resource call (control PF) or a mailbox RPC (non-control PF with
++ * has_net). A function with neither has_ctrl nor has_net leaves these
++ * pointers NULL; callers must not invoke them on such functions. VFs are
++ * rejected by the responders with -EPERM.
+  */
+ struct nbl_dispatch_ops {
+ 	int (*init_module)(struct nbl_dispatch_mgt *disp_mgt);
+ 	void (*deinit_module)(struct nbl_dispatch_mgt *disp_mgt);
++	int (*cfg_msix_map)(struct nbl_dispatch_mgt *disp_mgt,
++			    u16 num_net_msix, u16 num_others_msix,
++			    bool net_msix_mask_en);
++	int (*destroy_msix_map)(struct nbl_dispatch_mgt *disp_mgt);
++	int (*set_mailbox_irq)(struct nbl_dispatch_mgt *disp_mgt,
++			       u16 vector_id, bool en_msix);
++	int (*get_vsi_id)(struct nbl_dispatch_mgt *disp_mgt, u16 type,
++			  u16 *vsi_id);
++	int (*get_eth_id)(struct nbl_dispatch_mgt *disp_mgt, u16 vsi_id,
++			  u8 *eth_num, u8 *eth_id, u8 *logic_eth_id);
+ };
+ 
+ struct nbl_dispatch_ops_tbl {
+-- 
+2.51.0.windows.1
 
