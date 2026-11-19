@@ -1,75 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084832;
-	b=BO3TMQFtoNQ+abxwE6vcK07eaVOkuWhzBfr6nX3jQxPY17Eg/dNH1Kj/iLQayIOj/Jr+
-	 100e6YNPIOGADWB1clMlq1mmG2Ks5jbIvudlymf/cN6XjlT8ruC87farZRKMTBouUrJKY
-	 D8xmYq6FLlxT3dixonIsBX/YTrddnjaKvoWB2bJ0PgMj2lKDnQ5So2VUHN5jGosml5do+
-	 iuVci5QLhkr2lypztfwtaiXkkjfxXD472IQUKY6SWB3qK2lzEGgybXbDAXjsuXrAWp+WA
-	 uXuvtlK4TLX1LddLbKkz5bF25LPxPvQ1iAaTzE9F42iuV3rxSX2J1yoU2+1yKSirsTw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084832;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=RFVNFIjcO3Ulwy6sX7nyHl/0N7duaX0bxilnZGTC340=;
-	b=ZR/Q9I46Fot7L1mgmJemWKtvosU6eWwwilk/gZlJ20b14EmP9002UYeAnXGHVzjbULR5
-	 VdITebL/ZUVG+sco6EaEScgYb4WXV6hhFMma8mwEY9R6ac2I1MjLbzLCMQdg8pKO5Dkb8
-	 cnoet7Pzj09d8G7lzKf700XGJY+mhTY2qXTSqYLAszh+MYrSwA8JPvqKYbQAuLJoOAD2u
-	 03ttGj51QcW17LkKXLW5vYtrX+grq3ZcwcWVnqkIxtl4jIPcsrWyMBvFV7/CtqsyKQuL4
-	 7hW3d3AZBu/AyStpt5uNF1X0kLjvUDBW40R5PLH7HuaQefq+ExMlB84G6Kp1FOoplUA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hML5TMmW;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.5
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795084829;
+	b=4sp8rsSD7hHRlzGnKBQazLZICbKYyRIvLJ4iz5DM9aanLftrfubEIBIGOJURtcB35boV
+	 islfjMXQMN+tqAFF2HfTGUhoVsPy8eQkEJm430VnrXZrtjxj64w1srMT/tP7UCuF2O1/W
+	 Ou8lyrZRYK0S87j0ciTxUzitjxRZxUDRv/wsPxe3U+3YIL3zTBuzxk8p5FvrwgK3OZjYT
+	 rLT9pdWwOUZKN+x/BEjfBPLz1ygHep9HGSa+oVABXt0e4G5JpwHKAqPJhRPcmsiSOP1AG
+	 O3NDLyue+7P8zJmJ4IApZL4nMLO7+DvCuw8dk03Po/o27N3ptvcLbt4RMs5bLY8bKMw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084829;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=COpq7cRLav9KjEn+mpexnGg2szDWNwKA/sO8BBeQSWc=;
+	b=0vvWBv/JYJd15ewOQWeTwZSVoPyudyAkqzEzxMH+pmwIKK+9rY/YNvefF77qupDlwZLb
+	 6Gw1uS3rL4sPH/hyvybxia0M1fkIx0Gmpx5aqoqNn0eAuOdr4JdKYzD71UcBgkPaOkBZ+
+	 sT+v3Jdgk6sq12mgXzNk4h3+kraXf99wbz6+iC4sCTAJNG395vJNVm3fxTBFs31/i6Ow+
+	 ILdgzYXQrbpjrme3dCQE2ViEEKTbCGAkODP/q13T5rVJ5IFDPZgmCFuAb0UC4SguPfe5z
+	 i1YydAEhEPPLxdtySxy5vfYgWcCt4xtEgeRYRCEOF2Fmd5bsL/VH9iqdUtLIEI50K6A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PisEc085;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.5
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012005.outbound.protection.outlook.com [52.101.53.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC9F60A2621;
-	Thu, 19 Nov 2026 10:40:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC9F60A2621
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD5A606A320;
+	Thu, 19 Nov 2026 10:40:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD5A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hML5TMmW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795084832; x=1826620832;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=mPpMjSeIGhMjsSaMwto+FI2cmIsMqJh5ruksgFdlOIY=;
-  b=hML5TMmW5yw3IN6hsMBN0DbdR9dWE+88dKnO2KOjDRafLPfm3mzJpbuk
-   3bJgZb4/0XesD6vU1a14WLGcPCet9U0bN/nroBxMePw9egCQQdTMtHtsq
-   e851SuopOM9nQVXSLcBs+1Xtr1ggYol11YI2ZOvmCWn/8qsRpY6y3gqQD
-   ZhBNlFusFIKi9TWlq1VTkctFi1fshZMi0Qz/SSGKAgRbQlzhJr05bktRC
-   cFl8QYG6Org9DqI1UqL+NL88Hp0UzWPcDpkdQBHDG7QLOVRmGmL4TXrZ/
-   M/mAxnxS8h4eOpi0p+dV+sKuv2pZs9g5nXIr4eZqvm8TKcDfXYQYr6FIZ
-   g==;
-X-CSE-ConnectionGUID: WL8zJLjQRh2lrPtf7skmaA==
-X-CSE-MsgGUID: AjyhEjZCTYa0qD7Xyr5OcA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3967513"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3967513"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:40:32 -0800
-X-CSE-ConnectionGUID: MnAGk6eFQPutZL+Ld+oaiw==
-X-CSE-MsgGUID: rjbvI8TuR+WOcTkIYt0L8Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10737590"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 02:40:29 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 19 Nov 2026 12:40:25 +0200 (EET)
-To: Fuwei Xie <12313607@mail.sustech.edu.cn>
-cc: Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>, erenozen@protonmail.com
-Subject: Re: [RFC PATCH v2 1/2] platform/x86: huawei-wmi: serialize WMI
- retries and validate responses
-In-Reply-To: <B27C5CB9EBA10EE0+20261118161311.17252-2-12313607@mail.sustech.edu.cn>
-Message-ID: <196e894e-6f66-eb2b-765d-8eacee81a979@linux.intel.com>
-References: <20261118161311.17252-1-12313607@mail.sustech.edu.cn> <B27C5CB9EBA10EE0+20261118161311.17252-2-12313607@mail.sustech.edu.cn>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PisEc085
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B5vX34NlM8WJKxcCtu9gFwWoMGvV9VQpVaEhecfn0Bpl8A8QpSJgJoXj5k733ILMmFlPzPBkmmx/a9PYxD7gUJRDAUC4jFCQYrnQIxVwId5WyWBb6Xjqf+G0JDKbuAnYeYenG70ullgaCkrHqfh/AccoK/ToBJHn3RXsOLemeCw+h3NHN3xVMhuTRoptK+9PcKWscSpC7GW9uakCxScBXEyEQ0Irah1RqW0nXfdaCOMmJvf0ugbKMLxAWSfh1rtFiOn+CgSdjYlYKCsYajj08jrGS2Hc7fPSeN2DCDvEaFNNYHH9+ABGW3enqLORXvAkPyCNetOP1gvaXEqagA6VtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=COpq7cRLav9KjEn+mpexnGg2szDWNwKA/sO8BBeQSWc=;
+ b=d59PCzeU/6YOTtAGoIUs1PkEbkAfJDDVpRMSqzAi7NIYk8lwhBM9JjjEVGPfR4HBetL4dkX7bzvssaT/EaqW15566gBp962gtduvAPgdLn0iBzvCE6CZoxED65yBDql0x8iDRGEAPyl8L3wmIoZoHlcylODaZVeZKXvlMH76IS6ax3OacTHQfbthF0g2xA+JRdx+YR1xvY/akyVqVuOffrQGOTo7N7N13DDfO93mOnzS5mO09FJQJ2LDL0ZRXVX5m5ijMcRy+G9QmmJcyjffw74o6Mg2q3Xf3B9glxCIvcDkTuTkW8WzdP97W2U7YizSNQZNrRGkeEa4ScDiVz3NYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=COpq7cRLav9KjEn+mpexnGg2szDWNwKA/sO8BBeQSWc=;
+ b=PisEc085NczFLNYnA3w+1iwQmLvL7QZQBFJ3CqtY92oCsm2KUYENu6ndifn3uDkFLb19DMozXddKW6PXMGEqQRIDC+Sn/iF+v4XDD9gOinRkUnHqtBHVKbPYcfzftRuQTVPDUSOHvBuk89M3PBVYMt8PLyVt0pKgVgiZx6z6ilDsKtJlI3G34C4ke34QrOwBjscbKDpCXXHg18iWupjQ6mn4K+dMxus8G/6X20Iqk6CvTdsHHHZ0iGGJfVu+6m8ODZ3/iT1WCHCMMDm6M2N6HuMnU65Yzw9tpPYcMQSNoZfviSI8J7CQsk9HxShT6CrpSvipAhpHoT6RQ0vw4BRW9Q==
+Received: from PH7PR17CA0067.namprd17.prod.outlook.com (2603:10b6:510:325::13)
+ by IA6PR12MB074433.namprd12.prod.outlook.com (2603:10b6:208:5fc::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
+ 2026 10:40:25 +0000
+Received: from PH1PEPF00062F26.namprd02.prod.outlook.com
+ (2603:10b6:510:325:cafe::85) by PH7PR17CA0067.outlook.office365.com
+ (2603:10b6:510:325::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Thu,
+ 19 Nov 2026 10:40:23 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ PH1PEPF00062F26.mail.protection.outlook.com (10.167.243.55) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 10:40:23 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 02:40:08 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Thu, 19 Nov
+ 2026 02:40:07 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server id 15.2.2562.56 via Frontend Transport; Thu, 19
+ Nov 2026 02:40:01 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Alexei Starovoitov <ast@kernel.org>, <bpf@vger.kernel.org>, "Carolina
+ Jubran" <cjubran@nvidia.com>, Cosmin Ratiu <cratiu@nvidia.com>, "Daniel
+ Borkmann" <daniel@iogearbox.net>, Dragos Tatulea <dtatulea@nvidia.com>, "Gal
+ Pressman" <gal@nvidia.com>, Jesper Dangaard Brouer <hawk@kernel.org>, "John
+ Fastabend" <john.fastabend@gmail.com>, Kees Cook <kees+treewide@kernel.org>,
+	Leon Romanovsky <leon@kernel.org>, open list <linux-kernel@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, Li RongQing <lirongqing@baidu.com>, Mark Bloch
+	<mbloch@nvidia.com>, Richard Cochran <richardcochran@gmail.com>, "Saeed
+ Mahameed" <saeedm@nvidia.com>, Stanislav Fomichev <sdf@fomichev.me>, "Tariq
+ Toukan" <tariqt@nvidia.com>
+Subject: [PATCH net-next V3 2/2] net/mlx5e: Batch ICOSQ trigger RCU synchronization
+Date: Thu, 19 Nov 2026 12:39:35 +0200
+Message-ID: <20261119103935.2190627-3-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
+In-Reply-To: <20261119103935.2190627-1-tariqt@nvidia.com>
+References: <20261119103935.2190627-1-tariqt@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,247 +125,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH1PEPF00062F26:EE_|IA6PR12MB074433:EE_
+X-MS-Office365-Filtering-Correlation-Id: a18f14fa-7018-44c3-0786-08df4629840d
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|36860700016|1800799024|82310400026|23010399003|10067099003|56012099006|11063799006|261021121427099003|261021123027099003|261009223027099003|261102123227099003|261022075727099003|261022105027099003|261022113327099003|261026140227099003|261028144727099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	qPnoeGop00WJMTyIQmGUcGVldAywfMRA21F4E0KMtirrWaRf2GSHfvmwdWcdNqY2w1FTAJOSdkb5pGlXq/nYTs8CMpS+ckyK58k5mS/H9VhnjY/Vgty5DD8OjBCVtZdnjz5iF9P9PGs38ANoii6psEhh8fz68RnGFsMrcpoZgB6Vs5nhouXcqW3N3pQs01VcdZk6A+u8+1ldUAiZcZDf16mKqDN5RD6EWzE7KbaW8GEVuEcYRVssJJVOO8BpuoVJeJpXf2fpJR0O8NEZXENysxuUH61C0i9ClwPrt4TAyq+RlBi43ihM1WqiY0lAkXfTGepbpHiFW+tESO1K0d/98bgmplVmHBRKP7rAOTfisPtKBYtNe1mopJfJcxLK2wLK3Q8ssQ/0z3HL3DjB4X+B+LopQse0h/EvV8rnehpcFQ6lnHdkpsa8/fzjUp8qZ1YE6aeJIU0jsTER7NyBgop7TveNDIkrPU2mg8+qRD/EMuQ5ljmw+lSr04cFl4Hs33SbRRBwtZ0dQGekFG4gJg70YeNblA8DeK8WLHIRnay+6JwdEuGORHUDtiDxGmy8uGJyqeEQOfLbbcmw7sZhiQVjMuGhWxZU10ZKC2BDJz7lnL4RwturGOZkgm1ExxzEeK5ZDLYoTa7tLqh+SvNjD2cNi9b/6WmBpPe8mktABgvIQGgtVxnc5+XvdNtggL+lGON8uqll69PolWYwRDzjKo1Oxg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(1800799024)(82310400026)(23010399003)(10067099003)(56012099006)(11063799006)(261021121427099003)(261021123027099003)(261009223027099003)(261102123227099003)(261022075727099003)(261022105027099003)(261022113327099003)(261026140227099003)(261028144727099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	jWwY1oA9YE94qCzga1Lu7Kch7ahRDnoCq86gvMIeO9AY2m8t9uG4iDQlJbnp0he0WzD2VUHtQYQ6iFsh5YSEPcsmndhgFBmB0FC9pZI6oR9aey2YANPgGDK4eLwDWWvK35DlvZmbWuu7w5WEnNpFEMcCbYRZ5t3Ev6lKsvIEO2YxQkmDJx/0nF1YxBSqDtS4O/JI+NEwh1AwfnYXkWWmLral5au2NLsktWCJ8MYGYk/XR6PZxbkWLohNrkHTHunL0DNlKmu6+bUTktG0JhDjy4VK9X5AlQIrxZyE8VkFsk0IjzeYbXw9VSU0VWFIgSAVJfOqbM/iFhkzDtCHTR3EgHYXoCratV1o5Gj+YtnpoaGmQPp7ChxpoMapQI5R86Q4GP2ukQYl6AZw47UWqIhL13izSfvM9G7I5kNjqJ8Ohw0GGClBTBFlwrIppGpHa/sq
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 10:40:23.1986
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a18f14fa-7018-44c3-0786-08df4629840d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	PH1PEPF00062F26.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA6PR12MB074433
 
-On Thu, 19 Nov 2026, Fuwei Xie wrote:
+From: Carolina Jubran <cjubran@nvidia.com>
 
-> Serialize the two-call firmware handshake and release the first
-> ACPI allocation before retrying. Check the response shape before
-> reading the firmware status.
-> 
-> Accept short package payloads for Fn lock and battery thresholds
-> when they contain the required fields. Zero-fill the rest of the
-> destination so the legacy parsers can scan their buffers safely.
-> 
-> Signed-off-by: Fuwei Xie <12313607@mail.sustech.edu.cn>
-> ---
->  drivers/platform/x86/huawei-wmi.c | 144 ++++++++++++++++--------------
->  1 file changed, 75 insertions(+), 69 deletions(-)
-> 
-> diff --git a/drivers/platform/x86/huawei-wmi.c b/drivers/platform/x86/huawei-wmi.c
-> index 96ee9a97c..9894424e7 100644
-> --- a/drivers/platform/x86/huawei-wmi.c
-> +++ b/drivers/platform/x86/huawei-wmi.c
-> @@ -150,14 +150,12 @@ static const struct dmi_system_id huawei_quirks[] = {
->  
->  /* Utils */
->  
-> -static int huawei_wmi_call(struct huawei_wmi *huawei,
-> -			   struct acpi_buffer *in, struct acpi_buffer *out)
-> +static int __huawei_wmi_call(struct huawei_wmi *huawei,
-> +			     struct acpi_buffer *in, struct acpi_buffer *out)
->  {
->  	acpi_status status;
->  
-> -	mutex_lock(&huawei->wmi_lock);
->  	status = wmi_evaluate_method(HWMI_METHOD_GUID, 0, 1, in, out);
-> -	mutex_unlock(&huawei->wmi_lock);
->  	if (ACPI_FAILURE(status)) {
->  		dev_err(huawei->dev, "Failed to evaluate wmi method\n");
->  		return -ENODEV;
-> @@ -166,98 +164,106 @@ static int huawei_wmi_call(struct huawei_wmi *huawei,
->  	return 0;
->  }
->  
-> -/* HWMI takes a 64 bit input and returns either a package with 2 buffers, one of
-> - * 4 bytes and the other of 256 bytes, or one buffer of size 0x104 (260) bytes.
-> - * The first 4 bytes are ignored, we ignore the first 4 bytes buffer if we got a
-> - * package, or skip the first 4 if a buffer of 0x104 is used. The first byte of
-> - * the remaining 0x100 sized buffer has the return status of every call. In case
-> - * the return status is non-zero, we return -ENODEV but still copy the returned
-> - * buffer to the given buffer parameter (buf).
-> +static int huawei_wmi_call(struct huawei_wmi *huawei,
-> +			   struct acpi_buffer *in, struct acpi_buffer *out)
-> +{
-> +	int ret;
-> +
-> +	mutex_lock(&huawei->wmi_lock);
-> +	ret = __huawei_wmi_call(huawei, in, out);
+During channel activation, mlx5e_activate_channels() triggers the ICOSQ
+once for every channel in order to kick NAPI. mlx5e_trigger_napi_icosq()
+sets MLX5E_SQ_STATE_LOCK_NEEDED and waits for an RCU grace period before
+serializing the trigger with ICOSQ users in NAPI context.
 
-Use guard and direct return.
+Mark all channel ICOSQs as requiring locking first, wait for a single
+grace period, and then trigger all of them.
 
-> +	mutex_unlock(&huawei->wmi_lock);
-> +	return ret;
-> +}
-> +
-> +/* Return a borrowed payload without modifying the ACPI allocation. */
-> +static int huawei_wmi_response(const union acpi_object *obj,
-> +			       const u8 **data, size_t *len)
-> +{
-> +	if (!obj)
-> +		return -EIO;
-> +
-> +	if (obj->type == ACPI_TYPE_BUFFER) {
-> +		if (obj->buffer.length != 0x104 || !obj->buffer.pointer)
-> +			return -EIO;
-> +		*data = obj->buffer.pointer + 4;
-> +		*len = 0x100;
-> +	} else if (obj->type == ACPI_TYPE_PACKAGE) {
-> +		if (obj->package.count != 2 || !obj->package.elements)
-> +			return -EIO;
-> +		obj = &obj->package.elements[1];
-> +		if (obj->type != ACPI_TYPE_BUFFER || !obj->buffer.length ||
-> +		    !obj->buffer.pointer)
-> +			return -EIO;
-> +		*data = obj->buffer.pointer;
-> +		*len = obj->buffer.length;
-> +	} else {
-> +		return -EIO;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * The payload starts with the firmware status byte. Legacy variable-length
-> + * replies may omit trailing zeroes. Require the fields used by the caller
-> + * and zero-fill any unused part of its destination.
->   */
-> -static int huawei_wmi_cmd(u64 arg, u8 *buf, size_t buflen)
-> +static int huawei_wmi_cmd_min(u64 arg, u8 *buf, size_t buflen, size_t minlen)
+Keep mlx5e_trigger_napi_icosq() with its existing synchronization
+semantics for standalone callers.
 
-The new WMI API provides min_size functionality so this driver should be 
-converted to that instead.
+248 channels, rcu_normal=1, ip link set eth2 up:
+Before: 4.087s
+After:  1.080s (~3.8x faster) 
 
->  {
->  	struct huawei_wmi *huawei = huawei_wmi;
->  	struct acpi_buffer out = { ACPI_ALLOCATE_BUFFER, NULL };
->  	struct acpi_buffer in;
-> -	union acpi_object *obj;
-> +	const u8 *data;
->  	size_t len;
->  	int err, i;
->  
->  	in.length = sizeof(arg);
->  	in.pointer = &arg;
-> +	/* Keep both halves of the firmware handshake in one transaction. */
-> +	mutex_lock(&huawei->wmi_lock);
+Signed-off-by: Carolina Jubran <cjubran@nvidia.com>
+Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
+---
+ .../net/ethernet/mellanox/mlx5/core/en_main.c | 28 +++++++++++++++----
+ 1 file changed, 22 insertions(+), 6 deletions(-)
 
-guard()
-
-You should also convert the kfree() in another patch before this to use 
-__free().
-
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
+index 65e86b4cef85..e599968d06d7 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
+@@ -2799,14 +2799,11 @@ static int mlx5e_channel_stats_alloc(struct mlx5e_priv *priv, int ix, int cpu)
+ 	return 0;
+ }
+ 
+-void mlx5e_trigger_napi_icosq(struct mlx5e_channel *c)
++static void mlx5e_trigger_napi_icosq_post_sync(struct mlx5e_channel *c)
+ {
+ 	struct mlx5e_icosq *sq = &c->icosq;
+ 	bool locked;
+ 
+-	set_bit(MLX5E_SQ_STATE_LOCK_NEEDED, &sq->state);
+-	synchronize_net();
+-
+ 	locked = mlx5e_icosq_sync_lock(sq);
+ 	mlx5e_trigger_irq(sq);
+ 	mlx5e_icosq_sync_unlock(sq, locked);
+@@ -2814,6 +2811,13 @@ void mlx5e_trigger_napi_icosq(struct mlx5e_channel *c)
+ 	clear_bit(MLX5E_SQ_STATE_LOCK_NEEDED, &sq->state);
+ }
+ 
++void mlx5e_trigger_napi_icosq(struct mlx5e_channel *c)
++{
++	set_bit(MLX5E_SQ_STATE_LOCK_NEEDED, &c->icosq.state);
++	synchronize_net();
++	mlx5e_trigger_napi_icosq_post_sync(c);
++}
++
+ void mlx5e_trigger_napi_async_icosq(struct mlx5e_channel *c)
+ {
+ 	struct mlx5e_icosq *sq = c->async_icosq;
+@@ -3057,6 +3061,19 @@ int mlx5e_open_channels(struct mlx5e_priv *priv,
+ 	return err;
+ }
+ 
++static void mlx5e_trigger_napi_icosqs(struct mlx5e_channels *chs)
++{
++	int i;
++
++	for (i = 0; i < chs->num; i++)
++		set_bit(MLX5E_SQ_STATE_LOCK_NEEDED, &chs->c[i]->icosq.state);
++
++	synchronize_net();
++
++	for (i = 0; i < chs->num; i++)
++		mlx5e_trigger_napi_icosq_post_sync(chs->c[i]);
++}
++
+ static void mlx5e_activate_channels(struct mlx5e_priv *priv, struct mlx5e_channels *chs)
+ {
+ 	int i;
+@@ -3067,8 +3084,7 @@ static void mlx5e_activate_channels(struct mlx5e_priv *priv, struct mlx5e_channe
+ 	if (priv->htb)
+ 		mlx5e_qos_activate_queues(priv);
+ 
+-	for (i = 0; i < chs->num; i++)
+-		mlx5e_trigger_napi_icosq(chs->c[i]);
++	mlx5e_trigger_napi_icosqs(chs);
+ 
+ 	if (chs->ptp)
+ 		mlx5e_ptp_activate_channel(chs->ptp);
 -- 
- i.
+2.44.0
 
-
->  
->  	/* Some models require calling HWMI twice to execute a command. We evaluate
->  	 * HWMI and if we get a non-zero return status we evaluate it again.
->  	 */
->  	for (i = 0; i < 2; i++) {
-> -		err = huawei_wmi_call(huawei, &in, &out);
-> +		out.length = ACPI_ALLOCATE_BUFFER;
-> +		out.pointer = NULL;
-> +		err = __huawei_wmi_call(huawei, &in, &out);
->  		if (err)
->  			goto fail_cmd;
->  
-> -		obj = out.pointer;
-> -		if (!obj) {
-> -			err = -EIO;
-> +		err = huawei_wmi_response(out.pointer, &data, &len);
-> +		if (err)
->  			goto fail_cmd;
-> -		}
-> -
-> -		switch (obj->type) {
-> -		/* Models that implement both "legacy" and HWMI tend to return a 0x104
-> -		 * sized buffer instead of a package of 0x4 and 0x100 buffers.
-> -		 */
-> -		case ACPI_TYPE_BUFFER:
-> -			if (obj->buffer.length == 0x104) {
-> -				// Skip the first 4 bytes.
-> -				obj->buffer.pointer += 4;
-> -				len = 0x100;
-> -			} else {
-> -				dev_err(huawei->dev, "Bad buffer length, got %d\n", obj->buffer.length);
-> -				err = -EIO;
-> -				goto fail_cmd;
-> -			}
-> -
-> -			break;
-> -		/* HWMI returns a package with 2 buffer elements, one of 4 bytes and the
-> -		 * other is 256 bytes.
-> -		 */
-> -		case ACPI_TYPE_PACKAGE:
-> -			if (obj->package.count != 2) {
-> -				dev_err(huawei->dev, "Bad package count, got %d\n", obj->package.count);
-> -				err = -EIO;
-> -				goto fail_cmd;
-> -			}
-> -
-> -			obj = &obj->package.elements[1];
-> -			if (obj->type != ACPI_TYPE_BUFFER) {
-> -				dev_err(huawei->dev, "Bad package element type, got %d\n", obj->type);
-> -				err = -EIO;
-> -				goto fail_cmd;
-> +		if (!data[0] || i == 1) {
-> +			err = data[0] ? -ENODEV : 0;
-> +			if (buf) {
-> +				if (len < minlen) {
-> +					if (!err)
-> +						err = -ENODATA;
-> +					goto fail_cmd;
-> +				}
-> +				len = min(len, buflen);
-> +				memcpy(buf, data, len);
-> +				memset(buf + len, 0, buflen - len);
->  			}
-> -			len = obj->buffer.length;
-> -
-> -			break;
-> -		/* Shouldn't get here! */
-> -		default:
-> -			dev_err(huawei->dev, "Unexpected obj type, got: %d\n", obj->type);
-> -			err = -EIO;
->  			goto fail_cmd;
->  		}
-> -
-> -		if (!*obj->buffer.pointer)
-> -			break;
-> -	}
-> -
-> -	err = (*obj->buffer.pointer) ? -ENODEV : 0;
-> -
-> -	if (buf) {
-> -		len = min(buflen, len);
-> -		memcpy(buf, obj->buffer.pointer, len);
-> +		kfree(out.pointer);
-> +		out.pointer = NULL;
->  	}
->  
->  fail_cmd:
->  	kfree(out.pointer);
-> +	mutex_unlock(&huawei->wmi_lock);
->  	return err;
->  }
->  
-> +static int huawei_wmi_cmd(u64 arg, u8 *buf, size_t buflen)
-> +{
-> +	return huawei_wmi_cmd_min(arg, buf, buflen, buflen);
-> +}
-> +
->  /* LEDs */
->  
->  static int huawei_wmi_micmute_led_set(struct led_classdev *led_cdev,
-> @@ -329,7 +335,7 @@ static int huawei_wmi_battery_get(int *start, int *end)
->  	u8 ret[0x100];
->  	int err, i;
->  
-> -	err = huawei_wmi_cmd(BATTERY_THRESH_GET, ret, sizeof(ret));
-> +	err = huawei_wmi_cmd_min(BATTERY_THRESH_GET, ret, sizeof(ret), 3);
->  	if (err)
->  		return err;
->  
-> @@ -627,7 +633,7 @@ static int huawei_wmi_fn_lock_get(int *on)
->  		return huawei_acpi_fn_lock_get(on);
->  
->  	/* WMI fallback */
-> -	err = huawei_wmi_cmd(FN_LOCK_GET, ret, 0x100);
-> +	err = huawei_wmi_cmd_min(FN_LOCK_GET, ret, sizeof(ret), 2);
->  	if (err)
->  		return err;
->  
-> 
