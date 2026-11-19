@@ -1,40 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.208.23.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795075833;
-	b=W24vO+cQXWG3F2pkIpXKqbsoxpJDdFgT8wQ31E59KcUuZqwn1PGvPLTzcmWM3x2OpAfP
-	 QlgPYmZ58flVisQs+eDEhKUtuIC0jz2Nnmhf9vTF4DY3vPttL90IHW3R4+TywfjvgaD2B
-	 QT6VBWCbg/JRBQZ/TceOAE+FaFBIwpjNLXyiFKD7ktC1Z0BXDd57NqUCnNo2bYcubewC+
-	 XR9wBsiMUd/hSaKveEilMjtEJTKkx5oHcI2MmhZHfsCqjyawiDGdW9rCJtT6N9kawy9af
-	 +PswTYVSbQHDDxB1mgZzNpb2ed0oy7UNyEAcrebRjBLPFck+sj68dULDSkQ7QjM45ww==
+	t=1795075877;
+	b=RXMS1QT65Q08WzHhHhTVFlN09PiFnQ/LjhTlp+jN9SXTfhY0byA8Hd9mD9AUM69hWSIl
+	 jOKdR1XYEdXix5HMYmebUZ2MjlVvsp3hX8SElyBfrgSnWgvXu8i3IHhVz5hSRe9f9sQl0
+	 P+tqmRA3pWDBsh/drsgKrRjDgCSL0J7POh8fn3lmXn0rS1r4ySrOVWhW6Bd2jKi2ZgCrx
+	 oxv3hvK+gY29v2OAUaDDJanm/s4Nuhqcw/FS+zzN2lC++T6poF4FSsWN+iB/w52qrOqju
+	 T86ZGgi02yGO4Pqq8v4JJ7yu53Sy4wonx8/Y9NDtCoygw14VzjpZ8n/qJ1aKU2iLeYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075833;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=hLIgpPpNifxroAGHqKnhuHsCnWDYPBM6z877fYZHXYQ=;
-	b=Gc6ea6f7ksxuoouwl5pQMTBaHaYy3t4iV/c3JbaGEa1+wFkgU87SDvxJIfaAGBAFJlfr
-	 hsCUjZ6snej6mqQvQVXHW/gaEWflJyY23QbTmgF3x4M3uqyuMdoDZNQZMeGxJaPR2PYXl
-	 3E5zRItFIkgMMUUdwpxl7pQQas0hXjnr1ng9I9CFKZBY5la5hUjgSrCP/RB7G88B8axpT
-	 jOpWzQH95BHMbfw1RWmF4oH5ocEd6Qxr1qdXIeWyjRM0Cbv1QzB8KkFQgNuMZFxo6lmZb
-	 vaZfqImcJW/4rTi1MF3owrZlOqrRw2yWWo++4w8OR5Y5I/yrq8mCLAsaUdXluv6TQBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075877;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=K0w6PkVxkXL/Xi4LQWFqwmMKxwRSK2toKIJ5FNqLRfQ=;
+	b=n2EJSdUwYhVo6X/J+5av8FDP4y7xaj1sXN7unwZMEHK3wYz2zFQxVyD0JL0O9wNDSJy0
+	 Aqed1RuBKWyVvVQ6vvyF+Hy5838zZ/aZaxBX7Xz/5H3kO9iFeueied5gawQ990EZ8EU3M
+	 GGd1JXtJhWs5p8E8eZuhFcUKrZW6fgkjbhSnTSkEF8btUdAOjvvuFT3MEfyWRe97rhLQQ
+	 PZgUDEhIsF0osXgxIP3gF8lW7jT77hFZWnqpizGOGpDPA7BTaIZdpVlMzIffGVmltXBtZ
+	 pVJ8YUBEl1zAAOdylYrzYbhPVHYpUF2BXpwrhxoH6kgVvsHvzI88JzQX61Y+jhjRG4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=emfend.at;
-	spf=fail smtp.mailfrom=emfend.at;
-	arc=none smtp.remote-ip=194.208.23.37
-Received: from rmisp-mx-out2.tele.net (rmisp-mx-out2.tele.net [194.208.23.37])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=LcEPjWCr;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E550B606A320;
-	Thu, 19 Nov 2026 08:10:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E550B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=emfend.at
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=emfend.at
-Received: from [192.168.0.207] (194-208-226-106.tele.net [194.208.226.106])
-	by rmisp-mx-out2.tele.net (Postfix) with ESMTPA id 8D1AF154803;
-	Thu, 19 Nov 2026 09:10:25 +0100 (CET)
-Message-ID: <bd02afca-4136-4639-b6c3-40765cdada73@emfend.at>
-Date: Thu, 19 Nov 2026 09:10:25 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAB80606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:11:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAB80606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=LcEPjWCr
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a5177d78c7so16685425e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:11:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795075874; x=1795680674; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=K0w6PkVxkXL/Xi4LQWFqwmMKxwRSK2toKIJ5FNqLRfQ=;
+        b=LcEPjWCrO0y4SAy1MDddWs6Qw5Eq/jxNqjXdJnCuw5GugceTyPYuLmPQdYLzxMvd2O
+         oakdhu48o40QMt/QKgQ72HtVKfcd46YN3YhqeAoGIgScnwq6hlP+2cK60xjbB/VB5/AD
+         itqVUUJZNjminTWNE8+S02wFGQkYlvN0EAI9l+f8o58WByEVRSQRK5v+IjqDBZBbaAYK
+         NrJ1/7VEZVbQCXUa2GTbeaAyAvpqrjDMj+K7Pty3Nzw2ukhNuNZU6jgy9HFfal/xTfkp
+         NQ8pJ/hCRCzAJ4zJN0fz1FTIwuGweYwvvJKDQ8dTUbQSnKr5dm2PsjKaqwciIDFXbDo6
+         wqjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795075874; x=1795680674;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=K0w6PkVxkXL/Xi4LQWFqwmMKxwRSK2toKIJ5FNqLRfQ=;
+        b=PYHstK6jm1htw0xx9Nd4PY7ikMMiXlmvlFgAcAoX0jTNFOAF4AKSEQvrpdp5J+b4oO
+         bxWm/z+p8G1ENhd3gxOcI/m29Vqe3oEN/V88ActkYO+bzOPPfqIiMjuH2ZPSmSd4EjJB
+         D1MfqX8wtMTw/91OSdAhoNUp/uZYnqTxjWSk84J9b31n/RAf/DGBbWwjLTCmixcmgw9F
+         HqpEhcu+nBUijpMSLc9jA5t52vQZ7aaqIie1ZbTOWrd6OMT0RuGFSrh7AZ2xCh31Ea5w
+         76RWGJaj3h9DgqkPaqHRe5A1zNcmO1sIvCNHJOzONoyzQ1tV1qGzM9Ffq7XwcXqd5tEA
+         rxRA==
+X-Forwarded-Encrypted: i=1; AL+hErEWuF0d2GWK/qqvd/P1hJSJQ/JyLO2IlxL6AyofFaa+erHSDgsAWhNi/UNS3qqQliFmxaWybzJdhCR5Db4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++yRk2jFPCdxXxgNqunR6tce8xUQMKgOAPpWhmijWixvIkT6Ge
+	qnC+sK2wOlBFwhUAku/nKS+zwj44qJ/oc0aHX/CKTSngsw5YcZ06if0ZhPrLAcBOP7E=
+X-Gm-Gg: AYBFou0lN7goosC57uucnXJV9etRjHguMOrChjiBNDq7vh1QOI1PEocxr8WhDvxpbqE
+	Z3WN7WFsG3//N7R4dL2jMXlHHXmpiZ6xmzQWZ3N1XhxEK0VyRTWMk95hzNvpmVgree7Iw/IoETa
+	bbzMdJ8oRrMbBZGlFDu3hsw0sW0CzJtxHfDJqSdHVnff+CFZVOmpSUDNM80J/R0+ulFrpPxGoPy
+	+oUfD8HPmhU0eCFM0M3KFaZuAvRLsruHOgYYWjDDtLrMv/r256AR8xTPDcnmxXUKPwLzUwyhbWF
+	RFUFXBftkOydp7qf1PWeNfrn7zJ5YC58yBMtH6P+XMgTcHgaaj33ZBoojUbtEpupm2gFffabLMs
+	YJVYPnaqRyicQ2qKJJ+Pqsird5uH8SsrmMGvZoeoL3wRmIbGWONOsZ/WAx7CX7qMB4tyH51dUH0
+	FhebnzfqlTJhhgt6CKILb1aKNIN7x+N3cYq5J29OvMPx5Fhs6yzFgB35Q9gkebjRC7/ak0oBWr1
+	AwC/LS56w3HPBco42lGwBGLeF8W7RAOoDAz46WWL4tNUS9N23yWihGZl6hRJlIHQPksnLSfFpV7
+	RTwF4Dh9yV17az0WyjaHQuSWxQgcTz3aCsati9gJOin2snXJALpyTS2umP/lwAL1/JgBYA==
+X-Received: by 2002:a05:600c:6095:b0:4a2:c2b:a91b with SMTP id 5b1f17b1804b1-4bb7da03b45mr88477785e9.10.1795075874056;
+        Thu, 19 Nov 2026 00:11:14 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85343607sm21511305e9.6.2026.11.19.00.11.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 00:11:13 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -44,63 +89,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] leds: tps6131x: clear torch brightness cache on flash
- takeover
-To: jiegu <jie.gu@leica-geosystems.com>, Lee Jones <lee@kernel.org>,
- Pavel Machek <pavel@kernel.org>
-Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org,
- gujie <jie.gu@leica-geosystems.com.cn>
-References: <20261117064328.4096518-1-jie.gu@leica-geosystems.com>
- <20261117064328.4096518-3-jie.gu@leica-geosystems.com>
-Content-Language: de-DE
-From: Matthias Fend <matthias.fend@emfend.at>
-In-Reply-To: <20261117064328.4096518-3-jie.gu@leica-geosystems.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 5/7] clk: amlogic: Add S7 PLL clock controller driver
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Carlo Caione <ccaione@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jian Hu <jian.hu@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <av2kitSLJNxlAKiv@macbook.homenet.telecomitalia.it>
+References: <20261106-upstream-s7-clk-v1-0-7d501d62621f@baylibre.com>
+ <20261106-upstream-s7-clk-v1-5-7d501d62621f@baylibre.com>
+ <179499607256.413320.18141155995846183804.b4-review@b4>
+ <av2kitSLJNxlAKiv@macbook.homenet.telecomitalia.it>
+Date: Thu, 19 Nov 2026 09:11:12 +0100
+Message-Id: <179507587229.639563.16969059581009770947.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3952; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=S/MfAZNg1Wj0rP92aDgSVxBVGdkD8yDNkTKcT4QFMoE=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFn/1iu8i1iwfEKNoRkvi4zy/bIXjwRtU6/s8V0fuO3VT
+ TWRBxHXO0pZGMS4GGTFFFlquKvF30lqfZk1Xec2zBxWJpAhDFycAjAR7z8M/2t8bt7abX4m7O3v
+ 3dPPaMWWVe2yjevLrM38W560U2uPUTzDP7Pci74zz3e+mZJ1qb+nmYnXff7OG779u5Xu/7N/fv3
+ 3eT4A
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-Hi Jie,
-
-Am 17.11.2026 um 07:43 schrieb jiegu:
-> From: gujie <jie.gu@leica-geosystems.com.cn>
+On 2026-11-18 19:51 +0100, Carlo Caione wrote:
+> On Wed, Nov 18, 2026 at 11:01:12 +0100, Jerome Brunet wrote:
+> > > The S7 PLL controller provides the fixed PLL with its fclk dividers,
+> > > the GP0, HIFI0 and HIFI1 PLLs, and the HDMI PLL.
+> > > 
+> > > Add a driver for it. The GP0 and HIFI PLLs are expected to run with
+> > > their input divided by 2 (div0p5) and the HDMI PLL without it, as the
+> > > firmware and the init sequences set them up.
+> > > 
+> > > Signed-off-by: Carlo Caione <ccaione@baylibre.com>> > +
 > 
-> When the device switches from torch mode to flash or external strobe
-> mode, the hardware torch output is disabled, but the LED class
-> brightness cache may still keep the previous non-zero torch value.
+> [...]
+> > > +/* The datasheet documents FIXPLL_CTRL1[30:26] as a single fclk_en field */
+> > 
+> > Not sure what this imply ?
 > 
-> This leaves sysfs brightness reporting an enabled torch state even
-> though the light is already off.
+> It means that each of the five bits enables one divider, while the
+> datasheet only documents the five bits as a single field. I'll reword
+> the comment to say that.
 > 
-> Update the cached LED brightness to LED_OFF when flash control takes
-> over so userspace state matches the actual hardware state.
+> > > +S7_FCLK(fclk_div2, 1, 2, FIXPLL_CTRL1, 30);
+> > > +S7_FCLK(fclk_div3, 1, 3, FIXPLL_CTRL1, 26);
+> > > +S7_FCLK(fclk_div4, 1, 4, FIXPLL_CTRL1, 27);
+> > > +S7_FCLK(fclk_div5, 1, 5, FIXPLL_CTRL1, 28);
+> > > +S7_FCLK(fclk_div7, 1, 7, FIXPLL_CTRL1, 29);
+> > > +S7_FCLK(fclk_div2p5, 2, 5, FIXPLL_CTRL0, 25);
+> > > +
+> > > +static const struct pll_mult_range s7_pll_mult_range = {
+> > > +	.min = 134,
+> > > +	.max = 265,
+> > > +};
+> > > +
+> > > +static const struct reg_sequence s7_gp0_pll_init_regs[] = {
+> > > +	{ .reg = GP0PLL_CTRL0,	.def = 0x02520800 },
+> > > +	{ .reg = GP0PLL_CTRL1,	.def = 0x09900322 },
+> > > +	{ .reg = GP0PLL_CTRL2,	.def = 0x00000000 },
+> > > +	{ .reg = GP0PLL_CTRL3,	.def = 0x00000006 },
+> > > +};
+> > > +
+> > > +static struct clk_fixed_factor s7_gp0_pll_div0p5 = {
+> > > +	.mult = 1,
+> > > +	.div = 2,
+> > > +	.hw.init = &(struct clk_init_data) {
+> > > +		.name = "gp0_pll_div0p5",
+> > > +		.ops = &clk_fixed_factor_ops,
+> > > +		.parent_data = &(const struct clk_parent_data) {
+> > > +			.fw_name = "gp0",
+> > > +		},
+> > > +		.num_parents = 1,
+> > > +	},
+> > 
+> > Is it the good old predivider here ? Shouldn't it be modelled with
+> > a read-only divider rather that a fixed factor ? just in case whatever
+> > came before did not leave things as we first expected ?
+> > 
+> > Applies to the other PLL instances
 > 
-> Signed-off-by: gujie <jie.gu@leica-geosystems.com.cn>
-> ---
->   drivers/leds/flash/leds-tps6131x.c | 18 ++++++++++++++++--
->   1 file changed, 16 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/leds/flash/leds-tps6131x.c b/drivers/leds/flash/leds-tps6131x.c
-> index 823e0462939c..4f708cf56178 100644
-> --- a/drivers/leds/flash/leds-tps6131x.c
-> +++ b/drivers/leds/flash/leds-tps6131x.c
-> @@ -294,6 +294,11 @@ static int tps6131x_set_mode(struct tps6131x *tps6131x, enum tps6131x_mode mode,
->   				       NULL, false, force);
->   }
->   
-> +static void tps6131x_sync_torch_brightness_off(struct tps6131x *tps6131x)
-> +{
-> +	tps6131x->fled_cdev.led_cdev.brightness = LED_OFF;
-> +}
+> Nope, not the good old provider, this is separate from N: N is in CTRL0
+> and our init sequence sets it to 1. This is CTRL1[27], div0p5_en.
+>
 
-Nit: I don't think that we need a helper for this one-liner. But also 
-okay for me.
+Humm, still looks very much like it ...
 
-Tested with i.MX8MP-EVK and TPS61310EVM.
+> Now, it was indeed a read-only divider in an earlier (messier and
+> unpublished) version. The problem was that with a cold PLL it could
+> cache the power-on setting (/1) at registration, then the VCO init
+> sequence would enable /2 without updating that cached parent rate
+> basically breaking both rate reporting and set_rate. The fixed factor
+> avoids this mismatch when Linux initializes the PLL.
+>
 
-Reviewed-by: Matthias Fend <matthias.fend@emfend.at>
-Tested-by: Matthias Fend <matthias.fend@emfend.at>
+If the divider is part of the VCO init (which I'm not a fan of),
+this makes sense but it needs a comment near the fixed factor to
+explain how this works on the HW, that you are setting this up
+with the VCO init() otherwise it looks like there is an actual fixed
+divider in front of the VCO no matter what.
 
-Best regards
-  ~Matthias
+> After dropping NOINIT_ENABLED from the HIFI PLLs, the remaining
+> assumption is that an already-running GP0 has div0p5 enabled. That
+> matches the firmware I tested, but the driver does not check it.
+>
 
+If a PLL is going to use NOINIT_ENABLED, then a RO divider is the
+required approach because you no longer control the init.
+
+To get the rate right, we could play a little trick but it would need
+a BIG FAT WARNING comment.
+
+Register VCO first - basically re-order the IDs. .init() runs if the PLL is
+disabled or if it does not have NOINIT_ENABLED. At this point you know the
+predivider is set and the VCO orphaned. Then register the RO divider with
+NOCACHE, it should pick up its correct rate.
+
+It is a bit fragile but safer and more correct that the fixed_factor
+approach IMO.
+
+-- 
+Jerome
 
