@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117430;
-	b=oNW/I4EEa7/ZqC2+l/eqb4DJvyPluBeyAmalQoFQk4CrVgAlmIcExiQb0+qir+UiJQY/
-	 QlAEw0Jx4ZnChf6YEB8vyUIayOf6quq165ZIo6a66gv3PFJAG4NrHOzJ35QNVL4fISha8
-	 34Lunp2iRR1eSASSr2rUF2GSGT6sICkV33d2oibMcIcamjOHyyqRYBEkfB64dmZiZiNpA
-	 QN36FTrV28iG9DkuHp6gyPWtpM+33AaafmSVjXqSK4DYAaAfc5NPwD1uw+cdNmQoj0ZOd
-	 SIXSw3QcVu9FUSF+WAi0HhxJShYL8G2nOokyCQxZOTGtZCL7Gal+qJUuqU0QWXQsVbQ==
+	t=1795117426;
+	b=ptk/JoxMy37B6MbPSu04a+OFNj2H36VtFJclM3Zcytinl6ofSPVPov6j4+hSDMla8qFi
+	 3w7SPGuxUhXoXYHaCVBBh9FCQMHeihaTK4es9M7YV+3MBSWE4VBA9SCz/1kgSJlvV7y6G
+	 934VaAihfDlYmTv1r37HqpBEo//ikTVX4TxfjBsKS3UBohLtYMrqJuRTiMBSyDNJnlyMp
+	 9qqw2FtyL9G7yV1WsuWabzmDcZgrQjFZ7T4uEswd5wJSLXCGQ0FvFKvCm1upOBK32xL0u
+	 Mlc3REBt4hG/3MyKPGwAqKX41AJbHscM/EYEejJ0705t3ZFnMSz4UQrjNsJ7E6+mlNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117430;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=090F43O6xwbTXOOBTz6I2219/meRL0E1+FYz/xdX8XU=;
-	b=d5CLmPLiOhA9g+Y6ppPl/OIu9DKEVjfYSYePSF7kcdtwGObdMXzaqchVveXrz5J4fKbs
-	 YSKejzPZNN9kEElMlMisjcON+sxF1eiUATsO6pd5fY8zThYxXhKvKglWx/sGwHL0EZrJb
-	 s4nQKhdYdJ8yFRswmTTYA4i5q3zOjTc0O5oX2jx9pMOUS0As1hQ2sL71zJHeW6R8aEH+v
-	 8S/gGEAwxux2THtqmnMhhDgqD0NzEoVkubzzyYqSL6A6TA+EaxcfLN6FEaCpotgVuB99/
-	 LwGgAIvPc6miWHZBJ3UhwTiaTiBGQSy1XFVPMKaScOOYRycJiBCGtXo3wbEwvl3DZkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117426;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qBLuacBYKz/tdxSHVBEHjNWt6ZoFU95vFan68bdG1qo=;
+	b=ahB4ThimEY5YFA6tDk/+Gx48J57Awkuit8i5aIVN0ZtL7dF9GYSVWI/TQ42jlTs4oAM3
+	 F9h7ObDMvYWCzQQhL20gEuVZF4y/+VFYi15+iYqPgOQntbkeuANI/M5Vt9yQWof4dqwqH
+	 sOdhyJBUs6leouFYnoENbekPAhnGiQYjCOt+k3NbF1XIjn/EqBMAVSVAx0YSTyQiPeH89
+	 j8b8zcNqWXacTADMiqazNBc0fqm0kAfmCNsSp6ib5FHCBBUWhBl6D+grdpECmDmNbf6+0
+	 EJ4ebv1X4Kg58A1YeeeGVyOuKp1bTpPGUj+DOn6+K7HhNajxNp3LNHy+ZPS2IBVnS9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b="NRZI0/g0";
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O22ep1Bv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B8BF606A335
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:43:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B8BF606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D7FB606A32A;
+	Thu, 19 Nov 2026 19:43:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=NRZI0/g0
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261119194346euoutp02f4ed1927b4e48c71ffdd6887384c337b~picnFlbsp3173231732euoutp02c
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:43:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261119194346euoutp02f4ed1927b4e48c71ffdd6887384c337b~picnFlbsp3173231732euoutp02c
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795117426;
-	bh=090F43O6xwbTXOOBTz6I2219/meRL0E1+FYz/xdX8XU=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=NRZI0/g0ShOOBLLsJPWC86qh3P8zV1Hh4g+2gBGi5NcIr4nz5+tTS5Rf/2EsfIxuS
-	 3LPdhpTuMT62WSRpGp7tP8ct7nFDtwFvblFIV1fUXyZhU8CfOtLn/2+tOQ8a8YMKqw
-	 dbWTXP1P+rpYp8VaTsCbEbeLXkttRKfeXqS0Ew4I=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261119194345eucas1p19bddf3b3f2155b0f4777a822db00aec1~picm3UpHR0237702377eucas1p1Y;
-	Thu, 19 Nov 2026 19:43:45 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261119194345eusmtip1e59aab635f10627422e5da54c5d41eaa~picmWhHfe0313403134eusmtip13;
-	Thu, 19 Nov 2026 19:43:45 +0000 (GMT)
-Message-ID: <e8235bd4-ad04-49d2-a5f6-f83463a8f8b6@samsung.com>
-Date: Thu, 19 Nov 2026 20:43:45 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O22ep1Bv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1D5D1F000C4;
+	Thu, 19 Nov 2026 19:43:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795117426;
+	bh=qBLuacBYKz/tdxSHVBEHjNWt6ZoFU95vFan68bdG1qo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=O22ep1Bv/KO5P5jOgb9+RHffFJYPcPV9AMHPtyaGQlq7sZ00vHjxREhSOc0IlNNzI
+	 X3uk6S3voZkPVf23zU6ntg1XNMeJ117Tqpeic9uHtuVD1PyAMiy7vNs4KCyfn/oVF0
+	 oRR+9rd6SzQh1TAHaKelW3TaZ5T3y4rV5M/FZJcUxPheB22WjCaNSTvgoCKSprSMHo
+	 suTY6QqljlyrVO/3lTAKGCVoI1uKudN+kuqpUSILKKjWX0569LZtW9F7X/8+4EYNPX
+	 hpgQX5bVD8HBke3q9rMRwhNkStyFjszdPLoaIO1pvsMfhVRBuCUxtfkgeYzA+T8X0+
+	 KfMMhsj59R2ug==
+Subject: Re: [PATCH net-next] net: stmmac: dwmac4: schedule RX NAPI on Receive
+ Buffer Unavailable
+From: netdev-bot+sashiko@kernel.org
+To: david.wu@rock-chips.com
+Cc: rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+ lorenzo.bianconi@oss.qualcomm.com, luis.la@mail.de, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
+ kuba@kernel.org
+Date: Thu, 19 Nov 2026 19:43:45 +0000
+Message-ID: <179511742535.3136.6978268600110523155@kernel.org>
+In-Reply-To: <20261117034332.88443-1-david.wu@rock-chips.com>
+References: <20261117034332.88443-1-david.wu@rock-chips.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,141 +64,189 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] lib/lz4: add KUnit tests for compression and
- decompression
-To: "S. Biplab Raut" <Biplab.Raut@amd.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Gao Xiang <xiang@kernel.org>,
-	linux-erofs@lists.ozlabs.org, Yann Collet <yann.collet.73@gmail.com>, Nick
-	Terrell <terrelln@meta.com>, Brendan Higgins <brendan.higgins@linux.dev>,
-	David Gow <david@davidgow.net>, Rae Moar <raemoar63@gmail.com>,
-	kunit-dev@googlegroups.com, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20261118182343.1628236-1-Biplab.Raut@amd.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261119194345eucas1p19bddf3b3f2155b0f4777a822db00aec1
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261118182347eucas1p2f85df57ccf85e78fd2c104d4046f5295
-X-EPHeader: CA
-X-CMS-RootMailID: 20261118182347eucas1p2f85df57ccf85e78fd2c104d4046f5295
-References: <20261106-lz4-vendor-upstream-v2-0-ee04c3f0d7dc@samsung.com>
-	<CGME20261118182347eucas1p2f85df57ccf85e78fd2c104d4046f5295@eucas1p2.samsung.com>
-	<20261118182343.1628236-1-Biplab.Raut@amd.com>
 
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
+Critical: 0 · High: 0 · Medium: 3 · Low: 1
 
-On 11/18/26 19:23, S. Biplab Raut wrote:
-> lib/lz4 has no in-tree tests, and this series replaces both the
-> compressor and the decompressor.  Add KUnit suites for the behaviour
-> callers rely on.
-> 
-> lz4_decompress:
->  - round-trips through LZ4_decompress_safe() and
->    LZ4_decompress_safe_partial() with exact, oversized and partial
->    capacities;
->  - truncated and corrupted blocks never write past the destination,
->    through either entry point.  The input sits at the end of its
->    allocation, so KASAN also reports over-reads;
->  - an offset-0 match decodes the same whatever the buffer held before;
->  - literal and match lengths longer than the output are rejected.  On
->    32-bit, lengths whose extension bytes sum to SIZE_MAX are rejected
->    rather than wrapped;
->  - in-place decoding within LZ4_DECOMPRESS_INPLACE_MARGIN() leaves the
->    output intact.  A fixed block that corrupts with the old +32 margin
->    covers the vendored decoder's 32-byte wild copies, and a port of
->    upstream's worst-case test covers the 64-byte copies its decoder
->    makes since v1.11.0.
-> 
-> lz4_compress:
->  - LZ4_compress_default() fits LZ4_COMPRESSBOUND(), and with a smaller
->    buffer fails rather than overflowing;
->  - LZ4_compress_fast() across documented acceleration boundaries;
->  - LZ4_compress_destSize() output decodes to exactly the consumed
->    prefix;
->  - the dictionary paths of zram's lz4 and lz4hc backends;
->  - LZ4_compress_HC() across supported levels, including the kernel's
->    clamp boundary, with full and limited output.
-> 
-> Work memory is allocated at exactly LZ4_MEM_COMPRESS, LZ4HC_MEM_COMPRESS
-> and LZ4_MEM_DECOMPRESS bytes, so KASAN reports an implementation that
-> outgrows them.
-> 
-> Without this series, the 32-bit length case fails on i386 ("long match
-> accepted: ret=31"): the old decoder wraps the match length to 18 bytes
-> and accepts the block.
-> 
-> Signed-off-by: S. Biplab Raut <Biplab.Raut@amd.com>
-> ---
-> 
-> Michal, this goes on top of your v2: it uses LZ4_MEM_DECOMPRESS and the
-> opaque stream types, so please fold it into v3 if you find it useful.
-> 
-> The tests are deterministic regression tests.  Every randomized case
-> uses a fixed seed, so each run checks the same inputs and any failure
-> reproduces exactly.  The in-place suite has two fixed cases:
-> 
->  - a block that corrupts with the old (compressedSize >> 8) + 32 margin
->    under a 32-byte fast loop, the case patch 12 fixes;
-> 
->  - a port of upstream's decompress_safe_inPlace_worstCase test [1]:
->    fixed noise with a 65-byte match at offset 65, for every source size
->    from 300 to 4096.
-> 
-> On patch 12 and the +65 margin: since v1.11.0, upstream's decoder makes
-> 64-byte wild copies on x86-64, aarch64 and ppc64, and upstream has raised
-> its margin to (compressedSize >> 8) + 65 to match [1].  That fix is on
-> the dev branch for v1.11.2; the released v1.11.0 and v1.11.1 headers
-> still say +32.  Your v1.10.0 import uses the 32-byte loop, so +36 is
-> right for this series.  A later re-sync to v1.11.0 or newer needs the
-> kernel's margin raised to +65 in the same patch, whatever the upstream
-> header at that tag says.
-> 
-> I checked that the worst-case test catches this, using a userspace
-> build of the same test.  Against upstream dev's decoder, all 3797 sizes
-> fail at +36 and none fail at +65.  Against your vendored v1.10.0
-> decoder, none fail at +36.
-> 
-> The HC cases are built only when LZ4HC_COMPRESS is reachable.
-> 
-> With your v2 applied on v7.3-rc4, the suite passes on UML (17 passed,
-> one 32-bit-only skip), on i386 (18 passed), and on x86_64 with KASAN and
-> KASAN_VMALLOC (17 passed, the same skip).  A UML build without
-> LZ4HC_COMPRESS passes 15 tests with the same skip.
-> 
-> [1] https://protect2.fireeye.com/v1/url?k=f02093a2-91ab868d-f02118ed-74fe485cbfe7-df7f89af9c73957c&q=1&e=79e95ae8-ccd9-4aaa-b235-c5f62451957b&u=https%3A%2F%2Fgithub.com%2Flz4%2Flz4%2Fpull%2F2104
-> 
->  lib/Kconfig               |  15 +
->  lib/lz4/.kunitconfig      |   5 +
->  lib/lz4/Makefile          |   1 +
->  lib/lz4/tests/Makefile    |   2 +
->  lib/lz4/tests/lz4_kunit.c | 911 ++++++++++++++++++++++++++++++++++++++
->  5 files changed, 934 insertions(+)
->  create mode 100644 lib/lz4/.kunitconfig
->  create mode 100644 lib/lz4/tests/Makefile
->  create mode 100644 lib/lz4/tests/lz4_kunit.c
-> 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Hi Biplab,
+- [Medium] In dwmac4_dma_interrupt()
+  (drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c), the new `ret |=…
+- [Medium] The fix depends on a single RBU edge to restart a suspended RX
+  DMA, but the non-ZC RX poll does not handle a refill failure.
+- [Medium] The new RBU → handle_rx scheduling in dwmac4_dma_interrupt()
+  runs only when the handler sees DMA_CHAN_STATUS_AIS (line 155).
+- [Low] The patch fixes a permanent, user-visible RX hang but has no
+  Fixes: tag and no stable Cc.
 
-Thanks for the tests and for testing v2
+--
 
-v3 is coming in a couple of days. It vendors v1.11.1 instead of v1.10.0,
-so it already has the 64-byte copies, and the in-place margin is
-(compressedSize >> 8) + 68.
+net: stmmac: dwmac4: schedule RX NAPI on Receive Buffer Unavailable
 
-I ran your suite on v3. Everything passes except
-lz4hc_compress_test_levels. That's because v3 no longer clamps HC levels
-to 9: levels 10-12 need a bigger state, sized with the new
-lz4hc_mem_compress(level). Allocating wrkmem per level with it fixes the
-test.
+This patch makes dwmac4_dma_interrupt() return handle_rx when it sees the
+Receive Buffer Unavailable (RBU) abnormal interrupt. The RX NAPI then gets
+scheduled, so stmmac_rx_refill() can restart a suspended RX DMA. This
+matches what the XGMAC handler already does for RBU.
 
-If that's OK with you, I'll carry your patch in v3 with that small
-change keeping you as the author. Since patches 10, 11 and 13 changed
-a lot I'll drop your Tested-by - a re-test on v3 would be great.
+> Commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
+> enabled the RBU interrupt for dwmac4, but the interrupt handler only
+> updates the statistics counter without scheduling the RX NAPI. The RX
+> NAPI is therefore never invoked, stmmac_rx_refill() never runs, and
+> the RX path hangs forever once the ring has been exhausted.
 
-Best regards,
+[Severity: Low]
+Should this have a Fixes: tag for 1b9707e6f1a9, and maybe a stable Cc?
+Without one, kernels that already have 1b9707e6f1a9 won't get this hang
+fix automatically.
+
+The wording also suggests that 1b9707e6f1a9 caused the hang. As far as I
+can tell, 1b9707e6f1a9 only added DMA_CHAN_INTR_ENA_RPS/RBU to
+DMA_CHAN_INTR_ABNORMAL(_4_10) so the counters would update. A drained ring
+stalled before that commit too. 1b9707e6f1a9 is what makes this approach
+possible.
+
+Would a sentence saying this change has no effect without 1b9707e6f1a9
+help backporters?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+> index a0249715fafaf..929aa77ce247d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+> @@ -153,8 +153,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
+>  
+>  	/* ABNORMAL interrupts */
+>  	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
+
+[Severity: Medium]
+Is gating on AIS safe in multi-MSI mode? stmmac_msi_intr_tx() and
+stmmac_msi_intr_rx() both call dwmac4_dma_interrupt() on the same
+DMA_CHAN_STATUS register, and no lock serializes them. AIS is in
+DMA_CHAN_STATUS_MSK_COMMON, which is part of both MSK_RX and MSK_TX. AIE is
+in intr_en, so the TX vector handler also acks AIS.
+
+Consider this sequence on one channel:
+
+TX vector (CPU1)
+  dwmac4_dma_interrupt(..., DMA_DIR_TX)
+    reads AIS | TI | RBU, masks to MSK_TX
+    writel(AIS | TI)   /* clears AIS */
+
+RX vector (CPU2)
+  dwmac4_dma_interrupt(..., DMA_DIR_RX)
+    reads RBU without AIS
+    skips the RBU branch
+    writel(RBU)        /* clears RBU */
+
+Could RBU get acked here without rx_napi being scheduled? Two things
+decide this, and I couldn't confirm either from the code:
+
+  - whether RBU can reach the RX vector without RI in the same read
+  - whether AIS re-asserts while RBU stays set
+
+The dir mask already limits RBU to the RX side. Would testing RBU outside
+the AIS block close this window?
+
+This doesn't apply in shared IRQ (DMA_DIR_RXTX) mode.
+
+> -		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
+> +		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU)) {
+>  			x->rx_buf_unav_irq++;
+> +			ret |= handle_rx;
+
+[Severity: Medium]
+Can handle_rx be lost when RBU shows up in the same status read as TPS or
+FBE? Later in the same AIS block, ret is assigned, not ORed:
+
+drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c:dwmac4_dma_interrupt() {
+    ...
+		if (unlikely(intr_status & DMA_CHAN_STATUS_TPS)) {
+			x->tx_process_stopped_irq++;
+			ret = tx_hard_error;
+		}
+		if (unlikely(intr_status & DMA_CHAN_STATUS_FBE)) {
+			x->fatal_bus_error_irq++;
+			ret = tx_hard_error;
+		}
+    ...
+	writel(intr_status & intr_en,
+	       ioaddr + DMA_CHAN_STATUS(dwmac4_addrs, chan));
+}
+
+DMA_CHAN_INTR_ENA_RBU is in DMA_CHAN_INTR_ABNORMAL, so the final writel()
+still clears RBU. stmmac_napi_check() then doesn't schedule rx_napi. When
+status == tx_hard_error, stmmac_dma_interrupt() only calls stmmac_tx_err().
+Would the RX DMA stay suspended in that case?
+
+TPS may make this easier to hit. Its enable bit isn't in
+DMA_CHAN_INTR_ABNORMAL(_4_10), so the W1C write never clears it. TX DMA
+can be stopped without a DMA soft reset, for example:
+
+  - stmmac_tx_err()->stmmac_stop_tx_dma()
+  - stmmac_disable_tx_queue() during XSK pool setup
+
+TPS could then stay latched. In shared IRQ (DMA_DIR_RXTX) mode, every
+later RBU on that channel would take the ret = tx_hard_error path, and
+stmmac_tx_err() would stop TX DMA again.
+
+dwxgmac2_dma_interrupt(), which the commit message cites, uses
+ret |= tx_hard_error and so keeps handle_rx. Switching to |= alone isn't
+enough here, because stmmac_dma_interrupt() and stmmac_msi_intr_tx() test
+for equality:
+
+		} else if (unlikely(status[chan] == tx_hard_error)) {
+			stmmac_tx_err(priv, chan);
+
+Would it work to OR handle_rx back in after the TPS/FBE checks, or to
+switch both sides to bit tests?
+
+[Severity: Medium]
+Is a single RBU edge enough to recover if the refill fails? This RBU is
+W1C cleared before anyone knows whether stmmac_rx_refill() worked.
+
+stmmac_rx_refill() allocates with GFP_ATOMIC | __GFP_NOWARN:
+
+		if (!buf->page) {
+			buf->page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+			if (!buf->page)
+				break;
+		}
+
+		if (stmmac_rx_check_buf2_cap(priv) && !buf->sec_page) {
+			buf->sec_page = page_pool_alloc_pages(rx_q->page_pool, gfp);
+			if (!buf->sec_page)
+				break;
+
+If the allocation fails on the first dirty descriptor, dirty_rx and the
+tail pointer are written back unchanged. dwmac4 has no
+enable_dma_reception callback to kick the DMA.
+
+stmmac_rx_refill() returns void, and stmmac_rx() returns only the packet
+count. So stmmac_napi_poll_rx() calls napi_complete_done() and re-enables
+only RIE. A suspended DMA can't raise RI. RBU is set only when the DMA
+moves from a DMA-owned descriptor to a host-owned one, so it shouldn't
+re-assert.
+
+Would RX on that queue then hang, which is the same state this patch is
+meant to fix?
+
+stmmac_rx_zc() handles the same case by returning limit on failure, so
+NAPI keeps polling:
+
+	return failure ? limit : (int)count;
+
+The SPH setup in the commit message needs two page allocations per
+descriptor, so it is the setup most likely to hit this.
+
+> +		}
+>  		if (unlikely(intr_status & DMA_CHAN_STATUS_RPS))
+>  			x->rx_process_stopped_irq++;
+>  		if (unlikely(intr_status & DMA_CHAN_STATUS_ETI))
+
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117034332.88443-1-david.wu%40rock-chips.com
