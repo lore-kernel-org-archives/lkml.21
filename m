@@ -1,82 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.54.90.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079145;
-	b=SlJflyVK/nVdfpQjsRwiLD3a88/tLCHSAO7Ho63jZKlIDC3EoQvu/itnCJg1hn8TUcyq
-	 eQoREyXyGnXApddZcxiXXJAELdUhOA881qTHw+UAmQZgtUKo2Zpf/7eTz8jE9rsoQ2qEr
-	 GhccebrMz0uohsYMtVDjqgnEngT7Ok4teS78nxPYeUBoCzRwFF3+euDDFm0QMDbpMmwDK
-	 V7L/KRMi/6caijuJ70uaDAsziFYW2sZicC2/pGJFM2Z6ROt1/BVIOYxuTs4DuT7y7xTWi
-	 QgBPsJi4kJOceT0rqmtFVmuNsU60lC5bmvC6pPFcIfH/pPHyrsRvuGEwMtj8Dax9wdw==
+	t=1795079146;
+	b=Ru33CWHl5eS9ntIXbMqw53oQU7qEmSUGhe/MRMxL0eitcVsTSOseEodOFSfykgeeN0fH
+	 VtNJJ7Rxf6Hg0wX4/SO+JrRWqvDqsEhEDXeAF7lNYP1vbfSA5v4Rud2WdyrzjqTyVGoR9
+	 F9GOt3yC6aj/Sr+wvEHuzxHTNos9ooN5MxMvi1FKZqYfvs1GZvxzVXVhPaSGIE7zCsibp
+	 8CDnKLrTS53I5bK4EDekq0BDxPQilfjOcTdA5JSNysXOb7yBNJZ5WxEZzel8R48aIWIBA
+	 xYbVimdbJDKGOrfpy/56cAF80ZBNudW/iUekbbiywDzVWrG9/1sMa+NbRLhO5a9jJ0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079145;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=h9mrY5VPxLzLNJtknNwlkIizrrzBB2S+plhJgJ/iXWA=;
-	b=k6gny7/+GbxbA5vhilGRvP+kZjHqD26RdbyzXNWmlTqKZ4fk8mRWxFMuTjlp+kKHWqBS
-	 wRxOLfAgZPAjTmQgzLUnlSrbhYy2OJaR1cirAWdbKg+3Xy5EiTzEp7j6VtPPpT6jyD+NO
-	 vZMvXYnAL2suqtnktC9PUJWC8w6OoSZsjlvJa5Ib9bJfl+GWn39rZv+QRURHfhY0oGM5I
-	 7/c7STwGRK7YufW3doWKMeGy9Sn40j+K+DpIVxff7ud7MwHkTuGooQDTkT7J3pjCegsNU
-	 8jGU4vBBCJAhGAogA4JBAInFpRvToiDpIIXCmY8fIJNwdZOKzTXUvYsUGXcfUGmZx9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079146;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:From:
+	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=u39FztAw5Uhst3Nw7R3tlIAN1ZCXen37yfHgmAnDovY=;
+	b=uikiZ/V3QBFnwfXCYmKYMNDCtADH3gkLZTIDEhFPrMvCuVqAaHVoOBODTH5b9SDbA5nd
+	 jQWyPd9yyl6eo/o8+wUM6gjhufsx6ob4uJKn8ZiXszU0ImKG9jnlCmk2/G8sg5Cy1RZWb
+	 GwNgVAaLHITPgxJjJq+pJmY6qUlHt8ZGGVMWwOdeqGm5zJeEhdd/kwvjBq873tLKwnFQW
+	 hg9RNuBpXNZnSqLu7df+lz0miOHTPVJWJTAYeBv79SD4Tg34Dczw+mOjUNYDSNUfil4je
+	 qmYLIoDTglgsoSnmiRMEEEcEBD/uGD1Z5Q2wE/JGyZYv74zPVoVlgSlD+MaJ657cLNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xwova4Lk;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=fujitsu.com;
+	spf=pass smtp.mailfrom=fujitsu.com;
+	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=ZaohVjEj;
+	arc=none smtp.remote-ip=207.54.90.48
+Received: from esa2.hc1455-7.c3s2.iphmx.com (esa2.hc1455-7.c3s2.iphmx.com [207.54.90.48])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64EB560A260A;
-	Thu, 19 Nov 2026 09:05:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64EB560A260A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950E660A2612;
+	Thu, 19 Nov 2026 09:05:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 950E660A2612
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=Xwova4Lk
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6uqjK3422902;
-	Thu, 19 Nov 2026 09:05:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=h9mrY5
-	VPxLzLNJtknNwlkIizrrzBB2S+plhJgJ/iXWA=; b=Xwova4LkdbApeipzD/myca
-	3nK4kyG6j6u9ah2pMwkd7lPTzr+tePEiCbo0GJDWsdG+DdpuwnS3mE8I75kN946Z
-	Ds4cv2QY8D4C5i4iYbcaC/Ztz35HMDDHbEXVAo6mhkmiqPCxls0Z4MwbC0jIaEiN
-	QtMKG5jKUzTPs2G17Me6ZkoZNE/lQn9nwwDRZ0DaagUjnE9QLi2NwrjafuwbQw6U
-	zy6K9YFWw+ejBV0Q+JFGr8sBKsuuQ+RJg9IPfZWdg6mqJspkBKoF9qDhYjeGOj17
-	MEuovzUCTETZ7R8EEm7sTTMCh1gPyPAVFclI/h/pxZAFnc1zescOiSmccrV2IChg
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105wyksp-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:05:26 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ7JpnI2580300;
-	Thu, 19 Nov 2026 09:05:26 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hy2bvpjgr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 19 Nov 2026 09:05:26 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AJ95L0r47841594
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 19 Nov 2026 09:05:21 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D08092005A;
-	Thu, 19 Nov 2026 09:05:21 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 862912004E;
-	Thu, 19 Nov 2026 09:05:21 +0000 (GMT)
-Received: from [9.68.25.8] (unknown [9.68.25.8])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 19 Nov 2026 09:05:21 +0000 (GMT)
-Message-ID: <32421feb-4d8c-43bf-9307-9dddd0210cf0@linux.ibm.com>
-Date: Thu, 19 Nov 2026 10:05:21 +0100
+	dkim=pass (2048-bit key) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=ZaohVjEj
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1795079146; x=1826615146;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=x2CbREuuB35o2dhW2OqQhTCwThgP3GLux5XZZxKp1JQ=;
+  b=ZaohVjEjbEogXGXpixDNXJ+5pJRN1A46pKLr2/vttV7R3B4bxER8w5er
+   A8pryUODD6mn8ftnYayH3D7BReQxNzX5QbhKm9nhWjiz4ACcxTyrEjJB0
+   qPgPX8fjmLMR0/0PVygKuKwjBXYM/JZ7mZ1Y9m73Ur0pS0skfiZkPUj+j
+   3VulwrmX77JYbKpXW560rvbK6hQH7eazM21N2+a9jEdb8P75ZvrqOCytL
+   JQ90tJohETnhVaAlpXrJDrGrYrICdZ7nEoY/wBDEqyPjOPyzvqrcgoNno
+   0YWb4lxhBNovG2tAbabtfiJlvizbMHjEoKo2wiYD+BkMr7LbV+kZacqJ6
+   A==;
+X-CSE-ConnectionGUID: d+MlWqI4TA68gJHcZOgzcQ==
+X-CSE-MsgGUID: y5g/cx0aQb2JelOdlyhJqA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="262378838"
+X-IronPort-AV: E=Sophos;i="6.27,220,1786978800"; 
+   d="scan'208";a="262378838"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:05:38 +0900
+Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 8D5501C01358;
+	Thu, 19 Nov 2026 09:05:37 +0000 (UTC)
+Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 404F6C02F0C;
+	Thu, 19 Nov 2026 09:05:37 +0000 (UTC)
+Received: from [127.0.1.1] (unknown [10.124.178.20])
+	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTP id A7CC1100116B;
+	Thu, 19 Nov 2026 09:05:29 +0000 (UTC)
+From: Tomohiro Misono <misono.tomohiro@fujitsu.com>
+Date: Thu, 19 Nov 2026 18:04:37 +0900
+Subject: [PATCH v3 5/5] arm64: Add workaround to replace WFE with NOP for
+ FUJITSU-MONAKA Erratum E#030004
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,83 +82,235 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/2] dibs: loopback: reset the client id when the
- owner unregisters a DMB
-To: hexlabsecurity@proton.me, Dust Li <dust.li@linux.alibaba.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Mahanta Jambigi <mjambigi@linux.ibm.com>,
-        Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>,
-        Jakub Kicinski <kuba@kernel.org>,
-        Sidraya Jayagond <sidraya@linux.ibm.com>,
-        "D. Wythe" <alibuda@linux.alibaba.com>
-Cc: Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org,
-        linux-rdma@vger.kernel.org, netdev@vger.kernel.org,
-        Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>,
-        Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org,
-        Wenjia Zhang <wenjia@linux.ibm.com>,
-        Julian Ruess <julianr@linux.ibm.com>
-References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me>
- <20261114-b4-disp-4e6374c2-v2-1-3b7050bddef7@proton.me>
-Content-Language: en-US
-From: Alexandra Winter <wintera@linux.ibm.com>
-In-Reply-To: <20261114-b4-disp-4e6374c2-v2-1-3b7050bddef7@proton.me>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: D4WqWhorBzS6N49eKkbHLSXUS39zaQ-_
-X-Proofpoint-GUID: bmXfIfar8wPAHBGwKGyoHkvu--uMVthe
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX9LY20ek8rRmF
- uBCmqLmd68IeZr8UmLA+fXIPzpfbNwCEsk6g6fKxvOpwrljWS+gSuo02MFOCnlvoVieoYT7NPJs
- XbL2ropAmccft6WY6cw92nR4UdvxJFu74/Oe+yHsA4RRKG0f2GaQJ+04dkapgBtMNqJNo/skzz2
- mtQjmAoV1rzWPnS2J7Hm8EYV8+m1XJSnSDQImBvGRnr/iiXoyfZWYHtvNiVPf5A/Ulagu4BfVJ3
- rURZwFI+2PJ3EhmYsPZN5JEfiDEjQ2bt1gBYCVMLCKOQEpvH+JfX7UvDAU8CFnwoOkLf/kkvte2
- O4enzvQtL/HcktJvkdoZZkgKwCz+D7BwgSgYAODdtPkxZ+dL8hmbzKpeHSCl6LFnrkXRfELKR8f
- 6LMsKjFzZavSuhf216NQYn5JFybdH4codggz1DOatgYLnfJ4QE/OXRzsI1OwfoBfvTBCLTiDdno
- OX2LXOX2MWQoL7dzkCg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzNSBTYWx0ZWRfX3pcEQnvq8S1m
- ApkiB7/i6f1hrfN7XxnPlPg989ykOwhssMIkXvSVg6s3Ho/afuGKpeOwybgVepviQ2VrrDBb25g
- NMBwjM1UutuCjLZbIjX5H9K7+2QiS4Y=
-X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afebbd7 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=aOMzDuweHAdLCSDsqTsA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611190035
+Message-Id: <20261119-monaka-fix-for-upstream-v3-5-057df4d2ca3c@fujitsu.com>
+References: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
+In-Reply-To: <20261119-monaka-fix-for-upstream-v3-0-057df4d2ca3c@fujitsu.com>
+To: Tomohiro Misono <misono.tomohiro@fujitsu.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+ Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Kohei Enju <enju.kohei@fujitsu.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ kvmarm@lists.linux.dev
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795079092; l=8402;
+ i=misono.tomohiro@fujitsu.com; s=20261002; h=from:subject:message-id;
+ bh=x2CbREuuB35o2dhW2OqQhTCwThgP3GLux5XZZxKp1JQ=;
+ b=0ISO8bsCXWEDv5UrBADRiWFqk3/BIt4kZpCau8rjST1y/T5v+jY8tD2qcekQMGhx+pZd5XH+p
+ wlk06H4WkiXAA/absWXe1T/Y4/hguFmK02QAu6E+xGkNTqVNjxAc2Iw
+X-Developer-Key: i=misono.tomohiro@fujitsu.com; a=ed25519;
+ pk=VLRxj5y4GJrHLmj3e2NBg30fX2U//ydi7c2G2qiNo10=
 
+This option adds a workaround for FUJITSU-MONAKA erratum E#030004.
 
+On affected CPUs, if a wake-up event generated by clearing the
+global exclusive monitor or by a SEV instruction arrives in the
+same cycle as a WFE instruction commits, the CPU may fail to
+advance the program counter and re-execute the same WFE
+instruction. If no further wake-up event occurs, the CPU may
+remain waiting indefinitely (for example, in spinlock code).
+This may cause a system hang before the generic timer event stream
+is enabled. WFI, WFIT, and WFET instructions are not affected.
 
-On 14.11.26 20:09, Bryam Vargas via B4 Relay wrote:
-> From: Bryam Vargas <hexlabsecurity@proton.me>
-> 
-> dibs_lo_unregister_dmb() resets the DMB's dmb_clientid_arr[] entry only
-> on the last put. If an attacher still holds the DMB, as when an SMC link
-> group is freed while a peer is still attached, the entry stays set after
-> the attacher's dibs_lo_detach_dmb() frees the DMB.
-> dibs_unregister_client() then warns at rmmod smc and returns -EBUSY,
-> which smc_ism_exit() ignores: smc stays in clients[] and dibs->subs[],
-> and a later dibs_dev_add() or dibs_dev_del() (rmmod dibs, ISM hotplug)
-> calls into the unloaded module.
-> 
-> Reset the entry when the owner unregisters, before its put, as
-> ism_unregister_dmb() does. The index stays allocated until the last put,
-> and the attacher's writes no longer raise an interrupt for a client that
-> gave the DMB up.
-> 
-> Fixes: cc21191b584c ("dibs: Move data path to dibs layer")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
-> ---
+After the event stream is enabled (shortly after the secondary CPU
+bring-up), event stream could wake up affected cores.
+However, in order to prevent the condition during secondary CPU
+bring-up, the workaround replaces all WFE instructions in host kernel
+code with NOP using the boot alternative framework before the secondary
+CPU bring-up on the MONAKA CPU.
 
-As this is unchanged, my R-b from v1 still holds
+Note that there is no need to take care of WFE usage in Host EL0 and
+VHE Guest since if event stream is enabled in Host EL2, the event
+reaches to every ELx & world. This effectively means FUJITSU-MONAKA
+does not guarantee disabling event stream
+(clocksource.arm_arch_timer.evtstrm=0) nor running nVHE guests
+(kvm-arm.mode=nvhe/protected), although these configurations
+are not rejected by this patch.
 
-Reviewed-by: Alexandra Winter <wintera@linux.ibm.com>
+This only affects FUJITSU-MONAKA CPUs.
+
+Assisted-by: LLM
+Signed-off-by: Tomohiro Misono <misono.tomohiro@fujitsu.com>
+
+---
+Changes in v3:
+ - New patch
+ - Note that wfe instruction used in nVHE spinlock code is
+   not updated since nVHE is out of scope of this patch as the
+   above commit message explains
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 22 ++++++++++++++++++++++
+ arch/arm64/include/asm/assembler.h          |  4 ++++
+ arch/arm64/include/asm/barrier.h            |  3 ++-
+ arch/arm64/include/asm/cmpxchg.h            |  4 ++--
+ arch/arm64/include/asm/cpucaps.h            |  2 ++
+ arch/arm64/kernel/cpu_errata.c              | 18 ++++++++++++++++++
+ arch/arm64/tools/cpucaps                    |  1 +
+ 8 files changed, 53 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index df57078d3727..3e333156ad10 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -399,6 +399,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Fujitsu        | MONAKA GICv3/v4 | E#030003        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Fujitsu        | MONAKA          | E#030004        | FUJITSU_ERRATUM_030004      |
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ASR            | ASR8601         | #8601001        | N/A                         |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 5a2758ad3ab0..648d824f90b7 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1420,6 +1420,28 @@ config FUJITSU_ERRATUM_030002
+ 
+ 	  If unsure, say Y.
+ 
++config FUJITSU_ERRATUM_030004
++	bool "FUJITSU-MONAKA erratum E#030004: CPU may hang when executing WFE"
++	default y
++	help
++	  This option adds a workaround for FUJITSU-MONAKA erratum E#030004.
++	  On affected CPUs, if a wake-up event generated by clearing the
++	  global exclusive monitor or by a SEV instruction arrives in the
++	  same cycle as a WFE instruction commits, the CPU may fail to
++	  advance the program counter and re-execute the same WFE
++	  instruction. If no further wake-up event occurs, the CPU may
++	  remain waiting indefinitely (for example, in spinlock code).
++	  This may cause a system hang before the generic timer event stream
++	  is enabled. WFI, WFIT, and WFET instructions are not affected.
++
++	  The workaround replaces host WFE instructions in arm64 code with
++	  NOP using the boot alternative framework before the secondary
++	  CPU bring-up on the MONAKA CPU.
++
++	  The workaround only affects the FUJITSU-MONAKA.
++
++	  If unsure, say Y.
++
+ config HISILICON_ERRATUM_161600802
+ 	bool "Hip07 161600802: Erroneous redistributor VLPI base"
+ 	default y
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 020670814bda..a83db010a88e 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -69,6 +69,10 @@
+ 9990:
+ 	.endm
+ 
++	.macro	wfe
++alternative_insn "hint #2", nop, ARM64_WORKAROUND_FUJITSU_030004
++	.endm
++
+ /*
+  * RAS Error Synchronization barrier
+  */
+diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
+index 9495c4441a46..28598d441c10 100644
+--- a/arch/arm64/include/asm/barrier.h
++++ b/arch/arm64/include/asm/barrier.h
+@@ -17,7 +17,8 @@
+ #define nops(n)		asm volatile(__nops(n))
+ 
+ #define sev()		asm volatile("sev" : : : "memory")
+-#define wfe()		asm volatile("wfe" : : : "memory")
++#define ARM64_WFE_INSN	ALTERNATIVE("wfe", "nop", ARM64_WORKAROUND_FUJITSU_030004)
++#define wfe()		asm volatile(ARM64_WFE_INSN : : : "memory")
+ #define wfet(val)	asm volatile("msr s0_3_c1_c0_0, %0"	\
+ 				     : : "r" (val) : "memory")
+ #define wfi()		asm volatile("wfi" : : : "memory")
+diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
+index 6cf3cd6873f5..afedf2788469 100644
+--- a/arch/arm64/include/asm/cmpxchg.h
++++ b/arch/arm64/include/asm/cmpxchg.h
+@@ -218,11 +218,11 @@ static inline void __cmpwait_case_##sz(volatile void *ptr,		\
+ 									\
+ 	asm volatile(							\
+ 	"	sevl\n"							\
+-	"	wfe\n"							\
++	ARM64_WFE_INSN "\n"						\
+ 	"	ldxr" #sfx "\t%" #w "[tmp], %[v]\n"			\
+ 	"	eor	%" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"	\
+ 	"	cbnz	%" #w "[tmp], 1f\n"				\
+-	"	wfe\n"							\
++	ARM64_WFE_INSN "\n"						\
+ 	"1:"								\
+ 	: [tmp] "=&r" (tmp), [v] "+Q" (*(u##sz *)ptr)			\
+ 	: [val] "r" (val));						\
+diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+index f4aa6bd257c5..cc6b8f2270e1 100644
+--- a/arch/arm64/include/asm/cpucaps.h
++++ b/arch/arm64/include/asm/cpucaps.h
+@@ -72,6 +72,8 @@ cpucap_is_possible(const unsigned int cap)
+ 		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030001);
+ 	case ARM64_WORKAROUND_FUJITSU_030002:
+ 		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030002);
++	case ARM64_WORKAROUND_FUJITSU_030004:
++		return IS_ENABLED(CONFIG_FUJITSU_ERRATUM_030004);
+ 	case ARM64_MPAM:
+ 		/*
+ 		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 37bbe8268499..2a91292b6329 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -723,6 +723,15 @@ static const struct midr_range cnp_erratum_cpus[] = {
+ };
+ #endif
+ 
++#ifdef CONFIG_FUJITSU_ERRATUM_030004
++static bool
++has_fujitsu_monaka_erratum_030004(const struct arm64_cpu_capabilities *entry,
++				  int __unused)
++{
++	return is_midr_in_range(&entry->midr_range);
++}
++#endif
++
+ const struct arm64_cpu_capabilities arm64_errata[] = {
+ #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+ 	{
+@@ -1109,6 +1118,15 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		.capability = ARM64_WORKAROUND_FUJITSU_030002,
+ 		ERRATA_MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
+ 	},
++#endif
++#ifdef CONFIG_FUJITSU_ERRATUM_030004
++	{
++		.desc = "FUJITSU-MONAKA Erratum E#030004",
++		.capability = ARM64_WORKAROUND_FUJITSU_030004,
++		.type = ARM64_CPUCAP_SCOPE_BOOT_CPU,
++		.matches = has_fujitsu_monaka_erratum_030004,
++		.midr_range = MIDR_ALL_VERSIONS(MIDR_FUJITSU_MONAKA),
++	},
+ #endif
+ 	{
+ 		.desc = "Known broken GICv3 SEIS implementation",
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 73a4aeb535a0..4d97f20aad07 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -136,3 +136,4 @@ WORKAROUND_BROKEN_AMU_CONSTCNT
+ WORKAROUND_BROKEN_AMU_CORECNT
+ WORKAROUND_FUJITSU_030001
+ WORKAROUND_FUJITSU_030002
++WORKAROUND_FUJITSU_030004
+
+-- 
+2.43.0
+
