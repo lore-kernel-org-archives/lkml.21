@@ -1,107 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795113576;
-	b=NMD/iYfN+5Jo/0NYjU4unaGqUrLZQsB6+siqUdjfB1EObe37CKP5ZZv7ptEXoPxE4hU3
-	 AF2n+N0RkcKPaJPVYj6rUrO9fLriN6Ha1Kb1JpkeZQa6p+LsvTsJkyiKT5Fl2S62ofEAz
-	 BM010bHt6BHMj1RkiRPp4iPSw4e3dLzL3oC2h+RS2aPDqWyu9Ecg10zr3CqSW3QFg/w1t
-	 KbxhXREJgrKhfv37DxeE72eXKL8O4RcSZxJafr7Hs4dNAThP/xY+QKW41NVswTSEEuy7P
-	 5VRaXg3s2/J5z4TdHxetNA0Yly+Oen+sbPKSpULWBpN0DdajHZaneDabrbG/k12/Ipg==
+	t=1795113700;
+	b=QhT8fj8EMY0OMGGJmnfogKytRfmDEjd/MhExwz8cfCjIORKlaLMbRz3yqrA4om5bZ59M
+	 Cc+JVMcWNe7Erzj55gawMKEnKPXSiUfiHdzT9y/5ALjw5NOwfYgcvvco2xAqF8D6hupbJ
+	 KfRttro4zDn7Ph+J8CEP9D7xeiQHuI6ZY9a8hhqFGb03fl9hTlAaPxXQP9VWp3ZEjJI5S
+	 z2ThJIJeGdUZrtaD1hM87aDeGP8/thsxX2VF/th4IOE7PytTb2HxtSkPmGUMOjuNmQA2a
+	 5H+Smue7b59eLsSlkMtbppSVH/73dyEJXuGOm6mdAs/LD/lH8/W7qMiOhZnMD/0Ow+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113576;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113700;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=pHJGy27mkOAavYT2vi2hpZfRzq++7pcZXDnBhnXmGvc=;
-	b=Ae7/xc2g16fltTGDFzmF/TIqWGekN3YOK/MIvkl7tATPsSG1TmDlWRsEBn1wHJESojgi
-	 CvgECq38ddMjPGi4hdFwCPZkU7vDH/hfa/eFdcGvk83K4hUtQ37G/lgvHZaLfSrsas22p
-	 O2VG4a08ArRlbYjoEAkhMosZw92FaC4in67NlcDG7taXoruqcfSerNkzu3umm7JWyXDXT
-	 ja6mZi1HmedWOW/TRIuLDsH55tCDQBLIj8p7TPn6rqpFR/6KyyKbd+mPocTer8PHvDZvM
-	 Lg8b/nkCplXqGotdv6AF+C/PPelRO70y4qxXp3gHxO/BHDSuXeLkyEkbhfNlt2j+XbQ==
+	bh=3oqzFwD+s0Nl69O1Eok31JQqbm3bISsPDHuFAF54jKQ=;
+	b=0acBBtytgNiyOmz4EHYAb8WUYMCgDQjkfVhe7xm9W8NpE3IINJ+3boo3wb2+H7cjMxvU
+	 21r3asr4HWELTJwigbwLKEsGDZH5qKRfqtspZBM/Yl0Dqa72qoitIRq3u7uuweslXOai/
+	 oJzC410dEkL1vEKxykBXQSJfm9JbCwzpL+tT4+fR8sb6wbAg2t2lsakeKQS9P+NaKLtAZ
+	 whmZ5QWVUGiLPtps16VlVMxyM2u8ZHS/yW+rS0kEHOleKWGsTzKpkRriKQ7PqSG3XqZ0F
+	 pmaPM69he9S2SGX6N7arHfiwQDlXh3sRjo7CI5cHey31fvVxob6MVtIbJaMHRBxjWbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	dmarc=none header.from=stellman-greene.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U+sz7xFb;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b9BYHoq3;
+	arc=none smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 085D2606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:39:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 085D2606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6CDC606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:41:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6CDC606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U+sz7xFb
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cd69954c755so48511a12.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:39:35 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b9BYHoq3
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-91f11161831so1041466d6.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:41:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795113575; x=1795718375; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795113699; x=1795718499; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pHJGy27mkOAavYT2vi2hpZfRzq++7pcZXDnBhnXmGvc=;
-        b=U+sz7xFbp0I/9UCiMP1pxoyrnB6wALrYqvmqu1pM8N19KrnCFIu8SS3l0j4MIE1gT/
-         iYv4sT1rCFhI6WVSI13DRkOv1oVCjWlOj22UmmqMmqGbiFCyhNdp7piwXdyTVFPvr9XI
-         DKYpn/JiIOmBUfvbZweANB+xst84KWDp6c7liz5BJWBbkJTLk7axrHgLYq8AUEN+5+P9
-         kgsLno92kjGcHNd3jSe0Bf/cNuhYzcKdJIGTQV3lrTeZimrVfetmvilRv/Tsq8emdfZN
-         kWEUT561oDhV5P++0bQGMZrzJlqfxsLVe8U6tGG7dxp+y2OiQdOkkY7bp/owGqG8+eFo
-         Cdhw==
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3oqzFwD+s0Nl69O1Eok31JQqbm3bISsPDHuFAF54jKQ=;
+        b=b9BYHoq3rFIfb4HQCB/3roUBAWgn8WMpS2EUyTYs+06XnbPDNe2j8sBH0NDiGzb4j4
+         h7ewlCp7TyzGEvZycrmALIMQymRxe/zSVLdRbJDloZs1qbZbjHN+EHFbdbElzNmOm9oy
+         R6xsybTh4tOVlZ5Z/Y6iv07a3IkybcxgX7blSOtnvX16ifzYixB9A9iY37RbTwiGrPen
+         m8efDmKZvv2k2zYD/ZnFWmJn4dtHpWQRqt7XBJXqnvioTrJM2HnZYsuHZWlT6kijCIZl
+         KZ+oiwNdyReL9EG1wCWBb0jsHOV7x1j6ZXbN2KHlxY6GJcWigcBjFhffBstcKb9u3/6J
+         pBoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795113575; x=1795718375;
+        d=1e100.net; s=20260707; t=1795113699; x=1795718499;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pHJGy27mkOAavYT2vi2hpZfRzq++7pcZXDnBhnXmGvc=;
-        b=sEYmYM9PYp+RnaG5PX6df0FCQ7TyL7k5yhTSekMRFbSvsCPbQxkX6p946qgD9LLUHB
-         UCfDhN6Z/FU3vQG5QtPL7rkQ/S7cIRZciC0Lr4Ms0nE8y28eDh79PBbdII2gJqfUvssQ
-         0gaam2luvmGNwMrCKti0PwF6qbYGC6+tgBRcMJsrHS6YkKCiDIUBQf83O+t/Cjq8/+wy
-         hwUIX12/mi1nuMpACarCXwa08twmW2iaNLrnrIT0lwR1UgEpcYTbAEJqDsS+KXThF6Qj
-         Xbye75DCQ35VMSbSM9VbpBLIWOR/dEv3EC95Fzyuvda7PdEt5HcX2QWs1oVglL6Le5Uc
-         i/4g==
-X-Forwarded-Encrypted: i=1; AL+hErHu/MlWkuhUbHIBd1pq4TBqcr5FzA7Sx6iTl/iLseeXeE1KdsBm/R9b0CQ+XPBE9LY0yXuajgb5mIxUYT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Agai5mK13YFFZB01OGnEBeBzoRU++3E+B2j31K0DR+NqIT0lO
-	AqN74Lqo524e1GOkajRgJSG96SdjLINgGJf6CGy9h4i2fwjRyKdYft9B
-X-Gm-Gg: AYBFou1ciZ7cwhaI/IUvBUbbp+cC2OY1zXGKFLSZ/UpIsAwOHw98ZbM9m6YR42zdi80
-	QPsjNp0zH0h4fs1JKsxZmOoIsMSDPB6mk0KNCr6Ex/L+ZNNVZiav5oN+hBPQv1G64DoJm6Xvl6g
-	lyn3A6FusX/BL6Zsz6RLJEnzN873ImjQ2e4PAc05Lwvu3MLav3gSJq8/hGzQMOgp+edGQAlNTuV
-	IkCKVfbEQcwisJ9bLoOcPW6BICrpxSfVP7prkB+07hfLDegmGJAvmQ3CffTlpI4vx6rMlrQr83R
-	z5omIEuIweaf5IhedeVvpqflNy6B6aPB8Uokfqfu/oYtRqVuI5e9GY5mI6vJVIm6v6xZuFpFKiA
-	3cr40i0hMEYsNaIvPdR05jMIszzGyNYg5+V8bmQy0Z3jkeRLIq9Q/nGtuG6ROxvqG10xbafwEwB
-	u3ki3Doe2VOhKO1KYkknur1CNVXTxga1XSM0onC6vQ3bzV8zK5XHaQgJXWNS+UCQv9RXLNfJ3K0
-	dBFk1EyclUXhkp4IQaQyuwyFuFqn8CPk8Au79Co3sUbPJYHXasqFpBH8Vv+9uvcb+gxRI633Gs/
-	wegkZjsmQ0TXIgvJEYDLUJ6/QPzzeRulRWR57gfK8i+LgTesjUXRx/7s022PIN0mHh8AFYY=
-X-Received: by 2002:a05:6a21:9086:b0:3e2:313d:2da8 with SMTP id adf61e73a8af0-4014c752257mr539233637.48.1795113575085;
-        Thu, 19 Nov 2026 10:39:35 -0800 (PST)
-Received: from localhost (218-35-178-218.cm.dynamic.apol.com.tw. [218.35.178.218])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343fba6sm299185b3a.38.2026.11.19.10.39.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 10:39:34 -0800 (PST)
-From: Kurt Lin <lylin1023@gmail.com>
-To: Hui Zhu <zhuhui@kylinos.cn>,
-	Hui Zhu <hui.zhu@linux.dev>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Barry Song <baohua@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Jiayuan Chen <jiayuan.chen@linux.dev>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kurt Lin <lylin1023@gmail.com>
-Subject: [PATCH bpf-next v3] selftests/bpf: Keep memcg test page cache off overlayfs
-Date: Fri, 20 Nov 2026 02:39:25 +0800
-Message-ID: <20261119183925.1482217-1-lylin1023@gmail.com>
-X-Mailer: git-send-email 2.56.1
+        bh=3oqzFwD+s0Nl69O1Eok31JQqbm3bISsPDHuFAF54jKQ=;
+        b=SY74RyG+VJAciFWajS2YlXYLF4WDKuMyLD1n5I2PdzA01XJ88daxbziNkVqspFjF1m
+         08gbrzUo91q+Jnxtu+cTJ+AZ8bru8umfsLlHizbXlTBMF+pn2kIyX70xTOZQeTpA4w0I
+         p50HoLQGa+qDrjGVNLZIo2K56El4kO0g0jgFgbgE0vTZt0POITDivt6UzVglBQteLR20
+         dsGsBhv/QTXlcPdT7j+tz92wFjOvZmk1riJodV4Ph3LEO3Ac/rVp4isKgBd1YpIqEKb9
+         ym89W3YdqjsSvoJPWCdiEJv9XGkZC0oa2QpRwk75/mzINrd8KunLmlYP/DZnE7EECBHW
+         ZXsA==
+X-Forwarded-Encrypted: i=1; AL+hErGlIPWpJ9bfRkiIy8SwaGJb3crCf5nw7syxTDz8E6bagJ8qz49A20lwEAA7paAFLSEZZP25eXaJhaRfbgM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/EsfarEfq1CGoZe3zwpD6650czn2v/Sw4Fx/8GGDEDFDJ+l0XV
+	MMJ1D1EVPhNeGbFEtHto83KIvcCEX9v6AvR0mhfDN6nGJMESg2ukkf1i
+X-Gm-Gg: AZFdTZf30Kjl+Efi5yLMuLfGkhr/cgqG6qxhVuB/ftSyivm4SXWOzq7zT9BN5U7HDvm
+	3aXdGsfulaoYnLeIGwlGbZtvFtR6yEFbzKcJbyVVk+6Gk6WgWe7af1RLQeCgsCyWE6W0n9Rb4Gt
+	zk2cL0J5q6YnH2MCgXVcA2q3dmSZWtTDYBOXljcX/TWmrg5VSGjBcIKtW38/2ZWeJNtqPLRX40I
+	IIRIFbNv27zLwB7Bgy/DDkGxYtcaki0JKrLcLXItHBUQbsiSc4X5cLzTHlt7OgT88wnVjAfNczW
+	NyuBBg3TQbHALt6FmQ8wxTGOvOJ3OFJnUwuwIexHKwpZkcba07yMZEWal6SM3cli1VO+Yi8Rdni
+	T81abHuSg+MlQa9h55hFr9xJcJpcrE7FEYpKOnN1Gc2H3/k03CuJSDssnywh/LEhyWP9r/lnWCr
+	s9TvE+07xjAUAKmXNkbb+3dwICZDVSjeffY0q7cT0ySOgc5KOrL/xaC5iXkR0wW/uhOFTQrZuuw
+	RMxbHb9HromXRU6+widozOSZ32vnkIqfwaeT4NaJ9rVed1TWwm7jJ6Fc/c9eF8E21A/UqdgGCm5
+	h9lcLFj5e2FlULuOzV+wLTGtg1kzaBqEkYbnaDg7NnAarJdoFtD8MYudIehcNdRXxTvSjzQhvyj
+	V354SUkQ/ZrdHGOjB9CGCBLOp/7cKua26H/d1qhKCRwHJzjMYNP1p0rQQg6PpXIU0p7wZ9HV6WR
+	CWaiakSGk6Y0W5/CJyfuNV37UEPkg=
+X-Received: by 2002:a05:6214:458b:b0:921:318b:2ddc with SMTP id 6a1803df08f44-92134a9fee9mr8196576d6.24.1795113698650;
+        Thu, 19 Nov 2026 10:41:38 -0800 (PST)
+Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c935:f347:a919:9f78])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134bf848dsm4226386d6.44.2026.11.19.10.41.37
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 10:41:38 -0800 (PST)
+Sender: Andrew Stellman <stellman@gmail.com>
+From: Andrew Stellman <astellman@stellman-greene.com>
+To: Jon Maloy <jmaloy@redhat.com>,
+	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	tipc-discussion@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tipc: zero the pad bytes between bundled messages
+Date: Thu, 19 Nov 2026 13:41:27 -0500
+Message-ID: <20261119184127.24931-1-astellman@stellman-greene.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,104 +107,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-memcg_proactive_reclaim and arena_memcg keep their page cache off tmpfs,
-because shmem cannot be reclaimed without swap. But statfs() only sees
-the top of a stacking filesystem: with /tmp on overlayfs over tmpfs, as
-in virtme-ng guests, the check passes and the data is still charged as
-shmem. memcg_proactive_reclaim then fails in a full test_progs run with:
+tipc_msg_bundle() places each message in a bundle at a 4-byte aligned
+offset. It extends the bundle with skb_put() to cover both the padding
+and the message, but copies only the message, so the 0 to 3 pad bytes
+before it keep whatever was in the skb's tailroom, and they are sent to
+the peer node.
 
-  test_memcg_proactive_reclaim:FAIL:reclaimed unexpected reclaimed: actual 0 <= expected 0
+Zero the pad bytes. Commit 81c600c26302 ("tipc: Dont send random pad
+bytes in RESET/ACTIVATE messages") fixed the same kind of leak in link
+protocol messages.
 
-and arena_memcg, run from such a directory, with:
+Reproduced on v7.4-rc3 with two QEMU guests as TIPC nodes, booted with
+slub_debug=P, which fills free slab objects with 0x6b. One guest sends
+60,000 SOCK_RDM messages with 41, 45 and 37 bytes of data to the other.
+That fills the link window, so some are bundled, and a packet socket on
+the sender captures the outgoing frames. Without this patch every
+captured pad byte was 0x6b; with it they are all zero and every message
+is still delivered. No other kernel changes, debug code or error
+injection were needed, and there is no TIPC selftest to run.
 
-  serial_test_arena_memcg:FAIL:child faulted the arena in unexpected child faulted the arena in: got FALSE
+The issue was found by Claude Opus 5.5 running Quality Playbook, an
+LLM-driven code review tool:
+https://github.com/andrewstellman/quality-playbook
+The fix and this changelog were drafted with the same tool and reviewed
+by me.
 
-Reject overlayfs as well, so that memcg_proactive_reclaim moves on to
-the next candidate directory and arena_memcg skips.
-
-An AI coding assistant (Claude) was used to find and analyze the
-failure and to draft this changelog.
-
-Fixes: 0f9b1e9ef584 ("selftests/bpf: Add bpf_proactive_reclaim test")
-Fixes: 1fe5a5cd01e4 ("selftests/bpf: Add a test for arena fault-in under memory.max")
-Suggested-by: Alexei Starovoitov <ast@kernel.org>
-Signed-off-by: Kurt Lin <lylin1023@gmail.com>
+Fixes: b97bf3fd8f6a ("[TIPC] Initial merge")
+Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
 ---
+A reproducer is available on request.
 
-Notes:
-    Changes in v3:
-    - Drop the memory.stat check, the polling and the per-directory cgroups,
-      and reject overlayfs in the statfs() checks instead (Alexei).
-    - Apply the same fix to arena_memcg.
-    
-    Changes in v2:
-    - Fall back to the next candidate directory instead of skipping.
-    - Poll memory.stat until the write shows up.
-    - Fail when memory.stat cannot be read.
-    
-    Tested in virtme-ng guests without swap (/tmp is overlayfs over tmpfs,
-    the working directory is virtiofs):
-    - memcg_proactive_reclaim passes from the default setup, from a tmpfs
-      /tmp and from an ext4 working directory, and skips when the working
-      directory is read-only or also overlayfs over tmpfs.
-    - arena_memcg passes from an ext4 working directory and now skips from
-      overlayfs over tmpfs, where it failed before.
-    - A full test_progs run passes memcg_proactive_reclaim; the only
-      failures are fs_kfuncs (no xattrs on the overlayfs /tmp) and
-      xdp_synproxy (no iptables-legacy on the host), both unrelated.
-    
-    v2: https://lore.kernel.org/bpf/20261117170704.1146730-1-lylin1023@gmail.com/
-    v1: https://lore.kernel.org/bpf/20261113180159.602033-1-lylin1023@gmail.com/
+ net/tipc/msg.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
- tools/testing/selftests/bpf/prog_tests/arena_memcg.c      | 8 ++++++--
- .../selftests/bpf/prog_tests/memcg_proactive_reclaim.c    | 6 ++++--
- 2 files changed, 10 insertions(+), 4 deletions(-)
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/arena_memcg.c b/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
-index c76a7eb2f01d..334bfa61be76 100644
---- a/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
-+++ b/tools/testing/selftests/bpf/prog_tests/arena_memcg.c
-@@ -53,8 +53,12 @@ static int alloc_pagecache(size_t size)
- 	fd = open(".", O_TMPFILE | O_RDWR | O_EXCL, 0600);
- 	if (fd < 0)
- 		return errno == EOPNOTSUPP ? -EOPNOTSUPP : -1;
--	/* tmpfs hands out shmem pages, which are not reclaimable without swap */
--	if (fstatfs(fd, &stfs) || stfs.f_type == TMPFS_MAGIC) {
-+	/*
-+	 * tmpfs hands out shmem pages, which are not reclaimable without swap.
-+	 * overlayfs hides the type of its upper layer, which can be tmpfs.
-+	 */
-+	if (fstatfs(fd, &stfs) || stfs.f_type == TMPFS_MAGIC ||
-+	    stfs.f_type == OVERLAYFS_SUPER_MAGIC) {
- 		close(fd);
- 		return -EOPNOTSUPP;
- 	}
-diff --git a/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c b/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
-index c22dcfabe856..2ba07916bdc9 100644
---- a/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
-+++ b/tools/testing/selftests/bpf/prog_tests/memcg_proactive_reclaim.c
-@@ -30,7 +30,8 @@ struct reclaim_args {
-  * being available, and a read-only mount cannot host the file at all (EROFS
-  * applies to root too). /tmp is tmpfs on many systems, and test_progs is
-  * routinely run from a tmpfs working directory, so both candidates need the
-- * check.
-+ * check. overlayfs hides the type of its upper layer, which is tmpfs for /tmp
-+ * in virtme-ng guests.
-  */
- static const char *workload_dir(void)
- {
-@@ -40,7 +41,8 @@ static const char *workload_dir(void)
+diff --git a/net/tipc/msg.c b/net/tipc/msg.c
+index 39dfd33c8eec..b0d52609b03d 100644
+--- a/net/tipc/msg.c
++++ b/net/tipc/msg.c
+@@ -509,7 +509,8 @@ static bool tipc_msg_bundle(struct sk_buff *bskb, struct tipc_msg *msg,
+ 	if (unlikely(max < (offset + msz)))
+ 		return false;
  
- 	for (i = 0; i < ARRAY_SIZE(dirs); i++)
- 		if (!statfs(dirs[i], &st) && st.f_type != TMPFS_MAGIC &&
--		    st.f_type != RAMFS_MAGIC && !access(dirs[i], W_OK))
-+		    st.f_type != RAMFS_MAGIC &&
-+		    st.f_type != OVERLAYFS_SUPER_MAGIC && !access(dirs[i], W_OK))
- 			return dirs[i];
- 
- 	return NULL;
+-	skb_put(bskb, pad + msz);
++	skb_put_zero(bskb, pad);
++	skb_put(bskb, msz);
+ 	skb_copy_to_linear_data_offset(bskb, offset, msg, msz);
+ 	msg_set_size(bmsg, offset + msz);
+ 	msg_set_msgcnt(bmsg, msg_msgcnt(bmsg) + 1);
 
-base-commit: 0021f17128de5dc0b19f1a523f448df2440d8088
+base-commit: 1e575bda30acc0bf01f799cee798d4a1c100d538
 -- 
-2.56.1
+2.43.0
 
