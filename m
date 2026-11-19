@@ -1,82 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099373;
-	b=2c7+rofUx3g/j1Bir15FSl61myWrhClqYrKjqKqxvzps5kgq4fr5eT8H7dgsFwMik7Xy
-	 Y7l+M6xqSjV/9lRzbq5Ngg3x8OCobKWZi2XvMWDQySxAQV1XXB9sTaVoXxeELJPnoGKEG
-	 H77nvcr/iEEkcv04xcTDXj/2nKL9zyypq8yDk3X5L0z0fpl4u61USpGou4BrWgh+Ff0bL
-	 fyPmEz4v16afrg9ViSTmOQES0KDmBjCb3C5D4sQomPLVuQXRFHoqoyME6i/rGmObwTJka
-	 NRBZ/VkP1sGSYwBwJRHkNeckXdoyDlP6Go36MDdtGw8SqcwlWv3a+v492slTVWXmNQA==
+	t=1795099375;
+	b=F7x3mNAx2ScEGFKu4tRjpTAVDC7aG5lYJvO59FnoLotpiZiHxZkI/sDqRTn9sl5SYSSv
+	 Id88O1hsNVloSAQO4+iJfywi7ln/UP6wRfG4juUfQ2kgwsRmm0FvGhZqNjJQ0plXycu70
+	 F48f8QVyvwUjkB04eFi3L13JbZaE9WawetcVMiNjsYAgbouMwxthFnSfCV8F9qE2awTkh
+	 uajO/YY+lMuY0lwROkFSJfaYwHZRAm9g/cvVccXNq/mThLW5UTArWx5/+Jj3l6NPHGEKQ
+	 TWhYy0bhPieFehd+sYBAne+dZJlDGKHD1ppbMvZewca4jEVrW5IJwg/9avCivJbFHCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099373;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:
-	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=xWvrR7cjnIxk25zWK33i6l6vgbYTtkm5whTEcRzBHIE=;
-	b=wUHblgk2hKfDMHlr8ISkvEZHHxxo5dH+xKs3fcYUV+JISz61zzAjsDMJfZFiJZFKwDjM
-	 93wB3wfTnTJgFHTy+CwfE+8YVf9sZcE2N4VvDahaYHNcgkykQaXMdlUvLpAtN/p6iqjig
-	 YU79l0xv10nVJY7qm0OQbEYZ0tVxKPKPyjGE1zeqEUjf/1kTifuOEIgFprIll2bU2i0p7
-	 eOAV5fNc8usILBW4wYhHvrr3ft3ndNBiaFhHoGSPWEwZlckI1gqD6Jp7pl+VPtdV0TWs9
-	 qHhzHkarL8JXvrKTtqQvpVElWDAV+LxNH6kKFnvOQCotION4EXHrfsxuvaPX77NTu7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099375;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=52+JnzHR7Q9S8eHgTb67S23dwF/n03+ylGtQP9LSPX4=;
+	b=GRwUZqnxbjOjBxqtzMN/BP2DGAzn0z4J+YQhD7iaj+DWrPPigL/0kkPuP8+Y4Y3dvGFB
+	 TbYq2b3ZV7gb/ZfCI6yviMi50DRLyGYPkD9Ru1biWuoXeKBxh4USAxTqNGpmjm6xxoc1N
+	 3bBELKrAqwFwo5YGey/kleumVgB8Z2SIUi56DSOyYuNHi6WQOOLWgyZTm0xnsM30Uevrb
+	 sq3fedg3LGfflO5GjaHP7F7rz4eyvIB6RC3ebbrpAGhuadmfbAjNoASamk8bpGpcbJZQr
+	 uaGB6pzmfrx/ZvZZ1wTgGQS3Rf3KJRATNx1qOziyXzsN+q4zFvTNYmpvCtdffz80uKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="KrAKheu/";
-	arc=none smtp.remote-ip=192.198.163.8
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M1G4GBKn;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9343C606A33C;
-	Thu, 19 Nov 2026 14:42:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9343C606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83FFD60A263B
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:42:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83FFD60A263B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KrAKheu/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795099373; x=1826635373;
-  h=from:to:cc:in-reply-to:references:subject:message-id:
-   date:mime-version:content-transfer-encoding;
-  bh=WBjeZ2fEGuLKW9qna1nb4ZYhwQf33Dj9s/3CRCC5ak4=;
-  b=KrAKheu/gujBanikH6+fXcSMddyLKLPP7q8r9XLvls43AfIKoAGgFvwT
-   GyboDyr86joxEVfc5wLlrmolcRDptA5zxiN/beA7ZP4qPnnjtTqyZbn4R
-   HITfBHZstIvuv1Fpi0gJaDRLohq4uOUfTcYeRCRpJxF2cpKrKxCgeD3dX
-   wPJ4qASP6d0sjUgzWFDp8gOSYsvUOkqSNBwC6GUmV/yvTUfjvS42U1TkW
-   lJUUfgQpPoBvqUPEzcQRpzGIvxpyXmYCsC2dE3vSALQPWdFEj5AzcVl3m
-   WIq2HTvwulppJWlz4vI0M+3x9Op+JMiLxROSb5sjDdQEim9ODzGMKBZBc
-   w==;
-X-CSE-ConnectionGUID: WS4Z6VauSFqXTmnimkDmBg==
-X-CSE-MsgGUID: 6FN21qqyTtulXfGbuD5IPw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3849577"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3849577"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 06:42:52 -0800
-X-CSE-ConnectionGUID: qgMcKJhvRzGbR2lBbdAffQ==
-X-CSE-MsgGUID: wg/PUR7IQsGWVWardIRv9Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10786367"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 06:42:47 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: Josh Triplett <josh@joshtriplett.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, 
- Henrique de Moraes Holschuh <hmh@hmh.eng.br>, Rong Zhang <i@rong.moe>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- platform-driver-x86@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net
-In-Reply-To: <20261111-tpacpi-debugfs-unlock-unsafe-led-v2-1-f23a94912a09@rong.moe>
-References: <20261111-tpacpi-debugfs-unlock-unsafe-led-v2-1-f23a94912a09@rong.moe>
-Subject: Re: [PATCH v2] platform/x86: thinkpad_acpi: Add
- "unrestricted_leds" module parameter
-Message-Id: <179509936107.9442.17438129466101803217.b4-ty@b4>
-Date: Thu, 19 Nov 2026 16:42:41 +0200
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M1G4GBKn
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3282db206d3so6149891eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:42:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795099375; x=1795704175; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=52+JnzHR7Q9S8eHgTb67S23dwF/n03+ylGtQP9LSPX4=;
+        b=M1G4GBKnnz8x5UyDeEAaQ7PbQtG7pv+APg53+J8nIDZc9JIvywGhxFKegufqSmm4ud
+         oKhn2LLj3rBsRmoTiHCc6Y8wTteldNMdmsrVi8DvLX4Q2mfe5rHrchWuqHSUeXNVf953
+         gLiyYcavyQXq7NBaworc16ImcWRkVUFitUdBv2IRtB/V10HKasv7TELTdU0/0pOzdrmb
+         p9Kjcf7Mk/4Ib12b2OlZI7LFbomYpCz7C79h7gkK7HUYV0+CFfCNpt0pDSCskqkh2GTz
+         CTalF1BdhY3cCTRbdhWSoXea8TviMdNEKQnBeAXznKxGRO+sNem7UgeEC6WV+Mj05n++
+         A6Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795099375; x=1795704175;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=52+JnzHR7Q9S8eHgTb67S23dwF/n03+ylGtQP9LSPX4=;
+        b=sFwpmBpJ+XWBfcYhrPCGDQY1Kxsox79vqryjDx7eIQPtx0R0Jzw0mUdvbZ8VykAtBo
+         pkJ+BAhjcM4aI0TqRHbRpwDzBOr+5EVlgz4UzjkNkeSeexLhxiy3b9s/figghJ1TE6sF
+         Yqiwm5iC7LvlJi0aZV3ePwSTGWaV9vUaZO/+3C8KiAzvjJmxrtriR0SFC9qMBDk0Emtk
+         zg3z9matkeNQpvsi/MnGlBla1ByRW1ipiLHB1dcVDBMIlMHGhjbX+9l/u4/gLSBC+ii0
+         ZuLKEIhkGT0Ys9MsYp8TnU72bakHrn2YLSxASRFG91eRoF+2Q44yR5TMi8Ypyj0Z4+Pb
+         s95w==
+X-Forwarded-Encrypted: i=1; AL+hErHACG2gVokumyhq0OUCV4cZ1HzCUtf3vosz6yPJfEWR56J3qZ15KaUK5I1Rp95FE1XsIuJL+1haWiSxw2U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+o55Iv8833RUzsnDgHrODZefiCbm9Ktmco8jaXpuBObSixHtzY
+	01c9div3C8wEcgIh/5sxh+gjRrL4xNMpYExu5RJxc6cdrM7S3JYm0hrNIMt0mLWD
+X-Gm-Gg: AZFdTZexkXNVHHcausWmeLJLtQYAMmPpUnFJXfuGZ4q2ODnzTAgYivUNGqa0jhBp+LF
+	bXaWwMMqOBUcDMN0IrKCiZtq0ERgtrMkS6GduLrYY5gteQmjmGUyf/VFvMqcnGW8UwczlQFftWt
+	PZf+Kg6VqkBZmP1Af2f6Svz9+1zN3h/9gZ0EWDcIiX6EA52u8sRMNbc3OKKFOL1VgYzqNl/6ohU
+	JAKFb8gXKZqY+XMhl8TsVBmw0UyyPXsKu8tBGJPjOPPWyO20yaHvFwrClxE/4Bc2Ts/jEJKcvse
+	ZQrGpHiipPl/HGB8xJV4eOJ40DxcPdX1y/L2iiqX2PDQ6UQysZwH87cIOKlN2bWcve3R+mAy3Qp
+	nwqVSlJDYrJNIcbRr33jkxJ7vwb1e8czBaJN9aBUGc2C7U1q4cqG0wQAvcCApqBkz+vXVdOMumS
+	R99ncp8goDN3jvKXteAecWL797FTHEJK56Gf9H+bPWmkuPcNgFrpUca/k2w3RgloZbsvjUdsYqQ
+	TaEHhCaZHTa6QjhNzHvhJGlkg7M2mz3M3BVWEB3iQPlk0onnulvg5ZATm/GU7p4Ri2V3DcBJOiT
+	5L/XDKCsLowexupf1yaz1btg/YWicwh+Ld0f2S36BSyc6yZWrA==
+X-Received: by 2002:a05:7300:271e:b0:369:4c3f:8a5 with SMTP id 5a478bee46e88-3827fe755c8mr6031110eec.14.1795099374635;
+        Thu, 19 Nov 2026 06:42:54 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6fe733dsm16682848eec.16.2026.11.19.06.42.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 06:42:54 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net v3 1/4] net: tun_vnet: validate hdr_len after skipping header padding
+Date: Thu, 19 Nov 2026 23:42:36 +0900
+Message-ID: <20261119144241.360238-2-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119144241.360238-1-graypanda.inzag@gmail.com>
+References: <20261119144241.360238-1-graypanda.inzag@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,36 +108,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 
-On Wed, 11 Nov 2026 02:41:42 +0800, Rong Zhang wrote:
+__tun_vnet_hdr_get() checks hdr_len against iov_iter_count(from) before
+advancing past the configured virtio header padding. With a 512-byte
+header and a 14-byte Ethernet frame, hdr_len=256 passes because the
+iterator still includes header padding. After the advance, only
+14 bytes remain. tun_get_user() and tap_get_user() can then reserve a
+linear skb area larger than the frame and transmit uncopied bytes.
 
-> Since commit a4d5effcc737 ("thinkpad-acpi: restrict access to some
-> firmware LEDs"), most LEDs are classified as unsafe and write access to
-> them is restricted by default.
-> 
-> To enable unrestricted access, users have to build the kernel (module)
-> on their own with CONFIG_THINKPAD_ACPI_UNSAFE_LEDS enabled, as it's
-> unsupported and no distribution enables it.
-> 
-> [...]
+Advance past the padding before comparing hdr_len with the remaining
+payload. Both callers return immediately on error and discard their
+iterator, so the cursor position on -EINVAL is not observable by them.
 
-Thank you for your contribution, it has been applied to my local
-review-ilpo-next branch. Note it will show up in the public
-platform-drivers-x86/review-ilpo-next branch only once I've pushed my
-local branch there, which might take a while.
+The problem was identified during review of the tap zero-copy fix and
+reproduced with vhost-net in an x86-64 QEMU guest: a 14-byte input
+produced a 256-byte frame on both tun and tap. After the change, both
+drivers reject that input with -EINVAL. The new tun and tap selftests
+pass on the patched kernel.
 
-FYI [if applicable to your patch], as per Linus' policy change, also
-fixes are mostly routed through for-next unless the fix is for a
-commit introduced in the most recent cycle or is clearly a regression
-fix.
+Suggested-by: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+Fixes: 2506251e81d1 ("tun: Decouple vnet handling")
+Fixes: 6a53fc5a8770 ("tap: Use tun's vnet-related code")
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+---
+ drivers/net/tun_vnet.h | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-The list of commits applied:
-[1/1] platform/x86: thinkpad_acpi: Add "unrestricted_leds" module parameter
-      commit: 702ed1b658d466150498045ec98065924dc0f532
-
---
- i.
+diff --git a/drivers/net/tun_vnet.h b/drivers/net/tun_vnet.h
+index f4c652b1fa44..0b9622891681 100644
+--- a/drivers/net/tun_vnet.h
++++ b/drivers/net/tun_vnet.h
+@@ -138,11 +138,10 @@ static inline int __tun_vnet_hdr_get(int sz, unsigned int flags,
+ 		hdr->hdr_len = cpu_to_tun_vnet16(flags, hdr_len);
+ 	}
+ 
++	iov_iter_advance(from, sz - parsed_size);
+ 	if (hdr_len > iov_iter_count(from))
+ 		return -EINVAL;
+ 
+-	iov_iter_advance(from, sz - parsed_size);
+-
+ 	return hdr_len;
+ }
+ 
+-- 
+2.43.0
 
