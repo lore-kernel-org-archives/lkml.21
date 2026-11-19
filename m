@@ -1,61 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795052017;
-	b=I8lENSfIa65xRyMtM0E8F97oyuYYiWZIKML2tXabmzjCIlKUa+uLid2BJjdzMvJWbMHQ
-	 1c9vYuNsNrnvfdfK/TQJKpVGULPeZnVu67wHJjinhJFgt9vEshZmLCSLA07a4jOoK2EVW
-	 2dOK6nDHrFZ9saDoEFo7GIXIylnNXdH3rgrEDkbc83BLjb5Vv+r8DWWMdjaDOSiYIv/cr
-	 zTPudN/bKbwcJSNN6zDtng7g+DU7OD8lW5k4gxvQkR8Sr3GZVMq9HH2mVk76uHIJrZnr6
-	 KnJ7jb55jEIYPfDSTjUokOezWJaw2C1KiAzy9N0CxnSiXdnOqPAKPaKz6z92nQomdaQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052017;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=tP0juyknCZt8Oi7eygtZ2/jilIZpwxKA+5FAOW9aG1s=;
-	b=m3lS9qGRvO73VwlAx9Bzp5Vt2MvICvNaf4eNO8wg1M+6EDmPLg5Bk3vWk3K12OzmR+tJ
-	 BZOdrwpdBJwtUd1JTW+LvEbRMfUZcKcAztMP/i8YdNhZ11g3bhGWtrVOvyt+4+7X3XVuB
-	 i3/x0RuGw9ezZxnc3BtKzCtVVAYTqsdk5PUkARcPvYNJWWkRtsBD1/KO5Bz4n2D/yOt00
-	 DFtR0l6VG6sq546lMl5zp/e446G5zaBgdmDp1gmmhRBz9r20TTwq/CyMwaqqf188Kye8V
-	 qVpUNCA4vCh1pY5MiTlH2mJYWKiqYuZ+vn8K/LWZgRG34HuMWJmcvKbVjgBTQVMjtlQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ls7L0Wsc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795052160;
+	b=SolBhE/7gnhgr9W20MfTSAKV3349KkJtPmXRIGfsixLi5dbwzM2JlF0OuANgcEuPH9+7
+	 9Ei5iTr63SkOabN7Aidc0ZuXrzsynv7apNqwvCyAxkwFgIfcp6uDUNGik9SuJRCD2bAMb
+	 bYq17K4mVXsrZRw6dtsRAqODH4u9dI0UUZi+/32fT76ab57yP4vlwDqIG3Tp2kQrKKORW
+	 U6PAxA8v9ExUcmtE8q4z8ZpVZlYC73FBSegXa6TD/St+f/gqchuvH2T3PXgw1KOLAukdd
+	 r2W25Z7vgOnafDcMzzcVgPeghRCb025dAQ8laXd8q4YNMl0+muePmKDC8hH772w+Y7g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795052160;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=WaRyxnVWPqgnXOf76Bo8+FkIIWslu9CLgRdA1TVjs0A=;
+	b=5egQLiMFjP5tpxBCFAjjBwBKkcGszREofi/Ie9kdyNIraLdx7koSb+gppASpRcYmqxGO
+	 vqajknX8M5RgmlyROPV7P6Xmb0r/Aw6Gc4o+YSyhEpUcrM1aNzq2XXiC5irNODae3t2Bn
+	 ZN7Sq39mbtpbn/vcJCCOKdjuWLAqmw9OKHPGbptyTIyJ8iCv8GWqRK/9K7f3h16G8eiey
+	 5up+Yn+INFclpkuj7bbrj4c3vBFONqGTWTaFxCksQ3uWPrgXxHOgjIre2wa+TRXOVgMZv
+	 kVVdtIj9i3GEMPLwcScFkV1+rI+W0ExRa2l3QCP2JCNpwYQdGYkH432MB6H/y/GU6sw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yeFJt7dv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC41A606A331;
-	Thu, 19 Nov 2026 01:33:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24341606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:36:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24341606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ls7L0Wsc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 689FB1F000C5;
-	Thu, 19 Nov 2026 01:33:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795052017;
-	bh=tP0juyknCZt8Oi7eygtZ2/jilIZpwxKA+5FAOW9aG1s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Ls7L0Wsc7iCYCzVnyZzARTwRePJk5UiPF6oirwJ7n6IU2Ri8OMuQB1/6hZI4bThbI
-	 U2ZGVmGi8DOMpLa0/hDGd6gpJ1cTH/VjFNMaP0/4JPFOrAahNJfeltazzUZ8StWlbw
-	 Uf91JLh7A89zfvtsp4X7HNemzsVOmbwAwODbxg9joam8WHoooJyX3joKDQZPOznY8C
-	 QebYqazHBwfoQnbQhK7phWmeQQAdLcjfVdBfGqoG1J4QSxhZj84tXoayrJyB3WBULf
-	 W2sP26/AYHvuBQw3QQyaqE6URuC0++a56ktCyFeX9Ga3vKdA9KGgUvkg7oZ8gkjs5S
-	 xvl9Q3dSaN0Ng==
-Date: Thu, 19 Nov 2026 01:33:33 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Raffaele Tranfaglia via B4 Relay
- <devnull+raffaele.tranfaglia.gmail.com@kernel.org>
-Cc: raffaele.tranfaglia@gmail.com, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Michael Hennerich <Michael.Hennerich@analog.com>,
- David Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>,
- linux@analog.com, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- Joshua Crofts <crofts@kernel.org>, Andy Shevchenko
- <andriy.shevchenko@intel.com>
-Subject: Re: [PATCH v3 0/2] iio: light: adux1020: guard() conversion and
- follow-up cleanup
-Message-ID: <20261119013333.333a1896@jic23-hlaptop>
-In-Reply-To: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
-References: <20261118-adux1020-guard-v3-0-2c6a18954fc7@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yeFJt7dv
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c50692e6c0aso27467866b.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:35:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795052158; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ls3JlLJtehzd/AYlCh/kmqZhkq221maAakDa8epx11kHNCDct/Hoz1SK6yxhtY6heE
+         Oqp4DpA0bUJ/O0V/68jWbZ3jofcelJpFaP+puwx0xRk5DxHqGs/V5No3+j1nGv3M8Jce
+         x9UE8gIBI9mXNcxqs3G3I1duSDyAoT/p2A3pHsCr595L6sTcVCwHtc9uYmJOA5j6PfTE
+         j2KhbJc28fc7gR64Lcd98lwppGMxXt6UNlbqQ6mbUe2CeN6IawGV1MpQM1kprM08gsjF
+         E0vMjjz68LjB2qe84zQv2WU6rfbHNxLjfc56nxPr6t18HZhebSLOsD3WXKNwL/sTX5sO
+         GrtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=WaRyxnVWPqgnXOf76Bo8+FkIIWslu9CLgRdA1TVjs0A=;
+        fh=gB3Bfc7/7lDcjUYsZ2sGYj3g1O9yOMZX7pCRQ0TJLfg=;
+        b=myA8tcO/+5w6SFLvub9oJ/IWRG3lGzEjWG87jRyQpxxTymF95Z5W6MTp8cqtpDaODh
+         Sd8Sfs9FZVFwCzwn51Ya+8q++3PW4DcQRz8EayNpMxtqxWzB1kxVGHVYemctehM3pSj1
+         PjPpu1FMzRl/82sNaztnMow1NnyNO6YEFtOwTm8sITVTHCEqkjSDGNWFw7er86thov59
+         EfYJ7Yyed04Kda8yRd9Y4K4+DV7206LIHlA4Qg1eg9H/gLPJeFsr94Gkhg9UseVYvNI1
+         25O3AXEDWQBmzuAJmEwHRT1kwI1/8NplG/D6vAJC36TYbyejbMSvhVnUQWfB0z661Sik
+         AlRQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795052158; x=1795656958; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WaRyxnVWPqgnXOf76Bo8+FkIIWslu9CLgRdA1TVjs0A=;
+        b=yeFJt7dvWaL413aWlclNOd/3+LyJv0jdD4XrFH+3E2i1f9jziTwG5Yzc8/FoEnWg/N
+         4Rnz6On30LWArDa515jUNCUFk60ZYuph8EOPMgl8f5WcqZZFC02GwEWolyQTxbgYe8em
+         cky7zAOvWN4z6qnMu0qQ+4dHv6OMRSRHHEMgUFl8CSWt76SRs21NIiBe69JTbaX3W/wl
+         Wc44glX9JFNE2//bAAYrA3MiL9Wl5qeI+h9ifjxK044dDrTkV1xTp59dMqK7JogFY0gw
+         LgJiM5qBj0kOiNyEToISg476O7cilbu79WMH/joTtoizntd39Vd4P74dEy2tXyagZuDL
+         LkFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795052158; x=1795656958;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=WaRyxnVWPqgnXOf76Bo8+FkIIWslu9CLgRdA1TVjs0A=;
+        b=Hd8CKAub+H3wf2tArSy9f+8d8LIPS1st8/xsMqP5VzDNM13GQN+bH2jZeNKLhqMnRq
+         C3OFp88PQKXtaG+elIwfltP1AGcZinss11mGf9D9eBGDh31W4c6j+LhKr/aHq/pVaWvj
+         gsDarngXcs2gra0GCoSc0n7HlcW/s8C4UPIfLBqMAWJSl2WmHboXO1iGh7QtnDSO6KnZ
+         Z4kLhteR4obm/Siz/QIsAgRMaFCl2kEe+3D4APMUj6oeLmRBIEjoFStXGtbuvlpG4WeY
+         NRWcqFgql3e+s4VN3UaNwMmJBSBV1DsrI8cuagADntzZZ8whAY9NHN429H/qZ3eRcNdB
+         404g==
+X-Forwarded-Encrypted: i=1; AL+hErEa+sNkz47pWFwZza+QLgDhJdcPLy1vVNyKZa+qsfbmQCK6YWB3QZdmn0cWgl+KpVOKkqoNd5t8mLNtgr8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2rgQLJq+AFrYTHW/UdRBIGztVDiJa2H21EVwBDXUVsxyAGOdH
+	XIDWIIi/EdHSD5oMIG2E8RZIKfrwdnM5rFSLdX524yVKzdUyG/Yi8DHfWwt4XaaJV2JlFYN4m6L
+	ebj/LXDDh+L6MwmJPQuBcgN5FKVLDMBI=
+X-Gm-Gg: AYBFou1bE1JMO+kZWFf16B7dUImHzupQ9ZT247KJ6PUrMGh35ywUZRwUBdHf1nNvJsf
+	7Lx0Mu0CR7OxoSCnlqTEljvrfZndGq0DMXA03OM7cJc9a6CE+D4Wi9bkRbuLUrjH9egDxBuh70F
+	RPeG+zGXtxxG8hhqPT/GhrZXbhQLhMuORQ/rt6WGctOrjL0cv8oLmZnhljalukTo1aS4RTZbVNb
+	5yBY6O87wE0yRYQVaSJCgKRMBY/uacuvci/mJhZXtT5ZtX+lRbTrzKz6vENaRbvDeQEEbwVAryU
+	uumeompFP1kN68db+vwDKf1/dYp+t4OZA13DzqVgztwU8nVwKjGA95H1mAgT1XJtpNsAG1pkyud
+	PoWTw60YWWzvtRp3gvOSf1ZNlhfa1WSmqWajeUNPU904ZtrsHj/Ot1b0o1a5pzpEkegS6mPc=
+X-Received: by 2002:a05:6402:446:b0:6b4:2960:d381 with SMTP id
+ 4fb4d7f45d1cf-6b887a7ca45mr3534756a12.1.1795052158003; Wed, 18 Nov 2026
+ 17:35:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,61 +103,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20261118-dcphy-rx-v1-v7-0-8de1adac3a74@gmail.com>
+ <20261118-dcphy-rx-v1-v7-2-8de1adac3a74@gmail.com> <3a9e999f-5ff5-422c-aa65-b8560dca84bc@kernel.org>
+In-Reply-To: <3a9e999f-5ff5-422c-aa65-b8560dca84bc@kernel.org>
+From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
+Date: Thu, 19 Nov 2026 09:35:46 +0800
+X-Gm-Features: AclHuK8yzTD5Ny6Jae8xfaKIWU82OgGlGfteSTdmbBGr1nUYx7XM082OBv9L5nk
+Message-ID: <CAPwA33KcMNnyBEeWkheaEQYUp8FhR+xOdrfv2CAEhG+YuAV2Vw@mail.gmail.com>
+Subject: Re: [PATCH v7 2/9] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
+ Select TX or RX, add phy-type
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Quentin Schulz <quentin.schulz@cherry.de>
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, 18 Nov 2026 07:29:53 +0000
-Raffaele Tranfaglia via B4 Relay <devnull+raffaele.tranfaglia.gmail.com@kernel.org> wrote:
+On 11/18/26 9:16 AM, Krzysztof Kozlowski wrote:
+> Please drop the tag, this did not happen. In the future, please add only
+> applicable tags. Otherwise share how this code was executed and tested
+> on the actual hardware (make process, like building code, is obviously
+> not testing).
 
-> Patch 1 converts the driver to guard(mutex), as Jonathan suggested
-> when applying the sampling frequency hardening patch. Patch 2 uses the
-> direct returns this allows to flatten the channel type checks in
-> adux1020_read_raw() and adux1020_write_raw().
-> 
-> Tested on arm64 QEMU with i2c-stub and lockdep enabled: reading and
-> writing the sampling frequency (valid and invalid values), reading the
-> LED current, reading in_proximity_raw and enabling the threshold
-> event. No lockdep warnings and no hangs after the error paths.
-> 
-> I prepared these patches with the help of an AI coding assistant, and
-> reviewed and tested them myself.
-> 
-> Signed-off-by: Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
-Applied to the testing branch of iio.git
+Hi Krzysztof,
 
-Thanks,
+I will drop these two tags.
 
-Jonathan
-
-> ---
-> Changes in v3:
-> - Patch 2: add a local regmap pointer in adux1020_read_raw() and
->   adux1020_write_raw(), and use 'if (ret)' for regmap_read() errors
->   (Andy)
-> - Patch 2: split the adux1020_find_index() arguments logically (Andy)
-> - Link to v2: https://patch.msgid.link/20261117-adux1020-guard-v2-0-89707fa070c9@gmail.com
-> 
-> Changes in v2:
-> - Drop the unreferenced Link tag (Andy)
-> - Move ret to the end of the declarations in adux1020_read_raw() (Andy)
-> - New patch 2: return early on unsupported channel types instead of
->   nesting (Jonathan)
-> - Link to v1: https://patch.msgid.link/20261108-adux1020-guard-v1-1-db9c582f1eea@gmail.com
-> 
-> ---
-> Raffaele Tranfaglia (2):
->       iio: light: adux1020: use guard() to simplify lock handling
->       iio: light: adux1020: return early on unsupported channel types
-> 
->  drivers/iio/light/adux1020.c | 189 ++++++++++++++++++-------------------------
->  1 file changed, 77 insertions(+), 112 deletions(-)
-> ---
-> base-commit: d922ed738439e1d5b4701df7f4cdd49a09925624
-> change-id: 20261108-adux1020-guard-3820ce794843
-> 
-> Best regards,
-> --  
-> Raffaele Tranfaglia <raffaele.tranfaglia@gmail.com>
-> 
-> 
-
+Best regards,
+Jason
