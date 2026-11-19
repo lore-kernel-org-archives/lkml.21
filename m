@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107847;
-	b=zmFHLaFhIQBjjJWttnCaq/GanMg6VvqT2sJf2O+YnJ2xtoXT6wePyLT0KG3P5wQz16ap
-	 uaIyq7WwaDh3UZBg8Ayv9SXnR5YQJwlW7z548sKkbYY4j8OiYTHAoJ2jccla2PrWrwYlG
-	 4XOC6Jt1j4ltUIFDDGJ4d5plGDeOOAfGeyoDOTGfDStnlwUXFDqxG8SPE1y5D7xH8TF28
-	 TM2jTrFJp/HvXdhPO8OmapD8NLPPLoKMpWKhpY0RKH/WqRajLD/Mqv2/3hY65JMAhVZEf
-	 NQ1dwVyVmqF5IPPbTdt67fcX/bs4sIdV9tfo1suy72EYIoAWwrNUOb71i4IKWzy9m7g==
+	t=1795107851;
+	b=Z7yh0481veQJK6xd3zyMP1Jv4THfpkdqVYX196LyRB8npWUDdxoR/Bg/+71aa5AKjx12
+	 tuNXMS0ag++Z67viP/Yi7WFOVylLKXwC3/kzhHp4fW5zqTNwI+cRzQwcEdyoA7Dq3mt/W
+	 5NeEYzFU1Mflylmb2hwAf3tDHsAv+kKRe9o4qVBU1v0FcnFvO17zVtIyCw9PTqzAlEtyt
+	 NBgkuDwTuuLcD1uvDCz38CAeqeEPVc3yLeRspRVCdFmn6qlXtOIoyZKWejLjFNem9BBXf
+	 fAkCALsjTm96KleeIWiZ0mWfqAgrZlJaxAWpT2xeIQp5mBh90js/0deLCjiR1SPLZhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107847;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107851;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=gP2dFp+nPAltPmlpy+sjF+Wz7tzVFG9r5/IcbCuHryM=;
-	b=LoX0zS81YMacRrbblg1IkEN0MvZei8j3Y7UC+1Cu1QP2Nil6DTQ7k0PdpjCaFLPqyYoC
-	 p4EQ/BDK9rqUkfN3Ssxh06U1nwnUORxc57y6nuk0I6hBnDpJgO30/qf+FNwz0nuF5oTOs
-	 iETYXkHx38Ghb+RUbglWOe1QYKESIDtgF5xOwXZewBOQKuaFV+tcD7k57YFZn3fZ3Nz0R
-	 /VxTijJpHM1K00lN4oMqNDTTqWzmJd23PbWa7NVP0LnvUnaUJ9D4xDY79qx5t2zkJzMuV
-	 7/u0iQEhCREY7acfW2qvxZ6+OOg+vz/FTRUdk6sUe0Nl+CIALzSSz8hVeiSHGaiWlaA==
+	bh=WHGlKM/TYaoTSSlrFQblz+QKKasbM+5dQbEhB2u9x0w=;
+	b=kh39rysClcyfUCrl9dXuP9QnhCQwwVBdJILHlTIv4Gb+9uG9M676Oh+XTpLusg2C1loO
+	 j1f3vES+ZEWqAjHIt6OUu8ovu0MtzHXz3lP3aQPUlYHOyeHl2YETm0BuSoQ8YLhtB+bt3
+	 TipqwljTJIUsMK76vHMhliUU4Sby7FdwhXE1MgvmA4VminFluyDTVNRkyOoTYdqQomUaQ
+	 zTUEkuLHBKBfGu7l6M6O2JVTiVBpG/MDqvg5ocnxqbTAioj5XgD2t95jf5k33l4iLDRCc
+	 JmmYRP+dR8ApzL8lpnhroiMwSuIf0eaQvTX1FbT28wTPsQItxGdUM0By3SMVUn5eYAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="hg/oRWK+";
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="m83L/3It";
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C926606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:04:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C926606A324
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F47E606A334
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:04:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F47E606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hg/oRWK+
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-383f2d05c73so3871358eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:04:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=m83L/3It
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4b597558c4cso30591b6e.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:04:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107846; x=1795712646; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107850; x=1795712650; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gP2dFp+nPAltPmlpy+sjF+Wz7tzVFG9r5/IcbCuHryM=;
-        b=hg/oRWK+4q6Im2Yeq49z5S3OMj5Uokk7fMh1fdnS/ESW5TA8B1TAHw2ZrxltLQdqrQ
-         Wz54vGRoShSF9sqL3PTVKefW6gBu+DTQze7MslCCH/Ur4lXaqseSGaUEvdobGbXOIphv
-         LgmobpJ1Ld6z63yfr0l/ejoRUmydBz1pJkfSUhq8B5radHs0p4xVDi+jMof8KqX/NwKa
-         O5QVBEV6jp4282nIsO5QfCBNjiz+ANkife43v+xfX5Hdv6JrFRE7cSxlQWhGjODbqJ1T
-         zhONzD2CMKGw8cSCs/E0Ogir7Jqh0PVKRUBwAUca6RLUYBHvZSnR6BDfzTGReGNHdgtM
-         yZMg==
+        bh=WHGlKM/TYaoTSSlrFQblz+QKKasbM+5dQbEhB2u9x0w=;
+        b=m83L/3ItJAiwa1zy1ZiMeJ4lm20ge88yRWqX4oBJT2dlcBS24L9HEkdB/XQDWlMUdl
+         5tYt4HY3w+Sw8XZywQmtLYlle5v4zD5niTcnAhjps4CmUp7807bLpHmqzA/9WdwWo7eT
+         aBCd20ddKL23x46NFkvs+nBP4LHHRdMi5WDUPC9AeSgms/g9r80dt3w4jhGgv8DG/eQU
+         cCQDsOXj4E5asnfCq4OvPPKqHAH3UdepYxx4ST8CLPjpnJJNi63hKOIg+JFm3BPH6Ut5
+         ZuPkjuJV5g19NFn+VzlYRVf91IuPxVHUOrmDv86ZIqeaFfU6xlYN8qe4HdhT2LkCRL79
+         ioPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107846; x=1795712646;
+        d=1e100.net; s=20260707; t=1795107850; x=1795712650;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gP2dFp+nPAltPmlpy+sjF+Wz7tzVFG9r5/IcbCuHryM=;
-        b=j4WHkYZK7xbp7Phf+y4psOd4fDr0mgELMQcblKnhvxdISWDPx++Hs2YkQGTtZYghbo
-         eewuPOsECFmVQaWpe+W49Tj6H0z7T+c/ySPQ5ZY26/cg14Lo3FUQzTrijISYh3816RGn
-         MMwzbKQiZYg0vBJO6sGpMy5pyuE91N1k5WgJZQB3u9/3UGTY8hbvwpNOaPqxdEcCVT+J
-         oFIsCgQ6v3OdQDgLrd3HsB16EMaXf17TB5CsOpE0AwKG5CaFKBVZUZikcZ7jx6j3i8G5
-         2H4jlrB20DvcVImkK6xuh8LV5C1t3MwlvR23SWx7Bf3xuUD1PMWuKHUfLMmI/yiqSxsG
-         /pDA==
-X-Forwarded-Encrypted: i=1; AL+hErEm3/9BMlyPTXO3VFqeYtWsKtsicu2Zr+qJVR3gIVtmOhVKd9bxyOFI+dxm3xrH6CpVZOVWeskClHuS/tk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tB46xhvkNTfL1kFtZVEuwHGMsu1zlZsAJcKGRzxnDb7mYnp5p
-	TBFN07/OkciM8iqe9Gr+URznKakBdB8AuuCobSNZ2uz5WX0M/SxTvA0Y2ExpnPO5omnUj3utGCv
-	37o6ErKt7eg==
-X-Received: from dlbur4.prod.google.com ([2002:a05:7022:ea44:b0:1a0:8cef:34d5])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:2649:b0:194:9e7a:3ba2
- with SMTP id a92af1059eb24-1b5567f682amr277048c88.2.1795107845817; Thu, 19
- Nov 2026 09:04:05 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:03:57 -0800
+        bh=WHGlKM/TYaoTSSlrFQblz+QKKasbM+5dQbEhB2u9x0w=;
+        b=G3qBW1bushfFESbhEUw8t403JjifmXIONgfeuoXsLwtudYMmUhUxaymXOz+67TsM4/
+         axMqtjtobbuEk0bCwGDyEqibuTVBD4/gB/hoETMU6X7lH5Zr9sVKftdk8L/c9htEGw9z
+         K6qj7uD8y64mV2DJAiiAp0qDk33Rp6KWDHPQs0s8vo2eF7iPOzdZe2KrQHj3Fcf/lDpb
+         TvW3Zym7/guxsCCWVGPybF0sckFxP6tB2AJwt9PAVBL1A7egRt0b2iJTNWtdsHjG/G3H
+         dHj8oPC+xNxWILo4Mv4cumo1kiupmzpTXFCTx3N97tJEWxcC9gsXZwqhkOJdBmWzBMNc
+         3GVw==
+X-Forwarded-Encrypted: i=1; AL+hErElZosQi7G3e0Z/6ARzc7c452KquEiWu4n7m61mBXo5H9IsVMjnQlgfq1lbZDhaf1DsHI6/JMcBTofUYsk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oAbu3G3dTiDTJ6X/HYtIJOgLE02mk6C63memM/L2rKBC2R07G
+	qujjn4S8qDaWWJLuURY8Xz3v5rEKH8I8F/HPDWxShhZ+R3pZ1c/Txdx7FQWUgHpprYNEU+A4D/o
+	3Xh8N4lId0A==
+X-Received: from ilbdx25-n2.prod.google.com ([2002:a05:6e02:4219:20b0:51a:af50:87cd])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:23c2:b0:53c:8f0e:ee3e
+ with SMTP id 5614622812f47-57a0b34690bmr545790b6e.36.1795107849735; Thu, 19
+ Nov 2026 09:04:09 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:03:58 -0800
 In-Reply-To: <cover.1795106937.git.irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <cover.1795106937.git.irogers@google.com>
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <f0db7ca640d19d1021b4031b08be426532425095.1795106937.git.irogers@google.com>
-Subject: [PATCH 1/2] drm/nouveau: Handle NVIF_CONN_TV and fix error cleanup in nouveau_connector_create()
+Message-ID: <8b8db80fa775d701fc94bf9e4aa4b0cc577febf3.1795106937.git.irogers@google.com>
+Subject: [PATCH 2/2] drm/nouveau/kms: Initialize primary_crc for RG CRC
+ capture on GB20x
 From: Ian Rogers <irogers@google.com>
 To: Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>, 
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
@@ -92,56 +93,38 @@ Cc: dri-devel@lists.freedesktop.org, nouveau@lists.freedesktop.org,
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In nouveau_connector_create(), the switch translating nvif connector
-types (nv_connector->conn.info.type) to DCB connector types omits
-NVIF_CONN_TV, even though nvkm_uconn_new() maps DCB TV connectors to
-NVIF_CONN_V0_TV -> NVIF_CONN_TV and the rest of nouveau_connector.c
-handles DCB_CONNECTOR_TV_0.
+In crcca7d_set_src(), selecting the "rg" CRC source passes
+NV50_CRC_SOURCE_TYPE_RG, hitting the default case without initializing
+primary_crc before packing it into HEAD_SET_CRC_CONTROL's PRIMARY_CRC
+field.
 
-Furthermore, the default branch returns NULL without destroying
-nv_connector->conn or freeing nv_connector, whereas both callers
-(nv50_display_create() and nv04_display_create()) check only
-IS_ERR(connector) and immediately dereference connector on NULL.
+Initialize primary_crc to NVCA7D_HEAD_SET_CRC_CONTROL_PRIMARY_CRC_NONE
+in the default branch, matching crcc37d_set_src() where RG CRC capture
+leaves PRIMARY_CRC set to NONE.
 
-Map NVIF_CONN_TV to DCB_CONNECTOR_TV_0, and clean up nv_connector->conn
-and nv_connector before returning ERR_PTR(-EINVAL) in the default
-branch.
+Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
+build. Verified by building drivers/gpu/drm/nouveau/dispnv50/crcca7d.o
+with LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized; not
+runtime-tested on NVIDIA Blackwell (GB20x) hardware.
 
-Found by enabling Clang's -Wswitch-enum on an x86_64 allyesconfig build,
-with AI coding assistant help to audit the warning and prepare the fix.
-Build-tested with Clang; not runtime-tested on NVIDIA GPU hardware.
-
-Fixes: 8b7d92cad953 ("drm/nouveau/kms/nv50-: create connectors based on nvkm info")
+Fixes: 6cc6e08d4542 ("drm/nouveau/kms: add support for GB20x")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/gpu/drm/nouveau/nouveau_connector.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/nouveau/dispnv50/crcca7d.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/nouveau/nouveau_connector.c b/drivers/gpu/drm/nouveau/nouveau_connector.c
-index cc3caf8de64b..51580824df36 100644
---- a/drivers/gpu/drm/nouveau/nouveau_connector.c
-+++ b/drivers/gpu/drm/nouveau/nouveau_connector.c
-@@ -1394,6 +1394,9 @@ nouveau_connector_create(struct drm_device *dev, int index)
+diff --git a/drivers/gpu/drm/nouveau/dispnv50/crcca7d.c b/drivers/gpu/drm/nouveau/dispnv50/crcca7d.c
+index 912f59aebe87..02db81e5c8a3 100644
+--- a/drivers/gpu/drm/nouveau/dispnv50/crcca7d.c
++++ b/drivers/gpu/drm/nouveau/dispnv50/crcca7d.c
+@@ -65,6 +65,7 @@ crcca7d_set_src(struct nv50_head *head, int or, enum nv50_crc_source_type source
+ 		primary_crc = NVCA7D_HEAD_SET_CRC_CONTROL_PRIMARY_CRC_SF;
+ 		break;
+ 	default:
++		primary_crc = NVCA7D_HEAD_SET_CRC_CONTROL_PRIMARY_CRC_NONE;
+ 		break;
+ 	}
  
- 		switch (nv_connector->conn.info.type) {
- 		case NVIF_CONN_VGA      : type = DCB_CONNECTOR_VGA; break;
-+		case NVIF_CONN_TV:
-+			type = DCB_CONNECTOR_TV_0;
-+			break;
- 		case NVIF_CONN_DVI_I    : type = DCB_CONNECTOR_DVI_I; break;
- 		case NVIF_CONN_DVI_D    : type = DCB_CONNECTOR_DVI_D; break;
- 		case NVIF_CONN_LVDS     : type = DCB_CONNECTOR_LVDS; break;
-@@ -1403,7 +1406,9 @@ nouveau_connector_create(struct drm_device *dev, int index)
- 		case NVIF_CONN_HDMI     : type = DCB_CONNECTOR_HDMI_0; break;
- 		default:
- 			WARN_ON(1);
--			return NULL;
-+			nvif_conn_dtor(&nv_connector->conn);
-+			kfree(nv_connector);
-+			return ERR_PTR(-EINVAL);
- 		}
- 
- 		nv_connector->type = type;
 -- 
 2.56.1.708.g77570a6a1d-goog
 
