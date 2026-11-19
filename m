@@ -1,102 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.167.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795084555;
-	b=WCjAjmdOUV+lnr7eub/u2wD2g3NndyeGjx68c8XsqBUSYuQDHy0sGp9PB4HleWs3NXsU
-	 2PlwcgzyDHP9Lat0llpAq1SMAG5ihjjkNh+eTdFfplhhxSq0VyoS3G8Pt5+d5ibi8dLow
-	 eDQ5JJPTjBYltn/qZ9g1Q6l4dWhJFU3KFFHJV0EC9bxRRfXMWc2m8mRWC88+Lc4J+QbcU
-	 HBbELAUxZMeE+brqW6lv/fELtMVooNf8ITnd/oWBDYZrv5TqvZdYCtnyKnjKy6VkPIpTg
-	 6zX9B/1DcrwbkV0lWl2oflh7Yc6w1T18Wkl3Ju4rC0bnFsGMBZK/vZPupq2LOUEPa7A==
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795084593;
+	b=PKvaTsWA/wXuec6Gq7MMmF4lzz4pyxQ2v2bVkrEMcBYxJR9yEbDw3KL0eX2iURrz0iW9
+	 qt1DLHo4kIV8R4LWSzFZWk5xoh2deQvw3NLCFCKXhAHrsccC6R/413yu/TvMA1Quyux00
+	 vkmZ2mIEGc/I6ZHelNK+C+Jx6nIVPhBuEHtzkfdsB5EnJub0eA3qwAPp1EUz5TqbBpNL0
+	 yQ/s5DTOMVLNI4m0xaliZt4sagBjPw9alMdbIRn7e9Pi5zXGhLsY9U/ZQ2GDCDpNFeJwn
+	 FNmds/zzcBzhOPcgVuTgkIlqD+wEWVAiO+VIznRkbM4Jn3p2Qo70wDNygkMoRg3CGOQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084555;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
-	b=c0U23tfvjPEZQHfPGBgQaEmos2qabwsMAE9AQBxrcSk27xTmtrpPWsIEzRaCcWrenzOm
-	 0IrmS09mPEmJbrq1QHSfp/b1I7AJR2J3srnd0o/sRAxboVgLN+K6L/imPtjASl2pwlU7w
-	 0AUkxjylWP7KFVVr5/RLaq5UU9Zk98VhpkNUHNhTacApgR9pCA18gvMDAR7OacyqqgEM1
-	 VA32eqVMDK15KokHygXLtdoSknfeyTkM9NOYiQWhZolwGxzeTrXQVoZsURYHrkeZbGskP
-	 V8Ki+myrUbcKhfY+9hBf1g0wgrg7ZL+ea40Egi1vJezNUCD32SZ4JKUWKXW1YY8QHkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084593;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=G37VaxbrGX/eenghh5IVt88W+qJYL1Hg1iK9/5saiJE=;
+	b=xxTZsPveV4eOX6ssY+n/Gh0k1bEfDcj5X4SYrhLoqc/+EdeYCFfK7BPr9h7eyCibKs1L
+	 DhxV4iNH4DGWnEjCT11fuGsI2YgFzyL71ykx0VVFoYvRdhRdajgDtQOXypRUDuU+1Gtcc
+	 4Ka7mKTxly/iYP8WjtYfSv3kQfwBw2WzvFCbGbpzDGDSLYxr0PjLigS6uaviOFu+86Mcg
+	 ZZxpf8MuXzvmpNYLAP469zLkTa8YNsStmoK05UqCu1tWqlG+EPF56k7Y5WKMZoMIIoLds
+	 pjpS6T8MQcDhh+ogtmGTVO0wWUSd6IjfgU+f1/ArpNFe6BC/kq1qNeUG9zk/h3TBV1g==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndNtRwto;
-	arc=fail smtp.remote-ip=209.85.167.44
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kPGNOgwx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 353EC606A326;
+	Thu, 19 Nov 2026 10:36:32 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kPGNOgwx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795084592;
+	b=nav3Fmgzl3eOf4HWZgi2wF8c7vJqSqLTPYmZL86oxtnfVeMqYquiHYN3vOrCCa4/FrFN
+	 eFntf0YD5Q5wJ9IUgpT930tryDfVbESgJtcd4FqRTOojHa618qcwpPVSIhBEhU48+fwIq
+	 vFYO8zsPfRP5RVXaMI+W4xG061lTlX5wukKPOrhMcBBmkDx+KzeKBZ6u1Hh5RMqxgYM3A
+	 A7Uo+6eyq+teQO/qjea8flDp8wbH8EWNkDqEv++YlqWMxOqXcpsMWnXGGGQUqroN+Dz5o
+	 rkV6Lfg8gf+gKqEc10u3b7Ce1rupz1cQ9imfFhdk6MK3x5vzlbpVI+f/+7pzVgH8anw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795084592;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=G37VaxbrGX/eenghh5IVt88W+qJYL1Hg1iK9/5saiJE=;
+	b=CMIt2/26+4yOSPlmeE5qYdPd5cBGDiqle1i/hqBvEu8ZW/fLHBQ3EkyIr0CqsJF+rh1i
+	 jR4UgITopeVLmhNr91QECx4+uK2pAHw2oFdxNLwpYk45LyOzHFB2BY7S8tl5DqbUYCy4f
+	 D0D+sWbVF0NmWyX0RJiseTehc+tAWDHpIRfn3e9tZS0c5MthdTBcFKgx3PlZGr1dYLsdS
+	 opjHolUPGybZ+uic7E8brB60pIhb7k4ggiLZxP/L/IKECg/SyEmk0YHU7+dDspHVQK17m
+	 CU9ASn39tjr28fy7J5RMMhuS0jYsOOn3eugYG/J47X8D9s2AJAmhj5mQVxuamoywDJQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 608D5606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:35:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 608D5606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndNtRwto
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c09e2ed679so91932e87.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:35:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795084553; cv=none;
-        d=google.com; s=arc-20260327;
-        b=EJY2xdiFo/qPCswzMGwZj4fvvLG2SRqaMpisgWwYNzWkOnF2/bQqhguEiNuP/EtB9+
-         doiFa0o5QIlSXtqznZQimqc21c7pxuKtsltSMmOqwyNlHfYlga4zv47UdF3+tUB2Wluw
-         C8XloB28q2TInSENfJDssLsmhn6pCS0y5QF4vH0C5hrX7OmRskXYvb9H1X9X3OzNksnM
-         +18Xtp56Oyg7UKwN+SKCObSahd1hrmMH9YENlkbCCYQaX7wOnSd3gKOJDbDFDDfb7rmb
-         Fg2xFMU7MwOY5TLE8tcy9d5OOwix1haKWDpO07wkNBM2zpOf8c/1GkLGRdae0ObiX2ZS
-         v/Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
-        fh=GYb+kLWnpRHedtxkHzo38qBAXmnuRrYvNM8/gz5s+eI=;
-        b=n+Um+DKJLHY8BGY6iO+OX33k6ahwssqNzuPXb8myPi0Qel97U8SgP1PMJTRiE/Zpsm
-         WptdD1MSXvZZmIZiPAcGZzTQpvIfOlq8HaWs8n2eIu2gfwAyeEgQT1Ma75Wg/MG54MqN
-         CioeO7z0Dqtjf3FEHCcV0gz5dfZN2Zng73nRw/hqVkNGVLnULZvkFmXH2V5+tQlzei86
-         jYEpaM+F1nXcwhWOQaYtMwuUYZuG7mXB4A7hnQgtg+1zyXo7KqRC8q05A6XSegM8Fqol
-         aJZ7QWzDVmQUExI2INgKmkxE2/lnNUnKhF7jDHtbEq6C+opMMp5OhmYxVxdrSj+cwxtW
-         c4Ig==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795084553; x=1795689353; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
-        b=ndNtRwtomifqkf55G94YIgPKmDQUiD1m8EZ0+rvEQ5fkWplEwCT3vrhuUg0TybVOFc
-         FDFhMom0dL9XIOE8MwORLs3b0sX2v1NcddjdZy61EQI1R+b+77xyN7bQMdYLzPEQcUeA
-         GbHDXy1p6acrSdRhEeh5KCPm/a0R4nREHWcqmHYS8rggx0IEtnl3xzZFq5mo4la95cxg
-         09VZAgLtvaU3CWng6N+vH0dxl16QWS9xS+ATMjZZiov4ZKGz0nw8A1UYvZFV/N5To0mT
-         6wEpigqmx+96yWAIwqBmSPS7X2ChmDnmqaLIJXgL1SspyBHFL96vSQveV7KWzfymuCZ2
-         BJ4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795084553; x=1795689353;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VSgqe+2+NVZ79+o9y80nGA+xBFTNkQAJQWULoWfKhj4=;
-        b=TzCQmP8Dd3Cy1UCWrx93ILK8VOh1SiwEZrW58apbtuPB6sjaKTzUN24lVI3x3sBdkW
-         m6L1sX0f9Aiy1U8fWDrykumKXTXEYSGJrbGZZ4HD4Pl4930pUAi7gguA6t8eRlEHJe+s
-         ylDwA4qmnpAz+Mlm9KVACUn0pbZlcysv5BvPIDYFKCpH+jiJvL2frUGsw4Whq6XYRv3J
-         hx+0ddPId8YLzGQJluYeuXumsAdKtBpOjo+s0+gCWYQuyjUQOKYE+nhu0zq/dx0fdgf6
-         k+8Y2anGD2osneyY5dxdQ7kPo7sx/A8jL+4MGKE7GVpb4TvIiiIKX9JsWkUpQ+JXDHAW
-         34Jg==
-X-Forwarded-Encrypted: i=1; AL+hErHH9cbzQvGnJFJ7GgqkfvVMrEGy9z8KasbubxieqJDxANOo9d2cL111SDtvSH6vUKQN+iprT40jq6vdP0k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/F/+rR1PGNClfkRC7LsLb6fwrNCSNajtQ0QMmKCp16tgYtXhWH
-	2CoQ3x0lhabwwL9YPVLashPPDnnU0sYtjMr5pVJhfsQD9qw/BSxxWgH7HYE7ZF4fSfKm9YvSca5
-	MjqSn+Q1abR8h/NyJMgTkykrvEFFZaEc=
-X-Gm-Gg: AYBFou3Ip+XCm8ayUwLSc15T+2URHYY7uN6t0L904wlGA/V+yzS+e+jBqurfJvQte/8
-	KrZl6ddPtTHXVjk7ONTn6PciSALAnARCjhjC3DouvxC85XqZteXtP/0epJBfGalQR016hK9xvnF
-	Qrsh6/p5ICxqlq483GWOBs8B9IAs6+HBoOVQOmgX2tLb8A8fW+MC7fPNnfXTV8P4x5m3LHDtY+6
-	1pTWnTO9Vrb/s9edmpcEMvE4sDukQ8pSeCJIuMXGW2dvVSQZCFwZ97FQYNm6xESj/JCm0R+Da4x
-	7yOlVMgtfCVXMr43+dDEHtjycvs48O6HniaqgGs+UQrb3TS4GJzzi0Q+AKAHsWnJPK5WwEDMj6e
-	I2p9vnAmg6dFHQ4bDhUlVehF03ZWMK6ZB15kJpLZcCpXh7BYqGkOnkRw/0YH6a0WAX0ZOgWkyyI
-	MlLVtpY7oL7IaIc5sHES0oqtDAtOQeZZGWHv2gTJNNjEsJp7sWhfQKHGAr5lsCKdng2qTVblxbq
-	5uFNKhRv+9sCvCtOee5+chDsFIBBv1M73wVgtWg7dSFZgjLQQBurPa7O0mCdjbjlpY0v0Av
-X-Received: by 2002:a05:6512:6201:b0:5c0:465:3fc6 with SMTP id
- 2adb3069b0e04-5c1aa04086amr2064153e87.4.1795084553237; Thu, 19 Nov 2026
- 02:35:53 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 190141F000C6;
+	Thu, 19 Nov 2026 10:36:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795084592;
+	bh=G37VaxbrGX/eenghh5IVt88W+qJYL1Hg1iK9/5saiJE=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=kPGNOgwx96//wV7lGAJ+MTHStjPMtlhgoSDmmwef5jJRcxyo2ozDEjJm5rgybYU6b
+	 vqIsVAdEkIX0jnf5nZHIzHNQQVL5SqOcB4TfhgkXvJMETUgC8NMagFQtSMjKPs0ovr
+	 8zICJ9sYI5sg/tOFD/ezGmq1QviPrzfUqCwgfjJUWiZxVy3XUEN4zEXE7m97Ob/IcV
+	 JR4wcljJBFo4xlCosAQw6NJaefGO1EGse3UK3ttyWg5TkDjV0JMjt/MLbaq3Z93PH6
+	 o67pU10s3DjtPTAHyTN1PUEgiUKMz6FPmJzdxpyDOcy8U1XAtR3VyVtu7r0pWSu0Su
+	 FzScniAT5btDg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 9AAE24B24A;
+	Thu, 19 Nov 2026 10:36:31 +0000 (UTC)
+From: Alex Ainscow via B4 Relay <devnull+aainscow.uk.ibm.com@kernel.org>
+Date: Thu, 19 Nov 2026 10:35:36 +0000
+Subject: [PATCH] libceph: don't put a linger request twice when its watch
+ is cancelled
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,85 +83,193 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
-In-Reply-To: <20261118-rust-merge-functions-v1-1-fe86126522b9@google.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 19 Nov 2026 11:35:41 +0100
-X-Gm-Features: Aa3M54oL5-b8rD0ZNwQf4CmOodKRTjORBepmsgS7qWBa91ie7LuuwJN18wbz1S0
-Message-ID: <CANiq72m0uZRVWG=SwzUUzHo1nPX=2Q3npz-9jU_ORBSdcoAGeA@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: rust: disable function merging unconditionally
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Daniel Almeida <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>, 
-	Alexandre Courbot <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Matthew Maurer <mmaurer@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-wip-libceph-linger-uaf-v1-1-40f3661fea68@uk.ibm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/yWM0Q5FMBBEf0X22SZaIvgV8aC1WBGa9rok4t8tn
+ iYnM3NOCOSZAlTRCZ7+HHhdBFQcgR3bZSDkThh0onOlVIE7O5zZWHKjpAw8bm2P0pWdNqlNswT
+ k7Dz1fLziuvk4bGYi+3tscF03j4fg+XoAAAA=
+X-Change-ID: 20261118-wip-libceph-linger-uaf-1119d2b3c340
+To: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>, 
+ Xiubo Li <xiubo.li@clyso.com>, Viacheslav Dubeyko <slava@dubeyko.com>, 
+ Jeff Layton <jlayton@kernel.org>
+Cc: Xiubo Li <xiubli@redhat.com>, ceph-devel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Alex Ainscow <aainscow@uk.ibm.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795084591; l=6146;
+ i=aainscow@uk.ibm.com; s=20261119; h=from:subject:message-id;
+ bh=P336QPYKJ+T98DqHq/Xl/XyUZlBZy0xGC+6YBxgAyJQ=;
+ b=+NmmuqClQ9aYtwjUwh1aiaet+s66SSRqJ0aDT2Pa7MKJK2Fi7LaRy1KjDNPMJHVv0OVhYOBF/
+ tPeUwUBx8FND5obSVsQXQXu6JLRHdBLlEi62b4s0C7e6NluI5ln9xEi
+X-Developer-Key: i=aainscow@uk.ibm.com; a=ed25519;
+ pk=VlrkYHn/ahAgYEx7wjI3JQeBO/6/uCw4k8oYcEnn6dE=
+X-Endpoint-Received: by B4 Relay for aainscow@uk.ibm.com/20261119 with
+ auth_id=1568
+X-Original-From: Alex Ainscow <aainscow@uk.ibm.com>
+Reply-To: aainscow@uk.ibm.com
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 2:09=E2=80=AFPM Alice Ryhl <aliceryhl@google.com> w=
-rote:
->
-> Function merging causes various different issues:
->
-> * For CONFIG_CFI there's an LLVM bug causing functions with different
->   CFI hashes to get merged. This can lead to crashes at runtime.
-> * For gendwarfksyms it causes functions with different CRCs to get
->   merged. This leads to broken MODVERSIONS information if the function
->   changes in the future so that it can no longer be merged.
-> * Wrong backtraces when a crash occurs in a merged function.
-> * Possibly also issues with pahole/BTF as the merged function's debug
->   info is lost.
->
-> These issues are new to Rust because in clang, function merging is off
-> by default, so these things have never come up before. Because of this,
-> turn this option off for all configurations.
->
-> Link: https://lore.kernel.org/all/avy_9SPRaPSKD8b4@google.com/
-> Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for =
-CONFIG_MODVERSIONS")
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
+From: Alex Ainscow <aainscow@uk.ibm.com>
 
-Applied to `rust-fixes` -- thanks everyone!
+handle_reply() finishes a request under osdc->lock and completes it,
+calling its callback, after dropping the lock.  A linger request on
+lreq->osd_reqs holds a reference for the list, which both its callback
+and whoever empties the list (send_linger(), __linger_cancel()) drop.
+If the list is emptied in between, as when rbd re-registers its watch
+after an error just as the reply to a watch ping comes in, the
+reference is dropped twice:
 
-I also added Cc: stable@
+  handle_reply thread             rbd watch error / OSD reset
 
-    [ The LLVM bug is tracked at [1]. Nick asked what function merging
-      refers to here, and Alice writes [2]:
+  down_read(&osdc->lock)
+  finish_request(ping)
+    # unlinked: r_osd == NULL
+  up_read(&osdc->lock)
+                                  down_write(&osdc->lock)
+                                  __linger_cancel(lreq)
+                                    # not cancel_linger_request(),
+                                    # the ping is unlinked
+                                    list_del_init(&ping->...)
+                                    ceph_osdc_put_request(ping)
+  __complete_request(ping)
+    linger_ping_cb(ping)
+      list_del_init(&ping->...)
+      ceph_osdc_put_request(ping)
+        # freed
+    complete_all(&ping->r_completion)
+      # use-after-free
 
-        No, this isn't linker ICF. rustc doesn't pass --icf, and in any cas=
-e
-        kbuild invokes rustc with --emit=3Dobj and does the final link itse=
-lf, so
-        rustc's linker arguments never come into play.
+Drop the list's reference in the callbacks only if the request is still
+on the list, and empty the list in __linger_cancel() under lreq->lock,
+as send_linger() does, so that whichever takes the request off drops
+the reference.
 
-        What I'm referring to is LLVM's MergeFunctions IR pass
-        (llvm/lib/Transforms/IPO/MergeFunctions.cpp). It runs as part of th=
-e
-        optimization pipeline, within a single codegen unit, before any obj=
-ect
-        file is emitted. Clang only enables it with the cc1-only flag
-        -fmerge-functions, which the kernel never passes, so C code in the
-        kernel never sees it.
+Seen as a KASAN slab-use-after-free in complete_all(), called from
+__complete_request(), on a request freed by linger_ping_cb(), in the
+rbd-nomount workunit krbd_data_pool.sh after OSD session resets.
 
-        rustc, however, enables it by default whenever optimizing for speed=
- or
-        size (opt-level 2, 3, s or z), which covers both kernel configurati=
-ons.
-        It uses the "aliases" mode: when two functions have identical bodie=
-s,
-        one is deleted and its symbol becomes a GlobalAlias to the other. Y=
-ou
-        can turn it off with -Zmerge-functions=3Ddisabled.
+Fixes: 75dbb685f4e8 ("libceph: fix potential use-after-free on linger ping and resends")
+Cc: stable@vger.kernel.org
+Signed-off-by: Alex Ainscow <aainscow@uk.ibm.com>
+---
+This is a standalone fix for a use-after-free in the kernel RADOS client,
+split out from a larger in-progress series (EC direct reads, pool migration
+and stretch EC) so it can be reviewed and taken on its own. It applies to
+current ceph-client/testing and is a stable candidate.
 
-          - Miguel ]
+A linger request's list reference can be dropped both by its reply callback
+and by whoever empties lreq->osd_reqs (send_linger(), __linger_cancel()).
+When the list is emptied in the window between the two - e.g. rbd
+re-registering a watch after an error just as a watch-ping reply arrives -
+the reference is dropped twice and the request is freed while still in use.
+The patch makes each side drop the reference only if the request is still
+listed; the full race ladder is in the commit message. KASAN flagged it as a
+slab-use-after-free in complete_all() during the krbd_data_pool.sh workunit
+under repeated OSD session resets.
 
-Cheers,
-Miguel
+This fix was prepared with AI assistance (Anthropic's Claude Code): the race
+was found by AI-run KASAN testing of krbd under thrashing, and the analysis
+and patch were done with AI help and reviewed by me before sending.
+---
+ net/ceph/osd_client.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
+
+diff --git a/net/ceph/osd_client.c b/net/ceph/osd_client.c
+index 2ad6d917ee61..481cd56301c0 100644
+--- a/net/ceph/osd_client.c
++++ b/net/ceph/osd_client.c
+@@ -3053,6 +3053,7 @@ static void linger_reg_commit_complete(struct ceph_osd_linger_request *lreq,
+ static void linger_commit_cb(struct ceph_osd_request *req)
+ {
+ 	struct ceph_osd_linger_request *lreq = req->r_priv;
++	bool listed;
+ 
+ 	mutex_lock(&lreq->lock);
+ 	dout("%s lreq %p linger_id %llu result %d\n", __func__, lreq,
+@@ -3078,10 +3079,13 @@ static void linger_commit_cb(struct ceph_osd_request *req)
+ 		}
+ 	}
+ 
++	listed = !list_empty(&req->r_private_item);
+ 	list_del_init(&req->r_private_item);
+ 	mutex_unlock(&lreq->lock);
+ 
+-	ceph_osdc_put_request(req);
++	/* unless send_linger() or __linger_cancel() took it off */
++	if (listed)
++		ceph_osdc_put_request(req);
+ 	linger_put(lreq);
+ }
+ 
+@@ -3101,6 +3105,7 @@ static int normalize_watch_error(int err)
+ static void linger_reconnect_cb(struct ceph_osd_request *req)
+ {
+ 	struct ceph_osd_linger_request *lreq = req->r_priv;
++	bool listed;
+ 
+ 	mutex_lock(&lreq->lock);
+ 	dout("%s lreq %p linger_id %llu result %d last_error %d\n", __func__,
+@@ -3112,10 +3117,13 @@ static void linger_reconnect_cb(struct ceph_osd_request *req)
+ 		}
+ 	}
+ 
++	listed = !list_empty(&req->r_private_item);
+ 	list_del_init(&req->r_private_item);
+ 	mutex_unlock(&lreq->lock);
+ 
+-	ceph_osdc_put_request(req);
++	/* unless send_linger() or __linger_cancel() took it off */
++	if (listed)
++		ceph_osdc_put_request(req);
+ 	linger_put(lreq);
+ }
+ 
+@@ -3182,6 +3190,7 @@ static void send_linger(struct ceph_osd_linger_request *lreq)
+ static void linger_ping_cb(struct ceph_osd_request *req)
+ {
+ 	struct ceph_osd_linger_request *lreq = req->r_priv;
++	bool listed;
+ 
+ 	mutex_lock(&lreq->lock);
+ 	dout("%s lreq %p linger_id %llu result %d ping_sent %lu last_error %d\n",
+@@ -3199,10 +3208,13 @@ static void linger_ping_cb(struct ceph_osd_request *req)
+ 		     lreq->register_gen, req->r_ops[0].watch.gen);
+ 	}
+ 
++	listed = !list_empty(&req->r_private_item);
+ 	list_del_init(&req->r_private_item);
+ 	mutex_unlock(&lreq->lock);
+ 
+-	ceph_osdc_put_request(req);
++	/* unless send_linger() or __linger_cancel() took it off */
++	if (listed)
++		ceph_osdc_put_request(req);
+ 	linger_put(lreq);
+ }
+ 
+@@ -3285,6 +3297,7 @@ static void __linger_cancel(struct ceph_osd_linger_request *lreq)
+ {
+ 	struct ceph_osd_request *req;
+ 
++	mutex_lock(&lreq->lock);
+ 	while (!list_empty(&lreq->osd_reqs)) {
+ 		req = list_first_entry(&lreq->osd_reqs,
+ 				       struct ceph_osd_request, r_private_item);
+@@ -3293,6 +3306,7 @@ static void __linger_cancel(struct ceph_osd_linger_request *lreq)
+ 		list_del_init(&req->r_private_item);
+ 		ceph_osdc_put_request(req);
+ 	}
++	mutex_unlock(&lreq->lock);
+ 
+ 	cancel_linger_map_check(lreq);
+ 	unlink_linger(lreq->osd, lreq);
+
+---
+base-commit: 6a9830a8f414d3830c584782568d0233be969d09
+change-id: 20261118-wip-libceph-linger-uaf-1119d2b3c340
+
+Best regards,
+--  
+Alex Ainscow <aainscow@uk.ibm.com>
+
+
