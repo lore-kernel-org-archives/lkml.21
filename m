@@ -1,58 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795110194;
-	b=y9TGGLR2Epfq+GKyj2zuoVj4t2NsuF4DMO4kWZkCtHObCRWqfL40LyGM3pAjwG1T8o2/
-	 KcxzZ1+RAx7qFoSYJhmoXsu6xuHNuNHB76/ag0WeEzhPfq4HrdMbMHMmZ/hjag4DJhF0F
-	 djViDEXUT41kWKMLYQ2yJGP6F6RvWNHk01oD3mO5mR+BQJdV8sR6CuxkzlEL04PXaEC1q
-	 jlshXcfPXODUR+4kn7rsOy5IjOwOkhpJZpx2jiu/KwPdEFFwf+XXsyYFwrBkpMqFoD65N
-	 0hZEcMk/Vs69bqR1d8YvG4Zb7rwTvN4wna7MexsK50tGEWf7MHt61fqEvBtfZ+FRHBQ==
+	t=1795110213;
+	b=ggEOV56aP12uJOzz3ED6jeBtUQwotZLh+HkuzivKR1u0PKhdO/mCylj9NvZp5iFmJQDY
+	 Si2qeIa8AxzlmofANFGXEbIsb8htJIYFq2QKJAyJPEA4qQo886d2YowAAuqik7mIAeLNH
+	 KgsGv6O0rQdwLIfcFVZKF2OhH1bTXgWZw2ek65CgI+GlIi7Frp532EzCPxwB4cnYK0BJo
+	 MfU4HHKcA2LZyFNcTDQ4faftQ4R01BfnOP7b4t4eyjji3vFIRc/vsZOHcLXE2OKa402+n
+	 8MpVmvyYEK0Xk549Pv8bYjCP9kXCWrsur1OPwpmcLXnhmR3HiE8qiz5ERDUmig+T75g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795110194;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=OP2Z6OwMvYcnCbVikE5bbFucvyV4pc4cThw1oGx4IIM=;
-	b=j2wnsKGIPfYi0r7c/be+//MTuKykxxnb0ffSyA2EOnJZ95AjWxsuUWwohnu0jae8CpeR
-	 sY7e/83LKl6BniuAmw+YIHJBNBp+ITPXu8xJKekU8Z8ec42Mj2bbjahbWdq3Jo6+RpWYM
-	 8lWftQb8QUjwgOasY8ckuPmf083oK6O4DOQvdoUuHol7VhnBCHToh4BSnMEAYBDFp9S0I
-	 JJjmiDoCGanpIjw5kFszCT/zLf+5cKI3hPvJ7wNGh6IObc6KNZMRk5M4l14vueHdd+dm/
-	 KLEK7z5qS+ZoFg4cvL1DdIvD7oJJJUvQoZ1EGqd7OKxy12b4mOy0BannY9uWEzBAxsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795110213;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=AlaJ2kXmyX2ex9cqiNhx4W/LysSwxrxfAi2UJAeREB0=;
+	b=XmPvhY2YNftMiut+1+jZ21WlOqVWnLHK04hwO8oCIFBzoQNEySbZ5sDgokzuNDubDd1P
+	 hplASPAVf8J6YAAnGWOuVozYBbZF+/lJF+ym2mZjyQS9iYqcifUH3ky4/OA6pWqsyvxko
+	 8jwtWNdHolQFyquf1zcvHxPNe5opqLo3jwOOAnlZZQYs/mj7URpucFkbyERh9f+gZCBYd
+	 1C8brC3AVVjfCb9f3fNZUEF3QqdvqmCbnMU5eiKeAwdoCuF1pS9wzw9ylnkNslqE7IJBu
+	 Si+OL0Di+Vt0m5+gaznK6Cm0PkyG2dcpwJW1xlazCa7eh9+P2qSMPJ7LsqwOemfqyMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dNDu9RIL;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LKg8VGfq;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5492606A33D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:43:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4E03606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:43:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4E03606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dNDu9RIL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BAB01F000C4;
-	Thu, 19 Nov 2026 17:43:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795110193;
-	bh=OP2Z6OwMvYcnCbVikE5bbFucvyV4pc4cThw1oGx4IIM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dNDu9RILbXjxlt8R4ppKZSkXWe6g/BB83LL6uh8X6lPCUAn9gAW8mERhR4GGBRPf5
-	 doQiFX9utToBExTiRfjinqkm3yFTnopZLd8l1oPjorvcPnAZAT+M09QFiarN/Yqw0j
-	 GkV4FHjXkYc2YOk04s19UqNxfB/ZbP54SuIOnWgO/N1aubGa7SqhNEjz2CdT/Q6E+d
-	 LoiRDln0arK6nQM1NVFaiD6LwhWhVMXE80W7mN5wgynFo/1a+h0brbNrULpaNPzgxl
-	 +0bhuYIopQpzfSD+bFsEz7Ue8t0jafiNi9wlj1Msn9EjQDeuTh8pnYdC7ZwCtiaMq5
-	 2Zj0HTPLBJacg==
-Date: Thu, 19 Nov 2026 18:43:08 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Cc: Jani Nikula <jani.nikula@linux.intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Andi Shyti <andi.shyti@linux.intel.com>, 
-	David Hildenbrand <david@kernel.org>, Hugh Dickins <hughd@google.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] drm/i915/gem: Skip writeback of shmem folios with extra
- references
-Message-ID: <av8n42vx3Q7zvQK8@zenone.zhora.eu>
-References: <20261119134243.3745282-1-kas@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LKg8VGfq
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-372bdb942dbso3614560eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:43:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795110212; x=1795715012; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AlaJ2kXmyX2ex9cqiNhx4W/LysSwxrxfAi2UJAeREB0=;
+        b=LKg8VGfqbatQQpF7mJuYKhBbVEl/RG+budEVnkIFnCekWhc/aWXCCtS8TgkaLlHyoK
+         pqSXW0mqPx5eJv3LlClcoy+9hPNioKdgPB9xbPTzGkpJX44DKECtRqqiaFXZUykepjQ0
+         wetosojnGbZrsfG4/c/8jcrJkBoaGqF2bSjYb8qKYds6LuDSvrVXWwmhsdDyPECROoVR
+         468p3l2JuMAByHSpVzwRzkt3qGosiRydP2fyEVlg22Em2AHdndhaxdBwt90bWds19DrJ
+         vPV+de3zhz0rUg05flQ4gcloNE+Phs34votyaPQ+Jr85JtolIg/nU0jk43FzD1h9ptRj
+         6Fwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795110212; x=1795715012;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AlaJ2kXmyX2ex9cqiNhx4W/LysSwxrxfAi2UJAeREB0=;
+        b=gSSaIaIwPQD3wEUF9c9x7EAihZ1TyvLhH3ost72V511gijVNaTya11hHMEyroSTokA
+         EtPJjCGRqVr7Ky6iaCMvGdfDhAVKkC8Oinh0HHTHhMpbGzesk4dfiZEfwSEmNrxNC6Ev
+         lptqe5fsoJT3ht61DzjMoF8o7IuhiiTDKUdL6aBxbKNYUEGO5ddaFIlagO9jn9owsmTZ
+         mQAkwgu8xvVuN6+L43ReUf7GMypbLwXC+s1I/L5iGihMPT4SV1UV0GDfuisq/k7R0AsL
+         uLSvi3OCe6Dn2wGziUURBuFbghiDRDC5WpY7GR7mGYVHcKOUn3QSahWVyk8UpuHpVN6m
+         he7g==
+X-Forwarded-Encrypted: i=1; AL+hErH2MyTKJRtVWWW1mc7Ggylkw0NDuxSo/yxuNeYa8M74EVe+Yl4Y1ZJ/h4M5KiZhHsXrGUovaMwTQn315S4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wvrfLdZUPME/e56+QBpoEg0KYCMiyf+KeIHyyjJIOhYXke2iY
+	G/nP7Of+R+zjFY8RPliMOPqc5T+yU7EOxTBPD9h6xRwhKdz0kX1ZPCoE
+X-Gm-Gg: AZFdTZcl+r3XMVCozfAlsiEOceRydhsi9m0obkrI/K7GVLSek44txD7PwOKYFHHQ7RJ
+	i5s2ugik30v7FCopMtkSHx2YytVizoXjBIw9+LETH4eoRcjj/U7lHru9V+cNLE8JfxqiqN7xqoO
+	aUJUmtuNpF66Suy5rgzC2QesKWbVWJV4MWpLVa+gYBUXI20rTM13TydZzh3yBGbWthDhnZxpgqb
+	b+UpqvAVUfYeUYpH1yFRJ0QHPuUHlwb/20IvBbr7Bchvl+2wXPMcd7EVZk6NY58a/lNdKUInhku
+	ekvadOXLb+wxbVfAojV/AS79WGUyZe5BuLaFs1RWUPdEjJ5ay8FX2gjpY7TCjhfbu+Kftp2STv3
+	MyknYq5ZDshBkKFPRwY0wC42rjI8Alfc0l+zMVYWdaF9LZAbkzigxdd+o+Rjw4Rv++8kX/RHrKv
+	oIo/JZn4yq3roDY2fVvpoff/9pfGtXC6UDJkeCHhHSB5y5i6FMGWfBQr5CrMtftWwTwNVF4Fr2J
+	OhtEYHW67wIE03MQ8jYasM1IOaWjFIeJTDnBXyGpNhDwq3ewLL3xiwBsofZbFF3hCl+xhuMa5WF
+	0V45T5GSx6wwFajNYW7g6rDMRVckGIc=
+X-Received: by 2002:a05:7301:18aa:b0:384:eec:aba0 with SMTP id 5a478bee46e88-3857073eebamr57542eec.36.1795110211655;
+        Thu, 19 Nov 2026 09:43:31 -0800 (PST)
+Received: from eldorado ([2600:8802:b00:1f88::287])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm378097eec.26.2026.11.19.09.43.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 09:43:31 -0800 (PST)
+From: Florian Fainelli <f.fainelli@gmail.com>
+To: linux-mips@vger.kernel.org
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] fixup! MIPS: SiByte: Fix missing function prototypes
+Date: Thu, 19 Nov 2026 09:43:18 -0800
+Message-ID: <20261119174327.220291-1-f.fainelli@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,84 +96,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119134243.3745282-1-kas@kernel.org>
+Content-Transfer-Encoding: 8bit
 
-Hi Kiryl,
+Adopt Maciej's suggestion of moving sb1250_m3_workaround_needed() to
+asm/bugs.h and have that file be included to provide the definition for
+that function. The previous style of using IS_ENABLED() for
+bcm1250_m3_war() is also restored.
 
-On Thu, Nov 19, 2026 at 01:42:41PM +0000, Kiryl Shutsemau (Meta) wrote:
-> __shmem_writeback() writes out every dirty folio that is not mapped. A
-> folio stops being mapped when munmap() removes its rmap, but the TLB
-> flush comes later. Until then another thread can still store to it
-> through a stale TLB entry:
-> 
->     CPU0 (munmap)            CPU1 (same mm)       CPU2 (i915 shrinker)
->     zap_huge_pmd()
->       folio_remove_rmap_pmd()
->                                                   __shmem_writeback()
->                                                     clear dirty
->                                                     !folio_mapped()
->                                                     shmem_write_folio()
->                              store via stale TLB
->     tlb_finish_mmu()
-> 
-> The store leaves the folio clean in the swap cache. Once reclaim frees
-> it, the object reads back from swap without that store.
-> 
-> The legacy mmap ioctl maps the shmem file directly, and i915 mounts it
-> with huge=within_size on some platforms, so the folio can be PMD-mapped.
-> The core mm keeps the rmap until after the flush for PTEs, but not for
-> shmem PMDs: shmem has no writeback, and pageout() refuses a folio with
-> an extra reference.
-> 
-> Do the same here. The unmapping side holds its reference until the TLB
-> is flushed, so a folio with references beyond the page cache and
-> writeback_iter() is left to reclaim, as a mapped one already is.
-> 
-> Fixes: 2d6692e642e7 ("drm/i915: Start writeback from the shrinker")
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> ---
-> Found while reviewing David's fix for the same race on file PMDs, which
-> leaves shmem out because shmem has no writeback:
-> https://patch.msgid.link/20261116-dirty_file_pmd-v2-2-571883053174@kernel.org
-> 
-> Build-tested only.
-> 
->  drivers/gpu/drm/i915/gem/i915_gem_shmem.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
-> index bf9e7480f0f5..748772c358ac 100644
-> --- a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
-> +++ b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
-> @@ -316,9 +316,15 @@ void __shmem_writeback(size_t size, struct address_space *mapping)
->  	 * leaving only CPU mmapings around) and add those folios to the LRU
->  	 * instead of invoking writeback so they are aged and paged out
->  	 * as normal.
-> +	 *
-> +	 * The same goes for a folio with references beyond the page cache
-> +	 * and writeback_iter(). A folio that was just unmapped can still be
-> +	 * written through a stale TLB entry until the unmapping side flushes
-> +	 * the TLB and drops its reference. pageout() checks the same.
->  	 */
->  	while ((folio = writeback_iter(mapping, &wbc, folio, &error))) {
-> -		if (folio_mapped(folio))
-> +		if (folio_mapped(folio) ||
-> +		    folio_ref_count(folio) != 1 + folio_nr_pages(folio))
+Suggested-by: Maciej W. Rozycki <macro@orcam.me.uk>
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+---
+ arch/mips/include/asm/bugs.h          |  1 +
+ arch/mips/include/asm/sibyte/sb1250.h |  1 -
+ arch/mips/mm/tlbex.c                  | 10 +++-------
+ arch/mips/sibyte/sb1250/setup.c       |  1 +
+ 4 files changed, 5 insertions(+), 8 deletions(-)
 
-I don't think we need this fix in the current tree. The i915
-writeback iterator already skips the shmem folio in the case you
-describe, so the new refcount check doesn't change the outcome.
+diff --git a/arch/mips/include/asm/bugs.h b/arch/mips/include/asm/bugs.h
+index 84be74afcb9a..04d159d4cb21 100644
+--- a/arch/mips/include/asm/bugs.h
++++ b/arch/mips/include/asm/bugs.h
+@@ -17,6 +17,7 @@ extern void check_bugs64_early(void);
+ 
+ extern void check_bugs32(void);
+ extern void check_bugs64(void);
++extern int sb1250_m3_workaround_needed(void);
+ 
+ static inline int r4k_daddiu_bug(void)
+ {
+diff --git a/arch/mips/include/asm/sibyte/sb1250.h b/arch/mips/include/asm/sibyte/sb1250.h
+index ff97e77d4fe7..1186a8b21b36 100644
+--- a/arch/mips/include/asm/sibyte/sb1250.h
++++ b/arch/mips/include/asm/sibyte/sb1250.h
+@@ -38,7 +38,6 @@ void sb1_cache_error(void);
+ void check_bus_watcher(void);
+ #endif
+ 
+-int sb1250_m3_workaround_needed(void);
+ void sb1250_setup(void);
+ void sb1250_clockevent_init(void);
+ void sb1250_clocksource_init(void);
+diff --git a/arch/mips/mm/tlbex.c b/arch/mips/mm/tlbex.c
+index 03a9b03c3d3a..deaee3a3572e 100644
+--- a/arch/mips/mm/tlbex.c
++++ b/arch/mips/mm/tlbex.c
+@@ -37,9 +37,7 @@
+ #include <asm/regdef.h>
+ #include <asm/uasm.h>
+ #include <asm/setup.h>
+-#ifdef CONFIG_SB1_PASS_2_WORKAROUNDS
+-#include <asm/sibyte/sb1250.h>
+-#endif
++#include <asm/bugs.h>
+ #include <asm/tlbex.h>
+ 
+ static int mips_xpa_disabled;
+@@ -89,11 +87,9 @@ static inline int r4k_250MHZhwbug(void)
+ 
+ static inline int __maybe_unused bcm1250_m3_war(void)
+ {
+-#ifdef CONFIG_SB1_PASS_2_WORKAROUNDS
+-	return sb1250_m3_workaround_needed();
+-#else
++	if (IS_ENABLED(CONFIG_SB1_PASS_2_WORKAROUNDS))
++		return sb1250_m3_workaround_needed();
+ 	return 0;
+-#endif
+ }
+ 
+ static inline int __maybe_unused r10000_llsc_war(void)
+diff --git a/arch/mips/sibyte/sb1250/setup.c b/arch/mips/sibyte/sb1250/setup.c
+index 644b19038848..26d0197ab4b4 100644
+--- a/arch/mips/sibyte/sb1250/setup.c
++++ b/arch/mips/sibyte/sb1250/setup.c
+@@ -9,6 +9,7 @@
+ #include <linux/string.h>
+ 
+ #include <asm/bootinfo.h>
++#include <asm/bugs.h>
+ #include <asm/cpu.h>
+ #include <asm/mipsregs.h>
+ #include <asm/io.h>
+-- 
+2.53.0
 
-Thanks,
-Andi
-
->  			folio_redirty_for_writepage(&wbc, folio);
->  		else
->  			error = shmem_write_folio(folio);
-> 
-> base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-> -- 
-> 2.54.0
-> 
