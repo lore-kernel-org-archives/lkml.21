@@ -1,61 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795117236;
-	b=lKdlt8H5Oi6nwjb0Ijqg7NMDfxSQ0z7kDN1YECvN0hFd3FdgMpTgdaJFnQd2rKS0jP6V
-	 Tzk1Sbb226RDlFSW2EnHG71L9w4c6ThDH8KuE4zYlr0kZ4tZIAJhjQQJOno+4tSA+Fijg
-	 3t57P7xnXQSvGorcuFheJgE30mbHRTvj3EAHpYaNgEmYhgWCODpkf6Dfr8lR4kGMgNKdV
-	 Ap/aMBdQ9iQRE9/S8g+T6pukt3CqaskuQR8/GrB/0LV3Mb4V2oTx7rkR+ov3m0Dso6CNe
-	 b8U9UhV2WkqmKsKUv45tbnRGf946RVKS/SpqYtceSQld9tR4IdbVCtkNHNewOWxxedQ==
+	t=1795117247;
+	b=G1gH7GKJ9SIF7+BPrewZmWFlwq0+/K1sQY0ba2LQnZAhGkBKbNPpRr8L113tLUzeAxjD
+	 1fXB5ShfOlc9aMEQVaota+sPSCWSj932u2trGYO4bWBPeMPwEWezNc2pX/YMAh5p0eyI3
+	 +LFJhvn7SrZRMd96N6me8rb/Wr55XuXHV4SAywYH+r6TseNFr5tW/AyOLpSiNKks/ObsU
+	 mkehaSzL8tt4r/Es6Ory4oXrZuWx4BxGy11E72R8Aaq/9ttg0y0lM8AM5Wo6nHmS1UVcW
+	 6G64Q4cBdU2AjRhDYlry6CGCf2r6JJJ/E6YYTHl3uUZNbUUnJBXnvM79095iY9Kn29A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795117236;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=KllBJ9+aHKHmevvfZXj4eWwtwcZanwxTddFWb4nlWzA=;
-	b=IuhQEibYzbPUY0Q4RuLv6Z7rWumX5Boq/YopNSyux7qaXTcv93iWGYRStUc+fCxmm/Nq
-	 KUZeWxY0T4XeHQAXJrfDJiVQfsLXCvPqk0k7k2BNxxq8HK3dPG6HYZXFyqligE7iusOPc
-	 xgDf+bXuYKyrnhcRlM9Ssy3ntfB3QkRgkUqhF78RvyVdK2vU8crs3iRG8lwc2cUShIg3X
-	 jqxVxBWQeXWqOUVqryen/18gWF+6/GKNfrLLB/Hd1eNHcRDaUn+IyJdZuYn1HCNWty9xW
-	 b+OB+nztUgy2UqoA6FT+fFyOHJf8YJG53h+1v8bphA8YzRcRksM7VpQmrJa6ySD89+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795117247;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=Sb9604ZqOKnL5jLlbCzKt/eW9EFcFKIgFhhBj61S3cc=;
+	b=nIfCEBUXWWMVzKcnF/vYUCFzJz5TX3TAR1AvVA+zd7O9G7mJlLdr0cHrBcNZTRFmHdjy
+	 m+rP2wdHDP5I6nFve2JI1NR32zw/pumjXHZ6oVOhEY4tsNRGuVksQNH5myaU+pDZw+d0Z
+	 5G/cHxfghyLZu1RY+s5m711Oxx3bWhul4CU5Lt2I6b2qFj5XdqppUHZWlyKKL52oJvvn1
+	 zaSm1nHSTDY9brs44VRYJrKAZYTC0eIKLro4hmwspdU14q8DGzLxi9gamc8eWqSzHhoQ8
+	 KkG3D4njCv/W8nvLTCa7d+rjNabEr6c7SYa2nsMnMvtz6wjvAgQCBBJ+50OJ91Fksjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HlelLrL8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=eDbpZMnR;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 121FA606A337;
-	Thu, 19 Nov 2026 19:40:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1F4E606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:40:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1F4E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HlelLrL8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E74781F000C6;
-	Thu, 19 Nov 2026 19:40:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795117235;
-	bh=KllBJ9+aHKHmevvfZXj4eWwtwcZanwxTddFWb4nlWzA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HlelLrL8Ng2+24StS3Zy59pXifhMcFRrzQWdbgwGFcZ2c4cc/o+TSmXcJh9cWftJx
-	 FVpLNcPskOkukVpMzAs/fLn54scLX7G9I/yIYilndZ9iIGE+z62R9C3SYni6ci0D7N
-	 ZNFhvxR65Rz+Heqrr/DEcJKd0uEk3Mnn82zSbL1OgpbX76AiQsuDRSAXROU3KZMCcA
-	 YPjZABiuphx9bpwVNQ998Z81J/mEoutyOKFMLPt32mDvVkie2Ur9EO0YkVtf+PhyLk
-	 kj6IclTiME1nNEpEcJkIjl2ARa/EcWr7CafGojxa6KsOx37GY8/CyIig410KAyqt6q
-	 TXeVoW0xZ7iyw==
-Subject: Re: [PATCH net v2] net: stmmac: preserve RX checksum capability when
- offload is disabled
-From: netdev-bot+sashiko@kernel.org
-To: james.hilliard1@gmail.com
-Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, peppe.cavallaro@st.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 19 Nov 2026 19:40:34 +0000
-Message-ID: <179511723446.3136.5381192433185500992@kernel.org>
-In-Reply-To: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
-References: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=eDbpZMnR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795117245;
+	bh=VLIkL6wE7wYf6uwe+nUboRMEv27Th4EuZ1ktfV7x+0A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=eDbpZMnRARCAlScndnXjmT1YZ7+9lrqt4NvJUP6el++L5/Y68WoXn1vxtUHtJ/Cdn
+	 /xxbgNVVmS7csES1plVHIPLttGaTLNYL2Sfd2IYRd/dBy/v4ljRe4/Aleb6FyL1yrN
+	 PLKjMPT9fUSbZ832LL/IoaYvQeZ9x5PUJ3GKwDEbxfvkiDvlJI4ZOEFzQG5026bsFT
+	 UT8Dl+dotOQdBZ8pmASeYHCZJm4FeGybj61gNY0a5aNfXB0Kh808ybgm2TECuBW+5G
+	 75ltDvi2mOqvrPU41oQ3B7JOYrQWRuYsGneICjuTF/IcAa4AMh+nrjVlQCxW/ipPkc
+	 jtcK/KVppmhyw==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ECA5A17E091F;
+	Thu, 19 Nov 2026 20:40:44 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id B094E48002B; Thu, 19 Nov 2026 20:40:44 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 19 Nov 2026 20:40:29 +0100
+Subject: [PATCH v18 1/7] phy: rockchip: usbdp: Disable USB3 port during
+ normal power-on
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,154 +66,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-1-fb325e336494@collabora.com>
+References: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
+In-Reply-To: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Zhang Yubing <yubing.zhang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Alexey Charkov <alchark@flipper.net>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1244;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=VLIkL6wE7wYf6uwe+nUboRMEv27Th4EuZ1ktfV7x+0A=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGr/ULzw0MbRiyxs1SKri2Sq3RO/Zv355PsmU
+ ekbWX0BcxVP2okCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq/1C8AAoJENju1/PI
+ O/qaWjUP/iX5couLjvn/eYovoBNz/IaaFRooxvFWa3qLmPfhOdf18dOl8AXQKUa+BY85K+KbKnn
+ 4B8zXRGYgJqNSvEGcIoZWyZoFo2HD29z0VcBXbWucQhj4RZd7E9L6VPu2Gnsu1eAGo0i3B2r3hM
+ /5CRrP98nygBWCZgfbl9jzw2EYp8k+dMRNwazA1XwrbaV42rm6VR3FuOmEyDa3Nk29k+qGlaqki
+ X7pW2Ug9GErXu3fIRIAswCnOe3o/Rs33fxtz9pEuZXQxgcFkHp40Tcr4ORmqlgrUI18yh1a6p0L
+ txCETF0fWhrrEWDABwoxeZaSx/bS/Eq2GAaNqYrd85y3W6wDwMar9JqejEiWylRk7ni+YwpzBYT
+ CpRAixl8C4q5PVvrzdox4rHAugm9oHXU55FMj/vgMnj0XiMXpvl+tKnx8sQK4UoGkhGrPHwB81M
+ xes/8KXOjA3JtnvIcGOKW+SSBeoAsJE2C8veZ3WXKjE9v3SYVMvHwQ3VitEORFizwcna838QCHd
+ FwDOdwSSBNYFRkzc9cFwX5gtMeD8grZr4aUL1lEdnXtJf0lFSUkJPPjQqUQEcgvhiTOzNMHAaM0
+ c8cmA9lpbIBCJeyD0q4WxdF9Pnenx7isUCT4cG4mCIHlDyT2ObzqAUd7U/e/lqZyyzdwW2tdCZX
+ KT4KI27Hin85id321qJIzag==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+In the reset path, the USB3 port is disabled. This re-routes the clock
+going from the PHY to the USB3 controller. This adds the same to the
+normal power-on path, so that it behaves exactly the same (except that
+the clocks routed to the PHY stay enabled in the reset path).
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
+This hasn't been done so far, as it requires the recently introduced
+PHY reset infrastructure to avoid the PHY PLL not locking during
+startup.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-- [Medium] After this patch, stmmac_hw_setup()
-  (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:3725-3729) checks…
-- [Low] The struct stmmac_ops comment for rx_ipc
-  (drivers/net/ethernet/stmicro/stmmac/hwif.h:322) still says "Enable…
-
-Pre-existing issues:
-- [Low] This problem wasn't introduced by this patch, but
-  sun8i_dwmac_rx_ipc_enable()…
-
---
-
-net: stmmac: preserve RX checksum capability when offload is disabled
-
-This patch changes stmmac_hw_setup() so that a zero return from
-stmmac_rx_ipc() clears plat->rx_coe only when RX checksum offload was
-requested, meaning hw->rx_csum is non-zero. Before this, the RX COE
-capability was lost when the interface was reopened after RX checksum
-offload had been turned off with ethtool.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 25894771e9e9f..e162976be2e6d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -3723,7 +3723,7 @@ static int stmmac_hw_setup(struct net_device *dev)
->  	stmmac_safety_feat_configuration(priv);
->  
->  	ret = stmmac_rx_ipc(priv, priv->hw);
-> -	if (!ret) {
-> +	if (priv->hw->rx_csum && !ret) {
-
-[Severity: Medium]
-Can plat->rx_coe now stay unverified when RX checksum offload is off at
-every stmmac_hw_setup() since probe?
-
-For example, if "ethtool -K ethX rx off" runs before the first
-"ip link set up", the readback is never checked. plat->rx_coe then keeps
-whatever value the HW feature register or platform data reported.
-
-If RX checksum is later enabled while the interface is up,
-stmmac_fix_features() keeps NETIF_F_RXCSUM because rx_coe is not
-STMMAC_RX_COE_NONE. stmmac_set_features() then ignores the rx_ipc result:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_set_features() {
-	if (features & NETIF_F_RXCSUM)
-		priv->hw->rx_csum = priv->plat->rx_coe;
-	else
-		priv->hw->rx_csum = 0;
-	/* No check needed because rx_coe has been set before and it will be
-	 * fixed in case of issue.
-	 */
-	stmmac_rx_ipc(priv, priv->hw);
-	...
-}
-
-That comment assumes the stmmac_hw_setup() check has already run, and
-after this patch that is not guaranteed. Before this patch, any open
-with a zero readback cleared rx_coe. So once the interface had been
-opened, offload could not be enabled at runtime without a check.
-
-Some hardware may advertise RX COE while its IPC bit does not latch. On
-such hardware, hw->rx_csum would be non-zero while the MAC is not
-validating checksums. stmmac_rx() and stmmac_construct_skb_zc() would
-then mark IP frames CHECKSUM_UNNECESSARY based on hw->rx_csum:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_construct_skb_zc() {
-	...
-	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
-		skb_checksum_none_assert(skb);
-	else
-		skb->ip_summed = CHECKSUM_UNNECESSARY;
-	...
-}
-
-The zero-copy path does not look at descriptor status at all. Split
-header is also enabled from rx_csum > 0.
-
-This would last until the next stmmac_hw_setup() with a non-zero
-rx_csum, for example after down/up, resume or an MTU change.
-
-I could not find a specific part where the IPC bit fails to latch, so
-this depends on the hardware case that the stmmac_hw_setup() check
-exists for.
-
-Would it make sense to check the stmmac_rx_ipc() return in
-stmmac_set_features() when offload is enabled? Another option is to
-verify the capability once, whatever state was requested.
-
-[Severity: Low]
-This isn't a bug, but should the rx_ipc comment in struct stmmac_ops be
-updated to match the contract this check now depends on?
-
-drivers/net/ethernet/stmicro/stmmac/hwif.h:
-	/* Enable and verify that the IPC module is supported */
-	int (*rx_ipc)(struct mac_device_info *hw);
-
-The commit message says the callbacks program the state requested in
-hw->rx_csum and return whether IPC is enabled afterwards.
-dwmac1000_rx_ipc_enable(), dwmac4_rx_ipc_enable() and dwxgmac2_rx_ipc()
-behave that way. The hwif.h comment still reads as if a zero return
-means the IPC module is unsupported.
-
-sun8i_dwmac_rx_ipc_enable() already uses the other reading ("caution
-this function must return non 0 to work") and ignores hw->rx_csum.
-
->  		netdev_warn(priv->dev, "RX IPC Checksum Offload disabled\n");
->  		priv->plat->rx_coe = STMMAC_RX_COE_NONE;
->  		priv->hw->rx_csum = 0;
-
-[Severity: Low]
-This is a pre-existing issue, not one introduced by this patch, but the
-commit message says:
-
-  Keep calling rx_ipc when offload is disabled so that the hardware
-  is still programmed with the requested state.
-
-Does that hold for the sun8i EMAC used on H616? The commit message
-limits this claim to the GMAC, GMAC4 and XGMAC callbacks.
-sun8i_dwmac_rx_ipc_enable() ignores hw->rx_csum and never clears
-EMAC_RX_DO_CRC:
-
-drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c:sun8i_dwmac_rx_ipc_enable() {
-	...
-	v = readl(ioaddr + EMAC_RX_CTL0);
-	v |= EMAC_RX_DO_CRC;
-	writel(v, ioaddr + EMAC_RX_CTL0);
-
-	return 1;
-}
-
-So on sun8i, "ethtool -K ethX rx off" leaves the EMAC checksum engine
-on.
-
-stmmac_rx() still treats these frames as CHECKSUM_NONE because coe is
-0, so I could not find any frames being marked with the wrong checksum
-state. The problem is that the register state does not match the
-requested state.
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 9c6d921b9191..d01a819bf794 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1051,6 +1051,9 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
+ 	if (udphy->status == UDPHY_MODE_NONE) {
+ 		rk_udphy_run_reset_handler(udphy, true);
+ 
++		rk_udphy_u3_port_disable(udphy, true);
++		udelay(10);
++
+ 		ret = rk_udphy_setup(udphy);
+ 		if (ret) {
+ 			rk_udphy_run_reset_handler(udphy, false);
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386%40gmail.com
+2.53.0
+
