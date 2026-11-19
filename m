@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795124434;
-	b=oQHv0ysDRbIMb/a4w1WR3arsdrdiHBYZfuwjP/9s0RL73cePnAHM5uLxcaxvxuHAOnqv
-	 iNnEH2huAEazlLfhLyXp6eltiajW2iWO6m9Jbhl3IpCDtjiWaO3wby2PqwtoPKx5HX8Eo
-	 Y4LuyA4McRvvJNi0rKFRfTB8N7F6l8gOOlSL2VNp31qyyh7XNtewuYseVoel2+TdSEAxd
-	 4oVDuEO0Lv1Ql2QM9B/r3DlkfCiqJHk9G9Zc4EOkVWcrpyVBBN/HOTvo1ELXSNochp33A
-	 tekXnLQG/6esT01B3Z3uym3knwAy312k2gWOhLy7diKERd1wy0zGqalh0uLTQirqtzA==
+	t=1795124538;
+	b=RN+mJJVqHhB12nwK8gngjGOneFMByB0AUAJCEoZU916vquZe3xjqVNmcl5eKk/Ai/D5w
+	 bVG0Uyk9rOku17ywiaarWw6xNnx8Yp7z4LzE1SUdR3UcrJbOaHUYO1qEhNn43oh18V/4V
+	 VHfUvZp13ddc9OuUGRPfZczxAZI0dO3DbcJfuzGhR8rwwWz5wQ/OOzDlAZN1DVVW4CIac
+	 FW1fXe/bcHeRU8FCyUDEjWfFxvcPS+cvemSX0numbsVjjVpHibbBjmr6JNoImd6SwuE2F
+	 K8SQpttTFvNMyc2F+k/7X8vceNJYTyRrC7Vh2g/EcnbwY7g1uFb4zAy6MI3MUC+vAnQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795124434;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vF7ekkbhzw0sIXjPLBq5g9RE6+l5S7Zg7YNXTWY9lqo=;
-	b=AhVzZEpyTS4TKI2pli76kHD//gLxQZUPalCUTH74TU91xnZpHEJu30uhAZo5I/4B2fIB
-	 wlhS2YG2nv7Hp0XQ6L/qW3YXc/ljpQQ8G7jlcs43DGtehe8DZTBi6QrD3CiWR33k8CVde
-	 PyIZBQwUI+NUuUdCww5w4DSMJFcaVyVOvYh76bddZooe3EKwxOg12Zv+ew6krrtWgA2YB
-	 qiJLEEzYPNJlRMyQRJsAXPoUjpdORPXQmjpbPT1izqAkzSvMf4AVkqQbgwIPuKc3Rx73+
-	 /fwa4AoG17HmwvOmsLW3Ag/pNCb+vBA92pmP45TMxasqh+k3PDdru3Pvf9yNCDPZlaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795124538;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=RweZj/1TUoc4rtIBYfUS/HLl+WylhOgLLsA47vbDTKE=;
+	b=TJWPrKpnOH2A9gh3aAo31mmxOmKRuG203o5Qk7FDhrWJDhWDAgP6ghDxYRLxOKHvfcyj
+	 /VV85m0Nul0or1EXPB9cn3W6gMT8B2fa+JiEwPtWnl8au1HPwTfayHW/FR5cEqaSegVzz
+	 pWxie158j8mgbvvyf077TrtexQx39JXVcWDPdnIJR9xHC/j+TxvoKK09T0d5BcvDgMWv5
+	 C7Y+0E9I/WrG2KLBSc4Au1hqSZHjuQBDC82z2bHEhC5FhaIfPdD+ZA67OsMzxwZ++qyl6
+	 dteBNS4OTX6E2UHAuVy1nUfpq0pWdxyqvGNz+ywMXZJtdrU25YQlE0VweDqGgvQkw1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=MX+kM9Vw;
-	arc=none smtp.remote-ip=185.70.43.171
-Received: from mail-43171.protonmail.ch (mail-43171.protonmail.ch [185.70.43.171])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BPDtNyt2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9617606A324;
-	Thu, 19 Nov 2026 21:40:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9617606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBFD5606A325;
+	Thu, 19 Nov 2026 21:42:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=MX+kM9Vw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795124431; x=1795383631;
-	bh=vF7ekkbhzw0sIXjPLBq5g9RE6+l5S7Zg7YNXTWY9lqo=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=MX+kM9VwLZtagNbz5n2EsO8bZAEdDLpRnasVP35dovqKDaaj6FAWBD3OvFJ83aRRp
-	 qj2z0vdpT7gs6g2+0H0vDRJv197tOEvsTdSejMhOX7WZ2GS+7NXWf9QcjFzVeJMoGB
-	 XDyr7GguTtxS+CP7QrqVWFN/OKmjNz9tqaKmaE96g+GMkGrP51SIu7/X25P6K64f9M
-	 fn6PoP289tV/3xIyq6AK0ohZGSTYBLJY7wK2iesGwOQm2ULJ5PYDEMYGc7XmMiiaM0
-	 Hyj1D8l5xowQg2gvmlFV+xiGfFaxcN5qeQlIc9sX1xz2NwcGtihdMgsxwX32nik5yO
-	 251J2Iv8nhfJw==
-X-Pm-Submission-Id: 4jVsMZ4s92z1DDqy
-From: Miroslav Cimerman <mc@raidlab.org>
-To: linux-btrfs@vger.kernel.org
-Cc: David Sterba <dsterba@suse.com>,
-	Chris Mason <mason@kernel.org>,
-	Naohiro Aota <naohiro.aota@wdc.com>,
-	Johannes Thumshirn <johannes.thumshirn@wdc.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/4] btrfs: tests: zoned: add degraded RAID1 cases
-Date: Thu, 19 Nov 2026 21:38:35 +0000
-Message-ID: <20261119213835.103131-5-mc@raidlab.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119213835.103131-1-mc@raidlab.org>
-References: <20261119213835.103131-1-mc@raidlab.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BPDtNyt2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFC4C1F000C0;
+	Thu, 19 Nov 2026 21:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795124538;
+	bh=RweZj/1TUoc4rtIBYfUS/HLl+WylhOgLLsA47vbDTKE=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=BPDtNyt2N8IH0c9dksntcJoOQmJyIJ+iNPs5wjWF8UnWCK/QvKCfUlcy4WmNJfsKQ
+	 wLYkV5w2UqjFyk1Y0r0JmDr/iz8SVpR3WOejweKFHYgENVkdkBovcX7G2qilT9meF/
+	 OyLm1FbAQrCk3510O7fnEY9KS5sVypHcpARqr8RKbdAZe/iF8na7YoNfg5I/3sUL3m
+	 hNFSSjepDX6xz0Q5ck6er0Gx9Pi1QyT4WhJtkhHmBNo0TYgqyIXKnH7tvBjAAQFKfb
+	 S5+kfeHTVIGuktwdNwWuNTPr4NW/JXst9Z+rc6RXCE3XtYBR6wPFeWrHvF1kMyFbYf
+	 3CmmoZohqzfVQ==
+Date: Thu, 19 Nov 2026 22:42:15 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Marcel Holtmann <marcel@holtmann.org>, 
+    Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+    Michael Zaidman <michael.zaidman@gmail.com>, 
+    Rishi Gupta <gupt21@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
+    Andrej Shadura <andrew@shadura.me>, 
+    Johannes Roith <johannes@gnu-linux.rocks>, linux-input@vger.kernel.org, 
+    linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] HID: hidraw: Encapsulate struct hidraw and make
+ hidraw.h private
+In-Reply-To: <20261016-test-hidraw-base-v2-0-153f67a20cad@gmail.com>
+Message-ID: <99s2r0r2-pprp-o100-p5o2-op9n64r9qr90@xreary.bet>
+References: <20261016-test-hidraw-base-v2-0-153f67a20cad@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,140 +64,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-Add cases for the previous patches. On a degraded mount: RAID1 with the
-first device missing, which has to be marked active, RAID1C3 with the
-first and the last and with the first two devices missing, and RAID1
-and RAID1C3 with different write pointers, which take the highest one.
-On a regular mount: RAID1 with the first zone offline, which now loads.
+On Fri, 16 Oct 2026, Dmitry Torokhov wrote:
 
-Give missing devices a zone capacity of 0, as btrfs_load_zone_info()
-does, and check the zone capacity and the active state where a case
-asks for it. All six cases fail without the previous patches.
+> This series cleans up internal HID core and hidraw header boundaries.
+> 
+> First, internal HID core declarations and unused symbol exports are
+> moved out of include/linux/hid.h into a private drivers/hid/hid-core.h
+> header. Next, a hidraw_instance() accessor is introduced in
+> include/linux/hidraw.h so HID drivers that only need the hidraw minor
+> number for naming or debug logging no longer dereference struct hidraw
+> directly. After converting the drivers and dropping unused
+> linux/hidraw.h includes, hidraw.h is moved to drivers/hid/hidraw.h and
+> struct hidraw along with its internal buffer and list structures are
+> made private to drivers/hid/hidraw.c.
+> 
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
+> Changes in v2:
+> - Rebased onto latest linux-next (next-20261016) / hid.git for-next
+> - Updated hidinput_connect() declaration in drivers/hid/hid-core.h in
+>   patch 1/5 to use unsigned int connect_mask instead of unsigned int
+>   force to match upstream changes
+> - Link to v1: https://patch.msgid.link/20261014051326.3784498-1-dmitry.torokhov@gmail.com
 
-Signed-off-by: Miroslav Cimerman <mc@raidlab.org>
----
-Prepared with the help of an LLM, which also ran the tests. I reviewed
-everything.
+Now in hid.git#for-7.5/hidraw. Thanks, and sorry for the delay.
 
- fs/btrfs/tests/zoned-tests.c | 82 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 81 insertions(+), 1 deletion(-)
-
-diff --git a/fs/btrfs/tests/zoned-tests.c b/fs/btrfs/tests/zoned-tests.c
-index bb9969210444..9cc5b32bb2ee 100644
---- a/fs/btrfs/tests/zoned-tests.c
-+++ b/fs/btrfs/tests/zoned-tests.c
-@@ -27,6 +27,8 @@ struct load_zone_info_test_vector {
- 
- 	int expected_result;
- 	u64 expected_alloc_offset;
-+	u64 expected_zone_capacity;
-+	bool expected_active;
- 
- 	const char *description;
- };
-@@ -77,7 +79,9 @@ static int test_load_zone_info(struct btrfs_fs_info *fs_info,
- 	for (int i = 0; i < test->num_stripes; i++) {
- 		zone_info[i].physical = 0;
- 		zone_info[i].alloc_offset = test->alloc_offsets[i];
--		zone_info[i].capacity = ZONE_SIZE;
-+		/* A missing device has a capacity of 0. */
-+		if (zone_info[i].alloc_offset != WP_MISSING_DEV)
-+			zone_info[i].capacity = ZONE_SIZE;
- 		if (zone_info[i].alloc_offset && zone_info[i].alloc_offset < ZONE_SIZE)
- 			__set_bit(i, active);
- 	}
-@@ -101,6 +105,19 @@ static int test_load_zone_info(struct btrfs_fs_info *fs_info,
- 		return -EINVAL;
- 	}
- 
-+	if (!ret && test->expected_zone_capacity &&
-+	    bg->zone_capacity != test->expected_zone_capacity) {
-+		test_err("unexpected zone_capacity: zone_capacity %llu expected %llu",
-+			 bg->zone_capacity, test->expected_zone_capacity);
-+		return -EINVAL;
-+	}
-+
-+	if (!ret && test->expected_active &&
-+	    !test_bit(BLOCK_GROUP_FLAG_ZONE_IS_ACTIVE, &bg->runtime_flags)) {
-+		test_err("block group not marked active");
-+		return -EINVAL;
-+	}
-+
- 	return 0;
- }
- 
-@@ -244,6 +261,69 @@ static const struct load_zone_info_test_vector load_zone_info_tests[] = {
- 		.degraded = true,
- 		.expected_alloc_offset = SZ_1M,
- 	},
-+	{
-+		.description = "RAID1: missing first device on DEGRADED",
-+		.raid_type = BTRFS_BLOCK_GROUP_RAID1,
-+		.num_stripes = 2,
-+		.alloc_offsets = {
-+			WP_MISSING_DEV, SZ_1M,
-+		},
-+		.degraded = true,
-+		.expected_alloc_offset = SZ_1M,
-+		.expected_active = true,
-+	},
-+	{
-+		.description = "RAID1C3: missing first and last device on DEGRADED",
-+		.raid_type = BTRFS_BLOCK_GROUP_RAID1C3,
-+		.num_stripes = 3,
-+		.alloc_offsets = {
-+			WP_MISSING_DEV, SZ_1M, WP_MISSING_DEV,
-+		},
-+		.degraded = true,
-+		.expected_alloc_offset = SZ_1M,
-+	},
-+	{
-+		.description = "RAID1C3: missing first and second device on DEGRADED",
-+		.raid_type = BTRFS_BLOCK_GROUP_RAID1C3,
-+		.num_stripes = 3,
-+		.alloc_offsets = {
-+			WP_MISSING_DEV, WP_MISSING_DEV, SZ_1M,
-+		},
-+		.degraded = true,
-+		.expected_alloc_offset = SZ_1M,
-+		.expected_zone_capacity = ZONE_SIZE,
-+	},
-+	/* A stripe behind the others: the highest write pointer on DEGRADED. */
-+	{
-+		.description = "RAID1: different write pointers on DEGRADED",
-+		.raid_type = BTRFS_BLOCK_GROUP_RAID1,
-+		.num_stripes = 2,
-+		.alloc_offsets = {
-+			SZ_1M, SZ_2M,
-+		},
-+		.degraded = true,
-+		.expected_alloc_offset = SZ_2M,
-+	},
-+	{
-+		.description = "RAID1C3: first missing, different write pointers on DEGRADED",
-+		.raid_type = BTRFS_BLOCK_GROUP_RAID1C3,
-+		.num_stripes = 3,
-+		.alloc_offsets = {
-+			WP_MISSING_DEV, SZ_2M, SZ_1M,
-+		},
-+		.degraded = true,
-+		.expected_alloc_offset = SZ_2M,
-+	},
-+	/* An offline zone has no write pointer on a regular mount either. */
-+	{
-+		.description = "RAID1: first zone offline",
-+		.raid_type = BTRFS_BLOCK_GROUP_RAID1,
-+		.num_stripes = 2,
-+		.alloc_offsets = {
-+			WP_MISSING_DEV, SZ_1M,
-+		},
-+		.expected_alloc_offset = SZ_1M,
-+	},
- 	/* Error case: having different write pointers. */
- 	{
- 		.description = "RAID1: fail: different write pointers",
 -- 
-2.53.0
+Jiri Kosina
+SUSE Labs
 
