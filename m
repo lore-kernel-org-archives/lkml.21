@@ -1,81 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795059070;
-	b=T8oNw5vliEEb3BawrvPlKagXr84BEQvo9rA3mtCY/36TGdUbb8vO0Yik2m1HCH1X+8Hb
-	 J1kysJg4bYlahZE5r1drChGuveC9NcQu6BvPznGHMqAYWsDC3qaycHCK9K8uxvApxRc53
-	 A+MIKGtO00CChedPiE43qk+dAlT7qKPBgyZuuQ9smSQWFHOTEJXLD3BGpgYTTEPP++HIw
-	 kCLrPMaQL6/1lBhKUbB1fiTKKpIFOlLCuME01S+OvbTJAuRZcwyiRvo0Q+ByvMtKLtNPq
-	 /Ne7vIMj2m+0xeOj9fTEMhI+nhoRdrANAgRXwnzujFXgak78KA9DBdvfmPUODkt+VPg==
+	t=1795059072;
+	b=I7/WlIYg7F6UT1yGPCn4gvRKDfVJIrEq0i6HFGsFe/yBDeelasRK8hHPdCOCW8Kek51Y
+	 A3f4Ehlywg2SK6WU0CP6a/OBgPGfymahpLT9pFM1ru+FClisMOoc/8p4sdkFy5jX9DxeH
+	 4igoCRZsbbrz+DaQNu5Mker6UTxydmWy33tFOJMlTfWm2T2kAG915W7wsyV8FT9Xto2Eo
+	 Gd8hwIr2GqoZSr5+EMsJgeuc9ZRxrd5ueVMPj/l7+Ch8R8ujUc2owMe7dWU7TmrlxjBQq
+	 OAsxURYMixPydXcHNd7ngUVDT3HguRu6yRc6MSDddrxQ8x8TmbtWDIv9U6XlHmyPfSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795059070;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ph+NGWmmYq1FDGFTa3cFuctLB01rHiDu5fL3wT4eWEw=;
-	b=AvrqDJAF3Bi9mkm7pLBxnotUdX6DJsqsU+7o1trj2taeSgZ/oOBvfivxzbhmIPcJ/QKU
-	 E/OEXJo37aL4u2zOgmeziyqpQMcmuQi3KGE92tocbYgdKrWDzdjKxHe+YXKWPStsWjOXx
-	 mi0ExOuWd/4TeLEBz7X4E7cNs2aoAsdWge3u0Uf0W2ogHnlOwi1aat3IuZmllFfg69E1F
-	 HZ51bT2TDUNht+J0Np4c1VNOd1G7WgdC5ztuknHxZrE0Qd/Nx3TGlcETV8jhggS5jao3Z
-	 85gwx6RzD4sxX7odhKnRs2zj06nUgO2q/zQ7euEeGf2IGwbvx/4xO9v/Nta/NxsGz5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795059072;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ZLlkYj3mBfiUcAIkRHyiL4FHQRqTFutxEfnrI2U+Iuk=;
+	b=ePijiBdVtoPy0pTOkpch1ncilnLCjL0uNvGMFlQB/+x0e8EH/Qo1AiEKbN6lJqnCbx03
+	 jPi5RGQ0jV7Y8qkV0pAjU/CFLwuMm6CIBSBP+hzE6Cwuc3kqNZZJvzPGyrYrR/upw71Qv
+	 JVRbCcYVOTQSy1YgM9h2b8olGPU2sTac0NPCZ7lE3i4/+p7lvCu3q0wmd9YGTvLOf113+
+	 XoDQzdau4Sp3RrQih3/U8IME1BjGFfalE3PzyQVQOqfBv716axkRPWZFPifi0nsKDq4hz
+	 LuTmstXhb8UJ+Eb3LVaGrFMq0HKpjBsvOaNt48st9aVD2BLdmpVnODerMgE8pTN7PlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foxmail.com;
-	spf=pass smtp.mailfrom=foxmail.com;
-	dkim=pass header.d=foxmail.com header.i=@foxmail.com header.a=rsa-sha256 header.s=s201512 header.b="zY2hX4/K";
-	arc=none smtp.remote-ip=162.62.57.64
-Received: from out162-62-57-64.mail.qq.com (out162-62-57-64.mail.qq.com [162.62.57.64])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0FQh7JjM;
+	arc=none smtp.remote-ip=209.85.216.54
+Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FA15606A31C;
-	Thu, 19 Nov 2026 03:31:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FA15606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foxmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foxmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DB96606A33F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:31:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DB96606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=foxmail.com header.i=@foxmail.com header.a=rsa-sha256 header.s=s201512 header.b=zY2hX4/K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1795059043;
-	bh=ph+NGWmmYq1FDGFTa3cFuctLB01rHiDu5fL3wT4eWEw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=zY2hX4/KVpaiq9IAJa05Vc8tHdB2slFEQSiXQpb82DnwgkcUqI6hXHEW6ThvC5BHv
-	 0daCpP2BA+ReM/oV1w1IVbwLJV1KkUH8hQ6TTW3cpVEd+FEWWUp03Kbxjz6t7xcF45
-	 9bJvN94oZaBVKQvrc/teDPWpVKEASXnFSoVpQkI8=
-Received: from localhost.localdomain ([107.173.101.132])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 7A6052CB; Thu, 19 Nov 2026 11:30:38 +0800
-X-QQ-mid: xmsmtpt1795059038tre2pkvgj
-Message-ID: <tencent_F14FD4212049828EDB98B55B6E0FE116CF07@qq.com>
-X-QQ-XMAILINFO: OW+Aa38L0qVBPF71u6y/GgmQhnrfohGjPxkly7mnvBDRtLQetEZfgyBr0O5OGm
-	 Uaz3oG+WNgMulm5nsKNn7TD17QZuUTUCYUkGjiTwwn1oqVvxWn4+z0N4bhKdzTg8BkQg0Ct77GC0
-	 B47ZajaA3ivV6HZsf1VbyNbux0ZfIubiXIyWx0GkUXppsqg94DzAGff1FyJDAKXkylToeqrmedq4
-	 SLLFDroi/Y0HdRghZ9Sxiy1K01GMr0dBd+IMaur2n0+Ruy2zwdB24L1auEMqq7nvV9u43wE4DI+r
-	 gwPNLbZvZAmvQqeGe38Vp/KKj7gN7FsiK1bF5ds8iCWbwMkCn82HZ5RtSk0YjTY/ryz/3q5QA2A8
-	 z+Nt+8M4UbsaKdG55ZyLShweVPFo/iLCOclTxFqA/M04pXV1HjZnY5CgTkahgGVlNYqcyrPs3Fuy
-	 uoIWEh4uu49OKZcaY1QHJ9fQGXnPtFTaV+O4W/WgEfFUAHveqs4txarSPBoFbLJu0S57HTFMRTOH
-	 +GdMGw7XmppPNjKI6AotYgBezUZm9OBWdwRTlprp2zruqspjYH/q1U+WMgc55Lgrovkld4a4PG7j
-	 gU/O3E6r0iRqIEwIOypQppcxj+M/hkx2FVFx89Zd/JavyNHICYqDX4YMgjDpHWfJr0exkEDVDb3b
-	 g2WVQNdX1PFwlcL39qsWjQUtK52VQrKQVSZnwlRxahBJSTNlekUnudbyji6KNiqxMQyCkC2OpH09
-	 ZGdj4UBtzWu6c7zeirWizoUC77kNqVD0LQKRyJWd5qnvWTvTpMTuXmWT5J5G7LOWEXDuMfkf28VO
-	 OAnUwfPitwXII6jynDlpHD2Lqp5I0cYrp8A5lHQXgOMVQIDEox5zpq6AxNYV7yYC3k1DelZ3+OEA
-	 MYntawzM+MdXoYHSI8jSkfFoXD9SuufWma8Ypho64NnbI7oNaL7FYl6Z1HSBJgrxfE7WGS/o0MD7
-	 xYSDKwxjK6MLvodVXyWccVaaYLT5N+0QF8s5T8RC3zTSFpNxkw6I7Vfg4OFAX9zB2go1qIb89d1u
-	 k50uQIaCej1pws93Pl
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-From: "Ziyou Wang (Lenovo)" <ziyou.dev@foxmail.com>
-To: helgaas@kernel.org
-Cc: bhelgaas@google.com,
-	lukas@wunner.de,
-	sathyanarayanan.kuppuswamy@linux.intel.com,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	ziyou.dev@foxmail.com
-Subject: Re: [PATCH v2] PCI/DPC: Increase recovery timeout to 60 seconds
-Date: Thu, 19 Nov 2026 11:30:36 +0800
-X-OQ-MSGID: <20261119033036.2039885-1-ziyou.dev@foxmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261106152143.GA1621130@bhelgaas>
-References: <20261106152143.GA1621130@bhelgaas>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0FQh7JjM
+Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3acb11973c3so1525839a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:31:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795059071; x=1795663871; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZLlkYj3mBfiUcAIkRHyiL4FHQRqTFutxEfnrI2U+Iuk=;
+        b=0FQh7JjMzMxqIXlV+YFPS3msR8b27sQJGLsSxfXFaC5aWWJ1nATPtAlHexGCutYqwz
+         6vRlMMji/8aykSLt2osM7jxzzw010kO/Zgeyuw4oJldVk4gjXrcI3VDhW+agphjpQyF6
+         3gr0L0t3/mDctLutM7g2AoG7nYrLNAKlUevPRkliCdFhlpsrRXL9xCSHd/2iYAXZoCFW
+         3AiHMEbSTMeT7Yz0e8fJHGSwA3BvlhmUXOjy2ADvz7dEh2U6qeWL3dTK4YNtCg9YAyS+
+         DZfFxEgDiHPStqtGEI5q95iWk8qE0Py0vvpSK5IbwnMfKT4KcLaKStaePqD6Zd2ppsYi
+         w5bQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795059071; x=1795663871;
+        h=mime-version:content-transfer-encoding:content-type:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=ZLlkYj3mBfiUcAIkRHyiL4FHQRqTFutxEfnrI2U+Iuk=;
+        b=gh+7/FdO97sgWrsT4boGd3jqmr1Bki3VpdmKOWZ0bY//kJ3NWQO4SFNwshjEMum5QW
+         4kocpEhhUgcSZJ+jksijlL81mRPBLMmlZyobC29CDzI7IvRN5nxfO2YbnYEcT5UiXMdL
+         kxr35snB0tmlNaQ8gRpW93oUIA0n7QfuvA1Kjk+Dvb9OtTYCL95xPeZPeeiT1wo9sEc+
+         /FL5DmfcqodOIiooZePVtqMAjXENLJjprh95lLjIfvVdqt2edod0TfvBy67lXA2kEKBw
+         FJnrR+JXycWDamI8ugQDrlDQN7iiiw6LOLQcW8d2A0Cqkgm7SGcwYYYgQnjOd1AKh2XL
+         S1aA==
+X-Forwarded-Encrypted: i=1; AL+hErE+AhyOa2YkiEMvvTUNaxN6D8UZ5qc8p0nSXTliOHOFrcrqjPie60IURTXuaM5xZtaxmZw3wPFSMd//anU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82aQFmcrxb9+xLuhjSUug9hfURiGUVMOMEc1GbMvYnt/L9BzCi
+	og7bE3wSL96NBk1K79cySZvUi+z8g9E03NP0iCE/c9q+fq3+byqnKPU2
+X-Gm-Gg: AZFdTZcjobbxlP/+FQs2V3XvIgzoTowUMieskOfhQdzfUV+TCK6an2orc5e+nzgnrcc
+	/b06RKzncPVuhe9xkKigFWPflCHBH/50mMDVThC2gpg6b5lUlESVyyh4LyEuJyVJBJqRcPuvdd7
+	HJWucBzPAJl0eplVzo0oIE/aF8toFLBuwIvODtsAj+1ouS97DwVNQkvpRUnGkSTCzfxV7ft1WkV
+	IpDZXM6kctAhxmc7TARw0YNPZVpaM1hiLaH1wv9cgIsvaLbzP0Dfhj+ZXxjZ1hvABfC7N6IZUlX
+	5KnoeS9W0NuhPxirQg8gesPG4I563W4IyC/+OXJ/mz/E1o2FoXAZm6GWCb1yX22EX84PDflU/tF
+	qvfgoAKxx2idvIa48Uui65ii71eC/ZQ2LxYKB3nMgELjfBgzX603WNrZgxKxtiHgeoHYkktJvlK
+	4MnOReeIPMUtwJYQl03hlOI8Dm2l8eLQQH2hDUAnQkHjldJNUrWtGrIkVibUCzIh169ZsR5IUcQ
+	EderMw3eNrW14ebExhHWsFErtq1Efq/46QKr66e5pFDTZQFpluFI89eoKTRJWaDM6FGWwA=
+X-Received: by 2002:a17:90b:3c0b:b0:3ac:e6a:1b2b with SMTP id 98e67ed59e1d1-3b3d04d0f80mr4639475a91.0.1795059071362;
+        Wed, 18 Nov 2026 19:31:11 -0800 (PST)
+Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm254672a91.10.2026.11.18.19.31.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 19:31:10 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:31:10 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] bonding: reject a non-Ethernet 802.3ad slave even when
+ the type matches
+Message-ID: <179505868590.3571070.12381528230330714812@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,87 +98,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Hi Bjorn,
+Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
+devices") rejects a non-Ethernet first slave in 802.3ad mode, but only
+when enslaving it changes the bond's type. A bond keeps the type of its
+last slave after that slave is released, so a bond that once had an
+ARPHRD_TUNNEL6 slave can be set to 802.3ad and take another TUNNEL6
+device, such as a second bond prepared the same way, without the check.
+bond_open() then adds the 8-byte lacpdu_mcast_addr to that slave with
+dev_mc_add(), which copies the slave's 16-byte addr_len:
 
-Thanks for your review!
+  BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+  Read of size 16 at addr ffffffff878a2940 by task test/114
+  Call Trace:
+   <TASK>
+   __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+   dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
+   bond_open (drivers/net/bonding/bond_main.c:4405)
+   __dev_open (net/core/dev.c:1762)
+   __dev_change_flags (net/core/dev.c:10022)
+   netif_change_flags (net/core/dev.c:10087)
+   do_setlink.isra.0 (net/core/rtnetlink.c:3294)
+   rtnl_setlink (net/core/rtnetlink.c:3633)
 
-On Fri, Nov 06, 2026 at 09:21:43AM -0600, Bjorn Helgaas wrote:
-> Was there a "not ready ... after DPC; giving up" message here?
-> pci_dev_wait() should log *something* about how it resolved this
-> situation.
+An unprivileged user can set this up in its own user and network
+namespace.
 
-No.  Here is the complete log from the DPC event to the re-enumeration:
+Check that an 802.3ad slave is an Ethernet device before the type
+handling, for every slave.
 
-  [121.693046] pcieport 0000:00:03.1: EDR: EDR event received
-  [121.695743] pcieport 0000:00:03.1: DPC: containment event, status:0x1f01: unmasked uncorrectable error detected
-  [121.695825] pcieport 0000:00:03.1: PCIe Bus Error: severity=Uncorrectable (Fatal)
-  [121.695829] pcieport 0000:00:03.1:   device [1022:1108] error status/mask=00200000/00000000
-  [121.695831] pcieport 0000:00:03.1:   [21] ACSViol           | Receiver    | Transaction Layer (First)
-  [121.695834] pcieport 0000:00:03.1: AER:   TLP Header: 0x60002080 0x010042ff 0x00000017 0x7e325c00
-  [121.695841] nvme nvme0: frozen state error detected, reset controller
-  [121.721168] nvme0n1: I/O Cmd(0x2) @ LBA 67600640, 256 blocks, I/O Error (sct 0x3 / sc 0x71)
-  [121.721182] I/O error, dev nvme0n1, sector 67600640 op 0x0:(READ) flags 0x80700 phys_seg 1 prio class 2
-  [121.721193] nvme0n1: I/O Cmd(0x2) @ LBA 67600384, 256 blocks, I/O Error (sct 0x3 / sc 0x71)
-  [121.721196] I/O error, dev nvme0n1, sector 67600384 op 0x0:(READ) flags 0x80700 phys_seg 1 prio class 2
-  [123.018691] nvme 0000:01:00.0: not ready 1023ms after DPC; waiting
-  [124.106690] nvme 0000:01:00.0: not ready 2047ms after DPC; waiting
-  [125.642703] pcieport 0000:00:03.1: pciehp: Slot(64): Link Down
-  [125.647840] Buffer I/O error on dev nvme0n1, logical block 8450048, async page read
-  [125.647846] Buffer I/O error on dev nvme0n1, logical block 8450049, async page read
-  [125.647847] Buffer I/O error on dev nvme0n1, logical block 8450050, async page read
-  [125.647848] Buffer I/O error on dev nvme0n1, logical block 8450051, async page read
-  [125.647850] Buffer I/O error on dev nvme0n1, logical block 8450052, async page read
-  [125.647850] Buffer I/O error on dev nvme0n1, logical block 8450053, async page read
-  [125.647851] Buffer I/O error on dev nvme0n1, logical block 8450054, async page read
-  [125.647852] Buffer I/O error on dev nvme0n1, logical block 8450055, async page read
-  [125.647853] Buffer I/O error on dev nvme0n1, logical block 8450056, async page read
-  [125.647854] Buffer I/O error on dev nvme0n1, logical block 8450057, async page read
-  [125.849608] pcieport 0000:00:03.1: pciehp: Slot(64): Card present
-  [125.849614] pcieport 0000:00:03.1: pciehp: Slot(64): Link Up
-  [126.218696] pcieport 0000:00:03.1: AER: subordinate device reset failed
-  [126.218700] pcieport 0000:00:03.1: AER: device recovery failed
-  [126.705745] pci 0000:01:00.0: [1dbe:5668] type 00 class 0x010802 PCIe Endpoint
-  [126.705786] pci 0000:01:00.0: BAR 0 [mem 0x00000000-0x00003fff 64bit]
-  [126.705793] pci 0000:01:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-  [126.705801] pci 0000:01:00.0: Max Payload Size set to 512 (was 128, max 512)
-  [126.705987] pci 0000:01:00.0: _HPX attempts Link Control setting (AND 0xffff OR 0x0040)
-  [126.706073] pci 0000:01:00.0: supports D1 D2
-  [126.706074] pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
-  [126.706432] pci 0000:01:00.0: Adding to iommu group 16
-  [126.706481] pci 0000:01:00.0: ROM [mem 0xde300000-0xde30ffff pref]: assigned
-  [126.706483] pci 0000:01:00.0: BAR 0 [mem 0xde310000-0xde313fff 64bit]: assigned
-  [126.706491] pcieport 0000:00:03.1: PCI bridge to [bus 01]
-  [126.706494] pcieport 0000:00:03.1:   bridge window [io  0x1000-0x1fff]
-  [126.706498] pcieport 0000:00:03.1:   bridge window [mem 0xde300000-0xde3fffff]
-  [126.706500] pcieport 0000:00:03.1:   bridge window [mem 0x10021600000-0x100217fffff 64bit pref]
-  [126.709685] nvme nvme1: pci function 0000:01:00.0
-  [126.709692] nvme 0000:01:00.0: enabling device (0140 -> 0142)
-  [126.712068] nvme nvme1: D3 entry latency set to 10 seconds
-  [126.720936] nvme nvme1: 129/0/0 default/read/poll queues
-  [126.727879]  nvme0n2: p1 p2 p3
+Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
+Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+---
+v2:
+- Move the check above the type handling, as Jay suggested, so it
+  covers every slave. There is no functional change: the bond mode
+  cannot change while it has slaves, and a later slave of another type
+  was already rejected, only with a different message. Kept Eric's
+  Reviewed-by.
+v1: https://lore.kernel.org/netdev/179500849159.1877154.14715369660816392826@gmail.com/
 
-pci_dev_wait() never reached its timeout.  The 4s pci_dpc_recovered()
-timeout expired first, so pciehp removed the device and marked it
-disconnected.  When pci_dev_wait() woke up, it took the
-pci_dev_is_disconnected() path, which only logs at debug level and
-returns -ENOTTY.  That is why the -ENOTTY surfaced as "AER:
-subordinate device reset failed" instead.
+The patch was written with LLM assistance; we reviewed and tested it.
+With it, our reproducer no longer triggers the report, and enslaving
+Ethernet devices into an 802.3ad bond, or a non-Ethernet device into
+an active-backup bond, works as before.
 
-The device needs a little over 4s to become ready ("ready 4095ms
-after DPC" with this patch), so the 4s timeout is losing that race.
+ drivers/net/bonding/bond_main.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-One thing worth noting: before e8df1d194c39b ("PCI: Don't treat ~0 as
-ready in pci_dev_wait() with RRS SV"), this failure was masked on this
-system.  The RRS SV path only checked for the 0x0001 RRS Vendor ID, so
-a ~0 read from the not-yet-ready device was treated as "ready",
-pci_bridge_wait_for_secondary_bus() returned early, and the DPC
-"recovery" appeared to succeed within the 4s window, even though the
-device was not actually usable (nvme then failed with -19 after the
-"successful" recovery).  With e8df1d194c39b, pci_dev_wait() correctly
-waits, which re-exposed this 4s race.
-
-Best regards,
-Ziyou Wang
-
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index 042d7c75548f..bcc12ef34d9a 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 		return -EPERM;
+ 	}
+ 
++	if (slave_dev->type != ARPHRD_ETHER &&
++	    BOND_MODE(bond) == BOND_MODE_8023AD) {
++		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
++			     "8023AD mode requires Ethernet devices");
++		return -EINVAL;
++	}
++
+ 	/* set bonding device ether type by slave - bonding netdevices are
+ 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
+ 	 * there is a need to override some of the type dependent attribs/funcs.
+@@ -1960,12 +1967,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 	 */
+ 	if (!bond_has_slaves(bond)) {
+ 		if (bond_dev->type != slave_dev->type) {
+-			if (slave_dev->type != ARPHRD_ETHER &&
+-			    BOND_MODE(bond) == BOND_MODE_8023AD) {
+-				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+-					     "8023AD mode requires Ethernet devices");
+-				return -EINVAL;
+-			}
+ 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
+ 				  bond_dev->type, slave_dev->type);
+ 
