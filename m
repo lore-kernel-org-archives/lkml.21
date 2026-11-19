@@ -1,80 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122776;
-	b=23cH95r4d//j3pkqQ9g42SOs8pHnTrkBMuekpLlp8QkddGt9mY8AJQ6QlUHwwCj5W0pF
-	 sZwII1viamTHXhwA2QxuW5Igfm8bD1VfDHkIjVnQ2rR7k3AIVGf5wq9dvYK9VxuwrVAn2
-	 dABiKWEzucfdY/foF4ds8ymSroL7tBm0WG4paTndZtuajE50KvOND3iwBf/6NGTgjXjpZ
-	 WnKszFg0tVsDZobFKGPv6n4x1X72qA7l96plI/uYLka1rzsnxRZX3Qaz9qNK9e1Vj7eTZ
-	 0dnFwHguDVSZL5b6IN2w/75usBvBDPcJGPrlH7onnL+dlpDQd14y05swkxTDi3cNapA==
+	t=1795122783;
+	b=1z3b8CXiop7PZqyxbWoLK9axT5YP/gQlcl33R/2/B/CGbKaw59RehEqSCOkwn1gg14Vc
+	 Cj6OMFZYegZON87lLdCAwYywxaxPqZsfhqAFuHzEltTobi8H9WwzZR9viBON35x0sgLKI
+	 L4/+eNhx2YJM89RXsdNqQSdOYbv6z4nPQY6BK5j9mf3RczxoUjcXH6HtvtoBEKFqGJwd4
+	 iX1JjKZ5usvUoBKStwL4LRAh9oDjuSTGe4hWjW6m3YxahSPybvwIhokR0XehJrTFhkp7q
+	 cEQvmWpIh+8pvT0RbfNd7+grXPLnOD0fWUVkveOtVNPmIW91KYskpw5aH8lf5i438wg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122776;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0rj8aNlRTuSxfRGPYit8bnUu7xqxVCkNmfnsVMROY7k=;
-	b=2Zc4409ZYHkjPNhCT2+ug98LUR/RIwg9wZlrdq8Rn1jxWaqWmALWL3kw5tzdTVu38/IE
-	 WACFUqPo2fEfK/7oo0/9GvXnVSwyA3gdnrIGo/bXGoltc98D4nje80HQAx5iXlDmDdfgB
-	 woceg8FZz3knBTlzOS04PQtHF1UJW+N0CdwQto9TS8UHLi7K9KfoRU45yIWls9uWd0Hq/
-	 SShs8gXb6IZjg7fmVKXmQ6p9HYoK/S7sBejsmYI9lcMp3p3tG/XVWc7mUGDc0bFg4MRJb
-	 zH5Dc4pFzRio8MomSGyrPD3z0NhPIzqPVDcxtO7acDnnuf7AkqPDPkfAolnS4q28ejg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122783;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=6x76b+dWNYkxyAOIg8gOhXeybtFLVzoJGX/qOoWHoyI=;
+	b=m072z4lnUmsj4qp+XbKoaBoei5tW70OP/TzK9dtgjI+IBxnAgAQjcMemHzwXRHN+J3Oj
+	 5Y4bxes8/aeyOmqWwXsnziWicWyphk9g76oDo8V1qXbzTOGInfQNwPyVofYRAT7GyzhB2
+	 DS6cV85cnUf8oq8Cdin/jqXaPcPilSvtPGD0sNKZvRSuCzhZEU65x2XLHscaoXUKWaTW9
+	 gr4XmLfXlOzozDGbNnegiv0Fe6q4VGaqc45R0Qum6snQqUMDYNb8NpeE4aG3m6uDAevBJ
+	 hFzkcP//RRpjbpu6c9MBkYJgIDgY/nt1fS4PorqIanDDeC4iKLRu3ijVLb1NGMdUvjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c7QnrtHM;
-	arc=none smtp.remote-ip=95.215.58.139
-Received: from mta1.migadu.com (out-139.mta1.migadu.com [95.215.58.139])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gT6C3LZE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE10460A2603
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:12:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE10460A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E90B060A2619;
+	Thu, 19 Nov 2026 21:13:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c7QnrtHM
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=KJ8Xuzkuur/Mtlz2jvvLp3177Z50iWSACGW1WctvTBo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795122774; v=1; x=1795727574;
- b=c7QnrtHM/UPNO1wJ8NOHqAxKxhIl5yV/Ps/c+qQs+NfF28BH/udzCt2v4oo/yeURR7rPRGef
- FzmFwCELLmWIp1uDY4zwl3rdIU9JnWdOrbOFwjrnypyXQAJttsfiqdZmWanusC3vWcdYkFYGqGx
- ppOa+gfo+rifIu7u/ycOhWuM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id ca55b60b1c17543b;
-	Thu, 19 Nov 2026 21:12:54 +0000
-X-Mizu-Trace-ID: ca55b60b1c17543b
-X-Migadu-Flow: FLOW_OUT
-From: Usama Arif <usama.arif@linux.dev>
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	irogers@google.com,
-	adrian.hunter@intel.com,
-	james.clark@linaro.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com
-Cc: Usama Arif <usama.arif@linux.dev>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/3] perf/core: Don't let BPF programs read an uninitialized sample address
-Date: Thu, 19 Nov 2026 13:10:45 -0800
-Message-ID: <20261119211235.99805-3-usama.arif@linux.dev>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261119211235.99805-1-usama.arif@linux.dev>
-References: <20261119211235.99805-1-usama.arif@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gT6C3LZE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9426C1F000CF;
+	Thu, 19 Nov 2026 21:13:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795122782;
+	bh=6x76b+dWNYkxyAOIg8gOhXeybtFLVzoJGX/qOoWHoyI=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=gT6C3LZE4MrQUZ/gnlQiLqeMH6XyAmvwpoyjlIjzt5f2G1bXxWFCtMjHliZ/rbQbQ
+	 GhR+wjrKRW1G0FzBeoLAq6xd7mbQNSpPKaFL60f8pTEaQgpkxhyXioKRE+iBMV4s7v
+	 5H3rh4fhUjXvKCR03n3I8w1m2jbyLJFGNyIkBLrIcEIm4UJSq0Hyd7QAYlgFgWrDJc
+	 nB3NZAf0LdVYhPwwAMdhir4dp2CSEYAOBW/dgpcevWmpamHJU1IBbY06aQiS2Re5Kn
+	 PZvOYHM/MNFY1qykks/XQg/9joe2L9OKTPTvex+PdKINTiAHLks7TFJrvD8xYdevni
+	 bYvfLZQXyjefg==
+Date: Thu, 19 Nov 2026 22:12:59 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Gideon Heinz <gideonheinz02@gmail.com>, 
+    =?ISO-8859-15?Q?Filipe_La=EDns?= <lains@riseup.net>, 
+    Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+    Edwin Velds <e.velds@gmail.com>, 
+    Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+    Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 00/33] HID: logitech-hidpp: G920 force-feedback fixes,
+ rework, and cleanups
+In-Reply-To: <av9lbJa8VlQTeatR@google.com>
+Message-ID: <591122o8-59rn-p517-34s1-01r6qoq74r42@xreary.bet>
+References: <20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com> <p6p98p0s-5p97-q584-14sn-ns404p6s3orn@xreary.bet> <49nqon1r-32pr-19r1-0r65-50494sq350n5@xreary.bet> <sr340r82-n378-035n-78ns-nrq4p808r3pp@xreary.bet> <av9lbJa8VlQTeatR@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,52 +64,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-A BPF program attached to a perf event gets a struct
-bpf_perf_event_data, and reading its addr field turns into a load from
-the perf_sample_data the sample is being assembled in. The verifier
-allows that load no matter which fields the event samples.
+On Thu, 19 Nov 2026, Dmitry Torokhov wrote:
 
-perf_sample_data_init() used to store the address unconditionally, so
-the program read 0 when there was none. To touch fewer cachelines, it
-now stores the address only when it is non-zero, and
-perf_prepare_sample() fills it in only when the event samples it
-(PERF_SAMPLE_ADDR, PHYS_ADDR or DATA_PAGE_SIZE). For all other events,
-including context switches, cpu-clock and hardware counters like
-cycles, the program reads whatever was left in that stack slot, often a
-kernel pointer.
+> I think if you simply drop #22 and pick up Gideon's tested-by you will
+> be good. But let me know if you want me to apply the tags. 
 
-Kernels built with CONFIG_INIT_STACK_ALL_ZERO, the default when the
-compiler supports it, mostly hide this by clearing the struct on
-function entry. With INIT_STACK_ALL_PATTERN the program reads the fill
-pattern instead.
+OK, makes sense.
 
-Clear the address before running the program if nobody filled it in,
-the same way the SIGTRAP path already checks PERF_SAMPLE_ADDR before
-using it. Events without a BPF program are not affected.
+I will still do the split of first 14 patches for 7.4 and the rest for 
+7.5.
 
-Fixes: 7b0846301531 ("perf: Use sample_flags for addr")
-Cc: stable@vger.kernel.org
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
----
- kernel/events/core.c | 3 +++
- 1 file changed, 3 insertions(+)
+Thanks,
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 1c1ffd103c74a0..57ea7e3c01a025 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -10819,6 +10819,9 @@ static int bpf_overflow_handler(struct perf_event *event,
- 	prog = READ_ONCE(event->prog);
- 	if (prog) {
- 		perf_prepare_sample(data, event, regs);
-+		/* bpf_perf_event_data::addr is readable without PERF_SAMPLE_ADDR */
-+		if (!(data->sample_flags & PERF_SAMPLE_ADDR))
-+			data->addr = 0;
- 		ret = bpf_prog_run(prog, &ctx);
- 	}
- 	rcu_read_unlock();
 -- 
-2.53.1-Meta
+Jiri Kosina
+SUSE Labs
 
