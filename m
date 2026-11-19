@@ -1,100 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795052846;
-	b=qYyCo+bJhLCPZ1ek/TQI5/xmJU2KbDJcOdDnTYf5eUmZtCKYO9SnZPOKoZ/yaz6W85pH
-	 xeHITokQPXxPswrfXmC4TlUJVyxy5ENWwV8Uv3ytR/lnfcUN9dZx/KIEW75/adNRVJ0KT
-	 3ruU5r1V9zi/1lIxDKPgH1brZ0meR57MsHuxcG7RNdZHAT9RLqfpZnpw8wZ3+QG+G9EWq
-	 pQfiyHZQ9qsSMvuw6fMdx0iew7co7NV1NfyaCWjmiHybNy2KGyOqU6vOWt4A6oKcVVfyH
-	 fqebST7gR1VC3YLwaXj2gBBhh9Ks/0C/5xUlhznD6zrV90f/Yw91GHAjImwu5UFy85A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795052846;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795052872;
+	b=GLouYPVNVcKItktzTE7eFQaoZzSBz9H5/UDgH0gvqFcDLLlIFuOxx27xedE9vkjYmQfu
+	 w3qAbSaJHqbwVK+M4AP1sNJhrH940BmFdDxY/gLIQw8xkVtbITRcN1xtG9/c2NzXlgDod
+	 rHmJgzwuHgaZ7mA6NQ+MWO1lK5C7TGI6yGEQx07hvXqapjhURBCtWs5pVvT2jeRVjyiQ8
+	 sTcviQ3hi1wI5ujQ7X80QFRlOoeWvqYonK8jA7d72KtXSvVweqTTYeGCODHIEwY5z8dp3
+	 GVUChewEUzMjn+LhZFboIri0BRMuKnbTNSZrE7CAEKlgBngww/MyCYbYUNf+ZZCV3Lg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795052872;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=DXW+qyLTcL+DwIkRTBwUOGlcRoVnXW/OeVYeM74136Q=;
-	b=D+4LbZIAtc77M9ZPyXLL3I/vYC/Ka+QtbKEkSE43v7aoCbPfP+br4IUsGfU0bwxm1Y5k
-	 1ZrBmxUU8Fn89HtduTt7Jnl3CDVUx0M/axZ1NPzjh3pOw9Tvz0VzXsVZBGuWHxj/36x3R
-	 7bzAJB0cA852C5j0VOI8PFbYaaf9yw5aNYRzWMg3/BYpDRRAW7PNvSr/wuHXnXb1SM3AK
-	 ZSrzqTSHp+TCRPq4A3f5ZeUxzyKe3lSyNVkoYg+e/XsD9KpRs5GUSMojMtnNlqvRMZWeG
-	 S/NmdFLwK8SJ/roSBlP6VlqmO6SWWf/E7CZkyN9OAMcBTa7oMBQAGJOtCmWNuI+qa4Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BF6MHMVC/gRhXEjqmDEfUPfPCO5ohWekc5J++08zS4o=;
+	b=HjL2lNuI7jxTS4niZV650UlXAQKNXI74wBMDDGHhC3GxllPyplCYxO3s0Qc9TTSh0kC9
+	 EETWF4bfNHtTR+NCtSh87o3+x5MCq9jFF1Yvg1rF8n/VCZmO4X7MHa4P/+cMDHZ7/i0Zo
+	 S5+q4yXHVxgoPzC6PgN0Ci/HFAiM2qkqUeyvyrCm4apQbKowcrRcAdDAGFBEhjIRrxv0q
+	 iAk38CosmUwVksmJf2GxgV5PVWeEMCYzNX601o28pXUXJUmPc8TbrfcO5UvIN24fw6FLC
+	 AyvsWCgp1Owk1+H9JYrde+cr3BMyGheo50lHglWoAxyHHtEF/0F88PEx1R+Pj+tyqfw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lwX4WoG4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
-Received: from mail-yx1-f50.google.com (mail-yx1-f50.google.com [74.125.224.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WNBbOJGQ;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F7AB606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:47:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F7AB606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFA4D606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:47:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFA4D606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lwX4WoG4
-Received: by mail-yx1-f50.google.com with SMTP id 956f58d0204a3-67db23d8892so2014375d50.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:47:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795052845; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Wi4QuvxDN1QY1DNqer3fRAbXdafIpOOkcw150LCoS+y9aM7Md/KN0ypklUjepBtX6q
-         ZCmVZ6QiGFiqSJ3ZGJexFA6ZROAyfxS6Bv7dI9pADGX9By/3EuB7qLTsoUZ59+DZz2pb
-         LdNi/63f84voqc/f5WIRzKnQaf2rGV5/2jo1+snigaNKxa+UiXl/zPaQrG2uGHVJKtqp
-         iGCiRj8uSW/ZlBjWDf7IwyAxvz6j0fQJBQpIQ3FO0KBTPy/GuP+KMqQi6pwXKs42IRG8
-         udpRXlpbDm6IAKJXp2rFKsdpogxgbbJCAPgzAUyHI5jQyEzIK47GM9TULy5ubr52kGhg
-         cqnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=DXW+qyLTcL+DwIkRTBwUOGlcRoVnXW/OeVYeM74136Q=;
-        fh=Vove5cOTGpcZTnwbxLanPMYs314gCziQHVtp/tqkwGA=;
-        b=LIWgVWYcKyDuon4gnQluz/SASUypUVcqgcrQ09qHv3dqggPqvCj1oPOY5ZOVUlb6ls
-         irf79+CcitOa+XYBAJ9U4AYvQNyUebAoa+KMoa3DhsaigiDwxkV6hzrPaSFWexx/qvG7
-         9whSYaD+GKOVhxkKD1Sp40jlhvoD7Gm6bdzVSfj+1yOgOMEe7iPnpH3q0I7R4Qiw0y3m
-         aFY81isE/k2rIKLbTisSR+PSa0o8vrfu/fTl7DF1wby4vSVtLffym8xaI9gBriOA9u5U
-         F0vFDZylp9Ky/L8rDm9FUEniTaapfV6vEo4vOQ83sA4Gv5HV+1xtv4t/FTrkW4aXbqTE
-         bgnA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WNBbOJGQ
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f01f296937so2951785ad.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:47:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795052845; x=1795657645; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DXW+qyLTcL+DwIkRTBwUOGlcRoVnXW/OeVYeM74136Q=;
-        b=lwX4WoG4FmDRwodFR85L4utpA4uUOjmORiKi0VDA6qgMR21XAO05tcoEoupJrjIWqi
-         wQCSzBwYgYYDvg7N3FInQ7FuwB7MJC9F1P0YqvF98npKHzcfqptfoJAs/eBc9v1T7gc3
-         JezDQmus5h2stVQPr5NIH0P4lyO+AEsHZoyc3WXKOLROwrUcn9LKTsbBwN2pw7G9B5/m
-         S99gYj1K9STgd96flRU2yns6rdP4DQC7OephRwog3+DY9Z73JketeN4p6aG6xR+ewgjJ
-         /jjJ5xUln2DXF833BxjR9TSN6z4zGnmxsTb06l1Tt6pKCOEZdLlP3bCnEgCJJ/vKqx9i
-         2pxw==
+        d=gmail.com; s=20260707; t=1795052871; x=1795657671; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BF6MHMVC/gRhXEjqmDEfUPfPCO5ohWekc5J++08zS4o=;
+        b=WNBbOJGQP22gqUiDU4eNd4w9Ilw6g7LrbmQStjy4SBnKM7Cz2YB+ZLOm2BUl5NA8xj
+         YL1iDZ2iAqYX2vtbhlQp2DZX2jwZLs98IVlSXl7Mur8BZJixvAa7Z7mdQaTn0PCzSoJG
+         E4s3pnISlw0Ju9UadnmRgJfk75A3AXCKZBeLUsDOcMV7h+wMQ0uSn+W/T2AVLwyq7W3r
+         qT4kVp2KsV5ZA8Gl66EY11GsK50ccLAIFHIe6tvF9A8Pu9i51K06kkT/jpu9ZiK6YBTx
+         ntIbX384YVvhXaHgmSMN8gRNvxbBdkLk4QlbhchYIizTDn/Czj9Z6K3gzkLes2sZDp5a
+         1zCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795052845; x=1795657645;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=DXW+qyLTcL+DwIkRTBwUOGlcRoVnXW/OeVYeM74136Q=;
-        b=IqsABlnD4H9mXXB1n+fg8NRvbpZBbny71Yx9wFlGegbfFcFmkSThBptnpJ26Pbsvs7
-         1AW73FgUInVPT+0pZfBuSobhtbIJGgZZ/h7rqHrwvRskQW9oHMm9qXDxHFo/+VucLfHH
-         5YMZIx0B5RE6HYY5ZFFhJ1UnWXXpdM/w4a/nC9XMYKDs1nDyurw+M8YzBN6O/olFghd/
-         B0+5JqACeIap+qlTiCZ/JNSQcQHADZgcBAWwxCaK/0gyyAyxa48IpN5O4o2pdzoDf4iS
-         TuZwtv4zunvzK6XUaVuQ8YyLrA3kHKKR7xJcH1n+HAHWQnltvx7N0fMzIUDutA1pPB13
-         8PEQ==
-X-Forwarded-Encrypted: i=1; AL+hErEdywnDVN2pvQlMvRDXw09bFxPh4bJQK1RC1XyA5luhkzLdieeGkctgCC9IO6cR81nDsckKifbHyOC0+hw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2+TyhLtLNjGPHfH0WZXtMKEeuQUPv/i/T4c+TiqhoZoez+nr+
-	C3e3Y85mThC31cdwyhst2RtdKmdW+NdPf/Rv4Z8w/vos/EKj3LMRnp3MpaOQ3MKrh9VUirJ744+
-	8Migk/iTqbLCqa2YYZmsbQCEVOzx1zys=
-X-Gm-Gg: AZFdTZdp+cct6X/40iuZ10YvrGTEeKgnFdLy1OcY/TA2g8SIPICGUO+1/1EiDgQs+Ub
-	tKuZczs6mMq8y9quC081s9LMwm7Sp0l0Sn17NdOsgUmUbOvho9/iow1o4yqK3H88h2Yb7Tr0oD6
-	iQ+rIlJR20zzMQCxD5ctu2BdAoLyZoBrVHyioSMisFndcMD5gHG29qF2yRyP6n1y4IEIszgLihN
-	0ON0AegPjKRmTkNJG5O+w0LmoYGRZWWxmYw7GTKDpYQY64D08cIG+zfZcqhHv2hBteqqQMKrY2E
-	hh3qhvizoAZPtZTYCbWdATs2Zc3qOKEOF+TUIcw7FfuVxD/TGnI2UXTi6aNrxkR7qaoBa44hOcU
-	fE/sojXW6pieZBNikrPdnHYACEVigyd29AAS7esV2gajFC1VxNemPMGm8KUlnHNWcgYVryu4aJ4
-	xQLveuIq1WY3w1iHDKeEU=
-X-Received: by 2002:a05:690e:4883:20b0:67d:bedd:4939 with SMTP id
- 956f58d0204a3-67dd3cfd585mr1637996d50.5.1795052845089; Wed, 18 Nov 2026
- 17:47:25 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795052871; x=1795657671;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BF6MHMVC/gRhXEjqmDEfUPfPCO5ohWekc5J++08zS4o=;
+        b=tOpWeFgGv7LtufQ7FWIUtXVzoG9t711I0RT7wH/0dOopEv8t0hzKC+Nfxp8kp5Yidz
+         IfWzgw6Rarpyn29gxIgqELAYPWsQEvLU83bEws5Q3WY3m+C0U2npqAWF3zG2vQB1gVo1
+         Mdn185kEqYzQcdPGKXfxd7YRjDHGNEZ7y/aMAXRN9PfCuGKOrx7DCq830Nf6OO+btii5
+         5Q4rVF10ysMFtmPA9M9JDBz/x2f5c86A76uqddyeTQs4zNjD4u8/By8uglG70y+Dya2W
+         bDfa6eklVECEsEo4Dupn5szs1xf9B/mNIskTDnMu5kGihTO+oV+AFmZvBVe33FV9PF0Y
+         E+Mg==
+X-Forwarded-Encrypted: i=1; AL+hErHRtSkG0ex85K8aLhM08VzJVRXZqlcH9HBwOltSmCZndz7eDGmOxls4SPUi4y9NP7ihVTVLrwkeiRjY1LY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8W5hJQYWtR2awtGm/3oDScfWDViP919tvEm7Pp83qpspyexIIz
+	1sRiaJa8quXvpYv/ojDU4PrKd4QWNtbb5wCr7ERZNKDN55UBSRoXQKiq
+X-Gm-Gg: AZFdTZeiJIcHkF/0oMYW6iJIfzKOye0NanBirgfwHZd009o25lmhAl6rnWyNsKYpNPK
+	PwEeC+QiaM3Bjf9ZFZ0qlBZu250Urmwyobir7ZgLWP//Z8QcoqCVVX0NaITQBcqd+AD+62vwAA6
+	fXhpYp/PCPXF5ii4o/aA5Qc9meO22XetV8vJHNCYM9h/b1+TIjuJr1pdpA81i+OSkzzckNqBPwU
+	peo0puzby0klrlzDaT2N38C7SpaQJIjFWbhVpKoUqbfIgJKn5GcMAtE2ptZlGuCTAlwGEJEZAQX
+	mBVVP/ZSt66hX5Jad5Wf8esr5j/WmlZu+VgfUHxmyDTRJsNhAb0rHQllIviySLNtyooQHEQNyny
+	Ev67jXu7COh6SlMq9onOcAXp/cD8OCVJ8JymvXfcBUKk/l8h6XRvI9R+cUb4HjX5JxKzUr4r4qA
+	FbXJhMb1cC/REihtHJxiaJBDTuEAumjQtydUzpF9e3DPFxtqIbetnep7kVShoI9vbYK8Sai0FQ/
+	WAn4YZ3Rvb6nOLeoqwb9e2SDNsmIy2xGisesfTVEDk9oPBGx0MCT8Nu2a/hjpWVixv3OTL/lGwK
+	zuDuSpYABP+TLDa16fP4CsHy9qF8+djEhCclfSV+EEsfvyuAAMQv9tjjmW0RPwZDrNmxweDyyjl
+	9J889A0E/4gjE6PabOxcjZHuGz3XvKhUG3rieoMmVjuZvfUVFILHlcq9OC1wCh+zOuYCGPUsBeL
+	XMXvukHO1KGiCJ/iTmVcu9L91OdsPN3kYhe3oslNOWHj6e2I5WzGgCeGpfaeJTF8l/patfhZ/CT
+	a0mRTCGwd+4JKkppJY8yIMupkhqa1/mtBHxpHvM+03I1TQWkDsmorMO2MChBWsl
+X-Received: by 2002:a17:903:1d0:b0:2e8:b5b2:a9f9 with SMTP id d9443c01a7336-2eff740acedmr41921305ad.37.1795052871033;
+        Wed, 18 Nov 2026 17:47:51 -0800 (PST)
+Received: from localhost.localdomain (123-243-92-89.static.tpgi.com.au. [123.243.92.89])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62db225sm21774475ad.72.2026.11.18.17.47.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 17:47:50 -0800 (PST)
+From: Daniel Wade <danjwade95@gmail.com>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Kyle Zeng <kylebot@openai.com>,
+	Aditya Chillara <aditya.chillara@oss.qualcomm.com>,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] perf: Reject group leaders detached by CPU hot-unplug
+Date: Thu, 19 Nov 2026 12:17:30 +1030
+Message-Id: <20261119014730.2074-1-danjwade95@gmail.com>
+X-Mailer: git-send-email 2.39.0.windows.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,105 +108,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com>
- <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com> <CAD++jLmDszU-XBV9bVDH39cYLSKMDOAHEMdu7s8mxYjfhEvuNA@mail.gmail.com>
- <CAK+kzgwVSG4CBv8NQvQaqyr__BZbd860EDfEMoZU5JdFCYhtTw@mail.gmail.com> <6e61078d-45a5-4ebf-9dc3-a74b80a637f3@yahoo.com>
-In-Reply-To: <6e61078d-45a5-4ebf-9dc3-a74b80a637f3@yahoo.com>
-From: Gustavo Foletto Mora <gusfmora@gmail.com>
-Date: Wed, 18 Nov 2026 22:47:13 -0300
-X-Gm-Features: AclHuK-gJyO5I8HC7n-_402u2lEGVmb0A99Jc6pgOXBywU_dep5WU8hSWLO2pjQ
-Message-ID: <CAK+kzgx6cAtBEy=62ztHmcQeKQML8Wf7RAWLToy4wi=J7FL9xA@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
- get vlan 4k for family D
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: Linus Walleij <linusw@kernel.org>, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
-	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
-	gabonpivovich@gmail.com, contact@c127.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Mieczyslaw,
+CPU hot-unplug detaches the events of a CPU context but leaves them in
+OFF or ERROR, so once the CPU is back a detached leader is still accepted
+as group_fd. perf_group_detach() does nothing for a leader that is
+already detached, so closing it frees it with the new sibling still
+linked, and closing the sibling is a use-after-free.
 
-On Wed, Nov 18, 2026 at 08:59 Mieczyslaw Nalewaj wrote:
-> 1. With IVL_EN=0 (VLAN-unaware bridge), if the FID field of the bridge
-> VLAN's 4K entry is set to 1 [...] does the chip learn the bridge hosts
-> with FID 1?
-> 2. Which VLAN4K entry do the standalone ports classify into with PVID 0?
-> 3. If 1 and 2 work out, do static entries written with key.fid = 1
-> replace the learned ones?
+Detach them with DETACH_EXIT as well, so that they end up in
+PERF_EVENT_STATE_EXIT and are rejected by the check from
+commit fa091f46c383 ("perf: Reject exited events as group leaders").
 
-I measured this with your v12-pre2 from the OpenWrt PR
-(https://github.com/openwrt/openwrt/pull/19644, head 7690a1c6db), as
-that is the version that writes FID 1 into the bridge VLANs' 4K
-entries: EX511 (RTL8367S), 6.18.44, the thirteen patches as they are.
-Same setup as before: two bridge ports, two hosts on standalone ports
-of the same switch, loopback cables in between. I can't read the FID
-out of the chip with this build, so I inferred it from how the address
-table behaves.
+Side effect: poll() on a hot-unplugged event now reports EPOLLHUP, and it
+is refused as group_fd even with PERF_FLAG_FD_NO_GROUP.
 
-1 and 3: yes. In a VLAN-unaware bridge whose two ports have a PVID
-("bridge vlan add ... pvid untagged" with VID 2, vlan_filtering still 0,
-so that 4K entry has IVL_EN=0 and FID 1), the hosts are learned without
-a VID. A static entry for h2 without a VID on the other bridge port (the
-driver's SVL key with FID 1) took the place of the learned row: the row
-on h2's port went away, h1 -> h2 stopped (0/6), and after the delete h2
-was learned on its own port again. So the chip learns with the FID of
-the 4K entry, and static entries with FID 1 replace the learned ones.
+Fixes: 226424eee809 ("perf: Fix corruption of sibling list with hotplug")
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
+Signed-off-by: Daniel Wade <danjwade95@gmail.com>
+Cc: stable@vger.kernel.org
+---
+v2: use DETACH_EXIT at hot-unplug instead of a new check, as Peter
+suggested.
+v1: https://lore.kernel.org/all/20261116081248.21059-1-danjwade95@gmail.com/
 
-One detail there: br_fdb_add() without a VID on a port that has VLANs
-also adds the entry for each of them, so the driver gets a second call
-with VID 2 and writes it as an IVL row. That row is not looked up while
-IVL_EN is 0 and becomes the live one once vlan_filtering goes on, which
-I take to be intended.
+Tested on mainline b3dfbde62cf1, x86-64 with KASAN and PROVE_LOCKING,
+2 vCPUs under KVM. Without the patch a sibling is accepted on a
+hot-unplugged leader and the close gives 15 KASAN reports. With it the
+open fails with ENODEV and no report appears.
 
-2: with the bridge on PVID 2, the standalone ports (PVID 0) are not in
-FID 1: with learning on, h1 -> h2 gives 20/20 (0/20 on v11's plain
-bridge), and with a static entry without a VID on the far bridge port
-the host behind it receives the frames (100/100; 0 with v11). Frames
-tagged with a VID the bridge does not have (VID 5, no 4K entry) do not
-get there: with learning on, tagged h1 -> h2 gave 0/20. I can't tell
-from here whether they land in FID 0 or are dropped.
+ kernel/events/core.c |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-The plain br-lan is where it breaks. OpenWrt's default br-lan has no
-VLAN at all: its ports keep PVID 0 like the standalone ports, and the
-driver writes no 4K entry for VID 0, so the bridge is looked up in FID 0
-while its entries are now written with FID 1:
-
-- a static entry without a VID no longer steers or drops: with the
-  entry on the egress port the frames still flood to the uplink (104
-  out of wan for 100 sent; 7 with v11), and with it on the ingress port
-  they still go out of the other port (100; 0 with v11);
-- the bridge's own host entries (br-lan's address, and what is learned
-  behind the CPU) take the same key, so I expect frames to the router
-  in a plain br-lan to flood to every bridge port. I did not measure
-  this one;
-- with fdb_isolation, which v12-pre2 sets, DSA installs the standalone
-  ports' addresses as static host entries in FID 0. In the lab the
-  hosts are standalone ports of the same switch, so the plain bridge's
-  frames to them hit those entries and go to the CPU with
-  offload_fwd_mark set, and the software bridge does not forward them
-  on: h1 -> h2 fails with learning off (0/50; 50/50 with v11), 0/5000
-  in the load test, and the hosts are not learned on the bridge ports
-  at all. In the field a standalone port's address is usually the
-  router's own, so this one matters less, but it is the same shared
-  FID.
-
-A way out could be to give the ports of a VLAN-unaware bridge a private
-PVID whose 4K entry has FID 1, as mv88e6xxx does with
-MV88E6XXX_VID_BRIDGED / MV88E6XXX_FID_BRIDGED
-(mv88e6xxx_port_commit_pvid()). That would put the plain bridge where
-the test above put it by hand, where all of this works. The tagged
-frames with an unknown VID would still need a look.
-
-On the 5.4 s: with the bitmap in v12-pre2 each vlan_filtering toggle
-took 20-30 ms, and the rest of the toggle tests behaved as with v11
-apart from the group entries.
-
-The other things I found in v12-pre2 (the multicast key, a few comments)
-are about code that is not on the list yet, so I put them on the
-OpenWrt PR. I'll run the next version when you have it.
-
-Thanks,
-Gustavo
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index f5f2261f1fe6..2de4c3cc37ac 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -15342,8 +15342,10 @@ static void __perf_event_exit_context(void *__info)
+ 
+ 	raw_spin_lock(&ctx->lock);
+ 	ctx_sched_out(ctx, NULL, EVENT_TIME);
+-	list_for_each_entry(event, &ctx->event_list, event_entry)
+-		__perf_remove_from_context(event, cpuctx, ctx, (void *)DETACH_GROUP);
++	list_for_each_entry(event, &ctx->event_list, event_entry) {
++		__perf_remove_from_context(event, cpuctx, ctx,
++					   (void *)(DETACH_EXIT | DETACH_GROUP));
++	}
+ 	raw_spin_unlock(&ctx->lock);
+ }
+ 
