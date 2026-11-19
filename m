@@ -1,98 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067859;
-	b=aniTr/jEqj/s9JwlqReEAUBtRIIHQSIiKu3QkkBLIBfHGTvnQgwsoPJLc8OOA5A46rXd
-	 tWb+kprzNL6jZOuEUkmcncYFLtaEVyHkzKh63HqoP0uIao97poM2WOHtsnGokcRKh5iZ9
-	 FESEtEUfuHJ72OY9xcHcbo6dP5f6e4TRigIMM/ZpJMX95HHUViGsRz9mM0G/a5oXX1awK
-	 5EanrJ85JnvTzMtto2By2aGKrjQkZ59zZ9SLZ1LxUcXCITF2dna8QXNsu9ejAeOErsP2P
-	 DtFDbuOK4yi0ANASKZuWMUZ4vDKGyFJJQMPsHOPG15T7CmcicJExAMfKsiwBZ1eQlgQ==
+	t=1795067866;
+	b=hTcd5X6ZxFsS61ujYz+4phPUssnUf+a58SjYpXOD+YXw2Nn6hHnB6uljS8PBMLGDU69I
+	 V4dyOFRPvSldrokzTFiuXDIrMxxqXn0qAhgnMckv8wCORQ70yYIbu7uVkMfXcMN53hmBw
+	 l9h1o0rTahz6Q+MuXhROYwA09HXTWGtsaM9HCiOkn8+y9LdIl+EAWE5b07q3CQJVBwDQe
+	 Fr9pIhw+D/3ewbaoO+jfMqs8//cx3r8zRwlQmqmiBZjxAhyjww0nySasTSQgJO/Q/gp0H
+	 PNphOD1Suc0R7BBe+WpEhxzIR6Rz7xoDL85Vz6ieNHH3SN2ec7HHxexPOiAxNXmmlug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067859;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067866;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=FfJFOLv++WC9m0JyoYaS7BgHTNo/5XDIGUv7rymNFd8=;
-	b=SYXENVk4NZ1lnZQI/2dEDpNRrvOgwZ+LjFGWNicom3cxTsFTgTbDMnt4v+1rO8To7Ycl
-	 UJo04dfO/SAE9TcmsSqrc8IHZZARsGsQHwBjd87PsAF3Ty+x788uDhVD8Qh/f1liNNYJe
-	 MIU81xRrJN53QR/RzbbssDBP7HWNNBbgcEK1/SzLgEOezEDxgSeHh3hceHN6KcdERLtWY
-	 HBIGN+Bn5p3cCffrtJIFIRePgn6/q5K6oKdsbRB22GH+GbzLL0ZOWAakac9dPVIheC13o
-	 r8lTe59XOCPBqAX7YyuE7ssn8UuDrA6xGzOetV2x7A27H6OxIMpd7YvFekBMotrlkZQ==
+	bh=9Uxw3rLhifWc1Jc5KxHA1RVURbGtASCpOsmekIH9l7c=;
+	b=jZ6KY9Pq0Vufbo73fkENxtHbjnm/MlaZvozVxMIx42pFnEA/PlfOYx/u7XuS73si4tFZ
+	 oicglBmSqh4qJV5VEooEeupmdu5Oygnx4vhUVdKyYWpO9oVQnId/noPS578gZL4kergxq
+	 eBuauEgFQ1dRxVWAeFwohA/eTTVLm6+a2nvLvtWVFpbGIds+4lz6z+4YlamySF+1ZBriA
+	 GtYzlz8LlhkfcYFuLRY7I+b2nYddpCqBLiWOFGebxeczjYfM473YdCyukfH8vd4T8ZoHX
+	 aAMYVEZxsHnXrUmSZxlAeZviA8Mn4xzTsbeoLh1cxlsmAf6zl849ryHih5gUVtilCPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EBA65JUb;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=edN4lkzL;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13089606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:57:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13089606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36BF1606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:57:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36BF1606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EBA65JUb
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so1664436a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:57:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=edN4lkzL
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2efd659464aso7626255ad.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:57:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795067858; x=1795672658; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795067865; x=1795672665; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FfJFOLv++WC9m0JyoYaS7BgHTNo/5XDIGUv7rymNFd8=;
-        b=EBA65JUb+bv2UxY2ox9eUzkzbeuUUw25Vutf0qUGRIgv4yUMPdIa01zPNzSecI5h6o
-         LvV/MaALWu+lrWqnNbdkPMcsXFsMqrmbAO4HF58np00QKwOT0Rn390YRRrA06NdJb3YE
-         l+8wAs7RP1X3AL0LXmwo60pZ45zGKfXeO+bSECABikv6xbuWtV5cEuoTxUj+f9XM5V3w
-         ji8xI21GvwnThReOV2IGKhi4SKnhmnqnOVkPQlpGsYSxqQNwf1C6CHQSPyqXneS3w7+a
-         C+HiTPvJ/Ux7yEelEbHs2YVn3WuNgXiLl9tG9dyh41v4dGbg57n7xheH67UenNciLrnL
-         waqw==
+        bh=9Uxw3rLhifWc1Jc5KxHA1RVURbGtASCpOsmekIH9l7c=;
+        b=edN4lkzLoerGnOUz+XU+d/BCZNqPHs8kMn5ctqctnN5ihldL6Tovx6KDoeSBRs0yik
+         YXHiEoaqoGjI3ugZXaw+bBuBzzh8lGouLKku5VIyWIP2WsSLQVooTbIgfjpbkRXPQCMa
+         13HS2f7KdvE7aX1VGcXIjZOKVWkLSGp9vVO2GJHOMKL8cRAVdEttghi5tbgVzASucta8
+         HF53S0aZlzey2K4/Gsax/g1q0O73EZAbCjpNX7qiSF4/q5Ali6kOcq+K/PModinNYsul
+         s+jYH7ZZpPWTw9ezWHLWPaWoNWDuV2I97ocSTRXXfwXU9bcR7GM9I1VNlZArFRezGYO0
+         F7jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795067858; x=1795672658;
+        d=1e100.net; s=20260707; t=1795067865; x=1795672665;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FfJFOLv++WC9m0JyoYaS7BgHTNo/5XDIGUv7rymNFd8=;
-        b=HFCQaUMeM1v8xbfEmKbvtD20rQfepEZCLzpDkzBLda324g397teS1NU2PBMXpx0Ry/
-         Zw0xLM1cdXijBF2mrcrXT/YnONycxUAxfeomv7cvP4Berk75HRMAxT9/fqCZ9f87PtqK
-         wrfFrCdBGLjpMViD/PauDKEtB+yT1f2Ep2jGyo5kq+HxPlKDBypuhTUS2kafixmdSzG2
-         ngr8OfnEDnhsy/SCaEypwrX63r+rLnCm964xZUfuWnSdebh34r0RhB+x3yEXmtsKWASF
-         iAL8lK5UrzxTvGkNx5BjI8eNScjIHzGUBsNGfPPEmdVx3/8KlaDXqXWbeOxKuGQ/Vkhw
-         JnyQ==
-X-Forwarded-Encrypted: i=1; AL+hErFwbYkq4IiZjV+LlknDVSWfu0C2Jg5xfGLwKB14IJ2UfEpr2DTroYbCqAtWJ+xjKyILpt+Qw+gbeEKZwkE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9BrIcr77GrMld1P3j5D7AxfhbHhZpBl4NPvDjZKTQNOWyh2pE2
-	YKhSYUCGDZWCIWf9PCtJMygtFyyXe4Ldtf5Nk2uI0TjQz0vtfqNgWgBT
-X-Gm-Gg: AZFdTZeI+6wHzhkYbpxeQlIb57d+W/zEu2/JQ6P2NTGyjE+vcnjoMqght4KDXzqnUV1
-	MqqSe+59L5GpCW8k+fwt82gkqXPrHIdFTngDNtagFjvhATEd60fXYBYDQ/h14iJuCcaf5RzIRoc
-	afDlsEOpt2IQfobcooEJtDQRuWJgyg3rIINCLfMa0Fac4b3yhLeGDP80CJDbv8WeKrETiOtCyxx
-	dQnLHSHaz/4kw9U7NqHl2UavZbFVnYEaOcHIqaAh13U+JFWXKtAtLOIer9PaPY1S9UwEx6tVita
-	KsvEAJW5ognKWbGXjesnzhHobWoDlehgxJcz2JWjiZNdtex5HQqcZINcQ8T7+Se6KXv9G6DAPew
-	duaI7wKAoS5Yh/kNDqr92ZRd5utjZzmbxLCYh5qKsfdfKsUGwWJX8+ByHHHPTgjz/M4/clUzJp1
-	KGgJES3DNwOFS4Olqcng8PC/C+4DgfmLXu8rbnZ+LXPMukw42Mw5Iy28D2L0dlhzE5mvnWcIpDR
-	7SFyz8amoOJx88vor2nxNbFsQN8aXC5b5GK5Ki6+dS9KXw2oQwMLvqUi/lrVfIKsg2fYoLIXRFD
-	64sASVcS6cSDUo/eYIR+dOCmw6Y//7CAnyo0m/FWrI7ewrrIGTG4tpQUJ9RQ8HKNHQygc2I=
-X-Received: by 2002:a17:90b:3c04:b0:3b3:adea:4b04 with SMTP id 98e67ed59e1d1-3b3d07bf9c0mr4206369a91.36.1795067858445;
-        Wed, 18 Nov 2026 21:57:38 -0800 (PST)
+        bh=9Uxw3rLhifWc1Jc5KxHA1RVURbGtASCpOsmekIH9l7c=;
+        b=MWFKxPFDKb++cUnouO6PbYMwIVXNBxVBBYsyN59sJf5NX0SQR2CEfMVs6hovTo3xnh
+         lDDAt0al04Jvcjt99uE+dp6NuT2Zo2jiq3f+b2KhYXrlVC+Y9DrRzyJeNPeqsUdydA2e
+         5H50dayY/xz2MnkgyeKPT/Gk9X6XD4LRu8U2HQYG+fB8FqsFpMUokB54AGh7IqBeqqBq
+         Dup4Ab1rCVFE2t88Il1x87IKrAO3rMcW+qLo4+4r59RdQZWrPjZ1e6pdYY+IqPpCHOUX
+         0CUhWfHGESRbbkV1WqNZOb9Rr4T9Daq8UAZQw2FGhw8pwoUnvut1ZUGkXiOm/ydUAFAb
+         77Wg==
+X-Forwarded-Encrypted: i=1; AL+hErFqvSVezmT4RrkZpZqKqJUo7zpPp29V7nIR6aI1nujvPXu2D+YEvgPgKtd8Iniwfgj+tGQM33ZJyVwUG6Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+M/9ZMbXSwsbv6zfQRwWGKQ8lMKkUw/LniDsHhIeFePpAhI3h3
+	bdTCpHnbjLSIEBVeos6kjpC5my4Egu17pLu4mrBzAVSR4Qna3Lb1G8Hx
+X-Gm-Gg: AZFdTZdeVNiNLAO3Q9YJ0VtFUzPlnVzZMWMmOmefziEByGmakDb3gMUXMwXKsWRNUGQ
+	fLgRLzXlnafJN4DOezKLIslhONIkGn3T8yi/P/8u7o9mKVwT8HzOM4P0KOJ9uwd8TBWkDX8ItdL
+	shnyf+YHvaemci+n81mFpdWwQjHgTbiZmSfYK3bmtz2Dam+iIDmfisnYt8qXj1jRH8DhVF5ML8I
+	8Jc5di4JF5j6xoUvVcZTpaEr1LQDU+EPHGF7wsQ6AjG47MDu8rSavOTfkuRo5LtxjpJxUJyGHPy
+	skBmpHH7JPifuPVS+3vxwf4vZ98U+yg0xfA2M7Sekt9tiBOE8Fm8J8+OIq2dQacubiCqBX/7JNg
+	iiiyjbJdiEYyLARZNrJ6A5G0ESCRly3rvJmIHE+F2vmLRu+mXpviV8fNN0MGjvGQf5O1h8Fo3xh
+	BHj4qSH+ixauyJxh3bdiYJ99h2ricNz3Ar1wYEa/U8vZYCnGn9fM4x8JdhQ1S/UOWTcyeQlHylX
+	60ReiGuKU8E17zcOXWTZZKqcYJYDC7jyB28N2Qs2fXecO68aXVZGxRpT51oevdjeB/GemwAciva
+	WmyFdwwBM2gi55wEF63vWn3Tz2hih3aZNDZy3KkoBhXDYFbzsA==
+X-Received: by 2002:a17:902:f605:b0:2dd:ad73:5b6d with SMTP id d9443c01a7336-2eff740ef49mr46440545ad.29.1795067865468;
+        Wed, 18 Nov 2026 21:57:45 -0800 (PST)
 Received: from localhost.localdomain ([155.69.167.11])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff5ec9cd0sm24469175ad.11.2026.11.18.21.57.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62e38eesm24522945ad.76.2026.11.18.21.57.43
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 21:57:37 -0800 (PST)
+        Wed, 18 Nov 2026 21:57:45 -0800 (PST)
 From: Yuqiang Sun <izaiahsun@gmail.com>
-To: anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com
-Cc: m.wilczynski@samsung.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
+To: jjohnson@kernel.org
+Cc: lcy8047@gmail.com,
+	linux-wireless@vger.kernel.org,
+	ath10k@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH iwl-net] ice: Do not free a preallocated node in ice_sched_add_node()
-Date: Thu, 19 Nov 2026 13:57:31 +0800
-Message-ID: <20261119055731.55798-1-izaiahsun@gmail.com>
+Subject: [PATCH ath-current] wifi: ath10k: Do not free the caller's skb when HL TX expands the headroom
+Date: Thu, 19 Nov 2026 13:57:40 +0800
+Message-ID: <20261119055740.55934-1-izaiahsun@gmail.com>
 X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -105,17 +99,16 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ice_devlink_rate_node_new() allocates a scheduler node and stores it in
-the devlink rate as priv. When the parent is set, ice_devlink_set_parent()
-passes it to ice_sched_add_node() as prealloc_node. If allocating
-node->children fails, ice_sched_add_node() frees the node with
-devm_kfree(), but priv still points to it, and later rate operations
-(setting tx_max or tx_share, or setting the parent again) use the freed
-node.
+When the skb has too little headroom, ath10k_htt_tx_hl() copies it with
+skb_realloc_headroom() and frees the original. If the copy fails, or a
+later step fails, the function returns an error and
+ath10k_mac_tx_submit() frees the original skb again with
+ieee80211_free_txskb().
 
-Only free the node when ice_sched_add_node() allocated it.
+Expand the headroom of the same skb with pskb_expand_head() instead, so
+the caller still owns it on every error path.
 
-Fixes: bdf96d965a20 ("ice: Add an option to pre-allocate memory for ice_sched_node")
+Fixes: a2097d6444c3 ("ath10k: htt: High latency TX support")
 Cc: stable@vger.kernel.org
 Signed-off-by: Yuqiang Sun <izaiahsun@gmail.com>
 ---
@@ -125,27 +118,46 @@ Notes:
     The fix was written with the help of Claude Opus 5.5.
     
     Compile-tested only (x86_64 and arm64 allmodconfig, W=1, sparse): I do
-    not have E800 hardware.
+    not have an SDIO or USB ath10k device.
 
- drivers/net/ethernet/intel/ice/ice_sched.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/net/wireless/ath/ath10k/htt_tx.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/ice/ice_sched.c b/drivers/net/ethernet/intel/ice/ice_sched.c
-index a5c7a4e1ceba..dba6cc912b7b 100644
---- a/drivers/net/ethernet/intel/ice/ice_sched.c
-+++ b/drivers/net/ethernet/intel/ice/ice_sched.c
-@@ -210,7 +210,8 @@ ice_sched_add_node(struct ice_port_info *pi, u8 layer,
- 						   *node->children,
- 						   hw->max_children[layer]);
- 		if (!node->children) {
--			devm_kfree(ice_hw_to_dev(hw), node);
-+			if (!prealloc_node)
-+				devm_kfree(ice_hw_to_dev(hw), node);
- 			return -ENOMEM;
+diff --git a/drivers/net/wireless/ath/ath10k/htt_tx.c b/drivers/net/wireless/ath/ath10k/htt_tx.c
+index efaea150025b..7b759f506f80 100644
+--- a/drivers/net/wireless/ath/ath10k/htt_tx.c
++++ b/drivers/net/wireless/ath/ath10k/htt_tx.c
+@@ -1276,7 +1276,6 @@ static int ath10k_htt_tx_hl(struct ath10k_htt *htt, enum ath10k_hw_txrx_mode txm
+ 	struct htt_cmd_hdr *cmd_hdr;
+ 	struct htt_data_tx_desc *tx_desc;
+ 	struct ath10k_skb_cb *skb_cb = ATH10K_SKB_CB(msdu);
+-	struct sk_buff *tmp_skb;
+ 	bool is_eth = (txmode == ATH10K_HW_TXRX_ETHERNET);
+ 	u8 vdev_id = ath10k_htt_tx_get_vdev_id(ar, msdu);
+ 	u8 tid = ath10k_htt_tx_get_tid(msdu, is_eth);
+@@ -1330,16 +1329,14 @@ static int ath10k_htt_tx_hl(struct ath10k_htt *htt, enum ath10k_hw_txrx_mode txm
+ 	 * and realloc the skb if it does not have enough headroom.
+ 	 */
+ 	if (skb_headroom(msdu) < HTT_TX_HL_NEEDED_HEADROOM) {
+-		tmp_skb = msdu;
+-
+ 		ath10k_dbg(htt->ar, ATH10K_DBG_HTT,
+ 			   "Not enough headroom in skb. Current headroom: %u, needed: %u. Reallocating...\n",
+ 			   skb_headroom(msdu), HTT_TX_HL_NEEDED_HEADROOM);
+-		msdu = skb_realloc_headroom(msdu, HTT_TX_HL_NEEDED_HEADROOM);
+-		kfree_skb(tmp_skb);
+-		if (!msdu) {
++		res = pskb_expand_head(msdu,
++				       HTT_TX_HL_NEEDED_HEADROOM - skb_headroom(msdu),
++				       0, GFP_ATOMIC);
++		if (res) {
+ 			ath10k_warn(htt->ar, "htt hl tx: Unable to realloc skb!\n");
+-			res = -ENOMEM;
+ 			goto out;
  		}
  	}
 
-base-commit: 6055ab4d82e42de89871db03045b568ed706ef50
+base-commit: b1ed5a45b994a6473ca1cf34f35a1bf87f1d8e2a
 -- 
 2.53.0
 
