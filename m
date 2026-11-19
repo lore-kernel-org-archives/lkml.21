@@ -1,112 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.133.224.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795077111;
-	b=QYKweA6/ww/xueB4+bDjoU4/T8PL4xB4uNPza77rIp2UNCY5yZjb6atx3yWFfF9yljjb
-	 tjJ6cZzbkV1o6bnLi8p1MWd1KwfQjX3N6Kkh5rMGOitL+elPZfysnbbcbzHQ2N2LzBlRv
-	 aJje+LjOmMqQ1qeWQtGlmv07Px1IbbWF4vCcm+dP/FyqP7bv3ZqP25HD40Ylm6lETl0nX
-	 BZXd+UtcuX88Q9HTRhYoKTjEnvIFHHeIVJiSwVb9ghoo8Z/ovHOcpJqZNeZSqeek6q+3Q
-	 7NX7HA5jbHlen3u506+SwHwLkNJfWO0NVu3VOqKwkn3uAQfwIOVZT4sR0LBi9FVsr/w==
+	t=1795077118;
+	b=klpahMWJDbiqM64GVOVSQXMe1XRPmAnrkcNJTAQftvv8GKYxKCKNzsvDxQVwNTXs86VH
+	 QafHx/sv3aa9jakM2x60HHQy3Vcbldfou1sQ2l5HXDE8E/WVLleuf4ix4LniU8oypjinM
+	 s8GTfoqJOzYVEwoVJi164CVFRBfVSzYQ6sxR7+48C0Po9KdehXsJ6s1g//GLsH9rabU6U
+	 FU6uZYwKkZDoGRaNBA2liG8J8hQ+T4vIqiqWNvTcWpo6vhjmtBtfuQHrHzHiqNoHdsGFw
+	 KdTiMh4g3Z5mlpl0MShj524ql5Y7dCxM/RyWUcX44xoKp6e2X0NFXQQ4vAJ9t3sNHMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795077111;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=QE7ZF+eIOkDqPsqdXYso0HkQT1OPcmclWJ4l96GctkY=;
-	b=JEBPrKxs4zzlyAtjmdYxSN3+zUtVnl0P9fBW5TTCnWihCWEq7hS/xMctOjSnGkAR9i1k
-	 HKDqJzrFC5Z/txjOsyXdmje2dzBnwrVmNlNt1fGyPcTkdJbXlAVLxEwyUmBPs+G1aOSGb
-	 w+9sWl1K+faUxImEiQNkZqz6rqKDQXdcV2xcy+oYfypfcJsrnFuO5EV4XWuDbLcdK7Aj1
-	 RU9t4cZAKf5ceXCpDHMkFMV0zoGkB7Xhe/ERulGeVA64WyWNRTbfziuiZou2bWRmyzBvY
-	 5HH168xMZtzbex5eD43RNGzpUpqwHVsRMEPtiNlbH1lJPYkmwhucUmsVOsvACXx/gRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795077118;
+	h=DMARC-Filter:Received:Received:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:User-Agent:MIME-Version:Content-Type;
+	bh=YS+V5bv8dCzco93yDxyZsr24dP7b8qAKCfJdw6hRamw=;
+	b=lNRqFdjZe4lufMcDfT3hZ5aZ8IqZ5iip6Lc0Qh1PmdET69FBZnu5PtGmU38reBrY5DG1
+	 mfefRR4dRHCdHf+r24H1abXSJ93X/FwByMx5oRYOhNu46Q8F1ASyz3gY1WWG3pFtPbCVI
+	 arWZi90QXmLbDSuKaKO6/udd+DLeomjWFYqdFG/iyDtCFm5Zle8IKUHD7FrWqJWdyn93s
+	 lDeE+XN0WlU/7WzCugh9tsam0LVWh7VKsnguX99qrtAjXVXXvXmlikSImLLL/5yI30WTH
+	 KrBR5RuMqPZnKeEeaxaxINu8wcYW+U8lGiciOiGS2OZt6VjiTwtl8yf71X+U46eT+tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p7zhndNj;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 588CB60A260A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:31:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 588CB60A260A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p7zhndNj
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-382ecd5cf2cso733959eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:31:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795077110; x=1795681910; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QE7ZF+eIOkDqPsqdXYso0HkQT1OPcmclWJ4l96GctkY=;
-        b=p7zhndNj+ByJ0t/ZowpKyXkDT0n/M5KpRKPY2QUfZjrSP4g7/a53NCFDUBT+txcfhP
-         6QH2k1Nj5inKUmUcCpVXFLazgjwx6bp+iFubnrhGH5Hd93kibYP6dIYhvdDr+ljbIdgB
-         nBrCYWeeZWBoXboSPQ8RjhcEv7Nk78WRTU5WLzISGR5OFRqYV/RCVLhEyO2mow6NAdog
-         20X8QXV/raRsmNyRhuBPR3bnQn5MAOYhHQ3PsA5202Lvuo4BK78Godm+ik10mwLXqPeC
-         8bXkHQ2kf5Oc3HjGczhROI2lj2IDer18jNftrh8cLmw//ETSskZE5h5SzJMxPy9q3TCw
-         Jgng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795077110; x=1795681910;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QE7ZF+eIOkDqPsqdXYso0HkQT1OPcmclWJ4l96GctkY=;
-        b=FTNhxLVMp/DBYKfHiGXPmuPO8d2sQzhn3nTUZyan5flXqGu3TVGVLrDiEC/6OA++dn
-         /6w2L9k5g7wyc8Qc/9Ul3dL61Hc8c2edJcsqysJn0jRDiv4FtJ+/6SGieugCfUxVhMnc
-         Za6tIH9NUu6rHy3WecskadCU4eJSmIq6A+6W4iEZO5x8bveT0nB23nVN7OPcrZCJxOuj
-         6oxm0UyTdc31d2UWnzsVPPbPZsy/wIPf+GRhmSRbFN0F8W6sGyJdmAXvKxj7LniP3vdG
-         7/X+4PkDK36IpT32tspqBdeqU099+mcr+xEs82pvplpH7pnX/hR5vMK7Nx5BacaLd5Oa
-         5RRA==
-X-Forwarded-Encrypted: i=1; AL+hErF4NqXXIoHV6rhefx5dWTwSJnlvXke3BVslnbljrT5fsuTg/CN7tXgROHxxlJ74MyKgisISIpClRZJaUhU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/TIQtF3lyy2TIlEDy2zgvqEDkhtWmc4AuMEvB5nDu6O7fi/UD8
-	+ctmWnsBhRgmc//X8ovJgjSbCpg7/J7WKXdMGFAKKEiE46Z9H2Ch6c+F
-X-Gm-Gg: AZFdTZdHPjDrlfhf+pmz+64kv0r986XVr48+hERc0QzzwB5CP9vp3PEgQfp0EL6pwzT
-	jj/gNz141oYDzoCL/WsR/DK8EyF+mtjtOYXEf+QDe9YaQcOlXJDaoH9Tkn/uieYzMQc9Yg2/xRO
-	N4AcXmeMEXXIoHaV1UM2w2VETJtIWwvhadG4zL8cmZsnUW9I8vNmENEE6YwVRFh3onhaw7HwhG/
-	XD9DrEqj7GVxtCexOGNWd+aUHxXKPd0qRucRwWmQysPBwUzCVzDtkeNCPAlCUSx5FyolllEoUb3
-	558Q2QKK9AU8nD4JKdmnbNtwX7hHeFCu2XsBYXK906C6y08pdS4dpmLeiyLuwTinroXktohOjPM
-	4l9f35wpm3Vay/x4tU8BrC/h9B/bNLQOGIAqyRWYlpsyxjzJwQWEM+tqCwDn6pVCeOHn/S/z/u1
-	SlscxQ5EGonNyYg15jKbXSciosPwOHnY20iYq1/z38XBBOryOHRF8geoMngz6/7LHJiZ40oc35y
-	IU7zPk8Kwz4eBaq2IvSYxoe0uyVvE8X7YePZjC40Jzk3qrdNjSL4APnORU6L0KUmq0juBIw7u2P
-	OuBm7+PF9MnydwpnqwNN96W7WSLq33ZL97tlwMSgu/sRz49jmmUA0pjxGfK9N53UQJCr2tADRPa
-	x6fQxhaVjja0WVHWUePi112/i0CmqYWZ+PbbMAzyqSVdbs+9R
-X-Received: by 2002:a05:7301:188e:b0:381:685a:e1ee with SMTP id 5a478bee46e88-384b3e78a26mr413843eec.12.1795077110279;
-        Thu, 19 Nov 2026 00:31:50 -0800 (PST)
-Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63054ddsm16553792eec.4.2026.11.19.00.31.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 00:31:49 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	linux-arm-msm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	freedreno@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 2/2] drm/flip: drain the flip work on cleanup
-Date: Thu, 19 Nov 2026 16:31:33 +0800
-Message-Id: <20261119083133.3437277-2-shunsheng1218@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119083133.3437277-1-shunsheng1218@gmail.com>
-References: <20261119023604.1495603-1-shunsheng1218@gmail.com>
- <20261119083133.3437277-1-shunsheng1218@gmail.com>
+	dmarc=none header.from=orcam.me.uk;
+	spf=none smtp.mailfrom=orcam.me.uk;
+	arc=none smtp.remote-ip=78.133.224.34
+Received: from angie.orcam.me.uk (angie.orcam.me.uk [78.133.224.34])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9A0A5606A320;
+	Thu, 19 Nov 2026 08:31:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A0A5606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=orcam.me.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=orcam.me.uk
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 6D7E59200BC; Thu, 19 Nov 2026 09:31:50 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 650419200BB;
+	Thu, 19 Nov 2026 08:31:50 +0000 (GMT)
+Date: Thu, 19 Nov 2026 08:31:50 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Florian Fainelli <f.fainelli@gmail.com>
+cc: linux-mips@vger.kernel.org, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] MIPS: SiByte: Fix missing function prototypes
+In-Reply-To: <b6546264-4c51-45e4-9728-a433527fb355@gmail.com>
+Message-ID: <alpine.DEB.2.21.2611190811510.54328@angie.orcam.me.uk>
+References: <20261113191933.477395-1-f.fainelli@gmail.com> <alpine.DEB.2.21.2611180154490.54328@angie.orcam.me.uk> <b6546264-4c51-45e4-9728-a433527fb355@gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,176 +51,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-drm_flip_work_cleanup() only warns when the queued or the committed list
-is not empty.  Nothing cancels the worker and nothing runs the tasks
-that are still queued, so the caller silently leaks whatever the tasks
-hold (framebuffer references, vblank references, ...) and, if the
-worker is still pending, it can run after the structure embedding the
-flip work has been freed.
+On Wed, 18 Nov 2026, Florian Fainelli wrote:
 
-Cancel the worker and run the remaining tasks from
-drm_flip_work_cleanup().  The work item is the only producer of the
-committed list, so after cancel_work_sync() the two lists can be
-spliced out and iterated without holding the lock.
+> > >   static inline int __maybe_unused bcm1250_m3_war(void)
+> > >   {
+> > > -	if (IS_ENABLED(CONFIG_SB1_PASS_2_WORKAROUNDS))
+> > > -		return sb1250_m3_workaround_needed();
+> > > +#ifdef CONFIG_SB1_PASS_2_WORKAROUNDS
+> > > +	return sb1250_m3_workaround_needed();
+> > > +#else
+> > >   	return 0;
+> > > +#endif
+> > >   }
+> > 
+> >   It seems a style regression, why is this change needed?
+> 
+> The declaration is wrapped under #ifdef CONFIG_SB1_PASS_2_WORKAROUNDS, which
+> would hide the prototype when the option was disabled. The if (IS_ENABLED()
+> would not compile in that case since we would have lacked a visible
+> declaration. We could keep this and just make the prototype unconditionally
+> visible instead.
 
-The helper only drains the work items that exist when it is called, so
-the callers have to make sure that no new item can be queued and that
-the objects the tasks still use are alive:
+ I've pondered it a bit more and I'm not entirely happy with the use of a 
+platform header in generic code in the first place.  Would <asm/bugs.h> be 
+a better place for the prototype?
 
- - Rockchip VOP: vop_unbind() unregisters the shared interrupt with
-   devm_free_irq() before the runtime PM is disabled and before the CRTC
-   and its flip work are cleaned up.  Disabling runtime PM is not a
-   barrier: vop_isr() bails out when pm_runtime_get_if_in_use() fails, but
-   that helper returns -EINVAL once runtime PM is disabled rather than a
-   "not in use" value, and the line is shared, so another user can still
-   get the handler invoked.  Removing it from the descriptor waits for the
-   invocation that is running and keeps new ones from starting, which is
-   what makes the drain that follows safe.  The bind error path that fails
-   after the interrupt was requested frees it the same way, so every
-   request is released exactly once.
-
- - MSM mdp4/mdp5: mdp4_destroy() and mdp5_kms_destroy() release the flip
-   work from the KMS destroy path, after the interrupt and the KMS
-   workqueue have been stopped and before drm_gpuvm_put() releases the
-   VM the worker needs.  The DRM-managed action is removed there, so it
-   cannot run later against a KMS that no longer exists.
-
-Rockchip VOP called drm_flip_work_cleanup() after drm_crtc_cleanup(),
-which memsets the CRTC.  Its worker calls drm_crtc_vblank_put() on that
-CRTC, so the drain has to happen before the CRTC is cleaned up.
-
-Fixes: cabaafc78935 ("drm: add flip-work helper")
-Fixes: 47a7eb459777 ("drm/rockchip: Unreference framebuffers from flip work")
-Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-
----
-Changes in v2:
-  - Split the MSM preparation out into patch 1; the generic helper keeps
-    draining the queued tasks here.
-  - Add the Fixes: tags for the flip-work helper and for the Rockchip
-    ordering.
-  - Describe the MSM callers by the new KMS-destroy call site instead of
-    the managed action, which now runs earlier.
-  - Rockchip: drop the pm_runtime_get_if_in_use() change.  Unregister the
-    shared interrupt before the runtime PM is disabled and before the CRTC
-    is destroyed, and release it on the probe path that fails after the
-    handler was registered.
-  - Checked as a series: both patches apply in order on msm-next
-    (d024361c631b) and on drm-misc-next (fac7a5f16230).
-Prepared against v7.4-rc1-1969-g666539eecdf4.
-
-Compile tested only: arm64 with aarch64-linux-gnu-gcc 11.4
-and CONFIG_DRM_ROCKCHIP=m, CONFIG_DRM_MSM=m.  The affected hardware was not
-available, so the teardown path was not exercised and no fault or
-race injection was run.
-
-Checked as a series against the target trees: both patches apply in order on
-msm-next (d024361c631b) and on drm-misc-next (fac7a5f16230).
-
-AI assistance: the analysis, the change and its review notes were
-prepared with Claude (Anthropic) as a coding assistant.  The author
-reviewed the reasoning and takes responsibility for the content.
----
- drivers/gpu/drm/drm_flip_work.c             | 23 +++++++++++++++++++--
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 21 +++++++++++++++++--
- 2 files changed, 40 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_flip_work.c b/drivers/gpu/drm/drm_flip_work.c
-index 52c437746d483..b8ce3966fa9ab 100644
---- a/drivers/gpu/drm/drm_flip_work.c
-+++ b/drivers/gpu/drm/drm_flip_work.c
-@@ -149,10 +149,29 @@ EXPORT_SYMBOL(drm_flip_work_init);
-  * drm_flip_work_cleanup - cleans up flip-work
-  * @work: the flip-work to cleanup
-  *
-- * Destroy resources allocated for the flip-work
-+ * Cancel the worker and run the tasks that are still queued, so that the
-+ * resources they hold are released even if the work never made it to the
-+ * workqueue.  Must be called before the object embedding @work is freed and
-+ * after the driver has stopped the code that calls drm_flip_work_queue()
-+ * and drm_flip_work_commit(): only the work items that exist when this
-+ * function is called are drained.
-  */
- void drm_flip_work_cleanup(struct drm_flip_work *work)
- {
--	WARN_ON(!list_empty(&work->queued) || !list_empty(&work->commited));
-+	struct drm_flip_task *task, *tmp;
-+	LIST_HEAD(tasks);
-+	unsigned long flags;
-+
-+	cancel_work_sync(&work->worker);
-+
-+	spin_lock_irqsave(&work->lock, flags);
-+	list_splice_tail_init(&work->queued, &tasks);
-+	list_splice_tail_init(&work->commited, &tasks);
-+	spin_unlock_irqrestore(&work->lock, flags);
-+
-+	list_for_each_entry_safe(task, tmp, &tasks, node) {
-+		work->func(work, task->data);
-+		kfree(task);
-+	}
- }
- EXPORT_SYMBOL(drm_flip_work_cleanup);
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-index 69e72727da24f..c10ad16147a54 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -1990,12 +1990,19 @@ static void vop_destroy_crtc(struct vop *vop)
- 				 head)
- 		drm_plane_cleanup(plane);
- 
-+	/*
-+	 * The flip work drops the vblank reference taken when the framebuffer
-+	 * was queued, so it has to be drained while the CRTC is still valid.
-+	 * The CRTC has been shut down and runtime PM disabled by the time this
-+	 * runs, so no new work item can be queued anymore.
-+	 */
-+	drm_flip_work_cleanup(&vop->fb_unref_work);
-+
- 	/*
- 	 * Destroy CRTC after vop_plane_destroy() since vop_disable_plane()
- 	 * references the CRTC.
- 	 */
- 	drm_crtc_cleanup(crtc);
--	drm_flip_work_cleanup(&vop->fb_unref_work);
- }
- 
- static int vop_initial(struct vop *vop)
-@@ -2259,7 +2266,7 @@ static int vop_bind(struct device *dev, struct device *master, void *data)
- 		vop->rgb = rockchip_rgb_init(dev, &vop->crtc, vop->drm_dev, 0);
- 		if (IS_ERR(vop->rgb)) {
- 			ret = PTR_ERR(vop->rgb);
--			goto err_disable_pm_runtime;
-+			goto err_free_irq;
- 		}
- 	}
- 
-@@ -2267,6 +2274,8 @@ static int vop_bind(struct device *dev, struct device *master, void *data)
- 
- 	return 0;
- 
-+err_free_irq:
-+	devm_free_irq(dev, vop->irq, vop);
- err_disable_pm_runtime:
- 	pm_runtime_disable(&pdev->dev);
- 	vop_destroy_crtc(vop);
-@@ -2280,6 +2289,14 @@ static void vop_unbind(struct device *dev, struct device *master, void *data)
- 	if (vop->rgb)
- 		rockchip_rgb_fini(vop->rgb);
- 
-+	/*
-+	 * Unregister the shared handler before the runtime PM is disabled and
-+	 * before the CRTC and its flip work are cleaned up: disabling runtime
-+	 * PM does not keep vop_isr() from running, and the flip work the
-+	 * handler commits has to be drained afterwards.
-+	 */
-+	devm_free_irq(dev, vop->irq, vop);
-+
- 	pm_runtime_disable(dev);
- 	vop_destroy_crtc(vop);
- 
--- 
-2.34.1
-
+  Maciej
