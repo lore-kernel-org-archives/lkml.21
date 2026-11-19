@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795075418;
-	b=TF4E87UrVSN7JLjIZwr1y1uBf2YC1Ycf/2msg3JW0kJDtadqXpYD8/L5NWtApt1z54U+
-	 Xw+ciTO9r0hDGuNKMLkv9SLIP3Lg7gubTvj1uqNh4L6EESM1voWp2sBpPpFfVupriOOt/
-	 s5yuinMFAOPCnXk01i2VPw9XO2j3mh5gfqrulIO4bvKQrNAhcaSw6mx7cBeTbshRqN0rk
-	 K6+Nf7y0zAdc0TX3yuKPbehrnzTTlysZjZp58d+FJXF1jJ5pUG8+Nwb4QB6nxng60V2PJ
-	 vzIbvtVzovu3VqLyKNEY5H1ktdGgCwm1EwvDhQLrM3z700dLDOMLfk4Y6Ozm6plfD+g==
+	t=1795075415;
+	b=gBifLfecfQZgzBcLnG0JkJzOKZWqqtLTbWYFw0ssJNMB/p6mIkNmxcWdT880OzcBXx+7
+	 QLxWy7xN7i5GNFF6oCuviae4pchRlQwgRFjDRJNg5zSUm+YhmiUwQWHRzPuqPS+2Ohwz3
+	 a7CiRK+khy2n6daWPQTjBdJmzodb6+KB6rFL5mZPvpe6XNtnD27GujtZRdCYk//n3vfzt
+	 GdBRMgPS0rOkixxcoLrJd+q9f1mP342O609lZ465hc+3Vav0H932FTN05b6wl2Gu6EeT/
+	 7dBYiz1AP5OY5mkuK3rhWX1fd6+vwAy0EAdpfjRiRCddgpHtcVGdwAE//HXlC+Uk4iA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795075418;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=4zyWgbXx4Q5+0M3EcfdpGNiWN2ml7oLzqm2D2qT58oE=;
-	b=3hc7k5pW624KFwcSV46DXYHAICwSWRzwHq89CJT8/+4lABtcO7jZIqE1fqvY6WaCDYA+
-	 rmk/z6/DwmaigPedFOHwULLAH4u5pQYqNmgd7N96Yvq58b7IvyF98Xc7eDcKahu7u3rPH
-	 PCNxS8PZdOhb7cAZf7lAUVZ2nSHmKKjs/KchF1pg8zTT3HJnYUozldTTxZZoN/OkVTaPQ
-	 NfX06xlv79f9PgD3YA7iGJPYRnVDSr6WCDbrrwEzEsi4yUbSRuB31qlOxD0Cqdp6lYJWk
-	 Q5Mz1+JhtKAPY0V7EKDFWb0JIg0INlGrYLd1qvR0Wukf0Q8JJH4hv0H80yGXBfJKH1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795075415;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-ZohoMailClient;
+	bh=clZp9RKdDWxGA2ytPk5WMlvWk8EVkiHR5DSfzurYOq4=;
+	b=1tuRR1xoBkAPz7tpxaI5qx1HQCQDaHCx+ooJuYDZM3oF2jop5QfmLQH44pm4k7ewKSMx
+	 aeSt8Rn4iBEcididriYxTTTUdho4LIRyU0Ln4CWcOf0qjAUpW0adDdmS5YPHY08uvcchm
+	 ODMk9dz9rGcm+9gnRSjI2UQZL7QITmLrCaY75Ap5BFUptfDzKqsgDF3hYwI0QONxhrMD6
+	 L6TckgqKZNWUIozNSDTUkUiveM6t1R9zyblUwgcCL+EW+/q3AIsE7gXixyLgEDvK57Jfl
+	 yEWYueOvcUVLROIaA2uASRofyweF/2v6G1KQHU3EyLJh7Wn0kPQjo0E+HGsFFQbJEPw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=txf9AEnn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=Sj2FlOvs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71942606A32C
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:03:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71942606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C6A606A324;
+	Thu, 19 Nov 2026 08:03:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C6A606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=txf9AEnn
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b878560a08so263525a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:03:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795075417; cv=none;
-        d=google.com; s=arc-20260327;
-        b=iEIrmP4WgdB7LJcdZ4BRk4nmvuCQJo0uBHBZEZ/Tb2OGVn5dAlyLmh0pUVb5xoxrYw
-         OwOxKhQF88WkDtSSDBe8nyC3lD6lYMt5M+7uFxuqsIunEMAEmwPn+A3ErCcwdqIMAlBe
-         uUU3uTr2hx2VcPEpiqF/NshTfxXn7xIN6adHQQNgSmY3BH7koderCtsyLVJFr8PBDXiJ
-         6wqX5ffEG+rv4V601KV/K50hiWsonPb+JdXHJgzmOpRUIwOmGTM0IUQHoY4ifi0YDUMu
-         K7CbYgljo091HfcbdkZF9I8CtuH0RQe82c922giFwG82uaGhsAbxBrHDnkjXeqzdAS7q
-         F5oA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=4zyWgbXx4Q5+0M3EcfdpGNiWN2ml7oLzqm2D2qT58oE=;
-        fh=6yUunxpcX4OxugQkAr5p8XBDqhIThpoiEtmxqRIviCk=;
-        b=GIqymrIqvzWfwMsw9AyHEuG234KQAXnsQx5lp12jES+u2w+8IGdgQuOq7a0u9ujEWQ
-         4mS6nntkAN0oiLqdFPNCbtkReC6J0g7mea1235sGNhzamdGUNQ6Aa39ac+UmfwR+nuqL
-         Lp2g4NA8x1mPPpfMbGnQlG7oitBc2IFmTpwwJZ7wpJ4N+cfP2Hazcx3w5zHA/UDG4yJJ
-         XpMRyLXOvWHxaLaWjhrYOrFb+fcHmMR7A2ianbeAzv/VLOzpeSV1zdwQ83L4K5rAKf74
-         c7aelYqJUWwyR/miV/MxpkaoNnigZ10ZZ7BCYwxkLbzM/ggTk/3kuqjiqr4/ifHLNlCa
-         xnMg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795075417; x=1795680217; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4zyWgbXx4Q5+0M3EcfdpGNiWN2ml7oLzqm2D2qT58oE=;
-        b=txf9AEnnq3VU5Rth/crTDgb2s4PApg8WmeRgoiQ0ILTAvewf+e28/4/CnBqJcnV+ZP
-         E0rHclgvNTL2GCwk+A/TJorgUCWVVW/+k3La6gl7QetAhRYmRerQC/gmmTkPU/rXIiRC
-         lSxMUG6Bz5tFM+tXFwXgKTfAs8Njh2aqPzVAvGWSa04lsDICVUWFBGlKQBW1GVJ7ItAK
-         2Ftdka4dj5GGvdx8Hj1zwmcYQC3adrtzWh/erZc4GOvagaFZyIWf2ZzmhO8zXGyJAl7U
-         eU9KARgQ7gwMAd/zzoC5i5xxACyzy3kMwPcQMjC3brX+NuCn7957iw89Es4rZn1Z0gq/
-         FGcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795075417; x=1795680217;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=4zyWgbXx4Q5+0M3EcfdpGNiWN2ml7oLzqm2D2qT58oE=;
-        b=PVFI/9nKjf2XHmFpHOlS7LyZUBWPFiBVERumGL47In9xh5/tls96D74MDlHWc5u52U
-         e0E59NKFaxIkW5vs6CID9n8+PotaXkNZEu42xA/hsN2TbKLjW52AJfT8MEb3WtH5O13v
-         cOvN59tB56tEdGxAI5nFdVJkCUo0W1zLwnFqX05cnwaKl7ZQMsusFlUoQN6P4qux9o9p
-         uUrZfsA1cWqkGTFZ3YbY3GXFsXJVEr6mIpZGgxlOR4whvo1zaRprkj/nOpFBTf0YSP40
-         gU29y0ikLs3LamrmFUT8j+Nb/4uQ0JB2UgCAWVOvApQyfrPwVYvM2nJk7MseWhFULCFA
-         AJTg==
-X-Forwarded-Encrypted: i=1; AL+hErFx/SX0X1Kb3U960tnfZqFgFYI3WTXav27P894XZswSaZFgfc1J0hK167o8uE4llShk5L5SxUk+hxPHO7U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2VGcOu0mqlScbgIIp19GtM5Roc7DTfeuYfeseKHXCoCtb2/6V
-	Djv+frnrh9gQXDm5CyNueQK14m8Ck8aZOaUTKKDa7DVrkT1Rnoc9X9y+qsZWZdinoRpt/8Z6Sjw
-	7JJUX5Gt4/KQ7TBYZIgzB/6p4YLycLUM=
-X-Gm-Gg: AYBFou3wZQumDSmgevYDcPVWBELsyhaSrZYGittqKnsJuqmQvLgQupvX6gBpGYQGqG4
-	rQk+iMvJDHiUvakesB11QLsNJgIV5+zWKghNqA11rb6qTbjaMgDvU/44G8YzVA3XnE1rY/dOVqR
-	le6WlQERy6XkMnNlCIcoOyWyVRgGTbt0ssu474/mNCbXSYRzdSSnRyr8ZEiOAjBvqUVRwUoFF15
-	dE5vRI+ykjxA+0RoW/yZYygIgRyEwPCT9PlQGIJIyZDAQDxdQyF3zcze0yCa1t7TLYW1o7ft1KY
-	FITVaN1aqRUCYHHyVnR9bqT89yp56qhX7lMi0pe2ALA3MBPRLtra6fMV16Cd/wOW0o7ur4b4y5u
-	Svja2BYdMB54RJuYzk/diNunHVk/HG5LdzKA=
-X-Received: by 2002:a05:6402:c51b:10b0:6ba:12d7:69b1 with SMTP id
- 4fb4d7f45d1cf-6ba1f9ad159mr266992a12.12.1795075416554; Thu, 19 Nov 2026
- 00:03:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=Sj2FlOvs
+ARC-Seal: i=1; a=rsa-sha256; t=1795075414; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PUcMeFXIQi/rSqIX3EVXpN3+XYeAReKhU6HkZjWE2H96rBEDjxzAFsSUoWq6+zLTjTR58Jj5U0nH2TmSyCWQ69lBB9JcQRhjfW19P9faqiowGU4tbmdAhwbn0W0+8HoDla5pE4qxEh9iKnaEmiyIB+F8peh2bi5Qy+s7ELGa45E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795075414; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=clZp9RKdDWxGA2ytPk5WMlvWk8EVkiHR5DSfzurYOq4=; 
+	b=MKEgnMdaOSrYfWmD//sVywVV+bzo3VaninFXx6hWoS0Mu1Ylu8wfH21R6L8hFirv1yNjjVV6Vr3iSPV9nzvWSln0h3OCfKP6Ug1pp7oIY1zu8pok1FW1ZMDZknaGLwSsugTT3cUdblP4waSQ+N5nGD33NI68EwvmMLx3rPuQO08=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=Sj2FlOvskVSQacF2LUlJq+UDtGPvqrPIgbCQg8WmScX3Qu9u26lzv5TqKVlitJHl/X2qiAFsJSFEcbuW83HcnIpBxjb5EaJkM/q3edMzoROTbVkEfTKOUM5euOtTPSw3of+Rpp+rlN6huE0XoV5KzGG8EKodqzSv5j4EFtxr3CLJ/3HqESTETam01/qES92Ysd7BA3iLc1A9Y6GcRxGYrbG1s000d/galx3SaPXVUWDYGUgHby34mobOzYIHCFIrDxmOYKg/8MYfnvv+HD/+3XpVGgWsKIzVNsRRFFn60WUkJfMm7hNcus0GC4PwpPh9XlsdICKmLRymZnDP6CWQ4Q==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=clZp9RKdDWxGA2ytPk5WMlvWk8EVkiHR5DSfzurYOq4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795075411912145.06853922299524;
+	Thu, 19 Nov 2026 00:03:31 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Ping-Ke Shih <pkshih@realtek.com>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH rtw-next v8 0/5] wifi: rtw89: monitor mode and raw frame injection fixes
+Date: Thu, 19 Nov 2026 13:03:23 +0500
+Message-ID: <20261119080328.391-1-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,44 +65,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-b4-rockchip-pcie-hib-v1-1-05df24cc77e6@iav.lv>
- <CANAwSgRaHubdh8o5Zd3k5Sa_jf5fWuEuCXqbQu7gGL71MwC+8g@mail.gmail.com> <20261119-re-anand-rockchip-hib-rails@iav.lv>
-In-Reply-To: <20261119-re-anand-rockchip-hib-rails@iav.lv>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 19 Nov 2026 13:33:19 +0530
-X-Gm-Features: AclHuK8PCuggsZEUPGrild3UXx1VS_EuxaX_wfHV2ilz6neGEig8c1iMSX4XEY4
-Message-ID: <CANAwSgSs75e6ACaP-bw_JGJ1=VrMGmvduDCx6HMhXSmLsOJddg@mail.gmail.com>
-Subject: Re: [PATCH] PCI: rockchip-host: Support hibernation with endpoints in D0
-To: Igor Velkov <iav@iav.lv>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, 
-	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Rob Herring <robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 
-Hi Igor,
+This series fixes a NULL vif dereference and a negative radiotap rate
+index bug on the TX path, restores the operating channel after monitor
+down/up on non-chanctx devices, and fixes control-frame seq_ctrl reads,
+sequence preservation, NO_ACK, and retry limits for raw 802.11 frame
+injection.
 
-On Thu, 19 Nov 2026 at 11:54, Igor Velkov <iav@iav.lv> wrote:
->
-> On Thu, 19 Nov 2026, Anand Moon wrote:
-> > It looks like we aren't disabling all the PCIe regulators (0.9V, 1.8V,
-> > 3.3V, and 12V)
-> > during suspend and re-enabling them during resume.
-> > Shouldn't we power down all of them on suspend and bring them back up on resume?
->
-> This patch keeps the rails as they are: suspend_noirq() already turns
-> off only vpcie0v9, and the other rails stay on from probe to remove.
-> The 3.3 V and 12 V rails power the endpoint; cutting them in suspend
-> loses the state that the PCI core and the endpoint driver expect to
-> keep in D3hot. Doing that would be a separate change.
->
-Makes sense. Thanks
-I will check the disable and enable regulators to help with this issue
-and will update you.
-> --
-> Igor Velkov <iav@iav.lv>
+Tested on RTL8852AE (10ec:8852, firmware 0.13.36.2) across 2.4 GHz and
+5 GHz.
 
-Thanks
--Anand
+Changes in v8:
+- Patch 1: update Fixes tag to e3ec7017f6a2 ("rtw89: add Realtek
+  802.11ax driver").
+- Patch 4: add a blank line after setting seq.
+- Patch 5: note in the commit message that Wi-Fi 6 chips such as
+  RTL8852AE lack a TX descriptor NO_ACK field, and unwrap
+  rtw89_build_txwd_body6_v2().
+- Collect Acked-by and Reviewed-by tags on patches 1-4.
+
+Changes in v7:
+- Patch 3: drop the local no_chanctx variable and check
+  IEEE80211_CONF_MONITOR in rtw89_ops_config() so the channel flag is
+  not set for non-monitor first interfaces in ieee80211_hw_conf_init().
+- Rebase onto latest rtw-next.
+
+Changes in v6:
+- Focus the series strictly on the standalone monitor interface case
+  (plus the concurrent NULL-vif crash guard in patch 1), dropping former
+  patches 3, 4, 5, 6, and 8.
+- Shorten commit messages and rebase onto rtw-next.
+- Patch 1: use vif_to_rtwvif_safe().
+- Patch 2: clamp negative rate indices to 0 with max_t().
+- Patch 3 (was 10): move before injection changes, add
+  rtwdev->support_chanctx, and reuse IEEE80211_CONF_CHANGE_CHANNEL in
+  rtw89_ops_config().
+- Patch 4 (was 7): keep control frames on the AC queue and only set
+  seq = 0 for control frames.
+- Patch 5 (was 9): simplify ASSIGN_SEQ handling and drop dead code.
+
+Changes in v5:
+- Split the NULL vif fix and negative rate index fix out as standalone
+  patches 1-2 with Fixes: and Cc: stable tags.
+- Split monitor injection into focused patches.
+- Honor ASSIGN_SEQ, retries, and NO_ACK for injected frames.
+- Restore channel on leaving idle for non-chanctx devices.
+
+Changes in v3:
+- Split into a patch series and use driver abstractions instead of
+  direct register writes.
+
+v7: https://lore.kernel.org/linux-wireless/20261118180435.904-1-owner@ph4ntom-rev.uz/
+v6: https://lore.kernel.org/linux-wireless/20261117094135.1772-1-owner@ph4ntom-rev.uz/
+v5: https://lore.kernel.org/linux-wireless/20261113235211.1911-1-owner@ph4ntom-rev.uz/
+v3: https://lore.kernel.org/linux-wireless/20261104203051.564-1-owner@ph4ntom-rev.uz/
+v2: https://lore.kernel.org/linux-wireless/179371849554.20972.16232816164394690660@ph4ntom-rev.uz/
+v1 (RFC): https://lore.kernel.org/linux-wireless/1a196d6dfbc.35537d221913104450.3720060455831933789@zoho.com/
+
+Enver Ikromov (5):
+  wifi: rtw89: avoid NULL vif dereference in rtw89_ops_tx()
+  wifi: rtw89: handle negative rate index for injected frames
+  wifi: rtw89: restore channel when leaving idle on non-chanctx devices
+  wifi: rtw89: avoid reading seq_ctrl on control frames
+  wifi: rtw89: honor ASSIGN_SEQ, retries, and NO_ACK for injected frames
+
+ drivers/net/wireless/realtek/rtw89/core.c     | 27 ++++++++++++++++---
+ drivers/net/wireless/realtek/rtw89/core.h     |  3 +++
+ drivers/net/wireless/realtek/rtw89/mac.h      |  2 ++
+ drivers/net/wireless/realtek/rtw89/mac80211.c | 14 +++++++++-
+ 4 files changed, 42 insertions(+), 4 deletions(-)
+
+
+base-commit: 0bdc579dbfc251a6b6838ee9459b6771b948c617
+-- 
+2.56.0.windows.4
+
