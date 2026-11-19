@@ -1,53 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795109390;
-	b=xVSrFPicgWLm/USwhf6ErlHjcQbbUmPxfVl7J/P4IiBTga36wpYpiTBwSOp/xpQPXuJJ
-	 6c7Jf+LO+BPLu8VQtOnpzdgZPz2UZg8Y8a9NaqwqI+GQKXxHhsxG1AHOxU7V7+3hqEoLM
-	 gwNBkAv+Isa6vIF6Q4qHYC0cUTkSuS+2pAQcXVZ5YC4LSu12IxQooVIioCnUwXmvtAM6f
-	 TpISJ48kVsJjKktId6NfQTFAlkl+OuJyB2fjHpiEz7u940apU2WFNii1gikEKMXN2i7wt
-	 wTSgKOtjFCC2ls94OIrv1t5mJt2FXfbOJjQqfpb8gJUSDuVedyCEz0EBEuswLB2y0fQ==
+	t=1795109458;
+	b=KJQ7YTsXqA1jCq3ZZjOYGeDYBSWwGntyOMCUvEkuus/QhsXCap1/NbTSe2/z8W2elgSD
+	 ZyiGvuPWQQl/PO8gGt5LoJ8W2txVNNTlQzSrutzfabxhkZv8NTwmHMO4yhSD/53gaxG2F
+	 Ngzr1PN9DUkujPhmt5Yxnh7vaF2Ac7VTKfFHi4rIXTUNRFTgV4TRr5vEEsF7pnPdSh5AG
+	 oYcJC+2vwPQqbTnC6m2mHk4xHEEKmNSFnuhTF41/BeV/LcJfFjhXfMIWzqF20ka1MA5Pi
+	 cmXsR3zUrF+rtYrWMtaBoZU6MwA4aYqfflSKZQpBVipnHdh2uJOyARwQZZjT6a4nQow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795109390;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=wB2sgMKnJtDtEWR3D1pZR9JzcTk5RE7d2g1PbIXERiM=;
-	b=ciaqa6bMHulhubbgdab+JxFzqr52oeI/R8DDngBu+oLPmet0Wn423blr438ePwlmJ54f
-	 Avq3tPkXUt2JSh1MNlJ5g7EIxnYDbh214phU9vkOB/F4gNTXvU52UBfpolhkJRUkeIVBl
-	 AXK4idUOmCAmBcwgwti9krBN37PNHpjHi4Yq/lfISELYa48OGZFzuIeGeA+Un71UjLtvq
-	 CfvfiMCuN66G4PTJ9bFdSiIi7izMK0vWXE7ViTOjMshlw+GhesHsqimfZ+C3zn9qNildI
-	 UjpuycEZowwckrmaxIDj6gvFVxVQtFrh/22Zs/t9f/pQL+Sp/r4HuX3SXGJtVKd/+eA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795109458;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=vs32yPthyobk2oEa2KkdNDnwUJjwL8zz25GmqC5+HvQ=;
+	b=ScyYlGWA3IL749fIGWpSH0Swpn4tnv4ntMDy5ZRSL+TqnallZtR0VgyVDSFsolDlKIxj
+	 Xrof4Y4VNqazy11Vc/NKck4K3IsrwJ53d6/FtYSYllQK/BWuZRqGUyoGdbPvddYLxSkZG
+	 q9YhQETtwNTAlvuKW0Fa9HtwmuBbtWcHZyaJ67kn6zIhL3tawH+PMjrWMc32q+nbdc6P6
+	 8xLueffL1Ixa26F8nyvhbnmcY1Vt9uZtgppvZB79J2tBiyL3vRWuDJp+CfwgKZOvgkLBX
+	 AQroJXRCr2Ht+2tlSDt9eC+YY1CZB7nD5wy+q25pkyANWiSYJzgnsa86a8sr1pPNyNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hQWq+MBI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=toxicpanda.com;
+	spf=pass smtp.mailfrom=toxicpanda.com;
+	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=kcyODoF4;
+	arc=none smtp.remote-ip=209.85.219.47
+Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com [209.85.219.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 525A3606A324;
-	Thu, 19 Nov 2026 17:29:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E159A606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:30:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E159A606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=toxicpanda.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hQWq+MBI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACDC61F000C5;
-	Thu, 19 Nov 2026 17:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795109389;
-	bh=wB2sgMKnJtDtEWR3D1pZR9JzcTk5RE7d2g1PbIXERiM=;
-	h=Date:From:To:Cc:Subject;
-	b=hQWq+MBIrLWq6lGFMxODKYDRPYeuj0brCOijufDsrCstdCX5gRVW3ofhCexCl6Ew7
-	 sO+Vg2s84CWLh45djacYIydHNdpAqCImvYwZlZ9Wh9CtMMSqPpZ+S27OI2GRH7ACxK
-	 BRzhPdi4LwUGpTDNHzQ2FuER9SwF5lJRW76Pm1/T6p5/IW7KUlT27kGwHEDGP2u7e7
-	 ezSASlqjFWMwQXZusMwBr3FW6Y29kfY3LcCY7Z4OsNlvivRRryUmQ+VIdRR8r1Jx0W
-	 W8Cc40tw2BzLnmCmzY50hzIE6Hc4wAgvy3v05ibbQG9jy3Cg9B+3uDfWT+wrMN8Bvr
-	 gGGm2Z2mk1lZw==
-Date: Thu, 19 Nov 2026 17:29:46 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Kees Cook <kees@kernel.org>, Kees Cook <kees+treewide@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: linux-next: manual merge of the pinctrl-intel tree with the origin
- tree
-Message-ID: <av8yCr4r_U8R_mul@sirena.org.uk>
+	dkim=pass (2048-bit key, unprotected) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=kcyODoF4
+Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-92119da3d37so706586d6.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:30:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toxicpanda.com; s=google; t=1795109457; x=1795714257; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vs32yPthyobk2oEa2KkdNDnwUJjwL8zz25GmqC5+HvQ=;
+        b=kcyODoF499MEItXJuafpVcnzdrYkl7/sScpUZDNuvzQ8x8TeBmZDqdks69cwQJPENI
+         9iFlKy+JKSRnJ43XkhGYbKr6s8nEbIsy4qEBpMjCGf/q7zUHm+eoySF82h8iB9DE2E+6
+         x6E285TcglmPmUWPzBeIw5GGsOfgrTK54KwCO0dY+Gad/9rpkfmJp+Fzuv7FM12rO3cW
+         oVa7V3SRTkJyyHdCmKYhiZ0iNHkbMSf2mGIbRMegzCViN1JkHDoqRPAMPCRKMsFhAncg
+         tqPk2hQGV6zgzsjM3kKOt4MztPrYgP6ISE5NoJeIoBzovYoyXvuYXpAuHCmOYhEhLB8f
+         9Xsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795109457; x=1795714257;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vs32yPthyobk2oEa2KkdNDnwUJjwL8zz25GmqC5+HvQ=;
+        b=QMffN3av2Yn9mhV2/+3X8M7UefYXlSLRFHRelBgO6BThNNBAI1mvMvlz2GIuFtr78D
+         cSJtMT0rns2XUAT9M4+M9fYTS2u/VHU28rD8/NeJ85d9+LVM+eCGBlycPuljm5PIKIVV
+         An/XT1VE35Kw5e8P1lL6vUxxlnTgplnpCup6fPxf4bU6A7Qi9MXkjr0rXsL0daHrOU5U
+         wCPLLL7ig1rHVDozwhAGvJ5GzwxR/ZSZuLOqji3/J29oWQ5uDd5gmjgaxIgS8CzibVIE
+         6n0ZpultSQljKnZHScIu22fJOa9b0MZVgFRjU553p+IkrNKs49h3+kescLqkbFG169p7
+         +B6A==
+X-Forwarded-Encrypted: i=1; AL+hErFaWAY1bNZYddo7JJFB1a0hGl2T1JCA8RTpvZnGF1isR39KgrTK+uMJ7BHyU8AsWmKpt1f7jis7ILAK9fw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8J2BpIVRlB50cwWjFt6/A4mDBlwHwt+ASxiNo8LKYcTAtqTg8q
+	KNq5pi3MmUG0cFq/yFeDXGRLpVve/+kjLUsYlbU7s/u2wttgEr9cqgcHoHrnRRkPFvS75VCssfj
+	FzxVN0wA=
+X-Gm-Gg: AZFdTZdZXLnaJB0qGedDhnU1GgFUYm280lrS5Iy758bVo3BNhkZhw4IjIw00VPrOXEs
+	JFpt7v53yfDserdJuTtO6ZdMugY9DPg32/b+IYwuney0IHJu26yzH/FZeRA+DA1Kc4CGu+Vb3kI
+	iNIhyL39jB2U1JL3ytwZ9P9ygWSdtNjbrchV8PWvKZzq+Bfv8zVmaxpORSxpocKxDZYOxnDbhOV
+	HGYIMK+160GPR74RIIlQOowUuJf/SQek3s2/iv//rnZm7AhxyhKXXzLu/c3takDX+44CippgvB9
+	RmVcihsQ8jamGg5PhPkEWJlLXkT4d6dayVUd/Q+19HZxi01pj3je05hZuEJceTah3Kv5nuAJ893
+	ETghQQy+kMBcFbvQ1bKGcKQpM9WtwMSlWOHoLvlfWTvJLPnshwFCDR6IvKEqqDIVOE+pUVyHDLT
+	1UGvVCYlSrC80D4cxyGWDNZFeu9yEuHREROHcF7dGk8UE3kSBqT3sIJ6HshRbxwBb0S04jZMjrr
+	3MG7gIEUGVO5hG3U/OUj7LlUrqFvOXUy2ICubxLC3G6fvQac1wIUOcwmlfqmPoeLNMcNUyqqHA0
+	qcS5WpAGkFSNrLwA86gE1dG47E8RZd9N3f6v4vLU4yKI3g==
+X-Received: by 2002:a05:6214:3d0f:b0:921:2f16:4714 with SMTP id 6a1803df08f44-921349cdc5cmr6310486d6.7.1795109456756;
+        Thu, 19 Nov 2026 09:30:56 -0800 (PST)
+Received: from toxicpanda.com ([153.61.196.251])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349ec64csm3556376d6.28.2026.11.19.09.30.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 09:30:56 -0800 (PST)
+Date: Thu, 19 Nov 2026 17:30:55 +0000
+Message-ID: <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
+From: Josef Bacik <josef@toxicpanda.com>
+To: Andy Lutomirski <luto@amacapital.net>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+ Christian Brauner <brauner@kernel.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ David Howells <dhowells@redhat.com>,
+ Jan Kara <jack@suse.cz>,
+ Serge Hallyn <sergeh@kernel.org>,
+ Kees Cook <kees@kernel.org>,
+ Paul Moore <paul@paul-moore.com>,
+ linux-fsdevel@vger.kernel.org,
+ linux-api@vger.kernel.org,
+ linux-security-module@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+In-Reply-To: <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
+ <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
+ <av3akYFOYaeQZauZ@kernel.org>
+ <av3bkDnwmjunTleX@kernel.org>
+ <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,105 +112,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WR6kv7pt4EvtAmgX"
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+On Wed, Nov 18, 2026 at 9:46 AM Andy Lutomirski <luto@amacapital.net> wrote:
+> cells: The dance where I create an anonymous mountns, mount stuff into
+> it, and then attach it to the cell is cute.  But I think the userns
+> interaction is wrong: you are making me assemble all the mounts in
+> *my* userns and then clone the entire tree into a fresh, non-anonymous
+> mountns bound to the current userns.  And that clone operation is not
+> free and serves no actual practical purpose.
 
---WR6kv7pt4EvtAmgX
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The copy buys us nothing, agreed.  That's just what the mount API gives
+me to work with today, it's not something cells wants.  If I could make
+an empty mount namespace and fill it by fd I'd use that, the "root" slot
+takes a mount namespace fd already.  Extending the API for that makes
+sense to me on its own.
 
-Hi all,
+The mount namespace staying with the builder's userns is on purpose
+though, that's what keeps the cell from mounting anything no matter what
+capabilities it was given.  The builder sets the tree up and hands it
+over, so the cell only ever has what it was given, and the mount code
+isn't something it can attack from the inside.
 
-Today's linux-next merge of the pinctrl-intel tree got a conflict in:
+> cells: I find it *incredibly annoying* that one generally cannot put
+> new mounts into an existing container using most existing container
+> managers.  I hit this on a surprisingly regular basis.  You seem to be
+> baking this into the whole cells design.  Why?
 
-  drivers/pinctrl/intel/pinctrl-intel.c
+By design.  Allowing changes to a running container is what causes the
+problems.  If you need another mount, tear it down and build it again.
 
-between commit:
+> both of you: Can we please make it possible to do the parts of this
+> that oughtn't require privilege without privilege?
 
-  4dd10fbbeb9c3 ("treewide: Convert devm_kmalloc() family to the devm_kmall=
-oc_obj() family")
+Agreed, we need to come up with a design for this.
 
-=66rom the origin tree and commit:
+Thanks,
 
-  34925b925793b ("pinctrl: intel: define iterator variables inside for-loop=
-")
-
-=66rom the pinctrl-intel tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc drivers/pinctrl/intel/pinctrl-intel.c
-index 51a86975909cf,833640fc40b09..0000000000000
---- a/drivers/pinctrl/intel/pinctrl-intel.c
-+++ b/drivers/pinctrl/intel/pinctrl-intel.c
-@@@ -1437,10 -1434,10 +1434,10 @@@ static int intel_pinctrl_add_padgroups_
-  					       struct intel_community *community)
-  {
-  	struct intel_padgroup *gpps;
-+ 	unsigned int ngpps =3D community->ngpps;
-  	unsigned int padown_num =3D 0;
-- 	size_t i, ngpps =3D community->ngpps;
- =20
- -	gpps =3D devm_kcalloc(pctrl->dev, ngpps, sizeof(*gpps), GFP_KERNEL);
- +	gpps =3D devm_kzalloc_objs(pctrl->dev, *gpps, ngpps);
-  	if (!gpps)
-  		return -ENOMEM;
- =20
-@@@ -1484,7 -1480,8 +1480,8 @@@ static int intel_pinctrl_add_padgroups_
-  	if (community->gpp_size > INTEL_PINCTRL_MAX_GPP_SIZE)
-  		return -EINVAL;
- =20
-+ 	ngpps =3D DIV_ROUND_UP(npins, community->gpp_size);
- -	gpps =3D devm_kcalloc(pctrl->dev, ngpps, sizeof(*gpps), GFP_KERNEL);
- +	gpps =3D devm_kzalloc_objs(pctrl->dev, *gpps, ngpps);
-  	if (!gpps)
-  		return -ENOMEM;
- =20
-@@@ -1514,9 -1511,8 +1511,8 @@@ static int intel_pinctrl_pm_init(struc
-  	const struct intel_pinctrl_soc_data *soc =3D pctrl->soc;
-  	struct intel_community_context *communities;
-  	struct intel_pad_context *pads;
-- 	int i;
- =20
- -	pads =3D devm_kcalloc(pctrl->dev, soc->npins, sizeof(*pads), GFP_KERNEL);
- +	pads =3D devm_kzalloc_objs(pctrl->dev, *pads, soc->npins);
-  	if (!pads)
-  		return -ENOMEM;
- =20
-@@@ -1580,9 -1576,9 +1576,9 @@@ int intel_pinctrl_probe(struct platform
-  {
-  	struct device *dev =3D &pdev->dev;
-  	struct intel_pinctrl *pctrl;
-- 	int i, ret, irq;
-+ 	int ret, irq;
- =20
- -	pctrl =3D devm_kzalloc(dev, sizeof(*pctrl), GFP_KERNEL);
- +	pctrl =3D devm_kzalloc_obj(dev, *pctrl);
-  	if (!pctrl)
-  		return -ENOMEM;
- =20
-
---WR6kv7pt4EvtAmgX
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmr/MgkACgkQJNaLcl1U
-h9DV4Af+IUz4+wrsNh9UX/M9yuVTLpyYRMKdyDyB/PD6gNs/GmzHgK9D0p7nMKO9
-cKg+j74j2XCCpSgN4WzYwKFlG5ZEYWVLsmaD864TVnfbQXcoCT8GoclhU8SVhrHS
-hWIqsBuVf1ocYdE/4oStpifCvNmCDppKahSDikDnl9JqV87ej7Pgf9WDRwAucf2b
-r2JpsicUiki3Fz09sdolfDwVOAB1cbfQXHixzgeB+9REO4w6hmdgQ3y2dBYKmRch
-gASd9av2nHo5ozQurbeOL9wk/g9n0pYNk4AMo5L62aD+ABFn5DkXGQlA1FBm7K//
-+dnV1Oxs3iAii3BHH+KBRmi5RM8aaw==
-=d6pM
------END PGP SIGNATURE-----
-
---WR6kv7pt4EvtAmgX--
+Josef
