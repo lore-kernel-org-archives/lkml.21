@@ -1,47 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.157
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090726;
-	b=X2mgxcVecg5hy9rF1vdrxbEo012NBsaMUioly9QE+i9F7+KaWgPGkgHzODDzM9McKz3z
-	 zzNLZ/aN8FVzJ/JfXcAwVfmJupk+34v0lXDVKNg2geLdhTKPjTHfY5SX/tmuQH8xpSUNS
-	 oFx7g+Pk5cuTydgGrz8BIHas2sZfbBS1A30/0vA7U6curL//bD0ChfdQapUKmV7WT2x36
-	 RmGNWFLI0L8ferQz3zFaYxE2i/k2YWZjT00pJy2cM6XK54yANIY5nrfc73NeVeyAR3vFI
-	 k8WU5EKt9VcuYrRlvQ38T6iSJJSblrNm07ytn3YR1Osm798K8bDMOTsgTcB+viGlJ3w==
+	t=1795090823;
+	b=Q25jV/LEkm/4BdV4BrBw07d4DKUmAQH/Og3nWAVFoXxBjBWAWl7xG1YAbrSeiDIyooX+
+	 hcCnlTogNyoDw4rHdQzqqjLb3n6IuW13MvJgOzciqRFe/dTUJ7aWVANNVvW7VLUFPaJHz
+	 2m4JR0r5XHPWZ2xMD4kL3vXAsAIFFPjtpWSce07GWftGnRdqtkSMtckemQDQx9BcpAG3j
+	 3uppLrksy3V9gJn0NunuTmuMgYjGa0lfy7ThS/mtQhGjwioQhSF6IiZS07EX/dC0Lo4rX
+	 1TDG++TR6x8NElh3HoKc1PpKz4aD4NvGVfQMxtKWwMiV2d4XJFPDdAHYp2+ULQkW1sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090726;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=EJQTg5JhvHuIUn/1/qQhysiGCbqKFBLkf+Y+juVumq8=;
-	b=m+JbACAjPtR6bbE4MP4wWIRRJa/hNrGGOdd+bG+JfXlmn4j+k/o7mqxeRIngCEgUfq1D
-	 vgCW+GiH2siuyTgejigDNQuhkuxfStstPwAt+x7LN+b8faEy73dejqFydOuyZ4wn3/rhn
-	 yUZ5Yki7OHPrgVBuJhmMJJE8oUFa8+mhPzimoApHCGzSH31kBljbirC73D9ZQnh+VLZui
-	 w+sBz1LY/9RbHuJTtoncUpNKKJ8shxRE8JQD0DgSzuK58UiqixpGy9mTshFvsiGGVd9Pl
-	 mShcVY/v5srYVoVMvCAEV97puXJ8i5yj/scNQTTr7rY0o3s0aqkZPVkaeBnVvwzw9NQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090823;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=obCpA7NY4aqAl66oIe6lDpGamnUBgIspwnLY6IpvxLs=;
+	b=RK7Y+gYvpXxWCjNpt+tfzqpW7Cq2I0rUCCX8Tt1deHsDyyqX89e8j0fsMkD4UfchnffN
+	 ZIP7HG15BBzltaAfNqBy3RTZydWug/BBdZZt2JGbY61gRc96Y6fFqDO42ZWo19JeCE0Y3
+	 cCc+zuM20/ulNOiTLsq32UlM1WM1EGKg+UiJsEZmKqE0FKgCjXTCNQqdiU7ekbZd1jgiT
+	 MkHXv1dzaI1p1Cv0bv9yCzivma6RHeV5l2SLyQTRRFwaxl80AZOxe+ChQcOdPtldF38/Q
+	 5ORz5vaC88yfGCiKRrD2tDLzlzOUr+gnb2XiRZka1aOG3LO+25HSYi99ChyPX4EGGuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkBu0pQw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=JmPpY9qU;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=rxI7hiza;
+	arc=none smtp.remote-ip=103.168.172.157
+Received: from fhigh-a6-smtp.messagingengine.com (fhigh-a6-smtp.messagingengine.com [103.168.172.157])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16D94606A33D;
-	Thu, 19 Nov 2026 12:18:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80806606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:20:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80806606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkBu0pQw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F1791F000C4;
-	Thu, 19 Nov 2026 12:18:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795090725;
-	bh=EJQTg5JhvHuIUn/1/qQhysiGCbqKFBLkf+Y+juVumq8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nkBu0pQwjNdbp5A39UgvVvx92TNwUVkYq2VCNfVZgBusUKAzLxGaVQCZc41yoe7Xx
-	 kAxqhvnW5AZnEocUSE9HmFpLsQuRjPEiAfSKdsnKdKiOIgkTG7WE+Rg+JWVy2dQrAE
-	 7/R+C8yOMFKgMwctPGJqFuhvGw6se9m9Qi7KJ9OYz+oO6UNA5nzx9imGuaoX+z7lLj
-	 Bwt/9l7Nm//zCesjz/1GzwsGgrupvpc1izENdaflUyamHr0VsLfMiZKWMDx+obSaVv
-	 CEDr9EZUMyxqeHSz58yTILbpJ7FOX7gUneXHFp23MxDpN6GtR/fA6pO+zNtac2nUcF
-	 Euy+dY5zWdaPw==
-Message-ID: <a5f9e438-4551-458d-8df8-c8a902c01446@kernel.org>
-Date: Thu, 19 Nov 2026 13:18:41 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=JmPpY9qU;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=rxI7hiza
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id A35FA1400166
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:20:21 -0500 (EST)
+Received: from phl-frontend-01 ([10.202.2.160])
+  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 07:20:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795090821;
+	 x=1795177221; bh=obCpA7NY4aqAl66oIe6lDpGamnUBgIspwnLY6IpvxLs=; b=
+	JmPpY9qUFiv0I0LvaalZvhc+q07QIBAJLQPWUnPndEAAYHidDT0ye++m2MDcQvDU
+	Cibd+JNE4wncH62pWbtiThIdBQYuY/8f8GkRoAvmvptClFppwKVvxlZVJhEC3Yvv
+	SpnH8F1xdfxoOwbkuDlMYt7a85HWL6Lk9N0dRyfwUPFgxX4gM962/HFZAVEESApZ
+	IfYArk47zV7kWHKF6e0QRfV3mFc8/RsUvhEFKruJTdWYivAzrFRg4WoMDw81698N
+	zhbu5AiQ/NDni27y6ctl1L6Hn8KQZqhPntp55MZ7hsMBv2L9kC48Ahcw0RnN7HRS
+	mIFeDEa9IagODEf4wwPaZw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795090821; x=
+	1795177221; bh=obCpA7NY4aqAl66oIe6lDpGamnUBgIspwnLY6IpvxLs=; b=r
+	xI7hizaP1bXRdz4LQ15p8QgbzXAgI5vOwLJM4KkdVX3DoppiFFIYx+J6wJjoKXXo
+	VwzTMPGmNmxBd6CXahwBEqhfTJR5SaC1SLlaQ1+bZORcEFXHO+TlsXbHIimQa2qn
+	QaV/0dFBN+aDl4aSFVB5ey0zYslFl8xXAfomxqsvHK2QNQT2egESamq9GGPzqf1w
+	ojJcqAsXUITajOwd9qr2u+rbswakS/+nx0aXtZSSBWMjDedqeU7wpR9zawZ1gA58
+	b1qI1KzmVLxmaxuY5238aKLNS5rkhktYk7ewHgWWghY6Ap0cXBu0bcGAUE/FMRuo
+	Er0TC2zOJb6bedxeOp9eA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795090821; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:kIsqs2wsZSgw1SnThlk1OtREKj7uVCVOz/6KIXqKN+y/FXK
+	XwBknlSuqi02WL331mAmvcx14canmu6Zm2583hEviv85h+9CKHXSJyrb33s5LtWT
+	LvBr9PKcSOiBSy/LQAyQkxjs0HTEw/+v39IgXssl4GZUkK9sPmanMfXyuukMdD5H
+	uPKeLla3lbyzdH4RhA9dPjB0z3UFy3RMhQyowNu/O48gD6CIG1qYipEVZkUL88iT
+	1XSK0tfmeC/PFxa/FhQ5XbCOL2BqEmqY3PL0pQnq78x4ipTXEwUZVxq5lodmovpj
+	sC8cvm5LNqFQdatqSTW9U8HI3rWhmMKMUEzsTWQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:CGWQ6fVmA81tad2Cig6aq/YRRLRnhtKARkqYvuztOIQ=:bkgUajqYPV8WelTS6gtGJuD+ER7pbWFG4li4/uOxG60=;
+X-ME-Sender: <xms:hOn-atx1A1sX_RRDQwNWw0vJGGVu0a506P-QJepA9y_jAEd_i3wk4A>
+    <xme:hOn-apIlMCc-5evVx33O3pUabQeMlfjbIK5k88Vggo_GVcHMCkZ-AQLyQjtRypUQf
+    1JnIWiv4hGaiT6La2cFXkJCs0hzJn3JzjUuTduNJKDh9PJm3OtxMPEG>
+X-ME-Received: <xmr:hOn-ai0S7TgiYvz2exIEZPIC3n_LHAIXCUTWDunRFxOsnaNhHFB2zYz4UCSSfNRuYWv5Bayuq-M32LqzgCJSxcBwUAinQbqe>
+X-ME-Proxy-Cause: dmFkZTE4w637iF2+06euw3pYOKHvtPT1HURgL8izvxy2CqrTadbChhY6tFdALr5WhJA5oR
+    vv2+pJx1RbTLSvDQIwWguK/u6f872FXNKjthgVU7U0I+xFMztHWv3PkDwa6qKADSz5OjOd
+    l+kvdav/mQ1lULa0n0TIFgNlbcgo33kC9++fP9v7QcZgCBtfccyo4rqvQagLFZvNTFXGRu
+    XWYxbfOFMaJTzm56wnY7MwRON7IfG4/CooInHFXlKWR6m/w4JmYmV+PGga6ZaCqBuviu4l
+    /e2XsLnR3RgHgZ1/gtSsQ1ODbor3OznLvalG5LP16rpfyq6DCO3GrOLBjRUHWQv6C9DUbN
+    xaZZRNMmo96ry/MddUA4QMHRmXAlg3DyhLcJBs2QC6BGhQEtC+uKbs+zRrBYrroTwRPzqO
+    efYii/vUaR+Gr7fg++6M8D+u7zHQaVx7skFHjdcxOty2Wmnjx0ITkhuOhV+BtXwKjz3s2o
+    N0ktAgWGoy5enbNukJuR9jeiblpM9w//UWypIJJMekjmNNm3SBHAL3/3wWYTP+uC1Ma3E4
+    X3apqHWSeOUKHi42UCvbTKovtA3bWJsj3MS4zGSm1aK6dwdqbRaCizVc5TSjyLvPY9UD67
+    bZV25GF0eb45zQhOg8sR92YY0eWEyvYq+hZ+b258VHhUCsAepQyq8b747Ipg
+X-ME-Proxy: <xmx:hOn-ajcVNFYy_tGSXN8F4oYjzStCb4yxmG4RcxClBfIk0JNla2tLgg>
+    <xmx:hOn-am4rXDs-NepYF3s_etMWFu_SF8R81tLKC9H9DIiOAcPYizsShQ>
+    <xmx:hOn-am_oBkMNwVQVvytSjUmNBZDdNJh7uXxT1IHdNq1VK310ffpTdQ>
+    <xmx:hOn-atLS4lAda__gERvh4Aem7zaZzieyHYynnE0jZnRKO9yUqVVW5Q>
+    <xmx:hen-ahG2yMoluE3bpKZJPeiTDD2niA8TsCpZ3oZScoqHclEjUgvAeJcV>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 07:20:18 -0500 (EST)
+Message-ID: <85c8da83-8a27-4787-a5f5-fd38c709941f@pobox.com>
+Date: Thu, 19 Nov 2026 04:20:17 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,95 +120,45 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] dt-bindings: spi: Document DWC SSI XIP properties
-To: Prakriti Sharma <Prakriti.Sharma@synopsys.com>,
- Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org,
- Siddhant Kumar <Siddhant.Kumar@synopsys.com>
-References: <20261119100513.433044-1-prakriti@synopsys.com>
- <20261119100513.433044-6-prakriti@synopsys.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 5.15 0000/2214] 5.15.226-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261118150009.797899913@linuxfoundation.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261119100513.433044-6-prakriti@synopsys.com>
-Content-Type: text/plain; charset=UTF-8
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <20261118150009.797899913@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On 19/11/2026 11:05, Prakriti Sharma wrote:
-> Document the optional XIP memory region and the properties that select
-> execute-in-place, continuous mode, and prefetch.
+On 11/18/26 6:27 AM, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 5.15.226 release.
+> There are 2214 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 > 
-> Signed-off-by: Prakriti Sharma <prakriti@synopsys.com>
-> Signed-off-by: Siddhant Kumar <sidkumar@synopsys.com>
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-> ---
->  .../bindings/spi/snps,dwc-ssi-2.02a.yaml      | 59 ++++++++++++++++++-
->  1 file changed, 57 insertions(+), 2 deletions(-)
+> Responses should be made by Fri, 20 Nov 2026 14:55:35 +0000.
+> Anything received after that time might be too late.
 > 
-> diff --git a/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml b/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
-> index 7cccd627f809..efbeb59313fa 100644
-> --- a/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
-> +++ b/Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
-> @@ -23,7 +23,18 @@ properties:
->      const: snps,dwc-ssi-2.02a
->  
->    reg:
-> -    maxItems: 1
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
+> and the diffstat can be found below.
+> 
+> thanks,
+> 
+> greg k-h
 
-You just added this file, so are you saying that your previous patch is
-wrong? ABI you just added is incomplete?
+Tested on 2 amd64 laptops (a Lenovo ThinkPad T14 Gen 1 and an Apple
+MacBook Air 13" 2017). Working well, no regressions observed.
 
-Please follow writing bindings doc and submit complete bindings.
+Tested-by: Barry K. Nathan <barryn@pobox.com>
 
-Best regards,
-Krzysztof
+-- 
+-Barry K. Nathan  <barryn@pobox.com>
