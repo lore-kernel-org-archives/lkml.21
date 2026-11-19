@@ -1,74 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.224
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080235;
-	b=q/X+8kmKyxbnd2hNxZTMbsx+CzQZ1sbpB14zWZ6B1W7UikeLMqC3tkubb09ZJ3V0KdGC
-	 9ABRU5+L71z+/xCajghJfk4f1x4qlBc/P/PMOmlVcLvYf+SxW297wj1UIrCtVcRSTa+zO
-	 nHxkNNeuC+5gSK2JliJ0eYT94tFT94ZFPFPGIwnemo79go0r5qMGrUV2nqkJhrd29aS3I
-	 kX5tnJhU0uidCFHfT6SK/cBVsQmRw0pk2jFEee9+dzI1CgDY1SNzO2i1VovzJj6GzYRXR
-	 PWVzLcyU7BwwslsB0HudSUEKG/Y0UAKajlWHRdu59MhZwaTQH8x76H9ggVmRufdKN6A==
+	t=1795080236;
+	b=VJ9DXsSsEZEZBtcjFGW5dhTB4kky8PQk4WEZf5qtmcMGBpItASq+uJQBUptw9X7GJlyY
+	 ofKTBfGDt2ZKkNZFoHd22c29HYsEsPSeMbMuVnsZ7nrSc+vQyDDo7sH4j3mCw3LpRgafq
+	 cr2shFl8o3SnqdhwNrIfrK/a420mg84yvwhHGxAqF6qJaxI8PhXL7aDg4y0uY2dK5APRx
+	 iWadaTY/lQuh4dBF7YpXbPz6sGuhX1vgItZL4TUbsRHoqgewM5DLWeeCht2XTm0aSQpCh
+	 SEqPvjciMiIPkySfI06U/dud5keEwOJbOli11rAdedgGjqpPmF74WXDnI5E1N9QWbFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080235;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Subject:To:CC:
-	 References:From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:
-	 Content-Type:Content-Language:Content-Transfer-Encoding:
-	 X-Originating-IP:X-ClientProxiedBy;
-	bh=8BbZkq+DmyFDYud+in+NzZnjvISsdRt+bXMusCvgfHk=;
-	b=aRSas3VnHszX1vE3xMkWgXxDsX8m5YCAxvm3YzBBlvuDi/II1Hknq8dPFo1RTrenwTPw
-	 JGfsGbjVPgRwPnBUwx2UGq5p9xfB34KzCajyQZqhP4MpocIvQGamn51WfEEUUw1EN37zA
-	 6L9huRlwG+prAkDUtCj4WrB8t/LY1K923IQJ3vnpa5dzpWid5qJefll81kNb2mI80G2Vt
-	 UFrg+TXk8Bcbj9GE/cU6E/BakEVVo5izYG8H83HZNwBT16D8Yf3MJaY4c34w0B5XyHWfd
-	 3ryiVZneSPWGCQDyOBsoHLStXLVV+y6DPJaKJnjBuo2ARXcV7eviXscaV8M56oMsmRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080236;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Organization:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=dgcsVJh97AVUtfi+/IriKqXTUvwmDL8uMBe8HU3ivU4=;
+	b=Dm8REVv0EfJCkF/PoEPBftLJI8iAfXeFAHP0IQ+a9pCIwpWmn/ME6dfBtLtRA2i7ttUV
+	 aayTzyC+wigomrtbWOt6EesYp3UKyfW2ht/jPsJBq6yrqomhxs12zE6GN4d4+bBLojv8/
+	 1ItJERahI8YTtLmjUzN5yu5J4d3dESKjrsLT5D/SbE8G6079p2lPvnHKBVoy5ltELnKbs
+	 rKfUXgZa6UJtcvNiopR8X4S7sJkjKvpz+Yc8uPp42vpRo6Bet0aZJTWg21l7AVz/4oMQs
+	 5BrqQHW2dvCVAyEspM6XLlknEpotvZvVAsE88ujeFNs6LOkzNrQQqGveSP6Aroa1d/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=MjoeKzAj;
-	arc=none smtp.remote-ip=113.46.200.224
-Received: from canpmsgout09.his.huawei.com (canpmsgout09.his.huawei.com [113.46.200.224])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WdYkct6B;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07289606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:23:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07289606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6206D60A2600;
+	Thu, 19 Nov 2026 09:23:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6206D60A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=MjoeKzAj
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=8BbZkq+DmyFDYud+in+NzZnjvISsdRt+bXMusCvgfHk=;
-	b=MjoeKzAjt6NTNI1C8Hfiliqm/LHebpFMg2BTpiBkAuHBOlFsqKLJDpaAYAhOv2sEa/6eTnntA
-	opOGiCj4OVATWyDQX8KPLumcQHGY0SdCrGDSzy9I91p9fY70O5JUgs87YGWgas16Gql9Ub8pAgb
-	5E23jIqpglwcGzZ79aTvDbY=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4jVY183phdz1cyQ2;
-	Thu, 19 Nov 2026 17:23:24 +0800 (CST)
-Received: from whupemk100004.china.huawei.com (unknown [7.152.185.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 03ABA40586;
-	Thu, 19 Nov 2026 17:23:45 +0800 (CST)
-Received: from [10.173.125.21] (10.173.125.21) by
- whupemk100004.china.huawei.com (7.152.185.74) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 19 Nov 2026 17:23:42 +0800
-Subject: Re: [PATCH v3] mm/highmem: refuse to copy hwpoisoned folios in the
- !copy_mc fallbacks
-To: Yuanhe Shu <xiangzao@linux.alibaba.com>
-CC: "Huang, Ying" <ying.huang@linux.alibaba.com>, Kaitao Cheng
-	<kaitao.cheng@linux.dev>, "Garg, Shivank" <shivankg@amd.com>,
-	<vbabka@kernel.org>, <ljs@kernel.org>, <liam@infradead.org>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>,
-	<nao.horiguchi@gmail.com>, <ziy@nvidia.com>, <wangkefeng.wang@huawei.com>,
-	<tujinjiang@huawei.com>, <mgorman@techsingularity.net>,
-	<chengkaitao@kylinos.cn>, <muchun.song@linux.dev>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <akpm@linux-foundation.org>,
-	<david@kernel.org>
-References: <20261110112641.1196786-1-xiangzao@linux.alibaba.com>
-From: Miaohe Lin <linmiaohe@huawei.com>
-Message-ID: <6536c6f9-4cab-9f64-53fc-897f3bd9c9a8@huawei.com>
-Date: Thu, 19 Nov 2026 17:23:41 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.6.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WdYkct6B
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B8F90C4F77E;
+	Thu, 19 Nov 2026 09:23:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 863F060237;
+	Thu, 19 Nov 2026 09:23:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0504111BC0C10;
+	Thu, 19 Nov 2026 10:23:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795080232; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=dgcsVJh97AVUtfi+/IriKqXTUvwmDL8uMBe8HU3ivU4=;
+	b=WdYkct6BVjlKaUeu9qD9uWz3RwoF9BoMegkynIy9pQgGHj8VmmhA/MmFdB8wnEhCwu8yh5
+	5TMkYkhSX1x3uReTch+h8KRSU7p6wElKiFeE2XVSXSTHp5qOGQjkqDsBdWSbnO7Fu2WgV7
+	KVnKN+L58Jz2l5v/dE0+r1oaB3gyeceT3r2cPjrb3ED8MFgfWwy24VGRn94UmnP0ZesqA4
+	gjwrKCjizn6BnaDg9EGPMs6e81g2ct5hsVFEioI5EyY3o/1YzYNgJDejW2lVhGK/qphsMv
+	OSn+UlEelGAlCqTvbFLCuwwimS81QmCPiM2BYyfgPoWa12hFoKmt4e7qiwWLqQ==
+Message-ID: <53f65c05-1c09-410d-8f49-9175f46a0609@bootlin.com>
+Date: Thu, 19 Nov 2026 10:23:47 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,36 +62,336 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261110112641.1196786-1-xiangzao@linux.alibaba.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- whupemk100004.china.huawei.com (7.152.185.74)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/13] arm64: dts: synaptics: add SL2610 family RDK
+ boards
+To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Linus Walleij <linusw@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20261115102401.3520-1-jszhang@kernel.org>
+ <20261115102401.3520-14-jszhang@kernel.org>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <20261115102401.3520-14-jszhang@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 2026/11/10 19:26, Yuanhe Shu wrote:
-> The !copy_mc fallbacks of copy_mc_user_highpage() and
-> copy_mc_highpage() return 0 after a plain copy.  With PG_hwpoison
-> set while the data stays readable, there is no fault to recover
-> from: the copy completes, the destination folio carries no poison
-> marker, and the poison is consumed silently.
+Le 15/11/2026 à 11:23, Jisheng Zhang a écrit :
+> Add device trees for the SL2611, SL2613, SL2615, SL2617 and SL2619
+> reference development kits. Share their common console, memory, pin
+> configuration and regulator descriptions and enable the populated
+> peripherals.
 > 
-> Check the source page with is_page_hwpoison() in both fallbacks,
-> before the copy, and return PAGE_SIZE, the not-copied-bytes
-> convention of the real copy_mc paths, so the callers take their
-> existing error paths.  On archs with copy_mc this code does not
-> compile.
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> ---
+>   arch/arm64/boot/dts/synaptics/Makefile        |   5 +
+>   arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +++
+>   arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +++
+>   .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++++++++++++++++
+>   7 files changed, 220 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+>   create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
 > 
-> Measured on arm64, where the fallback code compiles: a
-> kernel-space microbenchmark measures 90.00 ns per copy before the
-> patch and 90.71 ns after, 0.8% of the copy itself.
-> 
-> Suggested-by: "Huang, Ying" <ying.huang@linux.alibaba.com>
-> Suggested-by: Kaitao Cheng <kaitao.cheng@linux.dev>
-> Assisted-by: LLM
-> Signed-off-by: Yuanhe Shu <xiangzao@linux.alibaba.com>
+> diff --git a/arch/arm64/boot/dts/synaptics/Makefile b/arch/arm64/boot/dts/synaptics/Makefile
+> index de71ddda6835..810d0d08c2de 100644
+> --- a/arch/arm64/boot/dts/synaptics/Makefile
+> +++ b/arch/arm64/boot/dts/synaptics/Makefile
+> @@ -2,3 +2,8 @@
+>   # Berlin SoC Family
+>   dtb-$(CONFIG_ARCH_BERLIN) += berlin4ct-dmp.dtb
+>   dtb-$(CONFIG_ARCH_BERLIN) += berlin4ct-stb.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2611-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2613-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2615-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2617-rdk.dtb
+> +dtb-$(CONFIG_ARCH_BERLIN) += sl2619-rdk.dtb
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+> new file mode 100644
+> index 000000000000..585872307834
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2611.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2611 RDK";
+> +	compatible = "syna,sl2611-rdk", "syna,sl2611";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+> new file mode 100644
+> index 000000000000..de75c9fab6a2
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2613.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2613 RDK";
+> +	compatible = "syna,sl2613-rdk", "syna,sl2613";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+> new file mode 100644
+> index 000000000000..ae03638a3a53
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2615.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2615 RDK";
+> +	compatible = "syna,sl2615-rdk", "syna,sl2615";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+> new file mode 100644
+> index 000000000000..ba4ea21ac505
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2617.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2617 RDK";
+> +	compatible = "syna,sl2617-rdk", "syna,sl2617";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+> new file mode 100644
+> index 000000000000..58901ac2a050
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
+> @@ -0,0 +1,16 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sl2619.dtsi"
+> +#include "sl261x-rdk-common.dtsi"
+> +
+> +/ {
+> +	model = "Synaptics SL2619 RDK";
+> +	compatible = "syna,sl2619-rdk", "syna,sl2619";
+> +};
+> diff --git a/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi b/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> new file mode 100644
+> index 000000000000..78a9b28fdf99
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> @@ -0,0 +1,135 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Synaptics Incorporated
+> + *
+> + * Author: Jisheng Zhang <jszhang@kernel.org>
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/input/linux-event-codes.h>
+> +
+> +/ {
+> +	aliases {
+> +		serial0 = &sm_uart0;
+> +		serial1 = &sm_uart1;
+> +		serial2 = &sm_uart2;
+> +		serial3 = &sm_uart3;
+> +		serial4 = &soc_uart0;
+> +		serial5 = &soc_uart1;
+> +		serial6 = &soc_uart2;
+> +		serial7 = &soc_uart3;
+> +		i2c0 = &sm_i2c0;
+> +		i2c1 = &sm_i2c1;
+> +		i2c2 = &soc_i2c0;
+> +		i2c3 = &soc_i2c1;
+> +		spi1 = &sm_spi1;
+> +		spi2 = &soc_spi0;
+> +		spi3 = &soc_spi1;
+> +		spi4 = &soc_spi2;
+> +		spi5 = &soc_spi3;
+> +	};
+> +
+> +	cpus {
+> +		cpu@0 {
+> +			cpu0-supply = <&vcore>;
+> +		};
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +		bootargs = "earlycon";
+> +	};
+> +
+> +	memory@0 {
+> +		device_type = "memory";
+> +		reg = <0x0 0x00000000 0x0 0x80000000>;
+> +	};
+Some memory is dedicated to the trust zone:
+     tz                      0x00100000 - 0x00600000 (secure)
+     bootloader              0x00600000 - 0x00D00000
+     NonSecure-NonCacheable  0x00D00000 - 0x01500000
+     system                  0x01500000 - 0x7FFFFF00
+(from mr_config)
 
-Reviewed-by: Miaohe Lin <linmiaohe@huawei.com>
+Should it be added here as reserved-memory, or it's intended to be set 
+at run time by the bootloader?
+I was thinking of something like:
+	reserved_memory: reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
 
-Thanks.
-.
+		tz: tz@100000 {
+			reg = <0x0 0x00100000 0x0 0x00500000>;
+			no-map;
+		};
+	};
+
+
+> +};
+> +
+> +&osc {
+> +	clock-frequency = <25000000>;
+> +};
+> +
+> +&pinctrl {
+> +	soc_i2c0_pmux: soc_i2c0-pmux {
+> +		groups = "GPIO23", "GPIO24";
+> +		function = "tw2";
+> +		drive-strength = <7>;
+> +	};
+> +};
+> +
+> +&sm_pinctrl {
+> +	sm_i2c0_pmux: i2c0-pmux {
+> +		groups = "SM_GPIO12", "SM_GPIO13";
+> +		function = "tw0";
+> +		drive-strength = <7>;
+> +	};
+> +
+> +	sm_i2c1_pmux: i2c1-pmux {
+> +		groups = "SM_GPIO3", "SM_GPIO4";
+> +		function = "tw1";
+> +		drive-strength = <7>;
+> +	};
+> +
+> +	vcore_gpio_pmux: vcore-gpio-pmux {
+> +		groups = "SM_GPIO5";
+> +		function = "gpio";
+> +	};
+> +};
+> +
+> +&sm_uart0 {
+> +	status = "okay";
+> +};
+> +
+> +&sm_i2c0 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&sm_i2c0_pmux>;
+> +	clock-frequency = <100000>;
+> +
+> +	expander0: gpio@43 {
+> +		compatible = "fcs,fxl6408";
+> +		reg = <0x43>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +	};
+> +
+> +	expander1: gpio@44 {
+> +		compatible = "fcs,fxl6408";
+> +		reg = <0x44>;
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +	};
+> +};
+> +
+> +&sm_i2c1 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&sm_i2c1_pmux>;
+> +	clock-frequency = <100000>;
+> +
+> +	vcore: regulator@60 {
+> +		compatible = "silergy,sy8827n";
+> +		reg = <0x60>;
+> +		regulator-name = "vcore";
+> +		regulator-min-microvolt = <700000>;
+> +		regulator-max-microvolt = <987500>;
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-active-discharge = <0>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&vcore_gpio_pmux>;
+> +		enable-gpios = <&portc 5 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&soc_i2c0 {
+> +	status = "okay";
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&soc_i2c0_pmux>;
+> +	clock-frequency = <100000>;
+> +};
+> +
+> +&sm_uart1 {
+> +	status = "okay";
+> +};
