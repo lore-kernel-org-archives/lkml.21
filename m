@@ -1,78 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795071687;
-	b=xknZvZWsS+RRHvm/0lOe5FgQSQZ8G5TU8LY+MdOyFoBwqX39g/ugg5ziL7FqkT1AULv0
-	 msAW+Ag0hciq9ydBe6Vl+PHHaVvy+Fs8uGAqI6w3aj5Q/YsMMPwxowbw5WJPVoOD6flAZ
-	 SeeYI8VbP7wRU7DkTVIAEBAL2GgD4rDoRl2F2eGt+tDjtQJYBzfLVBGlxmHaCuL65DZ0F
-	 SFSksrAz0QiVmknkV/Kxwioe7MfCgetC1tAv7iqEUVOvPNmsxQdvdkOPelszaEJY/Zqmh
-	 dw+d7g7GdB3zzWjHUe5MxxkE3GXKnePFGSaoIbCh54gN7diiE7efkN3WtNrLU4bujJw==
+	t=1795071688;
+	b=O7Q4lLiiwzUdtpUFnAmQgsfvR0HbKe9BHBdy4JbU//uaPf2c98T3T6jsna9KqLpBhJrt
+	 p6yoU0OkV+IUvMQbHnYYXoFoKPuYMhnDuLbinOOUy866IsVAVjncxIYEySWslfuuckaJJ
+	 VlkhRMlhHXTjsSnYYY8uoLrISMgPEUpOeCkde7sRn1Q8u6FQox7vWvjbGHU7eWSL1esNl
+	 +iB3IEQurUQ/c1dLCSPpmFGyOhmMQB44fmLBei0XfDpKDZ7QIp/C1aCFkGXCWJjcRGw6l
+	 xEBVdUXbAw39gFp0KkSH+4Pz+dLnXEPmgIXTbh/KUl6NqB38ulmN7Qt859EhFsFi3wg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795071687;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=TKxI/zjOOz3+xUcxLOHEoh90fzBkqyluqyFqJ8B+k1w=;
-	b=XK/KecO8NmuOjDiKvz8Guh0IrdjpgA4pUQFETusl8EJ0exyKtneY/GJ0JrB1pxmpoOYU
-	 cAl8+ElZ3Nq5t5bDVmH5BA3KcGIB3WXU3maId+PBWuzGyyhIbvoLb7eVFMPVfKDeYiE/r
-	 4vmuoGBOYk2AF783V6YlPTHDapeubo52ERcaaa4OeZKZvV4rchAIIhxYZO5tqkj/ZpxCN
-	 nkM5hHVvwnWSGA8sr/gobZbiAoCMHB2f8Xj25K3lwok8NC22zpVaMgd9ImxFMfJSFFUB3
-	 Jm7DSPLcnYo4xc5TnQXHnmVK3UlB/NgtOabLPYUOD0nNtphexk6f4To7iIFhB0ScdHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795071688;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=PqykPPsR7vG8RbNReH5m+C9K46mE2LkFenHsUlsFdp0=;
+	b=laUKy14P8ID348rgHS2Jb0obQ8g1E0hXIvksT4wfev3EbDPX+nxL+c2RRFNa5L6v2jGm
+	 FOLV4A+55M/FIXWNBW/iDEig9Rcg4kpjubnJiOLlUxOLM7jdYV2jUTIrouRhGuEPt9D6r
+	 UFKMU8J67nN85c2iuDwIv+rpAyoBtO7CHST3BuWHEUQ6jFwUpkFNtnfcGjm5Fc1bjCVSi
+	 67bs7qyaLT0r9iROM2AACRReVqxQS1zNn3sbsuGfaKNdE53GQwUOYpddY69dxOG0WCzJ7
+	 0nhtqXMAMLzrO8rNRt9Z7Q1QC/NzDoD5DpNWPY0ZexQtlfzzgLzYWmXcHs83E3Tw9kA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OCmTMHD8;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=YBmgBfyO;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27B8F606A324;
-	Thu, 19 Nov 2026 07:01:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27B8F606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 305AE606A339
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:01:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 305AE606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OCmTMHD8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795071687; x=1826607687;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8g1755zPK67ShsRPYeaMhnaS+wHpG7c9awUGHZuV6Gk=;
-  b=OCmTMHD8/6yR0WoEeIulo/q8nimNuMHqdJ1Ei3n8O9NG0qBVEt9h4ZVG
-   GtflHq4vBycqHy9cn9Gt5uw4GI+fB61iiW79IhhTcWjS078crhzKid1fr
-   XMnvsg/gQldxH5l3aPL9Wf5PEWk4fnHTh6IOKDFVYfTgnLYLtn2udUtBf
-   69054C6+XR+b4zTGvphRKN+nRez0tRi0iDe7qpo84Is1aigQmVibcRjA2
-   r7nhGozkE9ANKiDoLQ3gk0hZ4k2Cj7Vf59FwJrpjdEfXRW4w/7RZ57RsT
-   UD8uBbDGclZNBPtpMhUDVo25ZsUJ/FXIouMDvwpgwsxbcVbSwaARiuhWN
-   A==;
-X-CSE-ConnectionGUID: 0P9F8hCBQ1uE+wOo/Xzz4w==
-X-CSE-MsgGUID: qFUjqyHSRAylNAg2/nfW4w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3801502"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3801502"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:01:27 -0800
-X-CSE-ConnectionGUID: xwq9djGQQ0eEr8/I5TAf/A==
-X-CSE-MsgGUID: 29ixMr13QsaI0tkNP0/iWg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10718521"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 23:01:24 -0800
-Date: Thu, 19 Nov 2026 09:01:22 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: ti_am335x_adc: Fix potential use-after-free on
- DMA unbind
-Message-ID: <av6ewi7KaAHG3aQv@ashevche-desk.local>
-References: <20261118-324f82bd41-iio-adc-0@mail.sdu.edu.cn>
+	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=YBmgBfyO
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3acb11973c3so1668328a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 23:01:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1795071687; x=1795676487; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PqykPPsR7vG8RbNReH5m+C9K46mE2LkFenHsUlsFdp0=;
+        b=YBmgBfyOjqXoVMkfsmSdgPgEbZzY/nsu1UPcgSHwFef3FtMLNDU9R/blryNFWek7no
+         AdibTYYCN24EDLJnPzPsP/kUExAzP5oYdvNl6Ubm7GEGTjO1bU97xGZHEcJ9VWZJZxUt
+         XPhwNpkwK1qKlt2DmjR1s/X3dUxdmhwtDPXWsImmN8z12ndz3iQzdCIR3CfHNh0UbHpC
+         JXgcB+XE26kwkihBmjYPNEOXSeHsQxFi41tzLppZ8whEMIzFbfglwJb4LVg13xtCVsvq
+         7o4xQo+EvO3Wr6+3QXnL5+sRK2PXxdzskuTQYo1dPow7v9BS1tFRNj9M8PLSfidZiXjc
+         mEKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795071687; x=1795676487;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PqykPPsR7vG8RbNReH5m+C9K46mE2LkFenHsUlsFdp0=;
+        b=N2YOU9syYCs6ISlS08Taw8K5hmNXODtagiyRMp+iKizcifhHEz4JYck5284XtaoNcL
+         ZtJBbIWTlokTOhVwTTyveZvOYsgYHy8/ctGj/B2rbnJ7486JXn1PL2puef0Hb+Zu+O9O
+         4LISPKnPezpAzwQ65Ib9YNaTKakYjIrN5bUnjAZ33jjSJVIXhBDEOd+/S8J5tY0wGjeV
+         L+qTbC8RnjVLCa0imw9crv8cOaGczsYWQpHyUJQdwysq0guqTzgDZwVuSujoEhxvIqtQ
+         7a22uaasrbjWO/6mkhFqkaVZmaZ4qUSlBG2jwL9atDVsAou5oxYj66axZjkdraWGXceQ
+         34eQ==
+X-Forwarded-Encrypted: i=1; AL+hErGV2X+I4QhoXOGGGtHTGPDj+sZ5g7XTIPwmn8SCGiVa2kwMygSwcdEL5iokUBWKz6Sow/RuHcwj48fbGio=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+2kLhVe8NoFoIPkCqb7ZtaqVMlV7WynfUJRDgkwbTkxC+CJXZ
+	fEA0eqoHkdb5YZ/eb6Q2y6kPQIclBAf0nJRP6XWx69VxghL1qiUatiSdi9PEfEA3yvc=
+X-Gm-Gg: AZFdTZe/v0cNmkJVfNy81pA91wf+zIofa/2Rc9oOCYsazDiCfH56kmrdlTOoUxGFS1Y
+	xtveQo13OH9Dubpxsx54FyX1CO7c84KJ2cPbnZWsxJZNbg4QYoBCmNzTxqRq4NPuDEYA7ZGISRR
+	ioSoRF2UBOcowvJdY2iNWPjvhOrRNqQ0AnP+aX/qO5E+07RgXaeHKE6RkTxaveugJELh1lhdGpK
+	jWhWaTaBi370MXGkpSaLlhivloDxU7QNYypj4kU2sQdRHt77YYhIlS7dzsrpeJ2i5pUD06yrO4c
+	CEyufTCkc57E1oKV9M+vOPx4DJ+jJP8Ki3jAUVpdhGutg2cEo9AuqlfMc0EQypYPZc8CW3Q22TW
+	pM675q9g0uHHpTZ8hsM+OrJK/rXZpzKK7NMjgifsJXO90ItJgVK8i5AMVgZcQEJ3FF49G2aFmdv
+	8gPDNkEFw+9A2RyOhon0QQ0sghenIzB1utrqcCmxL/ZNSXSKWbxUUtMBz0dpJsHOxbawpyo1iIP
+	tM0hKMpusxz24t26qR1gJaVXgNwkfORHD8fJ/HRySQ4LeLPcthHZvXtzmpDoNcaABAPrQSsVDUP
+	gfB/5IrFo7fok0iz85gh1CR8LNVshwlHifgkVnUQ1WMsiqxXE1OnUw+sAEc=
+X-Received: by 2002:a17:90b:2ec8:b0:3ab:c80:9370 with SMTP id 98e67ed59e1d1-3b3d0759d8fmr4252956a91.20.1795071686861;
+        Wed, 18 Nov 2026 23:01:26 -0800 (PST)
+Received: from G6L4RL2QG9 ([2408:8440:c38:5ca5:3175:932a:757b:716a])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402e75223sm597488a91.4.2026.11.18.23.01.05
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 23:01:26 -0800 (PST)
+From: Muchun Song <songmuchun@bytedance.com>
+To: Alexander Potapenko <glider@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>
+Cc: Marco Elver <elver@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Chris Down <chris@chrisdown.name>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Joerg Roedel <joerg.roedel@amd.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Pranjal Shrivastava <praan@google.com>,
+	Ketan <ketan.kishore@oss.qualcomm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sashiko <sashiko-bot@kernel.org>,
+	kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	Muchun Song <songmuchun@bytedance.com>
+Subject: [PATCH v3 6/7] mm/page_ext: inline unchecked page extension lookup
+Date: Thu, 19 Nov 2026 14:58:11 +0800
+Message-ID: <20261119065812.89959-7-songmuchun@bytedance.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261119065812.89959-1-songmuchun@bytedance.com>
+References: <20261119065812.89959-1-songmuchun@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,35 +125,208 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118-324f82bd41-iio-adc-0@mail.sdu.edu.cn>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 10:27:02PM +0800, Guangshuo Li wrote:
-> A channel reference does not keep the DMA provider bound. If the EDMA
-> provider is unbound first, ADC removal accesses the freed channel when
-> freeing its DMA buffer and releasing the channel.
-> 
-> Link the ADC platform device to the provider so the ADC is removed first,
-> including when firmware device links are disabled. The driver core drops
-> the link on probe failure or ADC removal.
-> 
-> This issue was found by our static analysis tool under development.
+The KMSAN runtime needs an unchecked page extension lookup that can be
+inlined into its uninstrumented compilation unit while page_ext.c remains
+instrumented.
 
-...
+Provide an inline lookup for this use case while keeping the existing RCU
+checks for other callers.
 
-> +	if (!device_link_add(&pdev->dev, dma->chan->device->dev,
+Signed-off-by: Muchun Song <songmuchun@bytedance.com>
+Reviewed-by: Chris Down <chris@chrisdown.name>
+Tested-by: Chris Down <chris@chrisdown.name>
+---
+v3:
+- Collect Reviewed-by and Tested-by from Chris Down
 
-Now we need to use helpers to access DMA devices. For backport you will need
-another patch. See dmaengine_get_provider_device().
+v2:
+- Add a preparatory patch that inlines the unchecked lookup (suggested
+  by Chris Down)
+- Use a PFN interface to avoid architecture header-order dependencies
+---
+ include/linux/page_ext.h | 46 ++++++++++++++++++++++++++++++
+ mm/page_ext.c            | 60 +++-------------------------------------
+ 2 files changed, 50 insertions(+), 56 deletions(-)
 
-> +			     DL_FLAG_AUTOREMOVE_CONSUMER))
-> +		goto err;
-
+diff --git a/include/linux/page_ext.h b/include/linux/page_ext.h
+index d00320106a58..166f8be11564 100644
+--- a/include/linux/page_ext.h
++++ b/include/linux/page_ext.h
+@@ -64,7 +64,14 @@ static inline bool early_page_ext_enabled(void)
+ void page_ext_alloc(void);
+ void page_ext_init(void);
+ 
++static __always_inline struct page_ext *page_ext_entry(void *base, unsigned long index)
++{
++	return base + page_ext_size * index;
++}
++
+ #ifdef CONFIG_SPARSEMEM
++#define PAGE_EXT_INVALID	0x1
++
+ static inline bool page_ext_iter_next_fast_possible(unsigned long next_pfn)
+ {
+ 	/*
+@@ -73,11 +80,50 @@ static inline bool page_ext_iter_next_fast_possible(unsigned long next_pfn)
+ 	 */
+ 	return next_pfn % PAGES_PER_SECTION;
+ }
++
++static __always_inline bool page_ext_invalid(struct page_ext *page_ext)
++{
++	return !page_ext || (((unsigned long)page_ext & PAGE_EXT_INVALID) == PAGE_EXT_INVALID);
++}
++
++static __always_inline struct page_ext *__page_ext_lookup(unsigned long pfn)
++{
++	struct mem_section *section = __pfn_to_section(pfn);
++	struct page_ext *page_ext = READ_ONCE(section->page_ext);
++
++	/*
++	 * The sanity checks the page allocator does upon freeing a page can
++	 * reach here before the page_ext arrays are allocated when feeding a
++	 * range of pages to the allocator for the first time during bootup or
++	 * memory hotplug.
++	 */
++	if (page_ext_invalid(page_ext))
++		return NULL;
++	return page_ext_entry(page_ext, pfn);
++}
+ #else
+ static inline bool page_ext_iter_next_fast_possible(unsigned long next_pfn)
+ {
+ 	return true;
+ }
++
++static __always_inline struct page_ext *__page_ext_lookup(unsigned long pfn)
++{
++	int nid = pfn_to_nid(pfn);
++	struct page_ext *base = NODE_DATA(nid)->node_page_ext;
++	unsigned long index;
++
++	/*
++	 * The sanity checks the page allocator does upon freeing a page can
++	 * reach here before the page_ext arrays are allocated when feeding a
++	 * range of pages to the allocator for the first time during bootup or
++	 * memory hotplug.
++	 */
++	if (unlikely(!base))
++		return NULL;
++	index = pfn - round_down(node_start_pfn(nid), MAX_ORDER_NR_PAGES);
++	return page_ext_entry(base, index);
++}
+ #endif
+ 
+ extern struct page_ext *page_ext_get(const struct page *page);
+diff --git a/mm/page_ext.c b/mm/page_ext.c
+index cfd20ed72884..63af3d62ed74 100644
+--- a/mm/page_ext.c
++++ b/mm/page_ext.c
+@@ -63,10 +63,6 @@
+  * can utilize this callback to initialize the state of it correctly.
+  */
+ 
+-#ifdef CONFIG_SPARSEMEM
+-#define PAGE_EXT_INVALID       (0x1)
+-#endif
+-
+ #if defined(CONFIG_PAGE_IDLE_FLAG) && !defined(CONFIG_64BIT)
+ static bool need_page_idle(void)
+ {
+@@ -180,33 +176,7 @@ static void __init invoke_init_callbacks(void)
+ 	}
+ }
+ 
+-static inline struct page_ext *get_entry(void *base, unsigned long index)
+-{
+-	return base + page_ext_size * index;
+-}
+-
+ #ifndef CONFIG_SPARSEMEM
+-static struct page_ext *lookup_page_ext(const struct page *page)
+-{
+-	unsigned long pfn = page_to_pfn(page);
+-	unsigned long index;
+-	struct page_ext *base;
+-
+-	WARN_ON_ONCE(!rcu_read_lock_held());
+-	base = NODE_DATA(page_to_nid(page))->node_page_ext;
+-	/*
+-	 * The sanity checks the page allocator does upon freeing a
+-	 * page can reach here before the page_ext arrays are
+-	 * allocated when feeding a range of pages to the allocator
+-	 * for the first time during bootup or memory hotplug.
+-	 */
+-	if (unlikely(!base))
+-		return NULL;
+-	index = pfn - round_down(node_start_pfn(page_to_nid(page)),
+-					MAX_ORDER_NR_PAGES);
+-	return get_entry(base, index);
+-}
+-
+ static int __init alloc_node_page_ext(int nid)
+ {
+ 	struct page_ext *base;
+@@ -252,29 +222,6 @@ static int __init __page_ext_alloc(void)
+ }
+ 
+ #else /* CONFIG_SPARSEMEM */
+-static bool page_ext_invalid(struct page_ext *page_ext)
+-{
+-	return !page_ext || (((unsigned long)page_ext & PAGE_EXT_INVALID) == PAGE_EXT_INVALID);
+-}
+-
+-static struct page_ext *lookup_page_ext(const struct page *page)
+-{
+-	unsigned long pfn = page_to_pfn(page);
+-	struct mem_section *section = __pfn_to_section(pfn);
+-	struct page_ext *page_ext = READ_ONCE(section->page_ext);
+-
+-	WARN_ON_ONCE(!rcu_read_lock_held());
+-	/*
+-	 * The sanity checks the page allocator does upon freeing a
+-	 * page can reach here before the page_ext arrays are
+-	 * allocated when feeding a range of pages to the allocator
+-	 * for the first time during bootup or memory hotplug.
+-	 */
+-	if (page_ext_invalid(page_ext))
+-		return NULL;
+-	return get_entry(page_ext, pfn);
+-}
+-
+ static __ref void *alloc_page_ext(size_t size, int nid)
+ {
+ 	void *addr;
+@@ -365,7 +312,7 @@ static void __free_page_ext(unsigned long pfn)
+ 		base = (void *)base - PAGE_EXT_INVALID;
+ 	WRITE_ONCE(ms->page_ext, NULL);
+ 
+-	base = get_entry(base, pfn);
++	base = page_ext_entry(base, pfn);
+ 	free_page_ext(base);
+ }
+ 
+@@ -508,7 +455,8 @@ void __init page_ext_init(void)
+  */
+ struct page_ext *page_ext_lookup(unsigned long pfn)
+ {
+-	return lookup_page_ext(pfn_to_page(pfn));
++	WARN_ON_ONCE(!rcu_read_lock_held());
++	return __page_ext_lookup(pfn);
+ }
+ 
+ /**
+@@ -527,7 +475,7 @@ struct page_ext *page_ext_get(const struct page *page)
+ 	struct page_ext *page_ext;
+ 
+ 	rcu_read_lock();
+-	page_ext = lookup_page_ext(page);
++	page_ext = page_ext_lookup(page_to_pfn(page));
+ 	if (!page_ext) {
+ 		rcu_read_unlock();
+ 		return NULL;
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.54.0
 
