@@ -1,68 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107023;
-	b=4/ZlRtpaft7BD43MkEyrU8FaGgOGmknFCYOKD0yJjL3I8UmYSQffxD4POK0DSWp3XSx4
-	 QVgtX8T9WiX5T5n7bvgPfqNQKGUcDWcyherpeelMhlPeY1KBOvSqrJnDeYMOUDCCLt1zS
-	 koW5wBwmIuW3qHXc6e6uD5Bk4JLjV58vC70nEzvdrxNva72DG0aC4EWmnmJ8Mb+QfOPGQ
-	 H9/9jR4B481PqEjTRc66Q+KwCRX7q5H4yyR5BaYGBHFWAPHs1WrNBK8UMRnGZp6QRXPb7
-	 khkUm1yZPyRPw3804JprOKD5isjHqGE/C63QUrDhWm9vK62W5HdmuSRAv+PSwCvbXjQ==
+	t=1795107050;
+	b=Vzbug7j0iuekUAF859oQrnaGGERgBAnyIrPys74vFtoVUQJgsZiMUDr6mzKxMP1Eceoz
+	 FBrEQ24uJ8bt/rJd3aRkORxlW8Sd9It3tTTEuRHvsyBVUJF1RxRL87nuPntAheaWXVHGN
+	 +9LIh3staYCJMXu8Ajw/JNcxMzsj3gv9dIQuUwMQ/DroiuSzSEEf0Gv0bWTZeFdfvj6eG
+	 Yg8yDJqfcyak4F4WtgLYdhry3VgwOMmVc/z94iDFcFs7Y3Oliq4ylvldSGsdM0W9mka+U
+	 tFWwzvCNJ64umOh80/7xc0ogt4o7i/kO5mgOx6P0I0T/1vmKCqv9ceTPWws41YUmxHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107023;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=hUa6qtyR+bKsAjDIc2Frk2r+gPhHATaP3VnRqdLJXZc=;
-	b=CKvYpFkpds9M6sMmEXgK3Hc72bBm3EpAPRdbM1XBFw/wwQAcd0koDwU8GXwbUlRtI9kJ
-	 QxehI+2w5gDw9OYcYnR7D/rrpjvVEM/2JUDBCA/MCPx5/e2AmFYSELJScBF5Vnj8Bwaxu
-	 pDJX3p7n9WRhH1bVoY1G4LJyvhXjFRM9n3vlNyR9fLwrERBbFgakpP7vgb/ciOWrQPzNH
-	 Nqtc7r6qoxJ22oHGgNrjRNtVP/6XatHFpSESRs1caHIHtLG/3a0u0zPy+BZm4pQc4Np1I
-	 4Nsq2pSbuYUY5il8Sr1xuKcvP6hfUh9BovnYEb+E2e7lIsrd0daoYBrn+CQ1pMCk1yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107050;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=EcqBrWCUUrYZP/IHf4d+yvGiA1J1fd7GT5UeV1WbZIQ=;
+	b=5paCS4J0BJlJ+iCuDBsu+Wq80+IyEL2yVFcKvUGhoFXAeF2mo8xanfvSRSUsE4/LnYIX
+	 e6O+4qQeIr7BKOK3MN33yN1HE+kLjeQHxYetTNXKpf37fNcOEob4ZomBxqbNbWhCc5Gwm
+	 meGwij7ZMn2T3WuM7uc0p/+3eI8e3dwk9EXTyzYPigHbdzAjSuOElYFNnM7bj/sb/f87h
+	 9tcT7hpL16vdyVvGmwtkYnJKjSYTe3kgXKDVbPx/JDZ8X5w97w18mmFDtu0No/1DAOSi/
+	 Uacs1QciKWKEKDdpbdNu1g10YeEgNbnaPrqzc4xK58HsdfpiZYXh7jK6UYd9/ONkYIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="iVHon8/h";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XUoRKMYI;
+	arc=none smtp.remote-ip=198.175.65.16
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46C6060A2601;
-	Thu, 19 Nov 2026 16:50:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3A0F606A325;
+	Thu, 19 Nov 2026 16:50:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3A0F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iVHon8/h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EEF31F000C5;
-	Thu, 19 Nov 2026 16:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795107023;
-	bh=hUa6qtyR+bKsAjDIc2Frk2r+gPhHATaP3VnRqdLJXZc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iVHon8/hQ0lCib8xtzWqtEYQnvShVsVRaKPJyMC9Zr4szBXFQjfBUp9xP5GPRKHpc
-	 lyCd4M7E36MoVUsr8CdhJhxF5tFWNwrbmb2MuRbvVSvlt5GZJ3NMI4PAQROQgp3FbH
-	 sktGMeK84iyJujHGF5T1+z8ToYq21E4T4XBPTyooDO05KegTTTwTZbFnf0ANu2zWf2
-	 250FOM4RzwP3e7C9kflNE3XKIicGLM2FpDzX7VOgtmqbfa0Jno6RmOwEXrXUMkqx3w
-	 Yb+V52OQGzyQTXA8cHiYAwA7YaWBY1GjRgSiC9HWTrT6XDkHyHCcxramFJR5g74bAA
-	 AJ4YfEaHkLNPQ==
-Date: Thu, 19 Nov 2026 16:50:16 +0000
-From: Simon Horman <horms@kernel.org>
-To: Haiyang Zhang <haiyangz@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Wei Hu <weh@microsoft.com>,
-	Konstantin Taranov <kotaranov@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Erni Sri Satya Vennela <ernis@linux.microsoft.com>,
-	Aditya Garg <gargaditya@linux.microsoft.com>,
-	Dipayaan Roy <dipayanroy@linux.microsoft.com>,
-	Manish Awasthi <mawasthi@linux.microsoft.com>,
-	Breno Leitao <leitao@debian.org>, linux-kernel@vger.kernel.org,
-	linux-rdma@vger.kernel.org, paulros@microsoft.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and
- minimum interrupt moderation
-Message-ID: <20261119165016.GA860048@horms.kernel.org>
-References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XUoRKMYI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795107049; x=1826643049;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=Qwhi2oNFohJLaevwkDwP2jMX0JhsiJJ9IwcLPxRLG/w=;
+  b=XUoRKMYIBzxQQ1YjOwZgWXtQp2F+kppKZ3ECFqiT7W0iqBGMiKgqj4vU
+   On7X00vvN2wunPp+xKxBIPW5p4qa/PUAG9c1MMfnyUBaK0qlL+jPKHutn
+   axP8IbHF1lzwZqFw0g18zZ6/o7RgFzq3jBrDfE92PmiWcE49cF9jJcqap
+   X/pQlDRg/NH34bH3TPaqF+y5V6dqi/2XM4+ALY6dRVIbLDrNDfDtUVOeB
+   h1+8YKOEkVSYjUrvyRpU/FZGXNvDdavyrFLgIh/v0loy5GfnTt4gm90zm
+   61kiqJeeHMN8P4efpkcwbX9pr31s1bKJwQFYEMAhFTwuOj9tX30lLMplw
+   g==;
+X-CSE-ConnectionGUID: 0kWRSpa/R0GrTgMlSXN6zQ==
+X-CSE-MsgGUID: mwHPTEkYSkyc/AyzAwPDbg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3955326"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3955326"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 08:50:49 -0800
+X-CSE-ConnectionGUID: HjcHMjJRST+Ah5eSi1wmtQ==
+X-CSE-MsgGUID: sk1hx9wjQ4SWQ1+5/B9VyQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10364330"
+Received: from smithj1-mobl2.amr.corp.intel.com (HELO [10.125.109.70]) ([10.125.109.70])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 08:50:48 -0800
+Message-ID: <99a13c8a-538e-490e-bbf3-4dec31afb340@intel.com>
+Date: Thu, 19 Nov 2026 09:50:46 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,62 +72,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: Skip the CXL state update for a VF
+To: Joshua Machauer <machaujo@amazon.de>, Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-pci@vger.kernel.org, linux-cxl@vger.kernel.org,
+ linux-kernel@vger.kernel.org, nh-open-source@amazon.com
+References: <20261119164219.51540-1-machaujo@amazon.de>
+From: Dave Jiang <dave.jiang@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261119164219.51540-1-machaujo@amazon.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 13, 2026 at 12:44:04PM -0800, Haiyang Zhang wrote:
-> From: Haiyang Zhang <haiyangz@microsoft.com>
+
+
+On 11/19/26 9:42 AM, Joshua Machauer wrote:
+> set_pcie_cxl() runs for every device that is added. It first updates
+> the CXL state of the upstream bridge, which walks that bridge's
+> extended capabilities and recurses up to the root port. It then walks
+> the device's own extended capabilities for the Flex Bus Port DVSEC.
 > 
-> The existing code sets interrupt moderation defaults to 0 usec and 0
-> completions, which may cause CQ starvation of our NIC HW, and TX time
-> out error like:
-> mana 7870:00:00.0 ens1: NETDEV WATCHDOG: CPU: 14: transmit queue 4 timed out 63434 ms
+> For a VF neither walk can change anything. A CXL device exposes its
+> Flex Bus Port DVSEC through Function 0 (CXL 4.0, section 8.1.8), so
+> the search in a VF finds nothing and the VF's is_cxl stays false.
+> pci_upstream_bridge() resolves a VF through its PF, so the bridge is
+> the one that was already updated when the PF was added.
 > 
-> To fix, change the default and minimal rx/tx usecs and frames to 1.
-> When the HW supports interrupt moderation, reject ethtool rx/tx usecs
-> and frames below 1.
-> Also clamp the values written by mana_gd_ring_dim() to [1, max], so
-> no caller, including the DIM work, programs a zero value.
-> On the HW without interrupt moderation support, do not request CQ
-> moderation, the usecs and frames stay at 0, and cannot be modified by
-> ethtool.
-> The PF capability is queried again when the device resumes from a
-> reset or suspend, so re-initialize these settings before re-attaching
-> the vPorts.
+> Enabling SR-IOV adds the VFs one after another, and each add repeats
+> both walks against the same bridges.
 > 
-> Advertise this change to the PF with the new driver capability flag
-> GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE.
+> On an NVIDIA Vera system, enabling 256 VFs on a PF whose upstream
+> bridge has 18 extended capabilities takes 296 ms instead of 402 ms.
+> Enabling 32 VFs on a Rubin GPU takes 218 ms instead of 235 ms. The
+> times are for the write to sriov_numvfs, with the PF bound to
+> pci-pf-stub and VF driver autoprobe disabled, so no VF driver probes.
 > 
-> Cc: stable@vger.kernel.org
-> Fixes: 433f482add31 ("net: mana: Add Interrupt Moderation support")
-> Signed-off-by: Haiyang Zhang <haiyangz@microsoft.com>
+> Return early for a VF. Every device keeps the is_cxl value it gets
+> today.
+> 
+> Signed-off-by: Joshua Machauer <machaujo@amazon.de>
+
+commit log a bit wordy, otherwise LGTM
+
+Reviewed-by: Dave Jiang <dave.jiang@intel.com>
+
 > ---
->  .../net/ethernet/microsoft/mana/gdma_main.c   |  5 ++
->  drivers/net/ethernet/microsoft/mana/mana_en.c | 76 +++++++++++++------
->  .../ethernet/microsoft/mana/mana_ethtool.c    | 26 +++++--
->  include/net/mana/gdma.h                       |  6 +-
->  include/net/mana/mana.h                       |  9 ++-
->  5 files changed, 88 insertions(+), 34 deletions(-)
+>  drivers/pci/probe.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
 > 
-> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
-> index ab942d5bfe05..10be69e97ceb 100644
-> --- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
-> +++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
-> @@ -646,6 +646,11 @@ void mana_gd_ring_dim(struct gdma_queue *cq, u32 mod_usec, bool mod_usec_vld,
->  	struct gdma_context *gc = cq->gdma_dev->gdma_context;
->  	u32 dim_val;
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 9a178e0e5f7f..34acebd1c706 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -1717,6 +1717,14 @@ static void set_pcie_cxl(struct pci_dev *dev)
+>  	if (!pci_is_pcie(dev))
+>  		return;
 >  
-> +	mod_usec = clamp_t(u32, mod_usec, MANA_INTR_MODR_USEC_MIN,
-> +			   MANA_INTR_MODR_USEC_MAX);
-> +	mod_comps = clamp_t(u32, mod_comps, MANA_INTR_MODR_COMP_MIN,
-> +			    MANA_INTR_MODR_COMP_MAX);
+> +	/*
+> +	 * A CXL device exposes its Flex Bus Port DVSEC through Function 0,
+> +	 * so a VF has none. Its upstream bridge is the PF's, which was
+> +	 * updated when the PF was added.
+> +	 */
+> +	if (dev->is_virtfn)
+> +		return;
+> +
+>  	/*
+>  	 * Update parent's CXL state because alternate protocol training
+>  	 * may have changed
 
-mod_comps is u32 and MANA_* are positive constants.
-I believe that clamp() is sufficient here. And if so it's preferred.
-
-That notwithstanding, this looks good to me.
-
-Reviewed-by: Simon Horman <horms@kernel.org>
-
-...
