@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108016;
-	b=FTvdtM8L8FqKjG11hO1mix0LhEO8YH9KxL4ULrWcvut46Vu/RF6eVpYg6x3PXtE20R/L
-	 1gWstQN1fqhs4PfutYm+sON5oh/OWPaw1Ehai9NF+aa7Iq9CwKrt5sKYJ5/rxW0CKa1/1
-	 /wc6GUv4QwmveH+co+jf6ldfyxJIC/ptgaJ/n0cBxY4DlrPHAK6Fiuh6Akr2QSNwjyumJ
-	 AMInWPsuzW+MWG/aCrQEi/BsKnDy9SS0v6wc8aCfenxRnQgg3vQ4olONNmGcBkG09jwRU
-	 s9q7KWHZjVOSiZeSSDmPshvQ93BmSDb6ihwTDqRnHSNWr98qY+RdUnMdL9wwdEdmaxw==
+	t=1795108029;
+	b=zc/BFednIaGRd39vNSp4IfGlP5/m/+02nbJlasg8cGbbdjy+PMm/zRpNxNRfXnVdTNSJ
+	 zOFYMlMBktp9OCo8bcaCDMeUlH1l8IQI4sFU5N35PqN7tLvrrtz0Xt/OcbM2IZ7gM1LT5
+	 y/UqT7G26xUKCoXGGCv2+LqxWIFCv3lZpgVjuJH9ihxTOmZqUBP6nw6+4ZfYCHIkqIENK
+	 hR6KC4rPZCfyFaHs1APxIVgdbAUtpOQ0NT6Lm6bluGwmfDuGZA4Raueg3soqjKLhfxt0b
+	 avgCCN8xANrF8XOEb8Hv7E9kDUe8chlRJfPDM0z4SmJaOwST0+++ajo7d68s6cr1hVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108016;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108029;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=JwgV9xoUyXWrjKIsV+2wKgTefwKYGfGE578l9JoVIOU=;
-	b=rRQvkWf1aX+oxGVSwHVn7Wp5rbt7v5a2h4d51CG3DE3SAehmxaJmcj/6QIzbpIj4VBXW
-	 21vnnXk2C7MMEBdhenJwVaurLHjMvd0X1AYglhWATVQM7JsFSILBJbfUMUdUCnP64BuB/
-	 TVG2ydzC+st+7GeY23YXyrfZTBapXqACLp9Jqw2iACfcCOr+fhfexILJ4h+jBE5OatSQq
-	 HYQT/2kGGQEN2zxANNjbQmWBtNkySNgdLAI9gqTJGAILPI+3aVxFRZ/BcHB4k0folgMjy
-	 Dwir5P5Ms7/liNXd+CZNr6QgZL4FPriTzDSqCe1YDDkMq5Z153hMxeleCV1c+Cc+U9A==
+	bh=4HXYvdAAUg6PhdIi6P7o7bJNHIqooKYEpFbbw0vh7ik=;
+	b=3YZgQCvQaBDiZh9HqI2rU7SkHRJcS+wI0TSmuG4crFxzbIe2HKnsb4UkHJkPqW0yDtxp
+	 aeoL76IEPSKGDNGEkJiCQHX6du87VxpjjjCRNkGImFwwrz4Gt4Ih9aVFoaKoa4C4oCK3M
+	 9Zy3sK1gFQrA89cSW91kcPxkrLyJTAU88nfC06WZQTTbvoV1R29onQSjjnfjBKLvhRhF8
+	 2kyhbpOnxh/0PYiInJeJ6HYq2JGul33zC7Jg7cMQbMHNdF99G2JW2wECbN2aFez2lTi1k
+	 l4bY1X3OhEn7mdduz6TRHYBU4Po24RIoaiWxHRBFNRxU8Q5glg1Kc9Qfrk543/wtPUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=D69kqJaO;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JjuUmT6f;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B65FA606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:06:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B65FA606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE2DF606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE2DF606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=D69kqJaO
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-547ae874949so33112b6e.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:06:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JjuUmT6f
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-383f2d05c73so3881105eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:07:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108015; x=1795712815; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795108028; x=1795712828; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JwgV9xoUyXWrjKIsV+2wKgTefwKYGfGE578l9JoVIOU=;
-        b=D69kqJaOFj/xMnmgzAbYtexvFpnd7Xv3eslGt0CiaVa9tWqs8Z6KOwSCi1VVdu39lE
-         Tpo+a2CAi0VkQYErv7WRHUxM6sT6QuXSr6qWUmvjU2758V6juvta/fMmrPU1b0e3pBgx
-         xqOHL5ib4IvFgc0Ufcv7v8KNvav+4gWIDQQerhBIykGRZc4wu3lfkoAsHXEszw2cahLP
-         +9OCNzkMygaGy1CWPEecy/Z7RBecKvFvJsfSVTMDP1LlTv8pNtZNhw0tuKycnedoHSdm
-         QyiMxI1bMTy2l2JUkCKiOvcuTjYpDbSCf2nJwF4McQq6XJx5l/3fur5B0kzBPh3O5z5S
-         Qo/Q==
+        bh=4HXYvdAAUg6PhdIi6P7o7bJNHIqooKYEpFbbw0vh7ik=;
+        b=JjuUmT6f/6YszfY3t58hJLrfJa6N6ruwe8ElujwPHABWw6RKfAUPAg3HC06nYYJ7tp
+         3Kl4w2mbZhdLWlUOK/TOhkmA3upwiSjENJ/5WTDORvl77H8mNjy1xSqTQf6iS919p5a5
+         aAfH+wzN87QFaMxoA8NIthDdt6VA5XZdaBRhkoOSRPRde560h+KdnQOo7cTZm5LZ9Clj
+         bU19ikQNV4MxNBi7snubGCIe0KBfEWQJEFyJpDwYIyQsnk9aCGxuNhwayKqk32wMQTdT
+         xr7dGCR5jyVa8E3TqFmNyDFTpm5ZYBX59qiwTVVSF5BuvgeqTnlgs3xUH0dVGjtXsZ82
+         Kuuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108015; x=1795712815;
+        d=1e100.net; s=20260707; t=1795108028; x=1795712828;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JwgV9xoUyXWrjKIsV+2wKgTefwKYGfGE578l9JoVIOU=;
-        b=n6BV1CEw8tjLDsWqVqG2M8SkDxbsnQLAxTAXAYNSdZq/xeozBLDblY2YWd+uGQ4jwn
-         hlglc8Ygpl8fYiP0PW23G35hFs0bNPPE4TtnegrxpdQXATMk05E78M/EMyyHx1c+EJzW
-         AwMkrlKFoxQ6YFXdTNpnk3uMhAHlI/one5tnblhxCC7MbYwISOiQFxdVYxjF4KatySRO
-         9qFO5FH/Ai7ZyAeAEyZOqHE0EqPKs68RY1nCILJTzAHq9A4VSSS/YythGfH/89aXlfRq
-         ErRHfwCB7816kbrgwlw2/bS/5v/GO41UuzzQqzEPQ8XWamYcSTDe8QI+WV3HN+k29Lb2
-         xmhg==
-X-Forwarded-Encrypted: i=1; AL+hErHfJrh1Z6ufY7uXcVLN1513tWzzlmzB9RXVK2A0Dm5iaTrOwRo6xBpOxpqHVa+w9pcR1y4qLewOBfkhhHI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+3SNg9tC85uA9c0Q1/UDJkFxZzep30Fqr+cAuHQjypKNHQN+p
-	8C9Xf/ocM3HpIZZkIglmGP52t8tIiisBzndkJvsfu5DbMJJn9H9q/CZjqjmnrSD4y6KMrGrUBcl
-	eAdqe6862pQ==
-X-Received: from oackg12.prod.google.com ([2002:a05:6871:bc0c:b0:4a8:57aa:3e44])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:1394:b0:510:7dc8:5ff7
- with SMTP id 5614622812f47-57a0a40536cmr542360b6e.19.1795108014416; Thu, 19
- Nov 2026 09:06:54 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:06:49 -0800
+        bh=4HXYvdAAUg6PhdIi6P7o7bJNHIqooKYEpFbbw0vh7ik=;
+        b=x+qNiwUEVjXleHj6ELokc6OAx4PVVafnWy4Tl7vw6G8piq/Ot8viBUmKVgi3vhhNU4
+         NhOLRbnUVn1PXdaFnPhwNJYxgcsc03HYmbFMtJsBrnJAIYD6nrebeNNuyv5/0x374GDU
+         YawLooE1mSE9VAF+1pb4xu2bj2ZvAvhoDG3S5IysbAcvJq8cruyKHX9C9NeFsCgTYHsZ
+         P78wGtUohwKYvtYEerVLHVbe484xA1OGGGiP3ED2XxRzsbRH70YyjAI7zwYpgUWxwHA6
+         crun5g3HxLYc7yxQvwcpIJwKDoyNKw+ehTcZh0RPoWxbPw0faaN030AbKBWH756dR5KW
+         PFYQ==
+X-Forwarded-Encrypted: i=1; AL+hErESucg4QRHQsGDhZz6YbIecyiX7/rFGl/iJo1ZELoSM7Ae+UWGYJGkx8dxJHVEeKYlqib/FwHgJeDf/dec=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9BpPiOSFyfvdW0An4pdqbLuzxCOOKxaezAlVLNqchShdR3yeSi
+	kFjg5kUsm3APnQRyTazs7bf2zXqgqypS6Z5RlpK0tXT4boP/1rS0oUNWSu6188nAMaSVb1IWA+J
+	zxB4lWp5Nqg==
+X-Received: from dycc23.prod.google.com ([2002:a05:693c:60d7:b0:383:9f52:e550])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:894c:20b0:381:2f5d:a696
+ with SMTP id 5a478bee46e88-382815231femr6073879eec.34.1795108027821; Thu, 19
+ Nov 2026 09:07:07 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:07:03 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,105 +77,35 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170650.1521609-1-irogers@google.com>
-Subject: [PATCH] usb: typec: hd3ss3220: Propagate regmap_read() errors from
- attached-state check
+Message-ID: <cover.1795106955.git.irogers@google.com>
+Subject: [PATCH 0/2] drm/amdgpu: Initialize r in VM and TTM buffer helpers
 From: Ian Rogers <irogers@google.com>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
+To: Alex Deucher <alexander.deucher@amd.com>, 
+	"=?UTF-8?q?Christian=20K=C3=B6nig?=" <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>
+Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-hd3ss3220_get_attached_state() has return type 'enum usb_role' (an
-unsigned enum) yet returns negative regmap_read() error codes directly.
-Neither hd3ss3220_set_role() nor output_poll_execute() checks for errors;
-on a transient I2C failure (such as -EIO, cast to 0xfffffffb),
-hd3ss3220_set_role() passes the bogus value to usb_role_switch_set_role()
-and disables VBUS power. On role-switch providers without a .get callback
-(where sw->role caches the value passed to usb_role_switch_set_role()),
-reading /sys/class/usb_role/*/role subsequently indexes usb_roles[role]
-out-of-bounds.
+Two fixes in drm/amdgpu for uninitialized return-value regressions
+found via Clang -Wconditional-uninitialized on an x86_64
+allyesconfig build:
 
-Return an int status from hd3ss3220_get_attached_state(), pass the
-resolved enum usb_role via an output pointer, and leave the current role
-and VBUS state unchanged on I2C read errors.
+1. Initialize r = 0 in amdgpu_vm_bo_update().
+2. Initialize r = 0 in amdgpu_ttm_clear_buffer().
 
-Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
--Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
-coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
--Wimplicit-int-enum-cast; not tested on TI HD3SS3220 hardware.
+Build-tested with LLVM=1 W=1 (-Werror); not runtime-tested on
+AMDGPU hardware.
 
-Fixes: 1c48c759ef4b ("usb: typec: driver for TI HD3SS3220 USB Type-C DRP port controller")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- drivers/usb/typec/hd3ss3220.c | 22 +++++++++++++---------
- 1 file changed, 13 insertions(+), 9 deletions(-)
+Ian Rogers (2):
+  drm/amdgpu: initialize r in amdgpu_vm_bo_update()
+  drm/amdgpu: initialize r in amdgpu_ttm_clear_buffer()
 
-diff --git a/drivers/usb/typec/hd3ss3220.c b/drivers/usb/typec/hd3ss3220.c
-index 60d6de9ba339..212c3624961c 100644
---- a/drivers/usb/typec/hd3ss3220.c
-+++ b/drivers/usb/typec/hd3ss3220.c
-@@ -163,10 +163,10 @@ static int hd3ss3220_set_source_pref(struct hd3ss3220 *hd3ss3220, int prefer_rol
- 				  src_pref);
- }
- 
--static enum usb_role hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220)
-+static int hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220,
-+					enum usb_role *attached_state)
- {
- 	unsigned int reg_val;
--	enum usb_role attached_state;
- 	int ret;
- 
- 	ret = regmap_read(hd3ss3220->regmap, HD3SS3220_REG_CN_STAT_CTRL,
-@@ -176,17 +176,17 @@ static enum usb_role hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220)
- 
- 	switch (reg_val & HD3SS3220_REG_CN_STAT_CTRL_ATTACHED_STATE_MASK) {
- 	case HD3SS3220_REG_CN_STAT_CTRL_AS_DFP:
--		attached_state = USB_ROLE_HOST;
-+		*attached_state = USB_ROLE_HOST;
- 		break;
- 	case HD3SS3220_REG_CN_STAT_CTRL_AS_UFP:
--		attached_state = USB_ROLE_DEVICE;
-+		*attached_state = USB_ROLE_DEVICE;
- 		break;
- 	default:
--		attached_state = USB_ROLE_NONE;
-+		*attached_state = USB_ROLE_NONE;
- 		break;
- 	}
- 
--	return attached_state;
-+	return 0;
- }
- 
- static int hd3ss3220_try_role(struct typec_port *port, int role)
-@@ -231,7 +231,10 @@ static void hd3ss3220_regulator_control(struct hd3ss3220 *hd3ss3220, bool on)
- 
- static void hd3ss3220_set_role(struct hd3ss3220 *hd3ss3220)
- {
--	enum usb_role role_state = hd3ss3220_get_attached_state(hd3ss3220);
-+	enum usb_role role_state;
-+
-+	if (hd3ss3220_get_attached_state(hd3ss3220, &role_state) < 0)
-+		return;
- 
- 	usb_role_switch_set_role(hd3ss3220->role_sw, role_state);
- 
-@@ -258,9 +261,10 @@ static void output_poll_execute(struct work_struct *work)
- 	struct hd3ss3220 *hd3ss3220 = container_of(delayed_work,
- 						   struct hd3ss3220,
- 						   output_poll_work);
--	enum usb_role role_state = hd3ss3220_get_attached_state(hd3ss3220);
-+	enum usb_role role_state;
- 
--	if (hd3ss3220->role_state != role_state)
-+	if (hd3ss3220_get_attached_state(hd3ss3220, &role_state) == 0 &&
-+	    hd3ss3220->role_state != role_state)
- 		hd3ss3220_set_role(hd3ss3220);
- 
- 	schedule_delayed_work(&hd3ss3220->output_poll_work, HZ);
+ drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 2 +-
+ drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
 -- 
 2.56.1.708.g77570a6a1d-goog
 
