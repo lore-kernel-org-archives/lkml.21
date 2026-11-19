@@ -1,94 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795057477;
-	b=Q/4Lhtw43+7xMmSjSf9Dk3fCow07kJIJU49nB9vJ3Ev02KybEBYLXddiTgG5yP5m5m0Y
-	 y6z3ONEX2skB6Ocw/nRkGO33Sq8wjNbav+iwwOJpAO1BElpcn+Enc1EuVbfSpipmJqB6D
-	 6N1WcmSocX0wpCLLY5zK0CIFF6Vl+/+wgaZwF/pTxIEQGYKmvNwGuQ+EQOhOwm4OCR8cZ
-	 5WtWAJmxW/QeSt4bXrr9FR0N2rz3yzzDUuKHOdlE+oNlgbjLShxnV2DxbdEQgzPNHD4A7
-	 uAsry7qU/0uynicsu2qjqKZ45A8ciOVPUAk2WYylReyn0uVBOgr0pPWyOLuG4zlCHoQ==
+	t=1795057489;
+	b=MDPJT3f5N22zrfb4tevuXJ9tBfhU5ZV6smkL4iaZcEeeMqx8VrUC7jmOaxZRT2syXFR5
+	 QKO01X+eY3O0LIBaBoqjQL/BClXK73UbMLBSX6AcESVrVK0m5EX4FoKzR6ujiiVAPIFfB
+	 tdGlhH3sGFVOznh5SNUeeTMOMH4T1RHwuXP5IFVjDxyK0x8T07lHjWYYFu/m6FIiGIPoC
+	 1wA2I9GpLiqL9VW6a9i4rhq7CGao5weewdiH1cwDcuZJfvmXGomOkWpjezQlQiQ7mRx5x
+	 yj4fLzt421AjF5D21OJKLVMAV6fe2hulVQ+2cyQyUQxgaCT464ojcNgZ7b/B4LrLuDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795057477;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795057489;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=yl7TcQPjdLnZ2xnzbpT4G/WkM+qZCZBYoJwHUE7nQnY=;
-	b=0Zbayo03WCEpOM98iQeEVPwYSCUBLLNnFd4tki5N38jAaBQo2XwcYEIh8BKH4Mpaxdms
-	 0a7Sg0Xzq83l9sFX6sWBD5jJnuHNPU1hh6R0eq2mPuxdruB2kxLB9m6DdiHh/BQKrdv9y
-	 hSK+oJMDzzu6OaHbfn/rJK+0oXH0wo1qs1rWo9+tTS6+dm8fm1iO5fSf2A49vJt7P/39n
-	 VklE+5fp8T1dn+dcVnnGvHEUOY0cgEM7zYwzA9ZJ9EutLN0g1ugfTDJZ6BLD/wa8C8DCw
-	 BvJqJGfzYgPrPaCwAhZGvq7H7QhWpbc76tJibVRr4U66IUxRXpwegtt2LJFr4kYX9Sw==
+	bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
+	b=wy6QMK3EZq/o6XqTMJas+pxCkJy43JqmpJ3QneCktG49AAPs/szWur+7+mcUZJ28MRus
+	 lIBqkbpLx/AXthnUTGZ0j9QTlzTUiih2rraHVexkittr/+8llK5VFXPJdpErTU5Vcbvh7
+	 Qb7Rw+42jGPAyJObgudXvUmTJhLvlQJweItnK06dr235grz7kID2W6Fw4q4Q/dZcLkII6
+	 YdXvuhBi0IF04G8hsBCGyvT1rVloLOzo1gJncZzKyiVJ5zIWWqcGi2kWMIiM/Yquqbl9i
+	 YEzeNcMFB5v/djv1fJlwMr/3qc/wzmSmpf6GOn022Ds6iqsg0z1lWD6sIY7OV/71yvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU84UzF;
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeSk1+md;
+	arc=none smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E17060A2603
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E17060A2603
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6E5A60A2619
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:04:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6E5A60A2619
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IwU84UzF
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so911917a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeSk1+md
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b2382bf051so1178638b3a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:04:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795057477; x=1795662277; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795057486; x=1795662286; darn=vger.kernel.org;
         h=content-type:mime-version:message-id:subject:cc:to:from:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yl7TcQPjdLnZ2xnzbpT4G/WkM+qZCZBYoJwHUE7nQnY=;
-        b=IwU84UzFnHYMRVPewHPNjkJdA79g+IJwGv8GDW1YzfBCBpgFsrJd3fUijAzpms/nJo
-         vsuESZk0gIPGvu/+UxE8hG7g3lUEzok9Z/Q2oLQwRXGi46Ky9OzLs09EsHXCqIrobi/r
-         6VcEjtfrAbt+Mx6Iz5ScejELNriTj+BcTEtQ0WcXP8Q36FaIQGdSdeXJwQ4TirusgPZ3
-         GoYVDjY8GQ7nHR4Pv2+pqB14+BSh5d6gwtd+YYERri2dgEFdVZtjI7hn6vJye15JY7Md
-         jjUtoMxdShIAUauJaU9BVOPRpsRrUhe1w1DtQTo9NJB8N7UjzEkbLsDCFf58V5a8Oh+8
-         k3zA==
+        bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
+        b=xeSk1+mdWi2MELx1azOPScXfSvPZh7w3doEwtywkqh9TCc5M+L4vVFP3OLQyJgXiFr
+         YN3F6ajnraSgc+tVTu4YnyRK3XUwG9YfXLaOuFYjCrdml9b/nV9/oIunwFwQgf6ZEnow
+         eqPwnhs+JlWnpI/HdPy9XRV8hlLcYemiK85hM0IKPAayW8XV134zXwC3q8XWWkWy+lEB
+         Jn6TyA8gSpPat7U07YH4yMTiDqxD44w8Y/EUhpStPGJamLxoUQKDK5e3YQGGvCWJAay1
+         AFo6H3JgsgjharJy63G3uQH39HNyOqj5Z1I1kCWcTvkjqRoBAaSyRtidXJWLh1VTEOwf
+         iMvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795057477; x=1795662277;
+        d=1e100.net; s=20260707; t=1795057486; x=1795662286;
         h=content-type:mime-version:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=yl7TcQPjdLnZ2xnzbpT4G/WkM+qZCZBYoJwHUE7nQnY=;
-        b=2TymsO7myOxtymt1VSm4IJjGPqd3z/1bhCWm9dz1PYQT5dHeIT8Kdg5V1plLP9uKs7
-         d3tDFXGTFsjNU8b2GWVmJiWniXD9b5kizmvwcfvZVzJJ7KMsSJKv04OV6JdvARzw2eRG
-         Lv4osvls/e4nV2MOkoROgXw9VhVaNaEbc5JhwAMI4JFXGVvHIzX8/6DOoxyWO/N4s/Su
-         ejgC8i7vcqzx/YShOssIsYvQk5SD6tEEFUrWy3MzhqGAo9hYOSngvHxwn9RhRghEh17B
-         g96pq6c6qV1yeVjZtnnGkPsA6oI5qJ5zR+HeM9NIo1O9i9haGOllE6QtSq0eEzpBfTrY
-         69mQ==
-X-Forwarded-Encrypted: i=1; AL+hErHMROnsbtkXYlv7GX7XqY5x/npS/yoFCqExJPrkAp2fru5ny0PR/jOUHw/2KdcH256e2GODALUZZMXSkhc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/W2vO3lIXjlEZD8nxsRwdq4Ct43E/O3mXWYiWcJccAG6w7sPiu
-	61Z8TsR0AJ6j594OpUmYbQhk3xPWNyC+iNHVgUiNGgJLq3sjZ3RDr49ibXFJcK1u5EK4Cw==
-X-Gm-Gg: AZFdTZecQN8UWIWY2MKLsbySil06l5fjK+o2eNHi56Gapcn4wIjwP4AIqqulx3s+0eT
-	l9wD3v3K95VLzFNEWupIV1rQlmhAhVU9I5ukaeJsGvEB0SU3dBDc7+aEmxPP6Xsu4J/ZLsRX0Tc
-	TCohAPmKoaO4dcxCNXzJRgDQtXeXSQ89evFhesHSMMQAxYp9ECar8pZcxLQbO0NEBUGLm+kzl+R
-	YjxCGka6YKvJPQC+H0BvIN8oN6/dnnObfbIJ1AbN9XMm2j+NUBDH88zKqaUGP53QZtjmJZYKrgN
-	Sl2aH/vaCc8z4qGJvQdo01m9yCc0suLPTGOK9I4VfUWStQZLhD7jv/mW5QJgctnz74W8bOcuV3J
-	3/grfaLqrs1bNn9QWP0Uwa7b6zVvaLkrHj1wvcnXoJdIMCPThtascuBIg53583/y/6Z7XyIhAGX
-	IX+6o1Kl3q8MYAy/Ckhi+bTCiYpDoR31vUf9SkVji8BLdSR2MyYmlt5tR1EsLa0RrOrMm0nLfls
-	IfH3n1GQVRQ36y2QR8yCotdqkPy1lTgFOY1xlgutWQN3dLch/xdGnIxv+spSGFxD+3qWf//y0rH
-	hWRgIlFD9aGfcEUU
-X-Received: by 2002:a17:90b:1b10:b0:3b1:832b:bb3d with SMTP id 98e67ed59e1d1-3b3d07c2785mr5247354a91.57.1795057476645;
-        Wed, 18 Nov 2026 19:04:36 -0800 (PST)
+        bh=ggo/5t+C+d3CxcxRRBIt6YPvlITDfQK78q6QnoqPb7U=;
+        b=f22J5HBadqPdAaSQFTHu4uEsOE9/EtEBhMl4L8fIunrwui3OOUkFcc6Ky5ILzGGli0
+         m+YvpdwTvcm8GLFFjvTLN4UlKaIR2fqrA8fVqZ5MjNdYe6U0oc13Bu+PTjEkmKBqoJNe
+         /0ZxN2hs09ecfyUxzbAjG3gsPQfxCzzgKrwtu581nrDCqgmC/k9llyf01x4eAR82gyWw
+         lFonP5+mz8d+ur+bCLRcc9XySwvPP3piF8obj3VRQJAyj5/dFtUqdgxwXqm70WE1w7rb
+         GnnRfS21PhyzzHHipM8pm3zb2RCtBEzxx5Ll0ToVRt6EZnMbMXyylKqrscf5cj4wW6G0
+         N35w==
+X-Forwarded-Encrypted: i=1; AL+hErF5byvGRMQ28LJlykCrFWhPrjYvL39JMLWK+Xqv2fsiOLZzAOL209AfQnDTYH5V7NLdCg3eRS1Qm1kt4p0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87ngsoiss9z/xi94yz71Zlal8efB3D443U0zGrl+bK6g3kF+z1
+	19+bOtdLaoEBHMfTWA+04ph2GG6S2uAOnQ6QBW+PKG0xOGqfYDNinmOi
+X-Gm-Gg: AYBFou3bdENFR8CEOvK8EQyIjzIBD8GSiGlGAoJLdn6HD/8HImRghggyPP0Fnf9ATZd
+	t0S7g5TvofiCIMdWfvdjDJmg3WWaImrSaNasJpvwSVbb1WPn743ObeH062HM6mi12ScidHoVYtF
+	uVy/OTUis8Rsj3yvaZPFl3reld6RFE90Ow04VXD5g1fdgszwn75zWnK+l+YMjt0ctosi6xlgxT1
+	v60ctDJXLZYVs7pzq7MeZoJrDTHC5O2svca5mmHZjOCoOLx/2W063nTEocIL8ynqqZtOoLch6pw
+	f2avuv6TBzAmPyE+pUAe9SCnXgMQ9e9GGLyr6tHePVMlLkB9WXH+LTRgbCQM9M/P6HAkirer+Du
+	ZO8TDMCPDcX8tG4UgNVdfFmifvp+FW02aLsc7syj5FTp5PORkCRT7+i0YNh6RX5T0WLjD4S0ZJO
+	/g6GaiTUELTpCZdgSH3wmNF2h3m63BK5sWoiZF1GW2CzgBZoUnu47rVLpEZBKbYS8V2i8FhLX/2
+	q/nnWhYWU9LDC2JyupgEFN1LSfcYi1w6I/2ou/PXk9rxKQW0fqRA2TNsPwo2KWmgaiHHho=
+X-Received: by 2002:a05:6a00:4514:b0:882:bba:8791 with SMTP id d2e1a72fcca58-8c5d4bc3094mr3751706b3a.34.1795057486020;
+        Wed, 18 Nov 2026 19:04:46 -0800 (PST)
 Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534a4784sm813255a12.18.2026.11.18.19.04.33
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cba34aa1sm1986254b3a.54.2026.11.18.19.04.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 19:04:35 -0800 (PST)
-Date: Wed, 18 Nov 2026 19:04:35 -0800 (PST)
+        Wed, 18 Nov 2026 19:04:44 -0800 (PST)
+Date: Wed, 18 Nov 2026 19:04:44 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: John Fastabend <john.fastabend@gmail.com>,
- Jakub Sitnicki <jakub@cloudflare.com>, Jakub Kicinski <kuba@kernel.org>,
- Sabrina Dubroca <sd@queasysnail.net>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Jiayuan Chen <jiayuan.chen@linux.dev>,
- Alexei Starovoitov <ast@kernel.org>, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [BUG] bpf, sockmap: data left in ingress_msg is dropped without
- moving copied_seq, and TLS RX then warns
-Message-ID: <179505708397.3511192.17406955708229395086@gmail.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Eric Dumazet <edumazet@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Alexei Starovoitov <ast@kernel.org>, Josef Bacik <josef@toxicpanda.com>,
+ netdev@vger.kernel.org, ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: [BUG] xfrm: a socket policy cloned for a TCP child leaks when cloning
+ the second policy fails
+Message-ID: <179505710269.3511679.8893709762919027206@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,210 +96,208 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============1706243997844728553=="
+Content-Type: multipart/mixed; boundary="===============7878978291613295449=="
 
---===============1706243997844728553==
+--===============7878978291613295449==
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Hi John, Jakub, Jakub, Sabrina,
+Hi Steffen, Herbert,
 
 While testing v7.4-rc3 with an LLM-guided test generator that we are
-developing as a research prototype, we found that setting up TLS RX on
-a TCP socket right after it was removed from a sockmap can find the
-socket's receive queue and copied_seq out of step.
-tls_strp_read_sock() sees tcp_inq() > 0, but tcp_recv_skb() finds no
-skb at copied_seq:
+developing as a research prototype, we found that a TCP listener with
+socket policies in both directions leaks one xfrm policy when cloning
+its second policy for a new child fails. The leaked policy stays on
+net->xfrm.policy_all, and the network namespace teardown warns:
 
-  WARNING: net/tls/tls_strp.c:468 at tls_strp_load_anchor_with_queue+0x2ba/0x380, CPU#0: test/114
-  CPU: 0 UID: 0 PID: 114 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy)
-  RIP: 0010:tls_strp_load_anchor_with_queue (net/tls/tls_strp.c:468)
+  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300, CPU#0: kworker/u8:4/88
+  RIP: 0010:xfrm_policy_fini (net/xfrm/xfrm_policy.c:4303)
   Call Trace:
    <TASK>
-   tls_strp_check_rcv (net/tls/tls_strp.c:527 net/tls/tls_strp.c:562 net/tls/tls_strp.c:557)
-   tls_setsockopt (net/tls/tls_main.c:769 net/tls/tls_main.c:881 net/tls/tls_main.c:920)
-   do_sock_setsockopt (net/socket.c:2399)
-   __sys_setsockopt (net/socket.c:2424)
-   __x64_sys_setsockopt (net/socket.c:2430 net/socket.c:2427)
-   do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
-   entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
+   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
+   ops_undo_list (net/core/net_namespace.c:200 net/core/net_namespace.c:253)
+   cleanup_net (net/core/net_namespace.c:713)
+   process_one_work (kernel/workqueue.c:3495)
+   worker_thread (kernel/workqueue.c:3578 kernel/workqueue.c:3659)
+   kthread (kernel/kthread.c:436)
+   ret_from_fork (arch/x86/kernel/process.c:158)
+   ret_from_fork_asm (arch/x86/entry/entry_64.S:245)
    </TASK>
 
-	first = tcp_recv_skb(strp->sk, tp->copied_seq, &offset);
-	if (WARN_ON_ONCE(!first))
-		return;
+__xfrm_sk_clone_policy() clones the parent's policies into the new
+socket one direction at a time and stops at the first failure:
 
-tls_strp_load_anchor_with_queue() then returns without loading the
-anchor, and tls_strp_read_sock() goes on to tls_rx_msg_size() with it;
-in some runs that is a KASAN null-ptr-deref in tls_strp_check_rcv()
-from the same setsockopt(). In others, a later recv() on the socket
-hits the "TCP recvmsg seq # bug" WARN in tcp_recvmsg_locked().
+	for (i = 0; i < 2; i++) {
+		p = rcu_dereference(osk->sk_policy[i]);
+		if (p) {
+			np = clone_policy(p, i);
+			if (unlikely(!np)) {
+				ret = -ENOMEM;
+				break;
+			}
+			rcu_assign_pointer(sk->sk_policy[i], np);
+		}
+	}
 
-The test puts the accepted end of a loopback TCP connection into a
-sockmap with a stream verdict program that returns SK_PASS, while a
-thread writes into the other end. It then takes the socket out of the
-sockmap (element delete, element overwrite, or closing the map) and
-at once sets TCP_ULP "tls" and TLS_RX on it. 460e6486617c ("tls: reject
-the combination of TLS and sockmap") refuses the TLS keys only while
-sk_psock(sk) is set, so this is allowed once the psock is gone.
+When clone_policy() fails for sk_policy[1], sk_policy[0] already holds
+a new policy that is linked on net->xfrm.policy_all. sk_clone() then
+takes its "free" path, which treats the socket as a raw copy of the
+parent:
 
-With SK_PASS, the verdict path moves the data off sk_receive_queue into
-psock->ingress_msg, and copied_seq only advances when it is read
-through tcp_bpf_recvmsg(). When the socket leaves the sockmap with data
-still in ingress_msg, sk_psock_destroy() frees it in
-__sk_psock_purge_ingress_msg() and nothing moves copied_seq, so
-tcp_inq() keeps counting bytes that are no longer on the socket. On a
-kernel that logs the purge, every warning came with 512 or 576 unread
-bytes dropped from ingress_msg; the data is lost as well.
+	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
+		...
+		goto free;
+	}
+	...
+free:
+	/* It is still raw copy of parent, so invalidate
+	 * destructor and make plain sk_free()
+	 */
+	newsk->sk_destruct = NULL;
 
-The reproducer runs as root (the sockmap and the SK_SKB program need
-CAP_NET_ADMIN and CAP_BPF) on an x86_64 QEMU guest with 2 vCPUs and
-KASAN (gcc 13.3); it reports one of the warnings above in every run.
+Socket policies are only freed by xfrm_sk_free_policy() from
+inet_csk_destroy_sock() and sk_common_release(), so nothing frees the
+clone of sk_policy[0]. xfrm_policy_flush() skips socket policies, and
+xfrm_policy_fini() finds it when the namespace goes away. The leak
+needs one allocation failure during the handshake, in softirq context.
 
-Checked against v7.4-rc3 (aebb72744764), and against the bpf tree
-(4b4eb7f44ee0) with the sockmap fixes queued there ("bpf, sockmap:
-Fixes for verdicts, redirects, corks and recvmsg()"), where it
-reproduces the same way.
+Josef and Alexei's "[PATCH net] net: free the policies if a socket's
+clone fails late" (2026-10-17) frees the policies when
+bpf_sk_storage_clone() fails, and its message explains why the "free"
+label cannot do that for every user: after a failed filter charge,
+sk_policy[] still holds the parent's pointers. A partial clone leaves
+the same mix, a new sk_policy[0] next to the parent's sk_policy[1], so
+it is not covered there.
 
-The reproducer (repro.c) and the kernel config are attached.
+The reproducer runs as root. In a new network namespace per iteration,
+it sets IP_XFRM_POLICY in both directions on a loopback TCP listener
+and completes one handshake while failslab fails one slab allocation
+(probability 5%, at most one failure). On an x86_64 QEMU guest with 2
+vCPUs and KASAN (gcc 13.3), the warning shows up in every run.
+IP_XFRM_POLICY itself only needs CAP_NET_ADMIN in the user namespace
+that owns the network namespace.
+
+The loop and its early exit come from d188ba86dd07 ("xfrm: add rcu
+protection to sk->sk_policy[]").
+
+Checked against v7.4-rc3 (aebb72744764); xfrm_policy.c and sock.c are
+the same in net (2a324a58a084).
+
+A patch is attached (git format-patch against v7.4-rc3; it applies to
+the ipsec tree):
+
+  0001-xfrm-free-the-policies-already-cloned-when-a-socket-.patch
+
+It deletes the policies that __xfrm_sk_clone_policy() already cloned
+before it returns the error. It was written with LLM assistance; we
+reviewed and tested it. With it, the reproducer no longer triggers the
+report.
+
+The reproducer (repro.c), the kernel config and the patch are attached.
 
 Thanks,
 Kyuwon Cho
 
---===============1706243997844728553==
+--===============7878978291613295449==
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="repro.c"
 MIME-Version: 1.0
 
-// A TCP socket in a sockmap with a stream verdict program (SK_PASS) receives data from a writer thread. The test
-// removes the socket from the sockmap (element delete, element overwrite, or closing the map) and immediately
-// installs the TLS ULP and TLS RX keys on it. 460e6486617c only refuses TLS while sk_psock(sk) is set, so this
-// succeeds once the psock is gone; a verdict sk_data_ready already in flight can then dequeue skbs from the
-// socket's receive queue that TLS now owns.
-// Runs as root (sockmap needs CAP_NET_ADMIN/CAP_BPF). Expect a NULL dereference in tls_strp_check_rcv(), or a
-// WARNING in tls_strp_load_anchor_with_queue() or tcp_recvmsg_locked(), depending on timing.
+// WARNING in xfrm_policy_fini: a socket policy cloned for an accepted TCP child is leaked when cloning the
+// listener's second policy fails.
+// Each iteration, in a new network namespace, sets an IP_XFRM_POLICY in both directions on a TCP listener and
+// completes one loopback handshake while failslab fails one slab allocation (5% per allocation, at most one).
+// When the failed allocation is clone_policy() for sk_policy[1], __xfrm_sk_clone_policy() returns -ENOMEM with
+// the clone of sk_policy[0] already in the child; sk_clone() frees the child without it, the policy stays on
+// net->xfrm.policy_all, and the namespace teardown warns.
+// Runs as root (failslab through debugfs).
 #define _GNU_SOURCE
-#include <linux/bpf.h>
-#include <linux/tls.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <linux/xfrm.h>
 #include <net/if.h>
 #include <netinet/in.h>
-#include <netinet/tcp.h>
-#include <pthread.h>
-#include <stdint.h>
+#include <sched.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <sys/ioctl.h>
+#include <sys/mount.h>
 #include <sys/socket.h>
-#include <sys/syscall.h>
-#include <time.h>
+#include <sys/wait.h>
 #include <unistd.h>
 
-#ifndef SOL_TLS
-#define SOL_TLS 282
+#ifndef IP_XFRM_POLICY
+#define IP_XFRM_POLICY 17
 #endif
 
-static int bpf(int cmd, union bpf_attr *a)
+static void failslab(const char *knob, const char *val)
 {
-	return syscall(__NR_bpf, cmd, a, sizeof(*a));
+	char path[96];
+	int fd;
+
+	snprintf(path, sizeof(path), "/sys/kernel/debug/failslab/%s", knob);
+	fd = open(path, O_WRONLY);
+	if (fd < 0 || write(fd, val, strlen(val)) < 0)
+		perror(path);
+	close(fd);
 }
 
-static int sockmap_with_verdict(int prog)
+static void one_handshake(int port)
 {
-	union bpf_attr a = { .map_type = BPF_MAP_TYPE_SOCKMAP, .key_size = 4, .value_size = 4, .max_entries = 4 };
-	int map = bpf(BPF_MAP_CREATE, &a);
+	struct sockaddr_in a = { .sin_family = AF_INET, .sin_port = htons(port),
+				 .sin_addr.s_addr = htonl(INADDR_LOOPBACK) };
+	struct ifreq ifr = { .ifr_name = "lo", .ifr_flags = IFF_UP };
+	int ls, c, s;
 
-	memset(&a, 0, sizeof(a));
-	a.target_fd = map;
-	a.attach_bpf_fd = prog;
-	a.attach_type = BPF_SK_SKB_STREAM_VERDICT;
-	bpf(BPF_PROG_ATTACH, &a);
-	return map;
-}
+	unshare(CLONE_NEWNET);
+	s = socket(AF_INET, SOCK_DGRAM, 0);
+	ioctl(s, SIOCSIFFLAGS, &ifr);
+	close(s);
 
-static int map_set(int map, uint32_t key, int sock, int cmd)
-{
-	uint32_t val = sock;
-	union bpf_attr a = { .map_fd = map, .key = (uintptr_t)&key, .value = (uintptr_t)&val };
+	ls = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+	bind(ls, (struct sockaddr *)&a, sizeof(a));
+	listen(ls, 16);
+	for (int dir = 0; dir < 2; dir++) {
+		struct xfrm_userpolicy_info pi = { .sel.family = AF_INET, .dir = dir, .action = XFRM_POLICY_ALLOW,
+			.lft = { XFRM_INF, XFRM_INF, XFRM_INF, XFRM_INF } };
 
-	return bpf(cmd, &a);
-}
+		if (setsockopt(ls, SOL_IP, IP_XFRM_POLICY, &pi, sizeof(pi)))
+			perror("IP_XFRM_POLICY");
+	}
 
-static void tcp_pair(int *c, int *s)
-{
-	struct sockaddr_in a = { .sin_family = AF_INET, .sin_addr.s_addr = htonl(INADDR_LOOPBACK) };
-	socklen_t al = sizeof(a);
-	int l = socket(AF_INET, SOCK_STREAM, 0);
-
-	bind(l, (void *)&a, sizeof(a));
-	getsockname(l, (void *)&a, &al);
-	listen(l, 1);
-	*c = socket(AF_INET, SOCK_STREAM, 0);
-	connect(*c, (void *)&a, sizeof(a));
-	*s = accept(l, NULL, NULL);
-	close(l);
-}
-
-static void *writer(void *p)
-{
-	/* A TLS 1.2 application-data header with a long length keeps a partial record queued. */
-	char buf[64] = { 0x17, 3, 3, 0, 0x40 };
-
-	for (int i = 0; i < 200; i++)
-		if (send(*(int *)p, buf, sizeof(buf), MSG_NOSIGNAL) < 0)
-			break;
-	return NULL;
+	failslab("times", "1");		/* fail at most one allocation from here */
+	c = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+	connect(c, (struct sockaddr *)&a, sizeof(a));
+	s = accept(ls, NULL, NULL);
+	failslab("times", "0");
+	close(s);
+	close(c);
+	close(ls);
 }
 
 int main(void)
 {
-	struct bpf_insn insns[] = { { .code = 0xb7, .imm = 1 }, { .code = 0x95 } };	/* r0 = SK_PASS; exit */
-	union bpf_attr a = { .prog_type = BPF_PROG_TYPE_SK_SKB, .insn_cnt = 2, .insns = (uintptr_t)insns,
-			     .license = (uintptr_t)"GPL" };
-	struct ifreq ifr = { .ifr_name = "lo", .ifr_flags = IFF_UP };
-	struct tls12_crypto_info_aes_gcm_128 ci = { .info = { TLS_1_2_VERSION, TLS_CIPHER_AES_GCM_128 } };
-	int s0 = socket(AF_INET, SOCK_DGRAM, 0), prog = bpf(BPF_PROG_LOAD, &a);
-	unsigned seed = 1;
-	time_t t0 = time(NULL);
+	mount("debugfs", "/sys/kernel/debug", "debugfs", 0, NULL);
+	failslab("ignore-gfp-wait", "0");
+	failslab("task-filter", "0");
+	failslab("interval", "1");
+	failslab("probability", "5");
+	for (int k = 1; k <= 120; k++) {
+		pid_t pid = fork();
 
-	ioctl(s0, SIOCSIFFLAGS, &ifr);
-	for (int i = 0; time(NULL) - t0 < 100; i++) {
-		int map = sockmap_with_verdict(prog), c, s, c2 = -1, s2 = -1;
-		pthread_t t;
-		char drain[4096];
-
-		tcp_pair(&c, &s);
-		map_set(map, 0, s, BPF_MAP_UPDATE_ELEM);
-		pthread_create(&t, NULL, writer, &c);
-		for (volatile unsigned k = rand_r(&seed) % 20000; k; k--)
-			;
-		if (i % 3 == 0)
-			map_set(map, 0, s, BPF_MAP_DELETE_ELEM);
-		if (i % 3 == 1) {
-			tcp_pair(&c2, &s2);
-			map_set(map, 0, s2, BPF_MAP_UPDATE_ELEM);
+		if (!pid) {
+			one_handshake(20000 + k);
+			_exit(0);
 		}
-		if (i % 3 == 2) {
-			close(map);
-			map = -1;
-		}
-		if (!setsockopt(s, IPPROTO_TCP, TCP_ULP, "tls", sizeof("tls")))
-			setsockopt(s, SOL_TLS, TLS_RX, &ci, sizeof(ci));
-		pthread_join(t, NULL);
-		for (int k = 0; k < 128 && recv(s, drain, sizeof(drain), MSG_DONTWAIT) > 0; k++)
-			;
-		close(s2);
-		close(c2);
-		close(map);
-		close(s);
-		close(c);
+		waitpid(pid, NULL, 0);
 	}
+	sleep(40);			/* the namespaces are torn down asynchronously */
 	printf("done\n");
 	return 0;
 }
 
---===============1706243997844728553==
+--===============7878978291613295449==
 Content-Type: application/gzip
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="config.gz"
@@ -361,4 +357,61 @@ uPqVa3aJMtUixKXO84a62SQDND7a2sAfbjVffuJVxmSGrK3Zfq9Uaa1xcm85RhQz2NjgREwYux2NUNGS
 WceuQ+okF4wn3G3hpTDRmvDwg8ewNr1R2USfNCoDY0vdwWE5U8D2o7Hyro2+zig/W9uwCfmsYiHA6sfdpaBkWDcm2hDs08khnbzNo0Fau3O56XQJ7WqyFDPkXQrb3TB2tTqAdDJ1Z0at6bIQu53WpbHHtdk2dFgm+vbZbQucd4ThrjSBbL/sxUqVBQd4dNqWHnA/+QjzY3z5L4E7zQq10QRhXDKRLM1Mhm+7kW4zNlb1+M5XyBhW3F15oDk3x5HWmI887ReHkfHRobw5XhK5WRHAubj3xXx5fakUk1xRp/TQpTT7MKDJ7TBrhsM9ygnIQDWtl9equJqieb8MDTU4/erXIMwqisymDW4s/9msKW4+9Ir4rlWvqKSprbhZ160+Ax5ilenX3chFp9bBdmfdbd0P1aeAsZMOI4FS7UG8F4eZxUgmqCTEjUp3lFB+s7FxqGsY4FIjrsV9r+pZPzttZk53twTG90WHqHillQ7DvFA3eiVKAQZlebaFQ86HLdMZW+bQvTwmYqzNumvUA3pu3fHyCt1qoeyC/W6VHjG0V1FnhSVy7tK1Cofahl0OoLk42fPUVH8qH98/UJqAMkH/9b8f3+6/PppC4BusH/2W21yXa6VXMRW8r+XFRsAt1I4FaDCLnohl7FlKBZimHysHz7AGxiqQcfdlFph4N2HryJRHIT+hr8A8JkIZ0XQjTWUMuwB5s0U1m7Mbp5O5WIsO2LiYwjlLvwB2G+iNdtLVzwz4TV3tgWtXnLkWm9ZJmFoTXgmsgz0TJD2+CZgoxjqfOHBRnEJtC8Qjtv0lHNYpfz6qklBcMqaeUOiIpzwjoRR4sxhuMSNHsaVkPfKSrl9pWbqWfK4vx2WRpse18cbvwxN7TGiDRTgVSyaYswJobU6ertXIRwaSEbNZQ4Qi5cEzrY0BBm7k1eRmZKZBC5xXL5vePAHyAHzqVPJseiXCzo3fmGKblUZvo7wwwTfjR1vtVx6hA7vx9JGDVefX
 DnN5v8xqfiQZfX5rKl4zOZVCPfxhAlf+emQCqYdg5mDSPYErCg+Gkc9EjJBQEZVYRXuPHH+tU+hs+wn1uLn9E20RocoINffCJok8ssfOZy1J/vn+YWgv90JSK33g+dG2dG2jl9af/cJ4Su+S4bYKqf8ff5wHAoGXAgA=
 
---===============1706243997844728553==--
+--===============7878978291613295449==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+ filename="0001-xfrm-free-the-policies-already-cloned-when-a-socket-.patch"
+MIME-Version: 1.0
+
+>From 84f048c2bd57b87dcf83233cf59c4ba1fee855b1 Mon Sep 17 00:00:00 2001
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+Date: Thu, 19 Nov 2026 11:36:52 +0900
+Subject: [PATCH ipsec] xfrm: free the policies already cloned when a socket
+ clone fails
+
+__xfrm_sk_clone_policy() clones the parent's socket policies one
+direction at a time and returns -ENOMEM at the first failure. If the
+policy for the second direction cannot be cloned, the clone of the
+first one is already linked on net->xfrm.policy_all. sk_clone() then
+frees the new socket as a raw copy of the parent, without
+xfrm_sk_free_policy(), and the policy is leaked until the network
+namespace goes away:
+
+  WARNING: net/xfrm/xfrm_policy.c:4303 at xfrm_policy_fini+0x24c/0x300
+  Call Trace:
+   xfrm_net_exit (net/xfrm/xfrm_policy.c:4372)
+   ops_undo_list (net/core/net_namespace.c:253)
+   cleanup_net (net/core/net_namespace.c:713)
+
+Delete the policies cloned so far before returning the error.
+
+Fixes: d188ba86dd07 ("xfrm: add rcu protection to sk->sk_policy[]")
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
+ net/xfrm/xfrm_policy.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+index cea6842e6454..c6d5c7582af7 100644
+--- a/net/xfrm/xfrm_policy.c
++++ b/net/xfrm/xfrm_policy.c
+@@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
+ 			rcu_assign_pointer(sk->sk_policy[i], np);
+ 		}
+ 	}
++	while (unlikely(ret) && i--) {
++		np = rcu_dereference(sk->sk_policy[i]);
++		if (rcu_access_pointer(osk->sk_policy[i])) {
++			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
++			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
++		}
++	}
+ 	rcu_read_unlock();
+ 	return ret;
+ }
+-- 
+2.43.0
+
+
+--===============7878978291613295449==--
