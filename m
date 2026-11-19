@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795046524;
-	b=JSSgtw4LQ919sGw/dS8fy/v0BJtv8hvJ1+ZP+aH//MCQ7FvxxwNof/DnoiA+unC3b6wH
-	 zM0HOE7XumeIOmBmA+QLTgqKEPQMcVQXcFEa312PPfvCdBWVbNL1encwyTpRoQhPJJHwt
-	 uIt3Ls0OmlysfLj3F1hPRrc5CCbsxWzi97qlGA87xsCqqEHFwhgZvvVHuOOUSXMuoXvL5
-	 xA9ccGX8LnNsh2Vddg+7fxdJF7vijZEbdfejQblRFRgBDv9ym5W/l0M8KLua0tT93bzF8
-	 YGbbGAFVQE1TGUKpbU1sxLCVzIyi7+FitjDE5GNmZM/PHE17zxAM37oei8dGHXSWJEw==
+	t=1795046522;
+	b=J9S14AovtZsJjbJJbQi7vUAnMyCi6FOA2EFr4OXb/QSzXT/1lkEuIEg2izLMnP28GIjo
+	 iEKCtfudhvap6y0GQjy+mfnthLlQ3o1LoMIpO5QfzNLXxCzuvEMDzp/Bkhg+Y/YttO989
+	 LrKZPMo523NCaC8EpnOrG7B78iWy6yyLfifHMbyNwIXG26PUQo4JCwbTH7KM0d0YJVnRa
+	 zC0Yu2insIiO8BEyeS5NHYvdDwxc5blfpY7CKbirf6UqLLQAIGqqDBcsKV2JCgjeGSM/p
+	 AXoPnkZ+97BNmYKEoEsifDqt8HsU3bOOm18vsf/AyJILYrekt7VI7RTbR9JE7VoWFuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046524;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046522;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=GNpSDWCwA2M95P8ux0wgAkE+CliZl79pp2XxcfcD2Xc=;
-	b=l5rVQr7inARAd3sTs41BY2Jb1++c4+SC0hbvNXY8T46KpVCaq5LncWtrWKSD5Pc+mzmp
-	 3itDHbpafE24BcKI6Y3Dgp5L1plCQJfho6tm28NVA8W0zdQD/lm8KsH8U4gvw0FEjW/A+
-	 Yf4q/2nnIDTOWE7lq/CFtit2yPFVE1qwYQ0XGkRuJ+voeUOUEYWSt53y7cQ25y2uTHVKe
-	 KOtWGidNf8YMZdSf1S5fANqz/ddIpifX9qp8m4gwbu8cc/rC8lxAkgiRptUh+Rg6r0mfS
-	 3aX/Cn6BV8vmvd5BXXMREGBd0B06EHVsg6741l6LQFqblQOvbZ3nCrxoX9Wh8hDKQQw==
+	bh=ZMcRdE0DWUvfvjny+MgYRY4V5/4F1cz7ADr3t9/9/Oc=;
+	b=S0dKVcu12U9J8w7A1GHLcLxRNsQpgokIPjgO/kVo+Ru0pcdPUD2z3GNxZqsIbaqhcAlS
+	 HMez3GXMzScNHkEhe8WKnO8cPOTG8Nzdya4hTJbRXVYC0mTb82uO1Egm5cSLYrUnvPebh
+	 vj/ioNNsICtPet1SzlZ/MFQJ0CmJrkFkLUD5wftFwiMgYmIRZ+C848Jy3dALqNwM9/IvV
+	 LL52NY1dagU0vSFzDPZWnPTwP03fe1g+9fmm25Pd8xhqhVh2QJ6QpR92fqG4LQMV8kaB6
+	 qXXSk1TaLq+Dh57n6EKUxfBDXWehlU2FmtnSPs0ynMVe+XOyNTJOA2phyxHXD1L7emQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y6h90oC8;
-	arc=none smtp.remote-ip=209.85.160.70
-Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VnL5J7E3;
+	arc=none smtp.remote-ip=209.85.167.197
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A7B560A3829
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:02:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A7B560A3829
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EDA960A263C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:02:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EDA960A263C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dmatlack.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y6h90oC8
-Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-45e6091d8a1so1180936fac.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:02:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VnL5J7E3
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4fb73e868aaso1986110b6e.0
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:02:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795046523; x=1795651323; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795046521; x=1795651321; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GNpSDWCwA2M95P8ux0wgAkE+CliZl79pp2XxcfcD2Xc=;
-        b=Y6h90oC8jZ9Xyl3cPOM393Kepu7WHWu6aXK6CZviiMZPds5OZunHu8DMtpRd4BA7SE
-         ZiGnZYmdAZFb/koJ8cho1yCNQlgd5k0aZ/eBo5W7hyw3zqagWqqo2HKxbrigooV+NfLv
-         pZmyMKWG/PuIcSAh0AaX9kQUp3jkpekYc8E5HfYscWycNxAqMp0IyUvymvD6b+I50ytE
-         K31IkIhDSvoXnxX+mcxmnN8XTmzGgIspGcdqZzkgAwHKwlpQXRxzlK8CKZtJVYMLwAsn
-         Kk1y8VBOWZZ/0dlOqPm3WjwFA3e/pIH26BGnzhhWDVE9eLTJmWGxsdvQ/ygtkYhDJtk0
-         T5OA==
+        bh=ZMcRdE0DWUvfvjny+MgYRY4V5/4F1cz7ADr3t9/9/Oc=;
+        b=VnL5J7E37p9U9QygnOqjiKkyG+IY3TThsqkVfJlyVBCOMMRYdCX9nngEyVIwDOGF7X
+         hazEduQrQFeNkJqU9unCkvw+x3fHhHYS4qS4Tx7pcJOAni4UNVEeb5zXzA5kb+1GdKo6
+         s2jCXYoJGQtw2NLJOgCXsyWEZ6KRPamW5NM72W0mj3R3+rtSy6RI2FYFh1MOLngm2YPg
+         8JfpqdzaeCtylXIPwfcr5MA1ku91WqlM9gtdXXpc9vH3g0bJCawkk06w/Mmr5JDM/ItS
+         ycu/1sbs7nrnAwUySq1i6TnI+v+Od0HJmmz9zTTNg43BT7y6DZYNEthgvkX6GkwURFXo
+         Tnag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795046523; x=1795651323;
+        d=1e100.net; s=20260707; t=1795046521; x=1795651321;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GNpSDWCwA2M95P8ux0wgAkE+CliZl79pp2XxcfcD2Xc=;
-        b=GWZCts0dUeMkdv+LG1Fe5wnz0N1jAj0oqertggktKrHaeIpB8lO1H6ikrAx4k4iw66
-         q9KXG5r+KpZUQdqGMWnGDSTkkaz7GX+GNjXh/Qnfvffpt9kI33BOKoXrg0OvS/JlRJ0N
-         zUda9viRly69x5PrbnDGyOl46ha8eqAYlc2QfGGMT45pKtUZramd+GKwNmn1erDLOT+D
-         lz6aygKsg3GPGFK8nx7rEfYhvuGxvLaWMqW+ovXtdY96cbJA09krQIbZ/lH31cDoy8kg
-         kJ9iUZnZ+cvGxNnR8h4dWxzHRGgv3wgwuQNEQsrCHFUd3xvzOrF1r/w+Nb5wkJzr0LyS
-         eLiA==
-X-Forwarded-Encrypted: i=1; AL+hErGiIHWUPTxTKlnRBfHjLZ+qCpQnH9+QlpbqwqjNHGeR9xjnDsntcyZavasWv6mCb1VDRLCI47AEY6+WfCI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FsJG+X212+yEOSiWu33mTdxYJbaAMBldjwNzXPhAbsQgEqeCh
-	issNUc35YdB/NoAemhOS5PY14g5V7T56fguxXGkHwIiMSx+i9BQKRNH6yXbgAJVNDN+YqOhp+BE
-	ukQJTPSYnEs3QYQ==
-X-Received: from ilpz1.prod.google.com ([2002:a92:d6c1:0:b0:54e:91a3:243d])
+        bh=ZMcRdE0DWUvfvjny+MgYRY4V5/4F1cz7ADr3t9/9/Oc=;
+        b=1e6HxibUfQKYmfka6eTLojNF/SjUHeu0p7cGcPDNoOfClMAUWvdrMwn0WR/tg8bsiK
+         ZZeN6BNHcMNUmfmPF2YaZJY+UhDjHUOP9QD90Cz/OkOmWU1jPybMraRg2ONcEB42Anq9
+         jCbDoaA8ENTVE4GPwAHScA0KJMNimo9DZW8Uoh03eb5PTb9cQHlzqF35kQdO3i86HfC2
+         VmAk3UOFXTi7SO5HbpZ3PTGRIAQwAwJr3qZAPoBoS21XPPV/SaxYYz9atUcvjN8udA78
+         273U2ooAgY6vUH6iKUFjyu3yqgEzw6thP6cspdZWXGM52awN+eWnpejrF7Y2fSTD4A15
+         AGbQ==
+X-Forwarded-Encrypted: i=1; AL+hErHWm/sALf70Q1KXH0GXcn/YYuieFM0Vxb+5Zms4USKp7OgRaNm6X8kKW4HTpmEBbpIKRy/5k60gTUosrq4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+s21SJcLnnRJA/fM5Eve9nwQ7yl1MzGM3YVEMsCiQ5b8HggQ2m
+	0YyPvOju2+PRtPjumc94kOHwAlEbi53iJ+DajJV3bdFEuq21ynm1/rkHEQLikBokINa1rrM2f6B
+	f1QOcPdSWcA6n+g==
+X-Received: from iohd25-n2.prod.google.com ([2002:a05:6602:86d9:20b0:9e2:221a:fd83])
  (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:3008:b0:574:524d:f23a with SMTP id 5614622812f47-57741131621mr4704844b6e.25.1795046523220;
- Wed, 18 Nov 2026 16:02:03 -0800 (PST)
-Date: Thu, 19 Nov 2026 00:01:48 +0000
+ 2002:a05:6808:3a19:b0:567:c773:39ab with SMTP id 5614622812f47-57742d30c1fmr4647260b6e.39.1795046520570;
+ Wed, 18 Nov 2026 16:02:00 -0800 (PST)
+Date: Thu, 19 Nov 2026 00:01:46 +0000
 In-Reply-To: <20261119000151.442543-1-dmatlack@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261119000151.442543-1-dmatlack@google.com>
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119000151.442543-7-dmatlack@google.com>
-Subject: [PATCH v2 6/8] vfio: selftests: Add sysfs_kernel_warn_count_get()
+Message-ID: <20261119000151.442543-5-dmatlack@google.com>
+Subject: [PATCH v2 4/8] vfio: selftests: Skip vfio_pci_sriov_uapi_test if
+ SR-IOV can't be enabled
 From: David Matlack <dmatlack@google.com>
 To: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-kselftest@vger.kernel.org, stable@vger.kernel.org
@@ -91,88 +92,45 @@ Cc: Abhishek Sahu <abhsahu@nvidia.com>, Alex Williamson <alex@shazbot.org>,
 	Vipin Sharma <vipinsh@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Add a helper to read /sys/kernel/warn_count, which counts the number of
-warnings the kernel has encountered since boot. Return a negative value
-if the file does not exist, e.g. on kernels that predate it.
+Skip vfio_pci_sriov_uapi_test if writing to the PF's sriov_numvfs file
+fails with -ENOENT, which means SR-IOV cannot be configured on the PF.
 
-Factor the code to read an integer from a sysfs file out of
-sysfs_val_get_int() so that it can be shared by both helpers.
+vfio-pci returns -ENOENT unless its enable_sriov module parameter is
+set, which it is not by default, so the test currently fails during
+setup instead of skipping.
 
-This will be used in a subsequent commit to detect kernel warnings
-triggered by tests.
-
+Fixes: a6e4e726600d ("vfio: selftests: Add tests to validate SR-IOV UAPI")
 Signed-off-by: David Matlack <dmatlack@google.com>
 ---
- .../vfio/lib/include/libvfio/sysfs.h          |  1 +
- tools/testing/selftests/vfio/lib/sysfs.c      | 28 ++++++++++++++++---
- 2 files changed, 25 insertions(+), 4 deletions(-)
+ tools/testing/selftests/vfio/vfio_pci_sriov_uapi_test.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/vfio/lib/include/libvfio/sysfs.h b/tools/testing/selftests/vfio/lib/include/libvfio/sysfs.h
-index ede114181cf8..5ef515eda686 100644
---- a/tools/testing/selftests/vfio/lib/include/libvfio/sysfs.h
-+++ b/tools/testing/selftests/vfio/lib/include/libvfio/sysfs.h
-@@ -9,5 +9,6 @@ void sysfs_sriov_numvfs_set(const char *bdf, int numvfs);
- char *sysfs_sriov_vf_bdf_get(const char *pf_bdf, int i);
- int sysfs_iommu_group_get(const char *bdf);
- char *sysfs_driver_get(const char *bdf);
-+int sysfs_kernel_warn_count_get(void);
- 
- #endif /* SELFTESTS_VFIO_LIB_INCLUDE_LIBVFIO_SYSFS_H */
-diff --git a/tools/testing/selftests/vfio/lib/sysfs.c b/tools/testing/selftests/vfio/lib/sysfs.c
-index 308da0526543..3845d81825e3 100644
---- a/tools/testing/selftests/vfio/lib/sysfs.c
-+++ b/tools/testing/selftests/vfio/lib/sysfs.c
-@@ -33,15 +33,12 @@ static void readlink_base(const char *path, const char *data_fmt, void *out_data
- 	VFIO_ASSERT_EQ(ret, 1);
- }
- 
--static int sysfs_val_get_int(const char *component, const char *name,
--			     const char *file)
-+static int sysfs_path_get_int(const char *path)
+diff --git a/tools/testing/selftests/vfio/vfio_pci_sriov_uapi_test.c b/tools/testing/selftests/vfio/vfio_pci_sriov_uapi_test.c
+index f3a018b8699d..f27418fa5960 100644
+--- a/tools/testing/selftests/vfio/vfio_pci_sriov_uapi_test.c
++++ b/tools/testing/selftests/vfio/vfio_pci_sriov_uapi_test.c
+@@ -210,6 +210,7 @@ static void vf_setup(void)
  {
--	char path[PATH_MAX];
- 	char buf[32];
- 	int ret;
- 	int fd;
+ 	char *vf_driver;
+ 	int nr_vfs;
++	int ret;
  
--	snprintf_assert(path, PATH_MAX, "/sys/bus/pci/%s/%s/%s", component, name, file);
- 	fd = open(path, O_RDONLY);
- 	if (fd < 0)
- 		return fd;
-@@ -56,6 +53,15 @@ static int sysfs_val_get_int(const char *component, const char *name,
- 	return ret;
- }
+ 	nr_vfs = sysfs_sriov_totalvfs_get(pf_bdf);
+ 	if (nr_vfs <= 0)
+@@ -220,7 +221,12 @@ static void vf_setup(void)
+ 		ksft_exit_skip("SR-IOV already configured for the PF: %s\n", pf_bdf);
  
-+static int sysfs_val_get_int(const char *component, const char *name,
-+			     const char *file)
-+{
-+	char path[PATH_MAX];
+ 	/* Create only one VF for testing */
+-	sysfs_sriov_numvfs_set(pf_bdf, 1);
++	ret = __sysfs_sriov_numvfs_set(pf_bdf, 1);
++	if (ret == -ENOENT)
++		ksft_exit_skip("Cannot enable SR-IOV on %s (vfio-pci requires enable_sriov=1)\n",
++			       pf_bdf);
 +
-+	snprintf_assert(path, PATH_MAX, "/sys/bus/pci/%s/%s/%s", component, name, file);
-+	return sysfs_path_get_int(path);
-+}
-+
- static int sysfs_val_set(const char *component, const char *name,
- 			 const char *file, const char *val)
- {
-@@ -170,3 +176,17 @@ char *sysfs_driver_get(const char *bdf)
++	VFIO_ASSERT_EQ(ret, 0);
  
- 	return out_driver;
- }
-+
-+/**
-+ * sysfs_kernel_warn_count_get() - Get the number of kernel warnings since boot
-+ *
-+ * Read /sys/kernel/warn_count, which counts the warnings (e.g. WARN(), KASAN,
-+ * and UBSAN reports) the kernel has encountered since boot.
-+ *
-+ * Return: The number of warnings, or a negative value if the kernel does not
-+ * support /sys/kernel/warn_count.
-+ */
-+int sysfs_kernel_warn_count_get(void)
-+{
-+	return sysfs_path_get_int("/sys/kernel/warn_count");
-+}
+ 	/*
+ 	 * Setup an exit handler to destroy the VF in case of failures
 -- 
 2.56.1.708.g77570a6a1d-goog
 
