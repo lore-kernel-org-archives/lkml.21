@@ -1,101 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795089376;
-	b=khcN3L353eWZo2+whr9XKDWq6kvKSfQC5I5WrDIblNDxogJNQJRaTrYRkknrd/lAI9fW
-	 B+C9UG2oQHla44wKujgzvqJXIErrC0nXZGnViVPYhk6cZpZrSsVtdxWWh3Q7lggNhX78e
-	 5bn1WAlrSIrnRaunIwhOAoSDio5thfnHhk4Hj9coWKyflmlBK/wavSEGnacGxRLaG92lz
-	 3maiyPyYengRpqx3Z3xgx46KnxQjPz0mc9kGExWRGJmhAsvXL9WU7FDwcNjfjl4WJfW01
-	 93/NzOqzLKvvTa9UnUceoqF9pC/Vav140sSOHi67x0ZZfKWr/RUNKKrqn8tS8y9udXQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795089376;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=RSQlhZLcdrbQFLEEra+ei00sOkbYZJ9sKIwJK+CMs6Y=;
-	b=HwLEvD/J4w4nUMQ6AX2BWtSoVbHxR7rXXXcTICihkYbjTa6tI5Sh3kuCen02RCrO42dy
-	 qb8Ha6TPAxP4/t1DkLoDLgRz0NJz90Wd8Bg6OyTFZwcFI78UrCMjUlvUhGPAAYvQ/vyvG
-	 nsha6PiLRXwnkp05cCqVSQXCNP2/tmeBWnOCaqneFU7CKUVDVcG0GMpJ1Gd6yiLZN+S1g
-	 pBFRBgqXgzMZJF8M+P2YH/q9/yIIynqwEBUA8Cql0WwTCIXAKXhaovesvSFffwXPw0z13
-	 Y2Yh/JuRIzJxSYegan2UrFzkm9VWiRpnif5Qvs3Wehytq0F1sUvSuxSzaSajTUiNtWg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g+6GSTEr;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.54
-Received: from mail-lf1-f54.google.com (mail-lf1-f54.google.com [209.85.167.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.149
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795089478;
+	b=Pzl2iVU0HxICX/OyKJz50SEayTyX08tPy+KSKKIImOXQJZT8Vr2tzKCXW6ccEqVwj//J
+	 qHobsGfzGAW1reH5cPjHkyuQYS63VPysbqmV3pd0ImJJ1hwHC7gdrTG5boH8/2F/c48Hh
+	 UMI/pPlUD1Yb4QDUnsA2LXJQaqzNsWdwOIqZ/PR5DB/sL9xnL7NZ3EbxEnaXPsNNWgb8X
+	 i/SEIMWKqT4Ybj8yglCLrTLtGH+yqFrk/lHDvJfhqMCK287B8gRMRrGnXLE0nPVRTnT3U
+	 oSqql9v+L6j9SPnlY5NNFVRNT5xdQMwmJd0cTotRWJja5SFZ5sCo3LzeI3L9t20d6pg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795089478;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uVTx83WpSv0RPdEAEnn32qgRI8JUjLlsOA3vbDXwXS8=;
+	b=NAEzLr1WiMC/Oq8n0ZyvGGtdsctoErHuOw99ltldb/zt38t6ngbhh1pCxBworwNxL66w
+	 Bij1Y7mb0Tcc2BvAGxWDzBTfj33rcDrX3eujFX78kB/EqpGdvpYHr1l8RI8Sywhz4hzNh
+	 GYHOUivmEj342FmIhjgAcWFfzG2jddBgUU2wy+CQJAfuYCTLvD1/GL1zTBmBF1PKUTtgG
+	 8+IvISRC7yQHNzEH91EDM4JYjqDNbvaonXWTB4QUxO//QMbL13eSXnZuPnpUAeBjGRwLu
+	 YXoZbmDTbPxk7oMl+v8xeUYpnuI4MzjneMI6ywUNjU5Xfa1BUqHD05LlTzH4xfjuWoQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bsbernd.com;
+	spf=pass smtp.mailfrom=bsbernd.com;
+	dkim=pass header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=Fd+t82S7;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QM7btqIv;
+	arc=none smtp.remote-ip=202.12.124.149
+Received: from fout-b6-smtp.messagingengine.com (fout-b6-smtp.messagingengine.com [202.12.124.149])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAC33606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:56:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAC33606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2352606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:57:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2352606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bsbernd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bsbernd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g+6GSTEr
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5be3dd6f636so154721e87.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:56:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795089374; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kV5KyXrzm8xlmYiEOI6iwItEVCObU9/1uRxl+6stkWzfTBp/Igioqpd6knDHL63qDB
-         Il3rOWbFVo9Ccg0kSi9Z3oGtdlNT0v2xmx7ORwWD3c4e49wSyq/LNAUNOPbx3arDiP+N
-         iQEipCfZna1BcTRb8i4acFFUVKBOpzxzcToStt1Nr4WB+YDzvTHD9j6lwdEod4SLAXs5
-         b2MWJYNhvT4JF25V9taca1FJz/+tcBN6pTAYjsyEt+kAZRfxqYjeuM/OUkhg9I9vlrca
-         HEok7gkVjC/udJg6I41PedPvDPLBIUnooTWDey1eDfmDH5+37r+GMiltCdGdZC1+vGdq
-         wWAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RSQlhZLcdrbQFLEEra+ei00sOkbYZJ9sKIwJK+CMs6Y=;
-        fh=Pa+Flxpz+EDrYxGEFS0UpaXM9x1YzAutkzNXPn9IbPU=;
-        b=CqdBMe1UhKSDhkQy6gG98YwymaD39/ciiPtIHFqmm4WnUgdS3iu6khf7/6C2O6x0kj
-         RHPjqWodMF0kLmAkC+lOLxDKrIHs48DRz+bTWCqHe1CboGu/U49Qn9OZjCdXkj9orpi/
-         o7az5HHZ3FMS7Y+/t26s1Ql3T4YVX9M247mAHRtdwNV66TezwN78UgcQNOXoU/81I4sE
-         0Qpe/hcWPD5EgZ+BNaGYPb+YxrBTFG9YqGdk9gJZO3FdnQpP5DGohcXQ1ngKVTBX/6Z3
-         Ii53jaDj6gXSvkVSX/nxEc9YMugWIfskCI1fuTqN6+iYHrnDszwhAY3LESYLxzsLM6mC
-         wZBQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795089374; x=1795694174; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RSQlhZLcdrbQFLEEra+ei00sOkbYZJ9sKIwJK+CMs6Y=;
-        b=g+6GSTEr+iJNFmOLmfk7uLS37/b86Gu7Z5ix7ooEzeRSuoviZQITI3D0TtSiWFjooc
-         3TC3gbtkPWsqbKm0dKyR8j5CblzmHyBXImHc1Y42ptIjNiM40XZr1v0ZEf2yIUzBo8P5
-         rLgIYhjSpmkce3RtxFezrBEYrRaYGTFeVXBNugML+pEOaXMK5qnUFZICqMq67TCgZrbH
-         uOmUue1J0ll4sCPyxDMxgrGnfsbsY6M48mlGNUtu2lgw7vfRWpJsIQB7yrR5O/A+Mb1K
-         G0aS5Q6u/+v9trWYqyPWVLnHkSvqTOGNJVqDpD9LU0vO4WASRQwhVgwZi1DSYpZZl6qn
-         4Erg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795089374; x=1795694174;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RSQlhZLcdrbQFLEEra+ei00sOkbYZJ9sKIwJK+CMs6Y=;
-        b=fIws1qlKjbMUi+p6fXXKEGC2TPhi1KE+UDn4B2hYfDNpAH0+CTZv9+PWXvjZppMsIo
-         6Q1UYIOMj4GlgOOKI/TivXBfN0Je6AJMjUE2qboAAbXoJkANOSdE7DxEA9D8HECKDsvj
-         Hpgm4IyXr71iJELURq0vnmiEsH96T5Bc55jlgqZs2XazyRqge/1EH9/toL+GkJheaRxL
-         zO801n2YiKHrbnDLAqOwXMGnjB5H/yvmJhBDkl8UbCGyoMQ/9JRoZ+WXZLruRUBufe8I
-         V7agL1Ej/sdyhVj1K03JLaKGTeaSEEMMFlC7TS0Watn3adB6hMx8aLvVZmBCjQMwXc0c
-         rQFg==
-X-Forwarded-Encrypted: i=1; AL+hErGDXygNv32bLsF6mFB9LEDOGsAH8gpsLeCSkNDT6MVNv6dngMc5WyRMyIrBvLsecBLzq0D2LwKoVNxsmmg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z889faJFG3O/FK7Q+P9P2WWJ8zwNQu9a19ArkX+Cn3q9dKVxSGJ
-	DkJyw2FiKcgzvARp6zUFMA0aU6c26DAfSIEPgrp5SEn4NLC3tQv9FIlemAbtozM1w805Ia3PhKN
-	DAUZ6yesCvp8+pR517N0rUgVVIrkok+w=
-X-Gm-Gg: AYBFou0/P2jNhjnleDPParJvOoNeywC8e21pKPre1MF8xO6ZLRnIcubnY8uR7l61WAr
-	4gdhxO37FqwfskGlhuSuRhNmTvZOUUvQyTOVOcpjEHGzV8S72IDU1O9/5zv+a3sj/P66QOrgfSK
-	GcunCxmRbuEoQgow4J77qD4wd2hG6vrn67BXGlZMeCkAm/7ZlAP4WtQGKtXUnnsAzUZVcRHHj+z
-	KRqNfTOzjQIg36KwKtBfg9zjV8OmedqUFR0Sn+wYPACmzPJGDKc4EazVNp3/wTinWwh6oqP5pma
-	hSgCI54SgG4s7P17C1cElCmRZBTJlVw5mQqzJT5FFGco0AO7jBnifEYTPA9j1GRC3wxDbzf4uC/
-	fWI08eFu9lRUToofSKGL1A+4ZJRwv4wfpSZJPj16isNuuonLxS2Uj3NIFBkbekXsNXtSM9JyhfM
-	IIqboVFgFwigryfryC9g==
-X-Received: by 2002:a05:6512:ba9:b0:5bf:e6a1:3115 with SMTP id
- 2adb3069b0e04-5c1a9bbdf96mr2564765e87.2.1795089373747; Thu, 19 Nov 2026
- 03:56:13 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=Fd+t82S7;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=QM7btqIv
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.stl.internal (Postfix) with ESMTP id 215411D0028E
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:57:57 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Thu, 19 Nov 2026 06:57:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsbernd.com; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795089476;
+	 x=1795175876; bh=uVTx83WpSv0RPdEAEnn32qgRI8JUjLlsOA3vbDXwXS8=; b=
+	Fd+t82S7Au4wX7Fhh1xjzBJeolNt0Z+6Z+rkaiQn59vBiauOF9a3+IGjwJG5pZsH
+	B8GaPffR8sg4YlFaaE5sbyhgkZa4RXAMh1AuAd3XiP1uG3aYvhBNWMDjnchuBh1D
+	7cQW86KYghGcmGSMlY7QTsRuVR/xU+2RrG0iaII/V3Rro0MQ8PMJ7bMny07AfQKU
+	/ODSXHZ1hke53if/0Y84qfyGEzPANWYUp9CPMl49eKwX+jWT6cIuS+Tg3hGy49if
+	iyfRK3MJAtyjIKKs7IR1JoSUUQgWJJH66sOdBAG6ki03WIQ2FIbwQge/sqQqMWmO
+	/rZ/QL440mW3iQuda/WUog==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795089476; x=
+	1795175876; bh=uVTx83WpSv0RPdEAEnn32qgRI8JUjLlsOA3vbDXwXS8=; b=Q
+	M7btqIvmWaSiCaJaZZoXxZyOzqrP5IL1vyniY5vcPV6nXFfLgvAdrrFxuMq7L2+/
+	HVQ2F9SfDNHYS+p6GCxSi2y+xP/hltGw08VoH08B2LxRdHrz9320FGO/pIA/QdB+
+	V8RKXjvoLzMYoy7z/nz1d6eWSXKIiB9ZycUe0XFC+EXvQ7F/Rj3d32ZINk3Ug3hq
+	iHdj0cwFZxAFtwEGdKfQqeC34G5ITlMMAAvgfAeZPwBm+tU4OCSmxTXM3KsaCDNV
+	Rfb/z8JRWJ30sqHkYg8Fn8z3yphMh9LcL7SL8wgysFJgmejM+uo9sT+qp1tfLqi3
+	Un8saRTm89oFK/na4Nb2w==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=bsbernd.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795089476; d=bsbernd.com;
+	mf=PGJlcm5kQGJzYmVybmQuY29tPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:YHfQmN4LsRFJzOSZSo/oMQTj5ugatQs5nWTsD1qoFf5MPCX
+	cQGhGMiKGdv4F0ozuk58mdGCklYl0TP1T4ht1i3Z0osfH7XXL/SLzMw7wAjRMJWH
+	zn/pn69W/FT+VBZ99TcToAzJgnLifdsDX7uCKZ1XemeZ9a57xwmTTm7oApwNE6o8
+	fpF2OeoHmCC45BmLmHu1LeKXKbYSIZ4Mm41EirwgWfYt1KwQJ+Q6Ww0Rs4XYd/U7
+	5nQsO72IOh4GN8/tileyjn18l0zEihxMdxe0GXWl03CHKki51QX+Z4Gx9UrZ/Arv
+	QAEOYnJ10q3pxt14PrS2Ey6+BMhLoQy2zeR5FQg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:KkOq62/YgcnB87MoobOLMeyAixNDpdCoXarR0LMK55Y=:OmWpLLMVjMoH7jXX7lyPXjcxIgjl04BAqkPN7VyxoDw=;
+X-ME-Sender: <xms:ROT-asMojmkGO3_BciX-o5USYFQoNlo-CUKALIb66lcr6dngZgJiVw>
+    <xme:ROT-agybCjFQnRtc12dnYM2M6BWhRxWLILTj2MNtquNP-uNRvqiSUB7EeJ8lfjJH5
+    nAbpg2o2svuGkRy5d3QM54Y8nJBJEilY3Va1YrWgT6ULP3B8PcycA>
+X-ME-Received: <xmr:ROT-atsBIm0asKahRToy08PNaZo3AbPZ9YhbRYuFpKjcc_ANpRcyjYbkIyDL8shNUmPjlqj1zGEVNXg148QliZM2ps8mRqqKGVWINzmWZeF0nwh6Eg>
+X-ME-Proxy-Cause: dmFkZTEQJYt5lPRvq4JL5uLvq5aPC2/o5w70wIEhSvxhrIltx5Ji6yBpQQTcgVXr7s33w6
+    hpzwb95JK6r551s8Dbmm0u1/yBqykkLDC1OWKeFdDsQOiTopwzM08I0ftwgL6vYtUsLJSt
+    UhSoVtWft/IB0ZJ8g84z8/2JxWZB6hys6C67G01DFrPZ+F5ud8H1dSypTG9AlJShKWCkkV
+    Gm7tCnON4OdOsanBR5uZQD8D/NXuWuEQk6sxEsvBtaDzf5dLBzewXyBn0rky1vAQI7oQ42
+    Ykhfd6DxFu1HfMDG3V8Pv1t8sioUEAdgPdlatC8zSTpq/NanHJgSerN7sUbIBUKfbWyPHs
+    hloVF/U+xrA0rPkjdSNgXYnkqDS4MLafvs1X62f3i5QBKMVEHm/93b/SD/OtFSyjMJEqU7
+    c1amhottGrx+IHPKSzCcR31FgxtnYLctlO9VjAcf52JIMlznCqqX+jps6tcU/Dwopp5EPq
+    gsUzOc80cQwlV77vPPn+iW+HOJMxJC1/Z6TwtvuKelconCmTyi7QmnbfjrLnaM0KbkTIo5
+    biNKDMUnEU/xyXU+bWCzigi/KjEouxdC6wyErpq933CsSmQh+ZpgbNdM+flGNBQ+CIy138
+    oMZMOILqYiQsALBtEcgLfX3PxIxDIVH6RNGDsVQZm97visllIwXJFNd8yFsw
+X-ME-Proxy: <xmx:ROT-ah7an_N_Cy2E3jVlODenkqkO4oVQ6lPxfgY12aSEdJrVkZ2cOQ>
+    <xmx:ROT-akTmmfiowEDdWsQQvohvjRhiuVS-vgfzTcCL-mYL-POdZiheeg>
+    <xmx:ROT-aooJRXhHWEjqssnRDOwXPw8qaHWZPW34cDGhv9vaxmm27KaSPQ>
+    <xmx:ROT-aqKeQVaz2lLmWXHdlCfn_yp5QinM2B1tq9rwQqQZeNg1RREp5Q>
+    <xmx:ROT-avGHcQ442MOexJOykVOFvMJ86T-7gnnAk1FWwj05B-sP4VSKvESR>
+Feedback-ID: i5c2e48a5:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 06:57:55 -0500 (EST)
+Message-ID: <5f5d6c24-2bb0-4af9-8ece-d53cc6e612f6@bsbernd.com>
+Date: Thu, 19 Nov 2026 12:57:53 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,49 +119,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110070627.217946-1-inochiama@gmail.com> <20261113072305.220610-1-chenyou910331@gmail.com>
- <av2M-6w1u5mOyqDM@inochi.infowork>
-In-Reply-To: <av2M-6w1u5mOyqDM@inochi.infowork>
-From: =?UTF-8?B?6JGJ5a645L2R?= <chenyou910331@gmail.com>
-Date: Thu, 19 Nov 2026 19:56:01 +0800
-X-Gm-Features: Aa3M54riNxFLUFg84fAOhmY6bjWZvKgiNBwAs9BSg1G7sMgZ9DPXd0hZVBFcQ9M
-Message-ID: <CAKspUh+LLonm90ywMGrRUcsLDE+Axw64qjs0OtDB_ySUsrPPQw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] usb: dwc2: Add USB DRD support on CV1800 Series SoC
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	chen.wang@linux.dev, pjw@kernel.org, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, hminas@synopsys.com, 
-	gregkh@linuxfoundation.org, looong.bin@gmail.com, 
-	dinguyen@opensource.altera.com, paulz@synopsys.com, balbi@ti.com, 
-	dlan@gentoo.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] fuse: don't wait for a sync-init mount in
+ non-blocking reads
+To: Yun Wang <arsenova@a7snv.com>
+Cc: Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261117075632.59959.p12-0-arsenova@a7snv.com>
+ <20261116235747.60403-1-arsenova@a7snv.com>
+Content-Language: fr, en-US, de-DE, ru-RU
+From: Bernd Schubert <bernd@bsbernd.com>
+In-Reply-To: <20261116235747.60403-1-arsenova@a7snv.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 07:36:04PM +0800, Inochi Amaoto wrote:
-> If there are no other bug in this patch. There should be no new
-> version. The device probe problem is not a very big one. And I have
-> no idea about these thing. Since my time is tight, you are free to
-> send the fix for the device mode.
 
-Thanks, I will work on it.
 
-> It depends, if you accept setting this to host, I can add them
-> at once. (Note: once set, no change will be accepted).
+On 11/19/26 12:36, Yun Wang wrote:
+> Since commit dfb84c330794 ("fuse: allow synchronous FUSE_INIT"),
+> fuse_get_dev() waits until the mount has installed the channel when
+> FUSE_DEV_IOC_SYNC_INIT was used on the device.  fuse_dev_read() and
+> fuse_dev_splice_read() call it before fuse_dev_do_read() looks at
+> O_NONBLOCK, so read(2) or splice(2) on an O_NONBLOCK sync-init device
+> that is not mounted yet sleeps until the mount or a signal, instead of
+> returning -EAGAIN.  Commit 9f6f44aa5a58 ("fuse: don't block in
+> fuse_get_dev() for non-sync_init case") fixed the same hang for
+> devices without sync init, which LTP's read_all hit with O_NONBLOCK
+> reads of /dev/fuse.
+> 
+> Add fuse_get_dev_nowait(), which returns -EAGAIN instead of waiting for
+> the mount, and fuse_get_dev_read(), which uses it for O_NONBLOCK files,
+> and call the latter from fuse_dev_read() and fuse_dev_splice_read().
+> fuse_get_dev() is unchanged and keeps waiting for its other callers.
+> 
+> A non-blocking read before the mount now gets -EAGAIN, the same as
+> after the mount while no request is queued.  Blocking reads still wait
+> for the mount.
+> 
+> Fixes: dfb84c330794 ("fuse: allow synchronous FUSE_INIT")
+> Signed-off-by: Yun Wang <arsenova@a7snv.com>
+> ---
+>  fs/fuse/dev.c        | 12 ++++++++++--
+>  fs/fuse/fuse_dev_i.h | 14 ++++++++++++++
+>  2 files changed, 24 insertions(+), 2 deletions(-)
+> 
+> diff --git a/fs/fuse/dev.c b/fs/fuse/dev.c
+> index 3641abb90d..23ba4f432d 100644
+> --- a/fs/fuse/dev.c
+> +++ b/fs/fuse/dev.c
+> @@ -1705,11 +1705,19 @@ struct fuse_dev *fuse_get_dev(struct file *file)
+>  	return fud;
+>  }
+>  
+> +/* read(2) and splice(2) of an O_NONBLOCK device don't wait for the mount */
+> +static struct fuse_dev *fuse_get_dev_read(struct file *file)
+> +{
+> +	if (file->f_flags & O_NONBLOCK)
+> +		return fuse_get_dev_nowait(file);
+> +	return fuse_get_dev(file);
+> +}
+> +
 
-I would prefer peripheral as the default. The vendor kernel uses
-device mode by default, and the bare Duo 256M is usually connected to
-a PC over USB-C (RNDIS); host mode needs the IO board or an OTG
-adapter.
-If the "host" mode is used, it means that anyone wanting to use the
-product would have to purchase an additional I/O board=E2=80=94that doesn't
-seem like a very good option, does it?
+This is just a style comment, for me "fuse_get_dev_read" sounds weird.
+Maybe call this fuse_get_dev() and rename the other to _fuse_get_dev()?
+And both could be in the header file?
 
-Since the peripheral default only works once the boot role is fixed,
-I will send the fix together with the Duo 256M DTS change (dr_mode =3D
-"otg", usb-role-switch, role-switch-default-mode =3D "peripheral") as
-one series on top of yours. Is that fine with you?
+>  static ssize_t fuse_dev_read(struct kiocb *iocb, struct iov_iter *to)
+>  {
+>  	struct fuse_copy_state cs;
+>  	struct file *file = iocb->ki_filp;
+> -	struct fuse_dev *fud = fuse_get_dev(file);
+> +	struct fuse_dev *fud = fuse_get_dev_read(file);
+>  
+>  	if (IS_ERR(fud))
+>  		return PTR_ERR(fud);
+> @@ -1730,7 +1738,7 @@ static ssize_t fuse_dev_splice_read(struct file *in, loff_t *ppos,
+>  	int page_nr = 0;
+>  	struct pipe_buffer *bufs;
+>  	struct fuse_copy_state cs;
+> -	struct fuse_dev *fud = fuse_get_dev(in);
+> +	struct fuse_dev *fud = fuse_get_dev_read(in);
+>  
+>  	if (IS_ERR(fud))
+>  		return PTR_ERR(fud);
+> diff --git a/fs/fuse/fuse_dev_i.h b/fs/fuse/fuse_dev_i.h
+> index 4b412a7622..bb7e10656a 100644
+> --- a/fs/fuse/fuse_dev_i.h
+> +++ b/fs/fuse/fuse_dev_i.h
+> @@ -367,6 +367,20 @@ static inline struct fuse_dev *__fuse_get_dev(struct file *file)
+>  	return fud;
+>  }
+>  
+> +/*
+> + * Like fuse_get_dev(), but don't wait for the mount of a sync-init device:
+> + * return -EAGAIN instead.
+> + */
+> +static inline struct fuse_dev *fuse_get_dev_nowait(struct file *file)
+> +{
+> +	struct fuse_dev *fud = fuse_file_to_fud(file);
+> +
+> +	if (unlikely(!fuse_dev_chan_get(fud)))
+> +		return ERR_PTR(fud->sync_init ? -EAGAIN : -EPERM);
+> +
+> +	return fud;
+> +}
+> +
+>  void fuse_iqueue_init(struct fuse_iqueue *fiq, const struct fuse_iqueue_ops *ops, void *priv);
+>  
+>  struct fuse_dev *fuse_get_dev(struct file *file);
 
-Regards,
-Chen-Yu
+
+Besides of pure style comment (and Miklos might have a different
+preference), looks good to me.
+
+
+Reviewed-by: Bernd Schubert <bernd@bsbernd.com>
