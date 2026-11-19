@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795127405;
-	b=tP0UNahGL1hI41GAoTE3mvjwslgJ8HpGzT9SdFlcihLImk3Mcxa+RyeJtslOzm00TBtJ
-	 eF1OeTBDi7pIhV9BeBS4Y5ERwsChr4yd/ahbAsVksJHK4tCr0P/15ppnwOE24Bv9X84oo
-	 fiqjFsuVqTGcCG6V0dOeelXB07+nah1gviEtyiEinvIsgz94FwM8LE1wPo0quyAMNXMMX
-	 uxkT5AK3yLHZeqUezZ9J9DTwa7k1u5T5wKGvg9+30tef9d4BDuDYIIk+buJ73LtKXFLj/
-	 3WL7kDCEUiy9ITXBRSYMbNew1dLDm4ppIoB1JPiVEBEzNhA2y0OXP5lV2SMUdxTwpog==
+	t=1795127409;
+	b=uv67kYkEzv/AQzoX9+hGKVZNrwBbyMvSO2vPuRJrlxPuCyLAnZ0NjKRaCC9u4eohxVdN
+	 Fg0rqN3TfV+Sm1yD+wVL6zBhfB6sKXHe6cweOexy3xxmUkJ4CehxBfY7E1LyreXyMIFUo
+	 TLcMmVyvTiQCSLTkFoH4UF1xvctqS24OtNBPgpps8jXTbZzDWQnK5ooysKCkcNc53cFM2
+	 MLFycDslb4PmOvDXNxThbWxXU1+jYDqe26EJfnzga1xKQKNzGKDersVxCwUOMTz9Jm9sq
+	 SirWuEodV/P5LqRE6PnRV3S7nm2yRtusR8BFgoD4hN5yOQiT24SEMhitNBys6InOZYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795127405;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795127409;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=PAsHlrKspx+iFNr2pdz4faPpej0PByWphtdAdAsaCnE=;
-	b=Dj8X5C1PhaGTWaxqxzbeG7UgOXSDUBSI5Aq+3RXkLCRNKhx599qX9AT4EQRA+9CD78MZ
-	 kPe3JsQOM9yOT4LkggwCChPObt+roNwsMcU3N8g7Vpl7fFfhKqLRvw8OffGgWMpcBipxH
-	 TcWtFpIHI/u3EcO96xZa6aA5fvJJFQQoVvNJ51gIZe9LGJc8GNYl14eUtetW5B30huJNf
-	 3e5XlbNSRBnl0r4USY/H4bjmhbT2T6phXzebZ8Kh2qVXqb2rvCc8FZm6EpPwUMi0pzj3X
-	 uQ05fIeETVrzG9EI+M0rA/swYpZ61htE/epdZOMlc1RFMzW5WVzra7WXqsAnc8HXg/w==
+	bh=S7dKCPHiSRAWQ9ddU1m1cmm8om8WXp60NnZvtNk0cmw=;
+	b=3pBIQAmUCKtGQnEpme1nW/G0wFffS6OJghDVCDyMuy5oEm8Wd78E5BLgJb45dngjpsxW
+	 FablV6B4j7tqCYNt+1ssr52+cP8PRQhhlgGNo3KgB50cDxASDeUftreKqrKP5Vx0KvsuH
+	 t1dCnMZ7bB7q4P56gFzdkyOmP1w1u1jC1/w4GcS5nLSVCnKq+SCZ21r4h+4/r2f7+36kc
+	 oZoWgYUUcYm4mNWdeLWteD+sG7HrFxP4F6qTrGrEVvHkaVmijx3P4hMqTsHcY32XWgrom
+	 qkPt7fPeSizFG5C5wGn4HnzOalAy1s/cVWJYO75DjZLuQZteUR0AKcaEcK9Rp9wA7vA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etuYKQjc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BStRh6/Z";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADCA7606A325;
-	Thu, 19 Nov 2026 22:30:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FD73606A332;
+	Thu, 19 Nov 2026 22:30:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=etuYKQjc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83ACF1F000C0;
-	Thu, 19 Nov 2026 22:30:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BStRh6/Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFBCE1F000C0;
+	Thu, 19 Nov 2026 22:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795127405;
-	bh=PAsHlrKspx+iFNr2pdz4faPpej0PByWphtdAdAsaCnE=;
+	s=k20260515; t=1795127408;
+	bh=S7dKCPHiSRAWQ9ddU1m1cmm8om8WXp60NnZvtNk0cmw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=etuYKQjcK1oYRgavxX4Vr/1It0/68fKPeJ0q42zp97zkbuqpSoo7LJm/QNVOHxOwc
-	 b8Ym8Zo4yZTr4SmSi7NOgTM6UPixP8g8KfLpkCb/AYOAexpA7KTI5oH9B8u9mpxCvF
-	 13W+b/d08aWloyfTHJTW5PT0zf6rArwpF/vBv+RGFeCSTavzlU/WMzU2giDheNbqRE
-	 mFQ+TMPf7281WByKHkNzFzxYEGFh7qzxBiPWO//2hKVyhQjFZqKYXkkq6fltxYLOi5
-	 VVOjirT+hB+/YBbAFerrT/p3gmN2xGDothWbM/apV51tFEyFd86yLhNe6FPxcUIexu
-	 kAml1vbXlN2FQ==
+	b=BStRh6/ZPu8YUNaLdgzXpLfOkH6VBNGjGnCqMgnCSlHwALLD92PyhzvDinli1yPmA
+	 LJoX7G8n67LAdx9UTp8NpLU/yldY1TZ+fBpHUeaPib9iVqJq+xzquK3OBaqnr0D9Bm
+	 I+GXeFrFyv9zbUYdD2sMKQMRtFdLfMLtilfFSe+hQDHX+KUmcb438wGQM6lkQvlVIa
+	 yqZog9C7RygE81O08qU3YR5thtx/cuMVluO9nTjziXY0za+8Y+O/09Z2IRsMGoE/Sk
+	 JuzGorECW81Nc9LaKNEa9Kf2O6oSJyiM0HpYwfuhLXlyWmoKNecbzkgKnWNHk59QI1
+	 dtbUOKVxvi2uA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773E03808209;
-	Thu, 19 Nov 2026 22:30:05 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43F93808209;
+	Thu, 19 Nov 2026 22:30:08 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,55 +54,37 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH bpf v2] selftests/bpf: Fix bpf-gcc CO-RE relocation in
- verifier_sockmap_mutate
+Subject: Re: [PATCH net-next] net: lan966x: extract IFH fields with word loads
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179512740429.3899857.16134777898494454791.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 22:30:04 +0000
-References: <20261117122417.340562-1-jiayuan.chen@linux.dev>
-In-Reply-To: <20261117122417.340562-1-jiayuan.chen@linux.dev>
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: bpf@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com, martin.lau@linux.dev,
- song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
- emil@etsalapatis.com, ihor.solodrai@linux.dev, shuah@kernel.org,
- rhkrqnwk98@gmail.com, mhal@rbox.co, john.fastabend@gmail.com,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+ <179512740728.3899857.6173388789030590538.git-patchwork-notify@kernel.org>
+Date: Thu, 19 Nov 2026 22:30:07 +0000
+References: <20261117-lan966x-ifh-word-loads-v1-1-93063ec6b701@microchip.com>
+In-Reply-To: <20261117-lan966x-ifh-word-loads-v1-1-93063ec6b701@microchip.com>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: horatiu.vultur@microchip.com, UNGLinuxDriver@microchip.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
 Hello:
 
-This patch was applied to bpf/bpf.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 17 Nov 2026 20:24:13 +0800 you wrote:
-> bpf-gcc fails to load test_trace_iter_unix:
+On Tue, 17 Nov 2026 13:49:34 +0100 you wrote:
+> Every frame the CPU receives goes through lan966x_ifh_get() for its
+> source port and timestamp. lan966x_ifh_get() builds each field one bit
+> at a time, with a 64 bit shift for each bit.
 > 
->   Error: #766/6 verifier_sockmap_mutate/test_trace_iter_unix
->   libbpf: elf: skipping section(3) .data (size 0)
->   libbpf: elf: skipping unrecognized data section(18) .comment
->   run_subtest:PASS:obj_open_mem 0 nsec
->   libbpf: prog 'test_trace_iter_unix': relo #0: insn #0 (LDX/ST/STX) accesses field incorrectly. ...
->   libbpf: prog 'test_trace_iter_unix': BPF program load failed: -EINVAL
->   libbpf: prog 'test_trace_iter_unix': failed to load: -EINVAL
->   libbpf: failed to load object 'verifier_sockmap_mutate'
->   run_subtest:PASS:unexpected_load_success 0 nsec
->   validate_msgs:FAIL:1014 expect_msg
->   VERIFIER LOG:
->   =============
->   0: R1=ctx() R10=fp0
->   ;  @ verifier_sockmap_mutate.c:124
->   0: <invalid CO-RE relocation>
->   failed to resolve CO-RE relocation <byte_off> [4] struct bpf_iter__unix (0:0 @ offset 0)
->   processed 1 insns (limit 1000000) max_states_per_insn 0 total_states 0 peak_states 0 mark_read 0
->   =============
->   EXPECTED   SUBSTR: 'cannot update sockmap in this context'
+> On a lan9668, this bit loop takes about an eighth of the CPU time spent
+> on receiving a small frame, which limits the RX frame rate.
 > 
 > [...]
 
 Here is the summary with links:
-  - [bpf,v2] selftests/bpf: Fix bpf-gcc CO-RE relocation in verifier_sockmap_mutate
-    https://git.kernel.org/bpf/bpf/c/7543d8d314b2
+  - [net-next] net: lan966x: extract IFH fields with word loads
+    https://git.kernel.org/netdev/net-next/c/6d53e01dd9bb
 
 You are awesome, thank you!
 -- 
