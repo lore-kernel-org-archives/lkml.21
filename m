@@ -1,71 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.157.51.134
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107193;
-	b=U5EqUQbNFw2BkYgturUr5JxvXFwAvLY5PxHJQeEid0MQsaN+vuYdiSJlGSSJtv464z6y
-	 PiDICYtiHJOX/x8xnBFUcd7ExYbqJ5p+3zNLsfo/PaUsIC5fD7eCEYS36T77XjZVbP59J
-	 WdqryfkIYw+wmORz7/kIBrdpRWaiaITEybNtsf/3nBjj/NEMEejYMXAQeyciMWUtC44Jq
-	 Z69mpJEVOtI5Op/3EDe3Mqd5xy9DtCtSazZGNOlebCBQobpU+htEj2lZwmWXDwTPJaGiu
-	 gaPfO9XgcXdu4EBCQO0wGCOtcDE5Zk2TERI6Z45fsaDu62mUd7FDTzfZ6v93iHAqLGw==
+	t=1795107223;
+	b=OurcQMS4E1LzrEDBgqj3hV448YYo1/eC4UZyRMGEdp4AguOXQQbu0/MtEsRhIfl5bwv9
+	 sgoavSc3xMZKzlW6mCgFST1xLW2LkkAno9SXei5QBK1zXyELhJy6A6OfA+Oz1bitZ9Gfa
+	 yQb1+ZyBK/uB1nrz7iE20ZYxPUZQsFE5Go0XQhfnXjoaJvpCM9ANGsyCnEA9p+1ZT/kgy
+	 BX0eY/dwDOXW8hB3RdNk6YfnoRuyZI0XV0lCzaswIJG31tjlgK90lxqVhCPBc4Zm3MURa
+	 k1lmpHQcsoTpBGvr09z9BT9HDLijsEIck4HgT54EH7wyyNZVpbuKPI2PmNJIEMEXzGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107193;
-	h=DMARC-Filter:Received:X-Titan-User-Uid:DKIM-Signature:X-AuthUser:
-	 Received:Date:Feedback-ID:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:X-F-Verdict:
-	 X-Titan-Src-Out:X-CMAE-Score:X-CMAE-Analysis;
-	bh=LXr0fzoeh9rg7YkBVzQjCjsu8RKr65SIM6KsJET29LI=;
-	b=YecBTN2Nnx8J1ktjJNJnyTf4N2wD6APgM52vFIYhYk6ygXj3A9mgic69EnfnUYTp9pua
-	 iOEGP9F0d5AFptcGmmZvM3oLg1BAn7kN8WWARoZ0Ankn32K/WqGOScCX1j9L9wft1tLnT
-	 5BouMwAuXV9wCSjHvFMn69bh7NHWRwjHJKA6w8xISZIsiDYPzfDGMaqkA3gg1jrN/+hiA
-	 b0X39WH2Yfpk/a/CHO4OYJa7YkopcyqZKAGP0zqxuc9Th2/HcTWd/HOboiMnHfntzpf/k
-	 8Na8bT9zDgarqPZ1zjphO9ibwkbZPg/WF0iJjS++qtrxnx12X8T5TZPWnusees4uoKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107223;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=o5ro9sxBOzh3u1cTo2kPlByJv2MwyjzC2PC0yLmvz+0=;
+	b=f6RD/lrJdQ93oGB6mwchlVlNuEXw4wnO0ra8VrdyPEE/4I1jk1VzCI+900ztwaQm+1C4
+	 24QpC0uQXSuLi9+xH2qEMw7KSowKa4gooQXc9k4HBesL3Mz7QLys2OXSv7O349rWudCAq
+	 hieTStEQmhWqpV8VFCBrenrrHd+E1Iz3ysM9lia6bMWzPGjigPaT/j5i2bk2g6oj2wroz
+	 76JkvUo6vqiVZNziD17dEfM1IGaygKWpCjua6jRzwf8m9h6ijOVSNGqPOFLVzm2tyDkoo
+	 89j2aDNxTnY2ZcM2gmraL4LO7Z1m/npcoR5H+Vf+qV00UqUvMwcmFPDe7rgaPI89aGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=techsingularity.net;
-	spf=pass smtp.mailfrom=techsingularity.net;
-	dkim=pass header.d=techsingularity.net header.i=@techsingularity.net header.a=rsa-sha256 header.s=titan1 header.b=J4gBOHAI;
-	arc=none smtp.remote-ip=35.157.51.134
-Received: from mail36.out.titan.email (mail36.out.titan.email [35.157.51.134])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz77kTyU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A94B5606A33D
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:53:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A94B5606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=techsingularity.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=techsingularity.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BF03606A320;
+	Thu, 19 Nov 2026 16:53:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=techsingularity.net header.i=@techsingularity.net header.a=rsa-sha256 header.s=titan1 header.b=J4gBOHAI
-Received: from localhost (localhost [127.0.0.1])
-	by smtp-out0101.titan.email (Postfix) with ESMTP id 4jVl001Vcgz3wYD;
-	Thu, 19 Nov 2026 16:53:04 +0000 (UTC)
-X-Titan-User-Uid: eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..vleOuQm0NoZGPjU5.IQ4wRh866GosYmvz1VG8iEp1Y6phRxIo62Hgo6eH7OSsgbUz-fDGMyOlqhD58HGHurzUqN-dihoyALlJd3rqkfH4G5onvhSpZWT6lKSBpnq4uROuA-S64NqqXA.kdchXcTUrEyV93oG5r99Qw
-DKIM-Signature: a=rsa-sha256; bh=LXr0fzoeh9rg7YkBVzQjCjsu8RKr65SIM6KsJET29LI=;
-	c=relaxed/relaxed; d=techsingularity.net;
-	h=mime-version:in-reply-to:date:cc:references:to:message-id:from:subject:from:to:cc:subject:date:message-id:in-reply-to:references:reply-to;
-	q=dns/txt; s=titan1; t=1795107184; v=1;
-	b=J4gBOHAIcjX9Bud3Vcim/VeSZX1B3gVf62DgWzW6RsCcbjkfmtsF0TO/Oophdjh7B6hWwwGB
-	81iihpnrKK47b2ZOsg5C1M6dxtek5J8BOoFzM3uhY0s9xGa7nKvckeJvD+yMLsjRLL+oru3nycJ
-	ODaTXnBJtg0jhTAsD/SzLmSA=
-X-AuthUser: mgorman@techsingularity.net
-Received: from techsingularity.net (unknown [84.203.231.68])
-	by smtp-out0101.titan.email (Postfix) with ESMTPA id 4jVkzz3dTCz3wYT;
-	Thu, 19 Nov 2026 16:53:03 +0000 (UTC)
-Date: Thu, 19 Nov 2026 16:53:02 +0000
-Feedback-ID: :mgorman@techsingularity.net:techsingularity.net:flockmailId
-From: Mel Gorman <mgorman@techsingularity.net>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Ingo Molnar <mingo@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Seiji Nishikawa <snishika@redhat.com>, Mian Yousaf Kaukab <ykaukab@suse.de>, 
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] sched/rt: Do not account migrate-disabled tasks as
- pushable
-Message-ID: <av8WflarlESqUPM2@techsingularity.net>
-References: <20261113160655.2909479-1-mgorman@techsingularity.net>
- <20261117152026.GI1813469@noisy.programming.kicks-ass.net>
- <20261117152414.GG1922751@noisy.programming.kicks-ass.net>
- <av1q-2D_tdi9oNEj@techsingularity.net>
- <av7Pj6uBsSVAoxbZ@techsingularity.net>
- <20261119150812.GT2668200@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz77kTyU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7EEA1F000C4;
+	Thu, 19 Nov 2026 16:53:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795107223;
+	bh=o5ro9sxBOzh3u1cTo2kPlByJv2MwyjzC2PC0yLmvz+0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=Gz77kTyULd22WG+7E9JGS+7bco+ZRwUyrBbK8XV/6pVeRgCOLYLkRxGZ5f5tqtG6i
+	 IMe3V9yMjtdkoZWtKIXKdEHEfvp0vWHnNEUDPN7IATtQP+tUc2vIO0JNaqx4n+iq4J
+	 0g+wIZ4V3oYX6Y8joNThwzshVQGrJ+o6VJ9hyXMRhrveGpjl4rgj8sAtbgMMlogx7Z
+	 YcJAwwOw962JKiRbO9YReGkczcBzceCMj7FzlmJvDa6Dpn1J7/PRytOBKmo0Vocska
+	 i48u5z5SggFRqBmF9PqDtXFjdEVroBE7nrGDld4ABknnZLA5DoBhtdbZPaYQ2q+nbi
+	 WeVlPmNLgBHlQ==
+Date: Thu, 19 Nov 2026 10:53:41 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Mario Limonciello <mario.limonciello@amd.com>
+Cc: Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Oz Tiram <oz@shift-computing.de>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, Lijo Lazar <lijo.lazar@amd.com>,
+	Reza Nikzad Chaleshori <rezanikzadch@gmail.com>
+Subject: Re: [PATCH v7 1/3] PCI: Cache bridge firmware secondary bus number
+Message-ID: <20261119165341.GA809730@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,94 +59,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-15
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119150812.GT2668200@noisy.programming.kicks-ass.net>
-X-F-Verdict: SPFVALID
-X-Titan-Src-Out: 1795107183957405737.2081352.6137690473013602418@prod-euc1-smtp-out1004.
-X-CMAE-Score: 0
-X-CMAE-Analysis: v=2.4 cv=KNjj5FFo c=1 sm=1 tr=0 ts=6aff2970
- a=FmVQ1k5Ded4TyWNjOMyd8g==:117 a=FmVQ1k5Ded4TyWNjOMyd8g==:17
- a=Q9fys5e9bTEA:10 a=CEWIc4RMnpUA:10 a=LALsk9Mjg1orSs__qvoA:9
- a=PUjeQqilurYA:10
+In-Reply-To: <20261112-vfct-regression-v7-1-69b1e0cf45c2@amd.com>
 
-On Thu, Nov 19, 2026 at 04:08:12PM +0100, Peter Zijlstra wrote:
-> > set_cpus_allowed_common only sets cpus_ptr for SCA_MIGRATE_ENABLE|SCA_MIGRATE_DISABLE
-> > and **nr_cpus_allowed is not changed** which is the assumption the
-> > straight-forward patch relies on.
-> > 
-> > I do not recall looking too closely at migrate_disable or forgot why it's
-> > like this so I kept looking to see where SCA_MIGRATE_ENABLE originated
-> > (presumably Set Cpus Allowed (SCA) instead of a typo of Ska) leading to
-> > af449901b84c ("sched: Add migrate_disable()") which was no help explaining
-> > the why. It's there with a tonne of warnings about locking violations
-> > but does not explicitly state why. Best is this bit
-> > 
-> > -       if (p->nr_cpus_allowed > 1)
-> > +       if (p->nr_cpus_allowed > 1 && !is_migration_disabled(p))
-> > 
-> > That sortof suggests the patch relied on the behaviour to distinguish
-> > between nr_cpus_allowed == 1 and nr_cpus_allowed is equivalent to 1
-> > because if migrate_disabled even though p->migration_enabled existed. I was
-> > under time pressure at this point so had to draw the line and stop. It's
-> > not particularly clear why set_cpus_allowed_common() is like this but
-> > get_push_task() still checks
-> > 
-> > 	if (p->nr_cpus_allowed == 1)
-> > 		return NULL;
-> > 
-> >         if (p->migration_disabled)
-> >                 return NULL;
-> > 
-> > It's not clear at all to me why both are needed. I expect if I kept digging
-> > that I would find something clever but the obvious fix does not work,
-> > or at least if it does work, it's not very obvious why it's ok and has
-> > no side-effects.
+[+cc Lijo, Reza]
+
+On Thu, Nov 12, 2026 at 03:54:53PM -0600, Mario Limonciello wrote:
+> Drivers such as amdgpu and radeon need the bus number firmware assigned
+> to a device to match it against firmware tables like VFCT. The PCI core
+> may renumber buses (e.g. with pci=realloc), after which the runtime
+> number no longer reflects what firmware programmed.
 > 
-> Bah, and I cannot remember either. Let me have a poke, see if something
-> bubbles up.
+> Record the firmware secondary bus number on the bridge's struct pci_dev
+> the first time pci_read_bridge_windows() reads the bridge's bus numbers,
+> which happens before any renumbering. Devices behind the bridge can then
+> retrieve the original bus number via their upstream bridge.
+> 
+> Only store the value if it is usable: ignore unconfigured (0) and 0xff
+> secondaries. Use a separate "sampled" flag so that later rescans, which
+> would read the renumbered runtime value, never overwrite the cached
+> number, and a "valid" flag so users can tell whether anything was
+> recorded.
+> 
+> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
+> ---
+>  drivers/pci/probe.c | 16 ++++++++++++++--
+>  include/linux/pci.h |  4 ++++
+>  2 files changed, 18 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 27008e2ea5afc..f20a4b8f7a23b 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -505,14 +505,26 @@ static void pci_read_bridge_mmio_pref(struct pci_dev *dev, struct resource *res,
+>  static void pci_read_bridge_windows(struct pci_dev *bridge)
+>  {
+>  	u32 buses;
+> +	u8 secondary;
+> +	u8 subordinate;
+>  	u16 io;
+>  	u32 pmem, tmp;
+>  	struct resource res;
+>  
+>  	pci_read_config_dword(bridge, PCI_PRIMARY_BUS, &buses);
+>  	res.flags = IORESOURCE_BUS;
+> -	res.start = FIELD_GET(PCI_SECONDARY_BUS_MASK, buses);
+> -	res.end = FIELD_GET(PCI_SUBORDINATE_BUS_MASK, buses);
+> +	secondary = FIELD_GET(PCI_SECONDARY_BUS_MASK, buses);
+> +	subordinate = FIELD_GET(PCI_SUBORDINATE_BUS_MASK, buses);
+> +	res.start = secondary;
+> +	res.end = subordinate;
+> +
+> +	if (!bridge->fw_sec_bus_sampled) {
+> +		bridge->fw_sec_bus_sampled = true;
+> +		if (secondary > 0 && secondary < 0xff) {
 
-I'm assuming that the patch I sent is not completely wrong and that
-the RT_PUSH_IPI check is somewhat reasonable. There might be a better
-potential fix somewhere.
+A bridge with secondary==subordinate==0xff (with a single bus 0xff
+below the bridge) is actually valid, isn't it?
 
-After a break it occured to me that this could originally have been about
-locking and it's sortof plausible.  migrate_enable/migrate_disable can
-only be called from the task, not just because of the API, or because
-it would be an odd thing to try remotely as it's completely irrational.
-__migrate_enable protects the p->migration_disabled only with a barrier and
-the code itself assumes a task only updates its own p->migration_disabled
-and races on memory ordering are harmless. The actual push only happens
-in stopper and appears to use MDF_PUSH as a deferral mechanism (reading
-a7c81556ec4d ("sched: Fix migrate_disable() vs rt/dl balancing")).
-I'm guessing it was deferred because an immediate move is expensive, and
-actively interfering with a potentially higher priority task is a definite
-cost with uncertain benefit.
+I guess we could check for a config read failure with
+PCI_POSSIBLE_ERROR(buses), but that would open the can of worms about
+what we should do with the *rest* of this function if it failed.
 
-I think I could probably pick it apart given enough time but I stopped
-looking at it again because -- it might be like this just because it's cheap
-- migrate_disable/migrate_enable has to be cheap and deferral to stopper
-is relatively cheap and while I didn't check for races, the consequences
-of the race I could think of are all harmless.
+I'm not sure we need to check "secondary > 0" either; obviously a
+bridge with secondary bus 0 is not valid, but if the idea is to match
+firmware's idea of a bus number, it seems like we need to capture the
+bridge configuration at FW/OS handoff.
 
-The cost front is also on the other side, using cpus_ptr in set_cpus_allowed_common()
-instead of a full change avoids
+IIUC, the sashiko review [1] suggests that neither fw_sec_bus_sampled
+nor fw_sec_bus_valid is actually necessary.
 
-        cpumask_copy(&p->cpus_mask, ctx->new_mask);
-        p->nr_cpus_allowed = cpumask_weight(ctx->new_mask);
-        mm_update_cpus_allowed(p->mm, ctx->new_mask);
+[1] https://lore.kernel.org/all/sashiko-outbox-212033@kernel.org
 
-There probably still is something hiding in there, it's odd that
-get_push_task checks both but I'm getting confused trying to disguish what
-was intended, what is really there, and the consequences for changing it. It
-is more expensive to update the cpumask properly and p->migration_disabled
-is not protected other than the task only changes its own field but the
-original motivation could simply be -- it's cheap.
-
-I think it's probable the "simple" fix could replace the RT_PUSH_IPI check
-but I'm less convinced that doing the work necessary for that patch to
-work would be still safe or fast for migrate enable/disable.
-
--- 
-Mel Gorman
-SUSE Labs
+> +			bridge->fw_sec_busnr = secondary;
+> +			bridge->fw_sec_bus_valid = true;
+> +		}
+> +	}
+>  	pci_info(bridge, "PCI bridge to %pR%s\n", &res,
+>  		 bridge->transparent ? " (subtractive decode)" : "");
+>  
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index 5ffcf5ce8c966..045157488b8e7 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -363,6 +363,8 @@ struct pci_dev {
+>  	struct pci_slot	*slot;		/* Physical slot this device is in */
+>  
+>  	unsigned int	devfn;		/* Encoded device & function index */
+> +	/* Firmware secondary bus number saved across bridge scan passes */
+> +	unsigned char	fw_sec_busnr;
+>  	unsigned short	vendor;
+>  	unsigned short	device;
+>  	unsigned short	subsystem_vendor;
+> @@ -414,6 +416,8 @@ struct pci_dev {
+>  	unsigned int	pme_poll:1;	/* Poll device's PME status bit */
+>  	unsigned int	pinned:1;	/* Whether this dev is pinned */
+>  	unsigned int	config_rrs_sv:1; /* Config RRS software visibility */
+> +	unsigned int	fw_sec_bus_valid:1; /* Firmware secondary bus number usable */
+> +	unsigned int	fw_sec_bus_sampled:1; /* Firmware secondary bus number captured */
+>  	unsigned int	imm_ready:1;	/* Supports Immediate Readiness */
+>  	unsigned int	d1_support:1;	/* Low power state D1 is supported */
+>  	unsigned int	d2_support:1;	/* Low power state D2 is supported */
+> 
+> -- 
+> 2.43.0
+> 
