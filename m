@@ -1,57 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096353;
-	b=TTeqbQdjn9BqRbNnZvSrW+QqRXV7RfhIc5vE7cy5A2Mc0I7HFfkl71cHMWNquxyD5vTj
-	 vE3bUH6ygbu5dIB7kG06EOvoDDz7GKGn20HoORjBGotIs7EoUkhEtdeAUYCbax+27TWsJ
-	 IqIvf21kbq+GcjI+swK1Tj9keEmehSKZol8bVkB4QVOzIDwD/OdR6S9GDfgn4FYjkz3c2
-	 TV1x0yX8bWX+xAXZpHym4ezNoJbI9A0ofA+uGpwfYte371IkVmUJd3mKYKmjc1jJAOl78
-	 Bkem1liZF606fPYaiYT8jGyC0Fba2M5jx320El0LpQ9Njliv4hNE1pz72AtDJ88UB7w==
+	t=1795096357;
+	b=d1pI9QYKAyQisBMHmonMf6q7SaoitoJt213/4IlfoOKEgEpxQAnGezCnvJYVS3NQQpkh
+	 vlHHT2ZyvUl8t71HL30PFnAp8hcByO7bS/IMIbJFNjAPHrpbBC838b+dyaZIcy+PnstMD
+	 MVJtoH9+R0oHEsh6gC+s3UlrUYwPcbFkPfg2xGHS9An2Vdk5mf7vwDvZ/binMmgimVOjd
+	 fKTeY9Bk3321gc26F+xKetw6HIDsLtMlkzHp8w3ZZX5Vkjp4DuOIhL512RgPuGhR+nCyo
+	 KGocowjOaOIJLNxUjc3sZ33S0u8zXA7NOFLTkgui/YcJeqrDk5KPDnvSAnZDk5jdrrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096353;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=UKOQ7E14OsMkUnf+EX/rvNDiSBgYSQs10TYnXzahgPc=;
-	b=BsgbxplawSIyUy3zS03fN54hbzCQIT76TVYLpo8z+yiPhRpnbH7UAcbnm8WzvqHOEbdj
-	 OkwVpHrFi0EjJi4Nb18YxTP+cEAEmb7rgBMTHNnMgQUu4/RrfQLscwm+IwvlSBjhq2NWc
-	 v5ot7o3uN2ArVR/M9WleAh7tefzzO7u1Er1AkKP7/MyovVJE9ww9cvVLGGHsR7Hkb5bmd
-	 Kl531mShjqVkAGFz/OW5lcr01Agq8dBRE1eoAQGaNmwhiSxeJZBouO7AdMIejEBs4MUit
-	 Tlq0CydLHIVzc61lWPC8eAJZqapdkOaUJcdHIGM8IKGKCLVmCH2qxofJzbQ/NoaNS/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096357;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=H3giZ1HYF1OcJ1XjNTKZ+B+MBp99vdaKlXFDCF5Fp3w=;
+	b=QBA4C+qDQacegXSQuoAA07LiqsZgwPeoBEN81d5nNWb01ZBJEt9TyvzY57bH8eIspEZe
+	 siL8NqXXXhq2hhu49sjmj3GndFLdElPAehjuqOQjWZYEfZt4WavbYuOsJ957yz6b96rAI
+	 lzkQOUmEofuB1bXbANGL6b6JLTY1ZocAcxNj1VCR082zoJVzZWIUtng5a8kG3G1ulGMoN
+	 cCMQwLtn92AaHrN9/rkVcTXEZYrR3D7UcqjgD06RjdUR6HEI+DOPFpJvK4gzQQ+wG0yf1
+	 Nk+dk2oT6i67eBMXDGnZKDPwiYj3mbiZ6fhrl501WHdq3h8W6aWXVMJa/HsuRVsGYDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WqpfWz/7";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=E045uqEM;
+	arc=none smtp.remote-ip=115.124.30.99
+Received: from out30-99.freemail.mail.aliyun.com (out30-99.freemail.mail.aliyun.com [115.124.30.99])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 25142606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:52:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0CE0606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:52:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0CE0606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WqpfWz/7
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 509271F000C7;
-	Thu, 19 Nov 2026 13:52:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096353;
-	bh=UKOQ7E14OsMkUnf+EX/rvNDiSBgYSQs10TYnXzahgPc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WqpfWz/7n3t7+hLvZXP0jy7XcjLXOhJCsEmBiRDMB5fJhAbDFRVwG0Jh0J3qBHRF1
-	 z5pjZRVvJ7hH3dLAdgjm9nUJhvJ7sQr9O4kOeujR1xveGMbHQr+EvosiRb2DPf96rn
-	 Ey/FgSplm8ZpcFdaibpOFTK2z50jBKsX7sUeN2aDxMicVrleQ7uXq42v72zjX77xMV
-	 FLOHbwy1RK3iM9k1XILJc6gZLAUKNPO8ZPjta/cnVsPz6RJ6TyWHihiiD1jqJDXqcN
-	 /JMX/wAQ6xwiy0pTRxxbL15B2tTL4qduYaI3Saefr+HiNbIxK77ZxODaJGcL3SSv4H
-	 2G8f0grAS+QmQ==
-Date: Thu, 19 Nov 2026 14:52:29 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, 
-	Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, Michael Walle <mwalle@kernel.org>, 
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Paul Cercueil <paul@crapouillou.net>, linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH 01/11] nvmem: retain the provider node until device
- release
-Message-ID: <hgntc5ggkvhu7xuq5d3hzeufyxugy25lcqmot2d3q2idysmhhe@if5i3oixucea>
-References: <20261117-submit-nvmem-provider-lifetime-v1-v1-0-3cfbd48812b5@gmail.com>
- <20261117-submit-nvmem-provider-lifetime-v1-v1-1-3cfbd48812b5@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=E045uqEM
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795096352; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=H3giZ1HYF1OcJ1XjNTKZ+B+MBp99vdaKlXFDCF5Fp3w=;
+	b=E045uqEMps4TARFM9nLeOUNIOS677uB0UKq4ABZ0JQqb63QT1rtPLzD53QYzXoLhQwk5yOPH1rLXqZPnGjJQwz26z4697u5ol9UhP6/ZW/IQ9Qobpnqr0yKoKdvzjXZkPu1NNW0bdL3cYXVMyG97oLbRYWcD0ZQ/fYBv0+PhaG4=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R801e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=fangyu.yu@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0XF3fKam_1795096347;
+Received: from localhost.localdomain(mailfrom:fangyu.yu@linux.alibaba.com fp:SMTPD_---0XF3fKam_1795096347 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 19 Nov 2026 21:52:29 +0800
+From: fangyu.yu@linux.alibaba.com
+To: gong.shuai@sanechips.com.cn
+Cc: alex@ghiti.fr,
+	andrew.jones@linux.dev,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	baolu.lu@linux.intel.com,
+	fangyu.yu@linux.alibaba.com,
+	guoren@kernel.org,
+	iommu@lists.linux.dev,
+	jgg@nvidia.com,
+	jgg@ziepe.ca,
+	joerg.roedel@amd.com,
+	joro@8bytes.org,
+	jroedel@suse.de,
+	kevin.tian@intel.com,
+	kvm-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	robin.murphy@arm.com,
+	skhawaja@google.com,
+	tanchi25@mails.ucas.ac.cn,
+	tomasz.jeznach@linux.dev,
+	vasant.hegde@amd.com,
+	will@kernel.org,
+	zong.li@sifive.com
+Subject: Re: [PATCH v7 00/10] iommu/riscv: Add hardware dirty tracking for second-stage domains
+Date: Thu, 19 Nov 2026 21:52:22 +0800
+Message-Id: <20261119135222.55990-1-fangyu.yu@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20261118061848.184844-1-gong.shuai@sanechips.com.cn>
+References: <20261118061848.184844-1-gong.shuai@sanechips.com.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,52 +86,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-submit-nvmem-provider-lifetime-v1-v1-1-3cfbd48812b5@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 12:38:08PM -0700, James Hilliard wrote:
-> An NVMEM device can remain referenced after its provider unregisters.
-> Keep a reference to its OF node so retained devices do not depend on the
-> provider retaining the node. Drop that reference in the device release
-> callback, including registration-error paths.
-> 
-> Fixes: 1333a6779501 ("nvmem: core: allow specifying of_node")
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  drivers/nvmem/core.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-> index 7d4cce8e2742..802637f375f8 100644
-> --- a/drivers/nvmem/core.c
-> +++ b/drivers/nvmem/core.c
-> @@ -570,6 +570,7 @@ static void nvmem_release(struct device *dev)
->  	gpiod_put(nvmem->wp_gpio);
->  	nvmem_device_remove_all_cells(nvmem);
->  	ida_free(&nvmem_ida, nvmem->id);
-> +	of_node_put(nvmem->dev.of_node);
->  	cleanup_srcu_struct(&nvmem->srcu);
->  	kfree(nvmem);
->  }
-> @@ -973,9 +974,9 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
->  	nvmem->keepout = config->keepout;
->  	nvmem->nkeepout = config->nkeepout;
->  	if (config->of_node)
-> -		nvmem->dev.of_node = config->of_node;
-> +		nvmem->dev.of_node = of_node_get(config->of_node);
->  	else
-> -		nvmem->dev.of_node = config->dev->of_node;
-> +		nvmem->dev.of_node = of_node_get(config->dev->of_node);
+>Hi Fangyu,
+>
+>We should add "select IOMMUFD_DRIVER if IOMMUFD" in
+>drivers/iommu/riscv/Kconfig to enable IOMMU_HWPT_GET_DIRTY_BITMAP,
+>otherwise it always returns -EOPNOTSUPP. I guess it belongs in the dirty
+>tracking patch.
 
-While at it, you could switch to using device_set_of_node_from_dev().
 
-Bart
+Hi Shuai,
 
->  
->  	switch (config->id) {
->  	case NVMEM_DEVID_NONE:
-> 
-> -- 
-> 2.53.0
-> 
+Thanks for the catch — good point. I'll fold this fix into
+the next version.
+
+Thanks,
+Fangyu
+
+>Thanks,
+>Shuai
