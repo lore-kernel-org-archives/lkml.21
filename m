@@ -1,66 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.93.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795081882;
-	b=1PrBlKjWWZjsxuD4MDI1zphLP0Q8/ghE92r68os9VRDl3j3tANy8wjIzv7bi/qQh2df6
-	 5mq+v3ZayLaFWSd8mP05SEOPZpk6gmNVeSTZxILpmdycPzqW64suu4kYRSMf9Xv253xeC
-	 ceEj6iCeQrdPWnAxwQy7F1gBB6A5+Y1erPYxjvCOyzGsPyeRSDrDN4yjelNoCZtHmUWgQ
-	 e6Com2FlZw+fvDliWAPWRe+GIbCAI5BJjgd2HQPilaXWXXxx3n4ZsT1zHM2zhDZhUzJ5s
-	 YrP8WIt97n4JYj0V4mifRiWOuiBuu3BeUmuxZTOeaT7Ou+Tq4nmvhTRqSXozFl0AZwQ==
+	t=1795081931;
+	b=byVA8BV8ySdvHhbu9wvDa2KbtAE4wdT/Nr3oIYPBfE5+On/R7xfPnSnzLGToKDUdLDCn
+	 3kMSyGe1d9Xn0rAz7CBPpcH6VMljRissCDsrtp1TOvGzoQpA6CTyLb3fDAx0QvZLDYRQX
+	 qRbQ24mOsJkx7CnaBAjYb0OW49fkEzj3l3ojKgf4TtAzvbmKTjsE5DRS+TbiatVTohz13
+	 M9pmrJ49C1JcqusJXba23U4fpbW5ljOJFEzJpGnLLhPBHJfmszYnVPPmmQxZEIPLCZuHm
+	 S/2ZGrPOMjTw6VuHvCxMkb4yhOqJyfj2tf306U69bYC2abhQbIi5EQYcHQzaFTEQKjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795081882;
-	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=MXOCB2uKjKaor2OrklW8VqDy4yR8s1PFFph39t/ACkc=;
-	b=RCQC2U5uKH0iQmDdqS9wDBRfBBDnbDBulUqw/8/27KTcNM4ygjHN8Gy99BkARw3cufBo
-	 dlLD27P62od6oyRzUUBhaw9acSCl7p2WKx/o4Rry887rBk4Jft6dLq579OxIhyOKzoDwo
-	 rF5Iawfh5BI4iA3puBfLlyU60txYL3RWLlW/s8vaIlu2vsh5W3CBoQe9cS3PVKaVzTfBY
-	 t1t5eHGmYg/eOTnS9eSu3FHeQxfBcUqgnAE2TWhoaeqdY9LEabX5OfLUiULWLJoXgwNpO
-	 oy5V90L3sBJm5zNDYiy7bcwP/pJtzH3QxGPAzemFtqYtuWtr736F1HbPDE/vmGxlyvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795081931;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=CSizmi6Mw8mtze6J22xXAjJEj/rlBp05sy/aCy1nj3o=;
+	b=BK9eTpVBcKe3356UAogGDPVTaZ3ejO1Bq3DergfeGAO/TdCKxg8ztlK02Na5cWzpy3cX
+	 ldExLysPnV0IOAUmRtyRCPOc/Fdaxp+CroARrKPpWdogeQiZ7yeEtIBDFn+jxdXeyltj4
+	 AhyzXieL2nwgFoKmXETQvnAYfca/YCB4hqj9HZk3PQYF6JzdWqFRIlYn9mEy5ajznxAUD
+	 QHYrZCLYUOXygpSVcRyZBFZyoHnicaimQH2A+iedio1mefcgcmQkatchJbaNAAQqTr/X9
+	 vbRDG0qk+6euSmN4ZuDGEAcOcu+HI6OLDJn5UOxJT8mZFK2wldPNS/JFn6LdY9UUrGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=none smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.93.112
-Received: from dggmsgout12.his.huawei.com (dggmsgout12.his.huawei.com [124.71.93.112])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VFyt1hB+;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="M/1//x+S";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 577AB606A320;
-	Thu, 19 Nov 2026 09:51:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 577AB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggmsgout12.his.huawei.com (SkyGuard) with ESMTP id 4jVYcC5R1Fz20Sn;
-	Thu, 19 Nov 2026 17:50:19 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id C145440D87;
-	Thu, 19 Nov 2026 17:51:12 +0800 (CST)
-Received: from huawei.com (unknown [10.67.174.45])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgDn7QCHxv5qwsKLEw--.20837S3;
-	Thu, 19 Nov 2026 17:51:12 +0800 (CST)
-From: Tengda Wu <wutengda@huaweicloud.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Tengda Wu <wutengda@huaweicloud.com>
-Subject: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work enqueue
-Date: Thu, 19 Nov 2026 09:51:00 +0000
-Message-Id: <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1795053619.git.wutengda@huaweicloud.com>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3F84606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:52:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3F84606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VFyt1hB+;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=M/1//x+S
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ6vEAi2935530
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:52:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CSizmi6Mw8mtze6J22xXAjJEj/rlBp05sy/aCy1nj3o=; b=VFyt1hB+9wQlMz+p
+	hOTNWkff0nFqw6MVRCUzaZSOS4DLhAAoiXOhIsfPwE+F2FUyHE2/owOWSnfbZGwV
+	AKtSLHpusLYDsD58Sq87Ajl8DyiWAKANA0U1Iyx+7EW9HKaWcOsUWZkWUpPyIjyb
+	Lv9X/WVn4kE81U3rso7Bp4K3aEgM4iKOl5z9ZtIuyZ4fWGC/bRt65P79YzuVFQ0B
+	knCPijvz8QYkZSt6BQDaTXKDXWUr7DxKK45ixEREdap8n5auGnI97+eh6+oYhhHg
+	fxM9wftRjPUPJU6wjUWyZnYy0F9UUH6rO9YPnCaFJ17dCeIiXvmB4HVRDi1NMiNC
+	4LO9tg==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1g9ekset-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:52:09 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b3b4208826so550403a91.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:52:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795081929; x=1795686729; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CSizmi6Mw8mtze6J22xXAjJEj/rlBp05sy/aCy1nj3o=;
+        b=M/1//x+SX1LSinI/YBU/2HjQonY8ab9IMrHpR1/skqyGFYLRjbWy29ejKAoKoXUZ15
+         GD/xY/nibitxhsBlXTBZnZxV65Of8KshUkKsqooWS4Jd9rizphTyXuodi+AlsXJax5W+
+         fdxPtyc4eDYp/Bxy83qSF5ZQrJTiCkiif1OT+vsQWfcbacVDfV6Bida6qymifL4eJAqm
+         heQ+RC6EvvMcoY3MSHRiRYlnpER2ThHiUppBSZxe/UyhA88/pjaTuI3d9rU7fNJnzpmM
+         kZ90rx6l8lPs4KykbVd8wWB81aAi1aIud5N83iCPKbeWQXA0wECPuq+58CEaQEKHQbBj
+         /5qQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795081929; x=1795686729;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CSizmi6Mw8mtze6J22xXAjJEj/rlBp05sy/aCy1nj3o=;
+        b=fPyLPlnbKRZrEuhy+/l0Z1+GbsVictsAgF2CSOuI7JsDyYUkBshCL5YROPBouwl/wk
+         R11FBJRe8dCis+i7OF6ccsQ61h12FwHv/eDBm7YSPf6updag839ZffhT7G3swosCiwF6
+         Poo/i3OiZPvp1RmOjam1AwLibg4h2preON1IsWmksfKCQZGnw+Vc7SQRC8J5HpZnP8mo
+         30vYgnJWKP1Hp8frFF5+apnj1WcWOJJl9nDrhcgN1fgk8m13phPKWYtGSouI2nyUr2uf
+         mbKNFruiWIoXag2QEpLmqfZOvKSmsYG9Y6GYUN+Cxj8qVFnnuCG54NHJjN6OFMU2GlES
+         eQng==
+X-Forwarded-Encrypted: i=1; AL+hErEP+9RwfykfgM9RZJ2D8GJuDfJ9E/YhlW7/ueu5I00PaTo0yEPokrlHOf8eYejbgklZy0XUpf8j4Qa6w28=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86E+Fh/EuywBSLfv0e0vOYMoHzivjA6h3GrLf5v+a7RdADujBx
+	v5tzMQk7EfrcKB+s2BLQE/P75drV5bC6E5SryodV+UgEcfRhosMIlGjybA7iFHq7r4zShhCteP0
+	dwIBPg5h/VLzSLGzNWQXjExN8hLWyZA41ZmizUO8/kAdiVMo/xoA0w1r97G9UkfOfjsw=
+X-Gm-Gg: AZFdTZf8v9/mkTtnsJpGWWwzB06ilWUNauLhvH/lIoCtag6BWP0aJV2qN5oaX/Ncb+8
+	aU0/yFqGKceFzfOuUsSd5OU58QDq5Ie3t5T22THyF4KWZyZ3GVtTOC4MNFAyvPpI7ZZB+jTV7jo
+	CLYvuoGH6mhklFlfT2nQy7SNtZYI8cHBGMxbubiXi8jcF6o2UosymxSfDf1g2IoEWWIVi0P3dXb
+	lj+HXHbKg5/Uur+UbnyjmvEm/y+8MSg1d/1sOIGc6mea01B73hmP4A2SRRG0aSA6YRlNKz6P7Tx
+	f5K4DCaaCBmcxOxiT8Jml4zlPzUp+ZR1fAgZ/YIheiGFOnrHMwM8S6cdzE1z7RxZ6x1Mswjx3fD
+	/7eqArrRngae0Ck3pY9lqgHffLhtZSqYAheN3URIf1AXYnZF1dDLWt+JD0XXQ/E34K1kUz1PhU6
+	D0zhWJoGo=
+X-Received: by 2002:a17:90b:254c:b0:3ac:928a:68ce with SMTP id 98e67ed59e1d1-3b40a21dac0mr365152a91.33.1795081928933;
+        Thu, 19 Nov 2026 01:52:08 -0800 (PST)
+X-Received: by 2002:a17:90b:254c:b0:3ac:928a:68ce with SMTP id 98e67ed59e1d1-3b40a21dac0mr365128a91.33.1795081928418;
+        Thu, 19 Nov 2026 01:52:08 -0800 (PST)
+Received: from [10.219.49.219] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4028310c5sm1189430a91.3.2026.11.19.01.52.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 01:52:07 -0800 (PST)
+Message-ID: <813a113d-f4fa-44e1-9616-c01dc5577365@oss.qualcomm.com>
+Date: Thu, 19 Nov 2026 15:22:02 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,142 +116,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_Ch0CgDn7QCHxv5qwsKLEw--.20837S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxWr15JFy8AF48GF18GFyUKFg_yoWrCF15pr
-	43tws0ya1UXFnFqry5tw1kAr1rWw4FqFZ8ArWvk34fAF1YqF17Xay7G3WYvFWrArn7Aa43
-	Xw40kFW7C34UXFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUQF14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r4j6ryUM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
-	Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UM2
-	8EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2AI
-	xVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20x
-	vE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xv
-	r2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04
-	v7MxkF7I0En4kS14v26r1q6r43MxkF7I0Ew4C26cxK6c8Ij28IcwCF04k20xvY0x0EwIxG
-	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4
-	vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IY
-	x2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26c
-	xKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAF
-	wI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRpuWdUUUUU=
-X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 v6 8/9] ASoC: qcom: lpass-tx-macro: Add support for
+ Bolero v4.0
+To: Mark Brown <broonie@kernel.org>,
+        Mohammad Rafi Shaik <mohammad.rafi.shaik@oss.qualcomm.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+        Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Sarath Ganapathiraju <sarath.ganapathiraju@oss.qualcomm.com>
+References: <20261106-add_shikra_support-v6-0-2cda302237cc@oss.qualcomm.com>
+ <20261106-add_shikra_support-v6-8-2cda302237cc@oss.qualcomm.com>
+ <179436005595.790675.2243536196647069749.b4-review@b4>
+Content-Language: en-US
+From: Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>
+In-Reply-To: <179436005595.790675.2243536196647069749.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDAzOSBTYWx0ZWRfX0DDO6LbnjHg8
+ SDje75l9+J9sRIGWPIYB+FWSvYe4NlNpoZzqwArBUYRinuZqnvxCRpk02PeyDzEQINie8/4cwQW
+ p8ZeMsgnW+pweNMPkdFXoZ89vKYPiVzdNKgH5a28YE/vufjN0qH0qvi3BpgxNlD3SEzuz7kJeq3
+ OUBuPlSmRCpY4vvtu/bnivgtl4NpFF6Dlf/RVy04STnxr6DCPMOHjOgwgH0Qvj8A+I7+9wh0cMG
+ 6P7FwXqIGmv2t3xcrbeFHCdF0Naq5X5Y1JSBr+ZQ8wQ7i4Vh0xdcM047G6DugwjbOKPL60su9xH
+ Py5v1f7qHh6f+u9GIbyCqRuPpW3NXWLbeRdk3L9jqlOA0kC0df+d544ZcJjsgpDJovPhYBqRN6L
+ TusXGhoMf7lzbLGBTbMAKhcFFJEiPIjyOwDuZVH6PUlXYq5cDqepZHFqL9kWvtvN+v60O1GCVDl
+ QtPEm1ZRwgFCXE3oVyQ==
+X-Authority-Analysis: v=2.4 cv=QO391QLL c=1 sm=1 tr=0 ts=6afec6c9 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=4tHaGl9kwi2XGHUKs7MA:9 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-ORIG-GUID: BTNq6w3Yee02JP5xepK3Zo_XaLIc7jTi
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDAzOSBTYWx0ZWRfX5x+KNRCUnugB
+ w2d7r4+CACKXqcKUbqLomFdbTiqaqYrKF4d2+ZJdWgoToCMg57Hq55w7pszHQ4EeoFOCmVxjIOq
+ stm1BeALsdhqL/EJfaQLbYopLDhdEHI=
+X-Proofpoint-GUID: BTNq6w3Yee02JP5xepK3Zo_XaLIc7jTi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 clxscore=1015
+ adultscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190039
 
-The sigtrap handling in __perf_event_overflow() checks
-event->pending_work before calling task_work_add(), but only sets
-pending_work after the task work has been queued.
 
-This leaves a window where an NMI can interrupt task_work_add()
-and re-enter __perf_event_overflow() for the same event. Since
-pending_work is still zero, the nested invocation can enqueue
-the same pending_task again.
+On 11/11/2026 6:50 AM, Mark Brown wrote:
+>> Hawi integrates the Bolero v4.0 TX macro. This version extends the
+>> existing TX macro register layout with CFG2 port-select registers,
+>> per-path CFG2 registers and an ADPT control block.
+>> +#define CDC_ADPT0_ADPT_CTRL		(0x0800)
+>> +#define CDC_TX_ADPT_CTRL_EN_MASK	GENMASK(7, 0)
+> This is also 8 bits wide.
+Thanks for the comments Mark,
+Right, the enable field covers the entire 8-bit register. Since we clear 
+the whole register here, I'll switch this to a direct write and drop the 
+mask.
 
-The re-entrant call path looks like this:
+>
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX0", SND_SOC_NOPM, 0, 0, &tx_wsa_mux0_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX1", SND_SOC_NOPM, 0, 0, &tx_wsa_mux1_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX2", SND_SOC_NOPM, 0, 0, &tx_wsa_mux2_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX3", SND_SOC_NOPM, 0, 0, &tx_wsa_mux3_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX4", SND_SOC_NOPM, 0, 0, &tx_wsa_mux4_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX5", SND_SOC_NOPM, 0, 0, &tx_wsa_mux5_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX6", SND_SOC_NOPM, 0, 0, &tx_wsa_mux6_mux),
+>> +	SND_SOC_DAPM_MUX("TX WSA MUX7", SND_SOC_NOPM, 0, 0, &tx_wsa_mux7_mux),
+>> +
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX0", SND_SOC_NOPM, 0, 0, &tx_psel_mux0_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX1", SND_SOC_NOPM, 0, 0, &tx_psel_mux1_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX2", SND_SOC_NOPM, 0, 0, &tx_psel_mux2_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX3", SND_SOC_NOPM, 0, 0, &tx_psel_mux3_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX4", SND_SOC_NOPM, 0, 0, &tx_psel_mux4_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX5", SND_SOC_NOPM, 0, 0, &tx_psel_mux5_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX6", SND_SOC_NOPM, 0, 0, &tx_psel_mux6_mux),
+>> +	SND_SOC_DAPM_MUX("TX PORT SEL MUX7", SND_SOC_NOPM, 0, 0, &tx_psel_mux7_mux),
+>> +	{"TX SMIC MUX0", NULL, "TX_SWR_CLK"},
+>> +	{"TX SMIC MUX0", "SWR_MIC0", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC1", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC2", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC3", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC4", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC5", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC6", "TX WSA MUX0"},
+>> +	{"TX SMIC MUX0", "SWR_MIC7", "TX WSA MUX0"},
+>> +	{"TX WSA MUX0", "NO_WSA", "TX PORT SEL MUX0"},
+>> +	{"TX WSA MUX0", "WSA1",   "TX PORT SEL MUX0"},
+>> +	{"TX WSA MUX0", "WSA2",   "TX PORT SEL MUX0"},
+>> +	{"TX WSA MUX0", "WSA3",   "TX PORT SEL MUX0"},
+>> +	{"TX WSA MUX0", "WSA4",   "TX PORT SEL MUX0"},
+>> +	{"TX PORT SEL MUX0", "PORT0", "TX SWR_INPUT"},
+>> +	{"TX PORT SEL MUX0", "PORT1", "TX SWR_INPUT"},
+>> +	{"TX PORT SEL MUX0", "PORT2", "TX SWR_INPUT"},
+>> +	{"TX PORT SEL MUX0", "PORT3", "TX SWR_INPUT"},
+>> +	{"TX PORT SEL MUX0", "PORT4", "TX SWR_INPUT"},
+> These muxes look weird, the different settings don't seem to change
+> anything?
 
-  __perf_event_overflow()
-    task_work_add()
-      kasan_record_aux_stack()
-        <NMI>
-          __perf_event_overflow()
-            task_work_add()
+The mux options select different values in the CFG1/CFG2 registers, so 
+each selection does change the hardware configuration. They all use the 
+same |TX SWR_INPUT|route because the input path itself is shared; only the WSA/port 
+selection within that path changes. Thanks, Prasad
 
-The nested invocation may enqueue pending_task before the
-outer invocation does. When the outer invocation resumes, it
-inserts the same task work entry again, potentially creating
-a cycle in the task work list.
 
-As a result, perf_pending_task() may be executed repeatedly,
-leading to unbalanced event reference counting.
-
-Fix this by atomically claiming pending_work with
-cmpxchg_acquire() before calling task_work_add(). This ensures
-that only one invocation can enqueue the task work, even when
-another overflow occurs re-entrantly from an NMI.
-
-If task_work_add() fails, clear the claim with
-smp_store_release() to allow a subsequent overflow to retry.
-
-In perf_pending_task(), defer clearing pending_work until
-after perf_sigtrap() has completed. Use smp_store_release()
-to ensure that a subsequent overflow cannot re-queue the task
-work before the previous invocation has finished handling it.
-
-Also use smp_load_acquire() when checking pending_work in
-the exclude_kernel warning path to ensure the read is properly
-ordered.
-
-Fixes: c5d93d23a260 ("perf: Enqueue SIGTRAP always via task_work.")
-Signed-off-by: Tengda Wu <wutengda@huaweicloud.com>
----
- kernel/events/core.c | 39 ++++++++++++++++++++++++++-------------
- 1 file changed, 26 insertions(+), 13 deletions(-)
-
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 614f9f0e6500..857230b023ae 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -7775,10 +7775,14 @@ static void perf_pending_task(struct callback_head *head)
- 	 */
- 	rctx = perf_swevent_get_recursion_context();
- 
--	if (event->pending_work) {
--		event->pending_work = 0;
-+	if (smp_load_acquire(&event->pending_work)) {
- 		perf_sigtrap(event);
- 		local_dec(&event->ctx->nr_no_switch_fast);
-+		/*
-+		 * Ensure the pending work is fully handled before allowing
-+		 * another overflow to queue it. See __perf_event_overflow().
-+		 */
-+		smp_store_release(&event->pending_work, 0);
- 	}
- 	put_event(event);
- 
-@@ -10950,16 +10954,25 @@ static int __perf_event_overflow(struct perf_event *event,
- 
- 		notify_mode = in_nmi() ? TWA_NMI_CURRENT : TWA_RESUME;
- 
--		if (!event->pending_work &&
--		    !task_work_add(current, &event->pending_task, notify_mode)) {
--			event->pending_work = pending_id;
--			local_inc(&event->ctx->nr_no_switch_fast);
--			WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
--
--			event->pending_addr = 0;
--			if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
--				event->pending_addr = data->addr;
--
-+		/*
-+		 * Claim pending_work before queueing the task work to prevent
-+		 * another overflow from queueing it concurrently.
-+		 */
-+		if (cmpxchg_acquire(&event->pending_work, 0, pending_id) == 0) {
-+			if (!task_work_add(current, &event->pending_task, notify_mode)) {
-+				local_inc(&event->ctx->nr_no_switch_fast);
-+				WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
-+
-+				event->pending_addr = 0;
-+				if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
-+					event->pending_addr = data->addr;
-+			} else {
-+				/*
-+				 * Publish the failed queueing attempt so
-+				 * a subsequent overflow can retry.
-+				 */
-+				smp_store_release(&event->pending_work, 0);
-+			}
- 		} else if (event->attr.exclude_kernel && valid_sample) {
- 			/*
- 			 * Should not be able to return to user space without
-@@ -10973,7 +10986,7 @@ static int __perf_event_overflow(struct perf_event *event,
- 			 *     To approximate progress (with false negatives),
- 			 *     check 32-bit hash of the current IP.
- 			 */
--			WARN_ON_ONCE(event->pending_work != pending_id);
-+			WARN_ON_ONCE(smp_load_acquire(&event->pending_work) != pending_id);
- 		}
- 	}
- 
--- 
-2.34.1
-
+>
