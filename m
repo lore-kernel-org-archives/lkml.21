@@ -1,96 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.89
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795112092;
-	b=K4zZ/x6f8Z4gRCI6F0h+H+PCWaKG47LIqLx+0BBxSYaAMCkY3o/KxrtScHBAsUX519Bw
-	 Gd3ZRpd2avsujVPDjsxs2GD2cM4WzZPUS/Ffx0PX2ALA9Sky+zHfcBAmUen0gDPygkCgQ
-	 AfpUCEWKEIscpK9g9M2+NBcgv2ykeAmBiAsaJbehxNODPh6xeNx/C5EeM9C9sE4FMcD0G
-	 hre2mdk1KRHtG5X313HAm9lIxJkkMdBTt2vhF0N7Ddq3H1ZcHVt6jaIQJOXubqh29VNDS
-	 xvOoyqTi4Ig3CTlcCWJfB9lF2H6vmlHVrCsnwQ2Us11crhjNuYmo/tolnnCxf8hn1YA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112092;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vNnmwpdfQoofkGGCvrNbHcbzT/0OxvfGGtGe6HrDX0Y=;
-	b=mwWzWtwxwOIO6n/YkplWT40h8NBHnNadr6ND2OGs5YP+mkBToVqIyMzfG6s9u1dDhvet
-	 HyWLgZ4bVu4UVsJ9lneWBCyaLiGZUFXfToOPj9k92sht3sf35/nzNDQoIPde1xuEqER03
-	 sie4Ix7SqaAeGCpsgx+daUBJCsNsOz7Q5qBTyHrB9JiBQ4S5heqNSfU8m9SGQgKZ8A0hn
-	 m4UD+WVBA6vIPOz1R4eWL/aHTncZTcS53U3bUddh9uWWxGabbXBubJR3wkhsmckrOeWQO
-	 LZJP+F+2x9jtIXJpToY0QmkoSR/p47BRFVyVxNsewWWOkzMgPO0HDS5GcuIRh2I7E3A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b="fVjs/RhR";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.89
-Received: from YQZPR01CU011.outbound.protection.outlook.com (mail-canadaeastazon11020089.outbound.protection.outlook.com [52.101.191.89])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795112124;
+	b=w+PDO5L0E9E3SXC7/wA+VuWDl17svVLktjF9ij6nlSIQ756aiJkt/buKo39Y7wmomcIR
+	 o9XN+FhkCDmF3XATQX39rYIma17VAZ/ik7iZJ523IpSET7I80YosL7BOjVqjqmhHeoKHU
+	 Typ70T4efVUQ82IzEdTxbymgpBTqKcW39N14lxIQ8AU28hlDid9FVq7dT6Lzw4iVrAD/I
+	 CJYKFJ4gfu08rH2T9soZpzmUXgqQl1vMgYlTCIUjfENMfrzZ2LQej2yMGSehWxPgal1e9
+	 yLL3LoN0uUoiPIPuKiXgHrxlUZByVHJu/2x4q6gE992zetWZURzsuyTd2ve2Nfv0Tiw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112124;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=mqGkD9I85lMxxh2pXUJtphRW9gwZyygiSvkEg9y6zhg=;
+	b=tD3uXUoeS3be8WARzBK8cxJq6iQH20SYSowEwL+zM7GVV1NW+oiNAe7MRw4uC0oQkWnb
+	 7LlwN/JtlkeQmKPGyTsT4gqe8vvmlcJ1hsyauByHa7hA4mHTlsz9+Fs2w8KckpbhypSIX
+	 2JLFLJItN2hJl4V25tQrZCb92k2j3CHTfHeAQeCXQMVpRcJQHB5jvwjUR5Dg4ng8LeQZD
+	 yI1V4B6zx/kYQEPV8r+mokcDXd1w3KxBa3aIWNrL4pPXkImYjigOWriVgalNnsK5Y9hRG
+	 xd2/ATVxmFxiK1I0fx3F2roqPcacLFL93knN9UsnCFcLdAKKm+I9Tk+lsxwGXoyn+Lw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=m3vwdRBI;
+	arc=none smtp.remote-ip=210.118.77.11
+Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C442606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:14:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C442606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC394606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:15:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC394606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=fVjs/RhR
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tGdH0/cyDkkCXLUlwEqYvsB8ng2AdLHbstd+0hd3qBm+ubOFiCrwsee3ICJbG1yzczCyBJFgCY9iK0S6HSJUnQ8v6IgBYVv70hG/YH18ybOtsPgzz+GKwGCgbW/1O7ynA/3+l60Xrswg24F3MsT033GLM3BBJc1taxPPLUgtQv3qGJAWmF/Y+WKfCHNA2cnulbjB+dTtywQtH1wmveuuk2GsvVis+0fgcioYSGiRR7nQPRrKYvM5GDVFcWSSKEmIcoNe1LjVVs5As2QFsvKNmTMXKb380r8iNcFUcaLQZWBYfYtPlBRFzNRy+jJCS4c5ZIiO0+r9Ro6hWX3oxFVvdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vNnmwpdfQoofkGGCvrNbHcbzT/0OxvfGGtGe6HrDX0Y=;
- b=ei7fJseK75vxgMSiwEMFMKd08B/v1D5jqlbpPZLmZ6K9L+T1C9AdJ1FfzcBSBTMqThLJoKlzIjgEa2uWP3j5yyCavu7dZvH3BU2cOfl33eQQMY3qF41anPNxTmfpFnf2ceNvycqI28QbTnbVUa6KcSQlwGoMDHbirOTmLgoc202A/V7NArZDCiAQlZ46WItxiUzXqwWKvSfB54YV8YgG5pR0QHNyZsPtBlB/Jh+9h5+fnjh4ea6yKyE9V88jTAjiUsWWf4qpo9XOn78j1WReDmkeGcynWz+xN+jEQsXYoStSR97L4fq9YnoduPzJxp6mMAgjHXCc07fsP/3mw7sDpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vNnmwpdfQoofkGGCvrNbHcbzT/0OxvfGGtGe6HrDX0Y=;
- b=fVjs/RhRlrQWNqiQjV82ZH7v1BIwMjR2KkTjnG0obXns9cFgnfu+F0bh7XqxAz35B6VOG5VZ7AYpXJpLEOIUEx7q+fBsyFpjd5a+TWRaVwuly99gNkpseJe+BmfYNr1s21BKGpiBUVLsYMIfM6rgJ5Dw7O08Q2yBUpS/QU5UpBA1Fmcf1IhsNdClfamtrGzxQig0nfMsGJh74RXA+ZZDLBo4gPY0P5RXrbXYKTikHJywwJITfnrmG5TtCv4/3rof73ewHt4Csz1dak8eAAkLh8PWkCFJXz1/u4tfipfk2KLXvRhdWXmqGfMBzeYOJ2vpiQgmHmBfUcBz/Fbc4H2RJA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YQBPR0101MB9472.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:63::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
- 2026 18:14:45 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
- 18:14:45 +0000
-Message-ID: <4aa1c606-e569-4f46-8a05-f5c7be3b4365@efficios.com>
-Date: Thu, 19 Nov 2026 13:14:44 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v4 10/17] sched/deadline: Fix an overflow of the
- 0-lag time with long periods
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795105408.git.mathieu.desnoyers@efficios.com>
- <abbad2aa0ec392b1b0ede00b66b2d177d2b7b2df.1795105408.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-223567@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-223567@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YT4PR01CA0289.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10e::29) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=m3vwdRBI
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261119181521euoutp01eb54425e557432a88188c81c5843fbda~phPaZQROM1461114611euoutp012
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:15:21 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261119181521euoutp01eb54425e557432a88188c81c5843fbda~phPaZQROM1461114611euoutp012
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795112121;
+	bh=mqGkD9I85lMxxh2pXUJtphRW9gwZyygiSvkEg9y6zhg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=m3vwdRBIFQ+xJcwYjPZUilKlUyqOuRlXHG+GoDe3w3tVL80BjVNUIOuqx9BdV299U
+	 LSWlUw7lWPZVxqSZJvxwWpozPn2D8yudVaik143glGyt0vDTL+N/6Ki0Lhy3K6r0Nx
+	 +1eyxGxqyfZLYbp8mj79YuHQPO6Hpz8+L4+ZEf6s=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261119181520eucas1p15056e661966e438ca7fcf5f4cc6f83da~phPZc8smn3120131201eucas1p1R;
+	Thu, 19 Nov 2026 18:15:20 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261119181518eusmtip1f369868376049534c22cce45c363981b~phPYUTA913171431714eusmtip1Q;
+	Thu, 19 Nov 2026 18:15:18 +0000 (GMT)
+Message-ID: <8cbec036-10ec-4fd4-81a7-2235260985a0@samsung.com>
+Date: Thu, 19 Nov 2026 19:15:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,115 +64,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQBPR0101MB9472:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8fb2bee1-669e-44f6-8be1-08df4668fd77
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|4143699003|261009223027099003|10067099003|261026121527099003|261028144727099003|261026140227099003|56012099006|261022105027099003|261022075727099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	Jk6J+ZLmQrptUn/czBhWykK8kSwp3GPwzVsfkLnTZeZRIdmi0AuEjQBlG6Vkz6kihwSmeLeZ75Zhsq+8ukqoGJKsQYrQ6bc2Hb5ALt3NoFTRgedGUUvxe/ThOhg/X1elW8w/92hxhPsbMwKv7eC+38TcSqk4IxVHjW60AAdB2ChpCJww5Si1QoBzwH9tcwCCDsG47LB/MU6CnIOF1PKW6bpQ8KW683I8yCykFRiUqNoFQgZVyQ8BaT7IfppDEn/Il9NuC1wIXB++oyMZivkoQ+10mczjd2NyKcSm2ZtaudvHNMBXQBTzk3b9tsIl50XOh6e16oyDxD41XVex59fdPFl88CZxcpn2MUfdpNt6YkTOE2YFc1cmK9cAJ94NU2wN3b92yFL2oon99COsuF5LVCjNTx1zjoVoXVRx5drcLzkkTfHHzpMwHO0th0yT/HZNkYtW6FFzNE+ZwTAARJazZZJUn+dPoFYDkUrYaN/64AX9DkvHMr5gkCG2aqmp1WhZXZxBQY2veVo7ritKcNMcnd6s6EJTNXgQZ26kpIfelRnBuSBk0BEkTi9R9DYFYM0iQfOWrLfTHLon6mUCg8MIHPLrlAdkDoQ3q1iJGZXdWhg=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(4143699003)(261009223027099003)(10067099003)(261026121527099003)(261028144727099003)(261026140227099003)(56012099006)(261022105027099003)(261022075727099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?WUFRWDQrZ3VKMTNWR2t4cE1aS29icCtGOElrYmVmb2FVc2hVTG84V3Q0RENP?=
- =?utf-8?B?eWNEbCs1T2FVWW9lVEFUSThsNXFOcDRSMnE2VklFVmZZT0s2c1NUTGFmRFJa?=
- =?utf-8?B?T1FzaHNRbVN6SVhoRkg5cUcwcVpCQkdrUXFBQlVwTVRWV3Z1R3JVbWJtVm45?=
- =?utf-8?B?WWp4NlBSVUgrcGhEYmYwbGpENFh3M1lvK01IdEZQcDRuODFqL0FuQVZIeTIr?=
- =?utf-8?B?bWYzUFF2K3N3eVFUdnlNZVJYcWVWTWc3cEZBSzdBaVVYSVd2cXRXRmQ1V0Ir?=
- =?utf-8?B?RVJlVWdJMGZjZFk5Nm1kS21KVDh4NVZBdVI1M0JKTytrVURsWU5qQnVHSmxN?=
- =?utf-8?B?SjZyd2VGV3hmekhPVHpuUWthOVJxUkRKRFlPQllTckRYZDVFaUIzVTk2K2pC?=
- =?utf-8?B?Vit3Q2hyTjVjQ3VQaE9md1FtcTVDRytmZENWMDJLQmpONVo2aUFXOENrc1ht?=
- =?utf-8?B?dXMrQTFBbXJkUytRWnRrN0dEcUhmMVV2S3o5L2EvakNmWWJtTlFqVTczRzhC?=
- =?utf-8?B?SU1sQnVBTWliT1ZhOXpEMFE4VGtPVzNUQ0dlREcyMlZaSXByakRsSjd0cko1?=
- =?utf-8?B?ZmF6QmRXRnJ3cklWVC94RmhWb3drTHk1Z2hEMml6WnVWU2tMdnkxMjRTUUI0?=
- =?utf-8?B?L2VYdVNmem5yTWNVR3hBUEtmelFBbk9GaVI4Tjlxam8yU1pVeFp6U3U4cURS?=
- =?utf-8?B?K215bGswQ0xCZFRzU0ZzMkhuQkxPdVVVYm44aFdaM0xGRzU2YkQ0TzhEaHZt?=
- =?utf-8?B?a0ZlaDg5UGh6TGtIY3FTWEdpRHk3bExxRXJXK051ZGpFRlUwYlhJb05VY09r?=
- =?utf-8?B?OStxWmhGUmpJbUpTOEJvOTdGKy9kUXltMEJFV2liYTZxNlY5aVArVExyak1m?=
- =?utf-8?B?NUp5QVlYbXlZdTNhVFk1aTREUFppOS9RVjJSQzVZSDYrcUt5ek5KSnEwVHQy?=
- =?utf-8?B?QkFjaGJPa28xdjZUdWNrc1RpWDJWUjhHZzBGZE1VNnNnSXdMMkpQZnhMalNn?=
- =?utf-8?B?YXVyeHM1d29xUGg3RUNudlB1ZEVKYlRRZmFZMUNtZVpQTW16MkUyWG44LzNO?=
- =?utf-8?B?aWxnT3hZcFdnTUQ5bWNHNWxlM2NHQjRXWUdCVTZTQmYxOWQybHd6NEFldloz?=
- =?utf-8?B?TlI4cTNZVkd3ZUMvK1B2RzlmNFZkNThhYkNLQ1JwbmpPc1BqYnUxVkNobEZ0?=
- =?utf-8?B?QVI4NFZnOHRZRWJSS1FYYnQ2aVMwbTQxMTlWeXVORDU3L2VNMEQybWdJV2Fk?=
- =?utf-8?B?U3dDRWJBSzFuSk00OFFRaWczOXA0dG52MHNMYWdwWk5uZjBJT2YyRWRiTGxJ?=
- =?utf-8?B?T0F1LzNoNmFyUFlxRXY1VUVkYXlLYTlycWYvdUgyLzh3b3VrZGQ4R2RxNEFJ?=
- =?utf-8?B?S2ExMnFCZ1YwZFRNdDZCaklWOGkzTDY1TGEzKzhTcWhPamVWT1BjNllOTHFr?=
- =?utf-8?B?ME45Y3ZIR0tqNmdRUFg3bThkQ0k5MjZvVUVMdnlIdzNSeFRkYUFuL21MaWQ5?=
- =?utf-8?B?RUxCUVNWNUJlMXZrY0F4NE9pMHpOVDQ0Y2x1Vkp2QVphaWJNS1VBVzJ2T2Y1?=
- =?utf-8?B?bXdEaVdzWnNCM2NGNVdNZ2pJdXhRVG5qeE4vMnM0bnRZN1M2VEhtYUNLam1O?=
- =?utf-8?B?NFdSWTdtc0ViblVNcGxDOThkS3cwSzluMEVQbW5QOTg1QndWN051NEtGS3M4?=
- =?utf-8?B?ZzZvSTIyWG44TXBLaGJGOVB1WmNPNW4rN3JIa1AyVGtCM0U3dFRtWFIvK0VL?=
- =?utf-8?B?VWRKZDBxRXRlY2pzYUZ5WVpPV2lXc3RwMU8zanl5SW1SMTZnNzcreS9QUDRx?=
- =?utf-8?B?ajcwMjhUanhYSy9yL2pZTjNtWm50OGdKdWFhU3ZjMTJaMkdYYWxjelFrRno1?=
- =?utf-8?B?eEdSMXVPRFhGVm5saHR5QlJ6TkFwemRNYnVNY3VrNzFrUVh4K1BoeEtZWVNX?=
- =?utf-8?B?Y25Ob2lxTk1aTlJiZDFUVFhzQmVpOXJMdmdkY0RWaE1uUjZETXFFWmY3THNC?=
- =?utf-8?B?K0IxNUpmTUtWdFlDYUZ5YklWNFN2eDl2ZC8vUjlUVC9iZHVnSUtvcW52NTB2?=
- =?utf-8?B?QzBRd1NOdmZyYlE3d29Na05pOTRoa1pMeGZkQTdnc1dXeWtSUVM5Vm1yMm81?=
- =?utf-8?B?SVBWeXNHSnJiOU1JMFFSdDlpZWJMNFBtYXRWU2tvNVhYYXpiTmFBK2N4ZXpE?=
- =?utf-8?B?UWs5T014b0crb3pTZ1VMSE1keDlyWHp0QzlMVkliSSs2R0lqMXNKRXhVSWo3?=
- =?utf-8?B?cnhUNmxQZm1HUWNKU0JseWc1bi9tZU1Bb1JCQllNSHdzVmdJT1NwTmN2R3pj?=
- =?utf-8?B?WVlwbFpsM2lmeFN2R0RiNmNMZkxLQUF1R3J0dFV5dFpQc0l5RVI2VHFZdHFT?=
- =?utf-8?Q?tBHzLrD+rUwUx5732l1nTakPzDebPxhe7/oze?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8fb2bee1-669e-44f6-8be1-08df4668fd77
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 18:14:45.4747
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HegZXlNjfXG+RGWmr5e9QWj+dSMsuzYFqs2wVUfiUXyvC4gHRJckX36CF8cKZYeH68Mpl8fy9u0LoSg1fdT+WZZKWS8wSDg0nGH9Mr57tRQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQBPR0101MB9472
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 0/7] dma-mapping: DMA_ATTR_NO_KERNEL_MAPPING related
+ fixes
+To: linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig
+	<hch@infradead.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+	<mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy
+ (CS GROUP)" <chleroy@kernel.org>, "Ritesh Harjani (IBM)"
+	<ritesh.list@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Chris
+	Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261119151520.2383226-1-m.szyprowski@samsung.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20261119181520eucas1p15056e661966e438ca7fcf5f4cc6f83da
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
+X-EPHeader: CA
+X-CMS-RootMailID: 20261119151527eucas1p16c69a0580b2caabe66f952572362021f
+References: <CGME20261119151527eucas1p16c69a0580b2caabe66f952572362021f@eucas1p1.samsung.com>
+	<20261119151520.2383226-1-m.szyprowski@samsung.com>
 
-> Can mul_u64_u64_div_u64() in the dl_se->runtime < 0 branch still overflow
-> s64 or u64 when dl_runtime was shrunk or the overrun spans multiple
-> seconds?
+On 19.11.2026 16:15, Marek Szyprowski wrote:
+> arch_dma_prep_coherent() is called by the generic DMA code on pages
+> which may be located in highmem: dma_direct_alloc() forces the remap
+> path for a highmem page returned from CMA and calls this hook on it
+> before creating the uncached mapping. However, the hook has never been
+> documented and some implementations assume that the page has a kernel
+> linear mapping. This issue affects MIPS, xtensa and PowerPC. It gets
+> fixed by patches #2-#5.
+>
+> xtensa also only invalidates the cache, which discards the zeroes
+> written by the dma_direct_alloc(). Patch #1 switches it to a
+> writeback+invalidate.
+>
+> Patch #6 documents that arch_dma_prep_coherent() must write back dirty
+> lines and must accept highmem pages. With that in place, patch #7 drops
+> the PageHighMem() check in dma_direct_alloc_no_mapping(), which so far
+> skipped cache maintenance for highmem CMA pages allocated with
+> DMA_ATTR_NO_KERNEL_MAPPING.
+>
+> Patch #8 makes dma_direct_alloc_no_mapping() always return zeroed
+> memory, like all other dma_alloc_* paths. Passing __GFP_ZERO is not
+> enough there, because CMA ignores it.
+>
+> The analysis and the patchset was prepared with the help of an LLM. The
+> code compiles fine, but it has not been runtime tested on any of the
+> affected architectures yet. Testing on real hardware would be
+> appreciated. I've reviewed the resulting changes.
+>
+> I plan to merge this via my dma-mapping tree, I can provide a tag if
+> needed for merging it also to arch code.
+>
+> Best regards
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
 
-Yes, by reading. It needs a raised period limit and a stall of
-several seconds.
 
-The runtime goes below zero within a single update. update_curr_dl_se()
-throttles the task at the first update past zero, or refills a boosted
-task from its donor. So your rt_mutex case adds at most one more update.
-The tick does not stop while a deadline task is queued. An overrun
-therefore lasts at most about a tick. Only a stall, such as the vCPU
-preemption you mention, makes it longer.
+Merged into dma-mapping-for-next, with Fixes tag dropped in patch #5
+as requested by Ritesh. Here is a stable tag if one needs to merge
+this patchset also to arch tree:
 
-With a dl_runtime of 1024ns, the quotient exceeds 64 bits only after a
-single overrun of:
-- 4.4s, with sched_deadline_period_max_us at its maximum;
-- 63s, with a 300s period limit;
-- 4504s, with the default limit of about 4.19s.
-Only then does x86-64 trap. One tick never does. The s64 wrap needs half
-of each, and releases the bandwidth at once. v7.4-rc2 already wrapped
-the product in all these cases, and with much shorter overruns.
+git://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/no_kernel_mapping_fixes
 
-> Even with the default 4s period limit, scaling a single-tick overrun of
-> the old runtime by the new dl_period / dl_runtime ratio can arm
-> inactive_timer for hours, locking up running_bw and total_bw.
-
-Right about the hours: about 4.5 hours for a 4ms tick, with a 1024ns
-runtime and a 4.19s period. This is the time the task needs to pay back
-its overrun, at its new runtime per period. If the task stayed in the
-class, replenish_dl_entity() would push its deadline as far. v7.4-rc2
-arms the same timer. The timer holds only the task's own bandwidth, the
-new dl_runtime / dl_period. Here, it rounds to 0.
-
-The comment of this patch says that the overrun is short and its
-quotient fits. This is too strong. The next version will cap the
-quotient in this branch. Its comment will say that a stall can make
-the overrun longer.
-
-Thanks,
-
-Mathieu
-
+Best regards
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
