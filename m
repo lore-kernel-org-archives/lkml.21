@@ -1,49 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795060566;
-	b=3353wDCitRFppHnztZ85UBRNqPw6NwcU6sSYObGLjUEzoUCwVmBqGvHdry8yxeoV1aWw
-	 5EVTCInC3kX106+m3pXLmCDwhX0QIIvBaPMBedsOvjTgeXXAlqaOtXyalYrkmht5uIaXk
-	 fX1sXJof/EnxTEcJLO5QZIDpWGG6nMvFuZgsFsXGMxQXtcZ/7EkCXpqv5rUaL2+nFzOKR
-	 Fl8+c12KxucE+Vle4iL6LecEfn5xduJc4EjTqGr+ewLITBvhkdGIyFuCHZB9XRaV8ct6Q
-	 pghlZx+J5BL3XyubvS6I1qBvrI010FJVvTWGTktquVOLtg/CLzD6Gds7x+dFwyeZlJg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795060566;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=BkbJSF4aY5DwwRvkf74HcCi1x+58qV+mJKy0JwfSO5s=;
-	b=b8pBslTERAwGAS1wvsXwMpb58IdpPILl1th/J8CUu9OSUy9IwNA/2ZOiUszOETM05QxU
-	 84bJK3TE2Xx1cOS0AA+WEaLmkX/xV3pBJdKSKgwx+UZf/ZWVbeoZ9LB7kOnZ513x+aqrX
-	 3S7k/grCoiO2rKjtyNQaaVbINBxC7gHlqv2JM2Kt2Y++fozuVSO45cqnkVwWm8bSoXFRT
-	 gKsHvmktq99msJUgsTFyyNwbYQt72NP8wPqQj8hSEBTWgYF8yeDuuP721jpq45pTSlN4w
-	 gNvhvWqcoNmtC/ZKalaCsfEx3k2gz8A8TC/2Rmd/emdo32pxKc2Dnc0k7QronVe3LUA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Lxmpmq12;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5CA33606A326;
-	Thu, 19 Nov 2026 03:56:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CA33606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795060631;
+	b=l+Eyq5INpCeFuKy1QDueCfKBwa6W/1/VqHF+0MiAyrRTsQGEiIMveQ1M3hOZanenIjAF
+	 Nv91B5HfX7nXRKGNDc9gs5vMQCw+MAfPN7MZToSWHkBzgcVAhZVcc5XYAcL7RHy96rCGf
+	 5ReCp5HOekRghl4AhzRLNnEXrboN8tEmdaD0KVaM626tJ/5dOJwhDf4BryJdxmDXqMF+3
+	 sheKO594NU12wJzeumFozWDDE0/nWrKPEAF1B6edIwdnqVPUKhhrnYX5RSmANUdzYxDfV
+	 QWcDGbc9kp4inD8c9ZkqS9ke+O7R/1WC4s4hU6xUVMsaHNUBuJmRJd9hQg2aFSFf+Iw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795060631;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=3uFs0vwBfCqi0UELCiwFgEfoXJoy6jrEpkVO5It46E8=;
+	b=ZOsPACaQxuxhUAiFg03KsY1335AqWC0hnQibYtzb5BiOWkMPXNgX+77vtd5C/17vudUi
+	 c6r4mzH9GTbW0MaXTgbOcXlaLIxpURviswKKOuchi2AwUI5BpqgF+Umo0MN+ksSa4oBfv
+	 mVuJHE9tiAdCBESwcuDstEXTQoh/uJ7nhArIJDHtb1kq2qXXCtzijhdp8Gu3gWm2VcmlO
+	 US9YRf0GCyHD1P0fE7X31bvwxSyQaT+Qpxi4sjjwHaxyFTu8N4ZMllVHxUcFjjt5cVAR6
+	 KQFagDSLrfkYK+XJBrLoIk52uLynpa33qn5EJNbl6E3LzHiH1+kWi6g9n2A1Refws5w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l7MVVSc+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69173606A32F;
+	Thu, 19 Nov 2026 03:57:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Lxmpmq12
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2515B1575;
-	Wed, 18 Nov 2026 19:56:02 -0800 (PST)
-Received: from [10.163.128.149] (unknown [10.163.128.149])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF1013F632;
-	Wed, 18 Nov 2026 19:55:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795060565; bh=WWLj3TJuHvOcKDydq7vUx0XFf4zQYs67gD5nDNDmk5Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Lxmpmq120iVYYZpt/BMW/eZVPiMYER6b0FkFrrXxHMi1YgKpd1d1xf+vlY7aF+pR0
-	 cKuB88IF/zv8zJtYN00aCQcv/3txCn5Wyj8Pwmml1dGuxUrDAT5nKyKDr5TuDudo/o
-	 7nvwwmuEopoV0sXNOCuHnVRmjZkofU1kozzBSzSM=
-Message-ID: <5aa0c814-b3fb-4588-bbf2-fa141235c8bb@arm.com>
-Date: Thu, 19 Nov 2026 09:25:55 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l7MVVSc+
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795060631;
+	b=sSwHKBWRZgLEm91lGqREniOjEDInWiu+SQMVaRdjLrO2b46bvZ5nRngSWDkR31DhyyAK
+	 I7+h+PIDQLWa+O3gC2EuThaenOtWoJna8+vO+1P5rtwWlq+M7IasaoR46KEdBPKgFc/hq
+	 3utvjd8Mmlz3NRnlLhhah044YSwFTZmDZusV6OzFNRMNo6l0K0ndpe3+JnREGkIEOwW49
+	 Gt0pgX21cmldzOMDuoOZBqJqSftgnplJH8oU2w0JBEVwxuNvELrRt35huAart3LtH0esZ
+	 6u6If+IV5bIaUnt7yF14ArhJvuQhXy8mUTtR8p2BDxFxxxj+IttDnCiovI/DT3Wsocg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795060631;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=3uFs0vwBfCqi0UELCiwFgEfoXJoy6jrEpkVO5It46E8=;
+	b=N1dEbbt22Mj0CMQOW/ivxUQ19v+roNsR0F0J0lq1JtHLPkVGW6Jc707Ya6DupP7Ral3P
+	 ek23bZZDxygzqK6neAgXq0U9qV2fgb1CWogcBBwOEVDOCLPq0JCA288JqQTK+qvG1PpEc
+	 OthzJ1uf8W/vLjWZmlUJy1G9d+FXtwZMZMKVXtfCl+kJaxnEkfrGqK9AK6FNelNpZW9Or
+	 cc36rAiBn5yoBisHDd7LcbSIWGt8jf0SJAwQJM0eeyBw7LEosNr/taPoWXWbNk6P+LqsR
+	 sDOLgns+tpsEQDxb5bs7gNisS/i3sWHTsxsR3ibAflh17TV6gR4m087BVqOflZyhziQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 8904D1F000C5;
+	Thu, 19 Nov 2026 03:57:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795060631;
+	bh=3uFs0vwBfCqi0UELCiwFgEfoXJoy6jrEpkVO5It46E8=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=l7MVVSc+rdFqL1o5Er7ppErFGv2l2OSVf1pyX840mFOZluoly3Oq7G572stC/v3Ia
+	 NFdoRFpL6PUHBSpbsQM3zvh9zgu1RwDGY4Ac6RxXzStu4l+mBIjBKeXXuvAAITn/nX
+	 pIKIgJqYC1vCea0VcL88+yOLYGySYXEXOc0osKZA4HzXYf5dQCBbvPoFEWSFGhTJ55
+	 6EsqYjxZ2c8MvQYdD+OuSTAq5r05qSCkBokL+JGrqnPCG2naVxpaKbUUzjjyoFOrAI
+	 8+K2bwBC3NUirZJPKquTwkjweh+uuUzEsWgDeCGXoMcJ4t70Otc9PpC2vrHaVxNCfe
+	 aPJ+mRijMU6XA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 16F9E4B0B9;
+	Thu, 19 Nov 2026 03:57:10 +0000 (UTC)
+From: Blake Alexander via B4 Relay <devnull+contact.blakejalexander.com@kernel.org>
+Date: Thu, 19 Nov 2026 04:56:59 +0100
+Subject: [PATCH] usb: typec: ucsi: log invalid UCSI version of 0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,114 +82,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-new v2 0/5] mm: remove unused functions
-To: "Garg, Shivank" <shivankg@amd.com>, "pfalcato@suse.de"
- <pfalcato@suse.de>, "nphamcs@gmail.com" <nphamcs@gmail.com>,
- "chrisl@kernel.org" <chrisl@kernel.org>,
- "shikemeng@huaweicloud.com" <shikemeng@huaweicloud.com>,
- "vbabka@kernel.org" <vbabka@kernel.org>,
- "willy@infradead.org" <willy@infradead.org>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "youngjun.park@lge.com" <youngjun.park@lge.com>, "jack@suse.cz"
- <jack@suse.cz>, "minchan@kernel.org" <minchan@kernel.org>,
- "liam@infradead.org" <liam@infradead.org>,
- "baohua@kernel.org" <baohua@kernel.org>,
- "kasong@tencent.com" <kasong@tencent.com>,
- "jannh@google.com" <jannh@google.com>, "ljs@kernel.org" <ljs@kernel.org>,
- "baoquan.he@linux.dev" <baoquan.he@linux.dev>,
- "senozhatsky@chromium.org" <senozhatsky@chromium.org>
-Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com>
- <f3219880-c944-473e-82cc-bd6b4196badf@arm.com>
- <27ef4d8f-f4fa-49aa-b166-8335ca6f5898@arm.com>
- <c28c2ab82afa2cb3f331f1f3b3b20159bc7767b1.camel@amd.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <c28c2ab82afa2cb3f331f1f3b3b20159bc7767b1.camel@amd.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-log-ucsi-firmware-quirk-v1-1-6d42d70a6158@blakejalexander.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CQAxA0auQrm3CTIygVzEusLRQVNDWURPC3
+ R1l+Rb/z+Bsyg6HYgbjl7pOY0bYFEB9M3aM2mZDLOMuhLDH69RhIlcUtdu7McZHUrtgLUJ1RVW
+ 7jQK5vhuLfv7n42m1p/PA9PztYFm+rNKy2nsAAAA=
+X-Change-ID: 20261119-log-ucsi-firmware-quirk-8ffc87c7d42f
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Blake Alexander <contact@blakejalexander.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795060629; l=2922;
+ i=contact@blakejalexander.com; s=20261119; h=from:subject:message-id;
+ bh=D9QKefTsauXLfG27A3b8IZK8JtUA5DtyqrpmUi8e6cE=;
+ b=rdPy/cmFK41OxT4Qx7L+fZtJAtdaWVvzTfGR+7kCCx+VCJ6OKfsJ7/1KcE8tnZk2za6Cy31/q
+ z7qoirp65lwAkn8git9jXKQ+qnL4nPc1yP7zKWqyQN0f8Ne2y80yqKp
+X-Developer-Key: i=contact@blakejalexander.com; a=ed25519;
+ pk=csAgv2qq1q6RTYXyATg9ngFwpSFPE0yWA9R9nSvVxW0=
+X-Endpoint-Received: by B4 Relay for contact@blakejalexander.com/20261119
+ with auth_id=1565
+X-Original-From: Blake Alexander <contact@blakejalexander.com>
+Reply-To: contact@blakejalexander.com
 Content-Transfer-Encoding: 7bit
 
+From: Blake Alexander <contact@blakejalexander.com>
 
+Some devices ship bugged firmware which sets the version of the UCSI
+mailbox to zero. In such cases the ucsi_register() will return -ENODEV
+and the driver will silently fail to bind. There is otherwise no
+indication as to the cause of the probe failure.
 
-On 19/11/26 12:25 am, Garg, Shivank wrote:
-> On Wed, 2026-11-18 at 22:44 +0530, Dev Jain wrote:
->>
->> On 18/11/26 10:35 pm, Dev Jain wrote:
->>>
->>>
->>> On 17/11/26 12:46 pm, Shivank Garg wrote:
->>>> This series removes five functions and one variable in mm that have no
->>>> users left anywhere in the tree. I found them with the kunused scripts
->>>> [1], which I wrote with LLM's help. The v1 cover letter [2] has more
->>>> details on the scripts and how LLM was used.
->>>>
->>>> Changes in v2:
->>>> - Split v1 [2] up by MM tree, as David suggested. These five patches
->>>>   are based on mm-new. 
->>>> - No changes to the patches themselves.
->>>>
->>>> [1] https://github.com/AMDESE/linux-mm/tree/shivank/kunused
->>>> [2] https://lore.kernel.org/r/20261026-unused-sym-v1-0-82ca2dceabe1@amd.com
->>>>
->>>> Signed-off-by: Shivank Garg <shivankg@amd.com>
->>>> ---
->>>
->>> Okay I just recalled that there have been numerous cases where people ran
->>> scripts / compiler with flags etc and sent patches to remove unused functions,
->>> but maintainers rejected them citing they are there for a future use. Here
->>> are some of those instances:
->>>
->>> https://lore.kernel.org/all/20240907021506.4018676-1-Liam.Howlett@oracle.com/
->>> https://lore.kernel.org/linux-mm/20100211052247.GA15392@localhost/
->>>
->>> So I think the commit messages need to do more, they need to prove that the
->>> unused function was a genuine oversight.
->>>
->>
->> One way to do that would be to mention the commit and its date, if its too old,
->> or, if it was part of a patch series but then the author changed their
->> strategy in the later patches making the function redundant, etc etc.
->>
->> In patch 1, you remove mapping_clear_release_always() but d73065e60dcc 's description
->> implies it is going to get used, which is confusing. Maybe we are missing
->> a genuine bug, or the author forgot to drop the stale description across
->> revisions.
->>
-> 
-> Hi Dev,
-> 
-> Thanks for the review. I agree that some unused symbols may be kept
-> intentionally for a planned future user, which I checked for before
-> sending.
-> 
-> For most patches I had included some history, like the commit that
-> removed the last caller or the commit that added them without one. I
-> missed that for mapping_clear_release_always() in this patch and for
-> make_guard_swp_entry() in patch 2, so here is the history for both:
-> 
-> - mapping_clear_release_always() was added in b4fa966f03b7 ("mm, netfs,
->   fscache: stop read optimisation when folio removed from pagecache") and
->   never had a caller. Earlier version of had called it from ->evict_inode()
->   but V4 dropped those calls as unnecessary [1] leaving the helper.
-> 
-> - make_guard_swp_entry() was added in 7c53dfbdb024 ("mm: add PTE_MARKER_GUARD
->   PTE marker"), has never had a caller, and none has been posted in 2 years.
-> 
-> I left some symbols out because a posted series adds callers, for
-> example folio_dup_file_rmap_pmd() and folio_is_pfmemalloc(), or because
-> they are one half of a pair whose other half is still used, like
-> kmsan_poison_memory().
-> 
-> [1] https://lore.kernel.org/all/166924370539.1772793.13730698360771821317.stgit@warthog.procyon.org.uk
+While existing (and future) machine-specific workarounds may resolve
+this issue by assuming a known-good UCSI version, future devices or
+older firmware revisions with this issue will still silently fail.
+Both users and developers will benefit from a clear diagnostic message
+when troubleshooting this particular bug.
 
-Thanks! Sounds good, you can reply to the individual patches with the additions
-so that akpm/David H. can fold that in.
+Add a dev_err() log message when a UCSI version of 0 is reported during
+ucsi_register() hinting towards a potential firmware bug.
 
+Signed-off-by: Blake Alexander <contact@blakejalexander.com>
+---
+Hi,
 
-> 
-> Thanks,
-> Shivank
+I have a ThinkPad T14 Gen 2a which is failing to negotiate a DisplayPort
+Alt-Mode connection to a monitor-hub with a USB-C cable.
+
+I spent quite some time troubleshooting the issue and identified the
+root-cause only to find that a patch which fixes this issue was already
+submitted:
+- "[PATCH v2 0/2] usb: typec: acpi: Zero version quirk for Lenovo ThinkPad T14 Gen 2a" <20261103-ucsi-lenovo-t14g2a-v2-0-e85c659b56a2@resetko.pl>
+
+Similar issues with other laptops have also been recently submitted:
+- "[PATCH] usb: typec: ucsi: acpi: Add quirk for ASUS ROG Zephyrus Duo 16 GX650PI" <20261009-usb-next-v1-1-95a2288ad9b2@gmail.com>
+
+And existing quirks are also already handled in mainline:
+- Acer Nitro ANV15-41: commit 8c51ea651d04 ("usb: typec: ucsi: acpi:
+  Assume UCSI 1.2 on Acer Nitro ANV15-41")
+
+In the hope of saving future developer's time, this patch adds a
+dev_err() log message when the UCSI version register reads zero. The
+log message hints towards a potential firmware bug and gives an 
+explicit cause of the driver's probe failure.
+
+Tested on ThinkPad BIOS R1MET65W (1.35), EC R1MHT65W without the
+relevant quirk patches.
+---
+ drivers/usb/typec/ucsi/ucsi.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/typec/ucsi/ucsi.c b/drivers/usb/typec/ucsi/ucsi.c
+index 9e453d216c16..fa79ba6dec02 100644
+--- a/drivers/usb/typec/ucsi/ucsi.c
++++ b/drivers/usb/typec/ucsi/ucsi.c
+@@ -2396,8 +2396,13 @@ int ucsi_register(struct ucsi *ucsi)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (!ucsi->version)
++	/* Version of 0 is not valid but some vendors may report it due to bugged
++	 * FW and there may not already be a workaround quirk to correct it.
++	 */
++	if (!ucsi->version) {
++		dev_err(ucsi->dev, "UCSI interface reported version 0.0.0: possible firmware bug.");
+ 		return -ENODEV;
++	}
+ 
+ 	/*
+ 	 * Version format is JJ.M.N (JJ = Major version, M = Minor version,
+
+---
+base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
+change-id: 20261119-log-ucsi-firmware-quirk-8ffc87c7d42f
+
+Best regards,
+--  
+Blake Alexander <contact@blakejalexander.com>
+
 
