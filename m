@@ -1,72 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795131086;
-	b=kvPF9lBrkK2TmAcqk5ruxgRqE5vk6gCa/Mca9TXJINOTBgRRpNYHoh1uXqOOlm5i6oyM
-	 yPAxV/5T7ri4SqcuYsLLrXwpzxqX3OdAqUu9+jkyYZ00N0b9jSEBb18fsiBHwtAExD8tV
-	 gCtg0pyGolw6JC/Ssn2MN/QwGf3pqTD1jPCFt6/hStRwiZuV5ZpwliVZd8K5Q17BHVlpU
-	 gAHmAQvsmIwEF9WnUeUJnG0vmgUlF4e89NrTEW3/+9+lwAYitNSIB35fw3ztFlf3jRX9A
-	 7ze/l6d7gOWNOsxX1YJu/JqkFWovIAyTDgFSVkAwcVj0GyFuFn1FoGkydJz1gJQSCSA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795131086;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795131192;
+	b=aWcG2TqmKE3V7/JAY4AiRZcW4ul8oa9+5ue9NLdWei/F8WTtTFKUIZ9iLiGCKxk6dIzO
+	 vxm0dPs0qnqtvTiH6Jen6C1fGuIph0MD1vVirCW75n5Fon7FgLHeQ4R2xU0a1hSzSF4yU
+	 WBUtilbJeHTVAkDfo0eNHnqs6o0kp4HwY7+XH+XUSF46K9dm7AxMIXMNBJEc8O4CCgoLz
+	 DBDN/fPE/VwWC42vbII6PXHM5Ko+0/zgB21nm5VdbXf14DUOPGZUj5zlxtqbrEMEqzjej
+	 5gnNHIffe82X5xW7wZf/+NzKRQqEjbIXFp5sVrVbV+E0I2nv8QYe2WWv8/Qth3L9ITg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795131192;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=Aem+HyjchlD9dlMnLoX3Rsa3iep8drYmdRID51i88Fc=;
-	b=gNdXvuFYFdeNzIvWPoQlTD+jBOPaL9WXJWhR5qkT345EbEGZyp6FyfyCeHAC/uXmZ2xl
-	 Sm/NbB8VCyhHx50ENWFQgf6I6UgQuYlneDEt34eDtyCDgOpHiNZC7RJ2G93bN+8zLk35X
-	 3dXctDquEp5exlVL6xdo0qhhu0GpuyIHLOrrgR5GD7Zn3dCamxVC8BZY3lCxg/mxVJYi2
-	 PGkOEMSJsdZdVpCRZ2amDXIEb4iEmmiiC+ySST9Sg090T+YWFKUpQD+loTznsApfJ+dyP
-	 e2mDAfkVoS15AtMs90NF3eev70IJ84v8AeCgo5JsuF8h/jBgOnCMYg1IyaU0ULYpnRA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=irIwo6Of;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=db1dSJIcWvwP9jZk7KvLgI0rZAQDCeyNT1LeRTG4P5c=;
+	b=KJWjbiSXMZRP6flhcRgGyVG3d2xNK4rMCzUzQady7Je6e+8MlF1AjdOcRCc/ztOdP9VE
+	 qumG46xzJx23PcwAyM0+Jxsl8+yj6Px8F5ra77H1N45pd3C/LxVSIuldq/KgkNcHI27jc
+	 gwaq9xuLRd1KT3FoOdYniCUw0ulzQKK3GJxi87t2Bfn+jMepB0k/9Uy/vC2h8cWjJFJ5y
+	 sEC+TIrMO5BKIkdhzHvp5x8veWo++aArzQjOwaYCv4g4td5Dxe7bPP3EFGsElAZiC9CEy
+	 7PoJZ/MBF0PTaSmL1a7t/oEm9L3EkwBo22fHytTWciZUAYfaH1AsAT5k3wHyGPw+PEw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="c/VhU0Ed";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.217.54
+Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com [209.85.217.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2322F606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:31:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2322F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--nilayvaish.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0F67606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:33:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0F67606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=irIwo6Of
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3a348a6dbso562285c88.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:31:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c/VhU0Ed
+Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-7cc53938a8fso270742137.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:33:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795131191; cv=none;
+        d=google.com; s=arc-20260327;
+        b=egejTKV3aXEc94yGBpfm8o86oPEdkYKepvurU0Xfi4mfKE+HLe2qjxMFCCEzph79lo
+         PSjYw9OMwLxYXpDIOVz24TTsYa+K5gzOX1mU4KkHShl+j4+90P0j19bIXbmtShUGd0I9
+         HRYIh3dZ5TZBjnAYAnukq0GIb/iaVOCixF0BkANLs6xYXrXKRJEKEQQHe8qee4C/7Ze8
+         66fzwfx+wrEuxC+eSNeSTAOgF+N2xNgQnL5IxpGeZEJ/XPVQo1pVvEnY/FPBgb/jiiYy
+         cnmHP5GIOuOXUXTsbd/8tE1iMHhby/aXS97EXBsMJRt5PJtovebPIXeeJjlRVtwA5RHN
+         9C/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=db1dSJIcWvwP9jZk7KvLgI0rZAQDCeyNT1LeRTG4P5c=;
+        fh=fY0PGifEU7cU3IVGMevwzxpawMgSFzD4bRCUdWcIkms=;
+        b=h+Tqx8mNIa9AkGspHPQQG4JR69Xvor1cgtBJssu/7NkmnCYHL70dq6EH9vJ3CEmfRX
+         ryZfmJGwI7yvm3sbhDtf3PcIsbx0YsRBzgHT0qxNxEletzPs/b+F1ZM2bvZaJ35B8baD
+         Vda4cCc7H49dxJTQYja8NXG5pP/QELnWLXNAQPPIcKT1giJdXyVZz5TsGt5EFIMDeLHS
+         Dn9Z13blsWjxDeO/IK3yF07j9dXzCHMF+GajQQ/qqWqsC0UeFKrhG2lNSb9nDFjRUxZS
+         IOZsY0v3A6S/6PET3qW1uYHLAUutipoFl8Mlq9eRKbVA8TrjCAmyD5fdk/CEjkCoUpbF
+         IBaQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795131085; x=1795735885; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Aem+HyjchlD9dlMnLoX3Rsa3iep8drYmdRID51i88Fc=;
-        b=irIwo6OfYFjr0tY9zMTChWdltupwNjesTLkY6coKjPsKgFyz8vdBCzLp1IXE1ZTaw+
-         Z2dpHHaK9DpxjUZaynqwcYTYbhdwdWIqJYbU4DpIzX0bk5Hmam0LS8/1m1U/XpfhBNX6
-         XjIETzyu+thXWmbyul+5nnB0b3EJ01IXyZbkQ/Vu+RpZWXKviXm/17f3rG+H0Xn/j2j5
-         j3o+/qrHQzjuehAmCMSVV9+PemMpE6SU9YFwIYxXLXCjltTKYUxnAW9NJOz3mvR/H5fa
-         4aCFdVwoNykO3vx+Ob85YXDDCkMEA/kGTNOHAMu2lsOQhJec6tLwkwGQ58TnWT2Iy1ho
-         ROew==
+        d=gmail.com; s=20260707; t=1795131191; x=1795735991; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=db1dSJIcWvwP9jZk7KvLgI0rZAQDCeyNT1LeRTG4P5c=;
+        b=c/VhU0Edpz5YnJd+BLr+Bp3y//88SlotKoNmysrUmM+wgwOh34GnCLyUaug+TzKcyI
+         qEZTIqNbbvGDMXibgzJOxOno1w9jI/2WSpF8vGqqEEQw1ll1qPEqoGQoGS3p1O384pBh
+         HsVlfgX/0H/x9DHwCBZC1oPXIt7vcaZr4fFgfBMcWZhRAZvSvKFmN9CCb8r0Apqrp+Bz
+         qlxLh4zCU/7lVxbKU6jyyw5hZQsRias0dfxk2YoJtb2wX2g0wP55AEeRbsTzRmd/bMWH
+         REBZH+xLS1/ldFleeYjLTjB4SLsaoJ0WE6lvDtT2OVrdKOwLSUhfgtPoXzyvKUQ1kmfq
+         VcGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795131085; x=1795735885;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
+        d=1e100.net; s=20260707; t=1795131191; x=1795735991;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Aem+HyjchlD9dlMnLoX3Rsa3iep8drYmdRID51i88Fc=;
-        b=OMEgF2eUrPh4i6YaaWJkKcIduxNvd50sljP3B6jcwjd9elzqIaaKVBqjCMVgPqX9K5
-         1nsH2rnCDX/Uvwwok4aAZ8GDakl8XeAFcGXhBGQ6bOuzM8Tktl6tUaISFF0YV58MP5KN
-         HQ1EVrELAy263g7PR2xqSUkJwJRJDc0bzxY/D/lGDzkARLxX1/fm8nw76+BJObRE9ENc
-         sQe4+5TuS4BRdEB+nWbgncrW/J9UNKQ3bFzVN4NH/IzE8Y94Kv49n13WhelD/v2YCx32
-         AFauk4Qb8lebfuMO7yy8ySBF13MX3Umme3htWfZPFvkmHxuwtq0Rt3La9UXLv0uWxdYW
-         b2Gg==
-X-Forwarded-Encrypted: i=1; AL+hErGoIzpg7mtnjTT82ycm5A/00kakmmus+OrgB58yfOIOaaYBLlSLN+lEwj9yYcqflCcA2kwvgXuDA9gj7bU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OVPmJjYX+SO5qrBUjgENKabIqfleCOtzT2RDnPKoFEMQNaY4X
-	jdsla/Nn2y4hfNxEdXUhlkoMSnJYMTX72fBfWlbrFfnLuuzkPgKZWs8tbqxkBJITbecAUjIZYAl
-	K4pTZnVpzucc7JJuXNRt0Xw==
-X-Received: from dldyq15-n1.prod.google.com ([2002:a05:701b:454f:10b0:1b5:1d0c:b35a])
- (user=nilayvaish job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:2806:b0:1a4:c892:b130 with SMTP id a92af1059eb24-1b5568bbebcmr918980c88.15.1795131084783;
- Thu, 19 Nov 2026 15:31:24 -0800 (PST)
-Date: Thu, 19 Nov 2026 15:31:19 -0800
+        bh=db1dSJIcWvwP9jZk7KvLgI0rZAQDCeyNT1LeRTG4P5c=;
+        b=NXaaJR2WrcXK95uvStrEcHy0JWIdkhAUH0Us27vpQxzmHPhdAxtTpNRqiTsEtF3qL7
+         PSaNpcTbTsM1L+5Dgdqw13WhZPnR0OEJZokJIRp74+ndBzGd3rehUxb0pnik1bb0VlE5
+         OBhRks9F44512hM9oCD5ebayF7CkmOGeFefr1pcMXmbpqLmKcWvy6SO9ZRnBHCGZNc+/
+         KeN53i2/7TE2d14CtFpf6czytggt5yQocAW4DwKUprQJT40yEuwlzRVd/y63h3zYNWyi
+         fH89SD/mX5XY4J61oZM9ueIfhAreV6e2UjOn7jqY0LaiPa3f/kfpXPsSMY67motssztG
+         nHPQ==
+X-Forwarded-Encrypted: i=1; AL+hErG10qdDm0bQb5GXMZ5F2vd8dud7pV9slonGpvGKEsiMF6YKtdWccpussvsFDwj2REgzV2G8TpeNujcMtxQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PTibX8j7C2JQYBwqhBpayM00OIR+Ggurk4Z6UYkvKXTOYStNo
+	oCgJNwf4LLbiC4XBHcL+w/8V3XoVl3puuRkq55LbrS7u1vW61A9HlMLDKrfTbJDOmZkG02bMfP6
+	7s7xPWPDuxIKWal3EUx2NzpJReJg1qcI=
+X-Gm-Gg: AYBFou2zebRzxPlsSnYevu6gPiqXgDWdFTCdw43XVD2M3miEINwq3S9Uqu+w7dD8/wl
+	szlXVVT2MZCX0xOz1T2Ct16QbMpRaj0w6dFyUwi5nEirmpDQK9HD384s0LXmfOiNvZs7udbFKxi
+	+tgdEOvtbCwjH/tSBoQYIxJoec3wzC3CrhAmKN8jSNffUpKWL7qKtG3W1LWjf5t9flZxb0TD5rF
+	GvISjyecKzpcWj+oDMvR77X2kGYfjIL2SaopDRLNjtoQ4I76xb1tX3OV5CTSCB1Z+LFepp7l4W+
+	R21ObLViLLjZ7bBeyTDz/BfpOTrioGMkQ1b4B8LVEXHFtg82E2XPOmJ8mRrZN1R2HAohJOydyHi
+	o45slfjiObt7H60cGdt3Jlc4aU+X/rkrUweMV1u48vDKhhbCXdVzH0TYzwbtB5pAdq1R//0rnbX
+	zDKDgSHhrZw8WbHhwWv1gJ4LgyE3Ys8Ks/hVH20D6DL0UFvl/vIJ6zHD+ZqaHNW+sGL3CAq8tmE
+	xjZ9HgqAzU4AGgXmwVt9DMbQTki5g==
+X-Received: by 2002:a05:6102:162c:b0:7d2:b199:6710 with SMTP id
+ ada2fe7eead31-7d7394619edmr563227137.15.1795131190654; Thu, 19 Nov 2026
+ 15:33:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,202 +105,91 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261119233119.1721789-1-nilayvaish@google.com>
-Subject: [PATCH v2] lib/test_hmm: fix alloc tag leak when splitting
- device-private folios
-From: Nilay Vaish <nilayvaish@google.com>
-To: Andrew Morton <akpm@linux-foundation.org>, Balbir Singh <balbirs@nvidia.com>, 
-	David Hildenbrand <david@kernel.org>, Zenghui Yu <zenghui.yu@linux.dev>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>, Alistair Popple <apopple@nvidia.com>, 
-	Zi Yan <ziy@nvidia.com>, Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Nilay Vaish <nilayvaish@google.com>
+MIME-Version: 1.0
+References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
+ <20261119144848.4ddd88cb@kernel.org>
+In-Reply-To: <20261119144848.4ddd88cb@kernel.org>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Thu, 19 Nov 2026 16:32:58 -0700
+X-Gm-Features: Aa3M54pl4hlXRMcwBzZFHc9YCWzUYN6am3kufSQboJBVsJ7s6nPiZ-HbdhxnAag
+Message-ID: <CADvTj4oJ6HDR2k6qVgefUX-h0TGh2n+AO5gx_dcJFzzWML+2UQ@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
+ offload setting
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, LABBE Corentin <clabbe.montjoie@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-For device-private memory, test_hmm backs each fake device folio with
-real system RAM of the same order, allocated with folio_alloc() in
-dmirror_devmem_alloc_page().
+On Thu, Nov 19, 2026 at 3:48=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
+ote:
+>
+> On Sun, 15 Nov 2026 17:58:26 -0700 James Hilliard wrote:
+> > stmmac_set_features() clears hw->rx_csum when RX checksum offload is
+> > disabled, but sun8i_dwmac_rx_ipc_enable() unconditionally enables the
+> > hardware checksum engine. The MAC therefore keeps dropping packets with
+> > invalid IP or transport checksums before they reach the host, even afte=
+r
+> > ethtool reports RX checksumming as disabled.
+>
+> Rx checksumming only controls whether the _good_ packet indication /
+> offload is communicated up the stack. The device should never drop
+> packets due to a bad L4 checksum. Checksumming L4 is not much of a DoS
+> vector. Oleksij was fixing this in other stmmac variants. I _think_ you
+> should always clear this bit if it leads to packet drops.
 
-When the core MM splits a large device-private folio, the driver's
-->folio_split() callback, dmirror_devmem_folio_split(), has to split
-the backing memory as well. It does that by hand: clear_compound_head()
-on the tail pages, folio_reset_order() on the head page, and
-folio_set_count() on each of them. dmirror_devmem_free() then frees
-every backing page as an order-0 page.
+The case I hit was `rx off`: on H616, ethtool reported RX checksumming
+off, but the driver still set EMAC_RX_CTL0 bit 27. Clearing it let
+packets with a bad UDP checksum reach the stack, where they failed
+software validation. With `rx on`, the driver sets bit 27 both before
+and after my patch, so the drops in that mode predate the patch.
 
-This open-coded split does not split the allocator's metadata. The
-allocation tag and the page_owner record still describe one high-order
-allocation, and PG_head stays set on the head page. When the pages are
-freed one by one, the tag is debited for only one page when the head is
-freed, and the tail pages carry no tag at all. With
-CONFIG_MEM_ALLOC_PROFILING, running the HMM selftests and unloading the
-module reports the leak:
+H616 also has a separate control for forwarding error frames to DMA:
+RX_ERR_FRM (EMAC_RX_CTL1 bit 3). With bit 27 set and normal filtering,
+none of 100 packets with a bad UDP checksum reached an RX descriptor.
+Setting RX_ERR_FRM let all 100 through to DMA in both the IPv4 and
+IPv6 tests. The descriptors had the payload checksum error and error
+summary bits set, but not the CRC error bit. The driver discarded
+them on the error summary.
 
-  lib/test_hmm.c:808 module test_hmm func:dmirror_devmem_alloc_page has 16744448 allocated at module unload
+> (FCS is fine, bad FCS should only be passed up if RX_ALL is set,
+> but sounds like your device has all checksums controlled by one bit?
+> in which case we prefer to see all and let driver discard the bad FCS)
 
-and with CONFIG_MEM_ALLOC_PROFILING_DEBUG freeing a tail page triggers:
+Ethernet FCS checking stays active on H616 with bit 27 clear. With
+normal filtering, bad-FCS frames produced no RX descriptor in either
+setting. With error forwarding enabled, all 100 bad-FCS frames had
+RDES0_CRC_ERROR set in each setting, and the driver discarded them.
 
-  alloc_tag was not set
-  WARNING: ./include/linux/alloc_tag.h:164 at ___free_pages+0x2a0/0x2d0
+> If I completely misunderstand things we should at least get a respin
+> to update the cover letter. The commit message talks about L4 offload,
+> and rx_csum is L4 AFAIU but the bit is called CRC which deserves a
+> mention somewhere IMVHO.
 
-The backing memory is a private buffer of the test driver and nothing
-requires it to be a folio. Allocate it with alloc_pages() instead and
-split it right away with split_page(), which splits the allocation tag,
-page_owner and memcg state and is already exported to modules. It is
-still allocated as one high-order block rather than as individual
-order-0 pages because the driver finds the backing page of the Nth page
-of a device folio by offsetting from the first backing page, so the
-backing pages have to be physically contiguous. Every backing page is
-then an independent order-0 page for its whole lifetime, so
-dmirror_devmem_folio_split() only has to point the new device folio at
-its backing page, and dmirror_devmem_free() frees the backing pages one
-at a time.
+The H616 manual calls bit 27 CHECK_CRC and mentions the IPv4 header
+checksum. What I should have made clearer is that the bit also affects
+transport checksum checking, but clearing it doesn't disable Ethernet
+FCS detection.
 
-As the backing pages no longer form a folio, take the order from the
-device folio rather than from the backing page, and index and copy the
-backing pages individually instead of using folio_page() and
-folio_copy().
+Would it make sense to address the `rx on` drops in a separate
+follow-up along the lines of Oleksij's dwmac4 fix [0]? On sun8i that
+would mean enabling error forwarding to DMA and passing packets whose
+only error is an IP or transport checksum up as CHECKSUM_NONE, while
+still discarding frames with a bad FCS or other fatal RX errors.
 
-With this patch the device-private HMM selftests pass and the module
-unloads without the messages above.
+If we leave the checker enabled in both modes, `rx off` would only
+control whether the driver reports a checksum as verified. In that
+form the follow-up would replace the conditional bit-27 write rather
+than depend on this patch.
 
-Fixes: 56ef39899643 ("mm/memremap: add driver callback support for folio splitting")
-Reported-by: Zenghui Yu <zenghui.yu@linux.dev>
-Closes: https://lore.kernel.org/linux-mm/be9a8bae-9223-4966-bba9-2cbe39c8f4de@linux.dev/
-Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-Link: https://lore.kernel.org/linux-mm/8ef6e92d-4cb3-444e-857e-fdbf88c035ea@kernel.org/
-Signed-off-by: Nilay Vaish <nilayvaish@google.com>
----
-v2:
-- Use plain struct page arithmetic instead of the
-  pfn_to_page(page_to_pfn()) round trip (Zi Yan)
+[0] https://lore.kernel.org/r/20250818090217.2789521-4-o.rempel@pengutronix=
+.de/
 
-v1: https://lore.kernel.org/linux-mm/20261118230044.683221-1-nilayvaish@google.com/
-
- lib/test_hmm.c | 40 ++++++++++++++++------------------------
- 1 file changed, 16 insertions(+), 24 deletions(-)
-
-diff --git a/lib/test_hmm.c b/lib/test_hmm.c
-index b409c42bfe6f..15db569eb721 100644
---- a/lib/test_hmm.c
-+++ b/lib/test_hmm.c
-@@ -201,6 +201,7 @@ static void dmirror_device_evict_chunk(struct dmirror_chunk *chunk)
- 	migrate_device_range(src_pfns, start_pfn, npages);
- 	for (i = 0; i < npages; i++) {
- 		struct page *dpage, *spage;
-+		unsigned int j;
- 
- 		spage = migrate_pfn_to_page(src_pfns[i]);
- 		if (!spage || !(src_pfns[i] & MIGRATE_PFN_MIGRATE))
-@@ -227,7 +228,8 @@ static void dmirror_device_evict_chunk(struct dmirror_chunk *chunk)
- 			dst_pfns[i] |= MIGRATE_PFN_WRITE;
- 		if (order)
- 			dst_pfns[i] |= MIGRATE_PFN_COMPOUND;
--		folio_copy(page_folio(dpage), page_folio(spage));
-+		for (j = 0; j < (1U << order); j++)
-+			copy_highpage(dpage + j, spage + j);
- 	}
- 	migrate_device_pages(src_pfns, dst_pfns, npages);
- 	migrate_device_finalize(src_pfns, dst_pfns, npages);
-@@ -805,7 +807,7 @@ static struct page *dmirror_devmem_alloc_page(struct dmirror *dmirror,
- 	 * data and ignore rpage.
- 	 */
- 	if (dmirror_is_private_zone(mdevice)) {
--		rpage = folio_page(folio_alloc(GFP_HIGHUSER, order), 0);
-+		rpage = alloc_pages(GFP_HIGHUSER, order);
- 		if (!rpage)
- 			return NULL;
- 	}
-@@ -827,6 +829,9 @@ static struct page *dmirror_devmem_alloc_page(struct dmirror *dmirror,
- 			goto error;
- 	}
- 
-+	if (rpage && order)
-+		split_page(rpage, order);
-+
- 	zone_device_folio_init(page_folio(dpage),
- 			       page_pgmap(folio_page(page_folio(dpage), 0)),
- 			       order);
-@@ -1029,10 +1034,9 @@ static int dmirror_migrate_finalize_and_map(struct migrate_vma *args,
- 		WARN_ON_ONCE(end_pfn < start_pfn + nr);
- 
- 		rpage = BACKING_PAGE(dpage);
--		VM_WARN_ON(folio_nr_pages(page_folio(rpage)) != nr);
- 
- 		for (i = 0; i < nr; i++) {
--			entry = folio_page(page_folio(rpage), i);
-+			entry = rpage + i;
- 			if (*dst & MIGRATE_PFN_WRITE)
- 				entry = xa_tag_pointer(entry, DPT_XA_TAG_WRITE);
- 			entry = xa_store(&dmirror->pt, pfn + i, entry, GFP_ATOMIC);
-@@ -1130,8 +1134,8 @@ static vm_fault_t dmirror_devmem_fault_alloc_and_copy(struct migrate_vma *args,
- 			goto next;
- 		}
- 
--		spage = BACKING_PAGE(spage);
- 		order = folio_order(page_folio(spage));
-+		spage = BACKING_PAGE(spage);
- 		if (order)
- 			*dst = MIGRATE_PFN_COMPOUND;
- 		if (*src & MIGRATE_PFN_WRITE)
-@@ -1722,14 +1726,12 @@ static void dmirror_devmem_free(struct folio *folio)
- 	struct page *page = &folio->page;
- 	struct page *rpage = BACKING_PAGE(page);
- 	struct dmirror_device *mdevice;
--	struct folio *rfolio = page_folio(rpage);
--	unsigned int order = folio_order(rfolio);
-+	unsigned int order = folio_order(folio);
-+	unsigned int i;
- 
- 	if (rpage != page) {
--		if (order)
--			__free_pages(rpage, order);
--		else
--			__free_page(rpage);
-+		for (i = 0; i < (1U << order); i++)
-+			__free_page(rpage + i);
- 		rpage = NULL;
- 	}
- 
-@@ -1833,34 +1835,24 @@ static void dmirror_devmem_folio_split(struct folio *head, struct folio *tail)
- {
- 	struct page *rpage = BACKING_PAGE(folio_page(head, 0));
- 	struct page *rpage_tail;
--	struct folio *rfolio;
--	unsigned long offset = 0;
-+	unsigned long offset;
- 
- 	if (!rpage) {
- 		tail->page.zone_device_data = NULL;
- 		return;
- 	}
- 
--	rfolio = page_folio(rpage);
--
--	if (tail == NULL) {
--		folio_reset_order(rfolio);
--		rfolio->mapping = NULL;
--		folio_set_count(rfolio, 1);
-+	if (!tail)
- 		return;
--	}
- 
- 	offset = folio_pfn(tail) - folio_pfn(head);
- 
--	rpage_tail = folio_page(rfolio, offset);
-+	rpage_tail = rpage + offset;
- 	tail->page.zone_device_data = rpage_tail;
- 	rpage_tail->zone_device_data = rpage->zone_device_data;
--	clear_compound_head(rpage_tail);
--	rpage_tail->mapping = NULL;
- 
- 	folio_page(tail, 0)->mapping = folio_page(head, 0)->mapping;
- 	tail->pgmap = head->pgmap;
--	folio_set_count(page_folio(rpage_tail), 1);
- }
- 
- static const struct dev_pagemap_ops dmirror_devmem_ops = {
--- 
-2.56.1.750.gf70dc682cf-goog
-
+> --
+> pw-bot: cr
