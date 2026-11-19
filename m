@@ -1,60 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094274;
-	b=tCi6OzR1TbAyShAqgnPvTHYOMpDCrfBHTbFuTYwz3sG7wR+UjHwLVghmONsJKTVeRwto
-	 A+Vyy4+QQF3M8qB3993cjhaZ4EuHRHp2IU3gBNYd4X5lodXkGFBKBk+9Sxsc3GwuJrngj
-	 1atUQ4c3fcgeSl4JNipC+uLziTDSeVR3zEg1S2KEjCVrfyIVrCpaOzTs1Mhs8Ndj58UcV
-	 BzdnjWcXDpxqCOOLUloz5YuaZvE9c0NsbM2pvTEHfMq5G9lok3yGXmemdPJ942t+qlaZQ
-	 dYK3HuFNm6POv1QX5QfAOegYQaSX79lBUrmT3eHLhFfOsOARnd/mlrmt0+NPsEX96Iw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094274;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=c4JodCXFJYsFjKsG9M4trE9wchuTecCsKm5CSZLC4hc=;
-	b=AfmX+B90zYsV7v0LgliIyUyRZFbPmcXB7yQGNZvRdtpPRhVKmpr4JtaQmcEHKGGpJrDu
-	 Gfb8V/d4BpIp80Ih9oiz35Q3QD/WSMraoQnZT3M8N4+4JvS1Wd6vueXR0BJuvagUEG3My
-	 wCHyWwFX0vP40R4xBrj3N3/SNjO+R2MiQBQJPiENBfl/wYwS3p/GTw7YfcP7gP2pTBDyL
-	 NuDrXI7PvZHqCdv9lHlB6hrEvZ2ul0+wxytYJ+ZBnEDUg0c5K+FdPryGOkEKXX+wGeDC2
-	 35Kj5xSn0hzewq5uYANnmPHAMqiBu7wB0hCpgpnJngMuqKCqaXiZjqtkPChs8lmb8nA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=tCKrdnen;
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.16
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795094275;
+	b=TnD89149emp+tLEGG8cCAz1jhlLJe8X0A8k9n/5RRZktdIzNkaHqtwXTt9xZURRyh65A
+	 hOx4nwO/CPdfDtiudQ/40PX65OgGyXQUZIdenR0fQ/Cb6C3mXrS3R1ODL0YlTwyXO+iML
+	 lx3tjM/+nTxpauS3PEm3T02LLihCxV6j1JaMvMBC07RB1I2IsjNW1reQX1MRVXfWRhcEY
+	 eXzw18me2koSeaIiLYrKnpd7020SBG+W4UtzFVXCzh1Pt1ndDhLlMRHHD5FOztxTdSH+N
+	 BYoZI96crDMojwTZtAKggl0/Zzb3RVzjWkTo/JMLOjMM8RvbBK9YEm1wNzzd35mNsug==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094275;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding:
+	 Content-Type:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=prAa4bglv56a9zS9Zl8nQ0qhdAxkPpnxdvD2AFjL/tM=;
+	b=2sZGj+byhrM5XwKe2ImOWoUjar4AgKTlit2S67BhCyD6Ttgz15Oo5+zgvVh57zvx3Snv
+	 FsFwoGbayhQRFknkAH78jmiUUH8ys1tTGl3MQ9hKTr1vGpzhmIl8bPs4zteT8DSLJWJTU
+	 U5WOpir/QovlI1DbvKbRanMwc+O9/w/KFVmu9OnLSS+aprqEuNNzlabuLur6slq4YobBY
+	 CMsIj2RVWmER0W37WDzajel34uQXeAvUd+e5juAi31p7Bd2+HgUZQqdIOgrpQAjhkfsdv
+	 zDTf/DuFnk9UW6j3Eoij8kN0vi0tz5j/oZYmuj2JJYJQxeIidw2yoMrRvycW7vRPBBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5HtqvH8s;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.16
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012016.outbound.protection.outlook.com [52.101.48.16])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E0D3606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:17:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E0D3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA4D0606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:17:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA4D0606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=tCKrdnen
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261119131751euoutp025b1c79bd81dfd7484b8ffe09ce6b041c~pdLqehDNP1267312673euoutp02B
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:17:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261119131751euoutp025b1c79bd81dfd7484b8ffe09ce6b041c~pdLqehDNP1267312673euoutp02B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795094271;
-	bh=c4JodCXFJYsFjKsG9M4trE9wchuTecCsKm5CSZLC4hc=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=tCKrdnenBcm3IgpjF1SGdlm8gc80Rzy8MOKtLvZHDbZ4DzfnsSTC/cJYb64iIQeE0
-	 hKy5i/cFoAD0ok+eLMz/0ElmTyA/dK0x6TappCbdLTAe7isXOWreRT5TypImh4S6th
-	 9TGQZMmpSxkATQ+cLpVdE6FVbrBWriGKEhdwNoO4=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261119131751eucas1p188066757e9cd9eb57dbdceb523c9b7ec~pdLqNmLTa2917429174eucas1p1w;
-	Thu, 19 Nov 2026 13:17:51 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261119131750eusmtip1b09a8063fcb8f57bec92422ad0c4bde6~pdLpUEplc1427414274eusmtip1n;
-	Thu, 19 Nov 2026 13:17:50 +0000 (GMT)
-Message-ID: <2b64e853-89a7-4fa5-a4f8-2c6b0b62bf74@samsung.com>
-Date: Thu, 19 Nov 2026 14:17:49 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=5HtqvH8s
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cxOG5gQ2+Hhu/A1ARNulN4z+UThVQJ+Vy4Eq/YeCSNzNX1W3NhhAnw2FXsN1KWMz/xhFfrGF+GJ+RTWezJ17P7xEpE+dsQgKF3XHFQs+C7s6Jgz19F0xU1yI+5lRWyWjCBStjkhsMCr6lwYyNih7uM0hCcXzg3EGLWMRHX43X6yl29pRRPTuYN8Uh922207B/RHNpGtdZNfOuggkYN5u6EyuILrNtr0v3Wm/+/F+WlynXj2odLxGWWHlXJDXrT2g7NBz7I2lbTqHMjuKoHYucCmJbP/OhAxy8krJX1kEMptzRSlTx5WJ3Dbr/XTHkMthRqq4RdQuhiZcb6dlabhT3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=prAa4bglv56a9zS9Zl8nQ0qhdAxkPpnxdvD2AFjL/tM=;
+ b=kw1aoSqY07OgcM9w03+oWm1CcN/+VAaALspYB3ts2kIhKYQJ7pU/yVcczgccCbZDyjeXTsPXM5jP7GC0Y98yU1YBoc+7qEYyMcFSDVN1Iai6CSgaBkB/Ro+clVP88nJT7dwixpekGRB6hGNo2ok5/m5TKV/ZpVmnCCnCmrHxd3bJgkhWWGamGMDXvRGnOYAsq2qUC+qAb0/iKCLknjGu/Owb9Ot+6TsIlUcvwrfIDd8rD6k+WnuMa4i7Sg/zosvRNInr67ASiKtJb9OTIae+KhQGqQYs+HdjHQkQx6Hqu4haUUyjxpwG5LyjPxN8qWsd7alRq9jlsJYCFE3/fOC8EQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=prAa4bglv56a9zS9Zl8nQ0qhdAxkPpnxdvD2AFjL/tM=;
+ b=5HtqvH8s/MSIzhr96JXhON1NFBObkcgtFDi5s6S0d8RhYxuywAtmpV1AzLTnS5zYSMHuNG0resLxC6zqsiMkVguwzNk9kDvbyRzYJtcOwpDSNb2Z2heSse3E2abt3awsGscNRKci0AFLky5bU6mttWXgWTfly00tkCfyE1jGNiU=
+Received: from CH0PR03CA0420.namprd03.prod.outlook.com (2603:10b6:610:11b::25)
+ by LV2PR12MB5989.namprd12.prod.outlook.com (2603:10b6:408:171::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
+ 2026 13:17:43 +0000
+Received: from CH2PEPF00000147.namprd02.prod.outlook.com
+ (2603:10b6:610:11b:cafe::46) by CH0PR03CA0420.outlook.office365.com
+ (2603:10b6:610:11b::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Thu,
+ 19 Nov 2026 13:17:43 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH2PEPF00000147.mail.protection.outlook.com (10.167.244.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 13:17:42 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
+ 2026 07:17:41 -0600
+Received: from localhost (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
+ Transport; Thu, 19 Nov 2026 07:17:41 -0600
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@amd.com>, <git@amd.com>
+CC: Jolly Shah <jollys@xilinx.com>, Rajan Vaja <rajanv@xilinx.com>, "Ulf
+ Hansson" <ulfh@kernel.org>, "moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH 0/6] firmware: xilinx: cleanups and debugfs fixes
+Date: Thu, 19 Nov 2026 14:17:24 +0100
+Message-ID: <cover.1795094242.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,95 +110,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2 4/7] powerpc/mm: handle highmem pages in
- arch_dma_prep_coherent()
-To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org, "Christophe Leroy (CS
- GROUP)" <chleroy@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig
-	<hch@infradead.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
-	<mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde
-	<sshegde@linux.ibm.com>, Chris Zankel <chris@zankel.net>, Max Filippov
-	<jcmvbkbc@gmail.com>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <jym96n4p.ritesh.list@gmail.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1151; i=michal.simek@amd.com; h=from:subject:message-id; bh=7JRKm5lSuT858wpIMTNKywXoaJHBJdou7IN0rulGqMM=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWT9+/Z899Zv5ypmLf2tyPyOX0klLc22UHZj0TLmEPmXk /a911KI6ShlYRDjYJAVU2SZzqTjsObbtaViyyPzYeawMoEMYeDiFICJiMYzMnSsW8+Yql+6LSVV yn67S+uJ+Y2e+QcC9IRWnZ/aI5ahE8jwh7Npgpb8obj+Gev/8SpPuWMuxiocPlHyVI4y+8a+7xp dXAA=
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261119131751eucas1p188066757e9cd9eb57dbdceb523c9b7ec
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261110094850eucas1p1f10fa1473aca341473077f60a088b490
-X-EPHeader: CA
-X-CMS-RootMailID: 20261110094850eucas1p1f10fa1473aca341473077f60a088b490
-References: <20261110094830.2081847-1-m.szyprowski@samsung.com>
-	<CGME20261110094850eucas1p1f10fa1473aca341473077f60a088b490@eucas1p1.samsung.com>
-	<20261110094830.2081847-5-m.szyprowski@samsung.com>
-	<jym96n4p.ritesh.list@gmail.com>
-
-On 19.11.2026 13:07, Ritesh Harjani (IBM) wrote:
-> Marek Szyprowski <m.szyprowski@samsung.com> writes:
->
->> arch_dma_prep_coherent() performs the cache maintenance on the address
->> returned by page_address(). On 32-bit powerpc with CONFIG_HIGHMEM that
->> is NULL for a highmem page which is not kmapped, so the flush would
->> operate on the wrong virtual range and leave the dirty lines of the
->> buffer in place.
->>
->> The generic DMA code may pass highmem pages to this hook:
->> dma_direct_alloc() handles a highmem page returned by
->> dma_alloc_contiguous() by forcing the remap path, which calls
->> arch_dma_prep_coherent() on that page before creating the uncached
->> mapping. This cannot happen on powerpc today only because it does not
->> select HAVE_DMA_CONTIGUOUS, so dma-direct never gets a highmem page
->> there, but nothing in the hook's contract rules it out.
->>
->> Use __dma_sync_page() with DMA_BIDIRECTIONAL, which the
->> arch_sync_dma_for_*() hooks already use and which kmaps highmem pages
->> one at a time. Without CONFIG_HIGHMEM it does the same
->> flush_dcache_range() on the linear mapping as before.
->>
-> Does that mean, this change can add additional overhead for
-> CONFIG_HIGHMEM=y kernels, where the buffer received still belongs to
-> lowmem? (Because of extra per-page book keeping like
-> local_irq_save/restore, kmap_xxx). Thoughts?
->
-> Although functionally the change looks correct to me. But maybe
-> __dma_sync_page() on powerpc side could use some cleanups (outside of
-> this patch series perhaps).
-Indeed, __dma_sync_page() could be improved by calling __dma_sync_page_highmem()
-only for highmem pages. Something like:
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000147:EE_|LV2PR12MB5989:EE_
+X-MS-Office365-Filtering-Correlation-Id: da63f908-3a50-4a4f-2b08-08df463f7ea3
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|36860700016|1800799024|82310400026|10067099003|11063799006|56012099006|261022105027099003|261021123027099003|261021121427099003|261022075727099003|261026140227099003|261028144727099003|261102123227099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	O56ZqnU3TBXTJDBP51LZioPIqTD/Y7JquBf3NXwVH/47ZbhU9TNixGETbY68oJSz2VGNUdqkmpJm7tldN4ToYV7D9ISIET1jRlGqzcmV1RAFAuw+m0lWjeXLCJnwwxHxjNPLJbiIM60UjG4YPWdhNB8TW9qgDvxtIS8nwOKCL9eRx9eNynFoNUYMQoGj++3d9zWOnHr4MMXVdzFL880NDZSkbMVr1Xp3MK4fEQ8XIIyCzcDU1IbVKVNCA4kOMz8IBXQ6ajJyPXrQI0jf9IAZYshwxrw8yg5fXVt/0V2YVRhNq7YYAJ/PZ6aHi6JANNh3QUkooaAn8gsoBmetABkdxpoOe52Jq+qqDNwjqpLHTsXpt4SbMpNKPE+1oDYe1sE3ZxmzSYRhZa8tAmqS4zhQMZXz1kYbjbGjs8qOf+nwzRHf2n6NnwkMEv9p9+wwTspYslwql0eUE5RipuAiI3XF4NCjoMp8YBd/BEyGsQljFyRB4UYHMTipqdPzJ/xNUqyukOQ5jk1PrPXvyA4XMa7q8QXI+Wc69w18IO1kQ9GEX63xDWuZG0loJi1G0DnHbcXoOkKeKFhCjSahfc3ItXV/Fsomkkkx/UGfnLaV2qfZdGBFbFAZLmbykoMu6Qu0dlH9uQk8ZgpsasRkkfEQQ4Wd5w14klWDAhL2GxiE9yfNObflRzXkrxnIsmhz555Q9lqkjzG846xweo42LXpXt+1iyA==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(261022105027099003)(261021123027099003)(261021121427099003)(261022075727099003)(261026140227099003)(261028144727099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	nvEFKrXEYbB9M6gBn9RcOglL5wBOp7HlDqrnNokLAg+IK39UehkAFrhPA+WZ54re0sFNgD5IBMfapjZzQobrvKZ8fujA/yvvZZW/bDSXubW2OP44+EmoMN3AInJXf+KdMonr8ntXC0rwFUZ4YMEFbeBWaVy6D/Nw+fcmTi99gJef56DzPUCuABIgonjnKrUU4MxjxB7PuLWPrtfYxz2hsYs1K53JZVhQrhbiGdDPzWHE2gU05jPrph9MsgQnPZKuIIaV58IcK6Qj/8g0kRYV8bEsGSjrly887GNkMAHhppyTHY+62WO93Qsmmw50O1trBL3HfAR1zwJArloch91hx7QndzibNQ4T0UnVkNxvQNIRvLABc2c5lDAXPMp/VWBahxqsw5eNHNKFnIXRhlCc0NG4zsnMla3Htstg34HO947i8z0VkifeS5eJ8Vtg5ebc
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:17:42.9533
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: da63f908-3a50-4a4f-2b08-08df463f7ea3
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH2PEPF00000147.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5989
 
 
-diff --git a/arch/powerpc/mm/dma-noncoherent.c b/arch/powerpc/mm/dma-noncoherent.c
-index e646256365d5..199ce0467b58 100644
---- a/arch/powerpc/mm/dma-noncoherent.c
-+++ b/arch/powerpc/mm/dma-noncoherent.c
-@@ -97,11 +97,12 @@ static void __dma_sync_page(phys_addr_t paddr, size_t size, int dir)
-        unsigned offset = paddr & ~PAGE_MASK;
+Patches 1-3 are preparatory cleanups of the EEMI call path and of the
+sysfs registration.  Patch 4 fixes pm_init_finalize() never running
+when a firmware consumer never probes.  Patches 5 and 6 fix two
+debugfs issues: an undersized ret_payload array and an unbounded clock
+name copy.
 
- #ifdef CONFIG_HIGHMEM
--       __dma_sync_page_highmem(page, offset, size, dir);
--#else
--       unsigned long start = (unsigned long)page_address(page) + offset;
--       __dma_sync((void *)start, size, dir);
-+       if (PageHighMem(pfn_to_page(PHYS_PFN(paddr + size - 1)))) {
-+               __dma_sync_page_highmem(page, offset, size, dir);
-+               return;
-+       }
- #endif
-+       __dma_sync(page_address(page) + offset, size, dir);
- }
+Each patch builds individually for arm64 with ZYNQMP_FIRMWARE_DEBUG=y
+and checkpatch --strict is clean.
 
- void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+Thanks,
+Michal
 
 
-Do You want me to add it as another patch for this series?
+Jay Buddhabhatti (2):
+  firmware: xilinx: Change debugfs pm_api_ret size to PAYLOAD_ARG_CNT
+  firmware: xilinx: Bound debugfs clock name formatting
 
-Best regards
+Michal Simek (4):
+  firmware: xilinx: Use late_initcall for pm_init_finalize
+  firmware: xilinx: Call va_start after pm feature check
+  firmware: xilinx: Add comments about number of arguments
+  firmware: xilinx: Call pm sysfs out of dev_groups
+
+ drivers/firmware/xilinx/zynqmp-debug.c | 13 ++--
+ drivers/firmware/xilinx/zynqmp.c       | 90 +++++++++++++++++++-------
+ include/linux/firmware/xlnx-zynqmp.h   |  3 +
+ 3 files changed, 78 insertions(+), 28 deletions(-)
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+branch: xnext/firmware
+
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+2.43.0
 
