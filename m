@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795106509;
-	b=w/ec9qzbPC2bqcYkZ53jYUpoKGngTL1IJlsv51uBsilA4mTh/8oph4kK38b6/LYOdfLF
-	 31mkJCs90d/8X9LqrAiNINZk9rKmpOxNQlo1TLXxqY+IOp5OFkNuDCypJLDno4s5Uzs+i
-	 nHQrSG8h6vggTdXBwNop/WtcWGjRKuIvSyYGiHI5m2e9lP3ibCjXPmDvdRqEXx5H3PQTe
-	 wdsTsadhwa3ub2fkwvWjNhL3PnNh8anwhl/p1WlUXRMN+vHMFbbD/X76u7vJMaBPiBOJK
-	 SIYKV2OciiJSLpsuEm4bipu3seqDn7a9a1PF9+l64B2t23mgNSWV8E6v13ihmlSDR+Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795106509;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+hgwoC1mnHPTdL47hn44vDvOyskXgKTvzaFRmNqiUuw=;
-	b=SiXPOCHPppB/U1yunHrSmKe5TG0rTen9X6qadQO44sBUIoly0/trtIcbPst6HGYEeV/x
-	 DfhTdZ64E7aWQrdoxNmG2KcdxWzZw/BONlKpINA5kxq3dkU05Hs3clcT8xu1pvNeb2Grb
-	 QUnQLllseG071P9rt4PEUU4RAYmF0RKm3blsEBnehsefiBhDeXzvb+nvAaPC8XDWOus+R
-	 Bf01f+wOyt3/KtJXVbaOLHAoDDprTUgP9oZ1XaW/YZTAWkSMaEZ57rVK77v2d7O0V7SKr
-	 bDuwdMoSpv8RNdYjNs1zHQ7KeJD6+i5sGggKt9n755agCoDaxCZGWAyRH34KMcw/5qA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="nrps/ajE";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.44
-Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011044.outbound.protection.outlook.com [52.101.65.44])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795106524;
+	b=KLC4+r2DnKuNfvLIVAnk9e3PzMuHl4RijkS4MsUIV+kMlB52wODpwBMeIehqbM6nUTn8
+	 P7ZkZZs5xdgKGWSwiG/VIea4SKsD7wQDdrHC/afOXbQzFVVwTsi8xuKKxsulwS9NqXeBS
+	 VaNW/G0wdvupA8qgL8B+CYwYdBK7zSZrpMmD0CgLIppLseTSo5xq+tGGHzDxUHnjcTIFv
+	 bMqxW8vhY4h0nO2MM15zlbRE1duSGx4xyl7cwJErwkdBlP7b8T8H7IxwplC2n5ThhqpuT
+	 WH5RHEUrByI/MttneldUJQbkjw3bcDbKAFJoUQ3uL221qEwP2YUyrgf38fZRSunD63g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795106524;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HgDd5L0VIORH2VG2v5Fp/wWX0U3z/GJXEnBUz5v1RkU=;
+	b=Lpy+aR/RBVVXlU0hpwHbxurKeBQ+zjjp8K3jjYHjBEqeZbo5hds2y7jWKdZZFjXWys+e
+	 bX7IyC+7O93KYjvuhBdTPi9Q01s9sQDZ4jo8H49LCsHbY979H4I/3rREl6AeZbvnDzazn
+	 2CkUPyYZcnWdugtUEr31uE81uJvDqhBsuptnt83OPPA4jdQ/aBCEfbiJ1VkVN2aHWh3Fp
+	 frWuSSTbsIefiBAHCrc6OGYVb98omgE5PyeZUDaZfLwhmGJj670+m1ROIOsbIL+qRRJ7I
+	 oPiJDblL6BMZPzRi2jr56E4LKgAzzuk8fVr/mXZQ830SoinWbmCAIVUXLs58wxH8QLg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZTLbUhHH;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31836606A332;
-	Thu, 19 Nov 2026 16:41:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31836606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80873606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:42:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80873606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=nrps/ajE
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=loLq2bQLUPmAWRri5CEpMSvvzZrkyszYO88oZqBoHAoWT4CB0ROcuY86yvaq7t0anbO7ftdGklwcMQjpyDYTBrMQNoJ+fjpHuF6N8OyqLBtSjcnOji6IVgIaNnV0M7vaP5XX5G/NN7rqiBtRl8eB8WgknhM942yv41RdGMB0KPfhUwQ1ZQyNelnfWlQsP2czQ99RQG+8mYhpWyXX1/IZiUpp6SYl34YxjWhPGNwdEqtFAtjT8tXcfCKVLy8JT32pYam1nP31uhvV/uFP8tti50khDb64sM+FqWCd2UqukQUPtMSctjAySCwDTHduVE74wwK+cikRRfdMHmy5qqVP5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+hgwoC1mnHPTdL47hn44vDvOyskXgKTvzaFRmNqiUuw=;
- b=x5hoqXqYWvVlOz0hvSmS7ANBrfxAQX+Ih9ODkcgysQ+P8fIVTcu+sPD6+axl2sWYngJscSM0EQEOLnaNvbUSqlXthZVnJ2UVFO3t1I0jaiH08HemPVBtdKFm6m2X9y2Qa+kxSan2yLFXTSNGrfR04ksdKWXRxQxn8cAzzfy/B/o4cUDufcHBeYuWj2/oOjTdTJHmFDr7ByzWabs1N7DfogMyL6FwGA/1gkvAsuiol9A8dU6iYIeVI4OXDzj87WFq91Xw/HaoTCxq26e8QhE8Qx6eVQwXfADIjuYOvvoEWK+u9AOGOAkqxTZOP3gDnbGbmxGw4BNJSKLuivPWQAY2Jw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+hgwoC1mnHPTdL47hn44vDvOyskXgKTvzaFRmNqiUuw=;
- b=nrps/ajEXl6S0YCY2JYBHtcPpsnPMaVhi6p+GQEXWMM3XXmaqB1xBVVCkx6L/z5tkZ0O4ntptMb4u2w9NhiJBPGwWGa5gBLYotADMM1WHxUm9vxXHUkDspnar+kSwnpr+R1iJPMCgTxvwl5erDXgyt1szcGd8JDDXb9Thlj6qGfgfYV5Zq2lkQAwAPbcLIxz74s0BsEqDbKur5a0w+la7uGfAXpCZIBxrPliq3j/SZyLNcMmtWmUdwAf0lHEB1LmxQ/JComXSnkx22LgJywPngojYJfT7uzF3jwrbr5fuSb1uTCSVfOOkQ8uVtC0k9JsbuU5ioxPwhTL4oLpc0pt0w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AS1PR04MB9239.eurprd04.prod.outlook.com (2603:10a6:20b:4c5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 16:41:40 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
- 16:41:40 +0000
-Date: Thu, 19 Nov 2026 10:41:31 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Sergey Khimich <serghox@gmail.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Sia Jee Heng <jee.heng.sia@intel.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Mitch Barnett <mitch@accuratesound.ca>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Wang YuWei <1973615295@qq.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v8 6/9] dmaengine: dw-axi-dmac: retain descriptors until
- callbacks drain
-Message-ID: <av8mu_ZFxNKSgFTK@SMW015318>
-References: <20261119-submit-dw-axi-dma-stop-pause-v1-v8-0-f8e7fe60594c@gmail.com>
- <20261119-submit-dw-axi-dma-stop-pause-v1-v8-6-f8e7fe60594c@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119-submit-dw-axi-dma-stop-pause-v1-v8-6-f8e7fe60594c@gmail.com>
-X-ClientProxiedBy: PH7PR17CA0028.namprd17.prod.outlook.com
- (2603:10b6:510:323::8) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZTLbUhHH
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1ae58d17cd9so2210111c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:42:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795106523; x=1795711323; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HgDd5L0VIORH2VG2v5Fp/wWX0U3z/GJXEnBUz5v1RkU=;
+        b=ZTLbUhHHtbEifkw55T/7SASi3uFaklxp2yFg3vzaGeTR8ge312YjkAunBIvmi4rQSO
+         udI3e3qpMJBVO2EYnEHMvJaN+g2HjnJpcL6Lku4FYz3/GLmZx1LFkh8FDvLQrAb6olQ1
+         GXbTxh82NeNBoLcMaCKyPHvfHxPC0yaCrtyHxfMWmgM+8CFXqV0CzAEgj0kYjSo5m5/M
+         P3gX292QVX+GAP5nmc+W7CZP11Vm4nAelZC49qbxYqk3aT/DUDSVt9z3Bi8kMTxMuKNX
+         nEWhaHYNkpvtGsHGYYaXjez5N5sAD8jj/w6877E5BOpcW3GbRm0xwC9eGRMmBdAE7Qw7
+         iktw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795106523; x=1795711323;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HgDd5L0VIORH2VG2v5Fp/wWX0U3z/GJXEnBUz5v1RkU=;
+        b=VM14Pfn8F2IwPNHrrIutbK59EZpzvqI/JwIWiH/KUvvwdZaqPp0WjQ7e2rr09ybyTD
+         RSjEMUTjSyP8x+HgY2U0UOLxqdSR5x4NRjoLKZEbLuUP/cSh7WbrpZH3ZIJ62+QYuwGS
+         wUswQ2ruSpufXu9T9m9gQngbHUErNAWt0OOyZfjvd2Cc5ke682/efN8eg3DnSOiR+P48
+         CEyXVJI5wy5p5+oDskn1ZlSShifRM67xEv5ZcWaIk988GXipbBmT5EloqOVc65zycT66
+         rJdHZu45gq6ocjyy9V/KpvQ/NEgdOqqAaJ8uQUDKY3ZNbuCkGfBZLqtH33GEuJ/O93CJ
+         D6YQ==
+X-Forwarded-Encrypted: i=1; AL+hErFmF2kuEj+zIfltACDh9x7O5Shvkg8m7qurJsXSt1/jT4YxOQibZE5If2IBW9ypfzTycKLu3QEizCXF53U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yQWEXoeVPpNx5Z6r9UIC71ZlgWxKbO3l37KqaCFJCUXJBZ5T0
+	dOankFtivPBj9prfq3ejW+LInPSI77Ys13olFbm20NCY22AVglatwUmy
+X-Gm-Gg: AYBFou1VzAL7MCJOiVw5UxETKUfVtuLkGqrA1Npobgkt++wI+NtWEXeX+dx8rrmTHM7
+	8Xt3TDPYLRC9tny2JmuYmGqDUR0DKTJWw9LfLKm74Nzj9sToUWIp3stkWMuI0XDEJmAxeAkeV0f
+	Df0ksRbrIZ0/uaL5tJfuzxfEMw9sUoNuD6pphUP2JNG6oS0cnpuKJJHC+6Y2kNMP7dmMIomrl+c
+	L4J/m0RVKhkcCoOCjCmjMwK3S2Szbmu1zy/zRJBcQt6t8+n0deu0DUWa3TQTHmdPdbXXpa8MO9l
+	p/LwzZh98pg78Ttug+/3PEu7748OZqvjzH/aAfWh1UcLOj2XdvGfh/nOXsWjG4CkwFMLIZ0b8dv
+	6tzySer2NPqiL0ia+OqGlihSvrQ1TybiYKVU6cPch+wz86psuVQmb8ZhRvhH7n3GwCTLblTqfuP
+	7gxBwUAJAy2aZZrAu+9sEvvW48obMkXinnSnoxMzbk48CdQYJxkY97rQcjjGEyNJ0MzMlz6TQQo
+	ks14w9cSxyBqDr/SQNMBaMGpkfklIxlSFR432ywxu4BrdhR2e25+k3Y80HJriOj1QAOWkuD6GM8
+	wiC+Z/HHlcVb35xleCoJB6oHuo9NUA29MoqaAM2ACv3cIRH5YxRhmGeNU3z4vokj6uRgdhVAoiR
+	haHWRr6V09Q==
+X-Received: by 2002:a05:701b:2705:b0:1a0:f970:4f5d with SMTP id a92af1059eb24-1b55688b929mr201816c88.17.1795106522470;
+        Thu, 19 Nov 2026 08:42:02 -0800 (PST)
+Received: from cps-manycore-1 ([147.46.174.222])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55682d301sm327441c88.10.2026.11.19.08.41.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 08:42:02 -0800 (PST)
+From: Sechang Lim <rhkrqnwk98@gmail.com>
+To: bpf@vger.kernel.org
+Cc: ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	eddyz87@gmail.com,
+	memxor@gmail.com,
+	song@kernel.org,
+	jolsa@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf] bpf: reject override_return programs on uprobe_multi links
+Date: Thu, 19 Nov 2026 16:41:40 +0000
+Message-ID: <20261119164152.3678373-1-rhkrqnwk98@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,137 +104,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS1PR04MB9239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5e9e3260-fc62-47ed-f417-08df465bfc65
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|366016|376014|1800799024|19092799006|23010399003|10067099003|260925022911599003|11063799006|4143699003|260925021911599003|260925021311599003|261022113327099003|56012099006|261021130227099003|261022105027099003|261021135927099003|261021121427099003|261022075727099003|261102123227099003|261021123027099003|261022115727099003|261009223027099003|261026130827099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	LsbqNOYcI5Xxz0VkcHtt43MdBaRRIyH9SeF6QQa91mG4vkxyyFZMVma22gFfbrb9PXEl75eW+jFw5ZN1/EALKPqWPwbUVWJ+yD5XVXjSUETXhcJp0/vMzUEDDmVAx15fm9sv/Xz0nziIm236qOQyvJVlECUJNAdWmsqNZBvTdLc/y5W6vYaSO/UPyzocRb9CzFEL03j15F97QYZ8hE982qFHoFnifIgMiEHEpYsHwYF1ulzlEoQO/Yv97Ql8kcd2xqA2uUOHxrl0+KS1hN3YFgPxmmgBeUekref7DHLwVW9lUxWNNLpzpinld7pI8qY643lL+wlmuZq4ih99Rqr1aiuTqhY27lfWPWjg22/Y3hpab08ridgFIX1lz2NVgh1fEkeJtTSPNOfIHnz8sJwA8hP9rs7thLtr3a80vEV+yPTq/oXE9RqJvugDjtw7xR4t1DKavZFJ0dLiRMdQq6jAg5AzNf1Spa5vBmmOVZMnlIt81Cfvqfce+ObfIkvcssV3Ei0HRV7uLrG742QyvE+pVqAdM+PB4U1J7j2jEjVb6RTUuZ9pkWbDKMvcKtu7Gk+WTeSFluQ29B+f1eYAFsFlG2MRXp7QqK5uDAU3EOCe23oIslkhM61pePJ99ODVVhmQ
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(19092799006)(23010399003)(10067099003)(260925022911599003)(11063799006)(4143699003)(260925021911599003)(260925021311599003)(261022113327099003)(56012099006)(261021130227099003)(261022105027099003)(261021135927099003)(261021121427099003)(261022075727099003)(261102123227099003)(261021123027099003)(261022115727099003)(261009223027099003)(261026130827099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?3oOlZ3NEH01XX7A4yG6s+eMun0XGPSp/WYnLp0qpFY5KR3DvYefrYxyuSgeM?=
- =?us-ascii?Q?EYdjt8+D4HF8lep3lypGBYHFjkZoCD94WW0NrlMwYGLNnp7eX4h5Qpiz2/jT?=
- =?us-ascii?Q?PQf/XIdrFnQ/vS/xi8liyMRasbGCdnpWYM/hfN4P/lR7w1h+Ys96T4N4wHrJ?=
- =?us-ascii?Q?ddMvxubNCS2zcwmDOhzIQuGvtSPz7f6Fhh/7QaUMWeALkY5DxqpvjHuUvzQL?=
- =?us-ascii?Q?VhomnQpoIEz+0pQwW81/e13HzdF26Db+hL5cd55DkvtQtSezoTx/wzg0fEI5?=
- =?us-ascii?Q?5ZMofVlTCTJRBktT4B+1yelsrQzYusAFRIgnu9pBDya+bddNVYZuHJ0LzOIq?=
- =?us-ascii?Q?K84LWG1aeme9hH8aaFzyGe6PPDIagvDon5LF3/jCN9mcj7Kkyx4LOn33i/io?=
- =?us-ascii?Q?DtxJ127L9c8wZvva5QmgMAIHl5QjPUtlxSicMMMU3rq4OkTrTMP6iD4nEDC+?=
- =?us-ascii?Q?kFcBYAAxNIPWjQN6Ze4nri/uMs4nDYqMDtzS5d56R37qBGS/ruTyp3vvbfq6?=
- =?us-ascii?Q?5GyG48hApR0rpDGMCL6IY4vizsnZ9fPCXNDfrs2osdh1bTpHAbu/xo6sSee9?=
- =?us-ascii?Q?ARlPWADcQ7CQ4N05hSYvh1vO1edzZMLCQghSk/r6YD5Ebbp5WATIYQJRQ7HN?=
- =?us-ascii?Q?mn9Oiw1zY9omtN9fVGo0s/HdkaefJ1iZy2/kbgUv0HRVVXvlhdPUKU/AfCDP?=
- =?us-ascii?Q?JF2jALUIFX4UES4JLOJ1Xw5CM4/NiGVMyLmXHBdo18v8pvld8iwmun6bKBqI?=
- =?us-ascii?Q?7svFXEH8T75yRO9DenlYitmiRSw7n/yGpCCc2aWclPSUTSgDitS7UAqL9GFV?=
- =?us-ascii?Q?JuebVE1r+2IgCiCd9HWalq2jt9JQTu+Hx3XKKnzFogZlpqOLvL+sgwL04Nv6?=
- =?us-ascii?Q?WR0bPuDoee7jNloWVYgsvBqV6HzTEjHXPCYKARZKTo3c1a5W3Jw+CieoSlGH?=
- =?us-ascii?Q?gIA00Px9e0m2AvnumG4a/3PEF4dX7UEfKHDaTqc+ITKSVWDme7V9JyCbUcgz?=
- =?us-ascii?Q?mc46KJ0FPr+MnqBFSfz7jfnr/dyiKH3KdOJ4+7fjerJB5jIG8amS9zNUQ/lU?=
- =?us-ascii?Q?Seh9szXSXtiX/uYIRfCEEe2LjsqvLrK+Ddo6TO79jDTdI66n+PLmtHtHJMur?=
- =?us-ascii?Q?zo2vAH1Dj2boARQyPzY9gbVWwtbLDWYo1nFJMPd34O5XrLoLyYimHXjGCp4M?=
- =?us-ascii?Q?9RKBx/RWJ90D3cCtvKKErtTHkI7iJEbJ5hGMkMRVcEj2ypOhFhchi4iyfMjC?=
- =?us-ascii?Q?cjKFFWW9RHWeXnHH9OKuHl5JLviuo9oAmVb/vE5XZMaqlaRWAu7QqR37mnjj?=
- =?us-ascii?Q?6/WuBK8wzO5LXnMmSgBtH9HamOXCanzzm9i4UCEcGdZvB7+tsrClEukN1Amd?=
- =?us-ascii?Q?bmYHc3KTejxo6Z6vyrX+dfngR1eORs/VK6bcGGy6ga80jH7nWYGwvoBp/j+7?=
- =?us-ascii?Q?8ndp1z1Da1y/ZhwxNCVSv+AlnjL1BgHx+GXU5fUb0k7nJBcgac9DfniHch5+?=
- =?us-ascii?Q?znSfoPWJEqpT56REkLjuT7Ga5vw0K+ugQY4uzpji/GQndoN2egEgmGTD49MH?=
- =?us-ascii?Q?hwpFXGEjIKBVzVx+3NtfGX9Fm5NS7CDEJpL0UoDQ2NHH970lN6Vvxd8VdLUe?=
- =?us-ascii?Q?FT9XHI+wqagMREJ5nkRluPS45Bc5Wqg2TbdcLTCVzscC3aD32E3TWmkALUie?=
- =?us-ascii?Q?LZy1l877LLwnWVqSBWJ8cXSXgV1YTtTnsgQH1Jlfr7HUSdNNULZIph9MF/22?=
- =?us-ascii?Q?SUxYqqo/epXyFOlUQaTXwHe6geETsxl5jVGcK14tr5v73tNn0JK1?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e9e3260-fc62-47ed-f417-08df465bfc65
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 16:41:40.1640
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: f+NO1TLFvqs1Ir63ZjQALWWwGIILzChLNAAah4EnoBIfYCCGfev/KSD1TIXU1ryvp4I7Qyaz1pGi730tS2EHhhjkzDns3rYQ0r/BR6amJ6DWumsw+sDarPSx8oDznqeQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9239
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 09:01:01AM -0700, James Hilliard wrote:
-> Termination frees every descriptor while a pending period callback can
-> still refer to one through vc->cyclic. An executing callback has already
-> cleared that pointer, but still receives a pointer to the descriptor's
-> tx_result and can use it after termination frees the descriptor.
->
-> An error interrupt can also move the cyclic descriptor to desc_completed
-> before termination. Looking only at the head of desc_issued therefore
-> does not cover every pending cyclic callback.
->
-> Use vchan_terminate_all() after stopping the channel to clear the pending
-> alias and move the collected descriptors to desc_terminated. The existing
-> synchronize callback drains the tasklet before reclaiming that list.
-> Descriptors already detached onto the tasklet's private completed list
-> remain owned by the tasklet. Repeated termination preserves the retired
-> list, including when called from a completion callback.
->
-> Fixes: 1deb96c0fa58 ("dmaegine: dw-axi-dmac: Support device_prep_dma_cyclic()")
-> Reported-by: Wang YuWei <1973615295@qq.com>
-> Link: https://lore.kernel.org/r/tencent_C00D995A9F70206DFD1330DCB1222EEBCB07@qq.com/
-> Reported-by: Mitch Barnett <mitch@accuratesound.ca>
-> Cc: Wang YuWei <1973615295@qq.com>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
->  drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
->
-> diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> index 99b648d4ca76..2547f9596ae6 100644
-> --- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> +++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-> @@ -1202,7 +1202,6 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
->  {
->  	struct axi_dma_chan *chan = dchan_to_axi_dma_chan(dchan);
->  	int ret;
-> -	LIST_HEAD(head);
->
->  	scoped_guard(spinlock_irqsave, &chan->vc.lock) {
->  		bool enabled;
-> @@ -1219,7 +1218,7 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
->  		if (chan->direction == DMA_MEM_TO_DEV)
->  			dw_axi_dma_set_byte_halfword(chan, false);
->
-> -		vchan_get_all_descriptors(&chan->vc, &head);
-> +		vchan_terminate_all(&chan->vc);
+bpf_override_return() changes pt_regs->ip to the kernel's
+just_return_func for kprobe error injection. Perf uprobes reject
+programs using this helper, but uprobe_multi links accept them even
+though their pt_regs belong to a user task. When the probe runs, the
+task returns to user mode with a kernel address as its instruction
+pointer, faults, and exposes that address in its signal frame.
 
-I have not found this function, Any dependence I missed?
+Reject programs marked kprobe_override when creating an uprobe_multi
+link. This covers both entry and return probes and matches the perf
+uprobe restriction.
 
-And keep allocate_queue when terminate,
+Fixes: 89ae89f53d20 ("bpf: Add multi uprobe link")
+Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
+---
+ kernel/trace/bpf_trace.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-https://lore.kernel.org/dmaengine/20261104-dma40-fixes-v1-1-48c5180f5210@kernel.org/
+diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
+index d22e78e7f28d..45ff81dbca96 100644
+--- a/kernel/trace/bpf_trace.c
++++ b/kernel/trace/bpf_trace.c
+@@ -3297,6 +3297,9 @@ int bpf_uprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *pr
+ 	if (!is_uprobe_multi(prog))
+ 		return -EINVAL;
+ 
++	if (prog->kprobe_override)
++		return -EINVAL;
++
+ 	flags = attr->link_create.uprobe_multi.flags;
+ 	if (flags & ~(BPF_F_UPROBE_MULTI_RETURN | BPF_F_UPROBE_MULTI_PATH_FD))
+ 		return -EINVAL;
+-- 
+2.56.1
 
-Look like we new APIs to distingiush terminate_all() and free channel.
-
-when free channel, need clean alloc queue, but termiate_all() should be
-keep alloc queue.
-
-terminate should means terminate all DMA engine own's queue, before
-submit, desc should be own by consumer.
-
-Frank
-
->
->  		axi_chan_irq_clear(chan, DWAXIDMAC_IRQ_SUSPENDED);
->  		chan->desc = NULL;
-> @@ -1234,8 +1233,6 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
->  		return ret;
->  	}
->
-> -	vchan_dma_desc_free_list(&chan->vc, &head);
-> -
->  	dev_vdbg(dmaengine_chan_dev(dchan), "terminated: %s\n", axi_chan_name(chan));
->
->  	return 0;
->
-> --
-> 2.53.0
->
