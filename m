@@ -1,100 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795087134;
-	b=uXEvmXYAA0eKyfDqz87a7jgAKiIDO4SiSau9gp8LelK+KrrJ4P13NcbKQcp5uO217RDG
-	 UM54BccCZX0X1cHOjO7GlVcZ1UmtK+AQEObbswRSHNYw1kznJq0ujYceJGifYu8A6GZ4Q
-	 /9EfnxkzeQThF/eoPuSHtCbOoquAbbiuOBzo6Pc0X5yAiC5dVnkNj34RUdJ01+fI/5FP+
-	 oWWs+z7mVJ3KeftHiq0gZbXc4cdXkyG+EKvP42PiT+yiLD3lp+5GjFoQCAXpaeDF1PFfw
-	 GDnbEgZV0P9KT/ZCjWFNj9BUVmUQW+wUQ5ZV94hoqRh4Sl2viWKJSsKrzNurK9OqqLw==
+	t=1795087136;
+	b=fEqmBy8RAD5mDqaYJokXHoBPyuJYAwkZt7UZUg/2V4DFLK5y2D3/l8psKGk8KDjm+9uU
+	 IQ8sa7/Co305U+oiDttO6n6WKbqEI69aNIEJGfDMjWyLYdxhvmVM3gLuxBpwzUaIYO0gc
+	 g+DLb8X4aTxT5aK2cqVU1T/Jc5ENQieZwWHNaN2XgmBolnkx+TEAMEMl/wxofmAwI2cW4
+	 yDT2BwupJIXxlGihm2DzKq3UKDMto42X5nuIws24U+tj2KGwN0Odw4HDTzYVdowwgiEPz
+	 C11P5/A6NlQb3BOvrH72SeZe7aeL33VZawpGOwbUqjQmyX3ZRPdBgZDOvIf4auYIHDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087134;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=VsZrgdffbixcAT0MIaZMhRKdxCgLgvf8zPgL2cWZJCE=;
-	b=IElVs8f96yzCR2cbimvP+WtidBW/SFxXDnhzg13b0joOGPOxdsFd16lDbCWiaFYfFSqD
-	 8NZuPR8kOJPd2r9j5c5MtallIuBH045dGvRdwIbT8qTb8/jivcPlXaI/WC7i9mzLewLo9
-	 sUStsiVGM5AHDA01ixL2Xt9GXKRf1CK/6Mp5SUnu8ATTIkZact+gdI0kOIqaxefOqSTOs
-	 ToMpgpVVWEzq+/rypUH2Qw/77pCNAA51n0AgDAqO+id6Cim9ZEte70Nwwg3l7Gad+Ku9Q
-	 XIPM275VNfM7e4n/4cyZr3j8Iw/6whpYgs2QsExe2JW9bI60bZcTvfWjXB75P0orIwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087136;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=hdo31yiX1NgSplArPnMAKiWS3jJZJbo/7jmD/8lHOoY=;
+	b=VuqaQTikJ7+X3jPNFqSu2r4Dr/YbD0sY2Bqh/SeevOLhQ5R2RzgQGS70XWDhpoYa0lMx
+	 VhXsQXmp/aZ4unAVbQC35zDS6LgjvFicGPlR8os64q5SV2gDGELimyd8ri1Hk0czhOOFo
+	 Gp4agHAdB+o5AWmXqYXtbrVLHX0swjZ7XYVTqGqSq9cHnU3fMV/l0GvNi3xK4VmEFxgeL
+	 /06k5ZnCSy7+9s9HpHg0dK7FGJSL7Gr8vIT4S+aZx0rVE8L/q2RcmeGgmwc69jjfw43jV
+	 7ma4hDz+wKVOxrzltBjMUKheBKWigcubdY0o53XIJcMXg4DYBhp3KlkV3pS2vDAJl2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RZAKj0bx;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddrhrIw1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F0F3606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:18:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F0F3606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D625606A325;
+	Thu, 19 Nov 2026 11:18:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RZAKj0bx
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-170135e43c7so3234627c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:18:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795087133; x=1795691933; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VsZrgdffbixcAT0MIaZMhRKdxCgLgvf8zPgL2cWZJCE=;
-        b=RZAKj0bxf0CrF217tp1LKG+Lxu12j7zQpriuF9ur47j4muc2dOYQ7cdUddH0ojuKLe
-         Z9cLZHuamo/UPTvs7jeF8UMUp4XqQmyoy0DNfWtekeOGVTkokUbrt4bKQCQe7vdzu2Xd
-         MJ/iRnLXhG7h9m2W72AEGEmFuGd99HSNnZHpyiIIinLi0R4VLgnaIrUPv6629/5jvDPz
-         JexdQ3Mu+6GoR3zvtvP4cncf2RoJUmxkTo7tNNuWvZtNODJ3U0pEGXJZKXfA4qO+5ju0
-         k/9tumhFOYydwZLHi3vVtXL769Fvpdinz3287zwfrUAFDTLBgYBBHox+6TgLcZ/uo9Lz
-         hc1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795087133; x=1795691933;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VsZrgdffbixcAT0MIaZMhRKdxCgLgvf8zPgL2cWZJCE=;
-        b=GkzVR2ofpLh4y7vBPWvv0MTzv7mXcOYHSAvrHvxUzMDejvaLwddCX9UXTZIn5A+Ble
-         djnSHqAKpkiUCV60+e+51zdoH8WNNtGkBmnPcfBeHJxS74LNg9xa5SClFVvO4lzasCho
-         +Jhr1FnoL9Fa6FGIgl2UD7uUvYDqzKakPJWDFGiom6Hx36P2/wETEyb+VP7yBDwCmg+G
-         P6HwyEiH1YsRGX9PEqNgTKvXr57r7aOsm3q+UcU2Ff9cdXH2WNqwEZHQzTZ9cfDEJCbb
-         8YfKSpDdXq0w0BvprE/ASP63E3QzjcU5eilZkLs72cO2RGyCnPSPD3JYWD/XnLB/90Ah
-         /svg==
-X-Forwarded-Encrypted: i=1; AL+hErGThbJk02Txky3ASa8WgEp0iLl4QBQtYJ1X+wfwsSKwEGxXEGEIv6Xufx+znFcX8ybK+I1C1ZdxTk+WncA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9M65JuJvLFhG/mnCQixtY22VMQPuWSesf685+QAs6mqIlGP6W5
-	U4MBKElcEPZs0RnseldTh0Gi/4eJUhNr1T+uhEj1Uovh5slmIvOwbP0T
-X-Gm-Gg: AYBFou1qFzCe10c7sOaYuQzdo6RgKhojC1Pme09dsmNnD/LTESXSSjEBZY84Cd2FOJS
-	zni9aIs4nNurPKQ1dKCtf2QGKQrWkocnTufFfxvY4sjqNmgxBYt0GiEYO3OIadH2z3qH34iII9F
-	b8BAHX1DtXKR00HLzDVgHvKAuDUjyi44luaSiBtUidDl8eeHGe0wioYHrhNqszge2ndIJHnT666
-	ZG28pWPjDGQq6QIJte63raw2B/txAyUuydv6GDOg83qxC21B4RHVs6zFxuEDjTXPlJcVf9fxtbD
-	aM0G163xc+sBWrBhUrFxxG2Fo5YXiecQ9jW74OhMh2b9sCdSVGniQ1OfWy/eK33E8Bezkmq2pVX
-	5QcDf3QChgQHtSw80sOIsE3JZ4wqOSegtg/qGgHCUlBSir2RdaK3MkdYdWvIdgsD8w+SNH+6mLb
-	aXog1EBwtbYOKsYyiTsgBNk/Jk/ARMV/vLZoxLOTIQphJPL1uT8OgvdTrp3H4flwsCSrySIixKt
-	2NIBKO8PVF0ltCrr43sJwtKZQpVMudbNzyplEjtbob/M5JoyQ6f2L499E5kUayKCbC+Pw3SD+nn
-	E2AMSyc7qiPGMVqCnj2mM8diYxfx5W1wkdtZyn3OL3LLdOR/9n5X4Iwtrluqnk2z+a24f+fRPMj
-	eew9UL65Ku8cabYjH5AeBnHMep2WRElYKHQzHTFGfNvD8eg==
-X-Received: by 2002:a05:7022:7e83:b0:1b2:60ab:1e9d with SMTP id a92af1059eb24-1b543c3fb96mr6183656c88.37.1795087133021;
-        Thu, 19 Nov 2026 03:18:53 -0800 (PST)
-Received: from [127.0.1.1] ([74.176.208.23])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm20583004c88.11.2026.11.19.03.18.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 03:18:52 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: sashiko-reviews@lists.linux.dev
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 1/2] drm/msm: release the cursor flip work before
- the KMS is torn down
-Date: Thu, 19 Nov 2026 19:18:47 +0800
-Message-ID: <179508712793.3615754.817569571407027777@gmail.com>
-In-Reply-To: <sashiko-outbox-222715@kernel.org>
-References: <20261119023604.1495603-1-shunsheng1218@gmail.com>
- <20261119083133.3437277-1-shunsheng1218@gmail.com>
- <sashiko-outbox-222715@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddrhrIw1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A29CC1F000C5;
+	Thu, 19 Nov 2026 11:18:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795087136;
+	bh=hdo31yiX1NgSplArPnMAKiWS3jJZJbo/7jmD/8lHOoY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ddrhrIw1o9OVE4VgtDLgA5LFH4se0zgUcw/IhmX6IlqCklkfPIUaTJdcseNoMuXGV
+	 M8l22jgHiVbDAEcRccHDsU6jQcY3+iHpd8WImqjSMBF+Vu0ryJYnED7Dh3GCxIXVKg
+	 FWX4eHPzDkvkk70inKrKaXzsAWc/+aqZqS+tB4z6y4clAvMdmr/vAOj2uIqYfXfkek
+	 MWER2rFzg/1eir/OJH2OricpYI5bxvk9z/EtjL2ctHgCC2sOT1KFkzZL74vsWKuTnY
+	 Kk5YfVowFmViXJSMQt9xWFHlnGXSg0h16loCM4LsZwuh7RjVTBy6/XP5wnGcoHP2yt
+	 dtfLZgk7v0jmw==
+Date: Thu, 19 Nov 2026 11:18:48 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, 
+	Sean Christopherson <seanjc@google.com>, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	Wei-Lin Chang <weilin.chang@arm.com>, Will Deacon <will@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: Stop KVM_PRE_FAULT_MEMORY when the vCPU's
+ dirty ring is full
+Message-ID: <av7S4fY7f6H_bW8t@gremlin>
+References: <20261117074428.7544-1-fuad.tabba@linux.dev>
+ <20261117074428.7544-2-fuad.tabba@linux.dev>
+ <avxfgWNePsGPK9mm@gremlin>
+ <CA+EHjTzUrDxLSMEo6X66XhKtQ-=ew3zZhMdFWR6U9Ga17WLWkw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,23 +65,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTzUrDxLSMEo6X66XhKtQ-=ew3zZhMdFWR6U9Ga17WLWkw@mail.gmail.com>
 
-Hi,
+On Tue, Nov 17, 2026 at 05:05:49PM +0000, Fuad Tabba wrote:
+> Hi Lorenzo,
+>
+> On Tue, 17 Nov 2026 14:23:09 +0000, "Lorenzo Stoakes (ARM)"
+> <ljs@kernel.org> wrote:
+> [...]
+> > > The check also sets run->exit_reason, and arm64's KVM_RUN completes a
+> > > pending MMIO exit only if exit_reason is still KVM_EXIT_MMIO. If a
+> > > pre-fault stops on a full ring while an MMIO exit is pending, the next
+> > > KVM_RUN doesn't complete the exit and the guest repeats the MMIO
+> > > access. Userspace can avoid that by completing the exit with KVM_RUN
+> > > before it pre-faults.
+> >
+> > That's also true for riscv:
+> >
+> >         switch (run->exit_reason) {
+> >         case KVM_EXIT_MMIO:
+> >                 /* Process MMIO value returned from user-space */
+> >                 ret = kvm_riscv_vcpu_mmio_return(vcpu, vcpu->run);
+> >                 break;
+> >         case KVM_EXIT_RISCV_SBI:
+> >                 /* Process SBI value returned from user-space */
+> >                 ret = kvm_riscv_vcpu_sbi_return(vcpu, vcpu->run);
+> >                 break;
+> >         case KVM_EXIT_RISCV_CSR:
+> >                 /* Process CSR value returned from user-space */
+> >                 ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
+> >                 break;
+> >         }
+> >
+> > (note that it skips CSR, SBI also with a changed exit_reason).
+>
+> Ack.
 
-thanks for the review.  You are right, and the check is redundant in the
-current mdp4 code: mdp4_destroy() dereferences mdp4_kms->dev at the top,
-before the new guard.
+Probably worth referencing in commit msg I guess?
 
-The guard only protects the CRTC traversal this patch adds, and the v2
-commit message says that it does not make mdp4_destroy() safe for every
-partial-initialization state.  The existing problem belongs to the separate
-KMS initialization error-handling series ("drm/msm: fix the error handling
-of the KMS init"), which was not merged in the msm-next baseline used for
-this RFC.
+>
+> > But the overflow bug only applies to x86 (see below), so is this something
+> > we should worry about at all?
+>
+> The ring overflows on arm64 too (below). As for exit_reason, I asked
+> Sean about the arm64 MMIO case on v1, and his answer was that a VMM
+> that pre-faults between a KVM_EXIT_MMIO return and the next KVM_RUN
+> "gets to deal with the fallout" [1]. I think the same goes for riscv's
+> exits.
 
-I would prefer to keep this change focused on the cursor flip-work
-lifetime; if the check is more noise than it is worth, I can drop it in a
-follow-up revision.
+I mean generally yeah, users doing silly things can expect silly results I
+guess! :)
 
-Thanks,
-Yaohan
+>
+> [...]
+> > > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> [...]
+> > >  The dirty ring can get full.  When it happens, the KVM_RUN of the
+> > > -vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL.
+> > > +vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL, and
+> > > +KVM_PRE_FAULT_MEMORY on the vcpu will process no more pages until the
+> > > +ring has been harvested and reset.
+> >
+> > Maybe worth mentioning the exit_reason thing if we keep this arch-generic?
+>
+> Sure, I'll document that userspace should complete a pending exit with
+> KVM_RUN before it pre-faults on that vCPU.
+
+Thanks!
+
+>
+> [...]
+> > I wonder if this shouldn't just be an x86-only fix, since no other arch is
+> > impacted AFAICT.
+> >
+> > arm64 and riscv never map a dirty-logged memslot writable, so they're never
+> > pushed to the rin, and s390 doesn't have a dirty ring at all:
+> >
+> > arm64:
+> >
+> > static int kvm_s2_fault_compute_prot(const struct kvm_s2_fault_desc *s2fd,
+> >                                      const struct kvm_s2_fault_vma_info *s2vi,
+> >                                      enum kvm_pgtable_prot *prot)
+> > {
+> >         ...
+> >         if (s2vi->map_writable && (s2vi->device ||
+> >                                    !memslot_is_logging(s2fd->memslot) ||
+> >                                    kvm_s2_fault_is_write(s2fd)))
+> >                 *prot |= KVM_PGTABLE_PROT_W;
+> >         ...
+> > }
+>
+> arm64 does map a logged slot as writable today. memslot_is_logging()
+> tests memslot->dirty_bitmap, which isn't allocated when only the dirty
+> ring is enabled, and patch 2's selftest triggers the WARN in
+> kvm_dirty_ring_push() on arm64 without patch 1. Wei-Lin's fix to
+> memslot_is_logging() [2] is in kvmarm/fixes, not in mainline yet.
+
+But Wei-Lin's fix was taken? So I don't think predicating things on the
+basis of it not being there really makes any sense.
+
+However...
+
+>
+> With it, the s2vi->device case above still maps a device page writable
+> on a read fault in a logged slot. kvm_arch_prepare_memory_region()
+> rejects logging on a VM_PFNMAP VMA, so that requires userspace to map
+> the device under the slot after creating it (I haven't tested it).
+
+...Given that this possibility exists and device pages are unconditionally
+marked writable (even if it's mildly contrived to get there), it's fair
+enough to put it in the generic code.
+
+>
+> So I think the check should be in the generic loop.
+>
+> [...]
+> > An x86-only version would be pretty simple, something like the below.
+> >
+> > This also covers off the retry (RET_PF_RETRY) loop which a generic version
+> > doesn't.
+>
+> True. To overflow there, the retries for one page would have to push
+> more entries than the ring has in reserve (at least 64), and I don't
+> see a way to get that, so I left it alone.
+
+Yep that's fair enough!
+
+>
+> Cheers,
+> /fuad
+>
+> [1] https://lore.kernel.org/all/avs5UD79FB_DG1Vs@seanjc-mac.roam.internal/
+> [2] https://lore.kernel.org/all/20261029175238.3214788-2-weilin.chang@arm.com/
+
+--
+Cheers, Lorenzo
