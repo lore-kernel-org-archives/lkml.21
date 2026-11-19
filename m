@@ -1,57 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.71.230
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795115454;
-	b=mpl2a1f2YyoexpbpRvqWtyzIXUyVD4SpWIJuOCn670ArcmCwPmPYHls2bjwqbh8XWHXR
-	 YIR6FaMdoh3fwC+m81d2tsDJWaXmxgQohVr/h7t+JvfSstaPdoDBPqoErB5jrm130V3MT
-	 jOptidIkFZtgfrgklDraewoQaNUgDxbaC8qANBgaNByOVSoLcwR81e9KhACeb9VwCT11q
-	 WoQBi/uvoTB0k8dYIvKYagWL5i8JBa4ud6Havzgu9WO2HWyu0IYHpc105UuTm3J6jzCsn
-	 IScmKRUrrvRfQyVHC2BYQESAcAbpwIOZ7ksg9GeLOIa93qQ/SUPHattxZCwHqpawg9A==
+	t=1795115458;
+	b=3ppVVCmqNZ+cTBmm0IAhU07b7HNXfkg6GELcDcpKRL2rDVS/W4ehC8/xSVF3B6RVWKgt
+	 Ys2ZoK/GoTqvMDlwVxQQKXaDsXk6n82MzqNa4sOp3MY2zutqAVKAIths6q8FVXV3EP5WQ
+	 7Xx68bDVMBHN5ouSMsAFdjv7/nyL5k223tPaGSlMRneXrCD8oSPt5bPtVRbQcDC6dUUY4
+	 lxginwB6M61UMy+XXZbJn2INPp+gKkraL5MjMiPk6CHJjOFgzsYkbEZv4XxfbDpNdu+wA
+	 FY1wiOScQiYmtlITu+7H08SXa6WvscOMItU/wxZ8xQ3dARCxkKOx0JpJMepAslo5gog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115454;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Content-Language:From:Subject:To:Cc:Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Report-Abuse:Feedback-ID:
-	 X-smtpcorp-track;
-	bh=ulgge/POPns5GuwdKsEodR0EWat9soZYf5RlEilOCYI=;
-	b=pKcB5KZ5L/GJdGanAawy4riMApE7VRaMMpadFg5+Za24KCx9yF2UCK3UvsFZyAOrF2G4
-	 rYAF2VttP0OzZO75TQxtY5WKSfcBdYFvbveSup7B5BELV00Xm7kNwx+sMx2AlQBFk8gSB
-	 ixoCduaO5OhwkLksSqTE5kovtT9CS9TNtUkRJz7G7sTTWO/pVmlz8Q5LfThL8kmOCYfaA
-	 F/Vs0AhqiWkJEqnYgUQbxwYG3Z+QQnhR2BUMKcsKdsdOhegJvyypZLBwhrx59mXsxZXXs
-	 9Qa1t1efXhefSA3CWdF244bMPXN0wuAOmX/QRtzW4V3VT/lHMfiKm6AaxUB7mzw48Eg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115458;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=RmdpddYozjJPVb6GiCDyPK6GgcDok35FRFm3gKsU32s=;
+	b=UVV81Avlpx+07LdWK6OJNL4xBOebecKJwtn4aeiZ7Lu/Hx2N4lAz9oqt85zaDIvBJmPX
+	 4RR4TCTjAWoKEVMEWRjA7NIb3IvWKsUuOjipIXFnPkyZ1Oo1carEagWcJPlCZ4DgIExz3
+	 6eCRp2yf0FBo4RhDKZn8WzA5eFG4ooWwoTeGNtNc8gNVm4uZ+qBit+08GpeO4wqtAMeMe
+	 If0MRh6wquJgRGTSrq4wkCHcJ5tzb4yxhUNrlVS//AhER+AWY7yZj7CZe2nlfY9x50vq4
+	 h+tbHlF5F5dKkhzo84Ch1hDnaNZy87m6krAC+2EFCVNlRrZR2eoF5U17ksXfrv+c65Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=performanc.org;
-	spf=pass smtp.mailfrom=em1228580.performanc.org;
-	dkim=pass header.d=performanc.org header.i=@performanc.org header.a=rsa-sha256 header.s=s1228580 header.b=WpAyy4eH;
-	arc=none smtp.remote-ip=170.10.71.230
-Received: from a5i230.smtp2go.com (a5i230.smtp2go.com [170.10.71.230])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G7wO+0Jd;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82A660A2604
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:10:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82A660A2604
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=performanc.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=em1228580.performanc.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F330260A260E;
+	Thu, 19 Nov 2026 19:10:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=performanc.org header.i=@performanc.org header.a=rsa-sha256 header.s=s1228580 header.b=WpAyy4eH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=performanc.org;
- i=@performanc.org; q=dns/txt; s=s1228580; t=1795115444; h=from :
- subject : to : message-id : date : list-unsubscribe :
- list-unsubscribe-post;
- bh=ulgge/POPns5GuwdKsEodR0EWat9soZYf5RlEilOCYI=;
- b=WpAyy4eHptKucEi4lOeI2dInTBSJM6T/DgxTXM6pj7Uc8uk4K4/wxBMwaSlFkqh0Faooe
- LYcsycowmECP/nq4qTfqyuOmHHv+0ZIPTBZHApM8bPng/sAtt6uxkI7WLqMLnmibxehU5Sc
- dMM1m8CHvkdET7RAjZKI3LCKtjUxnUq5DXhIxnIcVIJPxF+U+2OgL90hRvJP8CatBSJIkhC
- W9QoAv1OlCh6E4TjB66wYcXwCOW348uuIiYfd1chYmBVZ88M/xDU2cM4jsHf8WX0PRjEXaC
- VRihvw8wf8T/91WBigtOTks50enlX1Y/vJEULPoYdsjnWysRh9PYUXI7LJMQ==
-Received: from [10.45.250.102] (helo=[192.168.15.8])
-	by smtpcorp.com with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128:X25519)
-	(Exim 4.100.1)
-	(envelope-from <pedro@performanc.org>)
-	id 1xU7Wr-FnQW0hPr4rj-J4Pf;
-	Thu, 19 Nov 2026 19:10:41 +0000
-Message-ID: <a3b7a3f3-4da6-4a41-b842-cf9778dd7ba1@performanc.org>
-Date: Thu, 19 Nov 2026 16:10:38 -0300
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G7wO+0Jd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82B461F000C8;
+	Thu, 19 Nov 2026 19:10:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795115457;
+	bh=RmdpddYozjJPVb6GiCDyPK6GgcDok35FRFm3gKsU32s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G7wO+0JdhpiJYvZZBUE7uwCeGyUhReO7BHSnwt+i9vFE/Zvid9NCxYAsqXULdhs33
+	 GMMofY/ROk5vYToVnE3QVvmF8pcXUjkIVC6yODjq9kZtk4DBNE0DRpgnG7DxRrXPw0
+	 NdNBquIzspf4qJGYfCiH/fCYh3khzvSwRdmwZw6QzVJOtVM/TIbnAgrA+wm5vMrFuG
+	 D1o6OEss5IDWm0KP6WjMRzDoKSjLR4oqQhI5GUi/oV/+7HA6DpIznFxeMsbDomJ5nX
+	 kTrad4OnLMeRfEWRuXy7YhWtVpB5nBxM4P/9qq/n4OlikvR6pue9U7rGlNcCKOpdFb
+	 Fl6D+NDyceImQ==
+Date: Thu, 19 Nov 2026 13:10:55 -0600
+From: Rob Herring <robh@kernel.org>
+To: Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Allen-KH Cheng <allen-kh.cheng@mediatek.com>
+Cc: Kyrie Wu <kyrie.wu@mediatek.com>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] media: dt-bindings: mediatek,vcodec-subdev-decoder: Fix
+ child node if/then schemas
+Message-ID: <20261119191055.GA3803102-robh@kernel.org>
+References: <20261019212431.4109371-1-robh@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,62 +69,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-From: ThePedroo <pedro@performanc.org>
-Subject: [PATCH] drm/panfrost: fix stuck reset.pending on JOB_BUS_FAULT
-To: dri-devel@lists.freedesktop.org
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>,
- =?UTF-8?Q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>,
- linux-kernel@vger.kernel.org
-Reply-To: pedro@performanc.org
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Report-Abuse: Please forward a copy of this message, including all headers, to <abuse-report@smtp2go.com>
-Feedback-ID: 1228580m:1228580aqfTDtk:1228580ss_2YaxMnk
-X-smtpcorp-track: 9V9NqnRTxCd8.UXRX0Mq9Ok39.jx76Ig4ahUY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261019212431.4109371-1-robh@kernel.org>
 
-From: Pedro Olímpio <pedro@performanc.org>
+On Mon, Oct 19, 2026 at 04:24:29PM -0500, Rob Herring (Arm) wrote:
+> The if/then schemas in mediatek,vcodec-subdev-decoder are all at the
+> wrong level as they apply to child nodes. The clock-names schemas
+> applies to the parent node, but the clock-names properties are in the
+> child nodes. Move the clock-names definitions to the child node
+> clock-names property. This exposes that the MT8186 clocks are not
+> documented, so add them as well.
+> 
+> The interrupts if/then schema is never true as the parent compatible
+> will never match the child compatible. The subschema also belongs in the
+> child node.
+> 
+> Fixes: 3fbf1eac01b5 ("media: dt-bindings: media: mediatek: vcodec: Adds decoder dt-bindings for lat soc")
+> Closes: https://sashiko.dev/#/bug/linux-5ab90035-1914-412f-8310-097fb05bda15
+> Fixes: 355e9472ccb0 ("media: dt-bindings: media: mediatek: vcodec: adapt to the 'clock-names' of different platforms")
+> Closes: https://sashiko.dev/#/bug/linux-caa6adb1-38de-4889-9517-2beede7c8f96
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../media/mediatek,vcodec-subdev-decoder.yaml | 77 ++++++++-----------
+>  1 file changed, 31 insertions(+), 46 deletions(-)
 
-panfrost_job_handle_err() signals job->done_fence and then calls
-drm_sched_fault(), which just queues the scheduler timeout work.
-panfrost_job_timedout() bails with DRM_GPU_SCHED_STAT_NO_HANG when it
-sees the already-signaled fence:
+Ping! This one needs to be applied before 2 other series posted.
 
-	if (dma_fence_is_signaled(job->done_fence))
-		return DRM_GPU_SCHED_STAT_NO_HANG;
-
-so the reset never runs and reset.pending stays stuck at 1. Every
-later job is then enqueued in pfdev->jobs but never started ian
-panfrost_job_hw_submit(), until it hits the 500ms timeout.
-
-Queue the existing ordered reset work instead, which runs
-panfrost_reset() unconditionally (when pending is set), even though
-the fence was already signaled.
-
-Fixes: 030761e097b4 ("drm/panfrost: Queue jobs on the hardware")
-Signed-off-by: Pedro Olímpio <pedro@performanc.org>
----
- drivers/gpu/drm/panfrost/panfrost_job.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/panfrost/panfrost_job.c b/drivers/gpu/drm/panfrost/panfrost_job.c
-index d59b4863b8ad..8c45ffec1107 100644
---- a/drivers/gpu/drm/panfrost/panfrost_job.c
-+++ b/drivers/gpu/drm/panfrost/panfrost_job.c
-@@ -497,10 +497,8 @@ static void panfrost_job_handle_err(struct panfrost_device *pfdev,
- 
- 	pm_runtime_put_autosuspend(pfdev->base.dev);
- 
--	if (panfrost_exception_needs_reset(pfdev, js_status)) {
--		atomic_set(&pfdev->reset.pending, 1);
--		drm_sched_fault(&pfdev->js->queue[js].sched);
--	}
-+	if (panfrost_exception_needs_reset(pfdev, js_status))
-+		panfrost_device_schedule_reset(pfdev);
- }
- 
- static void panfrost_jm_handle_done(struct panfrost_device *pfdev,
--- 
-2.53.0
+> 
+> diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+> index d1d209cbbd43..6033ecffd707 100644
+> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+> @@ -135,8 +135,26 @@ patternProperties:
+>          maxItems: 5
+>  
+>        clock-names:
+> -        minItems: 4
+> -        maxItems: 5
+> +        oneOf:
+> +          - description: MT8186 clocks
+> +            items:
+> +              - const: vdec-sel
+> +              - const: vdec-soc-vdec
+> +              - const: vdec
+> +              - const: vdec-top
+> +          - description: MT8192 clocks
+> +            items:
+> +              - const: sel
+> +              - const: soc-vdec
+> +              - const: soc-lat
+> +              - const: vdec
+> +              - const: top
+> +          - description: MT8195 clocks
+> +            items:
+> +              - const: sel
+> +              - const: vdec
+> +              - const: lat
+> +              - const: top
+>  
+>        assigned-clocks:
+>          maxItems: 1
+> @@ -159,6 +177,17 @@ patternProperties:
+>  
+>      additionalProperties: false
+>  
+> +    if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mtk-vcodec-core
+> +              - mediatek,mtk-vcodec-lat
+> +    then:
+> +      required:
+> +        - interrupts
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -166,50 +195,6 @@ required:
+>    - mediatek,scp
+>    - ranges
+>  
+> -if:
+> -  properties:
+> -    compatible:
+> -      contains:
+> -        enum:
+> -          - mediatek,mtk-vcodec-core
+> -          - mediatek,mtk-vcodec-lat
+> -
+> -then:
+> -  required:
+> -    - interrupts
+> -
+> -allOf:
+> -  - if:
+> -      properties:
+> -        compatible:
+> -          contains:
+> -            enum:
+> -              - mediatek,mt8192-vcodec-dec
+> -    then:
+> -      properties:
+> -        clock-names:
+> -          items:
+> -            - const: sel
+> -            - const: soc-vdec
+> -            - const: soc-lat
+> -            - const: vdec
+> -            - const: top
+> -
+> -  - if:
+> -      properties:
+> -        compatible:
+> -          contains:
+> -            enum:
+> -              - mediatek,mt8195-vcodec-dec
+> -    then:
+> -      properties:
+> -        clock-names:
+> -          items:
+> -            - const: sel
+> -            - const: vdec
+> -            - const: lat
+> -            - const: top
+> -
+>  additionalProperties: false
+>  
+>  examples:
+> -- 
+> 2.53.0
+> 
+> 
