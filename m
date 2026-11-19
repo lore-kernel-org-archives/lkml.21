@@ -1,63 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795129577;
-	b=VAFZqlqoMzogk8HJk5LEKo/zIu1QgrJisdpAmg+ZmSVpU9HCQRPBM3B0gFGCr8Dwke7I
-	 QrrRcMQ4PJ3fYbjnANMUoJTUjnWA3MFAXa36dx33KEsYYkg+Nl1nx6wJnv9e3SA7YyeIR
-	 jobqRdGgEpeh4o2t0bF3oT65ujjtc6+smb3XFzq1foMtA0SXoU1UbGybCG0u19oq8WM2r
-	 H2ZHR6U67wyA0KwHpkfE5ol60BnCRm8mdjr/aLeJPwkHieG+rxcc5hQ+zK+BBW2TT4OGA
-	 x/KSZe6QpriF75tWvisc+NKL8rWFr529fKHYrs6I7UY+W0i+EiCTFVmQtHaY2o3hXPA==
+	t=1795129681;
+	b=K07jt8FCvhCR42jqB9XRH0tr++ehK5t5sTKIuDtj6VqNoRkHIixzCPE88tNGo7lpMjgE
+	 rCwjxFEeavnPKC8SRIRwXDkgs2XMurIXBk2hrmOdtON9OFzQ3+WFSAO2du7D9Yi5dy38L
+	 X+9xn2f4KfOaDQbTX65n//NwlzMCk/JbnQNrWpU+j0dW6yQdcnndZY3X2y2/w79MamBi5
+	 DlyRisVpoT9sX3f1TWtza511WKyLt0e7rfHgejrR/ot3lFWAjQWpxO8PFLqJWRYRW7EdZ
+	 mxuAvn7YNRpfQiBjcqQStMldHfpWlAU0ymyLQFQtkLH5D3YCgNHlSqJ085mtfMiP20w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795129577;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=c2wcJSy191Sf7d/IySA1wmn/KvQ1rPLNxdHXHM+fBb0=;
-	b=q7aX6dWkdWgZjp+34A0hAhYgRtHKWIzFui8swVwzz9tb8ox9i3UNlsOfgKYfboFT2jV4
-	 h5//7fyHTroxtpxv6fHw5Luodj+Co6doY+zKKpGtMOwEYJy7gTLuHthPlucstc2SJFbHX
-	 2aJz7q3NMRVSOlfJ/qbXKSsFbHRUl6FL6Qdq/sVC56f6wVF3LESePb6rzCky6U4lTctUj
-	 cHnNfsh7x14l0wyOgMMQv79NZNviDwhXYjKvWBtCYFqd8s7BQLJDA1R3RaW/2aJTNjkSW
-	 +1by4PE/VxZ1Uj5BRsMqgcVUdtzFJhADCD8Bn1JE7fhFU3WV04qXwGLdwRx5wfokb2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795129681;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ac2bxO4Xse6K+kejCnJOueIlO7M24eds47j2TEmWTxE=;
+	b=ZhXTv2N9sMkltPXdOE91aWOGXlfrGZiGoOckBE4z34g/j/B8Er6/De3fYxJmzvvq/yvE
+	 ZEejpWUSZWPfaNwDwfRJGAPNnEhb8DTlAHurxr18EkIOjzEy2efS/Owe8dcOkinBsyDiI
+	 v3E+eSBhgXVjnxAxzE1By9T9Nlm+b69WQ9De2h94Xa9od6E5j03bQnhK4R2XYBGs7gbxF
+	 MjE8QBpnxvBjVchiStJ6mtxDXyM86GDk1AcdlsBMhgWOYWVntnSouuI0OCwBHma3vEtnO
+	 3Ud1resqHjSskGMNjEH+mjGUIv+Nilfo738myy908tLbgmZwFz+MMRpb57dNH9gSrMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FO2d75cW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=a7snv.com;
+	spf=pass smtp.mailfrom=a7snv.com;
+	dkim=pass header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=jj56wXxR;
+	arc=none smtp.remote-ip=185.70.43.17
+Received: from mail-4317.protonmail.ch (mail-4317.protonmail.ch [185.70.43.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88171606A326;
-	Thu, 19 Nov 2026 23:06:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E68F9606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:08:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E68F9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=a7snv.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=a7snv.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FO2d75cW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 186711F000C4;
-	Thu, 19 Nov 2026 23:06:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795129577;
-	bh=c2wcJSy191Sf7d/IySA1wmn/KvQ1rPLNxdHXHM+fBb0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FO2d75cWx84mrxM/Q61IC5bHYN5D4VdYfUgKISQ6fCg8yWN1AGnRdYGqbAcEZQn4C
-	 02W6uIr0rc/HJXdxzfpC7ocRhPJka6Zr24ldhDbwhWX+DJqtwTJbLfpa3uBgQglrYe
-	 NRM2kEoJs7wGN6E57/+tyoP6xVPt/RE+H0768J7u8fQCzgkmS3jIIktzrXtpucp5Q5
-	 mQV8s5uoUG+GuFgBUE9N8B63ib+iKoyK3W6wFaiNGjrX5TYaX0FmtXZy6/nN09gPoz
-	 r1zT/gm6CT383dO4Kpu6srlu673fdNuxMMQ069kkBLZNgGGDRrGeb9TpWYiOLdBYev
-	 vKHKmU5K3+a7w==
-Date: Thu, 19 Nov 2026 17:06:14 -0600
-From: Rob Herring <robh@kernel.org>
-To: James Clark <jjc@jclark.com>
-Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, richardcochran@gmail.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, lee@kernel.org, s-vadapalli@ti.com,
-	rogerq@kernel.org, bigeasy@linutronix.de,
-	martin.kaistra@linutronix.de, vadim.fedorenko@linux.dev,
-	r-sharma3@ti.com, robertcnelson@gmail.com, nm@ti.com,
-	vigneshr@ti.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	mfd@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next 3/3] net: ethernet: ti: am65-cpts: implement
- PTP_SYS_OFFSET_PRECISE
-Message-ID: <20261119230614.GA1147583-robh@kernel.org>
-References: <fd826c118aec02c06bde92ff9c20f1958c214b3d.1794284248.git.jjc@jclark.com>
- <179446830443.2199510.10552580927894870264@kernel.org>
- <20261117004133.1594972-1-jjc@jclark.com>
+	dkim=pass (2048-bit key, unprotected) header.d=a7snv.com header.i=@a7snv.com header.a=rsa-sha256 header.s=protonmail header.b=jj56wXxR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=a7snv.com;
+	s=protonmail; t=1795129679; x=1795388879;
+	bh=ac2bxO4Xse6K+kejCnJOueIlO7M24eds47j2TEmWTxE=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=jj56wXxRzn2nBMmiU9wnKYSUUcJUspfOwRTLfTWvzZq5b6VIy/GZC1Kj2UpWwb5rj
+	 WuvcbH7e5SHyN9U8SZazkBhMO3zAKw8G4qgf8Ds7IGT4blgGR5Yd6pSXD9a42/IQTv
+	 ErBqIGBphpP7daHWmr+m9y2dnayCHYJOZflrHnb9sxV80/eXzyXtH/kpWWLzNtGMWR
+	 ocwJQmKTDjl00tQOxbaTkzVCHOrx3099dbwlBpW9cS8xDoDaMDA2zAwvR9xPNrPnsx
+	 M/96BPZcrKcw2NC0Kszi2Gjy5Kro8gdpfZiVnKY/R0XI4wmZux4bwx+EZh12J/+JZ/
+	 +6I7aS/vDkzKw==
+Date: Thu, 19 Nov 2026 23:07:53 +0000
+To: Bernd Schubert <bernd@bsbernd.com>
+From: Yun Wang <arsenova@a7snv.com>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, Joanne Koong <joannelkoong@gmail.com>, fuse-devel@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] fuse: don't wait for a sync-init mount in non-blocking reads
+Message-ID: <179512965571.1415130.10806233580012611206@a7snv.com>
+In-Reply-To: <5f5d6c24-2bb0-4af9-8ece-d53cc6e612f6@bsbernd.com>
+References: <20261117075632.59959.p12-0-arsenova@a7snv.com> <20261116235747.60403-1-arsenova@a7snv.com> <5f5d6c24-2bb0-4af9-8ece-d53cc6e612f6@bsbernd.com>
+Feedback-ID: 235448903:user:proton
+X-Pm-Message-ID: 656148638c9aba8ba6a0f4cd5d12ee4e45386918
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,57 +64,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117004133.1594972-1-jjc@jclark.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 07:41:33AM +0700, James Clark wrote:
-> > [Severity: Medium]
-> > Is it safe for this driver to own the EXPBIT_SEL field of GTC_CFG0_PUSHEVT?
-> >
-> > The register belongs to the SoC-wide GTC, not to the CPTS.
-> > am65_cpts_ptp_getcrosststamp() rewrites it on every PTP_SYS_OFFSET_PRECISE
-> > request. The previous value is never saved or restored, on success or on
-> > error.
-> [ ... ]
-> > Suppose one of those consumers expects a different exported bit.
-> 
-> There is no other user in the tree currently. If in the future something
-> else in the kernel wants to use it, then the solution would be a small
-> driver to mediate this. If there is a user outside the kernel, I am not
-> sure what you would have me do about it.
+On 11/19/26 12:57, Bernd Schubert wrote:
+> On 11/19/26 12:36, Yun Wang wrote:
+>> +/* read(2) and splice(2) of an O_NONBLOCK device don't wait for the mou=
+nt */
+>> +static struct fuse_dev *fuse_get_dev_read(struct file *file)
+>> +{
+>> +=09if (file->f_flags & O_NONBLOCK)
+>> +=09=09return fuse_get_dev_nowait(file);
+>> +=09return fuse_get_dev(file);
+>> +}
+>> +
+>
+> This is just a style comment, for me "fuse_get_dev_read" sounds weird.
+> Maybe call this fuse_get_dev() and rename the other to _fuse_get_dev()?
+> And both could be in the header file?
 
-Would doing this imply a DT change? If so, your binding is not future 
-proof.
+Sure, I'll do that in v2.  The O_NONBLOCK-aware lookup becomes
+fuse_get_dev(), a static inline in fuse_dev_i.h next to
+fuse_get_dev_nowait(), and the waiting one becomes _fuse_get_dev().
+The other callers (poll, fasync, the clone and backing ioctls and
+fuse_uring_cmd()) switch to _fuse_get_dev(), so that only read and
+splice change behaviour.  _fuse_get_dev() itself stays in dev.c, as it
+waits on the static fuse_dev_waitq; only its declaration moves to the
+header.
 
-> 
-> > [Severity: Medium]
-> > Should val be checked here, to confirm that EXPBIT_SEL now reads back as
-> > AM65_CPTS_GTC_PUSH_BIT?
-> 
-> I agree this would be an improvement and I will do this in v2.
-> 
-> > [Severity: Medium]
-> > Should a failed syscon lookup be fatal here? A bad index just below only
-> > logs an error and leaves the feature disabled.
-> 
-> A ti,gtc-push phandle that doesn't resolve to a syscon is a broken
-> device tree, so failing the probe is right, and it lets -EPROBE_DEFER
-> through.
+_fuse_get_dev() then sits next to __fuse_get_dev(), which doesn't wait
+and returns NULL, so the underscores don't say much about which one
+waits.  If you or Miklos prefer, I can call it fuse_get_dev_wait()
+instead.
 
-Not the kernel's job to validate the DT. If something in DT is optional, 
-then whether it is missing or wrong doesn't really matter.
+> Besides of pure style comment (and Miklos might have a different
+> preference), looks good to me.
+>
+>
+> Reviewed-by: Bernd Schubert <bernd@bsbernd.com>
 
-> 
-> [ ... ]
-> > With CONFIG_MFD_SYSCON=n, the syscon stub returns ERR_PTR(-ENOTSUPP). Any
-> > DT with ti,gtc-push would then stop Ethernet from probing.
-> 
-> MFD_SYSCON cannot be off here: TI_K3_AM65_CPTS depends on ARCH_K3,
-> which selects TI_K3_SOCINFO, which selects MFD_SYSCON.
+Thanks for the review.  I'll keep your Reviewed-by on the renamed patch
+unless you object.
 
-Is that true for *every* kernel version? Again, better user experience 
-IMO to just warn if something is missing and continue on enabling 
-whatever you can.
+Thanks,
+Yun
 
-Rob
