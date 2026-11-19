@@ -1,101 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795101815;
-	b=gWxGKYVH8lFM31hraoi3AYabDFgDoMdZmHWKdxed+gOoZlRqcgYAuSvrzQB54iwhZhOs
-	 4Bf2t7fVQYmN/FcmHQ9jFhuHNvQT1LqmNqkUFXOr/VZzfY3YUguVpE3mokQErdrSYBMUZ
-	 aEWaZ1GYarewhZMXlILfBFedLuErzDQhV0TBkoRYjn1S6IAKEqrqXvb85oMbSIfu5bF+Y
-	 6xRenr0PfDseVLB/qZ6SDGkVOXBwE+LnlVpLme/HvZm1eniE1kKtJpiBM3yHThuev8fQp
-	 yFI6qdVm8rzQlcBBhp8KJUWFYd6Gb59iBpCkTf19xTf9YxeMSOticVYm0NTsV+lUmaQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101815;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=hLiIxvGF0pdJOfNUXCqh2sSExtWATR8tTZm0ydTCszg=;
-	b=2kXqcnjqOHfegTq3uSN4JXMzgQhzNNYlIV2Sj4WtxOTAFKGc//5pR+ONaVDZfM2nUmhq
-	 hkDNiOfjlm5FrC1G8GNJ6A+WHpzchR9VAvcx+xUjoeGGXubPRL4I/Xad0Eom+0vrXGiKk
-	 ynAvty/H7Pv/hnf74MlgMRgRGAZ4jhFRSSDYMjf2QqSo6MS05LbUgNmmCwQqVrngtdJlG
-	 877NKhoghb3MFULg3WZquEmWi0mueOFbSayFHxACkNC/oDPufTqtLR7cH8R7AeXeOAo1/
-	 BGJjr3WD2FDnaudR123CojY3exYOUQz13qGbCH0pjy9JOTnCmzcSvOuUlMBniqUSz+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=brainfault.org;
-	spf=none smtp.mailfrom=brainfault.org;
-	dkim=pass header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=PsKvSipo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com [209.85.208.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.42.244.94
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795101900;
+	b=aSquxkT647BJlO0ezvEO8dvlboFAYQJp3Pj/6GyaxUPcWC5Z84yxCs7Tkr1pILurQ5lN
+	 2OL1a60onEgSkC2tcLtMpTOf3OYgm1rJl+JON8pD1wlAqZXeHHRr6sEnw5kjAHOK4S/V/
+	 QL0s7SIc2oKIprshhL6iuXfKS/ezoERTRL5YtqUJgi3k9znpcVJhsmku1x0BeHm/qpwy8
+	 AohR6KneQ8nuazgwtSsHsqnOtqLaTRABqWfe3DjYyNVrZC5YST0mPoAnJzjnug/ZoHg1A
+	 m/JJG/rtFIGpx+WLgWyIFrpuCvVf3AR2/DHOy4vJJuxu4ekkS7CggJh/7aZEkvsoTdg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101900;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-purgate-ID:X-purgate-type:X-purgate-size:X-Notice:
+	 X-purgate:X-purgate:X-pfmilter;
+	bh=UeMwgVjDLnDVqjMPlLrZzad82di4zvuEFr1fKsZ6T0U=;
+	b=R0HaKpD7xaVWLMFiuEWWm/YyLK8DAl3qPnuOX/8/07INFtYwKStCd0d2y9Xk5PaBftZ/
+	 9MQRyu3IOEScLiVC3C/48WvFXyiivSOrI++Hgdiwz5ZMUL9tPkxidf3w/L+xRETTVz9re
+	 hH+SZOEvvPsnlFte78ZunnbKi8C1x0rYvuC2jUtEKJSNHJJGbnoMNV2jNNgJcKIsYfCS0
+	 jSfUEqol3go4i9qFqEdlTemvsN3kvUJkoe7G/A4fCDcA+JDf9XZNclFYr3dIfCS5bAfJ6
+	 Jly3LPp+seLJDbMN817hm5PoQIYdvA2sgw7rdUatltl1MUPQ1bbQdc8yE/x7nd2t1Tg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fritz.com;
+	spf=pass smtp.mailfrom=fritz.com;
+	dkim=pass header.d=fritz.com header.i=@fritz.com header.a=rsa-sha256 header.s=mail header.b=KSPq04XI;
+	arc=none smtp.remote-ip=212.42.244.94
+Received: from mail.avm.de (mail.avm.de [212.42.244.94])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EE78606A325
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:23:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EE78606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=brainfault.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=brainfault.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60BBD606A320;
+	Thu, 19 Nov 2026 15:24:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60BBD606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fritz.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fritz.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=brainfault.org header.i=@brainfault.org header.a=rsa-sha256 header.s=google header.b=PsKvSipo
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3ab3b29a298so23416921fa.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:23:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795101813; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TZlDkhlNfxbcfVQkaQZEsp6qldO4MKBqe2zzfXDxJxbkpSFNsD/duIjT3tRot+y5kp
-         Z1jT2gH1VlksHkJsVtIsH2ss7SZCmh3SpGoiVCZRCTMSBtTe3z3yPQ+lX/+22AFQ8jXb
-         QzlLf1xv596/TLYWfwuv028Vv3kEVvV70AIj9yTM85JUS6bvD6IVMN46XW59umK2yhaU
-         Poi29qpQ34zCjPSjB2aYyNXUL+je3tenRk2L/EI7tMM9OCPD58Y6D6OM5itRgpPqXUzH
-         RMaYF0E2P/47UnmOXMZ+xnVEngYMbNOX5AQ4x3RWpNeaeRj6SnhrMTMHbhOtHxxGY200
-         SkCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=hLiIxvGF0pdJOfNUXCqh2sSExtWATR8tTZm0ydTCszg=;
-        fh=kdC8FRdaoekYTCRWceKTkW5Avc/0T5IHWo/x8wCxwqU=;
-        b=FXN1RO6B5PsUKkPtCgiWfEFMcfA7KBR30Mur6saUq140Om4Vz88CL0/eJbWenKNjqT
-         kdaXF387INFhJYKAayTPKh89tcNhrC4vTEtz8mvPiIjmOpvgK0vYAEk1OVIC3/k5FsT+
-         TC/PKXaLn3PNDGhyZOTw/Rb3puMDf5zus1JscA8z7f2omOYHHNGaJntr1ffLmZVt4p49
-         0UJIxpawviANdemi2npL0yfIXNf4qCJU0SCmBGpXlrsw+bjvSOlr3hW+cb6cxxwXjFWg
-         TE2ADFuR/sQmSuv+KqqwbAdyVtoNbr384scCDoCFjd31li4LBdexnsVLdYmMoEB/zTw9
-         lFFw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault.org; s=google; t=1795101813; x=1795706613; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hLiIxvGF0pdJOfNUXCqh2sSExtWATR8tTZm0ydTCszg=;
-        b=PsKvSipo4uwtGNDpuodh58qPWVhgfzyjHZK7Ju83zbKIRcDW6RBRLqDwxpgEQ3B0JS
-         FO+hCtjaF8ylDWAgZxhOgWjeLdbCRH6PeIpfdDCJVR84Im3w3xATL2GCh0DkTY640PYx
-         nC7Vg58Ij7lX60MSiWsikqTruxxW/QgyQDR+XKwC22zdqRyGBNofVjK6RrNnAxO81NhF
-         SrUM+xGyAAZqEPFqJnDSKlZXzHn5Ilv3trNGXCYQk/ixaOifH0APmsKf6DJSsDkLf0nO
-         4VZstfeQTsvNX+f9/2k5Y7Ign1Z9khBqS1wBn7xXpNy+7c0L5HNSbCzIbR7c0au51+K1
-         Lh4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795101813; x=1795706613;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hLiIxvGF0pdJOfNUXCqh2sSExtWATR8tTZm0ydTCszg=;
-        b=LTKqukG/W8l8vRbZSg0XvVZ1476VbuOLP7Cli4vQv7IShsahDURDmf14nk8INLTqTv
-         hyFFhFXKgejX1A4sMTPRJ20d0eqStHrnJIpAWEPWsV+dVKFhkActiw0uTkF7b+HDkUTS
-         u1ZKdAhiUD/Sf6vshUozFUXaG+eidEVgqN1Q1DQeuN6MpH7onZqcvlF/mcynhD4dadUt
-         EUs//5ud0Zcke68llw0CxIz5xn2iCv0y12H8Knq9uLQTgMj+7Kb6V9gS+95s1ScYgo93
-         MGxhpWlank8qqueW4VpTB1814vNZq1299V1Bp8XF4DdmtkHaQgtO5e16fejQTxyln5+Z
-         HqQg==
-X-Forwarded-Encrypted: i=1; AL+hErHhkonJUvt2Vf0PU7V9pFWPLmcBV/921dxeSHxE06OTvZijNoh8Rb+CVG4B4HuyiPyJh9qiZpYwPW7wR70=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XKrkGXBgnoBJr1tt8rd6magAjMKjm7QJa9rDmhuDT4pAkN0zA
-	Y7n45b8S3Cdm0pIetBx4UrIBChlaQ9Yy6T8MuhwVycFUxNvwXDAVwxSENZQzINTDFgXlXgq8OSG
-	rS0C+A7rBfdEKLipxtx9AdYWcmpWVfqpUnxcpHruSfw==
-X-Gm-Gg: AYBFou0cT4IlWNIRsvKjWJ2X6No34M6ApdcCcZJrCe/BdHNoI4Ldd9I+tW2cKJdAZWs
-	RMwR0vABIBtP0rT4n5EPC41X1cbe/G4EtAFwbSHCwREkSi8tni1Ih6kqFMeJ/0uxahORtF3cOwg
-	28mHvzNBs4m1AATETTFL/HyXXQ5FylmmSfEfS1xgNHlRv3GHzzLW0F1541ujzhPfssVb3UBoIU9
-	b+WuxdciljL38HJ5O1VXGTBQGXN3RgXxli9a3TmWnT+gqQAMdT/8GkJ8sqqDH8xSq85l8PWvrpw
-	/VJgAcK8lBDwgtSMeTfxEP9gajcMqa7f++U3D2DQnAd/HLsgrxs0zriH5ZL8HyALjucAQ3EGQot
-	eXH8TySLcYEUpYnTqMkc4W3s6CbBb2aZloUgY7v8CHlwCKu94qOzBGyzsebOh785MiGa781MMam
-	NVgNQptw3g/b8XwV1rnC4jI8f40Sh1BF/+XQrpOP4L2CRcd6ktEq5c4mI=
-X-Received: by 2002:a2e:bd05:0:b0:3a6:6d05:7375 with SMTP id
- 38308e7fff4ca-3ae7f9d5f2bmr884941fa.8.1795101813092; Thu, 19 Nov 2026
- 07:23:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=fritz.com header.i=@fritz.com header.a=rsa-sha256 header.s=mail header.b=KSPq04XI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fritz.com; s=mail;
+	t=1795101890; bh=VUtPMxOjNKGPZQ6FkAk4L2n05vBEr9KfdwlyPB8FDFE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=KSPq04XIh/icCo8uVqSQs19xHVWrI8882+qMc4rh4bnaLIrVTIRUI5hta3IrnJmKr
+	 LiyH5gQnmHg4hi6fnGQQBTCKUhzPV5pUnddTLwq7tRo1sqFXC60ubABjjxwzr5BZpW
+	 xWTrAU/q3VmuS9xkaoOGD0Jn8oy3l4DTPHEwBClrN0JI8F1idZN9rc232N+9cBlDYK
+	 ACrbDLomre7mciio5dpLUoD4CR9a2MKIulNcOOn2MdgHr/fEhjD84N0ReNb2vbEW0l
+	 Lnh7zob5INdPpt9ISPclBVJ2Qwnd7Kvc739eXQJq5JMQwSX7BtOtazOhV28Kxzl2ng
+	 8sp7wX8P0KG5Q==
+Received: from [212.42.244.71] (helo=mail.avm.de)
+	by mail.avm.de with ESMTP (eXpurgate 4.57.1)
+	(envelope-from <nschier-oss@fritz.com>)
+	id 6aff14c1-b6d3-7f0000032729-7f0000019f2e-1
+	for <multiple-recipients>; Thu, 19 Nov 2026 16:24:49 +0100
+Received: from mail-auth.avm.de (dovecot-mx-01.avm.de [212.42.244.71])
+	by mail.avm.de (Postfix) with ESMTPS;
+	Thu, 19 Nov 2026 16:24:49 +0100 (CET)
+Date: Thu, 19 Nov 2026 16:24:47 +0100
+From: Nicolas Schier <n.schier@fritz.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Sasha Levin <sashal@kernel.org>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>,
+	Nicolas Schier <nsc@kernel.org>
+Subject: Re: [PATCH 2/2] devicetable-offsets: Get struct cpu_feature from a
+ device-id header
+Message-ID: <av8Uv7EV3sLqUBfr@derry.ads.avm.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,108 +80,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118095053.3871267-1-vikram.singh3@oss.qualcomm.com> <20261118095053.3871267-4-vikram.singh3@oss.qualcomm.com>
-In-Reply-To: <20261118095053.3871267-4-vikram.singh3@oss.qualcomm.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 19 Nov 2026 20:53:20 +0530
-X-Gm-Features: AclHuK-bYeekeWya8STnw2Y8eECaMfbCySlAAK-yinBr0JM6XHZ34xL9AEfbGuQ
-Message-ID: <CAAhSdy3TtQCE8Fa5FitihgSKewXLApPOOhWHU1QCw=6F-P_4=g@mail.gmail.com>
-Subject: Re: [PATCH v5 3/7] riscv: Add Control Transfer Records extension parsing
-To: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
-	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
-	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, atishp@rivosinc.com, anup.patel@oss.qualcomm.com, 
-	will@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	beeman@rivosinc.com, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor@kernel.org>, 
-	devicetree@vger.kernel.org, Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <179424040477.1704532.18231793404479518924.b4-ty@b4>
+X-purgate-ID: 149429::1795101889-B9515B85-B73617E7/0/0
+X-purgate-type: clean
+X-purgate-size: 1742
+X-Notice: Whitelisted
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-pfmilter: host: postfix-mx-03  mail-id: F259FA066E  external: no
 
-On Wed, Nov 18, 2026 at 3:21=E2=80=AFPM Vikram Singh
-<vikram.singh3@oss.qualcomm.com> wrote:
->
-> Adding CTR extension in ISA extension map to lookup for extension
-> availability.
->
-> Co-developed-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-> Signed-off-by: Rajnesh Kanwal <rajnesh.kanwal49@gmail.com>
-> Signed-off-by: Vikram Singh <vikram.singh3@oss.qualcomm.com>
-> Link: https://lore.kernel.org/r/20261106173942.3175069-4-vikram.singh3@os=
-s.qualcomm.com
-> Signed-off-by: Anup Patel <anup@brainfault.org>
+Hi,
 
-As mentioned in PATCH1, drop the "Link:" and the subsequent
-"Signed-off-by:" lines.
+I have a question regarding best-practise:
 
-> ---
->  arch/riscv/include/asm/hwcap.h | 6 ++++++
->  arch/riscv/kernel/cpufeature.c | 2 ++
->  2 files changed, 8 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwca=
-p.h
-> index b5952db9259f..ee200d8cfccb 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -126,6 +126,10 @@
->  #define RISCV_ISA_EXT_ZIC64B           116
->  #define RISCV_ISA_EXT_SV48             117
->  #define RISCV_ISA_EXT_SV57             118
-> +#define RISCV_ISA_EXT_SSPESA           119
-> +#define RISCV_ISA_EXT_SSPLCOFI         120
+On Mon, Nov 09, 2026 at 05:07:05PM +0100, Nicolas Schier wrote:
+> On Mon, 09 Nov 2026 09:14:41 -0500, Sasha Levin wrote:
+> > Since commit cdfdbc11552b ("Move struct cpu_feature to
+> > <linux/cpufeature.h>"), devicetable-offsets.c includes
+> > <linux/cpufeature.h>, which includes <asm/cpufeature.h> on architectures
+> > that select GENERIC_CPU_AUTOPROBE. On loongarch and mips that header
+> > pulls in <asm/elf.h>, and from there <linux/fs.h> and <linux/mmzone.h>,
+> > which need <generated/bounds.h>. devicetable-offsets.c is built before
+> > that header is generated, so even defconfig fails on both:
+> > 
+> > [...]
+> 
+> Applied to kbuild/linux.git (kbuild-next-unstable), thanks!
+> 
+> [2/2] devicetable-offsets: Get struct cpu_feature from a device-id header
+>       https://git.kernel.org/kbuild/c/50ccc340
 
-These two does not belong in this patch.
+I applied this fix on kbuild-next-unstable (and rebased today [1]), two
+commits after "Move struct cpu_feature to <linux/cpufeature.h>" [2],
+which is being "fixed" by this patch.
 
-> +#define RISCV_ISA_EXT_SMCTR            121
-> +#define RISCV_ISA_EXT_SSCTR            122
->
->  #define RISCV_ISA_EXT_XLINUXENVCFG     127
->
-> @@ -136,10 +140,12 @@
->  #define RISCV_ISA_EXT_SxAIA            RISCV_ISA_EXT_SMAIA
->  #define RISCV_ISA_EXT_SUPM             RISCV_ISA_EXT_SMNPM
->  #define RISCV_ISA_EXT_SxCSRIND         RISCV_ISA_EXT_SMCSRIND
-> +#define RISCV_ISA_EXT_SxCTR            RISCV_ISA_EXT_SMCTR
->  #else
->  #define RISCV_ISA_EXT_SxAIA            RISCV_ISA_EXT_SSAIA
->  #define RISCV_ISA_EXT_SUPM             RISCV_ISA_EXT_SSNPM
->  #define RISCV_ISA_EXT_SxCSRIND         RISCV_ISA_EXT_SSCSRIND
-> +#define RISCV_ISA_EXT_SxCTR            RISCV_ISA_EXT_SSCTR
->  #endif
->
->  #endif /* _ASM_RISCV_HWCAP_H */
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeatur=
-e.c
-> index 72bce616491f..b3e3c30f4c8b 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -652,6 +652,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->         __RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
->         __RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinux=
-envcfg_exts),
->         __RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
-> +       __RISCV_ISA_EXT_DATA(smctr, RISCV_ISA_EXT_SMCTR),
->         __RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
->         __RISCV_ISA_EXT_DATA_VALIDATE(ssccfg, RISCV_ISA_EXT_SSCCFG, riscv=
-_ext_ssccfg_validate),
->         __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> @@ -659,6 +660,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D {
->         __RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinux=
-envcfg_exts),
->         __RISCV_ISA_EXT_DATA(ssqosid, RISCV_ISA_EXT_SSQOSID),
->         __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-> +       __RISCV_ISA_EXT_DATA(ssctr, RISCV_ISA_EXT_SSCTR),
->         __RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
->         __RISCV_ISA_EXT_DATA_VALIDATE(svadu, RISCV_ISA_EXT_SVADU, riscv_e=
-xt_svadu_validate),
->         __RISCV_ISA_EXT_DATA(svinval, RISCV_ISA_EXT_SVINVAL),
-> --
-> 2.43.0
->
+If we keep it this way, a bisect may hit the issue; folding does not
+look correct to me as that would mix-up related but different things.
 
-Regards,
-Anup
+So my questions:
+
+ * Shall we keep it the way it is to keep the original patch order
+   (bisect might fail on the two commits before this patch)?
+
+ * Or shall the patch be moved before Uwe's (removing the 'Fixes' tag,
+   and rewriting the commit msg)?
+
+I am in favor of the latter.  Are there any objections?
+
+
+[1]: https://git.kernel.org/kbuild/c/f1dc66c38b7eb4b2fb946a2fd6929250ecd2d85a
+[2]: https://patch.msgid.link/bc9fbf5784f6788e10c749a05d56c42bdb68f3d9.1792144769.git.u.kleine-koenig@baylibre.com
+
+-- 
+Nicolas
