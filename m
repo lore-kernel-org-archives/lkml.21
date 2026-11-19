@@ -1,84 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048992;
-	b=chYtru8/yAxXlL4Rtpx+diZnS8rvrRFbWGdE801X/1qo7RCC7/DmlVKIdGv1T+hctCBC
-	 RFQXJDp6LlV7poBdOqqSJZ/zGNhbj9EF8PbTpIiE/gkg7iSM6JoVqMrbqjH+V77sMFRE3
-	 3H75PRqofQ6pzcRqqijAe16Qh0XKU8TiL3fW6bKDRcKJvwcg5c61ozgyR1bm++T0cvzXm
-	 MtwppxTbGeISUPDfUOnWwmEwOwtxrovQ9WVeXjmG8Ym+UC9yG27BZCBk4yeQB3hrBW0UY
-	 rRiNMmWfT86e/DlRQRveHNuHK+2oq+HRqHI6sPgQGfQuxAb83cYuX9UD6XUm2KLEFfA==
+	t=1795049027;
+	b=UJjWdtmFxw/Vyn5Ho6yFQjK4C6PC/W19E4GO3xgtP8WnW80BUzZv76Y/q1oxbSe+Nzg0
+	 Z3uq7vjuE1uGliVhNOhE4STuG5/kvZRSe8dCNEfo6f35Kpyl4P4E6+sobKyFTLS/e76NW
+	 YHm+sZttig0/IqV5un+WWZ3Ts84reasje+eEK41PJNiLGPkmWFeCQ13X0ZdnmSBoYxKAJ
+	 q0WEmK52asNSP8Yp8G+z4pqXqwhmvzP/XekGkMuyJ6GghoanPnxOACN++GliaLYkBWsNL
+	 g4yR1BJXaMqv6Qy3uV5/QrKRc482cSQ/yk4hPcbDlZ+l7ZmERM4vMKcEjnPZWlNRrEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048992;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795049027;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
-	bh=rXGPcSA1LAN7NCQ0xg//sWiI3uTTDA49S1RmMjXykwc=;
-	b=eCwJPVyuDnFeUVBIQZYd+ZFguwjuqJVNIaSd+V2d4T4xCm+b/s933yHvubMUt3sb1/Oo
-	 +je4cYssKA8Hjn7k1PMRLPc9pXSbIBhA6peyKFbUNtVBPX5dqNB7TMJ8+GivtxAqBS1JO
-	 DCQDeGuRUXWQNYONMLew4tswExdtalIT0N+ET3QdWOKoGgz1thZ3Kw6JrXvmQDSpyfZje
-	 Wmj55ULBYk+wuRH4gNsbiEMYqE0eLU76T4K2Hz2KUpWEa7lTpDAYp4G4sQFroF359MEmL
-	 /6r6m22IuxtSLQHFHHvKYvBuWD1R9ATi6NOGTo6XWtU69fuhU+iOEUfo6+wAkW/tZ4g==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
+	bh=fgA8o0FbMXPNXu1ndyU//XOwV/J+NqWrJ7q89CkWjTg=;
+	b=d96hdsB9F1JhDSpdXMphZ8Xemhd8Yag1mUVHdVMtt3OYoCSroT/q18NLMzAyfGd3U84F
+	 C07vQXTBGsWG2LdnX4LB8Hq5NjWxObcPlf4UZIsOX7foueNlG7GW6304OX2vD39cgNDjg
+	 Rimd3LX061xK6fay2CEtzuyOVrGG6XqkWjXf9lEj3DuE0vLICg3IAdm6qHb+hYv/wo3Uc
+	 POrRMAocq2jZGGJPmCWS+YIlf1a3Rpb0dyFsyZr2q/MFNdEI7DERlONCDL7EaL6+4p103
+	 jCW+d8O8/YA+0kSVjabw7Ivn8f+IgrKjubuvll8ysdzpWhpICKW2cBz/4VzOS5DGDDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LIPAilQv;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AEHrSxth;
+	arc=none smtp.remote-ip=74.125.224.48
+Received: from mail-yx1-f48.google.com (mail-yx1-f48.google.com [74.125.224.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14A20606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:43:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14A20606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6921A606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:43:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6921A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LIPAilQv
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2e9e53d011eso13555215ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:43:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AEHrSxth
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-6798eb0d190so1310605d50.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:43:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795048991; x=1795653791; darn=vger.kernel.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
+        d=gmail.com; s=20260707; t=1795049026; x=1795653826; darn=vger.kernel.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=rXGPcSA1LAN7NCQ0xg//sWiI3uTTDA49S1RmMjXykwc=;
-        b=LIPAilQvJZip+dNvCDt+jwWHOxTTJwBxK4WHMwkJtdslpQXa9vKtcLwza0BmGiflCG
-         vR7u1/6PSH8ehBRSv/FqNaG3VIbKmkm2umJuQ0NvsDRFELLmSbYniTo4wtGYHjknJMmS
-         6rnMkilATkEdzoQ79oSfop9eD+uYyLFOFVZLwY5rjVEuHbMpb7Twl3fGNNQ3Y7NF2AbZ
-         RLWK4G/YGruAqz2iGuv79KBz7BCLI7n5BsCNhYqEaVqwOQJQSlF4UuTVh0/LEIRuPmW/
-         FRxxDYqR5GwD28lkPzgZCcX8YqlL9ujMEJ7mc27zEwJ5QAZOXFXOgARXjFhN4ipvMOHW
-         7xUg==
+        bh=fgA8o0FbMXPNXu1ndyU//XOwV/J+NqWrJ7q89CkWjTg=;
+        b=AEHrSxth2nKMWbcr3HM7GjjGjfZkU+y3rIs60f7I6Sb7fl5Y5r+ajPZUPuMKEXkSQl
+         /flHOlf6kQi8bfwXc94nkEdSpeVApvJtAVFo6dIZxGk9wCh1K6a3I5eSD/j0+YlOGMOm
+         B6/tqtF+rf8bVVm+r/WNcB/Ghes1AiF3aO1ao0U3fNLhVttdnBAjZHLNC287clDUIxGS
+         fqkJwoebaCTmbJZ9uQiIiwOF/FtzSnxQOS+bdi6ly+Yawup1sU1IM7YMzI4Ms2baUrOU
+         EcHWmI9IVGn7Q6p8UALz6jnm2QC5LRXWhSEKuTuRhcqhtHpmloXxTz4wMHh6NZ20BrUZ
+         9Rpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795048991; x=1795653791;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795049026; x=1795653826;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rXGPcSA1LAN7NCQ0xg//sWiI3uTTDA49S1RmMjXykwc=;
-        b=0nHn3AAMTBflGQfWip1KHgWrbGDdOjOLLnPleLIu3SLG0PMCRbfDfv8MrRI7kcuIon
-         G9meI1A6LgBlMsKCzz1tKlpGmIZ2/TDKQyQEB1McQuzTXMBfgz/k03Q3r9Qb+yaI9ttM
-         16/s0p0CL+DF10n/rBwHnbb9uAl8ngJNtuw2JUExqxYGI+k5qoEWpOYii3J9pZV0/iHf
-         d7PvaSflCdta1RevIOA2Q+TKvKHJEMCLv4yYcfYJNr2rwjCg+22oW1iUys0YoPwuoYVm
-         vqq3C72UnwqDRXc6FUQ4SDe8Cml1XbPeMKKad2slm4mt2Yo8AJi4jouzQZHS50ula05w
-         zX5w==
-X-Forwarded-Encrypted: i=1; AL+hErGsgDrlO4XA1OnJ/JgzWYwi2XN3euJEOZthWTVO6wd5QsRBT2QQlR1ZihAk2P+GdRdIcm9ZHEvSVhWiENo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ozHI7dy0rjTHsqeANVAfsiBBkhlIabHgMdbo0fqSsB36e0Kcc
-	hoZ/jRtxc1RuQLmY5/7oO/BsNPZArq/s1RhxF5DM4Uyb2SWDq4w/9iBvAmHFxLp6JA==
-X-Gm-Gg: AZFdTZdLzBaT3pPM9wbNoX4sQqkPvWRWiHgktAdG7LspehAl6hXZsfIsYJbEVmdGbm9
-	1cmRIASf01NPyDS9TZ4aUQQPG6b6mZaL1JUgM/uJQ7+1cWVhm9b6rZXHvemVPwgcz8wfqc349uq
-	eXDHVtC015/7QXsOVVd/OOAO4f5jKsyupYnFYlMok8gklVG58QwG7L9a0jFPN3gXsOZF09V2OFT
-	gbWDLJ+sgGkv99bRieA0jUWy16G6GFQuzx0qAmQdHTJSueVEC98txntliG8LYz46XAoAPVvfKYg
-	HCoW43mdIQNuuClA9XnWi3mNPM1BJdnvqZoWKRZmGeX9zEqU7iZe1qmNDI8k6ioxOaNHbUBSrIR
-	SEOkWy6JRZqNOuSi+EvbsTDuodJtvatbZehEI2A7mCJAbwuBoI2wc26ADwpRTQTBun9CHp54hww
-	LD8A+qWyds7+CqJbse3jM1zA/WBYZwHyiQVbfAEZj73arxIeRBbu/pryXpvUPAi7YtXBgoWHwIj
-	b+JEP7jirYJwxE3kcwdKfODLqswGxDNP0Sb51TVsAcnvOQmpWNiwzzNuRQDu1BGsMf2SfcNESFP
-	NdjQAYkY2vDnt9i5sf7Q9Sa4/8t9n1gaxGYXpEJuPop55H+7TaRI84SaCyUNTNye
-X-Received: by 2002:a17:903:a8f:b0:2ed:205e:eabc with SMTP id d9443c01a7336-2eff7525970mr42302875ad.32.1795048989252;
-        Wed, 18 Nov 2026 16:43:09 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6214cd8sm20785035ad.44.2026.11.18.16.43.08
+        bh=fgA8o0FbMXPNXu1ndyU//XOwV/J+NqWrJ7q89CkWjTg=;
+        b=omrJM3slYsrIaDLlUSQyfATNn22BYQ/8TvGPK5Mj8tLd0m4WAtZTJ+vr7Xq70LyLMA
+         RrURnfQ6I6vxKCMEB+v6oZcFsmzWqTQjb6+ILg49r00V/nWnTM85iY2KrfyNnEgfHFMg
+         J35/YKdL1Oaur/NIjGowRirQLrPoPcvdlrtr+YU52excPwsZ7tZe4InHus6jt1qC0sCL
+         AlfD75uphgNDsR/q5kZYRlZFlA+LQ/8qL5UVMxWtlcFTnzlwOFt+JffufZriWbJMbWWr
+         N6DZu6MnUf/O9deJFiTqaOGXd9jxxyZ2jVzFGKpG1LNdMkyfRWAUFxuAMdmWFw6qa+rF
+         F2eQ==
+X-Forwarded-Encrypted: i=1; AL+hErGxQ55qfRQj6dCTeyAbsVMAoNKedz8T2QoAsm3BbFMgOabkeyelXgmf0HF02JypNI5tzgUXG9Ynup/ZdKw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Ibjdx04oL55jmFgExJ69ElQvz6AzrFp+8h/+XfO95Zj7pbZMg
+	+tB3ZWRLRw4iAUxNhKWmyhcrnBqw3RTu+9nC82ipgLwcIpwQ0dNDuuGv
+X-Gm-Gg: AZFdTZc2nMUpQVKcRatMaDUAdbPpKEJDxfVl9SPwbzRUrtXCurFrm8a4XOTxi7Tp8WZ
+	LMRg0iqdOZgp1OeFrm9qHiCbWK2BLoPFmJ118CoO1LX7QDYy5QIJD63KyWyB07d57xrfDbD4cYN
+	wSSC1ghVBs0kBOL5hW56KvbT0Z/feRqpXDIIwKo47l6/RyGEewYVD5ZpOZfBdWXaTyXouefybJA
+	JOMLnnupW/MmbmcovMk7azZc/YcnfN9gYJlRN3g+/U1xQstnnP7stcM3upkCgI5orfm2ZE2goeq
+	PpxM15AtuYn0ASAippZGK14M6tItcPzP74QMbfRXbIbF2ceu4ecJrzcL1R6K3C5RgRLQaHSAw34
+	U7lKGgzbPMZWo4hWVxJma41eqD5z/e4E0sYB27yTKbysVGBWJScuR2TsJZo07rSgzrMLxMK8ORf
+	HEeHYZaiZbanctR+AlscXsY3aDyIHr4C3NExRSwNDfjADUSP2PJpsHvdkngSn1zLSYtEozHZAJw
+	crWCm8OzRco87nxdaM2V76wQiSWN5ED0TBvt4zl0ilvf4C75F/VTpb8ynQHi17MJmpdr6U7cCT4
+	xV7VlU+14/4xo+C2h+/TiCMUrMILhD1cqzI=
+X-Received: by 2002:a53:d018:0:b0:67d:affd:e015 with SMTP id 956f58d0204a3-67dd3f19e9dmr1827544d50.37.1795049026165;
+        Wed, 18 Nov 2026 16:43:46 -0800 (PST)
+Received: from [10.138.10.6] ([149.102.242.31])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67dd58a1478sm2511941d50.14.2026.11.18.16.43.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 16:43:08 -0800 (PST)
+        Wed, 18 Nov 2026 16:43:45 -0800 (PST)
+Message-ID: <61ca7c37-7b42-48a3-be2e-95deb4d999a2@gmail.com>
+Date: Wed, 18 Nov 2026 19:43:37 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,99 +89,261 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
+ never read
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Rodolfo Giometti <giometti@enneenne.com>,
+ David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Jens Wiklander <jenswi@kernel.org>,
+ Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
+ =?UTF-8?Q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, Sahil Malhotra
+ <sahil.malhotra@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>,
+ Richard Weinberger <richard@nod.at>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+ "Serge E. Hallyn" <serge@hallyn.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20261118140421.584086-1-giometti@enneenne.com>
+ <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+ <av5EyVHnNzT27dyK@kernel.org>
+Content-Language: en-US
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <av5EyVHnNzT27dyK@kernel.org>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------0bx6vSKCAV0Mo03JVw607zhR"
+
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------0bx6vSKCAV0Mo03JVw607zhR
+Content-Type: multipart/mixed; boundary="------------B160UtrZAU3kNrK8qGCCzylk";
+ protected-headers="v1"; hp="clear"
+Message-ID: <61ca7c37-7b42-48a3-be2e-95deb4d999a2@gmail.com>
+Date: Wed, 18 Nov 2026 19:43:37 -0500
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
+ never read
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Rodolfo Giometti <giometti@enneenne.com>,
+ David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Jens Wiklander <jenswi@kernel.org>,
+ Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
+ =?UTF-8?Q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, Sahil Malhotra
+ <sahil.malhotra@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>,
+ Richard Weinberger <richard@nod.at>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+ "Serge E. Hallyn" <serge@hallyn.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20261118140421.584086-1-giometti@enneenne.com>
+ <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+ <av5EyVHnNzT27dyK@kernel.org>
+Content-Language: en-US
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ xsFNBFp+A0oBEADffj6anl9/BHhUSxGTICeVl2tob7hPDdhHNgPR4C8xlYt5q49yB+l2nipd
+ aq+4Gk6FZfqC825TKl7eRpUjMriwle4r3R0ydSIGcy4M6eb0IcxmuPYfbWpr/si88QKgyGSV
+ Z7GeNW1UnzTdhYHuFlk8dBSmB1fzhEYEk0RcJqg4AKoq6/3/UorR+FaSuVwT7rqzGrTlscnT
+ DlPWgRzrQ3jssesI7sZLm82E3pJSgaUoCdCOlL7MMPCJwI8JpPlBedRpe9tfVyfu3euTPLPx
+ wcV3L/cfWPGSL4PofBtB8NUU6QwYiQ9Hzx4xOyn67zW73/G0Q2vPPRst8LBDqlxLjbtx/WLR
+ 6h3nBc3eyuZ+q62HS1pJ5EvUT1vjyJ1ySrqtUXWQ4XlZyoEFUfpJxJoN0A9HCxmHGVckzTRl
+ 5FMWo8TCniHynNXsBtDQbabt7aNEOaAJdE7to0AH3T/Bvwzcp0ZJtBk0EM6YeMLtotUut7h2
+ Bkg1b//r6bTBswMBXVJ5H44Qf0+eKeUg7whSC9qpYOzzrm7+0r9F5u3qF8ZTx55TJc2g656C
+ 9a1P1MYVysLvkLvS4H+crmxA/i08Tc1h+x9RRvqba4lSzZ6/Tmt60DPM5Sc4R0nSm9BBff0N
+ m0bSNRS8InXdO1Aq3362QKX2NOwcL5YaStwODNyZUqF7izjK4QARAQABzTxEZW1pIE1hcmll
+ IE9iZW5vdXIgKGxvdmVyIG9mIGNvZGluZykgPGRlbWlvYmVub3VyQGdtYWlsLmNvbT7CwXgE
+ EwECACIFAlp+A0oCGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJELKItV//nCLBhr8Q
+ AK/xrb4wyi71xII2hkFBpT59ObLN+32FQT7R3lbZRjVFjc6yMUjOb1H/hJVxx+yo5gsSj5LS
+ 9AwggioUSrcUKldfA/PKKai2mzTlUDxTcF3vKx6iMXKA6AqwAw4B57ZEJoMM6egm57TV19kz
+ PMc879NV2nc6+elaKl+/kbVeD3qvBuEwsTe2Do3HAAdrfUG/j9erwIk6gha/Hp9yZlCnPTX+
+ VK+xifQqt8RtMqS5R/S8z0msJMI/ajNU03kFjOpqrYziv6OZLJ5cuKb3bZU5aoaRQRDzkFIR
+ 6aqtFLTohTo20QywXwRa39uFaOT/0YMpNyel0kdOszFOykTEGI2u+kja35g9TkH90kkBTG+a
+ EWttIht0Hy6YFmwjcAxisSakBuHnHuMSOiyRQLu43ej2+mDWgItLZ48Mu0C3IG1seeQDjEYP
+ tqvyZ6bGkf2Vj+L6wLoLLIhRZxQOedqArIk/Sb2SzQYuxN44IDRt+3ZcDqsPppoKcxSyd1Ny
+ 2tpvjYJXlfKmOYLhTWs8nwlAlSHX/c/jz/ywwf7eSvGknToo1Y0VpRtoxMaKW1nvH0OeCSVJ
+ itfRP7YbiRVc2aNqWPCSgtqHAuVraBRbAFLKh9d2rKFB3BmynTUpc1BQLJP8+D5oNyb8Ts4x
+ Xd3iV/uD8JLGJfYZIR7oGWFLP4uZ3tkneDfYzsFNBFp+A0oBEAC9ynZI9LU+uJkMeEJeJyQ/
+ 8VFkCJQPQZEsIGzOTlPnwvVna0AS86n2Z+rK7R/usYs5iJCZ55/JISWd8xD57ue0eB47bcJv
+ VqGlObI2DEG8TwaW0O0duRhDgzMEL4t1KdRAepIESBEA/iPpI4gfUbVEIEQuqdqQyO4GAe+M
+ kD0Hy5JH/0qgFmbaSegNTdQg5iqYjRZ3ttiswalql1/iSyv1WYeC1OAs+2BLOAT2NEggSiVO
+ txEfgewsQtCWi8H1SoirakIfo45Hz0tk/Ad9ZWh2PvOGt97Ka85o4TLJxgJJqGEnqcFUZnJJ
+ riwoaRIS8N2C8/nEM53jb1sH0gYddMU3QxY7dYNLIUrRKQeNkF30dK7V6JRH7pleRlf+wQcN
+ fRAIUrNlatj9TxwivQrKnC9aIFFHEy/0mAgtrQShcMRmMgVlRoOA5B8RTulRLCmkafvwuhs6
+ dCxN0GNAORIVVFxjx9Vn7OqYPgwiofZ6SbEl0hgPyWBQvE85klFLZLoj7p+joDY1XNQztmfA
+ rnJ9x+YV4igjWImINAZSlmEcYtd+xy3Li/8oeYDAqrsnrOjb+WvGhCykJk4urBog2LNtcyCj
+ kTs7F+WeXGUo0NDhbd3Z6AyFfqeF7uJ3D5hlpX2nI9no/ugPrrTVoVZAgrrnNz0iZG2DVx46
+ x913pVKHl5mlYQARAQABwsFfBBgBAgAJBQJafgNKAhsMAAoJELKItV//nCLBwNIP/AiIHE8b
+ oIqReFQyaMzxq6lE4YZCZNj65B/nkDOvodSiwfwjjVVE2V3iEzxMHbgyTCGA67+Bo/d5aQGj
+ gn0TPtsGzelyQHipaUzEyrsceUGWYoKXYyVWKEfyh0cDfnd9diAm3VeNqchtcMpoehETH8fr
+ RHnJdBcjf112PzQSdKC6kqU0Q196c4Vp5HDOQfNiDnTf7gZSj0BraHOByy9LEDCLhQiCmr+2
+ E0rW4tBtDAn2HkT9uf32ZGqJCn1O+2uVfFhGu6vPE5qkqrbSE8TG+03H8ecU2q50zgHWPdHM
+ OBvy3EhzfAh2VmOSTcRK+tSUe/u3wdLRDPwv/DTzGI36Kgky9MsDC5gpIwNbOJP2G/q1wT1o
+ Gkw4IXfWv2ufWiXqJ+k7HEi2N1sree7Dy9KBCqb+ca1vFhYPDJfhP75I/VnzHVssZ/rYZ9+5
+ 1yDoUABoNdJNSGUYl+Yh9Pw9pE3Kt4EFzUlFZWbE4xKL/NPno+z4J9aWemLLszcYz/u3XnbO
+ vUSQHSrmfOzX3cV4yfmjM5lewgSstoxGyTx2M8enslgdXhPthZlDnTnOT+C+OTsh8+m5tos8
+ HQjaPM01MKBiAqdPgksm1wu2DrrwUi6ChRVTUBcj6+/9IJ81H2P2gJk3Ls3AVIxIffLoY34E
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <av5EyVHnNzT27dyK@kernel.org>
+
+--------------B160UtrZAU3kNrK8qGCCzylk
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 16:43:07 -0800
-Message-Id: <DMYRRCPO4FL8.HP2LYDQ286E0@google.com>
-From: "David Matlack" <dmatlack@google.com>
-To: "Josh Hilke" <jrhilke@google.com>, "Alex Williamson" <alex@shazbot.org>
-Cc: "David Matlack" <dmatlack@google.com>, <kvm@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Sean Christopherson" <seanjc@google.com>,
- "Vipin Sharma" <vipinsh@google.com>
-Subject: Re: [PATCH v8] vfio: selftests: Find devices that have VFIO
- selftest drivers
-X-Mailer: aerc 0.21.0
-References: <20261118064309.219592-1-jrhilke@google.com>
-In-Reply-To: <20261118064309.219592-1-jrhilke@google.com>
+Content-Transfer-Encoding: quoted-printable
 
-On Tue Nov 17, 2026 at 10:43 PM PST, Josh Hilke wrote:
-> +# Devices that have a driver in selftests/vfio/lib/drivers.
-> +readonly DEVICES=3D(
-> +	"8086:0b25,Intel DSA SPR"
-> [...]
-> +	"15b3:a2df,Mellanox BlueField-4 integrated ConnectX-8"
-> +)
+On 11/18/26 7:37 PM, Jarkko Sakkinen wrote:
+> On Wed, Nov 18, 2026 at 06:42:15PM -0500, Demi Marie Obenour wrote:
+>> On 11/18/26 9:04 AM, Rodolfo Giometti wrote:
+>>> This RFC proposes a key type, "keycrypt", whose material user space c=
+an
+>>> use for symmetric operations but never read: AES-256-CBC, HMAC-SHA256=
 
-This is missing GPUs that are supported by the nv_falcon driver.
+>>> and an authenticated AES-256-GCM stream, through a file descriptor th=
+at
+>>> KEYCTL_CRYPT_OPEN returns for one key and one operation.
+>>
+>> I haven't looked at the API, but from a cryptographic perspective,
+>> this encourages very poor practices.  AES-GCM even allows userspace
+>> to extract the secret authentication key.
+>>
+>> AES-256-CBC isn't a suitable mode on its own, unless it's combined
+>> with a MAC in encrypt-then-MAC.  Even then, it has a 2^64 birthday
+>> bound, so it should only be used 2^48 times with a single key unless
+>> the key is ephemeral.
+>>
+>> AES-GCM is not a suitable algorithm either.  If you allow encrypting
+>> with a key loaded from persistent storage, there is no way for the API=
 
-I saw in the v7 changelog that you left them out because
-nv_falcon_probe() matches on PMC_BOOT_0 rather than PCI ID. But the
-first thing nv_falcon_probe() does is check vendor =3D=3D 0x10de and base
-class =3D=3D PCI_BASE_CLASS_DISPLAY, and the script can get both of those
-from sysfs. And past that, nv_falcon_probe() only rejects GPUs with an
-unknown architecture; unverified GPUs are accepted with a "possibly not
-supported" message. So matching on vendor and class gets the script
-about as close as the driver itself gets.
+>> to ensure it is only used with a unique nonce.  Nonce reuse leaks the
+>> authentication key and allows forgeries.  Using random nonces isn't
+>> good enough either: NIST only allows 2^32 encryptions in this case,
+>> and the API can't enforce that limit.
+>>
+>> For long-term keys, all of the following are much safer choices.
+>> They have 192-bit nonces, which means that one can generate them
+>> at random for each encryption without any problems.
+>>
+>> - XAES-256-GCM
+>> - XChaCha20-Poly1305
+>> - AEGIS-256
+>>
+>> AES-GCM-SIV is also okay, provided that you are fine with occasionally=
 
-e.g. something like:
+>> leaking if two plaintexts are equal.  This happens whenever there is
+>> a nonce collision, so with probability 2^-32 after 2^32 encryptions.
+>=20
+> The exitential problem here is that KEYCTL_CRYPT_OPEN creates a circula=
+r
+> relationship between the keyrings API and a specific key type.
+>=20
+> At hardware level I did not see any support for TPM, which narrows down=
 
-	read -r class < /sys/bus/pci/devices/${bdf}/class
-	if [ "${vendor}" =3D "0x10de" ] && [ $((class >> 16)) -eq 3 ]; then
-		...
-	fi
+> the potential user base.
+>=20
+> The remaining potential user base is further reduced by those that use
+> trusted keys; leaving out those who need to solve the assumed problem
+> that only this patch set can presumebly sort out.
+>=20
+> And we don't really know at this point that cut. This is pretty much
+> the break down of what is wrong here.
+>=20
+> If there is/was a problem to sort out, it should be so constrained that=
 
-Also, nv_falcon does not implement send_msi(), so on NVIDIA GPUs the
-send_msi tests in vfio_pci_driver_test are skipped and kvm/irq_test
-does not run at all. The script should make this clear when it reports
-an NVIDIA GPU so users know they're getting reduced coverage.
+> it should be as quick to describe as stepping over a nail really.
+>=20
+> These are the main topics what I would focus on.
 
-Since the script can't check the GPU architecture itself, it would also
-help to tell the user which architectures nv_falcon supports, so they
-can check their GPU themselves. e.g. something like:
+This whole patchset looks like a solution looking for a problem.
 
-  Supported:
-    0000:00:04.0 - Intel IOAT SKX [8086:2021]
+The usual solution to something like this is a userspace service
+like ssh-agent.  Then you can do whatever key management you want.
+That doesn't protect against root, but if someone can get root you
+have bigger problems.
+--=20
+Sincerely,
+Demi Marie Obenour (she/her/hers)
 
-  Possibly supported (depends on GPU architecture):
-    0000:3b:00.0 - NVIDIA GPU [10de:1eb8]
+--------------B160UtrZAU3kNrK8qGCCzylk--
 
-    nv_falcon supports Kepler, Maxwell, Pascal, Volta, Turing, Ampere,
-    Ada, and Hopper GPUs. It does not support send_msi().
+--------------0bx6vSKCAV0Mo03JVw607zhR
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
-Please add a comment next to the list of architectures pointing at
-nv_gpu_arch_lookup() so the two stay in sync.
+-----BEGIN PGP SIGNATURE-----
 
-I think it's fine to include these GPUs in the -q output. If the GPU
-turns out to be unsupported, vfio_pci_driver_test will just skip.
+iQIzBAEBCgAdFiEEopQtqVJW1aeuo9/sszaHOrMp8lMFAmr+RjoACgkQszaHOrMp
+8lO5Iw/9HOFK9h3BHZwDlgyA+MXIYfSw1WE0cw6OUocFfslcMGtaJ8QUnc8FK7ej
+JwNHAFrOQiY0Om8URIO+73PT7KKU3jUc0xHs4ZEbrZ+pUdwOaPSu8AIhc7QHrAbw
+sqPqYIKJsbaoiuFGaZWZA/rBxBofCyx1kPZfLBVTtk6UochaiB5wNg7uPZsET7o+
+qmrujw2kIGRuMREUtnBM2784dfVECk6kT4ukrFfKu6CYD+fANTEaVGFfasiOATFv
+th2IpXIn9teh3KnD7bESgkgmKNo/3Ve0ltsrCnWa2JrwSrvacDjqtxIGQGZqAIe/
+Ydt2QmrbrYfpOzACofLLmC3hEs3KL2fEFpfC2CfSYdABc71dYQZf4YsVtVXYwvVD
+h6+AOlMBdAuD7HGnjyYRoLz+0ootP0+XmSYadYQbMBJX+T+6+Yc4Dk8fOMV5fp1o
+GmaCI2gz3kd46+jOE7+NNUDb180/eth0DZo9A0/q1sbe6rLe5/mIWXdZ42tvvEzy
+uysEfhp/DLGc1rkHiGTZeOEv5O74eGRqfK2ZpkRIXOitHt0k9W5xAIe4Wy1tsTfV
+S1BrrJD+YEAZJP/3cRbbZvb3bV10NujrW1gJVMoP+vQt/AncJ1IIgkmL/WzK6tUo
+QWTfj6w6ZSnX1UjV4yv0Svpyjy0CM53r4p/gZZow8N+5a4I/k3g=
+=kuCZ
+-----END PGP SIGNATURE-----
 
-Printing the selftest driver name for each device might also help
-here, and would make it easier to tie the list back to lib/drivers/.
-
-> +function vfio_pci_loaded() {
-> +	[ -d ${VFIO_PCI_DRIVER} ]
-> +}
-> +
-> +function denylisted() {
-> [...]
-> +function denylist_enforced() {
-> [...]
-> +function is_blocked() {
-
-Please consistently use is_*() for functions that check a condition,
-e.g. is_vfio_pci_loaded(), is_denylisted(), is_denylist_enforced(), and
-is_blocked(). That makes call sites like this one read more clearly:
-
-	if [ "${all}" ] || ! is_blocked ${id}; then
-
-> +	if [ ${#allowed_devices[@]} -gt 0 ]; then
-> +		print_allowed_devices "${allowed_devices[@]}"
-> +	fi
-> +
-> +	if [ ${#denylisted_devices[@]} -gt 0 ]; then
-> +		print_denylisted_devices "${denylisted_devices[@]}"
-> +	fi
-
-nit: When both groups have devices, there's no blank line between the
-last "Supported:" entry and the "Unusable ...:" header, which makes the
-output harder to scan.
+--------------0bx6vSKCAV0Mo03JVw607zhR--
