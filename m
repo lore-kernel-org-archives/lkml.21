@@ -1,56 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795121749;
-	b=pKcDjcVPweoz4guXDyRMGYaaPgYvVv4DWZ23OyojiJITibVXWC11aTnT5WoicLZsmjOS
-	 UHPqAqQYFNf1XFlm+JuGDYljR1bjjc8zm7+iN+YR84V7khDKQwHM+N8nR+vA5L9qcOggV
-	 KFyFExHqPNza3S7oWlf8FC8y4/WeOW+nz51gV3WIDnFbz6Jv/x8j4BvOm/Ni+Fo5NTceb
-	 PzpLIr57tGb0D/6Byrqw55CPunopscu+iP6+Y9hM/J+uZIzbxwuxK2hIci0rNYFTU/bDf
-	 zI75C/EhGfm4rIJDq18OqGaFatVtg+kEsbaHQEM7U+eDuf/zjtwQO5EpJx+beG7Qibg==
+	t=1795121758;
+	b=wcz0yMlr8P0X7hPzgjsz+bqqACj7677o3DT0gbz9q8iEA8Ng3Dh48iVLVlFDgYrpM5Zm
+	 Pr5uz5c3n/gJNEvcHKsf4kNo0bDWRlro2twG4DTbw8loKzu8gAM43gIK2LuTVLXBBjkfD
+	 ZcH9GLuHgIo3/8g4tG2z1BiuMF4+CdeasZUlkKKD1dEhy+YmYfQpwj0KDAXVXkG/J+h51
+	 J81xjqKq3e/PnwkdJ6US9Wt8XcjBlPKXCRT5YL2xSdMpK2uTkReYjqwSgBbReefuvRgFT
+	 ueyr6uvHoW1pcz7n4wXYxuM9hYSHSkZx9AH6G72IIX2jD263BeDQn3J7AttTibK1e2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795121749;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=VmFIuhYfP2v45XhFsesPKtjzFx6PdLailA1+NFQsFxc=;
-	b=SDS0aDZzXPjX4L8ZPzn9zVqT58g7CJjFlGp9OvsJVSs9Bf9DVwHKa4ccQE2x6Gfk/ZZr
-	 7650S3vPMk55w2BOZYkcvvhijfDpNSUxldd7jaOD1h1imTdbFwyLMoqwIi3u0Tet+Lcet
-	 WDSXlOjyy8NHqwnXDqRnOlMz96QU64Tt7UTeJbNOUQq3UfLyHjP7bDzZ9ZGXKe1DqhTN8
-	 Yp/Q3u699c+IjoazWh+ZkYlzMKQNQGGsLq0YYibWlPFEnyfcNUbMuSCsu2S3DnOL37uR8
-	 2F8QJ5yve4iaC/3EOwrgzgQg6AutlVw0HO1pl8B1D/hr4EONrETETmxrvn+eTSzQaNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795121758;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=RAn8N6gSfkVa4V0mSBkwOuD+bKCvbb3xoXf3f4G383I=;
+	b=3PELwGNRuIIg2VHFtgIrycSfeqPrJ0ABUcEgb0FGYaGw7x29fLEFuArY7UEoJaKmXHte
+	 suhD97B6mNosjnAWLruEpJ1bfVEt2uGmuMrhE6ZXvdOf9hyQSbisb7osoPjCuUQ3DoScH
+	 jz8mmcUw4zHE47NgqDA9Cf4lZ8Km4GAVwWZr6h6ByNlKva9RhfkY2wjxt7iZnQjhb25sA
+	 G4/ptMQYVwKfC1HD7BHVQJLHbPzti+Lr5WmSYgSbgdxb6+TdUnGagTCsVa8++uIvpnyvZ
+	 Xl9sNt9em3dcCrKA67Df1QQc2Dy95oEHXTGgpMI6YQf4MbMxc6ECBbuUko5tPGoByFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bfYJbHsg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=T6SUUJQU;
+	arc=none smtp.remote-ip=95.215.58.227
+Received: from mta1.migadu.com (out-227.mta1.migadu.com [95.215.58.227])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 491A7606A320;
-	Thu, 19 Nov 2026 20:55:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F1A6606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:55:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F1A6606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bfYJbHsg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EEB31F000C0;
-	Thu, 19 Nov 2026 20:55:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795121748;
-	bh=VmFIuhYfP2v45XhFsesPKtjzFx6PdLailA1+NFQsFxc=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=bfYJbHsg7ayESzygWUmQpu8CReYiL28GmUFbYPdLGqbcshAsXGweYjDSb2F5rLY45
-	 kU+Q4NbL81lZ5NStlB8eMEsCXBcWSIEAXTf477Q0sfFYgWSJducvXDEePKEvTmN924
-	 B3w9eRkrDv7SteU4nKu6H2R8XK0nXQuHYxlCoI96gUJJjeX2FudV07ansgmkxZEEPR
-	 /yD/apNSH+hIxuztRsqO+RUrCTvcWfNoEVXV/UhFaLWq1cSbcO5Ci6Gj3DmyVOBPp7
-	 I6nbr+qvKVb5tYhBfRU1OazG/II4Qa4kEvGqG7iSFHf7ojE5v6A7wgZAKOC3TpPDDT
-	 BoIcd7pKsSqZA==
-Date: Thu, 19 Nov 2026 21:55:46 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: Krish Gulati <krishgulati7@gmail.com>
-cc: Benjamin Tissoires <bentiss@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
-    linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    syzbot+bc537ca7a0efe33988eb@syzkaller.appspotmail.com, 
-    stable@vger.kernel.org
-Subject: Re: [PATCH] HID: core: serialize report_descriptor_read() against
- probe and remove
-In-Reply-To: <20261010095211.12831-1-krishgulati7@gmail.com>
-Message-ID: <578s4770-23p5-78qs-9po9-49oq2sprsos8@xreary.bet>
-References: <20261010095211.12831-1-krishgulati7@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=T6SUUJQU
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=m1boHPeRYAz7gh4uxsNHGhcag9dpvPIeasTIYyTZheM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795121755; v=1; x=1795726555;
+ b=T6SUUJQUYYzy8giWeXfZvON5Q+sHb2YS7KwfiaAiaM3ND0+Iv1EPTI8o+jLp+as5xu69MqFp
+ kevJwfu82JSIH0TYpS2Nu+0cCVPYtJ4DCvdacibaRB+rbHoRUC5mihquFl07lLdXZH3UtlLOoFR
+ WDRQ1++iPOXXItUf8lPfj0b0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 9cc57f456e8289a7;
+	Thu, 19 Nov 2026 20:55:50 +0000
+X-Mizu-Trace-ID: 9cc57f456e8289a7
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <b3270941-35e4-4b30-ae0e-9adff152bf5f@linux.dev>
+Date: Thu, 19 Nov 2026 13:55:45 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,48 +58,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf v2] selftests/bpf: Fix bpf-gcc CO-RE relocation in
+ verifier_sockmap_mutate
+To: Jiayuan Chen <jiayuan.chen@linux.dev>, bpf@vger.kernel.org, ast@kernel.org
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>,
+ Sechang Lim <rhkrqnwk98@gmail.com>, Michal Luczaj <mhal@rbox.co>,
+ John Fastabend <john.fastabend@gmail.com>, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261117122417.340562-1-jiayuan.chen@linux.dev>
+Content-Language: en-US
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+In-Reply-To: <20261117122417.340562-1-jiayuan.chen@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Sat, 10 Oct 2026, Krish Gulati wrote:
-
-> Since commit 54f32fd5dff9 ("HID: Make report_descriptor available for
-> all devices"), the "report_descriptor" sysfs attribute is part of the
-> device's attribute group, so it exists from device_add() until
-> device_del(). It reads hdev->rdesc, but that buffer only lives from
-> hid_open_report() until hid_close_report(), that is, for the duration
-> of a driver binding. For a driver with a report_fixup() callback,
-> rdesc is a private copy that hid_close_report() frees, so a read that
-> races with the driver being unbound accesses freed memory. syzbot
-> reports this as:
+On 11/17/26 5:24 AM, Jiayuan Chen wrote:
+> bpf-gcc fails to load test_trace_iter_unix:
 > 
->   BUG: KASAN: slab-use-after-free in report_descriptor_read+0xb5/0x100
->   Read of size 24 at addr ffff888078d61f00 by task fido_id/7281
->   ...
->   Allocated by task 10:
->    kmemdup_noprof+0x2b/0x70
->    hid_open_report+0x1fa/0xf00
->    lg_probe+0x29c/0x890
->    hid_device_probe+0x46a/0x870
->    ...
+>   Error: #766/6 verifier_sockmap_mutate/test_trace_iter_unix
+>   libbpf: elf: skipping section(3) .data (size 0)
+>   libbpf: elf: skipping unrecognized data section(18) .comment
+>   run_subtest:PASS:obj_open_mem 0 nsec
+>   libbpf: prog 'test_trace_iter_unix': relo #0: insn #0 (LDX/ST/STX) accesses field incorrectly. ...
+>   libbpf: prog 'test_trace_iter_unix': BPF program load failed: -EINVAL
+>   libbpf: prog 'test_trace_iter_unix': failed to load: -EINVAL
+>   libbpf: failed to load object 'verifier_sockmap_mutate'
+>   run_subtest:PASS:unexpected_load_success 0 nsec
+>   validate_msgs:FAIL:1014 expect_msg
+>   VERIFIER LOG:
+>   =============
+>   0: R1=ctx() R10=fp0
+>   ;  @ verifier_sockmap_mutate.c:124
+>   0: <invalid CO-RE relocation>
+>   failed to resolve CO-RE relocation <byte_off> [4] struct bpf_iter__unix (0:0 @ offset 0)
+>   processed 1 insns (limit 1000000) max_states_per_insn 0 total_states 0 peak_states 0 mark_read 0
+>   =============
+>   EXPECTED   SUBSTR: 'cannot update sockmap in this context'
 > 
-> Because hid_close_report() also clears rdesc and rsize, the same missing
-> serialization can make the reader see a NULL rdesc with a non-zero
-> rsize.
+> GCC only applies preserve_access_index to types that carry the attribute
+> themselves. The anonymous union holding the sock pointer doesn't, so the
+> CO-RE access stops at the union ("0:0") instead of reaching the pointer
+> ("0:0:0"), and libbpf rejects the relocation.
 > 
-> Hold the device lock in report_descriptor_read(). The driver core
-> already holds it across probe and remove, so a read can no longer
-> overlap with them.
-> 
-> Reported-by: syzbot+bc537ca7a0efe33988eb@syzkaller.appspotmail.com
-> Tested-by: syzbot+bc537ca7a0efe33988eb@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=bc537ca7a0efe33988eb
-> Fixes: 54f32fd5dff9 ("HID: Make report_descriptor available for all devices")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Krish Gulati <krishgulati7@gmail.com>
+> Fixes: e16c83fa764f ("selftests/bpf: Add negative test for sockmap update from non-sockmap iter")
+> Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
 
-Applied, thanks.
+Acked-by: Ihor Solodrai <ihor.solodrai@linux.dev>
 
--- 
-Jiri Kosina
-SUSE Labs
+CI confirms the patch works:
 
+Failing: https://github.com/kernel-patches/bpf/actions/runs/44576883691/job/135760256786
+Passing with the fix: https://github.com/kernel-patches/bpf/actions/runs/44083943280/job/134048457373
+
+Thanks for the fix!
+
+> [...]
