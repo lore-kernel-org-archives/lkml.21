@@ -1,97 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795104909;
-	b=sIDni48NS3yOrJTMwPDRS4D62y6GR2y42ZfKTSv2z8WCMiLhJKScL+WjK5oFwP2KDf0Y
-	 g+Dk8icWiXOvPmo9GxAZcoLcJldur3sHPnbSfGu+dIZ8pQU+U6QSg4MQBfhpIkXUXR5uD
-	 2W8yUDRdxWotXHCPH7z8AB5am86btkc4WcxNIAINihIZXwaaq2lH4iFd9JTil7wcCq3ri
-	 gRrLss3FnjB5lqilrkGBqDpA4qRvHnW5fROhcsOmJHGPkoQW1KBHJTi+4P42tdxNU7Pip
-	 JvFqC7ro5XFlJyyDsUtauXb8oyHJnRzdUMyj1REBPVgFCibbqizpNwctiNqUtvVMEdQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795104909;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795104970;
+	b=eGwxPgxkUUpIGAaNLDKLwg5/nRKcBxGZrd3Qnr7b4SuiZVFQQFFWjHw5Xlgko+d4CJVm
+	 8Ud6ptAQAvn6IBC81AFgQi6E/pVIucyd4VA8IM9m4lpjCwKqHDoQvMvjF8zjqEfcesqnc
+	 xroWakZq5ynGixW40s8PBrgESRbUDHmYCG3LL2qC3UydmgoCFnaOE6cinDZY/fZKp8oLW
+	 pf7EI+cXqUoF17gufyZPhwHSUc4B0fP6xNkQxPlesHnhUt8PGHRdJ9JjZXIbGwZk/QPR5
+	 cCKOeQfozieWRO1TUXf/yfxHNeB5RCqEUY43ShCD4pwSO+92IRxujxGS0afMGKQq8hw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795104970;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=T4XXFlbULQ2nlQDKlkc6yvG+h6ov3GlTKxgkovItaYM=;
-	b=Gs+XGMNS/djLclIsnQFnrduME73rYcaelXPWFJyLTfIeEmj1+0fyVoVsUzGYB4FNgiRx
-	 ub2wfpTVFNeC+AwvWe1xV2PXlNXAE9Z3o6lzi2hriTnacASDmRjKyK0K8aQeqvazu7acd
-	 lLj41SF48vg4RfQFf/k+r5IwFFl1KI9GSICtNPZxpJkGMFGROwfEfGi9u6f1ykhjlnj0d
-	 MI2eCgoAA6WSI4Io+6q5ZYmBkcmw2gfeNtC1PmzWR28vddETW79baFVKKaPu4aGlJ6Vbq
-	 uvpdVfErWXL2IZm5pmbJUcqQgbqJBM3Llq744YWd4gKcX8WB+RqCwskLsjC0STYdGJQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nF7KCEXV;
-	arc=none smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
+	b=J+g+yB0ZtS4rMnOobEr2YTBmwM1GuH3N2YtRKDARmsMmd8TxebwaSroLtI9Ck6/d/GZv
+	 4vS85/f6pM3P+VLhzUfRNQsGm9R978RKneurhX3Lc7Wb1bpTjl755VVCjgREC4uOugAp1
+	 I9yDW7lvgOn5l8TVY3LoENi9TkEjHWkYC+fkmfagFzCTFXtYvlBPgOQ4kTQsS87o3SLg9
+	 3fLhYRhBdd24R42TGMhUm1UwKD3lSfKHNe5iU2nrTvZCT8Wxnhk3LYVGyofx2gMkX7rJJ
+	 U5ix2P5cLdzW9rzzSQZadLAKSawvnskIUil9Z8BRJburoHYhGhmLS8BfwPnG3COn6mg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SPTFUBnK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.47
+Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D53F606A333
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:15:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D53F606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B22B606A336
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:16:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B22B606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=nF7KCEXV
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c5126505cb3so175512866b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:15:08 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=SPTFUBnK
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6b869ea8224so18585a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 08:16:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795104968; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DciD0TBwZ0SWgeqt//B6SDDqWMM9H+FxR1VdmbRjSyuxIRR0R8l5zOt48od30apfj4
+         jrdBLtKKx/YO6JCCDNcs6F0y/LkUm0vpaLapgZMKFGO6anargmU9xOSGl3qC3rigLF5+
+         jHfeaf02QxU2Ut/UD9gJIaxgHCTMWFA1wH6a/cYfzA+laSpu2D2vcWbaKf2Zn55hxLaU
+         5LcU71wMpuLgku5CpnAcKdnjtsCj20lJrxKFO9LXc5aZOmlNc0ddjub1PuOGWKaLmlgC
+         sFh66JpJbd8xXkpBccnzakXAwgBYCYDeOqIXO5vN4a42fseX5PshDlUNuwnphELRsFdu
+         cJxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
+        fh=L9JVnwox8gMjORqJy/D7HznRHhsy+FmZj8Zwqre10fk=;
+        b=B4ttuSekSirKeEufK22VY5clQXFigFO6atOIg8FwmxlZpDGg9O2l+UZUlujOXGKDSc
+         b/e9rcRrbG1fUz8VBJ7TSVj1UAaRUh8F0HgaRM3+KGbJhERo6VcVjJ+uyWd11lSZQCuw
+         Mu552ixR/hYeFr+8qyrKguSHJzxtsZcWcvaZkbFAF88tQiX+1SbzI4rEgExeSlatNWtT
+         YZkDLDx6H3CoSsjs3itvTefoX6Oaag1fSxsiGtQftKwYKmzDx4VvoiUH7nWprz6y1VCg
+         AQpqQm0lUXbE4j0gAPZgpmwSU22mPVwHFRQrpvnWCxtP4JCwbl6D0qRsm3JiHIPgJuu1
+         1lTQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795104907; x=1795709707; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=google.com; s=20260707; t=1795104968; x=1795709768; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=T4XXFlbULQ2nlQDKlkc6yvG+h6ov3GlTKxgkovItaYM=;
-        b=nF7KCEXVOJWPVyLiyh9gH7j6TgFIshYrCfF9a0YLidBgWbQthopZ8X2XxlMIy8y/oh
-         9+jAjo+uOTQbxl82APPj/R/l/JgRavu7yB80ikV6WLGXUkO27NLpZT5H4KvwdrWjt67l
-         HUrS3WJWRDgnZyG9KpvACEv13gKwz+ei6ER/NSpbtsLskMyMUfQnE28bjGigM0I2udwV
-         9P4R4DsKCnsb5aZ3ap4ZGUxyY4+05QCyB6d24j0haA+9Oe2HRNFd8+9hg9qmsqBFX3md
-         le7PeMLrelKN+cLHMOWq++P81fcQgGCR3SwpuRA6gAhF7Y62xOg6PfzZW20Hlx1IdSIY
-         CvSw==
+        bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
+        b=SPTFUBnK7Qf8DDFG1dkbrq+4jI3JE0lR8/YfG84QwF7qkJuOqgiNCatI2ceCVLboWZ
+         Aw7ykVFnmagdBpIptbkQWV+tC/biwlU+kghJFhH250FMWpcYHs3Oc4lrkO/QNBUjRAWT
+         ole8LWM58vVerK+bK4rVttZlvcFbV4JhkB4PJsqdooEg2+6zFfi4cc3GNTa2Fv2R6skh
+         ySxahTl2H0as7ZduuMddPsmnztMj3PDGV+d3Kv0LSRNIubrsTLvYI/cbbni3JlZSKuHk
+         9ACUeSBxgxMczQkuay4EwKAExZqcqfmC4kAhXStvwVjuNkDS/SJOjPeAGNBD5dmCZ0aB
+         wo1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795104907; x=1795709707;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795104968; x=1795709768;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=T4XXFlbULQ2nlQDKlkc6yvG+h6ov3GlTKxgkovItaYM=;
-        b=o6fCj/J0NcD/7RD4xrIjUpNp3rOsk7w6UDC0f52/8WyyEobEOgk7SPXmCviKc/1+M3
-         TaRmSWyVkv6ysZeShsA8y6rjfDF+9x2G1gaeujeiBa/YkXSAn4D2kuIvjB3GwwlHHRPu
-         zz5s2i5apcYsUlCxIzQxAN1ZXMz2RjmhcPI9Mx+X/GcoHhB32syj/rBa8eXvNFqQNexL
-         k3xPsP3DEAkvVkOfKsM5oR2iZCOmE0Dnsud/tHY6dBSB8ubEasGnw1dC1F9+RYRVfqnV
-         JLf8++d0WjvQO2XXbn1CvU8GnFNn9AKkVHDYir2Z5lDZdfbhN1zRHObygpS2TZAEL25o
-         PojA==
-X-Forwarded-Encrypted: i=1; AL+hErHJ7cHA6m912Y3qGcco4exlprLLNQpXpdZyuqzUqVwVvgtkv6YFN+G9AaruF1yASiyODCBV4sR75EoE45I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9sbcXHI/y90umrs7PoBCMg0o1vlv+0DS9FaELVDqLMHzPGBgfc
-	EQQo1GM/RBvciZ1naXRh3s9wPk8cpdaMr7+NGEgBp+pPttaJ2b+Ed7ZZn7E64ugnACY=
-X-Gm-Gg: AYBFou1C03N3EeGtEQbqD0lNEjYU4Re9CwSHhAXx+PmxTKX59op0FlMeW/f3wc4Ez9Y
-	8G5QnhBmr0wRwZd0f0xOxpp2I6R1Woi6cGk0PneVDBdqZv9OBMDP6SCk2ZwGl3/yJ/HNxPg2/4R
-	R0ck+waeMVKYPTSULZNZLriaGKHzRdPK5k7iR4hLypE6scewr+gQfFHMVXoE9CrtUaQFZ/2HgEW
-	lPweq0oeekUZ+yeUJmZh6E/5lueOqnkpalZ+0V1Td4xCiEwWGR0SzN9MGDyYp52cR0W1PKLOXVy
-	7RQEQUTJJjYPOHkVcQIHWCcTEbB1o+FT+aSLi6wehBqwqSvQ6qtE7Fc83kF2elxM7sjsGykKl9T
-	kRLMNqoHWjcWezxTMTwd0MBGFOillxD2k2miMbvJiYiIdODk8ZQDc42CXhb3MdOYrCW4hAzrxd/
-	zNiGb78iODi25VjXeKFsWHPg23SLpu6EQC77Z7cGTfeX+2aCge6dDO97QqnZN7MM+4y/rhLqyle
-	B2YsCuMAZL/w7rAvtCUwhqiG7uhYy9z5ZhxBgpOcqq9G+mlA9rW1pGqzVDHZpP4DRS7izMHFT35
-	bfmj7dSlzJktx8zmnIR83St3wPXZF/4c
-X-Received: by 2002:a17:907:2d13:b0:c41:21ef:26ef with SMTP id a640c23a62f3a-c513aac43a9mr40174166b.20.1795104906817;
-        Thu, 19 Nov 2026 08:15:06 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:9bd7:226d:1022:f6ef])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm16082866b.4.2026.11.19.08.15.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 08:15:06 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:14:59 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Ben Levinsky <ben.levinsky@amd.com>
-Cc: jassisinghbrar@gmail.com, andersson@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
-	tanmay.shah@amd.com, linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/6] remoteproc: amd_mbv_bram: Bound device name
- formatting
-Message-ID: <av8gg6d7eKwpfcTQ@p14s>
-References: <20261105051902.1646651-1-ben.levinsky@amd.com>
- <20261105051902.1646651-2-ben.levinsky@amd.com>
+        bh=bJI8gD0Ac7PYn33K2ihlAz/CUrmKd315SjB/0SoP/9E=;
+        b=1NFAw7CwKEFXGQGyEWZRyoFDlmN2D562H6BUH9TUOoch/Fp0jV2Tk/Ir9hPknKT9h+
+         5JZiNBi051sFp6vV5Mfbw3UamGHCCUD3bPJUf8fNv1DIF8RfRiH6uii2WZoZWop8K1A3
+         kCoLDP7tQo646ZYs3nRSiPo7ysqSO5YmxPEOtKMAKBmAvPd5ub6/fvbBfZr+QWR/RjF4
+         C+BS82UH5gRiPJmp/tg8WNAkvTlFw8UV0/qJACQ7VURVuiJvtZAnDCV2BZV0Z/0g+DGH
+         4MdxcyqygTiHYNssuzEqS9jE9Bax3Hp+0lZrMO8Xv4AEreIA9A3hWQL0BEYOWY+4UkkG
+         lo2A==
+X-Forwarded-Encrypted: i=1; AL+hErEBnKCtTpQlAcAXQ4cNRTYBeOdf/4W7LGvuQmiNTTkBvDRmV+AaHzNLKLMIq6RHlHOPelZYD4VK5Y6sPGw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+uZG4ENvyusSV27oZg+8k08KKl68nLBYCzDEaOzZ1TVcecWARt
+	A6COWO5xqY/yQ+yUh0Qo7RyOkWCQjsfd0J+Gn4pHeQpgBq2oRK3pQoeNLCzhOYmorbZs2ClUjI7
+	rutIcPuVn+2/z3v23EBSDp/KsVzOafyMifs+KAThlihECgy6Ew+gysB3i
+X-Gm-Gg: AYBFou220bp8gtUMyBEIVmDUYOiwn6u4u1cL/FQWc09v3QxngkIjWPcpnWPl9RDA10b
+	Lmlj/Ju0MXEv98uay1zRviEO/aTQtBzcLiI91GAmRIhpS/xHcIvK0OklylZyw/n9Apo/HawymyR
+	MR0mkb7ksktYoCkMKiAE5W2Axzq5x2ujVz3uf0ZrCIbWp/O1e7tiRBgTzEtYJZ87abV4ENLEjix
+	OsTxIOT+IdAJ/eHQCZsHwRSevHVVU5VgYCxQOwtGUVVbmBDQBBIDUyakgLRTSRfdDDBBPUTv826
+	PvhRIEz3bttN7AebeB38rVVKx9JK9h/Bs7GETvVQNoDriZUc7FmM0VHVk8vq+u9sMmj0qX2Gkto
+	3gV8IzrfssRTN1H3BY0FCs6LOS2ka2KE7nu1MSg==
+X-Received: by 2002:a05:6402:51c7:b0:6b5:77a4:e7c9 with SMTP id
+ 4fb4d7f45d1cf-6ba131a3dbemr82306a12.2.1795104967627; Thu, 19 Nov 2026
+ 08:16:07 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,51 +104,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261105051902.1646651-2-ben.levinsky@amd.com>
+References: <20261115004003.3695475-1-almasrymina@google.com>
+ <20261115004003.3695475-3-almasrymina@google.com> <20261118161559.0c2b62f4@kernel.org>
+In-Reply-To: <20261118161559.0c2b62f4@kernel.org>
+From: Mina Almasry <almasrymina@google.com>
+Date: Thu, 19 Nov 2026 08:15:56 -0800
+X-Gm-Features: AclHuK-cQTKF7jYWYblSKC0I9f-VOi4_3YIo-2Q9plq-4Xk48gzO6bo0YF86aTk
+Message-ID: <CAHS8izMOHKQydib4DtMT-MgVkyrJKJuUmvL18g+SHZExNdyVZg@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 2/3] net: prevent mixing frags from different
+ memory providers or bindings
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	linux-kernel@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>, 
+	Kaiyuan Zhang <kaiyuanz@google.com>, Willem de Bruijn <willemb@google.com>, 
+	Bobby Eshleman <bobbyeshleman@meta.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Pavel Begunkov <asml.silence@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 04, 2026 at 09:18:57PM -0800, Ben Levinsky wrote:
-> rproc_mem_entry_init() interprets its name argument as a printf format
-> string. Passing the device name directly allows percent conversions in a
-> DT-derived platform device name to consume nonexistent variadic arguments.
+On Wed, Nov 18, 2026 at 4:16=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
+ote:
+>
+> On Sun, 15 Nov 2026 00:40:02 +0000 Mina Almasry wrote:
+> > Subject: [PATCH net-next v5 2/3] net: prevent mixing frags from differe=
+nt memory providers or bindings
+>
+> This patch needs to be split up. There seems to be pure refactoring
+> here (validate_xmit_unreadable_skb())
+
+That's actually a fix. Without this, iouring rcrx skbs forwarded could
+end up going through a device to which they aren't mapped, afaiu. I
+guess splitting the patches will make this more apparent.
+
+> and the test code also should
+> be in a separate patch. The rest needs a close look from perf
+> perspective :S
+
+FWIW I worked to minimize the impact, which is why the patch may look
+a bit convoluted. We should load zero extra cache lines in the case
+where both skbs are paged, and only load extra cachelines when we've
+confirmed both skbs have memory providers in them and we need to do an
+actual provider check. In the next version I will include some
+analysis on that in the cover letter.
+
+However, we still pay the cost of the checks themselves.
+
+>Lots of checks on the fast path to fix a hallucination..
 >
 
-I read the last sentence of the above paragraph 6 times and I still don't
-understand the problem you are describing.  I'm guessing it was generated
-by an AI.  Please refactor.
+I wasn't doing this because sashiko hallucinated it, I was more doing
+it because I was aware that some mixing is possible, and saw folks
+were trying to include some new memory providers (AF_XDP, PISA), and I
+was worried some bot will be able to reproduce reliable crashes with
+these edge cases and it becomes a real issue. I thought to fix it
+before it became a real issue. Let me know if that's not valuable and
+you want me to punt this; for now I'll follow your instruction and
+repost with the split.
 
- 
-> Pass the device name through a constant format so it is always handled as
-> data. Limit the formatted name to 31 characters to match the space
-> available in rproc_mem_entry::name while leaving room for its terminating
-> null byte.
 
-What to you mean by "handled as data"?  Moreover, the size of
-rproc_mem_entry::name is handled properly in rproc_mem_entry_init().  What am I
-missing?  I also suspect this was AI generated.
-
-> 
-> Fixes: f87b4998994e ("remoteproc: Add AMD MicroBlaze/V BRAM-based remote processor driver")
-> Reviewed-by: Tanmay Shah <tanmay.shah@amd.com>
-> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
-> ---
->  drivers/remoteproc/amd_mbv_bram_rproc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/remoteproc/amd_mbv_bram_rproc.c b/drivers/remoteproc/amd_mbv_bram_rproc.c
-> index e4a103cf8455..6cf33c7b7e64 100644
-> --- a/drivers/remoteproc/amd_mbv_bram_rproc.c
-> +++ b/drivers/remoteproc/amd_mbv_bram_rproc.c
-> @@ -72,7 +72,7 @@ static int amd_bram_rproc_prepare(struct rproc *rproc)
->  				   resource_size(&res), da,
->  				   rproc_mem_entry_ioremap_wc,
->  				   rproc_mem_entry_iounmap,
-> -				   dev_name(priv->dev));
-> +				   "%.31s", dev_name(priv->dev));
->  	if (!mem)
->  		return -ENOMEM;
->  
-> -- 
-> 2.34.1
-> 
+--=20
+Thanks,
+Mina
