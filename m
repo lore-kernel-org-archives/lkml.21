@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795102737;
-	b=iBhar/tnnPmBz00pDFLO6U65lZQPgnnHvF2fgp16hcGD6CBjlfIYd+y78kkXEYuMlAWT
-	 KBg2UOzAcZ+8xFjxGrQCenuydM1RFq9rff4RE6TqJBuucSGXTFcpPAFSiQ4OrlzG/ff+i
-	 uv+o7BOej6h3tAhjFK9Wv/EtPjAyAe8YDpNiJK3lcJjJigpzlPQD8YyexGAZ9vZqmojC9
-	 /RiOZ5uduEic6N0RWe/OluR6JGC/y4BzS5MjkeVjwRrFboANC5XCPMOAZw/0MCuVlZQwQ
-	 I/SyHt5ciPGvvq/zvq5sI51SyKq1V+gevTIjIO3kAtrMV1vc2BWsM7zwQh3IZBMVPZg==
+	t=1795102745;
+	b=zfwYneCI7n5g7DcGW42V8jqVgd10P+YRXBDJRB+m0kACukETaPgar/MNCz+YN4rL9dA2
+	 V3vuv8C11F38Hh0tnsAtK+W8gtgid25olCQpoa4UgLhce6vsTq8eGvvy5oMRL8tgZTi5X
+	 LhOI+v0nErevfOUUk0XfauHDzuMH1TPR9nVn+YuOzL+fYc/8+wbpYx0BlYfbDdsIlSger
+	 Hva/6AKqshc4B3dz9Gy1ejWGxNLP84bk9BtAggE0gSKzJ5jLmtrSfYbiguhndZdZ6a1eK
+	 BrrGHsMm2u3SMUd5QPUIJq7D3j+AUEmKsqi95qOf/Lg7v9oFVRazCnvHjR5Y771gKjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795102737;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795102745;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=7D3cGXmB1pSY1ZVD2fE+XwkbJUPare3wS6CynPOirvk=;
-	b=rw4CmY8lEyJpJx3wHWByoKt7k51HzUjlZkz6fYGn0MBdfEdpD950NtpvzcHOoaZBv9Bd
-	 53NALQ3fR5J5ZbZvQ69YA02G+Lugr4b50Ah6rlUCwXkdTWUNdOxX1So/148aVsLXK6KU8
-	 /qnGtaqjS3nt6Z+bPFZaPrP9AqnBbc9xe3NGzDTviU8ymjuINHgCveF8Dh0KLb4kZRg5C
-	 wHfq/eWEfB5u/v+dQAgX2fKTWA7XkrpMyQZPIR449ScP0z8h7XZabaRJdrjRMS6vSh2UO
-	 Y5GbETQe9s/tlaHC3liDP2FgC8EWv9miLYrCEBkJLmEhHZVN0KFN88QqpcN/1EZKQ1A==
+	bh=faUlNFmkjkOKYiIsWufZ/Fj4P8ugW9ChhWe0YAe2m6U=;
+	b=I8yNyjouXziJZM5k9SXclsRSFT6Hsx98A0VSBAN9o31iPZqmMRRhg/6vXRg/7A7WwMrt
+	 FOfSgbSBJWtoOB+yRB+2c2wNjRUw6puRoAsiJhMQmoXBsbq1poNoaXLqTbnBLs8Z2Y0jT
+	 l+cr7Zj6L3e7YEKEEfSWDu1CfPYgYlGFNxwyvXECNv5LqYm9wj8VJ6rvSgrZpGNSwck3a
+	 vc3QR2F5jX9tcVNdLVfT4l5Ym+R0jMR5Y++6J+jQ74fk7TOFpfuTNUx+UOZqsIf53ZsKh
+	 VCEZMrO5GGtSzwtY/hWY7GJyOThUgaGJ0AbWOA47VIdCwdYY5RkpR6otGbUrxcmQvMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DWLFRbS8;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=k68YWRN6;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CE59E606A338;
-	Thu, 19 Nov 2026 15:38:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE59E606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 12C4D606B307;
+	Thu, 19 Nov 2026 15:39:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12C4D606B307
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=DWLFRbS8
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=k68YWRN6
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93F931C14;
-	Thu, 19 Nov 2026 07:38:51 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBC8F19F0;
+	Thu, 19 Nov 2026 07:38:58 -0800 (PST)
 Received: from e140322.cambridge.arm.com (e140322.arm.com [10.2.201.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 07F703F882;
-	Thu, 19 Nov 2026 07:38:52 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3100B3F882;
+	Thu, 19 Nov 2026 07:39:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795102734; bh=AdoWEufl1RBdZGd/5S1A8wS8TpcNvSmgfvjMObbtFkI=;
+	t=1795102741; bh=ADToRRf6aVyYLeoKOSWxjIkUf8pU1nYZ1L+KX7iLF48=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DWLFRbS8tErmklJVUiI78Lp14VdUhdB9E8LGiGFX5mLJlDa03sZceKiRDZUKn7V+F
-	 DGGD1whInBeMTHPQq6hqRgM/8xkOJ9KcTVye/9Y4AIX4vSQ+gJxra1io0FvfDyUoSf
-	 ENqC7+byxJoPMSCZ238WGnboLnfFrMTn2CuIG2rs=
+	b=k68YWRN6fKbBExACuwLEzfv44GDEzxr9VV+Eg+YE2OUheoKe2uJE8E7Ywsq/Yrqz7
+	 uQBNdXhhkiWuLGBw8l28HZIfXbhuNmLL7TPhPk4IPR1Gcf7ne2U5MssDQiqRHMkFCR
+	 UCUhIA3+6XgYMZamqNptuAOCTkfSu4NA1RtFdkZA=
 From: Charvi Mehta <charvi.mehta@arm.com>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: Charvi Mehta <charvi.mehta@arm.com>,
 	Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Rathinavel Sankaralingam <rath.sankaralingam@arm.com>,
 	Shobhit Pandey <shobhit.pandey@arm.com>
-Subject: [RFC PATCH 15/28] media: mali-vpu: handle firmware RPC requests
-Date: Thu, 19 Nov 2026 15:37:45 +0000
-Message-ID: <20261119153758.1426673-16-charvi.mehta@arm.com>
+Subject: [RFC PATCH 19/28] media: mali-vpu: start decoder firmware through LSID scheduling
+Date: Thu, 19 Nov 2026 15:37:49 +0000
+Message-ID: <20261119153758.1426673-20-charvi.mehta@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261119153758.1426673-1-charvi.mehta@arm.com>
 References: <20261119153758.1426673-1-charvi.mehta@arm.com>
@@ -72,476 +72,566 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Handle firmware requests for debug output and memory allocation,
-resizing and release. Track allocations by firmware virtual address
-and release outstanding allocations during firmware teardown.
+Connect decoder firmware execution to queue preparation and asynchronous
+firmware loading. Start the decoder when OUTPUT requests streaming,
+without requiring CAPTURE to be streaming.
 
-Flag resize and free requests so the caller can invalidate cached
-firmware MMU translations before resuming execution.
+Activate the LSID and wait for pending option responses before requesting
+the firmware running state. Track requested and confirmed firmware states
+and coordinate shutdown with firmware responses and interrupt processing.
 
 Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
 ---
- .../platform/arm/mali-vpu/mali-vpu-firmware.c | 277 ++++++++++++++++++
- .../platform/arm/mali-vpu/mali-vpu-firmware.h |  12 +
- .../arm/mali-vpu/mali-vpu-protocol-def-v3.h   |  53 ++++
- 3 files changed, 342 insertions(+)
+ .../platform/arm/mali-vpu/mali-vpu-formats.c  |   7 +
+ .../platform/arm/mali-vpu/mali-vpu-formats.h  |   1 +
+ .../platform/arm/mali-vpu/mali-vpu-session.c  | 297 +++++++++++++++++-
+ .../platform/arm/mali-vpu/mali-vpu-session.h  |  12 +
+ .../platform/arm/mali-vpu/mali-vpu-vb2.c      |  46 ++-
+ .../platform/arm/mali-vpu/mali-vpu-vidioc.c   |   2 +
+ 6 files changed, 356 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.c
-index 91a989c098cbc..c11d5c6c0ec5f 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.c
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.c
-@@ -7,6 +7,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/err.h>
- #include <linux/errno.h>
-+#include <linux/sizes.h>
- #include <linux/string.h>
- 
- #include "mali-vpu-firmware.h"
-@@ -15,6 +16,7 @@
- #include "mali-vpu-protocol-def-v3.h"
- 
- #define MALI_VPU_FW_MAX_CORES 8
-+#define MALI_VPU_RPC_VA_GRANULE SZ_16M
- 
- static int mali_vpu_fw_get_region(enum mali_vpu_fw_region region,
- 				  mali_vpu_mmu_va *begin, mali_vpu_mmu_va *end)
-@@ -80,6 +82,14 @@ static int mali_vpu_fw_get_region(enum mali_vpu_fw_region region,
- 		*begin = MVE_MEM_REGION_FW_INSTANCE7_ADDR_BEGIN;
- 		*end = MVE_MEM_REGION_FW_INSTANCE7_ADDR_END;
- 		break;
-+	case MALI_VPU_FW_REGION_PROTECTED:
-+		*begin = MVE_MEM_REGION_PROTECTED_ADDR_BEGIN;
-+		*end = MVE_MEM_REGION_PROTECTED_ADDR_END;
-+		break;
-+	case MALI_VPU_FW_REGION_FRAMEBUF:
-+		*begin = MVE_MEM_REGION_FRAMEBUF_ADDR_BEGIN;
-+		*end = MVE_MEM_REGION_FRAMEBUF_ADDR_END;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -352,6 +362,7 @@ int mali_vpu_fw_construct(struct mali_vpu_fw *fw, const struct mali_vpu_fw_bin *
- 	fw->dev = dev;
- 	fw->mmu = mmu;
- 	fw->ncores = ncores;
-+	hash_init(fw->rpc_mem);
- 
- 	/* Initialise firmware core and protocol regions */
- 	ret = mali_vpu_fw_map_core_regions(fw, fw_bin);
-@@ -375,11 +386,21 @@ int mali_vpu_fw_construct(struct mali_vpu_fw *fw, const struct mali_vpu_fw_bin *
- 
- void mali_vpu_fw_cleanup(struct mali_vpu_fw *fw)
- {
-+	struct mali_vpu_mmu_pages *pages;
-+	struct hlist_node *tmp;
-+	unsigned int bkt;
-+
- 	if (!fw)
- 		return;
- 
- 	mali_vpu_fw_unmap_protocol(fw);
- 	mali_vpu_fw_unmap_core_regions(fw);
-+
-+	hash_for_each_safe(fw->rpc_mem, bkt, tmp, pages, node) {
-+		hash_del(&pages->node);
-+		mali_vpu_mmu_free_pages(pages);
-+	}
-+
- 	memset(fw, 0, sizeof(*fw));
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.c
+index 57aa1b3baf40f..072e3b4aa9473 100644
+--- a/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.c
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.c
+@@ -20,6 +20,13 @@ bool mali_vpu_is_coded_q(const struct mali_vpu_session *sess, enum v4l2_buf_type
+ 	return V4L2_TYPE_IS_CAPTURE(type);
  }
  
-@@ -908,3 +929,259 @@ int mali_vpu_fw_parse_msg(struct mali_vpu_fw *fw, struct mali_vpu_fw_msg *msg)
++bool mali_vpu_is_raw_q(const struct mali_vpu_session *sess, enum v4l2_buf_type type)
++{
++	if (sess->role == MALI_VPU_DECODER)
++		return V4L2_TYPE_IS_CAPTURE(type);
++	return V4L2_TYPE_IS_OUTPUT(type);
++}
++
+ const struct mali_vpu_format_desc *
+ mali_vpu_find_format(struct mali_vpu_session *sess, u32 pixfmt,
+ 		     enum v4l2_buf_type type)
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
+index 37198325ee481..6901e295d7c33 100644
+--- a/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-formats.h
+@@ -34,5 +34,6 @@ int mali_vpu_fill_pixmp_fmt(const struct mali_vpu_format_desc *fmt,
+ 			    u32 width, u32 height,
+ 			    struct v4l2_pix_format_mplane *pix_mp);
+ bool mali_vpu_is_coded_q(const struct mali_vpu_session *sess, enum v4l2_buf_type type);
++bool mali_vpu_is_raw_q(const struct mali_vpu_session *sess, enum v4l2_buf_type type);
  
- 	return ret;
+ #endif /* __MALI_VPU_FORMATS_H__ */
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
+index 09ec6d14f4ad0..6d22a5d479008 100644
+--- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.c
+@@ -19,8 +19,15 @@
+ #include "mali-vpu-variant.h"
+ #include "mali-vpu-vb2.h"
+ 
++static const unsigned int mali_vpu_fw_response_timeout_ms = 10000;
+ static const unsigned int mali_vpu_fw_load_timeout_ms     = 10000;
+ 
++static struct mali_vpu_port *
++mali_vpu_session_get_port(struct mali_vpu_session *sess, enum v4l2_buf_type type)
++{
++	return V4L2_TYPE_IS_OUTPUT(type) ? &sess->port_src : &sess->port_dst;
++}
++
+ static int mali_vpu_set_port_fmt(struct mali_vpu_port *port,
+ 				 enum v4l2_buf_type type,
+ 				 u32 width, u32 height)
+@@ -67,10 +74,91 @@ mali_vpu_both_ports_unrequested(struct mali_vpu_session *sess)
+ 	       !sess->port_dst.stream_requested;
  }
-+
-+static void mali_vpu_fw_dbg_rpc(struct mali_vpu_fw *fw, const char *direction,
-+				const struct mve_rpc_communication_area *rpc)
+ 
++static bool mali_vpu_session_can_stream(const struct mali_vpu_session *sess)
 +{
-+	dev_dbg(fw->dev, "rpc %s: state=%u call_id=%u size=%u\n",
-+		direction, rpc->state, rpc->call_id, rpc->size);
-+}
-+
-+static struct mali_vpu_mmu_pages *mali_vpu_find_pages(struct mali_vpu_fw *fw,
-+						      mali_vpu_mmu_va va)
-+{
-+	struct mali_vpu_mmu_pages *pages;
-+
-+	hash_for_each_possible(fw->rpc_mem, pages, node, va) {
-+		if (pages->va == va)
-+			return pages;
-+	}
-+
-+	return NULL;
-+}
-+
-+static void mali_vpu_rpc_mem_resize(struct mali_vpu_fw *fw,
-+				    struct mve_rpc_communication_area *rpc_area)
-+{
-+	union mve_rpc_params *p = &rpc_area->params;
-+	struct mali_vpu_mmu_pages *pages;
-+	mali_vpu_mmu_va va = 0;
-+	int ret;
-+
-+	pages = mali_vpu_find_pages(fw, p->mem_resize.ve_pointer);
-+	if (pages) {
-+		size_t npages;
-+
-+		/* Resize the allocated pages. */
-+		npages = DIV_ROUND_UP(p->mem_resize.new_size, MALI_VPU_PAGE_SIZE);
-+		ret = mali_vpu_mmu_resize_pages(pages, npages);
-+		if (ret) {
-+			dev_warn(fw->dev,
-+				 "failed to resize RPC mapped pages. ret=%d\n",
-+				 ret);
-+			goto err;
-+		}
-+
-+		va = pages->va;
-+	} else {
-+		dev_warn(fw->dev, "could not find pages for RPC resize. va=0x%x\n",
-+			 p->mem_resize.ve_pointer);
-+	}
-+
-+	dev_dbg(fw->dev, "RPC resize memory. va=0x%x, new_size=%u\n",
-+		p->mem_resize.ve_pointer, p->mem_resize.new_size);
-+
-+err:
 +	/*
-+	 * The memory RPC ABI returns the resulting firmware VA. Firmware treats
-+	 * a zero VA as allocation failure and reports MVE_ERROR_OUT_OF_MEMORY.
-+	 * The RPC itself was still handled successfully.
++	 * Start a decoder with OUTPUT/src port only, so firmware can
++	 * parse the bitstream and report its decoded format.
++	 * An encoder requires both ports.
++	 *
++	 * Use the driver's preparation state because VB2 sets its streaming
++	 * flag only after prepare_streaming() and initial buffer handoff.
 +	 */
-+	rpc_area->size = sizeof(u32);
-+	p->data[0] = va;
++	if (sess->role == MALI_VPU_DECODER)
++		return sess->port_src.stream_requested;
++
++	return sess->port_src.stream_requested &&
++	       sess->port_dst.stream_requested;
 +}
 +
-+static void mali_vpu_rpc_mem_alloc(struct mali_vpu_fw *fw,
-+				   struct mve_rpc_communication_area *rpc_area)
++static int mali_vpu_session_fw_send_job(struct mali_vpu_session *sess, u16 frames)
 +{
-+	union mve_rpc_params *p = &rpc_area->params;
-+	enum mali_vpu_fw_region region;
-+	struct mali_vpu_mmu_pages *pages;
-+	size_t npages, max_pages;
-+	mali_vpu_mmu_va end, begin = 0;
 +	int ret;
 +
-+	if (!p->mem_alloc.size ||
-+	    p->mem_alloc.size > p->mem_alloc.max_size) {
-+		dev_warn(fw->dev,
-+			 "invalid RPC allocation:size=%u max_size=%u alignment=%u\n",
-+			 p->mem_alloc.size, p->mem_alloc.max_size,
-+			 p->mem_alloc.log2_alignment);
-+		goto err;
-+	}
-+
-+	switch (p->mem_alloc.region) {
-+	case MVE_MEM_REGION_PROTECTED:
-+		region = MALI_VPU_FW_REGION_PROTECTED;
-+		break;
-+	case MVE_MEM_REGION_OUTBUF:
-+		region = MALI_VPU_FW_REGION_FRAMEBUF;
-+		break;
-+	default:
-+		dev_err(fw->dev,
-+			"unsupported RPC mem alloc region. region=%u\n",
-+			p->mem_alloc.region);
-+		goto err;
-+	}
-+
-+	ret = mali_vpu_fw_get_region(region, &begin, &end);
++	ret = mali_vpu_fw_send_job(&sess->fw, sess->ncores, frames);
 +	if (ret)
-+		goto err;
++		return ret;
 +
-+	npages = DIV_ROUND_UP(p->mem_alloc.size, MALI_VPU_PAGE_SIZE);
-+	max_pages = DIV_ROUND_UP(p->mem_alloc.max_size, MALI_VPU_PAGE_SIZE);
-+
-+	pages = mali_vpu_mmu_alloc_pages(fw->dev, npages, max_pages);
-+	if (IS_ERR(pages)) {
-+		begin = 0;
-+		goto err;
-+	}
-+
-+	ret = -EINVAL;
-+	while (begin < end) {
-+		ret = mali_vpu_mmu_map_pages(fw->mmu, begin, pages,
-+					     MALI_VPU_ATTR_SHARED_RW,
-+					     MALI_VPU_ACCESS_READ_WRITE);
-+		if (!ret)
-+			break;
-+
-+		begin += MALI_VPU_RPC_VA_GRANULE;
-+	}
-+
-+	if (ret) {
-+		dev_err(fw->dev,
-+			"failed to find memory region for RPC alloc.\n");
-+		mali_vpu_mmu_free_pages(pages);
-+		begin = 0;
-+		goto err;
-+	}
-+
-+	hash_add(fw->rpc_mem, &pages->node, pages->va);
-+	begin = pages->va;
-+
-+	dev_dbg(fw->dev,
-+		"RPC alloc memory. size=%u, max_size=%u, region=%u, npages=%zu, begin=0x%x\n",
-+		p->mem_alloc.size, p->mem_alloc.max_size, p->mem_alloc.region, npages, begin);
-+
-+err:
-+	rpc_area->size = sizeof(u32);
-+	p->data[0] = begin;
++	mali_vpu_sched_send_irq(&sess->sched_sess, &sess->vpu_dev->sched);
++	return 0;
 +}
 +
-+static void mali_vpu_rpc_mem_free(struct mali_vpu_fw *fw,
-+				  struct mve_rpc_communication_area *rpc_area)
++static int mali_vpu_session_fw_send_ping(struct mali_vpu_session *sess)
 +{
-+	union mve_rpc_params *p = &rpc_area->params;
-+	struct mali_vpu_mmu_pages *pages;
++	int ret;
 +
-+	pages = mali_vpu_find_pages(fw, p->mem_free.ve_pointer);
-+	if (pages) {
-+		hash_del(&pages->node);
-+		mali_vpu_mmu_free_pages(pages);
-+	} else {
-+		dev_warn(fw->dev,
-+			 "could not find pages for RPC free. va=0x%x\n",
-+			 p->mem_free.ve_pointer);
-+	}
++	ret = mali_vpu_fw_send_ping(&sess->fw);
++	if (ret)
++		return ret;
 +
-+	dev_dbg(fw->dev, "RPC free memory. va=0x%x\n", p->mem_free.ve_pointer);
-+
-+	rpc_area->size = 0;
++	mali_vpu_sched_send_irq(&sess->sched_sess, &sess->vpu_dev->sched);
++	return 0;
 +}
 +
-+int mali_vpu_fw_handle_rpc(struct mali_vpu_fw *fw, bool *flush_mmu)
++static int mali_vpu_session_fw_send_state(struct mali_vpu_session *sess,
++					  enum mali_vpu_fw_state new_state)
 +{
-+	struct mve_rpc_communication_area *rpc_area = fw->rpc.cpu;
-+	int ret = 0;
++	int ret;
 +
-+	if (flush_mmu)
-+		*flush_mmu = false;
++	if (sess->fw_requested_state != sess->fw_state)
++		/* There is a pending request: is this one duplicate? */
++		return sess->fw_requested_state == new_state ? 0 : -EBUSY;
 +
-+	dma_sync_single_for_cpu(fw->dev, fw->rpc.dma, sizeof(*rpc_area),
-+				DMA_FROM_DEVICE);
++	if (sess->fw_state == new_state)
++		return 0;
 +
-+	if (READ_ONCE(rpc_area->state) == MVE_RPC_STATE_PARAM) {
-+		/*
-+		 * Firmware publishes param only after writing the RPC request.
-+		 */
-+		dma_rmb();
++	ret = mali_vpu_fw_send_state_change(&sess->fw, new_state);
++	if (ret)
++		return ret;
 +
-+		ret = 1;
++	sess->fw_requested_state = new_state;
++	mali_vpu_sched_send_irq(&sess->sched_sess, &sess->vpu_dev->sched);
 +
-+		mali_vpu_fw_dbg_rpc(fw, "fw->host", rpc_area);
++	return 0;
++}
 +
-+		switch (rpc_area->call_id) {
-+		case MVE_RPC_FUNCTION_DEBUG_PRINTF: {
-+			if (!rpc_area->size ||
-+			    rpc_area->size > sizeof(rpc_area->params.debug_print.string)) {
-+				ret = -EPROTO;
-+				rpc_area->size = 0;
-+				break;
-+			}
+ int mali_vpu_session_fw_send_set_option(struct mali_vpu_session *sess,
+ 					struct mali_vpu_fw_set_option *opt)
+ {
+-	return mali_vpu_fw_send_set_option(&sess->fw, opt);
++	int ret;
 +
-+			const char *s = rpc_area->params.debug_print.string;
-+			size_t len = strnlen(s, rpc_area->size);
++	ret = mali_vpu_fw_send_set_option(&sess->fw, opt);
++	if (ret)
++		return ret;
 +
-+			/* Strip trailing characters */
-+			while (len && (s[len - 1] == '\n' || s[len - 1] == '\r'))
-+				len--;
++	mali_vpu_sched_send_irq(&sess->sched_sess, &sess->vpu_dev->sched);
++	return 0;
++}
 +
-+			dev_info(fw->dev,
-+				 "firmware DEBUG Print: %.*s\n", (int)len, s);
-+			break;
-+		}
-+		case MVE_RPC_FUNCTION_MEM_ALLOC: {
-+			if (rpc_area->size != sizeof(rpc_area->params.mem_alloc)) {
-+				ret = -EPROTO;
-+				break;
-+			}
++static int mali_vpu_session_sched_activate(struct mali_vpu_session *sess)
++{
++	lockdep_assert_held(&sess->vq_lock);
 +
-+			mali_vpu_rpc_mem_alloc(fw, rpc_area);
-+			break;
-+		}
-+		case MVE_RPC_FUNCTION_MEM_RESIZE: {
-+			if (rpc_area->size != sizeof(rpc_area->params.mem_resize)) {
-+				ret = -EPROTO;
-+				break;
-+			}
++	if (sess->sched_sess.lsid)
++		return 0;
 +
-+			mali_vpu_rpc_mem_resize(fw, rpc_area);
-+			if (flush_mmu)
-+				*flush_mmu = true;
-+			break;
-+		}
-+		case MVE_RPC_FUNCTION_MEM_FREE: {
-+			if (rpc_area->size != sizeof(rpc_area->params.mem_free)) {
-+				ret = -EPROTO;
-+				break;
-+			}
++	/* This maps LSID 0 and makes any staged IRQHOST visible. */
++	return mali_vpu_sched_switch_in(&sess->sched_sess, &sess->vpu_dev->sched);
+ }
+ 
+ static int mali_vpu_session_handle_fw_msg(struct mali_vpu_session *sess,
+@@ -123,6 +211,102 @@ static int mali_vpu_session_handle_fw_msg(struct mali_vpu_session *sess,
+ 	}
+ }
+ 
++static int mali_vpu_session_wait_pending(struct mali_vpu_session *sess)
++{
++	long timeout;
 +
-+			mali_vpu_rpc_mem_free(fw, rpc_area);
-+			if (flush_mmu)
-+				*flush_mmu = true;
-+			break;
-+		}
-+		default:
-+			dev_warn_ratelimited(fw->dev,
-+					     "unsupported RPC request. call_id=%u\n",
-+					     rpc_area->call_id);
-+			ret = -EOPNOTSUPP;
-+			break;
-+		}
++	lockdep_assert_held(&sess->vq_lock);
 +
-+		/*
-+		 * Make sure the whole RPC message body has been written before
-+		 * the RPC message area is returned to the firmware.
-+		 */
-+		dma_wmb();
-+		WRITE_ONCE(rpc_area->state, MVE_RPC_STATE_RETURN);
++	while (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_READY &&
++	       sess->fw.pending_response_count) {
++		mutex_unlock(&sess->vq_lock);
 +
-+		dma_sync_single_for_device(fw->dev, fw->rpc.dma,
-+					   sizeof(*rpc_area), DMA_TO_DEVICE);
++		timeout = wait_event_timeout(sess->fw_waitq,
++					     READ_ONCE(sess->fw_bin_state) !=
++					     MALI_VPU_SESSION_FW_BIN_READY ||
++					     !READ_ONCE(sess->fw.pending_response_count),
++					     msecs_to_jiffies(mali_vpu_fw_response_timeout_ms));
 +
-+		/* Log RPC response. */
-+		mali_vpu_fw_dbg_rpc(fw, "host->fw", rpc_area);
++		mutex_lock(&sess->vq_lock);
++
++		if (!timeout && sess->fw.pending_response_count)
++			return -ETIMEDOUT;
 +	}
++
++	return 0;
++}
++
++static int mali_vpu_session_fw_init(struct mali_vpu_session *sess)
++{
++	int ret;
++
++	lockdep_assert_held(&sess->vq_lock);
++
++	if (sess->fw_requested_state != sess->fw_state) {
++		if (sess->fw_requested_state != MALI_VPU_FW_STATE_RUNNING)
++			return -EBUSY;
++
++		return mali_vpu_session_sched_activate(sess);
++	}
++
++	if (sess->fw_state == MALI_VPU_FW_STATE_RUNNING)
++		return 0;
++
++	ret = mali_vpu_session_fw_send_job(sess, 0);
++	if (ret)
++		return ret;
++
++	/*
++	 * Map the LSID and allow the stopped firmware to process the
++	 * queued SET_OPTION requests before it can be RUNNING.
++	 */
++	ret = mali_vpu_session_sched_activate(sess);
++	if (ret)
++		return ret;
++
++	ret = mali_vpu_session_fw_send_ping(sess);
++	if (ret)
++		return ret;
++
++	ret = mali_vpu_apply_staged_controls(sess);
++	if (ret)
++		return ret;
++
++	/*
++	 * SET_OPTION is only valid while stopped. Wait for pending option
++	 * responses before requesting RUNNING.
++	 */
++	ret = mali_vpu_session_wait_pending(sess);
++	if (ret)
++		return ret;
++
++	/* Waiting drops vq_lock, so streaming may have been withdrawn. */
++	if (!mali_vpu_session_can_stream(sess))
++		return 0;
++
++	return mali_vpu_session_fw_send_state(sess, MALI_VPU_FW_STATE_RUNNING);
++}
++
++static int mali_vpu_session_fw_stop(struct mali_vpu_session *sess)
++{
++	int ret;
++
++	lockdep_assert_held(&sess->vq_lock);
++
++	ret = mali_vpu_session_wait_pending(sess);
++	if (ret)
++		return ret;
++
++	if (sess->fw_state == MALI_VPU_FW_STATE_STOPPED)
++		return 0;
++
++	ret = mali_vpu_session_fw_send_state(sess, MALI_VPU_FW_STATE_STOPPED);
++	if (ret)
++		return ret;
++
++	return mali_vpu_session_wait_pending(sess);
++}
++
+ int mali_vpu_session_init(struct mali_vpu_session *sess)
+ {
+ 	int ret;
+@@ -170,7 +354,9 @@ int mali_vpu_session_init(struct mali_vpu_session *sess)
+ 	sess->port_src.stream_requested = false;
+ 	sess->port_dst.stream_requested = false;
+ 	init_completion(&sess->fw_load_done);
++	init_waitqueue_head(&sess->fw_waitq);
+ 	sess->fw_state = MALI_VPU_FW_STATE_STOPPED;
++	sess->fw_requested_state = MALI_VPU_FW_STATE_STOPPED;
+ 
+ 	return 0;
+ 
+@@ -208,6 +394,8 @@ int mali_vpu_session_cleanup(struct mali_vpu_session *sess)
+ {
+ 	struct mali_vpu_dev *vpu_dev = sess->vpu_dev;
+ 	int fw_load_ret = 0;
++	int fw_stop_ret = 0;
++	int terminate_ret;
+ 	bool waiter_cancelled = false;
+ 
+ 	mutex_lock(&sess->vq_lock);
+@@ -215,7 +403,9 @@ int mali_vpu_session_cleanup(struct mali_vpu_session *sess)
+ 	sess->port_src.stream_requested = false;
+ 	sess->port_dst.stream_requested = false;
+ 
+-	if (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_LOADING) {
++	if (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_LOADING ||
++	    (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_READY &&
++	     !completion_done(&sess->fw_load_done))) {
+ 		mutex_unlock(&sess->vq_lock);
+ 
+ 		if (!wait_for_completion_timeout(&sess->fw_load_done,
+@@ -243,6 +433,21 @@ int mali_vpu_session_cleanup(struct mali_vpu_session *sess)
+ 			sess->fw_bin_state = MALI_VPU_SESSION_FW_BIN_FAILED;
+ 	}
+ 
++	if (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_READY)
++		fw_stop_ret = mali_vpu_session_fw_stop(sess);
++
++	terminate_ret = mali_vpu_sched_session_terminate(&sess->sched_sess,
++							 &vpu_dev->sched);
++	mutex_unlock(&sess->vq_lock);
++
++	/*
++	 * The LSID is no longer routed to this session. Drain a worker that
++	 * may have resolved sess before it was detached.
++	 */
++	flush_work(&vpu_dev->irq_work);
++
++	mutex_lock(&sess->vq_lock);
++
+ 	mali_vpu_session_release_fw_bin(sess);
+ 
+ 	if (sess->m2m_ctx) {
+@@ -258,7 +463,72 @@ int mali_vpu_session_cleanup(struct mali_vpu_session *sess)
+ 	mali_vpu_ctrls_cleanup(sess);
+ 	mutex_destroy(&sess->vq_lock);
+ 
+-	return fw_load_ret;
++	if (fw_load_ret)
++		return fw_load_ret;
++
++	if (fw_stop_ret)
++		return fw_stop_ret;
++
++	return terminate_ret;
++}
++
++int mali_vpu_session_prepare_streaming(struct mali_vpu_session *sess,
++				       enum v4l2_buf_type type)
++{
++	struct mali_vpu_port *port = mali_vpu_session_get_port(sess, type);
++	int ret;
++
++	lockdep_assert_held(&sess->vq_lock);
++
++	if (port->stream_requested)
++		return 0;
++
++	if (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_READY &&
++	    sess->fw_requested_state != sess->fw_state &&
++	    sess->fw_requested_state != MALI_VPU_FW_STATE_RUNNING)
++		return -EBUSY;
++
++	port->stream_requested = true;
++
++	if (sess->fw_bin_state == MALI_VPU_SESSION_FW_BIN_READY &&
++	    mali_vpu_session_can_stream(sess)) {
++		ret = mali_vpu_session_fw_init(sess);
++		if (ret)
++			goto err_rollback;
++	}
++
++	return 0;
++
++err_rollback:
++	port->stream_requested = false;
 +
 +	return ret;
 +}
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.h
-index e5dd67ce3397a..c03a07d994873 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-firmware.h
-@@ -6,9 +6,11 @@
- #ifndef __MALI_VPU_FIRMWARE_H__
- #define __MALI_VPU_FIRMWARE_H__
- 
-+#include <linux/hashtable.h>
- #include <linux/media/arm/mali-vpu-config.h>
- #include <linux/types.h>
- 
-+#define MALI_VPU_FW_HTABLE_BITS 3
- #define MALI_VPU_FW_TEXT_BASE_ADDR 0x1000u
- 
- struct device;
-@@ -156,6 +158,8 @@ struct mali_vpu_fw_msg {
-  * @MALI_VPU_FW_REGION_CORE_5: Firmware instance region for core 5.
-  * @MALI_VPU_FW_REGION_CORE_6: Firmware instance region for core 6.
-  * @MALI_VPU_FW_REGION_CORE_7: Firmware instance region for core 7.
-+ * @MALI_VPU_FW_REGION_PROTECTED: Protected firmware memory region.
-+ * @MALI_VPU_FW_REGION_FRAMEBUF: Frame-buffer memory region.
-  */
- enum mali_vpu_fw_region {
- 	MALI_VPU_FW_REGION_MSG_HOST,
-@@ -175,6 +179,9 @@ enum mali_vpu_fw_region {
- 	MALI_VPU_FW_REGION_CORE_5,
- 	MALI_VPU_FW_REGION_CORE_6,
- 	MALI_VPU_FW_REGION_CORE_7,
 +
-+	MALI_VPU_FW_REGION_PROTECTED,
-+	MALI_VPU_FW_REGION_FRAMEBUF,
- };
- 
- /**
-@@ -207,6 +214,8 @@ struct mali_vpu_fw_proto_page {
-  * @shared_bss_pages: Shared BSS pages mapped into every core instance.
-  * @ncores: Number of firmware core-instance regions constructed.
-  * @pending_response_count: Number of requests awaiting a firmware response.
-+ * @rpc_mem: Keeps track of RPC allocated memory. Maps MVE virtual address to
-+ *		'struct mali_vpu_mmu_pages' object.
-  */
- struct mali_vpu_fw {
- 	struct device *dev;
-@@ -225,6 +234,8 @@ struct mali_vpu_fw {
- 	struct mali_vpu_mmu_pages *shared_bss_pages;
- 	u32 ncores;
- 	u32 pending_response_count;
++int mali_vpu_session_streamoff(struct mali_vpu_session *sess, enum v4l2_buf_type type)
++{
++	struct mali_vpu_port *port = mali_vpu_session_get_port(sess, type);
++	int ret;
 +
-+	DECLARE_HASHTABLE(rpc_mem, MALI_VPU_FW_HTABLE_BITS);
- };
- 
- int mali_vpu_fw_construct(struct mali_vpu_fw *fw, const struct mali_vpu_fw_bin *fw_bin,
-@@ -235,5 +246,6 @@ int mali_vpu_fw_send_ping(struct mali_vpu_fw *fw);
- int mali_vpu_fw_send_state_change(struct mali_vpu_fw *fw, enum mali_vpu_fw_state state);
- int mali_vpu_fw_send_set_option(struct mali_vpu_fw *fw, struct mali_vpu_fw_set_option *option);
- int mali_vpu_fw_parse_msg(struct mali_vpu_fw *fw, struct mali_vpu_fw_msg *msg);
-+int mali_vpu_fw_handle_rpc(struct mali_vpu_fw *fw, bool *flush_mmu);
- 
- #endif /* __MALI_VPU_FIRMWARE_H__ */
-diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
-index c7c18bd4e1551..8a81ed1fd730a 100644
---- a/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
-+++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-protocol-def-v3.h
-@@ -77,6 +77,16 @@
-  * 0x10079000 - 0x1007FFFF, see special defines further down.
-  */
- 
-+/* PROTECTED virtual memory region */
-+#define MVE_MEM_REGION_PROTECTED_ADDR_BEGIN	(0x20000000u)
-+#define MVE_MEM_REGION_PROTECTED_ADDR_END	(0x6FFFFFFFu + 1)
++	lockdep_assert_held(&sess->vq_lock);
 +
-+/* FRAMEBUF virtual memory region */
-+#define MVE_MEM_REGION_FRAMEBUF_ADDR_BEGIN	(0x70000000u)
-+#define MVE_MEM_REGION_FRAMEBUF_ADDR_END	(0xEFFFFFFFu + 1)
++	if (!port->stream_requested)
++		return 0;
 +
-+/* 0xF0000000 - 0xFFFFFFFF is used internally in MVE */
++	port->stream_requested = false;
 +
- /*****************************************************************************
++	if (sess->fw_bin_state != MALI_VPU_SESSION_FW_BIN_READY ||
++	    !sess->sched_sess.lsid)
++		return 0;
++
++	if (mali_vpu_is_raw_q(sess, type))
++		return mali_vpu_session_wait_pending(sess);
++
++	ret = mali_vpu_session_fw_stop(sess);
++	if (ret)
++		return ret;
++
++	return mali_vpu_session_wait_pending(sess);
+ }
+ 
+ static void mali_vpu_session_fw_bin_ready(struct mali_vpu_fw_bin *vpu_fw_bin,
+@@ -308,8 +578,27 @@ static void mali_vpu_session_fw_bin_ready(struct mali_vpu_fw_bin *vpu_fw_bin,
+ 
+ 	sess->fw_bin_state = MALI_VPU_SESSION_FW_BIN_READY;
+ 
++	/*
++	 * A synchronous callback leaves startup to session preparation.
++	 * A delayed callback completes startup itself.
++	 */
++	if (!same_thread && mali_vpu_session_can_stream(sess)) {
++		ret = mali_vpu_session_fw_init(sess);
++		if (ret) {
++			dev_err(sess->vpu_dev->dev,
++				"failed to start streaming: %d\n", ret);
++			sess->fw_bin_state = MALI_VPU_SESSION_FW_BIN_UNINITIALIZED;
++			goto err_fw_cleanup;
++		}
++	}
++
+ 	goto out_complete;
+ 
++err_fw_cleanup:
++	mali_vpu_fw_cleanup(&sess->fw);
++	sess->fw_state = MALI_VPU_FW_STATE_STOPPED;
++	sess->fw_requested_state = MALI_VPU_FW_STATE_STOPPED;
++
+ err_cache_put:
+ 	mali_vpu_fw_cache_put(vpu_fw_bin);
+ 
+@@ -405,5 +694,7 @@ void mali_vpu_session_irq(struct mali_vpu_session *sess)
+ 	} while (ret >= 0);
+ 
+ unlock_mutex:
++	wake_up(&sess->fw_waitq);
++
+ 	mutex_unlock(&sess->vq_lock);
+ }
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
+index e6b9de3b272cf..e331965d32fd8 100644
+--- a/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-session.h
+@@ -47,6 +47,11 @@ struct mali_vpu_port {
+  * construct the firmware address space before making the binary READY. The
+  * session retains its binary reference until cleanup.
   *
-  * Communication queues between HOST/DRIVER and MVE
-@@ -153,6 +163,49 @@ struct mve_comm_area_mve {
- 	u32 out_data[MVE_COMM_QUEUE_SIZE_IN_WORDS];
++ * A synchronous callback leaves firmware startup to session preparation.
++ * An asynchronous callback starts firmware if the required ports still request
++ * streaming: OUTPUT for a decoder, both ports for an encoder.
++ * Binary READY and firmware RUNNING are separate states.
++ *
+  * Session cleanup waits for an in-flight callback before releasing the
+  * session-owned binary reference and callback event. On timeout, it cancels
+  * the pending cache waiter or waits for an already claimed callback.
+@@ -78,7 +83,9 @@ enum mali_vpu_session_fw_bin_state {
+  * @fw_event: Firmware binary load event callback structure for this session.
+  * @fw_bin_state: Session firmware binary status.
+  * @fw_load_done: Completion used to synchronize teardown with an in-flight firmware load.
++ * @fw_waitq: Wait queue used while waiting for firmware responses.
+  * @fw_state: Last state confirmed by the firmware.
++ * @fw_requested_state: Last firmware state requested by the driver.
+  * @sched_sess: Scheduler state used to map this session to an LSID.
+  * @ncores: Number of cores assigned to this session by scheduler.
+  */
+@@ -104,7 +111,9 @@ struct mali_vpu_session {
+ 	struct mali_vpu_fw_event		*fw_event;
+ 	enum mali_vpu_session_fw_bin_state	fw_bin_state;
+ 	struct completion			fw_load_done;
++	wait_queue_head_t			fw_waitq;
+ 	enum mali_vpu_fw_state			fw_state;
++	enum mali_vpu_fw_state			fw_requested_state;
+ 
+ 	struct mali_vpu_sched_session	sched_sess;
+ 	u32				ncores;
+@@ -115,6 +124,9 @@ int mali_vpu_session_cleanup(struct mali_vpu_session *sess);
+ int mali_vpu_session_request_fw_load(struct mali_vpu_session *sess);
+ int mali_vpu_session_fw_send_set_option(struct mali_vpu_session *sess,
+ 					struct mali_vpu_fw_set_option *opt);
++int mali_vpu_session_prepare_streaming(struct mali_vpu_session *sess,
++				       enum v4l2_buf_type type);
++int mali_vpu_session_streamoff(struct mali_vpu_session *sess, enum v4l2_buf_type type);
+ void mali_vpu_session_irq(struct mali_vpu_session *sess);
+ 
+ static inline struct mali_vpu_session *mali_vpu_get_session(struct file *filp)
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c
+index 4262758a5be26..b9f6968e9f13f 100644
+--- a/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vb2.c
+@@ -62,8 +62,6 @@ static void mali_vpu_vb2_buffer_queue(struct vb2_buffer *vb2_buf)
+ static int mali_vpu_vb2_prepare_streaming(struct vb2_queue *q)
+ {
+ 	struct mali_vpu_session *sess = vb2_get_drv_priv(q);
+-	struct mali_vpu_port *port = V4L2_TYPE_IS_OUTPUT(q->type) ?
+-					&sess->port_src : &sess->port_dst;
+ 	int ret;
+ 
+ 	if (mali_vpu_is_coded_q(sess, q->type)) {
+@@ -72,17 +70,51 @@ static int mali_vpu_vb2_prepare_streaming(struct vb2_queue *q)
+ 			return ret;
+ 	}
+ 
+-	port->stream_requested = true;
++	return mali_vpu_session_prepare_streaming(sess, q->type);
++}
++
++static int mali_vpu_vb2_start_streaming(struct vb2_queue *q,
++					unsigned int count __always_unused)
++{
++	struct mali_vpu_session *sess = vb2_get_drv_priv(q);
++
++	v4l2_m2m_update_start_streaming_state(sess->m2m_ctx, q);
+ 	return 0;
+ }
+ 
++static void mali_vpu_vb2_stop_streaming(struct vb2_queue *q)
++{
++	struct mali_vpu_session *sess = vb2_get_drv_priv(q);
++	struct vb2_v4l2_buffer *v4l2_buf;
++	int ret;
++
++	ret = mali_vpu_session_streamoff(sess, q->type);
++	if (ret)
++		dev_warn(sess->vpu_dev->dev, "failed to stop streaming: %d\n", ret);
++
++	if (V4L2_TYPE_IS_OUTPUT(q->type)) {
++		while ((v4l2_buf = v4l2_m2m_src_buf_remove(sess->m2m_ctx)))
++			v4l2_m2m_buf_done(v4l2_buf, VB2_BUF_STATE_ERROR);
++	} else {
++		while ((v4l2_buf = v4l2_m2m_dst_buf_remove(sess->m2m_ctx)))
++			v4l2_m2m_buf_done(v4l2_buf, VB2_BUF_STATE_ERROR);
++	}
++
++	v4l2_m2m_update_stop_streaming_state(sess->m2m_ctx, q);
++}
++
+ static void mali_vpu_vb2_unprepare_streaming(struct vb2_queue *q)
+ {
+ 	struct mali_vpu_session *sess = vb2_get_drv_priv(q);
+-	struct mali_vpu_port *port = V4L2_TYPE_IS_OUTPUT(q->type) ?
+-					&sess->port_src : &sess->port_dst;
++	int ret;
++
++	ret = mali_vpu_session_streamoff(sess, q->type);
++	if (ret)
++		dev_warn(sess->vpu_dev->dev,
++			 "failed to unprepare streaming: %d\n", ret);
+ 
+-	port->stream_requested = false;
++	if (!vb2_start_streaming_called(q))
++		v4l2_m2m_update_stop_streaming_state(sess->m2m_ctx, q);
+ }
+ 
+ static const struct vb2_ops mali_vpu_vb2_ops = {
+@@ -92,6 +124,8 @@ static const struct vb2_ops mali_vpu_vb2_ops = {
+ 	.buf_prepare		= mali_vpu_vb2_buffer_prepare,
+ 	.buf_queue		= mali_vpu_vb2_buffer_queue,
+ 	.prepare_streaming	= mali_vpu_vb2_prepare_streaming,
++	.start_streaming	= mali_vpu_vb2_start_streaming,
++	.stop_streaming		= mali_vpu_vb2_stop_streaming,
+ 	.unprepare_streaming	= mali_vpu_vb2_unprepare_streaming,
  };
  
-+#define MVE_RPC_AREA_SIZE_IN_WORDS 256
-+#define MVE_RPC_DATA_SIZE_IN_WORDS (MVE_RPC_AREA_SIZE_IN_WORDS - 3)
-+union mve_rpc_params {
-+	u32 data[MVE_RPC_DATA_SIZE_IN_WORDS];
-+	struct {
-+		char string[MVE_RPC_DATA_SIZE_IN_WORDS * 4];
-+	} debug_print;
-+	struct {
-+		u32 size;
-+		u32 max_size;
-+		u8 region; /* Memory region selection */
-+			#define MVE_MEM_REGION_PROTECTED (0)
-+			#define MVE_MEM_REGION_OUTBUF    (1)
-+			#define MVE_MEM_REGION_FRAMEBUF  (MVE_MEM_REGION_OUTBUF)
-+
-+		/* The newly allocated memory must be placed
-+		 * on (at least) a 2^(log2_alignment) boundary
-+		 */
-+		u8 log2_alignment;
-+	} mem_alloc;
-+	struct {
-+		u32 ve_pointer;
-+		u32 new_size;
-+	} mem_resize;
-+	struct {
-+		u32 ve_pointer;
-+	} mem_free;
-+};
-+
-+struct mve_rpc_communication_area {
-+	u32 state;
-+		#define MVE_RPC_STATE_FREE   (0)
-+		#define MVE_RPC_STATE_PARAM  (1)
-+		#define MVE_RPC_STATE_RETURN (2)
-+	u32 call_id;
-+		#define MVE_RPC_FUNCTION_DEBUG_PRINTF (1)
-+		#define MVE_RPC_FUNCTION_MEM_ALLOC    (2)
-+		#define MVE_RPC_FUNCTION_MEM_RESIZE   (3)
-+		#define MVE_RPC_FUNCTION_MEM_FREE     (4)
-+	u32 size;
-+	union mve_rpc_params params;
-+};
-+
- /*********************************************************************
-  *
-  *   Message codes
+diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
+index d9196cc86cdf4..0fcd3835e52d3 100644
+--- a/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
++++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-vidioc.c
+@@ -357,4 +357,6 @@ const struct v4l2_ioctl_ops mali_vpu_ioctl_ops_dec = {
+ 	.vidioc_enum_framesizes		= mali_vpu_enum_framesizes,
+ 	.vidioc_subscribe_event		= mali_vpu_subscribe_event,
+ 	.vidioc_unsubscribe_event	= v4l2_event_unsubscribe,
++	.vidioc_streamon		= v4l2_m2m_ioctl_streamon,
++	.vidioc_streamoff		= v4l2_m2m_ioctl_streamoff,
+ };
 -- 
 2.43.0
 
