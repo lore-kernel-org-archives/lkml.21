@@ -1,80 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122238;
-	b=vAKy1WErz+jSCNRAgyvY2JHOWJmHwsKlyOhfbQDKgji8A3/LWgJeZrF/3LpxxOKyX1eZ
-	 HNgNAeit+yiKQeq/jOZMy8ALdnYs6gP/ARVIEt9TT53wZwkZiDc86+SApfO2llsA3jogf
-	 HvEAq0lbWpwSNLRn/E9b2lAHKxX6++dXLCEf8NtggmMAVl7newJ7T/JUQ3WkFrDa/KV4T
-	 BGsxmYBE//QQc3EffSaluKQDbWQyHXP8btq46qOt7GVVlI71IKABycSB3eWviX8tGeyXt
-	 GHV7mYgxdRYKhjFSMVquzILRPHElNYNXsa7cVdolfqsTvgL6AixGjx04cJhPZ4449aA==
+	t=1795122294;
+	b=qAchKV789my2banAE2W2xwsg2xuN44uN6pI4JzjZ46Mpn+c51CTKf/zbd7Eql+EzKOmv
+	 d1KuPaJkjdP81t5/ui6blfNpOKeuZGZq4moo7Vc9rs8Su4ZKldxC2ia77QOnkXu5w8buF
+	 qy18fvupq8oYqNLDmqWofs9WE2lhPNqCZC6LHBV/XiUlo2ek8FgY3IxJDfknGzgXq7z+l
+	 wEz1URWQleGV6gfvB3sjvbepYkT50fi+m4hT5NQpl8Qr34OuXLD3NUCd2jwnEH31ZkZbY
+	 Nl3A60MVgky5xiS9dWVQ5CI9pCpCjSc6HAWZSzriJ62Zo9c+oOresgOgaVw/0EZrX+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122238;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=90I65/Dz1QamvDXNasEB5EA/JB8aTuL2zGGmEUACUaE=;
-	b=QGQQ2197wfhFy3LsqEDe/xtMW7zei6/wbO/Fc48JVB8CmT6lxC9Z74A5TUsFjUsStelV
-	 6BO+FRQMx7khEGb2aqCFuxX2NWDAGvhyAWnA6j7sXes/Us8t/Jj0sL0ZwWbRjsG0X9WEl
-	 kgE47Pn4N2qTSEEL4pjtl/pdqRvG6RIFeHTnQv4n7O78t5OeYDRzWptB1GyhcPfnIag+D
-	 elesRKR3PKfF2Pg77jCjWq4Afx9FPAM8dGEeikfaPDoY6e72njz0rZwuC8a9r1wDs4GJK
-	 ZZ6r2wjEYXqtmUVHmRlLAsByj+GUoIrbBsYOrxRwOCKsuC2cflEw1+nDG2ewrObML0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122294;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:DKIM-Signature;
+	bh=9oNljlNwScWT0AEm1avJ0WNN8F5rqnN+cRA8L0ZtGMY=;
+	b=stDAi58zYGh462BjwndnbVeWgEXrizxo5RB5Jk9Pa4ZQVmo3BLExoYPic3qAiSHoXbUo
+	 bkPxSB8WhpU/i5cHCnMd1mMAEq7FoeXKHR50QqBA6raATQwm/lkfW1s7KUdwAXlGauaRN
+	 5upLR5z+kjXoMQEVAa16vJkQi6ZjjPa9uschg0lmTzJ7HSZMS2GInW69AKzDyinMCA+1N
+	 puZxr+I8vOyIC3Ci/H88OsxpJZ9ue8QD3YGRKULc9H/NYJqxKSw1vpDG5g1yp5R20Vbi/
+	 P2kVDKBcW/A7mGdnq/su3gOPq0Fk6QuVztgvdEDhOL4gkjLGaPile1cvYs4C+U37/WQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WriIaX2k;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=molgen.mpg.de;
+	spf=pass smtp.mailfrom=molgen.mpg.de;
+	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=JATdUMx+;
+	arc=none smtp.remote-ip=141.14.17.11
+Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0812C606A32A;
-	Thu, 19 Nov 2026 21:03:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0812C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63053606A320;
+	Thu, 19 Nov 2026 21:04:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63053606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WriIaX2k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795122238; x=1826658238;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=qf5f9LReJuzl61a6lPQnekjE6E43Myt/TBw5PZ8ZOq8=;
-  b=WriIaX2kMsQGo3P5oq8DeanIBpNvAPzx8q2L1mHNOtTbQE9PN6vTuXoD
-   9aUCKlAFR1eIUAhpRaUd6sQnLhOZ1uBXkVzr7JYGwUzRDyGsZ+0eFWpsI
-   +m54pyAmabZJiQATDr+R6XnslGlgcJmYQld3TkHyKNDOcP00D4wZuMsGH
-   +bVmHJDN/VCcOCsxJ+QnyWfKomY0J282x/+G+1hijyfl9KZqGXgSQe9ZB
-   jNucpuLClvRHte9EUZSx7fhv10o7qHv1b+VC39WzVjFn05xK6A7lULzRo
-   1ozAUQdMNaOk3mCA5+MJLeJqS1XXr/R5E6eKAMVu5tgybx6OwjQuQCnii
-   g==;
-X-CSE-ConnectionGUID: IuaQgbXATrGDanrRoXXXFQ==
-X-CSE-MsgGUID: ahxoXkTOTdy+XHdZTp0r/Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4009196"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4009196"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 13:03:58 -0800
-X-CSE-ConnectionGUID: aP20gYk9RDaFKJPuc3Z2UA==
-X-CSE-MsgGUID: zfSopLW4Tna2zRRRLAyh+A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10617102"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 13:03:56 -0800
-Date: Thu, 19 Nov 2026 23:03:53 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Yury Norov <ynorov@nvidia.com>
-Cc: linux-kernel@vger.kernel.org, Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Jonathan Cameron <jic23@kernel.org>, Chris Li <sparse@chrisli.org>,
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
-	linux-sparse@vger.kernel.org
-Subject: Re: [PATCH v1 1/1] bitmap: Refactor bitmap_read() and bitmap_write()
- to avoid too big shift
-Message-ID: <av9kOeZtIjOtH2yp@ashevche-desk.local>
-References: <20261119191530.1716850-1-andriy.shevchenko@linux.intel.com>
- <av9eAde6AKlAKWaH@yury>
+	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=JATdUMx+
+Received: from abreu.speedport.ip (p5dc55a94.dip0.t-ipconnect.de [93.197.90.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 9DC574C442F80A;
+	Thu, 19 Nov 2026 22:04:07 +0100 (CET)
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Diogo Ivo <diogo.ivo@siemens.com>
+Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
+	linux-watchdog@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] watchdog: intel_oc_wdt: Stop the watchdog during system sleep
+Date: Thu, 19 Nov 2026 22:03:56 +0100
+Message-ID: <20261119210358.610521-1-pmenzel@molgen.mpg.de>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,110 +62,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <av9eAde6AKlAKWaH@yury>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
+	t=1795122248; 
+	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
+	bh=9oNljlNwScWT0AEm1avJ0WNN8F5rqnN+cRA8L0ZtGMY=; 
+	b=JATdUMx+cNrNSSPaOrn7AigoYzP3eP0lI1gRsP/Hc3U0KIAH6IYIbfZsQe1xfMz9p3/g00IFkjiM
+	dBiGpBKSoBAH3pNF+UAElNKgEgtaTa9sbBqDP0M0/s2adZwGLrKFOVwJ5UBEEIZ3GP3VH+8ppXAOW6
+	lLAuawLe38sKSATr4mSlRplWu8CZa1lpvkBbY5sfCK+bsIbGMzxF+jztRXHHmxULfSL8/jT6Nfp3+6
+	xOtwiVFi55kwnk69jGWKVlu/Q8ExVb3Q3vP2IKTSS24xXXLPaFcxJAAF2zj8MSpqNbdxLd86naLkxa
+	94wsdAHfV0ZUjshoJZSaJ97h7y4AktLQ==
 
-On Thu, Nov 19, 2026 at 03:37:33PM -0500, Yury Norov wrote:
-> On Thu, Nov 19, 2026 at 08:15:30PM +0100, Andy Shevchenko wrote:
+The driver has no system sleep callbacks, so a running watchdog keeps
+counting in suspend-to-idle. Suspend-to-idle stops the tick, so neither
+user space nor the watchdog core can ping it, and the watchdog resets
+the machine once the timeout expires.
 
-Thanks for review, my answers below.
+On a Dell XPS 13 9310 (Tiger Lake, BIOS 3.17.0, no ACPI S3) with systemd
+`RuntimeWatchdogSec=30s` on /dev/watchdog-oc, both `rtcwake -m freeze -s
+900` and `rtcwake -m freeze -s 60` result in a reset about 30 s after
+entering suspend, without any message in the journal or in pstore. With
+the systemd runtime watchdog disabled, the system stayed in
+suspend-to-idle for 900 s and resumed normally.
 
-> > While compiling ad4691.c I have noticed the following warnings:
-> > 
-> >   drivers/iio/adc/ad4691.c: note: in included file:
-> >   include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
-> >   include/linux/bitmap.h:854:55: warning: shift too big (64) for type unsigned long
-> > 
-> > Since the bitmap_read() is called with statically define 'start',
-> > the 'space' local variable becomes equal to BITS_PER_LONG, or 64 on
-> > 64-bit machines. The 'nbits' parameter is coming from the run-time
-> > defined value. Static analyser doesn't see that the right shift
-> > by 64-bit can't happen — the space >= nbits check guards that.
-> > While Jonathan put it as false positive [1], we still can give a hint
-> > to it without growing in the code (`bloat-o-meter` for above mentioned
-> > driver shows no difference in size). So this is what this change does.
-> 
-> Jonathan put it right.
-> 
-> If the analyzer (assuming sparse?) throws false positives, we don't
-> need to change the kernel. This is simply a wrong motivation. We need
-> to improve sparse instead.
-> 
-> Otherwise, the kernel will become a collection of hacks for various
-> poorly written tools. Let's do it the other way, please.
+Stop the watchdog in the noirq suspend phase and restart it, with a
+reload, in the noirq resume phase, as iTCO_wdt does. Check the enable
+bit in hardware rather than watchdog_active(), so a watchdog started by
+the firmware, which only the watchdog core pings, is covered too. If the
+control register is locked, the watchdog cannot be stopped, so leave it
+alone.
 
-I agree in general. However, we can sometimes give hints without breaking the code.
-Now, thinking of this, the mentioned check can be done against offset leaving code
-generation and sparse happy and have no unneeded bulk.
+Unlike iTCO_wdt, do this for all sleep states and not only for
+suspend-to-idle, as it is not documented whether the platform firmware
+stops the OC watchdog in ACPI S3 or S4. Hangs in the device suspend and
+resume callbacks outside the noirq phases are still caught.
 
-> > For completeness, bitmap_write() is also refactored in the similar manner.
-> > I have also checked a few users of it and `bloat-o-meter` showed no change.
+Tested on the Dell XPS 13 9310 with the patched module built for
+7.4.0-rc1 and systemd RuntimeWatchdogSec=30s: rtcwake -m freeze -s 120
+resumed normally on the same boot, the OC watchdog enable bit (I/O
+0x1854, 0x0080601d) was set before and after, and the watchdog kept
+running afterwards. The stock module reset the machine in 2 of 2
+attempts.
 
-...
+Fixes: 535d1784d8a9 ("watchdog: Add driver for Intel OC WDT")
+Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
+---
 
-> > -	if (space >= nbits)
-> > +	if (space >= nbits || offset == 0)
-> >  		return (map[index] >> offset) & BITMAP_LAST_WORD_MASK(nbits);
-> 
-> So, doubling the number of conditions, and the new one duplicates the
-> existing check. This version suppresses sparse false positive:
-> 
->         if (offset <= BITS_PER_LONG - nbits)
+Notes:
+    Tool use: Claude Code (claude-opus-5-5) found the reset while
+    measuring s2idle power on ortiz, wrote the change and the commit
+    message; compile-tested with W=1 (CONFIG_PM_SLEEP=y/n) and
+    checkpatch-clean.
 
-Yes, you beat me up to it. I just was thinking about similar check in the above
-comment.
+ drivers/watchdog/intel_oc_wdt.c | 42 +++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-> And even with that I'm not sure we need to touch the kernel to make
-> sparse or whatever else tool happy...
-
-It might take ages for sparse to fix even more annoying issues (if you remember
-something related to cleanup or alike change in the kernel and sparse was
-lagging for weeks).
-
-...
-
-> >  	size_t index;
-> > -	unsigned long offset;
-> > -	unsigned long space;
-> > -	unsigned long mask;
-> > -	bool fit;
-> > +	unsigned long offset = start % BITS_PER_LONG;
-> > +	unsigned long space = BITS_PER_LONG - offset;
-> >  
-> >  	if (unlikely(!nbits || nbits > BITS_PER_LONG))
-> >  		return;
-> 
-> Initialization of local variables before the sanity check
-> may become useless waste of cycles if this sanity fails.
-
-How? they are not used and function is marked as always inline. I believe
-optimisation in the compiler does the right thing.
-
-> This is also not necessarily needed for sparse happiness,
-
-This is to make both look similar at a glance.
-
-> I guess... Let's keep the patch minimal?
-> 
-> > -	mask = BITMAP_LAST_WORD_MASK(nbits);
-> > -	value &= mask;
-> > -	offset = start % BITS_PER_LONG;
-> > -	space = BITS_PER_LONG - offset;
-> > -	fit = space >= nbits;
-> 
-> I don't like this 'fit' thing, and would like to drop it. But
-> let's find a better motivation to do that?
-
-Why? The fit keeps the check I want to refactor, since it makes it twice
-the code with that ternary looks ugly and unreadable. This is exactly the
-chance to kill two birds with one stone.
-
+diff --git a/drivers/watchdog/intel_oc_wdt.c b/drivers/watchdog/intel_oc_wdt.c
+index 0b012aeb18e15..da93db34dfd2f 100644
+--- a/drivers/watchdog/intel_oc_wdt.c
++++ b/drivers/watchdog/intel_oc_wdt.c
+@@ -44,6 +44,7 @@ struct intel_oc_wdt {
+ 	struct resource *ctrl_res;
+ 	struct watchdog_info info;
+ 	bool locked;
++	bool suspended;
+ };
+ 
+ static int heartbeat;
+@@ -204,6 +205,7 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
++	platform_set_drvdata(pdev, oc_wdt);
+ 	watchdog_set_drvdata(wdd, oc_wdt);
+ 	watchdog_set_nowayout(wdd, nowayout);
+ 	watchdog_stop_on_reboot(wdd);
+@@ -212,6 +214,45 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
+ 	return devm_watchdog_register_device(dev, wdd);
+ }
+ 
++/*
++ * Neither user space nor the watchdog core can ping the watchdog while the
++ * system sleeps, and in suspend-to-idle the counter keeps running, so stop the
++ * watchdog late in suspend and restart it early in resume. Check the hardware
++ * enable bit, as the watchdog may also have been started by the firmware.
++ */
++static int intel_oc_wdt_suspend_noirq(struct device *dev)
++{
++	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
++
++	oc_wdt->suspended = false;
++
++	if (oc_wdt->locked ||
++	    !(inl(INTEL_OC_WDT_CTRL_REG(oc_wdt)) & INTEL_OC_WDT_EN))
++		return 0;
++
++	intel_oc_wdt_stop(&oc_wdt->wdd);
++	oc_wdt->suspended = true;
++
++	return 0;
++}
++
++static int intel_oc_wdt_resume_noirq(struct device *dev)
++{
++	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
++
++	if (!oc_wdt->suspended)
++		return 0;
++
++	intel_oc_wdt_start(&oc_wdt->wdd);
++	intel_oc_wdt_ping(&oc_wdt->wdd);
++	oc_wdt->suspended = false;
++
++	return 0;
++}
++
++static DEFINE_NOIRQ_DEV_PM_OPS(intel_oc_wdt_pm_ops, intel_oc_wdt_suspend_noirq,
++			       intel_oc_wdt_resume_noirq);
++
+ static const struct acpi_device_id intel_oc_wdt_match[] = {
+ 	{ "INT3F0D" },
+ 	{ "INTC1099" },
+@@ -223,6 +264,7 @@ static struct platform_driver intel_oc_wdt_platform_driver = {
+ 	.driver = {
+ 		.name = DRV_NAME,
+ 		.acpi_match_table = intel_oc_wdt_match,
++		.pm = pm_sleep_ptr(&intel_oc_wdt_pm_ops),
+ 	},
+ 	.probe = intel_oc_wdt_probe,
+ };
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.54.0
 
