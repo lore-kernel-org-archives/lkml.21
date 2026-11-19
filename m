@@ -1,96 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067615;
-	b=wVk/2nekcXGI+BLBJ3z6xGu0LoFrFffGQ405Iypjuw4QTWD1HzDeHDnZPfI6rqCxDnDF
-	 Uq2payrThzBRFsmFDUxwiyM8/B9CcKBPo+gfauY6IUN++x4cqwikHGxiV1UzUzdtennez
-	 X7VVOwrQYVe1l4y9TmqRhpqYR3uEhZmFfWKw4mBIpcDUY0wUjWs+BwTnVZb+rzrA6xja1
-	 gmsbc0aWzJiUrSNX+fqhR131xfZpJ1Q9pFK31XpGPenV//aqe6DYyxMKHSQENjpsIQ6tK
-	 dDVy/V8dZLpgcRto0stds72zvG7CJY43XwPP4O13LJwFm0ypvHBKjHaBStQOJUXaP3g==
+	t=1795067646;
+	b=j+5Bac0puAVOcXog96H0gVg2fd1gjrTe0vA+iw+WP0p7eJEbnD4DSvA1SIYWQ9kjzJNG
+	 baHZ0QpK6l8jVYHrbpt2tjaxaNeX4fS8VLQwzkPeCfoMf19oGp+iHPCSjV/wBe6zYPA5d
+	 clK+xrrh/LEta2zX9UFBe3Ufi7ZsHeUmBSmDvAYa8cu0n0oDyoby9TgQpjdMaRmd0tCWM
+	 XddAOoHPxDm3DRwtAD7A5PigrYyMQgETOoQI6VEotqQLzMKSz9Hq5VeBsljzpNkCd1Y1t
+	 PmTCbc+5CK7dIUkpNlnhEPXy6aobM4LbJWL5oFtGxp4eevyMDR514VsnHzRIHO6yaqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067615;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=iSKDXQpYsz8DfCp+Hl6lFNxx6TqgKVLI7ynM++rZhRE=;
-	b=YasSRtlfbNdMSZSE6Jqx4a1+BDKfiYRZS1gc0V9SM6rguaLtQaF7FE7kqFxb/OFgRF3B
-	 Vmo59OA1w/lEJgOMWTOIJg/Vzgt3neDKdDB90WCnhFIYwqJ7tGrBDLiHv7Y8ESRu1jh5d
-	 S0J1yY59ufIYlutXFo6EF3f2YQN+FInGLARoZljFlLL8fWQFXiXgbn60JH8tmMIqDlq4l
-	 yf9EQG7QhjdwaJcuiD3E/QHbE3Alve/gSRYTNHlgATghDBEdd1SDbHw+2xsc/Mb89e7J4
-	 +9r/vLIkFlvQ4N8hMhx2hX7pXvTIzqWVUUTkFU7AbOdXApVyEQfjgnoBA9vzfb6LDiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067646;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=DqkVbgU1xTxdGmNgGGJRMnn88EytwM6IJx1esMY73Fg=;
+	b=lMiu90LP5bzGitpnXHsTZgf5IN1gYlFEQJ7XZf9ljmNK47rxpWqCdP7x+uDWSHjZbb4S
+	 86WPRDih9PGgl3VpyAIc/bPAmaTkQsNJLWHIhehWMGZYWzzspUPNUW3iAWLOhEjIbZGtb
+	 l+H7VLiAqrxXZujKqxigp3v2eYTfm38nNTHUdiA/TMFQ6HW6qD7LJ8jzz+ohwJFDshZ9R
+	 t4054rpDGOFNRau0GDO+g312wzf3wuNNgBjZTkTlz2gPBKA3G+GqTAr3UgvABZQxp4g94
+	 DPNEQVvhZwxB1Zr+NQbXb+yu1gQJZOURTMNq3R1ISVzJHWHB1SW7wwN0f9GqdbmaZkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=d+ItCVEA;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WV9aMJOz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD081606A320;
-	Thu, 19 Nov 2026 05:53:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD081606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B65A606A335;
+	Thu, 19 Nov 2026 05:54:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=d+ItCVEA
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AJ5qXaoD2067808, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795067554; bh=iSKDXQpYsz8DfCp+Hl6lFNxx6TqgKVLI7ynM++rZhRE=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=d+ItCVEAfiNqS8aOFA4+hKsvTUNsK2N1ZmoG4Nv0oZ0xwxtiZa9kig3Zjs03gvhaz
-	 fBWjmUfzlyUjdU5gS/6Pcc8+ry6wBtpht2qNrXnk+Y48qPhA+qE4TI1WorfVscNiI4
-	 dLxXyB+vM4QZGkdV0dGs3++6urlWFOzKXvh6UhTWL8pWVqdz8ugIGV/2Y5763VOpmd
-	 o2qjjoEVLoirT080izUHEO57Y2PT8D0ganWJts/RB0VPNw1fyYiLcH3EhnlQhHTZTv
-	 5zmZa6FF8M7ZPfOzQqrzQh82N14OTf+eLqxObIWSyrwlfTIoytHQQTzVJxt7w2sqAc
-	 sjUuLmQeeMk3g==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AJ5qXaoD2067808
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 19 Nov 2026 13:52:33 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 13:52:30 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Thu, 19 Nov 2026 13:52:30 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Brian Masney <masneyb@kernel.org>
-CC: "sboyd@kernel.org" <sboyd@kernel.org>, "bmasney+clk@redhat.com"
-	<bmasney+clk@redhat.com>, "jbrunet+clk@baylibre.com"
-	<jbrunet+clk@baylibre.com>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, =?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?=
-	<cylee12@realtek.com>, "afaerber@suse.com" <afaerber@suse.com>,
-	=?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?= <jyanchou@realtek.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	=?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
-Subject: RE: [PATCH v16 6/9] clk: realtek: Add support for MMC-tuned PLL
- clocks
-Thread-Topic: [PATCH v16 6/9] clk: realtek: Add support for MMC-tuned PLL
- clocks
-Thread-Index: AQHdcmZF5zcH/kJ6kk+n4kke5Xzn1LcqJ8QAgAHllPCACCHKAIAAwBIA
-Date: Thu, 19 Nov 2026 05:52:30 +0000
-Message-ID: <03f88e4e3b274aa5be2f9a415f69c73b@realtek.com>
-References: <20261112052544.555563-1-eleanor.lin@realtek.com>
- <20261112052544.555563-7-eleanor.lin@realtek.com>
- <179450369605.1227210.10143810675268582312.b4-review@b4>
- <54a7a77705674bfdac23727f5fb92cb6@realtek.com> <av5dut67EajT0zn3@x1g10>
-In-Reply-To: <av5dut67EajT0zn3@x1g10>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WV9aMJOz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A8251F000C4;
+	Thu, 19 Nov 2026 05:54:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795067646;
+	bh=DqkVbgU1xTxdGmNgGGJRMnn88EytwM6IJx1esMY73Fg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WV9aMJOzEr03KcbaWP9skSa3IgDNhf90wRhuoiktITGBHTJmAA0d9eJkMAPmtnZMv
+	 zUyVXwoj31LfBhnpTdxTK+/9CqDd4jrjPEsR6Y2S1+LSBVz54W4up2MrvafmXAqKtY
+	 iHJP6HhY8KYkTGKX0FBp4qwCECLlJ0F2SUqwJhSbg3kKYR9ND7GTweZWX9XR1buGys
+	 9AiEFroJjPL/yy5v0bAr5Tio7kKhj53jsfInznaRpQ9ZV8MmdS0nEnd+M3QJ/eclm2
+	 SHMhJ7kB9RLUYmM84t5JeBa+qSrswN8oI+FgAcOyMqKmEaiBaU5RJrIaL2M8kIw/Mi
+	 PoGrqNb8yBDCg==
+Subject: Re: [PATCH net-next v2 3/3] net: pse-pd: realtek-pse-mcu: configure
+ global power budget
+From: netdev-bot+sashiko@kernel.org
+To: jonas@jonasjelonek.de
+Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ sander@svanheule.net, russell@personaltelco.net
+Date: Thu, 19 Nov 2026 05:54:04 +0000
+Message-ID: <179506764491.3136.18101194586618488763@kernel.org>
+In-Reply-To: <20261116115224.1454885-4-jonas@jonasjelonek.de>
+References: <20261116115224.1454885-4-jonas@jonasjelonek.de>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,51 +66,143 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-SGkgQnJpYW4sDQoNCj4gSGkgWXUtQ2h1biwNCj4gDQo+IE9uIEZyaSwgTm92IDEzLCAyMDI2IGF0
-IDAyOjEyOjU5UE0gKzAwMDAsIFl1LUNodW4gTGluIFvmnpfnpZDlkJtdIHdyb3RlOg0KPiA+ID4g
-PiArc3RhdGljIGNvbnN0IHN0cnVjdCBydGtfY2xrX3BsbF9tbWNfcmF0ZSAqDQo+ID4gPiA+ICty
-dGtfY2xrX3BsbF9tbWNfZmluZF9jbG9zZXN0X3JhdGUoY29uc3Qgc3RydWN0DQo+ID4gPiA+ICty
-dGtfY2xrX3BsbF9tbWNfcmF0ZSAqdGJsLA0KPiA+ID4gdTMyIG51bSwNCj4gPiA+ID4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHJhdGUsIHVuc2lnbmVkIGxv
-bmcNCj4gPiA+IG1pbl9yYXRlLA0KPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHVuc2lnbmVkIGxvbmcgbWF4X3JhdGUpIHsNCj4gPiA+ID4gKyAgICAgY29uc3Qgc3RydWN0
-IHJ0a19jbGtfcGxsX21tY19yYXRlICpiZXN0ID0gTlVMTDsNCj4gPiA+ID4gKyAgICAgdW5zaWdu
-ZWQgbG9uZyBiZXN0X2RlbHRhID0gfjBVTDsNCj4gPiA+ID4gKw0KPiA+ID4gPiArICAgICBmb3Ig
-KHVuc2lnbmVkIGludCBpID0gMDsgaSA8IG51bTsgaSsrKSB7DQo+ID4gPiA+ICsgICAgICAgICAg
-ICAgY29uc3Qgc3RydWN0IHJ0a19jbGtfcGxsX21tY19yYXRlICplbnRyeSA9ICZ0YmxbaV07DQo+
-ID4gPiA+ICsgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBkZWx0YTsNCj4gPiA+ID4gKw0KPiA+
-ID4gPiArICAgICAgICAgICAgIGlmIChlbnRyeS0+cmF0ZSA8IG1pbl9yYXRlIHx8IGVudHJ5LT5y
-YXRlID4gbWF4X3JhdGUpDQo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsN
-Cj4gPiA+ID4gKw0KPiA+ID4gPiArICAgICAgICAgICAgIGRlbHRhID0gZW50cnktPnJhdGUgPj0g
-cmF0ZSA/IGVudHJ5LT5yYXRlIC0gcmF0ZSA6DQo+ID4gPiA+ICsgcmF0ZSAtDQo+ID4gPiBlbnRy
-eS0+cmF0ZTsNCj4gPiA+ID4gKyAgICAgICAgICAgICBpZiAoZGVsdGEgPCBiZXN0X2RlbHRhKSB7
-DQo+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICBiZXN0ID0gZW50cnk7DQo+ID4gPiA+ICsg
-ICAgICAgICAgICAgICAgICAgICBiZXN0X2RlbHRhID0gZGVsdGE7DQo+ID4gPiA+ICsgICAgICAg
-ICAgICAgfQ0KPiA+ID4gPiArICAgICB9DQo+ID4gPiA+ICsNCj4gPiA+ID4gKyAgICAgcmV0dXJu
-IGJlc3Q7DQo+ID4gPiA+ICt9DQo+ID4gPg0KPiA+ID4gVGhpcyBkdXBsaWNhdGVzIHRoZSBmdW5j
-dGlvbmFsaXR5IGluIGZ0YmxfZmluZF9jbG9zZXN0X2J5X3JhdGUoKSBmcm9tIHBhdGNoDQo+IDMu
-DQo+ID4gPg0KPiA+DQo+ID4gSSBjb25zaWRlcmVkIHNoYXJpbmcgdGhlIGxvZ2ljLCBidXQgdGhl
-IHR3byB0YWJsZXMgaGF2ZSBkaWZmZXJlbnQNCj4gPiBlbnRyeSBsYXlvdXRzLg0KPiA+DQo+ID4g
-VW5pZnlpbmcgdGhlbSB3b3VsZCBuZWVkIGEgbWFjcm8gb3IgKHZvaWQgKikgKGJvdGggbG9zZSB0
-eXBlDQo+ID4gY2hlY2tpbmcpLCBvciBlbWJlZGRpbmcgcnRrX2ZyZXFfdGFibGUgd2l0aCBjb250
-YWluZXJfb2YoKSAoYSBsYXJnZXINCj4gPiByZXdvcmsgZm9yIGxpdHRsZSBnYWluKS4gSSBwcmVm
-ZXIga2VlcGluZyB0aGUgdHdvIHR5cGUtc2FmZSBmdW5jdGlvbnMuIElzIHRoYXQNCj4gYWNjZXB0
-YWJsZT8NCj4gDQo+IFdoYXQgYWJvdXQgdGhpcz8gVGhpcyBpcyBjb21wbGV0ZWx5IHVudGVzdGVk
-Lg0KPiANCj4gICAjZGVmaW5lIGZ0YmxfZmluZF9jbG9zZXN0X2J5X3JhdGUoX3RibCwgX3JhdGUs
-IF9taW4sIF9tYXgpICh7ICAgICAgICAgXA0KPiAgICAgICAgIHR5cGVvZigmKF90YmwpWzBdKSBf
-X2Jlc3QgPSBOVUxMLCBfX2U7DQo+IFwNCj4gICAgICAgICB1bnNpZ25lZCBsb25nIF9fciA9IChf
-cmF0ZSksIF9fbG8gPSAoX21pbiksIF9faGkgPSAoX21heCk7ICAgICAgXA0KPiAgICAgICAgIHVu
-c2lnbmVkIGxvbmcgX19iZXN0X2RlbHRhID0gVUxPTkdfTUFYOw0KPiBcDQo+IA0KPiBcDQo+ICAg
-ICAgICAgZm9yIChfX2UgPSAoX3RibCk7IF9fZS0+cmF0ZTsgX19lKyspDQo+IHsgICAgICAgICAg
-ICAgICAgICAgICAgICAgIFwNCj4gICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgX19kOw0K
-PiBcDQo+IA0KPiBcDQo+ICAgICAgICAgICAgICAgICBpZiAoX19lLT5yYXRlIDwgX19sbyB8fCBf
-X2UtPnJhdGUgPiBfX2hpKSAgICAgICAgICAgICAgIFwNCj4gICAgICAgICAgICAgICAgICAgICAg
-ICAgY29udGludWU7DQo+IFwNCj4gDQo+IFwNCj4gICAgICAgICAgICAgICAgIF9fZCA9IGFic19k
-aWZmKF9fZS0+cmF0ZSwgX19yKTsNCj4gXA0KPiAgICAgICAgICAgICAgICAgaWYgKF9fZCA8IF9f
-YmVzdF9kZWx0YSkNCj4geyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcDQo+ICAgICAg
-ICAgICAgICAgICAgICAgICAgIF9fYmVzdF9kZWx0YSA9IF9fZDsNCj4gXA0KPiAgICAgICAgICAg
-ICAgICAgICAgICAgICBfX2Jlc3QgPSBfX2U7DQo+IFwNCj4gICAgICAgICAgICAgICAgIH0NCj4g
-XA0KPiAgICAgICAgIH0NCj4gXA0KPiAgICAgICAgIF9fYmVzdDsNCj4gXA0KPiAgIH0pDQo+IA0K
-DQpUaGFua3MhIEknbGwgdXNlIHRoaXMgYXBwcm9hY2ggYW5kIGFkZHJlc3MgeW91ciBvdGhlciBj
-b21tZW50cyBvbiB0aGlzIHNlcmllcw0KYXMgd2VsbC4NCg0KQmVzdCBSZWdhcmRzLA0KWXUtQ2h1
-bg0K
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
+
+Low priority / nit picks for your consideration:
+
+- [Low] rtpse_mcu_register() (drivers/net/pse-pd/realtek-pse-mcu-
+  core.c:933) gets the optional 'vmain' supply with…
+- [Low] rtpse_mcu_get_global_budget_idx() (drivers/net/pse-pd/realtek-
+  pse-mcu-core.c:402-422) reads the MCU's current budget/power-bank…
+
+--
+
+net: pse-pd: realtek-pse-mcu: configure global power budget
+
+This patch takes the power budget of the optional vmain supply and uses
+it to program the MCU's aggregate PoE limit, in 100 mW units, at the
+MCU's current budget index. The budget is reserved through the regulator
+core and released by a devm action. The driver uses the regulator only
+for budget accounting and never enables it.
+
+> diff --git a/drivers/net/pse-pd/realtek-pse-mcu-core.c b/drivers/net/pse-pd/realtek-pse-mcu-core.c
+> index d8b6e05039397..ae58581a0dad8 100644
+> --- a/drivers/net/pse-pd/realtek-pse-mcu-core.c
+> +++ b/drivers/net/pse-pd/realtek-pse-mcu-core.c
+
+[ ... ]
+
+> @@ -393,6 +399,84 @@ static int rtpse_mcu_set_power_mgmt_mode(struct rtpse_mcu_ctrl *pse)
+>  	return (resp.payload[0] == 0x0) ? 0 : -EIO;
+>  }
+>  
+> +static int rtpse_mcu_get_global_budget_idx(struct rtpse_mcu_ctrl *pse, u8 *budget_idx)
+> +{
+
+[ ... ]
+
+> +	if (resp.payload[4] > 0x7)
+> +		return -ERANGE;
+> +
+> +	*budget_idx = resp.payload[4];
+> +	return 0;
+> +}
+> +
+
+[ ... ]
+
+> +static int rtpse_mcu_apply_global_budget(struct rtpse_mcu_ctrl *pse,
+> +					 struct regulator *vmain)
+> +{
+
+[ ... ]
+
+> +	ret = regulator_request_power_budget(vmain, budget);
+> +	if (ret)
+> +		return ret;
+> +	pse->requested_budget_mW = budget;
+> +
+> +	ret = rtpse_mcu_get_global_budget_idx(pse, &budget_idx);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Retain the programmed MCU limit even if later probe steps fail. */
+> +	return rtpse_mcu_set_global_budget(pse, budget_idx, budget_raw);
+> +}
+
+[Severity: Low]
+rtpse_mcu_get_global_budget_idx() accepts payload[4] values from 0 to 7,
+which suggests the MCU has up to eight budget banks. The limit is written
+only to the bank that is active at probe time, and the index is never
+read again. The other banks keep their firmware or EEPROM limits.
+
+What happens if the MCU firmware switches its active bank after probe?
+For example, PSU presence inputs could change on a board with redundant
+or hot-plug PSUs. Would the MCU then enforce a firmware default limit
+that has nothing to do with requested_budget_mW? The reservation in the
+regulator core and the limit enforced in hardware would then disagree.
+
+It isn't clear that any of the supported boards switch banks at runtime.
+Programming every bank with the same static value would not obviously be
+correct either. Should this limitation at least be documented?
+
+[ ... ]
+
+> @@ -837,6 +930,20 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
+>  		return dev_err_probe(pse->dev, -EINVAL,
+>  				     "dialect for chip is incomplete\n");
+>  
+> +	vmain = devm_regulator_get_optional(pse->dev, "vmain");
+> +	if (PTR_ERR(vmain) == -ENODEV)
+> +		vmain = NULL;
+> +	else if (IS_ERR(vmain))
+> +		return dev_err_probe(pse->dev, PTR_ERR(vmain),
+> +				     "failed to get vmain supply\n");
+> +
+
+[Severity: Low]
+Here vmain is used only for budget accounting. Nothing takes an enable
+reference on it. There is no regulator_enable(), and no
+regulator_is_enabled() check runs before the MCU budget is programmed,
+the ports are ungated and the PSE controller is registered.
+
+The PI regulators that pse_core registers take their supply from each
+PI's vpwr, not from vmain, so vmain's use_count stays at zero.
+
+Suppose a board describes vmain-supply as a switchable regulator without
+regulator-always-on, such as a regulator-fixed with an enable GPIO, or
+one marked only regulator-boot-on. Would regulator_late_cleanup() then
+switch the PoE rail off after boot?
+
+drivers/regulator/core.c:regulator_late_cleanup() {
+    ...
+	if (rdev->use_count)
+		goto unlock;
+    ...
+	if (have_full_constraints()) {
+		...
+		ret = _regulator_do_disable(rdev);
+    ...
+}
+
+In that case the MCU would still believe the programmed budget is
+available, and the driver would not report an error.
+
+The commit message says:
+
+    Use the regulator only for budget accounting, leaving the rail
+    externally controlled or marked with regulator-always-on.
+
+The binding also says the supply is used for power-budget accounting
+only, so such a DT would go against the documented expectation.
+
+Would it be worth enforcing that requirement instead of assuming it?
+That could be a regulator_is_enabled() check at probe, or a
+regulator_enable() call, which would be a no-op on a truly fixed rail.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116115224.1454885-1-jonas%40jonasjelonek.de
