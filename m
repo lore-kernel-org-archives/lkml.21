@@ -1,82 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086109;
-	b=K5L7Xpe07y3nelY43cXHXdgib2nopC5oTxkZQb1qUo16PGePki0h+stvrj/AIf9fX1Fa
-	 PbxUasGacQKXQnMf4v11gkxpnXdlajTDi0ILZi7Aske7kcDIiMrZsC2bGYHwujQErxSPL
-	 P3kaYuoHSg3G5BDrJdtOpfflm6ZjaXTaFUwYi0AmLvbFZwY+wtT4TiuXYeLeTBwTdTpf9
-	 R7/dFxRRlNifmcO9EaYopQFlsvE2JGeyjfzg5+Kv+FUKegeeyj164KAjrmUBnv8BHTS4h
-	 4HK+DgbHQG8ev16QXOWxKZeNdq3Ucbw7EGOku2tEv3DTtQ1lh9Z8er+hsiTIG9Uh7iw==
+	t=1795086130;
+	b=4U+OB3aKjU61KNePwz/+KNqU56xUu+HA98ZcD9NKFqJrwDEztxG7s124GkNLksiFKStc
+	 2ZPc56mRKVGQLu8h8w5+BFAdC6nP2M7rEw4/rGywK/mus6aaLhHiwlgp2NrCX7kyGPDMw
+	 rt2CpyWqHcWDFc3/v+YO+jgg1vjwYE24AfkA2dmMlxYfwaAUResPjZOo51nXmzEWw7Hvc
+	 ZhkpOcGzfiAKPol5uTI4FYNGElKIrpOw8PP/w9b9zjsz+hRSCE6A7xXtIudzoSdtOW7kW
+	 gpsnHXN2eSEF01ts5hs5MLFQFXlAfNnlW4qayadMRzOiE4PsWRYMHEuwn1ohR7eaz+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086109;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:From:To:Cc:
-	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=t9zctAsFenItVdzIfNxAuLJcFKGbZarY6B5DfF4Pt8Q=;
-	b=PbT395gfgz0QSg0lVofaY/oh4lHNtKXNU6Nrw7tRHF2tFOA9Cwg6QLn5lIo02xN1yZbt
-	 xt5xaiOxn2bXhiHlXaKWKYbnnzWcstjzEHuavN61Ouf8HiVdZ4B8cKIzV6RqgsoLOkFZB
-	 nckt2T6tsjqMr0jYUCIJ/ztlRFUk+lNWL7GhhReZzpw0ggAsQsdv7ZOufozQeB1LnYhV0
-	 08P+EO0lFZ/MQG6LzJ0t8f3FXfPiFf54NCNhYYoBlDGmry8zQfJwpN8yvZ0OsPBnaOoCs
-	 oPzinpIiymEXbGivgZ2YMG0tLVLLpOhEA8D4y0T/gpW359CpKS70DcaUsafzIrx4hag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086130;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=iJ289iMCz5xAzHlapJusKbqEqrWvns+8UKRTR9Uk9iU=;
+	b=lYqRzghA8PJ4l1Mwt0zYewRcvEFFwAyCn4taZHxLfKNJAZR24VjAqrKHNOadamerxwk+
+	 aM3rtW3+ulw8QajM8iBtaMPuK5oz5tAUK5/dBOwawqSe8eBD58HZCJOpRsXDz1jHgoFrt
+	 /9bjtQ37w6AfImwyfMuBscpr8P3XhxalaKLCKIl7v+31g4RO1dvYUytzUU47Ou5qLXvcl
+	 VIY4MSAUaV0vsd2HfPTElW1J3dziL1mtGRxQ52jVB9CFRhXrmPhjWb76mXDMOUg8kpyT6
+	 7c/xkKiwT1BDTHi9BVGOaS4ZEfIs5/oXAjzwjDHxnTxD6P0u/3kRzy82n/6Xr/65yCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Xuq9CnSF;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GcDAX8ch;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CC0E606A324;
-	Thu, 19 Nov 2026 11:01:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CC0E606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8865F606A320;
+	Thu, 19 Nov 2026 11:02:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Xuq9CnSF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795086109; x=1826622109;
-  h=from:to:cc:in-reply-to:references:subject:message-id:
-   date:mime-version:content-transfer-encoding;
-  bh=zTvOojozxEfyMQ4tzrE11s0gcs2+zCz/fbu4bK+QT5E=;
-  b=Xuq9CnSFFbS3Zd55qKW1dVM8Av6yhx/Goy+9wpv2DAC9uGDWLTP8La/k
-   inyF0gq0spO4WQ9w/M6Wlv1E4oSLaRybFbLcPW8OUPiVENFhHFNqlyNSX
-   xP3Kj01FsbgqgiujrHcfVUOAl3ZIyX84tkziudtehE6ToN1+5Ckzhhnzh
-   t/pcMtB/aBL9X/X81Xbg0fGEoHJh70+qBUn0p7eh1MW5YUx+kYOOlJx9i
-   BE4JroA2AWRIJ40DUWorhO8WRentRpjHLeuXmVqyYcDzBozRG3dF9Supc
-   TgxHaz6rW+xz8FzuoQbn7XSJHsE6y612rBjloijc+H1zCnlOArztNWHAb
-   g==;
-X-CSE-ConnectionGUID: XEWSN+hkQrqajyQi+fHIlA==
-X-CSE-MsgGUID: RDnAzVqnRs2EL93pT44BJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3848780"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3848780"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:01:48 -0800
-X-CSE-ConnectionGUID: OhBYToKqRFS+jP6hSl3fdg==
-X-CSE-MsgGUID: eV0dZ8LTTpGc/eUawzx7uw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10271201"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa004.jf.intel.com with ESMTP; 19 Nov 2026 03:01:45 -0800
-Received: from black.igk.intel.com (localhost [IPv6:::1])
-	by black.igk.intel.com (Postfix) with ESMTP id 7148394;
-	Thu, 19 Nov 2026 12:01:44 +0100 (CET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andy@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Yibo Tan <lhfff@tju.edu.cn>
-Cc: =?utf-8?q?Jean-Fran=C3=A7ois_Lessard?= <jefflessard3@gmail.com>, 
- Surendra Singh Chouhan <kr494167@gmail.com>, 
- Chris Packham <chris.packham@alliedtelesis.co.nz>, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20260912161152.1683002-1-lhfff@tju.edu.cn>
-References: <20260912161152.1683002-1-lhfff@tju.edu.cn>
-Subject: Re: [PATCH v1] auxdisplay: linedisp: prepare message before
- registration
-Message-Id: <179508610445.1209487.16986546761911617792.b4-ty@b4>
-Date: Thu, 19 Nov 2026 12:01:44 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GcDAX8ch
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E132A1F000C6;
+	Thu, 19 Nov 2026 11:02:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795086130;
+	bh=iJ289iMCz5xAzHlapJusKbqEqrWvns+8UKRTR9Uk9iU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GcDAX8chMsZcwHLAlbUXneBa+4Djex+cGrewl4QpZVADAJtpk/2QdeBi9SubUYoZo
+	 muDKRCNF/nXOrXp9robQVqMFCNz6aFhcqAsx/lMI3CVgx3pwY/EFcBi7lPEDL4YYBV
+	 XbdKu62wgd8VmCiOUzyAblklXJoW6aytT/Cr2ihON33oC0vKh+XHFP6UmOQ5xMtHBp
+	 5135ucs6byeFJHFJ8IHGYH+0x1pDu6aWOAjuSyw2oZidfnWkmp6HDwL9MMkEo7/DpK
+	 DbdEOQjQtGgQHkLLZ98jGpbomQ1WEn3LYpyOKQV57q9s2z+R4eGtXrl1oggk9UjoV8
+	 ll/6ZfOoL2GpA==
+Date: Thu, 19 Nov 2026 11:02:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Wang Yang <yang.wang@deepcomputing.io>
+Cc: Aurelien Jarno <aurelien@aurel32.net>, Yixun Lan <dlan@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Guenter Roeck <groeck@chromium.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Sandie Cao <sandie.cao@deepcomputing.io>,
+	devicetree@vger.kernel.org, chrome-platform@lists.linux.dev,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+	broonie@kernel.org, yh_chung@aspeedtech.co
+Subject: Re: [PATCH 1/9] dt-bindings: bus: Add SpacemiT K3 eSPI controller
+Message-ID: <20261119-defy-stumbling-72b230220a49@spud>
+References: <20261118085742.1817536-1-yang.wang@deepcomputing.io>
+ <20261118085742.1817536-2-yang.wang@deepcomputing.io>
+ <20261118-backdrop-scrap-1bee34e06336@spud>
+ <av4iWQb33bya48G1@aurel32.net>
+ <20261119090553.1886090-1-yang.wang@deepcomputing.io>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,37 +72,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d3eRFCAKT41jyFTl"
+Content-Disposition: inline
+In-Reply-To: <20261119090553.1886090-1-yang.wang@deepcomputing.io>
 
+--d3eRFCAKT41jyFTl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, 13 Sep 2026 00:11:52 +0800, Yibo Tan wrote:
-> Since the line-display attachment support was added, linedisp_register()
-> has displayed its initial message before calling device_add().  The
-> HT16K33, MAX6959 and GPIO segment drivers implement display updates with
-> delayed work, so that display operation can publish driver-owned work
-> before the final fallible registration step.
-> 
-> If device_add() fails, the registration error path releases the display
-> buffers and the caller's probe failure releases its managed private data.
-> The admitted worker can then access both freed objects.  In an HT16K33
-> KASAN reproducer, a real device_add() -EEXIST failure produced a
-> slab-use-after-free first in __pwq_activate_work() and then in
-> ht16k33_seg7_update().
-> 
-> [...]
+On Thu, Nov 19, 2026 at 05:05:53PM +0800, Wang Yang wrote:
+> Hi Conor, Aurelien,
+>=20
+> > How is this "eSPI" different to the eSPI described in fsl,espi.yaml and
+> > implemented by a driver in drivers/spi?
+>=20
+> Thank you, Aurelien, for clarifying this. K3 uses the Intel-defined
+> eSPI interface intended to replace LPC. It is a different protocol from t=
+he
+> Freescale/NXP SPI controller described by fsl,espi.yaml.
 
-Applied, thanks!
+Ah I think this might be confusing af, because that device also
+supports what it calls "eLBC"...
 
-[1/1] auxdisplay: linedisp: prepare message before registration
-      commit: 29133e66ae15efcbaedd185cf16a09357c6d9486
+> On K3, the controller exposes a CPU-accessible window for the eSPI
+> Peripheral Channel. The EC client accesses its command, response
+> and memory-map regions through this window, rather than exchanging
+> ordinary SPI messages.
+>=20
+> The proposed controller driver handles clocks, resets, link
+> configuration and window setup. The EC transport handles the EC
+> register mapping and host commands. The distinction is therefore
+> the protocol and access model, rather than the use of MMIO itself.
+>=20
+> I will make the Intel eSPI terminology and this access model
+> explicit in the binding description.
 
-Best regards,
--- 
-With Best Regards,
-Andy Shevchenko
+Please take a look at a similar series from Aspeed and see if you can
+cooperate on creating something common between you:
+https://lore.kernel.org/all/20260313-upstream_espi-v1-0-9504428e1f43@aspeed=
+tech.com/
 
+Thanks,
+Conor.
 
+--d3eRFCAKT41jyFTl
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav7XJwAKCRB4tDGHoIJi
+0jzJAQDtL5rkRZE8LnDVXeZtgQgA+RtqttjgRFyFtUphoHdWFAEA6xsUZag4jTnB
+9N7iFMdYFqfgcKj+Eu+uiTeCMD2HRg4=
+=jIrP
+-----END PGP SIGNATURE-----
+
+--d3eRFCAKT41jyFTl--
