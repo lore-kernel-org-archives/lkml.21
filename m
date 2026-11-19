@@ -1,100 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795108136;
-	b=STztAQkebHoh4OlRl70SdnbccWNt6HykdjTZoYVxuf9zT/2TvGmsk3cxcfRmqDlEqTf+
-	 US88uTJOd+AkLw10jYNwN3TuAy9lkcPvSbsQoB0Eb7JURpepPldsJHQ7UAPNzJPIo5Ie/
-	 kjxbdPnYt3eT8w07ZHAtYXNIy+F5nDEsn4iHmRsImG3hT609PZyhlKvzwBpmvs5CY8P6C
-	 04e2BiIgUxm2+7ouqIYlauxheahnv8J4Cd0VWza2iKV5cp6XaCly22jXdQmRd5somJWqH
-	 OBK7S6zEPogOcyvS+31Ri3EkrQOFhDdSgOLgLpJcsTCXLTaIpx9xyvoxBNNtwY0zlcA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108136;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795108139;
+	b=RlA/X4mskmuAQx9PqfY3jwtRpX+Np6s4PfrO+MJs0+BeNlis3+uBN8vlRL3+nPK7fiPi
+	 WgSPK32zBsgBoj7RvjbCxFcU1VvYDcBOec/TvyYokuhAJ1hqsq2UaNjp5/OvmgKXV/1+v
+	 6q+xM4nxeu0DJXeBR6TVA1gnhouzlk802HL54KQgQ0nJtxFeJBQKONfVD5hFpzote51H0
+	 QeXidfr20fDz2AbTsizuiVvaA6V2fWHqp683ed8dVYaRLZGWCRgQHF0dhTMzIt5xp+6pv
+	 xmWZx49Ecv7mFb6oWIOqB9p1a7/WBurp4mRTq7dOaVKuHpRdL5lUTzsXfpy2bbFcJwQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108139;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jsip5LtACNKYn+7qoo5OLOP346pcqMnnFr1l7MoLujQ=;
-	b=5Qk5yl+lTHc6HJjdiS/ZYti0dLcIUuD6aYknsMcTROm5TqnusWUEnAPXkPAkKZd4GdUJ
-	 YKpb2KvlkUNhv28Kqu2TjWQn/e+qhL8uBLMQoWkjtANyUVZDFayk+rBM/9SDKkjS8aEI8
-	 5L2qvUOr9k47x86bex8SSknOQECTIE2SDSfgjGD7twZsY7pQBOxHRocgyJw4tf0vnY2VO
-	 rZQo2gAqw1bkZGuzvbpx/d8e3UkDtlvdR3xbxEmkbfbAdo+qg9ZNej+h8M/otDB0n8fci
-	 zKm3zhXKlBMLd9vdRFn9VGf8F1w2JaHHxYRfjui9G480Q8eFEsTUBVafwBeS4gjfpIA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WU0kzWGn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=/BeMwuZ5xgQDXIgYlBcolpETHlDVDX0QAKZ3gBy9Xss=;
+	b=NGQsn9KfCVBbgGizftu3PUJ/uM0roi0flh/AZL2afr3g9XOXjJFt1E1b6E9e0o0TqCSL
+	 P33ZHNKOGdvqqYZy2nz9xA0JcMo93mnp9dLSYnsBoyIsjSr0tjJ0UxHHouyFZJDpRojCZ
+	 48cZQFDjP5eePeBYKznZP1yUf6cpP+hifjoDN9C3apfRL4QDpRqYS1nh5x3oJqnrOUzb0
+	 Ft5XvRFxcoURPBRqDcY3+tjUoruCIuEweQyMBdD8v2EUviiMzroIGbzBKYpXiHZWMgtL2
+	 Lh9wLhEuJ/vb82+WGUTpTYMZ1sds6xooK9y2//FdsVXFMcDgsUY6AoNidWadBm//iFA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gX2CAPFe;
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FEAC60A2602
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:08:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FEAC60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A820260A2605
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:08:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A820260A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WU0kzWGn
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b8c60e0d39so2447477a12.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795108134; cv=none;
-        d=google.com; s=arc-20260327;
-        b=p+DK/oYYlCMkAnLo0aET8QvIJnFp46FzlSYYGQdOD9gtIyttzfQMs0u5aEFSNlpJdz
-         61BX6iqjRCEfJEWKWqCMqrEZoAXeQPjXM1x8kSQ5Ka+R7X7d95iHl/heHih5rPGKLzJI
-         9xNiRuqBf9P6b3KYjgmsnWfLhImtjapIP/2zLKWBIwKns3bPH9awDyL0pqihzkzzLmwL
-         I1DwP6Z5BzVY3e+31QWl7alHjGKTakFJUFp7PCvqrsLTWVSKBMEPIONetccnxS9hldHr
-         Ji3gB3bEFvDtgrpnL3zQ7MzR7/oRO5ByERdr5oAP00rt+HddwKssLp1E9j8WFVsIWGcC
-         G1Og==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jsip5LtACNKYn+7qoo5OLOP346pcqMnnFr1l7MoLujQ=;
-        fh=KkEQjyRwXy6ykWculpIdWFUqq1jIjpsvwAZw1sMLGPc=;
-        b=PCCg9AYr3dC+DATIW10W8ifypfJp+2JTargYRvNK7uwU4MoVdVPI2qZpbx0/WehTUO
-         J2hikHplhnS2vcRfEsRkStDC/lSBdMIrxHfJ71OdfWDh+f8lrJbDtXFDF1YJMXYEiSSX
-         hEEHM3MgFhwVWj8u8O8q84ym3swYE1DrnoXoduWMJiKI3VA+3lqW7DHia9YyOiE5DGAF
-         Wvois6dAhCjTYyo7cqeJIeWZsOAfvGNc3hNf4zJyd6l7hW2V0JpK/vftGzRlAPU3OcLL
-         LzG23SjfeBbQTvMSqniwZFSiD0SHnP19UUYLYdxbCsmYxvaDzy/TUs/UL6uxkXIIOkJW
-         XiCA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=gX2CAPFe
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3ae17c536so2292626c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795108134; x=1795712934; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jsip5LtACNKYn+7qoo5OLOP346pcqMnnFr1l7MoLujQ=;
-        b=WU0kzWGnQK28cjC4LK2NrlQJ+EjNsF3jHX4t8tRAUfWVliG02Q5lkA80nhgJHt57yd
-         siR8WrnL+50Bq2xRqvErsiKSiYllqkG5eLc68YAsULSpAj6dtAVywEugjF2iiIgMIFEo
-         HiccjeUoyfR3wpU9q/FvaFgccf3JgKoMEIrMCXTRR6dH50WFU/nzMMoKVUKjaz1uFVkF
-         vMwSS+mft8KA3BvytegcqqxWJscDAOb9zjuRM96vMzpqCBh4Vem41uwryZ2h6jYfEAxR
-         owoKN8fDDVFR7G7qBG7IfZS+8eBGHJPt6LCycbWY0BE0JAZDJrdlrPkrfZdab45oZT9l
-         jHxQ==
+        d=google.com; s=20260707; t=1795108138; x=1795712938; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/BeMwuZ5xgQDXIgYlBcolpETHlDVDX0QAKZ3gBy9Xss=;
+        b=gX2CAPFeYUAK79FymZ9jeijW0m0x4R/ythURkmn9dDtfcQWtnX7w7SgSn0VY7MAAea
+         z8QQoMlcYCuUnTF6mstqzMIcS/mHLAJrOH5n2DXIioKc/FEe9t+fuje/LIzZs1RSAJgh
+         Kb8e9+qtKH+xKYB/yCDe9X0YLkqdu4GQmnv6wD6Qx+CzxpkDmh+J6/vFmivMhFmR0UW2
+         HkGzhV8zZ6QUbAHuV62DAtp0xIlO0GGWur4GN5Q9YdO9Xo0H3QYza16u33+E/tECrmw1
+         rCzH3UmM/3hHnGQNR5+ALnmAPxU5jxIQpRoYkFxqiJcBNozFHX/IdnDwBu/uzsNSyxVX
+         jp5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108134; x=1795712934;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795108138; x=1795712938;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jsip5LtACNKYn+7qoo5OLOP346pcqMnnFr1l7MoLujQ=;
-        b=C7Jm11ZNBQtR2roDPcTijIAyoSMPayzW/bte64Nvvfv5JUKt7FJg5sKPEJnK/qKWt5
-         5cDPeo+OLNQpghcvT/cYEjfOnB9CJbSQ4anbhGnsSkQOPxw+WgU0qjmAVGMqYYiitF21
-         DyGOe3IyqMydclHplJq7KX9JsOoe4drZ4ztvYwTazZosaxeoHqdy6AvpfIcrUM+Zw7Qr
-         RGKbmglqfi9YaJ/tJMX+9VduL0eabIU+UQwTkrrDg6PVc33fsruVF+gzOJFTViE0YVjR
-         7TzwACw7rhP1YujZufE3XUx+pTL0kjtvgMocCUNq1GEk87xQ4dVO7ZKgwwqwv9mo2ycR
-         FT8A==
-X-Forwarded-Encrypted: i=1; AL+hErFJ6S3WgHiYUPtlJzOmZZjLK2ISqxQXFaVPRPlSFjHe+RONA49gv6fYb2Xy1YVs08RJJjgNdgRWhMArfWI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vG0vv73rbsHio+CFjJFIejj73gRkSO7uBaGfn6r7e03fDE/L8
-	xfhmt6tzlog5EehSE3IJ8CJGaWosjTZEKvY1PWisuj2Gs61L9gCi06xLq/MGOYvxWFaingXTIjN
-	2Tf2HdX82wWAq62EghaHNKpIpAm9suQA=
-X-Gm-Gg: AYBFou3torQ5NfK74EqIyLzvq2Lf0OQocbOcoN6AeyDpP+fAkz4QVUpI5YMl2KTfIco
-	uLxUpn8k8Zd5K80oO4SmoMUeY5IY4Z42F3Yr4tD80ib3pLQqLFIVx6GpoMMCsG7VmtGvEo2oh7K
-	KS2OntQTsJEeAiPP5lV18BzupdLiSaOZN8RkvdwrKS9IThuoQ8Chd6SuyfO5ZcuOOFE9NheGL1L
-	kVD0YAHsjyxTQSktNQzSSQzl/Kmp2xWaDxFqFaktPc480sd/nsYsFISfACdVD8xIs569ihFmVV7
-	jkcYiTp34SIWFFJX/gzZJ5R3cLndjAqsSEZZEed61T6/fktFuPZtmMNQonytM0L+geiyUouOcuz
-	rutwkgqD04PF03kKF9Q7mE+47HldwDGGvXN2ItUVDv+0fOUJsABhHbk5cBAHMRl4l
-X-Received: by 2002:a05:6402:4003:b0:6ba:1881:dfcb with SMTP id
- 4fb4d7f45d1cf-6ba1881e15emr2086412a12.11.1795108133606; Thu, 19 Nov 2026
- 09:08:53 -0800 (PST)
+        bh=/BeMwuZ5xgQDXIgYlBcolpETHlDVDX0QAKZ3gBy9Xss=;
+        b=cSA8W0zwwSaDpkasNmgOg7qHmQ8q8uvAEaeggvIIfCpRZ5cP8QVnszxdjcEdfk07BR
+         jntQiV9G4b2919HHMfGnbkTWmwHNA7mo0NkNslkQfspt0ZiVY3tiYNpqbo4jTP7BlU5y
+         bI4wNkgeyCQwdEwIBNQ69g4Xr9EmMLgSVWWLnfNwmuMl2GtNB9Iiu89yMDwl5hgDj3lN
+         xnsO6iWusdfqw3DVh8X/4Rkw43H1BqBW9/WG8OR4K7XT3M5PbBAEPqzHsX++hfICnZ3J
+         KhGsA3Qd7bRTK/WenvFkbCt2SqAD0N9Kpzmk+Crdveo+cpQKudOqaiusOdVfKLPRUTU2
+         94dA==
+X-Forwarded-Encrypted: i=1; AL+hErExzeFVNy+MJQ+6LCc0GGVsiSW1TODvFlSk9SURqHMPsDJXpyDOJaLrUfk3xKXSnZplqx0HiUrzt9SfIzg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/guJi0oWMQ+Xx1TlaQ9KwVOx4gcZXcKXu4AbAgzBOhJ9owl+u6
+	i3f8I+jYqoOnzaQydfYg+C+HqeYdUn3jaqHQmtY/ek9+jBhb8K1IfLalY/JlhifEIIlJE7DS2DV
+	QkvuG2ZgYRw==
+X-Received: from dldyr22-n2.prod.google.com ([2002:a05:701b:4516:20b0:1a7:58c6:c957])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:290:b0:1b5:25e:958d
+ with SMTP id a92af1059eb24-1b5567bb581mr257768c88.5.1795108137553; Thu, 19
+ Nov 2026 09:08:57 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:08:53 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,63 +75,127 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261118092928.163553-1-vitorhg20080@gmail.com> <58a7d381-fb19-4d55-98d5-dfdf9b16e2b7@roeck-us.net>
-In-Reply-To: <58a7d381-fb19-4d55-98d5-dfdf9b16e2b7@roeck-us.net>
-From: =?UTF-8?B?VsOtdG9yIFNpbHZh?= <vitorhg20080@gmail.com>
-Date: Thu, 19 Nov 2026 17:08:41 +0000
-X-Gm-Features: AclHuK9xhN-ZQamSIlc7Z1rgFKFoYFRWnrSdpZ43JMP7Tnt5FAE7JvzbDMvBa8I
-Message-ID: <CAOhXrFeOS3nKWTBZS3TqT1BmOHkjKJumns7t9R5bjGwLc_sE0g@mail.gmail.com>
-Subject: Re: [PATCH v2] hwmon: (ads7871) Add error handle from spi_setup()
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261119170853.1529676-1-irogers@google.com>
+Subject: [PATCH] usb: typec: qcom-pmic-typec: Avoid reading uninitialized
+ state on error paths
+From: Ian Rogers <irogers@google.com>
+To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Thanks!
+In qcom_pmic_typec_port_set_cc(), error paths from regmap_read() and the
+default switch branch jump to 'done:', which logs 'currsrc', 'mode', and
+'misc' via dev_dbg() and passes uninitialized 'currsrc' into
+rp_sel_to_name(), indexing rp_sel_name[] out-of-bounds when dynamic debug
+is enabled. Similarly, early error paths in qcom_pmic_typec_port_get_cc()
+jump to 'done:' before 'misc', 'attached', '*cc1', and '*cc2' are
+initialized.
 
-V=C3=ADtor
+Return early on error paths in both functions instead of jumping to the
+post-success dev_dbg() trace.
 
-Guenter Roeck <linux@roeck-us.net> escreveu (quinta, 19/11/2026 =C3=A0(s) 1=
-6:49):
->
-> On Wed, Nov 18, 2026 at 09:29:28AM +0000, V=C3=ADtor Hugo Silva wrote:
-> > The ads7871 probe() ignores the spi_setup() error return value
-> > and it attempts to write to registers even if spi_setup() fails.
-> >
-> > Return the setup error before accessing any registers.
-> >
-> > AI was used for peer-review the patch.
-> >
-> > Fixes: e0c70b8078629 ("hwmon: add TI ads7871 a/d converter driver")
-> >
-> > Signed-off-by: V=C3=ADtor Hugo Silva <vitorhg20080@gmail.com>
->
-> Applied.
->
-> Thanks,
-> Guenter
->
-> > ---
-> > Changes in v2:
-> > - Clarify what happens when spi_setup() fails.
-> > - Describe the fix in imperative mood.
-> >
-> >  drivers/hwmon/ads7871.c | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/hwmon/ads7871.c b/drivers/hwmon/ads7871.c
-> > index 36297bc6d047..a1ffc35d9272 100644
-> > --- a/drivers/hwmon/ads7871.c
-> > +++ b/drivers/hwmon/ads7871.c
-> > @@ -187,7 +187,9 @@ static int ads7871_probe(struct spi_device *spi)
-> >       /* Configure the SPI bus */
-> >       spi->mode =3D (SPI_MODE_0);
-> >       spi->bits_per_word =3D 8;
-> > -     spi_setup(spi);
-> > +     ret =3D spi_setup(spi);
-> > +     if (ret)
-> > +             return ret;
-> >
-> >       pdata =3D devm_kzalloc_obj(dev, *pdata);
-> >       if (!pdata)
+Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+-Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
+-Wconditional-uninitialized; not tested on Qualcomm PMIC Type-C hardware.
+
+Fixes: a4422ff22142 ("usb: typec: qcom: Add Qualcomm PMIC Type-C driver")
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ .../typec/tcpm/qcom/qcom_pmic_typec_port.c    | 25 +++++++++----------
+ 1 file changed, 12 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
+index b2ad31e85b5e..a1595b8b53e7 100644
+--- a/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
++++ b/drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c
+@@ -372,14 +372,12 @@ static int qcom_pmic_typec_port_get_cc(struct tcpc_dev *tcpc,
+ 	ret = regmap_read(pmic_typec_port->regmap,
+ 			  pmic_typec_port->base + TYPEC_MISC_STATUS_REG, &misc);
+ 	if (ret)
+-		goto done;
++		return ret;
+ 
+ 	attached = !!(misc & CC_ATTACHED);
+ 
+-	if (pmic_typec_port->debouncing_cc) {
+-		ret = -EBUSY;
+-		goto done;
+-	}
++	if (pmic_typec_port->debouncing_cc)
++		return -EBUSY;
+ 
+ 	*cc1 = TYPEC_CC_OPEN;
+ 	*cc2 = TYPEC_CC_OPEN;
+@@ -392,7 +390,7 @@ static int qcom_pmic_typec_port_get_cc(struct tcpc_dev *tcpc,
+ 				  pmic_typec_port->base + TYPEC_SRC_STATUS_REG,
+ 				  &val);
+ 		if (ret)
+-			goto done;
++			return ret;
+ 		switch (val & DETECTED_SRC_TYPE_MASK) {
+ 		case AUDIO_ACCESS_RA_RA:
+ 			val = TYPEC_CC_RA;
+@@ -417,7 +415,7 @@ static int qcom_pmic_typec_port_get_cc(struct tcpc_dev *tcpc,
+ 				  pmic_typec_port->base + TYPEC_SNK_STATUS_REG,
+ 				  &val);
+ 		if (ret)
+-			goto done;
++			return ret;
+ 		switch (val & DETECTED_SNK_TYPE_MASK) {
+ 		case SNK_RP_STD:
+ 			val = TYPEC_CC_RP_DEF;
+@@ -472,7 +470,7 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
+ 			  pmic_typec_port->base + TYPEC_MISC_STATUS_REG,
+ 			  &misc);
+ 	if (ret)
+-		goto done;
++		goto err_unlock;
+ 
+ 	mode = EN_SRC_ONLY;
+ 
+@@ -496,7 +494,7 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
+ 	default:
+ 		dev_warn(dev, "unexpected set_cc %d\n", cc);
+ 		ret = -EINVAL;
+-		goto done;
++		goto err_unlock;
+ 	}
+ 
+ 	if (mode == EN_SRC_ONLY) {
+@@ -504,14 +502,11 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
+ 				   pmic_typec_port->base + TYPEC_CURRSRC_CFG_REG,
+ 				   currsrc);
+ 		if (ret)
+-			goto done;
++			goto err_unlock;
+ 	}
+ 
+ 	pmic_typec_port->cc = cc;
+ 	qcom_pmic_set_cc_debounce(pmic_typec_port);
+-	ret = 0;
+-
+-done:
+ 	spin_unlock_irqrestore(&pmic_typec_port->lock, flags);
+ 
+ 	dev_dbg(dev, "set_cc: currsrc=%x %s mode %s debounce %d attached %d cc=%s\n",
+@@ -520,6 +515,10 @@ static int qcom_pmic_typec_port_set_cc(struct tcpc_dev *tcpc,
+ 		pmic_typec_port->debouncing_cc, !!(misc & CC_ATTACHED),
+ 		misc_to_cc(misc));
+ 
++	return 0;
++
++err_unlock:
++	spin_unlock_irqrestore(&pmic_typec_port->lock, flags);
+ 	return ret;
+ }
+ 
+-- 
+2.56.1.708.g77570a6a1d-goog
+
