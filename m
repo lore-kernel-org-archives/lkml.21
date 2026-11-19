@@ -1,59 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.12.242.24
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119567;
-	b=FJ8fh5kd4nUe7IRb1eOoQ9+duuUaKb86R1Tjei63QKHtPhyuviPMn0MNu1gs61tb96dW
-	 yEYiV06wmUns4Fxv+4epv5GK61HVgGC9ZJIzOOC1n6YbAmzjpt6/DumJyH9xBzUjya0kU
-	 67GcTTRtQk1r1mM3wPnkSjwkcEPLRPwxwaus3ZvZAxbEeXaPhwlTUGU8eGycW9wwTw1v6
-	 CqUXZdXm7VGuu9Ot06dHrFCCtCPdPxdkLEk9lCRDB68XmvOtooJTOF6M496p5JUriAy6+
-	 0p/kaqphHRRDqBICO9YviFeKinYK6ULQSOsI4cqsfCpOU4sNa0YunP1lD6fiVvjmReQ==
+	t=1795119610;
+	b=V9YQma25+rp2WT658x9uqe3EIwTUEKfzGNnjI5iQ9OrIkvx9afaAr8+Nw7edOPuZWQ17
+	 hRjq9I8Zq8xddPrwH5Tn1TD4fZd99MevdBGQrWuanfSduDcqTrvb3cj1+0DE0q3qwvM2P
+	 Qdd1g/r4tdgqOADACjr8hBfQCayan3/X7cdZmWTtraQ/MElGo2W/hjI65495BJMz1jdm4
+	 iBmV0W0yvuuIfAEZPtDXJpb65OU9RP+YGGDMM7nPbS0pIwN3+KEocIa7Oo8U6U8AN/GLv
+	 wJK+9LrogRM+W/KOft0Q7WrkakZsmpU/Ei0V/V3Z15jJHMoNz+zoDM6nPW/uDBOgt1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119567;
-	h=DMARC-Filter:Received:DKIM-Signature:X-ME-Helo:X-ME-Auth:X-ME-Date:
-	 X-ME-IP:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=h9q4RHK/R0nfKuJsJcXl6O+86FApj7la5Nbt3lIB6PY=;
-	b=OPnJ12E+olTJN62Y4pBcAOyXDDLjPipy8ecl3gbKckTDJdpn6mU9wwddiQZ7g4U+Dqf4
-	 ecD13vYbNSUPKu/0A/P1cKlKHUxBgfp2QhtccBSWvSR6mIfd0X+xZ5jgfF5FUOnOJcJ6C
-	 68XYQNuQQuxxFwN+rzEeQFF1zAdL5c0BXCpxMbvdRtCXrl5YUBuswO0X8TPYz6tph6eqY
-	 M4A1+U/COewVJ/Ta9VIv0gElW2xGpyKzRpSqiZja8hCtaMQZaBAZLMF7TwE0tiAUtzDnC
-	 Rq3OYDPene25g+I827DcU1kK+EjlkXxxNn9pCgld1wZaBAt7JaWNiJvDQDBZi02X79w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119610;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=TZGb4ZVqzaLyU4XjWLhk07am05sagwuMq8LdwhLdv3c=;
+	b=S0mbmgv1n1hkGzR/mUpzHWu/DHZxvmOf8pW1e4HXR+gS748DNoOQ00Z0VaiPqVuKflaH
+	 G/S1WOoJkmhslMb4k6cPkhAP00amYDRCx5+C3plie88jF9LYUS2QKOy/naQtIx6uRt8+Z
+	 tH/hZV44Ppi8ArKQmsDOYlDpxblfHcU3MQ/VHZGpFXM2OwpVlJJ43/cQstJYlS//7o1wD
+	 hgnLnUolTewGclSfaysCPpw0yldSJYuUEQM64xXw7Za/nac5QQW0JvWrc+F8IGB9Kd2j/
+	 VtnlncoAphA909/m4LOkaokLLABK+zBVt2NndEdCew+2DDm2Gha5HNpSsYk0jQQ5tdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wanadoo.fr;
-	spf=pass smtp.mailfrom=wanadoo.fr;
-	dkim=pass header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=bDHFMxdT;
-	arc=none smtp.remote-ip=80.12.242.24
-Received: from smtp.smtpout.orange.fr (smtp-24.smtpout.orange.fr [80.12.242.24])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jyi6zXbL;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24061606A320;
-	Thu, 19 Nov 2026 20:19:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24061606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wanadoo.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wanadoo.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 313F3606A333;
+	Thu, 19 Nov 2026 20:20:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=bDHFMxdT
-Received: from [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e]
- ([IPv6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e])
-	by smtp.orange.fr with ESMTPSA
-	id U8bFxyNDjCmimU8bFxGjUr; Thu, 19 Nov 2026 21:19:18 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1795119558;
-	bh=h9q4RHK/R0nfKuJsJcXl6O+86FApj7la5Nbt3lIB6PY=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=bDHFMxdThV5nKbVbBcL1IcDJfIrHo4Wf1Dlql+oat3tFCQKrM6oGW3EMnGdwZAHT9
-	 eKpNbjUoogn2mcs3aLCvYllBDxnd8OsR33vPeOvRnwiZVJ2JHCUWAgT7ei82GuTuD7
-	 m57bwl7KZKfzdoXxvPy9l6P9ZtiOSiIQ2PONnOFjEc/N9yajs3V5zkna/v8ZoLXsdf
-	 M0iR/JlBgoJ3TFSwq+qysxa9HibfmoOzPhIcmZxxOhqdL5LQYg63Ylyu/J1SPF7Qq6
-	 MHJeDMImLPbXlGEh5uXcwaspQuV/tfwIrLVJ9p7KEse/SbkMLIUki3aZx4vCqIoRi5
-	 6kk3wSorr41ng==
-X-ME-Helo: [IPV6:2a01:cb10:785:b00:26fb:aefb:6cd2:db0e]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 19 Nov 2026 21:19:18 +0100
-X-ME-IP: 2a01:cb10:785:b00:26fb:aefb:6cd2:db0e
-Message-ID: <111e6c03-017f-47f2-a941-cba45697c1e4@wanadoo.fr>
-Date: Thu, 19 Nov 2026 21:19:16 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jyi6zXbL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7852A1F000C4;
+	Thu, 19 Nov 2026 20:20:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795119610;
+	bh=TZGb4ZVqzaLyU4XjWLhk07am05sagwuMq8LdwhLdv3c=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=Jyi6zXbLzoB68JxQO7YOPn05POWPNonzuyVnYr00KhpKTmJosnB4ErUH2hFuwatY3
+	 civg4+DlTumTaDXmgFvjFFnOGjIPoBC6MR5l4CIM9+BVTZxKaEfes15TFwU5oGMI5/
+	 BuR52bqGdwjzylscZlzectn2u7/bEmpDSBJupKBsrjJxow9j+B+5gL6Kg3ukRVpSvR
+	 R8ajOhccXTu2FCuUfbBO/+tWpVLfySoxIuY9wA5NYxfrwcfByS8/jhiL7H11xuyHcW
+	 s4FZKQ8I7JX56HlSk8VIIcxCYUbWskAnviz/SI4zl7aXi9eO48xcckFdkhuqxKXaW3
+	 Z2Jo+e1csXU9g==
+Date: Thu, 19 Nov 2026 21:20:07 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Gideon Heinz <gideonheinz02@gmail.com>, 
+    =?ISO-8859-15?Q?Filipe_La=EDns?= <lains@riseup.net>, 
+    Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+    Edwin Velds <e.velds@gmail.com>, 
+    Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+    Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 00/33] HID: logitech-hidpp: G920 force-feedback fixes,
+ rework, and cleanups
+In-Reply-To: <p6p98p0s-5p97-q584-14sn-ns404p6s3orn@xreary.bet>
+Message-ID: <49nqon1r-32pr-19r1-0r65-50494sq350n5@xreary.bet>
+References: <20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com> <p6p98p0s-5p97-q584-14sn-ns404p6s3orn@xreary.bet>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,61 +64,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] usb: bdc: Use devm_clk_get_optional_enabled() in
- bdc_probe()
-To: Markus Elfring <Markus.Elfring@web.de>, linux-usb@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com, Al Cooper <alcooperx@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Justin Chen <justin.chen@broadcom.com>, Neill Kapron <nkapron@google.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <07112f96-430c-4109-9aca-e5d17e333d67@web.de>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Content-Language: en-US, fr-FR
-In-Reply-To: <07112f96-430c-4109-9aca-e5d17e333d67@web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-Le 19/11/2026 à 20:06, Markus Elfring a écrit :
-> From: Markus Elfring <elfring@users.sourceforge.net>
-> Date: Thu, 19 Nov 2026 20:00:07 +0100
-> 
-> Reuse existing functionality from devm_clk_get_optional_enabled()
-> instead of keeping duplicate source code.
-> 
-> The source code was transformed by using the Coccinelle software.
-> 
-> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-> ---
->   drivers/usb/gadget/udc/bdc/bdc_core.c | 8 +-------
->   1 file changed, 1 insertion(+), 7 deletions(-)
-> 
-> diff --git a/drivers/usb/gadget/udc/bdc/bdc_core.c b/drivers/usb/gadget/udc/bdc/bdc_core.c
-> index 5149c98bf9bf..ce09327250f4 100644
-> --- a/drivers/usb/gadget/udc/bdc/bdc_core.c
-> +++ b/drivers/usb/gadget/udc/bdc/bdc_core.c
-> @@ -530,16 +530,10 @@ static int bdc_probe(struct platform_device *pdev)
->   		}
->   	}
->   
-> -	bdc->clk = devm_clk_get_optional(dev, "sw_usbd");
-> +	bdc->clk = devm_clk_get_optional_enabled(dev, "sw_usbd");
->   	if (IS_ERR(bdc->clk))
->   		return PTR_ERR(bdc->clk);
->   
-> -	ret = clk_prepare_enable(bdc->clk);
-> -	if (ret) {
-> -		dev_err(dev, "could not enable clock\n");
-> -		return ret;
-> -	}
-> -
->   	ret = bdc_phy_init(bdc);
->   	if (ret) {
->   		dev_err(bdc->dev, "BDC phy init failure:%d\n", ret);
+On Thu, 19 Nov 2026, Jiri Kosina wrote:
 
-Hi,
+> Wow, what an endeavor. Thanks for looking into all this.
+> 
+> I've finally got to processing it. I've applied 1-14 to 
+> for-7.4/upstream-fixes and the rest on top of it to for-7.5/logitech.
 
-this patch is wrong because the remove function and the error handling 
-path of the probe need to be updated.
+Ok, now I see that you will be respinning. So I am dropping it for now and 
+will wait for respin.
 
-CJ
+The queue is crazy with all the AI-generated patches, I don't think we'll 
+ever be able to get to the end of it.
+
+Thanks,
+
+-- 
+Jiri Kosina
+SUSE Labs
+
