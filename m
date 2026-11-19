@@ -1,86 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795119613;
-	b=wFY0+9D4k7WkO0yI9AVjcQ24pSZmIX4Ahcs3cTRGR4rfq/O3AG504JUg65ITxU6CPkkC
-	 63/gdHaAH2EY/rNTYgKM52cvOvp2mUP5bTRdkYtue7NXowy/Sx0Sbl9ya+y2f6waUWDkc
-	 QFDn2JRCU8NfOsOjjjqSQItKRjdD/Vdyn+Q06qdwV83eP75h/h5yUsvUrcEm81ZNhfjzL
-	 k9ZzAtwoFdTnjIEA050EAomBKiGKB7O1Cp9cmqZjavo46e5XHTpVEtDaPKXqbZP4fQDWt
-	 EVTH+eD3sSb5RLFHS49tSIehNQ8htiSAP087Swb/WhFsTfZbcvc+HlKkAZMtVSgLnkA==
+	t=1795119637;
+	b=ror8T+VNimiLP1HaUDfFlZwLXriaXGkorGC7aUSa7JDzox8LUmYwDuun5HJgHWGEEuzf
+	 F1U3UH2pWxxhxbS0MKTgAzI62UIfRiYNz/yaDWStsXzEjtrp9+uilQwx3M26bpqtTlVpX
+	 SGuG+2OnxjkAd8/CrVZk9rG3Js4kSPzE3ZCrOTqyIJFsRXxeJC5xTOxEZheqPbyvA4scX
+	 x+rppr2hGkiLPU93WftYIdrVKsez9Tlw6R85jktulh9NCUHhYZmkxYh/ylZlZ4WSn/wVD
+	 DoGCZQvH2F3nbQfiZnxpkusVGlUzgC4s6C7ZeeCDybc8N4ztef7tZrd/G/Xs6eIh3ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795119613;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
-	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
-	bh=oUxQWUg0cFfOfFkOLUnILAxBRHkeTjUzpnJn7oclOAs=;
-	b=XTQ0DIK0o/aSjzhFALIPb0dITS3Y3JpwB2rZa5fiVR49rlh0++LmZSws/+R8fPmk7H2y
-	 6iMatB6J1Dd2zyo7GCNcOFVbfhA4PEjpj8JmNMaBWf6XLqnj0C/3KGzI9BOdQZQu+Tioz
-	 8jczWRSyVpaZMnLv4+yvH/NAeer36NDjNRVz/WUlILAOSWAUEC+2+MHx3q7KZIFRJVqc+
-	 ZMuqtckOiNLj4jxknS1kDNl+mAfAeozltOB9YL7XUVX6zjgcyVBRC2HHir07yuaqjzzYM
-	 PZVfFVeIvfk/LJx8qaEmghhY01BCDqGjYi9d1rDUaLkpg5B0nFbku5EzqBVOjy2ifTw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795119637;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=1PngVqjy6XbuVa4yi3mp7VkmbvcrVOwhL2KE+zN1fu4=;
+	b=pUE+IfSk8GkQmQF9eRCQPPnFPFNqMojGEnIugSg2iUdVuv+yvrhnfoChonm6rslpxzog
+	 1HNiKx1TGuaWUVXqZ1IbiPaMStt8JWsQoVOOTYJY6yqRciz0I1UoFDRw6fXRWN4cGEFuv
+	 or+CYaX/U3NWTJ2EI+cCpWp9tiroCIlWZKOeofII3bcQmPFR1vkcONzqErzq7hDvgKeKm
+	 o9wSWuvJNL4h60KrYWq2dJm7gDPPGNsFCRnw5e9BOJG3ggIEi4ir39OQeVUskbKofPBpW
+	 8/Z/aiI8dS0Kdy/rviKEp7AAWcWt6ODyUhIoZw9N4yF7jN5CrNS4dLZGVZSLNMg/6sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sRmY0MrQ;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPpxJUJj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A385E606E4C1
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:20:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A385E606E4C1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BFEA606A326;
+	Thu, 19 Nov 2026 20:20:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sRmY0MrQ
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4b467581b98so1572755e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:20:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795119611; x=1795724411; darn=vger.kernel.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:content-type:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=oUxQWUg0cFfOfFkOLUnILAxBRHkeTjUzpnJn7oclOAs=;
-        b=sRmY0MrQcatai13CSp3tCaVymT1Jdx9sG8+PxtJ6vo2v8nOZIgAZr5TMPPHpfiIlo5
-         YeuoYsv0bU3CF7cOwhMYGcnJjSdp9bSZnYfiOmii7KSkZaPayIh7i0ubLMe0y/GmTkSl
-         UWVRD2/OFS/frqPDCs2oplroD1XKkvFyDNKbMg0NCq1oppThffMV+wUT8ciuERJVLFgz
-         SFsPQiffpYXeuwpMZpV27b772hz62Y5powU21nIF3Lch5bw1KmX6DICLJs3U7srUMiEJ
-         sTNZPXkPO5oIaA+KlBEbc8bXwD14HR56QIl7P7TplxCLtnEplNpl7O4fCynYkrsTGU0E
-         wjLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795119611; x=1795724411;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oUxQWUg0cFfOfFkOLUnILAxBRHkeTjUzpnJn7oclOAs=;
-        b=RDbQkxxA/Az762PRcEuvihU4Y0Cs0Y3+/73dyX7oudasM7lEAkV78EqQZHDkKQoJ3d
-         n52emNheW83wtaHRi5EvoJj4/YXpdvzaZASm+srxcciAEF1WxDmSonRM4v1tXz4uHwGS
-         KC3bWxNEaDpFdvL4SEASuCN+9finW2MR0vaojkGtRPYTrsS+7XhEAkPHCRk/A3d8i3VO
-         tudFNJIH+leM+MHPw8SEUa+mfx5f+um92buYuHILaRhs6eP/tMfNqrbjQkAAGjDPjsL1
-         wYo3O54uAtiGAknwKakdO3FJOkRcBG3BTKG23yoCa7r9XtuILyK32peu49zQI5Fv6h2g
-         rYNQ==
-X-Forwarded-Encrypted: i=1; AL+hErFi/YdOlBPQ0wkb2v+KH/yYlHYHsKHkeRXthZ8zBZ94DEKOGB8zi4acbZlh5KS5rz+LpNKYruveQQ5EOPo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/t33YpisaH0ZaNZrpHI5r3+JFIfpdNEzDyNEnQQYPRYIh8rKD1
-	Y1l+zrTAmI+ib/jDab0R8Lw5m71ZUhZvmLrZEkH2suDxbCVcvUtqWiUm
-X-Gm-Gg: AYBFou3hx54puaP5DUebsv8g+I6ovytcr1qS7QY8X6xbnKOR1NKVqN2rV8PO/gC71gm
-	Jo9wZH4B2FHAFV1BKZ5gIB1DBhfNdtz6GXLLUkkVnWYjZSVQzsnBBzaIZmM3KLakCwcjNowZ/kc
-	fHULQGqPu/ouRNevyBANWA9JjyMR7dTt1pMSIOnCWU8jam99/k5dVxA1eE01x2ZIIhXto/nsSiX
-	dOLGo5EQEzmXQOMX5xiVsLrjbiB+uPKCRpfBoBb3b/kN8N6AaL+nkpw2upmuWQku4lCemdxq2fz
-	GNCt/RDF2N/7EOBayRTfmGKvhv51A8pJUx5IpYu2BKryEcVY9oijlYJGYvx5ktwSux31CxzsS0p
-	+gfKC1XjoqS41vxgnpw13bgAmYA/BHntxyltE4yDMZ5fqjUx6OBGdlrNfoLF9fETlmUxHwUbO3t
-	ZWxY03iaI5RS6OoKqNc4oXxp+lOtNIMKFcLXjL8CDy3l+HOiM8kRbPHQ8GUOV0QaM2OuJh4ncJb
-	q1QUQu8i42kLYNrkb9onBu0QtKa7wdiurZMOHr6VeAh/d6NaehQIt72nX9OdEmW/sna/yTbNQkA
-	G8sE1FQiRtr3acZQMjxYxLkxUu3+xz6RdBmRxVwaOC9EidGlXrF0JDwsLwLIG7mdElKYybSt
-X-Received: by 2002:a05:600c:64c8:b0:4a0:1c0e:b057 with SMTP id 5b1f17b1804b1-4bb887e2380mr14648215e9.4.1795119610866;
-        Thu, 19 Nov 2026 12:20:10 -0800 (PST)
-Received: from smtpclient.apple ([77.83.249.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm94509405e9.4.2026.11.19.12.20.08
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 12:20:10 -0800 (PST)
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lPpxJUJj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553831F000C4;
+	Thu, 19 Nov 2026 20:20:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795119637;
+	bh=1PngVqjy6XbuVa4yi3mp7VkmbvcrVOwhL2KE+zN1fu4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=lPpxJUJjM2RZl2xZrdkXiDwu08/hI/WBivCN2eWu7pUtOaW+E7yV/4b6EPPt9T47F
+	 5/66k/iEeTTjxGryhG+Kf+0t0NVR2BU98E2zi3fcI0V15IlAqM5iWDvPhoa8xoKxPk
+	 Am/kxDkKdnrkfImbkaPF/X0kLlnS6Ogop5nmtH7+ayQMBINGsT/qit1oSHgUZsPiNN
+	 CVnItyAFnL1aULM3n2bQ/zIqtWeVFmi3AzvQXL37Nw32bo25SRvNJaE9HQmlbmchRr
+	 2jPDpJ18JNMjO2DCMAb0n8iN+9ju23ui4ar8Bje+Vc4eNLKGqAuW7Yx73eWM6KhKnA
+	 pEMQ3QHBdTotQ==
+From: Mark Brown <broonie@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Johan Hovold <johan@kernel.org>, 
+ Lucas Tanure <tanureal@opensource.cirrus.com>, 
+ Peng Fan <peng.fan@linux.dev>
+Cc: linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, 
+ Peng Fan <peng.fan@nxp.com>, Sashiko <sashiko-bot@kernel.org>
+In-Reply-To: <20261113-regmap-improve-v2-0-5dfd6a89078f@nxp.com>
+References: <20261113-regmap-improve-v2-0-5dfd6a89078f@nxp.com>
+Subject: Re: (subset) [PATCH v2 00/10] regmap: clean up and improve
+ __regmap_init()
+Message-Id: <179510913249.116416.15355829560665352192.b4-ty@b4>
+Date: Thu, 19 Nov 2026 17:25:32 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,60 +62,65 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v7 2/4] media: rockchip: Add JPEG decoder driver
-From: Sergei Khomenkov <shomenkow@gmail.com>
-In-Reply-To: <85353f59-52a0-446d-ace3-65e2d03d0d0b@pengutronix.de>
-Date: Thu, 19 Nov 2026 22:19:57 +0200
-Cc: Lucas Sinn <lucas.sinn@wolfvision.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <92CE2271-6485-4B33-AF75-480F9BD56980@gmail.com>
-References: <20261022-rockchip-jpegdec-v7-0-3fd7dd55f408@pengutronix.de>
- <20261022-rockchip-jpegdec-v7-2-3fd7dd55f408@pengutronix.de>
- <596F6C9E-4A5D-4AE8-8D26-7A7247050D7D@gmail.com>
- <85353f59-52a0-446d-ace3-65e2d03d0d0b@pengutronix.de>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2079; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=bDh1IuUijN00aUfD5Nl6H57mzn8c/ms6L6XNsJZS9Sk=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+Rwnur9zsd1G7o1K1PMyAd0XAxIaHDo7zJ/sqCLcI6
+ 6T/2r+/o5SFQYyLQVZMkSUui/tlfcnrNXwHF7bBzGFlAhnCwMUpABO5psDI8PRuyqNmrpTFDa7z
+ ijUrIwVVjqrWqgVtLPys3e/HzSynyvA/rZ7/3QS/jI02C77YF2zdp3JowYoWx0nZ4bvEGB9+UQt
+ lAAA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Hi Sascha,
+On Fri, 13 Nov 2026 23:31:48 +0800, Peng Fan wrote:
+> regmap: clean up and improve __regmap_init()
+> 
+> This series includes three fixes for pre-existing regmap issues noticed
+> during review, improves the __regmap_init() error handling and removes the
+> last user of regmap_bus::free_on_exit. Patches 1-3 are fixes suitable for stable;
+> patches 4-9 are cleanups with no functional change intended; patch 10 adds
+> KUnit coverage for the new bus callback.
+> 
+> [...]
 
-On 2026-11-18 14:27, Sascha Hauer wrote:
-> I haven't been affected by this issue lately, but saw it when the series
-> was still based on the hantro driver. Yes, I'll change to 3 bytes per
-> pixel next round and make that the floor of sizeimage. Would be nice to
-> have a proper solution for this rather than either wasting tons of
-> memory or risk having too small buffers.
+Applied to
 
-Thanks. A correction to my last mail: 3 bytes per pixel is not a worst
-case for 4:2:0, despite what tj3JPEGBufSize() suggests. Since then I
-built 4:2:0 test patterns that push the quality 100 scan as far as I
-could: libjpeg-turbo writes 3.35 bytes per pixel of scan data, byte
-stuffing included, for one of them (640x480), and the Hantro H1
-encoder on the RK3026 3.14. At quality 99 the largest I found was 3.08
-(libjpeg-turbo) and 2.88 (H1). The patterns, 96x48 and 640x480 JPEGs,
-the same frames as raw NV12 and a short script that makes them at any
-size, are at https://homenkow.ru/kernel/vpu/
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regmap.git for-7.5
 
-With the Annex K Huffman tables and 8-bit samples, a baseline 4:2:0
-scan is at most about 3.3 bytes per pixel before byte stuffing and 4.9
-after it, at quality 100 (lower qualities are smaller). Other tables
-give a higher bound, and APPn/COM segments add any amount on top, so
-for a decoder any fixed factor is a trade-off.
+Thanks!
 
-So 3 bytes per pixel covers what the H1 wrote up to quality 99 and most
-of its quality 100 frames, but libjpeg-turbo goes over it from quality
-99 up. If that trade-off is fine for you, I have no objection; I only
-would not call it the worst case in the commit message or a comment.
+[02/10] regmap-i2c: keep bus raw write limit when applying read quirk
+        https://git.kernel.org/broonie/regmap/c/931deb7a04b7
+[03/10] regmap-i2c: fix write limit clamping for adapter quirks
+        https://git.kernel.org/broonie/regmap/c/94da81cb6fdc
+[04/10] regmap: deduplicate fast_io checks
+        https://git.kernel.org/broonie/regmap/c/edcc17880bf5
+[05/10] regmap: factor out regmap_set_lock()
+        https://git.kernel.org/broonie/regmap/c/25203a86e6c3
+[06/10] regmap: factor out regmap_init_ranges()
+        https://git.kernel.org/broonie/regmap/c/37ccd50b8376
+[07/10] regmap: factor out format initialisation into helpers
+        https://git.kernel.org/broonie/regmap/c/7ba85f2e9681
 
-Sergei
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
