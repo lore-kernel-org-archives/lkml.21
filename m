@@ -1,96 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.86
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795095618;
-	b=K8q78ZI4CYT6Y7vAZy8IrdgndCOAll5kixEl4WJid3TeJtm5L3C6mIiM3U9VBkxvztMW
-	 uHPIgSnR9CJfkCtdYKZ68yZJ0hm4GUJeXkYB5dIxy6pHl/1P53UA+u1Aiga0q6G250fTw
-	 P8yJhLoFnJTnxNBFWgdECJgo7VYXxVNaTTTjQnDIOB5wX6qrKyu3BoWIIMR4FybT4XYJU
-	 FbTW5utxjr5+Y8U9GPbJsW15lSz5exXcHYtKUuldeXl1iz1eNmHcH6eM0MB1wEW0Qxg1M
-	 LqksP3aghH7+nCZZ+blk9pjqqafjH1knehv+DCnRjwwT5qWueJ/SqCVgwmHffIiEJPg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795095618;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=YT5Wq7JseRTZGsCrPdxNGSCW9dIiruFuOip1R5x5y28=;
-	b=APxVg3FMf++4AQ35FFAu4sufT+ddk/obCJwQJB6vtaL0QU9P3l9TalNW8H1qUtfSQ1hz
-	 GsLwSoSZzGS0DFZKHUnGFYB1dNFDyVLj3vfBdz2HsyqZTrjBkSnpUGV4eUwh3o0uAMqqk
-	 sPPYCfiXPNIP3tKiRzsR1jZ6hpbHBrJasQ4jIla/wf15IxTqAdkk1rXVrna3RttQ2c6R2
-	 aiKNCaE8L0AzWylfIgLHBMDyKfqOMaaoxZ7CNKpZdnZWgPkbnPEwt9t4luO6Kb6Yv+IcQ
-	 nEp4sEIxOhDgu6mczgUULDCnLw+RUuhkmPk6wOCHXuL5DAREl1pUODXjHfD2SNiiJ0A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=GIuUHrmb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.86
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020086.outbound.protection.outlook.com [52.101.189.86])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795095678;
+	b=SDMJHeHBtKzvJ+u94wG9Mj8oeWvaciBDTG2vC27kn0CxOQB5K23v3BQW6+TrbsqCMX4p
+	 5woAg/gDZO7UbnnHDqsteYIA9+j+LB3cUTu0+UvcpSU2N59teFAtZv6rPj6laMYaKfHOz
+	 uj+3I+yAmVnd29wsoY3j9mn5Uvvna6Vmxh06XsqfvlDgJDoIPZtAgZTzis/qjTN2+CkJs
+	 RKPLr/VtDTaRBKtHL4ezD5dUcbVIlpWJIyA8u3xl2To2rSAvCdCTAooh+7nbR3OrF/+6b
+	 nCXkfo2Ttb5idD8Cf4pYHkwUz/KT+K8RaPZax+WZf7cJXAq3Cx5kpF5f8WtsWlrC8RA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795095678;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=whGAW20c8uVzEqkH7Pgwmyhm5R9nQD5NUUfYKtUiNBM=;
+	b=jkEFDIpR6Omss+lswKftZ32SKnneKrVzj9Y1HnSi1SeL1WMnN3GxIm8ogKqlC4Tp7IB7
+	 PfsePfpMy8Y9kCaP1F5hudg8bFVGwV7zHpau7F1bZR/P6KJpM9kLs9Vyt1MuRTEvi44fj
+	 3/9ztN/QYtV5lOhoG0V0w8yvkfXzg7iXJ81R4howJDsnOOCZgEUkUb6b3SUdFPqYIygqj
+	 Lark3GUpI3SWRiAmib8ZOcbqezoHwqb0801Z87CB7TPSw2dqJCY+zguyrfd5RD0NUSsOR
+	 kfvB1hdbMHlr9WbfN6AMYvN1UVnRI4i6AGaJ2v9lgm/nWyr1cLWLvQvLX5RCjHgRxRA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PUH2TQHU;
+	arc=none smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ED52606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:40:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ED52606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF39160A2602
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:41:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF39160A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=GIuUHrmb
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FUi6GEUy7NDk2q92FxwHtHK+JhTymsTxA2L6MmR3exQxA9U64KT6leb16Nw6BROlShJbtTicp6OudZ9mdKa4xD0fG+XSYseWfhc/CvCXgWt+hdfKMFmlfqDrslYWGxWymj/tMlCesDh9w1YvO203EsecI6USzmc5KthX/PyhuygGnxopymzVUaY7NG+KmDKKI5ix68AQ4b/LIRC5g3Hw7XMxg6ZvLljQmGaphjhO+XxW+hZU7rhBjJilybUAbPRdaM3u5cKyUIpCBYa3qNuxYjLRAaxzWJWlkyBqCuWalJS5+d8Xw0LBuKGxyNhfSTJY7MLV/m2A/IVmVC01VoSUhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YT5Wq7JseRTZGsCrPdxNGSCW9dIiruFuOip1R5x5y28=;
- b=mj3vMlLjZqePt6PUaDv6c8HyW3JMbR8AQu43x6HsJQafbXGATtiSuWjE+sVYHHXdaaGAKoH3PPluXpgEpZ46nMXATovHv43+L3VN9q25cppoU885Hx9d5jkWJszlrvR8DDqxHj0ccBim8jJx+CAEiq0YJCjsurJwaYbp6rf86jQlMN7hMYDZLRQuMUbJbrLFL2T3WQ7ydUl6/Y+3aVV0n58iBHMaEhSUTuMwDudCeR35HPv/eDxeWcHgJJ2zF5/nQ/YqAhQsvJ8gSnPzIXtiopaMwHgR6oYz4/mDbtP2kPqE2BydUyv7NQUFUSGN5UvoSy7ipFj5Z7NIqA+cv05TWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YT5Wq7JseRTZGsCrPdxNGSCW9dIiruFuOip1R5x5y28=;
- b=GIuUHrmbq4N6phWoC8OU/R+ue0TKG/gLxEMeYMTMLQ38WJBXsuhGMhCNkOBbvABlSXrRBoYHGMnCMZw+cS+3+xSb80gEtQEMyUkcxxKgIBoJ6twwtx4KLQNI7yw1FKwncqGp6dqU5RQxvZ1e5nnN9agfrh0yCKrQUM+qONTHbC7qh4eoyZx7A+YSK81S9GmoUJDBwW4Y2NFNyLSUE8kAOJP+aNQBm8lRQSksB5QRD+VGkvoC4HDLYVji42GWAHkbMVT8h02CoykYTMELbXx7yk6RFrc0gMYRaldH3RnEvJzfT15IMiOlC45CMHErxQcV3AP7DSOczjQugmXFfusrqw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT3PR01MB5329.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:61::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 19 Nov
- 2026 13:40:16 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Thu, 19 Nov 2026
- 13:40:16 +0000
-Message-ID: <7e3f00be-2849-42af-913b-8111be744ec6@efficios.com>
-Date: Thu, 19 Nov 2026 08:40:15 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 16/16] selftests/sched: Add a test of SCHED_DEADLINE
- bandwidth accounting
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795037078.git.mathieu.desnoyers@efficios.com>
- <a94584f87598e48fece3c4eb9ec5f65e2a442abb.1795037078.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-222083@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-222083@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YT3PR01CA0144.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:83::30) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PUH2TQHU
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c506a231b88so316562966b.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:41:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795095676; x=1795700476; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=whGAW20c8uVzEqkH7Pgwmyhm5R9nQD5NUUfYKtUiNBM=;
+        b=PUH2TQHUcApim1vh5tI0/F28nASnNy5HpwuwCVBzRxDobKrlkJcZ931TVNeKrRsinS
+         e4khw5V+ujLPzcYX7MovzQCP6jUAdvFX05n0fyjJVVFXcXIbfNziIfLcizPAP8y9sY2F
+         e+reXE845OK3/a6C1T6KcXK5USO2g0Qj68jBp4l7+ayrUT3WvdcPzG04TydjoOfFzWc9
+         jH0PXjKBNbpEM2sXy2/uTfAC4bS0JzIcl+kFryOhgqSl7JZP1/YGC4pB2XBKc7NedBnI
+         7jXMUEs+xuiJ2oypDDVs1saKCmExdylNDzLiHG1YUGvXPZ/yYdoY2doNoAJMwQkUdSFr
+         HRDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795095676; x=1795700476;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=whGAW20c8uVzEqkH7Pgwmyhm5R9nQD5NUUfYKtUiNBM=;
+        b=zNY4gSJ2QRaygFkk+6Vr/Z59K70kaP3MaWpLagbN+2vhBxScTYgjrfbn0yoco6r2Td
+         ZOr+CsV8hCjIRqU6XGLV0oz/fIVFi40twYxgjQzT4d3NOlKdWWaKhP5/MQB+QK7lq/2a
+         y2SMUm4BZ2mfQtGNo5gqiRXn+MNFw8tiO44MX8U/IHEnIaJwsaU2K0+oK/4JxrMC1p/c
+         cNd54Kp/zGLUNwyiN/PZFHso/nBvXPC6oPehfnVdkZYXg3vppNTGGK7yyqbOrysJ0QW1
+         Oo3da9Pypl4a1cYikfhpKEpdYZ6EMfmOAkNQTLKKN+yyTZR63XHulR25czUoliZLTHY4
+         doHg==
+X-Forwarded-Encrypted: i=1; AL+hErE6xWzMbvFw9PR2iqkXGvEd5JvlGoQvBBT7219vEcrNSUMEUAm7GnMP9mUabWJNRnMZLmyPzpYzVpW6V9Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8AmmX2BXBrnUG4Ab0LjwMiGc/57LzwiojbK15ZCt+JFcDgdrwo
+	05K4l7gwxnKQPX5ey2O4YW4Je+WEIKNM1Qvu8MAaNPXC7p0rWqsUXbM3
+X-Gm-Gg: AYBFou1TtR76r9xZ/F92kPtGWzE6bAwc5nR1qjOAEoiRQiTcs3fJNZCBt9HnAvH+4m6
+	fsC05qqGjj4ig2wdRTPR3C6EVPfd7Pa+wnqbFyLsUrz8pniL3tie4qPkSBjSmIf1+uPT+VILiU8
+	dkvezD6DRQdEnyajt3fZQLUg82wdXj6aBxy28Xi4GqFquxbkOhAeMvYWB4+Ngnv/mBKl5+l3gtv
+	MKkYtoo9+ibfkBOPPgjt1LK8IoioOwrI8SQCbKaXHTilRS/3rxR4x6t9XbVwTYXB11i7x3W/iqA
+	hIhPlfOp5DW5EoN3tmTCV4xCE9r+9n6V1u1g7iRUxY9ib4BfQzLnjHaiu1kZ7CbH2ambf7fNNlC
+	mLRD8VggQSy9EE/NBIR5JKfqaxg8e9UaOmjsJXDHAgmqqYT/3yXTyBVCJYZt9Si15vbSgJvUOAs
+	rV6MGny1NWVh4dD6It7SC3ltlPpP9LQkR6Xd/ejdSKbeKd9r9rZhIb08Uj8grPGF52BIIaoubrD
+	vTYZyfiHwXVoIHf29VUll/5mRGppWckf+WPtENwoZfxgOh6SMHhG43gy5NsqXB64FQ3r/Bg4ox3
+	0jzyBfQUYd/YN7XpAtwK8dRGvZN0fpBsTGgKpLX/SBoXuaJplEwCW9MKPs/MbD1pt0UBQXOK4h1
+	przTwNQqs3ZtI4g==
+X-Received: by 2002:a17:907:3f93:b0:c46:88ef:2e46 with SMTP id a640c23a62f3a-c510debdbd4mr511238566b.1.1795095676017;
+        Thu, 19 Nov 2026 05:41:16 -0800 (PST)
+Received: from VivoBook-ASUS-X712UA-M712UA.lan (user-31-175-182-49.play-internet.pl. [31.175.182.49])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c512346fc3fsm105582666b.59.2026.11.19.05.41.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 05:41:15 -0800 (PST)
+From: Stanislaw Pal <kuncy7@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Yongzhao Chen <yongzhao.derek@gmail.com>,
+	Alexey Immoreev <luixo-public@luixo.me>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v4 2/4] net: dsa: qca8k: drop MIB autocast frames once the request is over
+Date: Thu, 19 Nov 2026 14:41:08 +0100
+Message-ID: <20261119134110.15048-3-kuncy7@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119134110.15048-1-kuncy7@gmail.com>
+References: <20261119134110.15048-1-kuncy7@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,117 +106,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT3PR01MB5329:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6b6ebbb4-d5c5-4231-7193-08df4642a539
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|10067099003|56012099006|4143699003|261021121427099003|261009223027099003|261102123227099003|261022075727099003|261022105027099003|261026140227099003|261028144727099003|261026121527099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	8B/fPHCX4nmiI3aZaq/xwLH9WjjgJng44ksEbxVrRjs2Vvx39/aqlpgVZZcXlcghUeyO7c3nN/68ou8Z+yJMYizrHUGKeOGIgdiwu78/iXjHy55Vbz0rIukmmrEIN/330NT1xRyfpyafacWLIz2x7PbPmridjctB/vLCvh0zzBOZFmxMErgreQfrLbyYw4OcM/ziCNBuf73TYZVlNytrrfxZrdZn4bz/lGy2Uv9i20jEby0Qsh0Z1G66hzSIk5O1K2Bw9gm3egKWcv/YMN2WlE41Qwt2g5fPSXTavb8UrbqQ9xUeSXR6s2D56n/BNSidyfS6ycH0mZFrvRTXQFmNR2VqqxSQ1SpsyEar7Nxhzf8scw6YvOBZGcN/8OvPIyyaC8eCJeGAd8A8jYwdK23cf4bq+u/IAq+HHgu29MKEltdPYBtavojM3K2tGsZKfmExY8RboxYMicm7/ggAftAQfP/vDfFUt9UYIWS/mYn7PVLczOcEOlpG9PFGY4KfyMaD6Mi+PPY/HAH/5QNkudHCjT2Wzq6nkaoG6JIk4vQEYI6LopCQleJCRgyfpUTaOOfo2oxkd4ita8Y44khkuqzszrIY7URA4LBQ6GmRER72YVo=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(4143699003)(261021121427099003)(261009223027099003)(261102123227099003)(261022075727099003)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?NC9SRjNCSCtseXQwYXVnZU5VcVpHeW4vWUVOQTZnTnFSOXVKTXB0LzZ2YUg1?=
- =?utf-8?B?RW0yTnBzTWdmT29pMS9qZDYyRTliZzZXK05oTzFMWG1GY2tCQXpzYnRqQkhM?=
- =?utf-8?B?eW9LRldiK0Y3cTBjUG5PN2FBdkNxazMvWFpGMFZSSTVySDNaTWFMdVpraTl6?=
- =?utf-8?B?OUdZUlpOQ0dDRG01aGpFclNLQ2l5VFRkd1ZWclRXejFYMTVGS2xtYjYwekpK?=
- =?utf-8?B?eUtRNnJLVXNoWXRHeGJMd1BLdWZhbUhlN2I2QTAwRmxPb2ZXaWlRS2VhbFFu?=
- =?utf-8?B?WnFndVA5NU1aeCtkeE42RHdKMFhJQTU2bUtJNExmK0psc2MwK0VwUUN3R3BD?=
- =?utf-8?B?RGVBd1A5MVgwL3llVTZOVUxFNGhZRTIvNkNnbkRDWlhYSEhxTDVXdDFteTdj?=
- =?utf-8?B?bGlWVlBpa3pUTnZtOHRhLzY1T3pwUjFGZ1lZVEpVVm9xTWNGWXJGT3lSRFVw?=
- =?utf-8?B?cXdySTBTdU84K3k3S3A2L1NneGxxZExpK3FSSzRsTmpZZTZVUjRWVUptVFBQ?=
- =?utf-8?B?bkR0YVhObDdOMDdLRG8rbXBHTzZPUm1lVnQzZUlIcjhjQ2tmR01BcGVNdjBW?=
- =?utf-8?B?NSszSWR5Sm55eFZhOTRoV0IyVGl2dFdmZUNBOUxYZm5Fa0RBYXp2dERnKzVU?=
- =?utf-8?B?a3RoNDkyaStscm1mYWo1UlhqTE9NZEVwS2d6L050NSsvRkVOT0cyRXVzRi9N?=
- =?utf-8?B?bVVYalYvSE5ySTV0S0xwR1E2bTkyb3RxdGFUa0VHYk5JRXU1aWdUZkZucm5Q?=
- =?utf-8?B?UGdSaWtWWHEvTStpa2lES2ZoLzBpMFZvMFZ2TzBXZmNBSlh0Sis2Smg3RWxB?=
- =?utf-8?B?K05ZV3FpWVhrZllXNWtROXJQTmF0Ym1kREdnd2orNVlRYlptWHBmRVFUUTNU?=
- =?utf-8?B?clVYT0VBeFRkZlpRK3Fhc25laFB2TklPblZocUhIZE83RnQ3dG9YaWM3UW91?=
- =?utf-8?B?R29QMllZVm5uWHFGMVJzUE5rM2JWQXNDNTVDUzk4TWROVzFkY0IyUWlzVjFi?=
- =?utf-8?B?emgycGN6TGpxaWZoMDdhS3pmd0o1Rk55bDVhbk0xRTBvaElyRko3dFhaM08x?=
- =?utf-8?B?V2NYb0NVZktZQUVUYWlBRWxSWEVlRGRJKzB4NkFXMGZMdkpNYTRBa3pRWU01?=
- =?utf-8?B?V2c1elFjcTdSUldGVnEwOUFnRk9EYnhKWWpZNDVWL0ZPUVVyZ0xZem9nZExl?=
- =?utf-8?B?OEZReHUyaUJrcFhYMloxNEZjVzN3MHVSTER0NmpLQVJ6d0tYcHMrZUVJeHBB?=
- =?utf-8?B?VU1LY1BqQ29XK2JDNWZHTmovZndnOWMzc3g5MGRjZkhLSm95Smh0UHVTYWlv?=
- =?utf-8?B?ZERLdHVJaEMrSVVaU2c4M3REeDFRY3gxTmo3OHJaL3YxV1pVSEtkKzZpYk1M?=
- =?utf-8?B?T1BwSEViOEw0L2xRSWZNZGNNbTVvYXNNRmU1S0lqZTlqcEhZaVJnMnVzNzhV?=
- =?utf-8?B?U25WdWM0VFVWanhDeWZiUlJRdzZzSUdPZ0ZXdEduZ2pjazVqWjNIVTJLUGF1?=
- =?utf-8?B?d2owTDlEeWI2RVo1dUF1WXYwQmhMd3F0KzhxbTRNZG1PNllvTk5qYm1RR0pw?=
- =?utf-8?B?b1JTbFc3bStFbm81czV2VHBkaHp2UkUzZjR4RzM3UFgxc1ZYQkRRWmZMdUVp?=
- =?utf-8?B?N1phL1JNallZR0hiZ3RROUYxNWdkSENQaEJJZG1VSkQ4eEFUcEpvYUJqV0Z2?=
- =?utf-8?B?eFpoTDRGbFBZemU3a3NMYThnbWZHVlJVOGpqZWZjWjhyUFpqRkdlN2xYRVl5?=
- =?utf-8?B?ajd3c3VOdVozS0JuTW0yelR5VTdKSHVCR29wUGYvK1N1cFFXZWl4VkJPRGw5?=
- =?utf-8?B?bzJYZW1pcHVCZlhOeUV3QnRoUFlLdVJ4M1MrRVZkblhabFdsS0NkTC8vSURa?=
- =?utf-8?B?aDNrei9GV2dQWVlFcE5qcVFEZHNxeDlUcDhpY2ZBVFczaUYwazBtRlVlSCs3?=
- =?utf-8?B?THNhSnFTdUFOckN3cG1uMFFnNWJJaVhHKzBka0xJN3REQlMwdmZVdG1MdVpp?=
- =?utf-8?B?c1BjM3AwYmdNMW1oOThoeGprMjdyWjhWMVhTbng5U3RlNWsrWUU0bHZ3dDBX?=
- =?utf-8?B?QnRRYVJORDVwU05mckplWHpxQ3FXaG9oWnJOU1FLcDIraVBJa1VmOWU4a1BK?=
- =?utf-8?B?UTNoQWxUSC9nWkJEZW1hY3JIVlZNSWl5THBSRWZEQTA5cnpFbnJmdzVMRWl6?=
- =?utf-8?B?MVRQRzZZM3lOZ2NnU1pPQ25BSWdBK3hRSldyY3JxTVdrVXFxM28wcnRtVHo1?=
- =?utf-8?B?UHRmZ0JlZmJxYm05OG1CVmQ0d1QxSmNLaWpVbUd3R0xqUHRNeUhPTC9SNUlG?=
- =?utf-8?B?QitpNUN0MmxPWTlmQWIrWXJTdU9hTE5sSnNMWlR2ME9zSU0zUGp5azljTmhu?=
- =?utf-8?Q?o4qzfgnpBDtHY5gtD73ERsHVpxiog+V20ln1e?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b6ebbb4-d5c5-4231-7193-08df4642a539
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 13:40:16.4444
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DD7MiXH+kY0GnTjdH9yZYNbvI6OcBHSpVzhpJNqiQHGrAWDeBBs4qD0c7no/745FsTi6LvY2N/DpGpPynLVRwVQ5nyKOcfC/YWRK94J6YFQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT3PR01MB5329
+Content-Transfer-Encoding: 8bit
 
-> Does calling set_deadline() on rb_waiter_tid while W is already blocked on
-> pi_lock give W an absolute deadline of 0 instead of a deadline later than O
-> and D?
+qca8k_get_ethtool_stats_eth() points mib_eth_data at the caller's
+ethtool buffer, asks the switch for an autocast and waits 5 ms for the
+frames. On a timeout it returns with the request still published, and
+the caller falls back to register reads; ethtool_get_stats() then frees
+the buffer. The autocast handler runs from the conduit's receive path
+without the request's mutex, so a frame that arrives late still writes
+the requested port's counters through mib_eth_data->data into freed
+memory, and frames beyond the seven expected ones underflow port_parsed.
+ETHTOOL_GSTATS does not need CAP_NET_ADMIN.
 
-Yes. I checked it in a guest. On this series, a task made
-SCHED_DEADLINE while it waits on a PI mutex keeps a deadline of 0. So W
-boosts O at once, and the case passes without the deboost it was
-written for. On v7, the case failed without "sched/deadline: Check the
-runtime of a task whose parameters change". v7 also had "sched/deadline:
-Start a period for a task that enters the class blocked", which gives W
-a new period. Both are in the second series. I will move the case
-there.
+Protect the request with a spinlock that the handler takes, retire it
+on the way out, and let the handler retire it when the last frame
+completes it, so that frames arriving after that are dropped without
+touching data.
 
-> This isn't a bug, but fair_tid is only written here and never read (which
-> triggers -Wunused-but-set-variable under Clang).
+An autocast frame carries no identity of the request it answers. Once a
+request has timed out and the next one is published, the switch may
+still be sending the earlier autocast, and its frames count for the
+new request. Wait for MIB_BUSY to clear before asking for the next
+autocast, as qca8k_mib_init() does after a flush, so that at most the
+frames already on their way to the host can be taken for the new
+request, and track the ports seen as a bitmap instead of a countdown,
+so that a second frame of a port cannot complete the request before
+the other ports have reported. The requested port's counters then come
+from the newest frame of that port, which is at most one autocast
+behind - the same as a register read racing the hardware.
 
-Same as v1 [1]: these are left from the split, and the second series
-uses them.
+An LLM assistant (Claude, claude-fable-5-1) helped analyse the race
+and write the change and this description; I reviewed both. Built with
+W=1 on arm64; tested on a QCA8337 behind an IPQ5018
+(GL.iNet GL-B3000) with tag_qca, with the request timeout forced to 0
+to exercise the late frame path.
 
-> Does pi_chain_donor_leaves() pass on this series without an rt_mutex chain
-> walk change to propagate M->dl.pi_se to O when M's sort keys do not move?
+Fixes: 5c957c7ca78c ("net: dsa: qca8k: add support for mib autocast in Ethernet packet")
+Signed-off-by: Stanislaw Pal <kuncy7@gmail.com>
+---
+ drivers/net/dsa/qca/qca8k-8xxx.c   | 47 ++++++++++++++++++++++++++----
+ drivers/net/dsa/qca/qca8k-common.c |  2 +-
+ drivers/net/dsa/qca/qca8k.h        |  6 ++--
+ 3 files changed, 47 insertions(+), 8 deletions(-)
 
-Same as v1: it passes in every run, in 25 guests with this series.
-
-> Since death_pi_waiter, death_pi_owner, and death_pi_deadline_owner each run
-> in a separate child process forked by run_in(), doesn't the process-private
-> static ready variable start at 0 in every child?
-
-Right. My v2 fix does not work. I will keep the flag in the shared
-mapping, next to the lock.
-
-> On a CONFIG_RT_GROUP_SCHED=y system where the cpu controller is already
-> enabled in root/cgroup.subtree_control, won't server_client(1) fail
-> sched_setscheduler(0, SCHED_FIFO, &sp) in cg_p with EPERM and cause
-> server_states() to time out and fail instead of skipping?
-
-Right. Our guests with CONFIG_RT_GROUP_SCHED did not have the cpu
-controller on. I will make the case skip there.
-
-[1] https://lore.kernel.org/all/eb414b6f-ea8f-4dd5-94ca-0915490ff37b@efficios.com/
-
-Thanks,
-
-Mathieu
-
+diff --git a/drivers/net/dsa/qca/qca8k-8xxx.c b/drivers/net/dsa/qca/qca8k-8xxx.c
+index 3c8044a4d1..4de7da9c8e 100644
+--- a/drivers/net/dsa/qca/qca8k-8xxx.c
++++ b/drivers/net/dsa/qca/qca8k-8xxx.c
+@@ -1676,10 +1676,18 @@ static void qca8k_mib_autocast_handler(struct dsa_switch *ds, struct sk_buff *sk
+ 	mib_ethhdr = (struct mib_ethhdr *)skb_mac_header(skb);
+ 	mib_eth_data = &priv->mib_eth_data;
+ 
++	spin_lock(&mib_eth_data->lock);
++
++	/* A late frame of a request that has already returned */
++	if (!mib_eth_data->data)
++		goto unlock;
++
+ 	/* The switch autocast every port. Ignore other packet and
+ 	 * parse only the requested one.
+ 	 */
+ 	port = FIELD_GET(QCA_HDR_RECV_SOURCE_PORT, ntohs(mib_ethhdr->hdr));
++	if (port >= QCA8K_NUM_PORTS)
++		goto unlock;
+ 	if (port != mib_eth_data->req_port)
+ 		goto exit;
+ 
+@@ -1704,9 +1712,17 @@ static void qca8k_mib_autocast_handler(struct dsa_switch *ds, struct sk_buff *sk
+ 	}
+ 
+ exit:
+-	/* Complete on receiving all the mib packet */
+-	if (refcount_dec_and_test(&mib_eth_data->port_parsed))
++	/* Complete once a frame of every port has arrived. A second frame
++	 * of a port, left over from an earlier autocast, cannot end the
++	 * request early.
++	 */
++	mib_eth_data->ports_seen |= BIT(port);
++	if (mib_eth_data->ports_seen == GENMASK(QCA8K_NUM_PORTS - 1, 0)) {
++		mib_eth_data->data = NULL;
+ 		complete(&mib_eth_data->rw_done);
++	}
++unlock:
++	spin_unlock(&mib_eth_data->lock);
+ }
+ 
+ static int
+@@ -1721,13 +1737,25 @@ qca8k_get_ethtool_stats_eth(struct dsa_switch *ds, int port, u64 *data)
+ 
+ 	mutex_lock(&mib_eth_data->mutex);
+ 
++	mutex_lock(&priv->reg_mutex);
++
++	/* A request that timed out may have left the switch still sending
++	 * its autocast. Let it finish before asking for another one, so
++	 * that as few of its frames as possible are taken for ours.
++	 */
++	ret = qca8k_busy_wait(priv, QCA8K_REG_MIB, QCA8K_MIB_BUSY);
++	if (ret) {
++		mutex_unlock(&priv->reg_mutex);
++		goto out;
++	}
++
+ 	reinit_completion(&mib_eth_data->rw_done);
+ 
++	spin_lock_bh(&mib_eth_data->lock);
+ 	mib_eth_data->req_port = dp->index;
+ 	mib_eth_data->data = data;
+-	refcount_set(&mib_eth_data->port_parsed, QCA8K_NUM_PORTS);
+-
+-	mutex_lock(&priv->reg_mutex);
++	mib_eth_data->ports_seen = 0;
++	spin_unlock_bh(&mib_eth_data->lock);
+ 
+ 	/* Send mib autocast request */
+ 	ret = regmap_update_bits(priv->regmap, QCA8K_REG_MIB,
+@@ -1743,6 +1771,14 @@ qca8k_get_ethtool_stats_eth(struct dsa_switch *ds, int port, u64 *data)
+ 	ret = wait_for_completion_timeout(&mib_eth_data->rw_done, QCA8K_ETHERNET_TIMEOUT);
+ 
+ exit:
++	/* On a timeout the frames can still arrive after the caller has
++	 * freed data: retire the request so that the handler drops them.
++	 */
++	spin_lock_bh(&mib_eth_data->lock);
++	mib_eth_data->data = NULL;
++	spin_unlock_bh(&mib_eth_data->lock);
++
++out:
+ 	mutex_unlock(&mib_eth_data->mutex);
+ 
+ 	return ret;
+@@ -2120,6 +2156,7 @@ qca8k_sw_probe(struct mdio_device *mdiodev)
+ 	init_completion(&priv->mgmt_eth_data.rw_done);
+ 
+ 	mutex_init(&priv->mib_eth_data.mutex);
++	spin_lock_init(&priv->mib_eth_data.lock);
+ 	init_completion(&priv->mib_eth_data.rw_done);
+ 
+ 	priv->ds->dev = &mdiodev->dev;
+diff --git a/drivers/net/dsa/qca/qca8k-common.c b/drivers/net/dsa/qca/qca8k-common.c
+index ab978cc836..f1e7e86f47 100644
+--- a/drivers/net/dsa/qca/qca8k-common.c
++++ b/drivers/net/dsa/qca/qca8k-common.c
+@@ -101,7 +101,7 @@ const struct regmap_access_table qca8k_readable_table = {
+ 	.n_yes_ranges = ARRAY_SIZE(qca8k_readable_ranges),
+ };
+ 
+-static int qca8k_busy_wait(struct qca8k_priv *priv, u32 reg, u32 mask)
++int qca8k_busy_wait(struct qca8k_priv *priv, u32 reg, u32 mask)
+ {
+ 	u32 val;
+ 
+diff --git a/drivers/net/dsa/qca/qca8k.h b/drivers/net/dsa/qca/qca8k.h
+index 9563388930..79754755f1 100644
+--- a/drivers/net/dsa/qca/qca8k.h
++++ b/drivers/net/dsa/qca/qca8k.h
+@@ -402,9 +402,10 @@ struct qca8k_mgmt_eth_data {
+ struct qca8k_mib_eth_data {
+ 	struct completion rw_done;
+ 	struct mutex mutex; /* Process one command at time */
+-	refcount_t port_parsed; /* Counter to track parsed port */
++	spinlock_t lock; /* Protects the request against the rx handler */
++	unsigned long ports_seen; /* Ports whose frame arrived, under lock */
+ 	u8 req_port;
+-	u64 *data; /* pointer to ethtool data */
++	u64 *data; /* pointer to ethtool data, NULL with no request pending */
+ };
+ 
+ struct qca8k_ports_config {
+@@ -501,6 +502,7 @@ static inline u32 qca8k_port_to_phy(int port)
+ /* Common setup function */
+ extern const struct qca8k_mib_desc ar8327_mib[];
+ extern const struct regmap_access_table qca8k_readable_table;
++int qca8k_busy_wait(struct qca8k_priv *priv, u32 reg, u32 mask);
+ int qca8k_mib_init(struct qca8k_priv *priv);
+ void qca8k_port_set_status(struct qca8k_priv *priv, int port, int enable);
+ int qca8k_read_switch_id(struct qca8k_priv *priv);
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.43.0
+
