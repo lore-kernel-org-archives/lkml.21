@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=149.28.215.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795101684;
-	b=gG/dTkGRo5p7xnZ0Po6i8i7Kb/45+W41iMssU5HR1FBWk1gp8zal8ACJyl+b3FPZa4OZ
-	 q+hdKZZEUZ27ytM37Vl0x2WS3klXpQzCfETmuQUvnO2FRWsfpccWeJwx44uT/CKuQ40Ip
-	 7nc+trm/tiBppqzCWGU/EHUQkuLz2AYYp8b+7kR/OvHaCcGlZwau6pHuw+xX7l2G1JA58
-	 mOnnCx9OdZW2DL0UtpJmdJkFiEN5JFmzv1qLZxldvhgzB5wEXt4fnXQS9V+12Q0eDCI6Z
-	 ujH8gmuCogNS+5Y4aufnRyXgoYMRcsXei/ipdFWg47CxUmOToJN7VqgdO0R7v2hQNiA==
+	t=1795101728;
+	b=2IbYZU51AnliXPZvHpSnmPzvVn/gsN5fepEA5xjx5g95syIL8kMq+ZjwM0f/Px3ymYCt
+	 W8kzWKxTcU8STPLYwuCAska1k6QwcgEpwITU1dXmBfi18AeUAKMky/zHnI6AdI6f0tBwW
+	 eRIfKAXBj9tb2Jlvlu24xoh2E9ULaiNEuW+PRhXyz95qXWb42X0h3hFPYs1OI3dWwuJ7j
+	 TC08wzYOlqFAVKy34umg6/PJQT4JveZaeWF0sgx1jMRPIDtUWxMTpXHmsUpReqjPUkJTR
+	 Mtq9jkLpprlx73d7UjLM6N7lYPCsiV+J85wCuuuS1BpvExtunGHX8wt+Zdj7BfN6MYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795101684;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795101728;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=+BMI6JJbtEPc14NSQH7+PKHWzfP93bpxfX8QAil2H3o=;
-	b=SkQuDswxT2K7Fgd1zAtDW8F99hLVfZkuYra+OxhZK8D6e0uC9NbIej3Jq+P000ruRp2c
-	 9jxFu8o4Z4uLoTU7Ywp9kFr5g5ObYsBKTN6MDZTQkaRKFAG7fBSPb+omK3EqUL2goUz04
-	 RFS1cUEd5roYEkwsUagsdd6RL4h/LCtSzkB5J+Orw6jVHDSM4Vvpuoh0oDjugGPd1g2KF
-	 wvETvhWFrqZ4x5CePHb+6451DpIb+6J36i8y36iiEAEH8SuZ8PgKlfaNCpkrJHCbdmMkh
-	 /abG084WsJB0rTcJCAKmtUSdxPXOHsP+Jm0vZw3/VNvaZO65hjNnADVDDQuFyolMdKA==
+	bh=oV4J42aG7aSlwZmO4hsI4nR3tdj4IKf86NVOjXkIpNI=;
+	b=JfznDP/ww4x8NMV8D1hN2GstA+gA/vMsfZ61LUBWnfHVikjWHUe2UUCuyc5wLyy8zLtc
+	 SN9ANLfJwr56KCfFhLcOBJZw+Wjsn06yih4uJzClkP4quifa3sRJ9sVirkbi10wMG0Jrw
+	 l3lmzWImD1v0+faJ2JnP8CEbhYv7x2fk5cLbFrSXA/QBRXKgsfIeZzqiJQ1jV2VzGmdgm
+	 4OKW8wNKsSON7JPu9uU9tdPwhIByiucHPTaXz9zn3EvywaSUnbv0lA4GTV0fdQnBIDooK
+	 JbUwtCz8spSSpUb43gYTCRwoCU+6+TOko3LtyozDFkbWQmvWEf6Q6xCs11L/WARS20Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kwiboo.se;
-	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
-	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=XUu+0pwH;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=FBw3NLub;
-	arc=none smtp.remote-ip=149.28.215.223
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [149.28.215.223])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ed9MC6g+;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27C1E60A2623
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:21:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27C1E60A2623
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8022B606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:22:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8022B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=XUu+0pwH;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=FBw3NLub
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
- q=dns/txt; s=fe-e1b5cab7be; t=1795101683;
- bh=+BMI6JJbtEPc14NSQH7+PKHWzfP93bpxfX8QAil2H3o=;
- b=XUu+0pwH3aAsxlQBZxj3Nk/43h69XxlE5gvWAIP5ebKg3Oqj//pUXIRR3u93pUTMTjpUUkZMz
- xhzFxJtvx0K+SozQWvA8NSwGYmJRqMufjMgIBvhb48woeysRLRXQ8M2J182Z6hPxVDDXLHTeOr2
- cSq1ztsc4NlNUGUvrygT/Kv1CBjNywOoOcACss0z/DAmYlDq5lMJD02h1KyBLwTSGlJSRSkv/8b
- YpykEP5z8xeuWQOjQOZGnFY93lY4nfbGJT8rRC2VqRc4TN+dt702xiIL3g8wxaCKsUzBhZp5i64
- WRmYu341wnl0hiRMD84horDyYcUAj1V4GO+oJi7gyZ+g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
- q=dns/txt; s=default; t=1795101683;
- bh=+BMI6JJbtEPc14NSQH7+PKHWzfP93bpxfX8QAil2H3o=;
- b=FBw3NLubJH60bu6CV5HXh/B+9WCobP1Cs9Ph94o0cBoPlS68NKeiVYcj3icZnoVV62+sNxp39
- 2RsQyrmyvo54+MOD91hsyIKU8JIJlF4CmROtmAtjuxRaTfV6vidm0x6I08lBQUEuaIOGeDFy140
- ffrWwcNR1xQDyBR5Ri+JV44=
-CFBL-Feedback-ID: 6aff13ef83f3cb488062bad2:efb0545eef45a9e10f36c57d020a1bc7
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6aff13ef83f3cb488062bad2
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.19.33
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 6/8] ARM: dts: rockchip: Add Luckfox Lyra Ultra board
-Date: Thu, 19 Nov 2026 15:20:49 +0000
-Message-ID: <20261119152055.556266-7-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261119152055.556266-1-jonas@kwiboo.se>
-References: <20261119152055.556266-1-jonas@kwiboo.se>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ed9MC6g+
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so7798885e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:22:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795101726; x=1795706526; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oV4J42aG7aSlwZmO4hsI4nR3tdj4IKf86NVOjXkIpNI=;
+        b=ed9MC6g+5Qtaoy2xB6R75hiktNRHrl7RaNAjvJeRhSHqpYmnLg4iyU3/hdIW4Pu90D
+         a4LQmtDz7S9rGXQd8aG1A/52yzeUu+XvQDN90ggIDTb2We7bKM8vuvXuYrr9v7ehhHXK
+         P7QBdQhyVZmPZydzQW88om3uzIo9thgVho6ku23S1CGgMS4BdIfOIiKtP50+yNHtvxJa
+         KmtxG8XqHOaTzAS7jgYCxmxQTzMgfEsFdZPmlRsYoT29OqJYiNYjWC1tYEqdP0sMJwQc
+         dlWpmyj71nQQ0v8C4hD6MEHQmwQRN2YbJ8uEGM8vF1OWA8ciDyydUn0Duphkcbv01yhy
+         +P1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795101726; x=1795706526;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oV4J42aG7aSlwZmO4hsI4nR3tdj4IKf86NVOjXkIpNI=;
+        b=OZBuAlYIkWDp4JpaaEzRQrCwABI3/O4+GoQ1I295oAvTThWJsPuB+7inQR/M6+E6BG
+         3xC085f7d0ZN5W8aM7fTGOOtohNKfAlBy0pLz4OYfyvahYh7VSg38r7VILKLwh4oj5aC
+         n4UqmGcuibQMwSZp71VHPkh6xMl6KKPKEyoD8Mq5jhtFGibcJjKtv+d+Vs3iq5tPUTJ1
+         kK+b0CYcvN2b4T9WYDOg/m2arpIpYVaYKeRSOoQmVTzQBXjwt7sDL6aA5Qkw0x7U0v5w
+         j/0SFA8PSLDcHMCmLXxI0kdxxDV04c0dfcN05z1WnXYYMujGbrp5MU+42hlJ3LCzw/Ec
+         WPHQ==
+X-Forwarded-Encrypted: i=1; AL+hErF56IU36l2MSixL7/Lqc5+1QZ1zfRk4iTqKN3eJYPUJcZ0wyB+4NTHDYnXlL3YxlskGYU1XZkOsqPajgrI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z92OLPKsQH85T/MO42hNYKAd9XY9EGW2WbmesJR7I1r8jOkxjE9
+	l52aUDipy3dY5sJGfDxUcOEA9c4GQAuUbXxlklmCamLuPVnr1kqtlxn4b0zwYb0odPQ=
+X-Gm-Gg: AYBFou3Vg/A01tYsRiucg9cgVbqopxLbyFGpp9DZpnfWJir1R5GYvNU2NKPwuOywA07
+	pHkfJlS/+gAnlAt0W5bzQKVF2VBquBd5Mv3Z4Q4bEqSJslLrwnP97Gdr2rfYFuladkCxlkV68+r
+	UB6qsjHYsSz5cN71ZvSxfR0KTskgCFrz0EEdTHerxvIg/LDLCkzJGqzm8eXEu4d6xhSYyoiR4+U
+	DFTeycdBcYW1KZsGc1nXJgyVB+wCRQBs/DY9zJQ3DAMnQHs/G6GlGiLZv/dDLsIVDxTQ02b5f0s
+	XrjNr4PUqzhTtp7IxTVePal4ds89GKLnl9amEFLIzl9NKxJjda8voTinH2PuAu5hpOg30dxHRoq
+	JeBgAiVma4ALU9Gx1MlW1EJOZBLsoCPX7XBP/GnWZeAfhLWToFNgl6HmGb9YCBmohHTfNkul349
+	rao7HRoRf3bav5eJP9wa2MMIccADgxH2SewpBiQ+t02mtuYkBffuWbN3omIZ6FCVI3KjNw42fEt
+	qj/5lG1uHj/pUGtIOC898J0IfxV1ztz9b4ZPVLdhhUd+dDbAAUpLI5pWNZv2BoRgm/mAEph0w9l
+	OFnAJFCEPyfUbQTu8B7kBD1GUpPGI8js9EmIFYtLyggxYD0YgZdlBoui4vZGNVWqFg==
+X-Received: by 2002:a05:600c:674b:b0:49e:65f2:db64 with SMTP id 5b1f17b1804b1-4bb860ffbaamr34819435e9.5.1795101725389;
+        Thu, 19 Nov 2026 07:22:05 -0800 (PST)
+Received: from ?IPV6:2a07:de40:8100:0:89a9:fd0e:583d:4a53? ([2001:af0:8000:1409:193:86:92:181])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84cbc5d3sm29859235e9.0.2026.11.19.07.22.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 07:22:04 -0800 (PST)
+Message-ID: <8b47b628-865a-416d-b9f9-fbeca3f9d649@suse.com>
+Date: Thu, 19 Nov 2026 16:22:04 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,180 +92,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] module: Add stubs.c for CONFIG_MODULES=n
+ module_put_and_kthread_exit()
+To: Luis Chamberlain <mcgrof@kernel.org>, Daniel Gomez <da.gomez@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>
+Cc: Aaron Tomlin <atomlin@atomlin.com>,
+ John Fastabend <john.fastabend@gmail.com>, linux-modules@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261014-module-stubs-v3-1-319f2a7d4a55@suse.com>
+Content-Language: en-US
+From: Petr Pavlu <petr.pavlu@suse.com>
+In-Reply-To: <20261014-module-stubs-v3-1-319f2a7d4a55@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Luckfox Lyra Ultra is powered by the Rockchip RK3506B SoC, which
-integrates three Cortex-A7 cores and one Cortex-M0 core. It includes
-512 MB of DDR3 memory, 8 GB of eMMC storage, MIPI DSI, Ethernet, and
-IO expansion interfaces.
+On 10/14/26 3:34 PM, Petr Pavlu wrote:
+> Module-related stubs for CONFIG_MODULES=n can normally live in
+> linux/module.h. This works well when the stub does nothing or simply
+> returns a constant. However, some non-module implementations may be more
+> expensive, either because they have a real implementation or because they
+> require additional dependencies to be pulled into linux/module.h. This
+> header appears in roughly 15k #include directives across the kernel, so it
+> should avoid bringing in unnecessary definitions.
+> 
+> Specifically, linux/module.h defines module_put_and_kthread_exit() as an
+> alias for kthread_exit() when CONFIG_MODULES=n. That in turn requires
+> linux/kthread.h, even though linux/module.h otherwise has no need for it.
+> Note that linux/module.h currently doesn't include linux/kthread.h and
+> requires its users to pick it up through other paths, which is itself not
+> quite right.
+> 
+> Introduce kernel/module/stubs.c to hold such stubs, built only for
+> CONFIG_MODULES=n. This mirrors kernel/time/posix-stubs.c, which is used for
+> CONFIG_POSIX_TIMERS=n.
+> 
+> Define module_put_and_kthread_exit() in both CONFIG_MODULES configurations
+> to call __module_put_and_kthread_exit() and add a CONFIG_MODULES=n
+> implementation of that function to kernel/module/stubs.c. Since
+> __module_put_and_kthread_exit() is now implemented even when
+> CONFIG_MODULES=n, remove the corresponding '#ifdef CONFIG_MODULES' from the
+> noreturn_deny BPF list.
+> 
+> Signed-off-by: Petr Pavlu <petr.pavlu@suse.com>
+> Reviewed-by: Aaron Tomlin <atomlin@atomlin.com>
 
-Link: https://wiki.luckfox.com/Luckfox-Lyra/Luckfox-Lyra-Ultra
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-As mentioned in cover letter, unclear if this should use
-rockchip,rk3506b instead of rockchip,rk3506.
----
- arch/arm/boot/dts/rockchip/Makefile           |   3 +-
- .../rockchip/rk3506b-luckfox-lyra-ultra.dts   |  31 ++++++
- .../dts/rockchip/rk3506b-luckfox-lyra.dtsi    | 100 ++++++++++++++++++
- 3 files changed, 133 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
+I've queued the patch on modules-next.
 
-diff --git a/arch/arm/boot/dts/rockchip/Makefile b/arch/arm/boot/dts/rockchip/Makefile
-index df620116bb2d..9a699bb8fc5a 100644
---- a/arch/arm/boot/dts/rockchip/Makefile
-+++ b/arch/arm/boot/dts/rockchip/Makefile
-@@ -47,4 +47,5 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
- 	rk3288-veyron-tiger.dtb \
- 	rk3288-vyasa.dtb \
- 	rk3506-luckfox-lyra-plus.dtb \
--	rk3506-luckfox-lyra.dtb
-+	rk3506-luckfox-lyra.dtb \
-+	rk3506b-luckfox-lyra-ultra.dtb
-diff --git a/arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts b/arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
-new file mode 100644
-index 000000000000..5a3eb35eb70e
---- /dev/null
-+++ b/arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+#include "rk3506b-luckfox-lyra.dtsi"
-+
-+/ {
-+	model = "Luckfox Lyra Ultra";
-+	compatible = "luckfox,lyra-ultra", "rockchip,rk3506";
-+
-+	aliases {
-+		ethernet0 = &gmac1;
-+	};
-+};
-+
-+&gmac1 {
-+	assigned-clocks = <&cru CLK_MAC1>;
-+	assigned-clock-rates = <50000000>;
-+	phy-handle = <&rmii_phy1>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&eth_rmii1_miim>, <&eth_rmii1_tx_bus2>,
-+		    <&eth_rmii1_rx_bus2>, <&eth_rmii1_clk>;
-+	clock_in_out = "output";
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+	};
-+};
-diff --git a/arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi b/arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
-new file mode 100644
-index 000000000000..c422053c1262
---- /dev/null
-+++ b/arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
-@@ -0,0 +1,100 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include "rk3506.dtsi"
-+
-+/ {
-+	aliases {
-+		mmc0 = &sdmmc;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-recovery {
-+			label = "Recovery";
-+			press-threshold-microvolt = <0>;
-+			linux,code = <KEY_VENDOR>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_RED>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio1 RK_PA0 GPIO_ACTIVE_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&led1>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	vcc_1v8: regulator-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc5v0_sys: regulator-5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+};
-+
-+&pinctrl {
-+	leds {
-+		/omit-if-no-ref/
-+		led1: led1 {
-+			rockchip,pins = <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	no-sdio;
-+	vmmc-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
--- 
-2.56.1
-
+-- Petr
