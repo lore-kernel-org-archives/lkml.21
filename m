@@ -1,96 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795055773;
-	b=it/ftyvvcXKRA4QKp+do9KCI2NVTNzcnt7rH4m4NsGQepXx/HbC1jvQ+CtxDHKdpupCf
-	 ifUNjO8yT4NO88FnTj9m9Gi3hy+vgWCyMKbweQumCQVpXbxvfKPFJ9EWJnZyIiRNcdVIM
-	 wZ4SWTtF70phWEeHjJiWDkZ/r1yGH3UuDQaT+bix5nXLXXIkBbAfzqmwbE+1Uk0ag2ScQ
-	 r9OWAHKQoU5VH6m0vpMx5wVCEMrDWyKG740TyD+0AY0gy0JVM0e+3veVF1jO53yiMdau3
-	 ALt0GTSwcSS2xlzr28Rd+MVpk974HvjndQS6NNoxx7oFTnt/3iT2lb27/zutXKwREFQ==
+	t=1795055806;
+	b=ageWcxsZEmulVsVgCGi207iP0UI6bxdUxC99yta3L1bJ+r6Nh3QR7mWzPtZ63qMSCgAP
+	 iCXI1P/qamk1XAZetVfhXPKjKOchfbcrfk3qBDdHCgutz+Z6O3oabSBTkAfQx8CGnYzE7
+	 lu38Y7A+lLLSU3a66fQ7B+Sitb9xpo1Jdi390rJ8RjazwsI49LzZYb7sRvmbV4asfgGim
+	 6QK6vxZqD3wgXAnpeAqFOXUChxVDdCySAvbsFFheOFXUhGdThDpuE8DgOO6qAmIlBRxpL
+	 VnjIhyQGy2llmMpZsjrNN9O+KYF4CQ5dwveGPfW9hhWOFKN3Nhf8rvyWWnhMAaTp0Ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795055773;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=r5vcTKCKH8w1c2blCWgaYBVv/4WCN3dPU6fSMD6S8fk=;
-	b=jtNEwspLVnj5praBkpIQy08PhvC6HvOJwHa89TtY/1stmUOmA5X+nbYgLC+vhwwAAiLM
-	 ImYB/K0n/5usuI8Gu7VFDxjFUcV322zYoYbbpvcOITP3ADgD7XIy+fRIoyjs2Rx+DZRSx
-	 Eec6ElEB0u8XK/Rb27ti0MLP8ELV+kEabRc/xAuagdSgQ2DhRy2vwFPJgfGBCGWoTXu6f
-	 /EdLIKwQqfGAsz9umHmkpAT9xZB6Ope/7eV6fvO75zKawa6WkSNk+VpApcJcTgulaUrWK
-	 TVQgfyRiqGq9uoh+1M5j52+dztdfitpadr07V6FqYLZDJimX4jZu0DmVhiU+h5vsxsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795055806;
+	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=wvSpWqjeLmfCA5i/nNBI6xKjGl3BUXxpHWvapvsXUhA=;
+	b=K8S2qTFTCg27hBD6PI26/vpdppO0nR+hAtcTlJrgQ3jjQNRrK0Pg5ztqjw7tr6/dOeb8
+	 w7c4eLMVyLBIhocLROw5s8fyMBRu4FZjIU/BXoo9fQmaQQK9OmyX/KTnFKt2pSEqqebth
+	 Kdas4DUV/YAEqUD0dhlQc2fjg2uBBEEosbCBG9Fzr52PtU3jBC0GsCVq83PrHRqtwA12p
+	 /slkvnAoieCSMZmhfMO5EBpQgh6H0wkpqJxGyjvD558YtzIvUjpk6Sh1pitGoQgwV6LEC
+	 MTBeu4dcPZj6qRXaCrHeyQrXkS4sReyevNpNHNDSUnkl8N0LgjvTgORJyYM8C+m6/2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rc53iUWc;
-	arc=none smtp.remote-ip=74.125.82.52
-Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=d9GK2cUz;
+	arc=none smtp.remote-ip=117.135.210.4
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 082F8606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:36:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 082F8606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEE8B606A325
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:36:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEE8B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rc53iUWc
-Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-15ea896ddc8so2954348c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 18:36:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795055772; x=1795660572; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r5vcTKCKH8w1c2blCWgaYBVv/4WCN3dPU6fSMD6S8fk=;
-        b=Rc53iUWcdTZp5i6m330thZB6WFIqkINPF62zRs1ZpBC5WRJUpsa0TIOPkumX0MGh3c
-         g8Rb7fwDeozAOT4BP5IAA1m9KG5YwEdoxsddeu1CzXzDdWaJfPZWMunvxKjt2kESX/rV
-         h50OZfVcHP3lX1+AIUaX3/9rJzxql7o8iDn+5D+5esu+A4gpLIOwlclebDUBlevGttdx
-         FmLLxa85Rm9MAzUXG26uL+Z3RsrSjuxIZVhF4DJkXJ1OLygnjsBXCLZGyHv6KMlSZtXf
-         5Di7elJ6kGJanYg4NmS9lNNuTjUQm+kHfy3X7iyEz56Z+2Kwh9mxFqavU2+Q2Asyhwea
-         1JJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795055772; x=1795660572;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=r5vcTKCKH8w1c2blCWgaYBVv/4WCN3dPU6fSMD6S8fk=;
-        b=INCAMn5jmKpvXrvNHVjMLiLm8lnHZx64UDrexuu0SyGGvdRcfRXhMIPtjBY4BfGcu3
-         dbYBU/8goXiqoseF1Hc4QiEeO9KRujXn8xW3GPJCi8bt4+tj7KGAT+fzkrm/gArPLxJd
-         bFIp+bl5iyw+4sI355aUJO6WRkPytrl29x4D4s6fDhx+enAzcc+s5/mi1Qyq9E5hZxJT
-         h41OmWVy0xny5n0eYCKTizqtx+g8MEq8qYsuW3w2HSHa71FHzlNrzxclA0q3y/h7/sZT
-         R1Qe8hYAVnt6uc8coH2Ry2WjODhVgak5vkpkqfMQq/b7Sl9CDSORuvxn5jx3f9XMbVIE
-         rUpA==
-X-Forwarded-Encrypted: i=1; AL+hErFbJXqdL/OQqvUYn/5sRZa2lMPQX9W/l7pzQQd/7xj385i6KN7QyefxQp0VLn0Aii/Rmn1cVKxypPmBkt8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CaugRf6VU/wIpLD8JyEgqiZH0fQOjTZ0vsk/aOIKqSnElDCIG
-	HxDE0igxzs0gHb+3i7wjd+Re/2Yy9AcWDmZxtPp+iRMLpCKY3pbxGKxM
-X-Gm-Gg: AZFdTZf/EkiYPZYhM/n7zttgfHK8gjMlHQTVLWCI7KnVufpAYl0cBbASc3MD4oV33tK
-	u+iyUSafwvzNucXo0LM+J4CJ3xEuPwCIDeg6MjWCnkXLlEa1O2llk9CUP8wtC77BmmMP/UoiQjF
-	3q/nSzGSSdmnAeRS+xo1+a/vQpqJ3BkpyaKi6JxUdTiipC3dhE1oA6zez3iVn2Uig/HizhyEo7r
-	aPCO3kpolmPMBx5vca4XhRuCkLTnNJ06l3R1Kl26cxTv21D/333EO8rsQnejGHnI1NOQYm1t5xz
-	IBumflRl49lH667Y/OCr2Xfu0jTl50y+1i4LiQosguWS6kXhdhCwpImB4hqkncDmzqOaBuAaaGp
-	w0yb+b8gY1SQ7oOULx+uO0sltkA+ySaBMjgc+2QqeoMA39DbRLMDRevFIDaYwcVEKWlzH39vRai
-	LjbR6BmN4K9M5ttADS9O/nVgr6IcFfoU95BiHoTsWuD7fE/RkEUJChDWe/YHKh3TlX1pz7T0m8G
-	euJ1gpMyFCFCeM7xFOABH3o/qdL5HWZL31HsDWt7WWAhO1O/2gM951ANrBjXaySubEn/1zUXQgK
-	uIGlPr5Qrfk+/uxFxJ3Sy44u76NtJf9+Mkcz7uSQB/s9T1IOH54Af5w/5A/R3tSRhFNFUt62ZAd
-	pw5U5aZSfblcYxy1xN6SyM6t70BrBrIoaiG82H191
-X-Received: by 2002:a05:7301:9e08:b0:379:7bb6:9c4b with SMTP id 5a478bee46e88-38281bfc037mr3868548eec.39.1795055771985;
-        Wed, 18 Nov 2026 18:36:11 -0800 (PST)
-Received: from lwq-System-Product-Name.. ([2602:feda:30:cafe:ec49:38a8:0:f6])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a80bc19bsm12160265eec.29.2026.11.18.18.36.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 18:36:11 -0800 (PST)
-From: Yaohan Li <shunsheng1218@gmail.com>
-To: maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de
-Cc: dri-devel@lists.freedesktop.org,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andyshrk@163.com,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] drm/flip: drain the flip work on cleanup
-Date: Thu, 19 Nov 2026 10:36:04 +0800
-Message-Id: <20261119023604.1495603-1-shunsheng1218@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=d9GK2cUz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=wvSpWqjeLmfCA5i/nNBI6xKjGl3BUXxpHWvapvsXUhA=;
+	b=d9GK2cUzfYaShF4kD76fpCpiVfQC5eYnPlUrk21WoGoBm3HLEEfn8ijbqmP5mx
+	sPQtCvwUPYAvUCnOVOWoIhZXRP/hB4JZMssZviF/di07K5pQRd/hy0dmKY0BFzH/
+	Ns61flvfuJT7B3+NXIlpyTSqf91ztcBDzB6N1LnyoMYkI=
+Message-ID: <66391daf-8160-4168-bf54-5369f7267ec6@163.com>
+Date: Thu, 19 Nov 2026 10:36:17 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,121 +51,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/37] Report NTFS metadata errors and shutdown through
+ FAN_FS_ERROR
+To: Hyunchul Lee <hyc.lee@gmail.com>, wangxuewen <wangxuewen@kylinos.cn>
+Cc: linkinjeon@kernel.org, liubaolin12138@163.com, ntfs@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261118090701.1858849-1-wangxuewen_ky@163.com>
+ <3a5764f4-2b8d-49d8-8e84-d500e1be3d8e@kylinos.cn>
+ <av5VtYFk9MQE7kw-@hyunchul-PC02>
+From: Xuewen Wang <wangxuewen_ky@163.com>
+In-Reply-To: <av5VtYFk9MQE7kw-@hyunchul-PC02>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3v96hYP5qy2yyIA--.55317S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3ur15Wry7Jw1fKrW3XFy8Grg_yoWDWFWkpF
+	Z7Kan5trn2yryIvrsrt3y0va4Fvwn5Ga1UXrnxGryagwn8Kr1IqFWxK3W09F95uryrK3yq
+	qa1UJa9rZry5AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zEdWrNUUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzgOag2r+YKN71QAA3t
 
-drm_flip_work_cleanup() only warns when the queued or the committed list
-is not empty.  Nothing cancels the worker and nothing runs the tasks
-that are still queued, so the caller silently leaks whatever the tasks
-hold (framebuffer references, vblank references, ...) and, if the
-worker is still pending, it can run after the structure embedding the
-flip work has been freed.
 
-Cancel the worker and run the remaining tasks from
-drm_flip_work_cleanup().  The work item is the only producer of the
-committed list, so after cancel_work_sync() the two lists can be
-spliced out and iterated without holding the lock.
 
-The helper only drains the work items that exist when it is called, so
-the callers have to make sure that no new item can be queued.  Both
-in-tree callers already do:
+在 2026/11/19 09:49, Hyunchul Lee 写道:
+> Hi Xuewen,
+> 
+> This series looks good to me.
+> Could you check whether EINTR related code is still needed now that
+> the following commit has been merged?
+> 
+> https://lore.kernel.org/ntfs/tencent_BED06C76C024128D13E6854C2FC31BF48A06@qq.com/
+> 
+Hi Hyunchul,
 
- - Rockchip VOP: rockchip_drm_unbind() runs drm_atomic_helper_shutdown()
-   before component_unbind_all(), and vop_unbind() calls
-   pm_runtime_disable() before vop_destroy_crtc().  The CRTC is disabled
-   and the device cannot be resumed when the cleanup runs, so neither
-   vop_plane_atomic_update() nor vop_crtc_atomic_flush() can queue a new
-   item, and vop_isr() returns early because
-   pm_runtime_get_if_in_use() fails.
+Thanks for the review.
+I'll recheck the EINTR-related handling against that upstream change and 
+remove any redundant checks in the next revision, keeping only those 
+needed for paths that can still return EINTR.
 
- - MSM mdp4/mdp5: msm_drm_uninit() destroys the KMS, which releases the
-   interrupt, before drm_dev_put() runs the drmm actions.  The flip
-   cleanup action is registered after drmm_crtc_alloc_with_planes(), so
-   it runs before drmm_crtc_cleanup() and after the vblank interrupt
-   that commits the work is gone.
-
-Rockchip VOP called drm_flip_work_cleanup() after drm_crtc_cleanup(),
-which memsets the CRTC.  Its worker calls drm_crtc_vblank_put() on that
-CRTC, so the drain has to happen before the CRTC is cleaned up.
-
-Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
-
----
-Prepared against v7.4-rc1-1969-g666539eecdf4.
-
-Compile tested only: arm64 with aarch64-linux-gnu-gcc 11.4
-and CONFIG_DRM_ROCKCHIP=m, CONFIG_DRM_MSM=m.  The affected hardware was not
-available, so the teardown path was not exercised and no fault or
-race injection was run.
-
-AI assistance: the analysis, the change and its review notes were
-prepared with Claude (Anthropic) as a coding assistant.  The author
-reviewed the reasoning and takes responsibility for the content.
----
- drivers/gpu/drm/drm_flip_work.c             | 23 +++++++++++++++++++--
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c |  9 +++++++-
- 2 files changed, 29 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_flip_work.c b/drivers/gpu/drm/drm_flip_work.c
-index 52c437746d48..b8ce3966fa9a 100644
---- a/drivers/gpu/drm/drm_flip_work.c
-+++ b/drivers/gpu/drm/drm_flip_work.c
-@@ -149,10 +149,29 @@ EXPORT_SYMBOL(drm_flip_work_init);
-  * drm_flip_work_cleanup - cleans up flip-work
-  * @work: the flip-work to cleanup
-  *
-- * Destroy resources allocated for the flip-work
-+ * Cancel the worker and run the tasks that are still queued, so that the
-+ * resources they hold are released even if the work never made it to the
-+ * workqueue.  Must be called before the object embedding @work is freed and
-+ * after the driver has stopped the code that calls drm_flip_work_queue()
-+ * and drm_flip_work_commit(): only the work items that exist when this
-+ * function is called are drained.
-  */
- void drm_flip_work_cleanup(struct drm_flip_work *work)
- {
--	WARN_ON(!list_empty(&work->queued) || !list_empty(&work->commited));
-+	struct drm_flip_task *task, *tmp;
-+	LIST_HEAD(tasks);
-+	unsigned long flags;
-+
-+	cancel_work_sync(&work->worker);
-+
-+	spin_lock_irqsave(&work->lock, flags);
-+	list_splice_tail_init(&work->queued, &tasks);
-+	list_splice_tail_init(&work->commited, &tasks);
-+	spin_unlock_irqrestore(&work->lock, flags);
-+
-+	list_for_each_entry_safe(task, tmp, &tasks, node) {
-+		work->func(work, task->data);
-+		kfree(task);
-+	}
- }
- EXPORT_SYMBOL(drm_flip_work_cleanup);
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-index 69e72727da24..38935ef08b70 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -1990,12 +1990,19 @@ static void vop_destroy_crtc(struct vop *vop)
- 				 head)
- 		drm_plane_cleanup(plane);
- 
-+	/*
-+	 * The flip work drops the vblank reference taken when the framebuffer
-+	 * was queued, so it has to be drained while the CRTC is still valid.
-+	 * The CRTC has been shut down and runtime PM disabled by the time this
-+	 * runs, so no new work item can be queued anymore.
-+	 */
-+	drm_flip_work_cleanup(&vop->fb_unref_work);
-+
- 	/*
- 	 * Destroy CRTC after vop_plane_destroy() since vop_disable_plane()
- 	 * references the CRTC.
- 	 */
- 	drm_crtc_cleanup(crtc);
--	drm_flip_work_cleanup(&vop->fb_unref_work);
- }
- 
- static int vop_initial(struct vop *vop)
--- 
-2.34.1
+Best regards,
+Xuewen
+> On Wed, Nov 18, 2026 at 05:21:26PM +0800, wangxuewen wrote:
+>>
+>>
+>> 在 2026/11/18 17:06, Xuewen Wang 写道:
+>>> From: Xuewen Wang <wangxuewen@kylinos.cn>
+>>>
+>>> Report NTFS metadata corruption, failed recovery and shutdown through
+>>> FAN_FS_ERROR. File events identify the affected base file; volume events
+>>> cover errors without a safe file reference. Preserve the volume error bit
+>>> and errors= policy. Before SB_ACTIVE, metadata reporting helpers record
+>>> the volume error state without queuing an event.
+>>>
+>>> Use -EFSCORRUPTED (-EUCLEAN) for confirmed corruption in the updated error
+>>> paths, both in reports and in failing NTFS operations. Preserve genuine
+>>> I/O, allocation and unsupported-format errors. Ordinary EOF and missing
+>>> names or streams are not corruption. Partial-I/O and best-effort
+>>> operations retain their return semantics; an independent recovery failure
+>>> can report a different errno from the initiating operation.
+>>>
+>>> Based on ntfs-next commit b028412297e6
+>>> ("ntfs: convert a named $DATA stream safely when making room in a record").
+>>>
+>>> Changes in v6:
+>>> - Address the v5 review of the Fixes-tagged attribute-move patch. Put the
+>>>     source-removal fix before the reporting infrastructure, using the
+>>>     existing NVolSetErrors() and diagnostics. Add FAN_FS_ERROR reporting at
+>>>     those sites in the final patch. The fix no longer depends on the new
+>>>     reporting helpers.
+>>> - Check the other fixes for the same dependency. Keep mapping-pairs
+>>>     writeback and cluster-count fixes first, and move search-context error
+>>>     propagation before the helpers. Separate buffered-read and compressed
+>>>     I/O errno propagation, readdir retry state, buffered fallback writeback
+>>>     errors and export-parent locking from the reporting changes.
+>>> - Rebase onto the updated ntfs-next. Retain its uninterruptible metadata
+>>>     reads, current iomap callback interface, named-stream conversion
+>>>     safeguards and index validation.
+>>> - Adapt the new ntfs_icx_ia_ensure() caller to error-pointer returns from
+>>>     ntfs_ia_open(). Clear the failed pointer before cleanup and preserve the
+>>>     original errno. Report a missing required INDEX_ALLOCATION attribute as
+>>>     corruption without repeating errors already reported while opening it.
+>>> - Classify the new index-entry VCN validation failures as EFSCORRUPTED.
+>>>     Report the new directory child-VCN bounds failure through the common
+>>>     cleanup exit, with the same errno returned to the caller.
+>>> - Report attribute-move source-removal and destination-cleanup failures
+>>>     after releasing the destination search context. Keep an independent
+>>>     cleanup failure distinct from the original removal failure.
+>>> - Avoid counting a propagated MFT mapping corruption again in the inode
+>>>     loader. Keep the report from MFT/runlist validation and preserve
+>>>     reports for unreported I/O errors and inode-local corruption.
+>>>
+>>> The earlier review fixes remain:
+>>> - Cover the directory lookup, index-block read and nonresident iomap
+>>>     corruption paths identified in v3. Use ntfs_inode_base() for base-file
+>>>     attribution and test_and_set_bit() for one shutdown report per
+>>>     clear-to-set transition.
+>>> - Preserve search-context failures in ntfs_attr_exist() and its callers;
+>>>     preserve the inner ntfs_read_inode_mount() error instead of returning -1.
+>>> - Consolidate local reports at cleanup exits in the affected paths and
+>>>     avoid repeating propagated reports, while retaining independent
+>>>     recovery failures.
+>>> - Distinguish malformed or missing required EA metadata from lower-level
+>>>     read failures, and recheck HasEA under mrec_lock in listxattr().
+>>>
+>>> The series now has 37 patches. The extra patches separate existing fixes
+>>> from reporting, so they can be reviewed and backported without pulling in
+>>> the new helpers.
+>>>
+>>> Series organization:
+>>> - 1-9: fixes and error propagation without the new reporting helpers.
+>>> - 10: file and volume metadata reporting helpers.
+>>> - 11-16: boot/system metadata, logfile, runlists, iomap and compression.
+>>> - 17-23: attribute metadata, failed updates and inode cleanup.
+>>> - 24-29: index/directory operations, namespace recovery and exportfs.
+>>> - 30-35: MFT, EA/ACL, named-stream and reparse/ObjectID reporting.
+>>> - 36: atomic shutdown reporting.
+>>> - 37: reporting integration for the standalone attribute-move fix.
+>>>
+>>> Validation:
+>>> - Built NTFS with W=1 and checked all 31 NTFS translation units with
+>>>     Sparse C=2, with no NTFS compiler or Sparse diagnostics.
+>>> - Passed 15 QEMU guest runs with NTFS built in. These cover normal file
+>>>     and namespace operations, named streams, inode/index/runlist/EA
+>>>     corruption, readdir, shutdown, filesystem ustat selftests and
+>>>     fsync/remount/data verification.
+>>> - The index cases include invalid INDX entries_offset and child VCNs
+>>>     outside INDEX_ALLOCATION. Lookup and readdir returned EUCLEAN and
+>>>     generated EUCLEAN events after the listener was ready.
+>>> - Passed 403 controlled scenarios using extracted functions with
+>>>     controlled dependencies and ASan/UBSan. These include the existing
+>>>     error-path regressions, the new index-allocation guard and VCN checks,
+>>>     and source-removal/destination-cleanup failures both before and after
+>>>     reporting integration.
+>>> - Added two exact-count QEMU checks: an invalid MFT FILE magic and an
+>>>     inode-local zero link count each return EUCLEAN and report one error.
+>>>     The old kernel fails the same MFT check with error_count=2.
+>>> - The guest runs enabled non-strict KCSAN and lockdep. All three KCSAN
+>>>     selftests passed, with no KCSAN or lockdep diagnostics in the test logs.
+>>>
+>>> Thanks to Hyunchul and Namjae for reviewing the earlier versions.
+>>>
+>>> Baolin Liu (11):
+>>>     ntfs: preserve cluster-free counts in attribute cleanup
+>>>     ntfs: add filesystem metadata error reporting helpers
+>>>     ntfs: report runlist and cluster allocation metadata errors
+>>>     ntfs: report attribute lookup and validation errors
+>>>     ntfs: report attribute list update and recovery failures
+>>>     ntfs: report attribute conversion and mapping update failures
+>>>     ntfs: report inode metadata and eviction cleanup errors
+>>>     ntfs: report MFT record validation and lifecycle errors
+>>>     ntfs: report MFT bitmap and data growth recovery failures
+>>>     ntfs: report MFT writeback errors to fsnotify
+>>>     ntfs: report each shutdown transition once
+>>>
+>>> Dandan Wu (11):
+>>>     ntfs: report required system file and volume metadata errors
+>>>     ntfs: report logfile metadata and emptying errors
+>>>     ntfs: report iomap metadata corruption
+>>>     ntfs: report LZNT1 and WOF compressed stream errors
+>>>     ntfs: report attribute resize and relocation recovery failures
+>>>     ntfs: report incomplete attribute range updates
+>>>     ntfs: report index validation and block I/O errors
+>>>     ntfs: preserve and report index traversal errors
+>>>     ntfs: report directory lookup and metadata corruption
+>>>     ntfs: report index update and recovery failures
+>>>     ntfs: report namespace and file recovery errors
+>>>
+>>> Xuewen Wang (15):
+>>>     ntfs: propagate mapping-pairs update errors from inode writeback
+>>>     ntfs: handle source record removal failure during attribute moves
+>>>     ntfs: preserve attribute search context initialization errors
+>>>     ntfs: preserve synchronous buffered read errors
+>>>     ntfs: preserve compressed I/O preparation errors
+>>>     ntfs: retain directory iteration state after errors
+>>>     ntfs: preserve buffered fallback writeback errors
+>>>     ntfs: serialize export parent reconstruction
+>>>     ntfs: report boot geometry and MFT bootstrap errors
+>>>     ntfs: report attribute record update and cleanup failures
+>>>     ntfs: report export parent reconstruction errors
+>>>     ntfs: report EA metadata and restoration errors
+>>>     ntfs: report named stream metadata and recovery errors
+>>>     ntfs: report reparse and object ID metadata errors
+>>>     ntfs: report attribute move removal and cleanup failures
+>>>
+>>>    fs/ntfs/aops.c         |  20 +-
+>>>    fs/ntfs/attrib.c       | 898 ++++++++++++++++++++++++++++++-----------
+>>>    fs/ntfs/attrib.h       |   8 +-
+>>>    fs/ntfs/attrlist.c     |  61 ++-
+>>>    fs/ntfs/attrlist.h     |   4 +-
+>>>    fs/ntfs/bitmap.c       |   2 +-
+>>>    fs/ntfs/compress.c     |  35 +-
+>>>    fs/ntfs/dir.c          | 115 ++++--
+>>>    fs/ntfs/ea.c           | 173 +++++---
+>>>    fs/ntfs/file.c         |  30 +-
+>>>    fs/ntfs/index.c        | 370 +++++++++++------
+>>>    fs/ntfs/inode.c        | 269 ++++++++----
+>>>    fs/ntfs/inode.h        |  10 +-
+>>>    fs/ntfs/iomap.c        |  66 ++-
+>>>    fs/ntfs/lcnalloc.c     |  17 +-
+>>>    fs/ntfs/logfile.c      |  58 +--
+>>>    fs/ntfs/mft.c          | 353 ++++++++++------
+>>>    fs/ntfs/named_stream.c |  61 ++-
+>>>    fs/ntfs/namei.c        | 144 +++++--
+>>>    fs/ntfs/object_id.c    |  50 ++-
+>>>    fs/ntfs/reparse.c      | 109 ++++-
+>>>    fs/ntfs/reparse.h      |   2 +-
+>>>    fs/ntfs/runlist.c      |  23 +-
+>>>    fs/ntfs/runlist.h      |   4 +-
+>>>    fs/ntfs/stream.h       |   2 +-
+>>>    fs/ntfs/super.c        | 310 ++++++++++----
+>>>    fs/ntfs/volume.h       |   4 +
+>>>    fs/ntfs/wof.c          |  49 ++-
+>>>    28 files changed, 2311 insertions(+), 936 deletions(-)
+>>>
+>>>
+>>> base-commit: b028412297e640db52195df2649368c1910e8e4b
+>>
+>> Hi Namjae and Hyunchul,
+>> I've addressed your review comments on v5 in the v6 series.
+>> Before sending the series, I also had my colleague Baolin review it.
+>> I'd appreciate your review of the updated patches.
+>>
+>> Thank you for your time and feedback.
+>>
+>> Best regards,
+>> Xuewen
+> 
 
