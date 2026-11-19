@@ -1,54 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.113
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795055031;
-	b=p+GZPjSykJJUsubQhGDCsAs/1X0KBj26MTD8Jkq4yhkkr7giXyIO4pQgQLEP14Awq344
-	 E3KTDm7IyWVBjiyBJI7M+5sE9X7F++mkK2uJukF2k9dqtFI91QNWKhi2X+EbvJO2IzMkj
-	 aMdZAQNGOEFDJQTfH2roDC9Cp3qUoaUkiPQQ1lQf2ktr+kK/BTN8zNL1OauMqAK/UxEx7
-	 X611pOlMhfWgksF19Y7Q7ROxiGn3dG6A+9XLZ5MKNTGsXE+Ki6IxixEz+654RtFhzHV53
-	 JSB5NlLDLROfh/d6OOqjc8eX+qOHxpnY0x5DInB13tELLRm1cjFTXLWLKqrLi/Yj6Qw==
+	t=1795055039;
+	b=mLE/VVLnZfJLXlFdwpt+HtGQuI/eM1K7Yq3iQ6NI+udsgmdL6q/MaQEy6TXvpsrt1H0Y
+	 6gnnD0bMbWKcrhNsiiVSNfbjehLpoPSBCIi9zURhNjW3imCn7aPY3hYnKrjsiP/m6DUgD
+	 xHwT0LUvb9BkS3tRYSH9Wr60fsqsuizY6RNoAzumfYu5sP5lkvZJNxI8OoLjMGvhgSO3C
+	 hY5n9s4ns2yCDpKXpxxbnjSsgyvfTOCvxApLgNP+JIP9R1qx57xMwbG0yyEqq3HpZIvEr
+	 thGIB5Z39A1pW8xUkHn3iFyqF9FEn1ByhyHwFTNEfvyqpZXo1+CkfElFEjL7t3yHDhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795055031;
-	h=DMARC-Filter:DKIM-Signature:To:From:Date:Content-Transfer-Encoding:
-	 X-Original-From:Content-Type:Mime-Version:X-Mailer:X-Lms-Return-Path:
-	 Cc:Subject:Message-Id;
-	bh=gA8AWdM2sUsHs0KBRdbs/YN0huasJSV/DHLpUiZnmqw=;
-	b=iDDHdmkoLxSgr94IefywluSnkQNuQliMIcNZpEEYQVlLvog5VOwD1PpB8khT8VdJcTsG
-	 ps7CRWihYV+5FrDYpdoGxb4IVh/ZQihcksugZOUQkJTaIgKyuoXhNhttGSwoUiRHUw8E3
-	 OBmJHrKkucm3m5wsDAkSeZ/aCyBqENeN3Nz2Ddfqo8zqPBC/1Y0+1t8c0p+ETInQuxR0f
-	 0wu45xRzZh65oNSYzsjvW5mk1GiIZ1A5z2ykAtfTTeHLC4LUMwi4GyLS/Aa+7522RTup4
-	 OUJ6BW0fxqFZ9U3cKEXWP4dbYobPtz/u4tUK+q9VoLV2F4PiIhB0e2o9NGWfzCfCKEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795055039;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:User-Agent;
+	bh=t7bMvs3lOLPl1TDYCI2zC+6rhjTkCkzXglZIMlkd5+k=;
+	b=rRV2x8oX1/zelaKHklfMa7ljr9PYbitE+mWI1sNIZ1EpPq6dILF3kzgK5s1Li9FLhZV9
+	 PV7XsectKJ5sFap9w3HTQ4lwWnefsYxqVh8IlvluYN0lCHAwrzH/Q7JlLuF5CaDosSTE2
+	 eRZb0GclKr1aykdUueTEKiMbG7s64qyddnlyCGS+VAC+79uFHmA6vjBaPaVv0D7tNgG5K
+	 oh/Tt3DIyxqNtDDLxolKyZxTv//K05V4UUpLPF29NAHFGT4UgbV8Bud3wVYpvZJ9J/NDb
+	 gam8P4hdnrxSsa90+9dLYlXk0O9gU4NZS/ytcbM71yOSITCA/TZtXD2fpXsvYvhrd6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=f2hs6BmR;
-	arc=none smtp.remote-ip=209.127.230.113
-Received: from va-1-113.ptr.blmpb.com (va-1-113.ptr.blmpb.com [209.127.230.113])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="FkMC/PW7";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB0B8606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:23:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB0B8606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1CBC606A31C;
+	Thu, 19 Nov 2026 02:23:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=f2hs6BmR
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1795055025; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=gA8AWdM2sUsHs0KBRdbs/YN0huasJSV/DHLpUiZnmqw=;
- b=f2hs6BmRgV7t7ITjWwqJLpJwWznINLe9YuADdIhtibK4ALaAhXmGxoi1h7i6SN2QB9BEnH
- hPIlG8dcF1OaI77XhX9yAC4rhvhvD7hcMby4lqU/VlGjrK59bNsMD/cnB9y0MZ/V2Rbb/b
- u6kwrdcxnZqtJ66VW9M9tLUue1exCvUswnVDXhUbobTWCuBf69JBzJxlFNM0CJ1Jl5kTz1
- s6hVEEaZ55Q4wrSGcN0elQrGxIAb6OTujONobPL2/sV/v7QT+FBkUWAKXr5f87RBsIQx5C
- vWVKVxFp8g2rHj3loXtPI8lwLroOvhp2jEvc4Br7/kBhvGz2xNB68Dy7/fF2Ew==
-To: <rafael@kernel.org>
-From: "Rui Qi" <qirui.001@bytedance.com>
-Date: Thu, 19 Nov 2026 10:23:30 +0800
-Content-Transfer-Encoding: 7bit
-X-Original-From: Rui Qi <qirui.001@bytedance.com>
-Content-Type: text/plain; charset=UTF-8
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FkMC/PW7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5189F1F000C4;
+	Thu, 19 Nov 2026 02:23:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795055038;
+	bh=t7bMvs3lOLPl1TDYCI2zC+6rhjTkCkzXglZIMlkd5+k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FkMC/PW7Y1+qnoXmqOsCT+x/q5Gavm0C3K0CFZ2kjA47d6u18CoYUNL7rrCI+m3ug
+	 jTp3laT5FcallKs2mH1tMIM+pmmeQgVIJ0LhJMQYYHbf1jegSuw7NCG2Inu1bOyrWT
+	 I6cgUbijNjw3LOG7CVmLUIhdusLvePICdZAxvZ3g+7/cXLk8vvTgWzUCyCYe7JUfaG
+	 aghsmPVBeHKZ2RSwFjqQD8BrsMddzAe2iJ0VkS6K+EfT/QrJPQwaufHno1sjpJtSUA
+	 jLKinbrg6YJiFJPrH7gI8StE62tCzLpegY3MvtH+hKHhUagM21A766K6EJem7mykeE
+	 qv4CPXg59TNuA==
+Date: Wed, 18 Nov 2026 21:23:54 -0500
+From: Brian Masney <masneyb@kernel.org>
+To: Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+Cc: "sboyd@kernel.org" <sboyd@kernel.org>,
+	"bmasney+clk@redhat.com" <bmasney+clk@redhat.com>,
+	"jbrunet+clk@baylibre.com" <jbrunet+clk@baylibre.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Edgar Lee =?utf-8?B?W+adjuaJv+irrV0=?= <cylee12@realtek.com>,
+	"afaerber@suse.com" <afaerber@suse.com>,
+	Jyan Chou =?utf-8?B?W+WRqOiKt+WuiV0=?= <jyanchou@realtek.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>,
+	James Tai =?utf-8?B?W+aItOW/l+WzsF0=?= <james.tai@realtek.com>,
+	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+	Stanley =?utf-8?B?Q2hhbmdb5piM6IKy5b63XQ==?= <stanley_chang@realtek.com>
+Subject: Re: [PATCH v16 6/9] clk: realtek: Add support for MMC-tuned PLL
+ clocks
+Message-ID: <av5dut67EajT0zn3@x1g10>
+References: <20261112052544.555563-1-eleanor.lin@realtek.com>
+ <20261112052544.555563-7-eleanor.lin@realtek.com>
+ <179450369605.1227210.10143810675268582312.b4-review@b4>
+ <54a7a77705674bfdac23727f5fb92cb6@realtek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,117 +75,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.20.1
-X-Lms-Return-Path: <lba+26afe5daf+319c5d+vger.kernel.org+qirui.001@bytedance.com>
-Cc: <lenb@kernel.org>, <okaya@codeaurora.org>, <linux-acpi@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, "Rui Qi" <qirui.001@bytedance.com>
-Subject: [PATCH] ACPI: GED: Add wake support for wake-capable interrupts
-Message-Id: <20261119022330.2875110-1-qirui.001@bytedance.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <54a7a77705674bfdac23727f5fb92cb6@realtek.com>
+User-Agent: Mutt/2.4.3 (2026-10-09)
 
-GED interrupt resources can be marked wake-capable by firmware, but the
-GED driver does not enable IRQ wake for them. Consequently, the generic
-IRQ suspend code disables those interrupts along with ordinary device
-IRQs, preventing them from waking a system in suspend-to-idle.
+Hi Yu-Chun,
 
-Enable IRQ wake after registering each interrupt whose resource has
-IORESOURCE_IRQ_WAKECAPABLE set. Remember successful enables per event
-so that releasing the event disables IRQ wake before freeing the IRQ.
-This supports multiple wake interrupts on one GED without relying on
-the single wake IRQ slot in struct device.
+On Fri, Nov 13, 2026 at 02:12:59PM +0000, Yu-Chun Lin [林祐君] wrote:
+> > > +static const struct rtk_clk_pll_mmc_rate *
+> > > +rtk_clk_pll_mmc_find_closest_rate(const struct rtk_clk_pll_mmc_rate *tbl,
+> > u32 num,
+> > > +                               unsigned long rate, unsigned long
+> > min_rate,
+> > > +                               unsigned long max_rate) {
+> > > +     const struct rtk_clk_pll_mmc_rate *best = NULL;
+> > > +     unsigned long best_delta = ~0UL;
+> > > +
+> > > +     for (unsigned int i = 0; i < num; i++) {
+> > > +             const struct rtk_clk_pll_mmc_rate *entry = &tbl[i];
+> > > +             unsigned long delta;
+> > > +
+> > > +             if (entry->rate < min_rate || entry->rate > max_rate)
+> > > +                     continue;
+> > > +
+> > > +             delta = entry->rate >= rate ? entry->rate - rate : rate -
+> > entry->rate;
+> > > +             if (delta < best_delta) {
+> > > +                     best = entry;
+> > > +                     best_delta = delta;
+> > > +             }
+> > > +     }
+> > > +
+> > > +     return best;
+> > > +}
+> > 
+> > This duplicates the functionality in ftbl_find_closest_by_rate() from patch 3.
+> > 
+> 
+> I considered sharing the logic, but the two tables have different entry
+> layouts.
+> 
+> Unifying them would need a macro or (void *) (both lose type checking), or
+> embedding rtk_freq_table with container_of() (a larger rework for little
+> gain). I prefer keeping the two type-safe functions. Is that acceptable?
 
-Keep runtime event handling available if enabling IRQ wake fails, and
-warn about the missing wake functionality. Release previously registered
-events when walking _CRS fails, balancing both IRQ registrations and wake
-references before device-managed event storage is released.
+What about this? This is completely untested.
 
-This does not implement device _PRW-to-GED mappings or infer wake
-capability for interrupt resources not marked wake-capable by firmware.
+  #define ftbl_find_closest_by_rate(_tbl, _rate, _min, _max) ({         \
+        typeof(&(_tbl)[0]) __best = NULL, __e;                          \
+        unsigned long __r = (_rate), __lo = (_min), __hi = (_max);      \
+        unsigned long __best_delta = ULONG_MAX;                         \
+                                                                        \
+        for (__e = (_tbl); __e->rate; __e++) {                          \
+                unsigned long __d;                                      \
+                                                                        \
+                if (__e->rate < __lo || __e->rate > __hi)               \
+                        continue;                                       \
+                                                                        \
+                __d = abs_diff(__e->rate, __r);                         \
+                if (__d < __best_delta) {                               \
+                        __best_delta = __d;                             \
+                        __best = __e;                                   \
+                }                                                       \
+        }                                                               \
+        __best;                                                         \ 
+  })
 
-Fixes: 3db80c230da1 ("ACPI: implement Generic Event Device")
-Signed-off-by: Rui Qi <qirui.001@bytedance.com>
----
- drivers/acpi/evged.c | 34 +++++++++++++++++++++++++++-------
- 1 file changed, 27 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/acpi/evged.c b/drivers/acpi/evged.c
-index 189dc68b8875..8afae44ac2b3 100644
---- a/drivers/acpi/evged.c
-+++ b/drivers/acpi/evged.c
-@@ -51,6 +51,7 @@ struct acpi_ged_event {
- 	unsigned int gsi;
- 	unsigned int irq;
- 	acpi_handle handle;
-+	bool wake_enabled;
- };
- 
- static irqreturn_t acpi_ged_irq_handler(int irq, void *data)
-@@ -81,6 +82,7 @@ static acpi_status acpi_ged_request_interrupt(struct acpi_resource *ares,
- 	struct acpi_resource_extended_irq *pext = &ares->data.extended_irq;
- 	char ev_name[5];
- 	u8 trigger;
-+	int ret;
- 
- 	if (ares->type == ACPI_RESOURCE_TYPE_END_TAG)
- 		return AE_OK;
-@@ -133,11 +135,34 @@ static acpi_status acpi_ged_request_interrupt(struct acpi_resource *ares,
- 		return AE_ERROR;
- 	}
- 
-+	if (r.flags & IORESOURCE_IRQ_WAKECAPABLE) {
-+		ret = enable_irq_wake(irq);
-+		if (ret)
-+			dev_warn(dev, "failed to enable wakeup for irq %u: %d\n",
-+				 irq, ret);
-+		else
-+			event->wake_enabled = true;
-+	}
-+
- 	dev_dbg(dev, "GED listening GSI %u @ IRQ %u\n", gsi, irq);
- 	list_add_tail(&event->node, &geddev->event_list);
- 	return AE_OK;
- }
- 
-+static void ged_release_events(struct acpi_ged_device *geddev)
-+{
-+	struct acpi_ged_event *event, *next;
-+
-+	list_for_each_entry_safe(event, next, &geddev->event_list, node) {
-+		if (event->wake_enabled)
-+			disable_irq_wake(event->irq);
-+		free_irq(event->irq, event);
-+		list_del(&event->node);
-+		dev_dbg(geddev->dev, "GED releasing GSI %u @ IRQ %u\n",
-+			event->gsi, event->irq);
-+	}
-+}
-+
- static int ged_probe(struct platform_device *pdev)
- {
- 	struct acpi_ged_device *geddev;
-@@ -153,6 +178,7 @@ static int ged_probe(struct platform_device *pdev)
- 				       acpi_ged_request_interrupt, geddev);
- 	if (ACPI_FAILURE(acpi_ret)) {
- 		dev_err(&pdev->dev, "unable to parse the _CRS record\n");
-+		ged_release_events(geddev);
- 		return -EINVAL;
- 	}
- 	platform_set_drvdata(pdev, geddev);
-@@ -163,14 +189,8 @@ static int ged_probe(struct platform_device *pdev)
- static void ged_shutdown(struct platform_device *pdev)
- {
- 	struct acpi_ged_device *geddev = platform_get_drvdata(pdev);
--	struct acpi_ged_event *event, *next;
- 
--	list_for_each_entry_safe(event, next, &geddev->event_list, node) {
--		free_irq(event->irq, event);
--		list_del(&event->node);
--		dev_dbg(geddev->dev, "GED releasing GSI %u @ IRQ %u\n",
--			 event->gsi, event->irq);
--	}
-+	ged_release_events(geddev);
- }
- 
- static void ged_remove(struct platform_device *pdev)
--- 
-2.20.1
+Brian
