@@ -1,116 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.33
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795174708;
-	b=4ggV2BXNaS9s8UDjYU/lxPVr39z7HA+Qjs0drHJ/enjtm4QxGM8exB/DtummWy0avG+5
-	 Aty0Mf5kKI2wf9Zz267VWP1w5RYDiu3hPdCNTlRRBfrE0L/v8EvG9NWSLMhAvQxz2pV3N
-	 wbAuzbkXz4I1j88RFzeUSnnx4FI/AhuvURJu2KW58y1KXLdPioIuYVyVptmeE7A9tCsBt
-	 ieDdw+IO0ZFPCTwCt3LrPV7uCBNXWeFFd+nfxrk7TS2DBFP1x6rdCexL3Ytj3TXqh9s95
-	 tC6WabRKg/Xh9nq72jvHFf/03qn2+rbxd4kcMJati44QeFfgMvhFNBUfT5H8Dg77YPQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174708;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:X-CLAM-Verdict:X-CLAM-Score:X-CLAM-Description:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=hiCRmoij9JJsnm+BsxGpp9JuhSl9u6krRPLDyg/pLTo=;
-	b=13uMZGzCet9GNV6zyTEFXKaE1bBSfO+Fvk3aUOHYfhxPsrCKljxODHusyX517kjKN4Cv
-	 VRGDBSdBSrtsmiVRkIKaBaSM6y+DMPsvRMEGD5WYgqI2jUabvV87ZnlGGYlBK3c9QDHfC
-	 PT2zCXcamVJC6v6g+RpIJKjktT37e+LQszZt0STXBUHIPtEXxYXxRrPg1gvNyQg7oFIYG
-	 kW38g77Hpc9gF9Gr1oOFrOBaErzYJ3quczRG2j8AY3Qwn6UJQq6380z4sS1xAT/vFSbaN
-	 fbbGAj2eYIqvET5je0spMPA95U2D1MdoWz+G1vRhIeAV/34irpsQq0FvyPq2fnQeUFA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=philips.com;
-	spf=pass smtp.mailfrom=bbl.ms.philips.com;
-	dkim=pass header.d=philips.com header.i=@philips.com header.a=rsa-sha256 header.s=selector1 header.b="DJW/PEsI";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.33
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012033.outbound.protection.outlook.com [52.101.66.33])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795174762;
+	b=VKzZAMB6sosaZx5xrnTf+dOsRhX41GJQ0RM6ia0QHXHED9QlmYo54qZPYy3W3+8UBMIN
+	 z8onXySZ3YN7FlZr5qSZoRxPwFRgmVcCvzC9Uamf3RV56/u/jN6oPyUgS/F58EumLiuF+
+	 mG22eZgWAqbNRd7uoTSDtWz9cb7cyG76/bP0PQ04I1QGmiIxc7EGK1c8DZT6n7yRkriTj
+	 6SQKN5TsIgCMsPQpUhHXKJmEbmu4aewcJ5Cv6LZIPPLmDbboN7YW2cxHVuxPut5Cecivc
+	 e11cOUROc57oFDBnWRE0chr26FfOgW7QNZ+7akgXtj5RUCRxUxf2yej5VNdrMY4yBoQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174762;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=OtQivQqnmSInxEcGZbExtZbogiR/PjcJgBziw5rS62g=;
+	b=abxHETfuxxPE1helm5SJCh9+9sQt0lU4ICEfZOVGUqAmau1/q1Ev8beTKya4K66wwMn4
+	 Vo5TgEdII6fw8MQf0V1hlYz7KdvxssoQLngzKk+1HryoCoaI3LnCADG0wyiTkhp0s0Bc6
+	 siVfopKXrzKMWHg1/QdzOSsCffK8h5jU4L0dpDYAn+OzF+DlgZqTqeaNtdnCFPuQr7RSB
+	 QJkSe4yTeBe4Ne3xHtzJv6fa/RS0x8b+zESDXOr2Us5kWEMXTiZ0e3Pot74Nf1w5/B+iI
+	 Ub4URvpBoiUV64l0qsbfioff4zDM1f1PkpcMr0Itl36r8USicBoX2WJp54BCZWHNm5w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kVHsc0o/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63041606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:38:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63041606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=philips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bbl.ms.philips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DF85606A325;
+	Fri, 20 Nov 2026 11:39:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=philips.com header.i=@philips.com header.a=rsa-sha256 header.s=selector1 header.b=DJW/PEsI
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jRNgfZorKPDOrHw1MpPk1GRhI0Bn7dTcczoSaFuIVGQLqZTlP3hq9E8WywsLzl9SaCIiAMpoHXIxP4+EdnNcPnAnjcNBSHWT5mZVUZHu+T7w8lM8Op7sRW0+33y72yXdNMzM6oj5vqICXS6lwe1ELdV+acEOlhZ8OT50fZqoHfgCPviILtL+jAeNAI36v8LahWrkuL9ohJmRx9chxvczaVvJr/JtPWgqYZvOM5F6Tw4WND0Pn3tSrjOu/PzDliCu3Q/6QHpGr1qL1WuCIaqq+NspDrNW4mRdsc2fyMHjBaKtuH3OzXHb3la3yzHbgkL7fYObefu+MBdYbSEB1UTuKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hiCRmoij9JJsnm+BsxGpp9JuhSl9u6krRPLDyg/pLTo=;
- b=SzONt4HJqbXPChKerWunjF1LJWF3pajgciokfA7i+9Uzm7C71lPNFbsl3sN0elDvmnUL4ox5mUHlXqNI497ztfhmSb0AqJoMpQaicyJ9PSN/xz4T/4bzv5mjCxGdqkyuPxANW8mZt6qu0EBNjQjR2EcxyNdGiZnOqHF2eB1PZ4mF+hUKJxdKXIx2pV2It/OfId/lICkF07Qk6ZDx/RjFuqWWV+F1Wt//aHDayv/uWAf7kSBq5j1fgPI+zfwx3EuqjaEmuV9QehkJE360GWZUCSdqAqsFupwrkRJ44nggUZ2TCq/1DgQ2I9+5u+EXHgdHOxbAEyE0vDGPEzMxQtJaGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 3.248.88.141) smtp.rcpttodomain=vger.kernel.org
- smtp.mailfrom=bbl.ms.philips.com; dmarc=pass (p=reject sp=reject pct=100)
- action=none header.from=philips.com; dkim=none (message not signed); arc=none
- (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=philips.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hiCRmoij9JJsnm+BsxGpp9JuhSl9u6krRPLDyg/pLTo=;
- b=DJW/PEsIOMLFIEslHbysWLyP2lElU3n5at5dls7t5gcmsY++btwvSdST/lkIM2iRY1MVrDjF+if4dIVzGvJFBAZYqfYQXB4LdUssQQs3Rmwd+tMt4oQMOJtxnBbGTANjg6Z5YHl9XHJdGf4eW6oKz1+/sn9sj/ZZ21JJcDgqChA=
-Received: from AS4P189CA0021.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5db::12)
- by PAWPR10MB7198.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2f1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.2; Fri, 20 Nov
- 2026 11:38:22 +0000
-Received: from AM2PEPF00070CF9.eurprd02.prod.outlook.com
- (2603:10a6:20b:5db:cafe::aa) by AS4P189CA0021.outlook.office365.com
- (2603:10a6:20b:5db::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 11:38:22 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 3.248.88.141) smtp.mailfrom=bbl.ms.philips.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none header.from=philips.com;
-Received-SPF: Pass (protection.outlook.com: domain of bbl.ms.philips.com
- designates 3.248.88.141 as permitted sender) receiver=protection.outlook.com;
- client-ip=3.248.88.141; helo=ext-eur1.smtp.philips.com; pr=C
-Received: from ext-eur1.smtp.philips.com (3.248.88.141) by
- AM2PEPF00070CF9.mail.protection.outlook.com (10.167.242.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 11:38:21 +0000
-Received: from smtprelay-eur1.philips.com ([130.138.84.184])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 256/256 bits)
-	(Client did not present a certificate)
-	by ext-eur1.smtp.philips.com with ESMTPS
-	id UHizxpVgKf0UDUMwfx0Sn6; Fri, 20 Nov 2026 12:38:21 +0100
-Received: from mail.bbl.ms.philips.com ([130.143.87.230])
-	by smtprelay-eur1.philips.com with ESMTP
-	id UMwfxTcvDbtn9UMwfxpfog; Fri, 20 Nov 2026 12:38:21 +0100
-X-CLAM-Verdict: legit
-X-CLAM-Score: ??
-X-CLAM-Description: ??
-Received: from bbl2xvg1.bbl.ms.philips.com (bbl2xvg1.bbl.ms.philips.com [130.143.220.100])
-	by mail.bbl.ms.philips.com (Postfix) with ESMTP id 8C8CD1803CB;
-	Fri, 20 Nov 2026 12:38:21 +0100 (CET)
-Received: by bbl2xvg1.bbl.ms.philips.com (Postfix, from userid 2884)
-	id 8A2AEFE023B; Fri, 20 Nov 2026 12:38:21 +0100 (CET)
-From: Vishal Gupta <vishal.gupta_1@philips.com>
-To: linux-wireless@vger.kernel.org
-Cc: briannorris@chromium.org,
-	francesco@dolcini.it,
-	linux-kernel@vger.kernel.org,
-	Vishal Gupta <vishal.gupta_1@philips.com>
-Subject: [PATCH 1/1] wifi: mwifiex: fix race on scan_processing in mwifiex_scan_networks()
-Date: Fri, 20 Nov 2026 12:38:11 +0100
-Message-ID: <20261120113811.36916-1-vishal.gupta_1@philips.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kVHsc0o/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 142521F000D1;
+	Fri, 20 Nov 2026 11:39:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795174761;
+	bh=OtQivQqnmSInxEcGZbExtZbogiR/PjcJgBziw5rS62g=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kVHsc0o/8MU4cGPxr7LNnTCfEesIpG9/YERDDuEpcXd8PTdQ5xOM+7jbog5YLIlB7
+	 IMWw9S9W918COPICSAefbqr96bId/h+Rvze5udwO2n+vQDmBMWfpDPTO3CopoeCVUY
+	 vJ8b7q4mrzW13oU0jfCMM3Kx4+R41SMZ8T1MomhnIF/U6lIELqCaNTGZpB4cBO+d4p
+	 JpoqpJLFG/V1MaP3smkSKcvV7XLtkVt33O84QiS/QHfUXxITtXg+qaKWd5T5Fz9HYI
+	 YMScuR2VdqgJZtU2oZ/PKqudxhdQTtdKsBscz1nEtH/CwW2HRhObkm4GBLIH3Z6Dxr
+	 7ORZAiuIAr2mw==
+From: Mark Brown <broonie@kernel.org>
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: lgirdwood@gmail.com, david.rhodes@cirrus.com, rf@opensource.cirrus.com, 
+ patches@opensource.cirrus.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261119075733.50138-1-zhujun2@cmss.chinamobile.com>
+References: <20261119075733.50138-1-zhujun2@cmss.chinamobile.com>
+Subject: Re: [PATCH] ASoC: cs48l32: Release the runtime PM reference on IRQ
+ read errors
+Message-Id: <179510449468.116416.15496390683158627317.b4-ty@b4>
+Date: Thu, 19 Nov 2026 16:08:14 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,91 +60,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF00070CF9:EE_|PAWPR10MB7198:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 10496d6c-e089-4e79-9e30-08df46fac7ec
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|36860700016|1800799024|23010399003|82310400026|10067099003|5023799004|11063799006|56012099006|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261009223027099003|261028144727099003|261102123227099003|261026140227099003|261026121527099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	dJryyzZlRMwOf+N9Ut4sFKIofvtHycVznKkZqXYcwXk1ZFnriMeSBJUbaBP/Wlxocl2fWLxj8QNpBVaIDLbUEOvuHVTfe9+NsWy+5ZUmLFz2MYJJNRH2y8tnmoN2OXkdRcaj0ZU75odTVVauosW3xXOrcoHPKvrX0jUenp2qv8haDNsmC+PcByLBBy+JJJR5Uox/mw6IdeXu6N6oOHwO0XRfMZmPzZu77KVEZMLLJsdOUZl5xkQbe2uCO7OD/r5HeCShwQK1rxfTk0/pgGo14REnikKcjWdZpBlDKhPMtUb6sc/JAaNoA++a8PWA/tvuvuVo/P0vRg0vbnMLqAuxPail6r0HpHYGCBhcretgxtaGkXcS5o9LT3tkHyZibFaspu2VAxd0xcUuln2fGxLNa6vc86PHiKt/rwSew6S5lLeH/zZh1VxuZB4R4pkhlDxMgU+v/HbbuagbkCR1mJ6CrnszSAocgV+nvtYD+dSBgEknig9hkauDC04H6Erw+UKB12YOVn5Ui+rDyPQFpnYwKULmLMvgT7gjBsx88lex+OCJkT2NjTQTd3tHPAiNVRaFzHHsV6WCu3gUhwqBUBTA4XJTuhqDVMChevXzd9tpDqiCN0iCo5FjqGFOikt8WpulGT6DmPdx5iblwTJ3NOWXCBnaZqwVeJxzU7wVE/cMkx8HFgdCFGFgjRVyrpAbXxpKfU0gkdbLR42faWytDkiAUw==
-X-Forefront-Antispam-Report:
-	CIP:3.248.88.141;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ext-eur1.smtp.philips.com;PTR:ext-eur1.smtp.philips.com;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(23010399003)(82310400026)(10067099003)(5023799004)(11063799006)(56012099006)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261009223027099003)(261028144727099003)(261102123227099003)(261026140227099003)(261026121527099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	T47avAOubaH0+zg9aENuDcGA3JXczaR7SDmBfL5BnjKltzgWiOnWND2Z/RHgdBvDLPnQlEKtE4Qael9YWGAvES62RWPX/1VRih8J70a7hHVcS4wABKQTamA/Gf5SrRrp54JLUn9gHEizu3PhUFnQ+uYJ2Q/X8kAA5ItMF5mqR9pgP+EgQa0SdIL7Wyft2M7PZdUivD41hlcadhhMDveDumlLPxmPmy6xsFQryTbhKE/YP8aGYwRBt3UmlBCqCJ+hj8IU/x5oa4yHXAHUcM6/S3lFJ2XFsFt+LRDnovl/m3A8i9i+QS4Ibc6bbU2iOAD6OICb6HlCjjqF63YAHUaYH7evho+Lr4hVuGxyL1E5iPNtkNN8mVuQ4NQ8HPTcsRTIicq7RVPwbJJiIvjw39e+yBdhmQwxiHWFnhhykulPt72qslJRflJt4uqlCIYgMJHP
-X-OriginatorOrg: philips.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 11:38:21.9378
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10496d6c-e089-4e79-9e30-08df46fac7ec
-X-MS-Exchange-CrossTenant-Id: 1a407a2d-7675-4d17-8692-b3ac285306e4
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1a407a2d-7675-4d17-8692-b3ac285306e4;Ip=[3.248.88.141];Helo=[ext-eur1.smtp.philips.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	AM2PEPF00070CF9.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7198
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1145; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ZpDnaUnyAxxrM5tThINjs1DjzxQ5EJLUjkdmVCZEaRA=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZDNOqeuN7HyR4PZvAt01uwaL9qV4Gi3ZM8RGMrubn6
+ AjjEnndUcrCIMbFICumyBKXxf2yvuT1Gr6DC9tg5rAygQxh4OIUgIl8jWNk2JKy4uP33V6+qXMT
+ OffX//BfO+dMs7s1g/rDoFVHvq5wWMrIMF/Aunrr/s4gl3tfVFmPMqxnF3hWWDWXXzp1VlCvwrT
+ 5nAA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-mwifiex_scan_networks() tests adapter->scan_processing without holding
-any lock and only sets it later under mwifiex_cmd_lock. The test and the
-set are not atomic, so two callers can both observe the flag clear and
-both start a scan.
+On Thu, 19 Nov 2026 15:57:33 +0800, Zhu Jun wrote:
+> ASoC: cs48l32: Release the runtime PM reference on IRQ read errors
 
-This is reachable because callers of this function run in different
-contexts: mwifiex_cfg80211_scan() runs from a cfg80211 operation, while
-mwifiex_active_scan_req_for_passive_chan() runs from the driver's main
-work via mwifiex_check_next_scan_command(), which is not serialized
-against cfg80211 operations.
+Applied to
 
-After the last scan command completes, mwifiex_check_next_scan_command()
-clears scan_processing and then starts the follow-up hidden SSID scan;
-a scan request from user space arriving in that window passes the unlocked
-check as well. Both scans then queue commands on scan_pending_q and share
-priv->scan_request, so one can clear scan_processing or call
-cfg80211_scan_done() while the other is still running.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Move the scan_processing check under mwifiex_cmd_lock, in the same
-critical section that sets it, so that test and set are atomic.
+Thanks!
 
-Signed-off-by: Vishal Gupta <vishal.gupta_1@philips.com>
----
- drivers/net/wireless/marvell/mwifiex/scan.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+[1/1] ASoC: cs48l32: Release the runtime PM reference on IRQ read errors
+      https://git.kernel.org/broonie/sound/c/afd48791d4f1
 
-diff --git a/drivers/net/wireless/marvell/mwifiex/scan.c b/drivers/net/wireless/marvell/mwifiex/scan.c
-index bdd4b8465863b..c99c5378b8486 100644
---- a/drivers/net/wireless/marvell/mwifiex/scan.c
-+++ b/drivers/net/wireless/marvell/mwifiex/scan.c
-@@ -1499,12 +1499,6 @@ int mwifiex_scan_networks(struct mwifiex_private *priv,
- 	u8 scan_current_chan_only;
- 	u8 max_chan_per_scan;
- 
--	if (adapter->scan_processing) {
--		mwifiex_dbg(adapter, WARN,
--			    "cmd: Scan already in process...\n");
--		return -EBUSY;
--	}
--
- 	if (priv->scan_block) {
- 		mwifiex_dbg(adapter, WARN,
- 			    "cmd: Scan is blocked during association...\n");
-@@ -1519,6 +1513,12 @@ int mwifiex_scan_networks(struct mwifiex_private *priv,
- 	}
- 
- 	spin_lock_bh(&adapter->mwifiex_cmd_lock);
-+	if (adapter->scan_processing) {
-+		spin_unlock_bh(&adapter->mwifiex_cmd_lock);
-+		mwifiex_dbg(adapter, WARN,
-+			    "cmd: Scan already in process...\n");
-+		return -EBUSY;
-+	}
- 	adapter->scan_processing = true;
- 	spin_unlock_bh(&adapter->mwifiex_cmd_lock);
- 
--- 
-2.43.0
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
