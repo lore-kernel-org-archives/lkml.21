@@ -1,95 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.28
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795131007;
-	b=HHZ2uNiAv8Lw/ucBdA/wk3kXFUHGTf7SRBAdY1ZiS21kPeugBSFva+GTFKr/Ebf4K+gG
-	 zZ3MuyVngcs8PjTIgNeOQ8z1hraFpYANy7S5HuPBBWd575E700aqjzKzC4hXhIJVfH4Kw
-	 K3EUOeGvUgnNBWa+jbwq/xICEyi0Gg4LMiXyvnvuzzAwe9OAyjntfSdi2V1LlwHffG6cG
-	 9aNUtdESSBR4HkkKDi8HtJaj0oJn7iNWto5SXgj5vGgwczcCw7xaFBDr6MtEN8F5XizU0
-	 gFNqf3qFC9ga5jigNFVs6GGqzyZGfw+ZlQLXk7iiE40N/lBXRuosvzDC7xfvsynmb6g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795131007;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=kyp459148SrYm4Ux1/X504RzMz8LokT3Tx/dOCZxtOo=;
-	b=BzYK88ObkNQfYGhumND8Ipefe6LbEieDJTwlWAyA9IDanV24A9l0VISOxrG03vxdWfLp
-	 gUthm3hzzD0m+Uye/a9KuGW7oVy6q8M6JErkLLQsf+D3s3Kjt7fUY0Bz6LBMNAVLJu1ge
-	 eSZdzQ51qiGZTnYVtF7lxmN3M23++4c0TVQSOc6mrCWu9VZHFS6pxynfLF3L+1C9jS+mW
-	 oys6UGAmCUvnr2BUbT+9J7NeywE+AjXivR2f0pOpLZ8CmXhZfnAyWs1woSkWSPfnPRWC5
-	 WEcsxclwaaso4EEGaN5gg/7vFZtEDt9Gd6JbMAZ9fjNzfIwIo55DMOc5tA97sYPYmvQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=FzrGkwjZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.28
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011028.outbound.protection.outlook.com [40.93.194.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795131009;
+	b=d49gbR72rhTaQMvSJrpS0a4l72FH40RXw+e6sZUouOSSQPY3TyJM6Itt+j++7baVESl/
+	 Mmpc8r3wln/PYVwswl1u1kR766nDq03Br4tgm25/Db4co3EUapxmflGPzIZ9wHfvNXWCB
+	 +K2+MGELLEd759XgJlC/nLxKrtGFSL0ZdpaGH+la8RzAzXRnlSsz0o7XIeudkNCTNjRU1
+	 GEu6GUBXnYFGt9xAEUMX6VMlXey9CcJscKjkGa0/2k9BulxnnJ4w5sTa1PoysYLUD3hWa
+	 bO5CEuNDeZO9cHXyYAHHsBKMXrVw8h7a8aEHI6zdqsId4IDivqcoLvtZqYulyHnS3zQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795131009;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Ea1gJLVhc2AO1s67WLIHygzyGKJ2RI2yud9cLOuT1ts=;
+	b=eT7GEgwuBjoF0gBmytmZ7ptquzp7DxhTih2JdeKpf5bjC849xNKf3dLk3GL6blL9yuGW
+	 gex9FgEF8z4m4tmCvwm/rCezoLK6qbhMwExFqvxYHGUQ5+kyprDvcEsq22gHM+QdiIG7t
+	 mQloC+qx8oOuXzAfnstMeyt+SBJ2qouZsg5urZbEBnmngavDRR8MHFdn+XuRQ7BtAEwF7
+	 LafseSyYCqEc47IzH/5uWjoM92syZAydBKP8WWeyn9TUOc00vFMrNQ5LRATbYinFUAtSw
+	 wDwfUAHjh7mZzjk9BeGck7xobBZKg8OTOiLbDimY06NJgFsMj9WoUei9gBhmB02Irlg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=asN7KogE;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED472606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:30:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED472606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6939860A261E
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:30:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6939860A261E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=FzrGkwjZ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BFHS4ymhFoCzngUwqtTzP94UpSxb5yvktYgWIt53Fc9H/8x500/9gMNTrTA8kM1JQS1JNcXf6T3UJGLvMPN4Vn9zEyPFZVFav56WvYYdrGLZx6x0LhFYKJa6rlzShcjP72my//nOywruDh95/VcXgfD4HRRd4sQ8yrGYcRrgBFFy6+lF/25+Ojpn+m21gi/vlonAug6xIPbrES9QU0jkKwuVa+f2oT9YjqVFIV1S4v/IRKbOwYLRNTRa0P4r1jfkou//UXTTSfvLf4usQ44+MoZUNYzkx6WVBeaKmOab/qtlmBw5/TvniWSDhDlkM8INuZfBess99OnRFM0wERrG9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kyp459148SrYm4Ux1/X504RzMz8LokT3Tx/dOCZxtOo=;
- b=hSkkjB0wX/cHQ3XxyER8hVmQ+OV0CyiHDAXodF2CCQU6yUebHhKZLMXnGcpDYMdZ08QHjmmhXB63gLZMB/iEowLilQFO3rxhhvXebBztw75y3OKtJMTjNevanqOAlwjueWqfzm3AwEYuRcV62sraarFjfyGM1fnUSxHprNjhtlV2xnrg51ygv6V3cqaODCLzG9OhbExYda+b5yO474oaLtU9Yru/VUtQ46DI43c/LAs6Jg49TDmxvAlEo/9V/nYOZT2AJeGFkEAjOHp15jOYSIEe7iszZmHchXvnra9PsIFtS6GiCunQkAT6LfASI2pVd/ZHpwtQoll/xzzApVF8pQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kyp459148SrYm4Ux1/X504RzMz8LokT3Tx/dOCZxtOo=;
- b=FzrGkwjZXazNz7X7pLF8V1LcKOHsdzkkcZcuuSO20+mISg2ymt1aa15zDC2WPlThGG+0lTpe44BxoNPXXqWkFM/tr9USazWTAB8sRKsvg1D5jP0VTEsjKFTlmCTwgHWqZDSfsKTSFQ1z2hZHcrcEFnZFNC3SPPL5X1iS/mue6tM=
-Received: from PH0PR07CA0057.namprd07.prod.outlook.com (2603:10b6:510:e::32)
- by DS0PR12MB8525.namprd12.prod.outlook.com (2603:10b6:8:159::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 19 Nov
- 2026 23:28:00 +0000
-Received: from PH7PEPF00000009.namprd04.prod.outlook.com
- (2603:10b6:510:e:cafe::3c) by PH0PR07CA0057.outlook.office365.com
- (2603:10b6:510:e::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Thu,
- 19 Nov 2026 23:28:00 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH7PEPF00000009.mail.protection.outlook.com (10.167.243.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Thu, 19 Nov 2026 23:28:00 +0000
-Received: from [127.0.1.1] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 19 Nov
- 2026 17:27:56 -0600
-From: Mario Limonciello <mario.limonciello@amd.com>
-Date: Thu, 19 Nov 2026 17:27:37 -0600
-Subject: [PATCH v12 10/12] drm/gud: add connector luminance support
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=asN7KogE
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1ae58d17cd9so327471c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:30:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795131007; x=1795735807; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ea1gJLVhc2AO1s67WLIHygzyGKJ2RI2yud9cLOuT1ts=;
+        b=asN7KogEdB96Lzvh3BR5oH7SonpAuK8Q2/X/M8t/crF2IPtJoovK27hdTnMt/868+D
+         TlvSSoQnPXoxVLQUX6pbtp+CEK/iNCQ2sCdAtBuCn12ID9Sa6CMD+gAkoOTNtsZYIpWD
+         kBB23MWbIvaw/oBLvyUxwiSeAVOBonehR1MMIwFJmBJ3rJcuDTAzrdUuUrgibVQe5Gu+
+         YM7VLIXm+p+jSM8Mv68Z0hbhMPQ4MnjDt+jHjKhJt/bK2xMOWPh9/wTsLuVfh+zKdvRp
+         wXt3wfZdhL46pF5G/40RYxoUecauz7ILlISDElM0d6d9amgqwsDiPefYW7+cdMo7X9eD
+         kq6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795131007; x=1795735807;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ea1gJLVhc2AO1s67WLIHygzyGKJ2RI2yud9cLOuT1ts=;
+        b=Hrmw1xhhwuTosIza06cCXvPKd3wTDYkttr8mZd7991JJmuztxBUKeToYyGX53N/dmU
+         yTNiPx76SE8nAlW/XnGKtTMH/Yt4mR6MXcfuKi8G1PIvfYp7HrjuRpRWQfsrQxAhxaYs
+         OlYJvhyZMzdDtSvJJRvTz/5V888fa3ZK+0WQCKPJzjHENICf5a9KiesDIxeyv6wEITcf
+         urw9YuhKeOJTONC1FkFuZkvVMB3Fqllg4Nw2dQh/76jog7X6lwtOWbNoUp4u/XZuFg7G
+         e0d8u/ES1/2Q6E6osKKUjchKzfn+GG0EbJddnZhI0gdn2ekRpyoDMkU08GS5H4Mdl7qx
+         1FZA==
+X-Forwarded-Encrypted: i=1; AL+hErHWd7my/eqYUY8X1uyH+SpoZys4CuC3G4vWSjjBKw+DyIRlegNyOEe2ys/RgFVQyKPzDT58MZ2hcWjqrB0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QQVagMAtJ0K+umQ1lLo9XC8tB3PN2JIIXH4d3bxJ//fD98dL6
+	qVJuYcTP1DWVykCvxegdT2S6t6B3aEW6yo+KaaEvNyq/+X5UEcT3Y7We
+X-Gm-Gg: AZFdTZcO5Ob1b4cdCZ26OUPieukSa8Oo56C+5CLOE2cZ15snX8eLYlJAvq4rrpvf5VK
+	FLtSivVDo7JqqDf0lCZG/e2+5Mdd9g+NOrMC+gCz95Fd+oNSiRgGcWlbcbeJdZrXgZPZYIMVte4
+	As6kbmiaQIRxtZErdwNOaiqLZxwqTdOGigkofZtMO4PwXAvqG7xmtHddYYC9LcwxIdoAvBSN4Ba
+	EnTDQ/0SGURWCkLBv5Oh/BxpBpof1p2B3boF7jz17A6oLcJetdz66NaTQWr4FO7ErdPiwdYDuIC
+	rYnko2iwkyd6BXyjtoI+Xl9cZigQoI9hDGQRS6EME8ZN2G/JZlHMhll9R0UpEZOBCACzD9JHlEs
+	VT3fiyADRAEJMq73UGYFRAlXxoUrZ8p9rCvV+lVkI5/8+zrshB++KaCSSdQ7HJJJuDOteNQUEp7
+	NFO3eJL6/GdRuvis8szxksFeY89Z6/Hn+s39cM9wNY8ylVbNl7SflwnE2uq3Bp5Yb6Rdejy5F8v
+	JrNaaqJZXMAwbRk4NoDJ92TZwTf9dOiF8cH14XT0z0KDsznLnFi6w1BLexHRr2xwjniCP/YqpI+
+	lR7dNmvkuLjYhO4RFOml4UW86A3t2STzRrpeAAaBqWZCt5SUPmzDhpZe8MtpS+NzOVFDhXRrMmu
+	JTIHwlwBP
+X-Received: by 2002:a05:7300:8816:b0:381:5fe2:8008 with SMTP id 5a478bee46e88-38571b071d3mr821602eec.39.1795131007412;
+        Thu, 19 Nov 2026 15:30:07 -0800 (PST)
+Received: from lounas.tail428e48.ts.net ([157.131.129.22])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385c6830815sm176015eec.20.2026.11.19.15.30.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 15:30:06 -0800 (PST)
+From: Louis Thiery <thiery.louis@gmail.com>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: io-uring@vger.kernel.org,
+	Pavel Begunkov <asml.silence@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Louis Thiery <thiery.louis@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] io_uring/net: don't charge the folio offset to truesize for managed frags
+Date: Thu, 19 Nov 2026 23:29:35 +0000
+Message-ID: <20261119232935.1708458-1-thiery.louis@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,395 +98,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261119-superm1-backlight-property-v12-10-89d5217d3618@amd.com>
-References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
-In-Reply-To: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
-To: Maxime Ripard <mripard@kernel.org>, Alex Deucher
-	<alexander.deucher@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
-	Javier Martinez Canillas <javierm@redhat.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, "Harry
- Wentland" <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, "Rodrigo
- Siqueira" <siqueira@igalia.com>
-CC: Mario Limonciello <superm1@kernel.org>, Xaver Hugl <xaver.hugl@gmail.com>,
-	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-	<amd-gfx@lists.freedesktop.org>, <intel-gfx@lists.freedesktop.org>,
-	<intel-xe@lists.freedesktop.org>, <nouveau@lists.freedesktop.org>, "Mario
- Limonciello" <mario.limonciello@amd.com>
-X-Mailer: b4 0.15.1
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PEPF00000009:EE_|DS0PR12MB8525:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9d1f6e5e-a86f-4d1c-848f-08df4694c05d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|7416014|376014|18002099003|6133799003|261009223027099003|22082099003|3023799007|921020|11063799006|56012099006|261021123027099003|261102123227099003|261022105027099003|261026140227099003|261022115727099003|261022075727099003|261026121527099003|261021121427099003|261028144727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	vy2cncClWMdkwVaxP1Al4uQCmOrIOl856jGkesWbwhY5hozNWlTehCVjjKsiIsTnMprfoUaNzYqhIX8P5RNjpzYFZL1aDgfGO+LL0Rd8RRN65rHpyZmU7MOVSfwEOO06YuzlfWlXIFHfPtdLmdFJ8bbpuKezy3XrlDl2/TMnedZP9pbBo5ye6H50cCtfsUWezz53n0NuI4Cli+3zOXxuG3FMLZf98JHwGLLC9FdvDwcFjkY3YDR5D86jugeArPZYaW074v2WoWZUTGTL4nfnio9P9i4IOiseU4xzimdj8xJL/wyGJr39SiHGwKLrrfS46LPnPDlsOWymsXz1T8I/NJUfHARM5BysSzwGTHzzHZ8axYLy5A5hY5Uqo4ZKiL1gs8t5MqoeQgFOTiA7rt0Evp6P1PMbolBD349UqJrhalg9tn95SUna+FERS+7+Gseqhxzod4W7J7BMNgdvK6a3xKVSy4VW9VEk0kNs325c00RhR07YBuKv4Cnm+DGvuBAY+GU0pSPfn58t0dPNU4DZ8knRmCKDmJUsVFmPPBzUnS5gqlg8tPuCGcZ+gLHESLLzRNzR9ysmYxQ+epoVY/HF6kgCb/h3mhEJcjWI5AKZaZoocHJlp5kq9E4PGbBeJTKkhiFJ+uxFbwmHMeXXjPruiX/R6XWwmKp//a6lRp7sosJazZ92NAhj+hTxIm/EHNJjgSjIpEl7SpCixOMAvs9QMiJqILUrNHz3K5QWfiRbWJuxDUoOUB1O8flH+67EbIyg
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(7416014)(376014)(18002099003)(6133799003)(261009223027099003)(22082099003)(3023799007)(921020)(11063799006)(56012099006)(261021123027099003)(261102123227099003)(261022105027099003)(261026140227099003)(261022115727099003)(261022075727099003)(261026121527099003)(261021121427099003)(261028144727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	6VqpEbVq+ael8LXeRjN9Ukm3YZ1NIxHAjbvZqCdHY2A4QSOCjaXlRnLn2NMPQ46eJwunsYEV6DsqsPYWlJepsV4PVzNsRmHUO1pU5G9GrxVmNlquDlOuNUXpU0MRYMjuwKkoy5eZRo9qpMirbeXkXV9GjDm9IOkuODflDNkNH+d7F+PdzzWN8OkhhSSrvuuQQ6iPC4+3HSqK/ndce7oeMbJwffX3PNPS/cypupB5jAcE3oCqj7IkyEiWEvqWmjCnrgGlU4mmJTIoPY1GHMhYk8sYUFXGREW1EefGupd+6qHsZt4BrTcVR4AJyQFo3rrgcmuqJ7Z5jRGQu6eccHQj6JmSEwQtlg3zEpHzFy1b398yIRPK4wguNr1juQrNEEEZRn5DEL1sYLk2wm5Wl11kBg9/i0kt1anGeTGHI+ZlifMpT7zbejETLn5g8P/KbTC6
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 23:28:00.5178
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d1f6e5e-a86f-4d1c-848f-08df4694c05d
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH7PEPF00000009.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8525
+Content-Transfer-Encoding: 8bit
 
-Expose GUD display brightness through the connector LUMINANCE property
-when DRM_LUMINANCE is enabled.
+Registered buffers backed by huge pages are coalesced into one bvec per
+folio, so bv_offset is relative to the folio, not to a 4K page.
+io_sg_from_iter() adds PAGE_ALIGN(bv_len + bv_offset) to the skb
+truesize, which charges the socket for the whole run-up inside the
+folio. A 64K send from 1.5MB into a 2MB THP folio adds about 1.6MB of
+truesize, and sk_wmem_queued fills long before any real memory is used.
 
-The device receives brightness as part of its display state and the
-protocol has no dedicated brightness request. The backlight class device
-works around that with a full modeset, which userspace can't rely on for a
-connector property since commits without DRM_MODE_ATOMIC_ALLOW_MODESET
-would be rejected. Send the committed luminance with the state check
-during a modeset, and for a luminance-only commit resend the current
-configuration with the new value and apply it with a state commit.
+The visible effect is a socket that looks full: with a 2MB send buffer
+only 4 of 128 queued 64K sends complete before the sender blocks,
+versus 30 of 128 with the same buffer registered as 4K pages, and most
+pipelined send_zc requests come back short.
 
-Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
+Only the in-page part of the offset matters for how much memory a
+fragment ties up, so use offset_in_page(). This matches what
+zerocopy_fill_skb_from_iter() charges for the same data.
+
+Fixes: 57bebf807e2a ("io_uring/rsrc: optimise registered huge pages")
+Cc: stable@vger.kernel.org
+Signed-off-by: Louis Thiery <thiery.louis@gmail.com>
 ---
-v12:
- * Resend the display state with the new luminance from .set_luminance
-   and apply it, instead of mirroring LUMINANCE into tv.brightness in
-   atomic check which forced a modeset and rejected commits without
-   DRM_MODE_ATOMIC_ALLOW_MODESET (Sashiko)
-v11:
- * Apply LUMINANCE in the atomic commit instead of a worker, fixing an
-   endless commit loop, a use-after-free on disconnect and brightness
-   being clobbered on DPMS off (Sashiko)
- * Attach the property at connector init (Sashiko)
- * Keep selecting BACKLIGHT_CLASS_DEVICE (Sashiko)
----
- drivers/gpu/drm/gud/gud_connector.c |  61 ++++++++++++++--
- drivers/gpu/drm/gud/gud_internal.h  |   5 +-
- drivers/gpu/drm/gud/gud_pipe.c      | 136 ++++++++++++++++++++----------------
- 3 files changed, 134 insertions(+), 68 deletions(-)
+ io_uring/net.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/gud/gud_connector.c b/drivers/gpu/drm/gud/gud_connector.c
-index ddbf3b3ebbca8..f00272f030c1c 100644
---- a/drivers/gpu/drm/gud/gud_connector.c
-+++ b/drivers/gpu/drm/gud/gud_connector.c
-@@ -13,6 +13,7 @@
- #include <drm/drm_edid.h>
- #include <drm/drm_encoder.h>
- #include <drm/drm_file.h>
-+#include <drm/drm_framebuffer.h>
- #include <drm/drm_modeset_helper_vtables.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -314,17 +315,52 @@ static int gud_connector_atomic_check(struct drm_connector *connector,
- 	return 0;
- }
+diff --git a/io_uring/net.c b/io_uring/net.c
+index 533afd335..8afad1b2d 100644
+--- a/io_uring/net.c
++++ b/io_uring/net.c
+@@ -1501,7 +1501,12 @@ static int io_sg_from_iter(struct sk_buff *skb,
+ 		struct bio_vec v = mp_bvec_iter_bvec(from->bvec, bi);
  
-+/*
-+ * The device receives brightness as part of its display state, there is no
-+ * dedicated request. Resend the current configuration with the new luminance
-+ * and apply it, so that a luminance change doesn't need a modeset.
-+ */
-+static void gud_connector_set_luminance(const struct drm_connector_state *conn_state)
-+{
-+	struct drm_connector *connector = conn_state->connector;
-+	struct gud_device *gdrm = to_gud_device(connector->dev);
-+	struct drm_crtc_state *crtc_state = conn_state->crtc->state;
-+	struct drm_plane_state *plane_state = gdrm->plane.state;
-+	int idx, ret;
-+
-+	/*
-+	 * gud_plane_atomic_check() sent the committed luminance with
-+	 * GUD_REQ_SET_STATE_CHECK for these changes and gud_crtc_atomic_enable()
-+	 * applied it. A modeset that only changed the active state didn't.
-+	 */
-+	if (crtc_state->mode_changed || crtc_state->connectors_changed)
-+		return;
-+
-+	if (drm_WARN_ON_ONCE(connector->dev, !plane_state->fb))
-+		return;
-+
-+	ret = gud_state_check(gdrm, &crtc_state->mode, plane_state->fb->format,
-+			      plane_state->rotation, conn_state);
-+	if (!ret && drm_dev_enter(connector->dev, &idx)) {
-+		ret = gud_usb_set(gdrm, GUD_REQ_SET_STATE_COMMIT, 0, NULL, 0);
-+		drm_dev_exit(idx);
-+	}
-+	if (ret)
-+		gud_conn_err(connector, "Failed to set luminance", ret);
-+}
-+
- static const struct drm_connector_helper_funcs gud_connector_helper_funcs = {
- 	.detect_ctx = gud_connector_detect,
- 	.get_modes = gud_connector_get_modes,
- 	.atomic_check = gud_connector_atomic_check,
-+	.set_luminance = gud_connector_set_luminance,
- };
- 
- static int gud_connector_late_register(struct drm_connector *connector)
- {
- 	struct gud_connector *gconn = to_gud_connector(connector);
- 
--	if (gconn->initial_brightness < 0)
-+	if (IS_ENABLED(CONFIG_DRM_LUMINANCE) || gconn->initial_brightness < 0)
- 		return 0;
- 
- 	return gud_connector_backlight_register(gconn);
-@@ -593,10 +629,12 @@ static int gud_connector_add_properties(struct gud_device *gdrm, struct gud_conn
- 	return ret;
- }
- 
--int gud_connector_fill_properties(struct drm_connector_state *connector_state,
-+int gud_connector_fill_properties(const struct drm_connector_state *connector_state,
- 				  struct gud_property_req *properties)
- {
--	struct gud_connector *gconn = to_gud_connector(connector_state->connector);
-+	struct drm_connector *connector = connector_state->connector;
-+	struct gud_connector *gconn = to_gud_connector(connector);
-+	struct drm_tv_connector_state tv = connector_state->tv;
- 	unsigned int i;
- 
- 	for (i = 0; i < gconn->num_properties; i++) {
-@@ -604,12 +642,16 @@ int gud_connector_fill_properties(struct drm_connector_state *connector_state,
- 		u64 val;
- 
- 		if (prop == GUD_PROPERTY_BACKLIGHT_BRIGHTNESS) {
--			val = connector_state->tv.brightness;
-+			/* The backlight device reuses tv.brightness to avoid subclassing */
-+			if (connector->luminance_property)
-+				val = connector_state->luminance;
-+			else
-+				val = tv.brightness;
- 		} else {
- 			unsigned int *state_val;
- 
--			state_val = gud_connector_tv_state_val(prop, &connector_state->tv);
--			if (drm_WARN_ON_ONCE(connector_state->connector->dev, IS_ERR(state_val)))
-+			state_val = gud_connector_tv_state_val(prop, &tv);
-+			if (drm_WARN_ON_ONCE(connector->dev, IS_ERR(state_val)))
- 				return PTR_ERR(state_val);
- 
- 			val = *state_val;
-@@ -699,6 +741,13 @@ static int gud_connector_create(struct gud_device *gdrm, unsigned int index,
- 		return ret;
- 	}
- 
-+	if (IS_ENABLED(CONFIG_DRM_LUMINANCE) && gconn->initial_brightness >= 0) {
-+		ret = drm_connector_attach_luminance_property(connector, 0, 100,
-+							      gconn->initial_brightness);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	gconn->encoder.possible_crtcs = drm_crtc_mask(&gdrm->crtc);
- 	ret = drm_encoder_init(drm, &gconn->encoder, &gud_drm_simple_encoder_funcs_cleanup,
- 			       DRM_MODE_ENCODER_NONE, NULL);
-diff --git a/drivers/gpu/drm/gud/gud_internal.h b/drivers/gpu/drm/gud/gud_internal.h
-index 95744b0b6c727..5b1430f93f555 100644
---- a/drivers/gpu/drm/gud/gud_internal.h
-+++ b/drivers/gpu/drm/gud/gud_internal.h
-@@ -70,7 +70,10 @@ int gud_plane_atomic_check(struct drm_plane *plane,
- 			   struct drm_atomic_commit *state);
- void gud_plane_atomic_update(struct drm_plane *plane,
- 			     struct drm_atomic_commit *atomic_state);
--int gud_connector_fill_properties(struct drm_connector_state *connector_state,
-+int gud_state_check(struct gud_device *gdrm, const struct drm_display_mode *mode,
-+		    const struct drm_format_info *format, unsigned int rotation,
-+		    const struct drm_connector_state *connector_state);
-+int gud_connector_fill_properties(const struct drm_connector_state *connector_state,
- 				  struct gud_property_req *properties);
- int gud_get_connectors(struct gud_device *gdrm);
- 
-diff --git a/drivers/gpu/drm/gud/gud_pipe.c b/drivers/gpu/drm/gud/gud_pipe.c
-index 5aa5ac2f37274..638b94f55733b 100644
---- a/drivers/gpu/drm/gud/gud_pipe.c
-+++ b/drivers/gpu/drm/gud/gud_pipe.c
-@@ -450,6 +450,77 @@ static void gud_fb_handle_damage(struct gud_device *gdrm, struct drm_framebuffer
- 	gud_flush_damage(gdrm, fb, src, !drm_gem_is_imported(fb->obj[0]), damage);
- }
- 
-+/*
-+ * Send the display configuration to the device with GUD_REQ_SET_STATE_CHECK,
-+ * a following GUD_REQ_SET_STATE_COMMIT applies it.
-+ */
-+int gud_state_check(struct gud_device *gdrm, const struct drm_display_mode *mode,
-+		    const struct drm_format_info *format, unsigned int rotation,
-+		    const struct drm_connector_state *connector_state)
-+{
-+	struct drm_device *drm = &gdrm->drm;
-+	unsigned int i, num_properties;
-+	struct gud_state_req *req;
-+	int idx, ret;
-+	size_t len;
-+
-+	if (format->format == DRM_FORMAT_XRGB8888 && gdrm->xrgb8888_emulation_format)
-+		format = gdrm->xrgb8888_emulation_format;
-+
-+	len = struct_size(req, properties,
-+			  size_add(GUD_PROPERTIES_MAX_NUM, GUD_CONNECTOR_PROPERTIES_MAX_NUM));
-+	req = kzalloc(len, GFP_KERNEL);
-+	if (!req)
-+		return -ENOMEM;
-+
-+	gud_from_display_mode(&req->mode, mode);
-+
-+	req->format = gud_from_fourcc(format->format);
-+	if (drm_WARN_ON_ONCE(drm, !req->format)) {
-+		ret = -EINVAL;
-+		goto out;
-+	}
-+
-+	req->connector = drm_connector_index(connector_state->connector);
-+
-+	ret = gud_connector_fill_properties(connector_state, req->properties);
-+	if (ret < 0)
-+		goto out;
-+
-+	num_properties = ret;
-+	for (i = 0; i < gdrm->num_properties; i++) {
-+		u16 prop = gdrm->properties[i];
-+		u64 val;
-+
-+		switch (prop) {
-+		case GUD_PROPERTY_ROTATION:
-+			/* DRM UAPI matches the protocol so use value directly */
-+			val = rotation;
-+			break;
-+		default:
-+			drm_WARN_ON_ONCE(drm, 1);
-+			ret = -EINVAL;
-+			goto out;
-+		}
-+
-+		req->properties[num_properties].prop = cpu_to_le16(prop);
-+		req->properties[num_properties].val = cpu_to_le64(val);
-+		num_properties++;
-+	}
-+
-+	if (drm_dev_enter(drm, &idx)) {
-+		len = struct_size(req, properties, num_properties);
-+		ret = gud_usb_set(gdrm, GUD_REQ_SET_STATE_CHECK, 0, req, len);
-+		drm_dev_exit(idx);
-+	} else {
-+		ret = -ENODEV;
-+	}
-+out:
-+	kfree(req);
-+
-+	return ret;
-+}
-+
- int gud_plane_atomic_check(struct drm_plane *plane,
- 			   struct drm_atomic_commit *state)
- {
-@@ -458,16 +529,13 @@ int gud_plane_atomic_check(struct drm_plane *plane,
- 	struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state, plane);
- 	struct drm_crtc *crtc = new_plane_state->crtc;
- 	struct drm_crtc_state *crtc_state = NULL;
--	const struct drm_display_mode *mode;
- 	struct drm_framebuffer *old_fb = old_plane_state->fb;
- 	struct drm_connector_state *connector_state = NULL;
- 	struct drm_framebuffer *fb = new_plane_state->fb;
- 	const struct drm_format_info *format;
- 	struct drm_connector *connector;
--	unsigned int i, num_properties;
--	struct gud_state_req *req;
--	int idx, ret;
--	size_t len;
-+	unsigned int i;
-+	int ret;
- 
- 	if (crtc)
- 		crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-@@ -488,7 +556,6 @@ int gud_plane_atomic_check(struct drm_plane *plane,
- 	if (old_plane_state->rotation != new_plane_state->rotation)
- 		crtc_state->mode_changed = true;
- 
--	mode = &crtc_state->mode;
- 	format = fb->format;
- 
- 	if (old_fb && old_fb->format != format)
-@@ -501,9 +568,6 @@ int gud_plane_atomic_check(struct drm_plane *plane,
- 	if (hweight32(crtc_state->connector_mask) != 1)
- 		return -EINVAL;
- 
--	if (format->format == DRM_FORMAT_XRGB8888 && gdrm->xrgb8888_emulation_format)
--		format = gdrm->xrgb8888_emulation_format;
--
- 	for_each_new_connector_in_state(state, connector, connector_state, i) {
- 		if (connector_state->crtc)
- 			break;
-@@ -530,58 +594,8 @@ int gud_plane_atomic_check(struct drm_plane *plane,
- 	if (drm_WARN_ON_ONCE(plane->dev, !connector_state))
- 		return -ENOENT;
- 
--	len = struct_size(req, properties,
--			  size_add(GUD_PROPERTIES_MAX_NUM, GUD_CONNECTOR_PROPERTIES_MAX_NUM));
--	req = kzalloc(len, GFP_KERNEL);
--	if (!req)
--		return -ENOMEM;
--
--	gud_from_display_mode(&req->mode, mode);
--
--	req->format = gud_from_fourcc(format->format);
--	if (drm_WARN_ON_ONCE(plane->dev, !req->format)) {
--		ret = -EINVAL;
--		goto out;
--	}
--
--	req->connector = drm_connector_index(connector_state->connector);
--
--	ret = gud_connector_fill_properties(connector_state, req->properties);
--	if (ret < 0)
--		goto out;
--
--	num_properties = ret;
--	for (i = 0; i < gdrm->num_properties; i++) {
--		u16 prop = gdrm->properties[i];
--		u64 val;
--
--		switch (prop) {
--		case GUD_PROPERTY_ROTATION:
--			/* DRM UAPI matches the protocol so use value directly */
--			val = new_plane_state->rotation;
--			break;
--		default:
--			drm_WARN_ON_ONCE(plane->dev, 1);
--			ret = -EINVAL;
--			goto out;
--		}
--
--		req->properties[num_properties].prop = cpu_to_le16(prop);
--		req->properties[num_properties].val = cpu_to_le64(val);
--		num_properties++;
--	}
--
--	if (drm_dev_enter(fb->dev, &idx)) {
--		len = struct_size(req, properties, num_properties);
--		ret = gud_usb_set(gdrm, GUD_REQ_SET_STATE_CHECK, 0, req, len);
--		drm_dev_exit(idx);
--	}  else {
--		ret = -ENODEV;
--	}
--out:
--	kfree(req);
--
--	return ret;
-+	return gud_state_check(gdrm, &crtc_state->mode, format, new_plane_state->rotation,
-+			       connector_state);
- }
- 
- void gud_crtc_atomic_enable(struct drm_crtc *crtc,
+ 		copied += v.bv_len;
+-		truesize += PAGE_ALIGN(v.bv_len + v.bv_offset);
++		/*
++		 * bv_offset is relative to the folio for coalesced huge page
++		 * registrations, so only the in-page part of it matters for
++		 * how much memory this fragment ties up.
++		 */
++		truesize += PAGE_ALIGN(v.bv_len + offset_in_page(v.bv_offset));
+ 		__skb_fill_page_desc_noacc(shinfo, frag++, v.bv_page,
+ 					   v.bv_offset, v.bv_len);
+ 		bvec_iter_advance_single(from->bvec, &bi, v.bv_len);
 
+base-commit: 0659e44ce739ecd856164c75a5325b7959a2921d
 -- 
 2.43.0
 
