@@ -1,78 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795113203;
-	b=QadhOrOPG6PcmSTGgzxvzT3CHTuxTHDUNtoOYTdYFAuftXwHGpuoRqnkIbRGAiEABeCg
-	 Uhe7QsLGdF0z8trTYoNnxPCw2dTtsg7/51abl3cNmini8qUyOCUnd9PI8uqE7kDJ7KLpk
-	 GJTRnzBEqgJDkoYpB9j6QJ1AmA6zo7ZfxOMgOWoFtD57BdG70CiZZC2BicDX4jgOIr5JL
-	 Wa/DsdjVhhY7MolozhbukQDslOTOzaN+lcaLDmDdMKOliIfX0dQolb6VECGycOEamaqOC
-	 m+HBscW4CmPM96qtdCRKggDuC+SnXl48EZ5GCtqdfQr7gkxfs2e0ndovxpTbfxNU8Bg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795113203;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=pHywAss4SUFaOVdqoHSlrUORbDZHaQKBA7uBl+sRzDc=;
-	b=bsR52krEiYPE1M/o/WBCTkp6pAtuJDp6oVge5PYUFdbnCy65VilqyQ3y+dK965oIlLaI
-	 97CLeNRqdJBWAfUtSqsFom4x2mARWa5HbRnOpcSoaOzny3QthRrL/z/ypTUQMc3Cxsu8P
-	 pYZEIkVahmpas2U1PTX45+fZTNC4/xstkK4JVl4m//AtYRDlwqQBseaz+KZ5+xleL8ZUb
-	 6VFnnklFeG0gr2KkhGdyB/8+jocTRqYnY07zFjDzUkIEPrqoQh50vY+wqyS8NE9BuUWBE
-	 YH11z5LVyYHeUduIokUPl29/k2lil46u8EH5LHeBwtYQIC70RqgZ9sgN1+3MLVvy7+w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYSiMv7o;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7ED8606A325;
-	Thu, 19 Nov 2026 18:33:23 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BYSiMv7o
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795113203;
-	b=tKdD3fRkguifYwfAfOKiHsZrY+A1Qo3exQBm9WDpcsLVPIGe6HP3ZJ55Ec/rBOqLEBHr
-	 SacMQaP7UFER2NVZmT65WVxya0oF+tGZ+W/PfOeWC4ZZ0JArItB5qepY9uR3lTI1kwHVK
-	 hRQQYJhEYbjqS45snkD7/R/3Mp6QdRFMUB5o+09BIB34BggCHTjr+ytYxzIv3/0f08HPD
-	 FjSAm6CaG/aybebZMpE/LKedNPacAjE6yew8d5zGt7MxAHEfz3dHAAspazyyiyeIwsWv/
-	 khAxYN9wxA63S7R6BznTNwpOmFQEyf41gc4yyto0D3NuL5qXFUPnLeVVocrjre1Xbpg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795113203;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=pHywAss4SUFaOVdqoHSlrUORbDZHaQKBA7uBl+sRzDc=;
-	b=OmRlC/6FgVFGAu9m0trK1kh66LrUNNkWIJ4FejEj1cqJGV6YDIv3IxuQCsFnTaNeieUG
-	 xeoyewCgu+5vCBamuBX7GU+8LNK6Zmm+VY6rs+t+lSK4BzILNZMbBEceF0LkxdgzsPYlv
-	 hEX2CG7Ox9cA9j8ZGzFDpLIF0RxyE6fXGJH3qHZPRFFn44Hr8fnl6RxIl72BG1gOMla0e
-	 gf1rifzuF+VoDfm5tsKtmeDaA1143bZo+psi27ey6qcRIHC+5lXsOySVlDJ69QReJAXTB
-	 HnVs4prki02hVfYV/eADKOMs/Li+WDdgzoqPMPUfU8yEAm1McoHvOzkmRMSFmh2CG6Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.149.156.176
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795113213;
+	b=UZiGRrZX7bCAL4KeE436OPasZBb3YDwDyeN/46u36m95w/+a38bzUccaI3lMPtWivJ1d
+	 NUPevhmMacAskby3ihzrKYNTQrCnAYAUqDEPVxwWQJpTMa5EVENvTksR1sX5C2Y2M1KmY
+	 MT7M4qyeMWLXwUllptKP94X4e69Cdd/R3cQOmO3CbjBX6clHjmNr4cPlbReRbmA8ehjkW
+	 EAtEtCFxZc4JAvvZP6yV/JhLm28UGuFPIx2VhfOTMMiKGtQq1nbS2dqnNji/wNOSYUKH+
+	 1+H2dGrz26VQ6m2lj1XDe9OjS98ATSs59HcWytK64a43xV0yZHB9IAlRisd9nyo7Pjg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795113213;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CMAE-Envelope;
+	bh=2TwysOH3jFptJLl7Zh65O6ibU0W1pO9RKYiZ6XUEe4o=;
+	b=p1J0NmW5iOE7z/9DKMpMFhu0VDAk+J11iKA1tW4PxzzkydaKIAP08jMytGcn5g6aOmwv
+	 8+6h6vJOeXfA1/c4sfhihHRMMPrFAcBEr9VrXScQaCxGm6hPKCnpNsJnXbe5izQJEAQUq
+	 orww5AWiS3V2nmIbdc+1LxleZdmtkPl2sSTdI+F3bDbO1r+xgU9FtXcCLTruYBGa4SCmO
+	 uoPfOQ3MYC+qH3QdvDKE7A+LvTF3JckhVloetZu2SfOYux7Xo/t+uaqU/wD/cbsLkdp+U
+	 0qQPTUADNdXfd2GukO0ki6xQFyUEsecjqrRDLyOmX+Zc3WEWUCVk36dONYSbcYM/ozQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=enneenne.com;
+	spf=pass smtp.mailfrom=enneenne.com;
+	dkim=pass header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=iMCz4c4v;
+	arc=none smtp.remote-ip=62.149.156.176
+Received: from smtpcmd15176.aruba.it (smtpcmd15176.aruba.it [62.149.156.176])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B1E0F1F000C5;
-	Thu, 19 Nov 2026 18:33:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795113203;
-	bh=pHywAss4SUFaOVdqoHSlrUORbDZHaQKBA7uBl+sRzDc=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=BYSiMv7oAi0YFfXivgSpiwe4mCX5uLf8wWOkKBd5qlQM4X3u0qtoD5Vrd944WsPoH
-	 DA2tVQ914ZaVh0U3fUDfN2ZoT4Ojf7lYIFzTbVBY9lkFLFKzfEXI+8eCEWmwwFGZ/g
-	 tgtp9vJ0JmL/nCHq3y+SMe591ATq76RhqZI7mjGj1zxLEXUnbsUdsrFe5uKWbx38N/
-	 IgpPDKzrOfJKDz1WV2VROZ4O03FmI9sw+3fVeyVuY9U719mObt7oU542b8N2L5Wwru
-	 vX/WxyVrqaolhpwyaEVQ/b0hjT8fZ4hCM7laa+z/Y1Alo6AqUpe/xI4uIrVixQbucp
-	 dpvmZqzWc7big==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 43D8C4B3A2;
-	Thu, 19 Nov 2026 18:33:22 +0000 (UTC)
-From: Ahmed Abdelfattah via B4 Relay <devnull+me.ahmedabdelfattah.dev@kernel.org>
-Date: Thu, 19 Nov 2026 20:33:21 +0200
-Subject: [PATCH] EDAC/ie31200: Give each DIMM two chip selects again
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF12860A260F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:33:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF12860A260F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=enneenne.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=enneenne.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=aruba.it header.i=@aruba.it header.a=rsa-sha256 header.s=a1 header.b=iMCz4c4v
+Received: from [192.168.0.186] ([101.57.122.26])
+	by Aruba SMTP with ESMTPSA
+	id U6wix2IW175O9U6wix0Oma; Thu, 19 Nov 2026 19:33:23 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aruba.it; s=a1;
+	t=1795113203; bh=2t8AtcRowxFNGYE8HteZpHIn9jAWUm8DVCWA8vMMYBE=;
+	h=Date:MIME-Version:Subject:To:From:Content-Type;
+	b=iMCz4c4vXgNfjaVsNwvBuMF7tZY4Yy54lPGmuAGKY6P71MLCV/srwMTceBQ/GAt34
+	 IwJr1uqnf/dmNjlMZQB9cLgUTxbIw6iVRuT9buaKQVDbz3kaNVFEIoEpXvAkCgmyEI
+	 PSFVCiHj3v8SvBzh912x32zMoFnRUAiLuKuPzH9wjTX7qSHSKg+cusdAEfdyhakn6U
+	 MDZ+sXbJbEnEXvAx8A/4DselQVxkwI8uuu0bk6VUSPoq8UUhqONY29s9ATTEIL13dy
+	 Cw/3hrysPCKNiLyF9KsJstL/jDdfxcyJ3j39BP5mlGiBGtXHINn2jlUD38UGg+FRMw
+	 xxp9/W63RlIFw==
+Message-ID: <4ad95ed5-26b6-4871-bcb6-cfebfe73917a@enneenne.com>
+Date: Thu, 19 Nov 2026 19:33:20 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,108 +56,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-edac-ie31200-rank-stride-v1-1-3514fcccb130@ahmedabdelfattah.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQrCMAyA4VcZORtoulnQVxEPXRM1ClWSTYSxd
- 1/V43f4/wVcTMXh2C1g8lbXZ22gXQfllutVULkZYoiJiA4onAuq9BRDQMv1gT6ZsmDmsadBEqd
- 9gpa/TC76+a1P5799Hu9Spu8P1nUDX+oDgHwAAAA=
-X-Change-ID: 20261119-edac-ie31200-rank-stride-adb314e6d656
-To: Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>, 
- Tony Luck <tony.luck@intel.com>, Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-Cc: linux-edac@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795113201; l=3793;
- i=me@ahmedabdelfattah.dev; s=20261106; h=from:subject:message-id;
- bh=VP8SCFbiML+yq2OXuS5I12VRNITneI1RQB16ykCjEfc=;
- b=S+ImWECOBViK7xaKc+IUCgF2y4TrPCmCl9t23ueND5tdDMfApnbzaC+WxUEvF92lL+Jnrhntb
- 70pqRNLn8GmBJdDSQM3J1yQ1VaV6Rg1/NciQCDDGMQKx/ctMh+pHEk7
-X-Developer-Key: i=me@ahmedabdelfattah.dev; a=ed25519;
- pk=DHEHKU4PddrkJ/iYMZpwyyXsFyIQ6ySjTttKLrt9YqI=
-X-Endpoint-Received: by B4 Relay for me@ahmedabdelfattah.dev/20261106 with
- auth_id=1438
-X-Original-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-Reply-To: me@ahmedabdelfattah.dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/9] KEYS: keycrypt: keys that user space can use but
+ never read
+Content-Language: en-US
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: David Howells <dhowells@redhat.com>, keyrings@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Jens Wiklander <jenswi@kernel.org>,
+ Sumit Garg <sumit.garg@kernel.org>, op-tee@lists.trustedfirmware.org,
+ =?UTF-8?Q?Horia_Geant=C4=83?= <horia.geanta@nxp.com>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, Sahil Malhotra
+ <sahil.malhotra@nxp.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>,
+ Richard Weinberger <richard@nod.at>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Eric Biggers <ebiggers@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+ "Serge E. Hallyn" <serge@hallyn.com>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, linux-crypto@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ Demi Marie Obenour <demiobenour@gmail.com>
+References: <20261118140421.584086-1-giometti@enneenne.com>
+ <650f89ef-9745-4f75-b254-80fa5ac4773d@gmail.com>
+ <av5EyVHnNzT27dyK@kernel.org> <av8In0Xyd5iI9N7K@kernel.org>
+From: Rodolfo Giometti <giometti@enneenne.com>
+In-Reply-To: <av8In0Xyd5iI9N7K@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CMAE-Envelope: MS4xfDXtWOlFTYpyTg35cFi8NKxn6M8tXvqRpaK6Te9d9LP538qpRWPqyhYCRUO7FN90zeUALjH4Pv0kc5qTXvx9JqFIICyIFmy8AMREg/ZL7rPvrVR8BOUd
+ cLloYWy2etZ8Iz2Dj35VuyDIDq5OJcXlqCU0GxFuELT2Ll0+SMmq0xT0b1NQ/mGJ1DRr6EgGHmwb1jcrz7jDiFyXggFkpjEOVUfCxm33Z+AP0WZg8zgrFJ0n
+ ffHu26kwKFVQdawAYFWmaAXnHN1p0WPTc2eQub+iUcKYdh/LB+1TMtCynW4g+PFuL/Ox/uZYSQ3twHUYmoc0NljKoPOQdr9z82B634PV+Tl5rFaczqEJswvL
+ RMT75ziH1aZFGiT3YGWODPXE3kKUfWeYw2ky9PgD86fbcUKc9YG7O6O4C555MM8R18YgP7zwMiMpC0MPLWUV4TYOFHuGzRI3nAMUWf2OAvcXsYsO9EJVC1dZ
+ /CJBXkFCk64KKzxL3y8DwpvUb58jZOH5wiXqHdVhVBx7moWR2O7fcnAGvb0ROFigOOWFyNifYgQAUKvRx0Gjo0aKANKYhIDOo9FoNc3nTrLMB+wllSvU908i
+ ZvkuwtX35joO+/L82trX60+HcodZHev58cbR0wIdppW64faoXjrD2ty6e3+iNo1wzj4r1WV6hSakPGcj+ITxJAyi+jIfJwOIVZnMMjwKHWWd276ZqiyPHgzR
+ tHcGBXPnD0+Y4FdwbDCkcDNcPihbMtNcarY0ckxuc2T0QuwtA6V5JI+qd+13NzNwBNaSBd9q0vR4Houfn0O1tVDSLHjYJhYnCW1hfd8zibQ4R4JUQeDCsiso
+ hDRhfUPbEdA73rTyHioYeBE2HST4BYaYzwzPHgFSowkALmKiOo3P6Y+sT2OdjUa1mi5YmmKKNIRc5pqRvd/Poq1X6e5PtLi+bMEeLu/tD0VuL3zYOGxE+sHW
+ BTqxG0WyQtxpY++s7NY1cpcH0qqhtrXP08lJaeDotFcKwlEQgSTkroRSzbXG9NMpu/BmvKQiIhI/dqa4MxRp7JEEFN/QNVR7WEj2UU0vqJswExy2aYWzzdw+
+ FkBYKTSapeFo97Im9jOUDeTGL1gcFhA/aHSIiD07c4PP/74NLMye+4RTaOnZlsrMaXjbB2/jn6s9k9AKtJfRSJPMFnBj3YyvI3YYi+xduehbptXY4hxkqo3D
+ c5x2hRhHNjhs0zg+GpmJGknXwvGaK4l4a6zTOKWmfv7xMtgIZ/Vn9d4GsOJdkemp7e3WX6RGITrcgwSghHENodqP2MvCkuvhyBHE4/kY7pUMNCMYz3xNrYgX
+ 6PdBjdKe
 
-From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+On 19/11/2026 15:33, Jarkko Sakkinen wrote:
 
-Since commit afdbc3655556 ("EDAC/ie31200: Make struct dimm_data
-contain decoded information"), ie31200_get_dimm_config() puts rank k
-of DIMM j at chip select j * ranks + k, where ranks is that DIMM's own
-rank count. In a channel with a dual-rank DIMM 0 and a single-rank
-DIMM 1, both DIMMs then use chip select 1: DIMM 1 overwrites the entry
-for DIMM 0's second rank, mc0/size_mb is short by that rank, and errors
-in it are reported against DIMM 1.
+[snip]
 
-Before that commit the stride was a fixed 2, so DIMM 0 had chip
-selects 0-1 and DIMM 1 had 2-3, and the commit did not mean to change
-that. The error path still passes the two-bit rank field of ECCERRLOG
-to edac_mc_handle_error() as the chip select. If the controller reports
-DIMM 1's first rank as 2, as the old layout assumed, those errors now
-land on an empty entry when DIMM 1 is single-rank (or when both DIMMs
-are, as DIMM 1 has moved to chip select 1). That trips
-WARN_ON_ONCE(!e->grain) in edac_raw_mc_handle_error() and the error is
-logged against "unknown memory".
+> And yeah, we don't have projected problems. I.e. "no users" is always
+> NAK. You have to step on the nail at first.
 
-Go back to a fixed stride of 2.
+A customer of mine stepped on it. Their product, on i.MX6, encrypts its
+rootfs with dm-crypt and a CAAM black key, never in clear. Its backups,
+though, are encrypted in user space with a key kept as a CAAM blob; to
+use it, the blob is opened and the key handed to user space in clear.
 
-Fixes: afdbc3655556 ("EDAC/ie31200: Make struct dimm_data contain decoded information")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
----
-I ran into this with a QEMU model of the Kaby Lake host bridge (0x5918,
-skl_cfg) that I wrote to exercise ie31200_edac; it is not part of
-upstream QEMU. It fills MAD_DIMM in from the configured DIMMs and
-reports errors on DIMM S (the driver's DIMM 1) with ECCERRLOG rank 2 or
-3, which is the layout the driver used up to v6.14. I have no machine
-with two DIMMs per channel to check what real controllers put in that
-field, so the "unknown memory" part rests on the old layout. The size_mb
-part only depends on MAD_DIMM.
+The next generation is on i.MX93, and the customer now wants the
+backups and other encrypted archives protected like the rootfs: the key
+must never be in clear outside a secure world. The i.MX93 has no CAAM.
+OP-TEE can hold the key, but every way the mainline keyring offers to
+use it (a trusted key, through dm-crypt or AF_ALG) unseals its bytes
+into kernel memory, and AF_ALG no longer reaches hardware drivers.
+keycrypt's OP-TEE backend does not unseal it: a key it generates leaves
+the TA only sealed.
 
-Tested on v7.4-rc3+ (4405c18c95d2) with both slots of both channels
-populated, injecting corrected errors on DIMM L's ranks and on DIMM S in
-both channels, and an uncorrected error on DIMM S:
+Ciao,
 
-  ranks L + S  without the patch                 with it
-  2R + 1R      mc0/size_mb 3072 instead of 4096; mc0/size_mb 4096;
-               DIMM S errors on "unknown         DIMM S errors on
-               memory", WARN in edac_mc.c        csrow 2
-  1R + 1R      mc0/size_mb 4096; DIMM S errors   mc0/size_mb 4096;
-               on "unknown memory", WARN         DIMM S errors on
-                                                 csrow 2
-  2R + 2R      correct                           unchanged
+Rodolfo
 
-On RPL-S, MAD_DIMM can describe up to four ranks per DIMM, so this also
-moves DIMM 1 there: a 1R + 1R channel goes from chip selects 0 and 1 to
-0 and 2. ECCERRLOG has the same two-bit rank field on RPL-S, so I think
-two chip selects per DIMM is still the right split, but I could not
-test it. Qiuxu, do you know how the RPL-S controller numbers the ranks
-of the second DIMM in ECCERRLOG?
----
- drivers/edac/ie31200_edac.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/edac/ie31200_edac.c b/drivers/edac/ie31200_edac.c
-index 88af77ee07fe..1ef91cbda291 100644
---- a/drivers/edac/ie31200_edac.c
-+++ b/drivers/edac/ie31200_edac.c
-@@ -461,7 +461,7 @@ static void ie31200_get_dimm_config(struct mem_ctl_info *mci, void __iomem *wind
- 
- 			nr_pages = nr_pages / dimm_info.ranks;
- 			for (k = 0; k < dimm_info.ranks; k++) {
--				dimm = edac_get_dimm(mci, (j * dimm_info.ranks) + k, i, 0);
-+				dimm = edac_get_dimm(mci, (j * 2) + k, i, 0);
- 				dimm->nr_pages = nr_pages;
- 				edac_dbg(0, "set nr pages: 0x%lx\n", nr_pages);
- 				dimm->grain = 8; /* just a guess */
-
----
-base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-change-id: 20261119-edac-ie31200-rank-stride-adb314e6d656
-
-Best regards,
---  
-Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
-
-
+-- 
+GNU/Linux Solutions                  e-mail: giometti@enneenne.com
+Linux Device Driver                          giometti@linux.it
+Embedded Systems                     phone:  +39 349 2432127
+UNIX programming
