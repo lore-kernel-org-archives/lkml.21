@@ -1,81 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795088568;
-	b=ox/O+E8s1SKKkXRG4XqoR5FVuiI2pMBikQYc1h7pJAAabBuhbGt63Hv31IX3u6Xyt0zG
-	 ZSqi1UDtktgXGfsnAEFDhZ4ZHVc5ez0TGfEOfxcgAdo32Fgh2V6tRO6cUsPuGL5Vuopgm
-	 FrkPCUTAVfRAuwrgCYw2iY7P5F/0BmEFCsatqKOhcm0BTje4wPBy/v2eFxdEmLClW1erD
-	 Ki0iku7tA79NaqnpAoFfWEaMqi9z6d40fzRvfl7pO/qMa75ow3r6yqG/X6POxG1hvUFfx
-	 ockSIufO6eEpQugHyvh4vMQ2QCk1QPY20Z08u24FoVHmBNN5nN8OhsfnR5DOK0cRu6A==
+	t=1795088638;
+	b=cNfYvpGquiHJm9l1MCANKRECmOnqe18UcwSOQbEuDp6o3wyCUWOHRy9fnBdodVU3Mrsf
+	 2Pze9eaJtPNNX9GIoCZptyKJ5rnDkLOZRw78VLAYvejZv7PjosjtjVJhJd6528mFp/lPd
+	 DhY7E2Xp2GD3zOcDl0VpYY1gB+Kk0kZwEGnceeYeSqTXBHg0PZnfXj+vgtf0rAsI5I6QW
+	 wyGFzaVLKJ/OmC0pWphSReb6rUfstoMgZJ4l7kzXiP9T4jp/uuA/g5fo5R4ZpCc7PMBTX
+	 MnlRZPGOH6HPlBLO8zz0JFELBGiohgARde3hVxQqbRszXiN14dXD4PMWqlGrJ0TpgBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795088568;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=jmtkvhAEYg31NrvxTP/HzylVWf6dkN8MjnHFiVQwpWI=;
-	b=CQ03hx0Pq2D3j/dORgeSft9d/mTWDvDf/UAJAeO1os94Y2idLPF3aRk5kJ+MtCIs67gx
-	 +Jv9uoMJOaHwQcIrYec+Z4iz+9uPkt0f+416uDiWUFugSRDfBYe4hBrF93RkKXPE6CNqE
-	 b0ljIlSjDVrSeq/+HCbe6OK7ZhIs9PtxLBjs0BI6WD8L3fefUYC7ZlsJzzVPfwF9bWI74
-	 n7quDNoH47Ox2F0UTl/6rJxQCglfGP3NcDupd2iTF7CI3qQE5P65xaq8x26JGee3uqMj2
-	 9HaV2PGgcmBJZ3OTGFhVKj66VGO4T6jqkffvZXKkNKX/wXZTuaLq9IiDPCc82688peA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795088638;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=9xOgOHgiYG8x7M9rRTIBGrT1trNfPalsKi+/lvyMD4o=;
+	b=Tm2KteU/VM0dTenfFsYbYa1XK8r347QAEFjAGWbWlOfpi/fXb6hhFk99rRw+UctoQ8cG
+	 p/6u/3xAH9JC3ulAVOJAPRGjm9rmQYcOGWRgQaMDdFxaTzyY245FG+63NqV9OtxFBthnS
+	 kfhyIUB+zMftvUD1x4Haq2zXYl+b0kH54/hlo9O7ogfYMZIyBExZAZYpfTRH3k/awfKQz
+	 +KDRPFOwZHXIJE7paebrn1GNYx+PX9wtguOYd0UE+WyjmYkmBj5AEBpUJlHz8huvOKYwA
+	 wcqZiVZ4sq2h/pXXNdbmMXH5RUgAGNx0T3rA1zO3Uewz/nkPu2ERBCZw0TDJ1ksZWAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gCyzu+K3;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hlOQRU86;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=H0yNEDwZ;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CE8C606A326;
-	Thu, 19 Nov 2026 11:42:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CE8C606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97659606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:43:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97659606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gCyzu+K3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795088568; x=1826624568;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=KKx5C5TUttKPpQ25G6NdTpGsohk9kPbZ5RdWGoTyHhk=;
-  b=gCyzu+K3i4c4dCqYBh4VvA3JCtsG5bbrxNNifZdoPungXK3QtaKxYVjY
-   V5T/BEq6FSKlhFZJdhJKBXPb08MWUMNOfox4Koa2C/OeEksCLHj0cs/Y2
-   xNVpbqZ1pFx+REdS1w6pkTAAhBXXcxRiI2RiHcWmmjm1O5v/Ahj8Gu9MV
-   VTkgsgonviBJarRhD6tEBAKkDDovbt9aUZxuwNogBphaPHdegW4+P2TNK
-   0CKUW4jUPJl2bBY7+bCTtT6i6zIRULgSba+W3MNWlragDFV5ym2Mzxduj
-   /6TYgknKZ5Kmeqs6qDwY7LBIGas7cWFCO4rUsFahMds28EOWfL7cbbaZD
-   g==;
-X-CSE-ConnectionGUID: smWGuINQR0CLriaTRdFirg==
-X-CSE-MsgGUID: iZMpj4pHSBiCobeSj8/CaQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3960381"
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="3960381"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:42:47 -0800
-X-CSE-ConnectionGUID: n/BdXH7HRH6D8VP/fKb5Pw==
-X-CSE-MsgGUID: otHe7BjUQFOhgadYkikTGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
-   d="scan'208";a="10323989"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 03:42:42 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 19 Nov 2026 13:42:37 +0200 (EET)
-To: Ehab Ababneh <ehab.ababneh@intel.com>
-cc: Hans de Goede <hansg@kernel.org>, tony.luck@intel.com, 
-    ashok.raj.linux@gmail.com, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>, tglx@kernel.org, mingo@redhat.com, 
-    bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-    rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-    linux-trace-kernel@vger.kernel.org, peterz@infradead.org, 
-    sathyanarayanan.kuppuswamy@linux.intel.com, pengfei.xu@intel.com, 
-    ravi.v.shankar@intel.com
-Subject: Re: [PATCH v2 10/17] platform/x86/intel/ifs: Warn if a group test
- fails with CPUs missing
-In-Reply-To: <20261118193259.519568-11-ehab.ababneh@intel.com>
-Message-ID: <039913bc-ab42-bea2-1af6-c2aa6f92aa7b@linux.intel.com>
-References: <20261118193259.519568-1-ehab.ababneh@intel.com> <20261118193259.519568-11-ehab.ababneh@intel.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hlOQRU86;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=H0yNEDwZ
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJAurNF2111746
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:43:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=9xOgOHgiYG8x7M9rRTIBGr
+	T1trNfPalsKi+/lvyMD4o=; b=hlOQRU867W7F/ZcZ/Iwh6RmgM3lid605Dl9KcT
+	olBroo9a3D3N1I4ew5orJyDd/WCJaKrkgcvg/uD9VTkTNEXXTbvN4PCGwrsAnpWB
+	tcvh4wFIXRE+QmTwFQzB4A7L79x3pmAccog0dVQXoPnW58lyZX8HpsN5gqfaOKcI
+	QxOaEEckdQ/oenI59HHrvS86tphhlQGfQan5O16fxY57pBKD1Ryo6qxPgg0BzG2O
+	+bG7aJ7agfhL0QRfBZQyh/zNfkF29JpdAA7T/ket5K23F6mnyGj1YzexUZemHLWe
+	IdlHLr2zmuTNZS0XyQby0gPDNxp4J/4iI8pApyIn9AdnMhYA==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j1uux9bp6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:43:56 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso1526612a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 03:43:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795088635; x=1795693435; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=9xOgOHgiYG8x7M9rRTIBGrT1trNfPalsKi+/lvyMD4o=;
+        b=H0yNEDwZERO8ulDZbasZMXiWb8n9INGwTWcks7menY45TkKRaaAP8FsIXOaJhUrUZl
+         Pdu1JnVdjHyw0izY6w+miuUkBd5+h+k3PICaN9j/PcbAbNfvo3CBGmqVvtqxVlIkZQre
+         vS+cJnnnZm6AWISagfXP8zwlqf2+tO8jz7w01/nONjwfh11Gd2N7RvabfjdLXo+T/eIN
+         VEG2xN+P+SgaTxyBrvh/UPHb4uuq3mhqfh/TVKO/Qs4z8XeX8IK5hXW/xtaZO8LloQoI
+         BhPp5TqxOKpJ0uiGyGB6KfvEXVlefqiYngzyuKSZ/qeCY6NgDvbY+6S6rDS+95poFlFp
+         LlKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795088635; x=1795693435;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9xOgOHgiYG8x7M9rRTIBGrT1trNfPalsKi+/lvyMD4o=;
+        b=KHRrpcbeU5aEv+xEnQiD3MVTHe6ugVXLCzUWD9V6pUipAjDK4/Fgu29MkVw6PZzVw+
+         CbU0RwUXsSbo9mCqI74kKnnfvYP3Gvle6mxVe8bc6t8t8LzLpP92VN/ebhq0i7SXCgMq
+         vQGh9XVvf0ECW2OT88c4TjfTmy0qnh9NyCd7eC7bEDopvKnLUCkJeND6u8ya9YFEOFBK
+         MdeWXaUzR1fDGVC8p7wKZLoFgUH3rPvcbPDM9igJ48R+11kLx5iYKX7LI9uBnpKHySqf
+         ABrUviq5z8S0rOiPr794riQojZYWZo/Y2GoakIRJqjgg2mZMFiVOX/53jNLJkj4PXzyd
+         HvfQ==
+X-Forwarded-Encrypted: i=1; AL+hErH6Ox+IaZe7lif7V7L88dEwel5KNVXkbc7UtHTETxZ21xV8tfehKSyr7OgyL7O2uyNwkOdTp9p00A1CFUY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+puOg5KqGlj6ixBieEbHexX7u2IDGS8jHcgRiThjV1WMs/wl3q
+	XpDMRpsmi2A+AMSf4WMsI9MftR51MagdXGuRUjcavdgVLDMxxfE7mM+m6h6zlYj/sAm92pOEHu2
+	4rfcmVIA2DpwN2vFvVV0dnOfkxQyp0J0q1s1mEcElZnhfkKubbhe/4Nnhn46nXfNBTVX1HglHm3
+	8=
+X-Gm-Gg: AYBFou1KWkmzkHzUitL0uZXRexZ8bn4soPZp0Ssqh+kciEURioc0AixPUpiM9IN/KUq
+	/533oLyppXxDwhJIHH7Txs8xrAe6mfxZnuFEQ6Q9W+3eGyZn1AKj9TV+ntYkTT/ScgMMKbkG8lC
+	rhOkt04v6Sl9sSMJcB6M3fY575fCk1ypnEaeDMRqgmxSO9lDs2UjNNATmKTdKOY5Aq0d1kphSSZ
+	wMXS0B67dr9d5yvZyj/b0s2L0ZSlbfnkRjnYeoiwiP1J02YhII/N8WzT/XNWEpJLMFWd53xN+x/
+	aCkGesMMdG87RZBopyq4LNinycIgYY3+zMBUAduD4OFnu/UeEbVGxDq2wgdZeAxbagbZYLbqZAz
+	gGnk5TzTJO/uodMyozMLUHriot9YgJNM/HVqoNpEe9lJV9XRovtc5mnnfMsCMz/s+
+X-Received: by 2002:a05:6a21:6b87:b0:3f9:4434:8a0 with SMTP id adf61e73a8af0-3fe86bdc716mr5718017637.2.1795088634771;
+        Thu, 19 Nov 2026 03:43:54 -0800 (PST)
+X-Received: by 2002:a05:6a21:6b87:b0:3f9:4434:8a0 with SMTP id adf61e73a8af0-3fe86bdc716mr5717992637.2.1795088634277;
+        Thu, 19 Nov 2026 03:43:54 -0800 (PST)
+Received: from [10.213.101.118] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde534854b1sm1613960a12.12.2026.11.19.03.43.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 03:43:53 -0800 (PST)
+From: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
+Subject: [PATCH v6 0/5] arm64: dts: qcom: Add EL2 overlays for Shikra and
+ SM8750
+Date: Thu, 19 Nov 2026 17:13:43 +0530
+Message-Id: <20261119-shikra-el2-v6-0-0e91a1467e79@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,176 +116,181 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323328-642084259-1795088557=:1599"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAO/g/moC/3XMTU7DMBCG4atUXuNqxv9mxT0QC9sZE4u2ARsiU
+ JW743YBjdRsRnpH+p4za1QLNfa4O7NKc2llOvUwDzuWxnB6JV6G3kyAMODR8TaWtxo4HQSn4Lz
+ x0ukkE+uD90q5fF+x55feY2mfU/252jNevneZGTlysDGCFTEEiU9Ta/uPr3BI0/G474ddtFncC
+ BJWguDAMzghIukQiDYE+ScggF4JsgsGXbZSSeN12hDUv4CgVoLqgrdkAf1AMecNQd8IKFeC7oI
+ LKVglB/L2nrAsyy8gB1H+swEAAA==
+X-Change-ID: 20260918-shikra-el2-ea8969385c3c
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Kumar Patro <bibek.patro@oss.qualcomm.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+        Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795088627; l=6383;
+ i=komal.bajaj@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
+ bh=0WpEzlt0mQSvD6sTU8HqGw5ZuK6nv7hwJzVaeswCIUg=;
+ b=0ew1Jg50O6cTm5/wpXKrMWLl/ps1jI9gUTAYs/LopMF0M+2tQOhLkFUlaUKhU6GdhqOePmy3h
+ WacBen3Ie+UBFuFj5jfSHe63dc4IM1jyOKnEUu2Mk1Hl7mqo+h/QqlB
+X-Developer-Key: i=komal.bajaj@oss.qualcomm.com; a=ed25519;
+ pk=wKh8mgDh+ePUZ4IIvpBhQOqf16/KvuQHvSvHK20LXNU=
+X-Proofpoint-ORIG-GUID: JVQi8QTQckoXe604TrgAjY3PBYiZjf7n
+X-Proofpoint-GUID: JVQi8QTQckoXe604TrgAjY3PBYiZjf7n
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA0NiBTYWx0ZWRfXwKTnLq9nqm6w
+ JzTEulolAfz43pOk40xT6W0TOtdrMVunxaep+cdEv6PpiyWsxKBZQB/AJ5xxECdEVmmePjeL/Qq
+ helsvKYmbm/fV4dkGqwairHUKFyi9fI=
+X-Authority-Analysis: v=2.4 cv=Q89HcI2a c=1 sm=1 tr=0 ts=6afee0fc cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=7yht7nwCIrXBMJmmVpIA:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA0NiBTYWx0ZWRfX3vRfqd6I8l7I
+ hjRjdvQGuGfr+lDencXufkdiUwRV6k/3tAW2NLvFcy65e4ZQ+OU8NTQHuiTXEBUrNt/Q0xivwxM
+ LVXSb8jwVePK5r1Gbd6f2vH9LSIS50Rjmh36e3RoLHywAl3WYbXcjdbjABQU/OUrmZfIKhSsxwg
+ e0IRd6pd+5UdSLJYxLguuPTH/bL+EDEfvV6LJ1QckJGt+ficb/Ot9gc/QIKYZZNIrpheuH59jw/
+ wVChdqnOR4Oj4KSOvmJmm5AIt04b6AjshfVw4VcBdt9tA7VjrBjfYpBAw/1OtLuQiNlUalsR58A
+ dWk1LpXFGmeiSPwQjHlYDWl5454CY3trgvhiRDVSqUbVOUCAoCwES6NdlVuRFy98l1uEzC3gxwD
+ 0Hsy2UtQDIj3x0qw44ZdkWtQtCy9ItEP9Z7zLOXhDWkSYn5vNcu+MKXtj2hHoVYXm8o4dCOgnv4
+ T6OSWEFYh9fllngdKxA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_03,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 malwarescore=0 adultscore=0 clxscore=1015
+ priorityscore=1501 spamscore=0 bulkscore=0 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611190046
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Shikra EVK variants boot Linux under the Gunyah hypervisor (EL2) by
+default, with Linux running at EL1. Booting Linux directly at EL2
+requires the remote processor firmware IOMMU streams to be described
+in the DeviceTree used by Linux.
 
---8323328-642084259-1795088557=:1599
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: QUOTED-PRINTABLE
+Add a Shikra EL2-specific DT overlay and wire it up in the Makefile to
+generate -el2.dtb artifacts for the Shikra EVK variants alongside the
+regular DTBs.
 
-On Wed, 18 Nov 2026, Ehab Ababneh wrote:
+Add a similar EL2 overlay for SM8750 MTP, which also boots Linux under
+Gunyah by default.
 
-> All the logical processors that share a SCAN test engine must join a
-> group test. TID_BIT_SHIFT [1] gives the number of low APIC ID bits that
-> tell these logical processors apart. The driver builds the group from
-> topology_cluster_cpumask(), which only holds CPUs that are enumerated
-> and online. So it cannot tell whether every logical processor sharing
-> the engine actually takes part, for example on a part that exposes only
-> one core per module, or when a sibling has been taken offline.
->=20
-> Checking this once at driver load does not help: the group can change
-> at runtime through CPU hotplug, and failing to load would stop parts
-> that may still test fine. Instead, read TID_BIT_SHIFT at init and, when
-> a test does not pass, check whether all logical processors in the
-> CPU's TID_BIT_SHIFT APIC ID range were in the group. If not, say so in
-> the log. The test is run either way.
->=20
-> TID_BIT_SHIFT is only enumerated starting with SAF_GEN=3D2 (Granite
-> Rapids), so skip the check on SAF_GEN=3D0 parts (Sapphire Rapids and
-> Emerald Rapids).
->=20
-> [1] Vol. 4 "Table 2-56. Additional MSRs Supported by the Intel=C2=AE Xeon=
-=C2=AE
->     6 P-Core Processors" in the Intel Software Developers' Manual,
->     March 2025.
->=20
-> Suggested-by: Tony Luck <tony.luck@intel.com>
-> Co-developed-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-> Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-> Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
-> Tested-by: Yi Lai <yi1.lai@intel.com>
-> ---
->  arch/x86/include/asm/msr-index.h         |  1 +
->  drivers/platform/x86/intel/ifs/core.c    |  6 +++++
->  drivers/platform/x86/intel/ifs/ifs.h     |  2 ++
->  drivers/platform/x86/intel/ifs/runtest.c | 30 ++++++++++++++++++++++++
->  4 files changed, 39 insertions(+)
->=20
-> diff --git a/arch/x86/include/asm/msr-index.h b/arch/x86/include/asm/msr-=
-index.h
-> index 9224b55e1f07..baa16d75749d 100644
-> --- a/arch/x86/include/asm/msr-index.h
-> +++ b/arch/x86/include/asm/msr-index.h
-> @@ -283,6 +283,7 @@
->  #define MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST_BIT=094
->  #define MSR_INTEGRITY_CAPS_PERIODIC_SCAN_BIST=09=09BIT(MSR_INTEGRITY_CAP=
-S_PERIODIC_SCAN_BIST_BIT)
->  #define MSR_INTEGRITY_CAPS_SAF_GEN_MASK=09=09=09GENMASK_ULL(10, 9)
-> +#define MSR_INTEGRITY_CAPS_TID_BIT_SHIFT_MASK=09=09GENMASK_ULL(20, 16)
->  #define MSR_INTEGRITY_CAPS_ALL_LP_JOIN_BIT=09=0921
->  #define MSR_INTEGRITY_CAPS_ALL_LP_JOIN=09=09=09BIT(MSR_INTEGRITY_CAPS_AL=
-L_LP_JOIN_BIT)
-> =20
-> diff --git a/drivers/platform/x86/intel/ifs/core.c b/drivers/platform/x86=
-/intel/ifs/core.c
-> index f2d2caab0479..b9ac04228141 100644
-> --- a/drivers/platform/x86/intel/ifs/core.c
-> +++ b/drivers/platform/x86/intel/ifs/core.c
-> @@ -122,6 +122,12 @@ static int __init ifs_init(void)
->  =09=09 */
->  =09=09ifs_devices[i].rw_data.all_lp_join =3D ifs_devices[i].rw_data.gene=
-ration ?
->  =09=09=09=09=09=09(msrval & MSR_INTEGRITY_CAPS_ALL_LP_JOIN) : true;
-> +
-> +=09=09/* TID_BIT_SHIFT is only enumerated on SAF_GEN=3D2 and later */
-> +=09=09if (ifs_devices[i].rw_data.generation)
-> +=09=09=09ifs_devices[i].rw_data.tid_bit_shift =3D
-> +=09=09=09=09FIELD_GET(MSR_INTEGRITY_CAPS_TID_BIT_SHIFT_MASK, msrval);
-> +
->  =09=09ifs_devices[i].rw_data.array_gen =3D (u32)m->driver_data;
->  =09=09ret =3D misc_register(&ifs_devices[i].misc);
->  =09=09if (ret)
-> diff --git a/drivers/platform/x86/intel/ifs/ifs.h b/drivers/platform/x86/=
-intel/ifs/ifs.h
-> index 365429fafe7a..62db0a6aa940 100644
-> --- a/drivers/platform/x86/intel/ifs/ifs.h
-> +++ b/drivers/platform/x86/intel/ifs/ifs.h
-> @@ -297,6 +297,7 @@ struct ifs_test_msrs {
->   * @chunk_size: size of a test chunk
->   * @array_gen: test generation of array test
->   * @all_lp_join: all logical processors join test
-> + * @tid_bit_shift: APIC-ID bits of the logical processors sharing a scan=
- engine
->   */
->  struct ifs_data {
->  =09cpumask_t=09grp_cpumask;
-> @@ -311,6 +312,7 @@ struct ifs_data {
->  =09u32=09chunk_size;
->  =09u32=09array_gen;
->  =09bool=09all_lp_join;
-> +=09u8=09tid_bit_shift;
->  };
-> =20
->  struct ifs_work {
-> diff --git a/drivers/platform/x86/intel/ifs/runtest.c b/drivers/platform/=
-x86/intel/ifs/runtest.c
-> index c618857cd620..783b29f234ba 100644
-> --- a/drivers/platform/x86/intel/ifs/runtest.c
-> +++ b/drivers/platform/x86/intel/ifs/runtest.c
-> @@ -425,6 +425,32 @@ static void build_cpugroup_mask(struct device *dev, =
-int cpu)
->  =09cpumask_copy(&ifsd->grp_cpumask, topology_cluster_cpumask(cpu));
->  }
-> =20
-> +/*
-> + * Check whether all logical processors that share the scan engine with =
-@cpu
-> + * (the TID_BIT_SHIFT APIC-ID range) are online and in the test group. I=
-f not,
-> + * the test is still attempted; it may pass if the microcode handles the
-> + * missing logical processors, e.g. a module with only one core.
-> + */
-> +static bool ifs_group_incomplete(int cpu, struct ifs_data *ifsd)
-> +{
-> +=09u32 shift =3D ifsd->tid_bit_shift;
-> +=09u32 engine =3D cpu_data(cpu).topo.apicid >> shift;
-> +=09int i;
-> +
-> +=09if (!ifsd->generation || !ifsd->all_lp_join)
-> +=09=09return false;
-> +
-> +=09if (cpumask_weight(&ifsd->grp_cpumask) !=3D 1U << shift)
+The series also moves the Qualcomm PAS remoteproc iommus constraint to
+the SoC-specific bindings and relaxes the item limit to accommodate the
+remoteproc SMMU mappings required for Shikra and SM8750 EL2 boot.
 
-BIT()
+Komal Bajaj (5):
+  dt-bindings: remoteproc: Move iommus constraint to SoC-specific bindings
+  dt-bindings: remoteproc: qcom,shikra-pas: Add iommus constraints
+  dt-bindings: remoteproc: qcom,sm8550-pas: Allow 6 iommus for SM8750 ADSP
+  arm64: dts: qcom: shikra: Add EL2 overlay for remoteproc SMMU mappings
+  arm64: dts: qcom: sm8750: Add EL2 overlay for remoteproc SMMU mappings
 
-> +=09=09return true;
-> +
-> +=09for_each_cpu(i, &ifsd->grp_cpumask) {
-> +=09=09if (cpu_data(i).topo.apicid >> shift !=3D engine)
-> +=09=09=09return true;
-> +=09}
-> +
-> +=09return false;
-> +}
-> +
->  /*
->   * Initiate per core test. It wakes up work queue threads on the target =
-CPU and
->   * its sibling CPU. Once all sibling threads wake up, the scan test gets=
- executed and
-> @@ -464,6 +490,10 @@ int do_core_test(int cpu, struct device *dev)
->  =09default:
->  =09=09ret =3D -EINVAL;
->  =09}
-> +
-> +=09if (!ret && ifsd->status !=3D SCAN_TEST_PASS && ifs_group_incomplete(=
-cpu, ifsd))
-> +=09=09dev_warn(dev, "CPU %d: test did not pass; not all CPUs sharing the=
- scan engine were found (group %*pbl)\n",
-> +=09=09=09 cpu, cpumask_pr_args(&ifsd->grp_cpumask));
+ .../bindings/remoteproc/qcom,adsp.yaml        |  6 ++++
+ .../remoteproc/qcom,kaanapali-soccp-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,milos-pas.yaml   |  6 ++++
+ .../bindings/remoteproc/qcom,nord-pas.yaml    |  6 ++++
+ .../bindings/remoteproc/qcom,pas-common.yaml  |  3 --
+ .../bindings/remoteproc/qcom,qcs404-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,sa8775p-pas.yaml |  6 ++++
+ .../bindings/remoteproc/qcom,sc7180-pas.yaml  |  6 ++++
+ .../remoteproc/qcom,sc8280xp-pas.yaml         |  6 ++++
+ .../bindings/remoteproc/qcom,sdx55-pas.yaml   |  6 ++++
+ .../bindings/remoteproc/qcom,shikra-pas.yaml  | 28 ++++++++++++++++
+ .../bindings/remoteproc/qcom,sm6115-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,sm6350-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,sm6375-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,sm8150-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,sm8350-pas.yaml  |  6 ++++
+ .../bindings/remoteproc/qcom,sm8550-pas.yaml  | 30 +++++++++++++++++
+ arch/arm64/boot/dts/qcom/Makefile             | 15 +++++++++
+ arch/arm64/boot/dts/qcom/shikra-el2.dtso      | 33 +++++++++++++++++++
+ arch/arm64/boot/dts/qcom/sm8750-el2.dtso      | 30 +++++++++++++++++
+ 20 files changed, 220 insertions(+), 3 deletions(-)
 
-Add include.
+Signed-off-by: Komal Bajaj <komal.bajaj@oss.qualcomm.com>
+---
+Changes in v6:
+- Define iommus with a description in the top-level properties of every
+  binding referencing qcom,pas-common.yaml instead of in conditional
+  blocks, making patch 1 a no functional change move (Krzysztof, Mukesh)
+- Reword the commit messages
+- Shikra: allow up to three iommus entries at the top level, require
+  three for LPAICP, allow one for CDSP and disallow iommus for MPSS
+- Shikra: drop the per-item iommus descriptions
+- Add SM8750 EL2 overlay and the corresponding binding change
+- Link to v5: https://lore.kernel.org/r/20261113-shikra-el2-v5-0-8aca743de97f@oss.qualcomm.com
 
-Add braces to multiline constructs even if they're single statement.
+Changes in v5:
+- Declare iommus property once in top-level properties of qcom,sa8775p-pas.yaml instead of repeating it in every allOf branch (Krzysztof, sashiko)
+- Add Glymur ADSP/CDSP compatibles to iommus conditional in qcom,sm8550-pas.yaml
+- Add sc7280 ADSP/CDSP compatibles to iommus conditional in qcom,sc7180-pas.yaml
+- Add a description for each iommus entry
+- Shikra: list three entries for LPAICP and drop the iommus property for qcom,shikra-mpss-pas (Krzysztof)
+- Link to v4: https://lore.kernel.org/r/20261104-shikra-el2-v4-0-97e7019debff@oss.qualcomm.com
 
->  out:
->  =09cpus_read_unlock();
->  =09return ret;
->=20
+Changes in v4:
+- Add a patch to move the iommus constraint from qcom,pas-common.yaml to SoC-specific PAS bindings (Mukesh)
+- Add iommus constraints for all Shikra PAS compatibles instead of only relaxing the limit for LPAICP
+- Add WiFi firmware iommus to Shikra EL2 overlay
+- Link to v3: https://lore.kernel.org/r/20261005-shikra-el2-v3-0-618f7343695c@oss.qualcomm.com
 
---=20
- i.
+Changes in v3:
+- Drop qcom,pas-common reference and add per-compatible iommus limits for Shikra (Krzysztof)
+- Link to v2: https://lore.kernel.org/r/20260930-shikra-el2-v2-0-f0822be5aaee@oss.qualcomm.com
 
---8323328-642084259-1795088557=:1599--
+Changes in v2:
+- Relax the Qualcomm PAS remoteproc `iommus` item limit, needed for Shikra EL2 remoteproc SMMU mappings.
+- Link to v1: https://lore.kernel.org/r/20260918-shikra-el2-v1-1-07bb072baa31@oss.qualcomm.com
+
+---
+Komal Bajaj (5):
+      dt-bindings: remoteproc: Move iommus constraint to SoC-specific bindings
+      dt-bindings: remoteproc: qcom,shikra-pas: Add iommus constraints
+      dt-bindings: remoteproc: qcom,sm8550-pas: Allow 6 iommus for SM8750 ADSP
+      arm64: dts: qcom: shikra: Add EL2 overlay for remoteproc SMMU mappings
+      arm64: dts: qcom: sm8750: Add EL2 overlay for remoteproc SMMU mappings
+
+ .../devicetree/bindings/remoteproc/qcom,adsp.yaml  |  6 ++++
+ .../remoteproc/qcom,kaanapali-soccp-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,milos-pas.yaml        |  6 ++++
+ .../bindings/remoteproc/qcom,nord-pas.yaml         |  6 ++++
+ .../bindings/remoteproc/qcom,pas-common.yaml       |  3 --
+ .../bindings/remoteproc/qcom,qcs404-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sa8775p-pas.yaml      |  6 ++++
+ .../bindings/remoteproc/qcom,sc7180-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sc8280xp-pas.yaml     |  6 ++++
+ .../bindings/remoteproc/qcom,sdx55-pas.yaml        |  6 ++++
+ .../bindings/remoteproc/qcom,shikra-pas.yaml       | 28 ++++++++++++++++
+ .../bindings/remoteproc/qcom,sm6115-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sm6350-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sm6375-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sm8150-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sm8350-pas.yaml       |  6 ++++
+ .../bindings/remoteproc/qcom,sm8550-pas.yaml       | 30 +++++++++++++++++
+ arch/arm64/boot/dts/qcom/Makefile                  | 15 +++++++++
+ arch/arm64/boot/dts/qcom/shikra-el2.dtso           | 38 ++++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/sm8750-el2.dtso           | 30 +++++++++++++++++
+ 20 files changed, 225 insertions(+), 3 deletions(-)
+---
+base-commit: e8017d29067fd1310a65c3494ce1a1b492adbac6
+change-id: 20260918-shikra-el2-ea8969385c3c
+
+Best regards,
+-- 
+Komal Bajaj <komal.bajaj@oss.qualcomm.com>
+
