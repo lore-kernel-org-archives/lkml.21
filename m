@@ -1,53 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795094819;
-	b=Q861GcUm95qyb+V8RQdgPJN+7I6vcVLQXK3dxbWJMOfVf6+iUwrXa4tkzyHgYCWeMUxw
-	 uCJCfut0j+gtgXyisyP5RMLUNTuGBp2/0ecx1i3LcjEA8TI/ypqyGGqBwHT+C4nuTFqQD
-	 0cWQJYNn5oPWl0EZudVjqt+BSdDaiIlIGXV+wxRGTV1AOOhI1wlneBax1tH5M9AC7cxUz
-	 CcjRURGyJsv7QgfSAdPLHvJ1ojtcMLVMrBl/iyTvLIgA4Qe3fl19fXHjdGg5h31t3nF1w
-	 nzJe841xi6vjpmWVZ7s2dGhHfoZ/ahpExGzzbBTI046lVeHRA6GjZqX68FA3an9iKZw==
+	t=1795094853;
+	b=2rZTQ9uuyqe5Np95y8OWeFH7ZrpYL5vXq7dY7xLjGtus7OJhLbjFaqiAINMiz4EwOECc
+	 0TAyGQcMFrW6Bund6Y2/n6Ny16l2ThyCu34kfkgNg5Go94xXkFzXfFOjH6kyapbb9GDCb
+	 eBL9USP0zeD3YY44TFufFrq+otqvKRCduHIXqok0KK6Ddq0y0j1FjYzbRN1dnbLCrlQlM
+	 qMk4SDJW0Nk1AWG5N1afV6uln3Z/GuLyGiV/OYlRdd59iE0K62cL+mbNKF3bxsO4rZ6Lh
+	 nyUGqv3eYFZUjGfvRbpqvRo1RRdZ3boxMXuixPpbPZ0Iir5JVqrdQUeczfJINi8L7Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795094819;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=sQbbzbHleRgMhYk4MRlxuNqWv/S0BzKdWRRLqbhStz8=;
-	b=gw01NPhq8K/rA8E8q2NfaS/nKrlUk7BQLDmBrxe4rpAy3XK+73yVyivqtGPsmeWetBbS
-	 AyyImc39H5mytGOVREcu/eZIl3owK71wmbwuR6EqbK7miATtkPkrRDY56UbX0SF+KrVhV
-	 ovEU9LjmzHfUrSprFx5nr/OlFs7ZFGR8H68FkgP/aK/7Svdie11z1qGVY+GWARBbWFb/o
-	 62cAGKM87t2d6K3Q1zMnOVt81YvW+QdOBslu+/nqRJYcuyHloniXG1+3JGadKqFWKil+X
-	 56/zUiNR2Yl30mKNLp1o3O+iPzbzyyU8mDGJo5bHVTPebYZNeAUA2j2+jCaPDsy+uIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795094853;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=6iUGcJ0DFQew68LvzDgPOPMWSLkb/FS70T9kFlbnDQE=;
+	b=lZEtAS4deIkFGq5Rfass6t3a9NSIL6EiyBKuFxbsQtx6aCN1e8KMjgmp6IN2iLoxj2SW
+	 PA9lHt5m+zSz8QVrai5W5SKZ8SHL5RC45Fj/xiZjevvzwdsoZ8cKS00ZjFmjkb+/NsCaK
+	 xqDLwTTPAu3CWsUK8DHs96+aY5QJsrM3CDw8ItONBe/Tk//ceyieqSUbD9LHIQsiC+qsT
+	 0xMOk7ipFvVNrPbXpsR6nECb1/YR/FRg3ZzgrWmtkceWSYOiGPhTWtqcTn+FtKxtt3Q9K
+	 W5rli/2H7NYnpsH9O8tBtqo9gx+nNxa2vJs1AsYW8G2pQhs8gjfmlCoj357VxIMf0bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RmQHl5fe;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=tnJgfNPg;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 80CE9606A320;
-	Thu, 19 Nov 2026 13:26:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50A08606A324;
+	Thu, 19 Nov 2026 13:27:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50A08606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RmQHl5fe
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3DF471F000C4;
-	Thu, 19 Nov 2026 13:26:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795094819;
-	bh=sQbbzbHleRgMhYk4MRlxuNqWv/S0BzKdWRRLqbhStz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RmQHl5feQvyzuWYIBe4qFMTIMRjIO4Rb0a6jFnKaCVr8Dyp+s9j2Rhcr8Zb+FAHgt
-	 vLtqwf07JRGEqoUkxxBA+r4nN32hfRt4xERUKG3a0ZH3T33mWc1ksvuDYSONWL4jo4
-	 EUXmqjEXFMAQjAYvzuzidOOqBZ0xwS/bj704pRG0h/Q4FmOFUobbXbH565Jx446ywl
-	 qgKjg45toZCTlz3DrfTnoG+4cz/J6S/XaxW/pJMMpdE06ntJh1BFtw2jPXesf1Ne/i
-	 fgfh92Utc3RixUSKR644JaWWJh3Ujwe0KdjhpU9QKCEs4Qvb3RkSbOfXkuytGR5Nxk
-	 UAnlDobX4n/gw==
-Date: Thu, 19 Nov 2026 14:26:55 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Haoxiang Li <haoxiang_li2024@163.com>
-Cc: andersson@kernel.org, konradybcio@kernel.org, abelvesa@kernel.org, 
-	quic_eberman@quicinc.com, linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: qcom: tzmem: Clean up SHM bridge on pool add
- failure
-Message-ID: <epx2xupsshafyjbqgbnezpgrklioduhf7d5f7tqkisyouu33br@7wmobjxnmsly>
-References: <20261118132343.2350034-1-haoxiang_li2024@163.com>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=tnJgfNPg
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=6iUGcJ0DFQew68LvzDgPOPMWSLkb/FS70T9kFlbnDQE=; b=tnJgfNPgABFgT1mCF8jbhZQ6Zo
+	W1BqcL9PC7466mrOl9MPJsWhGAQ6v6fdoF9V75b5oLdMSZn4RYZo0FXJFzyo4npITSnam2qKKvnx7
+	TxnOZOGWweLSn41wC9nwgIx5AKKw4wbRhAUR7gRBQSh+G8L4GvW9jgFSpwFFhi48rvrY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xU2Ah-0002Qo-0e; Thu, 19 Nov 2026 14:27:27 +0100
+Date: Thu, 19 Nov 2026 14:27:27 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Kimberly Morris <gy770616@gmail.com>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	richardcochran@gmail.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
+Subject: Re: [PATCH net 2/2] net: phy: broadcom: release PTP clock with PHY
+ devres
+Message-ID: <4ef47f7f-2721-4d4e-8f9e-8555de60fe9b@lunn.ch>
+References: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
+ <CAD-64DcTO2Vro3QFMizUeOft1ptFgKEK=MgJ-mDf5nVOkFkJxA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,19 +69,19 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118132343.2350034-1-haoxiang_li2024@163.com>
+In-Reply-To: <CAD-64DcTO2Vro3QFMizUeOft1ptFgKEK=MgJ-mDf5nVOkFkJxA@mail.gmail.com>
 
-On Wed, Nov 18, 2026 at 09:23:43PM +0800, Haoxiang Li wrote:
-> If gen_pool_add_virt() fails after qcom_tzmem_init_area() succeeds,
-> qcom_tzmem_pool_add_memory() frees the DMA memory and area descriptor
-> but leaves the SHM bridge and its handle allocated.
-> 
-> Since the area has not been added to pool->areas, pool destruction
-> cannot reclaim these resources. Call qcom_tzmem_cleanup_area() before
-> freeing the DMA memory to delete the bridge and release its handle.
-> 
-> Fixes: f86c61498a57 ("firmware: qcom: tzmem: enable SHM Bridge support")
-> Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
-> ---
+> +static void bcm_ptp_remove(void *data)
+> +{
+> +	struct bcm_ptp_private *priv = data;
+> +	struct phy_device *phydev = priv->phydev;
+> +
+> +	if (phydev->mii_ts == &priv->mii_ts) {
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com> 
+How can that not be true?
+
+
+    Andrew
+
+---
+pw-bot: cr
