@@ -1,85 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.237
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795050149;
-	b=LuHTvgQ1nSXDK85VPgIEeV8GwUrDzPvyEEo6qGYes0t5+fDDVviu/eRVfkgKEsOHU1pF
-	 Y02RiO39DZiqjZSzrkBJ9gkaVS0I62C75B4ucfUWZla+Z40ESD0xxjAl26Gg/SLIrj7ph
-	 a1In0K4iEADGD+9Wz5KbujFL4Nw0MmOzl2NrJYl2uF3pUzc9PNUq5gQvGFm6Ps9h5WjEq
-	 9YpGhrJgKdsBooADwTQ6Rub2ZPS7V3Meiqjxrvx/SlXZ6rw8V6O2PRGkU3sxCWxQ8wllE
-	 ydc7IDGfjcxhaAI4zfcSt8YDp4vyUYJ3IRDIZ1l/RSPxgKqdr3jPV2gAXEsknkJGVtg==
+	t=1795050165;
+	b=gWRjsMuc6RWyEDGVaxUkk/H7vr1kdVjX4g/AReJx0arVPvXHDakhe2ndadgLWzHggv4A
+	 kPGAoFt7FSEVndFm8GQxHPTOOF4P434rVdDbny8CDjPlZ/vP7vNedZy8egTVlc5F7Ixc0
+	 Ofi94n6I0xwXgDtDyh5LnlsXyQwp7So2/xNFgjxrKAt8jKlobyjteAZhZErMJbm6Lzw6Y
+	 6kX5vfp+NmDVkb0wF/3GUI7IYt3SCHf+ArQk0OSEjFwnXIuWdSPxzaqGKVMSa0a5t2qt5
+	 JHkXItI8uZYLOD5VKzFoLGgx8CUQHDJqI2VAI31gHoAfaHmlbRBC9T9iC1bSrL67Ttg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795050149;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795050165;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0C8lnJ2RZbzuiNletdGOfX0PhTEr69qDL1g+/y+UTJw=;
-	b=RZxXTo9ksxDcVyoliDUiLgXlvJ/8McAhQWtCusvf+8PBL2egEQdGn4UWEOvM3HHSLr0c
-	 MH8CYfKCwmwg7E9+7ta/yqKMCL2KNg3FLAXv66VfuEF2Nwz4+fiwz0sZfqTcG/O9H5Vvg
-	 Or9EdieoeAkec9p6S8hD78Qke/p2DNC8orqwHzQQKxr4YtrHISqheVhnGhWIAPLU2Vw21
-	 ABgDNc+66aVPUgneAem+ClV1wvgSOL297Qg4Z1do1KnCpLlnEPrzljbvHfegwKayxOBDv
-	 zAgSPiqQrtBp4ve3JXzS7saUbRtZ2JIAZx6AJxHtiCMbiEIdKWxJ9mRWrg8U2MAQpkg==
+	bh=BlL4W75h1MApHqdiv3CTVmX4B2zbrj1hbYs9giA+q5g=;
+	b=d1Yj1TzphU8BdN+p+tUUzUWHkCAr/i29p7Xg4jCX0L3uCSSUabogLJZTqDH/tsFexV0A
+	 b02XB0Apd9l+XIgXkDyyeKbe23vJ9L8xu4qZ3aF/dbU7v4k04PLfXL9EzcVrIVuKy18wa
+	 274T2l4ojOMzKaeaAbVaizHap+ObpoTmxtAWR2PIv82Qq0gYEjX7yLg0G6Aeg/KlN/o3k
+	 uN8+Qvlv+iLF3/Vwy81xDy/DntOxpxqHWlxo57KrkEGwuUsmpUlhlTHHz+paHHjcNpmgo
+	 bx6E7VpAnr+HOq3EJoOSBJB+qftuobwSX5wWwvXwojJOWX73VIEsemVFEqJHIKaFqDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linuxfoundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=AcFLliy0;
-	arc=none smtp.remote-ip=209.85.167.176
-Received: from mail-oi1-f176.google.com (mail-oi1-f176.google.com [209.85.167.176])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fpFl4L4R;
+	arc=none smtp.remote-ip=91.218.175.237
+Received: from mta0.migadu.com (out-237.mta0.migadu.com [91.218.175.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A5FE606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:02:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A5FE606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEC0D606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:02:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEC0D606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=AcFLliy0
-Received: by mail-oi1-f176.google.com with SMTP id 5614622812f47-57728d87699so635106b6e.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 17:02:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1795050147; x=1795654947; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0C8lnJ2RZbzuiNletdGOfX0PhTEr69qDL1g+/y+UTJw=;
-        b=AcFLliy0vMdVeba/L83H2MqHW0vnU1dM/bLcGD0emfOrWQWAl5jE38IMhh2T6Ih93Y
-         +YplPcD2gxewyt682rx5QIfBDSyh23R7xgnFVtPELtJUuBMC5MSFdtLhFrRA8umcU9DZ
-         b0j+JfgmRkZ0jrUG4/ghl4dVWDZyfPBkZfMZc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795050147; x=1795654947;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0C8lnJ2RZbzuiNletdGOfX0PhTEr69qDL1g+/y+UTJw=;
-        b=wHPB1m45dbQfyF5zLtBQC0HAsYBQNfeKgjVxywAsa9c0XXtstavZAbe8CJXhHw61Y4
-         eDjTgblRbbB7Ebtiy236L5qXcR26d1hoiiZ/NpKfPNnVLS2HVTWIOr+QortY4bUcd18V
-         UXftxW2jGFKPE8mCwh0DsuK0T0h2oxxOmynestkvj3Ke2wqZ9p5vyY7q0aLtjES9rT7V
-         YaueCv3vctBKJDZdKr/qs8ZcsG771/JMYYZ7+/wKEUJo9DXiWG4m1v0xIOrYsiZerKp0
-         Rpw2ckPEXLeRw3UCeBxNKmlzf8yYZF1LksuTMgQ6AHLcMGRkNNYgQskT9z3ztLiHEkzq
-         MviA==
-X-Forwarded-Encrypted: i=1; AL+hErFB1AU/+1dxvDC2pcM0glPcdBTAQwfYj1TihJ6urOwR7Tt33jTKLWZUQ3Ds4wC3kxwDr20komg5IO3yOmo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/iKMDzCFNpIjbDYvQGcuwtmO0Kj+Wi/zwYMLKzVOGN0R/L4bfW
-	zrM1YQYAv0gUwYemXoz8ulvDbpfVmxpi+rpD5Y9mB/cSi1GWPFltJl5qxRCBkyvMsek=
-X-Gm-Gg: AYBFou13CwH9QhJJS17/9cZ0BPAtu5yF37Ee2SOnDjILjDYDxOOMhgysTPSxI0kZ8WJ
-	umQXZp3o2GYAV9txRmExiXdjdkUgYMK4ycaXtyRxK+6Ta6FcxeMFodZv0TTPvprXuvEMcR0njTq
-	xjckf5fGcxje+26IxNfzzL7qh3hkGtW2JDOGbiwNcQC7fzrMizZKs1vwE609xCvy2D8xeVN2swU
-	TWycj4KQl1ESmi1DJ3ouPnIpvQRRyY8bm/Kphk2iRfhFxkboWuoZgKqtROvA7G1FmHTXbP430mS
-	lSrCDLmtXyLSs+Ov4793yov0pMZ/ygq0Yz8lYLvkB4L2BxFwxPHBLWunttMhcJp15HwHTgUnQHM
-	5pwdy3HcKr+TFVaNEbTZoiCk1kKfbihOhvTWP2vgbk26vCJreEUbBCcSUmNbRfLlTLRs9SqGIKy
-	eOT24Gf0nrc/YtQR7myJNK823KQGpq1DFDOO+Bat9sz+w3e8r5pFXWssnA3sCmNfiln+sYdOLlW
-	Vl6TVMR+RbnvLrAK4eQ21bvnrqcFrSdaR57a0HUvJkIiwzj9eX0DQT9SS9MXbPVGgY4K74HlPL6
-	iL2XG5TsRFlXX4qlCkUtsC+cj4873bbxxKnjQFs=
-X-Received: by 2002:a05:6808:4fc9:b0:567:cac4:f1c3 with SMTP id 5614622812f47-5773c12b74cmr6176202b6e.23.1795050147505;
-        Wed, 18 Nov 2026 17:02:27 -0800 (PST)
-Received: from [192.168.1.128] ([38.15.57.99])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5777a8a5b72sm2705076b6e.7.2026.11.18.17.02.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 17:02:26 -0800 (PST)
-Message-ID: <2cc4e958-33bc-45f7-bbd9-c6763fa3a8d0@linuxfoundation.org>
-Date: Wed, 18 Nov 2026 18:02:21 -0700
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fpFl4L4R
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ux0kfY5j7nM7oh8a7BfUtbSzQISJcSgoiHsY5y3C7fo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795050162; v=1; x=1795654962;
+ b=fpFl4L4RdOYRvsiHM+GOdTXfY0EaUgQcWvxjZu5E3Iv9+BQZa/n8b9XA4f9Z5qDlBLG+tUXI
+ lzbf8E45R6pbwSlF/bLPvWn8nZdmKdusdtPneU0j6QT68TFJKw7pUq/iGap/n11nC8WuHFZhFq1
+ iOkoa/h2KlJBvxgUm+WIY/0U=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5966f3fd4a58c3d7;
+	Thu, 19 Nov 2026 01:02:42 +0000
+X-Mizu-Trace-ID: 5966f3fd4a58c3d7
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+To: Ming Lei <tom.leiming@gmail.com>
+Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-kernel@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	Jens Axboe <axboe@kernel.dk>,
+	io-uring@vger.kernel.org,
+	Mike Christie <michael.christie@oracle.com>,
+	Bodo Stroesser <bostroesser@gmail.com>
+Subject: Re: [PATCH RFC 00/18] scsi: target: Add target_core_uring, an io_uring based user backstore
+Date: Wed, 18 Nov 2026 20:02:33 -0500
+Message-ID: <20261119010233.2917434-1-qiliang.yuan@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <av0CAptnbIZP-53U@fedora-laptop>
+References: <20261115-feat-target-core-uring-v1-0-28cdc137eac6@linux.dev> <avprIhtn1TuYLX1b@fedora-laptop> <20261117024640.3184554-1-qiliang.yuan@linux.dev> <av0CAptnbIZP-53U@fedora-laptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,53 +79,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20261118145911.150052362@linuxfoundation.org>
-Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20261118145911.150052362@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-On 11/18/26 07:33, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 5.10.275 release.
-> There are 1848 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
-> 
-> Responses should be made by Fri, 20 Nov 2026 14:55:32 +0000.
-> Anything received after that time might be too late.
-> 
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.10.275-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.10.y
-> and the diffstat can be found below.
-> 
-> thanks,
-> 
-> greg k-h
-> 
-Build failed on my system.
+On Tue, Nov 17, 2026 at 07:40:18PM -0600, Ming Lei wrote:
+> Can you share your setup? It is supposed that you run fio from VM,
+> otherwise you can just compare ublk with scsi backed with tcmu.
+>
+> But if you run fio from VM, I believe you can setup virtio-scsi backed by
+> ublk block device directly, which should cover your requirement, or maybe
+> I miss something?
 
+Everything runs in one 32 CPU guest. For tcm_loop and iSCSI (16
+sessions over 127.0.0.1), fio runs in that guest on the initiator
+disks. For vhost-scsi, fio runs in a nested 16 vCPU KVM guest on the
+vhost-scsi disk, with the target and the backstore server in the outer
+guest. In the ublk runs, kublk serves the file as /dev/ublkbN and
+target_core_iblock exports that through the same fabric.
 
-net/core/filter.c: In function ‘bpf_update_srh_state’:
-net/core/filter.c:5867:26: error: implicit declaration of function ‘seg6_get_srh
-’ [-Werror=implicit-function-declaration]
-  5867 |         srh_state->srh = seg6_get_srh(skb, 0);
-       |                          ^~~~~~~~~~~~
+You are not missing anything. This backstore has block semantics: the
+kernel emulates the SCSI commands, PR and ALUA included, exactly as for
+iblock, so ublk behind target_core_iblock offers the same function on
+every fabric, and for a VM a virtio-scsi or vhost-scsi disk on top of
+the ublk device covers it as well. What the series adds over that is
+only performance, and outside tcm_loop the numbers I sent do not show a
+consistent gain.
 
-I haven't isolated the commit yet.
+[...]
 
-thanks,
--- Shuah
+> My question is actually why there is regression wrt. 4k randread:
+>
+>  workload               TCM/USER (MB/s)   uring (MB/s)          change
+>   4k randread, 1 job      426 (409-463)      369 (366-384)         -13%
+>
+> Maybe you can focus on single job perf only, which is easy to compare and
+> investigate.
+
+It comes from the scheduler moving fio between CPUs. The pwrite() I
+pointed to in my last mail is not it: doing that copy inside
+io_uring_enter() instead makes no difference.
+
+tcm_loop queues the LIO submission and completion work on the CPU that
+submitted the command, so with one job, fio's CPU always has bound
+kworkers and ksoftirqd runnable next to fio. The load balancer cannot
+move those and moves fio instead. This backstore gives it more chances:
+the completion work on fio's CPU handles 14 commands per run here
+against 24 with TCM/USER, so per 1000 I/Os the completion kworker and
+ksoftirqd run about 57 times against 35, fio is preempted as often, and
+it is moved two to three times as often. With balancing on, fio's own
+CPU time per I/O doubles here, from 3.1 to 6.3 us, against 3.4 to 4.9 us
+with TCM/USER, spread over the whole submission path rather than in one
+function.
+
+Turning load balancing off for fio's CPUs and nothing else reverses the
+result. Single job, 4k randread at iodepth 32 over tcm_loop, 6 s per run,
+five alternating runs, median (min-max). fio runs in a cpuset of CPUs
+4-31 and the server threads are pinned to CPUs 0-3; the cpuset is either
+a normal member (balanced) or an isolated partition (not balanced):
+
+  fio CPUs 4-31, backstore      bandwidth (MB/s)   change
+  balanced, TCM/USER               439 (398-462)
+  balanced, uring                  379 (371-388)   -13.7%
+  not balanced, TCM/USER           662 (544-710)
+  not balanced, uring              760 (575-798)   +14.8%
+
+Booting the guest with idle=poll removes the gap as well: with fio free
+to move, five runs give a median of 612 MB/s with TCM/USER and 627 MB/s
+here.
+
+That points at what each switch costs in a guest. An idle vCPU executes
+HLT, which exits to the host and puts the vCPU thread to sleep; waking
+it for a kworker, ksoftirqd or a migrated fio takes an IPI, a host
+wakeup and a VM entry, and the host may run the thread on another
+physical CPU, so the guest code then runs with cold caches. With
+idle=poll the vCPUs spin instead, stay on their physical CPUs and take
+the IPI without an exit. This backstore makes more of those switches
+per I/O, so it pays more of that cost, and fio's slowdown spread over
+the whole submission path looks like cold caches.
+
+What is measured is that idle=poll removes the gap and that the gap
+follows the switches and migrations. Which part of the cost is the exit
+and wakeup latency and which part is the vCPU thread landing on another
+physical CPU is inferred: I cannot trace the host side here. Waking an
+idle CPU is much cheaper on bare metal, so I expect the gap to be
+smaller there, but I have not measured it. idle=poll is only a
+diagnostic, it burns a host CPU per idle vCPU.
+
+[...]
+
+> When userspace target becomes more efficient, I'd suggest you to think
+> about why these applications can't be improved or refactored for the
+> potential (bigger)perf requirement.
+
+Agreed. Since this backstore only takes block commands, an application
+that can move to it can just as well move to ublk, and one that needs
+SCSI semantics in userspace is not served by it either.
+
+Thanks,
+Qiliang
