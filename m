@@ -1,71 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795056521;
-	b=Pc61Tn9rzcGjSYEq7nlgXSOpnPB67pwPCREp6DphtrwGWexBhClAwnbPOmx7n+HvKNyE
-	 vafLiiANFNMP3ba/tXZLno60eA7DeTCXp4pB++B/qb1p+J/oXiJYwwr1JT93NPoBeJk6m
-	 XeDdBVCDvEPkZEVWXZ+TK1EPUHRJLyTGGnRHlwyc4wbhKqcDM7L7nsJXdgdY0oF4e7DQF
-	 VepTxRChgN9azrWi0CdtWwKCcXeUHaP3cixi+7YhJpF+DhrqQNylXbPjKSY5ylx7lY+85
-	 BWEWYTJTiIw7qivH+RJi5JN/fZmRrrMCn13MdbbXl6ESVbS1/SzxnfZYFZoTvEFgyKQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795056521;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=iMVUN/yQLgL2A1pfhaZ0CyrA59URNsyTSdFb8MCVqT8=;
-	b=3T1Zrxd7X146ncX/yPFpfrfiyatAYrKyxuatwD7V3JSKlFLh8yyUJJhGtvclAUqsD0/N
-	 MNHPaDeUMIqMMASsxa4Rsnfge06Cy5LMnaYbqpg57pxZZJ7lyV1/jAAofglRYPpDPWlJm
-	 89ZftNy/l+xUgU6I0TmOYX1Ad942v4F/xIU74QkBTP4crOjp9zkw/UMFqdmQm3ayDwYke
-	 bQiGmEkRsglbTLv/umncc7ta1duYZM37W9c2SfFc2Vf+TTvi9y5KAZQGvaIck5qpOegpO
-	 4DBMjzUOSoip7jqh1rf0qyRWPFIRY22x2dFOqpjK0xHh4P5pFual5g2XKxA1gmfShiA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codewreck.org;
-	spf=pass smtp.mailfrom=codewreck.org;
-	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=JZlkiOFR;
-	arc=none smtp.remote-ip=62.210.214.84
-Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.32
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795056542;
+	b=2zUZFWVZhShkuvdZOXOO5xW5SYZR3LDIkyjfrdF/APDcpGNYr7kpD31I8Gp8YsHak5f0
+	 K4oCRu3ICmEL9AoLaQ52h7rdVpqmUQ+vhJLk3dstY0PJA7YaHYDl4vi88BPkLJvOi/3WN
+	 OgkFyFoxTge4eySpfqSDQycnEc3z5vTXGJp/l/maRHiZ/dMsssBVretmiBg9sd+hwSKNg
+	 gUz3IMgipQWtzR2gYqcjx6If9+TJrtRMDrF9AjK9zbidOjuj9CMXsIgtjEK/zjTnnGTqG
+	 PQSxU6fXmR/uApgirNWXgt3yxlEvhCKSwg4hfQ2mF/mJXdfYPZh2oXWhA5Xq+9PXjHw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795056542;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=tAc1TEw8vdXkBFdCzuB5VBM446mg4KC9+A6Zmn/SpOs=;
+	b=nGqj1q9MNsK4QUh5rhHExtJgl43KnVbFZgQSc0atkXLatziGccgrwXBfBa93eGBDZaXS
+	 ISShpdJGH/uEySjx1JfglwtnjVYVwIA6T7NSKyze8+WDvHg8dXRTt8vZA0Al6ks10aX2w
+	 dxcKWVXeQrr5zyLOrXPp+4n9amEnwG1MHpPsEaGmY47fJt0ZnqExFAXJGIqsnDkynvos4
+	 Xe0o4g7xYwuvti/tscM60sQWHzXWOSYRHPPVw/MBDWga91WcoYvvwhtLnZkccQpMTZsUK
+	 aGriKNAMBHzDX1Co5vQHGw4snwo+vxXLJ+Dlx3ZtAoV0CWAUZgD1QFZaDTXbZu5aFjA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=BaA89z+l;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.32
+Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011032.outbound.protection.outlook.com [52.101.65.32])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 035D6606A337;
-	Thu, 19 Nov 2026 02:48:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 035D6606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63D00606A325;
+	Thu, 19 Nov 2026 02:49:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63D00606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=JZlkiOFR
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id ED0D414C2DE;
-	Thu, 19 Nov 2026 03:48:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1795056519;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iMVUN/yQLgL2A1pfhaZ0CyrA59URNsyTSdFb8MCVqT8=;
-	b=JZlkiOFRfoKm6ZtleCmuKcyBKBlIuzQlq4nVtnz0Ful/tYd8GemzL5sbvcZORDl/gz4Cnd
-	TKGXRB/EyiBjbR6z2EMI7d6JfoAzQctyH+W4iBQdg7IotbtLj46co3jxMK4DdOBqYaJYP0
-	msAc+98haOJgruut0Z625ilDLrJnyOkXxrBaC9ZLWLsuxwNd7si9CnucHBMIXtJ1bxSIBo
-	XjDwTp4Vo62vy7Yi5fUljeQaN4TqegO87NsJnBEcBHJ7tzoMYWEegeSpYZQBd6srchZLwP
-	rgmipIVkcwIYu/xY4AWdfCPi+A7Acu7/PpRsUZK0+pxqMmlITx5DwPycu9V2GQ==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id cd7add29;
-	Thu, 19 Nov 2026 02:48:31 +0000 (UTC)
-Date: Thu, 19 Nov 2026 11:48:16 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com, Aristo Chen <aristo.chen@canonical.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH 6.12 0000/1756] 6.12.119-rc1 review
-Message-ID: <av5jcETOfbV20DZS@codewreck.org>
-References: <20261118150007.957976754@linuxfoundation.org>
- <av5IKItmzhDUp-Zd@codewreck.org>
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=BaA89z+l
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mz+9hm4a4dalsyLgysrCWgd5lxPNNOeHRvSS0baB/sSbRkctKS3mcL5sEcebQ+wDGAcatJvYWBWSvOEz9dafyIl9mYQ1aetE8zE71jp6HUXlb0aZBwgn7TQgKWpBaic+zeBv1+4FtT3JmWrLOmcnEZAOfmUmxlp3oX/k/Eo+5xBdfEcoYhtMzWQ4oz+qECAMELhVPREWDgmUFwTHNngjcZg9oktnfhwBsiJ4y9CwF8p6VcA2F20Y9POLQ7jmAY6UcDf8FkjGtAOxZacBgjEgnX122C/4AUkIPC1MFnLWJcFkh1P6DDZ3bKgy6IhEPYTDyoTxEYQfEdvR1Qsghr0aHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tAc1TEw8vdXkBFdCzuB5VBM446mg4KC9+A6Zmn/SpOs=;
+ b=VMCPb4DRA4T2DsmSsAx1c0mJsIzJDQ9ajmuRUJbtgfvTVB28zpq+BXTxZmrSBleKuvfEUaicAnc+7T77uJq/EoGb+/FiaRWVumgJ8I81m1leWk+DORqdsnMwFm0de361U4DuX6PGOPF0zbyl71XPGCEYGZGcyJx3oJBAh4uoZooTGwZhCPyJLT1wriTT9E0a+MpQkEkVGf+YY3FAOiOVfpbDHJow/3jaSnlJBaSnyAmHXviICj6edmiMFAc5MZKRg9cTVLyWRvy2bL98mZrbRmzd4eB93vb/TAC1gWmkXjq/W/WK19SM8Pod2H83loMwK1WL0DNt8lNMG/Pn9wgVkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tAc1TEw8vdXkBFdCzuB5VBM446mg4KC9+A6Zmn/SpOs=;
+ b=BaA89z+lIy19tXmJLmaUE3d27oc68JsPMfiNuaBYxoO2H6BfBn9YTeOl4AtLAhDN3OUzVtbIx9DuLkKrt5MT0I/2hc3G8Sv8odnO6IfLySerdls6f7eKoXIjIPlwPKeuV8DGNsAPALfMLcUFYCXy36xOOjVfA+z0PVO6MxjlItDP7cxmCz+G+ALtj6BErpAi4F9A2y5tJL0+5tZL98VKHi+jlzeq3EQ1h6ir5hsMD5DoVli3KMqw0MLE1JJTGb78B/qRMW4AVnAIkghBxu0GPtwlFvcrkp1bGR549nxswQydl2J6HEQhLxRYDJAvJAUVf38ABtJBp5x80rJSlPz0TA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by PA3PR04MB11204.eurprd04.prod.outlook.com (2603:10a6:102:4aa::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Thu, 19 Nov
+ 2026 02:48:56 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 02:48:56 +0000
+Date: Wed, 18 Nov 2026 20:48:46 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Tomasz Unger <tomasz.unger@yahoo.pl>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Frank Li <Frank.Li@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	dmaengine@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] dmaengine: bcm2835-dma: Add missing
+ of_dma_controller_free()
+Message-ID: <av5gYARSM54QKjxm@SMW015318>
+References: <av3_yVSq9CKqix6o@SMW015318>
+ <20261118222230.123431-1-tomasz.unger@yahoo.pl>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118222230.123431-1-tomasz.unger@yahoo.pl>
+X-ClientProxiedBy: PH8P220CA0063.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::27) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,112 +103,106 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <av5IKItmzhDUp-Zd@codewreck.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|PA3PR04MB11204:EE_
+X-MS-Office365-Filtering-Correlation-Id: f930e8e8-cb44-4faa-02fb-08df45e7a7c3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|23010399003|19092799006|1800799024|7416014|376014|22082099003|18002099003|261021123027099003|4143699003|11063799006|56012099006|261028144727099003|261102123227099003|261021121427099003|261009223027099003|10067099003|261026121527099003|261026140227099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info:
+	TcwRhkABc2IUXBDGcgyfAONUUHHSRbKKPEYWTb9ng723WiM7dMzc2Ru6CKKbAqQop1ufdFJQ7M3R/QurtgWUDUEbS7K+iS1Hv5JlWuFHdZ1jETo8PlCVS426YVrHstTYUijrZnqVEG2d2smF0kbSy3zKOwKTYlTameinjCgJbXAWaTkvxpSdpCNn+EA3+a2iDl8gKx++jrlRqxN6RcprD0rSIJXKIIqkD0kqCBUlMxrr/xLwDvkf1KzhcS+jj3Ua6ovEl3bxfJ7OK84yv4PwmAU7P6TVkc55RQFPKg3KsReejDJlcRIyW8O62hE3q+zqvFfNU0kyP/ML4o/ciNFGxT65aIpxxC2bboih+TuuamaE0wIe0nZnHB0M4h2G7+2dmKKhEXER5iKxRNb2cocFo8Ak2uD7iqutAzi5CP5HTBNOOYVWHwIM+WBJnP+39t+oborx23rm/dxPIl/HJjNv9nAPGw6aMJMZP49TL50ZE6wwRBDyOJmbAafKVL4zlskPfOll9samm2QxwXg87odxflaXWB886Wo9e5cYv69z/mq3X9YAIMJDRVb3ux0MMISQXiM/tOgbJ0jCE9ZYJWyAodQHxXil0BCMvZMSqa4M82DY3KGJVFgZYVG6ciYtKMy75TTWc6bTRjAsA9V3cc2ObxjWfteVucKZutVwkkwDtqU=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(1800799024)(7416014)(376014)(22082099003)(18002099003)(261021123027099003)(4143699003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261021121427099003)(261009223027099003)(10067099003)(261026121527099003)(261026140227099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?TGah3uQ5Xbm4RLpozJtmzqUhJRnZ3HFjeQCodip4+ezNYdqZVPJqgHP5XvHz?=
+ =?us-ascii?Q?gmhZPCDneEfZ21epnOTraXW/2+b0LAM599lICYDfhHKqqqW0rAtO3gUPakSg?=
+ =?us-ascii?Q?EPwZbHTsOscJYXA/CXqCKyEmGtBiUPXkMb7oEX5zwcndIA2K+axbI9sHsQTZ?=
+ =?us-ascii?Q?aC43Lxw+ydKKy8Ek6J1s1LANSZSWPAnxV2CEcnDgzEkG25f9SOs13RsgbWYg?=
+ =?us-ascii?Q?SvCSyzqXTpeboMQDEj6eiragb02kuJHQ9YYjRHw6LNsemT9SPHs1VdgpIdQ2?=
+ =?us-ascii?Q?CWG9uXz3hMTEhxUh/hVbw7KuGUjaHNtVe1Yl+oTOkbL6452PYWfsbf7dp36W?=
+ =?us-ascii?Q?cS2pxcVmvQKiBgTvCD4D2btTrFsjiY+WJM/+eWgzEKciEcxYG7J6dGrFzYTT?=
+ =?us-ascii?Q?0LLvHkhqgpoQEbvXzxapKG/2O6pEWwKGudCpsNINOQwvrOWWGTWp9brJmv05?=
+ =?us-ascii?Q?9bIHHiex6fOmxY7K9l8tkjxEeStb8toKF7cZ0L1EbOUeTqlp0GHnDEKIObe4?=
+ =?us-ascii?Q?LB53wR+p9J8PiLgAFalufU17YlcrQUiZBdLVrVVCS7KHomx8suvxqwhQjilj?=
+ =?us-ascii?Q?yc3Ur3qwl63tRaINUl0Yf5j6EeW0howMhgjmIR+ZmNk4xwWku0lbu3IZ0WZE?=
+ =?us-ascii?Q?if5CfQzHTl0uMR5FsAGNeZCK+NqbwghSZ7Rvrlgl0sT+C6d2OQREW7r3LZ16?=
+ =?us-ascii?Q?dHviBatthPNj4B56kynKbt+5GlmZNXhJUL65eJZEJj1+VLsffsrpP47pKs1Y?=
+ =?us-ascii?Q?jAs2b2j9NTc28XSH65M2tEaI9/wIdAfjHDyEBKTuDPGXWyyy4RiS0tIDOi98?=
+ =?us-ascii?Q?MQLnpoKXyOWX51fZpxOjyAdXIpuUMrz+gNWbtyzjaXckp95MGfCxBiHZAK5h?=
+ =?us-ascii?Q?8X27ZcGMm2Y0ln7EqJz7AYoryI1ur2oNabGJh+eFda/gX/VLn4AtegFDg2kA?=
+ =?us-ascii?Q?m5e0vsFmHuQkglERXYf2zaN+IZuzELJci+7+cW6heKq8WJjJNY7dROCgTJlZ?=
+ =?us-ascii?Q?Nni0yYsUV7+qyM+hJtQ2KVLtZ39RxUsFObCoU9KLM2iqGJ0YuW7IjAcE6kTl?=
+ =?us-ascii?Q?yQkcLyqIIh0HSOqqOygDwVI0YDGOO0a0ckT3gdigm2BYLVKlqmUGHLnFwc+q?=
+ =?us-ascii?Q?Iua0PKzpWJdB/Ne9vZj1MrNQgjSrAD/Qe15Qu7sNeZ2slcolS5jUGY1I6PVW?=
+ =?us-ascii?Q?IUEC0DJW1pQbuyLTxNNdD10Zeg8106o/zzfTCIROLoQnuVe8cXRVxPVrrWhX?=
+ =?us-ascii?Q?M53DRHXObLoAZWJl4hR8dp6V061nmsbQHtiMGr9/fQsRLJupavU0pR3JJG/d?=
+ =?us-ascii?Q?Xa21vTSycZRAotkUf+ejPrJ75QUOSPUbNh3iNnCYA/vL2HID7kAr0g+FfPCe?=
+ =?us-ascii?Q?8oOsounqYba9yEXxAs8bFkt+Za0KAARYcLdCLUD8FRbtu/mKMUKtA4WBWIQS?=
+ =?us-ascii?Q?x++EGRXkVB9POnpkK0aGRGf2NmhQffBx2AKEnvRhRIF7eQuze3JNmkqMUPdC?=
+ =?us-ascii?Q?STLbAzL4vvsXH7WdWn44XtRtlWPb8oEty9Yg/GeAmtLMphd39G9sIBfrYrJc?=
+ =?us-ascii?Q?6kTyGIZGtjGHEvY9c+vR+NHTmQF06lwL9aFyXV0hA6pxwhmBMLY7QikUs9GY?=
+ =?us-ascii?Q?BPqGx5RYwnog1H0SJM3dG8KGGqEfLRWG1T9zQWS5wEKI+1B+P9+n18pTxi4h?=
+ =?us-ascii?Q?D5PcXjf17Hqu4O/5T/krmfuAHZQEa9eCT5HK6FusVPpFYgV2ul34Pj5f8bA4?=
+ =?us-ascii?Q?XAi2RpoQ8reiPkDscY2JSjTngSqxJathXezF62el00q7HTKrVgvw?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f930e8e8-cb44-4faa-02fb-08df45e7a7c3
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 02:48:56.6536
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MR7aqS7sBW6KqvLQZaUDmiRsoYiOhBgc93VDbMzkXhrILbLu5OnDyUm8CW/Wn8TKdr1csv6T12/+8o+WJoLf3Sz5/skYxTua6uYZf2x8YG4EhshuCVg6zQzbpycbwGSN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11204
 
-Dominique Martinet wrote on Thu, Nov 19, 2026 at 09:51:52AM +0900:
-> Greg Kroah-Hartman wrote on Wed, Nov 18, 2026 at 03:35:27PM +0100:
-> > Adam Ford <aford173@gmail.com>
-> >     phy: freescale: fsl-samsung-hdmi: Fix 64-by-32 division cocci warnings
+On Wed, Nov 18, 2026 at 11:22:30PM +0100, Tomasz Unger wrote:
+> [You don't often get email from tomasz.unger@yahoo.pl. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> On Wed, Nov 18, 2026 at 01:43:05PM -0600, Frank Li wrote:
+> > On Sun, Nov 15, 2026 at 11:15:15PM +0100, Tomasz Unger wrote:
+> >> @@ -1027,6 +1029,7 @@ static void bcm2835_dma_remove(struct platform_device *pdev)
+> >>  {
+> >>        struct bcm2835_dmadev *od = platform_get_drvdata(pdev);
+> >>
+> >> +      of_dma_controller_free(pdev->dev.of_node);
 > >
-> > Aristo Chen <aristo.chen@canonical.com>
-> >     phy: freescale: fsl-samsung-hdmi: initialize default rate
-> > 
-> > Pei Xiao <xiaopei01@kylinos.cn>
-> >     phy: freescale: fsl-samsung-hdmi: Use helper function devm_clk_get_enabled()
-> > 
-> > Adam Ford <aford173@gmail.com>
-> >     phy: freescale: fsl-samsung-hdmi: Support dynamic integer
-> > 
-> > Adam Ford <aford173@gmail.com>
-> >     phy: freescale: fsl-samsung-hdmi: Simplify REG21_PMS_S_MASK lookup
-> > 
-> > Adam Ford <aford173@gmail.com>
-> >     phy: freescale: fsl-samsung-hdmi: Replace register defines with macro
-> 
-> I'm getting a boot failure around one of these on i.MX8MP:
-> 
-> 2026-11-19 09:01:29.454251 [    0.587255] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-> 2026-11-19 09:01:29.459125 [    0.596076] Mem abort info:
-> 2026-11-19 09:01:29.460122 [    0.598879]   ESR = 0x0000000096000004
-> 2026-11-19 09:01:29.465853 [    0.602641]   EC = 0x25: DABT (current EL), IL = 32 bits
-> 2026-11-19 09:01:29.470643 [    0.607973]   SET = 0, FnV = 0
-> 2026-11-19 09:01:29.471565 [    0.611036]   EA = 0, S1PTW = 0
-> 2026-11-19 09:01:29.476941 [    0.614190]   FSC = 0x04: level 0 translation fault
-> 2026-11-19 09:01:29.481849 [    0.619077] Data abort info:
-> 2026-11-19 09:01:29.487329 [    0.621961]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-> 2026-11-19 09:01:29.492669 [    0.627455]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> 2026-11-19 09:01:29.498347 [    0.632518]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> 2026-11-19 09:01:29.504076 [    0.637842] [0000000000000000] user address but active_mm is swapper
-> 2026-11-19 09:01:29.509800 [    0.644207] Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
-> 2026-11-19 09:01:29.510695 [    0.650479] Modules linked in:
-> 2026-11-19 09:01:29.521321 [    0.653542] CPU: 2 UID: 0 PID: 12 Comm: kworker/u16:0 Not tainted 6.12.119-rc1-at0-g8f03b6a4b095 #43
-> 2026-11-19 09:01:29.527214 [    0.662683] Hardware name: Atmark-Techno Armadillo-IoT Gateway G4 Board (DT)
-> 2026-11-19 09:01:29.533048 [    0.669734] Workqueue: events_unbound deferred_probe_work_func
-> 2026-11-19 09:01:29.542857 [    0.675584] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> 2026-11-19 09:01:29.544070 [    0.682548] pc : phy_clk_recalc_rate+0x4/0xc
-> 2026-11-19 09:01:29.549398 [    0.686828] lr : __clk_register+0x4f0/0x8e0
-> 2026-11-19 09:01:29.554271 [    0.691021] sp : ffff8000800bb9e0
-> 2026-11-19 09:01:29.560182 [    0.694336] x29: ffff8000800bb9e0 x28: ffffa1893c634720 x27: ffff6d82c32ac080
-> 2026-11-19 09:01:29.566395 [    0.701486] x26: 0000000000000000 x25: ffff6d82c32ac080 x24: 0000000000000001
-> 2026-11-19 09:01:29.576245 [    0.708635] x23: ffff8000800bba88 x22: ffff6d82c32a16a0 x21: 0000000000000000
-> 2026-11-19 09:01:29.582449 [    0.715784] x20: ffff6d82c20f8100 x19: ffff6d82c32a3800 x18: 0000000000000fdf
-> 2026-11-19 09:01:29.588353 [    0.722932] x17: 0000000000000cf0 x16: 00000000000003fa x15: ffff6d82c214af10
-> 2026-11-19 09:01:29.594281 [    0.730081] x14: 000000000000014d x13: ffff6d82c214af00 x12: 0000000000000000
-> 2026-11-19 09:01:29.604441 [    0.737232] x11: 00000000000000c0 x10: 0000000000000000 x9 : 0000000000000000
-> 2026-11-19 09:01:29.610325 [    0.744381] x8 : 0101010101010101 x7 : 0000000000000000 x6 : 8080808080808080
-> 2026-11-19 09:01:29.616546 [    0.751528] x5 : ffff6d82c32ac080 x4 : 0000000000000000 x3 : ffff6d82c200a700
-> 2026-11-19 09:01:29.622413 [    0.758677] x2 : ffffa1893b813740 x1 : 00000000016e3600 x0 : 0000000000000000
-> 2026-11-19 09:01:29.627125 [    0.765829] Call trace:
-> 2026-11-19 09:01:29.632409 [    0.768277]  phy_clk_recalc_rate+0x4/0xc
-> 2026-11-19 09:01:29.633534 [    0.772208]  devm_clk_register+0x5c/0xbc
-> 2026-11-19 09:01:29.638814 [    0.776137]  fsl_samsung_hdmi_phy_probe+0x1dc/0x310
-> 2026-11-19 09:01:29.643768 [    0.781024]  platform_probe+0x68/0xdc
-> 2026-11-19 09:01:29.644748 [    0.784693]  really_probe+0xbc/0x2bc
-> 2026-11-19 09:01:29.650181 [    0.788278]  __driver_probe_device+0x80/0x14c
-> 2026-11-19 09:01:29.655274 [    0.792643]  driver_probe_device+0x40/0x130
-> 2026-11-19 09:01:29.660501 [    0.796831]  __device_attach_driver+0xb8/0x140
-> 2026-11-19 09:01:29.665772 [    0.801282]  bus_for_each_drv+0x88/0xe8
-> 2026-11-19 09:01:29.666809 [    0.805125]  __device_attach+0x9c/0x19c
-> 2026-11-19 09:01:29.671945 [    0.808966]  device_initial_probe+0x54/0x74
-> 2026-11-19 09:01:29.677003 [    0.813155]  __bus_probe_device+0x34/0xa0
-> 2026-11-19 09:01:29.678308 [    0.817171]  bus_probe_device_deferred+0x2c/0x78
-> 2026-11-19 09:01:29.683731 [    0.821795]  deferred_probe_work_func+0x7c/0xb4
-> 2026-11-19 09:01:29.688826 [    0.826335]  process_one_work+0x164/0x2bc
-> 2026-11-19 09:01:29.693854 [    0.830355]  worker_thread+0x180/0x2f4
-> 2026-11-19 09:01:29.694736 [    0.834109]  kthread+0x110/0x114
-> 2026-11-19 09:01:29.699938 [    0.837345]  ret_from_fork+0x10/0x20
-> 2026-11-19 09:01:29.705576 [    0.840932] Code: d503201f d503201f d503201f f9400c00 (b9400000) 
-> 2026-11-19 09:01:29.709069 [    0.847029] ---[ end trace 0000000000000000 ]---
-> 
-> I need to check further where the problem is exactly, will reply to this
-> mail again in a couple of hours as I'm not sure I can recover the board
-> remotely to check right now
+> > use devm_of_dma_controller_register() to fix this problem
+>
+> Hi Frank,
+>
+> Thanks for the review. I tried that, but with only the OF registration
+> moved to devres, the controller entry is removed after
+> bcm2835_dma_remove() has returned, i.e. after
+> dma_async_device_unregister() and bcm2835_dma_free().
+>
+> In that window bcm2835_dma_xlate() can still be reached through the
+> node. dma_async_device_unregister() has already freed chan->local and
+> dropped the last device reference (dma_device_release() does
+> list_del_rcu(&device->global_node)), while the channels stay on
+> od->ddev.channels until bcm2835_dma_free(). A client requesting a
+> channel at that point goes through find_candidate(), dma_chan_get()
+> fails with -ENODEV and global_node is deleted a second time. The same
+> applies to the dma_async_device_register() error path in probe.
+>
+> Doing it right with devres would mean converting the whole teardown:
+> a devm action for bcm2835_dma_free(), dmaenginem_async_device_register(),
+> and devm_of_dma_controller_register() last, so that the OF entry is
+> removed first. That is a larger change, and
+> devm_of_dma_controller_register() only exists since v7.1, while this
+> fixes a bug from the original driver and is tagged for stable.
+>
+> So I would prefer to keep this patch as a minimal fix that backports
+> cleanly, and send the devres conversion as a separate follow-up.
+> Would that work for you?
 
-Ok, I boot after reverting commit a8210490583e ("phy: freescale:
-fsl-samsung-hdmi: initialize default rate")
+Please send out follow up patch also because this is not urgent. DMA engine
+driver was seldom removed.
 
-That commit removed the fallback if (!phy->cur_cfg), which probably
-works for master (didn't test), but doesn't work on 6.12 likely because
-it doesn't have commit 41db46233467 ("phy: freescale: fsl-samsung-hdmi:
-Refactor finding PHY settings") - as far as I can see that commit
-ensures cur_cfg is always set early on.
+Frank
 
-Unfortunately it's not trivial to cherry-pick, picking these two in
-order results in a relatively minor conflict in the Refactor patch we
-want:
-058ea4a06704 ("phy: freescale: fsl-samsung-hdmi: Use closest divider")
-41db46233467 ("phy: freescale: fsl-samsung-hdmi: Refactor finding PHY settings")
-
-And I've checked the oops no longer reproduce with these two, keeping
-a8210490583e ("phy: freescale: fsl-samsung-hdmi: initialize default
-rate") as is.
-
-If it helps I can send the patches as I resolved, but it's probably
-easier to drop for this time?
-
-
-Thanks,
--- 
-Dominique Martinet | Asmadeus
+>
+> Thanks,
+> Tomasz
