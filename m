@@ -1,78 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795087235;
-	b=uFWChf34zwVtiXCg3KnzxJf/wAYIEk5mLsfYqeaW4c7YAdTFsxoCGvgf4yKFzbRoObT9
-	 QusvzwbW649AQsKLU0TIjoXaFNJKbckRwRCvCrLLfYo/Sug1m3CtC4330J0ieMwmLNOu+
-	 uVNQxHTlvQ9YWa4p1DX9HUUKlGNk8f0vnO4WHJQ8ggM5O5P5DEA9myqXUI674TJk8rsJt
-	 fbhvDtxbwRYnajo/yKRV50FRwv83MGoGeDotBiqVEcCjxSkPTf+rpGu61WZRVL9K8mBa0
-	 IEtOmEWAITN7+tqzVcdKtOcZuUBNUlTCH9UmWRVe17+s5R9qqFnD+TuplxrVFA732zQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795087235;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=HxTh5QEOxLCvDecXq3k9qIqzQesIJHxSTR2i+oLJhDQ=;
-	b=HUhcmNFI/DIvM6pnAYcFRk+5E21fQfsBQ3ssd6Alvga747P5y728QRktGhyalFt/Izxg
-	 h5jxeZyb/10jfRG0bU6qUk/A7wFN2BhAinTHrprONjKGj8eqHTNS8K6hFVq9LVh7Umyzl
-	 /3hi2wUxEPGfx/0t99q+pMTqTqsc7CucJtkB8CTZnfIRzBGmQG7EsAQsSfvXnJkO7S1dE
-	 SQHI4UwE/A1QMP8PWdlkL4AQwo0NArmapIwn51go0mkF9U7sawHxELdZGXxSvHq9oaESy
-	 lPqY0G3hkRpkPt+FBF9qk2Gp90oNXAwAW11w7ZNd66D2E5R+hsqpnFII9z97PSXrlhA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dzr86yBZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795087245;
+	b=iODWqSc+0gtXmrlsIUyHabLMVxJ06xDS7UPqmTe+/E12/nAITNJxdMHrZoABePSGnd+7
+	 6+u6A7pCLUM7nz9amtUk53YU5WtdWzGIe8poWU2/d+0UWtw1976LPk3SsiEhJLZ2MWhXl
+	 rhEhVMnNe9lurz3ErMdPr25vrDPx6uMMH1iM+rY39N4x63543Y161wxn14ZwAsec4jWOA
+	 sK3QsMNVBqUJz8+jyIwtVZYpa1y/mAl1Go9kXr2Na1MZj5SfYr72dA36PX2qtwDI17JYv
+	 z2fYXIP0jhDzJ/XlW6CB5tMBE5PwoGZD8QEc0I/Pj5wGClURT7U83GaIt+dbqGkO/SA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795087245;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=/P5mabH0JHkQS/tGtMzwsxMvwb/yv9fD2MpxixKyD8U=;
+	b=ZBAX9nImM5qE7+kamuGX3kBQ6dbP9k5MhavUDjWUTIPSYftX9BxJr5BhqnuXvkbuD+/J
+	 oSx+FvwX4Nh1WEGeNhRhCsEtKIrJ9Yg6xNPNqnsKhDJGepvHYqSIyXuxt2va5r+ZWzo+J
+	 HgVirMh56G7k3rDdyuf9DgIXXOMQ123N3vxGx8unIpEUaiNNDXO5KHJyf4+zkns5ZISmQ
+	 e8h3aDXYHPMIDisV1rSFpAFMDjurlKYeS8RKb5v0aCPuUMjRDLTbFedoAHF+nqO9UG8Qc
+	 2xdKg6u+gdQGiXyAwhRyA1RnHPxa6PJqZCNapWjaolqmQR8Om8IAylXm0mioZyUR7rA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J6QRnhqe;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 186F2606A320;
-	Thu, 19 Nov 2026 11:20:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D07F7606A320;
+	Thu, 19 Nov 2026 11:20:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dzr86yBZ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795087234;
-	b=NBtDNZHQRdvXS5/S7NeuK/A+VW00YhVtEaK32ykzJG/J+V45CDvrbhu/+GlmrZwKH9cZ
-	 gOm3ofoVAd0c+woCunLIxfYA5mvFO+YYM5zYjiak5VROFuwQCbE4d7kEyZZ6s+bq4iGxB
-	 HzxtVqBaufzNkDoHXcfRq0rb0ovZAhrFFfVz7tUkehBLDE/970dARLAWgj18cYv6uRLNn
-	 B9nx74U/e3IflANmKrzghkiF/1cvW7ocIn818fpmxkLY5o5aM3KIuF7fTWz8N00OyDpVn
-	 GpUo2Utq5hbX6/ZlhwjIAWkOhVexBO+E7Ex1sVHMAHbtmFshCbNljZxM7ySGQq+kCPw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795087234;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=HxTh5QEOxLCvDecXq3k9qIqzQesIJHxSTR2i+oLJhDQ=;
-	b=bX3YuFZXQJMR0X/FHcRfKcXKrZb/WE7vC7wv5e3SjqJjiUHbyGn9YJ0sLPVtPWLs4jX1
-	 lTAptZvbwzpnk4qhXSEhfH9GA17ja50XqhgUFIAppUeiO9Ucn8aJKPygMWlwUj+btdPVK
-	 tITr4GcXkgb5ViED0lISuuZYf12pptBTzirudvlHUk3NFEShr1f2bgnRGcfaWpXOyUaNn
-	 Q58EGEesPEFZRGWmm2LFnUbSI6z73yfd7qgSbjdrfSAgj95hlXldQ7vG4XWpjg/vwzNzO
-	 Vly7xxxYvYt+XRIQ0O5006H7gu8yK0djVXf4WOHUs4DWYT+gbLKLdqnFm/Tw+/oLh/g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1FB3E1F000C7;
-	Thu, 19 Nov 2026 11:20:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J6QRnhqe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320261F000C5;
+	Thu, 19 Nov 2026 11:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795087234;
-	bh=HxTh5QEOxLCvDecXq3k9qIqzQesIJHxSTR2i+oLJhDQ=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Dzr86yBZxKGXdVnTLIPoUEh9SccaQM3nRAzFxr7to9F6S519vrEGdF0/tUjH7r7Cr
-	 9tZI3IK2EuBn27i1kH7EeK1HCZ0u9fpt/797tAlcOtVzPRoS//5dbVuK5I4UeUc5KE
-	 Aoyu7bzH+zDatflBlof9xpcveZyomIKWx38gvGkzuDdikEnrWzd7tZ54iULmkE4+dH
-	 WP+f7bpFyP6E59+6r49im/GLPsVgWnVVKX6SVUrXmkINAofUlrI5itoQC+u5sdk27o
-	 0qvqBFVvknJ1UiZbM7Yzz7YZXxwyecIxq6EBEKWOpSkJyedXa2BMLuGqqVJgn/nIdw
-	 x3nhA7rJViwjA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6AC434B234;
-	Thu, 19 Nov 2026 11:20:33 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 11:20:33 +0000
-Subject: [PATCH] tpm: xen-tpmfront: fix use-after-free in backend_changed()
+	s=k20260515; t=1795087245;
+	bh=/P5mabH0JHkQS/tGtMzwsxMvwb/yv9fD2MpxixKyD8U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=J6QRnhqeiU7je1XkiTOaqNrgMzrdoqP/BPZSq+iaDn+oJkHi+orLkPCpF8TyD1CJw
+	 lIE0ZQgzfPutKfLZwqyvZguVZaw9OvPeTT/qEZsGxXTylHmdhhHW9qXcLM+Asinnil
+	 AABvpa8cMTRXIbsymHkB0WFv9VyoUftBs38JkcgsHR+xm0RaA1E0qqsBt6TCkTM6oX
+	 qR6iqG9DfHXJ2+YGHLWmNevEs5VG2yy+n3mtoZYWY/TtWu0Im0ExGSeuqrjEhBqwF7
+	 vRs93CTwLCONIKIsH7e8vNqdzBjiaNH01eBP3cb4bLKR7PSle64WJLqRjoky4S3MpZ
+	 tbJdB43hK8U5g==
+Date: Thu, 19 Nov 2026 11:20:38 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	Wei-Lin Chang <weilin.chang@arm.com>, Will Deacon <will@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: Stop KVM_PRE_FAULT_MEMORY when the vCPU's
+ dirty ring is full
+Message-ID: <av7bYb1geEGzaj8e@gremlin>
+References: <20261117074428.7544-1-fuad.tabba@linux.dev>
+ <20261117074428.7544-2-fuad.tabba@linux.dev>
+ <avxfgWNePsGPK9mm@gremlin>
+ <CA+EHjTzUrDxLSMEo6X66XhKtQ-=ew3zZhMdFWR6U9Ga17WLWkw@mail.gmail.com>
+ <av5CBjbeidUUWiLq@seanjc-mac.roam.internal>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,80 +66,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-xen-tpmfront-v1-1-bfabbbed462a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAIDb/moC/yXMQQqAIBBA0avErBMaF1JdJVqYTjVBFmohRHfPa
- vkW/18QyDMFaIsLPJ0ceHMZWBZgZu0mEmyzQVZSIWIjEjkR93X0m4sCq1prqWxtlIWc7J5GTt+
- u63+HY1jIxPcB9/0AQukJC3AAAAA=
-X-Change-ID: 20261119-xen-tpmfront-108aa26d8c6d
-To: jgg@ziepe.ca, jarkko@kernel.org
-Cc: linux-kernel@vger.kernel.org, jgross@suse.com, sstabellini@kernel.org, 
- linux-integrity@vger.kernel.org, xen-devel@lists.xenproject.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795087232; l=1866;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=SeHCF57qvTjGFWZBGFq4/OdwCYQKor1OKDV0zKf38bM=;
- b=9LGNWNkQtNeORKMHA4bnA+tIT8SFxlO/+PusmyfK51AQl6KJ4CyCP1WJPlQ3nrvwC7h8yimPN
- OtFGagUC1FiBQkOBQJOxyhML/GeMEo1PWXi1jzh3R0xSmvnNzdoztCF
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av5CBjbeidUUWiLq@seanjc-mac.roam.internal>
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+On Wed, Nov 18, 2026 at 04:25:42PM -0800, Sean Christopherson wrote:
+> On Tue, Nov 17, 2026, Fuad Tabba wrote:
+> > > But the overflow bug only applies to x86 (see below), so is this something
+> > > we should worry about at all?
+> >
+> > The ring overflows on arm64 too (below). As for exit_reason, I asked
+> > Sean about the arm64 MMIO case on v1, and his answer was that a VMM
+> > that pre-faults between a KVM_EXIT_MMIO return and the next KVM_RUN
+> > "gets to deal with the fallout" [1]. I think the same goes for riscv's
+> > exits.
+> >
+> > [...]
+> > > > diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> > [...]
+> > > >  The dirty ring can get full.  When it happens, the KVM_RUN of the
+> > > > -vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL.
+> > > > +vcpu will return with exit reason KVM_EXIT_DIRTY_RING_FULL, and
+> > > > +KVM_PRE_FAULT_MEMORY on the vcpu will process no more pages until the
+> > > > +ring has been harvested and reset.
+> > >
+> > > Maybe worth mentioning the exit_reason thing if we keep this arch-generic?
+> >
+> > Sure, I'll document that userspace should complete a pending exit with
+> > KVM_RUN before it pre-faults on that vCPU.
+>
+> If we're going to do a documentation update, I vote to keep it vague and scary,
+> otherwise readers might think the exception proves the rule.  I.e. if we say
+> that KVM_PRE_FAULT_MEMORY isn't supported, then userspace might think all other
+> ioctls are safe, which is most definitely not the case.  E.g. something like
 
-When the backend moves to Closing or Closed, backend_changed()
-unregisters the device and then keeps using it:
+Yes definitely, like drivers, users can get up to all sorts of mischief if not
+properly forewarned :>)
 
-	device_unregister(&dev->dev);
-	xenbus_frontend_closed(dev);
+>
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index e95c9cda085d..45dc1e3c0b03 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -6971,10 +6971,13 @@ to the byte array.
+>
+>        The pending state of the operation is not preserved in state which is
+>        visible to userspace, thus userspace should ensure that the operation is
+> -      completed before performing a live migration.  Userspace can re-enter the
+> -      guest with an unmasked signal pending or with the immediate_exit field set
+> -      to complete pending operations without allowing any further instructions
+> -      to be executed.
+> +      completed before performing a live migration.  In general, userspace should
+> +      exercise extreme caution when invoking ioctls other than KVM_RUN prior to
+> +      completing the original operation.
+> +
+> +      Userspace can re-enter the guest with an unmasked signal pending or with
+> +      the immediate_exit field set to complete pending operations without
+> +      allowing any further instructions to be executed.
+>
+>  ::
 
-The xenbus watch callback that calls backend_changed() does not hold a
-reference to the device. The tpm_chip registered by xen-tpmfront has dev
-as its parent and holds a reference to it, but tpmfront_remove() drops
-that reference when it unregisters the chip. So device_unregister() can
-release the last reference and free the xenbus_device, and
-xenbus_frontend_closed(dev) then accesses freed memory.
-
-Take a temporary reference before unregistering and drop it after
-xenbus_frontend_closed(). This keeps dev alive for the last access and
-keeps the existing order, in which TPM operations are stopped before
-the frontend is marked Closed.
-
-Found with a static analysis tool and checked by hand.
-
-Fixes: e2683957fb26 ("drivers/tpm: add xen tpmfront interface")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
-Compile tested on x86_64 (W=1, no new warnings). Not run with a Xen vTPM
-backend.
----
- drivers/char/tpm/xen-tpmfront.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/char/tpm/xen-tpmfront.c b/drivers/char/tpm/xen-tpmfront.c
-index 3c0cce57c4ae..1be925cca535 100644
---- a/drivers/char/tpm/xen-tpmfront.c
-+++ b/drivers/char/tpm/xen-tpmfront.c
-@@ -397,8 +397,11 @@ static void backend_changed(struct xenbus_device *dev,
- 
- 	case XenbusStateClosing:
- 	case XenbusStateClosed:
-+		/* device_unregister() can drop the last reference to dev */
-+		get_device(&dev->dev);
- 		device_unregister(&dev->dev);
- 		xenbus_frontend_closed(dev);
-+		put_device(&dev->dev);
- 		break;
- 	default:
- 		break;
-
-
-
-
+--
+Cheers, Lorenzo
