@@ -1,69 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.56
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795112917;
-	b=O8PzlSPYqJ8P+eDkL57veiiHiExtDtJKKLw1QuBxWvPfwWWG1xqvq7VpDoj7bKzWIvYV
-	 /1RyX0cUzINrO2TQmNpY+dW7m+10s5tlEcE+5iMsPfWt9TuvrdrxlZnnQBaaLOTJdwUPs
-	 qsdz6cnSAKiMeNMit4NRIYq4go/BgA7mGin6tudbZ6GJxeoCqMfSVuly3u86NYAZwOthv
-	 PXjDoheT/G7gxrydNMuMa6sMrMS1irK4jMzm2EHp7hCYwRELTSzUtapj9gn+dtrKEIqV9
-	 ZxnqjU4bHFSUMDWk6UbgGuZq3pIaYD79O0xaZ94K3EiedmTJQhrOt29qOyQXG4G7Isw==
+	t=1795112929;
+	b=qcYWbTElZLaBvAlbTG0sHXcEQ6w+wB610oE9RXIuMTzCHkD2jlzQc/FaNI7WN3a3CvTv
+	 TgPZXW2PjMqNa6Ig0xYDiEoM1sBOBKS+8v5GVbML7zppiooE7l57QYu+0Q8EZO18kUsZo
+	 dOkvJnIeSc7VLfl+X5iYS9KDcFuvOsvPrkj/Ru519VCjoZW47r8Qpj1Z3GP0uUiNi2Y4y
+	 zD5atCfl163vNxegqy42Qv4vj1OywJiKzvWQqBIEuTY196F9XDboWyxftHNcEj7eaqcRG
+	 EKQZROMHrcILOEpmJP5OeahSIQPtWtioaxKafZu9mxp5noLuYByngEGy54KD+P0dA6g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795112917;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=HcJ94gLYxrZRcn8wmqvx/bbkk7euLk0Wkz2Nwgu2TaE=;
-	b=Q1/ZJztotVqV3vcZu9xMJ4YUYxsDPaSTcJ4bGiEUwxEu2EuyEaT9GvgTx0M83Gg1bE3p
-	 Oofoi2BcLMIU+PKyg7NN+5SBrRVWq6UyUa6fWfp4GzMZhb0icDDKqkP7WRyvoztnhqYAi
-	 rMYzLeWXGPF/F29DGAH7JUwHwU5NvOgJtqfl2pto7auJmAE97dycYCjLdyOAR9gH9Lx8t
-	 H1a2CAsWGlpg8nK1P2737ff6PPxvJJgjzItb0aj5BV2gXay/cy7dhMeLFQHP+iKuqEVzb
-	 /WUX3llnUXZHLUfJJ9GW1CG1815sKIKoeop1woxOMdPigIiRBWOYNzGldQzSBUCQ3tQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795112929;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=xMHYv/3PQ1dDfJ+rtiKztMzQh4qN4g0xk740mDLwxPU=;
+	b=hkUsMZ50HAfyYD0s4NbGyy5HHJ6RAc7SdGBCus8TQ5iKgL2qtOuliFG+xYKFfUMluJSN
+	 +iEXsh674qROkFQk67sNb6thHd+VIiNoqysrMyktaagUkTO6NDsYFeMtVgs4X/nnhgCQv
+	 EGIcZo7OoDA3rfmeFWgXUdkO8/JIDLPAR1y2ejsHUYUdi0TsM1zfc3lcmQCtEfavGhgwV
+	 0XIuSTsieDOUBK15IThhKzqLQXhhkFsMLxMx9N0PNH6FxwHsJ9O1kmIZ2ty7EULIQsXKz
+	 E8X2hD0+mKFGSB/BoCVL0od9FNROLbXgg4GfTyHA/G61oYUdUloFxA44XEMk2rf4QGg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=pTYUIyu6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
-Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=T8kxm6kB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.56
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011056.outbound.protection.outlook.com [52.101.62.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7731606A320;
-	Thu, 19 Nov 2026 18:28:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7731606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 362F560A2602;
+	Thu, 19 Nov 2026 18:28:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 362F560A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=pTYUIyu6
-ARC-Seal: i=1; a=rsa-sha256; t=1795112908; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=gD9zSMy+lCvWX9jfY39Oe8uKiRIvUnOBk7//2AyBA+7/B271AXBwxUVI11NRyuE8ngkJAFsbGhvJdq67HLIUCzCp+Prl2dwQ8YS9WCIeG+z3Pbboe/EUPYDrsQE7iRVUD1GUaunqUhPaGXxIjfUH+qTmE+dqJ4kHlxRrJbpjJu8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795112908; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=HcJ94gLYxrZRcn8wmqvx/bbkk7euLk0Wkz2Nwgu2TaE=; 
-	b=GUvp1zDbeYji1JVi87upgaLTgzrnUggy2oE+MvDAoVRzBVGsPGJzboN0iYE2HT2B76WqcLAsvPC3WWIG00cg6T9YkbnzcN75GLzFEmANRQLtkjS/Amw+TiPfYjNC48YH8lUQTokJ59PQbmGpWUBzPe+YVMGS0xeTVrYN1U8qUC4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=pTYUIyu61g/1TDJJrxeySFqJzb9C4g/QIErayA7O5jTlEQmSnBfK57mWL0064GVIkBWo7QT99Wgt77iaoED5N98THmDAnHO0/CDoStvJxp6tR84A8SeILk7wPuHEOXeuvbVD/yawtNuQOf/jYuK0YzKMR8JUetYFoH0afsJA68Mt6yvGs5sngpkMgn7pZUKhBn8s7Zg2vfiLoKt0OhuM7UKzMbN/4x4igqJAyslHP5yPqS6noXGBrWIHQ+K0GGc/cMb+bNn+b+m/Wx1qYGpgfRyAzKyQLKXGMgMQwwqtG0VzOOijsP4U0F4pxXiqCbtMgAXQ0J3MYZq3/EUokwb3RQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=HcJ94gLYxrZRcn8wmqvx/bbkk7euLk0Wkz2Nwgu2TaE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795112904719592.183114420632;
-	Thu, 19 Nov 2026 10:28:24 -0800 (PST)
-Message-ID: <5b82091b356a4134ba59e032bd927049b3a6451a.camel@rong.moe>
-Subject: Re: [PATCH 4/5] platform/x86: lenovo-wmi-other: Properly implement
- no_singleton driver
-From: Rong Zhang <i@rong.moe>
-To: Mark Pearson <mpearson-lenovo@squebb.ca>, "Derek J . Clark"	
- <derekjohn.clark@gmail.com>, Hans de Goede <hansg@kernel.org>, Ilpo
- =?ISO-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>, Alok Tiwari
- <alok.a.tiwari@oracle.com>, Armin Wolf <W_Armin@gmx.de>
-Cc: "platform-driver-x86@vger.kernel.org"
-	 <platform-driver-x86@vger.kernel.org>, linux-kernel@vger.kernel.org
-In-Reply-To: <b5c81884-73b0-4d43-98e5-cd2fedcf583f@app.fastmail.com>
-References: <20261119-lwmi-no-singleton-v1-0-6b06fcfb5126@rong.moe>
-	 <20261119-lwmi-no-singleton-v1-4-6b06fcfb5126@rong.moe>
-	 <b5c81884-73b0-4d43-98e5-cd2fedcf583f@app.fastmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 02:23:18 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=T8kxm6kB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oRmRxfmFHGXSWpNpbhRLGFqnkA7WmKVt6d0Z1Z41apbeU7J/1ID2wf1y2towGOtYdovVn2sCVUsaEuQtAQw1OUDkkvbs2pXonGAFNiYata70fvZsWp6/l0C+uwiTsFtzUS7uEEVUTPw2B0bb1LMPtJO0EwLRd7BKvgiAw8f7a50E7yRZ1Rq+IfrXVuKUlcOQFraGtc8jNzBYuriirSjTlj9neFi0vI3T7/IvxbG5eJi9A7K5VYD8E+swM8/mXOfw5UdUo0BhAi0oqfBwfblF1BjoqQZFLnkIFbrxTvcMDu/mKU0WrAl69QOkFq0a14DnS9uSCXZtHeWVHJsfOmw/GQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xMHYv/3PQ1dDfJ+rtiKztMzQh4qN4g0xk740mDLwxPU=;
+ b=XEHq7b0aXcZ15LxwBmE7uFpCzwbIv5+bYO45Ft733/XiyEnfSuFRDzR2uJKvfhlsl2aYlC0qxFsD7ycfB0CriVY9PxNoawPXMHYALajz1RSD1doQhc1AHh5mgDA47nOJOW3yYYWkT+U+s7U9eea2UP3m4GzzxxuywnPOX8/WGIOpGLkDFY+qK7CiF8DC+eLdzrP+4up4yz456E6ZG/TfwIyF1qMC2d5PHWh2GxYb8h92Zb/68zZ3GY+l14PkjZJY0RXUYA7HBg9XlHYbX18WJG17+C/4OItY0V/Fpr7m9cKb5JwLTJP9IbNaa2oSxrTz3mzWq6tkVsevIyC6TCL0lg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xMHYv/3PQ1dDfJ+rtiKztMzQh4qN4g0xk740mDLwxPU=;
+ b=T8kxm6kBnQj3W9I/+oyBl21Jb+tithcS+ABCfTuPr13sJ5DGItpEz7oIPMUp+sDAfByITPbqGxG1eX6rzKEcxS2g+VsDQ/ZdtJzmL2w3sV8eQQi88jOTmutYwSVryY9+WnbBfF8dWob50ypOwwBWWH8PLycqHRBAVKYgjklsLFq72JMFob60K3T5D2FCIUCaQcV+7xk2sQtssS+W4c3TCZ8bmaw3+53zA9FEjTkY2jUjWQkE1GKRiP9EySGIO3UTluICHFxWhhzSPDuDWG77jDKt167cNPkC9lgVoQsEC69bo7q6u2cGXR8TyEh7ZtBnCgzCpHCNho/1EMCHLCfVQg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA4PR12MB932075.namprd12.prod.outlook.com
+ (2603:10b6:207:12d::15) by IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Thu, 19 Nov
+ 2026 18:28:38 +0000
+Received: from IA4PR12MB932075.namprd12.prod.outlook.com
+ ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
+ ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0639.010; Thu, 19 Nov 2026
+ 18:28:38 +0000
+Message-ID: <7e94f48f-f352-4809-a96e-d5363b8be273@nvidia.com>
+Date: Thu, 19 Nov 2026 20:28:32 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net/mlx5e: Skip hairpin entries not ready in debugfs
+ dump
+To: Changyul Lee <lcy8047@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
+ Leon Romanovsky <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>,
+ Mark Bloch <mbloch@nvidia.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Gal Pressman <gal@nvidia.com>, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119012707.555494-1-lcy8047@gmail.com>
+Content-Language: en-US
+From: Tariq Toukan <tariqt@nvidia.com>
+In-Reply-To: <20261119012707.555494-1-lcy8047@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TLZP290CA0002.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:9::8)
+ To IA4PR12MB932075.namprd12.prod.outlook.com (2603:10b6:207:12d::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,356 +102,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-3 
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|IA0PR12MB8374:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d14b1f2-04c8-4bbd-c66f-08df466aedc6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|7416014|23010399003|376014|1800799024|261022075727099003|261102123227099003|10067099003|11063799006|56012099006|261026140227099003|261028144727099003|261022105027099003|261021121427099003|6133799003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	b4m+0te9BjIKjC4DTS7kY7irr0NSA6406ZRvTqAQOajrOYkvAUgFdi3eYYLCVPrRrfesW2tvFOCoa2qlWMe4cQigXio/MTumdvKcI8YllAyZDxsQuIhNc97U0+EBcdnEswUITkhfadvSJjvJuiT9nw85di89M6H/jYLu4EJz3pkf9w/YS/FMTArHnRYHnRt7zgUTMA8fryZvAYAIEgNeAk2JY5/93Qu03T95n5dUv1ufxlRgTcal6HkJ7ycEwSrp8QYds/067mxmZt+8//CDX/+GKGZZfuBi/2t16TNaj7q4D/L5K62He3M4FXq62zXwvegdZbF5Ap92wfDLDJz9ipBiJuLYhU/kPEy02vCQwzgUcsUxXIE6HDZgWO9M0/boFd542/pp5q3CJA18dWlLTJvYxuPDp3GdwHFu6MyVjN3flg2Egp/pk4HIv9dLZSJ9a+C8pMMYYO3gmDoxl5ukjgnrVBI/ky8DXjDzkkZub42h305qfLF3KQcCXxayTq5PVgheCd6RryB0lN1n3uVBjezdPj4jp8gfKUHT/1hUTV0hRZzw2zQg3EXeTUS9G04UgIuEk5RrqqwuibxTp7O94hQd2y2K+GiUHEnpq9XU9VTe3/sCgtU94SoYtwIc562G7bNukLYVT16fl8YZDH2ZbNco4Sphj3JPDWsSd3KtKqE=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(23010399003)(376014)(1800799024)(261022075727099003)(261102123227099003)(10067099003)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?aGlEelNqS1NURXVGSGFQcTJnWWNrTWlZck5IbVdIOUx3UEcwMTNaZE5nOXZQ?=
+ =?utf-8?B?d2p2T0ZMd1VmdkM5RDFKcE16czd4Y1BkVVcyM20xYXg3L2FKVG1MY3prZDhI?=
+ =?utf-8?B?d3JCVzhSK3hoVGtxU0tESUM1U0lROTRRVmxRZThGT2xWQW40b1FkaTR4UytX?=
+ =?utf-8?B?UDdaUHNCY2p0UEViQ0xSZ2N1Nk81RzVHUGdpRlhFUER0K1pQZThYYldGempo?=
+ =?utf-8?B?emVoLzA4ci9jU0x2L0lMWnV0SlFBRFdGTm9ka0FreGdsVENoWUdvbDdYWi9v?=
+ =?utf-8?B?bzhPeDZRTFhZazU5YUl2TUJzU09YcXZhWVVsNkZnMzFsS2hFWkZ6a21nUUF1?=
+ =?utf-8?B?SlhMWjU4MTJYNEFEdjlSTmpHbHBYb1RidmI5Z2ZHaDRNTEtOZ2ZSdkVsaDR3?=
+ =?utf-8?B?eHNLakplZ3NCUnNpTE9OV2xheGxzTUNkT2FUZlMyME8yUitSZ0xsSUQ1bndX?=
+ =?utf-8?B?NWNpTHNHeTlHWFV4dU1wVjhYZFA0bEV1UU5tV3c1c25VZE5IQlRGUithZjNm?=
+ =?utf-8?B?c0wyZEtZb3RGakVWNUgvWkdaR1FQa0hhZkd5c3hjVjVGTFRyVmEwRDJ0MFQz?=
+ =?utf-8?B?dDNubTliZkNMcVZoQmhPb05nMGo3Y0RSdUdHMXVKN3g2VUhLeXdUdTRUR28z?=
+ =?utf-8?B?R3dlcXhvMkxBM1h3M0VQa0Y2RGprS2VEREpVTXVCNlp2VUQxdEd3bDV4anJN?=
+ =?utf-8?B?bG9RRmwzazc4WnNkWDRLbUhyaEpxYnlhVlp4dlAvRGh3anU5T2VHdzJiUXp3?=
+ =?utf-8?B?Y2tubjM1UFZURGcybEhpYkdkcGROZjBTN3M2cnRkVjhSVzFWUkl3Qk42RzlK?=
+ =?utf-8?B?WHM4citGamRadERxZDFEeStNdEY3TUhrUEFsQ2RwSDRPSnh1VFR3ajR2VEtI?=
+ =?utf-8?B?ZjJML0VWMjFMTmhoYlBOSitJeU1pOWVYemVsTzBzVzhIc0RFemlJWTBQaEk5?=
+ =?utf-8?B?SFNxamZHUFZpV2tPaDY2MHVhR0FtNjBPWFZTYmlKTnkyS3BGTFBqU0VwTGlY?=
+ =?utf-8?B?UXovRnBXaTA0eEFFMUJVbEdhMHlRTXZERmFDdERzbEdQNHY2RXBRRSswUmVL?=
+ =?utf-8?B?cjExOHFEaXVkbHkwK0pNRXAvTSt5aWlyTkttTkt5WDdRRlVyVDZDVUNaaWdK?=
+ =?utf-8?B?QXFBbjJ3Q3pkcVhIME9MaXRPSDZSNVBrb0Y0aGxBbEF1Y2pSYjA2TVhmSjdO?=
+ =?utf-8?B?SW5KRWs5WmZMSFJndlJkUkgzTW1VaVRabXl0ekRTNlRWSFg2Tzc5VTBGTVZi?=
+ =?utf-8?B?cE5VdzBYQlBFd3pySXJwQlJLWmJTaGc2VWg3c09OQW13NHo0SG9DRWh4Z29l?=
+ =?utf-8?B?MTNEekhyRE9BZzRwSVZFYjc0S01oWDRrSXg5bjJubGFrdDc5S3I1S0Z2U0sy?=
+ =?utf-8?B?ZEpzc0tlNzBibmV2MkFGQlpNYURWOWg0ZTB3Sm4yUkFQS1BSQ0IzOXhQNXNU?=
+ =?utf-8?B?Tmk1MCtFS0lBRGVFWUlveWllWFU3U2IzcTlrZTVMNE05SVhJUDd2c1Zac21H?=
+ =?utf-8?B?ckR6b05OTjl6Ty9vRSswZHNvNXRleU94RkNVeXV3RmtDS3Z0Tmt2TkRJN1BH?=
+ =?utf-8?B?OHZoN0Q4dWM4SGFyMndZWWxtUEFPclllT0pMeWlEeEVZTndFTUFjVVN5b01q?=
+ =?utf-8?B?VEVpem1MUytOeDRmWFp4YmFwSSs5S2toTHJSWmdkU25rUzVNbTBScjJ3YVNa?=
+ =?utf-8?B?dUo0OWRLZW9VcnEydXBndDdYTSsvRnFlai9KelZubmdSOEo0NnhTTFFXMjd0?=
+ =?utf-8?B?bWVPNzhqRnJxaGRSZm94d0VRYVZ2SThQbDFkWEJCN3RBcXJxSzA5aFZtdFZk?=
+ =?utf-8?B?WlZjU3l6QjRvYjR5cEl2T3NIZXMrQVo5eUM2NERWdlM0VW1HVWs3dGprdyth?=
+ =?utf-8?B?ZXFRNEh4eFdjbFIrN0hhZUdFVEZnRzdkQUlRVUNMekJJYWo3aWtscWxscjZK?=
+ =?utf-8?B?UXdwaDY4eXU5bnhYc3BhNFNiRzFIM0hQbnJnNy8yL0I3ZWdzK2NRa1FkWGpM?=
+ =?utf-8?B?eUhFdFhERmllZGRYTnpxKzZJdW9BcU1wSGNHOENkdXhQbk1QUXV4U0ZTSmRs?=
+ =?utf-8?B?RWJBdjNYdFdCdlZLTERPTnduZDk2ekZBZHUreVFoWURENFBUOUQ2eVQ5cjVv?=
+ =?utf-8?B?U0kvY0pndEllNE9MK3U0d0NvaExkMEZIcEI4RU9FU2crMHdqY0R0SlRLY3BH?=
+ =?utf-8?B?OTVyQnpoUHYzUHZpTStvMklkd3ordlZScHZyYVBlNzRJSkhUY3IxVXFjN3VJ?=
+ =?utf-8?B?QmtBYWVlTFUvQXJQeWRDVlJ3Z3lJY3RMUFp4UHFkSXpGWWJCMzhwczJOd2Zz?=
+ =?utf-8?B?UlJsdTlScWdwRUQ0RjFiSHVXYjN5SUtsMzRPZFFHMHp3NCtRNGtHQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d14b1f2-04c8-4bbd-c66f-08df466aedc6
+X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Nov 2026 18:28:38.1867
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7Vd7unTCxo+ol0QJ/uIIS+pYCv9WeUvuKzPZxOfIGSG2qUXlSS0P50xpLBQ1rR63+IJNCwKemMWRzboPgqGbxw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8374
 
-Hi Mark,
 
-Thanks for reviewing this.
 
-On Wed, 2026-11-18 at 17:27 -0500, Mark Pearson wrote:
->=20
-> On Wed, Nov 18, 2026, at 1:58 PM, Rong Zhang wrote:
-> > The driver declares `.no_singleton =3D true' but stores device-specific
-> > data to statically allocated tunable_attr_01 variables. This makes the
-> > driver depend on the frigile fact that no device in wild has more than
->=20
-> Minor typo - frigile/fragile
+On 19/11/2026 3:27, Changyul Lee wrote:
+> Hairpin entries are added to the table before creation completes.
+> Reading hairpin_table_dump can therefore dereference a NULL pointer
+> while creation is in progress, or an error pointer if creation fails.
+> 
+> Skip entries that are still being created or whose creation failed.
+> 
+> Fixes: 0e414518d6d8 ("net/mlx5e: Add hairpin debugfs files")
+The dump added by that commit printed only peer_vhca_id, prio and
+refcnt, it did not touch hpe->hp. The dereference came later, in v6.4,
+so this should be:
 
-Whoops, I constantly type this word in the wrong way. Sigh...
+Fixes: 8a0594c09610 ("net/mlx5e: Add more information to hairpin table 
+dump")
 
->=20
-> > one LENOVO_OTHER_MODE WMI devices.
-> >=20
->=20
-> As an aside - is this really fragile? I mean realistically it's never goi=
-ng to happen is it?
+The change itself looks good to me.
 
-I wrote the commit message like this because depending on global states
-violates the requirements of a no_singleton driver anyway. I will
-rephrase it to make it focus on constifying tunable_attr_01 instead.
-
->=20
-> > Add unique indexes to all statically allocated tunable_attr_01 variable=
-s
-> > with some __COUNTER__ tricks, and use them to access lwmi_om_priv's
-> > newly-introduced tunable_attr_01_ctx array. In this manner, move all
-> > device-specific data to the tunable_attr_01_ctx array, and constify all
-> > statically allocated tunable_attr_01 variables to make the driver a
-> > truly no_singleton driver.
-
-If the __COUNTER__ tricks are a bit hard for you to keep up with, let me
-explain below:
-
-> >=20
-> > Fixes: 03bb5147da08 ("platform/x86: lenovo-wmi-other: Limit adding=20
-> > attributes to supported devices")
-> > Signed-off-by: Rong Zhang <i@rong.moe>
-> > ---
-> >  drivers/platform/x86/lenovo/wmi-other.c | 54=20
-> > ++++++++++++++++++++++++---------
-> >  1 file changed, 39 insertions(+), 15 deletions(-)
-> >=20
-> > diff --git a/drivers/platform/x86/lenovo/wmi-other.c=20
-> > b/drivers/platform/x86/lenovo/wmi-other.c
-> > index 252ef775f300..f37dca7db034 100644
-> > --- a/drivers/platform/x86/lenovo/wmi-other.c
-> > +++ b/drivers/platform/x86/lenovo/wmi-other.c
-> > @@ -134,15 +134,23 @@ struct tunable_attr_01 {
-> >  =09u8 feature_id;
-> >  =09u8 device_id;
-> >  =09u8 type_id;
-> > +=09u8 ctx_id; /* Index to tunable_attr_01_ctx[] */
-> > +};
-> > +
-> > +struct tunable_attr_01_ctx {
-> >  =09u8 cd_mode_id; /* mode arg for searching capdata */
-> >  =09u8 cv_mode_id; /* mode arg for set/get current_value */
-> >  };
-> >=20
-> > +enum { TUNABLE_ATTR_01_COUNTER_BASE =3D __COUNTER__ + 1 };
-
-__COUNTER__ is like counter++ in C, but for C preprocessor.
-
-This uses an enumeration to retrieve its value (say, 403). Once
-retrieved, __COUNTER__ is self-incremented, so the retrieved value plus
-one equals the "current" value.
-
-   TUNABLE_ATTR_01_COUNTER_BASE =3D (counter++) + 1 =3D 403 + 1 =3D 404
-
-> > +#define TUNABLE_ATTR_01_COUNTER (__COUNTER__ - TUNABLE_ATTR_01_COUNTER=
-_BASE)
-
-Defining a macro does not consume the __COUNTER__. The "current" value
-remains unchanged. That's why enumeration is used above and below.
-
-> > +
-> >  #define DEFINE_TUNABLE_ATTR_01(_name, _device, _feature, _type)=09\
-> > -=09static struct tunable_attr_01 _name =3D {=09=09=09\
-> > +=09static const struct tunable_attr_01 _name =3D {=09=09\
-> >  =09=09.device_id =3D LWMI_DEVICE_ID_##_device,=09=09\
-> >  =09=09.feature_id =3D LWMI_FEATURE_ID_##_feature,=09\
-> >  =09=09.type_id =3D LWMI_TYPE_ID_##_type,=09=09\
-> > +=09=09.ctx_id =3D TUNABLE_ATTR_01_COUNTER,=09=09\
-
-This does not consume the __COUNTER__, too.
-
-> >  =09}
-> >=20
-> >  DEFINE_TUNABLE_ATTR_01(ppt_pl1_spl, CPU, CPU_SPL, NONE);
-
-Here it's consumed!
-
-   ppt_pl1_spl.ctx_id      =3D (counter++) - 404 =3D 404 - 404 =3D 0
-   ppt_pl1_spl_cl.ctx_id   =3D (counter++) - 404 =3D 405 - 404 =3D 1
-
-...and so on.
-
-> > @@ -168,6 +176,10 @@ DEFINE_TUNABLE_ATTR_01(dgpu_didvid, GPU,=20
-> > DGPU_DIDVID, NONE);
-> >  DEFINE_TUNABLE_ATTR_01(gpu_nv_bpl, GPU, GPU_NV_BPL, NONE);
-> >  DEFINE_TUNABLE_ATTR_01(gpu_nv_cpu_boost, GPU, GPU_NV_CPU_BOOST, NONE);
-
-   gpu_nv_cpu_boost.ctx_id =3D (counter++) - 404 =3D 425 - 404 =3D 21
-
-> >=20
-> > +enum { TUNABLE_ATTR_01_NR =3D TUNABLE_ATTR_01_COUNTER };
-
-   TUNABLE_ATTR_01_NR      =3D (counter++) - 404 =3D 426 - 404 =3D 22
-
-That's it! In this manner, the C preprocessor stores self-increment ids
-to all tunable_attr_01 variables, so that the latter can be constified
-during compilation.
-
-For your minor note in PATCH 3, I will fix the order when I resubmit the
-series. I will wait for Derek's review before the resubmission.
+With the tag fixed, you can add:
+Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
 
 Thanks,
-Rong
-
-> > +
-> > +static_assert(TUNABLE_ATTR_01_NR > 0 && TUNABLE_ATTR_01_NR < U8_MAX);
-> > +
-> >  struct lwmi_om_priv {
-> >  =09struct component_master_ops *ops;
-> >=20
-> > @@ -183,6 +195,8 @@ struct lwmi_om_priv {
-> >=20
-> >  =09struct lwmi_fan_info fan_info[LWMI_FAN_NR];
-> >=20
-> > +=09struct tunable_attr_01_ctx tunable_attr_ctx[TUNABLE_ATTR_01_NR];
-> > +
-> >  =09struct {
-> >  =09=09bool capdata00_collected : 1;
-> >  =09=09bool capdata_fan_collected : 1;
-> > @@ -1018,7 +1032,7 @@ static u32 tunable_attr_01_id(const struct=20
-> > tunable_attr_01 *attr, u8 mode)
-> >=20
-> >  struct capdata01_attr {
-> >  =09struct kobj_attribute kobj_attr;
-> > -=09struct tunable_attr_01 *tunable_attr;
-> > +=09const struct tunable_attr_01 *tunable_attr;
-> >  =09union {
-> >  =09=09enum attribute_property prop;
-> >  =09=09const char *display_name;
-> > @@ -1027,7 +1041,7 @@ struct capdata01_attr {
-> >=20
-> >  struct capdata01_attr_group {
-> >  =09const struct attribute_group *attr_group;
-> > -=09struct tunable_attr_01 *tunable_attr;
-> > +=09const struct tunable_attr_01 *tunable_attr;
-> >  };
-> >=20
-> >  static inline struct lwmi_om_priv *kobj_to_om_priv(const struct=20
-> > kobject *kobj)
-> > @@ -1041,6 +1055,12 @@ kobj_attr_to_cd01_attr(const struct=20
-> > kobj_attribute *kattr)
-> >  =09return container_of_const(kattr, struct capdata01_attr, kobj_attr);
-> >  }
-> >=20
-> > +static inline struct tunable_attr_01_ctx *tunable_to_ctx(struct=20
-> > lwmi_om_priv *priv,
-> > +=09=09=09=09=09=09=09 const struct tunable_attr_01 *tunable_attr)
-> > +{
-> > +=09return &priv->tunable_attr_ctx[tunable_attr->ctx_id];
-> > +}
-> > +
-> >  /* Attribute Methods */
-> >=20
-> >  /**
-> > @@ -1098,12 +1118,13 @@ static ssize_t attr_capdata01_show(struct kobje=
-ct *kobj,
-> >  =09struct lwmi_om_priv *priv =3D kobj_to_om_priv(kobj);
-> >  =09const struct capdata01_attr *cd01_attr =3D kobj_attr_to_cd01_attr(k=
-attr);
-> >  =09const struct tunable_attr_01 *tunable_attr =3D cd01_attr->tunable_a=
-ttr;
-> > +=09struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
-> >  =09enum attribute_property prop =3D cd01_attr->prop;
-> >  =09struct capdata01 capdata;
-> >  =09u32 attribute_id;
-> >  =09int value, ret;
-> >=20
-> > -=09attribute_id =3D tunable_attr_01_id(tunable_attr, tunable_attr->cd_=
-mode_id);
-> > +=09attribute_id =3D tunable_attr_01_id(tunable_attr, ctx->cd_mode_id);
-> >=20
-> >  =09ret =3D lwmi_cd01_get_data(priv->cd01_list, attribute_id, &capdata)=
-;
-> >  =09if (ret)
-> > @@ -1152,6 +1173,7 @@ static ssize_t attr_current_value_store(struct=
-=20
-> > kobject *kobj,
-> >  =09struct lwmi_om_priv *priv =3D kobj_to_om_priv(kobj);
-> >  =09const struct capdata01_attr *cd01_attr =3D=20
-> > kobj_attr_to_cd01_attr(kattr);
-> >  =09const struct tunable_attr_01 *tunable_attr =3D cd01_attr->tunable_a=
-ttr;
-> > +=09struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
-> >  =09struct wmi_method_args_32 args =3D {};
-> >  =09struct capdata01 capdata;
-> >  =09enum thermal_mode mode;
-> > @@ -1165,7 +1187,7 @@ static ssize_t attr_current_value_store(struct=
-=20
-> > kobject *kobj,
-> >  =09if (mode !=3D LWMI_GZ_THERMAL_MODE_CUSTOM)
-> >  =09=09return -EBUSY;
-> >=20
-> > -=09args.arg0 =3D tunable_attr_01_id(tunable_attr, tunable_attr->cd_mod=
-e_id);
-> > +=09args.arg0 =3D tunable_attr_01_id(tunable_attr, ctx->cd_mode_id);
-> >=20
-> >  =09ret =3D lwmi_cd01_get_data(priv->cd01_list, args.arg0, &capdata);
-> >  =09if (ret)
-> > @@ -1178,7 +1200,7 @@ static ssize_t attr_current_value_store(struct=
-=20
-> > kobject *kobj,
-> >  =09if (value < capdata.min_value || value > capdata.max_value)
-> >  =09=09return -EINVAL;
-> >=20
-> > -=09args.arg0 =3D tunable_attr_01_id(tunable_attr, tunable_attr->cv_mod=
-e_id);
-> > +=09args.arg0 =3D tunable_attr_01_id(tunable_attr, ctx->cv_mode_id);
-> >  =09args.arg1 =3D value;
-> >=20
-> >  =09ret =3D lwmi_dev_evaluate_int(priv->wdev, 0x0, LWMI_FEATURE_VALUE_S=
-ET,
-> > @@ -1208,6 +1230,7 @@ static ssize_t attr_current_value_show(struct=20
-> > kobject *kobj,
-> >  =09struct lwmi_om_priv *priv =3D kobj_to_om_priv(kobj);
-> >  =09const struct capdata01_attr *cd01_attr =3D=20
-> > kobj_attr_to_cd01_attr(kattr);
-> >  =09const struct tunable_attr_01 *tunable_attr =3D cd01_attr->tunable_a=
-ttr;
-> > +=09struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
-> >  =09struct wmi_method_args_32 args =3D {};
-> >  =09enum thermal_mode mode;
-> >  =09int retval;
-> > @@ -1218,8 +1241,8 @@ static ssize_t attr_current_value_show(struct=20
-> > kobject *kobj,
-> >  =09=09return ret;
-> >=20
-> >  =09/* If "no-mode" is the supported mode, ensure we never send current=
- mode */
-> > -=09if (tunable_attr->cv_mode_id =3D=3D LWMI_GZ_THERMAL_MODE_NONE)
-> > -=09=09mode =3D tunable_attr->cv_mode_id;
-> > +=09if (ctx->cv_mode_id =3D=3D LWMI_GZ_THERMAL_MODE_NONE)
-> > +=09=09mode =3D ctx->cv_mode_id;
-> >=20
-> >  =09args.arg0 =3D tunable_attr_01_id(tunable_attr, mode);
-> >=20
-> > @@ -1243,21 +1266,22 @@ static ssize_t attr_current_value_show(struct=
-=20
-> > kobject *kobj,
-> >   * First check if the attribute has a corresponding data table under=
-=20
-> > custom mode
-> >   * (0xff), then under no mode (0x00). If either of those passes, check=
-=20
-> > if the
-> >   * supported field of the capdata struct is > 0. If it is supported,=
-=20
-> > store the
-> > - * successful mode in the cd_mode_id field of tunable_attr.
-> > + * successful mode in the cd_mode_id field of tunable_attr_01_ctx.
-> >   *
-> >   * If the attribute capdata shows it is supported, attempt to=20
-> > determine the mode
-> >   * for the current value property get/set methods using a similar=20
-> > pattern to the
-> >   * capdata table check. If the value returned by either mode is 0 or=
-=20
-> > an error,
-> >   * assume that mode is not supported. Otherwise, store the successful=
-=20
-> > mode in the
-> > - * cv_mode_id field of tunable_attr.
-> > + * cv_mode_id field of tunable_attr_01_ctx.
-> >   *
-> >   * If any of the above checks fail then the attribute is not fully=20
-> > supported.
-> >   *
-> >   * Return: true if capdata and set/get modes are found, otherwise=20
-> > false.
-> >   */
-> >  static bool lwmi_attr_01_is_supported(struct lwmi_om_priv *priv,
-> > -=09=09=09=09      struct tunable_attr_01 *tunable_attr)
-> > +=09=09=09=09      const struct tunable_attr_01 *tunable_attr)
-> >  {
-> > +=09struct tunable_attr_01_ctx *ctx =3D tunable_to_ctx(priv, tunable_at=
-tr);
-> >  =09u8 modes[2] =3D { LWMI_GZ_THERMAL_MODE_CUSTOM,=20
-> > LWMI_GZ_THERMAL_MODE_NONE };
-> >  =09struct wmi_method_args_32 args =3D {};
-> >  =09bool cd_mode_found =3D false;
-> > @@ -1265,7 +1289,7 @@ static bool lwmi_attr_01_is_supported(struct=20
-> > lwmi_om_priv *priv,
-> >  =09struct capdata01 capdata;
-> >  =09int retval, ret, i;
-> >=20
-> > -=09/* Determine tunable_attr->cd_mode_id */
-> > +=09/* Determine cd_mode_id  */
-> >  =09for (i =3D 0; i < ARRAY_SIZE(modes); i++) {
-> >  =09=09args.arg0 =3D tunable_attr_01_id(tunable_attr, modes[i]);
-> >=20
-> > @@ -1273,7 +1297,7 @@ static bool lwmi_attr_01_is_supported(struct=20
-> > lwmi_om_priv *priv,
-> >  =09=09if (ret || !capdata.supported)
-> >  =09=09=09continue;
-> >=20
-> > -=09=09tunable_attr->cd_mode_id =3D modes[i];
-> > +=09=09ctx->cd_mode_id =3D modes[i];
-> >  =09=09cd_mode_found =3D true;
-> >  =09=09break;
-> >  =09}
-> > @@ -1283,7 +1307,7 @@ static bool lwmi_attr_01_is_supported(struct=20
-> > lwmi_om_priv *priv,
-> >=20
-> >  =09dev_dbg(&priv->wdev->dev, "cd_mode_id: %#010x\n", args.arg0);
-> >=20
-> > -=09/* Determine tunable_attr->cv_mode_id, returns 1 if supported */
-> > +=09/* Determine cv_mode_id, returns 1 if supported  */
-> >  =09for (i =3D 0; i < ARRAY_SIZE(modes); i++) {
-> >  =09=09args.arg0 =3D tunable_attr_01_id(tunable_attr, modes[i]);
-> >=20
-> > @@ -1293,7 +1317,7 @@ static bool lwmi_attr_01_is_supported(struct=20
-> > lwmi_om_priv *priv,
-> >  =09=09if (ret || !retval)
-> >  =09=09=09continue;
-> >=20
-> > -=09=09tunable_attr->cv_mode_id =3D modes[i];
-> > +=09=09ctx->cv_mode_id =3D modes[i];
-> >  =09=09cv_mode_found =3D true;
-> >  =09=09break;
-> >  =09}
-> >=20
-> > --=20
-> > 2.55.0
->=20
-> This one defeated me I'm afraid (the counter bits in particular) - I need=
- to look at it with fresh eyes as my brain has packed up for the day.
->=20
-> Mark
+Tariq
