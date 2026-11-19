@@ -1,121 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795071579;
-	b=qojuBXmo8t2FbJSF1RPVXxpvCOY7kJvlJVA95atJmPok8OEujE7BvQUiJ7z5q3J71wO/
-	 yJ+YblH8IWAQ8rPR8VUElsw9x/8zyLGNqHSUmgwuBwfjm1EoFntvvYQFScTRBhk05MrmF
-	 Z+V/vqQ1wMrLoSr9fNsdNbvXQ98hVvaTVRuurgJEy2tyduTfp9S/1p7+wVZUlMAP/0H+c
-	 gDlSKAZrN7lxjuCbTWvHbpwX5mLLvjd3Yx5Hx97fCWLBx3D7Lh9lz/CEb0l7QZy7Zl7w7
-	 Pfovz8VOOvQC29nRiIOd/tHRsTc2xne9hlblJ+3KI3VXZuD/B2KnnAc/sRWF3fOEGIw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795071579;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.181
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795071584;
+	b=QMQqrqqK/2OlxMZ1mBS+T3NNl5D8avG7XwdR931BcWH7chLDiNVPLTFNHoYxWnIFuHsA
+	 LrLgnNCp0xJ7uUIkfi1nokT3RU3rIBaCRjd4KQVC0TA4ftLLYxLahFuwVkAICsbwC66fL
+	 cUpFRkTz8ziou/ABCNpVOobcn0OdbwKxlGb4pfeqh/7uOwZjUra1u6mNRK5Da+utKlfkd
+	 fv35IFg4GFbn0RGIvhi7iHguTPDHU4CO6zRWVuvq4f5nml6N0Um58Dj5tqEvuHpzBZHwl
+	 DyEM/2TWE9c2DR0hy3nPKiDVHJTNnScdm2F3hh67yYo+FWhZ2XKjW6YC9L9++Xy2BFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795071584;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ogi5GWES8zQkjfKNxeO+iNnJsM3bnylk9LsOSYEUFgo=;
-	b=fQdswDW2bnYeeY1uiBBBujEigELt9lOZGl/IWxXZ0IBEw2LRhjutlTNTZ7evetNVHauL
-	 x0AS6dyEyfzPAAF10vHY17tyLaHhoJ7pTF8yB70n5rwTeZeI+ySpP9koxqmxEtrn3TtTJ
-	 4QvpF3TwzqwsxyJsUajIGk/PcmaPLTCLMySXyovp0YDdCMp6pRLkdehG2WsK3NtQVW+Ru
-	 2LHUEvWAkuASf8hzITkY2Bwr+7Vi0e8t4KtD9uYNV7LjR6gpNIhAgepH8YkEU8WgkZs2n
-	 SaxfLfL5SsLLqy6YYGo89LBw2x3DCOcYqUjJVp2xZWvcNAgna89fcIGyG90OhBIzzwg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=CUHOUuAi;
-	arc=none smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
+	b=HVFgQ3ZKa5qyCKfXu/LY9ZWygpwLZmJZLUGEJkf7ObzkadClJbmydML0aWYYsQv632F+
+	 STQABrZEsAOng84fTmui7sBZH3AEUBVdE5sRbWLhPcKnaMp1nQJSuNSB5R7z8QmXYY9F1
+	 1syoghY0pleTCUzOeOrcUE/daiJGwt9yXCcUMOxcQC/dC6LbGo9g18injqzEm+Wj5J/B0
+	 KPSXvQ79vHEJG0lw3a7crK6lD2gbaviIuprwEbtP4hbHpYQQ+zh2pj0FSw5W+p24BWbUD
+	 18LZ2b95iOBDSagT6U2n8BMtdFq1fh+FNqwBCGgzhnAlY59Q/nC4Sy9aRMzwfXkiR8w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CfefhvgJ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.181
+Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45ABF606A33E
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:59:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45ABF606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48617606A33E
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:59:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48617606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=CUHOUuAi
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdba1b5ed8dso339098a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:59:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CfefhvgJ
+Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cde5a7d79b0so107273a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 22:59:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795071584; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sey5s8wArpsvs8XKiDxQIMBVEf6Zdz98QvNzdyLKw0VZ/P8etOWUa0KicOtyV/2PEF
+         U+JANeVtY0RRSkr0dGEt+VOXtQJdAuFU4dSwi9MpCpXt1SWhqzwzCB4tPsvuiaODfZ39
+         V0FeJtKjXPzbsteewhlZ6IlkBCieZ+z6rbok6iOcjUAABCoX+kziMyAv1Eu8Zj8NfzmT
+         nTr3mReOmgesF+kr+VinkT1I8SXYJyaTY601H3ZM64lVsJBeh516nNvs+7DNff96pprb
+         4a4VRht0jnUchBVYyXx1XUkEd0xv4GZXRBUlNTc6u5yig55kMysMLkvahwY8+8f0fzSw
+         42vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
+        fh=UQ/LkoBaGeQqgdqxoUsobzoKqwxjzqiep2T/VeysUHc=;
+        b=AAwyiG5xoeUMXoS/ZZlufPBrq2zg7sRlI3+bYTBHtEGjC/25eywSI/M+breLgsRLUM
+         98mJ8h2hKBeSk6M4gaJAIW0gmrQSRblzJtcWkwEhk984AXPDHecMjrgcbhK5RAX552U1
+         gkZhBBuRbJtPA46bVaRfUvKszaGHRA+7iebu0CMRSsCa6dW/6JHRB1vQ0wjfoCmDrcHQ
+         wItwRdDgNr/xVsqgZ8HnTwiHukroOirM5IqAlsctQ621zF0dAJMa3WyV1jR1gtoSKzPi
+         OSamA/DdU8XcsmyKHPX2J/tc8SyzgY24R4/Te2vGBirSMPKA4HNW/BCxGeS1Esb4V6e6
+         kpKw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795071577; x=1795676377; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ogi5GWES8zQkjfKNxeO+iNnJsM3bnylk9LsOSYEUFgo=;
-        b=CUHOUuAiPPu8G4zGY+9gfCbbxXqMcpIk3ZiJ/WOXd8JqIHjWc+ihgujztwz8sntflK
-         Bs49ZJJFMjZ76F3hNcWA03svmaJqyQah5zLmW9p6febaxouS/M3GeD0ydc+ncC5sJgHM
-         sgLw/wrO28GHsklOBBKhr7Z9wgV9WTID2deMfUxFa8DbegvIyblxSWIh7PfDHxepJ4hq
-         2UHtA85GdJ5CI8MBElLUbaGcA6UDV4Jldyc5/f91p3+yrkN6M1f3fNCnG4X6YezP71Bi
-         GAsVZel/ZCKN3wHk1rd9kZMxm4SGGmLGfO9lAaZj2h4RF9S5deja0c41oiZKQJyNqFhJ
-         T+gA==
+        d=google.com; s=20260707; t=1795071584; x=1795676384; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
+        b=CfefhvgJKboZ4DCkGtAZ6foSmOAIxCHUgayvLTdqAAOjYG0/2C5N7ZZguVUjLRKkSa
+         ee4e6auDggLchvLQ1CNIpvJGvY1bJGQ04/F+aHpGIw6opujN6EAf3c79JmagEZOp+IQp
+         S5ZenmrAN+AWERADuvNt3gjxgL0LOoG0yFc09l/NRfzI9KlK7lGGMpGY/piYRO7nRNdG
+         KRov6NznqPXnzPVlsyC5nPiVqmlpUGEEePUtN4ixRpJHftSt+qAL+1L2olsqxCJwYBhC
+         NVtj8t2s7wDWuuXA9ji1kw4uicwmVZgFtRkEsj4tmn73H2HwgW0rjMn+5hRmdWI9duf1
+         tjWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795071577; x=1795676377;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ogi5GWES8zQkjfKNxeO+iNnJsM3bnylk9LsOSYEUFgo=;
-        b=ILdtk9XSx9d64ONJNez0G/lpvirhyrUxWtNiZDEuE8OaCpuktCCjaQQYO/fLgBoTjj
-         D3BC+1bYR+kxUeOBVJWcn/3DxubponS9hjULEZJt4Ne3PoN4s3RGjAXHuDfbCoapnqew
-         SNEdcIEqbIZZCt+E9Vx993XN5dkMn2BV5JaBZi9jQ0U9ghc89+i8GSQsDDa9yDEFQW7s
-         kQttLF6h3pZU5jGnPiqnNsYp8PfHrCsWxS9wHXx1mrjFk7OFaPMhf3M2jKNsPJYiU1T0
-         OjXi2pnlvWeDULk/j2IGXXmPt5wT9Q58XbxRWrao4GMqBUwtr3kNCwNSxAGxcJ5jCz6v
-         fuaA==
-X-Forwarded-Encrypted: i=1; AL+hErEoID5AA+/ogctCJZyL6JcW3qur883CVKk725919Nn6prfevG3ALMJpUuE7c0ZWvxefP8N8jy8nLsdCyJ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8V/OTvrrN+IO0vMQ4rN89LkSMnejIUmqnHc1cyt+0yQBFHC6oB
-	SXQpbP7Uc7G3jNPXICwnDZQia50XaCV1hv/JsNdlDJoyNmVTSixCcc9g6k+qxPQmusQ=
-X-Gm-Gg: AZFdTZdiNVOkKLI1rP5jVOSe7qtEA9JjkLU6a3TUcHz/xQnaHPOlBuOLtUIaFL7jrvn
-	IF4LsO5bnFbkrycTEHqMhT7LwPSHpmqgs9DcYQVtyYTjeOIZidAHlq3iPR2NavDraKp3Un7gIjB
-	YAm7iwMd7i4oV/VtWwZgCP7SZM7WsndmVGqttx6pWoT1WgdJbI1cs9LSxBT1pHOLHtetaoW76dj
-	HCk71BWEN8/bPwo9ugYmnaAK5i/3QakRtc0KCU8+BaUZiWrTUcp05mJRjxj598s2TU/ESLzN8A/
-	OfcQ6b08J4uUBhzvU9LfINt88weV4N0qHbCUV0b/umwY5VRnD7RVFtK+MQY3INl/agMEpecaCjk
-	pfJSHflkveBdtXl+CI/MUjhONucvDe5RvFkKRJkgkhZLpkFjQLrM6sUpvk1zPPBTaRrk+a3Ck0y
-	78CObjWltNciqzHuCyd0Emu6dhq8guwY8Q/1S6pVyRFfQyVnl7xPajMCATXOtYnHSSDj6+dwy3w
-	vrYu00PsI1r9DZVSKbB/JXKtkraf1i37YJoJEtIIahFi929LzX+k0oxiMfMnIB1IoYv1mf00KpF
-	mm7WBaB0JbSZrBjPrrkmPQLG+UkmlX1q1Wi4+cZfMmStI5oMPelIV+PcTqA=
-X-Received: by 2002:a17:90b:4b8b:b0:3a0:d7f2:5a58 with SMTP id 98e67ed59e1d1-3b409d9bfacmr158793a91.3.1795071577008;
-        Wed, 18 Nov 2026 22:59:37 -0800 (PST)
-Received: from G6L4RL2QG9 ([2408:8440:c38:5ca5:3175:932a:757b:716a])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b402e75223sm597488a91.4.2026.11.18.22.59.14
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 22:59:36 -0800 (PST)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Alexander Potapenko <glider@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: Marco Elver <elver@google.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Chris Down <chris@chrisdown.name>,
-	David Hildenbrand <david@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Joerg Roedel <joerg.roedel@amd.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Ketan <ketan.kishore@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Sang-Heon Jeon <ekffu200098@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sashiko <sashiko-bot@kernel.org>,
-	kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v3 1/7] kmsan: encapsulate per-page metadata access
-Date: Thu, 19 Nov 2026 14:58:06 +0800
-Message-ID: <20261119065812.89959-2-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261119065812.89959-1-songmuchun@bytedance.com>
-References: <20261119065812.89959-1-songmuchun@bytedance.com>
+        d=1e100.net; s=20260707; t=1795071584; x=1795676384;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X0WRwwJd1pZT1/asGrjlV793C83Yb9lxDv3dSeiemCY=;
+        b=F0Mx1mQ9HFabphd4Dnb3rdkN/O31DV6Z2yjyslv/D+bgl9mwG1eeDe3Fh9rlaN3Sej
+         jzkpsEKdUVhymf3APlK3mebQTFF6wz4KzU9QBpvJXkLN1/PdBcAPcqr81tcRK1I/KsNs
+         3FKxSmqu5McsJ3Eunu15ScsPKVtOrFZOcCDIb4usojCXiS3WDKJwRlRygkJAwGDiHCCV
+         0bEY5mPJ2Brv8+67QIFRzFo8czlLdnd/enMstSA+haryrpci349Sn+ZEc27iHMG9Asfx
+         rMLHliIA9BAsbgjRwk7ilvabyB4J5p9WgE8VHv/UMgvdUmL6o1Z0PBuTia6W2hZCUbn1
+         ilXA==
+X-Forwarded-Encrypted: i=1; AL+hErEfliQogEQEybNTMqidSuSqsKFv7e0mcT9hrPQh/jbq3u0SP7kYqpDfnR4/cp8gWfFuq2XXHuHdhsWx/xk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8jjFRDlzW+HcpeVScg8t8p8nqBsxNYCbx/Kzv2Bi6vkiv+MA1D
+	yVJX/PeSK3Xl3lyVXc/TvIOf0N0dYQRyi3oEN8f+NdChlptKxLrTFsBfkYaY1ZPYLc37HJUE2E1
+	rf/Bo0mZSTCnXLPSgSH/IJ+EQugC2KR3ieUykYTOs
+X-Gm-Gg: AZFdTZcW9ZtVqbjl3EQsvveJ1FsrGnl3kkpYmGeJb0Q389XsXOuqsvq9kO3Qe/rown6
+	TviaLwjPsIs2uHUJyEQnzzWhl3EQp//DI8EZckHn1vJgVIoajpPOgsdSJthCx8SLj9wL8rd2WNQ
+	HE3xDWB5LbaOCBnubqh6r8Y0fQIxN81DjGubPu4sddX+9vT/Scuxgk3g6R4WxfBjqbA/BpzU+c6
+	KQo9FqV0yQQLRwEQhEQLroTxgmi0Od550es7CrruekYkbwygToqF628xpaU5cdXCrGc2zu5IDAP
+	Az4xKWn/hAUkCtg0WhwrLRKKDH1X7Bzb31tBygJSrWRkS8OhhBojMNMJfcnaQiR/cVa8WloUhWk
+	/yTdDK+9PgyMsbo4GW1lYPLivPKj4oUd+LXo=
+X-Received: by 2002:a17:90b:56d0:b0:3b0:9a2e:b491 with SMTP id
+ 98e67ed59e1d1-3b3d07d4e32mr4811737a91.66.1795071582990; Wed, 18 Nov 2026
+ 22:59:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,327 +104,187 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261112014942.2946303-1-treapking@google.com>
+ <avaewOJD7tX1UYfE@fedora> <avanVkILHDYdpond@fedora> <CAHwYsio=qtCY10EPnh+qvWpdgtQUG5mw1b3WKMt9_Kytcc7h9A@mail.gmail.com>
+ <avwBrbJfp4ET9ifT@fedora> <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
+ <av1hWxGIlZUJDUpl@fedora>
+In-Reply-To: <av1hWxGIlZUJDUpl@fedora>
+From: Pin-yen Lin <treapking@google.com>
+Date: Wed, 18 Nov 2026 22:59:31 -0800
+X-Gm-Features: AclHuK8wS87JOe1h2N3kmc2gHdWKNu393jcuOZJmbei73u2w3z7QQLjva2_sguc
+Message-ID: <CAHwYsioz+MJoFkABmub0_9QtKpneiJyi0-=Syc98zRy8KJXTOw@mail.gmail.com>
+Subject: Re: [PATCH net] selftests: bonding: fix failover race in
+ bond_options.sh prio test
+To: Hangbin Liu <hangbin.liu@linux.dev>
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Bjoern Doebel <doebel@amazon.de>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, 
+	Matthieu Baerts <matttbe@kernel.org>, linux-kernel@vger.kernel.org, 
+	Jonathan Toppins <jon.toppins+linux@gmail.com>, linux-kselftest@vger.kernel.org, 
+	Hangbin Liu <liuhangbin@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-KMSAN directly accesses page->kmsan_shadow and page->kmsan_origin
-throughout the shadow implementation. This couples these users to
-storing the metadata pointers in struct page, requiring every access
-site to change when the storage moves elsewhere.
+Hi Hangbin,
 
-Introduce helpers that get and set both metadata page pointers as a pair
-and convert the existing users to them.
+On Wed, Nov 18, 2026 at 12:27=E2=80=AFAM Hangbin Liu <hangbin.liu@linux.dev=
+> wrote:
+>
+> Hi Pin-yen,
+> On Tue, Nov 17, 2026 at 06:32:52PM -0800, Pin-yen Lin wrote:
+> > Hi Hangbin,
+> >
+> > On Mon, Nov 16, 2026 at 11:26=E2=80=AFPM Hangbin Liu <hangbin.liu@linux=
+.dev> wrote:
+> > >
+> > > Hi Pin-yen,
+> > > On Mon, Nov 16, 2026 at 05:30:28PM -0800, Pin-yen Lin wrote:
+> > > > Thanks for the pointer, but I believe Bjoern's patch addresses a
+> > > > different problem.
+> > >
+> > > I think they are the same issue, as you comment also said
+> > >
+> > > The ARP/NS monitor marks a slave down when it has received nothing fo=
+r
+> > > too long.
+> >
+> > This is the existing behavior of the bonding driver, and the prio test
+> > uses it to check which backup slave takes over. Slaves being marked
+> > down is not the root cause of the test failure. Instead, the root
+> > cause is the ping replies described below.
+>
+> If the backup slaves are not mark down, we can active the correct slave
+> based on the priority, right? I think that's the root cause. The ping tes=
+ting
+> is just for checking connectivity.
 
-kmsan_get_shadow_origin_ptr() is the main metadata lookup path for
-compiler-instrumented memory accesses and requires both pointers. For
-page-backed addresses, resolve the backing page once and obtain the
-metadata pair through one lookup instead of calling the single-metadata
-path twice. This also avoids duplicate lookups after moving the metadata
-storage out of struct page.
+Yes, I get your point now. If we keep backup slaves up all the time,
+the ping reply packets won't affect the test result.
 
-No functional change is intended.
+>
+> >
+> > >
+> > > >
+> > > > Bjoern's patch keeps the traffic flowing so that idle slaves are ke=
+pt
+> > > > alive between the test steps. This patch fixes the case where the p=
+ing
+> > > > replies from bond_check_connection() only arrive on the active slav=
+e
+> > > > right before it is set down. The active slave's failure is then
+> > > > detected one monitor interval late, when the backups have also time=
+d
+> > > > out.
+> > >
+> > > The reason is we set arp interval to 100ms, and slowwait also check e=
+very
+> > > 100ms. If the backup slave down at the same check point, e.g.
+> > >
+> > >   t=3D300  monitor: eth1 idle 230ms -> still up
+> > >   t=3D400  monitor: eth1 idle 330ms -> down
+> > >                   eth2 idle 400ms -> down too
+> > >
+> > > The test failed.
+> >
+> > I don't think the slowwait interval makes a difference here.
+> >
+> > The ARP monitor decides which slave becomes active, and slowwait only
+> > reads the result afterwards. The test expects the active slave and the
+> > backups to time out in different monitor runs, so that a backup can
+> > take over. In the example above, eth2 is already down when the bond
+> > picks the new active slave, no matter when slowwait polls.
+>
+>
+> My idea is, by extending the arp interval, there is a larger gap. e.g.
+>
+>    t=3D300  monitor: eth1 still up
+>                    ^^ slowwait check, incorrect active slave
+>    t=3D400  monitor: eth1 down
+>                    eth2 still up, should become active slave
+>    t=3D500  monitor: eth1 down
+>                    eth2 still up, active slave
+>                    ^^ slowwait check, correct active
 
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-Reviewed-by: Chris Down <chris@chrisdown.name>
-Tested-by: Chris Down <chris@chrisdown.name>
----
-v3:
-- Collect Reviewed-by and Tested-by from Chris Down
+Shouldn't eth2 become the active slave at t=3D400? In the failing case,
+eth2 is also down at t=3D400 so it can't be picked.
 
-v2:
-- Use one page metadata lookup for shadow and origin pointers (suggested
-  by Chris Down)
----
- mm/kmsan/shadow.c | 166 +++++++++++++++++++++++++++++++---------------
- 1 file changed, 111 insertions(+), 55 deletions(-)
+>
+> > >
+> > > >
+> > > > The ARP requests triggered by Bjoern's ping are sent only about onc=
+e
+> > > > per second, which isn't frequent enough for this failure. I tested
+> > > > Bjoern's patch and confirmed that it didn't fix the issue in our
+> > > > testing environment. We also can't simply use arping instead becaus=
+e
+> > > > iputils arping doesn't support sub-second intervals.
+> > > >
+> > > > If you're worried that the 200ms sleep is too short, would increasi=
+ng
+> > > > it to 0.5s or 1s work for you?
+> > >
+> > > It's not about the sleep time before setting active slave down. I'm a=
+fraid
+> > > about the slowwait checking time. Even we sleep 1s, with arp interval=
+ 100,
+> > > we still only have 100ms checking window. Before the window, the acti=
+ve slave
+> > > is up, after the window, the backup slave also down. With a debug ker=
+nel, this
+> > > time is a little tight.
+> > >
+> > > So, either we have some background arp traffic, or let's extend the a=
+rp
+> > > interval to a larger one.
+> > >
+> > > What do you think?
+> >
+> > I agree that a 100ms ARP interval could be too short in environments
+> > like a debug kernel.
+> >
+> > Background ARP traffic doesn't widen that window, though: it is sent
+> > through the active slave, so once the active slave is set down,
+> > nothing reaches the backups. It could only help with the ping reply
+> > race if it were very frequent; Bjoern's patch triggers about one ARP
+> > request per second and didn't fix the failures in our testing.
+>
+> For background traffic, I mean let the client send the arp requests,
+> not from active slave of server. With arp_validate 0, the backup slaves
+> will update last_rx and won't be down with idle.
 
-diff --git a/mm/kmsan/shadow.c b/mm/kmsan/shadow.c
-index 0c88d89bf0d6..300b48818af1 100644
---- a/mm/kmsan/shadow.c
-+++ b/mm/kmsan/shadow.c
-@@ -9,6 +9,7 @@
- 
- #include <asm/kmsan.h>
- #include <asm/tlbflush.h>
-+#include <linux/bits.h>
- #include <linux/cacheflush.h>
- #include <linux/memblock.h>
- #include <linux/mm_types.h>
-@@ -20,29 +21,46 @@
- #include "../vmalloc.h"
- #include "kmsan.h"
- 
--#define shadow_page_for(page) ((page)->kmsan_shadow)
-+#define KMSAN_META_MASK_SHADOW		BIT(0)
-+#define KMSAN_META_MASK_ORIGIN		BIT(1)
- 
--#define origin_page_for(page) ((page)->kmsan_origin)
-+struct page_metadata {
-+	struct page *shadow;
-+	struct page *origin;
-+};
- 
--static void *shadow_ptr_for(struct page *page)
-+static inline struct page_metadata get_page_metadata(struct page *page)
- {
--	return page_address(shadow_page_for(page));
-+	return (struct page_metadata) {
-+		.shadow = page->kmsan_shadow,
-+		.origin = page->kmsan_origin,
-+	};
- }
- 
--static void *origin_ptr_for(struct page *page)
-+static inline void set_page_metadata(struct page *page, struct page_metadata meta)
- {
--	return page_address(origin_page_for(page));
-+	page->kmsan_shadow = meta.shadow;
-+	page->kmsan_origin = meta.origin;
- }
- 
--static bool page_has_metadata(struct page *page)
-+static inline void *shadow_ptr_for(struct page_metadata meta)
- {
--	return shadow_page_for(page) && origin_page_for(page);
-+	return page_address(meta.shadow);
-+}
-+
-+static inline void *origin_ptr_for(struct page_metadata meta)
-+{
-+	return page_address(meta.origin);
-+}
-+
-+static inline bool page_has_metadata(struct page_metadata meta)
-+{
-+	return meta.shadow && meta.origin;
- }
- 
- static void set_no_shadow_origin_page(struct page *page)
- {
--	shadow_page_for(page) = NULL;
--	origin_page_for(page) = NULL;
-+	set_page_metadata(page, (struct page_metadata) {});
- }
- 
- /*
-@@ -79,11 +97,56 @@ static struct page *virt_to_page_or_null(void *vaddr)
- 		return NULL;
- }
- 
-+static __always_inline
-+struct shadow_origin_ptr __kmsan_get_metadata(void *address, unsigned int mask)
-+{
-+	struct shadow_origin_ptr ret = {};
-+	struct page_metadata meta;
-+	struct page *page;
-+	u64 addr = (u64)address;
-+	u64 origin_addr = ALIGN_DOWN(addr, KMSAN_ORIGIN_SIZE);
-+
-+	if (kmsan_internal_is_vmalloc_addr(address) ||
-+	    kmsan_internal_is_module_addr(address)) {
-+		if (mask & KMSAN_META_MASK_SHADOW)
-+			ret.shadow = (void *)vmalloc_meta(address, KMSAN_META_SHADOW);
-+		if (mask & KMSAN_META_MASK_ORIGIN)
-+			ret.origin = (void *)vmalloc_meta((void *)origin_addr,
-+							  KMSAN_META_ORIGIN);
-+		return ret;
-+	}
-+
-+	if (mask & KMSAN_META_MASK_SHADOW) {
-+		ret.shadow = arch_kmsan_get_meta_or_null(address, KMSAN_META_SHADOW);
-+		if (!ret.shadow)
-+			goto lookup_page;
-+	}
-+	if (mask & KMSAN_META_MASK_ORIGIN)
-+		ret.origin = arch_kmsan_get_meta_or_null((void *)origin_addr,
-+							 KMSAN_META_ORIGIN);
-+	if (ret.shadow || ret.origin)
-+		return ret;
-+
-+lookup_page:
-+	page = virt_to_page_or_null(address);
-+	if (!page)
-+		return ret;
-+	meta = get_page_metadata(page);
-+	if (!page_has_metadata(meta))
-+		return ret;
-+
-+	if (mask & KMSAN_META_MASK_SHADOW)
-+		ret.shadow = shadow_ptr_for(meta) + offset_in_page(addr);
-+	if (mask & KMSAN_META_MASK_ORIGIN)
-+		ret.origin = origin_ptr_for(meta) + offset_in_page(origin_addr);
-+
-+	return ret;
-+}
-+
- struct shadow_origin_ptr kmsan_get_shadow_origin_ptr(void *address, u64 size,
- 						     bool store)
- {
- 	struct shadow_origin_ptr ret;
--	void *shadow;
- 
- 	/*
- 	 * Even if we redirect this memory access to the dummy page, it will
-@@ -95,12 +158,10 @@ struct shadow_origin_ptr kmsan_get_shadow_origin_ptr(void *address, u64 size,
- 		goto return_dummy;
- 
- 	KMSAN_WARN_ON(!kmsan_metadata_is_contiguous(address, size));
--	shadow = kmsan_get_metadata(address, KMSAN_META_SHADOW);
--	if (!shadow)
-+	ret = __kmsan_get_metadata(address, KMSAN_META_MASK_SHADOW |
-+					    KMSAN_META_MASK_ORIGIN);
-+	if (!ret.shadow)
- 		goto return_dummy;
--
--	ret.shadow = shadow;
--	ret.origin = kmsan_get_metadata(address, KMSAN_META_ORIGIN);
- 	return ret;
- 
- return_dummy:
-@@ -124,46 +185,36 @@ struct shadow_origin_ptr kmsan_get_shadow_origin_ptr(void *address, u64 size,
-  */
- void *kmsan_get_metadata(void *address, bool is_origin)
- {
--	u64 addr = (u64)address, off;
--	struct page *page;
--	void *ret;
--
--	if (is_origin)
--		addr = ALIGN_DOWN(addr, KMSAN_ORIGIN_SIZE);
--	address = (void *)addr;
--	if (kmsan_internal_is_vmalloc_addr(address) ||
--	    kmsan_internal_is_module_addr(address))
--		return (void *)vmalloc_meta(address, is_origin);
--
--	ret = arch_kmsan_get_meta_or_null(address, is_origin);
--	if (ret)
--		return ret;
--
--	page = virt_to_page_or_null(address);
--	if (!page)
--		return NULL;
--	if (!page_has_metadata(page))
--		return NULL;
--	off = offset_in_page(addr);
-+	struct shadow_origin_ptr ret;
-+	unsigned int mask;
- 
--	return (is_origin ? origin_ptr_for(page) : shadow_ptr_for(page)) + off;
-+	mask = is_origin ? KMSAN_META_MASK_ORIGIN : KMSAN_META_MASK_SHADOW;
-+	ret = __kmsan_get_metadata(address, mask);
-+	return is_origin ? ret.origin : ret.shadow;
- }
- 
- void kmsan_copy_page_meta(struct page *dst, struct page *src)
- {
-+	struct page_metadata dst_meta, src_meta;
-+
- 	if (!kmsan_enabled || kmsan_in_runtime())
- 		return;
--	if (!dst || !page_has_metadata(dst))
-+	if (!dst)
- 		return;
--	if (!src || !page_has_metadata(src)) {
-+	dst_meta = get_page_metadata(dst);
-+	if (!page_has_metadata(dst_meta))
-+		return;
-+	if (src)
-+		src_meta = get_page_metadata(src);
-+	if (!src || !page_has_metadata(src_meta)) {
- 		kmsan_internal_unpoison_memory(page_address(dst), PAGE_SIZE,
- 					       /*checked*/ false);
- 		return;
- 	}
- 
- 	kmsan_enter_runtime();
--	__memcpy(shadow_ptr_for(dst), shadow_ptr_for(src), PAGE_SIZE);
--	__memcpy(origin_ptr_for(dst), origin_ptr_for(src), PAGE_SIZE);
-+	__memcpy(shadow_ptr_for(dst_meta), shadow_ptr_for(src_meta), PAGE_SIZE);
-+	__memcpy(origin_ptr_for(dst_meta), origin_ptr_for(src_meta), PAGE_SIZE);
- 	kmsan_leave_runtime();
- }
- EXPORT_SYMBOL(kmsan_copy_page_meta);
-@@ -171,19 +222,18 @@ EXPORT_SYMBOL(kmsan_copy_page_meta);
- void kmsan_alloc_page(struct page *page, unsigned int order, gfp_t flags)
- {
- 	bool initialized = (flags & __GFP_ZERO) || !kmsan_enabled;
--	struct page *shadow, *origin;
-+	struct page_metadata meta;
- 	depot_stack_handle_t handle;
- 	int pages = 1 << order;
- 
- 	if (!page)
- 		return;
- 
--	shadow = shadow_page_for(page);
--	origin = origin_page_for(page);
-+	meta = get_page_metadata(page);
- 
- 	if (initialized) {
--		__memset(page_address(shadow), 0, PAGE_SIZE * pages);
--		__memset(page_address(origin), 0, PAGE_SIZE * pages);
-+		__memset(shadow_ptr_for(meta), 0, PAGE_SIZE * pages);
-+		__memset(origin_ptr_for(meta), 0, PAGE_SIZE * pages);
- 		return;
- 	}
- 
-@@ -191,7 +241,7 @@ void kmsan_alloc_page(struct page *page, unsigned int order, gfp_t flags)
- 	if (kmsan_in_runtime())
- 		return;
- 
--	__memset(page_address(shadow), -1, PAGE_SIZE * pages);
-+	__memset(shadow_ptr_for(meta), -1, PAGE_SIZE * pages);
- 	kmsan_enter_runtime();
- 	handle = kmsan_save_stack_with_flags(flags, /*extra_bits*/ 0);
- 	kmsan_leave_runtime();
-@@ -200,7 +250,7 @@ void kmsan_alloc_page(struct page *page, unsigned int order, gfp_t flags)
- 	 * to just fill the origin pages with @handle.
- 	 */
- 	for (int i = 0; i < PAGE_SIZE * pages / sizeof(handle); i++)
--		((depot_stack_handle_t *)page_address(origin))[i] = handle;
-+		((depot_stack_handle_t *)origin_ptr_for(meta))[i] = handle;
- }
- 
- void kmsan_free_page(struct page *page, unsigned int order)
-@@ -238,8 +288,10 @@ int kmsan_vmap_pages_range_noflush(unsigned long start, unsigned long end,
- 		goto ret;
- 	}
- 	for (int i = 0; i < nr; i++) {
--		s_pages[i] = shadow_page_for(pages[i]);
--		o_pages[i] = origin_page_for(pages[i]);
-+		struct page_metadata meta = get_page_metadata(pages[i]);
-+
-+		s_pages[i] = meta.shadow;
-+		o_pages[i] = meta.origin;
- 	}
- 	prot = PAGE_KERNEL;
- 
-@@ -289,10 +341,12 @@ void __init kmsan_init_alloc_meta_for_range(void *start, void *end)
- 		page = virt_to_page_or_null((char *)start + addr);
- 		shadow_p = virt_to_page((char *)shadow + addr);
- 		set_no_shadow_origin_page(shadow_p);
--		shadow_page_for(page) = shadow_p;
- 		origin_p = virt_to_page((char *)origin + addr);
- 		set_no_shadow_origin_page(origin_p);
--		origin_page_for(page) = origin_p;
-+		set_page_metadata(page, (struct page_metadata) {
-+			.shadow = shadow_p,
-+			.origin = origin_p,
-+		});
- 	}
- }
- 
-@@ -302,7 +356,9 @@ void kmsan_setup_meta(struct page *page, struct page *shadow,
- 	for (int i = 0; i < (1 << order); i++) {
- 		set_no_shadow_origin_page(&shadow[i]);
- 		set_no_shadow_origin_page(&origin[i]);
--		shadow_page_for(&page[i]) = &shadow[i];
--		origin_page_for(&page[i]) = &origin[i];
-+		set_page_metadata(&page[i], (struct page_metadata) {
-+			.shadow = &shadow[i],
-+			.origin = &origin[i],
-+		});
- 	}
- }
--- 
-2.54.0
+I see. If the ARP requests are sent from the client, the backup slaves
+can receive them and will stay up during the test.
 
+>
+> >
+> > Increasing the ARP interval alone won't address the ping reply race,
+> > but it should help in environments like a debug kernel. I'd prefer to
+> > keep this patch focused on the ping reply race and send the ARP
+> > interval change as a follow-up, but I can fold it into v2 if you
+> > prefer.
+>
+> Doesn't extending the arp_interval (e.g. to 500) resolve your issue?
+> Are you still able to reproduce the problem?
+
+Yes, I can still reproduce this. Simply extending the arp_interval to
+500 does not fix our issue. I still saw failures in 9 of 20 runs.
+
+However, with arp_interval=3D500 and a background arping from the
+client, the issue no longer reproduces. Both of them are needed:
+arping only sends one request per second, which is enough for the
+~1.75s backup timeout at arp_interval=3D500 but not for the ~350ms one
+at arp_interval=3D100.
+
+Bjoern's v1 patch sends the ARP requests from the server, so it
+doesn't fix our issue. I can prepare a v2 to remove the sleep,
+increase the arp_interval to 500, and add a background arping from the
+client, unless Bjoern prefers to include the client-side arping in his
+v2. How would you like to proceed?
+
+>
+> Thanks
+> Hangbin
+
+Regards,
+Pin-yen
