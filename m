@@ -1,72 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795090844;
-	b=q83WJFr/VN7tuTIWbZCZ4JXvlpKnfeWcYUHehyItn5Xa7CujgUoI1eWgxjcMA7pS2hWD
-	 LwvovF22uEFa104VYsgPZy5+hMS4A774JqnGp+fybkYQHi2EXny70e+srDFh+Bzd74FBf
-	 EVaqEUPrC6At9cZqpSmmyNPuw/9SIbB0/aglqYyC8jm1UZyokF54yqwkn7h2pagIq/yqC
-	 g9wG6/VgzNZtKAG8g9umCCiqkpJhFGPLR8YHQIPJ028xOicA6iPD/Gw29lXh7ICDEyTCE
-	 R8di8Ae0GSsywdLPCzP683Lkjx0wZwEe79Fk223yXc8GG4fuPqDWWdVfoC2vnEulRaQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090844;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:X-ZohoMailClient;
-	bh=xIXJW7MCtZTIdpOIfOfmjYbyy/As+k09mrpNNQszvtI=;
-	b=GVMuQK0lvm2Guz5VByHynIKV03Rr7CAr/6xRSXBMyaJGqUEv/hj+J2NjPsc/Zargz61S
-	 1CKsMLP3Vex8TeHdIJzbNK28J6Ucfxufr4mH+R3+4oVN2rVADo/k6uqMe8QYbO7VZp8Xu
-	 Xp0TsJ/4fU19ffhaiIeEMdilH7QayZMh99xpy02nYDEEIPD9leo324qQQlK/e6GZGbr8H
-	 tMtAv2vTo2L0Z4u44D7RpJUxp+g9p4hA8Z+nPt4YyB/UENWdU0W6Xg1c/eFThHbUqSwP3
-	 S++rc/XLePpRpEnnpyLs1nUBcZRNt8fqPwaH5NE7AYx2KD+1CE3Ctd++pYAoJHlurZw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ziyao.cc;
-	spf=pass smtp.mailfrom=ziyao.cc;
-	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=gNNpp7dX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.15
-Received: from sender5-op-o15.zoho.com (sender5-op-o15.zoho.com [165.173.182.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795090872;
+	b=nzrOE4sYZV54zCbdpK9Z2pSKJ4z8K000ew7DKfTjlH6Xtf/VoVcGehLb00sQ7dhVrWVX
+	 l0XyoCt84rBJErQYcV7o9CiIjke+X+OV0MFfSeMkiCSWUiUBAXY2e3skRR4EHN6xDp4Qg
+	 fUfLGeR2HSIDE/ULm1JbV6TJn+ES3y49jA3H7RCtaGg3oWyT3jhM4JdYkeYs4Z10kytbA
+	 FXMQru1aoFMKQHoIAIhRq1xH6C71jRzSR0H7a/ZRBHHlOF1bSzVinym+cmKPFOrPX/eW8
+	 bp8uENBcHiWWfpd7oTBTgfRJS8Fyg7fAy7wH8qn2g8PjrWIagPYdwczhkGc58tcPZ+Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090872;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2f21doTHFGdxnjZqkn9v66hcP4nTVSER8CO0mMlnHRo=;
+	b=vmLsndJ1bFjM+vw6nZw2mf9AhptdmYT+ACbnICM6KJQELgohFbf0OM9Cw8q5P0lsNX+X
+	 cZzGWOBS6VVh7Jq4fzTrLAjDa52uMjt7E0dBXEE836+jyiZot2RirJTFEtfEqOiagHtLy
+	 K1IQemLggOyDMNmoU9vuPA6ZYImhO4pRVsB6orEBtrTAQhINmEGtX22jaPc5yfqhM9Huk
+	 j9fQ2w2+SvukMmb37EX/6NZLz+r7+K8mN8Zrni967rVSbxXBFtTXvMycZJlS0bdOSBrwe
+	 NG6x6MmvUZtW0KvvLqPY2aaaWDzqz3YJPdrLeCgCAM943Xm2mZHt2FeBsmEYeNeUFBA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=GIV4PbqH;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4186A606A325;
-	Thu, 19 Nov 2026 12:20:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4186A606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27E02606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:21:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27E02606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=gNNpp7dX
-ARC-Seal: i=1; a=rsa-sha256; t=1795090809; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KpbKCN1VuYF2IfZV/2FOHpzs7hLrqnFnRmmyW3ggEzitgaSYpLyVw3pnQWzhinfLzDT27i3mMQK2bnV5J3h3lVe/SaBXXgkOeAPXhnxAgtCLs2IjfbWMpSjHpQ97D/OzmUBY3LXdltPKRO59a1cC4LtIZU4cClAf2Ik3jCFgVbI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795090809; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xIXJW7MCtZTIdpOIfOfmjYbyy/As+k09mrpNNQszvtI=; 
-	b=ITrksx1rQzSswiO6qbs8J1fOdqc7flC8t5H+y4u0gKLM6GSYehKYyPUKVduQqaTLO6zAW46biV2/cACDkFbcesnyX+LbSNyL1maFY+99orMXTurpPxBEo1rzwoYDPv92TttlLW3sr5aiQ7fsdTYzMdSVs7pFuDo4ciSnZxcQoGg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: a=rsa-sha256; b=gNNpp7dXVGfo9wL3/0jFEoHQHULJ7GSpQln1xRfVnXHfBSNwjvfMgkvKxvBV6tXluYLKZo6+M0EOddA+QckdgxUQpkwdp+7k9AevWpLB6quSaLd9atPf96X+fPzKOiUMkZF2qaBWgy09BgQM7e90EeWZmewl3Kykohb2Amrw1is=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=xIXJW7MCtZTIdpOIfOfmjYbyy/As+k09mrpNNQszvtI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 179509080710384.30861796368492;
-	Thu, 19 Nov 2026 04:20:07 -0800 (PST)
-Date: Thu, 19 Nov 2026 12:19:57 +0000
-From: Yao Zi <me@ziyao.cc>
-To: "Rong Zhang" <rongrong@oss.cipunited.com>,
-	"Keguang Zhang" <keguang.zhang@gmail.com>,
-	"Wim Van Sebroeck" <wim@linux-watchdog.org>,
-	"Guenter Roeck" <linux@roeck-us.net>,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"Thomas Bogendoerfer" <tsbogend@alpha.franken.de>
-Cc: "Rong Zhang" <i@rong.moe>, "Yao Zi" <me@ziyao.cc>,
-	"Icenowy Zheng" <uwu@icenowy.me>,
-	"Jiaxun Yang" <jiaxun.yang@flygoat.com>,
-	<linux-mips@vger.kernel.org>, <linux-watchdog@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 5/8] MIPS: Loongson64: dts: ls7a-pch: Add
- miscellaneous clock node
-Message-ID: <av7pbVpkdO8dFGH7@pie>
-References: <20261113-mips-ls7a-wdt-v2-0-e8abd6b2f77c@oss.cipunited.com>
- <20261113-mips-ls7a-wdt-v2-5-e8abd6b2f77c@oss.cipunited.com>
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=GIV4PbqH
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so20860125e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:21:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795090870; x=1795695670; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2f21doTHFGdxnjZqkn9v66hcP4nTVSER8CO0mMlnHRo=;
+        b=GIV4PbqHeGq4Gk/jo/EQNtTLPSTM4Fp7k84fqaHnbhCmEIzbs7mOqsfNB37GnNmQ62
+         wn0+WlNIGQX5dUs/FapjFwGJ4grnw+WpaT9y8IBQQRuKT4LV+g1Y9xGisErJlNKtkftc
+         tOJT9skopUObYECZQwswNuvQMSwgh3OQ1+SYEr98CS8/j+ST2RtOOKSm7WIgFZG1Bb/a
+         W7LnplNGH3Cm+sW+u5uw5RSzvER+pbE9UDAEquN/wCe9s6AOz5YKGOEsDfHM1owkTiZE
+         mB2n/VmUYqGbkuaKKkHAIpyvz1m5WRNti0LYA60sTZxRMg2cRjFuAgxgP+K6rBnLy8EI
+         ObzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795090870; x=1795695670;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2f21doTHFGdxnjZqkn9v66hcP4nTVSER8CO0mMlnHRo=;
+        b=GmRh1NeJ6Q8TzrRKmC0l6augZvGCNeehVFmG2/Cq0GqiM9i6qtXFSNveWUNtd38ICP
+         sRqdSko2C86SY7dWp3F5ZnQWNyJr1OK8fgPi5msGICvEQzsdu2ngVC1o41qV/VcWFvYs
+         F+7KwBr9qyqfEj6L8SGOrcQSen5QiZ6YxKH2gGrh7mEMqxbM2PpWCSZE0GJELw3Nid6A
+         wt6bVZWuGygGi+OedXhjRzHte7ILL4GImtMVf54CX2Zvw3RH/tSpjdc762tVmwAiLsob
+         zy6O7MJpj0bfNojkgS33bwKlqxVi+8nsrjYqZLYbfIIhhjMyOjo2iZLZFwzYykSL3AAW
+         vATg==
+X-Forwarded-Encrypted: i=1; AL+hErHXsZ/B1cEz9aB+bjCEaHh8T4d0Vac9CeamOCVr0N72psjt3ooMgGoUQnfIrgZJKOaBAo5+ecWeDpiYeWY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Q041vfWZTqEMuY7KhZwKgz1G8elPiLf9ZRGiyj+XI7iSORJuc
+	+uWkq+CeZdCwiy9trBATDGRWcovbjBISOt9I/K5VqLNPLGNjVq0fsk/5xg6fe2L4MVg=
+X-Gm-Gg: AYBFou3eydCAVnsvnhIw6Clmf6EcyyprJXah0tslHZ9yh+Qb4dVKjAOr4QYSM+AnoFr
+	gWiSIV8r00Vi4ZJSsZWwykjHdusm5eFalUkRqfA2b0ZH7hQigD4rdu0KqY7KnWKTkjJNVUt5VOs
+	3KNuie7tHIOUTSSinO0MlIU8Ei5h/h7Lj0eg9r4HId+2j9Wcp4he1jtZCrFWk0LVK9aUVZ99tIW
+	gYseJ5Cy+ZHd/0v3cBz1d5d1VcKqdBYo0m+o6u3vkjUWpnNZPdbUKM584M++fbI9QwWi2tvuYtn
+	jR4IDLpWwQ91cX0XeSSrqmir4j0SyYfJZepHhYTeabQOtxsbCcfbtOH3ZbTAuW/IymKq2ox89Yu
+	2J6b0tdrHdyOwFU/BOiB31cGYZYf3m8rm+X0ecZcTL2kAsmcMHFgbChmzZwbPl2DVZHewWFyhH0
+	p5m3Rh3iyWXmhI1MrlCWnVVdO3KbEzmrt9Bp8+JuO32DRi+RCRliAMx7cZ2hrQhADhK333KOzKr
+	RRErin6DDwpmQA547FCsZzRkvvMUolMMwWacGhi6bg4KQV8v0DzvZmQNiIxPrGDSjX1HGenUDs/
+	DiL68Dx6LRWQsNG388GUc+WvG8ZQA4UYm6nNxJnr
+X-Received: by 2002:a05:600c:4e45:b0:4bb:6814:738c with SMTP id 5b1f17b1804b1-4bb7da267bamr102371215e9.22.1795090870232;
+        Thu, 19 Nov 2026 04:21:10 -0800 (PST)
+Received: from [192.168.0.252] ([79.115.63.210])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e4df2bsm31124375e9.3.2026.11.19.04.21.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 04:21:09 -0800 (PST)
+Message-ID: <274849ed-4090-407b-bc3c-57caa029ef0b@linaro.org>
+Date: Thu, 19 Nov 2026 14:21:08 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,56 +92,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113-mips-ls7a-wdt-v2-5-e8abd6b2f77c@oss.cipunited.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.87.94
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] thermal: samsung: acpm-tmu: add Exynos850 support
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mateusz Majewski <m.majewski2@samsung.com>,
+ Thomas Turner <tturner@lineageos.org>,
+ Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261118-acpm-tmu-e850-support-v2-0-19848c0d97e5@linaro.org>
+ <20261118-acpm-tmu-e850-support-v2-3-19848c0d97e5@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20261118-acpm-tmu-e850-support-v2-3-19848c0d97e5@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 13, 2026 at 06:51:12PM +0800, Rong Zhang wrote:
-> The Loongson-7A has an internal clock source for miscellaneous
-> peripherals. The clock source is nonconfigurable and has a fixed 50MHz
-> clock frequency.
-> 
-> Add a 50MHz fixed-clock node with label "pch_misc_clk" to represent it.
-> 
-> Signed-off-by: Rong Zhang <rongrong@oss.cipunited.com>
-> ---
->  arch/mips/boot/dts/loongson/ls7a-pch.dtsi | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/arch/mips/boot/dts/loongson/ls7a-pch.dtsi b/arch/mips/boot/dts/loongson/ls7a-pch.dtsi
-> index 9f0a183bd348..2ef1ad10a8ec 100644
-> --- a/arch/mips/boot/dts/loongson/ls7a-pch.dtsi
-> +++ b/arch/mips/boot/dts/loongson/ls7a-pch.dtsi
-> @@ -1,6 +1,12 @@
->  // SPDX-License-Identifier: GPL-2.0
->  
->  / {
-> +	pch_misc_clk: clock-50000000 {
-> +		#clock-cells = <0>;
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <50000000>;
 
-"compatible" property usually comes before other properties other than
-"device_type", see dts-coding-style.rst.
 
-With this fixed,
+On 11/18/26 3:51 PM, Alexey Klimov wrote:
 
-Reviewed-by: Yao Zi <me@ziyao.cc>
+I'll review this after you address sashiko's feedback,
+don't wait for me.
 
-> +	};
-> +
->  	pch: bus@10000000 {
->  		compatible = "simple-bus";
->  		#address-cells = <2>;
-> 
-> -- 
-> 2.55.0
-
--- 
-Thanks,
-Yao Zi
-
-Meow-mrrp-mrow, I'm a cat.
+Cheers,
+ta
