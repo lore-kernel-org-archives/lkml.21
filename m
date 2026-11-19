@@ -1,69 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100730;
-	b=K6IK5S9XmtCJJ1F4RdydsRLPfnTOYmjMGGvPKPB1vKgDXerMHJjM5Bhp6btB+0yViTDH
-	 oVfovkYYvsB3ZKoOW+dPir8rbpxqXJIyQ5GInpW1NpueAnwUW/ARGj0AxAn6dtN/mFVHf
-	 e1KBD+fJIJAKAxk+6b682Tg+66n8h3DEwuOpZPDUnb+K0bOfA7cw7g+VTbVAQvcMSwxAE
-	 RmAnJuot7v6e+Mbpl9KvGjy7ZZz5CwSH8xYQi82hLB8k44Cm0+VxhcVoEvPuYlaUcHY1z
-	 1nrJDf5OJYf6i3k63PN/uZ6zH69hVOqepp6FXNTFUo4C+QLKn/kMnL7+JN1sDscDB0w==
+	t=1795100777;
+	b=RDU0CdfHCjXZAF5gwmgURVNRFr5FI17fqYBA9rbn/Du9zt7Xkv6m94G7FedoZXfYTDLB
+	 08oQUcZyAQNB8KaQW6uhjEPHCf3GxO7cdX/N1TZahd9PoPgcZzHc5BmdxSOyqKzkW0KeK
+	 Uhl8RKvc3QSQUCfaUCpHKlvzfq/olkf9MqNRPuZ6aZEYfrA61/QWPu5lPmyO8pxIgN//J
+	 8n0IILiPuZU2fuW7Im3wrwZZzV0QtpyLmfMyz9Ln0pdjbtyEiFFXEeojlx/vTDlAh5Gd3
+	 PAbIIuY7QPlfJ3pkNTv9M1C2Wa6K9uLmosKWHLwvFiVoDbv8Ex+BPNfPRw+2f9aMRug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100730;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=2IrwUYnRl/CCcIkHyQ8rD1wVGp6x0G+ouTuLDtWvXeE=;
-	b=Ih9eYJW6P0+ko3S+GYlDYiTlRKDRb7m0BVkWyVMgZhZn2VUulVGbtPryZJftrJv38lyZ
-	 ksXgcK/olt9GkijapRRz7FzeHUFNIhE8XC3QqH8NK074pinH+Z9JGnb8Du9sKQugx7gke
-	 0wzkKpKOwXs8D6UHu5ioaRLmMiRLOE8jFBKlodYOy8C3x0DIzmC38Mqc/vsuHzeLJ3037
-	 XjqzY6E0uTaEncGR8xOzgt0cU1MiHtCoHAjMaKY4vCr4Q5AV8fEby1uY7VPKavX0qqNYq
-	 aPfZiiZ2Z7oBgqGJQSNGEYb7Z4URafSe/jMTJ8zw71h83aYyLub6L+VBNUP4sFeWhig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100777;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=My2NVXB5/ys9n2vCAPZ6zLeHZP7Wf18JOd/smnc/pmk=;
+	b=4jXzIGU2r+E6MKxt3N1YiPzp7+hPP2td9FV8YGifzS4C0QSGfvBgDzC74cf98Jf4OM21
+	 gxOMjNjDAoTNxpCbw1kN+0Qy5sxrDXa/ZMj+C68frLSACWphzbBVQDWOOboMBsH/nf5cn
+	 icUfzvctpQNRWMtiB3WK8Y7TfaKcnEXF4EIP8KDfiEFGox2uGD9cy+DnoPGAmAZ2zKrwz
+	 F37Kpu+izVCTjxZ4bXGB8PIJGmVcn1Pot+O+xEfFPFVkmsa67xuh2TmeusZUAs1xLSzAC
+	 qPD/67BWTme8ctIGqoURDC8ltUFGix0Oc2eSgNX70oR/8o+SkiopKv4Gw76ANG89X2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FVCdDZz9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=IHsjOYR5;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 82453606A324;
-	Thu, 19 Nov 2026 15:05:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C303606A325;
+	Thu, 19 Nov 2026 15:06:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C303606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FVCdDZz9
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7F96D1F000C4;
-	Thu, 19 Nov 2026 15:05:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795100730;
-	bh=2IrwUYnRl/CCcIkHyQ8rD1wVGp6x0G+ouTuLDtWvXeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FVCdDZz9CLOzCqQsYElv7NRpYqkN3P7TxOGmYw37Nt2LIqrKvGPDv0cm+uD2pfsxo
-	 reNk0EkMxZdKrLdZ9uuI4nobaoUOyq381WXDOPT/qbY+/22pTATrYksY1SPKUCQUwU
-	 OeDqUtESjF2OrtNUkoeMWt1WYxoX9OfHUTybLCGUCbsvEw8mIdp8GykomUioTiRIql
-	 Tv4B61awo0otLnhmH6ZEzySA2YUo2/dTWIXuWTVYnkNG8ODdZfVNrDyXx+NGvRHCa1
-	 dXZ7iSefdREPcENzx9AlTrLesVex9IbQhbtBvPv7IZ/YCBmIafp1kxixS5wRA92LpZ
-	 g/47LCbfIpyMA==
-Date: Thu, 19 Nov 2026 17:05:26 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: "Hallgrimur H. Gunnarsson" <halg@google.com>
-Cc: Christian Brauner <brauner@kernel.org>,
-	Serge Hallyn <sergeh@kernel.org>, Andy Lutomirski <luto@kernel.org>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	David Howells <dhowells@redhat.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	Jonathan Calmels <jcalmels@3xx0.net>, Jann Horn <jannh@google.com>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Casey Schaufler <casey@schaufler-ca.com>,
-	linux-fsdevel@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-api@vger.kernel.org,
-	containers@lists.linux.dev, keyrings@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] userns: introduce capability bounding set for
- user namespaces
-Message-ID: <av8QNiFcnGWocORy@kernel.org>
-References: <20261119104208.782900-1-halg@google.com>
- <20261119104208.782900-2-halg@google.com>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=IHsjOYR5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795100775;
+	bh=OkH2AAJZOThBC2r1QhPH/9jLbZ44qnEqaygGO/zO3MU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=IHsjOYR5GTi5Q4CFMHQjaVhslPoZk1X4awt+zc9JKFSjhTfkt36haoQELqWkuQLi+
+	 CuoSSqP78JzzNZq+DnIgCVQ9U7IbG0dVIrCa9GhUvo2DAmfvH6MlrP4LHyRGOJumBU
+	 amGPAe+sPSxR+TqKHiFmIDEP5yBGBp8zbMcFzcTIhZgAWYuxdMqn1PlzaNnn/TmfzU
+	 PR5ASLH0qoPWZLFLVMGiY8ZVPvehKa5IjJxSyUcSna72GP9CNzVjR4wo4G5MCBuikl
+	 LKXhTvvii1d4XOf1wR7rPrhUta3apPSCJO/ZGvZEJpf/8BvK9sN+GWaQxk/fWVwlDW
+	 dWo9pmgJ53zQQ==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 64A2A17E0A27;
+	Thu, 19 Nov 2026 16:06:14 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 19 Nov 2026 16:05:49 +0100
+Subject: [PATCH v15 01/23] dt-bindings: phy: Add mediatek,mt8196-ufsphy
+ variant
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,31 +63,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119104208.782900-2-halg@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-mt8196-ufs-v15-1-aae1eb0382e8@collabora.com>
+References: <20261119-mt8196-ufs-v15-0-aae1eb0382e8@collabora.com>
+In-Reply-To: <20261119-mt8196-ufs-v15-0-aae1eb0382e8@collabora.com>
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Peter Wang <peter.wang@mediatek.com>, 
+ Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+ Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <mkp@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-scsi@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795100772; l=2063;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=1dYQjIKL2vOZS2GSwWwkaJQYg1OTtXjRqHL5/V3FaAQ=;
+ b=NP30laKI+3VgiDweB+PgcDO50LXeHQGpVvvs/urfJGWsXaHT6QQa2ynQDQJ7LOq22B/8voaEI
+ P8S/bsfko7UBbSGYsx5z2YQoxG4gTV8HNrVq8zALo2khTJqlen+gOMa
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 
-On Thu, Nov 19, 2026 at 10:42:05AM +0000, Hallgrimur H. Gunnarsson wrote:
->  static void set_cred_user_ns(struct cred *cred, struct user_namespace *user_ns)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-I read the diff through but this led me to dead end. Cannot find this
-function from anywhere. I look the changes again once this is sorted
-out becaus this is interesting.
+The MediaTek MT8196 SoC includes an M-PHY compatible with the already
+existing mt8183 binding.
 
-I wanted to look at the call site to understand how cap_bset gets set,
-which is not now possible but I do get the gist and agree with it.
+However, one omission from the original binding was that all of these
+variants may have an optional reset.
 
-I'd figure getting this relates to my rootns patches (perhas). One key
-mechanism for me resolving the unprivileged in my use case is
-MOVE_MOUNT_T_MNTNS [1], which is orthogonal but just pointing out
-the problem space.
+Add the new compatible, and also the resets property, with an example.
 
-I read through https://lwn.net/Articles/978846/ to understand the topic
-overall. Just mentionining as a possible addition to the cover letter
-(not a priority/necessity).
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Vinod Koul <vkoul@kernel.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../devicetree/bindings/phy/mediatek,ufs-phy.yaml        | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Hope these help and can be kept in the loop :-)
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+index 6e2edd43fc2a..ee71dfa4e0c0 100644
+--- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+@@ -27,6 +27,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt8195-ufsphy
++              - mediatek,mt8196-ufsphy
+           - const: mediatek,mt8183-ufsphy
+       - const: mediatek,mt8183-ufsphy
+ 
+@@ -43,6 +44,10 @@ properties:
+       - const: unipro
+       - const: mp
+ 
++  resets:
++    items:
++      - description: Optional UFS M-PHY reset.
++
+   "#phy-cells":
+     const: 0
+ 
+@@ -66,5 +71,16 @@ examples:
+         clock-names = "unipro", "mp";
+         #phy-cells = <0>;
+     };
++  - |
++    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
++    ufs-phy@16800000 {
++        compatible = "mediatek,mt8196-ufsphy", "mediatek,mt8183-ufsphy";
++        reg = <0x16800000 0x10000>;
++        clocks = <&ufs_ao_clk 3>,
++                 <&ufs_ao_clk 5>;
++        clock-names = "unipro", "mp";
++        resets = <&ufs_ao_clk MT8196_UFSAO_RST0_UFS_MPHY>;
++        #phy-cells = <0>;
++    };
+ 
+ ...
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/commit/?h=rootns&id=cb058646b3dd76b13f5044846c119fe1d28db4bf
+-- 
+2.56.1
 
-Br, Jarkko
