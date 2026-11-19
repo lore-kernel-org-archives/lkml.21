@@ -1,116 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795115067;
-	b=HOe5yhHDjItarIGP6FSctFlZxujmrVjP84P84euoxdC1TCNMAy8WL/YtCAGn8UF3sKp5
-	 /QE1At7KQpkBezOMG3k91S9WT/qTrG0upJkswRbNFE4XgM4gl8qfBXvoIQd61iHuKVeJJ
-	 9McwwN65Xj/WoWH+tfcNysoqc0U+GbBUytTJuAtvNXD7c95fOdG5DApWL3In2g8201YpB
-	 V1O+d7Z23EFX0vLqJdEOYoNsfiWC81t6NG+oekvBM3c+LIKTmWnnABXhFHQ7EhqGrcTiD
-	 h+yzJ5K1dr+of07gGqjBEpz/f7HENpjU58SgeWWnK/yyL4Rr7PdUF4Foqmaf8E3yW9A==
+	t=1795115090;
+	b=PcGUp/U8vH59zO1PPxGfVoBhqQW8qOxmCqUMtFqR7lCoDyRCZ8EBPXY9qxcb1b/yzBOc
+	 nW/3zner3NUCBDizwBcGHgMa1d5v8x7y8hsOqMI4EjMyjvvwR2dZXpzl1junPeRhwwJTO
+	 gpFvKyauE4hpcB6tzh4syh6Zc/DSxxzxKIg7/ku01JUMlcEMj5dq8BCAc5qiM/rMuvDrW
+	 2yXhWPKk4ckReMqhnb4m1q3YWyo9XlAaNC72+9pid30BMOUPjXV8jS4yw8Y87DmSlAyEI
+	 FTTwb8n98gr1IdrJDmA6akaUOWr/LcaOnrfvPmDzipYjouQZY/TLQelonK5xRE+CBpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795115067;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=LE/ePd9AqgVj4/hO/b86KqcyKMm0F5QDDk4eDLXTswE=;
-	b=LsoTmqH25j6GsVf8Q3S/3Q2/c0TGbkvkpqWsE+/4PuRV2bmhFRrQkaKniveMOt7wwG+c
-	 m3Iw+pSZF0MKCXR3CDoLMrxzHJesFwqiaM9etCNxvVbb9o81y0v/tZ0waKp9E8GYPNfSc
-	 1b7XViQOm2zNC+ATJN2OHolGd5eY8l7PKDaBevfXgKQNy3ZurtUhLYdYIIR+PEVtB3Ome
-	 6Xteru9FMoysj8nNF1lOW7gfB3dVeJwKiQox6iEbA7KWCm1dOhmK/0GdpoxVkSqR0gJJC
-	 2jRoLhV47vKCZIxxIrjrYett+w5Ok/C+PFpbeIn8U191hhPlzgWadTv6w9ZVTJICRdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795115090;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=pDDz7EktSP59XcLYqPQZ3j+F7BRb1cRhTmRMviCYCf4=;
+	b=phfDqRX7wuPqWNreb24FLMyRrd/qlVJn4eqdujR9v+mnT19j7uWxY7ZXixFdXfk7FIQZ
+	 BrmRRQ9F8958YhbFJXhEgUK7in2DMFAF6X2Rq3dVk5t6ND6sRLms1Fxy5HIYnlFp59nid
+	 7I+vAzYHHZZyc45m3jwZ4Zb3QajlSCRjOM3LqUtuSjzn4e9+CUCAIsfPVeBXqSFa+0hXo
+	 WPwENCtxD0V4htpSOP+1VlIjbcO6odb0fwI4PMovp/w9M67BBOZXFsHMnQjCSP5+/Zc6e
+	 jq87gFHlLx/yYeF7KqlooJ5jRfKiI9c71ps+UvK4deHPtl6D6qvEQlJnZmCK/v/E2xQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=DUWBVLy7;
-	arc=none smtp.remote-ip=209.85.222.228
-Received: from mail-qk1-f228.google.com (mail-qk1-f228.google.com [209.85.222.228])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1VNm8wg;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C1B360A3827
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:04:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C1B360A3827
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A857860A2605
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:04:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A857860A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=DUWBVLy7
-Received: by mail-qk1-f228.google.com with SMTP id af79cd13be357-9496317b730so13660385a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:04:25 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795115064; x=1795719864;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LE/ePd9AqgVj4/hO/b86KqcyKMm0F5QDDk4eDLXTswE=;
-        b=aVHHk2EjJpxSpW4FaTYz02ouXrF8XJf4AV3lhAA8wmIXfGwv8nGz7G45Gmg8AcPNvm
-         JIA+S6ioX7LQ7e4VUFNA050NJR659d10RyXszhnJQ8r4+vRovhAosNhbI2LUBxoS5SNQ
-         Da4o9yM/RKexoNdUc1ZWGEcEWB0i4K/m7QTStOS6S0SaMM2TBiiLerpq66mKpjyA4CJO
-         sxzTIElRuY2AQPr5Dwlxc7oBqTOszCG7PRr7eQKVEk7BJVE7w9XGpVnbtowQ9wY32Ncb
-         WDlgne8tyKDqohMbxkCEIoGXDvvajWzvBhZ9VPJ4e/06T6UbIKb849fHWXiNMOW7WK7l
-         uKxg==
-X-Forwarded-Encrypted: i=1; AL+hErGjE01Vwvn9vPe1R7+XzAP5JSoQSs9PshRkQb7IAWvCDbfx0y1IcDVnrOaO+LPGLYMBRZW5zHvEpIgK0VY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8q+9AwaId5wnSPbzXV+jnn8fFKtD/hq2P0plEt11uFDh6F2zl/
-	8yPCBezUac604HS9x3iMeqBiC7pOFfQWiSVAseODY/WRBqSxTYW28fKdXjJLMwR8JCItt8gKTlT
-	z2AWG0exy6vkzXYJSszncS1Pm4COR+t9U5cmPjrIuNFD8hZXDQhAzH1b0npQ1T2Weg43edo9NIB
-	lo8LTWP0PYA9T5EGFuUg4vw3T/UZvEBGHOTk+3w/cH+AvAgsWDXGkbX1lq9uWB2xEoB/Q44bok9
-	x2UxUI/rfv3J+yhYWwzl6Nn
-X-Gm-Gg: AYBFou3LsfHXdEE0h7EpHTVL8RoNvWekINJ4FfRyrkEI7brvd3Ib2zvLmghiKizOHiM
-	00y4j4uLplL5YtipveGWoEnh+rJY+1d6+/06z7tmcnwz2BUVzNYRdrgd1fhQdWzAN0TBqdradcp
-	ezIuUXYquFYszzAMvlgllB6Tmf6woy7QAOSRpLGe1feBeD5ODLiWM+u9MTlZbJyX8Mc/DxC5IUz
-	aMbkQYHi+IlbHvbIZi8IWNU09zmx7U10Lwas1WDdzam5zg9yhUHNn4gq+fgNcwrry8Vk/7FMsZC
-	k+2pDH4Ruu5Ayw4sxlr2gf9z6LaK0xUu//1hHLv//v3YCtA3cTnKyMc/1MJu8rBhzGk3BI5qL1P
-	DD83gBpxkbHTSljYAHxM+h2WesUrpvorkCvYARAh+hidxieheJ7Qzi3U1iQiP8EnfWswhfbgIWq
-	t27jrcntZOThfgZ5KmMO15JZUwNMrC5aZxXUz8N2/n
-X-Received: by 2002:a05:620a:460b:b0:93e:d364:c9fe with SMTP id af79cd13be357-949ba9e35a5mr103867485a.40.1795115064149;
-        Thu, 19 Nov 2026 11:04:24 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id af79cd13be357-949bb34d46dsm2180885a.7.2026.11.19.11.04.23
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 11:04:24 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-92104826f9bso2767736d6.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:04:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1VNm8wg
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-49a92144733so26993f8f.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:04:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795115063; x=1795719863; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LE/ePd9AqgVj4/hO/b86KqcyKMm0F5QDDk4eDLXTswE=;
-        b=DUWBVLy7OOdmuyeVd4BcS1vq7fy4KgNJ3QvyV1cY4JbIcRUnU46yMeYbpbxRe+RdZA
-         ZJwwsVkGATQEfmgQ391nwH2j1pF7RWXlB63dZ6v2yioIJHBUdzeC5OqGu9Mamx5RiAqa
-         ZqRDM7/yM9qrHY/QCQYp45DrT5K+r24MWso5E=
-X-Forwarded-Encrypted: i=1; AL+hErHxKcCWFoKWTrV1xVW+4ByuWZLMe3zxioxPfLXDF3ZkNb79T/2Qy3siqO4c8YgjbwWt7fbKpHYr1jYExFM=@vger.kernel.org
-X-Received: by 2002:a05:6214:85d4:20b0:921:33e7:45fb with SMTP id 6a1803df08f44-92134abf93bmr7531356d6.17.1795115063274;
-        Thu, 19 Nov 2026 11:04:23 -0800 (PST)
-X-Received: by 2002:a05:620a:880e:b0:949:75de:b21e with SMTP id af79cd13be357-949ba9cea77mr82763585a.37.1795115051693;
-        Thu, 19 Nov 2026 11:04:11 -0800 (PST)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f7cf3sm24063285a.31.2026.11.19.11.04.09
+        d=gmail.com; s=20260707; t=1795115087; x=1795719887; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pDDz7EktSP59XcLYqPQZ3j+F7BRb1cRhTmRMviCYCf4=;
+        b=q1VNm8wgj7l4AzXVWj6kaK9bPM0GhK9rTAX3CUFlL4RqDuPJVp8DrkZxIKLQpFKMyA
+         YSDfE6Jf/WI+E937M34nYYnLwNCBDbiH/SHSQJyK5Mj19ZmToTYP7nmDB3FsiYFGb/xE
+         hgRDK1H68EYLQJI/NemyC1rH6m5mQdQIw9H+wvfzpwtMz3GcdemNkMkLucqBxq6mmYam
+         t0AMQ4/CSJ21ye6KOc+7/L8yCk93+g4V3o1MULIOEYDX1Vm2OWhQKzka/4gI58Xpxx2x
+         DCueL35x6X9+BcHPWNy0vrpWJPQ/7YSutemP1DnJMCX/MNK5jQScJJv6gCQLWtpdB97b
+         NzIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795115087; x=1795719887;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=pDDz7EktSP59XcLYqPQZ3j+F7BRb1cRhTmRMviCYCf4=;
+        b=HDb5s22wjs7/nm5UKGmnckhICVBO4GkOpxY7itQI21XEceUQ73ejl8ROk8DaywIIan
+         A/jtBxFitYEQ3IY3yNo+1c2FUH8qiYhrnuKDktlt0XPTwWqbeepeoL5jYhZhy3KyntAS
+         cTmoWrz9djvoFqVTGpTk4M/xB4cpFhbYN2cgu72Occ4AJbmRuDXnNwyLc2NIQ6y78Q37
+         BI2b+hE76XgXs7+4QjoTBCNydfKHZimK0wQ/U5URO7cDtS6omGp4WDr8gZIILt4qVO3d
+         fu9RTKXfxODuUPXy7CgZdZ+UrzskMY/2RG5Pt7OpP81sHCiUq495fdX/v/hhEwqfpctG
+         mWMQ==
+X-Gm-Message-State: APuU4Z/+wkFkv7b0F2tnIpWnuVH6u+LqSOiM6Wgy69YeLiUOo22fM3w2
+	ehPSihS4M5LqRWj1Yzc3bso1IWIUBNI4NndaunPnXTEtwjiCvlF+ovQF
+X-Gm-Gg: AYBFou2VkBQC87AY+xoNw9yliqTFlGpwSA4XhATKyO1kOa9jFLdvXoDmJExWAcjLyzI
+	2TdkEGwkDuH8kE1p/nQiVaeoBk8J6UxvzS08nNAIJJmL6f6ptPjp87oV8TPKxbOdjpuMyGk1nsb
+	GGDVzGOylyqRHUbpAbdgC7ReXKkBzNFSq7/QCxjWFBQLEbJKqhfqrXYKDi2v6JkNTjoK5lGg/lh
+	/d/Biyo0BFWxLKODVVRCUobRv3JPthb8sUitXi35q3awIkUQ10dcZ+k9Po1dtgH06oK0+vHVoTs
+	BFvoEQkk06wU5684dzKqTdRjiGe3LH6pDa9HsTyNS8OokBVl1yDgqdzzxZQLTwOI4LMgR0y0VDw
+	g8DxymNs7LbLRE6SFMGa7DAAZyGEO4hTrOdn0IUa2PgBo9DbnTZdA1qf9EOBYDhhURKOJL3hI1M
+	EKjZBwDjgNo3zMZric4EEkGX8yO43hypve2sXC7QscQjPvT5RzgX6N1MeOACHhk0Fb0Buwkb4pK
+	bpTtqG0pP8i83yb/BBWGuQ3OaEixy3HE/TKqkwYlTdusbS2nzxE1T7QFd62FFXiahATObJWjzxi
+	S9FtL5ekz4pFUZ1yIDFmoa4saVgfgjMUIGvAou/UPmVgUDPNYY1n68LRuYTbboPIWz0x+XgI34t
+	SalJPkJk5bKtpv2Y=
+X-Received: by 2002:a05:600c:b90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb8892cb02mr9574505e9.21.1795115086809;
+        Thu, 19 Nov 2026 11:04:46 -0800 (PST)
+Received: from zeus.unificl3slsbnxe8mz.com (212.71.14.70.adsl.dyn.edpnet.net. [212.71.14.70])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm19124775e9.7.2026.11.19.11.04.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 11:04:10 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vivien Didelot <vivien.didelot@gmail.com>,
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net v7 4/6] net: dsa: b53: use the correct override register 2 Gbps bit
-Date: Thu, 19 Nov 2026 11:03:46 -0800
-Message-ID: <20261119190348.2317702-5-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119190348.2317702-1-florian.fainelli@broadcom.com>
-References: <20261119190348.2317702-1-florian.fainelli@broadcom.com>
+        Thu, 19 Nov 2026 11:04:46 -0800 (PST)
+From: Sander Speetjens <sander.speetjens@gmail.com>
+Subject: [PATCH v2 0/2] hwmon: add Raspberry Pi 5 PMIC driver
+Date: Thu, 19 Nov 2026 20:02:22 +0100
+Message-Id: <20261119-hwmon-da9091-v2-0-d6c624272a9e@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,63 +92,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/21QTXODIBD9KwznIJAUiZ76Pzo5LLroTgMaINZOJ
+ v+9o1572/cxb9/ui2dMhJm37MUTLpRpirxl5xPj3QhxQEE9bxk/q3OttbZi/AlTFD00qtHCAiJ
+ 0dX9Ff+UnxueEntY97ut24ISPJ2UqB8kdZBQlIbZsLGXOrZQDleobU8R7NaVBzk8ncxfkneJzl
+ YeweWTEtRys2MZqoMIC5IJpW70Hd1MIVFpme6PRQdN7sP1FgQOnnDXGKmy8rZW51DV+GMe3kiP
+ lMqXf/QWL3lv+f+2ihRbeGK/AN10Nl88hAN2rbgr89n6//wBMnwp1TQEAAA==
+X-Change-ID: 20261117-hwmon-da9091-7aeeac6d8ef8
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Guenter Roeck <linux@roeck-us.net>, Ray Jui <rjui@broadcom.com>, 
+ Scott Branden <sbranden@broadcom.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Peter Robinson <pbrobinson@gmail.com>, 
+ Sander Speetjens <sander.speetjens@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2242;
+ i=sander.speetjens@gmail.com; h=from:subject:message-id;
+ bh=fFksgnBQWB00eHnASxdxeUteEXHeuBQCQ15IXKORuiI=;
+ b=owEBbQKS/ZANAwAKAXjNeEUMBchnAcsmYgBq/0hNMInIZvh+foa/m0C+DK7QywAYwMx3Oyj4B
+ jegXlUSgAKJAjMEAAEKAB0WIQRWUkqLABoRw+7JUQF4zXhFDAXIZwUCav9ITQAKCRB4zXhFDAXI
+ Z9WiEACGWtjwPpW1T2M8XP2Z7+frbRA4HCfF+uwJnRlGGWi8nOwaJ1rM2mS8GEUG2rSlU2D4T1Y
+ Hbn2+3uxvs4U4+moO16OYVhh4msOTQY8LwhXGnC5oZ/jMov39laTFEM0Tph66QVcuFsUO7ZbOBY
+ WOb+rZR/xD4zFlWco/b9hDEkk3ANlkxfCOT85yGSRRlcdRn+B/ZDCmezGiolycgL/NpoM5KDTfP
+ qeDnA7rSZS50Zkr8Ok0pU16ic57AdC0pu7CwLC9LzSFB+l/pAYmLZGYUhzCGpsXDLC0KsEpaLy6
+ vuvEUBp3PLtaY/zWlTYak75VJrETb5vR0joP5igmqC4V8fByLLRdvQNFg4n6Tjv0QN1tqyUX9AW
+ 9OOkj2JMQoIZspSFdAlj2EAnxGQ/Yu0FPnE7YX5kBmPGl6WrIsOiw8JB7oxdAswQPX9CqKmrhbC
+ j5BS+E8RK1HrEQvpEN92DL84tOdwG54ODLlHwGAk6LSHbBgy+0Jo0ral7oE7fo9Jm/aGYiRP4ZV
+ +hmfGVSMq+YuUNPuwld5c5WfwtyuzOvaMvBsXRv+7196C0gTMMCmFjou1VZ9Cwh44XaIKHa3wm4
+ DLeUzEUkeLgb5QnL1nuxfhcydWqJv/SmW9gNawjlMpWIbcecbye2KmW7wL1OhKSZCTwuMYAqxt2
+ w9nT+IrdviT/vKg==
+X-Developer-Key: i=sander.speetjens@gmail.com; a=openpgp;
+ fpr=56524A8B001A11C3EEC9510178CD78450C05C867
 
-The IMP and per-port GMII override registers swap the override-enable and 2
-Gbps speed bits. Using the IMP speed bit on a GMII port clears its override
-enable and leaves any previous 2 Gbps selection intact. Select the speed
-bit alongside the register and enable bit so lower speeds clear the correct
-bit and 2 Gbps sets it.
+This patch adds an hwmon driver for the PMIC used on the
+Raspberry Pi 5.
 
-Fixes: b6a8a5477fe9 ("net: dsa: b53: fix resetting speed and pause on forced link")
-Fixes: 41af38324341 ("net: dsa: b53: restore the NSP IMP port 2 Gbps mode")
-Reviewed-by: Jonas Gorski <jonas.gorski@gmail.com>
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+The PMIC exposes a set of voltage, current and temperature sensors.
+Access is only available through the VideoCore firmware mailbox
+interface; there is no direct register access from the ARM side.
+
+A structured property tag (0x0003009f) was recently added to the
+firmware. It returns the ADC values in binary form (index + length +
+array of values), which is much cleaner for a kernel driver than
+parsing the text output of the existing gencmd interface.
+
+The driver follows the same instantiation pattern as the Raspberry Pi 5
+RTC driver: the raspberrypi-firmware driver creates a platform device
+at runtime, and this driver binds to it. All channels are read in a
+single mailbox call and a short refresh-on-read cache is used.
+
+The sensors are exposed through the standard hwmon sysfs interface so
+tools such as `sensors`, collectd and node-exporter work without
+modification.
+
+Dependencies:
+- Raspberry Pi firmware that implements property 0x0003009f
+- CONFIG_RASPBERRYPI_FIRMWARE
+
+Tested on a Raspberry Pi 5 with recent firmware.
+
+Signed-off-by: Sander Speetjens <sander.speetjens@gmail.com>
 ---
- drivers/net/dsa/b53/b53_common.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Changes in v2:
+- Add documenation
+- Split firmware in a separate patch
+- Remove DA9091 mention
+- Remove extra lock
+- Use 64-bit jiffies
+- Remove lookup function
+- Link to v1: https://lore.kernel.org/r/20261117-hwmon-da9091-v1-1-f55f0af9c6a3@gmail.com
 
-diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-index dac6013f8fe2..19e36e51be52 100644
---- a/drivers/net/dsa/b53/b53_common.c
-+++ b/drivers/net/dsa/b53/b53_common.c
-@@ -1427,17 +1427,19 @@ static void b53_force_port_config(struct b53_device *dev, int port,
- 				  int speed, int duplex,
- 				  bool tx_pause, bool rx_pause)
- {
--	u8 reg, val, off;
-+	u8 reg, val, off, speed2000;
- 
- 	/* Override the port settings */
- 	if (port == dev->imp_port) {
- 		off = B53_PORT_OVERRIDE_CTRL;
- 		val = PORT_OVERRIDE_EN;
-+		speed2000 = PORT_OVERRIDE_SPEED_2000M;
- 	} else if (is5325(dev)) {
- 		return;
- 	} else {
- 		off = B53_GMII_PORT_OVERRIDE_CTRL(port);
- 		val = GMII_PO_EN;
-+		speed2000 = GMII_PO_SPEED_2000M;
- 	}
- 
- 	b53_read8(dev, B53_CTRL_PAGE, off, &reg);
-@@ -1449,11 +1451,12 @@ static void b53_force_port_config(struct b53_device *dev, int port,
- 
- 	reg &= ~(0x3 << GMII_PO_SPEED_S);
- 	if (is5301x(dev) || is58xx(dev))
--		reg &= ~PORT_OVERRIDE_SPEED_2000M;
-+		reg &= ~speed2000;
- 
- 	switch (speed) {
- 	case 2000:
--		reg |= PORT_OVERRIDE_SPEED_2000M;
-+		if (is5301x(dev) || is58xx(dev))
-+			reg |= speed2000;
- 		fallthrough;
- 	case SPEED_1000:
- 		reg |= PORT_OVERRIDE_SPEED_1000M;
+---
+Sander Speetjens (2):
+      hwmon: add Raspberry Pi PMIC driver
+      firmware: raspberrypi: Register PMIC hwmon driver on Pi 5
+
+ Documentation/hwmon/index.rst                  |   1 +
+ Documentation/hwmon/raspberrypi-pmic-hwmon.rst |  49 ++++
+ drivers/firmware/raspberrypi.c                 |  21 ++
+ drivers/hwmon/Kconfig                          |  11 +
+ drivers/hwmon/Makefile                         |   1 +
+ drivers/hwmon/raspberrypi-pmic-hwmon.c         | 299 +++++++++++++++++++++++++
+ include/soc/bcm2835/raspberrypi-firmware.h     |   1 +
+ 7 files changed, 383 insertions(+)
+---
+base-commit: 7d51eba9dfa7d30abab0b75570e9f7605366e45b
+change-id: 20261117-hwmon-da9091-7aeeac6d8ef8
+
+Best regards,
 -- 
-2.53.0
+Sander Speetjens <sander.speetjens@gmail.com>
 
