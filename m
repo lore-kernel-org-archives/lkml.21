@@ -1,55 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795096081;
-	b=VnrDwt+MK5asjqNffXiCo+PK+xh4JFP+OMeIPWlLTifq6MKuTOj4HQHJMvQucywLRH9E
-	 btwuHStSOjmeEELt2w00/jkhOM3fHjcCzMWg7tB8d6frIhYZ17bJB0it+YBnYSWxxYjgc
-	 NemilziYFn4wAKXh63Wxm1uyh06LFexTex6jqeCmHHI/xMd+arHyKvE5v3rG8KHsYWkKl
-	 ZbfNMZQrsFGQeL4TeASTcB3io9CuvbfBbxZ/QmaPZmbQrCmZdY1FUa3NhB67I64sbKYyb
-	 UXR4hR5W5qwNjBYeOe20NpPm7u//FcnotgAy/+AzCVftKzyFSGYVaDqoM3I2APU/aQA==
+	t=1795096107;
+	b=gr9wNtRpynmGQfQDSDXRFm4SWNLfRRrMeIyQYtz0zq2geRgvbPldVNSEukp5vFjmPNHM
+	 5s2b5/ZKObVoUs+nllQwgIkevvWB3pkZEW12FaEoA42BvygLbRbOkQpMwRX8Hy0HwTdko
+	 mocx7+5TfF7QtmF5kqLSmBW/R3U8ysBQAiYM2XBSstSBV19u9tmalvRADWlx2/OUdAIeH
+	 A2rjex035eNk+bNUBFrtadOWMt0c/wwzomdOx6ei5Imvhz6AP/GhFXNZOrvT1X0Ei+mCM
+	 bCQ0SfsUbgiWlLM/lHKi901rYTjxksWJqRhWOE0zgWa2CxBuCgOSYP3o0EcAQSr/9Jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795096081;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=QnyoGsZP9PR4xT3oQ4XUA3/GecLY7gW3slFTmMszXAE=;
-	b=Pzn89qKTMiGWHqYqxSSoiCIWLZJxTeBrdgu8L1sSmMMXwXR6VqiAzyj0DrGnOMAvCd0Z
-	 OmewPUeqD8lXyrV0GM01H6u6Gnig1W/iuBgAAzcKzFgFAcFhhSC1dTLpVIDyyvjTwFCF+
-	 tmk1NXCLie0QWlcWstC+QMcuv10/uSC+YEIHO4gXK4FG3CZ/SdPjm81PiNRlsrV+YCSLx
-	 o96NN1dm2Rnpx64YHkm3XLKr4G90KnGN/cOuUSYxJi9sOknu0UKMv/16l/jU/hoYVXxGC
-	 L+73sU0bLVg5H1gyIJCp5oknT2909Y1xLTV06dr5vUdaaYf49niDYx8DtamauT5AV0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795096107;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=cFsSr4rFLD0sZgWO3UICEWG59/9WjZ3zDUquQvzWPo8=;
+	b=KlqUx2p8B0p8xWUffL4u5YW/ETRQhLYaWZdacJe/yo2S8Yj4IchNXGn6p9iqfaS+rpGw
+	 AcWUg9VuknDjjvaF760+oYR2HRy5R5ec+9t2AJruZrDpSpSwZstGrvSr6Zw/ZN1t3QVnJ
+	 VfpaodqfRfLdfQRNeFY79ZzovXdl+prwzPIKNcYPdXvS6RAVK3iEkOYCLfJztY0bAP6uK
+	 QISk3yZCtzFr3mr4SzX3mrAcpBgB+AdhNUF8NCuNsOUysfEvlZeLaYb6uu9v8R0Kw0as2
+	 aPehfwbW9KS15A1IBoANTSvHtC1FMGoSpqVbUPS+S4j9IymATgGSlDaSUM8jMq4diyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OGAL0TUs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=WGCEgd8y;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=tjanXcst;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3218606A337;
-	Thu, 19 Nov 2026 13:48:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C737606A325;
+	Thu, 19 Nov 2026 13:48:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C737606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OGAL0TUs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B7381F000CB;
-	Thu, 19 Nov 2026 13:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795096081;
-	bh=QnyoGsZP9PR4xT3oQ4XUA3/GecLY7gW3slFTmMszXAE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=OGAL0TUsC7r5jblvySQnQyCFo1YrEYZiaVtav9Uh41raYZvxTwiyyScpEdgBcLt+Q
-	 OPRb4bp0p4WsK3dze7Wcu2JU9KMvf125lhM1YjhBQKF0TWN/7q3iPbI97yDkbvtQ1H
-	 ynNwvtv1mfzffEoNpa1SiZOlcfJpllPOJj81bHiMcfV6xZ5KTTrGof84g+sNppGojn
-	 auXUfjiuvREeGyAjTKOUNOo4P4PtgXLpfIfsbqXN+uPyI73U9HKV3Qs4Q0lAk94Ong
-	 7FBrefJsnWb8gRzou75cNWWSH7Fpcwsn91pfMOj0wTf0rAEwwsPbcBwRKkDybyoR+T
-	 313ej3DIqGFig==
-From: Mark Brown <broonie@kernel.org>
-To: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- Karl Asseily <karl@asseily.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261118142728.101180-1-karl@asseily.com>
-References: <20261118142728.101180-1-karl@asseily.com>
-Subject: Re: [PATCH] ASoC: es9039q2m: Enable the DAC clock at component
- probe
-Message-Id: <179502625950.810609.5059504394834418849.b4-ty@b4>
-Date: Wed, 18 Nov 2026 18:24:19 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=WGCEgd8y;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=tjanXcst
+Date: Thu, 19 Nov 2026 14:48:24 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795096105;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cFsSr4rFLD0sZgWO3UICEWG59/9WjZ3zDUquQvzWPo8=;
+	b=WGCEgd8y32aniz5UgOEt8zIgfc6raHwXSRhbOwOIT7NBEvPBXuJScS4nii8dKUCldsdna+
+	dPmLGetDhjvt4L7Cm2QIPJQW4EtVT83PCKXTPtgw3yH9dqKRdCpR0AdsTTc3nY6/VngH0o
+	Mu1WzLoBLzhqJOhg9O2g1VipnQ0HFXx+L9tuIieGO0d1XQXWieeMsSspN9qpAihl3+h5Lq
+	lIYIZF+oj2Y8ocvUJTKYDOzV3pgPSzXz8zKoDPgUVAIx3k+ml7ULt/R0xBkrp2wbD2Ahio
+	41LgrwT0XegaYl1vmMzT02lSe1vkZMqa2hCn7rjvnX7TBHjVoIMDt3L0yFurQw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795096105;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cFsSr4rFLD0sZgWO3UICEWG59/9WjZ3zDUquQvzWPo8=;
+	b=tjanXcstGZ9CVzp4RvSx3wr4tqD8vrHFqhaAhAcaMyYUUruS+FXey6bgYFszGmrlItUH1V
+	oEo3YqKMhwMLbYBw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+Message-ID: <20261119134824.oCI80nCj@linutronix.de>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+ <20261119121143.pJrJE7qs@linutronix.de>
+ <cc76ea5a-545a-4560-a039-ceed1de7ff3e@huaweicloud.com>
+ <20261119130704.A5iZtay-@linutronix.de>
+ <0aa4bf03-57a8-48d8-b8db-4246716c48fc@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,46 +86,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1130; i=broonie@kernel.org;
- h=from:subject:message-id; bh=cTe6PJPekf5+NJxfPGelbMpG6soF3WCxLSxXxGXDdJE=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLL+/eNruDnpJsuMqxn7rxSv+RPw4gDP56un7JifzP3/o
- 87lndLsgI5SFgYxLgZZMUWWuCzul/Ulr9fwHVzYBjOHlQlkCAMXpwBMxPEMw//61W5dtvdYFjxf
- 1p2rz5lx+2lStFZnJwvbBjWNTcyvYjcz/NPV43eLlK04G5+7nlP8KmONoh/3si93LZs3FUzcoG5
- YxQcA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <0aa4bf03-57a8-48d8-b8db-4246716c48fc@huaweicloud.com>
 
-On Wed, 18 Nov 2026 16:27:27 +0200, Karl Asseily wrote:
-> ASoC: es9039q2m: Enable the DAC clock at component probe
+On 2026-11-19 21:19:59 [+0800], Tengda Wu wrote:
+> Well, because the trigger window is very short, it is not easy to reprodu=
+ce.
+> The test case I provided above must be stress-tested through multiple
+> rounds of a while loop. Is it inappropriate to put this kind of test,
+> which requires a while loop and has a certain degree of randomness, into
+> deterministic test cases like sigtrap_threads.c?
 
-Applied to
+Then maybe not. I would have to run it myself to be able to judge it.
+However this thread has a reference to the test case should someone need
+it in a few years=E2=80=A6
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.4
+> Thanks,
+> Tengda
 
-Thanks!
-
-[1/1] ASoC: es9039q2m: Enable the DAC clock at component probe
-      https://git.kernel.org/broonie/sound/c/27b63a33d6d5
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Sebastian
