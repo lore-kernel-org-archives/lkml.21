@@ -1,101 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.215.173
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795118530;
-	b=S4DI6z9p1vGFcoRif5RlpXJZMjUkU8lSFze2BVmQnAmAogmLlpyBs6Skwi/A8uBzG4W8
-	 hKZxkwmkZaHwSEJ9Tzyj7A3FpJAfRq2O7JXGyBG3uvfVq0ZaKSH4sS1a2fp7G/a+v3Dz8
-	 iQsJYpXLTBMukpneK6Pi7BUGheAYIUf6sCUIwNJOdh+G09D/UJHifknZcK0UD+6ltKGc8
-	 Dc2hf8vaQIzIIWX79jm/4ha54Eqsn1uCOdgQSY7fzwtlFb1IKxNUiYDNbFQR4sNlG1Wm1
-	 mnel4WmLat3oOg7F/aNPXfbHQr6lg3lFQ9E1qgNeVTcC8/BZ94VBoanay3tx5nfigqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795118530;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795118688;
+	b=I8hwoPYHopjHrCW581JOShNQ5EQep4eSAYVeMO/DRvH72qZEpqSdNx9y5ylHJBP7viqe
+	 8nsHaCKMYmAypKIBx+76NgfD2+iTxu8OmjhcpUVYjJvh7WkOrAoLnAtLHczVQWNVXzFh2
+	 cx/XMMMqxTIdXCVqd4+yrOLSfdPudGSnOWYO38g6ZJjHWZH3q3Pr56uuxw4cksZxH5A9p
+	 rhu4Sxd5s5nNa6iX86sFWy5OxIf44Z41pjZk8luwufLojBMioB/LGNqon9AnbbRAv3Rvr
+	 fl5EapVV8HL0oKk/oZqI5D0d6Qbk5V9WIsft0vgmf6ZlWnw8FfQdN9fhMnVX4WvkhRQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795118688;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-	b=N+c2KtQsAz39DGCPw9+6i9dmxKedNkk5nmqb2tlJ3xbBhocHyLH1n9yUYsCnTiLwVx7P
-	 EU1oyTvtyssZ3RXcNIHq2Pd2H020FwW1DTFhy6TtN0hhnZ/Ag4cZb3PdFeKPDqztK7YkT
-	 3Lz9MrTVUC8Y7rVMwmfdvQiApE89pSibmtsHmnXMCpDMvKq7RFqZicdzETdsEe+6jKI9Z
-	 Y3rCUkD1AM8WUz+z/IPJngoankiE1eGbApv8fdQjZnnWr+a9ArTswZB+9d3oZ0tOhxP0x
-	 1PSvzwnEviM/Xmt6JIk0YjQg6OOegp8dIOvnl9/rFJ3XT5u1qNvaC5us4NnrYiW/3ag==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M3fG1mGz;
-	arc=fail smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=Q14BaH4YWpZ1CMH/OeX/X6O3rC8BtXsm7PEVpfcrbpk=;
+	b=jZnSjy/tMtMNy/q53jbHX03m3qYjHB9klkV5az642MP3imr5iNVjRVqLSNZvWjsQ54d/
+	 KJ1oWMyTmFuaWkJrKk8Fhxkk+88GAdYLSc6sb3TDUOiZ//kMrF0rk7en8GGn9K+mba/TT
+	 bdkEXys4NoGTY8swjCOIbZbWJo2poCLz16CWd7OkVz+ZTTLN/kFPpNzB9FJZqzM20jCLd
+	 xRNHJVg7818U5FvIg3TmcuEoWzKM7xdSRiDaZ6QUyMDcaq1jlMmTio6Iee7JYRAGQlE6d
+	 SXOHD1aPS0vbUzUgwyE2njlwOiXreHZGviWQqv5rVxNhbWhYKB4L7plfG3RfX5lJ9NA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=TpGQ+4NK;
+	arc=none smtp.remote-ip=209.85.160.181
+Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com [209.85.160.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B48CD606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:02:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B48CD606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEDBA606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:04:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEDBA606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M3fG1mGz
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso102302a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:02:09 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795118529; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sDXLjCglQgBV+Pg04PeaNMkbLu/g1ZC14z5EjSMQH1femQZsBbBcPeeTZ6pHfOiY6R
-         t7esLPLEtF6OBEDHsFimI7H2+Txfor8SdlPSKMPjfkDrMK2KJqIOXaZ9ElCNAenofjOP
-         GQ8gcgmWZBGghZS063K6LYYJsp9fwKkXHEXLvl0ZVgcS4FHadCn37B1STrEU1DseXQqN
-         4Xqwa9u9Oa+jjI/17GckQESVDGC5k1nWC2XdP9Cu6HVc1f+NivLcEvbknCf4XPBBIYRT
-         kf123vMixGxyYeX1qmT1ZSdooPxt8VGwjEppmH048bg4we6QKpmvRCTQz9qsz3HW8z2v
-         pIiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-        fh=8dweoQJJLYBr5e9Lk+3oTIpp2TCNfRu370ag6wBH3qk=;
-        b=ALpC2CCx97fVHArYO5u78GBRob7RZtyuDlqKdjK5rKhDEkYZovS2zMLht7r4jj8ugT
-         pSGl9CcH7lIrfe/PtNzKGfLzLHg6gViHMSmN/KdraEO/5LcY8L9BI2PC61EIHWwzhxmh
-         PVh3gpvmSZMZwby7pdh9I3CiUWM7wh55O7zr/XP9a8yQbg2yIPWufO3UjMde17C/4u1x
-         /aSZLTbls/Fg2F1EwMxAOR3eu2m2yl/lsIT7VjTotg42FDH2Cv06D+fOD5wQk1qtxikB
-         iG47fBjyLYXPIA+wlKsd49vVJ7nzmLHOn6YrmsS3eqU/gB7MdLUxm07rZ09l089yboMh
-         Nj8w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=TpGQ+4NK
+Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-53669f7b518so1882191cf.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 12:04:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795118529; x=1795723329; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795118687; x=1795723487; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-        b=M3fG1mGzEEkK5g7tak26ZQNGKd7qs9NXAy1TMsB82Nwso+Aptx1qWQVgo8Cp4FYXXs
-         6dCdZfyEfFsjkmQzyIuP7py7yWf2sUr3E6zbpY0UbPMVVG/hCDp7r6OCU8QhY92fP7fb
-         2BqvEu/y6MWxscIWT87NLch2a0NRJyfbRYUnUyakxrpco96/Lry3rD4NxzZQp6WgsEqW
-         6EXSmFiiNb0vnfAp0ORPXQvFq4wc1uzM3C6wIfKmNqdXm4M+9ATW+r8ixkXprK4ca8O1
-         +neYtapyEwGRaPSkmGUrNeA60ooaZI3OXnu1kMT9lxs1esQY/mR+a+fbDyqa8IppPFly
-         gcvg==
+        bh=Q14BaH4YWpZ1CMH/OeX/X6O3rC8BtXsm7PEVpfcrbpk=;
+        b=TpGQ+4NKLDXm7JKIrO1uAL0u3hIlrUP5ngM4xTeUvBr4FRyoOy8xZnncNh/6JihHxk
+         bPu3SCd4KoCQkaLReh6zjuYWH93dArxhO0JlOiIrEM5oQp4SGc1cjPudtYyIRuDI2kg6
+         TLkmY7RiMLqjwDNT8AZr8ZIS7phFjyFl0PQTQjdIPdpvAzw1/i81uIQaPj7nM3ET45rO
+         CYreCZH3FnWEhqghxoqlnMkVsyZsLOhpVnJ5wpU2S0ajhZQXGTNoH7+46whgIJlwYKnL
+         6YWKAsxfCOGwz6mbvd+HWwjcDErphArBPmURMYwhVjVIV5XSzbQd8/0BQObDHaR/vgKi
+         kBlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795118529; x=1795723329;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795118687; x=1795723487;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y4eem3MZHL+OJUpiUqcR8fCOWu+5ffSdx+AuciIXYFM=;
-        b=CN+/yrHq5tVpVUVdoh5KMBlYL7lnSuwbkYcYWORqldFb9Xu7DQYePlyOkuh8RyifNi
-         kGwt3eq4520R8eLUZnHDm3Kwo7P2vJyqPSAJ+r4KRcAW7MXpugaDEuz6baEQrlBA8Y52
-         mlYnqy9A9QVr6G5LWSacqv2emFq2lj1VPAXf85BEzyJFpKBqOkeYrBqiznuwftKSfrmI
-         kzJ95yL9md+QCEC7sYVYEu6jLkIvEI0bY0HX12LKNBNiPeLVeAHj6/T+d8MXkR/e4SDa
-         XtHs6HVcvbKkMBpQ5qiwn+hBaz4bK+uPX+DvjL8iTfOw099/Hrdps5QFnf5hQn96QcbD
-         goVw==
-X-Forwarded-Encrypted: i=1; AL+hErH0zmlpnVPw4oZTlLfkdl+JWqL1WOKeyQY/0Hc4n5br4Hxm24i6sUQx4hnBAFEoC2xI/yPfuIs1rCVUjpc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6AdjI+wQGufzGKQ2HMR01uip9lBLGbzbnOOohJA5996VueJEa
-	oQBJufZinhJ9k3Flz4ewrv7R6yOWL4OrbwAWDP8hlh0xu/LCsJJnmofxPjBPFjHWCFemA6dKw+U
-	BoGRrShYInYB6t8QfRkBQZqh4VC/xbJQ=
-X-Gm-Gg: AYBFou1VRpzQ1J5LO9PHA/hwsOb5DxkamywYRhBv8/15wF3vOpenFi17KL6aDa0qPKs
-	aQisLyYsmX199RzJhU3IlV/aB4zxNRrDWHRHBRNzXw2qbCywjfmD8hg2jttxAgvSLfBvlSLqRfa
-	Zp+m4TUg24yErDr3Z5dbnE2L/hIiw7LLUKey50tPn0NgqEWI6UAa1Wf7wzdkHzFjnVEHpMk5JqZ
-	+63/kZezAwXJEuKN/4YjZTQW3ZDHX+6oH8lIzF5t/XWq07v6cygCpUAYA/YWfqae6X9/+RNeJRQ
-	Ef5bqNxrDLSla1/1CZFZUbikBxa/+6QABJ/SUJP/gBLLtaTPQWhzI173X9Yp4EEndICnsGKqsrr
-	cTuMibMQxW6PzOhuaoq3PTEtNqD7DiEXHXh2tcEJDGF5Kq5P5mT2xesjw5QW9GVLmu7A4nyqVNQ
-	gYS2Q+oNCf5ZmygEaOMN9pM4PaLaBtwUGrGQ8=
-X-Received: by 2002:a05:6a21:39a:b0:3e2:aab8:4eb6 with SMTP id
- adf61e73a8af0-4014db602b4mr721063637.47.1795118528518; Thu, 19 Nov 2026
- 12:02:08 -0800 (PST)
+        bh=Q14BaH4YWpZ1CMH/OeX/X6O3rC8BtXsm7PEVpfcrbpk=;
+        b=0X03DGY3ymsgVE7aYnp+9j2RG6bHw4peTnWm4XDdmdpsQlvVEiIR+DpZu/YzfNXvA4
+         Yg+XtQBIqHbNBnjieYD/JaOjuazYWVUZEpZZaz673GIkGZkeuN9sEluRSjmtutmNvfJF
+         fYkfQcLq1oKFT9W/DdJZzceBVgvCZosNTuV2SAQOFgN302B4bv8DdON4OFWPTVQBBOpM
+         6AqwfkU9VTbgeu08Kz2wJAhpvI24Ox3sfzIRJ0mxcQ68UNRM9eNb3zVvxi0Mk4HgWmDW
+         J9GXTfJDAy1ugAi0LXqN03tRBp9Xrz0lPktv6Bs9e7izC3CnvDYb8M9UkG26vkoeHnve
+         mgMQ==
+X-Forwarded-Encrypted: i=1; AL+hErEqTwXrvydWfud0mKG2lXg0iiwowjkiouyLDPK6nI8d1keTO5E2htzyQWt3kGXgtEwfDJIGhlDYipjkDbo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+bI8NVB0NV8dgdhHRZSIJXY324R+w2ShF9AL+JqNNb4ewhXWrQ
+	NER3VDjccol5SDSWsbKY75bVbDB6lrUmevdqsnSoQ5IBzJ4jjih2wCbQ84jRK1NRolg=
+X-Gm-Gg: AYBFou0Q/gJsfD6lTAirrva4Qqcifnr5MQIwxjX4jTx4+aYJX7Fuayk3jyI02aLPtx1
+	iWiI3m2TkfWlLjwNsR8bwXbU5tt+4X1qq5D1jDFdQbaxgvIwXVr/eyaaO1XxRtw8/u0vBjSeYWx
+	qf9zUiBcAasN0EwdvnJIiHEEDYUqSCfbxJJmSrSvRpmSx76IkXN6Zo2HE/eqEfbgpiC8F+Cx5wR
+	rIJFJ0P7LuPizOxfgv4TMB4sQSILeK1pbqLNQWKgawmif8ky+cVJk2IjJ2v/7OeiVylwilzDe7D
+	ZKZ8yGroTFmsRm1Uqc6l/8g4yjbXDGScskwR4Lf2Y80nl48hrMqRQwfglACxsnpHbpYMjL+XHaG
+	5PeZmjS6BJFEEhO3V9FpfhkRdrP4Zi7jM7WklZ8oVq0pmIf2hqum0FzVfpvGVcaw4yqcC1kJhO1
+	0gVXGvT0kDWlIP/B7hdRjJADkBpwhlrpPXRMgPtWevLwsQZrZ3i+c+BHqjTaDllQuTw5h9OW8gy
+	CsI1iwJh3kswMsfhzDZ7RXWEg+BYOJ8JenyZJyqD2LEUfgQXNGAt5W79o1cYfjZyLF2Awy2s4kz
+	5iLyj3M7GucsODW6BIHsDNo5r0ansrMxy/7l+AAuqzUmyhCyNE5hyKA=
+X-Received: by 2002:a05:622a:613:b0:535:9686:b9e9 with SMTP id d75a77b69052e-55d7693bd69mr19037791cf.11.1795118686443;
+        Thu, 19 Nov 2026 12:04:46 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882ea2dsm3925891cf.15.2026.11.19.12.04.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 12:04:45 -0800 (PST)
+Message-ID: <8ad5ec8847859937aef900a09ae8b3eddaa15464.camel@ndufresne.ca>
+Subject: Re: [RFC PATCH 02/28] media: mali-vpu: add Mali VPU platform driver
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Charvi Mehta <charvi.mehta@arm.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Vincenzo
+ Frascino <vincenzo.frascino@arm.com>,  Rathinavel Sankaralingam
+ <rath.sankaralingam@arm.com>, Shobhit Pandey <shobhit.pandey@arm.com>
+Date: Thu, 19 Nov 2026 15:04:43 -0500
+In-Reply-To: <20261119153758.1426673-3-charvi.mehta@arm.com>
+References: <20261119153758.1426673-1-charvi.mehta@arm.com>
+	 <20261119153758.1426673-3-charvi.mehta@arm.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-77/Ca/PVjYZGlYteOTS6"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,108 +118,515 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179505710266.3511678.14017674052424733262@gmail.com>
-In-Reply-To: <179505710266.3511678.14017674052424733262@gmail.com>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Thu, 19 Nov 2026 15:01:57 -0500
-X-Gm-Features: AclHuK_QNEvmBX1MCKcJp6gFprpzU6I8eQIOW2c22-DHXFZThro3p5SjaiyInMM
-Message-ID: <CADvbK_citvtZ4eumLcx_szUvth7sQMP1oKu0mLbo0a3bD-eSxQ@mail.gmail.com>
-Subject: Re: [BUG] sctp: auth: NULL asoc->shkey after a failed
- SCTP_CMD_ASSOC_SHKEY makes close() oops
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Jun Yang <junvyyang@tencent.com>, linux-sctp@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+
+--=-77/Ca/PVjYZGlYteOTS6
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 10:04=E2=80=AFPM Kyuwon Cho <kyuwoncho18@gmail.com>=
- wrote:
->
-> Hi Marcelo, Xin,
->
-> While testing v7.4-rc3 with an LLM-guided test generator that we are
-> developing as a research prototype, we found that an SCTP association
-> whose shared key could not be set up still builds authenticated chunks,
-> with a NULL key. Closing such a socket with SO_LINGER {1, 0} then
-> oopses in sctp_auth_shkey_hold(); here as an unprivileged user:
->
->   BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (include/linux/refco=
-unt.h:366 net/sctp/auth.c:113)
->   Write of size 4 at addr 0000000000000018 by task test/115
->   CPU: 1 UID: 65534 PID: 115 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(=
-lazy)
->   Call Trace:
->    <TASK>
->    sctp_auth_shkey_hold (include/linux/refcount.h:366 net/sctp/auth.c:113=
-)
->    sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
->    sctp_make_abort_user (net/sctp/sm_make_chunk.c:1492 net/sctp/sm_make_c=
-hunk.c:953 net/sctp/sm_make_chunk.c:1016)
->    sctp_close (net/sctp/socket.c:1564)
->    inet_release (net/ipv4/af_inet.c:443)
->    __sock_release (net/socket.c:735)
->    sock_close (net/socket.c:1529)
->    __fput (fs/file_table.c:512)
->    fput_close_sync (fs/file_table.c:618)
->    __x64_sys_close (fs/open.c:1574 fs/open.c:1597 fs/open.c:1584)
->    do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_6=
-4.c:89)
->    entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
->    </TASK>
->
-> When the INIT-ACK arrives, sctp_sf_do_5_1C_ack() queues
-> SCTP_CMD_PEER_INIT, which records that the peer supports AUTH and which
-> chunks it wants authenticated, and then SCTP_CMD_ASSOC_SHKEY:
->
->         case SCTP_CMD_ASSOC_SHKEY:
->                 error =3D sctp_auth_asoc_init_active_key(asoc,
->                                         GFP_ATOMIC);
->                 break;
->
-> sctp_auth_asoc_init_active_key() returns -ENOMEM before it sets
-> asoc->shkey when the secret cannot be allocated:
->
->         secret =3D sctp_auth_asoc_create_secret(asoc, ep_key, gfp);
->         if (!secret)
->                 return -ENOMEM;
->         ...
->         asoc->shkey =3D ep_key;
->
-> sctp_cmd_interpreter() then drops the remaining commands, but the
-> association stays, with peer.auth_capable set and asoc->shkey NULL. If
+Hi,
 
-The association should NOT stay with a broken state, but be deleted in such
-cases. But it seems we can't do it in the loop of sctp_cmd_interpreter().
+Le jeudi 19 novembre 2026 =C3=A0 15:37 +0000, Charvi Mehta a =C3=A9crit=C2=
+=A0:
+> In preparation for adding H.264 video decode support, add the platform
+> driver for Arm Mali-VPU.
+>=20
+> Add probe and remove operations to acquire and manage the MMIO region,
+> interrupt, clocks and reset controls. Add the variant data for Mali-V76
+> and validate the hardware product ID during probe.
+>=20
+> Restrict the driver to little-endian kernels, as the firmware interface
+> uses little-endian shared memory structures accessed in native-byte order=
+.
+>=20
+> Signed-off-by: Charvi Mehta <charvi.mehta@arm.com>
+> ---
+>  drivers/media/platform/arm/Kconfig            |   1 +
+>  drivers/media/platform/arm/Makefile           |   1 +
+>  drivers/media/platform/arm/mali-vpu/Kconfig   |  14 ++
+>  drivers/media/platform/arm/mali-vpu/Makefile  |   6 +
+>  .../platform/arm/mali-vpu/mali-vpu-device.h   |  38 ++++
+>  .../platform/arm/mali-vpu/mali-vpu-probe.c    | 215 ++++++++++++++++++
+>  .../arm/mali-vpu/mali-vpu-registers.h         |  24 ++
+>  .../arm/mali-vpu/mali-vpu-variant-v76.c       |  21 ++
+>  .../platform/arm/mali-vpu/mali-vpu-variant.h  |  25 ++
+>  9 files changed, 345 insertions(+)
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/Kconfig
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/Makefile
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-register=
+s.h
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-variant-=
+v76.c
+>  create mode 100644 drivers/media/platform/arm/mali-vpu/mali-vpu-variant.=
+h
+>=20
+> diff --git a/drivers/media/platform/arm/Kconfig b/drivers/media/platform/=
+arm/Kconfig
+> index 4f0764c329c74..339969d0ef4ce 100644
+> --- a/drivers/media/platform/arm/Kconfig
+> +++ b/drivers/media/platform/arm/Kconfig
+> @@ -3,3 +3,4 @@
+>  comment "ARM media platform drivers"
+> =20
+>  source "drivers/media/platform/arm/mali-c55/Kconfig"
+> +source "drivers/media/platform/arm/mali-vpu/Kconfig"
+> diff --git a/drivers/media/platform/arm/Makefile b/drivers/media/platform=
+/arm/Makefile
+> index 8cc4918725efa..3c38ad267e59a 100644
+> --- a/drivers/media/platform/arm/Makefile
+> +++ b/drivers/media/platform/arm/Makefile
+> @@ -1,2 +1,3 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  obj-y +=3D mali-c55/
+> +obj-y +=3D mali-vpu/
+> diff --git a/drivers/media/platform/arm/mali-vpu/Kconfig b/drivers/media/=
+platform/arm/mali-vpu/Kconfig
+> new file mode 100644
+> index 0000000000000..86403d7f424f9
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/Kconfig
+> @@ -0,0 +1,14 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +config VIDEO_MALI_VPU
+> +=09tristate "ARM Mali VPU driver"
+> +=09depends on VIDEO_DEV
+> +=09depends on !CPU_BIG_ENDIAN
+> +=09help
+> +=09  Enable this to support Arm's Mali Video hardware accelerator.
+> +=09  This is a V4L2 driver.
+> +
+> +=09  Only little-endian kernels are supported. The firmware interface
+> +=09  uses little-endian shared-memory structures.
+> +
+> +=09  To compile this driver as a module, choose M here: the module
+> +=09  will be called mali-vpu.
+> diff --git a/drivers/media/platform/arm/mali-vpu/Makefile b/drivers/media=
+/platform/arm/mali-vpu/Makefile
+> new file mode 100644
+> index 0000000000000..22acf82e99a88
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/Makefile
+> @@ -0,0 +1,6 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +mali-vpu-objs :=3D mali-vpu-probe.o \
+> +=09=09mali-vpu-variant-v76.o
+> +
+> +obj-$(CONFIG_VIDEO_MALI_VPU) +=3D mali-vpu.o
+> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h b/driv=
+ers/media/platform/arm/mali-vpu/mali-vpu-device.h
+> new file mode 100644
+> index 0000000000000..04160090e64df
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-device.h
+> @@ -0,0 +1,38 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2026 ARM Limited.
+> + */
+> +
+> +#ifndef __MALI_VPU_DEVICE_H__
+> +#define __MALI_VPU_DEVICE_H__
+> +
+> +#include <linux/device.h>
+> +
+> +struct clk_bulk_data;
+> +struct mali_vpu_variant;
+> +struct reset_control_bulk_data;
+> +
+> +/**
+> + * struct mali_vpu_dev - Mali VPU device
+> + * @dev: Reference to device structure.
+> + * @regs_base: MMIO base address for VPU registers.
+> + * @clk_list: List of VPU clocks.
+> + * @clk_count: Number of clocks in @clk_list.
+> + * @rst_list: List of reset controls.
+> + * @rst_count: Number of reset controls in @rst_list.
+> + * @irq: IRQ number for VPU.
+> + * @variant: Structure describing variant-specific features and capabili=
+ties.
+> + */
+> +struct mali_vpu_dev {
+> +=09struct device=09=09=09*dev;
+> +=09void __iomem=09=09=09*regs_base;
+> +=09struct clk_bulk_data=09=09*clk_list;
+> +=09unsigned int=09=09=09clk_count;
+> +=09struct reset_control_bulk_data=09*rst_list;
+> +=09unsigned int=09=09=09rst_count;
+> +=09int=09=09=09=09irq;
+> +
+> +=09const struct mali_vpu_variant=09*variant;
+> +};
+> +
+> +#endif /* __MALI_VPU_DEVICE_H__ */
+> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c b/drive=
+rs/media/platform/arm/mali-vpu/mali-vpu-probe.c
+> new file mode 100644
+> index 0000000000000..49ecd6ac4554c
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-probe.c
+> @@ -0,0 +1,215 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 ARM Limited.
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/errno.h>
+> +#include <linux/io.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset.h>
+> +#include <linux/slab.h>
+> +
+> +#include "mali-vpu-device.h"
+> +#include "mali-vpu-registers.h"
+> +#include "mali-vpu-variant.h"
+> +
+> +/* VPU register access helpers */
+> +static u32 mali_vpu_read_reg(void __iomem *regs_base, u32 off)
+> +{
+> +=09return readl(regs_base + off);
 
-Can you please try fixing it by directly calling sctp_process_init() and
-sctp_auth_asoc_init_active_key() in sctp_sf_do_5_1C_ack()? like:
+That wrapper does nothing other then increasing the code length. Why not ta=
+ke a
+vpu_dev as parameter?
 
-        if (!sctp_process_init((struct sctp_association *)asoc, chunk,
-                               sctp_source(chunk), initchunk, GFP_ATOMIC)) =
-{
-                sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-                                SCTP_U16(SCTP_ERROR_NO_RESOURCE));
-                return SCTP_DISPOSITION_CONSUME;
-        }
+You're chosen namespace is also very long, worth considering, but not stric=
+tly a
+problem.
 
-        /* SCTP-AUTH: generate the association shared keys so that
-         * we can potentially sign the COOKIE-ECHO.
-         */
-        if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
-                                           GFP_ATOMIC)) {
-                sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-                                SCTP_U16(SCTP_ERROR_NO_RESOURCE));
-                return SCTP_DISPOSITION_CONSUME;
-        }
+> +}
+> +
+> +static void mali_vpu_read_version(struct mali_vpu_dev *vpu_dev, u32 *pro=
+duct_id, u32 *rev,
+> +=09=09=09=09  u32 *patch)
+> +{
+> +=09u32 pid_prefix, pid_suffix;
+> +
+> +=09u32 hwver =3D mali_vpu_read_reg(vpu_dev->regs_base, MALI_VPU_REG_VERS=
+ION);
+> +
+> +=09pid_prefix =3D FIELD_GET(MALI_VPU_VERSION_PRODUCT_ID_MASK, hwver);
+> +=09pid_suffix =3D FIELD_GET(MALI_VPU_PID_SUFFIX_MASK, hwver);
+> +
+> +=09*product_id=09=3D (pid_prefix << 4) | pid_suffix;
+> +=09*rev=09=09=3D FIELD_GET(MALI_VPU_VERSION_REVISION_MASK, hwver);
+> +=09*patch=09=09=3D FIELD_GET(MALI_VPU_VERSION_PATCH_MASK, hwver);
+> +}
+> +
+> +static int mali_vpu_get_clocks(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09int ret;
+> +
+> +=09ret =3D devm_clk_bulk_get_all(vpu_dev->dev, &vpu_dev->clk_list);
+> +=09if (ret < 0)
+> +=09=09return dev_err_probe(vpu_dev->dev, ret, "failed to get clocks\n");
+> +=09if (!ret)
+> +=09=09return dev_err_probe(vpu_dev->dev, -EINVAL, "no clocks found\n");
 
-instead of using SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
+I don't think the second check is required, that would mean you have zero c=
+lock
+in your DT, which is invalid according to your binding.
 
-Then you can delete SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY commands
-from sctp code, as they're no longer used.
+> +
+> +=09vpu_dev->clk_count =3D ret;
+> +
+> +=09return 0;
+> +}
+> +
+> +static int mali_vpu_get_resets(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09unsigned int i;
+> +=09int ret;
+> +
+> +=09vpu_dev->rst_count =3D vpu_dev->variant->num_rsts;
+> +=09if (vpu_dev->rst_count =3D=3D 0)
+> +=09=09return 0;
+> +
+> +=09vpu_dev->rst_list =3D devm_kcalloc(vpu_dev->dev, vpu_dev->rst_count,
+> +=09=09=09=09=09 sizeof(*vpu_dev->rst_list), GFP_KERNEL);
+> +=09if (!vpu_dev->rst_list)
+> +=09=09return -ENOMEM;
+> +
+> +=09for (i =3D 0; i < vpu_dev->rst_count; i++)
+> +=09=09vpu_dev->rst_list[i].id =3D vpu_dev->variant->rst_names[i];
+> +
+> +=09ret =3D devm_reset_control_bulk_get_optional_exclusive(vpu_dev->dev,
+> +=09=09=09=09=09=09=09     vpu_dev->rst_count,
+> +=09=09=09=09=09=09=09     vpu_dev->rst_list);
+> +=09if (ret)
+> +=09=09return dev_err_probe(vpu_dev->dev, ret, "failed to get reset contr=
+ols\n");
+> +
+> +=09return 0;
+> +}
+> +
+> +static int mali_vpu_enable_clk(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09return clk_bulk_prepare_enable(vpu_dev->clk_count, vpu_dev->clk_list)=
+;
+> +}
+> +
+> +static void mali_vpu_disable_clk(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09clk_bulk_disable_unprepare(vpu_dev->clk_count, vpu_dev->clk_list);
+> +}
 
-Also, please use git-send-email to send your patch, not send it as an
-attachment.
+The two wrapper above do nothing.
 
-Thanks.
+> +
+> +static void mali_vpu_assert_reset(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09if (!vpu_dev->rst_count)
+> +=09=09return;
+> +
+> +=09reset_control_bulk_assert(vpu_dev->rst_count, vpu_dev->rst_list);
+> +}
+> +
+> +static int mali_vpu_deassert_reset(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09if (!vpu_dev->rst_count)
+> +=09=09return 0;
+> +
+> +=09return reset_control_bulk_deassert(vpu_dev->rst_count, vpu_dev->rst_l=
+ist);
+> +}
+> +
+> +static int mali_vpu_get_resources(struct mali_vpu_dev *vpu_dev)
+> +{
+> +=09int ret;
+> +
+> +=09ret =3D mali_vpu_get_clocks(vpu_dev);
+> +=09if (ret)
+> +=09=09return ret;
+> +
+> +=09return mali_vpu_get_resets(vpu_dev);
+> +}
+> +
+> +static int mali_vpu_probe(struct platform_device *pdev)
+> +{
+> +=09struct mali_vpu_dev *vpu_dev;
+> +=09u32 pid, rev, patch;
+> +=09int ret;
+> +
+> +=09vpu_dev =3D devm_kzalloc(&pdev->dev, sizeof(*vpu_dev), GFP_KERNEL);
+> +=09if (!vpu_dev)
+> +=09=09return -ENOMEM;
+> +=09vpu_dev->dev =3D &pdev->dev;
+> +
+> +=09vpu_dev->variant =3D of_device_get_match_data(&pdev->dev);
+> +=09if (!vpu_dev->variant)
+> +=09=09return -ENODEV;
+> +
+> +=09vpu_dev->regs_base =3D devm_platform_ioremap_resource(pdev, 0);
+> +=09if (IS_ERR(vpu_dev->regs_base))
+> +=09=09return PTR_ERR(vpu_dev->regs_base);
+> +
+> +=09ret =3D platform_get_irq(pdev, 0);
+> +=09if (ret < 0)
+> +=09=09return ret;
+> +=09vpu_dev->irq =3D ret;
+> +
+> +=09ret =3D mali_vpu_get_resources(vpu_dev);
+> +=09if (ret)
+> +=09=09return ret;
+> +
+> +=09ret =3D mali_vpu_enable_clk(vpu_dev);
+> +=09if (ret) {
+> +=09=09dev_err(vpu_dev->dev, "failed to enable core clock\n");
+> +=09=09return ret;
+> +=09}
+> +
+> +=09ret =3D mali_vpu_deassert_reset(vpu_dev);
+> +=09if (ret) {
+> +=09=09dev_err(vpu_dev->dev, "failed to deassert reset\n");
+> +=09=09goto err_clk;
+> +=09}
+
+In practice the two above should be inside your PM runtime ops, not sure if
+that's coming after, in which case just ignore. It best to do this early, P=
+M as
+after thought would be bad.
+
+> +
+> +=09mali_vpu_read_version(vpu_dev, &pid, &rev, &patch);
+> +=09dev_info(&pdev->dev, "Mali VPU device product ID: %#x, revision: %#x,=
+ patch: %#x\n",
+> +=09=09 pid, rev, patch);
+> +
+> +=09if (pid !=3D vpu_dev->variant->expected_hw_pid) {
+> +=09=09dev_err(vpu_dev->dev, "unexpected hardware product ID: %#x (expect=
+ed %#x)\n",
+> +=09=09=09pid, vpu_dev->variant->expected_hw_pid);
+> +=09=09ret =3D -ENODEV;
+> +=09=09goto err_rst_clk;
+> +=09}
+
+Both ways work, but you could also pick the variant based on the version
+instead, and only depend on DT for the "families" (e.g. the version registe=
+r
+layout have changed but you still want this under the same driver).
+
+> +
+> +=09platform_set_drvdata(pdev, vpu_dev);
+> +
+> +=09return 0;
+> +
+> +err_rst_clk:
+> +=09mali_vpu_assert_reset(vpu_dev);
+> +err_clk:
+> +=09mali_vpu_disable_clk(vpu_dev);
+> +
+> +=09return ret;
+> +}
+> +
+> +static void mali_vpu_remove(struct platform_device *pdev)
+> +{
+> +=09struct mali_vpu_dev *vpu_dev =3D platform_get_drvdata(pdev);
+> +
+> +=09mali_vpu_assert_reset(vpu_dev);
+> +=09mali_vpu_disable_clk(vpu_dev);
+> +
+> +=09platform_set_drvdata(pdev, NULL);
+> +}
+> +
+> +static const struct of_device_id mali_vpu_dt_match[] =3D {
+> +=09{
+> +=09=09.compatible =3D "arm,mali-v76",
+> +=09=09.data =3D &mali_vpu_v76_variant,
+> +=09},
+> +=09{},
+> +};
+> +MODULE_DEVICE_TABLE(of, mali_vpu_dt_match);
+> +
+> +static struct platform_driver mali_vpu_driver =3D {
+> +=09.probe =3D mali_vpu_probe,
+> +=09.remove =3D mali_vpu_remove,
+> +=09.driver =3D {
+> +=09=09.name =3D "mali-vpu",
+> +=09=09.of_match_table =3D mali_vpu_dt_match,
+> +=09},
+> +};
+> +
+> +module_platform_driver(mali_vpu_driver);
+> +MODULE_DESCRIPTION("Arm Mali VPU driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h b/d=
+rivers/media/platform/arm/mali-vpu/mali-vpu-registers.h
+> new file mode 100644
+> index 0000000000000..471a1f2412a7a
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-registers.h
+> @@ -0,0 +1,24 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2026 ARM Limited.
+> + */
+> +
+> +#ifndef __MALI_VPU_REGISTERS_H__
+> +#define __MALI_VPU_REGISTERS_H__
+> +
+> +#include <linux/bits.h>
+> +
+> +/*
+> + * Mali VPU register offsets and bitfield definitions.
+> + *
+> + * Offsets are relative to the VPU MMIO base.
+> + */
+> +#define MALI_VPU_REG_VERSION 0x00000
+> +
+> +/* Version register fields */
+> +#define MALI_VPU_VERSION_PRODUCT_ID_MASK GENMASK(31, 16)
+> +#define MALI_VPU_VERSION_REVISION_MASK   GENMASK(15, 8)
+> +#define MALI_VPU_VERSION_PATCH_MASK      GENMASK(7, 0)
+> +#define MALI_VPU_PID_SUFFIX_MASK         GENMASK(15, 12)
+> +
+> +#endif /* __MALI_VPU_REGISTERS_H__ */
+> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c b=
+/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
+> new file mode 100644
+> index 0000000000000..36509d6a1c5d5
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant-v76.c
+> @@ -0,0 +1,21 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 ARM Limited.
+> + */
+> +
+> +#include <linux/array_size.h>
+> +
+> +#include "mali-vpu-variant.h"
+> +
+> +#define MALI_VPU_HW_PID_V76 0x56627
+> +
+> +static const char * const mali_v76_rst_names[] =3D {
+> +=09"warm",
+> +};
+> +
+> +const struct mali_vpu_variant mali_vpu_v76_variant =3D {
+> +=09.expected_hw_pid =3D MALI_VPU_HW_PID_V76,
+> +
+> +=09.rst_names =3D mali_v76_rst_names,
+> +=09.num_rsts =3D ARRAY_SIZE(mali_v76_rst_names),
+> +};
+> diff --git a/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h b/dri=
+vers/media/platform/arm/mali-vpu/mali-vpu-variant.h
+> new file mode 100644
+> index 0000000000000..dadfd686275db
+> --- /dev/null
+> +++ b/drivers/media/platform/arm/mali-vpu/mali-vpu-variant.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2026 ARM Limited.
+> + */
+> +
+> +#ifndef __MALI_VPU_VARIANT_H__
+> +#define __MALI_VPU_VARIANT_H__
+> +
+> +#include <linux/types.h>
+> +
+> +/**
+> + * struct mali_vpu_variant - Variant-specific hardware capability descri=
+ptor.
+> + * @rst_names: Array of reset control names for this variant.
+> + * @num_rsts: Number of reset controls for this variant.
+> + * @expected_hw_pid: Expected hardware product ID read from the version =
+register.
+> + */
+> +struct mali_vpu_variant {
+> +=09const char * const *rst_names;
+> +=09unsigned int num_rsts;
+> +=09u32 expected_hw_pid;
+> +};
+> +
+> +extern const struct mali_vpu_variant mali_vpu_v76_variant;
+> +
+> +#endif /* __MALI_VPU_VARIANT_H__ */
+>=20
+>=20
+
+
+Nicolas
+
+--=-77/Ca/PVjYZGlYteOTS6
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav9WWwAKCRDZQZRRKWBy
+9HSFAQC3dR8FY558bI4k7AkFIZnVrSsPsqNBimLPu0y6ccGJbwD7BJXx8SWhMg3O
+mgPuuDQDu5kafUiyuUehOt65wtW2Qgc=
+=0TVw
+-----END PGP SIGNATURE-----
+
+--=-77/Ca/PVjYZGlYteOTS6--
