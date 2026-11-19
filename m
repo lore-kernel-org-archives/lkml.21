@@ -1,52 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795084818;
-	b=cKWAuy3cgTEXgANSjYksslnH4uqk9gSdWgtBW4ekftzBmONBXNe/rPDYkvkZHnL7W3Me
-	 V3JIOlC9+FoGB/keuIjtbGG0pNe+8vZ8mtJu3Hgg0PAFLTK+PfzJbw1mX1TcYV0cx5KUU
-	 mv1icifPM9PPG1/StBaSi/Ev8TiOdUS8yjlEIBUCNhsEbG7r5TcFpHxBw0YYSkiEKWM2k
-	 g8/+2R0G2LKjo4OpMkrvOrs2sBSWGmYyvdMR5cX04budpGwSLpMApzCWEWs6pMfeJKupX
-	 3TGwGqfXH26apQcQ6xFyoq6ZdBG5YHznxdYwtHafBcw10SKE7q7PUGAr4t+1WdBRzpA==
+	t=1795084815;
+	b=R76D3xKRKCaJbIcwMhZ7IobwylxMoZOtCOtsFj8n8EsBu5bg4bnEIkmj4mNNjIIAnXlq
+	 E1fn9IkApvxJ71Ii+8DltSbgCa4UXARp9btGq/fHAars41CtIG9kQvwdbdf1KKHknJC2b
+	 22foDCnllcEURvNaXedBMHFZWXJs0I6XT3LORp2weAfNwAUzn/9qAWC7g/RsKvl6CpA9y
+	 Qq4TjtMh2i4W2i3yzXgeA/Oo6+td6Em67R5OoB45tFAvly+2YXwuFmUhF8tZU2ZwyViNJ
+	 g9kXY1x4FvQBTfxFV3mNBeQnkjtZ12Jwr0Hvj9tx88XTHIfWYOBn/pznSYs6SJUL6Rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795084818;
-	h=DMARC-Filter:DKIM-Signature:To:References:Message-Id:Mime-Version:
-	 X-Original-From:X-Lms-Return-Path:Cc:From:Subject:X-Mailer:
-	 Content-Transfer-Encoding:Content-Type:Received:In-Reply-To:Date;
-	bh=KQPOp4xGjwuKezWUr9bZK0W9R/4TtsXBaWa2PNO2Dyk=;
-	b=zFiK6kpgOd368lFvpD7T+zlt/F/8NZm+cn89xaSb6oKLm+9gpS8bOeCP+OAbBWVf4Skh
-	 CNVxBB1GDCfo5eJuxBNywq+7fxijYO41ETsrtjlVi/qNhW2E9/e1bgS+53O2d7I7S9SMG
-	 R+U/u64BPGVenD6PVdRpL7ydhPIxO0ZxAv0AuVsqCcm37oUIRdOkA+kjxhvOgx5LMxaQy
-	 d3SIjSwwH/xFG/0TVXVWXaTGfodKjANWa7RVz97GsW8ZaZAR2meSdlmiMMyAjSNqy2ntg
-	 Zm19boiUc5Prh7NVI9WhMhpEVO2UMc13va/8DszjtW7v1H2I73Txr0/sukFd81cjEJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795084815;
+	h=DMARC-Filter:DKIM-Signature:Mime-Version:X-Original-From:Received:Cc:
+	 Subject:Content-Transfer-Encoding:X-B4-Tracking:Content-Type:From:
+	 Message-Id:X-Mailer:To:Date:X-Change-Id:X-Lms-Return-Path;
+	bh=rm1SiYSaCZ8v2XPknfKS2cqm5SsYgR5uwTL8lG+Xc0k=;
+	b=rtiVQ/3al2uu1xvyg1vsh6VDW/IFvIYK0me/0+l92vejbXEZE/SD7frrlSHibUq8hLoA
+	 PSaRdjq2xsAiVOpM6kU0pjrLqNOarEldDYdsi0Y7n4A6ylUyi0VlgcCOIuNA1DjRPTNaG
+	 kXOKPhdWiuNedui2xRf0E73oLvx+FXVET8GM7Bh2sTvU3tXGTFsPRCsmoZwz9e5D83/ed
+	 fpvDen+w3yihLGuA5p9gYoB8XEXBkfI+IGsT1Nl8iF/J38x5pL+o1oZpt0t/fa/HDgSjk
+	 oeACaHo8sauZHDGNXsfIoo79frzLP8ySWSG1GiXgzcwVvlikZF86xLSsAgvzmpg713Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.cipunited.com;
 	spf=pass smtp.mailfrom=oss.cipunited.com;
-	dkim=pass header.d=oss.cipunited.com header.i=@oss.cipunited.com header.a=rsa-sha256 header.s=feishu2303200042 header.b=5Jz8veAu;
-	arc=none smtp.remote-ip=209.127.231.19
-Received: from va-2-19.ptr.blmpb.com (va-2-19.ptr.blmpb.com [209.127.231.19])
+	dkim=pass header.d=oss.cipunited.com header.i=@oss.cipunited.com header.a=rsa-sha256 header.s=feishu2303200042 header.b=s8Nw7S1n;
+	arc=none smtp.remote-ip=209.127.231.46
+Received: from va-2-46.ptr.blmpb.com (va-2-46.ptr.blmpb.com [209.127.231.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 658F660A2606
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:40:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 658F660A2606
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4246A606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:40:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4246A606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.cipunited.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.cipunited.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=oss.cipunited.com header.i=@oss.cipunited.com header.a=rsa-sha256 header.s=feishu2303200042 header.b=5Jz8veAu
+	dkim=pass (2048-bit key) header.d=oss.cipunited.com header.i=@oss.cipunited.com header.a=rsa-sha256 header.s=feishu2303200042 header.b=s8Nw7S1n
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2303200042; d=oss.cipunited.com; t=1795084813;
+ s=feishu2303200042; d=oss.cipunited.com; t=1795084809;
   h=from:subject:mime-version:from:date:message-id:subject:to:cc:
  reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=KQPOp4xGjwuKezWUr9bZK0W9R/4TtsXBaWa2PNO2Dyk=;
- b=5Jz8veAuxn827m3JVjhj7Bqy+bSgYnvslsKCWHpivzlNMD+bnI7/y9MmscgkyGNWzn0N6J
- 5RLnqhcDCMx0JSucuBwMxp3uEk0W2U7BEE6IFfgnsgh6/jvMpORVeBtzFoFLYYhHO7pUWa
- TlGR3vI7DdalPmOtFciSRXt8c9rz8QoDyismUFmXVcO7YNceXBP58+tLHx3dlcPc8X0FH0
- nSuObBM11OGqS1JC4iJk1YQPAum3/ON5UfLgsOUDAPVuuz+ZBsIQKS+b3FggVrIH7Msile
- ClDmTaRoMSSE8FNq3viY8sWvTiSv1iia5WwQpkEEnRAKb+k8NFM2D1+UoNjePA==
-To: "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, 
-	"David Daney" <ddaney@caviumnetworks.com>
-References: <20261119-mips-kprobes-bp-v1-0-eff03ea13503@oss.cipunited.com>
-Message-Id: <20261119-mips-kprobes-bp-v1-2-eff03ea13503@oss.cipunited.com>
+ bh=rm1SiYSaCZ8v2XPknfKS2cqm5SsYgR5uwTL8lG+Xc0k=;
+ b=s8Nw7S1nXUqsQ9btfT4ULm6BdNKbgMyoGgrdcJqMArS4XETqeRBAvxsibizNeoiCx3THdF
+ qq+QGGWkHr/VbPW6MsJvEjWK/C+/QATz+hIRSLJUsn+Af1On9CW+eMHiN7iip3ulgNiilC
+ KJg1miNMEk5P5reQ9GaGyRAK9GL4HkMUA2NZjMpEFz9UNAFEbpuA+hyAOdSXqn0g8D0zto
+ 6aR7RC1xZTyYTqkFtlU2gpZwh2qwHovmRXFWF8uiMCq8PLMgZy5SYYWo35vdG5/ObTMbgV
+ C1ALH4RfNvPh3fBg1DvMJlhv9Z1gMpBSqoTyL9XFJ2jtBbwZfBo0xuHvXuIOew==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,68 +53,58 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Original-From: Rong Zhang <rongrong@oss.cipunited.com>
-X-Lms-Return-Path: <lba+26afed20b+591aa9+vger.kernel.org+rongrong@oss.cipunited.com>
+Received: from [127.0.1.1] ([171.15.157.139]) by smtp.feishu.cn with ESMTPS; Thu, 19 Nov 2026 18:40:06 +0800
 Cc: "Yao Zi" <me@ziyao.cc>, "Icenowy Zheng" <uwu@icenowy.me>, 
 	"Jiaxun Yang" <jiaxun.yang@flygoat.com>, "Rong Zhang" <i@rong.moe>, 
 	<linux-mips@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
 	<stable@vger.kernel.org>, "Mike Yang" <reimu@sudomaker.com>, 
 	"Rong Zhang" <rongrong@oss.cipunited.com>
-From: "Rong Zhang" <rongrong@oss.cipunited.com>
-Subject: [PATCH 2/2] MIPS: Keep interrupts as they are in breakpoint handler
-X-Mailer: b4 0.17-dev-ce4c1
+Subject: [PATCH 0/2] MIPS: kprobes fixes
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ7CIBBA0as0s3YSNFTAq5gugE51NLaE0aYJ4 e5FXb7F/wWEMpPApSuQaWXhZW44HjqIdz/fCHlshqi0M+5k8MVJ8JnyEkgwJKRgR+0n5c+2h1a lTBNvv+N1+Fs+4UHx/d1ArTuqwgHFcwAAAA==
 Content-Type: text/plain; charset=UTF-8
-Received: from [127.0.1.1] ([171.15.157.139]) by smtp.feishu.cn with ESMTPS; Thu, 19 Nov 2026 18:40:10 +0800
-In-Reply-To: <20261119-mips-kprobes-bp-v1-0-eff03ea13503@oss.cipunited.com>
-Date: Thu, 19 Nov 2026 18:39:01 +0800
+From: "Rong Zhang" <rongrong@oss.cipunited.com>
+Message-Id: <20261119-mips-kprobes-bp-v1-0-eff03ea13503@oss.cipunited.com>
+X-Mailer: b4 0.17-dev-ce4c1
+To: "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>, 
+	"David Daney" <ddaney@caviumnetworks.com>
+Date: Thu, 19 Nov 2026 18:38:59 +0800
+X-Change-Id: c0497927-mips-kprobes-bp-eb8d4af0a685
+X-Lms-Return-Path: <lba+26afed207+b41071+vger.kernel.org+rongrong@oss.cipunited.com>
 
-Currently, the breakpoint exception handler executes STI, which enables
-interrupts even when the breakpoint is located in an interrupt-disabled
-critical section. Such situations usually correlate with kprobes, where
-breakpoints are used to trap into the handlers and single-step the
-original instruction.
+arch_prepare_kprobe() writes the copied instruction and a single-step
+completion breakpoint into an out-of-line instruction slot, but does not
+synchronize the instruction cache for it. Due to arch_arm_kprobe() only
+flushing the probed instruction by calling flush_insn_slot(), the
+executable slot may remain unflushed when the kprobe is hit. This
+becomes critical when get_insn_slot() reuses a just-freed slot.
 
-As a result, registering kprobes into an IRQ-disabled critical section
-could accidentally enable interrupts. Though returning to the next
-instruction will restore (i.e., disable) interrupts again, it may have
-caused irreversible consequences during breakpoint handling.
+Fix it by calling flush_icache_range() to really finish the preparation.
 
-Build the breakpoint handler with KMODE to enter kernel mode with
-interrupts left as they are.
+Additionally, the breakpoint exception handler executes STI, which
+enables interrupts even when the breakpoint is located in an
+interrupt-disabled critical section. Such situations usually correlate
+with kprobes, where breakpoints are used to trap into the handlers and
+single-step the original instruction.
+
+Fix it by building the breakpoint handler with KMODE to enter kernel
+mode with interrupts left as they are.
 
 Fixes: c1bf207d6ee1 ("MIPS: kprobe: Add support.")
-Cc: stable@vger.kernel.org
 Co-developed-by: Mike Yang <reimu@sudomaker.com>
 Signed-off-by: Mike Yang <reimu@sudomaker.com>
 Signed-off-by: Rong Zhang <rongrong@oss.cipunited.com>
 ---
- arch/mips/kernel/genex.S | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Rong Zhang (2):
+      MIPS: kprobes: Flush out-of-line instruction slots before use
+      MIPS: Keep interrupts as they are in breakpoint handler
 
-diff --git a/arch/mips/kernel/genex.S b/arch/mips/kernel/genex.S
-index be1b049d856f..e7a5f6bc31ff 100644
---- a/arch/mips/kernel/genex.S
-+++ b/arch/mips/kernel/genex.S
-@@ -485,6 +485,10 @@ NESTED(nmi_handler, PT_SIZE, sp)
- 	TRACE_IRQS_OFF
- 	.endm
- 
-+	.macro	__build_clear_kmode
-+	KMODE
-+	.endm
-+
- 	.macro	__build_clear_fpe
- 	CLI
- 	TRACE_IRQS_OFF
-@@ -569,7 +573,7 @@ NESTED(nmi_handler, PT_SIZE, sp)
- 	BUILD_HANDLER ades ade ade silent		/* #5  */
- 	BUILD_HANDLER ibe be cli silent			/* #6  */
- 	BUILD_HANDLER dbe be cli silent			/* #7  */
--	BUILD_HANDLER bp bp sti silent			/* #9  */
-+	BUILD_HANDLER bp bp kmode silent		/* #9  */
- 	BUILD_HANDLER ri ri sti silent			/* #10 */
- 	BUILD_HANDLER cpu cpu sti silent		/* #11 */
- 	BUILD_HANDLER ov ov sti silent			/* #12 */
+ arch/mips/kernel/genex.S   | 6 +++++-
+ arch/mips/kernel/kprobes.c | 9 +++++++++
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+---
+base-commit: 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
+change-id: c0497927-mips-kprobes-bp-eb8d4af0a685
 
--- 
-2.55.0
+Thanks,
+Rong
