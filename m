@@ -1,61 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067645;
-	b=Z7kDrvH2/xvqltRlDBF9d6A1dw5Dx68jEv/Ugiq9pB6pGV2d0w2Htb3euO4RHBZp4888
-	 o35401Enu21z7IPulDbxYdy/5bWCJ6gzq6170PggwpEu8+2UrkkNWdSliynNeNPX9OcPb
-	 orC40qpRGBFoFDv9hWWCM21IsQv0xuakS0h5oTkqSUiSIa11P5xWXwsPnyS9hMt52VX8l
-	 kiVSJ9AFShqChdhED/tqY4Rt1DUEtRII8Mekiq+7sMmFSCv/CDH+guizMDywjcmgkBKq3
-	 nf5P9p5945wafIIvJvgryhw3adMkhx03o7ZMDpkq0hPpvjLUEO6amdcMsD/gK2eCFdg==
+	t=1795067657;
+	b=M81Xn0rSmjZnE4rJ7UAzccmYJKs88oSf46LUzzSDDIVHIEoBK0vpztGfTJBO1JcoHq6o
+	 RS3wjLus4OZtXR7q48M+ACPuS23Z1t52RGc0m8E7yP9x/EqXzVSktpUNL6hsSOUKe1DPd
+	 WN6Ozbr9CMziMcFlzG5FKY+LxBQXFVjnleAC5l/hAIodiNgYd4ATNUa6CfMJvkwSp0/+a
+	 Mej4ndEiuJKRYtfoiCS1qbbSvmUhAJa24C34U+aqhvuUZRImL7pEeZQ5Dd5sUviV0xpx1
+	 2Zm92ato93o9ZQ/Y3xD/N5gqncRqK2dN0qEJ5a9zhiIi4V6PnzzUpf9XJx2s7Pbo59g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067645;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wOlFTsWCj5IQP2ufLf/ape389szjtQ5znHXcGvL3Fk8=;
-	b=Gx3o9m0l3NZv683Oz+p2YGsin7Mq5xOp14kXkPERZofPcWLWwlQZmHMf2PxObYVgycKK
-	 dHBa//IN/sbwypLAbLP0GFpClISXe4IBX01nEgVL5jFwvYShgkYorwrzcLU+qbnXpAsUU
-	 +uRH+eOHqUY3nyhfXiytRtVIejFbWsTCQrByLfSvr314l2aSQOaIP0CAx8IHOP8NcvyV/
-	 9+2v3zdcwVCEWMC6hPcv57pzym2pODmDWmlT/Dz0K3dJQptdk9fOgBJ7iaKydpmNgdepF
-	 RbiaIey/yYhY+ua4gHMGOF6YKcOdAPevXvrGnmfXADn4Nq+ynINCKu7ZeC1vfen5pOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067657;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
+	b=Nq84kIuKcm/dRoiFH88BSYmxCCsZbswpNHHgSxC+jPj7670vb6NI0O+G6hblSsf6wOUG
+	 HH35Uzo/JMOo/IZhSbOVGgOFz6HtRkZq77ecHEO29f3zzazlphgH8HB/6ivPMu1XaiAc3
+	 MAerSiIvzBx3ind9fnTogI2BLHrc77oSvQ3NG8QsX02ulZQFrCwPMUvBQJpn0nNf85NS+
+	 OwfqOFCjO2vh/UHcZGWRP3IZBko0qJ9EOUZ5rV8IEGEMlbyds4E4bh8rUMuwypjMBlJo6
+	 a3mNj7Fu1Pc7X5QqaXKFS5o+E4ZJx+RELFDSp7+BAl69OZzNE79oMiOWu5LK90MtbFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rv56GJGa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=C2l17GmL;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="VYTo/8ma";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A7BA606A320;
-	Thu, 19 Nov 2026 05:54:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60448606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:54:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60448606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rv56GJGa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADC91F000C4;
-	Thu, 19 Nov 2026 05:54:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795067644;
-	bh=wOlFTsWCj5IQP2ufLf/ape389szjtQ5znHXcGvL3Fk8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Rv56GJGaU0wL3Kb1T288rpx2AaJE1vfUPNIXMf2OalLoFtgK4gd2TVHWtPRA106VJ
-	 rtcexr3bMfJDuXxyHSPVBjvjwJV7CxMlIjwcG1pfhbzMnJIgRpuFkLLHtnT3/SvAA0
-	 kjXyMfL9/rtgOJcdb92H4wKF3FyaoDcrA2T3E/bUxFHybSj0f245XTsYWsMgJbbgbc
-	 O8FVmr26fJ71LLwFXjRMZbIx/6HPifcv5SztepuQsXn19bWsPTrVeGiVrOjM8wVVSR
-	 3vcBSczQX2w8E1G/IFyurASsYidhy1xp0hR+O701gd4/bPdcypEb9XC+b/R+9+WJDj
-	 B2VOr4Cny3M8Q==
-Subject: Re: [PATCH net-next v2 2/3] net: pse-pd: realtek-pse-mcu: ensure MCU
- does dynamic power management
-From: netdev-bot+sashiko@kernel.org
-To: jonas@jonasjelonek.de
-Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- sander@svanheule.net, russell@personaltelco.net
-Date: Thu, 19 Nov 2026 05:54:03 +0000
-Message-ID: <179506764349.3136.14504567519359431973@kernel.org>
-In-Reply-To: <20261116115224.1454885-3-jonas@jonasjelonek.de>
-References: <20261116115224.1454885-3-jonas@jonasjelonek.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=C2l17GmL;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=VYTo/8ma
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795067656;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
+	b=C2l17GmLJcpBJEIAbPAmD4AbzWGLEu8yd9SF249cMhFlAdGYw6+EzM4KJBE1r+zZojHh4o
+	YqC51h6scC7craQBArScNwqXxWtTJXo1MN6o3ks5Vrr5oDR0OXcxNLQEwCNYOIZAoao00F
+	3YMMoORwRiYSBBSum8Tu36Fu7bxlSwI=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-68-O5ZOSPmaPJWGoZkGROCGnw-1; Thu, 19 Nov 2026 05:54:14 +0000
+X-MC-Unique: O5ZOSPmaPJWGoZkGROCGnw-1
+X-Mimecast-MFC-AGG-ID: O5ZOSPmaPJWGoZkGROCGnw_1795067654
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2e94f72fb9fso15797815ad.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:54:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795067654; x=1795672454; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
+        b=VYTo/8majIOWNVXPgqsXLe9OxbpF3rMxLsxWwjGOqR/XxCac+NkHv8uJhjB4CYHMW4
+         aZbxp60snr4wgxXgxaqCK7/+8CnVakAovUdiboBDFtGpZfj6IfXitqrwL5PitvWdluva
+         cZHkEl054T1bac857Q0pZ6ywZqbek9KL76NbsdxU6V8wIZT9FzSdmEnvLbCxzowE3nSm
+         Af3iYgPxfnnl4s/1QK4oc0wcEVM1CTI60O5CEGFYdlDHHdSvL+DIwcQOuH77cBBodhgO
+         HzpN9DadQZR6+xTc8uqpWmcScbt6uPA0WFHYXT6xGiCHWS+bhF7N6fJRE3WaS+jUF+AY
+         pLiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795067654; x=1795672454;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Yy6UPA1x+dgBp1oYwsbJqoBQ2EhZbFzvPu9SCMCc1gU=;
+        b=KXRZCNjhd+0kcKRGCLwQBCwzqM2GuehsZN1TNskV5NoDDg9bggb9ChZOdzWSKm3seI
+         hRFPI5cNlPpfxoM/YD3uIvuvMsO1qIeWZI2TxFbMu6tybCkw0Wj8SLV6IozK0uBiyhD0
+         VIVkXV2UzckgKF4Cb8aavX3jlep2l/ByIF8U+5Xs46WJX2ZyvvRRAuNm17kXkYDCXdak
+         7ac6jZgaPISBu6T8lvjGDOjGD1ItiZIuAeWPGsnR5MSWMkrUfJIUOUIBVG6W/DNsIRxX
+         hJnX9YWiHN/ACcCWCMtRMSJ3QjVvj73TpAudZ2C7hYhQlom8YcdtZO+GFwzkog9osD8A
+         iFOQ==
+X-Forwarded-Encrypted: i=1; AL+hErGaGPUFSWDIxVuoHu/tCWriDrmaCheBT67BKI8r45kgwAR5to2cljmJTVpqR0SPFHpWbgpiSonyK/2ESqU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/o/9h/nVDdqFpCIoSRT+md26ZGek3ojLgXfpwKiCZdba7tmPOy
+	gLc0mPWbvMVNA30hrTrKyJDZvA6GZab1Zm0qSKRn6F7eTtCv603nnRyMNxiX5vO/GgZ6ZZ3oPRr
+	NdQ+4YNeaKrLPTGldZdyfCiPtVDTBmNj755EuwvatOzqxPiydyXGh/GSQ4HGFxF8kWw==
+X-Gm-Gg: AZFdTZdlp/ygJeOHfm3/2XjXX3g3TphTx6OgIsMcklbj1CQsYTMjhG9VOSbxajdc1Jj
+	aLUHW2orzsvdSvtKkcMy6U/W/WGMrmRqOKQIEDu4iY8d4kcRyZXdg7jezu6i/XHFUxRLDjn0DMs
+	yHWAg3KjWasamDimc7pxAThoOLiE38IwTgOS8v6CsEDBQXmterkxpC7m4S4KQm89Z1fACGBZRRY
+	n0nZdZMrJeseWlFErC1Vvk3511Fqr/+p5v+GeAlYKsIybNmJQfVBaaiOCT1kvYUgSJYTkTLkKbD
+	Z0bEmlo1WmMLirWUzYTiUIf7U1OYPAgzbHHlA61mErRnus+zH10TCtO5CORpXF6HuNuc8uANtKv
+	VZCjfwHGyD2anenMHWDlbT+WMgOnkwiMTN9mD/GsEVuoo/k8xZPi56i85X8bRfQ1ACZnNTcaYkt
+	OWeA4l6uNSZgSPXQ==
+X-Received: by 2002:a17:902:ccce:b0:2ef:f652:a08f with SMTP id d9443c01a7336-2eff75352b3mr49821625ad.42.1795067653669;
+        Wed, 18 Nov 2026 21:54:13 -0800 (PST)
+X-Received: by 2002:a17:902:ccce:b0:2ef:f652:a08f with SMTP id d9443c01a7336-2eff75352b3mr49821325ad.42.1795067653185;
+        Wed, 18 Nov 2026 21:54:13 -0800 (PST)
+Received: from localhost.localdomain (122-63-66-168.mobile.spark.co.nz. [122.63.66.168])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6183f8csm23799715ad.31.2026.11.18.21.54.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 21:54:12 -0800 (PST)
+From: Tao Liu <ltao@redhat.com>
+To: harry.wentland@amd.com,
+	sunpeng.li@amd.com,
+	siqueira@igalia.com,
+	alexander.deucher@amd.com,
+	christian.koenig@amd.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	alex.hung@amd.com,
+	bhawanpreet.lakha@amd.com,
+	ivan.lipski@amd.com,
+	george.zhang@amd.com,
+	adrian.betschart@cinemaone.ch,
+	rodrigo.vivi@intel.com
+Cc: amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	Tao Liu <ltao@redhat.com>
+Subject: [PATCH] drm/amd/display: Fix pdev lifetime in dm_test_conn_init_ctx_alloc()
+Date: Thu, 19 Nov 2026 18:49:18 +1300
+Message-ID: <20261119054917.184758-2-ltao@redhat.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,118 +127,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+The pdev backing memory is currently allocated with kunit_kzalloc(),
+which ties its lifetime to the KUnit test context.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+However, pdev embeds a struct device whose lifetime is managed
+independently through the kobject reference count. This creates two
+independent lifetime management for the same object: KUnit manages
+the backing memory, while kobject manages the device's reference count.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Although dm_test_conn_init_release_dev() is currently empty, the
+embedded kobject still relies on the backing memory remaining valid
+for reference count operations. If KUnit free pdev while its embedded
+kobject is still referenced, subsequent reference count operations can
+then access the freed kobject, resulting in a use-after-free:
 
-- [Medium] rtpse_mcu_register() (drivers/net/pse-pd/realtek-pse-mcu-
-  core.c:854-857) now fails probe on any error from the new…
-- [Low] The commit has no Fixes: tag, but it fixes a user-visible defect
-  in the original driver commit 44566e614d84 ("net: pse-pd: add Realtek…
-- [Low] In this commit, the comment above the 'disable-ports' GPIO
-  request in rtpse_mcu_register() (drivers/net/pse-pd/realtek-pse-mcu-…
+    refcount_t: underflow; use-after-free.
+    Call Trace:
+     device_del+0x29c/0x410
+     device_unregister+0x17/0x70
+     i2c_del_adapter+0x128/0x1b0
+     release_nodes+0x4a/0xe0
+     devres_release_all+0x9e/0x120
+     device_unbind_cleanup+0x26/0xa0
+     device_release_driver_internal+0x1b6/0x240
+     bus_remove_device+0xfe/0x200
+     device_del+0x179/0x410
+     device_unregister+0x17/0x70
+     kunit_remove_resource+0x93/0xc0 [kunit]
+     kunit_cleanup+0x49/0xa0 [kunit]
+     kunit_generic_run_threadfn_adapter+0x21/0x40 [kunit]
 
---
+Fix this by allocating pdev with kzalloc() and freeing it through
+the device release callback. This ensures pdev's lifetime is managed
+solely by the kobject.
 
-net: pse-pd: realtek-pse-mcu: ensure MCU does dynamic power management
+Fixes: 7db85e4b053c ("drm/amd/display: Test connector init")
+Signed-off-by: Tao Liu <ltao@redhat.com>
+---
+ .../amdgpu_dm/tests/amdgpu_dm_connector_test.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-This adds a command that switches the Realtek PSE MCU to dynamic power
-management with port priorities. It uses opcode 0x17 on gen1 and 0x10 on
-gen2. rtpse_mcu_register() sends the command after discovery and before
-the disable-ports gpio is released, and probe fails if the command fails.
-
-> The MCU may have any power management mode configuration by default
-> but the driver should ensure that the MCU performs dynamic power
-> management with priorities as advertised. On certain devices, the
-> default MCU configuration ships with another default, possibly
-> preventing any power delivery.
-
-[Severity: Low]
-This describes a user-visible problem in the original driver. Should the
-patch carry a Fixes: tag?
-
-Since commit 44566e614d84 ("net: pse-pd: add Realtek PSE MCU core"),
-rtpse_mcu_register() has set PSE_BUDGET_EVAL_STRAT_DYNAMIC and
-pis_prio_max. It has never put the MCU into the matching mode. That
-commit's message says "Power budgeting is left to the MCU firmware; the
-driver advertises PSE_BUDGET_EVAL_STRAT_DYNAMIC accordingly".
-
-Without the tag, the stable and backport tooling won't pick this up for
-kernels that already carry the driver. Perhaps:
-
-Fixes: 44566e614d84 ("net: pse-pd: add Realtek PSE MCU core")
-
-If the patch is meant to stay in net-next with the VMAIN budget work,
-could the commit message still name the commit it fixes?
-
-> diff --git a/drivers/net/pse-pd/realtek-pse-mcu-core.c b/drivers/net/pse-pd/realtek-pse-mcu-core.c
-> index c70b09ca20122..d8b6e05039397 100644
-> --- a/drivers/net/pse-pd/realtek-pse-mcu-core.c
-> +++ b/drivers/net/pse-pd/realtek-pse-mcu-core.c
-
-[ ... ]
-
-> @@ -826,6 +850,12 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
->  	if (ret)
->  		return ret;
->  
-> +	/* ensure the MCU does dynamic power management with priorities */
-> +	ret = rtpse_mcu_set_power_mgmt_mode(pse);
-> +	if (ret)
-> +		return dev_err_probe(pse->dev, ret,
-> +				     "failed to set power management mode\n");
-
-[Severity: Medium]
-Could this break probe on boards that worked before this patch?
-
-Both dialects now define the opcode (0x17 for gen1, 0x10 for gen2). That
-means rtpse_mcu_set_power_mgmt_mode() never takes its -EOPNOTSUPP path.
-It turns any non-zero status byte from the MCU into -EIO:
-
-	return (resp.payload[0] == 0x0) ? 0 : -EIO;
-
-A NOT_READY reply only gets the three resends inside
-rtpse_mcu_do_xfer(). It does not get the bounded boot-retry window that
-rtpse_mcu_discover() uses.
-
-Some firmware variants may reject the command, or fail it with -EAGAIN,
--EBADMSG or -EBADE. In that case rtpse_mcu_register() returns before the
-disable-ports gpio is requested and before devm_pse_controller_register()
-runs.
-
-On boards with the disable-ports gate, that leaves no PoE at all. On
-boards without the gate, the MCU keeps its old policy but the kernel
-registers no PSE controller. Before this patch, those boards probed as
-long as the firmware default policy was usable.
-
-Is it known that every supported gen1 and gen2 firmware accepts this
-command? The changelog mentions "change error handling", so a softer
-variant seems to have been considered. If warning and continuing is not
-safe, could the commit message explain why the failure needs to be
-fatal?
-
-> +
->  	/*
->  	 * Some boards gate all ports through a hardware line; deassert it only
->  	 * after the MCU is confirmed, so a discover failure never ungates the
-
-[Severity: Low]
-This isn't a bug, but this comment still names only discovery as the step
-that has to succeed before the ports are ungated. The new
-rtpse_mcu_set_power_mgmt_mode() call above is now a precondition too.
-
-The next patch in the series, "net: pse-pd: realtek-pse-mcu: configure
-global power budget", rewrites this comment to "deassert it only after
-discovery, budget setup and management-mode selection succeed". That
-fixes it by the end of the series.
-
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c b/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c
+index f09e2a72c534..b43c4eff2bef 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_connector_test.c
+@@ -9659,7 +9659,9 @@ static void dm_test_fs_caps_disables_replay(struct kunit *test)
+  */
+ static void dm_test_conn_init_release_dev(struct device *dev)
+ {
+-	/* Backing storage is KUnit managed, so there is nothing to free. */
++	struct pci_dev *pdev = to_pci_dev(dev);
++
++	kfree(pdev);
+ }
+ 
+ static void dm_test_conn_init_unregister_dev(void *data)
+@@ -9667,6 +9669,11 @@ static void dm_test_conn_init_unregister_dev(void *data)
+ 	device_unregister(data);
+ }
+ 
++static void dm_test_conn_init_put_dev(void *data)
++{
++	put_device(data);
++}
++
+ struct dm_test_conn_init_ctx {
+ 	struct amdgpu_device *adev;
+ 	struct drm_device *drm;
+@@ -9702,13 +9709,20 @@ dm_test_conn_init_ctx_alloc(struct kunit *test, enum signal_type signal)
+ 	ctx->adev->mode_info.num_crtc = 1;
+ 	dm_test_create_mode_props(test, ctx->adev);
+ 
+-	pdev = kunit_kzalloc(test, sizeof(*pdev), GFP_KERNEL);
++	pdev = kzalloc_obj(*pdev);
+ 	KUNIT_ASSERT_NOT_NULL(test, pdev);
+ 	device_initialize(&pdev->dev);
+ 	pdev->dev.parent = dev;
+ 	pdev->dev.release = dm_test_conn_init_release_dev;
++
++	KUNIT_ASSERT_EQ(test,
++			kunit_add_action_or_reset(test, dm_test_conn_init_put_dev,
++						  &pdev->dev), 0);
+ 	KUNIT_ASSERT_EQ(test, dev_set_name(&pdev->dev, "dm-test-i2c-parent"), 0);
+ 	KUNIT_ASSERT_EQ(test, device_add(&pdev->dev), 0);
++
++	kunit_remove_action(test, dm_test_conn_init_put_dev, &pdev->dev);
++
+ 	KUNIT_ASSERT_EQ(test,
+ 			kunit_add_action_or_reset(test, dm_test_conn_init_unregister_dev,
+ 						  &pdev->dev), 0);
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116115224.1454885-1-jonas%40jonasjelonek.de
+2.56.0
+
