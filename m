@@ -1,51 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.119.170.32
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080838;
-	b=yTRtvRg7NOLShuAHGN7OHJa8eOTHdTK3557yu9+cpvtHNMxUvssK2zlfxx7fGZsoP52L
-	 DkgUR7PQbMY4lf+ao7WSICGm+RKk0oT8s2vCWR3S+NGsDau/6QvFoifxrEi8Vfp36TB9T
-	 fiobOeMHEV2L+ieMdDTP7qycnCI81h5QLlCOYevkUOmm+axunY4DzQ1KJn6FbpCKZox8j
-	 f5CNagVH1IIQ7YyXi1Tc2g4n9K6fvFtzhkAh1r10mifgyrHDTl5nRwQ1jMbq2oO6cEbrD
-	 XsoPp7Jj18fERjEoagvhR5MVowE1W0eSt+VgOlx+kmRYKqIymyQiQQqogDWxMwDLCRw==
+	t=1795080899;
+	b=OXzEvkKPRrcdf278fH/HT34Vz6H0QRikXYOVTAFsuSSdBFZtp8wyqADGrZ8PiLpDSK7U
+	 Yj3XjHV/2tbJn1/UQL0u//EnpgS41Z92we9BrMUMkguknAwlM3+illLbK0qAj7oLPaGpR
+	 prlWLqVClU3Lrr6D5vjIT/KYoVj3Blc6TXkE6sADSdc43duAzOMTi77cSDlRRqpjWHZmY
+	 NDSqrHZTMZFWGnioNvJqLuXefEAjHX/ud5Q0ofEyqZ6XiMnYt18BtPJSnyR4yxdNoLGse
+	 Z34IHGWHEEH694rty6DqATJCrzpZWxDRUWaRt6ICyU3MMiE3r///20okuFmmdTeBYnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080838;
-	h=DMARC-Filter:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=3FdYbGM4BmO4PXujten7LVhc0nlTJDBtBmP+989ACPo=;
-	b=m1TKpOsibUie+Q9GtIyDUMTuRHxOzTI9qlLgSx1DuZhsZvRZXU+eKwWh0xFXD2oskXIj
-	 TZKnew2zwas4Laol3pohHXvacq2lxYZtWeckAkZ2zhr/0Wee1SGKb70AS4L7pVIrFHMev
-	 lAjUKJcJT5JoJEmp4XbQbDEIc/tFgOROLHupZ0XO0CKeBSzC8tFlWtd4i48WI+DAAFais
-	 qibOXCgOMgAbOFO6fdCpd6nwGuFScDGV+BVcs+2qk65MwR0KGaP3Abxx9/qttxFko+kab
-	 5/wmFDZ5z8KzsPAiiDmuo2n7aS8E1l/y1muWJ11ma223Ha5pU5/6MpShwPrmQOABv3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080899;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=BfuQOTrbBgGM1H6IV66t9dZSuCArSgWVXq1IwDlbWkM=;
+	b=oaZrYWDB+adNbvNtlldgYSdtCD+sItvFpRXMau6u/QosusBD0zqd+4aDCxWoXxu7E3Bn
+	 1re3YjaArUbjZ/yFmlOny8knFRL+jOJIb1W/Tevggv1IePZs6sjrkBbxTt5wsQua+Xr1w
+	 srXgittHKqXFjCdTCDME/S4l6L1IHxkzvVXalBdokRJB2VLAr8SpdU7k2FcImPdpiXosk
+	 /vk4dDZOCssv72LeP8vdcG28C5fkNpSnopar/8xowUxZg8mPzJa/PETGymPvYUcSAkpL/
+	 6GEU+OJHM/BLuwgbaI2hPa8BHA3rX3bsIecf5k2gVQArsM/fvS0LIx3CWcYhHi831ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=crapouillou.net;
-	spf=pass smtp.mailfrom=crapouillou.net;
-	arc=none smtp.remote-ip=185.119.170.32
-Received: from aposti.net (aposti.net [185.119.170.32])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mqxw3sXJ;
+	arc=none smtp.remote-ip=74.125.228.138
+Received: from mail-ej2-f10.google.com (mail-ej2-f10.google.com [74.125.228.138])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D8C5606A324;
-	Thu, 19 Nov 2026 09:33:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D8C5606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=crapouillou.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=crapouillou.net
-Message-ID: <1aea100330532a23abb11dd55235970da48107e5.camel@crapouillou.net>
-Subject: Re: [PATCH v4 2/7] pinctrl: ingenic: Fix hardware dual-edge
- interrupts on X1600
-From: Paul Cercueil <paul@crapouillou.net>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>, Linus Walleij	
- <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bartosz
- Golaszewski	 <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
-	letux-kernel@openphoenux.org, stable@vger.kernel.org
-Date: Thu, 19 Nov 2026 10:33:53 +0100
-In-Reply-To: <12e66f571e8765b1eefeab5939c2c874b71b28af.1795022736.git.hns@goldelico.com>
-References: <cover.1795022736.git.hns@goldelico.com>
-	 <12e66f571e8765b1eefeab5939c2c874b71b28af.1795022736.git.hns@goldelico.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB6F760A2601
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:34:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB6F760A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Mqxw3sXJ
+Received: by mail-ej2-f10.google.com with SMTP id a640c23a62f3a-c506defeb1eso63803766b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:34:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795080897; x=1795685697; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BfuQOTrbBgGM1H6IV66t9dZSuCArSgWVXq1IwDlbWkM=;
+        b=Mqxw3sXJNtOeYUpyxS6zeblK2hzEmxEDcP8q5cgMGE0sn6TgRcI1x5niSLviXjCdP/
+         7EpdntYjEGx/fTKehBBDY8r/JFWX+xu2VbjU/sJBDEaj09siuHE9J7i230iXP5Qy4hM5
+         lH2ScX1lQV956ku9mM+rNCyQSaneTlkKTzv/Wn2YdOUqdgLq3JGGGyNCgi8E6WYphFim
+         0RoZTC2Q7Vfjh+vYBmW2OFxn6zaBjZnsE5YgoKHo71iy714h5ija9aUMttjfUgbRDcME
+         DzN/tgTNgSPR4d/sdf+tOa1ZEWJF5uJAmK89HxbAV4GQOlNgy9jeL9q9K8vhYFaJeKN0
+         31yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795080897; x=1795685697;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=BfuQOTrbBgGM1H6IV66t9dZSuCArSgWVXq1IwDlbWkM=;
+        b=gxbUdGUxZDiXvhDbVGjZvTALeeG+SVBwN4mHf27tK99sQZZMAcTYfOU6RS1XvejZ9J
+         WoVQlDHonEjbBOoPWR4BenMLY8Uf65M5DSZJLGnGs8qJBopG33hA7FPUhusFtOUhhiQp
+         yOzHWzqWr+hKuFl49NAOHT6BUcZ7Lu1IhOR0zoq1tIEZnG1HS8SIuWt/KvqjwMJB+2PN
+         lT05/rHH1/Qtaehff7OsZPbl37hjwwyj/m6EJ88cNwdBkqOcFedTzuAoW7zMC2t2eF+t
+         8ntONn207ULZzKI/reZhDqnLrQN86WmCEKCA12TnkuSqgg/4GTC0VLEVmLFxT8elZtUz
+         V1mw==
+X-Forwarded-Encrypted: i=1; AL+hErEgBhn+hh/kP+6/jX+lpVGpR9+MrSQJNC0PGy/1saJMtl0gPbBYTRUajW/Za8cmEEq6oDs8TC11THfVqVI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zWgSXaSRSOBCquBrZHd096c/7x4osOm+NN2D75CD7qOaZBqeU
+	qFRsI3vGUeJAGGNey7BOT54DQTMMvzsGW7jjBFsJUH9ryNPGFOAw+naE
+X-Gm-Gg: AYBFou3ZspMqMp5LA/i1ZrLYydls8+x9F/UtQdEh6IfHXtWJIhWyPOvGH4k1URg/RzJ
+	79sHHZYXP7TocmrmvVcq8NQaRraJjzm/9e8g/ECoStfdtrpOmeMTOTVKMS3VMM/kqduembELFYC
+	bVJYpHvKsZXqARjoZ4q1EaC8RUFRK0CCCLrl9AcC50Z+lQURL7i0TaOWemzSkDKtdoWSJyIx1PB
+	7w+9ebNUgzlgibQZaEeyLEGybDjuL7mNHkX5l8yl5wg6UkfE6mT9QGO1oNxzv0ODXZXTh0ehukd
+	SGGPs7/x1xIbSaGtjl2tBp/2UreAkmXDouEN1SRw4zL31/omcowjQjTCjfWhMi3eerm5onalkCN
+	kAgAIod0nQI6P+yAldTFT6OMdNi1zWHm15bGHnPxPAvj6aB6EuAOOCZ6nWDkynwvPJNWSHhNv8o
+	6iEJYTZIKy0WBn3cQc8ivsZbFkUtXp+rcZqDrdAD3TWHGiCtZszdIhe9sMPf2Isw2y9bwxLAtyg
+	OJsXpBtPJw27YcaKcTmP2MRnVQh1zQGT+svOk2v6P1xjoDiybVoAey0y4THIh5yj8WKb5amUFEC
+	UAYo9UEKnDEW1n/gWSsQCVBLQSLB6orocrXZ5iIpk24t3ZNFTrcKp3R/fmRcaVPav41jVuQNA3M
+	XEt+1jEZK52LxcLaTHJ5ylq5PuTRPHJqPCuexkVmVnsB2PjBwbNcB9Tpa
+X-Received: by 2002:a17:907:6d13:b0:c3f:7e8:235d with SMTP id a640c23a62f3a-c510dec35a4mr480605066b.5.1795080897118;
+        Thu, 19 Nov 2026 01:34:57 -0800 (PST)
+Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5122e68675sm93767366b.0.2026.11.19.01.34.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 01:34:56 -0800 (PST)
+Date: Thu, 19 Nov 2026 10:34:54 +0100
+From: Thilo Zirnstein <thi.zirnstein@gmail.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: michal.simek@amd.com, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Subject: Re: [PATCH v4 1/2] i2c: i2c-xiic: fix clearing of bnb irq
+Message-ID: <av7CvgS20rBjsJHx@thi-server.fritz.box>
+References: <20261118101147.3350796-1-thi.zirnstein@gmail.com>
+ <20261118101147.3350796-2-thi.zirnstein@gmail.com>
+ <av2jSyTFI1VoyGSU@zenone.zhora.eu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,110 +101,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <av2jSyTFI1VoyGSU@zenone.zhora.eu>
 
-Hi Nikolaus,
+On Wed, Nov 18, 2026 at 02:22:18PM +0100, Andi Shyti wrote:
 
-Le mercredi 18 novembre 2026 =C3=A0 18:25 +0100, H. Nikolaus Schaller a =C3=
-=A9crit=C2=A0:
-> Use the hardware dual-edge detector on X1600 and X2000.
->=20
-> Set PAT1 when configuring both edges and program EDG on X1600.
-> Keep software edge switching for older SoCs without EDG.
->=20
-> Tested on X1600 and X2000 using GPIO buttons and register readback.
->=20
-> Fixes: 4da56f9c6f14 ("pinctrl: ingenic: add x1600 support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
+Hi Andi, 
 
-Reviewed-by: Paul Cercueil <paul@crapouillou.net>
+Thank you for your review and feedback
 
-Cheers,
--Paul
+> Hi Thilo,
+> 
+> ...
+> 
+> > +	ret = read_poll_timeout_atomic(xiic_getreg8, sr,
+> > +			sr & XIIC_SR_BUS_BUSY_MASK, 0, XIIC_BB_TIMEOUT_US, 0,
+> > +			i2c, XIIC_SR_REG_OFFSET);
+> 
+> this is a bit of an overkill: you are forcing tight loops for
+> 1ms. If you consider that the minimum wait is 1ns, in 1ms you
+> will end up busy looping a lot of time. Please, don't set the
+> delay_us to '0', but calculate a proper waiting time between
+> reads.
+> 
 
-> ---
->=20
-> Notes:
-> =C2=A0=C2=A0=C2=A0 Changes V4:
-> =C2=A0=C2=A0=C2=A0 - Fix Fixes: and stable Cc trailers.
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (suggested by Paul Cercueil and Sashiko-Bo=
-t)
-> =C2=A0=C2=A0=C2=A0 - Merge the common shadow-register paths and simplify =
-EDG handling.
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (suggested by Paul Cercueil)
-> =C2=A0=C2=A0=C2=A0 - Retested hardware dual-edge interrupts on X1600/X200=
-0 after the
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 shadow-register refactoring. Verified both=
- button transitions
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 with evtest and confirmed via devmem2 that=
- PAT1, PAT0 and EDG
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 remain unchanged across GPIO input transit=
-ions.
->=20
-> =C2=A0drivers/pinctrl/pinctrl-ingenic.c | 17 ++++++++---------
-> =C2=A01 file changed, 8 insertions(+), 9 deletions(-)
->=20
-> diff --git a/drivers/pinctrl/pinctrl-ingenic.c b/drivers/pinctrl/pinctrl-
-> ingenic.c
-> index 88c5edeaaddcc..7f65f3abf05f5 100644
-> --- a/drivers/pinctrl/pinctrl-ingenic.c
-> +++ b/drivers/pinctrl/pinctrl-ingenic.c
-> @@ -3601,7 +3601,8 @@ static void irq_set_type(struct ingenic_gpio_chip *=
-jzgc,
-> =C2=A0
-> =C2=A0	switch (type) {
-> =C2=A0	case IRQ_TYPE_EDGE_BOTH:
-> -		val1 =3D val2 =3D false;
-> +		val1 =3D false;
-> +		val2 =3D is_soc_or_above(jzgc->jzpc, ID_X1600);
-> =C2=A0		val3 =3D true;
-> =C2=A0		break;
-> =C2=A0	case IRQ_TYPE_EDGE_RISING:
-> @@ -3635,15 +3636,13 @@ static void irq_set_type(struct ingenic_gpio_chip
-> *jzgc,
-> =C2=A0		return;
-> =C2=A0	}
-> =C2=A0
-> -	if (is_soc_or_above(jzgc->jzpc, ID_X2000)) {
-> -		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
-> -		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
-> -		ingenic_gpio_shadow_set_bit_load(jzgc);
-> -		ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset, val3);
-> -	} else if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
-> +	if (is_soc_or_above(jzgc->jzpc, ID_X1000)) {
-> =C2=A0		ingenic_gpio_shadow_set_bit(jzgc, reg2, offset, val1);
-> =C2=A0		ingenic_gpio_shadow_set_bit(jzgc, reg1, offset, val2);
-> =C2=A0		ingenic_gpio_shadow_set_bit_load(jzgc);
-> +
-> +		if (is_soc_or_above(jzgc->jzpc, ID_X1600))
-> +			ingenic_gpio_set_bit(jzgc, X2000_GPIO_EDG, offset,
-> val3);
-> =C2=A0	} else {
-> =C2=A0		ingenic_gpio_set_bit(jzgc, reg2, offset, val1);
-> =C2=A0		ingenic_gpio_set_bit(jzgc, reg1, offset, val2);
-> @@ -3718,7 +3717,7 @@ static void ingenic_gpio_irq_ack(struct irq_data *i=
-rqd)
-> =C2=A0	bool high;
-> =C2=A0
-> =C2=A0	if ((irqd_get_trigger_type(irqd) =3D=3D IRQ_TYPE_EDGE_BOTH) &&
-> -	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X2000)) {
-> +	=C2=A0=C2=A0=C2=A0 !is_soc_or_above(jzgc->jzpc, ID_X1600)) {
-> =C2=A0		/*
-> =C2=A0		 * Switch to an interrupt for the opposite edge to the one
-> that
-> =C2=A0		 * triggered the interrupt being ACKed.
-> @@ -3758,7 +3757,7 @@ static int ingenic_gpio_irq_set_type(struct irq_dat=
-a
-> *irqd, unsigned int type)
-> =C2=A0		irq_set_handler_locked(irqd, handle_bad_irq);
-> =C2=A0	}
-> =C2=A0
-> -	if ((type =3D=3D IRQ_TYPE_EDGE_BOTH) && !is_soc_or_above(jzgc->jzpc,
-> ID_X2000)) {
-> +	if (type =3D=3D IRQ_TYPE_EDGE_BOTH && !is_soc_or_above(jzgc->jzpc,
-> ID_X1600)) {
-> =C2=A0		/*
-> =C2=A0		 * The hardware does not support interrupts on both edges.
-> The
-> =C2=A0		 * best we can do is to set up a single-edge interrupt and
-> then
+I also had doubts about whether this approach is too heavy. 
+I have general concerns about the busy-waiting in atomic context
+in this patches, though I noticed other I2C adapters wait 
+for relatively long periods there as well. 
+The tight loops in patch 2/2 are even longer.
+Those waits are longer because the code waits for the entire I2C transfer 
+to finish, but polling is unavoidable there since sleeping or scheduling 
+deferred work is not possible in atomic context—is that right?
+So this kind of builtin if doing i2c transfer in atomic context ?
+
+I will reduce the maximum poll timeout to 4 µs, 
+which matches the minimum I2C START condition hold time 
+in standard mode and seems reasonable.
+
+I will also increase delay_us. Out of curiosity, 
+what is the reasoning behind the delay interval? 
+I assume we want to avoid hammering shared buses
+ or registers with continuous I/O reads.
+
+> Andi
+
+kind regards,
+
+Thilo
