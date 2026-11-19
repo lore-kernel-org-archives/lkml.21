@@ -1,90 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795062561;
-	b=tJramSd5TFN1ZTbGPHsFuU4Q9Y8KHg8fp5dKmghtFmJcBgo9U6UDnG6PIAYcyBT533Jq
-	 VK1yOfgUoCa5NQRHlhqJ9JcjikvAIKPF6zIiIq95tS9pEMhFFKOJIvWDje/GCEHitcupg
-	 J50n1jG4gxzD/Lh/dqPcvltWXkHz69cg9NyJUDjku7wbZN5cF1LhiNdHpHuhpWu3ReP7x
-	 c93QJ/vM0Uu8UvkNczq574amJ0BidUqFf5FVNgztQ/mXKvZcetPhymTSHoWpJtVwNAWrR
-	 MwLLBzj2K4adnVTnI7eBCpkqlBypA9Ml6LE2J4jMN0p6fERvij4AU2rYmilaOfVMbRg==
+	t=1795062708;
+	b=qlHPmSxYIjS22y0ERNxEKtqCEoZ19JQncYN7JXUswkIz4y7cRfGaRRO8J4Aj7PsTCBUE
+	 DVqX3zhkcUffW4yAXA9p9fl7xZzBTFfSbtmZJUxsgxSrcmVZFbP7CQCKRIed+vz4EhMqR
+	 /C87o+pp0rVpMH9/I86+5VnMFMbN85Cz2I2MQeyPo/2r7CahABzigYFE8g8ty1BkoIXKi
+	 xF3NPqNrZ8zDuVInINYBPsYIPBXpT95nFC8i9OKGAJGSXpsXeTYdWfr0KVBOec0dZPLjl
+	 ylHC3eIJXKjDZbfoQmScLhRHrmbINfIDkxca6Up+eO29mRHhfcV3JQROV6T/HrguGyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795062561;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=dCICOQDRVMWPO5nwEzDmnqXj88ffqAN3Sthv4ao13Hs=;
-	b=PkaT0zrkudJakt3aOKqVbC8ko4oW+iZ5AOrhgbnYiZ7cxXwRkx6xAY/Fx0RTzO+pjlLI
-	 38GByDnaocCAZTB5MXOmg5OOIq99GHOHJwsWxeDS4BD0Wl8PTrDGd/5X3ja6ebJTD7Bgg
-	 q04ZvbLnp5WT/16YjWGts/hQQ57ZPLiJ3OCdkZ9AQhsntuqVvHfVK+liGcJ8Hn36myovT
-	 DJkux7QYsNKNLwySzsqLTMP0M99vxpwu4ngg0qBJsQD2H6sI1+dDqgHzXY7sM69Anr4P3
-	 REbEJID84TmrusnGJZXzs9UGhi3NhXE2H3VlD/9FcZ5C4w8kLy8jc2UGG5VHsuwCsrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795062708;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=8aYYl4/sAKbtXT/bP9hKnwyymlW10siHkwx6r/MNifM=;
+	b=K+Hm6vreskRrEm4RktXYUadfoHsYtlSvppOSwj3XZFwt59U1iIKXI+PUoHb4SiJfFk6G
+	 bvARU/mOoeW7yk7YtBB6AxGTGMBh+nmITKelPiLdHKqDJovGItbSrkQfAkNcMzbuIc2Bl
+	 YntIx1KHvQjowUMO4lfGqA+lZaYtl2dsQZsU30CK/VGJTgc27LrlgMAirjvEro9hykWxU
+	 LPF9K9PscVANLVeNAJMy8NnXoZHKrIRaelIKwUnVN/e2DfXIkDPiOrobyOxg11glKHQyR
+	 4pzRTl6cTK5nSzM6BwSYIv14SO9eMSzOoYRu0yougX1USuqf7dXd7otAGu/adtceHzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Zq7L4T3J;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D59E9606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:29:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D59E9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z8TXECTu;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8A045606A320;
+	Thu, 19 Nov 2026 04:31:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A045606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Zq7L4T3J
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f00fc215f9so6926625ad.0
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:29:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795062560; x=1795667360; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dCICOQDRVMWPO5nwEzDmnqXj88ffqAN3Sthv4ao13Hs=;
-        b=Zq7L4T3J8M42EFfoxkNRZCacZXcWTgN/kfBStmAHfA92PN3CWDZ15fxTLn257uEIfu
-         jZz7TTlyUbIsW+hz4oljQdAXyxU5G+0KQMiDhorTmAwACDLQogma/l6ndlQe2OlzEF5C
-         F7GEhB5DQcaD7uzwPIJZnGdQRiQLMeasgf7eg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795062560; x=1795667360;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dCICOQDRVMWPO5nwEzDmnqXj88ffqAN3Sthv4ao13Hs=;
-        b=qpAqovZ47dZuARu5NE+QdeogN7AfCXOZfvZZCsmperKS+wzygzV6QGOLRTlbQ7pmHc
-         AR8rp1kYuHcjku7DNjm19em1ggz3I/r3yYNy0YFxF+H8rj4OXVeppaq9egBx5TPzOiUE
-         nI2gUVWoE6SeoDIkjpWpDt50IQoAln86NgZnT0J/Ow8pilvEs1ViB2caj156lnw7CfFg
-         GoxXI1WP8ALaEyR9bnLF3y2RbiP8Jny/wOmNL1ZqOABJAHJx7KiBN73SKgxxt+IzgcW2
-         gnQqU/80BQSB0/DVyqTo3lbNEH3ZWqID4hTeLb/pKMk+OmkorgvLU5ElaklPxcew1pOb
-         819w==
-X-Forwarded-Encrypted: i=1; AL+hErGWVo/Pm08cEzUIHXmCxHbXVkZPsGc4B9jRn8RWkZ0siTs6C03AIfgMCHDYyrZIAINJZkaUwFS46Vp1ntQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+dh0dlPoy6sihrU60BcYONpeHZuIwJZFuJdf+g8o4l9xggoaJV
-	VbWqa0AhjlTSdZhJHI+2GARvTYT8v0qG9ZLsJgSFCIz6OlGOFjJGkhT0JTjcpo7msA==
-X-Gm-Gg: AZFdTZfg2V+mNuwem0nrra1RQyOvlLZ0JHddhPSJvpI2rjVlgo2h7Tln9FSit1NSZut
-	SGCz79Njg1Ywa2ESG4JOuUuiYsm4jzjvkrW9EyU8DyKFCO1dlxTSQufp5EQBactmRjbPqBn5SVz
-	6lvuaLdoOB+m1JqiioHuKQ5XxBwcTvb87PFVoZr9uLfroXK7mmN3QrDVgF4MrOPrA8PksyhzQr6
-	9/PuHkdAZnXlDb0yrUxTFZtiOWatiEQSSzxmWXnULe6O30oMvpd9jk08jYOEeW1FFLnyVguUBek
-	9REOcxjDVebf3tdEiePpPGlhlx59JUys7mbaNV6+pkRT/7ViS6xUNQlQ+9TlBfCRnmACiSm5cjo
-	Tl7ZvPIli808YvEKKDoBBU9NmSe1XMmSNO+BlHx4tIKppKmvxU7FGVY6cz40rLwDVsX4H40j+a4
-	P2U6jt8n6Df8DwqMukHVzkUct8IplYUc/8zNFsbmY3X/VjRIxaw1Nf1mWpFZ+ncq2w8QzP1nDY4
-	ZA6ziHN506jmbiN9Q7b4eQl+bid8KlsO/fnqhQUoGzk9Zx5hnacXdtTZO513KuXvbVSYYauyyLB
-	nTWNpujZ/KVz0hqqT8YvQvZTeHS3c78FRR6a9ioULP6kV3RvpSXw7IfbxVa1rx9hc6INtw==
-X-Received: by 2002:a17:903:3bd0:b0:2e9:5829:9b48 with SMTP id d9443c01a7336-2eff72ea3f2mr42869015ad.20.1795062560125;
-        Wed, 18 Nov 2026 20:29:20 -0800 (PST)
-Received: from google.com ([2a00:79e0:2031:6:9297:4989:4c44:dad6])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff5ec9cd0sm23174315ad.11.2026.11.18.20.29.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 20:29:19 -0800 (PST)
-Date: Thu, 19 Nov 2026 13:29:16 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Minchan Kim <minchan@kernel.org>, linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [PATCH 1/2] zsmalloc: fix SPDX license identifier
-Message-ID: <av56Sq5ZxntVn3al@google.com>
-References: <39f6056e0c8834fc3eca2001fcb44f3b6048f74d.1795061575.git.senozhatsky@chromium.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z8TXECTu
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 802AE152B;
+	Wed, 18 Nov 2026 20:31:43 -0800 (PST)
+Received: from [10.163.128.149] (unknown [10.163.128.149])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DDFD93F882;
+	Wed, 18 Nov 2026 20:31:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795062706; bh=YHrUpukgLj5ZrCztymQv02KKeX29nkv1OoVNThLO7sQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Z8TXECTuEqly1FB+zcRKWRfSdyS8ZcWCRYQ2E0o7e82wrQqHlrjV+okOuImKNzcRi
+	 lY228bxmY5FCdqnY8YIFb9JZAS44q4TXvKV/TqZsTQGWl0NXzzWbCqLFYFbO6iGCR7
+	 beEb/XVbqtiGnYI4R/ABbSLpAxhOp2/52x0W/bwY=
+Message-ID: <2750d7ef-57b3-4a4c-bddc-840ab35ef45d@arm.com>
+Date: Thu, 19 Nov 2026 10:01:36 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,20 +53,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <39f6056e0c8834fc3eca2001fcb44f3b6048f74d.1795061575.git.senozhatsky@chromium.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mm-new v2 1/5] mm: remove unused helpers from pagemap.h
+From: Dev Jain <dev.jain@arm.com>
+To: Shivank Garg <shivankg@amd.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
+ Kairui Song <kasong@tencent.com>, Kemeng Shi <shikemeng@huaweicloud.com>,
+ Nhat Pham <nphamcs@gmail.com>, Baoquan He <baoquan.he@linux.dev>,
+ Barry Song <baohua@kernel.org>, Youngjun Park <youngjun.park@lge.com>,
+ Minchan Kim <minchan@kernel.org>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Jann Horn <jannh@google.com>,
+ Pedro Falcato <pfalcato@suse.de>
+Cc: linux-fsdevel@vger.kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20261117-unused-sym-mm-v2-0-2f845e94dd50@amd.com>
+ <20261117-unused-sym-mm-v2-1-2f845e94dd50@amd.com>
+ <15d75748-9baa-43d9-96e0-0e49c8e27be3@arm.com>
+Content-Language: en-US
+In-Reply-To: <15d75748-9baa-43d9-96e0-0e49c8e27be3@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On (26/11/19 13:13), Sergey Senozhatsky wrote:
-[..]
-> +++ b/mm/zsmalloc.c
-> @@ -1,16 +1,10 @@
-> -// SPDX-License-Identifier: GPL-2.0-or-later
-> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
 
-So this was introduced by commit 91d0ec834786 ("replace kmap_atomic
-with kmap_local_page").  It doesn't look like I have reviewed that
-patch [1].  Somehow.  It would have been difficult to spot that
-SPDX one-liner among all the kmap changes anyway.
 
-[1] https://lkml.kernel.org/r/20241001175358.12970-1-quic_pintu@quicinc.com
+On 18/11/26 9:41 pm, Dev Jain wrote:
+> 
+> 
+> On 17/11/26 12:46 pm, Shivank Garg wrote:
+>> invalidate_remote_inode() lost its last user in commit d73065e60dcc
+>> ("afs: Use alternative invalidation to using launder_folio").
+>> mapping_clear_release_always() has no callers.
+> 
+> That was added in b4fa966f03b7401ceacd4ffd7227197afb2b8376.
+> 
+>>
+>> Signed-off-by: Shivank Garg <shivankg@amd.com>
+>> ---
+> 
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
+
+... with the commit message improved.
+
+
+> 
+> 
+>>  include/linux/pagemap.h | 11 -----------
+>>  1 file changed, 11 deletions(-)
+>>
+>> diff --git a/include/linux/pagemap.h b/include/linux/pagemap.h
+>> index 73af18a37367..e681a7ba6642 100644
+>> --- a/include/linux/pagemap.h
+>> +++ b/include/linux/pagemap.h
+>> @@ -20,12 +20,6 @@ struct folio_batch;
+>>  unsigned long invalidate_mapping_pages(struct address_space *mapping,
+>>  					pgoff_t start, pgoff_t end);
+>>  
+>> -static inline void invalidate_remote_inode(struct inode *inode)
+>> -{
+>> -	if (S_ISREG(inode->i_mode) || S_ISDIR(inode->i_mode) ||
+>> -	    S_ISLNK(inode->i_mode))
+>> -		invalidate_mapping_pages(inode->i_mapping, 0, -1);
+>> -}
+>>  int invalidate_inode_pages2(struct address_space *mapping);
+>>  int invalidate_inode_pages2_range(struct address_space *mapping,
+>>  		pgoff_t start, pgoff_t end);
+>> @@ -298,11 +292,6 @@ static inline void mapping_set_release_always(struct address_space *mapping)
+>>  	set_bit(AS_RELEASE_ALWAYS, &mapping->flags);
+>>  }
+>>  
+>> -static inline void mapping_clear_release_always(struct address_space *mapping)
+>> -{
+>> -	clear_bit(AS_RELEASE_ALWAYS, &mapping->flags);
+>> -}
+>> -
+>>  static inline bool mapping_stable_writes(const struct address_space *mapping)
+>>  {
+>>  	return test_bit(AS_STABLE_WRITES, &mapping->flags);
+>>
+> 
+
