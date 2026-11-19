@@ -1,92 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082922;
-	b=a5uPLymhk2csjfKBKt/QFz/DunWMwJLtmhZbsZ/ARA+WVyBxcCRQO3gradoQKFSGrTLc
-	 ZsJZnfr01iNm71VBagT5+6igq524WMQoFXfIdkyypuusXnr7WXFYemh3yNdIp80Vy+qgD
-	 h4yUwXaMdi7oVXcya4oaNb2b+5VI4X63+aMArgJlD86dCr9JqPgWhjlpk0jB+ceVTkOwN
-	 I8eJcVUzbab25Cwsk0BTsnZaDpDw7smZuTC8xdYMk8r9ANkC08qIxZQ7g58HAx3gq7OgO
-	 OH9XL8JjW18zN7JOt/qE+JwaSLjhWCqQFq4ScGPZ1rHIA/maqFJI6D81oq5BfXJi6wg==
+	t=1795082966;
+	b=hhSRkud9cHNGTSy18lz3qt+BZXOQSVOhwvuH1ATONv81FX/g2q0ufx9NOtZKtPbHz9Eq
+	 iQJOZ0qTU9qKRmm9gqHemY+0auduif6ZzpKpnmpIzRd6JXoE5uy7aREg6UZVmxRrYJ6nE
+	 DA2wFmEU123IkmwFnRRMlJtOkKLGrlxbD+4V60sFKbR8RO/GSMynCc28mxenqIOQ7GlC7
+	 K9kcGWDd00lTXupkByPCRoJmclj7hfclKuDWRbpFf1g/atA6i/OGQIEYx4ezdsXEl8Y4D
+	 MuIe9fJhKdw61mG9eHNI9ZY0jnks4fSA0Qf8LsBF6sWv8hsFf+d5UyZpgfHh+V+ofLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082922;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082966;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=43hk92dqRNgt3cJF1KJekR7Qr7mj7rm5DTPnHeQ1LlA=;
-	b=ltS+f5EPDB/OLlTFQqZPP8i/fPZKQ8nblJgz4W+t5zE/6nicUg6BWW5kn+460N6zD142
-	 krhD4tUPzx1UcujQkUhaRB01QEzIcO9AfL1nG2XZBS0UP9EIH77JEthxyJ7D+LxykYO52
-	 w+uTJFZNnhpF++mpyN3Jp/mOjTTZ9TdT6xeXqq3+6fFLQI/7gFnkMOwPB1r9ZeB0n7rHP
-	 bsB42oqKCrB9ivf4/pD5woUHUl+OAoR6tvU5MX2azHdRSH4+kiThNr5TZSwZxoeJ60Isl
-	 ll1SnjYVs0iFXsu8PJeFnZ3IcZDOOWWEF2tKZLH5K9HAJYvpUjVyD1KXnq8OVMwUNGg==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tSisANTIhE4dpBJJKLY3N8wKQ2oTvA7ICY+7hm22yN4=;
+	b=rw9dC1lsBB6o5pJ1Nba92RKWIzYELaCBVk0dwXtKbif29tETkzqUjI2y9OD6URFYUS2z
+	 QophzY8JUdzzV/ht8RwevFKXAykY1kBuICiN+BvsrMTlLH/j1ZW2QvYBpfxAyqvYqxjQh
+	 se4nIBw3uzyhk+lFqhly/sbmdy4KhGZ5ZV9q3Tl95e81Gu02PzURh7irg+6oYCRI96/v3
+	 bS571SmF3tppNSnwW30+4gKwJOA7RpOZDZUumrFKsXeGY/q6Q54Zo4kRgJrK6cv3fmmqF
+	 38iHNy36Ysc7Nn9QGvJkF5bI+G+zgJbauvrl6KZjq6UinnVIFrf8/bZ1KQf5APl7A3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+2ToTwP;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dKJ3klqF;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2AA3606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:08:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2AA3606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 753FD606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:09:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 753FD606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+2ToTwP
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4170251c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:08:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dKJ3klqF
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a68190a2a7so1782675f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:09:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795082921; x=1795687721; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=43hk92dqRNgt3cJF1KJekR7Qr7mj7rm5DTPnHeQ1LlA=;
-        b=C+2ToTwPlQU8PBN5Znee5RrKShji/ugJOPeVoPukgf5SnMN/CEMGTnGy9uBYVOmo2e
-         LKWwgqQW8Wy7a9zvKqY0AOayH3bM9ZkYAx6sdWFKHmngT2z8vLNlYkuFUAUlDSUOwEW1
-         qsSkB5ki0ufjSY9dp6IHtP2LT77JDA5/+srurvQAvCrZz4UkzbrYh//TvjPYyrjJNgzZ
-         Z9JomJ/NwgtvOhD0BDGVEbM1xHCIskI9TeLJmWFtNDwjy022SLg2XkbW/nFe8H2Uvr6Q
-         EyTHaJAMCZ876Pwysvf7v9MEsspHPryj04BPurtfZc/AxrNj7Ccj6JR6cZM20P1/yRLQ
-         wd/w==
+        d=gmail.com; s=20260707; t=1795082965; x=1795687765; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tSisANTIhE4dpBJJKLY3N8wKQ2oTvA7ICY+7hm22yN4=;
+        b=dKJ3klqFBxXR9AYtNzRXEcQfyDqSguwpe2VBCPvm7+5+nJukCguQq+nX2XX/gG7yF2
+         MCcvA0lRzhEuL7y44LP/X6DDJMn+hucKe2of0qpGGVpGqlmG4qTegShMlsTB4kiBfzB8
+         7SidLtkkuHYdfeQr0vIzvf1LF2qQKF3ymDGHKBrNYl4lYEDlJNgf0u7xLVN8ZA1G/JKJ
+         50wTmst58zqLCv40/0qSkHtj2lOP41pQF0OHZdH06E2bX8v+tzvh6F/YdkUA2amhDWA4
+         JENWaUgXL874gzkLJlLT77+yJGfZSDJ7ETN1mC85VwC+P606j2tKCSnZI21pfYgAgIZg
+         Hqsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795082921; x=1795687721;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=43hk92dqRNgt3cJF1KJekR7Qr7mj7rm5DTPnHeQ1LlA=;
-        b=aBCpbZ+2+MAXUApLoGMgbYOdaxzOOA/s8ciW7zNDRx0DvF7uUAZc1pBBLsJscskCfF
-         oZ6UWkdlhIZJrvv2PpBJBCrsCV28w+DLImd1cBNr2cosZPC3tURxr5ZkF3xbrrdx+Nli
-         H8XLWA27BeXp3JRxqBSmv/oFUiE+Z/ABvr7mhAUtPYIccbjD7cOrWbWy2+TN4JXGe1rY
-         V2HuDZmcwP4BTX1vlyBrOzgCsQ7+XCFJnegQ/nslZFcJ4Dr5sV+wy/RZYd3q4VBRojTm
-         icJH2zid+JLCQ43XIm2Zok482yhNbRe7k4DTGG2Xuaot0hFFjjOrtgyLpMhuqSNkAzRw
-         u/Eg==
-X-Forwarded-Encrypted: i=1; AL+hErEpJxkaLbXye8sm6zOhBR/sEwWd3uxOXZgYznG8QAk/6Sxk2e27r4kJpWNEI5y/mfDZxfIhxmyNvVpP8yU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+AHtHOn77VJY1mJ1+2qSOdw+MaZM2epejo/jsMyb5Q3ce6zJSq
-	NRpCm7yUXN8l9LmQO/aY6+EWVUi7uIjWR5KqmkbRiQHmdLPeXuPhOmYG
-X-Gm-Gg: AYBFou2vIMa9a9k1aNg2z1mpwnEFVwNGO2aPw/J/jq5gPNv+krO3iqs5sXesjntId46
-	K7RWz9xaE48hg+NSqbS4VaGp6qaHyLp9mk6KJn8uaB7l9Iq56+3tMWST4dxZYMBP+pyKvEdjsxp
-	VcGtG8V4GaGwXYNpT2qNxP410/Omrx8pb6iQ2Hl58UM0PHw8fQgA0ghkLp/FOi6CfkadfKEwrpJ
-	t212MTFWenc1ceRWBcaPQvabz/65QLq5loRguzG2fBT2+xdrLTK+Ry3qnPWBNOs+ybnga5yDL9i
-	LMpX3ZiMY6bAIT2P7kegi7OOQnDyExViuDVCCaWxW/I4P9+jecoW9/IAR44JUEjeV789rti9QuL
-	iSp0EuTKZUe6DUTmJl/c13WCr5TqAht6QRFGDSS7x+NSZST5v6O9Xrb3gEW0DV79E5QkRWmDs/W
-	lL1j2WdjYmTww4CVgX8ng/rnG8e6dt6DEhuVxk+bWl81lt16uUgjrMeAq4U1LMXEyW/zuU296jF
-	NAr4sW1bG+2L9YN80GM2AVxICVZS9BDy8lOnf1cGU99LRLVsEZq1mjfzzwTBek8zrqVOTzXDcpZ
-	h+rReyO3j/TFWiIYGgD5EUJGfw==
-X-Received: by 2002:a05:7022:e801:b0:1b2:4e2e:d95a with SMTP id a92af1059eb24-1b543c36946mr5087931c88.2.1795082920981;
-        Thu, 19 Nov 2026 02:08:40 -0800 (PST)
-Received: from [127.0.1.1] ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm12843401c88.14.2026.11.19.02.08.38
+        d=1e100.net; s=20260707; t=1795082965; x=1795687765;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tSisANTIhE4dpBJJKLY3N8wKQ2oTvA7ICY+7hm22yN4=;
+        b=NJsRevHC/2mGnjIq96eMfRkLtCerF7szMukgtYbZvViw5sILLn/pz5LDnwuDEGh2zX
+         vL1k6w0uWMvdjYoU+x+qdKse7hal5eU+hBowsZyiRjnf0/xA4kt+3Omr3g0SEOul6B+k
+         KW3mkKb2tj0AkyjQqGJW3jRj/wsxAKTBocDp+KfKH+3YMq3NspknP7rzIryMjhJbHJKm
+         wsHPms4Prj3Tgre3+wKruVcXP/WMHOq16LYLnJCJ1cL/Up43KDmjIcbdr1urlKhY6q1w
+         qbHmuAJ7Texj3ve030VFc15MBuv8mRYdvJwciAcyPaTVg2hCXDkU18A+plKZswVW9oWP
+         XReQ==
+X-Forwarded-Encrypted: i=1; AL+hErH6EZy3VyBi7EZBG+ZUPRub/DCazrkm26M2lEW84rPlD3RtsCpa5cKR2/HjNBpcz0hvNL6Kfv4ddAaJrvE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/h+IKbhKLdqVKmjcLvtrB++0h0VKOYQ1xRl39oL6Sov7eSJyYS
+	K2XV/EHtFahU2SSq4UIp+9n+/l1dVGhB7ntlx6AGDnZ8XEsuPLy/iulqsaOH9Irg
+X-Gm-Gg: AZFdTZeRpvxLChX8mveVnhL/sG1qXpl5kciFrhLnkuEcXdcvsJqOTI6RG+25ltsBONo
+	rjmwxoNThHHlZi9j3CQ9mEkrhBzoOhmCr81Vz6ylXVpBSpgCS/P6Kz8Uv5v+oCVbTB3/zZCbbSL
+	yo4IzZokRNlsDjuWu6pk0iRulVa2HbLAY/AYpH+lBmj4ulLBAgqCWLIDfkL/tNX6DipL6kM9OGO
+	vINXoUzGi6teu7mNcZMlb36KIUehFNkwPrGFnL6nNYY1apXEx5m3Y417544whK2Vnif9RYjVbEB
+	0uCgoQ8kNkqk/+WSeAUoSP5LEH0jNVVsuNUsei54W+39aY5UrMOnbQK/B7Rqnfzax5jGIhSJ5zs
+	Bfvzk/cpegQ3LxT+iuM6QNOT/2XSZQpanSCOGwC+mNJhYkXiXsSBteoKmkEaZwuqnOlvy7D+JIu
+	ReWKxqc7A5Dc/qGVDQj+zzyl8e+XXocxVHVFcp4DqmDB1YFKIEcFKcfVn47LOyS07531fyJWJk/
+	fmZ9DOkE5Wr1JopGiKqHD0g4i207qTSPvqa0nuHASNZAWE6OApRRnLYadznOF/1/ZjhMNLOMvkT
+	8mrAYVXuh9xFSlCM3V8lA4qZ7AjVw1x5wJjlQeo=
+X-Received: by 2002:a05:6000:4201:b0:48f:bb86:cc03 with SMTP id ffacd0b85a97d-4a63a1e0266mr12948878f8f.11.1795082964502;
+        Thu, 19 Nov 2026 02:09:24 -0800 (PST)
+Received: from dev.Default ([2a0c:5a86:4d09:3a00:3c0f:a5ff:fe86:2946])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65683d5a2sm10097076f8f.43.2026.11.19.02.09.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 02:08:40 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Hang Zhengyang <hang.zhengyang1010@gmail.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: Re: [PATCH v3] perf stat: Count kernel events in a group led by a tool event
-Date: Thu, 19 Nov 2026 10:08:38 +0000
-Message-ID: <179508291800.2785063.13205692423397372334@gmail.com>
-In-Reply-To: <av6t6M0fUYdtXDEu@google.com>
-References: <20261111-tool-pmu-leader-v2-1-3faa0fb98c51@gmail.com> <20261111110616.2249764-1-takano32@gmail.com> <av6t6M0fUYdtXDEu@google.com>
+        Thu, 19 Nov 2026 02:09:23 -0800 (PST)
+From: Agustin Santiago Isasmendi <isasmendi.agus@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>,
+	Navid Ghahremani <ghahramani.navid@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v3] ARM: l2c: honour status = "disabled" on the L2 cache node
+Date: Thu, 19 Nov 2026 11:09:22 +0100
+Message-Id: <20261119100922.2722103-1-isasmendi.agus@gmail.com>
+X-Mailer: git-send-email 2.30.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,53 +99,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: kpatch-send.py
 
-Hi Namhyung,
+l2x0_of_init() looks the L2 cache node up by compatible and enables the
+cache whatever its status property says, so a device tree cannot keep
+the L2 cache off.
 
-> I think it's better to make the first non-tool event as a leader
+On the ZTE ZX279128S (dual Cortex-A9, L2C-310 r3p3) a PCIe read on one
+CPU deadlocks against an L2C-310 line operation by physical address or a
+Cache Sync on the other CPU, and the board hangs within seconds of WiFi
+traffic.  Running with the L2 cache off avoids the deadlock, so a board
+needs a way to say so.
 
-I agree, and I think that is where this ends up.  What stops me from
-doing it in this patch is the group read: with a kernel event as the
-leader, evsel__group_read_nr_members() still counts a tool event member,
-while the kernel knows nothing about it (a tool event is not opened
-through perf_event_open, it reads /proc/stat) and returns one entry
-fewer.  evsel__process_group_data() then rejects the read with -EINVAL
-and the kernel events of that group come out as <not counted> as well.
-The smallest version of that is a few lines, but it changes what every
-group with a tool event member prints, so it wants its own test and its
-own commit rather than riding along with the EBADF fix.
+Honour the status property, as the newer cache controller drivers
+already do (drivers/cache/ax45mp_cache.c, starfive_starlink_cache.c):
+leave a disabled node alone.  The firmware is responsible for leaving
+the cache disabled in that case; the kernel does not check.  No in-tree
+L2 cache node is disabled, so nothing changes for existing device trees.
 
-> but I'm afraid it'd make evlist management complex
+Tested on the ZTE ZXHN H3600: with the node disabled the cache stays
+off and the system runs normally; with it enabled the cache comes up as
+before.
 
-v3 leaves the group structure alone: no new evlist entry, nr_members
-unchanged, and evsel->leader stays whoever it already was.  What changes
-is how the members are opened:
+Assisted-by: LLM
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Tested-by: Navid Ghahremani <ghahramani.navid@gmail.com>
+Signed-off-by: Agustin Santiago Isasmendi <isasmendi.agus@gmail.com>
+---
+Changes in v3:
+- drop the binding note, a disabled node is not touched anyway (Rob)
+- of_node_put() the node on the disabled path
+- add Navid's Tested-by
+v2: https://lore.kernel.org/r/20261112072953.989664-1-isasmendi.agus@gmail.com
 
-  - get_group_fd(): with group_fd = -1 instead of the tool event's
-    /proc/stat fd, or -2 when the leader failed to open, the same -2 the
-    skipped-leader case already returns for a broken group;
-  - create_perf_stat_counter(): a kernel event member is opened disabled,
-    as a leader is, so that it starts with the workload, and
-    PERF_FORMAT_GROUP is not requested for the members - read_format is
-    per fd, and GROUP is what would send each member's read down the
-    group path that only a leader can take.  PERF_FORMAT_ID goes with it:
-    without a group read nothing demuxes ids.
+ arch/arm/mm/cache-l2x0.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-The cost is real and the changelog states it: in -e '{user_time,a,b}',
-a and b no longer share an on/off window.
+diff --git a/arch/arm/mm/cache-l2x0.c b/arch/arm/mm/cache-l2x0.c
+index 470867160076..44eb61481693 100644
+--- a/arch/arm/mm/cache-l2x0.c
++++ b/arch/arm/mm/cache-l2x0.c
+@@ -1772,6 +1772,12 @@ int __init l2x0_of_init(u32 aux_val, u32 aux_mask)
+ 	if (!np)
+ 		return -ENODEV;
+ 
++	if (!of_device_is_available(np)) {
++		pr_info("L2C: disabled by the device tree\n");
++		of_node_put(np);
++		return -ENODEV;
++	}
++
+ 	if (of_address_to_resource(np, 0, &res))
+ 		return -ENODEV;
+ 
 
-Two things this does not change, both of which happen without the patch:
-a tool event member still counts through a -D / --control window, and a
-tool event leader under enable_on_exec is still not started by anything -
-that is what "perf stat: Start tool events when enable_on_exec is used"
-is for.
-
-Either way the leader move is a separate series; I can post it once the
-direction is settled.
-
-Thanks,
-TAKANO
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+-- 
+2.30.2
 
