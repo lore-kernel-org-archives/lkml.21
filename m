@@ -1,81 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795116811;
-	b=0G1y14fyHh0/5eFf4SoI2jqQJLQ3k1JMILXnBBZU77rImWixVXZVPsYTfXbMGc/1vw0p
-	 M2izQmi8scWnOcQpOf3itrK7B5k39c0R/loLu33wGwsTuJkQc+Y3BSlEuy5aicGS/q3d3
-	 WGilvkC7AiWoV4CCvftkN6tZUqDDaK0IqdlQIQwpT+2nK7/+a61XsDYjQPyGJuRUcYTN3
-	 CT5K10oITzU2T5FwKI+1nxvVNrBg1zbHmUGTBVJU+JhQA26o8cdaa9gNlX/bZM7Sf4PPJ
-	 iuI6onO5mYhbt/QETfGdT4IGvXGMmTszV28ZluWsgp6jRWk4mNvGKQDmo58ajbeTo3Q==
+	t=1795116930;
+	b=vS+OTim4UpuapBeMYX9n0ZBzQpIQBRuW3XuErx+9dE/U/U7irYv2554TCH5E4/VdfVOq
+	 2PHbtXJCUV8xRV7QFTU/AmTaGCvwYukZpB8+RpCng/pykghKMF1t7eoFEyg/HgwdOZSGs
+	 98bj5kcj7kAxZE1W6VXIoCzj1clrHtWkpMPeuTroaoPAaikKLulDTWjdrcLRTgWUwZrU8
+	 LjUNBFGaVwlOeGmFljyOYlLIXdLgtQrkeG+NXRbUPDbt6sNzzpHfn1EDfeTfI7z0y4rT1
+	 MDA0t9/MwxrBFLEu1ALzAd/FYd1JD4pkEfaU0bZUBG/OMAXgn5kNxmCEhY6HK9NE31A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795116811;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=1EL9YQB9efPuRHId8JnfmWzy3x8RsPbX1IKGgECbaA0=;
-	b=eLHS+JabDZfCqm+cvCric3nWaYWS02MNBz7AOX/J0datsfMrEu47xiHCpDBblzpXQIQW
-	 l2eJFdMaXCu1gGCbZHBqhX92Cm10/O5xH0tJrIHgxEMemQYB2jibsDl4kTaw+48JE1Kj/
-	 QTZuj7pQA44+WRFDsHX5bCvKYIDl98WKKx2VFgb1QieslhjFOAKcs8uP5Ir1r2izyZKXT
-	 cxOsBn8DdmVKolMnvasnKwpW9ubLo4oVpXoCpIro0He1EVdYUWol2xIMo62ryXuaoaMR2
-	 9ydIcWv7yzkGf0dDcmnfu6ELO75Z7kwjm8FD6088hL4eWizeU1q3UhPdqYyg9cCwzzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795116930;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 User-Agent;
+	bh=XKkr8NiBSfAxaPY+xmJ+lmd22XwqR6e5oteLmwQ0jc4=;
+	b=EPkOKhuVoDfq2fVsPi/smWTfv8mvr39fRH6WXDuUkyi1pCDCECCHjRkLPE3o8wCmnIAD
+	 g3HfNXR/x1cFmxFfZKaVZZwKwQEZvZ8UfGIDXJxc1zWZ0llNVHGOyldw7oloNVku58ULU
+	 S1W+C6dT36l0JG/Y2xxpWD+94Ra/h1xWMJk+4YHLeq2alLZozDJ4v4anAtMBitY7Oibmc
+	 jx/ZYFMo5M7pjFagO0a+8vb44NDCXPmcR0dOZ6oQXVLpKGBiJ3Nq0stzN0yTYSy5OhUCs
+	 Lz1kER22NqE5fx9qudmC36Bz3FfYZeNalWSokCMpa+uDukeVZhE9Pg7yGphreCVTkow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="ZK3SZVO/";
-	arc=none smtp.remote-ip=198.175.65.11
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TLBmGYo5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99D10606A326;
-	Thu, 19 Nov 2026 19:33:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99D10606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D24E606A330;
+	Thu, 19 Nov 2026 19:35:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZK3SZVO/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795116811; x=1826652811;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bdTEokAD3JcME9ieegFeUH1z2YJ0LruEhgCbp1EEbS4=;
-  b=ZK3SZVO/nUXIf/LA1e4XbNtMeotlTP3OKO8JAk5QzPxfv/EZgbL/1V74
-   juqGIPSS11tHOeZHi3HHtzuKvb+ZqAuAy6u0Nbbh0kq25n16z/mWPiSSm
-   po59XqbSgcDJGPgoaEvypAS1GiBgd0OVyOzEpN7mxxv6olaHoLB/9YDU0
-   W3rLKdaPATAuEt9/Sebp8ppsMPsdhINjJfT91+wwwH3mzQtBenkmQhTfg
-   vXnpL2hDi3NoTxmfYCgPkCwjWV5TRCZgBMg85wA/eZQAkGo1ci9LA5ua1
-   V0fckC3hWoqknVFMU3jul9GOE0VfqbI0Gq3d5Zf1fzr2xgRd9j9Acxp6Y
-   g==;
-X-CSE-ConnectionGUID: eCm2O/O/T0OGBzPPIZ1ctg==
-X-CSE-MsgGUID: LkB5HigLR1OvmzRfTBuvmQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3877996"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3877996"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:33:30 -0800
-X-CSE-ConnectionGUID: fTaIjd7aRtqRPe7Z9Hs4rQ==
-X-CSE-MsgGUID: fDodAi7FQwiRU1u5TPCDGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10802271"
-Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 11:33:27 -0800
-Date: Thu, 19 Nov 2026 21:33:25 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Rupesh Majhi <zoone.rupert@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Arnav Kapoor <kapoorarnav43@gmail.com>
-Subject: Re: [PATCH] iio: pressure: dps310: read the first temperature in
- probe
-Message-ID: <av9PBU_CNlBms2by@ashevche-desk.local>
-References: <20261119190827.36947-1-zoone.rupert@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TLBmGYo5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5740E1F000C5;
+	Thu, 19 Nov 2026 19:35:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795116930;
+	bh=XKkr8NiBSfAxaPY+xmJ+lmd22XwqR6e5oteLmwQ0jc4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TLBmGYo5ak00zcdtdDmARhL65KF/0mgK42lYCvBTVNRxq8Ar2HJ81SIE/9GiJsv+a
+	 rtzLqtoqA9DG6De6jfFrDLAxz556XX2xDetpNeFDOK1EjBMNAxwR9BmY0YnYiBNrt8
+	 HP8rLPUUdACSH/eTiw2cArBwzQ65gfKKyCybIHVLUcwO05Nt81TwPDZq0ACtcve4wf
+	 hSlt1oNu8MIVN5QT4JKN+weM2JPC58G3hIqRD7fJ4flnXrxRlwEZdyGynBB+9Lk+Ie
+	 DYJFLl/x2XjP9Jm7XRMzkRD/xfSHY1s5aoEJ5NkDGJCnRPkDazjj0jqUAJ6MHhoYkt
+	 wAKkWbb7igOJg==
+Date: Thu, 19 Nov 2026 14:35:28 -0500
+From: Brian Masney <masneyb@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] clk: en7523: convert to full clk_hw
+ implementation for en7581
+Message-ID: <av9PgKqFIjNPSkTt@x1g10>
+References: <20261110001128.1041-1-ansuelsmth@gmail.com>
+ <20261110001128.1041-2-ansuelsmth@gmail.com>
+ <179444135864.1126566.17591616173966524369.b4-review@b4>
+ <6afc8629.c6df0648.3437b8.c961@mx.google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,37 +64,110 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119190827.36947-1-zoone.rupert@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <6afc8629.c6df0648.3437b8.c961@mx.google.com>
+User-Agent: Mutt/2.4.3 (2026-10-09)
 
-On Thu, Nov 19, 2026 at 09:08:27PM +0200, Rupesh Majhi wrote:
-> The first temperature read is in dps310_fifo_interval() instead of
-> probe. That function is called with data->lock held and takes it
-> again, so enabling the buffer without a trigger deadlocks.
+Hi Christian,
+
+On Tue, Nov 17, 2026 at 05:51:50PM +0100, Christian Marangi wrote:
+> On Wed, Nov 11, 2026 at 06:55:58PM -0500, Brian Masney wrote:
+> > > In preparation for support of .set_rate, convert the clock register
+> > > logic from fixed clock implementation to full clk_hw implementation with
+> > > dedicated OPs for Airoha EN7581 SoC.
+> > > 
+> > > This is just a rework and no behaviour change is expected.
+> > > 
+> > > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > > ---
+> > >  drivers/clk/clk-en7523.c | 75 +++++++++++++++++++++++++++++-----------
+> > >  1 file changed, 55 insertions(+), 20 deletions(-)
+> > >
+> > > diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+> > > index 24fdec2e6198..6640e814d36a 100644
+> > > --- a/drivers/clk/clk-en7523.c
+> > > +++ b/drivers/clk/clk-en7523.c
+> > > @@ -126,6 +126,12 @@ struct en_clk_gate {
+> > >  	struct clk_hw hw;
+> > >  };
+> > >  
+> > > +struct en_clk {
+> > > +	struct regmap *map;
+> > > +	const struct en_clk_desc *desc;
+> > > +	struct clk_hw hw;
+> > > +};
+> > > +
+> > >  struct en_rst_data {
+> > >  	const u16 *bank_ofs;
+> > >  	const u16 *idx_map;
+> > > @@ -742,42 +748,71 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
+> > >  				     en7581_rst_ofs);
+> > >  }
+> > >  
+> > > +static unsigned long en7581_recalc_rate(struct clk_hw *hw,
+> > > +					unsigned long parent_rate)
+> > > +{
+> > > +	struct en_clk *c = container_of(hw, struct en_clk, hw);
+> > > +	const struct en_clk_desc *desc = c->desc;
+> > > +	struct device *dev = clk_hw_get_dev(hw);
+> > > +	struct regmap *map = c->map;
+> > > +	u32 val, reg;
+> > > +	u32 rate;
+> > > +	int err;
+> > > +
+> > > +	err = regmap_read(map, desc->base_reg, &val);
+> > > +	if (err) {
+> > > +		dev_err(dev, "Failed reading fixed clk rate %s: %d\n",
+> > > +			desc->name, err);
+> > > +		return 0;
+> > > +	}
+> > > +	rate = en7523_get_base_rate(desc, val);
+> > > +
+> > > +	reg = desc->div_reg ? desc->div_reg : desc->base_reg;
+> > > +	err = regmap_read(map, reg, &val);
+> > > +	if (err) {
+> > > +		dev_err(dev, "Failed reading fixed clk div %s: %d\n",
+> > > +			desc->name, err);
+> > > +		return 0;
+> > > +	}
+> > > +
+> > > +	return rate / en7523_get_div(desc, val);
+> > > +}
+> > > +
+> > > +static const struct clk_ops en7581_clk_ops = {
+> > > +	.recalc_rate = en7581_recalc_rate,
+> > > +};
+> > > +
+> > >  static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
+> > >  				   struct regmap *map, void __iomem *base)
+> > >  {
+> > >  	struct clk_hw *hw;
+> > > -	u32 rate;
+> > >  	int i;
+> > >  
+> > >  	for (i = 0; i < ARRAY_SIZE(en7581_base_clks); i++) {
+> > >  		const struct en_clk_desc *desc = &en7581_base_clks[i];
+> > > -		u32 val, reg = desc->div_reg ? desc->div_reg : desc->base_reg;
+> > > +		struct clk_init_data init = {
+> > > +			.ops = &en7581_clk_ops,
+> > > +		};
+> > > +		struct en_clk *en_clk;
+> > >  		int err;
+> > >  
+> > > -		err = regmap_read(map, desc->base_reg, &val);
+> > > +		en_clk = devm_kzalloc_obj(dev, *en_clk);
+> > > +		if (!en_clk)
+> > > +			continue;
+> >
+> > return -ENOMEM;
 > 
-> Move the read to probe.
+> Hi Brain,
+> 
+> as you pointed out in the previous revision, returning would change the
+> behaviour so I currently skip the clock in such case...
 
-...
+It's ok if it changes the behavior to make things interact with the
+framework correctly. I just pointed out that the commit message says
+there is no behavior change. You can drop that sentence and just
+describe the behavior change in the commit message.
 
-> +	/* Pressure compensation needs a temperature from the start */
-> +	scoped_guard(mutex, &data->lock)
-> +		rc = dps310_read_temp_raw_locked(data);
-> +	if (rc)
-> +		return rc;
-
-While at it, making branch in scope
-
-	scoped_guard(mutex, &data->lock) {
-		rc = dps310_read_temp_raw_locked(data);
-		if (rc)
-			return rc;
-	}
-
-helps to avoid potential issues later on.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Brian
