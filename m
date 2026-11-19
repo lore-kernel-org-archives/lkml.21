@@ -1,59 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.145.95.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795086902;
-	b=IAI0ZnP4666zlsRD51CLKAZfSzfGOl2AGBnmE0X2S76TtwDZVarAVZc+FQpn+G/8uf8d
-	 AAITZYQbPKXJneOmpRDJfpUan3j13uMrLf39IY3MAD0xgvgK3yM/C4JaMlU0lrqzhc/Cy
-	 iOH0jZRIR61lAGQxM5aFjgIB6CgaJ77VJv+TFcbwlEvJ0HGy8M1GpXNFdawVwZ2wO2OUW
-	 g/WigU3gr7E5zfRutH6iyJB+AEIEQcXWZgcKUuezd1K0DHsTmr4fVkshX41KJzw4a/LWf
-	 rkz0WKO419qQ90oWXv+zURuDvbzCB0uui4cZN2ahA/Q3szvkTg/Pc3WLXxuA2aR48rw==
+	t=1795086933;
+	b=RQgIP05kI3ZiV/c1kZJtQl3HTr4oHJ2eZ/owfw8dgMzz2+HL+6ZRunQIn/Sf9Voptyo8
+	 c5wY8idTofo7DOP70p7MmdMeo2v87xqLJsYNyiBtkDiUDI8M1o0/1pYobyKialrwzuoyj
+	 TOlA0e3UdrN5SX2BotNkU9ArilQZ6n5iqaqYSKcIV9rjh1DY0LXUVemV0t5E9FOWhwjak
+	 7N5yG5GuWEeXyX1aNvsAnVXxM5q/xBpj594PovfcOwfgkYo0iXMyRsFn4OCBrlJfJ1e/W
+	 lb1mPyQKjg8UjAS1obRIkT90BKP5kebK8jw0LXBfbG0xq/td1tVbwirrmtfuDMtwYPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795086902;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:
-	 References:Date:X-Clacks-Overhead:Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=YGmcDizx3Ucl8MvLJ9Vv5bqJkI0YuXA3vmqW4QU5klk=;
-	b=OZZjKKkywhP1mGMGPQ9FQ45NrqayBDe98fcTOZNu4DfKGpv5zYv9PL9lHWi9dPXzO+xm
-	 B+TcnJ85fdcvHhYhM9TEqtZtLhBz9+qNHcMBTTZN+UOLSuzhJpw2qbX+z0MY5K4ADsLNY
-	 lVJJ5uRQSqEXMbJGJowH00xtJX4vXmFB8oWWHSlQx3I0KIz8EeBSM0uF1O+wOdwTJeUbq
-	 BZFxXnKXEPrm/EW1mc5QqE9r+pBIUCT5Gxfjge+A5LqYQ0Liscu3j3eabhh9My6Vplk7x
-	 LiIr5NAaK8ydv9mIKX1+lZIrxc7tBXvauxGcqkLuLUKcroibUSfOoqITMWtcptjsLXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795086933;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=4IqXSj3dm2+s5MVjtBuWKHIfsSaEZGxTxCweaADY90I=;
+	b=PUmX02jzNzv8guxQry2pnZdHKM/wKt3Ip6ImPGzZgR3ob4rwcFGF2Ta7hboYwwd/S90e
+	 U5l/qFOKsTFL4r2aFbUm+dxKDav8mzo4TTL2TPHEXlpMrzEWeh03yrz0wGjYIGByWFdfm
+	 fZVNXMIf6aPpdCoBQ6Bl7Xydcp08k9AcySxCWcf0ZiqeDdNDdy/pydks/cVqxryrfweLz
+	 L2f9SviJzo9w72Q+PoOoja16quH6S/CljqyHkGv4ufabo3fgz9MvLSpYgSsKNnuw6Q39S
+	 1inWG6Kf6+mVzsUuZG2CFVFTfpzTSgPRy3VP3yALRyASnaKorEE1jOWj/TA0yKCJ/Iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=toke.dk;
-	spf=pass smtp.mailfrom=toke.dk;
-	dkim=pass header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=rXn9l0CS;
-	arc=none smtp.remote-ip=45.145.95.4
-Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A3E4606A32A;
-	Thu, 19 Nov 2026 11:15:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A3E4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=toke.dk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toke.dk
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=W3dL3G5G;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 032BA606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 11:15:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 032BA606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=toke.dk header.i=@toke.dk header.a=rsa-sha256 header.s=20161023 header.b=rXn9l0CS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
-	t=1795086899; bh=hVdKjiF7+S2VAphb5azVF2/bga+Tm/+SNmLdDkAQWN0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=rXn9l0CSdQdzbkiSZ2Tjoc77d7ScTl3GxYOYmmkUxo8LqCpISvnFHZJWZFjhKKLsi
-	 l3aaJDfIKbUhOFkDb/OqRng+Nx+PZX8ozT8YtsJHuNxPfpoqYbDT4xetfNpawzyEsP
-	 3y12WGC9zQg16vi/wkCTJiz2HHrBgLocYdwhJIenl1/iSKPqw+G39poIWicWcIh/GT
-	 SbsctZGAwb3UvhDyxdmC5+Q75rf/8h4mS9lgLWaB/tZEYn0zcDZLfSof9SFDuw3qYM
-	 UKoxgOnvu973s+xfygGLyUZ4KLhUS5AIVEhUO8mtdCMF2NzdfpSAYDF6g+KaFjqNdP
-	 vF/sckrwhZJUA==
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
-To: Tomas Tonhauser <t.tonhauser@pobox.sk>
-Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] wifi: ath9k: fix loss of non-aggregate frames
-In-Reply-To: <87y0ap2hyy.fsf@toke.dk>
-References: <20261028171652.1125692-1-t.tonhauser@pobox.sk>
- <87ik1vu8m1.fsf@toke.dk> <av6NT4zjbfMuk7Lf@blackbox>
- <874idd3xv6.fsf@toke.dk> <87y0ap2hyy.fsf@toke.dk>
-Date: Thu, 19 Nov 2026 12:14:59 +0100
-X-Clacks-Overhead: GNU Terry Pratchett
-Message-ID: <87v75t2hu4.fsf@toke.dk>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=W3dL3G5G
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F2971575;
+	Thu, 19 Nov 2026 03:15:29 -0800 (PST)
+Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8419A3F882;
+	Thu, 19 Nov 2026 03:15:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795086932; bh=FR0/LBnwgDdwhY5rJMJ64mJ7LYoAPI3kvn2qQAB7XBQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W3dL3G5GXhwSGHwELmFZNyBJvD/nh8CqUvTKs4WIeFLtj6a1HN41h//5oUXiwkt7j
+	 RRrxC/UvewQVmzTa2YZ8BVkoKPJjCb/Emgoiii9viRiLXXOdhkEs92Q8/eA11BqzeX
+	 g2/MX+/bg6DFMFqz/LekYfWGNMOjDbxI3HQ14Au8=
+Message-ID: <df0647cd-c874-4fc7-b167-af65edcedd19@arm.com>
+Date: Thu, 19 Nov 2026 11:15:28 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,79 +53,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 0/2] genirq: add migratable NMI registration and
+ show NMI counts
+To: Ashok Raj <ashok.raj@oss.qualcomm.com>
+Cc: Linux ARM Kernel <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Jinjie Ruan <ruanjinjie@huawei.com>, Liaochang <liaochang1@huawei.com>,
+ Marc Zyngier <maz@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+ Sathvika Vasireddy <sathvika.vasireddy@oss.qualcomm.com>
+References: <20261114234946.818072-1-ashok.raj@oss.qualcomm.com>
+ <452bf82e-52ea-47c1-9074-eeb614a33747@arm.com>
+ <av0EE35H57DWF1E2@hu-ashoraj-lv.qualcomm.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <av0EE35H57DWF1E2@hu-ashoraj-lv.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Toke H=C3=B8iland-J=C3=B8rgensen <toke@kernel.org> writes:
+Hi Ashok,
 
-> Toke H=C3=B8iland-J=C3=B8rgensen <toke@toke.dk> writes:
->
->> Tomas Tonhauser <t.tonhauser@pobox.sk> writes:
+Sorry for delaying reply... got caught by sorting out Sashiko comments on
+FEAT_NMI :) 
+
+On 11/18/26 01:49, Ashok Raj wrote:
+> Hi Vladimir
+> 
+> On Mon, Nov 16, 2026 at 10:38:00AM +0000, Vladimir Murzin wrote:
+>> Hi Ashok,
 >>
->>> On Tue, Nov 17, 2026 at 10:09:58AM +0100, Toke H=C3=B8iland-J=C3=B8rgen=
-sen wrote:
->>>>=20
->>>> So an alternative solution to what appears to be the same problem your
->>>> patch 1 is solving appeared:
->>>>=20
->>>> https://lore.kernel.org/r/20261110170459.31857-1-dominikengelhardt@yma=
-il.com
->>>>=20
->>>> Could you please check if this approach works in your tests (with or
->>>> without patch 2)?
->>>>=20
->>>> Thanks!
->>>>=20
->>>> -Toke
+>> On 11/14/26 23:49, Ashok Raj wrote:
+>>> request_nmi() currently models NMIs as per-CPU sources. This does not
+>>> represent a globally routed NMI source with an affinity-capable irqchip,
+>>> which needs to be rerouted when its target CPU is offlined.
 >>>
->>> Yes, it works. I tested Dominik's patch instead of patch 1 on the same
->>> AP (EAP225 v3, QCA9563, OpenWrt 25.12.5), with patch 2 switched on and
->>> off at runtime by a test-only module parameter, alternating runs.
+>>> This RFC adds IRQF_NMI_MIGRATABLE as a request_nmi() registration mode
+>>> for such a source. It remains excluded from normal IRQ balancing, but the
+>>> generic startup and CPU-hotplug paths may select an online target. The
+>>> second patch fixes the related /proc/interrupts display: NMI-safe flow
+>>> handling updates the per-CPU counters rather than irq_desc::tot_count.
 >>>
->>> With Dominik's patch every filtered frame now reaches mac80211
->>> (tx_filtered matches "TXERR Filtered") and the mac80211 retry gets it
->>> through:
+>>> Patch 1: Add the migratable-NMI registration mode, validate that it is
+>>> used only through request_nmi() with an affinity-capable non-per-CPU
+>>> irqchip, and add IRQ KUnit coverage for registration and CPU-offline
+>>> migration.
 >>>
->>>   Strong client (-50 dBm), 3x500 pings at 50 ms + 3x25 at 1 s:
->>>     Dominik only:       0 lost, 105 filtered, 103 via tx_filtered
->>>     Dominik + patch 2:  0 lost, 111 filtered, retried in ath9k
+>>> Patch 2: Emit the per-CPU counters for all NMI descriptors, matching
+>>> kstat_irqs_desc().
 >>>
->>>   Weak client (-75 dBm), 4x500 pings at 50 ms (1000 bytes),
->>>   3x500 at 50 ms (56 bytes), 3x25 at 1 s (1000 bytes):
->>>     Dominik only:       4 lost, all of them XRETRY
->>>     Dominik + patch 2:  0 lost
+>>> Testing:
+>>>   - ARM64 changed-object builds with WERROR=1
+>>>   - ARM64 !SMP changed-object build
+>>>   - ARM64 IRQ KUnit run under QEMU with two CPUs, including registration
+>>>     validation and CPU-offline migration
+>>>   - local downstream GHES delivery and migration validation for the intended
+>>>     consumer topology (not part of this series)
 >>>
->>> So Dominik's patch makes patch 1 unnecessary, and it keeps powersave
->>> filtering intact. I'll drop patch 1.
+>>> Base and dependencies:
 >>>
->>> Patch 2 still helps with frames that exhaust the hardware retry chain.
->>> The link was good during these runs (3 XRETRY in 2000 frames), but in
->>> an earlier evening test on the same client it was 130/3000 without the
->>> software retry and 1/3000 with it.
+>>> This RFC was developed and tested on v7.4-rc2 plus the FEAT_NMI v2 series
+>>> [1]. It depends on that series' GIC NMI support and is therefore not directly
+>>> applicable to mainline or linux-next as posted. This RFC is for design
+>>> feedback; it will need rebasing onto the upstream form of those prerequisites
+>>> before submission.
 >>>
->>> Dominik's explanation also matches what I see. The strong client got a
->>> filtered frame every 1-2.5 s with no XRETRY at all, largely
->>> independent of the traffic rate, and both test clients share their
->>> block of eight key cache indices with ESP8266 clients that toggle
->>> powersave constantly. That answers my open question from the RFC.
+>>> [1] https://lore.kernel.org/linux-arm-kernel/20261112132042.129062-1-vladimir.murzin@arm.com/
 >>>
->>> I think best would be to have my patch 2 on top of Dominik's patch (I
->>> can post it now with a dependency note or wait until Dominik's patch
->>> is applied).
+>> I'm not an expert in this area, but based on what I've learned so far,
+>> NMI being per-CPU like makes life much easier ;)
 >>
->> Yeah, patch 2 is not really a bugfix on its own anyway, so we should
->> take that through -next once the bugfixes are merged back.
+>> IIUC, one of the main problems with a shared NMI (as opposed to a
+>> per-CPU) is handling shared state. Consider:
 >>
->> -Toke
+>> CPU0                       CPU1                       CPU2
 >>
->> pw-bot: cr
->
-> And one more attempt for the bot:
->
-> pw-bot: cr
+>> ---------------------------------------------------------------------------
+>>
+>> <NMI>
+>> handling started
+>>                            set NMI affinity to CPU2
+>>                                                       <NMI>
+>>                                                       handling started
+>> mutate shared state
+>>                                                       mutate shared state
+>> handling finished
+>>                                                       handling finished
+>>
+>> IOW, the same NMI handler could execute concurrently on two CPUs,
+>> potentially corrupting shared state. Once again more than happy to
+>> be corrected if I missed something :)
+>>
+> Thanks, you're right, and I got it wrong in my earlier reply. genirq
+> doesn't serialize NMI handlers: handle_fasteoi_nmi() takes no desc->lock
+> and sets no IRQD_IRQ_INPROGRESS.
+> 
 
-Sigh, that was supposed to be from this address. Sorry for the noise :(
+Matches my observation.
 
-pw-bot: cr
+> These interrupts are external interrupts in the platform, not Per CPU
+> interrupts like the perf kinds. 
+> 
 
--Toke
+Correct, that why I call them per-CPU like :)
+
+> I'm new to the GIC, so I'd like to check an assumption. On GICv3, an
+> active SPI isn't signalled again until it is deactivated.
+> handle_fasteoi_nmi() calls chip->irq_eoi() only after the handler
+> returns. 
+> 
+
+Yes.
+
+> So I'm assuming a second CPU can't be sent the same SPI while
+> the first CPU is still in the handler.
+> 
+> Is that a reasonable assumption? 
+
+Perhaps. I'm still trying to understand where is border between what
+we can assume and what we must guaranty, especially when it comes to
+generic implementation. 
+
+> 
+> I didn't quite follow the mutate shared state comment. 
+> 
+
+That's generic statement since NMI flow doesn't take locks. I still
+need to understand what and why IRQ flow protects with locks and how
+it relates to NMI flow... Sorry for making such vague statements!
+
+Ideally, for generic support for global NMIs (opposite to per-CPU,
+I do not use term "shared" since it confuses people with IRQ_SHARED
+which is not in scope here!) we want requestor just omit IRQF_PERCPU
+and the generic flow do the right thing automatically. That requires
+enumerating corer cases due to NMI is not per-CPU anymore and providing
+measures to either avoid those cases or handle them or likely balance
+between both. I'm spending some spare cycles on that, but things go
+slowly...
+
+Cheers
+Vladimir
+
+> I just interpreted thast as "handler is now called in another CPU" 
+> type assumption.
+> 
+> Cheers,
+> Ashok
+> 
+
