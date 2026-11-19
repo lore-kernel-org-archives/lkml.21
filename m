@@ -1,55 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795046609;
-	b=bRRPETBEAWy25FCfLdU9grNQXgk9/tmHSQ8NTph5Y7X6oJ7hFerebzMD/sVgxyuMoYbR
-	 6oQE8Muf0aQWMp2AGZVAtq7EBHwPXEHy+ZAGfHGDygyH1iBv1wIFeGxt6MajuZdO9QWR7
-	 81vWzVuMO8/Iz9aPaGgR698/+zbpg3gW7u+TQBhTTsdmOmAZ7VLz4VRKir9r899EH1uLL
-	 mZC3okraQvzk+0Ap/PBRODWiSXGS42BFDH0PBcYw/5Mwwyd722jM/R25B8JgB0g30o2Us
-	 AS+6IiTQYBsI+IDZJwA4GZ0yoqcN5C6avA10qzQU6pJIN/dIXz9SieTD3j8BTzPka2Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795046609;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=wyfuj7NvvZbRNd5oi8oKRypq3whiMRjk+iKeQTsU3ew=;
-	b=utWAgthbPEqm9ZieHK6DAjhdYM8WImo2If3Y2nBMTTK6LAJAhJD1kWau3T38LCswhhyR
-	 yOfv/mukmFs+WbiokznDli9Uw3TdKGpUcLm4r23iWQOxYTnb1U3/XVqa5dvOsnbpPMoaN
-	 ggkvRMvUStqQr9llRIPfFFsC8d0mg0kgv278udlKso6eExYOFAfZQHMmEfXmR3tMPWV7t
-	 pIN8JgGPY30sVPPIfn5B0XVZoHe2DLWHTrN8yjRzP2G5iV/YDQ36fm4df7MXYls1gQwar
-	 XhpiWT4fATBcXghPtVdVJFXCsZCo3kl58eEqYofuwv8lQdx7vmSggWQgNGV+gI2c61g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="gJb/T9DJ";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795046737;
+	b=xcriaMWz7KMstiN/OnsMgqfSBPgegaLibKeK7HkJ9OmUSZbGQnXjWA7mcBNqysWqEEpz
+	 GkQyAwiaZGJ65vJpVy534CL1Tcc/2+QTROZUe5Kzv8irK17E8Cz2RKJt6JqFSQdf7vq2K
+	 yYcsyVKlB6lNigJ4d9PH9+bYXvMjKTnxxvYupF/8c3QoSL0ia0PSzn9cxNzWEpAfFMk4b
+	 BdhReWfoDvQ4/azWcqR5FTVZRWC8UF20XDzP70QvPGYuSKufZjQ/xy2Irr45iw4CF4S79
+	 vBkhHCeUexcu/AzrfzLZ9mRMJbHLfqeykUEZJ0ZkiJJCHYWKcWHWxD4RMLgvjCow2fA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795046737;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
+	b=rKCpmLuA+HK8V0vT2zsvItUZopBgTHMRFLuWi7q1RuvpzUM28/8X5GZekDlI6j6auFXh
+	 JXLtg7jsNETzt4EhdAkipuPSJ526lFrwdVTNby7Tj82NkQ2RNvHY+o0URDW+RL0TUx/pC
+	 2i3k32J/74kVLU/PHN5eFRtfz5+jchU5eDr2HchKeWjqFv2Udi3fMzjGy2QGC8cljyJLM
+	 N7vxLK7QFBZofWOYVhZDuqu/OV8Ix0y3TBJLRSK7zht5VGGoWjID2xzzLIIhW2J6XUpCU
+	 XE6SWuTULKCaumy/YMNlujuH3XMZ916EuQ7olXopRxp9SwcUeXcxBCkNQQ41b+FbSpw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mlSNUh+q;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E6AA606A338
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:03:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2BC3606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:05:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2BC3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gJb/T9DJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D02441F000CC
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:03:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795046608;
-	bh=wyfuj7NvvZbRNd5oi8oKRypq3whiMRjk+iKeQTsU3ew=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gJb/T9DJyAdLfSZdoqK6HPP1JWwTP7vlA4Yf/LleMFzTNRdrwX8NfOa6NHEJ9kGCD
-	 E0jSXp1+ttsn9Q7HPZjX+L7FulXlDdEzB7Zt9lWjbBX3LFoCsHWjCdoTQ433vYmCe5
-	 MsVfHrxNim6YFlGDPOwxPMVRbAoUF+/2qHKDWwUyEchRZ3ljZKuVHK1aErWp/ZIf1k
-	 3xdyKdzOZNDNZzWmrhoocb/OKukFqa1LlGW/AF+y5nXPYI5xhZ3wul2f7uSCuFccxV
-	 e+tSvlX+yJ1xjhQCWv7By8IwnypIH7u/5zu4AuRVUOwf7qweK3RsYI6OKjtB03quhS
-	 BKHYEy1z6qN9A==
-Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-6b19e291cc6so1370834eaf.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:03:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErECclyEVXVlGy9BuPLmQ7maIc2USYfSkHJXtsltzavQ4jCq1hhy5buPRZ4kuVyoAZK7kLgm8DmiP1gjqdc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8yHDfCMjNhSOABURZuhyB5jHC1R8/RI8UqccQHeepfZPuixf/t
-	eIy7TYf92/bWzu5Ziy9iK1xO4/c1PtvLusUUFDvfktJ37xWnO6qx9OXBY8AH051FqnKf8Vhr04z
-	rGytRGr/qnNsN2023Gb1f0E1VnPrSPJM=
-X-Received: by 2002:a05:6820:1517:b0:716:d3ac:6950 with SMTP id
- 006d021491bc7-71b18297a2emr3293454eaf.7.1795046608044; Wed, 18 Nov 2026
- 16:03:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mlSNUh+q
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-492f563d1c6so617965f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:05:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795046735; cv=none;
+        d=google.com; s=arc-20260327;
+        b=P4g3Durl5zu9mKMMUY2Hn/5vXM6YY8amn1g5gTF5hs1ftr++3K83ZUmfvntz6EKRMd
+         6edKM8UgMEk1kiFXbM+EUGx313g8cH0k3d7xVKpt/W6UvnrF02Pv3/V0TNrAEYFwV2v2
+         6Q/DxK9SYBx8SeOORAKQSXO61BVKxjtn2Ii+cY1PGwIsBfKYkSAGM/DDfz5nWXggJlET
+         bq7cTPtittfvxHQlwGWOpti/j0vycj6WC7YCtXaJTt19K4XCZyswmQ75pCLBmAsH4BCI
+         w/LmNQkRfiPl/TbuLtP1zOV87H9NPw5uGIs3c981aYZREkYmTHLJDpdvWJHPC39Z2cgx
+         /Yjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
+        fh=4TukisgtE/r2Xd/kb3I9oqWIQtvYdVE/7ZvDmL44YNQ=;
+        b=A/X+X8QMxPg67sptBMgyBGKPOysMeHZIcOZtMyGays30U6QGM8uWMPJui2+Pn4DlgZ
+         alwYjstOhiLK7a3Dweu6n7D47yen9lDaMgIiR3WxycNk5ajDTZrEzePPdodwFq3hul/q
+         FEWPCwQD3NkLieF+VTgYBZ1qLvDTeRW2eV7oZeTHO8CX99I1HxuHU1nF58YR5B52SR5S
+         RXI9AUh1csAe+08NUAgZdBlxNIECm9ye8Do0qyRaB/zSCWKYcakeukplwa6XeSXpmfRF
+         NHTMjncXgzwXALISaxXbhJb7QScqLhYopjO6HOwjA5WSq4vaX30TTAJTbPRh8OIcp/tw
+         M3Xg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795046735; x=1795651535; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
+        b=mlSNUh+qEThAmoYBnCSmjXkVGJip1b+KHtYsv1hZIFRn5g9lNUkXJziQ+IsrvZxDOm
+         JC0nrs2S0LMH8+dx2n9zDizIoiSJHl/FgAYMzWxJGWzf8mE2E7TLY6V/Q8SLaw2zj1mV
+         nyr8A/meIcjalPfDET3aMXgPigz7hzKg3vuVNXqnCkVXJAAeCCwQGT+x6VJ9AgXvS86l
+         tno3FVEaAG2Om8RNJ6R3u041ds5tE/rhmvHZnoxDOn7ysC5ni2gII0dw9gihu7BkzRb4
+         mFAgp7MU/t/nzAMNLtrlteobV8x57UJ7rG0WYyiapt6ac0h1jbaCEmVhXqxfK+5T1YJ4
+         CwVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795046735; x=1795651535;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jSTBRQUn7y72ovG0FX2LVSDBSceycnY1ZcY8M/uPhmk=;
+        b=Nil3qqAn4bpiIRlZI6UQ5uOFNvdQT/TIcH+yLoHcR1rnsDr2gyhTtJZNxTQ24eQ5F5
+         XSzi1IFJuegeuJFemFinAdPfhXE0/wvf8w/S1F5pgivfoAanusagqbewA1qalsIg9ZZ6
+         B+6rY1YZDygiakwj3ZzKrur28JBtX2/3JW0DYXVWpl959EPiULp/pAqpSlJwaBGDv82j
+         +DatY8qegIpjqA0glU70lEcx2717nMhem2KbnqyXesva7UxRWwxMRpgWhldd4EDDzxH/
+         tSLOzfpbr2vBdXmYEQQo1XMdP5l8b7VwG32eebfG2knFmPP0q1ZKQiTZx0qkBXKn6qUX
+         hDPg==
+X-Forwarded-Encrypted: i=1; AL+hErEi7ChkwlStVKjRIpusopNl42o54ewkpo3bEIu5Gqqk+yXxFm+GUk8wEirKCZ4hyT7q8ROZzA2TqO6UT/c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/pFGD9UBVuU/OXz1eqAeoOCtgNwHf2FlMo5LPTe/KmvPdsYEhJ
+	LPxBhwEc5GE/3Ri53PvuPx7Dh+lckvTGGxxqxOHgvFh2KhmbmruVYho/2T31OK1kH5fSGXWbOkI
+	38D+4lDb9/4wEhp9+o3JSyuGoHlCnyhA=
+X-Gm-Gg: AZFdTZeVEjpuTA54EX8RpJlKL6wQYkI6osHv+mlRm4tfBvYe+1O+Svoe45MolUrlqYe
+	fW0wSGo1nCss30aCtUpefLxbU038PSiDwZ68HxTJvgd252thyP/jJMVaN7xCjgcFGnpBixuJXkK
+	ZZjKOg3Izqya7blDmlkPPkskokDuCrJF2kUCPUPOB1cGLJrgwY7r/g01n3mysliCWhVYWGTIPOf
+	r/zmAlzCiNNt9WjPIvPBXgNBXos6mS6ZqkOFBErQk+eg9YTQiZ3JNUaM1Zd0jR49EdsywFpYOib
+	5rcszlyKa817FM9VzNL9XLCWVhHQ3X5gk8R1qxoqjcoBAzvHg8eTklVxP5d8pYCRW+JZ29KbkDb
+	Hhnp7xDr96hIqHw5vi8q/1C1erQrfzo3qTYfIYsazRz/66iKYWOixy0fiNSzPUqPrdsZHbTVGjd
+	J5h9V2uuAZXfQVKoqScDE=
+X-Received: by 2002:a05:6000:1a8d:b0:4a4:f86e:d97 with SMTP id
+ ffacd0b85a97d-4a6337865c9mr9535095f8f.1.1795046735028; Wed, 18 Nov 2026
+ 16:05:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,154 +105,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118235055.1225115-1-vladimir.oltean@nxp.com> <20261118235055.1225115-5-vladimir.oltean@nxp.com>
-In-Reply-To: <20261118235055.1225115-5-vladimir.oltean@nxp.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 01:03:16 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
-X-Gm-Features: Aa3M54opHWuR9SlJEPohXbxMUMlaFEN9TxFaq4PW8CJ455fM-o3BKFzXrSMiZDQ
-Message-ID: <CAL4WiipQ_=cN2+F0wFiMy8Ji-d2tfd6ZuBo3HCYiTEQ6RxF29g@mail.gmail.com>
-Subject: Re: [PATCH v2 net 4/4] net: enetc: let core segment GSO skb when
- headers exceed TSO_HEADER_SIZE
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Claudiu Manoil <claudiu.manoil@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
-	Clark Wang <xiaoning.wang@nxp.com>, Ioana Ciornei <ioana.ciornei@nxp.com>, 
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+References: <20261023124157.75524-1-puranjay@kernel.org> <0f97689d-fdec-4cf4-b6ca-4365aced16d6@amd.com>
+In-Reply-To: <0f97689d-fdec-4cf4-b6ca-4365aced16d6@amd.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 18 Nov 2026 16:05:24 -0800
+X-Gm-Features: Aa3M54psv0NDDiF9QLJFrAAgoAs2e4Ba4LlnjZXH_a2-VlxejVTzfB_OynEoxK0
+Message-ID: <CAEf4BzaPDnopvSoS=AwN-gNPdzD0Bs4PvVPP+qCrdBFQ8CyJsg@mail.gmail.com>
+Subject: Re: [PATCH] perf/x86/amd/lbr: Freeze LBR on PMI only when kernel
+ branches are recorded
+To: Ravi Bangoria <ravi.bangoria@amd.com>
+Cc: Puranjay Mohan <puranjay@kernel.org>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	James Clark <james.clark@linaro.org>, Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andrii Nakryiko <andrii@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le jeu. 19 nov. 2026 =C3=A0 00:51, Vladimir Oltean
-<vladimir.oltean@nxp.com> a =C3=A9crit :
+On Fri, Nov 13, 2026 at 7:48=E2=80=AFPM Ravi Bangoria <ravi.bangoria@amd.co=
+m> wrote:
 >
-> Like many other drivers, the software TSO path (enetc_map_tx_tso_buffs())
-> copies the L2+L3+L4 headers of the skb into a fixed-size TSO_HEADER_SIZE
-> (256 byte) slot of the per-ring dma_alloc_coherent() header area,
-> without checking that they fit.
+> On 23-Oct-26 6:11 PM, Puranjay Mohan wrote:
+> > On CPUs with X86_FEATURE_AMD_LBR_PMC_FREEZE the LBR is always frozen on
+> > PMI, so the branch stack ends before the IP and callchain, which are
+> > taken when the NMI is delivered. IBS rejects branch-stack events, so
+> > there is no precise alternative.
+> >
+> > The freeze only keeps the PMI handler's branches out of the stack, whic=
+h
+> > matters only when branches into the kernel are recorded; without it the
+> > stack fills with the handler's own branches. A user-only filter does no=
+t
+> > record them, and parts without the feature are never frozen (see commit
+> > 598c2fafc06f ("perf/x86/amd/lbr: Use freeze based on availability")).
+> >
+> > Freeze unless the value written to LBR_SELECT, which is shared by all
+> > events on the CPU, suppresses branches into the kernel.
+> >
+> > With perf record -e ex_ret_brn_tkn:u -j any,u on a Zen 5 part running
+> > CPython, the function of the sampled IP differs from the function of
+> > LBR[0].to in 84.3% of samples with the freeze and in 0.1% without it.
+> >
+> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 >
-> Sashiko casually points out during review of an unrelated patch:
-> https://lore.kernel.org/netdev/179294166520.3134.18097439321876673016@ker=
-nel.org/
-> that TSO_HEADER_SIZE does not constitute the maximum size that packet
-> headers can have for GSO skbs, but rather, an essentially arbitrary
-> number.
+> Reviewed-by: Ravi Bangoria <ravi.bangoria@amd.com>
 >
-> An example where headers can exceed TSO_HEADER_SIZE is with an IPv6
-> extension named Segment Routing Header, set through setsockopt(IPV6_RTHDR=
-),
-> with a type 4 routing header. With 11 or more segments, the headers of a
-> TCP/IPv6 packet exceed 256 bytes:
->
->   Ethernet                14
->   IPv6                    40
->   SRH, 12 segments        8 + 12 * 16 =3D 200
->   TCP (with timestamps)   32
->                           ---
->                           286  (30 bytes too many)
->
-> No privileges are required to request this socket option (but it will
-> cause driver writes outside allocated memory). A reproducer sketch can
-> be found at:
-> https://gist.github.com/vladimiroltean/7cecf636b788b29f361a2fbdae646010
->
-> Bizarrely, enetc is the only affected driver, because the core
-> accidentally protects most other drivers against this bug in
-> gso_features_check(). There, we have this logic that saves the day:
->
->         /* NETIF_F_IPV6_CSUM does not support IPv6 extension headers,
->          * so neither does TSO that depends on it.
->          */
->         if (features & NETIF_F_IPV6_CSUM &&
->             skb_has_ipv6_extension_hdr(skb))
->                 features &=3D ~(NETIF_F_IPV6_CSUM | NETIF_F_TSO6 | NETIF_=
-F_GSO_UDP_L4);
->
-> enetc is the outlier because it only advertises the more complete
-> NETIF_F_HW_CSUM, so for it, this fixup does not clear the NETIF_F_TSO6
-> and NETIF_F_GSO_UDP_L4 bits.
->
-> [ astute reviewers may ask: what if we disable NETIF_F_IPV6_CSUM at
->   runtime, via ethtool -k, so as to bypass this fixup, don't we make
->   all drivers vulnerable?
->   No, because netdev_fix_features() will trigger the code path which
->   also prints "Dropping TSO6 features since no CSUM feature.\n".
->   So TSO skbs will now be segmented in the stack. ]
->
-> Surveying every driver that uses TSO_HEADER_SIZE:
->
->  Driver  | TSO6 | Checksum feature    | Core guard fires? | Verdict
->  ---------------|---------------------|-------------------|---------
->  enetc   | yes  | NETIF_F_HW_CSUM     | no                | vulnerable
->  bnxt    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
->  nicvf   | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
->  otx2    | yes  | NETIF_F_IPV6_CSUM   | yes               | safe
->  fec     | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
->  mvneta  | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
->  mvpp2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe
->  mv643xx | no   | NETIF_F_IP_CSUM     | n/a               | safe
->  dpaa2   | no   | NETIF_F_IPV6_CSUM   | n/a               | safe (*)
->
-> (*) dpaa2 also uses a fixed-size kmalloc(TSO_HEADER_SIZE) per segment,
-> so the identical overflow would apply if it ever gained NETIF_F_TSO6.
->
-> The above survey is what influenced the decision to make a localized
-> patch in enetc_features_check() rather than create a huge disturbance in
-> the core, even though, IMO, TSO_HEADER_SIZE is a huge foot gun.
->
-> Note that the LSO path (enetc_lso_map_hdr()) also copies the header into
-> the tso_headers buffers for a reason I don't quite understand. However,
-> I've excluded it from the discussion because when the GSO header size
-> grows to weird sizes, it never gets anywhere near TSO_HEADER_SIZE before
-> hardware stops being able to support this offload. There's an earlier
-> limit at ENETC_TX_CSUM_MAX_L4_OFFSET at which it stops being able to
-> perform HW TX checksumming (a dependency feature).
->
-> Fixes: fb8629e2cbfc ("net: enetc: add support for software TSO")
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
-> v1->v2:
-> - drop word "super" from "GSO super-skb"
-> - subtract VLAN_HLEN from maximum permissible GSO header size
-> - stop blaming LSO
-> ---
->  drivers/net/ethernet/freescale/enetc/enetc.c | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/e=
-thernet/freescale/enetc/enetc.c
-> index 6cc519eea5bd..2bc65cf6f508 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc.c
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-> @@ -1138,7 +1138,19 @@ netdev_features_t enetc_features_check(struct sk_b=
-uff *skb,
->                 return features;
->         }
->
-> -       if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
-> +       if (!skb_is_gso(skb))
-> +               return features;
-> +
-> +       /* In case NETIF_F_HW_VLAN_CTAG_TX is disabled, validate_xmit_vla=
-n()
-> +        * has not yet run and a VLAN may still be in the hwaccel area, s=
-o we
-> +        * need to be one step ahead
-> +        */
-> +       if (enetc_lso_get_hdr_len(skb) > TSO_HEADER_SIZE - VLAN_HLEN) {
-> +               features &=3D ~NETIF_F_GSO_MASK;
-> +               return features;
-> +       }
-> +
-> +       if (enetc_skb_uses_lso(priv, skb))
->                 return features;
->
->         if (enetc_tso_count_descs(skb) >=3D priv->tx_bd_count)
-> --
-> 2.53.0
 
+Thanks, Ravi!
 
-I should probably rework my series :
-https://lore.kernel.org/netdev/20260403043237.3909226-1-edumazet@google.com=
-/
+Do I understand correctly (from [0]) that we'll just stick to this
+patch and there is nothing from Puranjay's side to follow up on?
+Thanks!
+
+  [0] https://lore.kernel.org/all/5cf60aaf-2ee4-482f-9054-dff823710431@amd.=
+com/
+
+> Thanks,
+> Ravi
+>
