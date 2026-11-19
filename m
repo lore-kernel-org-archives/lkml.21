@@ -1,79 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795082879;
-	b=zaKD54IGM1873cov/WCP1eM0XVS6WjpogKfavqR6UB+u5a2zJs7p6N3svLv8YjFdOsxP
-	 MC5jsFEC5Vaq/LsnB13pDMDiCIQAqMwhaUGQ+nVSZz2roYPAgjw27Az/dbF2r/yXECaYP
-	 C7SkijEEUIvBQ6ltmceXkrVxX8cEhZUTddsA8QEuoB42zjWi17C9fCg8XHSQIB+HBQbVc
-	 FvKrE5PBDzNtj2eQ/6K8S+OKnTFVNvGOk+oVSiYb46h4fRXsKb1YLYifwJhfzQCxUm/+u
-	 NB4HVjPKdWiqVJFKXFDp+EoX44u16MmaMLDbOOzWv0nkIx+onNPUAE6sixV9DJx8X6w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082879;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=gYAYrLCOGgg/07L+LDhGF2bUCvhFzYdBrR2yq0ZLqyw=;
-	b=AwWawW0YOlUF2NdnqSaDpv6z/P3Kl6pkNHW3wq5qDsYnMnUJRa825tvtiFtpmU7sYHd+
-	 pdqAAUaUvT24PZJ6Zl6pNOggVud4U0ooZB4WtGLQbQiQNRZPI9fIJZZGV4lXy37+mUhyt
-	 Kgf9Jut00p8uiqNBdl1RufmQUXhfKq5Ub4ut8UpoG//iTcb/Y7dkHGZAKoylbiDbERhAp
-	 vFOFYkvz6lJTq8PNpgYRjxqgsbznOv2Frx8v2eww2ClehmWZwyOP2GYCL8x2/dQOVYs31
-	 M+xtLKu5NBGLKqE5+13/H3Cu52pOcd1LzScJEKLsQY0Txf5sf6Qz443EDIGBwjAQWrA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T8t+X2ah;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91CB2606A320;
-	Thu, 19 Nov 2026 10:07:59 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T8t+X2ah
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795082879;
-	b=Cf2/qBq34dLnxUZDWbMpiT2mkrxuoIP73tlM77n7U59vctV02TAXJCvVYAnASGLFO5Tf
-	 zDK+CLu0jcPbZLC36gS/Be9s/f0LJjxoEYf3c7AhTvLbXRaozDoi5HGgyKD2KPA0wRi49
-	 xeJQLarQe+nkIOi1XFWO9JlivLaSwcVT856Rac/lz9ahDYh6OkNRiiv+0VW/QOUWaI8+f
-	 iMXGJ8OrEWaLxo8HbCxPyMKmmMoK1zk00MUex75ZhHWWgP3TR9Gjyxr/Z7b+aYWtdFsrK
-	 +4ky1m3OYBjA18roJ8dt9PIkg2MW9moj6LT7QZV5GkSD4UM5jdyVVkP00lc4smNDdPQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795082879;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=gYAYrLCOGgg/07L+LDhGF2bUCvhFzYdBrR2yq0ZLqyw=;
-	b=LPLXfaA0ju6jXbtzUMQ3lFreqj7ms+4QR6P5vcNAuC0F5FPNJdEE4k0V+nIL+d2kB+dY
-	 YLYKblzj43bJgKrnLVIZcDDwc1aYYQsAOZWE5usQSQD1wAWY+t+9WYxOytBLRFcPv3XGl
-	 o5zyMhoVmiW+zbNzbgUzSLmTftZT2MhDFJWfbbRub7j2RgqsxcJvQ7m+zUm3P16EAtLQ9
-	 QOg3IC1UoXbw6D8bHHxAUDkcrOrexmlDA+ufpx/K03jXiCPGZp6M0Fe/+Sq4upRc3Bip6
-	 hp8BKFNiqNFW14zO2+tRJgjMbaidNnW2bj7VRBnmp2vQAMlY8UXRUInTl3pDv+2O3yA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795082922;
+	b=a5uPLymhk2csjfKBKt/QFz/DunWMwJLtmhZbsZ/ARA+WVyBxcCRQO3gradoQKFSGrTLc
+	 ZsJZnfr01iNm71VBagT5+6igq524WMQoFXfIdkyypuusXnr7WXFYemh3yNdIp80Vy+qgD
+	 h4yUwXaMdi7oVXcya4oaNb2b+5VI4X63+aMArgJlD86dCr9JqPgWhjlpk0jB+ceVTkOwN
+	 I8eJcVUzbab25Cwsk0BTsnZaDpDw7smZuTC8xdYMk8r9ANkC08qIxZQ7g58HAx3gq7OgO
+	 OH9XL8JjW18zN7JOt/qE+JwaSLjhWCqQFq4ScGPZ1rHIA/maqFJI6D81oq5BfXJi6wg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082922;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=43hk92dqRNgt3cJF1KJekR7Qr7mj7rm5DTPnHeQ1LlA=;
+	b=ltS+f5EPDB/OLlTFQqZPP8i/fPZKQ8nblJgz4W+t5zE/6nicUg6BWW5kn+460N6zD142
+	 krhD4tUPzx1UcujQkUhaRB01QEzIcO9AfL1nG2XZBS0UP9EIH77JEthxyJ7D+LxykYO52
+	 w+uTJFZNnhpF++mpyN3Jp/mOjTTZ9TdT6xeXqq3+6fFLQI/7gFnkMOwPB1r9ZeB0n7rHP
+	 bsB42oqKCrB9ivf4/pD5woUHUl+OAoR6tvU5MX2azHdRSH4+kiThNr5TZSwZxoeJ60Isl
+	 ll1SnjYVs0iFXsu8PJeFnZ3IcZDOOWWEF2tKZLH5K9HAJYvpUjVyD1KXnq8OVMwUNGg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+2ToTwP;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0E1A81F000C5;
-	Thu, 19 Nov 2026 10:07:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795082879;
-	bh=gYAYrLCOGgg/07L+LDhGF2bUCvhFzYdBrR2yq0ZLqyw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=T8t+X2ah2gHvrkFQ3W2yMPBC+uL/144J9JzCFJUzPZfef0zDYFEHFE963tH1OE+T1
-	 mzxdKJXffY0sebIWXn0UCBPVFWPOsLs8EXshu07vGxsJJ367e/W1h2vnaSVHe6k49G
-	 4y5D9wTCToF+CEJUwqBQ6XUmcJ4aaF8eRGcT1byEd3loo7ApaR/GW2BfoTWU8egpBV
-	 QldPZ9qs6StAtRmp6ztGoNaJq3idERLcyN7Lu8QuRRHRCnTgVzWbgXxnjdPavqbTx/
-	 W0OcckyJcfLljWTX/vH8lwvuwqrltz+6aix3FSCWAAD91ANAkKkJRaQo+kAX6wuifI
-	 WNyjtCPS6LImQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 92AA04B1FE;
-	Thu, 19 Nov 2026 10:07:57 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 19 Nov 2026 10:07:58 +0000
-Subject: [PATCH] media: verisilicon: Limit the i.MX8MM G1 decoder to 1920
- pixel wide pictures
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2AA3606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:08:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2AA3606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C+2ToTwP
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4170251c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:08:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795082921; x=1795687721; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=43hk92dqRNgt3cJF1KJekR7Qr7mj7rm5DTPnHeQ1LlA=;
+        b=C+2ToTwPlQU8PBN5Znee5RrKShji/ugJOPeVoPukgf5SnMN/CEMGTnGy9uBYVOmo2e
+         LKWwgqQW8Wy7a9zvKqY0AOayH3bM9ZkYAx6sdWFKHmngT2z8vLNlYkuFUAUlDSUOwEW1
+         qsSkB5ki0ufjSY9dp6IHtP2LT77JDA5/+srurvQAvCrZz4UkzbrYh//TvjPYyrjJNgzZ
+         Z9JomJ/NwgtvOhD0BDGVEbM1xHCIskI9TeLJmWFtNDwjy022SLg2XkbW/nFe8H2Uvr6Q
+         EyTHaJAMCZ876Pwysvf7v9MEsspHPryj04BPurtfZc/AxrNj7Ccj6JR6cZM20P1/yRLQ
+         wd/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082921; x=1795687721;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=43hk92dqRNgt3cJF1KJekR7Qr7mj7rm5DTPnHeQ1LlA=;
+        b=aBCpbZ+2+MAXUApLoGMgbYOdaxzOOA/s8ciW7zNDRx0DvF7uUAZc1pBBLsJscskCfF
+         oZ6UWkdlhIZJrvv2PpBJBCrsCV28w+DLImd1cBNr2cosZPC3tURxr5ZkF3xbrrdx+Nli
+         H8XLWA27BeXp3JRxqBSmv/oFUiE+Z/ABvr7mhAUtPYIccbjD7cOrWbWy2+TN4JXGe1rY
+         V2HuDZmcwP4BTX1vlyBrOzgCsQ7+XCFJnegQ/nslZFcJ4Dr5sV+wy/RZYd3q4VBRojTm
+         icJH2zid+JLCQ43XIm2Zok482yhNbRe7k4DTGG2Xuaot0hFFjjOrtgyLpMhuqSNkAzRw
+         u/Eg==
+X-Forwarded-Encrypted: i=1; AL+hErEpJxkaLbXye8sm6zOhBR/sEwWd3uxOXZgYznG8QAk/6Sxk2e27r4kJpWNEI5y/mfDZxfIhxmyNvVpP8yU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AHtHOn77VJY1mJ1+2qSOdw+MaZM2epejo/jsMyb5Q3ce6zJSq
+	NRpCm7yUXN8l9LmQO/aY6+EWVUi7uIjWR5KqmkbRiQHmdLPeXuPhOmYG
+X-Gm-Gg: AYBFou2vIMa9a9k1aNg2z1mpwnEFVwNGO2aPw/J/jq5gPNv+krO3iqs5sXesjntId46
+	K7RWz9xaE48hg+NSqbS4VaGp6qaHyLp9mk6KJn8uaB7l9Iq56+3tMWST4dxZYMBP+pyKvEdjsxp
+	VcGtG8V4GaGwXYNpT2qNxP410/Omrx8pb6iQ2Hl58UM0PHw8fQgA0ghkLp/FOi6CfkadfKEwrpJ
+	t212MTFWenc1ceRWBcaPQvabz/65QLq5loRguzG2fBT2+xdrLTK+Ry3qnPWBNOs+ybnga5yDL9i
+	LMpX3ZiMY6bAIT2P7kegi7OOQnDyExViuDVCCaWxW/I4P9+jecoW9/IAR44JUEjeV789rti9QuL
+	iSp0EuTKZUe6DUTmJl/c13WCr5TqAht6QRFGDSS7x+NSZST5v6O9Xrb3gEW0DV79E5QkRWmDs/W
+	lL1j2WdjYmTww4CVgX8ng/rnG8e6dt6DEhuVxk+bWl81lt16uUgjrMeAq4U1LMXEyW/zuU296jF
+	NAr4sW1bG+2L9YN80GM2AVxICVZS9BDy8lOnf1cGU99LRLVsEZq1mjfzzwTBek8zrqVOTzXDcpZ
+	h+rReyO3j/TFWiIYGgD5EUJGfw==
+X-Received: by 2002:a05:7022:e801:b0:1b2:4e2e:d95a with SMTP id a92af1059eb24-1b543c36946mr5087931c88.2.1795082920981;
+        Thu, 19 Nov 2026 02:08:40 -0800 (PST)
+Received: from [127.0.1.1] ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm12843401c88.14.2026.11.19.02.08.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 02:08:40 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Hang Zhengyang <hang.zhengyang1010@gmail.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: Re: [PATCH v3] perf stat: Count kernel events in a group led by a tool event
+Date: Thu, 19 Nov 2026 10:08:38 +0000
+Message-ID: <179508291800.2785063.13205692423397372334@gmail.com>
+In-Reply-To: <av6t6M0fUYdtXDEu@google.com>
+References: <20261111-tool-pmu-leader-v2-1-3faa0fb98c51@gmail.com> <20261111110616.2249764-1-takano32@gmail.com> <av6t6M0fUYdtXDEu@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,147 +97,52 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-hantro-imx8mm-vp8-v1-1-835dd9b5382c@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0Q5EMBCF4VeRuTaJ6Qrtvoq4sEwZSZEWkYh3V
- +vyO8n5TwjshQN8kxM87xJkniIoTaAdmqlnlC4aVKYKIjIYx9XPKO7QzuG+aFQfy7q0ZLrcQPw
- tnq0c/2ZVvw7bb+R2fUJwXTfIrYPTdQAAAA==
-X-Change-ID: 20261119-hantro-imx8mm-vp8-23fe87f19d49
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Hans Verkuil <hverkuil@kernel.org>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Adam Ford <aford173@gmail.com>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795082877; l=3675;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=ttabhbq6HX9n6LkD9lfDtGqujWqiEJqLK1Woo7amLA4=;
- b=+G5/+KW2AA45IYVMYGsAK031f3/0CCyalGQ+9VZaUy/I1qNSEut0kIdVEsvlPABpwv/SV97aN
- by0MkGaTorGCX58eERoTDkfsA1sJAYMPiaiCNQwfVdOyBtXjalc1cP+
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Mailer: kpatch-send.py
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+Hi Namhyung,
 
-The i.MX8MM G1 uses the i.MX8MQ format table, which allows H.264, VP8
-and NV12 up to 3840x2160. The i.MX 8M Mini data sheet rates the decoder
-at 1080p60, and NXP's hantro_v4l2 driver offers a decoder of that size
-1920 pixels wide and up to 4096 high.
+> I think it's better to make the first non-tool event as a leader
 
-Give it its own table with these formats limited to 1920 pixels wide.
-Heights are kept so that portrait pictures such as 1080x1920 are still
-accepted, as in NXP's driver.
+I agree, and I think that is where this ends up.  What stops me from
+doing it in this patch is the group read: with a kernel event as the
+leader, evsel__group_read_nr_members() still counts a tool event member,
+while the kernel knows nothing about it (a tool event is not opened
+through perf_event_open, it reads /proc/stat) and returns one entry
+fewer.  evsel__process_group_data() then rejects the read with -EINVAL
+and the kernel events of that group come out as <not counted> as well.
+The smallest version of that is a few lines, but it changes what every
+group with a tool event member prints, so it wants its own test and its
+own commit rather than riding along with the EBADF fix.
 
-Fixes: cf1abc501a5c ("media: hantro: Add support for i.MX8MM Hantro-G1")
-Reported-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Closes: https://lore.kernel.org/r/f041c5d87698ab3be8283ecc71ead0679327238e.camel@collabora.com
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
-Not tested on hardware: I have no i.MX8MM board, so the limit is from the
-data sheet and NXP's driver, not from the decoder's configuration
-register. Build-tested only (W=1 arm64). The i.MX8MQ table is unchanged:
-NXP's driver gives VP8 the same 4096x4096 as H.264 there.
+> but I'm afraid it'd make evlist management complex
 
-Developed with Claude (Anthropic), which wrote the code and the commit
-messages. I reviewed every change.
----
- drivers/media/platform/verisilicon/imx8m_vpu_hw.c | 58 ++++++++++++++++++++++-
- 1 file changed, 56 insertions(+), 2 deletions(-)
+v3 leaves the group structure alone: no new evlist entry, nr_members
+unchanged, and evsel->leader stays whoever it already was.  What changes
+is how the members are opened:
 
-diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-index fa4224de4b99..805c57a4adcb 100644
---- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-@@ -148,6 +148,60 @@ static const struct hantro_fmt imx8m_vpu_dec_fmts[] = {
- 	},
- };
- 
-+static const struct hantro_fmt imx8mm_vpu_g1_dec_fmts[] = {
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV12,
-+		.codec_mode = HANTRO_MODE_NONE,
-+		.frmsize = {
-+			.min_width = FMT_MIN_WIDTH,
-+			.max_width = FMT_FHD_WIDTH,
-+			.step_width = MB_DIM,
-+			.min_height = FMT_MIN_HEIGHT,
-+			.max_height = FMT_UHD_HEIGHT,
-+			.step_height = MB_DIM,
-+		},
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_MPEG2_SLICE,
-+		.codec_mode = HANTRO_MODE_MPEG2_DEC,
-+		.max_depth = 2,
-+		.frmsize = {
-+			.min_width = FMT_MIN_WIDTH,
-+			.max_width = FMT_FHD_WIDTH,
-+			.step_width = MB_DIM,
-+			.min_height = FMT_MIN_HEIGHT,
-+			.max_height = FMT_FHD_HEIGHT,
-+			.step_height = MB_DIM,
-+		},
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_VP8_FRAME,
-+		.codec_mode = HANTRO_MODE_VP8_DEC,
-+		.max_depth = 2,
-+		.frmsize = {
-+			.min_width = FMT_MIN_WIDTH,
-+			.max_width = FMT_FHD_WIDTH,
-+			.step_width = MB_DIM,
-+			.min_height = FMT_MIN_HEIGHT,
-+			.max_height = FMT_UHD_HEIGHT,
-+			.step_height = MB_DIM,
-+		},
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_H264_SLICE,
-+		.codec_mode = HANTRO_MODE_H264_DEC,
-+		.max_depth = 2,
-+		.frmsize = {
-+			.min_width = FMT_MIN_WIDTH,
-+			.max_width = FMT_FHD_WIDTH,
-+			.step_width = MB_DIM,
-+			.min_height = FMT_MIN_HEIGHT,
-+			.max_height = FMT_UHD_HEIGHT,
-+			.step_height = MB_DIM,
-+		},
-+	},
-+};
-+
- static const struct hantro_fmt imx8m_vpu_g2_postproc_fmts[] = {
- 	{
- 		.fourcc = V4L2_PIX_FMT_NV12,
-@@ -382,8 +436,8 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
- };
- 
- const struct hantro_variant imx8mm_vpu_g1_variant = {
--	.dec_fmts = imx8m_vpu_dec_fmts,
--	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
-+	.dec_fmts = imx8mm_vpu_g1_dec_fmts,
-+	.num_dec_fmts = ARRAY_SIZE(imx8mm_vpu_g1_dec_fmts),
- 	.codec = HANTRO_MPEG2_DECODER | HANTRO_VP8_DECODER |
- 		 HANTRO_H264_DECODER,
- 	.codec_ops = imx8mq_vpu_g1_codec_ops,
+  - get_group_fd(): with group_fd = -1 instead of the tool event's
+    /proc/stat fd, or -2 when the leader failed to open, the same -2 the
+    skipped-leader case already returns for a broken group;
+  - create_perf_stat_counter(): a kernel event member is opened disabled,
+    as a leader is, so that it starts with the workload, and
+    PERF_FORMAT_GROUP is not requested for the members - read_format is
+    per fd, and GROUP is what would send each member's read down the
+    group path that only a leader can take.  PERF_FORMAT_ID goes with it:
+    without a group read nothing demuxes ids.
 
----
-base-commit: aa0f4c41d4870a18e65772a1817af16427200371
-change-id: 20261119-hantro-imx8mm-vp8-23fe87f19d49
+The cost is real and the changelog states it: in -e '{user_time,a,b}',
+a and b no longer share an on/off window.
 
-Best regards,
---  
-Arun Iyengar <aiyengar1990@gmail.com>
+Two things this does not change, both of which happen without the patch:
+a tool event member still counts through a -D / --control window, and a
+tool event leader under enable_on_exec is still not started by anything -
+that is what "perf stat: Start tool events when enable_on_exec is used"
+is for.
 
+Either way the leader move is a separate series; I can post it once the
+direction is settled.
+
+Thanks,
+TAKANO
 
