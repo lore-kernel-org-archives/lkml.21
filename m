@@ -1,64 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.129
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082543;
-	b=PvEcNQIOkgTwETsTYlxnWRGdyOLWffjGYzI1Amg50tZ/6qKeRsL1BdbZcEfvR/5PnO0i
-	 /jNodZ8+S6U1/3/e1JoPXsbOrJ04COo1INrIa4ZOxLm8gYI1Ozhu6hfrky3pkCzdonVqN
-	 6dtCr9eQwo+0rjaUV+GJ0N3Gm4s6RTcC8jttlZHgaTDyFZqhqBrD0eAY8JQxK9aGO7/p3
-	 0JBRVADxwRXJC7VxuxqwrsSKbZm7p5TsApcSxN0tjEotBdnVpox0zI7OhC+qUqJ61+udk
-	 WUbbvzWVGtzf4hKCXAewraS1QRFvMNfhk9drbEIfcLpOxewvKoU3pKd3cRXfgCSUTgg==
+	t=1795082548;
+	b=tpdTzhe2aiNgIm9tctpch03Fn8G0yCfsXmi7yV1C+UOSiKDin5qFhsRDTelxVmsn8EzM
+	 nbH+aPyxtKt03t27Osu3tcbm5RezmlPwF6SwKwc0zO4QD5RyZkknTmTJs+kM2g4caLHPC
+	 81EHD4RwhmdK1i3gWVe7CoBwXFBsLg0C6PMRrESssVxlRydnqckwHQUMgewu4OurKI2lL
+	 IUkKGw4gXlM65s5KOqObJ9/6JSu0cSJE8q2qX90BA4hvrEWYdWcZ51T/ec3mjV4ujhHlv
+	 6jfDUNSMPFZ6CqXBUIyDJ0VUO97jv8ovemJtUFX205mcwgO8oKsdXSDOEQ72rLkDjvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082543;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=6SenI4mOj1mO3410qGPpVUgFUHJmec0t3Tk7LJoTcF4=;
-	b=hT1GsaRVIxL1EPFg4Sh+anuCpXeyoVp2gOKgIQsaj0+p/SUBH5n/xIbw01Q5B6HlV3K8
-	 /lrQFvJidKMOlYn30oocSaWsZFFp7uzz75coY3dttk2/3/mjK86WUFxN9whSMn0Q++bYO
-	 0vaHm00sXYLgPR33fjYoqXbGFJyz9L8lPoVYv1ouf9QA/zod1Fq3rBUEXIU2M30JNlg8n
-	 TttylVAWHg0GrK634+WUGGQu7rJ4/7UBiRk4O0ahrWs5/I+cp5RdWWYj3b0BNKCNU1tHI
-	 ANBww5sKAjBm0BZ3wFbkQYZPpUQH7p0ASsXUDv5SP9e6U5KRgw7kAKTx+30iU0phf3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082548;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=D8hYj5tsIjDvKDaCqFJ/7W6N6FqJoCQM/5nsT8oMXek=;
+	b=j95XYnPpjW9jTBoGtCcrfKUcVVZmwMd//Zu7aOUqm24uL5TTVk3Thd4ChF0DfzBzUfuC
+	 3AyrhnFPIrOM6Bs1KKeyXAEDtSo0W3QKeTPI/4YKSDO4n2kjSabCE5OJBzdcCyMT8RCP3
+	 2ny9Y63fSt+BzxMexn3cZU25KkxrfQcsSPNdAM85pYbt5coqW9PS+zIG3gOUDzYhp8HFm
+	 jL8AwNfnqPeF/D2U2H8pybrFxSt8EzOgqBe1PziR/lI5re058yQahk/Pe2kZ8QVK2IUmA
+	 FzLaLSeFZfzuvojobpR0cGhreJhj3PD+CEn91buDtXVkurZ/SXSqyEX1k6jw08Tk5eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o5JH2Rt7;
-	arc=none smtp.remote-ip=95.215.58.129
-Received: from mta1.migadu.com (out-129.mta1.migadu.com [95.215.58.129])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v1z+UYgf;
+	arc=none smtp.remote-ip=209.85.161.43
+Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com [209.85.161.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B96A6606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:02:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B96A6606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE05B606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:02:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE05B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=o5JH2Rt7
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ZvPZUStYyZqiE1rcutwmPpn5KDJpY/jNBe9EWDim99w=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795082540; v=1; x=1795687340;
- b=o5JH2Rt7ArgHEghvZnio6UWTdvSfvwMeuFm6zNC4QSaQUhXz/2TLcRqktaesDvGhkMbDrZix
- yZ7Inc9jbKlrpuhfXAtSSW78d96K7tpaLgDNEFoo77l6Wys1K/nOcbCB7bg+UYNU1ZlsLaLpLPp
- GwLO2axTm+ANhoHSO/s/NBec=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 09177ad08c17784d;
-	Thu, 19 Nov 2026 10:02:20 +0000
-X-Mizu-Trace-ID: 09177ad08c17784d
-X-Migadu-Flow: FLOW_OUT
-From: George Guo <dongtai.guo@linux.dev>
-To: chenhuacai@kernel.org,
-	kernel@xen0n.name
-Cc: rppt@kernel.org,
-	liukexin@kylinos.cn,
-	guodongtai@kylinos.cn,
-	loongarch@lists.linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] LoongArch: Allow memblock arrays to resize
-Date: Thu, 19 Nov 2026 19:02:16 +0900
-Message-ID: <20261119100216.10182-1-dongtai.guo@linux.dev>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v1z+UYgf
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-70059e4dab6so1203008eaf.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 02:02:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795082547; x=1795687347; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=D8hYj5tsIjDvKDaCqFJ/7W6N6FqJoCQM/5nsT8oMXek=;
+        b=v1z+UYgfSKO2IoV1Jj9y9AT29S1N5RHG9j/LdfPYyQgqTcyje3Wrs5U91c8/mh9kbM
+         vvbx6sSCgfoB3WB03bIcN47rArblhIa9OyzBwIbbAtG0LmqHxmBn8FFeI0WYSZWFULSZ
+         2CWXsWtQFaQ/WadUODw/AMrXl0B1pFM3qfP1WrJie6SEmjFe95EzTtSDZLTRUm23NOLZ
+         VM57BlUW2HMywc1qDXXZcfGMCygehgBzFMZOUuTcUVofGHihmw6QqP08o1HJYFe2qciY
+         f0EtL5+Ao2PocaAyy6r2kBvr+nEHqcVAGwEaijUCr/tAHmJ3WetcKhWv2/tK3kgd8A2a
+         kqmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795082547; x=1795687347;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=D8hYj5tsIjDvKDaCqFJ/7W6N6FqJoCQM/5nsT8oMXek=;
+        b=O80BON4ulvPpuGSJuVRDH2Qz9Lgm9CI3DeF9bz090NYQEDyLRCuZhvZZ6vMhF6XcfL
+         DQPhG5YLSAHYbmrMCI7X8q9Y6XWYcAQslHxUZuqE3dVqvKlvS9aItsvxR/Y09xyf3MEa
+         SgcMzrWM5WbO/5fqQ+e/nPIa5B3/MR7Cr3MVB71kfHTELDeAQpevO66CS5PAhhMJ9N61
+         K6BzgKpivWuvwNkP9K0VHdZIdtzL6ct6APiA99tPkKj9MGYr2g+edV69Air2yPG+DTX5
+         IzFmSbde1x9Xc9wrjGlkW8eDrkI2dyNJb5FOiem1NjhxryXZKpV/SxI2ib7n7TgVqS3U
+         d+Dg==
+X-Forwarded-Encrypted: i=1; AL+hErGFYsKVh7gffrcD2gTzbhhinxSo6+uaUgplsr+MTD3Pe4Pb9dpZb9m9ZLskRIJ38lK8K0OU84L6uQI/N5w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/45iIic80ADuexmF49CbdZLbD/Ra1Be/Z+Ms9VpM5EE6N9tYqT
+	oEpEWC7Sx8xgaGRAUf6L2XEeTLosJxpmbpOe+yEmKAu/6hoRJZWtYZE/
+X-Gm-Gg: AYBFou2ITUtNyY4lY3n3RNgYHn9AdEu6CWNFdQofu6jqo0Hkc0t8Dd2DR2SbYHpxhqw
+	2qNRXr+su3B1B72+VNWzh9HQ6whZTnktvXHTK5BtgR6CykQDaRUWvivmH0YTDtP9YfxlzeuUZi7
+	k4VUTKInwWoJpftqFOxPg18YR5I6h4Q89KVPhqPgOgPmr3Ousk3sG6mnnKLczLSosJwvkv6JyJM
+	TTuGHAlyIne8Tf9drKyilyjwmijZIDeYNpSfZd2OM5/OWBqFctFLBm5qI/ZfIUxHvXngc0wUG0q
+	ONvYUzyRz3IpUPPjJKA70UTVlkg1kga5voZC3e0rbe4rN+0tRnpt1aJWfKT6hC9dwO7RPpp/yrT
+	F8oR+HIDe/WBfoDfwAX0rd/FiOO5y5AUuoj31c2qnxqajJebXIjk+bNuIP+3mnUPqEDijsmH7VM
+	geZyTvpDEMdW8g0vJLm5a+AiMUqUAOperlH7zjoLdt5RmYoYPalJunybDM48EIi1oXopxe3uvNr
+	VxwXFFA6TmX7CFXEf557GZvsUyGpvT8lxQ6eTvl2xaQKktkTzJLNXLIblE1NOkjon2D33b0L1Mp
+	UsrsgTqACq5JwwkAOOujmm0dp6S5RkIQHfUSJXHXy/UmfPnZ0coL01jV1/NcW1xRIzlIA2HwMxX
+	4YRqMvn41wb+vcLwJonBn+8symJ+TBXASs0ZMc99mSlnyM+nkSBp8WHQCbTlyq5JRHeZRZ1vYpa
+	Epdp8FGwhriHKVqauFZlo2TAdn2MPN638xoDHt4Bj1BzpHU1w77Ksry1cIpGevKIMwzzUk8yYXT
+	Q==
+X-Received: by 2002:a05:6820:a289:20b0:71a:e5a4:1881 with SMTP id 006d021491bc7-71b1861967dmr3072296eaf.77.1795082546496;
+        Thu, 19 Nov 2026 02:02:26 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b18fbb9a8sm3906194eaf.0.2026.11.19.02.02.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 02:02:25 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH v10 0/7] dmaengine: dw: serialize completion and
+ termination
+Date: Thu, 19 Nov 2026 03:01:34 -0700
+Message-Id: <20261119-submit-dw-dma-synchronize-v1-v10-0-3a737597a0d1@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,67 +95,201 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43SzU7DMAwH8FdBPRNI0nxy4j0QhzR2tiDaonYUx
+ rR3x90ORN0hSLnYsn/6J8qpmXHKODdPd6dmwiXPeRyoEPz+ron7MOyQZaBGI7k0gkvB5s+uzwc
+ GXwz6wObjEPfTOOQfZItgqDVPyiYQEBoiPiZM+fviv7xea9p/w3hYzXWiCzOybgrErC0ycdjlA
+ R+vezSxz/NhnI6XiItYpX+GoSOYCcnpKMEk4593fcjvD3HsmzXMIktMVjDJONNSKfQKYnBxi7U
+ l1lawlrBoZJe4cklH3GKqxHwFU4QlDEpZ8Ek6vcX0H0ZaBdOEQSu5tdqlLt28mSmx2jUNYRKRx
+ 1Y5KRVsMVtgQlcwS5gDStWC8niLuRIzFcwRpoKjf6FSBBG2mC8xW8E8YRYiNwaBdzGV2Pl8/gW
+ v/YQVZQMAAA==
+X-Change-ID: 20261021-submit-dw-dma-synchronize-v1-e550f47fd1da
+To: Viresh Kumar <vireshk@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Dan Williams <djbw@kernel.org>
+Cc: Serge Semin <fancer.lancer@gmail.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ dmaengine@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+ Lars-Peter Clausen <lars@metafoo.de>, 
+ James Hilliard <james.hilliard1@gmail.com>, stable@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.17-dev
 
-From: George Guo <guodongtai@kylinos.cn>
+Use virt-dma for transaction ownership, deferred client callbacks and
+per-channel synchronization. Keep DW hardware event processing under the
+same channel lock, including polled completion and software-LLP progress.
 
-LoongArch never calls memblock_allow_resize(), so the memblock region
-arrays cannot grow beyond their static sizes. For the reserved array
-that is INIT_MEMBLOCK_RESERVED_REGIONS (INIT_MEMBLOCK_REGIONS +
-NR_CPUS) entries. Once it is full, the next reservation that needs a
-new region panics:
+The first two patches serialize completion and error recovery with
+termination. Patch 3 moves the DMAengine channel and its lock into an
+embedded virt_dma_chan. Patch 4 switches the descriptor queues, cookie
+accounting and callback delivery to virt-dma. The last three patches
+extract hardware-LLP residue calculation, move it into the status getter
+and report residue for queued transfers.
 
-  Kernel panic - not syncing: memblock: cannot resize reserved array
+Status polling can complete transfers without invoking client callbacks in
+the polling context, while synchronization waits for callbacks already
+running on the selected channel. Both status polling and result callbacks
+report a bus error with the number of bytes not confirmed at the
+destination.
 
-The memory setup code was derived from MIPS, which never enables
-resizing either. Nothing on LoongArch needs the arrays to stay static.
+Each whole transaction has one virt-dma descriptor. Its child hardware LLIs
+remain owned by the driver and are freed together after the callback.
+The controller tasklet continues to process hardware events; virt-dma
+handles client notifications. Submitted transactions become eligible to
+start at issue_pending(), and residue lookup covers both submitted and
+issued queues.
 
-When an array is full, memblock allocates a bigger one from free
-memory, so resizing is only safe once all memory in use is reserved.
-By the time setup_arch() calls arch_mem_init(), the kernel image, the
-initrd, the firmware memory map, the device tree reserved-memory
-regions and the crash kernel are reserved, so enable resizing there.
+The series builds on Serge Semin's channel-restart and callback work
+[0-2], using virt-dma following Andy's review [3].
 
-Co-developed-by: Kexin Liu <liukexin@kylinos.cn>
-Signed-off-by: Kexin Liu <liukexin@kylinos.cn>
-Signed-off-by: George Guo <guodongtai@kylinos.cn>
+Based on dmaengine/fixes at 6628e7d4c6b2.
+
+[0] https://lore.kernel.org/r/20240911184710.4207-1-fancer.lancer@gmail.com
+[1] https://lore.kernel.org/r/20240911184710.4207-2-fancer.lancer@gmail.com
+[2] https://lore.kernel.org/r/20240911184710.4207-3-fancer.lancer@gmail.com
+[3] https://lore.kernel.org/r/avrHOJ-fVZOO32bI@ashevche-desk.local
+
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+
 ---
-This was patch 5/8 of the LoongArch KHO series v6 [1]. Mike suggested
-fixing it independently of KHO, and Huacai preferred arch_mem_init()
-to platform_init() [1].
+Changes in v10:
+- Split the channel and lock member changes from the virt-dma descriptor
+  and callback conversion, following Frank Li's review.
+- Preserve the bus error and unconfirmed byte count for both the status
+  getter and the result callback. Reserve error storage during preparation
+  so submitting a prepared transfer cannot fail.
+- Use the DMA core's existing callback drain on channel release.
+- Link to v9: https://patch.msgid.link/20261117-submit-dw-dma-synchronize-v1-v9-0-7dc066ed0bcf@gmail.com
 
-KHO for LoongArch needs this: after kexec, kho_memory_init() reserves
-every preserved range, and luo_stress_files with 500 files overflows
-the reserved array without CONFIG_SMP. A bigger array cannot land on
-preserved memory, because KHO limits memblock allocations to its
-bootmem areas by then.
+Changes in v9:
+- Simplify the software-LLP residue calculation and remove unnecessary
+  braces, following Andy's review.
+- Link to v8: https://patch.msgid.link/20261116-submit-dw-dma-synchronize-v1-v8-0-4a82d64fcd1a@gmail.com
 
-Changes since v6 5/8:
-- Sent on its own, without the KHO series.
-- Reworded the commit message and the comment so they do not depend
-  on KHO.
+Changes in v8:
+- Replace the private callback-deferral and synchronization patches with
+  a virt-dma conversion, following Andy's review.
+- Place the conversion after the completion and error-recovery fixes,
+  incorporating cookie ordering, completion-list cleanup and channel-release
+  draining in the same patch.
+- Keep residue extraction, status calculation and queued-residue reporting
+  separate, adapting them to virt-dma's active, issued and submitted state.
+- Use per-channel virt-dma callback draining while preserving polled
+  completion, software-LLP advancement and controller-tasklet exclusion
+  during resource release.
+- Keep child hardware LLIs under a single transaction descriptor and
+  distinguish submitted transactions from issued work.
+- Correct the residue-calculation and queued-residue Fixes tags to identify
+  the commits that introduced the affected paths, following Sashiko's review.
+- Attribute the cookie-completion and channel-release fixes included in the
+  conversion to the lock-splitting change, following Andy's tag review.
+- Link to v7: https://patch.msgid.link/20261115-submit-dw-dma-synchronize-v1-v7-0-8d58f3d49e4d@gmail.com
 
-[1] https://lore.kernel.org/all/20261029172956.20791-6-dongtai.guo@linux.dev/
+Changes in v7:
+- Use a scoped channel-lock guard in dwc_tx_status(), following Frank's
+  review, keeping polled completion and residue lookup in the same scope.
+- Collect Frank's Reviewed-by tags for the residue and completion patches.
+- Link to v6: https://patch.msgid.link/20261103-submit-dw-dma-synchronize-v1-v6-0-2ee0c348224d@gmail.com
 
- arch/loongarch/kernel/setup.c | 3 +++
- 1 file changed, 3 insertions(+)
+Changes in v6:
+- Keep dwc_get_hard_llp_desc_residue() next to dwc_get_sent() when
+  converting it to return residue, following Frank's review.
+- Remove inherited RFC notes from the individual patches, retaining
+  the revision history in this cover letter.
+- Link to v5: https://patch.msgid.link/20261102-submit-dw-dma-synchronize-v1-v5-0-d3207758fbf9@gmail.com
 
-diff --git a/arch/loongarch/kernel/setup.c b/arch/loongarch/kernel/setup.c
-index 6fa4a22a58fd..8c33346a123a 100644
---- a/arch/loongarch/kernel/setup.c
-+++ b/arch/loongarch/kernel/setup.c
-@@ -402,6 +402,9 @@ static void __init arch_mem_init(char **cmdline_p)
- 
- 	check_kernel_sections_mem();
- 
-+	/* All memory in use is reserved now, so memblock can grow its arrays. */
-+	memblock_allow_resize();
-+
- 	memblock_set_bottom_up(true);
- 
- 	swiotlb_init(true, SWIOTLB_VERBOSE);
+Changes in v5:
+- Rebase onto dmaengine/fixes at 6628e7d4c6b2, using the shared
+  dmaengine_chan_dev() helper for channel logging.
+- Split residue handling into a behavior-preserving extraction, status
+  calculation, scanner simplification and queued-residue reporting,
+  following Frank's review.
+- Share completed-descriptor freeing between the tasklet and channel
+  release, retaining callbacks for normal completion and suppressing
+  them during teardown. Name the helper dwc_free_completed().
+- Carry Frank's additional review tags and put the submitter sign-off
+  after the review tags.
+- Link to v4: https://patch.msgid.link/20261029-submit-dw-dma-synchronize-v1-v4-0-fea447d9f285@gmail.com
 
-base-commit: 422e532809572ba1043192bf6a0c653bc68b3140
--- 
-2.53.0
+Changes in v4:
+- Split v3's callback-deferral patch into cookie accounting, residue
+  calculation, channel-release draining and callback-deferral patches,
+  following Frank's review. The resulting seven-patch series preserves
+  v3's final implementation.
+- Place device_synchronize before callback deferral so clients can drain
+  deferred notifications when the completion list is introduced.
+- Carry Frank's Reviewed-by tags on the unchanged channel-completion,
+  error-recovery and device_synchronize patches.
+- Link to v3: https://patch.msgid.link/20261023-submit-dw-dma-synchronize-v1-v3-0-c62bf048f5ce@gmail.com
+
+Changes in v3:
+- Order channel-completion and error-recovery locking before callback
+  deferral, retaining four patches.
+- Require a locked RAW.XFER event before retiring a transfer; zero source
+  residue alone cannot establish destination completion.
+- Preserve polled completion and software-LLP progress in tx_status(),
+  queuing client notifications for the controller tasklet.
+- Serialize cookie updates with termination and report queued residue.
+- Drain deferred notifications on channel release and let a pending
+  tasklet return without MMIO after the last channel is released.
+- Adapt Serge's two patches and retain his authorship and revision notes.
+  Drop the Tested-by tags that covered their earlier implementations.
+- Identify the introduction of the synchronization API in the final
+  patch's Fixes tag.
+- Link to v2: https://patch.msgid.link/20261022-submit-dw-dma-synchronize-v1-v2-0-5244e94dca8c@gmail.com
+
+Changes in v2:
+- Carry Serge Semin's two posted fixes before the synchronization change,
+  preserving his authorship and revision notes. Add the requested stable
+  Cc trailers and Andy Shevchenko's Tested-by tags to those unchanged fixes.
+- Add a separate error-recovery fix for stale error status, empty channel
+  lists and software-LLP state when terminating or restarting a channel.
+- Use tasklet_disable()/tasklet_enable() instead of tasklet_kill() so
+  synchronization preserves scheduling requests from other channels.
+- Explain descriptor ownership during termination and acknowledge the
+  shared-tasklet scheduling race reported by Sashiko.
+- Link to v1: https://patch.msgid.link/20261021-submit-dw-dma-synchronize-v1-v1-1-6af85c2d6f69@gmail.com
+
+Revision history from Serge's series:
+
+Link: https://lore.kernel.org/dmaengine/20240802080756.7415-1-fancer.lancer@gmail.com/
+Changelog RFC:
+- Add a new patch:
+  [PATCH 2/2] dmaengine: dw: Fix XFER bit set, but channel not idle error
+  fixing the "XFER bit set, but channel not idle" error.
+- Instead of just dropping the dwc_scan_descriptors() method invocation
+  calculate the residue in the Tx-status getter.
+
+---
+James Hilliard (4):
+      dmaengine: dw: serialize error recovery with channel termination
+      dmaengine: dw: embed a virt-dma channel
+      dmaengine: dw: use virt-dma for descriptor and callback ownership
+      dmaengine: dw: report residue for queued transfers
+
+Serge Semin (3):
+      dmaengine: dw: Fix XFER bit set, but channel not idle error
+      dmaengine: dw: extract hardware-LLP residue calculation
+      dmaengine: dw: calculate residue in the status getter
+
+ drivers/dma/dw/Kconfig  |   1 +
+ drivers/dma/dw/core.c   | 595 ++++++++++++++++++++++++------------------------
+ drivers/dma/dw/dw.c     |   2 +-
+ drivers/dma/dw/idma32.c |  18 +-
+ drivers/dma/dw/regs.h   |  35 +--
+ 5 files changed, 333 insertions(+), 318 deletions(-)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git fixes
+change-id: 20261021-submit-dw-dma-synchronize-v1-e550f47fd1da
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
