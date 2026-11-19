@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.77.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099407;
-	b=WRl8pT6vuU78DE8i+pEOPY22TOCsTwcU3eGMymdnQxN/zSFNUYYY+LZHU2y2hFeSWvSf
-	 /mAn1q0TBwbiww4K0mCwmqTXyjAh2gQ8xq6wmK4X6PCZSRqxpenLa2bCG1RrLo1yZCwpq
-	 PCiozlQjyTcOdgAgZHURrN8NyLqJYGxsA3QbmrQYfs256kHIaxbEDsGii160k1GUpUIey
-	 7RQtAw7QDmCWoXX3itkbHEkp1l58yzsGpq8lWkPiGCXOL0zRULhEVLZoXnpTufrjr3YH0
-	 kzp2/VQkQHq46/vqSiPBQptCLm8LxDDgc4svYkhmjYczgWrqTH2uW+c+N318631Bg+g==
+	t=1795099427;
+	b=e1DWnSYSRG8cIP/FN6g0Qu2XIqLN3wlTPmskKrXOZSgUTXkVTkdxHJr0bFeOsV+uQHdD
+	 lbOBGCOHPwj1M4TuBFdtODsS3U+IdDlPZ7RxSO8fUh2wUEprVjxWQwTQjnr0TMLyo0dB1
+	 tz0I2UMcSrG+h3sgRz9sbyLJZAQNj9MBTgfQhGtazfk6So/B614M6PH9I7T2kvulFLUdn
+	 6bD7sPq6sQkF82oujh5yzABE3FJiVQaoynKjlKrK4g4EOyzeMCepVr/H+Y3mu6UTyKu4Z
+	 W5o203ylBDar0p7H9UrsbvyJbK1RrImpfSL9y2y8azKlk4W3eYhOXr1WG5PP1Al6foQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099407;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:
-	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=demdYoUh3CBz41wPUsAO0CkBXDeU2llEJhcTMS6yOPs=;
-	b=OGVBGVZp/ZftiU8Lr2GTTRRg9ypHsSLEDK34gUhAAkpt7f2cKEyn92e5Ej9NCFr3535+
-	 GUcG12gqZMbMAMUqgtmHp+OeVbzTH2W2Pv6l5fVnVHlUbvwTnoZ9m5jB1guVsfe4E4Qnl
-	 Js82DXd329WYZUJpr6HDfsGXFaH1cRUERt5RM82aOdFnGB2cHwSIPEVptoDqX+R6/GAnE
-	 IyHtLCSlHFFELGMqKiV5r8BHec98XlaEMjv56GOCyL3LbJdoUGnL5ilSfV/uz6p7ZJUGJ
-	 SQBa6M9EzvnwHLX/Jjf6RzyZttlsQwGU5Eh6AfKrQyuRDg/RhrNQll27BOAojVzl5DQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099427;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Info-Out:
+	 X-JNJ;
+	bh=AagRrfKECoq+IXnrLSLY0IQQP1RVQocUwji3lBocfcY=;
+	b=bANTR4JZ2SyYw0g7jnTvATxw796l5d1+lXLhmS8SsI9pVKMNRA1osPciQ5uJJerFP0wf
+	 vKZ0Hc9XiqZ+MlSdl9CgW0URFB9sKRPGO1qFDoycFkLY7dX7dYIe2PddyvqH6T3RnS69p
+	 V0sJSD2trRE/qCVUyWSoTcxRCxmYoP5H29iQp+heKRj8d2uja/3TAOHcrfGad3ZBzKKFs
+	 Sc63Mkjy+uZVoDINyRcu+eCpGWjD9qfRasqQtDmkPdglfSu1AJwh5E1E1De/kbP7fTE1X
+	 IvnREvjX4QTm9igK6vAAlg5EQmCj0pQxbiISloFnu3imzjtJXF8tafny0CjvvBFHzOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SGZhAIwt;
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=icloud.com;
+	spf=pass smtp.mailfrom=icloud.com;
+	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Y0qc1WF5;
+	arc=none smtp.remote-ip=57.103.77.201
+Received: from outbound.st.icloud.com (st-2003e-snip4-11.eps.apple.com [57.103.77.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C24F606A331;
-	Thu, 19 Nov 2026 14:43:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C24F606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC21E606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:43:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC21E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SGZhAIwt
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795099407; x=1826635407;
-  h=from:to:cc:in-reply-to:references:subject:message-id:
-   date:mime-version:content-transfer-encoding;
-  bh=5JOVO+67Zi0U6eOLZ2mkJf95k1BGWTous6a4k2WQzxo=;
-  b=SGZhAIwtHgvoElIxSDLvEfYaeLUkLxwpf0dND9QWLmGvFnm1hZovlW6c
-   xSAaGy8J5KK5K8GHAWfin1uEtqZAotuixDQWWqrOs6n+vzaZertc9eZLB
-   8bQzHIcNlGEaTeMmJYeQYdYQ9uaGRdTorERRI6kQByqu4oPWXJc7uiaR1
-   NHGyTAMtmrcai8I+0O8aEfbt7iDIyRIkvHHGHrLoTg/uyg94A37V89O8Y
-   Lr8nJIdkXFtbZroFUtvS3EQISGl5cieNSiH87cC1SKJUeqUfxb88R21ij
-   amjgGo8UrEllhM+dzlSq4PrWgAsfcGjhDL4BCMElvj173SSWUMXNwlPB0
-   g==;
-X-CSE-ConnectionGUID: 4wjSOZgxQZumAhko9ud9RQ==
-X-CSE-MsgGUID: WAko3N7qT9ao5jVj/88y3g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3942655"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3942655"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 06:43:16 -0800
-X-CSE-ConnectionGUID: uHnt91lDT4GRWHIpTlmGlg==
-X-CSE-MsgGUID: mfHZeB3OQfu7BS1sT8fr/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10792639"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.132])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 06:43:12 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: Hans de Goede <hansg@kernel.org>, 
- Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Ike Panhc <ikepanhc@gmail.com>, 
- Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J . Clark" <derekjohn.clark@gmail.com>, Rong Zhang <i@rong.moe>, 
- platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261116171817.21802-1-kapoorarnav43@gmail.com>
-References: <20261116171817.21802-1-kapoorarnav43@gmail.com>
-Subject: Re: [PATCH] platform/x86: ideapad-laptop: Add V14 G2 ITL to
- ideapad_dytc_v4_allow_table[]
-Message-Id: <179509938656.9442.2316950035532050416.b4-ty@b4>
-Date: Thu, 19 Nov 2026 16:43:06 +0200
+	dkim=pass (2048-bit key, unprotected) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=Y0qc1WF5
+Received: from outbound.st.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-1a-20-percent-1 (Postfix) with ESMTPS id 4280F180034F;
+	Thu, 19 Nov 2026 14:43:45 +0000 (UTC)
+X-ICL-RepId: 01a1f443-79c3-7b8a-a1fe-3efd2e82b56a
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795099425; x=1826635425; bh=AagRrfKECoq+IXnrLSLY0IQQP1RVQocUwji3lBocfcY=; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:x-icloud-hme; b=Y0qc1WF5zdwRp1SMB0pEp3ls1o3Q6qKZY/Wvw1zrftReJplfMmZ4njV5aGIMZZqIKNXTdgCFXdqriuBAbMLg2+YUplY9uG9ywnpK075IFR4+2hSTg5+H3vR/aN09XU6umn7K1O9xTwQ4XStUBJsd260iJ1g28svb9dyHmGDTyY7k5+ajrWhA7LTdNkjS9/P8BUz8u4PosIJygHLkWmo+SODvPU7XeTsW5bdWGrDRyKBG1DbpjttAwtQG65DCicJ+P2w+DgBHdq/LzpiEphfeOBYO7kL43Lgvn84GqrAjqX4zS8UQiOM0+LM2coEEkVNPvIA1V/aeBwA44tk5/t/02Q==
+mail-alias-created-date: 1440949576000
+Received: from localhost.localdomain (unknown [17.156.216.30])
+	by p00-icloudmta-asmtp-us-east-1a-20-percent-1 (Postfix) with ESMTPSA id 3F8B618000A7;
+	Thu, 19 Nov 2026 14:43:42 +0000 (UTC)
+From: Aleksei Riapolov <tsbol@icloud.com>
+To: mwen@igalia.com,
+	mcanal@igalia.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] drm/v3d: Fix double free of the sg_table when a PRIME import fails
+Date: Thu, 19 Nov 2026 18:43:39 +0400
+Message-ID: <20261119144339.43896-1-tsbol@icloud.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,39 +63,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA1OCBTYWx0ZWRfX4S1TpsbWDdF/
+ tN//RJTwGKKaI9YAaHy3Ko8eHFgjVTq2yAYXAK5SiFX4l487ZwcAnZTN3Keeb8KR4ykFZMMSisO
+ P+y4B6LEGIPQNKNHVOrVhoXCnEKyS9toi096aIA0z1C8FPN0LKYtxdOf5gfCTrM1Ffn2+w9T6n3
+ IyGnI2OiCXV/U00lwFZ9wWhADKAi2NXOnEM59Z8u62z3AEUGDd0+MWa+QucnscKvFzjxSm7FQ/R
+ Ptkpe9u4Cz9GCaw+QQ/6d0VL8LPUSJfC0Z7qPYRNZxwEvyOh/j5qCaeWTtb/xe6ynKzuVQ451XG
+ f37UjpiWXXouM8gN/7t+vGHIgCNXI3TqrWia9+dMT/OJl7AuDWOiXPjYC/ArfM=
+X-Proofpoint-GUID: g22B1CVcR50BvXViFy-jep6oXr0v0Deu
+X-Proofpoint-ORIG-GUID: g22B1CVcR50BvXViFy-jep6oXr0v0Deu
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA1OCBTYWx0ZWRfX+YFiErEPSpKr
+ ski/iK+0IdG1rVATDMH0Ji3l/xC21lVelDCDEU3RTAMQaskRw+7SqHCf5tVhbDNLR+g7NHMS4gl
+ tBAt3tZcpG5osKdsYKwX/LdoX79mLsc=
+X-Authority-Info-Out: v=2.4 cv=J7E/fwnS c=1 sm=1 tr=0 ts=6aff0b21
+ cx=c_apl:c_pps:t_out a=oyWFxbOnq+dmhQrAPgaJYA==:117
+ a=oyWFxbOnq+dmhQrAPgaJYA==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=x7bEGLp0ZPQA:10 a=RjkQatE54OUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=fajnDIswKVxD1YtQT70F:22 a=66zDSPFCUvy2ELiaIz_N:22 a=VwQbUJbxAAAA:8
+ a=v3ZZPjhaAAAA:8 a=V2sgnzSHAAAA:8 a=NZweb_V9ztsy_TvW2F0A:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=Z31ocT7rh6aUJxSkT1EX:22
+X-JNJ: AAAAAAABVxeswg63mcG/vtPNAfSmr6bmvvRsMpEemkSaL1M+3Rt8D/JcRiAy42/QcdVU+l
+ YzQMgZ+dvkuYDv3cI/SmAcvKIiifHTCQTf1wrBqBksFMxa2JAEnmmcUiZur+1cgL5IzL22
+ qapMIpFP7+gtaU4bDHLHnfHlvLlxw0dECj8r4cKrIQZTCXU8krk7Y1tSNke1iTxu+brNIb
+ azFx+UeS0yYg+6u7/wP7qLfkz0YkagmjspuN1m+KtNFULNh/HLTsffrd4cojDPJDyf8/Dj
+ KwcqGO04QHMbpccmewiRfkeMEU0Pk0L2drqTjzFQdhltgiN7w42LiJi4gICJfOGpTwNxfH
+ Zk45ZrVKNubBz2NKcrDKa1gn5Ek01Bc1yol4tkuYgLUDB5bXmjo14D45gaDw6c3nuhjz21
+ loE6alS9K61NrtBgC0genqs4+qqnwcNtYLefGl62ravnr0S/qKKMu0XMtbHp0OwCWW1i69
+ uni4EiQn9rFBvfpmeFtAldkYZgaVWqQ+52tE+K6OzFSjqskTFs8aqxtrt4GmOSCfSLaCkP
+ cKajtuDY+l4p/xls2aO0gTO0+j0V2zxJ7NWzfLTzx4M23K4nOAXWjDb1vClXggOjgJPcmS
+ CWYzraSzOEb1DlVygIKzaYCjhoX+MUhaklBRRnma11HkKcDZLKwpjeUIH88UsDza7NK1lv
+ vA6Ri8ZTMvhGJEAdnVZfCFcO8A9Shzdh2PAnnRt6jAlFEExuiXN5YfNPGOmn6S0uVNytI2
+ LVq8X1KfyP9CWTKMjZtP1WDiC1BiTc06//ibCbs3ooxnkofway+EEICRN7Nr32HtrKadPX
+ 6zRPBIvdfapkezHQjW5LNfJW+M0G2Dk4Yru/gGB09dLLijSoxj5n2J8x8B4ogRKxkIXWug
+ 5qHYWfc0QSFupMKBIMj8vypoJWw756WGE6C71s/cjMtL/P4QlwPEYoSgj6K0YRGgKmtgyJ
+ yOt+DdlJ/IC/crEKxcdLPUPGCbNqZDqdUN5B9u6xCupZ/vqSg/6RW+qDaxeYkjhdGcMXlK
+ uKRMVSYTqSIkodeQByrQQgc2PcvPIHUq4jC7N1eMMqabmHxCeiH5c9yHYqkiiQrqZ6+Q/u
+ AudfxwwgZwsT5iIvKq9+5cW421OYJJxeQcf1ARVnCMPxkNhBYzkzlM69oeNZJRH4cn9rOm
+ 5KlETB5k8NInKnW4ftVBhFcdP1kLSmSZOF1HyJEjlyQC5TqGWd4+r5TKKXmcUDDhkBUoGn
+ Yo9J/xbLmGM=
 
-On Mon, 16 Nov 2026 22:48:10 +0530, Arnav Kapoor wrote:
+When v3d_bo_create_finish() fails in v3d_prime_import_sg_table(), the
+error path calls drm_gem_shmem_free() on an object that the DRM core
+does not consider imported yet: obj->import_attach is only assigned by
+drm_gem_prime_import_dev() after the callback has returned. So
+drm_gem_shmem_release() takes the branch for native objects and unmaps
+and frees shmem->sgt, which is the sg_table of the dma-buf attachment:
 
-> The Lenovo V14 G2 ITL (82KA) uses DYTC version 4 for platform profile
-> control, so ideapad-laptop currently skips it and logs:
-> 
->   DYTC_VERSION 4 support may not work. Pass ideapad_laptop.allow_v4_dytc=Y on the kernel commandline to enable
-> 
-> With allow_v4_dytc=Y, platform_profile registers with low-power,
-> balanced and performance. Each profile reads back after it is set, no
-> ACPI errors are logged when switching, and the firmware applies it:
-> with all CPUs busy on AC power, the sustained package power was about
-> 14 W in low-power, 17 W in balanced and 24 W in performance.
-> 
-> [...]
+  drm_gem_prime_import_dev()
+    sgt = dma_buf_map_attachment_unlocked(attach)
+    dev->driver->gem_prime_import_sg_table(dev, attach, sgt)
+      v3d_prime_import_sg_table()
+        drm_gem_shmem_prime_import_sg_table()   shmem->sgt = sgt
+        v3d_bo_create_finish()                  -ENOSPC
+        drm_gem_shmem_free()
+          drm_gem_shmem_release()
+            __drm_gem_shmem_free_sgt_locked()
+              dma_unmap_sgtable(sgt)
+              sg_free_table(sgt)
+              kfree(sgt)
+    dma_buf_unmap_attachment_unlocked(attach, sgt)   <- freed sgt
 
-Thank you for your contribution, it has been applied to my local
-review-ilpo-next branch. Note it will show up in the public
-platform-drivers-x86/review-ilpo-next branch only once I've pushed my
-local branch there, which might take a while.
+The caller then hands the freed table to the exporter, which unmaps and
+frees it a second time.
 
-FYI [if applicable to your patch], as per Linus' policy change, also
-fixes are mostly routed through for-next unless the fix is for a
-commit introduced in the most recent cycle or is clearly a regression
-fix.
+v3d_bo_create_finish() fails here when the 4 GiB V3D address space is
+exhausted and drm_mm_insert_node_generic() returns -ENOSPC, which a
+client of the render node can arrange with imports alone. On a
+Raspberry Pi 5 (BCM2712, v7.4-rc2) booted with slub_debug=FZPU the
+import that hits -ENOSPC oopses:
 
-The list of commits applied:
-[1/1] platform/x86: ideapad-laptop: Add V14 G2 ITL to ideapad_dytc_v4_allow_table[]
-      commit: f60911c0c21228b5c2b28630b24441c8ae68ee62
+  Unable to handle kernel paging request at virtual address 006b6b6b6b6b6b87
+  pc : dma_direct_unmap_sg+0x90/0x268
+  lr : dma_unmap_sg_attrs+0x60/0x1c8
+  Call trace:
+   dma_direct_unmap_sg+0x90/0x268 (P)
+   dma_unmap_sg_attrs+0x60/0x1c8
+   unmap_udmabuf+0x34/0x60
+   dma_buf_unmap_attachment+0x3c/0xa0
+   dma_buf_unmap_attachment_unlocked+0x58/0x98
+   drm_gem_prime_import_dev+0x1a0/0x1e0
+   drm_gem_prime_fd_to_handle+0x1a8/0x280
+   drm_prime_fd_to_handle_ioctl+0x40/0x58
+   drm_ioctl_kernel+0xc8/0x140
+   drm_ioctl+0x368/0x4e8
+   __arm64_sys_ioctl+0xb0/0x110
 
---
- i.
+and the task is left unkillable, as it dies holding the reservation
+lock of the dma-buf.
+
+Inside the callback the object cannot be torn down as an import,
+because the core has not marked it as one yet. Allocate the GPU address
+after the import has completed instead: implement .gem_prime_import as
+a wrapper around drm_gem_prime_import() and call v3d_bo_create_finish()
+once it has returned. By then obj->import_attach is set, so freeing the
+object on failure goes through drm_prime_gem_destroy(), which unmaps
+the sg_table once and detaches. .gem_prime_import_sg_table becomes
+drm_gem_shmem_prime_import_sg_table() itself.
+
+For a dma-buf that this device exported, drm_gem_prime_import() returns
+the BO it was exported from. That BO already has its GPU address, so
+the wrapper returns it untouched.
+
+The error path frees the object with drm_gem_shmem_free(), as
+v3d_bo_create() does, and not with drm_gem_object_put():
+v3d_free_object() expects a BO that v3d_bo_create_finish() completed.
+For one whose node was never inserted it would clear page table entries
+starting at page 0, decrement bo_stats and call drm_mm_remove_node() on
+a node that is not allocated. With drm_gem_object_put() there, the
+failing import oopses in drm_mm_remove_node(), called from
+v3d_free_object().
+
+v3d_bo_create_finish() now runs after obj->resv has been pointed at the
+reservation object of the dma-buf, so drm_gem_shmem_get_pages_sgt()
+takes that lock instead of the private lock of a new object, and an
+import can return -EINTR if a signal arrives while it waits for it.
+
+With this change, on the same board and kernel:
+
+ - the failing import returns -ENOSPC in each of three consecutive
+   fills, and after 50 such failures debugfs dma_buf/bufinfo lists no
+   dma-buf;
+ - a v3d BO imported back into v3d through a second file is the same
+   BO at the same offset over 1000 iterations, with bo_stats back at
+   its starting value;
+ - a vc4 dumb buffer imported into v3d can be mapped, written, read
+   and closed;
+ - under labwc, glmark2-es2-wayland runs, and mpv playing 4K HEVC from
+   the hardware decoder imports the decoder's dma-heap buffers into
+   v3d about 2500 times, none of which is left attached afterwards;
+   the time an import takes and the number of dropped frames are the
+   same as with the unpatched module, with and without slub_debug.
+
+The kernel log stays clean throughout. Other V3D generations were not
+tested.
+
+A reproducer is available on request.
+
+Fixes: 40609d4820b2 ("drm/v3d: Use the new shmem helpers to reduce driver boilerplate.")
+Cc: stable@vger.kernel.org
+Suggested-by: Maíra Canal <mcanal@igalia.com>
+Signed-off-by: Aleksei Riapolov <tsbol@icloud.com>
+---
+v2: Allocate the GPU address after the import has completed, in a
+    .gem_prime_import wrapper, instead of clearing shmem->sgt on the
+    error path of the callback (Maíra).
+v1: https://lore.kernel.org/all/20261114164451.9222-1-tsbol@icloud.com/
+
+For stable: drm_gem_is_imported() was added in v6.15, so earlier trees
+need obj->import_attach in the wrapper.
+
+ drivers/gpu/drm/v3d/v3d_bo.c  | 17 +++++++++++++----
+ drivers/gpu/drm/v3d/v3d_drv.c |  3 ++-
+ drivers/gpu/drm/v3d/v3d_drv.h |  5 ++---
+ 3 files changed, 17 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/gpu/drm/v3d/v3d_bo.c b/drivers/gpu/drm/v3d/v3d_bo.c
+index db95a2f..34aca97 100644
+--- a/drivers/gpu/drm/v3d/v3d_bo.c
++++ b/drivers/gpu/drm/v3d/v3d_bo.c
+@@ -172,17 +172,26 @@ free_obj:
+ }
+ 
+ struct drm_gem_object *
+-v3d_prime_import_sg_table(struct drm_device *dev,
+-			  struct dma_buf_attachment *attach,
+-			  struct sg_table *sgt)
++v3d_prime_import(struct drm_device *dev, struct dma_buf *dma_buf)
+ {
+ 	struct drm_gem_object *obj;
+ 	int ret;
+ 
+-	obj = drm_gem_shmem_prime_import_sg_table(dev, attach, sgt);
++	obj = drm_gem_prime_import(dev, dma_buf);
+ 	if (IS_ERR(obj))
+ 		return obj;
+ 
++	/* A dma-buf exported by this device comes back as the BO it was
++	 * exported from, which already has its GPU address.
++	 */
++	if (!drm_gem_is_imported(obj))
++		return obj;
++
++	/* The GPU address is allocated only now that the core has set
++	 * obj->import_attach, so that a failure here is torn down as an
++	 * import: the sg_table is unmapped once and the attachment is
++	 * detached.
++	 */
+ 	ret = v3d_bo_create_finish(obj);
+ 	if (ret) {
+ 		drm_gem_shmem_free(&to_v3d_bo(obj)->base);
+diff --git a/drivers/gpu/drm/v3d/v3d_drv.c b/drivers/gpu/drm/v3d/v3d_drv.c
+index 8d914db..70b4e59 100644
+--- a/drivers/gpu/drm/v3d/v3d_drv.c
++++ b/drivers/gpu/drm/v3d/v3d_drv.c
+@@ -279,7 +279,8 @@ static const struct drm_driver v3d_drm_driver = {
+ #endif
+ 
+ 	.gem_create_object = v3d_create_object,
+-	.gem_prime_import_sg_table = v3d_prime_import_sg_table,
++	.gem_prime_import = v3d_prime_import,
++	.gem_prime_import_sg_table = drm_gem_shmem_prime_import_sg_table,
+ 
+ 	.ioctls = v3d_drm_ioctls,
+ 	.num_ioctls = ARRAY_SIZE(v3d_drm_ioctls),
+diff --git a/drivers/gpu/drm/v3d/v3d_drv.h b/drivers/gpu/drm/v3d/v3d_drv.h
+index 7c7bdf6..63a3ca3 100644
+--- a/drivers/gpu/drm/v3d/v3d_drv.h
++++ b/drivers/gpu/drm/v3d/v3d_drv.h
+@@ -603,9 +603,8 @@ int v3d_get_bo_offset_ioctl(struct drm_device *dev, void *data,
+ 			    struct drm_file *file_priv);
+ int v3d_wait_bo_ioctl(struct drm_device *dev, void *data,
+ 		      struct drm_file *file_priv);
+-struct drm_gem_object *v3d_prime_import_sg_table(struct drm_device *dev,
+-						 struct dma_buf_attachment *attach,
+-						 struct sg_table *sgt);
++struct drm_gem_object *v3d_prime_import(struct drm_device *dev,
++					struct dma_buf *dma_buf);
+ 
+ /* v3d_debugfs.c */
+ void v3d_debugfs_init(struct drm_minor *minor);
+-- 
+2.54.0 (Apple Git-157)
 
