@@ -1,108 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122804;
-	b=LB9A3GHaxdtslP9Qika8Crpuays+2Lgu8QI6xzze8c2xxFgO3oab8g1piys1Zsa+y/ue
-	 2p1rTIgTqGnvkRRnNVNxPW8LTzgKUYwBZT3Emdg0WZTyrwX19kEnnaVD0/4UtYesJATwd
-	 Mcr+DeWyIrKhVW4B2chDHu/mulrpxON3dgrIFVL6RcE5s3R0b5BfyVaYqHHeLrmwITYCw
-	 xgXncS3fM2jXcsptO7BrtctQBnUk9Kbt/AsOC0Z+te61mTlIw1z7CRf0QrqZN1+y/NTrO
-	 EhrBBDmjpx2+bYL1WBa96y4DRy1t8BLZTCdN9zDXugOUL0ZDOwqw4CemU49PXXYI1FQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122804;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795122865;
+	b=zZDMqicKI4ngG0cFgFQu94Z+HiO3epdTbcu5TZWhb3FyH9qrZmnpjdI/Wz7N5bhaKv1/
+	 RIuew5kBJLxbFvXnindx5cBo8GAH9KxShA6TvjC8Ras41N9k4TiBdzXfpdB0+6DOw7i47
+	 2QDMW6/SEuF093iHf1Sxi7SbmvHWdg5tmXJj6VR9ZlcFmaHGuKEjUJfEkQOQ/jQYoX+7e
+	 aDJmMCP7deD8V22AW7u6fhvUSafe+6BQPF6iRCv+3tb+hfUzt4sH2jFgINMWukWP3VIRT
+	 +Ygx68pWBqZIMV8lnJP88KrqVhmXdGW71aztoml3w64lDauSwtfAB+a/oXYYRmD3YmQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122865;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=7uQtFNOdQLFaDhr2O+xKsh0q3GABDuv111m5QXQWzZQ=;
-	b=DGamgELwb4kI2x0NjS7OiIFuxDJLxxLgxaVuX2AeVWvHqip9WJ883WC+LmloD1+b1Umx
-	 6YBZKtx53Acw4h5AJqUoH2GHq/zRaEI44fcrBwtdalIkOZddsQePHSPQKR+Z7mIb8WtbY
-	 uDF+Fc1w46U2JoOQpCmbTrZbLSnnfXvb415X8yod3qSTmTULCq3D3uPJCncEAH9V8Ka6h
-	 hYozJo6yVBI2XeNMkE4wsQxxF9FX5kSwDKIWbyQJZ4/MGEKK0um1nNHldeOMXYzVqAOtQ
-	 pg9E8KBwmLeFKugB3LI98Vs26Aie/ZHwHmGgSfb6Rp8MuorNfFizgf3CpvJZTXFmCUA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=jOUlxiFKSn4QuotEPH1aCGfzH7MWZvtDLjCXKUPkqHs=;
+	b=F7cZDEIPjtoqre7N1fXbbnQCPKx0+p3SzanAZ9nxa3jH0T5mY0ssStFVTR4pEm2BsjDA
+	 x6PXlVltU5NW758jEKrAjAiXhCAkFeXVEWS0w4w4tUgaj3mEWYs84GSkf8dOy+jnYvNDk
+	 duwWv/MXI4ej6+nMj1N08coScvIV+uZKXZP0IjfdEmaEnMSjw3CovykKPzAXKUdTKG00g
+	 9sHp+vSz3NsRlxZ5OE1WQeHU/Rrrl/rLRK0iUhdyYqfa8kpUlFJHedvQorsgZfO/rBoSJ
+	 cCFaGFbD9GSSQTPNMzntr097WBKOFjvfhLe0yDV3eT8yJqMiHsNI724mF6iniFbGKqw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uWExxlHe;
-	arc=none smtp.remote-ip=209.85.222.177
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="CmYaSS/J";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E804E606A33A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:13:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E804E606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D265D606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:14:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D265D606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uWExxlHe
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-9496317b730so29680685a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:13:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CmYaSS/J
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so1363035e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 13:14:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795122863; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NEsnj3qYDFaQvALvYjHYQhmI53z1yBOh8NQf2Y0TCwa5eb+tO6D/yAzkMK63GXlooV
+         pISklflYA2CzeM+UvD7IfMuzH5WL1fT5iiZ6MQZNL4SShC9J1b3bmDYsc9L5Px9pYqh6
+         C6Na3S9jrXlpW1gIBxnRtIAVox/9vAW/XS7kS1Pc+3kjOB/WWe9Zr9Mt0mv2hdcZsJht
+         pkJEfnLwPMdUb5wXn0k8YNK6z3rl6hoK6HX63cFpp91rdXd4JcieecV1VsIbYGi9pRBX
+         sRAIy6ffbY+ZiHv2rVczWwhw9pjlzFwP5h9i2x3/XYeNvfMeCb5trLv8BMMeUilWEdQF
+         LK6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=jOUlxiFKSn4QuotEPH1aCGfzH7MWZvtDLjCXKUPkqHs=;
+        fh=J1yf+nGV5xlCA4F1ScCBK/nW/srmQLXm4tPOtfYc+6o=;
+        b=GhlcZjee8GvAeC42+uH/dU2j/Jimhhfw6G5Kl1dp8mAILMJbAsvF+vlI0V7BiXU4Mp
+         dcWjLU1h1Ac4WiKo1YaQ+s6/aE6KcR/hVWNOOCSLYRQpSnEQe41iFOUzqTtzYrfgazTv
+         DOM5azKbGan40KGLkLGwfMpYZ1BG93C+ZuZpxKkV9JQgI6w0AIo9cQUF7Jegcl8sIfaz
+         ANKqQgPFLLIrrBwnti8lOVyxYyfqoVjgoAGAHWn0wTQ0iwk696tXP/ZcnzmNClq4gcmp
+         yo632pZHi0fnzKSw7sLoNeoQOASWzKu6jachLj5cTI5LJdSmAiIqy9w1sma0VpfERQhr
+         HuuQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795122803; x=1795727603; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=7uQtFNOdQLFaDhr2O+xKsh0q3GABDuv111m5QXQWzZQ=;
-        b=uWExxlHej4/g5IMBDYKhLOiKScIXVgK7/fzcH6uPm4B7PWN6GBFYe8hLUAyEn/NR/D
-         yWcZtnkEjJ0B8q4SuHNDLDzaH58ZES6SCWCQz3EtIbIU57241Vop9zAETRC7e6LQ3ZuV
-         GF+4KVNXMFPHAXcHx0kX8ysOznPl1EvWT9/s9gNB5ipWmFBgsNkdKIZnUP851RUyZCW4
-         kIPK6Lzz1uETDrMf5HGJ3fBJpQ3RjWFS+k4qDmvFEItO41oRuGxzP8ToDnNKyGeaGyRL
-         4HSoVGTPB0wHZ6o1DvkxzqkBZmEmmbYNTXgolxI6URnoVyGnEoZNDh+N9ssbSozCj5dm
-         19Aw==
+        d=gmail.com; s=20260707; t=1795122863; x=1795727663; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jOUlxiFKSn4QuotEPH1aCGfzH7MWZvtDLjCXKUPkqHs=;
+        b=CmYaSS/Jwjw+qO8vgrEtOyC5GOHynN2H03OaUK3GGUaJ07zd9stNQGKDKPkv+erZiL
+         66WEONJYcvqH0iCmUCkSQwfTjeUFvbKXCV/k3RZlaDz0YwX8y88GMg71FbWl+s1ggtj3
+         p1kLPP8m/rCS/TXewucjqJkGlACRuefuCT6NMLLbkRT//1JVk1ejYDAkBYDw5IqihpoP
+         uJ9Be3scBygZNl0213GwmxtAZR6DLUNHeSDf5d+HLR4oO7hlQdxiHtCt6h5cdpGzF7kp
+         QkP56Im3lJLqpWQScKnjCzJuGs37S/ZlkYnNXQLn/8vjB38xObXj/pz8pI4L1G0czP5P
+         hb+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795122803; x=1795727603;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7uQtFNOdQLFaDhr2O+xKsh0q3GABDuv111m5QXQWzZQ=;
-        b=I8GdZ7Uet20s1oROV0Hs0qBkEeZiN40IwbneAUhoI+sKqoGUG2//qQnr3UouKYSR7B
-         T984OUaZerNNCalW7PSRKx9zeFUPFYk9GDB5Z5AfvvmGd6FxtNpHlgWgVxaro4IQvd9z
-         ga7hHg6sv3ybqO/G3rDjb3Xq4tqKNftjFV500NNKL6zlPZ8EECYZP4Dt0uIMwIeek3yq
-         acvT/gAzjFsQDf8rXatIIXwPAzE08kd5bLbaDObuHuc9S4pxyoyUQDTaKXORbrz0dVqQ
-         emwe9JNL+cg5DZTHbtHkfEb1L8UEBt7Sjs++bBcTbdVJ3gnMi2Y5TY0pZeaFoOQXRsra
-         O6EQ==
-X-Forwarded-Encrypted: i=1; AL+hErHJS5lEFj+ml2JCDP1cvfeBAN1QCt72Tlg1+lWvLTx+n0eKz2noVMmEr0Nws+3Dj1H5MEvhEFMOAEukq8U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ShpDdjybwyXjh4mSRqLhGmB7MJ9FdzVKl35pW79AcQQoJ9tYx
-	kjUcRQUfh1PzswxA03iI+ljpgpZSKj+AVGwMZyiBWfO6c622QDms7o4c
-X-Gm-Gg: AYBFou10pk8b3J/8+sHJrC1MI1yg6jmWgl80MnU7IOfnJSykVUWXqSH516rCQi+owoV
-	hmR7gb856YQKt07YuzSLJBrojKTrBU2P6jmGUmEyQVdpB2JjzHwByQFle9Q/nplzq3d08efxV1w
-	odQPDdRpW6ao0fYUC2SfsNNJcEDQFZI1YzyiqtESwq0Ba2tQVgasnsp07Al55T8bmnbp09vc0i6
-	6pGBeOtqQzEAWVLVISZEDViXjLsUsLGtRTL3GFx3xgRDvINBr2aChw2iLz5TCLD9tV5xPdwf5lo
-	aEfQSOMt4GKjr5u1zJYDpEVY6qi0Jv6/GwEyrpa/6pjwGpFBqHKoLKCfws4MxupKf0l970MgJb8
-	sTQtOj8ToKna7re+zcIjLSeV8ytznTToJX+FK9vxIx4qIUzGn5GC9Gkep9uP0+kK/aHL6UqSBJP
-	UV52+qArc5CZ44rNMiK2bJAiT84bshnJ2BNXkg+GsSHQS+vhCm1w/bHUaZPckfXTa3KO8pTCerU
-	KCQNdMwui8rqiPbQOkyBcvPUn65xSnWXlKIpvjzabbOw9IBF5BoQi6WybNudhkodKNyviugtekz
-	N6vhc1RskJyoRlKbQjh6t5aalq8vtMC8qzSDBjFYznnQ/vstuuWo+h9PArRksdL1SjRZ3DxI18T
-	6FTyvdvljmAS8yXSXG3tsW9LJracZv97hYb8uSOjfdD41USLG1SreXiCcTqOCiRg=
-X-Received: by 2002:a05:620a:460b:b0:93e:fa30:f1da with SMTP id af79cd13be357-949ba9e95f8mr157198485a.45.1795122802898;
-        Thu, 19 Nov 2026 13:13:22 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34a38bsm47654385a.13.2026.11.19.13.13.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 13:13:22 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:13:22 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Junyoung Jang <graypanda.inzag@gmail.com>, 
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
- Jason Wang <jasowangio@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>, 
- Simon Horman <horms@kernel.org>, 
- Shuah Khan <shuah@kernel.org>, 
- Gwanhyun Lee <gwanhyunlee@gmail.com>, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
-Message-ID: <willemdebruijn.kernel.10e4a96974af5@gmail.com>
-In-Reply-To: <20261119144241.360238-4-graypanda.inzag@gmail.com>
-References: <20261119144241.360238-1-graypanda.inzag@gmail.com>
- <20261119144241.360238-4-graypanda.inzag@gmail.com>
-Subject: Re: [PATCH net v3 3/4] tun: clamp zero-copy copylen to remaining
- payload length
+        d=1e100.net; s=20260707; t=1795122863; x=1795727663;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=jOUlxiFKSn4QuotEPH1aCGfzH7MWZvtDLjCXKUPkqHs=;
+        b=jSV4Z+QkfFNv+3CY/TNP74ccnn1oQYPFSmacq5RX+QqrxmlV7S0obYBlLHanVcTIbc
+         vAgamRCZx2tGquqkeFs1Jx8PJzcZ623LraJoMZFTsokT56FguNSuXoSUzNf0M8QMRgfL
+         Ba4isfluU2FimhbZ9f2rbwAvraXNBK+R28S7+LVef1aWsm7WRbXY6yY7UpxXE/o9YuU/
+         9vc6tEEM+qpyjsV/SmFfan/lgA7AY0c6jsqbBiA9aHeZnzDdgFjxmQkvRueOQewA8tcQ
+         aSdh5/Yh8QZRng9h3hzeleq7U0LIHRx89kaVp0QeVb5HPyIWk+d8f1OMvh+QLgy5ja3A
+         UYxg==
+X-Gm-Message-State: APuU4Z+7CyLzTN1d28bNTG6dUEyKFB2lO00SiZjRa9CaK4K9w2U5TZVk
+	dA4Enw0+hOHZbqYN9HTUBUfykD2rbqnjpLTsmicpMDDBg0Qbu1yXsU+T/w0Sl0RFg+H9X593n9y
+	jaCK28wMbBBitYsnCiWedS48LOK9nl04HvhL4zqys8Q==
+X-Gm-Gg: AYBFou0DWxNLQYYpqeJ/jDT3dRzpCt1Sn/L0BbZ6rmn8P4/T8nS2YJYbA+NN/YXOZSf
+	8dWPqyNC8V3PDoKR6mCsMv1VvhQDVRU8jPguWUAkpu2G6sgYuK2H8n2Q0230vVnSyWESBWZ+Itd
+	X9ouFmZEaOuS3rgjJp9rFOjWPdpLj8b4TlsInkUS8EUMlWQ+sakbhvOSVr7XU2UzNRGRQ4tC9rO
+	gXwGXhCkd+Vcp3geLgHmi26b7L4c6CxqsTgVSXrx3dxxDHnlAqySBFW8Cqg1xV0plU6YLBFsz2a
+	hZlqDwBTeKZMotNQS2OJvpc0I+72Ledcjr/yrHOZ2gwrh0VMMn4re/8nLW5zkWm+Tuv9w25LHDt
+	QPNnwm9l6iTipzDhNKSinxGZfiEV5es06KEsJUP1t89syZOxHMS3rj021hSGsapsS2y8lmR6ME0
+	wJvb0H4+55wpZBPCtj+iVv2g==
+X-Received: by 2002:a05:600c:4f10:b0:4a1:88de:9e8b with SMTP id
+ 5b1f17b1804b1-4bb88807909mr17131885e9.5.1795122862959; Thu, 19 Nov 2026
+ 13:14:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,36 +100,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+From: =?UTF-8?B?THVpcyBEYXZpZCBHYXJjw61hIFdhbMOz?= <luisdavidgarciaw@gmail.com>
+Date: Thu, 19 Nov 2026 21:13:56 +0000
+X-Gm-Features: Aa3M54pgDT_B4ZQbxIxyfssiAx3_A8diPKwWuh9escba8dP3hgknEEXnDXRUbSI
+Message-ID: <CAAqvKDD_3QbeJb-OKYQn0q9FAHMej3_9UfcaLgDS--4YcPJKHQ@mail.gmail.com>
+Subject: ACPI: video: backlight non-functional on HP OMEN 16-am0015ns -
+ _BCM/_BCL/_BQC under NVIDIA subtree, native path inert
+To: linux-acpi@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Junyoung Jang wrote:
-> tun_get_user() also derives copylen from hdr_len or GOODCOPY_LEN
-> without bounding it to len after removing the virtio header. A
-> padded header can make a short frame cross vhost-net's zero-copy
-> threshold. tun_alloc_skb() then reserves more linear packet data than
-> zerocopy_sg_from_iter() copies, and the uncopied tail can be delivered
-> to the network stack.
-> 
-> Limit copylen to len before the NAPI fragments and skb allocation
-> branches. The requested copy length then cannot exceed the supplied
-> payload. The normal skb-building path is unchanged.
-> 
-> This matching tun issue was noted during review of the tap zero-copy
-> fix. An AI coding assistant helped prepare the /dev/net/tun
-> reproducer. In x86-64 QEMU/vhost-net, a 14-byte input produced a
-> 128-byte frame with a nonzero uncopied tail. The patched kernel
-> delivered 14 bytes, completed 300 repeated short sends, and still
-> selected zero-copy for a later 400-byte frame.
-> 
-> Suggested-by: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-> Fixes: 0690899b4d45 ("tun: experimental zero copy tx support")
-> Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+Hi,
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
+I am reporting a backlight control failure on an HP OMEN 16-am0015ns
+(Intel Arrow Lake-P iGPU + NVIDIA RTX 5060 Max-Q, hybrid/Optimus). I
+filed it as Bugzilla #221648 in June; it has had no maintainer
+response in five months, so I am bringing it to the list.
 
-Thanks for converting the original patch into this more complete
-series.
+Hardware / firmware
+-------------------
+- HP OMEN Gaming Laptop 16-am0015ns, SKU BP4Q7EA#ABE
+- BIOS F.14 (latest published by HP), DSDT OEM ID HPQOEM 8D2F, OEM
+revision 01072009
+- Kernel 7.3.4-300.fc45.x86_64 (Fedora 45)
+
+Symptom
+-------
+Panel backlight cannot be adjusted. Brightness keys, GUI sliders and
+direct sysfs writes all have no visible effect on the panel.
+
+Firmware layout
+---------------
+The _BCM, _BCL and _BQC methods are located under
+_SB.PCI0.PEGP.PEGP.DEDP, i.e. the NVIDIA subtree, rather than under
+GFX0 (the Intel iGPU node).
+
+_BCM does write to the Intel IGD opregion fields BCLP and ASLC, so the
+firmware path is internally coherent. i915 never invokes it, because
+it only searches for these methods under its own ACPI node.
+
+The WMI GUID 603E9613-EF25-4338-A3D0-C46177516DB7 required by
+nvidia_wmi_ec_backlight is also absent from this firmware, so that
+driver cannot bind.
+
+Full disassembled DSDT is attached to Bugzilla #221648.
+
+How this differs from the known quirks
+--------------------------------------
+This looks close to two cases already handled in video_detect.c, and I
+want to be explicit about where mine diverges, so it is not mistaken
+for a duplicate:
+
+- "ACPI: video: force native backlight on HP OMEN 16 (8A44)" (April
+2026): same family, same reported symptom of writes updating the
+software value without changing physical brightness. There, forcing
+native was sufficient.
+
+- The Acer Nitro AN515-58 / AN515-46 quirk (September 2026): firmware
+advertising the NVIDIA WMI EC backlight GUID on a hybrid system with
+the internal panel wired to the Intel iGPU, where
+acpi_backlight=native let intel_backlight register and restored
+control.
+
+On this machine, forcing native is NOT sufficient.
+/sys/class/backlight/intel_backlight is registered, accepts writes and
+reports the new value back, but the panel does not change. So the
+usual quirk would register an interface that is already present and
+already inert.
+
+Also tested and ruled out: all acpi_backlight= variants (vendor,
+video, native, none), dpcd_backlight, and NVreg parameters.
+
+Questions
+---------
+1. Given that the native interface registers but is inert, and _BCM is
+reachable but under the wrong node, is there an existing mechanism to
+point the ACPI video layer at _BCM methods located outside GFX0?
+
+2. If not, what would be the preferred shape of a fix here? I am
+willing to prepare and test a patch if someone can tell me which
+direction is acceptable.
+
+3. Is there any diagnostic you would want first - I can provide full
+dmesg, acpidump, or instrumented runs on request. The hardware is
+permanently available to me.
+
+Thanks,
+David
