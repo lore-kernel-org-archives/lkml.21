@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795068004;
-	b=Zx1hA3NgXDbVqiqpAaobcFmW35bInUiG7IHaxi/o7J+FO2OBsog21khAVuaVdlyhio7g
-	 ibG93qBSDqX/zk5g3KkXAICTmxxSwDDnoeoJQ2s5RYocWodjWKzPbFCPjIG+jwff9V7lV
-	 Ccben9Ma02I8qQ9BfCSzSd3AQJAhZfMYhja2tivXAXS3/PI6FMgoO567esZPd3L96X1aS
-	 C32doKpweW+yIe5e7i5YwB1MffebN+emWqs1u3fQKIDhj++fyTHrtYBUcoAqX9+ybeUlY
-	 M0QX61jQZDn2IRQcMS7LxNsWyvGDauYSzIaP6A6tXZ56uFAspwNvpQMngz7uT4T763w==
+	t=1795068005;
+	b=iN1T9CJIbqyQj9dKVe4waBqAtrTMKt6yaFgG/m/RJCFb5BW8gWPmTkEaaUnTE6iWDwmW
+	 La6fmp6yIauigG0ij9degZw3FrF+6J6rV9N4see2Ev5F2ewB58GDx0YGY9UWdA0lms2f2
+	 t7M7tIgj384cUI/by8N/SDqLklUcWiXiv2hsuonQ9XJ85/3QjaNW1XBy9d/JMrBHz8rde
+	 MQYwavOVRF3xmBq1qnxNqKHutxrpd0nhZbbgjz5qF8QtjJI5/UR0pwaANKdWQjCrsAYel
+	 H+jRdLF954IU65PSvWqXoanoMQCSVxvOoggrbzA8uHGX0Xzv1ERRM0mBenjiI2/A3gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795068004;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795068005;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=kuhk+mB3UN8TnKb2oXuI2U8lqT5dSWUKA9kFr3P8Umc=;
-	b=3G802kfOIbzV3G+LHPQS0egb9XaVayqT5mEDRlfrz6ASdMEXYNWmZZrPkbuaxLLscMDJ
-	 hpx5v6eudJVoU4QICb2tq4oYrr4O6Ft5KAaAIl48PWdV4bduMFWVtyXQhNCMbqB4FLUv4
-	 MNNbtlP67h3a91d5T0xGYAPfMFGdDu1PuNWwUG2ckzrE7OD/7U7RAJtdM95PAFtVhOJ9S
-	 2eIW3jE3P2CCuQippHv7eNXlsOW4Zkzbwo1OMk7aQYyfZXh6gUC74mF+6FIbrMWb3zN7A
-	 vKP1xu6XJkME3Aw6T3t4kKUQIBKijp5Ub+MEo5xL/wOEbRWNq4qc7q1bxcgXOaMU1Og==
+	bh=uhvIZHMzMR8LEDCjN4KMVMcwIuHWxcvFz3+gSq5p+wo=;
+	b=EFZNV5yWwIZSWRQljSv4YlrWMwAI+9usNf3dxRrWHjJw7B5mvIshU/IOcY0S7uTK/3uF
+	 V37lckgpE8V5zS2YZZ9U1fpnLsNP3rVxZWt6KsMiV/Vhul5e035PXvPScdCWTlDhAKa+3
+	 3WhIvde8fX/x8+/DEKhqZIvyMeMNJM6glZhLWG0d4e2gkNmEdY2rDPgDf1arQOP+nmq49
+	 ZKuZkjl0a1OLGncjeMVnh7ALyTsCPE5R6IBIL3c5gQ46OwXXLx61Qp5zTMhOQN4N/eCTU
+	 a91K2BE0VS9ZjQUQJvMTQ6ma+xgjMZS0OG9MhTTv9FMVCn7lcEBPO5GNNgS7X0hfucw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hWv3kH2W;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="I0HI//mr";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F2E460A2606
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:00:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CE8160A2610
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:00:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hWv3kH2W
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A5601F000CA;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I0HI//mr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94C4A1F000C8;
 	Thu, 19 Nov 2026 06:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795068004;
-	bh=kuhk+mB3UN8TnKb2oXuI2U8lqT5dSWUKA9kFr3P8Umc=;
+	bh=uhvIZHMzMR8LEDCjN4KMVMcwIuHWxcvFz3+gSq5p+wo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hWv3kH2W4TVguDWJ7xj57brSEj8AVcfF/sQttbqifokFZJLK5ZoUBSMe83j7eB0L7
-	 JiNEVVnTS3mRnPtpB++dRiPLDDJzI+87ol58IpRDobkxQWKSykl49WxFrdIDqWGNle
-	 Kmbi5kWcgkLX4RwoP3g/uBR0DgVsOj7pMIv+EBTG8Zue4xPYbS8T+xthZHvesKSPH4
-	 kHGteTtNiiFmsRsc0bxWXHoFPNCPZrN9yYDLnJbTujP3YgF5VJ0zVxnT3zfMzLHTFX
-	 GRa2AU6T7ZzAvlgwqofBazQU0uEIepRhKo5IQ8ttzIOeHMG0iX4Uuxxd2kl9faV2Vz
-	 8drrzo1KD1cQA==
+	b=I0HI//mrpL69nBp7nOs0fZaqfwbAmU0OR7V0z4bIeviLSGYAK4m9pExNi7YHJ+YIe
+	 0bsoCFSCfFuGdZUox+7HAjWN9L1C6kMJCfirjvUrz0p4YiaRQRN1TSLZjrvKpOnubU
+	 IJ7aeDRLrP/p5//+Ncyfhj8TE4X2LfHrhlHtztTZ+AvPSQLt29RZA15GZKA6CbbMHO
+	 LN6rhpa6l9CwhTJ21XOC1MMbWQMBvpj16XpElAj05km17QdVpI9lQkIqxpvNsGbiIu
+	 pvMJ3B/itCBrQqYnmvdQ7ojdmzuPV/5k2SkYa2CURh+xrDYRHfzLKR7EV7ayGjuGgh
+	 7EiGgy70pRgmA==
 From: Vineet Gupta <vgupta@kernel.org>
 To: linux-snps-arc@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -46,9 +46,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Dinh Nguyen <dinguyen@kernel.org>,
 	Simon Schuster <schuster.simon@siemens-energy.com>,
 	Vineet Gupta <vgupta@kernel.org>
-Subject: [PATCH 3/4] Revert "ARC: Strip libgcc debug information when generating BTF"
-Date: Wed, 18 Nov 2026 21:59:57 -0800
-Message-ID: <20261119055958.1621709-4-vgupta@kernel.org>
+Subject: [PATCH 4/4] ARC: stop linking libgcc
+Date: Wed, 18 Nov 2026 21:59:58 -0800
+Message-ID: <20261119055958.1621709-5-vgupta@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261119055958.1621709-1-vgupta@kernel.org>
 References: <20261119055958.1621709-1-vgupta@kernel.org>
@@ -63,53 +63,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This reverts commit ca201ad6e92a1924138e83ff966f7a091e3bbe6e.
+With the generic lib/ versions of the shift/multiply/compare helpers,
+the 32-bit divide routines (only needed without hardware div/rem) and
+clz/ctz all provided by the kernel, and the 64/64 divide and floating
+point routines gone, nothing in the kernel or modules resolves against
+libgcc any more.
 
-This is in preparation of libgcc dependency removal.
-And its better then deleteing those bits anyways.
+Drop it from the link so that any new dependency on it (e.g. a raw
+64-bit division instead of div_u64()) shows up as a build failure
+rather than silently pulling in libgcc code.
 
 Signed-off-by: Vineet Gupta <vgupta@kernel.org>
 ---
- arch/arc/Makefile     | 9 +--------
- arch/arc/lib/Makefile | 8 --------
- 2 files changed, 1 insertion(+), 16 deletions(-)
+ arch/arc/Makefile | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/arch/arc/Makefile b/arch/arc/Makefile
-index 4ea705a331c7..868805ffcfea 100644
+index 868805ffcfea..9f34198d74a3 100644
 --- a/arch/arc/Makefile
 +++ b/arch/arc/Makefile
-@@ -86,14 +86,7 @@ core-$(CONFIG_ARC_PLAT_TB10X)	+= arch/arc/plat-tb10x/
+@@ -71,8 +71,6 @@ cflags-$(disable_small_data)		+= -mno-sdata
+ cflags-$(CONFIG_CPU_BIG_ENDIAN)		+= -mbig-endian
+ ldflags-$(CONFIG_CPU_BIG_ENDIAN)	+= -EB
+ 
+-LIBGCC	= $(shell $(CC) $(cflags-y) --print-libgcc-file-name)
+-
+ # Modules with short calls might break for calls into builtin-kernel
+ KBUILD_CFLAGS_MODULE	+= -mlong-calls -mno-millicode
+ 
+@@ -86,7 +84,7 @@ core-$(CONFIG_ARC_PLAT_TB10X)	+= arch/arc/plat-tb10x/
  core-$(CONFIG_ARC_PLAT_AXS10X)	+= arch/arc/plat-axs10x/
  core-$(CONFIG_ARC_SOC_HSDK)	+= arch/arc/plat-hsdk/
  
--libs-y		+= arch/arc/lib/
--
--ifdef CONFIG_DEBUG_INFO_BTF
--export LIBGCC := $(LIBGCC)
--libs-y		+= arch/arc/lib/libgcc.a
--else
--libs-y		+= $(LIBGCC)
--endif
-+libs-y		+= arch/arc/lib/ $(LIBGCC)
+-libs-y		+= arch/arc/lib/ $(LIBGCC)
++libs-y		+= arch/arc/lib/
  
  boot		:= arch/arc/boot
  
-diff --git a/arch/arc/lib/Makefile b/arch/arc/lib/Makefile
-index 2807ee24f27e..30158ae69fd4 100644
---- a/arch/arc/lib/Makefile
-+++ b/arch/arc/lib/Makefile
-@@ -13,11 +13,3 @@ lib-$(CONFIG_ISA_ARCV2)		+=memcpy-archs-unaligned.o
- else
- lib-$(CONFIG_ISA_ARCV2)		+=memcpy-archs.o
- endif
--
--# libgcc can contain complex floating-point debug types unsupported by BTF.
--# Strip only the debug information from a local copy of the selected archive.
--always-$(CONFIG_DEBUG_INFO_BTF) += libgcc.a
--OBJCOPYFLAGS_libgcc.a := --strip-debug
--
--$(obj)/libgcc.a: $(LIBGCC) FORCE
--	$(call if_changed,objcopy)
 -- 
 2.53.0
 
