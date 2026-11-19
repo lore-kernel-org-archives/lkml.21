@@ -1,60 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.17
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795069456;
-	b=FaA/xof81uqad8EX4siCWgEwYvp4VjMuftujfCSqy9VPHbDAE/vjFUsYSL+UJC+D+YkY
-	 iAE6CZ0zGBTMnnfgSGP9YwZ25CGYrslrdRnkcfmCAZd/rfsXPgfwjXonfJ8q3evxeAbEu
-	 E5dNVQXqBYIKJErlcdq1VTWzgrtTCMCouvjVCADxVUEfkKgJMfRcwXBJXPQpoloFe4bVi
-	 XHViIwQn2rY9n/tWax51RxwBwBVHJyPQRSdbm9gVCyJt8ez3cv/azlaTP302xfpRvTtKH
-	 w/ncxbJyTFDNjaWWfo50BrsJuRt0Fk7/I+IZezN39zsDhDEUpDfjsdqLTNH4KxMNyPA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795069456;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.82
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795069547;
+	b=3ICZwa2BqXQIpt7OsvWYon1eUUqfLAIAGoivkH40AI5qA5xT2eXryelRsDg4M+JOazTh
+	 4CsWE6KeU5qrX18nXTNgXGqTtOx91O+vQwXoxncnNwpOtx68nDDxFuXWyBo75cdy303xo
+	 cKt+5+5/caBzFSvbjAd4sw10ofJ/gDfJUe51dGeezHcnq25Zddvmct7qi4oNL0R1/bHVa
+	 BZjrJuUuZwnuQ3d3SewUsPSyHeSNNvDAyAvDybEEBHceuvdxF47+sdb/+QNNJa/XeN9KG
+	 x73El1w5UBvfkXUoRMDOHweFu1hEgtdCJJr/z7vUeP9DcS605u6yHaDHvikjeQ2Douw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795069547;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=DE8O97+cLTb2fOL+TR06WyWM36lYsEezlYTIeuQx1X4=;
-	b=OGIstq48ScOkyj+IQ0+YQg1bZ3SbjYJWlt55v939ir/NEyH5yITKu/aN6wMvNZC1590K
-	 Nq9Kv+ahU59amZb82ftJkjnTxCIq3rPsg3yuhPmzLN28wymv1jGoGkWSBqrTOmcHH66Mf
-	 hzmh2fcUFChMNZTImZ2WdotdW6pDXrDqzDX+k2XAe5RrrLw0OBHVc7FIgCKuBD2dr95wD
-	 kjKXRINzvXH0QRLNHVJGgn+ZSg+puwwN1N1tDuBS5Mvsfh29i/bHV8yco1AFSpT0shyY9
-	 qtr63PX29sqKeIJYoL6lDgJa9NRIRA5lo/21CK5+SrlwBClxDJAI+j0OxIGVuzeu/9A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iav.lv;
-	spf=pass smtp.mailfrom=iav.lv;
-	dkim=pass header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=DfBt5dy8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.17
-Received: from sender-op-o17.zoho.eu (sender-op-o17.zoho.eu [136.143.169.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	bh=B13IPkujBKrzvAEG/EO28Xz4oMqOP3ahOkyfpShC1r0=;
+	b=jRkmZ/4hYO7gAam1GuP13JGqLkT/jinini0Ijzdd5ebYUjQKHjXPTvlEH9zccBQtg/2H
+	 ymR76IwJ0uhZ2sNJ1RuDucoYLyo2SKMjEAb2rgXqd1m9IwsL2puHGIiVdbauMxU81MxrA
+	 EyKm0RbaJjXzOM9W8x91g3FzenSQVSsKL12OyVbCLKJTB1+0w3/P6ajcIW/s8HonQRj+3
+	 Hw8iTPJGD7tM2Cg4voi1yhrDYESZpHlXshPm/Wz+Cx0Cr7ozzf6LTBKF+GYjrhGJhR7jC
+	 H4sBfM8WHhBEefG5prAAUdRSttcKoXSuHS8JqxKl41fFiiLmmShA0ex9f/BWKI366Bg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=covCMItL;
+	arc=none smtp.remote-ip=91.218.175.82
+Received: from mta0.migadu.com (out-82.mta0.migadu.com [91.218.175.82])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EA6C606A325;
-	Thu, 19 Nov 2026 06:24:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EA6C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iav.lv
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iav.lv
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFC67606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:25:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFC67606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=DfBt5dy8
-ARC-Seal: i=1; a=rsa-sha256; t=1795069423; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=dtRWGpjk7C/pH1f81J5merSCphSkEokQv/E8YaSkNF4k7a9/7qYEp8t960nhaVwg+eTDXlSYWuFXbK9poDVZSQuHwY4HPQka6PxrWpR6SXnzgNUgNc9+CRw/VHis4kjcQnF1/XE3tWxEBxkKCpJG7wNJCbGqlte/CRAyRQN5XD8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1795069423; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=DE8O97+cLTb2fOL+TR06WyWM36lYsEezlYTIeuQx1X4=; 
-	b=Ie00+LxniYfy5vjl7DO1UNTBoLmgX48CSWYC8PwVqMag/G4TuzDxYbZVX3UdC4yXe6WbdVccTyBUKfuABcHwBMXrhsR9cqfmkg+vrJQfOASVX9d2pa9BTEH1K4qJIPQYo2XusckmACB+yY/B2X0mKNologMFCW2X2lWDOxcjthE=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=iav.lv;
-	spf=pass  smtp.mailfrom=iav@iav.lv;
-	dmarc=pass header.from=<iav@iav.lv>
-DKIM-Signature: a=rsa-sha256; b=DfBt5dy8/PibWVPur2s+Bn5rh5CwcSYwxqhCP3s2WuzOOGnnyNePpGxC8dPueCpaqaRGgaLLNBgI3gcnl8ldp5MxxHGROxl87QvNH5PzJWUaN504uu+fGlMI6HoCyn+YsQtkFoaDY5UzcJC5ZbWhx5FB9IEdYuPcIqa90BYiSRE=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=DE8O97+cLTb2fOL+TR06WyWM36lYsEezlYTIeuQx1X4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zoho.eu with SMTPS id 1795069422691713.2242534782733;
-	Thu, 19 Nov 2026 07:23:42 +0100 (CET)
-Date: Thu, 19 Nov 2026 08:23:41 +0200
-From: Igor Velkov <iav@iav.lv>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Manivannan Sadhasivam <mani@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>, iav@iav.lv
-Subject: Re: [PATCH] PCI: rockchip-host: Support hibernation with endpoints in D0
-Message-ID: <20261119-re-anand-rockchip-hib-rails@iav.lv>
-In-Reply-To: <CANAwSgRaHubdh8o5Zd3k5Sa_jf5fWuEuCXqbQu7gGL71MwC+8g@mail.gmail.com>
-References: <20261119-b4-rockchip-pcie-hib-v1-1-05df24cc77e6@iav.lv> <CANAwSgRaHubdh8o5Zd3k5Sa_jf5fWuEuCXqbQu7gGL71MwC+8g@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=covCMItL
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=aPv5vtAhvmvZ1Ntq8qJPLJcnAl07+2ec2bP64Rkkmn0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795069545; v=1; x=1795674345;
+ b=covCMItLnxl+a6RDjXUYrwHFDRALfeG+WKnuWjdTNjmUmvjYjXLOhl1XhmI+NIHRz9nwdcDg
+ wmngYsEwd2WFoeeMF9ISlJ7mKwtB+OxS5yv3r26E62bdG5KbUmV1N9jaXIZdJ+tjvBjpSL5j+dX
+ 72aaXNyICKNBjvcLGkaQpfrI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a813b69a0796f372;
+	Thu, 19 Nov 2026 06:25:31 +0000
+X-Mizu-Trace-ID: a813b69a0796f372
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+To: Benjamin Marzinski <bmarzins@redhat.com>
+Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
+	Alasdair Kergon <agk@redhat.com>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	dm-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/3] dm thin: stop waiting for grace periods when activating and removing thins
+Date: Thu, 19 Nov 2026 01:25:25 -0500
+Message-ID: <20261119062525.1488091-1-qiliang.yuan@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v2-0-055d627763c3@linux.dev>
+References: <20261119-bug-dm-thin-rcu-gp-v2-0-055d627763c3@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,20 +71,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Thu, 19 Nov 2026, Anand Moon wrote:
-> It looks like we aren't disabling all the PCIe regulators (0.9V, 1.8V,
-> 3.3V, and 12V)
-> during suspend and re-enabling them during resume.
-> Shouldn't we power down all of them on suspend and bring them back up on resume?
+On Thu, Nov 19, 2026 at 12:24:21AM -0500, Benjamin Marzinski wrote:
+> I posted an alternate version of your [PATCH 2/2] that fixes the issue
+> I mentioned. Can you verify that it works for you?
+>
+> I squashed it with your patch, since it your original patch did most of
+> the work of fixing the issue, and it seemed easier to just have one
+> patch to backport to fix it. I could refactor it into two patches: one
+> the fixes the bug, and a second that just swaps the synchronize_rcu()
+> for kfree_rcu(), if people would rather not mix the bug fix and feature.
 
-This patch keeps the rails as they are: suspend_noirq() already turns
-off only vpcie0v9, and the other rails stay on from probe to remove.
-The 3.3 V and 12 V rails power the endpoint; cutting them in suspend
-loses the state that the PCI core and the endpoint driver expect to
-keep in D3hot. Doing that would be a separate change.
+Ben, this v2 crossed with your patch [1], and its 2/3 carries the wrong
+Fixes tag. I'll send a v3 built on your version, still as three patches,
+so that the fix can go to stable without the kfree_rcu() change:
 
---
-Igor Velkov <iav@iav.lv>
+- 1/3 "dm thin: drop the grace period from thin_ctr()": unchanged, and
+  it keeps your Reviewed-by.
+- 2/3: the fix, taken from your patch. thin_dtr() marks the thin dying,
+  the walkers take references with refcount_inc_not_zero() and skip
+  dying thins, requeue_bios() and error_retry_list_with_code() skip
+  them too, and the thin leaves active_thins only after its refcount
+  drops to zero, followed by synchronize_rcu() before it is freed.
+  Fixes: 17181fb7a0c3, Cc: stable, with your Co-developed-by and
+  Signed-off-by.
+- 3/3: replace that synchronize_rcu() with kfree_rcu().
+
+Before sending it I'll rerun the KASAN reproducer on 2/3 alone and
+remeasure each patch.
+
+[1] https://lore.kernel.org/r/20261119051620.507189-1-bmarzins@redhat.com
+
+Thanks,
+Qiliang
