@@ -1,105 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082691;
-	b=Ubudxbjyszmh9waj9+KKgtmucwkWcbdJLpCSpTZ8qrvRZrL8AbBsmjlTaXyycPHsO1Vm
-	 PleKkG32zsXBDW8H7VTKhoWbHdCcn/GGsvL38VnHNR74M3JBZT6waexWsj+Dw4rfRZHcJ
-	 CURiaCPis/fq6zoOYclUgKR7VOwktPRa3BCYsG1/PzBFJ0AHw0OVN/Kd/uElHOSPKWMa2
-	 taKmueqD0ZAjnVE55k+xt8uLCRM3y/aOIpc+/H3An8R462OJqWjO/GcZ1t1ZVo7+lMLy8
-	 jELswxG3c5LEopOR2fGBkMgnXojeNvAf+8xXDCS5pzJgC66REdbRJ9fFwPZ5bBd3xOw==
+	t=1795082756;
+	b=PGF0Sms8jdlqfhC4HiXJzN/nLckZJhlIxvB93pwemXA5FVYQA3wk4Gs8EjwP+N1D3MS0
+	 FUe24R022FCwmMnkqRc98Gzr8U5CECc0bn3tiPKYHwFelYBAXQbUjXYWAaojlKx+LcONx
+	 ptp31WYsgyHir8KEVdwghuUj6QNIKWDnbq4+ubQxNIJ1dHVYh36LBBA/tFAdzXrvzKEuM
+	 QJeU6sjhAAADcQgbGju37MTExhLj8fY5/tR624dklzgyeibMfruM33zJOVO7KlsmAy2KM
+	 5S0ZIVM7m0NOMGZOGl784CZ2POr+OCgEVAtr7a3v/YBy8KAtOqp4C+Eta/zGYUDFLDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082691;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
-	b=GbEvzN4Dr6h+xQ+Vm75/DXoMoEpsaHPRoJ/hM9weFi4jnZhXV0SlxUKcX6JUfZWTfdFQ
-	 HtSchp88G4cFdxebXlO3pM91n5Ysy/9xRAkUYtl61Sm/ouQ7yA118zbNHo/bJyvjEF4P3
-	 rv7J8CpLLfDg15kuiG97iqQbHO1oSfnEj6mK7X0Wtx4WqlHpGrf+WXDP0NShEPP9akvW1
-	 ktt1moAjB+FLLgJtW2eZ+WEmQ6RCrGd9J/IB7vrkG7yrsC3ELY+xr1gBlSK4CEeN/5Jyg
-	 S8DK/diZQeQGDL4RUc24hOnEcwLv2EaoQC1MbIjZ1hvbi+vC4sBAP3JlDK/HDZ02YNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082756;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-SNPS-Relay:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=c6lFbXf2MfVY+hT/4+LG90sdJvphivap16m8VBlsCRI=;
+	b=rrtkkeyHy8u25rJ3Ejpg+I25HsBCZzXWbk4qwaTRF7yyoK6ti+Y0HKMaaatkcQHEKCRA
+	 QpVHUg5JmWeh50f6F1iA7MmxbgxLVKzwx1pEBSIusOQ2pvFMguWun/OcPW+ruFW7eK9mL
+	 fi66XCvEBg3Oce6YHo92EqPSUcw+JO9IrzAyKyEBBfBrEb50lTr9s4l4sPDfA5f4ATm27
+	 b3n9qQ9gDoFihfcmkigpQKb9oyajMBzOi1NNrRg9WCXN4/RZt91UG5qLao3WzJicgYO77
+	 4ucMe/X/ySyVuuJzfoHtvnuCwOH059b+x9tUMzre3j8wE+8GBO5b/wh/rJvj3ditsrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="C/T7BPSH";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="C/T7BPSH";
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dmarc=pass header.from=synopsys.com;
+	spf=pass smtp.mailfrom=synopsys.com;
+	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=l1UavVs3;
+	dkim=pass header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=aINzzwfs;
+	arc=none smtp.remote-ip=148.163.158.9
+Received: from mx0b-00230701.pphosted.com (mx0b-00230701.pphosted.com [148.163.158.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55CED606A320;
-	Thu, 19 Nov 2026 10:04:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55CED606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04267606A325;
+	Thu, 19 Nov 2026 10:05:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04267606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=synopsys.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=synopsys.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=C/T7BPSH;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=mOZ75kp+;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=C/T7BPSH
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	dkim=pass (2048-bit key, unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=pfptdkimsnps header.b=l1UavVs3;
+	dkim=pass (2048-bit key, unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=mail header.b=aINzzwfs
+Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
+	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AJ9Qqj22057710;
+	Thu, 19 Nov 2026 02:05:37 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pfptdkimsnps; bh=c6lFbXf2MfVY+hT/4+LG90sdJvphivap
+	16m8VBlsCRI=; b=l1UavVs3hPguD16VBWm8goDrmLsx/xSeu9S7amrQQbQqT2vZ
+	/e0GXsRmDLEvfLV4K6KB22tot3O8yo1PRHEodZMg5ejSv9iF+lDZOXEvwPAMfONa
+	is7QRfdWkCWs2WimfPufOAGRb3VH4fhqD4F0CSZ4NMXqvuru4j0AcLnllF9QF0Qb
+	wtxYpY1LigrU2VARBQmwtXGEizguPh2nea98EHwjDeVCnNfbKMzjM2beDOpsSbds
+	TeDZpoXHwR9MJB9yxFMe9OFXnSbAGJINL6os9PvBJjdhPybEEbBdTRw+u+2PJVQ/
+	c8U8BYpQES6lKHgX0VaQ+LEg7HV6Bby74x5SaQ==
+Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.73.133])
+	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4j1ny430cr-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 19 Nov 2026 02:05:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+	t=1795082736; bh=xn6JVBvQCjXCiIzNT/47Tf7lmwUkJq6WyBFbcC5SF1U=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aINzzwfsuiumgsAhkfpC/YXx+e48L85KS9Gu+EGBO5Ze2KL4O+YLuwSkXmc7ByeAy
+	 JvuxQw/cRl5Ewjr0mpAHccjcT4SMBz56XeLqJ+HO8yx+A99YdavMpgSm2Jk2NygkHI
+	 +ReJ1iA2YGeVXvBezh/LvLMvzajBeektVHrYEW8qdtULtFYk0/yJ/zRrN2zeaGXm2o
+	 C4s+1WtnHb93E60BaFK4rkr5HjHjnHCyIBxhAQFd8sPb3F+l1RTEpFku//Ewj5kEwU
+	 9Rh+qBklHvaqTJdTOeL9JtoyrsiLzP1Im6jOQjcMc6c6t48vMQOqgVCPfzEK6ttsYQ
+	 np46ZQbaUGRiw==
+Received: from mailhost.synopsys.com (eudc-mailhost1.synopsys.com [10.213.161.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 6CB451F7D2;
-	Thu, 19 Nov 2026 10:04:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795082689; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
-	b=mOZ75kp+8euuYZElFoQETC2Bu4+ZygBPKU799/sASUntaGV/0c0vBhhgOvLqeeXAVFuI5n
-	IUnCRRon+g4/ZoTLE+83LgR+3LcKlPJKO30teTuww8GPVqTE0xuFQQsuzOrkU/4gVzF8qC
-	kTixyN3JsW8YyDXO8/3H/sWXC/3tJh8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795082689;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
-	b=C/T7BPSH0M+vvqcalxvzTU+PhfqDMVIVA9kJdLr6+PaC8qaHFEk6WmO+5W3FZ3y7yiYlA5
-	KvfPPBG4TtttJYAw==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795082689; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
-	b=mOZ75kp+8euuYZElFoQETC2Bu4+ZygBPKU799/sASUntaGV/0c0vBhhgOvLqeeXAVFuI5n
-	IUnCRRon+g4/ZoTLE+83LgR+3LcKlPJKO30teTuww8GPVqTE0xuFQQsuzOrkU/4gVzF8qC
-	kTixyN3JsW8YyDXO8/3H/sWXC/3tJh8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795082689;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rr5ZFT5ZcgDyOCKRYwikwt5oVr+KWAPOlhB6uIOoL0U=;
-	b=C/T7BPSH0M+vvqcalxvzTU+PhfqDMVIVA9kJdLr6+PaC8qaHFEk6WmO+5W3FZ3y7yiYlA5
-	KvfPPBG4TtttJYAw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
+	 client-signature RSA-PSS (2048 bits))
+	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
+	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id D147340183;
+	Thu, 19 Nov 2026 10:05:35 +0000 (UTC)
+Received: from prakriti-VM.internal.synopsys.com (unknown [10.150.11.50])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 46A381334C;
-	Thu, 19 Nov 2026 10:04:49 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id K9YNCcHJ/mo9dgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Thu, 19 Nov 2026 10:04:49 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id CB4BF25192; Thu, 19 Nov 2026 11:04:48 +0100 (CET)
-Date: Thu, 19 Nov 2026 11:04:48 +0100
-From: Jan Kara <jack@suse.cz>
-To: mdshahid03@gmail.com
-Cc: viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] fs: sync: fix overflow check in sync_file_range()
-Message-ID: <zwxt7yvljy7znovloyduos7zkkz7eelu7xd6qzkrl6io36bkq7@ecppjcso6uao>
-References: <20261119053827.69933-1-mdshahid03@gmail.com>
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mailhost.synopsys.com (Postfix) with ESMTPSA id 9607AC17D3;
+	Thu, 19 Nov 2026 10:05:31 +0000 (UTC)
+X-SNPS-Relay: synopsys.com
+From: Prakriti Sharma <Prakriti.Sharma@synopsys.com>
+To: Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+        Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org,
+        Siddhant Kumar <Siddhant.Kumar@synopsys.com>,
+        Prakriti Sharma <Prakriti.Sharma@synopsys.com>
+Subject: [PATCH 0/6] spi: dw-g2: add Synopsys DWC SSI v2.02a controller support
+Date: Thu, 19 Nov 2026 15:35:07 +0530
+Message-Id: <20261119100513.433044-1-prakriti@synopsys.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,88 +97,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119053827.69933-1-mdshahid03@gmail.com>
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_THREE(0.00)[3];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[6];
-	TO_DN_NONE(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,suse.cz:email,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.80
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=PMeaavqC c=1 sm=1 tr=0 ts=6afec9f1 cx=c_pps
+ a=8EbXvwLXkpGsT4ql/pYRAw==:117 a=8EbXvwLXkpGsT4ql/pYRAw==:17
+ a=zJRp6_cAMcgA:10 a=qPHU084jO2kA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22 a=jIQo8A4GAAAA:8
+ a=MR3oNLM8PPuS6zyyqOIA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE5MDA0MCBTYWx0ZWRfX2XXyA4UxVCV/
+ 4TMEdIh1L+a32K8yQsab7VbyT+/gxuJhjXVaank7nchQ2yndf6kJE+HbnIlIKYV81kzGp6Yl3CS
+ DxqSVzRkAKGPdxtJQXFD++cgAvDvgziEngiYStiDXgZ7TFUMd5xVog7ORgdWIOMzDKtNatGuyT4
+ jROWSLTWbpUXmpGEfI7Ue+lT0R2e9IGb+e+qVJHllMk4bMfGkcCcm0Rr2AXO2/RG+2S7GIsYyWN
+ Ebv5v6nLoMOV2LsnOx+KszdOrBu7EfZJjsX7QXVPh1hA8ImDPurUwpuU17nz61wsrAKHeq5WsEM
+ /sVOtIS1X9PyOyj1sNsIVbhxhJo4KwkRB2aILVVBJogt36CPZKPG9OoVV6ZzA0VC7FHiVFhXrHA
+ 28PB6PoWdtisLD2fGW7sMqwMLvGx6b776DDODhYLQr6IXA048oFQVm3mFpuGK4XG/Sy3QNtS0iQ
+ V00vShxNxPhnR7camow==
+X-Proofpoint-ORIG-GUID: PNsa0h2MmJdiJudWzZ2vAsy-0bJll3lA
+X-Proofpoint-GUID: PNsa0h2MmJdiJudWzZ2vAsy-0bJll3lA
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE5MDA0MCBTYWx0ZWRfXwXl/jF0Aevs/
+ ZVhWfwWJuMlihQhNVvGSFC+HyTxHFYRhQFZqPFKQAgPmPfglwJNkRGDvCFZH1+yxRlw79BODUfI
+ ddGIm5Qsbem5JPqqhyNZtV1M2NB5S0s=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-19_02,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
+ policy=outbound_active_cloned score=0 malwarescore=0 suspectscore=0
+ bulkscore=0 clxscore=1011 adultscore=0 priorityscore=1501 impostorscore=0
+ spamscore=0 phishscore=0 lowpriorityscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.22.0-2611040001 definitions=main-2611190040
 
-On Thu 19-11-26 11:08:27, mdshahid03@gmail.com wrote:
-> From: Mohammad Shahid <mdshahid03@gmail.com>
-> 
-> Use check_add_overflow() to detect overflow when calculating
-> the end byte of the requested range.
-> 
-> Reject negative offsets and lengths before performing the
-> addition.
-> 
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+Add a driver and DT binding for the Synopsys DesignWare SSI Gen2
+(DWC_ssi v2.02a) controller.
 
-Looks good. Feel free to add:
+The controller uses a per-chip-select register map. This first posting
+covers the MMIO glue, polled spi-mem transfers (short register ops and
+FIFO indirect reads/writes), SPI-NAND handling, and memory-mapped XIP 
+through spi-mem direct mapping.
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+The series was exercised on a TI K3 platform with SPI-NOR and a
+Winbond W25N01JW SPI-NAND.
 
-							Honza
+Signed-off-by: Prakriti Sharma <prakriti@synopsys.com>
+Signed-off-by: Siddhant Kumar <sidkumar@synopsys.com>
+---
+Prakriti Sharma (5):
+  spi: dw-g2: Add Synopsys DWC SSI v2.02a driver
+  spi: dw-g2: Add indirect read and write
+  spi: dw-g2: Add SPI-NAND support
+  dt-bindings: spi: Document DWC SSI XIP properties
+  spi: dw-g2: Add XIP support
 
-> ---
->  fs/sync.c | 10 ++++------
->  1 file changed, 4 insertions(+), 6 deletions(-)
-> 
-> diff --git a/fs/sync.c b/fs/sync.c
-> index 4a84dd837b86..a1ef2b619cfc 100644
-> --- a/fs/sync.c
-> +++ b/fs/sync.c
-> @@ -10,6 +10,7 @@
->  #include <linux/slab.h>
->  #include <linux/export.h>
->  #include <linux/namei.h>
-> +#include <linux/overflow.h>
->  #include <linux/sched.h>
->  #include <linux/writeback.h>
->  #include <linux/syscalls.h>
-> @@ -233,13 +234,10 @@ int sync_file_range(struct file *file, loff_t offset, loff_t nbytes,
->  	if (flags & ~VALID_FLAGS)
->  		goto out;
->  
-> -	endbyte = offset + nbytes;
-> -
-> -	if ((s64)offset < 0)
-> -		goto out;
-> -	if ((s64)endbyte < 0)
-> +	if (offset < 0 || nbytes < 0)
->  		goto out;
-> -	if (endbyte < offset)
-> +
-> +	if (check_add_overflow(offset, nbytes, &endbyte))
->  		goto out;
->  
->  	if (sizeof(pgoff_t) == 4) {
-> -- 
-> 2.43.0
-> 
+Siddhant Kumar (1):
+  dt-bindings: spi: Add Synopsys DWC SSI v2.02a binding
+
+ .../bindings/spi/snps,dwc-ssi-2.02a.yaml      |  199 ++
+ MAINTAINERS                                   |    8 +
+ drivers/spi/Kconfig                           |   21 +
+ drivers/spi/Makefile                          |    3 +
+ drivers/spi/spi-dw-g2-core.c                  | 2308 +++++++++++++++++
+ drivers/spi/spi-dw-g2-mmio.c                  |  457 ++++
+ drivers/spi/spi-dw-g2.h                       |  552 ++++
+ 7 files changed, 3548 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/snps,dwc-ssi-2.02a.yaml
+ create mode 100644 drivers/spi/spi-dw-g2-core.c
+ create mode 100644 drivers/spi/spi-dw-g2-mmio.c
+ create mode 100644 drivers/spi/spi-dw-g2.h
+
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+2.34.1
+
