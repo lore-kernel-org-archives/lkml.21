@@ -1,56 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795067152;
-	b=ZUShmZf5+VcbP/zkWvyUDmgZMNOdQWZNYw+aqP8B4FWaGbOTv4UiwyS+jyfQBNbf6tmz
-	 jcIP74sBxnPlJSLF35e8kAMKvMXX6SX0JSNw+feecg5TdXx8roxp6jYY5EXSaWtbkWZer
-	 VfW15IuwLPM3NIymIRhSGx1ZTdSjEnfte24JKB/PWMkPbHZkb0TAoKZBnlipJazhRLgbp
-	 UhwW6+c+B5gySVhZ4kVkijquTbsiN1Z6MU0qyCZzO2FbhOyEyuSFJxOVVkWDwdLKAeFtG
-	 K9Dy0x1fvhTHggfpUDalilVlpVwkP0eeB8RN5opi3c01f7eAU4bNoXAGOnvP+ZmDsFQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795067152;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=VVrWeoLyvky1fcgODekhdtwxogAAzSz6gjdJU75YmvQ=;
-	b=XLT9wlxEh7xf+nFZTnfVt1Q2q4IaAr0YUiKxDhg0adeKM2/D9zk9cFXxsnqmqPDZ8eqF
-	 DT5m/vioDA20zZkcxDlRTRI9vKqnSPGyUMvJ5yWTEYPIA+mLtZtz0+0xWlbFaUlLbQzmu
-	 +xCwHM5h2cE5B6GC7t7aidb5F61Uji8kcKjuL2IdTNBm6zln/mR/IZw9pwt9dk47naYta
-	 EH7g9NqASj4aePzqTo+I8cOz7/JLzEDtFDRN2pV/lfow9aNgn+g0MJVjgV1hHL6IAlHVT
-	 8++iNeZNlXc3NdRr2eJMprI2UytdshFKYAWoxuKd+JwKOBToxrr2mNoMFe50Lg5ZZ8A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PE+DUfcG;
-	arc=none smtp.remote-ip=91.218.175.180
-Received: from mta0.migadu.com (out-180.mta0.migadu.com [91.218.175.180])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795067159;
+	b=VZGUu5UKWpSi39c3KJpHQID2iN42VPgTG7DQ7OmysU6shekgFLpmEK6qG7P5hOxG+Fn/
+	 RgnBM+QJdkby9m+5H7fG6a5S3ZfN6WjLCNreZFqmM9TWa3NA6cijnn78KWHTxJmgnB8Az
+	 U3QbHQUSuBpEvsMiTq+Rxm27mDtKvlmszxchq7BdWzSXUHZB7k0Y7lrfswjwAp5dwZPLG
+	 ThGPuedQNuOFR3oWJuZXa+j6o7oJ+aOBy2FXjowClUIKwcC8BLc6QrHI1FatRyoVidz84
+	 uLsO0iev0GW2ZK8+q8czxGF18ch3TEBOIpBJ0wHnZkvSmmJ8j5DNvM1SzHv6BaEQurg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795067159;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=cIkoHsOVRZS7gIowPl6xkao6tH+bfcK9X/Z+HF8PGU0=;
+	b=ksXhF8PvYwxNk2DLzBS/C/ABSwQ0XUHIC0vfsThScFrA+txAWRssS5urg1irgnvjrj8x
+	 +bbLvtJ9JZdzL+qyROupbJTGctXDMcHkVtQ/QP9hEhL5LGUpZKtR4Ds42/03OwVPpS5CE
+	 iXxwI4BISjdvxV50DIK1FeFPt20qGDe9qgfGemAGYVo0GRP2ZgDMqJjJ9inm5QA7E0uth
+	 TwJQWqnR7wPdsggoo2r/sNH4vxeQmFEtRBRcssKUzqqgeRBk2OTOXBLB7Wmsor7XvymsR
+	 W77L9NQ4cntMyW0WtBGnveUYk0Ykq+3wG3aF2Vipgtl/dlF9NeIHZQrCjm5PA9RZUhw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G9sTcZLh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.174
+Received: from mail-qt1-f174.google.com (mail-qt1-f174.google.com [209.85.160.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CA7E60A2609
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:45:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CA7E60A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63BEE606A338
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 05:45:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63BEE606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PE+DUfcG
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=WHFgyKpY02mIunkOLDQ0vqEf6qoDQheEPXtKq57nqd4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795067150; v=1; x=1795671950;
- b=PE+DUfcGZsnIi4sDI/YrgR9AU5NLQT8OrgwAzfzl6PcFgTZWRvGuQ2gofQGQ38T5hhILqGuB
- cltMRsTzKM4dgTvOwgddYTb0shQSryTTZ/VZ7DYcPGRThpkQ1wEvfmrlQkqkU0jG/MVV+3e3fgd
- 2O+eOPMkO9ZZI4mNblNe3w+c=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id cba1dd314961dd08;
-	Thu, 19 Nov 2026 05:45:50 +0000
-X-Mizu-Trace-ID: cba1dd314961dd08
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Thu, 19 Nov 2026 00:45:34 -0500
-Subject: [PATCH v2 3/3] dm thin: free thins with kfree_rcu() instead of
- waiting in thin_dtr()
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G9sTcZLh
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-55be673e029so117461cf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 21:45:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795067158; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sISKA8XnvfpPWqgh6fus9keTIMLcZcXBVjIVxt1Vj4xKFbBjuyvdQj0FizE/iz7DnW
+         kfbTiMwU2dI4Qk+c0vFjLhYESZ/xCBT922WuLCUk6JS3zRzkKcejEhpPBX0/MP1XMKIS
+         SP4M6/gmF+YDUiKDDJ302e+zmm9zvGVK9TzkPeEgKV5P07OeMJEf0RSdd1KVYyNsjh+G
+         ubMQGROAJ/Nf2EOxHcxL3uiVyrycG87wI2DubQoxb74Mm/KGDFv8Vm2ZhdDiyOHWvwb3
+         f81yn4zjOCC+yDrSEH+GpGkfTVzB2MHVt7xTmc+51Rrpt3eLwxrdgxKAEf3trF8Es2z7
+         E1dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cIkoHsOVRZS7gIowPl6xkao6tH+bfcK9X/Z+HF8PGU0=;
+        fh=BoHlSHxKFV7PRICUFv+oG/u1Ny0tUMplrMwevqmn8JA=;
+        b=bjyRRXZUFPkap0rawz8Lnjv2DM1pTJAOM7euLcLu5sWF5vkFkVBBer4uXkIi3xZXeA
+         /C7DfwnWeZMWmsF50U7T7lR0VSl3L4WFKodgdTgpv0kSJucvWotU8OeJjZ7ij3ruDNbV
+         Jr8lk2zD10NTrbG05zNSGFTbOJTBicxGBbOjvuOJQu7SapTNylJ7gpq1m4XDRTtY2E9c
+         BkOVO+PHncdDGUYNWXNz0xxJORbPpQ1jC34GD914uCPN/XgZJwWegHtlZF1aDO29ppDX
+         r1veK1VTRxiTjfUCZpw0GtAcBEeTjYlHts2cIdWOcRnPVmeH2Pene7RZG2rWEIeYnTTS
+         jyQw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795067158; x=1795671958; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cIkoHsOVRZS7gIowPl6xkao6tH+bfcK9X/Z+HF8PGU0=;
+        b=G9sTcZLhDZovHsgCx5Yv7CDMxJM8G5FDawL5JBd36y8NAy88YZsvFaSPGxL2OJDQWl
+         D8l1zhaslplXpC+LH5CUyVM6fiya54hKkm3044CoRWwH6cYkMSxwEs9IE4R9vJJik3G9
+         PaGymfho5RIhVhS+d5TUg18WON8Y60WBZxMM5gYyXKhy/KCwkwn+iT9No3gldijeO5tx
+         xp5Gg8oePFUL/bdSJWKKtm4OA3cKKfEuUGn9FzCr/u57K1nN+6BjTy/XuUfYpf49AuBU
+         GF3mrNTIV4ZWpGu4KegbuhUlLkOSriAaKH7KHmdnomUVdJlrrfe8QiZH1hsMd7fqVOCf
+         HQmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795067158; x=1795671958;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cIkoHsOVRZS7gIowPl6xkao6tH+bfcK9X/Z+HF8PGU0=;
+        b=fspY/0MGwHRYSFebHrPlXzZf4LPZ9uva8kx/8JJ7VOFBlLY/sRNsAMLdpLWKlVjdM8
+         YoWIKj/P4mELEUdA8/Ypk8dENvpG/tDIHiD5QqqSQvp0Jr1RQ+pLp/HywHlm9KFAPKLO
+         rPIrMQLlNbkjq3vYjsUgcPKMXLnvDs0Ky63k+YoQTnHC1RYbrddCk25nzPiJPS/deAFB
+         zoBl5ecq1UfCHIzO5Bg7g05RMJTGP7+HcRXM/JJ9V/Fm4tAAm+IEl2I8FpGZttTzc70p
+         tsHT7AVOOpwW7hx3puYIkuvgq+x2/xILcrcr5/s1Is89bIIphIrJIxfcJ7VfTVQDgz6L
+         1MQg==
+X-Forwarded-Encrypted: i=1; AL+hErE9duU+J46Ux20GMzRJQwIJsrWiVaTB3BDOvbszVifJw57kNeNj0r3cNQGM+yU4ppmg69GJLPaLtAWj1/I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9QupPm8SQ60qo+uL4FDo/UXK/oBC1r3xpPoGE7IfQokGzx0qDb
+	Hgcz2mY3aUr0u5yShNVFLR1+Bz5FoMRvTXxNhw69Upsf7s6Qgledki0AaI2SuKe77PaILCn8c5Q
+	DG+nNGKrsL32VAthCN37505Giq3XHwV1PAuZYrHiR
+X-Gm-Gg: AYBFou16sW3iPoEc56bitIs5sbayIjoPFEfcK828ybcFt4BdqA52bDu0dJ1BVBvxdon
+	dmQn0EhvfFdpzBsy6GwJppmdvE1L2y37RXDdANLXDrMsQDPn2MRbjHhWL0HS08aD0Uk8ssPDUwN
+	aAICgvR0Lnod7yqHrqRYeXL8UygpS8mhBiflthTaY5g5Yo/h5QLNjIdAk+8wTLWll+M6vPf2/TA
+	9nK+lWgj+ZLrPIrkxU07tu7RfnxF4dgRdYPuYTdDceZ0so1WsHqwgB5IFVTEw/cQeTjDaXx4fcj
+	s/ErCxw3v7LEwCWVBtsiqkpcCYl4via0mnmjOQq1anW0QhjeqdSLR//URPqLsw5jAcdXsDjZeYU
+	eY6Rlifs2nyio3eiXaxdw5ke0BxPmaWSVnBMP
+X-Received: by 2002:a05:622a:4808:b0:536:934f:7da2 with SMTP id
+ d75a77b69052e-55d6c7995f9mr6557911cf.2.1795067157461; Wed, 18 Nov 2026
+ 21:45:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,73 +104,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-bug-dm-thin-rcu-gp-v2-3-055d627763c3@linux.dev>
-References: <20261119-bug-dm-thin-rcu-gp-v2-0-055d627763c3@linux.dev>
-In-Reply-To: <20261119-bug-dm-thin-rcu-gp-v2-0-055d627763c3@linux.dev>
-To: Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>, 
- Mikulas Patocka <mpatocka@redhat.com>, 
- Benjamin Marzinski <bmarzins@redhat.com>
-Cc: dm-devel@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Qiliang Yuan <qiliang.yuan@linux.dev>
-X-Mailer: b4 0.13.0
+References: <20261108223913.3624571-1-irogers@google.com> <20261108223913.3624571-10-irogers@google.com>
+ <DMYN979QJFNV.LM3T6O68OHW6@kernel.org>
+In-Reply-To: <DMYN979QJFNV.LM3T6O68OHW6@kernel.org>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 18 Nov 2026 21:45:45 -0800
+X-Gm-Features: Aa3M54p8GzPfKDPQ_HJcPbdLHGq3vwK7n9VGnVvnVB1ODjbFHeHwrlgOfVCaaEo
+Message-ID: <CAP-5=fXrMyfLFXq6CiqwWMSbtYVRNESxuDo-ddqNwDmq5Nm4SA@mail.gmail.com>
+Subject: Re: [PATCH v3 9/9] kobject: Require explicit initialization of struct kobj_type::release
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kees Cook <kees@kernel.org>, 
+	Miguel Ojeda <ojeda@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>, Nayna Jain <nayna@linux.ibm.com>, 
+	Srish Srinivasan <ssrish@linux.ibm.com>, Mimi Zohar <zohar@linux.ibm.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Juergen Gross <jgross@suse.com>, 
+	Stefano Stabellini <sstabellini@kernel.org>, 
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>, Alexander Aring <aahringo@redhat.com>, 
+	Felix Kuehling <felix.kuehling@amd.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Zhihao Cheng <chengzhihao1@huawei.com>, Sumanth Korikkar <sumanthk@linux.ibm.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, driver-core@lists.linux.dev, 
+	llvm@lists.linux.dev, linux-hardening@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-sh@vger.kernel.org, 
+	linux-s390@vger.kernel.org, gfs2@lists.linux.dev, 
+	xen-devel@lists.xenproject.org, linux-mtd@lists.infradead.org, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-thin_dtr() waits until the last reference on the thin is dropped, which
-also takes it off pool->active_thins, and then for a grace period, so
-that requeue_bios() and error_retry_list_with_code(), which walk the
-list under rcu_read_lock(), are done with the thin before it is freed.
+On Wed, Nov 18, 2026 at 1:11=E2=80=AFPM Danilo Krummrich <dakr@kernel.org> =
+wrote:
+>
+> On Sun Nov 8, 2026 at 11:39 PM CET, Ian Rogers wrote:
+> >  static const struct kobj_type cpuregs_kobj_type =3D {
+> > +     /*
+> > +      * Pre-existing: info->kobj is embedded in per-CPU cpu_data;
+> > +      * cpuid_cpu_offline() only calls kobject_del().
+> > +      */
+>
+> All of these comments carry a =E2=80=9CPre-existing:=E2=80=9D prefix, but=
+ that doesn=E2=80=99t
+> distinguish cases with broken lifetime management from those where the st=
+orage
+> remains valid despite the API misuse.
+>
+> For example:
+>
+> > diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_xcp.c b/drivers/gpu/drm/=
+amd/amdgpu/amdgpu_xcp.c
+> > index ab14079d1c42..0847134a1391 100644
+> > --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_xcp.c
+> > +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_xcp.c
+> > @@ -797,6 +797,11 @@ static const struct sysfs_ops xcp_cfg_res_sysfs_op=
+s =3D {
+> >  };
+> >
+> >  static const struct kobj_type xcp_cfg_res_sysfs_ktype =3D {
+> > +     /*
+> > +      * Pre-existing: xcp_res is embedded in struct amdgpu_xcp_cfg
+> > +      * rather than freed individually by kobject_put().
+> > +      */
+> > +     .release =3D NULL,
+>
+> Being embedded in another structure doesn't explain what guarantees that =
+the
+> enclosing allocation outlives the kobject=E2=80=99s final cleanup.
+>
+> Could you please drop the =E2=80=9CPre-existing:=E2=80=9D prefix and make=
+ that distinction
+> explicit? For broken cases, describe the lifetime problem and mark it as =
+needing
+> a follow-up fix. For cases where the lifetime is safe, explain what guara=
+ntees
+> that safety, while acknowledging that omitting release() still violates t=
+he
+> documented API contract.
+>
+> Also, do you plan to follow up on those cases?
 
-Removing a thin device thus waits for a full grace period in thin_dtr(),
-although those readers only need the memory of the thin to stay around.
+Makes complete sense, thanks Danilo!
 
-Free the thin with kfree_rcu() instead of waiting for the grace period.
+Auditing all 17 files in patch 9 with that distinction in mind:
+- Only 3 built-in sites (arm64 cpuinfo, ACPI hotplug profiles, and
+s390 sclp_mem) have backing storage that genuinely remains valid for
+the lifetime of the kernel.
+- The other 14 files either free/zero an enclosing dynamic or devm
+allocation without waiting for final kobject cleanup, or are tristate
+modules that unregister static kobjects/ksets on module_exit and can
+unmap module memory before delayed cleanup finishes.
 
-Removing 100 thin devices of an idle pool with dmsetup remove takes per
-device (mean of five rounds, min-max of the rounds in parentheses). The
-queue freeze in del_gendisk() waits for a grace period of its own, which
-the one in thin_dtr() used to overlap, so only part of it is saved:
+I've dropped the "Pre-existing:" prefix, documented the specific
+guarantee or FIXME lifetime hazard at each site in v4, and yes, I plan
+to send follow-up fixes to the respective subsystems once __must_init
+is in place.
 
-  before (ms)        after (ms)         change
-  16.6 (16.2-17.0)   13.5 (13.2-14.0)     -19%
+Thanks,
+Ian
 
-Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
----
- drivers/md/dm-thin.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/md/dm-thin.c b/drivers/md/dm-thin.c
-index f79f5982ae36c..9d9b3cd817f7a 100644
---- a/drivers/md/dm-thin.c
-+++ b/drivers/md/dm-thin.c
-@@ -362,6 +362,7 @@ struct thin_c {
- 	refcount_t refcount;
- 	struct completion can_destroy;
- 	bool dead;
-+	struct rcu_head rcu;
- };
- 
- /*----------------------------------------------------------------*/
-@@ -4166,8 +4167,6 @@ static void thin_dtr(struct dm_target *ti)
- 	WRITE_ONCE(tc->dead, true);
- 	thin_put(tc);
- 	wait_for_completion(&tc->can_destroy);
--	/* Let RCU readers of active_thins finish with tc */
--	synchronize_rcu();
- 
- 	mutex_lock(&dm_thin_pool_table.mutex);
- 
-@@ -4176,7 +4175,8 @@ static void thin_dtr(struct dm_target *ti)
- 	dm_put_device(ti, tc->pool_dev);
- 	if (tc->origin_dev)
- 		dm_put_device(ti, tc->origin_dev);
--	kfree(tc);
-+	/* Let RCU readers of active_thins finish with tc before freeing it */
-+	kfree_rcu(tc, rcu);
- 
- 	mutex_unlock(&dm_thin_pool_table.mutex);
- }
-
--- 
-2.43.0
-
+> Thanks,
+> Danilo
+>
