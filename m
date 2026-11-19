@@ -1,121 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795132055;
-	b=q9R8fFOH21XhQhru8P6AVvMI0R50UcMPGjntheJoEYyMAfETdjsLmPG6gLi8JLvgZNqr
-	 cwYK/xtsat/ltGQAkDnaqKgJ/tNUv/8UghXog0YDUpuku0dUBPVlQJl1IB8HLzbuab6FZ
-	 tbeTQSxZdXUYo9kq3QVFc8q8fnQV55XkogXzHTa022ewW/m6rKWamoFTgPvaivIT0M2zS
-	 iIQ2yOAZNjB54zwLrbEH6TN+Eb41kgi3BikNvE9Pd1kM63acjQmdpAw4kGpalm7R4OQV1
-	 v59MHNWU7zf+IdOhSX70JgtthBJlrKhAA4f6Gjvf+AbI3/qOd7Xg68ywGe5EH+RANBQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795132055;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795132110;
+	b=NOR0ZDPsxKWwUlOINcryXnJEUwzkuVKQvQWshxMwJ49btT3xSx1Ggr+F1uN1yPV1VPQQ
+	 KP/1QfNuA/IGFoDgkewoEBLGUmNS1nS8ItpFmjB3Zh6EVmgsbKw+Eb7hAXXEcxap6PndJ
+	 lr6n1pYlHoPHrKDas0UEHQqZKmTELtAVVX1ktLD0QIlIMiQwpgnghdywBnl6mPA01qkcD
+	 oN6ivhjp4PDjjpE7EdBDR1l5oXTPda0ySGPftSFBwq1c1SwRQsJljI8KW3rxJEGokc9AG
+	 vb6DDHBg68EmK40Duh87cy8tBlo4TfUWYPcFawClFcipB8EbHo0F0q2NMoiM1ILhHYA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795132110;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=1JyuEfN6bVNV6U+s54IqPQn0FYwCqy1D2V8r61yksZw=;
-	b=siPcoMQUqHu5N1C/Xj1kMCogcLe5PayH3A1NB74dlrxjDUYn5WHoNgknsv0GmbU9jS4F
-	 hmp7AX3hqCRvQkvkFFJk/nCxS7KTjXs9uVUSIYsYVHYCpajZiTJb2orasxismVypwY+iq
-	 Zryn9RfqIQURb8LO45GcJg7ikZJJgk7pFEv8qFPLfn488BLArYX50XmuUqGlSdxyKMdEa
-	 migLVDvynL+1JEGVK0x503rYA2dr8evhuD/0v58QPhTi/N0RmXUOMvCwX3qw315GOQymz
-	 7fodJCt/53xZCCA2sE2LeT0MZZrsVafU4Qjfc/BlvhyZ3WJiKIKJKucgoUvnQ+YQIPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dOxUuNG1;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=c8oy6y26;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	bh=vcj5h00JjVNcq5RcRanYbKv1qUq4spqkJwru3XjEgEA=;
+	b=RO7j/627gy1l8B7PdGskWh7kyuMHoCYrpSoBPtvuL/uWPo8SIbXS3RaH6GXpyQjpK+l7
+	 iRRwACQU3ni1Js/L4pp3FWoe3dHQ257Zvl7dJAoU409LaMJ+Q7JGzb0sLyFty6U70qnM5
+	 QdoX/d0eMvXI1N5ockautNM54LFtpnTDVk1bgxzjqRqbiiVUl+4cK5HWvXG6eEN5QNoCs
+	 NxDDuxObJE4uOsbnVHec9p3nhw4E1DCjdb1FcoMEJG0cgeF05Z5C8e1oTw1Wwi/P5yNR8
+	 gl8XI/MBdXpbWnn04+XDbdOwW6SdkL/qwZ0P54ZtlapI4P2naENF1/JN1JadWWmMFrw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BoTWH5Fi;
+	arc=none smtp.remote-ip=91.218.175.174
+Received: from mta0.migadu.com (out-174.mta0.migadu.com [91.218.175.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 811C4606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:47:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 811C4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73D13606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:48:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73D13606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dOxUuNG1;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=c8oy6y26
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795132053;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1JyuEfN6bVNV6U+s54IqPQn0FYwCqy1D2V8r61yksZw=;
-	b=dOxUuNG1rLmWic3a7DW70m07SrEn3DYH4cP1/CwJ9LNbYuXmPb6a6WQnUjcmnONYwkyGA6
-	hZXPyBR7xrdEBIep4j2akSwluF9opCiSuz/itQ1PegRY4XFuv+8CfhwBQQU+gBiSJlEVZx
-	fNZ2r+ZYh9ISxVo+t0Y31YOLmlvmP4M=
-Received: from mail-yx1-f70.google.com (mail-yx1-f70.google.com
- [74.125.224.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-581-_wwCvG1jOFKKxWZYBM-7sQ-1; Thu, 19 Nov 2026 23:47:32 +0000
-X-MC-Unique: _wwCvG1jOFKKxWZYBM-7sQ-1
-X-Mimecast-MFC-AGG-ID: _wwCvG1jOFKKxWZYBM-7sQ_1795132052
-Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-67c041acd09so767163d50.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 15:47:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795132052; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Ppud7eNEf4i3G7REdNBS2ZB3T8+QFA553Yx3Dsbrw/aaVHFZt38draxJYm873m3Ydi
-         5UrGIFyjkQ+XOA3fXXAVTNLFKSaTJkR89OKrWs3fW8hP3SZnb9D3zfAKlEsXontGeWVj
-         fZkS8sBbBnSTeWgOUuvRKGSV7wOqiMAhGXDHMJ9b/+Dn3PmXEAwKcceu7m5iLAv086Z7
-         0FbTJEIETfrI0tXzALBDqJdN+FeqwUsjtZc7druzzf1oeGEyvnrqAyLpdZam56IZN7VQ
-         JA+b/PCbmhYT5ZC+h/yBaR2DH9SsLXUlKOncHnl8WMAKtde919wy979DCmxqwm3bNwYi
-         4qmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1JyuEfN6bVNV6U+s54IqPQn0FYwCqy1D2V8r61yksZw=;
-        fh=h9VKZhJRqrOwNofvuKqHF/XDC6K8g/ExhXJ8PkNYcoo=;
-        b=C58EweUXuKFgCjT4Gp38VzwjTY+OnZs7Ytea+BFeUVo9ioDGdKYbV/26aMBUsFHg/e
-         F8h6dnqMybMsgGtIsFmOVQbvnGcVv/x218ww8BIXbEtSjb5jN/3lv7Byjc0UP6miaQNO
-         8obzpcEfg3T7/GeWAJzdUHZic+D5QjVYAZDl1kGvGlIxZuZKqk1TJ/GxOBbOjMaJjasr
-         CHIEmbATmK/28+h5/g03yArDdVs6WOIzkhjZOyejYS3TwQL2AgaFPZm8s0g26y08Xodb
-         9iLF3nYD3SYga/GaENOaBxEn/Q+MqdEgtQSap+dt7AoIbvU7MWXG49aVbkvx6K2/NTnH
-         eabA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795132052; x=1795736852; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=1JyuEfN6bVNV6U+s54IqPQn0FYwCqy1D2V8r61yksZw=;
-        b=c8oy6y269tHu5oosbgWHft6zSJTD0AKTnL+RY9tviKL3QhlzRi1H/WaDulV3y0FKHp
-         mFeHPBLo/SGdVKKiKs2dZ+m95q911d/TKvd0/Krml5ElVj+P5PKeGqjitLqts6NKP/iv
-         qHTFNWTJLXf4HonNPTLj35VG/R/wnR242lhr6kqYSNYqHGRf+M3QwvbvD2V/1hEM/JpI
-         z3hTOEcAv9XtTetuHBlUsfbQeFzBXh8a1s8YJ1LC3YxRQB3T22hg41WOz6Jf0RPG+ZbI
-         i8byE+cg6Dh4WiG54icN3YQn0oDTkiRoO0uDBBBWiWLHiTBEq6s6HAToW+FyGNVrD9CE
-         oPwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795132052; x=1795736852;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1JyuEfN6bVNV6U+s54IqPQn0FYwCqy1D2V8r61yksZw=;
-        b=gq0Uz42FuZYGWTdqG4uIFk3HcftfTkX5T7CygRIpNZWsUTfpiuo4RpPUK1fGKrj/Bh
-         7deqGBypzwkrPd4D3XtTrvFsg73pejtup7HSsWk2/Zqhgn0u3ebF1iBBmELSP7zvplN9
-         plAeF23SdcxmU+FbTOXxHGsvkAgTj3ilJx1LicOoV96VGBenXUdnfeuOfOqQUKBtKl9R
-         QLDYKcjygi+yRA3DMT5fdnLh04L1R8LZ6hsjkxF2mfoimm6gE34H1sVS/jTYzxZh5qR6
-         Gq38qrromu9TLSkhGwoOfjm/xgmifFivBNVZ9aU/ZzYvloc8oinPBsyunWbLXlvx0CBF
-         BvxQ==
-X-Forwarded-Encrypted: i=1; AL+hErGvnlTDeIE9Zf2csp/J9oWC/SDoo8YtuXsn8+1l2yAyl2p3Yf9v6yPfjv3Pq6JOQAXaG5h7i3PXfqdVeXA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/vIcS3IKtgoMMBgTPyVveNTUa8Jt6nNyfqzBVcvg+5VxKCUqAi
-	YujaWIdH3ssFggffKbU3f4GKD0vwHtmgTcpDdSMrPukjhyF9AAzyzvvrdkYJWDMLrQ/7zzrp5iC
-	LMUNhBivHRC7WqjcwIz1dAlccybiyWgGJawiwOYc6bn5QTWnLffQcvsmlYtkb57Z/opq++5PD2j
-	WDSf85KAqw/Ua7dH1DWnaMcdoAHXV5xA4XrP7SAejD
-X-Gm-Gg: AZFdTZeSf3YQk14KTFR6tprHdTW9iAjKCz6L+QhmUDl2OVJmHSbsQkNj+qx4KfK0wst
-	FiRT+GrZFo4f9D3OzZl/A9T5GWwnBYg/c8z+q7qlFql9VTViDWhaqbdDk049tH1uL4cml666hTW
-	CghViVU7M87Qsb0LQNDWe63bG6SGYvTV5xtXNNA8YJKmi2qEPAaRD7hI5XPKMtge3IYdb6YyHYd
-	qV0j2X91eUy9WI+vazi1sHt9JyCaUfFqN65nm/ecpUqRg==
-X-Received: by 2002:a05:690e:4089:b0:679:a03c:3cef with SMTP id 956f58d0204a3-67df4462202mr401004d50.102.1795132051642;
-        Thu, 19 Nov 2026 15:47:31 -0800 (PST)
-X-Received: by 2002:a05:690e:4089:b0:679:a03c:3cef with SMTP id
- 956f58d0204a3-67df4462202mr400981d50.102.1795132051061; Thu, 19 Nov 2026
- 15:47:31 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BoTWH5Fi
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=6LWaP9a799dRmXjPzl0gkWLih06hsrqQYvPtGBFxEsY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795132107; v=1; x=1795736907;
+ b=BoTWH5Fi1IZExkaX1UVG0UE/sKHeD7yr0JBoEA7pSxpIS9I/AG/d2puwMNbDLQzs2vT11U1s
+ vASgSWckzezIb9s1Sd0vB6uxw4uXPLLwr5GKRk1rBj9hLubjulj4/oLYePkSmiMd7yc+crCqZM/
+ 4ZhHgjLXJXGKVDcDNMWg5GdI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a9882a66356e0e59;
+	Thu, 19 Nov 2026 23:48:27 +0000
+X-Mizu-Trace-ID: a9882a66356e0e59
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <583bde38-c84d-41a3-a65c-d1365ea04f07@linux.dev>
+Date: Fri, 20 Nov 2026 07:47:56 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,72 +58,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-gfs2-log-folio-v1-0-35db3db42e35@columbia.edu>
-In-Reply-To: <20261117-gfs2-log-folio-v1-0-35db3db42e35@columbia.edu>
-From: Andreas Gruenbacher <agruenba@redhat.com>
-Date: Fri, 20 Nov 2026 00:47:19 +0100
-X-Gm-Features: AclHuK9gULsTk6PGMwqspw6Wk6A71f7dxi9qUV73alrF3gpANL5X2_CboyEiDG0
-Message-ID: <CAHc6FU43KTAm-VvYXrR19BE1Q--2aHL6UALG9cj1pgdeqB_tBw@mail.gmail.com>
-Subject: Re: [PATCH 0/3] gfs2: stop using struct page in the log code
-To: Tal Zussman <tz2294@columbia.edu>
-Cc: gfs2@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Cc: cui.tao@linux.dev, akpm@linux-foundation.org, dgilbert@interlog.com,
+ mkp@kernel.org, loberman@redhat.com, jmeneghi@redhat.com, kraxel@redhat.com,
+ vivek.kasireddy@intel.com, mst@redhat.com, jasowangio@gmail.com,
+ eperezma@redhat.com, stefanha@redhat.com, sgarzare@redhat.com,
+ mhiramat@kernel.org, jgg@ziepe.ca, kevin.tian@intel.com, axboe@kernel.dk,
+ linux-mm@kvack.org, James.Bottomley@hansenpartnership.com,
+ sumit.semwal@linaro.org, christian.koenig@amd.com, phasta@kernel.org,
+ joro@8bytes.org, will@kernel.org, linux-scsi@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, kvm@vger.kernel.org,
+ virtualization@lists.linux.dev, linux-trace-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bobbyeshleman@meta.com,
+ mathieu.desnoyers@efficios.com, robin.murphy@arm.com, mason@kernel.org,
+ aesteve@redhat.com, tjmercier@google.com, harry@kernel.org, vbabka@suse.cz,
+ cuitao@kylinos.cn
+Subject: Re: [PATCH 4/7] tracing: account ring buffer pages and trace_array
+ metadata to memcg
+To: Steven Rostedt <rostedt@goodmis.org>,
+ Vincent Donnefort <vdonnefort@google.com>
+References: <20261106131829.3228926-1-cui.tao@linux.dev>
+ <20261106131829.3228926-5-cui.tao@linux.dev> <avScKhR22kFOQ1z4@google.com>
+ <20261111181447.3c483a50@fedora>
+From: Tao Cui <cui.tao@linux.dev>
+In-Reply-To: <20261111181447.3c483a50@fedora>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Tal,
+Hello, Steven, Vincent,
 
-On Tue, Nov 17, 2026 at 8:46=E2=80=AFAM Tal Zussman <tz2294@columbia.edu> w=
-rote:
-> This series gets rid of the remaining struct page usage in the gfs2 log
-> code.
+在 2026/11/12 07:14, Steven Rostedt 写道:
+> On Wed, 11 Nov 2026 16:47:38 +0000
+> Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+>> On Fri, Nov 06, 2026 at 09:18:26PM +0800, Tao Cui wrote:
+>>> From: Tao Cui <cuitao@kylinos.cn>
+>>>
+>>> Creating an instance immediately allocates two full sets of per-cpu
+>>> ring buffers, array buffer plus snapshot, about 1.375MB per cpu per set
+>>> on the default config, plus the trace_array and its name.  None of it
+>>> is charged: neither trace.c nor ring_buffer.c passes __GFP_ACCOUNT,
+>>> while user_events in the same directory accounts everything it
+>>> allocates.
+> 
+> As the name suggests, "user_events" are for users and are special.
+> 
+>>>
+>>> Instance creation is currently gated by tracefs file permissions
+>>> alone, so a
+>>> rootful container with the host tracefs bound in can create instances
+>>> until the host runs out of memory.
+> 
+> You mean, "works as expected"?
+> 
+>>  Charge the ring buffer pages and
+>>> the trace_array metadata to the creating cgroup.
+>>>
+>>> Signed-off-by: Tao Cui <cuitao@kylinos.cn>
+>>> ---
+>>>  kernel/trace/ring_buffer.c | 8 +++++++-
+>>>  kernel/trace/trace.c       | 6 +++---
+>>>  2 files changed, 10 insertions(+), 4 deletions(-)
+>>>
+>>> diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+>>> index 1fd28a72e6ee..676c059c112c 100644
+>>> --- a/kernel/trace/ring_buffer.c
+>>> +++ b/kernel/trace/ring_buffer.c
+>>> @@ -441,7 +441,13 @@ static struct buffer_data_page *alloc_cpu_data(int cpu, int order)
+>>>  	 * gracefully without invoking oom-killer and the system is not
+>>>  	 * destabilized.
+>>>  	 */
+>>> -	mflags = GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_COMP | __GFP_ZERO;
+>>> +	/*
+>>> +	 * The subbuffers are charged to the memcg of whoever caused the
+>>> +	 * allocation: the creator of a trace instance, or root at boot for
+>>> +	 * the global trace.
+>>> +	 */
+>>> +	mflags = GFP_KERNEL | __GFP_RETRY_MAYFAIL | __GFP_COMP | __GFP_ZERO |
+>>> +		  __GFP_ACCOUNT;
+>>>  
+>>>  	page = alloc_pages_node(cpu_to_node(cpu), mflags, order);
+>>>  	if (!page)  
+>>
+>> Hum, by default tracefs is root only. 
+>>
+>> And even if made accessible to other users: 
+>>
+>>   1. The life span of a trace instance is not tied to the caller.
+>>   2. The ring buffer is shared by multiple users.
+> 
+> Right. Is there a use case out there that allows non-admin to create an
+> instance? Tracing ring buffers can expose a lot and should not be given
+> to unprivileged users.
+> 
+Not that I can point to.  Instances are admin-only by default, and the permission layer is the right place for that.
+
+> What exactly is this trying to achieve?
 >
-> The log headers, descriptors, revoke blocks, and escaped block copies
-> are allocated as pages from a mempool, and they end up in the same bios
-> as the page cache buffers being journaled. The completion handler then
-> calls page_folio() on every segment to figure out which kind it is
-> looking at. That won't work once memdescs land and those pool pages are
-> no longer folios.
->
-> Patch 1 moves these blocks over to a kmalloc mempool, with their own
-> bios and completion handler. As a result each descriptor block is now
-> submitted as its own bio, so patch 2 adds a plug around the log flush to
-> let the block layer merge them back together. Patch 3 cleans up the
-> leftover page references in the log code.
->
-> Tested with fio 4K write+fsync on gfs2 over virtio-blk and null_blk.
-> Without an I/O scheduler, patch 1 adds one write request per log flush
-> (196.7k to 229.5k for 32k fsyncs) and ~10 us to the p99.9 fsync latency
-> on null_blk (41 us to 51 us); the plug in patch 2 merges them and
-> restores both performance numbers to the baseline. With mq-deadline
-> nothing changes.
-
-thank you for these patches. Could you please rerun that test with a
-block size smaller than the page size?
-
+The series closes uncharged kernel allocations that scale with user input.  For tracing I misread the tracefs permission check as a gap rather than the intended boundary.  Combined with Vincent's points on lifetime and sharing, I'll drop patch.
+ 
 Thanks,
-Andreas
-
-> ---
-> Tal Zussman (3):
->       gfs2: stop using pages for log buffers
->       gfs2: plug the log writes of a flush
->       gfs2: remove the remaining page references in the log code
->
->  fs/gfs2/bmap.h |   1 -
->  fs/gfs2/log.c  |  19 ++---
->  fs/gfs2/lops.c | 221 +++++++++++++++++++++++++++++++++++----------------=
-------
->  fs/gfs2/lops.h |   6 +-
->  fs/gfs2/main.c |   8 +--
->  fs/gfs2/util.c |   2 +-
->  fs/gfs2/util.h |   2 +-
->  7 files changed, 154 insertions(+), 105 deletions(-)
-> ---
-> base-commit: e3280ea8b73964efb447f396fb09401a31373136
-> change-id: 20261014-gfs2-log-folio-274b84f5cc07
->
-> Best regards,
-> --
-> Tal Zussman <tz2294@columbia.edu>
+Tao
+> -- Steve
+> 
+> 
+>>
+>> Overall I am not convinced charging the creator makes much sense.
+>>
+>> Eventually a few allocations for iterators could be GFP_ACCOUNT.
+>>
+> 
 
