@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795060814;
-	b=xSjkQeUhf+OZr5jcKndqoB3hxl4r+FhuKGmYmPXtjVq0hDHTiWSpbm/cSFoZOEhsi9DS
-	 66/Fbl9oik7/p2UIBxRLRJmVw9Xa6jZlFmrNytCIS97AQmjtsGHpQp3A4uYMm/+uj21/n
-	 1ZxrLzQ7uPOoFAWyGm1sx393najh6XGaxFTWck3Q/jkmIicCFauR3R8hzvXJ+FXkcDucd
-	 0N0jJ/kHdaLzKI5PHikD0QfTMu/6vDzmJfkWDEQdjtUGNFBzpkMTZmbNCM0OVGtCGD27c
-	 rTkKRj25dxDrQlv+iucAtNtUxR0c/eYRJLV98wWtWud77yMG7MdIh5bFbScHO2UhBhw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795060814;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=hrtXmcq6s64KxkvFw0bjQWK05XF3+iG8LV5dKk/K3I0=;
-	b=5od59QPQbEYHpUmSN8meMVmHI3WLXbXqvUUNrvW9MuFZDz2PwLXRQbAXSOA47BXa+sKr
-	 3rjKKosho7Ca8cqwuWcDXj2JcBGY+idDGZGNSYMH+TdFfnY4KVRAyI845ST2jMT9t/5/Q
-	 J3F1ZA9Tzz6QJsAF6gonEQ2M4eflVIIssqWN+v1tTrTABw4NBiamyE6ED7VGZDTGrC04w
-	 hkWRHBMHoLa5/I7J+jMFpQkKI6bz6ZgPtvJvf6LBWmdL2eu2QILHatIQSz4MmQyXgVKZH
-	 qzhEDd6zyYuMVd8rP1Al8UX7q9lPbbqomI9M479aQKURgVa1VGK1p5e8U69XwV2nvYg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T1YD8Og0;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795060850;
+	b=tELQ7CX3Y2+nrb0Gk7QKJ7t4K1p11o8DTt49Jcae+M0w+riQ/KmHEnK8b/ruR3Ej+9oa
+	 GGTnCvgsp+t8HZqsDWiOLZKD9LigCxHJk8Deq/PMMvt2jscqKCMtN1xwXORZkUc5asoSH
+	 ubFC03oLRNL8aZKLxbshl6qd609XBwUCrLoJG9w+KXytypqikhaa89z0TvcnrcVjXPYFm
+	 HJfUpe4eFQL/x8MC8eiwr6gEGYkOpM2eBeLtNICtVUzDTUqPW9ZeiFdwjbX3u0pfDBp5u
+	 NJNGPyb9kcIlvAG63vLNuyPAbIvKi9mtzXfuz7x7mmWNu9ptpIsUYVFpanef0cZb5cw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795060850;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=Im5v2fF7YtKUxT7J9p7R9r8ZrcGXgzH8zW16FBqarqA=;
+	b=tvum9C+dd/cmO7ML7ga+wTSOkCvpnma6En2lcchSeRwSw2OdVAJ2fAEAszdG9MdNog8y
+	 id3LK3s5+aPGrmQqDgpjJ8VAiMz2EVd257Rrhk4BRowZ9fQdUH4Q436esYKaRLvs/dUzq
+	 6KFzoyGriS7o/Uc+V3PTnviufAjAn9Ty2AaGScxqVwNsWWAS8BE44CYuZ8luP3rZj7BZK
+	 rLXjBEp2iSR2JxYbLeiSGoNrHbdbwNlkzdBi4TNGRr647evqnTsYV4m9bH7VMu7G9M4/n
+	 e0oeBni3vShFHebH0VLqP2CJ5igYuqbyopl80LZ/TNVvn4P+XzfR8w8j1cVGnekUnjA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b73oZRFs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B16F606A32F;
+	Thu, 19 Nov 2026 04:00:49 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b73oZRFs
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795060849;
+	b=K3ohRk/Tpg9/qMKUNtdwJo8BVqFj5rdiT4ulqsyHFBMw0pPdn9vdCBhlhhPVb6Enooni
+	 14q/qjJjjqEgB8VQEgI9hasAvhoiODaYKu1VNyCkCYsm7pzvC/iNhF4Aq6EyRIZDbABcB
+	 YKCBlsMZIkw2A3HIQjyDfHjPOZiU1zA+RnuhCezW0tpIMXk/RYUsm/iZGbK6lZSseu10/
+	 kUI5LJkZguPNpPWYc5JVuaPvPxBn3Icj03me1NvwGPBwSOEUgDTTAhXhf+j8hqcMevTP9
+	 r/B2FFg3mUF8gz30wPLheyVIrbp6e3qQ7gaG/VBr8slr5QsSwGz/NmOD1PqRTNBGicA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795060849;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=Im5v2fF7YtKUxT7J9p7R9r8ZrcGXgzH8zW16FBqarqA=;
+	b=rAzV7ae47ddz5Es4eejr9JmYgLBN2T6BGubQxMInGXOZBMzzHUcfoEji8IB+1+GlJLkQ
+	 MPBPT8zXSbrQYFbGfdQAF77oleXdtWHQOXEU5xGFvapRO2LQfaAmRA7rupCiWyHljEcrR
+	 w2iZRi0L4142KjyV0rYvaE5dugc3zdutmB1o4LZcSeV7i6HL6lZovVz/mi916KdqhzL+1
+	 GvgkF6L1CWDh7g/AoAPvbTgpll5r+HC7QRD4I2M1sUbSXuZDLVH1gU0Rtaar8fYa23kiy
+	 GbhgFIw2I+4Ebx9acHH1hQDjL3kW+GngSMnzfz1F7nVV/FLufQB3UTt95VwvdCGnwpw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1FEC606A334
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 04:00:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1FEC606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T1YD8Og0
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a210470b49so16188075e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 20:00:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795060812; x=1795665612; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hrtXmcq6s64KxkvFw0bjQWK05XF3+iG8LV5dKk/K3I0=;
-        b=T1YD8Og00hUd9SAQ5mRegfN7LNKrCzs+3mWoqGHe6t3NbP7QmqbhnSQG0JRXurWabM
-         84Bd1huEc4NOnoMk7+t/bablNgZ/6hCm1+XtTwn7nVfQOamngnmRarc63537D44w/drb
-         dnJP5RCnThAaW3zkVTt6weKunMsEMA7Avm4U9z8y+kyw76SHVJCvJtgM/QhHqypbqjw4
-         kD8zyDtZF5ZM5W+xfJRGvfaA0JWAV8siXoq0drU2raPZM21AAMpKR3ZZIotkfEQzFl6y
-         /2r+BlHSAX06+0jEnpYLQ0honjoeKygjCQl3Jm1C1EDFsQ9ADJJRW64h0oeWPRR2mvgM
-         uPHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795060812; x=1795665612;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hrtXmcq6s64KxkvFw0bjQWK05XF3+iG8LV5dKk/K3I0=;
-        b=PkCbzovPV5uIF3jhq4MHmfUG3jjGjdnoPZBfn/qdMHFRfP4AUPj8ubFfzSKYkh7Pa3
-         ldYUtWW8EkTeDZCnEtSkfyG0Tn8BWF0bt5iOtMY7V+kDRw0ZE0YSipiGHprLGWHtP/eC
-         o5EsGXnkH2HC1n3NmAj+9F91cqTpMKNG5d7VYQ7+gj/dO2cL/CZ8pq0KnNvNa+fCklQ3
-         +Iezcdsw3gjZ1LPdr7tYA4v2J5N7nhcbSIpnWC/zTKpJUF7oj+8VXgXoVPUecPCD6T5c
-         jIznsObwQqMh0/vEmrWiTDxMKgfivflumc0zTAOZ7vC/0schoFsCopCzP/FcngV93z6r
-         P/NA==
-X-Forwarded-Encrypted: i=1; AL+hErH3+l4UlKhJ83vnJ0bf0n4VjSSUSLc1yjVbCY03RaL0yjcA6GON3A5sW3KlwjTZ0EjoCiZtouyxM/X+MpA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2Rs72rmB6tJ5g+7JACRE1SM8jfsqXIGEB+WU5JFIY3JoO6a5S
-	NcXsJfz6DtWAtvaj9YksVZzRE577W4GSabHP/5QjdE8t+rNUbcNKP/er
-X-Gm-Gg: AYBFou2naVYe82Vp5vGlBmGtnl2Vn0z9NPwtDY73Y+UujhYds54Ot4MEXOj3Z9WYsdL
-	FNU/AON7TYTHLm3dZc1Z2tRbZzz2cpty2GrNc3FX3yHBoVE5FyrLeUAgGyM4goe1EGQgmEt+0Qe
-	wLYM4SsK3LCgkytjh8rPkIt0cpmHPgXGGJfbaP78BkxmG9VTyotJejwBhJtvndY0qSKZEsyaR+i
-	Uoz5FkkvgOVQNgnwczEORE/ANYvQXRw2TJyOAK4M23BEniBLFreBSM1oxvBp8/GtzBrDoxwxs8i
-	X5HSw6X74APYMugbWx7Wi94Kgm4aHuhGDJaasu4XQ/C9dWsAmpl/cus30PT6caj1Z74KRxPFHzX
-	9/H20ti8w+weG2OnFIt2x2JEI5xrjc/ULTWwd4SP7DC/xUDBnfJ1faitbz7f5sufX2U5pyOqG0c
-	kM4sW/+pgCA0jNtLcqjIvQ/xu0FGf2GTh8aMu9PxEarLfZZqVXd5wOQXgnw+Vv58RRwvypPSooJ
-	4TlpRjq8+hMqL+iCehCzvu4cFlldImN8oSsHuvVGOIw8OsK+CPu2Tg0K7DEaS5WewkK6jStl/Ta
-	ckBAyrAYW9x103YWqaaz/7aSa98=
-X-Received: by 2002:a05:600c:800f:b0:4bb:5bf3:8ee9 with SMTP id 5b1f17b1804b1-4bb7da4ec63mr92437165e9.31.1795060811757;
-        Wed, 18 Nov 2026 20:00:11 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:57::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb84e47177sm6576085e9.2.2026.11.18.20.00.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 20:00:11 -0800 (PST)
-From: Mohsin Bashir <mohsin.bashr@gmail.com>
-To: netdev@vger.kernel.org
-Cc: saeedm@nvidia.com,
-	leon@kernel.org,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	cjubran@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2] net: mlx5: Allow police as the last action of a TC rule
-Date: Wed, 18 Nov 2026 20:00:10 -0800
-Message-ID: <20261119040010.1405900-1-mohsin.bashr@gmail.com>
-X-Mailer: git-send-email 2.53.1
+	by smtp.kernel.org (Postfix) with ESMTPS id 408481F000C5;
+	Thu, 19 Nov 2026 04:00:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795060849;
+	bh=Im5v2fF7YtKUxT7J9p7R9r8ZrcGXgzH8zW16FBqarqA=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=b73oZRFs+cz1dhW2BT0UvltvZbO8v2GQZXFwwEPCXd60VEjCQw7TKl9dPB6YcVAC/
+	 C0TMRTrkb1csxzI9gEi97RnqfP36JZ3Iq7t7RM12rcWNk5e8S3QAzAXUmtpLsTw+gq
+	 eJ3gSpSHpQLmvARp1XqdrMiINF7q6rlwbZr7R6d4WE46mxEx6NgVp8TPvHcuqL2Z0b
+	 q/k8LpAf5jaGwobbg+DfWajdqwwFwDrlRz7UzyT//dEvBgtxNMSx86asmeeppXouug
+	 c6DjMjTS36zzZpWPY8AAxjBGAi7mfeIM+hU8UzI745isbhxv7mOSo92vfEnpOH7Ho6
+	 2sQoQO2Xb7Njg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 95A5D4B0BC;
+	Thu, 19 Nov 2026 04:00:48 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 04:00:48 +0000
+Subject: [PATCH v3] smb: client: don't use read data that failed signature
+ verification
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,179 +83,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-smb2-readv-v3-1-f3a8a2eddb1c@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAG90/moC/yXMSQqAMAxA0atI1hZsBaeriAtrokZwoNEiiHe36
+ vIt/r9AyDEJVNEFjjwLr0tAGkfQje0ykGIMBpOYTGtdKpmtUY5a9CopeouabJojQgg2Rz2f36x
+ ufsthJ+r29wD3/QBx6SnEbgAAAA==
+X-Change-ID: 20261119-smb2-readv-08fbd1eb37dd
+To: linkinjeon@kernel.org, pc@manguebit.org
+Cc: bharathsm@microsoft.com, samba-technical@lists.samba.org, 
+ dhowells@redhat.com, smfrench@gmail.com, ematsumiya@suse.de, 
+ sprasad@microsoft.com, linux-kernel@vger.kernel.org, 
+ linux-cifs@vger.kernel.org, tom@talpey.com, ronniesahlberg@gmail.com
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795060847; l=3688;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=URMORExrH4JCtRZ0Ue777N7D5BGWiuT3dVJfKgv73gg=;
+ b=ToRXAkguD7E1PnuVkw51/9lK1qF1PYf3Rk+n99xdleliV9SoLKEY7e5xs8imihPGrzEB+6kj+
+ aJi1hipwXl7Bd1HzcHJIpO8syyzqTqyfIx1U4Dnb0C+MVq46NX/0ChE
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-From: Mohsin Bashir <hmohsin@meta.com>
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-In switchdev mode, mlx5 offloads police only when other actions follow
-it. TC needs no extra action for a police-only rule to work. The mlx5
-driver makes every police rule forward to the post meter table, but for
-a rate police it adds that forward only after verify_attr_actions() has
-checked the rule, so the check rejects it. The ok result of police is
-also handled as pipe. In TC, ok accepts the packet and ends the action
-list, whereas mlx5 goes on with the actions after police.
+When smb2_readv_callback() finds a bad signature, it sets the error in
+rdata->result but leaves rdata->got_bytes alone. Further down, a short
+read that reaches the remote EOF clears the error again:
 
-Support police as the only action of a rule. Set the forward while
-parsing police, as is already done for police with mtu, and forward
-an ok result to the end of the TC chains, as the driver does when it
-offloads the gact ok action. This also changes existing offloaded rules
-where police is followed by other actions. Before, an ok result ran the
-actions after police. Now it accepts the packet, as TC does. The
-upcoming selftest series also relies on such rules for TC offload
-validation.
+    size_t trans = rdata->subreq.transferred + rdata->got_bytes;
+    if (trans < rdata->subreq.len &&
+        rdata->subreq.start + trans >= netfs_read_remote_i_size(inode)) {
+            rdata->result = 0;
 
-When police is the last action, a pipe result also ends the action
-list, so forward it to the end of the TC chains too. Otherwise it is
-sent back to the post action table, and with two police actions the
-packet loops through the second police. A jump counts from the start
-of the action list, so its target may be an earlier action or police
-itself. Reject jump when police is the last action.
+and got_bytes is then added to subreq.transferred. So the last part of a
+file, or all of a small one, is returned even though its signature is
+wrong.
 
-The patch was tested on a ConnectX-7 in switchdev mode with the
-commands below. It was verified, using the hardware drop counter, that
-the rules are offloaded and limit the matching traffic to the
-configured rate, that the second police of the two police rule only
-sees the packets conforming to the first, and that jump on the last
-police is rejected.
+Clearing got_bytes is not enough on its own. If the read starts at or
+past the cached remote size, for example because the file has grown on
+the server since the size was last fetched, the check above still
+matches and the error turns into EOF, or into a zero-filled tail when
+NETFS_SREQ_CLEAR_TAIL is set.
 
-  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 100mbit burst 1m conform-exceed drop/ok
+Clear got_bytes when the signature check fails, as the retry path in the
+same function already does, and only treat a short read as hitting the
+remote EOF when the read itself succeeded. That is what commit
+1da29f2c39b6 ("netfs, cifs: Fix handling of short DIO read") describes:
+"clear the error if a short read occurred without error and the read-to
+file position is now at the remote inode size".
 
-  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 200mbit burst 1m conform-exceed drop/pipe \
-    action police rate 100mbit burst 1m conform-exceed drop/pipe
+Found with a static analysis tool and checked by hand.
 
-  tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 100mbit burst 1m conform-exceed drop / jump 1
-
-Cc: Carolina Jubran <cjubran@nvidia.com>
-Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+Fixes: 1da29f2c39b6 ("netfs, cifs: Fix handling of short DIO read")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
-Changelog:
-v2:
-  - Treat pipe on the last police as ok and forward it to the end of the
-    TC chains.
-  - Reject jump when police is the last action, since the jump target is
-    counted from the start of the action list.
-  - Update commit message
+v3:
+- Only this patch is resent; 1/2 is in cifs-next.
+- Also skip the remote-EOF check when the read has already failed (from
+  sashiko's review). Clearing got_bytes alone still let a failed read
+  that starts at or past the cached remote size come back as EOF.
 
-v1: https://lore.kernel.org/netdev/20261117031337.4126403-1-mohsin.bashr@gmail.com
+Tested in QEMU against cifs-next, signed SMB 3.1.1 to Samba through a
+proxy that changes READ data without re-signing it. A cache=none file
+is opened (21 bytes), 23 bytes are appended through a second mount, and
+the file is read from offset 21:
+  v2:  pread returns 0 (EOF), the signature error is lost
+  v3:  pread returns -EACCES
+Without the proxy both versions read the 23 new bytes, and a read past
+the real EOF returns 0.
+
+One side effect: a short read that ends with a retryable error at the
+remote EOF is now retried instead of being reported as EOF. I haven't
+exercised that path.
+
+v2: https://lore.kernel.org/linux-cifs/20261116-smb2-sign-v2-0-a823a90d0db4@gmail.com/
 ---
- .../mellanox/mlx5/core/en/tc/act/police.c     | 11 +++++++-
- .../net/ethernet/mellanox/mlx5/core/en_tc.c   | 26 ++++++++++++-------
- 2 files changed, 27 insertions(+), 10 deletions(-)
+ fs/smb/client/smb2pdu.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-index 1bd1c94fb977..faa0822b1136 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-@@ -49,6 +49,14 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
- 	if (err)
- 		return false;
+diff --git a/fs/smb/client/smb2pdu.c b/fs/smb/client/smb2pdu.c
+index b26bfb4bd91a..f7cb08f5e34f 100644
+--- a/fs/smb/client/smb2pdu.c
++++ b/fs/smb/client/smb2pdu.c
+@@ -4819,6 +4819,8 @@ smb2_readv_callback(struct TCP_Server_Info *server, struct mid_q_entry *mid)
+ 					      rc);
+ 				rdata->subreq.error = rc;
+ 				rdata->result = rc;
++				/* the data can't be trusted, don't count it */
++				rdata->got_bytes = 0;
  
-+	if (flow_action_is_last_entry(parse_state->flow_action, act) &&
-+	    (act->police.exceed.act_id == FLOW_ACTION_JUMP ||
-+	     act->police.notexceed.act_id == FLOW_ACTION_JUMP)) {
-+		NL_SET_ERR_MSG_MOD(parse_state->extack,
-+				   "Jump on last police action is not supported");
-+		return false;
-+	}
-+
- 	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
- }
- 
-@@ -94,13 +102,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
- 		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
- 			return -EOPNOTSUPP;
- 
--		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
- 		attr->flags |= MLX5_ATTR_FLAG_MTU;
+ 				if (is_replayable_error(rc)) {
+ 					trace_netfs_sreq(&rdata->subreq, netfs_sreq_trace_io_retry_needed);
+@@ -4898,7 +4900,7 @@ smb2_readv_callback(struct TCP_Server_Info *server, struct mid_q_entry *mid)
+ 			__set_bit(NETFS_SREQ_CLEAR_TAIL, &rdata->subreq.flags);
  	} else {
- 		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
- 		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
- 	}
- 
-+	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-+
- 	return 0;
- }
- 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index 1d35c97aea0b..7e7111e6d058 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -3874,7 +3874,7 @@ static int
- alloc_branch_attr(struct mlx5e_tc_flow *flow,
- 		  struct mlx5e_tc_act_branch_ctrl *cond,
- 		  struct mlx5_flow_attr **cond_attr,
--		  u32 *jump_count,
-+		  u32 *jump_count, bool last,
- 		  struct netlink_ext_ack *extack)
- {
- 	struct mlx5_flow_attr *attr;
-@@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
- 	case FLOW_ACTION_DROP:
- 		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
- 		break;
--	case FLOW_ACTION_ACCEPT:
- 	case FLOW_ACTION_PIPE:
--		err = set_branch_dest_ft(flow->priv, attr);
--		if (err)
--			goto out_err;
-+		if (!last) {
-+			err = set_branch_dest_ft(flow->priv, attr);
-+			if (err)
-+				goto out_err;
-+			break;
-+		}
-+		fallthrough;
-+	case FLOW_ACTION_ACCEPT:
-+		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-+		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
- 		break;
- 	case FLOW_ACTION_JUMP:
- 		if (*jump_count) {
-@@ -3967,7 +3973,7 @@ dec_jump_count(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- static int
- parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- 		  struct mlx5e_tc_flow *flow, struct mlx5_flow_attr *attr,
--		  struct mlx5e_tc_jump_state *jump_state,
-+		  struct mlx5e_tc_jump_state *jump_state, bool last,
- 		  struct netlink_ext_ack *extack)
- {
- 	struct mlx5e_tc_act_branch_ctrl cond_true, cond_false;
-@@ -3980,7 +3986,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- 	tc_act->get_branch_ctrl(act, &cond_true, &cond_false);
- 
- 	err = alloc_branch_attr(flow, &cond_true,
--				&attr->branch_true, &jump_count, extack);
-+				&attr->branch_true, &jump_count, last, extack);
- 	if (err)
- 		goto out_err;
- 
-@@ -3988,7 +3994,7 @@ parse_branch_ctrl(struct flow_action_entry *act, struct mlx5e_tc_act *tc_act,
- 		jump_state->jumping_attr = attr->branch_true;
- 
- 	err = alloc_branch_attr(flow, &cond_false,
--				&attr->branch_false, &jump_count, extack);
-+				&attr->branch_false, &jump_count, last, extack);
- 	if (err)
- 		goto err_branch_false;
- 
-@@ -4052,7 +4058,9 @@ parse_tc_actions(struct mlx5e_tc_act_parse_state *parse_state,
- 
- 		dec_jump_count(act, tc_act, attr, priv, &jump_state);
- 
--		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state, extack);
-+		err = parse_branch_ctrl(act, tc_act, flow, attr, &jump_state,
-+					flow_action_is_last_entry(flow_action, act),
-+					extack);
- 		if (err)
- 			goto out_free_post_acts;
- 
--- 
-2.53.1-Meta
+ 		size_t trans = rdata->subreq.transferred + rdata->got_bytes;
+-		if (trans < rdata->subreq.len &&
++		if (!rdata->result && trans < rdata->subreq.len &&
+ 		    rdata->subreq.start + trans >= netfs_read_remote_i_size(inode)) {
+ 			rdata->result = 0;
+ 			if (rdata->subreq.start + trans >= i_size_read(inode))
+
+
+
 
