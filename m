@@ -1,73 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795074749;
-	b=fXx63E1zLZZW9g7ZJ20EKafbmsEuxYPtjezgZ5GMBVkYQPdRzUw7m5SKrHF8uCqPs/og
-	 0vCz04n1oHxVWvoX8yD1BGCeFt5KDKifHYcpiaxK/OLcKu5dbx0gf+y4fHDxMYTLpaHRG
-	 po+vhf+z3XECKVP7RAiXOR3vOo6FEPluBhMF4uT0vsr2evkXDqwzx6Ca+CNDeyoT2EDss
-	 dLDVyxdUqUF+1KOBhvoYc+2DI+JAtGruyU4u0AdNSAPKwmlnX96riTJJek5dOYH3MPb4s
-	 CeH32Wv3bwwn8aiR71I5Xc3AMi/5g9IeZB6jYSLHdTfXy8CEyaen2k7smH0L/dlhG6g==
+	t=1795074770;
+	b=CaakKwbX3GuVHLE8xr3ESRf4OjzKeZrg+/of27OhSQ9gQYdikfgrPLdV/8zlI3pmpNth
+	 5/+8wmEQxciyuylfXvXiG8lPaPQu3x8xyfjX79AF+fZTW+St82lnqhV4atxZ0sr3xIE4W
+	 vLRZzbS2NN94eCzoiRTWR6iS6gnExEBShOr+fKPYqEej6tI5RUjFbb+UW/3T9pcKswB73
+	 s2QGCGHYHGbdfu7594EAke77OqpWDelxcu1Nf/VQjlNbI7s35IQqtfq9JGG5d4le3LEME
+	 rp6oKVEs5Zjek9IGHdxT4z1PdxHsEKQs5WFbnbA6RJ0JpwI35sJ3m0981UiKrnBw3zA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795074749;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:In-Reply-To:References:Organization:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=2Sr5PSorXFPiZTIgL+esYlLaqyXGsyfpobS6SIpcVCo=;
-	b=VJsflQvSaDCs39k0GdxERVp8wc4bi3kh67QXGpQ/98Hl+ShSr1gKuUj+r4Mxv1KVXa/y
-	 RKBmnQpRjQLNuJRo5rTiuB/MtD1WX33dU2M5wy3YU5HlqUKWOtVHY9hJYon+ZgmigAmSM
-	 ++7LTLbUzq3lUvRTjEqnzK8k/Yfs8WJQbm5Z2b9P6tcjoN4vREnDDE52D0kGHJnZpFY7N
-	 WdqGP+nOoiv1t/7/MVD5H+QH9VsfVOcNxpv9oFkzhbHvWP1S0ixJ4qVh/vq649KJE+Ot0
-	 uHjelXSQo57j5YDZlIgOX6xMaFsy19i6kXD5L5Di2oxwJxu39RvTQFxQm8/d9MIGq6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795074770;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=XDGSq+NYY9XzLBrI14hyUS/fB+/Exw2w2j7dzo+fazs=;
+	b=FTslMrBt3oRvocUtMc3GH966ewmBTv1I6vU+nKQiGkcz7x1P0DJPLWcqJ85m5XPQL+8b
+	 LqRCuEPcqRDUGT03ccSWrlhcTXpRyVybrc+8FwtrTpFde2BOSA3dp7I32GUqkBsHCwkrq
+	 9YbbqZX3W7Q46NraEqxxkXhCigpQiGOtWbBjSGVfaGjR79FgpqQIOmPY4jWwuwGSrZv1k
+	 2kEXK+G6VGauuXWiZ50kXFcfxbz/djwfogOkYr9lvTrsCscunV+MRcq59K1GyqBIhc9Fw
+	 b0k3l22KeqtiMtpmvNXI776gbkmYBKvznix7OCdpM7XJJh62A54SoWboPPzailqS3UQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=b8wh1A5q;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=LCSdGyGP;
+	arc=none smtp.remote-ip=113.46.200.216
+Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADC4A606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 07:52:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADC4A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 169F4606A324;
+	Thu, 19 Nov 2026 07:52:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 169F4606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=b8wh1A5q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795074746;
-	bh=z3gDAv4QNYmxE66TTQpSpU4usvXBzFzl9h/ykF/+X9w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=b8wh1A5qYU6sryQ73tQQyo3/FpagnSEyevlpSIe8MMJKez3aibJCdFH7jhxeZo/5D
-	 zly8Y7JQf5EbH4z2pMxA139eMtG2a69QU5Ip5DF+Q9QQYFVTFUshkwBKHpdBsLiCJ8
-	 v+lRRXzwGjlo17jvirXYqLq3fx1fUojMwE6X1btc7WDzuTHZA9lf+g7zl2NkkNVz+N
-	 qc5utInd8dGVdOXtWum+9yt8yykUVjfca0IEMWcD/EbRBgRb6k1UgffJeKY/1RUBD8
-	 Y3ijeBniXES7nm+5AN15uu3eZ+PlpR1bi28rPUYC0aGvppcwZ8DERt+d7YBsms9MVC
-	 y3DffkcRb5T0Q==
-Received: from fedora1.home (unknown [100.64.0.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5E37817E00E8;
-	Thu, 19 Nov 2026 08:52:26 +0100 (CET)
-Date: Thu, 19 Nov 2026 08:52:20 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Karunika Choo <karunika.choo@arm.com>
-Cc: dri-devel@lists.freedesktop.org, nd@arm.com, Steven Price
- <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- linux-kernel@vger.kernel.org, Akash Goel <akash.goel@arm.com>, Lukas
- Zapolskas <lukas.zapolskas@arm.com>, Chris Diamand <chris.diamand@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Subject: Re: [PATCH v3 02/10] drm/panthor: Rename neural accelerator feature
- macro to NX
-Message-ID: <20261119085220.033b47d5@fedora1.home>
-In-Reply-To: <20261118175332.519657-3-karunika.choo@arm.com>
-References: <20261118175332.519657-1-karunika.choo@arm.com>
-	<20261118175332.519657-3-karunika.choo@arm.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=LCSdGyGP
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=XDGSq+NYY9XzLBrI14hyUS/fB+/Exw2w2j7dzo+fazs=;
+	b=LCSdGyGPdamq0ZtVH+kQdHhms9IgZI22Kjo79DM7xUImrxVEK+DP8tfMlYQ5/G9pKXP//eJpt
+	hiHyy9nA5IKmAKkHxPR9kSEkq3RilXY3DPsQUifasfgYSS15KqerDXrYYPbjxP+UQ9aehn1f8Gu
+	fSS+3VMnGKoM25dNCsLD0so=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jVVzd5Ky2z1T4Fr;
+	Thu, 19 Nov 2026 15:51:57 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id C976C203AB;
+	Thu, 19 Nov 2026 15:52:38 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 19 Nov 2026 15:52:37 +0800
+Message-ID: <ceb91298-3d05-486e-a900-1291963dde24@huawei.com>
+Date: Thu, 19 Nov 2026 15:52:37 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,48 +62,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 06/15] KVM: arm64: Add support for FEAT_HDBSS
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
+	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
+	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+ <20260929103655.85107-7-zhengtian10@huawei.com> <at-X_hFbsBU_Dsgr@LeoBrasDK>
+ <a301e884-f6d1-4082-8551-8d8a17276dc3@huawei.com>
+ <auSml6yTVYIQe7NZ@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <auSml6yTVYIQe7NZ@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 
-On Wed, 18 Nov 2026 17:53:18 +0000
-Karunika Choo <karunika.choo@arm.com> wrote:
 
-> Rename GPU_FEATURES_NEURAL_ENGINE to GPU_FEATURES_NX.
-> Update the panthor_hw helper to use the new name.
+
+On 10/30/2026 10:15 PM, Leonardo Bras wrote:
+> On Fri, Oct 30, 2026 at 10:53:57AM +0800, Tian Zheng wrote:
+>>
+>>
+>> On 10/27/2026 2:12 AM, Leonardo Bras wrote:
+>>> On Tue, Sep 29, 2026 at 06:36:46PM +0800, Tian Zheng wrote:
+>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>> index 32102c3912fa..12fa37328dd2 100644
+>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>> @@ -2158,6 +2158,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>>>>    	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+>>>>    }
+>>>>
+>>>> +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int scope)
+>>>> +{
+>>>> +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, scope);
+>>>> +}
+>>>> +
+>>>
+>>
+>> Hi leo,
+>>
+>>> IIUC you run this on every cpu in the system, to make sure it's matching
+>>> the feature. Is there any chance the kernel is in EL2 only on some of the
+>>> cpus here?
+>>>
+>>
+>> It's impossible for the system to have only some CPUs in EL2 and others
+>>   not.
+>>
+>>> If not, maybe we can run it on system_supports_hdbss() instead, which would
+>>> be easier for the user to understand it only runs in EL2, on top of not
+>>> needing the above.
+>>>
+>>
+>> However, The question is whether a cap should mean "this system can use
+>> the feature" or "this hardware supports the feature". If the cap only
+>> tracks hardware support, users may be confused when the hardware
+>> supports HDBSS but the system runs in nVHE mode — they would mistakenly
+>> believe they can use the feature.
+>>
+>> So I think we should keep is_kernel_in_hyp_mode() in has_vhe_hdbss(),
+>> and add a comment in system_supports_hdbss() explaining this.
+>>
+>> Does that work for you? Looking forward to your reply.
 > 
-> Signed-off-by: Karunika Choo <karunika.choo@arm.com>
-
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-
-> ---
->  drivers/gpu/drm/panthor/panthor_gpu_regs.h | 2 +-
->  drivers/gpu/drm/panthor/panthor_hw.h       | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+> Well,
+> That's just my personal view of this:
 > 
-> diff --git a/drivers/gpu/drm/panthor/panthor_gpu_regs.h b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-> index 5340966caef37..c7581b6d4c5be 100644
-> --- a/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-> +++ b/drivers/gpu/drm/panthor/panthor_gpu_regs.h
-> @@ -67,7 +67,7 @@
->  
->  #define GPU_FEATURES					0x60
->  #define   GPU_FEATURES_RAY_INTERSECTION			BIT(2)
-> -#define   GPU_FEATURES_NEURAL_ENGINE			BIT(4)
-> +#define   GPU_FEATURES_NX				BIT(4)
->  #define   GPU_FEATURES_RAY_TRAVERSAL			BIT(5)
->  
->  #define GPU_TIMESTAMP_OFFSET				0x88
-> diff --git a/drivers/gpu/drm/panthor/panthor_hw.h b/drivers/gpu/drm/panthor/panthor_hw.h
-> index eeca936f44bae..f770dc40e6216 100644
-> --- a/drivers/gpu/drm/panthor/panthor_hw.h
-> +++ b/drivers/gpu/drm/panthor/panthor_hw.h
-> @@ -64,7 +64,7 @@ static inline bool panthor_hw_has_pwr_ctrl(struct panthor_device *ptdev)
->  static inline bool panthor_hw_has_neural(struct panthor_device *ptdev)
->  {
->  	return (GPU_ARCH_MAJOR(ptdev->gpu_info.gpu_id) >= 14 &&
-> -		ptdev->gpu_info.gpu_features & GPU_FEATURES_NEURAL_ENGINE);
-> +		ptdev->gpu_info.gpu_features & GPU_FEATURES_NX);
->  }
->  
->  #endif /* __PANTHOR_HW_H__ */
+> If we have a function called "has_hdbss" it should only report if the
+> system has the feature available.
+> 
+> On the "system_supports_*" we have to figure out if the system itself
+> supports the feature, which checks the feature bits itself and could mean
+> checking for other features being there, such as hyp_mode.
+> 
+> What do you think?
+> 
+> Thx,
+> Leo
 
+Hi Leo,
+
+Sorry for the slow reply. I've been looking into how other cpufeatures
+are configured on arm64, on and off, and that's why it took a while.
+
+My reading is that detected: HDBSS should mean "this system can use
+HDBSS", not just "the silicon has it".
+
+Several caps already add conditions beyond the ID bits. CNP returns
+false for kdump and under ARM64_WORKAROUND_DISABLE_CNP, NV and pKVM
+match on kvm_get_mode(), and can_trap_icv_dir_el1() starts with
+is_hyp_mode_available(). So in practice a SYSTEM_FEATURE cap answers
+"can this kernel use it on this system".
+
+HDBSS is EL2-only (HDBSSBR_EL2/HDBSSPROD_EL2, VTCR_EL2.HDBSS),
+implemented only under hyp/vhe, and used only by KVM, so "the hardware
+is there" is not the same as "this kernel can use it". That is why I'd
+keep the gate in has_vhe_hdbss() rather than moving it to the consumer.
+
+I'd be interested to hear how you see it.
+
+Thanks,
+Tian
