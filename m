@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.168
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795049862;
-	b=Lq/89wANqREUmVqoQvJXNkXhFCqNMnMAGiF1Egodsu2rZXNH4Qa8vttSpSZ0A4dXKI1w
-	 b1jjOW5rFRWfRbz+/HFAzwSjAHhA8OQTJrKCafOUzDSMblZ24r7iaMvxYp/zQDaRyDEx9
-	 50p0gesMz3+WO81i+cXR74Q6WvmHTnv/IQfqZhsceu8XA2onwxmqEpUlP6vV2kFikJe7T
-	 btt0+jC2hmF/qY0WajLQA18LfYE+pyPz5Cj5l1i5cAv7ERw4qjcKaTw+NPte5LMXEzWU+
-	 Gwa57yFTbdk20mfWiu3XRAoHk/DE4undx1zjKrxGIiMDgO7pJptlFLc8l9Q9BJzQMeA==
+	t=1795049868;
+	b=zDQsa6irNfb58mOs/eWDQpYDb637ccDPTtk60wQVSuK8x9THRGCmMh96L4eIGlceQznh
+	 DrSCQDdKKF1KknTcdeGscqAuaaXWluNp4MPNVtWR03LWqLn4Fll19OYdfeXBjiIjf6n7k
+	 981vdLtZXF24Wm5v0DQY2nqrRV0Nb1tu/kS+av6s1ElijKuzOO4R7/vehuQQYxl1+qkzN
+	 i+TWUs1NZh9zIINDp0pB9b7vyZ+At09MizyL1yWs8VxSgq0JX6OSLwpvsJbloExi1DLw6
+	 c3h2OjOQVv+0JK8VeOsA0b70RmvyJBIqupNrt8YL9NhQ2MoJIc4eKCAc6SX0e0xoLQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795049862;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795049868;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer;
-	bh=694qyvLriy9O4VfWG13DifSnjzBTkvYAPHjYHQpTfnw=;
-	b=ELI5b/+bTQCi0BHTkEaVPFY4DjgVory+9FxE2QXQY+v5QTAqpGWCvsmqW5aSD9VuRtkD
-	 kphF6wGu1IxqtKvPyLaeZTG7lIg0Ev+0HG/gfbLBBrBUum66zOpt7lyaWZDkNLRyLWFh5
-	 8red0uV/n/5yP+c2hfSXwu29qOxoFUz9bGG/Mdr5sj3BU3yUbLclWUuKNAe6qSKRQPBH0
-	 x+bTI7WYBSFnkLrj/sXLLs6LHWfNCXkiCgUY5YZDp6Dfbxf3BHl6QcQWvSeup+lzifHR3
-	 czTbNxR9OFOKzTzAX1eccN2K8U6SJFNCwuEVxN4zaqE80cKt5Z4qA5AjYkq+yyV9QvQ==
+	bh=BdRhV4HysM2lLbNiFKSUvryFqdyrG2j8PAWpb5YAEx0=;
+	b=jGldEBtr/jw5yZ74dQaY/XnTOsGbaVaWZ6YtEkFMOhSB5k6y1DEw3aMceyZYfl131FJm
+	 KiE8z8CmJrxr4ai41HJRMD017cJYxVQoYT/62zhtLZLwU0h3JtczpajYQRuKTtygi//H0
+	 K37osvYwM9Sewl9mKlrPI94DbWzKR4NkoA+LIu1vAezKl/3VP1wdwhRdnIQsUY8O9i4ch
+	 Ldky1+e3zywbUqPgNQJS1lfc0LyspT7lVjPUIf7MmRRKB0kp+0ctbDLPTsyE9sHQBqwWj
+	 VjdjVpP0geBEfDgjWZQhNsgnhBLzLcQS40V5q9N0tPwowoVnYwoldyvEgREWz8kwB4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sVcuAXkm;
-	arc=none smtp.remote-ip=91.218.175.168
-Received: from mta0.migadu.com (out-168.mta0.migadu.com [91.218.175.168])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ud50sL1y;
+	arc=none smtp.remote-ip=91.218.175.171
+Received: from mta0.migadu.com (out-171.mta0.migadu.com [91.218.175.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 376CB606A320
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:57:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 376CB606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73436606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:57:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73436606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sVcuAXkm
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ud50sL1y
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=kR2ie0DRRFoOotdAIPB61Zj5lWd1xo8MCNE1wz+K2CU=;
+DKIM-Signature: a=rsa-sha256; bh=qLIXZ0CsPn2DOaTNT4XL/ITjjPGFcuW4mu+s83U3hTM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795049860; v=1; x=1795654660;
- b=sVcuAXkmZhqDb2tZgKi8kYlrGXqCQdkI+qVM6FNcQeqJtDwn8QE52PAyRbilAvCOKmvUJ0jk
- xxxVO9gZUaLCYr4SbqGLYi5TBCT9vhZgAu7tBZurpCMvJA8kM08q+ausPzw3d3q5IFcvdA37OeT
- 72sXSUMWHraoC5+i8wENAs1M=
+ t=1795049865; v=1; x=1795654665;
+ b=ud50sL1yp/TGt4TSoT9NsoR6JT6hc+sJClfacYVMZcL+R16OnoinA00GXhn4Z1L7GPI+mdHL
+ h+QN2jAIpuDD193bOFLrj13H7HVrPULSa89p62rjkiNEg2MuMl1a+s7reKI6zWQMk5MFeU3mUhv
+ rTubPhAw5J0/B3dN7XQXBtcA=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b936f5bc137214bc;
-	Thu, 19 Nov 2026 00:57:40 +0000
-X-Mizu-Trace-ID: b936f5bc137214bc
+Received: by smtp.migadu.com with ESMTPS id 57b5dff798120b9d;
+	Thu, 19 Nov 2026 00:57:45 +0000
+X-Mizu-Trace-ID: 57b5dff798120b9d
 X-Migadu-Flow: FLOW_OUT
 From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Wed, 18 Nov 2026 19:57:22 -0500
-Subject: [PATCH v2 2/3] sched/fair: Skip rq_offline_fair() work for CPUs
- that stay active
+Date: Wed, 18 Nov 2026 19:57:23 -0500
+Subject: [PATCH v2 3/3] sched/fair: Avoid re-syncing runtime_enabled on
+ root domain changes
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,7 +62,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-bug-sched-fair-offline-active-v2-2-b6ede596c6a6@linux.dev>
+Message-Id: <20261118-bug-sched-fair-offline-active-v2-3-b6ede596c6a6@linux.dev>
 References: <20261118-bug-sched-fair-offline-active-v2-0-b6ede596c6a6@linux.dev>
 In-Reply-To: <20261118-bug-sched-fair-offline-active-v2-0-b6ede596c6a6@linux.dev>
 To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
@@ -75,63 +75,47 @@ To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
 Cc: linux-kernel@vger.kernel.org, Qiliang Yuan <qiliang.yuan@linux.dev>
 X-Mailer: b4 0.13.0
 
-A sched domain rebuild, triggered by CPU hotplug or a cpuset partition
-change, calls rq_attach_root() for every active CPU in the affected
-domains. That takes the CPU offline and back online with the rq lock
-held and interrupts disabled, so rq_offline_fair() runs for CPUs that
-are not going down.
+rq_online_fair() calls update_runtime_enabled(), which walks every task
+group and takes each group's cfs_bandwidth lock to copy its quota state
+into the CPU's cfs_rq. A sched domain rebuild reaches it for every
+active CPU through rq_attach_root(), with the rq lock held and
+interrupts disabled.
 
-Commit af98d8a36a96 ("sched/fair: Fix CPU bandwidth limit bypass during
-CPU hotplug") made unthrottle_offline_cfs_rqs() return early for active
-CPUs, but clear_tg_offline_cfs_rqs(), added by commit f60a631ab9ed
-("sched/fair: Fix tg->load when offlining a CPU"), still walks every
-task group and drops the CPU's tg->load_avg contribution, which
-update_tg_load_avg() then adds back. With thousands of cpu cgroups each
-rebuild costs O(nr_cpus * nr_task_groups).
+The walk is only needed when the CPU comes up. While a CPU is online,
+tg_set_cfs_bandwidth() updates runtime_enabled on it under the rq lock,
+and it holds cpus_read_lock() so it cannot miss a CPU that is coming up.
 
-Return early from rq_offline_fair() unless the CPU is going down, which
-covers both walks, and drop the active check from
-unthrottle_offline_cfs_rqs().
+Call update_runtime_enabled() only when the CPU comes up.
 
 With 4000 cpu cgroups on a 32-CPU VM booted with rt_group_sched=0,
 switching a 4-CPU cpuset to a partition root and offlining or onlining
 one CPU take (median of 20 partition switches and 16 hotplug operations):
 
   operation         before (ms)  after (ms)  change
-  partition root          14.86        8.35    -44%
-  cpu offline             49.99       33.91    -32%
-  cpu online              36.10       31.02    -14%
+  partition root           8.35        1.20    -86%
+  cpu offline             33.91       16.49    -51%
+  cpu online              31.02       12.87    -59%
 
 Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 ---
- kernel/sched/fair.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ kernel/sched/fair.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index db9ab8ce36500..1b38c4c47b656 100644
+index 1b38c4c47b656..e42c70e6ebeff 100644
 --- a/kernel/sched/fair.c
 +++ b/kernel/sched/fair.c
-@@ -7859,10 +7859,6 @@ static void __maybe_unused unthrottle_offline_cfs_rqs(struct rq *rq)
- 
- 	lockdep_assert_rq_held(rq);
- 
--	// Do not unthrottle for an active CPU
--	if (cpumask_test_cpu(cpu_of(rq), cpu_active_mask))
--		return;
--
- 	/*
- 	 * The rq clock has already been updated in the
- 	 * set_rq_offline(), so we should skip updating
-@@ -15093,6 +15089,9 @@ static void rq_offline_fair(struct rq *rq, bool hotplug)
+@@ -15082,7 +15082,9 @@ static void rq_online_fair(struct rq *rq, bool hotplug)
  {
  	update_sysctl();
  
-+	if (!hotplug)
-+		return;
-+
- 	/* Ensure any throttled groups are reachable by pick_next_task */
- 	unthrottle_offline_cfs_rqs(rq);
+-	update_runtime_enabled(rq);
++	/* tg_set_cfs_bandwidth() keeps an online CPU in sync */
++	if (hotplug)
++		update_runtime_enabled(rq);
+ }
  
+ static void rq_offline_fair(struct rq *rq, bool hotplug)
 
 -- 
 2.43.0
