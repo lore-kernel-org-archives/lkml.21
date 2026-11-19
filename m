@@ -1,72 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795108240;
-	b=Ph0sjDvVVx+DoKxTrg2OvNP8f3pEeUjxTST/ie2ECTduuReqQnlQ+3Mv2wgEMyxX3HfQ
-	 SRy0cwINiCCvqg4taragJ/VBvXdcXq+wCGb8WKnqg3wnmYPe2BhQvRi7JMvWKvyJTfzwe
-	 U+tXMR5XorjFZyq4UugC8R9ULx/+A5OZYdroJmwX7yujeSV/bW5pVZemgMsLaYFb53H3E
-	 3URBuvirBInbtBS3dl6Oj229Mf+ZT3jarAN0vHmHFWxoI4OgVdxe1WTJRhk5JyIlKi6Y3
-	 zmr75skvELiNCRV4O7ImlsJZnRDP86c9E3UDOvgVfaStLG5C7Evr2Am2Fuy+kcH48KQ==
+	t=1795108242;
+	b=izM4jW3X9zPVDAV/mnGOSuSGfSo8ShcSdF7nnyVo4k89vmFeaTFvgTarE1KaTUCdAl2f
+	 1I+QwAI97vAQ3ezPZUrAL6axw/s12Kn8AL9VW7hg/ljiS3X/txoNVCUeHOULPN5AbLlUl
+	 bU6osnI2AcWjCpqYLgXMGsfKqzoBIqEdvfKWiBSaPukW/vv2zfLdSg2OH9y8OsGE3MFH8
+	 HMNv4Fse+uMmBmYODIOPlCvfeeTRA8c/oa8X17VpLkuy8SFmYjDV9kXwAt1etTQ0w/McL
+	 MCUvkEBbmzlfemCLCe4nO3eQBsgNfd2Ix50ZwBTJdiRngDP1nefj+xi+9QHU/A909/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795108240;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=o0YFHDsV85WusBxLlbw3gy7XlrMAOreRvj1T3GhoBqY=;
-	b=U/qCGDt/pE/XdoCvwigGt6efzVFnyZcV53zIWtnPPt0s3THmwJSS2Nc/uTQLKOWN3F7v
-	 G9Ko4TlTjckgnnCye3KocA5oFQ0h+yPB2RsXTL0Mg8wT1DdvkmqrUWkA5jSAuVx2g1FTY
-	 vAzgJCW1GygPVdLJPs8TLnTvcwGSX/soIIu85WNTcVNCDZfQf23r48Q8j/W0XrahPtkrx
-	 j/iViVLc3UGe75e9SnYHiF+1nEutCA03NDWhxQiF37ng87HkN7InGMjXugBztNe8dv5mQ
-	 3gaXOPvHQXNK/uXEMbzo5WSJvvJ09kU4Y83E12HQhBy+gyozRN7n2ztRDY8sCTK6UZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795108242;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=/E3PhFwPmld8FVAlbFUc+soTDqetgoM4qWt7yV6Pgkc=;
+	b=xKrakOQDZXwqYN5kV0kafGRIecVOjPsT76rIG6Fxs7/avzu2jmjTXrmJdb3FymKNt0MA
+	 fN8Zf2LLURO+U9WsW5qe/Np9b6Kq8dPHN78RNvq9gOWZC/dTN2Tya89fmPMcFEiHDhK7+
+	 XsaN9fQt75LJJ/ib5aRBXlC0cDYhX59hIbRO2UlLsPH52/THd53otsy0yfMtTxlZQPyL0
+	 HOaun8bGO726Tzpiq2mf2a6FrlyW/qDMcV6drwzEq4vy4q/t4lfUfAB651y5kFhHvnYuG
+	 J0c/lOXpMTvvNekCRZUOzryZ9yHubzspfeSUOSPrHLrKsl/n58zx14MDGpGdWTbUg7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=R8GFJzyB;
-	arc=none smtp.remote-ip=209.85.210.70
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=S0TnISYA;
+	arc=none smtp.remote-ip=35.89.44.39
+Received: from omta40.uswest2.a.cloudfilter.net (omta40.uswest2.a.cloudfilter.net [35.89.44.39])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27384606A605
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27384606A605
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCCE160A2622
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:10:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCCE160A2622
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=R8GFJzyB
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-86313f7f4faso326180a34.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:10:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795108239; x=1795713039; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=o0YFHDsV85WusBxLlbw3gy7XlrMAOreRvj1T3GhoBqY=;
-        b=R8GFJzyBafa8n9vJed6wgg6H5h7TaVP1UUEAohsETCkWNrDwQgr5f69LHtWGBz9H5T
-         94d3Dkop8IE0AU1OHaULcUrIqgu69aXdql+81c9WqmVsKTJtQigXrVpHSL2UGGpiJtDh
-         vTNY/3KGvIUAaIQyRJVzK4BXOQSWiIRwO/HsDMLXNuDLeKTLgmAQeBMtDvRNBaGYcgEr
-         1aVoDE06yzGNOGj1aRDLNqbdKx1gG+yjgbhwzykVWk/qxXuLsSirsdIn/eRFH4RGAq1h
-         YW3I0FN1CRmcI7L0FmEYA0vNwhXtZniF2Omd7P3DEIcgVHVJaq1HKWtxWg4kkln1ajc0
-         ItKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795108239; x=1795713039;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o0YFHDsV85WusBxLlbw3gy7XlrMAOreRvj1T3GhoBqY=;
-        b=rMDi3zoCVdmv2dxCFw6Tq63wOOzWoHmGDTmHYtFJ43Bokk2utIFi1fDrRiZWeft2VV
-         VORzhhZBNEp6I53ryNRVewFQ3tS3Yx20U+fNgS+SVztNkL0VrjiefK/TOUIMFZqOcLC9
-         0GuDawprDuZLSacCR5g2awJNMqBVk2PtsD1DZvzM/ZShA/OHeysK2yctv90XL+lJIVdn
-         F1IIu0aTfxSiofMIERoD7YJzLu1noriWeW7pBu5r6tAFsuhJuGxnq/oxeQeHHuHv4cIR
-         kkHVwKrfqDySmVmmTSery7PLca2xU/Z9gHsO6RafrBzYluOFuG1QIMml6CvfvlL8zlC4
-         w1jg==
-X-Forwarded-Encrypted: i=1; AL+hErHT7Eqf8cJODaeIi+TeqPjrel4EK4bKBU2GzE1Ph5hfjT+h2wS5x4qnuOelzDJFqIY2kRDHQVdqkg0XdCY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QyuzVZezVOhtJOME/hdvqxn/5j0zXOPD9oHO4kDzOIP+vMBw0
-	oRhjdL8pzeh3gJ6aL5pLkDdZvdHPTxFCzHRpyZblnItaAtRxDLdzp8LRiw9cm7urFUXCjl7zPMG
-	24zoA/s7uhw==
-X-Received: from oiju13.prod.google.com ([2002:a05:6808:116d:b0:4f5:740:2bcf])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:e8c:b0:577:2255:61b5
- with SMTP id 5614622812f47-57a0b03bd9amr687021b6e.30.1795108238778; Thu, 19
- Nov 2026 09:10:38 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:10:33 -0800
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=S0TnISYA
+Received: from eig-obgw-5001b.ext.cloudfilter.net ([10.0.29.181])
+	by cmsmtp with ESMTPS
+	id TodHxzdE5yb4YU5ejxOt8a; Thu, 19 Nov 2026 17:10:41 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id U5eixXX6Txmi7U5eixR68N; Thu, 19 Nov 2026 17:10:41 +0000
+X-Authority-Analysis: v=2.4 cv=KuFN2XWN c=1 sm=1 tr=0 ts=6aff2d91
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
+ a=LKSzNX-dzBTGD7UebRQA:9 a=QEXdDO2ut3YA:10 a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=/E3PhFwPmld8FVAlbFUc+soTDqetgoM4qWt7yV6Pgkc=; b=S0TnISYA49cY
+	+p+R94Y/EMyGxIL38qtTcqAJqpip8T1SBmnjOPbQBA5bILCcdv9HHuHvvl92faB5BSRKsXRg/j03K
+	TjZQhD+Y4K63JHSc5ipV/avCUbTfouBj50l2UklggKMwu5M08lwbiUotYBmA94b36gFalsvlu7XPg
+	2YPTYnKqlzLhKgWrZqXcnBGKw6CC9NM7xc3eb/zwxqLxlHPTGrf/xneY0w3BPGT4k1KcJSgTAi+Kj
+	sGdcuJt0yRbapZSLWKSycpBenMCWy2HUEo7vLIkIE4uASHNosemaKtIeQOEjEQ4efzJXTO5exrpwY
+	nR/1KgLcocdX4g+jVOnCag==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:52084)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xU5ei-00000003T3F-1hgJ;
+	Thu, 19 Nov 2026 22:40:40 +0530
+Message-ID: <b11f910f-c687-4d11-8a39-879e9db82cc4@roeck-us.net>
+Date: Thu, 19 Nov 2026 09:10:39 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,77 +74,114 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119171033.1535923-1-irogers@google.com>
-Subject: [PATCH] platform/x86/intel/pmc: Fix mode check in pmc_core_lpm_latch_mode_write()
-From: Ian Rogers <irogers@google.com>
-To: Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>, Xi Pardee <xi.pardee@linux.intel.com>, 
-	Hans de Goede <hansg@kernel.org>, 
-	"=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] watchdog: core: Ignore userspace keepalives once the
+ system goes down
+To: aiyengar1990@gmail.com, Wim Van Sebroeck <wim@linux-watchdog.org>
+Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Primoz Fiser <primoz.fiser@norik.com>
+References: <20261119-watchdog-reboot-keepalive-v1-1-c5902d959796@gmail.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20261119-watchdog-reboot-keepalive-v1-1-c5902d959796@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xU5ei-00000003T3F-1hgJ
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:52084
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 3
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfCSYK9aCsscKOj8gTvlz6NKflb1yehVjoy26cX93ha3m4s4IOiVnUO6ztwgUYNNU0ik63xssbFND0BknqXjjqXhX9HPAp+G02kR3j5iZL4mFb9EhcDsu
+ deStpJvWmqsJ1uipnwubJ00RV6T9OIy16pHZsbV8NMiT3mt4mHWacnwAV9Xju4RKcZNNHNp4bsHOUMKR1aj+eTXRQ+qiUTTRlivJ6jgT/oeAg35qrdRW5uTl
 
-In pmc_core_lpm_latch_mode_write(), when pmc->num_lpm_modes is 0 (all
-S0ix substates disabled), pmc_for_each_mode(m, pmc) terminates without
-assigning m. The subsequent 'if (mode != m || mode < 0)' check then
-reads uninitialized stack memory for m; under zero stack
-initialization (m == 0), writing "S0i2.0" (mode == 0) evaluates
-'0 != 0' as false and latches a disabled substate.
+On 11/19/26 08:53, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> A watchdog left running through a reboot should reset a system whose
+> reboot hangs. But a daemon still pinging after reboot(2), such as
+> systemd after "systemctl reboot -ff", keeps a hang in device_shutdown()
+> from ever being reset.
+> 
 
-Track whether mode matched an enabled substate with an explicit
-boolean instead of comparing against m after the loop.
+If systemd is  still running and able to send watchdog pings, the system
+is not really hanging.
 
-Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-build. Verified by building drivers/platform/x86/intel/pmc/core.o with
-LLVM=1 W=1 (-Werror) and -Wconditional-uninitialized, and with a
-standalone C reproducer under ASan/UBSan; not runtime-tested on Intel
-PMC hardware with disabled LPM substates.
+> Ignore userspace keepalives once system_state is past SYSTEM_RUNNING,
+> as da9062_wdt and da9063_wdt do since commit 2f61b3a74699 ("watchdog:
+> da9062: da9063: prevent pings ahead of machine reset").
+> 
 
-Fixes: 8074a79fad2e ("platform/x86: intel_pmc_core: Add option to set/clear LPM mode")
-Fixes: e35ee8ee498d ("platform/x86: intel/pmc: Remove unused param idx from pmc_for_each_mode()")
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- drivers/platform/x86/intel/pmc/core.c | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+Those drivers have a very specific reason to stop pings during poweroff,
+because not doing so could result in failed restart / poweroff sequences
+(as the commit message explains).
 
-diff --git a/drivers/platform/x86/intel/pmc/core.c b/drivers/platform/x86/intel/pmc/core.c
-index 47759b2a8012..7e12990d45a2 100644
---- a/drivers/platform/x86/intel/pmc/core.c
-+++ b/drivers/platform/x86/intel/pmc/core.c
-@@ -1147,6 +1147,7 @@ static ssize_t pmc_core_lpm_latch_mode_write(struct file *file,
- 	struct pmc_dev *pmcdev = s->private;
- 	struct pmc *pmc = pmcdev->pmcs[PMC_IDX_MAIN];
- 	bool clear = false, c10 = false;
-+	bool matched = false;
- 	unsigned char buf[8];
- 	int mode;
- 	u32 reg;
-@@ -1165,13 +1166,17 @@ static ssize_t pmc_core_lpm_latch_mode_write(struct file *file,
- 	 *	'clear'
- 	 */
- 	mode = sysfs_match_string(pmc_lpm_modes, buf);
-+	if (mode >= 0) {
-+		/* Check string matches enabled mode */
-+		pmc_for_each_mode(m, pmc) {
-+			if (mode == m) {
-+				matched = true;
-+				break;
-+			}
-+		}
-+	}
- 
--	/* Check string matches enabled mode */
--	pmc_for_each_mode(m, pmc)
--		if (mode == m)
--			break;
--
--	if (mode != m || mode < 0) {
-+	if (!matched) {
- 		if (sysfs_streq(buf, "clear"))
- 			clear = true;
- 		else if (sysfs_streq(buf, "c10"))
--- 
-2.56.1.708.g77570a6a1d-goog
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+> RFC: this changes every driver. A reboot or power-off whose
+> device_shutdown() outlasts the timeout now ends in a watchdog reset.
+> 
+
+Which would be unacceptable.
+
+I don't know what problem you are actually trying to solve, but in
+its current form this is a NACK.
+
+Guenter
 
