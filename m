@@ -1,120 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795100114;
-	b=ktylKGqBHow7Fr4nkwlNC8t6aU2HHl14DJ+Es4SjyocEx9hcGSFdMrQjs/TE3CV8wwoY
-	 G39izDNbFjsw68NvEk+s+7w2O1YNXmXfDZcP+8hSciSUdFEx5ZXIToBK0daQXBOIMFx0v
-	 sMg+T+HPJ61fmuG0dKmiTJm2+6hv7axPFe54OdJtFc8dWNjOgjkZqMnpktaeAolP6AZ5I
-	 0BCDRVrvAgETVUkFqCiF761zbQreFbmdfw1OyoyjBa3FHCeWU5NB+qJylw0Kc7nnUcAWo
-	 cKGvdDbY/sFlCQ2bvmwO6Yq5+047A6ttSCYk4b13FeJfk7e9KYZFZUrXosOOVDw06aw==
+	t=1795100129;
+	b=WXIxhiYmTj4WbNdueGLRYEcRVbDl1Z9OHpk56Bjfz2kSu4e642uFcelWOECveWp8+FR3
+	 CYOCvY1MRuU/Fwj10s1a/k/KpPdzPN5FdZ9W9dETFAt4qJGXzNZS/VaUB+wP82/vmmith
+	 Z+UT4zIN8giIA1xYnr6JyNY9ZiP0cyDOWz4/AQTAg0KzwOPC0zawfPMdnx/fB+fIPSjcF
+	 cWnzs0TqE0ZMc2NYgtejLjNyiylwhyHOQVYcVRZo5L/VEN8iWp1CmUtCrPJeu7PwuvAnP
+	 frx/31uzo05gizz7Hp+WlhdoLF63pVCB4XIpwCDeX3kJ9YJe0kVI33t3tohIS7CTnng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795100114;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=G+3w7qcryJEhye/h2qafkqEU5e//COD+Oo6UYEV8BlY=;
-	b=hdfAFWKLWt8UXdS0duzRa0pfLb5si0oM2RbTAezYuPe8CWCJyJhCYfL/DZ8vHMcnpMAn
-	 YBfkc9jAv/Ya8DRMnUu/MOX8S+26KNgyH9bJIjaC9XsXorkAiVXcXMszHABG5f9sSiEcI
-	 8Emo6pqTqqjM5SubVTkBpZn5oOr9PA/FGzh4c9d2r6jXWynpoWD+bybZLJK6xA0Ar/IkC
-	 b73ghuZt/a38S6OsAZZqV5Vjf1cB9s5SNs3rf+qtG5AnV0cg1hbOtpvOWhBDTe29TC8hv
-	 3PWxlXAyV+g8PLbkHzqOW4XK60wQNeXA0YSfQnN3ibKBCbZM8SWP/3C2Yk7ePC3XN8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795100129;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=aKrzxSz3hLhQkNDEUiWgUXoAj4YRodSBySP8V/h8luw=;
+	b=Vlw3hn6fme+x5wIJN5078a9fu5xzPyIPGoT/wm18HwxcDUZW7mFtupikyFoe3epp8+4M
+	 fW3cA+S+N3mOCal0cD1/xMSn4mw4v6PH27O5ols/m4uNU/sDt5mffJRW9pVfj04sWEkMP
+	 bOxWguxs/K345r8b0ZvAoW7tVjXbFZGGIH9+55ly1+/BWR2hXnyUwpOUYDhbpWFKh+t+7
+	 HvExE5eBsNURxrD6XFWaEgB8iyExramjmZRHVcn1BvmY3iqWR+J3862WfyYzKxZiQHNZh
+	 ejpJ7p1Aii81oc7KBwrN72PWGUJjhWWGtW4VoGYSHsQgFB2hPW/n+A1EIx885SuRF9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=U8SNLZUp;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=HTrfOzxM;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AB63606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:55:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AB63606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDB98606A324;
+	Thu, 19 Nov 2026 14:55:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDB98606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=U8SNLZUp
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c511cdd5a82so239678866b.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:55:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795100112; x=1795704912; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=G+3w7qcryJEhye/h2qafkqEU5e//COD+Oo6UYEV8BlY=;
-        b=U8SNLZUpSmGooaNMNN6PYxECySXVz+MwMEK9xjhak0eCZ91ckA29HCyhgHzb10RV8b
-         f4TvcU0VyWf709cOjM7r27zVdPNpfkwVfIkLyAi38VpTpqdIfp4gBtWA4C49tPHiLPFD
-         OoyXlBOoXgVwGneT14LJARwicBIWqQn0lIlZE+0B9HXe/xQVKCDod0RtdHsCaPY4PHMg
-         bq8zqi1IxyGwQjOpCfqTFiIONWpfPqlq09g16etOvi7LbT+DEEjCduYiA6YuAruU98a3
-         d2Y10yr4F3Tyjsr79RmGaBD4MTJLGTniCwXuDfDMkrDyXboTIKZmfQJrNQxl5uocv5ke
-         aOjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795100112; x=1795704912;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=G+3w7qcryJEhye/h2qafkqEU5e//COD+Oo6UYEV8BlY=;
-        b=qv0VRFsiLRFZ3k0IXlbOmekLufikQvTE3ZzkdHmy7CEGYcMlUjm2N6naoo876ADi9a
-         YvsDgCAnmT5y2pJLBwYNKxk94ossIxXPSqVF62/CjwlCOEyPf4jGw1qyxoRh6tzEMWZS
-         PgzzikJxUJHmEWIR7HRvUewLwQZHdUUcCrzx1LK/k5auXHMzrFygGhfYldhp+2elzAkF
-         XfRxiovvkft480M1rYpgkIjcIGw6JrSQPmxnM/dCfSIjau6lx9V4CGs5xGuG7a2zcpz6
-         Jyig6Xng26WocZMrquJrPK4K/kCUDjVYLku0lgVXuAq40pzBocYZEttoNLJDdRoY/KjO
-         IyUA==
-X-Forwarded-Encrypted: i=1; AL+hErGUz6QeuoJTssyqmeEDyxQTnrxq1cOVpc1I8lUl02Wgw3+tGMFXkRyWTObpD+9lw30y6YeceSzcb+cArFE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8u6lBxLc2SQA6YaWb9cA90rpWKEg/CO8licuSINeafQntRo37S
-	Z55de7i7tX8qrXlu9xHy3GLPCudRVZBBRL9GcO+/fKoofdZYBOc4SJTKn16poiFTzBM=
-X-Gm-Gg: AYBFou0ECPc3ymWh3iD4OyV6APicnfVIwtxDzAskShgVQ4Ii+uno9sV6mmaRkvKHOxz
-	lIleu14oaPFDdL+7eGc6yx9JPdyF+XyG0LTgFqIr+ub6OuaGydnnjLRNo118OlctIy+Q3eKNmd5
-	fJPV4SJEQt2/L2nHpewFoqF8oVfGzaXl5mLkoWcTb789HsHkPHTDJ1QIHvXy5iFAtXoXFvNILeX
-	BqQpkzcyVwJuq2cT9xh6oipmxSCg4eBAWy0zXXO15w6Jcli6nQqXParBRxmy5eoCrA+iUFi2eTJ
-	CRSd/uhXDFKlLnm1+vVkWhaPXiCOWh7VYaihYvrHE8pOp0lImipOZWRoRqA1JvIHzorZCCRQ49I
-	/BYYK/fsf4/HZbuVtr2e2zAGlVNEB310C9qoeKNbY+AnH3IJkxIxhQnNPQ1ABi1v4/mQX5ZVhB1
-	84vLYrIWMuvo5HYZJ0S0gqikqYe/Ha2fRJfKf3UmUf86MjYkElD2DdEYZKmdg7DhAAJOmFZQ6Bo
-	ctcDOFAxx/kflS1hjP/jxV0WnjVwrBWEI4RaHZD0Hq9fmkvWt4F0LsHR0RBNy8Sigzo8sEGNxdx
-	0tzD8A==
-X-Received: by 2002:a17:907:ea94:b0:c50:aa10:d888 with SMTP id a640c23a62f3a-c513acab9d6mr6638766b.40.1795100111790;
-        Thu, 19 Nov 2026 06:55:11 -0800 (PST)
-Received: from ziepe.ca ([142.166.156.71])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8f70fsm2503566b.40.2026.11.19.06.55.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 06:55:11 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xU3XZ-00000000vhT-1zwc;
-	Thu, 19 Nov 2026 10:55:09 -0400
-Date: Thu, 19 Nov 2026 10:55:09 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
-	Abdiel Janulgue <abdiel.janulgue@gmail.com>, iommu@lists.linux.dev,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-Message-ID: <20261119145509.GJ3115493@ziepe.ca>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
- <20261116193821.GC2452510@ziepe.ca>
- <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
- <20261117202055.GA3115493@ziepe.ca>
- <615C3DA2-4C02-4A8B-AEC4-70D498672559@collabora.com>
- <20261118193521.GD3115493@ziepe.ca>
- <457fe01cc1fbc5b6e2d7b5c9c167012b56fe86b2.camel@collabora.com>
- <20261118210626.GF3115493@ziepe.ca>
- <06d4eead-b765-44b9-94a8-6ec2d71d172a@arm.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=HTrfOzxM
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 48675C4CBF5;
+	Thu, 19 Nov 2026 14:55:26 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6FF2D60237;
+	Thu, 19 Nov 2026 14:55:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E98211BC0B70;
+	Thu, 19 Nov 2026 15:55:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795100109; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=aKrzxSz3hLhQkNDEUiWgUXoAj4YRodSBySP8V/h8luw=;
+	b=HTrfOzxM13WZ7n9aAmFcRFr5pAcxHA3ZqJL0kywhahRXAf//gq+yRoV22ahT0GZ4QXv3xj
+	BLpPtTSNqmnKjV5bmUeNef4QhBKJigTonGXBxBIcK1WgU0enyEOnE6EnelZ1Fmm5IWwK/1
+	SpfKUcqu7WpwkVJk/1T1UYw5FLOhcDLEc+3bS6Owx3vIcae0dPgxFt5z9Vi+kLiXvGbjUw
+	7rD0CUDgx0PmaaQZpLPfXBXBv3K5yVeS20MNsRC5kNbvbcKqRkhSrCTrTMHTFtv6oyRun6
+	YTvMF40qjQVWsvoIQUtXICu8ojYSQnzBNoDrXj197T8GqbUf16nvR4tScqBWSw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,73 +58,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <06d4eead-b765-44b9-94a8-6ec2d71d172a@arm.com>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 15:55:04 +0100
+Message-Id: <DMZ9VNGP6GSZ.15VHI64APKAQR@bootlin.com>
+Subject: Re: [PATCH 06/10] spi: cadence-quadspi: Bound chip select against
+ f_pdata array size
+Cc: "Mark Brown" <broonie@kernel.org>, "Foon Tan" <lftan@altera.com>,
+ "Graham Moore" <grmoore@opensource.altera.com>, "Murugan R"
+ <vadivel.muruganx.ramuthevar@intel.com>, "Vignesh Raghavendra"
+ <vigneshr@ti.com>, "Pratyush Yadav" <p.yadav@ti.com>, "Dhruva Gole"
+ <d-gole@ti.com>, <linux-spi@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, =?utf-8?q?Miqu=C3=A8l_Raynal?=
+ <miquel.raynal@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <stable@vger.kernel.org>
+To: "Lee Jones" <lee@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261119091810.3440619-1-lee@kernel.org>
+ <20261119091810.3440619-7-lee@kernel.org>
+ <DMZ3XW6ZEFDF.2WJ1XU4UKTRAH@bootlin.com>
+ <20261119143347.GS98456@joneslee-macbookpro.roam.internal>
+In-Reply-To: <20261119143347.GS98456@joneslee-macbookpro.roam.internal>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 19, 2026 at 01:03:52PM +0000, Robin Murphy wrote:
-> On 18/11/2026 9:06 pm, Jason Gunthorpe wrote:
-> > On Wed, Nov 18, 2026 at 02:41:32PM -0500, Nicolas Dufresne wrote:
-> > > Jason,
-> > > 
-> > > Le mercredi 18 novembre 2026 à 15:35 -0400, Jason Gunthorpe a écrit :
-> > > > > No, not OK :/ We want to use GEM shmem, which calls into the DMA API internally
-> > > > > through drm_gem_shmem_get_pages_sgt() -> dma_map_sgtable().
-> > > > 
-> > > > You cannot continue to use DMA API once you start touching a paging
-> > > > domain directly. It is why driver_managed exist.
-> > > 
-> > > You are building a strong argument around something that is not what we intent
-> > > this binding to be used for. If you had cared about the context you'd know we
-> > > don't want to touch paging from userspace in this type of drivers.
-> > 
-> > Go re-read Daniel's answer and perhaps you can understand my confusion:
-> > 
-> > https://lore.kernel.org/all/3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com/
-> > 
-> > If you want to
-> > 
-> >     "We plan to alloc a paging domain when a video encoder session is created. Then
-> >      we call iommu_attach_device() before a job runs"
-> > You cannot use the DMA API.
-> > 
-> > You absolutely CANNOT attach a brand new driver controlled domain, use
-> > the DMA API to populate it, and then detach it.
-> > 
-> > Then we have the issue that the rust bindings expose iommu_map, which
-> > cannot even be used on any non-coherent arch due to lack of cache
-> > flushing.
-> > 
-> > Further, from a Rust binding perspective all these unsafe things I
-> > talked about have to be blocked by the Rust compiler:
-> >   1) You cannot attach a domain to a driver_managed_dma=false device
-> >   2) You cannot call DMA API functions on a driver_managed_dma=true device
-> >   3) I object to exposing iommu_get_domain_for_dev()/etc to Rust
-> >      due to how unsafe it is, but if you were to do it then the
-> >      returned pointer must never be used with attach or iommu_map/unmap
-> >      functions.
-> >   4) Since there is no cache flushing a non-coherent arch must never be
-> >      allowed to call iommu_map(), since it is unsafe to create memory
-> >      incoherence.
-> > 
-> > Thus, what exactly is the plan here? Do you see my concern?
-> 
-> Yes, your concern is a restriction that you largely made up :)
-> 
-> This is very much *not* driver_managed_dma, which TBH is poorly named since
-> it really means either "no DMA at all and thus fine to nominally hotplug
-> into live domains" or "userspace-managed DMA with no chance of ever
-> inserting DMA API calls at the right points".
+On Thu Nov 19, 2026 at 3:33 PM CET, Lee Jones wrote:
+> On Thu, 19 Nov 2026, Th=C3=A9o Lebrun wrote:
+>> On Thu Nov 19, 2026 at 10:17 AM CET, Lee Jones wrote:
+>> > @@ -1761,8 +1762,9 @@ static int cqspi_setup_flash(struct cqspi_st *cq=
+spi)
+>> > -		if (cs >=3D cqspi->num_chipselect) {
+>> > -			dev_err(dev, "Chip select %d out of range.\n", cs);
+>> > +		if (cs >=3D cqspi->num_chipselect ||
+>> > +		    cs >=3D CQSPI_MAX_CHIPSELECT) {
+>> > +			dev_err(dev, "Chip select %u out of range.\n", cs);
+>> >  			return -EINVAL;
+>> >  		}
+>>=20
+>> OK this does fix the bug. Here is another proposal though:
+>> ensure at probe that cqspi->num_chipselect <=3D CQSPI_MAX_CHIPSELECT.
+>
+> One slight hesitation with this.
+>
+> In cqspi_of_get_pdata(), CQSPI_MAX_CHIPSELECT used to be 16 prior to:
+>
+> 7cc3522aedb5 ("spi: cadence-qspi: set maximum chip-select to 4")
+>
+> ... and cqspi_setup_flash() overwrites cqspi->num_chipselect with max_cs
+> + 1 at the end anyway.
+>
+> Thus if an older or out-of-tree DTB (e.g. with cdns,is-decoded-cs) still
+> has `num-cs =3D <16>` while only populating flash@0, failing probe in
+> cqspi_of_get_pdata() would break a working board, whereas clamping
+> num_chipselect or checking cs against CQSPI_MAX_CHIPSELECT only rejects
+> child nodes that would actually overflow f_pdata[].
+>
+> That said, no in-tree DTS hits this, so if you prefer rejecting
+> (cqspi->num_chipselect > CQSPI_MAX_CHIPSELECT) or clamping it, let me
+> know and I will happily make it so.
 
-Now you are making things up :) When we invented driver_managed_dma it
-was explicitly for the driver to take control of the domain attachment
-away from the DMA API. For whatever reason the driver might have to do
-that.
+I still prefer the clamping or erroring from probe. A devicetree (ie
+hardware description) which tells us this controller has 16 CS has, is
+and will always be wrong. I don't see why we'd want to bother with this
+edge-case.
 
-I wanted to convert all the places calling attach to this model but it
-was too difficult with no way to test on all the embedded hardware,
-but I still think that is the right thing to do.
+Thanks,
 
-Jason
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
