@@ -1,53 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122177;
-	b=tZj4WwmOlpfmTdLFhqTzXLFHyGU3SBPHx69BSDnuUV4P0v+ZapwwvTa+vWSHo41NMnjS
-	 YOLTY0JXFlvpdgA15BFO8SfCMxaWrNFoMZ+vDNs8CopdHPDCVEHCTmc7Z5NjNGawWvwzI
-	 6bPzB3KC9CcA0mxfU0/Ceb+SrqZwmh4l3rL0ltXdC5RkzZWHnIGQB5gNgwkPeMwLiSfsr
-	 Xsm1+IWrYamXHxixksP7V/DRxMmk96QIs/W2IXE5wwTrTIfdlyWO+XSsgcdzD3twvmigz
-	 yZC/0EZp6KsJpg8HPo7WAbrgtGFo5Oiue4JzB61Oxn9U9+Puu8ACIqkYj7ER78fypSw==
+	t=1795122216;
+	b=C8tIhkhGyr9PrM8rYCPgcukJxXmLOiRSFDVtxQhGuPCo+sEpZZOwX+VMCXNZNZ4mV3LP
+	 mbL65XOpa6C7VnpB9i3nh48JLcUVOg0nxflEAgiDHe90i1LGIok+mKCOQmqgu94brqhXh
+	 BgS1eR/RA0XCWdP9RXjVLJWPEE6vRXrmTROWTa9BRyXnN02z/CLXIPwN4KM7kfArHZoY4
+	 +FDzUZPWHT9qOjMHK5+dNTW0KBEk61lrSiNiEKgZdU/N67JHZ8fswKk7wGUJQ2sNfoaBX
+	 6nJdAgLPsJSdaovhZ5xzhzWysCk47YGDFoaDE3ItCl9Gt7A4gO3n5xxeCwb8kKwou/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122177;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=5e3qHst8t5RYS38cYNTHd20BAa716VNfA11Xr+S6tjw=;
-	b=BFheNlD/fVevAQX4bjJTP3jBfgs8bvpXE1UBodf2ON1+yGMKzdT38sXRhmIrREZglgY3
-	 f0nxbO9grknrLgBl2L9peMfFqouQJImGfa7rLP2Iz1V3kBN17ZmDMH54rFVUr0iWFQ6Q0
-	 53jdIp8qDgOa00cLUKkrFYaMtobJKelmdOcvOc6kYP0QZDFV5dog+FQw6byBLC23xR/mU
-	 pp1Zc8o4bc57lyrfnUpqWHvla8Tlq64NdjDRT73IVFKoTt6zNb15kSAEvjBITYPipIW81
-	 s2tCONRXVpGpp4tFd7BXK215GBQE32sJxPtM3B/ArifM0bo5+Pjwavj8STigvuZf9Rg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122216;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=sfsFb1aGEKDdDgduNvVaqLPO/+tVEkI1Hc7WtTzriM4=;
+	b=FlsZ30jIk+0CSOMW26KXTo7DtmjRkvHRvsadse9ptWJLxlswhR9MATiQeq+6b/97LNIE
+	 4pak4BKGNb8D+a52lJYJ9TY/4U05Oc5iGNuZwoJbYps8OGm7EwGCXeu7IdYPFQyWBlkZH
+	 lDYY2/yYKkelx3qYfSwyhxdZmf/kFypsJBpm4ZrpUm94+v6CVs5kkZ9TH0V0t7E8s4BJm
+	 a0M51cXMyetGrSEj712RPxMuc03LTmxTmtEH3fj6EhpEccgTycNZ/1h58pS1g6+VoKdM6
+	 LsXrCFG451mE6jGhp7qom/+g4aJmI1GAJKvGUljBDcHvQ3BFIwy9JDhXNaf4gOKYVGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pw1mFeBM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ec1yZDgI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C48FE606A320;
-	Thu, 19 Nov 2026 21:02:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7617A606A320;
+	Thu, 19 Nov 2026 21:03:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pw1mFeBM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1591C1F000C0;
-	Thu, 19 Nov 2026 21:02:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ec1yZDgI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 224001F000C0;
+	Thu, 19 Nov 2026 21:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795122177;
-	bh=5e3qHst8t5RYS38cYNTHd20BAa716VNfA11Xr+S6tjw=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=Pw1mFeBMk4XMLf5MlZWFqj6ziKts0XfIQ+ucg/QVjaNZGA1rDrm606+FkxVLD5y4g
-	 u3cOPQx26mnem3wqFYGlsPobz3AiSf/b99P1QPyXvZw4YmCJ5Vtay2O8sFwPBbmiVq
-	 MC5zf5TqznKHNVrYdJ45V0lrOXhPvud0nEFw6TVeWN69lXHaniZyw7kUrVD5fCi56s
-	 fMRkui2dlsAVuq4gP4tF7cfUa3ejX6YsbC1YuJIOqICVHQdH0SmXP+oroiqvy191Ol
-	 tVKD9Kx+E1kCElA0DwxoXiryNC47ssYOAlizBwf5CV7xuT/65zid4kDupd/VYFZlD0
-	 n2C1uYMCNVJdw==
-Date: Thu, 19 Nov 2026 22:02:54 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: Jozef Riha <jose1711@gmail.com>
-cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] HID: betop: add support for SPEEDLINK TORID
-In-Reply-To: <20261118143306.75858-1-jose1711@gmail.com>
-Message-ID: <n5161908-rpq0-346p-1214-58746q67sp76@xreary.bet>
-References: <20261118143306.75858-1-jose1711@gmail.com>
+	s=k20260515; t=1795122216;
+	bh=sfsFb1aGEKDdDgduNvVaqLPO/+tVEkI1Hc7WtTzriM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ec1yZDgIKaPP2Gg+BMqEMC7B1k7AJQf+XKLHQru6ochjFwVtKC3fb5DUSCBqJrLoz
+	 0v740ceRJMbVFPLVI/cYo+OEFNwQRcYRBU9R1q0EPPenf0xwB+thk7kFbcVB9cDnNs
+	 GeHiRRc/bmoqNKWrgF9g/XgPwuUbkhTwJY6Ccbbt1t6DKP9VqLvbSyc2VOJVTqd3pI
+	 FyH4Ur/ihOix2mwCIzmNbpOQ0KBUs0CW4ZDKi+QSy2TOV7YxRM1yMMdyqXwV4iIodF
+	 FDeKh/Xq3mmZR+ePmEHSoJfbgW7Nb+pQuwmCb4P86wLVs8B3NskO09jSMjnAEazAgj
+	 Nw6e5SM8v8ugA==
+Date: Thu, 19 Nov 2026 15:03:33 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: muhammad.nazim.amirul.nazle.asmade@altera.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	"David S . Miller" <davem@davemloft.net>, netdev@vger.kernel.org,
+	Dinh Nguyen <dinguyen@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: altr,socfpga-stmmac:
+ Add altr,socfpga-stmmac-agilex5-tsn compatible
+Message-ID: <179512221319.568679.6038463507415818454.robh@kernel.org>
+References: <20261104040320.18077-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <20261104040320.18077-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,53 +69,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104040320.18077-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-On Wed, 18 Nov 2026, Jozef Riha wrote:
 
-> The SPEEDLINK TORID wireless gamepad (11c0:9105) is a Betop based
-> device. Its output report has the same 4 byte layout as the other
-> devices handled by hid-betopff, with the motors in bytes 2 and 3.
+On Tue, 03 Nov 2026 20:03:19 -0800, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > 
-> Without the device ID the gamepad is bound to hid-generic and has no
-> force feedback. Add it to betop_devices[].
+> The Agilex5 SoCDK TSN Config2 gmac1 path includes an FPGA soft-IP
+> GMII-to-RGMII converter between the DWXGMAC and the PHY. The converter
+> provides the RGMII TX/RX delays and presents GMII toward the MAC, unlike
+> a plain altr,socfpga-stmmac-agilex5 port with no such converter.
 > 
-> Assisted-by: Claude:claude-opus-5-5
-> Signed-off-by: Jozef Riha <jose1711@gmail.com>
+> Add altr,socfpga-stmmac-agilex5-tsn for that integration in the same
+> compatible items entry as altr,socfpga-stmmac-agilex5 (shared
+> snps,dwxgmac-2.10). Do not use altr,socfpga-stmmac-agilex5 as a DT
+> fallback for the TSN port; the converter presents GMII to the MAC and
+> supplies the RGMII delays, unlike a plain Agilex5 GMAC port.
+> 
+> The TSN port uses the same DWXGMAC-2.10 core as the plain Agilex5 port,
+> so extend the interrupt/interrupt-names/dma-coherent conditional to
+> match the new compatible as well; otherwise a TSN node would incorrectly
+> fall into the single-interrupt, non-coherent else branch.
+> 
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > ---
-> v2:
->  - Fix From/Signed-off-by name mismatch
->  - Cc linux-input and LKML, v1 was sent to the HID maintainers only
+> Previously patch 3 of the v6 board series; split out for net-next.
 > 
->  drivers/hid/hid-betopff.c | 4 ++++
->  1 file changed, 4 insertions(+)
+> v2: Extend the interrupt/interrupt-names/dma-coherent allOf conditional to
+>     match altr,socfpga-stmmac-agilex5-tsn, per Jakub Kicinski / netdev bot.
+> v6: Put altr,socfpga-stmmac-agilex5-tsn in the same enum as
+>     altr,socfpga-stmmac-agilex5, per Krzysztof Kozlowski.
+> v5: Drop altr,socfpga-stmmac-agilex5 fallback and rewrite commit message
+>     to explain hardware incompatibility, per Krzysztof Kozlowski.
 > 
-> diff --git a/drivers/hid/hid-betopff.c b/drivers/hid/hid-betopff.c
-> index f802046a688a..28ab0acce6ad 100644
-> --- a/drivers/hid/hid-betopff.c
-> +++ b/drivers/hid/hid-betopff.c
-> @@ -16,6 +16,9 @@
->   *
->   *  0x20bc:0x5500 "BTP2185 V2 BFM mode Joystick"
->   *   - tested with BTP2171s.
-> + *
-> + *  0x11c0:0x9105 "SPEEDLINK TORID"
-> + *   - tested with Speedlink TORID wireless gamepad.
->   *  Copyright (c) 2014 Huang Bo <huangbobupt@163.com>
->   */
->  
-> @@ -137,6 +140,7 @@ static int betop_probe(struct hid_device *hdev, const struct hid_device_id *id)
->  static const struct hid_device_id betop_devices[] = {
->  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185BFM, 0x2208) },
->  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185PC, 0x5506) },
-> +	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185PC, 0x9105) },
->  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185V2PC, 0x1850) },
->  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185V2BFM, 0x5500) },
->  	{ }
+>  .../devicetree/bindings/net/altr,socfpga-stmmac.yaml     | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
 
-Applied, thanks.
-
--- 
-Jiri Kosina
-SUSE Labs
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
