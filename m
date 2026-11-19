@@ -1,75 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795099142;
-	b=RpCfwfCft2/l10rCqIZ0/yJUqLqRf/xG4vj/QVJKacsutVj9Af6kDpG48EHPPmvS2ksM
-	 9OMvP87GxVruZhLUlkpnDrhJmzsEmEi8XIMkZ+irPZ9beIlEu1pCnPL4qoGS2A1joT9uu
-	 +Owh/Ve2LvU9Cfh98eRzHEkFFcZZ/JAXpvuLHyZShDHDVTC3XrsYH+/eAtAjuXw5uEhmQ
-	 3JFwUHk6AvW9+1Ff9GUY4SxfTL8deJ/YcFyL4ntw7dg/TIjfQo6fparO9dx9/0ifnUebH
-	 XKGklNhEY+9SBmWIu+V3jXGlVJeZ4ubc/WsNU1rxnPqzW8QIgt4HBmOlMTLbZkiU6+A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099142;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=MMHHkkoxc23bBjQy826GU8NQcyL5syhIWVgroKMdpRk=;
-	b=SQ4uy/oQMVzsJWBv/i+jxQSPekruncq7n5O0wA7NkqZKQAh3JKDGd2NIoPd1aPBGXnlH
-	 O+/vNGorfkRYkjQ18DESdTqkgoBQJqIhxfaX5wbMyQDaUewjc8TpfyoM50A5cP08LBLpi
-	 l18vrFY+rXkUylN53yea8nvwzZzTOnxQJ5DJ+DhCYBRYo50BkWPYgP3etxkpeGGFz+Sxu
-	 K4oe6AKpz9Mj7H4WBdNmTgontNHUGGojQDR0MF4K4Baj5Ug4LRfpBfJm1ly7Oe/lkXWNh
-	 8E3RhoIK1q37pxj9csoe+0VKN9WwIXuU0wLhW0uF1sZyZB9zHB7FikTaVipxxHrkkcQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=HfnrFIii;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795099210;
+	b=s9oCUZvwByDSpwzUHh1oa0ECRodWmhVpyDOV910VUzx2jZVOf6MB7L0uFtqmvwBeBm6c
+	 jRMy3mwnjanOlUWMMaluIbmGfelXyPQ5CdRgChnIA620l9pJ/2rhFVv5kKjBM/hxhH3Ql
+	 OUPfxX7aQXKfl/9LIIpmYCLzxx5fcGOGNNXe4WUi1wKM/2T32tXIXSpk02GuYeiYh/xkc
+	 N41aBkolRkQkJoMGeI1OVloKxRbgu7JZ/Jgxxkn68aWzU4wgnqYR2GDIh4pW2Prn39iys
+	 2HcROZPRJ5oHOTMwYsWw/1/XGPIlr9tM6bpCWx0EWTg1JD6tiDUabGaM64wbGlLPQxA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099210;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=jGUNa2nkwgmbkFv5PZDi3+5NxDpJOH/HW6VIk5Cn1XI=;
+	b=Xa34qynAl3zCFFJs4d3LghFlFMO3dvPGmUv2x12aKGXm4OwhyNkRI/0MkAOGkHIgmBTG
+	 fwPvOx+dNt95rgJnO94mQwWFOZu1bHgR6DviATB/1//3SplRpMCD4ft2PXJfyZDXEHPo/
+	 VJm/pf8qHhycUaSQXW6VpDTVMila/NmmQUUM2oB9WY/JHzi7QhhRwmTuzxfKB1XTgioZb
+	 zhZb1im5H4IfhRe1CZ19fzv53odze51LvmOjnwJIZUvKXV+oVJ2sicDRRXThBlpVtzy/i
+	 2NlR1OmKixt3PD7oDU1UQhmlvyK2mDhycr71N+v+xLMoAyeEneg2RwGmMKXji7cXY4Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P8Da98U0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FB0A606A320;
-	Thu, 19 Nov 2026 14:39:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FB0A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 03000606A32F;
+	Thu, 19 Nov 2026 14:40:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=HfnrFIii
-ARC-Seal: i=1; a=rsa-sha256; t=1795099110; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=STGpgWs6TUGcrB82dxbjxb9hFNGTFLSACFC4L+iccChP1x5sjuQWEbtM3BUHpPxIB0D7tpHvKRAOJKQN3OLOcLh7Qkw3KVslZXyc7QBLIi5QwWsN0Oh+8+O7jmxJOAu4JBL0Vx2pu7y+r4lgZMOd1tEoZoUf2gE5ltNzd2vvp7o=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795099110; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MMHHkkoxc23bBjQy826GU8NQcyL5syhIWVgroKMdpRk=; 
-	b=Hklt22I6KIl47qF+Ix9Zr8MB/bxSFg1ChM2UPfnAafGo0SneFzVnH2TVLuAHdWvVzsOxBcwPlx/VrgmCUy2A7Cz4C53SUeuA280yNmLiCfuv40GjKwsokvvi6Q+O33k1lZfAOQVz3gX81Fh9K7zQNn8QQfjzt0SoTFXIYR1+lls=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=HfnrFIii510blYu7F9zn1BLGVaJYDe/6daREztsEftjgX0X9jbb9xWfmkVPEikxj3Lcqb3QpEpO9jvLBOzCY99vuajdXgoD6FxrnP84tNlMwGYHrHoTVMqLFtlGFYWU3eroV2wjxSQvqBqCNntWPf8jhmphwcGE1H5lpdJvjR0rCA+kCwq7U5NHcn7/WcGygOwq5adp3UbJrz92RKDMsKsMUZDP+j69yOyijM7+5wE4Gq9QLhMulAhgOdssP2SojiNTrb+/f76/LwbxbRqaAQ71bwxEEPgiHP24/pRdashhEEg3X4F/BOugPHePSh/bt+4KTvviiiRH0gteiV2BuFw==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=MMHHkkoxc23bBjQy826GU8NQcyL5syhIWVgroKMdpRk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795099109111716.6663432809851;
-	Thu, 19 Nov 2026 06:38:29 -0800 (PST)
-Message-ID: <85a6f4cf8b9a1409d343705886afe935952fdf62.camel@rong.moe>
-Subject: Re: [PATCH v4] platform/x86: asus-wmi: fix camera key LED on
- Zenbook S14
-From: Rong Zhang <i@rong.moe>
-To: Devin Bayer <dev@doubly.so>, Denis Benato <denis.benato@linux.dev>, 
- skyedryv <skyedryv@gmail.com>, git@turtledev.nz, Corentin Chary
- <corentin.chary@gmail.com>, "Luke D. Jones" <luke@ljones.dev>, Hans de
- Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=	
- <ilpo.jarvinen@linux.intel.com>, platform-driver-x86@vger.kernel.org
-Cc: =?ISO-8859-1?Q?Jos=E9?= Guilherme de Castro Rodrigues
-	 <jose.guilherme.cr.bh@gmail.com>, linux-kernel@vger.kernel.org
-In-Reply-To: <b4d1f79d-770a-4e28-86cb-c3a5fd9187f6@doubly.so>
-References: <20261019-asus-wmi-camera-led-v4-1-7744c125bcc9@turtledev.nz>
-	 <e212e07006249d68aa7b9df25c95581b307b10e2.camel@rong.moe>
-	 <395209cded20a0bdc069b7bc19a68366b62a3f39.camel@rong.moe>
-	 <a35a487b-7932-41f7-bbd5-0d0fad2035c4@linux.dev>
-	 <4c7d100f18820cba7c4fe6f6fe50c6e3324504cc.camel@rong.moe>
-	 <9cbdb61b-9c49-4b31-a28d-022500b271a5@doubly.so>
-	 <73a6179232b6db07014d78508c441a6013912e69.camel@rong.moe>
-	 <b4d1f79d-770a-4e28-86cb-c3a5fd9187f6@doubly.so>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 19 Nov 2026 22:33:21 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P8Da98U0
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 497251F000CC;
+	Thu, 19 Nov 2026 14:40:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795099209;
+	bh=jGUNa2nkwgmbkFv5PZDi3+5NxDpJOH/HW6VIk5Cn1XI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=P8Da98U0KKGyVjG5Co+Bq3lcopEB0AluEtILidv5HO2nC9IyOWGoRGjYm27bzTqIx
+	 +lW6pso1BJ3BrPzJxPix2npnl41J3OXdsNde4rlJ4Xk33Mfr/2uOKj234ZaQxLFsaN
+	 JHUbeyIxXwLPaI5mqCcxB7neudbJ5YHjlmjUvbCJnEzfr2AGo6qGaBb72MAV7L8wyy
+	 CFQXCc9Tw0dMdoeIYdGl7ZLMA0okVeqgKyTU6Pf/vA4x9SI4OyVKsgMksYPaEOyaLx
+	 rCFP1VQuX+46JDr07Y6DI/ct6ui/VXSAcdZu7oQ2XjGA/E5dOjTOfDtLZjFT0ADzEm
+	 tTU3agC4K7jFw==
+From: Nicolas Schier <nsc@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Nicolas Schier <nsc@kernel.org>,
+	Julian Braha <julianbraha@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Kees Cook <kees@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	Linus Torvalds <torvalds@linuxfoundation.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>
+Subject: Re: [PATCH v2 0/6] scripts/Kconfig.toolchain: Document minimum supported versions for dynamic checks
+Date: Thu, 19 Nov 2026 15:39:59 +0100
+Message-ID: <179509785409.3080802.12400900075505469862.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261111-kconfig-toolchain-updates-v2-0-b2d9415c1757@kernel.org>
+References: <20261111-kconfig-toolchain-updates-v2-0-b2d9415c1757@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,64 +78,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-3 
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-Hi Devin,=20
+On Wed, 11 Nov 2026 17:52:02 -0700, Nathan Chancellor wrote:
+> Now that we have a fairly unified location for compiler and linker
+> feature checks in scripts/Kconfig.toolchain, we should make it easy to
+> clean up the checks as they become obsolete through minimum supported
+> version bumps by documenting when they were first supported. I somewhat
+> modeled this after the documentation in compiler_attributes.h but I did
+> not want it to be as verbose.
+> 
+> [...]
 
-Thanks for your information.
+Applied to kbuild/linux.git (kbuild-next-unstable) and applied Kees' R-b
+trailer to 1-3+6, thanks!
 
-On Thu, 2026-11-19 at 14:57 +0100, Devin Bayer wrote:
->=20
-> On 19/11/2026 14.12, Rong Zhang wrote:
-> > > I don't know about query=C2=A0and notifications.
-> >=20
-> > Could you test if any event is emitted when you press the camera key? S=
-ee
-> > is_camera_toggle() in Zane's patch for the corresponding event codes.
->=20
-> Is this what you are looking for?
->=20
-> bpftrace -e '
->    kprobe:asus_wmi:asus_wmi_notify {
->        $obj =3D (union acpi_object *)arg0;
->        printf("_WED type=3D%u value=3D0x%016llx\n",
->               $obj->type, $obj->integer.value);
->    }'
->=20
-> When I press the camera key, doesn't matter if it's disabled (LED on) or=
-=20
-> disabled (LED off):
->=20
-> Attached 1 probe
-> _WED type=3D1 value=3D0x0000000000000085
-> _WED type=3D1 value=3D0x0000000000000085
->=20
+[1/6] scripts/Kconfig.toolchain: Remove CONFIG_CC_HAS_NO_PROFILE_FN_ATTR
+      https://git.kernel.org/kbuild/c/aac435fa2bae
+[2/6] scripts/Kconfig.toolchain: Do not dynamically probe '-fno-addrsig'
+      https://git.kernel.org/kbuild/c/836ac9c65e4d
+[3/6] scripts/Kconfig.toolchain: Clean up '-fno-allow-store-data-races' handling
+      https://git.kernel.org/kbuild/c/e2c2434465c8
+[4/6] riscv: checksum: Fix CC_HAS_ASM_GOTO_TIED_OUTPUT check
+      https://git.kernel.org/kbuild/c/f67671cfeafb
+[5/6] Eliminate CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT
+      https://git.kernel.org/kbuild/c/fe2493fd4bd9
+[6/6] scripts/Kconfig.toolchain: Document minimum supported versions for dynamic checks
+      https://git.kernel.org/kbuild/c/c71019d89ed4
 
-This is exactly what I am looking for! Your device can take the advantage
-of brightness_hw_changed though CAMERA_NEG, which proves the viability of
-my proposal.
+Please look out for regression or issue reports or other follow up
+comments, as they may result in the patch/series getting dropped,
+reverted or modified (e.g. trailers).
 
->=20
-> > > The hardware key doesn't do anything if it's remapped, at least in my=
- setup.
-> >=20
-> > How to "remap" the "hardware key"? Isn't the LED device only "remaps" t=
-he
-> > status LED?
->=20
-> I mean the hardware key does nothing - it doesn't control the LED or=20
-> camera.=C2=A0
->=20
+Patches applied to the kbuild-next-unstable branch are accepted pending
+wider testing in linux-next and any post-commit review; they will
+generally be moved to the kbuild-next branch in about a week if no
+issues are found.
 
-Got it. This is also what I expect. I misinterpreted your word as
-remapping the key though hardware (i.e., EC).
+Best regards,
+-- 
+Nicolas
 
-Thanks,
-Rong
-
-> The desktop keyboard key is remapped in software so the desktop=20
-> doesn't disable the camera when it's pressed.
->=20
-> Cheers,
-> Devin
