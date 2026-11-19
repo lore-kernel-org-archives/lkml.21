@@ -1,96 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795079301;
-	b=dlsueYDiyqjK1ccYs/zJ4tnucWApenv3uedwdchtCd5+QKIgD8vFveiq6fZ0XKdvqWDR
-	 EMDbtuAHjk3LrdUQvA2H8sqYQPMLa1M/6dRi4pkDdUosItb5vV0/nBL7tHlMrVPL9MMjD
-	 Ei1wL6N75o+2AjKYfy685vWI48TtmnbWJ7HnfmvuFXZIna1NqmBVfmxo7ExQ4UHakuz4W
-	 dKvUlDKAydtYu6/uYjc7kDz/vYidVSmwrcrU8ELvdqswMYJMttmLENCwEISM3iRjekg8e
-	 LnX7MVDftB+spXcxy/XqUH423dC5nM7z7L8FhOtofBp9PqGy9x7Bv6IodLXpJI8gPqg==
+	t=1795079307;
+	b=udBMVbAQjO9EAoU5Slsm12V8Ki8TLXEVFonsvU2UkHO8Z5/wXGk+Fd0nYNx/Sz1xL+eY
+	 h48Ffef0aTOAReWjAIvn4vVc3qqSJp8R/YpmYF5PeAiyYr5Zc/pIxRVX0TqG21K93grw5
+	 1dFLSapSzrY8BgD8hi/GWPQNyA/ujntv8tsUHX56jkqC0YwSBc09wVnneevQ2FPtBmsTG
+	 bhJfjKNPiAQZ0WZBPaHb9hHpIrTjvtRd7/lte0QIETURCUC0csM03YnAGClfvtNLlfBlk
+	 XMArhTlnC1jsDe2CcNQqXebTESkZfx7ItLiDK3pd3UzDekSUddTsXIKkiPcILzdtVkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795079301;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=OEuafh/btliWcWQzu4rL42Kz6r8EMDrqcLczyrhz1a8=;
-	b=iZ+GxGa0mzfG4BlgBLSpqMZ35ChkrnfQgxMfir3dwSGvT48Zn2mATp7QukPg81ZJ4vjY
-	 A5N3whEtFE75ZQ5KGKVk6IPQuBVcQxUydCJbMzabE2ir8sAbUZNDviv9A1YJcQYpKXVq7
-	 WFFlBQiSZvlYLiKrjuqXGbf53RIt0a9BE/SfxTa+wG+p6jcBqktQqHyVW3xJ3fG4yCBtY
-	 xhE9fGv4el1XUpi+eavShwVssHtFDRFCbqyEJ9X6m9T2WfqOw+GQ+dlBG485xeipbrI54
-	 HzFmPGvRjckKXxT911u94OEPG0xumMv4ou2qqKRthip3WT5JHCsrC0jTi+SPQCclcQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795079307;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
+	b=2FnLF+9dw1WqCqmhRKA2VZidXAwPmRP/fYs77p6G8Tou5o1iSpJx/EE5yDHnOlDQ7Evb
+	 MpCrYNzSnJqShl1hfGMYDpVQPiIhHYmF1bzMnUGRmvEPjSOLL2nqtkbxlOn5pB4hl20rK
+	 HVx1nJ8gx1ZbI2LWVh8oCMSFQi2jd6Wm3hnOX4RxvzS0WgY7Z3P+6phfQ5IycJvdDkArU
+	 /Is4UlqpUqJ2pjEGlVoeLOESoIedm0MN5HJ0V5PJIzS7vnHC8ZnKvHkoEhpuwpl5fxgvW
+	 KVqEMg5YBZWVgHzFwTblosz9Kasvm1TD7WwD2oXQO1O0r6pC6YGxOh/AgwtKjLDs+GQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ivhOHjpw;
-	arc=none smtp.remote-ip=209.85.210.169
-Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A247FtuN;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=d+SxXpfa;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B36F606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B36F606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CABF7606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:08:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CABF7606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ivhOHjpw
-Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so1207417b3a.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:08:20 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A247FtuN;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=d+SxXpfa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795079305;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
+	b=A247FtuN9vsMT/qV+dnt1c/HUczmgLaBpghHXXaFKqlKQG4mmrz70EOpQ+qkzMWP2VOr6L
+	LXWIWJM4g3KCW/Vcihf4T6DY/INoGB855w9R7r0cpN2J3ebpLlEE7TqR2ipO9XmnN6Bp+V
+	NwBdtv8kFcCUM/v5VkXekYnbCrrSyG0=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-679-jyfcCZb2O0KTtNrtzIecXA-1; Thu, 19 Nov 2026 04:08:24 -0500
+X-MC-Unique: jyfcCZb2O0KTtNrtzIecXA-1
+X-Mimecast-MFC-AGG-ID: jyfcCZb2O0KTtNrtzIecXA_1795079303
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a647e776b4so1548181f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:08:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795079300; x=1795684100; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OEuafh/btliWcWQzu4rL42Kz6r8EMDrqcLczyrhz1a8=;
-        b=ivhOHjpwYOPE1L5uIt/jjHkS0bxkVIfLYN00+Jrul6Z6PqSTVwGvEpbBL8Rg+aRGgx
-         f5diEeYcoS6QTFzpjaQyqMDBNVwqlqGBI8GUWwegHu83VLtImTUkkcRT++RRHU0vE1AK
-         Y3NQXEvGIjij58Ohe+tfSZvPOZMDzEVTaD2F6PbYawub1R1Ulc1O1je+hCO21AmoX+Rs
-         zfLk0bFDU13M2IzHrG9Q05RMtCNvI7CKbiQz9nWF066zmGYf9L/8KOwcCCQALNrO7S3m
-         tMayo07AMF14NUr1uS2BrQnaGecyrx3fbENtQAnZ4KTs52X3m0BccuFjh5fLHyv0c4i2
-         l9Qw==
+        d=redhat.com; s=google; t=1795079303; x=1795684103; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
+        b=d+SxXpfaGdhxO9wOg2xbT406cBG2QsAycj6YbAWgNPdgWJw7ViLix7V6Aqgotc+Bvv
+         YG8CfRZtaCSHDnH/+lypD8eSThLIWOrcSlFBYZUU6n5GHiK3BUKNUmpAYGjv2pjoWJAJ
+         IJYzxgxnGruWqUqYa1LA4qBcbwEhVvbsc2YMb3+RinGlB0O6TgQpAJmCh/iThEzXPNMp
+         1u/32WZvAWFUWmZjRdvuZRE4MY3+u3Vrb04PIL7SE/mpHy/jgioohmHIJY3lAegYrs03
+         hvgQw/KQB2dt99OpKgxo+JsmUX+4iP+gJ4AtOgCDGa5rlnNp7vjQs43T9tbobOwy6ANO
+         Mw3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795079300; x=1795684100;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OEuafh/btliWcWQzu4rL42Kz6r8EMDrqcLczyrhz1a8=;
-        b=r0lbxYmuOww4EaAuQ0lfI1LErIh0/O6I4e36vC78cc6F4rdGcj3cjw4FX+lnvGRpZn
-         TPPCiQQ4/ahvaM64PR+I4y0NMTK1qf1+K8FWglbmESSR7tvl24tS/C9upKr8Y2ll23QA
-         ywSgO3ZciaYOCu6J2mi8WYpRuWToSnLgpctKjnuc5bt6ljwMSlEDX5QwmGYl7sjlob8X
-         M2KFo/+lwGs0kimcefEuYjJ9TS8ip8n9B8A8R9rQm/nJKzB6AYZyj95PKKlXczlVoj1k
-         RoC0ICuCk9fBV4SmP3wmEg/zXYuPZzPXtUARkWc/x0L911YXOrDmxy5rfh7ei2oUu56s
-         EkHg==
-X-Forwarded-Encrypted: i=1; AL+hErFUaCrw8WUlRsIJjWDpzE7pAMYP9riAVjfNe0WnMXYbH155F30+T+74w81/MRIhSbXwLcreB6ak81s7TLE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/8kq7M8ew5bmlvb7uqCyZm24TOeUZRBGS7obcTsOUpr6MRL7j2
-	rF4Wz7+eAr/CScl0fGYbYbbPcQoZE09pywArTsyZt7HniNXQkBMmhqUd
-X-Gm-Gg: AYBFou3y+Nf+gJUQ+ofXfQdKI3V7V0dAfmeEoBdgMPobsGICNYMqJo5nZGy3pzQQUId
-	Tf26QHCtucv9x/br/iRLvKY9qYlLYDFdhY0F3yDQX1HvxWfPhNK0XtrP3HAITRGqCLHy6uJ93iQ
-	EXhdIOV4AZx4UkmmrJDGdEnxYXp/YB90hzXbTj20DcIsbz5+rj3sfxcS1aoivb04W8a/g9GHPzG
-	JUwcFxtvsPu5ws9E9k2CDRb8l7ejBL+Vpj65iDxrCQQRwqVqL8BQ1847DlMTe0zI0AVMiHpd+Bf
-	XVv/oV8IM6ciMAE0XKMM5NKak6tl4xgCyw0his19pzry+hqumrsX96h5RP2PuFmjQ/9TWidDoWA
-	bIihhnLN8y4z+ZABjzbC15vgam9jG1s8F+vmTfLiy2pk02PPPo0pvST3tMe1zl2mCp+9DczxR7e
-	sxljcRv5zd2R3Tz97RapVYR2PdLbb39x62MmA5kUV/vL8CzBLpideh+jS6X5cB1Ic/DrOXGDYph
-	Kx30JgrJQWnuhylzRPTJ/WXQVOjwnBzlBXpMfTiwCzjq0g5HtwmyKuizL+i7A3ulbhRKyEkWlad
-	HUi+bfPTLxkm2kISTEVTMdL/1XuJWo9T8Q==
-X-Received: by 2002:a05:6a00:3007:b0:8a0:3ed7:93a7 with SMTP id d2e1a72fcca58-8c5d314d98cmr4789290b3a.32.1795079299712;
-        Thu, 19 Nov 2026 01:08:19 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cb93d023sm2372941b3a.47.2026.11.19.01.08.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 01:08:19 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com
-Cc: linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [RFC PATCH 1/1] mtd: mtdchar: use kvmalloc() for large read/write buffers
-Date: Thu, 19 Nov 2026 17:08:14 +0800
-Message-Id: <20261119090814.1355651-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261119090055.1255028-1-ping.li@horizon.auto>
-References: <20261119090055.1255028-1-ping.li@horizon.auto>
+        d=1e100.net; s=20260707; t=1795079303; x=1795684103;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Kz8J37H4DeouxxnfmLQnTk7ot6ZN48ljpuTfbkjcgec=;
+        b=c9w2f9SvJMjOgVvRiGQejRtVJzpG+KBovcXwtkxLyfvQeBIZDWj49u081ZmIlcX7B9
+         iQ4tSJEdSDFXAgLxehJCNcON23mlqvpArMj129blwQt/4vEmwJMs6FWBQjh5519D18jA
+         oal54ihupBMRGwtfngf1x6I0d9KpaAJI8F0ZEzPTcXIEN3LNzRDdTmSSMP2Mz3QVs4BO
+         6pH5JkRIS5rxsy6v51JtVsr7Cl0gbDMTHe2xQcYk+ceoohrS5WdKk0lI9O+vkqe/4vjX
+         M4LBz0oDDvng023H2Yk1zXwnkMR/QC5xpxc7rhQUxm2AC+2Az1cDGZvUCVhLWLUC6Zn6
+         26BA==
+X-Forwarded-Encrypted: i=1; AL+hErELWvxexPRzaER8h5AR7QbuCYq/ODIuAhLFr3DhTQYhgt/qRslVcnBzLgzQZGpsr5FTeagMrYcP42o8pr0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+eH8Q+dhGMB2UrR7UbtoEJDR//geTUxx8siStT9eeRgNThYFWg
+	BzBEOCiJEtvYDjBfkWAmMHwXWZAXbp0GX4JzQU2EyRxnGNQGZzUEaUoIhvlDNHAceq2mKGI+eyF
+	BqZ8z+lc+grkIVOYqXbPHSN+nLKZ48dp71tQ9O4Bl97tvRIc4PDOnKrHTL7s2EMQAxA==
+X-Gm-Gg: AZFdTZcMerfN/i7ha9B8uhmfsIJDvvgPt2gCdWDGc19AP6hJvX0V6VpkhgEjLp2W+pX
+	/aTE6CisJFjo16c42JzJhItc77eN833c4NGnufA+yQO+Zwfqs2qDLtddbaugjDMnniRboIimGSj
+	RA5oLo+kxrxXeqOW+rC4cJJbFeR1NXpGau+NDGL43BuaCun5Q1LPJxGsxdeSu5kq9pieI46PTJy
+	C0RrURPWsH+180GsMAm1qpM5Vo6y+yThJKBnIwANx+xBEKErMHkcHHljDWcfctN/D1PcIJmMjMi
+	aIfmqEybaOy2fVLDheIkaYWWwPtgj6lL/ZadvGb6NFp6u04YTsqJCzy6X4wQYN3m0FNFYJ2Kx4I
+	IBVX5SaBI8T9S6HVBEfQacoOSB+GNI96qYsLi4wk2bABmFVOTbPK9CLyQAN3gOpXZAHq0VcnDT7
+	gvwxRuTxSg6s0z/OICkWCKl6Lvusq0GrMR66uUTHwgGCP7
+X-Received: by 2002:a05:6000:d8a:b0:4a3:a0f:ecf0 with SMTP id ffacd0b85a97d-4a63bdb0aabmr8503554f8f.55.1795079303252;
+        Thu, 19 Nov 2026 01:08:23 -0800 (PST)
+X-Received: by 2002:a05:6000:d8a:b0:4a3:a0f:ecf0 with SMTP id ffacd0b85a97d-4a63bdb0aabmr8503486f8f.55.1795079302690;
+        Thu, 19 Nov 2026 01:08:22 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6575a5c28sm9677805f8f.59.2026.11.19.01.08.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 01:08:22 -0800 (PST)
+Message-ID: <9f3269af-64e5-4752-825b-5747cf8ddd86@redhat.com>
+Date: Thu, 19 Nov 2026 10:08:20 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,119 +112,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/4] net/smc: fix the failover cursor switch and wrap
+ rollover
+To: hexlabsecurity@proton.me, Dust Li <dust.li@linux.alibaba.com>,
+ Mahanta Jambigi <mjambigi@linux.ibm.com>,
+ "D. Wythe" <alibuda@linux.alibaba.com>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Sidraya Jayagond <sidraya@linux.ibm.com>
+Cc: Guangguan Wang <guangguan.wang@linux.alibaba.com>,
+ Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
+ Wenjia Zhang <wenjia@linux.ibm.com>, Ursula Braun <ubraun@linux.ibm.com>,
+ Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
+ Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
+ linux-rdma@vger.kernel.org
+References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-mtdchar_read() and mtdchar_write() use mtd_kmalloc_up_to() for their
-bounce buffer.  Under memory fragmentation this helper halves the
-requested size until kmalloc() succeeds, so a userspace read()/write()
-of a few megabytes may silently degrade into many small mtd_read()/
-mtd_write() calls: more per-chunk overhead, and device drivers whose
-backend cost scales with the number of transactions pay a visible
-throughput penalty.
+On 11/14/26 05:14, Bryam Vargas via B4 Relay wrote:
+> smc_switch_cursor() runs at SMC-R link failover under send_lock only,
+> while smc_cdc_tx_handler() and the rx path update the same cursors under
+> the socket spinlock. Its catch-up orders the peer's consumer cursor
+> against local_tx_ctrl_fin with smc_curs_comp(), which misorders two
+> cursors across the u16 wrap rollover. The v9 cover of the CDC cursor
+> bounds series [1] lists the race against smc_cdc_tx_handler() and the
+> rollover as not fixed there; Sashiko's review of v8 [2] reported both.
+> The same switch has a third problem: a successful completion on the old
+> link handled after the switch still credits bytes that are being resent.
+> 
+> 1/4 takes the socket spinlock around the switch. 2/4 tags each CDC pend
+> with a switch generation and credits a completion only from the current
+> generation and never backwards; both checks rely on 1/4's lock. 3/4
+> computes the catch-up from the signed cursor distance, bounds it by the
+> bytes sent and advances the RMB cursors across wraps; it uses
+> smc_curs_sdiff() from 2/4. 4/4 uses the same helper for the urgent mark
+> in smc_rx_update_consumer(), which has the same rollover problem.
+> 
+> Tested in an x86 KVM guest on a v7.4-rc2 KASAN kernel, with net/smc of
+> the base below built as a module, over soft-RoCE on a veth pair between
+> two network namespaces. Unless noted otherwise the RMB is 16 KiB, the
+> send buffer 64 KiB, and the failover is triggered by deleting an rdma
+> device. The module had test counters and test-only knobs, named where
+> they are used below. Three controls pass with and without the series: a
+> failover with no knob, one after 1 GiB with both cursors on the same
+> wrap (there the series is 1/4 to 3/4), and an urgent byte on the
+> reader's wrap. Leaving out 1/4, either of 2/4's two checks, 3/4 or 4/4
+> makes its test fail. No KASAN splat or WARN in any run. On a
+> PROVE_LOCKING build of the same kernel, a failover with no knob and the
+> first test below give no lockdep report with 1/4 to 3/4 (4/4 takes no
+> lock); with the two locks of 1/4 taken in the other order, lockdep
+> reports the inversion.
+> 
+> - Send buffer full. A completion handler held by a knob at its credit
+>    decision while a test hook takes the link down on another CPU, and a
+>    second knob holding the resend until the application has written: on
+>    net the switch runs while the handler is held, sndbuf_space ends 4096
+>    over the buffer size, and the application's new data replaces bytes
+>    still to be resent; the reader gets wrong data. With 1/4 the switch
+>    waits for the socket spinlock and the stream is intact.
+> - Two completions on the old link held back by a knob and handed back
+>    after the switch, send buffer full, the resend held as above: on net
+>    they credit 8192 bytes that are still to be resent, and the reader
+>    gets wrong data. With 2/4 they credit nothing.
+> - The peer shut down its write side, so the switch moves the link
+>    without a rewind; an old-link completion held back by a knob is
+>    handed back after one on the new link: on net tx_curs_fin moves back
+>    and sndbuf_space ends 4096 over the buffer size. With 2/4 nothing
+>    moves.
+> - 1 GiB through the RMB, so that at the failover local_tx_ctrl_fin is
+>    on wrap 0 and the peer's consumer cursor 12288 bytes behind it on
+>    wrap 65535: on net the catch-up runs, sndbuf_space goes 20480 over,
+>    an RDMA write is refused (remote access error) and the reader gets EOF
+>    65536 bytes short while every send() succeeded. Also on net, with a
+>    16 KiB send buffer and one 48 KiB send() after the failover, send()
+>    takes 36864 bytes and copies 12288 of them past the end of the send
+>    buffer (a test counter; KASAN does not see it, the buffer is
+>    page-allocated). With 3/4 there is no catch-up, all data arrives,
+>    and send() takes 16384.
+> - Old-link completions held back by a knob while the peer reads 24576
+>    bytes past local_tx_ctrl_fin, then the failover: on net the catch-up
+>    is 8192, 16384 short, and the connection stalls with no write space.
+>    With 3/4 it is 24576 and all data arrives.
+> - 1 GiB through the RMB with the reader stopped on wrap 65535 and an
+>    urgent byte sent so that it lands on wrap 0, no SO_OOBINLINE: on net
+>    recv(MSG_OOB) fails with EINVAL, the urgent byte is never consumed,
+>    and the sender, which waits for that, sends nothing more (its send()
+>    times out with 32768 bytes unsent). With 4/4 the byte is read OOB and
+>    the stream is intact.
+> 
+> The series is on net and does not depend on [1]. Patches 1/4, 2/4 and
+> 4/4 apply on top of [1] as they are; 3/4 conflicts with [1] 6/6 in
+> smc_switch_cursor(), where 3/4's version replaces 6/6's: 3/4 bounds the
+> catch-up by the bytes sent, which is tighter than 6/6's bound,
+> tx_curs_prep (by inspection). With [1] alone, [1] 3/6 keeps send()
+> inside the send buffer, but the misordered catch-up still runs: it
+> advances the cursors by up to tx_curs_prep - tx_curs_fin bytes without
+> sending them on the new link and tells the peer they are in its RMB (by
+> inspection).
+> 
+> Not run, by inspection only: a CDC received during the switch (1/4), a
+> consumer cursor that is ahead across the rollover (3/4) and one past the
+> bytes sent, where 3/4's bound applies. Not run with 1/4: a completion
+> handled between the switch's first two cursor copies, which leaves
+> tx_curs_sent and the producer cursor out of step; [1] measured that case
+> without this series.
+> 
+> Test patch and logs on request.
+> 
+> [1] https://lore.kernel.org/all/20261112-b4-disp-0287c16e-v9-0-e5e8fa688177@proton.me/
+> [2] https://lore.kernel.org/all/179364387382.3131.13471253186660322977@kernel.org/
+SMC maintainers: please have a look.
 
-The ioctl paths (MEMREAD/MEMWRITE) already use kvmalloc() for the same
-purpose (83208e106a8e8 "mtdchar: use kvmalloc() for potentially large
-allocations").  Use kvmalloc() in the read/write paths too: it tries
-kmalloc() first and falls back to vmalloc() when the buddy allocator
-cannot serve the request contiguously, so the buffer keeps its original
-size instead of shrinking.
+Thanks,
 
-The size is still capped at KMALLOC_MAX_SIZE, as mtd_kmalloc_up_to()
-did.
-
-Most low-level MTD drivers only memcpy() the buffer, so vmalloc'd
-buffers are fine there; controllers that DMA directly into the buffer
-(brcmnand, gpmi, cadence, atmel, ...) check is_vmalloc_addr()/
-virt_addr_valid() and fall back to a bounce path already.
-
-Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
----
- drivers/mtd/mtdchar.c | 28 ++++++++++++++++++++--------
- 1 file changed, 20 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/mtd/mtdchar.c b/drivers/mtd/mtdchar.c
-index bf01e6ac7293..442fac076940 100644
---- a/drivers/mtd/mtdchar.c
-+++ b/drivers/mtd/mtdchar.c
-@@ -148,7 +148,13 @@ static ssize_t mtdchar_read(struct file *file, char __user *buf, size_t count,
- 	if (!count)
- 		return 0;
- 
--	kbuf = mtd_kmalloc_up_to(mtd, &size);
-+	/*
-+	 * Cap the buffer like mtd_kmalloc_up_to() used to; kvmalloc()
-+	 * then falls back to vmalloc() when the fragmented buddy
-+	 * allocator cannot serve the request contiguously.
-+	 */
-+	size = min_t(size_t, count, KMALLOC_MAX_SIZE);
-+	kbuf = kvmalloc(size, GFP_KERNEL);
- 	if (!kbuf)
- 		return -ENOMEM;
- 
-@@ -192,7 +198,7 @@ static ssize_t mtdchar_read(struct file *file, char __user *buf, size_t count,
- 		if (!ret || mtd_is_bitflip_or_eccerr(ret)) {
- 			*ppos += retlen;
- 			if (copy_to_user(buf, kbuf, retlen)) {
--				kfree(kbuf);
-+				kvfree(kbuf);
- 				return -EFAULT;
- 			}
- 			else
-@@ -204,13 +210,13 @@ static ssize_t mtdchar_read(struct file *file, char __user *buf, size_t count,
- 				count = 0;
- 		}
- 		else {
--			kfree(kbuf);
-+			kvfree(kbuf);
- 			return ret;
- 		}
- 
- 	}
- 
--	kfree(kbuf);
-+	kvfree(kbuf);
- 	return total_retlen;
- } /* mtdchar_read */
- 
-@@ -237,7 +243,13 @@ static ssize_t mtdchar_write(struct file *file, const char __user *buf, size_t c
- 	if (!count)
- 		return 0;
- 
--	kbuf = mtd_kmalloc_up_to(mtd, &size);
-+	/*
-+	 * Cap the buffer like mtd_kmalloc_up_to() used to; kvmalloc()
-+	 * then falls back to vmalloc() when the fragmented buddy
-+	 * allocator cannot serve the request contiguously.
-+	 */
-+	size = min_t(size_t, count, KMALLOC_MAX_SIZE);
-+	kbuf = kvmalloc(size, GFP_KERNEL);
- 	if (!kbuf)
- 		return -ENOMEM;
- 
-@@ -245,7 +257,7 @@ static ssize_t mtdchar_write(struct file *file, const char __user *buf, size_t c
- 		len = min_t(size_t, count, size);
- 
- 		if (copy_from_user(kbuf, buf, len)) {
--			kfree(kbuf);
-+			kvfree(kbuf);
- 			return -EFAULT;
- 		}
- 
-@@ -292,12 +304,12 @@ static ssize_t mtdchar_write(struct file *file, const char __user *buf, size_t c
- 			buf += retlen;
- 		}
- 		else {
--			kfree(kbuf);
-+			kvfree(kbuf);
- 			return ret;
- 		}
- 	}
- 
--	kfree(kbuf);
-+	kvfree(kbuf);
- 	return total_retlen;
- } /* mtdchar_write */
- 
--- 
-2.34.1
+Paolo
 
