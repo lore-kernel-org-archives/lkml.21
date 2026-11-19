@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107949;
-	b=Yu85Hc/RgzBob2qY6PNnESTQjQ4kcpjobRc50E0OsSbzj7EXfcqSF7myXE6Sg849rNW0
-	 aKPzuNGGZCGPjBIM+YXVDW7BwzdPIa0cAGI2F2hwlQs0muFq5+OsXdi0dIDzx18zqNAtS
-	 3tn61mYgkzwYMakjFGi05vGHo4l0MfxyJwQGsbeVVmlf1bxiMQOzSEqo1GrDQOItOBPkP
-	 O5kXzGqnQ+1cWiB8jMv3ZFlKhcFIWCyCZ/U4BzT7x+FpaQvzhNMsWRX97tbs7xFZtz33a
-	 Wnm7sUuzjfFVHW6B31MLybXBc1ZbtyP03CFPVTuj1otMx3wPadqPSyo6lvONEoYAD7g==
+	t=1795107955;
+	b=pUb+KVuz4dv36yKa7Nav2tBk5VAdzMLt+SXHtFqh8++/+GvAmh48wJfjXQZzXWqJoNRB
+	 LHphCzkdjSJiCgz9qmh+WVU2knTpuwF92wMpRLQHTQ9svpfdvrakLGwEUchIw4CxX9giO
+	 zFOYJYkx7fHpF9Gdw7MZGyeIlRwC/x1T2OcdiQ5HbGcH6mKQzho6G8wrg4nTfl1bVu9ci
+	 FdFeodAkBk82MEAvuAvlPofk9xT50W+dSJRM0roECABD6c40DqcaoDmmxfeLucqKVmD0N
+	 AkHjlJ78lvX+ODRO41yexPoXc9Y3d7Ybfo/kWmLn3KZchsHUu7iupgd8UdbQfxDsPiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107949;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107955;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=cXCYn/0B4iRLLG05BKoGcd3OGmZM5xlbdyRfY3dPeOU=;
-	b=by0NxdrbyIDgWR5RkzA9VR8gTKTpTpaVlUNhEwh3Mc+WBkh1/eJRx9n74Zn7c58pKle2
-	 knuAs2a5MlZ9OOR0NqNPgoYeXIVTiP3t7lWa7WD0lCwoFskC2QljA7XHKFLtXKp5JPmIv
-	 mCWvag4RPSKuNRzbMJeRPbB9E71dH/8BJAAj/Et7tj9xmnihn7xxwXqQlBXTb7UqRZ+0H
-	 torRUw7Y8KFd/XF4QPqItKEv/BZffKYlskwY9LhHW2BJCrbRVWfB5KIpw9VI4KGH3CzaQ
-	 NA7JdKTFE+EIMElYw+RIZS0BDDVpAECvNGixtgtDK+HiXqzt02GpEl33awdcgrG94Xw==
+	bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
+	b=Gi2adWjrSZGU71MRuOF7vWRZG9IxLMhxCAZKqSIehWHT9i941TN23BS3KvpspaXqEgbD
+	 EwxxANeBW5ziOkGo3lxB+L24dEooiAOaKL1zdeS2NrrtmSxcgYTluUgHuWVTMhwYdtOa7
+	 rdGZk7kI8DUNm4zqBSQgSU7J83l2vIM9jb3nY1fEYt8WAnw4/nCkVG22+7jwnF/lusdiU
+	 IM80g84PntOGxJsyFqYolEYfBpxcM9uhFqutw127GEhnKVqebvbMf37fJCbQqURrppc5F
+	 OoFg9jOdRyFlrJ+Zxuyf8RSP5IcDbrc50OIib3v7oZk55rzm/+dpyMlp87cnhU53T2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=lg+nkylN;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CDzUfvvN;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6B32606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6B32606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65649606A324
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65649606A324
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=lg+nkylN
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-384c78aa0dbso767204eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CDzUfvvN
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4db3db8687fso69218b6e.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:05:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795107948; x=1795712748; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795107954; x=1795712754; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cXCYn/0B4iRLLG05BKoGcd3OGmZM5xlbdyRfY3dPeOU=;
-        b=lg+nkylN/pZNFri8FN9jLTOjn1/xWnxsJB4LVYntKf1kLH/lm5MudaxS1rjvOKvGI8
-         LgBGatvWQqeA053z42sgyAhEWq4LlrAtvPr4c87FsyyNPPX0sBaUkuYscTKeTxOllGHH
-         DdMGG224eszK/PxMvkNPEmkLYzIlM7ThwWa4Lhq7LvGaHAOQ8mMCxcLs7TAOM2ksEyTd
-         J1vUJdj7EbkWaOeHfXomN7kDzsMrkEjT9tPw8DwP38oo89yws+0l7mvJPEGKFwfNSMy4
-         DNBfOsfBjn1CQ3hz/59IdvyAvyeU8EtQz+klUqZ8as6YpV0x7GUbjacfbAt6rxF+482T
-         vhPg==
+        bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
+        b=CDzUfvvNG4F7g5PV6b96thWKB2WqFdAFwcGHtxP9lCuUnTGkW/3UjU8YQlhy5Dln5l
+         wc/IVMWnElcxl4wFNMXpn1d3luTQOXC4/2vimDvu9/1KCETktasjTsNEIimTjtRPNqSN
+         h5kgHMx6GXNuLTr9kVszjOdAuABRdp56oTpytIliB05BVphnINVwOkKC84HV7bEYg9wS
+         ej72+4vOSh1zdkZ5vxUltpFxCjUCSZKG53WjoVe5ybSYKe6TwIjATmwfof0WJfIeUGKL
+         xNzQdIKNiyC25c6MvwqvKUlrQOk4K18lE4Qyq8auddoEa6nirRfzH1n2fMiAGE8DybUw
+         26bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795107948; x=1795712748;
+        d=1e100.net; s=20260707; t=1795107954; x=1795712754;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cXCYn/0B4iRLLG05BKoGcd3OGmZM5xlbdyRfY3dPeOU=;
-        b=OUFUd90GCq6hRw+vvIOnYr7z/sta316+efObaP1lTgeN5fYjnbHthrr3drImkJ4jcj
-         /oE0OoD/qkNo1wOR79kr5nWzvGrVVMurvaNDp3jzOFj39Iixq1ISR36rPbTWj0XYw1bX
-         lixU+4DR6qDOC9Uo22a1Ax5eNCagSZKJD2uw/Z2S3QYDfxgI6zbYd54ZGqPBb6fwcZ1q
-         WhVNnBWOMxyENkX9LXPucc8arCfOHydux5r6v2VS2SeVvukhtPJ+hJbE36FNEUEfQ/i0
-         H7TaUEiM/ZqH1R6y0ml2hK90soTtAUbBS9PlanxIsbFMhOvpXNg9fy4IDAarnOq01WHu
-         KHog==
-X-Forwarded-Encrypted: i=1; AL+hErEOkR32eIVZSXLuthwYatoo/pVNT6iG2bzQ0VsvpiEllBNoQzgsvwErs6RUM66M7j9/X19u8zc4+0wag2I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//Xdmr6GrwWZFCBNKIQgL9vxgIud0uzh4POXlJ0vhdGeIpQ/Gz
-	O+APuNZ0S+Pigxn+znd/sf2jEYJkzyGA7FIrVRlVh97XbTYaMQrpSqBORiF98IV6auQaFIPSbxN
-	R0/s8mXjfbg==
-X-Received: from dycrt1.prod.google.com ([2002:a05:693c:2d81:b0:36a:209:2e4])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:e2d:b0:384:dc16:121c
- with SMTP id 5a478bee46e88-384dc161ae8mr1326751eec.23.1795107947654; Thu, 19
- Nov 2026 09:05:47 -0800 (PST)
-Date: Thu, 19 Nov 2026 09:05:22 -0800
+        bh=y4oeUJ9srrE5JKAw6tZtuVueeWimXIWToAHVhV7wu2E=;
+        b=2BHP5BZN6AwvkwoY4QvmnPVDOnkBZxJ61d4/D/aEc8VyZuZOHAIoszWO4wB7Gn89RX
+         w4vTMLtGMgtwq29y9v82U0tYn5KT7io52TjV/TK4s516mQTqM55ZDMMRIjzLxqEvJvW+
+         A1oo6qEyNwpviHyjBlcUQK2bgkWc0FjTiQIWozMI9LyrYqVtt/RLaoEuyxF8GbO8xS5l
+         5dggN7HB2OGz4bbDNPlIOXir+qVNC/Hu/UGekYz6YH245Cv7RweUypEhooYUyHjmbDOP
+         evHSZt1WbGhhaVVNhVip/OAudBqfFPwU5pT51mdlhleY379wWQKhGy8wPeKP9UhFBLwe
+         YP8Q==
+X-Forwarded-Encrypted: i=1; AL+hErFS/rnah9N0mj8WBwL7WKDjuzF4YbjGNiIWCqsBZmvGqBg+zB9k37nPUaB3XWXGeCxWHyVbU89/TCGtiOw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9T+IfKsUL/rjvdz2zMFya3ucONDp7f3J0lEqchAT5WrKX3nTyU
+	yyluEbOqmkZYxvDxRIB2j0MlNOUaKVrd2AytNe34NB8TE/C/L9zhtL6u9wULHoJAC37CmaB+I8h
+	fQBtKR0LuHA==
+X-Received: from iodz8.prod.google.com ([2002:a05:6602:6f48:b0:9c7:a5de:745e])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:50a3:b0:55c:888:2a15
+ with SMTP id 5614622812f47-57a0c9c219amr482948b6e.53.1795107953923; Thu, 19
+ Nov 2026 09:05:53 -0800 (PST)
+Date: Thu, 19 Nov 2026 09:05:50 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,122 +77,111 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
-Message-ID: <20261119170522.1516239-1-irogers@google.com>
-Subject: [PATCH] scsi: megaraid: Fix uninitialized DMA handle and passthru
- length TOCTOU
+Message-ID: <20261119170550.1517634-1-irogers@google.com>
+Subject: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds in
+ MCS alloc handlers
 From: Ian Rogers <irogers@google.com>
-To: Kashyap Desai <kashyap.desai@broadcom.com>, Sumit Saxena <sumit.saxena@broadcom.com>, 
-	Shivasharan S <shivasharan.srikanteshwara@broadcom.com>, 
-	Chandrakanth patil <chandrakanth.patil@broadcom.com>, 
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>
-Cc: megaraidlinux.pdl@broadcom.com, linux-scsi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+To: Sunil Goutham <sgoutham@marvell.com>, Ratheesh Kannoth <rkannoth@marvell.com>, 
+	Geetha sowjanya <gakula@marvell.com>, Subbaraya Sundeep <sbhatta@marvell.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
 	Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In megadev_ioctl(), data_dma_hndl is declared uninitialized. On the DCMD
-path, when uioc.xferlen == 0, dma_alloc_coherent() is skipped, yet
-mc.xferaddr = (u32)data_dma_hndl unconditionally writes 32 bits of
-uninitialized kernel stack into the mailbox command sent to the adapter.
+In rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(), switch (req->rule_type) has
+no default case; an unrecognized rule_type in a PF/VF mailbox request
+leaves 'offset' uninitialized when passed to mcs_alloc_ctrlpktrule(),
+allocating rules from the wrong hardware partition or failing spuriously.
 
-On the MEGA_MBOXCMD_PASSTHRU path, pthru resides in coherent DMA memory
-shared with the controller, and pthru->dataxferlen is re-read after
-mega_internal_command() for both copy_to_user() and dma_free_coherent().
-If the device modifies pthru->dataxferlen in coherent memory, the cleanup
-path can over-read data or pass a mismatched size or uninitialized
-data_dma_hndl to dma_free_coherent().
+In rvu_mbox_handler_mcs_alloc_resources(), 'rsrc_id' is left uninitialized
+when !req->all and either req->rsrc_cnt == 0 or req->rsrc_type is not one
+of the four handled types. Moreover, req->rsrc_cnt (u8, 0..255) is not
+checked against the 128-element rsp->flow_ids, rsp->secy_ids, and
+rsp->sc_ids response arrays before writing into them.
 
-Initialize data_dma_hndl to 0 and snapshot pthru->dataxferlen into a local
-variable once copied from userspace.
+Reject invalid rule_type, unrecognized rsrc_type, zero rsrc_cnt when
+!req->all, and rsrc_cnt values exceeding the corresponding response array
+bounds.
 
 Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
 -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
 coding assistant. Build-tested under LLVM=1 W=1 and
--Wconditional-uninitialized; not tested on legacy MegaRAID hardware.
+-Wconditional-uninitialized; not tested on Marvell CN10K hardware.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Fixes: cfc14181d497 ("octeontx2-af: cn10k: mcs: Manage the MCS block hardware resources")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/scsi/megaraid.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+ .../ethernet/marvell/octeontx2/af/mcs_rvu_if.c   | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/scsi/megaraid.c b/drivers/scsi/megaraid.c
-index a4079866f747..970e9b2ec781 100644
---- a/drivers/scsi/megaraid.c
-+++ b/drivers/scsi/megaraid.c
-@@ -2966,7 +2966,7 @@ megadev_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
- 	mega_passthru	*pthru;		/* copy user passthru here */
- 	dma_addr_t	pthru_dma_hndl;
- 	void		*data = NULL;	/* data to be transferred */
--	dma_addr_t	data_dma_hndl;	/* dma handle for data xfer area */
-+	dma_addr_t	data_dma_hndl = 0; /* dma handle for data xfer area */
- 	megacmd_t	mc;
- #if MEGA_HAVE_STATS
- 	megastat_t	__user *ustats = NULL;
-@@ -3137,6 +3137,7 @@ megadev_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
- 		/* Is it a passthru command or a DCMD */
- 		if( uioc.uioc_rmbox[0] == MEGA_MBOXCMD_PASSTHRU ) {
- 			/* Passthru commands */
-+			u32 dataxferlen;
+diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+index cd9cca5a9cf5..54c1d9809ae6 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
++++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+@@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ {
+ 	u16 pcifunc = req->hdr.pcifunc;
+ 	struct mcs_rsrc_map *map;
++	int rsrc_id = -EINVAL, i;
+ 	struct mcs *mcs;
+-	int rsrc_id, i;
  
- 			pthru = dma_alloc_coherent(&pdev->dev,
- 						   sizeof(mega_passthru),
-@@ -3170,9 +3171,10 @@ megadev_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
- 			/*
- 			 * Is there a data transfer
- 			 */
--			if( pthru->dataxferlen ) {
-+			dataxferlen = pthru->dataxferlen;
-+			if (dataxferlen) {
- 				data = dma_alloc_coherent(&pdev->dev,
--							  pthru->dataxferlen,
-+							  dataxferlen,
- 							  &data_dma_hndl,
- 							  GFP_KERNEL);
+ 	if (req->mcs_id >= rvu->mcs_blk_cnt)
+ 		return MCS_AF_ERR_INVALID_MCSID;
  
-@@ -3199,12 +3201,13 @@ megadev_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
- 			/*
- 			 * Is data coming down-stream
- 			 */
--			if( pthru->dataxferlen && (uioc.flags & UIOC_WR) ) {
-+			if (dataxferlen && (uioc.flags & UIOC_WR)) {
- 				/*
- 				 * Get the user data
- 				 */
--				if( copy_from_user(data, (char __user *)(unsigned long) uxferaddr,
--							pthru->dataxferlen) ) {
-+				if (copy_from_user(data,
-+						   (char __user *)(unsigned long)uxferaddr,
-+						   dataxferlen)) {
- 					rval = (-EFAULT);
- 					goto freemem_and_return;
- 				}
-@@ -3228,9 +3231,9 @@ megadev_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
- 			/*
- 			 * Is data going up-stream
- 			 */
--			if( pthru->dataxferlen && (uioc.flags & UIOC_RD) ) {
--				if( copy_to_user((char __user *)(unsigned long) uxferaddr, data,
--							pthru->dataxferlen) ) {
-+			if (dataxferlen && (uioc.flags & UIOC_RD)) {
-+				if (copy_to_user((char __user *)(unsigned long)uxferaddr,
-+						 data, dataxferlen)) {
- 					rval = (-EFAULT);
- 				}
- 			}
-@@ -3244,9 +3247,9 @@ megadev_ioctl(struct file *filep, unsigned int cmd, unsigned long arg)
- 				rval = -EFAULT;
++	if (!req->all && !req->rsrc_cnt)
++		return -EINVAL;
++
+ 	mcs = mcs_get_pdata(req->mcs_id);
  
- freemem_and_return:
--			if( pthru->dataxferlen ) {
-+			if (dataxferlen) {
- 				dma_free_coherent(&pdev->dev,
--						  pthru->dataxferlen, data,
-+						  dataxferlen, data,
- 						  data_dma_hndl);
- 			}
+ 	if (req->dir == MCS_RX)
+@@ -709,6 +712,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
  
+ 	switch (req->rsrc_type) {
+ 	case MCS_RSRC_TYPE_FLOWID:
++		if (req->rsrc_cnt > ARRAY_SIZE(rsp->flow_ids))
++			goto exit;
+ 		for (i = 0; i < req->rsrc_cnt; i++) {
+ 			rsrc_id = mcs_alloc_rsrc(&map->flow_ids, map->flowid2pf_map, pcifunc);
+ 			if (rsrc_id < 0)
+@@ -718,6 +723,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ 		}
+ 		break;
+ 	case MCS_RSRC_TYPE_SECY:
++		if (req->rsrc_cnt > ARRAY_SIZE(rsp->secy_ids))
++			goto exit;
+ 		for (i = 0; i < req->rsrc_cnt; i++) {
+ 			rsrc_id = mcs_alloc_rsrc(&map->secy, map->secy2pf_map, pcifunc);
+ 			if (rsrc_id < 0)
+@@ -727,6 +734,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ 		}
+ 		break;
+ 	case MCS_RSRC_TYPE_SC:
++		if (req->rsrc_cnt > ARRAY_SIZE(rsp->sc_ids))
++			goto exit;
+ 		for (i = 0; i < req->rsrc_cnt; i++) {
+ 			rsrc_id = mcs_alloc_rsrc(&map->sc, map->sc2pf_map, pcifunc);
+ 			if (rsrc_id < 0)
+@@ -744,6 +753,8 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+ 			rsp->rsrc_cnt++;
+ 		}
+ 		break;
++	default:
++		goto exit;
+ 	}
+ 
+ 	rsp->rsrc_type = req->rsrc_type;
+@@ -793,6 +804,9 @@ int rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(struct rvu *rvu,
+ 	case MCS_CTRL_PKT_RULE_TYPE_MAC:
+ 		offset = MCS_CTRLPKT_MAC_EN_RULE_OFFSET;
+ 		break;
++	default:
++		rsrc_id = -EINVAL;
++		goto exit;
+ 	}
+ 
+ 	rsrc_id = mcs_alloc_ctrlpktrule(&map->ctrlpktrule, map->ctrlpktrule2pf_map, offset,
 -- 
 2.56.1.708.g77570a6a1d-goog
 
