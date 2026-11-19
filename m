@@ -1,110 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795048243;
-	b=3YaecVhGRb0CFdBzGPdXYzf5mwtkgY65hz7dOud5P5D9tdPA7VdnFEvW9FigUKWJOfPu
-	 kVoNeUiImX/5N4EEsdJ2+yZDSwll5xq+0h1u1tpbBuiLUI3v8gGPEEOPrmQRDGNqg+Zub
-	 NPd/VDfHIExCmMzVLN5EPgfnPpYbxWod/Ay+ZTqXGYv9l4aMQPb5BjnKB9Zidk+LrgQAW
-	 1Jq9ItJvPPWijlk23Us1uzMpiafV1hyYkZaJFnamCgPXhcjO4TzI9dZcUw2r3ejjikPCK
-	 xKaDODIx5+YkpU3djx/Rsd1XgU7IilJJ0Hz/uh4UvX6nzz1qv+vL2cQvw/EX5MD1ttA==
+	t=1795048302;
+	b=3mDpYsWmr6UOQSoWW1U+dGtE7vBXWwcCawGZNUmuJTpu3GTojdsT1I8dYHNlSE15I/N4
+	 /4Z5K8oU9jdm8J/n5vGGN1SpCux9kbmBnF7Tr5kPVuAg/T9Xh8ZYMaWTAvz4CigD8rbt5
+	 MQyE+NCaimPY6MUguKo16ISZH6rGOtRSQIXTH23epRC73SJWTp3o5Xo8KWkW9vxdYqRYL
+	 SHh0OJekT6Ar1ITHKmiIkXV2yX21z+oyPFiuB4CfomxB+Cdm3CuPOg4c9DWdYBUUmo7Vb
+	 uvwBAq17RLqWBbzHQ3q0U+3dOe9Ic0J3jjW7cQM3wWkBms7RKyQPxcV4au+IEhTD0iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795048243;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ZiPMStJELJVEfo481tju4B7weEAXXX4fx2HGMzLvMQ8=;
-	b=Nob4N3O++WY/CX+g5KExBaJn7EArUUsdy9BSDeXJTu9t5B6s1xrw4+2IT5V/J+SaC6qp
-	 AarwtOogtNpx1li4sDxdM+gpmb7HNtB3gnre9NrUPBZJHWzmIkH22NKMSCwyIF1J/D1nc
-	 sivlYO6rrg08E83VWVddMfJpAAx2GsfTpGZBNVYtFBMoLojjsaUB5DtKaOQrdnd4DSAlA
-	 0k9wSeUdSr39acPe65WGctTj8vGGCT9XHuXbRg9ynTuRxu5Y95O3qhTpSqpFwKX2xQaMh
-	 HEAa6dN/JF9QqH5tYvbF7QvZmKkyQUkUgOy6u921wnT32b3xWBfNRrc6j2YKJdElh+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795048302;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=mS6AFM8dfyEXp77ytOM5hV75MBkbYqRSRgafg5R5bBE=;
+	b=rm04wukh6EfcE4Kc0dV8n61F/hN+poR26WnQepXN871xwMPQwrTHhPCEuogACz4o3nY3
+	 Yawo8Ck8X8QyVbdx53BBn+CQSVxDCZyWvRyp4/6UA9eMwMgQikW0Kj5jJhZoOwq1lJwx7
+	 oeaFEZ491tgbkABtJ1wVIrRLJedzPcRqOfs9WDHYZfqr9wfCCp7i12z4+1aDq2bhgo6Zn
+	 eULiJvG0eWT0Ibo0U1+ypKIdNrywwUqTNfrTbivukQVzMcjzHHJRV2a6AbEajwzk5blQM
+	 Wv8ZQkf3dvDJDvRVWbYYGR0Fbd+4UITYV7zYUVD0FxQlCAeyWzPUOZU7uS2cJ8EISBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DA7ly8Qk;
-	arc=none smtp.remote-ip=209.85.208.48
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Uf4NDLR7;
+	arc=none smtp.remote-ip=113.46.200.227
+Received: from canpmsgout12.his.huawei.com (canpmsgout12.his.huawei.com [113.46.200.227])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE582606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:30:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE582606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3502606A32A;
+	Thu, 19 Nov 2026 00:31:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3502606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DA7ly8Qk
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b75c0f5fe8so274399a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 16:30:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795048241; x=1795653041; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZiPMStJELJVEfo481tju4B7weEAXXX4fx2HGMzLvMQ8=;
-        b=DA7ly8QklzTVI7vPByhXLORbOFKqcXC58tufHLEdaxrOBAgryP/bxMy8mJSB2CBH/8
-         ado34FlA3guZ02gcBVrHlUq0WnZCAr9MTeyv9c//VuYh0Rjht8q2cqzQseKZ2UakxqDC
-         py2sLEVftQnh7sMRtlOe+3Q33a+VTzYGzFL73vTTAt2BkjaS9KZeU2O2EHm8+I3a4SK2
-         AuulkU7iy32PXxQbvH8aJfbM8R+Yy6Twtcd6eoXg8JYDXAqZE5K6CUPSbF8vkX5rZu5Y
-         af9FdJpKLabOZkxQrTEds7KXKdFETs6vAz7Y/OoDQUHbEtMi7TF9djIVNa8O+k0K4x1a
-         V2+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795048241; x=1795653041;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZiPMStJELJVEfo481tju4B7weEAXXX4fx2HGMzLvMQ8=;
-        b=y6bdGMRV4jIP8LTRkZZpNL09EfRMcPTv976iW1v/pPlrSC4MESkejOvBkSAz03TGC9
-         icBGmVTk7VQ8NPLEvwTooQzadnhlgLVB+MCmpekbYr4x4ENyerICj1QRzRd7zzpY9jrk
-         27Zvn7s+HE/BeQjCj6IW5WEp1KUZbHrgqsXKDwcxbLFb+xNvOw8Azvv5L1TgvwQmXYi0
-         8uTMUG63GlknvdmpGo6JBYrmOzK8VuzEpcGet5bcdc4LzVRd1yGpRF1xKG9rFL5RLCmg
-         9Ulgpqy+sydWUZ4vW/LMx69dLAC1GzN4O+Jig2af98RJxmmEs+ktNaq+6zWejUouWhoj
-         TkCw==
-X-Forwarded-Encrypted: i=1; AL+hErFgHBM29mSRFAp3Nw8kjCORE2BSWMAYW4H6Zb7e6WdcXMBHg3HFUoIOwC61HSybtStwUKKm+1qFKlk2JQs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SK7FVDEcuHCPsxygaI45D3RLhHCBaaipip+SMowd/7uJedOf7
-	I/lyJgROrH8LVXg7EtxZnFBzTxBnlCT+DuPClspUH5yEfc/PdZLg7QME
-X-Gm-Gg: AYBFou2FCDSusVG6y0+18Ad9beD+aKBc7Fb7JbVIEPIvhuScPtzrr/GC+BYb5jviFDi
-	xl3iyLWjNZOUo2tK38LCtqPLow/zGimWnoVc74EHkBrKyEtuqFuHm39jta6tPIAM1Mu24WXJ/9C
-	2Rbtbr06eWxQpFaWi/zFbElUMlenT/hitnZe3+XDvMktBN+Gq765TMiEUGHEOFUTPLOCoZ9nW+n
-	MI5LuUtQPWxdXPUUtH1KRKAo3MjPoLIWUvGj9GyLF4L6YbcfEtUuUCsZ5qSsJoVUqzckkMz3GLp
-	hiOXg/BFv1//aqNi9ORkga7MjvrFvKylj5+q+ouNjuy6Wnub4j74D7/S+8KANhPSR38nDuN0Vo+
-	DhjaX1UGo0ptJt2FtTlWW8oeZxgThQukusTsKqxlnOa2j4ramTe/gy+MvJ2Sg1jko+VyGho/KPF
-	ocT9MpU+5+fKtAyzcVY9UdCuYv9WtSj+JVXO3K6FVJLsr2IxcHO6kguvsbIIvKE4OnCSwnHUQAa
-	pn926Yik2z5uVhL6EhcXV/qUw74gKJNpCZJaQpuT4aqwGh82Mo6E5zNWLTtOoBf2LHKd1DY8BAO
-	iSzUIPuGD+faY0Q29uH46TX/E96zvgJXK30ZjdBJTxuKxN0hHXme
-X-Received: by 2002:a05:6402:3137:b0:6b7:aca7:4cee with SMTP id 4fb4d7f45d1cf-6b887eac9d2mr3678935a12.3.1795048241161;
-        Wed, 18 Nov 2026 16:30:41 -0800 (PST)
-Received: from Nuel20.localdomain ([105.112.208.161])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b88a001123sm1729744a12.21.2026.11.18.16.30.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 16:30:40 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: tianyi@cloudflare.com,
-	hangbin.liu@linux.dev
-Cc: kuba@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Subject: [PATCH] selftests: net: veth: derive invalid-tx test value from kernel max
-Date: Thu, 19 Nov 2026 01:30:02 +0100
-Message-ID: <20261119003003.40482-4-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261119003003.40482-1-emmaonana18@gmail.com>
-References: <CAG4wq-d_30-B4wQZu48ZQXAORM4QxRqPfmYsmoHS0hiYp1EtTA@mail.gmail.com>
- <20261119003003.40482-1-emmaonana18@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=Uf4NDLR7
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=mS6AFM8dfyEXp77ytOM5hV75MBkbYqRSRgafg5R5bBE=;
+	b=Uf4NDLR7ECG6sRxoYs8M1iuCd5C3Ge2h6GRqiNHXlZzEZSAIqU86nEFd2nTJmnda2ueYp18oQ
+	X+Bwzm+UsOw2KZ55oHuOLWRrmMrvjYDv1qwXGpBfYcrL7reEj7zSrFtGBgDTKoUHABeo5whys5I
+	JPiTAsHlYa4tIOB0f0b1/hM=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4jVKBR2FNKznTYB;
+	Thu, 19 Nov 2026 08:30:39 +0800 (CST)
+Received: from kwepemo500009.china.huawei.com (unknown [7.202.194.199])
+	by mail.maildlp.com (Postfix) with ESMTPS id 12B8B4056C;
+	Thu, 19 Nov 2026 08:31:32 +0800 (CST)
+Received: from [10.67.121.161] (10.67.121.161) by
+ kwepemo500009.china.huawei.com (7.202.194.199) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 19 Nov 2026 08:31:31 +0800
+Message-ID: <28055dc3-13bf-49e1-bdbb-e825df9a0c49@huawei.com>
+Date: Thu, 19 Nov 2026 08:31:30 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,40 +62,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 2/3] PCI: Add per-device debugfs directories
+To: Wei Huang <wei.huang2@amd.com>, <bhelgaas@google.com>
+CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
+	<corbet@lwn.net>, <rdunlap@infradead.org>
+References: <20261001155551.4182899-1-wei.huang2@amd.com>
+ <20261001155551.4182899-3-wei.huang2@amd.com>
+Content-Language: en-US
+From: fengchengwen <fengchengwen@huawei.com>
+In-Reply-To: <20261001155551.4182899-3-wei.huang2@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemo500009.china.huawei.com (7.202.194.199)
 
-The "setting invalid channels nr" check treats CPUS+1 (CPUS=`nproc`)
-as an invalid tx count, but the kernel allows up to max_tx, for veth
-that is num_possible_cpus(). On hosts where nproc < num_possible_cpus
-(taskset/cpuset confinement, QEMU maxcpus slots, hotplug firmware),
-the ethtool -L call succeeds and chk_channels() reports a false
-failure. With failure propagation fixed, this fails the whole script.
+Acked-by: Chengwen Feng <fengchengwen@huawei.com>
 
-Query the kernel-reported maximum with ethtool -l (the same parsing
-idiom chk_channels() uses, first match) and attempt max+1, which is
-invalid on every host.
-
-Fixes: 1ec2230fc721 ("selftests: net: veth: add tests for set_channel")
-Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
----
- tools/testing/selftests/net/veth.sh | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-index 2a37d21f97da5..6eeb123aaf885 100755
---- a/tools/testing/selftests/net/veth.sh
-+++ b/tools/testing/selftests/net/veth.sh
-@@ -464,7 +464,9 @@ fi
- ip netns exec $NS_DST ethtool -L veth$DST combined 2 2>/dev/null
- chk_channels "bad setting: combined channels" $DST $CUR_RX $CUR_TX
- 
--ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
-+MAX_TX=`ip netns exec $NS_DST ethtool -l veth$DST |\
-+	grep TX: | head -n 1 | awk '{print $2}'`
-+ip netns exec $NS_DST ethtool -L veth$DST tx $((MAX_TX + 1)) 2>/dev/null
- chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
- 
- if [ $CPUS -gt 1 ]; then
--- 
-2.43.0
-
+On 10/1/2026 11:55 PM, Wei Huang wrote:
+> PCI features that export debug information have no common place to put it.
+> The only existing user, PTM, creates a "pcie_ptm_<device>" directory in the
+> debugfs root, which does not scale as more features follow and leaves each
+> user to invent its own lifetime rules and leaf names.
+> 
+> Add /sys/kernel/debug/pci/<device>/ directories owned by the PCI core.
+> pci_dev_debugfs_dir() returns the directory of a device, creating it and
+> the PCI root directory on first use, so devices without debug content do
+> not get an empty directory. pci_destroy_dev() removes the directory
+> recursively, so a feature that pins data in a debugfs file needs no removal
+> hook of its own: debugfs_remove_recursive() returns only once no operation
+> on those files is still running.
+> 
+> No functional change for existing users; the next patch is the first
+> consumer.
+> 
+> Signed-off-by: Wei Huang <wei.huang2@amd.com>
