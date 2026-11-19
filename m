@@ -1,101 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.92.40.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795099986;
-	b=UsfQSVbl+7FgIJAlLADWEnBWxfett5XnlqnEwzJqFPUmOWht/YKZPbsf5lSqBZcsViEU
-	 4yalxs3p3FZcv+SO6xuT5nJZ1I5spJroxlHm+H7kgTuJ8CKCXDV1QdkIbQPKJ3BkY30SZ
-	 d8BDvcRJvH9BqZ6OWKAVZT7cVDHqNeEThGueizz8KTc5tJLeOtl35abXAtM+tKgMq6btd
-	 S+s3oGGHncWlv7IZ50keOiwMb61RiHm7pWhYBQJmAhWOl3fg3WdhT6hJnduTFByrORBzy
-	 IIHgoF9pnMExmyREtdNokXd/2RQm+3GOT+GDlCYmb762CfM+v1t2zdr16P+aImcK81Q==
+	t=1795099999;
+	b=ZWqMc/SGxrTT10efGD1vMnN2b1vXiugx1qeQLqDD/M67hJZNf+Xeb1KMBjp982LJQNYe
+	 28QRiNzupc00GBq0717A/J9izm0oegFrz3CbOKJaQ1Fx25rkgnwHieEzloJfRUr2c6q1v
+	 1jBzn13YfY+G5MfrsFsjfqBTDqoQKlpGt8vFdMXsWXmc1N1zdIAhvu1NPydiPZJfA+Dqf
+	 t2BNPHtNAITdTxAz3Ywdr2O+3c358l/l8xP8AjKJpRDeyBVMMR4D8fcq4Fhejb1jYQ4p2
+	 FI4FrUTU7anCw32UB/pZ/eDLFad/eQpUn3xehGFnq6U0axwJTsiU3i2YrVCz/0V5NzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795099986;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=NA7RQBA3b3IBGkBYkpIY+Rfig6IT7PZbrntvh1R1GUQ=;
-	b=rFP8Oks6khNhpiweMnzSqn2VBlhMgqfl7QXsX+/X5QLraWlfe2XkVv0NfcoY0fm4e9nT
-	 9ZJO12RLKxd8Pe0Qqzjlgw6nRZZHKs39wFAbzmOABN1bWXTfsPquBcMyOE6gc/zYde7mw
-	 UN5lUTNn6KnVaYkjXaO1bRl21Ocrkl3DzhzygPIJkG0EBvO9L99xbb4vD1WyH09+v/uoe
-	 wv+4DrDIvwupzfx88RDjIM7GUDFnlH+7pX7UQIVEbffxdewF+zkN3zaKlYqaUxBseuBTJ
-	 70AYdSC5sSuT+svQqm4bBh1Cr5WIhAiyyMycx6ZMhpmIwBo5M1c3OfJuJV11hOj34RA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795099999;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:User-Agent:
+	 X-Last-TLS-Session-Version;
+	bh=k1TemjZqZzUtb911eFpFTlr9YVP5j33fp7w/pph9qY8=;
+	b=P3kguNldSHJrLXMTvugdEKDpXpHrY/R+iu2NGYJh1d3xfG//Cnlgf1EnzQTsPnNn/aC6
+	 B34/GnWchudzdkkQljz27HfXihBZiuy1w2wn1vyrNnzit071CZjBndN/D492WxvREamyo
+	 8GEPDjnsvCrjvFY6cdGmw/4j5rfspmqJw7Rf0BF+wufhi9VNS4dsy3Ng7Wv9edDbs8gNP
+	 rZmqbK8UTU/LbeGH28Khyfea9XlbEVYwbd3ngx6mVIt5hzm8yP4TKIQte5VlzQ5JsThgl
+	 sp+ikLXH1N7pzWXzI/CwSmfkf6ZNs2GKaIfCoouabUixmdF05ZkleVJ6/zZCuL/sESg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gZLHbXbd;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=thorsis.com;
+	spf=pass smtp.mailfrom=thorsis.com;
+	dkim=pass header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=jxPXT3Io;
+	arc=none smtp.remote-ip=217.92.40.78
+Received: from mail.thorsis.com (mail.thorsis.com [217.92.40.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5855606A334;
-	Thu, 19 Nov 2026 14:53:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5855606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BAEA606A324;
+	Thu, 19 Nov 2026 14:53:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BAEA606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=thorsis.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=thorsis.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gZLHbXbd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795099984;
-	bh=NA7RQBA3b3IBGkBYkpIY+Rfig6IT7PZbrntvh1R1GUQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=gZLHbXbdDazblkbFcqz+EyUYzyxojGjHNi0rE4Z9xAb7ijeOE8I6qOaT5ftI1f8zn
-	 4+CtSrr5pcLOFd+oV+ut5EVIYCaHiggDq4y03fcLyid2xKEuqKJ9N0Nm7JrQFp1R33
-	 eMIImxJNNmWOcLQNj3G4auBJWF4Ss9KR2ey4fuvDh+S/kpfJyp/R7zLe7aphTV+Yu+
-	 d80n/Pe9A+eAFfKI73IJnDc1dnrrQyu/xPmpVIdVH5iEtCSqBJ7+1dQVCa+ERSEEJ9
-	 6QFsshvYNZ/vhQnAMguNCIFpepBhlFeUzxi9jMX00Yz5qn+z1zp1sDG//cPySg66HG
-	 rxAwzhLrTN1Xg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 68A2117E00AF;
-	Thu, 19 Nov 2026 15:53:01 +0100 (CET)
-Message-ID: <32a64e144c11bec72908ce143044773808be5115.camel@collabora.com>
-Subject: Re: [PATCH 0/6] rust: iommu: add a paging domain abstraction
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Daniel Almeida
-	 <daniel.almeida@collabora.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)"
- <joro@8bytes.org>,  Will Deacon <will@kernel.org>, Miguel Ojeda
- <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo	
- <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?= Roy Baron	
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
- Hindborg	 <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
- Trevor Gross	 <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,
- Tamir Duberstein	 <tamird@kernel.org>, Alexandre Courbot
- <acourbot@nvidia.com>, Onur =?ISO-8859-1?Q?=D6zkan?=	 <work@onurozkan.dev>,
- Abdiel Janulgue <abdiel.janulgue@gmail.com>, 	iommu@lists.linux.dev,
- rust-for-linux@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- driver-core@lists.linux.dev, Detlev Casanova	
- <detlev.casanova@collabora.com>
-Date: Thu, 19 Nov 2026 09:52:59 -0500
-In-Reply-To: <20261119143151.GH3115493@ziepe.ca>
-References: <20261112-b4-iommu-domain-v1-0-c29e86788dda@collabora.com>
-	 <20261116193821.GC2452510@ziepe.ca>
-	 <3EB4C2ED-B699-4532-A562-68B78F6E29C6@collabora.com>
-	 <20261117202055.GA3115493@ziepe.ca>
-	 <b145b2ceb92c73a4fa0477d7b3895a6e3b4adf99.camel@collabora.com>
-	 <20261118160909.GC3115493@ziepe.ca>
-	 <fe60c0bd-1ee2-4b33-8ca3-564ee08e6db5@arm.com>
-	 <CF2BE3BB-4F16-49FC-8421-B2B823BB7BB4@collabora.com>
-	 <20261119143151.GH3115493@ziepe.ca>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-cQtIT83PANfhDEpRr1Ju"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=thorsis.com header.i=@thorsis.com header.a=rsa-sha256 header.s=dkim header.b=jxPXT3Io
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2D3E01483022;
+	Thu, 19 Nov 2026 15:53:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1795100002; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=k1TemjZqZzUtb911eFpFTlr9YVP5j33fp7w/pph9qY8=;
+	b=jxPXT3IoGdPzIrANv/1IsOBMFwrG0fKNZ2kYGvul8pZ3lqJ1iIi1uUIwygxseWnUedBX5r
+	pCuASsLWd44+piSPYRDtEFK984UK3DeXNSfymq4rpqEm0tc3uL+JP+VylYDKAEn5KHnYQ4
+	iibgQuY3yubiQZRnJrbmRQCgQ+hKi4V/PZSAn0XcCo1TnFZCud0mK33uX+2zTW9iCZMbkO
+	Gxmv1vu1GzJJPBRgJdi5jWo9hbj4YqyQo8x2XCCkv543CHe1Vi+i7st0+PncjoLhlgLUT7
+	wYczqi14VFFD3TQqFiobiCvpmycHuLH/wZRcAdvOh3DsOjADi+kmiLroe9454A==
+Date: Thu, 19 Nov 2026 15:53:12 +0100
+From: Alexander Dahl <ada@thorsis.com>
+To: Claudiu Beznea <claudiu.beznea@kernel.org>
+Cc: Alexander Dahl <ada@thorsis.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v4 03/16] dt-bindings: clock: at91: Allow referencing
+ main rc oscillator in DT
+Message-ID: <20261119-sixfold-tradition-ab9492ca6c2e@thorsis.com>
+Mail-Followup-To: Claudiu Beznea <claudiu.beznea@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+References: <20261105110715.2486432-1-ada@thorsis.com>
+ <20261105110715.2486432-4-ada@thorsis.com>
+ <5273baa7-aae5-4364-bb09-dccee581200b@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,45 +86,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5273baa7-aae5-4364-bb09-dccee581200b@kernel.org>
+User-Agent: Mutt/2.2.13 (2024-03-09)
+X-Last-TLS-Session-Version: TLSv1.3
 
---=-cQtIT83PANfhDEpRr1Ju
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hello Claudiu,
 
-Le jeudi 19 novembre 2026 =C3=A0 10:31 -0400, Jason Gunthorpe a =C3=A9crit=
-=C2=A0:
-> With the additional twist that alot of embedded HW has apparently
-> choosen to not implement SSID but instead has a pool of SIDs that one
-> device can use, functionally similar to SSID.
->=20
-> We'd need also API support for unbundling the DT iommus=3D[] SID list
-> into something that the SIDs can be attached more like a PASID.=C2=A0 Tha=
-t
-> need, I think, has become clear with all the DT tricks and fake busses
-> to try to work around this issue. :|
+Am Sun, Nov 15, 2026 at 04:34:30PM +0200 schrieb Claudiu Beznea:
+> Hi, Alexander,
+> 
+> On 11/5/26 13:06, Alexander Dahl wrote:
+> > The main rc oscillator will be needed for the OTPC to work properly.
+> > 
+> > The new index introduced here was not used on the four affected SoC
+> > clock drivers before.
+> > 
+> > Link: https://lore.kernel.org/linux-devicetree/20250207-jailbird-circus-bcc04ee90e05@thorsis.com/T/#u
+> > Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> > ---
+> > 
+> > Notes:
+> >      v4:
+> >      - change index for sama7g5 and sama7d65 after re-adding unused PLLs in patch 2
+> >      v3:
+> >      - adapt to different base changes, added lines are the same
+> >      v2:
+> >      - new patch, not present in v1
+> > 
+> >   include/dt-bindings/clock/microchip,sam9x60-pmc.h  | 1 +
+> >   include/dt-bindings/clock/microchip,sam9x7-pmc.h   | 1 +
+> >   include/dt-bindings/clock/microchip,sama7d65-pmc.h | 1 +
+> >   include/dt-bindings/clock/microchip,sama7g5-pmc.h  | 1 +
+> >   4 files changed, 4 insertions(+)
+> > 
+> > diff --git a/include/dt-bindings/clock/microchip,sam9x60-pmc.h b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> > index 050e5e774b274..830e247ba2532 100644
+> > --- a/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sam9x60-pmc.h
+> > @@ -10,6 +10,7 @@
+> >   #define SAM9X60_PMC_MCK		1
+> >   #define SAM9X60_PMC_UPLLCK	2
+> >   #define SAM9X60_PMC_MAIN	3
+> > +#define SAM9X60_PMC_MAIN_RC	6
+> >   #define SAM9X60_PMC_PLLACK	7
+> >   #endif
+> > diff --git a/include/dt-bindings/clock/microchip,sam9x7-pmc.h b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> > index 292c5873e101e..58d2a08116795 100644
+> > --- a/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sam9x7-pmc.h
+> > @@ -10,6 +10,7 @@
+> >   #define SAM9X7_PMC_MCK		1
+> >   #define SAM9X7_PMC_UPLLCK	2
+> >   #define SAM9X7_PMC_MAIN		3
+> > +#define SAM9X7_PMC_MAIN_RC	6
+> >   #define SAM9X7_PMC_PLLACK	7
+> >   #define SAM9X7_PMC_AUDIOPMCPLL	9
+> >   #define SAM9X7_PMC_AUDIOIOPLL	10
+> > diff --git a/include/dt-bindings/clock/microchip,sama7d65-pmc.h b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> > index 08581418b9115..17105a6bedb54 100644
+> > --- a/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sama7d65-pmc.h
+> > @@ -19,6 +19,7 @@
+> >   #define SAMA7D65_PMC_AUDIOIOPLL		10
+> >   #define SAMA7D65_PMC_ETHPLL		11
+> >   #define SAMA7D65_PMC_MCK1		13
+> > +#define SAMA7D65_PMC_MAIN_RC		14
+> >   #define SAMA7D65_PMC_LVDSPLL		15
+> >   #define SAMA7D65_PMC_MCK3		16
+> >   #define SAMA7D65_PMC_MCK5		17
+> > diff --git a/include/dt-bindings/clock/microchip,sama7g5-pmc.h b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> > index 27668634b0a2b..4a1c4af8ecc9a 100644
+> > --- a/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> > +++ b/include/dt-bindings/clock/microchip,sama7g5-pmc.h
+> > @@ -19,5 +19,6 @@
+> >   #define SAMA7G5_PMC_AUDIOIOPLL	10
+> >   #define SAMA7G5_PMC_ETHPLL	11
+> >   #define SAMA7G5_PMC_MCK1	13
+> > +#define SAMA7G5_PMC_MAIN_RC	14
+> 
+> I think we can use 12 instead. Correct me if I'm wrong. Otherwise, you
+> should change also driver code to allocate space for this clock. See
+> pmc_data_allocate() in drivers/clk/at91/sama7g5.c
 
-The word "fake" never flies with the DT maintainers. On that subject, I sti=
-ll
-don't know what you mean with iommus=3D[].
+The old definition had this (with PMC_MAIN = 3):
 
-On the SSID / PASID route, physically I understood these have a limited cou=
-nt,
-is the iommu implementation manages more then the HW supports? (or has goal=
- to)
+    #define PMC_CPU                 (PMC_MAIN + 9)
 
-Nicolas
+That's the 12 which is missing in the new list.  PMC_CPU was not used
+in the current code base.  Personally I'm fine with using 12 here, but
+I was not sure if this is again some value Microchip wants to keep for
+some reason?
 
---=-cQtIT83PANfhDEpRr1Ju
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+The allocation problem was found by sashiko on patch 5.  I already
+fixed that in my working copy for v5 of the series, but will adapt, if
+the value here is changed again.
 
------BEGIN PGP SIGNATURE-----
+Greets
+Alex
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCav8NSwAKCRDZQZRRKWBy
-9NdrAPoCYDz5yGypmvSXub7WMaVIrRjbSqey4T91XcUF9WhFAwEAwBUrFYqOrUpF
-H8q7RtyfoFsL5gcrRl/mvJTF5VRgxw4=
-=vh9V
------END PGP SIGNATURE-----
-
---=-cQtIT83PANfhDEpRr1Ju--
