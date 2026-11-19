@@ -1,49 +1,73 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082409;
-	b=yGryBbWjogppwp+NcbY32koQKPICsLh31A0BpfBOIwtswoFGBAcQQLszVhlEjHdlRCVa
-	 W9PEm+Zs+ZfW5KJ6JMUVw118P4ANoFJZoOZMBCfVgVfm/QjFdlm3dKXrtHaCAc/9F5hwf
-	 P9Bof6DxHMcDt4rRpUgLKdytKIBSarepGmimuYTYXpK2/Q4u0M7fVuvZ12+JJddgxF3ty
-	 Ax6o4NDrc8G4atqRmW2zyfup0OGPZdAaJBmx62ocp9VHspugpEj0MyNzHMT+vmyUz9Gxu
-	 TTivhAuIVjc80O9db0h43M7kcJUN7Y5gh2b9biSAnrPd942X6rVaDX0Mu1uDqpRwnAA==
+	t=1795082434;
+	b=jCdvUJ40DEDiUGqKRsltiOipbC4p8UfOcwVxg6a4GJ9v+thys8QthTdbYsV5sTUQoy/g
+	 zFJ55Rjd67eiCNZ1pHUR42tGQvxV6CPgzfLFw8YLl9Y1ByWH/Mh+68BAHOvvxPKF1Gpgf
+	 cyrak+PtzqOg07FmTvFCpwOBQ6v2gcgUu2f7lhYqMo0bXcJmm7ZmWblCBV8Nz7XWAKMFq
+	 VwpYG6Fx7Ki2hcGdZk6JXgU3BKAZpa49WmDkWkWJpY4z7InVolNSIMGbLu/Fi37n8fVh0
+	 o9BnpXb0CVBi4MMDsgUEdckR5DQoP8D9wpYc21RTceLKZe8cXedyMJlPjAglW/+sMDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082409;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=kTzbNMB0lkPb29C5lEl2iw0lD8pHD/bk4tZXLI5J+hQ=;
-	b=JA5ujkT/XhAi2CKvBrXpC5/UjJeJwKLg0rVI2FAFXLKSgu3I87ed0L0K38jNDNHj0Nry
-	 NKg1JxmNAVgdPYtBm7bhTPYaKl7U+iRwWQQZn93gFIYtqCZWaU4p5RKdZ6+GJL/na1RiI
-	 eUVXybJKNKjnaaPQOGCkJiMoSAwO+/DTDHlm1kkmPwEGtoVG+csI5A5YPt/XNWYplMch2
-	 eA5TVPdkikfzyGh4kdnXbxkFaCtobeQ3uATdl0gPsPa75/5vdcJS2k8nHooG78n/fhdWX
-	 QKTRaMIJzP3rBtZgnmWPEo5aW73WSxLPwPlkMNu2YP+DeuXg/6gzYA2ceSujvRuNg1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082434;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=Vo/QPuyt9xAuVc4bYgeGFAf56PcN2UEvOdauMxhbg+4=;
+	b=CL3h8lnbrIw9tghwPI6LWBQKVfW2qTtfaJXlDPdF8DDwulj3yjeG1nCInKLe0mnmuPQ/
+	 hbzamWZWNfgW6ZiAKgGi1p1JxSqPGkq7iHAV47jh9NklWiR/XPKRSU86DXJch87e9HMtS
+	 IbFH13ISPkxhCXrFb20DbXNQPKsXG8VePCnkSQFVQXSfAXVwbOpx83Cg7nvvZIC9nc/P7
+	 zCyjN4GIIwLasBZ+XFpjNWYcgGpwl1BLMVWQrIdUzj/JdGj8chZNx6o3X/AvLsW7xN8lL
+	 wwP3kCeQjc1P/bttene1tMRJRtvtqKntBZqj0u1y1gMBCXr22KprrR9fKwLoGa5ORMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nokqmaiP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZmrYS7U4;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A68B606A320;
-	Thu, 19 Nov 2026 10:00:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE880606A33E
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:00:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nokqmaiP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 077581F000C9;
-	Thu, 19 Nov 2026 10:00:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZmrYS7U4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00E3A1F000C5
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 10:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795082409;
-	bh=kTzbNMB0lkPb29C5lEl2iw0lD8pHD/bk4tZXLI5J+hQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=nokqmaiPUXWYijRU0hq1hretq6+Ayze32k8fjoLs05g4KxO3hQmNM8uOp774N6IEI
-	 4R1e91BQQ2KQmONqWYyJ0JwPgtlAXjBZzvNWvPI9BWT0r1UQX95/QyXYDi+nPpt4Qb
-	 KDgDe1W4JvbP5RRwrrMv4ryoIlAhfk+qNq/uMDvA6pmq4EgnqJTAEZdBuPGiMsEM/r
-	 Ozx4ujCsFKlUpgp28aROP6YonJ3mJV47NK98+VIa8qbac1Rb69s3Klyl19xmVAuAZd
-	 bxOPfgGvn5nqdtQaibES78ueh4lRWMhwDmZyAZClCboZEcW8O+l7Gx8Ey5UPWQa8a8
-	 bOdntlrhSTXZg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F157B3808210;
-	Thu, 19 Nov 2026 10:00:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795082434;
+	bh=Vo/QPuyt9xAuVc4bYgeGFAf56PcN2UEvOdauMxhbg+4=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=ZmrYS7U4pePP2mBE1wx/rbjbc0FhnjJPILbXpfM/dNCNb7gF8gM+3PVWI1+rHW+VJ
+	 qjQxJXdLsX1rJmP8541s9P0KDJsjXo447UrSXcNepkzn/D0/09lTjYKJhFboUl1o6f
+	 GQJ3AcAFaAmHXEUWFyvgflxUPXWppoOFD3YBE0OwLN/Yqix+t4zuLPz7qz3bO1cImd
+	 VbhkIoRKpyYye2yr5m3vXwxQJ1By3LEKd/56A4zUy9Cr1bJbPwNyRxKiVjAQBe9nPe
+	 hjfl5rZmSOuvSiOmdUV1mbn987/XdPvwlcnQjjfSJc+ZkAw0ymn1g5dcl8CbYz8zm2
+	 SuYLsTESi/z3A==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 3F7541980050;
+	Thu, 19 Nov 2026 05:00:32 -0500 (EST)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Thu, 19 Nov 2026 05:00:32 -0500
+X-ME-Sender: <xms:vsj-avqMWg9Ebw9PL_nZ4XxfFdNKhAa1jlstwwowZaexwzrmCFrvzg>
+    <xme:vsj-akd2PYJ1MNPKY5xWqjXqCpuZLbvxbCTPZualVuenePe2qoWWro3sPOqFbU0km
+    5ATfH-6gM8x1U42V8Wa3OrRO8M81MQMQonvMEYpzh5AxeVSPhY1v3l7Xg>
+X-ME-Proxy-Cause: dmFkZTGjww8F+XJuiEtzEuQxXT8X8Z5U5wwSDx+1e1m8iuz0iRNJwrP8yIHzbMKKp/KbB+
+    5uEjTWw+UlMMGHasgP9mv7TsqROodvJHaHMwuWoZmwxCP7AJKXoOT4a3jUgqLaIrlpHx62
+    s5VM9Ztn5Z6U5nSSV/6ZZW+jNV+5yYeIpsxGcM5Jk+7SRUBE3J2Xnj+jaAdNZvRHVSc8Fb
+    YFzPjAeVFpeniWMeY/bK5PCQolF45dHLJQd9js7ckuw/VqAz+JIRtTpCYhiV9xdRv6fUCi
+    ZKj75CEHNT1oYEX1xJRbNLKmLvvzuXVN8tFkf0PRkVaB+UfbBIMICpBeyIyeIrC0IDsfIs
+    +KIdtk1yk1h+2DGTqP4rbymMY74MJaV3S/DEke6KMuSIlQ+dl6Lgwzv4d3iaJ2IAI+lRMY
+    a3tbT6wVQ9Q3OcwSjY7Abvt75WucMEZOO/vO6wIF1fKIL8EwEcNIiUFtfTAupbvCtU+hZg
+    60YgAA6/5HhCiBzG2HScMpAGrdDrYQ6hYyBQMndxErcXUTKU6vrZPRhZU141Mg013p1WS1
+    UProcQr3P+TnJGTIZi3G6OGqXhZJIvaX2zZxXceDgLOWeLX9tRlAbz1uOBsQhUNTlQ0FXX
+    qeDWcI2gjsPENiq+OC3S9zRZbqyUrMgOEccaiMUMhANAryFf6GFa6NP9dvoA
+X-ME-Proxy: <xmx:wMj-ag3ZG-zeDmda1qr1KQlfeX2dU6uhQyWDfRr9ygtKXC_W9LUkJw>
+    <xmx:wMj-akBy1e4iQx7LlqIq-kUB3rhRz_F5s3EBEkkAsY-sNm83Mu-TLw>
+    <xmx:wMj-akdtwJ7-BwFm2AnLwWi63o1WVBFhXedepzow8z83loOEnOFeXg>
+    <xmx:wMj-ap6SAcFhsZW_q2OMtaOdp1RmQtx8S4YikPjFnxEWCTbiGcg_fw>
+    <xmx:wMj-avW70A1QhZM-QkE72eyArfaoA-gK4YcIknPSNlWC7JSAYDHOqM_G>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id AC36DF8009A; Thu, 19 Nov 2026 05:00:30 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,64 +77,212 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3 00/10] net: dsa: realtek: rtl8365mb: DCB
- ingress QoS offload
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179508240778.2985927.13937253116183236762.git-patchwork-notify@kernel.org>
-Date: Thu, 19 Nov 2026 10:00:07 +0000
-References: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
-In-Reply-To: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, linusw@kernel.org, luizluca@gmail.com,
- alvin.sipraga@analog.com, andrew@lunn.ch, olteanv@gmail.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kernel@pengutronix.de
+Date: Thu, 19 Nov 2026 10:58:55 +0100
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "H . Peter Anvin" <hpa@zytor.com>, "Ard Biesheuvel" <ardb+git@google.com>,
+ x86@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org
+Message-Id: <1cba56de-1094-4245-9100-2598039a09f7@app.fastmail.com>
+In-Reply-To: <f2297061-4ad1-4ece-89de-5459816e5461@zytor.com>
+References: <20261111091843.3621782-2-ardb+git@google.com>
+ <FD1A5979-1504-4A96-B26C-D89BD362170A@zytor.com>
+ <3522588c-9d7a-454b-afe8-c16c6788265a@app.fastmail.com>
+ <F6E708AE-0476-4E9A-A39D-3DF15E91EB80@zytor.com>
+ <ab8628ec-9476-4f3c-80fc-b68556803002@app.fastmail.com>
+ <5E2684EC-0F34-4008-B043-F912FA1AAE6C@zytor.com>
+ <16b3f916-41cf-4ad6-bd54-45384051d4dc@app.fastmail.com>
+ <f2297061-4ad1-4ece-89de-5459816e5461@zytor.com>
+Subject: Re: [PATCH] x86: Make the 64-bit bzImage always physically relocatable
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Hello:
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
 
-On Mon, 16 Nov 2026 20:10:11 +0100 you wrote:
-> Add ingress QoS offload for the RTL8365MB switch through the dcbnl app
-> interface: a per-port default priority, PCP trust and DSCP trust. The
-> mapping helpers go to net/core/ieee8021q_helpers.c so other drivers
-> can share them.
-> 
-> Two changes are visible to users. The driver now rejects a devicetree
-> port that the chip does not have. With a default priority set, an
-> untagged frame that leaves a VLAN-tagged port carries that priority as
-> its PCP.
-> 
-> [...]
+On Wed, 18 Nov 2026, at 20:35, H. Peter Anvin wrote:
+> On 2026-11-18 09:26, Ard Biesheuvel wrote:
+>>>> ...
+>>>>> I'm going to vote NAK on this one... I was already thinking that it
+>>>>> would mess up low-level debugging too much,
+>>>>
+>>>> How so? The last time I proposed this, you replied that you were
+>>>> planning to do this yourself.
+>>>>
+>>>> https://lore.kernel.org/all/3f2e8d7c-6029-49ef-8e31-a3eb5efb385b@zytor.com/
+>>>>
+>>>
+>>> If we are going to get rid of it, we should get rid of it properly as
+>>> in removing the conditional machinery,
+>> 
+>> Which conditional machinery is that? All the code that reasons about the
+>> physical load address needs to stay, the only thing I am changing here
+>> is that you can no longer disable it on x86_64, as there is no upside to
+>> forcing the 64-bit kernel to run from a fixed physical address. This
+>> means the EFI stub no longer needs to depend on CONFIG_RELOCATABLE
+>> (which also controls the generation for relocation data for virtual
+>> displacement) for x86_64.
+>> 
+>> The i386 situation is different, but I left that alone on purpose.
+>> Would you prefer it if that always became relocatable as well?
+>> 
+>
+> Yes, if we're going to do it, it would make more sense to do exactly that.
+>
 
-Here is the summary with links:
-  - [net-next,v3,01/10] net: ieee8021q: print traffic type and queue count with %u
-    https://git.kernel.org/netdev/net-next/c/b41ef20ab56b
-  - [net-next,v3,02/10] net: ieee8021q: add pcp_to_tt()
-    https://git.kernel.org/netdev/net-next/c/7338998e37fc
-  - [net-next,v3,03/10] net: ieee8021q: clarify the tt_to_tc() traffic-class mapping
-    https://git.kernel.org/netdev/net-next/c/a8d30866fbba
-  - [net-next,v3,04/10] net: ieee8021q: add tt_to_pcp()
-    https://git.kernel.org/netdev/net-next/c/37d731911fc7
-  - [net-next,v3,05/10] net: dsa: realtek: rtl8365mb: describe the ports of each chip
-    https://git.kernel.org/netdev/net-next/c/2517cb4b6510
-  - [net-next,v3,06/10] net: dsa: realtek: rtl8365mb: store the egress queue count per chip
-    https://git.kernel.org/netdev/net-next/c/7e0f10801a0d
-  - [net-next,v3,07/10] net: dsa: realtek: rtl8365mb: add QoS baseline and DCB default prio
-    https://git.kernel.org/netdev/net-next/c/4af6c347edc9
-  - [net-next,v3,08/10] net: dsa: realtek: rtl8365mb: program the PCP of untagged frames
-    https://git.kernel.org/netdev/net-next/c/78dc82293945
-  - [net-next,v3,09/10] net: dsa: realtek: rtl8365mb: offload DCB apptrust
-    https://git.kernel.org/netdev/net-next/c/92a1dea3ebbd
-  - [net-next,v3,10/10] net: dsa: realtek: rtl8365mb: report the DCB DSCP-to-priority map
-    https://git.kernel.org/netdev/net-next/c/03ceee6094c2
+OK I'll go that way then.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+>>> not use it as a backdoor for
+>>> doing something explicitly NAKed (forcing PIC compilation.)
+>>>
+>> 
+>> I know PIC compilation is a sensitive subject for some people, but
+>> would you mind not framing this as some backhanded action on my part?
+>> 
+>> Once I get to resending that series, you will have ample opportunity
+>> to voice your concerns and suggest workloads that will prove that
+>> it is infeasible. Or even provide one now so that I won't have to
+>> bother resending it in the first place.
+>
+> I do (genuinely) apologize; that was indeed *quite* uncalled for.
+>
+
+Thanks, much appreciated.
+
+> What I *do* think is a real problem -- and you are far from the only or 
+> worst offender -- is to put a vague "future improvements" as 
+> justification for a change. This is literally asking people to take on 
+> faith that the "future improvements" is actually an engineering 
+> direction we want to go in.
+>
+
+Point taken.
+
+Since we are discussing the future respin of my PIC proposal here, let
+me address those points as well.
+
+> PIC compilation is another matter entirely (as you also very correctly 
+> point out!), as x86 unlike most RISC architectures has enough direct 
+> addressing reach to encompass the entire kernel (in the "medium" model 
+> for user space and the "kernel" model for kernel space.) This means that 
+> x86 benefits from GOT/PLT elision in ways that many other architectures 
+> don't. On the flipside, because x86 is a CISC architecture once you give 
+> atup performance in the compiler stage it is very hard to recover it 
+> even in the linker stage. Furthermore, on i386 PIC is *extremely* 
+> painful since it involves giving up one of only 7 usable GPRs (6 if you 
+> are compiling with frame pointers!) and a relatively expensive 
+> sequence(*) to get EIP manifest.
+>
+> As a result, I very much will continue to object to PIC compilation on 
+> x86 as opposed to boot time relocation. Whereas code patching in user 
+> space is expensive due to breaking sharing and thus demand paging of 
+> executables and libraries, none of that applies to the kernel -- and we 
+> do runtime code patching of the kernel anyway. The relocation is just a 
+> special case of that.
+>
+
+Please wait for me to make my proposal before shooting it down. You are
+making assumptions about the impact these changes will have without ever
+having looked at them.
+
+I am not proposing any changes to i386.
+I am not proposing the use of GOTs, PLTs, etc.
+
+What I will be proposing is the use of RIP-relative references instead of
+sign-extended 32-bit references to global symbols. The reason for that is
+that this will allow use to run the linker in -pie mode, which then produces
+all metadata that traditional kaslr needs at boot time.
+
+> Now I do know you don't like the compressed kernel relocation format 
+> (which you are not trying to change with this patch) and it is *most 
+> certainly* insufficiently expressive for fgKASLR. For fgKASLR you need 
+> to know the relocation base rather than a simple adjustment factor, even 
+> on an architecture like x86 that doesn't have to deal with "upper 
+> part"-type relocations (for which the compressed format approach, 
+> carrying embedded addends, completely collapses.)
+
+PIE linking allows the use of RELR packing, which reduces the size of
+these compressed kernel relocations by about 95%. This is the same
+format used by PIE in user space, as well as other architectures in
+Linux.
+
+The size increase of .text is between 0.3% and 0.5%, and none of the
+benchmarks I've tried showed any significant performance impact on
+the micro-architectures I have access to. With this patch applied,
+you get those 0.5% back if you disable CONFIG_RANDOMIZE_BASE. This
+is the future work I was referring to.
+
+I will be more than happy to try any benchmark you can throw at this.
+
+> The metadata required 
+> by fgKASLR is positively vast in comparison to the ordinary kernel boot, 
+> and legitimately so.
+>
+
+Indeed.
+
+The implementation I will be proposing is essentially layered on top of
+the ELF representation, using a seed to permute the contents of .text
+in a stable manner.
+
+This means that a debugger that knows the seed can permute the image in
+the same way before loading it, and so all post-mortem and source level
+debug use cases are still supported. (Whether the seed is preserved on
+the system itself is a separate matter - on Android we will probably
+discard it after booting)
+
+So the permutation performed by the loader and by the debugger is
+implemented by the same shared code, and the resulting ELF image
+remains a valid image as before. This allows permuted images to
+be packaged and shipped as well, without changes to the runtime
+loader (this might be useful for Android in some cases). It also
+means that traditional KASLR is still possible too - fgkaslr just
+fixes up the RELR/RELA metadata after doing the permutation, and
+the existing code works exactly the same as before.
+
+The upshot of this is that relocations tacked onto the binary after
+linking will go out of sync, and fgkaslr boot would lose the ability
+to do traditional KASLR as a result, which is undesirable. This is
+why the existing x86 relocation format is incompatible.
+
+> However, fgKALSR is time-consuming. On bare metal this is rarely a 
+> concern, but users want to be able to spin up a VM kernel in ~100 ms. In 
+> that case, the compressed relocation format is highly efficient, both 
+> since it is compact and since the processing of those relocations is 
+> extremely simple.
+
+I am not proposing to replace those relocations with fgkaslr, but
+with standard packed RELR relocations, which take up only 5% of the
+space used by the bespoke x86 relocation format, and can be applied
+by the following for loop:
+
+for (const u64 *relr = relr_start; relr < relr_end; relr++) {
+    if ((*relr & 1) == 0) {
+        place = (u64 *)(*relr + offset);
+        *place++ += offset;
+    } else {
+        for (u64 *p = place, r = *relr >> 1; r; p++, r >>= 1)
+            if (r & 1)
+                *p += offset;
+        place += 63;
+    }
+}
+
+> Furthermore, since the kernel is also ready to go if 
+> loaded at its advertised preferred address (which is the reason why this 
+> address is explicitly advertised, even for a relocatable kernel: "if you 
+> can load me at this specific address, I can boot faster and your vmlinux 
+> symbols will match the runtime, too."), the performance-sensitive VM 
+> spinup the (virtual) environment can be set up so that the relocation 
+> can be skipped entirely.
+>
+
+Both RELR packing and the fgkaslr I will be proposing have the same
+properties: the metadata can just be ignored, and the kernel will boot
+in its default permutation from its default virtual load address.
+
+So perhaps we can continue this discussion based on the actual code once
+I post it, rather than on your assumptions on how these things will be
+implemented? I promise you I will take your feedback very seriously.
+
+
 
 
