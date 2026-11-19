@@ -1,76 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795090309;
-	b=A2MSQcDVltKgVz9DJVJzYcCMv5ejvukqt2t+TVIW6v5FHmMzhuomswUiLEHz55sghOD3
-	 cK5xOyYo14RqYQnOtHC+G4rSGvMqCR5DB1nQ02OhWBaZ3aYSojdLbFwFKOG7L76As48ac
-	 QlLaj0T5ZCd4isK5URSzKbOR3+RU011vT3R1szHDve6l8bXvY03E8WMjd8Ba80J33lrCz
-	 WdKnCC4eYdBMfeO/904AgWDyEkOHUq6TkYzn91wd7CQpO30y1j3Rw3eEnWKJzFLKjpHzm
-	 8vCcjkAy4XFnym1eDszWU5Y3Bx/2M24s25hjpBmXnmBy/W5W75ve/EMOqLvpwqq/bFg==
+	t=1795090324;
+	b=FcYwuJnZIMAsIe5m3aQ1lvVRGKi7nFGhEOSmKj/Ufi+3MURA950GtEhoB25gr8KuoKSy
+	 m6hwVKVpoxkt1MZPqcnz/Egw3AU1jde0f0wt675wl9lr9svbX4jzMHnKXruSPsCCBFH2b
+	 LOJe9laTwAtyyquPETjze2GCgPXRyGOzWP/ovc3SMe/Zcf/ZuSug9GJA+2XfTV9fg+l4H
+	 cM7lIaDOlKaUeDPiLtr+3JAzAVTepZaFueecEBHGwl/1qQodz5+ko3EX8uaUIIpqCAdaY
+	 BjbyERvILxhKponjoQLbfD24Kk9ORrJnqmsH1f2WVP3xHAy5BAsuTwvm1Km4p9MNZ8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795090309;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=tviNPhPwnA+DcuN7jiTb3/ChTOP03GVBQlXgko6Vksw=;
-	b=sDpYneAw+vfmWfWM3nT0z+EZ8TL56ADOMsZtOEdOcK7Z69z1GJtTjwy9jdfD5oq0YBZG
-	 QqCcxeyBle6LtbNTXuCtuEoHrpewluVoyxpAo6tO92ZAPXueF8TjyTS8C/GmrtfbQ7+7Q
-	 qD3pnxXoJ60e2uhGBL2lR0eltmQnQVWEiGkJgEvDbJ2SGJl0b2HnHex4++kf4EXCudjwC
-	 AaPXb5qVZWGVlpKalGNoOwp1ek9PVjSOem9rHbljWw97segrNjJYYwVlA73VIdyagFeHs
-	 rCf19ZMtRFQeb/DKGFYcRim7uudvuo6zbRheubmVawBdtp+MNo7e1A08HBxY3b2I/SA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795090324;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
+	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=J/aH2sMv0KdZ1mHDgGlbZ8LAJiyxrg8LmBXp3A+DE7o=;
+	b=q9krvF6b/CbjsR0QFT0nrxbQl3e/BfswQDRU+0pdjHrL7/HfMzbmwy618pOBaMrIvNfo
+	 UtW4iP/JfhjG9jIP8j1F3BX0Ki4RmeHs0BzCMGc2/DGncnUpSK3pUmiaTlyeWTPhD1t6h
+	 hml/DbTa6anRY6JeeOKaBIa5joz7Qwd0r7b9mqpUOxJOf0VuZwX2gVenKXrkVpmONic83
+	 35za/r1jkEasNbGUXXuBh+PsHhI82/kHxOHl1vI0ptO42huhTJiNTvvqnN67aQMfzIrSh
+	 BVXRXH8U8ys71XnI3ZzQ173ho3QV/FbxppB3us7+QBt2jXaxavDhqRKKt7nW7tgc1Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=FmiA2j2A;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=jsbH2bQW;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KXrGzAgm;
+	arc=none smtp.remote-ip=192.198.163.7
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57A6E606A320;
-	Thu, 19 Nov 2026 12:11:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57A6E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44FC6606A326;
+	Thu, 19 Nov 2026 12:12:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44FC6606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=FmiA2j2A;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=jsbH2bQW
-Date: Thu, 19 Nov 2026 13:11:43 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795090305;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tviNPhPwnA+DcuN7jiTb3/ChTOP03GVBQlXgko6Vksw=;
-	b=FmiA2j2AzJSODsQsLsNYbNDKMLYUpbKXvzK/lYnAYSyceszJmq9FDHSi0Z9B+KwVikWliZ
-	59z5FgmwTVNwgTMCnt0WnjhdVWRmiXlTh1DukoqR7e2M++NHLVYG/uTzb2wWI7ZOnyGKy8
-	d/mMkCap2qJA7Sp8Pxh9fOaSgN5j95BynTdzVGnIUW3PpdfjIqLQbu6IRisAnIZvUb8ySf
-	2b9evXbNC9S3pqfMCGQCB3B3PvGAbqFDdxM4kakTzIP8P6KkS2+cwJX0YWIGB5tyFx/apK
-	v5fenoQr5fabm5Ssd8Y5TrN/xsvSYYk/CKpKq9DB0pZ2V5jg1HIEs40BDOK0AQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795090305;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tviNPhPwnA+DcuN7jiTb3/ChTOP03GVBQlXgko6Vksw=;
-	b=jsbH2bQWd6KWdja4ws2J9jG13bc+NY/bspaQsVtbdbhwZDyM7G/5aF1o6y099Y1gOTq8uD
-	hbFgK9zwrHMDxqAA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Tengda Wu <wutengda@huaweicloud.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
- events
-Message-ID: <20261119121143.pJrJE7qs@linutronix.de>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KXrGzAgm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795090325; x=1826626325;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=6Tp/LLe+nfOYMhD0KzwvJBujBxnHmuF2OB9ZHXLFAWc=;
+  b=KXrGzAgmxna1sX/wQ80RvWf2EAhYJ2V9eyCqVfi2h7A69ZhgZDojEZ7d
+   pp+CWwJ0Qdx+YkXPS1zoVEReQIwoVJX81lgYB+ySd1r3kzLiVaDBGg7PB
+   bWdbKVbnlyCHcVCuaqc9kCHyBTthoTfPuiiGr/91EAAvgHFqYH9O/a45i
+   JphJJls6iJmolNKEcMQU4Yw0gqOxlyRyFF7m1/RXsf4hMZRN+IQgELS0S
+   QKcvMyMPGozoSCbvDuPM0OhAHo2VxfxVZBS14iA7Kr147B78pgUkeI7/g
+   HqddlLrwjLXOHQWCxgZh/D/zss9b4Ly4bct169xwtt0xcwNfMg/+Ai5Hh
+   w==;
+X-CSE-ConnectionGUID: 708iL1rSTJGqOEbdaPUq4A==
+X-CSE-MsgGUID: IWulqV85RUu0O2G9cUH/+Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3785668"
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="3785668"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:12:04 -0800
+X-CSE-ConnectionGUID: 10Mn+3bNRWaypM3GnRxMNA==
+X-CSE-MsgGUID: U/lr4OXrSACy4SlCO1ULqw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,220,1787036400"; 
+   d="scan'208";a="10413877"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.86])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 04:11:59 -0800
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 84148120FF5;
+	Thu, 19 Nov 2026 14:11:56 +0200 (EET)
+Date: Thu, 19 Nov 2026 14:11:56 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Paul Elder <paul.elder@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH v7 0/5] media: Add support for Broadcom/RPi BCM2835 ISP
+Message-ID: <av7njO6dZNzM9UFi@kekkonen.localdomain>
+References: <20261118-b4-vchiq-isp-v7-0-b8c81d193abf@ideasonboard.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,52 +95,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+In-Reply-To: <20261118-b4-vchiq-isp-v7-0-b8c81d193abf@ideasonboard.com>
 
-On 2026-11-19 09:51:01 [+0000], Tengda Wu wrote:
-> perf_sigtrap() contains:
-> 
-> 	WARN_ON_ONCE(event->ctx->task != current)
-> 
-> The warning assumes that an event's ctx->task always matches the task
-> that ends up running the pending task_work. That assumption can be
-> broken by the context fast-swap path.
-> 
-> The failure sequence is:
-> 
->   1. A -> B switch, perf_event_context_sched_out() takes the fast path
->      and does WRITE_ONCE(ctx->task, next) / WRITE_ONCE(next_ctx->task, task).
->      An NMI then hits while the context is swapped, and
->      __perf_event_overflow() queues pending task_work on the *current*
->      task (A), even though the event now belongs to B's swapped-in
->      context view.
-> 
->   2. B -> A switch. Because A now has pending task_work,
->      nr_no_switch_fast is non-zero, so the slow path is taken and
->      ctx->task is *not* swapped back.
-> 
->   3. A returns to user mode, task_work runs perf_pending_task() ->
->      perf_sigtrap(), and event->ctx->task no longer equals current,
->      tripping the WARN_ON_ONCE().
-> 
-> The context fast-swap path was already excluded for events that need
-> stable task association (inherit + sample read). sigtrap events have
-> the same requirement: the SIGTRAP is targeted at ctx->task and must not
-> be delivered after ctx->task has been swapped to another task.
-> 
-> Fix this by also excluding events with attr->sigtrap from the fast-swap
-> path, i.e. bump nr_no_switch_fast for sigtrap events in
-> list_add_event()/list_del_event(), and update the comment describing
-> the invariant accordingly.
-> 
-> Fixes: c5d93d23a260 ("perf: Enqueue SIGTRAP always via task_work.")
-> Signed-off-by: Tengda Wu <wutengda@huaweicloud.com>
+Hi Jai, Hans,
 
-This makes sense. How did you run into this? Is it possible to make a
-testcase out of it?
+On Wed, Nov 18, 2026 at 11:38:13PM +0530, Jai Luthra wrote:
+> Hi Sakari,
+> 
+> The VCSM-CMA driver (which this series depends on) is now picked by
+> Florian in the broadcom drivers/next tree [1].
+> 
+> If the ISP is okay to be merged by you (and Hans/Mauro), we probably
+> need to coordinate so it all ends up in a single tree during the merge
+> window.
 
-Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Is there a chance to have an immutable branch for these? I initially
+thought the driver could have been merged via the stblinux tree but the set
+also touches other bits where we certainly have changes to in the media
+tree.
 
-Sebastian
+In any case, for the set:
+
+Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+
+-- 
+Regards,
+
+Sakari Ailus
