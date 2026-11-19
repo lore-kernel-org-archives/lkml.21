@@ -1,63 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795047850;
-	b=bk3rmBTWwl1g1AAadAlqrT/dApSGiqztEPszVifcjLrw8nJ6joYEqT4UJ3vQkFPSDqgK
-	 W4eoEcxS9EZ30xhepIu9+aCNO+3y7k+ZVWBxCmAXFBpG0esCQabgDZ+mtEfS5WOeR916H
-	 5HVLko9bhUihQ5GUlD9BDXp2tZz+lQRsFEBxU5FvN138abqsxRO3DHs+2ksm+Bq5ZRhCt
-	 teh0O19gqy8qRgTleeOF1yjhs7lxss3n0Na/Wxz6i/KzyBqes+5q+don1hw7SfBfFN3XC
-	 NdCLSUhJhlo1CKEEPV0Z4LBhQHAaJj/NDtNGmji771uYOK/qo18t8iyDVbfcT2pi4+Q==
+	t=1795047859;
+	b=y0X6modzH7M9YNFAbVfgOtXLarekq8tELwHdkbWd/U/7KJOvQ5gUGSpqcQ0g0zvJyNrP
+	 qWcnnrnFj7FA/NL0wmB4e3giBC2mMJDECO8DnV78nGHZZ2NZMpUh5Dide+LGYSDpuYXPv
+	 5Z7iRIcX8kiwzOjW1KLx6R7pWvYLu8sXl3DMPU2vWUCvcAxVyziyygibLKxVail7njMzW
+	 cehGCGgKqxJomkazMN0QK5x52wUN7zESdaG7kA8RZplHVM2bZz0kJe0c+s0y1vWlQgW9I
+	 ru8qryXtWuXG5AfLAdRAujkrkZLMswGGzSTccmwXXHQBWku94hOrZZaqDtvJJNMj58g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795047850;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795047859;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=5DQIoQAMdc3RoK4joLEe9HZU6OJSgtoLLYIzh8nns8E=;
-	b=yNyPRp7WcGXgb8MjJRwEx/W2doEpIoDSDoq/kyjzqiz79L+uHnAg9/FsahsvnwaDnYOs
-	 vKseg/dN9wTXOiJRF4ZLrlq4MBQahN0AnQH0vaSoIpLeCmB5dVRPiXRZWCz1vgKMp7bU0
-	 YsQyMbNxGKU468KS3/6VX8nhEoGnEjN5aBpdYoo8phuSSK5ibK84xQCl7CDSorqJWrUj9
-	 IvIvjZ2vMKAn77ZcVFKc9zFlOm2vbSX+FwbVsVvd/Uu5mNmTaysEgJQVSe0W+BdADd421
-	 ksGAnqHHOG07wfNLRTfJ8GXAm1xUFYmf8TPBLfLfQx6NLt0BSY3XR3PI+wet96Y6AEQ==
+	bh=aXOqKt2NMYYEXvjoI7GZxfHPL6l9VgfPwE+uuPiqf0M=;
+	b=dBERRXwm0Eu61wHFmDDUPiyysIzsUnSmGzFNBuUyUsgYj6yOnbk58c0pgNCo/fxdfY6b
+	 INTEUqp+Ycc9bhYGaCq+PN/K+fdg85Abw6T13RRVDVo3CCSjBsx7rsYg/2wHRZ5ow+AaG
+	 mI4ntP8EKdOEqBJTPhAjhmuk3tMhQtiesLcTvk9HHn1S2o0aoDNKKz6y5R3ucs6sImu1Q
+	 OSK+WDetZiIVlei1M3jYKjiY78KWc9uUvN3QII1aEWEGQ1uawNVPgoHEzQX0ODZmdzkkD
+	 6vdkcdsIib5KcAQtAI0xhWeNZTIXV6UiKIhaQRneiPp6sQOtQUVJOk2SfBSDgkQVFCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nT+ML7jQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=pobox.com;
+	spf=pass smtp.mailfrom=pobox.com;
+	dkim=pass header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=PbmRJzjy;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Oa0bafj6;
+	arc=none smtp.remote-ip=202.12.124.158
+Received: from fhigh-b7-smtp.messagingengine.com (fhigh-b7-smtp.messagingengine.com [202.12.124.158])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D3A2606A325;
-	Thu, 19 Nov 2026 00:24:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1066606A320
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 00:24:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1066606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=pobox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pobox.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nT+ML7jQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 678FB1F000C4;
-	Thu, 19 Nov 2026 00:24:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795047850;
-	bh=5DQIoQAMdc3RoK4joLEe9HZU6OJSgtoLLYIzh8nns8E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nT+ML7jQKOF1QZ7zXpvnawOOf13xFe8ENu06cSU/2Z5sLmVgTFtO9KSqPcaDMbkjj
-	 Gvn8DNg0oPkWVuFN0zgxDwORXVCq/i6pig1BU9F1cOSmujWBwbeGeuSGrArcDE+LCb
-	 QZESMJyeNYQCBuXk1jOL3SCjzfkO4zfhJW9Y4rTioUC8BnH0nyvQPCTZGiAGpqvYf7
-	 McH01KHSAcksKsvvaYTDJRLydi/N6ujvnTNve5YkwhSkK61kvTBTCgKUMvV3TRNJAL
-	 N5sNEjLG81FeG3kogg7fmXK4wtmbsULOh36wERv/MULQfcF0Y8JegfQuNIJRURnG/e
-	 DWQR2RTsoIegw==
-Date: Wed, 18 Nov 2026 16:24:08 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Mahanta Jambigi <mjambigi@linux.ibm.com>, Alexandra Winter
- <wintera@linux.ibm.com>, "D. Wythe" <alibuda@linux.alibaba.com>
-Cc: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>,
- hexlabsecurity@proton.me, Dust Li <dust.li@linux.alibaba.com>, "David S.
- Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>, Eric
- Dumazet <edumazet@kernel.org>, Sidraya Jayagond <sidraya@linux.ibm.com>,
- Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org,
- linux-rdma@vger.kernel.org, netdev@vger.kernel.org, Simon Horman
- <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>, Wen Gu
- <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, Wenjia Zhang
- <wenjia@linux.ibm.com>, Julian Ruess <julianr@linux.ibm.com>
-Subject: Re: [PATCH net v2 0/2] net/smc: do not reuse the DMB of a nocopy
- device
-Message-ID: <20261118162408.215ca3d1@kernel.org>
-In-Reply-To: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me>
-References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me>
+	dkim=pass (2048-bit key, unprotected) header.d=pobox.com header.i=@pobox.com header.a=rsa-sha256 header.s=fm2 header.b=PbmRJzjy;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Oa0bafj6
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 352177A02EF
+	for <linux-kernel@vger.kernel.org>; Wed, 18 Nov 2026 19:24:18 -0500 (EST)
+Received: from phl-frontend-01 ([10.202.2.160])
+  by phl-compute-09.internal (MEProxy); Wed, 18 Nov 2026 19:24:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pobox.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795047857;
+	 x=1795134257; bh=aXOqKt2NMYYEXvjoI7GZxfHPL6l9VgfPwE+uuPiqf0M=; b=
+	PbmRJzjy/QNeWh0lmE80OqRCzYn6R1vCFQYtr824dDCeuE9I9E2Dh2aSgbZx+vab
+	bc3G6deBTBzdtTJ+7W3AnMLpbr/q2F1ysPmOnNHY1mIG0Ou4P8caOCDa78xFkK39
+	XN5dljrbu4Ab62cRLTM12W85Saau0ebqNJOw5xnRUHu+gqYF0sgfrp0cOGjmFyif
+	QMpiVtEqn7edJp5KqLRqZ2mnstEoFZNLYqEINsGfBZTrfHQa7G4mOdkodJeNLHgK
+	RL3cHebJ+rd1hwlLhKEhfb/aiGsW++T3BLahgcdYjYHEBvqsg9QIwndJL5t4hK8+
+	BMrRePU+JBCMMI+RkBQpYQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795047857; x=
+	1795134257; bh=aXOqKt2NMYYEXvjoI7GZxfHPL6l9VgfPwE+uuPiqf0M=; b=O
+	a0bafj66XkWPM26CQYjEJG2jT9Vsf/BbwPTFUKmPlQdE6iAnP1v0t5rgBjth6TPp
+	92o9am4QHp8cgEf/5th2RWcX78h+ZzZbR9z0TNHBeW2HFVDEe54tF0iGdujOnIvD
+	vx+mbmjjJahiFQZBkZOLyY2RR0P+glSmUbUK8Vbge0b+MQRY2qruSnZvRB+9+hKd
+	uZpeAeV8QYz/GJnS+gRdqZM+xIrfSxXboneu45SZNGQC9Y3GhUFgrUaFk5jSk+t2
+	VhAM81QB9Lw0LstK7fYF9y32btA7WPGBSLdCzybxyMs1dVerA8p/yuKUiEgSr7yi
+	MqgcrstWE1Nwaxy11O1Xg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=pobox.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795047857; d=pobox.com;
+	mf=PGJhcnJ5bkBwb2JveC5jb20+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:n6QUB7SgWN/SLUb3ZgIrqkJU4RTuEJCR+JdVYcZDJkvpnI2
+	Q3JYNppte+IOu6Ymr7T5ATkSkISWsiGIN6vlJNgn6HqoA/WHOp1TQWdTbhicd/LL
+	dJZxwVZmTkd9VHU/1PFPSpdWau94b4cXI11XhpR/+S0ASj4MNcWs+LWlNU1eEtGO
+	eVreExeOBR+ee3M3p/gZEw9k3U28VIH2SEl7g/Yfti4+CWz35lBf+/CnK51zSWTK
+	SxazoKshglFPmF94Mh7lB9dqPiZXtlqMW4uVhNZ1l5Q4P3cmrG81fC9srQa4vLSE
+	tB16EkjQoB0eDfvPIC8R7suw+2F5ylDNLr+arwQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=14;
+	hn=cc,content-language,content-transfer-encoding,content-type,
+	date,feedback-id,from,in-reply-to,message-id,mime-version,
+	references,subject,to,user-agent;
+Message-Instance: m=1; h=sha256:Ta2Kt6YfwEM2fVBchHi5OzhsC0qMKaCSW10HEpJ34nU=:4ujMirIt1fvKIqFyNNS5n6CZS6ifKo9vSFtOqHX+BmA=;
+X-ME-Sender: <xms:sEH-aiHHbSVW3nzJT9lgS_NCWOu0hssvJw4N35gsnIunyk670zaaiQ>
+    <xme:sEH-ajsjIIthu7VsaXBZnfpHxKpOP-3Ebs90_tVYPcvEZsjWIpAB44XbICMy7cHfq
+    0DnJBYh-WONj74HhVaK9Vz5kay9wQu59sNuSmnDjbibQzwYVJY586VL>
+X-ME-Received: <xmr:sEH-atQPdD-PP_r-9gX55M6XUjG-wTgAe4gJ9BTXsBYWuvL8sP0QQzIs_qsdnFuQQ2nhjttaCMIQtZBm3YtT9qxO9rV-xSJe>
+X-ME-Proxy-Cause: dmFkZTFziiajCBR4Sr75l9noV5zaF2WbXJaANF5ti6nw6uZ84o+FAiHFYbgyx9LMT6hjCU
+    VazHKyRi+1qn/3tDO2qt45vt9O5EX3hK65tBmLIG0ZIt3D1298ZpIfDSdvKWcnwMbOkXE7
+    LZOzXKT2F7k3d3Tkbn5q+XOTVDex6nXpC2/iE+WCXALaUmGrkvlnOFrxtZYoJ0sID4cu0t
+    XYtBR1a6FlswIzH2ZmyCdPAMxVKos+tcH0k/RPZq+UaStyjBfRUXiMkNWGJCNpJO69e8TS
+    Mv9J+CBFddxDyHAKLD5KWFipt2VtnnI5NkWrIgXtsWrMt0npGe+53HZ7rpqKa4THSQl5VM
+    /tz6El+wpW8zH5BzcQ2hnjO6dTHgJYNjsFdXAjDkHk29Lol07/LxZ5rUooPkQupq1dM28Q
+    ilh2aaL9xjYiDWtIN6xcyrxtGg94znNu4igv0wy02qwOX/Alaog5n08xQC2e0sJ7pYEjKs
+    Yrt9Rw7NwtVZM8HajICL3L5YrnxyGHVwNOlB+zK9E4U1g1F1UBOC+HFo+f9gjieU09czFT
+    yDAK+8Fw9/Ww1tac/ICCVG/1NSkQNuhaLgARt0xBcAlkcpXEMJqq49XuJryItXP+7Zoakd
+    A127ybCxieSKmxGx0wY7c9BMj02/NOXFhI64sKPFqQBtW+eciP/3ySeZZd2Q
+X-ME-Proxy: <xmx:sEH-aoHm5FcB8xywC3gvzPrUVmAULjoBkAhKU0lZuM9HJKdRL556Fg>
+    <xmx:sEH-ancPqQvcw6dEqwGgwOUh7NHv1muxOok5jdfxfdYSaWblNl9FZw>
+    <xmx:sEH-ansnUPluP79FYCe3vd3xj9KtVdDxLDvrDnErlC7Q-zZMsFVMeA>
+    <xmx:sEH-atfuIoCPVEjO6AV6AzmRbcArOWOanTIcdlY3xiQ4BiLxmcsXuw>
+    <xmx:sUH-apPisMEE8WZ7sGpk8s0zfIa1gqnmwH5J4OnoicNj2KOdeTHXPmpk>
+Feedback-ID: i6289494f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 19:24:14 -0500 (EST)
+Message-ID: <4d8d08f5-d74e-4886-b9a5-8fc4dce72618@pobox.com>
+Date: Wed, 18 Nov 2026 16:24:13 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,18 +119,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
+To: Brett A C Sheffield <bacs@librecast.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+ linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+ akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+ patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com,
+ jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com,
+ rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261118150201.293410965@linuxfoundation.org>
+ <av3WYtoFXmHPM8uk@karahi.librecast.net>
+Content-Language: en-US
+From: "Barry K. Nathan" <barryn@pobox.com>
+In-Reply-To: <av3WYtoFXmHPM8uk@karahi.librecast.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-On Sat, 14 Nov 2026 14:09:27 -0500 Bryam Vargas via B4 Relay wrote:
-> With DMB nocopy (the dibs loopback device) a peer writes into the other
-> end's RMB through its own attachment. smc_buf_unuse() puts that DMB back
-> in the link group's pool with its token still registered, IOW the old
-> peer can still send its CDCs to it. The next connection that takes the
-> DMB gets those CDCs, and a peer that attaches after the other end gave
-> up lands in another connection's DMB. 2/2 stops pooling DMBs on nocopy
-> devices. This is the reused-DMB case that the v6 cover of the CDC
-> receive ordering series [1] lists as not fixed; Sashiko flagged it on
-> v5 2/2 [2].
+On 11/18/26 8:46 AM, Brett A C Sheffield wrote:
+> On 2026-11-18 15:17, Greg Kroah-Hartman wrote:
+>> This is the start of the stable review cycle for the 6.1.193 release.
+>> There are 2857 patches in this series, all will be posted as a response
+>> to this one.  If anyone has any issues with these being applied, please
+>> let me know.
+>>
+>> Responses should be made by Fri, 20 Nov 2026 14:55:40 +0000.
+>> Anything received after that time might be too late.
+>>
+>> The whole patch series can be found in one patch at:
+>> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.1.193-rc1.gz
+>> or in the git tree and branch at:
+>> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.1.y
+>> and the diffstat can be found below.
+> 
+> Same build failure on amd64 as reported for 5.{10,15}.y
 
-SNC, DIBS maintainers, could you review this slop?
+For what it's worth, I'm only getting that build failure on 5.10.275-rc1,
+not 5.15.226-rc1 or 6.1.193-rc1.
+-- 
+-Barry K. Nathan  <barryn@pobox.com>
