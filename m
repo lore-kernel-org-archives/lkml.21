@@ -1,100 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.178
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795097833;
-	b=YtJ8/qGHXZKM0K2oy+q12b0T2xHePOhZlxs1B6PIyeWaivY/wJAb3kqnMaZNJM3//aNk
-	 koLJlbPM768MEidHmL62Ms+yPJBk13SHlCVNj0l+PPzDaB92zlLLwzrNTLI3kgcfOJFkI
-	 JoO0Wpf7TcgYXJNV38nPvBFLqw4+k2HGAWOimOS0wTIPNsP2IXpi5EBEauyXUO5tWuZdM
-	 O1tqJrVqIJlOGe05dI+28QTUKdjiJp+kdG8nLs6+PnLK2kyixmpLsCwV0UlnCLyYeq2Rk
-	 y5Fo9375nWS6ef1q1VdKnXZj25pZ8LjfICweHyHDbg/gddb8jhI9j0ueINIJyle5rfA==
+	t=1795097855;
+	b=B506MqezQrGzTueAQMMKQDxirOB/bz6MoejiItJyJcvoKKc5OqYhW7Oe9/6qqY90bt6g
+	 JwEMnzzWOvGpOIAVRMC2Hze3VAAGiCqXOToTVIxrA4lPHpxTliXcb7QwxMr3LURE8RNwW
+	 yBN13M1dtGpbDa/r6keHtekHM3VqMH2FmxPAxt1pDUAZ7+ZqPiVVVO+hDV5jCJSDsYLHS
+	 K/qYEZ+VL/Bh2k9mSt21LwbVeNFynRQ59wl/T5bK6DM2QeFqKYdiMbtp8ByNscosPy7Hz
+	 iiNquOBrIR7ur9LVjUKjQhNYDZcLK+zQqK6Vu0+cn4Geqt026Aiq1VyHSqqBgnUsDjQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795097833;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795097855;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
-	b=qU4qzSRZhU6an+Ey5k/5dSjCiwAe6TNhCmVJhjOATN7F1U1zUeCtAQ/Ky7MivCPy9lb5
-	 FW8+GVctsLNYyM+yTqf6IeQMf27bUilCSS94dCXVhTpQ4fyMUGumrO+nCzZzMR73FGGJ8
-	 9Pr93XZjryiCUYbpXuWcfQIeBe+ah+bZ3T2fNy5GuqCM9qKnig2up+Xj/7qhs+uCkoqsA
-	 cLHSCBnfMavFhuNZiNPOOeyQQEOxnCNeprD2ac6a4vFL8mD59jdoNVlZi/ZjWeppqRMVM
-	 89FUl85ttM6sMzHDTTmfPWlc+qWpMSWudzOEH1C+Gzi72heNsWG+oySguncXm93F9xw==
+	bh=a0wuRDfCqI9H1yXKDYU9ffVxzYM0+S41Bo3dJny90cA=;
+	b=lN+esAxD7Q8STIlujzqF9diuSsE11uIgNB1uoZoMF4Eksn5dQX3fJkz93C4m0B+UP22F
+	 iEuBLUPqy/U8mzkljcgrzLCLjt5jg5EGHeSgxQLzl68Z5euUfKy9FrnMf8EI7PTgvyyhU
+	 PVdXiApWhpkblOtcF/M6wFwVb5VfEkI0qLxIwS+NmxsVL4prDk9i8qumKyAqqk9rqku+A
+	 0ZaOdQYJa7CFoypgO1RNmeUGtonPsqzrp/msegTIV/9V+9FTJ1V/BBKyrw7eOxnbt9jpU
+	 4S74oEsK4nrcwXDiBv4S/I1WVk9X0vFvTqSBuPznpwUqWMsAuIaX/eQ1mC1q1DYIwfA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYLCrU1b;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.178
-Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com [209.85.208.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TbGqy1fR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6FEB606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:17:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6FEB606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E51C606A33A
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 14:17:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E51C606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYLCrU1b
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ae1fd4252fso22258881fa.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:17:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795097831; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TbGqy1fR
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b8784a3284so2019625a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 06:17:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795097853; cv=none;
         d=google.com; s=arc-20260327;
-        b=Jazc/bSdkRi6dIkwQ5Qcg257ig61mM8lgNa71Geam/huqSl5EfakENZ4T5q3OhLTAZ
-         fQ0KKPLMdLhZVe/8xiNOwGASjraIc/fczIM6HB/YF1DrvGbQbfMoo2MO9yjbN8bTS5Pr
-         XxBdvKlPyAuwvTm7YVsz4Oy2eoTiHrYzisN581Ahyvd59bbh80ynG7WVNngm4+MwrNQ7
-         z2ytPt76kNFoKpxuZouEcGV7ecpse80ZgrIxB/1ScaDHKtx75qfyw0qCd2H+nPtzHffZ
-         zmpV6xlOZ+Lz51tbFDGIrTOgeeTsJ3UviyqfnEDqfDyzTJQcdoTwjf8xjgtcvavArlPd
-         zBng==
+        b=lR6MMhnLN5zZfNdhk1xz0xIB8JN8xBCi9zoOxLF/zGEuvSyigexiEgvL3e385FdFwH
+         l92avw6OJTXJx9W+ZrjoKlKK/1jTbr9xBGQalsVdGAnpNnJHPxBdgtFcz9y1yg9GEqyf
+         pRCzcNG4XXvNvfppoSAGf+AFWCmwk9T72quOo8OEoSUPQ+dV6zbf3/JyQZg28fcC+eZC
+         G+a9EDDO3XVOkO37s6KGh3T+cBlcamnT9TrKZbvaYBh1iIn0YvubuLzFtpy5nKHmS2WX
+         sZ0TIOER4bVWBXxYy0C+/R7mwEz12B1Of5UrJybmvjbi6UcZ13JDmBtCmK+GDdTiwEuA
+         yCgA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
-        fh=BLloX9fA2c8s/dZ/Q7eu6+hjkhft1EqO1653OTdGecQ=;
-        b=Knf0MBgGCm3c7HWFZi/P1w8YZhasdAVd1+8MLChtdi97HxfewiOuBE2ngJLMYGxN55
-         2I6CCbDeeAHMMNKpsnlKEWrjlryfHf+SyEU4HzDX2GeqXNvIL5awDWurKVTkuH5LsQIa
-         i320QETWGfJuzpgXSOHOcyDvJRp5eFdnEaE5A0Ju/1jAKeTMj2ZNILk/urn8XWGfobAp
-         pj8OFD+T8TKyeAeHbtHE0u1DEC400FxazaRb/IdzenARFORqMmsKBjr3uPIqOxt7K5kA
-         aZVKFI/kaw8nA62ysiG/tL2jeZLY8TMUuV2lSpy7nv00zKw0QdN2QKnZY1ZGxzg9New3
-         oLIA==;
+        bh=a0wuRDfCqI9H1yXKDYU9ffVxzYM0+S41Bo3dJny90cA=;
+        fh=/dNHCRpv0xJ1ZFwECV77LjvJol2J7f0oTubeonIRclI=;
+        b=SKjQ8S/GnP1C7N9CmMBy2rQFmrw3Jl7guhTqGzS5Ut+qHY9kuePoyOf46ejBeQEgNS
+         SSJY8B5FNHQvaMIKZ1g2eVaeCDtk5ycc+3MahrPl4IZyL2wsg1euMqBChp/Tp52wAx/9
+         jkmqk8Gl3GjpSTBO/HxdnEQP/+rV6C6hIoI8LBzDAmlM7sNQ8MD/cuZNYNmWEaPIt630
+         rLlnuIYbHpXfhiZB2Ysa0+rk+5HpaHtD2sPEzlIztmi+7dVmol4XtsOFW/MRZFXiBDPj
+         2qWPtqujjLB6cUk2ZfVPhAKbM3S/7FH8WY0iguWkU39an1tT2U3Tf2QB/PpJtdb0a+ML
+         GoJQ==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795097831; x=1795702631; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795097853; x=1795702653; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
-        b=gYLCrU1b14FtyWF9J9rRGDjfdc0Otf4TgsztKEFyUN8vJ9fEW00iNlVqaoT2i619GN
-         PxW3UzyGLeWoFiRpiteOsZMxbyCOnwB0I4Vz7wka/NNZaRvwxaLO+iTNj7edK7aSpb2E
-         6dlsAyjI70MyFpVX27aztVirR/jyfNLlLk0ArU3X1/lW/5ew9DP4mA3FM2CFLrkx5a8B
-         Q7S3hXRSwI+Kfx8e2500V5OyhAsVHtbBuYy2Lmdx6wFHL1iEJgod36lZbX66g9lksG4J
-         PlM0PO+aDLTSGc+5+rIr20nfPTNKiUbTBRQwHd+HMGzbCyYY9lMv1PoV78+PQOtZFcf6
-         kgOw==
+        bh=a0wuRDfCqI9H1yXKDYU9ffVxzYM0+S41Bo3dJny90cA=;
+        b=TbGqy1fRVKgwF2lZaswTfp3fokRXgv8XWxCTnSKNQvTtTRphn8ZCJfjk6bUa/Qx1BZ
+         qZnEED/So4mIQd6Sr/qpNVamWkY0xMRCdoGtLZ1XTK5hFhKjhBu2rQSPHM6LzP7+pgQ9
+         0rGu7OQOMr3M7/94bnSZL8OHWDeSlJe6Sfyj1YYiOpNKqIOe4+6YjDw4KiGqR1IwZxYB
+         mBVvUjf2St34KYwwp5cD8OvIuQU0GN0hGHsndcf+8CKVQNdYZzzc7VJplmzUnUNjJTly
+         f/HT3Z0EMjSs/OmaV9rlYCX5HUpDq8a4oL0zeaKeOqrLsetJhPwjhVHplP+/iIXL5PF8
+         PqHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795097831; x=1795702631;
+        d=1e100.net; s=20260707; t=1795097853; x=1795702653;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=a6Sn/6cW9iuG1tj9bDWj2gzrauRJ8z3JBJoW668E6FQ=;
-        b=HQLDfyWB18dxwbhg8hcW8vyaur74WfGh78aZRnyU81TbgwQ1TjvIsixhsw2w1hv2J6
-         EEN27P2nWiPvB7isAN8x7h+KN0a3g37Xjpo0a3Zcx8xDwUVng7e57Ek5SyQvQ/TYqlY2
-         VjyshfazNC6wJ9ekTHhQycHzFivZzoOHL3pgUzEyf4NfU0VjKnEqcuHMRc7wtZJebO2M
-         T3nIFMukM58WU3YdMmv/R6axZd2VaVgWS6FKmeRvGCPrqcqf81QUPxE7+DzzQTF09qq7
-         xbpj1kk0YVwhSZ/vVBeRrrV2PViRwNAbpLE5iCd1whLK5Ef6wCn20dcFBeTgHwPGY2I2
-         zarg==
-X-Forwarded-Encrypted: i=1; AL+hErHBzJSpbRbD976WTrBaoYJAPcl87ytQqnYHHB5R8SbPpkvQNzIGoELj9fDFg0ECwFVKL5zpPulVV+JP7VU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9h4jFd51pd6KzwO6Y8Ji2+vaae6o2+t2RhllSDXvnIMzN+lgHs
-	n6vbrKEV5l5Z44/c++Y+lcSrqxxpw83OCxVslok/3RpDrKh1W/PATtyRU9D9FQ2hqntrqoYCfMO
-	peai8/0vTB99vmSyik+fyAt9H25sfrnw=
-X-Gm-Gg: AYBFou3xGLgto/oug67zxwzurjh7DzIO9x5F/ZdInQp33M7S9Gc8CVB+OBOHELPw8/y
-	CoFf//qFiuab4mgCBP7tiUmhWSn6k+LvfWg0930POqjHBnJh7rHvngrpwGeo2g5xhfBkA9C+Nzg
-	kt6ng4iaY2g83TGmyjgbBvtLeJgocF9UyIQwHgszWbTWKU9b0H6mbHYZBwdr62xNm7VCyYM4JVd
-	quHfDbnFbOkapilvNwmVL+A25AquvpWycNNRgrVmHzoeAPmJbocbNfzHgTU2Dgst9cd6djtITuO
-	IRwbfp/5WveTnWFyuXiOzWHVJkxURCkQDSsQPPb5sPNqIv+AJtCFARSIcW6PRnUH8y62Pv2LlmQ
-	NRMCs2hWOyMbhhbB6hG/uhxmJyl4GmxrUTU7FlZs=
-X-Received: by 2002:a2e:ac01:0:b0:3ac:dc69:e62a with SMTP id
- 38308e7fff4ca-3ae7f8d3febmr335241fa.2.1795097830717; Thu, 19 Nov 2026
- 06:17:10 -0800 (PST)
+        bh=a0wuRDfCqI9H1yXKDYU9ffVxzYM0+S41Bo3dJny90cA=;
+        b=1x1dhPItV5ujA41znEmgkom8Nq+2Wp8rpXTMggrd/QfqKYEeLhJSMAFFRlYTCSrOMP
+         EJxwj2KfU2nj7jtA6ACj5z5gGRv8om2Pn0HahrtL3ifpp6l327rShbUiKJhdLRjW0GVO
+         k8Nj6b6vDl93hLPLEHRXN4XA3xnFxpyGhCREsLAFbQJqsjJgBxU+Q+relRMmyHVBpY+h
+         CynKwTRzJuPbVEh9wM/SkPLu/uqGRjgzxv8LS3Sj9nuRBTU92q4WBjZN5B+KiOim301E
+         LZtjeygTOq9MAzPHmPmy3lZb+7BVb49n8meEKUQgY8T/JGx/xVLvmVlF4LqGFPrJDa52
+         Ew5g==
+X-Forwarded-Encrypted: i=1; AL+hErFQdksoeNv0TdmptYQAk+AcjXK7sRALrKbVLULtHo18dX+SBYEteeh57oPwMJ9XHwYciz4n4E5oIXs8WjM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OTIYLMOnoSZx+f4vwAdtNg+iAXKl6vpfiJcDXBZbD7j8GsgPe
+	SvHdt6oMqHeVOu7B6E5y8WAaiLzwduqTj3vpb8d5udNbhJgyA7TXmHePZ9YzgVVgJUWzWT37kcG
+	hHcw/upcuHumwbe04SDBa/1ooyZUAVzo=
+X-Gm-Gg: AYBFou2wbYChsgC5IETvlWBu+RK7dlUHAFzlKxLUHQ4Ka3/FClyJWx3/sJI3fD/Smgn
+	5B6zstGlBkfNodkNsjYV2Qi7C2Yz1Yu27ai+C5zhJEEtNJVEyqCWAhAJR3kvyl5m/EUZGFt020V
+	cvuobsh+GFNR64Cf1S9Fo9M61Q1pgVzMwdH+57nlzBqhslWJnWI6vgZs8pIfDl3PZZ5693jJatm
+	p1bY2gKcQgV7WUOwTI0OPnVJQP2Vpvosag7dueoP1bsRigHTzgOCtdo/SxvQxCc0NBnFZt9PWHV
+	err4MSkLcGy94AB5G4IWE/3RDjSmE+NGId86EwFk8lq3XgVPluMgPLh7VUjam8OB/RuPWrIREev
+	skpZ49JyI1BIOpg7AsEOXfHdk4MStcakcsDPiouAgbxzTNWNCjFmz30ogCtBH1JWcL+62va93PN
+	okw1bIvkrA5KlW+p4=
+X-Received: by 2002:aa7:c1c7:0:b0:6b8:6923:91e3 with SMTP id
+ 4fb4d7f45d1cf-6b887ef17admr3757230a12.7.1795097853003; Thu, 19 Nov 2026
+ 06:17:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,202 +105,336 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118120102.3717000-1-graypanda.inzag@gmail.com> <willemdebruijn.kernel.37588f5cf382f@gmail.com>
-In-Reply-To: <willemdebruijn.kernel.37588f5cf382f@gmail.com>
-From: Junyoung Jang <graypanda.inzag@gmail.com>
-Date: Thu, 19 Nov 2026 23:16:58 +0900
-X-Gm-Features: AclHuK_LIRKFgU_S2fFfC6XZS0j4HJsS0X8_nxwW8loTln1Qz37v8K9q7GCKYcQ
-Message-ID: <CAO7ntTQpeuWE4t-e_3d_aFzug=KiUd7dZjXpZgO-Fm=8iY8=jw@mail.gmail.com>
-Subject: Re: [PATCH net v2] tap: clamp zero-copy copylen to remaining payload length
-To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-Cc: Jason Wang <jasowangio@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Gwanhyun Lee <gwanhyunlee@gmail.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20261119025942.2848130-1-neilb@ownmail.net> <20261119025942.2848130-5-neilb@ownmail.net>
+In-Reply-To: <20261119025942.2848130-5-neilb@ownmail.net>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Thu, 19 Nov 2026 15:17:21 +0100
+X-Gm-Features: AclHuK8T6bEqIG7WMipfNp1tO_FH1yaTNDotviQIju2dOKQkw2iC5zD9XaDKryQ
+Message-ID: <CAOQ4uxgan=mpQ9yHOyZwZZp8E69+oH3uaPJ5CBkP7Z5BCO-5jA@mail.gmail.com>
+Subject: Re: [PATCH v5 4/5] Add d_for_each_positive_child family of iterators
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ian Kent <raven@themaw.net>, Jake Edge <jake@lwn.net>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-> Commit 2506251e81d1 ("tun: Decouple vnet handling", v6.15) introduced
-> the premature check, replacing if (hdr_len > len) with if
-> (hdr_len > iov_iter_count(from)) and crucially before
-> iov_iter_advance(from, sz - sizeof(*hdr))
+On Thu, Nov 19, 2026 at 4:00=E2=80=AFAM NeilBrown <neilb@ownmail.net> wrote=
+:
 >
-> Commit 6a53fc5a8770 ("tap: Use tun's vnet-related code", v6.15) then
-> brought that bug into drivers/net/tap.c
+> From: NeilBrown <neil@brown.name>
+>
+> Provide iterators for the d_children/d_sib lists.  These iterators only
+> report dentries that are positive (though they could be negative by the
+> time they are used).  As DCACHE_DENTRY_CURSOR dentries are never
+> positive they are never reported.
+>
+> d_for_each_positive_child() takes the parent lock and sets the iterator
+> to each positive child in turn.
+>
+> d_for_each_positive_child_continue() can continue after an existing
+> dentry, or (when initialised to NULL) behave like
+> d_for_each_positive_child().  This requires that something prevent the
+> start dentry from being moved before
+> d_for_each_positive_child_continue() can take the parent lock -
+> typically ->i_rwsem.
+>
+> The use of scoped_guard() in these macros makes it safe to "break" or
+> "goto" out of the loop - the lock will be dropped in that case.
+>
+> As there are reports that large numbers of negative dentries can lead to
+> soft lockups when walking the d_children/d_sib list, particularly in
+> fsnotify_set_children_dentry_flags(), we call cond_resched() as needed
+> during the walk.
+>
+> To achieve this we use an on-stack dentry (about 330 bytes) to place a
+> cursor while calling cond_resched().  On-stack dentries are not standard
+> practice but should be safe since
+>
+> Commit 3df5153c5f12 ("make cursors NORCU")
+>
+> made cursors NORCU, confirming that they can safely be released without
+> waiting.  Also importantly nothing ever takes a reference on a cursor
+> that it doesn't own.
+>
+> To facilitate this, a new __d_init() is split out of __d_alloc() and
+> used in d_init_cursor() which can be called on an on-stack dentry as is
+> done in the new d_next_sibling_sched().
+>
+> Link https://lwn.net/Articles/1079407/
+> Signed-off-by: NeilBrown <neil@brown.name>
+> ---
+>  fs/dcache.c            | 119 ++++++++++++++++++++++++++++++++++-------
+>  include/linux/dcache.h |  67 +++++++++++++++++++++++
+>  2 files changed, 166 insertions(+), 20 deletions(-)
+>
+> diff --git a/fs/dcache.c b/fs/dcache.c
+> index 0dc54ba31d8c..bacb218400a8 100644
+> --- a/fs/dcache.c
+> +++ b/fs/dcache.c
+> @@ -1950,6 +1950,27 @@ void d_invalidate(struct dentry *dentry)
+>  }
+>  EXPORT_SYMBOL(d_invalidate);
+>
+> +static void __d_init(struct dentry *dentry, struct super_block *sb)
+> +{
+> +       dentry->d_flags =3D 0;
+> +       lockref_init(&dentry->d_lockref);
+> +       seqcount_spinlock_init(&dentry->d_seq, &dentry->d_lock);
+> +       dentry->d_inode =3D NULL;
+> +       dentry->d_parent =3D dentry;
+> +       dentry->d_sb =3D sb;
+> +       dentry->d_op =3D sb->__s_d_op;
+> +       dentry->d_flags =3D sb->s_d_flags;
+> +       dentry->d_fsdata =3D NULL;
+> +       INIT_HLIST_BL_NODE(&dentry->d_hash);
+> +       INIT_LIST_HEAD(&dentry->d_lru);
+> +       INIT_HLIST_HEAD(&dentry->d_children);
+> +       dentry->waiters =3D NULL;
+> +       INIT_HLIST_NODE(&dentry->d_sib);
+> +
+> +       lockdep_init_map(&dentry->dep_map, "DCACHE_PAR_LOOKUP",
+> +                        &sb->s_type->d_lookup_key, 0);
+> +}
+> +
+>  /**
+>   * __d_alloc - allocate a dcache entry
+>   * @sb: filesystem it will belong to
+> @@ -1959,7 +1980,6 @@ EXPORT_SYMBOL(d_invalidate);
+>   * available. On a success the dentry is returned. The name passed in is
+>   * copied and the copy passed in may be reused after this call.
+>   */
+> -
+>  static struct dentry *__d_alloc(struct super_block *sb, const struct qst=
+r *name)
+>  {
+>         struct dentry *dentry;
+> @@ -1991,14 +2011,14 @@ static struct dentry *__d_alloc(struct super_bloc=
+k *sb, const struct qstr *name)
+>                 p =3D kmalloc_flex(*p, name, name->len + 1,
+>                                  GFP_KERNEL_ACCOUNT | __GFP_RECLAIMABLE);
+>                 if (!p) {
+> -                       kmem_cache_free(dentry_cache, dentry);
+> +                       kmem_cache_free(dentry_cache, dentry);
+>                         return NULL;
+>                 }
+>                 atomic_set(&p->count, 1);
+>                 dname =3D p->name;
+>         } else  {
+>                 dname =3D dentry->d_shortname.string;
+> -       }
+> +       }
+>
+>         dentry->__d_name.len =3D name->len;
+>         dentry->__d_name.hash =3D name->hash;
+> @@ -2008,23 +2028,7 @@ static struct dentry *__d_alloc(struct super_block=
+ *sb, const struct qstr *name)
+>         /* Make sure we always see the terminating NUL character */
+>         smp_store_release(&dentry->__d_name.name, dname); /* ^^^ */
+>
+> -       dentry->d_flags =3D 0;
+> -       lockref_init(&dentry->d_lockref);
+> -       seqcount_spinlock_init(&dentry->d_seq, &dentry->d_lock);
+> -       dentry->d_inode =3D NULL;
+> -       dentry->d_parent =3D dentry;
+> -       dentry->d_sb =3D sb;
+> -       dentry->d_op =3D sb->__s_d_op;
+> -       dentry->d_flags =3D sb->s_d_flags;
+> -       dentry->d_fsdata =3D NULL;
+> -       INIT_HLIST_BL_NODE(&dentry->d_hash);
+> -       INIT_LIST_HEAD(&dentry->d_lru);
+> -       INIT_HLIST_HEAD(&dentry->d_children);
+> -       dentry->waiters =3D NULL;
+> -       INIT_HLIST_NODE(&dentry->d_sib);
+> -
+> -       lockdep_init_map(&dentry->dep_map, "DCACHE_PAR_LOOKUP",
+> -                        &sb->s_type->d_lookup_key, 0);
+> +       __d_init(dentry, sb);
+>
+>         if (dentry->d_op && dentry->d_op->d_init) {
+>                 err =3D dentry->d_op->d_init(dentry);
+> @@ -2041,6 +2045,81 @@ static struct dentry *__d_alloc(struct super_block=
+ *sb, const struct qstr *name)
+>         return dentry;
+>  }
+>
+> +/**
+> + * d_init_cursor - initialise an on-stack dentry cursor
+> + * @dentry: the dentry to be initialised
+> + * @parent: dentry of parent where cursor will be used.
+> + *
+> + * A DCACHE_DENTRY_CURSOR is initalised for use in marking
+> + * a place in the d_children/d_sib list.  While sb-related
+> + * fields are filled in, they should never be used.
+> + * The filesystems d_init is not called and a final d_put()
+> + * should not be called, else d_release would be called.
+> + */
+> +static void d_init_cursor(struct dentry *dentry, struct dentry *parent)
+> +{
+> +       const struct qstr *name =3D &slash_name;
+> +       char *dname;
+> +
+> +       /*
+> +        * We guarantee that the inline name is always NUL-terminated.
+> +        * This way the memcpy() done by the name switching in rename
+> +        * will still always have a NUL at the end, even if we might
+> +        * be overwriting an internal NUL character
+> +        */
+> +       dentry->d_shortname.string[DNAME_INLINE_LEN-1] =3D 0;
+> +       name =3D &slash_name;
+> +       dname =3D dentry->d_shortname.string;
+> +
+> +       dentry->__d_name.len =3D name->len;
+> +       dentry->__d_name.hash =3D name->hash;
+> +       memcpy(dname, name->name, name->len);
+> +       dname[name->len] =3D 0;
+> +
+> +       /* Make sure we always see the terminating NUL character */
+> +       smp_store_release(&dentry->__d_name.name, dname); /* ^^^ */
+> +
+> +       __d_init(dentry, parent->d_sb);
+> +       dentry->d_parent =3D parent;
+> +       dentry->d_flags |=3D DCACHE_DENTRY_CURSOR | DCACHE_NORCU;
+> +}
+> +
+> +/**
+> + * d_next_sibling_sched - return next sibling, but schedule() first
+> + * @child:  current child
+> + *
+> + * This behaves like d_next_sibling(), but drops the parent d_lock
+> + * and calls cond_resched() to avoid any soft-lockup.  A cursor
+> + * is inserted as place holder.
+> + *
+> + * Caller must hold the parents d_lock, and must hold a counted
+> + * reference on the parent.
+> + *
+> + * Returns: the next sibling, or %NULL if there is none.
+> + */
+> +struct dentry *d_next_sibling_sched(struct dentry *child)
+> +__must_hold(&child->d_parent->d_lock)
+> +{
+> +       struct dentry cursor;
+> +
+> +       /* always skip cursors to ensure we make some real progress */
+> +       while (child && (child->d_flags & DCACHE_DENTRY_CURSOR))
+> +               child =3D d_next_sibling(child);
+> +       if (!child)
+> +               return child;
 
-Thanks for the review and tracking down those commits.
+Why is this skip loop here and not after the resched?
 
-Mixing the two examples in my v2 commit message made the timeline
-confusing:
-
-- The second case (sz=3D512, hdr_len=3D256 bypassing __tun_vnet_hdr_get())
-  is indeed the v6.15 regression from 2506251e81d1 and 6a53fc5a8770.
-
-- The first case (246-byte padded vnet_hdr + 14-byte frame with
-  hdr_len=3D0) predates v6.15. Because vhost-net checks the 260-byte
-  total descriptor length against VHOST_GOODCOPY_LEN (256) before the
-  vnet_hdr is stripped, this short frame still enters the zero-copy
-  path. With len=3D14 after subtracting vnet_hdr_sz, hdr_len=3D0 passed
-  the old "hdr_len > len" check, and GOODCOPY_LEN (128) was chosen as
-  copylen. Keeping Fixes: 97bc3633bec7 on tap (and 0690899b4d45 on
-  tun, which has the same unbounded GOODCOPY_LEN issue) ensures
-  pre-v6.15 stable trees pick up the fix as well.
-
-> We still should also include this fix (or skip zero-copy when
-> copylen >=3D len)
-
-I checked both options. Clamping copylen keeps skb_zcopy_init() intact
-even with zero frags and completes cleanly via skb_zcopy_clear(),
-whereas falling back to zerocopy =3D false invokes
-uarg->callback(NULL, uarg, false) and increments vhost's tx_zcopy_err
-counter on valid short frames. So keeping the copylen clamp in both
-tap and tun looks cleaner.
-
-> So there is more work to protect all paths. This on its own fixes
-> one issue. It should probably be respun to fix the Fixes tag. Let
-> me know if you want to take on the other work and send a series.
-> This can certainly also stand on its own.
-
-I will take on the full work and send out a v3 series shortly, split
-by Fixes target:
-
-  1/4 net: tun_vnet: validate hdr_len after skipping header padding
-  2/4 tap: clamp zero-copy copylen to remaining payload length
-  3/4 tun: clamp zero-copy copylen to remaining payload length
-  4/4 selftests: net: check padded vnet hdr_len in tun and tap
+As this is written, if the caller passed @child which is another cursor,
+now child the next real dentry after another cursor and hlist_add_behind()
+below will insert our cursor after the real dentry.
 
 Thanks,
-Junyoung
+Amir.
 
-On Thu, Nov 19, 2026 at 1:37=E2=80=AFPM Willem de Bruijn
-<willemdebruijn.kernel@gmail.com> wrote:
+> +
+> +       d_init_cursor(&cursor, child->d_parent);
+> +       hlist_add_behind(&cursor.d_sib, &child->d_sib);
+> +       spin_unlock(&cursor.d_parent->d_lock);
+> +       cond_resched();
+> +       spin_lock(&cursor.d_parent->d_lock);
+> +       child =3D d_next_sibling(&cursor);
+> +       d_detach_cursor(&cursor);
+> +       WARN_ON(d_count(&cursor) !=3D 1);
+> +       return child;
+> +}
+> +EXPORT_SYMBOL(d_next_sibling_sched);
+> +
+>  /**
+>   * d_alloc - allocate a dcache entry
+>   * @parent: parent of entry to allocate
+> diff --git a/include/linux/dcache.h b/include/linux/dcache.h
+> index fff8393ec06b..7150ecd81d72 100644
+> --- a/include/linux/dcache.h
+> +++ b/include/linux/dcache.h
+> @@ -692,6 +692,73 @@ static inline struct dentry *d_next_sibling(const st=
+ruct dentry *dentry)
+>         return hlist_entry_safe(dentry->d_sib.next, struct dentry, d_sib)=
+;
+>  }
 >
-> Junyoung Jang wrote:
-> > tap_get_user() derives the linear copy length for zero-copy TX from
-> > hdr_len or GOODCOPY_LEN without bounding it to the payload remaining
-> > after the virtio header. tap_alloc_skb() exposes that length in the skb=
-,
-> > but zerocopy_sg_from_iter() copies only the available payload bytes.
-> > The unfilled tail is transmitted on the underlying link and can expose
-> > stale kernel heap contents.
-> >
-> > For example, a 246-byte padded virtio header and a 14-byte Ethernet
-> > frame leave only 14 payload bytes, but a zero hdr_len makes copylen 128=
-.
-> > With a 512-byte virtio header, a guest-supplied hdr_len of 256 also
-> > passes __tun_vnet_hdr_get(): it checks hdr_len before skipping the
-> > padding. That makes copylen 256 for the same 14-byte frame.
-> > Larger padded headers can raise copylen as far as good_linear.
-> >
-> > Clamp copylen to the remaining payload length before allocating the
-> > skb. The minimum Ethernet frame size has already been checked.
-> >
-> > Fixes: 97bc3633bec7 ("macvtap: macvtapTX zero-copy support")
->
-> Thanks for the fix.
->
-> This appears to apply to both tun and tap. But to have been introduced
-> later
->
-> Both macvtap/tap and tun originally subtraced len -=3D vnet_hdr_sz first,
-> and rejected hdr_len > len with -EINVAL. We should reinstate that for
-> both.
->
-> Commit 2506251e81d1 ("tun: Decouple vnet handling", v6.15) introduced
-> the premature check, replacing if (hdr_len > len) with if
-> (hdr_len > iov_iter_count(from)) and crucially before
-> iov_iter_advance(from, sz - sizeof(*hdr))
->
-> Commit 6a53fc5a8770 ("tap: Use tun's vnet-related code", v6.15) then
-> brought that bug into drivers/net/tap.c
->
-> We still should also include this fix (or skip zero-copy when
-> copylen >=3D len)
->
-> So there is more work to protect all paths. This on its own fixes
-> one issue. It should probably be respun to fix the Fixes tag. Let
-> me know if you want to take on the other work and send a series.
-> This can certainly also stand on its own.
->
-> Side-note: it is also somewhat surprising that we have allowed such
-> massively padded vnet_hdrs all this time. But that is perhaps too late
-> too fix. Certainly for net and stable.
->
-> > Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> > Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-> > Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
-> > ---
-> > Changes in v2:
-> > - Replace the Fixes placeholder and add the co-developer trailers.
-> > - Document and reproduce the guest hdr_len > GOODCOPY_LEN path.
-> > - Shorten the code comment and keep the C reproducer separate.
-> > - Link to v1: https://lore.kernel.org/netdev/20261113164903.785381-1-gr=
-aypanda.inzag@gmail.com/
-> >
-> > Tested on Linux 7.4.0-rc2 (067c5c24cef2) in x86-64 QEMU/KVM with
-> > two vCPUs, CONFIG_MACVTAP=3Dy, CONFIG_VHOST_NET=3Dy, and CONFIG_VETH=3D=
-y.
-> > The guest used vhost_net.experimental_zcopytx=3D1 and init_on_alloc=3D0=
-.
-> > Each case ran in a fresh VM with TUNSETVNETLE enabled.
-> >
-> > Before this patch, with a 14-byte Ethernet payload:
-> >
-> >   [POC] case=3DA
-> >   [POC] case_a_hdr0 received_len=3D128 expected_user_frame=3D14
-> >   [POC] case_a_hdr0 tail_bytes=3D114 tail_nonzero=3D98
-> >   [POC] control received_len=3D14 expected_user_frame=3D14
-> >   [POC] used_idx=3D2 trigger=3D128 control=3D14
-> >   POC_EXIT=3D0
-> >
-> >   [POC] case=3DB
-> >   [POC] case_b_hdr256 received_len=3D256 expected_user_frame=3D14
-> >   [POC] case_b_hdr256 tail_bytes=3D242 tail_nonzero=3D82
-> >   [POC] control received_len=3D14 expected_user_frame=3D14
-> >   [POC] used_idx=3D2 trigger=3D256 control=3D14
-> >   POC_EXIT=3D0
-> >
-> > With this patch applied, using the same inputs:
-> >
-> >   [POC] case=3DA
-> >   [POC] case_a_hdr0 received_len=3D14 expected_user_frame=3D14
-> >   [POC] control received_len=3D14 expected_user_frame=3D14
-> >   [POC] used_idx=3D2 trigger=3D14 control=3D14
-> >   POC_EXIT=3D0
-> >
-> >   [POC] case=3DB
-> >   [POC] case_b_hdr256 received_len=3D14 expected_user_frame=3D14
-> >   [POC] control received_len=3D14 expected_user_frame=3D14
-> >   [POC] used_idx=3D2 trigger=3D14 control=3D14
-> >   POC_EXIT=3D0
-> >
-> > Disclosure: An in-house LLM-based analysis tool developed by the author=
-s
-> > assisted in surfacing this bug candidate and drafting the initial notes=
-.
-> > All root-cause analysis, patch code, and QEMU/KVM reproducer results
-> > were manually reviewed and independently verified by the authors.
-> >
-> >  drivers/net/tap.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/drivers/net/tap.c b/drivers/net/tap.c
-> > index 2f19fb07bb2d..f25c58d6e986 100644
-> > --- a/drivers/net/tap.c
-> > +++ b/drivers/net/tap.c
-> > @@ -608,6 +608,8 @@ static ssize_t tap_get_user(struct tap_queue *q, vo=
-id *msg_control,
-> >               struct iov_iter i;
-> >
-> >               copylen =3D clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good=
-_linear);
-> > +             /* The remaining payload may be shorter than copylen. */
-> > +             copylen =3D min_t(unsigned long, copylen, len);
-> >               linear =3D copylen;
-> >               i =3D *from;
-> >               iov_iter_advance(&i, copylen);
-> >
-> > base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
->
+> +struct dentry *d_next_sibling_sched(struct dentry *child);
+> +
+> +static inline struct dentry *d_next_positive(struct dentry *child)
+> +{
+> +       do {
+> +               if (need_resched())
+> +                       child =3D d_next_sibling_sched(child);
+> +               else
+> +                       child =3D d_next_sibling(child);
+> +       } while (child && !d_is_positive(child));
+> +       return child;
+> +}
+> +
+> +static inline struct dentry *d_first_positive(const struct dentry *paren=
+t,
+> +                                             struct dentry *child)
+> +{
+> +       if (!child)
+> +               child =3D d_first_child(parent);
+> +       else
+> +               child =3D d_next_sibling(child);
+> +       if (child && !d_is_positive(child))
+> +               child =3D d_next_positive(child);
+> +       return child;
+> +}
+> +
+> +/**
+> + * d_for_each_positive_child - iterate over positive children in the dca=
+che
+> + * @child: iterator dentry
+> + * @parent: dentry of parent
+> + *
+> + * Iteratively set @child to each positive child of @parent.
+> + * @parent->d_lock should NOT be held.
+> + * @child may no longer be positive when the caller examines it
+> + * so care is still needed which could involve locking the child
+> + * or using d_inode_rcu() to access the inode.
+> + *
+> + * DCACHE_DENTRY_CURSOR dentries will never be returned, only true child=
+ren
+> + * which have at some point in the past been positive.
+> + */
+> +#define d_for_each_positive_child(child, parent)                       \
+> +       if (({might_sleep();0;})) ; else                                \
+> +               scoped_guard(spinlock, &parent->d_lock)                 \
+> +                       for (child =3D d_first_positive(parent, NULL);   =
+ \
+> +                            child;                                     \
+> +                            child =3D d_next_positive(child))
+> +
+> +/**
+> + * d_for_each_positive_child_continue - iterate over remaining positive =
+children
+> + * @child: iterator dentry and starting point.
+> + * @parent: dentry of parent
+> + *
+> + * If @child is %NULL this behaves identically to d_for_each_positive_ch=
+ild().
+> + * Otherwise @child must be an existing child of %parent and subsequent =
+children
+> + * in the d_children list of @parent are returned.
+> + *
+> + * Safely using this requires that something prevents @child from being
+> + * renamed to a different directory before we get the lock.  Holding
+> + * i_rwsem on the @parent is sufficient.
+> + *
+> + */
+> +#define d_for_each_positive_child_continue(child, parent)              \
+> +       if (({might_sleep();0;})) ; else                                \
+> +               scoped_guard(spinlock, &parent->d_lock)                 \
+> +                       for (child =3D d_first_positive(parent, child);  =
+ \
+> +                            child;                                     \
+> +                            child =3D d_next_positive(child))
+> +
+>  void set_default_d_op(struct super_block *, const struct dentry_operatio=
+ns *);
+>  struct dentry *d_make_persistent(struct dentry *, struct inode *);
+>  void d_make_discardable(struct dentry *dentry);
+> --
+> 2.50.0.107.gf914562f5916.dirty
 >
