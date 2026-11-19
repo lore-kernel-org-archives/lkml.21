@@ -1,101 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.228.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795082132;
-	b=K3vSiDCH6zITXvJUAEOOiyJltKem156QrsDsJSM0EiVEyjY+5SMtgjI4GlRTxEhUPEsX
-	 SNevyg6KAXloCy0E+WNc+kv2ROqDkThhJPGPG/G6cwU1zExT2Oz4Gc2U6W9hBhSmUiSWt
-	 6C/o67yAOsygEllbtEbW6tZ6wPqlkBVUXIz0VtCZrlaGFo/6n80FGArxKPocEEVDFiwZM
-	 yjBgDIlhrhGER3p35AEAnHTtr934+oFqXeYYbLPThn/ftnpK9rQgPAvHR9t/P+wUyjlEd
-	 IHPaKufaXSMOLJgFhFY5SY3hXoAyp6+bEH7o06PAm0Pywqj6KgKIlU77S09j8Frhg6g==
+	t=1795082134;
+	b=IorWI2DeL4s0lVqxV9OiSqTFzja1XVTlSDktctCSEsbWSu0F1RyaPVWLshRMKX5I26oE
+	 40+AhKzIQHz/xnP37sDje86XShw45CbAlkr0Brs4SMzupCHhtTH9Sh0NtCFUGtqMSjgdl
+	 p4kQlQTJXhueiLsUqCT/BjQ5S6ABIQX9tH/tyA/88/QDpLTSAQ0zJ6B9dzi6DwH8oXOOV
+	 1lRUw8Yh/12RFels5QWfvLhkLHlrJ/eDBzevkuSH5G1D7RRjAO6WMq7zyjFtbByLl8t6g
+	 hdgsx6iRSkM8C327O4xIhY2ATm2jND/Z5EqSz/1jKVcLjwZw7ku6BZJi3T/KJoZJ7qA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795082132;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=pm7Hd0hzUtoHByqnTKuK22z9l6hq5ZK5lAdKqbbdMJM=;
-	b=Iec9qwypHPsjoP+TWcQf2FCf7Z87RtBAQJ7Mjd0roOF/Mm86Tok+6aYDd3JURysVZWbm
-	 t0sfzfjWLA5gmntTiQYVDemYKnqbhHbK2o/JtbYEwhInvgDkFdAw9wUscSyGRp9Dl13ta
-	 BBZmxGtEtPt7Yh5nFBzsmIdsz/gF2PXUHqfoSRrqmo95q3u3+4Rq/BfjycfJ8jKwjc+7A
-	 MKY1Sgq9xuB7YI43wymATKJF9y9wBSsvN7JicVNMXlQr2Jmv7y2XYYum4WVXhQDHrbevz
-	 AUYao03Qb3zBXCd7MGmVn6IW34e9s28Mpe7aLBLSQ3dqnXZD/pgZ5QUJP8bqxK/PK9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795082134;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=o5n64/UFwdj57pP75MGqiJydiJtnF+eblWXXb8LXDEk=;
+	b=aFDNkJSOmIFgTfqbhSgmL3wLsaCaTvLcfiobvRqQqIjDqbdJYTtbpuLemJ6KYT3dFHIH
+	 5GFVgvr51U+z38YbNJ2Wg2pf9hDiGe/ubOy0Rio4hCw/2qwr4PfPTdAyCiyU1m4q/8bFl
+	 TSL0xVtsp1cbLttM/22dCHG//ANrrjXbXlMMNVSAmGvt2iTjKV+ZHqlumjtB1AtCV+rsw
+	 YvmQY9gYJaYfLcebEMl2QqwDsC2rukhUXzFPFozd4HiqydUGHN4WRQIfQToIeQaNUSzjN
+	 RkZCidmdmgN+gQq8PPI+pK98lJ/ksl1hPomLLyBrJ8UWVpJreYW7h8t8M0Rr4Z/I2dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0Z63CXzV;
-	arc=none smtp.remote-ip=74.125.228.135
-Received: from mail-ej2-f7.google.com (mail-ej2-f7.google.com [74.125.228.135])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02094606A324
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 09:55:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02094606A324
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="vd/VIKkG";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8A6D8606A334;
+	Thu, 19 Nov 2026 09:55:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A6D8606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0Z63CXzV
-Received: by mail-ej2-f7.google.com with SMTP id a640c23a62f3a-c5119f642fdso116392466b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 01:55:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795082130; x=1795686930; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pm7Hd0hzUtoHByqnTKuK22z9l6hq5ZK5lAdKqbbdMJM=;
-        b=0Z63CXzV/fH5a34Jotdt0MnvMwqjxY6PcxChoNhMzhHjMrg1eswYkQrQnN3Qc8+Cd9
-         hz2hrDa4u+BxaE5V26eKyv087GVqb17CtdsPpF2w21x9Tu1yVLM2F/1nCksmOj0Y7YQR
-         ba54pVPjCxKuCzHUU/4/T/+xn98Fdn8ZgrzXPRByjzsGxyYM4+bWuwTWSCSwhoJ0wd9r
-         N+bJ6zfNGdZplI/087Ekwg5al3Go3PuNwZQSmM+Q7p8whDKafFWCZlplARIDewFbvcBY
-         dkGRQtbTewigBXNDIAQ1D4JuUWqrbgP1TPBfS98gjlsUy9hd+dPWDkbN1DdNxJYwpIfz
-         STKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795082130; x=1795686930;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pm7Hd0hzUtoHByqnTKuK22z9l6hq5ZK5lAdKqbbdMJM=;
-        b=BIPxBirX2snVXnyB9zTa/YwX9UQirE5elZZJAlhJJqIEDueZepQeoNxdAa4/dzI4wo
-         UJwgQTTCcXOzkuOvqx2+Mn6R+5Pm0GclQiiX7xtPkPnd/hH9kcLBWpGCK7ylTj8nuS6I
-         YAlbENgygoGb74NTOQd2ntrPINbap1dfxt1pYtzuUrW1DM0uwgxVLaMT/TCCJRVTUUQu
-         JNGA28ApLtmS5TNBk07h5SqlWak0fbGPWX5INrbkrcxmt3Uh9+raQ//2fUb3o9QpmJol
-         VVZNEk1ZFXO1j20jXI7/9QM3lX02CpLP/o7mkn7kluFucSU9NcJCkR6kZkMSrNTwqNoo
-         afYA==
-X-Forwarded-Encrypted: i=1; AL+hErFqM0zRu4zlF2VCQMGIpvUzdHXd7QnH182lNyPHDAbDKgiuPEaq6x00LaKGgBhW9gbwE0B3EBRl8wtXZQY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8RvDwR2XG9q+fCKpww/7yvDHFPctNn4DzEmnwAafy0/imIpFSC
-	4qeb6Q/sjIgmY4wUJUQZkQcKeXIJW72M+Y67tXZlG3k9yTXxKmYd5xB9
-X-Gm-Gg: AYBFou1GNhs0c/DUcICA9gR5E9rSQjCwAmS9JkSDJzSMd6ug1lD6/nskIjcJ4YqrFWm
-	EPnHMpYPdN2E44/crp863gVJF1PpQUFXwcDh8Y+wUOMPcLWhsF1R7B3Qf46X9rYUsPSTk8f0jN1
-	pa0BUqgzcqQZto9z+gCOatUD9ZdDJ2xw2iC1+arcpnbkMXfSYt92Vj01SIdjkZ21bsWbXpm8kvL
-	LrBg8Snz67eIbr9Pc91bmGVi/e8VdGZ9OnDHJlh0HW52MYkBbb7zfLtYbZ6MrCGS1FZ/tX7t7og
-	CoHwViYRF24Xa1fDy6Vs+Fl3i65jAb9vQ6VXlhAu1T3N5YqiJdu9NUVS9Hhyr33lu9Er8i522F8
-	fVCTaZt3WxDrKCe/rFdM3HjiO9xyNSJ7uWerhfz7abFu7exO/frOnJ4pXBahbtQUn+FB+70s6Ew
-	N38bylP/6c2wM5LgTh4LrTV1BqCeeHejlFHsPBfjPf4y7fAe6x5/LavVMQEwkrzpIOnzyl64b8W
-	8lT/LUqKICGbrxbIZa5/BR7xOV2TjRVescdGQvc/zarYwE/AcI4C2EiBhzKWp1WDoBaFnvatLgL
-	bnJ9TIvtygHtEl/bOTQkscSp1cpBCcGe3LFJtii0JLwyCV2+gIZf7pSxrXB0635F24jrf8Szvd5
-	9VvjJibnDnQy1hDdgPWKECzW4eGMqVh9O4/1/3Ul5jnPbrARy9CP0is1h
-X-Received: by 2002:a17:907:2d13:b0:c3e:34fa:611d with SMTP id a640c23a62f3a-c510e330f13mr490422466b.35.1795082130315;
-        Thu, 19 Nov 2026 01:55:30 -0800 (PST)
-Received: from thi-server.fritz.box (dslb-092-076-089-226.092.076.pools.vodafone-ip.de. [92.76.89.226])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51231baa96sm95238666b.4.2026.11.19.01.55.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 01:55:29 -0800 (PST)
-Date: Thu, 19 Nov 2026 10:55:27 +0100
-From: Thilo Zirnstein <thi.zirnstein@gmail.com>
-To: Anandu Padinhare <Anandu.Padinhare@electrifex.com>
-Cc: "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"andrew@lunn.ch" <andrew@lunn.ch>,
-	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@kernel.org" <edumazet@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net v1 1/1] net: phylink: keep initial advertising
- settings
-Message-ID: <av7Hj_S_B2qSpNsk@thi-server.fritz.box>
-References: <PNYPR01MB1144420346F647D64C23775D2FD732@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vd/VIKkG
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41CFD1AC1;
+	Thu, 19 Nov 2026 01:55:29 -0800 (PST)
+Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E2ACA3F882;
+	Thu, 19 Nov 2026 01:55:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795082132; bh=g+O9+alZj4EnDHlfvvZKh0toOqYvRgzXwOtEwypI9LA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=vd/VIKkGII6l2hvbBZE3/WMg3XV5vxHlcQpPwQCsI5wA12kck7c93Btcmo0pjJHDY
+	 vmWS75P7LWBkbMFVEctNOaP+Xi8rsHstlykUpDh+kksLsbu5aSJix5m6XFkRbbsVYU
+	 Zr9mcWH2WZ1UR2bg57F004BhTUuR87CdUMebn4EA=
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Date: Thu, 19 Nov 2026 09:54:38 +0000
+Subject: [PATCH v2 2/2] kselftest/arm64: Add test for atomic futex uaccess
+ with POE
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,62 +56,151 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PNYPR01MB1144420346F647D64C23775D2FD732@PNYPR01MB11444.INDPRD01.PROD.OUTLOOK.COM>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261119-poe_futex-v2-2-244c7a01f788@arm.com>
+References: <20261119-poe_futex-v2-0-244c7a01f788@arm.com>
+In-Reply-To: <20261119-poe_futex-v2-0-244c7a01f788@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+ Linu Cherian <linu.cherian@arm.com>, Mark Brown <broonie@kernel.org>, 
+ Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795082127; l=4117;
+ i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
+ bh=g+O9+alZj4EnDHlfvvZKh0toOqYvRgzXwOtEwypI9LA=;
+ b=ogfu3Z4yNMxxCccU1fzpmeLHXxGwMXKlzVRqf5EyNnUHJkyPMUuV3LsP/ramj8e0XIOiz2tjP
+ /rQuvwW2IWfB/Eqjdg431fW4DP7RYO5VCnsK+kE+c5U8wJePVXciT2F
+X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
+ pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 
-On Mon, Nov 09, 2026 at 09:58:33AM +0000, Anandu Padinhare wrote:
+Add a new test to ensure that atomic futex uaccess succeeds on
+memory mapped with a non-default POIndex/pkey.
 
-Hi Anandu, 
+In the absence of FEAT_LSUI, atomic futex uaccess operations such as
+those triggered by FUTEX_WAKE_OP use privileged atomic load/store
+instructions and thus cannot have user permission overlays (POR_EL0)
+applied. In case the kernel enabled POE at EL1, it is worth
+checking that kernel overlays (POR_EL1) are not applied to these
+accesses, as that would fail for non-zero pkeys.
 
-Thanks for testing this nad giving feedback.
+Note that if such misconfiguration occurs, futex_wake_op() may get
+stuck in an infinite loop because futex_atomic_op_inuser() will fail
+but fault_in_user_writeable() will still report success.
 
-...
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ tools/testing/selftests/arm64/Makefile        |  2 +-
+ tools/testing/selftests/arm64/poe/.gitignore  |  2 +
+ tools/testing/selftests/arm64/poe/Makefile    |  6 +++
+ tools/testing/selftests/arm64/poe/poe_futex.c | 62 +++++++++++++++++++++++++++
+ 4 files changed, 71 insertions(+), 1 deletion(-)
 
-> Hi Thilo,
-> 
-> Results from an ADSP-SC598 board (stmmac, RGMII, TI DP83867 PHY) with
-> a 6.18-based kernel, with and without this patch.
-> 
-> 1. The case in the commit message is fixed, with both the dp83867 and
->    the generic PHY driver:
-> 
->      ip link set eth0 down
->      ethtool -s eth0 speed 100 duplex full autoneg on
->      ip link set eth0 up
-> 
->    Without the patch the link comes up at 1000 Mb/s; with it, at
->    100 Mb/s.
-> 
-> 2. In that same case the pause bits are lost: with the patch the link
->    comes up with flow control off; without it, pause stays on. Same
->    with both PHY drivers. While the interface is down, ethtool shows
->    no advertised modes and no pause, before and after the
->    "ethtool -s" (phylink_ethtool_ksettings_get() reports none when no
->    PHY is attached), and the AND then drops the pause bits the PHY
->    advertises.
-> 
-> 3. Sashiko's sequences (a) and (b) both reproduce with the dp83867
->    driver:
-> 
->    (a) advertise 100baseT/Full while up, ifdown/ifup: 100 Mb/s.
->        advertise 10/100/1000baseT/Full while up: 1000 Mb/s.
->        ifdown/ifup: back to 100 Mb/s, advertising only 100baseT/Full.
-> 
->    (b) continuing, advertise 1000baseT/Full while up: 1000 Mb/s.
->        ifdown/ifup: "Advertised link modes: Not reported", and the
->        link stays down (NO-CARRIER).
-> 
->    Without the patch, both keep the last setting: (a) comes back at
->    1000 Mb/s, and (b) at 1000 Mb/s with 1000baseT/Full advertised.
-> 
-> Happy to test a v2 on this board.
+diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
+index e456f3b62fa1..bad5c3b33dce 100644
+--- a/tools/testing/selftests/arm64/Makefile
++++ b/tools/testing/selftests/arm64/Makefile
+@@ -4,7 +4,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+ 
+ ifneq (,$(filter $(ARCH),aarch64 arm64))
+-ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
++ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs poe
+ else
+ ARM64_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/arm64/poe/.gitignore b/tools/testing/selftests/arm64/poe/.gitignore
+new file mode 100644
+index 000000000000..0dce4a3aa38b
+--- /dev/null
++++ b/tools/testing/selftests/arm64/poe/.gitignore
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++poe_futex
+diff --git a/tools/testing/selftests/arm64/poe/Makefile b/tools/testing/selftests/arm64/poe/Makefile
+new file mode 100644
+index 000000000000..2af2bbf3f6d3
+--- /dev/null
++++ b/tools/testing/selftests/arm64/poe/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0
++
++CFLAGS += $(KHDR_INCLUDES)
++TEST_GEN_PROGS := poe_futex
++
++include ../../lib.mk
+diff --git a/tools/testing/selftests/arm64/poe/poe_futex.c b/tools/testing/selftests/arm64/poe/poe_futex.c
+new file mode 100644
+index 000000000000..21a2e109ee43
+--- /dev/null
++++ b/tools/testing/selftests/arm64/poe/poe_futex.c
+@@ -0,0 +1,62 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <stdint.h>
++#include <stdlib.h>
++#include <unistd.h>
++
++#include <linux/futex.h>
++#include <sys/syscall.h>
++
++#include "kselftest_harness.h"
++
++static int sys_pkey_alloc(unsigned long flags, unsigned long init_val)
++{
++	return syscall(__NR_pkey_alloc, flags, init_val);
++}
++
++static int sys_pkey_mprotect(void *ptr, size_t size, int prot, int pkey)
++{
++	return syscall(__NR_pkey_mprotect, ptr, size, prot, pkey);
++}
++
++static int futex_wake_op(uint32_t *uaddr, uint32_t val, uint32_t val2,
++			 uint32_t *uaddr2, uint32_t val3)
++{
++	return syscall(SYS_futex, uaddr, FUTEX_WAKE_OP, val, val2,
++		       uaddr2, val3);
++}
++
++/*
++ * Trigger some atomic uaccess on a page mapped with a non-default pkey.
++ *
++ * This ensures that such access is not mistakenly checked against the
++ * kernel's POR_EL1 register.
++ */
++TEST(poe_futex)
++{
++	int ret, pkey;
++	void *ptr;
++	size_t size = getpagesize();
++
++	pkey = sys_pkey_alloc(0, 0);
++
++	if (pkey == -1 && errno == ENOSPC)
++		SKIP(return, "pkeys are not supported");
++
++	ASSERT_GT(pkey, 0);
++
++	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE,
++		   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
++	ASSERT_NE(ptr, MAP_FAILED);
++
++	ret = sys_pkey_mprotect(ptr, size, PROT_READ | PROT_WRITE, pkey);
++	ASSERT_EQ(ret, 0);
++
++	/*
++	 * There is no one to wake up so this syscall boils down to *(ptr+4) = 0
++	 * (arch_futex_atomic_op_inuser() called with FUTEX_OP_SET and op_arg=0).
++	 */
++	ret = futex_wake_op(ptr, 1, 1, ptr + sizeof(uint32_t), 0);
++	ASSERT_EQ(ret, 0);
++}
++
++TEST_HARNESS_MAIN
 
-Ack, I have to rethink how a proper solution should look like.
-This has some issues.
-
-Kind regards, 
-
-Thilo
-
+-- 
+2.56.0
 
