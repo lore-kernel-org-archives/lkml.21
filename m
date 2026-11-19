@@ -1,56 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795107230;
-	b=WaO+heQ84r3+xDwRBqoqrSh0REa7esqPvjk7fJ07WMOeiGgOpnCSm+Qe4/kZAMJMwzbB
-	 HurPomkICtOIWRvsdPP0dBcdP6CcCiU1OUNHVVExn0u7GVgsYPgx70aCF5yaOsaeTAnwV
-	 AIovtl1Ftf00C88vQ6wJYXUWDpVlP+ysFsh6pDCt428FG64XTwnQ1Zdfq12yoKoll7dMU
-	 4AbQ4iwijn9dVoKGGW+1TDpW0FHfpE55ncfPVXBXtwIWaPLkF2StddGlMQEPTmRXXXRpk
-	 YC5hqmO8sPrEMLmJcAZDPeHUS1S8EJ1gbvDM4awQ31DMW6nLLfHFZD5YPp53DzYBNyg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795107230;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jlYRN4IDAwWpF0znirb6L6eZ+ybQKX349IWRr+H23P8=;
-	b=KApim9wQAxv45xjeL9HWpoA192fJDX4xIQJ8vJ78Xs0eLwBsHRWReUwWZA+ifkHjqOkv
-	 iA9C3Oc69TkBKo9lWmu3v+8KtdhdRwdaMiGHDW/tZ5GVDF6v66hKPOIDgv6hVonYccupK
-	 zeZBBQ/kuPZmMUS8hZCV46EYWNXwwv7gdb5mf9pt02HtCvoumtkFAQUPgpAzMGxuCZ1GP
-	 p+H4VHPcLtwzkatQa3y+DD/EMdkPbUWKr1uzMx0bCNGOGXi8NvqSxWK7UFmdBEh2E2IMF
-	 +qPTWEtQLGF46a5bCJV5US84wd6ESpnO7iBhopF464RZ9pDk8KCUrJv3FefMG9y7IRw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BnrwKGO3;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795107235;
+	b=Tnq4DqudRZDDvMK2i1QMjRZbGc1uv8Q8tKnLD9b1Z1dGFtt+h8VrrxncDgi9ZVwKFvqB
+	 fLnjLkeIetnNQ8Rx+wqJT8vxGH+xAa9B72M3/Ev6oJXstPjPcvEMEBNnvKlkgQe6e/iQ4
+	 bzAJSRLs8lwHNNDir1zXfuLxGC2mYy9WgmXoQH9rrAtFDCnnM+avMwjpG9R5yLjSma4dP
+	 WkUnW4rma/f+ngDnyECZTfW9VTaJCSQ/AgM3sfwCABgGZHSrlvMReBKpZgwQ5ywcLlSKm
+	 h0ga8Yxrc4+TDymt4g8jIY6ZU9mwTQNp72JmtNWE2qSq8w9mecjOmUrDkvAK2lBzNzg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795107235;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=uLq55cpvB+Q365G9MISzGTDd2mLVrHcfdN0AU9A81Mg=;
+	b=UtdJtrNDWyQd6HZfUZlPXNb6vu2ymwDyQd6wRpgIIdwHbdtnr1t+5mFe+XF3VMOV33hJ
+	 K9nQxuDLdkfhnA1jc0AOLsJrueMKuceGZiG9WGm5bLDx5VD7tY9Vp8YirQPCxs0Ee79xV
+	 GRmqTT66ljQMFdOVGW2z/gKsmHpn4EDRtNUy8jQGAeapJbqdphA43P8dxgXz4HYH3GmG6
+	 wBp4zWLnA3mnQSMaqQsAbkn6eGGz+o7NuaEAZuVwNarr60z7S+7WCJ3QOlDmLMpwNorQd
+	 3CN01BUVRcdOT3AopQIMAkAPNkD0f/Y3yz+I/Cgy+UYmTwk19ifux2bE81Md6k+O7VQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="i47GHb/X";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3102606A336;
-	Thu, 19 Nov 2026 16:53:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2148D606A32F;
+	Thu, 19 Nov 2026 16:53:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BnrwKGO3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 650691F000C5;
-	Thu, 19 Nov 2026 16:53:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i47GHb/X
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795107235;
+	b=PEcF3gOz2+nHbDzNtGw0yfNU5PZLEwyqLtDGDqRtq3acZPsluuPNMQNjpljmihdAdzHN
+	 z79OhfHLgGksTxAqCDBfyY+ku3Olffc7NxFxl1hPOlNTHzofKyvzmtFkzudCz9m6t5lmn
+	 FPT7pWNy9Pypm2iAsKO9KnVIB4E+pmOvx98+NfHQll+lLBxsBPY/3ZN+Y0trgZ3LwNOSm
+	 0anpR+XIp14UBS3o8ql+rNx4BSE69yH4H1srD1r3h3vUddMdx5/MUdSnSuc3ZX/QLKGbQ
+	 hlxfT3BHyju6Mm5mRCaUvVVBXgkEjcxeIAeHBO/oLaSWXGtpakxLMJZtJBiIyX+CMww==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795107235;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=uLq55cpvB+Q365G9MISzGTDd2mLVrHcfdN0AU9A81Mg=;
+	b=eWuSe2tK+tVa0lV/5QMJXTR0M36brtenElRiWz8roeOtNWEneFVvebtMYLUDENfKyG99
+	 v4xV8L+A902khsCde9m77DPg5HK5uBJuArlMrTtoJZvsHXDBD8J8wloy2ihX9bpwCf0vE
+	 /rWfNh+L6NqSfRIgMVaWQoVPBKeBOS6EsGrgBzbu8fRlEOzZFkaQNTJ/yHZbXoKox3b2Q
+	 sXVDFO/g5BX+OmownwYWp8Kxz0J/3EQIkS/l/hxD8dMLxpwKwoswEhR87SpC7l4qF3hHe
+	 nu6Pw3r147/n/7gUnc/fuD8tnzAoa/hSoJCrQpXS8D3LXlkybB+B91PAEIPGXoW5i1A==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 83E021F000CC;
+	Thu, 19 Nov 2026 16:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795107229;
-	bh=jlYRN4IDAwWpF0znirb6L6eZ+ybQKX349IWRr+H23P8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=BnrwKGO35kcG0dSILYcHGYt7cjZRRVlycOBQwAgy+/mOVWG56TQoJGIWKBiUsrSDH
-	 8O7cMwwfDjS08pQftM7RP4WY5h6/AKLna7wdjpNEKlxwHxeDcjxvzImzmmKx/7rEOb
-	 DUFpJMT0Zc+qA7BbMTBs/yy2kVi6wIe3Td8iGPundMq88cWpY3YX9CfJw6TlEO3QVO
-	 reD0U1hdMD7NpCp0Lrdu4QDSwhL97RxyR6zTxuegGI1/HWspHvORaX76Ba83Od5yAW
-	 dkgPZJzAM0ljWWS+0srvPCmMZ4+4R5exy1zQRHwqx/DvwPAxQH2yYlZejmTS86hay/
-	 nsfd9xefzzpoA==
-Date: Thu, 19 Nov 2026 10:53:48 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Mario Limonciello <mario.limonciello@amd.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	Oz Tiram <oz@shift-computing.de>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org, Lijo Lazar <lijo.lazar@amd.com>,
-	Reza Nikzad Chaleshori <rezanikzadch@gmail.com>
-Subject: Re: [PATCH v7 2/3] drm/amdgpu: Match VFCT using initial PCI bus
- number
-Message-ID: <20261119165348.GA811401@bhelgaas>
+	s=k20260515; t=1795107234;
+	bh=uLq55cpvB+Q365G9MISzGTDd2mLVrHcfdN0AU9A81Mg=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=i47GHb/XxRTEhT6f3virlp3OhhN6ND7l3j49L3rivpsTNYshEFAkzJMNkvTpdCXdU
+	 OWju5q4TGRe6QhSuH0nw/fwI8bgjUmojEEvcK0C9pLIaKjWiHojMBYxc9K8wwMjTho
+	 tRfPgBwmSlcim1elnn81IK3828V2I9YxbFjfAiHzAaV1wKqdg1js9NcN2USVTKF/P2
+	 AyVv5ABsPZ0Oc0GJclvCmsA840momz9zUFgEnzHJ4RGOaT0ucUEe0lDuajo7H49Fnf
+	 f0u/ZOlGyTpkDVDRMlcV4Sv2R0FW+wdTd3qHhrvdV1B6nDQ+8YbiyCYIdZ4xWFlUxu
+	 GP/4X3pbPOLMQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D88134B356;
+	Thu, 19 Nov 2026 16:53:53 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Thu, 19 Nov 2026 16:53:54 +0000
+Subject: [PATCH RFC] watchdog: core: Ignore userspace keepalives once the
+ system goes down
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,104 +83,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112-vfct-regression-v7-2-69b1e0cf45c2@amd.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261119-watchdog-reboot-keepalive-v1-1-c5902d959796@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMTQrCMBQGr1Le2kATVKpbwQN0K13k50v7VJqSp
+ FUovbtRlzMws1JCZCQ6VytFLJw4jAXkriI76LGHYFeYVK2OUsqTeOlsBxd6EWFCyOIBTPrJC4R
+ 3h9rvTaMar6j0U4Tn9+99o/Z6oe4v02zusPl7pW37AN59C/iCAAAA
+X-Change-ID: 20261119-watchdog-reboot-keepalive-fd50f4b828f2
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>
+Cc: linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Primoz Fiser <primoz.fiser@norik.com>, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795107233; l=1792;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=8odbgLzkMjv4qHTEHWFN4RAGFDasNozQ665DspbA17w=;
+ b=1rDr9Uz/tDZ9di0LWUyCicF5QfSmb3YYmZIPw4SQUeYUDtf+J6cTiSsiEf2uwfyQtfnpUzVjo
+ kKRuVAQfoJECTRQvVUUMYLnkWlYJk1Ac3hTcM96ZL/kyMbrmU3CxEhn
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-[+cc Lijo]
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-On Thu, Nov 12, 2026 at 03:54:54PM -0600, Mario Limonciello wrote:
-> VFCT records the PCI bus number from BIOS POST. The current bus number
-> can change after PCI core renumbers the bus, while accepting a mismatch
-> based only on device identity can select the wrong VFCT image when
-> matching devices are present. Compare against the bus number captured
-> from the firmware bus assignment before bridge renumbering.
-> 
-> Reported-by: Reza Nikzad Chaleshori <rezanikzadch@gmail.com>
-> Closes: https://lore.kernel.org/amd-gfx/20261014080523.186533-1-rezanikzadch@gmail.com/
-> Fixes: 11c141672045f ("drm/amdgpu: Fix VFCT bus number matching with soft filter")
-> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
-> ---
->  drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c | 23 ++++++++++-------------
->  1 file changed, 10 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c
-> index 08ed1eb695586..0ee4c6462c4d0 100644
-> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c
-> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_bios.c
-> @@ -386,16 +386,17 @@ static bool amdgpu_read_disabled_bios(struct amdgpu_device *adev)
->   * VFCT entries contain the PCI bus number as recorded during BIOS POST.
->   * On systems where the kernel renumbers PCI buses (e.g. pci=realloc or
->   * resource conflicts), the runtime bus number may differ from the POST
-> - * value.  Match by device identity (vendor + device + function) and use
-> - * the bus number as a preference: exact bus match is preferred, but when
-> - * the bus numbers disagree we accept the entry if the device identity
-> - * matches.
-> + * value.  Match using the bus number captured when the device was
-> + * discovered, before any bus renumbering.
->   *
->   * Returns: 0 on match, -ENODEV on no match
->   */
->  static int amdgpu_acpi_vfct_match(struct amdgpu_device *adev,
->  				  VFCT_IMAGE_HEADER *vhdr)
->  {
-> +	struct pci_dev *bridge = adev->pdev->bus->self;
+A watchdog left running through a reboot should reset a system whose
+reboot hangs. But a daemon still pinging after reboot(2), such as
+systemd after "systemctl reboot -ff", keeps a hang in device_shutdown()
+from ever being reset.
 
-pci_upstream_bridge() does this and handles the case where pdev is an
-SR-IOV VF (that case probably never applies here, but we can still
-avoid that assumption).
+Ignore userspace keepalives once system_state is past SYSTEM_RUNNING,
+as da9062_wdt and da9063_wdt do since commit 2f61b3a74699 ("watchdog:
+da9062: da9063: prevent pings ahead of machine reset").
 
-> +	unsigned char initial_bus;
-> +
->  	/* Vendor and device IDs must always match */
->  	if (vhdr->VendorID != adev->pdev->vendor ||
->  	    vhdr->DeviceID != adev->pdev->device)
-> @@ -405,16 +406,12 @@ static int amdgpu_acpi_vfct_match(struct amdgpu_device *adev,
->  	    vhdr->PCIFunction != PCI_FUNC(adev->pdev->devfn))
->  		return -ENODEV;
->  
-> -	/* Exact bus number match - preferred */
-> -	if (vhdr->PCIBus == adev->pdev->bus->number)
-> -		return 0;
-> +	if (bridge && bridge->fw_sec_bus_valid)
-> +		initial_bus = bridge->fw_sec_busnr;
-> +	else
-> +		initial_bus = adev->pdev->bus->number;
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+RFC: this changes every driver. A reboot or power-off whose
+device_shutdown() outlasts the timeout now ends in a watchdog reset.
 
-Why can't we use bridge->fw_sec_busnr unconditionally?  The bus number
-at FW/OS handoff is the only bus number firmware could possibly know
-about.
+Tested on an Orange Pi Zero2 (H616, sunxi_wdt) on 7.3.5 with a test
+module that oopses holding a device lock: "systemctl reboot -ff" was
+reset after 14 s in 6 of 6 runs. Without the patch there was no reset
+within 90 s (one run, older 7.3 build). Other drivers and kexec are
+not tested.
 
-It seems like this should just be:
+Developed with Claude (Anthropic) as a coding assistant, which wrote
+the code and the commit message. I reviewed and tested it.
+---
+ drivers/watchdog/watchdog_dev.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-  if (vhdr->PCIBus == bridge->fw_sec_busnr &&
-      vhdr->PCIDevice == PCI_SLOT(adev->pdev->devfn) &&
-      vhdr->PCIFunction == PCI_FUNC(adev->pdev->devfn))
-          return 0;        /* match */
+diff --git a/drivers/watchdog/watchdog_dev.c b/drivers/watchdog/watchdog_dev.c
+index aad3f1f1b4ce..0f149da49a69 100644
+--- a/drivers/watchdog/watchdog_dev.c
++++ b/drivers/watchdog/watchdog_dev.c
+@@ -201,6 +201,9 @@ static int watchdog_ping(struct watchdog_device *wdd)
+ 	if (!watchdog_hw_running(wdd))
+ 		return 0;
+ 
++	if (system_state > SYSTEM_RUNNING)
++		return 0;
++
+ 	set_bit(_WDOG_KEEPALIVE, &wd_data->status);
+ 
+ 	wd_data->last_keepalive = ktime_get();
 
-  return -ENODEV;  /* no match */
+---
+base-commit: 865c2d0f1dd3f0937865dd11819eeb59298a814c
+change-id: 20261119-watchdog-reboot-keepalive-fd50f4b828f2
 
-It seems like the bus/device/function match should be solid by itself,
-so I don't know why you need to check Vendor/Device IDs (but I don't
-object if you do).
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
 
-Maybe this boolean style is typical in DRM, and it does match the
-strcmp() style, but it seems weird to me to write
 
-  if (!amdgpu_acpi_vfct_match(...))
-    /* do the matching case */
-
-> -	/* Bus mismatch but device identity matches (PCI renumbering case) */
-> -	dev_notice(adev->dev,
-> -		   "VFCT bus number mismatch: table %u != runtime %u, matching by device identity (vendor 0x%04x device 0x%04x)\n",
-> -		   vhdr->PCIBus, adev->pdev->bus->number,
-> -		   adev->pdev->vendor, adev->pdev->device);
-> -	return 0;
-> +	return vhdr->PCIBus == initial_bus ? 0 : -ENODEV;
->  }
->  
->  static bool amdgpu_acpi_vfct_bios(struct amdgpu_device *adev)
-> 
-> -- 
-> 2.43.0
-> 
