@@ -1,56 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795122166;
-	b=ULm8OUO06bUFbGomHT99TCqUWQDe835Nay0ZT/IRMXQ1svyhY0ejoijaYk9fvB2L6bxy
-	 PhkHp/reJ5GCxxZqyYN2YJCQVYPLCNRKrsZhGNztnlvbn5FM58Yiwp/XEl3N95ZAqWl7C
-	 LDgZ9I8eS0ojUUEOcVZ35X/jAJcBUKvMQ/CXuh6mZl0C3oMgzjiykNx63RCtQKY/dv6PB
-	 6Ck2NhbVyqPGEG9cSsQMdS9kLWzwrOyJLubDJA63POszjCCywKNBm6KFoYBFMlZwgd6ts
-	 wvB4Uu9vrC8xFCmhsYM0JX9HChnGpP8vbQ2jrKEB0tAmn5Q1qp6RznkIiLhc1SZEBbQ==
+	t=1795122177;
+	b=tZj4WwmOlpfmTdLFhqTzXLFHyGU3SBPHx69BSDnuUV4P0v+ZapwwvTa+vWSHo41NMnjS
+	 YOLTY0JXFlvpdgA15BFO8SfCMxaWrNFoMZ+vDNs8CopdHPDCVEHCTmc7Z5NjNGawWvwzI
+	 6bPzB3KC9CcA0mxfU0/Ceb+SrqZwmh4l3rL0ltXdC5RkzZWHnIGQB5gNgwkPeMwLiSfsr
+	 Xsm1+IWrYamXHxixksP7V/DRxMmk96QIs/W2IXE5wwTrTIfdlyWO+XSsgcdzD3twvmigz
+	 yZC/0EZp6KsJpg8HPo7WAbrgtGFo5Oiue4JzB61Oxn9U9+Puu8ACIqkYj7ER78fypSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795122166;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Stat-Signature:X-Rspamd-Server:
-	 X-Rspamd-Queue-Id:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=ADHyM+iiWJmpqGEu0k2Y5C7oOLJmYShwJp9xNh+Ttjc=;
-	b=dVC6YvZ3GLcW6d2Ftx9w18LNhdr8TSMvklCEFavmcim7upf8V96R/26+tcXsULVhfEog
-	 /esaelZq0yXdWlZ+ERxbhmSj0jFApR03pjYw8qscRrE0fgtFYPtqynO66rOFEAIufEOeZ
-	 GQZEoTt80SZ1XN0JYbggM2plrE4hFAn/FawS7G9DQpVvSRau4V4KRU2G19jBVXFhF1VS/
-	 i7FaFg8qjW/UYMyEA0KexPje87e7F4kh+J+2vNP9rpKkxZsAmidJvFisA08lBx9pFGByy
-	 AVyGQ+I6tQ2FABu+kw/GUa2oc7249lb8zDi79RoYiuLllUpJollKORFcfSdO8ac3N+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795122177;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=5e3qHst8t5RYS38cYNTHd20BAa716VNfA11Xr+S6tjw=;
+	b=BFheNlD/fVevAQX4bjJTP3jBfgs8bvpXE1UBodf2ON1+yGMKzdT38sXRhmIrREZglgY3
+	 f0nxbO9grknrLgBl2L9peMfFqouQJImGfa7rLP2Iz1V3kBN17ZmDMH54rFVUr0iWFQ6Q0
+	 53jdIp8qDgOa00cLUKkrFYaMtobJKelmdOcvOc6kYP0QZDFV5dog+FQw6byBLC23xR/mU
+	 pp1Zc8o4bc57lyrfnUpqWHvla8Tlq64NdjDRT73IVFKoTt6zNb15kSAEvjBITYPipIW81
+	 s2tCONRXVpGpp4tFd7BXK215GBQE32sJxPtM3B/ArifM0bo5+Pjwavj8STigvuZf9Rg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=dBkDJTdS;
-	arc=none smtp.remote-ip=216.40.44.11
-Received: from relay.hostedemail.com (smtprelay0011.hostedemail.com [216.40.44.11])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pw1mFeBM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F19AF606A325;
-	Thu, 19 Nov 2026 21:02:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F19AF606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C48FE606A320;
+	Thu, 19 Nov 2026 21:02:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=dBkDJTdS
-Received: from omf08.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay07.hostedemail.com (Postfix) with ESMTP id DA455160C4A;
-	Thu, 19 Nov 2026 21:02:37 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf08.hostedemail.com (Postfix) with ESMTPA id 2CAE120025;
-	Thu, 19 Nov 2026 21:02:36 +0000 (UTC)
-Date: Thu, 19 Nov 2026 16:02:34 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Leizhen Zhang <lzsx618@gmail.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] tracepoint-update: check the section end before
- reading a string
-Message-ID: <20261119160234.61f65ec7@gandalf.local.home>
-In-Reply-To: <20261110000117.1720256-1-lzsx618@gmail.com>
-References: <20261110000117.1720256-1-lzsx618@gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pw1mFeBM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1591C1F000C0;
+	Thu, 19 Nov 2026 21:02:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795122177;
+	bh=5e3qHst8t5RYS38cYNTHd20BAa716VNfA11Xr+S6tjw=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=Pw1mFeBMk4XMLf5MlZWFqj6ziKts0XfIQ+ucg/QVjaNZGA1rDrm606+FkxVLD5y4g
+	 u3cOPQx26mnem3wqFYGlsPobz3AiSf/b99P1QPyXvZw4YmCJ5Vtay2O8sFwPBbmiVq
+	 MC5zf5TqznKHNVrYdJ45V0lrOXhPvud0nEFw6TVeWN69lXHaniZyw7kUrVD5fCi56s
+	 fMRkui2dlsAVuq4gP4tF7cfUa3ejX6YsbC1YuJIOqICVHQdH0SmXP+oroiqvy191Ol
+	 tVKD9Kx+E1kCElA0DwxoXiryNC47ssYOAlizBwf5CV7xuT/65zid4kDupd/VYFZlD0
+	 n2C1uYMCNVJdw==
+Date: Thu, 19 Nov 2026 22:02:54 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Jozef Riha <jose1711@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] HID: betop: add support for SPEEDLINK TORID
+In-Reply-To: <20261118143306.75858-1-jose1711@gmail.com>
+Message-ID: <n5161908-rpq0-346p-1214-58746q67sp76@xreary.bet>
+References: <20261118143306.75858-1-jose1711@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,37 +58,52 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: yfb5ezebu6npj3igiaxsx4aq6ndb4tfx
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: 2CAE120025
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19R8NFhzQlVbaS11AaWowP11JoKZgYEYyU=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=ADHyM+iiWJmpqGEu0k2Y5C7oOLJmYShwJp9xNh+Ttjc=; b=dBkDJTdSC5nnIqyur80jk0F89oN552EKab/4nWT1juR8end+Qbx3+T09EU1510mtmHdggncKpnyS5y11otgZEvR3hgzPiJvnADlxPQgQugwLRBOlyJt1s19poO4yzgDJQ1DZqhMic6jIEkLrddWFQ7+I+WVNdq8Xny7vclFE4z0=
-X-HE-Tag: 1795122156-377083
-X-HE-Meta: U2FsdGVkX18Ac52JOAdi5NcNzcfM2XLbqLkWt/zsDzrV73TaPy32fSYiKcS5N/n8zGS0Mc5wE3VOguyH/Da9G+qPi+gNibABBLPVYHwWIysziLYAeHeddVBhD8FTmXVFQvfiRBtQEouq2KffXBnpcOSQjr14+QjxXfM2kwcrVg9vF43CjVC0sfIhM/ItkAQkHz7FJMYk3g/aUIp7Q6JPi00Z9ow84Nd4wCxO9W68PR0oNX9aauO+aV5Ooty2q1LIwsjA9CeoQS/Jswflg5GfCijhWtjayWT0XTsw/Gk6i4cK0g4BX/EztEc2iiH4KYN3kCg47I1DGdgQ75EIydSA5dfmGFmOoVFLYmS3Ft53gohe8689TKedPA==
 
-On Mon,  9 Nov 2026 18:01:17 -0600
-Leizhen Zhang <lzsx618@gmail.com> wrote:
+On Wed, 18 Nov 2026, Jozef Riha wrote:
 
-> diff --git a/scripts/tracepoint-update.c b/scripts/tracepoint-update.c
-> index 5cf43c0aac89..c70c0b076554 100644
-> --- a/scripts/tracepoint-update.c
-> +++ b/scripts/tracepoint-update.c
-> @@ -74,7 +74,7 @@ static int add_string(const char *str, const char ***vals, int *count)
->  #define for_each_shdr_str(len, ehdr, sec)				\
->  	for (const char *str = (void *)(ehdr) + shdr_offset(sec),	\
->  			*end = str + shdr_size(sec);			\
-> -	     len = strlen(str), str < end;				\
-> +	     str < end && (len = strlen(str), true);			\
-
-The above is hard to read. What about:
-
-	(len = str < end ? strlen(str) : -1) >= 0
-
-It sets len to strlen(str) when str < end and exits the loop when str >= end.
-
--- Steve
-
->  	     str += (len) + 1)
+> The SPEEDLINK TORID wireless gamepad (11c0:9105) is a Betop based
+> device. Its output report has the same 4 byte layout as the other
+> devices handled by hid-betopff, with the motors in bytes 2 and 3.
+> 
+> Without the device ID the gamepad is bound to hid-generic and has no
+> force feedback. Add it to betop_devices[].
+> 
+> Assisted-by: Claude:claude-opus-5-5
+> Signed-off-by: Jozef Riha <jose1711@gmail.com>
+> ---
+> v2:
+>  - Fix From/Signed-off-by name mismatch
+>  - Cc linux-input and LKML, v1 was sent to the HID maintainers only
+> 
+>  drivers/hid/hid-betopff.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/hid/hid-betopff.c b/drivers/hid/hid-betopff.c
+> index f802046a688a..28ab0acce6ad 100644
+> --- a/drivers/hid/hid-betopff.c
+> +++ b/drivers/hid/hid-betopff.c
+> @@ -16,6 +16,9 @@
+>   *
+>   *  0x20bc:0x5500 "BTP2185 V2 BFM mode Joystick"
+>   *   - tested with BTP2171s.
+> + *
+> + *  0x11c0:0x9105 "SPEEDLINK TORID"
+> + *   - tested with Speedlink TORID wireless gamepad.
+>   *  Copyright (c) 2014 Huang Bo <huangbobupt@163.com>
+>   */
 >  
+> @@ -137,6 +140,7 @@ static int betop_probe(struct hid_device *hdev, const struct hid_device_id *id)
+>  static const struct hid_device_id betop_devices[] = {
+>  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185BFM, 0x2208) },
+>  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185PC, 0x5506) },
+> +	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185PC, 0x9105) },
+>  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185V2PC, 0x1850) },
+>  	{ HID_USB_DEVICE(USB_VENDOR_ID_BETOP_2185V2BFM, 0x5500) },
+>  	{ }
+
+Applied, thanks.
+
+-- 
+Jiri Kosina
+SUSE Labs
+
