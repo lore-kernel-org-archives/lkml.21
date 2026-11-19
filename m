@@ -1,62 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795117247;
-	b=G1gH7GKJ9SIF7+BPrewZmWFlwq0+/K1sQY0ba2LQnZAhGkBKbNPpRr8L113tLUzeAxjD
-	 1fXB5ShfOlc9aMEQVaota+sPSCWSj932u2trGYO4bWBPeMPwEWezNc2pX/YMAh5p0eyI3
-	 +LFJhvn7SrZRMd96N6me8rb/Wr55XuXHV4SAywYH+r6TseNFr5tW/AyOLpSiNKks/ObsU
-	 mkehaSzL8tt4r/Es6Ory4oXrZuWx4BxGy11E72R8Aaq/9ttg0y0lM8AM5Wo6nHmS1UVcW
-	 6G64Q4cBdU2AjRhDYlry6CGCf2r6JJJ/E6YYTHl3uUZNbUUnJBXnvM79095iY9Kn29A==
+	b=mTsaFNqcEragSJCo1V9ELrHcFGnd9uzm6a8DBQsgEc8XGkagisaPYUsUkhierGednPA/
+	 4vVzhZng5v36SA54bVa5emivtji9I8Q5Nbd9Wja/lg9KGowvmxbNNT22fyQKm98RNE1eT
+	 +dihcRrrvsc2OOGk/iKAirb3TIoZOJFiKfrnRYbEMMHrJHD+WxdxWvX3Ba/xmsT6yc+A1
+	 Gl2wcELIR8Oazr+7PWKekLx0HiqFdxZ1nbkcdDXHA/JAOMkMQmQo237iev/+oqDaAqM+l
+	 H1ayAX+1ybaR+OOd8WGiuISg0dFWvnTWwADd3ATO5vnJYtNNRX1YiLc+H15Tx3GRqgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795117247;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key;
-	bh=Sb9604ZqOKnL5jLlbCzKt/eW9EFcFKIgFhhBj61S3cc=;
-	b=nIfCEBUXWWMVzKcnF/vYUCFzJz5TX3TAR1AvVA+zd7O9G7mJlLdr0cHrBcNZTRFmHdjy
-	 m+rP2wdHDP5I6nFve2JI1NR32zw/pumjXHZ6oVOhEY4tsNRGuVksQNH5myaU+pDZw+d0Z
-	 5G/cHxfghyLZu1RY+s5m711Oxx3bWhul4CU5Lt2I6b2qFj5XdqppUHZWlyKKL52oJvvn1
-	 zaSm1nHSTDY9brs44VRYJrKAZYTC0eIKLro4hmwspdU14q8DGzLxi9gamc8eWqSzHhoQ8
-	 KkG3D4njCv/W8nvLTCa7d+rjNabEr6c7SYa2nsMnMvtz6wjvAgQCBBJ+50OJ91Fksjg==
+	bh=rOYTB/1+mPdWoPWkG7UwGHBcoYVB27IWk0cD/8rA3oI=;
+	b=EUUiedgbh2ZMF/dbu5NAz99Xsb4KKJ/Cj5Q+CJ6voaIqtKkPTdnSoDMwGsycfAUyvSAi
+	 BkM9jcg+8WjUUCFwXoNvJ+4rWkb5EuO5Z5Zdsl8M4ujxKBF2shPAQOxQxKR8rzUoS0IgC
+	 4887L8qIcf1KyeIhLgvAHUVrP6oPhUBD8Rot2RLYPJvMPokyK4hrfCjc3t4D8C59ToDh6
+	 wsVdFC7ghui1iepkRDxz+NERmFcQsbb9AVjZwCRq0CEbQN/5j5H7wbeNwVd2KbAvTYVqI
+	 ibxthereXwqaQvGkCzGOSUUueS5rgK7VOq43zSXqzOZzWDb42JwDc1Ki1UUlA6PihMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=collabora.com;
 	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=eDbpZMnR;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Q5MfeYJA;
 	arc=none smtp.remote-ip=148.251.105.195
 Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1F4E606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2018606A325
 	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:40:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1F4E606A320
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2018606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=eDbpZMnR
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Q5MfeYJA
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1795117245;
-	bh=VLIkL6wE7wYf6uwe+nUboRMEv27Th4EuZ1ktfV7x+0A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eDbpZMnRARCAlScndnXjmT1YZ7+9lrqt4NvJUP6el++L5/Y68WoXn1vxtUHtJ/Cdn
-	 /xxbgNVVmS7csES1plVHIPLttGaTLNYL2Sfd2IYRd/dBy/v4ljRe4/Aleb6FyL1yrN
-	 PLKjMPT9fUSbZ832LL/IoaYvQeZ9x5PUJ3GKwDEbxfvkiDvlJI4ZOEFzQG5026bsFT
-	 UT8Dl+dotOQdBZ8pmASeYHCZJm4FeGybj61gNY0a5aNfXB0Kh808ybgm2TECuBW+5G
-	 75ltDvi2mOqvrPU41oQ3B7JOYrQWRuYsGneICjuTF/IcAa4AMh+nrjVlQCxW/ipPkc
-	 jtcK/KVppmhyw==
+	bh=2RRmgDRTmM8f1Nx5NZs/v1FBrq4UA8t3h491WExW2gQ=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Q5MfeYJAJeT1+DG3QXoXjnStx6S6D6ovVWen1OzNZ0rbVxmDMiFohTUd5Vnl2sbqk
+	 03RcwJHUEenUVO4iWu2x2cZUR0TG4NqIGNGeXd8cmA6x0vyOxKyy/KoatOn1cQEtMG
+	 RYsx+Rfr7xgzNXI3Nvn2iH8wsMD5b+cH1LM701LtYTQVfkJReYHDiYFxQaAEOcc9ak
+	 Ak1vAGQO62vgVIPErYI4fHi+ACAuDdAyvepwELZi5Br5d1VBJAAuyBs+ytyNJIHTM2
+	 X5pVUynMHv5kgNZtffvN3gbyu7/U9VThQc8AHv+YH9+Mm4VtsEwfrHzr/kkZcXCcbf
+	 Xh+Cy+y/GYgcg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ECA5A17E091F;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EB54A17E07F6;
 	Thu, 19 Nov 2026 20:40:44 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id B094E48002B; Thu, 19 Nov 2026 20:40:44 +0100 (CET)
+	id AF53D48002C; Thu, 19 Nov 2026 20:40:44 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 19 Nov 2026 20:40:29 +0100
-Subject: [PATCH v18 1/7] phy: rockchip: usbdp: Disable USB3 port during
- normal power-on
+Subject: [PATCH v18 0/7] phy: rockchip: usbdp: Fix runtime muxing between
+ USB3 and DP
+Date: Thu, 19 Nov 2026 20:40:28 +0100
+Message-Id: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,9 +69,13 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-1-fb325e336494@collabora.com>
-References: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
-In-Reply-To: <20261119-b4-rockchip-usbdp-cleanup-part3-v18-0-fb325e336494@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42Q3U7DMAxGX6XKNZmSJenPrvYeiAvHdbZAt5akL
+ aCp707aTYDKJLiLI/scf76wSMFTZLvswgKNPvr2nApZPmQMj3A+EPd1+mBbsc1FJTW3mocWX/D
+ oOz5EW3ccG4Lz0PEOQq84IhRClYosKZYoXSDn3xfF49O1joN9Juxn7K0j0OuQ3P21jZ0oRljUu
+ 2wWS7kS12+ovqtDMxAfZcUFt0XlrHHa6i3ssW0asG2ADban2WQhEk/vk+932VhsEhElm7c6+ti
+ 34WO5wyjNssUtsvkzchpI6grqSoA2eWXUSj0bRpn/oCrxD2o+B0KptSsFONR3qcUX9deV7lOLR
+ JXgjDN5rkVJa+o0TZ9+f08fFwIAAA==
+X-Change-ID: 20260914-b4-rockchip-usbdp-cleanup-part3-cca70383ebe3
 To: Vinod Koul <vkoul@kernel.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
  Manivannan Sadhasivam <mani@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
@@ -82,56 +87,103 @@ Cc: Igor Paunovic <royalnet026@gmail.com>,
  Chaoyi Chen <chaoyi.chen@rock-chips.com>, linux-phy@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Yury Smirnov <yurymonzon@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1244;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4161;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=VLIkL6wE7wYf6uwe+nUboRMEv27Th4EuZ1ktfV7x+0A=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGr/ULzw0MbRiyxs1SKri2Sq3RO/Zv355PsmU
- ekbWX0BcxVP2okCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq/1C8AAoJENju1/PI
- O/qaWjUP/iX5couLjvn/eYovoBNz/IaaFRooxvFWa3qLmPfhOdf18dOl8AXQKUa+BY85K+KbKnn
- 4B8zXRGYgJqNSvEGcIoZWyZoFo2HD29z0VcBXbWucQhj4RZd7E9L6VPu2Gnsu1eAGo0i3B2r3hM
- /5CRrP98nygBWCZgfbl9jzw2EYp8k+dMRNwazA1XwrbaV42rm6VR3FuOmEyDa3Nk29k+qGlaqki
- X7pW2Ug9GErXu3fIRIAswCnOe3o/Rs33fxtz9pEuZXQxgcFkHp40Tcr4ORmqlgrUI18yh1a6p0L
- txCETF0fWhrrEWDABwoxeZaSx/bS/Eq2GAaNqYrd85y3W6wDwMar9JqejEiWylRk7ni+YwpzBYT
- CpRAixl8C4q5PVvrzdox4rHAugm9oHXU55FMj/vgMnj0XiMXpvl+tKnx8sQK4UoGkhGrPHwB81M
- xes/8KXOjA3JtnvIcGOKW+SSBeoAsJE2C8veZ3WXKjE9v3SYVMvHwQ3VitEORFizwcna838QCHd
- FwDOdwSSBNYFRkzc9cFwX5gtMeD8grZr4aUL1lEdnXtJf0lFSUkJPPjQqUQEcgvhiTOzNMHAaM0
- c8cmA9lpbIBCJeyD0q4WxdF9Pnenx7isUCT4cG4mCIHlDyT2ObzqAUd7U/e/lqZyyzdwW2tdCZX
- KT4KI27Hin85id321qJIzag==
+ bh=2RRmgDRTmM8f1Nx5NZs/v1FBrq4UA8t3h491WExW2gQ=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGr/ULxO5rCp/sitnd4sZyzapwkLIi8wdq7S4
+ gNuCLHV2RV+M4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJq/1C8AAoJENju1/PI
+ O/qaH98P/02156aO4krvFdBg2Na6SDrGbXpI2p3k2gkPrDfg4RW2dcM28mwrE24aHlpS8iIb6EP
+ PM24Yru1+Shh3u9nmXc98wTmNLnzXf3Iid2O1yn8t9SdZg3OYux3d4+pCuOqNY6Lk2SzIcJFFiu
+ cbaflORp0fllAiqJRJIfQm2/x0E1mKI3AXSoMfnj7CMLp0/cHAuQzJ30QZzx2X53n3wJwj73HHn
+ 59x7v8XYdJWQDV06WH1TYusnV0aONJ1lnqBVy1Pqabp5qbBP+VvTXlemeSTq8tiroRoiLIAPAL1
+ 7tvR37qMBQzdNkcjYGKYyb2Kmnvn9JsDs9k7PdqGWVQvo711YoKrMLNVBQhxjbqcQSfxn+Cs3Pt
+ pX/B9ofTURzoXHOlLemeps0I8OOwq1+hzVZhfqPEXPaAm9gyCI0V0o5S8JXN4zQYfjvvwVcfNWV
+ 333aiKFoEh0o5ndcrTpNHye1UDwGKkA6BjKIZdohxemab1MpuKmluwiwOolIzecr40HOe0HbAaj
+ rWKJm1PvbCLYQbi15Plxo/RUvuO8KsWCk1ua5584CVMHo2k67EtoJGEKIKWqk7Ir2KnbhkS1uw/
+ vgrrKsGTCIdvgnmC7B2BmsP/WkUJ/Ig0VqpDRvaNsHh11aL8QkdJDOOWrn0whdxG9WhaEeU+Utm
+ IhfpvOdOG/tE8LefGlS46NA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 
-In the reset path, the USB3 port is disabled. This re-routes the clock
-going from the PHY to the USB3 controller. This adds the same to the
-normal power-on path, so that it behaves exactly the same (except that
-the clocks routed to the PHY stay enabled in the reset path).
+This (final) cleanup part depends on new DWC3 glue driver series:
 
-This hasn't been done so far, as it requires the recently introduced
-PHY reset infrastructure to avoid the PHY PLL not locking during
-startup.
+https://lore.kernel.org/linux-phy/20261114-b4-rockchip-dwc3-rockchip-glue-v19-0-b79fb5f4b42a@collabora.com/
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
+Changes in v18:
+- Link to v17: https://patch.msgid.link/20261114-b4-rockchip-usbdp-cleanup-part3-v17-0-1af5f566408e@collabora.com
+- Ignore Sashiko report that rk_udphy_u3_port_disable() is not called
+  when rk_udphy_usb3_phy_exit() is called. This path ensures dwc3 no
+  longer accesses registers (Sashiko)
+- Ignore Sashiko report that the orientation switch event should also
+  update the power state for setups with orientation switch enabled, but
+  mode switch disabled. Currently upstream has two DTs doing that and
+  both are incorrect (i.e. mode-switch should be added). Considering this
+  is a pre-existing "bug", it's better to fix these DTs (independent of
+  this series). The mux is necessary to support 4 lane DP mode anyway.
+  Basically orientation-switch without mode-switch makes no sense for
+  this PHY, because orientation-switch already requires that all 4 SS
+  lanes are routed. DP AltMode also requires the SBU lanes in addition,
+  but there is no reason not to route them when the other lanes are
+  already assigned. In the unlikely case a HW vendor failed to route
+  them, adding the mode-switch is still fine (e.g. it also allows
+  switching between SAFE and USB) anyway. (Sashiko)
+- Fix PHY clock leak for high-speed only mode (Sashiko)
+- Ignore errors in rk_udphy_dp_phy_power_off() and
+  rk_udphy_usb3_phy_exit(); when PHY is powered off, no failures can
+  happen and when PHY needs a re-init after the exit, the error is
+  effectively for the other PHY. Thus avoid propagating the error
+  (Sashiko)
+- Default to TYPEC_STATE_SAFE to avoid one extra useless mode change
+  (Sashiko)
+
+Changes in v17:
+- Link to v16: https://patch.msgid.link/20260930-b4-rockchip-usbdp-cleanup-part3-v16-0-bc144f80afc4@collabora.com
+- Rebase to v7.4-rc1 and v19 of the glue driver series. This drops
+  the first patch, as the PHY reset notifier has been replaced by
+  direct calls added in the glue series, which now also introduces
+  sw_mode.
+- Add one more patch to gracefully handle DP lane remuxing after cable
+  orientation change when the DP controller kept the display output (and
+  thus PHY) enabled even with HPD=0. This can apparently happen with
+  some DRM compositors.
+
+Changes in v16:
+- Link to v15: https://patch.msgid.link/20260915-b4-rockchip-usbdp-cleanup-part3-v15-0-9ad90a456953@collabora.com
+- Split out "Disable USB3 port during normal power-on" from first patch
+- Collect R-b tags from Mani
+
+Changes in v15:
+ - Link to v14: https://patch.msgid.link/20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com
+ - Split the series, no patch changes in this part
+
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 +++
- 1 file changed, 3 insertions(+)
+Sebastian Reichel (7):
+      phy: rockchip: usbdp: Disable USB3 port during normal power-on
+      phy: rockchip: usbdp: Drop -EPROBE_DEFER hack
+      phy: rockchip: usbdp: Rename mode to hw_mode
+      phy: rockchip: usbdp: Fix power state handling
+      phy: rockchip: usbdp: Re-init PHY on mux change
+      phy: rockchip: usbdp: Add USB-C state without DP enabled
+      phy: rockchip: usbdp: Add DP lane setup to power state update
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 9c6d921b9191..d01a819bf794 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1051,6 +1051,9 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 	if (udphy->status == UDPHY_MODE_NONE) {
- 		rk_udphy_run_reset_handler(udphy, true);
- 
-+		rk_udphy_u3_port_disable(udphy, true);
-+		udelay(10);
-+
- 		ret = rk_udphy_setup(udphy);
- 		if (ret) {
- 			rk_udphy_run_reset_handler(udphy, false);
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 240 +++++++++++++++++-------------
+ 1 file changed, 139 insertions(+), 101 deletions(-)
+---
+base-commit: bc71431221f5ba8bb33918399552636e059c2c45
+change-id: 20260914-b4-rockchip-usbdp-cleanup-part3-cca70383ebe3
+prerequisite-message-id: 20261114-b4-rockchip-dwc3-rockchip-glue-v19-0-b79fb5f4b42a@collabora.com
+prerequisite-patch-id: 4fa3aae8ccfa5383522070179c8777302411082c
+prerequisite-patch-id: 0cfab94fd67b6304cd303a9810981aaca328c651
+prerequisite-patch-id: c2e1c453454a7589a691fe391dc79e86f09ca7b7
+prerequisite-patch-id: dadeaf9e369e04d8b3329493a1a0756ddd6140f0
+prerequisite-patch-id: 2c727b8400980c760ca8f1e5fd989a3bf9404020
+prerequisite-patch-id: cf4e7d51c77a5eccda6c687730eddd3135d94d91
 
--- 
-2.53.0
+Best regards,
+--  
+Sebastian Reichel <sebastian.reichel@collabora.com>
 
