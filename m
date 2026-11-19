@@ -1,58 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795080236;
-	b=VJ9DXsSsEZEZBtcjFGW5dhTB4kky8PQk4WEZf5qtmcMGBpItASq+uJQBUptw9X7GJlyY
-	 ofKTBfGDt2ZKkNZFoHd22c29HYsEsPSeMbMuVnsZ7nrSc+vQyDDo7sH4j3mCw3LpRgafq
-	 cr2shFl8o3SnqdhwNrIfrK/a420mg84yvwhHGxAqF6qJaxI8PhXL7aDg4y0uY2dK5APRx
-	 iWadaTY/lQuh4dBF7YpXbPz6sGuhX1vgItZL4TUbsRHoqgewM5DLWeeCht2XTm0aSQpCh
-	 SEqPvjciMiIPkySfI06U/dud5keEwOJbOli11rAdedgGjqpPmF74WXDnI5E1N9QWbFg==
+	t=1795080331;
+	b=e/gg/t2oBsmLw7IyD++kFkesNW3N4S9WBkqkOJTXM4OupesuHGhZP2RtcZD0N9hp6zv9
+	 kFO5YLtqY4hUEXDDPb77yoEJKTcSf02hkP9jOwGuCbI8lLhkrQvaH7rnfUeJb2B4s8drP
+	 NfyiP9zFMVt0Dwg4P4y4SymrGqkrGQdy4uQrIez7NBCgGjKRcoxQXolk/YjacUBqpD8VX
+	 CG/Y4BhLOuxnIRkGY5RR/CIMagSCIijDSmUQbx2DO2Elyfcuj7LKNi4fNqSoVzJCRb0xk
+	 xGB20N5FWIQLh9eDsH0AGU67OoAvMHisnmo9vCXhtsON5v19cL+3Nc4LwRpP0KjBkTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795080236;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Organization:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=dgcsVJh97AVUtfi+/IriKqXTUvwmDL8uMBe8HU3ivU4=;
-	b=Dm8REVv0EfJCkF/PoEPBftLJI8iAfXeFAHP0IQ+a9pCIwpWmn/ME6dfBtLtRA2i7ttUV
-	 aayTzyC+wigomrtbWOt6EesYp3UKyfW2ht/jPsJBq6yrqomhxs12zE6GN4d4+bBLojv8/
-	 1ItJERahI8YTtLmjUzN5yu5J4d3dESKjrsLT5D/SbE8G6079p2lPvnHKBVoy5ltELnKbs
-	 rKfUXgZa6UJtcvNiopR8X4S7sJkjKvpz+Yc8uPp42vpRo6Bet0aZJTWg21l7AVz/4oMQs
-	 5BrqQHW2dvCVAyEspM6XLlknEpotvZvVAsE88ujeFNs6LOkzNrQQqGveSP6Aroa1d/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795080331;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ykzNXonS4EXpUTddVAokRRmNVBMx3zTvxuXv3tt6jrA=;
+	b=tOHZmFUQqCDS1UHv0n01FV2mlmvd8EHTUhiIbbrXdiAssdeJYCzK7KyX3M83SfkADz0x
+	 Ymjyj1e/+BVzgmcGcR9WXI9iZX2HAwGJ/FgyeC6nVR9EcX24V8UVilrLwyZLvKBpqcLOC
+	 FiCY+nfwESIj9qfZx0vcS7lnvOhyd0sAkuPGIXuQSXLk7WuT8UAmhbY5ghXyc/ugIq9wZ
+	 vI6rBh1f9RjqQ26H7qewBLocWuTQ60RYb3ty7hyc5XmmzUKQ1d72lRwOh0kXwPid3LDpv
+	 Zuma5bJgfQsnHR/15ExkwVIaLU+gy7N8pl14KCtYnrr6fq2X3vZjptblNuWB2uQwSAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WdYkct6B;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="U/a7b/tR";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6206D60A2600;
-	Thu, 19 Nov 2026 09:23:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6206D60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4209606A320;
+	Thu, 19 Nov 2026 09:25:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WdYkct6B
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B8F90C4F77E;
-	Thu, 19 Nov 2026 09:23:58 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 863F060237;
-	Thu, 19 Nov 2026 09:23:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0504111BC0C10;
-	Thu, 19 Nov 2026 10:23:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795080232; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=dgcsVJh97AVUtfi+/IriKqXTUvwmDL8uMBe8HU3ivU4=;
-	b=WdYkct6BVjlKaUeu9qD9uWz3RwoF9BoMegkynIy9pQgGHj8VmmhA/MmFdB8wnEhCwu8yh5
-	5TMkYkhSX1x3uReTch+h8KRSU7p6wElKiFeE2XVSXSTHp5qOGQjkqDsBdWSbnO7Fu2WgV7
-	KVnKN+L58Jz2l5v/dE0+r1oaB3gyeceT3r2cPjrb3ED8MFgfWwy24VGRn94UmnP0ZesqA4
-	gjwrKCjizn6BnaDg9EGPMs6e81g2ct5hsVFEioI5EyY3o/1YzYNgJDejW2lVhGK/qphsMv
-	OSn+UlEelGAlCqTvbFLCuwwimS81QmCPiM2BYyfgPoWa12hFoKmt4e7qiwWLqQ==
-Message-ID: <53f65c05-1c09-410d-8f49-9175f46a0609@bootlin.com>
-Date: Thu, 19 Nov 2026 10:23:47 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U/a7b/tR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC2281F000C5;
+	Thu, 19 Nov 2026 09:25:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795080331;
+	bh=ykzNXonS4EXpUTddVAokRRmNVBMx3zTvxuXv3tt6jrA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=U/a7b/tRhB8CSGT20eIHplkYFnOjIl0jl1P2BKWpqserpdTar8rZB/iL+28k4xgEX
+	 RAe4srUmFH860mmQuuqauf+aCBEZMA05LBWTZJeFuWc4/pDEw7H4zNwyJ9jjFBkEgO
+	 P1oN9DABuhlAvY9p6B9nv+OU3L2aK6i2S3Z5jBQRrL3hBhH6u7EDKVIkeVQpciiQ3s
+	 gzclqEsBfSrLpqV19oScY15ygIOAL6spSiDl9Ma8gcJSmE8KSomJVIfweRJutFtVJ2
+	 gFuDyLF9ZxXpXQaziu8mrHK12yt2wZuazhsdwVwHpf+Sge8TYoD6aWdk9lFGdz4FmE
+	 XzmO5ASh87W4w==
+Date: Thu, 19 Nov 2026 10:25:18 +0100
+From: "Oscar Salvador (SUSE)" <osalvador@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+	Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mel Gorman <mgorman@suse.de>, Andy Whitcroft <apw@canonical.com>,
+	Miaohe Lin <linmiaohe@huawei.com>, Michal Hocko <mhocko@suse.com>,
+	Rik van Riel <riel@surriel.com>, Hugh Dickins <hughd@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dave Airlie <airlied@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Peter Xu <peterx@redhat.com>,
+	Breno Leitao <leitao@debian.org>, Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Nick Piggin <npiggin@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	Gerd Hoffmann <kraxel@redhat.com>, linux-doc@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+	Chris Mason <mason@kernel.org>, stable@kernel.org,
+	"Gregory Price (Meta)" <gourry@gourry.net>
+Subject: Re: [PATCH v2 13/15] mm/hugetlb: fix reservation leak on min_size=
+ mounts
+Message-ID: <av7Afqpp-C9pqcR3@localhost.localdomain>
+References: <20261116-fixes_hugetlb-v2-0-4dd9e94ea9ac@kernel.org>
+ <20261116-fixes_hugetlb-v2-13-4dd9e94ea9ac@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,336 +87,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/13] arm64: dts: synaptics: add SL2610 family RDK
- boards
-To: Jisheng Zhang <jszhang@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Linus Walleij <linusw@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org
-References: <20261115102401.3520-1-jszhang@kernel.org>
- <20261115102401.3520-14-jszhang@kernel.org>
-From: Richard GENOUD <richard.genoud@bootlin.com>
-Content-Language: en-US, fr
-Organization: Bootlin
-In-Reply-To: <20261115102401.3520-14-jszhang@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-fixes_hugetlb-v2-13-4dd9e94ea9ac@kernel.org>
 
-Le 15/11/2026 à 11:23, Jisheng Zhang a écrit :
-> Add device trees for the SL2611, SL2613, SL2615, SL2617 and SL2619
-> reference development kits. Share their common console, memory, pin
-> configuration and regulator descriptions and enable the populated
-> peripherals.
+On Mon, Nov 16, 2026 at 07:29:34PM +0100, David Hildenbrand (Arm) wrote:
+> From: Chris Mason <mason@kernel.org>
 > 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->   arch/arm64/boot/dts/synaptics/Makefile        |   5 +
->   arch/arm64/boot/dts/synaptics/sl2611-rdk.dts  |  16 +++
->   arch/arm64/boot/dts/synaptics/sl2613-rdk.dts  |  16 +++
->   arch/arm64/boot/dts/synaptics/sl2615-rdk.dts  |  16 +++
->   arch/arm64/boot/dts/synaptics/sl2617-rdk.dts  |  16 +++
->   arch/arm64/boot/dts/synaptics/sl2619-rdk.dts  |  16 +++
->   .../boot/dts/synaptics/sl261x-rdk-common.dtsi | 135 ++++++++++++++++++
->   7 files changed, 220 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
->   create mode 100644 arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
->   create mode 100644 arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
->   create mode 100644 arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
->   create mode 100644 arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
->   create mode 100644 arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
+> Failed allocations for CoW mappings can leak reservations on hugetlbfs
+> mounts with min_size= and no size=. The leaked reservations survive
+> unmount.
 > 
-> diff --git a/arch/arm64/boot/dts/synaptics/Makefile b/arch/arm64/boot/dts/synaptics/Makefile
-> index de71ddda6835..810d0d08c2de 100644
-> --- a/arch/arm64/boot/dts/synaptics/Makefile
-> +++ b/arch/arm64/boot/dts/synaptics/Makefile
-> @@ -2,3 +2,8 @@
->   # Berlin SoC Family
->   dtb-$(CONFIG_ARCH_BERLIN) += berlin4ct-dmp.dtb
->   dtb-$(CONFIG_ARCH_BERLIN) += berlin4ct-stb.dtb
-> +dtb-$(CONFIG_ARCH_BERLIN) += sl2611-rdk.dtb
-> +dtb-$(CONFIG_ARCH_BERLIN) += sl2613-rdk.dtb
-> +dtb-$(CONFIG_ARCH_BERLIN) += sl2615-rdk.dtb
-> +dtb-$(CONFIG_ARCH_BERLIN) += sl2617-rdk.dtb
-> +dtb-$(CONFIG_ARCH_BERLIN) += sl2619-rdk.dtb
-> diff --git a/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
-> new file mode 100644
-> index 000000000000..585872307834
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl2611-rdk.dts
-> @@ -0,0 +1,16 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sl2611.dtsi"
-> +#include "sl261x-rdk-common.dtsi"
-> +
-> +/ {
-> +	model = "Synaptics SL2611 RDK";
-> +	compatible = "syna,sl2611-rdk", "syna,sl2611";
-> +};
-> diff --git a/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
-> new file mode 100644
-> index 000000000000..de75c9fab6a2
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl2613-rdk.dts
-> @@ -0,0 +1,16 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sl2613.dtsi"
-> +#include "sl261x-rdk-common.dtsi"
-> +
-> +/ {
-> +	model = "Synaptics SL2613 RDK";
-> +	compatible = "syna,sl2613-rdk", "syna,sl2613";
-> +};
-> diff --git a/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
-> new file mode 100644
-> index 000000000000..ae03638a3a53
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl2615-rdk.dts
-> @@ -0,0 +1,16 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sl2615.dtsi"
-> +#include "sl261x-rdk-common.dtsi"
-> +
-> +/ {
-> +	model = "Synaptics SL2615 RDK";
-> +	compatible = "syna,sl2615-rdk", "syna,sl2615";
-> +};
-> diff --git a/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
-> new file mode 100644
-> index 000000000000..ba4ea21ac505
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl2617-rdk.dts
-> @@ -0,0 +1,16 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sl2617.dtsi"
-> +#include "sl261x-rdk-common.dtsi"
-> +
-> +/ {
-> +	model = "Synaptics SL2617 RDK";
-> +	compatible = "syna,sl2617-rdk", "syna,sl2617";
-> +};
-> diff --git a/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts b/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
-> new file mode 100644
-> index 000000000000..58901ac2a050
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl2619-rdk.dts
-> @@ -0,0 +1,16 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sl2619.dtsi"
-> +#include "sl261x-rdk-common.dtsi"
-> +
-> +/ {
-> +	model = "Synaptics SL2619 RDK";
-> +	compatible = "syna,sl2619-rdk", "syna,sl2619";
-> +};
-> diff --git a/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi b/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
-> new file mode 100644
-> index 000000000000..78a9b28fdf99
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/synaptics/sl261x-rdk-common.dtsi
-> @@ -0,0 +1,135 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (C) 2025 Synaptics Incorporated
-> + *
-> + * Author: Jisheng Zhang <jszhang@kernel.org>
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/linux-event-codes.h>
-> +
-> +/ {
-> +	aliases {
-> +		serial0 = &sm_uart0;
-> +		serial1 = &sm_uart1;
-> +		serial2 = &sm_uart2;
-> +		serial3 = &sm_uart3;
-> +		serial4 = &soc_uart0;
-> +		serial5 = &soc_uart1;
-> +		serial6 = &soc_uart2;
-> +		serial7 = &soc_uart3;
-> +		i2c0 = &sm_i2c0;
-> +		i2c1 = &sm_i2c1;
-> +		i2c2 = &soc_i2c0;
-> +		i2c3 = &soc_i2c1;
-> +		spi1 = &sm_spi1;
-> +		spi2 = &soc_spi0;
-> +		spi3 = &soc_spi1;
-> +		spi4 = &soc_spi2;
-> +		spi5 = &soc_spi3;
-> +	};
-> +
-> +	cpus {
-> +		cpu@0 {
-> +			cpu0-supply = <&vcore>;
-> +		};
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +		bootargs = "earlycon";
-> +	};
-> +
-> +	memory@0 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x00000000 0x0 0x80000000>;
-> +	};
-Some memory is dedicated to the trust zone:
-     tz                      0x00100000 - 0x00600000 (secure)
-     bootloader              0x00600000 - 0x00D00000
-     NonSecure-NonCacheable  0x00D00000 - 0x01500000
-     system                  0x01500000 - 0x7FFFFF00
-(from mr_config)
+> Note that this is only an accounting error and not a memory leak.
+> 
+> HPG_restore_reserve makes free_huge_folio() restore the global
+> reservation without returning it to the subpool. This assumes the
+> reserve map holds the reservation. However, a CoW mapping may have no
+> reserve map, or the map may already account for another folio at the
+> same index.
+> 
+> Commit 58db7c5fbe7d ("mm/hugetlb: fix avoid_reserve to allow taking
+> folio from subpool") allowed owner CoW allocations to consume subpool
+> reservations. Commit 51e1de00acdb ("mm/hugetlb: simplify
+> vma_has_reserves()") later extended this to CoW mappings without a
+> reserve map.
+> 
+> For example, with a subpool minimum of one page and a
+> MAP_PRIVATE|MAP_NORESERVE mapping:
+> 
+>                                       subpool       global
+>                                       rsv_hpages    resv_huge_pages
+>   1. Mount                             1             1
+>   2. Allocate using subpool reserve    0             0
+>   3. Free on error with flag set       0             1
+>   4. Allocate without a reservation    0             1
+>   5. Free and return to subpool        1             2
+> 
+> Call folio_clear_hugetlb_restore_reserve() for CoW mappings when
+> map_chg != MAP_CHG_REUSE, meaning no reserve-map reservation was consumed.
+> This lets free_huge_folio() return subpool reservations to the subpool
+> on error.
+> 
+> Do not set the flag again if region-cache allocation fails during
+> rollback: that would undo the flag clearing and skip returning the
+> reservation to the subpool. This also fixes the older case where setting
+> the flag invents a reservation for an unreserved allocation for a CoW
+> mapping.
+> 
+> The doc still mentions PagePrivate at various places: future work should
+> clean that up.
+> 
+> Fix generated by an LLM and sent by Chris Mason in private.
+> 
+> Fixes: 846be08578ed ("mm/hugetlb: expand restore_reserve_on_error functionality")
+> Fixes: 58db7c5fbe7d ("mm/hugetlb: fix avoid_reserve to allow taking folio from subpool")
+> Cc: stable@kernel.org
+> Signed-off-by: Chris Mason <mason@kernel.org>
+> [ david: simplify comments and improve description; updated Fixes ]
+> Tested-by: Gregory Price (Meta) <gourry@gourry.net>
+> Reviewed-by: Gregory Price (Meta) <gourry@gourry.net>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Should it be added here as reserved-memory, or it's intended to be set 
-at run time by the bootloader?
-I was thinking of something like:
-	reserved_memory: reserved-memory {
-		#address-cells = <2>;
-		#size-cells = <2>;
-		ranges;
+Acked-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
 
-		tz: tz@100000 {
-			reg = <0x0 0x00100000 0x0 0x00500000>;
-			no-map;
-		};
-	};
+ 
 
-
-> +};
-> +
-> +&osc {
-> +	clock-frequency = <25000000>;
-> +};
-> +
-> +&pinctrl {
-> +	soc_i2c0_pmux: soc_i2c0-pmux {
-> +		groups = "GPIO23", "GPIO24";
-> +		function = "tw2";
-> +		drive-strength = <7>;
-> +	};
-> +};
-> +
-> +&sm_pinctrl {
-> +	sm_i2c0_pmux: i2c0-pmux {
-> +		groups = "SM_GPIO12", "SM_GPIO13";
-> +		function = "tw0";
-> +		drive-strength = <7>;
-> +	};
-> +
-> +	sm_i2c1_pmux: i2c1-pmux {
-> +		groups = "SM_GPIO3", "SM_GPIO4";
-> +		function = "tw1";
-> +		drive-strength = <7>;
-> +	};
-> +
-> +	vcore_gpio_pmux: vcore-gpio-pmux {
-> +		groups = "SM_GPIO5";
-> +		function = "gpio";
-> +	};
-> +};
-> +
-> +&sm_uart0 {
-> +	status = "okay";
-> +};
-> +
-> +&sm_i2c0 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sm_i2c0_pmux>;
-> +	clock-frequency = <100000>;
-> +
-> +	expander0: gpio@43 {
-> +		compatible = "fcs,fxl6408";
-> +		reg = <0x43>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +	};
-> +
-> +	expander1: gpio@44 {
-> +		compatible = "fcs,fxl6408";
-> +		reg = <0x44>;
-> +		gpio-controller;
-> +		#gpio-cells = <2>;
-> +	};
-> +};
-> +
-> +&sm_i2c1 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sm_i2c1_pmux>;
-> +	clock-frequency = <100000>;
-> +
-> +	vcore: regulator@60 {
-> +		compatible = "silergy,sy8827n";
-> +		reg = <0x60>;
-> +		regulator-name = "vcore";
-> +		regulator-min-microvolt = <700000>;
-> +		regulator-max-microvolt = <987500>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-active-discharge = <0>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vcore_gpio_pmux>;
-> +		enable-gpios = <&portc 5 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
-> +
-> +&soc_i2c0 {
-> +	status = "okay";
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&soc_i2c0_pmux>;
-> +	clock-frequency = <100000>;
-> +};
-> +
-> +&sm_uart1 {
-> +	status = "okay";
-> +};
+-- 
+Oscar Salvador
+SUSE Labs
